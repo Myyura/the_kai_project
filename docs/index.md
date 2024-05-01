@@ -1,4 +1,7 @@
 # The Kai Project
+```text
+"Answer to the Ultimate Question of Life, the Universe, and Everything"
+```
 
 本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方。
 

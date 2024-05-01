@@ -37,6 +37,13 @@ nav:
   - 過去問:
     - 项目介绍: index.md
     - 東京大学:
+      - 理学系研究科:
+        - 物理学専攻:
+          - 2020年度:
+            - 物理学 第1問: kakomonn/tokyo_university/science/phys_2020_8_phys_1.md
+            - 物理学 第2問: kakomonn/tokyo_university/science/phys_2020_8_phys_2.md
+          - 2022年度:
+            - 専門科目 第1問: kakomonn/tokyo_university/science/phys_2022_8_sennmon_1.md
       - 情報理工学研究科:
         - 共通:
           - 2017年度:
