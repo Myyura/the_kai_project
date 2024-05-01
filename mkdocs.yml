@@ -44,6 +44,17 @@ nav:
             - 物理学 第2問: kakomonn/tokyo_university/science/phys_2020_8_phys_2.md
           - 2022年度:
             - 専門科目 第1問: kakomonn/tokyo_university/science/phys_2022_8_sennmon_1.md
+        - 天文学専攻:
+          - 2023年度:
+            - 天文学: kakomonn/tokyo_university/science/astron_2023_8_astron.md
+        - 化学専攻:
+          - 2020年度:
+            - 数理科学: kakomonn/tokyo_university/science/chem_2020_8_math_1.md
+      - 工学系研究科:
+        - 共通:
+          - 2023年度:
+            - 数学 第1問: kakomonn/tokyo_university/engineering/kyotsu_2023_8_math_1.md
+            - 数学 第2問: kakomonn/tokyo_university/engineering/kyotsu_2023_8_math_2.md
       - 情報理工学研究科:
         - 共通:
           - 2017年度:
