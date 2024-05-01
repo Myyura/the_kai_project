@@ -1,0 +1,78 @@
+site_name: The Kai Project
+site_url: https://Myyura.github.io/the_kai_project/
+repo_url: https://github.com/Myyura/the_kai_project
+edit_uri: https://github.com/Myyura/the_kai_project
+repo_name: myyura/the_kai_project
+remote_name: https://github.com/Myyura/the_kai_project
+docs_dir: "docs/" # where to find the markdown files
+site_dir: "site/" # where to publish to
+
+theme:
+  name: material
+  palette:
+    primary: blue grey
+
+# nav
+nav:
+  - 過去問:
+    - 東京大学:
+      - 情報理工学研究科:
+        - 共通:
+          - 2017年度:
+            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2017_8_math_1.md
+          - 2018年度:
+            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2018_8_math_1.md
+    - 京都大学:
+      - 理学研究科:
+        - 数学・数理解析専攻:
+          - 2024年度:
+            - 基礎科目 [2]: kakomonn/kyoto_university/science/math_2024_8_kiso_2.md
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - admonition
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta
+  - pymdownx.caret
+  - pymdownx.betterem
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format # 代码块高亮插件
+  - pymdownx.arithmatex:  # latex支持
+      generic: true
+  - toc:
+      permalink: true # 固定标题位置为当前位置
+  - pymdownx.highlight: # 代码块高亮
+      anchor_linenums: true
+      linenums: true # 显示行号
+      # auto_title: true # 显示编程语言名称
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - markdown.extensions.toc:
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+      permalink: "\ue157"
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+copyright: <a href="https://github.com/Myyura/the_kai_project" target="_blank">© 2024 The Kai Project</a> All rights reserved.
