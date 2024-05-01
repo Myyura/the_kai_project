@@ -12,9 +12,30 @@ theme:
   palette:
     primary: blue grey
 
+  features:
+      - content.action.edit
+      - content.code.annotate
+      - content.code.copy
+      - content.tooltips
+      - search.highlight
+      - search.share
+      - search.suggest
+      - toc.follow
+      - navigation.top
+      - navigation.tabs
+      - navigation.tabs.sticky
+      - navigation.prune
+      - navigation.footer
+      - navigation.tracking
+      - navigation.instant
+      - navigation.instant.progress
+      - navigation.indexes
+      - navigation.sections # navigation.expand or navigation.sections
+      - content.tabs.link # all code tabs change simultaneously
 # nav
 nav:
   - 過去問:
+    - 项目介绍: index.md
     - 東京大学:
       - 情報理工学研究科:
         - 共通:
