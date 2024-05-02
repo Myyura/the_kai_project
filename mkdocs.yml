@@ -11,6 +11,7 @@ theme:
   name: material
   palette:
     primary: blue grey
+  custom_dir: docs/overrides/
 
   features:
       - content.action.edit
@@ -110,7 +111,7 @@ markdown_extensions:
       permalink: "\ue157"
 
 extra_javascript:
-  - javascripts/mathjax.js
+  - overrides/javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
