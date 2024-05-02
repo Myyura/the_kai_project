@@ -5,7 +5,7 @@ keywords: Tokyo-University, 2023-8
 ---
 
 ## Source
-東京大学 大学院 工学系研究科 2023年度 数学 第2問
+[東京大学 大学院 工学系研究科 2023年度 数学 第2問](https://www.t.u-tokyo.ac.jp/soe/admission/general-past)
 
 ## Description
 
