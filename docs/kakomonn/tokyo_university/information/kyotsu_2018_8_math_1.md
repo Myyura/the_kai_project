@@ -37,11 +37,11 @@ $\bar{A}=\left (\begin{array}{cccc}
 
 (i)、$a_{1},a_{2},a_{3}$のうち線形独立なベクトルの最大個数を求めよ．
 
-(ii)、$a_{4}$が$a_{1},a_{2},a_{3}$の線形和で表されることを,$a_{4}=x_{1}a_{1}+x_{2}a_{2}+a_{3}$となるスカラー$x_{1},x_{2}$を求めることで示せ．
+(ii)、$a_{4}$が$a_{1},a_{2},a_{3}$の線形和で表されることを, $a_{4}=x_{1}a_{1}+x_{2}a_{2}+a_{3}$となるスカラー$x_{1},x_{2}$を求めることで示せ．
 
 (iii)、$a_{1},a_{2},a_{3},a_{4}$のうち線形独立なベクトルの最大個数を求めよ．
 
-(2)、任意の$m,n,A,b$対して,$\text{rank}(\bar{A})=\text{rank}(A)$のとき連立一次方程式の解が存在することを示せ．
+(2)、任意の$m,n,A,b$対して, $\text{rank}(\bar{A})=\text{rank}(A)$のとき連立一次方程式の解が存在することを示せ．
 
 (3)、$\text{rank}(\bar{A})>\text{rank}(A)$ならば解は存在しない.$m>n$, $\text{rank}(\bar{A})=n$, $\text{rank}(\bar{A})>\text{rank}(A)$のとき, 連立一次方程式の右辺と左辺と差のノルムの２乗$\Vert b-A_{x}\Vert ^2$を最小にする$x$を求めよ．
 
@@ -84,63 +84,31 @@ $$
 There are 2 linearly independent vectors in $a_{1},a_{2},a_{3}$
 
 #### (ii)
-Obviously,
-
-$$
-a_{4}=3a_{1}+a_{2}+a_{3}
-$$
+Note that $a_{4}=3a_{1}+a_{2}+a_{3}$
 
 Therefore, $x_{1}=3,x_{2}=1$
 
 #### (iii)
-Obviously,  
-There are linearly independent vectors in $a_{1},a_{2},a_{3},a_{4}$
+Note that $a_3 = -a_1 + a_2$ and $a_4 = 2a_1 + 2a_2$.
+
+Hence there are 2 linealy independent vectors in $a_1, a_2, a_3, a_4$
 
 ### (2)
-Obviously,
+Assuming that $\text{rank}(\bar{A}) = \text{rank}(A)=r$ and there is no solution with $A_{x}=b$.
 
-$$
-\text{rank}(\bar{A}) \geq \text{rank}(A)
-$$
+Hence the vector b or $a_{m+1}$ cannot be represented as the linear combination of $[a_{1},a_{2},...,a_{m}]$
 
-Assuming that
-
-$$
-\text{rank}(A)=r
-$$
-
-And,there is no solution with
-
-$$
-A_{x}=b
-$$
-
-Meaning that,b or $a_{m+1}$ cannot represent as the linear combination of $[a_{1},a_{2},...,a_{m}]$
-
-Therefore,
+Hence,
 
 $$
 \text{rank}(\bar{A}) =r+1> \text{rank}(A)
 $$
 
-Hence the contradiction.
+which is contradictory to the fact that $\text{rank}(\bar{A}) = \text{rank}(A)$.
 
-For any $m,n,A,b,$ when
-
-$$
-\text{rank}(\bar{A}) = \text{rank}(A)
-$$
-
-the equation
-
-$$
-A_{x}=b
-$$
-
-has nonzero solution.
+Therefore, for any $m,n,A,b$, when $\text{rank}(\bar{A}) = \text{rank}(A)$ the equation $A_{x}=b$ has nonzero solution.
 
 ### (3)
-According to the question,$\Vert b-A_{x}\Vert$ can find its minimum value,where its first-order derivative must to be $0$ at that point
 
 $$
 \frac{d(\Vert b-A_{x}\Vert)^2}{dx}=
@@ -164,13 +132,10 @@ $$
 find its extreme points
 
 $$
-\frac{\partial}{\partial_{x}}L(x,\lambda)=x-A^T\lambda=0
-$$
-
-that is
-
-$$
-x=A^T\lambda
+\begin{align}
+\frac{\partial}{\partial_{x}}L(x,\lambda) &= x-A^T\lambda = 0 \\
+\therefore x &= A^T\lambda
+\end{align}
 $$
 
 then
@@ -182,28 +147,22 @@ $$
 And
 
 $$
-\frac{\partial}{\partial \lambda}L(x,\lambda)=Ax-b=0
+\begin{align}
+\frac{\partial}{\partial \lambda}L(x,\lambda) &= Ax-b =0 \\
+A_{x} &= b
+\end{align}
 $$
 
-namely
+Hence
 
 $$
-A_{x}=b
+\begin{align}
+b &= AA^T\lambda \\
+\lambda &= (AA^T)^{-1}b
+\end{align}
 $$
 
-Therefore
-
-$$
-b=AA^T\lambda
-$$
-
-namely
-
-$$
-\lambda=(AA^T)^{-1}b
-$$
-
-Therefore
+Finally
 
 $$
 x=A^T(AA^T)^{-1}b

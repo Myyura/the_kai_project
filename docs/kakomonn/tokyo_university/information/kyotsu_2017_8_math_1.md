@@ -68,7 +68,7 @@ $$
 
 ## Kai
 ### (1)
-From the known condition:
+By the following given equations:
 
 $$
 \left (\begin{array}{cccc}
@@ -93,7 +93,7 @@ z_{n} \\
 \end{array}\right)
 $$
 
-We can obtain that:
+We have that:
 
 $$
 x_{n+1}+y_{n+1}+z_{n+1}=
@@ -118,7 +118,7 @@ x_{n}+y_{n}+z_{n} = x_{0}+y_{0}+z_{0}
 $$
 
 ### (2)
-Obviously,
+Note that,
 
 $$
 \left (\begin{array}{cccc}
@@ -144,7 +144,7 @@ $$
 \lambda_{1}=1,v_{1}=(1\ 1\ 1)^T
 $$
 
-Obviously,
+Note that,
 
 $$
 \left (\begin{array}{cccc}
@@ -171,7 +171,7 @@ $$
 \lambda_{2}=1-\alpha,v_{2}=(0\ -1\ 1)^T
 $$
 
-Obviously,
+Note that,
 
 $$
 \lambda_{3}=tr(A)-\lambda_{1}-\lambda_{2}=3-4\alpha-1-(1-\alpha)=1-3\alpha
@@ -203,19 +203,19 @@ $$
 $$
 
 ### (3)
-From question(2),we can obtain that:
+From (2), we have that:
 
 $$
-A(v_{1}\ v_{2}\ v_{3})=(v_{1}\ v_{2}\ v_{3})diag(\lambda_{1}\ \lambda_{2}\ \lambda_{3})
+A(v_{1}\ v_{2}\ v_{3})=(v_{1}\ v_{2}\ v_{3})\text{diag}(\lambda_{1}\ \lambda_{2}\ \lambda_{3})
 $$
 
-Therefore,
+Hence,
 
 $$
-A=(v_{1}\ v_{2}\ v_{3})diag(\lambda_{1}\ \lambda_{2}\ \lambda_{3})(v_{1}\ v_{2}\ v_{3})^{-1}
+A=(v_{1}\ v_{2}\ v_{3})\text{diag}(\lambda_{1}\ \lambda_{2}\ \lambda_{3})(v_{1}\ v_{2}\ v_{3})^{-1}
 $$
 
-Namely,
+Which is,
 
 $$
 A=\left (\begin{array}{cccc}
@@ -236,7 +236,7 @@ A=\left (\begin{array}{cccc}
 $$
 
 ### (4)
-Obviously,
+Note that,
 
 $$
 \left (\begin{array}{cccc}
@@ -249,13 +249,13 @@ x_{0} \\
 y_{0} \\
 z_{0} \\
 \end{array}\right)=
-((v_{1}\ v_{2}\ v_{3})diag(\lambda_{1}\ \lambda_{2}\ \lambda_{3})(v_{1}\ v_{2}\ v_{3})^{-1})^{n}
+((v_{1}\ v_{2}\ v_{3})\text{diag}(\lambda_{1}\ \lambda_{2}\ \lambda_{3})(v_{1}\ v_{2}\ v_{3})^{-1})^{n}
 \left (\begin{array}{cccc}
 x_{0} \\
 y_{0} \\
 z_{0} \\
 \end{array}\right)=
-(v_{1}\ v_{2}\ v_{3})diag(\lambda_{1}\ \lambda_{2}\ \lambda_{3})^{n}(v_{1}\ v_{2}\ v_{3})^{-1}
+(v_{1}\ v_{2}\ v_{3})\text{diag}(\lambda_{1}\ \lambda_{2}\ \lambda_{3})^{n}(v_{1}\ v_{2}\ v_{3})^{-1}
 \left (\begin{array}{cccc}
 x_{0} \\
 y_{0} \\
@@ -279,7 +279,7 @@ q_{3}=\frac{v_{3}}{\Vert v_{3}\Vert}=
 (-\frac{2}{\sqrt{6}}\ \frac{1}{\sqrt{6}}\ \frac{1}{\sqrt{6}})^{T}
 $$
 
-Therefore,
+We have,
 
 $$
 \left (\begin{array}{cccc}
@@ -287,7 +287,7 @@ x_{n} \\
 y_{n} \\
 z_{n} \\
 \end{array}\right)=
-(q_{1}\ q_{2}\ q_{3})diag(\lambda_{1}^{n},\lambda_{2}^{n},\lambda_{3}^{n})(q_{1}\ q_{2}\ q_{3})^{-1}
+(q_{1}\ q_{2}\ q_{3})\text{diag}(\lambda_{1}^{n},\lambda_{2}^{n},\lambda_{3}^{n})(q_{1}\ q_{2}\ q_{3})^{-1}
 \left (\begin{array}{cccc}
 x_{n} \\
 y_{n} \\
@@ -295,7 +295,7 @@ z_{n} \\
 \end{array}\right)
 $$
 
-$0<\alpha<\frac{1}{3}$,thus A is postive defined.
+Since $0<\alpha<\frac{1}{3}$, A is positive-definite.
 
 $$
 (q_{1}\ q_{2}\ q_{3})^{-1}=
@@ -307,7 +307,7 @@ q_{3}^{T} \\
 \end{array}\right)
 $$
 
-Therefore,
+Hence,
 
 $$
 \left (\begin{array}{cccc}
@@ -357,7 +357,7 @@ $$
 \vert\lambda_{3}\vert=1-3\alpha<1
 $$
 
-Therefore,
+We have the following,
 
 $$
 \lim_{x \rightarrow \infty}
@@ -380,7 +380,7 @@ z_{0} \\
 \end{array}\right)
 $$
 
-Thus,
+Hence,
 
 $$
 \lim_{x \rightarrow \infty}
@@ -448,7 +448,7 @@ z_{n} \\
 \lambda_{1}p_{n}^{T}(q_{1}q_{1}^{T}p_{n})+\lambda_{2}p_{n}^{T}(q_{2}q_{2}^{T}p_{n})+\lambda_{3}p_{n}^{T}(q_{3}q_{3}^{T}p_{n})
 $$
 
-Since A is postive defined,thus $q_{1},q_{2},q_{3}$ are all orthogonal, that is:
+Since A is positive-definite, $q_{1},q_{2},q_{3}$ are all orthogonal, that is:
 
 $$
 q_{1}\perp q_{2},q_{2}\perp q_{3},q_{3}\perp q_{1}
