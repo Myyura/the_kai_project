@@ -147,7 +147,13 @@ nav:
       - 新領域創成科学研究科:
         - 物質系専攻:
           - 2020年度:
-            - 物理学: kakomonn/tokyo_university/information/kyotsu_2017_math_1.md
+            - 第3問: kakomonn/tokyo_university/frontier_sciences/materials_2020_3.md
+        - 複雑理工学専攻:
+          - 2020年度:
+            - 第1問: kakomonn/tokyo_university/frontier_sciences/cse_2020_1.md
+            - 第2問: kakomonn/tokyo_university/frontier_sciences/cse_2020_2.md
+            - 第3問: kakomonn/tokyo_university/frontier_sciences/cse_2020_3.md
+            - 第4問: kakomonn/tokyo_university/frontier_sciences/cse_2020_4.md
     - 京都大学:
       - 理学研究科:
         - 数学・数理解析専攻:
