@@ -1,7 +1,7 @@
 ---
 comments: false
 description: 東京大学 大学院 理学系研究科 化学専攻 2020年度 数理科学
-keywords: Tokyo-University, 2020-8
+keywords: Tokyo-University, 2020
 ---
 
 ## Source

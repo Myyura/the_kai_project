@@ -1,7 +1,7 @@
 ---
 comments: false
 description: 東京大学 大学院 工学系研究科 2020年度 数学 第1問
-keywords: Tokyo-University, 2020-8
+keywords: Tokyo-University, 2020
 ---
 
 ## Source

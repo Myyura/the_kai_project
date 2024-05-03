@@ -95,57 +95,61 @@ nav:
       - 理学系研究科:
         - 物理学専攻:
           - 2022年度:
-            - 専門科目 第1問: kakomonn/tokyo_university/science/phys_2022_8_sennmon_1.md
+            - 専門科目 第1問: kakomonn/tokyo_university/science/phys_2022_sennmon_1.md
           - 2020年度:
-            - 物理学 第1問: kakomonn/tokyo_university/science/phys_2020_8_phys_1.md
-            - 物理学 第2問: kakomonn/tokyo_university/science/phys_2020_8_phys_2.md
+            - 物理学 第1問: kakomonn/tokyo_university/science/phys_2020_phys_1.md
+            - 物理学 第2問: kakomonn/tokyo_university/science/phys_2020_phys_2.md
         - 天文学専攻:
           - 2023年度:
-            - 天文学: kakomonn/tokyo_university/science/astron_2023_8_astron.md
+            - 天文学: kakomonn/tokyo_university/science/astron_2023_astron.md
         - 化学専攻:
           - 2020年度:
-            - 数理科学: kakomonn/tokyo_university/science/chem_2020_8_math_1.md
+            - 数理科学: kakomonn/tokyo_university/science/chem_2020_math_1.md
       - 工学系研究科:
         - 共通:
           - 2023年度:
-            - 数学 第1問: kakomonn/tokyo_university/engineering/kyotsu_2023_8_math_1.md
-            - 数学 第2問: kakomonn/tokyo_university/engineering/kyotsu_2023_8_math_2.md
+            - 数学 第1問: kakomonn/tokyo_university/engineering/kyotsu_2023_math_1.md
+            - 数学 第2問: kakomonn/tokyo_university/engineering/kyotsu_2023_math_2.md
           - 2022年度:
-            - 数学1: kakomonn/tokyo_university/engineering/kyotsu_2022_8_math_1.md
-            - 数学2: kakomonn/tokyo_university/engineering/kyotsu_2022_8_math_2.md
-            - 数学3: kakomonn/tokyo_university/engineering/kyotsu_2022_8_math_3.md
-            - 物理学1: kakomonn/tokyo_university/engineering/kyotsu_2022_8_phys_1.md
+            - 数学1: kakomonn/tokyo_university/engineering/kyotsu_2022_math_1.md
+            - 数学2: kakomonn/tokyo_university/engineering/kyotsu_2022_math_2.md
+            - 数学3: kakomonn/tokyo_university/engineering/kyotsu_2022_math_3.md
+            - 物理学1: kakomonn/tokyo_university/engineering/kyotsu_2022_phys_1.md
           - 2021年度:
-            - 数学1: kakomonn/tokyo_university/engineering/kyotsu_2021_8_math_1.md
-            - 数学2: kakomonn/tokyo_university/engineering/kyotsu_2021_8_math_2.md
-            - 数学3: kakomonn/tokyo_university/engineering/kyotsu_2021_8_math_3.md
-            - 物理学1: kakomonn/tokyo_university/engineering/kyotsu_2021_8_phys_1.md
+            - 数学1: kakomonn/tokyo_university/engineering/kyotsu_2021_math_1.md
+            - 数学2: kakomonn/tokyo_university/engineering/kyotsu_2021_math_2.md
+            - 数学3: kakomonn/tokyo_university/engineering/kyotsu_2021_math_3.md
+            - 物理学1: kakomonn/tokyo_university/engineering/kyotsu_2021_phys_1.md
           - 2020年度:
-            - 数学 第1問: kakomonn/tokyo_university/engineering/kyotsu_2020_8_math_1.md
-            - 数学 第2問: kakomonn/tokyo_university/engineering/kyotsu_2020_8_math_2.md
+            - 数学 第1問: kakomonn/tokyo_university/engineering/kyotsu_2020_math_1.md
+            - 数学 第2問: kakomonn/tokyo_university/engineering/kyotsu_2020_math_2.md
         - 物理工学専攻:
           - 2020年度:
-            - 物理学 第3問: kakomonn/tokyo_university/engineering/ap_2020_8_phys_3.md
+            - 物理学 第3問: kakomonn/tokyo_university/engineering/ap_2020_phys_3.md
         - 技術経営戦略学専攻:
           - 2022年度:
-            - セッション 1: kakomonn/tokyo_university/engineering/tmi_2022_8_session_1.md
+            - セッション 1: kakomonn/tokyo_university/engineering/tmi_2022_session_1.md
       - 情報理工学研究科:
         - 共通:
           - 2023年度:
-            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2023_8_math_1.md
-            - 数学 第2問: kakomonn/tokyo_university/information/kyotsu_2023_8_math_2.md
+            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2023_math_1.md
+            - 数学 第2問: kakomonn/tokyo_university/information/kyotsu_2023_math_2.md
           - 2022年度:
-            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2022_8_math_1.md
-            - 数学 第2問: kakomonn/tokyo_university/information/kyotsu_2022_8_math_2.md
-            - 数学 第3問: kakomonn/tokyo_university/information/kyotsu_2022_8_math_3.md
+            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2022_math_1.md
+            - 数学 第2問: kakomonn/tokyo_university/information/kyotsu_2022_math_2.md
+            - 数学 第3問: kakomonn/tokyo_university/information/kyotsu_2022_math_3.md
           - 2020年度:
-            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2020_8_math_1.md
+            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2020_math_1.md
           - 2018年度:
-            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2018_8_math_1.md
+            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2018_math_1.md
           - 2017年度:
-            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2017_8_math_1.md
+            - 数学 第1問: kakomonn/tokyo_university/information/kyotsu_2017_math_1.md
+      - 新領域創成科学研究科:
+        - 物質系専攻:
+          - 2020年度:
+            - 物理学: kakomonn/tokyo_university/information/kyotsu_2017_math_1.md
     - 京都大学:
       - 理学研究科:
         - 数学・数理解析専攻:
           - 2024年度:
-            - 基礎科目 [2]: kakomonn/kyoto_university/science/math_2024_8_kiso_2.md
+            - 基礎科目 [2]: kakomonn/kyoto_university/science/math_2024_kiso_2.md

@@ -1,7 +1,7 @@
 ---
 comments: false
 description: 京都大学 大学院 理学研究科 数学・数理解析専攻 2024年度 基礎科目 \[2\]
-keywords: Kyoto-University, 2024-8
+keywords: Kyoto-University, 2024
 ---
 
 ## Source

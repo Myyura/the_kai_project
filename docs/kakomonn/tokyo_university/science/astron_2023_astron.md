@@ -1,7 +1,7 @@
 ---
 comments: false
 description: 東京大学 大学院 理学系研究科 天文学専攻 2023年度 天文学
-keywords: Tokyo-University, 2023-8
+keywords: Tokyo-University, 2023
 ---
 
 ## Source

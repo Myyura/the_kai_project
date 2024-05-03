@@ -1,7 +1,7 @@
 ---
 comments: false
 description: 東京大学 大学院 理学系研究科 物理学専攻 2022年度 専門科目 第1問
-keywords: Tokyo-University, 2022-8
+keywords: Tokyo-University, 2022
 ---
 
 ## Source

@@ -1,7 +1,7 @@
 ---
 comments: false
 description: 東京大学 大学院 情報理工学研究科 2022年度 数学 第1問
-keywords: Tokyo-University, 2022-8
+keywords: Tokyo-University, 2022
 ---
 
 ## Source

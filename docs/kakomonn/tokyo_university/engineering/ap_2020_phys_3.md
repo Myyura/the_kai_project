@@ -1,7 +1,7 @@
 ---
 comments: false
 description: 東京大学 大学院 工学系研究科 物理工学専攻 2020年度 物理学 第3問
-keywords: Tokyo-University, 2020-8
+keywords: Tokyo-University, 2020
 ---
 
 ## Source

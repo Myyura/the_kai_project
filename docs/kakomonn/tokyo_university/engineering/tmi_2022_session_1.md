@@ -1,7 +1,7 @@
 ---
 comments: false
 description: 東京大学 大学院 工学系研究科 技術経営戦略学専攻 2022年度 セッション 1
-keywords: Tokyo-University, 2022-8
+keywords: Tokyo-University, 2022
 ---
 
 ## Source
