@@ -164,3 +164,10 @@ $$
 - https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu_2022_math_3_p1.png
 
 当然, 如果你使用其他图床则参考对应图床的使用方法即可。
+
+此外, 尽管markdown中数学公式的编写几乎与latex中相同, 但仍有以下需要注意的地方
+
+- 对于行内公式, 与latex相同, 在公式的首尾使用单个`$`符号进行表示, 但不可在`$`后添加无意义的空格
+  - "\$\alpha = 1\$" 正确
+  - "\$ \alpha = 1 \$" 错误, 无法解析
+- 对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考上述样例中的写法。
