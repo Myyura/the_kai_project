@@ -4,12 +4,12 @@ description: 東京大学 大学院 工学系研究科 2021年度 数学2
 keywords: Tokyo-University, 2021
 ---
 
-## Source
+## **Source**
 [東京大学 大学院 工学系研究科 2021年度 数学2 (主に線形代数)](https://www.t.u-tokyo.ac.jp/soe/admission/general-past)
 
-## Description
+## **Description**
 
-## Kai
+## **Kai**
 ### I.
 #### 1.
 $A$ の固有値を $\lambda$ とすると、

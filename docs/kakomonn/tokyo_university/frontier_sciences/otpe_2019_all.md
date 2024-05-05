@@ -4,10 +4,10 @@ description: 東京大学 大学院 新領域創成科学研究科 海洋技術�
 keywords: Tokyo-University, 2019
 ---
 
-## Source
+## **Source**
 東京大学 大学院 新領域創成科学研究科 海洋技術環境学専攻 2019年度
 
-## Description
+## **Description**
 ### 第6問
 $\triangle ABC$　について、次の等式が成り立つことを証明しなさい。ただし、$a, b, c$はそれぞれ辺$BC$、$CA$、$AB$の長さで、$\theta$は$\angle CAB$の角度である。 
 
@@ -15,7 +15,7 @@ $$
 a^2 = b^2 + c^2 - 2bc \cos \theta
 $$
 
-## Kai
+## **Kai**
 ### 第6問
 C から直線 AB に下した垂線の足を H とする。
 線分 BH, CH の長さはそれぞれ

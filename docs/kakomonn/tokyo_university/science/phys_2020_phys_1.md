@@ -4,12 +4,12 @@ description: 東京大学 大学院 理学系研究科 物理学専攻 2020年�
 keywords: Tokyo-University, 2020
 ---
 
-## Source
+## **Source**
 東京大学 大学院 理学系研究科 物理学専攻 2020年度 物理学 第1問
 
-## Description
+## **Description**
 
-## Kai
+## **Kai**
 ### 1. 
 
 $\sigma_z \left| \uparrow \right\rangle = \left| \uparrow \right\rangle$であるから、

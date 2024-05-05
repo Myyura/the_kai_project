@@ -4,12 +4,12 @@ description: 東京大学 大学院 工学系研究科 2020年度 数学 第2問
 keywords: Tokyo-University, 2020
 ---
 
-## Source
+## **Source**
 [東京大学 大学院 工学系研究科 2020年度 数学 第2問](https://www.t.u-tokyo.ac.jp/soe/admission/general-past)
 
-## Description
+## **Description**
 
-## Kai
+## **Kai**
 ### I.
 固有値の和はトレースに等しいので、$\alpha = 5$
 

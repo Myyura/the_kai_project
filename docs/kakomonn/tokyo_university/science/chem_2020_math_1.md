@@ -4,12 +4,12 @@ description: 東京大学 大学院 理学系研究科 化学専攻 2020年度 �
 keywords: Tokyo-University, 2020
 ---
 
-## Source
+## **Source**
 東京大学 大学院 理学系研究科 化学専攻 2020年度 数理科学
 
-## Description
+## **Description**
 
-## Kai
+## **Kai**
 ### (1)
 #### (a)
 質点に働く合力の大きさは

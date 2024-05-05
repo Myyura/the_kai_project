@@ -4,12 +4,12 @@ description: 東京大学 大学院 工学系研究科 2021年度 数学3
 keywords: Tokyo-University, 2021
 ---
 
-## Source
+## **Source**
 [東京大学 大学院 工学系研究科 2021年度 数学3 (主に複素関数論)](https://www.t.u-tokyo.ac.jp/soe/admission/general-past)
 
-## Description
+## **Description**
 
-## Kai
+## **Kai**
 ### I.
 #### 1.
 $M(z)=z$ を整理すると、$(m-1)z(z-1)=0$であり、 $m \ne 0$ なので、 $z=0,1$ を得る。

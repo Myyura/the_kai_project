@@ -4,12 +4,12 @@ description: 東京大学 大学院 学際情報学府 学際情報学専攻 生
 keywords: Tokyo-University, 2018
 ---
 
-## Source
+## **Source**
 東京大学 大学院 学際情報学府 学際情報学専攻 生物統計情報学コース 2018年度 専門科目 第1問 （必須問題）
 
-## Description
+## **Description**
 
-## Kai
+## **Kai**
 ### (1-1)
 オ. 平均値は中央値よりも小さい。
 

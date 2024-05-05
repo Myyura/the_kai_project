@@ -4,12 +4,12 @@ description: 東京大学 大学院 情報理工学研究科 2023年度 数学 �
 keywords: Tokyo-University, 2023
 ---
 
-## Source
+## **Source**
 東京大学 大学院 情報理工学研究科 2023年度 数学 第1問
 
-## Description
+## **Description**
 
-## Kai
+## **Kai**
 ### (1)
 $f(x,y)$ は $x,y$ のそれぞれに関して1次式である。
 

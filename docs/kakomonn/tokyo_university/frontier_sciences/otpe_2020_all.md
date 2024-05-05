@@ -4,10 +4,10 @@ description: 東京大学 大学院 新領域創成科学研究科 海洋技術�
 keywords: Tokyo-University, 2020
 ---
 
-## Source
+## **Source**
 東京大学 大学院 新領域創成科学研究科 海洋技術環境学専攻 2020年度
 
-## Description
+## **Description**
 ### 第1問
 次の定積分を求めよ。
 
@@ -72,7 +72,7 @@ a & 1-a \\
 
 3\) $\lim_{n \rightarrow \infty} A^n$ を求めよ。
 
-## Kai
+## **Kai**
 ### 第1問
 
 $$

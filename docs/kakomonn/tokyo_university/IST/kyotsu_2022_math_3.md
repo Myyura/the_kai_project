@@ -4,10 +4,10 @@ description: 東京大学 大学院 情報理工学研究科 2022年度 数学 �
 keywords: Tokyo-University, 2022
 ---
 
-## Source
+## **Source**
 東京大学 大学院 情報理工学研究科 2022年度 数学 第3問
 
-## Description
+## **Description**
 $xy$平面上に、$0<x<1$かつ$0<y<1$で定義される領域$R$を考える．$R$上にランダムに1点を選び、それを点$A$とする．ただし,点$A$は$R$上に一様に分布するとする．図に表すように,点$A$から$y$軸への垂線を$AB$,点$A$から$x$軸への垂線を$AC$とする．原点を$O$としたとき、長方形$OCAB$を$\lceil$点$A$の長方形$\rfloor$と呼ぶ．また、点$A$の長方形の面積を表す確率変数を$S$とする．以下の問いに答えよ．
 
 (1)、$S$の期待値を求めよ．
@@ -24,7 +24,7 @@ $xy$平面上に、$0<x<1$かつ$0<y<1$で定義される領域$R$を考える�
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu_2022_math_3_p1.png" width="300" height="300" alt=""/>
 </figure>
 
-## Kai
+## **Kai**
 確率を $P$ ，期待値を $E$ で表す。
 
 ### (1)

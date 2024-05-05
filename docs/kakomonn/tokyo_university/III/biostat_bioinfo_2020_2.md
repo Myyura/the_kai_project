@@ -4,12 +4,12 @@ description: 東京大学 大学院 学際情報学府 学際情報学専攻 生
 keywords: Tokyo-University, 2020
 ---
 
-## Source
+## **Source**
 東京大学 大学院 学際情報学府 学際情報学専攻 生物統計情報学コース 2020年度 専門科目 第2問 （選択問題）
 
-## Description
+## **Description**
 
-## Kai
+## **Kai**
 ### (2-1)
 
 $$

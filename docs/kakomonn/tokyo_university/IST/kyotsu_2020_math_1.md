@@ -4,10 +4,10 @@ description: 東京大学 大学院 情報理工学研究科 2020年度 数学 �
 keywords: Tokyo-University, 2020
 ---
 
-## Source
+## **Source**
 東京大学 大学院 情報理工学研究科 2020年度 数学 第1問
 
-## Description
+## **Description**
 正方行列$A,B$を
 
 $$
@@ -53,7 +53,7 @@ $$
 
 とおく．ただし、$n\ge2$とする．このとき、$x=(I+B^2)\alpha$において$f$が最小になることを示せ．
 
-## Kai
+## **Kai**
 ### (1)
 $A$ の固有値を $\lambda$ とすると、
 

@@ -4,12 +4,12 @@ description: 京都大学 大学院 理学研究科 数学・数理解析専攻 
 keywords: Kyoto-University, 2024
 ---
 
-## Source
+## **Source**
 京都大学 大学院 理学研究科 数学・数理解析専攻 2024年度 基礎科目 \[2\]
 
-## Description
+## **Description**
 
-## Kai
+## **Kai**
 ### (i)
 $A$ の固有値を $\lambda$ とすると、
 
