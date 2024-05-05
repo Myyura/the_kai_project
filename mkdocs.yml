@@ -164,6 +164,21 @@ nav:
             - 第1~9問: kakomonn/tokyo_university/frontier_sciences/otpe_2020_all.md
           - 2019年度:
             - 第1~9問: kakomonn/tokyo_university/frontier_sciences/otpe_2019_all.md
+      - 総合文化研究科:
+        - 広域科学専攻・広域システム科学系: 
+          - 2020年度:
+            - 総合科目 第3問: kakomonn/tokyo_university/art_and_sciences/system_2020_3.md
+      - 情報学環・学際情報学府:
+        - 学際情報学専攻・生物統計情報学コース:
+          - 2020年度:
+            - 専門科目 第1問: kakomonn/tokyo_university/III/biostat_bioinfo_2020_1.md
+            - 専門科目 第2問: kakomonn/tokyo_university/III/biostat_bioinfo_2020_2.md
+          - 2019年度:
+            - 専門科目 第1問: kakomonn/tokyo_university/III/biostat_bioinfo_2019_1.md
+            - 専門科目 第2問: kakomonn/tokyo_university/III/biostat_bioinfo_2019_2.md
+          - 2018年度:
+            - 専門科目 第1問: kakomonn/tokyo_university/III/biostat_bioinfo_2018_1.md
+            - 専門科目 第2問: kakomonn/tokyo_university/III/biostat_bioinfo_2018_2.md
     - 京都大学:
       - 理学研究科:
         - 数学・数理解析専攻:
