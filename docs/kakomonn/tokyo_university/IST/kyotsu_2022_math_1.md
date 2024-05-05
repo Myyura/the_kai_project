@@ -35,11 +35,11 @@ $\Omega$を上記の条件を満たす$z$が一つでも存在するような点
 与えられた2つの不等式は、次のように変形できる：
 
 $$
-\begin{align}
+\begin{aligned}
 xy &\lt z \lt xy+1
 \\
 x^2+y^2+2xy &\lt z \lt x^2+y^2+xy
-\end{align}
+\end{aligned}
 $$
 
 任意の $x,y$ について1つ目の不等式を満たす $z$ が存在する。
@@ -49,11 +49,11 @@ $$
 上の連立不等式を満たす $z$ が存在するためには、
 
 $$
-\begin{align}
+\begin{aligned}
 xy &\lt x^2+y^2+xy
 \\
 x^2+y^2+2xy &\lt  xy+1
-\end{align}
+\end{aligned}
 $$
 
 も必要であるが、前者は $(x,y) \neq (0,0)$ を意味し、
@@ -63,11 +63,11 @@ $$
 まとめると、求める不等式は
 
 $$
-\begin{align}
+\begin{aligned}
 xy \lt 0
 , \ \ 
 x^2+y^2+xy \lt 1
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -81,22 +81,22 @@ $x^2+y^2+xy \lt 1$ は、原点を中心とし、
 なぜなら、
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} x \\ y \end{pmatrix}
 &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}
 \begin{pmatrix} x' \\ y' \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 x^2 + y^2 + xy
 &= \frac{1}{2} x'^2 + \frac{3}{2} y'^2
 \\
 &= \frac{x'^2}{2} + \frac{y'^2}{\frac{2}{3}}
-\end{align}
+\end{aligned}
 $$
 
 となるからである。
@@ -111,22 +111,22 @@ y 軸上にあるのは $(0,-1)$ と $(0,1)$ を結ぶ線分である。
 (2) で考えた $(x,y)$ と $(x',y')$ の対応に加えて、
 
 $$
-\begin{align}
+\begin{aligned}
 x' = \sqrt{2} x''
 , \ \ 
 y' = \sqrt{\frac{2}{3}} y''
-\end{align}
+\end{aligned}
 $$
 
 を考えると、
 
 $$
-\begin{align}
+\begin{aligned}
 x^2 + y^2 + xy
 &= \frac{x'^2}{2} + \frac{y'^2}{\frac{2}{3}}
 \\
 &= x''^2 + y''^2
-\end{align}
+\end{aligned}
 $$
 
 となる。
@@ -136,7 +136,7 @@ $(x,y)=(1/\sqrt{3}, -1/\sqrt{3})$ と
 よって、求める線形変換行列 $X$ は、
 
 $$
-\begin{align}
+\begin{aligned}
 X
 &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}
 \begin{pmatrix} \sqrt{2} & 0 \\ 0 & \sqrt{\frac{2}{3}} \end{pmatrix}
@@ -144,7 +144,7 @@ X
 &= \begin{pmatrix}
 1 & \frac{1}{\sqrt{3}} \\ -1 & \frac{2}{\sqrt{3}}
 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とすればよい。
@@ -152,18 +152,18 @@ $$
 ### (4)
 
 $$
-\begin{align}
+\begin{aligned}
 \det X = \frac{2}{\sqrt{3}}
-\end{align}
+\end{aligned}
 $$
 
 ### (5)
 
 $$
-\begin{align}
+\begin{aligned}
 X^{-1}
 &= \frac{1}{2} \begin{pmatrix} 1 & -1 \\ \sqrt{3} & \sqrt{3} \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 なので、 $(x,y)=(1,0)$ に対応するのは $(x'',y'')=(1/2, \sqrt{3}/2)$ である。
@@ -173,8 +173,8 @@ $$
 よって、 $\Omega$ の面積は
 
 $$
-\begin{align}
+\begin{aligned}
 \pi \cdot \frac{2}{3} \cdot \frac{2}{\sqrt{3}}
 = \frac{4 \pi}{3 \sqrt{3}}
-\end{align}
+\end{aligned}
 $$

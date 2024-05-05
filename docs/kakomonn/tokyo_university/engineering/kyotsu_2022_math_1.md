@@ -15,24 +15,24 @@ keywords: Tokyo-University, 2022
 与えられた楕円の方程式を $x$ で微分して、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{2x}{a^2} + \frac{2y}{b^2} \frac{dy}{dx} = 0
-\end{align}
+\end{aligned}
 $$
 
 $$
-\begin{align}
+\begin{aligned}
 \therefore \ \ 
 \frac{dy}{dx} = - \frac{b^2 x}{a^2 y}
-\end{align}
+\end{aligned}
 $$
 
 なので、楕円上の点 $(X,Y)$ における接線の方程式は、
 
 $$
-\begin{align}
+\begin{aligned}
 y-Y = - \frac{b^2 X}{a^2 Y} (x-X)
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -41,22 +41,22 @@ $$
 上で求めた接線とx,y軸との交点をそれぞれ $(p,0),(0,q)$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 p &= X + \frac{a^2 Y^2}{b^2 X} = \frac{a^2}{X}
 \\
 q &= Y + \frac{b^2 X^2}{a^2 Y} = \frac{b^2}{Y}
-\end{align}
+\end{aligned}
 $$
 
 であり、この2点を結ぶ線分の長さを $d$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 d^2
 &= p^2 + q^2
 \\
 &= \frac{a^4}{X^2} + \frac{b^4}{Y^2}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -65,17 +65,17 @@ $$
 ラグランジュの未定乗数 $\lambda$ を導入して、関数
 
 $$
-\begin{align}
+\begin{aligned}
 L(X,Y)
 &= \frac{a^4}{X^2} + \frac{b^4}{Y^2}
 - \lambda \left( \frac{X^2}{a^2} + \frac{Y^2}{b^2} \right)
-\end{align}
+\end{aligned}
 $$
 
 を最小化する。
 
 $$
-\begin{align}
+\begin{aligned}
 0
 &= \frac{\partial L}{\partial X}
 = - \frac{2a^4}{X^3} - \frac{2 \lambda X}{a^2}
@@ -85,13 +85,13 @@ $$
 &= \frac{\partial L}{\partial Y}
 = - \frac{2b^4}{Y^3} - \frac{2 \lambda Y}{b^2}
 = - \frac{2}{b^2 Y^3} \left( b^6 + \lambda Y^4 \right)
-\end{align}
+\end{aligned}
 $$
 
 より、
 
 $$
-\begin{align}
+\begin{aligned}
 X^4 &= -\frac{a^6}{\lambda}
 , \ \ 
 Y^4 = -\frac{b^6}{\lambda}
@@ -100,33 +100,33 @@ Y^4 = -\frac{b^6}{\lambda}
 X^2 &= \frac{a^3}{\sqrt{-\lambda}}
 , \ \ 
 Y^2 = \frac{b^3}{\sqrt{-\lambda}}
-\end{align}
+\end{aligned}
 $$
 
 となるので、これらを楕円の方程式に代入して整理すると、
 
 $$
-\begin{align}
+\begin{aligned}
 \lambda = -(a+b)^2
-\end{align}
+\end{aligned}
 $$
 
 したがって、
 
 $$
-\begin{align}
+\begin{aligned}
 X^2 = \frac{a^3}{a+b}
 , \ \ 
 Y^2 = \frac{b^3}{a+b}
-\end{align}
+\end{aligned}
 $$
 
 であり、このとき、
 
 $$
-\begin{align}
+\begin{aligned}
 d^2 = (a+b)^2
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -134,9 +134,9 @@ $$
 まとめると、線分の長さが最小になるのは、接点の座標が
 
 $$
-\begin{align}
+\begin{aligned}
 \left( \sqrt{\frac{a^3}{a+b}}, \sqrt{\frac{b^3}{a+b}} \right)
-\end{align}
+\end{aligned}
 $$
 
 のときであり、このとき、線分の長さは $a+b$ である。
@@ -145,7 +145,7 @@ $$
 #### 1.
 
 $$
-\begin{align}
+\begin{aligned}
 \mathcal{L} \left[ f'(t) \right]
 &= \int_0^\infty e^{-st} f'(t) dt
 \\
@@ -159,13 +159,13 @@ $$
 &= \left[ e^{-st} f'(t) \right]_0^\infty + s \int_0^\infty e^{-st} f'(t) dt
 \\
 &= -f'(0) - s f(0) + s^2 \mathcal{L} \left[ f(t) \right]
-\end{align}
+\end{aligned}
 $$
 
 #### 2.
 
 $$
-\begin{align}
+\begin{aligned}
 \mathcal{L} \left[ g(t) \right]
 &= \int_0^\infty e^{-(s+a)t} \cos (\omega t) dt
 \\
@@ -181,67 +181,67 @@ $$
 - \frac{s+a}{\omega} \int_0^\infty e^{-(s+a)t} \cos (\omega t) dt
 \\
 &= \frac{1}{\omega} - \frac{s+a}{\omega} \mathcal{L} \left[ g(t) \right]
-\end{align}
+\end{aligned}
 $$
 
 より、
 
 $$
-\begin{align}
+\begin{aligned}
 \mathcal{L} \left[ g(t) \right]
 &= \frac{s+a}{(s+a)^2 + \omega^2}
 \\
 \mathcal{L} \left[ h(t) \right]
 &= \frac{\omega}{(s+a)^2 + \omega^2}
-\end{align}
+\end{aligned}
 $$
 
 #### 3.
 与えられた微分方程式をラプラス変換して、上の 1. で得た式を使うと、
 
 $$
-\begin{align}
+\begin{aligned}
 \left( -f'(0) - s f(0) + s^2 \mathcal{L} \left[ f(t) \right] \right)
 + 6 \left( -f(0) + s \mathcal{L} \left[ f(t) \right] \right)
 + 13 \mathcal{L} \left[ f(t) \right]
 = 0
-\end{align}
+\end{aligned}
 $$
 
 $$
-\begin{align}
+\begin{aligned}
 \therefore \ \ 
 -f'(0) - (s+6) f(0) + (s^2+6s+13) \mathcal{L} \left[ f(t) \right] = 0
-\end{align}
+\end{aligned}
 $$
 
 さらに、初期値 $f(0)=5, f'(0)=-11$ を代入して整理すると、
 
 $$
-\begin{align}
+\begin{aligned}
 (s^2+6s+13) \mathcal{L} \left[ f(t) \right] = 5s+19
-\end{align}
+\end{aligned}
 $$
 
 $$
-\begin{align}
+\begin{aligned}
 \therefore \ \ 
 \mathcal{L} \left[ f(t) \right]
 &= \frac{5s+19}{s^2+6s+13}
 \\
 &= 2 \cdot \frac{2}{(s+3)^2+2^2} + 5 \cdot \frac{s+3}{(s+3)^2+2^2}
-\end{align}
+\end{aligned}
 $$
 
 となる。これは、上の 2. で $a=3, \omega=2$ の場合に相当するので、
 
 $$
-\begin{align}
+\begin{aligned}
 f(t)
 &= 2 e^{-3t} \sin (2t) + 5 e^{-3t} \cos (2t)
 \\
 &= e^{-3t} \left( 2 \sin (2t) + 5 \cos (2t) \right)
-\end{align}
+\end{aligned}
 $$
 
 がわかる。

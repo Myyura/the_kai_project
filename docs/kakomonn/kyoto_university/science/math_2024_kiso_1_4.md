@@ -36,7 +36,7 @@ $$
 (i) $A$ の固有値を $\lambda$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 0
 &= \begin{vmatrix}
 a-1-\lambda & 0 & 0 \\ 1 & -a-\lambda & 1 \\ 2a & -2a & a+1-\lambda
@@ -51,7 +51,7 @@ a-1-\lambda & 0 & 0 \\ 1 & -a-\lambda & 1 \\ 2a & -2a & a+1-\lambda
 \\
 \therefore \ \ 
 \lambda &= a-1, a, -a+1
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -59,12 +59,12 @@ $$
 (ii) $A$ を列基本変形すると、次のようにできる：
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix}
 a-1 & 0 & 0 \\ 0 & 1 & 0 \\ a-1 & a+1 & a(a-1)
 \end{pmatrix}
 .
-\end{align}
+\end{aligned}
 $$
 
 これを構成する3つの列ベクトルの1次独立性に注目すると、$A$ のランクは、$a=1$ のときは $1$ , $a=0$ のときは $2$ , その他のときは $3$であることがわかる。
@@ -74,52 +74,52 @@ $$
 $v \in V$ に対して
 
 $$
-\begin{align}
+\begin{aligned}
 w &= f^{n-m}(v)
 ,\\
 u &= v - w
-\end{align}
+\end{aligned}
 $$
 
 とおく。
 $n \geq 2m$ なので、
 
 $$
-\begin{align}
+\begin{aligned}
 w &= f^m \left( f^{n-2m} (v) \right)
-\end{align}
+\end{aligned}
 $$
 
 と書け、 $f^{n-2m}(v) \in V$ なので $w \in \mathrm{Im}(f^m)$ である。
 また、
 
 $$
-\begin{align}
+\begin{aligned}
 f^m(u)
 &= f^m(v) - f^n(v)
 \\
 &= 0
-\end{align}
+\end{aligned}
 $$
 
 なので、 $u \in \mathrm{Ker}(f^m)$ である。
 したがって、任意の $v \in V$ に対して
 
 $$
-\begin{align}
+\begin{aligned}
 v = u + w
-\end{align}
+\end{aligned}
 $$
 
 であるような $u \in \mathrm{Ker}(f^m), \ w \in \mathrm{Im}(f^m)$
 が存在するので、
 
 $$
-\begin{align}
+\begin{aligned}
 V \subset \mathrm{Ker}(f^m) + \mathrm{Im}(f^m)
 \ \ \ \ \left( = \left\{ u+w \mid
 u \in \mathrm{Ker}(f^m), w \in \mathrm{Im}(f^m) \right\} \right)
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -128,9 +128,9 @@ $$
 $\mathrm{Ker}(f^m) \subset V, \ \mathrm{Im}(f^m) \subset V$ から
 
 $$
-\begin{align}
+\begin{aligned}
 \mathrm{Ker}(f^m) + \mathrm{Im}(f^m) \subset V
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -142,15 +142,15 @@ $v \in \mathrm{Ker}(f^m)$ かつ $v \in \mathrm{Im}(f^m)$
 $v \in \mathrm{Im}(f^m)$ より
 
 $$
-\begin{align}
+\begin{aligned}
 v = f^m(v_0)
-\end{align}
+\end{aligned}
 $$
 
 を満たす $v_0 \in V$ が存在し、
 
 $$
-\begin{align}
+\begin{aligned}
 v
 &= f^m(v_0)
 \\
@@ -161,16 +161,16 @@ v
 &= f^{n-2m} (0) \ \ \ \ \ \ \ \ ( \because v \in \mathrm{Ker}(f^m) )
 \\
 &= 0
-\end{align}
+\end{aligned}
 $$
 
 を得る。
 つまり、
 
 $$
-\begin{align}
+\begin{aligned}
 \mathrm{Ker}(f^m) \cap \mathrm{Im}(f^m) = \left\{ 0 \right\}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -179,17 +179,17 @@ $$
 (i), (ii) より、
 
 $$
-\begin{align}
+\begin{aligned}
 V = \mathrm{Ker}(f^m) + \mathrm{Im}(f^m)
-\end{align}
+\end{aligned}
 $$
 
 がわかり、さらに (iii) より、
 
 $$
-\begin{align}
+\begin{aligned}
 V = \mathrm{Ker}(f^m) \oplus \mathrm{Im}(f^m)
-\end{align}
+\end{aligned}
 $$
 
 がわかる。

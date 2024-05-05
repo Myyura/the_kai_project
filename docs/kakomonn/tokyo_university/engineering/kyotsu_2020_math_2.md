@@ -17,7 +17,7 @@ keywords: Tokyo-University, 2020
 固有値の積は行列式に等しいので、
 
 $$
-\begin{align}
+\begin{aligned}
 -16
 &= (\alpha + 2 + 2) - (1 + 1 + 4 \alpha)
 \\
@@ -25,7 +25,7 @@ $$
 \\
 \therefore \ \ 
 \alpha &= 6
-\end{align}
+\end{aligned}
 $$
 
 ### III.
@@ -34,7 +34,7 @@ $||A||=4$ ということは、 $A$ の最大固有値が $4$ ということで
 $A$ が固有値 $4$ を持つという条件は、
 
 $$
-\begin{align}
+\begin{aligned}
 0
 &= \det \begin{pmatrix}
 1-4 & -2 & -1 \\ -2 & 1-4 & 1 \\ -1 & 1 & \alpha-4
@@ -44,7 +44,7 @@ $$
 \\
 \therefore \ \ 
 \alpha &= 2
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -58,7 +58,7 @@ $\alpha=2$ のとき、 $A$ の固有値は $-1, 1, 4$ であるから、
 それぞれに対応する規格化された固有ベクトルは、
 
 $$
-\begin{align}
+\begin{aligned}
 \boldsymbol{v}_1
 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}
 , \ \ 
@@ -67,7 +67,7 @@ $$
 , \ \ 
 \boldsymbol{v}_3
 = \frac{1}{\sqrt{6}} \begin{pmatrix} -1 \\ 1 \\ 2 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 である。（ $-1$ 倍の不定性がある。）

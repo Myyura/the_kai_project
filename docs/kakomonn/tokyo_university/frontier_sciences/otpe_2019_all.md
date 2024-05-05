@@ -21,22 +21,22 @@ C から直線 AB に下した垂線の足を H とする。
 線分 BH, CH の長さはそれぞれ
 
 $$
-\begin{align}
+\begin{aligned}
 \left| c - b \cos \theta \right|
 , \ \ 
 b \sin \theta
-\end{align}
+\end{aligned}
 $$
 
 であるから、三角形 BCH に関する三平方の定理より、
 
 $$
-\begin{align}
+\begin{aligned}
 a^2
 &= \left( c - b \cos \theta \right)^2 + b^2 \sin^2 \theta
 \\
 &= b^2 + c^2 - 2bc \cos \theta
-\end{align}
+\end{aligned}
 $$
 
 がわかる。

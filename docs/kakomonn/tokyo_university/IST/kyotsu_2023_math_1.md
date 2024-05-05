@@ -22,7 +22,7 @@ $f(x_1, y_1)=0, \ f(x_2,y_2)=0$ もわかる。
 ### (2)
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{vmatrix}
 1 & x_1 & x_1^2 \\ 1 & x_2 & x_2^2 \\ 1 & x_3 & x_3^2
 \end{vmatrix}
@@ -43,56 +43,56 @@ x_3-x_1 & (x_1+x_3)(x_3-x_1)
 &= (x_2-x_1) (x_3-x_1) (x_3-x_2)
 \\
 &= (x_1-x_2) (x_2-x_3) (x_3-x_1)
-\end{align}
+\end{aligned}
 $$
 
 ### (3)
 $a_0, a_1, a_2$ が満たすべき条件は
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}
 =
 \begin{pmatrix}
 1 & x_1 & x_1^2 \\ 1 & x_2 & x_2^2 \\ 1 & x_3 & x_3^2
 \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \\ a_2 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 である。
 $x_1, x_2, x_3$ が互いに異なるとき、 (2) より、
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{vmatrix}
 1 & x_1 & x_1^2 \\ 1 & x_2 & x_2^2 \\ 1 & x_3 & x_3^2
 \end{vmatrix}
 \ne 0
-\end{align}
+\end{aligned}
 $$
 
 であるから、逆行列
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix}
 1 & x_1 & x_1^2 \\ 1 & x_2 & x_2^2 \\ 1 & x_3 & x_3^2
 \end{pmatrix}^{-1}
-\end{align}
+\end{aligned}
 $$
 
 が唯一存在し、 $a_0,a_1,a_2$ は
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} a_0 \\ a_1 \\ a_2 \end{pmatrix}
 =
 \begin{pmatrix}
 1 & x_1 & x_1^2 \\ 1 & x_2 & x_2^2 \\ 1 & x_3 & x_3^2
 \end{pmatrix}^{-1}
 \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 のみである。
@@ -101,7 +101,7 @@ $$
 ### (4)
 
 $$
-\begin{align}
+\begin{aligned}
 y
 &= a_0 + a_1 x + a_2 x^2
 \\
@@ -155,13 +155,13 @@ y
 \frac{-x_3x_1 + (x_3+x_1)x - x^2}{(x_1-x_2)(x_2-x_3)} &
 \frac{-x_1x_2 + (x_1+x_2)x - x^2}{(x_2-x_3)(x_3-x_1)}
 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 ### (5)
 
 $$
-\begin{align}
+\begin{aligned}
 y
 &= a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4
 \\
@@ -258,5 +258,5 @@ x_2 x_3 x_4 x_5
 + x^4
 }
 {(x_1-x_2)(x_1-x_3)(x_1-x_4)(x_1-x_5)}
-\end{align}
+\end{aligned}
 $$

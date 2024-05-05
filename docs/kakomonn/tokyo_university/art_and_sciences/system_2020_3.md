@@ -15,10 +15,10 @@ keywords: Tokyo-University, 2020
 動径および方位角成分を$(r, \phi)$とする。万有引力定数を$G$とし、
 
 $$
-\begin{align}
+\begin{aligned}
 &\mu = \frac{m_1 m_2}{m_1 + m_2} \\
 &M = m_1 + m_2
-\end{align}
+\end{aligned}
 $$
 
 として、以下の設問に答えよ。なお必要に応じて、時間微分を$\dot{r}$や$\dot{\phi}$などと上付きドットを用いて表しても良い。
@@ -44,21 +44,21 @@ $$
 題意より、
 
 $$
-\begin{align}
+\begin{aligned}
 m_1 \vec{r}_1 + m_2 \vec{r}_2 = \vec{0}
 , \ \ \ \ 
 \vec{r} = \vec{r}_1 - \vec{r}_2
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 \vec{r}_1 = \frac{m_2}{m_1+m_2} \vec{r}
 , \ \ \ \ 
 \vec{r}_2 = - \frac{m_1}{m_1+m_2} \vec{r}
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -67,7 +67,7 @@ $$
 $\vec{r}$ のデカルト座標による成分を $(x,y)$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 x &= r \cos \phi
 \\
 y &= r \sin \phi
@@ -79,7 +79,7 @@ y &= r \sin \phi
 \left| \dot{\vec{r}} \right|^2
 &= \dot{x}^2 + \dot{y}^2
 = \dot{r}^2 + r^2 \dot{\phi}^2
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -87,7 +87,7 @@ $$
 よって、求める運動エネルギー $K$ は、
 
 $$
-\begin{align}
+\begin{aligned}
 K
 &= \frac{1}{2} m_1 \left| \dot{\vec{r}_1} \right|^2
 + \frac{1}{2} m_2 \left| \dot{\vec{r}_2} \right|^2
@@ -99,7 +99,7 @@ K
 \left( \dot{r}^2 + r^2 \dot{\phi}^2 \right)
 \\
 &= \frac{1}{2} \mu \left( \dot{r}^2 + r^2 \dot{\phi}^2 \right)
-\end{align}
+\end{aligned}
 $$
 
 となる。
@@ -108,10 +108,10 @@ $$
 求める重力ポテンシャルエネルギー $U$ は、
 
 $$
-\begin{align}
+\begin{aligned}
 U = - G \frac{m_1 m_2}{r}
 = - \frac{G \mu M}{r}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -120,24 +120,24 @@ $$
 この系のラグランジアン $L$ は、
 
 $$
-\begin{align}
+\begin{aligned}
 L = K - U
 = \frac{1}{2} \mu \left( \dot{r}^2 + r^2 \dot{\phi}^2 \right)
 + \frac{G \mu M}{r}
-\end{align}
+\end{aligned}
 $$
 
 であり、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{\partial L}{\partial \phi}
 &= 0
 \\
 \frac{\partial L}{\partial \dot{\phi}}
 &= \mu r^2 \dot{\phi}
 = \mu l
-\end{align}
+\end{aligned}
 $$
 
 であるから、 $\phi$ に関する運動方程式より、
@@ -147,27 +147,27 @@ $l$ が保存量であることがわかる。
 上で求めたラグランジアン $L$ から、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{\partial L}{\partial r}
 &= \mu r \dot{\phi}^2 - \frac{G \mu M}{r^2}
 = \frac{\mu l^2}{r^3} - \frac{G \mu M}{r^2}
 \\
 \frac{\partial L}{\partial \dot{r}}
 &= \mu \dot{r}
-\end{align}
+\end{aligned}
 $$
 
 であるから、 $r$ に関する運動方程式は、
 
 $$
-\begin{align}
+\begin{aligned}
 \mu \ddot{r}
 &= \frac{\mu l^2}{r^3} - \frac{G \mu M}{r^2}
 \\
 \therefore \ \ \ \ 
 \ddot{r}
 &= \frac{l^2}{r^3} - \frac{G M}{r^2}
-\end{align}
+\end{aligned}
 $$
 
 となる。
@@ -175,51 +175,51 @@ $$
 ### (6)
 
 $$
-\begin{align}
+\begin{aligned}
 E = K + U
 &= \frac{1}{2} \mu \left( \dot{r}^2 + r^2 \dot{\phi}^2 \right)
 - \frac{G \mu M}{r}
 \\
 &= \frac{1}{2} \mu \left( \dot{r}^2 + \frac{l^2}{r^2} \right)
 - \frac{G \mu M}{r}
-\end{align}
+\end{aligned}
 $$
 
 ### (7)
 
 $$
-\begin{align}
+\begin{aligned}
 V(r)
 = \frac{1}{2} \mu \frac{l^2}{r^2} - \frac{G \mu M}{r}
-\end{align}
+\end{aligned}
 $$
 
 とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 V'(r)
 &= - \mu \frac{l^2}{r^3} + \frac{G \mu M}{r^2}
 \\
 &= \mu \frac{- l^2 + G M r}{r^3}
-\end{align}
+\end{aligned}
 $$
 
 となるので、
 
 $$
-\begin{align}
+\begin{aligned}
 r_0 = \frac{l^2}{GM}
-\end{align}
+\end{aligned}
 $$
 
 とすると、 $V(r)$ が最小値をとるのは $r=r_0$ のときで、
 
 $$
-\begin{align}
+\begin{aligned}
 V(r_0)
 = - \frac{1}{2} \frac{G^2 \mu M^2}{l^2}
-\end{align}
+\end{aligned}
 $$
 
 となる。
@@ -227,10 +227,10 @@ $$
 $E$ が最小値 $E_0$ をとるのもこのときで、
 
 $$
-\begin{align}
+\begin{aligned}
 E_0
 = - \frac{1}{2} \frac{G^2 \mu M^2}{l^2}
-\end{align}
+\end{aligned}
 $$
 
 である。

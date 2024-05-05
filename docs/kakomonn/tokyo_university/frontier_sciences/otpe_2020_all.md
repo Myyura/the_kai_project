@@ -76,18 +76,18 @@ a & 1-a \\
 ### 第1問
 
 $$
-\begin{align}
+\begin{aligned}
 I &= \int_0^{\sqrt{3}} \frac{dx}{\sqrt{x^2 + 1}} \\
 &= \left[ \log \left| x + \sqrt{x^2 + 1} \right|\right]_0^{\sqrt{3}} \\
 &= \log \left( 2 + \sqrt{3} \right)
-\end{align}
+\end{aligned}
 $$
 
 ### 第2問
 #### 1)
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{dx(\theta)}{d \theta}
 &= \sum_{m=1}^\infty \frac{\theta^{2m-1}}{(2m-1)!}
 \\
@@ -97,7 +97,7 @@ $$
 &= \sum_{m=0}^\infty \frac{\theta^{2m}}{(2m)!}
 \\
 &= x(\theta)
-\end{align}
+\end{aligned}
 $$
 
 なので、$\frac{dx}{dy} = \frac{\frac{dx}{d \theta}}{\frac{dy}{d \theta}} = \frac{y}{x}$
@@ -106,26 +106,26 @@ $$
 #### 2)
 
 $$
-\begin{align}
+\begin{aligned}
 x dx = y dy
-\end{align}
+\end{aligned}
 $$
 
 であり、これを積分すると、積分定数を $C$ として、
 
 $$
-\begin{align}
+\begin{aligned}
 x^2 = y^2 + C
-\end{align}
+\end{aligned}
 $$
 
 である。
 $\theta = 0$ のとき $x=1, y=0$ なので、 $C=1$ がわかり、
 
 $$
-\begin{align}
+\begin{aligned}
 x^2 - y^2 = 1
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -135,7 +135,7 @@ $$
 掃き出し法により、次のように求められる：
 
 $$
-\begin{align}
+\begin{aligned}
 &
 \begin{pmatrix}
 1 & 2 & 1 & 1 & 0 & 0 \\
@@ -163,11 +163,11 @@ $$
 0 & 1 & 0 &  2 & -3 &  4 \\
 0 & 0 & 1 & -1 &  1 & -1
 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 $$
-\begin{align}
+\begin{aligned}
 \therefore \ \ 
 A^{-1}
 =
@@ -176,14 +176,14 @@ A^{-1}
  2 & -3 &  4 \\
 -1 &  1 & -1
 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 #### 2)
 サラスの方法より、
 
 $$
-\begin{align}
+\begin{aligned}
 |A|
 &= (20+12+6)-(5+18+16)
 \\
@@ -193,7 +193,7 @@ $$
 &= (-6-20-14)-(-21-8-10)
 \\
 &= -1
-\end{align}
+\end{aligned}
 $$
 
 なので、
@@ -203,36 +203,36 @@ $|A^{-1}| = 1 / |A|$ が成り立っていることがわかる。
 $\vec{x}=(x,y)$ から $\vec{x'}=(x',y')$ への変換は次のように表される：
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} x \\ y \end{pmatrix}
 =
 \begin{pmatrix} a & b \\ c & d \end{pmatrix}
 \begin{pmatrix} x' \\ y' \end{pmatrix}
 +
 \begin{pmatrix} e \\ f \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 点 A, B, C がそれぞれ 点 A', B', C' に変換されることから、
 
 $$
-\begin{align}
+\begin{aligned}
 a = 1, b = 0, e = 0,
 c = \frac{1}{\sqrt{3}},
 d = \frac{2}{\sqrt{3}},
 f = \frac{1}{\sqrt{3}} - 1
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
 つまり、
 
 $$
-\begin{align}
+\begin{aligned}
 x' &= x
 \\
 y' &= \frac{x+2y+1-\sqrt{3}}{\sqrt{3}}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -242,7 +242,7 @@ $$
 $A$ の固有値を $\lambda$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 0
 &= \det \begin{pmatrix} a-\lambda & 1-a \\ 1-a & a-\lambda \end{pmatrix}
 \\
@@ -250,7 +250,7 @@ $$
 \\
 \therefore \ \ 
 \lambda &= 1, 2a-1
-\end{align}
+\end{aligned}
 $$
 
 を得る。 $a \ne 1$ なので、これらは相異なる固有値である。
@@ -258,32 +258,32 @@ $$
 固有値 $1$ に属する固有ベクトルを求めるために
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} 0 \\ 0 \end{pmatrix}
 &= \begin{pmatrix} a-1 & 1-a \\ 1-a & a-1 \end{pmatrix}
 \begin{pmatrix} x \\ y \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと $x=y$ であり、
 固有値 $2a-1$ に属する固有ベクトルを求めるために
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} 0 \\ 0 \end{pmatrix}
 &= \begin{pmatrix} 1-a & 1-a \\ 1-a & 1-a \end{pmatrix}
 \begin{pmatrix} x \\ y \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと $x+y=0$ であるから、それぞれに属する固有ベクトルは例えば
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} 1 \\ 1 \end{pmatrix}
 ,
 \begin{pmatrix} 1 \\ -1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -292,26 +292,26 @@ $$
 1\) で求めた固有ベクトルを使って、
 
 $$
-\begin{align}
+\begin{aligned}
 P
 &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと、
 
 $$
-\begin{align}
+\begin{aligned}
 P^2 &= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
 \\
 PAP &= \begin{pmatrix} 1 & 0 \\ 0 & 2a-1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 が成り立つので、
 
 $$
-\begin{align}
+\begin{aligned}
 A^n
 &= P \begin{pmatrix} 1 & 0 \\ 0 & 2a-1 \end{pmatrix}^n P
 \\
@@ -320,7 +320,7 @@ A^n
 &= \frac{1}{2} \begin{pmatrix}
 1+(2a-1)^n & 1-(2a-1)^n \\ 1-(2a-1)^n & 1+(2a-1)^n
 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -331,10 +331,10 @@ $0 \lt a \lt 1$ より $-1 \lt 2a-1 \lt 1$ なので、
 $\lim_{n \to \infty} (2a-1)^n = 0$ であり、
 
 $$
-\begin{align}
+\begin{aligned}
 \lim_{n \to \infty} A^n
 &= \frac{1}{2} \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 を得る。

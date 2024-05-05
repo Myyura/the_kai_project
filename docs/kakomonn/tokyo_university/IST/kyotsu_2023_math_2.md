@@ -14,30 +14,30 @@ keywords: Tokyo-University, 2023
 まず、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{d^2x}{dt^2} + 2 \frac{dx}{dt} + x = 0
-\end{align}
+\end{aligned}
 $$
 
 に $x=e^{\lambda t}$ （ $\lambda$ は $t$ によらない定数）を代入すると、
 
 $$
-\begin{align}
+\begin{aligned}
 &\lambda^2 + 2 \lambda + 1 = 0
 \\
 &\therefore \ \ 
 \lambda = -1
 \ \ \ \ \text{ （重解） }
-\end{align}
+\end{aligned}
 $$
 
 となるので、この微分方程式の一般解は
 
 $$
-\begin{align}
+\begin{aligned}
 x = Ce^{-x} + Dxe^{-x}
 \ \ \ \ \ \ \ \ ( C, D \text{ は積分定数 } )
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -46,17 +46,17 @@ $$
 $x = A \sin (t) + B \cos (t)$ （ $A,B$ は $t$ によらない定数）を代入すると、
 
 $$
-\begin{align}
+\begin{aligned}
 A = \frac{1}{2}, \ B = 0
-\end{align}
+\end{aligned}
 $$
 
 を得るので、
 
 $$
-\begin{align}
+\begin{aligned}
 x = \frac{1}{2} \sin (t)
-\end{align}
+\end{aligned}
 $$
 
 は特殊解である。
@@ -64,18 +64,18 @@ $$
 以上より、与えられた微分方程式の一般解は
 
 $$
-\begin{align}
+\begin{aligned}
 x = Ce^{-x} + Dxe^{-x} + \frac{1}{2} \sin (t)
 \ \ \ \ \ \ \ \ ( C, D \text{ は積分定数 } )
-\end{align}
+\end{aligned}
 $$
 
 である。よって、 $t \to - \infty$ で有界である解は
 
 $$
-\begin{align}
+\begin{aligned}
 x = \frac{1}{2} \sin (t)
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -84,18 +84,18 @@ $$
 $z=x+y$ とおくと、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{d^2z}{dt^2} + 2 \frac{dz}{dt} = \cos (t)
-\end{align}
+\end{aligned}
 $$
 
 が成り立ち、 (1) と同じように考えて、これの一般解は
 
 $$
-\begin{align}
+\begin{aligned}
 z = A e^{-2t} + B + \frac{2}{5} \sin (t) - \frac{1}{5} \cos (t)
 \ \ \ \ \ \ \ \ ( A, B \text{ は積分定数 } )
-\end{align}
+\end{aligned}
 $$
 
 であることがわかる。
@@ -103,19 +103,19 @@ $$
 $w=x-y$ とおくと、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{d^2w}{dt^2} + 2 \frac{dw}{dt} + 2w = \cos (t)
-\end{align}
+\end{aligned}
 $$
 
 が成り立ち、 (1) と同じように考えて、これの一般解は
 
 $$
-\begin{align}
+\begin{aligned}
 w = C e^{-t} \sin (t) + D e^{-t} \cos (t)
 + \frac{2}{5} \sin (t) + \frac{1}{5} \cos (t)
 \ \ \ \ \ \ \ \ ( C, D \text{ は積分定数 } )
-\end{align}
+\end{aligned}
 $$
 
 であることがわかる。
@@ -123,7 +123,7 @@ $$
 以上より、与えられた微分方程式の一般解は
 
 $$
-\begin{align}
+\begin{aligned}
 x
 &= \frac{z+w}{2}
 \\
@@ -137,13 +137,13 @@ y
 - \frac{1}{5} \cos (t)
 \\
 &( A, B, C, D \text{ は積分定数 } )
-\end{align}
+\end{aligned}
 $$
 
 である。よって、 $t \to - \infty$ で有界である解は
 
 $$
-\begin{align}
+\begin{aligned}
 x
 &= B + \frac{2}{5} \sin (t)
 , \\
@@ -151,7 +151,7 @@ y
 &= B - \frac{1}{5} \cos (t)
 \\
 &( B \text{ は任意定数 } )
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -161,7 +161,7 @@ $$
 $y = 1/x$ とおくことで、線形な微分方程式が得られる：
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{dy}{dt}
 &= - \frac{1}{x^2} \frac{dx}{dt}
 \\
@@ -174,25 +174,25 @@ $$
 \therefore \ \ 
 2 \frac{dy}{dt} + y &= - e^{-t}
 .
-\end{align}
+\end{aligned}
 $$
 
 この方程式に $y=f(t)e^{-t/2}$ を代入して整理すると、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{df}{dt} &= - \frac{1}{2} e^{-\frac{1}{2}t}
 \\
 \therefore \ \ 
 f(t) &= e^{-\frac{1}{2}t} + C
 \ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
-\end{align}
+\end{aligned}
 $$
 
 となるので、一般解
 
 $$
-\begin{align}
+\begin{aligned}
 y(t)
 &= \left( e^{-\frac{1}{2}t} + C \right) e^{-\frac{1}{2}t}
 \\
@@ -205,27 +205,27 @@ x(t)
 \\
 &= \frac{e^t}{1 + C e^{\frac{1}{2}t}}
 \ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
-\end{align}
+\end{aligned}
 $$
 
 を得る。さらに、 $x(0)=1/2$ を使うと、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{1}{1 + C} &= \frac{1}{2}
 \\
 \therefore \ \ 
 C &= 1
-\end{align}
+\end{aligned}
 $$
 
 となるので、求める解は
 
 $$
-\begin{align}
+\begin{aligned}
 x(t)
 &= \frac{e^t}{1 + e^{\frac{1}{2}t}}
-\end{align}
+\end{aligned}
 $$
 
 である。

@@ -53,26 +53,26 @@ keywords: Tokyo-University, 2018
 検査の陽性を $+$, 陰性を $-$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 P(D) = \frac{5}{100}
 , \ \ 
 P(+|D) = \frac{95}{100}
 , \ \ 
 P(+|\bar{D}) = \frac{5}{100}
-\end{align}
+\end{aligned}
 $$
 
 であるから、ベイズの定理より、
 
 $$
-\begin{align}
+\begin{aligned}
 P(D|+)
 = \frac{P(D \cap +)}{P(+)}
 = \frac{P(+|D) P(D)}{P(+|D) P(D) + P(+|\bar{D}) P(\bar{D})}
 = \frac{\frac{95}{100} \frac{5}{100}}
 {\frac{95}{100} \frac{5}{100} + \frac{5}{100} \frac{95}{100}}
 = \frac{1}{2}
-\end{align}
+\end{aligned}
 $$
 
 ### (1-13)

@@ -15,17 +15,17 @@ keywords: Tokyo-University, 2020
 質点に働く合力の大きさは
 
 $$
-\begin{align}
+\begin{aligned}
 mg \tan \theta \approx mg \cdot \frac{r}{l}
-\end{align}
+\end{aligned}
 $$
 
 なので $r$ に比例し、比例係数は
 
 $$
-\begin{align}
+\begin{aligned}
 k = \frac{mg}{l}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -34,27 +34,27 @@ $$
 #### (b)
 
 $$
-\begin{align}
+\begin{aligned}
 m \frac{d^2x}{dt^2} = -kx
-\end{align}
+\end{aligned}
 $$
 
 #### (C)
 
 $$
-\begin{align}
+\begin{aligned}
 x = A \sin \left( \sqrt{\frac{k}{m}} t \right)
 + B \cos \left( \sqrt{\frac{k}{m}} t \right)
 \ \ \ \ \ \ \ \ (A,B \text{ は積分定数})
-\end{align}
+\end{aligned}
 $$
 
 #### (d)
 
 $$
-\begin{align}
+\begin{aligned}
 T = 2 \pi \sqrt{\frac{m}{k}}
-\end{align}
+\end{aligned}
 $$
 
 ### (3)
@@ -64,25 +64,25 @@ $$
 #### (f)
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{dV_{\mathrm{eff}}(r)}{dr}
 &= kr - \frac{L^2}{mr^3}
 \\
 &= \frac{mkr^4 - L^2}{mr^3}
-\end{align}
+\end{aligned}
 $$
 
 であり、 $r_0 \gt 0$ なので
 
 $$
-\begin{align}
+\begin{aligned}
 r_0 &= \left( \frac{L^2}{mk} \right)^\frac{1}{4}
 ,\\
 V_\mathrm{eff}(r_0)
 &= \frac{k}{2} \frac{L}{\sqrt{mk}} + \frac{L^2}{2m} \frac{\sqrt{mk}}{L}
 \\
 &= L \sqrt{\frac{k}{m}}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -90,7 +90,7 @@ $$
 #### (g)
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{d^2V_{\mathrm{eff}}(r)}{dr^2}
 &= k + \frac{3L^2}{mr^4}
 \\
@@ -107,19 +107,19 @@ a
 &= \frac{1}{2!} \frac{d^2V_{\mathrm{eff}}(r_0)}{dr^2}
 \\
 &= 2k
-\end{align}
+\end{aligned}
 $$
 
 #### (h)
 (2) と同様に考えると、次がわかる：
 
 $$
-\begin{align}
+\begin{aligned}
 \nu_r
 &= \frac{1}{2\pi} \sqrt{\frac{4k}{m}}
 \\
 &= \frac{1}{2\pi} \sqrt{\frac{2a}{m}}
-\end{align}
+\end{aligned}
 $$
 
 ### (4)

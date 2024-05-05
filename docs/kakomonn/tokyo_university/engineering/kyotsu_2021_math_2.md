@@ -15,7 +15,7 @@ keywords: Tokyo-University, 2021
 $A$ の固有値を $\lambda$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 0
 &= \det \begin{pmatrix} - \lambda & 3 & 0 \\ -3 & -\lambda & 4 \\ 0 & -4 & -\lambda \end{pmatrix}
 \\
@@ -23,7 +23,7 @@ $$
 \\
 \therefore \ \ 
 \lambda &= 0, 5i, -5i
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -36,21 +36,21 @@ $$
 #### 3.
 
 $$
-\begin{align}
+\begin{aligned}
 A^3 &= -25A
 , \\
 A^5 &= -25 A^3 = (-25)^2 A
 , \\
 &\cdots
-\end{align}
+\end{aligned}
 $$
 
 から、
 
 $$
-\begin{align}
+\begin{aligned}
 A^{2n+1} = (-25)^n A = (-1)^n 5^{2n} A
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -61,7 +61,7 @@ $$
 そこで、
 
 $$
-\begin{align}
+\begin{aligned}
 \exp (tA)
 &= \sum_{k=0}^\infty \frac{t^k}{k!} A^k
 \\
@@ -73,19 +73,19 @@ $$
 - A^2 \frac{1}{25} \sum_{n=1}^\infty \frac{(-1)^n (5t)^{2n}}{(2n)!}
 \\
 &= I + \frac{\sin (5t)}{5} A - \frac{\cos (5t) - 1}{25} A^2
-\end{align}
+\end{aligned}
 $$
 
 と計算できるので、
 
 $$
-\begin{align}
+\begin{aligned}
 p = \frac{1 - \cos (5t)}{25}
 , \ \ 
 q = \frac{\sin (5t)}{5}
 , \ \ 
 r = 1
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -94,19 +94,19 @@ $$
 #### 1.
 
 $$
-\begin{align}
+\begin{aligned}
 P_A(n+1) &= P_A(n) (1-\alpha) + P_B(n) \beta
 \\
 P_B(n+1) &= P_A(n) \alpha + P_B(n) (1-\beta)
-\end{align}
+\end{aligned}
 $$
 
 なので、
 
 $$
-\begin{align}
+\begin{aligned}
 M = \begin{pmatrix} 1-\alpha & \beta \\ \alpha & 1-\beta \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -115,11 +115,11 @@ $$
 $M$ の固有値は $1, 1-\alpha-\beta$ であり、それぞれに対応する固有ベクトルは、例えば、
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} \beta \\ \alpha \end{pmatrix}
 , \ \ 
 \begin{pmatrix} 1 \\ -1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -128,11 +128,11 @@ $$
 A,Bである確率が一定値に収束するとすると、それは $M$ の固有ベクトルであり、確率は負にならないことを考慮して、
 
 $$
-\begin{align}
+\begin{aligned}
 \lim_{k \to \infty} P_A(k) = \frac{\beta}{\alpha+\beta}
 , \ \ 
 \lim_{k \to \infty} P_B(k) = \frac{\alpha}{\alpha+\beta}
-\end{align}
+\end{aligned}
 $$
 
 であることがわかる。
@@ -140,15 +140,15 @@ $$
 #### 4.
 
 $$
-\begin{align}
+\begin{aligned}
 P_A(\infty) = \lim_{k \to \infty} P_A(k) = \frac{\beta}{\alpha+\beta}
-\end{align}
+\end{aligned}
 $$
 
 と書くことにする。
 
 $$
-\begin{align}
+\begin{aligned}
 R_A(n+1)
 &= P_A(n+1) - P_A(\infty)
 \\
@@ -159,18 +159,18 @@ R_A(n+1)
 &= (1-\alpha-\beta) P_A(n) + \beta - P_A(\infty)
 \\
 R_A(n) &= P_A(n) - P_A(\infty)
-\end{align}
+\end{aligned}
 $$
 
 であるから、 $P_A(n)$ を消去して、
 
 $$
-\begin{align}
+\begin{aligned}
 R_A(n+1)
 &= (1-\alpha-\beta) \left( R_A(n) + P_A(\infty) \right) + \beta - P_A(\infty)
 \\
 &= (1-\alpha-\beta) R_A(n)
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -178,12 +178,12 @@ $$
 ### III.
 
 $$
-\begin{align}
+\begin{aligned}
 c_1 (\boldsymbol{a}_1 + \boldsymbol{a}_2) +
 c_2 (\boldsymbol{a}_2 + \boldsymbol{a}_3) + \cdots +
 c_m (\boldsymbol{a}_m + \boldsymbol{a}_1)
 = \boldsymbol{0}
-\end{align}
+\end{aligned}
 $$
 
 が成り立つとしたとき $c_1 = c_2 = \cdots = c_m = 0$
@@ -192,13 +192,13 @@ $$
 上の式を整理すると、
 
 $$
-\begin{align}
+\begin{aligned}
 (c_1+c_m) \boldsymbol{a}_1 +
 (c_1+c_2) \boldsymbol{a}_2 +
 (c_2+c_3) \boldsymbol{a}_3 + \cdots +
 (c_{m-1}+c_m) \boldsymbol{a}_m
 = \boldsymbol{0}
-\end{align}
+\end{aligned}
 $$
 
 となり、
@@ -206,21 +206,21 @@ $\boldsymbol{a}_1, \boldsymbol{a}_2, \cdots, \boldsymbol{a}_m$
 が1次独立であることから、
 
 $$
-\begin{align}
+\begin{aligned}
 c_1+c_m = c_1+c_2 = c_2+c_3 = \cdots = c_{m-1}+c_m = 0
-\end{align}
+\end{aligned}
 $$
 
 よって、
 
 $$
-\begin{align}
+\begin{aligned}
 c_2 &= c_4 = \cdots = -c_1
 , \\
 c_3 &= c_5 = \cdots =  c_1
 , \\
 c_m &= -c_1
-\end{align}
+\end{aligned}
 $$
 
 を得る。したがって、 $m$ が奇数のときは

@@ -18,7 +18,7 @@ $M(z)=z$ を整理すると、$(m-1)z(z-1)=0$であり、 $m \ne 0$ なので、
 #### 2.
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{dM(z)}{dz}
 &= \frac{m(mz-z+1) - mz(m-1)}{(mz-z+1)^2}
 \\
@@ -26,7 +26,7 @@ $$
 \\
 \therefore \ \ 
 \frac{dM(0)}{dz} &= m
-\end{align}
+\end{aligned}
 $$
 
 #### 3.
@@ -36,22 +36,22 @@ $0$ でない複素数 $z$ を極形式で $z=re^{i \theta} \ \ (r \gt 0, 0 \leq
 と表すと、
 
 $$
-\begin{align}
+\begin{aligned}
 J(z)
 &= e^{-i \alpha} z + e^{i \alpha} z^{-1}
 \\
 &= r e^{i (\theta - \alpha)} + \frac{1}{r} e^{-i (\theta - \alpha)}
 \\
 &= \left( r + \frac{1}{r} \right) \cos (\theta - \alpha) + i \left( r - \frac{1}{r} \right) \sin (\theta - \alpha)
-\end{align}
+\end{aligned}
 $$
 
 なので、これの虚部
 
 $$
-\begin{align}
+\begin{aligned}
 \left( r - \frac{1}{r} \right) \sin (\theta - \alpha)
-\end{align}
+\end{aligned}
 $$
 
 が正となるのは、「 $r \gt 1$ かつ $ \alpha \lt \theta \lt \alpha + \pi$ 」

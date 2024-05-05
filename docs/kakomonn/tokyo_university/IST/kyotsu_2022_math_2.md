@@ -41,13 +41,13 @@ $$
 ### (1)
 
 $$
-\begin{align}
+\begin{aligned}
 J_{n}(\alpha)=\frac{\text{d}I_{n}(\alpha)}{\text{d}\alpha}
 &= \int_{\frac{1}{n}}^{n} \frac{\text{d}}{\text{d}\alpha} {[\frac{f(\alpha x)-f(x)}{x}]}\text{d}x \\
 &= \int_{\frac{1}{n}}^{n} f'(\alpha x)\text{d}x \\
 &= \frac{1}{\alpha}f(\alpha x) \Big|_{\frac{1}{n}}^{n} \\
 &= \frac{1}{\alpha}(f(\alpha n)-f(\frac{\alpha}{n})) \\
-\end{align}
+\end{aligned}
 $$
 
 ### (2)
@@ -58,11 +58,11 @@ J_{n}(\alpha)=\frac{\text{d}I_{n}(\alpha)}{\text{d}\alpha} \qquad
 $$
 
 $$
-\begin{align}
+\begin{aligned}
 I_{n}(1) &= \int_{\frac{1}{n}}^{n} \frac{f(x)-f(x)}{x} \text{d}x=0 \\
 I_{n}(\alpha) &= \int_1^{\alpha}J_{n}(\beta)\text{d}\beta \\
 I_{n}(\alpha) &= \lim_{n \rightarrow \infty} I_{n}(\alpha) = \int_1^{\alpha}(\lim_{n \rightarrow \infty}J_{n}(\beta))\text{d} \beta
-\end{align}
+\end{aligned}
 $$
 
 ### (3)
@@ -74,10 +74,10 @@ $$
 Since $\lim_{n \rightarrow \infty}f(\beta n) = 0$, we have
 
 $$
-\begin{align}
+\begin{aligned}
 &\lim_{n \rightarrow \infty}J_{n}(\beta) = \frac{1}{\beta}(-f(0)) \\
 &I(\alpha) = \int_1^{\alpha} \frac{1}{\beta}(-f(0))\text{d}\beta = -f(0)\ln \alpha
-\end{align}
+\end{aligned}
 $$
 
 ### (4)

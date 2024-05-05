@@ -13,7 +13,7 @@ keywords: Tokyo-University, 2020
 ### (2-1)
 
 $$
-\begin{align}
+\begin{aligned}
 E[X_1]
 &= \int_{- \infty}^\infty x f(x; \gamma) dx
 \\
@@ -27,13 +27,13 @@ E[X_1]
 &= - \gamma \left[ e^{- x / \gamma } \right]_0^\infty
 \\
 &= \gamma
-\end{align}
+\end{aligned}
 $$
 
 ### (2-2)
 
 $$
-\begin{align}
+\begin{aligned}
 P \left( X_{(1)} \leq x \right)
 &=
 1 - P \left( X_{(1)} \gt x \right)
@@ -58,13 +58,13 @@ X_2 \gt x \text{ and } \cdots \text{ and } X_n \gt x \right)
 \\
 &=
 1 - e^{ - nx / \gamma }
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 f_{(1)}(x; \gamma)
 &= \frac{d}{dx} \left( 1 - e^{ - nx / \gamma } \right)
 \\
@@ -72,7 +72,7 @@ f_{(1)}(x; \gamma)
 \\
 E[X_{(1)}]
 &= \frac{\gamma}{n}
-\end{align}
+\end{aligned}
 $$
 
 ### (2-3)
@@ -80,7 +80,7 @@ $$
 ### (2-4)
 
 $$
-\begin{align}
+\begin{aligned}
 T_n
 &=
 \frac{1}{n-1} \sum_{i=2}^n X_{(i)}
@@ -92,13 +92,13 @@ T_n
 &=
 \frac{1}{n-1} \sum_{i=1}^n X_i
 - \frac{1}{n-1} X_{(1)}
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 E[T_n]
 &=
 \frac{1}{n-1} \sum_{i=1}^n E[X_i]
@@ -109,15 +109,15 @@ E[T_n]
 \\
 &=
 \left( 1 + \frac{1}{n} \right) \gamma
-\end{align}
+\end{aligned}
 $$
 
 より、
 
 $$
-\begin{align}
+\begin{aligned}
 E[T_n] - \gamma
 &=
 \frac{1}{n} \gamma
-\end{align}
+\end{aligned}
 $$

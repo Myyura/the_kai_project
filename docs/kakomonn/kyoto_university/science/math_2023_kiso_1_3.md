@@ -34,32 +34,32 @@ $$
 $\mathrm{Ker}(f)$ を求めるため
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} 1 & 0 & a & a+1 \\ 0 & 1 & 1 & 1 \end{pmatrix}
 \begin{pmatrix} \alpha \\ \beta \\ \gamma \\ \delta \end{pmatrix}
 =
 \begin{pmatrix} 0 \\ 0 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと、
 
 $$
-\begin{align}
+\begin{aligned}
 \alpha &= -a \gamma - (a+1) \delta
 , \\
 \beta &= - \gamma - \delta
-\end{align}
+\end{aligned}
 $$
 
 となるので、
 
 $$
-\begin{align}
+\begin{aligned}
 u_1 = \begin{pmatrix} -a \\ -1 \\ 1 \\ 0 \end{pmatrix}
 , \ \ 
 u_2 = \begin{pmatrix} -(a+1) \\ -1 \\ 0 \\ 1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 は $\mathrm{Ker}(f)$ の基底であることがわかる。
@@ -67,32 +67,32 @@ $$
 また、 $\mathrm{Ker}(g)$ を求めるため
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} 0 & 0 & 1 & 1 \\ -1 & 3 & 3-a & 0 \end{pmatrix}
 \begin{pmatrix} \alpha \\ \beta \\ \gamma \\ \delta \end{pmatrix}
 =
 \begin{pmatrix} 0 \\ 0 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと、
 
 $$
-\begin{align}
+\begin{aligned}
 \delta &= - \gamma
 , \\
 \alpha &= 3 \beta + (3-a) \gamma
-\end{align}
+\end{aligned}
 $$
 
 となるので、
 
 $$
-\begin{align}
+\begin{aligned}
 v_1 = \begin{pmatrix} 3 \\ 1 \\ 0 \\ 0 \end{pmatrix}
 , \ \ 
 v_2 = \begin{pmatrix} 3-a \\ 0 \\ 1 \\ -1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 は $\mathrm{Ker}(g)$ の基底であることがわかる。
@@ -107,13 +107,13 @@ $r=s=t=0$ を得るので、 $u_2 \notin \mathrm{Ker}(g)$ もわかる。
 よって、
 
 $$
-\begin{align}
+\begin{aligned}
 \mathrm{dim} \left( \mathrm{Ker}(f) \cap \mathrm{Ker}(g) \right)
 &= 0
 , \\
 \mathrm{dim} \left( \mathrm{Ker}(f) + \mathrm{Ker}(g) \right)
 &= 4
-\end{align}
+\end{aligned}
 $$
 
 がわかる。

@@ -15,19 +15,19 @@ keywords: Tokyo-University, 2022
 $I_1$ の被積分関数
 
 $$
-\begin{align}
+\begin{aligned}
 f(z) = \frac{z}{(z-i)(z-1)}
-\end{align}
+\end{aligned}
 $$
 
 の極 $z=1,i$ における留数はそれぞれ
 
 $$
-\begin{align}
+\begin{aligned}
 R_1 &= \frac{1}{1-i} = \frac{1+i}{2}
 , \\
 R_i &= \frac{i}{i-1} = \frac{1-i}{2}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -35,12 +35,12 @@ $$
 $I_1$ は $z=1$ の周りを反時計回りに回る部分と $z=i$ の周りを時計回りに回る部分からなるから、
 
 $$
-\begin{align}
+\begin{aligned}
 I_1
 &= 2 \pi i \left( R_1 - R_i \right)
 \\
 &= -2 \pi
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -51,30 +51,30 @@ $|z|=1$ を満たす複素数 $z$ は、 $z=e^{i \theta} \ \ (0 \leq \theta \lt 
 このとき、
 
 $$
-\begin{align}
+\begin{aligned}
 dz &= i e^{i \theta} d \theta = iz d \theta
 \\
 z + \frac{1}{z} &= e^{i \theta} + e^{-i \theta} = 2 \cos \theta
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 I_2
 &= \oint_{|z|=1} \frac{1}{10 + 4 \left( z + \frac{1}{z} \right)} \frac{dz}{iz}
 \\
 &= \oint_{|z|=1} \frac{-i}{2(z+2)(2z+1)} dz
-\end{align}
+\end{aligned}
 $$
 
 よって、
 
 $$
-\begin{align}
+\begin{aligned}
 G(z) = \frac{-i}{2(z+2)(2z+1)}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -86,9 +86,9 @@ $G(z)$ の特異点は $z=-1/2, 2$ である。
 $G(z)$ の $z=-1/2$ における留数は $-i/6$ であるから、留数定理により、
 
 $$
-\begin{align}
+\begin{aligned}
 I_2 = 2 \pi i \cdot \frac{-i}{6} = \frac{\pi}{3}
-\end{align}
+\end{aligned}
 $$
 
 を得る。

@@ -15,12 +15,12 @@ keywords: Tokyo-University, 2021
 衝突直後の B （および A）の速度を $V$ とすると、運動量保存則より、
 
 $$
-\begin{align}
+\begin{aligned}
 mv &= (m+M)V
 \\
 \therefore \ \ 
 V &= \frac{m}{m+M} v
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -28,21 +28,21 @@ $x$ の速度および加速度をそれぞれ $\dot{x}, \ddot{x}$ と書く。
 衝突後の A および B の運動方程式は、
 
 $$
-\begin{align}
+\begin{aligned}
 (m+M) \ddot{x} = -kx
-\end{align}
+\end{aligned}
 $$
 
 であるから、 角振動数を $\omega = \sqrt{k/(m+M)}$ として、
 $t=0$ で $x=0, \dot{x}=V$ であることを考慮して、
 
 $$
-\begin{align}
+\begin{aligned}
 x(t)
 &= \frac{V}{\omega} \sin \omega t
 \\
 &= \frac{mv}{\sqrt{(m+M)k}} \sin \left( \sqrt{\frac{k}{m+M}} t \right)
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -64,9 +64,9 @@ $$
 また、完全弾性衝突なので、エネルギー保存則
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{1}{2} mv^2 = \frac{1}{2} mv_A^2 + \frac{1}{2} mv_B^2
-\end{align}
+\end{aligned}
 $$
 
 が成り立つ。
@@ -75,11 +75,11 @@ $v_A = v, v_B = 0$ は衝突せずに通り過ぎるということなので、
 求める解は、
 
 $$
-\begin{align}
+\begin{aligned}
 v_A &= \frac{m-M}{m+M} v
 \\
 v_B &= \frac{2m}{m+M} v
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -90,7 +90,7 @@ $$
 $\omega_0 = \sqrt{k/m}, t_0 = \pi / \omega_0 = \pi \sqrt{m/k}$ として、
 
 $$
-\begin{align}
+\begin{aligned}
 x_A (t) &=
 \begin{cases}
   0 & 0 \leq t \leq t_0 \\
@@ -102,7 +102,7 @@ x_B (t) &=
 \frac{v}{\omega_0} \sin \omega_0 t & 0 \leq t \leq t_0 \\
 0 & t_0 \lt t
 \end{cases}
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -115,28 +115,28 @@ $$
 運動量保存則
 
 $$
-\begin{align}
+\begin{aligned}
 mv = mv_A + 2mv_B
-\end{align}
+\end{aligned}
 $$
 
 および
 反発係数が $e$ であること
 
 $$
-\begin{align}
+\begin{aligned}
 e = \frac{v_B - v_A}{v}
-\end{align}
+\end{aligned}
 $$
 
 から、
 
 $$
-\begin{align}
+\begin{aligned}
 v_A &= \frac{1-2e}{3} v
 \\
 v_B &= \frac{1+e}{3} v
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -147,26 +147,26 @@ $$
 B の角振動数は $\omega_2 = \sqrt{k/(2m)}$ であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 x_A(t) &= v_A t
 \\
 x_B(t) &= \frac{v_B}{\omega_2} \sin \omega_2 t
-\end{align}
+\end{aligned}
 $$
 
 であり、 $x_B(t)$ の $t$ による微分は、
 
 $$
-\begin{align}
+\begin{aligned}
 \dot{x}_B(t) &= v_B \cos \omega_2 t
-\end{align}
+\end{aligned}
 $$
 
 である。
 よって、2回目の衝突の直前の A, B の速度をそれぞれ $V_A, V_B$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 V_A
 &= v_A
 \\
@@ -178,7 +178,7 @@ V_B
 &= v_B \cos \omega_2 t_2
 \\
 &= - \frac{1+e}{2 \sqrt{3}} v
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -187,9 +187,9 @@ $$
 $x_A(t_2) = x_B(t_2)$ から、
 
 $$
-\begin{align}
+\begin{aligned}
 e = \frac{7 \pi + 3}{14 \pi - 3}
-\end{align}
+\end{aligned}
 $$
 
 を得る。

@@ -15,23 +15,23 @@ keywords: Tokyo-University, 2020
 また、運動量に関する積分は、1成分について、次のように計算できる：
 
 $$
-\begin{align}
+\begin{aligned}
 \int_{-\infty}^\infty e^{- \beta \frac{p^2}{2m}} dp
 = \sqrt{\frac{2 \pi m}{\beta}}
-\end{align}
+\end{aligned}
 $$
 
 よって、全体の分配関数は、
 
 $$
-\begin{align}
+\begin{aligned}
 Z^{(g)}(V, \beta, N)
 &= \frac{1}{N!} \frac{V^N}{(2 \pi \hbar)^{3N}}
 \left( \frac{2 \pi m}{\beta} \right)^{3N/2}
 \\
 &= \frac{V^N}{N!}
 \left( \frac{m}{2 \pi \hbar^2 \beta} \right)^{3N/2}
-\end{align}
+\end{aligned}
 $$
 
 となる。
@@ -39,7 +39,7 @@ $$
 ### \[2\]
 
 $$
-\begin{align}
+\begin{aligned}
 Z_G^{(g)}(V, \beta, \mu)
 &=
 \sum_{N=0}^\infty Z^{(g)}(V, \beta, N) e^{\beta \mu N}
@@ -58,13 +58,13 @@ V \left( \frac{m}{2 \pi \hbar^2 \beta} \right)^{3/2} e^{\beta \mu}
 \exp \left[
 V \left( \frac{m}{2 \pi \hbar^2 \beta} \right)^{3/2} e^{\beta \mu}
 \right]
-\end{align}
+\end{aligned}
 $$
 
 ### \[3\]
 
 $$
-\begin{align}
+\begin{aligned}
 P(\beta, \mu)
 &=
 \frac{1}{\beta} \frac{\partial}{\partial V} \log Z_G^{(g)}(V, \beta, \mu)
@@ -82,13 +82,13 @@ V \left( \frac{m}{2 \pi \hbar^2 \beta} \right)^{3/2} e^{\beta \mu}
 &=
 \left( \frac{m}{2 \pi \hbar^2} \right)^{3/2}
 \frac{e^{\beta \mu}}{\beta^{5/2}}
-\end{align}
+\end{aligned}
 $$
 
 ### \[4\]
 
 $$
-\begin{align}
+\begin{aligned}
 \xi_G^{(a)} (\beta, \mu)
 &=
 e^{-\beta \cdot 0} \cdot e^{\beta \mu \cdot 0}
@@ -96,40 +96,40 @@ e^{-\beta \cdot 0} \cdot e^{\beta \mu \cdot 0}
 \\
 &=
 1 + e^{\beta (\mu + \varepsilon)}
-\end{align}
+\end{aligned}
 $$
 
 ### \[5\]
 吸着格子全体の大分配関数は、
 
 $$
-\begin{align}
+\begin{aligned}
 \Xi_G^{(a)} (\beta, \mu, N_a)
 &=
 \left( \xi_G^{(a)} (\beta, \mu) \right)^{N_a}
 \\
 &=
 \left( 1 + e^{\beta (\mu + \varepsilon)} \right)^{N_a}
-\end{align}
+\end{aligned}
 $$
 
 であり、グランドポテンシャルは、
 
 $$
-\begin{align}
+\begin{aligned}
 \Omega (\beta, \mu, N_a)
 &= - \frac{1}{\beta} \log \Xi_G^{(a)} (\beta, \mu, N_a)
 \\
 &=
 - \frac{N_a}{\beta}
 \log \left( 1 + e^{\beta (\mu + \varepsilon)} \right)
-\end{align}
+\end{aligned}
 $$
 
 であり、よって、
 
 $$
-\begin{align}
+\begin{aligned}
 N_a n_a
 &= - \frac{\partial \Omega (\beta, \mu, N_a)}{\partial \mu}
 \\
@@ -145,7 +145,7 @@ N_a \frac{1}{1 + e^{- \beta (\mu + \varepsilon)} }
 n_a
 &=
 \frac{1}{1 + e^{- \beta (\mu + \varepsilon)} }
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -154,25 +154,25 @@ $$
 \[3\] より、
 
 $$
-\begin{align}
+\begin{aligned}
 e^{- \beta \mu}
 =
 \left( \frac{m}{2 \pi \hbar^2} \right)^{3/2}
 \frac{1}{\beta^{5/2} P}
-\end{align}
+\end{aligned}
 $$
 
 であるから、これを \[5\] に代入して、
 
 $$
-\begin{align}
+\begin{aligned}
 n_a
 &=
 \frac{1}{1 + 
 \left( \frac{m}{2 \pi \hbar^2} \right)^{3/2}
 \frac{e^{- \beta \varepsilon}}{\beta^{5/2} P}
 }
-\end{align}
+\end{aligned}
 $$
 
 を得る。

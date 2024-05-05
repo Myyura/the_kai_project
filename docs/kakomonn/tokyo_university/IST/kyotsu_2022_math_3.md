@@ -33,40 +33,40 @@ A の座標を $(X,Y)$ とすると、 $X,Y$ は互いに独立な確率変数�
 よって、求める期待値は、
 
 $$
-\begin{align}
+\begin{aligned}
 E(S)
 &= E(XY)
 \\
 &= E(X)E(Y)
 \\
 &= \frac{1}{4}
-\end{align}
+\end{aligned}
 $$
 
 ### (2)
 求める確率は、
 
 $$
-\begin{align}
+\begin{aligned}
 P(S \leq r)
 &= r + \int_r^1 \frac{r}{x} dx
 \\
 &= r + r \left[ \log x \right]_r^1
 \\
 &= r - r \log r
-\end{align}
+\end{aligned}
 $$
 
 ### (3)
 $S$ の確率密度関数 $f(s)$ は、 $0 \lt s \lt 1$ では
 
 $$
-\begin{align}
+\begin{aligned}
 f(s)
 &= \frac{d}{ds} P(S \leq s)
 \\
 &= - \log s
-\end{align}
+\end{aligned}
 $$
 
 であり、それ以外では $0$ である。
@@ -75,7 +75,7 @@ $$
 $0 \lt z \lt 1$ について
 
 $$
-\begin{align}
+\begin{aligned}
 P(Z \leq z)
 &= 1 - P(Z \gt z)
 \\
@@ -85,18 +85,18 @@ P(Z \leq z)
 &= 1 - P(S_1 \gt z) P(S_2 \gt z) \cdots P(S_n \gt z)
 \\
 &= 1 - \left( 1 - z + z \log z \right)^n
-\end{align}
+\end{aligned}
 $$
 
 よって、求める確率密度関数 $g(z)$ は、
 
 $$
-\begin{align}
+\begin{aligned}
 g(z)
 &= \frac{d}{dz} P(Z \leq z)
 \\
 &= -n \log z \left( 1 - z + z \log z \right)^{n-1}
-\end{align}
+\end{aligned}
 $$
 
 である。

@@ -16,12 +16,12 @@ $t'$ 秒間に検出される光子イベント数の平均は $nt'$ である�
 式 (1) より、
 
 $$
-\begin{align}
+\begin{aligned}
 p(t')
 &= \frac{(nt')^0}{0!} e^{-nt'}
 \\
 &= e^{-nt'}
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -30,21 +30,21 @@ $$
 式 (2) の両辺を $t'$ で微分すると、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{dp(t')}{dt'} = - g(t')
-\end{align}
+\end{aligned}
 $$
 
 となるので、
 
 $$
-\begin{align}
+\begin{aligned}
 g(t) 
 &= - \frac{dp(t)}{dt}
 \\
 &= ne^{-nt}
 \ \ \ \ \ \ \ \ ( \because \text{ (a) } )
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -52,7 +52,7 @@ $$
 #### (c)
 
 $$
-\begin{align}
+\begin{aligned}
 \int_0^\infty t g(t) dt
 &= n \int_0^\infty t e^{-nt} dt
 \\
@@ -61,7 +61,7 @@ $$
 &= - \frac{1}{n} \left[ e^{-nt} \right]_0^\infty
 \\
 &= \frac{1}{n}
-\end{align}
+\end{aligned}
 $$
 
 ### 問 2.
@@ -69,7 +69,7 @@ $$
 $0 \leq t \leq T$ の確率が $1/2$ となるような $T$ を求める：
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{1}{2}
 &= \int_0^T g(t) dt
 \\
@@ -82,19 +82,19 @@ $$
 \therefore \ \ 
 T
 &= \frac{1}{n} \ln (2)
-\end{align}
+\end{aligned}
 $$
 
 これに $n=1/50$ \[回/年\] を代入すると、
 
 $$
-\begin{align}
+\begin{aligned}
 T
 &= 50 \times 0.693
 \\
 &= 34.65
 \ \ \text{[年]}
-\end{align}
+\end{aligned}
 $$
 
 を得る。 $1987+34.65=2021.65$ であるから、求める $Y$ は $2021$ であろう。
@@ -107,30 +107,30 @@ $X_s$ と $X_r$ が独立であるとすると、
 $X_m$ は期待値 $mt$ 分散 $\sigma_r^2$ に従うことがわかるので、
 
 $$
-\begin{align}
+\begin{aligned}
 h(X_m)
 &= \frac{1}{\sqrt{2 \pi (mt + \sigma_r^2)}}
 \exp \left( - \frac{(X_m-mt)^2}{2(mt+\sigma_r^2)} \right)
-\end{align}
+\end{aligned}
 $$
 
 #### (b)
 $X_m$ の期待値と標準偏差はそれぞれ
 
 $$
-\begin{align}
+\begin{aligned}
 mt &= 40t
 \\
 \sqrt{mt+\sigma_r^2} &= \sqrt{40t+400}
-\end{align}
+\end{aligned}
 $$
 
 であり、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{40t}{\sqrt{40t+400}} = 30
-\end{align}
+\end{aligned}
 $$
 
 となる $t \ (\gt 0)$ を求めると $t=30$ を得る。これが求める露光時間であろう。
@@ -140,23 +140,23 @@ $\alpha \ (=1,2,\cdots,k)$ 番目のセットの
 $i \ (=1,2,\cdots,j)$ 番目の乱数 $q_i^{(\alpha)}$ とする。(5)式を考慮して、
 
 $$
-\begin{align}
+\begin{aligned}
 z^{(\alpha)}
 &= \frac{1}{\sqrt{\frac{1}{12}} \cdot \sqrt{j}}
 \left( \sum_{i=1}^j q_j^{(\alpha)} - j \cdot \frac{1}{2} \right)
 \\
 &= 2 \sqrt{\frac{3}{j}} \sum_{i=1}^j q_j^{(\alpha)} - \sqrt{3j}
-\end{align}
+\end{aligned}
 $$
 
 とおくと、与えられた性質 (中心極限定理) より、これは標準正規分布に従う。
 よって、さらに
 
 $$
-\begin{align}
+\begin{aligned}
 w_\alpha
 &= \sqrt{mt+\sigma_r^2} z^{(\alpha)} + mt
-\end{align}
+\end{aligned}
 $$
 
 とおくと、与えられた性質 (標準正規分布の線形変換) により、

@@ -58,7 +58,7 @@ $$
 $A$ の固有値を $\lambda$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 0
 &=
 \begin{vmatrix}
@@ -72,7 +72,7 @@ $$
 \\
 &=
 - ( \lambda + 1 ) ( \lambda - 1 ) ( \lambda - 3 )
-\end{align}
+\end{aligned}
 $$
 
 なので、 $\lambda = -1, 1, 3$ である。
@@ -80,7 +80,7 @@ $$
 固有値 $\lambda = -1$ に対応する固有ベクトルを求めるため、
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix}
 1 & \sqrt{2} & 0 \\
 \sqrt{2} & 1 & \sqrt{2} \\
@@ -89,7 +89,7 @@ $$
 \begin{pmatrix} x \\ y \\ z \end{pmatrix}
 =
 - \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと、 $y = - \sqrt{2} x = - \sqrt{2} z$ を得る。
@@ -97,7 +97,7 @@ $$
 固有値 $\lambda = 1$ に対応する固有ベクトルを求めるため、
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix}
 1 & \sqrt{2} & 0 \\
 \sqrt{2} & 1 & \sqrt{2} \\
@@ -106,7 +106,7 @@ $$
 \begin{pmatrix} x \\ y \\ z \end{pmatrix}
 =
 \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと、 $y=0, x+z=0$ を得る。
@@ -114,7 +114,7 @@ $$
 固有値 $\lambda = 3$ に対応する固有ベクトルを求めるため、
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix}
 1 & \sqrt{2} & 0 \\
 \sqrt{2} & 1 & \sqrt{2} \\
@@ -123,7 +123,7 @@ $$
 \begin{pmatrix} x \\ y \\ z \end{pmatrix}
 =
 3 \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと、 $y = \sqrt{2} x = \sqrt{2} z$ を得る。
@@ -132,7 +132,7 @@ $$
 に対応する固有ベクトルは、次のように選べる：
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{1}{2}
 \begin{pmatrix} 1 \\ - \sqrt{2} \\ 1 \end{pmatrix}
 , \ \ 
@@ -142,14 +142,14 @@ $$
 \frac{1}{2}
 \begin{pmatrix} 1 \\ \sqrt{2} \\ 1 \end{pmatrix}
 .
-\end{align}
+\end{aligned}
 $$
 
 ### (2)
 上で求めた固有値・固有ベクトルを使って、次のようにおく：
 
 $$
-\begin{align}
+\begin{aligned}
 V
 =
 \frac{1}{2}
@@ -167,13 +167,13 @@ C
 0 & 0 & 3
 \end{pmatrix}
 .
-\end{align}
+\end{aligned}
 $$
 
 このとき、
 
 $$
-\begin{align}
+\begin{aligned}
 V^{-1}
 &=
 \frac{1}{2}
@@ -184,13 +184,13 @@ V^{-1}
 \end{pmatrix}
 \\
 A &= V C V^{-1}
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 A^n
 &= V C^n V^{-1}
 \\
@@ -225,7 +225,7 @@ A^n
 -\sqrt{2} \cdot (-1)^n + \sqrt{2} \cdot 3^n &
 (-1)^n + 2 + 3^n
 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -233,7 +233,7 @@ $$
 ### (3)
 
 $$
-\begin{align}
+\begin{aligned}
 \exp A
 &=
 \sum_{k=0}^\infty \frac{1}{k!} A^k
@@ -265,35 +265,35 @@ e^{-1} - 2e + e^3 &
 -\sqrt{2} e^{-1} + \sqrt{2} e^3 &
 e^{-1} + 2e + e^3
 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 ### (4)
 $B$ の固有多項式を $\varphi(x)$ とする：
 
 $$
-\begin{align}
+\begin{aligned}
 \varphi(x) = \det (B - xI)
 = -x^3 - x
 .
-\end{align}
+\end{aligned}
 $$
 
 ケーリー・ハミルトンの定理より、
 
 $$
-\begin{align}
+\begin{aligned}
 \varphi(B) &= -B^3 - B = 0
 \\
 \therefore \ \ 
 B^3 &= - B
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 \exp (\alpha B)
 &=
 I + \alpha B + \frac{1}{2!} (\alpha B)^2
@@ -312,7 +312,7 @@ I + \left( \alpha - \frac{1}{3!} \alpha^3 \cdots \right) B
 &=
 I + \left( \sin \alpha \right) B
 + \left( 1 - \cos \alpha \right) B^2
-\end{align}
+\end{aligned}
 $$
 
 となる。
@@ -320,22 +320,22 @@ $$
 ### (5)
 
 $$
-\begin{align}
+\begin{aligned}
 f(x) &= \sum_{k=1}^n ||\exp \bigg( \frac{2k \pi}{n} B \bigg) a - x ||^2 \\
 &= \sum_{k=1}^n \bigg( \exp \bigg( \frac{2k \pi}{n} B \bigg)a - x \bigg)^T \bigg( \exp \bigg( \frac{2k \pi}{n} B \bigg)a - x \bigg) \\
 &= \sum_{k=1}^n \bigg( x^T x - 2a^T \exp \bigg( \frac{2k \pi}{n} B\bigg)^T x + a^T \exp \bigg( \frac{2k \pi}{n} B\bigg)^T \exp \bigg(\frac{2k \pi}{n} B \bigg) a \bigg) \\
 &= \sum_{k=1}^n x^T x - 2a^T \bigg(\sum_{k=1}^n \exp \bigg(\frac{2k \pi}{n} B \bigg) \bigg)^T x + a^T \bigg(\sum_{k=1}^n \exp \bigg( \frac{2k \pi}{n} B\bigg)^T \exp \bigg(\frac{2k \pi}{n} B \bigg) \bigg) a
-\end{align}
+\end{aligned}
 $$
 
 $B$は反対称行列なので、$B^T = -B$、よって
 
 $$
-\begin{align}
+\begin{aligned}
 \exp \bigg( \frac{2k \pi}{n} B\bigg)^T \exp \bigg(\frac{2k \pi}{n} B \bigg) &= \exp \bigg( \frac{2k \pi}{n} B^T\bigg) \exp \bigg(\frac{2k \pi}{n} B \bigg) \\
 &= \exp \bigg(\frac{2k \pi}{n} (B^T + B) \bigg) \\
 &= \exp \big(\frac{2k \pi}{n} O \big) = I
-\end{align}
+\end{aligned}
 $$
 
 また、(4)で得た
@@ -355,37 +355,37 @@ $$
 を得るので
 
 $$
-\begin{align}
+\begin{aligned}
 \sum_{k=1}^n \exp \bigg(\frac{2k \pi}{n} B \bigg) &= \sum_{k=1}^n \bigg(I + \bigg( \sin \frac{2k \pi}{n} \bigg) B
 + \bigg( 1 - \cos \frac{2k \pi}{n} \bigg)B^2 \bigg) \\
 &= \sum_{k=1}^n I + \bigg( \sum_{k=1}^n \sin \bigg( \frac{2k \pi}{n} \bigg) \bigg)B + \sum_{k=1}^n B^2 - \bigg( \sum_{k=1}^n \bigg(\cos \frac{2k \pi}{n} \bigg) \bigg) B^2 \\
 &= nI + 0 + nB^2 - 0 = nI + nB^2
-\end{align}
+\end{aligned}
 $$
 
 がわかる。さらに、
 
 $$
-\begin{align}
+\begin{aligned}
 (I + B^2)^T (1 + B^2) &= I + (B^2)^T + B^2 + (B^2)^T B^2 \\
 &= I + (-B)^2 + B^2 + (-B^2)^2 \\
 &= I + 2B^2 + B^4 \\
 &= I + 2B^2 - B^2 \\
 &= I + B^2
-\end{align}
+\end{aligned}
 $$
 
 となるので、
 
 $$
-\begin{align}
+\begin{aligned}
 f(x) &= nx^Tx - 2na^T (I + B^2)^T x + na^Ta \\
 &= n(x^Tx - 2a^T(I + B^2)^T x + a^Ta) \\
 &= n(x^T x - 2a^T (I + B^2)^T x + a^T (I + B^2 + B^4)a) \\
 &= n(x^T x - 2a^T (I + B^2)^T x + a^T(I + B^2)a + a^TB^4 a) \\
 &= n(x^T x - 2a^T (I + B^2)^T x + a^T(I + B^2)^T(I + B^2)a + a^T(B^2)^TB^2a) \\
 &= n(||x - (I+B^2)a||^2 + ||B^2a||^2)
-\end{align}
+\end{aligned}
 $$
 
 である。つまり、が最小値になるのは

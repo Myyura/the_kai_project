@@ -14,18 +14,18 @@ keywords: Tokyo-University, 2021
 #### 1.
 
 $$
-\begin{align}
+\begin{aligned}
 y(x)
 &= (\arccos x)^{\log x}
 \\
 &= e^{\log x \cdot \log (\arccos x)}
-\end{align}
+\end{aligned}
 $$
 
 なので、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{dy(x)}{dx}
 &= (\arccos x)^{\log x} \cdot
 \frac{d}{dx} \left( \log x \cdot \log (\arccos x) \right)
@@ -37,7 +37,7 @@ $$
 &= (\arccos x)^{\log x}
 \left( \frac{\log (\arccos x)}{x} - 
 \frac{\log x}{\arccos x \sqrt{1-x^2}} \right)
-\end{align}
+\end{aligned}
 $$
 
 #### 2.
@@ -46,18 +46,18 @@ $$
 $p=0$ のときは、
 
 $$
-\begin{align}
+\begin{aligned}
 \int \frac{x^2+x+2}{x^3} dx
 &= \int \left( \frac{1}{x} + \frac{1}{x^2} + \frac{2}{x^3} \right) dx
 \\
 &= \log |x| - \frac{1}{x} - \frac{1}{x^2} + C
-\end{align}
+\end{aligned}
 $$
 
 であり、 $p \ne 0$ のときは、
 
 $$
-\begin{align}
+\begin{aligned}
 \int \frac{x^2+x+2}{x^3-px^2} dx
 &= \int \frac{x^2+x+2}{x^2(x-p)} dx
 \\
@@ -66,7 +66,7 @@ $$
 \\
 &= \frac{1}{p^2} \left(
 - (p+2) \log |x| + \frac{2p}{x} + (p^2+p-2) \log |x-p| \right) + C
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -76,7 +76,7 @@ $x = \sin \phi \ \ (0 \leq \phi \leq \theta \lt \pi/2)$ とすると、
 $dx = \cos \phi d \phi$ なので、
 
 $$
-\begin{align}
+\begin{aligned}
 I
 &= \int_0^{\sin \theta} \frac{\arctan(\arcsin x)}{\sqrt{1-x^2}} dx
 \\
@@ -89,7 +89,7 @@ I
 &= \theta \arctan \theta - \frac{1}{2} \left[ \log \left(1 + \phi^2 \right) \right]_0^\theta
 \\
 &= \theta \arctan \theta - \frac{1}{2} \log \left(1 + \theta^2 \right)
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -98,7 +98,7 @@ $$
 #### 1.
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{df(x)}{dx}
 &= \frac{dp(x)}{dx} \exp (iax) + iap(x) \exp (iax)
 \\
@@ -112,14 +112,14 @@ $$
 &= -ibp(x) \exp (iax) - iaq(x) \exp (-iax)
 \\
 &= -ibf(x) - iag(x)
-\end{align}
+\end{aligned}
 $$
 
 #### 2.
 複素数 $A$ の複素共役を $\bar{A}$ で表す。
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{d}{dx} \left| f(x) \right|^2
 &= \frac{d \overline{f(x)}}{dx} \cdot f(x) + \overline{f(x)} \cdot \frac{df(x)}{dx}
 \\
@@ -131,15 +131,15 @@ $$
 \\
 &= \left( ib \overline{f(x)} + ia \overline{g(x)} \right) g(x)
 + \overline{g(x)} \left( -ib f(x) - ia g(x) \right)
-\end{align}
+\end{aligned}
 $$
 
 なので、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{d}{dx} \left( \left| f(x) \right|^2 + \left| g(x) \right|^2 \right) = 0
-\end{align}
+\end{aligned}
 $$
 
 がわかる。つまり、

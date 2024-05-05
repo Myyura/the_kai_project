@@ -12,7 +12,7 @@ keywords: Tokyo-University, 2022
 ## **Kai**
 ### 1. 
 $$
-\begin{align}
+\begin{aligned}
 \langle \hat{x} \rangle &= \int_{- \infty}^\infty dx \  \psi^*(x) x \psi(x) = \frac{1}{\sqrt{\pi} a} \int_{-\infty}^\infty dx \  x \exp \left( - \frac{x^2}{a^2}\right) = 0 \\
 \langle \hat{x}^2 \rangle &= \int_{- \infty}^\infty dx \  \psi^*(x) x^2 \psi(x) = \frac{1}{\sqrt{\pi} a} \int_{-\infty}^\infty dx \  x^2 \exp \left( - \frac{x^2}{a^2}\right) \\
 &= \frac{1}{\sqrt{\pi} a} \cdot \frac{1}{2} \sqrt{\pi a^6} = \frac{a^2}{2} \\
@@ -21,7 +21,7 @@ $$
 &= - \frac{\hbar^2}{\sqrt{\pi} a^3} \left( \frac{\sqrt{\pi a^6}}{2a^2} - \sqrt{\pi a^2} \right) = \frac{\hbar^2}{2a^2} \\
 \Delta x &= \sqrt{\langle \hat{x}^2 \rangle - \langle \hat{x} \rangle^2} = \frac{a}{\sqrt{2}} \\
 \Delta p &= \sqrt{\langle \hat{p}^2 \rangle - \langle \hat{p} \rangle^2} = \frac{\hbar}{\sqrt{2} a}
-\end{align}
+\end{aligned}
 $$
 
 $\Delta x$ は $a$ に比例し、 $\Delta p$ は $a$ に反比例するので、
@@ -33,11 +33,11 @@ $\Delta x \Delta p = \hbar / 2$ である。
 波動関数 $\varphi(x)$ で表される状態について、
 
 $$
-\begin{align}
+\begin{aligned}
 \langle \hat{O}^\dagger \hat{O} \rangle &= \int_{- \infty}^\infty dx \ \varphi^*(x) \hat{O}^\dagger \hat{O} \varphi(x) \\
 &= \int_{- \infty}^\infty dx \ \left( \hat{O} \varphi(x) \right)^* \hat{O} \varphi(x) \\
 &= \int_{- \infty}^\infty dx \ \left| \hat{O} \varphi(x) \right|^2 \geq 0
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -50,7 +50,7 @@ $\Delta \hat{x} \Delta \hat{p} - \Delta \hat{p} \Delta \hat{x} = i \hbar$
 がわかるので、
 
 $$
-\begin{align}
+\begin{aligned}
 \langle \hat{O}^\dagger \hat{O} \rangle
 &= \left\langle
 \left( t \Delta \hat{x} + i \Delta \hat{p} \right)
@@ -63,7 +63,7 @@ $$
 &= t^2 \left( \Delta x \right)^2 + \hbar t + \left( \Delta p \right)^2 \\
 &= \left( \Delta x \right)^2 \left( t + \frac{\hbar}{2 \left( \Delta x \right)^2} \right)
 - \frac{\hbar^2}{2 \left( \Delta x \right)^2} + \left( \Delta p \right)^2
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -71,10 +71,10 @@ $$
 一方、2. から、任意の実数 $t$ について $\langle \hat{O}^\dagger \hat{O} \rangle \geq 0$ であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 - \frac{\hbar^2}{2 \left( \Delta x \right)^2} + \left( \Delta p \right)^2 &\geq 0 \\
 \therefore \ \ \Delta x \Delta p &\geq \frac{\hbar}{2}
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -85,11 +85,11 @@ $\langle \hat{O}^\dagger \hat{O} \rangle = 0$
 が成り立つということである。3. より、その条件は
    
 $$
-\begin{align}
+\begin{aligned}
 t = - \frac{\hbar}{2 ( \Delta x )^2}
 , \ \ 
 \Delta x \Delta p = \frac{\hbar}{2}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -98,19 +98,19 @@ $$
 次のように書くことにする：
 
 $$
-\begin{align}
+\begin{aligned}
 s^2 = \left( \Delta x \right)^2
 , \ \ 
 \bar{x} = \langle \hat{x} \rangle
 , \ \ 
 \bar{p} = \langle \hat{p} \rangle
-\end{align}
+\end{aligned}
 $$
 
 4. で求めた $t$ を使って $\hat{O}$ は次のようになる：
 
 $$
-\begin{align}
+\begin{aligned}
 \hat{O}
 &= - \frac{\hbar}{2 s^2} \left( \hat{x} - \bar{x} \right)
 - i \left( \hat{p} - \bar{p} \right) \\
@@ -118,13 +118,13 @@ $$
 - i \left( \frac{\hbar}{i} \frac{d}{dx} - \bar{p} \right) \\
 &= - \hbar \left( \frac{d}{dx} + \frac{ x - \bar{x} }{2 s^2} 
 - \frac{i \bar{p}}{\hbar} \right)
-\end{align}
+\end{aligned}
 $$
 
 求める波動関数 $u(x)$ は、$\hat{O} u(x) = 0$ が成り立つので、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{du(x)}{dx}
 &= \left( - \frac{ x - \bar{x} }{2 s^2} + \frac{i \bar{p}}{\hbar} \right) u(x) \\
 \frac{du}{u}
@@ -134,17 +134,17 @@ $$
 \therefore \ \ 
 u(x) &= C \exp \left( - \frac{ (x - \bar{x})^2 }{4 s^2}
 + \frac{i \bar{p} x}{\hbar} \right)
-\end{align}
+\end{aligned}
 $$
 
 ここで $C$ は積分定数であり、規格化条件から $C = 1/(2 \pi s^2)^{1/4}$ がわかるので、結局、
 
 $$
-\begin{align}
+\begin{aligned}
 u(x) = \left( \frac{1}{2 \pi s^2} \right)^\frac{1}{4}
 \exp \left( - \frac{ (x - \bar{x})^2 }{4 s^2}
 + \frac{i \bar{p} x}{\hbar} \right)
-\end{align}
+\end{aligned}
 $$
 
 を得る。

@@ -57,7 +57,7 @@ $\pm, \mp$ はすべて複合同順とする。
 ハミルトン正準方程式は
 
 $$
-\begin{align}
+\begin{aligned}
 \dot{q}
 &= \frac{\partial \mathcal{H}}{\partial p}
 = p
@@ -65,14 +65,14 @@ $$
 \dot{p}
 &= - \frac{\partial \mathcal{H}}{\partial q}
 = - \omega^2 q
-\end{align}
+\end{aligned}
 $$
 
 である。
 これと与えられた補助微分方程式とを使って、
 
 $$
-\begin{align}
+\begin{aligned}
 \dot{\mathcal{I}}(t)
 &= \left( \xi(t) p(t) - \dot{\xi}(t) q(t) \right)
 \left( \dot{\xi}(t) p(t) + \xi(t) \dot{p}(t)
@@ -94,7 +94,7 @@ $$
 \left( p(t) \xi(t) - q(t) \dot{\xi}(t) \right)
 \\
 &= 0
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -103,7 +103,7 @@ $$
 $[Q,P]=i, \ U^\dagger(t)U(t) = U(t)U^\dagger(t) = 1$ より、
 
 $$
-\begin{align}
+\begin{aligned}
 \left[ Q(t), P(t) \right]
 &= U^\dagger(t) Q U(t) U^\dagger(t) P U(t)
 - U^\dagger(t) P U(t) U^\dagger(t) Q U(t)
@@ -114,13 +114,13 @@ $$
 &= U^\dagger(t) [Q,P] P U(t)
 \\
 &= i
-\end{align}
+\end{aligned}
 $$
 
 であり、
 
 $$
-\begin{align}
+\begin{aligned}
 A_\pm(t) A_\mp(t)
 &= \frac{1}{2} \left\{
 \frac{Q(t)}{\xi(t)} \mp i \left( \xi(t)P(t) - \dot{\xi}(t)Q(t) \right)
@@ -135,13 +135,13 @@ A_\pm(t) A_\mp(t)
 \right\}
 \\
 &= I(t) \mp \frac{1}{2}
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 \left[ A_-(t), A_+(t) \right]
 &= \left( I(t) + \frac{1}{2} \right)
 - \left( I(t) - \frac{1}{2} \right)
@@ -150,7 +150,7 @@ $$
 ,\\
 I(t)
 &= A_+(t) A_-(t) + \frac{1}{2}
-\end{align}
+\end{aligned}
 $$
 
 がわかる。
@@ -158,7 +158,7 @@ $$
 ### (iii)
 
 $$
-\begin{align}
+\begin{aligned}
 \dot{U}^\dagger(t)
 &= i U^\dagger(t) H^\dagger(t)
 \\
@@ -219,5 +219,5 @@ A_\pm(t)
 &= \frac{i}{\xi(t)^2} A_+(t) A_-(t) - \frac{i}{\xi(t)^2} A_+(t) A_-(t)
 \\
 &= 0
-\end{align}
+\end{aligned}
 $$

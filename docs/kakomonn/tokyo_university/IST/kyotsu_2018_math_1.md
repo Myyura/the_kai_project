@@ -50,12 +50,12 @@ $\bar{A}=\left (\begin{array}{cccc}
 (5)、任意$m,n,A$に対して，以下の4つの式を満たす$P\in R^{n\times m}$が唯一に決まることを示せ．
 
 $$
-\begin{align}
+\begin{aligned}
 APA=A \\
 PAP=P \\
 (AP)^T=AP \\
 (PA)^T=PA
-\end{align}
+\end{aligned}
 $$
 
 (6)、(3)て求めた$x$と(4)で求めた$x$が，いずれも$x=Pb$の形で表せることを示せ．
@@ -132,10 +132,10 @@ $$
 find its extreme points
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{\partial}{\partial_{x}}L(x,\lambda) &= x-A^T\lambda = 0 \\
 \therefore x &= A^T\lambda
-\end{align}
+\end{aligned}
 $$
 
 then
@@ -147,19 +147,19 @@ $$
 And
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{\partial}{\partial \lambda}L(x,\lambda) &= Ax-b =0 \\
 A_{x} &= b
-\end{align}
+\end{aligned}
 $$
 
 Hence
 
 $$
-\begin{align}
+\begin{aligned}
 b &= AA^T\lambda \\
 \lambda &= (AA^T)^{-1}b
-\end{align}
+\end{aligned}
 $$
 
 Finally

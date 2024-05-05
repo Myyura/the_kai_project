@@ -13,7 +13,7 @@ keywords: Tokyo-University, 2020
 ### (1)
 
 $$
-\begin{align}
+\begin{aligned}
 A^\dagger A
 &= \frac{m \omega}{2 \hbar}
 \left( x - \frac{ip}{m \omega} \right)
@@ -33,13 +33,13 @@ A^\dagger A
 \\
 \therefore \ \ 
 H &= \hbar \omega \left( A^\dagger A + \frac{1}{2} \right)
-\end{align}
+\end{aligned}
 $$
 
 ### (2)
 
 $$
-\begin{align}
+\begin{aligned}
 H \varphi_0
 &=
 \hbar \omega \left( A^\dagger A + \frac{1}{2} \right) \varphi_0
@@ -49,13 +49,13 @@ H \varphi_0
 \\
 \therefore \ \ 
 E_0 &= \frac{1}{2} \hbar \omega
-\end{align}
+\end{aligned}
 $$
 
 ### (3)
 
 $$
-\begin{align}
+\begin{aligned}
 \left[ A, A^\dagger \right]
 &=
 \frac{m \omega}{2 \hbar}
@@ -87,14 +87,14 @@ H \varphi_1
 \\
 \therefore \ \ 
 E_1 &= \frac{3}{2} \hbar \omega
-\end{align}
+\end{aligned}
 $$
 
 ### (4)
 $\left\langle \varphi_0 \right| A \left| \varphi_0 \right\rangle = 0$ で、かつ、
 
 $$
-\begin{align}
+\begin{aligned}
 \left\langle \varphi_{n+1} \right| A \left| \varphi_{n+1} \right\rangle
 &=
 \frac{1}{n+1}
@@ -115,15 +115,15 @@ A \left( \frac{H}{\hbar \omega} - \frac{1}{2} + 1 \right)
 \frac{1}{n+1}
 \left( \frac{E_n}{\hbar \omega} + \frac{1}{2} \right)
 \left\langle \varphi_n \right| A \left| \varphi_n \right\rangle
-\end{align}
+\end{aligned}
 $$
 
 であるから、数学的帰納法により、 $n=0,1,2, \cdots$ に対して、
 
 $$
-\begin{align}
+\begin{aligned}
 \left\langle \varphi_n \right| A \left| \varphi_n \right\rangle = 0
-\end{align}
+\end{aligned}
 $$
 
 が成り立つ。
@@ -131,9 +131,9 @@ $$
 同様にして、
 
 $$
-\begin{align}
+\begin{aligned}
 \left\langle \varphi_n \right| A^\dagger \left| \varphi_n \right\rangle = 0
-\end{align}
+\end{aligned}
 $$
 
 も成り立つ。
@@ -141,17 +141,17 @@ $$
 さらに、
 
 $$
-\begin{align}
+\begin{aligned}
 x = \sqrt{\frac{\hbar}{2m \omega}} \left( A + A^\dagger \right)
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 \left\langle \varphi_n \right| x \left| \varphi_n \right\rangle = 0
-\end{align}
+\end{aligned}
 $$
 
 が $n=0,1,2, \cdots$ について成り立つ。
@@ -160,7 +160,7 @@ $$
 まず、
 
 $$
-\begin{align}
+\begin{aligned}
 \left\langle \varphi_1 \right| V \left| \varphi_0 \right\rangle
 &=
 F \left\langle \varphi_0 \right| A x \left| \varphi_0 \right\rangle
@@ -181,13 +181,13 @@ F \sqrt{\frac{\hbar}{2m \omega}}
 \\
 &=
 F \sqrt{\frac{\hbar}{2m \omega}}
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 c_1(t)
 &=
 \frac{F}{i \hbar} \sqrt{\frac{\hbar}{2m \omega}}
@@ -204,7 +204,7 @@ c_1(t)
 &=
 \frac{F}{\sqrt{2 \hbar \omega^3 m}}
 \left( 1 - e^{i \omega t} \right)
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -212,7 +212,7 @@ $$
 さらに、
 
 $$
-\begin{align}
+\begin{aligned}
 \left| e^{-i \frac{E_0}{\hbar} t} \right|^2
 &= 1
 \\
@@ -225,16 +225,16 @@ $$
 &=
 \frac{F^2}{\hbar \omega^3 m}
 \left( 1 - \cos \omega t \right)
-\end{align}
+\end{aligned}
 $$
 
 であるから、時刻 $t$ において状態 $\varphi_1$ に見いだされる確率は、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{\frac{F^2}{\hbar \omega^3 m} \left( 1 - \cos \omega t \right)}
 { 1 + \frac{F^2}{\hbar \omega^3 m} \left( 1 - \cos \omega t \right)}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -243,7 +243,7 @@ $$
 (3), (5) より
 
 $$
-\begin{align}
+\begin{aligned}
 \left\langle \varphi_0 \right| x \left| \varphi_0 \right\rangle
 &=
 \left\langle \varphi_1 \right| x \left| \varphi_1 \right\rangle
@@ -254,13 +254,13 @@ $$
 \left\langle \varphi_1 \right| x \left| \varphi_0 \right\rangle
 =
 \sqrt{\frac{\hbar}{2m \omega}}
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 \left\langle \psi \right| x \left| \psi \right\rangle
 &=
 c_1^\ast (t) e^{-i \frac{E_0-E_1}{\hbar} t}
@@ -285,7 +285,7 @@ e^{- i \omega t}
 \\
 &=
 \frac{F}{m \omega^2} \left( \cos \omega t - 1 \right)
-\end{align}
+\end{aligned}
 $$
 
 を得る。

@@ -14,12 +14,12 @@ keywords: Tokyo-University, 2022
 #### 1.
 
 $$
-\begin{align}
+\begin{aligned}
 AB
 &= \begin{pmatrix} 36 & -18 & 0 \\ -18 & 54 & -18 \\ 0 & -18 & 36 \end{pmatrix}
 \\
 &= 18 \begin{pmatrix} 2 & -1 & 0 \\ -1 & 3 & -1 \\ 0 & -1 & 2 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 #### 2.
@@ -29,7 +29,7 @@ $$
 $C$ の固有値 $c$ に属する固有ベクトルを $\boldsymbol{w}$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 C \boldsymbol{w} &= c \boldsymbol{w}
 \\
 CD \boldsymbol{w}
@@ -38,16 +38,16 @@ CD \boldsymbol{w}
 &= Dc \boldsymbol{w}
 \\
 &= cD \boldsymbol{w}
-\end{align}
+\end{aligned}
 $$
 
 であり、 $D \boldsymbol{w}$ も $C$ の固有値 $c$ に属する固有ベクトルであることがわかる。
 $C$ の $c$ に属する固有空間は1次元なので、
 
 $$
-\begin{align}
+\begin{aligned}
 D \boldsymbol{w} = d \boldsymbol{w}
-\end{align}
+\end{aligned}
 $$
 
 と書ける。
@@ -59,10 +59,10 @@ $\boldsymbol{w}_1, \boldsymbol{w}_2, \cdots, \boldsymbol{w}_n$ は
 互いに直交し、直交行列
 
 $$
-\begin{align}
+\begin{aligned}
 P =
 \begin{pmatrix} \boldsymbol{w}_1 & \boldsymbol{w}_2 & \cdots & \boldsymbol{w}_n \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 によって $C$ は対角化される。
@@ -75,7 +75,7 @@ $P$ によって $D$ も対角化される。
 $A$ の固有値を $\lambda$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 0
 &= \det \begin{pmatrix}
 7 - \lambda & -2 & 1 \\ -2 & 10 - \lambda & -2 \\ 1 & -2 & 7 - \lambda
@@ -85,7 +85,7 @@ $$
 \\
 \therefore \ \ 
 \lambda &= 6, 12
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -93,21 +93,21 @@ $$
 $A$ の固有値 $12$ に属する固有ベクトルを求めるために、
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} -5 & -2 & 1 \\ -2 & -2 & -2 \\ 1 & -2 & -5 \end{pmatrix}
 \begin{pmatrix} x \\ y \\ z \end{pmatrix}
 =
 \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと、 $-5x-2y+z=0, x+y+z=0, x-2y-5z=0$ であるから、例えば、
 
 $$
-\begin{align}
+\begin{aligned}
 \boldsymbol{x}_1
 = \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 が固有ベクトルである。
@@ -115,24 +115,24 @@ $$
 $A$ の固有値 $6$ に属する固有空間を求めるために、
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} 1 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 1 \end{pmatrix}
 \begin{pmatrix} x \\ y \\ z \end{pmatrix}
 =
 \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とおくと、 $x-2y+z=0$ であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 \boldsymbol{x}_2
 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
 , \ \ 
 \boldsymbol{x}_3
 = \frac{1}{\sqrt{6}} \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 を基底とする空間が固有空間である。
@@ -140,7 +140,7 @@ $$
 $B$ の固有値を $\mu$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 0
 &= \det \begin{pmatrix}
 5-\mu & -1 & -1 \\ -1 & 5-\mu & -1 \\ -1 & -1 & 5-\mu
@@ -150,7 +150,7 @@ $$
 \\
 \therefore \ \ 
 \lambda &= 3, 6
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -158,22 +158,22 @@ $$
 上と同様に考えると、
 
 $$
-\begin{align}
+\begin{aligned}
 \boldsymbol{y}_1
 = \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 は $B$ の固有値 $3$ に属する固有ベクトルであり、
 
 $$
-\begin{align}
+\begin{aligned}
 \boldsymbol{y}_2
 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}
 , \ \ 
 \boldsymbol{y}_3
 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 を基底とする空間が $B$ の固有値 $6$ に属する固有空間である。
@@ -181,21 +181,21 @@ $$
 よって、$\boldsymbol{x}_1$ について、
 
 $$
-\begin{align}
+\begin{aligned}
 A \boldsymbol{x}_1 = 12 \boldsymbol{x}_1
 , \ \ 
 B \boldsymbol{x}_1 = 6 \boldsymbol{x}_1
-\end{align}
+\end{aligned}
 $$
 
 が成り立ち、$\boldsymbol{y}_1$ について、
 
 $$
-\begin{align}
+\begin{aligned}
 A \boldsymbol{y}_1 = 6 \boldsymbol{y}_1
 , \ \ 
 B \boldsymbol{y}_1 = 3 \boldsymbol{y}_1
-\end{align}
+\end{aligned}
 $$
 
 が成り立つ。
@@ -203,20 +203,20 @@ $$
 さらに、 $\boldsymbol{x}_1, \boldsymbol{y}_1$ に直交する規格化されたベクトルとして、
 
 $$
-\begin{align}
+\begin{aligned}
 \boldsymbol{z}
 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 を考えると、
 
 $$
-\begin{align}
+\begin{aligned}
 A \boldsymbol{z} = 6 \boldsymbol{z}
 , \ \ 
 B \boldsymbol{z} = 6 \boldsymbol{z}
-\end{align}
+\end{aligned}
 $$
 
 が成り立つ。
@@ -234,7 +234,7 @@ $A,B$ どちらの固有ベクトルでもない。）
 以上より、
 
 $$
-\begin{align}
+\begin{aligned}
 \left( \boldsymbol{v}, a, b \right)
 =
 &\left( \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}, 12, 6 \right)
@@ -248,7 +248,7 @@ $$
 &\left( \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}, 6, 6 \right)
 , \ \ 
 \left( -\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}, 6, 6 \right)
-\end{align}
+\end{aligned}
 $$
 
 を得る。
@@ -257,41 +257,41 @@ $$
 #### 1.
 
 $$
-\begin{align}
+\begin{aligned}
 A = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 2 & 2 \\ 0 & 2 & 2 \end{pmatrix}
 , \ \ 
 \boldsymbol{b} = \frac{1}{2 \sqrt{2}} \begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 #### 2.
 $A$ の固有値を $\lambda$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 0
 &= \det
 \begin{pmatrix} 2-\lambda & 0 & 0 \\ 0 & 2-\lambda & 2 \\ 0 & 2 & 2-\lambda \end{pmatrix}
 \\
 &= - \lambda(\lambda-2)(\lambda-4)
-\end{align}
+\end{aligned}
 $$
 
 となるので、
 
 $$
-\begin{align}
+\begin{aligned}
 d_1 = 4, d_2 = 2, d_3 = 0
-\end{align}
+\end{aligned}
 $$
 
 つまり、
 
 $$
-\begin{align}
+\begin{aligned}
 D
 = \begin{pmatrix} 4 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 0 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -299,25 +299,25 @@ $$
 固有値 $d_1, d_2, d_3$ に属する規格化された固有ベクトルは、それぞれ、
 
 $$
-\begin{align}
+\begin{aligned}
 \boldsymbol{v}_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
 , \ \ 
 \boldsymbol{v}_2 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
 , \ \ 
 \boldsymbol{v}_3 = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1 \\ -1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 なので、
 
 $$
-\begin{align}
+\begin{aligned}
 P^T
 = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 & \sqrt{2} & 0 \\ 1 & 0 & 1 \\ 1 & 0 & -1 \end{pmatrix}
 , \ \ 
 P
 = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 & 1 & 1 \\ \sqrt{2} & 0 & 0 \\ 0 & 1 & -1 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 とすると、 $A = P^T DP$ となる。
@@ -325,7 +325,7 @@ $$
 #### 3.
 
 $$
-\begin{align}
+\begin{aligned}
 f(x,y,z)
 &=
 \begin{pmatrix} x & y & z \end{pmatrix} A \begin{pmatrix} x \\ y \\ z \end{pmatrix}
@@ -341,20 +341,20 @@ f(x,y,z)
 \\
 &=
 4X^2+2Y^2-Z
-\end{align}
+\end{aligned}
 $$
 
 #### 4.
 平面 $y-z-\sqrt{2}=0$ は次のように書き直せる：
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{pmatrix} 0 & 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix}
 &= \sqrt{2}
 \\
 \begin{pmatrix} 0 & 1 & -1 \end{pmatrix} P^T \begin{pmatrix} X \\ Y \\ Z \end{pmatrix}
 &= \sqrt{2}
-\end{align}
+\end{aligned}
 $$
 
 これを整理して $Z=1$ を得る。
@@ -362,19 +362,19 @@ $$
 また、 3. で得た
 
 $$
-\begin{align}
+\begin{aligned}
 4X^2 + 2Y^2 - Z = 0
-\end{align}
+\end{aligned}
 $$
 
 は、 $Z (\gt 0)$ を固定すると、 $X,Y$ に関する楕円の方程式であり、その面積 $S(Z)$ は、
 
 $$
-\begin{align}
+\begin{aligned}
 S(Z)
 = \pi \sqrt{\frac{Z}{4}} \sqrt{\frac{Z}{2}}
 = \frac{\pi}{2 \sqrt{2}} Z
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -382,11 +382,11 @@ $$
 よって、求める体積は、
 
 $$
-\begin{align}
+\begin{aligned}
 \int_0^1 S(Z) dZ
 = \frac{\pi}{2 \sqrt{2}} \int_0^1 Z dZ
 = \frac{\pi}{4 \sqrt{2}}
-\end{align}
+\end{aligned}
 $$
 
 である。

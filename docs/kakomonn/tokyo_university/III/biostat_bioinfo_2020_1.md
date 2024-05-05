@@ -22,7 +22,7 @@ keywords: Tokyo-University, 2020
 なぜなら、
 
 $$
-\begin{align}
+\begin{aligned}
 E(Y)
 &=
 E(2X^2)
@@ -35,7 +35,7 @@ E(2X^2)
 2 \cdot \left( 4^2 + 2^2 \right)
 =
 40
-\end{align}
+\end{aligned}
 $$
 
 ### (1-4)
@@ -53,11 +53,11 @@ $$
 なぜなら、
 
 $$
-\begin{align}
+\begin{aligned}
 1 - {}_4 C_2 \left( \frac{1}{2} \right)^4
 = \frac{5}{8}
 = 0.625
-\end{align}
+\end{aligned}
 $$
 
 ### (1-8)
@@ -66,7 +66,7 @@ $$
 なぜなら、求める対象者数を $n$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 0.99^n &= 0.5
 \\
 n \ln 0.99 &= \ln 0.5
@@ -74,7 +74,7 @@ n \ln 0.99 &= \ln 0.5
 n \cdot \left( 0.99 - 1 \right) &\approx - 0.69
 \\
 n &\approx 69
-\end{align}
+\end{aligned}
 $$
 
 ### (1-9)

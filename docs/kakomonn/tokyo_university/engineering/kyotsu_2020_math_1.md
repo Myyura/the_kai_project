@@ -16,7 +16,7 @@ keywords: Tokyo-University, 2020
 $y=x^2-1$ として、
 
 $$
-\begin{align}
+\begin{aligned}
 I
 &= \int_1^\infty x^5 e^{-x^4+2x^2-1} dx
 \\
@@ -25,13 +25,13 @@ I
 &= \int_0^\infty (y+1)^2 e^{-y^2} \frac{dy}{2}
 \\
 &= \frac{1}{2} \int_0^\infty (y^2+2y+1) e^{-y^2} dy
-\end{align}
+\end{aligned}
 $$
 
 ここで、
 
 $$
-\begin{align}
+\begin{aligned}
 \int_0^\infty e^{-y^2} dy &= \frac{1}{2} \sqrt{\pi}
 \\
 \int_0^\infty y e^{-y^2} dy
@@ -43,15 +43,15 @@ $$
 = - \frac{1}{2} \left[ y e^{-y^2} \right]_0^\infty
 + \frac{1}{2} \int_0^\infty e^{-y^2} dy
 = \frac{1}{4} \sqrt{\pi}
-\end{align}
+\end{aligned}
 $$
 
 なので、
 
 $$
-\begin{align}
+\begin{aligned}
 I = \frac{4+3\pi}{8}
-\end{align}
+\end{aligned}
 $$
 
 ### III.

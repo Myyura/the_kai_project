@@ -13,7 +13,7 @@ keywords: Tokyo-University, 2018
 ### (2-1)
 
 $$
-\begin{align}
+\begin{aligned}
 \iint_{0 \lt x \lt y \lt 2} xy dx dy
 &= \int_0^2 \left( \int_0^y x dx \right) y dy
 \\
@@ -27,13 +27,13 @@ $$
 \\
 \therefore \ \ \ \ 
 c &= \frac{1}{2}
-\end{align}
+\end{aligned}
 $$
 
 ### (2-2)
 
 $$
-\begin{align}
+\begin{aligned}
 \int_0^{1/2} f_{X,Y} \left(x, \frac{1}{2} \right) dx
 &= \frac{1}{4} \int_0^{1/2} x dx
 = \frac{1}{4} \left[ \frac{x^2}{2} \right]_0^{1/2}
@@ -43,24 +43,24 @@ $$
 &= \frac{1}{4} \int_0^{1/4} x dx
 = \frac{1}{4} \left[ \frac{x^2}{2} \right]_0^{1/4}
 = \frac{1}{2^7}
-\end{align}
+\end{aligned}
 $$
 
 であるから、
 
 $$
-\begin{align}
+\begin{aligned}
 P(0 \lt X \lt 1/4 | Y=1/2)
 = \frac{\frac{1}{2^7}}{\frac{1}{2^5}}
 = \frac{1}{4}
-\end{align}
+\end{aligned}
 $$
 
 ### (2-3)
 $X,Y$ の周辺密度関数をそれぞれ $f_X(x), f_Y(y)$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 f_X(x)
 &= \int_x^2 f_{X,Y}(x,y) dy
 = \frac{x}{2} \int_x^2 y dy
@@ -73,7 +73,7 @@ f_Y(y)
 = \frac{y}{2} \int_0^y x dx
 = \frac{y}{2} \left[ \frac{x^2}{2} \right]_0^y
 = \frac{y^3}{4}
-\end{align}
+\end{aligned}
 $$
 
 であるから、
@@ -85,7 +85,7 @@ $X$ と $Y$ は独立ではない。
 期待値を $E$ で表すと、
 
 $$
-\begin{align}
+\begin{aligned}
 E(X)
 &= \int_0^2 x f_X(x) dx
 = \int_0^2 \left( x^2 - \frac{x^4}{4} \right) dx
@@ -114,7 +114,7 @@ r_{XY}
 &= E(XY) - E(X) E(Y)
 = \frac{16}{9} - \frac{16}{15} \cdot \frac{8}{5}
 = \frac{16}{225}
-\end{align}
+\end{aligned}
 $$
 
 ### (2-5)

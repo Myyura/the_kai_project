@@ -37,14 +37,14 @@ keywords: Tokyo-University, 2019
 なぜなら、
 
 $$
-\begin{align}
+\begin{aligned}
 P(Y=1 | X=2)
 &= \frac{P(X=2 \text{ and } Y=1)}{P(X=2)}
 \\
 &= \frac{0.02}{0.02+0.08+0.03+0.03+0.01+0.01}
 \\
 &= \frac{1}{9}
-\end{align}
+\end{aligned}
 $$
 
 ### (1-7)
@@ -53,12 +53,12 @@ $$
 なぜなら、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{3}{10} \frac{2}{9} + \frac{7}{10} \frac{3}{9} 
 = \frac{2+7}{30}
 = \frac{9}{30}
 = \frac{3}{10}
-\end{align}
+\end{aligned}
 $$
 
 ### (1-8)
@@ -67,14 +67,14 @@ $$
 なぜなら、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{d}{dp} \log \frac{p}{1-p}
 &= \frac{d}{dp} \left( \log p - \log (1-p) \right)
 \\
 &= \frac{1}{p} - \frac{-1}{1-p}
 \\
 &= \frac{1}{p} + \frac{1}{1-p}
-\end{align}
+\end{aligned}
 $$
 
 ### (1-9)
@@ -86,7 +86,7 @@ $$
 なぜなら、
 
 $$
-\begin{align}
+\begin{aligned}
 \int_0^1 x^2 (1-x)^2 dx
 &= \int_0^1 (x^4 - 2x^3 + x^2) dx
 = \left[ \frac{x^5}{5} - \frac{x^4}{2} + \frac{x^3}{3} \right]_0^1
@@ -94,7 +94,7 @@ $$
 &= \frac{1}{5} - \frac{1}{2} + \frac{1}{3}
 = \frac{6-15+10}{30}
 = \frac{1}{30}
-\end{align}
+\end{aligned}
 $$
 
 ### (1-11)
@@ -104,13 +104,13 @@ $$
 $x^2 = t, \ 2xdx=dt$ であり、
 
 $$
-\begin{align}
+\begin{aligned}
 \int_0^\infty t^{-1/2} e^{-t} dt
 &= \int_0^\infty x^{-1} e^{-x^2} 2xdx
 = 2 \int_0^\infty e^{-x^2} dx
 = 2 \cdot \frac{\sqrt{\pi}}{2}
 = \sqrt{\pi}
-\end{align}
+\end{aligned}
 $$
 
 ### (1-12)
@@ -119,13 +119,13 @@ $$
 なぜなら、期待値と分散をそれぞれ $E, V$ で表すと、
 
 $$
-\begin{align}
+\begin{aligned}
 E(X^2) &= V(X) + E(X)^2 = 9 + 3^2 = 18
 \\
 E(Y^2) &= V(Y) + E(Y)^2 = 4 + 2^2 = 8
 \\
 E(X^2+Y^2) &= E(X^2) + E(Y^2) = 18 + 8 = 26
-\end{align}
+\end{aligned}
 $$
 
 ### (1-13)
@@ -136,7 +136,7 @@ $$
 なぜなら、 $f(t) = \lambda \exp(- \lambda t)$ とすると、
 
 $$
-\begin{align}
+\begin{aligned}
 P(T \gt t)
 &= 1 - \int_0^t f(s) ds
 = 1 - \lambda \int_0^t e^{- \lambda s} ds
@@ -149,7 +149,7 @@ P(T \gt t_2 | T \gt t_1)
 &= \frac{P(T \gt t_2)}{P(T \gt t_1)}
 = \frac{e^{- \lambda t_2}}{e^{- \lambda t_1}}
 = e^{- \lambda (t_2 - t_1)}
-\end{align}
+\end{aligned}
 $$
 
 ### (1-15)
@@ -167,11 +167,11 @@ $$
 なぜなら、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{\frac{132}{88}}{\frac{108}{192}}
 = \frac{132}{88} \cdot \frac{192}{108}
 = 2.66 \cdots
-\end{align}
+\end{aligned}
 $$
 
 ### (1-19)

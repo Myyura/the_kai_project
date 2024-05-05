@@ -47,7 +47,7 @@ $\text{O} - xyz$座標系上に点$A$、$B$、$C$がそれぞれ$(4, 5, 7)$、$(
 ### 第1問
 
 $$
-\begin{align}
+\begin{aligned}
 I
 &= \int_0^\pi e^x \sin(x) \cos(x) dx
 \\
@@ -64,14 +64,14 @@ I
 \\
 \therefore \ \ 
 I &= \frac{1 - e^\pi}{5}
-\end{align}
+\end{aligned}
 $$
 
 ### 第2問
 #### (1)
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{1}{2}
 \left|
 \overrightarrow{\mathrm{OA}} \times \overrightarrow{\mathrm{OB}}
@@ -81,13 +81,13 @@ $$
 &= \frac{1}{2} \cdot 2 \sqrt{26}
 \\
 &= \sqrt{26}
-\end{align}
+\end{aligned}
 $$
 
 #### (2)
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{1}{6}
 \left|
 \left( \overrightarrow{\mathrm{OA}} \times \overrightarrow{\mathrm{OB}} \right)
@@ -96,7 +96,7 @@ $$
 &= \frac{1}{6} \cdot 50
 \\
 &= \frac{25}{3}
-\end{align}
+\end{aligned}
 $$
 
 ### 第3問
@@ -108,17 +108,17 @@ $\mathrm{B}$ の $\mathrm{P}$ からの高さを $h$ (メートル) とする。
 このとき、
 
 $$
-\begin{align}
+\begin{aligned}
 \tan \theta = \frac{h}{200}
-\end{align}
+\end{aligned}
 $$
 
 であり、
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{\dot{\theta}}{\cos^2 \theta} = \frac{\dot{h}}{200}
-\end{align}
+\end{aligned}
 $$
 
 が成り立つ。
@@ -127,12 +127,12 @@ $$
 $\cos^2 \theta = 4/5$ であるので、このとき、
 
 $$
-\begin{align}
+\begin{aligned}
 \dot{\theta}
 &= \frac{4}{5} \cdot \frac{25}{200}
 \\
 &= \frac{1}{10}
-\end{align}
+\end{aligned}
 $$
 
 である。
@@ -144,7 +144,7 @@ $$
 1つの受信機がこの円から出る瞬間に、その隣の受信機がこの円に入るとすると、
 
 $$
-\begin{align}
+\begin{aligned}
 L^2
 &= D^2 - \left( \frac{D}{4} \right)^2
 \\
@@ -152,7 +152,7 @@ L^2
 \\
 \therefore \ \ 
 L &= \frac{\sqrt{15}}{4} D
-\end{align}
+\end{aligned}
 $$
 
 であり、これが求める $L$ の最大値である。
@@ -163,7 +163,7 @@ $$
 1つの受信機がこの円から出る瞬間に、その隣の隣の受信機がこの円に入るとすると、
 
 $$
-\begin{align}
+\begin{aligned}
 L^2
 &= D^2 - \left( \frac{D}{2} \right)^2
 \\
@@ -171,7 +171,7 @@ L^2
 \\
 \therefore \ \ 
 L &= \frac{\sqrt{3}}{2} D
-\end{align}
+\end{aligned}
 $$
 
 であり、これが求める $L$ の最大値である。
