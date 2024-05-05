@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2021
 ## **Source**
 [東京大学 大学院 工学系研究科 2021年度 数学2 (主に線形代数)](https://www.t.u-tokyo.ac.jp/soe/admission/general-past)
 
+By: Miyake
+
 ## **Description**
 
 ## **Kai**

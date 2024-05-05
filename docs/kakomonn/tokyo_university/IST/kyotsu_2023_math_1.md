@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2023
 ## **Source**
 東京大学 大学院 情報理工学研究科 2023年度 数学 第1問
 
+By: Miyake
+
 ## **Description**
 
 ## **Kai**

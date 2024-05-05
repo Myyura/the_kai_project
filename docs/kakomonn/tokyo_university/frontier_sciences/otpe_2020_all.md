@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2020
 ## **Source**
 東京大学 大学院 新領域創成科学研究科 海洋技術環境学専攻 2020年度
 
+By: Miyake
+
 ## **Description**
 ### 第1問
 次の定積分を求めよ。

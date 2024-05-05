@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2020
 ## **Source**
 東京大学 大学院 情報理工学研究科 2020年度 数学 第1問
 
+By: Miyake
+
 ## **Description**
 正方行列$A,B$を
 

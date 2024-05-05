@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2022
 ## **Source**
 東京大学 大学院 情報理工学研究科 2022年度 数学 第1問
 
+By: Miyake
+
 ## **Description**
 $\alpha\ge 1$と$n>0$に対し以下の積分$I_{n}(\alpha)$を考える．
 

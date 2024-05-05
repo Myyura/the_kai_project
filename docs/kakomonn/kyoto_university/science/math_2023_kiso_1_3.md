@@ -7,6 +7,8 @@ keywords: Kyoto-University, 2023
 ## **Source**
 京都大学 大学院 理学研究科 数学・数理解析専攻 2024年度 基礎科目 \[1\] ~\[3\]
 
+By: Miyake
+
 ## **Description**
 ### \[2\]
 $a$ を実数とし, 実 $2 \times 4$ 行列 $A, B$ を

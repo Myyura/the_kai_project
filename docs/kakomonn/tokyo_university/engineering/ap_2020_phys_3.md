@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2020
 ## **Source**
 東京大学 大学院 工学系研究科 物理工学専攻 2020年度 物理学 第3問
 
+By: Miyake
+
 ## **Description**
 
 ## **Kai**

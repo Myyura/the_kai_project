@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2022
 ## **Source**
 東京大学 大学院 理学系研究科 物理学専攻 2022年度 専門科目 第1問
 
+By: Miyake
+
 ## **Description**
 
 ## **Kai**

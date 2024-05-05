@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2022
 ## **Source**
 [東京大学 大学院 工学系研究科 2022年度 数学1 (主に「微分積分および微分方程式」と「級数・フーリエ解析および積分変換」)](https://www.t.u-tokyo.ac.jp/soe/admission/general-past)
 
+By: Miyake
+
 ## **Description**
 
 ## **Kai**

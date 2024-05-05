@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2022
 ## **Source**
 東京大学 大学院 新領域創成科学研究科 海洋技術環境学専攻 2022年度
 
+By: Miyake
+
 ## **Description**
 ### 第1問
 以下の定積分の値を求めよ。

@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2020
 ## **Source**
 東京大学 大学院 理学系研究科 化学専攻 2020年度 数理科学
 
+By: Miyake
+
 ## **Description**
 
 ## **Kai**

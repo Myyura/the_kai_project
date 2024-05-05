@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2019
 ## **Source**
 東京大学 大学院 学際情報学府 学際情報学専攻 生物統計情報学コース 2019年度 専門科目 第1問 （必須問題）
 
+By: Miyake
+
 ## **Description**
 
 ## **Kai**

@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2022
 ## **Source**
 東京大学 大学院 情報理工学研究科 2022年度 数学 第1問
 
+By: Miyake
+
 ## **Description**
 以下の$x,y,z\in \mathbb{R}$関する複数の条件を考える．
 

@@ -7,6 +7,8 @@ keywords: Tokyo-University, 2019
 ## **Source**
 東京大学 大学院 新領域創成科学研究科 海洋技術環境学専攻 2019年度
 
+By: Miyake
+
 ## **Description**
 ### 第6問
 $\triangle ABC$　について、次の等式が成り立つことを証明しなさい。ただし、$a, b, c$はそれぞれ辺$BC$、$CA$、$AB$の長さで、$\theta$は$\angle CAB$の角度である。 

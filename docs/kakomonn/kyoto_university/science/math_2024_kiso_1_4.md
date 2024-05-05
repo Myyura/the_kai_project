@@ -7,6 +7,8 @@ keywords: Kyoto-University, 2024
 ## **Source**
 京都大学 大学院 理学研究科 数学・数理解析専攻 2024年度 基礎科目 \[1\] ~ \[4\]
 
+By: Miyake
+
 ## **Description**
 ### \[2\]
 $a$を複素数とし、複素$3$次正方行列$A$を
