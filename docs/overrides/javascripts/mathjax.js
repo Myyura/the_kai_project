@@ -3,6 +3,7 @@ window.MathJax = {
       load: ['[tex]/boldsymbol']
     },
     tex: {
+      tags: 'ams',
       inlineMath: [["\\(", "\\)"]],
       displayMath: [["\\[", "\\]"]],
       processEscapes: true,
