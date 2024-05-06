@@ -93,7 +93,7 @@ z_{n} \\
 \end{array}\right)
 $$
 
-We have that:
+We have
 
 $$
 x_{n+1}+y_{n+1}+z_{n+1}=
@@ -203,7 +203,7 @@ $$
 $$
 
 ### (3)
-From (2), we have that:
+From (2), we know that
 
 $$
 A(v_{1}\ v_{2}\ v_{3})=(v_{1}\ v_{2}\ v_{3})\text{diag}(\lambda_{1}\ \lambda_{2}\ \lambda_{3})
@@ -279,7 +279,7 @@ q_{3}=\frac{v_{3}}{\Vert v_{3}\Vert}=
 (-\frac{2}{\sqrt{6}}\ \frac{1}{\sqrt{6}}\ \frac{1}{\sqrt{6}})^{T}
 $$
 
-We have,
+We have
 
 $$
 \left (\begin{array}{cccc}
@@ -295,7 +295,7 @@ z_{n} \\
 \end{array}\right)
 $$
 
-Since $0<\alpha<\frac{1}{3}$, A is positive-definite.
+Since $0<\alpha<\frac{1}{3}$, $A$ is positive-definite.
 
 $$
 (q_{1}\ q_{2}\ q_{3})^{-1}=
