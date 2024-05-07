@@ -1,6 +1,6 @@
 window.MathJax = {
     loader: {
-      load: ['[tex]/boldsymbol']
+      load: ['[tex]/boldsymbol', '[tex]/mathtools']
     },
     tex: {
       tags: 'ams',
@@ -8,7 +8,10 @@ window.MathJax = {
       displayMath: [["\\[", "\\]"]],
       processEscapes: true,
       processEnvironments: true,
-      packages: {'[+]': ['boldsymbol']}
+      packages: {
+        '[+]': ['boldsymbol'],
+        '[+]': ['mathtools']
+      }
     },
     options: {
       ignoreHtmlClass: ".*|",
