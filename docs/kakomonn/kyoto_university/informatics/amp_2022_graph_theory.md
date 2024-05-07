@@ -110,8 +110,8 @@ Expanding the right-hand summation and regrouping terms yields
 
 $$
 \begin{aligned}
-\text{val}(f) &= \sum_{v \in V} f(s, v) - \sum_{v \in V}f(v,s) + \sum_{u \in X \setminus \{s\}} \sum_{v \in V} f(u, v) - \sum_{u \in X \setminus \{u\}} \sum_{v \in V} f(v,u) \\
-&= \sum_{v \in V} \Big(f(s,v) + \sum_{u \in X \setminus \{u\}}f(u,v) \Big) - \sum_{v \in V} \Big(f(v,s) + \sum_{u\in X \setminus \{u\}} f(v, u) \Big) \\
+\text{val}(f) &= \sum_{v \in V} f(s, v) - \sum_{v \in V}f(v,s) + \sum_{u \in X \setminus \{s\}} \sum_{v \in V} f(u, v) - \sum_{u \in X \setminus \{s\}} \sum_{v \in V} f(v,u) \\
+&= \sum_{v \in V} \Big(f(s,v) + \sum_{u \in X \setminus \{s\}}f(u,v) \Big) - \sum_{v \in V} \Big(f(v,s) + \sum_{u\in X \setminus \{s\}} f(v, u) \Big) \\
 &= \sum_{v \in V} \sum_{u\in X} f(u, v) - \sum_{v \in V}\sum_{u \in x} f(v, u) \\
 &= \sum_{v \in X} \sum_{u\in X} f(u, v) + \sum_{v \in V \setminus X} \sum_{u\in X} f(u, v) - \sum_{v \in X} \sum_{u \in X} f(v, u) - \sum_{v \in V \setminus X} \sum_{u \in X} f(v, u)
 \end{aligned}
