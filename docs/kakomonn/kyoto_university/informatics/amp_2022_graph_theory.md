@@ -7,7 +7,7 @@ keywords: Kyoto-University, 2022
 ## **Source**
 京都大学 大学院 情報学研究科 数理工学専攻 2022年実施 専門科目 グラフ理論
 
-By: Myyura
+By: 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -112,12 +112,12 @@ $$
 \begin{aligned}
 \text{val}(f) &= \sum_{v \in V} f(s, v) - \sum_{v \in V}f(v,s) + \sum_{u \in X \setminus \{s\}} \sum_{v \in V} f(u, v) - \sum_{u \in X \setminus \{s\}} \sum_{v \in V} f(v,u) \\
 &= \sum_{v \in V} \Big(f(s,v) + \sum_{u \in X \setminus \{s\}}f(u,v) \Big) - \sum_{v \in V} \Big(f(v,s) + \sum_{u\in X \setminus \{s\}} f(v, u) \Big) \\
-&= \sum_{v \in V} \sum_{u\in X} f(u, v) - \sum_{v \in V}\sum_{u \in x} f(v, u) \\
+&= \sum_{v \in V} \sum_{u\in X} f(u, v) - \sum_{v \in V}\sum_{u \in X} f(v, u) \\
 &= \sum_{v \in X} \sum_{u\in X} f(u, v) + \sum_{v \in V \setminus X} \sum_{u\in X} f(u, v) - \sum_{v \in X} \sum_{u \in X} f(v, u) - \sum_{v \in V \setminus X} \sum_{u \in X} f(v, u)
 \end{aligned}
 $$
 
-The two summations $\sum_{v \in X} \sum_{u\in X} f(u, v)$ and $\sum_{v \in X} \sum_{u \in X} f(v, u)$ are actually the same, therefore
+The two summations $\sum_{v \in X} \sum_{u\in X} f(u, v)$ and $\sum_{v \in X} \sum_{u \in X} f(v, u)$ are actually the same, since for all vertices $x, y \in V$ , the term $f(x,y)$ appears once in each summation. therefore
 
 $$
 \begin{aligned}
@@ -194,16 +194,36 @@ $$
 and
 
 $$
-\sum_{u \in V \setminus S} f(v^*, u) = \sum_{u \in V \setminus S} c(v^*, u) \ge 0
+\sum_{u \in V \setminus S} f(v^*, u) = \sum_{u \in V \setminus S} c(v^*, u)
 $$
 
 Hence we have
 
 $$
+\sum_{u \in V \setminus S} c(v^*, u) = \sum_{u \in S \cap X} f(u, v^*) - \sum_{u \in S \cap X} f(v^*, u)
+$$
+
+Since $v^*$ is reachable from $s$ in $N_f$, we know that either
+
+(a) there exists an edge $u v^*, u \in S \cap X$ such that $c_f(u v^*) > 0$, i.e., $f(u, v^*) < c(u, v^*)$
+
+or
+
+(b) there exists an edge $v^* u, u \in S \cap X$ such that $c_f(v^* u) > 0$. i.e., $f(v^*, u) > 0$
+
+Both cases imply that
+
+$$
+\sum_{u \in V \setminus S} c(v^*, u) < \sum_{u \in S \cap X} c(u, v^*) 
+$$
+
+Then we consider the capacity of cut $X \cup \{v^*\}$
+
+$$
 \begin{aligned}
-\sum_{u \in V \setminus S} c(v^*, u) &= \sum_{u \in S \cap X} f(u, v^*) - \sum_{u \in S \cap X} f(v^*, u) \\
-\sum_{u \in V \setminus S} c(v^*, u) &= 0
+\text{Cap}(X \cup \{v^*\}) &= \text{Cap} (X) + \sum_{u \in V \setminus S} c(v^*, u) - \sum_{u \in S \cap X} c(u, v^*) \\
+&< \text{Cap} (X)
 \end{aligned}
 $$
 
-which is contradictory to the definition of $c: E \rightarrow \mathbb{R}_+$.
+which is contradictory to the fact that $X$ is a minimum cut.

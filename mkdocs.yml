@@ -127,6 +127,7 @@ nav:
             - 数学 第1問: kakomonn/tokyo_university/engineering/kyotsu_2017_math_1.md
             - 数学 第2問: kakomonn/tokyo_university/engineering/kyotsu_2017_math_2.md
             - 数学 第3問: kakomonn/tokyo_university/engineering/kyotsu_2017_math_3.md
+            - 数学 第4問: kakomonn/tokyo_university/engineering/kyotsu_2017_math_4.md
         - 物理工学専攻:
           - 2020年度:
             - 物理学 第3問: kakomonn/tokyo_university/engineering/ap_2020_phys_3.md
@@ -205,6 +206,12 @@ nav:
             - II-2C: kakomonn/kyoto_university/science/phys_2022_II_2_C.md
           - 2020年度:
             - I-2 (AB): kakomonn/kyoto_university/science/phys_2020_I_2_AB.md
+        - 地球惑星科学専攻:
+          - 2023年度:
+            - 基礎科目 問題1: kakomonn/kyoto_university/science/eps_2023_kiso_1.md
+        - 化学専攻:
+          - 2023年度:
+            - 物理学 基礎: kakomonn/kyoto_university/science/chem_2023_phys_kiso.md
       - 情報学研究科:
         - 数理工学専攻:
           - 2023年実施:
@@ -214,3 +221,5 @@ nav:
           - 2021年実施:
             - 専門科目 アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_2021_algorithm.md
             - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2021_graph_theory.md
+          - 2020年実施:
+            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2020_graph_theory.md

@@ -1,7 +1,13 @@
+---
+comments: false
+description: 京都大学 大学院 情報学研究科 数理工学専攻 2021年実施 専門科目 グラフ理論
+keywords: Kyoto-University, 2021
+---
+
 ## **Source**
 京都大学 大学院 情報学研究科 数理工学専攻 2021年実施 専門科目 グラフ理論
 
-By: Myyura
+By: 祭音Myyura
 
 ## **Description**
 ### 日本語版
