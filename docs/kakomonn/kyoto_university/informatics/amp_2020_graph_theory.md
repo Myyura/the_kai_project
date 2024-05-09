@@ -214,7 +214,7 @@ $$
 \end{aligned}
 $$
 
-Similarly for the case $(u, u_1) \in E, (u, u_2) \in E$ and the case $(u, u_1) \in E, (u_2, u)$.
+Similarly for the case $(u, u_1) \in E, (u, u_2) \in E$ and the case $(u, u_1) \in E, (u_2, u) \in E$.
 Hence the flow conservation constraint holds.
 
 Finlly, we compute the value $\text{val}(f')$.
