@@ -223,3 +223,19 @@ nav:
             - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2021_graph_theory.md
           - 2020年実施:
             - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2020_graph_theory.md
+        - 知能情報学専攻:
+          - 2021年実施:
+            - 情報学基礎 F1-2: kakomonn/kyoto_university/informatics/ist_2021_kiso_f1_2.md
+          - 2019年実施:
+            - 情報学基礎 F1-1: kakomonn/kyoto_university/informatics/ist_2019_kiso_f1_1.md
+            - 専門科目 S-2 統計学: kakomonn/kyoto_university/informatics/ist_2019_senmon_s_2.md
+        - 先端数理科学専攻:
+          - 2021年実施:
+            - 基礎科目1 基礎科目2: kakomonn/kyoto_university/informatics/ams_2021_kiso_1_2.md
+        - システム科学専攻:
+          - 2019年実施:
+            - 専門科目 確率統計: kakomonn/kyoto_university/informatics/sys_2019_senmon_stat.md
+        - 通信情報システム専攻:
+          - 2021年実施:
+            - 専門基礎A [A-1]: kakomonn/kyoto_university/informatics/cce_2021_senmonkiso_A_1.md
+            - 専門基礎A [A-2]: kakomonn/kyoto_university/informatics/cce_2021_senmonkiso_A_2.md

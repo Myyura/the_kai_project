@@ -1,0 +1,295 @@
+---
+comments: false
+description: 京都大学 大学院 情報学研究科 知能情報学専攻 2019年実施 情報学基礎 F1-1
+keywords: Kyoto-University, 2019
+---
+
+## **Source**
+京都大学 大学院 情報学研究科 知能情報学専攻 2019年実施 情報学基礎 F1-1
+
+By: Miyake
+
+## **Description**
+### 日本語版
+#### 設問1
+以下の $2 \times 2$ 正方行列 $\boldsymbol{A}$ について考える。
+
+$$
+\boldsymbol{A} = 
+    \begin{pmatrix}
+    4 & -2 \\
+    -2 & 7
+    \end{pmatrix}
+$$
+
+このとき、以下の問いに答えよ。
+
+(1) $\boldsymbol{A}$の行列式を求めよ。
+
+(2) $\boldsymbol{A}$の逆行列を求めよ。
+
+(3) $\boldsymbol{A}$の固有値と対応する固有ベクトルを全て求めよ。
+
+(4) $\boldsymbol{A}$は正定値行列か判定せよ。理由も述べよ。
+
+(5) $\boldsymbol{A}$を対角化せよ。
+
+#### 設問2
+任意の実対称行列について、以下の問いに答えよ。
+
+(1) すべての固有値が実数となることを証明せよ。
+
+(2) 異なる固有値に対応する固有ベクトルは直交することを証明せよ。
+
+## **Kai**
+### 設問1
+#### (1)
+
+$$
+\begin{aligned}
+\det A
+= 4 \cdot 7 - (-2) \cdot (-2)
+= 24
+\end{aligned}
+$$
+
+#### (2)
+
+$$
+\begin{aligned}
+A^{-1}
+= \frac{1}{24}
+\begin{pmatrix}
+7 & 2 \\ 2 & 4
+\end{pmatrix}
+\end{aligned}
+$$
+
+#### (3)
+$A$ の固有値 $\lambda$ は次のように求められる：
+
+$$
+\begin{aligned}
+0
+&=
+\det
+\begin{pmatrix}
+4 - \lambda & -2 \\ -2 & 7 - \lambda
+\end{pmatrix}
+= (4 - \lambda)(7 - \lambda) - 4
+= (\lambda - 3)(\lambda - 8)
+\\
+\therefore \ \ 
+\lambda &= 3, 8
+\end{aligned}
+$$
+
+固有値 $\lambda = 3$ に属する固有ベクトルを求めるために、
+次のようにおく：
+
+$$
+\begin{aligned}
+\begin{pmatrix} 4 & -2 \\ -2 & 7 \end{pmatrix}
+\begin{pmatrix} x \\ y \end{pmatrix}
+=
+3
+\begin{pmatrix} x \\ y \end{pmatrix}
+\end{aligned}
+$$
+
+これから $x=2y$ がわかるので、例えば、
+
+$$
+\begin{aligned}
+\begin{pmatrix} 2 \\ 1 \end{pmatrix}
+\end{aligned}
+$$
+
+が求める固有ベクトルである。
+
+固有値 $\lambda = 8$ に属する固有ベクトルを求めるために、
+次のようにおく：
+
+$$
+\begin{aligned}
+\begin{pmatrix} 4 & -2 \\ -2 & 7 \end{pmatrix}
+\begin{pmatrix} x \\ y \end{pmatrix}
+=
+8
+\begin{pmatrix} x \\ y \end{pmatrix}
+\end{aligned}
+$$
+
+これから $2x=-y$ がわかるので、例えば、
+
+$$
+\begin{aligned}
+\begin{pmatrix} 1 \\ -2 \end{pmatrix}
+\end{aligned}
+$$
+
+が求める固有ベクトルである。
+
+#### (4)
+任意の実数 $x,y$ について次のように計算できる：
+
+$$
+\begin{aligned}
+\begin{pmatrix} x & y \end{pmatrix}
+A
+\begin{pmatrix} x \\ y \end{pmatrix}
+&=
+\begin{pmatrix} x & y \end{pmatrix}
+\begin{pmatrix} 4 & -2 \\ -2 & 7 \end{pmatrix}
+\begin{pmatrix} x \\ y \end{pmatrix}
+\\
+&=
+4x^2 - 4xy + 7y^2
+\\
+&=
+4 \left( x - \frac{1}{2} y \right)^2 + 6y^2
+.
+\end{aligned}
+$$
+
+これは $x=y=0$ のときを除いて正の数であるので、
+$A$ は正定値行列である。
+
+#### (5)
+(3) で求めた固有ベクトルを使って、
+
+$$
+\begin{aligned}
+V
+=
+\frac{1}{\sqrt{5}}
+\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+\end{aligned}
+$$
+
+とおくと、その転置行列は、
+
+$$
+\begin{aligned}
+V^T
+=
+\frac{1}{\sqrt{5}}
+\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+\end{aligned}
+$$
+
+となる。
+
+これらを使って、次のように $A$ を対角化できる：
+
+$$
+\begin{aligned}
+V^T A V
+&=
+\frac{1}{5}
+\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+\begin{pmatrix} 4 & -2 \\ -2 & 7 \end{pmatrix}
+\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+\\
+&=
+\begin{pmatrix} 3 & 0 \\ 0 & 8 \end{pmatrix}
+.
+\end{aligned}
+$$
+
+### 設問1
+行列やベクトルのエルミート共役を $\dagger$ ,
+複素数の複素共役を $\ast$ で表す。
+
+#### (1)
+実対称行列 $A$ の固有値を $\alpha$ とし、
+これに属する固有ベクトルを $x$ とする：
+
+$$
+\begin{aligned}
+A x = \alpha x
+\end{aligned}
+$$
+
+両辺に左から $x^\dagger$ をかけると、次を得る：
+
+$$
+\begin{aligned}
+x^\dagger A x = \alpha x^\dagger x
+\end{aligned}
+$$
+
+これのエルミート共役をとり、 $A = A^\dagger$ を使うと、次を得る：
+
+$$
+\begin{aligned}
+x^\dagger A x = \alpha^\ast x^\dagger x
+\end{aligned}
+$$
+
+よって、次を得る：
+
+$$
+\begin{aligned}
+\alpha^\ast x^\dagger x = \alpha x^\dagger x
+\end{aligned}
+$$
+
+$x$ はゼロベクトルではなく $x^\dagger x \gt 0$ なので、
+次を得る：
+
+$$
+\begin{aligned}
+\alpha^\ast = \alpha
+\end{aligned}
+$$
+
+すなわち、固有値 $\alpha$ は実数である。
+
+#### (2)
+実対称行列 $A$ の2つの相異なる固有値を $\alpha, \beta$ とし、
+
+それぞれに属する固有ベクトルを $x, y$ とする：
+
+$$
+\begin{aligned}
+A x = \alpha x
+, \ \ 
+A y = \beta y
+\end{aligned}
+$$
+
+1番目の式の両辺に左から $y^\dagger$ をかけ、
+
+2番目の式の両辺に左から $x^\dagger$ をかけると、
+
+次のようになる：
+
+$$
+\begin{aligned}
+y^\dagger A x = \alpha y^\dagger x
+, \ \ 
+x^\dagger A y = \beta x^\dagger y
+\end{aligned}
+$$
+
+これの2番目の式のエルミート共役をとって、
+
+$A^\dagger = A, \beta^\ast = \beta$ を使うと、次のようになる：
+
+$$
+\begin{aligned}
+y^\dagger A x = \beta y^\dagger x
+\end{aligned}
+$$
+
+よって、次を得る：
+
+$$
+\begin{aligned}
+(\alpha - \beta) y^\dagger x = 0
+\end{aligned}
+$$
+
+$\alpha \ne \beta$ であるから、 $y^\dagger x = 0$
+すなわち $x$ と $y$ は直交する。
