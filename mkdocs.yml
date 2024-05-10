@@ -239,3 +239,6 @@ nav:
           - 2021年実施:
             - 専門基礎A [A-1]: kakomonn/kyoto_university/informatics/cce_2021_senmonkiso_A_1.md
             - 専門基礎A [A-2]: kakomonn/kyoto_university/informatics/cce_2021_senmonkiso_A_2.md
+      - 経営管理大学院:
+        - 2023年度:
+          - 数学 第1問: kakomonn/kyoto_university/management/2023_math_1.md
