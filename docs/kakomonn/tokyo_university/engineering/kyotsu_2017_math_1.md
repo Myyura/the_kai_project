@@ -4,10 +4,10 @@ description: 東京大学 大学院 工学系研究科 2017年度 数学 第1問
 keywords: Tokyo-University, 2017
 ---
 
-## Source
+## **Source**
 東京大学 大学院 工学系研究科 2017年度 数学 第1問
 
-## Description
+## **Description**
 I、以下の定積分を求めよ。
 
 $$
@@ -32,7 +32,7 @@ x^2 \frac{\text{d}^2y}{\text{d}x^2} - x \frac{\text{d}y}{\text{d}x} - 8y = x^2 \
 \end{align}
 $$
 
-## Kai
+## **Kai**
 ### (I)
 
 $$

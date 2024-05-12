@@ -128,6 +128,7 @@ nav:
             - 数学 第2問: kakomonn/tokyo_university/engineering/kyotsu_2017_math_2.md
             - 数学 第3問: kakomonn/tokyo_university/engineering/kyotsu_2017_math_3.md
             - 数学 第4問: kakomonn/tokyo_university/engineering/kyotsu_2017_math_4.md
+            - 数学 第5問: kakomonn/tokyo_university/engineering/kyotsu_2017_math_5.md
         - 物理工学専攻:
           - 2020年度:
             - 物理学 第3問: kakomonn/tokyo_university/engineering/ap_2020_phys_3.md
@@ -219,10 +220,13 @@ nav:
           - 2022年実施:
             - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2022_graph_theory.md
           - 2021年実施:
-            - 専門科目 アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_2021_algorithm.md
+            - 基礎科目 アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_2021_algorithm.md
             - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2021_graph_theory.md
           - 2020年実施:
             - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2020_graph_theory.md
+          - 2019年実施:
+            - 基礎科目 アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_2019_algorithm.md
+            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2019_graph_theory.md
         - 知能情報学専攻:
           - 2021年実施:
             - 情報学基礎 F1-2: kakomonn/kyoto_university/informatics/ist_2021_kiso_f1_2.md

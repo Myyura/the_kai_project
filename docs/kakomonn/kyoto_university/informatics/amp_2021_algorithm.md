@@ -1,3 +1,9 @@
+---
+comments: false
+description: 京都大学 大学院 情報学研究科 数理工学専攻 2021年実施 基礎科目 アルゴリズム基礎
+keywords: Kyoto-University, 2021
+---
+
 ## **Source**
 京都大学 大学院 情報学研究科 数理工学専攻 2021年実施 基礎科目 アルゴリズム基礎
 
@@ -32,7 +38,7 @@ Assume that $G$ is stored in adjacency lists. Answer the following questions.
 
 ## **Kai**
 ### (i)
-We use BFS to compute a shortest path in an unweighted graph.
+We use BFS to compute shortest paths in an unweighted graph.
 
 ```text
 BFS(s, G=(V, E)):

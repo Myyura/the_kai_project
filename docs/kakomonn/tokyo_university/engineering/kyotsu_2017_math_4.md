@@ -4,10 +4,10 @@ description: 東京大学 大学院 工学系研究科 2017年度 数学 第4問
 keywords: Tokyo-University, 2017
 ---
 
-## Source
+## **Source**
 東京大学 大学院 工学系研究科 2017年度 数学 第4問
 
-## Description
+## **Description**
 $0 \leq \theta < 2\pi ,0 \leq \alpha \leq \pi$範囲にある実数$\theta$, $\alpha$に対して, 3次元直交座標系$xyz$における点$P(\cos\theta,\sin\theta,1)$と点$Q(\cos(\theta + \alpha),\sin(\theta + \alpha),-1)$の2点を通る直線$L$を考える。
 
 ### I.
@@ -41,7 +41,7 @@ $$
 ### IV.
 $0 \leq \alpha < \pi$を満たす$\alpha$に対し,　曲面$S$の任意の点においてガウス曲率が$0$以下であることを示せ。
 
-## Kai
+## **Kai**
 ### I.
 直線$L$上の点$M$は,
 

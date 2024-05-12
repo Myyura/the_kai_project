@@ -42,7 +42,7 @@ Prove that $w_{\text{max}}(T^*) \le w_{\text{max}}(T)$ holds for every spanning 
 Let $T^* = (V, E^*)$ be one minimum spanning tree that contains the tree $(X, F)$.
 
 From the connectivity of $T^*$, we know that there exists an edge $e_X \in E^*$ that connects $X$ and $V \setminus X$, i.e. $e_X \in E(X)$.
-We substitute edge $e_X$ by edge $a_F$ and let $T'$ denote thetree after substitution, i.e. $T' = (V, E^* - \{e_X\} + \{a_F\})$.
+We substitute edge $e_X$ by edge $a_F$ and let $T'$ denote thetree after substitution, i.e. $T' = (V, E^* \setminus \{e_X\} \cup \{a_F\})$.
 
 Since $a_F \in E(X)$ is an edge with the minimum weight among the edges in $E(X)$, we know that $w(a_F) \le w(e_X)$.
 
@@ -96,7 +96,7 @@ Since $C(e^{*}_{\max}) \setminus \{e^{*}_{\max}\}$ is a path from $u$ to $v$ in 
 Then we have
 
 $$
-w(T^* - \{e^{*}_{\max}\} + \{f\}) = w(T^*) - w(e^{*}_{\max}) + w(f) <w(T^*)
+w(T^* \setminus \{e^{*}_{\max}\} + \{f\}) = w(T^*) - w(e^{*}_{\max}) + w(f) <w(T^*)
 $$
 
-i.e. the tree $T^* - \{e^{*}_{\max}\} + \{f\}$ is a spanning tree of lower weight than $T^*$, a contradiction.
+i.e. the tree $T^* \setminus \{e^{*}_{\max}\} + \{f\}$ is a spanning tree of lower weight than $T^*$, a contradiction.
