@@ -1,6 +1,6 @@
 ---
 comments: false
-description: 東北大学 大学院 電気・情報系 2021年8月実施 基礎科目 問題6 数学基礎
+description: 東北大学 大学院 工学研究科 電気・情報系 2021年8月実施 基礎科目 問題6 数学基礎
 keywords: Tohoku-University, 2021
 ---
 
