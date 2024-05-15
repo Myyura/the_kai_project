@@ -1,2 +1,5 @@
 # generates
 site
+
+# misc
+.DS_Store
