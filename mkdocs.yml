@@ -312,3 +312,32 @@ nav:
         - 社会科学群:
           - 2022年実施:
             - 8月 問題E-3: kakomonn/tohoku_university/information_sciences/social_2022_8_E3.md
+      - 環境科学研究科:
+        - エネルギー環境群:
+          - 2022年実施:
+            - 8月 基礎科目 数学1: kakomonn/tohoku_university/environmental_studies/ee_2022_8_math_1.md
+            - 8月 基礎科目 数学2: kakomonn/tohoku_university/environmental_studies/ee_2022_8_math_2.md
+      - 医工学研究科:
+        - 医学系コース:
+          - 2023年実施:
+            - 数学基礎 問題1-3: kakomonn/tohoku_university/biomedical_engineering/med_2023_math_1_3.md
+            - 数学基礎 問題4-6: kakomonn/tohoku_university/biomedical_engineering/med_2023_math_4_6.md
+          - 2022年実施:
+            - 数学基礎 問題1-3: kakomonn/tohoku_university/biomedical_engineering/med_2022_math_1_3.md
+            - 数学基礎 問題4-6: kakomonn/tohoku_university/biomedical_engineering/med_2022_math_4_6.md
+    - 大阪大学:
+      - 理学研究科:
+        - 物理学専攻:
+          - 2020年度:
+            - 問題1: kakomonn/osaka_university/science/phys_2020_1.md
+      # - 工学研究科:
+      # - 基礎工学研究科:
+      # - 情報科学研究科:
+        - 情報基礎数学専攻:
+          - 2021年度:
+            - 数学1-3: kakomonn/osaka_university/IST/math_2021_1_3.md
+            - 数学4-5: kakomonn/osaka_university/IST/math_2021_4_5.md
+        - 情報数理学:
+          - 2020年度:
+            - 数理基礎: kakomonn/osaka_university/IST/IPS_2020_suurikiso.md
+            - 数学解析: kakomonn/osaka_university/IST/IPS_2020_suugakukaiseki.md
