@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東京大学 大学院 新領域創成科学研究科 海洋技術環境学専攻 2022年度
-keywords: Tokyo-University, 2022
+title: 東京大学 新領域創成科学研究科 海洋技術環境学専攻 2022年度
+tags:
+  - Tokyo-University
 ---
+# 東京大学 新領域創成科学研究科 海洋技術環境学専攻 2022年度
 
-## **Source**
-東京大学 大学院 新領域創成科学研究科 海洋技術環境学専攻 2022年度
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 ### 第1問

@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東北大学 大学院 工学研究科 電気・情報系 2022年3月実施 基礎科目 問題6 数学基礎
-keywords: Tohoku-University, 2022
+title: 東北大学 工学研究科 電気・情報系 2022年3月実施 基礎科目 問題6 数学基礎
+tags:
+  - Tohoku-University
 ---
+# 東北大学 工学研究科 電気・情報系 2022年3月実施 基礎科目 問題6 数学基礎
 
-## **Source**
-東北大学 大学院 工学研究科 電気・情報系 2022年3月実施 基礎科目 問題6 数学基礎
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

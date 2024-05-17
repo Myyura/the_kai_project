@@ -1,11 +1,12 @@
 ---
 comments: false
-description: 東京大学 大学院 情報理工学研究科 2018年度 数学 第1問
-keywords: Tokyo-University, 2018
+title: 東京大学 情報理工学研究科 2018年度 数学 第1問
+tags:
+  - Tokyo-University
 ---
+# 東京大学 情報理工学研究科 2018年度 数学 第1問
 
-## **Source**
-東京大学 大学院 情報理工学研究科 2018年度 数学 第1問
+## **Author**
 
 ## **Description**
 次の連立一次方程式を解く問題を考える．

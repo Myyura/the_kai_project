@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東北大学 大学院 量子エネルギー工学専攻 2023年8月実施 数学A 1
-keywords: Tohoku-University, 2023
+title: 東北大学 量子エネルギー工学専攻 2023年8月実施 数学A 1
+tags:
+  - Tohoku-University
 ---
+# 東北大学 量子エネルギー工学専攻 2023年8月実施 数学A 1
 
-## **Source**
-東北大学 大学院 量子エネルギー工学専攻 2023年8月実施 数学A 1
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 以下の問いに答えよ。

@@ -1,11 +1,12 @@
 ---
 comments: false
-description: 東京大学 大学院 工学系研究科 2017年度 数学 第2問
-keywords: Tokyo-University, 2017
+title: 東京大学 工学系研究科 2017年度 数学 第2問
+tags:
+  - Tokyo-University
 ---
+# 東京大学 工学系研究科 2017年度 数学 第2問
 
-## **Source**
-東京大学 大学院 工学系研究科 2017年度 数学 第2問
+## **Author**
 
 ## **Description**
 次の3次正方行列式$A$に関する以下の問いに答えよ。

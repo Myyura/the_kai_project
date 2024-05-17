@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東京大学 大学院 理学系研究科 物理学専攻 2020年度 物理学 第1問
-keywords: Tokyo-University, 2020
+title: 東京大学 理学系研究科 物理学専攻 2020年度 物理学 第1問
+tags:
+  - Tokyo-University
 ---
+# 東京大学 理学系研究科 物理学専攻 2020年度 物理学 第1問
 
-## **Source**
-東京大学 大学院 理学系研究科 物理学専攻 2020年度 物理学 第1問
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

@@ -1,11 +1,12 @@
 ---
 comments: false
-description: 東京大学 大学院 工学系研究科 2017年度 数学 第3問
-keywords: Tokyo-University, 2017
+title: 東京大学 工学系研究科 2017年度 数学 第3問
+tags:
+  - Tokyo-University
 ---
+# 東京大学 工学系研究科 2017年度 数学 第3問
 
-## **Source**
-東京大学 大学院 工学系研究科 2017年度 数学 第3問
+## **Author**
 
 ## **Description**
 次の問いに答えよ。ただし, $i$は虚数単位であり, $e$は自然対数の底, $\log$ は自然対数である。

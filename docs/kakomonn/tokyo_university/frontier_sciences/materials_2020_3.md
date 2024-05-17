@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東京大学 大学院 新領域創成科学研究科 物質系専攻 2020年度 第3問
-keywords: Tokyo-University, 2020
+title: 東京大学 新領域創成科学研究科 物質系専攻 2020年度 第3問
+tags:
+  - Tokyo-University
 ---
+# 東京大学 新領域創成科学研究科 物質系専攻 2020年度 第3問
 
-## **Source**
-東京大学 大学院 新領域創成科学研究科 物質系専攻 2020年度 第3問 (物理学)
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

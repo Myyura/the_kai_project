@@ -1,11 +1,12 @@
 ---
 comments: false
-description: 東京大学 大学院 工学系研究科 2017年度 数学 第1問
-keywords: Tokyo-University, 2017
+title: 東京大学 工学系研究科 2017年度 数学 第1問
+tags:
+  - Tokyo-University
 ---
+# 東京大学 工学系研究科 2017年度 数学 第1問
 
-## **Source**
-東京大学 大学院 工学系研究科 2017年度 数学 第1問
+## **Author**
 
 ## **Description**
 I、以下の定積分を求めよ。

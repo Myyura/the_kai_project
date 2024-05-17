@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東北大学 大学院 情報科学研究科 社会科学群 2022年8月実施 問題 E-3
-keywords: Tohoku-University, 2022
+title: 東北大学 情報科学研究科 社会科学群 2022年8月実施 問題 E-3
+tags:
+  - Tohoku-University
 ---
+# 東北大学 情報科学研究科 社会科学群 2022年8月実施 問題 E-3
 
-## **Source**
-東北大学 大学院 情報科学研究科 社会科学群 2022年8月実施 問題 E-3
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 ### 日本語版

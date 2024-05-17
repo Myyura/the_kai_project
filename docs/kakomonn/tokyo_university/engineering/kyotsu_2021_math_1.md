@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東京大学 大学院 工学系研究科 2021年度 数学1
-keywords: Tokyo-University, 2021
+title: 東京大学 工学系研究科 2021年度 数学1
+tags:
+  - Tokyo-University
 ---
+# 東京大学 工学系研究科 2021年度 数学1
 
-## **Source**
-[東京大学 大学院 工学系研究科 2021年度 数学1 (主に微分積分・微分方程式)](https://www.t.u-tokyo.ac.jp/soe/admission/general-past)
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東北大学 大学院 工学研究科 電気・情報系 2018年3月実施 問題4 情報基礎2
-keywords: Tohoku-University, 2018
+title: 東北大学 工学研究科 電気・情報系 2018年3月実施 問題4 情報基礎2
+tags:
+  - Tohoku-University
 ---
+# 東北大学 工学研究科 電気・情報系 2018年3月実施 問題4 情報基礎2
 
-## **Source**
-東北大学 大学院 工学研究科 電気・情報系 2018年3月実施 問題4 情報基礎2
-
-By: 祭音Myyura
+## **Author**
+祭音Myyura
 
 ## **Description**
 ### 日本語版

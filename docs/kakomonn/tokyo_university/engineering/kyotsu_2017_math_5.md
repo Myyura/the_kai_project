@@ -1,11 +1,12 @@
 ---
 comments: false
-description: 東京大学 大学院 工学系研究科 2017年度 数学 第5問
-keywords: Tokyo-University, 2017
+title: 東京大学 工学系研究科 2017年度 数学 第5問
+tags:
+  - Tokyo-University
 ---
+# 東京大学 工学系研究科 2017年度 数学 第5問
 
-## **Source**
-東京大学 大学院 工学系研究科 2017年度 数学 第5問
+## **Author**
 
 ## **Description**
 $t \ge 0$で定義される関数$f(t)$のラプラス変換$F(s) = L[f(t)]$は

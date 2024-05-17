@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東京大学 大学院 工学系研究科 2023年度 数学 第1問
-keywords: Tokyo-University, 2023
+title: 東京大学 工学系研究科 2023年度 数学 第1問
+tags:
+  - Tokyo-University
 ---
+# 東京大学 工学系研究科 2023年度 数学 第1問
 
-## **Source**
-[東京大学 大学院 工学系研究科 2023年度 数学 第1問](https://www.t.u-tokyo.ac.jp/soe/admission/general-past)
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

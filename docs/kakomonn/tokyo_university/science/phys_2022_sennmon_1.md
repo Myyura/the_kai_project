@@ -1,18 +1,19 @@
 ---
 comments: false
-description: 東京大学 大学院 理学系研究科 物理学専攻 2022年度 専門科目 第1問
-keywords: Tokyo-University, 2022
+title: 東京大学 理学系研究科 物理学専攻 2022年度 専門科目 第1問
+tags:
+  - Tokyo-University
 ---
+# 東京大学 理学系研究科 物理学専攻 2022年度 専門科目 第1問
 
-## **Source**
-東京大学 大学院 理学系研究科 物理学専攻 2022年度 専門科目 第1問
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 
 ## **Kai**
 ### 1. 
+
 $$
 \begin{aligned}
 \langle \hat{x} \rangle &= \int_{- \infty}^\infty dx \  \psi^*(x) x \psi(x) = \frac{1}{\sqrt{\pi} a} \int_{-\infty}^\infty dx \  x \exp \left( - \frac{x^2}{a^2}\right) = 0 \\

@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 大阪大学 大学院 情報科学研究科 情報数理学専攻 2020年度 情報数理学 数学解析
-keywords: Osaka-University, 2020
+title: 大阪大学 情報科学研究科 情報数理学専攻 2020年度 情報数理学 数学解析
+tags:
+  - Osaka-University
 ---
+# 大阪大学 情報科学研究科 情報数理学専攻 2020年度 情報数理学 数学解析
 
-## **Source**
-大阪大学 大学院 情報科学研究科 情報数理学専攻 2020年度 情報数理学 数学解析
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

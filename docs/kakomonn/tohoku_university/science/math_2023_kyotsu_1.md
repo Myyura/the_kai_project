@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東北大学 大学院 理学研究科 数学専攻 2023年度 共通問題 [1]
-keywords: Tohoku-University, 2023
+title: 東北大学 理学研究科 数学専攻 2023年度 共通問題 [1]
+tags:
+  - Tohoku-University
 ---
+# 東北大学 理学研究科 数学専攻 2023年度 共通問題 \[1\]
 
-## **Source**
-東北大学 大学院 理学研究科 数学専攻 2023年度 共通問題 \[1\]
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 $V = M_3(\mathbb{R})$ を３次実正方行列全体のなす実ベクトル空間とし、$V$ の部分空間 $W$ を 

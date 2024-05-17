@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東北大学 大学院 工学研究科 機械系 2022年実施 数学A 2
-keywords: Tohoku-University, 2022
+title: 東北大学 工学研究科 機械系 2022年実施 数学A 2
+tags:
+  - Tohoku-University
 ---
+# 東北大学 工学研究科 機械系 2022年実施 数学A 2
 
-## **Source**
-東北大学 大学院 工学研究科 機械系 2022年実施 数学A 2
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

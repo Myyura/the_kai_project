@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東京大学 大学院 工学系研究科 2021年度 数学3
-keywords: Tokyo-University, 2021
+title: 東京大学 工学系研究科 2021年度 数学3
+tags:
+  - Tokyo-University
 ---
+# 東京大学 工学系研究科 2021年度 数学3
 
-## **Source**
-[東京大学 大学院 工学系研究科 2021年度 数学3 (主に複素関数論)](https://www.t.u-tokyo.ac.jp/soe/admission/general-past)
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 
