@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 理学研究科 物理学・宇宙物理学専攻 2022年度 II-2C
-keywords: Kyoto-University, 2022
+title: 京都大学 理学研究科 物理学・宇宙物理学専攻 2022年度 II-2C
+tags:
+  - Kyoto-University
 ---
+# 京都大学 理学研究科 物理学・宇宙物理学専攻 2022年度 II-2C
 
-## **Source**
-京都大学 大学院 理学研究科 物理学・宇宙物理学専攻 2022年度 II-2C （力学）
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

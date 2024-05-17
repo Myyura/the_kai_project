@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 情報学研究科 システム科学専攻 2019年実施 専門科目 【確率統計】
-keywords: Kyoto-University, 2019
+title: 京都大学 情報学研究科 システム科学専攻 2019年実施 専門科目 【確率統計】
+tags:
+  - Kyoto-University
 ---
+# 京都大学 情報学研究科 システム科学専攻 2019年実施 専門科目 【確率統計】
 
-## **Source**
-京都大学 大学院 情報学研究科 システム科学専攻 2019年実施 専門科目 【確率統計】
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 ### 日本語版

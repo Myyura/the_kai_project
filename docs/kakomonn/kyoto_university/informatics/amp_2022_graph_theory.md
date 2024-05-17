@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 情報学研究科 数理工学専攻 2022年実施 専門科目 グラフ理論
-keywords: Kyoto-University, 2022
+title: 京都大学 情報学研究科 数理工学専攻 2022年実施 専門科目 グラフ理論
+tags:
+  - Kyoto-University
 ---
+# 京都大学 情報学研究科 数理工学専攻 2022年実施 専門科目 グラフ理論
 
-## **Source**
-京都大学 大学院 情報学研究科 数理工学専攻 2022年実施 専門科目 グラフ理論
-
-By: 祭音Myyura
+## **Author**
+祭音Myyura
 
 ## **Description**
 ### 日本語版

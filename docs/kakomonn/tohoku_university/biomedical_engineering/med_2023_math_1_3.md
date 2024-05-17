@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 東北大学 大学院 医工学研究科 医学系コース 2023年実施 数学基礎 問題1-3
-keywords: Tohoku-University, 2023
+title: 東北大学 医工学研究科 医学系コース 2023年実施 数学基礎 問題1-3
+tags:
+  - Tohoku-University
 ---
+# 東北大学 医工学研究科 医学系コース 2023年実施 数学基礎 問題1-3
 
-## **Source**
-東北大学 大学院 医工学研究科 医学系コース 2023年実施 数学基礎 問題1-3
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

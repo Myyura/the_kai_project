@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 理学研究科 地球惑星科学専攻 2023年度 基礎科目 問題1
-keywords: Kyoto-University, 2023
+title: 京都大学 理学研究科 地球惑星科学専攻 2023年度 基礎科目 問題1
+tags:
+  - Kyoto-University
 ---
+# 京都大学 理学研究科 地球惑星科学専攻 2023年度 基礎科目 問題1
 
-## **Source**
-京都大学 大学院 理学研究科 地球惑星科学専攻 2023年度 基礎科目 問題1
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 ### \[1\]

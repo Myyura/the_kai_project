@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 理学研究科 物理学・宇宙物理学専攻 2020年度 I-2
-keywords: Kyoto-University, 2020
+title: 京都大学 理学研究科 物理学・宇宙物理学専攻 2020年度 I-2 (AB)
+tags:
+  - Kyoto-University
 ---
+# 京都大学 理学研究科 物理学・宇宙物理学専攻 2020年度 I-2 (AB)
 
-## **Source**
-京都大学 大学院 理学研究科 物理学・宇宙物理学専攻 2020年度 I-2 (AB)
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 ### I-2A（統計力学）

@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 理学研究科 数学・数理解析専攻 2023年度 基礎科目 [1] ~ [3]
-keywords: Kyoto-University, 2023
+title: 京都大学 理学研究科 数学・数理解析専攻 2023年度 基礎科目 [1] ~ [3]
+tags:
+  - Kyoto-University
 ---
+# 京都大学 理学研究科 数学・数理解析専攻 2024年度 基礎科目 \[1\] ~\[3\]
 
-## **Source**
-京都大学 大学院 理学研究科 数学・数理解析専攻 2024年度 基礎科目 \[1\] ~\[3\]
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 ### \[2\]

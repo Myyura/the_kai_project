@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 情報学研究科 先端数理科学専攻 2021年実施 基礎科目1, 基礎科目2
-keywords: Kyoto-University, 2021
+title: 京都大学 情報学研究科 先端数理科学専攻 2021年実施 基礎科目1, 基礎科目2
+tags:
+  - Kyoto-University
 ---
+# 京都大学 情報学研究科 先端数理科学専攻 2021年実施 基礎科目1, 基礎科目2
 
-## **Source**
-京都大学 大学院 情報学研究科 先端数理科学専攻 2021年実施 基礎科目1, 基礎科目2
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 ### 日本語版

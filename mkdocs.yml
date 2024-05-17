@@ -14,29 +14,32 @@ theme:
   custom_dir: docs/overrides/
 
   features:
-      - content.action.edit
-      - content.code.annotate
-      - content.code.copy
-      - content.tooltips
-      - search.highlight
-      - search.share
-      - search.suggest
-      - toc.follow
-      - navigation.top
-      - navigation.tabs
-      - navigation.tabs.sticky
-      - navigation.prune
-      - navigation.footer
-      - navigation.tracking
-      - navigation.instant
-      - navigation.instant.progress
-      - navigation.indexes
-      - navigation.sections # navigation.expand or navigation.sections
-      - content.tabs.link # all code tabs change simultaneously
+    - content.action.edit
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.prune
+    - navigation.footer
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.indexes
+    - navigation.sections # navigation.expand or navigation.sections
+    - content.tabs.link # all code tabs change simultaneously
 
 plugins:
-    - search
-    - img2fig
+  - search
+  - img2fig
+  - tags:
+      tags_file: tags.md
+      tags_hierarchy: true
 
 extra_javascript:
   - overrides/javascripts/mathjax.js
@@ -86,6 +89,15 @@ markdown_extensions:
       permalink: "\ue157"
 
 copyright: <a href="https://github.com/Myyura/the_kai_project" target="_blank">© 2024 The Kai Project</a> All rights reserved.
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Myyura/the_kai_project
+      name: Github
+    - icon: fontawesome/regular/envelope
+      link: mailto:<376672994@qq.com> #联系方式
+      name: Email
 
 # nav
 nav:

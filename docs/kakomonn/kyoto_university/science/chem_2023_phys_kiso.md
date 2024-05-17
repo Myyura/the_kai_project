@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 理学研究科 化学専攻 2023年度 物理学 基礎
-keywords: Kyoto-University, 2023
+title: 京都大学 理学研究科 化学専攻 2023年度 物理学 基礎
+tags:
+  - Kyoto-University
 ---
+# 京都大学 理学研究科 化学専攻 2023年度 物理学 基礎
 
-## **Source**
-京都大学 大学院 理学研究科 化学専攻 2023年度 物理学 基礎
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 

@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 情報学研究科 知能情報学専攻 2019年実施 情報学基礎 F1-1
-keywords: Kyoto-University, 2019
+title: 京都大学 情報学研究科 知能情報学専攻 2019年実施 情報学基礎 F1-1
+tags:
+  - Kyoto-University
 ---
+# 京都大学 情報学研究科 知能情報学専攻 2019年実施 情報学基礎 F1-1
 
-## **Source**
-京都大学 大学院 情報学研究科 知能情報学専攻 2019年実施 情報学基礎 F1-1
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 ### 日本語版

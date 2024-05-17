@@ -1,13 +1,13 @@
 ---
 comments: false
-description: 京都大学 大学院 情報学研究科 通信情報システム専攻 2021年実施 専門基礎A [A-1]
-keywords: Kyoto-University, 2021
+title: 京都大学 情報学研究科 通信情報システム専攻 2021年実施 専門基礎A [A-1]
+tags:
+  - Kyoto-University
 ---
+# 京都大学 情報学研究科 通信情報システム専攻 2021年実施 専門基礎A \[A-1\]
 
-## **Source**
-京都大学 大学院 情報学研究科 通信情報システム専攻 2021年実施 専門基礎A \[A-1\]
-
-By: Miyake
+## **Author**
+Miyake
 
 ## **Description**
 (1) 次の関数 $f(x)$ について以下の問に答えよ。
