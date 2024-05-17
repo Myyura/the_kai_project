@@ -39,7 +39,6 @@ plugins:
   - img2fig
   - tags:
       tags_file: tags.md
-      tags_hierarchy: true
 
 extra_javascript:
   - overrides/javascripts/mathjax.js
@@ -342,9 +341,27 @@ nav:
         - 物理学専攻:
           - 2020年度:
             - 問題1: kakomonn/osaka_university/science/phys_2020_1.md
-      # - 工学研究科:
-      # - 基礎工学研究科:
-      # - 情報科学研究科:
+      - 工学研究科:
+        - 電気電子情報工学専攻:
+          - 2020年度:
+            - 基礎科目【数学1】: kakomonn/osaka_university/engineering/eei_2020_kiso_1.md
+            - 基礎科目【数学3】: kakomonn/osaka_university/engineering/eei_2020_kiso_3.md
+        - 環境・エネルギー工学科:
+          - 2020年度:
+            - 数学 (1): kakomonn/osaka_university/engineering/see_2020_math_1.md
+            - 数学 (2): kakomonn/osaka_university/engineering/see_2020_math_2.md
+            - 数学 (3): kakomonn/osaka_university/engineering/see_2020_math_3.md
+      - 基礎工学研究科:
+        - 機械科学 (機能創成専攻):
+          - 2023年度:
+            - 機械科学I 問題3: kakomonn/osaka_university/engineering_sciences/me_2023_I_3.md
+        - 知能システム学:
+          - 2023年度:
+            - I-1: kakomonn/osaka_university/engineering_sciences/sys_2023_I_1.md
+        - 生体システム工学:
+          - 2022年度:
+            - II-1: kakomonn/osaka_university/engineering_sciences/bio_sys_2022_II_1.md
+      - 情報科学研究科:
         - 情報基礎数学専攻:
           - 2021年度:
             - 数学1-3: kakomonn/osaka_university/IST/math_2021_1_3.md
