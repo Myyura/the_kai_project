@@ -361,6 +361,26 @@ nav:
         - 生体システム工学:
           - 2022年度:
             - II-1: kakomonn/osaka_university/engineering_sciences/bio_sys_2022_II_1.md
+        - 数理科学 (システム創成専攻):
+          - 2020年度:
+            - 数理科学 I [4]: kakomonn/osaka_university/engineering_sciences/sigmath_2020_I_4.md
+            - 数理科学 I [6]: kakomonn/osaka_university/engineering_sciences/sigmath_2020_I_6.md
+          - 2019年度:
+            - 数理科学 I [2]: kakomonn/osaka_university/engineering_sciences/sigmath_2019_I_2.md
+            - 数理科学 I [4]: kakomonn/osaka_university/engineering_sciences/sigmath_2019_I_4.md
+            - 数理科学 I [5]: kakomonn/osaka_university/engineering_sciences/sigmath_2019_I_5.md
+            - 数理科学 II [7]: kakomonn/osaka_university/engineering_sciences/sigmath_2019_II_7.md
+        - 電子光科学 (システム創成専攻):
+          - 2022年度:
+            - 電子光科学 [I-1]: kakomonn/osaka_university/engineering_sciences/ee_2022_I_1.md
+            - 電子光科学 [I-2]: kakomonn/osaka_university/engineering_sciences/ee_2022_I_2.md
+          - 2021年度:
+            - 電子光科学 [I-2]: kakomonn/osaka_university/engineering_sciences/ee_2021_I_2.md
+          - 2020年度:
+            - 電子光科学 [I-1]: kakomonn/osaka_university/engineering_sciences/ee_2020_I_1.md
+            - 電子光科学 [I-2]: kakomonn/osaka_university/engineering_sciences/ee_2020_I_2.md
+            - 電子光科学 [I-3]: kakomonn/osaka_university/engineering_sciences/ee_2020_I_3.md
+            - 電子光科学 [I-4]: kakomonn/osaka_university/engineering_sciences/ee_2020_I_4.md
       - 情報科学研究科:
         - 情報基礎数学専攻:
           - 2021年度:
