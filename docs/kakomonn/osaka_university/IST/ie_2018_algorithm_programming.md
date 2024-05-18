@@ -141,4 +141,4 @@ return p[x] = find(p[x])
 ### (2-2-2)
 $O(1)$
 
-After calling function `same` a sufficiently large number of times, almost all the parent of nodes will be modified to root, and thus the average depth of nodes converges to $1$.
+After calling function `same` a sufficiently large number of times, almost all the parent of nodes will be modified to root, i.e. the average depth of nodes converges to $1$.
