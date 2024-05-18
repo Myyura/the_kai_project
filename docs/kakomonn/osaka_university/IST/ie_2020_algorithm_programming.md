@@ -144,7 +144,7 @@ Therefore, the worst case time complexity of the sort is $O(n \log n)$.
 ### (5-2)
 Note that
 
-- $\frac{1}{2}n$ elements (last level) are pushed down at most $0$ steps (i.e. $\frac{1}{2}n \times 0$ swaps)
+- $\frac{1}{2}n$ elements ($\text{last}$ level) are pushed down at most $0$ steps (i.e. $\frac{1}{2}n \times 0$ swaps)
 - $\frac{1}{4}n$ elements ($\text{last} - 1$ level) are pushed down at most $1$ steps (i.e. $\frac{1}{4}n \times 1$ swaps)
 - $\frac{1}{8}n$ elements ($\text{last} - 2$ level) are pushed down at most $2$ steps (i.e. $\frac{1}{8}n \times 2$ swaps)
 - $\cdots$
