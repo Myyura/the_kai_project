@@ -92,7 +92,7 @@ int main(void) {
 6   4
 0   2
 ```
-#### <center> 図３ input.txt
+#### <center> 図３ pair.txt
 
 ```text
                                     (0)
