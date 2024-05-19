@@ -397,3 +397,51 @@ nav:
             - アルゴリズムとプログラミング: kakomonn/osaka_university/IST/ie_2019_algorithm_programming.md
           - 2018年度:
             - アルゴリズムとプログラミング: kakomonn/osaka_university/IST/ie_2018_algorithm_programming.md
+    - 名古屋大学:
+      - 理学研究科:
+        - 物理学教室:
+          - 2020年度:
+            - 物理学 [I]: kakomonn/nagoya_university/science/phys_2020_I.md
+            - 物理学 [II]: kakomonn/nagoya_university/science/phys_2020_II.md
+        - 化学系:
+          - 2023年度:
+            - 物理化学: kakomonn/nagoya_university/science/phys_2023_chem_phys.md
+      - 工学研究科:
+        - 機械航空系:
+          - 2021年実施:
+            - 基礎部門 問題 1: kakomonn/nagoya_university/engineering/mae_2021_kiso_1.md
+      - 情報学研究科:
+        - 数理情報学専攻:
+          - 2023年実施:
+            - 8月 1.線形代数: kakomonn/nagoya_university/informatics/mi_202308_1.md
+            - 8月 5.量子力学: kakomonn/nagoya_university/informatics/mi_202308_5.md
+          - 2021年実施:
+            - 8月 6.量子力学: kakomonn/nagoya_university/informatics/mi_202108_6.md
+          - 2019年実施:
+            - 8月 6.量子力学: kakomonn/nagoya_university/informatics/mi_201908_6.md
+          - 2018年実施:
+            - 8月 6.量子力学: kakomonn/nagoya_university/informatics/mi_201808_6.md
+          - 2017年実施:
+            - 8月 6.量子力学: kakomonn/nagoya_university/informatics/mi_201708_6.md
+        - 複雑系科学専攻:
+          - 2021年実施:
+            - 8月 数1: kakomonn/nagoya_university/informatics/complex_202108_1.md
+        - 情報システム学専攻:
+          - 2019年実施:
+            - 8月 確率・統計: kakomonn/nagoya_university/informatics/is_201908_prob_stat.md
+          - 2018年実施:
+            - 8月 確率・統計: kakomonn/nagoya_university/informatics/is_201808_prob_stat.md
+          - 2017年実施:
+            - 8月 確率・統計: kakomonn/nagoya_university/informatics/is_201708_prob_stat.md
+        - 知能システム学専攻:
+          - 2021年実施:
+            - 8月 確率・統計: kakomonn/nagoya_university/informatics/aisys_202108_prob_stat.md
+            - 8月 解析・線形代数: kakomonn/nagoya_university/informatics/aisys_202108_analy_algebra.md
+          - 2019年実施:
+            - 8月 確率・統計: kakomonn/nagoya_university/informatics/is_201908_prob_stat.md
+            - 8月 解析・線形代数: kakomonn/nagoya_university/informatics/aisys_201908_analy_algebra.md
+          - 2018年実施:
+            - 8月 確率・統計: kakomonn/nagoya_university/informatics/is_201808_prob_stat.md
+          - 2017年実施:
+            - 8月 確率・統計: kakomonn/nagoya_university/informatics/is_201708_prob_stat.md
+          
