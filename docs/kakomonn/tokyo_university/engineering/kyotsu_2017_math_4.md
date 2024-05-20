@@ -128,7 +128,9 @@ $$
 
 である。概形は次のようになる。
 
-***Picture***
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_2017_math_4_p1.png" width="500" height="500" alt=""/>
+</figure>
 
 今,　曲面$S$上の点$R$の位置ベクトルは媒介変数$\theta ,t$を用いて以下のように表されでおり,
 
@@ -193,7 +195,9 @@ $$
 
 これらをともに満たす$n$は,　$n=(1,0,0)$であり, これは単位ベクトルだから点$W$における単位法線ベクトル $e$は$e=(1,0,0)$となる。
 
-***Picture***
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_2017_math_4_p2.png" width="800" height="400" alt=""/>
+</figure>
 
 点$W$において, $\theta,t$は以下の関係を満たす。
 
