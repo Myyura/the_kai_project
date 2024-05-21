@@ -486,4 +486,46 @@ nav:
             - 選択専門科目 問題5（工業数学）: kakomonn/titech/engineering/mech_2020_5.md
           - 2019年度 2018年実施:
             - 選択専門科目 問題5（工業数学）: kakomonn/titech/engineering/mech_2019_5.md
+        - システム制御系:
+          - 2022年度 2021年実施:
+            - 午前 問題1: kakomonn/titech/engineering/sc_2022_1.md
+            - 午前 問題3: kakomonn/titech/engineering/sc_2022_3.md
+        - 電気電子系:
+          - 2022年度 2021年実施:
+            - 数学2: kakomonn/titech/engineering/ee_2022_math_2.md
+        - 情報通信系:
+          - 2020年度 2019年実施:
+            - H2.: kakomonn/titech/engineering/ict_2020_H2.md
+        - 経営工学系:
+          - 2020年度 2019年実施:
+            - 午前 数理B: kakomonn/titech/engineering/iee_2020_math_B.md
+      - 物質理工学院:
+        - 材料系:
+          - 2022年度 2021年実施:
+            - 第Iブロック [I-1] 数学: kakomonn/titech/MCT/mat_2022_I_1_math.md
+      - 情報理工学院:
+        - 数理・計算科学系:
+          - 2023年度 2022年実施:
+            - 午前 問A: kakomonn/titech/MCS/is_2023_A.md
+        - 情報工学系:
+          - 2022年度 2021年実施:
+            - 午前 1: kakomonn/titech/MCS/cs_2022_1.md
+          - 2020年度 2019年実施:
+            - 午前 1: kakomonn/titech/MCS/cs_2020_1.md
+          - 2019年度 2018年実施:
+            - 午前 1: kakomonn/titech/MCS/cs_2019_1.md
+      - 環境・社会理工学院:
+        - 土木・環境工学系:
+          - 2023年度 2022年実施:
+            - 基礎科目 4: kakomonn/titech/environment_and_society/cv_2023_kiso_4.md
+        - 融合理工学系:
+          - 2022年度 2021年実施:
+            - 午後 問題A [問題2]: kakomonn/titech/environment_and_society/tse_2022_A_2.md
+            - 午後 問題B [問題1]: kakomonn/titech/environment_and_society/tse_2022_B_1.md
+    - 北海道大学:
+      - 理学院:
+        - 物性物理学専攻・宇宙理学専攻合同問題:
+          - 2021年度 2020年実施:
+            - 問題 V: kakomonn/hokkaido_university/science/phys_2021_cond_mat_cosmos_V.md
+
           
