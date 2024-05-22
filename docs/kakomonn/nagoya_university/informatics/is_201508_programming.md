@@ -230,10 +230,10 @@ void display(struct vertex *p) {
 ```
 
 ### \[2\]
-- [ 空欄 (ア) ]、 eliminate(11), insert(7), eliminate(6);
+- \[ 空欄 (ア) \]: eliminate(11), insert(7), eliminate(6);
 
 ### \[3\]
-- [ 空欄 (イ) ]、 x < p->value ? p->left : p->right;
+- \[ 空欄 (イ) \]: x < p->value ? p->left : p->right;
 
 ### \[4\]
 Insert `if (p == NULL) return;` after line 71.
@@ -247,12 +247,12 @@ Insert `free(q)` after line 98.
 7, 2, 5, 14, 18
 
 ### \[7\]
-- [ 空欄 (ウ) ]、 display(p->left);
-- [ 空欄 (エ) ]、 printf("%d,", p->value);
-- [ 空欄 (オ) ]、 display(p->right);
+- \[ 空欄 (ウ) \]: display(p->left);
+- \[ 空欄 (エ) \]: printf("%d,", p->value);
+- \[ 空欄 (オ) \]: display(p->right);
 
 ### \[8\]
-- [ 空欄 (カ) ]、 p->value == x
-- [ 空欄 (キ) ]、 p->value > x
-- [ 空欄 (ク) ]、 p = p->left
-- [ 空欄 (ケ) ]、 p = p->right
+- \[ 空欄 (カ) \]: p->value == x
+- \[ 空欄 (キ) \]: p->value > x
+- \[ 空欄 (ク) \]: p = p->left
+- \[ 空欄 (ケ) \]: p = p->right
