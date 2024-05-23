@@ -562,13 +562,39 @@ nav:
         - 2020年度:
           - 秋季 F_工学 統計学: kakomonn/hokkaido_university/public_policy/F_201908_stat.md
     - 九州大学:
+      - 数理学府:
+        - 数理学コース:
+          - 2024年度:
+            - 基礎科目 [1]: kakomonn/kyushu_university/mathematics/suuri_2024_kiso_1.md
+          - 2018年度:
+            - 専門科目 [10]: kakomonn/kyushu_university/mathematics/suuri_2018_senmon_10.md
+        - MMAコース:
+          - 2020年度:
+            - 問[4]: kakomonn/kyushu_university/mathematics/mma_2020_4.md
+          - 2019年度:
+            - 問[3]: kakomonn/kyushu_university/mathematics/mma_2019_3.md
+          - 2018年度:
+            - 問[6]: kakomonn/kyushu_university/mathematics/mma_2018_6.md
       - システム情報科学府:
+        - 共通:
+          - 2022年度:
+            - 1.線形代数: kakomonn/kyushu_university/ISEE/kyotsu_2022_linear_algebra.md
+            - 2.解析学・微積分: kakomonn/kyushu_university/ISEE/kyotsu_2022_analysis_calculus.md
+            - 3.ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2022_vector_analysis.md
+          - 2019年度:
+            - 3.ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2019_vector_analysis.md
+            - 4.複素関数論: kakomonn/kyushu_university/ISEE/kyotsu_2019_complex_function_theory.md
+            - 5.確率・統計: kakomonn/kyushu_university/ISEE/kyotsu_2019_prob_stat.md
         - 情報理工学専攻:
           - 2023年度:
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2023_information_theory.md
+          - 2022年度:
+            - 情報理論: kakomonn/kyushu_university/ISEE/ist_2022_information_theory.md
           - 2021年度:
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2021_information_theory.md
           - 2020年度:
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2020_information_theory.md
+          - 2019年度:
+            - 情報理論: kakomonn/kyushu_university/ISEE/ist_2019_information_theory.md
 
           
