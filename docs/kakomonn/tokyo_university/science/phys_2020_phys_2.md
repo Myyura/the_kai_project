@@ -10,6 +10,7 @@ tags:
 Miyake
 
 ## **Description**
+[過去の大学院入試問題（PDF形式）（修士課程のみ）](https://www.phys.s.u-tokyo.ac.jp/wp-content/uploads/2020/04/R2masterphysics.pdf)
 
 ## **Kai**
 ### 1.
