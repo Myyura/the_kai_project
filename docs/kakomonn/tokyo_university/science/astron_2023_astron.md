@@ -10,6 +10,7 @@ tags:
 Miyake
 
 ## **Description**
+[過去の大学院入試問題（PDF形式）（修士課程のみ）](https://www.astron.s.u-tokyo.ac.jp/tenmon/wp-content/uploads/2023/01/R5%E4%BF%AE%E5%A3%AB%E3%83%BB%E5%8D%9A%E5%A3%AB%E8%AA%B2%E7%A8%8B%E5%85%A5%E5%AD%A6%E8%A9%A6%E9%A8%93%E5%95%8F%E9%A1%8C_%E5%85%AC%E9%96%8B.pdf)
 
 ## **Kai**
 ### 問 1.
