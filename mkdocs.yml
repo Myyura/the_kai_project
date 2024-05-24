@@ -13,6 +13,9 @@ theme:
     primary: blue grey
   custom_dir: docs/overrides/
 
+  font:
+    text: Noto Serif Japanese
+
   features:
     - content.action.edit
     - content.code.annotate
@@ -575,12 +578,45 @@ nav:
             - 問[3]: kakomonn/kyushu_university/mathematics/mma_2019_3.md
           - 2018年度:
             - 問[6]: kakomonn/kyushu_university/mathematics/mma_2018_6.md
+      - 理学府:
+        - 物理学専攻:
+          - 2020年度:
+            - 物理学 [I]: kakomonn/kyushu_university/science/phys_2020_phys_I.md
+            - 物理学 [II]: kakomonn/kyushu_university/science/phys_2020_phys_II.md
+            - 物理学 [III]: kakomonn/kyushu_university/science/phys_2020_phys_III.md
+        - 地球惑星科学専攻:
+          - 2024年度:
+            - 問題5 熱力学: kakomonn/kyushu_university/science/geo_2024_5.md
+      - 工学府:
+        - 応用化学専攻 機能物質化学系:
+          - 2023年度:
+            - 物理化学 2: kakomonn/kyushu_university/engineering/ac_cstf_2023_phys_chem_2.md
+        - 機械系専攻:
+          - 2022年度:
+            - 数学 問1: kakomonn/kyushu_university/engineering/mech_2022_math_1.md
+        - 量子物理工学専攻:
+          - 2022年度:
+            - 数学 問題1: kakomonn/kyushu_university/engineering/qpn_2022_math_1.md
+        - 船舶海洋工学専攻:
+          - 2023年度:
+            - ① 微分方程式: kakomonn/kyushu_university/engineering/nams_2023_1.md
+            - ② 関数論: kakomonn/kyushu_university/engineering/nams_2023_2.md
+            - ③ 線形代数: kakomonn/kyushu_university/engineering/nams_2023_3.md
+        - 土木工学専攻:
+          - 2022年度:
+            - 数学 (ALL): kakomonn/kyushu_university/engineering/civil_2022_math_all.md
       - システム情報科学府:
         - 共通:
+          - 2023年度:
+            - 3.ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2023_vector_analysis.md
           - 2022年度:
             - 1.線形代数: kakomonn/kyushu_university/ISEE/kyotsu_2022_linear_algebra.md
             - 2.解析学・微積分: kakomonn/kyushu_university/ISEE/kyotsu_2022_analysis_calculus.md
             - 3.ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2022_vector_analysis.md
+          - 2021年度:
+            - 3.ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2021_vector_analysis.md
+          - 2020年度:
+            - 3.ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2020_vector_analysis.md
           - 2019年度:
             - 3.ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2019_vector_analysis.md
             - 4.複素関数論: kakomonn/kyushu_university/ISEE/kyotsu_2019_complex_function_theory.md
@@ -592,9 +628,12 @@ nav:
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2022_information_theory.md
           - 2021年度:
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2021_information_theory.md
+            - アルゴリズム・プログラミング: kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md
           - 2020年度:
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2020_information_theory.md
           - 2019年度:
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2019_information_theory.md
-
-          
+      - 経済学府:
+        - 経済工学専攻:
+          - 2020年度:
+            - 経済数学: kakomonn/kyushu_university/economics/economic_engineering_2020_keizaisuugaku.md

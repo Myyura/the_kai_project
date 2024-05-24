@@ -10,24 +10,32 @@ tags:
 Miyake
 
 ## **Description**
+直交座標系において，$x, y, z$ 軸方向の単位ベクトルをそれぞれ $\boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k}$ とする．
+ベクトル場 $\boldsymbol{F}$ を $\boldsymbol{F} = x\boldsymbol{i} + 2y\boldsymbol{j} + 10z\boldsymbol{k}$ とする．次の面 $S_1$, $S_2$ 及び $S_3$ に対する面積分を計算せよ．
+
+(1) $S_1$ を円筒面 $x^2 + z^2 = 1\ (0 \le y \le 4)$ とする(上面と底面の無い円筒の表面)．円筒外向き法線ベクトルを用いよ．
+
+(2) $S_2$ を円筒面の一部 $x^2 + z^2 = 1\ (0 \le y \le 4, 0 \le z)$ と長方形面 $z = 0\ (-1 \le x \le 1, 0 \le y \le 4)$ からなる半円筒面とする (上面と底面の無い半円筒の表面)．半円筒外向き法線ベクトルを用いよ．
+
+(3) $S_3$ を円筒面 $x^2 + z^2 = 1$ と，平面 $z = 0, y=0, x+y=4$ で囲まれた領域の境界とする．外向き法線ベクトルを用いよ.
 
 ## **Kai**
 ### (1)
 $S_1$ 上の点は
 
 $$
-  \begin{align}
+  \begin{aligned}
   \boldsymbol{i} \cos \varphi + y \boldsymbol{j} + \boldsymbol{k} \sin \varphi
   \ \ \ \ 
   (0 \leq \varphi \lt 2 \pi, \ \ 0 \leq y \leq 4)
-  \end{align}
+  \end{aligned}
 $$
 
 と表せる。
 $S_1$ の外向きの単位法線ベクトルを $\boldsymbol{n}$ とすると、
 
 $$
-  \begin{align}
+  \begin{aligned}
   \boldsymbol{n}
   &= \boldsymbol{i} \cos \varphi + \boldsymbol{k} \sin \varphi
   \\
@@ -39,19 +47,19 @@ $$
   &= \cos^2 \varphi + 10 \sin^2 \varphi
   \\
   &= \frac{11}{2} - \frac{9}{2} \cos 2 \varphi
-  \end{align}
+  \end{aligned}
 $$
 
 なので、求める積分は
 
 $$
-  \begin{align}
+  \begin{aligned}
   \int_{S_1} dS \ \boldsymbol{F} \cdot \boldsymbol{n}
   &= \int_0^{2 \pi} d \varphi \int_0^4 dy
   \left( \frac{11}{2} - \frac{9}{2} \cos 2 \varphi \right)
   \\
   &= 44 \pi
-  \end{align}
+  \end{aligned}
 $$
 
 である。
@@ -60,25 +68,25 @@ $$
 $S_2$ を次のように2つに分けて考える：
 
 $$
-  \begin{align}
+  \begin{aligned}
   S_2' \ &: \ \ x^2 + z^2 = 1 \ \ (0 \leq y \leq 4, \ 0 \leq z)
   , \\
   S_2'' \ &: \ \ z=0 \ \ (-1 \leq x \leq 1, \ 0 \leq y \leq 4)
   .
-  \end{align}
+  \end{aligned}
 $$
 
 $S_2'$ 上では (1) と同様に計算できる：
 
 $$
-  \begin{align}
+  \begin{aligned}
   \int_{S_2'} dS \ \boldsymbol{F} \cdot \boldsymbol{n}
   &= \int_0^{\pi} d \varphi \int_0^4 dy
   \left( \frac{11}{2} - \frac{9}{2} \cos 2 \varphi \right)
   \\
   &= 22 \pi
   .
-  \end{align}
+  \end{aligned}
 $$
 
 $S_2''$ 上では、外向き単位法線ベクトルは
@@ -90,14 +98,28 @@ $\boldsymbol{F} \cdot \boldsymbol{n} = 0$ であり、
 よって、求める積分は
 
 $$
-  \begin{align}
+  \begin{aligned}
   \int_{S_2} dS \ \boldsymbol{F} \cdot \boldsymbol{n}
   &= \int_{S_2'} dS \ \boldsymbol{F} \cdot \boldsymbol{n}
   \\
   &= 22 \pi
-  \end{align}
+  \end{aligned}
 $$
 
 である。
 
 ### (3)
+
+$$
+\begin{aligned}
+\nabla \cdot \boldsymbol{F} &= \frac{\partial}{\partial x} (x) + \frac{\partial}{\partial y} (2y) + \frac{\partial}{\partial z} (10z) \\
+&= 1 + 2 + 10 = 13
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\oint_S \boldsymbol{F} \cdot \boldsymbol{n} dS &= \int_V \nabla \cdot \boldsymbol{F} dV = \int_{0}^{2 \pi} \int_0^1 \int_0^{4-r} 13r\ dzdrd\theta \\
+&= \frac{130}{3} \pi
+\end{aligned}
+$$
