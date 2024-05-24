@@ -52,7 +52,7 @@ nav:
 #### 内容格式说明
 以`docs/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md`为例, 其包含三个部分
 
-##### Header and Title
+##### Header
 ```markdown
 ---
 comments: false
