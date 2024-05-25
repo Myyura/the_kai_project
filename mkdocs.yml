@@ -36,12 +36,22 @@ theme:
     - navigation.indexes
     - navigation.expand # navigation.expand or navigation.sections
     - content.tabs.link # all code tabs change simultaneously
+  
+  icon:
+    repo: fontawesome/brands/github
+    tag:
+      html: fontawesome/brands/html5
+      js: fontawesome/brands/js
+      css:  fontawesome/brands/css3
+      Mkdocs: octicons/tag-16
 
 plugins:
   - search
   - img2fig
   - tags:
       tags_file: tags.md
+  # - git-revision-date-localized:
+  #     enable_creation_date: true
 
 extra_javascript:
   - overrides/javascripts/mathjax.js
@@ -90,7 +100,7 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
       permalink: "\ue157"
 
-copyright: <a href="https://github.com/Myyura/the_kai_project" target="_blank">© 2024 The Kai Project</a> All rights reserved.
+copyright: <a href="https://github.com/Myyura/the_kai_project" target="_blank"> &copy; 2024 The Kai Project</a> All rights reserved.
 
 extra:
   social:
@@ -230,33 +240,35 @@ nav:
       - 情報学研究科:
         - 数理工学専攻:
           - 2024年度:
-            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2023_graph_theory.md
+            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_202308_graph_theory.md
           - 2023年度:
-            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2022_graph_theory.md
+            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_202208_graph_theory.md
           - 2022年度:
-            - 基礎科目 アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_2021_algorithm.md
-            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2021_graph_theory.md
+            - 基礎科目 アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_202108_algorithm.md
+            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_202108_graph_theory.md
           - 2021年度:
-            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2020_graph_theory.md
+            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_202008_graph_theory.md
           - 2020年度:
-            - 基礎科目 アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_2019_algorithm.md
-            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_2019_graph_theory.md
+            - 基礎科目 アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_201908_algorithm.md
+            - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_201908_graph_theory.md
         - 知能情報学専攻:
+          - 2024年度:
+            - 情報学基礎 F2-1: kakomonn/kyoto_university/informatics/ist_202308_kiso_f2_1.md
           - 2022年度:
-            - 情報学基礎 F1-2: kakomonn/kyoto_university/informatics/ist_2021_kiso_f1_2.md
+            - 情報学基礎 F1-2: kakomonn/kyoto_university/informatics/ist_202108_kiso_f1_2.md
           - 2020年度:
-            - 情報学基礎 F1-1: kakomonn/kyoto_university/informatics/ist_2019_kiso_f1_1.md
-            - 専門科目 S-2 統計学: kakomonn/kyoto_university/informatics/ist_2019_senmon_s_2.md
+            - 情報学基礎 F1-1: kakomonn/kyoto_university/informatics/ist_201908_kiso_f1_1.md
+            - 専門科目 S-2 統計学: kakomonn/kyoto_university/informatics/ist_201908_senmon_s_2.md
         - 先端数理科学専攻:
           - 2022年度:
-            - 基礎科目1 基礎科目2: kakomonn/kyoto_university/informatics/ams_2021_kiso_1_2.md
+            - 基礎科目1 基礎科目2: kakomonn/kyoto_university/informatics/ams_202108_kiso_1_2.md
         - システム科学専攻:
           - 2020年度:
-            - 専門科目 確率統計: kakomonn/kyoto_university/informatics/sys_2019_senmon_stat.md
+            - 専門科目 確率統計: kakomonn/kyoto_university/informatics/sys_201908_senmon_stat.md
         - 通信情報システム専攻:
           - 2022年度:
-            - 専門基礎A [A-1]: kakomonn/kyoto_university/informatics/cce_2021_senmonkiso_A_1.md
-            - 専門基礎A [A-2]: kakomonn/kyoto_university/informatics/cce_2021_senmonkiso_A_2.md
+            - 専門基礎A [A-1]: kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_A_1.md
+            - 専門基礎A [A-2]: kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_A_2.md
       - 経営管理大学院:
         - 2023年度:
           - 数学 第1問: kakomonn/kyoto_university/management/2023_math_1.md
@@ -608,6 +620,7 @@ nav:
       - システム情報科学府:
         - 共通:
           - 2023年度:
+            - 2.解析学・微積分: kakomonn/kyushu_university/ISEE/kyotsu_2023_analysis_calculus.md
             - 3.ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2023_vector_analysis.md
           - 2022年度:
             - 1.線形代数: kakomonn/kyushu_university/ISEE/kyotsu_2022_linear_algebra.md
@@ -637,3 +650,18 @@ nav:
         - 経済工学専攻:
           - 2020年度:
             - 経済数学: kakomonn/kyushu_university/economics/economic_engineering_2020_keizaisuugaku.md
+    - 早稲田大学:
+      - 基幹理工学研究科:
+        - 数学応用数理専攻:
+          - 2024年度:
+            - 線形代数 [2]: kakomonn/waseda_university/FSE/sugaku_2024_linear_algebra_2.md
+        - 機械科学・航空宇宙専攻:
+          - 2024年度:
+            - 数学 [1]: kakomonn/waseda_university/FSE/kikaikagaku_2024_1.md
+            - 力学 [2]: kakomonn/waseda_university/FSE/kikaikagaku_2024_2.md
+        - 電子物理システム学専攻:
+          - 2024年度:
+            - 力学 [1]: kakomonn/waseda_university/FSE/denshibutsuri_2024_1.md
+        - 材料科学専攻:
+          - 2024年度:
+            - 物理 [2]: kakomonn/waseda_university/FSE/zairyokagaku_2024_2.md
