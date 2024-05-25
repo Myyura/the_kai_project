@@ -1,4 +1,5 @@
 site_name: The Kai Project
+site_author: 祭音Myyura
 site_url: https://Myyura.github.io/the_kai_project/
 repo_url: https://github.com/Myyura/the_kai_project
 edit_uri: https://github.com/Myyura/the_kai_project
@@ -46,12 +47,16 @@ theme:
       Mkdocs: octicons/tag-16
 
 plugins:
-  - search
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - img2fig
   - tags:
       tags_file: tags.md
   # - git-revision-date-localized:
   #     enable_creation_date: true
+  #     type: iso_date
+  #     exclude:
+  #       - tag.md
 
 extra_javascript:
   - overrides/javascripts/mathjax.js
