@@ -268,6 +268,8 @@ nav:
           - 2022年度:
             - 基礎科目1 基礎科目2: kakomonn/kyoto_university/informatics/ams_202108_kiso_1_2.md
         - システム科学専攻:
+          - 2023年度:
+            - 数学【I】: kakomonn/kyoto_university/informatics/sys_202208_math_I.md
           - 2020年度:
             - 専門科目 確率統計: kakomonn/kyoto_university/informatics/sys_201908_senmon_stat.md
         - 通信情報システム専攻:
@@ -636,6 +638,7 @@ nav:
           - 2020年度:
             - ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2020_vector_analysis.md
           - 2019年度:
+            - 解析学・微積分: kakomonn/kyushu_university/ISEE/kyotsu_2019_analysis_calculus.md
             - ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2019_vector_analysis.md
             - 複素関数論: kakomonn/kyushu_university/ISEE/kyotsu_2019_complex_function_theory.md
             - 確率・統計: kakomonn/kyushu_university/ISEE/kyotsu_2019_prob_stat.md
