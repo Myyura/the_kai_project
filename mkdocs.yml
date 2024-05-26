@@ -115,6 +115,9 @@ extra:
     - icon: fontawesome/regular/envelope
       link: mailto:<376672994@qq.com> #联系方式
       name: Email
+  analytics:
+    provider: google
+    property: G-JJMZK98D6Y
 
 # nav
 nav:
