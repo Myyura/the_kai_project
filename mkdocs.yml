@@ -119,6 +119,9 @@ extra:
     provider: google
     property: G-JJMZK98D6Y
 
+extra_css:
+  - overrides/stylesheets/customize.css
+
 # nav
 nav:
   - 過去問:
