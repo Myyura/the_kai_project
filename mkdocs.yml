@@ -631,7 +631,7 @@ nav:
           - 2022年度:
             - 数学 (ALL): kakomonn/kyushu_university/engineering/civil_2022_math_all.md
       - システム情報科学府:
-        - 共通:
+        - 共通・数学:
           - 2023年度:
             - 解析学・微積分: kakomonn/kyushu_university/ISEE/kyotsu_2023_analysis_calculus.md
             - ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2023_vector_analysis.md
