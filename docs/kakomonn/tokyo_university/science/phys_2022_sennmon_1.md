@@ -43,7 +43,7 @@ $$
 
 $$
 \begin{align}
-\Delta x \Delta p \geq \frac{\hbar}{2} \label{1}
+\Delta x \Delta p \geq \frac{\hbar}{2} \tag{1}
 \end{align}
 $$
 
@@ -56,7 +56,7 @@ $$
 $$
 
 が成立することを示せ。
-3. 次に、$\hat{O} = \Delta \hat{x} - i\lambda \Delta \hat{p}$ ($\lambda$ は任意の実数) とおくことで不等式 $\eqref{1}$ を示せ。
+3. 次に、$\hat{O} = \Delta \hat{x} - i\lambda \Delta \hat{p}$ ($\lambda$ は任意の実数) とおくことで不等式 (1) を示せ。
 
 4. 設問 3 の $\langle \hat{O}^\dagger \hat{O} \rangle = 0$ を含むための $\lambda$ に関する条件を述べ、固有値 0 に対応する固有状態が不等式 (1) の等号を満足することを示せ。
 
