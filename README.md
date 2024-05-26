@@ -5,151 +5,140 @@
 
 本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。
 
+项目地址 [https://runjp.com/](https://runjp.com/)
+
+手机端点击 [这里](https://runjp.com/tags/) 可进入标签索引页面。
+
 ## How to contribute
 我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。
 
 * email: 376672994@qq.com
+
+我们并不追求解答的完整性, 但如果你发现了现有解答中的错误, 请积极指出. 亦可以加入项目群与大家交流题解.
+
 * QQ群: 925154731
 
-我们并不追求解答的完整性, 但如果你发现了现有解答中的错误, 请积极指出。
+如有侵权, 请随时联系.
 
 ### 样例说明
-以`東京大学 大学院 情報理工学研究科 2022年度 数学 第3問`的问题与解答为例, 对文件存放路径, 内容格式进行讲解。
+以`九州大学 システム情報科学府 情報理工学専攻 2021年度 アルゴリズム・プログラミング`的问题与解答为例, 对文件存放路径, 内容格式进行讲解。
 
 #### 存放路径说明
 其对应的文件置于
 
-`docs/kakomonn/tokyo_university/IST/kyotsu_2023_math_3.md`
+`docs/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md`
 
 下, 路径的基本命名规则为
 
-`docs/kakomonn/学校名/研究科或学部名/专攻名_入学年份_问题类别(可选)_问题编号.md`
+`docs/kakomonn/学校名/研究科或学部名/专攻名_入学年份(或实施年月)_问题类别(可选)_问题编号.md`
 
 **注：对于较长或缩写辨识度较高的专攻名我们这里使用简写, 其他的一般使用全称。**
 
-目前项目基于[mkdocs](https://www.mkdocs.org/)构建而成, 因此在创建好文件之后, 我们还需要修改根目录下的mkdocs.yml使得文件能够被正常索引。相信大家在见到该文件中的nav字段后便能够理解。
+目前项目基于[mkdocs](https://www.mkdocs.org/)构建而成, 因此在创建好文件之后, 我们还需要修改根目录下的mkdocs.yml文件中的`nav`字段使得文件能够被正常索引, 我们截取一段进行说明
+
+```yaml
+nav:
+  - 過去問:
+    - 项目介绍: index.md
+    - 九州大学:
+      - システム情報科学府:
+        - 情報理工学専攻:
+          - 2021年度:
+            - 情報理論: kakomonn/kyushu_university/ISEE/ist_2021_information_theory.md
+            - アルゴリズム・プログラミング: kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md
+```
+
+`nav`的缩进层级决定了网页中侧边栏的索引层级, 而每个层级上的字段名则决定了网页中侧边栏的索引名称。
+可以看到我们的缩进层次为
+
+- 過去問 -> 学校名 -> 研究科名 -> 专攻名 -> 入学年份 -> 题目名
+
+因此网页的侧边栏也是按照这个层级进行索引。我们需要做的便是将自己编写好的文件路径按照上述样例补充在`nav`字段中即可。
 
 #### 内容格式说明
-以`docs/kakomonn/tokyo_university/IST/kyotsu_2023_math_3.md`为例 (为了方便讲解, 部分细节做了删减)
+以`docs/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md`为例, 其包含三个部分
 
+##### Header
 ```markdown
 ---
 comments: false
-description: 東京大学 大学院 情報理工学研究科 2022年度 数学 第3問
-keywords: Tokyo-University, 2022
+title: 九州大学 システム情報科学府 情報理工学専攻 2021年度 アルゴリズム・プログラミング
+tags:
+  - Kyushu-University
+  - Dynamic-Programming
+  - Merge-Sort
 ---
-
-## **Source**
-東京大学 大学院 情報理工学研究科 2022年度 数学 第3問
-
-## **Description**
-$xy$平面上に、$0<x<1$かつ$0<y<1$で定義される領域$R$を考える．$R$上にランダムに1点を選び、それを点$A$とする．ただし,点$A$は$R$上に一様に分布するとする．図に表すように,点$A$から$y$軸への垂線を$AB$,点$A$から$x$軸への垂線を$AC$とする．原点を$O$としたとき、長方形$OCAB$を$\lceil$点$A$の長方形$\rfloor$と呼ぶ．また、点$A$の長方形の面積を表す確率変数を$S$とする．以下の問いに答えよ．
-
-(1)、$S$の期待値を求めよ．
-
-(2)、$S\leq r$となる確率を求めよ．ただし$0<r<1$とする．
-
-(3)、$S$の確率密度関数を求めよ．
-
-再び、領域$R$を考える．$n$を正の整数とする．$R$上にランダムに$n$点を選び,それらを点$A_{1},A_{2},...,A_{n}$とする．ただし、各点は$R$上に一様に分布し、$i\neq j$である$A_{i}$と$A_{j}$は独立に選ばれるとする．次の問いに答えよ．
-
-(4)、点$A_{i}$の長方形の面積を表す確率変数を$S_{i}$とする．$Z$を$S_{1},S_{2},...,S_{n}$の最小値を表す確率変数とする．この時、$Z$の確率密度関数を求めよ．
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu_2022_math_3_p1.png" width="300" height="300" alt=""/>
-</figure>
-
-## **Kai**
-確率を $P$ ，期待値を $E$ で表す。
-
-### (1)
-A の座標を $(X,Y)$ とすると、 $X,Y$ は互いに独立な確率変数であり、
-それぞれ $0$ から $1$ までの一様分布に従う。
-よって、求める期待値は、
-
-$$
-\begin{align}
-E(S)
-&= E(XY)
-\\
-&= E(X)E(Y)
-\\
-&= \frac{1}{4}
-\end{align}
-$$
-
-### (2)
-求める確率は、
-
-$$
-\begin{align}
-P(S \leq r)
-&= r + \int_r^1 \frac{r}{x} dx
-\\
-&= r + r \left[ \log x \right]_r^1
-\\
-&= r - r \log r
-\end{align}
-$$
-
-### (3)
-$S$ の確率密度関数 $f(s)$ は、 $0 \lt s \lt 1$ では
-
-$$
-\begin{align}
-f(s)
-&= \frac{d}{ds} P(S \leq s)
-\\
-&= - \log s
-\end{align}
-$$
-
-であり、それ以外では $0$ である。
-
-### (4)
-$0 \lt z \lt 1$ について
-
-$$
-\begin{align}
-P(Z \leq z)
-&= 1 - P(Z \gt z)
-\\
-&= 1 - P(S_1 \gt z \text{ and } S_2 \gt z \text{ and } \cdots
-\text{ and } S_n \gt z )
-\\
-&= 1 - P(S_1 \gt z) P(S_2 \gt z) \cdots P(S_n \gt z)
-\\
-&= 1 - \left( 1 - z + z \log z \right)^n
-\end{align}
-$$
-
-よって、求める確率密度関数 $g(z)$ は、
-
-$$
-\begin{align}
-g(z)
-&= \frac{d}{dz} P(Z \leq z)
-\\
-&= -n \log z \left( 1 - z + z \log z \right)^{n-1}
-\end{align}
-$$
-
-である。
-また、 $z \lt 0, \ z \gt 1$ では $g(z)=0$ である。
 ```
 
-其主要分为三个部分
+在Header中, 我们需要填写该文章所对应的页面是否需要带有评论功能 (comments字段), 文章的标题 (title字段) 以及 标签(tags).
 
-- Header: 即最上方配置本篇解答的简要描述, 关键词的地方。可不填写。
-- Source: 问题与答案来源的描述, 通常需要写明该问题为哪所学校哪个研究科哪个专攻哪一年的哪一题。需要的话, 也可以写上提供者本人的ID。
-- Description: 问题描述, 也即题目描述本身。日语或英语均可, 当然倘若能够二者均提供自然是最好的。
-- Kai: 问题解答, 问题解答中的子标题与问题描述中问题序号一一对应, 若问题描述中问题需要为(1), (2), ..., 则问题解答中子标题亦为(1), (2), ...,
+由于我们目前不支持评论, 因此评论字段总是为 `false`. 文章的标题以 `学校名 研究科名 专攻名 入学\实施年份 题目名` 的格式进行命名. 而标签字段中, 一般我们会写上学校名称与该题涉及到的考点, 标签会在页面中用以索引.
 
+##### Title
+```markdown
+# 九州大学 システム情報科学府 情報理工学専攻 2021年度 アルゴリズム・プログラミング
+```
+
+为了能够让我们在页面上显示Header中所配置的标题字段, 我们需要在Header之后紧跟一个一级标题, 内容与Header中的`title`字段内容一致.
+
+除此之外, 后续章节均不再使用一级标题.
+
+##### Author
+```markdown
+## **Author**
+祭音Myyura
+```
+
+文章的第一个二级标题为解题者ID, 当然, 若不希望透露可以空置
+
+##### Description
+```markdown
+## **Description**
+### 【問 1】
+2つの数の加算，乗算および大小比較は各々単位時間で行えるものとする．以下の各問いに答えよ．
+
+(1) 与えられた $d_1 \times d_2$ 行列 $A$ と $d_2 \times d_3$ 行列 $B$ に対し，アルゴリズム 1 はそれらの積 $C = AB$ を求める．アルゴリズム 1 の時間計算量を答えよ．
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png" width="500" height="240" alt=""/>
+</figure>
+
+### 【問 2】
+図 1 は Python 言語で書かれたマージソートのプログラムである．図 1 の 32 行目で下記の入力が与えられている．次の問いに答えよ．
+
+32: list_input = [8, 3, 6, 5, 2, 7, 4, 1]
+
+(1) merge_sort は，リスト result の要素を start から end の範囲で昇順に並び替える関数である．空欄(A)-(G)を埋め，関数merge sortを完成せよ．
+```
+
+文章的第二个二级标题为题干, 有时题干中可能会包含多个题目, 则多个题目之间使用三级标题区分. 注意, 单个题目中的小问不使用多级标题.
+
+##### Kai
+```markdown
+## **Kai**
+### 【問 1】
+#### (1)
+$O(d_1 \cdot d_2 \cdot d_3)$
+
+### 【問 2】
+#### (1)
+- (A): start
+- (B): mid - 1
+- (C): mid
+- (D): end
+- (E): start
+- (F): end
+- (G): mid
+```
+
+文章的第三个二级标题为题解, 其中多级标题与题干中的题目与小问一一对应.
+
+##### 其他
 倘若需要插入图片, 可以先将图片上传至本仓库专门用于存放资产的仓库[the_kai_project_assets](https://github.com/Myyura/the_kai_project_assets), 然后仿照示例中的写法, 通过插入html的方式显示图片。
 
 ```html
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu_2022_math_3_p1.png" width="300" height="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png" width="500" height="240" alt=""/>
 </figure>
 ```
 
@@ -157,11 +146,11 @@ $$
 
 需要注意的是其中图片的路径, 由于Github对于图片资源处理上的原因, 原始图片路径为
 
-- https://github.com/Myyura/the_kai_project_assets/blob/main/kakomonn/tokyo_university/IST/kyotsu_2022_math_3_p1.png
+- https://github.com/Myyura/the_kai_project_assets/blob/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png
 
 而嵌入时需要将路径更改为
 
-- https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu_2022_math_3_p1.png
+- https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png
 
 当然, 如果你使用其他图床则参考对应图床的使用方法即可。
 
@@ -170,4 +159,4 @@ $$
 - 对于行内公式, 与latex相同, 在公式的首尾使用单个`$`符号进行表示, 但不可在`$`后添加无意义的空格
   - "\$\alpha = 1\$" 正确
   - "\$ \alpha = 1 \$" 错误, 无法解析
-- 对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考上述样例中的写法。
+- 对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考仓库中其他题目的写法。

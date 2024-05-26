@@ -10,57 +10,7 @@ tags:
 Miyake
 
 ## **Description**
-
-量子力学において不確定性関係式は重要な役割を果たす。与えられた量子状態に対する、位置演算子と運動量演算子の標準偏差を
-
-$$
-\begin{aligned}
-\Delta x \equiv \sqrt{\langle (\Delta \hat{x})^2 \rangle}, \quad \Delta \hat{x} \equiv \hat{x} - \langle \hat{x} \rangle \\
-\Delta p \equiv \sqrt{\langle (\Delta \hat{p})^2 \rangle}, \quad \Delta \hat{p} \equiv \hat{p} - \langle \hat{p} \rangle \\
-\end{aligned}
-$$
-
-と定義しよう。ここで、$\langle \hat{O} \rangle$ は演算子 $\hat{O}$ の量子力学的期待値である。以下の設問に答えよ。なお、必要があれば次の積分公式を使ってもよい。
-
-$$
-\begin{aligned}
-\int_{-\infty}^{\infty} e^{-ax^2} dx = \sqrt{\frac{\pi}{a}}, \quad \int_{-\infty}^{\infty} x^2 e^{-ax^2} dx = \frac{1}{2} \sqrt{\frac{\pi}{a^3}} \quad (a > 0)
-\end{aligned}
-$$
-
-また、$\hbar$ はプランク定数を $2\pi$ で割った量とする。
-1. 波動関数
-
-$$
-\begin{aligned}
-\psi(x) = \left( \frac{1}{\pi a^2} \right)^{\frac{1}{4}} \exp \left( -\frac{x^2}{2a^2} \right) \quad (a > 0)
-\end{aligned}
-$$
-
-に対して $\Delta x$、$\Delta p$ を計算し、その結果を物理的に解釈せよ。
-
-2. 一般に、$\Delta x$ と $\Delta p$ の間には不等式
-
-$$
-\begin{align}
-\Delta x \Delta p \geq \frac{\hbar}{2}
-\end{align}
-$$
-
-が成立する。これを示すために、まず、任意の演算子 $\hat{O}$ とそのエルミート共役演算子 $\hat{O}^\dagger$ に対して
-
-$$
-\begin{aligned}
-\langle \hat{O}^\dagger \hat{O} \rangle \geq 0
-\end{aligned}
-$$
-
-が成立することを示せ。
-3. 次に、$\hat{O} = \Delta \hat{x} - i\lambda \Delta \hat{p}$ ($\lambda$ は任意の実数) とおくことで不等式 (1) を示せ。
-
-4. 設問 3 の $\langle \hat{O}^\dagger \hat{O} \rangle = 0$ を含むための $\lambda$ に関する条件を述べ、固有値 0 に対応する固有状態が不等式 (1) の等号を満足することを示せ。
-
-5. 不等式 (1) の等号が成立する状態を最小不確定状態という。設問 4 の結果を用いて、最小不確定状態を記述するように規格化された波動関数を求めよ。
+[過去の大学院入試問題（PDF形式）](https://www.phys.s.u-tokyo.ac.jp/wp-content/uploads/2022/04/R4master.pdf)
 
 ## **Kai**
 ### 1. 
