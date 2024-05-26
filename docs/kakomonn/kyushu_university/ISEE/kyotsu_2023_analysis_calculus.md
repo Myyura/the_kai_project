@@ -22,7 +22,7 @@ $$
 
 とするとき, 全ての $k \ge 0$ 関する $a_k$ を求めよ。
 
-$\quad$ (c) 全ての $x \in \mathbb{R}$ について
+$\quad$ (\(c\)) 全ての $x \in \mathbb{R}$ について
 
 $$
 \sum_{k=0}^{\infty}|a_{k}x^{k}|
