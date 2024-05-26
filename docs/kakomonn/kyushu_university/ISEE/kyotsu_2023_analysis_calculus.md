@@ -66,7 +66,7 @@ a_k = \frac{f^{k}(0)}{k!} =
 \right.
 $$
 
-#### (\(c\))
+#### (c)
 
 $$
 \sum_{k = 0}^{\infty}|a_{k}x^{k}| = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \cdots = \sum_{n = 0}^{\infty} \frac{x^{2n}}{(2n)!}
