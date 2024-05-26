@@ -22,7 +22,7 @@ $$
 
 とするとき, 全ての $k \ge 0$ 関する $a_k$ を求めよ。
 
-$\quad$ (c) 全ての $x \in \mathbb{R}$ について
+$\quad$ (\(c\)) 全ての $x \in \mathbb{R}$ について
 
 $$
 \sum_{k=0}^{\infty}|a_{k}x^{k}|
@@ -66,7 +66,7 @@ a_k = \frac{f^{k}(0)}{k!} =
 \right.
 $$
 
-#### (c)
+#### (\(c\))
 
 $$
 \sum_{k = 0}^{\infty}|a_{k}x^{k}| = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \cdots = \sum_{n = 0}^{\infty} \frac{x^{2n}}{(2n)!}
