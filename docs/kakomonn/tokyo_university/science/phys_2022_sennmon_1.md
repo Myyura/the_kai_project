@@ -43,7 +43,7 @@ $$
 
 $$
 \begin{align}
-\Delta x \Delta p \geq \frac{\hbar}{2}
+\Delta x \Delta p \geq \frac{\hbar}{2} \label{1}
 \end{align}
 $$
 
