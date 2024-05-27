@@ -24,7 +24,7 @@ A =
 \end{pmatrix}
 $$
 
-(2) (1) の行列 $A$ に対し，$\text{rank}(A[J]) < |J|$ を満たす部分集合 $J \subseteq \{1, 2, 3, 4, 5, 6\}$ であって，$J$ の任意の真部分集合 $I \subsetneq J$ について $\text{rank}(A[I]) = |I|$ が成り立つものをすべて求めよ．ただし，空集合 $\empty$ に対しては $\text{rank}(A[\empty]) = 0$ と定義する．
+(2) (1) の行列 $A$ に対し，$\text{rank}(A[J]) < |J|$ を満たす部分集合 $J \subseteq \{1, 2, 3, 4, 5, 6\}$ であって，$J$ の任意の真部分集合 $I \subsetneq J$ について $\text{rank}(A[I]) = |I|$ が成り立つものをすべて求めよ．ただし，空集合 $\emptyset$ に対しては $\text{rank}(A[\emptyset]) = 0$ と定義する．
 
 (3) 一般の $A \in \mathbb{R}^{n×m}$ について，$I \subseteq J \subseteq \{1, 2, \dots , m\}$ かつ $\text{rank}(A[J]) = |J|$ のとき，$\text{rank}(A[I]) = |I|$ が成り立つことを示せ．
 
@@ -49,7 +49,7 @@ J &= \{2\} \quad J = \{2,4\} \quad J = \{2,6\} \quad J = \{2,4,6\} \\
 J &= \{4\} \quad J = \{4,5\} \quad J = \{4,6\} \quad J = \{4,5,6\} \\
 J &= \{5\} \quad J = \{5,6\} \\
 J &= \{6\} \\
-J &= \empty
+J &= \emptyset
 \end{aligned}
 $$
 
