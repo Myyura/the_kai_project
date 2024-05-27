@@ -12,11 +12,11 @@
 ## How to contribute
 我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。
 
-* email: 376672994@qq.com
+<div align=center> <font size=6 color=black>email: 376672994@qq.com</font> </div>
 
 我们并不追求解答的完整性, 但如果你发现了现有解答中的错误, 请积极指出. 亦可以加入项目群与大家交流题解.
 
-* QQ群: 925154731
+<div align=center> <font size=6 color=black>QQ交流群: 925154731</font> </div>
 
 如有侵权, 请随时联系.
 
