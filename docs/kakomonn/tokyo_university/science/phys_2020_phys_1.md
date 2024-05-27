@@ -70,8 +70,8 @@ $$
 $$
 
 の固有値は $\pm 1$ であり、
-固有値 $ 1$ に属する固有ベクトル $ \left| \theta \uparrow \right\rangle $ ,
-固有値 $-1$ に属する固有ベクトル $ \left| \theta \downarrow \right\rangle $
+固有値 $1$ に属する固有ベクトル $\left| \theta \uparrow \right\rangle$ ,
+固有値 $-1$ に属する固有ベクトル $\left| \theta \downarrow \right\rangle$
 はそれぞれ、
 
 $$

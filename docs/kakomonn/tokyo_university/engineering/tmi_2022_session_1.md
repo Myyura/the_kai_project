@@ -33,7 +33,7 @@ $$
 $$
 \begin{aligned}
 \frac{du}{dx} &= - 3x^2u + 3e^{-x^3}
-\tag{2}
+\qquad(2)
 \end{aligned}
 $$
 
