@@ -692,3 +692,9 @@ nav:
         - 経営システム工学専攻:
           - 2023年度:
             - 数理基礎: kakomonn/waseda_university/CSE/keieisystem_2023_suurikiso.md
+      - 先進理工学研究科:
+        - 物理学及応用物理学専攻:
+          - 2023年度:
+            - 数学一般 問題1: kakomonn/waseda_university/ASE/butsuri_2023_1.md
+            - 力学および電磁力学 問題3: kakomonn/waseda_university/ASE/butsuri_2023_3.md
+            - 量子力学および熱・統計力学 問題5: kakomonn/waseda_university/ASE/butsuri_2023_5.md
