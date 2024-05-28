@@ -27,11 +27,11 @@ $$
 
 を用いて表す。
 
-1.状態 $\mid \uparrow \rangle$ において観測量 $\sigma_z$ を測定した。測定結果が取りうる値 $s_z$、およびその期待値を求めよ。
+1.&nbsp;状態 $\mid \uparrow \rangle$ において観測量 $\sigma_z$ を測定した。測定結果が取りうる値 $s_z$、およびその期待値を求めよ。
 
-2.状態 $\mid \uparrow \rangle$ において観測量 $\sigma_x$ を測定した。測定結果が取りうる値 $s_x$、およびその期待値を求めよ。
+2.&nbsp;状態 $\mid \uparrow \rangle$ において観測量 $\sigma_x$ を測定した。測定結果が取りうる値 $s_x$、およびその期待値を求めよ。
 
-3.状態 $\mid \uparrow \rangle$ において観測量 $\sigma(\theta)$ を測定した。測定結果が取りうる値 $s_\theta$、およびその期待値を求めよ。
+3.&nbsp;状態 $\mid \uparrow \rangle$ において観測量 $\sigma(\theta)$ を測定した。測定結果が取りうる値 $s_\theta$、およびその期待値を求めよ。
 
 上記の二状態系 $A, B$ からなる複合系を考える。その状態は四状態
 
@@ -68,15 +68,15 @@ _________________
 この実験を、何度も繰り返すことを考えよう。
 
 
-4.毎回、部分系 $A$ で $\sigma^A_z$、部分系 $B$ で $\sigma^B_z$ を測定する。取りうる測定結果の組 $(s^A_z, s^B_z)$ を述べよ。また、積 $s^A_z s^B_z$ の期待値を求めよ。
+4.&nbsp;毎回、部分系 $A$ で $\sigma^A_z$、部分系 $B$ で $\sigma^B_z$ を測定する。取りうる測定結果の組 $(s^A_z, s^B_z)$ を述べよ。また、積 $s^A_z s^B_z$ の期待値を求めよ。
 
-5.毎回、部分系 $A$ で $\sigma^A_x$、部分系 $B$ で $\sigma^B_x$ を測定する。取りうる測定結果の組 $(s^A_x, s^B_x)$ を述べよ。また、積 $s^A_x s^B_x$ の期待値を求めよ。
+5.&nbsp;毎回、部分系 $A$ で $\sigma^A_x$、部分系 $B$ で $\sigma^B_x$ を測定する。取りうる測定結果の組 $(s^A_x, s^B_x)$ を述べよ。また、積 $s^A_x s^B_x$ の期待値を求めよ。
 
-6.毎回、部分系 $A$ で $\sigma^A(\theta)$、部分系 $B$ で $\sigma^B(\theta)$ を測定する。この場合、測定結果の組 $(s^A_\theta, s^B_\theta)$ は $s^A_\theta = -s^B_\theta = \pm 1$ を満たすことを示せ。
+6.&nbsp;毎回、部分系 $A$ で $\sigma^A(\theta)$、部分系 $B$ で $\sigma^B(\theta)$ を測定する。この場合、測定結果の組 $(s^A_\theta, s^B_\theta)$ は $s^A_\theta = -s^B_\theta = \pm 1$ を満たすことを示せ。
 
-7.毎回、部分系 $A$ で $\sigma^A(\theta)$、部分系 $B$ で $\sigma^B(\varphi)$ を測定する。取りうる測定結果の組 $(s^A_0, s^B_\varphi)$ を述べよ。また、積 $s^A_0 s^B_\varphi$ の期待値を求めよ。
+7.&nbsp;毎回、部分系 $A$ で $\sigma^A(\theta)$、部分系 $B$ で $\sigma^B(\varphi)$ を測定する。取りうる測定結果の組 $(s^A_0, s^B_\varphi)$ を述べよ。また、積 $s^A_0 s^B_\varphi$ の期待値を求めよ。
 
-8.各回、部分系 $A$ で測定する観測量 $\sigma^A(\theta)$ を $\sigma^A(0^\circ)、\sigma^A(120^\circ)、\sigma^A(240^\circ)$ からそれぞれ1/3の確率で測定者が選択することにし、また、部分系 $B$ でも、測定する観測量 $\sigma^B(\varphi)$ を $\sigma^B(0^\circ)、\sigma^B(120^\circ)、\sigma^B(240^\circ)$ からそれぞれ1/3の確率で測定者が選択することにする。測定結果の組 $(s^A, s^B)$ の取りうる値を述べよ。また、積 $s^A s^B$ の期待値を求め、それが0になることを示せ。
+8.&nbsp;各回、部分系 $A$ で測定する観測量 $\sigma^A(\theta)$ を $\sigma^A(0^\circ)、\sigma^A(120^\circ)、\sigma^A(240^\circ)$ からそれぞれ1/3の確率で測定者が選択することにし、また、部分系 $B$ でも、測定する観測量 $\sigma^B(\varphi)$ を $\sigma^B(0^\circ)、\sigma^B(120^\circ)、\sigma^B(240^\circ)$ からそれぞれ1/3の確率で測定者が選択することにする。測定結果の組 $(s^A, s^B)$ の取りうる値を述べよ。また、積 $s^A s^B$ の期待値を求め、それが0になることを示せ。
 
 これまでは量子力学を用いて考察を行ったが、そのようにして得られた設問8の結論は、以下でのべる決定論的仮説と矛盾することを確認しよう。
 
@@ -96,7 +96,7 @@ $$
 
 _________________
 
-9.上記の仮説のもと、設問8と同様、部分系 $A$ で $\sigma^A(0^\circ)$、$\sigma^A(120^\circ)$、$\sigma^A(240^\circ)$ をそれぞれ1/3の確率で測定し、部分系 $B$ で $\sigma^B(0^\circ)$、$\sigma^B(120^\circ)$、$\sigma^B(240^\circ)$ をそれぞれ1/3の確率で測定する。このとき、$\sigma^A(\theta)$ を測定した際に得られる測定結果を $s^A = s^A_\theta$、$\sigma^B(\varphi)$ を測定した際に得られる測定結果を $s^B = s^B_\varphi$ と書く。
+9.&nbsp;上記の仮説のもと、設問8と同様、部分系 $A$ で $\sigma^A(0^\circ)$、$\sigma^A(120^\circ)$、$\sigma^A(240^\circ)$ をそれぞれ1/3の確率で測定し、部分系 $B$ で $\sigma^B(0^\circ)$、$\sigma^B(120^\circ)$、$\sigma^B(240^\circ)$ をそれぞれ1/3の確率で測定する。このとき、$\sigma^A(\theta)$ を測定した際に得られる測定結果を $s^A = s^A_\theta$、$\sigma^B(\varphi)$ を測定した際に得られる測定結果を $s^B = s^B_\varphi$ と書く。
 
 (i) $(s^A_{0^\circ}, s^A_{120^\circ}, s^A_{240^\circ}) = (+1, +1, +1)$ の場合、$s^A s^B$ の期待値を求めよ。
 
