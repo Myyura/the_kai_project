@@ -715,3 +715,8 @@ nav:
         - システム情報工学研究群 社会工学学位プログラム:
           - 2023年度:
             - 8月 数学 I: kakomonn/tsukuba_university/science_and_technology/sie_pps_202208_math_1.md
+    - 電気通信大学:
+      - 情報理工学研究科:
+        - 情報・ネットワーク工学専攻:
+          - 2023年度:
+            - 8月 必須問題 線形代数 [1]: kakomonn/UEC/informatics_and_engineering/cne_202208_hissu_1.md
