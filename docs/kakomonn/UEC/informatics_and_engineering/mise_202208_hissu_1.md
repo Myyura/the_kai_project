@@ -69,7 +69,7 @@ $$
 $$
   \begin{align}
   \frac{d^2 y}{dx^2} - 4 \frac{dy}{dx} + 4y = 0
-  \tag{a}
+  \tag{a} \label{a}
   \end{align}
 $$
 
