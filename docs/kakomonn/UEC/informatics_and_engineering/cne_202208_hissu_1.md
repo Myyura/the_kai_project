@@ -2,7 +2,7 @@
 comments: false
 title: 電気通信大学 情報理工学研究科 情報・ネットワーク工学専攻 2022年8月実施 必須問題 線形代数 [1]
 tags:
-  - University-Of-Electro-Communications 
+  - University-of-Electro-Communications 
 ---
 # 電気通信大学 情報理工学研究科 情報・ネットワーク工学専攻 2022年8月実施 必須問題 線形代数 \[1\]
 
