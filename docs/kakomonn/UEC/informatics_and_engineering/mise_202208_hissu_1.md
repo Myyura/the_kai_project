@@ -89,7 +89,7 @@ $$
 $$
   \begin{aligned}
   y = Ae^{2x} + Bxe^{2x}
-  \ \ \ \ \ \ \ \ \text{( $A,B$ は任意定数）}
+  \ \ \ \ \ \ \ \ \text{($A,B$ は任意定数)}
   \end{aligned}
 $$
 
@@ -102,7 +102,7 @@ $C=1/2$ を得るので、 $y=(1/2)x^2e^{2x}$ は特殊解である。
 $$
   \begin{aligned}
   y = Ae^{2x} + Bxe^{2x} + \frac{1}{2} x^2 e^{2x}
-  \ \ \ \ \ \ \ \ \text{( $A,B$ は任意定数）}
+  \ \ \ \ \ \ \ \ \text{($A,B$ は任意定数)}
   \end{aligned}
 $$
 
