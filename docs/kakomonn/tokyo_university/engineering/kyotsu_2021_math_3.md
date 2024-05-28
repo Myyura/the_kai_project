@@ -56,8 +56,8 @@ $$
 \end{aligned}
 $$
 
-が正となるのは、「 $r \gt 1$ かつ $ \alpha \lt \theta \lt \alpha + \pi$ 」
-または「 $r \lt 1$ かつ $ 0 \lt \theta \lt \alpha, \alpha + \pi \lt \theta \lt 2 \pi$ 」
+が正となるのは、「 $r \gt 1$ かつ $\alpha \lt \theta \lt \alpha + \pi$」
+または「$r \lt 1$ かつ $0 \lt \theta \lt \alpha, \alpha + \pi \lt \theta \lt 2 \pi$ 」
 のときである。
 
 ### III.
