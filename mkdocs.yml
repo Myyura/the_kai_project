@@ -550,11 +550,13 @@ nav:
             - 午前 問A: kakomonn/titech/MCS/is_2023_A.md
         - 情報工学系:
           - 2022年度:
-            - 午前 1: kakomonn/titech/MCS/cs_2022_1.md
+            - 午前 1.: kakomonn/titech/MCS/cs_2022_1.md
           - 2020年度:
-            - 午前 1: kakomonn/titech/MCS/cs_2020_1.md
+            - 午前 1.: kakomonn/titech/MCS/cs_2020_1.md
           - 2019年度:
-            - 午前 1: kakomonn/titech/MCS/cs_2019_1.md
+            - 午前 1.: kakomonn/titech/MCS/cs_2019_1.md
+          - 2018年度:
+            - 午前 3.: kakomonn/titech/MCS/cs_2018_3.md
       - 環境・社会理工学院:
         - 土木・環境工学系:
           - 2023年度:
