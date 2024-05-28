@@ -31,10 +31,10 @@ $$
 なので、 $u$ に関する微分方程式
 
 $$
-\begin{aligned}
+\begin{align}
 \frac{du}{dx} &= - 3x^2u + 3e^{-x^3}
-\qquad(2)
-\end{aligned}
+\tag(2)
+\end{align}
 $$
 
 を得る。
