@@ -9,6 +9,9 @@
 
 手机端点击 [这里](https://runjp.com/tags/) 可进入标签索引页面。
 
+## LICENSE
+本项目使用 GNU Affero General Public License v3.0, 所有解答版权由本项目与作者所有, 试题版权归出题方（校方）所有。
+
 ## How to contribute
 我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。
 
