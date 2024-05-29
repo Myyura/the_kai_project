@@ -190,14 +190,16 @@ nav:
           - 2020年度:
             - 第3問: kakomonn/tokyo_university/frontier_sciences/materials_2020_3.md
         - 複雑理工学専攻:
+          - 2023年度:
+            - 専門基礎科目 1.1 微分積分: kakomonn/tokyo_university/frontier_sciences/cse_2023_1_1.md
           - 2020年度:
-            - 第1問: kakomonn/tokyo_university/frontier_sciences/cse_2020_1.md
-            - 第2問: kakomonn/tokyo_university/frontier_sciences/cse_2020_2.md
-            - 第3問: kakomonn/tokyo_university/frontier_sciences/cse_2020_3.md
-            - 第4問: kakomonn/tokyo_university/frontier_sciences/cse_2020_4.md
+            - 専門基礎科目 第1問 数学: kakomonn/tokyo_university/frontier_sciences/cse_2020_1.md
+            - 専門基礎科目 第2問 数学: kakomonn/tokyo_university/frontier_sciences/cse_2020_2.md
+            - 専門基礎科目 第3問 数学: kakomonn/tokyo_university/frontier_sciences/cse_2020_3.md
+            - 専門基礎科目 第4問 数学: kakomonn/tokyo_university/frontier_sciences/cse_2020_4.md
           - 2019年度:
-            - 第4問: kakomonn/tokyo_university/frontier_sciences/cse_2019_4.md
-            - 第8問: kakomonn/tokyo_university/frontier_sciences/cse_2019_8.md
+            - 専門基礎科目 第4問 数学: kakomonn/tokyo_university/frontier_sciences/cse_2019_4.md
+            - 専門基礎科目 第8問 物理学: kakomonn/tokyo_university/frontier_sciences/cse_2019_8.md
         - 海洋技術環境学専攻:
           - 2022年度:
             - 第1~6問: kakomonn/tokyo_university/frontier_sciences/otpe_2022_all.md
