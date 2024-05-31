@@ -7,7 +7,7 @@ tags:
 # 東北大学 工学研究科 電気・情報系 2018年3月実施 問題4 情報基礎2
 
 ## **Author**
-祭音Myyura
+
 
 ## **Description**
 ### 日本語版
@@ -59,20 +59,9 @@ Answer the folowing questions. If necessary, the following facts (A) and (B) can
 - (b) Let $\mu_2(G)$ denote the length of a shortest 2-circuit in $G$. Prove that $H$ consists of $m(G) +n(G) - \mu_2(G)$ connected components.
 
 ## **Kai**
-(L1) For any connected graph $G$, there always exists a 2-circuit.
-
-Proof: Since an edge can be passed twice, we double all edges in $G$ and get a new graph $G^*$.
-Obviously every vertex of $G$ is of even degree, hence by fact (A) we know that $G^*$ has a 1-circuit, which implies that $G$ has a 2-circuit.
 
 ### (1)
 #### (a)
-Suppose that $H$ is a parity subgraph of $G$. For each edge $e$ in $H$, we remove $e$ from $G$ to obtain a graph $F$.
-
-Graph $F$ may contain multiple connected components, by (L1) we know that every connected component has a 2-circuit. Let $C_1, \ldots, C_k$ denote a 2-circuit of these connected components, respectively.
-
-Also, by definition of parity subgraph we know that graph $H$ is also connected, it has a 2-circuit $C$.
-
-Combining all the cycles $C, C_1, \ldots, C_k$ into one, say $C^*$, it is trivial to see that $C^*$ is a 2-circuit of $G$ and $l(C) = m(G) + m(H)$.
 
 #### (b)
 
