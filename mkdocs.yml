@@ -432,6 +432,8 @@ nav:
             - 数理基礎: kakomonn/osaka_university/IST/IPS_2020_suurikiso.md
             - 数学解析: kakomonn/osaka_university/IST/IPS_2020_suugakukaiseki.md
         - 情報工学:
+          - 2024年度:
+            - アルゴリズムとプログラミング: kakomonn/osaka_university/IST/ie_2024_algorithm_programming.md
           - 2020年度:
             - アルゴリズムとプログラミング: kakomonn/osaka_university/IST/ie_2020_algorithm_programming.md
           - 2019年度:
