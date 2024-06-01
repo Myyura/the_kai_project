@@ -127,6 +127,7 @@ nav:
   - 過去問:
     - 项目介绍: index.md
     - 東京大学:
+      - 索引: kakomonn/tokyo_university/index.md
       - 理学系研究科:
         - 物理学専攻:
           - 2022年度:
@@ -240,6 +241,7 @@ nav:
           - 2020年度:
             - 専門科目 A 第1問: kakomonn/tokyo_university/mathematical_sciences/ms_2020_A_1.md
     - 京都大学:
+      - 索引: kakomonn/kyoto_university/index.md
       - 理学研究科:
         - 数学・数理解析専攻:
           - 2024年度:
@@ -298,6 +300,7 @@ nav:
         - 2023年度:
           - 数学 第1問: kakomonn/kyoto_university/management/2023_math_1.md
     - 東北大学:
+      - 索引: kakomonn/tohoku_university/index.md
       - 理学研究科:
         - 数学専攻:
           - 2023年度:
@@ -379,6 +382,7 @@ nav:
             - 数学基礎 問題1-3: kakomonn/tohoku_university/biomedical_engineering/med_2022_math_1_3.md
             - 数学基礎 問題4-6: kakomonn/tohoku_university/biomedical_engineering/med_2022_math_4_6.md
     - 大阪大学:
+      - 索引: kakomonn/osaka_university/index.md
       - 理学研究科:
         - 物理学専攻:
           - 2020年度:
@@ -444,6 +448,7 @@ nav:
           - 2018年度:
             - アルゴリズムとプログラミング: kakomonn/osaka_university/IST/ie_2018_algorithm_programming.md
     - 名古屋大学:
+      - 索引: kakomonn/nagoya_university/index.md
       - 理学研究科:
         - 物理学教室:
           - 2020年度:
@@ -524,6 +529,7 @@ nav:
           - 午前の部 [1]: kakomonn/nagoya_university/mathematics/math_201807_1.md
           - 午前の部 [2]: kakomonn/nagoya_university/mathematics/math_201807_2.md
     - 東京工業大学:
+      - 索引: kakomonn/TITech/index.md
       - 理学院:
         - 数学系:
           - 2022年度:
@@ -583,6 +589,7 @@ nav:
             - 午後 問題A [問題2]: kakomonn/TITech/environment_and_society/tse_2022_A_2.md
             - 午後 問題B [問題1]: kakomonn/TITech/environment_and_society/tse_2022_B_1.md
     - 北海道大学:
+      - 索引: kakomonn/hokkaido_university/index.md
       - 理学院:
         - 物性物理学専攻・宇宙理学専攻合同問題:
           - 2021年度:
@@ -612,6 +619,7 @@ nav:
         - 2020年度:
           - 秋季 F_工学 統計学: kakomonn/hokkaido_university/public_policy/F_201908_stat.md
     - 九州大学:
+      - 索引: kakomonn/kyushu_university/index.md
       - 数理学府:
         - 数理学コース:
           - 2024年度:
@@ -694,6 +702,7 @@ nav:
           - 2020年度:
             - 経済数学: kakomonn/kyushu_university/economics/economic_engineering_2020_keizaisuugaku.md
     - 早稲田大学:
+      - 索引: kakomonn/waseda_university/index.md
       - 基幹理工学研究科:
         - 数学応用数理専攻:
           - 2024年度:
@@ -724,6 +733,7 @@ nav:
           - 2023年度:
             - 数学一般(その1): kakomonn/waseda_university/ASE/kyodogenshi_2023_math_1.md
     - 筑波大学:
+      - 索引: kakomonn/tsukuba_university/index.md
       - 理工情報生命学術院:
         - 数理物質科学研究群 数学学位プログラム:
           - 2022年度:
@@ -734,6 +744,7 @@ nav:
           - 2023年度:
             - 8月 数学 I: kakomonn/tsukuba_university/science_and_technology/sie_pps_202208_math_1.md
     - 電気通信大学:
+      - 索引: kakomonn/UEC/index.md
       - 情報理工学研究科:
         - 情報・ネットワーク工学専攻:
           - 2023年度:

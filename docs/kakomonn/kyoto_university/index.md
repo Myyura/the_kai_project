@@ -1,0 +1,66 @@
+---
+comments: false
+title: 京都大学 索引
+tags:
+  - Kyoto-University
+---
+
+# 京都大学 索引
+
+- 理学研究科:
+    - 数学・数理解析専攻:
+        - 2024年度:
+            - [基礎科目 \[1\] ~ \[4\]](science/math_2024_kiso_1_4.md)
+            - [専門科目 \[13\]](science/math_2024_senmon_13.md)
+        - 2023年度:
+            - [基礎科目 \[1\] ~ \[3\]](science/math_2023_kiso_1_3.md)
+    - 物理学・宇宙物理学専攻:
+        - 2022年度:
+            - [I-3 (AB)](science/phys_2022_I_3_AB.md)
+            - [II-2C](science/phys_2022_II_2_C.md)
+        - 2020年度:
+            - [I-2 (AB)](science/phys_2020_I_2_AB.md)
+    - 地球惑星科学専攻:
+        - 2023年度:
+            - [基礎科目 問題1](science/eps_2023_kiso_1.md)
+    - 化学専攻:
+        - 2023年度:
+            - [物理学 基礎](science/chem_2023_phys_kiso.md)
+- 情報学研究科:
+    - 数理工学専攻:
+        - 2024年度:
+            - [専門科目 グラフ理論](informatics/amp_202308_graph_theory.md)
+        - 2023年度:
+            - [専門科目 グラフ理論](informatics/amp_202208_graph_theory.md)
+        - 2022年度:
+            - [基礎科目 アルゴリズム基礎](informatics/amp_202108_algorithm.md)
+            - [専門科目 グラフ理論](informatics/amp_202108_graph_theory.md)
+        - 2021年度:
+            - [専門科目 グラフ理論](informatics/amp_202008_graph_theory.md)
+        - 2020年度:
+            - [基礎科目 アルゴリズム基礎](informatics/amp_201908_algorithm.md)
+            - [専門科目 グラフ理論](informatics/amp_201908_graph_theory.md)
+    - 知能情報学専攻:
+        - 2024年度:
+            - [情報学基礎 F2-1](informatics/ist_202308_kiso_f2_1.md)
+        - 2022年度:
+            - [情報学基礎 F1-2](informatics/ist_202108_kiso_f1_2.md)
+        - 2020年度:
+            - [情報学基礎 F1-1](informatics/ist_201908_kiso_f1_1.md)
+            - [専門科目 S-2 統計学](informatics/ist_201908_senmon_s_2.md)
+    - 先端数理科学専攻:
+        - 2022年度:
+            - [基礎科目1 基礎科目2](informatics/ams_202108_kiso_1_2.md)
+    - システム科学専攻:
+        - 2023年度:
+            - [数学【I】](informatics/sys_202208_math_I.md)
+            - [数学【II】](informatics/sys_202208_math_II.md)
+        - 2020年度:
+            - [専門科目 確率統計](informatics/sys_201908_senmon_stat.md)
+    - 通信情報システム専攻:
+        - 2022年度:
+            - [専門基礎A \[A-1\]](informatics/cce_202108_senmonkiso_A_1.md)
+            - [専門基礎A \[A-2\]](informatics/cce_202108_senmonkiso_A_2.md)
+    - 経営管理大学院:
+        - 2023年度:
+          - [数学 第1問](management/2023_math_1.md)
