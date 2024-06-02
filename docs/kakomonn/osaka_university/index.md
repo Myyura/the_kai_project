@@ -64,6 +64,8 @@ tags:
             - [アルゴリズムとプログラミング](IST/ie_2024_algorithm_programming.md)
         - 2023年度:
             - [アルゴリズムとプログラミング](IST/ie_2023_algorithm_programming.md)
+        - 2022年度:
+            - [アルゴリズムとプログラミング](IST/ie_2022_algorithm_programming.md)
         - 2020年度:
             - [アルゴリズムとプログラミング](IST/ie_2020_algorithm_programming.md)
         - 2019年度:
