@@ -81,6 +81,7 @@ tags:
         - 2022年度:
             - [専門基礎科目 1.1 微分積分](frontier_sciences/cse_2022_1_1.md)
             - [専門基礎科目 2.1 線形代数](frontier_sciences/cse_2022_2_1.md)
+            - [専門基礎科目 3.2 確率・統計](frontier_sciences/cse_2022_3_2.md)
         - 2020年度:
             - [専門基礎科目 第1問 数学](frontier_sciences/cse_2020_1.md)
             - [専門基礎科目 第2問 数学](frontier_sciences/cse_2020_2.md)
