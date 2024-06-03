@@ -1,6 +1,6 @@
 window.MathJax = {
     loader: {
-      load: ['[tex]/boldsymbol', '[tex]/mathtools']
+      load: ['[tex]/boldsymbol', '[tex]/mathtools', '[tex]/empheq']
     },
     tex: {
       tags: 'ams',
@@ -10,7 +10,8 @@ window.MathJax = {
       processEnvironments: true,
       packages: {
         '[+]': ['boldsymbol'],
-        '[+]': ['mathtools']
+        '[+]': ['mathtools'],
+        '[+]': ['empheq']
       }
     },
     options: {
