@@ -3,3 +3,6 @@ site
 
 # misc
 .DS_Store
+
+# mkdocs config
+mkdocs.yml
