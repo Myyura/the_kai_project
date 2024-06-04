@@ -90,6 +90,7 @@ tags:
             - [専門基礎科目 第4問 数学](frontier_sciences/cse_2020_4.md)
         - 2019年度:
             - [専門基礎科目 第1問 数学](frontier_sciences/cse_2019_1.md)
+            - [専門基礎科目 第2問 数学](frontier_sciences/cse_2019_2.md)
             - [専門基礎科目 第4問 数学](frontier_sciences/cse_2019_4.md)
             - [専門基礎科目 第8問 物理学](frontier_sciences/cse_2019_8.md)
     - 海洋技術環境学専攻:
