@@ -62,6 +62,7 @@ tags:
     - 情報工学:
         - 2024年度:
             - [アルゴリズムとプログラミング](IST/ie_2024_algorithm_programming.md)
+            - [離散構造](IST/ie_2024_discrete_mathematics.md)
         - 2023年度:
             - [アルゴリズムとプログラミング](IST/ie_2023_algorithm_programming.md)
         - 2022年度:
