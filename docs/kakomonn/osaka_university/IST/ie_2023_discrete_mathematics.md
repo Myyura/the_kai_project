@@ -23,12 +23,12 @@ a_{ij} = \begin{cases}
 \end{cases}
 $$
 
-また、隣接する頂点の系列 $v_{x_0} \to v_{x_1} \to \cdots \to v_{x_h} \to \cdots v_{x_m}$ ($0 \leq h \leq m$, $1 \leq x_h \leq n$) を、長さ $m$ の歩道 (walk) と呼ぶ。
+また、隣接する頂点の系列 $v_{x_0} \to v_{x_1} \to \cdots \to v_{x_h} \to \cdots \to v_{x_m}$ ($0 \leq h \leq m$, $1 \leq x_h \leq n$) を、長さ $m$ の歩道 (walk) と呼ぶ。
 歩道は同じ頂点を複数含んでも良い。
 例えば、下図グラフ $G_1$ において、 $v_1 \to v_2 \to v_4 \to v_2 \to v_3$ は長さ 4 の歩道である。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka_university/IST/ie_2023_discrete_mathematics_p1.png" width="350" height="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka_university/IST/ie_2023_discrete_mathematics_p1.png" width="280" height="360" alt=""/>
 </figure>
 
 以下の各問に答えよ。
@@ -38,15 +38,15 @@ $$
 (2) グラフ $G$ における、頂点 $v_i$ から $v_j$ の長さ $k$ ($k \geq 1$) の歩道の総数を、$f_G(k, i, j)$ で表すこととする。
 
 - (2-1) 上図グラフ $G_1$ について考える。グラフ $G_1$ において、$f_{G_1}(3, 3, 2)$ の値を答えよ。
-- (2-2) 上図グラフ $G_1$ において、 $1 \leq k \leq 3$ において $f_{G_1}(k, 4, 3)$ の値を答えよ。
-- (2-3) グラフ $G$ における隣接行列 $A_G$ の $k$ 乗を $A_G^k$ で表す。行列 $A_G^k$ の $(i, j)$ 成分を $a_{ij}^{(k)}$ と表現すると、 $a_{ij}^{(k)} = f_G(k, i, j)$ になることを説明せよ。
+- (2-2) 上図グラフ $G_1$ において、$\sum_{1 \leq k \leq 3} f_{G_1}(k, 4, 3)$ の値を答えよ。
+- (2-3) グラフ $G$ における隣接行列 $A_G$ の $k$ 乗を $A_G^k$ で表す。行列 $A_G^k$ の $(i, j)$ 成分を $a_{ij}^{(k)}$ と表現すると、$a_{ij}^{(k)} = f_G(k, i, j)$ になることを証明せよ。
 
-(3) 頂点が $n$ の完全グラフ (complete graph) を $K_n$ とする。
+(3) 頂点数が $n$ の完全グラフ (complete graph) を $K_n$ とする。
 
-- (3-1) 完全グラフ $K_n$ の辺の数を用いて示せ。
-- (3-2) 一般に、 $n \geq 3$ のグラフが $K_3$ を含むかどうかは、隣接行列を用いて判定することができる。隣接行列 $A_G$ の $(i, j)$ 成分を $a_{ij}$, $A_G^2$ の $(i, j)$ 成分を $b_{ij}$ としたときに、$a_{ij}$ と $b_{ij}$ を用いて、グラフ $G$ が $K_3$ を含むかどうかを判定する方法を理由とともに説明せよ。
+- (3-1) 完全グラフ $K_n$ の辺の数を $n$ を用いて示せ。
+- (3-2) 一般に、$n \geq 3$ のグラフが $K_3$ を含むかどうかは、隣接行列を用いて判定することができる。隣接行列 $A_G$ の $(i, j)$ 成分を $a_{ij}$, $A_G^2$ の $(i, j)$ 成分を $b_{ij}$ としたときに、$a_{ij}$ と $b_{ij}$ を用いて、グラフ $G$ が $K_3$ を含むかどうかを判定する方法を理由とともに説明せよ。
 
-(4) 2つのグラフ $G$ が連結である (connected) とは、行列 $\boxed{\ \ \ \alpha\ \ \ }$ がそのいずれかの成分にも 0 を持たないことを調べることで確認できる。$I_n$ を $n \times n$ の単位行列 (identity matrix) としたときに、隣接行列 $A_G$, $I_n$, $n$ を用いて空間の $\alpha$ を示せ。
+(4) $n \ge 2$ のグラフ $G$ が連結である (connected) とは、行列 $\boxed{\ \ \ \alpha\ \ \ }$ がそのいずれかの成分にも 0 を持たないことを調べることで確認できる。$I_n$ を $n \times n$ の単位行列 (identity matrix) としたときに、隣接行列 $A_G$, $I_n$, $n$ を用いて空間の $\alpha$ を示せ。
 
 
 ## **Kai**
@@ -122,13 +122,13 @@ $$
 a_{ij} = 1, a_{ik} = 1, a_{jk} = 1
 $$
 
-グラフが完全グラフ3 $(V=\{v_i, v_j, v_k\}, E=\{v_iv_j, v_iv_k, v_jv_k\})$ を含むから、各成分 $(i, j)$ について、
+グラフ $G$ が完全グラフ3 $(V=\{v_i, v_j, v_k\}, E=\{v_iv_j, v_iv_k, v_jv_k\})$ を含むから、各成分 $(i, j)$ について、
 
 $$
 a_{ij} = 1 \text{ かつ } b_{ij} \ge 2
 $$
 
-であるかどうかをチェックすれば、グラフが $K_3$ を含むかどうかはわかる。
+であるかどうかをチェックすれば、グラフ $G$ が $K_3$ を含むかどうかはわかる。
 
 ### (4)
 (The idea is to check the value of $a_{ij}^{(k)}$ for each $k \in \{1, 2, \ldots, n-1\}$)
