@@ -93,6 +93,8 @@ tags:
             - [専門基礎科目 第2問 数学](frontier_sciences/cse_2019_2.md)
             - [専門基礎科目 第4問 数学](frontier_sciences/cse_2019_4.md)
             - [専門基礎科目 第8問 物理学](frontier_sciences/cse_2019_8.md)
+        - 2018年度:
+            - [専門基礎科目 第1問 数学](frontier_sciences/cse_2018_1.md)
     - 海洋技術環境学専攻:
         - 2022年度:
             - [第1~6問](frontier_sciences/otpe_2022_all.md)
