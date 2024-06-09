@@ -75,6 +75,7 @@ tags:
             - [計算機アーキテクチャ](ISEE/ist_2023_computer_architecture.md)
         - 2022年度:
             - [情報理論](ISEE/ist_2022_information_theory.md)
+            - [計算機アーキテクチャ](ISEE/ist_2022_computer_architecture.md)
         - 2021年度:
             - [情報理論](ISEE/ist_2021_information_theory.md)
             - [アルゴリズム・プログラミング](ISEE/ist_2021_algorithm_programming.md)
