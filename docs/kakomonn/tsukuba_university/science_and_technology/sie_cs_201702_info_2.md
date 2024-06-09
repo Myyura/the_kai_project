@@ -48,8 +48,8 @@ isEnd に TRUE が格納される場合には，value にそのキーとペア�
 この構造体を用いて以下の関数を実装することを考える．
 
 - `struct node *new_node()`, 新たなノードを作成して初期化し，そのノードへのポインタを返す．
-- `void insert(struct node \*root, char \*key, int value)`,  root が指すノードを根とする根付き木に対して，キー key と値 value のペアを追加する．キー key が根付き木にすでに存在している場合，古い値をvalue でおきかえる．
-- `int search(struct node \*root, char \*key)`, root が指すノードを根とする根付き木に key をキーとするペアがあるかを探し，あればそのペアの
+- `void insert(struct node *root, char *key, int value)`,  root が指すノードを根とする根付き木に対して，キー key と値 value のペアを追加する．キー key が根付き木にすでに存在している場合，古い値をvalue でおきかえる．
+- `int search(struct node *root, char *key)`, root が指すノードを根とする根付き木に key をキーとするペアがあるかを探し，あればそのペアの
 値を返す．なければ −1 を返す．
 
 (a) 以下のプログラムは構造体 node を用いて関数 new_node，insert，search を実装したものである．
@@ -112,7 +112,7 @@ int search (struct node *root, char *key)
 }
 ```
 
-(b) n個のペアが格納されている root が指すノードを根とする根付き木に対して，長さkの文字列を key として関数 search を呼び出したときの最悪の場合の漸近的な時間計算量を示し，その理由も示しなさい．
+(b) n 個のペアが格納されている root が指すノードを根とする根付き木に対して，長さ k の文字列を key として関数 search を呼び出したときの最悪の場合の漸近的な時間計算量を示し，その理由も示しなさい．
 
 ### 情報2 (2)
 次の C 言語で記述されたプログラムリストについての以下の設問に答えなさい．
@@ -157,7 +157,7 @@ int get_str(struct buffer *buf, char *dest) {
 
 (a). このプログラムは，固定長の配列を用いて，可変長の文字列のバッファを実現する．
 プログラムリストの 8 行目から 22 行目で定義されている関数は，与えられた文字列をバッファへ格納する．
-いま，head と tail が共に 12 にセットされ，配列 store の中身がすべて'\0' (NULL 文字) で初期化されている struct buffer 型の構造体 buf があると仮定する．
+いま，head と tail が共に 12 にセットされ，配列 store の中身がすべて '\0' (NULL 文字) で初期化されている struct buffer 型の構造体 buf があると仮定する．
 以下に示す順序でこの関数を実行した後の buf.store の内容を答えよ．
 
 ```text
