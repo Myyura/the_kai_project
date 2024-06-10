@@ -16,7 +16,7 @@ tags:
 以下の関数により正の整数の追加と取り出しができる一種の優先度キュー (priority queue) を C 言語で構造体 pq として実装することを考える．
 
 - `struct pq *newq()`, 新たに優先度キューを作成して初期化し，そのキューへのポインタを返す．
-- `void putq(struct pq *q, int v)`, 正の整数vを優先度キュー q に追加する．
+- `void putq(struct pq *q, int v)`, 正の整数 v を優先度キュー q に追加する．
 - `int getq(struct pq *q)`, 優先度キュー q に格納されている整数のうち最も値が大きいものを一つキューから取り出し，その値を返す．ただし，キューが空の場合には，この関数は −1 を返す．
 
 ここではこの優先度キューを，以下のような完全 2 分木のデータ構造を用いて実現する．
@@ -26,7 +26,7 @@ tags:
 </figure>
 
 上図の各ノードの中に書かれている数値が，優先度キューに格納される数値である．
-この完全2分木には，以下のような条件を満足するように数値が格納されている．
+この完全 2 分木には，以下のような条件を満足するように数値が格納されている．
 
 - 各ノードが持つ数値は，そのノードのいずれの子ノードが持つ数値より小さくない．
 
@@ -186,7 +186,7 @@ void calc_dists(const int origin, int dist_vec[]) {
 
 
 (d). プログラムリスト 30 行目から 52 行目では，配列 adj_list および adj_index を用いて，origin から頂点i $(\text{i}=0, 1, ..., 7)$ までの距離を origin からの幅優先探索で求め，dist_vec\[i\] に格納している．
-但し，origin から頂点 i に到達できない場合は，dist_vec\[i\] の値は UNREACHとする．
+但し，origin から頂点 i に到達できない場合は，dist_vec\[i\] の値は UNREACH とする．
 (G) から (M) に入るべき式を入れて，プログラムを完成させよ．
 
 
@@ -240,10 +240,10 @@ adj_list: 1, 3, 5, 2, 3, 4, 5, 7, 6, 2, 7, 0
 ```
 
 #### (d)
-- (G): adj_index\[curr\[i\]\]
-- (H): adj_index\[curr\[i\] + 1\]
-- (I): dist_vec\[adj_list\[j\]\]
-- (J): UNREACH
-- (K): dist_vec\[adj_list\[j\]\]
-- (L): next\[len_next\]
-- (M): adj_list\[j\]
+- \[ (G) \]: adj_index\[curr\[i\]\]
+- \[ (H) \]: adj_index\[curr\[i\] + 1\]
+- \[ (I) \]: dist_vec\[adj_list\[j\]\]
+- \[ (J) \]: UNREACH
+- \[ (K) \]: dist_vec\[adj_list\[j\]\]
+- \[ (L) \]: next\[len_next\]
+- \[ (M) \]: adj_list\[j\]
