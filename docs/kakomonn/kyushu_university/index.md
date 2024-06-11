@@ -82,6 +82,7 @@ tags:
             - [計算機アーキテクチャ](ISEE/ist_2021_computer_architecture.md)
         - 2020年度:
             - [情報理論](ISEE/ist_2020_information_theory.md)
+            - [計算機アーキテクチャ](ISEE/ist_2020_computer_architecture.md)
         - 2019年度:
             - [情報理論](ISEE/ist_2019_information_theory.md)
             - [アルゴリズム・プログラミング](ISEE/ist_2019_algorithm_programming.md)
