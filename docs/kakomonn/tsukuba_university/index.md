@@ -12,6 +12,8 @@ tags:
             - [問題 \[2\]](science_and_technology/pas_math_2022_2.md)
     - システム情報工学研究群 情報理工学位プログラム:
         - [問題例](science_and_technology/sie_cs_sample.md)
+        - 2019年度:
+            - [2月 基礎科目 問題 IV](science_and_technology/sie_cs_201902_4.md)
         - 2017年度:
             - [8月 基礎科目 情報2](science_and_technology/sie_cs_201608_info_2.md)
             - [2月 基礎科目 情報2](science_and_technology/sie_cs_201702_info_2.md)
