@@ -86,6 +86,7 @@ tags:
         - 2019年度:
             - [情報理論](ISEE/ist_2019_information_theory.md)
             - [アルゴリズム・プログラミング](ISEE/ist_2019_algorithm_programming.md)
+            - [計算機アーキテクチャ](ISEE/ist_2019_computer_architecture.md)
 - 経済学府:
     - 経済工学専攻:
         - 2020年度:
