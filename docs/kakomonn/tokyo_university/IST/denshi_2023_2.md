@@ -47,7 +47,7 @@ Also, show the circuit that genrates $D$ by combining necessary signals and gate
 $A:[-8,7],\quad B:[-4,3]$
 
 ### (2)
-|$a$|$b$|$c_{in}$|$y$|$c_{out}$|
+|$a$|$b$|$C_{in}$|$y$|$C_{out}$|
 |-|-|-|-|-|
 |0|0|0|0|0|
 |0|0|1|1|0|
