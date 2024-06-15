@@ -3,6 +3,7 @@ comments: false
 title: 京都大学 情報学研究科 数理工学専攻 2022年8月実施 専門科目 グラフ理論
 tags:
   - Kyoto-University
+  - Max-Flow
 ---
 # 京都大学 情報学研究科 数理工学専攻 2022年8月実施 専門科目 グラフ理論
 
@@ -25,13 +26,13 @@ $$
 $(s, t)$-フロー $f$ の流量 $\text{val}(f)$ を
 
 $$
-\text{val}(f) \coloneqq \sum_{e\in E(\{s\}, V \setminus \{s\})} f(e) - \sum_{e\in E(V \setminus \{s\}, \{s\})} f(e)
+\text{val}(f) := \sum_{e\in E(\{s\}, V \setminus \{s\})} f(e) - \sum_{e\in E(V \setminus \{s\}, \{s\})} f(e)
 $$
 
 で定める．また $s \in X, t \in V \setminus X$ を満たす点の部分集合 $X \subseteq V$ を $(s, t)$-カットと呼び，その容量 $\text{cap}(X)$ を
 
 $$
-\text{cap}(X) \coloneqq \sum_{e \in E(X, V \setminus X)} c(e)
+\text{cap}(X) := \sum_{e \in E(X, V \setminus X)} c(e)
 $$
 
 で定める．以下の問いに答えよ．
@@ -64,13 +65,13 @@ $$
 The flow value $\text{val}(f)$ of an $(s, t)$-flow f is defined to be
 
 $$
-\text{val}(f) \coloneqq \sum_{e\in E(\{s\}, V \setminus \{s\})} f(e) - \sum_{e\in E(V \setminus \{s\}, \{s\})} f(e)
+\text{val}(f) := \sum_{e\in E(\{s\}, V \setminus \{s\})} f(e) - \sum_{e\in E(V \setminus \{s\}, \{s\})} f(e)
 $$
 
 An $(s, t)$-cut is defined to be a vertex subset $X \subseteq V$ such that $s \in X$ and $t \in V \setminus X$, and its capacity $\text{cap}(X)$ is defined to be
 
 $$
-\text{cap}(X) \coloneqq \sum_{e \in E(X, V \setminus X)} c(e)
+\text{cap}(X) := \sum_{e \in E(X, V \setminus X)} c(e)
 $$
 
 Answer the following questions.
