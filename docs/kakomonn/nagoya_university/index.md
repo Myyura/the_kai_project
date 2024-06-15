@@ -36,7 +36,9 @@ tags:
             - [8月 数1](informatics/complex_202108_1.md)
     - 情報システム学専攻:
         - 2024年度:
-            - [8月 問6 (プログラミング)](informatics/is_202308_6_programming.md)
+            - [8月 専門 問6](informatics/is_202308_senmon_6.md)
+        - 2022年度:
+            - [8月 専門 問1](informatics/is_202108_senmon_1.md)
         - 2020年度:
             - [8月 確率・統計](informatics/is_201908_prob_stat.md)
             - [8月 プログラミング](informatics/is_201908_programming.md)
