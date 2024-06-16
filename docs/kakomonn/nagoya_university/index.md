@@ -39,6 +39,7 @@ tags:
             - [8月 専門 問6](informatics/is_202308_senmon_6.md)
         - 2022年度:
             - [8月 専門 問1](informatics/is_202108_senmon_1.md)
+            - [8月 専門 問3](informatics/is_202108_senmon_3.md)
         - 2020年度:
             - [8月 確率・統計](informatics/is_201908_prob_stat.md)
             - [8月 プログラミング](informatics/is_201908_programming.md)
