@@ -114,12 +114,18 @@ $n$ が十分大きいとき、(2) より
 $$
 \begin{aligned}
 T(n) &\leq T \left (\frac{1}{5}n \right) + \Theta(n) + T \left( \frac{7}{10}n \right) \\
-&\leq c \frac{n}{5} + c\frac{7n}{10} + an \qquad (\text{帰納法の仮定、} a \text{ は定数}) \\
-&= c\frac{9n}{10} + an = O(n)
+&\leq c \frac{n}{5} + c\frac{7n}{10} + an \qquad (\text{帰納法の仮定、} a > 0 \text{ は定数}) \\
+&= c\frac{9n}{10} + an
 \end{aligned} 
 $$
 
-であることがわかる。
+であり、$c = 10a$ とおくと、
+
+$$
+c\frac{9n}{10} + an = 10an \leq cn
+$$
+
+であるので、$T(n) = O(n)$ がわかる。
 
 ### (4)
 (d) クイックソート
