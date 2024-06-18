@@ -10,23 +10,23 @@ tags:
 Miyake
 
 ## **Description**
-1. 事象 $A, B, C$ は独立で $P(A) = \frac{1}{3}, P(A \cap B) = \frac{1}{5}, P(A \cup C) = \frac{3}{7}$ を満たすとする。ただし、$P(D)$ は事象 $D$ の確率を表す。このとき、確率 $P(B), P(C)$ および条件付き確率 $P(A \cup B | C)$ を求めよ。
+### 1.
+事象 $A, B, C$ は独立で $P(A) = \frac{1}{3}, P(A \cap B) = \frac{1}{5}, P(A \cup C) = \frac{3}{7}$ を満たすとする。ただし、$P(D)$ は事象 $D$ の確率を表す。このとき、確率 $P(B), P(C)$ および条件付き確率 $P(A \cup B | C)$ を求めよ。
 
-2. 確率変数 $X$ の確率密度関数が $f(x) = \exp\{-(ax^2 + bx + c)\}$ で与えられている。ただし、$a, b, c$ は実数で $a > 0$ とする。
+Suppose that independent events $A, B$ and $C$ satisfy $P(A) = \frac{1}{3}, P(A \cap B) = \frac{1}{5}$ and $P(A \cup C) = \frac{3}{7}$, where $P(D)$ stands for the probability of an event $D$. Find the probabilities $P(B)$, $P(C)$ and the conditional probability $P(A \cup B | C)$.
 
-   (1). $X$ の期待値 $E(X)$ と分散 $V(X)$ をそれぞれ $a, b$ を用いて表せ。
+### 2.
+確率変数 $X$ の確率密度関数が $f(x) = \exp\{-(ax^2 + bx + c)\}$ で与えられている。ただし、$a, b, c$ は実数で $a > 0$ とする。
 
-   (2). $E(X) = 1, V(X) = 3$ のとき $c$ の値を求めよ。
+(1). $X$ の期待値 $E(X)$ と分散 $V(X)$ をそれぞれ $a, b$ を用いて表せ。
 
----
+(2). $E(X) = 1, V(X) = 3$ のとき $c$ の値を求めよ。
 
-1. Suppose that independent events $A, B$ and $C$ satisfy $P(A) = \frac{1}{3}, P(A \cap B) = \frac{1}{5}$ and $P(A \cup C) = \frac{3}{7}$, where $P(D)$ stands for the probability of an event $D$. Find the probabilities $P(B)$, $P(C)$ and the conditional probability $P(A \cup B | C)$.
+Suppose that a random variable $X$ has the probability density function $f(x) = \exp\{-(ax^2 + bx + c)\}$, where $a, b$ and $c$ are real numbers with $a > 0$.
 
-2. Suppose that a random variable $X$ has the probability density function $f(x) = \exp\{-(ax^2 + bx + c)\}$, where $a, b$ and $c$ are real numbers with $a > 0$.
+(1). Express the expectation $E(X)$ and the variance $V(X)$ of $X$ by using $a$ and $b$.
 
-   (1). Express the expectation $E(X)$ and the variance $V(X)$ of $X$ by using $a$ and $b$.
-
-   (2). Determine the value of $c$ if $E(X) = 1$ and $V(X) = 3$.
+(2). Determine the value of $c$ if $E(X) = 1$ and $V(X) = 3$.
 
 ## **Kai**
 ### 1.
