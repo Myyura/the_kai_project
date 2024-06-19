@@ -76,6 +76,8 @@ tags:
         - 2023年度:
             - [専門 第2問](IST/denshi_2023_senmon_2.md)
             - [専門 第5問](IST/denshi_2023_senmon_5.md)
+        - 2020年度:
+            - [専門 第2問](IST/denshi_2020_senmon_2.md)
         - 2016年度:
             - [専門 第5問](IST/denshi_2016_senmon_5.md)
 - 新領域創成科学研究科:
