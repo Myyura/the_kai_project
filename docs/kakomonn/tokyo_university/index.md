@@ -74,10 +74,10 @@ tags:
             - [第5問](IST/suuri_2023_5.md)
     - 電子情報学:
         - 2023年度:
-            - [専門 第2問](IST/denshi_2023_2.md)
-            - [専門 第5問](IST/denshi_2023_5.md)
+            - [専門 第2問](IST/denshi_2023_senmon_2.md)
+            - [専門 第5問](IST/denshi_2023_senmon_5.md)
         - 2016年度:
-            - [専門 第5問](IST/denshi_2016_5.md)
+            - [専門 第5問](IST/denshi_2016_senmon_5.md)
 - 新領域創成科学研究科:
     - 物質系専攻:
         - 2020年度:
