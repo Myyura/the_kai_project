@@ -80,6 +80,8 @@ tags:
             - [専門 第2問](IST/denshi_2020_senmon_2.md)
         - 2016年度:
             - [専門 第5問](IST/denshi_2016_senmon_5.md)
+        - 2014年度:
+            - [専門 第3問](IST/denshi_2014_senmon_3.md)
         - 2011年度:
             - [専門 第5問](IST/denshi_2011_senmon_5.md)
 - 新領域創成科学研究科:
