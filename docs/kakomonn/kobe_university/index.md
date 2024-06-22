@@ -20,6 +20,9 @@ tags:
     - 市民工学専攻:
         - 2022年度:
             - [専門科目 数学](engineering/shimin_202108_math.md)
+    - 電気電子工学専攻:
+        - 2022年度:
+            - [数学 1.](engineering/ee_202108_math_1.md)
 - システム情報学研究科:
     - 2018年度:
         - [専門科目 計算機科学 \[2\]](system_informatics/csi_201708_senmon_cs_2.md)
