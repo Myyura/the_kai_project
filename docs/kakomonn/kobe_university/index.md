@@ -29,3 +29,4 @@ tags:
 - 経済学研究科:
     - 2022年度:
         - [第I期 統計学 第1問](economics/econ_202108_I_statistics_1.md)
+        - [第I期 統計学 第2問](economics/econ_202108_I_statistics_2.md)
