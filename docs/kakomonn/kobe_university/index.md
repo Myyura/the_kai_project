@@ -16,6 +16,10 @@ tags:
     - 化学専攻:
         - 2023年度:
             - [\[V\]-b](science/chem_202208_V_b.md)
+- 工学研究科:
+    - 市民工学専攻:
+        - 2022年度:
+            - [専門科目 数学](engineering/shimin_202108_math.md)
 - システム情報学研究科:
     - 2018年度:
         - [専門科目 計算機科学 \[2\]](system_informatics/csi_201708_senmon_cs_2.md)
