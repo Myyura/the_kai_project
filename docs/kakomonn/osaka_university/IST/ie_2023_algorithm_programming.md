@@ -144,7 +144,7 @@ int* search1(int *array, int size, int delta, int key) {
     int v = key;
     int h = hash(v, size);
     while (array[h] != EMPTY) {
-        if (array[h] != EMPTY) return &array[h];
+        if (array[h] == key) return &array[h];
         v += delta; h = hash(v, size);
     }
     return NULL;
