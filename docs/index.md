@@ -138,6 +138,14 @@ $O(d_1 \cdot d_2 \cdot d_3)$
 
 文章的第三个二级标题为题解, 其中多级标题与题干中的题目与小问一一对应.
 
+##### Knowledge (Optional)
+```markdown
+## **Knowledge**
+Binary-Search, Fibonacci-Sequence, Dynamic-Programming
+```
+
+文章的第四个二级标题为知识点关键词，说明，参考书籍等内容。此项为可选项。
+
 ##### 其他
 倘若需要插入图片, 可以先将图片上传至本仓库专门用于存放资产的仓库[the_kai_project_assets](https://github.com/Myyura/the_kai_project_assets), 然后仿照示例中的写法, 通过插入html的方式显示图片。
 
