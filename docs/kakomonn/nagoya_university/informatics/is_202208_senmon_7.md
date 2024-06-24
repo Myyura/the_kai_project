@@ -3,6 +3,8 @@ comments: false
 title: 名古屋大学 情報学研究科 情報システム学専攻 2022年8月実施 専門 問7
 tags:
   - Nagoya-University
+  - Binary-Search
+  - Dynamic-Programming
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2022年8月実施 専門 問7
 
@@ -158,3 +160,7 @@ f2 が呼び出される回数: 7
 ### (3)
 - 一度計算したものを再び計算する（重複計算した部分がある）
 - 関数呼び出しを用いること自体がオーバヘッドである
+
+
+## **Knowledge**
+Binary-Search, Fibonacci-Sequence, Dynamic-Programming
