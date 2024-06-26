@@ -19,7 +19,7 @@ Isidore
 ### 設問1
 
 $$
-H(p,1-p) = -plogp-(1-p)log(1-p)
+H(p,1-p) = -p \log p-(1-p) \log (1-p)
 $$
 
 $$

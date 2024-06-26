@@ -19,7 +19,7 @@ Isidore
 ### 設問1
 
 $$
-E[\sum^{n}_{i=1}w_iX_i] = \sum^n_{i=1}w_iE[X_i] = \sum^n_{i=1}w_i\mu \rArr \sum^n_{i=1}w_i = 1
+E[\sum^{n}_{i=1}w_iX_i] = \sum^n_{i=1}w_iE[X_i] = \sum^n_{i=1}w_i\mu \Rightarrow \sum^n_{i=1}w_i = 1
 $$
 
 vice versa
