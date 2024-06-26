@@ -16,18 +16,43 @@ Isidore
 
 
 ## **Kai**
-### 设问1
-$$E[\sum^{n}_{i=1}w_iX_i] = \sum^n_{i=1}w_iE[X_i] = \sum^n_{i=1}w_i\mu \rArr \sum^n_{i=1}w_i = 1$$
+### 設問1
+
+$$
+E[\sum^{n}_{i=1}w_iX_i] = \sum^n_{i=1}w_iE[X_i] = \sum^n_{i=1}w_i\mu \rArr \sum^n_{i=1}w_i = 1
+$$
+
 vice versa
-### 设问2
+
+### 設問2
 #### (1)
-$$L(\mu, \sigma^2) = nlog\frac{1}{\sqrt{2\pi}\sigma} + \frac{1}{2\sigma^2}\sum^n_{i=1}(X_i - \mu)^2$$
+
+$$
+L(\mu, \sigma^2) = nlog\frac{1}{\sqrt{2\pi}\sigma} + \frac{1}{2\sigma^2}\sum^n_{i=1}(X_i - \mu)^2
+$$
+
 #### (2)
-$$\mu = \frac{1}{n}\sum^n_{i=1}X_i = \bar{X}, \sigma^2 = \frac{1}{n}\sum^n_{i=1}(X_i - \bar{X})^2$$
-### 设问3
-$$Cov(S,T) = -6$$
-### 设问4
+
+$$
+\mu = \frac{1}{n}\sum^n_{i=1}X_i = \bar{X}, \sigma^2 = \frac{1}{n}\sum^n_{i=1}(X_i - \bar{X})^2
+$$
+
+### 設問3
+
+$$
+Cov(S,T) = -6
+$$
+
+### 設問4
 #### (1)
-It's equivalent to assume that picking 2 from Group Drug A and 3 from Group Drug B, given 5 people is selected as Effective. So the answer is $C_5^3(\frac{5}{9})^2(\frac{4}{9})^3$
+It's equivalent to assume that picking 2 from Group Drug A and 3 from Group Drug B, given 5 people is selected as Effective. So the answer is
+
+$$
+C_5^3(\frac{5}{9})^2(\frac{4}{9})^3
+$$
+
 #### (2)
-$$p = \frac{C_4^3C_5^2}{C_9^5} = \frac{4*5}{126}\approx 0.1587$$
+
+$$
+p = \frac{C_4^3C_5^2}{C_9^5} = \frac{4*5}{126}\approx 0.1587
+$$
