@@ -60,6 +60,8 @@ tags:
     - 知能システム学専攻:
         - 2024年度:
             - [8月 プログラミング](informatics/aisys_202308_programming.md)
+        - 2023年度:
+            - [8月 プログラミング](informatics/aisys_202208_programming.md)
         - 2022年度:
             - [8月 確率・統計](informatics/aisys_202108_prob_stat.md)
             - [8月 解析・線形代数](informatics/aisys_202108_analy_algebra.md)
