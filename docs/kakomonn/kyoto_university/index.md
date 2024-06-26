@@ -45,6 +45,7 @@ tags:
             - [情報学基礎 F1-1](informatics/ist_202308_kiso_f1_1.md)
             - [情報学基礎 F1-2](informatics/ist_202308_kiso_f1_2.md)
             - [情報学基礎 F2-1](informatics/ist_202308_kiso_f2_1.md)
+            - [情報学基礎 F2-2](informatics/ist_202308_kiso_f2_2.md)
         - 2022年度:
             - [情報学基礎 F1-2](informatics/ist_202108_kiso_f1_2.md)
         - 2020年度:
