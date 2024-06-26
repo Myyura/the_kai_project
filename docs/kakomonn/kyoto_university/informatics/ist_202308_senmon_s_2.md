@@ -28,7 +28,7 @@ vice versa
 #### (1)
 
 $$
-L(\mu, \sigma^2) = nlog\frac{1}{\sqrt{2\pi}\sigma} + \frac{1}{2\sigma^2}\sum^n_{i=1}(X_i - \mu)^2
+L(\mu, \sigma^2) = n \log \frac{1}{\sqrt{2\pi}\sigma} + \frac{1}{2\sigma^2}\sum^n_{i=1}(X_i - \mu)^2
 $$
 
 #### (2)
