@@ -26,6 +26,7 @@ tags:
 - システム情報学研究科:
     - 2018年度:
         - [専門科目 計算機科学 \[2\]](system_informatics/csi_201708_senmon_cs_2.md)
+        - [専門科目 システム理論 \[1\]](system_informatics/csi_201708_senmon_system_1.md)
 - 経済学研究科:
     - 2022年度:
         - [第I期 統計学 第1問](economics/econ_202108_I_statistics_1.md)
