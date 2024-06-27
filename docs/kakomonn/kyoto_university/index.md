@@ -62,6 +62,8 @@ tags:
             - [数学【II】](informatics/sys_202208_math_II.md)
         - 2020年度:
             - [専門科目 確率統計](informatics/sys_201908_senmon_stat.md)
+        - 2019年度:
+            - [専門科目 確率統計](informatics/sys_201808_senmon_stat.md)
     - 通信情報システム専攻:
         - 2022年度:
             - [専門基礎A \[A-1\]](informatics/cce_202108_senmonkiso_A_1.md)
