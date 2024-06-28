@@ -76,3 +76,5 @@ tags:
             - [アルゴリズムとプログラミング](IST/ie_2019_algorithm_programming.md)
         - 2018年度:
             - [アルゴリズムとプログラミング](IST/ie_2018_algorithm_programming.md)
+        - 2017年度:
+            - [アルゴリズムとプログラミング](IST/ie_2017_algorithm_programming.md)
