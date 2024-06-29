@@ -66,6 +66,8 @@ tags:
             - [専門科目 確率統計](informatics/sys_201808_senmon_stat.md)
         - 2018年度:
             - [専門科目 確率統計](informatics/sys_201708_senmon_stat.md)
+        - 2017年度:
+            - [専門科目 確率統計](informatics/sys_201608_senmon_stat.md)
     - 通信情報システム専攻:
         - 2022年度:
             - [専門基礎A \[A-1\]](informatics/cce_202108_senmonkiso_A_1.md)
