@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2017年8月実施 専門科目 確率統計
 
 ## **Author**
-uogxtc
+uogxtc, 祭音Myyura
 
 ## **Description**
 ### 問題1
