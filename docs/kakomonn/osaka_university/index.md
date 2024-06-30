@@ -71,6 +71,7 @@ tags:
             - [離散構造](IST/ie_2022_discrete_mathematics.md)
         - 2021年度:
             - [アルゴリズムとプログラミング](IST/ie_2021_algorithm_programming.md)
+            - [離散構造](IST/ie_2021_discrete_mathematics.md)
         - 2020年度:
             - [アルゴリズムとプログラミング](IST/ie_2020_algorithm_programming.md)
         - 2019年度:
