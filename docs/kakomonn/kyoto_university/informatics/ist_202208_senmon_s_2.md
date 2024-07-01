@@ -11,7 +11,7 @@ tags:
 
 ## **Description**
 <figure style="text-align:center;">
-  <img src="https://s2.loli.net/2024/07/01/gXipzcs9QeadjOU.png" width="480"/>
+  <img src="https://s2.loli.net/2024/07/01/gXipzcs9QeadjOU.png" width="640"/>
 </figure>
 
 
@@ -46,6 +46,7 @@ By the Binomial Theorem, we can insert $\sum^{z}_{i=0}\frac{z!}{(z-i)!i!}\lambda
 $$
 f_{Z}(z) = \frac{e^{-(\lambda_1 + \lambda_2)}}{z!}(\lambda_1 + \lambda_2)^z
 $$
+
 So is the PMF for a Poisson Distribution with the parameter $(\lambda_1 + \lambda_2)$
 
 **PS**: A easier solution is to use Moments Generating Function.
@@ -130,7 +131,8 @@ $$
 \end{align}
 $$
 
-Insert the values, the answer is 
+Insert the values, the answer is
+
 $$
 Pr[T|S^2] = \frac{128}{133}
 $$

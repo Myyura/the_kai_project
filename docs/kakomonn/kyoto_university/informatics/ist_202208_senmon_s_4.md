@@ -11,7 +11,7 @@ tags:
 
 ## **Description**
 <figure style="text-align:center;">
-  <img src="https://s2.loli.net/2024/07/01/7wrBFAyl6jYgT8k.png" width="480"/>
+  <img src="https://s2.loli.net/2024/07/01/7wrBFAyl6jYgT8k.png" width="640"/>
 </figure>
 
 
@@ -35,6 +35,7 @@ For the same reason, we propose the solution
 $$
 S_2 = \{000, 001, 010, 101, 100\}
 $$
+
 while the transition diagram is 
 
 <figure style="text-align:center;">
