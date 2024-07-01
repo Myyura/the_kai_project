@@ -11,7 +11,7 @@ tags:
 
 ## **Description**
 <figure style="text-align:center;">
-  <img src="https://s2.loli.net/2024/06/26/gWhJczvi4enyYFx.png" width="480"/>
+  <img src="https://s2.loli.net/2024/06/26/gWhJczvi4enyYFx.png" width="640"/>
 </figure>
 
 
