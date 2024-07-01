@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2022年8月実施 専門科目 S-2
 
 ## **Author**
-Isidore
+[Isidore](https://github.com/heacsing)
 
 ## **Description**
 <figure style="text-align:center;">
