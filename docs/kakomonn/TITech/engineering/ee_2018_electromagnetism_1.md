@@ -54,7 +54,7 @@ $$
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_2018_electromagnetism_1_p1.png" width="430" height="430" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_2018_electromagnetism_1_p1.png" width="300" height="300" alt=""/>
 </figure>
 
 ### (3)
@@ -89,7 +89,7 @@ B_0 &= \frac{\mu_0 I}{4\pi a}\int_{0}^{2\pi}\text{d}\theta \\
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_2018_electromagnetism_1_p2.png" width="430" height="360" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_2018_electromagnetism_1_p2.png" width="330" height="280" alt=""/>
 </figure>
 
 ### (6)
@@ -112,5 +112,5 @@ B_P &= \frac{\mu_0 I a^2}{4\pi(a^2 + r^2)^{\frac{3}{2}}}\int_{0}^{2\pi}\text{d}\
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_2018_electromagnetism_1_p3.png" width="450" height="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_2018_electromagnetism_1_p3.png" width="350" height="350" alt=""/>
 </figure>
