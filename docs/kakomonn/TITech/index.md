@@ -35,6 +35,7 @@ tags:
             - [数学2](engineering/ee_2022_math_2.md)
         - 2018年度:
             - [電磁気学 1](engineering/ee_2018_electromagnetism_1.md)
+            - [電磁気学 2](engineering/ee_2018_electromagnetism_2.md)
     - 情報通信系:
         - 2020年度:
             - [H2.](engineering/ict_2020_H2.md)
