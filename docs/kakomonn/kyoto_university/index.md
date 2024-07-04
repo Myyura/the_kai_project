@@ -61,7 +61,6 @@ tags:
             - [情報学基礎 F2-1](informatics/ist_202108_kiso_f2_1.md)
             - [情報学基礎 F2-2](informatics/ist_202108_kiso_f2_2.md)
             - [専門科目 S-2](informatics/ist_202108_senmon_s_2.md)
-            
         - 2020年度:
             - [情報学基礎 F1-1](informatics/ist_201908_kiso_f1_1.md)
             - [専門科目 S-2 統計学](informatics/ist_201908_senmon_s_2.md)
