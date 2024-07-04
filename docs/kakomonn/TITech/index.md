@@ -32,8 +32,9 @@ tags:
             - [午前 問題3](engineering/sc_2022_3.md)
     - 電気電子系:
         - 2022年度:
-            - [数学2](engineering/ee_2022_math_2.md)
+            - [数学 2](engineering/ee_2022_math_2.md)
         - 2018年度:
+            - [数学 1](engineering/ee_2018_math_1.md)
             - [電磁気学 1](engineering/ee_2018_electromagnetism_1.md)
             - [電磁気学 2](engineering/ee_2018_electromagnetism_2.md)
     - 情報通信系:
