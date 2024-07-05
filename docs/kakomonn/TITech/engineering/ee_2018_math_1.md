@@ -8,7 +8,7 @@ tags:
 
 
 ## **Author**
-祭音Myyura
+Zero, 祭音Myyura
 
 ## **Description**
 微分方程式に関する以下の問に, 導出過程も含めて答えよ。
@@ -60,7 +60,7 @@ $$
 $$
 
 $$
-\Rightarrow \lambda = -2 (\text{ 重解})
+\Rightarrow \lambda = -2 \quad (\text{重解})
 $$
 
 一般解は, 
@@ -69,7 +69,7 @@ $$
 y = (c_1 + c_2x)e^{-2x} \quad (c_1,c_2 = \text{constant})
 $$
 
-$x = 0$ で , $y = 0$ , $\frac{\text{d}y}{\text{d}x} = 5$ より 
+$x = 0, y = 0$ , $\frac{\text{d}y}{\text{d}x} = 5$ より 
 
 $$
 c_1 = 0
@@ -83,9 +83,13 @@ $$
 \frac{\text{d}y}{\text{d}x}\big|_{x=0} = c_2 = 5
 $$
 
+が分かるから、
+
 $$
-\therefore y = 5xe^{-2x}
+y = 5xe^{-2x}
 $$
+
+を得る。
 
 #### (b)
 
@@ -97,7 +101,7 @@ $\frac{\text{d}y}{\text{d}x} = 0$  となるのは,  $x = \frac{1}{2}$ より
 |y|$\nearrow$||$\searrow$|
 
 $
-y_{\max} = 5 \cdot \frac{1}{2} \cdot e^{-2 \cdot \frac{1}{2}} = \frac{5}{2e}
+y_{\max} = \frac{5}{2e}
 $
 
 ### (2)
@@ -105,26 +109,29 @@ $
 $$
 \begin{aligned}
 &\qquad\frac{\text{d}y}{\text{d}x} = y(y + 2) \\
-&\Leftrightarrow \frac{\text{d}y}{y(y+ 2)} = \text{d}x \\
-&\Leftrightarrow \frac{1}{2}\int(\frac{1}{y} - \frac{1}{y + 2})\text{d}y = \int\text{d}x \\
-&\Leftrightarrow  \frac{1}{2}(\log|y| - \log|y + 2|) = x + C \\
-&\Leftrightarrow  \log\bigg|\frac{y}{y + 2}\bigg| = 2x + 2C \\
-&\Leftrightarrow \frac{y}{y + 2} = C'e^{2x} \\
-&\Leftrightarrow  y = C'e^{2x}(y + 2) \\
-&\Leftrightarrow  y(1 - C'e^{2x}) = 2C'e^{2x} \\
-&\Leftrightarrow y = \frac{2C'e^{2x}}{1 - C'e^{2x}} \qquad (C,C' = \text{ constant.})
+&\Rightarrow \frac{\text{d}y}{y(y+ 2)} = \text{d}x \\
+&\Rightarrow \frac{1}{2}\int(\frac{1}{y} - \frac{1}{y + 2})\text{d}y = \int\text{d}x \\
+&\Rightarrow  \frac{1}{2}(\log|y| - \log|y + 2|) = x + C \\
+&\Rightarrow  \log\bigg|\frac{y}{y + 2}\bigg| = 2x + 2C \\
+&\Rightarrow \frac{y}{y + 2} = C'e^{2x} \\
+&\Rightarrow  y = C'e^{2x}(y + 2) \\
+&\Rightarrow y = \frac{2C'e^{2x}}{1 - C'e^{2x}} \qquad (C,C' = \text{ constant.})
 \end{aligned}
 $$
 
-$x = 0$で, $y = 2$ より
+$x = 0, y = 2$ より
 
 $$
-\frac{2}{4} = C' \Leftrightarrow C' = \frac{1}{2}
+\frac{2}{4} = C' \Rightarrow C' = \frac{1}{2}
 $$
 
+がわかるから
+
 $$
-\therefore y = \frac{e^{2x}}{1 - \frac{1}{2}e^{2x}} = \frac{2e^{2x}}{2 - e^{2x}}
-$$ 
+y = \frac{e^{2x}}{1 - \frac{1}{2}e^{2x}} = \frac{2e^{2x}}{2 - e^{2x}}
+$$
+
+を得る。
 
 ### (3)
 #### (a)
@@ -132,13 +139,13 @@ $$
 $$
 \begin{aligned}
 &\qquad xy\frac{\text{d}y}{\text{d}x} = 2y^2 + x^2 \\
-&\Leftrightarrow \frac{y}{x}\frac{\text{d}y}{\text{d}x} = 2(\frac{y}{x})^2 + 1 \\
+&\Rightarrow \frac{y}{x}\frac{\text{d}y}{\text{d}x} = 2(\frac{y}{x})^2 + 1 \\
 &y = ux , \frac{\text{d}y}{\text{d}x} = u + x\frac{\text{d}u}{\text{d}x} \\
-&\Leftrightarrow u(u + ux\frac{\text{d}u}{\text{d}x}) = 2u^2 + 1 \\
-&\Leftrightarrow u^2 + ux\frac{\text{d}u}{\text{d}x} = 2u^2 + 1 \\
-&\Leftrightarrow ux\frac{\text{d}u}{\text{d}x} = u^2 + 1 \\
-&\Leftrightarrow \frac{\text{d}u}{\text{d}x} = \frac{u^2 + 1}{ux} = \frac{\frac{1}{x}}{\frac{u}{u^2 + 1}} \\
-&\therefore A = \frac{u}{u^2 + 1}, B = \frac{1}{x}
+&\Rightarrow u(u + ux\frac{\text{d}u}{\text{d}x}) = 2u^2 + 1 \\
+&\Rightarrow u^2 + ux\frac{\text{d}u}{\text{d}x} = 2u^2 + 1 \\
+&\Rightarrow ux\frac{\text{d}u}{\text{d}x} = u^2 + 1 \\
+&\Rightarrow \frac{\text{d}u}{\text{d}x} = \frac{u^2 + 1}{ux} = \frac{\frac{1}{x}}{\frac{u}{u^2 + 1}} \\
+&A = \frac{u}{u^2 + 1}, B = \frac{1}{x}
 \end{aligned}
 $$
 
@@ -147,13 +154,13 @@ $$
 $$
 \begin{aligned}
 &\qquad \frac{u}{u^2 + 1}\text{d}u = \frac{1}{x}\text{d}x \\
-&\Leftrightarrow \int\frac{u}{u^2 + 1}\text{d}u = \int\frac{1}{x}\text{d}x + C \\
-&\Leftrightarrow \frac{1}{2}\log|u^2 + 1| = \log|x| + C \\
-&\Leftrightarrow \log|u^2 + 1| = \log x^2 + 2C \\
-&\Leftrightarrow u^2 + 1 = C'x^2 \\
-&\Leftrightarrow (\frac{y}{x})^2 + 1 = C'x^2 \\
-&\Leftrightarrow 4 + 1 = C'\\
-&\Leftrightarrow 5 = C' \\
+&\Rightarrow \int\frac{u}{u^2 + 1}\text{d}u = \int\frac{1}{x}\text{d}x + C \\
+&\Rightarrow \frac{1}{2}\log|u^2 + 1| = \log|x| + C \\
+&\Rightarrow \log|u^2 + 1| = \log x^2 + 2C \\
+&\Rightarrow u^2 + 1 = C'x^2 \\
+&\Rightarrow (\frac{y}{x})^2 + 1 = C'x^2 \\
+&\Rightarrow 4 + 1 = C'\\
+&\Rightarrow 5 = C' \\
 \end{aligned}
 $$
 
@@ -161,6 +168,6 @@ $$
 \begin{aligned}
 (\frac{y}{x})^2 &+ 1 = 5x^2 \\
 y^2 &= x^2(5x^2 - 1) \\
-\therefore C &= x^2(5x^2 - 1)
+C &= x^2(5x^2 - 1)
 \end{aligned}
 $$
