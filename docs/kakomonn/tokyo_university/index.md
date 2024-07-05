@@ -61,6 +61,7 @@ tags:
             - [数学 第3問](IST/kyotsu_2022_math_3.md)
         - 2020年度:
             - [数学 第1問](IST/kyotsu_2020_math_1.md)
+            - [数学 第3問](IST/kyotsu_2020_math_3.md)
         - 2018年度:
             - [数学 第1問](IST/kyotsu_2018_math_1.md)
         - 2017年度:
