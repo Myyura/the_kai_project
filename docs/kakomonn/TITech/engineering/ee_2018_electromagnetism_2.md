@@ -7,7 +7,7 @@ tags:
 # 東京工業大学 工学院 電気電子系 2018年度 電磁気学 2
 
 ## **Author**
-祭音Myyura
+Zero, 祭音Myyura
 
 ## **Description**
 図2.1のように、誘電率 $\varepsilon_0$ の真空中に面積 $S$ の同じ形状の平板電極 $A、B、C$ を $x$ 軸上に沿って平行に置く。
