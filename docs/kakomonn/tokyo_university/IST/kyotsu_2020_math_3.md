@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学研究科 2020年度 数学 第3問
 
 ## **Author**
-etsurin
+[etsurin](https://zhuanlan.zhihu.com/p/561992447)
 
 ## **Description**
 $n$ 人のアルバイト候補者を面接し、その中の最適任者を採用したい。
