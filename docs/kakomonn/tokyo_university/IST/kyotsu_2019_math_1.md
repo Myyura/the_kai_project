@@ -179,7 +179,6 @@ H = \begin{pmatrix}
 e^{i\psi}\cos\theta & e^{i\psi}\sin\theta \\
 -e^{-i\psi}\sin\theta & e^{-i\psi}\cos\theta \\
 \end{pmatrix}
-
 \quad H^* = \begin{pmatrix}
 e^{-i\psi}\cos\theta & -e^{i\psi}\sin\theta \\
 e^{-i\psi}\sin\theta & e^{i\psi}\cos\theta \\
