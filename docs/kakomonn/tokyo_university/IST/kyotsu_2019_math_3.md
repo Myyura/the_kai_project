@@ -1,10 +1,10 @@
 ---
 comments: false
-title: 東京大学 情報理工学研究科 2019年度 数学 第2問
+title: 東京大学 情報理工学研究科 2019年度 数学 第3問
 tags:
   - Tokyo-University
 ---
-# 東京大学 情報理工学研究科 2019年度 数学 第2問
+# 東京大学 情報理工学研究科 2019年度 数学 第3問
 
 ## **Author**
 [etsurin](https://zhuanlan.zhihu.com/p/561992447)
