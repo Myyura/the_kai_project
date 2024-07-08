@@ -36,6 +36,7 @@ tags:
         - 2018年度:
             - [数学 1](engineering/ee_2018_math_1.md)
             - [数学 2](engineering/ee_2018_math_2.md)
+            - [数学 3](engineering/ee_2018_math_3.md)
             - [電磁気学 1](engineering/ee_2018_electromagnetism_1.md)
             - [電磁気学 2](engineering/ee_2018_electromagnetism_2.md)
     - 情報通信系:
