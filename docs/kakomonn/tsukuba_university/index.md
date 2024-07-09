@@ -16,6 +16,7 @@ tags:
             - [8月 基礎科目 問題 IV](science_and_technology/sie_cs_201808_4.md)
             - [2月 基礎科目 問題 IV](science_and_technology/sie_cs_201902_4.md)
         - 2018年度:
+            - [8月 基礎科目 問題 IV](science_and_technology/sie_cs_201708_4.md)
             - [2月 基礎科目 問題 IV](science_and_technology/sie_cs_201802_4.md)
         - 2017年度:
             - [8月 基礎科目 情報2](science_and_technology/sie_cs_201608_info_2.md)

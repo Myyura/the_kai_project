@@ -61,6 +61,12 @@ tags:
             - [数学 第3問](IST/kyotsu_2022_math_3.md)
         - 2020年度:
             - [数学 第1問](IST/kyotsu_2020_math_1.md)
+            - [数学 第2問](IST/kyotsu_2020_math_2.md)
+            - [数学 第3問](IST/kyotsu_2020_math_3.md)
+        - 2019年度:
+            - [数学 第1問](IST/kyotsu_2019_math_1.md)
+            - [数学 第2問](IST/kyotsu_2019_math_2.md)
+            - [数学 第3問](IST/kyotsu_2019_math_3.md)
         - 2018年度:
             - [数学 第1問](IST/kyotsu_2018_math_1.md)
         - 2017年度:
@@ -78,6 +84,8 @@ tags:
             - [第3問](IST/suuri_2020_3.md)
             - [第4問](IST/suuri_2020_4.md)
             - [第5問](IST/suuri_2020_5.md)
+        - 2019年度:
+            - [第1問](IST/suuri_2019_1.md)
     - 電子情報学:
         - 2023年度:
             - [専門 第2問](IST/denshi_2023_senmon_2.md)

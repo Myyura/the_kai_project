@@ -5,7 +5,7 @@
 
 本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。
 
-项目地址 [https://runjp.com/](https://runjp.com/)
+项目地址 [https://github.com/Myyura/the_kai_project](https://github.com/Myyura/the_kai_project)
 
 手机端点击 [这里](https://runjp.com/tags/) 可进入标签索引页面。
 
