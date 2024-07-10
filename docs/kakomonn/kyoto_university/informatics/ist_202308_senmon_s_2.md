@@ -77,6 +77,42 @@ $$
 
 #### (2)
 
+If the 2 properties are independent, we have
+
 $$
-p = \frac{C_4^3C_5^2}{C_9^5} = \frac{4*5}{126}\approx 0.1587
+Pr[Observing the given table | H_0] = Pr[X=3]
+$$
+
+in which $X$ follows hypergeometric distribution with $N, K, n = (9, 5, 4)$. Calculate it and we have
+
+$$
+Pr[X=3] = \frac{C_K^XC_{N-K}^{n-X}}{C_N^K} = \frac{C_5^3C_4^1}{C_9^5} = \frac{10×4}{126} = \frac{40}{126}
+$$
+
+By the definition of Fisher's exact test, we sequentially calculate other probabilities of observed tables. As $X \in \{0, 1, 2, 3, 4\}$
+
+$$
+Pr[X=0] = \frac{C_5^0C_4^4}{C_9^5} = \frac{1}{126}
+$$
+
+$$
+Pr[X=1] = \frac{C_5^1C_4^3}{C_9^5} = \frac{20}{126}
+$$
+
+$$
+Pr[X=2] = \frac{C_5^2C_4^2}{C_9^5} = \frac{60}{126}
+$$
+
+$$
+Pr[X=3] = \frac{40}{126}
+$$
+
+$$
+Pr[X=4] = \frac{C_5^4C_4^0}{C_9^5} = \frac{5}{126}
+$$
+
+Thus, the p-value for Fisher's exact test is 
+
+$$
+p = \frac{1+20+40+5}{126} = 0.5238
 $$
