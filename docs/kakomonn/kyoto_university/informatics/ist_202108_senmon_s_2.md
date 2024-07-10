@@ -23,12 +23,12 @@ tags:
 According to the rule of Power analysis, we have the Statistical Power: 
 
 $$
-\begin{align}
+\begin{aligned}
     1-\beta &= 1 - Pr[\textrm{accept } H_0|H_0 \textrm{  is false}] \\
     &= 1-Pr[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \leq Z_{\alpha}] \\
     &= 1-Pr[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \leq Z_{\alpha} - \frac{\mu-\mu_0}{\sigma/\sqrt{n}}] \\
     &= Pr[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \geq Z_{\alpha} - \frac{\mu-\mu_0}{\sigma/\sqrt{n}}]
-\end{align}
+\end{aligned}
 $$
 
 Insert the values and we immediately have
@@ -43,9 +43,9 @@ $$
 By **(1)**, we have
 
 $$
-\begin{align}
+\begin{aligned}
     1-\beta &= Pr[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \geq Z_{\alpha} - \frac{\mu-\mu_0}{\sigma/\sqrt{n}}]
-\end{align}
+\end{aligned}
 $$
 
 To make sure the power larger than $95\%$, we have
