@@ -87,6 +87,7 @@ tags:
         - 2019年度:
             - [第1問](IST/suuri_2019_1.md)
             - [第3問](IST/suuri_2019_3.md)
+            - [第4問](IST/suuri_2019_4.md)
     - 電子情報学:
         - 2023年度:
             - [専門 第2問](IST/denshi_2023_senmon_2.md)
