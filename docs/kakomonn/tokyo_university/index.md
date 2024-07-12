@@ -91,6 +91,7 @@ tags:
         - 2017年度:
             - [第2問](IST/suuri_2017_2.md)
             - [第3問](IST/suuri_2017_3.md)
+            - [第5問](IST/suuri_2017_5.md)
     - 電子情報学:
         - 2023年度:
             - [専門 第2問](IST/denshi_2023_senmon_2.md)
