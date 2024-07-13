@@ -55,6 +55,7 @@ tags:
         - 2023年度:
             - [数学 第1問](IST/kyotsu_2023_math_1.md)
             - [数学 第2問](IST/kyotsu_2023_math_2.md)
+            - [数学 第3問](IST/kyotsu_2023_math_3.md)
         - 2022年度:
             - [数学 第1問](IST/kyotsu_2022_math_1.md)
             - [数学 第2問](IST/kyotsu_2022_math_2.md)
