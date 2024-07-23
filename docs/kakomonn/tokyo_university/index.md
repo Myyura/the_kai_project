@@ -101,6 +101,8 @@ tags:
             - [専門 第2問](IST/denshi_2020_senmon_2.md)
         - 2018年度:
             - [専門 第5問](IST/denshi_2018_senmon_5.md)
+        - 2017年度:
+            - [専門 第2問](IST/denshi_2017_senmon_2.md)
         - 2016年度:
             - [専門 第5問](IST/denshi_2016_senmon_5.md)
         - 2014年度:
