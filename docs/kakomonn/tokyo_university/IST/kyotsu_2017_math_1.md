@@ -7,6 +7,7 @@ tags:
 # 東京大学 情報理工学研究科 2017年度 数学 第1問
 
 ## **Author**
+Zero, [etsurin](https://zhuanlan.zhihu.com/p/561992447)
 
 ## **Description**
 3次元ベクトル $\left (\begin{array}{cccc} x_{n} \\ y_{n} \\ z_{n} \\ \end{array}\right)$ は式
