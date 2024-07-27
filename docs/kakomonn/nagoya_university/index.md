@@ -38,6 +38,7 @@ tags:
         - 2024年度:
             - [8月 専門 問6](informatics/is_202308_senmon_6.md)
         - 2023年度:
+            - [8月 専門 問5](informatics/is_202208_senmon_5.md)
             - [8月 専門 問7](informatics/is_202208_senmon_7.md)
         - 2022年度:
             - [8月 専門 問1](informatics/is_202108_senmon_1.md)
