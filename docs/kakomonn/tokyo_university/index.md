@@ -70,7 +70,8 @@ tags:
             - [数学 第3問](IST/kyotsu_2019_math_3.md)
         - 2018年度:
             - [数学 第1問](IST/kyotsu_2018_math_1.md)
-            - [数学 第1問](IST/kyotsu_2018_math_2.md)
+            - [数学 第2問](IST/kyotsu_2018_math_2.md)
+            - [数学 第3問](IST/kyotsu_2018_math_3.md)
         - 2017年度:
             - [数学 第1問](IST/kyotsu_2017_math_1.md)
             - [数学 第2問](IST/kyotsu_2017_math_2.md)
