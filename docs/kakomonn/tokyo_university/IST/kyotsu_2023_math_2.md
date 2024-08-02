@@ -10,6 +10,35 @@ tags:
 Miyake
 
 ## **Description**
+$t$ を実数の独立変数、$x(t)$ と $y(t)$ を実数値関数として、以下の問いに答えよ。
+
+(1) 常微分方程式
+
+$$
+\frac{d^2x}{dt^2} + 2\frac{dx}{dt} + x = \cos(t)
+$$
+
+の $t \to -\infty$ で有界である解を全て求めよ。
+
+(2) 常微分方程式
+
+$$
+\begin{aligned}
+\frac{d^2x}{dt^2} + 2\frac{dx}{dt} + x - y &= \cos(t) \\
+\frac{d^2y}{dt^2} + 2\frac{dy}{dt} + y - x &= 0
+\end{aligned}
+$$
+
+の $t \to -\infty$ で有界である解 $x(t)$ と $y(t)$ をすべて求めよ。
+
+(3) 適切な変数変換によって常微分方程式
+
+$$
+e^{-t}x^2 - 2\frac{dx}{dt} + x = 0
+$$
+
+を線形な常微分方程式に変換し、$x(0) = \frac{1}{2}$ となる解 $x(t)$ を求めよ。
+
 
 ## **Kai**
 ### (1)
