@@ -34,7 +34,7 @@ Answer the following questions.
 (7) Simplify the logic as much as possible using the Karnaugh maps in (6), and draw the circuit using MIL simbols shown in the Fig.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p1.png" width="510" height="388" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p1.png" width="700" height="600" alt=""/>
 </figure>
 
 ## **Kai**
