@@ -152,6 +152,9 @@ tags:
             - [第1~9問](frontier_sciences/otpe_2020_all.md)
         - 2019年度:
             - [第1~9問](frontier_sciences/otpe_2019_all.md)
+    - CBMS:
+        - 2024年度冬入：
+            -[第9問](frontier_sciences/cbms_202401_9.md)
 - 総合文化研究科:
     - 広域科学専攻・広域システム科学系:
         - 2020年度:
