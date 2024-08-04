@@ -147,7 +147,7 @@ tags:
             - [専門基礎科目 第4問 数学](frontier_sciences/cse_2018_4.md)
     - メディカル情報生命専攻:
         - 2024年度:
-            - [1月 第9問](frontier_sciences/cbms_202401_9.md)
+            - [1月 問題9](frontier_sciences/cbms_202401_9.md)
     - 海洋技術環境学専攻:
         - 2022年度:
             - [第1~6問](frontier_sciences/otpe_2022_all.md)
