@@ -100,6 +100,7 @@ tags:
     - 電子情報学:
         - 2024年度:
             - [専門 第2問](IST/denshi_2024_senmon_2.md)
+            - [専門 第5問](IST/denshi_2024_senmon_5.md)
         - 2023年度:
             - [専門 第2問](IST/denshi_2023_senmon_2.md)
             - [専門 第5問](IST/denshi_2023_senmon_5.md)
