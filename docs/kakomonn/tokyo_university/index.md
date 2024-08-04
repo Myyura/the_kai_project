@@ -145,6 +145,9 @@ tags:
             - [専門基礎科目 第1問 数学](frontier_sciences/cse_2018_1.md)
             - [専門基礎科目 第2問 数学](frontier_sciences/cse_2018_2.md)
             - [専門基礎科目 第4問 数学](frontier_sciences/cse_2018_4.md)
+    - メディカル情報生命専攻:
+        - 2024年度:
+            - [1月 第9問](frontier_sciences/cbms_202401_9.md)
     - 海洋技術環境学専攻:
         - 2022年度:
             - [第1~6問](frontier_sciences/otpe_2022_all.md)
@@ -152,9 +155,6 @@ tags:
             - [第1~9問](frontier_sciences/otpe_2020_all.md)
         - 2019年度:
             - [第1~9問](frontier_sciences/otpe_2019_all.md)
-    - CBMS:
-        - 2024年度冬入：
-            -[第9問](frontier_sciences/cbms_202401_9.md)
 - 総合文化研究科:
     - 広域科学専攻・広域システム科学系:
         - 2020年度:
