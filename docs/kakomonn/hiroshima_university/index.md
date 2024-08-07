@@ -20,4 +20,5 @@ tags:
     - 情報科学プログラム：
         - 2022年度:
             - [1月 専門科目I 問題1](ASE/is_202201_senmon_I_1.md)
+            - [1月 専門科目II 問題2](ASE/is_202201_senmon_II_2.md)
             - [1月 専門科目II 問題3](ASE/is_202201_senmon_II_3.md)
