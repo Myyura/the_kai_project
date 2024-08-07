@@ -36,18 +36,7 @@ Answer the following questions
 
 (5) In a weighted connected graph $G$, prove that $G$ has a unique minimum spanning tree when all edges have distinct weights.
 
-<style>
-.center 
-{
-  width: auto;
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
-
-#### <center> Table 1
-<div class="center">
+#### **Table 1**
 
 ||Tr|S|O|H|Y|Tk|E|
 |-|-|-|-|-|-|-|-|
@@ -59,7 +48,6 @@ Answer the following questions
 |Tk|162|298|88|197|258|-|168|
 |E|229|183|141|78|126|168|-|
 
-</div>
 
 ## **Kai**
 ### (1)
