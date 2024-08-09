@@ -23,4 +23,5 @@ tags:
             - [1月 専門科目II 問題2](ASE/is_202201_senmon_II_2.md)
             - [1月 専門科目II 問題3](ASE/is_202201_senmon_II_3.md)
         - 2021年度:
+            - [1月 専門科目I 問題1](ASE/is_202101_senmon_I_1.md)
             - [1月 専門科目I 問題4](ASE/is_202101_senmon_I_4.md)
