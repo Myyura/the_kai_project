@@ -11,9 +11,6 @@ tags:
 samparker, 祭音Myyura
 
 ## **Description**
-### 问题描述
-### 問題
-
 (1) 関数 $z = z(u, v)$ は、実変数 $(u, v) \in \mathbb{R}^2$ に関して、$C^2$ 級であると仮定する。
 また、$(x, y) \in \mathbb{R}^2$ に対して、写像 $(u, v) = (x + y, x - y)$ を定義する。
 
@@ -123,7 +120,5 @@ $$
 where $k$ is an integer, and extrema are
 
 $$
-\frac{2}{e}, -\frac{2}{e}
+\frac{2}{e}, -\frac{2}{e}.
 $$
-
-respectively.
