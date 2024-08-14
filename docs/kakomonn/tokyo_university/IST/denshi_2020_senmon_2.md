@@ -8,7 +8,7 @@ tags:
 
 
 ## **Author**
-[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766)
+[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), [diohabara](https://github.com/diohabara/open_inshi)
 
 ## **Description**
 Let us design a circuit that obtains a 4-bit signed integer $Y_{3..0}$ by calculating 4-bit additon/subtraction of a 4-bit signed integer $A_{3..0}$ and a 2-bit signed integer $B_{1,0}$. The integers $A,B$ and $Y$ are expressed in two's complement. The types of logic gates that you can use arc NOT, AND , OR ,and , XOR , cach of which is equipped with as many inputs as the design requires. Answer the following questions.
@@ -27,7 +27,12 @@ Let us design a circuit that obtains a 4-bit signed integer $Y_{3..0}$ by calcul
 ### (1)
 
 $$
-A:[-8,7] \quad B:[-2,1]
+\begin{aligned}
+A_{\text{max}} &= 0111_{(2)} = 7 \\
+A_{\text{min}} &= 1000_{(2)} = -(1000 \oplus 1111 + 1)_{(2)} = -8 \\
+B_{\text{min}} &= 01_{(2)} = 1 \\
+B_{\text{max}} &= 10_{(2)} = -(10 \oplus 11 + 1)_{(2)} = -2
+\end{aligned}
 $$
 
 ### (2)
@@ -45,23 +50,31 @@ $$
 </figure>
 
 ### (3)
-|$A_3$|$B_1$|$Y_3$|$O$|
-|-|-|-|-|
-|0|0|0|0|
-|0|0|1|1|
-|0|1|0|0|
-|0|1|1|0|
-|1|0|0|0|
-|1|0|1|0|
-|1|1|0|1|
-|1|1|1|0|
+(2) で設計した回路がオーバーフローするとき、$A_3C_2=1$ となる。
+また、(2) の回路は以下の論理式を満たす。
 
 $$
-O = \overline{A}_3\overline{B}_1Y_3 + A_3B_1\overline{Y}_3
+\begin{aligned}
+  C_2 &= A_2C_1 \\
+  C_1 &= A_1C_0 + A_1B_1 + B_1C_0 = C_0(A_1 + B_1) + A_1B_1 \\
+  C_0 &= A_0B_0
+\end{aligned}
 $$
+
+これらの式を代入して
+
+$$
+\begin{aligned}
+  &A_3A_2C_1 = 1 \\
+  &A_2A_3(C_0(A_1 + B_1) + A_1B_1) = 1 \\
+  &A_2A_3(A_0B_0(A_1 + B_1) + A_1B_1) = 1
+\end{aligned}
+$$
+
+よって求めるオーバーフロー検知機構の回路は次の通り。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_2_p4.png" width="700" height="380" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_2_overflow_detector.png" width="700" height="358" alt=""/>
 </figure>
 
 ### (4)
@@ -71,11 +84,37 @@ $$
 </figure>
 
 ### (5)
+1ビットの信号 $D$ でオーバフローかどうかを出力し、オーバフロー発生時に $1$、そうでないときに $0$ を出力するとする。  
+(3) と同じように考え、$D = 1$ となるのは以下の論理式を満たす場合である。
 
 $$
 \begin{aligned}
-& A: 0111 \qquad B:10,11 \\
-& A: 0110 \qquad B:10 \\
-& A: 1000 \qquad B:01
+A_3 C_2 &= 1 \\
+C_2 &= A_2 C_1 \\
+C_1 &= C_0 (A_1 + \overline{B_1}) + A_1 \overline{B_1} \\
+C_0 &= A_0 + \overline{B_0}
 \end{aligned}
 $$
+
+これを解いて
+
+$$
+\begin{aligned}
+&A_3 C_2 = 1 \\
+&A_3 A_2 C_1 = 1 \\
+&A_2 A_3 (C_0 (A_1 + \overline{B_1}) + A_1 \overline{B_1}) = 1 \\
+&A_2 A_3 ((A_0 + \overline{B_0})(A_1 + \overline{B_1}) + A_1 \overline{B_1}) = 1 \\
+&A_2 A_3 (A_0 A_1 + A_0 \overline{B_1} + A_1 \overline{B_0} + \overline{B_0} \overline{B_1}) = 1 \\
+&A_0 A_1 A_2 A_3 + A_0 A_2 A_3 \overline{B_1} + A_1 A_2 A_3 \overline{B_0} + A_2 A_3 \overline{B_0} \overline{B_1} = 1
+\end{aligned}
+$$
+
+以上からオーバフローが発生する入力パターンは以下の通り。ただし、 $*$ は $0$ でも $1$ でも良い。
+
+|$A_0$|$A_1$|$A_2$|$A_3$|$B_0$|$B_1$|
+|-|-|-|-|-|-|
+|1|1|1|1|*|*|
+|1|*|1|1|*|0|
+|*|1|1|1|0|*|
+|0|0|1|1|0|0|
+|*|1|1|1|*|0|
