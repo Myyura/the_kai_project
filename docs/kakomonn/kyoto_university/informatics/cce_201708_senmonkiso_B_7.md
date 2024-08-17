@@ -119,7 +119,7 @@ $M_{i+1}$ represents the subarray with the largest sum ending at $i+1$.
 
 The calculation of $M_{i+1}$ can be divided into two cases.
 
-If the sum of maximum subarray ending at $i$ is negative, then is should be discarded and hence $M_{i+1} = a_{i+1}$.
+If the sum of maximum subarray ending at $i$ is negative, then it should be discarded and hence $M_{i+1} = a_{i+1}$.
 
 If the sum of maximum subarray ending at $i$ is positive, then it should be included in the maximum subarray ending at $i+i$ and hence $M_{i+1} = M_{i} + a_{i+1}$.
 
