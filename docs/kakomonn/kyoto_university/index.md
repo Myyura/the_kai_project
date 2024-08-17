@@ -89,6 +89,8 @@ tags:
         - 2022年度:
             - [専門基礎A \[A-1\]](informatics/cce_202108_senmonkiso_A_1.md)
             - [専門基礎A \[A-2\]](informatics/cce_202108_senmonkiso_A_2.md)
+        - 2018年度:
+            - [専門基礎B \[B-7\]](informatics/cce_201708_senmonkiso_B_7.md)
     - 経営管理大学院:
         - 2023年度:
           - [数学 第1問](management/2023_math_1.md)
