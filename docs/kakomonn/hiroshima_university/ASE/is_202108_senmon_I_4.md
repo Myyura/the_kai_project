@@ -24,6 +24,8 @@ tags:
 (1) で答えたグラフを色集合 ${a, b, c, d, e, f}$ を使って点彩色しなさい。
 ただし隣接する任意の2頂点が異なる色で塗られていなくてはならないものとする。
 
+--------------------------------------------------------
+
 Let us consider the following natural generalization of planar graphs.
 A graph is said to be **1-planar** if it can be drawn in the Euclidean plane in such a way that each edge has at most one crossing point with other edge and any three edges do not cross at a point.
 

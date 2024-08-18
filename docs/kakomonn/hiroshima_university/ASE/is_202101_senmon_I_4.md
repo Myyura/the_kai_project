@@ -24,6 +24,7 @@ samparker, 祭音Myyura
 
 (3) 前問（2）のうち、最も費用のかからないスパニング木を見つけてその総費用を示せ。
 
+--------------------------------------------------------
 
 Suppose we want to lay out an electric power grid to connect locations $v \sim z$.
 In Graph $G$ shown in Figure 1, each vertex corresponds to one of the locations $v \sim z$, and each edge represents that an electric power line is possible to construct between the locations at the endpoints of the edge, with which the digit indicates its cost.

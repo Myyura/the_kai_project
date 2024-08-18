@@ -24,6 +24,8 @@ samparker, 祭音Myyura
 
 (5) 関数 sort で実装されているアルゴリズムとバブルソートと比較して、計算量や比較回数、交換回数について違いを述べよ。
 
+--------------------------------------------------------
+
 The C program shown in Figure 1 sorts the numbers in the array `numbers` and outputs the results, including the intermediate steps.
 
 (1) The function `print` in lines 4 to 8 prints the elements of the array `array` received as arguments in subscript order. Fill in the blanks (1-1), (1-2) to complete the function.

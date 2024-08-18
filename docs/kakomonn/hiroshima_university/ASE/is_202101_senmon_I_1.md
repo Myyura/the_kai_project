@@ -21,6 +21,8 @@ samparker, 祭音Myyura
 
 (4) 対角化の結果を用いて、正弦および余弦の加法定理を導出せよ。
 
+--------------------------------------------------------
+
 Let $R(\theta) = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$ be the rotation matrix in the two-dimensional Euclidean space.
 
 (1) Find all the eigenvalues of the matrix $R(\theta)$ and the corresponding eigenvectors.

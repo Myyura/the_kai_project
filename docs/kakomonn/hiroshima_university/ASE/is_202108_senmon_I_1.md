@@ -29,6 +29,8 @@ $$
 
 となることを示せ。
 
+--------------------------------------------------------
+
 (1) Find all the eigenvalues of a matrix $A = \begin{bmatrix} 0 & -\alpha \\ \alpha & 0 \end{bmatrix}$ and the corresponding eigenvectors. Here $\alpha \neq 0$ is a real number.
 
 (2) Find $A^k$. Here $k$ is a positive integer.

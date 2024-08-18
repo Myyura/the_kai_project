@@ -25,6 +25,8 @@ tags:
 
 (5) 重み付き連結グラフ $G$ において、各辺の重みがすべて異なっている時、$G$ は唯一の最小全域木を持つことを証明せよ。
 
+--------------------------------------------------------
+
 Answer the following questions
 
 (1) Table 1 shows the distances between the seven cities of Tottori (Tr), Shimane (S), Okayama (O), Hiroshima (H), Yamaguchi (Y), Tokushima (Tk), and Ehime (E): Find the minimum spanning tree of graph $G$ with the cities as nodes and the distances as weights of the edges between the cities.

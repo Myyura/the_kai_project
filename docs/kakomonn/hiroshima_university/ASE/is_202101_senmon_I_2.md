@@ -19,6 +19,8 @@ samparker, 祭音Myyura
 
 (3) $\lim_{R \to \infty} \frac{S(R)}{\pi R^2}$ を求めよ。
 
+--------------------------------------------------------
+
 Answer the following questions:
 
 (1) Calculate the integral: $\int \frac{d\theta}{\sin\theta}.$

@@ -29,6 +29,8 @@ tags:
 
 (5) $n$ 個の要素の集合に対する `Select` の期待計算時間をビッグオー記法で示し、その理由を簡潔に説明せよ。
 
+--------------------------------------------------------
+
 
 `Select(A, p, r, i)` is an algorithm to find the $i$-th smallest element in a set.
 `Select(A, p, r, i)` returns the $i$-th smallest element in the subarray $A[p]$ to $A[r]$ of array $A$.

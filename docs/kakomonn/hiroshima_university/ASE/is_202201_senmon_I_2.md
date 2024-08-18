@@ -34,6 +34,7 @@ $$
 
 の全ての極値およびそのときの $(x, y)$ を求めよ。
 
+--------------------------------------------------------
 
 (1) Suppose that the function $z = z(u, v)$ is of class $C^2$ in real variables $(u, v) \in \mathbb{R}^2$.
 Define the mapping by $(u, v) = (x + y, x - y)$ for $(x, y) \in \mathbb{R}^2$.
