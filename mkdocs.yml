@@ -124,7 +124,7 @@ extra_css:
 
 # nav
 nav:
-  - 過去問:
+  - 過去問 (点这里!):
     - 项目介绍: index.md
     - 東京大学:
       - 索引: kakomonn/tokyo_university/index.md
