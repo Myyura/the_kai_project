@@ -68,7 +68,7 @@ $$
 
 
 ### (ii)
-Since $-\lambda \mathbf{1} \preceq c$, the optimal value $v$ of dual problem D satisfies: $v \leq min\{ c_1, c_2, \ldots c_n \}$
+Since $-\lambda \mathbf{1} \preceq c$, the optimal value $v$ of dual problem D satisfies: $v \leq \min \{ c_1, c_2, \ldots c_n \}$
 then the linear programming $P$ is bounded, thus has an optimal solution.
 
 ### (iii)
