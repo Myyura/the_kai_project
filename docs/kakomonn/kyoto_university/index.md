@@ -30,6 +30,7 @@ tags:
     - 数理工学専攻:
         - 2024年度:
             - [専門科目 グラフ理論](informatics/amp_202308_graph_theory.md)
+            - [専門科目 凸最適化](informatics/amp_202308_convex_optimaztion.md)
         - 2023年度:
             - [専門科目 グラフ理論](informatics/amp_202208_graph_theory.md)
         - 2022年度:

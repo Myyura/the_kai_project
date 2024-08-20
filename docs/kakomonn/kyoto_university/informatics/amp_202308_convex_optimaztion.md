@@ -1,6 +1,7 @@
 ---
 comments: false
 title: 京都大学 情報学研究科 数理工学専攻 2023年8月実施 専門科目 凸最適化
+tags:
   - Kyoto-University
 ---
 # 京都大学 情報学研究科 数理工学専攻 2023年8月実施 専門科目 凸最適化
@@ -17,9 +18,9 @@ Consider the following linear programming problem P:
 
 $$
 \begin{aligned}
-P:&Minimize &c^{\top} y\\
-&\text{Subject to} &\sum_{i=1}^{n} y_{i} \leq 1 \\
-&\text{ } &y \geq 0
+\text{P} : &\text{Minimize} &\boldsymbol{c}^{\top} \boldsymbol{y}\\
+&\text{subject to} &\sum_{i=1}^{n} y_{i} \leq 1 \\
+&\text{ } &\boldsymbol{y} \geq 0
 \end{aligned}
 $$
 
@@ -42,12 +43,12 @@ Consider the following optimization problem Q:
 
 $$
 \begin{aligned}
-Q:&\text{Minimize} &\frac{1}{2} {x^{\top} x - c^{\top} x}\\
-&\text{subject to} &x \in Y
+\text{Q} : &\text{Minimize} &\frac{1}{2} {\boldsymbol{x}^{\top} \boldsymbol{x} - \boldsymbol{c}^{\top} \boldsymbol{x}}\\
+&\text{subject to} &\boldsymbol{x} \in Y
 \end{aligned}
 $$
 
-where the decision variable of problem Q is the vector $x \in \mathbb{R}^n$.
+where the decision variable of problem Q is the vector $\boldsymbol{x} \in \mathbb{R}^n$.
 Obtain an optimal solution of problem Q by using Karush-Kuhn-Tucker conditions.
 
 
@@ -59,8 +60,8 @@ Then we write the  dual problem D:
 
 $$ 
 \begin{aligned}
-D:&\text{Maximize} &-\lambda\\
-&\text{Subject to} &c + \lambda \mathbf{1} - \nu = 0\\
+\text{D} : &\text{Maximize} &-\lambda\\
+&\text{subject to} &c + \lambda \mathbf{1} - \nu = 0\\
 &\text{ } &\geq 0, \nu \succeq 0
 \end{aligned}
 $$
@@ -71,7 +72,7 @@ Since $-\lambda \mathbf{1} \preceq c$, the optimal value $v$ of dual problem D s
 then the linear programming $P$ is bounded, thus has an optimal solution.
 
 ### (iii)
-for any  $y_1,y_2 \in Y$  , we know that for any $\widetilde{y}$ which satisfies the constraints of P,
+For any  $y_1,y_2 \in Y$  , we know that for any $\widetilde{y}$ which satisfies the constraints of P,
 
 $$
 c^\top y_1 \leq c^\top \widetilde{y}, \quad c^\top y_2 \leq c^\top \widetilde{y}
@@ -90,28 +91,28 @@ $$
 c^\top (\theta y_1 + (1-\theta)y_2) = \theta c^\top y_1 + (1-\theta)c^\top y_2 \leq c^\top \widetilde{y}
 $$
 
-then $\theta y_1 + (1-\theta)y_2 \in Y$, $Y$ is a convex set
+then $\theta y_1 + (1-\theta)y_2 \in Y$, $Y$ is a convex set.
 
 ### (iv)
-since $c_1 = c_2 = \ldots c_n < 0$, $Y = \{ y | y \succeq \mathbf{0}, \mathbf{1}^\top y = 1 \}$, we can rewrite Q as 
+Since $c_1 = c_2 = \ldots c_n < 0$, $Y = \{ y | y \succeq \mathbf{0}, \mathbf{1}^\top y = 1 \}$, we can rewrite Q as 
 
 $$
 \begin{aligned}
 Q:&\text{Minimize} &\frac{1}{2} x^\top x - c^\top x \\
-&\text{Subject to} &x \succeq \mathbf{0}, \mathbf{1}^\top x = 1 \\
+&\text{subject to} &x \succeq \mathbf{0}, \mathbf{1}^\top x = 1 \\
 \end{aligned}
 $$
 
-thus we get the Lagrangian: $L(x,\lambda, \mu) = \frac{1}{2} x^\top x - c^\top x - \lambda^\top x + \mu(1-\mathbf{1}^\top x)$
-then the KKT-condition:
+thus we get the Lagrangian: $L(x,\lambda, \mu) = \frac{1}{2} x^\top x - c^\top x - \lambda^\top x + \mu(1-\mathbf{1}^\top x)$.
+Then the KKT-condition:
 
 $$
-\text{KKT-conditions } \left\{
+\text{KKT-conditions: } \left\{
 \begin{aligned}
-x - c - \lambda - \mu \mathbf{1} & = & 0 \\
-\lambda  \succeq  0, -\lambda^\top x &=&0 \\
-x &\succeq& 0\\
-\mathbf{1}^\top x & = & 1
+x - c - \lambda - \mu \mathbf{1} &= 0 \\
+\lambda  \succeq  0, -\lambda^\top x &=0 \\
+x &\succeq 0\\
+\mathbf{1}^\top x &= 1
 \end{aligned}
 \right.
 $$
@@ -119,8 +120,8 @@ $$
 it is obviously that
 
 $$
-x^* = [\frac 1n , \frac 1n, \ldots , \frac 1n]^\top , \lambda = \mathbf{0}, \mu = [\frac 1n - c_1, \frac 1n - c_1, \ldots, \frac 1n - c_1]^\top
+x^* = [\frac{1}{n} , \frac{1}{n}, \ldots , \frac{1}{n}]^\top , \lambda = \mathbf{0}, \mu = [\frac{1}{n} - c_1, \frac{1}{n} - c_1, \ldots, \frac{1}{n} - c_1]^\top
 $$
 
-satiesfies the KKT-condtions
-hence $x^*$ is an optimal solution.
+satiesfies the KKT-condtions.
+Hence $x^*$ is an optimal solution.
