@@ -54,8 +54,10 @@ Obtain an optimal solution of problem Q by using Karush-Kuhn-Tucker conditions.
 
 ## **Kai**
 ### (i)
-We have Lagrangian: $L(y,\lambda,\nu) = c^\top y + \lambda (\mathbf{1}^\top y - \mathbf{1} ) - \nu^\top y$
-Obtain Lagrange dual function: $d(\lambda, \nu) = \inf_{y} ((c^\top + \lambda \mathbf{1}^\top - \nu^\top)y - \lambda) = - \lambda$
+We have Lagrangian: $L(y,\lambda,\nu) = c^\top y + \lambda (\mathbf{1}^\top y - \mathbf{1} ) - \nu^\top y$.
+
+Obtain Lagrange dual function: $d(\lambda, \nu) = \inf_{y} ((c^\top + \lambda \mathbf{1}^\top - \nu^\top)y - \lambda) = - \lambda$.
+
 Then we write the  dual problem D:
 
 $$ 
