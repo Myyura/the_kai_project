@@ -49,13 +49,13 @@ $$
 \boldsymbol{d^*} = -\frac{\boldsymbol{Y^2(c - A^{\top}p)}}{2||\boldsymbol{Y(c - A^{\top}p)}||}
 $$
 
-以下の問 (a) , (b) , (c) に答えよ。
+以下の問 (a) , (b) , $(c)$ に答えよ。
 
 (a) $\boldsymbol{c^{\top}d^*} = - \frac{||\boldsymbol{Y(c - A^{\top}p)}||}{2}$ であることを示せ。
 
 (b) $\boldsymbol{d^*}$ が問題 $Q$ の最適解であることを示せ。
 
-(c) $\boldsymbol{\tilde{x} = y + d^*}$ とする。そのとき, $\boldsymbol{\tilde{x}}$が問題 $P$ の実行可能解であることと, $\boldsymbol{c^{\top}\tilde{x}} < \boldsymbol{c^{\top}y}$ を満たすことを示せ。
+$(c)$ $\boldsymbol{\tilde{x} = y + d^*}$ とする。そのとき, $\boldsymbol{\tilde{x}}$が問題 $P$ の実行可能解であることと, $\boldsymbol{c^{\top}\tilde{x}} < \boldsymbol{c^{\top}y}$ を満たすことを示せ。
 
 ### English Version
 
