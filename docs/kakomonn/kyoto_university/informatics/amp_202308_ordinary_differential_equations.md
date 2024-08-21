@@ -85,7 +85,7 @@ $$
 t\frac{dv(t)}{dt} + (2-t^2b(t))v(t) = 0
 $$
 
-for $x(t)$ is a rational function, we can easily see that $u(t)$ is a rational function and $v(t)$ is a rational function.
+since $x(t)$ is a rational function, we can easily see that $u(t)$ is a rational function and $v(t)$ is a rational function.
 Let $v(t) = \frac{p(t)}{q(t)}$,
 
 $$
