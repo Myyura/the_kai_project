@@ -29,18 +29,21 @@ tags:
 - 情報学研究科:
     - 数理工学専攻:
         - 2024年度:
-            - [専門科目 グラフ理論](informatics/amp_202308_graph_theory.md)
-            - [専門科目 凸最適化](informatics/amp_202308_convex_optimaztion.md)
+            - [グラフ理論](informatics/amp_202308_graph_theory.md)
+            - [凸最適化](informatics/amp_202308_convex_optimaztion.md)
+            - [常微分方程式](informatics/amp_202308_ordinary_differential_equations.md)
         - 2023年度:
-            - [専門科目 グラフ理論](informatics/amp_202208_graph_theory.md)
+            - [線形計画](informatics/amp_202208_linear_programming.md)
+            - [グラフ理論](informatics/amp_202208_graph_theory.md)
+            - [オペレーションズ・リサーチ](informatics/amp_202208_operation_research.md)
         - 2022年度:
-            - [基礎科目 アルゴリズム基礎](informatics/amp_202108_algorithm.md)
-            - [専門科目 グラフ理論](informatics/amp_202108_graph_theory.md)
+            - [アルゴリズム基礎](informatics/amp_202108_algorithm.md)
+            - [グラフ理論](informatics/amp_202108_graph_theory.md)
         - 2021年度:
-            - [専門科目 グラフ理論](informatics/amp_202008_graph_theory.md)
+            - [グラフ理論](informatics/amp_202008_graph_theory.md)
         - 2020年度:
-            - [基礎科目 アルゴリズム基礎](informatics/amp_201908_algorithm.md)
-            - [専門科目 グラフ理論](informatics/amp_201908_graph_theory.md)
+            - [アルゴリズム基礎](informatics/amp_201908_algorithm.md)
+            - [グラフ理論](informatics/amp_201908_graph_theory.md)
     - 知能情報学専攻:
         - 2024年度:
             - [情報学基礎 F1-1](informatics/ist_202308_kiso_f1_1.md)
