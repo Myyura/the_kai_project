@@ -11,6 +11,49 @@ Casablanca
 
 ## **Description**
 ### 日本語版
+$\boldsymbol{Q} \in \mathbb{R}^{n \times n}$, $\boldsymbol{q} \in \mathbb{R}^n$, $\boldsymbol{u} \in \mathbb{R}^n$ とする．
+$\boldsymbol{Q}, \boldsymbol{q}, \boldsymbol{u}$ は次の条件 (a)-$(c)$ を満たすとする．ただし，$\boldsymbol{I}$ は $n \times n$ の単位行列であり，$\top$ は転置を表す．
+
+- (a) $\boldsymbol{Q} + \boldsymbol{I}$ は半正定値対称行列である
+- (b) $\boldsymbol{Q}\boldsymbol{u} + \boldsymbol{u} + \boldsymbol{q} = 0$
+- $(c)$ $\boldsymbol{u}^{\top} \boldsymbol{u} = 1$
+
+関数 $f: \mathbb{R}^n \rightarrow \mathbb{R}$ と $g: \mathbb{R}^n \rightarrow \mathbb{R}$ を以下のように定義する．
+
+$$
+\begin{aligned}
+&f(\boldsymbol{x}) = \frac{1}{2}\boldsymbol{x}^{\top} \boldsymbol{Q}\boldsymbol{x} + \boldsymbol{q}^{\top}\boldsymbol{x} \\
+&g(\boldsymbol{x}) = f(\boldsymbol{x}) + \frac{1}{2} \boldsymbol{x}^{\top} \boldsymbol{x}
+\end{aligned}
+$$
+
+次の最適化問題 (P1) と (P2) を考える．
+
+$$
+\begin{aligned}
+(P1) &\text{minimize} &f(\boldsymbol{x}) \\
+&\text{subject to} &\boldsymbol{x}^{\top}\boldsymbol{x} \leqq 1
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+(P2) &\text{minimize} &g(\boldsymbol{x}) \\
+&\text{subject to} &\boldsymbol{x}^{\top}\boldsymbol{x} \leqq 1
+\end{aligned}
+$$
+
+以下の問いに答えよ．
+
+(i) 任意の $\boldsymbol{x}, \boldsymbol{y} \in \mathbb{R}^n$ に対して，次の不等式が成り立つことを示せ．
+
+$$
+g(\boldsymbol{x}) \geqq g(\boldsymbol{y}) + \nabla g(\boldsymbol{y})^{\top} (\boldsymbol{x} - \boldsymbol{y})
+$$
+
+(ii) 問題 (P2) の大域的最適解を一つ求めよ．さらに，それが実際に (P2) の大域的最適解であることを示せ．
+
+(iii) $\boldsymbol{u}$ が問題 (P1) の大域的最適解であることを示せ．
 
 ### English Version
 
@@ -27,7 +70,7 @@ $$
 easy to see that $g(x)$ is convex, and from first-order condition:
 
 $$
-g(x) \geq \bigtriangledown g(y)^\top (x-y)
+g(x) \geq \nabla g(y)^{\top} (x-y)
 $$
 
 ### (ii)
