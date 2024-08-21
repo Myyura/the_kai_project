@@ -46,10 +46,10 @@ $$c^\top d^* = - \frac{c^\top Y^2 (c-A^\top p)}{2||Y(c- A^\top p)||}$$
 
 $$
 \begin{aligned}
-(Y(c- A^\top p))^\top (Y(c-A^\top p)) =& (c^\top - p^\top A)YY(c-A^\top p)  \\
-=& c^\top Y^2 c - c^\top Y^2 A^\top p - p^\top AY^2 c + p^\top A Y^2 A^\top p \\
-= & c^\top Y^2 c - c^\top Y^2 A^\top p - p^\top AY^2 c + p^\top AY^2 c \\
-= & c^\top Y^2 (c - A^\top p) \\
+(Y(c- A^\top p))^\top (Y(c-A^\top p)) =& (c^\top - p^\top A)YY(c-A^\top p)\\
+=& c^\top Y^2 c - c^\top Y^2 A^\top p - p^\top AY^2 c + p^\top A Y^2 A^\top p\\
+= & c^\top Y^2 c - c^\top Y^2 A^\top p - p^\top AY^2 c + p^\top AY^2 c\\
+= & c^\top Y^2 (c - A^\top p)\\
 \end{aligned}
 $$
 thus $c^\top d^* = -\frac{c^\top Y^2(c-A^\top p)}{2||Y(c- A^\top p)||} = \frac{(Y(c-A^\top p)) ^ 2}{-2||Y(c-A^\top p)||} = - \frac{||Y(c-A^\top p)||}{2}$
