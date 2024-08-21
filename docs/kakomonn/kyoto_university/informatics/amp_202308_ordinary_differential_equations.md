@@ -1,20 +1,49 @@
 ---
 comments: false
-title: 京都大学 情報学研究科 数理工学専攻 2023年8月実施 専門科目 ODE
+title: 京都大学 情報学研究科 数理工学専攻 2023年8月実施 専門科目 常微分方程式
 tags:
   - Kyoto-University
 ---
-# 京都大学 情報学研究科 数理工学専攻 2023年8月実施 専門科目 ODE
+# 京都大学 情報学研究科 数理工学専攻 2023年8月実施 専門科目 常微分方程式
 
 ## **Author**
 Casablanca
 
 ## **Description**
 ### 日本語版
-//
+$a(t), b(t) ≢ 0$ を $t$ の多項式として次の微分方程式を考える．
+
+$$
+\begin{align}
+\frac{d^2 x}{d t^2} + a(t) \frac{dx}{dt} + b(t)x = 0 \tag{1}
+\end{align}
+$$
+
+$k$ をある自然数として $x = t^k$ が解であるものとする.このとき，以下の問いに答えよ.
+
+(i) $k$ を定めよ.
+
+(ii) $a(t)$ を $b(t)$ を用いて表わせ.
+
+(iii) 式 (1) は $x = t^k$ と線形独立な有理関数解をもたないことを示せ.
 
 ### English Version
-//
+Let $a(t), b(t) ≢ 0$ be polynomials of $t$ and consider the differential equation
+
+$$
+\begin{align}
+\frac{d^2 x}{d t^2} + a(t) \frac{dx}{dt} + b(t)x = 0 \tag{1}
+\end{align}
+$$
+
+Assume that $x = t^k$ is a solution, where $k$ is a positive integer. Answer the following
+questions.
+
+(i) Determine $k$.
+
+(ii) Express $a(t)$ in terms of $b(t)$.
+
+(iii) Show that Eq. (1) has no rational function solution that is linearly independent of $x = t^k$.
 
 ## **Kai**
 ### (i)
