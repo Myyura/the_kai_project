@@ -15,7 +15,7 @@ $\boldsymbol{A} \in \mathbb{R}^{m \times n},\boldsymbol{b} \in \mathbb{R}^m,\bol
 
 $$
 \begin{aligned}
-P: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{x} \\
+\text{P}: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{x} \\
 &\text{subject to} \quad \boldsymbol{Ax} = \boldsymbol{b} \\
 &\qquad \qquad \quad \boldsymbol{x} \geqq 0
 \end{aligned}
@@ -37,7 +37,7 @@ $$
 
 $$
 \begin{aligned}
-Q: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{d} \\
+\text{Q}: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{d} \\
 &\text{subject to} \quad \boldsymbol{Ad} = \boldsymbol{0} \\
 &\qquad \qquad \quad \boldsymbol{||Y^{-1}d||} \leqq \frac{1}{2}
 \end{aligned}

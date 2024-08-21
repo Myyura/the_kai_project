@@ -31,14 +31,14 @@ $$
 
 $$
 \begin{aligned}
-(P1) &\text{minimize} &f(\boldsymbol{x}) \\
+\text{(P1)}: &\text{minimize} &f(\boldsymbol{x}) \\
 &\text{subject to} &\boldsymbol{x}^{\top}\boldsymbol{x} \leqq 1
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-(P2) &\text{minimize} &g(\boldsymbol{x}) \\
+\text{(P2)}: &\text{minimize} &g(\boldsymbol{x}) \\
 &\text{subject to} &\boldsymbol{x}^{\top}\boldsymbol{x} \leqq 1
 \end{aligned}
 $$
