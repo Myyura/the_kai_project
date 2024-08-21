@@ -336,6 +336,9 @@ nav:
           - 2022年度:
             - 基礎科目 アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_202108_algorithm.md
             - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_202108_graph_theory.md
+            - 専門科目 オペレーションズ・リサーチ: kakomonn/kyoto_university/informatics/amp_202108_operation_research.md
+            - 専門科目 線形計画: kakomonn/kyoto_university/informatics/amp_202108_linear_programming.md
+            - 専門科目 常微分方程式: kakomonn/kyoto_university/informatics/amp_202108_ordinary_differential_equations
           - 2021年度:
             - 専門科目 グラフ理論: kakomonn/kyoto_university/informatics/amp_202008_graph_theory.md
           - 2020年度:
