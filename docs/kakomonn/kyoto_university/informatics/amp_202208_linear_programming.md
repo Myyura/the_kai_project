@@ -11,6 +11,51 @@ Casablanca
 
 ## **Description**
 ### 日本語版
+$\boldsymbol{A} \in \mathbb{R}^{m \times n},\boldsymbol{b} \in \mathbb{R}^m,\boldsymbol{c} \in \mathbb{R}^n$ とする。次の線形計画問題を考える。
+
+$$
+\begin{aligned}
+P: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{x} \\
+&\text{subject to} \quad \boldsymbol{Ax} = \boldsymbol{b} \\
+&\qquad \qquad \quad \boldsymbol{x} \geqq 0
+\end{aligned}
+$$
+
+ただし, 問題 $P$ の決定変数は $\boldsymbol{x} \in \mathbb{R}^n$ であり, $\top$ は転置記号を表す。また, $\boldsymbol{Ay} = \boldsymbol{b}$ と $y_i > 0(i = 1,\dots,n)$ を満たすベクトル $\boldsymbol{y} = (y_1,\dots,y_n)^{\top} \in \mathbb{R}^n$ が存在するとする。
+
+以下の問いに答えよ。
+
+(i) 問題 $P$ の双対問題を $D$ とする。$\boldsymbol{r^*} \in \mathbb{R}^m$ が問題 $D$ の最適解であり, ある実数 $\varepsilon > 0$ に対して, $\boldsymbol{c}^{\top}\boldsymbol{y} - \boldsymbol{b}^{\top}r < \varepsilon$ を満たす問題 $D$ の実行可能解 $\boldsymbol{r} \in \mathbb{R}^m$ が存在すると仮定する。そのとき,
+
+$$
+\boldsymbol{b}^{\top}\boldsymbol{r^*} - \varepsilon < \boldsymbol{b}^{\top}\boldsymbol{r} \leqq \boldsymbol{b}^{\top}\boldsymbol{r^*}
+$$
+
+が成立することを示せ。
+
+(ii) $\boldsymbol{Y} \in \mathbb{R}^{n \times n}$ は第 $(i,i)$ 成分を $y_i$ とする　対角行列と定義し, $\boldsymbol{AY}^2\boldsymbol{A}^{\top}$ は正則行列と仮定する。さらに, 以下の最適化問題を考える。
+
+$$
+\begin{aligned}
+Q: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{d} \\
+&\text{subject to} \quad \boldsymbol{Ad} = \boldsymbol{0} \\
+&\qquad \qquad \quad \boldsymbol{||Y^{-1}d||} \leqq \frac{1}{2}
+\end{aligned}
+$$
+
+ここで, 問題 $Q$ の決定変数は $\boldsymbol{d} \in \mathbb{R}^n$ であり, $||\cdot||$ はユークリッドノルマ表す (すなわち, 任意のベクトル $z$ に対して, $||z|| = \sqrt{z^{\top}z}$). また, $\boldsymbol{p} = (\boldsymbol{AY^2A}^{\top})^{-1}\boldsymbol{AY^2c}$ と定義し, $\boldsymbol{c - A^{\top}p \neq 0}$ と仮定する。さらに, 以下のベクトルを定義する。
+
+$$
+\boldsymbol{d^*} = -\frac{\boldsymbol{Y^2(c - A^{\top}p)}}{2||\boldsymbol{Y(c - A^{\top}p)}||}
+$$
+
+以下の問 (a) , (b) , (c) に答えよ。
+
+(a) $\boldsymbol{c^{\top}d^*} = - \frac{||\boldsymbol{Y(c - A^{\top}p)}||}{2}$ であることを示せ。
+
+(b) $\boldsymbol{d^*}$ が問題 $Q$ の最適解であることを示せ。
+
+(c) $\boldsymbol{\tilde{x} = y + d^*}$ とする。そのとき, $\boldsymbol{\tilde{x}}$が問題 $P$ の実行可能解であることと, $\boldsymbol{c^{\top}\tilde{x}} < \boldsymbol{c^{\top}y}$ を満たすことを示せ。
 
 ### English Version
 
