@@ -108,7 +108,7 @@ $$
 x_1'x_2 - x_1x_2' = C e^{\int a(t)dt}
 $$
 
-Let $A(t)$ denote $\int a(t)d$.
+Let $A(t)$ denote $\int a(t)dt$.
 Since $a(t)$ is a polynomial, and $Ce^{-A(t)}$ is a  polynomial for $x_1'x_2 - x_1x_2'$ is a polynomial, we obtain $a(t) \equiv 0$.
 
 Then, consider
