@@ -50,7 +50,7 @@ $$
 Lagrangian:
 
 $$
-L(x, \lambda, \nu) = u^\top Ax + \lambda(\boldsymble{1}^\top x - 1) - \nu^\top x
+L(x, \lambda, \nu) = u^\top Ax + \lambda(\boldsymbol{1}^\top x - 1) - \nu^\top x
 $$
 
 Lagrange dual function:
@@ -95,18 +95,18 @@ $$
 \text{ } \left\{
 \begin{aligned}
 c + \lambda \boldsymbol{1} - \nu & = 0 \\
-\lambda \succeq \boldsymbol{0}, \nu   & \succeq \boldsymble{0} \\
- -\nu^\top x^*  = 0,\lambda (\boldsymble{1}^\top x^* - 1) &= 0
+\lambda \succeq \boldsymbol{0}, \nu   & \succeq \boldsymbol{0} \\
+ -\nu^\top x^*  = 0,\lambda (\boldsymbol{1}^\top x^* - 1) &= 0
 \end{aligned}
 \right.
 $$
 
-And $\lambda = -c_n , \nu = \boldsymble{c} - c_n \boldsymble{1}, x^* = [0,0,\ldots, 1]^\top$ satisfies the KKT-conditions,
+And $\lambda = -c_n , \nu = \boldsymbol{c} - c_n \boldsymbol{1}, x^* = [0,0,\ldots, 1]^\top$ satisfies the KKT-conditions,
 thus $[0,0,\ldots, 1]^\top \in S_P(u)$,
 and
 
 $$
-\forall \widetilde{x} \neq [0,0,\ldots, 1]^\top, \boldsymble{c} \widetilde{x} > c_n = \boldsymble{c}x^*
+\forall \widetilde{x} \neq [0,0,\ldots, 1]^\top, \boldsymbol{c} \widetilde{x} > c_n = \boldsymbol{c}x^*
 $$
 
 hence $S_P(u) = \{ [0,0,\ldots, 1]^\top \}$.
@@ -114,13 +114,13 @@ hence $S_P(u) = \{ [0,0,\ldots, 1]^\top \}$.
 ### (v)
 Consider $P(y^*)$ and $Q(x^*)$.
 
-For $x^* = 0$, if $y* \neq 0$, then $x^* = [0,0,\ldots, 1]^\top$. Similarly, when $y^* = \boldsymble{0}, x^* \neq \boldsymble{0}$.
-Thus $(\boldsymble{0}, \boldsymble{0}) \in X$.
+For $x^* = 0$, if $y* \neq 0$, then $x^* = [0,0,\ldots, 1]^\top$. Similarly, when $y^* = \boldsymbol{0}, x^* \neq \boldsymbol{0}$.
+Thus $(\boldsymbol{0}, \boldsymbol{0}) \in X$.
 
-Then, we consider the case when $y^* \neq \boldsymble{0}, x^* \neq \boldsymble{0}$.
+Then, we consider the case when $y^* \neq \boldsymbol{0}, x^* \neq \boldsymbol{0}$.
 
 $$
-y^* \neq \boldsymble{0} \Rightarrow x^* = [0,0,\ldots, 1]^\top \Rightarrow x^* \neq \boldsymble{0} \Rightarrow y^* = [0,0,\ldots, 1]^\top
+y^* \neq \boldsymbol{0} \Rightarrow x^* = [0,0,\ldots, 1]^\top \Rightarrow x^* \neq \boldsymbol{0} \Rightarrow y^* = [0,0,\ldots, 1]^\top
 $$
 
-Therefore, $X = \{ (\boldsymble{0}, \boldsymble{0}), ([0,0,\ldots, 1]^\top, [0,0,\ldots, 1]^\top) \}$.
+Therefore, $X = \{ (\boldsymbol{0}, \boldsymbol{0}), ([0,0,\ldots, 1]^\top, [0,0,\ldots, 1]^\top) \}$.
