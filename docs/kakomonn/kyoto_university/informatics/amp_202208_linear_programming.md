@@ -1,10 +1,10 @@
 ---
 comments: false
-title: 京都大学 情報学研究科 数理工学専攻 2022年8月実施 専門科目 線形計画
+title: 京都大学 情報学研究科 数理工学専攻 2022年8月実施 線形計画
 tags:
   - Kyoto-University
 ---
-# 京都大学 情報学研究科 数理工学専攻 2022年8月実施 専門科目 線形計画
+# 京都大学 情報学研究科 数理工学専攻 2022年8月実施 線形計画
 
 ## **Author**
 Casablanca
@@ -15,7 +15,7 @@ $\boldsymbol{A} \in \mathbb{R}^{m \times n},\boldsymbol{b} \in \mathbb{R}^m,\bol
 
 $$
 \begin{aligned}
-P: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{x} \\
+\text{P}: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{x} \\
 &\text{subject to} \quad \boldsymbol{Ax} = \boldsymbol{b} \\
 &\qquad \qquad \quad \boldsymbol{x} \geqq 0
 \end{aligned}
@@ -37,7 +37,7 @@ $$
 
 $$
 \begin{aligned}
-Q: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{d} \\
+\text{Q}: &\text{Minimize} \quad \boldsymbol{c}^{\top}\boldsymbol{d} \\
 &\text{subject to} \quad \boldsymbol{Ad} = \boldsymbol{0} \\
 &\qquad \qquad \quad \boldsymbol{||Y^{-1}d||} \leqq \frac{1}{2}
 \end{aligned}
@@ -49,13 +49,13 @@ $$
 \boldsymbol{d^*} = -\frac{\boldsymbol{Y^2(c - A^{\top}p)}}{2||\boldsymbol{Y(c - A^{\top}p)}||}
 $$
 
-以下の問 (a) , (b) , (c) に答えよ。
+以下の問 (a) , (b) , $(c)$ に答えよ。
 
 (a) $\boldsymbol{c^{\top}d^*} = - \frac{||\boldsymbol{Y(c - A^{\top}p)}||}{2}$ であることを示せ。
 
 (b) $\boldsymbol{d^*}$ が問題 $Q$ の最適解であることを示せ。
 
-(c) $\boldsymbol{\tilde{x} = y + d^*}$ とする。そのとき, $\boldsymbol{\tilde{x}}$が問題 $P$ の実行可能解であることと, $\boldsymbol{c^{\top}\tilde{x}} < \boldsymbol{c^{\top}y}$ を満たすことを示せ。
+$(c)$ $\boldsymbol{\tilde{x} = y + d^*}$ とする。そのとき, $\boldsymbol{\tilde{x}}$が問題 $P$ の実行可能解であることと, $\boldsymbol{c^{\top}\tilde{x}} < \boldsymbol{c^{\top}y}$ を満たすことを示せ。
 
 ### English Version
 

@@ -1,10 +1,10 @@
 ---
 comments: false
-title: 京都大学 情報学研究科 数理工学専攻 2023年8月実施 専門科目 常微分方程式
+title: 京都大学 情報学研究科 数理工学専攻 2023年8月実施 常微分方程式
 tags:
   - Kyoto-University
 ---
-# 京都大学 情報学研究科 数理工学専攻 2023年8月実施 専門科目 常微分方程式
+# 京都大学 情報学研究科 数理工学専攻 2023年8月実施 常微分方程式
 
 ## **Author**
 Casablanca
@@ -85,7 +85,7 @@ $$
 t\frac{dv(t)}{dt} + (2-t^2b(t))v(t) = 0
 $$
 
-for $x(t)$ is a rational function, we can easily see that $u(t)$ is a rational function and $v(t)$ is a rational function.
+since $x(t)$ is a rational function, we can easily see that $u(t)$ is a rational function and $v(t)$ is a rational function.
 Let $v(t) = \frac{p(t)}{q(t)}$,
 
 $$

@@ -1,10 +1,10 @@
 ---
 comments: false
-title: 京都大学 情報学研究科 数理工学専攻 2022年8月実施 専門科目 オペレーションズ・リサーチ
+title: 京都大学 情報学研究科 数理工学専攻 2022年8月実施 オペレーションズ・リサーチ
 tags:
   - Kyoto-University
 ---
-# 京都大学 情報学研究科 数理工学専攻 2022年8月実施 専門科目 オペレーションズ・リサーチ
+# 京都大学 情報学研究科 数理工学専攻 2022年8月実施 オペレーションズ・リサーチ
 
 ## **Author**
 Casablanca
@@ -31,14 +31,14 @@ $$
 
 $$
 \begin{aligned}
-(P1) &\text{minimize} &f(\boldsymbol{x}) \\
+\text{(P1)}: &\text{minimize} &f(\boldsymbol{x}) \\
 &\text{subject to} &\boldsymbol{x}^{\top}\boldsymbol{x} \leqq 1
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-(P2) &\text{minimize} &g(\boldsymbol{x}) \\
+\text{(P2)}: &\text{minimize} &g(\boldsymbol{x}) \\
 &\text{subject to} &\boldsymbol{x}^{\top}\boldsymbol{x} \leqq 1
 \end{aligned}
 $$
