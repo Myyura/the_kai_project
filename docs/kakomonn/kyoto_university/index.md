@@ -37,8 +37,11 @@ tags:
             - [グラフ理論](informatics/amp_202208_graph_theory.md)
             - [オペレーションズ・リサーチ](informatics/amp_202208_operation_research.md)
         - 2022年度:
+            - [線形計画](informatics/amp_202108_linear_programming.md)
             - [アルゴリズム基礎](informatics/amp_202108_algorithm.md)
             - [グラフ理論](informatics/amp_202108_graph_theory.md)
+            - [オペレーションズ・リサーチ](informatics/amp_202108_operation_research.md)
+            - [力学系数学](informatics/amp_202108_mathematics_for_dynamical_systems.md)
         - 2021年度:
             - [グラフ理論](informatics/amp_202008_graph_theory.md)
         - 2020年度:
