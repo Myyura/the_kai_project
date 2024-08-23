@@ -340,10 +340,23 @@ nav:
             - オペレーションズ・リサーチ: kakomonn/kyoto_university/informatics/amp_202108_operation_research.md
             - 力学系数学: kakomonn/kyoto_university/informatics/amp_202108_mathematics_for_dynamical_systems.md
           - 2021年度:
+            - 線形計画: kakomonn/kyoto_university/informatics/amp_202008_linear_programming.md
             - グラフ理論: kakomonn/kyoto_university/informatics/amp_202008_graph_theory.md
+            - 力学系数学: kakomonn/kyoto_university/informatics/amp_202008_mathematics_for_dynamical_systems.md
           - 2020年度:
+            - 線形計画: kakomonn/kyoto_university/informatics/amp_201908_linear_programming.md
             - アルゴリズム基礎: kakomonn/kyoto_university/informatics/amp_201908_algorithm.md
             - グラフ理論: kakomonn/kyoto_university/informatics/amp_201908_graph_theory.md
+            - オペレーションズ・リサーチ: kakomonn/kyoto_university/informatics/amp_201908_operation_research.md
+            - 力学系数学: kakomonn/kyoto_university/informatics/amp_201908_mathematics_for_dynamical_systems.md
+          - 2019年度:
+            - 線形計画: kakomonn/kyoto_university/informatics/amp_201808_linear_programming.md
+            - オペレーションズ・リサーチ: kakomonn/kyoto_university/informatics/amp_201808_operation_research.md
+            - 力学系数学: kakomonn/kyoto_university/informatics/amp_201808_mathematics_for_dynamical_systems.md
+          - 2018年度:
+            - 線形計画: kakomonn/kyoto_university/informatics/amp_201708_linear_programming.md
+            - オペレーションズ・リサーチ: kakomonn/kyoto_university/informatics/amp_201708_operation_research.md
+            - 力学系数学: kakomonn/kyoto_university/informatics/amp_201708_mathematics_for_dynamical_systems.md
         - 知能情報学専攻:
           - 2024年度:
             - 情報学基礎 F1-1: kakomonn/kyoto_university/informatics/ist_202308_kiso_f1_1.md
