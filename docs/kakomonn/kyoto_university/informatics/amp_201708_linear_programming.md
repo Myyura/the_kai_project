@@ -78,7 +78,9 @@ Hence the domain is bounded, thus $X(c) \neq \emptyset$
 Suppose that $x^*$ is an optimal solution, then we have
 
 $$
+\begin{align}
 c^\top x^* = c^\top \sum_{i=1}^{4}\theta_i x_i \tag{*}
+\end{align}
 $$
 
 where $\theta_i \in [0,1]$, $\sum \theta_i = 1$, $x_i$ is extreme point shown in (ii).
