@@ -28,8 +28,8 @@ $$
 \theta(\boldsymbol{x}) = \left( \prod_{i=1}^{n} x_i \right)^{\frac{1}{n}}, \quad X = \left\{ \boldsymbol{x} \in \mathbb{R}^n \middle| \sum_{i=1}^{n} x_i = 1, \, x_i \geqq 0 \ (i = 1, \ldots, n) \right\}
 $$
 
-問題 (P) は唯一の最適解 $\boldsymbol{x}^*$ を持ち、関数 $\theta$ は $\mathbb{R}_{++}^n$ 上で凹関数（すなわち、$-\theta$ は凸関数）であることが知られている。
-ただし、$\mathbb{R}_{++}^n = \{ \boldsymbol{x} \in \mathbb{R}^n \mid x_i > 0 \ (i = 1, \ldots, n) \}$ である。
+問題 (P) は唯一の最適解 $\boldsymbol{x}^*$ を持ち、関数 $\theta$ は $\mathbb{R}_{+}^n$ 上で凹関数（すなわち、$-\theta$ は凸関数）であることが知られている。
+ただし、$\mathbb{R}_{+}^n = \{ \boldsymbol{x} \in \mathbb{R}^n \mid x_i > 0 \ (i = 1, \ldots, n) \}$ である。
 
 以下の (a), (b), $(c)$ に答えよ。
 
