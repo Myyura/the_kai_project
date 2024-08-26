@@ -14,10 +14,11 @@ Casablanca
 $\Omega = \{\boldsymbol{x} \in \mathbb{R}^n| 0 \leqq x_i \leqq 1(i=1,\dots,n)\}$ とする。さらに, 関数 $f:\mathbb{R}^n \rightarrow \mathbb{R}$ は次の不等式を満たす連続的微分可能な関数とする。
 
 $$
-\begin{aligned}
-\alpha &f(\boldsymbol{x}) + (1 - \alpha)f(\boldsymbol{y}) \\
-&\geqq f(\alpha\boldsymbol{x} + (1 - \alpha)\boldsymbol{y}) + \alpha(1 - \alpha)(\boldsymbol{x - y})^{\top}(\boldsymbol{x - y}) \forall\boldsymbol{x,y} \in \mathbb{R}^n,\alpha \in [0,1]
-\end{aligned}
+\alpha f(\boldsymbol{x}) + (1 - \alpha)f(\boldsymbol{y}) \geqq f(\alpha\boldsymbol{x} + (1 - \alpha)\boldsymbol{y}) + \alpha(1 - \alpha)(\boldsymbol{x - y})^{\top}(\boldsymbol{x - y})
+$$
+
+$$
+\forall \boldsymbol{x,y} \in \mathbb{R}^n,\alpha \in [0,1]
 $$
 
 ただし, $\top$ は転置記号である。
@@ -40,11 +41,11 @@ Q(\boldsymbol{z}): &\text{Minimize} \quad -\nabla f(\boldsymbol{z})^{\top}\bolds
 \end{aligned}
 $$
 
-ただし, 問題 $Q(\boldsymbol{z})$ の決定変数は $\boldsymbol{x} \in \mathbb{R}^n$ である。任意の $\boldsymbol{z} \in \Omega$ に対して, 問題 $Q(\boldsymbol{z})$ は唯一の最適解 $\boldsymbol{\bar{x}(z)}$ をもつ。
+ただし, 問題 $Q(\boldsymbol{z})$ の決定変数は $\boldsymbol{x} \in \mathbb{R}^n$ である。任意の $\boldsymbol{z} \in \Omega$ に対して, 問題 $Q(\boldsymbol{z})$ は唯一の最適解 $\bar{\boldsymbol{x}}(\boldsymbol{z})$ をもつ。
 
 &emsp;&emsp;以下の問いに答えよ。
 
-(i) 任意の $\boldsymbol{x,y} \in \mathbb{R}^n$ に対して次の不等式が成り立つことを示せ。
+(i) 任意の $\boldsymbol{x}, \boldsymbol{y} \in \mathbb{R}^n$ に対して次の不等式が成り立つことを示せ。
 
 $$
 f(\boldsymbol{x}) - f(\boldsymbol{y}) \geqq \nabla f(\boldsymbol{y})^{\top}(\boldsymbol{x - y}) + (\boldsymbol{x - y})^{\top}(\boldsymbol{x - y})
@@ -55,12 +56,12 @@ $$
 (iii) 任意の $\boldsymbol{z} \in \Omega$ に対して次の不等式が成り立つことを示せ。
 
 $$
-f(\boldsymbol{z}) - f(\boldsymbol{\bar{x}(z)}) \leqq -(\boldsymbol{\bar{x}(z)} - \boldsymbol{z})^{\top}(\boldsymbol{\bar{x}(z)} - \boldsymbol{z})
+f(\boldsymbol{z}) - f(\bar{\boldsymbol{x}}(\boldsymbol{z})) \leqq -(\bar{\boldsymbol{x}}(\boldsymbol{z}) - \boldsymbol{z})^{\top}(\bar{\boldsymbol{x}}(\boldsymbol{z}) - \boldsymbol{z})
 $$
 
 (iv) 次の命題 (A) について, 真であれば証明を, 偽であれば反例を与えよ。
 
-&emsp;&emsp; (A) $\boldsymbol{z} \in \Omega$ かつ $\boldsymbol{\bar{x}(z)} = \boldsymbol{z}$ であれば, $\boldsymbol{z}$ は問題 $P$ の局所的最適解である。
+&emsp;&emsp; (A) $\boldsymbol{z} \in \Omega$ かつ $\bar{\boldsymbol{x}}(\boldsymbol{z}) = \boldsymbol{z}$ であれば, $\boldsymbol{z}$ は問題 $P$ の局所的最適解である。
 
 
 ### English Version

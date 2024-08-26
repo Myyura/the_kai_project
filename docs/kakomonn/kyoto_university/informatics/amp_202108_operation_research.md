@@ -11,13 +11,13 @@ Casablanca
 
 ## **Description**
 ### 日本語版
-$A \in \mathbb{R}^{m \times n}, \boldsymbol{b} \in \mathbb{R}^m, C \in \mathbb{R}^{n \times n}$ とする。
+$\boldsymbol{A} \in \mathbb{R}^{m \times n}, \boldsymbol{b} \in \mathbb{R}^m, \boldsymbol{C} \in \mathbb{R}^{n \times n}$ とする。
 パラメータ $\boldsymbol{x} = (x_1, \ldots, x_n)^\top \in \mathbb{R}^n$ をもつ次の非線形計画問題を考える。
 
 $$
 \begin{aligned}
-\text{P}(\boldsymbol{x}): \quad &\text{Minimize} \quad \sum_{i=1}^n (z^i)^\top z^i + \boldsymbol{y}^\top \boldsymbol{y} + \boldsymbol{x}^\top C \boldsymbol{x} \\
-&\text{subject to} \quad \boldsymbol{y} - \sum_{i=1}^n x_i \boldsymbol{z}^i = A\boldsymbol{x} - \boldsymbol{b}
+\text{P}(\boldsymbol{x}): \quad &\text{Minimize} \quad \sum_{i=1}^n (\boldsymbol{z}^i)^\top \boldsymbol{z}^i + \boldsymbol{y}^\top \boldsymbol{y} + \boldsymbol{x}^\top C \boldsymbol{x} \\
+&\text{subject to} \quad \boldsymbol{y} - \sum_{i=1}^n x_i \boldsymbol{z}^i = \boldsymbol{A}\boldsymbol{x} - \boldsymbol{b}
 \end{aligned}
 $$
 
