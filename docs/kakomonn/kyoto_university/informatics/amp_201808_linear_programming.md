@@ -17,10 +17,10 @@ $\boldsymbol{A}\boldsymbol{z} = \boldsymbol{b}$ を満たす $n$ 次元ベクト
 
 $$
 \begin{aligned}
-\text{(P)} &\text{Minimize} &\sum_{i=1}^n y_i \\
-&\text{subject to} &\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b} \\
-&\text{ } &y_i \geqq x_i \ (i = 1, \ldots, n) \\
-&\text{ } &y_i \geqq -x_i \ (i = 1, \ldots, n)
+\text{(P): } \text{Minimize } \ &\sum_{i=1}^n y_i \\
+\text{subject to } \ &\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b} \\
+&y_i \geqq x_i \ (i = 1, \ldots, n) \\
+&y_i \geqq -x_i \ (i = 1, \ldots, n)
 \end{aligned}
 $$
 
@@ -56,10 +56,10 @@ $$
 
 $$
 \begin{aligned}
-(Q): &\text{Maximize} &b^\top \mu \\
-&\text{subject to:} &\mu + \nu = \boldsymbol{1} \\
-&\text{ } &\mu^\top A = (\lambda - \nu) ^\top \\
-&\text{ } &\lambda \succeq 0, \nu \succeq 0
+\text{(Q): } \text{Maximize} \ &b^\top \mu \\
+\text{subject to } \ &\mu + \nu = \boldsymbol{1} \\
+&\mu^\top A = (\lambda - \nu) ^\top \\
+&\lambda \succeq 0, \nu \succeq 0
 \end{aligned}
 $$
 

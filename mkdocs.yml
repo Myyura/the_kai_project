@@ -365,10 +365,6 @@ nav:
             - オペレーションズ・リサーチ: kakomonn/kyoto_university/informatics/amp_201508_operation_research.md
           - 2015年度:
             - 線形計画: kakomonn/kyoto_university/informatics/amp_201408_linear_programming.md
-            - オペレーションズ・リサーチ: kakomonn/kyoto_university/informatics/amp_201408_operation_research.md
-            - 力学系数学: kakomonn/kyoto_university/informatics/amp_201408_mathematics_for_dynamical_systems.md
-          - 2014年度:
-            - 線形計画: kakomonn/kyoto_university/informatics/amp_201308_linear_programming.md
         - 知能情報学専攻:
           - 2024年度:
             - 情報学基礎 F1-1: kakomonn/kyoto_university/informatics/ist_202308_kiso_f1_1.md
@@ -985,6 +981,7 @@ nav:
             - 1月 専門科目I 問題2: kakomonn/hiroshima_university/ASE/is_202101_senmon_I_2.md
             - 1月 専門科目I 問題4: kakomonn/hiroshima_university/ASE/is_202101_senmon_I_4.md
             - 8月 専門科目I 問題4: kakomonn/hiroshima_university/ASE/is_202008_senmon_I_4.md
+            - 8月 専門科目II 問題2: kakomonn/hiroshima_university/ASE/is_202008_senmon_II_2.md
           - 2020年度:
             - 8月 専門科目I 問題1: kakomonn/hiroshima_university/ASE/is_201908_senmon_I_1.md
             - 8月 専門科目I 問題2: kakomonn/hiroshima_university/ASE/is_201908_senmon_I_2.md

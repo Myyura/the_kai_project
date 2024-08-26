@@ -100,8 +100,4 @@ t \frac{d^2 \sigma(x(t))}{dt^2} - (t+1)\frac{d\sigma(x(t))}{dt} + \sigma(x(t)) =
 $$
 
 ### (iv)
-$A(\sigma_i) = \begin{bmatrix}
-1 & 0 \\
-0 & c_i
-\end{bmatrix}
-$ is symmetric.
+$A(\sigma_i) = \begin{bmatrix} 1 & 0 \\ 0 & c_i \end{bmatrix}$ is symmetric.
