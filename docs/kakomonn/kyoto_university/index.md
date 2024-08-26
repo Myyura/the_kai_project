@@ -68,6 +68,10 @@ tags:
             - [オペレーションズ・リサーチ](informatics/amp_201508_operation_research.md)
         - 2015年度:
             - [線形計画](informatics/amp_201408_linear_programming.md)
+            - [オペレーションズ・リサーチ](informatics/amp_201408_operation_research.md)
+            - [力学系数学](informatics/amp_201408_mathematics_for_dynamical_systems.md)
+        - 2014年度:
+            - [線形計画](informatics/amp_201308_linear_programming.md)
     - 知能情報学専攻:
         - 2024年度:
             - [情報学基礎 F1-1](informatics/ist_202308_kiso_f1_1.md)
