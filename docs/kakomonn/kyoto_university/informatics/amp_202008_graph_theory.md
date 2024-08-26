@@ -231,6 +231,6 @@ $$
 Therefore, $N$ has an $(s, t)$-flow whose flow value is $\text{val}(f) + \Delta$.
 
 ### (iv)
-By 京都大学 大学院 情報学研究科 数理工学専攻 2022年実施 専門科目 グラフ理論 (i) and (iii) we know that $S$ is actually a minimum $s,t$-cut.
+By [京都大学 大学院 情報学研究科 数理工学専攻 2022年実施 グラフ理論](amp_202208_graph_theory.md) (i) and (iii) we know that $S$ is actually a minimum $s,t$-cut.
 
 Hence for any any set $A \subsetneq S$ with $s \in A$, we have $\text{cap}(A) > \text{cap}(S)$.
