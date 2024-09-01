@@ -39,3 +39,4 @@ tags:
         - 2018年度:
             - [1月 専門科目I 問題1](ASE/is_201801_senmon_I_1.md)
             - [1月 専門科目I 問題5](ASE/is_201801_senmon_I_5.md)
+            - [1月 専門科目I 問題6](ASE/is_201801_senmon_I_6.md)
