@@ -89,6 +89,8 @@ tags:
             - [計算機アーキテクチャ](ISEE/ist_2019_computer_architecture.md)
         - 2018年度:
             - [計算機アーキテクチャ](ISEE/ist_2018_computer_architecture.md)
+        - 2017年度:
+            - [オートマトンと言語](ISEE/ist_2017_automata_and_formal_language.md)
 - 経済学府:
     - 経済工学専攻:
         - 2020年度:
