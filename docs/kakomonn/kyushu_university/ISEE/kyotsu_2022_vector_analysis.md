@@ -7,7 +7,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2022年度 ベクトル解析
 
 ## **Author**
-Miyake
+Miyake, Casablanca
 
 ## **Description**
 直交座標系において，$x, y, z$ 軸方向の単位ベクトルをそれぞれ $\boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k}$ とする．
@@ -119,7 +119,6 @@ $$
 
 $$
 \begin{aligned}
-\oint_S \boldsymbol{F} \cdot \boldsymbol{n} dS &= \int_V \nabla \cdot \boldsymbol{F} dV = \int_{0}^{2 \pi} \int_0^1 \int_0^{4-r} 13r\ dzdrd\theta \\
-&= \frac{130}{3} \pi
+\oint_S \boldsymbol{F} \cdot d \boldsymbol{S} &= \iiint_{\Omega} 13\ dV = 26 \pi
 \end{aligned}
 $$
