@@ -119,6 +119,6 @@ $$
 
 $$
 \begin{aligned}
-\oiint_S \boldsymbol{F} \cdot d \boldsymbol{S} &= \iiint_{\Omega} 13\ dV = 26 \pi
+\oint_S \boldsymbol{F} \cdot d \boldsymbol{S} &= \iiint_{\Omega} 13\ dV = 26 \pi
 \end{aligned}
 $$
