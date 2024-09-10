@@ -7,7 +7,7 @@ tags:
 # 京都大学 理学研究科 地球惑星科学専攻 2023年度 基礎科目 問題1
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 ### \[1\]

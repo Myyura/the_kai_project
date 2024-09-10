@@ -7,7 +7,7 @@ tags:
 # 名古屋大学 工学研究科 機械航空系 2021年度 基礎部門 問題 1
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

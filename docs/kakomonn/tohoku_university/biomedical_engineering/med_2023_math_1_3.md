@@ -7,7 +7,7 @@ tags:
 # 東北大学 医工学研究科 医学系コース 2023年実施 数学基礎 問題1-3
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

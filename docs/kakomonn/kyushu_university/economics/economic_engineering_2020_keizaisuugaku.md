@@ -7,7 +7,7 @@ tags:
 # 九州大学 経済学府 経済工学専攻 2020年度 経済数学
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

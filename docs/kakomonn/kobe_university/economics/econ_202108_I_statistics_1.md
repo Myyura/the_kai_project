@@ -7,7 +7,7 @@ tags:
 # 神戸大学 経済学研究科 2021年8月実施 第I期 統計学 第1問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 以下の問いに答えなさい。

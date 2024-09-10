@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 2023年度 数学 第1問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

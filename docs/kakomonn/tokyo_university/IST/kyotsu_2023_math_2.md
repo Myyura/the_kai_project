@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学研究科 2023年度 数学 第2問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 $t$ を実数の独立変数、$x(t)$ と $y(t)$ を実数値関数として、以下の問いに答えよ。

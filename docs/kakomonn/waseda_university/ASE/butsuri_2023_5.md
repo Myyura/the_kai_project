@@ -7,7 +7,7 @@ tags:
 # 早稲田大学 先進理工学研究科 物理学及応用物理学専攻 2023年度 量子力学および熱・統計力学 問題5
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

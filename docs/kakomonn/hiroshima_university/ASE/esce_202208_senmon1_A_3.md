@@ -7,7 +7,7 @@ tags:
 # 広島大学 先進理工系科学研究科 電気システム制御プログラム 2022年8月実施 専門科目I A-3
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 ### 1.

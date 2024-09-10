@@ -7,7 +7,7 @@ tags:
 # 早稲田大学 基幹理工学研究科 数学応用数理専攻 2024年度 線形代数 \[2\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

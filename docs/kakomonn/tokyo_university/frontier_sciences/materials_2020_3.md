@@ -7,7 +7,7 @@ tags:
 # 東京大学 新領域創成科学研究科 物質系専攻 2020年度 第3問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

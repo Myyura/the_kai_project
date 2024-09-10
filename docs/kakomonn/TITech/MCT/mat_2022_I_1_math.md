@@ -7,7 +7,7 @@ tags:
 # 東京工業大学 物質理工学院 材料系 2022年度 第Iブロック \[I-1\] 数学
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

@@ -7,7 +7,7 @@ tags:
 # 神戸大学 経済学研究科 2021年8月実施 第I期 統計学 第2問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 確率変数 $X$ の密度関数を $f(x; \theta)$ とし、パラメータ $\theta$ は $0$ か $1$ のいずれかの値しかをとらないものとする。

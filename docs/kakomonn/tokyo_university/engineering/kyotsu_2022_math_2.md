@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 2022年度 数学2
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

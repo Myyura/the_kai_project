@@ -7,7 +7,7 @@ tags:
 # 東北大学 工学研究科 機械系 2022年実施 数学A 2
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

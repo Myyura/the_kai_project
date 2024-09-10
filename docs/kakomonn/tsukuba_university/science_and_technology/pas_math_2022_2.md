@@ -7,7 +7,7 @@ tags:
 # 筑波大学 理工情報生命学術院 数理物質科学研究群 数学学位プログラム 2022年度 \[2\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

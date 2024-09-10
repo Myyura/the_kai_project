@@ -7,7 +7,7 @@ tags:
 # 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム 2022年8月実施 数学 I
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

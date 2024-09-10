@@ -7,7 +7,7 @@ tags:
 # 名古屋大学 理学研究科 物理学教室 2020年度 物理学 \[I\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

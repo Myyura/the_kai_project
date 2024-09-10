@@ -7,7 +7,7 @@ tags:
 # 東京工業大学 工学院 経営工学系 2020年度 午前 数理B
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

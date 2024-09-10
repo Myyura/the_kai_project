@@ -7,7 +7,7 @@ tags:
 # 名古屋大学 情報学研究科 知能システム学専攻 2019年8月実施 解析・線形代数
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

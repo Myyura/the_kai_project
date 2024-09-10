@@ -7,7 +7,7 @@ tags:
 # 九州大学 工学府 機械系専攻 2022年度 数学 問1
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 次の行列 $A \in \mathbb{R}^{3 \times 3}$ について，以下の問いに答えよ．ただし $x$ は実数とする．

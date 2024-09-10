@@ -7,7 +7,7 @@ tags:
 # 名古屋大学 環境学研究科 地球環境科学専攻 地球惑星科学系 2023年度 H (数学)
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

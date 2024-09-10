@@ -7,7 +7,7 @@ tags:
 # 東北大学 工学研究科 電気・情報系 2023年8月実施 基礎科目 問題4 情報基礎2
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

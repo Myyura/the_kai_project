@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学研究科 2023年度 数学 第1問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 以下の問いに答えよ。

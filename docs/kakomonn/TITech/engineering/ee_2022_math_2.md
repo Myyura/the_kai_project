@@ -7,7 +7,7 @@ tags:
 # 東京工業大学 工学院 電気電子系 2022年度 数学 2
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

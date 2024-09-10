@@ -7,7 +7,7 @@ tags:
 # 早稲田大学 基幹理工学研究科 電子物理システム学専攻 2024年度 力学 (その1) \[1\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

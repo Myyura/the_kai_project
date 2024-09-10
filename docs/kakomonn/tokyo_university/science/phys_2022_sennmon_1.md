@@ -7,7 +7,7 @@ tags:
 # 東京大学 理学系研究科 物理学専攻 2022年度 専門科目 第1問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 ### 【問 1】

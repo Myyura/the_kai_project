@@ -7,7 +7,7 @@ tags:
 # 大阪大学 工学研究科 環境・エネルギー工学科 2020年度 数学 (3)
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

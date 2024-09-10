@@ -7,7 +7,7 @@ tags:
 # 東北大学 情報科学研究科 社会科学群 2022年8月実施 問題 E-3
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 ### 日本語版

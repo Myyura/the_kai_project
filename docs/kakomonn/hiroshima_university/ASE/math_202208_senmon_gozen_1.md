@@ -7,7 +7,7 @@ tags:
 # 広島大学 先進理工系科学研究科 数学プログラム 2022年8月実施 専門科目 午前 \[1\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 次の (A), (B) のすべての問に答えよ.

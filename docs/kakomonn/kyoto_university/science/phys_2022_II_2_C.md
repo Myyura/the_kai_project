@@ -7,7 +7,7 @@ tags:
 # 京都大学 理学研究科 物理学・宇宙物理学専攻 2022年度 II-2C
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

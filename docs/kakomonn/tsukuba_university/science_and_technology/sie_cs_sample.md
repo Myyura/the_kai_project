@@ -7,7 +7,7 @@ tags:
 # 筑波大学 理工情報生命学術院 システム情報工学研究群 情報理工学位プログラム 問題例
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

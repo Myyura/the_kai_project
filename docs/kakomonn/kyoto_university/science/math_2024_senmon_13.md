@@ -7,7 +7,7 @@ tags:
 # 京都大学 理学研究科 数学・数理解析専攻 2024年度 専門科目 \[13\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 以下の問に答えよ．

@@ -7,7 +7,7 @@ tags:
 # 九州大学 工学府 量子物理工学専攻 2022年度 数学 問題1
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

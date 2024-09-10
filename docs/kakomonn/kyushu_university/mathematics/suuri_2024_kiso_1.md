@@ -7,7 +7,7 @@ tags:
 # 九州大学 数理学府 数理学コース 2024年度 基礎科目 \[1\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 $a \in \mathbb{R}$ とし $A = \begin{pmatrix} a & a & 1 \\ a & 1 & a \\ 1 & a & a  \end{pmatrix}$ とする．このとき，以下の問に答えよ．

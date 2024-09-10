@@ -7,7 +7,7 @@ tags:
 # 東北大学 工学研究科 土木工学専攻 2023年2月実施 基礎科目 \[1\] 微分積分
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

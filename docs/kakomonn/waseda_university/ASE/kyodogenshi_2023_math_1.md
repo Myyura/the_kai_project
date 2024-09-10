@@ -7,7 +7,7 @@ tags:
 # 早稲田大学 先進理工学研究科 共同原子力専攻 2023年度 数学一般(その1)
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

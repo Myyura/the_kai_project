@@ -7,7 +7,7 @@ tags:
 # 大阪大学 工学研究科 電気電子情報工学専攻 2020年度 基礎科目 【数学3】
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

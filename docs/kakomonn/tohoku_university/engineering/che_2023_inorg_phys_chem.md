@@ -7,7 +7,7 @@ tags:
 # 東北大学 工学研究科 化学・バイオ系 2023年度 基礎科目 無機・物理化学 
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

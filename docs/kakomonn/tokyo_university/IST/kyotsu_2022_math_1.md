@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学研究科 2022年度 数学 第1問
 
 ## **Author**
-Miyake, [etsurin](https://zhuanlan.zhihu.com/p/561992447)
+[Miyake](https://miyake.github.io/exams/index.html), [etsurin](https://zhuanlan.zhihu.com/p/561992447)
 
 ## **Description**
 以下の $x,y,z\in \mathbb{R}$ 関する複数の条件を考える．

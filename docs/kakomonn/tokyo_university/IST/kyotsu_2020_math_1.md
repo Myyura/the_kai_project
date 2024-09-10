@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学研究科 2020年度 数学 第1問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 正方行列$A,B$を

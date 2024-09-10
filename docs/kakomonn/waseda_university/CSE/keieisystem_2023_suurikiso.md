@@ -7,7 +7,7 @@ tags:
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2023年度 数理基礎
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

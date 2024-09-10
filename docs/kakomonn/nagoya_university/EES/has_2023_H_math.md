@@ -7,7 +7,7 @@ tags:
 # 名古屋大学 環境学研究科 地球環境科学専攻 大気水圏科学系 2023年度 数学
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 問題１ 次の問１～３に答えなさい。 

@@ -7,7 +7,7 @@ tags:
 # 大阪大学 基礎工学研究科 生体システム工学 2022年度 II-1
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

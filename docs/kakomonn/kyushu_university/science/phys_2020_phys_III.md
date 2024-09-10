@@ -7,7 +7,7 @@ tags:
 # 九州大学 理学府 物理学専攻 2020年度 物理学 \[III\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 物理工学専攻 2020年度 物理学 第3問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 固体表面における原子の吸着現象の簡単なモデルとして、原子が吸着できる場所（吸着サイト）が $N_a$ 個並んだ吸着格子と単原子理想気体が接した系を考える（図 1 を参照）。

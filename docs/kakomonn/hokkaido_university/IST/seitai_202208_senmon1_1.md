@@ -7,7 +7,7 @@ tags:
 # 北海道大学 情報科学院 情報科学専攻 生体情報工学コース 2022年8月実施 専門科目1 問1 (線形代数・ベクトル解析)
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

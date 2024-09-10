@@ -7,7 +7,7 @@ tags:
 # 大阪大学 情報科学研究科 情報数理学専攻 2020年度 情報数理学 数理基礎
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

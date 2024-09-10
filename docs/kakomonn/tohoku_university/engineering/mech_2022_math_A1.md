@@ -7,7 +7,7 @@ tags:
 # 東北大学 工学研究科 機械系 2022年実施 数学A 1
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 以下の問いに答えよ。

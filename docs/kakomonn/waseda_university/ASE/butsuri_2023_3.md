@@ -7,7 +7,7 @@ tags:
 # 早稲田大学 先進理工学研究科 物理学及応用物理学専攻 2023年度 力学および電磁力学 問題3
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

@@ -7,7 +7,7 @@ tags:
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2019年度 数理科学 I \[5\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

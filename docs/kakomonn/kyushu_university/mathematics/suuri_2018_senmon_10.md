@@ -7,7 +7,7 @@ tags:
 # 九州大学 数理学府 数理学コース 2018年度 専門科目 \[10\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

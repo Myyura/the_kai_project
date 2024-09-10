@@ -7,7 +7,7 @@ tags:
 # 東京大学 理学系研究科 天文学専攻 2023年度 天文学
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 ### 問 1.
@@ -25,11 +25,15 @@ $$
 
 (b) $p\left(t^{\prime}\right)$ は, ある光子イベントと次の光子イベントの検出時刻の間隔 (待ち時間) が $t^{\prime}$ 秒より長くなる確率とも解釈できる. 光子イベントの待ち時間を確率変数 $t$ とし, その確率密度関数を $g(t)$ とすると,
 
-$$ p(t')=\int_{t'}^\infty g(t)dt \tag{2} $$
+$$
+p(t')=\int_{t'}^\infty g(t)dt \tag{2}
+$$
 
 の関係が成り立つ. このことから,
 
-$$ g(t)=ne^{-nt} \tag{3} $$
+$$
+g(t)=ne^{-nt} \tag{3}
+$$
 
 となることを示せ.
 

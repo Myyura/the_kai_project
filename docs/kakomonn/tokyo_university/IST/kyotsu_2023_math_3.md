@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学研究科 2023年度 数学 第3問
 
 ## **Author**
-hari64boli64
+[hari64boli64](https://github.com/hari64boli64/GraduateSchoolEntranceExamination)
 
 ## **Description**
 丸石 $○$ と四角い石 $□$ をランダムに左から右に一直線上に一つずつ並べる。

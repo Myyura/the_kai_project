@@ -7,7 +7,7 @@ tags:
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2019年度 専門科目 第2問
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 

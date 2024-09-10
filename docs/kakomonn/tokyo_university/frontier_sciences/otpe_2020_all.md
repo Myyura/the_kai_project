@@ -7,7 +7,7 @@ tags:
 # 東京大学 新領域創成科学研究科 海洋技術環境学専攻 2020年度
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 ### 第1問
@@ -18,7 +18,7 @@ I = \int_0^{\sqrt{3}} \frac{dx}{\sqrt{x^2 + 1}}
 $$
 
 ### 第2問
-整数$m$、任意の実数$\theta$について、変数$x$、$y$を以下のように定義する。
+整数 $m$、任意の実数 $\theta$ について、変数 $x$、$y$ を以下のように定義する。
 
 $$
 \left\{
@@ -29,13 +29,13 @@ y(\theta) &= \sum_{m=0}^{\infty} \frac{\theta^{2m+1}}{(2m+1)!}
 \right.
 $$
 
-ただし、$m! \equiv m \times (m-1) \times (m-2) \times \cdots \times 2 \times 1$、$0! = 1$、$0^0 = 1$である。
+ただし、$m! \equiv m \times (m-1) \times (m-2) \times \cdots \times 2 \times 1$、$0! = 1$、$0^0 = 1$ である。
 
 この時、以下の問いを答えよ。
 
-1\) $\frac{dx}{dy}$を$x$、$y$で表せ。
+1\) $\frac{dx}{dy}$ を $x$、$y$ で表せ。
 
-2\) $x$、$y$の満たす関係を求めよ。
+2\) $x$、$y$ の満たす関係を求めよ。
 
 ### 第3問
 
@@ -49,12 +49,13 @@ $$
 
 について以下の問いに答えよ。
 
-1\) $A^{-1}$を求めよ。
+1\) $A^{-1}$ を求めよ。
 
-2\) $|A^{-1}|= \frac{1}{|A|}$となることを示せ。
+2\) $|A^{-1}|= \frac{1}{|A|}$ となることを示せ。
 
 ### 第4問
-座標系$\text{O}xy$上の三角形$ABC$が、座標系$\text{O}x'y'$上の三角形$A'B'C'$に変換された。この時、座標系$\text{O}xy$上の任意の点$\vec{x}$から座標系$\text{O}x'y'$上の点$\vec{x'}$への変換を求めよ。
+座標系 $\text{O}xy$ 上の三角形 $ABC$ が、座標系 $\text{O}x'y'$ 上の三角形 $A'B'C'$ に変換された。
+この時、座標系 $\text{O}xy$ 上の任意の点 $\vec{x}$ から座標系 $\text{O}x'y'$ 上の点 $\vec{x'}$ への変換を求めよ。
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/otpe_2020_all_p4_1.png" width="550" height="225" alt=""/>
@@ -66,11 +67,11 @@ $A=\begin{pmatrix}
 a & 1-a \\
 1-a & a
 \end{pmatrix}$
-について、以下の問いに答えよ。ただし$a$は実数で、$0<a<1$とする。
+について、以下の問いに答えよ。ただし $a$ は実数で、$0<a<1$ とする。
 
 1\) 固有値、固有ベクトルを求めよ。
 
-2\) $A^n$を求めよ。ただし、$n$は自然数である。
+2\) $A^n$ を求めよ。ただし、$n$ は自然数である。
 
 3\) $\lim_{n \rightarrow \infty} A^n$ を求めよ。
 
