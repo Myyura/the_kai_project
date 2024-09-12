@@ -48,6 +48,8 @@ tags:
             - [数学 (ALL)](engineering/civil_2022_math_all.md)
 - システム情報科学府:
     - 共通・数学:
+        - 2024年度:
+            - [線形代数](ISEE/kyotsu_2024_linear_algebra.md)
         - 2023年度:
             - [線形代数](ISEE/kyotsu_2023_linear_algebra.md)
             - [解析学・微積分](ISEE/kyotsu_2023_analysis_calculus.md)
