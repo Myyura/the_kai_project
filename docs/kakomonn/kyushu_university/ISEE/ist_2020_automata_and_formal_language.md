@@ -101,7 +101,7 @@ Y(u) \text{ mod } 6 \equiv 0, Y(u) \neq 0
 $$
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_automata_and_formal_language_p2.png" width="680" height="800" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_automata_and_formal_language_p2.png" width="600" height="600" alt=""/>
 </figure>
 
 ### 【問２】
