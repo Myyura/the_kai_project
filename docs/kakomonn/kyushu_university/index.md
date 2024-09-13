@@ -50,6 +50,7 @@ tags:
     - 共通・数学:
         - 2024年度:
             - [線形代数](ISEE/kyotsu_2024_linear_algebra.md)
+            - [解析学・微積分](ISEE/kyotsu_2024_analysis_calculus.md)
         - 2023年度:
             - [線形代数](ISEE/kyotsu_2023_linear_algebra.md)
             - [解析学・微積分](ISEE/kyotsu_2023_analysis_calculus.md)
