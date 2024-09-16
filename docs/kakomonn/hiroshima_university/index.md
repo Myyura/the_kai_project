@@ -36,6 +36,7 @@ tags:
         - 2020年度:
             - [8月 専門科目I 問題1](ASE/is_201908_senmon_I_1.md)
             - [8月 専門科目I 問題2](ASE/is_201908_senmon_I_2.md)
+            - [8月 専門科目I 問題4](ASE/is_201908_senmon_I_4.md)
         - 2018年度:
             - [1月 専門科目I 問題1](ASE/is_201801_senmon_I_1.md)
             - [1月 専門科目I 問題5](ASE/is_201801_senmon_I_5.md)
