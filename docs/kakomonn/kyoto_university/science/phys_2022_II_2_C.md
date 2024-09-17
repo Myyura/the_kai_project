@@ -10,6 +10,38 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+図 1 のように，質量 $m$ の質点が長さ $l$ の太さと質量の無視できる剛体棒でつるされた振り子 $1$ と振り子 $2$ があり，鉛直下向き方向をむいた一様な重力（重力加速度 $g$）の下で運動する．
+二つの振り子の支点はある水平な軸上にあり，両振り子はその軸に垂直な面内で運動する．
+鉛直下向き方向と振り子の棒のなす角度を図に示すように $\theta_1$, $\theta_2$ とする．
+さらに，二つの振り子の支点同士はねじれ変形が可能な棒でつながれており，$\theta_1$ と $\theta_2$ の差に応じたエネルギー $k(\theta_1 - \theta_2)^2/2$（$k$ は正の定数）が生じる．
+また，以下では微小振動 $|\theta_i| \ll 1 \ (i = 1,2)$ の場合を考え，摩擦や空気抵抗などは無視できるとする．
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/science/phys_2022_II_2_C_p1.png" width="600" height="400" alt=""/>
+</figure>
+
+(1) この系の運動エネルギー $T$，ポテンシャルエネルギー $U$，ラグランジアン $L = T − U$ を，$\theta_i$ およびそれらの時間微分 $\dot{\theta}_i$ の $2$ 次までで求めよ．
+なお，位置エネルギーに関しては，$\theta_1 = \theta_2 = 0$ のときを基準とせよ．
+
+(2) $\theta_1$ および $\theta_2$ の微小振動の微分方程式が
+
+$$
+\begin{pmatrix} \ddot{\theta}_1 \\ \ddot{\theta}_2 \end{pmatrix}
+=
+\begin{pmatrix} A & B \\ C & D \end{pmatrix}
+\begin{pmatrix} \theta_1 \\ \theta_2 \end{pmatrix}
+$$
+
+と書けることを示し，定数 $A$，$B$，$C$，$D$ を $g$, $k$, $l$, $m$ を用いて表せ．
+
+(3) $\theta_1(t) = Q_1 \sin(\omega t + \delta_1)$, $\theta_2 (t) = Q_2 \sin(\omega t + \delta_2)$（$Q_i$ および $\delta_i \ (i = 1,2)$ はいずれも定数）の形の解を仮定することで，この系の二つの固有角振動数 $\omega_+$ と $\omega_-$（ただし $\omega_+ > \omega_- > 0$ とする）を求め，$g$，$k$，$l$，$m$ を用いて表せ．
+
+(4) それぞれの固有角振動数の解について，振幅 $Q_i$ と位相 $\delta_i$ の満たすべき条件を求めよ．
+さらに，$\theta_1 (t)$ と $\theta_2 (t)$ の一般解を，$\omega_+$ と $\omega_-$ および適切に導入した任意定数を用いて表せ．
+
+(5) 振り子 $1$ と $2$ が共に $\theta_1 = \theta_2 = 0$ で静止している状態から，時刻 $t = 0$ で振り子 $1$ に角速度 $\Omega_0 \ (0 < \Omega_0 \ll \omega_-)$ を与えた．
+この場合の $t > 0$ での $\theta_1$ と $\theta_2$ の時間依存性を，$\omega_+$, $\omega_-$, $\Omega_0$ を用いて表せ．
+さらに，$\omega_+$ と $\omega_-$ の大きさが近い場合の $\theta_1$ と $\theta_2$ の時間依存性の特徴を簡潔に述べよ．
 
 ## **Kai**
 ### (1)
