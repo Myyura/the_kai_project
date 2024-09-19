@@ -51,6 +51,7 @@ tags:
         - 2024年度:
             - [線形代数](ISEE/kyotsu_2024_linear_algebra.md)
             - [解析学・微積分](ISEE/kyotsu_2024_analysis_calculus.md)
+            - [確率・統計](ISEE/kyotsu_2024_probability_and_statistics.md)
         - 2023年度:
             - [線形代数](ISEE/kyotsu_2023_linear_algebra.md)
             - [解析学・微積分](ISEE/kyotsu_2023_analysis_calculus.md)
