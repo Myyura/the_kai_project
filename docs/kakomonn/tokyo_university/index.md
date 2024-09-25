@@ -47,6 +47,9 @@ tags:
     - 物理工学専攻:
         - 2020年度:
             - [物理学 第3問](engineering/ap_2020_phys_3.md)
+    - 電気系工学専攻:
+        - 2022年度:
+            - [問題3 情報工学I](engineering/eeis_2022_3.md)
     - 技術経営戦略学専攻:
         - 2022年度:
             - [セッション 1](engineering/tmi_2022_session_1.md)
