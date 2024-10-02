@@ -52,6 +52,7 @@ tags:
             - [問題3 情報工学I](engineering/eeis_2022_3.md)
         - 2020年度:
             - [問題3 情報工学I](engineering/eeis_2020_3.md)
+            - [問題4 情報工学II](engineering/eeis_2020_4.md)
     - 技術経営戦略学専攻:
         - 2022年度:
             - [セッション 1](engineering/tmi_2022_session_1.md)
