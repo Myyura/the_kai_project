@@ -6,9 +6,9 @@ title: 友情链接
 # 部分题解作者的链接
 
 - [永久花, Myyura's Blog](https://myyura.github.io/)
-  - 两年不更新了！
+    - 两年不更新了！
 - [Miyake, 大学院入試（院試）過去問題の解答](https://miyake.github.io/exams/index.html)
-  - 主要为各个学校数学与物理问题的解答
+    - 主要为各个学校数学与物理问题的解答
 - [Zephyr's Notes on ISCS & CBMS, UTokyo](https://inshi-notes.zephyr-zdz.space/)
 - [hari64boli64, 東京大学大学院情報理工学系研究科入試問題過去問解答など](https://github.com/hari64boli64/GraduateSchoolEntranceExamination)
 - [diohabara, open_inshi](https://github.com/diohabara/open_inshi)
