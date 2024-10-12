@@ -142,10 +142,10 @@ $$
 $k(T_0 + T_1) \le k(T_0 + T_1) + T_0$ のとき、回路に流れる電流は (1) と同様にして
 
 $$
-\begin{aligned}
+\begin{align}
 E &= L\frac{di(t)}{dt} ,i(k(T_0 + T_1)) = 0 \\
 \therefore i(t) &= \frac{E}{L}(t - k(T_0 + T_1)) \tag{1}
-\end{aligned}
+\end{align}
 $$
 
 よって、$t = k(T_0 + T_1) + T_0$ のとき $i(t) = \frac{E}{L}T_0$ である。
