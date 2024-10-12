@@ -52,6 +52,7 @@ tags:
             - [問題3 情報工学I](engineering/eeis_2022_3.md)
             - [問題4 情報工学II](engineering/eeis_2022_4.md)
         - 2021年度:
+            - [問題3 情報工学I](engineering/eeis_2021_3.md)
             - [問題4 情報工学II](engineering/eeis_2021_4.md)
         - 2020年度:
             - [問題3 情報工学I](engineering/eeis_2020_3.md)
