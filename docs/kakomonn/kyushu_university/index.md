@@ -95,11 +95,15 @@ tags:
             - [情報理論](ISEE/ist_2019_information_theory.md)
             - [アルゴリズム・プログラミング](ISEE/ist_2019_algorithm_programming.md)
             - [計算機アーキテクチャ](ISEE/ist_2019_computer_architecture.md)
+            - [電気回路](ISEE/ist_2019_circuit_theory.md)
         - 2018年度:
             - [オートマトンと言語](ISEE/ist_2018_automata_and_formal_language.md)
             - [計算機アーキテクチャ](ISEE/ist_2018_computer_architecture.md)
         - 2017年度:
             - [オートマトンと言語](ISEE/ist_2017_automata_and_formal_language.md)
+    - 電気電子工学専攻
+        - 2019年度:
+            - [電気回路](ISEE/ist_2019_circuit_theory.md)
 - 経済学府:
     - 経済工学専攻:
         - 2020年度:
