@@ -206,17 +206,17 @@ $$
 $I_1$ に関して
 
 $$
-\begin{aligned}
+\begin{align}
 E = R(I_1 - I_2) \tag{①}
-\end{aligned}
+\end{align}
 $$
 
 $I_2$ に関して
 
 $$
-\begin{aligned}
+\begin{align}
 0 = R(I_2 - I_1) + j\omega L_1I_2 + j\omega MI_3 \tag{②}
-\end{aligned}
+\end{align}
 $$
 
 $I_3$ に関して
