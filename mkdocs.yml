@@ -229,6 +229,8 @@ nav:
             - 第3問: kakomonn/tokyo_university/IST/suuri_2017_3.md
             - 第5問: kakomonn/tokyo_university/IST/suuri_2017_5.md
         - コンピュータ科学:
+          - 2017年度:
+            - 問題1: kakomonn/tokyo_university/IST/cs_201702_1.md
           - 2016年度:
             - 問題1: kakomonn/tokyo_university/IST/cs_201602_1.md
             - 問題2: kakomonn/tokyo_university/IST/cs_201602_2.md
