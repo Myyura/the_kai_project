@@ -30,6 +30,7 @@ tags:
         - 2019年度:
             - [8月 問題6 量子力学](informatics/mi_201808_6.md)
         - 2018年度:
+            - [8月 問題4 グラフ理論](informatics/mi_201708_4_graph_theory.md)
             - [8月 問題6 量子力学](informatics/mi_201708_6.md)
     - 複雑系科学専攻:
         - 2022年度:
