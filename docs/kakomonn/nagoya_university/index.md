@@ -21,16 +21,16 @@ tags:
 - 情報学研究科:
     - 数理情報学専攻:
         - 2024年度:
-            - [8月 1.線形代数](informatics/mi_202308_1.md)
-            - [8月 5.量子力学](informatics/mi_202308_5.md)
+            - [8月 問題1 線形代数](informatics/mi_202308_1.md)
+            - [8月 問題5 量子力学](informatics/mi_202308_5.md)
         - 2022年度:
-            - [8月 6.量子力学](informatics/mi_202108_6.md)
+            - [8月 問題6 量子力学](informatics/mi_202108_6.md)
         - 2020年度:
-            - [8月 6.量子力学](informatics/mi_201908_6.md)
+            - [8月 問題6 量子力学](informatics/mi_201908_6.md)
         - 2019年度:
-            - [8月 6.量子力学](informatics/mi_201808_6.md)
+            - [8月 問題6 量子力学](informatics/mi_201808_6.md)
         - 2018年度:
-            - [8月 6.量子力学](informatics/mi_201708_6.md)
+            - [8月 問題6 量子力学](informatics/mi_201708_6.md)
     - 複雑系科学専攻:
         - 2022年度:
             - [8月 数1](informatics/complex_202108_1.md)
