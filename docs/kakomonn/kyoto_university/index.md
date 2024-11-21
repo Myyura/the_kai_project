@@ -100,6 +100,7 @@ tags:
             - [情報学基礎 F1-1](informatics/ist_201908_kiso_f1_1.md)
             - [情報学基礎 F2-1](informatics/ist_201908_kiso_f2_1.md)
             - [専門科目 S-2 統計学](informatics/ist_201908_senmon_s_2.md)
+            - [専門科目 S-4 情報理論](informatics/ist_201908_senmon_s_4.md)
         - 2018年度:
             - [2月 情報学基礎 F-1](informatics/ist_201802_kiso_f1.md)
     - 先端数理科学専攻:
