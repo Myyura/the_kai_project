@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2019年8月実施 専門科目 S-4
 
 ## **Author**
-realball
+[realball](https://github.com/realballu3u)
 
 ## **Description**
 設問 以下の状態遷移図で示される単純マルコフ情報源から出力される系列 $X_1,X_2,\dots,X_t,\dots$ がある。ここで $X_t \in \{A,B\}$ である。
