@@ -1,10 +1,10 @@
 ---
 comments: false
-title: 東京大学 情報理工学系研究科 コンピュータ科学専攻 2017年8月実施 問題1
+title: 東京大学 情報理工学系研究科 コンピュータ科学専攻 2016年8月実施 問題1
 tags:
   - Tokyo-University
 ---
-# 東京大学 情報理工学系研究科 コンピュータ科学専攻 2017年8月実施 問題1
+# 東京大学 情報理工学系研究科 コンピュータ科学専攻 2016年8月実施 問題1
 
 ## **Author**
 [kainoj](https://github.com/kainoj/utokyo-cs)
