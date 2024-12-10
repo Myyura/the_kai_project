@@ -101,6 +101,7 @@ tags:
         - 2018年度:
             - [オートマトンと言語](ISEE/ist_2018_automata_and_formal_language.md)
             - [計算機アーキテクチャ](ISEE/ist_2018_computer_architecture.md)
+            - [電気回路](ISEE/ist_2018_circuit_theory.md)
         - 2017年度:
             - [オートマトンと言語](ISEE/ist_2017_automata_and_formal_language.md)
     - 電気電子工学専攻
@@ -110,6 +111,8 @@ tags:
             - [電気回路](ISEE/ist_2020_circuit_theory.md)
         - 2019年度:
             - [電気回路](ISEE/ist_2019_circuit_theory.md)
+        - 2018年度:
+            - [電気回路](ISEE/ist_2018_circuit_theory.md)
 - 経済学府:
     - 経済工学専攻:
         - 2020年度:
