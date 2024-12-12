@@ -25,7 +25,7 @@ Zero
 ### 【問 2】
 図 $2$ の回路について，以下の問いに答えよ．
 
-(1) $\begin{pmatrix*}V_1 \\I_1\end{pmatrix*} = \begin{pmatrix}a & b \\c & d\end{pmatrix}\begin{pmatrix*}V_2 \\I_2\end{pmatrix*}$ のとき，$Z$ と $Y$ を用いて行列 $\begin{pmatrix}a & b \\c & d\end{pmatrix}$ を表せ．
+(1) $\begin{pmatrix}V_1 \\I_1\end{pmatrix} = \begin{pmatrix}a & b \\c & d\end{pmatrix}\begin{pmatrix}V_2 \\I_2\end{pmatrix}$ のとき，$Z$ と $Y$ を用いて行列 $\begin{pmatrix}a & b \\c & d\end{pmatrix}$ を表せ．
 
 (2) 端子対 $2-2’$ にインピーダンス $Z_K$ をつないだところ，端子対 $1-1’$ から右側を見たインピーダンスも $Z_K$ となった．$Z$ と $Y$ を用いて $Z_K$ を表せ．
 
@@ -169,7 +169,7 @@ $$
 
 ### 【問 2】
 #### (1)
-$\begin{pmatrix*}V_1 \\I_1\end{pmatrix*} = \begin{pmatrix}a & b \\c & d\end{pmatrix}\begin{pmatrix*}V_2 \\I_2\end{pmatrix*}$ のとき，
+$\begin{pmatrix}V_1 \\I_1\end{pmatrix} = \begin{pmatrix}a & b \\c & d\end{pmatrix}\begin{pmatrix}V_2 \\I_2\end{pmatrix}$ のとき，
 
 $$
 V_1 = aV_2 + bI_2
@@ -340,9 +340,10 @@ $$
 
 定常状態に求めるから、定常解 $q_s(t)$ を求める。
 
+$q_s(t) = A\cos2t + B\sin2t$ とおくと
+
 $$
 \begin{aligned}
-q_s(t) &= A\cos2t + B\sin2t \text{    とおくと} \\
 \frac{dq_s(t)}{dt} &= 2B\cos2t - 2A\sin2t \\
 \frac{d^2q_s(t)}{dt^2} &= -4A\cos2t - 4B\sin2t
 \end{aligned}
