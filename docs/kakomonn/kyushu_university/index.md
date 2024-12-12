@@ -104,6 +104,7 @@ tags:
             - [電気回路](ISEE/ist_2018_circuit_theory.md)
         - 2017年度:
             - [オートマトンと言語](ISEE/ist_2017_automata_and_formal_language.md)
+            - [電気回路](ISEE/ist_2017_circuit_theory.md)
     - 電気電子工学専攻
         - 2021年度:
             - [電気回路](ISEE/ist_2021_circuit_theory.md)
