@@ -82,6 +82,7 @@ tags:
         - 2022年度:
             - [情報理論](ISEE/ist_2022_information_theory.md)
             - [計算機アーキテクチャ](ISEE/ist_2022_computer_architecture.md)
+            - [電気回路](ISEE/ist_2022_circuit_theory.md)
         - 2021年度:
             - [情報理論](ISEE/ist_2021_information_theory.md)
             - [アルゴリズム・プログラミング](ISEE/ist_2021_algorithm_programming.md)
@@ -106,6 +107,8 @@ tags:
             - [オートマトンと言語](ISEE/ist_2017_automata_and_formal_language.md)
             - [電気回路](ISEE/ist_2017_circuit_theory.md)
     - 電気電子工学専攻
+        - 2022年度:
+            - [電気回路](ISEE/ist_2022_circuit_theory.md)
         - 2021年度:
             - [電気回路](ISEE/ist_2021_circuit_theory.md)
         - 2020年度:
