@@ -190,8 +190,8 @@ $$
 $$
 \left \{
 \begin{align}
-&\frac{5}{2} = \frac{G}{G^2 + B^2} \tag{③} \\
-&1 = \frac{B}{G^2 + B^2} \tag{④}
+\frac{5}{2} &= \frac{G}{G^2 + B^2} &\tag{③} \\
+1 &= \frac{B}{G^2 + B^2} &\tag{④}
 \end{align}
 \right.
 $$
