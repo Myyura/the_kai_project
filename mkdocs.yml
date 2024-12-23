@@ -229,9 +229,21 @@ nav:
             - 第3問: kakomonn/tokyo_university/IST/suuri_2017_3.md
             - 第5問: kakomonn/tokyo_university/IST/suuri_2017_5.md
         - コンピュータ科学:
+          - 2019年度:
+            - 8月 専門科目I 問題2: kakomonn/tokyo_university/IST/cs_201808_senmon_I_2.md
+            - 8月 専門科目I 問題3: kakomonn/tokyo_university/IST/cs_201808_senmon_I_3.md
+            - 2月 問題2: kakomonn/tokyo_university/IST/cs_201902_2.md
+            - 2月 問題3: kakomonn/tokyo_university/IST/cs_201902_3.md
+            - 2月 問題4: kakomonn/tokyo_university/IST/cs_201902_4.md
           - 2018年度:
-            - 8月 問題1: kakomonn/tokyo_university/IST/cs_201708_senmon_1.md
+            - 8月 専門科目I 問題1: kakomonn/tokyo_university/IST/cs_201708_senmon_I_1.md
+            - 8月 専門科目II 問題3: kakomonn/tokyo_university/IST/cs_201708_senmon_II_3.md
+            - 2月 問題1: kakomonn/tokyo_university/IST/cs_201802_1.md
+            - 2月 問題2: kakomonn/tokyo_university/IST/cs_201802_2.md
+            - 2月 問題3: kakomonn/tokyo_university/IST/cs_201802_3.md
+            - 2月 問題4: kakomonn/tokyo_university/IST/cs_201802_4.md
           - 2017年度:
+            - 8月 専門科目I 問題1: kakomonn/tokyo_university/IST/cs_201608_senmon_I_1.md
             - 2月 問題1: kakomonn/tokyo_university/IST/cs_201702_1.md
             - 2月 問題2: kakomonn/tokyo_university/IST/cs_201702_2.md
             - 2月 問題3: kakomonn/tokyo_university/IST/cs_201702_3.md
@@ -428,7 +440,8 @@ nav:
             - 情報学基礎 F2-1: kakomonn/kyoto_university/informatics/ist_202208_kiso_f2_1.md
             - 情報学基礎 F2-2: kakomonn/kyoto_university/informatics/ist_202208_kiso_f2_2.md
             - 専門科目 S-2: kakomonn/kyoto_university/informatics/ist_202208_senmon_s_2.md
-            - 専門科目 S-4: kakomonn/kyoto_university/informatics/ist_202208_senmon_s_4.md          
+            - 専門科目 S-4: kakomonn/kyoto_university/informatics/ist_202208_senmon_s_4.md
+            - 専門科目 S-5: kakomonn/kyoto_university/informatics/ist_202208_senmon_s_5.md
           - 2022年度:
             - 情報学基礎 F1-1: kakomonn/kyoto_university/informatics/ist_202108_kiso_f1_1.md
             - 情報学基礎 F1-2: kakomonn/kyoto_university/informatics/ist_202108_kiso_f1_2.md
@@ -438,10 +451,14 @@ nav:
             - 専門科目 S-4: kakomonn/kyoto_university/informatics/ist_202108_senmon_s_4.md
           - 2021年度:
             - 情報学基礎 F1-1: kakomonn/kyoto_university/informatics/ist_202008_kiso_f1_1.md
+            - 専門科目 S-5: kakomonn/kyoto_university/informatics/ist_202008_S_5.md
           - 2020年度:
             - 情報学基礎 F1-1: kakomonn/kyoto_university/informatics/ist_201908_kiso_f1_1.md
             - 情報学基礎 F2-1: kakomonn/kyoto_university/informatics/ist_201908_kiso_f2_1.md
             - 専門科目 S-2: kakomonn/kyoto_university/informatics/ist_201908_senmon_s_2.md
+            - 専門科目 S-4: kakomonn/kyoto_university/informatics/ist_201908_senmon_s_4.md
+          - 2019年度:
+            - 専門科目 T-2: kakomonn/kyoto_university/informatics/ist_201808_T_2.md
           - 2018年度:
             - 2月 情報学基礎 F-1: kakomonn/kyoto_university/informatics/ist_201802_kiso_f1.md
         - 先端数理科学専攻:
@@ -652,7 +669,8 @@ nav:
           - 2019年度:
             - 8月 問題6 量子力学: kakomonn/nagoya_university/informatics/mi_201808_6.md
           - 2018年度:
-            - 8月 問題4 グラフ理論: akomonn/nagoya_university/informatics/mi_201708_4_graph_theory.md
+            - 8月 問題3 離散数学: kakomonn/nagoya_university/informatics/mi_201708_3_discrete_mathematics.md
+            - 8月 問題4 グラフ理論: kakomonn/nagoya_university/informatics/mi_201708_4_graph_theory.md
             - 8月 問題6 量子力学: kakomonn/nagoya_university/informatics/mi_201708_6.md
         - 複雑系科学専攻:
           - 2022年度:
@@ -908,10 +926,12 @@ nav:
           - 2022年度:
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2022_information_theory.md
             - 計算機アーキテクチャ: kakomonn/kyushu_university/ISEE/ist_2022_computer_architecture.md
+            - 電気回路: kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory.md
           - 2021年度:
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2021_information_theory.md
             - アルゴリズム・プログラミング: kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md
             - 計算機アーキテクチャ: kakomonn/kyushu_university/ISEE/ist_2021_computer_architecture.md
+            - 電気回路: kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory.md
           - 2020年度:
             - オートマトンと言語: kakomonn/kyushu_university/ISEE/ist_2020_automata_and_formal_language.md
             - 情報理論: kakomonn/kyushu_university/ISEE/ist_2020_information_theory.md
@@ -926,13 +946,24 @@ nav:
           - 2018年度:
             - オートマトンと言語: kakomonn/kyushu_university/ISEE/ist_2018_automata_and_formal_language.md
             - 計算機アーキテクチャ: kakomonn/kyushu_university/ISEE/ist_2018_computer_architecture.md
+            - 電気回路: kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory.md
           - 2017年度:
             - オートマトンと言語: kakomonn/kyushu_university/ISEE/ist_2017_automata_and_formal_language.md
+            - 計算機アーキテクチャ: kakomonn/kyushu_university/ISEE/ist_2017_computer_architecture.md
+            - 電気回路: kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory.md
         - 電気電子工学専攻:
+          - 2022年度:
+            - 電気回路: kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory.md
+          - 2021年度:
+            - 電気回路: kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory.md
           - 2020年度:
             - 電気回路: kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory.md
           - 2019年度:
             - 電気回路: kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory.md
+          - 2018年度:
+            - 電気回路: kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory.md
+          - 2017年度:
+            - 電気回路: kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory.md
       - 経済学府:
         - 経済工学専攻:
           - 2020年度:
