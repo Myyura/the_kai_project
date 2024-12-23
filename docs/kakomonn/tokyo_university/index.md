@@ -87,6 +87,8 @@ tags:
             - [数学 第2問](IST/kyotsu_2017_math_2.md)
             - [数学 第3問](IST/kyotsu_2017_math_3.md)
     - 数理情報学:
+        - 2024年度:
+            - [第1問](IST/suuri_2024_1.md)
         - 2023年度:
             - [第1問](IST/suuri_2023_1.md)
             - [第2問](IST/suuri_2023_2.md)
