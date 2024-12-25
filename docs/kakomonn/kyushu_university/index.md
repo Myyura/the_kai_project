@@ -73,6 +73,7 @@ tags:
             - [解析学・微積分](ISEE/kyotsu_2019_analysis_calculus.md)
             - [ベクトル解析](ISEE/kyotsu_2019_vector_analysis.md)
             - [確率・統計](ISEE/kyotsu_2019_prob_stat.md)
+            - [複素関数論](ISEE/kyotsu_2019_complex_function_theory.md)
         - 2018年度:
             - [複素関数論](ISEE/kyotsu_2018_complex_function_theory.md)
         - 2016年度:
