@@ -82,9 +82,7 @@ $$
 \end{align}
 $$
 
-② について、$\int_0^{\infty}\frac{\ln x}{x^2 + 1}dx$ を求める。
-
-$q(z) = \frac{\ln z}{z^2 + 1}$ とおくと。
+② について、$\int_0^{\infty}\frac{\ln x}{x^2 + 1}dx$ を求める。$q(z) = \frac{\ln z}{z^2 + 1}$ とおくと。
 
 $$
 \begin{aligned}
@@ -114,13 +112,14 @@ $$
 \begin{aligned}
 \lim_{R \rightarrow \infty,\varepsilon \rightarrow 0}\int_{C_1}q(z)dz &= \int_0^{\infty}\frac{ln x}{x^2 + 1}dx 
 \end{aligned}
-$$ 
-より、
+$$
 
+より、
 
 $$
 \frac{\pi^2}{2}i = 2\int_0^{\infty}\frac{ln x}{x^2 + 1}dx 
 $$
+
 より、
 
 $$
