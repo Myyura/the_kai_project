@@ -168,6 +168,12 @@ tags:
             - [専門 第2問](IST/denshi_2013_senmon_2.md)
         - 2011年度:
             - [専門 第5問](IST/denshi_2011_senmon_5.md)
+    - 創造情報学:
+        - 2020年度:
+            - [8月 筆記試験 第1問](IST/ci_201908_written_exam_1.md)
+            - [8月 筆記試験 第2問](IST/ci_201908_written_exam_2.md)
+            - [8月 筆記試験 第3問](IST/ci_201908_written_exam_3.md)
+            - [8月 プログラミング](IST/ci_201908_programming.md)
 - 新領域創成科学研究科:
     - 物質系専攻:
         - 2020年度:
@@ -196,13 +202,6 @@ tags:
             - [専門基礎科目 第2問 数学](frontier_sciences/cse_2018_2.md)
             - [専門基礎科目 第4問 数学](frontier_sciences/cse_2018_4.md)
     - メディカル情報生命専攻:
-        - 2023年度:
-            - [8月 問題7](frontier_sciences/cbms_202308_7.md)
-            - [8月 問題8](frontier_sciences/cbms_202308_8.md)
-            - [8月 問題9](frontier_sciences/cbms_202308_9.md)
-            - [8月 問題10](frontier_sciences/cbms_202308_10.md)
-            - [8月 問題11](frontier_sciences/cbms_202308_11.md)
-            - [8月 問題12](frontier_sciences/cbms_202308_12.md)
         - 2024年度:
             - [1月 問題7](frontier_sciences/cbms_202401_7.md)
             - [1月 問題8](frontier_sciences/cbms_202401_8.md)
@@ -210,6 +209,13 @@ tags:
             - [1月 問題10](frontier_sciences/cbms_202401_10.md)
             - [1月 問題11](frontier_sciences/cbms_202401_11.md)
             - [1月 問題12](frontier_sciences/cbms_202401_12.md)
+        - 2023年度:
+            - [8月 問題7](frontier_sciences/cbms_202308_7.md)
+            - [8月 問題8](frontier_sciences/cbms_202308_8.md)
+            - [8月 問題9](frontier_sciences/cbms_202308_9.md)
+            - [8月 問題10](frontier_sciences/cbms_202308_10.md)
+            - [8月 問題11](frontier_sciences/cbms_202308_11.md)
+            - [8月 問題12](frontier_sciences/cbms_202308_12.md)
     - 海洋技術環境学専攻:
         - 2022年度:
             - [第1~6問](frontier_sciences/otpe_2022_all.md)

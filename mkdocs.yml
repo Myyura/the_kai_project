@@ -289,6 +289,12 @@ nav:
             - 専門 第2問: kakomonn/tokyo_university/IST/denshi_2013_senmon_2.md
           - 2011年度:
             - 専門 第5問: kakomonn/tokyo_university/IST/denshi_2011_senmon_5.md
+        - 創造情報学:
+          - 2020年度:
+            - 8月 筆記試験 第1問: kakomonn/tokyo_university/IST/ci_201908_written_exam_1.md
+            - 8月 筆記試験 第2問: kakomonn/tokyo_university/IST/ci_201908_written_exam_2.md
+            - 8月 筆記試験 第3問: kakomonn/tokyo_university/IST/ci_201908_written_exam_3.md
+            - 8月 プログラミング: kakomonn/tokyo_university/IST/ci_201908_programming.md
       - 新領域創成科学研究科:
         - 物質系専攻:
           - 2020年度:
@@ -317,13 +323,6 @@ nav:
             - 専門基礎科目 第2問 数学: kakomonn/tokyo_university/frontier_sciences/cse_2018_2.md
             - 専門基礎科目 第4問 数学: kakomonn/tokyo_university/frontier_sciences/cse_2018_4.md
         - メディカル情報生命専攻:
-          - 2023年度:
-            - 8月 問題7: kakomonn/tokyo_university/frontier_sciences/cbms_202308_7.md
-            - 8月 問題8: kakomonn/tokyo_university/frontier_sciences/cbms_202308_8.md
-            - 8月 問題9: kakomonn/tokyo_university/frontier_sciences/cbms_202308_9.md
-            - 8月 問題10: kakomonn/tokyo_university/frontier_sciences/cbms_202308_10.md
-            - 8月 問題11: kakomonn/tokyo_university/frontier_sciences/cbms_202308_11.md
-            - 8月 問題12: kakomonn/tokyo_university/frontier_sciences/cbms_202308_12.md
           - 2024年度:
             - 1月 問題7: kakomonn/tokyo_university/frontier_sciences/cbms_202401_7.md
             - 1月 問題8: kakomonn/tokyo_university/frontier_sciences/cbms_202401_8.md
@@ -331,6 +330,13 @@ nav:
             - 1月 問題10: kakomonn/tokyo_university/frontier_sciences/cbms_202401_10.md
             - 1月 問題11: kakomonn/tokyo_university/frontier_sciences/cbms_202401_11.md
             - 1月 問題12: kakomonn/tokyo_university/frontier_sciences/cbms_202401_12.md
+          - 2023年度:
+            - 8月 問題7: kakomonn/tokyo_university/frontier_sciences/cbms_202308_7.md
+            - 8月 問題8: kakomonn/tokyo_university/frontier_sciences/cbms_202308_8.md
+            - 8月 問題9: kakomonn/tokyo_university/frontier_sciences/cbms_202308_9.md
+            - 8月 問題10: kakomonn/tokyo_university/frontier_sciences/cbms_202308_10.md
+            - 8月 問題11: kakomonn/tokyo_university/frontier_sciences/cbms_202308_11.md
+            - 8月 問題12: kakomonn/tokyo_university/frontier_sciences/cbms_202308_12.md
         - 海洋技術環境学専攻:
           - 2022年度:
             - 第1~6問: kakomonn/tokyo_university/frontier_sciences/otpe_2022_all.md
@@ -520,9 +526,8 @@ nav:
             - 8月 基礎科目 問題1: kakomonn/tohoku_university/engineering/ecei_2023_8_kiso_1.md
             - 8月 基礎科目 問題4: kakomonn/tohoku_university/engineering/ecei_2023_8_kiso_4.md
           - 2022年度:
-            - 3月 基礎科目 問題6: kakomonn/tohoku_university/engineering/ecei_2022_3_kiso_6.md
-          - 2022年度:
             - 8月 基礎科目 問題6: kakomonn/tohoku_university/engineering/ecei_2021_8_kiso_6.md
+            - 3月 基礎科目 問題6: kakomonn/tohoku_university/engineering/ecei_2022_3_kiso_6.md
           - 2019年度:
             - 3月 基礎科目 問題4: kakomonn/tohoku_university/engineering/ecei_2019_3_kiso_4.md
           - 2018年度:
@@ -910,6 +915,7 @@ nav:
             - 線形代数: kakomonn/kyushu_university/ISEE/kyotsu_2021_linear_algebra.md
             - 解析学・微積分: kakomonn/kyushu_university/ISEE/kyotsu_2021_analysis_calculus.md
             - ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2021_vector_analysis.md
+            - 複素関数論: kakomonn/kyushu_university/ISEE/kyotsu_2021_complex_function_theory.md
           - 2020年度:
             - 線形代数: kakomonn/kyushu_university/ISEE/kyotsu_2020_linear_algebra.md
             - 解析学・微積分: kakomonn/kyushu_university/ISEE/kyotsu_2020_analysis_calculus.md
@@ -919,6 +925,9 @@ nav:
             - 解析学・微積分: kakomonn/kyushu_university/ISEE/kyotsu_2019_analysis_calculus.md
             - ベクトル解析: kakomonn/kyushu_university/ISEE/kyotsu_2019_vector_analysis.md
             - 確率・統計: kakomonn/kyushu_university/ISEE/kyotsu_2019_prob_stat.md
+            - 複素関数論: kakomonn/kyushu_university/ISEE/kyotsu_2019_complex_function_theory.md
+          - 2018年度:
+            - 複素関数論: kakomonn/kyushu_university/ISEE/kyotsu_2018_complex_function_theory.md
           - 2016年度:
             - 複素関数論: kakomonn/kyushu_university/ISEE/kyotsu_2016_complex_function_theory.md
         - 情報理工学専攻:

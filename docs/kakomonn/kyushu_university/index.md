@@ -64,6 +64,7 @@ tags:
             - [線形代数](ISEE/kyotsu_2021_linear_algebra.md)
             - [解析学・微積分](ISEE/kyotsu_2021_analysis_calculus.md)
             - [ベクトル解析](ISEE/kyotsu_2021_vector_analysis.md)
+            - [複素関数論](ISEE/kyotsu_2021_complex_function_theory.md)
         - 2020年度:
             - [線形代数](ISEE/kyotsu_2020_linear_algebra.md)
             - [解析学・微積分](ISEE/kyotsu_2020_analysis_calculus.md)
@@ -73,6 +74,9 @@ tags:
             - [解析学・微積分](ISEE/kyotsu_2019_analysis_calculus.md)
             - [ベクトル解析](ISEE/kyotsu_2019_vector_analysis.md)
             - [確率・統計](ISEE/kyotsu_2019_prob_stat.md)
+            - [複素関数論](ISEE/kyotsu_2019_complex_function_theory.md)
+        - 2018年度:
+            - [複素関数論](ISEE/kyotsu_2018_complex_function_theory.md)
         - 2016年度:
             - [複素関数論](ISEE/kyotsu_2016_complex_function_theory.md)
     - 情報理工学専攻:

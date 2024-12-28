@@ -18,6 +18,7 @@ title: 友情链接
 - [Yu's Site, 九大情報理工学過去問の解答](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
 - [samparker, 广岛大学情报科学过去问](https://zhuanlan.zhihu.com/p/679651389)
 - [kainoj, UTokyo CS](https://github.com/kainoj/utokyo-cs)
+- [tomfluff, UTokyo CI](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam)
 
 
 # 未来你可能用的到的

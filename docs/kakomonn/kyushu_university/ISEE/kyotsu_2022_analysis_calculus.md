@@ -10,6 +10,25 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+(1) $\mathbb{R}^m$ 上で微分可能な実数値関数 $f(x)$ $(x = (x_1, x_2, ..., x_m))$ について、$x_i = v_i(t)$ $(i = 1, 2, ..., m)$ とおく。ただし、各 $v_i$ は $\mathbb{R}$ 上で微分可能な関数とする。次の各問いに答えよ。
+
+- (a) $\frac{df}{dt}$ を $\frac{\partial f}{\partial x_i}$ と $\frac{dv_i}{dt}$ $(i = 1, 2, ..., m)$ で表せ。
+- (b) $m = 2$, $f(x) = x_1^2 + x_1x_2 + 2x_2^2$, $v_1(t) = \sin t$, $v_2(t) = e^t$ のとき、$\frac{df}{dt}$ を求めよ。
+
+(2) 次の微分方程式の一般解を求めよ。  
+
+$$
+   \frac{dy}{dx} - 2xy = e^{x^2}
+$$
+
+(3) 閉曲線 $C$ に沿った複素積分  
+
+$$
+   \oint_C \frac{\cos z}{(2z - \pi)^3} dz
+$$
+
+を求めよ。ただし、$C$ は円 $|z| = 2$ とする。
+
 
 ## **Kai**
 ### (1)

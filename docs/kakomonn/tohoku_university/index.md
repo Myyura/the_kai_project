@@ -38,9 +38,8 @@ tags:
             - [8月 基礎科目 問題1](engineering/ecei_2023_8_kiso_1.md)
             - [8月 基礎科目 問題4](engineering/ecei_2023_8_kiso_4.md)
         - 2022年度:
-            - [3月 基礎科目 問題6](engineering/ecei_2022_3_kiso_6.md)
-        - 2022年度:
             - [8月 基礎科目 問題6](engineering/ecei_2021_8_kiso_6.md)
+            - [3月 基礎科目 問題6](engineering/ecei_2022_3_kiso_6.md)
         - 2019年度:
             - [3月 基礎科目 問題4](engineering/ecei_2019_3_kiso_4.md)
         - 2018年度:
