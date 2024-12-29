@@ -79,6 +79,7 @@ tags:
             - [複素関数論](ISEE/kyotsu_2018_complex_function_theory.md)
         - 2017年度:
             - [線形代数](ISEE/kyotsu_2017_linear_algebra.md)
+            - [微分方程式](ISEE/kyotsu_2017_differential_equation.md)
         - 2016年度:
             - [複素関数論](ISEE/kyotsu_2016_complex_function_theory.md)
     - 情報理工学専攻:
