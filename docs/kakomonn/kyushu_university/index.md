@@ -76,6 +76,7 @@ tags:
             - [確率・統計](ISEE/kyotsu_2019_prob_stat.md)
             - [複素関数論](ISEE/kyotsu_2019_complex_function_theory.md)
         - 2018年度:
+            - [微分方程式](ISEE/kyotsu_2018_differential_equation.md)
             - [ベクトル解析](ISEE/kyotsu_2018_vector_analysis.md)
             - [複素関数論](ISEE/kyotsu_2018_complex_function_theory.md)
         - 2017年度:
