@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2023年8月実施 専門科目 S-2
 
 ## **Author**
-[Isidore](https://github.com/heacsing)
+[Isidore](https://github.com/heacsing), 祭音Myyura
 
 ## **Description**
 ### 設問1
@@ -46,33 +46,36 @@ $$
 E[\sum^{n}_{i=1}w_iX_i] = \sum^n_{i=1}w_iE[X_i] = \sum^n_{i=1}w_i\mu \Rightarrow \sum^n_{i=1}w_i = 1
 $$
 
-vice versa
-
 ### 設問2
 #### (1)
 
 $$
-L(\mu, \sigma^2) = n \log \frac{1}{\sqrt{2\pi}\sigma} + \frac{1}{2\sigma^2}\sum^n_{i=1}(X_i - \mu)^2
+L(\mu,\sigma^{2}) = -\frac{n}{2}\ln 2\pi\sigma^{2}-\frac{\sum_{i=1}^{n}(x_{i}^{2}-\mu)^{2}}{2\sigma^{2}}
 $$
 
 #### (2)
 
 $$
-\mu = \frac{1}{n}\sum^n_{i=1}X_i = \bar{X}, \sigma^2 = \frac{1}{n}\sum^n_{i=1}(X_i - \bar{X})^2
+\hat{\mu} = \frac{1}{n}\sum_{i=1}^{n}x_{i},\quad \hat{\sigma}^{2} = \frac{1}{n}\sum_{i=1}^{n}(x_{i}-\mu)^{2}
 $$
 
 ### 設問3
 
 $$
-Cov(S,T) = -6
+\begin{aligned}
+\text{Cov}[S,T]
+&= \text{Cov}[X+2Y,X-2Y]\\[0.7em]
+&= \text{Cov}[X,X]+2\text{Cov}[X,Y]-2\text{Cov}[X,Y]+4\text{Cov}[Y,Y]\\[0.7em]
+&= 2+4-4-8 = -6
+\end{aligned}
 $$
 
 ### 設問4
 #### (1)
-It's equivalent to assume that picking 2 from Group Drug A and 3 from Group Drug B, given 5 people is selected as Effective. So the answer is
+与えられた表が得られる確率は，計 $9$ 人から無作為に $5$ 人を「効果あり」として選んだときに，そのうち薬 $A$ 群が $4$ 人中 $3$ 人，薬 $B$ 群が $5$ 人中 $2$ 人となる確率である。
 
 $$
-C_5^3(\frac{5}{9})^2(\frac{4}{9})^3
+\frac{C^3_4 C^2_5}{C^5_9} = \frac{20}{63}
 $$
 
 #### (2)
@@ -80,7 +83,7 @@ $$
 If the 2 properties are independent, we have
 
 $$
-Pr[Observing the given table | H_0] = Pr[X=3]
+Pr[\text{Observing the given table} | H_0] = Pr[X=3]
 $$
 
 in which $X$ follows hypergeometric distribution with $N, K, n = (9, 5, 4)$. Calculate it and we have
