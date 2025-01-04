@@ -91,6 +91,7 @@ tags:
             - [第1問](IST/suuri_2024_1.md)
             - [第2問](IST/suuri_2024_2.md)
             - [第3問](IST/suuri_2024_3.md)
+            - [第4問](IST/suuri_2024_4.md)
         - 2023年度:
             - [第1問](IST/suuri_2023_1.md)
             - [第2問](IST/suuri_2023_2.md)
