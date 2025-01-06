@@ -82,8 +82,8 @@ $$
 we have $p = \frac{1}{2}$. Also,
 
 $$
-\lim_{p\rarr 0}\left(-p\log_{2}p-(1-p)\log_{2}(1-p)\right)
-= -\lim_{p\rarr 0}p\log_{2}p
+\lim_{p\to 0}\left(-p\log_{2}p-(1-p)\log_{2}(1-p)\right)
+= -\lim_{p\to 0}p\log_{2}p
 = 0
 $$
 
