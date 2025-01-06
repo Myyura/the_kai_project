@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2023年8月実施 専門科目 S-4
 
 ## **Author**
-[Isidore](https://github.com/heacsing)
+[Isidore](https://github.com/heacsing), 祭音Myyura
 
 ## **Description**
 以下ではすべて記憶のない定常情報源を考える。なお、解答には理由も明確に示すこと。
@@ -72,18 +72,96 @@ $$
 H(p,1-p) = -p \log p-(1-p) \log (1-p)
 $$
 
+By solving the following equation
+
 $$
-Max\{H\}=H(0.5,0.5)=1, Min\{H\}=0
+H^{\prime}(p) = -\log_{2}p-\frac{1}{\log_{e}2}+\log_{2}(1-p)+\frac{1}{\log_{e}2} =
+\log_{2}\frac{1-p}{p} = \log_{2}\left(\frac{1}{p}-1\right) = 0
 $$
+
+we have $p = \frac{1}{2}$. Also,
+
+$$
+\lim_{p\rarr 0}\left(-p\log_{2}p-(1-p)\log_{2}(1-p)\right)
+= -\lim_{p\rarr 0}p\log_{2}p
+= 0
+$$
+
+Thus the maximum of $H$ is $H(0.5, 0.5) = 1$, the minimum of $H$ is $H(0, 1) = 0$.
 
 ### 設問2
-Let $F(p,q)=-(m+1)p \log p-(m-1)q \log q$. Given $(m-1)q+(m+1)p=1$
+By using the method of Lagrange multiplier, we have
 
 $$
-F'(p)=(m+1) \log \frac{1-(m+1)p}{(m-1)p}
+\begin{aligned}
+L(p,q,\lambda)
+&= (m+1)p\log_{2} p+(m-1)q\log_{2} q+\lambda(1-(m+1)p-(m-1)q)
+\end{aligned}
 $$
 
-So when $p=\frac{1}{2m}$, we get the maximum $\log m+1$, and minimum $\log(m-1)$ when $p=\frac{1}{m+1}$
+Then, by solving the following equations,
+
+$$
+\begin{align}
+\begin{cases}
+\displaystyle
+\frac{\partial L}{\partial p} &= (m+1)\log_{2} p+(m+1)-(m+1)\lambda =
+(m+1)(\log_{2} p+1-\lambda) = 0\\[0.7em]
+\displaystyle
+\frac{\partial L}{\partial q} &= (m-1)\log_{2} q+(m-1)-(m-1)\lambda = 
+(m-1)(\log_{2} q+1-\lambda) = 0\\[0.7em]
+\displaystyle
+\frac{\partial L}{\partial \lambda} &= 1-(m+1)p-(m-1)q = 0
+\end{cases}
+\end{align}
+$$
+
+we have 
+
+$$
+\begin{aligned}
+\lambda &= \log_{2} p + 1 = \log_{2} q + 1
+\end{aligned}
+$$
+
+hence $L$ is maximized when $p = q = \frac{1}{2m}$ and the maximum of entropy is
+
+$$
+\begin{aligned}
+H(p,q) &= p\log_{2} \frac{1}{p}+q\log_{2} \frac{1}{q} = \left(\frac{1}{2m}\log_{2} 2m\right)\cdot 2 = \frac{1}{m}+\frac{1}{m}\log_{2} m
+\end{aligned}
+$$
+
+By Q1 we know that the entropy is minimized when $p = 0$ or $p = 1$.
+
+If $m \neq 1$, then the entropy is minimized when
+
+$$
+\begin{aligned}
+(p,q) &= 
+\begin{cases}
+\displaystyle
+\left(0, \frac{1}{m-1}\right)\\[0.7em]
+\displaystyle
+\left(\frac{1}{m+1}, 0\right)
+\end{cases}
+\end{aligned}
+$$
+
+and
+
+$$
+\begin{aligned}
+\min\left\{H(p,q)\right\}
+&= \min\left\{
+(m-1)\cdot\frac{1}{m-1}\log_{2}(m-1),~
+(m+1)\cdot\frac{1}{m+1}\log_{2}(m+1)
+\right\}\\[0.7em]
+&= \log_{2}(m-1)
+\end{aligned}
+$$
+
+If $m = 1$, then $(p,q){=}(\frac{1}{2},\frac{1}{2})$ and the minimum is $H(p,q){=}1$.
 
 ### 設問3
 
@@ -94,7 +172,12 @@ $$
 ### 設問4
 
 $$
-\bar{N} = \frac{m(2m+3)}{2^m+1}
+\begin{aligned}
+\bar{N}
+&= \frac{m\cdot (2^{m}-1) + (m+1)\cdot 2}{2^{m}+1}
+= \frac{m(2^{m}+1)+2}{2^{m}+1}
+= m+\frac{2}{2^{m}+1}
+\end{aligned}
 $$
 
 ### 設問5
