@@ -63,13 +63,13 @@ c_{2} = \left(\frac{1+4+4}{3},\frac{1+2+6}{3}\right) =(3,3)
 \end{aligned}
 $$
 
-Let the point $(x,y)$ be where the Euclidean distance from $c_1$ and $c_2$ are equal. Then we have
+Let the point $(x,y)$ be where the Euclidean distance from $c_1$ and $c_2$ are equal. Then we define a linear classifier as follows:
 
 $$
 (x+1)^{2}+(y-6)^{2} = (x-3)^{2}+(y-3)^{2}
 $$
 
-That is,
+i.e.,
 
 $$
 8x-6y+19 = 0
