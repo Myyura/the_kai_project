@@ -81,6 +81,7 @@ tags:
             - [専門科目 S-2](informatics/ist_202308_senmon_s_2.md)
             - [専門科目 S-3](informatics/ist_202308_senmon_s_3.md)
             - [専門科目 S-4](informatics/ist_202308_senmon_s_4.md)
+            - [専門科目 S-5](informatics/ist_202308_senmon_s_5.md)
         - 2023年度:
             - [情報学基礎 F1-1](informatics/ist_202208_kiso_f1_1.md)
             - [情報学基礎 F1-2](informatics/ist_202208_kiso_f1_2.md)
