@@ -28,6 +28,8 @@ tags:
             - [物理学 基礎](science/chem_2023_phys_kiso.md)
 - 情報学研究科:
     - 数理工学専攻:
+        - 2025年度:
+            - [グラフ理論](informatics/amp_202408_graph_theory.md)
         - 2024年度:
             - [グラフ理論](informatics/amp_202308_graph_theory.md)
             - [凸最適化](informatics/amp_202308_convex_optimaztion.md)
