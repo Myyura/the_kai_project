@@ -70,6 +70,7 @@ tags:
             - [オペレーションズ・リサーチ](informatics/amp_201508_operation_research.md)
         - 2015年度:
             - [線形計画](informatics/amp_201408_linear_programming.md)
+            - [アルゴリズム基礎](informatics/amp_201408_algorithm.md)
             - [オペレーションズ・リサーチ](informatics/amp_201408_operation_research.md)
             - [力学系数学](informatics/amp_201408_mathematics_for_dynamical_systems.md)
         - 2014年度:
