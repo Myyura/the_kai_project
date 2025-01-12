@@ -56,6 +56,7 @@ tags:
             - [力学系数学](informatics/amp_201908_mathematics_for_dynamical_systems.md)
         - 2019年度:
             - [線形計画](informatics/amp_201808_linear_programming.md)
+            - [グラフ理論](informatics/amp_201808_graph_theory.md)
             - [オペレーションズ・リサーチ](informatics/amp_201808_operation_research.md)
             - [力学系数学](informatics/amp_201808_mathematics_for_dynamical_systems.md)
         - 2018年度:
