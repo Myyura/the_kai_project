@@ -26,4 +26,4 @@ $G$ の部分グラフ $H$ における節点 $u$ から節点 $v$ への最短�
 (iv) ある節点 $t \in V - \{s\}$ と節点の部分集合 $A \subseteq V - \{s,t\}$ に対して、$G$ における $s$ から $t$ への最短路のうち、$A$ の節点を少なくとも２個通過するものが存在するかどうかの判定を $O(|E|)$ 時間で計算する方法を示せ。
 
 ## **Kai**
-Almost the same as [京都大学 情報学研究科 数理工学専攻 2024年8月実施 グラフ理論](amp_202408_graph_theory.md), please check it.
+Almost the same as [京都大学 情報学研究科 数理工学専攻 2024年8月実施 グラフ理論](https://runjp.com/kakomonn/kyoto_university/informatics/amp_202408_graph_theory), please check it.
