@@ -18,19 +18,19 @@ $G = (V, E)$ を節点集合 $V$，枝集合 $E$ から成る単純強連結有�
 枝重みの和が負である有向閉路を負閉路と呼ぶ．
 以下の問いに答えよ．
 
-(1) 次の条件を満たす節点の実数値重み $p(v)$，$v \in V$ が存在するとき，$N$ に負閉路が存在しないことを証明せよ．
+(i) 次の条件を満たす節点の実数値重み $p(v)$，$v \in V$ が存在するとき，$N$ に負閉路が存在しないことを証明せよ．
 
 $$
 w(u, v) + p(u) - p(v) \geq 0, \quad \forall (u, v) \in E.
 $$
 
-(2) 次を満たす節点 $s \in V$ と枝 $(u, v) \in E$ の組が存在するとき，$N$ に負閉路が存在することを証明せよ．
+(ii) 次を満たす節点 $s \in V$ と枝 $(u, v) \in E$ の組が存在するとき，$N$ に負閉路が存在することを証明せよ．
 
 $$
 \text{dist}(s, u) + w(u, v) < \text{dist}(s, v).
 $$
 
-(3) 各枝の重みが非負であると仮定する．
+(iii) 各枝の重みが非負であると仮定する．
 ある部分集合 $S \subseteq V$ と節点 $s \in S$ に対して，$S$ から $V \setminus S$ へ向かう枝 $(u, v) \in E$ の中で $\text{dist}(s, u) + w(u, v)$ の値を最小とする枝を $(u^*, v^*)$ とする．
 このとき，
 
@@ -41,10 +41,10 @@ $$
 が成り立つことを証明せよ．
 
 ## **Kai**
-### (1)
+### (i)
 Please refer to [京都大学 情報学研究科 数理工学専攻 2023年8月実施 グラフ理論](https://runjp.com/kakomonn/kyoto_university/informatics/amp_202308_graph_theory).
 
-### (2)
+### (ii)
 Let $P_{s,u}$ denote a simple path from $s$ to $u$ of distance $\text{dist}(s, u)$.
 Let $P'_{s, v}$ denote the path by concatenating $P_{s,u}$ and edge $(u,v)$.
 
@@ -62,7 +62,7 @@ $$
 
 which contradicts the definition of $\text{dist}(s,v)$. Therefore, $C$ is a negative cycle.
 
-### (3)
+### (iii)
 (Note: this question is actually asking a proof of correctness of Dijkstra's algorithm)
 
 Since the weight of each edge is non-negative, there does not exist negative cycle.

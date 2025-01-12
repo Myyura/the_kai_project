@@ -28,7 +28,7 @@ tags:
 (iv) ある節点 $t \in V \setminus \{s\}$、節点の部分集合 $U \subseteq V \setminus \{s, t\}$、整数 $1 \leq k \leq |U|$ に対して、$s$ から $t$ への最短路のうち、$U$ に属する節点を少なくとも $k$ 個通過するものが存在するかどうかを、$O(|E|)$ 時間で判定する方法を示せ。
 
 ## **Kai**
-### (1)
+### (i)
 Core idea: Use BFS starting from $s$ to calculate the shortest distance $\text{dist}(v)$ for all nodes $v \in V$.
 
 ```text
@@ -56,7 +56,7 @@ return d_max and V_i
 
 Since graph is connected, we have $O(E) \geq O(V)$. Hence the time complexity is $O(|V| + |E|) = O(|E|)$.
 
-### (2)
+### (ii)
 Core idea: To calculate $\sigma(v)$, we can modify the standard BFS.
 While traversing the graph, keep track of the number of shortest paths reaching each node $v$.
  
@@ -82,7 +82,7 @@ while queue is not empty:
 return sigma[v] for all v
 ```
 
-### (3)
+### (iii)
 Core idea: If a node $v$ is in one of shortest $s,t$-paths, then $\text{dist}(s,v) + \text{dist}(t,v) = \text{dist}(s,t)$.
 
 ```text
@@ -105,7 +105,7 @@ for each u in U:
 return participation_count
 ```
 
-### (4)
+### (iv)
 Core idea: Similar with (2), while traversing the graph, keep track of the number of nodes in $U$ encountered on the shortest paths reaching each node $v$.
 
 ```text
