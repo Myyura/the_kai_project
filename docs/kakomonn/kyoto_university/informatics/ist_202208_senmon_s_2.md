@@ -10,9 +10,45 @@ tags:
 [Isidore](https://github.com/heacsing)
 
 ## **Description**
-<figure style="text-align:center;">
-  <img src="https://s2.loli.net/2024/07/01/gXipzcs9QeadjOU.png" width="640"/>
-</figure>
+### 設問1
+
+確率変数 $X$ は下の確率密度変数 $f(x)$ をもつ確率分布に従うとする。
+
+$$
+f(x) = 
+\left \{
+\begin{aligned}
+-\frac{1}{2}x + \frac{1}{2} \quad &(|x| \le 1) \\
+0 \quad &(|x| > 1)
+\end{aligned}
+\right.
+$$
+
+$X$ の平均と分散を求めよ。
+
+### 設問2
+
+独立な確率変数 $X$ と $Y$ が、それぞれパラメータ $\lambda_1,\lambda_2$ のポアソン分布に従うとする。このとき、$Z = X + Y$ がパラメータ $(\lambda_1 + \lambda_2)$ のポアソン分布に従うことを示せ。パラメータ $\lambda$ のポアソン分布は下の確率質量関数で与えられる。
+
+$$
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
+$$
+
+### 設問3
+
+モデル $y_i = \beta x_i + \epsilon_i(i = 1,2,\dots,n;\epsilon_i \text{は誤差項})$　から生成されるデータ $(x_1,y_1),(x_2,y_2),\dots,(x_n,y_n)$ に、切片がゼロの回帰直線 $y = \hat{\beta}x$ を最小二乗法でフィッティングする。
+
+(1) $\hat{\beta}$ 求めよ。
+
+(2) $\hat{\epsilon_i} = y_i - \hat{\beta}x_i$ とおくと、$\sum_{i = 1}^n x_i\hat{\epsilon_i}$ が成り立つことを示せ。
+
+### 設問4 
+
+ある研究分野における全統計的仮説の中で、真の仮説 (帰無仮説が誤り) と偽の仮説 (帰無仮説が正しい) の数の比が $R:1$ であることがわかっているとする。
+
+(1) ある仮説について実験を実施し、有意水準 $\alpha$ 、検出力 $1 - \beta$ で検定を行う。検定結果が有意であった場合にこの仮説が真である確率を、$R,\alpha,\beta$ を用いて表せ。また、$R = 0.1,\alpha = 0.05,\beta = 0.2$ のときの値を計算せよ。
+
+(2) ある仮説について $k$ 回の独立な実験を実施し、それぞれについて(1)と同様の検定を行う。$k$ 回全ての実験について検定結果が有意であった場合にこの仮説が真である確率を、$R,\alpha,\beta,k$ を用いて表せ。また、$R = 0.1,\alpha = 0.05,\beta = 0.2,k = 2$ のときの値を計算せよ。
 
 
 ## **Kai**
@@ -27,7 +63,7 @@ E[X^2] = \int^{1}_{-1}x^2(-\frac{1}{2}x+\frac{1}{2})\mathrm{d}x = \frac{1}{3} \\
 $$
 
 $$
-Var[X] = E[X^2] - E^2[X] = \frac{2}{9}
+\text{Var}[X] = E[X^2] - E^2[X] = \frac{2}{9}
 $$
 
 ### 設問2
