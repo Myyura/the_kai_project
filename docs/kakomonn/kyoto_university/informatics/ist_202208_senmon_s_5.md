@@ -53,13 +53,56 @@ $$
 #### (1)
 
 $$
-F[f_1(x)]=\frac{1}{\sqrt{2\pi}} \left( \frac{e^{-2i k} - 1}{i k} \right)
+\begin{aligned}
+\mathcal{F}\left[f_{1}(x)\right]
+&= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-ikx}dx\\
+&= \frac{1}{\sqrt{2\pi}}\int_{0}^{2}e^{-ikx}dx\\
+&= -\frac{1}{ik\sqrt{2\pi}}\left[e^{-ikx}\right]_{0}^{2}\\
+&= \frac{1}{ik\sqrt{2\pi}}\left(1-e^{-2ik}\right)
+\end{aligned}
+$$
+
+applying the Euler formula,
+
+$$
+\begin{aligned}
+\mathcal{F}\left[f_{1}(x)\right]
+&= e^{-ik}\frac{2}{k\sqrt{2\pi}}\frac{e^{ik}-e^{-ik}}{2i}\\
+&= e^{-ik}\sqrt{\frac{2}{\pi}}\frac{\sin k}{k}
+\end{aligned}
 $$
 
 #### (2)
 
 $$
-F[f_2(x)]=\frac{\sqrt{2\pi}}{2}\delta(-k)+\frac{\sqrt{2\pi}}{4}\delta(2\omega-k)+\frac{\sqrt{2\pi}}{4}\delta(-2\omega-k)
+\begin{aligned}
+\mathcal{F}(f_{2}(x)) &= \mathcal{F}\left(\cos^{2}\omega x\right)\\
+&= \frac{1}{2}\mathcal{F}\left(1+\cos 2\omega x\right)\\
+&= \frac{1}{2}\left(\mathcal{F}(1) + \mathcal{F}\left(\cos 2\omega x\right)\right)
+\end{aligned}
+$$
+
+$$
+\sqrt{2\pi}\delta(k) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-ikx}dx \Rightarrow 
+\mathcal{F}(1) = \sqrt{2\pi}\delta(k)
+$$
+
+$$
+\begin{aligned}
+\mathcal{F}\left[\cos 2\omega x\right]
+&= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}(\cos 2\omega x)e^{-ikx}dx\\
+&= \frac{1}{2\sqrt{2\pi}}\int_{-\infty}^{\infty}\left(e^{i2\omega x}+e^{-i2\omega x}\right) e^{-ikx}dx\\
+&= \frac{1}{2\sqrt{2\pi}}\int_{-\infty}^{\infty}\left(e^{-i(k-2\omega)x}+e^{-i(k+2\omega)x}\right)dx\\
+&= \frac{1}{2}\cdot\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-i(k-2\omega)x}dx+\frac{1}{2}\cdot\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-i(k+2\omega)x}dx\\
+&= \frac{1}{2}\cdot \sqrt{2\pi}\delta(k-2\omega)+\frac{1}{2}\cdot \sqrt{2\pi}\delta(k+2\omega)\\
+&= \frac{\sqrt{2\pi}}{2}\left(\delta(k-2\omega)+\delta(k+2\omega)\right)
+\end{aligned}
+$$
+
+Hence
+
+$$
+\mathcal{F}(f_{2}(x)) = \frac{\sqrt{2\pi}}{4}\left(\delta(k-2\omega)+2\delta(k)+\delta(k+2\omega)\right)
 $$
 
 ### Q.2
@@ -67,13 +110,14 @@ $$
 
 $$
 \begin{aligned}
-\mathcal{F}[f(x)\ast g(x)] 
-&= \mathcal{F}
-\left[\int_{-\infty}^{\infty} f(\tau) g(x - \tau) d\tau \right] \\
-&= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}f(\tau) g(x - \tau)d\tau\cdot e^{-ikx} dx \\
-&= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(\tau)d\tau \int_{-\infty}^{\infty}g(x-\tau)e^{-ikx}dx\\
-&= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} g(t) e^{-ikt} dt \cdot \int_{-\infty}^{\infty} f(\tau) e^{-ik\tau} d\tau \\
-&= \sqrt{2\pi}\mathcal{F}[f(x)]\mathcal{F}[g(x)]
+\mathcal{F}\left[f(x)\ast g(x)\right] &= \mathcal{F}\left[\int_{-\infty}^{\infty}f(\tau)g(x-\tau)d\tau\right]\\
+&= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(\tau)g(x-\tau)d\tau\right)e^{-ikx}dx\\
+&= \int_{-\infty}^{\infty}f(\tau)\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}g(x-\tau)e^{-ikx}dx\right)d\tau\\
+&= \int_{-\infty}^{\infty}f(\tau)e^{-ik\tau}\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}g(x-\tau)e^{-ik(x-\tau)}dx\right)d\tau\\
+&= \int_{-\infty}^{\infty}f(\tau)\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}g(y)e^{-iky}dy\right)d\tau\\
+&= \int_{-\infty}^{\infty}f(\tau)\mathcal{F}\left[g(x)\right]d\tau\\
+&= \int_{-\infty}^{\infty}f(\tau)d\tau\cdot\mathcal{F}\left[g(x)\right]\\
+&= \sqrt{2\pi}\mathcal{F}\left[g(x)\right]\mathcal{F}\left[g(x)\right]
 \end{aligned}
 $$
 
@@ -94,5 +138,14 @@ $$
 #### (3)
 
 $$
-\mathcal{F}[f_3(x)]=\frac{2\sin^2k}{-\sqrt{2\pi}k^2}
+\begin{aligned}
+\mathcal{F}\left[f_{3}(x)\right]
+&= \mathcal{F}\left[f_{1}(x)\ast f_{4}(x)\right]\\
+&= \mathcal{F}\left[f_{1}(x)\ast f_{1}(x+2)\right]\\
+&= \sqrt{2\pi}\mathcal{F}\left[f_{1}(x)\right]\mathcal{F}\left[f_{1}(x+2)\right]\\
+&= \sqrt{2\pi}\mathcal{F}\left[f_{1}(x)\right]\left(e^{2ik}\mathcal{F}\left[f_{1}(x)\right]\right)\\
+&= \sqrt{2\pi}e^{2ik}\left(\mathcal{F}\left[f_{1}(x)\right]\right)^{2}\\
+&= \sqrt{2\pi}e^{2ik}\left(e^{-ik}\sqrt{\frac{2}{\pi}}\frac{\sin k}{k}\right)^{2}\\
+&= 2\sqrt{\frac{2}{\pi}}\left( \frac{\sin k}{k} \right)^{2}
+\end{aligned}
 $$
