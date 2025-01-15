@@ -188,6 +188,7 @@ tags:
             - [8月 プログラミング](IST/ci_201708_programming.md)
         - 2017年度:
             - [8月 筆記試験 第1問](IST/ci_201608_written_exam_1.md)
+            - [8月 筆記試験 第2問](IST/ci_201608_written_exam_2.md)
 - 新領域創成科学研究科:
     - 物質系専攻:
         - 2020年度:
