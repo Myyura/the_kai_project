@@ -226,13 +226,14 @@ tags:
             - [1月 問題10](frontier_sciences/cbms_202401_10.md)
             - [1月 問題11](frontier_sciences/cbms_202401_11.md)
             - [1月 問題12](frontier_sciences/cbms_202401_12.md)
-        - 2023年度:
             - [8月 問題7](frontier_sciences/cbms_202308_7.md)
             - [8月 問題8](frontier_sciences/cbms_202308_8.md)
             - [8月 問題9](frontier_sciences/cbms_202308_9.md)
             - [8月 問題10](frontier_sciences/cbms_202308_10.md)
             - [8月 問題11](frontier_sciences/cbms_202308_11.md)
             - [8月 問題12](frontier_sciences/cbms_202308_12.md)
+        - 2023年度:
+            - [8月 問題7](frontier_sciences/cbms_202208_7.md)
     - 海洋技術環境学専攻:
         - 2022年度:
             - [第1~6問](frontier_sciences/otpe_2022_all.md)
