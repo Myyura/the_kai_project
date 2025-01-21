@@ -129,7 +129,7 @@ $$
 \begin{align}
 \sum_{n=-\infty}^{\infty}(u[n]-u[n-a])e^{-i\omega n} &= \sum_{k=0}^{a-1}e^{-i\omega k}= \frac{1-e^{-i\omega a}}{1-e^{-i\omega}} \nonumber \\
 &= \frac{e^{-i\omega a/2}\left(e^{i\omega a/2}-e^{-i\omega a/2}\right)}{e^{-i\omega/2}\left(e^{i\omega/2}-e^{-i\omega/2}\right)} \nonumber \\
-&= e^{-i\omega(a-1)/2}\frac{\sin a\omega/2}{\sin \omega/2} \tag(**)
+&= e^{-i\omega(a-1)/2}\frac{\sin a\omega/2}{\sin \omega/2} \tag{**}
 \end{align}
 $$
 
