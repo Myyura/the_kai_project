@@ -3,6 +3,7 @@ comments: false
 title: 九州大学 システム情報科学府 情報理工学専攻 2019年度 アルゴリズム・プログラミング
 tags:
   - Kyushu-University
+  - Sorting-Algorithm
   - Divide-And-Conquer
   - Binary-Heap
   - Heap-Sort
