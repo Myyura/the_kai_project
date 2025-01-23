@@ -109,6 +109,7 @@ tags:
             - [情報学基礎 F1-1](informatics/ist_202008_kiso_f1_1.md)
             - [情報学基礎 F1-2](informatics/ist_202008_kiso_f1_2.md)
             - [情報学基礎 F2-1](informatics/ist_202008_kiso_f2_1.md)
+            - [情報学基礎 F2-2](informatics/ist_202008_kiso_f2_2.md)
             - [専門科目 S-5](informatics/ist_202008_S_5.md)
         - 2020年度:
             - [情報学基礎 F1-1](informatics/ist_201908_kiso_f1_1.md)
