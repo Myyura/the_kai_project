@@ -85,6 +85,7 @@ tags:
             - [微分方程式](ISEE/kyotsu_2017_differential_equation.md)
             - [ベクトル解析](ISEE/kyotsu_2017_vector_analysis.md)
         - 2016年度:
+            - [線形代数](ISEE/kyotsu_2016_linear_algebra.md)
             - [複素関数論](ISEE/kyotsu_2016_complex_function_theory.md)
     - 情報理工学専攻:
         - 2023年度:
