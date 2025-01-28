@@ -77,10 +77,11 @@ $$
 &=\int_{-\infty}^{\infty} f(t)e^{-j\omega t}dt\\
 &= \int_{-\infty}^{\infty}f(t)\left[\cos(\omega t)-j \sin(\omega t)dt \right]\\
 &= \int_{-\infty}^{\infty}f(t)\cos(\omega t)dt - \int_{-\infty}^{\infty}f(t)j \sin(\omega t)dt\\
-&= \int_{-\infty}^{\infty}f(t)\cos(\omega t)dt\\
-&\text{Thus, } (A) = \cos(\omega t)
+&= \int_{-\infty}^{\infty}f(t)\cos(\omega t)dt
 \end{aligned}
 $$
+
+Thus, blank (A) is $\cos(\omega t)$.
 
 ### Q.2
 
@@ -101,12 +102,15 @@ $$
 
 $$
 \begin{aligned}
-Y[k]&= \sum_{n=0}^{2N-1}y[n]e^{-j\frac{2\pi}{N}kn}\\
-&=\sum_{n=0}^{N-1}x[n]e^{-j\frac{2\pi}{2N}kn}+\sum_{n=N}^{2N-1}x[2N-1-n]e^{-j\frac{2\pi}{2N}kn}+\sum_{m=0}^{N-1}x[m]e^{-j\frac{2\pi}{2N}k(2N-1-m)}\\
-&=\sum_{n=0}^{N-1}x[n]e^{-j\frac{2\pi kn}{2N}}+\sum_{m=0}^{N-1}x[m]e^{-j\frac{2\pi}{2N}k(m+1)}\\
-&=e^{\frac{j\pi k}{2N}}\left[\sum_{n=0}^{N-1}x\left[n\right]e^{-j\frac{\pi k}{N}(n+\frac12)}+\sum_{n=0}^{N-1}x\left[m\right]e^{j\frac{\pi k}{N}(n+\frac12)}\right]\\
-&=2e^{-j\frac{\pi k}{2N}}\sum_{n=0}^{N-1}x[n]\cos\left[\frac{k\pi}N(n+\frac12)\right]\\
-&\text{Thus}: (C)=e^{-j\frac{\pi k}{2N}};(D)=\frac{k\pi}N(n+\frac12)
+Y[k]
+&= \sum_{n=0}^{2N-1}x[n] e^{-j\frac{2\pi}{2N}kn} \\
+&= \sum_{n=0}^{N-1}x[n] e^{-j\frac{\pi}{N}kn} + \sum_{n=N}^{2N-1}x[2N-1-n] e^{-j\frac{\pi}{N}kn} \\
+&= \sum_{n=0}^{N-1}x[n] e^{-j\frac{\pi}{N}kn} + \sum_{n=0}^{N-1}x[N-1-n] e^{-j\frac{\pi}{N}kn} \\
+&= \sum_{n=0}^{N-1}x[n] e^{-j\frac{\pi}{N}kn} + \sum_{m=0}^{N-1}x[m] e^{-j\frac{\pi}{N}k(N-1-m)} \\
+&= \sum_{n=0}^{N-1}x[n] e^{-j\frac{\pi}{N}kn} + \sum_{m=0}^{N-1}x[m] e^{j\frac{\pi}{N}k(m+1)} \\
+&= e^{j\frac{\pi}{2N}k}\left( \sum_{n=0}^{N-1}x[n] e^{-j\pi k\frac{2n+1}{2N}} + \sum_{n=0}^{N-1}x[n] e^{j\pi k\frac{2n+1}{2N}} \right) \\
+&= 2e^{j\frac{\pi}{2N}k}\left( \sum_{n=0}^{N-1}x[n] \frac{e^{-j\pi k\frac{2n+1}{2N}} + e^{j\pi k\frac{2n+1}{2N}}}{2} \right) \\
+&= 2e^{j\frac{\pi}{2N}k}\left( \sum_{n=0}^{N-1}x[n] \cos \frac{2n + 1}{2N}\pi k \right)
 \end{aligned}
 $$
 
