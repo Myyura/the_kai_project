@@ -37,7 +37,7 @@ $X_t$ は以下の通信路行列によって与えられる通信路を介し�
 ### (1)
 
 $$
-C = \max_{p(x)} I(X;Y)
+C = \max I(X;Y) = \max \{H(Y) - H(Y|X)\}
 $$
 
 The channel matrix is:
@@ -61,58 +61,17 @@ $$
 P(Y=\gamma) = p \cdot 0 + (1-p) \cdot \frac{2}{3} = \frac{2(1-p)}{3}
 $$
 
-The mutual information $I(X; Y)$ is given by:
+Note that when $p=\frac{1}{2}$, $P(Y=\alpha) = P(Y=\beta) = P(Y=\gamma) = \frac{1}{3}$, $H(Y)$ is maximized.
+
+Hence we have
 
 $$
-I(X; Y) = H(Y) - H(Y|X)
-$$
-
-Where $H(Y)$ is the entropy of $Y$ and $H(Y|X)$ is the conditional entropy of $Y$ given $X$.
-
-First, compute $H(Y)$:
-
-$$
-H(Y) = -\sum_{y} P(Y=y) \log P(Y=y)
-$$
-
-Using the probabilities calculated:
-
-$$
-H(Y) = - \left( \frac{2p}{3} \log \frac{2p}{3} + \frac{1}{3} \log \frac{1}{3} + \frac{2(1-p)}{3} \log \frac{2(1-p)}{3} \right)
-$$
-
-Next, compute $H(Y|X)$:
-
-$$
-H(Y|X) = \sum_{x} P(X=x) H(Y|X=x)
-$$
-
-$$
-H(Y|X=A) = \frac{2}{3} \log \frac{3}{2} + \frac{1}{3} \log 3
-$$
-
-$$
-H(Y|X=B) = \frac{1}{3} \log 3 + \frac{2}{3} \log \frac{3}{2}
-$$
-
-Then:
-
-$$
-H(Y|X) = p \cdot H(Y|X=A) + (1-p) \cdot H(Y|X=B)
-$$
-
-$$
-H(Y|X) = p \left( \frac{2}{3} \log \frac{3}{2} + \frac{1}{3} \log 3 \right) + (1-p) \left( \frac{1}{3} \log 3 + \frac{2}{3} \log \frac{3}{2} \right)
-$$
-
-$$
-H(Y|X) = \frac{2}{3} \log \frac{3}{2} + \frac{1}{3} \log 3
-$$
-
-Finally, the mutual information I(X; Y):
-
-$$
-I(X; Y) = H(Y) - H(Y|X)
+\begin{aligned}
+C &= \max \left\{ H(Y) - H(Y|X) \right\}\\
+&= \max \left\{ \sum_{y = \alpha, \beta, \gamma}P(Y=y)\ln\frac{1}{P(Y=y)} - \left( \sum_{x=A,B}P(X=x) H(Y|X=x)\right) \right\} \\
+&= \left( 3\cdot \frac{1}{3}\log3 - \frac{1}{2}\left( \frac{2}{3}\log \frac{3}{2} + \frac{1}{3}\log 3\right)\cdot 2 \right) \\
+&= \frac{2}{3}
+\end{aligned}
 $$
 
 ### (2)
@@ -163,15 +122,13 @@ The order in decreasing order is $\alpha, \beta, \gamma$.
 When $t=\infty$, the stationary is reached due to the nature of Markov sources.
 
 $$
-\lim_{t\to\infty}\frac{1}{t}H(X_{1},X_{2},...,X_{t})=H(x_n|X_{n-1})
-$$
-
-$$
-= - \left( \pi_A \left( \frac{3}{4} \log \frac{3}{4} + \frac{1}{4} \log \frac{1}{4} \right) + \pi_B \left( \frac{1}{2} \log \frac{1}{2} + \frac{1}{2} \log \frac{1}{2} \right) \right)
-$$
-
-$$
-= - \left( \frac{2}{3} \left( \frac{3}{4} \log \frac{3}{4} + \frac{1}{4} \log \frac{1}{4} \right) - \frac{1}{3} \right)
+\begin{aligned}
+&\lim_{t\to\infty}\frac{1}{t}H(X_{1},X_{2},...,X_{t})\\
+&=H(x_n|X_{n-1}) \\
+&= - \left( \pi_A \left( \frac{3}{4} \log \frac{3}{4} + \frac{1}{4} \log \frac{1}{4} \right) + \pi_B \left( \frac{1}{2} \log \frac{1}{2} + \frac{1}{2} \log \frac{1}{2} \right) \right)\\
+&= \frac{2}{3}\left( \frac{3}{4}\log \frac{4}{3} + \frac{1}{4}\log4 \right) + \frac{1}{3}\left( \frac{1}{2}\log2 + \frac{1}{2}\log2 \right) \\
+&= \frac{5}{3} - \frac{1}{2}\log 3
+\end{aligned}
 $$
 
 ### (4)
@@ -196,30 +153,62 @@ $$
 $$
 
 $$
-H(Y_{t+1}|Y_{t}=\alpha)=\frac{1}{2}\log2+\frac{1}{3}\log3+\frac{1}{6}(\log2+\log3)=\frac{2}{3}+\frac{1}{2}\log3
+\begin{aligned}
+H(Y_{t+1}|Y_{t}=\alpha)&=\frac{1}{2}\log2+\frac{1}{3}\log3+\frac{1}{6}(\log2+\log3) \\
+&=\frac{2}{3}+\frac{1}{2}\log3
+\end{aligned}
 $$
 
 ### (5)
-We will follow the paths from $Y_t = \alpha$ to $Y_{t+2} = \gamma$:
+By the stationarity, we have
 
 $$
-X_t = A \to X_{t+1} = A \to X_{t+2} = B
+H(Y_{t+1}|Y_{t}{=}\alpha, Y_{t+2}=\gamma){=}H(Y_{2}|Y_{1}=\alpha, Y_{3}=\gamma)
 $$
 
-$$
-X_t = A \to X_{t+1} = B \to X_{t+2} = B
-$$
-
-Thus, we have:
+and
 
 $$
-P(X_{t+1} = A \mid X_t = A) \cdot P(X_{t+2} = B \mid X_{t+1} = A) \cdot P(Y_{t+2} = \gamma \mid X_{t+2} = B) = \frac{3}{4} \cdot \frac{1}{4} \cdot \frac{2}{3}
+\begin{aligned}
+H(Y_2|Y_1=\alpha, Y_3=\gamma) &= -p(Y_2=\alpha|Y_1=\alpha, Y_3=\gamma) \ln p(Y_2=\alpha|Y_1=\alpha, Y_3=\gamma)\notag \\
+&\quad-p(Y_2=\beta|Y_1=\alpha, Y_3=\gamma) \ln p(Y_2=\beta|Y_1=\alpha, Y_3=\gamma)\notag \\
+&\quad-p(Y_2=\gamma|Y_1=\alpha, Y_3=\gamma) \ln p(Y_2=\gamma|Y_1=\alpha, Y_3=\gamma)
+\end{aligned}
 $$
 
-$$
-P(X_{t+1} = B \mid X_t = A) \cdot P(X_{t+2} = B \mid X_{t+1} = B) \cdot P(Y_{t+2} = \gamma \mid X_{t+2} = B) = \frac{1}{4} \cdot \frac{1}{2} \cdot \frac{2}{3}
-$$
+We calculate the conditional probabilities one by one.
 
 $$
-H(Y_{t+2} \mid Y_t = \alpha, Y_{t+2}=\gamma) = -\left(\frac{1}{8} \log \frac{1}{8} + \frac{3}{8} \log \frac{3}{8} \right)
+\begin{aligned}
+p(Y_2=\alpha|Y_1=\alpha, Y_3=\gamma)
+&= \frac{p(Y_1=\alpha, Y_2=\alpha, Y_3=\gamma)}{p(Y_1=\alpha, Y_3=\gamma)} \\
+&= \frac{p(Y_1=\alpha, Y_2=\alpha, Y_3=\gamma)}{p(Y_1{=}\alpha, Y_2{=}\alpha, Y_3{=}\gamma)+p(Y_1{=}\alpha, Y_2{=}\beta, Y_3{=}\gamma)+p(Y_1{=}\alpha, Y_2{=}\gamma, Y_3{=}\gamma)} \\
+&= \frac{\frac{1}{27}}{\frac{1}{27}+\frac{5}{162}+\frac{2}{81}} \\
+&= \frac{2}{5}
+\end{aligned}
+$$
+
+similarly we have
+
+$$
+p(Y_2=\gamma|Y_1=\alpha, Y_3=\gamma) = \frac{2/81}{5/54} = \frac{4}{15}
+$$
+
+and
+
+$$
+\begin{aligned}
+p(Y_2=\beta|Y_1=\alpha, Y_3=\gamma) &= 1-p(Y_2=\alpha|Y_1=\alpha, Y_3=\gamma)-p(Y_2=\gamma|Y_1=\alpha, Y_3=\gamma)\\
+&= 1-\frac{2}{5}-\frac{4}{15} = \frac{1}{3}
+\end{aligned}
+$$
+
+Finally we have
+
+$$
+\begin{aligned}
+H(Y_2|Y_1=\alpha, Y_3=\gamma)
+&= \frac{2}{5}\log\frac{5}{2}+\frac{1}{3}\log 3+\frac{4}{15}\log\frac{15}{4}\\
+&= -\frac{14}{15} + \frac{3}{5}\log 3 + \frac{2}{3}\log 5
+\end{aligned}
 $$
