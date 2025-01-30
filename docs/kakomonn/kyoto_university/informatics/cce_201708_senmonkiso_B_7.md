@@ -5,7 +5,7 @@ tags:
   - Kyoto-University
   - Dynamic-Programming
   - Divide-And-Conquer
-  - Maximum-Subarray-Problem
+  - Maximum-Subarray-Sum
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2017年8月実施 専門基礎B \[B-7\]
 
