@@ -7,7 +7,8 @@
 
 项目地址 [https://github.com/Myyura/the_kai_project](https://github.com/Myyura/the_kai_project)
 
-手机端点击 [这里](https://runjp.com/tags/) 可进入标签索引页面。
+- **网页端**可以直接从页面左侧的标题栏点击查看自己想要备考的学校题目与题解。
+- **手机端**可以点击**左上角**的图标打开标题栏，或者点击 [这里，这里，这里！！！（https://runjp.com/tags）](https://runjp.com/tags/) 可进入标签索引页面，标签索引界面可以看到本项目所收集的所有题解。
 
 ## LICENSE
 本项目使用 GNU Affero General Public License v3.0, 所有解答版权由本项目与作者所有, 试题版权归出题方（校方）所有。
