@@ -9,6 +9,10 @@
 
 手机端点击 [这里](https://runjp.com/tags/) 可进入标签索引页面。
 
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/sample.png" width="800" alt=""/>
+</figure>
+
 ## LICENSE
 本项目使用 GNU Affero General Public License v3.0, 所有解答版权由本项目与作者所有, 试题版权归出题方（校方）所有。
 
