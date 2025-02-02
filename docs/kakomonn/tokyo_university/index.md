@@ -260,6 +260,8 @@ tags:
             - [8月 問題10](frontier_sciences/cbms_201708_10.md)
             - [8月 問題11](frontier_sciences/cbms_201708_11.md)
             - [8月 問題12](frontier_sciences/cbms_201708_12.md)
+        - 2017年度:
+            - [8月 問題7](frontier_sciences/cbms_201608_7.md)
     - 海洋技術環境学専攻:
         - 2022年度:
             - [第1~6問](frontier_sciences/otpe_2022_all.md)
