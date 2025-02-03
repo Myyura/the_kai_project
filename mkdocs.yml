@@ -383,6 +383,9 @@ nav:
             - 8月 問題12: kakomonn/tokyo_university/frontier_sciences/cbms_201708_12.md
           - 2017年度:
             - 8月 問題7: kakomonn/tokyo_university/frontier_sciences/cbms_201608_7.md
+            - 8月 問題8: kakomonn/tokyo_university/frontier_sciences/cbms_201608_8.md
+            - 8月 問題9: kakomonn/tokyo_university/frontier_sciences/cbms_201608_9.md
+            - 8月 問題10: kakomonn/tokyo_university/frontier_sciences/cbms_201608_10.md
         - 海洋技術環境学専攻:
           - 2022年度:
             - 第1~6問: kakomonn/tokyo_university/frontier_sciences/otpe_2022_all.md
@@ -441,7 +444,7 @@ nav:
           - 2024年度:
             - グラフ理論: kakomonn/kyoto_university/informatics/amp_202308_graph_theory.md
             - 凸最適化: kakomonn/kyoto_university/informatics/amp_202308_convex_optimaztion.md
-            - 常微分方程式: kakomonn/kyoto_university/informatics/amp_202308_ordinary_differential_equations
+            - 常微分方程式: kakomonn/kyoto_university/informatics/amp_202308_ordinary_differential_equations.md
           - 2023年度:
             - 線形計画: kakomonn/kyoto_university/informatics/amp_202208_linear_programming.md
             - グラフ理論: kakomonn/kyoto_university/informatics/amp_202208_graph_theory.md

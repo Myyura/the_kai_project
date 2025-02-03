@@ -1,3 +1,3 @@
 # Tags
 
-<!-- material/tags { toc: true } -->
+<!-- material/tags  -->

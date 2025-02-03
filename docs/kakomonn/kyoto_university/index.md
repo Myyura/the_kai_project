@@ -61,7 +61,7 @@ tags:
             - [力学系数学](informatics/amp_201808_mathematics_for_dynamical_systems.md)
         - 2018年度:
             - [線形計画](informatics/amp_201708_linear_programming.md)
-            - [アルゴリズム基礎](informatics/amp_201808_algorithm.md)
+            - [アルゴリズム基礎](informatics/amp_201708_algorithm.md)
             - [オペレーションズ・リサーチ](informatics/amp_201708_operation_research.md)
             - [力学系数学](informatics/amp_201708_mathematics_for_dynamical_systems.md)
         - 2017年度:
