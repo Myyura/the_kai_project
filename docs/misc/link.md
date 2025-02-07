@@ -19,6 +19,7 @@ title: 友情链接
 - [samparker, 广岛大学情报科学过去问](https://zhuanlan.zhihu.com/p/679651389)
 - [kainoj, UTokyo CS](https://github.com/kainoj/utokyo-cs)
 - [tomfluff, UTokyo CI](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam)
+- [YuanzhongLi, UTokyo CI Programming](https://qiita.com/YuanzhongLi)
 
 
 # 未来你可能用的到的
