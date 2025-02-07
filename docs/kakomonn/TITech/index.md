@@ -31,6 +31,9 @@ tags:
             - [午前 問題1](engineering/sc_2022_1.md)
             - [午前 問題3](engineering/sc_2022_3.md)
     - 電気電子系:
+        - 2024年度:
+            - [数学 1](engineering/ee_202308_math_1.md)
+            - [数学 2](engineering/ee_202308_math_2.md)
         - 2022年度:
             - [数学 2](engineering/ee_202108_math_2.md)
         - 2018年度:
