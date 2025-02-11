@@ -156,39 +156,39 @@ If the branch is taken, the instruction after the branch (NOP in this case) need
 
 1. **Number of cache lines**:
 
-   $$
-   \text{Number of cache lines} = \frac{\text{Cache size}}{\text{Cache line size}} = \frac{32 \times 2^{10} \text{ bytes}}{64 \text{ bytes}} = 512 \text{ cache lines}
-   $$
+$$
+\text{Number of cache lines} = \frac{\text{Cache size}}{\text{Cache line size}} = \frac{32 \times 2^{10} \text{ bytes}}{64 \text{ bytes}} = 512 \text{ cache lines}
+$$
 
 2. **Number of sets**:
 
-   $$
-   \text{Number of sets} = \frac{\text{Number of cache lines}}{\text{Associativity}} = \frac{512}{4} = 128 \text{ sets}
-   $$
+$$
+\text{Number of sets} = \frac{\text{Number of cache lines}}{\text{Associativity}} = \frac{512}{4} = 128 \text{ sets}
+$$
 
 3. **Index bit width**:
 
-   $$
-   \text{Index bit width} = \log_2(\text{Number of sets}) = \log_2(128) = 7 \text{ bits}
-   $$
+$$
+\text{Index bit width} = \log_2(\text{Number of sets}) = \log_2(128) = 7 \text{ bits}
+$$
 
 4. **Block offset bit width**:
 
-   $$
-   \text{Block offset bit width} = \log_2(\text{Cache line size}) = \log_2(64) = 6 \text{ bits}
-   $$
+$$
+\text{Block offset bit width} = \log_2(\text{Cache line size}) = \log_2(64) = 6 \text{ bits}
+$$
 
 5. **Tag bit width**:
 
-   $$
-   \text{Tag bit width} = \text{Address width} - \text{Index bit width} - \text{Block offset bit width} = 32 - 7 - 6 = 19 \text{ bits}
-   $$
+$$
+\text{Tag bit width} = \text{Address width} - \text{Index bit width} - \text{Block offset bit width} = 32 - 7 - 6 = 19 \text{ bits}
+$$
 
 6. **Total RAM capacity for storing tags**:
 
-   $$
-   \text{Total tag storage} = \text{Number of sets} \times \text{Associativity} \times \text{Tag bit width} = 128 \times 4 \times 19 = 9728 \text{ bits}
-   $$
+$$
+\text{Total tag storage} = \text{Number of sets} \times \text{Associativity} \times \text{Tag bit width} = 128 \times 4 \times 19 = 9728 \text{ bits}
+$$
 
 ### (4)
 
