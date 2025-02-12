@@ -15,7 +15,7 @@ Consider a processor $P$ with a direct-mapped data cache that stores 256 bytes o
 The following program $S$ applies the average filter with size 3 to the one-dimensional array $A$ with head address `0x1000` and size 402 and stores the result on the one-dimensional array $B$ with head address `0x2000` and size 400. Each element of the arrays $A$ and $B$ is a 32-bit signed integer. The behavior of each instruction is described as a comment (the description after #) in the program, where `memory[addr]` represents a memory access to the address `addr`. The initial values of the registers `x5`, `x6`, and `x7` are `0x1640`, `0x1000`, and `0x2000`, respectively.
 
 ```
-Instruction  0)    addi x2, x0, 3     # x2 <- x0 + 3
+Instruction  0)    addi x2, x0, 3      # x2 <- x0 + 3
 Instruction  1)    Loop: lw x3, 0(x6)  # x3 <- memory[x6 + 0]
 Instruction  2)    lw x9, 4(x6)        # x9 <- memory[x6 + 4]
 Instruction  3)    add x8, x8, x9      # x8 <- x8 + x9
