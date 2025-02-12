@@ -10,10 +10,10 @@ tags:
 [zephyr](https://inshi-notes.zephyr-zdz.space/)
 
 ## **Description**
-Let $\Sigma_1 = \{a, b\}$ and $\Sigma_2 = \{t, f\}$. For a word $w \in \Sigma_1^*$, we write $|w|$ for the length of $w$. We also write $\epsilon$ for the empty word (i.e., the word of length 0). For a word $w \in \Sigma_1^*$, we define the function $f_w \in \Sigma_1^* \to \Sigma_2^{|w|}$ by:
+Let $\Sigma_1 = \{a, b\}$ and $\Sigma_2 = \{t, f\}$. For a word $w \in \Sigma_1^*$, we write $|w|$ for the length of $w$. We also write $\epsilon$ for the empty word (i.e., the word of length 0). For a word $w \in \Sigma_1^*$, we define the function $f_w \in \Sigma_1^{*} \to \Sigma_2^{*}$ by:
 
 $$
-f_w(w') = \{x_1 \cdots x_{|w'|} \in \Sigma_2^{|w'|} \mid x_i = \begin{cases} 
+f_w(w') = \{x_1 \cdots x_{|w'|} \in \Sigma_2^{*} \mid x_i = \begin{cases} 
 t & \text{if } w' = uwv \text{ for some } u, v \in \Sigma_1^* \text{ such that } |u| = i - 1 \\
 f & \text{otherwise}
 \end{cases} \text{ for each } i \in \{1, \ldots, |w'|\} \}.
@@ -25,7 +25,7 @@ $$
 f_w^*(L) = \{f_w(w') \mid w' \in L \}.
 $$
 
-For example, $f_{ab}^* (\{(abb)^n \mid n \geq 0 \}) = \{(tfff)^n \mid n \geq 0 \}$.
+For example, $f_{ab}^* (\{(abb)^n \mid n \geq 0 \}) = \{(tff)^n \mid n \geq 0 \}$.
 
 Answer the following questions.
 
@@ -41,10 +41,10 @@ Answer the following questions.
 
 ---
 
-设 $\Sigma_1 = \{a, b\}$ 和 $\Sigma_2 = \{t, f\}$。对于一个单词 $w \in \Sigma_1^*$，我们用 $|w|$ 表示 $w$ 的长度。我们也用 $\epsilon$ 表示空字（即长度为 0 的字）。对于一个单词 $w \in \Sigma_1^*$，我们定义函数 $f_w \in \Sigma_1^* \to \Sigma_2^{|w|}$ 如下：
+设 $\Sigma_1 = \{a, b\}$ 和 $\Sigma_2 = \{t, f\}$。对于一个单词 $w \in \Sigma_1^*$，我们用 $|w|$ 表示 $w$ 的长度。我们也用 $\epsilon$ 表示空字（即长度为 0 的字）。对于一个单词 $w \in \Sigma_1^*$，我们定义函数 $f_w \in \Sigma_1^* \to \Sigma_2^{*}$ 如下：
 
 $$
-f_w(w') = \{x_1 \cdots x_{|w'|} \in \Sigma_2^{|w'|} \mid x_i = \begin{cases} 
+f_w(w') = \{x_1 \cdots x_{|w'|} \in \Sigma_2^{*} \mid x_i = \begin{cases} 
 t & \text{if } w' = uwv \text{ for some } u, v \in \Sigma_1^* \text{ such that } |u| = i - 1 \\
 f & \text{otherwise}
 \end{cases} \text{ for each } i \in \{1, \ldots, |w'|\} \}.
@@ -56,7 +56,7 @@ $$
 f_w^*(L) = \{f_w(w') \mid w' \in L \}.
 $$
 
-例如，$f_{ab}^* (\{(abb)^n \mid n \geq 0 \}) = \{(tfff)^n \mid n \geq 0 \}$。
+例如，$f_{ab}^* (\{(abb)^n \mid n \geq 0 \}) = \{(tff)^n \mid n \geq 0 \}$。
 
 回答以下问题。
 
