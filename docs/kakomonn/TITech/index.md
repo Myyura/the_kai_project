@@ -45,6 +45,7 @@ tags:
             - [数学 2](engineering/ee_201908_math_2.md)
         - 2019年度:
             - [数学 1](engineering/ee_201808_math_1.md)
+            - [数学 2](engineering/ee_201808_math_2.md)
         - 2018年度:
             - [数学 1](engineering/ee_201708_math_1.md)
             - [数学 2](engineering/ee_201708_math_2.md)
