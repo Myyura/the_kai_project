@@ -7,8 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 プログラミング
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff) 
-[FunTotal](https://github.com/FunTotal)
+[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/FunTotal)
 
 ## **Description**
 Answer the following questions by writing programs if necessary. Store the programs in the USB flash drive before the examination ends.
@@ -112,6 +111,7 @@ Decrypt `data5.txt` by using this fact. The decrypted data is UTF-8 text. Write 
 Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2020-Summer) for the sample data files.
 
 ### (1)
+#### tomfluff's solution
 
 ```python
 # I thought that the file is in bits, but it seems like it is actually test
@@ -182,7 +182,10 @@ if __name__ == "__main__":
     main()
 ```
 
+#### FunTotal's solution
+
 C++ solution:
+
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
@@ -221,6 +224,7 @@ signed main() {
 ```
 
 ### (2)
+#### tomfluff's solution
 
 ```python
 # Note: They have a mistake in the fefinitions of the question, they say repeat in decending order.
@@ -260,6 +264,8 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+#### FunTotal's solution
 
 C++ solution:
 ```c++
@@ -323,6 +329,7 @@ signed main() {
 ```
 
 ### (3)
+#### tomfluff's solution
 
 ```python
 bZERO = (0).to_bytes(1,'big')
@@ -390,6 +397,7 @@ if __name__ == "__main__":
     main()
 ```
 
+#### FunTotal's solution
 C++ solution:
 ```c++
 #include <bits/stdc++.h>
@@ -463,6 +471,7 @@ signed main() {
 ```
 
 ### (4)
+#### tomfluff's solution
 
 ```python
 def get_letters_by_usage_from_file(f):
@@ -502,6 +511,7 @@ if __name__ == "__main__":
 ```
 
 ### (5)
+#### tomfluff's solution
 
 ```python
 # Can also use 'factor' linux command
@@ -522,6 +532,8 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+#### FunTotal's solution
 
 completed code:
 ```python
