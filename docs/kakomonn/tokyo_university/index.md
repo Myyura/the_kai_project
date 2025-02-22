@@ -145,6 +145,9 @@ tags:
             - [8月 専門科目I 問題1](IST/cs_201908_senmon_I_1.md)
             - [8月 専門科目I 問題2](IST/cs_201908_senmon_I_2.md)
             - [8月 専門科目I 問題3](IST/cs_201908_senmon_I_3.md)
+            - [8月 専門科目II 問題4](IST/cs_201908_senmon_II_4.md)
+            - [8月 専門科目II 問題5](IST/cs_201908_senmon_II_5.md)
+            - [8月 専門科目II 問題6](IST/cs_201908_senmon_II_6.md)
         - 2019年度:
             - [8月 専門科目I 問題2](IST/cs_201808_senmon_I_2.md)
             - [8月 専門科目I 問題3](IST/cs_201808_senmon_I_3.md)
