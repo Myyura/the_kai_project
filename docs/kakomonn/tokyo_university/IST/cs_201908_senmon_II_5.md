@@ -46,9 +46,7 @@ Answer the following questions.
 To approximate the second derivative $f_k''$ at $x_k$ using the values $f_{k-1}$, $f_k$, and $f_{k+1}$, we can use the central difference formula:
 
 $$
-
 f_k'' \approx \frac{f_{k-1} - 2f_k + f_{k+1}}{h^2}
-
 $$
 
 The error in this approximation is $O(h^2)$. This formula is derived from the Taylor series expansion of $f(x)$ around $x_k$.
@@ -62,9 +60,7 @@ The approximation for $f_k''$ becomes more accurate as $h$ approaches zero theor
 The composite trapezoidal rule $J_n$ for approximating the integral $J$ is given by:
 
 $$
-
 J_n = \frac{h}{2} \left( f_0 + 2\sum_{i=1}^{n-1} f_i + f_n \right)
-
 $$
 
 where $h = \frac{b-a}{n}$ and $f_i = f(x_i)$.
@@ -74,9 +70,7 @@ where $h = \frac{b-a}{n}$ and $f_i = f(x_i)$.
 When $f(x)$ is approximated by a quadratic function on each subinterval, the error $E_n = J_n - J$ can be related to the integral approximations $J_n$ and $J_{2n}$ as follows:
 
 $$
-
 E_n = \frac{J_{2n} - J_n}{3}
-
 $$
 
 This formula arises from the fact that the error in the trapezoidal rule is proportional to $h^2$, and doubling the number of intervals reduces the error by a factor of 4. By subtracting the two approximations, we can eliminate the leading order error term, leaving a smaller error proportional to $h^4$.

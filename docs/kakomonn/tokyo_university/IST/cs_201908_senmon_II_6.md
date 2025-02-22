@@ -45,15 +45,15 @@ The random variable $Y$ is defined as $Y = \theta X + Z$, where $X \sim N(\mu, 1
 
 1. **Expectation of $Y$**:
 
-   $$
-   \mathbb{E}[Y] = \mathbb{E}[\theta X + Z] = \theta \mathbb{E}[X] + \mathbb{E}[Z] = \theta \mu + 0 = \theta \mu
-   $$
+$$
+\mathbb{E}[Y] = \mathbb{E}[\theta X + Z] = \theta \mathbb{E}[X] + \mathbb{E}[Z] = \theta \mu + 0 = \theta \mu
+$$
 
 2. **Variance of $Y$**:
 
-   $$
-   \mathbb{V}[Y] = \mathbb{V}[\theta X + Z] = \theta^2 \mathbb{V}[X] + \mathbb{V}[Z] = \theta^2 \cdot 1 + 1 = \theta^2 + 1
-   $$
+$$
+\mathbb{V}[Y] = \mathbb{V}[\theta X + Z] = \theta^2 \mathbb{V}[X] + \mathbb{V}[Z] = \theta^2 \cdot 1 + 1 =\theta^2 + 1
+$$
 
 ### (2)
 
@@ -61,15 +61,15 @@ To find the conditional distribution of $X$ given $Y$, note that $Y = \theta X +
 
 1. **Expectation of $X|Y$**:
 
-   $$
-   \mathbb{E}[X|Y] = \mu + \frac{\theta}{\theta^2 + 1} (Y - \theta\mu)
-   $$
+$$
+\mathbb{E}[X|Y] = \mu + \frac{\theta}{\theta^2 + 1} (Y - \theta\mu)
+$$
 
 2. **Variance of $X|Y$**:
 
-   $$
-   \mathbb{V}[X|Y] = \frac{1}{\theta^2 + 1}
-   $$
+$$
+\mathbb{V}[X|Y] = \frac{1}{\theta^2 + 1}
+$$
 
 This can be derived using the properties of conditional distributions for bivariate normal distributions.
 
