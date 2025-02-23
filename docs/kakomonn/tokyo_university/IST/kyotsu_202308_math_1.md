@@ -293,22 +293,22 @@ Given a vector $\mathbf{y} \in \mathbb{R}^3$, the orthogonal projection of $\mat
 2. **Vector Projection**:
    - The vector projection of $\mathbf{y}$ onto the line parallel to $\mathbf{n}_i$ is then:
 
-   $$
-   \text{Proj}_{\mathbf{n}_i}(\mathbf{y}) = (\mathbf{n}_i^\mathrm{T} \mathbf{y}) \mathbf{n}_i.
-   $$
+$$
+\text{Proj}_{\mathbf{n}_i}(\mathbf{y}) = (\mathbf{n}_i^\mathrm{T} \mathbf{y}) \mathbf{n}_i.
+$$
 
 3. **Matrix Representation**:
    - This vector projection can be represented in matrix form. Specifically, if we want to express this operation as a matrix multiplication where $\mathbf{W}_i \mathbf{y}$ gives the projection, then the matrix $\mathbf{W}_i$ must satisfy:
 
-   $$
-   \mathbf{W}_i \mathbf{y} = (\mathbf{n}_i^\mathrm{T} \mathbf{y}) \mathbf{n}_i.
-   $$
+$$
+\mathbf{W}_i \mathbf{y} = (\mathbf{n}_i^\mathrm{T} \mathbf{y}) \mathbf{n}_i.
+$$
 
    - To express this operation using a matrix, note that:
 
-   $$
-   \mathbf{W}_i = \mathbf{n}_i \mathbf{n}_i^\mathrm{T}.
-   $$
+$$
+\mathbf{W}_i = \mathbf{n}_i \mathbf{n}_i^\mathrm{T}.
+$$
 
    - This is because when $\mathbf{W}_i$ acts on a vector $\mathbf{y}$, it first computes the dot product $\mathbf{n}_i^\mathrm{T} \mathbf{y}$ (which is a scalar), and then multiplies this scalar by $\mathbf{n}_i$ to produce the vector projection.
 
