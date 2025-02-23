@@ -62,6 +62,10 @@ tags:
             - [セッション 1](engineering/tmi_2022_session_1.md)
 - 情報理工学研究科:
     - 共通:
+        - 2024年度:
+            - [数学 第1問](IST/kyotsu_202308_math_1.md)
+            - [数学 第2問](IST/kyotsu_202308_math_2.md)
+            - [数学 第3問](IST/kyotsu_202308_math_3.md)
         - 2023年度:
             - [数学 第1問](IST/kyotsu_2023_math_1.md)
             - [数学 第2問](IST/kyotsu_2023_math_2.md)
