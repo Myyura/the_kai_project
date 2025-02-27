@@ -268,6 +268,7 @@ if __name__ == "__main__":
 #### FunTotal's solution
 
 C++ solution:
+
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
@@ -398,7 +399,9 @@ if __name__ == "__main__":
 ```
 
 #### FunTotal's solution
+
 C++ solution:
+
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
