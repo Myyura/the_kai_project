@@ -211,6 +211,8 @@ tags:
         - 2011年度:
             - [専門 第5問](IST/denshi_2011_senmon_5.md)
     - 創造情報学:
+        - 2022年度:
+            - [8月 プログラミング](IST/ci_202108_programming.md)
         - 2020年度:
             - [8月 筆記試験 第1問](IST/ci_201908_written_exam_1.md)
             - [8月 筆記試験 第2問](IST/ci_201908_written_exam_2.md)
