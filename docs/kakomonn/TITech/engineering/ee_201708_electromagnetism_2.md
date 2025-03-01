@@ -3,6 +3,7 @@ comments: false
 title: 東京工業大学 工学院 電気電子系 2017年8月実施 電磁気学2
 tags:
   - TITech
+  - Electromagnetism
 ---
 # 東京工業大学 工学院 電気電子系 2017年8月実施 電磁気学2
 
@@ -30,7 +31,7 @@ Zero, 祭音Myyura
 (6) 電極 $B$ を一定の速度 $v$ で $x$ 軸の正方向に移動させると、$AC$ を結ぶ導線に電流が流れた。この電流 $I$ の大きさと向きを求めよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_2018_electromagnetism_2_p1.png" width="385" height="420" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_201708_electromagnetism_2_p1.png" width="385" alt=""/>
 </figure>
 
 ## **Kai**
@@ -77,10 +78,10 @@ $x_B = \frac{d}{2}$で, $F = 0$
 ### (4)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_2018_electromagnetism_2_p2.png" width="350" height="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_201708_electromagnetism_2_p2.png" width="350" alt=""/>
 </figure>
 
-電荷保存則より,
+電荷保存則より、
 
 $$
 \begin{aligned}
@@ -92,7 +93,7 @@ C_C' &= \frac{\varepsilon_0 S}{d - x_B}
 \end{aligned}
 $$
 
-スイッチを開いた後のそれぞれの電極間の電位差を $V'$ とすると,
+スイッチを開いた後のそれぞれの電極間の電位差を $V'$ とすると、
 
 $$
 \begin{aligned}
@@ -107,7 +108,7 @@ V' &= \frac{4V}{d(\frac{1}{x_B} + \frac{1}{d - x_B})} \\
 \end{aligned}
 $$
 
-よって,　静電エネルギーは
+よって、静電エネルギーは
 
 $$
 \begin{aligned}
@@ -133,7 +134,7 @@ Q_C' &= C_C'V' \\
 $$
 
 ### (6)
-$x_B > \frac{d}{2}$ より,
+$x_B > \frac{d}{2}$ より、
 
 $$
 \begin{aligned}
@@ -143,4 +144,4 @@ I &= |-\frac{\text{d}Q_A'}{\text{d}t}| = |\frac{\text{d}Q_C'}{\text{d}t}| \\
 \end{aligned}
 $$
 
-$A$ から $C$ に向かう向き
+$A$ から $C$ に向かう向き。
