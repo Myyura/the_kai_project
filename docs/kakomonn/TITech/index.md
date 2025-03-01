@@ -32,27 +32,28 @@ tags:
             - [午前 問題3](engineering/sc_2022_3.md)
     - 電気電子系:
         - 2024年度:
-            - [数学 1](engineering/ee_202308_math_1.md)
-            - [数学 2](engineering/ee_202308_math_2.md)
+            - [数学1](engineering/ee_202308_math_1.md)
+            - [数学2](engineering/ee_202308_math_2.md)
+            - [電磁気学1](engineering/ee_202308_electromagnetism_1.md)
         - 2023年度:
-            - [数学 1](engineering/ee_202208_math_1.md)
-            - [数学 2](engineering/ee_202208_math_2.md)
+            - [数学1](engineering/ee_202208_math_1.md)
+            - [数学2](engineering/ee_202208_math_2.md)
         - 2022年度:
-            - [数学 1](engineering/ee_202108_math_1.md)
-            - [数学 2](engineering/ee_202108_math_2.md)
+            - [数学1](engineering/ee_202108_math_1.md)
+            - [数学2](engineering/ee_202108_math_2.md)
         - 2020年度:
-            - [数学 1](engineering/ee_201908_math_1.md)
-            - [数学 2](engineering/ee_201908_math_2.md)
+            - [数学1](engineering/ee_201908_math_1.md)
+            - [数学2](engineering/ee_201908_math_2.md)
         - 2019年度:
-            - [数学 1](engineering/ee_201808_math_1.md)
-            - [数学 2](engineering/ee_201808_math_2.md)
-            - [数学 3](engineering/ee_201808_math_3.md)
+            - [数学1](engineering/ee_201808_math_1.md)
+            - [数学2](engineering/ee_201808_math_2.md)
+            - [数学3](engineering/ee_201808_math_3.md)
         - 2018年度:
-            - [数学 1](engineering/ee_201708_math_1.md)
-            - [数学 2](engineering/ee_201708_math_2.md)
-            - [数学 3](engineering/ee_201708_math_3.md)
-            - [電磁気学 1](engineering/ee_2018_electromagnetism_1.md)
-            - [電磁気学 2](engineering/ee_2018_electromagnetism_2.md)
+            - [数学1](engineering/ee_201708_math_1.md)
+            - [数学2](engineering/ee_201708_math_2.md)
+            - [数学3](engineering/ee_201708_math_3.md)
+            - [電磁気学1](engineering/ee_201708_electromagnetism_1.md)
+            - [電磁気学2](engineering/ee_201708_electromagnetism_2.md)
     - 情報通信系:
         - 2020年度:
             - [H2.](engineering/ict_2020_H2.md)
