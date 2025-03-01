@@ -1,24 +1,29 @@
 ---
 comments: false
-title: 東京大学 情報理工学系研究科 創造情報学専攻 2022年8月実施 プログラミング
+title: 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 プログラミング
 tags:
   - Tokyo-University
-  - Least Squares Method
+  - Programming
+  - Least-Squares-Method
 ---
-# 東京大学 情報理工学系研究科 創造情報学専攻 2022年8月実施 プログラミング
+# 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 プログラミング
 
 ## **Author**
 [FunTotal](https://github.com/FunTotal)
 
 ## **Description**
 We store the daily numbers of newly infected people with some virus (new infections, below) in a text fle in chronological order. The numbers are separated by colons (\:). For example.when the numbers of new infections for 5 days are
+
 ```text
 621 591 907 1121 1032
 ```
+
 the following text
+
 ```text
 621:591:907:1121:1032
 ```
+
 is stored in a fle.
 
 ### Problem 1
@@ -28,77 +33,81 @@ is stored in a fle.
 
 (3) For $x_0,x_1,x_2,x_3,\dots x_{n-1}$, the numbers of new infections stored in the text fle `infections.txt`,the new-infection increment on a day is the diference $x_i - x_{i-1}$ between the number of the new infections $x_i$ on that day and $x_{i-1}$ on the day before. Here, the number of new infections on the day before the frst day is zero.
 Concatenate the new-infection increment for every day into one character sequence and store it in the text file `diff.txt`, Furthermore, count the characters in this sequence and write that number on the answer sheet, The newline character is not counted. Start with `+` for a non-negative number and start with `-` for a negative number.For example,when the new-infection increments are
+
 `621 -30 0 -316 214 -89`
+
 the following character sequence
+
 `+621-30+0-316+214-89`
+
 is stored and the number of characters is 20
 
-(4)For the numbers of new infections in the text fle `infections.txt`, find the shortest period among the periods in which the sum of the new-infection increments is maximized. Write that period on the answer sheet. If more than one such period is found, write all the periods. The frst day is Day 1. For example, answer like “From Day 8 to 24”.Furthermore.calculate the sum of the new-infection increments during that period, and write that sum onthe answer sheet.
+(4) For the numbers of new infections in the text fle `infections.txt`, find the shortest period among the periods in which the sum of the new-infection increments is maximized. Write that period on the answer sheet. If more than one such period is found, write all the periods. The frst day is Day 1. For example, answer like “From Day 8 to 24”.Furthermore.calculate the sum of the new-infection increments during that period, and write that sum onthe answer sheet.
 
 ### Problem 2
-(1) Let \( x_0, x_1, x_2, x_3, ..., x_{n-1} \) be the numbers of new infections on every day stored in the text file `infections.txt`. We define the following function
+(1) Let $x_0, x_1, x_2, x_3, ..., x_{n-1}$ be the numbers of new infections on every day stored in the text file `infections.txt`. We define the following function
 
-\[
+$$
 ave(i) = \frac{1}{7} \sum_{k=-3}^{3} x_{i+k}
-\]
+$$
 
-where \( 3 \leq i < n - 3 \).
+where $3 \leq i < n - 3$.
 
-Calculate the maximum and minimum values of \( ave(i) \) and write them on the answer sheet. Furthermore, calculate the sum
+Calculate the maximum and minimum values of $ave(i)$ and write them on the answer sheet. Furthermore, calculate the sum
 
-\[
+$$
 \sum_{i=3}^{n-4} ave(i)
-\]
+$$
 
 and write it on the answer sheet. Round those values to 4 decimal places.
 
-(2) Let \( x_0, x_1, x_2, x_3, ..., x_{m-1} \) and \( y_0, y_1, y_2, y_3, ..., y_{n-1} \) be the numbers of new infections stored in text files \( x \) and \( y \), respectively (\( m \geq n \)). We define \( s(x, y) \), the similarity score between these two files, as
+(2) Let $x_0, x_1, x_2, x_3, ..., x_{m-1}$ and $y_0, y_1, y_2, y_3, ..., y_{n-1}$ be the numbers of new infections stored in text files $x$ and $y$, respectively ($m \geq n$). We define $s(x, y)$, the similarity score between these two files, as
 
-\[
+$$
 s(x, y) = - \min_{i} \sum_{k=0}^{n-1} (x_{k+i} - y_k)^2
-\]
+$$
 
-where \( 0 \leq i \leq m - n \).
+where $0 \leq i \leq m - n$.
 
 Among arbitrary pairs of two files in the folder `data`, find the pair with the highest similarity score and write the two file names on the answer sheet. Furthermore, write the similarity score on the answer sheet. When more than one such pair is found, write all the pairs and their scores.
 
-(3) Let \( x_0, x_1, x_2, x_3, ..., x_{n-1} \) be the numbers of new infections stored in the text file `infections2.txt`. These numbers are denoted by \( \{x_i\} \).
+(3) Let $x_0, x_1, x_2, x_3, ..., x_{n-1}$ be the numbers of new infections stored in the text file `infections2.txt`. These numbers are denoted by $\{x_i\}$.
 
-We find the approximate formula \( ai + k \) that has a good fit to these numbers \( \{x_i\} \). For example, the approximate value for \( x_3 \) is \( 3a + k \). Here, \( a \) and \( k \) are the constants that minimize the error
+We find the approximate formula $ai + k$ that has a good fit to these numbers $\{x_i\}$. For example, the approximate value for $x_3$ is $3a + k$. Here, $a$ and $k$ are the constants that minimize the error
 
-\[
+$$
 \sum_{i=0}^{n-1} (ai + k - x_i)^2
-\]
+$$
 
-for \( \{x_i\} \). They are calculated as follows.
+for $\{x_i\}$. They are calculated as follows.
 
-\[
+$$
 a = \frac{n \sum i x_i - \sum i \sum x_i}{n \sum i^2 - (\sum i)^2}
-\]
+$$
 
-\[
+$$
 k = \frac{\sum i^2 \sum x_i - \sum i x_i \sum i}{n \sum i^2 - (\sum i)^2}
-\]
+$$
 
-where \( \sum \) represents \( \sum_{i=0}^{n-1} \).
+where $\sum$ represents $\sum_{i=0}^{n-1}$.
 
-Calculate \( a \) and \( k \) rounded to 4 decimal places and write them on the answer sheet.
+Calculate $a$ and $k$ rounded to 4 decimal places and write them on the answer sheet.
 
-(4) Let \( x_0, x_1, x_2, x_3, ..., x_{n-1} \) be the numbers of new infections stored in the text file `infections2.txt`. For a given \( s \), a sub-sequence \( x_s, x_{s+1}, x_{s+2}, ..., x_{s+30} \) of these numbers is denoted by \( \{x_{s+i}\} \). Here, \( 0 \leq s < n - 30 \).
+(4) Let $x_0, x_1, x_2, x_3, ..., x_{n-1}$ be the numbers of new infections stored in the text file `infections2.txt`. For a given $s$, a sub-sequence $x_s, x_{s+1}, x_{s+2}, ..., x_{s+30}$ of these numbers is denoted by $\{x_{s+i}\}$. Here, $0 \leq s < n - 30$.
 
-We find the approximate formula \( ka^i \) that has a good fit to a sub-sequence \( \{x_{s+i}\} \). For example, the approximate value of \( x_{s+3} \) is \( ka^3 \). Here, \( a \) and \( k \) are the constants that minimize this error
+We find the approximate formula $ka^i$ that has a good fit to a sub-sequence $\{x_{s+i}\}$. For example, the approximate value of $x_{s+3}$ is $ka^3$. Here, $a$ and $k$ are the constants that minimize this error
 
-\[
+$$
 \sum_{i=0}^{30} (\log_e ka^i - \log_e (x_{s+i} + 1))^2
-\]
+$$
 
-for \( \{x_{s+i}\} \).
-Find \( s \) such that it maximizes the value of \( a \) in the approximate formula \( ka^i \) for \( \{x_{s+i}\} \). Write the values of \( s, a, k \) for such \( s \) on the answer sheet. Round \( a \) and \( k \) to 4 decimal places. When more than one such \( s \) is found, write the values of \( s, a, k \) for every \( s \).
+for $\{x_{s+i}\}$.
+Find $s$ such that it maximizes the value of $a$ in the approximate formula $ka^i$ for $\{x_{s+i}\}$. Write the values of $s, a, k$ for such $s$ on the answer sheet. Round $a$ and $k$ to 4 decimal places. When more than one such $s$ is found, write the values of $s, a, k$ for every $s$.
 
 
 ## **Kai**
 We currently do not have the corresponding sample data files. If you have them and are willing to share, please submit a PR.
-The author create some simple samples(Thus the file-related parts in the following code do not fully correspond to the problem statement but rather to the data file created by the author) and the completed code files as well as the simple samples are in this [repository](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2020-Summer).
+The author create some simple samples (thus the file-related parts in the following code do not fully correspond to the problem statement but rather to the data file created by the author) and the completed code files as well as the simple samples are in this [repository](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2020-Summer).
 
 ### Problem 1
 #### (1)
