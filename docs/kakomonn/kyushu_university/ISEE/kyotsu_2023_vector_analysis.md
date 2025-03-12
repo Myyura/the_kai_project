@@ -45,40 +45,42 @@ $$
 
 ### (2)
 
+![](https://github.com/user-attachments/assets/22b3e007-c837-403d-9756-76c917dc3770)
+
 
 $S$は、半球面$S_1:x^2+y^2+z^2=4,z\ge 0$と、円盤$S_2:x^2+y^2\le 4, z=0$に分け、境界$\partial S_1$は$x^2 + y^2 = 4,z = 0$で定義される円とする。
 
 Stokes定理を用い、外向きなので反時計回りに境界をパラメータ化表示：
 
 $$
-\bold r (t) = (2\cos t, 2\sin t, 0), \, t\in[0,2\pi]
+\mathbf{r} (t) = (2\cos t, 2\sin t, 0), \, t\in[0,2\pi]
 $$
 
 微分すると、
 
 $$
-{\dd r\over \dd t} = (-2\sin t, 2\cos t, 0),
+{\mathrm{d} r\over \mathrm{d} t} = (-2\sin t, 2\cos t, 0),
 $$
 
 つまり
 
 $$
-\dd r = {\dd r\over \dd t}\dd t = (-2\sin t, 2\cos t, 0)\dd t.
+\mathrm{d} r = {\mathrm{d} r\over \mathrm{d} t}\mathrm{d} t = (-2\sin t, 2\cos t, 0)\mathrm{d} t.
 $$
 
 ゆえに
 
 $$
 \begin{align*}
-\int_{S_1} \nabla \times \mathbf{F} \cdot \dd \mathbf{S} & = \oint_{\partial S} \mathbf{F} \cdot \dd \mathbf{r} 
-\\ & = \int_0^{2\pi} \bold F(\bold r(t))\cdot \dd bold r(t) 
-\\ & = \int_0^{2\pi} (2\sin t, -2\cos t, 0)\cdot (-2\sin t, 2\cos t, 0)\dd t
-\\ & = -4\int_{0}^{2\pi} \dd t 
+\int_{S_1} \nabla \times \mathbf{F} \cdot \mathrm{d} \mathbf{S} & = \oint_{\partial S} \mathbf{F} \cdot \mathrm{d} \mathbf{r} 
+\\ & = \int_0^{2\pi} \mathbf{F}(\mathbf{r}(t))\cdot \mathrm{d} \mathbf{r}(t) 
+\\ & = \int_0^{2\pi} (2\sin t, -2\cos t, 0)\cdot (-2\sin t, 2\cos t, 0)\mathrm{d} t
+\\ & = -4\int_{0}^{2\pi} \mathrm{d} t 
 \\ & = -8\pi
 \end{align*}
 $$
 
-$S_2$に関する面積分を求めるために、$\bold F$の回転を求める。
+$S_2$に関する面積分を求めるために、$\mathbf{F}$の回転を求める。
 
 $$
 \nabla \times \mathbf{F} =
@@ -104,4 +106,3 @@ $$
 $$
 \int_{S} \nabla \times \mathbf{F} \cdot d\mathbf{S} = \int_{S_1} \nabla \times \mathbf{F} \cdot d\mathbf{S} + \int_{S_2} \nabla \times \mathbf{F} \cdot d \mathbf{S} = 0
 $$
-![image](https://github.com/user-attachments/assets/22b3e007-c837-403d-9756-76c917dc3770)
