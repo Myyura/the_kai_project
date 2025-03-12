@@ -91,3 +91,8 @@
   .md-typeset table:not([class]) {
     border-radius: var(--base-border-radius);
   }
+
+.md-typeset p, .md-typeset li {
+    word-break: break-word; /* Forced long word line wrap */
+    white-space: normal; /* Ensure text wrapping normally */
+}
