@@ -75,6 +75,7 @@ $$
 \\ & = \int_0^{2\pi} (2\sin t, -2\cos t, 0)\cdot (-2\sin t, 2\cos t, 0)\dd t
 \\ & = -4\int_{0}^{2\pi} \dd t 
 \\ & = -8\pi
+\end{align*}
 $$
 
 $S_2$に関する面積分を求めるために、$\bold F$の回転を求める。
