@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/22b3e007-c837-403d-9756-76c917dc3770)---
+---
 comments: false
 title: 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2023年度 ベクトル解析
 tags:
@@ -49,18 +49,26 @@ $$
 $S$は、半球面$S_1:x^2+y^2+z^2=4,z\ge 0$と、円盤$S_2:x^2+y^2\le 4, z=0$に分け、境界$\partial S_1$は$x^2 + y^2 = 4,z = 0$で定義される円とする。
 
 Stokes定理を用い、外向きなので反時計回りに境界をパラメータ化表示：
+
 $$
 \bold r (t) = (2\cos t, 2\sin t, 0), \, t\in[0,2\pi]
 $$
+
 微分すると、
+
 $$
 {\dd r\over \dd t} = (-2\sin t, 2\cos t, 0),
 $$
+
 つまり
+
 $$
 \dd r = {\dd r\over \dd t}\dd t = (-2\sin t, 2\cos t, 0)\dd t.
 $$
+
 ゆえに
+
+$$
 \begin{align*}
 \int_{S_1} \nabla \times \mathbf{F} \cdot \dd \mathbf{S} & = \oint_{\partial S} \mathbf{F} \cdot \dd \mathbf{r} 
 \\ & = \int_0^{2\pi} \bold F(\bold r(t))\cdot \dd bold r(t) 
@@ -95,3 +103,4 @@ $$
 $$
 \int_{S} \nabla \times \mathbf{F} \cdot d\mathbf{S} = \int_{S_1} \nabla \times \mathbf{F} \cdot d\mathbf{S} + \int_{S_2} \nabla \times \mathbf{F} \cdot d \mathbf{S} = 0
 $$
+![image](https://github.com/user-attachments/assets/22b3e007-c837-403d-9756-76c917dc3770)
