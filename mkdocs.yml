@@ -10,8 +10,29 @@ site_dir: "site/" # where to publish to
 
 theme:
   name: material
+  language: 'zh'
   palette:
+  # Palette toggle for automatic mode
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to light mode
+  # Palette toggle for light mode
+  - media: "(prefers-color-scheme: light)"
+  - scheme: default
     primary: blue grey
+    accent: purple
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  # Palette toggle for dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: black
+    accent: purple
+    toggle:
+      icon: material/brightness-4
+      name: Switch to system preference
   custom_dir: docs/overrides/
 
   font:
