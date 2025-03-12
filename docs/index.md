@@ -163,13 +163,13 @@ Binary-Search, Fibonacci-Sequence, Dynamic-Programming
 其中src字段填写图片的路径, width与height为图片显示大小, alt为图片标题
 
 需要注意的是其中图片的路径, 由于Github对于图片资源处理上的原因, 原始图片路径为
-
-- https://github.com/Myyura/the_kai_project_assets/blob/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png
-
+```html
+https://github.com/Myyura/the_kai_project_assets/blob/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png
+```
 而嵌入时需要将路径更改为
-
-- https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png
-
+```html
+https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png
+```
 当然, 如果你使用其他图床则参考对应图床的使用方法即可。
 
 此外, 尽管markdown中数学公式的编写几乎与latex中相同, 但仍有以下需要注意的地方
