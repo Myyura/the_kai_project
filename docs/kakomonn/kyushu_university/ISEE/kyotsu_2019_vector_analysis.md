@@ -7,7 +7,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2019年度 ベクトル解析
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 直交座標系において, $x, y, z$ 軸方向の単位ベクトルをそれぞれ $\boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k}$ とする．次の各問に答えよ．

@@ -7,7 +7,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2019年度 確率・統計
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 $\Omega = \{(x, y) \in \mathbb{R}^2 \mid 0 \le x \le 1, 0 \le y \le 1 \}$ とする. 連続確率変数の対 $(X, Y)$ の同時密度関数は

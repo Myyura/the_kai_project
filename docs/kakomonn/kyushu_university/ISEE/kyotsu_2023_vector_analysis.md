@@ -7,7 +7,8 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2023年度 ベクトル解析
 
 ## **Author**
-Yu
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), [itsuitsuki](https://github.com/itsuitsuki)
+
 
 ## **Description**
 直交座標系において, $x,y,z$ 軸方向の単位ベクトルをそれぞれ $\mathbf{i,j,k}$ とする。ベクトル場 $\mathbf{F}$ を $\mathbf{F}=y\mathbf{i} - x\mathbf{j} + z\mathbf{k}$ とする。次の各問に答えよ。
@@ -45,7 +46,7 @@ $$
 
 ### (2)
 
-$S$は、半球面$S_1:x^2+y^2+z^2=4,z\ge 0$と、円盤$S_2:x^2+y^2\le 4, z=0$に分け、境界$\partial S_1$は$x^2 + y^2 = 4,z = 0$で定義される円とする。
+$S$ は、半球面 $S_1:x^2+y^2+z^2=4,z\ge 0$ と、円盤 $S_2:x^2+y^2\le 4, z=0$ に分け、境界$\partial S_1$ は $x^2 + y^2 = 4,z = 0$ で定義される円とする。
 
 Stokes定理を用い、外向きなので反時計回りに境界をパラメータ化表示：
 
@@ -77,7 +78,7 @@ $$
 \end{align*}
 $$
 
-$S_2$に関する面積分を求めるために、$\mathbf{F}$の回転を求める。
+$S_2$ に関する面積分を求めるために、$\mathbf{F}$ の回転を求める。
 
 $$
 \nabla \times \mathbf{F} =

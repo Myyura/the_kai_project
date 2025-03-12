@@ -7,7 +7,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻 2022年度 情報理論
 
 ## **Author**
-Yu
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
 
 ## **Description**
 ### 【問 1】
