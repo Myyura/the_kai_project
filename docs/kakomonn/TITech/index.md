@@ -36,6 +36,7 @@ tags:
             - [数学2](engineering/ee_202308_math_2.md)
             - [電磁気学1](engineering/ee_202308_electromagnetism_1.md)
             - [電磁気学2](engineering/ee_202308_electromagnetism_2.md)
+            - [電気回路1](engineering/ee_202308_electrical_circuit_1.md)
         - 2023年度:
             - [数学1](engineering/ee_202208_math_1.md)
             - [数学2](engineering/ee_202208_math_2.md)
