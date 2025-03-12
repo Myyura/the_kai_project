@@ -2,7 +2,7 @@ site_name: The Kai Project
 site_author: 祭音Myyura
 site_url: https://runjp.com/
 repo_url: https://github.com/Myyura/the_kai_project
-edit_uri: https://github.com/Myyura/the_kai_project
+edit_uri: edit/main/docs/
 repo_name: myyura/the_kai_project
 remote_name: https://github.com/Myyura/the_kai_project
 docs_dir: "docs/" # where to find the markdown files
