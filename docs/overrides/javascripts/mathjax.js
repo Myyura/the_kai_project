@@ -18,6 +18,10 @@ window.MathJax = {
       ignoreHtmlClass: ".*|",
       processHtmlClass: "arithmatex"
     },
+    chtml: {
+          linebreaks: { automatic: true }, 
+          displayAlign: 'center' 
+        }
   };
   
   document$.subscribe(() => { 
