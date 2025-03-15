@@ -206,9 +206,9 @@ https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/ky
     
     （1）对于行内公式, 在公式的首尾使用单个`$`符号进行表示, 但不可在`$`后添加无意义的空格
     
-    "\$\alpha = 1\$" 正确
+          "\$\alpha = 1\$" 正确
     
-    "\$ \alpha = 1 \$" 错误, 无法解析
+          "\$ \alpha = 1 \$" 错误, 无法解析
     
     （2）对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考仓库中其他题目的写法。
     
