@@ -1,7 +1,9 @@
 # The Kai Project
-```text
-"Answer to the Ultimate Question of Life, the Universe, and Everything"
-```
+
+!!! quote "Slogan"
+
+    Answer to the Ultimate Question of Life, the Universe, and Everything
+
 
 本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。
 
@@ -10,6 +12,7 @@
 !!! note
 
     **网页端**可以直接从页面左侧的标题栏点击查看自己想要备考的学校题目与题解。
+    
     **手机端**可以点击**左上角**的图标打开标题栏。
 
 
@@ -19,25 +22,27 @@
 
 ## LICENSE
 GNU Affero General Public License v3.0, 试题版权归出题方（校方）所有。
+
 感谢每一位项目的贡献者。
+
 如有侵权, 请通过邮件联系 [376672994@qq.com](mailto:376672994@qq.com)。
 
 
 ## How to contribute
 - 熟悉Git&GitHub：提交PR。
 - 不熟悉Git&GitHub：发送试题/答案至 [376672994@qq.com](mailto:376672994@qq.com)。
-我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。
+- 我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。
 
   
 ## 纠错与讨论：
 - 发现错误请至[Github项目](https://github.com/Myyura/the_kai_project/issues)提交Issue。
 - 加入QQ群交流：925154731。
 
-### 样例说明
+## 样例说明
 以`九州大学 システム情報科学府 情報理工学専攻 2021年度 アルゴリズム・プログラミング`的问题与解答为例, 对文件存放路径, 内容格式进行讲解。
 
 
-#### 存放路径说明
+### 存放路径说明
 其对应的文件置于
 
 `docs/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md`
@@ -71,10 +76,10 @@ nav:
 
 因此网页的侧边栏也是按照这个层级进行索引。我们需要做的便是将自己编写好的文件路径按照上述样例补充在`nav`字段中即可。
 
-#### 内容格式说明
+### 内容格式说明
 以`docs/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md`为例, 其包含三个部分
 
-##### Header
+#### Header
 ```markdown
 ---
 comments: false
@@ -90,7 +95,7 @@ tags:
 
 由于我们目前不支持评论, 因此评论字段总是为 `false`. 文章的标题以 `学校名 研究科名 专攻名 入学\实施年份 题目名` 的格式进行命名. 而标签字段中, 一般我们会写上学校名称与该题涉及到的考点, 标签会在页面中用以索引.
 
-##### Title
+#### Title
 ```markdown
 # 九州大学 システム情報科学府 情報理工学専攻 2021年度 アルゴリズム・プログラミング
 ```
@@ -99,7 +104,7 @@ tags:
 
 除此之外, 后续章节均不再使用一级标题.
 
-##### Author
+#### Author
 ```markdown
 ## **Author**
 祭音Myyura
@@ -107,7 +112,7 @@ tags:
 
 文章的第一个二级标题为解题者ID, 当然, 若不希望透露可以空置
 
-##### Description
+#### Description
 ```markdown
 ## **Description**
 ### 【問 1】
@@ -129,7 +134,7 @@ tags:
 
 文章的第二个二级标题为题干, 有时题干中可能会包含多个题目, 则多个题目之间使用三级标题区分. 注意, 单个题目中的小问不使用多级标题.
 
-##### Kai
+#### Kai
 ```markdown
 ## **Kai**
 ### 【問 1】
@@ -149,7 +154,7 @@ $O(d_1 \cdot d_2 \cdot d_3)$
 
 文章的第三个二级标题为题解, 其中多级标题与题干中的题目与小问一一对应.
 
-##### Knowledge (Optional)
+#### Knowledge (Optional)
 ```markdown
 ## **Knowledge**
 Binary-Search, Fibonacci-Sequence, Dynamic-Programming
@@ -157,7 +162,7 @@ Binary-Search, Fibonacci-Sequence, Dynamic-Programming
 
 文章的第四个二级标题为知识点关键词，说明，参考书籍等内容。此项为可选项。
 
-##### 其他
+#### 其他
 倘若需要插入图片, 可以先将图片上传至本仓库专门用于存放资产的仓库[the_kai_project_assets](https://github.com/Myyura/the_kai_project_assets), 然后仿照示例中的写法, 通过插入html的方式显示图片。
 
 ```html
@@ -181,7 +186,11 @@ https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/ky
 !!! warning
 
     尽管markdown中数学公式的编写几乎与latex中相同, 但仍有以下需要注意的地方：
-    - 对于行内公式, 与latex相同, 在公式的首尾使用单个`$`符号进行表示, 但不可在`$`后添加无意义的空格
-    - "\$\alpha = 1\$" 正确
-    - "\$ \alpha = 1 \$" 错误, 无法解析
-    - 对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考仓库中其他题目的写法。
+    
+    对于行内公式, 与latex相同, 在公式的首尾使用单个`$`符号进行表示, 但不可在`$`后添加无意义的空格
+    
+    "\$\alpha = 1\$" 正确
+    
+    "\$ \alpha = 1 \$" 错误, 无法解析
+    
+    对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考仓库中其他题目的写法。
