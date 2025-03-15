@@ -43,19 +43,20 @@ GNU Affero General Public License v3.0, 试题版权归出题方（校方）所�
 
 
 ### 存放路径说明
-其对应的文件置于
 
+路径的基本规则为
+
+`docs/kakomonn/学校名/研究科或学部名/专攻名_入学年份(或实施年月)_问题类别(可选)_问题编号.md`(1)
+{ .annotate }
+
+1.  样例文件路径为
 `docs/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md`
-
-下, 路径的基本命名规则为
-
-`docs/kakomonn/学校名/研究科或学部名/专攻名_入学年份(或实施年月)_问题类别(可选)_问题编号.md`
 
 !!! note
 
-    对于较长或缩写辨识度较高的专攻名我们这里使用简写, 其他的一般使用全称。
+    对于较长或缩写辨识度较高的专攻名我们这里使用简写, 其他的使用全称。
 
-目前项目基于[mkdocs](https://www.mkdocs.org/)构建而成, 因此在创建好文件之后, 我们还需要修改根目录下的mkdocs.yml文件中的`nav`字段使得文件能够被正常索引, 我们截取一段进行说明
+创建好文件之后, 还需要修改根目录下的mkdocs.yml文件中的`nav`字段使得文件能够被正常索引, 示例如下：
 
 ```yaml
 nav:
@@ -70,11 +71,12 @@ nav:
 ```
 
 `nav`的缩进层级决定了网页中侧边栏的索引层级, 而每个层级上的字段名则决定了网页中侧边栏的索引名称。
-可以看到我们的缩进层次为
+
+本项目的缩进层次为
 
 - 過去問 -> 学校名 -> 研究科名 -> 专攻名 -> 入学年份 -> 题目名
 
-因此网页的侧边栏也是按照这个层级进行索引。我们需要做的便是将自己编写好的文件路径按照上述样例补充在`nav`字段中即可。
+因此，将自己编写好的文件路径按照上述样例补充在`nav`字段中即可。
 
 ### 内容格式说明
 以`docs/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming.md`为例, 其包含三个部分
@@ -90,10 +92,12 @@ tags:
   - Merge-Sort
 ---
 ```
+在Header中,
 
-在Header中, 我们需要填写该文章所对应的页面是否需要带有评论功能 (comments字段), 文章的标题 (title字段) 以及 标签(tags).
+- `comments`字段：总是为 `false`。
+- `title`字段：以 `学校名 研究科名 专攻名 入学\实施年份 题目名` 的格式进行命名。
+- `tags`字段： 写上**学校名称**与**该题涉及到的考点**, 标签有助于使用者用以索引。
 
-由于我们目前不支持评论, 因此评论字段总是为 `false`. 文章的标题以 `学校名 研究科名 专攻名 入学\实施年份 题目名` 的格式进行命名. 而标签字段中, 一般我们会写上学校名称与该题涉及到的考点, 标签会在页面中用以索引.
 
 #### Title
 ```markdown
@@ -132,7 +136,11 @@ tags:
 (1) merge_sort は，リスト result の要素を start から end の範囲で昇順に並び替える関数である．空欄(A)-(G)を埋め，関数merge sortを完成せよ．
 ```
 
-文章的第二个二级标题为题干, 有时题干中可能会包含多个题目, 则多个题目之间使用三级标题区分. 注意, 单个题目中的小问不使用多级标题.
+文章的第二个二级标题为题干, 有时题干中可能会包含多个题目, 则多个题目之间使用三级标题区分。 
+
+!!! warning
+
+    单个题目中的小问不使用多级标题
 
 #### Kai
 ```markdown
@@ -152,7 +160,7 @@ $O(d_1 \cdot d_2 \cdot d_3)$
 - (G): mid
 ```
 
-文章的第三个二级标题为题解, 其中多级标题与题干中的题目与小问一一对应.
+文章的第三个二级标题为题解, 其中多级标题与题干中的题目与小问一一对应。
 
 #### Knowledge (Optional)
 ```markdown
@@ -160,10 +168,16 @@ $O(d_1 \cdot d_2 \cdot d_3)$
 Binary-Search, Fibonacci-Sequence, Dynamic-Programming
 ```
 
-文章的第四个二级标题为知识点关键词，说明，参考书籍等内容。此项为可选项。
+文章的第四个二级标题为知识点关键词、说明、参考书籍等内容。此项为可选项。
 
 #### 其他
-倘若需要插入图片, 可以先将图片上传至本仓库专门用于存放资产的仓库[the_kai_project_assets](https://github.com/Myyura/the_kai_project_assets), 然后仿照示例中的写法, 通过插入html的方式显示图片。
+如果需要插入图片, 向本项目专门用于存放资产的仓库[the_kai_project_assets](https://github.com/Myyura/the_kai_project_assets)提交Pull Request, 获得通过后仿照示例中的写法, 通过插入html的方式显示图片。
+
+!!! tip
+
+    因为Pull Request使用邮件通知，时效性差，建议您直接在QQ群中PM管理员处理。
+
+示例：
 
 ```html
 <figure style="text-align:center;">
@@ -177,20 +191,25 @@ Binary-Search, Fibonacci-Sequence, Dynamic-Programming
 ```html
 https://github.com/Myyura/the_kai_project_assets/blob/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png
 ```
+
 而嵌入时需要将路径更改为
+
 ```html
 https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png
 ```
+
 为保证题解的可访达，不推荐使用第三方图床。
 
-!!! warning
+!!! warning "关于数学公式"
 
-    尽管markdown中数学公式的编写几乎与latex中相同, 但仍有以下需要注意的地方：
+    本项目使用mathjax进行数学公式渲染，需要注意以下几点：
     
-    对于行内公式, 与latex相同, 在公式的首尾使用单个`$`符号进行表示, 但不可在`$`后添加无意义的空格
+    （1）对于行内公式, 在公式的首尾使用单个`$`符号进行表示, 但不可在`$`后添加无意义的空格
     
     "\$\alpha = 1\$" 正确
     
     "\$ \alpha = 1 \$" 错误, 无法解析
     
-    对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考仓库中其他题目的写法。
+    （2）对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考仓库中其他题目的写法。
+    
+    （3）mathjax的latex支持不完整，不支持latex扩展写法和部分编辑器支持的简写。
