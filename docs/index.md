@@ -5,33 +5,37 @@
 
 本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。
 
-项目地址 [https://github.com/Myyura/the_kai_project](https://github.com/Myyura/the_kai_project)
+项目地址：[https://github.com/Myyura/the_kai_project](https://github.com/Myyura/the_kai_project)
 
-- **网页端**可以直接从页面左侧的标题栏点击查看自己想要备考的学校题目与题解。
-- **手机端**可以点击**左上角**的图标打开标题栏。
+!!! note
+
+    **网页端**可以直接从页面左侧的标题栏点击查看自己想要备考的学校题目与题解。
+    **手机端**可以点击**左上角**的图标打开标题栏。
+
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/sample.png" width="800" alt=""/>
 </figure>
 
 ## LICENSE
-本项目使用 GNU Affero General Public License v3.0, 所有解答版权由本项目与作者所有, 试题版权归出题方（校方）所有。
-
+GNU Affero General Public License v3.0, 试题版权归出题方（校方）所有。
 感谢每一位项目的贡献者。
+如有侵权, 请通过邮件联系 [376672994@qq.com](mailto:376672994@qq.com)。
+
 
 ## How to contribute
+- 熟悉Git&GitHub：提交PR。
+- 不熟悉Git&GitHub：发送试题/答案至 [376672994@qq.com](mailto:376672994@qq.com)。
 我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。
 
-<div align=center> <font size=6 color=black>email: 376672994@qq.com</font> </div>
-
-我们并不追求解答的完整性, 但如果你发现了现有解答中的错误, 请积极指出. 亦可以加入项目群与大家交流题解.
-
-<div align=center> <font size=6 color=black>QQ交流群: 925154731</font> </div>
-
-如有侵权, 请随时联系.
+  
+## 纠错与讨论：
+- 发现错误请至[Github项目](https://github.com/Myyura/the_kai_project/issues)提交Issue。
+- 加入QQ群交流：925154731。
 
 ### 样例说明
 以`九州大学 システム情報科学府 情報理工学専攻 2021年度 アルゴリズム・プログラミング`的问题与解答为例, 对文件存放路径, 内容格式进行讲解。
+
 
 #### 存放路径说明
 其对应的文件置于
@@ -42,7 +46,9 @@
 
 `docs/kakomonn/学校名/研究科或学部名/专攻名_入学年份(或实施年月)_问题类别(可选)_问题编号.md`
 
-**注：对于较长或缩写辨识度较高的专攻名我们这里使用简写, 其他的一般使用全称。**
+!!! note
+
+    对于较长或缩写辨识度较高的专攻名我们这里使用简写, 其他的一般使用全称。
 
 目前项目基于[mkdocs](https://www.mkdocs.org/)构建而成, 因此在创建好文件之后, 我们还需要修改根目录下的mkdocs.yml文件中的`nav`字段使得文件能够被正常索引, 我们截取一段进行说明
 
@@ -170,11 +176,12 @@ https://github.com/Myyura/the_kai_project_assets/blob/main/kakomonn/kyushu_unive
 ```html
 https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png
 ```
-当然, 如果你使用其他图床则参考对应图床的使用方法即可。
+为保证题解的可访达，不推荐使用第三方图床。
 
-此外, 尽管markdown中数学公式的编写几乎与latex中相同, 但仍有以下需要注意的地方
+!!! warning
 
-- 对于行内公式, 与latex相同, 在公式的首尾使用单个`$`符号进行表示, 但不可在`$`后添加无意义的空格
-  - "\$\alpha = 1\$" 正确
-  - "\$ \alpha = 1 \$" 错误, 无法解析
-- 对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考仓库中其他题目的写法。
+    尽管markdown中数学公式的编写几乎与latex中相同, 但仍有以下需要注意的地方：
+    - 对于行内公式, 与latex相同, 在公式的首尾使用单个`$`符号进行表示, 但不可在`$`后添加无意义的空格
+    - "\$\alpha = 1\$" 正确
+    - "\$ \alpha = 1 \$" 错误, 无法解析
+    - 对于行间公式, 与latex相同, 在公式首位使用两个`$` (即`$$`)进行表示, 但`$$`与上一行之间必须存在空行, 可参考仓库中其他题目的写法。
