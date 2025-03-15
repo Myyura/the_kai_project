@@ -63,7 +63,7 @@ theme:
   
   icon:
     repo: fontawesome/brands/github
-    annotation: material/arrow-right-circle
+    annotation: material/plus-circle
     tag:
       html: fontawesome/brands/html5
       js: fontawesome/brands/js
