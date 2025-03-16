@@ -58,9 +58,12 @@ theme:
     - navigation.indexes
     - navigation.expand # navigation.expand or navigation.sections
     - content.tabs.link # all code tabs change simultaneously
+    - header.autohide
+    - announce.dismiss
   
   icon:
     repo: fontawesome/brands/github
+    annotation: material/plus-circle
     tag:
       html: fontawesome/brands/html5
       js: fontawesome/brands/js
