@@ -21,6 +21,9 @@ title: 友情链接
 - [tomfluff, UTokyo CI](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam)
 - [YuanzhongLi, UTokyo CI Programming](https://qiita.com/YuanzhongLi)
 
+# 有用的就职信息
+
+- [itshinsotsu.xyz](https://www.itshinsotsu.xyz/)
 
 # 未来你可能用的到的
 
