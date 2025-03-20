@@ -41,6 +41,7 @@ tags:
         - 2023年度:
             - [数学1](engineering/ee_202208_math_1.md)
             - [数学2](engineering/ee_202208_math_2.md)
+            - [電気回路1](engineering/ee_202208_electrical_circuit_1.md)
         - 2022年度:
             - [数学1](engineering/ee_202108_math_1.md)
             - [数学2](engineering/ee_202108_math_2.md)
