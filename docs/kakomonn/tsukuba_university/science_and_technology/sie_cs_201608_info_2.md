@@ -22,7 +22,7 @@ tags:
 ここではこの優先度キューを，以下のような完全 2 分木のデータ構造を用いて実現する．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tsukuba_university/science_and_technology/sie_cs_201608_info_2_p1.png" width="400" height="400" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tsukuba_university/science_and_technology/sie_cs_201608_info_2_p1.png" width="200" alt=""/>
 </figure>
 
 上図の各ノードの中に書かれている数値が，優先度キューに格納される数値である．
@@ -171,7 +171,7 @@ void calc_dists(const int origin, int dist_vec[]) {
 (A) から (F) までに入る適切な整数を答えよ．
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tsukuba_university/science_and_technology/sie_cs_201608_info_2_p2.png" width="600" height="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tsukuba_university/science_and_technology/sie_cs_201608_info_2_p2.png" width="300" alt=""/>
 </figure>
 
 
