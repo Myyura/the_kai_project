@@ -52,8 +52,8 @@ theme:
     - navigation.prune
     - navigation.footer
     - navigation.tracking
-#   - navigation.instant
-#   - navigation.instant.progress
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.indexes
     - navigation.expand # navigation.expand or navigation.sections
     - content.tabs.link # all code tabs change simultaneously
@@ -80,20 +80,6 @@ plugins:
   #     type: iso_date
   #     exclude:
   #       - tag.md
-  - i18n:
-      docs_structure: suffix
-      reconfigure_material: true
-      languages:
-        - locale: zh
-          default: true
-          name: 中文
-          build: true      
-        - locale: en
-          name: English
-          build: true
-        - locale: ja
-          name: 日本語
-          build: true
           
 extra_javascript:
   - overrides/javascripts/mathjax.js
