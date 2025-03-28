@@ -2,4 +2,3 @@ mkdocs-material==9.5.50
 mkdocs-git-revision-date-localized-plugin
 mkdocs-git-authors-plugin
 mkdocs-img2fig-plugin
-mkdocs-static-i18n
