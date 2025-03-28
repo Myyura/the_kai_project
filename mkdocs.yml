@@ -83,16 +83,17 @@ plugins:
   
   - i18n:
       docs_structure: suffix
+      reconfigure_material: true
       languages:
-        - locale: en
+        - locale: zh
           default: true
+          name: 中文
+          build: true      
+        - locale: en
           name: English
           build: true
         - locale: ja
           name: 日本語
-          build: true
-          - locale: zh
-          name: 中文
           build: true
 
 extra_javascript:
