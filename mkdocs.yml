@@ -127,7 +127,7 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
       permalink: "\ue157"
 
-copyright: <a href="https://github.com/Myyura/the_kai_project" target="_blank"> &copy; 2024 The Kai Project</a> All rights reserved.
+copyright: <a href="https://kaiproject.org/" target="_blank"> &copy; 2024 The Kai Project</a> All rights reserved.
 
 extra:
   social:
