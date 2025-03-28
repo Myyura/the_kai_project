@@ -10,7 +10,6 @@ site_dir: "site/" # where to publish to
 
 theme:
   name: material
-  language: 'zh'
   palette:
   # Palette toggle for automatic mode
   - media: "(prefers-color-scheme)"
@@ -81,6 +80,20 @@ plugins:
   #     type: iso_date
   #     exclude:
   #       - tag.md
+  
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: ja
+          name: 日本語
+          build: true
+          - locale: zh
+          name: 中文
+          build: true
 
 extra_javascript:
   - overrides/javascripts/mathjax.js
