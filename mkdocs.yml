@@ -145,7 +145,7 @@ extra:
     - name: English
       link: /en/ 
       lang: en
-    - name: Japanese
+    - name: 日本語
       link: /ja/
       lang: ja
 
