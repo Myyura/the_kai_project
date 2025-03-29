@@ -10,6 +10,7 @@ site_dir: "site/" # where to publish to
 
 theme:
   name: material
+  language: zh
   palette:
   # Palette toggle for automatic mode
   - media: "(prefers-color-scheme)"
@@ -140,6 +141,13 @@ extra:
   analytics:
     provider: google
     property: G-JJMZK98D6Y
+  alternate:
+    - name: English
+      link: /en/ 
+      lang: en
+    - name: Japanese
+      link: /ja/
+      lang: ja
 
 extra_css:
   - overrides/stylesheets/customize.css
