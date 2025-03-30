@@ -4,6 +4,10 @@
   color: var(--ifm-color-emphasis-700);
 }
 
+.sectionSpacing {
+  margin-top: 2rem;
+}
+
 .schoolGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
