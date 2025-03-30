@@ -1,7 +1,5 @@
 import React from 'react';
-import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import SchoolCard from '@site/src/components/SchoolCard';
 import styles from './intro.module.css';
 
@@ -34,7 +32,7 @@ const schools = [
   },
   {
     name: '東京科學大學 旧・東京工業大学',
-    url: '/docs/category/%E6%9D%B1%E4%BA%AC%E7%A7%91%E5%AD%B8%E5%A4%A7%E5%AD%B8-%E6%97%A7%E6%9D%B1%E4%BA%AC%E5%B7%A5%E6%A5%AD%E5%A4%A7%E5%AD%A6',
+    url: '/docs/category/%E6%9D%B1%E4%BA%AC%E7%A7%91%E5%AD%B8%E5%A4%A7%E5%AD%A6-%E6%97%A7%E6%9D%B1%E4%BA%AC%E5%B7%A5%E6%A5%AD%E5%A4%A7%E5%AD%A6',
     description: '日本首屈一指的理工科大学，在工程学、计算机科学和先进材料研究领域处于国际前沿。'
   },
   {
@@ -75,56 +73,49 @@ const schools = [
 ];
 
 export default function Intro() {
-  const {siteConfig} = useDocusaurusContext();
-  
   return (
-    <Layout
-      title="The Kai Project"
-      description="Answer to the Ultimate Question of Life, the Universe, and Everything">
-      <div className="container margin-top--lg margin-bottom--lg">
-        <h1>The Kai Project</h1>
-        <p className={styles.subtitle}>Answer to the Ultimate Question of Life, the Universe, and Everything</p>
-        
-        <p>本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。</p>
-        
-        <p>项目地址：<a href="https://github.com/Myyura/the_kai_project" target="_blank">https://github.com/Myyura/the_kai_project</a></p>
-        
-        <div className="alert alert--info" role="alert">
-          <strong>手机端</strong>请点击左上角菜单栏获取过去问或点击以下学校卡片
-        </div>
-        
-        <h2>学校列表</h2>
-        
-        <div className={styles.schoolGrid}>
-          {schools.map((school, index) => (
-            <div key={index} className={styles.schoolItem}>
-              <SchoolCard 
-                name={school.name} 
-                url={school.url} 
-                description={school.description} 
-              />
-            </div>
-          ))}
-        </div>
-        
-        <h2>LICENSE</h2>
-        <p>GNU Affero General Public License v3.0, 试题版权归出题方（校方）所有。</p>
-        <p>感谢每一位项目的贡献者。</p>
-        <p>如有侵权, 请通过邮件联系 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</p>
-        
-        <h2>How to contribute</h2>
-        <ul>
-          <li>熟悉Git&GitHub：提交PR。</li>
-          <li>不熟悉Git&GitHub：发送试题/答案至 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</li>
-          <li>我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。</li>
-        </ul>
-        
-        <h2>纠错与讨论：</h2>
-        <ul>
-          <li>发现错误请至<a href="https://github.com/Myyura/the_kai_project/issues" target="_blank">Github项目</a>提交Issue。</li>
-          <li>加入QQ群交流：925154731。</li>
-        </ul>
+    <div className="container">
+      <p className={styles.subtitle}>Answer to the Ultimate Question of Life, the Universe, and Everything</p>
+      
+      <p>本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。</p>
+      
+      <p>项目地址：<a href="https://github.com/Myyura/the_kai_project" target="_blank">https://github.com/Myyura/the_kai_project</a></p>
+      
+      <div className="alert alert--info" role="alert">
+        <strong>手机端</strong>请点击左上角菜单栏获取过去问或点击以下学校卡片
       </div>
-    </Layout>
+      
+      <h2>学校列表</h2>
+      
+      <div className={styles.schoolGrid}>
+        {schools.map((school, index) => (
+          <div key={index} className={styles.schoolItem}>
+            <SchoolCard 
+              name={school.name} 
+              url={school.url} 
+              description={school.description} 
+            />
+          </div>
+        ))}
+      </div>
+      
+      <h2>LICENSE</h2>
+      <p>GNU Affero General Public License v3.0, 试题版权归出题方（校方）所有。</p>
+      <p>感谢每一位项目的贡献者。</p>
+      <p>如有侵权, 请通过邮件联系 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</p>
+      
+      <h2>How to contribute</h2>
+      <ul>
+        <li>熟悉Git&GitHub：提交PR。</li>
+        <li>不熟悉Git&GitHub：发送试题/答案至 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</li>
+        <li>我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。</li>
+      </ul>
+      
+      <h2>纠错与讨论：</h2>
+      <ul>
+        <li>发现错误请至<a href="https://github.com/Myyura/the_kai_project/issues" target="_blank">Github项目</a>提交Issue。</li>
+        <li>加入QQ群交流：925154731。</li>
+      </ul>
+    </div>
   );
 }
