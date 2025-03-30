@@ -1,0 +1,31 @@
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.schoolGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.schoolItem {
+  display: flex;
+  min-height: 200px;
+}
+
+/* 响应式布局 */
+@media (max-width: 996px) {
+  .schoolGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .schoolGrid {
+    grid-template-columns: 1fr;
+  }
+}
