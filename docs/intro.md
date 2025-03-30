@@ -16,6 +16,10 @@ Answer to the Ultimate Question of Life, the Universe, and Everything
 
 :::
 
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />
+
 ## LICENSE
 
 GNU Affero General Public License v3.0, 试题版权归出题方（校方）所有。
