@@ -108,11 +108,12 @@ const config = {
             position: 'left',
             label: '過去問',
           },
+          {to: '/blog', label: '经验贴', position: 'left'},
+          {to: '/docs/tags', label: 'Tags', position: 'left'},
           {
             type: 'localeDropdown',
             position: 'right',
           },
-          {to: '/blog', label: '经验贴', position: 'left'},
           {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',
@@ -124,11 +125,19 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Kai Project',
             items: [
               {
                 label: '過去問',
                 to: '/docs/intro',
+              },
+              {
+                label: '经验贴',
+                to: '/blog',
+              },
+              {
+                label: 'Tags',
+                to: '/docs/tags',
               },
             ],
           },
