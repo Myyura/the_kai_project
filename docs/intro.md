@@ -16,9 +16,6 @@ Answer to the Ultimate Question of Life, the Universe, and Everything
 
 :::
 
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />
 
 ## LICENSE
 
