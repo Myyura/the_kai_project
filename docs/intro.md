@@ -10,6 +10,11 @@ Answer to the Ultimate Question of Life, the Universe, and Everything
 
 项目地址：[https://github.com/Myyura/the_kai_project](https://github.com/Myyura/the_kai_project)
 
+:::tip
+
+**手机端**请点击左上角菜单栏获取过去问
+
+:::
 
 ## LICENSE
 

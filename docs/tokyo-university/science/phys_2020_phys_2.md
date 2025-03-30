@@ -1,6 +1,8 @@
 ---
 sidebar_label: '物理学専攻 2020年度 物理学 第2問'
 sidebar_position: 4
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 理学系研究科 物理学専攻 2020年度 物理学 第2問

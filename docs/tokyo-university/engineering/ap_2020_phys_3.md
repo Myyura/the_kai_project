@@ -1,6 +1,8 @@
 ---
 sidebar_label: '物理工学専攻 2020年度 物理学 第3問'
 sidebar_position: 1
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 工学系研究科 物理工学専攻 2020年度 物理学 第3問

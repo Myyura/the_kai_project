@@ -1,6 +1,8 @@
 ---
 sidebar_label: '2017年度 数学 第3問'
 sidebar_position: 3
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 工学系研究科 2017年度 数学 第3問
