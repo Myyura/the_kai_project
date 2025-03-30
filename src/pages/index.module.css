@@ -43,6 +43,11 @@
   background-color: #f5f6f7;
 }
 
+/* 在黑暗模式下调整特性区域背景色 */
+[data-theme='dark'] .features {
+  background-color: #1b1b1d;
+}
+
 .featureSvg {
   height: 200px;
   width: 200px;
@@ -57,11 +62,12 @@
 .featureEmoji {
   font-size: 100px;
   height: 200px;
-  width: 200px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
+  margin-bottom: -20px; /* 调整emoji和标题之间的距离 */
 }
 
 .featureEmoji:hover {

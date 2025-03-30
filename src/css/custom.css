@@ -28,3 +28,8 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* 添加黑暗模式下 heroBanner 的样式 */
+[data-theme='dark'] .hero--primary {
+  background-image: linear-gradient(120deg, #3a4d44 0%, #2a4455 100%);
+}

@@ -43,7 +43,7 @@ function Feature({emoji, title, description}) {
         <div className={styles.featureEmoji}>{emoji}</div>
       </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
+        <Heading as="h3">{title.replace(/^[^\s]+\s*/, '')}</Heading>
         <p>{description}</p>
       </div>
     </div>
