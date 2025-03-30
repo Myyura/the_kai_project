@@ -112,7 +112,7 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: '经验贴', position: 'left'},
           {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',
