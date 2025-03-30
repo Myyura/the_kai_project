@@ -1,6 +1,8 @@
 ---
 sidebar_label: '2022年度 数学1'
 sidebar_position: 12
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 工学系研究科 2022年度 数学1

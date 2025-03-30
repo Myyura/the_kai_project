@@ -1,6 +1,8 @@
 ---
 sidebar_label: '2023年度 数学 第2問'
 sidebar_position: 17
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 工学系研究科 2023年度 数学 第2問

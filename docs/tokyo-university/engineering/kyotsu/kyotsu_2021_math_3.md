@@ -1,6 +1,8 @@
 ---
 sidebar_label: '2021年度 数学3'
 sidebar_position: 10
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 工学系研究科 2021年度 数学3

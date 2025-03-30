@@ -1,6 +1,8 @@
 ---
 sidebar_label: '化学専攻 2020年度 数理科学'
 sidebar_position: 2
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 理学系研究科 化学専攻 2020年度 数理科学

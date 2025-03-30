@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            查看过去问
+            点击查看过去问
           </Link>
         </div>
       </div>

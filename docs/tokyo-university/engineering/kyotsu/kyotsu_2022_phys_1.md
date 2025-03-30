@@ -1,6 +1,8 @@
 ---
 sidebar_label: '2022年度 物理学1'
 sidebar_position: 15
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 工学系研究科 2022年度 物理学1

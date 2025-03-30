@@ -1,6 +1,8 @@
 ---
 sidebar_label: '2021年度 数学2'
 sidebar_position: 9
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 工学系研究科 2021年度 数学2

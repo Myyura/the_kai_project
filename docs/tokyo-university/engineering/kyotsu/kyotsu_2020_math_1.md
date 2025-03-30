@@ -1,6 +1,8 @@
 ---
 sidebar_label: '2020年度 数学 第1問'
 sidebar_position: 6
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 工学系研究科 2020年度 数学 第1問

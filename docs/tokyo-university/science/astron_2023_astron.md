@@ -1,6 +1,8 @@
 ---
 sidebar_label: '天文学専攻 2023年度 天文学'
 sidebar_position: 1
+tags:
+  - Tokyo-University
 ---
 
 # 東京大学 理学系研究科 天文学専攻 2023年度 天文学
