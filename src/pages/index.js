@@ -9,7 +9,7 @@ import styles from './index.module.css';
 const FeatureList = [
   {
     title: '🔍考试答案',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    emoji: '🔍',
     description: (
       <>
         提供一个不断增长的日本研究生入学考试答案集。
@@ -18,7 +18,7 @@ const FeatureList = [
   },
   {
     title: '💬社区讨论',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    emoji: '💬',
     description: (
       <>
         参与关于考试问题、解决方案和学习策略的讨论。
@@ -27,7 +27,7 @@ const FeatureList = [
   },
   {
     title: '🌐开源',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    emoji: '🌐',
     description: (
       <>
         完全开源的平台，欢迎社区的贡献。
@@ -36,11 +36,11 @@ const FeatureList = [
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({emoji, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <div className={styles.featureEmoji}>{emoji}</div>
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
@@ -55,10 +55,10 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
+        <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className={clsx('hero__subtitle', styles.heroSubtitle)}>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"

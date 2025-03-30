@@ -11,6 +11,17 @@
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
+/* 添加文本颜色设置，确保在日光模式下文字为黑色 */
+.heroTitle, .heroSubtitle {
+  color: #000;
+}
+
+/* 在黑暗模式下修改文本颜色为白色 */
+[data-theme='dark'] .heroTitle, 
+[data-theme='dark'] .heroSubtitle {
+  color: #fff;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
@@ -39,5 +50,20 @@
 }
 
 .featureSvg:hover {
+  transform: scale(1.05);
+}
+
+/* 添加 emoji 样式，保持与原 SVG 大小一致 */
+.featureEmoji {
+  font-size: 100px;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.featureEmoji:hover {
   transform: scale(1.05);
 }
