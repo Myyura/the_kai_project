@@ -10,7 +10,7 @@ import rehypeMathjax from 'rehype-mathjax';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-/** @type {import('@docusaurus/types').Config} */
+ /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: {
     experimental_faster: true, // turns Docusaurus Faster on globally
@@ -46,6 +46,63 @@ const config = {
     defaultLocale: 'zh-Hans',
     locales: ['zh-Hans'],
   },
+
+  // 添加SEO相关插件
+  plugins: [
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: false,
+        offlineModeActivationStrategies: [
+          'standalone', 
+          'queryString',
+        ],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: '/img/logo.svg',
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: '#3578e5',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-capable',
+            content: 'yes',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-status-bar-style',
+            content: '#3578e5',
+          },
+          {
+            tagName: 'link',
+            rel: 'apple-touch-icon',
+            href: '/img/logo-192.png',
+          },
+          {
+            tagName: 'link',
+            rel: 'mask-icon',
+            href: '/img/logo.svg',
+            color: '#3578e5',
+          },
+        ],
+        swCustom: null,
+        swRegister: true,
+        injectManifestConfig: {
+          globPatterns: ['**/*.{js,html,css,svg,png,jpg,jpeg,gif}'],
+        },
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -88,6 +145,18 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // SEO相关配置
+      metadata: [
+        {name: 'keywords', content: '考试, 過去問, 考研, 分享, 修士, 答案, 信息共享, 开源'},
+        {name: 'description', content: '开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁'},
+        {name: 'author', content: 'The Kai Project Team'},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:title', content: 'The Kai Project - 分享与讨论修考试题答案的平台'},
+        {property: 'og:url', content: 'https://runjp.com'},
+        {property: 'og:description', content: '开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁'},
+        {property: 'og:image', content: 'https://runjp.com/img/docusaurus-social-card.png'},
+        {name: 'twitter:card', content: 'summary_large_image'},
+      ],
       docs: {
         sidebar: {
           autoCollapseCategories: true,

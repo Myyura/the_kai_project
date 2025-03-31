@@ -84,7 +84,7 @@ export default function Intro() {
       <div className="alert alert--info" role="alert">
         <strong>手机端</strong>请点击左上角菜单栏获取过去问或点击以下学校卡片
       </div>
-      
+
       <div className={styles.sectionSpacing}></div>
       
       <h2>学校列表</h2>

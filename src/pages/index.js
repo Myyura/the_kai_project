@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+import HomepageStructuredData from '../components/HomepageStructuredData';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -89,8 +90,9 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`欢迎来到 ${siteConfig.title}`}
-      description="日本研究生入学考试答案和讨论平台">
+      title={siteConfig.title}
+      description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
+      <HomepageStructuredData />
       <HomepageHeader />
       <main>
         <HomepageFeatures />
