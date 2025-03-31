@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年度 情報理論"
-sidebar_position: 3
+sidebar_position: 22
 tags:
   - Kyushu-University
 ---

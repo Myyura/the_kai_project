@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2024年度 専門 第2問"
-sidebar_position: 2
+sidebar_position: 17
 tags:
   - Tokyo-University
 ---

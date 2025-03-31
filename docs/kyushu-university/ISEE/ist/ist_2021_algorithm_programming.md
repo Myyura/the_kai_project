@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年度 アルゴリズム・プログラミング"
-sidebar_position: 9
+sidebar_position: 16
 tags:
   - Kyushu-University
   - Dynamic-Programming

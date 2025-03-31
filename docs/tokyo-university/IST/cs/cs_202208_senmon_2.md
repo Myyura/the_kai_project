@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年8月実施 専門科目 問題2"
-sidebar_position: 7
+sidebar_position: 47
 tags:
   - Tokyo-University
 ---

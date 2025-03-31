@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年度 数学 第2問"
-sidebar_position: 2
+sidebar_position: 20
 tags:
   - Tokyo-University
 ---

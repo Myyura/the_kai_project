@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年度 数理科学 II [7]"
-sidebar_position: 6
+sidebar_position: 1
 tags:
   - Osaka-University
 ---

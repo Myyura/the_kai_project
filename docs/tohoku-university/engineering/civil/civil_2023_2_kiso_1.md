@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年2月実施 基礎科目 [1] 微分積分"
-sidebar_position: 2
+sidebar_position: 1
 tags:
   - Tohoku-University
 ---

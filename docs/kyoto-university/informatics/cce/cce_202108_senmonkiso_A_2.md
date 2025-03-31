@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年8月実施 専門基礎A [A-2]"
-sidebar_position: 1
+sidebar_position: 3
 tags:
   - Kyoto-University
 ---

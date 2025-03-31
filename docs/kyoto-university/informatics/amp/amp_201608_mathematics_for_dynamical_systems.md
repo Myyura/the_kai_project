@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2016年8月実施 力学系数学"
-sidebar_position: 30
+sidebar_position: 8
 tags:
   - Kyoto-University
 ---

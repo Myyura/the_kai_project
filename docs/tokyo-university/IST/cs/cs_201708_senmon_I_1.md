@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 専門科目I 問題1"
-sidebar_position: 40
+sidebar_position: 14
 tags:
   - Tokyo-University
   - Graph-Theory

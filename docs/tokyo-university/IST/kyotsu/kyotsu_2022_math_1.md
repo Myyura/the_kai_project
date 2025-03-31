@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年度 数学 第1問"
-sidebar_position: 9
+sidebar_position: 13
 tags:
   - Tokyo-University
 ---

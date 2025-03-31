@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年実施 数学基礎 問題1-3"
-sidebar_position: 2
+sidebar_position: 3
 tags:
   - Tohoku-University
 ---

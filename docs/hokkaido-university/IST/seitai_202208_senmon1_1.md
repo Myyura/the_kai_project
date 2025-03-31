@@ -1,6 +1,6 @@
 ---
 sidebar_label: "生体情報工学コース 2022年8月実施 専門科目1 問1 (線形代数・ベクトル解析)"
-sidebar_position: 2
+sidebar_position: 4
 tags:
   - Hokkaido-University
 ---

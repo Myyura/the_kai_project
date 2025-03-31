@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2015年8月実施 オペレーションズ・リサーチ"
-sidebar_position: 31
+sidebar_position: 7
 tags:
   - Kyoto-University
 ---

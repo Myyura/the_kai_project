@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年度 H (数学)"
-sidebar_position: 2
+sidebar_position: 1
 tags:
   - Nagoya-University
 ---

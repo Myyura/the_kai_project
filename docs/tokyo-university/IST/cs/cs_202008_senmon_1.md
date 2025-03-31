@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年8月実施 専門科目 問題1"
-sidebar_position: 24
+sidebar_position: 30
 tags:
   - Tokyo-University
   - Graph-Theory

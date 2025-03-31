@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年2月実施 基礎科目 [3] 確率統計"
-sidebar_position: 1
+sidebar_position: 2
 tags:
   - Tohoku-University
 ---

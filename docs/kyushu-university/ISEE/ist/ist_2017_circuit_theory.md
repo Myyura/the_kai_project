@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年度 電気回路"
-sidebar_position: 23
+sidebar_position: 2
 tags:
   - Kyushu-University
 ---

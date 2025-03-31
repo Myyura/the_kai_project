@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 線形計画"
-sidebar_position: 27
+sidebar_position: 11
 tags:
   - Kyoto-University
 ---

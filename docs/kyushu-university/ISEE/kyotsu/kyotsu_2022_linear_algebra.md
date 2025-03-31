@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年度 線形代数"
-sidebar_position: 8
+sidebar_position: 23
 tags:
   - Kyushu-University
 ---

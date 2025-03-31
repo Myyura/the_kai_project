@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2015年8月実施 問題4 情報基礎2"
-sidebar_position: 7
+sidebar_position: 1
 tags:
   - Tohoku-University
 ---

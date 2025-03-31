@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年8月実施 線形計画"
-sidebar_position: 14
+sidebar_position: 24
 tags:
   - Kyoto-University
 ---

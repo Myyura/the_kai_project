@@ -1,6 +1,6 @@
 ---
 sidebar_label: '2016年8月実施 プログラミング'
-sidebar_position: 16
+sidebar_position: 1
 tags:
   - Tokyo-University
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年度 計算機アーキテクチャ"
-sidebar_position: 11
+sidebar_position: 14
 tags:
   - Kyushu-University
 ---

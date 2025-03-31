@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年実施 数学A 1"
-sidebar_position: 3
+sidebar_position: 1
 tags:
   - Tohoku-University
 ---

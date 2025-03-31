@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年8月実施 専門科目II 問題4"
-sidebar_position: 30
+sidebar_position: 24
 tags:
   - Tokyo-University
   - Graph-Theory

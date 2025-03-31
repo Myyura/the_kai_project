@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年8月実施 第I期 統計学 第1問"
-sidebar_position: 2
+sidebar_position: 1
 tags:
   - Kobe-University
 ---

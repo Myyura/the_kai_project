@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 専門 問6"
-sidebar_position: 1
+sidebar_position: 14
 tags:
   - Nagoya-University
   - Dynamic-Programming

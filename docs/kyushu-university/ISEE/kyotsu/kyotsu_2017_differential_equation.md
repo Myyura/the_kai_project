@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年度 微分方程式"
-sidebar_position: 28
+sidebar_position: 3
 tags:
   - Kyushu-University
 ---

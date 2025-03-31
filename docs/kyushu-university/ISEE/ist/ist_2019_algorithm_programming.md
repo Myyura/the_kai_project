@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年度 アルゴリズム・プログラミング"
-sidebar_position: 18
+sidebar_position: 7
 tags:
   - Kyushu-University
   - Sorting-Algorithm

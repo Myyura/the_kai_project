@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年度 オートマトンと言語"
-sidebar_position: 24
+sidebar_position: 1
 tags:
   - Kyushu-University
 ---

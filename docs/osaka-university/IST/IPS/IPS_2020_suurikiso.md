@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年度 情報数理学 数理基礎"
-sidebar_position: 1
+sidebar_position: 2
 tags:
   - Osaka-University
 ---

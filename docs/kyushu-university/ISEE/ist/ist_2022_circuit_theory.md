@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年度 電気回路"
-sidebar_position: 5
+sidebar_position: 20
 tags:
   - Kyushu-University
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 専門科目II 問題3"
-sidebar_position: 41
+sidebar_position: 13
 tags:
   - Tokyo-University
 ---

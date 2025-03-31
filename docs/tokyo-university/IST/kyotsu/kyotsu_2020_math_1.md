@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年度 数学 第1問"
-sidebar_position: 12
+sidebar_position: 10
 tags:
   - Tokyo-University
 ---

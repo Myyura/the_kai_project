@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年度 基礎科目 [1] ~ [3]"
-sidebar_position: 3
+sidebar_position: 1
 tags:
   - Kyoto-University
 ---

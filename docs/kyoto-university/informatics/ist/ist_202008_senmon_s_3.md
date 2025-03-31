@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年8月実施 専門科目 S-3"
-sidebar_position: 27
+sidebar_position: 14
 tags:
   - Kyoto-University
   - Machine-Learning

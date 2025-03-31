@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2016年8月実施 プログラミング"
-sidebar_position: 12
+sidebar_position: 3
 tags:
   - Nagoya-University
   - Sorting-Algorithm

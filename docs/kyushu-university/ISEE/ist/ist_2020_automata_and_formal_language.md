@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年度 オートマトンと言語"
-sidebar_position: 13
+sidebar_position: 12
 tags:
   - Kyushu-University
 ---

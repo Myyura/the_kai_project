@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年3月実施 基礎科目 問題6 数学基礎"
-sidebar_position: 3
+sidebar_position: 5
 tags:
   - Tohoku-University
 ---

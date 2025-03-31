@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年度 解析学・微積分"
-sidebar_position: 21
+sidebar_position: 10
 tags:
   - Kyushu-University
 ---

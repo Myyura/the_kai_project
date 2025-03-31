@@ -1,6 +1,6 @@
 ---
 sidebar_label: '技術経営戦略学専攻 2022年度 セッション 1'
-sidebar_position: 1
+sidebar_position: 2
 tags:
   - Tokyo-University
 ---

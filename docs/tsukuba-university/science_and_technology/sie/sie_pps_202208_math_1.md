@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年8月実施 数学 I"
-sidebar_position: 1
+sidebar_position: 8
 tags:
   - Tsukuba-University
 ---

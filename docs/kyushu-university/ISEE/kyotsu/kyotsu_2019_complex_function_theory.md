@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年度 複素関数論"
-sidebar_position: 20
+sidebar_position: 11
 tags:
   - Kyushu-University
 ---

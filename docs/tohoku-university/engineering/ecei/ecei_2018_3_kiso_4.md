@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2018年3月実施 問題4 情報基礎2"
-sidebar_position: 6
+sidebar_position: 2
 tags:
   - Tohoku-University
 ---

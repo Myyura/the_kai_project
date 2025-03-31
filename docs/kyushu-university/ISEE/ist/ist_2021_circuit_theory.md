@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年度 電気回路"
-sidebar_position: 8
+sidebar_position: 17
 tags:
   - Kyushu-University
 ---

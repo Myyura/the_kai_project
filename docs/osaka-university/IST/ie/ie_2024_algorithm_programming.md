@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2024年度 アルゴリズムとプログラミング"
-sidebar_position: 2
+sidebar_position: 11
 tags:
   - Osaka-University
 ---

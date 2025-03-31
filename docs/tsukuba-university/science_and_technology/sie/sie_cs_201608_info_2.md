@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 基礎科目 情報2"
-sidebar_position: 8
+sidebar_position: 1
 tags:
   - Tsukuba-University
   - Priority-Queue

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2009年8月実施 プログラミング"
-sidebar_position: 14
+sidebar_position: 1
 tags:
   - Nagoya-University
   - Binary-Search

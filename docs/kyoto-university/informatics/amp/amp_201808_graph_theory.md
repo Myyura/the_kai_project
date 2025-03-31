@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2018年8月実施 グラフ理論"
-sidebar_position: 24
+sidebar_position: 14
 tags:
   - Kyoto-University
   - Graph-Theory

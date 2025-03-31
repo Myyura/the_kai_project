@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年8月実施 電磁気学1"
-sidebar_position: 9
+sidebar_position: 15
 tags:
   - TITech
   - Electromagnetism

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年度 数学 第3問"
-sidebar_position: 13
+sidebar_position: 9
 tags:
   - Tokyo-University
 ---
