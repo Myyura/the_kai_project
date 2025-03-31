@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2023年度 力学および電磁力学 問題3"
-sidebar_position: 2
 tags:
   - Waseda-University
 ---
