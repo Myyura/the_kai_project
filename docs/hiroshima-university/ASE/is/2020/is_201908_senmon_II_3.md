@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2019年8月実施 専門科目II 問題3"
-sidebar_position: 8
 tags:
   - Hiroshima-University
   - Programming
