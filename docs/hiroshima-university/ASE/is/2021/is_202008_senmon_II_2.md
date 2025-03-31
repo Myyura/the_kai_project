@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2020年8月実施 専門科目II 問題2"
-sidebar_position: 12
 tags:
   - Hiroshima-University
   - Graph-Theory

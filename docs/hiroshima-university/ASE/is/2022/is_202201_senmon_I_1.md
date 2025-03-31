@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2022年1月実施 専門科目I 問題1"
-sidebar_position: 23
 tags:
   - Hiroshima-University
 ---

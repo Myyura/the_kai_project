@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2022年8月実施 専門科目 午前 [1]"
-sidebar_position: 1
 tags:
   - Hiroshima-University
 ---
