@@ -95,7 +95,6 @@ const config = {
             color: '#3578e5',
           },
         ],
-        swCustom: null,
         swRegister: true,
         injectManifestConfig: {
           globPatterns: ['**/*.{js,html,css,svg,png,jpg,jpeg,gif}'],
