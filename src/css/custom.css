@@ -34,3 +34,61 @@
   background-image: linear-gradient(120deg, #3a4d44 0%, #2a4455 100%);
 }
 
+/* 添加毛玻璃效果全局类 */
+.glass-effect {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* 暗色模式下的毛玻璃效果 */
+[data-theme='dark'] .glass-effect {
+  background-color: rgba(36, 37, 38, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 应用毛玻璃效果到导航栏 */
+.navbar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease;
+}
+
+[data-theme='dark'] .navbar {
+  background-color: rgba(36, 37, 38, 0.75);
+}
+
+/* 应用毛玻璃效果到侧边栏 */
+.sidebar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .sidebar {
+  background-color: rgba(36, 37, 38, 0.75);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 确保移动设备菜单正常工作 */
+@media (max-width: 996px) {
+  .navbar-sidebar {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  [data-theme='dark'] .navbar-sidebar {
+    background-color: rgba(36, 37, 38, 0.9);
+  }
+  
+  /* 确保下拉菜单能够正常展示，避免背景透明导致内容难以阅读 */
+  .navbar-sidebar__items .menu {
+    background-color: transparent;
+  }
+}
+
