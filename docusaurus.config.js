@@ -47,6 +47,24 @@ const config = {
     locales: ['zh-Hans'],
   },
 
+  // 添加本地搜索功能
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        hashed: true,
+        language: ["zh", "en"],
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: true,
+        docsRouteBasePath: "/docs",
+        blogRouteBasePath: "/blog",
+        highlightSearchTermsOnTargetPage: true,
+      }),
+    ],
+  ],
+
   // 添加SEO相关插件
   plugins: [
     [
