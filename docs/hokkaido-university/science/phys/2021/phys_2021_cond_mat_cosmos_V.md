@@ -4,7 +4,7 @@ sidebar_position: 1
 tags:
   - Hokkaido-University
 ---
-# 北海道大学 理学院 物性物理学専攻・宇宙理学専攻 2021年度 問題 V
+# 北海道大学 理学院 物性物理学専攻・宇宙理学専攻 2021年度 問題V
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)
