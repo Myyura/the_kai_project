@@ -224,6 +224,10 @@ const config = {
                 label: 'Tags',
                 to: '/docs/tags',
               },
+              {
+                label: '友情链接',
+                to: '/links',
+              },
             ],
           },
           {

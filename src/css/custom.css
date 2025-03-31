@@ -33,3 +33,39 @@
 [data-theme='dark'] .hero--primary {
   background-image: linear-gradient(120deg, #3a4d44 0%, #2a4455 100%);
 }
+
+/* 为导航栏添加毛玻璃效果 */
+.navbar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, backdrop-filter 0.3s;
+}
+
+/* 导航栏暗黑模式毛玻璃效果 */
+[data-theme='dark'] .navbar {
+  background-color: rgba(36, 37, 38, 0.7);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 优化导航栏项目的悬停效果 */
+.navbar__item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+[data-theme='dark'] .navbar__item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 确保下拉菜单与毛玻璃效果协调 */
+.dropdown__menu {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme='dark'] .dropdown__menu {
+  background-color: rgba(36, 37, 38, 0.9);
+}
