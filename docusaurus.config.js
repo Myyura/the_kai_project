@@ -194,6 +194,7 @@ const config = {
           },
           {to: '/blog', label: '经验贴', position: 'left'},
           {to: '/docs/tags', label: 'Tags', position: 'left'},
+          {to: '/links', label: '友情链接', position: 'left'},
           {
             type: 'localeDropdown',
             position: 'right',
