@@ -140,7 +140,8 @@ $$
 From (i) we have
 
 $$
-f(z) - f(\bar{x}(z)) \leq -\nabla f(z)^\top (\bar{x}(z) - z)   - (z-\bar{x}(z))^\top (z-\bar{x}(z))$$
+f(z) - f(\bar{x}(z)) \leq -\nabla f(z)^\top (\bar{x}(z) - z)   - (z-\bar{x}(z))^\top (z-\bar{x}(z))
+$$
 
 by KKT-conditons we have
 
