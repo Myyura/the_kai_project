@@ -34,3 +34,34 @@
   background-image: linear-gradient(120deg, #3a4d44 0%, #2a4455 100%);
 }
 
+.navbar {
+  box-shadow: none;
+  
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(12px);
+  opacity: 1;
+
+  .navbar__title {
+    margin-left: 4px;
+    color: var(--ifm-color-primary);
+    font-family: var(--ifm-font-family-name);
+  }
+}
+.navbar-sidebar__backdrop {
+  background-color: hsl(0deg 0% 0% / 50%);
+  position: fixed;
+  right: 0;
+  transition-property: opacity,visibility;
+  height: 100%;
+  height: 100vh;
+  height: 100dvh;
+}
+.navbar__link,
+.dropdown,
+.navbar__title{
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.menu {
+  font-weight: 400;
+}
