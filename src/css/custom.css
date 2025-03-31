@@ -47,21 +47,3 @@
     font-family: var(--ifm-font-family-name);
   }
 }
-.navbar-sidebar__backdrop {
-  background-color: hsl(0deg 0% 0% / 50%);
-  position: fixed;
-  right: 0;
-  transition-property: opacity,visibility;
-  height: 100%;
-  height: 100vh;
-  height: 100dvh;
-}
-.navbar__link,
-.dropdown,
-.navbar__title{
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-.menu {
-  font-weight: 400;
-}
