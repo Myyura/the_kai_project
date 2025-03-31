@@ -82,16 +82,16 @@ $$
 Let $\lambda$ be an eigenvalue of $A$ and let $\mathbf{x}$ be an eigenvector corresponding to the eigenvalue $\lambda$. That is, we have
 
 
-$$A
-\mathbf{x}=\lambda \mathbf{x}.
+$$
+A\mathbf{x}=\lambda \mathbf{x}.
 $$
 
 Multiplying by $\bar{\mathbf{x}}^{T}$ from the left, we have
 
 $$
-\begin{aligned}
+\begin{align}
 \bar{\mathbf{x}}^{T}A\mathbf{x}=\lambda \bar{\mathbf{x}}^{T} \mathbf{x}=\lambda ||\mathbf{x}||^2. \tag{*}
-\end{aligned}
+\end{align}
 $$
 
 Note that the left hand side $\bar{\mathbf{x}}^{T}A\mathbf{x}$ is the dot (inner) product of $\bar{\mathbf{x}}$ and $A\mathbf{x}$. Since the dot product is commutative, we have
