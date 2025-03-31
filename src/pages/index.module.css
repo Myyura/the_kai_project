@@ -1,0 +1,75 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+/* 添加文本颜色设置，确保在日光模式下文字为黑色 */
+.heroTitle, .heroSubtitle {
+  color: #000;
+}
+
+/* 在黑暗模式下修改文本颜色为白色 */
+[data-theme='dark'] .heroTitle, 
+[data-theme='dark'] .heroSubtitle {
+  color: #fff;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+  width: 100%;
+  background-color: #f5f6f7;
+}
+
+/* 在黑暗模式下调整特性区域背景色 */
+[data-theme='dark'] .features {
+  background-color: #1b1b1d;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.featureSvg:hover {
+  transform: scale(1.05);
+}
+
+/* 添加 emoji 样式，保持与原 SVG 大小一致 */
+.featureEmoji {
+  font-size: 100px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin-bottom: -20px; /* 调整emoji和标题之间的距离 */
+}
+
+.featureEmoji:hover {
+  transform: scale(1.05);
+}
