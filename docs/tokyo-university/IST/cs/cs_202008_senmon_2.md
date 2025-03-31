@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年8月実施 専門科目 問題2"
-sidebar_position: 31
+sidebar_position: 23
 tags:
   - Tokyo-University
 ---

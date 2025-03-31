@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年度 情報理論"
-sidebar_position: 11
+sidebar_position: 14
 tags:
   - Kyushu-University
 ---

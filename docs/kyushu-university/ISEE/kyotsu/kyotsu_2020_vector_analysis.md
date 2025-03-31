@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年度 ベクトル解析"
-sidebar_position: 17
+sidebar_position: 14
 tags:
   - Kyushu-University
 ---

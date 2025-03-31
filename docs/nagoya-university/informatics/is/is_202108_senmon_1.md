@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年8月実施 専門 問1"
-sidebar_position: 10
+sidebar_position: 5
 tags:
   - Nagoya-University
   - Shortest-Path-Problem

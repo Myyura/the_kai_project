@@ -1,6 +1,6 @@
 ---
 sidebar_label: '2019年8月実施 筆記試験 第1問'
-sidebar_position: 13
+sidebar_position: 4
 tags:
   - Tokyo-University
   - Dynamic-Programming

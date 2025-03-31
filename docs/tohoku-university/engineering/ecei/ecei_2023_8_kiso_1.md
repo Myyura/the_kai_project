@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 基礎科目 問題1 電磁気学"
-sidebar_position: 6
+sidebar_position: 2
 tags:
   - Tohoku-University
 ---

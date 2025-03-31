@@ -1,6 +1,6 @@
 ---
 sidebar_label: '天文学専攻 2023年度 天文学'
-sidebar_position: 1
+sidebar_position: 5
 tags:
   - Tokyo-University
 ---

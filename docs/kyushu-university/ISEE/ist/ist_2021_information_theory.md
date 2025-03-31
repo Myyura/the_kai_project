@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年度 情報理論"
-sidebar_position: 19
+sidebar_position: 6
 tags:
   - Kyushu-University
 ---

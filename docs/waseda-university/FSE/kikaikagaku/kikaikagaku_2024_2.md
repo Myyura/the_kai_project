@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2024年度 力学 [1]"
-sidebar_position: 2
+sidebar_position: 1
 tags:
   - Waseda-University
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar_label: '2019年8月実施 プログラミング'
-sidebar_position: 12
+sidebar_position: 5
 tags:
   - Tokyo-University
 ---

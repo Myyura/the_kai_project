@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年度 離散構造"
-sidebar_position: 8
+sidebar_position: 5
 tags:
   - Osaka-University
 ---

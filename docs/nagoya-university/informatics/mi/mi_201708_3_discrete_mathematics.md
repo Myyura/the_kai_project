@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 問題3 離散数学"
-sidebar_position: 1
+sidebar_position: 8
 tags:
   - Nagoya-University
   - Discrete-Mathematics

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年8月実施 オペレーションズ・リサーチ"
-sidebar_position: 30
+sidebar_position: 8
 tags:
   - Kyoto-University
 ---

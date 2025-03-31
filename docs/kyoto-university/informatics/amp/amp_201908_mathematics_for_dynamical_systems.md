@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年8月実施 力学系数学"
-sidebar_position: 21
+sidebar_position: 17
 tags:
   - Kyoto-University
 ---

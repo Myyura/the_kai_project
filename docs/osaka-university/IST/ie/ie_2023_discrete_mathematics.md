@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年度 離散構造"
-sidebar_position: 10
+sidebar_position: 3
 tags:
   - Osaka-University
 ---

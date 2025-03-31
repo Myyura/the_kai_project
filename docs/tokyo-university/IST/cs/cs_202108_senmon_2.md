@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年8月実施 専門科目 問題2"
-sidebar_position: 39
+sidebar_position: 15
 tags:
   - Tokyo-University
   - Sorting-Algorithm

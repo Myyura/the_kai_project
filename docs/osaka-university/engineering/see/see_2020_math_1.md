@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年度 数学 (1)"
-sidebar_position: 1
+sidebar_position: 3
 tags:
   - Osaka-University
 ---

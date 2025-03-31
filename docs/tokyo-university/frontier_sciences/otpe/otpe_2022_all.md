@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年度"
-sidebar_position: 3
+sidebar_position: 1
 tags:
   - Tokyo-University
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2018年度 アルゴリズムとプログラミング"
-sidebar_position: 2
+sidebar_position: 11
 tags:
   - Osaka-University
   - Union–Find-Data-Sturcture

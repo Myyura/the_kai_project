@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年8月実施 専門科目 S-4"
-sidebar_position: 15
+sidebar_position: 26
 tags:
   - Kyoto-University
 ---

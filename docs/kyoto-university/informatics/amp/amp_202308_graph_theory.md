@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 グラフ理論"
-sidebar_position: 35
+sidebar_position: 3
 tags:
   - Kyoto-University
   - Shortest-Path-Problem

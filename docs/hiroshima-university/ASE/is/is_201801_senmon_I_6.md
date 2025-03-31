@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2018年1月実施 専門科目I 問題6"
-sidebar_position: 6
+sidebar_position: 19
 tags:
   - Hiroshima-University
   - Sorting-Algorithm

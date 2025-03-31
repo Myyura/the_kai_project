@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年8月実施 専門科目 確率統計"
-sidebar_position: 4
+sidebar_position: 3
 tags:
   - Kyoto-University
 ---

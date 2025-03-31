@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年8月実施 専門科目 問題3"
-sidebar_position: 48
+sidebar_position: 6
 tags:
   - Tokyo-University
   - Operating-System

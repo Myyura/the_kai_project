@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年8月実施 専門科目 S-4"
-sidebar_position: 31
+sidebar_position: 10
 tags:
   - Kyoto-University
 ---

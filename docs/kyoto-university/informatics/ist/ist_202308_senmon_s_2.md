@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 専門科目 S-2"
-sidebar_position: 37
+sidebar_position: 4
 tags:
   - Kyoto-University
 ---

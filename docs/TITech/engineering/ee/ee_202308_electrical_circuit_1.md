@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 電気回路1"
-sidebar_position: 18
+sidebar_position: 6
 tags:
   - TITech
   - Electrical-Circuit

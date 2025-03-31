@@ -1,6 +1,6 @@
 ---
 sidebar_label: '2021年度 物理学1'
-sidebar_position: 11
+sidebar_position: 7
 tags:
   - Tokyo-University
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年度 離散構造"
-sidebar_position: 6
+sidebar_position: 7
 tags:
   - Osaka-University
 ---

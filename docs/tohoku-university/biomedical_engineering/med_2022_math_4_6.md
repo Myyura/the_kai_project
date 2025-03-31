@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年実施 数学基礎 問題4-6"
-sidebar_position: 2
+sidebar_position: 3
 tags:
   - Tohoku-University
 ---

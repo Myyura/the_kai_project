@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年度 専門 第5問"
-sidebar_position: 14
+sidebar_position: 5
 tags:
   - Tokyo-University
 ---

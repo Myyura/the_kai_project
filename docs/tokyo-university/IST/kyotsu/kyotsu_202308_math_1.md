@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 数学 第1問"
-sidebar_position: 16
+sidebar_position: 6
 tags:
   - Tokyo-University
   - Linear-Algebra

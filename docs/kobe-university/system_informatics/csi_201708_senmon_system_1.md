@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 専門科目 システム理論 [1]"
-sidebar_position: 2
+sidebar_position: 1
 tags:
   - Kobe-University
   - Minimum-Spanning-Tree

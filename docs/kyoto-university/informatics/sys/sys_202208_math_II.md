@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年8月実施 数学【II】"
-sidebar_position: 6
+sidebar_position: 1
 tags:
   - Kyoto-University
 ---

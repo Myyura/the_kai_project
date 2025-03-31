@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年度 アルゴリズムとプログラミング"
-sidebar_position: 1
+sidebar_position: 12
 tags:
   - Osaka-University
   - Shortest-Path-Problem

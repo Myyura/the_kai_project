@@ -1,6 +1,6 @@
 ---
 sidebar_label: '2021年度 数学3'
-sidebar_position: 10
+sidebar_position: 8
 tags:
   - Tokyo-University
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年度 物理化学"
-sidebar_position: 3
+sidebar_position: 1
 tags:
   - Nagoya-University
 ---

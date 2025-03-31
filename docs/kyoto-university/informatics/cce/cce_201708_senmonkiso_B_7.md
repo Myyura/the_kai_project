@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 専門基礎B [B-7]"
-sidebar_position: 1
+sidebar_position: 3
 tags:
   - Kyoto-University
   - Dynamic-Programming

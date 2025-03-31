@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2024年度 確率・統計"
-sidebar_position: 30
+sidebar_position: 1
 tags:
   - Kyushu-University
 ---

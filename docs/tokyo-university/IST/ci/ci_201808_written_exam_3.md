@@ -1,6 +1,6 @@
 ---
 sidebar_label: '2018年8月実施 筆記試験 第3問'
-sidebar_position: 11
+sidebar_position: 6
 tags:
   - Tokyo-University
 ---

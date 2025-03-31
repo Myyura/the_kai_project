@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年8月実施 専門科目II 問題6"
-sidebar_position: 26
+sidebar_position: 28
 tags:
   - Tokyo-University
   - Probability-And-Statistics

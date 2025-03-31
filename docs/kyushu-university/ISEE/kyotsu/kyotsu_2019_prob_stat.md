@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年度 確率・統計"
-sidebar_position: 13
+sidebar_position: 18
 tags:
   - Kyushu-University
 ---

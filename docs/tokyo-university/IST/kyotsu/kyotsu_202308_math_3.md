@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 数学 第3問"
-sidebar_position: 18
+sidebar_position: 4
 tags:
   - Tokyo-University
   - Probability-And-Statistics

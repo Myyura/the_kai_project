@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年度 計算機アーキテクチャ"
-sidebar_position: 23
+sidebar_position: 2
 tags:
   - Kyushu-University
 ---

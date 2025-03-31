@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年度 物理学 [I]"
-sidebar_position: 1
+sidebar_position: 3
 tags:
   - Nagoya-University
 ---

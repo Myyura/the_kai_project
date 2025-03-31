@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2018年度 数学 第1問"
-sidebar_position: 4
+sidebar_position: 18
 tags:
   - Tokyo-University
 ---

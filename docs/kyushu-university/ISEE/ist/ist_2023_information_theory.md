@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年度 情報理論"
-sidebar_position: 24
+sidebar_position: 1
 tags:
   - Kyushu-University
 ---

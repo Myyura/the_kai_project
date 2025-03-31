@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2021年度 アルゴリズムとプログラミング"
-sidebar_position: 5
+sidebar_position: 8
 tags:
   - Osaka-University
   - Queue

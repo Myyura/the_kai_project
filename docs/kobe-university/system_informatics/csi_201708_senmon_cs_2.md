@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 専門科目 計算機科学 [2]"
-sidebar_position: 1
+sidebar_position: 2
 tags:
   - Kobe-University
   - DFS

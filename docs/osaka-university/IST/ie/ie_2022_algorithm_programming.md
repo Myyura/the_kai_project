@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年度 アルゴリズムとプログラミング"
-sidebar_position: 7
+sidebar_position: 6
 tags:
   - Osaka-University
   - Sorting-Algorithm

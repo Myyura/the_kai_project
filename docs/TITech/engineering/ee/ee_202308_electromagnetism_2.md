@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 電磁気学2"
-sidebar_position: 21
+sidebar_position: 3
 tags:
   - TITech
   - Electromagnetism

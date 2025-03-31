@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 プログラミング"
-sidebar_position: 5
+sidebar_position: 10
 tags:
   - Nagoya-University
   - Queue

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2019年度 アルゴリズムとプログラミング"
-sidebar_position: 3
+sidebar_position: 10
 tags:
   - Osaka-University
   - Sorting-Algorithm

@@ -1,6 +1,6 @@
 ---
 sidebar_label: '物理学専攻 2020年度 物理学 第2問'
-sidebar_position: 4
+sidebar_position: 2
 tags:
   - Tokyo-University
 ---

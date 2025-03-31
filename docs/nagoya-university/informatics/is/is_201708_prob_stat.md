@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 確率・統計"
-sidebar_position: 4
+sidebar_position: 11
 tags:
   - Nagoya-University
 ---

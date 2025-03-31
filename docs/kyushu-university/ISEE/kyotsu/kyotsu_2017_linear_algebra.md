@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年度 線形代数"
-sidebar_position: 4
+sidebar_position: 27
 tags:
   - Kyushu-University
 ---

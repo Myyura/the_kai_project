@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 専門科目 問題3"
-sidebar_position: 52
+sidebar_position: 2
 tags:
   - Tokyo-University
   - Graph-Theory

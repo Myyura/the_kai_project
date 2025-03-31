@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年1月実施 専門科目II 問題2"
-sidebar_position: 21
+sidebar_position: 4
 tags:
   - Hiroshima-University
   - Minimum-Spanning-Tree

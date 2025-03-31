@@ -1,6 +1,6 @@
 ---
 sidebar_label: '2017年度 数学 第2問'
-sidebar_position: 2
+sidebar_position: 16
 tags:
   - Tokyo-University
 ---

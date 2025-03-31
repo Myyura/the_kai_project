@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年8月実施 専門科目 問題4"
-sidebar_position: 49
+sidebar_position: 5
 tags:
   - Tokyo-University
   - Computer-Architecture

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 専門科目 問題1"
-sidebar_position: 50
+sidebar_position: 4
 tags:
   - Tokyo-University
 ---

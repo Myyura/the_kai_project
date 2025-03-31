@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2024年度 専門科目 [13]"
-sidebar_position: 3
+sidebar_position: 1
 tags:
   - Kyoto-University
 ---

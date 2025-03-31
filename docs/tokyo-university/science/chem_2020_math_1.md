@@ -1,6 +1,6 @@
 ---
 sidebar_label: '化学専攻 2020年度 数理科学'
-sidebar_position: 2
+sidebar_position: 4
 tags:
   - Tokyo-University
 ---

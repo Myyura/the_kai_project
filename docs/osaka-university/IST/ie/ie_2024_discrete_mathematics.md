@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2024年度 離散構造"
-sidebar_position: 12
+sidebar_position: 1
 tags:
   - Osaka-University
   - Graph-Isomorphism

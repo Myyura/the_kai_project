@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年度 解析学・微積分"
-sidebar_position: 25
+sidebar_position: 6
 tags:
   - Kyushu-University
 ---

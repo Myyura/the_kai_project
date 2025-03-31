@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 電磁気学2"
-sidebar_position: 2
+sidebar_position: 22
 tags:
   - TITech
   - Electromagnetism

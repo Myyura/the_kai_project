@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2015年8月実施 プログラミング"
-sidebar_position: 2
+sidebar_position: 13
 tags:
   - Nagoya-University
   - BST

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "問題例"
-sidebar_position: 7
+sidebar_position: 2
 tags:
   - Tsukuba-University
 ---

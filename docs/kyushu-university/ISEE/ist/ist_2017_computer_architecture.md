@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年度 計算機アーキテクチャ"
-sidebar_position: 3
+sidebar_position: 22
 tags:
   - Kyushu-University
 ---

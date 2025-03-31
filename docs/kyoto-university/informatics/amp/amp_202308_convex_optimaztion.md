@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年8月実施 凸最適化"
-sidebar_position: 34
+sidebar_position: 4
 tags:
   - Kyoto-University
 ---

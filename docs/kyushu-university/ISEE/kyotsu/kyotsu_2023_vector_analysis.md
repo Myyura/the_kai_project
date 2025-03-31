@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2023年度 ベクトル解析"
-sidebar_position: 27
+sidebar_position: 4
 tags:
   - Kyushu-University
 ---

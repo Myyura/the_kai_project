@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年2月実施 基礎科目 情報2"
-sidebar_position: 2
+sidebar_position: 7
 tags:
   - Tsukuba-University
   - Trie

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2014年8月実施 アルゴリズム基礎"
-sidebar_position: 2
+sidebar_position: 36
 tags:
   - Kyoto-University
   - Graph-Theory

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年8月実施 プログラミング"
-sidebar_position: 4
+sidebar_position: 2
 tags:
   - Nagoya-University
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年度 計算機アーキテクチャ"
-sidebar_position: 21
+sidebar_position: 4
 tags:
   - Kyushu-University
 ---

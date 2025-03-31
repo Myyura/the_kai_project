@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2022年8月実施 オペレーションズ・リサーチ"
-sidebar_position: 33
+sidebar_position: 5
 tags:
   - Kyoto-University
 ---

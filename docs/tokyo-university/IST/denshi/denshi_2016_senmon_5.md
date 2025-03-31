@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2016年度 専門 第5問"
-sidebar_position: 7
+sidebar_position: 12
 tags:
   - Tokyo-University
 ---

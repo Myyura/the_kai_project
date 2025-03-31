@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2018年2月実施 情報学基礎 F-1"
-sidebar_position: 1
+sidebar_position: 40
 tags:
   - Kyoto-University
   - Hash-Table

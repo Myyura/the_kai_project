@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2020年度 基礎科目 【数学1】"
-sidebar_position: 1
+sidebar_position: 2
 tags:
   - Osaka-University
 ---

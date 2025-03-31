@@ -1,6 +1,6 @@
 ---
 sidebar_label: "2017年8月実施 問題4 グラフ理論"
-sidebar_position: 2
+sidebar_position: 7
 tags:
   - Nagoya-University
   - Graph-Theory
