@@ -34,31 +34,3 @@
   background-image: linear-gradient(120deg, #3a4d44 0%, #2a4455 100%);
 }
 
-/* 添加导航栏毛玻璃效果 */
-.navbar {
-  box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* Safari 支持 */
-  opacity: 1;
-}
-
-/* 深色模式下的导航栏毛玻璃效果 */
-[data-theme='dark'] .navbar {
-  background-color: rgba(36, 37, 38, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* 确保移动设备菜单展开正常 */
-.navbar-sidebar {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-[data-theme='dark'] .navbar-sidebar {
-  background-color: rgba(36, 37, 38, 0.9);
-}
-
-
