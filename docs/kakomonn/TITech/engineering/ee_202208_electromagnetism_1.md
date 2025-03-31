@@ -87,7 +87,8 @@ U_2 = \frac{1}{2} \cdot \frac{Q^2}{C_1} = \frac{1}{2} \cdot \frac{x}{\varepsilon
 $$
 
 $$
-F_2 = -\frac{\partial U_2}{\partial x} = -\frac{Q^2}{2\varepsilon_0ab}$$
+F_2 = -\frac{\partial U_2}{\partial x} = -\frac{Q^2}{2\varepsilon_0ab}
+$$
 
 静電気力の向きは導体板が引き合う方向である。
 
