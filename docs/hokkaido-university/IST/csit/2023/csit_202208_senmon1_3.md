@@ -1,5 +1,5 @@
 ---
-sidebar_label: "情報理工学コース 2022年8月実施 専門科目1 問3 (確率・統計)"
+sidebar_label: "2022年8月実施 専門科目1 問3 (確率・統計)"
 tags:
   - Hokkaido-University
 ---

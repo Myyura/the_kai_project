@@ -1,5 +1,5 @@
 ---
-sidebar_label: "システム情報科学コース 2022年8月実施 専門科目1 問1 (応用数学I)"
+sidebar_label: "2022年8月実施 専門科目1 問1 (応用数学I)"
 tags:
   - Hokkaido-University
 ---
