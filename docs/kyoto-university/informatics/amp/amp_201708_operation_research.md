@@ -102,7 +102,7 @@ L(x, \mu, \nu) = -\nabla f(z)^\top x + \frac 12 (x-z)^\top (x-z) + \lambda^\top 
 $$
 
 $$
-\text{ KKT-conditions} \left\{
+\text{ KKT-conditions} \left\lbrace
 \begin{aligned}
 -\nabla f(z) + x^* - z + \lambda & = 0 \\
 \lambda   \succeq \boldsymbol{0}, \nu &\succeq \boldsymbol{0} \\
