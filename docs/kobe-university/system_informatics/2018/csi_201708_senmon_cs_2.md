@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2017年8月実施 専門科目 計算機科学 [2]"
-sidebar_position: 1
 tags:
   - Kobe-University
   - DFS
@@ -105,7 +104,7 @@ void test3(void) {
 #### <center> (b) テストプログラム群
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p1.png" width="330" height="100" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p1.png" width="330" alt=""/>
 </figure>
 
 
@@ -122,7 +121,7 @@ void test3(void) {
 ```
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p2.png" width="330" height="330" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p2.png" width="330" alt=""/>
 </figure>
 
 ### (2)

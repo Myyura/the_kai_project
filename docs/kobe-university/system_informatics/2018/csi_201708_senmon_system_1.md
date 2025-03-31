@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2017年8月実施 専門科目 システム理論 [1]"
-sidebar_position: 2
 tags:
   - Kobe-University
   - Minimum-Spanning-Tree
@@ -18,7 +17,7 @@ $A$ ~ $E$ の各地点の間に光ファイバーを設置してインターネ�
 以下の設問に答えよ。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_system_1_p1.png" width="200" height="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_system_1_p1.png" width="200" alt=""/>
 </figure>
 
 #### <center> 図 (a)
@@ -102,7 +101,7 @@ $$
 #### <center> 最小木
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_system_1_p2.png" width="270" height="300" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_system_1_p2.png" width="270" alt=""/>
 </figure>
 
 最小総費用は 12 である。
