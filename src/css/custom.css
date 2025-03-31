@@ -34,28 +34,45 @@
   background-image: linear-gradient(120deg, #3a4d44 0%, #2a4455 100%);
 }
 
-/* 为导航栏添加毛玻璃效果 */
-.navbar {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* Safari 支持 */
-  background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
-  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease-in-out;
+/* 为导航栏添加毛玻璃效果 - 增强版 */
+.navbar.navbar--fixed-top {
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.7) !important; /* 更透明的背景 */
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.4);
 }
 
-/* 暗色模式下的导航栏毛玻璃效果 */
-[data-theme='dark'] .navbar {
-  background-color: rgba(36, 37, 38, 0.8);
-  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.3);
+/* 暗色模式下的导航栏毛玻璃效果 - 增强版 */
+[data-theme='dark'] .navbar.navbar--fixed-top {
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  background-color: rgba(26, 27, 28, 0.7) !important;
+  border-bottom: 1px solid rgba(50, 50, 50, 0.4);
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* 为导航栏内的元素添加更高的对比度，确保在毛玻璃背景上可见 */
+.navbar__link, .navbar__brand, .navbar__toggle, .navbar-sidebar__brand {
+  font-weight: 600;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .navbar__link, 
+[data-theme='dark'] .navbar__brand, 
+[data-theme='dark'] .navbar__toggle,
+[data-theme='dark'] .navbar-sidebar__brand {
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
 /* 为不支持backdrop-filter的浏览器提供回退样式 */
-@supports not (backdrop-filter: blur(10px)) {
-  .navbar {
-    background-color: rgba(255, 255, 255, 0.95);
+@supports not (backdrop-filter: blur(15px)) {
+  .navbar.navbar--fixed-top {
+    background-color: rgba(255, 255, 255, 0.95) !important;
   }
   
-  [data-theme='dark'] .navbar {
-    background-color: rgba(36, 37, 38, 0.95);
+  [data-theme='dark'] .navbar.navbar--fixed-top {
+    background-color: rgba(26, 27, 28, 0.95) !important;
   }
 }
