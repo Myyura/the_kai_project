@@ -34,10 +34,37 @@
   background-image: linear-gradient(120deg, #3a4d44 0%, #2a4455 100%);
 }
 
+/* 导航栏样式 */
 .navbar {
   box-shadow: none;
-  
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   opacity: 1;
+}
+
+/* 深色模式下导航栏样式 */
+[data-theme='dark'] .navbar {
+  background-color: rgba(36, 37, 38, 0.7);
+}
+
+/* 移动端菜单样式 */
+.navbar-sidebar {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  z-index: 100;
+}
+
+/* 深色模式下移动端菜单样式 */
+[data-theme='dark'] .navbar-sidebar {
+  background-color: rgba(36, 37, 38, 0.9) !important;
+}
+
+/* 确保移动端菜单内容可见 */
+.navbar-sidebar__items {
+  padding: 0.5rem;
+}
+
+/* 确保移动端菜单项边距合适 */
+.menu__list-item {
+  margin: 0.25rem 0;
 }
