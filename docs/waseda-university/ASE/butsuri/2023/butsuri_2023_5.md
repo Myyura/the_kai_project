@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2023年度 量子力学および熱・統計力学 問題5"
-sidebar_position: 3
 tags:
   - Waseda-University
 ---

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2023年度 数学一般 問題1"
-sidebar_position: 1
 tags:
   - Waseda-University
 ---
