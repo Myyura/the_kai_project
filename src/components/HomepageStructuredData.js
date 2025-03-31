@@ -16,6 +16,11 @@ export default function HomepageStructuredData() {
         "url": "https://runjp.com/img/logo-512.png"
       }
     },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://runjp.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
     "about": {
       "@type": "EducationalOrganization",
       "name": "The Kai Project",
