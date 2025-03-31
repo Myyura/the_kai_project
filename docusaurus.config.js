@@ -61,7 +61,7 @@ const config = {
           {
             tagName: 'link',
             rel: 'icon',
-            href: '/img/logo.svg',
+            href: '/img/logo-192.png',
           },
           {
             tagName: 'link',
@@ -89,10 +89,9 @@ const config = {
             href: '/img/logo-192.png',
           },
           {
-            tagName: 'link',
-            rel: 'mask-icon',
-            href: '/img/logo.svg',
-            color: '#3578e5',
+            tagName: 'meta',
+            name: 'msapplication-config',
+            content: '/browserconfig.xml',
           },
         ],
         injectManifestConfig: {
