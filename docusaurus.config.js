@@ -12,6 +12,21 @@ import rehypeMathjax from 'rehype-mathjax';
 
  /** @type {import('@docusaurus/types').Config} */
 const config = {
+  future: {
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      mdxCrossCompilerCache: true,
+    },
+    experimental_storage: {
+      type: 'localStorage',
+      namespace: true,
+    },
+    experimental_router: 'browser',
+  },
   
 
   title: 'The Kai Project',
