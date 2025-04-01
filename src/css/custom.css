@@ -56,3 +56,8 @@
   font-size: 2rem;
 }
 
+/* Reduce h1 size in markdown content */
+.theme-doc-markdown.markdown h1 {
+  font-size: 2rem;
+}
+
