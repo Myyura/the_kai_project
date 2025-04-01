@@ -66,6 +66,11 @@ function HomepageHeader() {
             to="/docs/intro">
             点击查看过去问
           </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/blog">
+            点击查看经验贴
+          </Link>
         </div>
       </div>
     </header>
