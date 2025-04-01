@@ -29,25 +29,29 @@
 
 ### 内容格式说明
 
-将你想提交的 Markdown 文件，把它放在 docs 目录下对应的`学校/专攻/年份/`目录里，
+#### 文档前言
+
+文档前言是用来为你的 Markdown 文档页面提供额外的元数据的。本项目的前言有两个，
+
+`sidebar_label`为文档在侧边栏的标题，
+
+`tags`为文档的标签，一般为**学校**（提交时必须标注）和**考点**（非必须）。
+
+以`東京大学 工学系研究科 物理工学専攻 2020年度 物理学 第3問`为例：
+```markdown
+---
+sidebar_label: '物理学 第3問'
+tags:
+  - Tokyo-University
+  - xxx考点
+---
+```
+
+前言添加完毕后，将你想提交的 Markdown 文件放在 docs 目录下对应的`docs/学校/学院/专攻/年份/`目录里，
 
 以`東京大学 工学系研究科 物理工学専攻 2020年度 物理学 第3問`为例
 
 即`docs/tokyo-university/engineering/ap/2020/ap_2020_phys_3.md`。
-
-#### 文档前言
-
-文档前言是用来为你的文档页面提供额外的元数据的。本项目的前言有两个，`sidebar_label`为文档在侧边栏的标题，`tags`为文档的标签，一般为学校（提交时必须标注）和考点。
-
-例如：
-```markdown
----
-sidebar_label: '物理学 第2問'
-tags:
-  - Tokyo-University
----
-```
-
 
 <details>
 
@@ -92,6 +96,6 @@ npm run serve
 
 </details>
 
-#### 提交
+### 提交
 
 检查无误后提交 Pull Request，审核无冲突后维护者会合并分支。
