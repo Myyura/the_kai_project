@@ -25,7 +25,6 @@ const config = {
       type: 'localStorage',
       namespace: true,
     },
-    experimental_router: 'hash',
   },
 
   title: 'The Kai Project',
