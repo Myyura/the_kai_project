@@ -45,3 +45,18 @@
 {
   font-size: 2.5rem;
 }
+
+/* 一级标题 */
+.markdown h1 {
+  font-size: 2.5rem;
+}
+
+/* 二级标题 */
+.markdown h2 {
+  font-size: 2rem;
+}
+
+/* 三级标题 */
+.markdown h3 {
+  font-size: 1.6rem;
+}
