@@ -13,14 +13,24 @@ import rehypeMathjax from 'rehype-mathjax';
  /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: {
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+    },
     experimental_faster: {
       swcJsLoader: true,
       swcJsMinimizer: true,
-      lightningCssMinimizer : true,
       swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
       rspackBundler: true,
+      rspackPersistentCache: false,
       ssgWorkerThreads: true,
+      mdxCrossCompilerCache: false,
     },
+    experimental_storage: {
+      type: 'localStorage',
+      namespace: true,
+    },
+    experimental_router: 'hash',
   },
 
   title: 'The Kai Project',
