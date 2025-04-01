@@ -26,6 +26,12 @@
   .heroBanner {
     padding: 2rem;
   }
+  
+  /* 在移动设备上将按钮改为垂直排列 */
+  .buttons {
+    flex-direction: column;
+    gap: 0.8rem; /* 垂直排列时的按钮间距 */
+  }
 }
 
 .buttons {
