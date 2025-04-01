@@ -27,43 +27,65 @@
 
 如有侵权, 请随时联系.
 
-## 网页构建
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+### 内容格式说明
 
-### Installation
+将你想提交的 Markdown 文件，把它放在 docs 目录下对应的`学校/专攻/年份/`目录里，
 
-```bash
-$ yarn
+以`東京大学 工学系研究科 物理工学専攻 2020年度 物理学 第3問`为例
+
+即`docs/tokyo-university/engineering/ap/2020/ap_2020_phys_3.md`。
+
+#### 文档前言
+
+文档前言是用来为你的文档页面提供额外的元数据的。本项目的前言有两个，`sidebar_label`为文档在侧边栏的标题，`tags`为文档的标签，一般为学校（提交时必须标注）和考点。
+
+例如：
+```markdown
+---
+sidebar_label: '物理学 第2問'
+tags:
+  - Tokyo-University
+---
 ```
 
-### Local Development
+### 网页构建
+本网站使用现代静态网站生成器 [Docusaurus](https://docusaurus.io/)构建。
+
+Docusaurus 本质上是一组npm包。
+
+#### 要求
+Node.js 版本 18.0 或以上 (可以通过运行 `node -v` 来查看)。
+ 你可以用 nvm 来管理同一机器上的多个 Node 版本。
+安装 Node.js 时，建议勾选所有和依赖相关的选项。
+
+#### 安装
+
+clone本项目 
 
 ```bash
-$ yarn start
+git clone https://github.com/Myyura/the_kai_project.git
 ```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
+进入项目文件夹
 
 ```bash
-$ yarn build
+cd the_kai_project
 ```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
+安装docusaurus
 
 ```bash
-$ USE_SSH=true yarn deploy
+npm install docusaurus
 ```
 
-Not using SSH:
+#### 本地测试构建
+
+在部署到生产环境前，事先进行本地测试尤为重要。
 
 ```bash
-$ GIT_USER=<Your GitHub username> yarn deploy
+npm run serve
 ```
+站点默认会部署在 `http://localhost:3000/`
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+#### 提交
+
+测试通过后提交 Pull Request，审核无冲突后维护者会合并分支。
