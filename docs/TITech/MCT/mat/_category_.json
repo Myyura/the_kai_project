@@ -2,7 +2,6 @@
   "label": "材料系",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "東京科學大學 物質理工学院 材料系 索引"
+    "type": "generated-index"
   }
 }

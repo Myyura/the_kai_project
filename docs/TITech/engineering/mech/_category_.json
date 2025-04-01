@@ -2,7 +2,6 @@
   "label": "機械系",
   "position": 4,
   "link": {
-    "type": "generated-index",
-    "description": "東京科學大學 工学院 機械系 索引"
+    "type": "generated-index"
   }
 }

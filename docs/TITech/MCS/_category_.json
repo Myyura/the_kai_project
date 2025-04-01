@@ -2,7 +2,6 @@
   "label": "情報理工学院",
   "position": 3,
   "link": {
-    "type": "generated-index",
-    "description": "東京科學大學 情報理工学院 索引"
+    "type": "generated-index"
   }
 }

@@ -2,7 +2,6 @@
   "label": "情報科学院",
   "position": 2,
   "link": {
-    "type": "generated-index",
-    "description": "北海道大学 情報科学院 索引"
+    "type": "generated-index"
   }
 }

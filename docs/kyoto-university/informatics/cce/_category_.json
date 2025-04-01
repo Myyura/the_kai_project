@@ -2,7 +2,6 @@
   "label": "通信情報システム専攻",
   "position": 3,
   "link": {
-    "type": "generated-index",
-    "description": "京都大学 情報学研究科 通信情報システム専攻 索引"
+    "type": "generated-index"
   }
 }

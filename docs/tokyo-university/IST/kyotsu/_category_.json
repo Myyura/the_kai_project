@@ -2,7 +2,6 @@
   "label": "共通科目",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "東京大学 情報理工学系研究科 共通科目 索引"
+    "type": "generated-index"
   }
 }

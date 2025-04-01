@@ -2,7 +2,6 @@
   "label": "物理学専攻",
   "position": 3,
   "link": {
-    "type": "generated-index",
-    "description": "東京大学 理学系研究科 物理学専攻 索引"
+    "type": "generated-index"
   }
 }

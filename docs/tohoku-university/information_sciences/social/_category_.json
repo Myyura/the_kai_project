@@ -2,7 +2,6 @@
   "label": "社会科学群",
   "position": 2,
   "link": {
-    "type": "generated-index",
-    "description": "東北大学 情報科学研究科 社会科学群 索引"
+    "type": "generated-index"
   }
 }

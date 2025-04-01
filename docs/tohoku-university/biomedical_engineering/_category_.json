@@ -2,7 +2,6 @@
   "label": "医工学研究科",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "東北大学 医工学研究科 索引"
+    "type": "generated-index"
   }
 }

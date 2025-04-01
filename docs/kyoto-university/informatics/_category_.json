@@ -2,7 +2,6 @@
   "label": "情報学研究科",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "京都大学 情報学研究科 索引"
+    "type": "generated-index"
   }
 }

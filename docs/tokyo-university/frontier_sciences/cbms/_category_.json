@@ -2,7 +2,6 @@
   "label": "メディカル情報生命専攻",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "東京大学 新領域創成科学研究科 メディカル情報生命専攻 索引"
+    "type": "generated-index"
   }
 }

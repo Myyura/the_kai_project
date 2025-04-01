@@ -2,7 +2,6 @@
   "label": "知能システム学",
   "position": 5,
   "link": {
-    "type": "generated-index",
-    "description": "大阪大学 知能システム学 索引"
+    "type": "generated-index"
   }
 }

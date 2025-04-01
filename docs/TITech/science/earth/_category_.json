@@ -2,7 +2,6 @@
   "label": "地球惑星科学系",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "東京科學大學 理学院 地球惑星科学系 索引"
+    "type": "generated-index"
   }
 }

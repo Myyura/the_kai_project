@@ -2,7 +2,6 @@
   "label": "東北大学",
   "position": 4,
   "link": {
-    "type": "generated-index",
-    "description": "東北大学 索引"
+    "type": "generated-index"
   }
 }

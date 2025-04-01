@@ -2,7 +2,6 @@
   "label": "理学研究科",
   "position": 4,
   "link": {
-    "type": "generated-index",
-    "description": "大阪大学 理学研究科 索引"
+    "type": "generated-index"
   }
 }

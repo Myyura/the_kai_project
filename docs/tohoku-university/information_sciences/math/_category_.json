@@ -2,7 +2,6 @@
   "label": "数学教室",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "東北大学 情報科学研究科 数学教室 索引"
+    "type": "generated-index"
   }
 }

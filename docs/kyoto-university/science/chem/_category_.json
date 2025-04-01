@@ -2,7 +2,6 @@
   "label": "化学専攻",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "京都大学 化学専攻 索引"
+    "type": "generated-index"
   }
 }
