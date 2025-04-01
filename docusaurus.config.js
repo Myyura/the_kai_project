@@ -185,6 +185,9 @@ const config = {
         {property: 'og:image', content: 'https://runjp.com/img/docusaurus-social-card.png'},
         {name: 'twitter:card', content: 'summary_large_image'},
       ],
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
       docs: {
         sidebar: {
           autoCollapseCategories: true,
