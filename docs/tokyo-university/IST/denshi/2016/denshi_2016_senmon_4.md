@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年度 専門 第4問"
+sidebar_label: "専門 第4問"
 tags:
   - Tokyo-University
 ---

@@ -1,5 +1,5 @@
 ---
-sidebar_label: '2022年度 物理学1'
+sidebar_label: '物理学1'
 tags:
   - Tokyo-University
 ---

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 数学 第2問"
+sidebar_label: "2数学 第2問"
 tags:
   - Tokyo-University
 ---

@@ -1,5 +1,5 @@
 ---
-sidebar_label: '2022年度 数学2'
+sidebar_label: '数学2'
 tags:
   - Tokyo-University
 ---

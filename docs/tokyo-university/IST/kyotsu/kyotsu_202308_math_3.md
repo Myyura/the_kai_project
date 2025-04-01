@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2023年8月実施 数学 第3問"
+sidebar_label: "数学 第3問"
 sidebar_position: 18
 tags:
   - Tokyo-University

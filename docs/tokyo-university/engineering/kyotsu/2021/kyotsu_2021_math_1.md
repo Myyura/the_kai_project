@@ -1,5 +1,5 @@
 ---
-sidebar_label: '2021年度 数学1'
+sidebar_label: '数学1'
 tags:
   - Tokyo-University
 ---

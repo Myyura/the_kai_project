@@ -1,5 +1,5 @@
 ---
-sidebar_label: '物理学専攻 2022年度 専門科目 第1問'
+sidebar_label: '専門科目 第1問'
 tags:
   - Tokyo-University
 ---

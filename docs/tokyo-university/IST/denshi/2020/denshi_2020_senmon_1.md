@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2020年度 専門 第1問"
+sidebar_label: "専門 第1問"
 tags:
   - Tokyo-University
 ---

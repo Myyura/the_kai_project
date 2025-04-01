@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2014年度 専門 第3問"
+sidebar_label: "専門 第3問"
 tags:
   - Tokyo-University
 ---

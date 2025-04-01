@@ -1,5 +1,5 @@
 ---
-sidebar_label: "広域科学専攻 広域システム科学系 2020年度 総合科目 第3問"
+sidebar_label: "広域システム科学系 2020年度 総合科目 第3問"
 tags:
   - Tokyo-University
 ---

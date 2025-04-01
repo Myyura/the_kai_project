@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年度 専門科目 第1問"
+sidebar_label: "専門科目 第1問"
 tags:
   - Tokyo-University
 ---

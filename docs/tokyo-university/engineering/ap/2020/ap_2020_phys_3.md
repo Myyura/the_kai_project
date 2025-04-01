@@ -1,5 +1,5 @@
 ---
-sidebar_label: '物理工学専攻 2020年度 物理学 第3問'
+sidebar_label: '物理学 第3問'
 tags:
   - Tokyo-University
 ---
