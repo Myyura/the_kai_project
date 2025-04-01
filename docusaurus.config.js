@@ -13,7 +13,14 @@ import rehypeMathjax from 'rehype-mathjax';
  /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: {
-    experimental_faster: true, // turns Docusaurus Faster on globally
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      lightningCssMinimizer : true,
+      swcHtmlMinimizer: true,
+      rspackBundler: true,
+      ssgWorkerThreads: true,
+    },
   },
 
   title: 'The Kai Project',
