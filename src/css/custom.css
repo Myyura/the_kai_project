@@ -34,3 +34,14 @@
   background-image: linear-gradient(120deg, #3a4d44 0%, #2a4455 100%);
 }
 
+/* Reduce title size in blog list */
+.blog-list-page h2[class*="title"]
+{
+  font-size: 2.5rem;
+}
+
+/* Reduce title size in blog page */
+.blog-post-page h1[class*="title"]
+{
+  font-size: 2.5rem;
+}
