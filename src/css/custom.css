@@ -37,17 +37,22 @@
 /* Reduce title size in blog list */
 .blog-list-page h2[class*="title"]
 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 /* Reduce title size in blog page */
 .blog-post-page h1[class*="title"]
 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 /* Reduce title size in doc page */
 .docs-doc-page h1[class*="title"] {
+  font-size: 2rem;
+}
+
+/* Reduce title size in doc page */
+.docs-doc-page h2[class*="title"] {
   font-size: 2rem;
 }
 
