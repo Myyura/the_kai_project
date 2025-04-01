@@ -12,20 +12,7 @@ import rehypeMathjax from 'rehype-mathjax';
 
  /** @type {import('@docusaurus/types').Config} */
 const config = {
-  future: {
-    experimental_faster: {
-      swcJsLoader: true,
-      swcJsMinimizer: true,
-      swcHtmlMinimizer: true,
-      lightningCssMinimizer: true,
-      rspackBundler: true,
-      mdxCrossCompilerCache: false,
-    },
-    experimental_storage: {
-      type: 'localStorage',
-      namespace: true,
-    },
-  },
+  
 
   title: 'The Kai Project',
   tagline: 'Answer to the Ultimate Question of Life, the Universe, and Everything',
