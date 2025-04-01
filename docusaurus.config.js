@@ -198,8 +198,9 @@ const config = {
       navbar: {
         title: 'The Kai Project',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Site Logo',
           src: 'img/logo.svg',
+          srcDark: 'img/logo_dark.svg',
         },
         items: [
           {
