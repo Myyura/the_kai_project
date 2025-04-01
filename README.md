@@ -48,6 +48,11 @@ tags:
 ---
 ```
 
+
+<details>
+
+<summary>构建网站部分（非必须）</summary>
+
 ### 网页构建
 本网站使用现代静态网站生成器 [Docusaurus](https://docusaurus.io/)构建。
 
@@ -85,7 +90,8 @@ npm run serve
 ```
 站点默认会部署在 `http://localhost:3000/`
 
+</details>
 
 #### 提交
 
-测试通过后提交 Pull Request，审核无冲突后维护者会合并分支。
+检查无误后提交 Pull Request，审核无冲突后维护者会合并分支。
