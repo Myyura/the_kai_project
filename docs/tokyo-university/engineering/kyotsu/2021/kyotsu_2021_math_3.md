@@ -11,11 +11,34 @@ tags:
 
 ## **Description**
 
+2021年度大学院入学試験問題
+[数学 3 (主に複素関数論)](https://github.com/Myyura/the_kai_project_assets/blob/7d274740e9aacde6948ee5ca73a336a00fe76d04/kakomonn/tokyo_university/engineering/Description/2021_M_3.pdf)
+
+
 ## **Kai**
 ### I.
 #### 1.
+$M(z)=z$より
+
+$$
+\begin{aligned}
+\frac{mz}{mz-z+1} & =z \\
+\mathrm{mz} & =(mz-z+1)z \\
+(m-1)z(z-1) & =0
+\end{aligned}
+$$
+
+となる．よって，$m≠1$であるから，$M(z)=z$の不動点は
+
+$$
+z=0,1
+$$
+
+解説:
 $M(z)=z$ を整理すると、$(m-1)z(z-1)=0$であり、 $m \ne 0$ なので、 $z=0,1$ を得る。
 実際、 $M(0)=0, M(1)=1$ である。
+一次分数変換の不動点を求める問題です．
+不動点とはその名の通り動かない点です．変換を施しても変化しないということです．
 
 #### 2.
 
@@ -61,3 +84,5 @@ $$
 のときである。
 
 ### III.
+
+[【院試解説】東京大学 工学系研究科 2021年度 数学3 III](https://www.youtube.com/watch?v=_xETmjbNKC4)

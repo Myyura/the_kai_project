@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[2020年度入試問題 Exam paper 数学](https://github.com/Myyura/the_kai_project_assets/blob/7d274740e9aacde6948ee5ca73a336a00fe76d04/kakomonn/tokyo_university/engineering/Description/%E6%95%B0%E5%AD%A62020.pdf)
+
 ## **Kai**
 ### I.
 固有値の和はトレースに等しいので、$\alpha = 5$
