@@ -7,7 +7,8 @@ tags:
 # 東京大学 工学系研究科 2020年度 数学 第1問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html)、後生楽 広小路
+
 
 ## **Description**
 

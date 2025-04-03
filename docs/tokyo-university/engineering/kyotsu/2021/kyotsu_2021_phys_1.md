@@ -11,6 +11,10 @@ tags:
 
 ## **Description**
 
+大学院入学試験問題
+[物理学 1 (力学)](https://github.com/Myyura/the_kai_project_assets/blob/a905474b4bb06464ac697009cb18bb114db3fabc/kakomonn/tokyo_university/engineering/Description/2021_P_1.pdf)
+
+
 ## **Kai**
 ### I.
 #### 1.
