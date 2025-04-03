@@ -13,7 +13,7 @@ I、以下の定積分を求めよ。
 
 $$
 \begin{align}
-I = \int_2^4 \frac{\text{d}x}{\sqrt{(x-2)(4-x)}} \label{1}
+I = \int_2^4 \frac{\text{d}x}{\sqrt{(x-2)(4-x)}} \tag{1}
 \end{align}
 $$
 
@@ -21,7 +21,7 @@ II、以下の微分方程式の一般解と特異解を求めよ。
 
 $$
 \begin{align}
-y = x \frac{\text{d}y}{\text{d}x} + \frac{\text{d}y}{\text{d}x} + \bigg(\frac{\text{d}y}{\text{d}x} \bigg)^2 \label{2}
+y = x \frac{\text{d}y}{\text{d}x} + \frac{\text{d}y}{\text{d}x} + \bigg(\frac{\text{d}y}{\text{d}x} \bigg)^2 \tag{2}
 \end{align}
 $$
 
@@ -29,7 +29,7 @@ III、以下の微分方程式の一般解を求めよ。
 
 $$
 \begin{align}
-x^2 \frac{\text{d}^2y}{\text{d}x^2} - x \frac{\text{d}y}{\text{d}x} - 8y = x^2 \label{3}
+x^2 \frac{\text{d}^2y}{\text{d}x^2} - x \frac{\text{d}y}{\text{d}x} - 8y = x^2 \tag{3}
 \end{align}
 $$
 
@@ -129,7 +129,7 @@ $$
 $$
 \begin{align}
 \frac{\text{d}^2y}{\text{d}t^2} - \frac{\text{d}y}{\text{d}t} - \frac{\text{d}y}{\text{d}t} - 8y &= e^{2t} \nonumber \\
-\frac{\text{d}^2y}{\text{d}t^2} - 2\frac{\text{d}y}{\text{d}t} - 8y &= e^{2t} \label{4}
+\frac{\text{d}^2y}{\text{d}t^2} - 2\frac{\text{d}y}{\text{d}t} - 8y &= e^{2t} \tag{4}
 \end{align}
 $$
 
