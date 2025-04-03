@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[2023年度大学院入学試験問題 数学](https://github.com/Myyura/the_kai_project_assets/blob/2672b44819e556e6b7835902e6d69059ff935039/kakomonn/tokyo_university/engineering/Description/M_J_E_2023.pdf)
+
 ## **Kai**
 ### I.
 
