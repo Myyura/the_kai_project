@@ -99,3 +99,7 @@ npm run serve
 ### 提交
 
 检查无误后提交 Pull Request，审核无冲突后维护者会合并分支。
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Myyura/the_kai_project&type=Date)](https://www.star-history.com/#Myyura/the_kai_project&Date)
