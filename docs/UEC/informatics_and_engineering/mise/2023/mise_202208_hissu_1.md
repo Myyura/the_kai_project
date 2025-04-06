@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2022年8月実施 必須問題（数学）問1"
-sidebar_position: 1
 tags:
   - University-of-Electro-Communications 
 ---

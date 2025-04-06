@@ -1,6 +1,5 @@
 ---
 sidebar_label: "2023年8月実施 選択問題 アルゴリズムとデータ構造"
-sidebar_position: 1
 tags:
   - University-of-Electro-Communications 
   - Sorting-Algorithm
