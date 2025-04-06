@@ -1,6 +1,5 @@
 ---
-sidebar_label: "2017年8月実施 基礎科目 情報2"
-sidebar_position: 1
+sidebar_label: "情報理工学位プログラム 2017年8月実施 基礎科目 情報2"
 tags:
   - Tsukuba-University
   - Priority-Queue

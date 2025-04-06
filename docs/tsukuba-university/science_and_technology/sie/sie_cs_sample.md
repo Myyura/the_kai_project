@@ -1,6 +1,5 @@
 ---
-sidebar_label: "問題例"
-sidebar_position: 7
+sidebar_label: "情報理工学位プログラム 問題例"
 tags:
   - Tsukuba-University
 ---

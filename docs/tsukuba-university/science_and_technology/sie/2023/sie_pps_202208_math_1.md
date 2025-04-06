@@ -1,10 +1,9 @@
 ---
-sidebar_label: "2022年8月実施 数学 I"
-sidebar_position: 8
+sidebar_label: "社会工学学位プログラム 2022年8月実施 数学I"
 tags:
   - Tsukuba-University
 ---
-# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム 2022年8月実施 数学 I
+# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム 2022年8月実施 数学I
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)
