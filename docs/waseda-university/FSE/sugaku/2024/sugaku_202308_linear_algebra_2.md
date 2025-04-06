@@ -1,9 +1,10 @@
 ---
-sidebar_label: "2024年度 線形代数 [2]"
+sidebar_label: "2023年8月実施 線形代数 [2]"
 tags:
   - Waseda-University
+  - Linear-Algebra
 ---
-# 早稲田大学 基幹理工学研究科 数学応用数理専攻 2024年度 線形代数 \[2\]
+# 早稲田大学 基幹理工学研究科 数学応用数理専攻 2023年8月実施 線形代数 \[2\]
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)

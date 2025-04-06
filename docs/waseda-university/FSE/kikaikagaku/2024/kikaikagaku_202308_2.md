@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2024年度 力学 [1]"
+sidebar_label: "2023年8月実施 力学 [1]"
 tags:
   - Waseda-University
 ---
-# 早稲田大学 基幹理工学研究科 機械科学・航空宇宙専攻 2024年度 力学 \[1\]
+# 早稲田大学 基幹理工学研究科 機械科学・航空宇宙専攻 2023年8月実施 力学 \[1\]
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)

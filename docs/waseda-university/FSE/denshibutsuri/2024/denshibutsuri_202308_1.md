@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2024年度 力学 (その1) [1]"
+sidebar_label: "2023年8月実施 力学 (その1) [1]"
 tags:
   - Waseda-University
 ---
-# 早稲田大学 基幹理工学研究科 電子物理システム学専攻 2024年度 力学 (その1) \[1\]
+# 早稲田大学 基幹理工学研究科 電子物理システム学専攻 2023年8月実施 力学 (その1) \[1\]
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)

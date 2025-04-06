@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2023年度 数理基礎"
+sidebar_label: "2022年8月実施 数理基礎"
 tags:
   - Waseda-University
 ---
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2023年度 数理基礎
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2022年8月実施 数理基礎
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)

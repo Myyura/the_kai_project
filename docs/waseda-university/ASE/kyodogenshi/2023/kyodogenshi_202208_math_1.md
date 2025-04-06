@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2023年度 数学一般(その1)"
+sidebar_label: "2022年8月実施 数学一般 その1"
 tags:
   - Waseda-University
 ---
-# 早稲田大学 先進理工学研究科 共同原子力専攻 2023年度 数学一般(その1)
+# 早稲田大学 先進理工学研究科 共同原子力専攻 2022年8月実施 数学一般 その1
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)
