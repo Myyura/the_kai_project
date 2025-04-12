@@ -11,8 +11,10 @@ title: 友情链接
 - [Miyake, 大学院入試（院試）過去問題の解答](https://miyake.github.io/exams/index.html)
     - 主要为各个学校数学与物理问题的解答
 - [Zephyr's Notes on ISCS & CBMS, UTokyo](https://inshi-notes.zephyr-zdz.space/)
+    - 东京大学 IST 计算机科学硕士课程和东京大学 GSFS CBMS 硕士课程入学考试的笔记
 - [hari64boli64, 東京大学大学院情報理工学系研究科入試問題過去問解答など](https://github.com/hari64boli64/GraduateSchoolEntranceExamination)
 - [diohabara, open_inshi](https://github.com/diohabara/open_inshi)
+    - 大学院入試過去問(2023年実施試験まで)
 - [之遥, 东京大学·新领域创成研究科·复杂理工专攻2018-2023年度过去问解答](https://www.zhihu.com/people/zhao-yue-70-84)
 - [etsurin, 东京大学情理数学解答例](https://zhuanlan.zhihu.com/p/561992447)
 - [Josuke, 东大电情](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766)
@@ -23,6 +25,7 @@ title: 友情链接
 - [YuanzhongLi, UTokyo CI Programming](https://qiita.com/YuanzhongLi)
 - [理工系の院試の，問題と解答のまとめ （数学・物理・情報・工学）](https://language-and-engineering.hatenablog.jp/entry/20140715/GraduateSchoolsEntranceExamAnswers)
 - [大学の理工系の講義ノートPDFまとめ （数学・物理・情報・工学）](https://language-and-engineering.hatenablog.jp/entry/20140620/PDFLectureNotesOnUniversity)
+- [东京大学大学院工学系研究科修考经验分享](https://www.zhihu.com/column/ut-eng)
 
 ## 有用的就职信息
 
