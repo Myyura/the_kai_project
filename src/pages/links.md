@@ -4,7 +4,7 @@ title: 友情链接
 
 # 友情链接
 
-## 部分题解作者的链接
+## 部分题解作者的链接和有用的参考资料
 
 - [永久花, Myyura's Blog](https://myyura.github.io/)
     - 两年不更新了！
@@ -22,6 +22,7 @@ title: 友情链接
 - [tomfluff, UTokyo CI](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam)
 - [YuanzhongLi, UTokyo CI Programming](https://qiita.com/YuanzhongLi)
 - [理工系の院試の，問題と解答のまとめ （数学・物理・情報・工学）](https://language-and-engineering.hatenablog.jp/entry/20140715/GraduateSchoolsEntranceExamAnswers)
+- [大学の理工系の講義ノートPDFまとめ （数学・物理・情報・工学）](https://language-and-engineering.hatenablog.jp/entry/20140620/PDFLectureNotesOnUniversity)
 
 ## 有用的就职信息
 
