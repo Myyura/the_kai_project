@@ -21,6 +21,7 @@ title: 友情链接
 - [kainoj, UTokyo CS](https://github.com/kainoj/utokyo-cs)
 - [tomfluff, UTokyo CI](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam)
 - [YuanzhongLi, UTokyo CI Programming](https://qiita.com/YuanzhongLi)
+- [理工系の院試の，問題と解答のまとめ （数学・物理・情報・工学）](https://language-and-engineering.hatenablog.jp/entry/20140715/GraduateSchoolsEntranceExamAnswers)
 
 ## 有用的就职信息
 
