@@ -1,0 +1,93 @@
+{
+  "name": "The Kai Project",
+  "short_name": "Kai",
+  "theme_color": "#3578e5",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./index.html",
+  "description": "开源的、便捷的、分享与讨论修考试题答案的平台",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "img/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "img/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "過去問",
+      "short_name": "过去问",
+      "description": "浏览考试题答案",
+      "url": "/docs/intro",
+      "icons": [{ "src": "img/logo-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "经验贴",
+      "short_name": "经验贴",
+      "description": "阅读经验分享",
+      "url": "/blog",
+      "icons": [{ "src": "img/logo-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "lang": "zh-Hans",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "categories": ["education", "productivity"]
+}

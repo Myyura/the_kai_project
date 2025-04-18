@@ -1,0 +1,54 @@
+.schoolCard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  height: 100%;
+  background-color: #f8f9fa;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.schoolCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+/* 暗色模式下的样式 */
+[data-theme='dark'] .schoolCard {
+  background-color: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .schoolCard:hover {
+  background-color: var(--ifm-color-emphasis-200);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.cardLink {
+  text-decoration: none !important;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.cardContent {
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.schoolName {
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.schoolDescription {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0;
+  flex-grow: 1;
+}
