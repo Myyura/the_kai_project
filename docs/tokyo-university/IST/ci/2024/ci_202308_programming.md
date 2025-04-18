@@ -150,7 +150,7 @@ x10=x3; x10=x7; x11=x10
 ## **Kai**
 We currently do not have the corresponding sample data files. If you have them and are willing to share, please submit a PR.
 
-### Problem 1
+### (1)
 
 ```python
 # 31,0,9,7,3,5,56,100,999
@@ -181,7 +181,9 @@ for ff in ff_list:
                     argmax_diff.add(var_idx)
         print(argmax_diff, ":", max_diff)
 ```
-### Problem 2
+
+### (2)
+
 ```python
 left_operand_freq = {}
 # right_operand_freq = {}
@@ -208,7 +210,9 @@ for var_idx, freq in left_operand_freq.items():
         
 print(argmax_freq,":",freq)
 ```
-### Problem 3
+
+### (3)
+
 ```python
 ff_list_1 = ["./data3a1.txt","./data3b1.txt","./data3c1.txt"] # for assign
 ff_list_2 = ["./data3a2.txt","./data3b2.txt","./data3c2.txt"] # for assign
@@ -253,7 +257,7 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
     print("="*20)
 ```
 
-### Problem 4
+### (4)
 
 ```python
 ff_list_1 = ["./data4a1.txt"] # for assign
@@ -312,7 +316,7 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
         print(var_idx,":",var_lower_b_dur[var_idx],"to",var_upper_b_dur[var_idx])
 ```
 
-### Problem 5
+### (5)
 
 ```python
 from copy import deepcopy
@@ -377,7 +381,7 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
     print("="*20)
 ```
 
-### Problem 6
+### (6)
 
 ```python
 from copy import deepcopy
@@ -423,7 +427,7 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
     print("="*20)
 ```
 
-### Problem 7
+### (7)
 
 This script should be run multiple times for achieving the final result.
 
