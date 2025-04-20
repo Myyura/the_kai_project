@@ -9,29 +9,29 @@ import styles from './index.module.css';
 
 const FeatureList = [
   {
-    title: '考试答案',
+    title: '🔍考试答案',
     emoji: '🔍',
     description: (
       <>
-        提供一个不断增长的日本研究生入学考试答案集。访问全面的解析和学习资源。
+        提供一个不断增长的日本研究生入学考试答案集。
       </>
     ),
   },
   {
-    title: '社区讨论',
+    title: '💬社区讨论',
     emoji: '💬',
     description: (
       <>
-        参与关于考试问题、解决方案和学习策略的讨论。分享您的见解，获取专家意见。
+        参与关于考试问题、解决方案和学习策略的讨论。
       </>
     ),
   },
   {
-    title: '开源平台',
+    title: '🌐开源',
     emoji: '🌐',
     description: (
       <>
-        完全开源的平台，欢迎社区的贡献。一起构建更强大的学习生态系统。
+        完全开源的平台，欢迎社区的贡献。
       </>
     ),
   },
@@ -40,12 +40,12 @@ const FeatureList = [
 function Feature({emoji, title, description}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className={styles.featureCard}>
+      <div className="text--center">
         <div className={styles.featureEmoji}>{emoji}</div>
-        <div className="text--center padding-horiz--md">
-          <Heading as="h3">{title}</Heading>
-          <p>{description}</p>
-        </div>
+      </div>
+      <div className="text--center padding-horiz--md">
+        <Heading as="h3">{title.replace(/^[^\s]+\s*/, '')}</Heading>
+        <p>{description}</p>
       </div>
     </div>
   );
@@ -64,12 +64,12 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            查看过去问 →
+            点击查看过去问
           </Link>
           <Link
-            className="button button--outline button--secondary button--lg"
+            className="button button--secondary button--lg"
             to="/blog">
-            浏览经验贴 →
+            点击查看经验贴
           </Link>
         </div>
       </div>
@@ -81,7 +81,7 @@ function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row" style={{ gap: '2rem 0' }}>
+        <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
