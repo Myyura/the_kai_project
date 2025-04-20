@@ -13,7 +13,7 @@ const FeatureList = [
     emoji: '🔍',
     description: (
       <>
-        提供一个不断增长的日本研究生入学考试答案集，帮助你更好地准备考试。
+        提供一个不断增长的日本研究生入学考试答案集。访问全面的解析和学习资源。
       </>
     ),
   },
@@ -22,16 +22,16 @@ const FeatureList = [
     emoji: '💬',
     description: (
       <>
-        参与关于考试问题、解决方案和学习策略的讨论，分享经验，互相学习。
+        参与关于考试问题、解决方案和学习策略的讨论。分享您的见解，获取专家意见。
       </>
     ),
   },
   {
-    title: '开源项目',
+    title: '开源平台',
     emoji: '🌐',
     description: (
       <>
-        完全开源的平台，欢迎社区的贡献，一起建设更完善的资源库。
+        完全开源的平台，欢迎社区的贡献。一起构建更强大的学习生态系统。
       </>
     ),
   },
@@ -39,13 +39,13 @@ const FeatureList = [
 
 function Feature({emoji, title, description}) {
   return (
-    <div className={clsx('col col--4')} style={{marginBottom: '2rem'}}>
+    <div className={clsx('col col--4')}>
       <div className={styles.featureCard}>
         <div className={styles.featureEmoji}>{emoji}</div>
-        <Heading as="h3" className={styles.featureTitle}>
-          {title}
-        </Heading>
-        <p className={styles.featureDescription}>{description}</p>
+        <div className="text--center padding-horiz--md">
+          <Heading as="h3">{title}</Heading>
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   );
@@ -56,20 +56,20 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className={styles.heroTitle}>
+        <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
           {siteConfig.title}
         </Heading>
-        <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
+        <p className={clsx('hero__subtitle', styles.heroSubtitle)}>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className={clsx(styles.buttonPrimary)}
+            className="button button--secondary button--lg"
             to="/docs/intro">
             查看过去问 →
           </Link>
           <Link
-            className={clsx(styles.buttonSecondary)}
+            className="button button--outline button--secondary button--lg"
             to="/blog">
-            浏览经验贴
+            浏览经验贴 →
           </Link>
         </div>
       </div>
@@ -81,33 +81,10 @@ function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className="row" style={{ gap: '2rem 0' }}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// 新增一个号召性行动部分
-function CallToAction() {
-  return (
-    <section className={clsx(styles.ctaSection)}>
-      <div className="container text--center">
-        <Heading as="h2" className={styles.ctaTitle}>
-          加入我们，共同分享与学习
-        </Heading>
-        <p className={styles.ctaDescription}>
-          无论你是正在准备日本研究生考试，还是已经拥有丰富经验，我们都欢迎你的参与和贡献。
-        </p>
-        <div className={styles.ctaButton}>
-          <Link
-            className="button button--primary button--lg"
-            to="https://github.com/Myyura/the_kai_project">
-            在 GitHub 上参与贡献
-          </Link>
         </div>
       </div>
     </section>
@@ -124,7 +101,6 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <CallToAction />
       </main>
     </Layout>
   );

@@ -6,22 +6,17 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #6366f1;
-  --ifm-color-primary-dark: #4f46e5;
-  --ifm-color-primary-darker: #4338ca;
-  --ifm-color-primary-darkest: #3730a3;
-  --ifm-color-primary-light: #818cf8;
-  --ifm-color-primary-lighter: #a5b4fc;
-  --ifm-color-primary-lightest: #c7d2fe;
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3730a3;
+  --ifm-color-primary-darkest: #312e81;
+  --ifm-color-primary-light: #6366f1;
+  --ifm-color-primary-lighter: #818cf8;
+  --ifm-color-primary-lightest: #a5b4fc;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  
-  /* 自定义颜色变量 */
-  --custom-background-color: #ffffff;
-  --custom-text-color: #333333;
-  --custom-border-radius: 8px;
-  --custom-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --custom-transition: all 0.3s ease;
+  --ifm-button-border-radius: 8px;
+  --ifm-button-padding-horizontal: 1.5rem;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -34,62 +29,17 @@
   --ifm-color-primary-lighter: #c7d2fe;
   --ifm-color-primary-lightest: #e0e7ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  
-  /* 自定义暗色模式颜色变量 */
-  --custom-background-color: #1b1b1d;
-  --custom-text-color: #e0e0e0;
-  --custom-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* 添加黑暗模式下 heroBanner 的样式 */
 [data-theme='dark'] .hero--primary {
-  background-image: linear-gradient(135deg, #434343 0%, #000000 100%);
-}
-
-/* 美化按钮样式 */
-.button {
-  border-radius: 50px;
-  transition: var(--custom-transition);
-  font-weight: 600;
-  box-shadow: var(--custom-box-shadow);
-}
-
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* 美化卡片样式 */
-.card {
-  border-radius: var(--custom-border-radius);
-  box-shadow: var(--custom-box-shadow);
-  transition: var(--custom-transition);
-  overflow: hidden;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-}
-
-/* 调整导航栏样式 */
-.navbar {
-  box-shadow: var(--custom-box-shadow);
-}
-
-.navbar__brand {
-  font-weight: 700;
-}
-
-/* 美化标题样式 */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  background-image: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
 }
 
 /* Reduce title size in blog list */
 .blog-list-page h2[class*="title"]
 {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 /* Reduce title size in blog page */
@@ -105,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reduce title size in doc page */
 .docs-doc-page h2[class*="title"] {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 /* Reduce h1 size in markdown content */
@@ -113,18 +63,67 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
 }
 
-/* 添加平滑滚动 */
+/* 为按钮添加现代感 */
+.button {
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.button--secondary {
+  color: var(--ifm-color-primary);
+  background-color: #fff;
+  border-color: transparent;
+}
+
+.button--outline.button--secondary {
+  color: #fff;
+  border-color: #fff;
+  background-color: transparent;
+}
+
+/* 按钮悬停效果 */
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 黑暗模式下的按钮样式 */
+[data-theme='dark'] .button--secondary {
+  background-color: #2d333b;
+  color: #e0e7ff;
+}
+
+[data-theme='dark'] .button--outline.button--secondary {
+  color: #e0e7ff;
+  border-color: #e0e7ff;
+}
+
+/* 改进卡片样式 */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* 改进导航栏 */
+.navbar {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .navbar {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* 设置平滑滚动 */
 html {
   scroll-behavior: smooth;
-}
-
-/* 添加内容过渡动画 */
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
