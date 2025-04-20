@@ -3,52 +3,48 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
+import { FaSearch, FaComments, FaGlobe } from 'react-icons/fa'; // 引入 React Icons
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 const FeatureList = [
   {
-    title: '🔍考试答案',
-    emoji: '🔍',
+    title: '考试答案',
+    icon: <FaSearch />,
     description: (
       <>
         提供一个不断增长的日本研究生入学考试答案集。
       </>
     ),
-    className: styles.featureItemFirst,
   },
   {
-    title: '💬社区讨论',
-    emoji: '💬',
+    title: '社区讨论',
+    icon: <FaComments />,
     description: (
       <>
         参与关于考试问题、解决方案和学习策略的讨论。
       </>
     ),
-    className: styles.featureItemSecond,
   },
   {
-    title: '🌐开源',
-    emoji: '🌐',
+    title: '开源',
+    icon: <FaGlobe />,
     description: (
       <>
         完全开源的平台，欢迎社区的贡献。
       </>
     ),
-    className: styles.featureItemThird,
   },
 ];
 
-function Feature({emoji, title, description, className}) {
+function Feature({icon, title, description}) {
   return (
-    <div className={clsx('col col--4', className)}>
+    <div className={clsx('col col--4')}>
       <div className={styles.featureCard}>
-        <div className="text--center">
-          <div className={styles.featureEmoji}>{emoji}</div>
-        </div>
-        <div className="text--center padding-horiz--md">
-          <Heading as="h3" className={styles.featureTitle}>{title.replace(/^[^\s]+\s*/, '')}</Heading>
+        <div className={styles.featureIcon}>{icon}</div>
+        <div className={styles.featureContent}>
+          <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
           <p className={styles.featureDescription}>{description}</p>
         </div>
       </div>
@@ -67,31 +63,19 @@ function HomepageHeader() {
         <p className={clsx('hero__subtitle', styles.heroSubtitle)}>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
             to="/docs/intro">
             点击查看过去问
           </Link>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
             to="/blog">
             点击查看经验贴
           </Link>
         </div>
       </div>
-      
-      {/* 波浪效果 SVG */}
-      <div className={styles.waves}>
-        <svg className={styles.parallax} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
-          <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-          </defs>
-          <g>
-            <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
-            <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-            <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-            <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
-          </g>
-        </svg>
+      <div className={styles.waveWrapper}>
+        <div className={styles.wave}></div>
       </div>
     </header>
   );

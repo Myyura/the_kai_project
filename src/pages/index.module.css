@@ -3,101 +3,72 @@
  * and scoped locally.
  */
 
-/* Hero Banner 区域 */
+/* Hero Banner 区域样式 */
 .heroBanner {
   padding: 6rem 0 8rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(135deg, #43cea2, #185a9d);
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s ease infinite;
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* 添加文本颜色设置，确保在日光模式下文字为黑色 */
-.heroTitle, .heroSubtitle {
-  color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 1.5s ease-in-out;
-}
-
+/* 文字样式 */
 .heroTitle {
-  margin-bottom: 1.5rem;
+  color: #000;
+  font-size: 3rem !important;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease-in;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+.heroSubtitle {
+  color: #000;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-in 0.3s backwards;
+  opacity: 0.85;
 }
 
-/* 波浪效果 */
-.waves {
+/* 波浪分隔效果 */
+.waveWrapper {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100px;
-  min-height: 100px;
-  max-height: 150px;
+  overflow: hidden;
 }
 
-.parallax > use {
-  animation: moveForever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-size: 1200px 100px;
+  animation: wave 15s linear infinite;
 }
 
-.parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-  opacity: 0.2;
-}
-.parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-  opacity: 0.5;
-}
-.parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-  opacity: 0.7;
-}
-.parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-  opacity: 1;
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-@keyframes moveForever {
-  0% { transform: translate3d(-90px, 0, 0); }
-  100% { transform: translate3d(85px, 0, 0); }
-}
-
-/* 在黑暗模式下修改文本颜色为白色 */
+/* 黑暗模式下文字和波浪颜色调整 */
 [data-theme='dark'] .heroTitle, 
 [data-theme='dark'] .heroSubtitle {
   color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem 0 5rem;
-  }
-  
-  /* 在移动设备上将按钮改为垂直排列 */
-  .buttons {
-    flex-direction: column;
-    gap: 0.8rem; /* 垂直排列时的按钮间距 */
-  }
-  
-  .waves {
-    height: 40px;
-    min-height: 40px;
-  }
+[data-theme='dark'] .wave {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%231b1b1d'/%3E%3C/svg%3E");
 }
 
 /* 按钮样式 */
@@ -106,73 +77,164 @@
   align-items: center;
   justify-content: center;
   margin-top: 2.5rem;
-  gap: 1.2rem;
-  animation: fadeIn 2s ease-in-out 0.5s backwards;
+  gap: 1.5rem;
+  animation: fadeIn 1s ease-in 0.6s backwards;
 }
 
-/* 特性区域 */
+.heroButton {
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.primaryButton {
+  background: linear-gradient(45deg, #4CAF50, #2E8B57);
+  color: white !important;
+}
+
+.secondaryButton {
+  background: linear-gradient(45deg, #2196F3, #03A9F4);
+  color: white !important;
+}
+
+.heroButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.heroButton:active {
+  transform: translateY(-1px);
+}
+
+/* 特性区域样式 */
 .features {
   display: flex;
   align-items: center;
-  padding: 5rem 0;
+  padding: 4rem 0;
   width: 100%;
-  background-color: #f9f9f9;
-  position: relative;
-  z-index: 1;
+  background-color: #ffffff;
 }
 
-/* 在黑暗模式下调整特性区域背景色 */
-[data-theme='dark'] .features {
-  background-color: #121212;
-}
-
-/* 卡片式特性设计 */
+/* 特性卡片样式 */
 .featureCard {
-  background: var(--glass-background);
-  backdrop-filter: blur(var(--glass-blur));
-  border-radius: var(--card-border-radius);
-  border: 1px solid var(--glass-border);
+  background: #ffffff;
+  border-radius: 12px;
   padding: 2rem 1.5rem;
   height: 100%;
-  box-shadow: var(--glass-shadow);
-  transition: all var(--transition-speed) ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0.5rem;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
 }
 
 .featureCard:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Emoji 样式 */
-.featureEmoji {
-  font-size: 80px;
-  height: 140px;
-  width: 100%;
+/* 特性图标样式 */
+.featureIcon {
+  font-size: 2.5rem;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
-  animation: float 4s ease-in-out infinite;
+  margin-bottom: 1.5rem;
+  color: #2e8555;
+  background: rgba(46, 133, 85, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
-/* 为每个特性卡片设置不同的动画延迟，错开动画效果 */
-.featureItemFirst .featureEmoji {
-  animation-delay: 0s;
+.featureCard:hover .featureIcon {
+  transform: scale(1.1);
+  background: rgba(46, 133, 85, 0.2);
 }
 
-.featureItemSecond .featureEmoji {
-  animation-delay: 0.5s;
-}
-
-.featureItemThird .featureEmoji {
-  animation-delay: 1s;
+.featureContent {
+  flex: 1;
 }
 
 .featureTitle {
-  margin: 1rem 0;
-  font-weight: 600;
+  font-size: 1.5rem !important;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
 .featureDescription {
+  font-size: 1rem;
   line-height: 1.6;
+  color: #666;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 黑暗模式样式调整 */
+[data-theme='dark'] .features {
+  background-color: #1b1b1d;
+}
+
+[data-theme='dark'] .featureCard {
+  background: #2d2d30;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .featureTitle {
+  color: #e6e6e6;
+}
+
+[data-theme='dark'] .featureDescription {
+  color: #b0b0b0;
+}
+
+[data-theme='dark'] .featureIcon {
+  background: rgba(37, 194, 160, 0.2);
+  color: #25c2a0;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 2rem 6rem;
+  }
+  
+  .heroTitle {
+    font-size: 2.2rem !important;
+  }
+
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .waveWrapper {
+    height: 60px;
+  }
+
+  .wave {
+    height: 60px;
+    background-size: 1200px 60px;
+  }
 }
