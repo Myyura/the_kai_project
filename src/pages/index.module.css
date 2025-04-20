@@ -18,7 +18,7 @@
   color: #000;
   font-size: 3rem !important;
   margin-bottom: 1rem;
-  animation: fadeIn 1s ease-in;
+  animation: fadeIn 0.7s ease-in; /* 加快动画速度 */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -26,7 +26,7 @@
   color: #000;
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  animation: fadeIn 1s ease-in 0.3s backwards;
+  animation: fadeIn 0.7s ease-in 0.2s backwards; /* 加快动画速度 */
   opacity: 0.85;
 }
 
@@ -44,14 +44,14 @@
   justify-content: center;
   margin-top: 2.5rem;
   gap: 1.5rem;
-  animation: fadeIn 1s ease-in 0.6s backwards;
+  animation: fadeIn 0.7s ease-in 0.4s backwards; /* 加快动画速度从1s改为0.7s */
 }
 
 .heroButton {
   padding: 0.8rem 1.6rem;
   font-weight: 600;
   border-radius: 50px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease; /* 加快动画速度 */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border: none;
 }
@@ -64,6 +64,19 @@
 .secondaryButton {
   background: linear-gradient(45deg, #2196F3, #03A9F4);
   color: white !important;
+}
+
+/* 黑暗模式下按钮样式 */
+[data-theme='dark'] .primaryButton {
+  background: linear-gradient(45deg, #5CCA60, #3E9B67);
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .secondaryButton {
+  background: linear-gradient(45deg, #31A6FF, #13B9FF);
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .heroButton:hover {
@@ -81,23 +94,37 @@
   align-items: center;
   padding: 4rem 0;
   width: 100%;
-  background-color: #ffffff;
+  background: linear-gradient(180deg, rgba(143, 211, 244, 0.3) 0%, rgba(255, 255, 255, 1) 15%);
+  position: relative;
+}
+
+/* 添加分隔波浪效果，增强视觉过渡 */
+.features::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' fill='%23ffffff' opacity='0.5'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  z-index: 1;
 }
 
 /* 特性卡片样式 */
 .featureCard {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.9); /* 略微透明以显示背景 */
   border-radius: 12px;
   padding: 2rem 1.5rem;
   height: 100%;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* 稍微增强阴影 */
+  transition: all 0.2s ease; /* 加快动画速度 */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1rem 0.5rem;
   text-align: center;
-  animation: fadeIn 1s ease-in;
+  animation: fadeIn 0.7s ease-in; /* 加快动画速度 */
 }
 
 .featureCard:hover {
@@ -155,12 +182,30 @@
 
 /* 黑暗模式样式调整 */
 [data-theme='dark'] .features {
-  background-color: #1b1b1d;
+  background: linear-gradient(180deg, rgba(19, 78, 94, 0.4) 0%, rgba(24, 24, 26, 1) 15%);
+}
+
+[data-theme='dark'] .features::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' fill='%2318181a' opacity='0.5'%3E%3C/path%3E%3C/svg%3E");
 }
 
 [data-theme='dark'] .featureCard {
-  background: #2d2d30;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background: rgba(37, 37, 40, 0.9); /* 半透明的深色背景 */
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* 增强阴影对比度 */
+  transition: all 0.2s ease; /* 加快动画速度 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0.5rem;
+  text-align: center;
+  animation: fadeIn 0.7s ease-in; /* 加快动画速度 */
+}
+
+[data-theme='dark'] .featureCard:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* 增强悬停状态阴影对比度 */
 }
 
 [data-theme='dark'] .featureTitle {

@@ -17,7 +17,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   
   /* 新增自定义变量 */
-  --custom-transition: all 0.3s ease;
+  --custom-transition: all 0.2s ease; /* 加快动画速度从0.3s改为0.2s */
   --custom-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   --custom-border-radius: 8px;
   --custom-card-bg: #ffffff;
@@ -35,8 +35,8 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
   /* 黑暗模式下的自定义变量 */
-  --custom-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  --custom-card-bg: #2d2d30;
+  --custom-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* 增强阴影对比度 */
+  --custom-card-bg: #252528; /* 加深卡片背景色增强对比度 */
 }
 
 /* 添加黑暗模式下 heroBanner 的样式 */
@@ -46,7 +46,7 @@
 
 /* 全局动画改进 */
 button, a.button, .navbar__link {
-  transition: all 0.3s ease !important;
+  transition: all 0.2s ease !important; /* 加快动画速度 */
 }
 
 .button:hover {
@@ -56,7 +56,7 @@ button, a.button, .navbar__link {
 
 /* 添加页面过渡效果 */
 main {
-  animation: fadeInPage 0.5s ease-in;
+  animation: fadeInPage 0.3s ease-in; /* 加快动画速度从0.5s改为0.3s */
 }
 
 @keyframes fadeInPage {
