@@ -16,6 +16,7 @@ const FeatureList = [
         提供一个不断增长的日本研究生入学考试答案集。
       </>
     ),
+    className: styles.featureItemFirst,
   },
   {
     title: '💬社区讨论',
@@ -25,6 +26,7 @@ const FeatureList = [
         参与关于考试问题、解决方案和学习策略的讨论。
       </>
     ),
+    className: styles.featureItemSecond,
   },
   {
     title: '🌐开源',
@@ -34,18 +36,21 @@ const FeatureList = [
         完全开源的平台，欢迎社区的贡献。
       </>
     ),
+    className: styles.featureItemThird,
   },
 ];
 
-function Feature({emoji, title, description}) {
+function Feature({emoji, title, description, className}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <div className={styles.featureEmoji}>{emoji}</div>
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title.replace(/^[^\s]+\s*/, '')}</Heading>
-        <p>{description}</p>
+    <div className={clsx('col col--4', className)}>
+      <div className={styles.featureCard}>
+        <div className="text--center">
+          <div className={styles.featureEmoji}>{emoji}</div>
+        </div>
+        <div className="text--center padding-horiz--md">
+          <Heading as="h3" className={styles.featureTitle}>{title.replace(/^[^\s]+\s*/, '')}</Heading>
+          <p className={styles.featureDescription}>{description}</p>
+        </div>
       </div>
     </div>
   );
@@ -72,6 +77,21 @@ function HomepageHeader() {
             点击查看经验贴
           </Link>
         </div>
+      </div>
+      
+      {/* 波浪效果 SVG */}
+      <div className={styles.waves}>
+        <svg className={styles.parallax} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g>
+            <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+            <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
+          </g>
+        </svg>
       </div>
     </header>
   );

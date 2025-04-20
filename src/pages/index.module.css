@@ -3,17 +3,78 @@
  * and scoped locally.
  */
 
+/* Hero Banner 区域 */
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0 8rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  background-image: linear-gradient(135deg, #43cea2, #185a9d);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* 添加文本颜色设置，确保在日光模式下文字为黑色 */
 .heroTitle, .heroSubtitle {
-  color: #000;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.heroTitle {
+  margin-bottom: 1.5rem;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 波浪效果 */
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.parallax > use {
+  animation: moveForever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  opacity: 0.2;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  opacity: 0.5;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  opacity: 0.7;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  opacity: 1;
+}
+
+@keyframes moveForever {
+  0% { transform: translate3d(-90px, 0, 0); }
+  100% { transform: translate3d(85px, 0, 0); }
 }
 
 /* 在黑暗模式下修改文本颜色为白色 */
@@ -24,7 +85,7 @@
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 2rem 0 5rem;
   }
   
   /* 在移动设备上将按钮改为垂直排列 */
@@ -32,51 +93,86 @@
     flex-direction: column;
     gap: 0.8rem; /* 垂直排列时的按钮间距 */
   }
+  
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
 }
 
+/* 按钮样式 */
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
-  gap: 1rem; /* 添加按钮之间的间距 */
+  margin-top: 2.5rem;
+  gap: 1.2rem;
+  animation: fadeIn 2s ease-in-out 0.5s backwards;
 }
 
+/* 特性区域 */
 .features {
   display: flex;
   align-items: center;
-  padding: 3rem 0;
+  padding: 5rem 0;
   width: 100%;
-  background-color: #f5f6f7;
+  background-color: #f9f9f9;
+  position: relative;
+  z-index: 1;
 }
 
 /* 在黑暗模式下调整特性区域背景色 */
 [data-theme='dark'] .features {
-  background-color: #1b1b1d;
+  background-color: #121212;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
-  transition: transform 0.3s ease;
+/* 卡片式特性设计 */
+.featureCard {
+  background: var(--glass-background);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--card-border-radius);
+  border: 1px solid var(--glass-border);
+  padding: 2rem 1.5rem;
+  height: 100%;
+  box-shadow: var(--glass-shadow);
+  transition: all var(--transition-speed) ease;
 }
 
-.featureSvg:hover {
-  transform: scale(1.05);
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* 添加 emoji 样式，保持与原 SVG 大小一致 */
+/* Emoji 样式 */
 .featureEmoji {
-  font-size: 100px;
-  height: 200px;
+  font-size: 80px;
+  height: 140px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
-  margin-bottom: -20px; /* 调整emoji和标题之间的距离 */
+  animation: float 4s ease-in-out infinite;
 }
 
-.featureEmoji:hover {
-  transform: scale(1.05);
+/* 为每个特性卡片设置不同的动画延迟，错开动画效果 */
+.featureItemFirst .featureEmoji {
+  animation-delay: 0s;
+}
+
+.featureItemSecond .featureEmoji {
+  animation-delay: 0.5s;
+}
+
+.featureItemThird .featureEmoji {
+  animation-delay: 1s;
+}
+
+.featureTitle {
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.featureDescription {
+  line-height: 1.6;
 }

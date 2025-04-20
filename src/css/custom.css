@@ -15,6 +15,14 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* Glassmorphism 变量 */
+  --glass-background: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --glass-blur: 8px;
+  --card-border-radius: 12px;
+  --transition-speed: 0.3s;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,11 +35,16 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* 黑暗模式下的 Glassmorphism 变量 */
+  --glass-background: rgba(10, 10, 10, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 /* 添加黑暗模式下 heroBanner 的样式 */
 [data-theme='dark'] .hero--primary {
-  background-image: linear-gradient(120deg, #3a4d44 0%, #2a4455 100%);
+  background-image: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
 }
 
 /* Reduce title size in blog list */
@@ -59,5 +72,32 @@
 /* Reduce h1 size in markdown content */
 .theme-doc-markdown.markdown h1 {
   font-size: 2rem;
+}
+
+/* 全局动画效果 */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* 美化按钮全局样式 */
+.button--secondary {
+  backdrop-filter: blur(var(--glass-blur));
+  background: var(--glass-background);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: all var(--transition-speed) ease;
+}
+
+.button--secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
