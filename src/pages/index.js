@@ -74,9 +74,6 @@ function HomepageHeader() {
           </Link>
         </div>
       </div>
-      <div className={styles.waveWrapper}>
-        <div className={styles.wave}></div>
-      </div>
     </header>
   );
 }
