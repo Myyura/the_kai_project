@@ -9,45 +9,161 @@
   position: relative;
   overflow: hidden;
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+} box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 /* 添加文本颜色设置，确保在日光模式下文字为黑色 */
 .heroTitle, .heroSubtitle {
-  color: #000;
-}
-
+  color: #000;fter {
+} content: '';
+  position: absolute;
 /* 在黑暗模式下修改文本颜色为白色 */
 [data-theme='dark'] .heroTitle, 
 [data-theme='dark'] .heroSubtitle {
-  color: #fff;
-}
-
+  color: #fff;;
+} background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='white' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,133.3C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
-  }
-  
+  }确保内容在波浪之上 */
+  eroBanner .container {
   /* 在移动设备上将按钮改为垂直排列 */
-  .buttons {
+  .buttons {;
     flex-direction: column;
     gap: 0.8rem; /* 垂直排列时的按钮间距 */
-  }
+  }roTitle {
+} color: #fff;
+  font-size: 3rem;
+.buttons {ght: 700;
+  display: flex; 1rem;
+  align-items: center;px rgba(0,0,0,0.2);
+  justify-content: center;8s ease;
+  margin-top: 2rem;
+  gap: 1rem; /* 添加按钮之间的间距 */
+}heroSubtitle {
+  color: rgba(255, 255, 255, 0.9);
+.features {: 1.5rem;
+  display: flex; 2rem;
+  align-items: center;0.8s ease;
+  padding: 3rem 0; 0.2s;
+  width: 100%;ll-mode: both;
+  background-color: #f5f6f7;
 }
-
-.buttons {
+/* 在黑暗模式下修改波浪颜色 */
+/* 在黑暗模式下调整特性区域背景色 */heroBanner::after {
+[data-theme='dark'] .features {mage/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231b1b1d' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,133.3C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-color: #1b1b1d;
+}
+@media screen and (max-width: 996px) {
+.featureSvg { {
+  height: 200px;m 0 5rem;
+  width: 200px;
+  transition: transform 0.3s ease;
+} .heroTitle {
+    font-size: 2.2rem;
+.featureSvg:hover {
+  transform: scale(1.05);
+} .heroSubtitle {
+    font-size: 1.2rem;
+/* 添加 emoji 样式，保持与原 SVG 大小一致 */
+.featureEmoji {
+  font-size: 100px;列 */
+  height: 200px;
+  width: 100%;tion: column;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
-  gap: 1rem; /* 添加按钮之间的间距 */
+  transition: transform 0.3s ease;
+  margin-bottom: -20px; /* 调整emoji和标题之间的距离 */
+} display: flex;
+  align-items: center;
+.featureEmoji:hover {nter;
+  transform: scale(1.05);
+} gap: 1.2rem;
+  animation: fadeInUp 0.8s ease;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}  margin-top: 1.5rem;.ctaButton {}  color: #b0b0b0;[data-theme='dark'] .ctaDescription {}  color: #555;  font-size: 1.2rem;  margin: 0 auto 2rem;  max-width: 700px;.ctaDescription {}  color: #eee;[data-theme='dark'] .ctaTitle {}  color: #333;  margin-bottom: 1.5rem;  font-size: 2.2rem;.ctaTitle {}  background: linear-gradient(135deg, #2b2b2d 0%, #1a1a1a 100%);[data-theme='dark'] .ctaSection {}  position: relative;  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);  padding: 5rem 0;.ctaSection {/* 添加号召性行动部分样式 */  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+.buttonPrimary,
+.buttonSecondary {
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonPrimary {
+  background-color: #fff;
+  color: #764ba2;
+}
+
+.buttonPrimary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.buttonSecondary {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.buttonSecondary:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .features {
   display: flex;
   align-items: center;
-  padding: 3rem 0;
+  padding: 4rem 0;
   width: 100%;
-  background-color: #f5f6f7;
+  background-color: #fff;
 }
 
 /* 在黑暗模式下调整特性区域背景色 */
@@ -55,28 +171,84 @@
   background-color: #1b1b1d;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
-  transition: transform 0.3s ease;
+.featureCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.featureSvg:hover {
-  transform: scale(1.05);
+.featureCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* 添加 emoji 样式，保持与原 SVG 大小一致 */
+[data-theme='dark'] .featureCard {
+  background-color: #2b2b2d;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 添加 emoji 样式 */
 .featureEmoji {
-  font-size: 100px;
-  height: 200px;
+  font-size: 4rem;
+  height: 100px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
   transition: transform 0.3s ease;
-  margin-bottom: -20px; /* 调整emoji和标题之间的距离 */
 }
 
-.featureEmoji:hover {
-  transform: scale(1.05);
+.featureCard:hover .featureEmoji {
+  transform: scale(1.1);
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+[data-theme='dark'] .featureTitle {
+  color: #eee;
+}
+
+.featureDescription {
+  text-align: center;
+  line-height: 1.6;
+  color: #666;
+}
+
+[data-theme='dark'] .featureDescription {
+  color: #b0b0b0;
+}
+
+/* 添加基础动画 */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

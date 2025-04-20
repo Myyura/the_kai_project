@@ -9,29 +9,29 @@ import styles from './index.module.css';
 
 const FeatureList = [
   {
-    title: '🔍考试答案',
+    title: '考试答案',
     emoji: '🔍',
     description: (
       <>
-        提供一个不断增长的日本研究生入学考试答案集。
+        提供一个不断增长的日本研究生入学考试答案集，帮助你更好地准备考试。
       </>
     ),
   },
   {
-    title: '💬社区讨论',
+    title: '社区讨论',
     emoji: '💬',
     description: (
       <>
-        参与关于考试问题、解决方案和学习策略的讨论。
+        参与关于考试问题、解决方案和学习策略的讨论，分享经验，互相学习。
       </>
     ),
   },
   {
-    title: '🌐开源',
+    title: '开源项目',
     emoji: '🌐',
     description: (
       <>
-        完全开源的平台，欢迎社区的贡献。
+        完全开源的平台，欢迎社区的贡献，一起建设更完善的资源库。
       </>
     ),
   },
@@ -39,13 +39,13 @@ const FeatureList = [
 
 function Feature({emoji, title, description}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
+    <div className={clsx('col col--4')} style={{marginBottom: '2rem'}}>
+      <div className={styles.featureCard}>
         <div className={styles.featureEmoji}>{emoji}</div>
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title.replace(/^[^\s]+\s*/, '')}</Heading>
-        <p>{description}</p>
+        <Heading as="h3" className={styles.featureTitle}>
+          {title}
+        </Heading>
+        <p className={styles.featureDescription}>{description}</p>
       </div>
     </div>
   );
@@ -56,20 +56,20 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
+        <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.title}
         </Heading>
-        <p className={clsx('hero__subtitle', styles.heroSubtitle)}>{siteConfig.tagline}</p>
+        <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx(styles.buttonPrimary)}
             to="/docs/intro">
-            点击查看过去问
+            查看过去问 →
           </Link>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx(styles.buttonSecondary)}
             to="/blog">
-            点击查看经验贴
+            浏览经验贴
           </Link>
         </div>
       </div>
@@ -91,6 +91,29 @@ function HomepageFeatures() {
   );
 }
 
+// 新增一个号召性行动部分
+function CallToAction() {
+  return (
+    <section className={clsx(styles.ctaSection)}>
+      <div className="container text--center">
+        <Heading as="h2" className={styles.ctaTitle}>
+          加入我们，共同分享与学习
+        </Heading>
+        <p className={styles.ctaDescription}>
+          无论你是正在准备日本研究生考试，还是已经拥有丰富经验，我们都欢迎你的参与和贡献。
+        </p>
+        <div className={styles.ctaButton}>
+          <Link
+            className="button button--primary button--lg"
+            to="https://github.com/Myyura/the_kai_project">
+            在 GitHub 上参与贡献
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -101,6 +124,7 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <CallToAction />
       </main>
     </Layout>
   );
