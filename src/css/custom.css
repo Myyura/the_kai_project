@@ -196,12 +196,12 @@ main {
 }
 
 .footer__copyright {
-  margin-top: 18px; 
+  margin-top: 8px; 
   font-size: 14px;
   text-align: center;
   width: 100%;
   clear: both;
-  padding-top: 15px; 
+  padding-top: 8px; 
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -229,7 +229,7 @@ main {
 }
 
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 996px) {
   .footer__col {
     flex-basis: 100% !important;
     max-width: 100% !important;
