@@ -112,108 +112,164 @@ main {
 /* Footer */
 .footer a {
   text-decoration: none;
+  transition: var(--custom-transition);
+  position: relative;
 }
+
 .footer a:hover {
   color: var(--ifm-color-primary);
 }
 
+/* 链接悬停动画效果 */
+.footer a:not(.footer__logo):hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--ifm-color-primary);
+  bottom: -2px;
+  left: 0;
+  transform: scaleX(1);
+  transition: transform 0.25s ease;
+}
 
-.footer {
-  &.footer--dark {
-    --ifm-footer-background-color: #20232a;
-  }
+.footer--dark {
+  --ifm-footer-background-color: #1c1e21;
+  --ifm-footer-padding-vertical: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-  .container {
-    max-width: 900px;
-  }
+.footer .container {
+  max-width: 1100px;
+  padding: 0 30px;
+}
 
-  /*版权字体*/
-  .text--center {
-    color: #858a96;
-    font-size: 13px;
-  }
+/*版权字体*/
+.footer .text--center {
+  color: #9da3af;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
 
-  /*小字字体*/
-  .footer__item {
-    font-size: 14px;
-    padding: 8px 0 0;
-    min-height: 30px;
-  }
+/*列标题*/
+.footer__title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  letter-spacing: 0.5px;
+}
 
-  /*标题字体*/
-  .footer__title {
-    color: #858a96;
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0 0 8px;
-    text-transform: uppercase;
-  }
+.footer__col {
+  margin: 0 0 30px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
 
+.footer__item {
+  font-size: 15px;
+  padding: 6px 0;
+  min-height: auto;
+  margin-bottom: 8px;
+  transition: var(--custom-transition);
+}
+
+.footer__link-item {
+  line-height: 1.5;
+  display: inline-block;
+  color: #9da3af;
+  font-weight: 400;
+}
+
+.footer__links {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer__logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.footer__copyright {
+  margin-top: 40px;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  clear: both;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 社交媒体图标区 */
+.footer__social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.footer__social-link {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: var(--custom-transition);
+}
+
+.footer__social-link:hover {
+  background: var(--ifm-color-primary);
+  transform: translateY(-3px);
+}
+
+@media only screen and (max-width: 996px) {
   .footer__col {
-    margin: 4px 0 12px 2%;
-    padding-left: 0 !important;
-  }
-
-  .footer__link-item {
-    line-height: 1.44; /*行高*/
-    display: inline-block;
+    text-align: center;
+    flex-basis: 48% !important;
+    max-width: 48% !important;
+    margin-bottom: 36px;
   }
 
   .footer__links {
-    margin-bottom: 0;
+    padding: 0;
+    justify-content: center;
   }
-
-  .footer__logo {
-    width: 160px;
-    height: auto;
-  }
-
-  .footer__links {
-    width: 75%;
-    float: right;
-  }
-
-  .footer--dark {
-    --ifm-footer-background-color: #20232a;
-    --ifm-footer-padding-vertical: 85px;
+  
+  .footer__social-links {
+    justify-content: center;
   }
 
   .footer__copyright {
-    margin-top: 30px;
-    font-size: .9em;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .footer__col {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 30px;
+    text-align: center;
   }
   
-  @media only screen and (max-width: 996px) {
-    .footer {
-      .footer__col {
-        text-align: center;
-        flex-basis: 48% !important;
-        max-width: 48% !important;
-        margin-bottom: 28px;
-      }
-  
-      .footer__links {
-        padding: 0 20px;
-      }
-  
-      .footer__copyright {
-        margin-top: 0;
-      }
-    }
+  .footer .container {
+    padding: 0 20px;
+  }
+
+  .footer--dark {
+    --ifm-footer-padding-vertical: 40px;
   }
   
-  @media only screen and (max-width: 500px) {
-    .footer {
-      .footer__col {
-        flex-basis: 48% !important;
-        max-width: 48% !important;
-        margin-bottom: 24px;
-        text-align: left;
-      }
-  
-      .footer__copyright {
-        margin-top: 0;
-      }
-    }
+  .footer__copyright {
+    margin-top: 10px;
+    font-size: 13px;
+    padding-top: 20px;
   }
 }
