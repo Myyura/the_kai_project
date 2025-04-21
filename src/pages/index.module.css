@@ -239,4 +239,38 @@
     flex-direction: column;
     gap: 1rem;
   }
+  
+  /* 添加特性卡片在平板端的响应式调整 */
+  .featureCard {
+    margin: 1rem 0.5rem;
+    min-height: 220px; /* 确保最小高度一致 */
+  }
+}
+
+/* 添加移动端的额外响应式调整 */
+@media screen and (max-width: 768px) {
+  .features {
+    padding: 3rem 0;
+  }
+  
+  .featureCard {
+    margin: 0.75rem 0; /* 垂直方向减少间距 */
+    padding: 1.5rem 1rem;
+  }
+  
+  .featureIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .featureTitle {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.9rem;
+  }
 }
