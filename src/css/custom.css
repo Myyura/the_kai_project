@@ -135,7 +135,7 @@ main {
 
 .footer--dark {
   --ifm-footer-background-color: #1c1e21;
-  --ifm-footer-padding-vertical: 40px; 
+  --ifm-footer-padding-vertical: 30px; /* 从40px减少到30px */
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -157,21 +157,21 @@ main {
   color: #ffffff;
   font-size: 16px; 
   font-weight: 600;
-  margin: 0 0 12px; 
+  margin: 0 0 8px;
   letter-spacing: 0.5px;
 }
 
 .footer__col {
-  margin: 0 0 20px; 
+  margin: 0 0 15px; 
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
 
 .footer__item {
   font-size: 14px;
-  padding: 4px 0;
+  padding: 2px 0; 
   min-height: auto;
-  margin-bottom: 6px; 
+  margin-bottom: 4px; 
   transition: var(--custom-transition);
 }
 
@@ -183,7 +183,7 @@ main {
 }
 
 .footer__links {
-  margin-bottom: 20px;
+  margin-bottom: 15px; 
   display: flex;
   flex-wrap: wrap;
 }
@@ -191,25 +191,25 @@ main {
 .footer__logo {
   width: 140px; 
   height: auto;
-  margin-bottom: 10px; 
+  margin-bottom: 6px; 
   display: block;
 }
 
 .footer__copyright {
-  margin-top: 25px; 
+  margin-top: 18px; 
   font-size: 14px;
   text-align: center;
   width: 100%;
   clear: both;
-  padding-top: 20px;
+  padding-top: 15px; 
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* 社交媒体图标区 */
 .footer__social-links {
   display: flex;
-  gap: 12px; 
-  margin-top: 15px; 
+  gap: 8px; 
+  margin-top: 10px; 
 }
 
 .footer__social-link {
@@ -233,7 +233,7 @@ main {
     text-align: center;
     flex-basis: 48% !important;
     max-width: 48% !important;
-    margin-bottom: 25px; 
+    margin-bottom: 15px; 
   }
 
   .footer__links {
@@ -246,7 +246,7 @@ main {
   }
 
   .footer__copyright {
-    margin-top: 15px; 
+    margin-top: 5px; 
     text-align: center;
   }
 }
@@ -255,7 +255,7 @@ main {
   .footer__col {
     flex-basis: 100% !important;
     max-width: 100% !important;
-    margin-bottom: 20px; 
+    margin-bottom: 15px; 
     text-align: center;
   }
   
@@ -264,12 +264,12 @@ main {
   }
 
   .footer--dark {
-    --ifm-footer-padding-vertical: 30px; 
+    --ifm-footer-padding-vertical: 20px; 
   }
   
   .footer__copyright {
-    margin-top: 10px;
+    margin-top: 8px;
     font-size: 13px;
-    padding-top: 15px; 
+    padding-top: 10px; 
   }
 }
