@@ -182,4 +182,38 @@ main {
     margin-top: 30px;
     font-size: .9em;
   }
+  
+  @media only screen and (max-width: 996px) {
+    .footer {
+      .footer__col {
+        text-align: center;
+        flex-basis: 48% !important;
+        max-width: 48% !important;
+        margin-bottom: 28px;
+      }
+  
+      .footer__links {
+        padding: 0 20px;
+      }
+  
+      .footer__copyright {
+        margin-top: 0;
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .footer {
+      .footer__col {
+        flex-basis: 48% !important;
+        max-width: 48% !important;
+        margin-bottom: 24px;
+        text-align: left;
+      }
+  
+      .footer__copyright {
+        margin-top: 0;
+      }
+    }
+  }
 }
