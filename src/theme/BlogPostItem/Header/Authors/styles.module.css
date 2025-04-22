@@ -37,3 +37,8 @@
 .imageOnlyAuthorCol:hover {
   transform: translateY(-2px);
 }
+
+/* 覆盖avatar的底部边距 */
+:global(.avatar.margin-bottom--sm) {
+  margin-bottom: 0 !important;
+}
