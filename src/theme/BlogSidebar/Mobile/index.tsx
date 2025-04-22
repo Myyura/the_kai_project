@@ -6,6 +6,7 @@
  */
 
 import React, {memo, type ReactNode} from 'react';
+import clsx from 'clsx';
 import {
   useVisibleBlogSidebarItems,
   BlogSidebarItemList,
@@ -23,20 +24,30 @@ const ListComponent: BlogSidebarContentProps['ListComponent'] = ({items}) => {
       items={items}
       ulClassName="menu__list"
       liClassName="menu__list-item"
-      linkClassName="menu__link"
-      linkActiveClassName="menu__link--active"
+      linkClassName={clsx("menu__link", styles.menuLink)}
+      linkActiveClassName={clsx("menu__link--active", styles.menuLinkActive)}
     />
   );
 };
 
 function BlogSidebarMobileSecondaryMenu({sidebar}: Props): ReactNode {
   const items = useVisibleBlogSidebarItems(sidebar.items);
+  const totalCount = items.length;
+  
   return (
-    <BlogSidebarContent
-      items={items}
-      ListComponent={ListComponent}
-      yearGroupHeadingClassName={styles.yearGroupHeading}
-    />
+    <>
+      <div className={styles.sidebarTitle}>
+        {sidebar.title}
+        <span style={{fontSize: '0.8rem', fontWeight: 'normal', marginLeft: '0.5rem', opacity: 0.8}}>
+          ({totalCount} {totalCount === 1 ? 'post' : 'posts'})
+        </span>
+      </div>
+      <BlogSidebarContent
+        items={items}
+        ListComponent={ListComponent}
+        yearGroupHeadingClassName={styles.yearGroupHeading}
+      />
+    </>
   );
 }
 

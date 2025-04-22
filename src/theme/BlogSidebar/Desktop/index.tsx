@@ -32,6 +32,8 @@ const ListComponent: BlogSidebarContentProps['ListComponent'] = ({items}) => {
 
 function BlogSidebarDesktop({sidebar}: Props) {
   const items = useVisibleBlogSidebarItems(sidebar.items);
+  const totalCount = items.length;
+  
   return (
     <aside className="col col--3">
       <nav
@@ -43,6 +45,9 @@ function BlogSidebarDesktop({sidebar}: Props) {
         })}>
         <div className={clsx(styles.sidebarItemTitle, 'margin-bottom--md')}>
           {sidebar.title}
+          <span style={{fontSize: '0.8rem', fontWeight: 'normal', marginLeft: '0.5rem', opacity: 0.8}}>
+            ({totalCount} {totalCount === 1 ? 'post' : 'posts'})
+          </span>
         </div>
         <BlogSidebarContent
           items={items}

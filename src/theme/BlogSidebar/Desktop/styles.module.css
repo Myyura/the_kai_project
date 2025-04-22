@@ -10,11 +10,25 @@
   overflow-y: auto;
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 2rem);
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: var(--ifm-card-background-color);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  scroll-behavior: smooth;
+}
+
+.sidebar:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .sidebarItemTitle {
   font-size: var(--ifm-h3-font-size);
   font-weight: var(--ifm-font-weight-bold);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-hr-background-color);
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
 }
 
 .sidebarItemList {
@@ -22,20 +36,32 @@
 }
 
 .sidebarItem {
-  margin-top: 0.7rem;
+  margin-top: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.sidebarItem:hover {
+  transform: translateX(4px);
 }
 
 .sidebarItemLink {
   color: var(--ifm-font-color-base);
   display: block;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
 .sidebarItemLink:hover {
   text-decoration: none;
+  background-color: var(--ifm-hover-overlay);
 }
 
 .sidebarItemLinkActive {
   color: var(--ifm-color-primary) !important;
+  font-weight: 600;
+  background-color: var(--ifm-hover-overlay);
+  border-left: 3px solid var(--ifm-color-primary);
 }
 
 @media (max-width: 996px) {
@@ -46,5 +72,15 @@
 
 .yearGroupHeading {
   margin-top: 1.6rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+  padding-left: 0.4rem;
+  position: relative;
+}
+
+.yearGroupHeading::before {
+  content: "📅";
+  margin-right: 0.5rem;
+  opacity: 0.8;
 }
