@@ -9,16 +9,20 @@ import React, {type ReactNode} from 'react';
 import Translate, {translate} from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import type {Props} from '@theme/BlogPostItem/Footer/ReadMoreLink';
+import styles from './styles.module.css';
 
 function ReadMoreLabel() {
   return (
-    <b>
+    <span className={styles.readMoreLabel}>
       <Translate
         id="theme.blog.post.readMore"
         description="The label used in blog post item excerpts to link to full blog posts">
         Read more
       </Translate>
-    </b>
+      <svg className={styles.readMoreIcon} viewBox="0 0 24 24" width="1em" height="1em">
+        <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+      </svg>
+    </span>
   );
 }
 
@@ -37,6 +41,7 @@ export default function BlogPostItemFooterReadMoreLink(
         },
         {title: blogPostTitle},
       )}
+      className={styles.readMoreLink}
       {...linkProps}>
       <ReadMoreLabel />
     </Link>

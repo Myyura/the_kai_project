@@ -7,4 +7,32 @@
 
 .container {
   font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ifm-color-emphasis-700);
+  display: flex;
+  align-items: center;
+}
+
+.container time {
+  font-weight: 500;
+}
+
+.spacer {
+  margin: 0 6px;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.readingTime {
+  display: flex;
+  align-items: center;
+}
+
+.readingTime::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 4px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm1-8h-2V7h2v5zm-1 4a1 1 0 110-2 1 1 0 010 2z"/></svg>') center/contain no-repeat;
+  opacity: 0.8;
 }

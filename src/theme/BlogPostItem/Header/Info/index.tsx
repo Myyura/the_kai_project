@@ -37,7 +37,11 @@ function useReadingTimePlural() {
 
 function ReadingTime({readingTime}: {readingTime: number}) {
   const readingTimePlural = useReadingTimePlural();
-  return <>{readingTimePlural(readingTime)}</>;
+  return (
+    <span className={styles.readingTime}>
+      {readingTimePlural(readingTime)}
+    </span>
+  );
 }
 
 function DateTime({
@@ -51,7 +55,7 @@ function DateTime({
 }
 
 function Spacer() {
-  return <>{' · '}</>;
+  return <span className={styles.spacer}>·</span>;
 }
 
 export default function BlogPostItemHeaderInfo({className}: Props): ReactNode {

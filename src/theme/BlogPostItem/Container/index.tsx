@@ -7,10 +7,24 @@
 
 import React, {type ReactNode} from 'react';
 import type {Props} from '@theme/BlogPostItem/Container';
+import styles from './styles.module.css';
+import clsx from 'clsx';
+import {useBlogPost} from '@docusaurus/plugin-content-blog/client';
 
 export default function BlogPostItemContainer({
   children,
   className,
 }: Props): ReactNode {
-  return <article className={className}>{children}</article>;
+  const {isBlogPostPage} = useBlogPost();
+  return (
+    <article 
+      className={clsx(
+        styles.blogPostContainer, 
+        className,
+        !isBlogPostPage && styles.blogPostCardView
+      )}
+    >
+      {children}
+    </article>
+  );
 }

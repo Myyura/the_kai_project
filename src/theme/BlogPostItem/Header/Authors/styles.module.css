@@ -7,14 +7,30 @@
 
 .authorCol {
   max-width: inherit !important;
+  padding: 1rem;
+  border-left: 3px solid var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 0 8px 8px 0;
+  transition: all 0.3s ease;
+}
+
+.authorCol:hover {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .imageOnlyAuthorRow {
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .imageOnlyAuthorCol {
   margin-left: 0.3rem;
   margin-right: 0.3rem;
+  transition: transform 0.2s ease;
+}
+
+.imageOnlyAuthorCol:hover {
+  transform: translateY(-2px);
 }

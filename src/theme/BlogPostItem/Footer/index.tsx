@@ -12,6 +12,7 @@ import {ThemeClassNames} from '@docusaurus/theme-common';
 import EditMetaRow from '@theme/EditMetaRow';
 import TagsListInline from '@theme/TagsListInline';
 import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink';
+import styles from './styles.module.css';
 
 export default function BlogPostItemFooter(): ReactNode {
   const {metadata, isBlogPostPage} = useBlogPost();
@@ -40,7 +41,7 @@ export default function BlogPostItemFooter(): ReactNode {
     const canDisplayEditMetaRow = !!(editUrl || lastUpdatedAt || lastUpdatedBy);
 
     return (
-      <footer className="docusaurus-mt-lg">
+      <footer className={clsx('docusaurus-mt-lg', styles.blogFooterDetailView)}>
         {tagsExists && (
           <div
             className={clsx(
@@ -70,7 +71,7 @@ export default function BlogPostItemFooter(): ReactNode {
   // BlogPost footer - list view
   else {
     return (
-      <footer className="row docusaurus-mt-lg">
+      <footer className={clsx('row docusaurus-mt-lg', styles.blogFooterListView)}>
         {tagsExists && (
           <div className={clsx('col', {'col--9': truncatedPost})}>
             <TagsListInline tags={tags} />
