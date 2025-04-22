@@ -11,13 +11,8 @@
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 1rem);
   padding: 0.75rem;
-  border-left: 2px solid var(--ifm-toc-border-color, #ebedf0);
-  margin-left: 0.5rem;
+  margin-left: 0;
   transition: border-color 0.2s ease;
-}
-
-.tableOfContents:hover {
-  border-left-color: var(--ifm-color-primary-light);
 }
 
 /* 为目录添加标题样式 */
