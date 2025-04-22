@@ -217,6 +217,7 @@ const config = {
           {to: '/blog', label: '经验贴', position: 'left'},
           {to: '/docs/tags', label: 'Tags', position: 'left'},
           {to: '/links', label: '友情链接', position: 'left'},
+          {to: '/copyright', label: '免责声明', position: 'left'},
           {
             type: 'localeDropdown',
             position: 'right',
