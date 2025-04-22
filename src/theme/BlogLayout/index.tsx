@@ -23,12 +23,12 @@ export default function BlogLayout(props: Props): ReactNode {
           <BlogSidebar sidebar={sidebar} />
           <main
             className={clsx('col', {
-              'col--7': hasSidebar,
-              'col--9 col--offset-1': !hasSidebar,
+              'col--8': hasSidebar,
+              'col--8 col--offset-2': !hasSidebar,
             })}>
             {children}
           </main>
-          {toc && <div className="col col--2">{toc}</div>}
+          {toc && <div className="col col--2 px-0.5">{toc}</div>}
         </div>
       </div>
     </Layout>
