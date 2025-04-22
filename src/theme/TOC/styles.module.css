@@ -10,28 +10,45 @@
   overflow-y: auto;
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 1rem);
-  padding: 1rem;
-  border-left: 2px solid var(--ifm-color-primary-lightest);
-  border-radius: 0.25rem;
-  background-color: var(--ifm-background-surface-color);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  padding: 0.75rem;
+  border-left: 2px solid var(--ifm-toc-border-color, #ebedf0);
+  margin-left: 0.5rem;
+  transition: border-color 0.2s ease;
 }
 
 .tableOfContents:hover {
-  border-left-color: var(--ifm-color-primary);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--ifm-color-primary-light);
 }
 
+/* 为目录添加标题样式 */
 .tocTitle {
   font-size: 0.9rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   margin-bottom: 0.8rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--ifm-hr-background-color);
-  color: var(--ifm-color-primary);
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* 增强当前阅读章节的显示效果 */
+:global(.table-of-contents__link--active) {
+  font-weight: 600;
+  color: var(--ifm-color-primary) !important;
+  position: relative;
+  background-color: var(--ifm-menu-color-background-active, rgba(0, 0, 0, 0.05));
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  margin-left: -0.5rem;
+  display: inline-block;
+}
+
+:global(.table-of-contents__link) {
+  display: block;
+  transition: all 0.2s ease;
+  margin: 0.3rem 0;
+}
+
+:global(.table-of-contents__link:hover) {
+  color: var(--ifm-color-primary-dark) !important;
+  text-decoration: none;
 }
 
 @media (max-width: 996px) {
