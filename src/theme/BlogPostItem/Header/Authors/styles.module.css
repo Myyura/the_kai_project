@@ -8,7 +8,7 @@
 .authorCol {
   max-width: inherit !important;
   padding: 1rem;
-  background-color: var(--ifm-color-emphasis-50);
+  background-color: var(--ifm-color-emphasis-100);
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;

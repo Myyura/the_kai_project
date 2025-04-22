@@ -85,13 +85,13 @@ main {
 /* Reduce title size in blog list */
 .blog-list-page h2[class*="title"]
 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /* Reduce title size in blog page */
 .blog-post-page h1[class*="title"]
 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /* Reduce title size in doc page */
