@@ -11,7 +11,6 @@ import Layout from '@theme/Layout';
 import BlogSidebar from '@theme/BlogSidebar';
 
 import type {Props} from '@theme/BlogLayout';
-import './styles.css'; // 引入自定义样式
 
 export default function BlogLayout(props: Props): ReactNode {
   const {sidebar, toc, children, ...layoutProps} = props;
@@ -19,33 +18,17 @@ export default function BlogLayout(props: Props): ReactNode {
 
   return (
     <Layout {...layoutProps}>
-      <div className="container margin-vert--xl blog-container">
-        <div className="row blog-layout-row">
-          {hasSidebar && (
-            <aside className="col col--3 blog-sidebar-wrapper">
-              <div className="blog-sidebar-container">
-                <BlogSidebar sidebar={sidebar} />
-              </div>
-            </aside>
-          )}
+      <div className="container margin-vert--lg">
+        <div className="row">
+          <BlogSidebar sidebar={sidebar} />
           <main
-            className={clsx('col blog-main-content', {
-              'col--7': hasSidebar && toc,
-              'col--9': hasSidebar && !toc,
-              'col--8 col--offset-2': !hasSidebar && !toc,
-              'col--7 col--offset-1': !hasSidebar && toc,
+            className={clsx('col', {
+              'col--7': hasSidebar,
+              'col--9 col--offset-1': !hasSidebar,
             })}>
-            <div className="blog-content-wrapper">
-              {children}
-            </div>
+            {children}
           </main>
-          {toc && (
-            <div className="col col--2 blog-toc-wrapper">
-              <div className="blog-toc-container">
-                {toc}
-              </div>
-            </div>
-          )}
+          {toc && <div className="col col--2">{toc}</div>}
         </div>
       </div>
     </Layout>
