@@ -94,19 +94,29 @@ main {
   font-size: 1.5rem;
 }
 
+/* Reduce title size in blog page h2 */
+.blog-post-page h2 {
+  font-size: 1.5rem;
+}
+
 /* Reduce title size in doc page */
 .docs-doc-page h1[class*="title"] {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /* Reduce title size in doc page */
 .docs-doc-page h2[class*="title"] {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /* Reduce h1 size in markdown content */
 .theme-doc-markdown.markdown h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+/* Reduce h2 size in markdown content */
+.theme-doc-markdown.markdown h2 {
+  font-size: 1.5rem;
 }
 
 /* Footer */
