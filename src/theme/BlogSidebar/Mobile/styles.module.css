@@ -1,0 +1,44 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.yearGroupHeading {
+  margin: 1.2rem 0.75rem 0.7rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.yearGroupHeading::before {
+  content: "📅";
+  position: absolute;
+  left: 0;
+  opacity: 0.8;
+}
+
+.menuLink {
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 4px;
+}
+
+.menuLink:hover {
+  background-color: var(--ifm-hover-overlay);
+}
+
+.menuLinkActive {
+  font-weight: 600;
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+.sidebarTitle {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+  font-weight: var(--ifm-font-weight-bold);
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--ifm-hr-background-color);
+}

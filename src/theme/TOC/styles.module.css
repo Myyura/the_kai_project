@@ -1,0 +1,57 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.tableOfContents {
+  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  overflow-y: auto;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+  padding: 0.75rem;
+  margin-left: 0;
+  transition: border-color 0.2s ease;
+}
+
+/* 为目录添加标题样式 */
+.tocTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* 增强当前阅读章节的显示效果 */
+:global(.table-of-contents__link--active) {
+  font-weight: 600;
+  color: var(--ifm-color-primary) !important;
+  position: relative;
+  background-color: var(--ifm-menu-color-background-active, rgba(0, 0, 0, 0.05));
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  margin-left: -0.5rem;
+  display: inline-block;
+}
+
+:global(.table-of-contents__link) {
+  display: block;
+  transition: all 0.2s ease;
+  margin: 0.3rem 0;
+}
+
+:global(.table-of-contents__link:hover) {
+  color: var(--ifm-color-primary-dark) !important;
+  text-decoration: none;
+}
+
+@media (max-width: 996px) {
+  .tableOfContents {
+    display: none;
+  }
+
+  .docItemContainer {
+    padding: 0 0.3rem;
+  }
+}

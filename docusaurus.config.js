@@ -106,7 +106,7 @@ const config = {
           },
           {
             tagName: 'meta',
-            name: 'apple-mobile-web-app-capable',
+            name: 'mobile-web-app-capable',
             content: 'yes',
           },
           {
@@ -153,6 +153,8 @@ const config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
+          blogSidebarTitle: 'All posts',
+          blogSidebarCount: 'ALL',          
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -215,6 +217,7 @@ const config = {
           {to: '/blog', label: '经验贴', position: 'left'},
           {to: '/docs/tags', label: 'Tags', position: 'left'},
           {to: '/links', label: '友情链接', position: 'left'},
+          {to: '/legalstatement', label: '网站声明', position: 'left'},
           {
             type: 'localeDropdown',
             position: 'right',
