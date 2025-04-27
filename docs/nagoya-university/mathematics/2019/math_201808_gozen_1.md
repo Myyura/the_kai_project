@@ -10,6 +10,15 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+以下の問に答えよ．
+
+(1) $\mathbb{R}^4$ の $3$ 本のベクトル $\begin{pmatrix} 1 \\ 2 \\ 0 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ -2 \\ -1 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ 0 \\ 2 \end{pmatrix}$ は 1 次独立であることを示せ．
+
+(2) $\mathbb{R}^4$ の $3$ 本のベクトル $\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 3 \\ 1 \\ 2 \end{pmatrix}, \begin{pmatrix} 2 \\ 1 \\ -1 \\ 0 \end{pmatrix}$ は 1 次独立であることを示せ．
+
+(3) $V_1, V_2$ をそれぞれ (1), (2) の $3$ 本のベクトルで生成される $\mathbb{R}^4$ の部分空間とする．$\mathbb{R}^4$ の部分空間 $V_1 + V_2$ の次元を求めよ．
+
+(4) $V_1, V_2$ を (3) のとおりとする．$V_1 \cap V_2$ の次元と一組の基底を求めよ．
 
 ## **Kai**
 ### (1)
@@ -42,7 +51,7 @@ $$
   \begin{pmatrix}
   1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ 3 & -1 & 2
   \end{pmatrix}
-  \tag{i} \label{i}
+  \tag{i}
   \end{align}
 $$
 
@@ -79,7 +88,7 @@ $$
   \begin{pmatrix}
   1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & \frac{1}{2} & \frac{1}{2}
   \end{pmatrix}
-  \tag{ii} \label{ii}
+  \tag{ii}
   \end{align}
 $$
 
@@ -88,11 +97,11 @@ $$
 
 ### (3)
 (1), (2) から $V_1, V_2$ はどちらも3次元であり、
-($\ref{i}$), ($\ref{ii}$) から $V_1 \ne V_2$ がわかるので、
+($\text{i}$), ($\text{ii}$) から $V_1 \ne V_2$ がわかるので、
 $V_1 + V_2$ は4次元であることがわかる。
 
 ### (4)
-($\ref{i}$), ($\ref{ii}$) の列ベクトルを使って、
+($\text{i}$), ($\text{ii}$) の列ベクトルを使って、
 実数 $a,b,c,d,e,f$ について
 
 $$
@@ -104,7 +113,7 @@ a \begin{pmatrix} 1 \\ 0 \\ 0 \\ 3 \end{pmatrix}
 d \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}
 + e \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{1}{2} \end{pmatrix}
 + f \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{2} \end{pmatrix}
-\tag{iii} \label{iii}
+\tag{iii}
 \end{align}
 $$
 
@@ -121,7 +130,7 @@ $a,b$ を決めると $c,d,e,f$ が決まるので、
 $V_1 \cap V_2$ は2次元であることがわかる。
 
 $a=1,b=0$ とすると、 $c=-2,d=1,e=0,f=-2$ となり、
-ベクトル ($\ref{iii}$) は
+ベクトル ($\text{iii}$) は
 
 $$
 \begin{aligned}
@@ -131,7 +140,7 @@ $$
 
 となる。
 また、 $a=0,b=1$ とすると、 $c=1,d=0,e=1,f=1$ となり、
-ベクトル ($\ref{iii}$) は
+ベクトル ($\text{iii}$) は
 
 $$
 \begin{aligned}
