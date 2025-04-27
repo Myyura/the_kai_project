@@ -17,7 +17,7 @@
 感谢每一位项目的贡献者。
 
 ## How to contribute
-我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。
+我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题/答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。
 
 * email: 376672994@qq.com
 
@@ -28,6 +28,21 @@
 如有侵权, 请随时联系.
 
 ### 内容格式说明
+
+#### 文件结构
+
+```markdown
+docs/
+├── <university>/
+│   ├── <department>/
+│   │   ├── <specialization>/
+│   │   │   ├── <year>/
+│   │   │   │   └── <exam_file>.md
+blog/
+├── <category>/
+│   └── <blog_post>.md
+```
+docs下每个文档文件都包含有元数据的前置信息，如`sidebar_label`和`tags`，以便于正确组织和查找。
 
 #### 文档前言
 
@@ -47,11 +62,38 @@ tags:
 ---
 ```
 
-前言添加完毕后，将你想提交的 Markdown 文件放在 docs 目录下对应的`docs/学校/学院/专攻/年份/`目录里，
+前言添加完毕后，将你想提交的 Markdown 文件放在 docs 目录下对应的`docs/<university>/<department>/<specialization>/<year>/`目录里，
 
 以`東京大学 工学系研究科 物理工学専攻 2020年度 物理学 第3問`为例
 
 即`docs/tokyo-university/engineering/ap/2020/ap_2020_phys_3.md`。
+
+#### 经验贴前言
+
+每个作者都应该至少有 `name` 属性。
+
+Single author:
+
+```markdown
+---
+title: Post title
+authors:
+  name: example author
+tags: [Tag1, Tag2]
+---
+```
+
+Multiple authors:
+
+```markdown
+---
+title: Post title
+authors:
+  - name: Joel Marcey
+  - name: Sébastien Lorber
+tags: [Tag1, Tag2]
+---
+```
 
 <details>
 
