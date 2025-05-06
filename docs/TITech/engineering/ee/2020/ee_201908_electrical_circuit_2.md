@@ -125,9 +125,7 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_201908_electrical_circuit_2_p6.png" width="250" alt=""/>
 </figure>
 
-$$
-v_A = Z_3i_B \Leftrightarrow i_B = \frac{v_A}{Z_3}
-$$
+$v_A = Z_3i_B$ より
 
 $$
 v_B = (Z_3 + Z_2)i_B = (1 + \frac{Z_2}{Z_3})v_A
@@ -145,8 +143,10 @@ $$
 -\frac{Z_2}{Z_3}v_A = i_AZ_1
 $$
 
+したがって、
+
 $$
-\therefore Z_{in} = \frac{v_A}{i_A} = -\frac{Z_1Z_3}{Z_2}
+Z_{in} = \frac{v_A}{i_A} = -\frac{Z_1Z_3}{Z_2}
 $$
 
 ### (7)
