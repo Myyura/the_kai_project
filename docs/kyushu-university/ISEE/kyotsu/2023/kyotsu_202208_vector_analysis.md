@@ -40,7 +40,7 @@ $$
 #### (b)
 
 $$
-\int_{C_2}\mathbf{F} \cdot d\mathbf{r} = \int_{-C_1} \mathbf{F} \cdot d\mathbf{r} = -\int_{C_1} \mathbf{F} \cdot d \mathbf{r} =2\pi
+\int_{C_2}\mathbf{F} \cdot d\mathbf{r} = 6\pi
 $$
 
 ### (2)
