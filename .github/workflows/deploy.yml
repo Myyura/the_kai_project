@@ -19,6 +19,15 @@ jobs:
         with:
           node-version: 18
           cache: npm
+      
+      - name: Cache node_modules/.cache
+        id: cache-node-modules-cache
+        uses: actions/cache@v4
+        with:
+          path: ./node_modules/.cache
+          key: ${{ runner.os }}-docusaurus-cache-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-docusaurus-cache-
 
       - name: 安装依赖
         run: npm ci
