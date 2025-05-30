@@ -10,29 +10,29 @@ import styles from './index.module.css';
 
 const FeatureList = [
   {
-    title: '考试答案',
+    title: '豊富な試験解答データベース',
     icon: <FaSearch />,
     description: (
       <>
-        提供一个不断增长的日本研究生入学考试答案集。
+        日本の大学院入試や資格試験のための解答集を継続的に更新・拡充しています。過去問から最新の問題まで、正確で信頼性の高い解答を提供し、効率的な試験対策をサポートします。分野別や年度別に簡単に検索できるので、必要な情報にすぐアクセス可能です。
       </>
     ),
   },
   {
-    title: '社区讨论',
+    title: '活発なコミュニティ交流',
     icon: <FaComments />,
     description: (
       <>
-        参与关于考试问题、解决方案和学习策略的讨论。
+        試験問題の解き方や学習方法について、他の受験生や専門家と自由に議論できるコミュニティを用意しています。疑問を解決したり、学習のヒントを共有したりすることで、モチベーションを維持しながら効果的に学べます。初心者から上級者まで、誰でも気軽に参加可能です。
       </>
     ),
   },
   {
-    title: '开源',
+    title: 'オープンソースによる透明性',
     icon: <FaGlobe />,
     description: (
       <>
-        完全开源的平台，欢迎社区的贡献。
+        本プラットフォームは完全にオープンソースで運営されており、誰でもコードを確認したり、改善案を提案したりできます。コミュニティからの貢献を歓迎し、ユーザー主導でより使いやすいツールを目指しています。透明性と協力性を重視した環境で、共に学びを深めましょう。
       </>
     ),
   },
@@ -65,12 +65,12 @@ function HomepageHeader() {
           <Link
             className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
             to="/docs/intro">
-            点击查看过去问
+            過去問
           </Link>
           <Link
             className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
             to="/blog">
-            点击查看经验贴
+            体験談
           </Link>
         </div>
       </div>
