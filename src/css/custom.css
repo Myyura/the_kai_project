@@ -101,7 +101,7 @@ main {
 
 /* Reduce title size in doc page */
 .docs-doc-page h1[class*="title"] {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 /* Reduce title size in doc page */
