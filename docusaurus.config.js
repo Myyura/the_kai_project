@@ -13,12 +13,18 @@ import rehypeMathjax from 'rehype-mathjax';
  /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: {
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+      useCssCascadeLayers: true,
+    },
     experimental_faster: {
       swcJsLoader: true,
       swcJsMinimizer: true,
       swcHtmlMinimizer: true,
       lightningCssMinimizer: true,
       rspackBundler: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: true,
       mdxCrossCompilerCache: true,
     },
     experimental_storage: {
