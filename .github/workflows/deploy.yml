@@ -23,7 +23,7 @@ jobs:
       - name: 安装依赖
         run: npm ci
       - name: 构建网站
-        run: npm build
+        run: npm run build
 
       - name: 上传构建制品
         uses: actions/upload-pages-artifact@v3
