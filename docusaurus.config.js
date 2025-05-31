@@ -8,17 +8,24 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import remarkMath from 'remark-math';
 import rehypeMathjax from 'rehype-mathjax';
 
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
  /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: {
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+      useCssCascadeLayers: true,
+    },
     experimental_faster: {
       swcJsLoader: true,
       swcJsMinimizer: true,
       swcHtmlMinimizer: true,
       lightningCssMinimizer: true,
       rspackBundler: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: true,
       mdxCrossCompilerCache: true,
     },
     experimental_storage: {
@@ -67,7 +74,7 @@ const config = {
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       ({
         hashed: true,
-        language: ["zh", "en"],
+        language: ["zh", "en", "ja"],
         indexDocs: true,
         indexBlog: true,
         indexPages: true,
@@ -80,6 +87,18 @@ const config = {
 
   // 添加SEO相关插件
   plugins: [
+    function disableExpensiveBundlerOptimizationPlugin() {
+    return {
+      name: 'disable-expensive-bundler-optimizations',
+      configureWebpack() {
+        return {
+          optimization: {
+            concatenateModules: false,
+          },
+        };
+      },
+    };
+  },
     [
       '@docusaurus/plugin-pwa',
       {
@@ -128,6 +147,7 @@ const config = {
         injectManifestConfig: {
           globPatterns: ['**/*.{js,html,css,svg,png,jpg,jpeg,gif}'],
         },
+        
       },
     ],
   ],
@@ -180,13 +200,13 @@ const config = {
     ({
       // SEO相关配置
       metadata: [
-        {name: 'keywords', content: '考试, 過去問, 考研, 分享, 修士, 答案, 信息共享, 开源'},
-        {name: 'description', content: '开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁'},
+        {name: 'keywords', content: '過去問, 日本考研, 修士, 过去问答案, 東京大学, 大学院院试, 情报理工'},
+        {name: 'description', content: '开源的、便捷的、分享与讨论日本大学院入学考试答案的平台'},
         {name: 'author', content: 'The Kai Project Team'},
         {property: 'og:type', content: 'website'},
-        {property: 'og:title', content: 'The Kai Project - 分享与讨论修考试题答案的平台'},
+        {property: 'og:title', content: 'The Kai Project - 分享与讨论日本大学院入学考试答案的平台'},
         {property: 'og:url', content: 'https://runjp.com'},
-        {property: 'og:description', content: '开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁'},
+        {property: 'og:description', content: '开源的、便捷的、分享与讨论日本大学院入学考试答案的平台'},
         {property: 'og:image', content: 'https://runjp.com/img/docusaurus-social-card.png'},
         {name: 'twitter:card', content: 'summary_large_image'},
       ],
@@ -214,10 +234,10 @@ const config = {
             position: 'left',
             label: '過去問',
           },
-          {to: '/blog', label: '经验贴', position: 'left'},
+          {to: '/blog', label: '体験談', position: 'left'},
           {to: '/docs/tags', label: 'Tags', position: 'left'},
-          {to: '/links', label: '友情链接', position: 'left'},
-          {to: '/legalstatement', label: '网站声明', position: 'left'},
+          {to: '/links', label: '役立つリンク集', position: 'left'},
+          {to: '/legalstatement', label: '法的声明', position: 'left'},
           {
             type: 'localeDropdown',
             position: 'right',
@@ -240,7 +260,7 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: '经验贴',
+                label: '体験談',
                 to: '/blog',
               },
               {
@@ -248,8 +268,12 @@ const config = {
                 to: '/docs/tags',
               },
               {
-                label: '友情链接',
+                label: '役立つリンク集',
                 to: '/links',
+              },
+              {
+                label: '法的声明',
+                to: '/legalstatement',
               },
             ],
           },
