@@ -63,8 +63,8 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'ja',
-    locales: ['zh-Hans','ja'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
 
   // 添加本地搜索功能
