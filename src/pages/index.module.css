@@ -3,26 +3,15 @@
  * and scoped locally.
  */
 
-/* Hero Banner 区域样式 - 优化背景渐变和过渡 */
+/* Hero Banner 区域样式 - 优化背景渐变 */
 .heroBanner {
-  padding: 6rem 0;
+  padding: 6rem 0 7rem;  /* 增加底部padding创造更好的过渡空间 */
   text-align: center;
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* 添加Hero Banner底部波浪过渡 */
-.heroBanner::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23FFFFFF'%3E%3C/path%3E%3C/svg%3E");
-  background-size: cover;
+  margin-bottom: -3rem; /* 创建重叠效果 */
   z-index: 1;
 }
 
@@ -105,25 +94,13 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 4rem 0;
+  padding: 7rem 0 5rem; /* 增加顶部padding处理重叠 */
   width: 100%;
-  background: linear-gradient(180deg, #ffffff 0%, rgba(240, 247, 255, 0.5) 100%);
+  background: linear-gradient(180deg, rgba(143, 211, 244, 0.2) 0%, rgba(255, 255, 255, 1) 100%);
   position: relative;
-  margin-top: -1px; /* 消除可能的缝隙 */
+  z-index: 0;
 }
 
-/* 特性区域到考试日程区域的过渡 */
-.features::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23F0F7FF'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23F0F7FF'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23F0F7FF'%3E%3C/path%3E%3C/svg%3E");
-  background-size: cover;
-  z-index: 1;
-}
 
 /* 特性卡片样式 */
 .featureCard {
@@ -195,50 +172,25 @@
 }
 
 /* 黑暗模式样式调整 */
+[data-theme='dark'] .heroBanner {
+  background: linear-gradient(135deg, #2a6f5f 0%, #1e4976 100%);
+}
+
 [data-theme='dark'] .features {
-  background: linear-gradient(180deg, #242526 0%, rgba(32, 35, 42, 0.7) 100%);
+  background: linear-gradient(180deg, rgba(19, 78, 94, 0.4) 0%, rgba(24, 24, 26, 1) 100%);
 }
 
-
-
-[data-theme='dark'] .featureCard {
-  background: rgba(37, 37, 40, 0.9); /* 半透明的深色背景 */
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
-  height: 100%;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* 增强阴影对比度 */
-  transition: all 0.2s ease; /* 加快动画速度 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1rem 0.5rem;
-  text-align: center;
-  animation: fadeIn 0.7s ease-in; /* 加快动画速度 */
+[data-theme='dark'] .examSchedule {
+  background: linear-gradient(180deg, rgba(24, 24, 26, 1) 0%, rgba(32, 35, 42, 0.8) 100%);
 }
 
-[data-theme='dark'] .featureCard:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* 增强悬停状态阴影对比度 */
-}
-
-[data-theme='dark'] .featureTitle {
-  color: #e6e6e6;
-}
-
-[data-theme='dark'] .featureDescription {
-  color: #b0b0b0;
-}
-
-[data-theme='dark'] .featureIcon {
-  background: rgba(37, 194, 160, 0.2);
-  color: #25c2a0;
-}
-
-/* 考试日程流程图样式 - 优化背景 */
+/* 考试日程流程图样式 - 平滑过渡 */
 .examSchedule {
   padding: 5rem 0 4rem;
-  background: linear-gradient(180deg, rgba(240, 247, 255, 0.8) 0%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(240, 247, 255, 0.7) 100%);
   position: relative;
-  margin-top: -1px; /* 消除可能的缝隙 */
+  margin-top: -2rem; /* 创建与特性区域的视觉重叠 */
+  z-index: 0;
 }
 
 .examScheduleTitle {
@@ -374,7 +326,7 @@
 
 /* 黑暗模式样式 */
 [data-theme='dark'] .examSchedule {
-  background: linear-gradient(180deg, rgba(32, 35, 42, 0.7) 0%, rgba(24, 24, 26, 1) 100%);
+  background: linear-gradient(180deg, rgba(24, 24, 26, 1) 0%, rgba(32, 35, 42, 1) 100%);
 }
 
 [data-theme='dark'] .examScheduleTitle {
@@ -567,7 +519,16 @@
 /* 响应式调整 */
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 4rem 2rem;  /* 调整移动端padding */
+    padding: 4rem 2rem 5rem;  /* 保持相对比例 */
+    margin-bottom: -2rem; /* 调整重叠效果 */
+  }
+  
+  .features {
+    padding: 5rem 1rem 4rem; /* 调整padding */
+  }
+  
+  .examSchedule {
+    margin-top: -1.5rem; /* 调整重叠效果 */
   }
   
   .heroTitle {
