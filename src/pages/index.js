@@ -122,10 +122,10 @@ function ExamScheduleFlowchart() {
           name: '工学系研究科',
           websiteUrl: 'https://www.t.u-tokyo.ac.jp/soe/admission/general',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月上旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', date: '8月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -133,20 +133,64 @@ function ExamScheduleFlowchart() {
           name: '理学系研究科',
           websiteUrl: 'https://www.s.u-tokyo.ac.jp/ja/admission/graduate.html',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月中旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', date: '8月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
-          id: 'humanities',
-          name: '人文社会系研究科',
-          websiteUrl: 'https://www.l.u-tokyo.ac.jp/admission/index.html',
+          id: 'ist',
+          name: '情報理工学系研究科',
+          websiteUrl: 'https://www.i.u-tokyo.ac.jp/edu/entra/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月初旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '9月上旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月下旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'frontier',
+          name: '新領域創成科学研究科',
+          websiteUrl: 'https://www.k.u-tokyo.ac.jp/exam/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'culture',
+          name: '総合文化研究科',
+          websiteUrl: 'https://www.c.u-tokyo.ac.jp/graduate/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'iii',
+          name: '学際情報学府',
+          websiteUrl: 'https://www.iii.u-tokyo.ac.jp/admissions',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'ms',
+          name: '数理科学研究科',
+          websiteUrl: 'https://www.ms.u-tokyo.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -161,10 +205,10 @@ function ExamScheduleFlowchart() {
           name: '工学研究科',
           websiteUrl: 'https://www.t.kyoto-u.ac.jp/ja/admissions/graduate',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月下旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月上旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', date: '8月中旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -172,9 +216,9 @@ function ExamScheduleFlowchart() {
           name: '理学研究科',
           websiteUrl: 'https://www.sci.kyoto-u.ac.jp/ja/admissions/graduate.html',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月初旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -182,10 +226,32 @@ function ExamScheduleFlowchart() {
           name: '経済学研究科',
           websiteUrl: 'https://www.econ.kyoto-u.ac.jp/examguide/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月中旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '9月初旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', date: '9月中旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月下旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'informatics',
+          name: '情報学研究科',
+          websiteUrl: 'https://www.i.kyoto-u.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'gsm',
+          name: '経営管理大学院',
+          websiteUrl: 'https://www.gsm.kyoto-u.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -200,9 +266,9 @@ function ExamScheduleFlowchart() {
           name: '工学研究科',
           websiteUrl: 'https://www.eng.tohoku.ac.jp/admission/grad/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月下旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -210,10 +276,43 @@ function ExamScheduleFlowchart() {
           name: '理学研究科',
           websiteUrl: 'https://www.sci.tohoku.ac.jp/admission/graduate.html',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', date: '8月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'bme',
+          name: '医工学研究科',
+          websiteUrl: 'https://www.bme.tohoku.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'environmental',
+          name: '環境科学研究科',
+          websiteUrl: 'https://www.kankyo.tohoku.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'is',
+          name: '情報科学研究科',
+          websiteUrl: 'https://www.is.tohoku.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -228,10 +327,10 @@ function ExamScheduleFlowchart() {
           name: '工学研究科',
           websiteUrl: 'https://www.eng.osaka-u.ac.jp/ja/entrance-exam/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月下旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月上旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', date: '8月中旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '8月下旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -239,9 +338,9 @@ function ExamScheduleFlowchart() {
           name: '理学研究科',
           websiteUrl: 'https://www.sci.osaka-u.ac.jp/ja/admissions/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月初旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -249,10 +348,32 @@ function ExamScheduleFlowchart() {
           name: '医学系研究科',
           websiteUrl: 'https://www.med.osaka-u.ac.jp/admission/admission',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月下旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', date: '9月上旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'es',
+          name: '基礎工学研究科',
+          websiteUrl: 'https://www.es.osaka-u.ac.jp/ja/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'ist',
+          name: '情報科学研究科',
+          websiteUrl: 'https://www.ist.osaka-u.ac.jp/japanese/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -267,9 +388,9 @@ function ExamScheduleFlowchart() {
           name: '工学研究科',
           websiteUrl: 'https://www.engg.nagoya-u.ac.jp/admission/index.html',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -277,38 +398,103 @@ function ExamScheduleFlowchart() {
           name: '理学研究科',
           websiteUrl: 'https://www.sci.nagoya-u.ac.jp/graduate/index.html',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月下旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', date: '8月中旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'env',
+          name: '環境学研究科',
+          websiteUrl: 'https://www.env.nagoya-u.ac.jp/admission/index.html',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'i',
+          name: '情報学研究科',
+          websiteUrl: 'https://www.i.nagoya-u.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'math',
+          name: '多元数理科学研究科',
+          websiteUrl: 'https://www.math.nagoya-u.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
     },
     {
       id: 'titech',
-      name: '東京理科大学',
+      name: '東京工業大学',  
       color: '#7b3f00',
       departments: [
         {
           id: 'engineering',
-          name: '工学研究科',
-          websiteUrl: 'https://www.tus.ac.jp/admis/grad/engineering/',
+          name: '工学院',   
+          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',  // 更新为东京工业大学网站
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月中旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '7月下旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', date: '8月上旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '8月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
           id: 'science',
-          name: '理学研究科',
-          websiteUrl: 'https://www.tus.ac.jp/admis/grad/science/',
+          name: '理学院',   
+          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',  // 更新URL
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月下旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '7月下旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '8月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'information',
+          name: '情報理工学院',   
+          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'ses',
+          name: '環境社会理工学院',   
+          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'mat',
+          name: '物質理工学院',   
+          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -323,10 +509,10 @@ function ExamScheduleFlowchart() {
           name: '工学院',
           websiteUrl: 'https://www.eng.hokudai.ac.jp/graduate/examinfo/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月中旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', date: '8月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -334,9 +520,42 @@ function ExamScheduleFlowchart() {
           name: '理学院',
           websiteUrl: 'https://www.sci.hokudai.ac.jp/graduate/admissions/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'fisheries',
+          name: '水産科学院',
+          websiteUrl: 'https://www2.fish.hokudai.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'ist',
+          name: '情報科学院',
+          websiteUrl: 'https://www.ist.hokudai.ac.jp/examinfo/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'hops',
+          name: '公共政策大学院',
+          websiteUrl: 'https://www.hops.hokudai.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -351,10 +570,10 @@ function ExamScheduleFlowchart() {
           name: '工学府',
           websiteUrl: 'https://www.eng.kyushu-u.ac.jp/entrance/index.html',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月初旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', date: '8月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -362,9 +581,41 @@ function ExamScheduleFlowchart() {
           name: '理学府',
           websiteUrl: 'https://www.sci.kyushu-u.ac.jp/admission/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'economics',
+          name: '経済学府',
+          websiteUrl: 'https://www.econ.kyushu-u.ac.jp/gs/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'isee',
+          name: 'システム情報科学府',
+          websiteUrl: 'https://www.isee.kyushu-u.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'math',
+          name: '数理学府',
+          websiteUrl: 'https://www.math.kyushu-u.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -379,10 +630,10 @@ function ExamScheduleFlowchart() {
           name: '基幹理工学研究科',
           websiteUrl: 'https://www.waseda.jp/fsci/admissions_gs/',
           schedules: [
-            { id: 'apply', label: '出願期間', date: '6月初旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '7月中旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', date: '7月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '8月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '出願期間', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -390,10 +641,10 @@ function ExamScheduleFlowchart() {
           name: '創造理工学研究科',
           websiteUrl: 'https://www.waseda.jp/fsci/admissions_gs/',
           schedules: [
-            { id: 'apply', label: '出願期間', date: '6月中旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '7月下旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', date: '8月上旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '8月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '出願期間', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -401,15 +652,14 @@ function ExamScheduleFlowchart() {
           name: '先進理工学研究科',
           websiteUrl: 'https://www.waseda.jp/fsci/admissions_gs/',
           schedules: [
-            { id: 'apply', label: '出願期間', date: '6月中旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '7月中旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', date: '7月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '8月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '出願期間', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
     },
-    // 添加其他大学，确保每个研究科都有websiteUrl
     {
       id: 'tsukuba',
       name: '筑波大学',
@@ -420,10 +670,10 @@ function ExamScheduleFlowchart() {
           name: '理工学研究群',
           websiteUrl: 'https://www.tsukuba.ac.jp/admission/graduate-info/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', date: '8月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -431,9 +681,20 @@ function ExamScheduleFlowchart() {
           name: '人文社会科学研究群',
           websiteUrl: 'https://www.tsukuba.ac.jp/admission/graduate-info/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月中旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'gstils',
+          name: '理工情報生命学術院',
+          websiteUrl: 'https://www.tsukuba.ac.jp/admission/graduate-info/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -448,10 +709,10 @@ function ExamScheduleFlowchart() {
           name: '情報理工学研究科',
           websiteUrl: 'https://www.uec.ac.jp/admission/ie_graduate/',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '6月下旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月上旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', date: '8月中旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '8月下旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -466,9 +727,9 @@ function ExamScheduleFlowchart() {
           name: '工学研究科',
           websiteUrl: 'https://www.eng.kobe-u.ac.jp/admission/index.html',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月初旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -476,10 +737,32 @@ function ExamScheduleFlowchart() {
           name: '理学研究科',
           websiteUrl: 'https://www.sci.kobe-u.ac.jp/admission/index.html',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月中旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', date: '8月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'economics',
+          name: '経済学研究科',
+          websiteUrl: 'https://www.econ.kobe-u.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
+          ]
+        },
+        {
+          id: 'csi',
+          name: 'システム情報学研究科',
+          websiteUrl: 'https://www.csi.kobe-u.ac.jp/admission/',
+          schedules: [
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -494,10 +777,10 @@ function ExamScheduleFlowchart() {
           name: '先進理工系科学研究科',
           websiteUrl: 'https://www.hiroshima-u.ac.jp/adse/admission',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', date: '8月下旬', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', date: '9月初旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         },
         {
@@ -505,9 +788,9 @@ function ExamScheduleFlowchart() {
           name: '人間社会科学研究科',
           websiteUrl: 'https://www.hiroshima-u.ac.jp/en/gshs/admission',
           schedules: [
-            { id: 'apply', label: '願書受付', date: '7月中旬', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
+            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
+            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
           ]
         }
       ]
@@ -571,7 +854,7 @@ function ExamScheduleFlowchart() {
                               className={styles.departmentLink}
                               style={{borderLeftColor: univ.color}}
                             >
-                              <FaExternalLinkAlt /> 公式サイトで最新情報を確認
+                              <FaExternalLinkAlt /> 日程時間については、各研究科・学院の公式ウェブサイトにて、各専攻の最新の募集要項をご確認ください。。
                             </a>
                             <div className={styles.timelineSteps}>
                               {dept.schedules.map((step, stepIndex) => (
@@ -582,7 +865,6 @@ function ExamScheduleFlowchart() {
                                     </div>
                                     <div className={styles.stepInfo}>
                                       <div className={styles.stepLabel}>{step.label}</div>
-                                      <div className={styles.stepDate}>{step.date}</div>
                                     </div>
                                   </div>
                                   {stepIndex < dept.schedules.length - 1 && (

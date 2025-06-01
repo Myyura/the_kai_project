@@ -268,11 +268,11 @@ const config = {
                 to: '/docs/tags',
               },
               {
-                label: '实用链接',
+                label: '役立つリンク集',
                 to: '/links',
               },
               {
-                label: '免责声明',
+                label: '法的声明',
                 to: '/legalstatement',
               },
             ],
