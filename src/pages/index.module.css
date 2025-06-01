@@ -393,6 +393,124 @@
   color: #b0b0b0;
 }
 
+/* 折叠式考试日程流程图样式更新 */
+.universityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 0.5rem;
+}
+
+.universityHeader:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme='dark'] .universityHeader:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.toggleIcon {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .toggleIcon {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #b0b0b0;
+}
+
+.universityHeader:hover .toggleIcon {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .universityHeader:hover .toggleIcon {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.departmentsContainer {
+  padding: 0 0.5rem 0.5rem 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.department {
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .department {
+  background-color: rgba(37, 37, 40, 0.6);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.departmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-left: 4px solid;
+  transition: all 0.2s ease;
+}
+
+.departmentHeader:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] .departmentHeader {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .departmentHeader:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.departmentName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+[data-theme='dark'] .departmentName {
+  color: #e6e6e6;
+}
+
+.departmentToggle {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+[data-theme='dark'] .departmentToggle {
+  color: #b0b0b0;
+}
+
+/* 更新的步骤样式 */
+.timelineSteps {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0 0 8px 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+[data-theme='dark'] .timelineSteps {
+  background-color: rgba(37, 37, 40, 0.4);
+}
+
 /* 响应式调整 */
 @media screen and (max-width: 996px) {
   .heroBanner {
@@ -485,5 +603,21 @@
   
   .stepDate {
     font-size: 0.7rem;
+  }
+  
+  .departmentsContainer {
+    padding: 0 0.25rem 0.25rem 0.5rem;
+  }
+  
+  .departmentHeader {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .departmentName {
+    font-size: 0.85rem;
+  }
+  
+  .timelineSteps {
+    padding: 0.75rem 0.5rem;
   }
 }
