@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
 import { FaSearch, FaComments, FaGlobe } from 'react-icons/fa'; // 引入 React Icons
+import GraduateExamFlowchart from '@site/src/components/GraduateExamFlowchart';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -97,11 +98,16 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.title}
-      description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
+      description="開源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
       <HomepageStructuredData />
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <section className="graduate-exam-section">
+          <div className="container">
+            <GraduateExamFlowchart />
+          </div>
+        </section>
       </main>
     </Layout>
   );

@@ -18,12 +18,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm
+          cache: yarn
 
       - name: 安装依赖
-        run: npm ci
-      - name: 构建网站
-        run: npm run build
+        run: yarn install
+      - name: 构建网站Add commentMore actions
+        run: yarn build
 
       - name: 上传构建制品
         uses: actions/upload-pages-artifact@v3
@@ -48,4 +48,3 @@ jobs:
     steps:
       - name: 部署到 GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
