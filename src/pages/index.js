@@ -131,7 +131,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'science',
           name: '理学系研究科',
-          websiteUrl: 'https://www.s.u-tokyo.ac.jp/ja/admission/graduate.html',
+          websiteUrl: 'https://www.s.u-tokyo.ac.jp/ja/admission/master/index.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -152,7 +152,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'frontier',
           name: '新領域創成科学研究科',
-          websiteUrl: 'https://www.k.u-tokyo.ac.jp/exam/',
+          websiteUrl: 'https://www.k.u-tokyo.ac.jp/exam/info/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -163,7 +163,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'culture',
           name: '総合文化研究科',
-          websiteUrl: 'https://www.c.u-tokyo.ac.jp/graduate/admission/',
+          websiteUrl: 'https://www.c.u-tokyo.ac.jp/graduate/admission/master-doctor/index.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -185,7 +185,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'ms',
           name: '数理科学研究科',
-          websiteUrl: 'https://www.ms.u-tokyo.ac.jp/admission/',
+          websiteUrl: 'https://www.ms.u-tokyo.ac.jp/kyoumu/examination.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -214,7 +214,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'science',
           name: '理学研究科',
-          websiteUrl: 'https://www.sci.kyoto-u.ac.jp/ja/admissions/graduate.html',
+          websiteUrl: 'https://sci.kyoto-u.ac.jp/ja/admissions/ms',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -224,7 +224,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'economics',
           name: '経済学研究科',
-          websiteUrl: 'https://www.econ.kyoto-u.ac.jp/examguide/',
+          websiteUrl: 'https://www.econ.kyoto-u.ac.jp/examguide/graduateexam-info/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -264,7 +264,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'engineering',
           name: '工学研究科',
-          websiteUrl: 'https://www.eng.tohoku.ac.jp/admission/grad/',
+          websiteUrl: 'https://www.eng.tohoku.ac.jp/admission/grad/master.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -274,7 +274,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'science',
           name: '理学研究科',
-          websiteUrl: 'https://www.sci.tohoku.ac.jp/admission/graduate.html',
+          websiteUrl: 'https://www.sci.tohoku.ac.jp/juken/graduate-admission.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -296,7 +296,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'environmental',
           name: '環境科学研究科',
-          websiteUrl: 'https://www.kankyo.tohoku.ac.jp/admission/',
+          websiteUrl: 'https://www.kankyo.tohoku.ac.jp/newstudent/nittei-yoko.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -307,7 +307,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'is',
           name: '情報科学研究科',
-          websiteUrl: 'https://www.is.tohoku.ac.jp/admission/',
+          websiteUrl: 'https://www.is.tohoku.ac.jp/jp/entrance/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -325,7 +325,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'engineering',
           name: '工学研究科',
-          websiteUrl: 'https://www.eng.osaka-u.ac.jp/ja/entrance-exam/',
+          websiteUrl: 'https://www.eng.osaka-u.ac.jp/ja/entrance/g_admissions/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -336,7 +336,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'science',
           name: '理学研究科',
-          websiteUrl: 'https://www.sci.osaka-u.ac.jp/ja/admissions/',
+          websiteUrl: 'https://www.sci.osaka-u.ac.jp/ja/admissions/admissions_d/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -357,7 +357,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'es',
           name: '基礎工学研究科',
-          websiteUrl: 'https://www.es.osaka-u.ac.jp/ja/admission/',
+          websiteUrl: 'https://www.es.osaka-u.ac.jp/ja/examinee/graduate-school-of-engineering-science/entrance-exam/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -368,7 +368,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'ist',
           name: '情報科学研究科',
-          websiteUrl: 'https://www.ist.osaka-u.ac.jp/japanese/admission/',
+          websiteUrl: 'https://www.ist.osaka-u.ac.jp/japanese/examinees/admission/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -386,7 +386,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'engineering',
           name: '工学研究科',
-          websiteUrl: 'https://www.engg.nagoya-u.ac.jp/admission/index.html',
+          websiteUrl: 'https://www.engg.nagoya-u.ac.jp/prospective/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -418,7 +418,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'i',
           name: '情報学研究科',
-          websiteUrl: 'https://www.i.nagoya-u.ac.jp/admission/',
+          websiteUrl: 'https://www.i.nagoya-u.ac.jp/gs/entranceexamination/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -429,7 +429,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'math',
           name: '多元数理科学研究科',
-          websiteUrl: 'https://www.math.nagoya-u.ac.jp/admission/',
+          websiteUrl: 'https://www.math.nagoya-u.ac.jp/ja/admission/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -439,57 +439,14 @@ function ExamScheduleFlowchart() {
       ]
     },
     {
-      id: 'titech',
-      name: '東京工業大学',  
+      id: 'isct',
+      name: '東京科学大学 旧・東京工業大学',  
       color: '#7b3f00',
       departments: [
         {
-          id: 'engineering',
-          name: '工学院',   
-          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',  // 更新为东京工业大学网站
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
-        },
-        {
-          id: 'science',
-          name: '理学院',   
-          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',  // 更新URL
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
-        },
-        {
-          id: 'information',
-          name: '情報理工学院',   
-          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
-        },
-        {
-          id: 'ses',
-          name: '環境社会理工学院',   
-          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
-        },
-        {
-          id: 'mat',
-          name: '物質理工学院',   
-          websiteUrl: 'https://www.titech.ac.jp/admissions/graduate',
+          id: 'isct',
+          name: '理工学系',   
+          websiteUrl: 'https://www.titech.ac.jp/admissions/prospective-students/admissions/guide',  
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -518,7 +475,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'science',
           name: '理学院',
-          websiteUrl: 'https://www.sci.hokudai.ac.jp/graduate/admissions/',
+          websiteUrl: 'https://www2.sci.hokudai.ac.jp/gs/admission-guideline',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -528,7 +485,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'fisheries',
           name: '水産科学院',
-          websiteUrl: 'https://www2.fish.hokudai.ac.jp/admission/',
+          websiteUrl: 'https://www2.fish.hokudai.ac.jp/admission/mcdc.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -568,7 +525,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'engineering',
           name: '工学府',
-          websiteUrl: 'https://www.eng.kyushu-u.ac.jp/entrance/index.html',
+          websiteUrl: 'https://www.eng.kyushu-u.ac.jp/admissions.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -579,7 +536,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'science',
           name: '理学府',
-          websiteUrl: 'https://www.sci.kyushu-u.ac.jp/admission/',
+          websiteUrl: 'https://www.sci.kyushu-u.ac.jp/admission/daigakuin_master.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -589,7 +546,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'economics',
           name: '経済学府',
-          websiteUrl: 'https://www.econ.kyushu-u.ac.jp/gs/',
+          websiteUrl: 'https://www.econ.kyushu-u.ac.jp/nyushi/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -600,7 +557,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'isee',
           name: 'システム情報科学府',
-          websiteUrl: 'https://www.isee.kyushu-u.ac.jp/admission/',
+          websiteUrl: 'https://www.isee.kyushu-u.ac.jp/admissions_master.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -611,7 +568,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'math',
           name: '数理学府',
-          websiteUrl: 'https://www.math.kyushu-u.ac.jp/admission/',
+          websiteUrl: 'https://www.math.kyushu-u.ac.jp/admission/graduateschool/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -667,8 +624,8 @@ function ExamScheduleFlowchart() {
       departments: [
         {
           id: 'engineering',
-          name: '理工学研究群',
-          websiteUrl: 'https://www.tsukuba.ac.jp/admission/graduate-info/',
+          name: '人間総合科学学術院',
+          websiteUrl: 'https://www.ap-graduate.tsukuba.ac.jp/course/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -678,8 +635,8 @@ function ExamScheduleFlowchart() {
         },
         {
           id: 'humanities',
-          name: '人文社会科学研究群',
-          websiteUrl: 'https://www.tsukuba.ac.jp/admission/graduate-info/',
+          name: '人文社会ビジネス科学学術院',
+          websiteUrl: 'https://www.ap-graduate.tsukuba.ac.jp/course/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -689,7 +646,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'gstils',
           name: '理工情報生命学術院',
-          websiteUrl: 'https://www.tsukuba.ac.jp/admission/graduate-info/',
+          websiteUrl: 'https://www.ap-graduate.tsukuba.ac.jp/course/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -707,7 +664,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'informatics',
           name: '情報理工学研究科',
-          websiteUrl: 'https://www.uec.ac.jp/admission/ie_graduate/',
+          websiteUrl: 'https://www.uec.ac.jp/education/graduate/admission/request.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -725,7 +682,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'engineering',
           name: '工学研究科',
-          websiteUrl: 'https://www.eng.kobe-u.ac.jp/admission/index.html',
+          websiteUrl: 'http://www.eng.kobe-u.ac.jp/examinee.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -735,7 +692,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'science',
           name: '理学研究科',
-          websiteUrl: 'https://www.sci.kobe-u.ac.jp/admission/index.html',
+          websiteUrl: 'http://www.sci.kobe-u.ac.jp/admissions/master.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -746,7 +703,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'economics',
           name: '経済学研究科',
-          websiteUrl: 'https://www.econ.kobe-u.ac.jp/admission/',
+          websiteUrl: 'https://www.econ.kobe-u.ac.jp/admission-master/',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -757,7 +714,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'csi',
           name: 'システム情報学研究科',
-          websiteUrl: 'https://www.csi.kobe-u.ac.jp/admission/',
+          websiteUrl: 'https://www.csi.kobe-u.ac.jp/exam/master_exam.html',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
@@ -786,7 +743,7 @@ function ExamScheduleFlowchart() {
         {
           id: 'humanities',
           name: '人間社会科学研究科',
-          websiteUrl: 'https://www.hiroshima-u.ac.jp/en/gshs/admission',
+          websiteUrl: 'https://www.hiroshima-u.ac.jp/gshs/nyuusi',
           schedules: [
             { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
             { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
