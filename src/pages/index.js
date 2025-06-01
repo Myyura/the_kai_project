@@ -66,12 +66,12 @@ function HomepageHeader() {
           <Link
             className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
             to="/docs/intro">
-            過去問
+            過去問を見る
           </Link>
           <Link
             className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
             to="/blog">
-            体験談
+            体験談を見る
           </Link>
         </div>
       </div>
