@@ -854,7 +854,7 @@ function ExamScheduleFlowchart() {
                               className={styles.departmentLink}
                               style={{borderLeftColor: univ.color}}
                             >
-                              <FaExternalLinkAlt /> 日程時間については、各研究科・学院の公式ウェブサイトにて、各専攻の最新の募集要項をご確認ください。。
+                              <FaExternalLinkAlt /> 日程時間については、各研究科・学院の公式ウェブサイトにて、各専攻の最新の募集要項をご確認ください。
                             </a>
                             <div className={styles.timelineSteps}>
                               {dept.schedules.map((step, stepIndex) => (
