@@ -3,11 +3,11 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaSearch, FaComments, FaGlobe } from 'react-icons/fa'; // 引入 React Icons
-import GraduateExamFlowchart from '@site/src/components/GraduateExamFlowchart';
+import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaCalendarAlt, FaFileAlt, FaPencilAlt, FaUserGraduate, FaUniversity } from 'react-icons/fa'; // 添加更多图标
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
+import { useEffect, useState } from 'react';
 
 const FeatureList = [
   {
@@ -79,6 +79,200 @@ function HomepageHeader() {
   );
 }
 
+// 考試日程流程圖組件
+function ExamScheduleFlowchart() {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // 大學數據及其考試日程
+  const universities = [
+    {
+      name: '東京大学',
+      color: '#0f4c81',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '6月初旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
+        { id: 'interview', label: '面接', date: '9月上旬', icon: <FaUserGraduate /> },
+        { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '京都大学',
+      color: '#8b2323',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '6月中旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
+        { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '東北大学',
+      color: '#006a4e',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
+        { id: 'interview', label: '面接', date: '8月下旬', icon: <FaUserGraduate /> },
+        { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '大阪大学',
+      color: '#1e3f66',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '6月下旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月上旬', icon: <FaPencilAlt /> },
+        { id: 'results', label: '合格発表', date: '9月初旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '名古屋大学',
+      color: '#654321',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
+        { id: 'interview', label: '面接', date: '8月下旬', icon: <FaUserGraduate /> },
+        { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '東京理科大学',
+      color: '#7b3f00',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '6月中旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '7月下旬', icon: <FaPencilAlt /> },
+        { id: 'results', label: '合格発表', date: '8月中旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '北海道大学',
+      color: '#4169e1',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '6月下旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
+        { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '九州大学',
+      color: '#800080',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '7月初旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
+        { id: 'interview', label: '面接', date: '8月下旬', icon: <FaUserGraduate /> },
+        { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '早稲田大学',
+      color: '#c41e3a',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '6月初旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '7月中旬', icon: <FaPencilAlt /> },
+        { id: 'interview', label: '面接', date: '7月下旬', icon: <FaUserGraduate /> },
+        { id: 'results', label: '8月上旬', date: '8月上旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '筑波大学',
+      color: '#228b22',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
+        { id: 'results', label: '合格発表', date: '9月上旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '電気通信大学',
+      color: '#483d8b',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '6月下旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月上旬', icon: <FaPencilAlt /> },
+        { id: 'interview', label: '面接', date: '8月中旬', icon: <FaUserGraduate /> },
+        { id: 'results', label: '合格発表', date: '8月下旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '神戸大学',
+      color: '#3cb371',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '7月初旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月下旬', icon: <FaPencilAlt /> },
+        { id: 'results', label: '合格発表', date: '9月中旬', icon: <FaUniversity /> }
+      ]
+    },
+    {
+      name: '広島大学',
+      color: '#ff7f50',
+      steps: [
+        { id: 'apply', label: '願書受付', date: '7月上旬', icon: <FaFileAlt /> },
+        { id: 'exam', label: '筆記試験', date: '8月中旬', icon: <FaPencilAlt /> },
+        { id: 'interview', label: '面接', date: '8月下旬', icon: <FaUserGraduate /> },
+        { id: 'results', label: '合格発表', date: '9月初旬', icon: <FaUniversity /> }
+      ]
+    }
+  ];
+
+  return (
+    <section className={styles.examSchedule}>
+      <div className="container">
+        <Heading as="h2" className={styles.examScheduleTitle}>
+          日本トップ大学2025年度大学院入試日程
+        </Heading>
+        <p className={styles.examScheduleDescription}>
+          以下は主要大学の大学院入試スケジュール概要です。正確な日程は各大学の公式発表をご確認ください。
+        </p>
+        
+        <div className={styles.flowchartContainer}>
+          {universities.map((univ, index) => (
+            <div key={index} className={styles.universityTimeline}>
+              <div 
+                className={styles.universityName} 
+                style={{backgroundColor: univ.color}}
+              >
+                {univ.name}
+              </div>
+              <div className={styles.timelineSteps}>
+                {univ.steps.map((step, stepIndex) => (
+                  <div key={stepIndex} className={styles.timelineStep}>
+                    <div className={styles.stepContent}>
+                      <div className={styles.stepIcon} style={{backgroundColor: univ.color}}>
+                        {step.icon}
+                      </div>
+                      <div className={styles.stepInfo}>
+                        <div className={styles.stepLabel}>{step.label}</div>
+                        <div className={styles.stepDate}>{step.date}</div>
+                      </div>
+                    </div>
+                    {stepIndex < univ.steps.length - 1 && (
+                      <div className={styles.stepArrow}>
+                        <FaArrowRight style={{color: univ.color}} />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className={styles.scheduleDisclaimer}>
+          <FaCalendarAlt className={styles.disclaimerIcon} />
+          <p>※ 各大学の公式入試要項を必ずご確認ください。日程は変更される場合があります。</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HomepageFeatures() {
   return (
     <section className={styles.features}>
@@ -98,16 +292,12 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.title}
-      description="開源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
+      description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
       <HomepageStructuredData />
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <section className="graduate-exam-section">
-          <div className="container">
-            <GraduateExamFlowchart />
-          </div>
-        </section>
+        <ExamScheduleFlowchart />
       </main>
     </Layout>
   );

@@ -221,6 +221,178 @@
   color: #25c2a0;
 }
 
+/* 考试日程流程图样式 */
+.examSchedule {
+  padding: 4rem 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(240, 247, 255, 1) 100%);
+  position: relative;
+}
+
+.examScheduleTitle {
+  text-align: center;
+  font-size: 2rem !important;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.examScheduleDescription {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: #666;
+}
+
+.flowchartContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.universityTimeline {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.universityTimeline:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.universityName {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timelineSteps {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.timelineStep {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 150px;
+}
+
+.stepContent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stepIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+}
+
+.stepInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepLabel {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.stepDate {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.stepArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.scheduleDisclaimer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disclaimerIcon {
+  color: #2e8555;
+  font-size: 1.2rem;
+}
+
+.scheduleDisclaimer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* 黑暗模式样式 */
+[data-theme='dark'] .examSchedule {
+  background: linear-gradient(180deg, rgba(24, 24, 26, 1) 0%, rgba(32, 35, 42, 1) 100%);
+}
+
+[data-theme='dark'] .examScheduleTitle {
+  color: #e6e6e6;
+}
+
+[data-theme='dark'] .examScheduleDescription {
+  color: #b0b0b0;
+}
+
+[data-theme='dark'] .universityTimeline {
+  background: rgba(37, 37, 40, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .stepLabel {
+  color: #e6e6e6;
+}
+
+[data-theme='dark'] .stepDate {
+  color: #b0b0b0;
+}
+
+[data-theme='dark'] .scheduleDisclaimer {
+  background: rgba(37, 37, 40, 0.7);
+}
+
+[data-theme='dark'] .scheduleDisclaimer p {
+  color: #b0b0b0;
+}
+
 /* 响应式调整 */
 @media screen and (max-width: 996px) {
   .heroBanner {
@@ -271,5 +443,47 @@
     width: 100%;
     max-width: 100%;
     flex-basis: 100%;
+  }
+  
+  .examScheduleTitle {
+    font-size: 1.5rem !important;
+  }
+  
+  .universityTimeline {
+    padding: 0.75rem;
+  }
+  
+  .timelineSteps {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .timelineStep {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stepArrow {
+    transform: rotate(90deg);
+    padding: 0.5rem 0;
+  }
+  
+  .universityName {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .stepIcon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  
+  .stepLabel {
+    font-size: 0.8rem;
+  }
+  
+  .stepDate {
+    font-size: 0.7rem;
   }
 }
