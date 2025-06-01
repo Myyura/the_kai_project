@@ -511,6 +511,46 @@
   background-color: rgba(37, 37, 40, 0.4);
 }
 
+/* 研究科官网链接样式 */
+.departmentLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.02);
+  color: #555;
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-left: 4px solid;
+  transition: all 0.2s ease;
+}
+
+.departmentLink:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #333;
+  text-decoration: none;
+}
+
+[data-theme='dark'] .departmentLink {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #b0b0b0;
+}
+
+[data-theme='dark'] .departmentLink:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  color: #e6e6e6;
+  text-decoration: none;
+}
+
+/* 确保时间线样式与链接兼容 */
+.timelineSteps {
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .timelineSteps {
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
 /* 响应式调整 */
 @media screen and (max-width: 996px) {
   .heroBanner {
@@ -619,5 +659,10 @@
   
   .timelineSteps {
     padding: 0.75rem 0.5rem;
+  }
+
+  .departmentLink {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
   }
 }
