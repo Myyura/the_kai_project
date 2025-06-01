@@ -22,7 +22,7 @@ jobs:
 
       - name: 安装依赖
         run: yarn install
-      - name: 构建网站Add commentMore actions
+      - name: 构建网站
         run: yarn build
 
       - name: 上传构建制品
@@ -48,3 +48,4 @@ jobs:
     steps:
       - name: 部署到 GitHub Pages
         id: deployment
+        uses: actions/deploy-pages@v4
