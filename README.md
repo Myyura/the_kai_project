@@ -1,76 +1,59 @@
-# The Kai Project
+<div align="center">
+  <h1 align="center">
+    The Kai Project 
+    <br />
+  </h1>
+   <p align="center">English | <a href="./docs/README.zh.md">中文</a> | <a href="./docs/README.ja.md">日本語</a><br></p>
+   
+   <a href="https://deepwiki.com/Myyura/the_kai_project"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
+</div>
+
+# 📖 Introduction 
+The Kai Project is an open-source project designed to break down information barriers by providing a centralized resource for sharing and discussing Japanese graduate school entrance exam answers.
+
 ```text
 "Answer to the Ultimate Question of Life, the Universe, and Everything"
 ```
 
-本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。
-
-项目地址 [https://runjp.com/](https://runjp.com/)
+Project website: [Japanese graduate school entrance exam answers](https://runjp.com/)
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/sample.png" width="700" alt=""/>
 </figure>
 
-## LICENSE
-本项目使用 GNU Affero General Public License v3.0, 所有解答版权由本项目与作者所有, 试题版权归出题方（校方）所有。
+# 👏 Contribution 
 
-感谢每一位项目的贡献者。
+The project encourages community contributions through multiple channels:
+- Git Pull Requests: For contributors familiar with Git
+- Email Submissions: For users who prefer to send content via email
+- Community Discussion: Discuss the answers to the questions and your experience with the exam via the QQ group, or let us know if the answers are wrong via GitHub issues!
 
-## How to contribute
-我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题/答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。
+All Git contributions follow a standardized format that includes metadata, tags, and proper file organization to maintain consistency across the platform.
 
-* email: 376672994@qq.com
+## 📝 Formatting guidelines
+All contributions must adhere to specific formatting guidelines to maintain consistency throughout the project.
 
-我们并不追求解答的完整性, 但如果你发现了现有解答中的错误, 请积极指出. 亦可以加入项目群与大家交流题解.
+### Document Frontmatter
+#### Exam answer:
 
-* QQ群: 925154731
+Each exam answer markdown document must include frontmatter at the beginning of the file, which provides metadata about the content:
 
-如有侵权, 请随时联系.
-
-### 内容格式说明
-
-#### 文件结构
-
-```markdown
-docs/
-├── <university>/
-│   ├── <department>/
-│   │   ├── <specialization>/
-│   │   │   ├── <year>/
-│   │   │   │   └── <exam_file>.md
-blog/
-├── <category>/
-│   └── <blog_post>.md
-```
-docs下每个文档文件都包含有元数据的前置信息，如`sidebar_label`和`tags`，以便于正确组织和查找。
-
-#### 文档前言
-
-文档前言是用来为你的 Markdown 文档页面提供额外的元数据的。本项目的前言有两个，
-
-`sidebar_label`为文档在侧边栏的标题，
-
-`tags`为文档的标签，一般为**学校**（提交时必须标注）和**考点**（非必须）。
-
-以`東京大学 工学系研究科 物理工学専攻 2020年度 物理学 第3問`为例：
 ```markdown
 ---
-sidebar_label: '物理学 第3問'
+sidebar_label: 'Title displayed in sidebar'
 tags:
-  - Tokyo-University
-  - xxx考点
+  - School-Name
+  - Topic-Tag (optional)
 ---
 ```
+Required frontmatter fields:
+- `sidebar_label`: The title that will appear in the navigation sidebar
+- `tags`: At minimum, must include the relevant school (e.g., Tokyo-University). Additional exam focus topic tags are optional but encouraged.
 
-前言添加完毕后，将你想提交的 Markdown 文件放在 docs 目录下对应的`docs/<university>/<department>/<specialization>/<year>/`目录里，
+#### Blog:
+Blog posts reference these author IDs in their frontmatter:
 
-以`東京大学 工学系研究科 物理工学専攻 2020年度 物理学 第3問`为例
-
-即`docs/tokyo-university/engineering/ap/2020/ap_2020_phys_3.md`。
-
-#### 经验贴前言
-
-每个作者都应该至少有 `name` 属性。
+Every author should have at least the `name` attribute.
 
 Single author:
 
@@ -95,53 +78,64 @@ tags: [Tag1, Tag2]
 ---
 ```
 
-<details>
+### File Naming and Location Conventions
+Files must be placed in the correct directory structure and follow naming conventions:
 
-<summary>构建网站部分（非必须）</summary>
+1. Base directory: `docs/`
+2. Hierarchy: `school/department/major/academic year/`
+3. Filename: Should indicate the content's specific details (school abbreviation, year and month of the exam, subject, question number)
 
-### 网页构建
-本网站使用现代静态网站生成器 [Docusaurus](https://docusaurus.io/)构建。
-
-Docusaurus 本质上是一组npm包。
-
-#### 要求
-Node.js 版本 18.0 或以上 (可以通过运行 `node -v` 来查看)。
- 你可以用 nvm 来管理同一机器上的多个 Node 版本。
-安装 Node.js 时，建议勾选所有和依赖相关的选项。
-
-#### 安装
-
-clone本项目 
-
-```bash
-git clone https://github.com/Myyura/the_kai_project.git
-```
-进入项目文件夹
-
-```bash
-cd the_kai_project
-```
-安装docusaurus
-
-```bash
-npm install docusaurus
+```markdown
+docs/
+├── <university>/
+│   ├── <department>/
+│   │   ├── <specialization>/
+│   │   │   ├── <academic year>/
+│   │   │   │   └── <exam_file>.md
+blog/
+├── <category>/
+│   └── <blog_post>.md
 ```
 
-#### 本地测试构建
+Example:
 
-在部署到生产环境前，事先进行本地测试尤为重要。
+`docs/tokyo-university/engineering/ap/2020/ap_201908_phys_3.md`
 
-```bash
-npm run serve
-```
-站点默认会部署在 `http://localhost:3000/`
+This corresponds to:
+- School: Tokyo University
+- Department: Engineering
+- Major: Applied Physics (ap)
+- Year and month of the exam: 201908
+- Subject: Physics
+- Question number: 3
 
-</details>
+## 📧 Email Submissions
+For contributors who are not familiar with Git, the project accepts contributions via email.
 
-### 提交
+Steps for Email Submission:
+1. Prepare your content following the formatting guidelines
+2. Send your content to the project email address: 376672994@qq.com
+3. Project maintainers will review your submission
+4. If approved, maintainers will add your content to the repository
 
-检查无误后提交 Pull Request，审核无冲突后维护者会合并分支。
+This method is designed to lower the barrier to entry for contributors who want to share valuable content but don't have technical Git experience.
 
-## Star History
+## 💬 Community Discussion
+The Kai Project maintains a QQ group for community discussion about exam solutions and your experience with the exam, or let us know if the answers are wrong via GitHub issues!
+
+[QQ Group: 925154731](https://qm.qq.com/q/MVPd9wniQU)
+
+Feedback received through community discussions may be incorporated into the repository by maintainers or used to guide future contributions.
+
+# ©️ License and Copyright
+All code contributions to the Kai Project are subject to the GNU Affero General Public License v3.0.
+
+In addition, exam question copyright belongs to the respective schools/institutions
+
+The project acknowledges all contributors in maintaining and expanding this knowledge base.
+
+If you believe any content infringes on your rights, please contact the project maintainers immediately.
+
+# ⭐ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Myyura/the_kai_project&type=Date)](https://www.star-history.com/#Myyura/the_kai_project&Date)
