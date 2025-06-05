@@ -537,6 +537,50 @@
   border-top: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
+/* 添加语言切换按钮样式 */
+.languageSwitcher {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 10;
+}
+
+.languageButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.languageButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.languageIcon {
+  font-size: 1.2rem;
+}
+
+/* 调整移动设备上的语言切换按钮 */
+@media screen and (max-width: 768px) {
+  .languageSwitcher {
+    top: 5px;
+    right: 10px;
+  }
+  
+  .languageButton {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
 /* 响应式调整 */
 @media screen and (max-width: 996px) {
   .heroBanner {

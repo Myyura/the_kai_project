@@ -3,11 +3,73 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaCalendarAlt, FaFileAlt, FaPencilAlt, FaUserGraduate, FaUniversity, FaChevronDown, FaChevronUp, FaExternalLinkAlt } from 'react-icons/fa'; // 添加外部链接图标
+import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaCalendarAlt, FaFileAlt, FaPencilAlt, FaUserGraduate, FaUniversity, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaLanguage } from 'react-icons/fa'; // 添加语言图标
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import { useEffect, useState } from 'react';
+
+// 翻译对象
+const translations = {
+  zh: {
+    viewPastExams: "查看过去问",
+    viewExperiences: "查看经验贴",
+    switchToJapanese: "切换到日文",
+    features: [
+      {
+        title: '丰富的考试答案数据库',
+        description: '我们持续更新和扩充日本研究生入学考试和资格考试的答案集。从往年考题到最新问题，提供准确可靠的答案，支持高效的考试准备。按领域和年份轻松搜索，快速访问所需信息。'
+      },
+      {
+        title: '活跃的社区交流',
+        description: '我们提供一个社区平台，供考生和专家自由讨论解题方法和学习策略。通过解决疑问和分享学习提示，保持动力并有效学习。从初学者到高级用户，人人都可轻松参与。'
+      },
+      {
+        title: '开源透明',
+        description: '本平台完全开源运营，任何人都可以查看代码或提出改进建议。我们欢迎社区贡献，致力于用户主导的更易用工具开发。在注重透明度和协作的环境中，一起深化学习。'
+      }
+    ],
+    examScheduleTitle: '日本顶尖大学2025年研究生入学考试时间表',
+    examScheduleDescription: '以下是主要大学研究生入学考试的概要日程。各研究科的具体日期可能不同，请查阅各大学的官方公告获取详细信息。',
+    websiteConfirmation: '日程时间请参考各研究科的官方网站，查看各专业的最新招生简章。',
+    disclaimerText: '※ 请务必确认各大学的官方入学考试简章。日程可能会有变更。',
+    examSteps: {
+      apply: '申请受理',
+      exam: '笔试',
+      interview: '面试',
+      results: '结果公布'
+    }
+  },
+  ja: {
+    viewPastExams: "過去問を見る",
+    viewExperiences: "体験談を見る",
+    switchToJapanese: "中文に切り替え",
+    features: [
+      {
+        title: '豊富な試験解答データベース',
+        description: '日本の大学院入試や資格試験のための解答集を継続的に更新・拡充しています。過去問から最新の問題まで、正確で信頼性の高い解答を提供し、効率的な試験対策をサポートします。分野別や年度別に簡単に検索できるので、必要な情報にすぐアクセス可能です。'
+      },
+      {
+        title: '活発なコミュニティ交流',
+        description: '試験問題の解き方や学習方法について、他の受験生や専門家と自由に議論できるコミュニティを用意しています。疑問を解決したり、学習のヒントを共有したりすることで、モチベーションを維持しながら効果的に学べます。初心者から上級者まで、誰でも気軽に参加可能です。'
+      },
+      {
+        title: 'オープンソースによる透明性',
+        description: '本プラットフォームは完全にオープンソースで運営されており、誰でもコードを確認したり、改善案を提案したりできます。コミュニティからの貢献を歓迎し、ユーザー主導でより使いやすいツールを目指しています。透明性と協力性を重視した環境で、共に学びを深めましょう。'
+      }
+    ],
+    examScheduleTitle: '日本トップ大学2025年度大学院入試日程',
+    examScheduleDescription: '以下は主要大学の大学院入試スケジュール概要です。各研究科ごとに日程が異なりますので、詳細は各大学の公式発表をご確認ください。',
+    websiteConfirmation: '日程時間については、各研究科・学院の公式ウェブサイトにて、各専攻の最新の募集要項をご確認ください。',
+    disclaimerText: '※ 各大学の公式入試要項を必ずご確認ください。日程は変更される場合があります。',
+    examSteps: {
+      apply: '願書受付',
+      exam: '筆記試験',
+      interview: '面接',
+      results: '合格発表'
+    }
+  }
+};
 
 const FeatureList = [
   {
@@ -55,9 +117,24 @@ function Feature({icon, title, description}) {
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
+  const [language, setLanguage] = useState('zh'); // 默认使用中文
+  
+  // 切换语言方法
+  const toggleLanguage = () => {
+    setLanguage(prev => prev === 'zh' ? 'ja' : 'zh');
+  };
+  
+  const t = translations[language];
+  
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
+        <div className={styles.languageSwitcher}>
+          <button onClick={toggleLanguage} className={styles.languageButton}>
+            <FaLanguage className={styles.languageIcon} />
+            {language === 'zh' ? '切换到日文' : '中文に切り替え'}
+          </button>
+        </div>
         <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
           {siteConfig.title}
         </Heading>
@@ -66,12 +143,12 @@ function HomepageHeader() {
           <Link
             className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
             to="/docs/intro">
-            過去問を見る
+            {t.viewPastExams}
           </Link>
           <Link
             className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
             to="/blog">
-            体験談を見る
+            {t.viewExperiences}
           </Link>
         </div>
       </div>
@@ -84,6 +161,7 @@ function ExamScheduleFlowchart() {
   const [isMobile, setIsMobile] = useState(false);
   const [expandedUniv, setExpandedUniv] = useState({});
   const [expandedDept, setExpandedDept] = useState({});
+  const [language, setLanguage] = useState('zh'); // 默认使用中文
   
   useEffect(() => {
     const checkMobile = () => {
@@ -109,6 +187,9 @@ function ExamScheduleFlowchart() {
       [key]: !prev[key]
     }));
   };
+  
+  // 获取当前语言的翻译
+  const t = translations[language];
   
   // 大學數據及其考試日程（按研究科分類）
   const universities = [
@@ -758,10 +839,10 @@ function ExamScheduleFlowchart() {
     <section className={styles.examSchedule}>
       <div className="container">
         <Heading as="h2" className={styles.examScheduleTitle}>
-          日本トップ大学2025年度大学院入試日程
+          {t.examScheduleTitle}
         </Heading>
         <p className={styles.examScheduleDescription}>
-          以下は主要大学の大学院入試スケジュール概要です。各研究科ごとに日程が異なりますので、詳細は各大学の公式発表をご確認ください。
+          {t.examScheduleDescription}
         </p>
         
         <div className={styles.flowchartContainer}>
@@ -811,7 +892,7 @@ function ExamScheduleFlowchart() {
                               className={styles.departmentLink}
                               style={{borderLeftColor: univ.color}}
                             >
-                              <FaExternalLinkAlt /> 日程時間については、各研究科・学院の公式ウェブサイトにて、各専攻の最新の募集要項をご確認ください。
+                              <FaExternalLinkAlt /> {t.websiteConfirmation}
                             </a>
                             <div className={styles.timelineSteps}>
                               {dept.schedules.map((step, stepIndex) => (
@@ -821,7 +902,7 @@ function ExamScheduleFlowchart() {
                                       {step.icon}
                                     </div>
                                     <div className={styles.stepInfo}>
-                                      <div className={styles.stepLabel}>{step.label}</div>
+                                      <div className={styles.stepLabel}>{t.examSteps[step.id]}</div>
                                     </div>
                                   </div>
                                   {stepIndex < dept.schedules.length - 1 && (
@@ -845,7 +926,7 @@ function ExamScheduleFlowchart() {
         
         <div className={styles.scheduleDisclaimer}>
           <FaCalendarAlt className={styles.disclaimerIcon} />
-          <p>※ 各大学の公式入試要項を必ずご確認ください。日程は変更される場合があります。</p>
+          <p>{t.disclaimerText}</p>
         </div>
       </div>
     </section>
@@ -853,11 +934,23 @@ function ExamScheduleFlowchart() {
 }
 
 function HomepageFeatures() {
+  const [language, setLanguage] = useState('zh'); // 默认使用中文
+  
+  // 获取当前语言的翻译
+  const t = translations[language];
+  
+  // 根据当前语言创建特性列表
+  const localizedFeatures = t.features.map((feature, index) => ({
+    title: feature.title,
+    icon: FeatureList[index].icon,
+    description: feature.description
+  }));
+  
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
+          {localizedFeatures.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
         </div>
@@ -868,15 +961,23 @@ function HomepageFeatures() {
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
+  const [language, setLanguage] = useState('zh'); // 默认使用中文
+  
+  // 在主组件中共享语言状态
+  const toggleLanguage = () => {
+    setLanguage(prev => prev === 'zh' ? 'ja' : 'zh');
+  };
+  
+  // 将语言状态传递给所有需要本地化的组件
   return (
     <Layout
       title={siteConfig.title}
       description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
       <HomepageStructuredData />
-      <HomepageHeader />
+      <HomepageHeader language={language} toggleLanguage={toggleLanguage} />
       <main>
-        <ExamScheduleFlowchart />
-        <HomepageFeatures />
+        <ExamScheduleFlowchart language={language} />
+        <HomepageFeatures language={language} />
       </main>
     </Layout>
   );

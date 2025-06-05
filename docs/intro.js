@@ -11,8 +11,8 @@ const LocalizedContent = ({ zh, ja, language }) => (
 );
 
 export default function Intro() {
-  // 默认显示日语
-  const [language, setLanguage] = useState('ja');
+  // 默认显示中文
+  const [language, setLanguage] = useState('zh');
   
   // 切换语言函数
   const toggleLanguage = () => {

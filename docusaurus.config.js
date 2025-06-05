@@ -239,10 +239,6 @@ const config = {
           {to: '/links', label: '役立つリンク集', position: 'left'},
           {to: '/legalstatement', label: '法的声明', position: 'left'},
           {
-            type: 'localeDropdown',
-            position: 'right',
-          },
-          {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',
             position: 'right',
