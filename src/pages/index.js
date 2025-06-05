@@ -14,7 +14,7 @@ const translations = {
   zh: {
     viewPastExams: "查看过去问",
     viewExperiences: "查看经验贴",
-    switchToJapanese: "切换到日文",
+    switchToJapanese: "日本語に切り替え",
     features: [
       {
         title: '丰富的考试答案数据库',
@@ -43,7 +43,7 @@ const translations = {
   ja: {
     viewPastExams: "過去問を見る",
     viewExperiences: "体験談を見る",
-    switchToJapanese: "中文に切り替え",
+    switchToJapanese: "切换到中文",
     features: [
       {
         title: '豊富な試験解答データベース',
@@ -115,14 +115,8 @@ function Feature({icon, title, description}) {
   );
 }
 
-function HomepageHeader() {
+function HomepageHeader({ language, toggleLanguage }) {
   const {siteConfig} = useDocusaurusContext();
-  const [language, setLanguage] = useState('zh'); // 默认使用中文
-  
-  // 切换语言方法
-  const toggleLanguage = () => {
-    setLanguage(prev => prev === 'zh' ? 'ja' : 'zh');
-  };
   
   const t = translations[language];
   
@@ -157,11 +151,10 @@ function HomepageHeader() {
 }
 
 // 考試日程流程圖組件
-function ExamScheduleFlowchart() {
+function ExamScheduleFlowchart({ language }) {
   const [isMobile, setIsMobile] = useState(false);
   const [expandedUniv, setExpandedUniv] = useState({});
   const [expandedDept, setExpandedDept] = useState({});
-  const [language, setLanguage] = useState('zh'); // 默认使用中文
   
   useEffect(() => {
     const checkMobile = () => {
@@ -933,9 +926,7 @@ function ExamScheduleFlowchart() {
   );
 }
 
-function HomepageFeatures() {
-  const [language, setLanguage] = useState('zh'); // 默认使用中文
-  
+function HomepageFeatures({ language }) {
   // 获取当前语言的翻译
   const t = translations[language];
   

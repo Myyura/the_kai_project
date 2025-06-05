@@ -540,44 +540,83 @@
 /* 添加语言切换按钮样式 */
 .languageSwitcher {
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 15px;
+  right: 25px;
   z-index: 10;
+  animation: pulse 2s infinite;
 }
 
 .languageButton {
   display: flex;
   align-items: center;
-  gap: 6px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  gap: 8px;
+  background-color: rgba(46, 133, 85, 0.9); /* 使用主题色提高辨识度 */
+  border: 2px solid rgba(255, 255, 255, 0.8);
   color: white;
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  padding: 10px 16px;
+  border-radius: 24px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .languageButton:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
+  background-color: rgba(60, 173, 110, 0.95);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  border-color: white;
+}
+
+.languageButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .languageIcon {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  margin-right: 2px;
+}
+
+/* 添加脉动动画效果，吸引用户注意 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 夜间模式下的样式调整 */
+[data-theme='dark'] .languageButton {
+  background-color: rgba(37, 194, 160, 0.9);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme='dark'] .languageButton:hover {
+  background-color: rgba(79, 221, 191, 0.95);
 }
 
 /* 调整移动设备上的语言切换按钮 */
 @media screen and (max-width: 768px) {
   .languageSwitcher {
-    top: 5px;
-    right: 10px;
+    top: 10px;
+    right: 15px;
   }
   
   .languageButton {
-    padding: 6px 10px;
-    font-size: 0.8rem;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .languageIcon {
+    font-size: 1.2rem;
   }
 }
 
