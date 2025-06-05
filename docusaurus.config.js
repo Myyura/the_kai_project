@@ -234,10 +234,10 @@ const config = {
             position: 'left',
             label: '過去問',
           },
-          {to: '/blog', label: '体験談', position: 'left'},
+          {to: '/blog', label: '经验贴', position: 'left'},
           {to: '/docs/tags', label: 'Tags', position: 'left'},
-          {to: '/links', label: '役立つリンク集', position: 'left'},
-          {to: '/legalstatement', label: '法的声明', position: 'left'},
+          {to: '/links', label: '参考链接', position: 'left'},
+          {to: '/legalstatement', label: '法律声明', position: 'left'},
           {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',
@@ -256,7 +256,7 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: '体験談',
+                label: '经验贴',
                 to: '/blog',
               },
               {
@@ -264,11 +264,11 @@ const config = {
                 to: '/docs/tags',
               },
               {
-                label: '役立つリンク集',
+                label: '参考链接',
                 to: '/links',
               },
               {
-                label: '法的声明',
+                label: '法律声明',
                 to: '/legalstatement',
               },
             ],
