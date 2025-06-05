@@ -55,6 +55,32 @@
   color: var(--ifm-color-emphasis-700);
 }
 
+/* 语言切换按钮样式 */
+.languageSwitcher {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.languageButton {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.languageButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.localizedContainer {
+  margin-bottom: 1rem;
+}
+
 /* 响应式布局 */
 @media (max-width: 996px) {
   .schoolGrid {
