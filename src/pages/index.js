@@ -126,7 +126,7 @@ function HomepageHeader({ language, toggleLanguage }) {
         <div className={styles.languageSwitcher}>
           <button onClick={toggleLanguage} className={styles.languageButton}>
             <FaLanguage className={styles.languageIcon} />
-            {language === 'zh' ? '切换到日文' : '中文に切り替え'}
+            {language === 'zh' ? '日本語に切り替え' : '切换到中文'}
           </button>
         </div>
         <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
