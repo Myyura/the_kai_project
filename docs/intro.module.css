@@ -21,6 +21,40 @@
   min-height: 200px;
 }
 
+/* 双语文本样式 */
+.bilingualContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.zhText {
+  font-weight: 500;
+}
+
+.jaText {
+  font-size: 0.95rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* 双语标题样式 */
+.bilingualHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.zhHeader {
+  font-weight: bold;
+}
+
+.jaHeader {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
 /* 响应式布局 */
 @media (max-width: 996px) {
   .schoolGrid {

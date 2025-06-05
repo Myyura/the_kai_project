@@ -3,6 +3,14 @@ import Link from '@docusaurus/Link';
 import SchoolCard from '@site/src/components/SchoolCard';
 import styles from './intro.module.css';
 
+// 双语文本组件
+const BilingualText = ({ zh, ja }) => (
+  <div className={styles.bilingualContainer}>
+    <div className={styles.zhText}>{zh}</div>
+    <div className={styles.jaText}>{ja}</div>
+  </div>
+);
+
 const schools = [
   {
     name: '東京大学',
@@ -76,17 +84,29 @@ export default function Intro() {
     <div className="container">
       <p className={styles.subtitle}>Answer to the Ultimate Question of Life, the Universe, and Everything</p>
       
-      <p>本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。</p>
+      <BilingualText 
+        zh="本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。"
+        ja="本プロジェクトは、オープンソースで便利な、大学院入試問題の解答を共有・議論する場を提供し、情報の壁を取り除くことを目指しています。"
+      />
       
-      <p>项目地址：<a href="https://github.com/Myyura/the_kai_project" target="_blank">https://github.com/Myyura/the_kai_project</a></p>
+      <BilingualText 
+        zh={<>项目地址：<a href="https://github.com/Myyura/the_kai_project" target="_blank">https://github.com/Myyura/the_kai_project</a></>}
+        ja={<>プロジェクトURL：<a href="https://github.com/Myyura/the_kai_project" target="_blank">https://github.com/Myyura/the_kai_project</a></>}
+      />
       
       <div className="alert alert--info" role="alert">
-        <strong>手机端</strong>请点击左上角菜单栏获取过去问或点击以下学校卡片
+        <BilingualText 
+          zh={<><strong>手机端</strong>请点击左上角菜单栏获取过去问或点击以下学校卡片</>}
+          ja={<><strong>モバイル端末</strong>では、左上のメニューバーをクリックして過去問を取得するか、以下の大学カードをクリックしてください</>}
+        />
       </div>
 
       <div className={styles.sectionSpacing}></div>
       
-      <h2>学校一覧</h2>
+      <h2 className={styles.bilingualHeader}>
+        <span className={styles.zhHeader}>学校一覧</span>
+        <span className={styles.jaHeader}>大学リスト</span>
+      </h2>
       
       <div className={styles.schoolGrid}>
         {schools.map((school, index) => (
@@ -100,22 +120,64 @@ export default function Intro() {
         ))}
       </div>
       
-      <h2>LICENSE</h2>
-      <p>GNU Affero General Public License v3.0, 试题版权归出题方（校方）所有。</p>
-      <p>感谢每一位项目的贡献者。</p>
-      <p>如有侵权, 请通过邮件联系 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</p>
+      <h2 className={styles.bilingualHeader}>
+        <span className={styles.zhHeader}>LICENSE</span>
+        <span className={styles.jaHeader}>ライセンス</span>
+      </h2>
       
-      <h2>How to contribute</h2>
+      <BilingualText 
+        zh="项目代码AGPL v3, 试题版权归出题方（校方）所有。"
+        ja="プロジェクトコードはAGPL v3、試験問題の著作権は出題者（大学側）に帰属します。"
+      />
+      
+      <BilingualText 
+        zh="感谢每一位项目的贡献者。"
+        ja="プロジェクトの全ての貢献者に感謝します。"
+      />
+      
+      <BilingualText 
+        zh={<>如有侵权, 请通过邮件联系 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</>}
+        ja={<>著作権侵害がある場合は、メールで連絡してください: <a href="mailto:376672994@qq.com">376672994@qq.com</a></>}
+      />
+      
+      <h2 className={styles.bilingualHeader}>
+        <span className={styles.zhHeader}>How to contribute</span>
+        <span className={styles.jaHeader}>貢献方法</span>
+      </h2>
+      
       <ul>
-        <li>熟悉Git&GitHub：提交PR。</li>
-        <li>不熟悉Git&GitHub：发送试题/答案至 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</li>
-        <li>我们期待你的Input, 倘若你熟悉Git, 可以通过直接为本项目提交PR的方式添砖加瓦, 倘若你不熟悉, 亦可将想要分享的试题\答案通过邮件的方式发送给我们, 我们第一时间将其提交到本项目之上。</li>
+        <li>
+          <BilingualText 
+            zh="熟悉Git：在本GitHub项目中提交PR。"
+            ja="Gitに詳しい方：このGitHubプロジェクトにPRを提出してください。"
+          />
+        </li>
+        <li>
+          <BilingualText 
+            zh={<>不熟悉Git：发送试题/答案至 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</>}
+            ja={<>Gitに詳しくない方：試験問題/回答を <a href="mailto:376672994@qq.com">376672994@qq.com</a> に送信してください。</>}
+          />
+        </li>
       </ul>
       
-      <h2>纠错与讨论：</h2>
+      <h2 className={styles.bilingualHeader}>
+        <span className={styles.zhHeader}>纠错与讨论：</span>
+        <span className={styles.jaHeader}>修正と議論：</span>
+      </h2>
+      
       <ul>
-        <li>发现错误请至<a href="https://github.com/Myyura/the_kai_project/issues" target="_blank">Github项目</a>提交Issue。</li>
-        <li>加入QQ群交流：925154731。</li>
+        <li>
+          <BilingualText 
+            zh={<>发现错误请至<a href="https://github.com/Myyura/the_kai_project/issues" target="_blank">Github项目</a>提交Issue。</>}
+            ja={<>誤りを見つけた場合は、<a href="https://github.com/Myyura/the_kai_project/issues" target="_blank">Githubプロジェクト</a>にIssueを提出してください。</>}
+          />
+        </li>
+        <li>
+          <BilingualText 
+            zh="可以通过QQ群讨论题目答案和考试经验，QQ群：925154731。"
+            ja="QQグループで問題の回答や試験経験について議論できます。QQグループ：925154731"
+          />
+        </li>
       </ul>
     </div>
   );
