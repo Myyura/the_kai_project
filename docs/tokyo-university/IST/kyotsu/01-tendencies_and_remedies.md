@@ -1,5 +1,5 @@
 ---
-sidebar_label: "共通数学 傾向と対策"
+sidebar_label: "傾向と対策"
 position: 1
 tags:
   - Tokyo-University
