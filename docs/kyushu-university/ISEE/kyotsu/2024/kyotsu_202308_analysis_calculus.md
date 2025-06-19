@@ -57,7 +57,7 @@ e^x(y' + y) &= \frac{1}{2}x(e^{2x} - 1) \\
 $$
 
 $$
-y = \frac{1}{4}xe^x - \frac{1}{8}e^x - \frac{1}{4}x^2e^{-x} + C 
+y = \frac{1}{4}xe^x - \frac{1}{8}e^x - \frac{1}{4}x^2e^{-x} + Ce^x
 $$
 
 where $C$ is a constant.
