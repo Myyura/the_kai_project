@@ -3,7 +3,7 @@
     The Kai Project 
     <br />
   </h1>
-   <p align="center"><a href="./README.md">English | <a href="./README.zh.md">中文</a> | <a href="./README.ja.md">日本語</a><br></p>
+   <p align="center"><a href="./README.md">English</a> | <a href="./README.zh.md">中文</a> | <a href="./README.ja.md">日本語</a><br></p>
    
    <a href="https://deepwiki.com/Myyura/the_kai_project"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
 </div>
