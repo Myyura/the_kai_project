@@ -145,7 +145,7 @@ $$
 $$
 
 $$
-\lambda_{3}= 1-3\alpha, v_{2}= \begin{pmatrix} -2 \\ 1 \\ 1 \end{pmatrix}
+\lambda_{3}= 1-3\alpha, v_{3}= \begin{pmatrix} -2 \\ 1 \\ 1 \end{pmatrix}
 $$
 
 ### (3)
@@ -171,7 +171,7 @@ A=\left (\begin{array}{cccc}
 \end{array}\right)
 \left (\begin{array}{cccc}
 1 &0 & 0\\
-1 &1-\alpha &0\\
+0 &1-\alpha &0\\
 0 &0  &1-3\alpha\\
 \end{array}\right)
 \left (\begin{array}{cccc}
@@ -238,9 +238,9 @@ z_{n} \\
 \end{array}\right)=
 (q_{1}\ q_{2}\ q_{3})\text{diag}(\lambda_{1}^{n},\lambda_{2}^{n},\lambda_{3}^{n})(q_{1}\ q_{2}\ q_{3})^{-1}
 \left (\begin{array}{cccc}
-x_{n} \\
-y_{n} \\
-z_{n} \\
+x_{0} \\
+y_{0} \\
+z_{0} \\
 \end{array}\right)
 $$
 
