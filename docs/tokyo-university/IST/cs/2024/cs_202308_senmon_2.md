@@ -110,10 +110,7 @@ Answer the following questions:
 
 4. **Loop 4 (Iteration 3):**
 
-   - Access $A[3]$ (address 0x100C), Cache Line 0: Miss (replaced by B$$2$$
-
-)
-
+   - Access $A[3]$ (address 0x100C), Cache Line 0: Miss (replaced by B$2$)
    - Access $A[4]$ (address 0x1010), Cache Line 1: Hit
    - Access $A[5]$ (address 0x1014), Cache Line 1: Hit
    - Write $B[3]$ (address 0x200C), Cache Line 0: Miss

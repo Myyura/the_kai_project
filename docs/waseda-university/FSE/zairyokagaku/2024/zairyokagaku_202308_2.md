@@ -3,7 +3,7 @@ sidebar_label: "2023年8月実施 物理 [2]"
 tags:
   - Waseda-University
 ---
-# 早稲田大学 基幹理工学研究科 機械科学・航空宇宙専攻 2023年8月実施 物理 \[2\]
+# 早稲田大学 基幹理工学研究科 材料科学専攻 2023年8月実施 物理 \[2\]
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)
