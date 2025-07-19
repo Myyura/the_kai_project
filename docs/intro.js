@@ -264,6 +264,16 @@ const schools = [
     description: '私学の頂点に立つ早稲田大学は、政治経済、文化、芸術など多岐にわたり社会をリード。'
   },
   {
+    name: '慶應義塾大学',
+    url: '/docs/category/%E6%85%B6%E6%87%89%E7%BE%A9%E5%A1%BE%E5%A4%A7%E5%AD%A6',
+    description: '慶應義塾大学は、日本最古の私立大学であり、福澤諭吉によって創設された名門総合大学です。'
+  },
+  {
+    name: '神戸大学',
+    url: '/docs/category/%E7%A5%9E%E6%88%B8%E5%A4%A7%E5%AD%A6',
+    description: '国際都市神戸に位置する神戸大学は、経済学や国際関係の研究で高く評価され世界に貢献。'
+  },
+  {
     name: '筑波大学',
     url: '/docs/category/%E7%AD%91%E6%B3%A2%E5%A4%A7%E5%AD%A6',
     description: '研究都市の中核である筑波大学は、スポーツ科学や先端研究で知られ、国際社会に貢献。'
@@ -272,11 +282,6 @@ const schools = [
     name: '電気通信大学',
     url: '/docs/category/%E9%9B%BB%E6%B0%97%E9%80%9A%E4%BF%A1%E5%A4%A7%E5%AD%A6',
     description: '情報通信技術の先駆け、電気通信大学は、産学連携を強化し、実社会での技術革新を推進。'
-  },
-  {
-    name: '神戸大学',
-    url: '/docs/category/%E7%A5%9E%E6%88%B8%E5%A4%A7%E5%AD%A6',
-    description: '国際都市神戸に位置する神戸大学は、経済学や国際関係の研究で高く評価され世界に貢献。'
   },
   {
     name: '広島大学',
