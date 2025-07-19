@@ -33,6 +33,7 @@ title: 参考链接
 ## 有用的就职信息
 
 - [itshinsotsu.xyz](https://www.itshinsotsu.xyz/)
+- [魔法のスプレッドシート, ITエンジニアインターン情報が集まる魔法のスプレッドシート](https://magic-spreadsheets.github.io/)
 
 ## 未来你可能用的到的
 
