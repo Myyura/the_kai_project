@@ -29,6 +29,7 @@ title: 参考链接
 - [理工系の院試の，問題と解答のまとめ （数学・物理・情報・工学）](https://language-and-engineering.hatenablog.jp/entry/20140715/GraduateSchoolsEntranceExamAnswers)
 - [大学の理工系の講義ノートPDFまとめ （数学・物理・情報・工学）](https://language-and-engineering.hatenablog.jp/entry/20140620/PDFLectureNotesOnUniversity)
 - [东京大学大学院工学系研究科修考经验分享](https://www.zhihu.com/column/ut-eng)
+- [院試解くよ, 理工系の大学院入試の数学、物理学の解説をしてます。](https://www.youtube.com/@InshiTokuyo)
 
 ## 有用的就职信息
 
