@@ -64,7 +64,7 @@ which is contradictory to the fact that $T$ is a minimum spanning tree.
 Therefore, for every edge $a \in E \setminus T$ each edge $b \in C_T(a)$ satisfies $w(a) \ge w(b)$.
 
 ### (ii)
-Assume that for an edge $b \in T$, there exists an edge $a' \in K_T(b)$ such that $w(a') < w(b)$.
+<!-- Assume that for an edge $b \in T$, there exists an edge $a' \in K_T(b)$ such that $w(a') < w(b)$.
 
 Let $T' = T \cup \{a'\} \setminus \{b\}$ be a tree constructed by substituting edge $b$ with edge $a'$.
 By definition of fundamental cut-set we know that the removal of $b$ disconnects $T$ into exactly two components $T_1$ and $T_2$ and edge $a'$ connects the two components.
@@ -76,7 +76,15 @@ $$
 
 which is contradictory to the fact that $T$ is a minimum spanning tree.
 
-Therefore, For every edge $b \in T$, each edge $a \in K_T(b)$ satisfies $w(a) \ge w(b)$.
+Therefore, For every edge $b \in T$, each edge $a \in K_T(b)$ satisfies $w(a) \ge w(b)$. -->
+
+Let $b \in T$ denote an edge and $a \in K_T(b)$ denote an edge of fundamental cut-set containing $b$.
+By the definition of fundamental cut-set, we know that $a \notin T$, i.e., $a \in E \setminus T$.
+Hence we know that $b \in C_T(a)$. Since spanning tree $T$ satisfies condition (C), we have
+
+$$
+w(a) \geq w(b)
+$$
 
 ### (iii)
 Let $T$ denote a spanning tree of $G$ that satisfy condition (K). Let $T^*$ denote a minimum spanning tree of $G$.
