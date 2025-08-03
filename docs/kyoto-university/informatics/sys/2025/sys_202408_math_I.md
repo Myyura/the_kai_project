@@ -28,7 +28,11 @@ x & -7 & 0 & 0 & 0 \\
 \end{pmatrix}
 $$
 
+------------------------
+
 (2) 設問 (1) の行列 $A$ を考える。$x = 113$ としたときの行列 $A$ を $B$ と表す。$5$ 次元実ベクトル空間において、行列 $B$ から定まる線形写像 $T(y) = By$ の零空間（核）の次元を求めよ。ただし、$y$ は 5 次元実ベクトル空間の元である。
+
+------------------------
 
 (3) 実数 $c$ に対して集合 $W(c)$ を
 
@@ -67,5 +71,5 @@ $n$ 次の実正方行列 $D$ の $(i,j)$ 成分 $a_{ij}$ が、すべての $i,
 ## **Kai**
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_math_I.jpg" width="650" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_math_I.jpg" width="700" alt=""/>
 </figure>
