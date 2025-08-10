@@ -2,11 +2,12 @@
 sidebar_label: "2019年8月実施 専門科目 確率統計"
 tags:
   - Kyoto-University
+  - Probability-And-Statistics
 ---
 # 京都大学 情報学研究科 システム科学専攻 2019年8月実施 専門科目 確率統計
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 ### 日本語版

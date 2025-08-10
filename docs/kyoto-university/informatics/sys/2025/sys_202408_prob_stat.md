@@ -1,10 +1,10 @@
 ---
-sidebar_label: "2024年8月実施 確率統計"
+sidebar_label: "2024年8月実施 専門科目 確率統計"
 tags:
   - Kyoto-University
   - Probability-And-Statistics
 ---
-# 京都大学 情報学研究科 システム科学専攻 2024年8月実施 確率統計
+# 京都大学 情報学研究科 システム科学専攻 2024年8月実施 専門科目 確率統計
 
 ## **Author**
 [AKIRA, 小红书:94184092292](https://www.xiaohongshu.com/explore/688805310000000023004466?xsec_token=ABtHY7I1RxAUjhEZPeviabmyl25PBJsqTKCU1yTe5ns54=)

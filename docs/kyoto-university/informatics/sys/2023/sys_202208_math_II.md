@@ -2,11 +2,12 @@
 sidebar_label: "2022年8月実施 数学【II】"
 tags:
   - Kyoto-University
+  - Calculus
 ---
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 数学【II】
 
 ## **Author**
-机智的若叶
+[机智的若叶](https://zhuanlan.zhihu.com/p/678084976)
 
 ## **Description**
 ### 問1

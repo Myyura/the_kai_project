@@ -2,11 +2,12 @@
 sidebar_label: "2022年8月実施 数学【I】"
 tags:
   - Kyoto-University
+  - Linear-Algebra
 ---
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 数学【I】
 
 ## **Author**
-机智的若叶, 祭音Myyura
+[机智的若叶](https://zhuanlan.zhihu.com/p/678084976), 祭音Myyura
 
 ## **Description**
 ### 問1
