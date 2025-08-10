@@ -150,7 +150,8 @@ The variance of $\tilde{\theta}$ will be written as
 $$
 \begin{aligned}\mathrm{Var}(\tilde{\theta})&=\frac{\sigma^{2}}{n}\left(\alpha^{2}+\frac{1+a^{2}\alpha^{2}-2a\alpha}{b^{2}}\right)\\
 &=\frac{\sigma^{2}}{n}\bigg\{(1+\frac{a^{2}}{b^{2}})\alpha^{2}-\frac{2a}{b}\alpha+\frac{1}{b^{2}}\bigg\}.
-\end{aligned}$$
+\end{aligned}
+$$
 
 The minima of $\text{Var}(\tilde{\theta})$ is at
 

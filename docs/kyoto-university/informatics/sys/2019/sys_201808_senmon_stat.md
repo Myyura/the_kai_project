@@ -92,7 +92,8 @@ $$
 $$
 
 $$
-\hat{\alpha}_n=\frac{\sum_{i=1}^nX_i}{\sum_{i=1}^n(1-Y_i+X_iY_i)}.$$
+\hat{\alpha}_n=\frac{\sum_{i=1}^nX_i}{\sum_{i=1}^n(1-Y_i+X_iY_i)}.
+$$
 
 Similarly, $\frac{\partial\log L}{\partial\beta}=0$ gives
 
