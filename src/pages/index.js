@@ -950,6 +950,30 @@ function HomepageFeatures({ language }) {
   );
 }
 
+// export default function Home() {
+//   const {siteConfig} = useDocusaurusContext();
+//   const [language, setLanguage] = useState('zh'); // 默认使用中文
+  
+//   // 在主组件中共享语言状态
+//   const toggleLanguage = () => {
+//     setLanguage(prev => prev === 'zh' ? 'ja' : 'zh');
+//   };
+  
+//   // 将语言状态传递给所有需要本地化的组件
+//   return (
+//     <Layout
+//       title={siteConfig.title}
+//       description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
+//       <HomepageStructuredData />
+//       <HomepageHeader language={language} toggleLanguage={toggleLanguage} />
+//       <main>
+//         <ExamScheduleFlowchart language={language} />
+//         <HomepageFeatures language={language} />
+//       </main>
+//     </Layout>
+//   );
+// }
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   const [language, setLanguage] = useState('zh'); // 默认使用中文
@@ -967,7 +991,6 @@ export default function Home() {
       <HomepageStructuredData />
       <HomepageHeader language={language} toggleLanguage={toggleLanguage} />
       <main>
-        <ExamScheduleFlowchart language={language} />
         <HomepageFeatures language={language} />
       </main>
     </Layout>
