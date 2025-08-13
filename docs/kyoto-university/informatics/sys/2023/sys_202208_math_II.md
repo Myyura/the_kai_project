@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 数学【II】
 
 ## **Author**
-[机智的若叶](https://zhuanlan.zhihu.com/p/678084976)
+[机智的若叶](https://zhuanlan.zhihu.com/p/678084976), 祭音Myyura
 
 ## **Description**
 ### 問1
@@ -61,18 +61,26 @@ $$
 ## **Kai**
 ### 問1
 #### (i)
-$0$
+
+$$
+\lim_{x \to +0} \frac{1-e^{-x}}{x^{-1/2}} = \lim_{x \to +0} -2e^{-x} x^{3/2} = 0
+$$
 
 #### (ii)
-変数変換 $x = t^2$ を行う。
+変数変換 $x = t^2$ を行うと、
 
-$2\sqrt{\pi}$
+$$
+\int_0^{\infty} x^{-3/2} (1-e^{-x}) \ dx=2\sqrt{\pi}
+$$
 
 #### (iii)
-1
+
+$$
+\int_0^1 \int_0^{1-x} e^{x+y} \ dydx = \int_0^1 e^{x} (e^{1-x} - 1) dx = \int_0^1 (e - e^x)dx = 1
+$$
 
 #### (iv)
-仮に $\lim_{x \rightarrow x_0} = \frac{f(x)}{g(x)} = \infty$  $x_0$ が存在する。
+仮に $\lim_{x \rightarrow x_0} = \frac{f(x)}{g(x)} = \infty$、$x_0$ が存在する。
 $g(x) > 0$ ので、$\lim_{x \rightarrow x_0} f(x) = \infty$ を得る。
 これは $f(x)$ がすべての実数に対して定義されていて単調増加であることと矛盾し、そんな $x_0$ は存在しない。
 
@@ -94,7 +102,7 @@ $$
 $$
 \begin{aligned}
 \boldsymbol{n} &= (\frac{\partial f}{\partial x}(x_0, y_0, z_0), \frac{\partial f}{\partial }(x_0, y_0, z_0), \frac{\partial f}{\partial z}(x_0, y_0, z_0)) \\
-&= (2x_0, 2y_0, 2z_0)
+&= (2x_0/l^2, 2y_0/m^2, 2z_0/n^2)
 \end{aligned}
 $$
 
@@ -103,7 +111,7 @@ $$
 法線の方程式は
 
 $$
-\frac{x-x_0}{x_0} = \frac{y-y_0}{y_0} = \frac{z-z_0}{z_0} 
+\frac{x-x_0}{x_0/l^2} = \frac{y-y_0}{y_0/m^2} = \frac{z-z_0}{z_0/n^2} 
 $$
 
 #### (iii)
@@ -151,24 +159,21 @@ $$
 
 $$
 \begin{aligned}
-p=\frac{l^2}{x_0}, q=\frac{m^2}{y_0}, r=\frac{r^2}{z_0} \\
-p^2+q^2+r^2=\frac{l^4}{{x}_0^2}+\frac{m^4}{{y}_0^2}+\frac{n^4}{{z}_0^2}
+p=\frac{l^2}{x_0}, q=\frac{m^2}{y_0}, r=\frac{n^2}{z_0} \\
+\frac{l^2}{p^2} + \frac{m^2}{q^2} + \frac{n^2}{r^2} = 1
 \end{aligned}
 $$
 
-原式を書き直し、
+コーシー＝シュワルツの不等式より
 
 $$
-u=x_{0}^{2},v=y_{0}^{2},w=z_{0}^{2}
+(\frac{l^2}{p^2} + \frac{m^2}{q^2} + \frac{n^2}{r^2})(p^2+q^2+r^2) \geq (l+m+r)^2
 $$
 
-$$
-E\left( u,v,w \right) = \frac{l^4}{u}+\frac{m^4}{v}+\frac{n^4}{w}+\lambda \left( \frac{u}{l^2}+\frac{v}{m^2}+\frac{w}{n^2}-1 \right)
-$$
-
-$\frac{\partial E}{\partial u}=\frac{\partial E}{\partial v}=\frac{\partial E}{\partial w}=0$ とし、
-$f(x_0, y_0, z_0) = 0$ に代入すると $\lambda =\sqrt{l+m+n}$ を得る。
+$\frac{l^2}{p^2} + \frac{m^2}{q^2} + \frac{n^2}{r^2} = 1$ を代入すると
 
 $$
-\min  E( u,v,w) =\sqrt{( l+m+n) ^3}
+p^2+q^2+r^2 \geq (l+m+r)^2
 $$
+
+を得る。
