@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 専門科目 確率統計
 
 ## **Author**
-[AKIRA, 小红书:94184092292](https://www.xiaohongshu.com/explore/6886b945000000001d00cb62?xsec_token=ABXXWhvejfYWQlWP3FzACDNuYFWnkRrhjR8xpcEhZ6HU0=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6886b945000000001d00cb62?xsec_token=ABXXWhvejfYWQlWP3FzACDNuYFWnkRrhjR8xpcEhZ6HU0=)
 
 ## **Description**
 以下の問題において，$P(A)$ は事象 $A$ の確率を表し，$E(X)$ と $V(X)$ は確率変数 $X$ の期待値と分散を表す．また，$e$ はネイピア数（自然対数の底）を表す．

@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 数学【I】
 
 ## **Author**
-[AKIRA, 小红书:94184092292](https://www.xiaohongshu.com/explore/68856211000000002201c8dd?xsec_token=ABj3Hdw0xF5JHzUtFSdmNnW7Q_3ETrH59pYtdEZQZu2FI=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68856211000000002201c8dd?xsec_token=ABj3Hdw0xF5JHzUtFSdmNnW7Q_3ETrH59pYtdEZQZu2FI=)
 
 ## **Description**
 ### 問1

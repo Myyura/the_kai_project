@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2024年8月実施 専門科目 確率統計
 
 ## **Author**
-[AKIRA, 小红书:94184092292](https://www.xiaohongshu.com/explore/688805310000000023004466?xsec_token=ABtHY7I1RxAUjhEZPeviabmyl25PBJsqTKCU1yTe5ns54=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/688805310000000023004466?xsec_token=ABtHY7I1RxAUjhEZPeviabmyl25PBJsqTKCU1yTe5ns54=)
 
 ## **Description**
 以下の問題において，$E(X)$ は確率変数 $X$ の期待値，$V(X)$ は分散を表す。$N(\mu, \sigma^2)$ は期待値 $\mu$，分散 $\sigma^2$ の正規分布を表す。$\log x$ は自然対数を表す。

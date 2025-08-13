@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 数学【II】
 
 ## **Author**
-[AKIRA, 小红书:94184092292](https://www.xiaohongshu.com/explore/688564530000000023005197?xsec_token=ABj3Hdw0xF5JHzUtFSdmNnWywnPlQ2a3xSeWzad2whPyo=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/688564530000000023005197?xsec_token=ABj3Hdw0xF5JHzUtFSdmNnWywnPlQ2a3xSeWzad2whPyo=)
 
 ## **Description**
 $\mathbb{R}$ を実数全体からなる集合, $\pi$ を円周率とする。行列およびベクトルの転置を $\top$ で表す。

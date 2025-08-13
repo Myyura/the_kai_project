@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 専門科目 制御工学
 
 ## **Author**
-[AKIRA, 小红书:94184092292](https://www.xiaohongshu.com/explore/6886bd03000000001c037b60?xsec_token=ABXXWhvejfYWQlWP3FzACDNopVSP5JX2VOuz0nVyWitaE=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6886bd03000000001c037b60?xsec_token=ABXXWhvejfYWQlWP3FzACDNopVSP5JX2VOuz0nVyWitaE=)
 
 ## **Description**
 ### 問題1

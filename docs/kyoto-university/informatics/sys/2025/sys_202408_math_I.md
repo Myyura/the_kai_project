@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2024年8月実施 数学【I】
 
 ## **Author**
-[AKIRA, 小红书:94184092292](http://xhslink.com/m/8bKqJGibBtz)
+[AKIRA (小红书:94184092292)](http://xhslink.com/m/8bKqJGibBtz)
 
 ## **Description**
 $\mathbb{R}$ を実数全体からなる集合とする。
