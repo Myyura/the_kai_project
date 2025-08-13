@@ -27,6 +27,7 @@ title: 参考链接
 - [藍色日和, 東大数理院試過去問解答例まとめ](https://mathlog.info/articles/zLhBwPhItOrD5zEO3psa)
 - [AKIRA, 京都大学情报学研究科系统科学专攻过去问解答](http://xhslink.com/m/8FArGcXC0cz)
 - [蛋黄猫物理, 物理、电路、电磁等过去问解答](https://www.xiaohongshu.com/user/profile/67173192000000001e009fa7?xsec_token=YBaJbvO4qazzvNUB-8gkqSwFa4usRBcKTQe93j6tfxtPw=)
+- [つき, 京大系统, 名大复杂等过去问解答](https://www.xiaohongshu.com/user/profile/63d537d600000000260065d9?xsec_token=YBtJ6wpcl6PK8IoN4piTy7krpc3iybAW1bVTfoB2MJbm0=)
 - [電気情報の森・s2](https://denjoforest.com/sample-page)
 - [理工系の院試の，問題と解答のまとめ （数学・物理・情報・工学）](https://language-and-engineering.hatenablog.jp/entry/20140715/GraduateSchoolsEntranceExamAnswers)
 - [大学の理工系の講義ノートPDFまとめ （数学・物理・情報・工学）](https://language-and-engineering.hatenablog.jp/entry/20140620/PDFLectureNotesOnUniversity)
