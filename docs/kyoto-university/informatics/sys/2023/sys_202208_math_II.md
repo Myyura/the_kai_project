@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 数学【II】
 
 ## **Author**
-[机智的若叶](https://zhuanlan.zhihu.com/p/678084976), 祭音Myyura
+[机智的若叶](https://zhuanlan.zhihu.com/p/678084976), 祭音Myyura, [setsu (小红书:6106647283)](https://www.xiaohongshu.com/explore/67834463000000000900f23c?xsec_token=ABGo3l42GPr_Kc5QE3V2QszJeqd6eVuy2Z7437pXsQYI8=)
 
 ## **Description**
 ### 問1
@@ -80,9 +80,19 @@ $$
 $$
 
 #### (iv)
-仮に $\lim_{x \rightarrow x_0} = \frac{f(x)}{g(x)} = \infty$、$x_0$ が存在する。
-$g(x) > 0$ ので、$\lim_{x \rightarrow x_0} f(x) = \infty$ を得る。
-これは $f(x)$ がすべての実数に対して定義されていて単調増加であることと矛盾し、そんな $x_0$ は存在しない。
+$\lim_{x \to -\infty} \frac{f(x)}{g(x)} = 1$, $\lim_{x \to \infty} \frac{f(x)}{g(x)} = 1$ より
+
+$$
+\exists M > 0, \forall x \in (-\infty, -M) \cup (M, +\infty), \frac{f(x)}{g(x)} < 1 + \epsilon < 2 \ (\forall \epsilon > 0)
+$$
+
+$\forall x \in [-M, M]$, since $f(x)$ and $g(x)$ are monotonic increasing, we have
+
+$$
+\frac{f(x)}{g(x)} \leq \frac{f(M)}{g(x)} \leq \frac{f(M)}{g(-M)}
+$$
+
+Hence let $c = \max \{\frac{f(M)}{g(-M)}, 2\}$, $\forall x \in R, \frac{f(x)}{g(x)} \leq c$.
 
 ### 問2
 #### (i)
