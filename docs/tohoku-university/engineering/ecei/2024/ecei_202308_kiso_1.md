@@ -10,6 +10,25 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+Fig.1 に示すように、真空中に半径 $a$ の完全導体球 $1$ と、内、外半径がそれぞれ $b, c\ (c>
+b> a)$ の完全導体球殻 $2$ からなる同心球コンデンサがある.
+同心球コンデンサ内部 (1-2 間) は真空となっている。
+導体球 $1$, 導体球殻 $2$ にそれぞれ電荷 $Q_1$ および $Q_2$ を与えたとき、以下の問に答えよ、ただし、導体球 $1$ と導体球殻 $2$ の中心 $O$ を原点とする径方向の座標を $r$、真空中の誘電率を $\varepsilon_0$ もとする。
+また、無限遠の電位を基準としたときの (無限遠では電位は $0$) 導体球 $1$ の表面の電位を $V_a$、 導体球殻 $2$ の外表面の電位を $V_c$ とする。
+
+(1) $r < a, a <r <b, b <r<c, c<r$ のそれぞれの領域における電界の大きさ $E(r)$ を、ガウスの法則を用いて求めよ。
+
+(2) 電位 $V_a$ および $V_c$ を求めよ。
+
+(3) 導体球殻 $2$ のみを接地したとき $(V_c = 0)$ の電位 $V_a$ を導出し、同心球コンデンサの静電容量 $C$を求めよ。
+
+(4) 一方で、導体球 $1$ のみを接地したとき $(V_a = 0)$ の電位 $V_c$ を, $\varepsilon_0, Q_2, a, b, c$ を用いて表せ。また、同心球コンデンサの静電容量 $C'$ を求めよ。
+
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202308_kiso_1_electromagnetism.png" width="300"/>
+</figure>
+
 
 ## **Kai**
 ### (1)
