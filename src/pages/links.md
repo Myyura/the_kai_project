@@ -41,5 +41,3 @@ title: 参考链接
 - [魔法のスプレッドシート, ITエンジニアインターン情報が集まる魔法のスプレッドシート](https://magic-spreadsheets.github.io/)
 
 ## 未来你可能用的到的
-
-- [打牌咯, 更适合中国宝宝体质的樱花塾](https://yhmschool.com/)
