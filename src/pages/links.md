@@ -34,6 +34,7 @@ title: 参考链接
 - [东京大学大学院工学系研究科修考经验分享](https://www.zhihu.com/column/ut-eng)
 - [院試解くよ, 理工系の大学院入試の数学、物理学の解説をしてます。](https://www.youtube.com/@InshiTokuyo)
 - [あーるえぬ, 主に理論系の方に向けた大学数学の記事を扱っています](https://math-note.xyz/)
+- [Youtube: sin有機化学](https://www.youtube.com/playlist?list=PLO74KYA_mWyPkHdY7vO3DKmLOqJgkjW-i)
 
 ## 有用的就职信息
 
