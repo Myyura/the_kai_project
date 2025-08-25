@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Reference"
+sidebar_label: "参考になる"
 ---
 # 京都大学 理学研究科 化学専攻 参考になる
 ## Links
