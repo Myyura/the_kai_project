@@ -2,11 +2,12 @@
 sidebar_label: "2018年3月実施 問題4 情報基礎2"
 tags:
   - Tohoku-University
+  - Graph-Theory
 ---
 # 東北大学 工学研究科 電気・情報系 2018年3月実施 問題4 情報基礎2
 
 ## **Author**
-
+祭音Myyura (assisted by GPT-5)
 
 ## **Description**
 ### 日本語版
@@ -58,10 +59,89 @@ Answer the folowing questions. If necessary, the following facts (A) and (B) can
 - (b) Let $\mu_2(G)$ denote the length of a shortest 2-circuit in $G$. Prove that $H$ consists of $m(G) +n(G) - \mu_2(G)$ connected components.
 
 ## **Kai**
-
 ### (1)
-#### (a)
+#### (a) From a parity subgraph to a 2-circuit and its length
 
-#### (b)
+Let $H\subseteq G$ be a parity subgraph. Form a multigraph $G^{+}$ by **adding one parallel copy of every edge of $H$** to $G$.
+Then for each vertex $x$,
 
-### (2)
+$$
+\deg_{G^{+}}(x)=\deg_G(x)+\deg_H(x)\equiv 0\pmod 2,
+$$
+
+so every vertex of $G^{+}$ has even degree. By (A), $G^{+}$ has an Euler circuit $C^{+}$.
+
+Read $C^{+}$ back in $G$ by forgetting which of two parallel copies it used.  
+Every edge of $G\setminus H$ is used once; every edge of $H$ is used twice.  
+Thus we obtain a 2-circuit $C$ in $G$ with
+
+$$
+\ell(C)=m(G\setminus H)+2m(H)=m(G)+m(H).
+$$
+
+#### (b) From a 2-circuit to a parity subgraph and its size
+Let $C$ be any 2-circuit of $G$. Define $H\subseteq G$ to be the subgraph
+consisting of the edges that $C$ uses **twice**.
+Then
+
+$$
+\ell(C)=\underbrace{m(G)}_{\text{every edge at least once}}+\underbrace{m(H)}_{\text{edges used twice}}
+$$
+
+$$
+m(H)=\ell(C)-m(G)
+$$
+
+To see $H$ is a parity subgraph, fix a vertex $x$. In the closed walk $C$, each visit to $x$ uses two incident edge-ends (enter/leave), and a loop at $x$ contributes two ends; hence the total number of used edge-ends at $x$ is even. Modulo $2$, this implies the number of incident edges used **exactly once** at $x$ is even, i.e.
+
+$$
+\deg_G(x)\equiv \deg_H(x)\pmod 2.
+$$
+
+Thus $H$ is a parity subgraph and $m(H)=\ell(C)-m(G)$.
+
+### (2) Structure of a minimum parity subgraph
+
+Let $H\subseteq G$ be a **minimum** parity subgraph (minimum number of edges).
+Let $\mu_2(G)$ be the length of a shortest 2-circuit in $G$.
+
+#### (a) $H$ has no cycle
+If $H$ contained a cycle $Z$ (a loop counts as a 1-cycle), removing all edges of $Z$ would decrease the degree of each vertex on $Z$ by $2$, preserving parity at every vertex. The resulting subgraph would be a parity subgraph with fewer edges, contradicting the minimality of $H$. Hence $H$ is acyclic.
+
+#### (b) Number of components of $H$
+From (1a): for any parity subgraph $F$ there exists a 2-circuit $C$ with
+
+$$
+\ell(C)=m(G)+m(F)\quad\Rightarrow\quad \mu_2(G)\le m(G)+m(F).
+$$
+
+From (1b): for any 2-circuit $C$ there exists a parity subgraph $F$ with
+
+$$
+m(F)=\ell(C)-m(G)\quad\Rightarrow\quad \min_F m(F)\le \mu_2(G)-m(G).
+$$
+
+Together,
+
+$$
+\min_{F\text{ parity}} m(F)=\mu_2(G)-m(G).
+$$
+
+Since $H$ is minimum, $m(H)=\mu_2(G)-m(G)$.
+
+Because $H$ is a forest on $n(G)$ vertices and $m(H)$ edges, its number of components is
+
+$$
+\#\text{components}(H)=n(G)-m(H)\quad\text{(by (B))}.
+$$
+
+Therefore
+
+$$
+\#\text{components}(H)
+= n(G)-\bigl(\mu_2(G)-m(G)\bigr)
+= m(G)+n(G)-\mu_2(G).
+$$
+
+## **Knowledge**
+The Chinese Postman Problem (CPP) and T-joins could be very useful references.
