@@ -1,9 +1,11 @@
 ---
-sidebar_label: "2015年8月実施 問題4 情報基礎2"
+sidebar_label: "2015年8月実施 基礎科目 問題4 情報基礎2"
 tags:
   - Tohoku-University
+  - Data-Structure
+  - Binary-Search-Tree
 ---
-# 東北大学 工学研究科 電気・情報系 2015年8月実施 問題4 情報基礎2
+# 東北大学 工学研究科 電気・情報系 2015年8月実施 基礎科目 問題4 情報基礎2
 
 ## **Author**
 祭音Myyura
