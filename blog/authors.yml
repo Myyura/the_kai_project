@@ -2,6 +2,10 @@ TokyoUniversityStudents:
   name: Tokyo University Students
   title: Tokyo University Students at Japan
 
+NagoyaUniversityStudents:
+  name: Nagoya University Students
+  title: Nagoya University Students at Japan
+
 Zephyr:
   name: Zephyr
   title: Master Student in CBMS, GSFS at The University of Tokyo
