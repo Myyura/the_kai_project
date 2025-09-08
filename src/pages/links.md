@@ -40,4 +40,4 @@ title: 参考链接
 
 - [itshinsotsu.xyz](https://www.itshinsotsu.xyz/)
 - [魔法のスプレッドシート, ITエンジニアインターン情報が集まる魔法のスプレッドシート](https://magic-spreadsheets.github.io/)
-
+- [長期インターンシップ・インターン募集情報ならゼロワンインターン](https://01intern.com/)
