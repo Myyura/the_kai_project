@@ -2,11 +2,12 @@
 sidebar_label: "2023年8月実施 線形代数"
 tags:
   - Kyushu-University
+  - Linear-Algebra
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2023年8月実施 線形代数
 
 ## **Author**
-Casablanca
+Casablanca, [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 $m \times n$ 実行列 $A$ と $m$ 次元実ベクトル $\boldsymbol{b}$ に対して, $S = \{\boldsymbol{x} \in \mathbb{R}| A\boldsymbol{x} = \boldsymbol{b}\},f(\boldsymbol{x}) = A\boldsymbol{x}$ を定義する。このとき、以下の問いに答えよ。ただし、以下の事実は証明なしに用してよい。
@@ -25,7 +26,7 @@ $m \times n$ 実行列 $A$ と $m$ 次元実ベクトル $\boldsymbol{b}$ に対
 
 (4) $S$ が $\mathbb{R}^n$ の部分空間, $A$ が正方行列であるとする。このとき, $A$ が正則行列であるならば, $S = \{\boldsymbol{0}\}$ であることを示せ。
 
-## **Kai** 
+## **Kai** - By Casablanca
 ### (1)
 Consider $A\vec{x} = 0$
 
@@ -85,3 +86,170 @@ $$
 a contradiction.
 
 Hence $S = \{\vec{0}\}$.
+
+## **Kai** - By Miyake
+### (1)
+$p,q,r,s \in \mathbb{R}$ について
+
+$$
+  \begin{aligned}
+  A \begin{pmatrix} p \\ q \\ r \\ s \end{pmatrix}
+  = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+  \end{aligned}
+$$
+
+が成り立つとすると
+
+$$
+  \begin{aligned}
+  p+r=0, \ \ q+3r+3s=0
+  \end{aligned}
+$$
+
+となるので、
+
+$$
+  \begin{aligned}
+  \mathrm{Ker}(f)
+  = \left\{ 
+  \begin{pmatrix} -r \\ -3r-3s \\ r \\ s \end{pmatrix}
+  \middle| r, s \in \mathbb{R}
+  \right\}
+  \end{aligned}
+$$
+
+がわかる。よって、 $\mathrm{Ker}(f)$ の次元は $2$ であり、例えば
+
+$$
+  \begin{aligned}
+  \begin{pmatrix} -1 \\ -3 \\ 1 \\ 0 \end{pmatrix}
+  , \ \ 
+  \begin{pmatrix} 0 \\ -3 \\ 0 \\ 1 \end{pmatrix}
+  \end{aligned}
+$$
+
+は基底となる。
+
+### (2)
+$\mathrm{Ker}(f)$ が与えられた条件 C1, C2, C3 を満たすことを確認すればよい。
+
+(C1 の確認)
+
+$$
+  \begin{aligned}
+  A \boldsymbol{0} = \boldsymbol{0}
+  \end{aligned}
+$$
+
+なので $\boldsymbol{0} \in \mathrm{Ker}(f)$ がわかる。
+
+(C2 の確認)
+
+$\boldsymbol{u}, \boldsymbol{v} \in \mathrm{Ker}(f)$ とすると
+
+$$
+  \begin{aligned}
+  A \boldsymbol{u} = A \boldsymbol{v} = \boldsymbol{0}
+  \end{aligned}
+$$
+
+であり、このとき
+
+$$
+  \begin{aligned}
+  f( \boldsymbol{u} + \boldsymbol{v} )
+  &= A( \boldsymbol{u} + \boldsymbol{v} )
+  \\
+  &= A \boldsymbol{u} + A \boldsymbol{v}
+  \\
+  &= \boldsymbol{0} + \boldsymbol{0}
+  \\
+  &= \boldsymbol{0}
+  \end{aligned}
+$$
+
+となるので、$\boldsymbol{u} + \boldsymbol{v} \in \mathrm{Ker}(f)$ がわかる。
+
+(C3 の確認)
+
+$\boldsymbol{u} \in \mathrm{Ker}(f)$ とすると
+
+$$
+  \begin{aligned}
+  A \boldsymbol{u} = \boldsymbol{0}
+  \end{aligned}
+$$
+
+であり、このとき、 $c \in \mathrm{R}$ について
+
+$$
+  \begin{aligned}
+  f( c \boldsymbol{u} )
+  &= A c \boldsymbol{u}
+  \\
+  &= c A \boldsymbol{u}
+  \\
+  &= c \boldsymbol{0}
+  \\
+  &= \boldsymbol{0}
+  \end{aligned}
+$$
+
+となるので、
+
+$c \boldsymbol{u} \in \mathrm{Ker}(f)$ がわかる。
+
+### (3)
+$S$ が $\mathbb{R}^n$ の部分空間であるとき、$\boldsymbol{0} \in S$ であるから
+
+$$
+  \begin{aligned}
+  A \boldsymbol{0} = \boldsymbol{b}
+  \end{aligned}
+$$
+
+が成り立つ。
+
+これの左辺は $\boldsymbol{0}$ であるから右辺も $\boldsymbol{0}$ もであり、
+
+$$
+  \begin{aligned}
+  \boldsymbol{b} = \boldsymbol{0}
+  \end{aligned}
+$$
+
+がわかる。
+
+### (4)
+$S$ が $\mathbb{R}^n$ の部分空間であるとき、C1 から $\boldsymbol{0} \in S$ であり、(3) から $\boldsymbol{b} = \boldsymbol{0}$ である。
+
+よって、 $\boldsymbol{x} \in S$ とすると、
+
+$$
+  \begin{aligned}
+  A \boldsymbol{x} = \boldsymbol{0}
+  \end{aligned}
+$$
+
+であるが、 $A$ が正則行列のとき逆行列 $A^{-1}$ が存在し、
+
+$$
+  \begin{aligned}
+  A^{-1} A \boldsymbol{x} &= A^{-1} \boldsymbol{0}
+  \\
+  \therefore \ \ 
+  \boldsymbol{x} &= \boldsymbol{0}
+  \end{aligned}
+$$
+
+が得られる。
+
+$\boldsymbol{x} \in S$ から $\boldsymbol{x} = \boldsymbol{0}$ が得られたので
+
+$$
+  \begin{aligned}
+  S = \left\{ \boldsymbol{0} \right\}
+  \end{aligned}
+$$
+
+である。
