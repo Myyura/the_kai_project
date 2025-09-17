@@ -208,20 +208,20 @@
 }
 
 /* 考试日程流程图样式 */
-.examSchedule {
+.universityInfo {
   padding: 4rem 0;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(240, 247, 255, 1) 100%);
   position: relative;
 }
 
-.examScheduleTitle {
+.universityInfoTitle {
   text-align: center;
   font-size: 2rem !important;
   margin-bottom: 1rem;
   color: #333;
 }
 
-.examScheduleDescription {
+.universityInfoDescription {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 3rem;
@@ -346,15 +346,15 @@
 }
 
 /* 黑暗模式样式 */
-[data-theme='dark'] .examSchedule {
+[data-theme='dark'] .universityInfo {
   background: linear-gradient(180deg, rgba(24, 24, 26, 1) 0%, rgba(32, 35, 42, 1) 100%);
 }
 
-[data-theme='dark'] .examScheduleTitle {
+[data-theme='dark'] .universityInfoTitle {
   color: #e6e6e6;
 }
 
-[data-theme='dark'] .examScheduleDescription {
+[data-theme='dark'] .universityInfoDescription {
   color: #b0b0b0;
 }
 
@@ -672,7 +672,7 @@
     flex-basis: 100%;
   }
   
-  .examScheduleTitle {
+  .universityInfoTitle {
     font-size: 1.5rem !important;
   }
   

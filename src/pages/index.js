@@ -29,9 +29,9 @@ const translations = {
         description: '本平台完全开源运营，任何人都可以查看代码或提出改进建议。我们欢迎社区贡献，致力于用户主导的更易用工具开发。在注重透明度和协作的环境中，一起深化学习。'
       }
     ],
-    examScheduleTitle: '日本顶尖大学2025年研究生入学考试时间表',
-    examScheduleDescription: '以下是主要大学研究生入学考试的概要日程。各研究科的具体日期可能不同，请查阅各大学的官方公告获取详细信息。',
-    websiteConfirmation: '日程时间请参考各研究科的官方网站，查看各专业的最新招生简章。',
+    universityInfoTitle: '日本各大学基本信息与链接汇总',
+    universityInfoDescription: '以下是各个学校、专攻以及其他有用信息的导航链接',
+    websiteLink: '专攻（学院）链接',
     disclaimerText: '※ 请务必确认各大学的官方入学考试简章。日程可能会有变更。',
     examSteps: {
       apply: '申请受理',
@@ -58,9 +58,9 @@ const translations = {
         description: '本プラットフォームは完全にオープンソースで運営されており、誰でもコードを確認したり、改善案を提案したりできます。コミュニティからの貢献を歓迎し、ユーザー主導でより使いやすいツールを目指しています。透明性と協力性を重視した環境で、共に学びを深めましょう。'
       }
     ],
-    examScheduleTitle: '日本トップ大学2025年度大学院入試日程',
-    examScheduleDescription: '以下は主要大学の大学院入試スケジュール概要です。各研究科ごとに日程が異なりますので、詳細は各大学の公式発表をご確認ください。',
-    websiteConfirmation: '日程時間については、各研究科・学院の公式ウェブサイトにて、各専攻の最新の募集要項をご確認ください。',
+    universityInfoTitle: '日本各大学の基本情報とリンク集',
+    universityInfoDescription: '各大学・専攻およびその他の有用情報へのナビゲーションリンクです',
+    websiteLink: '専攻（学部・研究科）リンク',
     disclaimerText: '※ 各大学の公式入試要項を必ずご確認ください。日程は変更される場合があります。',
     examSteps: {
       apply: '願書受付',
@@ -151,7 +151,7 @@ function HomepageHeader({ language, toggleLanguage }) {
 }
 
 // 考試日程流程圖組件
-function ExamScheduleFlowchart({ language }) {
+function UniversityInfoFlowchart({ language }) {
   const [isMobile, setIsMobile] = useState(false);
   const [expandedUniv, setExpandedUniv] = useState({});
   const [expandedDept, setExpandedDept] = useState({});
@@ -829,13 +829,13 @@ function ExamScheduleFlowchart({ language }) {
   ];
 
   return (
-    <section className={styles.examSchedule}>
+    <section className={styles.universityInfo}>
       <div className="container">
-        <Heading as="h2" className={styles.examScheduleTitle}>
-          {t.examScheduleTitle}
+        <Heading as="h2" className={styles.universityInfoTitle}>
+          {t.universityInfoTitle}
         </Heading>
-        <p className={styles.examScheduleDescription}>
-          {t.examScheduleDescription}
+        <p className={styles.universityInfoDescription}>
+          {t.universityInfoDescription}
         </p>
         
         <div className={styles.flowchartContainer}>
@@ -885,7 +885,7 @@ function ExamScheduleFlowchart({ language }) {
                               className={styles.departmentLink}
                               style={{borderLeftColor: univ.color}}
                             >
-                              <FaExternalLinkAlt /> {t.websiteConfirmation}
+                              <FaExternalLinkAlt /> {t.websiteLink}
                             </a>
                           </>
                         )}
@@ -949,7 +949,7 @@ export default function Home() {
       <HomepageHeader language={language} toggleLanguage={toggleLanguage} />
       <main>
         <HomepageFeatures language={language} />
-        <ExamScheduleFlowchart language={language} />
+        <UniversityInfoFlowchart language={language} />
       </main>
     </Layout>
   );
