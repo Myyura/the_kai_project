@@ -887,25 +887,6 @@ function ExamScheduleFlowchart({ language }) {
                             >
                               <FaExternalLinkAlt /> {t.websiteConfirmation}
                             </a>
-                            <div className={styles.timelineSteps}>
-                              {dept.schedules.map((step, stepIndex) => (
-                                <div key={stepIndex} className={styles.timelineStep}>
-                                  <div className={styles.stepContent}>
-                                    <div className={styles.stepIcon} style={{backgroundColor: univ.color}}>
-                                      {step.icon}
-                                    </div>
-                                    <div className={styles.stepInfo}>
-                                      <div className={styles.stepLabel}>{t.examSteps[step.id]}</div>
-                                    </div>
-                                  </div>
-                                  {stepIndex < dept.schedules.length - 1 && (
-                                    <div className={styles.stepArrow}>
-                                      <FaArrowRight style={{color: univ.color}} />
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
                           </>
                         )}
                       </div>
@@ -950,30 +931,6 @@ function HomepageFeatures({ language }) {
   );
 }
 
-// export default function Home() {
-//   const {siteConfig} = useDocusaurusContext();
-//   const [language, setLanguage] = useState('zh'); // 默认使用中文
-  
-//   // 在主组件中共享语言状态
-//   const toggleLanguage = () => {
-//     setLanguage(prev => prev === 'zh' ? 'ja' : 'zh');
-//   };
-  
-//   // 将语言状态传递给所有需要本地化的组件
-//   return (
-//     <Layout
-//       title={siteConfig.title}
-//       description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
-//       <HomepageStructuredData />
-//       <HomepageHeader language={language} toggleLanguage={toggleLanguage} />
-//       <main>
-//         <ExamScheduleFlowchart language={language} />
-//         <HomepageFeatures language={language} />
-//       </main>
-//     </Layout>
-//   );
-// }
-
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   const [language, setLanguage] = useState('zh'); // 默认使用中文
@@ -992,7 +949,31 @@ export default function Home() {
       <HomepageHeader language={language} toggleLanguage={toggleLanguage} />
       <main>
         <HomepageFeatures language={language} />
+        <ExamScheduleFlowchart language={language} />
       </main>
     </Layout>
   );
 }
+
+// export default function Home() {
+//   const {siteConfig} = useDocusaurusContext();
+//   const [language, setLanguage] = useState('zh'); // 默认使用中文
+  
+//   // 在主组件中共享语言状态
+//   const toggleLanguage = () => {
+//     setLanguage(prev => prev === 'zh' ? 'ja' : 'zh');
+//   };
+  
+//   // 将语言状态传递给所有需要本地化的组件
+//   return (
+//     <Layout
+//       title={siteConfig.title}
+//       description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
+//       <HomepageStructuredData />
+//       <HomepageHeader language={language} toggleLanguage={toggleLanguage} />
+//       <main>
+//         <HomepageFeatures language={language} />
+//       </main>
+//     </Layout>
+//   );
+// }
