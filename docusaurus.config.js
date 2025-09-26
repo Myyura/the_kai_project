@@ -48,6 +48,9 @@ const config = {
   baseUrl: '/',
   markdown: {
     format: 'detect', // 推荐使用此值
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
 
   // GitHub pages deployment config.
@@ -57,7 +60,6 @@ const config = {
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you

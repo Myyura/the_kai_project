@@ -1,5 +1,12 @@
+.hero__title {
+  font-size: 3rem;      
+  font-weight: 800;   
+  line-height: 1.2;     
+  margin-bottom: 1rem;
+}
+
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 2rem;
   color: var(--ifm-color-emphasis-700);
 }
