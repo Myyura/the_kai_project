@@ -58,8 +58,8 @@
 /* 语言切换按钮样式 */
 .languageSwitcher {
   display: flex;
-  justify-content: flex-start;  
-  margin-top: -2rem;
+  justify-content: flex-end;  
+  margin-top: -5rem;
   margin-left: auto;
 }
 
