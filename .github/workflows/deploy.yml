@@ -21,7 +21,7 @@ jobs:
           cache: yarn
 
       - name: 安装依赖
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: 构建网站
         run: yarn build
 
