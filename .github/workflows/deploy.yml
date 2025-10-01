@@ -22,6 +22,8 @@ jobs:
 
       - name: 安装依赖
         run: yarn install
+      - name: 更新浏览器列表数据库
+        run: npx update-browserslist-db@latest
       - name: 构建网站
         run: yarn build
 
