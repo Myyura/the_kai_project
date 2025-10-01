@@ -3,141 +3,228 @@
  * and scoped locally.
  */
 
-/* Hero Banner 区域样式 */
+/* Hero Banner 区域样式 - Liquid Glass 风格 */
 .heroBanner {
-  padding: 6rem 0;  /* 调整padding，移除额外底部空间 */
+  padding: 8rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, 
+    rgba(120, 119, 198, 0.3) 0%, 
+    rgba(118, 184, 223, 0.3) 50%,
+    rgba(255, 185, 188, 0.3) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-/* 文字样式 */
+/* 添加动态背景气泡效果 */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: float 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(50px, 50px) rotate(360deg);
+  }
+}
+
+/* 文字样式 - 更柔和 */
 .heroTitle {
-  color: #000;
-  font-size: 3rem !important;
-  margin-bottom: 1rem;
-  animation: fadeIn 0.7s ease-in; /* 加快动画速度 */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 3.5rem !important;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.8s ease-in;
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .heroSubtitle {
-  color: #000;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  animation: fadeIn 0.7s ease-in 0.2s backwards; /* 加快动画速度 */
-  opacity: 0.85;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  animation: fadeIn 0.8s ease-in 0.2s backwards;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 /* 黑暗模式下文字调整 */
-[data-theme='dark'] .heroTitle, 
-[data-theme='dark'] .heroSubtitle {
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+[data-theme='dark'] .heroBanner {
+  background: linear-gradient(135deg, 
+    rgba(66, 65, 138, 0.3) 0%, 
+    rgba(58, 124, 163, 0.3) 50%,
+    rgba(195, 125, 128, 0.3) 100%
+  );
 }
 
-/* 按钮样式 */
+[data-theme='dark'] .heroTitle {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .heroSubtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* 按钮样式 - Liquid Glass 效果 */
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   gap: 1.5rem;
-  animation: fadeIn 0.7s ease-in 0.4s backwards; /* 加快动画速度从1s改为0.7s */
+  animation: fadeIn 0.8s ease-in 0.4s backwards;
 }
 
 .heroButton {
-  padding: 0.8rem 1.6rem;
+  padding: 1rem 2rem;
   font-weight: 600;
-  border-radius: 50px;
-  transition: all 0.2s ease; /* 加快动画速度 */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border: none;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.heroButton:hover::before {
+  left: 100%;
 }
 
 .primaryButton {
-  background: linear-gradient(45deg, #4CAF50, #2E8B57);
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.7), rgba(46, 139, 87, 0.7));
   color: white !important;
 }
 
 .secondaryButton {
-  background: linear-gradient(45deg, #2196F3, #03A9F4);
+  background: linear-gradient(135deg, rgba(33, 150, 243, 0.7), rgba(3, 169, 244, 0.7));
   color: white !important;
 }
 
-/* 黑暗模式下按钮样式 */
 [data-theme='dark'] .primaryButton {
-  background: linear-gradient(45deg, #5CCA60, #3E9B67);
-  color: white !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(92, 202, 96, 0.7), rgba(62, 155, 103, 0.7));
 }
 
 [data-theme='dark'] .secondaryButton {
-  background: linear-gradient(45deg, #31A6FF, #13B9FF);
-  color: white !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(49, 166, 255, 0.7), rgba(19, 185, 255, 0.7));
 }
 
 .heroButton:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .heroButton:active {
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(0.98);
 }
 
-/* 特性区域样式 */
+/* 特性区域样式 - Liquid Glass 效果 */
 .features {
   display: flex;
   align-items: center;
-  padding: 4rem 0;
+  padding: 5rem 0;
   width: 100%;
-  background: linear-gradient(180deg, rgba(143, 211, 244, 0.3) 0%, rgba(255, 255, 255, 1) 15%);
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.5) 0%, 
+    rgba(240, 245, 255, 0.5) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: relative;
 }
 
-
-/* 特性卡片样式 */
+/* 特性卡片样式 - 毛玻璃效果 */
 .featureCard {
-  background: rgba(255, 255, 255, 0.9); /* 略微透明以显示背景 */
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 2.5rem 2rem;
   height: 100%;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* 稍微增强阴影 */
-  transition: all 0.2s ease; /* 加快动画速度 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1rem 0.5rem;
   text-align: center;
-  animation: fadeIn 0.7s ease-in; /* 加快动画速度 */
+  animation: fadeIn 0.8s ease-in;
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.featureCard:hover::before {
+  opacity: 1;
 }
 
 .featureCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-12px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 /* 特性图标样式 */
 .featureIcon {
   font-size: 2.5rem;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
   color: #2e8555;
-  background: rgba(46, 133, 85, 0.1);
+  background: linear-gradient(135deg, rgba(46, 133, 85, 0.15), rgba(46, 133, 85, 0.05));
   border-radius: 50%;
-  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(46, 133, 85, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(46, 133, 85, 0.1);
 }
 
 .featureCard:hover .featureIcon {
-  transform: scale(1.1);
-  background: rgba(46, 133, 85, 0.2);
+  transform: scale(1.15) rotate(5deg);
+  background: linear-gradient(135deg, rgba(46, 133, 85, 0.25), rgba(46, 133, 85, 0.15));
+  box-shadow: 0 8px 24px rgba(46, 133, 85, 0.2);
 }
 
 .featureContent {
@@ -147,20 +234,21 @@
 .featureTitle {
   font-size: 1.5rem !important;
   margin-bottom: 1rem;
-  color: #333;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 600;
 }
 
 .featureDescription {
   font-size: 1rem;
-  line-height: 1.6;
-  color: #666;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 /* 动画效果 */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -170,62 +258,70 @@
 
 /* 黑暗模式样式调整 */
 [data-theme='dark'] .features {
-  background: linear-gradient(180deg, rgba(19, 78, 94, 0.4) 0%, rgba(24, 24, 26, 1) 15%);
+  background: linear-gradient(180deg, 
+    rgba(24, 24, 26, 0.5) 0%, 
+    rgba(32, 35, 42, 0.5) 100%
+  );
 }
 
-
-
 [data-theme='dark'] .featureCard {
-  background: rgba(37, 37, 40, 0.9); /* 半透明的深色背景 */
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
-  height: 100%;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* 增强阴影对比度 */
-  transition: all 0.2s ease; /* 加快动画速度 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1rem 0.5rem;
-  text-align: center;
-  animation: fadeIn 0.7s ease-in; /* 加快动画速度 */
+  background: rgba(37, 37, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme='dark'] .featureCard:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* 增强悬停状态阴影对比度 */
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme='dark'] .featureTitle {
-  color: #e6e6e6;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 [data-theme='dark'] .featureDescription {
-  color: #b0b0b0;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 [data-theme='dark'] .featureIcon {
-  background: rgba(37, 194, 160, 0.2);
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.25), rgba(37, 194, 160, 0.1));
   color: #25c2a0;
+  border-color: rgba(37, 194, 160, 0.3);
+  box-shadow: 0 4px 16px rgba(37, 194, 160, 0.15);
 }
 
-/* 考试日程流程图样式 */
+[data-theme='dark'] .featureCard:hover .featureIcon {
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.35), rgba(37, 194, 160, 0.2));
+  box-shadow: 0 8px 24px rgba(37, 194, 160, 0.25);
+}
+
+/* 考试日程流程图样式 - Liquid Glass 效果 */
 .universityInfo {
-  padding: 4rem 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(240, 247, 255, 1) 100%);
+  padding: 5rem 0;
+  background: linear-gradient(180deg, 
+    rgba(240, 247, 255, 0.5) 0%, 
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: relative;
 }
 
 .universityInfoTitle {
   text-align: center;
-  font-size: 2rem !important;
-  margin-bottom: 1rem;
-  color: #333;
+  font-size: 2.5rem !important;
+  margin-bottom: 1.5rem;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .universityInfoDescription {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 3rem;
-  color: #666;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 1.1rem;
 }
 
 .flowchartContainer {
@@ -240,143 +336,33 @@
 .universityTimeline {
   display: flex;
   flex-direction: column;
-  background: white;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .universityTimeline:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 .universityName {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 50px;
   color: white;
   font-weight: 600;
   display: inline-block;
-  margin-bottom: 0; /* 移除下方间距 */
+  margin-bottom: 0;
   align-self: flex-start;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-.timelineSteps {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0.5rem;
-}
-
-.timelineStep {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  min-width: 150px;
-}
-
-.stepContent {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.stepIcon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1rem;
-}
-
-.stepInfo {
-  display: flex;
-  flex-direction: column;
-}
-
-.stepLabel {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.stepDate {
-  font-size: 0.8rem;
-  color: #666;
-}
-
-.stepArrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.75rem;
-  font-size: 1.2rem;
-}
-
-.scheduleDisclaimer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 3rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 8px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.disclaimerIcon {
-  color: #2e8555;
-  font-size: 1.2rem;
-}
-
-.scheduleDisclaimer p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* 黑暗模式样式 */
-[data-theme='dark'] .universityInfo {
-  background: linear-gradient(180deg, rgba(24, 24, 26, 1) 0%, rgba(32, 35, 42, 1) 100%);
-}
-
-[data-theme='dark'] .universityInfoTitle {
-  color: #e6e6e6;
-}
-
-[data-theme='dark'] .universityInfoDescription {
-  color: #b0b0b0;
-}
-
-[data-theme='dark'] .universityTimeline {
-  background: rgba(37, 37, 40, 0.9);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme='dark'] .stepLabel {
-  color: #e6e6e6;
-}
-
-[data-theme='dark'] .stepDate {
-  color: #b0b0b0;
-}
-
-[data-theme='dark'] .scheduleDisclaimer {
-  background: rgba(37, 37, 40, 0.7);
-}
-
-[data-theme='dark'] .scheduleDisclaimer p {
-  color: #b0b0b0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* 折叠式考试日程流程图样式更新 */
@@ -384,20 +370,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
-  border-radius: 12px;
+  padding: 0.75rem;
+  border-radius: 16px;
   border: 2px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 0.5rem;
 }
 
 .universityHeader:hover {
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 [data-theme='dark'] .universityHeader:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .toggleIcon {
@@ -405,11 +393,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem;
+  padding: 0.5rem;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.05);
   color: #666;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 [data-theme='dark'] .toggleIcon {
@@ -417,190 +407,247 @@
   color: #b0b0b0;
 }
 
-.universityHeader:hover .toggleIcon {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-[data-theme='dark'] .universityHeader:hover .toggleIcon {
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
 .departmentsContainer {
   padding: 0 0.5rem 0.5rem 1.5rem;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.4s ease;
 }
 
 .department {
-  margin-bottom: 0.75rem;
-  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-radius: 16px;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.department:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme='dark'] .department {
-  background-color: rgba(37, 37, 40, 0.6);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  background: rgba(37, 37, 40, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .departmentHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6rem 1rem;
+  padding: 0.8rem 1.2rem;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-left: 4px solid;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .departmentHeader:hover {
-  background-color: rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 [data-theme='dark'] .departmentHeader {
-  background-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 [data-theme='dark'] .departmentHeader:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .departmentName {
   font-weight: 600;
-  font-size: 0.95rem;
-  color: #333;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 [data-theme='dark'] .departmentName {
-  color: #e6e6e6;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .departmentToggle {
-  font-size: 0.8rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 [data-theme='dark'] .departmentToggle {
-  color: #b0b0b0;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* 更新的步骤样式 */
-.timelineSteps {
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 0 0 8px 8px;
-  animation: fadeIn 0.3s ease;
-}
-
-[data-theme='dark'] .timelineSteps {
-  background-color: rgba(37, 37, 40, 0.4);
-}
-
-/* 研究科官网链接样式 */
 .departmentLink {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: rgba(0, 0, 0, 0.02);
-  color: #555;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(0, 0, 0, 0.7);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   border-left: 4px solid;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .departmentLink:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #333;
+  background: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.85);
   text-decoration: none;
+  transform: translateX(4px);
 }
 
 [data-theme='dark'] .departmentLink {
-  background-color: rgba(255, 255, 255, 0.03);
-  color: #b0b0b0;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 [data-theme='dark'] .departmentLink:hover {
-  background-color: rgba(255, 255, 255, 0.07);
-  color: #e6e6e6;
-  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.95);
 }
 
-/* 确保时间线样式与链接兼容 */
-.timelineSteps {
-  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+.scheduleDisclaimer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
-[data-theme='dark'] .timelineSteps {
-  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+.disclaimerIcon {
+  color: #2e8555;
+  font-size: 1.3rem;
 }
 
-/* 添加语言切换按钮样式 */
+.scheduleDisclaimer p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* 黑暗模式样式 */
+[data-theme='dark'] .universityInfo {
+  background: linear-gradient(180deg, 
+    rgba(32, 35, 42, 0.5) 0%, 
+    rgba(24, 24, 26, 0.5) 100%
+  );
+}
+
+[data-theme='dark'] .universityInfoTitle {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme='dark'] .universityInfoDescription {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .universityTimeline {
+  background: rgba(37, 37, 40, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .universityTimeline:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .scheduleDisclaimer {
+  background: rgba(37, 37, 40, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .scheduleDisclaimer p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 语言切换按钮样式 - Liquid Glass 效果 */
 .languageSwitcher {
   position: absolute;
-  top: 15px;
-  right: 25px;
+  top: 20px;
+  right: 30px;
   z-index: 10;
-  animation: pulse 2s infinite;
 }
 
 .languageButton {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: rgba(46, 133, 85, 0.9); /* 使用主题色提高辨识度 */
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: rgba(46, 133, 85, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 10px 16px;
-  border-radius: 24px;
+  padding: 12px 20px;
+  border-radius: 50px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.languageButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.languageButton:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .languageButton:hover {
-  background-color: rgba(60, 173, 110, 0.95);
+  background: rgba(60, 173, 110, 0.8);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-  border-color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .languageButton:active {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .languageIcon {
   font-size: 1.4rem;
   margin-right: 2px;
+  position: relative;
+  z-index: 1;
 }
 
-/* 添加脉动动画效果，吸引用户注意 */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* 夜间模式下的样式调整 */
 [data-theme='dark'] .languageButton {
-  background-color: rgba(37, 194, 160, 0.9);
-  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(37, 194, 160, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 [data-theme='dark'] .languageButton:hover {
-  background-color: rgba(79, 221, 191, 0.95);
+  background: rgba(79, 221, 191, 0.8);
 }
 
 /* 调整移动设备上的语言切换按钮 */
@@ -611,7 +658,7 @@
   }
   
   .languageButton {
-    padding: 8px 12px;
+    padding: 10px 16px;
     font-size: 0.9rem;
   }
   
@@ -623,11 +670,11 @@
 /* 响应式调整 */
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 4rem 2rem;  /* 调整移动端padding */
+    padding: 5rem 2rem;
   }
   
   .heroTitle {
-    font-size: 2.2rem !important;
+    font-size: 2.5rem !important;
   }
 
   .heroSubtitle {
@@ -639,28 +686,24 @@
     gap: 1rem;
   }
 
-  /* 添加特性卡片的移动端样式 */
   .features {
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
   }
 
   .featureCard {
     margin: 1rem;
-    padding: 1.5rem 1rem;
+    padding: 2rem 1.5rem;
   }
 
-  /* 修复卡片重叠问题 */
   [class*='col col--'] {
     margin-bottom: 2rem;
   }
 
-  /* 最后一个卡片底部无需额外间距 */
   [class*='col col--']:last-child {
     margin-bottom: 0;
   }
 }
 
-/* 中等屏幕设备调整 */
 @media screen and (max-width: 768px) {
   .features .row {
     flex-direction: column;
@@ -673,45 +716,16 @@
   }
   
   .universityInfoTitle {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
   }
   
   .universityTimeline {
-    padding: 0.75rem;
-  }
-  
-  .timelineSteps {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .timelineStep {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-  
-  .stepArrow {
-    transform: rotate(90deg);
-    padding: 0.5rem 0;
+    padding: 1rem;
   }
   
   .universityName {
     font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-  
-  .stepIcon {
-    width: 32px;
-    height: 32px;
-    font-size: 0.8rem;
-  }
-  
-  .stepLabel {
-    font-size: 0.8rem;
-  }
-  
-  .stepDate {
-    font-size: 0.7rem;
+    padding: 0.5rem 1rem;
   }
   
   .departmentsContainer {
@@ -719,19 +733,29 @@
   }
   
   .departmentHeader {
-    padding: 0.5rem 0.75rem;
+    padding: 0.6rem 1rem;
   }
   
   .departmentName {
     font-size: 0.85rem;
   }
-  
-  .timelineSteps {
-    padding: 0.75rem 0.5rem;
-  }
 
   .departmentLink {
-    padding: 0.4rem 0.75rem;
+    padding: 0.5rem 1rem;
     font-size: 0.8rem;
+  }
+  
+  .languageSwitcher {
+    top: 15px;
+    right: 20px;
+  }
+  
+  .languageButton {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .languageIcon {
+    font-size: 1.2rem;
   }
 }

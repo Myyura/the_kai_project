@@ -16,11 +16,12 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   
-  /* 新增自定义变量 */
-  --custom-transition: all 0.2s ease; /* 加快动画速度从0.3s改为0.2s */
-  --custom-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  --custom-border-radius: 8px;
-  --custom-card-bg: #ffffff;
+  /* Liquid Glass 风格变量 */
+  --custom-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --custom-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --custom-border-radius: 20px;
+  --custom-card-bg: rgba(255, 255, 255, 0.6);
+  --custom-backdrop-blur: blur(20px);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -34,35 +35,32 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
-  /* 黑暗模式下的自定义变量 */
-  --custom-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* 增强阴影对比度 */
-  --custom-card-bg: #252528; /* 加深卡片背景色增强对比度 */
+  /* 黑暗模式下的 Liquid Glass 变量 */
+  --custom-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --custom-card-bg: rgba(37, 37, 40, 0.6);
 }
 
-/* 添加黑暗模式下 heroBanner 的样式 */
-[data-theme='dark'] .hero--primary {
-  background-image: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
-}
-
-/* 全局动画改进 */
+/* 全局 Liquid Glass 效果 */
 button, a.button, .navbar__link {
-  transition: all 0.2s ease !important; /* 加快动画速度 */
+  transition: var(--custom-transition) !important;
+  backdrop-filter: var(--custom-backdrop-blur);
+  -webkit-backdrop-filter: var(--custom-backdrop-blur);
 }
 
 .button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--custom-box-shadow);
 }
 
 /* 添加页面过渡效果 */
 main {
-  animation: fadeInPage 0.3s ease-in; /* 加快动画速度从0.5s改为0.3s */
+  animation: fadeInPage 0.5s ease-in;
 }
 
 @keyframes fadeInPage {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -70,15 +68,19 @@ main {
   }
 }
 
-/* 改进卡片样式 */
+/* 改进卡片样式 - Liquid Glass */
 .card {
   transition: var(--custom-transition);
   border-radius: var(--custom-border-radius);
   overflow: hidden;
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-backdrop-blur);
+  -webkit-backdrop-filter: var(--custom-backdrop-blur);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   box-shadow: var(--custom-box-shadow);
 }
 
@@ -119,7 +121,7 @@ main {
   font-size: 1.5rem;
 }
 
-/* Footer */
+/* Footer - Liquid Glass 风格 */
 .footer a {
   text-decoration: none;
   transition: var(--custom-transition);
@@ -130,7 +132,6 @@ main {
   color: var(--ifm-color-primary);
 }
 
-/* 链接悬停动画效果 */
 .footer a:not(.footer__logo):hover::after {
   content: '';
   position: absolute;
@@ -140,11 +141,13 @@ main {
   bottom: -2px;
   left: 0;
   transform: scaleX(1);
-  transition: transform 0.25s ease;
+  transition: transform 0.3s ease;
 }
 
 .footer--dark {
-  --ifm-footer-background-color: #1c1e21;
+  --ifm-footer-background-color: rgba(28, 30, 33, 0.8);
+  backdrop-filter: var(--custom-backdrop-blur);
+  -webkit-backdrop-filter: var(--custom-backdrop-blur);
   --ifm-footer-padding-vertical: 20px; 
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
