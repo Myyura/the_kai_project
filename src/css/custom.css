@@ -43,13 +43,23 @@
 /* 全局 Liquid Glass 效果 */
 button, a.button, .navbar__link {
   transition: var(--custom-transition) !important;
-  backdrop-filter: var(--custom-backdrop-blur);
-  -webkit-backdrop-filter: var(--custom-backdrop-blur);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.button {
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
 }
 
 .button:hover {
   transform: translateY(-3px);
-  box-shadow: var(--custom-box-shadow);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 /* 添加页面过渡效果 */
@@ -74,14 +84,20 @@ main {
   border-radius: var(--custom-border-radius);
   overflow: hidden;
   background: var(--custom-card-bg);
-  backdrop-filter: var(--custom-backdrop-blur);
-  -webkit-backdrop-filter: var(--custom-backdrop-blur);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--custom-box-shadow);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 /* Reduce title size in blog list */
@@ -146,10 +162,11 @@ main {
 
 .footer--dark {
   --ifm-footer-background-color: rgba(28, 30, 33, 0.8);
-  backdrop-filter: var(--custom-backdrop-blur);
-  -webkit-backdrop-filter: var(--custom-backdrop-blur);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
   --ifm-footer-padding-vertical: 20px; 
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .footer .container {

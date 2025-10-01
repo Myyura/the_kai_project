@@ -10,12 +10,12 @@
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, 
-    rgba(120, 119, 198, 0.3) 0%, 
-    rgba(118, 184, 223, 0.3) 50%,
-    rgba(255, 185, 188, 0.3) 100%
+    rgba(120, 119, 198, 0.4) 0%, 
+    rgba(118, 184, 223, 0.4) 50%,
+    rgba(255, 185, 188, 0.4) 100%
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
 }
 
 /* 添加动态背景气泡效果 */
@@ -26,19 +26,21 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
   background-size: 50px 50px;
   animation: float 20s linear infinite;
   pointer-events: none;
 }
 
-@keyframes float {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  100% {
-    transform: translate(50px, 50px) rotate(360deg);
-  }
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 /* 文字样式 - 更柔和 */
@@ -47,9 +49,11 @@
   font-size: 3.5rem !important;
   margin-bottom: 1.5rem;
   animation: fadeIn 0.8s ease-in;
-  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 4px 30px rgba(255, 255, 255, 0.8);
   font-weight: 700;
   letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
 }
 
 .heroSubtitle {
@@ -59,14 +63,16 @@
   animation: fadeIn 0.8s ease-in 0.2s backwards;
   font-weight: 400;
   letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
 }
 
 /* 黑暗模式下文字调整 */
 [data-theme='dark'] .heroBanner {
   background: linear-gradient(135deg, 
-    rgba(66, 65, 138, 0.3) 0%, 
-    rgba(58, 124, 163, 0.3) 50%,
-    rgba(195, 125, 128, 0.3) 100%
+    rgba(66, 65, 138, 0.4) 0%, 
+    rgba(58, 124, 163, 0.4) 50%,
+    rgba(195, 125, 128, 0.4) 100%
   );
 }
 
@@ -87,6 +93,8 @@
   margin-top: 3rem;
   gap: 1.5rem;
   animation: fadeIn 0.8s ease-in 0.4s backwards;
+  position: relative;
+  z-index: 1;
 }
 
 .heroButton {
@@ -94,10 +102,13 @@
   font-weight: 600;
   border-radius: 20px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -109,7 +120,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
   transition: left 0.5s;
 }
 
@@ -118,26 +129,30 @@
 }
 
 .primaryButton {
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.7), rgba(46, 139, 87, 0.7));
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.8), rgba(46, 139, 87, 0.8));
   color: white !important;
 }
 
 .secondaryButton {
-  background: linear-gradient(135deg, rgba(33, 150, 243, 0.7), rgba(3, 169, 244, 0.7));
+  background: linear-gradient(135deg, rgba(33, 150, 243, 0.8), rgba(3, 169, 244, 0.8));
   color: white !important;
 }
 
 [data-theme='dark'] .primaryButton {
-  background: linear-gradient(135deg, rgba(92, 202, 96, 0.7), rgba(62, 155, 103, 0.7));
+  background: linear-gradient(135deg, rgba(92, 202, 96, 0.8), rgba(62, 155, 103, 0.8));
 }
 
 [data-theme='dark'] .secondaryButton {
-  background: linear-gradient(135deg, rgba(49, 166, 255, 0.7), rgba(19, 185, 255, 0.7));
+  background: linear-gradient(135deg, rgba(49, 166, 255, 0.8), rgba(19, 185, 255, 0.8));
 }
 
 .heroButton:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 .heroButton:active {
@@ -151,24 +166,37 @@
   padding: 5rem 0;
   width: 100%;
   background: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0.5) 0%, 
-    rgba(240, 245, 255, 0.5) 100%
+    rgba(255, 255, 255, 0.6) 0%, 
+    rgba(240, 245, 255, 0.6) 100%
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
   position: relative;
+}
+
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
 }
 
 /* 特性卡片样式 - 毛玻璃效果 */
 .featureCard {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.6);
   padding: 2.5rem 2rem;
   height: 100%;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
@@ -187,19 +215,35 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s;
 }
 
-.featureCard:hover::before {
+.featureCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.featureCard:hover::before,
+.featureCard:hover::after {
   opacity: 1;
 }
 
 .featureCard:hover {
   transform: translateY(-12px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
 /* 特性图标样式 */
@@ -212,19 +256,26 @@
   justify-content: center;
   margin-bottom: 1.5rem;
   color: #2e8555;
-  background: linear-gradient(135deg, rgba(46, 133, 85, 0.15), rgba(46, 133, 85, 0.05));
+  background: linear-gradient(135deg, rgba(46, 133, 85, 0.2), rgba(46, 133, 85, 0.08));
   border-radius: 50%;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(46, 133, 85, 0.2);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 2px solid rgba(46, 133, 85, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(46, 133, 85, 0.1);
+  box-shadow: 
+    0 4px 16px rgba(46, 133, 85, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
 }
 
 .featureCard:hover .featureIcon {
   transform: scale(1.15) rotate(5deg);
-  background: linear-gradient(135deg, rgba(46, 133, 85, 0.25), rgba(46, 133, 85, 0.15));
-  box-shadow: 0 8px 24px rgba(46, 133, 85, 0.2);
+  background: linear-gradient(135deg, rgba(46, 133, 85, 0.3), rgba(46, 133, 85, 0.15));
+  box-shadow: 
+    0 8px 24px rgba(46, 133, 85, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  border-color: rgba(46, 133, 85, 0.5);
 }
 
 .featureContent {
@@ -259,20 +310,26 @@
 /* 黑暗模式样式调整 */
 [data-theme='dark'] .features {
   background: linear-gradient(180deg, 
-    rgba(24, 24, 26, 0.5) 0%, 
-    rgba(32, 35, 42, 0.5) 100%
+    rgba(24, 24, 26, 0.6) 0%, 
+    rgba(32, 35, 42, 0.6) 100%
   );
 }
 
 [data-theme='dark'] .featureCard {
-  background: rgba(37, 37, 40, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(37, 37, 40, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme='dark'] .featureCard:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme='dark'] .featureTitle {
@@ -284,26 +341,30 @@
 }
 
 [data-theme='dark'] .featureIcon {
-  background: linear-gradient(135deg, rgba(37, 194, 160, 0.25), rgba(37, 194, 160, 0.1));
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.3), rgba(37, 194, 160, 0.12));
   color: #25c2a0;
-  border-color: rgba(37, 194, 160, 0.3);
-  box-shadow: 0 4px 16px rgba(37, 194, 160, 0.15);
+  border-color: rgba(37, 194, 160, 0.4);
+  box-shadow: 
+    0 4px 16px rgba(37, 194, 160, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
 [data-theme='dark'] .featureCard:hover .featureIcon {
-  background: linear-gradient(135deg, rgba(37, 194, 160, 0.35), rgba(37, 194, 160, 0.2));
-  box-shadow: 0 8px 24px rgba(37, 194, 160, 0.25);
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.4), rgba(37, 194, 160, 0.2));
+  box-shadow: 
+    0 8px 24px rgba(37, 194, 160, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 /* 考试日程流程图样式 - Liquid Glass 效果 */
 .universityInfo {
   padding: 5rem 0;
   background: linear-gradient(180deg, 
-    rgba(240, 247, 255, 0.5) 0%, 
-    rgba(255, 255, 255, 0.5) 100%
+    rgba(240, 247, 255, 0.6) 0%, 
+    rgba(255, 255, 255, 0.6) 100%
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
   position: relative;
 }
 
@@ -336,20 +397,26 @@
 .universityTimeline {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.6);
   padding: 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .universityTimeline:hover {
   transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
 .universityName {
@@ -360,9 +427,11 @@
   display: inline-block;
   margin-bottom: 0;
   align-self: flex-start;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
 }
 
 /* 折叠式考试日程流程图样式更新 */
@@ -379,13 +448,13 @@
 }
 
 .universityHeader:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
 }
 
 [data-theme='dark'] .universityHeader:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .toggleIcon {
@@ -395,15 +464,16 @@
   justify-content: center;
   padding: 0.5rem;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.3);
   color: #666;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 [data-theme='dark'] .toggleIcon {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   color: #b0b0b0;
 }
 
@@ -416,22 +486,29 @@
   margin-bottom: 1rem;
   border-radius: 16px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .department:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 [data-theme='dark'] .department {
-  background: rgba(37, 37, 40, 0.5);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  background: rgba(37, 37, 40, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .departmentHeader {
@@ -440,23 +517,23 @@
   align-items: center;
   padding: 0.8rem 1.2rem;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
   border-left: 4px solid;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .departmentHeader:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 [data-theme='dark'] .departmentHeader {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 [data-theme='dark'] .departmentHeader:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .departmentName {
@@ -483,30 +560,32 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1.2rem;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
   color: rgba(0, 0, 0, 0.7);
   text-decoration: none;
   font-size: 0.9rem;
   border-left: 4px solid;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .departmentLink:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   color: rgba(0, 0, 0, 0.85);
   text-decoration: none;
   transform: translateX(4px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 [data-theme='dark'] .departmentLink {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.7);
 }
 
 [data-theme='dark'] .departmentLink:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.95);
 }
 
@@ -517,15 +596,17 @@
   gap: 0.75rem;
   margin-top: 3rem;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.6);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
 }
 
 .disclaimerIcon {
@@ -542,8 +623,8 @@
 /* 黑暗模式样式 */
 [data-theme='dark'] .universityInfo {
   background: linear-gradient(180deg, 
-    rgba(32, 35, 42, 0.5) 0%, 
-    rgba(24, 24, 26, 0.5) 100%
+    rgba(32, 35, 42, 0.6) 0%, 
+    rgba(24, 24, 26, 0.6) 100%
   );
 }
 
@@ -556,24 +637,28 @@
 }
 
 [data-theme='dark'] .universityTimeline {
-  background: rgba(37, 37, 40, 0.6);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(37, 37, 40, 0.7);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme='dark'] .universityTimeline:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme='dark'] .scheduleDisclaimer {
-  background: rgba(37, 37, 40, 0.6);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme='dark'] .scheduleDisclaimer p {
-  color: rgba(255, 255, 255, 0.7);
+  background: rgba(37, 37, 40, 0.7);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 /* 语言切换按钮样式 - Liquid Glass 效果 */
@@ -588,10 +673,10 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(46, 133, 85, 0.7);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(46, 133, 85, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   color: white;
   padding: 12px 20px;
   border-radius: 50px;
@@ -599,7 +684,9 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -612,7 +699,7 @@
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3);
   transform: translate(-50%, -50%);
   transition: width 0.4s, height 0.4s;
 }
@@ -623,10 +710,12 @@
 }
 
 .languageButton:hover {
-  background: rgba(60, 173, 110, 0.8);
+  background: rgba(60, 173, 110, 0.9);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .languageButton:active {
@@ -642,12 +731,12 @@
 }
 
 [data-theme='dark'] .languageButton {
-  background: rgba(37, 194, 160, 0.7);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(37, 194, 160, 0.8);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 [data-theme='dark'] .languageButton:hover {
-  background: rgba(79, 221, 191, 0.8);
+  background: rgba(79, 221, 191, 0.9);
 }
 
 /* 调整移动设备上的语言切换按钮 */
