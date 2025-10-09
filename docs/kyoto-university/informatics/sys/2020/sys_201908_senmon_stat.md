@@ -7,11 +7,10 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2019年8月実施 専門科目 確率統計
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), [AKIRA](https://www.xiaohongshu.com/explore/6871bb3f000000000d01afdc?xsec_token=ABzqL-a7Z1UUEuH5W1f5wAJhySZaFfcwIp-8k2CbGTzus=)
 
 ## **Description**
-### 日本語版
-#### 問題1
+### 問題1
 確率変数 $X$ の確率分布が以下の確率密度関数で与えられたとき、$X$ の期待値と分散を求めなさい。$\mu$ は実定数である。
 
 $$
@@ -23,7 +22,7 @@ f(x) = \left\{
 \right.
 $$
 
-#### 問題2
+### 問題2
 確率密度 $X$ は確率密度関数
 
 $$
@@ -211,6 +210,16 @@ c &= - \mu_0 \log \alpha
 $$
 
 ##### (1-4)
+(1-3) より
+
+$$
+\begin{aligned}
+P(X \leq c \mid \mu) = 1 - \alpha &\Rightarrow c = -\mu \log \alpha \\
+&\Rightarrow P(X \mid X \leq -\mu \log \alpha) = 1 - \alpha \\
+&\Rightarrow P(\mu \mid \mu \geq \frac{-X}{\log \alpha}) = 1 - \alpha \\
+&\Rightarrow L(X) = \frac{-X}{\log \alpha}
+\end{aligned}
+$$
 
 #### (2)
 ##### (2-1)
