@@ -98,10 +98,8 @@ The MLE of $\theta$ is obtained in a similar way.
 
 $$
 \begin{aligned}
-&\frac{\partial\log L}{\partial\theta}\\
-&=-\frac{1}{2\sigma^{2}}\bigg\{\sum_{i=1}^{n}2(a\theta-X_{i})a+\sum_{j=1}^{m}2(b\theta-Y_{j})b\bigg\}\\
-&=0\\
-&\Rightarrow\quad\hat{\theta}=\frac{a\sum_{i=1}^{n}X_{i}+b\sum_{j=1}^{m}Y_{j}}{n(a^{2}+b^{2})}.
+\frac{\partial\log L}{\partial\theta}&=-\frac{1}{2\sigma^{2}}\bigg\{\sum_{i=1}^{n}2(a\theta-X_{i})a+\sum_{j=1}^{m}2(b\theta-Y_{j})b\bigg\}=0\\
+&\Rightarrow\quad\hat{\theta}=\frac{a\sum_{i=1}^{n}X_{i}+b\sum_{j=1}^{m}Y_{j}}{na^{2}+mb^{2}}.
 \end{aligned}
 $$
 
@@ -126,11 +124,11 @@ $$
 For variance we have
 
 $$
-\mathrm{Var}(\bar{X})=\frac{1}{n}\mathrm{Var}(X_{i})=\frac{\sigma^{2}}{n},\quad\mathrm{Var}(\bar{Y})=\frac{\sigma^{2}}{n},
+\mathrm{Var}(\bar{X})=\frac{1}{n}\mathrm{Var}(X_{i})=\frac{\sigma^{2}}{n},\quad\mathrm{Var}(\bar{Y})=\frac{\sigma^{2}}{m},
 $$
 
 $$
-\mathrm{Var}(\alpha\bar{X}+\beta\bar{Y})=(\alpha^2+\beta^2)\frac{\sigma^2}{n}.
+\mathrm{Var}(\alpha\bar{X}+\beta\bar{Y})=(\frac{\alpha^2}{n}+\frac{\beta^2}{m})\sigma^2.
 $$
 
 #### (3)
