@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2018年8月実施 専門科目 確率統計
 
 ## **Author**
-[uogxtc](https://zhuanlan.zhihu.com/p/697551899)
+[uogxtc](https://zhuanlan.zhihu.com/p/697551899), 祭音Myyura
 
 ## **Description**
 ### 問題1
@@ -116,7 +116,7 @@ $$
 Let $\frac{\partial\log L}{\partial\alpha}=0$ and then we get
 
 $$
-\hat{\alpha}_n=\frac{2\sum X_i-\sum X_iY_i}{n+\sum X_i-\sum Y_i-\sum X_iY_i}.
+\hat{\alpha}_n=\frac{2\sum X_i-\sum X_iY_i}{n+\sum X_i-\sum Y_i + \sum X_iY_i}.
 $$
 
 #### (4)
@@ -133,7 +133,7 @@ $$
 Since $\hat{\alpha}_{n}$ converges, it converges to
 
 $$
-\lim\limits_{n\to\infty}\hat{\alpha}_n=\frac{2\alpha n-\alpha\beta n}{n+\alpha n-2\alpha\beta n}=\frac{2\alpha-\alpha\beta}{1+\alpha-2\alpha\beta}.
+\lim\limits_{n\to\infty}\hat{\alpha}_n=\frac{2\alpha n-\alpha\beta n}{n+\alpha n}=\frac{2\alpha-\alpha\beta}{1+\alpha} = \alpha.
 $$
 
 ### 問題2
