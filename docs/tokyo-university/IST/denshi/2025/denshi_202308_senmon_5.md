@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2024年8月実施 専門 第4問 
 
 ## **Author**
-祭音Myyura
+祭音Myyura (assisted by GPT-5)
 
 ## **Description**
 $D$ 次元ベクトルを入力としスカラー値を出力するモデルを学習する問題を考える。
