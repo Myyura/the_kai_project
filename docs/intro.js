@@ -244,7 +244,7 @@ const schools = [
     description: '高い研究力を誇る名古屋大学は、ノーベル賞受賞者を輩出し、科学技術の進歩に大きく寄与。'
   },
   {
-    name: '東京科學大學 旧・東京工業大学',
+    name: '東京科学大学 旧・東京工業大学',
     url: '/docs/category/%E6%9D%B1%E4%BA%AC%E7%A7%91%E5%AD%B8%E5%A4%A7%E5%AD%B8-%E6%97%A7%E6%9D%B1%E4%BA%AC%E5%B7%A5%E6%A5%AD%E5%A4%A7%E5%AD%A6',
     description: '理工系教育の最高峰、東京科学大学は、先端技術の研究とイノベーションを牽引し世界に影響。'
   },
