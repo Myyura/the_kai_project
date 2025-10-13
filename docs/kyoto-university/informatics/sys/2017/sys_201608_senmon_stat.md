@@ -111,8 +111,7 @@ By setting $\frac{\partial\log L}{\partial\beta}=0$, we get
 
 $$
 \begin{aligned}
-&-\:\frac{n\alpha_{0}}{\beta}-\sum_{i=1}^{n}\left(\frac{X_{i}}{\beta}\right)^{\alpha_{0}-1} \left(-\frac{1}{\beta^{2}}\right)=0,\\
-&\Rightarrow\quad\hat{\beta}=\left(\frac{\sum_{i-1}^{n}X_{i}^{\alpha_{0}-1}}{n\alpha_{0}}\right)^{1/\alpha_{0}}.
+&-\:\frac{n\alpha_{0}}{\beta} + \alpha_0 \frac{1}{\beta^{\alpha_0 + 1}}\sum_{i=1}^n X_i^{\alpha_0} =0 \Rightarrow\quad\hat{\beta}=\left(\frac{\sum_{i=1}^{n}X_{i}^{\alpha_{0}}}{n}\right)^{1/\alpha_{0}}.
 \end{aligned}
 $$
 
