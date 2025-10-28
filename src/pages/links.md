@@ -36,6 +36,7 @@ title: 参考链接
 - [あーるえぬ, 主に理論系の方に向けた大学数学の記事を扱っています](https://math-note.xyz/)
 - [Youtube: sin有機化学](https://www.youtube.com/playlist?list=PLO74KYA_mWyPkHdY7vO3DKmLOqJgkjW-i)
 - [東京大学院试机械工学解答, zzy](https://zhuanlan.zhihu.com/p/685875014)
+- [東大院、京大院、東工大院、東北大院機械系過去問の解答, SN](https://bloodystream.hatenadiary.jp/entry/2021/05/01/080000)
 
 ## 有用的就职信息
 
