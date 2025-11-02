@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2025年度 数学 1"
+sidebar_label: "2025年度 第一期 数学 1"
 tags:
   - Kobe-University
 ---
-# 神戸大学 システム情報学研究科 2025年度 数学 1
+# 神戸大学 システム情報学研究科 2025年度 第一期 数学 1
 
 ## **Author**
 祭音Myyura
