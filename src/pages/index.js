@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaCalendarAlt, FaFileAlt, FaPencilAlt, FaUserGraduate, FaUniversity, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaLanguage } from 'react-icons/fa'; // 添加语言图标
+import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaCalendarAlt, FaFileAlt, FaPencilAlt, FaUserGraduate, FaUniversity, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaLanguage, FaStar } from 'react-icons/fa'; // 添加语言图标
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -33,12 +33,22 @@ const translations = {
     universityInfoDescription: '以下是各个学校、专攻以及其他有用信息的导航链接',
     websiteLink: '专攻（学院）链接',
     disclaimerText: '※ 请务必确认各大学的官方入学考试简章。日程可能会有变更。',
-    examSteps: {
-      apply: '申请受理',
-      exam: '笔试',
-      interview: '面试',
-      results: '结果公布'
-    }
+    testimonialsTitle: '来自用户的好评',
+    testimonials: [
+      {
+        name: '一位热心的前辈',
+        text: '这个平台真的太棒了！备考期间帮我节省了大量寻找过去问和答案的时间，社区的讨论也让我受益匪浅。',
+        avatar: 'https://avatars.githubusercontent.com/u/13355503?v=4'
+      },
+      {
+        name: '正在备考的同学',
+        text: '信息非常集中，特别是前辈们的经验贴，给了我很多鼓励和实用的建议。强烈推荐给所有打算考日本大学院的同学！',
+        avatar: 'https://avatars.githubusercontent.com/u/59238632?v=4'
+      }
+    ],
+    ctaTitle: '准备好开始你的升学之路了吗？',
+    ctaDescription: '立即加入我们，获取最全面的备考资源和最活跃的交流社区。',
+    ctaButtonContribute: '贡献力量'
   },
   ja: {
     viewPastExams: "過去問を見る",
@@ -62,12 +72,22 @@ const translations = {
     universityInfoDescription: '各大学・専攻およびその他の有用情報へのナビゲーションリンクです',
     websiteLink: '専攻（学部・研究科）リンク',
     disclaimerText: '※ 各大学の公式入試要項を必ずご確認ください。日程は変更される場合があります。',
-    examSteps: {
-      apply: '願書受付',
-      exam: '筆記試験',
-      interview: '面接',
-      results: '合格発表'
-    }
+    testimonialsTitle: 'ユーザーからの声',
+    testimonials: [
+      {
+        name: '熱心な先輩',
+        text: 'このプラットフォームは本当に素晴らしいです！試験準備中に過去問や解答を探す時間を大幅に節約でき、コミュニティでの議論も非常に役立ちました。',
+        avatar: 'https://avatars.githubusercontent.com/u/13355503?v=4'
+      },
+      {
+        name: '受験準備中の学生',
+        text: '情報が非常に集中しており、特に先輩方の体験談は、多くの励ましと実用的なアドバイスをくれました。日本の大学院を目指すすべての学生に強くお勧めします！',
+        avatar: 'https://avatars.githubusercontent.com/u/59238632?v=4'
+      }
+    ],
+    ctaTitle: '進学の道を歩み始める準備はできましたか？',
+    ctaDescription: '今すぐ参加して、最も包括的な受験リソースと最も活発な交流コミュニティを手に入れましょう。',
+    ctaButtonContribute: '貢献する'
   }
 };
 
@@ -122,28 +142,30 @@ function HomepageHeader({ language, toggleLanguage }) {
   
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <div className={styles.languageSwitcher}>
-          <button onClick={toggleLanguage} className={styles.languageButton}>
-            <FaLanguage className={styles.languageIcon} />
-            {language === 'zh' ? '日本語に切り替え' : '切换到中文'}
-          </button>
-        </div>
-        <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
-          {siteConfig.title}
-        </Heading>
-        <p className={clsx('hero__subtitle', styles.heroSubtitle)}>{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
-            to="/docs/intro">
-            {t.viewPastExams}
-          </Link>
-          <Link
-            className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
-            to="/blog">
-            {t.viewExperiences}
-          </Link>
+      <div className={clsx('container', styles.heroContainer)}>
+        <div className={styles.heroTextContainer}>
+          <div className={styles.languageSwitcher}>
+            <button onClick={toggleLanguage} className={styles.languageButton}>
+              <FaLanguage className={styles.languageIcon} />
+              {language === 'zh' ? '日本語' : '中文'}
+            </button>
+          </div>
+          <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
+            {siteConfig.title}
+          </Heading>
+          <p className={clsx('hero__subtitle', styles.heroSubtitle)}>{siteConfig.tagline}</p>
+          <div className={styles.buttons}>
+            <Link
+              className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
+              to="/docs/intro">
+              {t.viewPastExams} <FaArrowRight className={styles.buttonIcon} />
+            </Link>
+            <Link
+              className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
+              to="/blog">
+              {t.viewExperiences}
+            </Link>
+          </div>
         </div>
       </div>
     </header>
@@ -155,6 +177,8 @@ function UniversityInfoFlowchart({ language }) {
   const [isMobile, setIsMobile] = useState(false);
   const [expandedUniv, setExpandedUniv] = useState({});
   const [expandedDept, setExpandedDept] = useState({});
+  const [selectedUniv, setSelectedUniv] = useState('');
+  const [selectedDept, setSelectedDept] = useState('');
   
   useEffect(() => {
     const checkMobile = () => {
@@ -195,77 +219,36 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '工学系研究科',
           websiteUrl: 'https://www.t.u-tokyo.ac.jp/soe/admission/general',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'science',
           name: '理学系研究科',
           websiteUrl: 'https://www.s.u-tokyo.ac.jp/ja/admission/master/index.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'ist',
           name: '情報理工学系研究科',
           websiteUrl: 'https://www.i.u-tokyo.ac.jp/edu/entra/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'frontier',
           name: '新領域創成科学研究科',
           websiteUrl: 'https://www.k.u-tokyo.ac.jp/exam/info/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'culture',
           name: '総合文化研究科',
           websiteUrl: 'https://www.c.u-tokyo.ac.jp/graduate/admission/master-doctor/index.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'iii',
           name: '学際情報学府',
           websiteUrl: 'https://www.iii.u-tokyo.ac.jp/admissions',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'ms',
           name: '数理科学研究科',
           websiteUrl: 'https://www.ms.u-tokyo.ac.jp/kyoumu/examination.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -278,55 +261,26 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '工学研究科',
           websiteUrl: 'https://www.t.kyoto-u.ac.jp/ja/admissions/graduate',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'science',
           name: '理学研究科',
           websiteUrl: 'https://sci.kyoto-u.ac.jp/ja/admissions/ms',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'economics',
           name: '経済学研究科',
           websiteUrl: 'https://www.econ.kyoto-u.ac.jp/examguide/graduateexam-info/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'informatics',
           name: '情報学研究科',
           websiteUrl: 'https://www.i.kyoto-u.ac.jp/admission/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'gsm',
           name: '経営管理大学院',
           websiteUrl: 'https://www.gsm.kyoto-u.ac.jp/admission/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -339,55 +293,26 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '工学研究科',
           websiteUrl: 'https://www.eng.tohoku.ac.jp/admission/grad/master.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'science',
           name: '理学研究科',
           websiteUrl: 'https://www.sci.tohoku.ac.jp/juken/graduate-admission.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'bme',
           name: '医工学研究科',
           websiteUrl: 'https://www.bme.tohoku.ac.jp/admission/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'environmental',
           name: '環境科学研究科',
           websiteUrl: 'https://www.kankyo.tohoku.ac.jp/newstudent/nittei-yoko.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'is',
           name: '情報科学研究科',
           websiteUrl: 'https://www.is.tohoku.ac.jp/jp/entrance/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -400,55 +325,26 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '工学研究科',
           websiteUrl: 'https://www.eng.osaka-u.ac.jp/ja/entrance/g_admissions/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'science',
           name: '理学研究科',
           websiteUrl: 'https://www.sci.osaka-u.ac.jp/ja/admissions/admissions_d/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'medicine',
           name: '医学系研究科',
           websiteUrl: 'https://www.med.osaka-u.ac.jp/admission/admission',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'es',
           name: '基礎工学研究科',
           websiteUrl: 'https://www.es.osaka-u.ac.jp/ja/examinee/graduate-school-of-engineering-science/entrance-exam/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'ist',
           name: '情報科学研究科',
           websiteUrl: 'https://www.ist.osaka-u.ac.jp/japanese/examinees/admission/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -461,54 +357,26 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '工学研究科',
           websiteUrl: 'https://www.engg.nagoya-u.ac.jp/prospective/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'science',
           name: '理学研究科',
           websiteUrl: 'https://www.sci.nagoya-u.ac.jp/graduate/index.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'env',
           name: '環境学研究科',
           websiteUrl: 'https://www.env.nagoya-u.ac.jp/admission/index.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'i',
           name: '情報学研究科',
           websiteUrl: 'https://www.i.nagoya-u.ac.jp/gs/entranceexamination/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'math',
           name: '多元数理科学研究科',
           websiteUrl: 'https://www.math.nagoya-u.ac.jp/ja/admission/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -521,12 +389,6 @@ function UniversityInfoFlowchart({ language }) {
           id: 'isct',
           name: '理工学系',   
           websiteUrl: 'https://www.titech.ac.jp/admissions/prospective-students/admissions/guide',  
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -539,55 +401,26 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '工学院',
           websiteUrl: 'https://www.eng.hokudai.ac.jp/graduate/examinfo/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'science',
           name: '理学院',
           websiteUrl: 'https://www2.sci.hokudai.ac.jp/gs/admission-guideline',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'fisheries',
           name: '水産科学院',
           websiteUrl: 'https://www2.fish.hokudai.ac.jp/admission/mcdc.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'ist',
           name: '情報科学院',
           websiteUrl: 'https://www.ist.hokudai.ac.jp/examinfo/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'hops',
           name: '公共政策大学院',
           websiteUrl: 'https://www.hops.hokudai.ac.jp/admission/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -600,54 +433,26 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '工学府',
           websiteUrl: 'https://www.eng.kyushu-u.ac.jp/admissions.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'science',
           name: '理学府',
           websiteUrl: 'https://www.sci.kyushu-u.ac.jp/admission/daigakuin_master.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'economics',
           name: '経済学府',
           websiteUrl: 'https://www.econ.kyushu-u.ac.jp/nyushi/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'isee',
           name: 'システム情報科学府',
           websiteUrl: 'https://www.isee.kyushu-u.ac.jp/admissions_master.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口頭試問', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'math',
           name: '数理学府',
           websiteUrl: 'https://www.math.kyushu-u.ac.jp/admission/graduateschool/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -660,34 +465,16 @@ function UniversityInfoFlowchart({ language }) {
           id: 'fundamental',
           name: '基幹理工学研究科',
           websiteUrl: 'https://www.waseda.jp/fsci/admissions_gs/',
-          schedules: [
-            { id: 'apply', label: '出願期間', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'creative',
           name: '創造理工学研究科',
           websiteUrl: 'https://www.waseda.jp/fsci/admissions_gs/',
-          schedules: [
-            { id: 'apply', label: '出願期間', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'advanced',
           name: '先進理工学研究科',
           websiteUrl: 'https://www.waseda.jp/fsci/admissions_gs/',
-          schedules: [
-            { id: 'apply', label: '出願期間', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -700,33 +487,16 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '人間総合科学学術院',
           websiteUrl: 'https://www.ap-graduate.tsukuba.ac.jp/course/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'humanities',
           name: '人文社会ビジネス科学学術院',
           websiteUrl: 'https://www.ap-graduate.tsukuba.ac.jp/course/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'gstils',
           name: '理工情報生命学術院',
           websiteUrl: 'https://www.ap-graduate.tsukuba.ac.jp/course/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -739,12 +509,6 @@ function UniversityInfoFlowchart({ language }) {
           id: 'informatics',
           name: '情報理工学研究科',
           websiteUrl: 'https://www.uec.ac.jp/education/graduate/admission/request.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -757,44 +521,21 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '工学研究科',
           websiteUrl: 'http://www.eng.kobe-u.ac.jp/examinee.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'science',
           name: '理学研究科',
           websiteUrl: 'http://www.sci.kobe-u.ac.jp/admissions/master.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'economics',
           name: '経済学研究科',
           websiteUrl: 'https://www.econ.kobe-u.ac.jp/admission-master/',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'csi',
           name: 'システム情報学研究科',
           websiteUrl: 'https://www.csi.kobe-u.ac.jp/exam/master_exam.html',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '口述試験', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     },
@@ -807,26 +548,40 @@ function UniversityInfoFlowchart({ language }) {
           id: 'engineering',
           name: '先進理工系科学研究科',
           websiteUrl: 'https://www.hiroshima-u.ac.jp/adse/admission',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'interview', label: '面接', icon: <FaUserGraduate /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         },
         {
           id: 'humanities',
           name: '人間社会科学研究科',
           websiteUrl: 'https://www.hiroshima-u.ac.jp/gshs/nyuusi',
-          schedules: [
-            { id: 'apply', label: '願書受付', icon: <FaFileAlt /> },
-            { id: 'exam', label: '筆記試験', icon: <FaPencilAlt /> },
-            { id: 'results', label: '合格発表', icon: <FaUniversity /> }
-          ]
         }
       ]
     }
   ];
+
+  const filteredUniversities = universities.filter(univ => {
+    const univMatch = selectedUniv ? univ.id === selectedUniv : true;
+    const deptMatch = selectedDept ? univ.departments.some(dept => dept.id === selectedDept) : true;
+    
+    if (selectedUniv && !selectedDept) {
+      return univMatch;
+    }
+    if (selectedUniv && selectedDept) {
+      return univMatch && deptMatch;
+    }
+    if (!selectedUniv && selectedDept) {
+      return deptMatch;
+    }
+    return true;
+  });
+
+  const handleUniversityChange = (e) => {
+    setSelectedUniv(e.target.value);
+    setSelectedDept(''); // 重置专攻选择
+  };
+
+  const departmentOptions = selectedUniv 
+    ? universities.find(u => u.id === selectedUniv)?.departments || [] 
+    : [];
 
   return (
     <section className={styles.universityInfo}>
@@ -838,8 +593,27 @@ function UniversityInfoFlowchart({ language }) {
           {t.universityInfoDescription}
         </p>
         
+        <div className={styles.filterContainer}>
+          <div className={styles.selectWrapper}>
+            <select value={selectedUniv} onChange={handleUniversityChange} className={styles.selectBox}>
+              <option value="">{language === 'zh' ? '所有大学' : 'すべての大学'}</option>
+              {universities.map(univ => (
+                <option key={univ.id} value={univ.id}>{univ.name}</option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.selectWrapper}>
+            <select value={selectedDept} onChange={(e) => setSelectedDept(e.target.value)} className={styles.selectBox} disabled={!selectedUniv}>
+              <option value="">{language === 'zh' ? '所有专攻' : 'すべての専攻'}</option>
+              {departmentOptions.map(dept => (
+                <option key={dept.id} value={dept.id}>{dept.name}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div className={styles.flowchartContainer}>
-          {universities.map((univ) => (
+          {filteredUniversities.map((univ) => (
             <div key={univ.id} className={styles.universityTimeline}>
               <div 
                 className={styles.universityHeader}
@@ -859,7 +633,7 @@ function UniversityInfoFlowchart({ language }) {
               
               {expandedUniv[univ.id] && (
                 <div className={styles.departmentsContainer}>
-                  {univ.departments.map((dept) => {
+                  {univ.departments.filter(d => selectedDept ? d.id === selectedDept : true).map((dept) => {
                     const deptKey = `${univ.id}-${dept.id}`;
                     const isDeptExpanded = expandedDept[deptKey];
                     
@@ -897,11 +671,6 @@ function UniversityInfoFlowchart({ language }) {
             </div>
           ))}
         </div>
-        
-        <div className={styles.scheduleDisclaimer}>
-          <FaCalendarAlt className={styles.disclaimerIcon} />
-          <p>{t.disclaimerText}</p>
-        </div>
       </div>
     </section>
   );
@@ -915,7 +684,8 @@ function HomepageFeatures({ language }) {
   const localizedFeatures = t.features.map((feature, index) => ({
     title: feature.title,
     icon: FeatureList[index].icon,
-    description: feature.description
+    description: feature.description,
+    link: index === 0 ? '/docs/intro' : (index === 1 ? '/blog' : 'https://github.com/Myyura/the_kai_project')
   }));
   
   return (
@@ -925,6 +695,63 @@ function HomepageFeatures({ language }) {
           {localizedFeatures.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// 新增 Testimonials 组件
+function Testimonials({ language }) {
+  const t = translations[language];
+  const testimonials = t.testimonials;
+
+  return (
+    <section className={styles.testimonials}>
+      <div className="container">
+        <Heading as="h2" className={styles.testimonialsTitle}>{t.testimonialsTitle}</Heading>
+        <div className={styles.testimonialCards}>
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className={styles.testimonialCard}>
+              <div className={styles.testimonialHeader}>
+                <img src={testimonial.avatar} alt={testimonial.name} className={styles.testimonialAvatar} />
+                <div className={styles.testimonialAuthor}>
+                  <p className={styles.testimonialName}>{testimonial.name}</p>
+                  <div className={styles.testimonialRating}>
+                    {[...Array(5)].map((_, i) => <FaStar key={i} />)}
+                  </div>
+                </div>
+              </div>
+              <p className={styles.testimonialText}>"{testimonial.text}"</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// 新增 CallToAction 组件
+function CallToAction({ language }) {
+  const t = translations[language];
+  return (
+    <section className={styles.ctaSection}>
+      <div className="container">
+        <div className={styles.ctaContent}>
+          <Heading as="h2" className={styles.ctaTitle}>{t.ctaTitle}</Heading>
+          <p className={styles.ctaDescription}>{t.ctaDescription}</p>
+          <div className={styles.buttons}>
+            <Link
+              className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
+              to="/docs/intro">
+              {t.viewPastExams} <FaArrowRight className={styles.buttonIcon} />
+            </Link>
+            <Link
+              className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
+              to="https://github.com/Myyura/the_kai_project">
+              {t.ctaButtonContribute}
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -950,30 +777,9 @@ export default function Home() {
       <main>
         <HomepageFeatures language={language} />
         <UniversityInfoFlowchart language={language} />
+        <Testimonials language={language} />
+        <CallToAction language={language} />
       </main>
     </Layout>
   );
 }
-
-// export default function Home() {
-//   const {siteConfig} = useDocusaurusContext();
-//   const [language, setLanguage] = useState('zh'); // 默认使用中文
-  
-//   // 在主组件中共享语言状态
-//   const toggleLanguage = () => {
-//     setLanguage(prev => prev === 'zh' ? 'ja' : 'zh');
-//   };
-  
-//   // 将语言状态传递给所有需要本地化的组件
-//   return (
-//     <Layout
-//       title={siteConfig.title}
-//       description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
-//       <HomepageStructuredData />
-//       <HomepageHeader language={language} toggleLanguage={toggleLanguage} />
-//       <main>
-//         <HomepageFeatures language={language} />
-//       </main>
-//     </Layout>
-//   );
-// }

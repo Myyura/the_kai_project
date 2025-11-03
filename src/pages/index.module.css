@@ -5,17 +5,40 @@
 
 /* Hero Banner 区域样式 - Liquid Glass 风格 */
 .heroBanner {
-  padding: 8rem 0;
-  text-align: center;
+  padding: 6rem 0;
+  text-align: left;
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, 
-    rgba(120, 119, 198, 0.3) 0%, 
-    rgba(118, 184, 223, 0.3) 50%,
-    rgba(255, 185, 188, 0.3) 100%
+    rgba(230, 235, 255, 0.6) 0%, 
+    rgba(220, 235, 255, 0.6) 50%,
+    rgba(255, 220, 225, 0.6) 100%
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.heroContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroTextContainer {
+  flex: 1;
+  max-width: 800px;
+  position: relative;
+}
+
+.heroImageContainer {
+  display: none;
+}
+
+.heroImage {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
 }
 
 /* 添加动态背景气泡效果 */
@@ -27,8 +50,8 @@
   width: 200%;
   height: 200%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: float 20s linear infinite;
+  background-size: 40px 40px;
+  animation: float 25s linear infinite;
   pointer-events: none;
 }
 
@@ -37,46 +60,46 @@
     transform: translate(0, 0) rotate(0deg);
   }
   100% {
-    transform: translate(50px, 50px) rotate(360deg);
+    transform: translate(40px, 40px) rotate(360deg);
   }
 }
 
 /* 文字样式 - 更柔和 */
 .heroTitle {
-  color: rgba(0, 0, 0, 0.85);
-  font-size: 3.5rem !important;
-  margin-bottom: 1.5rem;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 3.2rem !important;
+  margin-bottom: 1rem;
   animation: fadeIn 0.8s ease-in;
-  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.5);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  text-shadow: 0 1px 15px rgba(255, 255, 255, 0.4);
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 .heroSubtitle {
-  color: rgba(0, 0, 0, 0.65);
-  font-size: 1.4rem;
-  margin-bottom: 2.5rem;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
   animation: fadeIn 0.8s ease-in 0.2s backwards;
   font-weight: 400;
-  letter-spacing: 0.01em;
+  line-height: 1.6;
 }
 
 /* 黑暗模式下文字调整 */
 [data-theme='dark'] .heroBanner {
   background: linear-gradient(135deg, 
-    rgba(66, 65, 138, 0.3) 0%, 
-    rgba(58, 124, 163, 0.3) 50%,
-    rgba(195, 125, 128, 0.3) 100%
+    rgba(40, 42, 78, 0.4) 0%, 
+    rgba(58, 84, 123, 0.4) 50%,
+    rgba(135, 95, 98, 0.4) 100%
   );
 }
 
 [data-theme='dark'] .heroTitle {
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.98);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='dark'] .heroSubtitle {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* 按钮样式 - Liquid Glass 效果 */
@@ -84,22 +107,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem;
-  gap: 1.5rem;
+  margin-top: 2.5rem;
+  gap: 1rem;
   animation: fadeIn 0.8s ease-in 0.4s backwards;
 }
 
 .heroButton {
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.8rem;
   font-weight: 600;
-  border-radius: 20px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buttonIcon {
+  transition: transform 0.3s ease;
+}
+
+.heroButton:hover .buttonIcon {
+  transform: translateX(4px);
 }
 
 .heroButton::before {
@@ -109,7 +143,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
   transition: left 0.5s;
 }
 
@@ -118,30 +152,33 @@
 }
 
 .primaryButton {
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.7), rgba(46, 139, 87, 0.7));
+  background: linear-gradient(135deg, var(--ifm-color-primary), #29784c);
   color: white !important;
 }
 
 .secondaryButton {
-  background: linear-gradient(135deg, rgba(33, 150, 243, 0.7), rgba(3, 169, 244, 0.7));
-  color: white !important;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--ifm-font-color-base) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 [data-theme='dark'] .primaryButton {
-  background: linear-gradient(135deg, rgba(92, 202, 96, 0.7), rgba(62, 155, 103, 0.7));
+  background: linear-gradient(135deg, var(--ifm-color-primary), #21af90);
 }
 
 [data-theme='dark'] .secondaryButton {
-  background: linear-gradient(135deg, rgba(49, 166, 255, 0.7), rgba(19, 185, 255, 0.7));
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ifm-font-color-base) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .heroButton:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
 }
 
 .heroButton:active {
-  transform: translateY(-2px) scale(0.98);
+  transform: translateY(-1px) scale(0.99);
 }
 
 /* 特性区域样式 - Liquid Glass 效果 */
@@ -150,30 +187,29 @@
   align-items: center;
   padding: 5rem 0;
   width: 100%;
-  background: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0.5) 0%, 
-    rgba(240, 245, 255, 0.5) 100%
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* 特性卡片样式 - 毛玻璃效果 */
 .featureCard {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 2rem;
   height: 100%;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 0.5rem;
+  margin: 0;
   text-align: center;
   animation: fadeIn 0.8s ease-in;
   position: relative;
@@ -187,7 +223,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s;
 }
@@ -197,34 +233,34 @@
 }
 
 .featureCard:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-10px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 /* 特性图标样式 */
 .featureIcon {
-  font-size: 2.5rem;
-  width: 90px;
-  height: 90px;
+  font-size: 2.2rem;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  color: #2e8555;
-  background: linear-gradient(135deg, rgba(46, 133, 85, 0.15), rgba(46, 133, 85, 0.05));
+  color: var(--ifm-color-primary);
+  background: linear-gradient(135deg, rgba(46, 133, 85, 0.1), rgba(46, 133, 85, 0.05));
   border-radius: 50%;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(46, 133, 85, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(46, 133, 85, 0.15);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(46, 133, 85, 0.1);
+  box-shadow: 0 4px 14px rgba(46, 133, 85, 0.1);
 }
 
 .featureCard:hover .featureIcon {
-  transform: scale(1.15) rotate(5deg);
-  background: linear-gradient(135deg, rgba(46, 133, 85, 0.25), rgba(46, 133, 85, 0.15));
-  box-shadow: 0 8px 24px rgba(46, 133, 85, 0.2);
+  transform: scale(1.1) rotate(-5deg);
+  background: linear-gradient(135deg, rgba(46, 133, 85, 0.2), rgba(46, 133, 85, 0.1));
+  box-shadow: 0 7px 20px rgba(46, 133, 85, 0.18);
 }
 
 .featureContent {
@@ -232,23 +268,23 @@
 }
 
 .featureTitle {
-  font-size: 1.5rem !important;
-  margin-bottom: 1rem;
-  color: rgba(0, 0, 0, 0.85);
-  font-weight: 600;
+  font-size: 1.4rem !important;
+  margin-bottom: 0.8rem;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 700;
 }
 
 .featureDescription {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(0, 0, 0, 0.65);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.68);
 }
 
 /* 动画效果 */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(25px);
   }
   to {
     opacity: 1;
@@ -258,77 +294,126 @@
 
 /* 黑暗模式样式调整 */
 [data-theme='dark'] .features {
-  background: linear-gradient(180deg, 
-    rgba(24, 24, 26, 0.5) 0%, 
-    rgba(32, 35, 42, 0.5) 100%
-  );
+  background-color: rgba(24, 24, 26, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 [data-theme='dark'] .featureCard {
-  background: rgba(37, 37, 40, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(37, 37, 40, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme='dark'] .featureCard:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.35);
 }
 
 [data-theme='dark'] .featureTitle {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.96);
 }
 
 [data-theme='dark'] .featureDescription {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 [data-theme='dark'] .featureIcon {
-  background: linear-gradient(135deg, rgba(37, 194, 160, 0.25), rgba(37, 194, 160, 0.1));
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.2), rgba(37, 194, 160, 0.1));
   color: #25c2a0;
-  border-color: rgba(37, 194, 160, 0.3);
-  box-shadow: 0 4px 16px rgba(37, 194, 160, 0.15);
+  border-color: rgba(37, 194, 160, 0.25);
+  box-shadow: 0 4px 16px rgba(37, 194, 160, 0.12);
 }
 
 [data-theme='dark'] .featureCard:hover .featureIcon {
-  background: linear-gradient(135deg, rgba(37, 194, 160, 0.35), rgba(37, 194, 160, 0.2));
-  box-shadow: 0 8px 24px rgba(37, 194, 160, 0.25);
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.3), rgba(37, 194, 160, 0.15));
+  box-shadow: 0 8px 24px rgba(37, 194, 160, 0.2);
 }
 
 /* 考试日程流程图样式 - Liquid Glass 效果 */
 .universityInfo {
   padding: 5rem 0;
-  background: linear-gradient(180deg, 
-    rgba(240, 247, 255, 0.5) 0%, 
-    rgba(255, 255, 255, 0.5) 100%
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(245, 248, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: relative;
 }
 
 .universityInfoTitle {
   text-align: center;
-  font-size: 2.5rem !important;
-  margin-bottom: 1.5rem;
-  color: rgba(0, 0, 0, 0.85);
+  font-size: 2.2rem !important;
+  margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.88);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .universityInfoDescription {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  color: rgba(0, 0, 0, 0.65);
-  font-size: 1.1rem;
+  max-width: 750px;
+  margin: 0 auto 2.5rem;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.05rem;
+}
+
+.filterContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.selectWrapper {
+  position: relative;
+  min-width: 250px;
+}
+
+.selectBox {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 1rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: all 0.3s ease;
+}
+
+.selectBox:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.selectWrapper::after {
+  content: '▼';
+  font-size: 0.8rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] .selectBox {
+  background-color: rgba(37, 37, 40, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+[data-theme='dark'] .selectWrapper::after {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .flowchartContainer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 1200px;
+  gap: 1.5rem;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -336,33 +421,34 @@
 .universityTimeline {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 1rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .universityTimeline:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 .universityName {
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
   color: white;
   font-weight: 600;
+  font-size: 1rem;
   display: inline-block;
   margin-bottom: 0;
   align-self: flex-start;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* 折叠式考试日程流程图样式更新 */
@@ -370,144 +456,143 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem;
-  border-radius: 16px;
+  padding: 0.5rem;
+  border-radius: 12px;
   border: 2px solid transparent;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-bottom: 0.5rem;
 }
 
 .universityHeader:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 [data-theme='dark'] .universityHeader:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 .toggleIcon {
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.4rem;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #666;
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #555;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 [data-theme='dark'] .toggleIcon {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #b0b0b0;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #a0a0a0;
 }
 
 .departmentsContainer {
-  padding: 0 0.5rem 0.5rem 1.5rem;
+  padding: 0 0.5rem 0.5rem 1rem;
   animation: fadeIn 0.4s ease;
 }
 
 .department {
-  margin-bottom: 1rem;
-  border-radius: 16px;
+  margin-bottom: 0.8rem;
+  border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .department:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme='dark'] .department {
-  background: rgba(37, 37, 40, 0.5);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  background: rgba(37, 37, 40, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 
 .departmentHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1.2rem;
+  padding: 0.7rem 1rem;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-left: 4px solid;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-left: 3px solid;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .departmentHeader:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 [data-theme='dark'] .departmentHeader {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 [data-theme='dark'] .departmentHeader:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .departmentName {
   font-weight: 600;
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.85);
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.88);
 }
 
 [data-theme='dark'] .departmentName {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.96);
 }
 
 .departmentToggle {
-  font-size: 0.85rem;
-  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.55);
 }
 
 [data-theme='dark'] .departmentToggle {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .departmentLink {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(0, 0, 0, 0.75);
   text-decoration: none;
-  font-size: 0.9rem;
-  border-left: 4px solid;
+  font-size: 0.85rem;
+  border-left: 3px solid;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .departmentLink:hover {
-  background: rgba(255, 255, 255, 0.6);
-  color: rgba(0, 0, 0, 0.85);
+  background: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.9);
   text-decoration: none;
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 [data-theme='dark'] .departmentLink {
-  background: rgba(255, 255, 255, 0.03);
-  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 [data-theme='dark'] .departmentLink:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.98);
 }
 
 .scheduleDisclaimer {
@@ -516,161 +601,279 @@
   justify-content: center;
   gap: 0.75rem;
   margin-top: 3rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  max-width: 800px;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  max-width: 750px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 }
 
 .disclaimerIcon {
-  color: #2e8555;
-  font-size: 1.3rem;
+  color: var(--ifm-color-primary);
+  font-size: 1.2rem;
 }
 
 .scheduleDisclaimer p {
   margin: 0;
-  font-size: 0.95rem;
-  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 /* 黑暗模式样式 */
 [data-theme='dark'] .universityInfo {
-  background: linear-gradient(180deg, 
-    rgba(32, 35, 42, 0.5) 0%, 
-    rgba(24, 24, 26, 0.5) 100%
-  );
+  background-color: rgba(32, 35, 42, 0.3);
 }
 
 [data-theme='dark'] .universityInfoTitle {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.96);
 }
 
 [data-theme='dark'] .universityInfoDescription {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 [data-theme='dark'] .universityTimeline {
-  background: rgba(37, 37, 40, 0.6);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(37, 37, 40, 0.5);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme='dark'] .universityTimeline:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.35);
 }
 
 [data-theme='dark'] .scheduleDisclaimer {
-  background: rgba(37, 37, 40, 0.6);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  background: rgba(37, 37, 40, 0.5);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 
 [data-theme='dark'] .scheduleDisclaimer p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 /* 语言切换按钮样式 - Liquid Glass 效果 */
 .languageSwitcher {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: -40px;
+  right: 0;
   z-index: 10;
+  width: 100%;
+  text-align: center;
 }
 
 .languageButton {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(46, 133, 85, 0.7);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  position: relative;
-  overflow: hidden;
-}
-
-.languageButton::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.4s, height 0.4s;
-}
-
-.languageButton:hover::before {
-  width: 300px;
-  height: 300px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--ifm-font-color-base);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .languageButton:hover {
-  background: rgba(60, 173, 110, 0.8);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.languageButton:active {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .languageIcon {
-  font-size: 1.4rem;
-  margin-right: 2px;
+  font-size: 1.2rem;
   position: relative;
   z-index: 1;
 }
 
 [data-theme='dark'] .languageButton {
-  background: rgba(37, 194, 160, 0.7);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--ifm-font-color-base);
 }
 
 [data-theme='dark'] .languageButton:hover {
-  background: rgba(79, 221, 191, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 5rem 0;
+  background-color: #f9f9f9;
+}
+
+[data-theme='dark'] .testimonials {
+  background-color: #1e1e20;
+}
+
+.testimonialsTitle {
+  text-align: center;
+  font-size: 2.2rem !important;
+  margin-bottom: 3rem;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 700;
+}
+
+[data-theme='dark'] .testimonialsTitle {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.testimonialCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.testimonialCard {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .testimonialCard {
+  background: #2a2a2e;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .testimonialCard:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.testimonialHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.testimonialAvatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  border: 3px solid var(--ifm-color-primary);
+}
+
+.testimonialAuthor {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonialName {
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.testimonialRating {
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.testimonialText {
+  font-style: italic;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+[data-theme='dark'] .testimonialText {
+  color: #bbb;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  text-align: center;
+}
+
+[data-theme='dark'] .ctaSection {
+  background: linear-gradient(135deg, #232526, #414345);
+}
+
+.ctaContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.5rem !important;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.ctaDescription {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+[data-theme='dark'] .ctaDescription {
+  color: #bbb;
 }
 
 /* 调整移动设备上的语言切换按钮 */
 @media screen and (max-width: 768px) {
   .languageSwitcher {
-    top: 10px;
-    right: 15px;
+    top: auto;
+    right: auto;
+    position: static;
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
   
   .languageButton {
-    padding: 10px 16px;
-    font-size: 0.9rem;
+    padding: 8px 14px;
+    font-size: 0.85rem;
   }
   
   .languageIcon {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .filterContainer {
+    flex-direction: column;
   }
 }
 
 /* 响应式调整 */
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 5rem 2rem;
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+
+  .heroContainer {
+    flex-direction: column;
+  }
+
+  .heroTextContainer {
+    text-align: center;
+  }
+
+  .buttons {
+    justify-content: center;
   }
   
   .heroTitle {
@@ -678,12 +881,11 @@
   }
 
   .heroSubtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
-  .buttons {
-    flex-direction: column;
-    gap: 1rem;
+  .heroImageContainer {
+    display: none; /* 在中等屏幕下隐藏图片以节省空间 */
   }
 
   .features {
@@ -691,16 +893,20 @@
   }
 
   .featureCard {
-    margin: 1rem;
+    margin: 0;
     padding: 2rem 1.5rem;
   }
 
   [class*='col col--'] {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   [class*='col col--']:last-child {
     margin-bottom: 0;
+  }
+
+  .testimonialCards {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -746,8 +952,11 @@
   }
   
   .languageSwitcher {
-    top: 15px;
-    right: 20px;
+    top: auto;
+    right: auto;
+    position: static;
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
   
   .languageButton {
@@ -757,5 +966,13 @@
   
   .languageIcon {
     font-size: 1.2rem;
+  }
+
+  .ctaTitle {
+    font-size: 2rem !important;
+  }
+
+  .ctaDescription {
+    font-size: 1rem;
   }
 }
