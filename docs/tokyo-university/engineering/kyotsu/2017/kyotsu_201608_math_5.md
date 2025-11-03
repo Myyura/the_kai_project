@@ -169,7 +169,7 @@ L\bigg[\frac{\text{d}y(t)}{\text{d}t}\bigg] &= X(s) - 2Y(s) \label{(b)} \tag{b}
 \right.
 $$
 
-$x(0) = a ,y(0) = b$ であることに注意して,　式 $(\ref{(a)})$ より,
+$x(0) = a ,y(0) = b$ であることに注意して,　式 $(a)$ より,
 
 $$
 sX(s) - x(0) = -X(s)
@@ -183,7 +183,7 @@ $$
 \therefore \quad x(t) =aL^{-1}\bigg[\frac{1}{s + 1}\bigg] = ae^{-t}
 $$
 
-式 $(\ref{(b)})$ より,
+式 $(b)$ より,
 
 $$
 \begin{aligned}

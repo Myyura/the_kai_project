@@ -212,7 +212,7 @@ $$
 \end{align}
 $$
 
-$(\ref{1}) - (\ref{2})$ and we have
+$(1) - (2)$ and we have
 
 $$
 \begin{aligned}
