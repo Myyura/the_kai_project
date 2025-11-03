@@ -3,12 +3,12 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaCalendarAlt, FaFileAlt, FaPencilAlt, FaUserGraduate, FaUniversity, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaLanguage, FaStar } from 'react-icons/fa'; // 添加语言图标
+import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaCalendarAlt, FaFileAlt, FaPencilAlt, FaUserGraduate, FaUniversity, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaLanguage, FaStar } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
 import { universities } from '../data/universities';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
-import { useEffect, useState } from 'react';
 
 // 翻译对象
 const translations = {
@@ -412,11 +412,20 @@ function CallToAction({ language }) {
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
-  const [language, setLanguage] = useState('zh'); // 默认使用中文
+  const [language, setLanguage] = useState('zh');
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('preferredLanguage');
+    if (storedLanguage) {
+      setLanguage(storedLanguage);
+    }
+  }, []);
   
   // 在主组件中共享语言状态
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'zh' ? 'ja' : 'zh');
+    const newLanguage = language === 'zh' ? 'ja' : 'zh';
+    setLanguage(newLanguage);
+    localStorage.setItem('preferredLanguage', newLanguage);
   };
   
   // 将语言状态传递给所有需要本地化的组件

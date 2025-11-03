@@ -1,16 +1,63 @@
-.subtitle {
-  font-size: 1.4rem;
+/* Action Cards - Liquid Glass */
+.actionCardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
   margin-bottom: 2rem;
-  color: var(--ifm-color-emphasis-700);
 }
 
-.sectionSpacing {
-  margin-top: 2rem;
+.actionCard {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 2rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
 }
 
+.actionCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.actionCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.actionCardHeader h3 {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 700;
+}
+
+.actionCardIcon {
+  font-size: 1.8rem;
+  color: var(--ifm-color-primary);
+}
+
+.actionCardContent ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+.actionCardContent li {
+  margin-bottom: 0.5rem;
+}
+
+/* School Grid */
 .schoolGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -18,79 +65,130 @@
 
 .schoolItem {
   display: flex;
-  min-height: 200px;
+  min-height: 180px;
 }
 
-/* 双语文本样式 */
-.bilingualContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  margin-bottom: 1rem;
-}
-
-.zhText {
-  font-weight: 500;
-}
-
-.jaText {
-  font-size: 0.95rem;
-  color: var(--ifm-color-emphasis-700);
-}
-
-/* 双语标题样式 */
-.bilingualHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  margin-bottom: 1.2rem;
-}
-
-.zhHeader {
-  font-weight: bold;
-}
-
-.jaHeader {
-  font-size: 0.9rem;
-  color: var(--ifm-color-emphasis-700);
-}
-
-/* 语言切换按钮样式 */
+/* Language Switcher - Liquid Glass */
 .languageSwitcher {
-  display: flex;
-  justify-content: flex-end;  
-  margin-top: -2.5rem;
-  margin-left: auto;
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 1000;
 }
 
 .languageButton {
-  background-color: var(--ifm-color-primary);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.3s;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--ifm-font-color-base) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .languageButton:hover {
-  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
+}
+
+.languageIcon {
+  transition: transform 0.3s ease;
+}
+
+.languageButton:hover .languageIcon {
+  transform: rotate(15deg);
+}
+
+/* License Section - Liquid Glass */
+.licenseSection {
+  margin-top: 3rem;
+  padding: 2.5rem;
+  background: rgba(245, 248, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.licenseSection h2 {
+  margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 700;
+}
+
+.licenseSection p {
+  margin-bottom: 0.5rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* General & Responsive */
+.sectionSpacing {
+  margin-top: 2rem;
 }
 
 .localizedContainer {
   margin-bottom: 1rem;
 }
 
-/* 响应式布局 */
+/* Dark Mode Styles */
+[data-theme='dark'] .actionCard {
+  background: rgba(37, 37, 40, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme='dark'] .actionCard:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='dark'] .actionCardHeader h3 {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+[data-theme='dark'] .actionCardContent ul {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme='dark'] .languageButton {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ifm-font-color-base) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .licenseSection {
+  background-color: rgba(24, 24, 26, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .licenseSection h2 {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+[data-theme='dark'] .licenseSection p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 @media (max-width: 996px) {
-  .schoolGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .actionCardGrid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .schoolGrid {
-    grid-template-columns: 1fr;
+  .languageSwitcher {
+    top: 10px;
+    right: 10px;
+  }
+  .languageButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
 }

@@ -1,37 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import SchoolCard from '@site/src/components/SchoolCard';
 import styles from './intro.module.css';
-
+import { FiGithub, FiCheckCircle, FiGlobe } from 'react-icons/fi';
+import { FaLanguage } from 'react-icons/fa';
 // 语言切换的内容组件
 const LocalizedContent = ({ zh, ja, language }) => (
-  <div className={styles.localizedContainer}>
-    {language === 'ja' ? ja : zh}
+  <>{language === 'ja' ? ja : zh}</>
+);
+
+// 行动号召卡片组件
+const ActionCard = ({ icon, title, children }) => (
+  <div className={styles.actionCard}>
+    <div className={styles.actionCardHeader}>
+      <span className={styles.actionCardIcon}>{icon}</span>
+      <h3>{title}</h3>
+    </div>
+    <div className={styles.actionCardContent}>
+      {children}
+    </div>
   </div>
 );
 
 export default function Intro() {
-  // 默认显示中文
+  // 默认显示中文，并从localStorage读取设置
   const [language, setLanguage] = useState('zh');
-  
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('preferredLanguage');
+    if (storedLanguage) {
+      setLanguage(storedLanguage);
+    }
+  }, []);
+
   // 切换语言函数
   const toggleLanguage = () => {
-    setLanguage(language === 'ja' ? 'zh' : 'ja');
+    const newLanguage = language === 'ja' ? 'zh' : 'ja';
+    setLanguage(newLanguage);
+    localStorage.setItem('preferredLanguage', newLanguage);
   };
 
   // 语言切换按钮文本
-  const buttonText = language === 'ja' ? '切换到中文' : '日本語に切り替え';
+  const buttonText = language === 'ja' ? '中文' : '日本語';
   
   // 将所有文本内容整合到一个对象中，方便管理
   const texts = {
-    intro: {
-      zh: "本项目旨在提供一个开源的、便捷的、分享与讨论修考试题答案的地方，破除信息之壁。",
-      ja: "本プロジェクトは、オープンソースで便利な、大学院入試問題の解答を共有・議論する場を提供し、情報の壁を取り除くことを目指しています。"
-    },
-    projectUrl: {
-      zh: <>项目地址：<a href="https://github.com/Myyura/the_kai_project" target="_blank">https://github.com/Myyura/the_kai_project</a></>,
-      ja: <>プロジェクトURL：<a href="https://github.com/Myyura/the_kai_project" target="_blank">https://github.com/Myyura/the_kai_project</a></>
-    },
     mobileInfo: {
       zh: <><strong>手机端</strong>请点击左上角菜单栏获取过去问或点击以下学校卡片</>,
       ja: <><strong>モバイル端末</strong>では、左上のメニューバーをクリックして過去問を取得するか、以下の大学カードをクリックしてください</>
@@ -57,7 +70,7 @@ export default function Intro() {
       ja: <>著作権侵害がある場合は、メールで連絡してください: <a href="mailto:376672994@qq.com">376672994@qq.com</a></>
     },
     howToContribute: {
-      zh: "How to contribute",
+      zh: "如何贡献",
       ja: "貢献方法"
     },
     contribute1: {
@@ -69,12 +82,12 @@ export default function Intro() {
       ja: <>Gitに詳しくない方：試験問題/回答を <a href="mailto:376672994@qq.com">376672994@qq.com</a> に送信してください。</>
     },
     corrections: {
-      zh: "纠错与讨论：",
-      ja: "修正と議論："
+      zh: "纠错与讨论",
+      ja: "修正と議論"
     },
     correctionsText1: {
-      zh: <>发现错误请至<a href="https://github.com/Myyura/the_kai_project/issues" target="_blank">Github项目</a>提交Issue。</>,
-      ja: <>誤りを見つけた場合は、<a href="https://github.com/Myyura/the_kai_project/issues" target="_blank">Githubプロジェクト</a>にIssueを提出してください。</>
+      zh: <>发现错误请至<Link to="https://github.com/Myyura/the_kai_project/issues">Github项目</Link>提交Issue。</>,
+      ja: <>誤りを見つけた場合は、<Link to="https://github.com/Myyura/the_kai_project/issues">Githubプロジェクト</Link>にIssueを提出してください。</>
     },
     correctionsText2: {
       zh: "可以通过QQ群讨论题目答案和考试经验，QQ群：925154731。",
@@ -88,25 +101,13 @@ export default function Intro() {
         <button 
           onClick={toggleLanguage} 
           className={styles.languageButton}
+          title="Switch Language"
         >
+          <FaLanguage className={styles.languageIcon} />
           {buttonText}
         </button>
       </div>
-      
-      <p className={styles.subtitle}>Answer to the Ultimate Question of Life, the Universe, and Everything</p>
-      
-      <LocalizedContent 
-        zh={texts.intro.zh}
-        ja={texts.intro.ja}
-        language={language}
-      />
-      
-      <LocalizedContent 
-        zh={texts.projectUrl.zh}
-        ja={texts.projectUrl.ja}
-        language={language}
-      />
-      
+
       <div className="alert alert--info" role="alert">
         <LocalizedContent 
           zh={texts.mobileInfo.zh}
@@ -117,6 +118,27 @@ export default function Intro() {
 
       <div className={styles.sectionSpacing}></div>
       
+      <div className={styles.actionCardGrid}>
+        <ActionCard 
+          icon={<FiGithub />}
+          title={<LocalizedContent zh={texts.howToContribute.zh} ja={texts.howToContribute.ja} language={language} />}
+        >
+          <ul>
+            <li><LocalizedContent zh={texts.contribute1.zh} ja={texts.contribute1.ja} language={language} /></li>
+            <li><LocalizedContent zh={texts.contribute2.zh} ja={texts.contribute2.ja} language={language} /></li>
+          </ul>
+        </ActionCard>
+        <ActionCard 
+          icon={<FiCheckCircle />}
+          title={<LocalizedContent zh={texts.corrections.zh} ja={texts.corrections.ja} language={language} />}
+        >
+          <ul>
+            <li><LocalizedContent zh={texts.correctionsText1.zh} ja={texts.correctionsText1.ja} language={language} /></li>
+            <li><LocalizedContent zh={texts.correctionsText2.zh} ja={texts.correctionsText2.ja} language={language} /></li>
+          </ul>
+        </ActionCard>
+      </div>
+
       <h2>
         <LocalizedContent 
           zh={texts.schoolList.zh}
@@ -137,81 +159,18 @@ export default function Intro() {
         ))}
       </div>
       
-      <h2>
-        <LocalizedContent 
-          zh={texts.license.zh}
-          ja={texts.license.ja}
-          language={language}
-        />
-      </h2>
-      
-      <LocalizedContent 
-        zh={texts.licenseText1.zh}
-        ja={texts.licenseText1.ja}
-        language={language}
-      />
-      
-      <LocalizedContent 
-        zh={texts.licenseText2.zh}
-        ja={texts.licenseText2.ja}
-        language={language}
-      />
-      
-      <LocalizedContent 
-        zh={texts.licenseText3.zh}
-        ja={texts.licenseText3.ja}
-        language={language}
-      />
-      
-      <h2>
-        <LocalizedContent 
-          zh={texts.howToContribute.zh}
-          ja={texts.howToContribute.ja}
-          language={language}
-        />
-      </h2>
-      
-      <ul>
-        <li>
+      <div className={styles.licenseSection}>
+        <h2>
           <LocalizedContent 
-            zh={texts.contribute1.zh}
-            ja={texts.contribute1.ja}
+            zh={texts.license.zh}
+            ja={texts.license.ja}
             language={language}
           />
-        </li>
-        <li>
-          <LocalizedContent 
-            zh={texts.contribute2.zh}
-            ja={texts.contribute2.ja}
-            language={language}
-          />
-        </li>
-      </ul>
-      
-      <h2>
-        <LocalizedContent 
-          zh={texts.corrections.zh}
-          ja={texts.corrections.ja}
-          language={language}
-        />
-      </h2>
-      
-      <ul>
-        <li>
-          <LocalizedContent 
-            zh={texts.correctionsText1.zh}
-            ja={texts.correctionsText1.ja}
-            language={language}
-          />
-        </li>
-        <li>
-          <LocalizedContent 
-            zh={texts.correctionsText2.zh}
-            ja={texts.correctionsText2.ja}
-            language={language}
-          />
-        </li>
-      </ul>
+        </h2>
+        <p><LocalizedContent zh={texts.licenseText1.zh} ja={texts.licenseText1.ja} language={language} /></p>
+        <p><LocalizedContent zh={texts.licenseText2.zh} ja={texts.licenseText2.ja} language={language} /></p>
+        <p><LocalizedContent zh={texts.licenseText3.zh} ja={texts.licenseText3.ja} language={language} /></p>
+      </div>
     </div>
   );
 }
