@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
-import SchoolCard from '@site/src/components/SchoolCard';
 import styles from './intro.module.css';
 import { FiGithub, FiCheckCircle, FiGlobe } from 'react-icons/fi';
 import { FaLanguage } from 'react-icons/fa';
@@ -10,17 +9,24 @@ const LocalizedContent = ({ zh, ja, language }) => (
 );
 
 // 行动号召卡片组件
-const ActionCard = ({ icon, title, children }) => (
-  <div className={styles.actionCard}>
-    <div className={styles.actionCardHeader}>
-      <span className={styles.actionCardIcon}>{icon}</span>
-      <h3>{title}</h3>
+const ActionCard = ({ icon, title, children, url }) => {
+  const cardContent = (
+    <div className={styles.actionCard}>
+      <div className={styles.actionCardHeader}>
+        {icon && <span className={styles.actionCardIcon}>{icon}</span>}
+        <h3>{title}</h3>
+      </div>
+      <div className={styles.actionCardContent}>
+        {children}
+      </div>
     </div>
-    <div className={styles.actionCardContent}>
-      {children}
-    </div>
-  </div>
-);
+  );
+
+  if (url) {
+    return <Link to={url} className={styles.cardLink}>{cardContent}</Link>;
+  }
+  return cardContent;
+};
 
 export default function Intro() {
   // 默认显示中文，并从localStorage读取设置
@@ -149,13 +155,13 @@ export default function Intro() {
       
       <div className={styles.schoolGrid}>
         {schools.map((school, index) => (
-          <div key={index} className={styles.schoolItem}>
-            <SchoolCard 
-              name={school.name} 
-              url={school.url} 
-              description={school.description} 
-            />
-          </div>
+          <ActionCard
+            key={index}
+            url={school.url}
+            title={school.name}
+          >
+            <p>{school.description}</p>
+          </ActionCard>
         ))}
       </div>
       
@@ -175,7 +181,7 @@ export default function Intro() {
   );
 }
 
-// 保留原有的schools数组
+// schools数组
 const schools = [
   {
     name: '東京大学',
