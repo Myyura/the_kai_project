@@ -33,7 +33,6 @@ const translations = {
     universityInfoTitle: '日本各大学基本信息与链接汇总',
     universityInfoDescription: '以下是各个学校、专攻以及其他有用信息的导航链接',
     websiteLink: '专攻（学院）链接',
-    disclaimerText: '※ 请务必确认各大学的官方入学考试简章。日程可能会有变更。',
     testimonialsTitle: '来自用户的好评',
     testimonials: [
       {
@@ -72,7 +71,6 @@ const translations = {
     universityInfoTitle: '日本各大学の基本情報とリンク集',
     universityInfoDescription: '各大学・専攻およびその他の有用情報へのナビゲーションリンクです',
     websiteLink: '専攻（学部・研究科）リンク',
-    disclaimerText: '※ 各大学の公式入試要項を必ずご確認ください。日程は変更される場合があります。',
     testimonialsTitle: 'ユーザーからの声',
     testimonials: [
       {
@@ -257,7 +255,7 @@ function UniversityInfoFlowchart({ language }) {
             </select>
           </div>
           <div className={styles.selectWrapper}>
-            <select value={selectedDept} onChange={(e) => setSelectedDept(e.target.value)} className={styles.selectBox}>
+            <select value={selectedDept} onChange={(e) => setSelectedDept(e.target.value)} className={styles.selectBox} disabled={!selectedUniv}>
               <option value="">{language === 'zh' ? '所有专攻' : 'すべての専攻'}</option>
               {departmentOptions.map(dept => (
                 <option key={dept.id} value={dept.id}>{dept.name}</option>
