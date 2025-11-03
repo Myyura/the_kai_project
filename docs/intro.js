@@ -56,8 +56,8 @@ export default function Intro() {
       ja: <><strong>モバイル端末</strong>では、左上のメニューバーをクリックして過去問を取得するか、以下の大学カードをクリックしてください</>
     },
     schoolList: {
-      zh: "学校一覧",
-      ja: "大学リスト"
+      zh: "点击学校快捷卡片可跳转到该校的过去问",
+      ja: "大学の過去問へのショートカット"
     },
     license: {
       zh: "LICENSE",
@@ -124,6 +124,26 @@ export default function Intro() {
 
       <div className={styles.sectionSpacing}></div>
       
+      <h2>
+        <LocalizedContent 
+          zh={texts.schoolList.zh}
+          ja={texts.schoolList.ja}
+          language={language}
+        />
+      </h2>
+
+      <div className={styles.schoolGrid}>
+        {schools.map((school, index) => (
+          <ActionCard
+            key={index}
+            url={school.url}
+            title={school.name}
+          >
+            <p>{school.description}</p>
+          </ActionCard>
+        ))}
+      </div>
+
       <div className={styles.actionCardGrid}>
         <ActionCard 
           icon={<FiGithub />}
@@ -143,26 +163,6 @@ export default function Intro() {
             <li><LocalizedContent zh={texts.correctionsText2.zh} ja={texts.correctionsText2.ja} language={language} /></li>
           </ul>
         </ActionCard>
-      </div>
-
-      <h2>
-        <LocalizedContent 
-          zh={texts.schoolList.zh}
-          ja={texts.schoolList.ja}
-          language={language}
-        />
-      </h2>
-      
-      <div className={styles.schoolGrid}>
-        {schools.map((school, index) => (
-          <ActionCard
-            key={index}
-            url={school.url}
-            title={school.name}
-          >
-            <p>{school.description}</p>
-          </ActionCard>
-        ))}
       </div>
       
       <div className={styles.licenseSection}>
