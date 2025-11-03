@@ -833,30 +833,6 @@
   color: #bbb;
 }
 
-/* 调整移动设备上的语言切换按钮 */
-@media screen and (max-width: 768px) {
-  .languageSwitcher {
-    top: auto;
-    right: auto;
-    position: static;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .languageButton {
-    padding: 8px 14px;
-    font-size: 0.85rem;
-  }
-  
-  .languageIcon {
-    font-size: 1.1rem;
-  }
-
-  .filterContainer {
-    flex-direction: column;
-  }
-}
-
 /* 响应式调整 */
 @media screen and (max-width: 996px) {
   .heroBanner {
@@ -910,7 +886,29 @@
   }
 }
 
+/* 调整移动设备上的语言切换按钮 */
 @media screen and (max-width: 768px) {
+  .languageSwitcher {
+    top: auto;
+    right: auto;
+    position: static;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .languageButton {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .languageIcon {
+    font-size: 1.2rem;
+  }
+
+  .filterContainer {
+    flex-direction: column;
+  }
+
   .features .row {
     flex-direction: column;
   }
@@ -951,23 +949,6 @@
     font-size: 0.8rem;
   }
   
-  .languageSwitcher {
-    top: auto;
-    right: auto;
-    position: static;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .languageButton {
-    padding: 10px 16px;
-    font-size: 0.9rem;
-  }
-  
-  .languageIcon {
-    font-size: 1.2rem;
-  }
-
   .ctaTitle {
     font-size: 2rem !important;
   }
