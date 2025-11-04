@@ -13,9 +13,9 @@ tags:
 独立変数 $x$，従属変数 $y$ に関する微分方程式
 
 $$
-\begin{aligned}
+\begin{align}
 y'' + a(x)y' + b(x)y = 0 \tag{*}
-\end{aligned}
+\end{align}
 $$
 
 の二つの解 $y=y_1(x),y_2(x)$ に対し，ロンスキアン $W(x)$ を次式で定義する：
