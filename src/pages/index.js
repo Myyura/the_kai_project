@@ -15,19 +15,21 @@ const translations = {
   zh: {
     viewPastExams: "查看过去问",
     viewExperiences: "查看经验贴",
-    switchToJapanese: "日本語に切り替え",
     features: [
       {
-        title: '丰富的考试答案数据库',
-        description: '我们持续更新和扩充日本研究生入学考试和资格考试的答案集。从往年考题到最新问题，提供准确可靠的答案，支持高效的考试准备。按领域和年份轻松搜索，快速访问所需信息。'
+       title: '超全真题答案库，备考快人一步',
+       icon: <FaSearch />,
+       description: '这里藏着日本研究生考试&资格考试的「通关秘籍」！按学校/专业/年份一键搜索，30秒找到你需要的解析——别人还在翻资料，你已悄悄刷完三套题啦！'
       },
       {
-        title: '活跃的社区交流',
-        description: '我们提供一个社区平台，供考生和专家自由讨论解题方法和学习策略。通过解决疑问和分享学习提示，保持动力并有效学习。从初学者到高级用户，人人都可轻松参与。QQ group: 925154731'
+        title: '学霸聚集地，备考不孤单',
+        icon: <FaComments />,
+        description: '考场上单打独斗？来咱们的温暖社区抱团取暖吧！每天500+考生和东大前辈在线互助：解题卡壳时有人回思路，焦虑崩溃时收获暖心鼓励。无论日语萌新还是修士前辈，这里总有懂你的人～ 现在加入QQ群 925154731，和战友一起上岸！'
       },
       {
-        title: '开源透明',
-        description: '本平台完全开源运营，任何人都可以查看代码或提出改进建议。我们欢迎社区贡献，致力于用户主导的更易用工具开发。在注重透明度和协作的环境中，一起深化学习。'
+        title: '开源透明，答案看得见',
+        icon: <FaGlobe />,
+        description: '我们把心脏剖开给你看：所有答案完全公开。没有公众号引流，没有隐藏收费，没有数据黑箱——你贡献的每个建议都可能变成明天的新功能。选择我们，就是选择和大家共建安心的学习家园。'
       }
     ],
     universityInfoTitle: '日本各大学基本信息与链接汇总',
@@ -53,18 +55,20 @@ const translations = {
   ja: {
     viewPastExams: "過去問を見る",
     viewExperiences: "体験談を見る",
-    switchToJapanese: "切换到中文",
     features: [
       {
         title: '豊富な試験解答データベース',
+        icon: <FaSearch />,
         description: '日本の大学院入試や資格試験のための解答集を継続的に更新・拡充しています。過去問から最新の問題まで、正確で信頼性の高い解答を提供し、効率的な試験対策をサポートします。分野別や年度別に簡単に検索できるので、必要な情報にすぐアクセス可能です。'
       },
       {
         title: '活発なコミュニティ交流',
+        icon: <FaComments />,
         description: '試験問題の解き方や学習方法について、他の受験生や専門家と自由に議論できるコミュニティを用意しています。疑問を解決したり、学習のヒントを共有したりすることで、モチベーションを維持しながら効果的に学べます。初心者から上級者まで、誰でも気軽に参加可能です。QQ group: 925154731'
       },
       {
         title: 'オープンソースによる透明性',
+        icon: <FaGlobe />,
         description: '本プラットフォームは完全にオープンソースで運営されており、誰でもコードを確認したり、改善案を提案したりできます。コミュニティからの貢献を歓迎し、ユーザー主導でより使いやすいツールを目指しています。透明性と協力性を重視した環境で、共に学びを深めましょう。'
       }
     ],
@@ -89,36 +93,6 @@ const translations = {
     ctaButtonContribute: '貢献する'
   }
 };
-
-const FeatureList = [
-  {
-    title: '豊富な試験解答データベース',
-    icon: <FaSearch />,
-    description: (
-      <>
-        日本の大学院入試や資格試験のための解答集を継続的に更新・拡充しています。過去問から最新の問題まで、正確で信頼性の高い解答を提供し、効率的な試験対策をサポートします。分野別や年度別に簡単に検索できるので、必要な情報にすぐアクセス可能です。
-      </>
-    ),
-  },
-  {
-    title: '活発なコミュニティ交流',
-    icon: <FaComments />,
-    description: (
-      <>
-        試験問題の解き方や学習方法について、他の受験生や専門家と自由に議論できるコミュニティを用意しています。疑問を解決したり、学習のヒントを共有したりすることで、モチベーションを維持しながら効果的に学べます。初心者から上級者まで、誰でも気軽に参加可能です。
-      </>
-    ),
-  },
-  {
-    title: 'オープンソースによる透明性',
-    icon: <FaGlobe />,
-    description: (
-      <>
-        本プラットフォームは完全にオープンソースで運営されており、誰でもコードを確認したり、改善案を提案したりできます。コミュニティからの貢献を歓迎し、ユーザー主導でより使いやすいツールを目指しています。透明性と協力性を重視した環境で、共に学びを深めましょう。
-      </>
-    ),
-  },
-];
 
 function Feature({icon, title, description}) {
   return (
@@ -171,25 +145,12 @@ function HomepageHeader({ language, toggleLanguage }) {
   );
 }
 
-import { universities } from '../data/universities';
-
 // 考試日程流程圖組件
 function UniversityInfoFlowchart({ language }) {
-  const [isMobile, setIsMobile] = useState(false);
   const [expandedUniv, setExpandedUniv] = useState({});
   const [expandedDept, setExpandedDept] = useState({});
   const [selectedUniv, setSelectedUniv] = useState('');
   const [selectedDept, setSelectedDept] = useState('');
-  
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
   
   const toggleUniversity = (univId) => {
     setExpandedUniv(prev => ({
@@ -232,8 +193,7 @@ function UniversityInfoFlowchart({ language }) {
 
   const departmentOptions = selectedUniv 
     ? universities.find(u => u.id === selectedUniv)?.departments || [] 
-    : Array.from(new Set(universities.flatMap(u => u.departments.map(d => d.name))))
-        .map(name => universities.flatMap(u => u.departments).find(d => d.name === name));
+    : [];
 
   return (
     <section className={styles.universityInfo}>
@@ -332,19 +292,11 @@ function HomepageFeatures({ language }) {
   // 获取当前语言的翻译
   const t = translations[language];
   
-  // 根据当前语言创建特性列表
-  const localizedFeatures = t.features.map((feature, index) => ({
-    title: feature.title,
-    icon: FeatureList[index].icon,
-    description: feature.description,
-    link: index === 0 ? '/docs/intro' : (index === 1 ? '/blog' : 'https://github.com/Myyura/the_kai_project')
-  }));
-  
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {localizedFeatures.map((props, idx) => (
+          {t.features.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
         </div>
