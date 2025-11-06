@@ -3,14 +3,13 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaCalendarAlt, FaFileAlt, FaPencilAlt, FaUserGraduate, FaUniversity, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaLanguage, FaStar } from 'react-icons/fa';
-import React, { useState, useEffect } from 'react';
+import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaLanguage, FaStar } from 'react-icons/fa';
+import React, { useState, useEffect, useMemo } from 'react';
 import { universities } from '../data/universities';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
-// 翻译对象
 const translations = {
   zh: {
     viewPastExams: "查看过去问",
@@ -94,25 +93,50 @@ const translations = {
   }
 };
 
-function Feature({icon, title, description}) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className={styles.featureCard}>
-        <div className={styles.featureIcon}>{icon}</div>
-        <div className={styles.featureContent}>
-          <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
-          <p className={styles.featureDescription}>{description}</p>
-        </div>
+const useStoredLanguage = (defaultLang = 'zh') => {
+  const [language, setLanguage] = useState(defaultLang);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const stored = localStorage.getItem('preferredLanguage');
+    if (stored) setLanguage(stored);
+  }, []);
+
+  const toggleLanguage = () => {
+    setLanguage(prev => {
+      const next = prev === 'zh' ? 'ja' : 'zh';
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('preferredLanguage', next);
+      }
+      return next;
+    });
+  };
+
+  return [language, toggleLanguage];
+};
+
+const useToggleMap = () => {
+  const [state, setState] = useState({});
+  const toggle = (key) => setState(prev => ({ ...prev, [key]: !prev[key] }));
+  const isOpen = (key) => !!state[key];
+  return [isOpen, toggle];
+};
+
+const Feature = ({icon, title, description}) => (
+  <div className={clsx('col col--4')}>
+    <div className={styles.featureCard}>
+      <div className={styles.featureIcon}>{icon}</div>
+      <div className={styles.featureContent}>
+        <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+        <p className={styles.featureDescription}>{description}</p>
       </div>
     </div>
-  );
-}
+  </div>
+);
 
-function HomepageHeader({ language, toggleLanguage }) {
+const HomepageHeader = ({ language, toggleLanguage, t }) => {
   const {siteConfig} = useDocusaurusContext();
-  
-  const t = translations[language];
-  
+
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
@@ -143,57 +167,24 @@ function HomepageHeader({ language, toggleLanguage }) {
       </div>
     </header>
   );
-}
+};
 
-// 考試日程流程圖組件
-function UniversityInfoFlowchart({ language }) {
-  const [expandedUniv, setExpandedUniv] = useState({});
-  const [expandedDept, setExpandedDept] = useState({});
+const UniversityInfoFlowchart = ({ language, t }) => {
+  const [isUnivOpen, toggleUniv] = useToggleMap();
+  const [isDeptOpen, toggleDept] = useToggleMap();
   const [selectedUniv, setSelectedUniv] = useState('');
   const [selectedDept, setSelectedDept] = useState('');
-  
-  const toggleUniversity = (univId) => {
-    setExpandedUniv(prev => ({
-      ...prev,
-      [univId]: !prev[univId]
-    }));
-  };
-  
-  const toggleDepartment = (univId, deptId) => {
-    const key = `${univId}-${deptId}`;
-    setExpandedDept(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
-  };
-  
-  // 获取当前语言的翻译
-  const t = translations[language];
 
-  const filteredUniversities = universities.filter(univ => {
-    const univMatch = selectedUniv ? univ.id === selectedUniv : true;
-    const deptMatch = selectedDept ? univ.departments.some(dept => dept.id === selectedDept) : true;
-    
-    if (selectedUniv && !selectedDept) {
-      return univMatch;
-    }
-    if (selectedUniv && selectedDept) {
-      return univMatch && deptMatch;
-    }
-    if (!selectedUniv && selectedDept) {
-      return deptMatch;
-    }
+  const filteredUniversities = useMemo(() => universities.filter(univ => {
+    if (selectedUniv && univ.id !== selectedUniv) return false;
+    if (selectedDept && !univ.departments.some(dept => dept.id === selectedDept)) return false;
     return true;
-  });
+  }), [selectedUniv, selectedDept]);
 
-  const handleUniversityChange = (e) => {
-    setSelectedUniv(e.target.value);
-    setSelectedDept(''); // 重置专攻选择
-  };
-
-  const departmentOptions = selectedUniv 
-    ? universities.find(u => u.id === selectedUniv)?.departments || [] 
-    : [];
+  const departmentOptions = useMemo(() => {
+    if (!selectedUniv) return [];
+    return universities.find(u => u.id === selectedUniv)?.departments ?? [];
+  }, [selectedUniv]);
 
   return (
     <section className={styles.universityInfo}>
@@ -207,7 +198,14 @@ function UniversityInfoFlowchart({ language }) {
         
         <div className={styles.filterContainer}>
           <div className={styles.selectWrapper}>
-            <select value={selectedUniv} onChange={handleUniversityChange} className={styles.selectBox}>
+            <select
+              value={selectedUniv}
+              onChange={(e) => {
+                setSelectedUniv(e.target.value);
+                setSelectedDept('');
+              }}
+              className={styles.selectBox}
+            >
               <option value="">{language === 'zh' ? '所有大学' : 'すべての大学'}</option>
               {universities.map(univ => (
                 <option key={univ.id} value={univ.id}>{univ.name}</option>
@@ -229,7 +227,7 @@ function UniversityInfoFlowchart({ language }) {
             <div key={univ.id} className={styles.universityTimeline}>
               <div 
                 className={styles.universityHeader}
-                onClick={() => toggleUniversity(univ.id)}
+                onClick={() => toggleUniv(univ.id)}
                 style={{borderColor: univ.color}}
               >
                 <div 
@@ -239,41 +237,39 @@ function UniversityInfoFlowchart({ language }) {
                   {univ.name}
                 </div>
                 <div className={styles.toggleIcon}>
-                  {expandedUniv[univ.id] ? <FaChevronUp /> : <FaChevronDown />}
+                  {isUnivOpen(univ.id) ? <FaChevronUp /> : <FaChevronDown />}
                 </div>
               </div>
               
-              {expandedUniv[univ.id] && (
+              {isUnivOpen(univ.id) && (
                 <div className={styles.departmentsContainer}>
-                  {univ.departments.filter(d => selectedDept ? d.id === selectedDept : true).map((dept) => {
+                  {univ.departments.filter(d => !selectedDept || d.id === selectedDept).map((dept) => {
                     const deptKey = `${univ.id}-${dept.id}`;
-                    const isDeptExpanded = expandedDept[deptKey];
+                    const deptOpen = isDeptOpen(deptKey);
                     
                     return (
                       <div key={dept.id} className={styles.department}>
                         <div 
                           className={styles.departmentHeader}
-                          onClick={() => toggleDepartment(univ.id, dept.id)}
+                          onClick={() => toggleDept(deptKey)}
                           style={{borderLeftColor: univ.color}}
                         >
                           <span className={styles.departmentName}>{dept.name}</span>
                           <span className={styles.departmentToggle}>
-                            {isDeptExpanded ? <FaChevronUp /> : <FaChevronDown />}
+                            {deptOpen ? <FaChevronUp /> : <FaChevronDown />}
                           </span>
                         </div>
                         
-                        {isDeptExpanded && (
-                          <>
-                            <a 
-                              href={dept.websiteUrl} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className={styles.departmentLink}
-                              style={{borderLeftColor: univ.color}}
-                            >
-                              <FaExternalLinkAlt /> {t.websiteLink}
-                            </a>
-                          </>
+                        {deptOpen && (
+                          <a 
+                            href={dept.websiteUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className={styles.departmentLink}
+                            style={{borderLeftColor: univ.color}}
+                          >
+                            <FaExternalLinkAlt /> {t.websiteLink}
+                          </a>
                         )}
                       </div>
                     );
@@ -286,113 +282,86 @@ function UniversityInfoFlowchart({ language }) {
       </div>
     </section>
   );
-}
+};
 
-function HomepageFeatures({ language }) {
-  // 获取当前语言的翻译
-  const t = translations[language];
-  
-  return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {t.features.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+const HomepageFeatures = ({ t }) => (
+  <section className={styles.features}>
+    <div className="container">
+      <div className="row">
+        {t.features.map((props, idx) => (
+          <Feature key={idx} {...props} />
+        ))}
       </div>
-    </section>
-  );
-}
+    </div>
+  </section>
+);
 
-// 新增 Testimonials 组件
-function Testimonials({ language }) {
-  const t = translations[language];
-  const testimonials = t.testimonials;
-
-  return (
-    <section className={styles.testimonials}>
-      <div className="container">
-        <Heading as="h2" className={styles.testimonialsTitle}>{t.testimonialsTitle}</Heading>
-        <div className={styles.testimonialCards}>
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className={styles.testimonialCard}>
-              <div className={styles.testimonialHeader}>
-                <img src={testimonial.avatar} alt={testimonial.name} className={styles.testimonialAvatar} />
-                <div className={styles.testimonialAuthor}>
-                  <p className={styles.testimonialName}>{testimonial.name}</p>
-                  <div className={styles.testimonialRating}>
-                    {[...Array(5)].map((_, i) => <FaStar key={i} />)}
-                  </div>
+const Testimonials = ({ t }) => (
+  <section className={styles.testimonials}>
+    <div className="container">
+      <Heading as="h2" className={styles.testimonialsTitle}>{t.testimonialsTitle}</Heading>
+      <div className={styles.testimonialCards}>
+        {t.testimonials.map((testimonial, index) => (
+          <div key={index} className={styles.testimonialCard}>
+            <div className={styles.testimonialHeader}>
+              <img src={testimonial.avatar} alt={testimonial.name} className={styles.testimonialAvatar} />
+              <div className={styles.testimonialAuthor}>
+                <p className={styles.testimonialName}>{testimonial.name}</p>
+                <div className={styles.testimonialRating}>
+                  {Array.from({ length: 5 }, (_, starIndex) => <FaStar key={starIndex} />)}
                 </div>
               </div>
-              <p className={styles.testimonialText}>"{testimonial.text}"</p>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// 新增 CallToAction 组件
-function CallToAction({ language }) {
-  const t = translations[language];
-  return (
-    <section className={styles.ctaSection}>
-      <div className="container">
-        <div className={styles.ctaContent}>
-          <Heading as="h2" className={styles.ctaTitle}>{t.ctaTitle}</Heading>
-          <p className={styles.ctaDescription}>{t.ctaDescription}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
-              to="/docs/intro">
-              {t.viewPastExams} <FaArrowRight className={styles.buttonIcon} />
-            </Link>
-            <Link
-              className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
-              to="https://github.com/Myyura/the_kai_project">
-              {t.ctaButtonContribute}
-            </Link>
+            <p className={styles.testimonialText}>"{testimonial.text}"</p>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const CallToAction = ({ t }) => (
+  <section className={styles.ctaSection}>
+    <div className="container">
+      <div className={styles.ctaContent}>
+        <Heading as="h2" className={styles.ctaTitle}>{t.ctaTitle}</Heading>
+        <p className={styles.ctaDescription}>{t.ctaDescription}</p>
+        <div className={styles.buttons}>
+          <Link
+            className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
+            to="/docs/intro">
+            {t.viewPastExams} <FaArrowRight className={styles.buttonIcon} />
+          </Link>
+          <Link
+            className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
+            to="https://github.com/Myyura/the_kai_project">
+            {t.ctaButtonContribute}
+          </Link>
         </div>
       </div>
-    </section>
-  );
-}
+    </div>
+  </section>
+);
 
-export default function Home() {
+const Home = () => {
+  const [language, toggleLanguage] = useStoredLanguage();
+  const t = translations[language];
   const {siteConfig} = useDocusaurusContext();
-  const [language, setLanguage] = useState('zh');
 
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem('preferredLanguage');
-    if (storedLanguage) {
-      setLanguage(storedLanguage);
-    }
-  }, []);
-  
-  // 在主组件中共享语言状态
-  const toggleLanguage = () => {
-    const newLanguage = language === 'zh' ? 'ja' : 'zh';
-    setLanguage(newLanguage);
-    localStorage.setItem('preferredLanguage', newLanguage);
-  };
-  
-  // 将语言状态传递给所有需要本地化的组件
   return (
     <Layout
       title={siteConfig.title}
       description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
       <HomepageStructuredData />
-      <HomepageHeader language={language} toggleLanguage={toggleLanguage} />
+      <HomepageHeader language={language} toggleLanguage={toggleLanguage} t={t} />
       <main>
-        <HomepageFeatures language={language} />
-        <UniversityInfoFlowchart language={language} />
-        <Testimonials language={language} />
-        <CallToAction language={language} />
+        <HomepageFeatures t={t} />
+        <UniversityInfoFlowchart language={language} t={t} />
+        <Testimonials t={t} />
+        <CallToAction t={t} />
       </main>
     </Layout>
   );
-}
+};
+
+export default Home;
