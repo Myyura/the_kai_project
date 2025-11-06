@@ -18,21 +18,21 @@ const translations = {
       {
        title: '超全真题答案库，备考快人一步',
        icon: <FaSearch />,
-       description: '这里藏着日本研究生考试&资格考试的「通关秘籍」！按学校/专业/年份一键搜索，30秒找到你需要的解析——别人还在翻资料，你已悄悄刷完三套题啦！'
+       description: <>这里藏着日本修士考试的「通关秘籍」！<br />按学校/专业/年份一键搜索，30秒找到你需要的解析——<b>别人还在翻资料，你已悄悄刷完三套题啦！</b></>
       },
       {
         title: '学霸聚集地，备考不孤单',
         icon: <FaComments />,
-        description: '考场上单打独斗？来咱们的温暖社区抱团取暖吧！每天500+考生和东大前辈在线互助：解题卡壳时有人回思路，焦虑崩溃时收获暖心鼓励。无论日语萌新还是修士前辈，这里总有懂你的人～ 现在加入QQ群 925154731，和战友一起上岸！'
+        description: <>考场上单打独斗？来咱们的温暖社区抱团取暖吧！<br />每天500+考生和东大前辈在线互助<br />无论日语萌新还是修士前辈，这里总有懂你的人～<br /><b>现在加入QQ群 <a href="https://qm.qq.com/q/3yjgte7UTe">925154731</a>，和战友一起上岸！</b></>
       },
       {
         title: '开源透明，答案看得见',
         icon: <FaGlobe />,
-        description: '我们把心脏剖开给你看：所有答案完全公开。没有公众号引流，没有隐藏收费，没有数据黑箱——你贡献的每个建议都可能变成明天的新功能。选择我们，就是选择和大家共建安心的学习家园。'
+        description: <>我们把心脏剖开给你看：所有答案完全公开。<br />没有公众号引流，没有隐藏收费，没有数据黑箱——你贡献的每个建议都可能变成明天的新功能。<br /><b>选择我们，就是选择和大家共建安心的学习家园。</b></>
       }
     ],
     universityInfoTitle: '日本各大学基本信息与链接汇总',
-    universityInfoDescription: '以下是各个学校、专攻以及其他有用信息的导航链接',
+    universityInfoDescription: '以下是各个学校、专攻以及其他有用信息的导航链接（正在施工中，目前只有专攻（学院）链接）',
     websiteLink: '专攻（学院）链接',
     testimonialsTitle: '来自用户的好评',
     testimonials: [
@@ -128,7 +128,7 @@ const Feature = ({icon, title, description}) => (
       <div className={styles.featureIcon}>{icon}</div>
       <div className={styles.featureContent}>
         <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
-        <p className={styles.featureDescription}>{description}</p>
+        <div className={styles.featureDescription}>{description}</div>
       </div>
     </div>
   </div>

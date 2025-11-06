@@ -215,7 +215,7 @@
   position: relative;
   overflow: hidden;
 }
-
+/* pointer-events: none 阻止了玻璃覆盖层拦截鼠标事件*/
 .featureCard::before {
   content: '';
   position: absolute;
@@ -226,6 +226,7 @@
   background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s;
+  pointer-events: none;
 }
 
 .featureCard:hover::before {
