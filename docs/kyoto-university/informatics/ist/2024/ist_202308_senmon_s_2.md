@@ -6,7 +6,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2023年8月実施 専門科目 S-2
 
 ## **Author**
-[Isidore](https://github.com/heacsing), 祭音Myyura
+[Isidore](https://github.com/heacsing), 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
 ### 設問1
@@ -50,7 +50,6 @@ $$
 
 $$
 \begin{aligned}
-
 L(\mu,\sigma^{2}) &= L(x_1,\dots,x_n;\mu,\sigma^2)
 \\ &= \sum_{i=1}^n \log\left( \frac1{\sigma\sqrt{2\pi}} e^{-(x_i-\mu)^2/2\sigma^2} \right)
 \\ &= -n \log \left( \sigma\sqrt{2\pi} \right) - \frac1{2\sigma^2}\sum_{i=1}^n {(x_i-\mu)^2}
