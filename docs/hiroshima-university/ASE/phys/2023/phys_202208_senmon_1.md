@@ -166,26 +166,42 @@ $$
 (2) で求めた運動方程式は、次のように書ける：
 
 $$
-  \begin{aligned}
+  \begin{align}
   \frac{d^2}{dt^2} \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
   =
   - \frac{\omega_1^2}{4}
   \begin{pmatrix} 5 & 1 & -2 \\ 1 & 5 & -2 \\ -2 & -2 & 4 \end{pmatrix}
   \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
-  \end{aligned}
+  \tag{a}
+  .
+  \end{align}
 $$
 
-$x_1 = \xi, x_2 = - \xi, x_3 = 0$ の場合を考えると、
+棒の中点が静止した状態で棒の両端が逆位相で振動する運動は
 
 $$
   \begin{aligned}
-  \begin{pmatrix} 5 & 1 & -2 \\ 1 & 5 & -2 \\ -2 & -2 & 4 \end{pmatrix}
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+  =
   \begin{pmatrix} \xi \\ - \xi \\ 0 \end{pmatrix}
-  = 4 \begin{pmatrix} \xi \\ - \xi \\ 0 \end{pmatrix}
   \end{aligned}
 $$
 
-となるので、これは角振動数 $\omega_1$ の固有振動モードであることがわかる。
+と書けるから、これを運動方程式 (a) に代入すると、
+
+$$
+  \begin{aligned}
+  \frac{d^2}{dt^2} \begin{pmatrix} \xi \\ - \xi \\ 0 \end{pmatrix}
+  &= - \frac{\omega_1^2}{4}
+  \begin{pmatrix} 5 & 1 & -2 \\ 1 & 5 & -2 \\ -2 & -2 & 4 \end{pmatrix}
+  \begin{pmatrix} \xi \\ - \xi \\ 0 \end{pmatrix}
+  \\
+  &= - \omega_1^2
+  \begin{pmatrix} \xi \\ - \xi \\ 0 \end{pmatrix}
+  \end{aligned}
+$$
+
+となり、角振動数 $\omega_1$ の固有振動モードであることがわかる。
 
 #### (4)
 (3) で現れた行列
@@ -197,7 +213,31 @@ $$
   \end{aligned}
 $$
 
-の固有値を $\lambda$ とすると、
+の固有値を $\lambda$ とし、
+それに対応する固有ベクトルを $\boldsymbol{v}$ とすると、
+$\boldsymbol{v} \sin \omega t$
+は $\omega \ (\gt 0)$ を適切に選べば固有振動モードになる。
+実際、運動方程式 (a) に代入すると、
+
+$$
+\begin{aligned}
+  \frac{d^2}{dt^2} \boldsymbol{v} \sin \omega t
+  &= - \frac{\omega_1^2}{4} \Lambda \boldsymbol{v} \sin \omega t
+  \\
+  - \omega^2 \boldsymbol{v} \sin \omega t
+  &= - \frac{\omega_1^2}{4} \lambda \boldsymbol{v} \sin \omega t
+  \\
+  \therefore \ \ 
+  \omega^2 &= \frac{\omega_1^2}{4} \lambda
+  \tag{b}
+  \end{aligned}
+$$
+
+となるので、これを満たすように $\omega$ を選べば
+$\boldsymbol{v} \sin \omega t$ は固有振動モードになる
+（このときの $\omega$ が固有振動数である）。
+
+$\lambda$ を具体的に求めると、
 
 $$
   \begin{aligned}
@@ -213,7 +253,17 @@ $$
   \end{aligned}
 $$
 
-なので、$\omega_1$ 以外の固有角振動数は $\omega_1 / \sqrt{2}, 2 \omega_1$ である。
+よって、式 (b) より、
+
+$$
+  \begin{aligned}
+  \omega^2 &= \frac{\omega_1^2}{2}, \ \omega_1^2, \ 2 \omega_1^2
+  \end{aligned}
+$$
+
+がわかり、$\omega_1$ 以外の固有角振動数は
+$\omega_1 / \sqrt{2}, \sqrt{2} \omega_1$
+であることがわかる。
 
 #### (5)
 (4) の行列 $\Lambda$ の固有値 $2, 4, 8$ に属する固有ベクトルはそれぞれ

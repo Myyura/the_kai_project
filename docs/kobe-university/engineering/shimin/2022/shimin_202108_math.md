@@ -136,11 +136,11 @@ $$
   \end{aligned}
 $$
 
-とおくと、 $x=2y,z=0$ がわかるので、規格化された固有ベクトルとして、
+とおくと、 $x=2y,z=0$ がわかるので、固有ベクトルとして、
 
 $$
   \begin{aligned}
-  \boldsymbol{u} = \frac{1}{\sqrt{5}} \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}
+  \boldsymbol{u} = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}
   \end{aligned}
 $$
 
@@ -155,11 +155,11 @@ $$
   \end{aligned}
 $$
 
-とおくと、 $-x+2y=2/\sqrt{5}, z=3/\sqrt{5}$ がわかるので、
+とおくと、 $-x+2y=2, z=3$ がわかるので、
 
 $$
   \begin{aligned}
-  \boldsymbol{v} = \frac{1}{\sqrt{5}} \begin{pmatrix} -2 \\ 0 \\ 3 \end{pmatrix}
+  \boldsymbol{v} = \begin{pmatrix} -2 \\ 0 \\ 3 \end{pmatrix}
   \end{aligned}
 $$
 
@@ -174,45 +174,72 @@ $$
   \end{aligned}
 $$
 
-とおくと、 $x+y=0,z=0$ がわかるので、規格化された固有ベクトルとして、
+とおくと、 $x+y=0,z=0$ がわかるので、固有ベクトルとして、
 
 $$
   \begin{aligned}
-  \boldsymbol{w} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}
+  \boldsymbol{w} = \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}
   \end{aligned}
 $$
 
 を得る。
 
-以上より、求める $P$ は
+以上より、
 
 $$
-  \begin{aligned}
-  P
+\begin{aligned}
+  Q
   &= \begin{pmatrix} \boldsymbol{u} & \boldsymbol{v} & \boldsymbol{w} \end{pmatrix}
   \\
   &= \begin{pmatrix}
-  \frac{2}{\sqrt{5}} & -\frac{2}{\sqrt{5}} &  \frac{1}{\sqrt{2}} \\
-  \frac{1}{\sqrt{5}} &                   0 & -\frac{1}{\sqrt{2}} \\
-                   0 &  \frac{3}{\sqrt{5}} &                   0
+  2 & -2 &  1 \\
+  1 &  0 & -1 \\
+  0 &  3 &  0
   \end{pmatrix}
   \end{aligned}
 $$
 
-である。
+とおくと、
+
+$$
+  \begin{aligned}
+  Q^{-1} A Q
+  &= \begin{pmatrix}
+  1 & 1 &  0 \\
+  0 & 1 &  0 \\
+  0 & 0 & -2
+  \end{pmatrix}
+  \end{aligned}
+$$
+
+が成り立ち、これは求める $P$ の条件を満たす。
+つまり、
+
+$$
+  \begin{aligned}
+  P
+  &= \begin{pmatrix}
+  2 & -2 &  1 \\
+  1 &  0 & -1 \\
+  0 &  3 &  0
+  \end{pmatrix}
+  \end{aligned}
+$$
+
+とすればよい（一意的ではない）。
 
 ### 3.
 
 $$
   \begin{aligned}
   \int_C f(x,y) ds
-  &= \int_0^1 f(x,x) dx
+  &= \sqrt{2} \int_0^1 f(x,x) dx
   \\
-  &= \int_0^1 \frac{6x}{3x^2+1} dx
+  &= \sqrt{2} \int_0^1 \frac{6x}{3x^2+1} dx
   \\
-  &= \left[ \log \left( 3x^2+1 \right) \right]_0^1
+  &= \sqrt{2} \left[ \log \left( 3x^2+1 \right) \right]_0^1
   \\
-  &= 2 \log 2
+  &= 2 \sqrt{2} \log 2
   \end{aligned}
 $$
 
