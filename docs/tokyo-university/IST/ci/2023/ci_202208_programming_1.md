@@ -2,13 +2,9 @@
 sidebar_label: '2022年8月実施 プログラミング 第1問'
 tags:
   - Tokyo-University
-  - IST Creative Informatics
   - Programming
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2022年8月実施 プログラミング 第1問
-Answer the following questions by writing programs. If you are taking an onsite examination, the files needed for answering the questions are found in the USB flash drive. Store the programs in the USB flash drive before the examination ends. If you are taking an online examination, 
-the files needed for answering the questions are in the given zip file. 
-To submit the programs and the files, follow the instructions separately given. The submission URL is shown on the last page.
 
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
@@ -43,5 +39,3 @@ This represents that there are four walls $(0, 1)$, $(1, 0)$, $(13, 6)$, and $(8
 Count the number of the cells that will be visited when we move from the start to the goal along the shortest path. Write down that number on the answer sheet. Count the start and the goal for one, respectively. Assume that there exists exactly one path between any pair of two cells in the maze.
 
 (4) We have ten mazes on $40 \times 40$ cells. The layout of the walls for each maze is stored in a file from `maze10.txt` to `maze19.txt`. Which maze satisfies that there exists exactly one path between any pair of two cells in the maze? Write down the names of all the files in which the layouts of the walls are stored for such a maze.
-
-

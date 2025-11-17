@@ -2,20 +2,12 @@
 sidebar_label: '2022年8月実施 プログラミング 第2問'
 tags:
   - Tokyo-University
-  - IST Creative Informatics
   - Programming
 ---
 
-Answer the following questions by writing programs. 
-If you are taking an onsite examination, 
-the files needed for answering the questions are found in the USB flash drive. 
-Store the programs in the USB flash drive before the examination ends. 
-If you are taking an online examination, the files needed for answering the questions are in the given zip file. 
-To submit the programs and the files, follow the instructions separately given. The submission URL is shown on the last page.
+## Author
 
 ## Description (English)
-### Problem 2
-
 Suppose that we have a maze on a square board with $m \times m$ cells. 
 The cell in the $i$-th row and the $j$-th column is denoted by $(i, j)$, 
 where $0 \le i \le m-1$ and $0 \le j \le m-1$. 
