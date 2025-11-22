@@ -172,6 +172,7 @@ $$
 
 ### 設問4
 
+Since we have $2^m+1$ symbols, by Huffman coding, the Huffman tree is a tree based on a full balanced binary tree of height $m$, but the first leaf node is replaced by a 1-height tree with 2 leaves, forming $2^m+1$ leaves. The 2 leaves with depth $m+1$ have code lengths of $m+1$, others ($n-2$ symbols) having $m$.
 $$
 \begin{aligned}
 \bar{N}
@@ -182,28 +183,90 @@ $$
 $$
 
 ### 設問5
-$C=I(X;Y)=H(Y)-H(Y|X)$, where $H(Y)$ could be calculated from $P_Y = P_XP_{Y|X}$. Then, we construct the function
 
-$$
-F(p)=\frac{1}{2}-\frac{1+4}{4}\log (1+p)-\frac{2-p}{4}\log (2-p)
-$$
+Define the input and output symbols as $X$ and $Y$ respectively, and alphabets are $\{0,1\}$ and $\{0,1,2\}$ respectively.
 
-Get the maximum when $p=\frac{1}{2}$
-
+Since
 $$
-C = \frac{5}{4}-\frac{3}{4}\log 3
+C=\max_{p_X(\cdot)}I(X;Y)
+=\max_{p_X(0)}[H(Y)-H(Y|X)],
+$$
+setting $p_X=\begin{bmatrix}u\\1-u\end{bmatrix}^T$ as the probability distribution vector, given $p_{Y|X}$,
+$$
+p_Y=\begin{bmatrix}u&1-u\end{bmatrix}\begin{bmatrix}
+\frac{1}{2} & \frac{1}{4} & \frac{1}{4} \\
+\frac{1}{4} & \frac{1}{4} & \frac{1}{2}
+\end{bmatrix}=\begin{bmatrix}
+\frac14+\frac14 u & \frac{1}{4} & \frac12-\frac14u
+\end{bmatrix}
+$$
+Hence $H(Y)=H(\frac14,\frac14+\frac14 u,\frac12-\frac14u)$.
+
+From the **recursivity** property of Shannon entropy,
+$$
+H(Y)=H\left (\frac14,\frac34\right)+\frac34 H\left (\frac43(\frac14+\frac14 u),\frac43(\frac12-\frac14 u)\right).
+$$
+For $H(Y|X)$,
+$$
+H(Y|X)=u H(Y|X=0)+(1-u)H(Y|X=1)
+=uH\left (\frac12,\frac14,\frac14\right)+(1-u)H\left (\frac14,\frac14,\frac12\right)=\frac32(u+1-u)=\frac32.
+$$
+So
+$$
+\begin{aligned}
+C&=\max_u[H(Y)-\frac32]\\
+&=-\frac32 +\max_u H(Y)
+\\&= -\frac32 + 2-\frac34\log_23+\frac34\max_u H\left(\frac13+\frac13u,\frac23-\frac13u\right)
+\end{aligned}
+$$
+and when $\frac13+\frac13u=\frac12$ i.e. $u=\frac12$, i.e. when $p_X(0)=p_X(1)=\frac12$, $I(X;Y)$ reaches the capacity
+$$
+C=-\frac32+2-\frac34\log_23+\frac34\cancelto 1{\log_2 2}=\frac54-\frac34\log_23.
 $$
 
 ### 設問6
 
+Similarly define $p_X$ as $[u~~~1-u]$,
 $$
-H(Y)=\frac{n+2}{2(n-1)}-\frac{n}{2(n-1)}\log n+\frac{1}{n-1}\log (n-1)
+H(Y|X)=1+\frac12\log_2(n-1)
 $$
-
+and
 $$
-H(Y|X)=1+\frac{1}{2} \log(n-1)
+\begin{aligned}
+H(Y)&=H\left(
+\frac12u+\frac1{2(n-1)}(1-u),\frac1{2(n-1)}u+\frac12(1-u),
+\underbrace{\frac1{2(n-1)},\frac1{2(n-1)},\dots,\frac1{2(n-1)}}_{(n-2)\text{ terms}}
+\right)
+\\&=H\left(
+\frac12+\frac1{2(n-1)},\underbrace{\frac1{2(n-1)},\frac1{2(n-1)},\dots,\frac1{2(n-1)}}_{(n-2)\text{ terms}}
+\right)
++\left(\frac12+\frac1{2(n-1)}\right)
+H(u',1-u')
+\\&\le H\left(
+\frac12+\frac1{2(n-1)},\underbrace{\frac1{2(n-1)},\frac1{2(n-1)},\dots,\frac1{2(n-1)}}_{(n-2)\text{ terms}}
+\right) + \left(\frac12+\frac1{2(n-1)}\right)\cancelto 1{\log_2 2}
+\end{aligned}
 $$
-
+where
 $$
-f(n)=\frac{1}{n-1}-\frac{1}{2}=-\frac{n}{2(n-1)}
+u'={\frac12u+\frac1{2(n-1)}(1-u)\over \frac12+\frac1{2(n-1)}}={u+\frac{1-u}{n-1}\over 1+\frac1{n-1}}
 $$
+and when $u'=\frac12$ i.e. $u=\frac12$, the inequality reaches the equality i.e. $H(Y)$ finds the maximum value as
+$$
+\begin{aligned}
+\max_u H(Y)
+&=H\left(
+\frac12+\frac1{2(n-1)},\underbrace{\frac1{2(n-1)},\frac1{2(n-1)},\dots,\frac1{2(n-1)}}_{(n-2)\text{ terms}}
+\right) + \left(\frac12+\frac1{2(n-1)}\right)
+\\&=\cdots
+\\&={n\over 2(n-1)}+\cancel{2n-2\over 2(n-1)}\log_2 (n-1)-\frac n{2(n-1)}\log_2 n + 1
+\end{aligned}
+$$
+so
+$$
+\begin{aligned}
+C&=\left({n\over 2(n-1)}+\log_2 (n-1)-\frac n{2(n-1)}\log_2 n + 1\right)-\left(1+\frac12\log_2(n-1)\right)
+\\&=f(n)\log_2 n+\frac12\log_2 (n-1)+{n\over 2(n-1)}
+\end{aligned}
+$$
+where $f(n)=-{n\over 2(n-1)}$.
