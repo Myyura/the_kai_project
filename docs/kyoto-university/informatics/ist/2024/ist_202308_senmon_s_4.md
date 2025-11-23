@@ -107,10 +107,10 @@ $$
 \begin{cases}
 \displaystyle
 \frac{\partial L}{\partial p} &= (m+1)\log_{2} p+(m+1)-(m+1)\lambda =
-(m+1)(\log_{2} p+1-\lambda) = 0
+(m+1)(\log_{2} p+1-\lambda) = 0 \\
 \displaystyle
 \frac{\partial L}{\partial q} &= (m-1)\log_{2} q+(m-1)-(m-1)\lambda = 
-(m-1)(\log_{2} q+1-\lambda) = 0
+(m-1)(\log_{2} q+1-\lambda) = 0 \\
 \displaystyle
 \frac{\partial L}{\partial \lambda} &= 1-(m+1)p-(m-1)q = 0
 \end{cases}
