@@ -55,7 +55,7 @@ $$
 \begin{aligned}
 \begin{cases}
 \displaystyle
-c_{1} = \left(\frac{-1+0-2}{3},\frac{4+8+6}{3}\right) =(-1,6)\\[0.7em]
+c_{1} = \left(\frac{-1+0-2}{3},\frac{4+8+6}{3}\right) =(-1,6)\\
 \displaystyle
 c_{2} = \left(\frac{1+4+4}{3},\frac{1+2+6}{3}\right) =(3,3)
 \end{cases}
@@ -75,9 +75,11 @@ $$
 $$
 
 The classifier is
+
 $$
 f((x,y))=\begin{cases}
-C_1,&8x-6y+19>0,\\C_2,&8x-6y+19<0.\end{cases}
+C_1,&8x-6y+19>0,\\C_2,&8x-6y+19<0.
+\end{cases}
 $$
 
 ### (2)
