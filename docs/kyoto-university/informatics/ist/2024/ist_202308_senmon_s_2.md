@@ -72,13 +72,12 @@ $$
 
 ### 設問3
 
-We actually cannot know $\text{Cov}[X,Y]$, but it's offsetted.
 $$
 \begin{aligned}
 \text{Cov}[S,T]
 &= \text{Cov}[X+2Y,X-2Y]\\[0.7em]
 &= \text{Cov}[X,X]+2\text{Cov}[X,Y]-2\text{Cov}[X,Y]+4\text{Cov}[Y,Y]\\[0.7em]
-&= 2+c-c-8 = -6
+&= 2 - 8 = -6
 \end{aligned}
 $$
 
