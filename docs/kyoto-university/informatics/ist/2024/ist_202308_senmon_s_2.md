@@ -77,7 +77,7 @@ $$
 \text{Cov}[S,T]
 &= \text{Cov}[X+2Y,X-2Y]\\[0.7em]
 &= \text{Cov}[X,X]+2\text{Cov}[X,Y]-2\text{Cov}[X,Y]+4\text{Cov}[Y,Y]\\[0.7em]
-&= 2+4-4-8 = -6
+&= 2 - 8 = -6
 \end{aligned}
 $$
 
@@ -128,5 +128,7 @@ $$
 Thus, the p-value for Fisher's exact test is 
 
 $$
-p = \frac{1+20+40+5}{126} = 0.5238
+p = \frac{1+20+40+5}{126} = {11\over21} \approx 0.5238
 $$
+
+Note that the statistical significance is concluded when $p < 0.05$.
