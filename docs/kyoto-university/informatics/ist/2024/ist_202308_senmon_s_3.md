@@ -129,8 +129,14 @@ $$
 $$
 
 and by the inversion
+
 $$
-\begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1}=\frac1{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix},
+\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}^{-1}=\frac1{ad-bc}
+\begin{pmatrix}
+d&-b\\-c&a
+\end{pmatrix},
 $$
 
 $$
