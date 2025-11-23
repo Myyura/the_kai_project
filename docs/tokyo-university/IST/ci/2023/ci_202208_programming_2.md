@@ -14,7 +14,9 @@ where $0 \le i \le m-1$ and $0 \le j \le m-1$.
 For example, Figure 1 shows a maze on $6 \times 6$ cells. 
 The cell A is $(0,0)$ and the cell B is $(2,5)$.
 
-![fig2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_p_p2.png)
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_p_p2.png" width="450" height="220" alt=""/>
+</figure>
 
 When a sequence of numbers is stored, we store a character string in a file as follows.
 ```
