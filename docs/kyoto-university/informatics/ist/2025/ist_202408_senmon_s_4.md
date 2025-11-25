@@ -21,6 +21,7 @@ Answer the following questions, where $T_0, \omega_0$, and $T$ denote positive c
 
 ### Q.1
 Prove that the following equation holds for real functions $f(t)$ and $g(t)$, where $*$ denotes convolution.
+
 $$
 \mathcal{F}[f(t)g(t)] = \frac{1}{2\pi} \mathcal{F}[f(t)] * \mathcal{F}[g(t)] 
 $$
@@ -28,6 +29,7 @@ $$
 ### Q.2
 Compute the Fourier transform of the functions given below.
 (1) $x_1(t) = \frac{1}{2}(\text{sgn}(T_0 - t) + \text{sgn}(T_0 + t))$,
+
 $$
 \text{where } \text{sgn}(t) = \begin{cases} -1 & (t < 0) \\ 0 & (t = 0) \\ 1 & (t > 0) \end{cases} 
 $$
@@ -44,6 +46,7 @@ Let $x_s(t, T) = x_2(t)\delta_T(t)$ be a signal sampled from $x_2(t)$ in Q.2 usi
 (3) Draw the graph of $\mathcal{F}[x_s(t, \frac{2}{3\omega_0})]$ in the range of $|\omega| \leq 3\omega_0$.
 
 (4) Draw the graph of $\mathcal{F}^{-1}[X_s(\omega)]$ in the range of $|t| \leq \frac{\pi}{\omega_0}$. $X_s(\omega)$ is given below.
+
 $$
 X_s(\omega) = \begin{cases} \mathcal{F}[x_s(t, \frac{2}{3\omega_0})] & (|\omega| \leq \omega_0) \\ 0 & (|\omega| > \omega_0) \end{cases} 
 $$
