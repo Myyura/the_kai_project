@@ -13,9 +13,11 @@ tags:
 
 ### Q.1
 Suppose the probability density function $f(x)$ of a random variable $X$ is as follows.
+
 $$ 
 f(x) = \begin{cases} 0 & (x < 0) \\ cx(3-x) & (0 \leq x < 3) \\ 0 & (3 \leq x) \end{cases} 
 $$
+
 $c$ is a positive constant ($c > 0$).
 
 (1) Compute the value of the constant $c$.
@@ -27,6 +29,7 @@ Let $X$ and $Y$ be independent random variables following the binomial distribut
 
 ### Q.3
 Consider normal populations A and B with a common population variance. One sample of size 18 is selected from the normal population A, denoted as $(x_1, x_2, \dots, x_{18})$, and the other one of size 18 from the normal population B, denoted as $(y_1, y_2, \dots, y_{18})$. The statistics derived from the samples are as follows.
+
 $$
  \bar{x} = \frac{1}{18} \sum_{i=1}^{18} x_i \qquad s_x^2 = \frac{1}{17} \sum_{i=1}^{18} (x_i - \bar{x})^2 \\
 \bar{y} = \frac{1}{18} \sum_{i=1}^{18} y_i \qquad s_y^2 = \frac{1}{17} \sum_{i=1}^{18} (y_i - \bar{y})^2 \qquad s_{xy} = \frac{1}{17} \sum_{i=1}^{18} (x_i - \bar{x})(y_i - \bar{y}) 
