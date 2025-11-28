@@ -27,8 +27,8 @@ from openai import OpenAI
 
 # Configuration
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-OPENROUTER_MODEL = "openai/gpt-4o-mini"
-OPENAI_MODEL = "gpt-4.1-mini"  # Fallback model for OpenAI API
+OPENROUTER_MODEL = "openai/gpt-4.1-mini"
+OPENAI_MODEL = "gpt-5-mini"  # Fallback model for OpenAI API
 MAX_RETRIES = 5
 RETRY_DELAY = 3  # seconds
 REQUEST_TIMEOUT = 30  # seconds
