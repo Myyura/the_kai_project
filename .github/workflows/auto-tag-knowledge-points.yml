@@ -1,0 +1,136 @@
+name: Auto Tag Knowledge Points
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'docs/**/*.md'
+      - 'docs/**/*.mdx'
+  pull_request:
+    paths:
+      - 'docs/**/*.md'
+      - 'docs/**/*.mdx'
+
+jobs:
+  tag-knowledge-points:
+    name: Extract and Update Knowledge Point Tags
+    runs-on: ubuntu-latest
+    
+    # Grant write permissions to commit changes back
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for git diff
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'scripts/requirements.txt'
+      
+      - name: Install Python dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+      
+      - name: Detect changed markdown files
+        id: changed-files
+        run: |
+          echo "Detecting changed markdown files..."
+          
+          # Determine the base commit for comparison
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_REF="${{ github.event.pull_request.base.sha }}"
+            HEAD_REF="${{ github.event.pull_request.head.sha }}"
+            echo "Pull Request mode: comparing $BASE_REF...$HEAD_REF"
+          else
+            # For push events
+            if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+              # New branch, compare with HEAD~1
+              BASE_REF="HEAD~1"
+            else
+              BASE_REF="${{ github.event.before }}"
+            fi
+            HEAD_REF="${{ github.sha }}"
+            echo "Push mode: comparing $BASE_REF...$HEAD_REF"
+          fi
+          
+          # Get changed files in docs/ directory
+          CHANGED_FILES=$(git diff --name-only --diff-filter=AM $BASE_REF $HEAD_REF -- 'docs/**/*.md' 'docs/**/*.mdx' || true)
+          
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No markdown files changed in docs/ directory"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changed files:"
+            echo "$CHANGED_FILES"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            
+            # Save to environment file for next step
+            {
+              echo 'CHANGED_FILES<<EOF'
+              echo "$CHANGED_FILES"
+              echo 'EOF'
+            } >> $GITHUB_ENV
+          fi
+      
+      - name: Extract and update knowledge point tags
+        if: steps.changed-files.outputs.has_changes == 'true'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          echo "Running tag extraction script..."
+          python3 scripts/tag_extractor.py
+      
+      - name: Check for changes
+        id: check-changes
+        if: steps.changed-files.outputs.has_changes == 'true'
+        run: |
+          if git diff --quiet docs/; then
+            echo "No changes to commit"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push changes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          git add docs/
+          git commit -m "chore: auto-update knowledge point tags [skip ci]"
+          
+          # Push to the appropriate branch
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            # For PRs, push to the PR branch
+            git push origin HEAD:${{ github.head_ref }}
+          else
+            # For push events, push to the current branch
+            git push
+          fi
+      
+      - name: Summary
+        if: always()
+        run: |
+          echo "### Knowledge Point Tagging Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.changed-files.outputs.has_changes }}" != "true" ]; then
+            echo "✅ No markdown files changed in docs/ directory" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.check-changes.outputs.has_changes }}" != "true" ]; then
+            echo "✅ Processed files but no tag updates needed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Successfully extracted and updated knowledge point tags" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Changed files have been updated with new knowledge point tags." >> $GITHUB_STEP_SUMMARY
+          fi
