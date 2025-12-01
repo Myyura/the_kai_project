@@ -14,6 +14,7 @@ tags:
 ## **Description (English)**
 
 ### Q.1
+
 A discrete memoryless channel C consists of two discrete memoryless channels D and E, which are connected serially as shown in the following figure.
 
 <figure style="text-align:center;">
