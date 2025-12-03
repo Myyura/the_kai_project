@@ -10,6 +10,23 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+実数 $a$ に対して、$A = \begin{bmatrix} -1 & 1+a & -2 \\ 0 & 1 & 0 \\ 4 & 1-a & 5 \end{bmatrix}$ を考える、$E = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$ とする。
+
+(1) $A$ の固有値をすべて求めよ。
+
+(2) $A$ の最大の固有値を $\lambda_1$ とする. $\lambda_1$ に対する $A$ の固有空間の基底を求めよ。
+
+(3) $A$ の最小の固有値を $\lambda_2$ とする. 線形変換 $f : \mathbb{R}^3 \to \mathbb{R}^3$ を
+
+$$
+f(x) = (\lambda_2 E - A)^2x \ \ (x \in \mathbb{R}^3)
+$$
+
+で定義する。$f$ の核 $\text{Ker} f$ の次元、および $f$ の像 $\text{Im} f$ の次元を求めよ。
+
+(4) $A$ が対角化可能であるための $a$ の条件を求めよ。
+
+(5) $a$ が (4) で求めた条件をみたすとき、$A^n$ を求めよ、ただし、$n$ は自然数とする。
 
 ## **Kai**
 ### (1)
