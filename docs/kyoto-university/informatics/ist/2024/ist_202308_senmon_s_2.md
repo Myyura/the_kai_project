@@ -74,6 +74,7 @@ $$
 
 ### 設問3
 
+We actually cannot know $\text{Cov}[X,Y]$, but it's offsetted.
 $$
 \begin{aligned}
 \text{Cov}[S,T]
