@@ -5,16 +5,20 @@ tags:
   - Programming
 ---
 
-## Author
+## **Author**
+[itsuitsuki](https://github.com/itsuitsuki)
 
-## Description (English)
+## **Description (English)**
+
 Suppose that we have a maze on a square board with $m \times m$ cells. 
 The cell in the $i$-th row and the $j$-th column is denoted by $(i, j)$, 
 where $0 \le i \le m-1$ and $0 \le j \le m-1$. 
 For example, Figure 1 shows a maze on $6 \times 6$ cells. 
 The cell A is $(0,0)$ and the cell B is $(2,5)$.
 
-![fig2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_p_p2.png)
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_p_p2.png" width="450" alt=""/>
+</figure>
 
 When a sequence of numbers is stored, we store a character string in a file as follows.
 ```
@@ -70,3 +74,5 @@ Note that, for different pairs of $i$ and $j$, the same wall may be put.
 
 (3-d) We can reach the goal of this maze when proceeding through the maze by always keeping one wall on the left-hand side in the direction of the move. Write down on the answer sheet the number of the cells visited on the way to the goal. When the same cell is visited twice, that cell is counted only once. Include the start and the goal cells in the cells visited on the way. 
 At first, the upper wall of the start cell is on the left-hand side in the direction of the move.
+
+## **Kai**

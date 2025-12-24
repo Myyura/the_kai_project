@@ -2,11 +2,14 @@
 sidebar_label: "2023年8月実施 専門科目 S-3"
 tags:
   - Kyoto-University
+  - Machine-Learning
+  - Classification
+  - Fisher-Linear-Discriminant-Analysis
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2023年8月実施 専門科目 S-3
 
 ## **Author**
-祭音Myyura
+祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description** 
 Suppose that samples are given in a 2-dimensional feature space as shown in Table 1.
@@ -55,14 +58,14 @@ $$
 \begin{aligned}
 \begin{cases}
 \displaystyle
-c_{1} = \left(\frac{-1+0-2}{3},\frac{4+8+6}{3}\right) =(-1,6)\\[0.7em]
+c_{1} = \left(\frac{-1+0-2}{3},\frac{4+8+6}{3}\right) =(-1,6)\\
 \displaystyle
 c_{2} = \left(\frac{1+4+4}{3},\frac{1+2+6}{3}\right) =(3,3)
 \end{cases}
 \end{aligned}
 $$
 
-Let the point $(x,y)$ be where the Euclidean distance from $c_1$ and $c_2$ are equal. Then we define a linear classifier as follows:
+Let the point $(x,y)$ be where the Euclidean distance from $c_1$ and $c_2$ are equal. Then we define a linear classifier with the decision boundary as follows:
 
 $$
 (x+1)^{2}+(y-6)^{2} = (x-3)^{2}+(y-3)^{2}
@@ -74,14 +77,23 @@ $$
 8x-6y+19 = 0
 $$
 
+The classifier is
+
+$$
+f((x,y))=\begin{cases}
+C_1,&8x-6y+19>0,\\C_2,&8x-6y+19<0.
+\end{cases}
+$$
+
 ### (2)
+
 Let $\bar{c}$ denote the mean of all the data
 
 $$
 \bar{c} = \left(1,\frac{9}{2}\right).
 $$
 
-Since a larger ratio of between-class variance to within-class variance is considered a better classification, we compare the ratio $r_1$ and $r_2$ of Q1 and Q2.
+Since a larger ratio of between-class variance (sum of squared class center-overall center distances) to within-class variance (sum of squared data-class center distances) is considered a better classification, we compare the ratio $r_1$ and $r_2$ of Q1 and Q2.
 
 Let $c_i$ denote the center of class $C_i$. Then we have
 
@@ -98,10 +110,10 @@ $$
 Since $r_1 > r_2$, the classifier in Q1 is better than Q2.
 
 ### (3)
-For $j=1,2$, let $\Sigma_j$ denote the covariance matrix of $C_j$. Then, the Mahalanobis distance for $x_i$ corresponds to $C_j$ is
+For $j=1,2$, let $\Sigma_j$ denote the covariance matrix of $C_j$. Then, the Mahalanobis distance for $x_i$ corresponding to $C_j$ is
 
 $$
-L_{j} = (x_{i}-c_{j})^{T}\Sigma_{j}^{-1}(x_{i}-c_{j})
+L_{j} = \sqrt{(x_{i}-c_{j})^{T}\Sigma_{j}^{-1}(x_{i}-c_{j})}
 $$
 
 where
@@ -119,15 +131,33 @@ $$
 \end{pmatrix}
 $$
 
+and by the inversion
+
+$$
+\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}^{-1}=\frac1{ad-bc}
+\begin{pmatrix}
+d&-b\\-c&a
+\end{pmatrix},
+$$
+
+$$
+\Sigma_1^{-1}=\begin{pmatrix}\frac43&-\frac13\\-\frac13&\frac13\end{pmatrix},\qquad
+
+\Sigma_2^{-1}=\begin{pmatrix}\frac7{12}&-\frac14\\-\frac14&\frac14\end{pmatrix}.
+$$
+
 ### (4)
+
 Assume that each sample follows a multivariate normal distribution.
-Based on the form of the probability density function of the multivariate normal distribution, it is better to classify the sample into the class with the smaller Mahalanobis distance calculated using the method in Q3.
+Based on the form of the probability density function of the multivariate normal distribution (assuming the samples of each class form a multivariate normal distribution respectively), it is better to classify the sample into the class with the smaller Mahalanobis distance calculated using the method in Q3.
 
 Following the formula given in Q3, the Mahalanobis distances $L_1$ and $L_2$ for $x_7$ are
 
 $$
 \begin{aligned}
-    L_1 \approx 9.33, \quad L_2 \approx 3.99
+    L_1 = \sqrt{28\over 3}<2= L_2
 \end{aligned}
 $$
 

@@ -25,6 +25,7 @@ title: 参考链接
 - [YuanzhongLi, UTokyo CI Programming](https://qiita.com/YuanzhongLi)
 - [江澤 樹, 名古屋大学大学院多元数理科学研究科博士前期課程の入学試験問題の解答・解説](https://sites.google.com/view/tatsukiezawa/%E8%A7%A3%E7%AD%94%E9%9B%86)
 - [藍色日和, 東大数理院試過去問解答例まとめ](https://mathlog.info/articles/zLhBwPhItOrD5zEO3psa)
+- [京大数学教室院試解答(解析系)のぺーじ](https://sites.google.com/view/kmath-grad-answer)
 - [AKIRA, 京都大学情报学研究科系统科学专攻过去问解答](http://xhslink.com/m/8FArGcXC0cz)
 - [蛋黄猫物理, 物理、电路、电磁等过去问解答](https://www.xiaohongshu.com/user/profile/67173192000000001e009fa7?xsec_token=YBaJbvO4qazzvNUB-8gkqSwFa4usRBcKTQe93j6tfxtPw=)
 - [つき, 京大系统, 名大复杂等过去问解答](https://www.xiaohongshu.com/user/profile/63d537d600000000260065d9?xsec_token=YBtJ6wpcl6PK8IoN4piTy7krpc3iybAW1bVTfoB2MJbm0=)
