@@ -9,7 +9,8 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## Description (English)
+## **Description (English)**
+
 Suppose that we have a maze on a square board with $m \times m$ cells. 
 The cell in the $i$-th row and the $j$-th column is denoted by $(i,j)$, where $0 \leq i \leq m-1$ and $0 \leq j \leq m-1$. 
 For example, Figure 1 shows a maze on $6 \times 6$ cells. The cell A is $(0,0)$ and the cell B is $(2,5)$. 
@@ -20,7 +21,7 @@ the left wall is $(2i+1, 2j)$, and the right wall is $(2i+1, 2j+2)$.
 For example, the wall p in Figure 2 is $(1,6)$ and the wall q is $(8,1)$.
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_p_p1.png" width="600" height="220" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_202208_p_p1.png" width="600" alt=""/>
 </figure>
 
 
