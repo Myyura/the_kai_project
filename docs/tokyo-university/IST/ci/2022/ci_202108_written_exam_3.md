@@ -8,25 +8,18 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description**
+## **Description (English)**
 Select four items out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines of text.
 If necessary, use examples or figures.
 
-(1) Cellular automaton
-
-(2) Clock frequency
-
-(3) The method of surrogate data
-
-(4) Pseudo-inverse matrix (Generalized inverse matrix)
-
-(5) Recurrent neural network
-
-(6) Kullback-Leibler divergence
-
-(7) Homography transformation
-
-(8) Passive Walking
+1. **Cellular automaton**
+2. **Clock frequency**
+3. **The method of surrogate data**
+4. **Pseudo-inverse matrix**
+5. **Recurrent neural network**
+6. **Kullback-Leibler divergence**
+7. **Homography transformation**
+8. **Passive Walking**
 
 ## **Kai**
 ### Clock frequency
