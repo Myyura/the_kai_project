@@ -8,7 +8,7 @@ tags:
 ## **Author**
 [tomfluff](https://github.com/tomfluff)
 
-## **Description**
+## **Description (English)**
 Select four items out of the following eight items concerning information systems, and explain each item in approximately 4~8 lines of text.
 If necessary, use examples or figures.
 

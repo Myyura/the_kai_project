@@ -8,7 +8,7 @@ tags:
 ## **Author**
 [tomfluff](https://github.com/tomfluff), 祭音Myyura
 
-## **Description**
+## **Description (English)**
 A data set $S$ including eight data is given as in Figure 1. Each datum is in the form of  $(x_1, x_2, x_3, x_4, y) \in \{0, 1\}^5$. 
 Below we consider how to construct a rule from $S$ for classifying $\boldsymbol{x} = (x_1, x_2, x_3, x_4)$ into $y = 1$ or $y = 0$. Answer the following questions.
 

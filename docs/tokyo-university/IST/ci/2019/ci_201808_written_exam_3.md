@@ -8,7 +8,7 @@ tags:
 ## **Author**
 [tomfluff](https://github.com/tomfluff)
 
-## **Description**
+## **Description (English)**
 Select **four items** out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines of text. If necessary, use examples or figures.
 
 1. **Inverse kinematics**

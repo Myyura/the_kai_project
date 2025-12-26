@@ -46,3 +46,103 @@ is stored and the number of characters is 20.
 (4) For the numbers of new infections in the text file `infections.txt`, find the shortest period among the periods in which the sum of the new-infection increments is maximized. Write that period on the answer sheet. If more than one such period is found, write all the periods. The first day is Day 1. For example, answer like "From Day 8 to 24". Furthermore, calculate the sum of the new-infection increments during that period, and write that sum on the answer sheet.
 
 ## **Kai**
+
+### (1)
+
+```py
+with open('infections.txt') as f_infe:
+    tmp = f_infe.readline()
+    orig_infelst = tmp.split(':')
+    orig_infelst = [int(s) for s in orig_infelst]
+    infelst = list(set(orig_infelst))
+print(sorted(infelst, reverse=True)[2])
+```
+
+The third biggest number is 2268.
+
+### (2)
+
+```py
+import os
+# find all files with "dataxx.txt" 
+filelist = []
+for filename in os.listdir('.'):
+    if filename.startswith('data') and filename.endswith('.txt'):
+        filelist.append(filename)
+def kth_biggest(ls, k):
+    ls = list(set(ls))
+    return sorted(ls, reverse=True)[k-1]
+lists = [open(tmp).readline().split(':') for tmp in filelist]
+lists = [[int(s) for s in l] for l in lists]
+nfs = [kth_biggest(l, 10) for l in lists]
+sum(nfs)
+```
+
+The sum is 8650.
+
+### (3)
+
+```py
+diffs = []
+diffstring = ""
+for i, n in enumerate([0] + orig_infelst[:-1]):
+    nn = orig_infelst[i]
+    d = nn-n
+    diffs += [d]
+    diffstring += str(d) if d < 0 else '+' + str(d)
+print(diffstring)
+print(len(diffstring))
+with open('diff.txt', 'w') as f:
+    f.write(diffstring)
+```
+
+The character count is 1431.
+
+### (4)
+
+$O(n^3)$:
+
+```py
+# O(n^3)
+print("Total: {} days".format(len(orig_infelst)))
+tuples = []
+for i in range(len(diffs)):
+    for j in range(i, len(diffs)):
+        tuples.append((sum(diffs[i:j+1]), i, j))
+maximal = max(tuples, key=lambda x: x[0])
+for t in tuples:
+    if t[0] == maximal[0]:
+        print(t[0], t[1]+1, t[2]+1)
+```
+
+
+
+$ O(n)$ (`dpmemory` to only save the last start point, since the question asks for the smallest period)
+
+```py
+dp = [diffs[0]] # dp[i] is the maximum constegious period ending with i
+dpmemory = [0] # closest start point
+for i, n in enumerate(diffs):
+    if i == 0:
+        continue
+    if dp[i-1] < 0: # start newly with (i,i)
+        dp += [n]
+        dpmemory += [i]
+    elif dp[i-1] > 0: # inherit
+        dp += [dp[i-1] + n]
+        dpmemory += [dpmemory[i-1]]
+    else: # two choices
+        dp += [n] # = dp[i-1] + n
+        dpmemory += [i]
+maximal = max(dp)
+for i, (d, dd) in enumerate(zip(dp, dpmemory)):
+    if d == maximal:
+        print(maximal, dd+1, i+1)
+```
+
+The periods:
+
+From Day 109 to 306 (including 306)
+
+The sum is 2447.
+

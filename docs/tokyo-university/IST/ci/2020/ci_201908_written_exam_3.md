@@ -8,25 +8,18 @@ tags:
 ## **Author**
 [tomfluff](https://github.com/tomfluff)
 
-## **Description**
+## **Description (English)**
 Select four items out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines of text.
 If necessary, use examples or figures.
 
-(1) Semaphore
-
-(2) A* search algorithm
-
-(3) FPGA
-
-(4) Buffer overflow
-
-(5) LR parsing
-
-(6) IPv4 and IPv6
-
-(7) Stepping motor
-
-(8) Perceptron
+1. **Semaphore**
+2. **A* search algorithm**
+3. **FPGA**
+4. **Buffer overflow**
+5. **LR parsing**
+6. **IPv4 and IPv6**
+7. **Stepping motor**
+8. **Perceptron**
 
 ## **Kai**
 ### Semaphore
