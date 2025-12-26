@@ -1,0 +1,413 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Slot 1: 1.1 Calculus (40 minutes)",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          33.0,
+          88.751953125
+        ],
+        [
+          205.5,
+          88.751953125
+        ],
+        [
+          205.5,
+          101.302734375
+        ],
+        [
+          33.0,
+          101.302734375
+        ]
+      ]
+    },
+    {
+      "title": "Slot 2: 2.1 Linear algebra (40 minutes)",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          33.75,
+          88.751953125
+        ],
+        [
+          235.5,
+          88.751953125
+        ],
+        [
+          235.5,
+          101.302734375
+        ],
+        [
+          33.75,
+          101.302734375
+        ]
+      ]
+    },
+    {
+      "title": "Slot 2: 2.2 Mechanics (40 minutes)",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          33.75,
+          88.5
+        ],
+        [
+          213.75,
+          88.5
+        ],
+        [
+          213.75,
+          101.00390625
+        ],
+        [
+          33.75,
+          101.00390625
+        ]
+      ]
+    },
+    {
+      "title": "Slot 3: 3.1 Mathematical analysis (40 minutes)",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          34.5,
+          89.05078125
+        ],
+        [
+          276.0,
+          89.05078125
+        ],
+        [
+          276.0,
+          101.00390625
+        ],
+        [
+          34.5,
+          101.00390625
+        ]
+      ]
+    },
+    {
+      "title": "Slot 3: 3.2 Probability and Statistics (40 minutes)",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          33.0,
+          88.5
+        ],
+        [
+          292.5,
+          88.5
+        ],
+        [
+          292.5,
+          101.302734375
+        ],
+        [
+          33.0,
+          101.302734375
+        ]
+      ]
+    },
+    {
+      "title": "Slot 3: 3.3 Electromagnetism (40 minutes)",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          33.0,
+          88.5
+        ],
+        [
+          253.5,
+          88.5
+        ],
+        [
+          253.5,
+          101.302734375
+        ],
+        [
+          33.0,
+          101.302734375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          91
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          79
+        ],
+        [
+          "Line",
+          55
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          68
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "ListItem",
+          10
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          65
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          71
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          86
+        ],
+        [
+          "Line",
+          54
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data\\special_F2023_en"
+}
