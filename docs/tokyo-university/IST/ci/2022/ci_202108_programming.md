@@ -105,8 +105,7 @@ Find $s$ such that it maximizes the value of $a$ in the approximate formula $ka^
 
 
 ## **Kai**
-We currently do not have the corresponding sample data files. If you have them and are willing to share, please submit a PR.
-The author create some simple samples (thus the file-related parts in the following code do not fully correspond to the problem statement but rather to the data file created by the author) and the completed code files as well as the simple samples are in this [repository](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2020-Summer).
+The sample data files are [here](https://github.com/sophytoeat/Problem/tree/main/%E9%81%8E%E5%8E%BB%E5%95%8F/%E5%89%B5%E9%80%A0%E6%83%85%E5%A0%B1%E5%AD%A6/%E4%B8%80%E8%88%AC%E6%95%99%E8%82%B2%E7%A7%91%E7%9B%AE(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)/2022%E5%B9%B4%E5%BA%A6_%E5%A4%8F_%E4%B8%80%E8%88%AC/%E9%85%8D%E5%B8%83%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF).
 
 ### Problem 1
 #### (1)
