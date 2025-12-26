@@ -36,6 +36,26 @@ tags:
 
 (6) 入力 $n$ ビットの population count 論理回路 $P_n$ を考える時、$n$ が増えると遅延が問題となる。この問題を解決する方法を述べよ。 
 
+## Description (English)
+Let us consider a solar power generation system. Assume that we have operational rules to maintain solar panels as follows; (i) A set of $n$ panels are maintained at the same time as a group. (ii) Each group of panels is periodically examined. (iii) For each group, status of panels is reported as $n$ bit data, where each bit is set to $1$ if the corresponding panel is malfunctioning, and $0$ otherwise. Consider the "population count" problem where we count the total number of malfunctioning panels, i.e., the number $k$ of $1$s in the $n$ bit data. Answer the following questions.
+
+First, let us consider a software solution. Here, $0 < n \le 32, 0 \le k < \log_2 n$. Assume that an arithmetic operation, a logical operation, a shift operation, and a table lookup takes $1$ unit time. For simplicity, assume that increments of indices and comparisons for loops take zero time.
+
+(1) A naive method is to check the value of each bit and compute the total sum of the number of $1$s. Write down a pseudo-code of this method and answer its computation time.
+
+(2) You can actually improve the computation time of the method (1) via table lookups. Answer its computation time.
+
+(3) Write down a pseudo-code of a method which is faster than the method (1) and requires less storage than the method (2). Answer its computation time.
+
+Let us consider a hardware solution. Here, input is a bit sequence and output is a binary number.
+
+(4) Write down the truth table of a population count logic circuit $P_3$, where the input is $3$ bit. Design $P_3$ using AND, OR, and NOT gates.
+
+(5) Using logic circuits $P_3$, design a population count logic circuit $P_6$, where the input is $6$ bit. You may also use additional AND, OR, and NOT gates, if needed.
+
+(6) To design a population count logic circuit $P_n$, where the input is $n$ bit, latency becomes an issue as $n$ increases. Answer a solution of this latency problem.
+
+
 ## **Kai**
 ### (1)
 ```

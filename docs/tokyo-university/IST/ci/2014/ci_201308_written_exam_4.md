@@ -29,7 +29,7 @@ If necessary, use examples or figures.
 4) Shortest path problem
 5) Bayesian network
 6) Carry look-ahead
-7) Closure (Closure)
+7) Closure
 8) Finite automaton
 
 ## **Kai**

@@ -20,7 +20,3 @@ Select <u>four items</u> out of the following eight items concerning information
 6. **Thread-level parallel speculative execution**
 7. **Procedural modeling**
 8. **k-nearest neighbor algorithm**
-
-## **Kai**
-### Radix Sort
-A sorting algorithm that sort strings or numbers from lower to higher digit places. In the $i$-th step in the loop, the algorithm calls a counting sort distributing $i$-th digit into ordered buckets. 

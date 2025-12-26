@@ -57,41 +57,38 @@ $F(j, k)$ : 重量制限 $k$ 以下のなかに詰める品物の候補を $G_1,
 | 5 | | | | | | | | | | |
 
 ## **Description (English)**
-Items $G_1, G_2, \dots, G_n$ have weights $a_i$ and values $c_i$ (where $i=1, \dots, n$), respectively. The problem of packing items into a knapsack with a maximum weight capacity $b$ such that the total value is as large as possible is called the knapsack problem, which can generally be formulated as follows.
+Goods $G_1, G_2, \cdots, G_n$ have their weights $a_i$ and value $c_i$ ($i=1,\cdots,n$), respectively. The problem of packing the maximum total value of goods into a knapsack with a weight limit $b$ is called the knapsack problem, which can be generally formulated as
 
 [Problem A0]
-Maximize $c_1 x_1+c_2 x_2+\dots+c_n x_n$
-Subject to $a_1 x_1+a_2 x_2+\dots+a_n x_n \le b$
-$x_i\in\{1, 0\}$, $i=1, \dots, n$ ($x_i=1$ when item $G_i$ is packed into the knapsack)
+$$\begin{aligned} &\text{Maximize} &&c_1x_1+c_2x_2+\cdots+c_nx_n \\ &\text{Subject to} &&a_1x_1+a_2x_2+\cdots+a_nx_n \le b \\ & &&x_i \in \{1, 0\}, i=1, \cdots, n \text{ ($x_i=1$ when $G_i$ is packed into the knapsack.)} \end{aligned}$$
 
-As a specific knapsack problem, consider the following [Problem A1].
+Here, we specifically consider the following knapsack problem [Problem A1].
 
 [Problem A1]
-Maximize $14x_1+22x_2+30x_3+9x_4+12x_5$
-Subject to $2x_1+4x_2+6x_3+2x_4+3x_5 \le 9$
-$x_1, \dots, x_5 \in \{1, 0\}$
+$$\begin{aligned} &\text{Maximize} &&14x_1+22x_2+30x_3+9x_4+12x_5 \\ &\text{Subject to} &&2x_1+4x_2+6x_3+2x_4+3x_5 \le 9 \\ & &&x_1, \cdots, x_5 \in \{1, 0\} \end{aligned}$$
 
-The most direct solution method is the enumeration method, where all cases are generated and examined. In the specific example of [Problem A1], the number of cases $2^5$ is well within the calculable range, but as the number of items $n$ increases, the number of cases increases exponentially. Therefore, here we consider efficient search using two methods: (1) the branch and bound method and (2) dynamic programming.
+The most straightforward approach to this problem is the enumeration method, in which all the cases are generated and evaluated. Although the number of possible cases in [Problem A1] is $2^5$ and fully within a computable range, this number grows exponentially as the number of possible goods $n$ increases. Then, we here try to achieve efficient searches through two methods, namely, (1) the branch and bound method and (2) dynamic programming.
 
 **(1) Search by the branch and bound method**
 
-(1-1) Explain the operation of the branch and bound method for maximizing an objective function using the following terms: "branching operation," "subproblem (child problem)," "tentative value," "upper bound," "bounding operation," and "feasible solution."
+(1-1) Explain the behavior of the branch and bound method maximizing an objective function, using the following terms:
+"branching operation", "sub-problems (child problems)", "incumbent value", "upper bound value", "bounding operation", and "feasible solution"
 
-(1-2) In the case of the knapsack problem, it is convenient if the items are sorted in the order of value per unit weight; in [Problem A1] above, the value per unit weight is higher in the order $G_1, G_2, \dots$. By relaxing the condition $x_i\in\{1, 0\}$ and setting $0 \le x_i \le 1$, the solution to the relaxed problem can be easily found in this case. When $(x_1, x_2, x_3, x_4, x_5) = (1, 1, 0.5, 0, 0)$, a maximum value of $14+22+30\times 0.5=51$ can be obtained. This estimate gives an upper bound on the total value for the condition $x_i\in\{1, 0\}$. This calculation of the upper bound by the relaxation problem can be similarly utilized for subproblems.
-For [Problem A1], find the solution by performing a branch and bound search in a vertical (depth-first) search that instantiates $x_1, x_2, \dots$ in that order, and in the order of values $\{1\}, \{0\}$.
-Show the search tree, the items packed in the knapsack $\{x_i \text{ such that } x_i=1\}$, and the maximum total value in your answer.
+(1-2) In the knapsack problems, it is convenient if the goods are sorted according to the values per unit weight. In [Problem A1], $G_1, G_2, \cdots$ are sorted to have higher values per unit weight in this order. A solution of this relaxed problem, where the constraint $x_i \in \{1, 0\}$ is relaxed to $0 \le x_i \le 1$, can be easily obtained with the maximum value $14+22+30 \times 0.5=51$ when $(x_1, x_2, x_3, x_4, x_5)=(1, 1, 0.5, 0, 0)$. This estimate gives an upper bound of the total value for the original knapsack problem with $x_i \in \{1, 0\}$. Upper bound calculation by employing such relaxed problems can be used also for sub-problems.
+In a depth-first search instantiating $x_1, x_2, \cdots$ to $\{1\}$ and $\{0\}$ in this order for [Problem A1], execute a search based on the above branch and bound method to find the solution.
+Show the resultant search tree, the goods to be packed into the knapsack $\{x_i \text{ becoming } x_i=1\}$ and the maximum total value obtained.
 
-**(2) Calculation by dynamic programming**
+**(2) Computation by dynamic programming**
 
-Consider finding the solution to the same knapsack problem using dynamic programming. Here, without loss of generality, let $a_i, b,$ and $c_i$ in the generalized [Problem A0] be positive integers. Then, define the following function $F(j, k)$ (where $j$ and $k$ are integers such that $0 \le j \le n, 0 \le k \le b$).
-$F(j, k)$: the maximum total value obtained when candidates for items to be packed within a weight limit $k$ are limited to $G_1, \dots, G_j$.
+We consider here to solve the same knapsack problem by employing dynamic programming. Without a loss of generality, we assume here that $a_i, b$ and $c_i$ in the general problem of [Problem A0] are positive integers. Then we define the following function $F(j,k)$ where $j$ and $k$ are integers with $0 \le j \le n$ and $0 \le k \le b$.
 
-Clearly $F(0, k)$ is $0$, and for [Problem A1], $F(1, 0) = F(1, 1) = 0$ and $F(1, 2) = F(1, 3) = \dots = F(1, 9) = 14$. Then, the final maximum total value for [Problem A1] is found as $F(5, 9)$, and the final maximum total value for [Problem A0] will be found as $F(n, b)$.
+$F(j,k)$: The maximum total value when limiting the candidates of the goods to $G_1, \cdots, G_j$ which can be packed into the knapsack under the maximum weight constraint $k$.
 
-(2-1) Starting from this $F(0, k)$ or $F(1, k)$, we want to obtain a method to finally calculate $F(n, b)$ while sequentially increasing $j$ in the general [Problem A0]. If $F(j-1, k)$ (where $0 \le k \le b$) has been found, show the method to find $F(j, k)$ using this $F(j-1, k)$ as a formula. However, if $k$ is a negative integer, it is permissible to obtain the formula by setting $F(j, k) = -\infty$ for convenience.
+Apparently, $F(0,k)$ is 0, and in [Problem A1], $F(1,0) = F(1,1) = 0$ and $F(1,2) = F(1,3) = \cdots\cdots = F(1,9) = 14$. Eventually, the final answer of the maximum total value for [Problem A1] can be obtained as $F(5,9)$, and the final answer for [Problem A0] can be obtained as $F(n,k)$.
 
-(2-2) Using the above results, solve [Problem A1] by sequentially calculating the table for $F(j, k)$ shown below for [Problem A1].
-Show the table for $F(j, k)$ with calculated numerical values, the items packed in the knapsack, and the maximum total value in your answer.
+(2-1) Starting from these $F(0,k)$ or $F(1,k)$, we want to get a method of eventually calculating $F(n,b)$ for the general problem of [Problem A0] by incrementing $j$ in sequence. When $F(j-1,k)$ where $0 \le k \le b$ are calculated, show a method of calculating $F(j,k)$ as an equation using these $F(j-1,k)$. Here, you can show the equation for convenience by letting $F(j,k) = -\infty$ when $k$ is a negative integer.
+
+(2-2) Using the result of the above question, solve [Problem A1] by calculating cell values of the table shown below in sequence. Show the table with the calculated values $F(j,k)$, goods to be packed into the knapsack, and the maximum total value.
 
 Table of $F(j, k)$ for [Problem A1]
 | $j \setminus k$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |

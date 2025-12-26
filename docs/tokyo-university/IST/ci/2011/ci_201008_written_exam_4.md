@@ -26,9 +26,9 @@ If necessary, use examples or figures.
 
 1) Higher-order functions
 2) PKI 
-3) AS numbers in the Internet
-4) Technologies for self-localization and mapping in mobile robots
-5) Representation methods for link mechanisms in articulated robots
+3) AS numbers within the Internet
+4) Technologies for localization and mapping in a mobile robot
+5) Representation of link mechanism in an articulated robot 
 6) Generalized inverse matrix or pseudo-inverse matrix
 7) $H^\infty$ control
 8) Principal component analysis

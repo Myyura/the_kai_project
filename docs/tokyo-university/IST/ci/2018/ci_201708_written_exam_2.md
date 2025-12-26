@@ -35,22 +35,26 @@ tags:
 
 (6) $x(t)$が振動しないための$k_1, k_2$に関する条件を求めよ。必要であれば以下の事実を用いてよい。
 
-微分方程式 $\frac{d^2x}{dt^2}+a\frac{dx}{dt}+bx=0$ ($a,b$は実定数)$\cdots$(A)
-の一般解は、2次方程式 $r^2+ar+b=0\cdots$(B)
-の解によって表すことができ、
-1. 式(B)が異なる二つの実数解$p,q$を持つとき
-  $$
-  x=C_1e^{pt}+C_2e^{qt}
-  $$
-2. 式(B)が異なる二つの虚数解$h\pm ki$を持つとき
-  $$
-  x=e^{ht}(C_1\cos kt+C_2\sin kt)
-  $$
-3. 式(B)が重解$p$を持つとき
-  $$
-  x=e^{pt}(C_1+C_2t)
-  $$
-となる。ただし、$C_1,C_2$ は積分定数である。
+> 微分方程式 $\frac{d^2x}{dt^2}+a\frac{dx}{dt}+bx=0$ ($a,b$は実定数)$\cdots$(A)
+> の一般解は、2次方程式 $r^2+ar+b=0\cdots$(B)
+> の解によって表すことができ、
+> 
+> 1. 式(B)が異なる二つの実数解$p,q$を持つとき
+> $$
+>   x=C_1e^{pt}+C_2e^{qt}
+> $$
+> 
+> 2. 式(B)が異なる二つの虚数解$h\pm ki$を持つとき
+> $$
+>   x=e^{ht}(C_1\cos kt+C_2\sin kt)
+> $$
+> 
+> 3. 式(B)が重解$p$を持つとき
+> $$
+>   x=e^{pt}(C_1+C_2t)
+> $$
+> 
+> となる。ただし、$C_1,C_2$ は積分定数である。
 
 (7) (6)で求めた条件において、$x(t)$のグラフを表せ。
 
@@ -59,59 +63,58 @@ $f(t)=k_1\{L-x(t)\}-k_2v(t)+k_3\int_0^t\{L-x(\tau)\}d\tau$ を与える。なお
 
 (8) $k_3\int_0^t\{L-x(\tau)\}d\tau$ を加えることによって生じる効果と、その効果が現れる理由を説明せよ。
 
-
-
 ## **Description (English)**
 
-
-Consider the position control of a cart of mass $M$ placed on an inclined plane with an angle $\theta$ as shown in Figure 1. A force $f$ can be applied to the cart in the direction of the $x$-axis along the slope to move it. The force $f$ can be sufficient to pull the cart up, and friction between the cart and the floor as well as air resistance are assumed to be negligible. The force $f$, the position of the cart, and the velocity at time $t$ are denoted as $f(t)$, $x(t)$, and $v(t)$, respectively. In addition, let the magnitude of gravitational acceleration be $g$.
+Let us consider to control the position of a cart with mass $M$ placed on a slope with angle $\theta$ as illustrated in Figure 1. We can move the cart by force $f$ along the $x$-axis parallel to the slope. Assume that $f$ can be sufficiently large to pull up the cart. Friction between the cart and the slope and air resistance are negligible. We let $f(t), x(t),$ and $v(t)$ denote the force $f$, the position, and the velocity of the cart at time $t$, respectively. The magnitude of gravity acceleration is denoted by $g$.
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201708_2_p1.png" width="350" alt=""/>
 </figure>
 
+Suppose that $x(0)=0$ and $v(0)=0$ at time $t=0$. We consider a method to move the cart to the position $x=L$. Answer the following questions.
 
-Assume that at time $t=0$, $x(0)=0$ and $v(0)=0$. Consider a method to move this cart to the position $x=L$.
-Answer the following questions.
+(1) Find the position and the velocity of the cart when we accelerate it with a constant force $f(t)=F$ ($F>0$) until the time $t_1$.
 
-(1) Find the position and velocity of the cart when it is accelerated with a constant force $f(t)=F (F>0)$ until time $t_1$.
+(2) We want to deaccelerate the cart with a constant force $f(t)=-F$ ($F>0$) from the time $t_1$ in Question (1) until the time $t_2$ ($t_2 \ge t_1$) so that $x(t_2)=L$ and $v(t_2)=0$. Find $t_1$ and $t_2$ which realize this motion.
 
-(2) Decelerate the cart with a constant force $f(t)=-F (F>0)$ from time $t_1$ in (1) to time $t_2$ ($t_2 \ge t_1$), and we want to achieve $x(t_2)=L$ and $v(t_2)=0$. Find $t_1$ and $t_2$ that achieve this motion.
+Next, we consider to give a force proportional to the displacement from the target position $x=L$. Specifically, we give $f(t)=k_1\{L-x(t)\}$. $k_1$ is a positive constant.
 
-Next, consider applying a force to the cart that is proportional to the difference from the target position $x=L$. That is, give $f(t)=k_1\{L-x(t)\}$. Note that $k_1$ is a positive constant.
+(3) Write down the equations of motion for this case.
 
-(3) Express the equation of motion for the cart in this case.
+(4) Draw a graph of $x(t)$.
 
-(4) Represent $x(t)$ on a graph.
+Next, we consider to further add a force proportional to the velocity of the cart. Specifically, we give $f(t)=k_1\{L-x(t)\}-k_2v(t)$. $k_1$ and $k_2$ are positive constants.
 
-Next, consider further adding a force proportional to the velocity of the cart. That is, give $f(t)=k_1\{L-x(t)\}-k_2v(t)$. Note that $k_1, k_2$ are positive constants.
+(5) Explain an effect caused by adding $-k_2v(t)$ and the reason why this effect occurs.
 
-(5) Explain the effect produced by adding $-k_2v(t)$ and the reason why that effect appears.
+(6) Find the condition regarding $k_1$ and $k_2$ so that $x(t)$ does not oscillate. You can use the following facts if necessary.
 
-(6) Find the condition regarding $k_1, k_2$ for $x(t)$ not to oscillate. You may use the following facts if necessary.
+> The general solution of a differential equation 
+> $$\frac{d^2x}{dt^2}+a\frac{dx}{dt}+bx=0 \text{ ($a$ and $b$ are real-valued constants)}\cdots\text{(A)}$$ 
+> can be represented by the solution of the quadratic equation
+> $$
+> r^2+ar+b=0\cdots\text{(B)}
+> $$
+> as follows:
+> 1. When Eq.(B) has two different real roots $p$ and $q$,
+>   $$
+>   x=C_1e^{pt}+C_2e^{qt}
+>   $$
+> 2. When Eq.(B) has two different imaginary roots $h\pm ki$,
+>   $$
+>   x=e^{ht}(C_1\cos kt+C_2\sin kt)
+>   $$
+> 3. When Eq.(B) has a double root $p$,
+>   $$
+>   x=e^{pt}(C_1+C_2t)
+>   $$
+>
+> Here, $C_1$ and $C_2$ are constants of integration.
 
+(7) Draw a graph of $x(t)$ under the condition obtained in Question (6).
 
-The general solution to the differential equation $\frac{d^2x}{dt^2}+a\frac{dx}{dt}+bx=0$ ($a,b$ are real constants)$\cdots$(A)
-can be expressed by the solutions to the quadratic equation $r^2+ar+b=0\cdots$(B),
-1. When equation (B) has two distinct real roots $p, q$
-  $$
-  x=C_1e^{pt}+C_2e^{qt}
-  $$
-2. When equation (B) has two distinct imaginary roots $h\pm ki$
-  $$
-  x=e^{ht}(C_1\cos kt+C_2\sin kt)
-  $$
-3. When equation (B) has a repeated root $p$
-  $$
-  x=e^{pt}(C_1+C_2t)
-  $$
-Here, $C_1, C_2$ are integration constants.
+Next, we consider to further add a force proportional to the integral of the displacement from the target position. Specifically, we give $f(t)=k_1\{L-x(t)\}-k_2v(t)+k_3\int_0^t\{L-x(\tau)\}d\tau$. $k_1, k_2,$ and $k_3$ are positive constants.
 
-(7) Represent the graph of $x(t)$ under the condition found in (6).
-
-Next, consider further adding a force proportional to the integral value of the difference from the target position. That is,
-give $f(t)=k_1\{L-x(t)\}-k_2v(t)+k_3\int_0^t\{L-x(\tau)\}d\tau$. Note that $k_1, k_2, k_3$ are positive constants.
-
-(8) Explain the effect produced by adding $k_3\int_0^t\{L-x(\tau)\}d\tau$ and the reason why that effect appears.
+(8) Explain an effect caused by adding $k_3\int_0^t\{L-x(\tau)\}d\tau$ and the reason why this effect occurs.
 
 ## **Kai**

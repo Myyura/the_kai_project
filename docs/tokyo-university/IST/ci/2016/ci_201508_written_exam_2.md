@@ -46,7 +46,7 @@ $h(i,j) = \min\{h(i,k) + h(k,j)\}, \quad h(i,i)=0, \quad h(i,k)=1, \quad k$ は�
 
 (5) ノード間で交換される行ベクトルの構成の変更や経路の計算アルゴリズムの変更など、経路計算アルゴリズムPに修正を加えることでノード6からノード2へのファイルの転送時間$T$を小さくすることも可能である。その具体的な方法を、パケットの転送経路がどのように変化するかも示しながら、2つ提案しなさい。
 
-## **Description (English)**
+## **Description (English) | AI Translated**
 
 Consider a system that calculates the delivery route of a parcel in a parcel delivery network composed of points (nodes) and lines (edges) according to the following algorithm.
 
