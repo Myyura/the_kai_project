@@ -1,9 +1,9 @@
 ---
-sidebar_label: '2014年8月実施 筆記試験 第3問'
+sidebar_label: '2014年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
 ---
-# 東京大学 情報理工学系研究科 創造情報学専攻 2014年8月実施 筆記試験 第3問
+# 東京大学 情報理工学系研究科 創造情報学専攻 2014年8月実施 筆記試験 第4問
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
@@ -20,7 +20,7 @@ tags:
 8) オプティカルフロー
 
 ## **Description (English)**
-Select four items out of the following eight items concerning information systems, and explain each item in approximately 4~8 lines of text.
+Select <u>four items</u> out of the following eight items concerning information systems, and explain each item in approximately 4~8 lines of text.
 If necessary, use examples or figures.
 
 1) Superscalar
