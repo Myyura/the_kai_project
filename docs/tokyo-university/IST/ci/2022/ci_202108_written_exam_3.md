@@ -1,9 +1,9 @@
 ---
-sidebar_label: '2019年8月実施 筆記試験 第3問'
+sidebar_label: '2021年8月実施 筆記試験 第3問'
 tags:
   - Tokyo-University
 ---
-# 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 筆記試験 第3問
+# 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 筆記試験 第3問
 
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
