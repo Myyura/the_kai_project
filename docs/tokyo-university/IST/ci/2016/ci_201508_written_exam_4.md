@@ -20,7 +20,7 @@ tags:
 7) ネットワークセキュリティープロトコルの例（１つ）
 8) リアルタイム性
 
-## **Description (English)**
+## **Description (English) | AI Translated**
 Select four items out of the following eight items concerning information systems, and explain each item in approximately 4~8 lines of text.
 If necessary, use examples or figures.
 

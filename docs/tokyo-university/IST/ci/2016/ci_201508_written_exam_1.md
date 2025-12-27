@@ -75,7 +75,7 @@ EN信号、カウンタ値$c$はCLK信号の立ち上がりで変化するとす
 
 (5) 図6に示すように3進1桁カウンタを組み合わせ、3進3桁のカウンタを実現したい。設問(3)で示した3進1桁のカウンタに新たな出力信号を追加する拡張を行うことで、3進3桁カウンタの部品となるような3進1桁のカウンタを実現し、この3進1桁のカウンタを図示せよ。通常の論理回路図を描いても良い。
 
-## **Description (English)**
+## **Description (English) | AI Translated**
 
 Let's make a base-$k$ 1-digit counter using electronic components. Here, let $k$ be an integer of 2 or more. This counter takes a clock signal (CLK signal) and an enable signal (EN signal) as inputs and outputs a counter value $c$ (Figure 1). The CLK signal and EN signal take two values, H and L. The CLK signal is a periodic signal as shown in Figure 2, and the change from L to H is called the rising edge of the CLK signal. The counter value is $0 \le c \le k-1$ and is initialized to $c=0$ at startup.
 

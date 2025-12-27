@@ -6,7 +6,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 プログラミング
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/FunTotal)
+[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/FunTotal), [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
 Answer the following questions by writing programs if necessary. Store the programs in the USB flash drive before the examination ends.
@@ -329,6 +329,135 @@ signed main() {
 ```
 
 ### (3)
+
+#### Analysis (aux by Gemini 3 Pro)
+
+编写一个程序，将给定的二进制文件（data3a.txt, data3b.png, data3c.txt）进行**压缩**，并使其压缩后的大小（字节数）**尽可能小**。
+
+**约束条件**：
+压缩后的文件必须能被**(2)**中描述的解压程序正确还原。这意味着你需要根据解压逻辑反推出压缩格式。
+
+解压程序逐字节读取压缩文件，规则如下。设原数据为 `data` （这同时也可以表示还原出来的partial数组），压缩为 `comp`：
+
+1.  **非 `00` 字节**：直接作为字面量（Literal）追加到还原数据中。
+    *   *代价*：1 字节。
+    *   *条件*：原始数据字节不为 `00`。
+2.  **`00` 字节（转义符）**：表示接下来的两个字节是参数 $p$ 和 $d$。
+    *   即`comp`中的 `00 p d`。
+    *   *代价*：3 字节。
+    *   *参数限制*：$p$ 和 $d$ 均为 8 位无符号整数（0-255），且必须满足 $p \ge d$。
+    *   **情况 A ($d=0$)**：
+        *   表示追加一个单字节字面量 `00`。
+        *   即 `00 p 00` 用于编码原始数据中的 `00`。
+        *   **压缩时**选择的话就把当前的一个 `00` 给转成 `00 00 00`
+    *   **情况 B ($d > 0$)**：
+        *   表示**复制**操作。
+        *   解压的时候从已还原数据的末尾向前数第 $p$ 个字节开始，复制长度为 $d$ 的字节序列。也就是
+        *   *限制*：$p \ge d$。这实际上意味着**源数据区间不能与当前正在写入的区间重叠**。源数据必须完全位于当前写入点之前。
+        *   *窗口大小*：由于 $p$ 是 8 位，$p \le 255$，所以只能引用最近 255 个字节内的数据。
+        *   因为解压的时候碰到这里，向后展开 `d` 位，所以**压缩时**选择复制，就是从当前的 `data[i]` 往右在`data[:i]`(不包含`i`) 里重合过的 `d` 位数据，也就是`data[i:i+d]=data[i-p:i-p+d]` 共`d`位。接下来**压缩时**下一步直接跳到`data[i+d]`.
+
+**一个贪心的思路**
+对于每个`data[i]`，只要存在某个`p`使得存在某个`d>3, d<=p`让`data[i-p:i-p+d]`和`data[i:i+d-1]`重合就压缩。但是考虑连续10个`01`:
+
+```
+01 01 01 01 01 01 01 01 01 01
+```
+
+如果用贪心思路来做的话，会在 `data[4]` 也就是第五个`01`压缩`data[4,5,6,7]`为`00 04 04`，然后`data[8,9]`由于后面没有了就没法压缩。
+
+这样会获得
+
+```
+01 01 01 01 00 04 04 01 01
+```
+
+长度为9,但是如果忍到 `data[5]` 再压缩的话可以有
+
+```
+01 01 01 01 01 00 05 05
+```
+
+长度为8
+
+另外，是否存在一种情况，较短的匹配允许更优的后续？这个没有验证过不知道。
+
+因此我们考虑dp:
+
+**DP的思路**
+
+设`dp[i]`为 `data[0,1,..,i-1]` (长度为`i`的前缀) 的最短压缩长度。`path[i]`存放回溯信息：长度为`i`前缀最短压缩长度对应的最后一步。
+
+> 如果`dp[i]`存的是 `data[0,..,i]` 包含`i`的最短压缩长度的话，会发现其实遍历到data[i]对应的转移是`0..i-1`的最短压缩长度到后面`0..i`, `0..i+d`的case的更新；这意味着`dp[i], dp[i+d]`需要靠着`dp[i-1]`之类的来更新
+
+我们从`dp[i]`出发更新后续步骤，而不是像普通的dp那样从前面步骤更新自身。这是因为要更新`dp[i+1],dp[i+d]`对于多个`d`，而锚定一个`i`更新是比较方便的。如果从`dp[i-d]`更新`dp[i]`的话还需要以`data[:i-d]`来搜索重合子串。
+
+
+
+对于`dp[i]`，如果选择复制，暴力搜索`p=0,1,...,255`中，存在的有效的`(p,d)`，也就是 `d>3` 使得`data[i-p:i-p+d]=data[i:i+d]`，更新`dp[i+d]=min(dp[i]+3,dp[i+d])`并且如果成功更新，`path[i+d]=(p,d)`.
+
+如果不用复制而用字面量`data[i]`，如果`data[i]`是0，压缩中加3个字节，否则是加1个，那么`data[i+1]=min(data[i]+(3 or 1), data[i+1])`;如果成功更新那么`path[i+1]=(0,1) or (0,0) when data is 0`
+
+
+
+初始化为`dp[0]=0`求`dp[n]`
+
+
+
+回溯：对于`path[i]=d`等于1说明存了一个字面量回溯到`path[i-1]`，>1说明压缩了然后在partial sequence前面加入`00 p d`，并且回溯到`path[i-d]`直到`path[0]`
+
+#### itsuitsuki's solution
+
+```py
+def compress(data): # inp is list or bytes
+    n = len(data)
+    dp = [0] + [float('inf')]*n
+    path = [(-1,-1)] * (n+1)
+    for i in range(len(data)+1):
+        if i+1 <= n:
+            if dp[i]+1<dp[i+1]:
+                dp[i+1]=dp[i]+1 if data[i]!=0 else dp[i]+3
+                # literal
+                path[i+1]=(0,1) if data[i]!=0 else (0,0)
+        for p in range(1,min(i+1, 256)): # data[i-p:i-p+d] = data[i:i+d]
+            for d in range(3, p+1):
+                if i+d > n: 
+                    break
+                # print(data[i-p:i-p+d], data[i:i+d])
+                if data[i-p:i-p+d] == data[i:i+d] and dp[i]+3<dp[i+d]:
+                    dp[i+d]=dp[i]+3
+                    path[i+d]=(p,d)
+    # print(dp)
+    # print(path)
+    # backtrack
+    compressed = []
+    ptr = n
+    while ptr > 0:
+        p, d = path[ptr]
+        if d == 0:
+            compressed = [0, 0, 0] + compressed
+            ptr -= 1
+        elif d == 1:
+            compressed = [data[ptr-1]] + compressed
+            ptr -= 1
+        else: # d>3
+            compressed = [0, p, d] + compressed
+            ptr -= d
+    return compressed
+
+filenames = ['data3a.txt', 'data3b.png', 'data3c.txt']
+for filename in filenames:
+    with open(filename, 'rb') as f:
+        to_compress = f.readline()
+        print(list(to_compress))
+        print(compress(to_compress))
+    with open(filename.split('.')[0]+'.bin','wb') as wf:
+        wf.write(bytes(compress(to_compress)))
+```
+
+测试了一下上面下面几个样例都是对的。这道题应该用DP做，而不是下面的贪心思路。
+
+
 #### tomfluff's solution
 
 ```python
@@ -420,7 +549,7 @@ INPUT data3b.txt:
 29 00 2a 29 00 2a
 
 OUPUT:
-WRIGHT:  29 00 00 00 2a 00 03 03  (shorter)
+RIGHT:   29 00 00 00 2a 00 03 03  (shorter)
 WRONG:   29 00 00 00 2a 29 00 00 00 2a
 */
 void solve() {
@@ -473,6 +602,7 @@ signed main() {
 ```
 
 ### (4)
+
 #### tomfluff's solution
 
 ```python
@@ -513,6 +643,9 @@ if __name__ == "__main__":
 ```
 
 ### (5)
+
+实际上本题的样例东子都写错了，两个大数`l = [3678294059377362389066827, 3206045550022053639901108]`解密出来是`[65, 66, 67, 68, 69, 70, 71, 72]`
+
 #### tomfluff's solution
 
 ```python
@@ -539,7 +672,9 @@ if __name__ == "__main__":
 
 completed code:
 ```python
-# 这题基于楼上代码，把得到p, q后具体如何解密的代码补充完整，该小题介绍的算法为RSA思想的加密算法，由于题中数据过大，如使用C++需要用支持int128的Pollard Rho算法来质因数分解，实在是不如python，故没有写C++版本
+# 这题基于楼上代码，把得到p, q后具体如何解密的代码补充完整，该小题介绍的算法为RSA思想的加密算法，
+# 由于题中数据过大，如使用C++需要用支持int128的Pollard Rho算法来质因数分解，
+# 实在是不如python，故没有写C++版本
 import primefac
 
 def get_decomposition(n):

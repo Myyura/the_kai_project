@@ -26,12 +26,12 @@ If necessary, use examples or figures.
 
 1) Feedback control and feedforward control
 2) Kalman filter
-3) Edge detection methods in image processing (Explain with two specific examples)
+3) Edge detection methods in image processing (Explain with two examples)
 4) Monte Carlo method
-5) Learning methods of neural networks (Explain with one specific example)
-6) Pipeline hazards (Explain with two specific examples)
-7) Microprogram control
-8) Advantages and disadvantages of client-server systems and P2P systems
+5) Learning methods of neural networks (Explain with one example)
+6) Pipeline hazards (Explain with two examples)
+7) Microprogram (microcode) control
+8) Merits and demerits of client-server systems and P2P systems
 
 ## **Kai**
 

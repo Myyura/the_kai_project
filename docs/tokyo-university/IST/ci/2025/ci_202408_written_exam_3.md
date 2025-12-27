@@ -22,5 +22,5 @@ Select <u>four items</u> out of the following eight items concerning information
 8. **Cryptographic hash function**
 
 ## **Kai**
-### Radix Sort
+**Radix Sort**
 A sorting algorithm that sort strings or numbers from lower to higher digit places. In the $i$-th step in the loop, the algorithm calls a counting sort distributing $i$-th digit into ordered buckets. 

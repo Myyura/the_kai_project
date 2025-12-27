@@ -60,6 +60,35 @@ $n \times n$ 点（ピクセル）からなる $2$ 次元 $256$ 階調グレー�
 (5) (4) における処理を画像に対して無限回適用すると、画像の輝度 `x` は $x^\text{inf}$ に収束する。
 $x^\text{inf}$ を、(4) で定義した行列を用いて解析的な式で表せ。ただし、式に極限は含まないものとする。
 
+## **Description (English)**
+Consider a 256-level 2-dimensional gray-scale image with $n \times n$ points (pixels). Assume that each point is connected to vertical, horizontal, and diagonal neighbors as shown on the right. We represent each pixel $p$ using a type Pixel and its brightness as $p.\text{brightness}$. An image is given as an $n \times n$ array $P$ of Pixels. You can use basic data structures in a pseudo-code. Computational complexity should be given as a function of $n$.
+
+(1) Assume that we have multiple white objects in a black background as shown on the right. We consider the method of computing the area of one of the white objects as follows.
+
+"We keep points that are brighter than a given threshold and ignore the rest. We then pick a point from the remaining points and compute the size (number of points) of the connected region containing the point."
+
+Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes the computation using recursion and answer its computational complexity using the big-$O$ notation.
+
+(2) We consider the problem of detecting a black curve in a white background (as shown on the right) as follows. Assume that there is no self-intersection.
+
+"Consider a connected point sequence that connects two end points (assume that the end points are given). Among such point sequences, we would like to obtain one with the minimum total brightness (sum of point brightness on a sequence) along this sequence."
+
+Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes the computation efficiently and answer its computational complexity using the big-$O$ notation.
+
+(3) We consider the problem of dividing an image into left and right at a point sequence (as shown on the right) as follows.
+
+"Consider a point sequence that connects top and bottom of the image, containing a single point in each row. Among such point sequences, we would like to obtain one with the minimum total brightness."
+
+Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes the computation efficiently and answer its computational complexity using the big-$O$ notation.
+
+(4) We blur an image by applying the following operation to the image.
+
+"For each internal point (a point that has 8 neighbors), we compute the average of brightness of its 8 neighbors. Once we have computed this average for all the internal points, we update the brightness of each internal point to the corresponding average."
+
+We define three vector representations, $x, x',$ and $b$ where $x$ is a vector listing the original brightness of internal points, $x'$ is a vector listing the updated brightness of the internal points, and $b$ is a vector listing the brightness of the external points (the points of the image other than the internal points). We want to represent the relationship between $x, x',$ and $b$ using matrices. Define matrices appropriately and give an equation that describes the relationship using the matrices.
+
+(5) The brightness of the points $x$ converges to $x^{\text{inf}}$ after applying the operation defined in (4) for an infinite number of times. Write down an analytic formula for $x^{\text{inf}}$ using the matrices defined in (4). Do not use limit in the formula.
+
 ## **Kai**
 ### (1)
 Grayscale image, represented by $n\times n$ array of names `P` of `Pixels`. Each pixel `p` has `p.brightness` which is a 256-level value.

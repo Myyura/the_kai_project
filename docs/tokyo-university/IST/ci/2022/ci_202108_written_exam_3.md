@@ -22,13 +22,13 @@ If necessary, use examples or figures.
 8. **Passive Walking**
 
 ## **Kai**
-### Clock frequency
+**Clock frequency**
 
-### Pseudo-inverse matrix
+**Pseudo-inverse matrix**
 
-### Recurrent neural network
+**Recurrent neural network**
 
-### Kullback-Leibler divergence
+**Kullback-Leibler divergence**
 
-### Homography transformation
+**Homography transformation**
 A transformation of a 2D point into another 2D point, where the point is a projected 3D point in one perspective projection plane, and the transformed point is in another perspective projection plane. The homography transformation is conducted by a matrix $H$ s.t. $[wx'~wy'~w]^T=H[x~y~1]^T$, where $H$ has 8 DoFs with zooming ($w$).

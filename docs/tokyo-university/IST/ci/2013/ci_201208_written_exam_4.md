@@ -23,11 +23,11 @@ tags:
 Select <u>four items</u> out of the following eight items concerning information systems, and explain each item in approximately 4~8 lines of text.
 If necessary, use examples or figures.
 
-1) NP-completeness
+1) NP-complete
 2) Tail recursion
 3) Step response and transfer function
-4) Discrete Cosine Transform (DCT)
-5) Public-key cryptography
+4) Discrete Cosine Transform, DCT
+5) Public-key cryptosystem
 6) DNS (Domain Name Service)
 7) TLB (Translation Lookaside Buffer)
 8) LL(1) parsing

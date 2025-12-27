@@ -25,12 +25,12 @@ Select <u>four items</u> out of the following eight items concerning information
 If necessary, use examples or figures.
 
 1) Bayes' Theorem
-2) Learning methods for decision trees
-3) Principles and application examples of spread spectrum communication
+2) Learning method for decision trees (Decision tree learning method)
+3) Spread-spectrum telecommunications and its applications
 4) Normalization in relational databases
 5) Turing machine
 6) Snoop cache
 7) Unicode
-8) User authentication or personal identification, including a total of three types of methods and their comparison
+8) Three user authentication or personal identification techniques and a comparative analysis
 
 ## **Kai**

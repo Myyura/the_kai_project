@@ -20,7 +20,7 @@ tags:
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_3_p1.png" width="600" alt=""/>
-  図1
+  <br>図1
 </figure>
 
 ## **Description (English)**
@@ -36,5 +36,5 @@ Figure 1 shows an arm which has three joints at O, S and E. The axis of the join
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_3_p1.png" width="600" alt=""/>
-  Figure 1
+  <br>Figure 1
 </figure>

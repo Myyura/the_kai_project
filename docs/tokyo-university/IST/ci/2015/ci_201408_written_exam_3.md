@@ -21,15 +21,14 @@ tags:
 (5) このシステムを用いた応用例（一つ）、並びにその動作原理の概略
 
 ## **Description (English)**
+Show a system for measuring a three dimensional position of a point in the three dimensional space and explain the following items on the system. The system can be designed on the basis of either contact or non-contact method. Any operating condition on measuring objects and/or the system can be assumed.
 
-Give one example of a system that measures the 3-dimensional position of a certain point in 3-dimensional space, and explain the following matters regarding that system. The system may be either a non-contact type or a contact type, and it is acceptable if the measurement target or the system requires some specific operating conditions.
+(1) The outline of the measurement principle and the calculation method of the system for detecting the three dimensional position
 
-(1) Outline of the measurement principle, and the calculation method for measuring the 3-dimensional position
+(2) The main hardware/software components of the system and their configuration of the system
 
-(2) Main hardware and software required, and the system configuration
+(3) Main requirements for appropriate operation of the system and the reasons of their necessity
 
-(3) Major conditions for the system to operate properly, and the reason why those conditions are necessary
+(4) Limits of position accuracy and time resolution of the system and the factors in determining them
 
-(4) Limits of the system's position accuracy and time resolution, and the factors determining those limits
-
-(5) An application example using this system (one), and the outline of its operating principle
+(5) An application example using the system and outline of its operating principle
