@@ -40,16 +40,19 @@ tags:
 > の解によって表すことができ、
 > 
 > 1. 式(B)が異なる二つの実数解$p,q$を持つとき
+> 
 > $$
 >   x=C_1e^{pt}+C_2e^{qt}
 > $$
 > 
-> 2. 式(B)が異なる二つの虚数解$h\pm ki$を持つとき
+> 3. 式(B)が異なる二つの虚数解$h\pm ki$を持つとき
+> 
 > $$
 >   x=e^{ht}(C_1\cos kt+C_2\sin kt)
 > $$
 > 
-> 3. 式(B)が重解$p$を持つとき
+> 5. 式(B)が重解$p$を持つとき
+> 
 > $$
 >   x=e^{pt}(C_1+C_2t)
 > $$
@@ -92,19 +95,26 @@ Next, we consider to further add a force proportional to the velocity of the car
 > The general solution of a differential equation 
 > $$\frac{d^2x}{dt^2}+a\frac{dx}{dt}+bx=0 \text{ ($a$ and $b$ are real-valued constants)}\cdots\text{(A)}$$ 
 > can be represented by the solution of the quadratic equation
+> 
 > $$
 > r^2+ar+b=0\cdots\text{(B)}
 > $$
+> 
 > as follows:
 > 1. When Eq.(B) has two different real roots $p$ and $q$,
+> 
 >   $$
 >   x=C_1e^{pt}+C_2e^{qt}
 >   $$
-> 2. When Eq.(B) has two different imaginary roots $h\pm ki$,
+> 
+> 3. When Eq.(B) has two different imaginary roots $h\pm ki$,
+> 
 >   $$
 >   x=e^{ht}(C_1\cos kt+C_2\sin kt)
 >   $$
-> 3. When Eq.(B) has a double root $p$,
+> 
+> 5. When Eq.(B) has a double root $p$,
+> 
 >   $$
 >   x=e^{pt}(C_1+C_2t)
 >   $$
