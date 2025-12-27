@@ -16,7 +16,7 @@ Write the total number of read operations on your answer sheet.
 Reading the same element twice is considered as two operations.  
 Do not count accesses to matrix $C$ or other variables.
 
-```text
+```pseudocode
 var i = 0
 while i < m begin
   var j = 0

@@ -9,7 +9,7 @@ tags:
 ## **Author**
 [tomfluff](https://github.com/tomfluff)
 
-## **Description**
+## **Description (English)**
 Consider making a memory that can be accessed randomly, using D-FFs (Flip Flop) and 2:1 multiplexers.
 Assume that the D-FF is a circuit that stores 1 bit as shown in Fig. 1. A 1-bit signal given to `d` is written to this circuit at the rise of the clock signal `clk`, and this circuit continues to output the written signal to `q`.
 As shown in Fig. 2, the 2:1 multiplexer is a circuit that selects one of the two input signals `a` and `b` according to the selection signal `s` and outputs it to `c`.

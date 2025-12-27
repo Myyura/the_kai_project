@@ -19,7 +19,7 @@ tags:
 (2) $C[n]$ を $C[2], C[3], C[4], \dots, C[n-1]$ の各式を用いて書き表せ。ただし、$C[2] = 1, C[3] = 1$ とする。
 
 (3) 任意の $n$ に対する $C[n]$ を求めるアルゴリズムは、以下のような疑似コードで表現できる。
-\[ ① \] に当てはまるコードを答えよ。またこのアルゴリズムの計算量（オーダー）を答えよ。
+$①$ に当てはまるコードを答えよ。またこのアルゴリズムの計算量（オーダー）を答えよ。
 
 ```text
 C[2] = 1; C[3] = 1;
@@ -27,7 +27,7 @@ for(i=4...n)
     C[i] = 0;
 for(i=4...n)
     for(j=0...i-3)
-        [  ①  ]
+        [        ①        ]
 return C[n];
 ```
 
@@ -43,6 +43,38 @@ return C[n];
 </figure>
 
 (5) 上記 (4) で得られた関係式を用いて、任意の凸 $n$ 角形の三角形分割の最小コストを求めるアルゴリズムの疑似コードを、10 行程度で示せ。またその計算量（オーダー）を答えよ。
+
+
+## **Description (English)**
+Given a convex n-gon made by connecting a point sequence $v_0, ..., v_{n-1}, v_0$ in this order, a triangulation of the convex n-gon is a way of dividing its interior into triangles without overlap.
+
+First, we count the number of triangulations of a convex n-gon. We denote the number as $C[n]$: For example, $C[4]=2$.
+
+$(1)$ Answer the values of $C[5]$, $C[6]$, and $C[7]$.
+
+$(2)$ Represent $C[n]$ as a function of $C[2]$, $C[3]$, $C[4]$, ..., and $C[n-1]$. We define $C[2]=1$ and $C[3]=1$.
+
+$(3)$ The following pseudo-code implements an algorithm for computing $C[n]$ for arbitrary $n$. Answer the code that fills [ ① ]. Also answer the computational complexity (order) of the algorithm.
+
+```text
+C[2] = 1; C[3] = 1;
+for(i=4...n)
+    C[i] = 0;
+for(i=4...n)
+    for(j=0...i-3)
+        [        ①        ]
+return C[n];
+```
+
+Next, we find the triangulation of a convex n-gon with a minimum cost. Here, the cost of a triangulation is defined as the sum of the cost of triangles in the triangulation, and the cost of a triangle is defined as the sum of the cost of the edges composing the triangle. Assume that all $D[i,j]$ ($=D[j,i]$), the costs of the edges connecting an arbitrary pair of vertices ($v_i, v_j$) of the n-gon, are given.
+
+$(4)$ We consider solving the problem of finding a triangulation with a minimum cost by dividing the problem into subproblems. We denote $E[i,m]$ as the cost of triangulating a polygon made by a path starting from $v_i$, visiting $m$ vertices clockwise, and then coming back to $v_i$ (see the figure below). Assume that $E[i',m']$ are all given for $i'=0, ..., n-1$ and $m'=2, ..., m-1$. Represent $E[i, m]$ as a function of $E[i', m']$ and $D[i, j]$. We define $E[i, 2]=0$ $(i=0, ..., n-1)$. Also draw a figure explaining the situation.
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_1_p1.png" width="350" height="200" alt=""/>
+</figure>
+
+$(5)$ Give approximately 10-line pseudo-code implementing an algorithm to compute the minimum cost of triangulating an arbitrary n-gon using the formula obtained in (4). Also answer the computational complexity (order) of the algorithm.
 
 ## **Kai**
 ### (1)
