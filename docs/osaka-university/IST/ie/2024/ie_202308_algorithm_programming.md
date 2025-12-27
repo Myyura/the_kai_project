@@ -7,6 +7,7 @@ tags:
 
 ## **Author**
 祭音Myyura
+KardeniaPoyu
 
 ## **Description**
 ANSI-C 準拠である C 言語のプログラム 1, 2 は、データを読み込んで、要素を昇順に整列して出力する。
@@ -124,9 +125,9 @@ int main (void) {
 #### (1-2)
 ```
 5
+8
 5
 4
-3
 2
 1
 ```
@@ -144,7 +145,7 @@ Therefore, the time complexity is $O(1) + O(2) + \cdots + O(n-1) = O(n^2)$
 #### (2-1)
 - 空欄\[ (A) \]: mid - 1
 - 空欄\[ (B) \]: mid + 1
-- 空欄\[ (C) \]: left
+- 空欄\[ (C) \]: left / right + 1
 
 #### (2-2)
 $O(n^2)$
@@ -153,22 +154,65 @@ The worst case time complexity of inner loop 2 is $O(i)$.
 
 #### (2-3)
 ```text
-N = 5
-data[5] = {2, 4, 1, 5, 3}
-```
+Condition: The data is sorted in descending order (values are arranged from largest to smallest).
 
-the value of $c$ is $6$.
+Prove:
+
+Since the binary search loop `while (left <= right)` does not break early,it runs until the range is empty.
+
+Therefore, the number of iterations depends on how quickly the range `right - left` shrinks.
+
+To take Path A consistently, `array[mid] > key` must always be true. 
+
+i.e. for every element we are inserting (`key`), it must always be smaller than the existing elements.
+
+This implies the data is sorted in Descending Order.
+
+Q.E.D.
+```
 
 #### (2-4)
 (Hint: consider the number of comparisons to insert an element into a binary search tree.)
 
-The minimum number of comparisons to find the position of array\[$i$\] ($i \ge 2$) is $\lfloor \log_2 (i-1) \rfloor + 1$.
+The minimum number of comparisons to find the position of array\[$i$\] ($i \ge 2$) is $\lfloor \log_2 (i-1) \rfloor$.
 
-Therefore we have
+As established in (2-3), the minimum comparisons occur when the input is in descending order. In this case, for every insertion of the $i$-th element (where $i$ ranges from $1$ to $n-1$), the binary search always branches left `(right = mid - 1)`.
+
+Let $C_i$ be the number of comparisons for the $i$-th element (searching in a sorted subarray of size $i$).
+
+Due to the integer division floor logic, the number of comparisons $C_i$ required to reduce a range of size $i$ to 0, so the total comparisons $c$ is the sum for all $i$ from $1$ to $n-1$:
 
 $$
 \begin{aligned}
-c &= 1 + \sum_{i=2}^{n-1} (\lfloor \log_2 (i-1) \rfloor + 1)
+c = \sum_{i=1}^{n-1} C_i = \sum_{i=1}^{n-1} \lfloor \log_2 (i + 1) \rfloor
+\end{aligned}
+$$
+
+Let $j = i + 1$. The sum becomes: 
+
+$$
+\begin{aligned}
+c = \sum_{j=2}^{n} \lfloor \log_2 j \rfloor
+\end{aligned}
+$$
+
+We can evaluate this sum using the property of floors and logarithms. The term $\lfloor \log_2 j \rfloor$ equals integer $k$ for $2^k \le j < 2^{k+1}$.
+
+Let $k_{max} = \lfloor \log_2 n \rfloor$.The summation can be solved as:
+
+$$
+\begin{aligned}
+c = (n + 1) k_{max} - 2^{k_{max} + 1} + 2
+\end{aligned}
+$$
+
+where $k_{max} = \lfloor \log_2 n \rfloor$. 
+
+Therefore we have:
+
+$$
+\begin{aligned}
+c = (n+1)\lfloor \log_2 n \rfloor - 2^{\lfloor \log_2 n \rfloor + 1} + 2
 \end{aligned}
 $$
 
