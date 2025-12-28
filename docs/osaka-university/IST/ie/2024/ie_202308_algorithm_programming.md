@@ -177,6 +177,7 @@ $$
 
 ## **Knowledge**
 Actually there is a closed-form of the answer of (2-4), let us find it out.
+
 Let
 
 $$
@@ -203,7 +204,7 @@ $$
 \begin{aligned}
 c_3 &= 2 \times 1 \\
 c_7 &= c_3 + 4 \times 2 \\
-c_15 &= c_7 + 8 \times 3 \\
+c_{15} &= c_7 + 8 \times 3 \\
 &\cdots
 \end{aligned}
 $$
@@ -211,13 +212,13 @@ $$
 So we get (by induction)
 
 $$
-c_{2^k - 1} = \sum_{i=1}^{k-1} 2^i \cdot i = 2^k k - 2^{k+1} + 2
+c_{2^k - 1} = \sum_{j=1}^{k-1} 2^j \cdot j = 2^k k - 2^{k+1} + 2
 $$
 
 This inspires the following. Let $k$ be a positive integer such that $2^k < n < 2^{k+1}$. Then
 
 $$
-c_n = c_{2^k-1} + \sum\limits_{i=2^k}^n \lfloor \log_2(i) \rfloor = c_{2^k-1} + (n - 2^k + 1) \cdot k = nk - 2^{k+1} +k+2
+c_n = c_{2^k-1} + \sum\limits_{j=2^k}^n \lfloor \log_2(j) \rfloor = c_{2^k-1} + (n - 2^k + 1) \cdot k = nk - 2^{k+1} +k+2
 $$
 
 which is
