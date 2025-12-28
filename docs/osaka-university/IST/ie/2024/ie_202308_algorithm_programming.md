@@ -2,11 +2,12 @@
 sidebar_label: "2023年8月実施 アルゴリズムとプログラミング"
 tags:
   - Osaka-University
+  - Insertion-Sort
 ---
 # 大阪大学 情報科学研究科 情報工学 2023年8月実施 アルゴリズムとプログラミング
 
 ## **Author**
-祭音Myyura
+祭音Myyura, [KardeniaPoyu](https://github.com/KardeniaPoyu)
 
 ## **Description**
 ANSI-C 準拠である C 言語のプログラム 1, 2 は、データを読み込んで、要素を昇順に整列して出力する。
@@ -124,9 +125,9 @@ int main (void) {
 #### (1-2)
 ```
 5
+8
 5
 4
-3
 2
 1
 ```
@@ -142,9 +143,9 @@ Therefore, the time complexity is $O(1) + O(2) + \cdots + O(n-1) = O(n^2)$
 
 ### (2)
 #### (2-1)
-- 空欄\[ (A) \]: mid - 1
-- 空欄\[ (B) \]: mid + 1
-- 空欄\[ (C) \]: left
+- 空欄\[ (A) \]: `mid - 1`
+- 空欄\[ (B) \]: `mid + 1`
+- 空欄\[ (C) \]: `left` or `right + 1`
 
 #### (2-2)
 $O(n^2)$
@@ -152,28 +153,75 @@ $O(n^2)$
 The worst case time complexity of inner loop 2 is $O(i)$.
 
 #### (2-3)
-```text
-N = 5
-data[5] = {2, 4, 1, 5, 3}
-```
+The line `mid = (left + right) / 2`, uses integer division, which always rounds down (floor).
+This creates an asymmetry in how the search range collapses, i.e., since `mid` is biased towards the left (due to rounding down), updating `right` to `mid - 1` shrinks the search interval more aggressively.
 
-the value of $c$ is $6$.
+Hence when `array[mid] > key` is always true, the number of iterations of **while** loop is minimized, i.e., the **while** loop performs the minimum number of total iterations when *the array is in descending order*.
 
 #### (2-4)
-(Hint: consider the number of comparisons to insert an element into a binary search tree.)
+The number of iterations of the **while** loop required for a specific $i$ is exactly $\lfloor \log_2 (i+1) \rfloor$.
 
-The minimum number of comparisons to find the position of array\[$i$\] ($i \ge 2$) is $\lfloor \log_2 (i-1) \rfloor + 1$.
+Hence the result is
 
-Therefore we have
+$$
+c = \sum_{i=1}^{n-1} \lfloor \log_2 (i + 1) \rfloor
+$$
+
+or
 
 $$
 \begin{aligned}
-c &= 1 + \sum_{i=2}^{n-1} (\lfloor \log_2 (i-1) \rfloor + 1)
+c = \sum_{j=2}^{n} \lfloor \log_2 j \rfloor
 \end{aligned}
 $$
 
-<!-- $$
+## **Knowledge**
+Actually there is a closed-form of the answer of (2-4), let us find it out.
+Let
+
+$$
+c_n = \sum_{j=2}^{n} \lfloor \log_2 j \rfloor = \sum_{j=1}^{n} \lfloor \log_2 j \rfloor
+$$
+
+First we observe that
+
+$$
 \begin{aligned}
-c = 2 \cdot 1 + 4 \cdot 2 + 8 \cdot 3 + \cdots + 2^{\lfloor \log_2 n\rfloor} \cdot \lfloor \log_2 n\rfloor
+\lfloor \log_2(1) \rfloor &= 0 \\
+\lfloor \log_2(2) \rfloor &= 1 \\
+\lfloor \log_2(3) \rfloor &= 1 \\
+\lfloor \log_2(4) \rfloor &= 2 \\
+\lfloor \log_2(5) \rfloor &= 2 \\
+\lfloor \log_2(6) \rfloor &= 2 \\
+\lfloor \log_2(7) \rfloor &= 2 \\
 \end{aligned}
-$$ -->
+$$
+
+In particular, notice that
+
+$$
+\begin{aligned}
+c_3 &= 2 \times 1 \\
+c_7 &= c_3 + 4 \times 2 \\
+c_15 &= c_7 + 8 \times 3 \\
+&\cdots
+\end{aligned}
+$$
+
+So we get (by induction)
+
+$$
+c_{2^k - 1} = \sum_{i=1}^{k-1} 2^i \cdot i = 2^k k - 2^{k+1} + 2
+$$
+
+This inspires the following. Let $k$ be a positive integer such that $2^k < n < 2^{k+1}$. Then
+
+$$
+c_n = c_{2^k-1} + \sum\limits_{i=2^k}^n \lfloor \log_2(i) \rfloor = c_{2^k-1} + (n - 2^k + 1) \cdot k = nk - 2^{k+1} +k+2
+$$
+
+which is
+
+$$
+c_n = (n+1)\lfloor \log_2 n \rfloor - 2^{\lfloor \log_2 n \rfloor + 1} + 2
+$$
