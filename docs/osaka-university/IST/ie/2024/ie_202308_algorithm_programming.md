@@ -2,12 +2,12 @@
 sidebar_label: "2023年8月実施 アルゴリズムとプログラミング"
 tags:
   - Osaka-University
+  - Insertion-Sort
 ---
 # 大阪大学 情報科学研究科 情報工学 2023年8月実施 アルゴリズムとプログラミング
 
 ## **Author**
-祭音Myyura
-KardeniaPoyu
+祭音Myyura, [KardeniaPoyu](https://github.com/KardeniaPoyu)
 
 ## **Description**
 ANSI-C 準拠である C 言語のプログラム 1, 2 は、データを読み込んで、要素を昇順に整列して出力する。
@@ -143,9 +143,9 @@ Therefore, the time complexity is $O(1) + O(2) + \cdots + O(n-1) = O(n^2)$
 
 ### (2)
 #### (2-1)
-- 空欄\[ (A) \]: mid - 1
-- 空欄\[ (B) \]: mid + 1
-- 空欄\[ (C) \]: left ( right + 1 )
+- 空欄\[ (A) \]: `mid - 1`
+- 空欄\[ (B) \]: `mid + 1`
+- 空欄\[ (C) \]: `left` or `right + 1`
 
 #### (2-2)
 $O(n^2)$
@@ -153,29 +153,18 @@ $O(n^2)$
 The worst case time complexity of inner loop 2 is $O(i)$.
 
 #### (2-3)
-```text
-Condition: The data is sorted in descending order.
+The line `mid = (left + right) / 2`, uses integer division, which always rounds down (floor).
+This creates an asymmetry in how the search range collapses, i.e., since `mid` is biased towards the left (due to rounding down), updating `right` to `mid - 1` shrinks the search interval more aggressively.
 
-Prove:
-
-Since the binary search loop `while (left <= right)` does not break early,it runs until the range is empty.
-
-Therefore, the number of iterations depends on how quickly the range `right - left` shrinks.
-
-To take Path A consistently, `array[mid] > key` must always be true. 
-
-i.e. for every element we are inserting (`key`), it must always be smaller than the existing elements.
-
-This implies the data that sorted in Descending Order is one of the cases.
-
-Q.E.D.
-```
+Hence when `array[mid] > key` is always true, the number of iterations of **while** loop is minimized, i.e., the **while** loop performs the minimum number of total iterations when *the array is in descending order*.
 
 #### (2-4)
+The number of iterations of the **while** loop required for a specific $i$ is exactly $\lfloor \log_2 (i+1) \rfloor$.
+
+Hence the result is
+
 $$
-\begin{aligned}
 c = \sum_{i=1}^{n-1} \lfloor \log_2 (i + 1) \rfloor
-\end{aligned}
 $$
 
 or
@@ -186,100 +175,53 @@ c = \sum_{j=2}^{n} \lfloor \log_2 j \rfloor
 \end{aligned}
 $$
 
-or
+## **Knowledge**
+Actually there is a closed-form of the answer of (2-4), let us find it out.
+Let
+
+$$
+c_n = \sum_{j=2}^{n} \lfloor \log_2 j \rfloor = \sum_{j=1}^{n} \lfloor \log_2 j \rfloor
+$$
+
+First we observe that
 
 $$
 \begin{aligned}
-c = (n+1)\lfloor \log_2 n \rfloor - 2^{\lfloor \log_2 n \rfloor + 1} + 2
+\lfloor \log_2(1) \rfloor &= 0 \\
+\lfloor \log_2(2) \rfloor &= 1 \\
+\lfloor \log_2(3) \rfloor &= 1 \\
+\lfloor \log_2(4) \rfloor &= 2 \\
+\lfloor \log_2(5) \rfloor &= 2 \\
+\lfloor \log_2(6) \rfloor &= 2 \\
+\lfloor \log_2(7) \rfloor &= 2 \\
 \end{aligned}
 $$
 
-(Hint: consider the number of comparisons to insert an element into a binary search tree.)
-
-The minimum number of comparisons to find the position of array\[$i$\] ($i \ge 2$) is $\lfloor \log_2 (i-1) \rfloor$.
-
-As established in (2-3), the minimum comparisons occur when the input is in descending order. In this case, for each insertion of the $i$-th element (where $i$ ranges from $1$ to $n-1$), the binary search always branches left `(right = mid - 1)`.
-
-Let $C_i$ be the number of comparisons for the $i$-th element (searching in a sorted subarray of size $i$).
-
-Due to the integer division floor logic, the number of comparisons $C_i$ required to reduce a range of size $i$ to 0, so the total comparisons $c$ is the sum for all $i$ from $1$ to $n-1$:
+In particular, notice that
 
 $$
 \begin{aligned}
-c = \sum_{i=1}^{n-1} C_i = \sum_{i=1}^{n-1} \lfloor \log_2 (i + 1) \rfloor
+c_3 &= 2 \times 1 \\
+c_7 &= c_3 + 4 \times 2 \\
+c_15 &= c_7 + 8 \times 3 \\
+&\cdots
 \end{aligned}
 $$
 
-Let $j = i + 1$. The sum becomes: 
+So we get (by induction)
 
 $$
-\begin{aligned}
-c = \sum_{j=2}^{n} \lfloor \log_2 j \rfloor
-\end{aligned}
+c_{2^k - 1} = \sum_{i=1}^{k-1} 2^i \cdot i = 2^k k - 2^{k+1} + 2
 $$
 
-We can also solve it, evaluate this sum using the property of floors and logarithms. The term $\lfloor \log_2 j \rfloor$ equals integer $k$ for $2^k \le j < 2^{k+1}$.
-
-Let $k = \lfloor \log_2 n \rfloor$, we group the terms where $\lfloor \log_2 j \rfloor$ yields the same constant value $k$. The sum is divided into two parts:
-
-Part 1: Full Groups ($S_1$)
-For each $k$ from $1$ to $K-1$, there are $2^k$ elements in the group:
-
-$$S_1 = \sum_{k=1}^{K-1} (k \cdot 2^k) = 1\cdot 2^1 + 2\cdot 2^2 + \dots + (K-1) \cdot 2^{K-1}$$
-
-$$2S_1 = \quad \quad 1\cdot2^2 + 2\cdot2^3 + \dots + (K-2) \cdot 2^{K-1} + (K-1) \cdot 2^K$$
-
-$$S_1 - 2S_1 = 1\cdot2^1 + (2-1)2^2 + (3-2)2^3 + \dots + ((K-1)-(K-2))2^{K-1} - (K-1)2^K$$
-
-$$-S_1 = 2^1 + 2^2 + 2^3 + \dots + 2^{K-1} - (K-1)2^K$$
-
-Sovle the sum:
-$$\text{Sum} = \frac{2(1-2^{K-1})}{1-2} = 2^K - 2$$
-
-Substitute it:
-$$-S_1 = (2^K - 2) - (K-1)2^K$$
-
-$$-S_1 = 2^K - 2 - K \cdot 2^K + 2^K$$
-
-$$-S_1 = 2 \cdot 2^K - K \cdot 2^K - 2$$
-
-$$-S_1 = (2-K)2^K - 2$$
-
-$$\mathbf{S_1 = (K-2)2^K + 2}$$
-
-Part 2: The Final Incomplete Group ($S_2$)
-This group covers elements from $j = 2^K$ to $n$. The number of elements is $(n - 2^K + 1)$, and each contributes a value of $K$:
-
-$$S_2 = K \cdot (n - 2^K + 1) = Kn - K \cdot 2^K + K$$
-
-Combining $S_1$ and $S_2$:
-
-$$c = [(K-2)2^K + 2] + [Kn - K \cdot 2^K + K]$$
-
-$$c = K \cdot 2^K - 2 \cdot 2^K + 2 + Kn - K \cdot 2^K + K$$
-
-$$c = (n+1)K - 2^{K+1} + 2$$
-
-Substituting $K = \lfloor \log_2 n \rfloor$ back into the equation:
+This inspires the following. Let $k$ be a positive integer such that $2^k < n < 2^{k+1}$. Then
 
 $$
-\begin{aligned}
-c = (n+1)K - 2^{K+1} + 2
-\end{aligned}
+c_n = c_{2^k-1} + \sum\limits_{i=2^k}^n \lfloor \log_2(i) \rfloor = c_{2^k-1} + (n - 2^k + 1) \cdot k = nk - 2^{k+1} +k+2
 $$
 
-where $K = \lfloor \log_2 n \rfloor$.   
-
-Therefore we have:
+which is
 
 $$
-\begin{aligned}
-c = (n+1)\lfloor \log_2 n \rfloor - 2^{\lfloor \log_2 n \rfloor + 1} + 2
-\end{aligned}
+c_n = (n+1)\lfloor \log_2 n \rfloor - 2^{\lfloor \log_2 n \rfloor + 1} + 2
 $$
-
-<!-- $$
-\begin{aligned}
-c = 2 \cdot 1 + 4 \cdot 2 + 8 \cdot 3 + \cdots + 2^{\lfloor \log_2 n\rfloor} \cdot \lfloor \log_2 n\rfloor
-\end{aligned}
-$$ -->
