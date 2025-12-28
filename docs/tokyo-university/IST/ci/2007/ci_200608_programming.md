@@ -114,3 +114,113 @@ rpypclwd zq std opntdtzy, lyo hld es
 ```
 
 We currently do not have OTHER corresponding sample data files. If you have them and are willing to share, please submit a PR.
+
+### (1)
+```python
+def _transform(ch:str, offset):
+    diff = ord(ch) - ord('a' if ch.islower() else 'A')
+    newdiff = (diff + offset)%26
+    newch = chr(ord('a' if ch.islower() else 'A') + newdiff)
+    return newch
+
+def transform(s:str, offset):
+    new = ''
+    for c in s:
+        if c.isalpha():
+            new += _transform(c, offset)
+        else:
+            new += c
+    return new
+
+with open('q1.txt') as f:
+    q1 = f.readlines()
+q1 = [qq.strip() for qq in q1]
+for qq in q1:
+    print(transform(qq, 15))
+```
+
+(By trying) The offset is 15.
+
+### (2-1)
+```py
+with open('q21.txt') as q21:
+    q21r = q21.read()
+from collections import Counter
+q21_counter = Counter(q21r.lower())
+c = 'abcdefghijklmnopqrstuvwxyz'
+# q21_counter = dict(q21_counter)
+by_order = ''
+for ch in sorted(list(c), key=lambda x:q21_counter[x] if x in q21_counter else 0, reverse=True):
+    print(ch, q21_counter[ch] if ch in q21_counter else 0)
+    by_order += ch
+# print('by order:', by_order)
+```
+
+### (2-2)
+```py
+def sub_cipher(s:str, cmap:dict):
+    new = ''
+    for c in s:
+        if c.isalpha():
+            lower = c.islower()
+            base = 'a' if lower else 'A'
+            newc = cmap[c.lower()]
+            if not lower:
+                newc = newc.upper()
+            new += newc
+        else:
+            new += c
+    return new
+with open('q22.txt') as q22:
+    q22r = q22.read()
+q22_counter = Counter(q22r.lower())
+decipher = {}
+for i, ch in enumerate(sorted(list(c), key=lambda x:q22_counter[x] if x in q22_counter else 0, reverse=True)):
+    print(ch, q22_counter[ch] if ch in q22_counter else 0)
+    decipher[ch] = by_order[i]
+print('decipher map:', decipher)
+with open('a22.txt', 'w') as a22:
+    a22.write(sub_cipher(q22r, decipher))
+```
+
+### (3-1)
+```py
+import heapq
+from collections import defaultdict
+with open('q21.txt') as q21:
+    q21r = q21.read()
+from collections import Counter
+q21_counter = Counter(q21r)
+heap = []
+for ch in q21_counter:
+    heapq.heappush(heap, (q21_counter[ch], ch, None, None))  # (freq, char, left, right)
+while len(heap) > 1:
+    left = heapq.heappop(heap)
+    right = heapq.heappop(heap)
+    new_node = (left[0] + right[0], None, left, right)
+    heapq.heappush(heap, new_node)
+root = heap[0]
+huffman_code = {}
+def traverse(node, code):
+    if node[1] is not None:
+        huffman_code[node[1]] = code
+        return
+    traverse(node[2], code + '0')
+    traverse(node[3], code + '1')
+traverse(root, '')
+for ch in sorted(huffman_code.keys()):
+    display_ch = ch
+    if ch == ' ':
+        display_ch = 'SP'
+    elif ch == '\n':
+        display_ch = 'NL'
+    print(f'{display_ch}: {huffman_code[ch]}')
+```
+
+### (3-2)
+```py
+sum_of_freq = sum([v for k,v in q21_counter.items()])
+prob = {k:v/sum_of_freq for k,v in q21_counter.items()}
+expected_bit_length = sum([len(huffman_code[k]) * v for k,v in prob.items()])
+print(f'Average bits per character: {expected_bit_length:.2f}')
+```

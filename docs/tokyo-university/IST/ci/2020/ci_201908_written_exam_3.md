@@ -13,7 +13,7 @@ Select four items out of the following eight items concerning information system
 If necessary, use examples or figures.
 
 1. **Semaphore**
-2. **A* search algorithm**
+2. **A\* search algorithm**
 3. **FPGA**
 4. **Buffer overflow**
 5. **LR parsing**
