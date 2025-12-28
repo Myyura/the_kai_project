@@ -1,3 +1,9 @@
+---
+sidebar_label: "2022年8月実施 専門基礎科目 問題"
+tags:
+  - Tokyo-University
+---
+
 ## Slot 1: 1.1 Calculus (40 minutes)
 
 Answer the following questions. All constants and variables are real numbers. All funcions are real functions. Omit the derivations and write only the answers.

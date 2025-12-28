@@ -1,6 +1,7 @@
 ---
-toc_min_heading_level: 2
-toc_max_heading_level: 4
+sidebar_label: "2024年8月実施 専門基礎科目 問題"
+tags:
+  - Tokyo-University
 ---
 
 ## Problem No. 1 (Calculus)

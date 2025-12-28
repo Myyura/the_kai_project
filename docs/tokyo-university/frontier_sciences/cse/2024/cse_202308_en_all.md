@@ -1,4 +1,8 @@
-
+---
+sidebar_label: "2023年8月実施 専門基礎科目 問題"
+tags:
+  - Tokyo-University
+---
 
 ## Slot 1: 1.1 Calculus (40 minutes)
 
