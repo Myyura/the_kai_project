@@ -145,7 +145,7 @@ Therefore, the time complexity is $O(1) + O(2) + \cdots + O(n-1) = O(n^2)$
 #### (2-1)
 - 空欄\[ (A) \]: mid - 1
 - 空欄\[ (B) \]: mid + 1
-- 空欄\[ (C) \]: left / right + 1
+- 空欄\[ (C) \]: left ( right + 1 )
 
 #### (2-2)
 $O(n^2)$
@@ -154,7 +154,7 @@ The worst case time complexity of inner loop 2 is $O(i)$.
 
 #### (2-3)
 ```text
-Condition: The data is sorted in descending order (values are arranged from largest to smallest).
+Condition: The data is sorted in descending order.
 
 Prove:
 
@@ -166,17 +166,39 @@ To take Path A consistently, `array[mid] > key` must always be true.
 
 i.e. for every element we are inserting (`key`), it must always be smaller than the existing elements.
 
-This implies the data is sorted in Descending Order.
+This implies the data that sorted in Descending Order is one of the cases.
 
 Q.E.D.
 ```
 
 #### (2-4)
+$$
+\begin{aligned}
+c = \sum_{i=1}^{n-1} \lfloor \log_2 (i + 1) \rfloor
+\end{aligned}
+$$
+
+or
+
+$$
+\begin{aligned}
+c = \sum_{j=2}^{n} \lfloor \log_2 j \rfloor
+\end{aligned}
+$$
+
+or
+
+$$
+\begin{aligned}
+c = (n+1)\lfloor \log_2 n \rfloor - 2^{\lfloor \log_2 n \rfloor + 1} + 2
+\end{aligned}
+$$
+
 (Hint: consider the number of comparisons to insert an element into a binary search tree.)
 
 The minimum number of comparisons to find the position of array\[$i$\] ($i \ge 2$) is $\lfloor \log_2 (i-1) \rfloor$.
 
-As established in (2-3), the minimum comparisons occur when the input is in descending order. In this case, for every insertion of the $i$-th element (where $i$ ranges from $1$ to $n-1$), the binary search always branches left `(right = mid - 1)`.
+As established in (2-3), the minimum comparisons occur when the input is in descending order. In this case, for each insertion of the $i$-th element (where $i$ ranges from $1$ to $n-1$), the binary search always branches left `(right = mid - 1)`.
 
 Let $C_i$ be the number of comparisons for the $i$-th element (searching in a sorted subarray of size $i$).
 
@@ -196,17 +218,57 @@ c = \sum_{j=2}^{n} \lfloor \log_2 j \rfloor
 \end{aligned}
 $$
 
-We can evaluate this sum using the property of floors and logarithms. The term $\lfloor \log_2 j \rfloor$ equals integer $k$ for $2^k \le j < 2^{k+1}$.
+We can also solve it, evaluate this sum using the property of floors and logarithms. The term $\lfloor \log_2 j \rfloor$ equals integer $k$ for $2^k \le j < 2^{k+1}$.
 
-Let $k_{max} = \lfloor \log_2 n \rfloor$.The summation can be solved as:
+Let $k = \lfloor \log_2 n \rfloor$, we group the terms where $\lfloor \log_2 j \rfloor$ yields the same constant value $k$. The sum is divided into two parts:
+
+Part 1: Full Groups ($S_1$)
+For each $k$ from $1$ to $K-1$, there are $2^k$ elements in the group:
+
+$$S_1 = \sum_{k=1}^{K-1} (k \cdot 2^k) = 1\cdot 2^1 + 2\cdot 2^2 + \dots + (K-1) \cdot 2^{K-1}$$
+
+$$2S_1 = \quad \quad 1\cdot2^2 + 2\cdot2^3 + \dots + (K-2) \cdot 2^{K-1} + (K-1) \cdot 2^K$$
+
+$$S_1 - 2S_1 = 1\cdot2^1 + (2-1)2^2 + (3-2)2^3 + \dots + ((K-1)-(K-2))2^{K-1} - (K-1)2^K$$
+
+$$-S_1 = 2^1 + 2^2 + 2^3 + \dots + 2^{K-1} - (K-1)2^K$$
+
+Sovle the sum:
+$$\text{Sum} = \frac{2(1-2^{K-1})}{1-2} = 2^K - 2$$
+
+Substitute it:
+$$-S_1 = (2^K - 2) - (K-1)2^K$$
+
+$$-S_1 = 2^K - 2 - K \cdot 2^K + 2^K$$
+
+$$-S_1 = 2 \cdot 2^K - K \cdot 2^K - 2$$
+
+$$-S_1 = (2-K)2^K - 2$$
+
+$$\mathbf{S_1 = (K-2)2^K + 2}$$
+
+Part 2: The Final Incomplete Group ($S_2$)
+This group covers elements from $j = 2^K$ to $n$. The number of elements is $(n - 2^K + 1)$, and each contributes a value of $K$:
+
+$$S_2 = K \cdot (n - 2^K + 1) = Kn - K \cdot 2^K + K$$
+
+Combining $S_1$ and $S_2$:
+
+$$c = [(K-2)2^K + 2] + [Kn - K \cdot 2^K + K]$$
+
+$$c = K \cdot 2^K - 2 \cdot 2^K + 2 + Kn - K \cdot 2^K + K$$
+
+$$c = (n+1)K - 2^{K+1} + 2$$
+
+Substituting $K = \lfloor \log_2 n \rfloor$ back into the equation:
 
 $$
 \begin{aligned}
-c = (n + 1) k_{max} - 2^{k_{max} + 1} + 2
+c = (n+1)K - 2^{K+1} + 2
 \end{aligned}
 $$
 
-where $k_{max} = \lfloor \log_2 n \rfloor$. 
+where $K = \lfloor \log_2 n \rfloor$.   
 
 Therefore we have:
 
