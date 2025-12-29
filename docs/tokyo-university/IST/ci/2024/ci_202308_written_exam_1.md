@@ -89,56 +89,72 @@ Note we see $\sigma^2$ as a single variable here.
 ### (5)
 
 $$
+\begin{aligned}
 p(Z|\Theta)=\prod_n \pi_{z_n};\\p(X|Z,\Theta)=\prod_n \frac1{\sigma_{z_n}\sqrt{2\pi}}e^{-(x_n-\mu_{z_n})^2/2\sigma_{z_n}^2}.\\
-
 \log L(X|\Theta)=\log \sum_Zp(Z|\Theta)p(X|Z,\Theta).
+\end{aligned}
 $$
 
 ### (6)
-
 At step 1, let the parameters before be $(\Theta_0,\theta_0)$. Then given $\theta_1\gets \arg\max_{\theta'}G(\Theta_0,\theta')$, 
+
 $$
 D(\Theta_0)=G(\Theta_0,\theta_1)\ge G(\Theta_0,\theta_0).
 $$
+
 At step 2, given $\Theta_1\gets \arg\max_{\Theta'}G(\Theta',\theta_1)$,
+
 $$
 G(\Theta_1,\theta_1)\ge D(\Theta_0)=G(\Theta_0,\theta_1)\ge G(\Theta_0,\theta_0).
 $$
+
 In the next iteration, by $\theta_2\gets \arg\max_{\theta'}G(\Theta_1,\theta')$,
+
 $$
 D(\Theta_1)=G(\Theta_1,\theta_2)\ge G(\Theta_1,\theta_1)\ge D(\Theta_0)=G(\Theta_0,\theta_1),
 $$
+
 so in every iteration (and every step) the objective $D$ raises or stops.
 
 ### (7)
-
 Since the function $\log(\cdot)$ is concave, for $0<x_1<x_2<x_3$,
+
 $$
 {\log x_2-\log x_1\over x_2-x_1}\ge {\log x_3-\log x_1\over x_3-x_1}.
 $$
+
 Let $x_1=x$, $x_2=\lambda x+(1-\lambda)y$, $x_3=y$, $x<y$, $\lambda\in(0,1)$, then
+
 $$
 {\log(\lambda x+(1-\lambda)y)-\log x\over \lambda x+(1-\lambda)y-x}\ge {\log y-\log x\over y-x}
 \\\implies{\log(\lambda x+(1-\lambda)y)-\log x\over (1-\lambda)(y-x)}\ge {\log y-\log x\over y-x}
 \\\implies{\log(\lambda x+(1-\lambda)y)-\log x}\ge (1-\lambda)(\log y-\log x)
 \\\implies \log (\lambda x+(1-\lambda)y)\ge \lambda\log x+(1-\lambda)\log y.
 $$
+
 Suppose for cases when there are $n-1$ variables $y_1,\dots,y_{n-1}$, Jensen's Inequality holds:
+
 $$
 \forall \lambda_1',\dots,\lambda_{n-1}':\sum_{i=1}^{n-1}\lambda_{i}'=1,
 $$
+
 let $x=\frac{\sum_{i=1}^{n-1}\lambda_i y_i}{\sum_{i=1}^{n-1}\lambda_i}$, $y=y_n$, where $\forall \lambda_1,\dots,\lambda_n:\sum_{i=1}^n\lambda_i=1$,
+
 $$
 \lambda:=\sum_{i=1}^{n-1}\lambda_i,\quad \log(\sum_{i=1}^n\lambda_iy_i)=\log(\lambda x+(1-\lambda)y)
 \ge \lambda\log x+\lambda_n\log y_n
 $$
+
 where
+
 $$
 \lambda\log x=\left(\sum_{i=1}^{n-1}\lambda_i\right)\cdot\log(\frac{\sum_{i=1}^{n-1}\lambda_i y_i}{\sum_{i=1}^{n-1}\lambda_i})
 \ge \left(\sum_{i=1}^{n-1}\lambda_i\right)\cdot{\sum_{i=1}^{n-1}\lambda_i\log y_i \over\sum_{i=1}^{n-1}\lambda_i}
 =\sum_{i=1}^{n-1}\lambda_i\log y_i
 $$
+
 by the supposition. So by induction,
+
 $$
 \log(\sum_{i=1}^n\lambda_iy_i)\ge\sum_{i=1}^{n-1}\lambda_i\log y_i+ \lambda_n\log y_n=\sum_{i=1}^{n}\lambda_i\log y_i.\quad\square
 $$
@@ -146,47 +162,64 @@ $$
 ### (8)
 
 The log likelihood is
+
 $$
 \sum_{n}\log(\sum_k\pi_k f(x_n;\mu_k,\sigma_k^2))
 \ge \sum_n\sum_k\lambda_{nk}\log({\pi_k f(x_n;\mu_k,\sigma_k^2)\over \lambda_{nk}}), \quad\sum_{k=1}^K\lambda_{nk}=1
 $$
+
 by Jensen's Inequality. Here every $n$ has a group of $\lambda_{nk}$ that sums to 1.
 
 Hence the auxiliary function is
+
 $$
 A(\Theta,\Lambda):=\sum_n\sum_k\lambda_{nk}\log({\pi_k f(x_n;\mu_k,\sigma_k^2)\over \lambda_{nk}}),\quad \sum_{k=1}^K\lambda_{nk}=1,\forall n,
 $$
-$\Lambda=\{\lambda_{nk}\}$.
+
+$$
+\Lambda=\{\lambda_{nk}\}
+$$.
 
 ### (9)
 
 [Step 1] Find the optimal $\lambda_{nk}$'s given $\Theta$ fixed.
+
 $$
 \begin{aligned}
 A(\Theta,\Lambda)&=\sum_n \sum_k\lambda_{nk}\log p(x_n,k;\Theta)-\sum_n\sum_k\lambda_{nk}\log \lambda_{nk}
 \\&\propto -\sum_n D(\Lambda_n||Q_n)
 \end{aligned}
 $$
+
 which is the sum of negative KL divergences of
+
 $$
 \Lambda_n=(\lambda_{n1},\lambda_{n2},\dots,\lambda_{nK}),\\
 Q_n\propto(\pi_1 f(x_n;\mu_1,\sigma_1^2),\dots,\pi_K f(x_n;\mu_K,\sigma_K^2)).
 $$
+
 To maximize $A$ when we can only change the values of $\Lambda$,
+
 $$
 \Lambda_n\gets Q_n
 $$
+
 i.e.
+
 $$
 \hat\lambda_{nk}={\pi_k f(x_n;\mu_k,\sigma^2_k)\over \sum_{k'}\pi_{k'}f(x_n;\mu_{k'},\sigma_{k'}^2)}.
 $$
+
 [Step 2]
 
 Since
+
 $$
 A(\Theta,\Lambda)=\sum_n\sum_k\lambda_{nk}\log(\pi_k\cdot{1\over\sigma_{k}\sqrt{2\pi}}\cdot e^{-(x_n-\mu_k)^2/2\sigma_k^2})-\sum_n\sum_k\lambda_{nk}\log\lambda_{nk},
 $$
+
 we find the zero points of the partial derivatives:
+
 $$
 {\partial A\over\partial \mu_k}=0\implies\hat\mu_k={\sum_n\lambda_{nk}x_n\over \sum_n\lambda_{nk}},
 $$
@@ -201,10 +234,13 @@ $$
 $$
 
 and for $\pi_k$ we should use **constrained optimization** where the problem becomes
+
 $$
 \max A(\pi_k,\dots)\quad\text{s.t.}\sum_{k'=1}^K\pi_{k'}=1.
 $$
+
 We use a Lagrange multiplier:
+
 $$
 L=A+\beta(\sum_{k'}\pi_{k'}-1),
 $$
@@ -218,10 +254,13 @@ $$
 $$
 
 since $\sum_k \pi_k=1$,
+
 $$
 -\frac1\beta\sum_n\sum_k\lambda_{nk}=1\implies -\frac N\beta=1,\beta=-N.
 $$
+
 Hence
+
 $$
 \hat\pi_k=-{\sum_n\lambda_{nk}\over N}.
 $$
