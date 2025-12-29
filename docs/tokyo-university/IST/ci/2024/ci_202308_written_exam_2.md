@@ -54,9 +54,11 @@ $$
 ### (2)
 
 Given we have $N$ data points, for every data point, the probability it is the same as the query is $2^{-b}$. Expected data ID list length is
+
 $$
 E[L]=E[\sum_i I_i]=\sum_i E[I_i]=N\cdot2^{-b}
 $$
+
 where $I_i$ is the indicator RV that the $i$-th data is the same as the query.
 
 Hence the time complexity is $O(N\cdot 2^{-b})$ for the output list. If we count the indexing, with a $b$-bit index, the time complexity is totally $O(b+{N\over 2^b})$. Otherwise, it is $O({N\over 2^b})$.
@@ -97,17 +99,23 @@ $z=(\lnot x\land y)\lor(x\land\lnot y)$
 In (5), we have constructed $H_1$. Let the XOR operation be $\oplus$, we find $x\oplus y=H_1(x,y)$.
 
 Since
+
 $$
 z=H_1(x_1,y_1)+H_1(x_2,y_2)
 $$
-the lower bit $z_2$ is the sum mod 2:
+
+the lower bit $z_2$ is the sum mod $2$:
+
 $$
 z_2=H_1(x_1,y_1)\oplus H_1(x_2,y_2)=H_1(H_1(x_1,y_1),H_1(x_2,y_2))
 $$
+
 the higher bit $z_1$ is the carry:
+
 $$
 z_2=H_1(x_1,y_1)\and H_1(x_2,y_2)
 $$
+
 So the circuit is
 
 `z2=H1(H1(x1,y1),H1(x2,y2))`
