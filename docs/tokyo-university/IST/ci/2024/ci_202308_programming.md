@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2023年8月実施 プログラミング
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/FunTotal)
+[itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang)
 
 ## **Description (日本語)**
 プログラミング言語 $P$ の変数の値は 0 以上 999 以下の整数とする。変数名は `x1`, `x27` のように `x` から始まり 0 以上 999 以下の整数が続く名前とする。  

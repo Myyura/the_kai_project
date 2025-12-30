@@ -6,7 +6,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 プログラミング
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/FunTotal)
+[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/totalhuang)
 
 ## **Description**
 A text file contains integers from $0$ to $255$ which are separated by a single white-space character.

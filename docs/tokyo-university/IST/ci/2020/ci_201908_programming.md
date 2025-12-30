@@ -6,7 +6,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 プログラミング
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/FunTotal), [itsuitsuki](https://github.com/itsuitsuki)
+[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/totalhuang), [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
 Answer the following questions by writing programs if necessary. Store the programs in the USB flash drive before the examination ends.
