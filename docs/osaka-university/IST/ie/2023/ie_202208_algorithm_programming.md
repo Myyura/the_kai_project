@@ -7,7 +7,7 @@ tags:
 # 大阪大学 情報科学研究科 情報工学 2022年8月実施 アルゴリズムとプログラミング
 
 ## **Author**
-祭音Myyura
+祭音Myyura, [KardeniaPoyu](https://github.com/KardeniaPoyu)
 
 ## **Description**
 ハッシュ関数 (hash function) を用いてキー (key) を配列 (array) に挿入 (insert) することを考える。
@@ -177,7 +177,7 @@ int* search2(int *array1, int *array2, int size, int delta, int key) {
 #### (1-2)
 (ヒント: delta と TABLE1_SIZE の最小公倍数を考える)
 
-3, 7, 9
+1, 3, 7, 9
 
 ### (2)
 #### (2-1)

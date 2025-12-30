@@ -126,10 +126,15 @@ $$
 Let $x_1=x$, $x_2=\lambda x+(1-\lambda)y$, $x_3=y$, $x<y$, $\lambda\in(0,1)$, then
 
 $$
-{\log(\lambda x+(1-\lambda)y)-\log x\over \lambda x+(1-\lambda)y-x}\ge {\log y-\log x\over y-x}
-\\\implies{\log(\lambda x+(1-\lambda)y)-\log x\over (1-\lambda)(y-x)}\ge {\log y-\log x\over y-x}
-\\\implies{\log(\lambda x+(1-\lambda)y)-\log x}\ge (1-\lambda)(\log y-\log x)
-\\\implies \log (\lambda x+(1-\lambda)y)\ge \lambda\log x+(1-\lambda)\log y.
+\begin{aligned}
+&{\log(\lambda x+(1-\lambda)y)-\log x\over \lambda x+(1-\lambda)y-x}\ge {\log y-\log x\over y-x}
+\\
+&\implies{\log(\lambda x+(1-\lambda)y)-\log x\over (1-\lambda)(y-x)}\ge {\log y-\log x\over y-x}
+\\
+&\implies{\log(\lambda x+(1-\lambda)y)-\log x}\ge (1-\lambda)(\log y-\log x)
+\\
+&\implies \log (\lambda x+(1-\lambda)y)\ge \lambda\log x+(1-\lambda)\log y.
+\end{aligned}
 $$
 
 Suppose for cases when there are $n-1$ variables $y_1,\dots,y_{n-1}$, Jensen's Inequality holds:
@@ -148,9 +153,11 @@ $$
 where
 
 $$
-\lambda\log x=\left(\sum_{i=1}^{n-1}\lambda_i\right)\cdot\log(\frac{\sum_{i=1}^{n-1}\lambda_i y_i}{\sum_{i=1}^{n-1}\lambda_i})
-\ge \left(\sum_{i=1}^{n-1}\lambda_i\right)\cdot{\sum_{i=1}^{n-1}\lambda_i\log y_i \over\sum_{i=1}^{n-1}\lambda_i}
-=\sum_{i=1}^{n-1}\lambda_i\log y_i
+\begin{aligned}
+\lambda\log x&=\left(\sum_{i=1}^{n-1}\lambda_i\right)\cdot\log(\frac{\sum_{i=1}^{n-1}\lambda_i y_i}{\sum_{i=1}^{n-1}\lambda_i}) \\
+&\ge \left(\sum_{i=1}^{n-1}\lambda_i\right)\cdot{\sum_{i=1}^{n-1}\lambda_i\log y_i \over\sum_{i=1}^{n-1}\lambda_i} \\
+&=\sum_{i=1}^{n-1}\lambda_i\log y_i
+\end{aligned}
 $$
 
 by the supposition. So by induction,
@@ -165,7 +172,11 @@ The log likelihood is
 
 $$
 \sum_{n}\log(\sum_k\pi_k f(x_n;\mu_k,\sigma_k^2))
-\ge \sum_n\sum_k\lambda_{nk}\log({\pi_k f(x_n;\mu_k,\sigma_k^2)\over \lambda_{nk}}), \quad\sum_{k=1}^K\lambda_{nk}=1
+\ge \sum_n\sum_k\lambda_{nk}\log({\pi_k f(x_n;\mu_k,\sigma_k^2)\over \lambda_{nk}})
+$$
+
+$$
+\quad\sum_{k=1}^K\lambda_{nk}=1
 $$
 
 by Jensen's Inequality. Here every $n$ has a group of $\lambda_{nk}$ that sums to 1.
@@ -178,7 +189,7 @@ $$
 
 $$
 \Lambda=\{\lambda_{nk}\}
-$$.
+$$
 
 ### (9)
 
@@ -194,8 +205,10 @@ $$
 which is the sum of negative KL divergences of
 
 $$
-\Lambda_n=(\lambda_{n1},\lambda_{n2},\dots,\lambda_{nK}),\\
-Q_n\propto(\pi_1 f(x_n;\mu_1,\sigma_1^2),\dots,\pi_K f(x_n;\mu_K,\sigma_K^2)).
+\begin{aligned}
+\Lambda_n&=(\lambda_{n1},\lambda_{n2},\dots,\lambda_{nK}),\\
+Q_n &\propto(\pi_1 f(x_n;\mu_1,\sigma_1^2),\dots,\pi_K f(x_n;\mu_K,\sigma_K^2)).
+\end{aligned}
 $$
 
 To maximize $A$ when we can only change the values of $\Lambda$,
@@ -215,7 +228,9 @@ $$
 Since
 
 $$
+\begin{aligned}
 A(\Theta,\Lambda)=\sum_n\sum_k\lambda_{nk}\log(\pi_k\cdot{1\over\sigma_{k}\sqrt{2\pi}}\cdot e^{-(x_n-\mu_k)^2/2\sigma_k^2})-\sum_n\sum_k\lambda_{nk}\log\lambda_{nk},
+\end{aligned}
 $$
 
 we find the zero points of the partial derivatives:
@@ -228,8 +243,10 @@ $$
 \begin{aligned}
 {\partial A\over \partial \sigma_k^2}=0&\implies 
 {\partial\sum_{n}(-\lambda_{nk}\cdot\frac12\log \sigma_k^2-\lambda_{nk}{(x_n-\mu_k)^2\over 2\sigma_k^2})\over\partial \sigma_k^2}=0
-\\&\implies \sum_n{\lambda_{nk}\over \sigma_k^2}=\sum_n{\lambda_{nk}(x_n-\mu_k)^2\over \sigma_k^4}
-\\&\implies\hat\sigma_k^2={\sum_n\lambda_{nk}(x_n-\mu_k)^2\over \sum_n\lambda_{nk}}
+\\
+&\implies \sum_n{\lambda_{nk}\over \sigma_k^2}=\sum_n{\lambda_{nk}(x_n-\mu_k)^2\over \sigma_k^4}
+\\
+&\implies\hat\sigma_k^2={\sum_n\lambda_{nk}(x_n-\mu_k)^2\over \sum_n\lambda_{nk}}
 \end{aligned}
 $$
 
