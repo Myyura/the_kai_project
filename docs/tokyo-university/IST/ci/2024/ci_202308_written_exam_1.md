@@ -2,6 +2,9 @@
 sidebar_label: '2023年8月実施 筆記試験 第1問'
 tags:
   - Tokyo-University
+  - Maximum-Likelihood-Estimation
+  - Probability-And-Statistics
+  - Machine-Learning
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2023年8月実施 筆記試験 第1問
 
@@ -51,6 +54,9 @@ We want to maximize the log-likelihood function obtained in Question (5) above. 
 (9) Execute Algorithm A for the auxiliary function obtained in Question (8) above. First, find $\lambda_i$ that maximizes the auxiliary function as [step 1]. Next, find the parameter $\Theta$ that maximizes the auxiliary function (where the auxiliary variables are fixed) as [step 2].
 
 ## **Kai**
+本题考察爆算expectation maximization for Gaussian mixture model (EM for GMM) 的数学推导。注意点在于 (8) 分配的辅助变量是 $\lambda_{nk}$ 而不是 $\lambda_k$ 否则无法做。
+
+本题涉及的EM for GMM可以在Berkeley CS 188里发现。
 
 ### (1)
 

@@ -2,6 +2,7 @@
 sidebar_label: '2012年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Explanation
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2012年8月実施 筆記試験 第4問
 ## **Author**

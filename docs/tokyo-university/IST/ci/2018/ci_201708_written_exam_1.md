@@ -90,8 +90,6 @@ Give an algorithm that finds $M$ minimizing the criterion Eq.(3) from $\mathcal{
 
 ## **Kai**
 ### (1)
-#### By tomfluff
-<u>Note:</u> I am not sure what is $_nC_k$ since it is not defined anywehre. So the meaning of $log_nC_k$ is completely unclear.
 
 #### By Myyura
 The notation $_nC_k$ usually represents "n choose k".
