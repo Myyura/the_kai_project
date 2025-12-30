@@ -34,3 +34,8 @@ If necessary, use examples or figures.
 8) Homogeneous coordinate system
 
 ## **Kai**
+
+**RISC and CISC processors**
+RISC, i.e. reduced instruction set computer, is a type of processors keeping a minimal set of instruction. Complex operations here can be formed by smaller instructions. An example is RISC-V by UC Berkeley or ARM (Advanced RISC Machine) for Mac computers. Dominant architecture for embedded devices. 
+
+CISC, i.e. **complex** instruction set computer processor uses a complex set of instructions to cover various operations. An example is Windows x86/x64.
