@@ -177,7 +177,7 @@ int* search2(int *array1, int *array2, int size, int delta, int key) {
 #### (1-2)
 (ヒント: delta と TABLE1_SIZE の最小公倍数を考える)
 
-3, 7, 9
+1, 3, 7, 9
 
 ### (2)
 #### (2-1)
