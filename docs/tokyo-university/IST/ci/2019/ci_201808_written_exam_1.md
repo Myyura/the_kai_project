@@ -4,6 +4,7 @@ tags:
   - Tokyo-University
   - Algorithm-Complexity
   - Programming
+  - Graphics
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 筆記試験 第1問
 
@@ -65,11 +66,20 @@ $x^\text{inf}$ を、(4) で定義した行列を用いて解析的な式で表�
 ## **Description (English)**
 Consider a 256-level 2-dimensional gray-scale image with $n \times n$ points (pixels). Assume that each point is connected to vertical, horizontal, and diagonal neighbors as shown on the right. We represent each pixel $p$ using a type Pixel and its brightness as $p.\text{brightness}$. An image is given as an $n \times n$ array $P$ of Pixels. You can use basic data structures in a pseudo-code. Computational complexity should be given as a function of $n$.
 
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p1.png" width="185" alt=""/>
+</figure>
+
+
 (1) Assume that we have multiple white objects in a black background as shown on the right. We consider the method of computing the area of one of the white objects as follows.
 
 "We keep points that are brighter than a given threshold and ignore the rest. We then pick a point from the remaining points and compute the size (number of points) of the connected region containing the point."
 
 Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes the computation using recursion and answer its computational complexity using the big-$O$ notation.
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p2.png" width="165" height="165" alt=""/>
+</figure>
 
 (2) We consider the problem of detecting a black curve in a white background (as shown on the right) as follows. Assume that there is no self-intersection.
 
@@ -77,11 +87,19 @@ Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes t
 
 Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes the computation efficiently and answer its computational complexity using the big-$O$ notation.
 
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p3.png" width="165" height="165" alt=""/>
+</figure>
+
 (3) We consider the problem of dividing an image into left and right at a point sequence (as shown on the right) as follows.
 
 "Consider a point sequence that connects top and bottom of the image, containing a single point in each row. Among such point sequences, we would like to obtain one with the minimum total brightness."
 
 Give a pseudo-code (equal or less than 20 lines) of an algorithm that executes the computation efficiently and answer its computational complexity using the big-$O$ notation.
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_1_p4.png" width="165" height="165" alt=""/>
+</figure>
 
 (4) We blur an image by applying the following operation to the image.
 
