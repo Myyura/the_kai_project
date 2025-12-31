@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 専門科目 確率統計
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68844c9f000000001d00cc46?xsec_token=ABJ6e6OUxI1XWfgsOiU5PPpD1dju1zjonhKby9ek9Hnc4=), [setsu (小红书:6106647283)](https://www.xiaohongshu.com/explore/65d41e65000000000102812e?xsec_token=AB-cjy1EiHk8t_zLoROqJDb8XBwz6c7tZS9dPfRZvjfiQ=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68844c9f000000001d00cc46?xsec_token=ABJ6e6OUxI1XWfgsOiU5PPpD1dju1zjonhKby9ek9Hnc4=)
 
 ## **Description**
 以下の問題において，$\log x$ は $x$ の自然対数を表し，$P(A)$ は事象 $A$ の確率を表す。
