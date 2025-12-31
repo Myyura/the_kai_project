@@ -64,3 +64,139 @@ Assume that the maximum number of file transmission threads that can run concurr
 
 ## **Kai**
 ### (1)
+The transmission delay is
+
+$$
+d_{trans}={1500\text{ bytes}\over 200\text{ kbps}}={1500\text{ bytes}/25\text{ kBps}}=60\text{ ms}.
+$$
+
+The time required is
+
+$$
+t = d_{trans} + d_{prop} = 60\text{ ms} + 250\text{ ms} = 310\text{ ms}.
+$$
+
+### (2)
+The time required is one transmission delays for the data packet, and two one-way propagation delays (one for the data packet from the sender and one for the ACK from he receiver).
+
+$$
+t = 2*d_{prop} + {1500\text{ bytes}\over 200\text{ kbps}}=2*250 + 60 = 560\text{ ms}.
+$$
+
+The effective speed is
+
+$$
+\text{Effective Speed}={1500\text{ bytes}\over 560\text{ ms}}={150\over 7}\text{ kbps}\approx 21.5 \text{ kbps}.
+$$
+
+### (3)
+Since
+
+$$
+\begin{aligned}
+d_{trans} &= {P \text{ bytes}\over 200 \text{ kbps}}={P\over 25}\text{ ms},
+\\
+\text{Effective Speed}&={P\text{ bytes}\over {P\over 25}+2*250\text{ ms}}
+\\
+&={8P\text{ bits}\over {P\over 25}+500\text{ ms}}
+\\
+&={200P\over P+12500}\text{ kbps},
+\end{aligned}
+$$
+
+when the line utilization is not less than 20% i.e. 0.2, we have
+
+$$
+{P\over B}\ge 0.2\implies {200P/(P+12500)\over 200}\ge 0.2\implies {P\ovver P+12500}\ge 0.2,
+$$
+
+where $P\ge 3125\text{ bytes}$.
+
+### (4)
+The time S takes to send $\omega$ packets to R (not until R receives) is the transmission delay, which is
+
+$$
+t_{S\to R}=d_{trans}={\omega \times 1500 \times 8 \text{ bits}\over 200\text{ kbps}}=60\omega\text{ ms}.
+$$
+
+Let the time S starts to send the first packet to R be $t=0$. Then the time S completes sending is $t=60\omega\text{ ms}$.
+
+Also, R sends the acknowledgment packet for the first package from S at $t=310\text{ ms}$,
+and the ACK arrives at S at $t=560\text{ ms}$ as calculated in (1) and (2).
+
+Since the ACK arrival should be earlier than S completes sending $\omega$ packets,
+
+$$
+60\omega \ge 560\text{ ms}\implies \omega\ge {28\over 3}.
+$$
+
+Since $\omega$ is an integer, $\omega_{\min}=10$.
+
+### (5)
+Generally, the time of S to complete sending is ${\omega\times P\times 8\over B}$ for $P$ bytes, $\omega$ packets and bandwidth $B$ kbps.
+The time of the ACK for the first packet to arrive is ${P\times 8\over B}+2d_{prop}$.
+Hence
+
+$$
+\begin{aligned}
+{8\omega P\over B}&\ge {8P\over B}+2d_{prop}
+\\
+{8(\omega-1)P\over B}&\ge 2d_{prop}
+\\
+\omega-1&\ge {2Bd_{prop}\over 8P}
+\\
+\omega_{\min}=\lceil {Bd_{prop}\over 4P} + 1\rceil.
+\end{aligned}
+$$
+
+### (6)
+The transmission delay for client 1,2,3 are respectively
+
+$$
+d_{trans}^1={4\times 10^5\text{ bytes}\over 500\text{ kbps}}=6400\text{ ms},\\
+d_{trans}^2={4\times 10^5\text{ bytes}\over 250\text{ kbps}}=12800\text{ ms},\\
+d_{trans}^3={4\times 10^5\text{ bytes}\over 800\text{ kbps}}=4000\text{ ms}.
+$$
+
++ Client 1 requests at $t=0\text{ ms}$, the request packet arrives at $t=0+50=50\text{ ms}$;
++ Client 2 requests at $t=30\text{ ms}$, the request packet arrives at $t=30 + 110 =140\text{ ms}$;
++ Client 3 requests at $t=50\text{ ms}$, the request packet arrives at $t=50 + 60 =110\text{ ms}$.
+
+So the queue is (first) 1,3,2 (last) at the server.
+
+Server after a transmission delay and a preprocessing delay (5ms) completes pushing the packet into the communication channel (link). 
+Hence the 
++ Server completes sending to client 1 at $t=50+5+6400=6455\text{ ms}$;
++ Server completes sending to client 3 at $t=6455+5+4000=10460\text{ ms}$;
++ Server completes sending to client 2 at $t=10460+5+12800=23265\text{ ms}$.
+
+After a propagation delay, the client receives the file.
++ Client 1 receives at $t=6455+50=6505\text{ ms}$;
++ Client 2 receives at $t=23265+110=23375\text{ ms}$;
++ Client 3 receives at $t=10460+60=10520\text{ ms}$.
+
+### (7)
+Notice: the preprocessing delay changes to 15ms.
++ Client 1 receives at $t=0+50+15+6400+50=6505\text{ ms}$;
++ Client 2 receives at $t=30+110+15+12800+110=13065\text{ ms}$;
++ Client 3 receives at $t=50+60+15+4000+60=4185\text{ ms}$.
+
+### (8)
+The transmission delay is uniformly 
+
+$$
+d_{trans}={4\times 10^5\text{ bytes}\over 500\text{ kbps}}=6400\text{ ms}.
+$$
+
++ Client 1 to client 12: no queueing;
+  + Client 1: $t=0+50=50\text{ ms}$ arrival; server sends at $t=0+50+15+6400=6465\text{ ms}$ (next queueing request starts being preprocessed);
+  + ...
+  + Client 8: $t=70+50=120\text{ ms}$ arrival; server sends at $t=120+15+6400=6535\text{ ms}$;
+  + ...
+  + Client 12: server completes sending at $t=110+50+15+6400=6575\text{ ms}$.
++ Client 13 to client 20: waiting the processing Client 1,2,..,8 repsectively to end;
+  + Client 13: $t=120+50=170\text{ ms}$ arrival; leaves the queue at $t=6465\text{ ms}$ when the request from 1 ends, server sends at $t=6465+15+6400=12880\text{ ms}$;
+  + ...
+  + Client 20: $t=190+50=240\text{ ms}$ arrival; leaves the queue at $t=6535\text{ ms}$ when the request from 8 ends, server sends at $t=6535+15+6400=12950\text{ ms}$;
+
+Hence, client 20 completes receiving after a one-way propagation delay at $t=12950+50=13000\text{ ms}$.
