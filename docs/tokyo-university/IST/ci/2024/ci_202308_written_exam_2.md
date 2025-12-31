@@ -115,7 +115,7 @@ $$
 the higher bit $z_1$ is the carry:
 
 $$
-z_2=H_1(x_1,y_1)\and H_1(x_2,y_2)
+z_2=H_1(x_1,y_1)\land H_1(x_2,y_2)
 $$
 
 So the circuit is
