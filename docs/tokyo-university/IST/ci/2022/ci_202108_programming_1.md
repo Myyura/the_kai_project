@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 プログラミング 第1問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang)
 
 ## **Description (English)**
 
