@@ -26,8 +26,8 @@ Answer the state that $M_1$ will be in after reading the symbol string 0101110 s
 (1-2) Answer the shortest symbol string starting with 0101110 that the DFA $M_1$ accepts.
 
 (1-3) Construct a DFA $M_2$ that accepts a symbol string $w$ if and only if the length of $w$ is an even number, and draw its state diagram. $M_2$ must satisfy the following conditions.
-(Condition 1) The number of states of $M_2$ is two.
-(Condition 2) The input alphabet of $M_2$ is $\{0, 1\}$.
++ (Condition 1) The number of states of $M_2$ is two.
++ (Condition 2) The input alphabet of $M_2$ is $\{0, 1\}$.
 
 (2) Consider a string of symbols in $\{0, 1\}$ to be a binary number. Let $(x_{n-1}x_{n-2} \cdots x_0)_2$ denote the $n$-digit binary number whose $i$-th digit $(0 \le i < n)$ from the least significant digit is $x_i \in \{0, 1\}$. Let $\mathcal{V}(x_{n-1}x_{n-2} \cdots x_0)$ denote its value. When the string $x_{n-1}x_{n-2} \cdots x_0$ starts with a sequence of 0s, let $\mathcal{V}(x_{n-1}x_{n-2} \cdots x_0)$ denote the value of the string without the sequence of 0s. The string whose length is zero is called an empty string, denoted by $\varepsilon$. Let $\mathcal{V}(\varepsilon) = 0$. For example, $\mathcal{V}(0101110)$ is 46 in decimal.
 For every binary number with an even number of digits $(x_{2n-1}x_{2n-2} \cdots x_0)_2$, show
@@ -45,8 +45,8 @@ $$
  $$
 
 holds, and draw its state diagram. $M_3$ must satisfy the following conditions.
-(Condition 1) The number of states of $M_3$ is six.
-(Condition 2) The input alphabet of $M_3$ is $\{0, 1\}$.
++ (Condition 1) The number of states of $M_3$ is six.
++ (Condition 2) The input alphabet of $M_3$ is $\{0, 1\}$.
 
 (4) Consider $w$, a string of symbols in $\{0, 1\}$, to be a binary number $(w)_2$. Construct a DFA $M_4$ that accepts $w^R$ if and only if
 
@@ -55,8 +55,8 @@ $$
 $$
 
 holds regardless of the length of $w$, and draw its state diagram. $M_4$ must satisfy the following conditions.
-(Condition 1) The number of states of $M_4$ is three.
-(Condition 2) The input alphabet of $M_4$ is $\{0, 1\}$.
++ (Condition 1) The number of states of $M_4$ is three.
++ (Condition 2) The input alphabet of $M_4$ is $\{0, 1\}$.
 
 (5) Let
 $$ 
@@ -69,5 +69,5 @@ $$
 $$
 
 holds, and draw its state diagram. $M_5$ must satisfy the following conditions.
-(Condition 1) The number of states of $M_5$ is three.
-(Condition 2) The input alphabet of $M_5$ is $\Sigma$.
++ (Condition 1) The number of states of $M_5$ is three.
++ (Condition 2) The input alphabet of $M_5$ is $\Sigma$.
