@@ -66,6 +66,7 @@ This is an NP-hard problem having an exponential time complexity. Suppose there 
 Some heuristic solutions exist which reduce the runtime but may not find the optimal solution.
 
 **Divide and conquer method**
+
 Please refer to [CI 2008-4, (1)](https://runjp.com/docs/tokyo-university/IST/ci/2008/ci_200708_written_exam_4).
 
 **Vector quantization**

@@ -36,7 +36,7 @@ If necessary, use examples or figures.
 ## **Kai**
 **Divide and conquer algorithm**
 
-A methodology includes three parts: dividing, conquering and merging. An divide-and-conquer algorithm first divides a problem into $a$ smaller subproblems (e.g. with $n/b$ size), then conquers them by solving them (the solution is also got by a recursive call, breaking into smallest constant-size pieces and gathering usually), and finally merges the solutions.
+A methodology including three parts: dividing, conquering and merging. An divide-and-conquer algorithm first divides a problem into $a$ smaller subproblems (e.g. with $n/b$ size), then conquers them by solving them (the solution is also got by a recursive call, breaking into smallest constant-size pieces and gathering usually), and finally merges the solutions.
 
 Some examples are Merge sort, binary search and binary tree traversal.
 
