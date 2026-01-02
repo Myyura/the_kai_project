@@ -34,3 +34,16 @@ If necessary, use examples or figures.
 8) CGI (Common Gateway Interface) in Web systems
 
 ## **Kai**
+**Divide and conquer algorithm**
+A methodology includes three parts: dividing, conquering and merging. An divide-and-conquer algorithm first divides a problem into $a$ smaller subproblems (e.g. with $n/b$ size), then conquers them by solving them (the solution is also got by a recursive call, breaking into smallest constant-size pieces and gathering usually), and finally merges the solutions.
+
+Some examples are Merge sort, binary search and binary tree traversal.
+
+The time complexity for such an algorithm is $T(n)$, following this formula:
+$$
+T(n)=aT(n/b)+f(n)
+$$
+
+And we can solve $T(n)$ by building a tree to analyze with Master theorem.
+
+For example, when $T(n)=T(n/2)+\Theta(n)$, there are $\Theta(1+2+\dots+n/2+n)=\Theta(n)$ calls.

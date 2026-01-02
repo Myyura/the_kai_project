@@ -107,7 +107,7 @@ $$
 when the line utilization is not less than 20% i.e. 0.2, we have
 
 $$
-{P\over B}\ge 0.2\implies {200P/(P+12500)\over 200}\ge 0.2\implies {P\ovver P+12500}\ge 0.2,
+{P\over B}\ge 0.2\implies {200P/(P+12500)\over 200}\ge 0.2\implies {P\over P+12500}\ge 0.2,
 $$
 
 where $P\ge 3125\text{ bytes}$.
@@ -145,7 +145,7 @@ $$
 \\
 \omega-1&\ge {2Bd_{prop}\over 8P}
 \\
-\omega_{\min}=\lceil {Bd_{prop}\over 4P} + 1\rceil.
+\omega_{\min}&=\lceil {Bd_{prop}\over 4P} + 1\rceil.
 \end{aligned}
 $$
 
