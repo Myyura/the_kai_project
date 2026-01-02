@@ -34,3 +34,8 @@ If necessary, use examples or figures.
 8) Finite automaton
 
 ## **Kai**
+**Shortest path problem**
+
+For a weighted graph $G=(V,E)$ with weight $w(\cdot\to\cdot)$, the shortest path problem asks for a path $p=(v_{i_1},v_{i_2},\dots,v_{i_{-1}})$ with minimum cost where the cost is the sum of every edge composing the path. For a single source $s$, we constrain $v_{i_1}=s$. For a single destination $t$, we constrain $v_{i_{-1}}=t$. 
+
+Bellman-Ford, SPFA algorithm can tackle single-source shortest path to multiple destinations able to tackle negative edges and detect negative cycles; Dijkstra algorithm can do the same thing faster but unable to tackle negative edges or detect negative cycles; Floyd-Warshall algorithm computes shortest path from every vertex to every vertex in cubic time.
