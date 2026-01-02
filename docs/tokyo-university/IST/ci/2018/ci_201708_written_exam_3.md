@@ -66,8 +66,7 @@ This is an NP-hard problem having an exponential time complexity. Suppose there 
 Some heuristic solutions exist which reduce the runtime but may not find the optimal solution.
 
 **Divide and conquer method**
-
-Divide-and-conquer refers to an approach in algorithms where for a given problem, we split it into smaller sized subproblems, solve these and combine the solution to solve the bigger problem. An example of a divide and conquer algorithm is Merge Sort. For `N` elements, we divide into two sets of `N/2` (or `N/2 + 1`) elements and combine the solutions.
+Please refer to [CI 2008-4, (1)](https://runjp.com/docs/tokyo-university/IST/ci/2008/ci_200708_written_exam_4).
 
 **Vector quantization**
 
