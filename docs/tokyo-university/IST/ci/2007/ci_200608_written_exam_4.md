@@ -36,6 +36,15 @@ If necessary, use examples or figures.
 ## **Kai**
 
 **RISC and CISC processors**
+
 RISC, i.e. reduced instruction set computer, is a type of processors keeping a minimal set of instruction. Complex operations here can be formed by smaller instructions. An example is RISC-V by UC Berkeley or ARM (Advanced RISC Machine) for Mac computers. Dominant architecture for embedded devices. 
 
 CISC, i.e. **complex** instruction set computer processor uses a complex set of instructions to cover various operations. An example is Windows x86/x64.
+
+**Branch-and-bound algorithm**
+
+Branch-and-bound algorithm is a classic algorithm in Operation Research (Numerical Optimization), typically to solve an integer programming problem. It repeats, for example, in an integer programming problem:
+1. Solving the relaxed problem (into real-valued), e.g. relaxing an IP into an LP;
+2. Bounding: Find the lower and upper bounds of the current problem. Take a minimizing problem as an example, the lower bound is the optimal value for the relaxed problem and the upper bound can be any objective value in the original problem;
+3. Branching, based on the solution, e.g. for a solution $(\tilde x_1,\tilde x_2,\dots)$ of the relaxation $\tilde A$ of $A$ with $x_1$ integer constraint, take (for example) $x_1$ as the branching variable, break the original IP $A$ into $A_1$ and $A_2$ where $A_1$ is $A$ plus a new constraint $x_1\le \lfloor \tilde x_1\rfloor$ and $A_2$ is $A$ plus $x_1\ge \lceil \tilde x_1\rceil$.
+4. Repeat solving (e.g. relaxed $\tilde A_1,\tilde A_2$), bounding and branching and end a subtree when a lower bound is also feasible for the original problem.

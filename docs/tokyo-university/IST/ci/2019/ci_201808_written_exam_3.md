@@ -29,3 +29,15 @@ Inverse kinematics is the usage of kinematic equasions to determine the motions 
 **Hidden Markov model**
 
 A Hidden Markov Model (HMM) is a statistical model where the system being modeled is assumed to be a Markov process with unobservable (i.e., hidden) states that generate observable outcomes. HMMs are used in speech recognition, natural language processing, and bioinformatics. The model assumes that the current state depends only on the previous state and that the observation depends only on the current state.
+
+**MinMax algorithm**
+
+Minimax algorithm is a recursive algorithm in game theory or artificial intelligence, at a configuration of two agents in a zero-sum game, called MIN and MAX respectively wanting to minimize and maximize the utilities (values at leaves). 
+
+In detail, it is implemented by DFS to
+
+1. builds a game tree alternating the decisions of MAX and MIN: if the parent node is MAX, then it will choose the maximum of child MIN nodes; vice versa.
+2. lays out utilities into every leaf;
+3. backpropagates to internal nodes by maximizing and minimizing, finally a utility value will pass to the root as the returned result.
+
+Apparently, for a branching factor $b$ and maximum depth $d$, the algorithm has exponential time $O(b^d)$ and polynomial space $O(bd)$. To alleviate the time complexity burden, Alpha-Beta pruning is used.
