@@ -24,3 +24,7 @@ Select <u>four items</u> out of the following eight items concerning information
 8. Monte Carlo integration
 
 ## **Kai**
+
+**Rounding error in floating point numbers**
+
+FP rounding error is the error when performing operations for FP numbers, such as getting 0.3000…1 when performing 0.1+0.2. The reason is base conversion between binary and decimal, making finite decimals non-terminating in binary and truncating that to fit a 32-bit or 64-bit floating point type. We can avoid it by comparing by a small epsilon as the error range, or using special decimal libraries or types.
