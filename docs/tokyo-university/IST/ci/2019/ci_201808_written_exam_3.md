@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 筆記試験 第3問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff)
+[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description (English)**
 Select **four items** out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines of text. If necessary, use examples or figures.
@@ -41,3 +41,11 @@ In detail, it is implemented by DFS to
 3. backpropagates to internal nodes by maximizing and minimizing, finally a utility value will pass to the root as the returned result.
 
 Apparently, for a branching factor $b$ and maximum depth $d$, the algorithm has exponential time $O(b^d)$ and polynomial space $O(bd)$. To alleviate the time complexity burden, Alpha-Beta pruning is used.
+
+**NP complete problem**
+
+Please refer to [CI 2013-4, (1)](https://runjp.com/docs/tokyo-university/IST/ci/2013/ci_201208_written_exam_4).
+
+**SIMD (Single Instruction Multiple Data)**
+
+SIMD is a technology for a processor to execute the same operation for multiple pieces of data via very wide vector registers (such as 128,256,512 bit registers) in a single thread. For example, SIMD can add 8 groups of float point numbers for two 256-bit vector registers together simultaneously. There are Intel’s SSE for 128-bit XMM registers, AVX and AVX-512 for 256/512-bit YMM/ZMM registers. In C or C++ we use intrinsics to call these instructions.
