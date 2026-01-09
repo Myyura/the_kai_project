@@ -31,7 +31,13 @@ Pipeline hazard refers to a situation where dependencies in a program result in 
 
 **Register renaming**
 
-Register renaming is a process which helps solve data dependency hazards. The concept is about seperating the architectural registers (which the program uses) with the physical registers (which exist in the machine). Register renaming rewrites the program to use physical registers based on the actual allocation of the value at that moment. It uses a table called Register Allocation Table (RAT), which tells which physical registers hold the value of the architectual registers at a given moment. It maximises the prediction by comparing the past estimations with the actual meassured readings and adjusts accordingly.
+In compilation, the assembly code may have the same register used in disjoint code parts, which causes unneccesary dependency. 
+
+For out-of-order execution (or pipelining), the latter part must wait sequentially the former part, otherwise **write-after-write** (the former part may read the written value from the latter part) or **write-after-read** hazards (the former part writes after the latter part which causes the register keeps an old value) will happen. 
+
+(These are anti-dependency and output-dependency, which are **false dependencies** so they can be eliminated by register renaming.)
+
+Register renaming can resolve these hazards by **renaming** the shared register in one part with another **free register** to enable out-of-order execution or pipelining.
 
 **Kalman filter**
 

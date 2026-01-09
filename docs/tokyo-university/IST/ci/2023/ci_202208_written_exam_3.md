@@ -22,3 +22,9 @@ Select <u>four items</u> out of the following eight items concerning information
 8) **SLAM (Simultaneous localization and mapping)**
   
 ## **Kai**
+
+**Process and Thread**
+
+A process is an activity of running of a program about a set of data, and is also a container for the OS to allocate resources and protect. It has its independent virtual memory space from other processes, and cannot visit other processes’ memory unless by inter-process communication, so it is robust.
+
+A thread is a sequential flow of instructions that performs some task. Each thread has a PC and process registers, and can access the shared memory. Each processor (core) provides a number of hardware threads to execute, but in reality there can be a large number of software threads (spawned by many programs) and the processor multiplexes (execute in turn) the software threads distributing them into hardware threads. Many threads in one process may interfere with each other which is not too stable.

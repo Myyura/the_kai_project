@@ -58,7 +58,7 @@ Prove that $\text{dist}(s, v^*) = \text{dist}(s, u^*) + w(u^*, v^*)$.
 
 ## **Kai**
 ### (i)
-Please refer to [京都大学 情報学研究科 数理工学専攻 2023年8月実施 グラフ理論](https://runjp.com/kakomonn/kyoto_university/informatics/amp_202308_graph_theory).
+Please refer to [京都大学 情報学研究科 数理工学専攻 2023年8月実施 グラフ理論](https://runjp.com/docs/kyoto-university/informatics/amp/2024/amp_202308_graph_theory).
 
 ### (ii)
 Let $P_{s,u}$ denote a simple path from $s$ to $u$ of distance $\text{dist}(s, u)$.

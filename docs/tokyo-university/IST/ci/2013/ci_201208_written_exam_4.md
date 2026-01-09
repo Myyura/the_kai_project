@@ -35,3 +35,14 @@ If necessary, use examples or figures.
 
 ## **Kai**
 
+**NP-complete**
+
+NP complete is a NP problem $Y$ that every NP problem $X$ can (Karp) reduce to, 
+
+i.e. $Y\in NP\land (\forall X\in NP,X\le_P Y)$, 
+
+where a NP (nondeterministic polynomial) problem is that can be verified in polynomial time, but not necessarily able to be solved in polynomial time.
+
+Note that NP-Complete problems are the intersection of NP and NP-Hard problems, which means they are the supremum of NP and the infimum of NP-Hard.
+
+The “first” NP-Complete problem is `Circuit-SAT` that asks if there is a way of input (with $n$ bits) to so that the output of a logic digital circuit is 1.
