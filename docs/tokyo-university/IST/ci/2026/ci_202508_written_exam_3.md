@@ -9,7 +9,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (Memorized version$
+## **Description (Memorized version)**
 Select **four items** out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines. If necessary, use examples, figures or equations.
 
 1. Merge sort
@@ -21,7 +21,6 @@ Select **four items** out of the following eight items concerning information sy
 7. Brushless motor
 8. Monte Carlo integration
 
-<<<<<<< HEAD
 ## **Kai** (By GPT 5.2 thinking)
 ### 1) Merge sort
 
@@ -116,10 +115,3 @@ $$
 * Variance matters: high-variance (f) needs many samples; use **importance sampling** to reduce variance.
 * Example: estimating area under a curve by “throwing darts” uniformly and averaging function values.
 * Widely used in graphics (path tracing), finance (option pricing), Bayesian inference.
-=======
-## **Kai**
-
-**Rounding error in floating point numbers**
-
-FP rounding error is the error when performing operations for FP numbers, such as getting 0.3000…1 when performing 0.1+0.2. The reason is base conversion between binary and decimal, making finite decimals non-terminating in binary and truncating that to fit a 32-bit or 64-bit floating point type. We can avoid it by comparing by a small epsilon as the error range, or using special decimal libraries or types.
->>>>>>> eec991c17d41589211a9408060ecf6eb594c01f2
