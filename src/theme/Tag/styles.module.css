@@ -6,92 +6,35 @@
  */
 
 :root {
-  --docusaurus-tag-list-border: rgba(255, 255, 255, 0.3);
+  --docusaurus-tag-list-border: var(--ifm-color-emphasis-300);
 }
 
 .tag {
   border: 1px solid var(--docusaurus-tag-list-border);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Liquid Glass Effect */
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.08),
-    inset 0 1px 1px rgba(255, 255, 255, 0.6),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.tag::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-.tag:hover::before {
-  left: 100%;
+  transition: all var(--ifm-transition-fast) ease;
+  background: var(--ifm-color-emphasis-100);
 }
 
 .tag:hover {
-  --docusaurus-tag-list-border: rgba(255, 255, 255, 0.5);
+  --docusaurus-tag-list-border: var(--ifm-color-primary);
   text-decoration: none;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
-  transform: translateY(-2px);
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.12),
-    inset 0 1px 2px rgba(255, 255, 255, 0.8),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  background: var(--ifm-color-primary-lightest);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme='dark'] .tag {
-  --docusaurus-tag-list-border: rgba(255, 255, 255, 0.15);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.02) 100%
-  );
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.2),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+  background: var(--ifm-color-emphasis-200);
 }
 
 [data-theme='dark'] .tag:hover {
-  --docusaurus-tag-list-border: rgba(255, 255, 255, 0.25);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.3),
-    inset 0 1px 2px rgba(255, 255, 255, 0.15),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+  background: var(--ifm-color-primary-darkest);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .tagRegular {
-  border-radius: 12px;
-  padding: 0.35rem 0.75rem;
+  border-radius: var(--ifm-global-radius);
+  padding: 0.25rem 0.6rem;
   font-size: 90%;
   font-weight: 500;
 }
@@ -100,10 +43,9 @@
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0.3rem 0.6rem 0.3rem 1.2rem;
+  padding: 0 0.5rem 0 1rem;
   border-left: 0;
   font-weight: 500;
-  border-radius: 0 12px 12px 0;
 }
 
 .tagWithCount::before,
@@ -122,21 +64,7 @@
   height: 1.18rem;
   border-right: 0;
   border-bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-[data-theme='dark'] .tagWithCount::before {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.02) 100%
-  );
+  background: inherit;
 }
 
 .tagWithCount::after {
@@ -149,26 +77,16 @@
 }
 
 .tagWithCount span {
-  background: linear-gradient(
-    135deg,
-    var(--ifm-color-primary) 0%,
-    var(--ifm-color-primary-dark) 100%
-  );
+  background: var(--ifm-color-primary);
   color: #ffffff;
   font-size: 0.7rem;
   line-height: 1.2;
   border-radius: 10px;
-  padding: 0.15rem 0.55rem;
-  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  margin-left: 0.4rem;
   font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme='dark'] .tagWithCount span {
-  background: linear-gradient(
-    135deg,
-    var(--ifm-color-primary-dark) 0%,
-    var(--ifm-color-primary-darkest) 100%
-  );
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background: var(--ifm-color-primary-dark);
 }
