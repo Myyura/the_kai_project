@@ -106,12 +106,12 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.6rem 0.8rem;
 }
 
 .tag {
   display: inline-block;
-  margin: 0;
+  margin: 0.15rem 0;
 }
 
 /* University section specific styles */
