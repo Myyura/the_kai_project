@@ -89,12 +89,12 @@ Exact computation time would be $4+4+3+3=14$ units of time (4 lookups, 4 AND ope
 
 ```
 k = 0
-while n != 0:
-    n = n & (n - 1) // (2 time units)
+while status != 0:
+    status = status & (status - 1) // (2 time units)
     k = k + 1 // (1 time unit)
 return k
 ```
-`n = n & (n - 1)` operation removes the lowest set bit (the rightmost 1) from `n`. Thus, the loop runs exactly `k` times where `k` is the number of set bits in `n`.
+`status = status & (status - 1)` operation removes the lowest set bit (the rightmost 1) from `status`. Thus, the loop runs exactly `k` times where `k` is the number of set bits in `status`.
 This takes $O(k)$ time complexity i.e. $O(\log n)$ in this case since $k < \log_2 n$. Exact computation time would be maximally $3\cdot \log_2 32=15$ units of time.
 
 ### (4)
