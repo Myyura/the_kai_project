@@ -2,6 +2,7 @@
 sidebar_label: "2023年8月実施 専門科目 S-6"
 tags:
   - Kyoto-University
+  - Automata-Theory
   - Formal-Language
   - Context-Free-Grammar
 ---

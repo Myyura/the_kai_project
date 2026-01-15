@@ -3,11 +3,16 @@ sidebar_label: '2018年8月実施 筆記試験 第2問'
 tags:
   - Tokyo-University
   - Digital-Circuit
+  - Combinatorial-Circuit
+  - Hamming-Weight
+  - Half-Full-Adders
+  - Algorithm-Complexity
+  - Programming
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 筆記試験 第2問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff)
+[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
 太陽光発電システムについて考えよう。ソーラーパネルの維持管理のため、以下のような運用規則が定められているとする。  
@@ -61,32 +66,39 @@ Let us consider a hardware solution. Here, input is a bit sequence and output is
 ```
 k = 0
 i = 0
-while i < 32:
-    k = k + (1 & n) // (2 time units)
-    n = n >> 1 // shift to the right (1 time unit)
-    i = i + 1
+while i < n:
+    k = k + (1 & status) // (2 time units)
+    status = status >> 1 // shift to the right (1 time unit)
+    i = i + 1 // 0 time units since we ignore loop index increments
 return k
 ```
 
 Time complexity would be $O(n)$ in the general case since we go over every indicator once. In this case since $0<n\leq 32$ then it will be $O(1)$. Exact computation time would be $32\cdot 3=96$ units of time.
 
 ### (2)
-In the case where we use lookup tables we can save the shift operation. This means that the computation time would be: $32\cdot 2=64$ units of time.
+We tear apart the 32 bit number into 4 chunks of 8 bits each. We then use a lookup table of size $2^{8}=256$ to find the population count of each chunk and sum them up.
+```
+k = lookup_table[(n & 0xFF000000) >> 24] + lookup_table[(n & 0x00FF0000) >> 16] + 
+    lookup_table[(n & 0x0000FF00) >> 8] + lookup_table[n & 0x000000FF]
+```
+The lookup table is pre-computed and contains 256 entries (tractable). This will cause $O(1)$ time complexity since we are only going over 4 chunks. 
+Exact computation time would be $4+4+3+3=14$ units of time (4 lookups, 4 AND operations, 3 shifts, 3 additions).
 
 ### (3)
+(Brian Kernighan's algorithm)
 
-```text
+```
 k = 0
-i = 1
-while i < 2**32:
-    k = k + (i & n) // (2 time units)
-    i = i << 1
+while n != 0:
+    n = n & (n - 1) // (2 time units)
+    k = k + 1 // (1 time unit)
 return k
 ```
-
-In this method we take only $32\cdot 2=64$ units of time as (2) but we use less space than with a lookup table. We took advantage of the loop indicator as the mask for the logical `and` operation.
+`n = n & (n - 1)` operation removes the lowest set bit (the rightmost 1) from `n`. Thus, the loop runs exactly `k` times where `k` is the number of set bits in `n`.
+This takes $O(k)$ time complexity i.e. $O(\log n)$ in this case since $k < \log_2 n$. Exact computation time would be maximally $3\cdot \log_2 32=15$ units of time.
 
 ### (4)
+#### tomfluff's solution
 Let us use AND, OR and NOT to define a new gate called XOR.
 
 <figure style="text-align:center;">
@@ -120,6 +132,12 @@ For `P6` the logic will be as follows:
 </figure>
 
 ### (6)
+#### itsuitsuki's solution
+The latency problem comes from ripple carry adders used in $P_n$ circuit. To solve this, we can use carry look-ahead adders for $n$ bits instead of ripple carry adders. 
+
+In ripple carry adders (sequential), the next adder must wait for the carry bit from the previous adder, which causes propagation delay. In carry look-ahead adders (parallel), carry bits are calculated in advance using generate and propagate functions, allowing the final carry, and all the sum bits to be added simultaneously, significantly reducing latency.
+
+#### tomfluff's solution
 <u>Note:</u> I am not sure about my answer, I think propogation delay is correct but not sure. The question itself isn't clear as well. Should I solve the latency problem or give a reason. Not clear.
 
 Since any of the $n/3$ elements could contribute to the actual sum, there would be a large number of gates which need the data from the last gates available. That is, there would be many in-line gates which would need to wait for the correct value to propogate forward.

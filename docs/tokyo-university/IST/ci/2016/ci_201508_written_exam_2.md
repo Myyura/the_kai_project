@@ -37,8 +37,9 @@ $h(i,j) = \min\{h(i,k) + h(k,j)\}, \quad h(i,i)=0, \quad h(i,k)=1, \quad k$ は�
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201508_2_p1.png" width="500" alt=""/>
+  <figcaption>図2
 </figure>
-図2
+
 
 次に、図2の配送ネットワークにおいて、任意の大きさのデジタルビットの小包(以下、パケット)が配送されるデジタル通信ネットワークを考える。なお、ノード6からノード2へのパケット配送のみが行われる場合を考える。また、L5とL6の2つのエッジが衛星回線(遅延 500[ms]、帯域幅 1[Mbps])、L4とL7が広域地上線(遅延 50[ms]、帯域幅 100[Mbps])、その他のエッジがローカル網線(遅延 1[ms]、帯域幅 1[Gbps])とする。
 
@@ -78,8 +79,8 @@ Next, consider a digital communication network in the delivery network of Figure
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201508_2_p1.png" width="500" alt=""/>
+  <figcaption>Figure 2
 </figure>
-Figure 2
 
 (3) Consider a case where a file of 8 Megabits is transferred from Node 6 to Node 2 by dividing it into 1,000 packets of the same size of 8 Kilobits. In this case, after Node 6 sends the $i$-th ($1 \leqq i \leqq 1,000$) packet ($S_i$) to be transferred, Node 2 receives packet ($S_i$), sends a packet ($R_i$) notifying the receipt from Node 2 to Node 6, and upon Node 6 receiving that packet ($R_i$), it transmits the next packet ($S_{i+1}$). Show the file transfer time $T$ from when Node 6 starts transmitting the file until Node 2 finishes receiving it. Note that the delay time from the end of packet reception to the start of transmission at each node, and the time required to transfer data other than the transmitted file, such as labels indicating the destination node attached to each packet, are negligible. Furthermore, assume that packets are not lost or discarded during transfer.
 
