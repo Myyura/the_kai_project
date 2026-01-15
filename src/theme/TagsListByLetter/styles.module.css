@@ -1,0 +1,188 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.sectionCard {
+  background: var(--custom-card-bg, #ffffff);
+  border-radius: var(--custom-border-radius, 8px);
+  box-shadow: var(--custom-box-shadow, 0 4px 10px rgba(0, 0, 0, 0.1));
+  overflow: hidden;
+  transition: var(--custom-transition, all 0.2s ease);
+}
+
+.sectionCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .sectionCard:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary-light) 100%);
+}
+
+[data-theme='dark'] .sectionHeader {
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.2) 0%, rgba(37, 194, 160, 0.1) 100%);
+  border-bottom-color: var(--ifm-color-emphasis-300);
+}
+
+.sectionIcon {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.sectionTitle {
+  margin: 0 !important;
+  font-size: 1.25rem !important;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  flex: 1;
+}
+
+.tagCount {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+  background: var(--ifm-color-emphasis-100);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+[data-theme='dark'] .tagCount {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.sectionContent {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.letterSection {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.letterSection:last-child {
+  margin-bottom: 0;
+}
+
+.letterHeading {
+  font-size: 1rem !important;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  margin: 0 0 0.75rem 0 !important;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ifm-color-primary-lightest);
+  display: inline-block;
+  min-width: 2rem;
+  text-align: center;
+}
+
+[data-theme='dark'] .letterHeading {
+  border-bottom-color: var(--ifm-color-primary-dark);
+}
+
+.tagList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.8rem;
+}
+
+.tag {
+  display: inline-block;
+  margin: 0.2rem 0;
+}
+
+/* University section specific styles */
+.universitySection .sectionHeader {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.universitySection .sectionHeader .sectionTitle {
+  color: #ffffff;
+}
+
+.universitySection .sectionHeader .tagCount {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+[data-theme='dark'] .universitySection .sectionHeader {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+}
+
+[data-theme='dark'] .universitySection .sectionHeader .sectionTitle {
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .universitySection .sectionHeader .tagCount {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* Topics section specific styles */
+.topicsSection .sectionHeader {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.topicsSection .sectionHeader .sectionTitle {
+  color: #ffffff;
+}
+
+.topicsSection .sectionHeader .tagCount {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+[data-theme='dark'] .topicsSection .sectionHeader {
+  background: linear-gradient(135deg, rgba(17, 153, 142, 0.3) 0%, rgba(56, 239, 125, 0.3) 100%);
+}
+
+[data-theme='dark'] .topicsSection .sectionHeader .sectionTitle {
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .topicsSection .sectionHeader .tagCount {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sectionHeader {
+    padding: 0.75rem 1rem;
+  }
+  
+  .sectionContent {
+    padding: 0.75rem 1rem;
+  }
+  
+  .sectionIcon {
+    font-size: 1.25rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.1rem !important;
+  }
+}
