@@ -4,6 +4,7 @@ tags:
   - Tokyo-University
   - Machine-Learning
   - Least-Squares-Method
+  - Decision-Tree
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2017年8月実施 筆記試験 第1問
 
@@ -36,8 +37,7 @@ $$
 \end{align}
 $$
 
-where the value of the number $n$ is given in advance and the code-length can be non-integer  
-valued.
+where the value of the number $n$ is given in advance and the code-length can be non-integer valued.
 
 Below the value of Eq.(1) for $z$ is denoted as $L(z)$.
 
