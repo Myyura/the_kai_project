@@ -2,6 +2,7 @@
 sidebar_label: '2015年8月実施 筆記試験 第3問'
 tags:
   - Tokyo-University
+  - Graphics
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2015年8月実施 筆記試験 第3問
 
