@@ -67,77 +67,70 @@ We assume that the state value and the reward of the goal are both zero.
 (8) Describe the reason for the difference in the answers of questions (4) and (7).
 
 ## **Kai**
-<u>Note:</u> My solutions from section (3) onward uses a slightly different calculation from that in (1). Which allow to find the best path by seleting the highest valued option up or right on the weighted $V(s)$ table. Their definitions are confusing and weird.
-
 ### (1)
 
 $$
-\begin{bmatrix}
--1&0&0\\
-3&0&0\\
-3&2&0
-\end{bmatrix}
+\begin{array}{|c|c|c|}
+\hline
+-1 & 0 & 0 \\ \hline
+3 & 0 & 0 \\ \hline
+\mathbf{3} & \mathbf{2} & \mathbf{0} \\ \hline
+\end{array}
 $$
 
 ### (2)
 
 $$
-\begin{bmatrix}
-\rightarrow&\rightarrow&G\\
-\uparrow&&\\
-S&&
-\end{bmatrix}
+\begin{array}{|c|c|c|}
+\hline
+\rightarrow & \rightarrow & G \\ \hline
+\uparrow & & \\ \hline
+\uparrow & & \\ \hline
+\end{array}
 $$
 
 ### (3)
-
+tomfluff从(3)开始直接把[题意改了再重新做了一遍](https://github.com/tomfluff/utokyo-ci-masters-exam/blob/main/2017-Summer/written_exam.md)，其实是错误的。
 $$
-\begin{bmatrix}
-0&2&0&0&0\\
-6&4&\mathbf{x}&10&-5\\
-8&6&\mathbf{x}&10&-10\\
-10&10&10&10&-15
-\end{bmatrix}
+\begin{array}{|c|c|c|c|c|} \hline 2 & 0 & 0 & 0 & 0 \\ \hline 4 & 2 & \text{B} & 0 & 0 \\ \hline 6 & 4 & \text{B} & 10 & -5 \\ \hline 10 & 10 & 10 & 10 & -10 \\ \hline \end{array}
 $$
 
 ### (4)
-
 $$
-\begin{bmatrix}
-&&&\rightarrow&G\\
-&&\mathbf{x}&\uparrow&\\
-&&\mathbf{x}&\uparrow&\\
-S&\rightarrow&\rightarrow&\uparrow&
-\end{bmatrix}
+\begin{array}{|c|c|c|c|c|}
+\hline
+\rightarrow & \rightarrow & \rightarrow & \rightarrow & G \\ \hline
+\uparrow & \uparrow & \text{B} & \uparrow & \uparrow \\ \hline
+\uparrow & \uparrow & \text{B} & \uparrow & \uparrow \\ \hline
+\rightarrow & \rightarrow & \rightarrow & \uparrow & \uparrow \\ \hline
+\end{array}
 $$
 
 ### (5)
-Let us denote $P_{ss'}^a$ as the probability that the robot moves $s\rightarrow s'$ by order $a$. Then:
-
 $$
-W(s)=\sum_{a\in \{\text{up,down}\}}{P_{ss'}^a\cdot (R_{ss'}^a+W(s'))}
+W(s) = \max_{a \in \{\text{up}, \text{right}\}} \sum_{s'} P_{ss'}^a [ R_{ss'}^a + W(s') ]
 $$
 
 ### (6)
-
 $$
-\begin{bmatrix}
-0&2&0&0&0\\
-5.2&4&\mathbf{x}&9&-5\\
-7.8&6&\mathbf{x}&7.2&-10\\
-7.3&5.3&2.7&2.7&-15
-\end{bmatrix}
+\begin{array}{|c|c|c|c|c|}
+\hline
+2.0 & 0.0 & 0.0 & 0.0 & 0.0 \\ \hline
+3.2 & 2.0 & \text{B} & -1.0 & 0.0 \\ \hline
+5.9 & 4.0 & \text{B} & 5.2 & -5.0 \\ \hline
+7.3 & 5.0 & 1.2 & 1.2 & -10.0 \\ \hline
+\end{array}
 $$
 
 ### (7)
-
 $$
-\begin{bmatrix}
-&\uparrow&\rightarrow&\rightarrow&G\\
-&\uparrow&\mathbf{x}&&\\
-\uparrow&\rightarrow&\mathbf{x}&&\\
-S&&&&
-\end{bmatrix}
+\begin{array}{|c|c|c|c|c|}
+\hline
+\rightarrow & \rightarrow & \rightarrow & \rightarrow & G \\ \hline
+\rightarrow & \uparrow & \text{B} & \uparrow & \uparrow \\ \hline
+\rightarrow & \uparrow & \text{B} & \uparrow & \uparrow \\ \hline
+\uparrow & \uparrow & \rightarrow & \uparrow & \uparrow \\ \hline
+\end{array}
 $$
 
 ### (8)
