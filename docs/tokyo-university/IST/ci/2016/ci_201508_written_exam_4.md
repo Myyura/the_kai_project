@@ -33,3 +33,9 @@ If necessary, use examples or figures.
 6) **Synchronous circuits and asynchronous circuits**
 7) **Example of a network security protocol (one example)**
 8) **Real-time capability (Real-time property)**
+
+## **Kai**
+#### Synchronous circuits and asynchronous circuits
+Synchronous circuits and asynchronous circuits are both sequential circuits. In synchronous circuits, there is a unified global CLK signal, usually a DFF as the basic unit, its sequential analysis would be easy (setup time and hold time check), and it is relatively more stable.
+
+In asynchronous circuits, usually a latch works as the basic unit, and there is no global clocks, the operations are triggered by events such as input signal changes. The sequential analysis is difficult, and the circuit is relatively more unstable.
