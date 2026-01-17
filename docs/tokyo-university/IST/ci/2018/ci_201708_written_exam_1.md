@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2017年8月実施 筆記試験 第1問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), 祭音Myyura
+[tomfluff](https://github.com/tomfluff), 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description (English)**
 A data set $S$ including eight data is given as in Figure 1. Each datum is in the form of  $(x_1, x_2, x_3, x_4, y) \in \{0, 1\}^5$. 
@@ -91,9 +91,7 @@ The smaller the value of Eq.(3) is, the better $M$ is.
 Give an algorithm that finds $M$ minimizing the criterion Eq.(3) from $\mathcal{M}$ and $S$, and runs as efficiently as possible in computation time.
 
 ## **Kai**
-### (1)
-
-#### By Myyura
+### (1) - By Myyura
 The notation $_nC_k$ usually represents "n choose k".
 
 For a fixed $n$ and $k$, the total number of possible binary strings that satisfy these conditions is given by the binomial coefficient $\binom{n}{k}$, i.e. $_nC_k$.
@@ -135,13 +133,12 @@ $$
 
 Therefore, when $\theta = \frac{3}{4}$ the least squares function is minimized.
 
-### (3) - By tomfluff
-|$i$|1|2|3|4|
-|-|-|-|-|-|
-|$y_0$|1000|11000|110|1100|
-|$y_1$|1110|110|11000|1100|
-
-<u>Note:</u> I did not understand `Eq.1` so it is difficult to answer this part. But it seems that for $i=1$ the value of $x_1$ has great affect on the classification.
+### (3) - By itsuitsuki
++ $\Delta(1|y)=4+2\log 5$
++ $\Delta(2|y)=4+\log 5+2\log 3$
++ $\Delta(3|y)=4+\log 5+2\log 3$
++ $\Delta(4|y)=2+2\log 5+2\log 3$
+Hence $i=1$ minimizes $\Delta(i|y)$.
 
 ### (4) - By tomfluff
 <u>Note:</u> Any mistakes here are derived from the issues with `(1)` mentioned before.
@@ -153,16 +150,14 @@ Therefore, when $\theta = \frac{3}{4}$ the least squares function is minimized.
 ### (5)
 In machine learning there are the concepts of bias and variance. The bias indicates how much the generated prediction function fits the relationships between the data and the prediction. And variance indicates how much the prediction function fits "new" data (testing data). When the prediction function fits the training data too well it is called **"over fitting"** and over fitting leads to low bias but high variance. In the mentioned case, extending the tree would result in over fitting the prediction function to the data set. Meaning that on new data the variance will be large and it will not improve the overall prediction.
 
-### (6)
-Assuming set `S` is independent from the training set that was used to generate the tree `T`.
+### (6) - by Gemini
+The algorithm will work as **Cost-Complexity Pruning**. Tomfluff (the previous solution provider in this problem) misrecognizes this as a Minimum Error Pruning technique which is different. Similar pruning algorithms include PEP (Pessimistic Error Pruning), etc.
 
-The algorithm will work as Minimum Error Pruning technique. It will work from the bottom up. For every bottom level node (only child nodes are leafs), calculate the error after pruning, meaning that the leaves are discarded and the node becomes a leaf with prediction being:
-- 1 if $\#_{y=1} \gt \#_{y=0}$
-- 0 if $\#_{y=0} \gt \#_{y=1}$
-- 1 if $\#_{y=0} = \#_{y=1}$
+The algorithm is dynamic programming:
+1. Post-order traverse every node; 
+2. For each internal node $u$, we can choose to 
+   1. Prune the node into a leaf with contribution to criterion $\text{Cost}_{\text{prune}}(u) = C_L + L(\text{all data under }u)$
+   2. Keep the subtree rooted at $u$ with contribution $\text{Cost}_{\text{keep}}(u) = C_I + \sum_{v\in \text{children}(u)} \text{Cost}_{\min}(u)
+3. Choose a minimum-contribution action with $\text{Cost}_{\min}(u) = \min(\text{Cost}_{\text{prune}}(u), \text{Cost}_{\text{keep}}(u))$. When pruning, mark this subtree rooted at $u$ as a leaf.
 
-If the error is smaller on the set `S` compared to the tree prior to pruning, prune the tree and continue to the next candidate. 
-
-The algorithm will work on at most $O(N_I(T))$ nodes and for each node it will calculate the error for that tree which takes $O(|S|)$, together $O(N_I(T)\cdot S)$
-
-The algorithm will stop when pruning all bottom level nodes do not lead to a decrease in the error.
+Since in this DP, all nodes are traversed and computed for at once, the time complexity is $O(|\mathcal T|)$.
