@@ -16,79 +16,79 @@ const translations = {
     viewExperiences: "查看经验贴",
     features: [
       {
-       title: '超全真题答案库，备考快人一步',
+       title: '海量真题解析，高效备考',
        icon: <FaSearch />,
-       description: <>这里藏着日本修士考试的「通关秘籍」！<br />按学校/专业/年份一键搜索，30秒找到你需要的解析——<b>别人还在翻资料，你已悄悄刷完三套题啦！</b></>
+       description: <>汇集日本大学院入试的历年真题与解析。<br />按学校、专业、年份快速检索，精准定位所需内容。<br /><b>让备考更有方向，复习更有效率。</b></>
       },
       {
-        title: '学霸聚集地，备考不孤单',
+        title: '活跃社区，互助成长',
         icon: <FaComments />,
-        description: <>考场上单打独斗？来咱们的温暖社区抱团取暖吧！<br />每天500+考生和东大前辈在线互助<br />无论日语萌新还是修士前辈，这里总有懂你的人～<br /><b>现在加入QQ群 <a href="https://qm.qq.com/q/3yjgte7UTe">925154731</a>，和战友一起上岸！</b></>
+        description: <>与众多考生和前辈一起交流学习。<br />分享解题思路、备考经验、面试心得。<br /><b>加入 <a href="https://qm.qq.com/q/3yjgte7UTe">QQ群 925154731</a> 参与讨论！</b></>
       },
       {
-        title: '开源透明，答案看得见',
+        title: '开源透明，共建共享',
         icon: <FaGlobe />,
-        description: <>我们把心脏剖开给你看：所有答案完全公开。<br />没有公众号引流，没有隐藏收费，没有数据黑箱——你贡献的每个建议都可能变成明天的新功能。<br /><b>选择我们，就是选择和大家共建安心的学习家园。</b></>
+        description: <>完全开源的项目，所有内容公开透明。<br />无隐藏收费，无信息壁垒。<br /><b>欢迎贡献答案、纠错或提出建议，一起完善这个平台。</b></>
       }
     ],
-    universityInfoTitle: '日本各大学基本信息与链接汇总',
-    universityInfoDescription: '以下是各个学校、专攻以及其他有用信息的导航链接（正在施工中，目前只有专攻（学院）链接）',
-    websiteLink: '专攻（学院）链接',
-    testimonialsTitle: '来自用户的好评',
+    universityInfoTitle: '各大学信息与链接',
+    universityInfoDescription: '快速导航至各大学研究科的官方招生信息页面',
+    websiteLink: '研究科链接',
+    testimonialsTitle: '用户评价',
     testimonials: [
       {
-        name: '一位热心的前辈',
-        text: '这个平台真的太棒了！备考期间帮我节省了大量寻找过去问和答案的时间，社区的讨论也让我受益匪浅。',
+        name: '合格前辈',
+        text: '备考期间这个平台帮了大忙，省去了大量搜集资料的时间。社区里的讨论也让我收获很多。',
         avatar: 'https://avatars.githubusercontent.com/u/13355503?v=4'
       },
       {
-        name: '正在备考的同学',
-        text: '信息非常集中，特别是前辈们的经验贴，给了我很多鼓励和实用的建议。强烈推荐给所有打算考日本大学院的同学！',
+        name: '备考同学',
+        text: '资料非常齐全，前辈们的经验分享给了我很大的帮助和信心。推荐给所有准备考日本大学院的朋友！',
         avatar: 'https://avatars.githubusercontent.com/u/59238632?v=4'
       }
     ],
-    ctaTitle: '准备好开始你的升学之路了吗？',
-    ctaDescription: '立即加入我们，获取最全面的备考资源和最活跃的交流社区。',
-    ctaButtonContribute: '贡献力量'
+    ctaTitle: '开始你的备考之旅',
+    ctaDescription: '获取全面的备考资源，加入活跃的交流社区。',
+    ctaButtonContribute: '参与贡献'
   },
   ja: {
     viewPastExams: "過去問を見る",
-    viewExperiences: "体験談を見る",
+    viewExperiences: "合格体験記",
     features: [
       {
-        title: '豊富な試験解答データベース',
+        title: '充実した過去問データベース',
         icon: <FaSearch />,
-        description: '日本の大学院入試や資格試験のための解答集を継続的に更新・拡充しています。過去問から最新の問題まで、正確で信頼性の高い解答を提供し、効率的な試験対策をサポートします。分野別や年度別に簡単に検索できるので、必要な情報にすぐアクセス可能です。'
+        description: '大学院入試の過去問と解答を多数収録。大学・専攻・年度別に検索でき、必要な情報に素早くアクセスできます。効率的な試験対策をサポートします。'
       },
       {
-        title: '活発なコミュニティ交流',
+        title: '受験生コミュニティ',
         icon: <FaComments />,
-        description: '試験問題の解き方や学習方法について、他の受験生や専門家と自由に議論できるコミュニティを用意しています。疑問を解決したり、学習のヒントを共有したりすることで、モチベーションを維持しながら効果的に学べます。初心者から上級者まで、誰でも気軽に参加可能です。QQ group: 925154731'
+        description: <>受験生同士で情報交換や質問ができるコミュニティです。解答の議論や勉強法の共有を通じて、一緒に合格を目指しましょう。<a href="https://github.com/Myyura/the_kai_project/discussions">GitHub Discussions</a>でお気軽にご参加ください。</>
       },
       {
-        title: 'オープンソースによる透明性',
+        title: 'オープンソースプロジェクト',
         icon: <FaGlobe />,
-        description: '本プラットフォームは完全にオープンソースで運営されており、誰でもコードを確認したり、改善案を提案したりできます。コミュニティからの貢献を歓迎し、ユーザー主導でより使いやすいツールを目指しています。透明性と協力性を重視した環境で、共に学びを深めましょう。'
+        description: 'すべてのコンテンツを無料で公開しているオープンソースプロジェクトです。解答の追加や修正など、どなたでも貢献できます。一緒により良いプラットフォームを作りましょう。'
       }
     ],
-    universityInfoTitle: '日本各大学の基本情報とリンク集',
-    universityInfoDescription: '各大学・専攻およびその他の有用情報へのナビゲーションリンクです',
-    websiteLink: '専攻（学部・研究科）リンク',
-    testimonialsTitle: 'ユーザーからの声',
+    universityInfoTitle: '大学情報・リンク集',
+    universityInfoDescription: '各大学の研究科・専攻の公式入試情報ページへのリンクです',
+    websiteLink: '研究科リンク',
+    testimonialsTitle: 'ご利用者の声',
     testimonials: [
       {
-        name: '熱心な先輩',
-        text: 'このプラットフォームは本当に素晴らしいです！試験準備中に過去問や解答を探す時間を大幅に節約でき、コミュニティでの議論も非常に役立ちました。',
+        name: '合格者',
+        text: '過去問を探す手間が大幅に省け、効率よく勉強できました。他の受験生との情報交換も役立ちました。',
         avatar: 'https://avatars.githubusercontent.com/u/13355503?v=4'
       },
       {
-        name: '受験準備中の学生',
-        text: '情報が非常に集中しており、特に先輩方の体験談は、多くの励ましと実用的なアドバイスをくれました。日本の大学院を目指すすべての学生に強くお勧めします！',
+        name: '受験生',
+        text: '情報が整理されていて使いやすいです。先輩方の体験記も参考になり、モチベーションが上がりました。大学院受験を考えている方におすすめです。',
         avatar: 'https://avatars.githubusercontent.com/u/59238632?v=4'
       }
     ],
-    ctaTitle: '進学の道を歩み始める準備はできましたか？',
-    ctaDescription: '今すぐ参加して、最も包括的な受験リソースと最も活発な交流コミュニティを手に入れましょう。',
+    ctaTitle: '受験勉強を始めよう',
+    ctaDescription: '過去問・解答・体験記など、大学院受験に役立つ情報が揃っています。',
     ctaButtonContribute: '貢献する'
   }
 };

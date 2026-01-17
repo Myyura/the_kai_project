@@ -12,7 +12,7 @@
   -webkit-backdrop-filter: var(--custom-blur);
   border-radius: var(--custom-border-radius);
   border: 1px solid var(--custom-card-border);
-  padding: 2rem;
+  padding: 1.75rem;
   box-shadow: var(--custom-box-shadow);
   transition: var(--custom-transition);
   display: flex;
@@ -20,13 +20,13 @@
 }
 
 .actionCard:hover {
-  transform: translateY(-10px);
+  transform: translateY(-6px);
   box-shadow: var(--custom-box-shadow-hover);
-  border-color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(46, 133, 85, 0.3);
 }
 
 [data-theme='dark'] .actionCard:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(37, 194, 160, 0.3);
 }
 
 .actionCardHeader {
@@ -38,38 +38,109 @@
 
 .actionCardHeader h3 {
   margin-bottom: 0;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--custom-text-primary);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .actionCardIcon {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: var(--ifm-color-primary);
 }
 
 .actionCardContent ul {
-  padding-left: 20px;
+  padding-left: 1.25rem;
   margin-bottom: 0;
   color: var(--custom-text-secondary);
 }
 
 .actionCardContent li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
 }
 
-/* School Grid */
+.actionCardContent li:last-child {
+  margin-bottom: 0;
+}
+
+.actionCardContent a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.actionCardContent a:hover {
+  text-decoration: underline;
+}
+
+/* School Grid - Masonry Style */
 .schoolGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.schoolItem {
+/* School Card Link */
+.cardLink {
+  text-decoration: none;
+  display: block;
+}
+
+.cardLink .actionCard {
+  height: 100%;
+  cursor: pointer;
+  padding: 1.5rem;
+}
+
+.cardLink .actionCard:hover {
+  transform: translateY(-4px);
+}
+
+.cardLink .actionCardHeader h3 {
+  font-size: 1.1rem;
+  color: var(--ifm-color-primary);
+  transition: color 0.2s ease;
+}
+
+.cardLink:hover .actionCardHeader h3 {
+  color: var(--ifm-color-primary-dark);
+}
+
+[data-theme='dark'] .cardLink .actionCardHeader h3 {
+  color: var(--ifm-color-primary-lighter);
+}
+
+[data-theme='dark'] .cardLink:hover .actionCardHeader h3 {
+  color: var(--ifm-color-primary-lightest);
+}
+
+.cardLink .actionCardContent p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--custom-text-secondary);
+}
+
+/* Section Title */
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--custom-text-primary);
+  margin-bottom: 0.5rem;
   display: flex;
-  min-height: 180px;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionTitle::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1.2em;
+  background: var(--ifm-color-primary);
+  border-radius: 2px;
 }
 
 /* Page Header */
@@ -150,28 +221,63 @@
 /* License Section - Liquid Glass */
 .licenseSection {
   margin-top: 3rem;
-  padding: 2.5rem;
-  background: rgba(245, 248, 255, 0.4);
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(46, 133, 85, 0.05) 0%, rgba(245, 248, 255, 0.4) 100%);
   backdrop-filter: var(--custom-blur-sm);
   -webkit-backdrop-filter: var(--custom-blur-sm);
   border-radius: var(--custom-border-radius);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(46, 133, 85, 0.1);
 }
 
 .licenseSection h2 {
   margin-bottom: 1rem;
   color: var(--custom-text-primary);
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.licenseSection h2::before {
+  content: '📄';
+  font-size: 1.1rem;
 }
 
 .licenseSection p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: var(--custom-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.licenseSection p:last-child {
+  margin-bottom: 0;
+}
+
+.licenseSection a {
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+}
+
+/* Info Alert Styling */
+.infoAlert {
+  background: linear-gradient(135deg, rgba(46, 133, 85, 0.08) 0%, rgba(46, 133, 85, 0.03) 100%);
+  border: 1px solid rgba(46, 133, 85, 0.2);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: var(--custom-text-secondary);
+  font-size: 0.95rem;
+}
+
+[data-theme='dark'] .infoAlert {
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.1) 0%, rgba(37, 194, 160, 0.03) 100%);
+  border-color: rgba(37, 194, 160, 0.25);
 }
 
 /* General & Responsive */
 .sectionSpacing {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .localizedContainer {
@@ -186,7 +292,7 @@
 }
 
 [data-theme='dark'] .actionCard:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(37, 194, 160, 0.3);
   box-shadow: var(--custom-box-shadow-hover);
 }
 
@@ -199,8 +305,8 @@
 }
 
 [data-theme='dark'] .licenseSection {
-  background-color: rgba(24, 24, 26, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.08) 0%, rgba(24, 24, 26, 0.3) 100%);
+  border: 1px solid rgba(37, 194, 160, 0.15);
 }
 
 [data-theme='dark'] .licenseSection h2 {
@@ -211,9 +317,21 @@
   color: var(--custom-text-secondary);
 }
 
+[data-theme='dark'] .sectionTitle {
+  color: var(--custom-text-primary);
+}
+
+[data-theme='dark'] .sectionTitle::before {
+  background: var(--ifm-color-primary-lighter);
+}
+
 @media (max-width: 996px) {
   .actionCardGrid {
     grid-template-columns: 1fr;
+  }
+  
+  .schoolGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 
@@ -225,5 +343,18 @@
   
   .languageLabel {
     display: none;
+  }
+  
+  .schoolGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .actionCard {
+    padding: 1.25rem;
+  }
+  
+  .licenseSection {
+    padding: 1.5rem;
   }
 }
