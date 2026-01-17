@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './intro.module.css';
 import { FiGithub, FiCheckCircle } from 'react-icons/fi';
-import { FaLanguage } from 'react-icons/fa';
 
 // 数据和文本
 const content = {
@@ -95,11 +94,24 @@ export default function Intro() {
 
   return (
     <div className="container">
-      <div className={styles.languageSwitcher}>
-        <button onClick={toggleLanguage} className={styles.languageButton} title="Switch Language">
-          <FaLanguage className={styles.languageIcon} />
-          {language === 'ja' ? '中文' : '日本語'}
-        </button>
+      <div className={styles.pageHeader}>
+        <div className={styles.languageSwitcher}>
+          <span className={styles.languageLabel}>Language</span>
+          <div className={styles.languageToggle}>
+            <button 
+              onClick={language === 'ja' ? toggleLanguage : undefined}
+              className={`${styles.langOption} ${language === 'zh' ? styles.langOptionActive : ''}`}
+            >
+              中文
+            </button>
+            <button 
+              onClick={language === 'zh' ? toggleLanguage : undefined}
+              className={`${styles.langOption} ${language === 'ja' ? styles.langOptionActive : ''}`}
+            >
+              日本語
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="alert alert--info" role="alert">{t('mobileInfo')}</div>

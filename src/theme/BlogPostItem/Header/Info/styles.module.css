@@ -8,7 +8,7 @@
 .container {
   font-size: 0.9rem;
   font-style: italic;
-  color: var(--ifm-color-emphasis-700);
+  color: var(--custom-text-secondary);
   display: flex;
   align-items: center;
 }
@@ -19,7 +19,7 @@
 
 .spacer {
   margin: 0 6px;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--custom-text-muted);
 }
 
 .readingTime {

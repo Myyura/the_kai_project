@@ -16,11 +16,21 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   
-  /* 新增自定义变量 */
-  --custom-transition: all 0.2s ease; /* 加快动画速度从0.3s改为0.2s */
-  --custom-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  --custom-border-radius: 8px;
-  --custom-card-bg: #ffffff;
+  /* Liquid Glass 设计系统变量 */
+  --custom-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --custom-transition-fast: all 0.2s ease;
+  --custom-box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+  --custom-box-shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.1);
+  --custom-border-radius: 20px;
+  --custom-border-radius-sm: 12px;
+  --custom-border-radius-xs: 8px;
+  --custom-card-bg: rgba(255, 255, 255, 0.5);
+  --custom-card-border: rgba(255, 255, 255, 0.4);
+  --custom-blur: blur(15px);
+  --custom-blur-sm: blur(10px);
+  --custom-text-primary: rgba(0, 0, 0, 0.88);
+  --custom-text-secondary: rgba(0, 0, 0, 0.68);
+  --custom-text-muted: rgba(0, 0, 0, 0.55);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -34,9 +44,14 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
-  /* 黑暗模式下的自定义变量 */
-  --custom-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* 增强阴影对比度 */
-  --custom-card-bg: #252528; /* 加深卡片背景色增强对比度 */
+  /* 黑暗模式 Liquid Glass 设计系统变量 */
+  --custom-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --custom-box-shadow-hover: 0 14px 48px rgba(0, 0, 0, 0.35);
+  --custom-card-bg: rgba(37, 37, 40, 0.5);
+  --custom-card-border: rgba(255, 255, 255, 0.08);
+  --custom-text-primary: rgba(255, 255, 255, 0.96);
+  --custom-text-secondary: rgba(255, 255, 255, 0.75);
+  --custom-text-muted: rgba(255, 255, 255, 0.55);
 }
 
 /* 添加黑暗模式下 heroBanner 的样式 */
@@ -44,9 +59,9 @@
   background-image: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
 }
 
-/* 全局动画改进 */
+/* 全局动画改进 - 使用设计系统变量 */
 button, a.button, .navbar__link {
-  transition: all 0.2s ease !important; /* 加快动画速度 */
+  transition: var(--custom-transition-fast) !important;
 }
 
 .button:hover {
@@ -56,7 +71,7 @@ button, a.button, .navbar__link {
 
 /* 添加页面过渡效果 */
 main {
-  animation: fadeInPage 0.3s ease-in; /* 加快动画速度从0.5s改为0.3s */
+  animation: fadeInPage 0.3s ease-in;
 }
 
 @keyframes fadeInPage {
@@ -70,16 +85,37 @@ main {
   }
 }
 
-/* 改进卡片样式 */
+/* 改进卡片样式 - Liquid Glass */
 .card {
   transition: var(--custom-transition);
   border-radius: var(--custom-border-radius);
   overflow: hidden;
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-blur);
+  -webkit-backdrop-filter: var(--custom-blur);
+  border: 1px solid var(--custom-card-border);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--custom-box-shadow);
+  transform: translateY(-6px);
+  box-shadow: var(--custom-box-shadow-hover);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Alert 样式优化 - Liquid Glass */
+.alert {
+  border-radius: var(--custom-border-radius-sm);
+  backdrop-filter: var(--custom-blur-sm);
+  -webkit-backdrop-filter: var(--custom-blur-sm);
+}
+
+/* 导航栏链接悬停效果 */
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
 }
 
 /* Reduce title size in blog list */

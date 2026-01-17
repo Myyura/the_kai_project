@@ -141,16 +141,27 @@ const HomepageHeader = ({ language, toggleLanguage, t }) => {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
         <div className={styles.heroTextContainer}>
-          <div className={styles.languageSwitcher}>
-            <button onClick={toggleLanguage} className={styles.languageButton}>
-              <FaLanguage className={styles.languageIcon} />
-              {language === 'zh' ? '日本語' : '中文'}
-            </button>
-          </div>
           <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
             {siteConfig.title}
           </Heading>
           <p className={clsx('hero__subtitle', styles.heroSubtitle)}>{siteConfig.tagline}</p>
+          <div className={styles.languageSwitcher}>
+            <span className={styles.languageLabel}>Language</span>
+            <div className={styles.languageToggle}>
+              <button 
+                onClick={language === 'ja' ? toggleLanguage : undefined}
+                className={clsx(styles.langOption, language === 'zh' && styles.langOptionActive)}
+              >
+                中文
+              </button>
+              <button 
+                onClick={language === 'zh' ? toggleLanguage : undefined}
+                className={clsx(styles.langOption, language === 'ja' && styles.langOptionActive)}
+              >
+                日本語
+              </button>
+            </div>
+          </div>
           <div className={styles.buttons}>
             <Link
               className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}

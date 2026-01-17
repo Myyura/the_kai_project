@@ -334,7 +334,7 @@
 /* 考试日程流程图样式 - Liquid Glass 效果 */
 .universityInfo {
   padding: 5rem 0;
-  background-color: rgba(245, 248, 255, 0.4);
+  background: linear-gradient(180deg, rgba(245, 248, 255, 0.5) 0%, rgba(240, 245, 255, 0.3) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   position: relative;
@@ -343,372 +343,409 @@
 .universityInfoTitle {
   text-align: center;
   font-size: 2.2rem !important;
-  margin-bottom: 1rem;
-  color: rgba(0, 0, 0, 0.88);
+  margin-bottom: 0.8rem;
+  color: var(--custom-text-primary);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .universityInfoDescription {
   text-align: center;
-  max-width: 750px;
-  margin: 0 auto 2.5rem;
-  color: rgba(0, 0, 0, 0.7);
-  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto 2rem;
+  color: var(--custom-text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
+/* 筛选器样式 */
 .filterContainer {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
 }
 
 .selectWrapper {
   position: relative;
-  min-width: 250px;
+  min-width: 220px;
 }
 
 .selectBox {
   width: 100%;
-  padding: 0.8rem 1.2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  font-size: 1rem;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-blur-sm);
+  -webkit-backdrop-filter: var(--custom-blur-sm);
+  font-size: 0.95rem;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
-  transition: all 0.3s ease;
+  transition: var(--custom-transition);
+  color: var(--custom-text-primary);
+}
+
+.selectBox:hover {
+  border-color: var(--ifm-color-primary-light);
+}
+
+.selectBox:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(46, 133, 85, 0.1);
 }
 
 .selectBox:disabled {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .selectWrapper::after {
-  content: '▼';
-  font-size: 0.8rem;
+  content: '';
   position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--custom-text-muted);
   pointer-events: none;
-  color: rgba(0, 0, 0, 0.5);
+  transition: var(--custom-transition-fast);
+}
+
+.selectWrapper:hover::after {
+  border-top-color: var(--ifm-color-primary);
 }
 
 [data-theme='dark'] .selectBox {
-  background-color: rgba(37, 37, 40, 0.6);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: white;
+  background: var(--custom-card-bg);
+  border-color: var(--custom-card-border);
 }
 
-[data-theme='dark'] .selectWrapper::after {
-  color: rgba(255, 255, 255, 0.5);
+[data-theme='dark'] .selectBox:focus {
+  box-shadow: 0 0 0 3px rgba(37, 194, 160, 0.15);
 }
 
+/* 大学卡片瀑布流布局 */
 .flowchartContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 1000px;
+  column-count: 3;
+  column-gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
+/* 大学卡片样式 - Liquid Glass */
 .universityTimeline {
-  display: flex;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 1rem;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  width: 100%;
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-blur);
+  -webkit-backdrop-filter: var(--custom-blur);
+  border-radius: var(--custom-border-radius);
+  border: 1px solid var(--custom-card-border);
+  overflow: hidden;
+  box-shadow: var(--custom-box-shadow);
+  transition: var(--custom-transition);
+  margin-bottom: 1.5rem;
+  break-inside: avoid; /* 防止卡片被分割到两列 */
 }
 
 .universityTimeline:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: var(--custom-box-shadow-hover);
   border-color: rgba(255, 255, 255, 0.7);
-}
-
-.universityName {
-  padding: 0.6rem 1.2rem;
-  border-radius: 30px;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  display: inline-block;
-  margin-bottom: 0;
-  align-self: flex-start;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-/* 折叠式考试日程流程图样式更新 */
-.universityHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  border-radius: 12px;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.universityHeader:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-[data-theme='dark'] .universityHeader:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-}
-
-.toggleIcon {
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.4rem;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.04);
-  color: #555;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-[data-theme='dark'] .toggleIcon {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #a0a0a0;
-}
-
-.departmentsContainer {
-  padding: 0 0.5rem 0.5rem 1rem;
-  animation: fadeIn 0.4s ease;
-}
-
-.department {
-  margin-bottom: 0.8rem;
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.department:hover {
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
-}
-
-[data-theme='dark'] .department {
-  background: rgba(37, 37, 40, 0.4);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-}
-
-.departmentHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.7rem 1rem;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-left: 3px solid;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.departmentHeader:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-[data-theme='dark'] .departmentHeader {
-  background: rgba(255, 255, 255, 0.04);
-}
-
-[data-theme='dark'] .departmentHeader:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.departmentName {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: rgba(0, 0, 0, 0.88);
-}
-
-[data-theme='dark'] .departmentName {
-  color: rgba(255, 255, 255, 0.96);
-}
-
-.departmentToggle {
-  font-size: 0.8rem;
-  color: rgba(0, 0, 0, 0.55);
-}
-
-[data-theme='dark'] .departmentToggle {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.departmentLink {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: rgba(0, 0, 0, 0.75);
-  text-decoration: none;
-  font-size: 0.85rem;
-  border-left: 3px solid;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.departmentLink:hover {
-  background: rgba(255, 255, 255, 0.5);
-  color: rgba(0, 0, 0, 0.9);
-  text-decoration: none;
-  transform: translateX(3px);
-}
-
-[data-theme='dark'] .departmentLink {
-  background: rgba(255, 255, 255, 0.02);
-  color: rgba(255, 255, 255, 0.75);
-}
-
-[data-theme='dark'] .departmentLink:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.98);
-}
-
-.scheduleDisclaimer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-top: 3rem;
-  padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  max-width: 750px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-}
-
-.disclaimerIcon {
-  color: var(--ifm-color-primary);
-  font-size: 1.2rem;
-}
-
-.scheduleDisclaimer p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: rgba(0, 0, 0, 0.75);
-}
-
-/* 黑暗模式样式 */
-[data-theme='dark'] .universityInfo {
-  background-color: rgba(32, 35, 42, 0.3);
-}
-
-[data-theme='dark'] .universityInfoTitle {
-  color: rgba(255, 255, 255, 0.96);
-}
-
-[data-theme='dark'] .universityInfoDescription {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-[data-theme='dark'] .universityTimeline {
-  background: rgba(37, 37, 40, 0.5);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme='dark'] .universityTimeline:hover {
   border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* 大学名称标签 - 顶部彩色条 */
+.universityName {
+  padding: 0.7rem 1.2rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+/* 大学卡片头部 */
+.universityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--custom-transition-fast);
+}
+
+.universityHeader:hover .toggleIcon {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+/* 展开/折叠图标 */
+.toggleIcon {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 0.8rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transition: var(--custom-transition);
+}
+
+/* 专攻列表容器 */
+.departmentsContainer {
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.02);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-theme='dark'] .departmentsContainer {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* 专攻卡片 */
+.department {
+  margin-bottom: 0.6rem;
+  border-radius: var(--custom-border-radius-sm);
+  overflow: hidden;
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-blur-sm);
+  -webkit-backdrop-filter: var(--custom-blur-sm);
+  border: 1px solid var(--custom-card-border);
+  transition: var(--custom-transition);
+}
+
+.department:last-child {
+  margin-bottom: 0;
+}
+
+.department:hover {
+  border-color: rgba(46, 133, 85, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] .department {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='dark'] .department:hover {
+  border-color: rgba(37, 194, 160, 0.3);
+}
+
+/* 专攻头部 */
+.departmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+  border-left: 3px solid;
+  transition: var(--custom-transition-fast);
+  background: transparent;
+}
+
+.departmentHeader:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme='dark'] .departmentHeader:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.departmentName {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--custom-text-primary);
+}
+
+.departmentToggle {
+  font-size: 0.75rem;
+  color: var(--custom-text-muted);
+  transition: var(--custom-transition-fast);
+}
+
+/* 专攻链接 */
+.departmentLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  background: rgba(46, 133, 85, 0.05);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-left: 3px solid;
+  transition: var(--custom-transition-fast);
+}
+
+.departmentLink:hover {
+  background: rgba(46, 133, 85, 0.1);
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+  padding-left: 1.1rem;
+}
+
+[data-theme='dark'] .departmentLink {
+  background: rgba(37, 194, 160, 0.08);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .departmentLink:hover {
+  background: rgba(37, 194, 160, 0.15);
+  color: var(--ifm-color-primary-light);
+}
+
+/* 提示信息 */
+.scheduleDisclaimer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-blur);
+  -webkit-backdrop-filter: var(--custom-blur);
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--custom-box-shadow);
+}
+
+.disclaimerIcon {
+  color: var(--ifm-color-primary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.scheduleDisclaimer p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--custom-text-secondary);
+  line-height: 1.5;
+}
+
+/* 黑暗模式样式 */
+[data-theme='dark'] .universityInfo {
+  background: linear-gradient(180deg, rgba(32, 35, 42, 0.4) 0%, rgba(28, 30, 36, 0.3) 100%);
+}
+
+[data-theme='dark'] .universityTimeline {
+  background: var(--custom-card-bg);
+  border-color: var(--custom-card-border);
+  box-shadow: var(--custom-box-shadow);
+}
+
+[data-theme='dark'] .universityTimeline:hover {
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 [data-theme='dark'] .scheduleDisclaimer {
-  background: rgba(37, 37, 40, 0.5);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  background: var(--custom-card-bg);
+  border-color: var(--custom-card-border);
 }
 
-[data-theme='dark'] .scheduleDisclaimer p {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-/* 语言切换按钮样式 - Liquid Glass 效果 */
+/* 语言切换器 - 内联切换风格 */
 .languageSwitcher {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  z-index: 10;
-  width: 100%;
-  text-align: center;
-}
-
-.languageButton {
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  color: var(--ifm-font-color-base);
-  padding: 8px 16px;
-  border-radius: 30px;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.8s ease-in 0.3s backwards;
+}
+
+.languageLabel {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+[data-theme='dark'] .languageLabel {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.languageToggle {
+  display: flex;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 2px;
+}
+
+[data-theme='dark'] .languageToggle {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.langOption {
+  padding: 0.5rem 1.2rem;
   font-size: 0.9rem;
   font-weight: 500;
+  border: none;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.55);
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.languageButton:hover {
-  background: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  border-color: rgba(0, 0, 0, 0.12);
+[data-theme='dark'] .langOption {
+  color: rgba(255, 255, 255, 0.55);
 }
 
-.languageIcon {
-  font-size: 1.2rem;
-  position: relative;
-  z-index: 1;
+.langOption:hover:not(.langOptionActive) {
+  background: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.8);
 }
 
-[data-theme='dark'] .languageButton {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: var(--ifm-font-color-base);
+[data-theme='dark'] .langOption:hover:not(.langOptionActive) {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.8);
 }
 
-[data-theme='dark'] .languageButton:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.25);
+.langOptionActive {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: default;
+}
+
+[data-theme='dark'] .langOptionActive {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--ifm-color-primary-lighter);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Testimonials Section */
@@ -885,29 +922,37 @@
   .testimonialCards {
     grid-template-columns: 1fr;
   }
+  
+  /* 中等屏幕大学卡片调整 - 2列瀑布流 */
+  .flowchartContainer {
+    column-count: 2;
+    column-gap: 1.25rem;
+  }
 }
 
 /* 调整移动设备上的语言切换按钮 */
 @media screen and (max-width: 768px) {
   .languageSwitcher {
-    top: auto;
-    right: auto;
-    position: static;
-    margin-bottom: 1.5rem;
-    text-align: center;
+    margin-bottom: 1rem;
   }
   
-  .languageButton {
-    padding: 10px 16px;
-    font-size: 0.9rem;
+  .languageLabel {
+    display: none;
   }
   
-  .languageIcon {
-    font-size: 1.2rem;
+  .langOption {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
   }
 
   .filterContainer {
     flex-direction: column;
+    align-items: center;
+  }
+  
+  .selectWrapper {
+    min-width: 100%;
+    max-width: 320px;
   }
 
   .features .row {
@@ -924,21 +969,38 @@
     font-size: 1.8rem !important;
   }
   
+  .universityInfoDescription {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+  
+  /* 移动端大学卡片 - 单列 */
+  .flowchartContainer {
+    column-count: 1;
+    padding: 0 0.5rem;
+  }
+  
   .universityTimeline {
-    padding: 1rem;
+    margin-bottom: 1rem;
   }
   
   .universityName {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  .toggleIcon {
+    width: 28px;
+    height: 28px;
+    margin-right: 0.6rem;
   }
   
   .departmentsContainer {
-    padding: 0 0.25rem 0.25rem 0.5rem;
+    padding: 0.5rem;
   }
   
   .departmentHeader {
-    padding: 0.6rem 1rem;
+    padding: 0.55rem 0.75rem;
   }
   
   .departmentName {
@@ -946,8 +1008,15 @@
   }
 
   .departmentLink {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     font-size: 0.8rem;
+  }
+  
+  .scheduleDisclaimer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    margin: 2rem 0.5rem 0;
   }
   
   .ctaTitle {

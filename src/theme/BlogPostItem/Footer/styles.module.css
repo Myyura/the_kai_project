@@ -7,11 +7,16 @@
 
 .blogFooterDetailView {
   padding-top: 1.5rem;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .blogFooterListView {
   padding-top: 1rem;
   margin-top: 1rem;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .blogFooterDetailView,
+[data-theme='dark'] .blogFooterListView {
+  border-top-color: rgba(255, 255, 255, 0.1);
 }

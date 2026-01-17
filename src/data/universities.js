@@ -2,7 +2,7 @@ export const universities = [
     {
       id: 'tokyo',
       name: '東京大学',
-      color: '#0f4c81',
+      color: '#1e3a5f',
       departments: [
         {
           id: 'engineering',
@@ -44,7 +44,7 @@ export const universities = [
     {
       id: 'kyoto',
       name: '京都大学',
-      color: '#8b2323',
+      color: '#2e8555',
       departments: [
         {
           id: 'engineering',
@@ -76,7 +76,7 @@ export const universities = [
     {
       id: 'tohoku',
       name: '東北大学',
-      color: '#006a4e',
+      color: '#6b5b95',
       departments: [
         {
           id: 'engineering',
@@ -108,7 +108,7 @@ export const universities = [
     {
       id: 'osaka',
       name: '大阪大学',
-      color: '#1e3f66',
+      color: '#2980b9',
       departments: [
         {
           id: 'engineering',
@@ -140,7 +140,7 @@ export const universities = [
     {
       id: 'nagoya',
       name: '名古屋大学',
-      color: '#654321',
+      color: '#c87533',
       departments: [
         {
           id: 'engineering',
@@ -172,7 +172,7 @@ export const universities = [
     {
       id: 'isct',
       name: '東京科学大学 旧・東京工業大学',  
-      color: '#7b3f00',
+      color: '#1a7f8e',
       departments: [
         {
           id: 'isct',
@@ -184,7 +184,7 @@ export const universities = [
     {
       id: 'hokkaido',
       name: '北海道大学',
-      color: '#4169e1',
+      color: '#4a90a4',
       departments: [
         {
           id: 'engineering',
@@ -216,7 +216,7 @@ export const universities = [
     {
       id: 'kyushu',
       name: '九州大学',
-      color: '#800080',
+      color: '#8e4557',
       departments: [
         {
           id: 'engineering',
@@ -248,7 +248,7 @@ export const universities = [
     {
       id: 'waseda',
       name: '早稲田大学',
-      color: '#c41e3a',
+      color: '#9e3a3a',
       departments: [
         {
           id: 'fundamental',
@@ -270,7 +270,7 @@ export const universities = [
     {
       id: 'tsukuba',
       name: '筑波大学',
-      color: '#228b22',
+      color: '#3d8b6d',
       departments: [
         {
           id: 'engineering',
@@ -292,7 +292,7 @@ export const universities = [
     {
       id: 'uec',
       name: '電気通信大学',
-      color: '#483d8b',
+      color: '#3a6ea5',
       departments: [
         {
           id: 'informatics',
@@ -304,7 +304,7 @@ export const universities = [
     {
       id: 'kobe',
       name: '神戸大学',
-      color: '#3cb371',
+      color: '#34495e',
       departments: [
         {
           id: 'engineering',
@@ -331,7 +331,7 @@ export const universities = [
     {
       id: 'hiroshima',
       name: '広島大学',
-      color: '#ff7f50',
+      color: '#c0626f',
       departments: [
         {
           id: 'engineering',

@@ -5,88 +5,73 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-:root {
-  --docusaurus-tag-list-border: var(--ifm-color-emphasis-300);
-}
-
+/* Tag 标签 - 简洁现代风格 */
 .tag {
-  border: 1px solid var(--docusaurus-tag-list-border);
-  transition: all var(--ifm-transition-fast) ease;
-  background: var(--ifm-color-emphasis-100);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.03);
+  color: var(--ifm-font-color-base);
+  transition: all 0.2s ease;
 }
 
 .tag:hover {
-  --docusaurus-tag-list-border: var(--ifm-color-primary);
   text-decoration: none;
-  background: var(--ifm-color-primary-lightest);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 133, 85, 0.25);
 }
 
 [data-theme='dark'] .tag {
-  background: var(--ifm-color-emphasis-200);
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 [data-theme='dark'] .tag:hover {
-  background: var(--ifm-color-primary-darkest);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(37, 194, 160, 0.3);
 }
 
+/* 普通标签 */
 .tagRegular {
-  border-radius: var(--ifm-global-radius);
-  padding: 0.25rem 0.6rem;
-  font-size: 90%;
-  font-weight: 500;
+  /* 继承 .tag 的基础样式 */
 }
 
+/* 带计数的标签 */
 .tagWithCount {
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 0 0.5rem 0 1rem;
-  border-left: 0;
-  font-weight: 500;
-}
-
-.tagWithCount::before,
-.tagWithCount::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  border: 1px solid var(--docusaurus-tag-list-border);
-  transition: inherit;
-}
-
-.tagWithCount::before {
-  right: 100%;
-  transform: translate(50%, -50%) rotate(-45deg);
-  width: 1.18rem;
-  height: 1.18rem;
-  border-right: 0;
-  border-bottom: 0;
-  background: inherit;
-}
-
-.tagWithCount::after {
-  left: 0;
-  transform: translateY(-50%);
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--ifm-color-primary);
+  padding-right: 0.5rem;
 }
 
 .tagWithCount span {
-  background: var(--ifm-color-primary);
-  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.4rem;
+  background-color: rgba(0, 0, 0, 0.08);
+  color: var(--ifm-font-color-base);
   font-size: 0.7rem;
-  line-height: 1.2;
-  border-radius: 10px;
-  padding: 0.1rem 0.5rem;
-  margin-left: 0.4rem;
   font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.2s ease;
 }
 
 [data-theme='dark'] .tagWithCount span {
-  background: var(--ifm-color-primary-dark);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tag:hover .tagWithCount span,
+.tagWithCount:hover span {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }

@@ -8,17 +8,24 @@
 .authorCol {
   max-width: inherit !important;
   padding: 1rem;
-  background-color: var(--ifm-color-emphasis-100);
-  border-radius: 8px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-blur-sm);
+  -webkit-backdrop-filter: var(--custom-blur-sm);
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: var(--custom-transition);
 }
 
 .authorCol:hover {
-  background-color: var(--ifm-color-emphasis-100);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .authorCol:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .imageOnlyAuthorRow {
@@ -31,11 +38,11 @@
 .imageOnlyAuthorCol {
   margin-left: 0.3rem;
   margin-right: 0.3rem;
-  transition: transform 0.2s ease;
+  transition: var(--custom-transition-fast);
 }
 
 .imageOnlyAuthorCol:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 /* 覆盖avatar的底部边距 */
