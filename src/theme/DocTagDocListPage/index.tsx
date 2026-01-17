@@ -19,6 +19,7 @@ import SearchMetadata from '@theme/SearchMetadata';
 import type {Props} from '@theme/DocTagDocListPage';
 import Unlisted from '@theme/ContentVisibility/Unlisted';
 import Heading from '@theme/Heading';
+import styles from './styles.module.css';
 
 // Very simple pluralization: probably good enough for now
 function useNDocsTaggedPlural() {
@@ -52,12 +53,9 @@ function usePageTitle(props: Props): string {
 
 function DocItem({doc}: {doc: Props['tag']['items'][number]}): ReactNode {
   return (
-    <article className="margin-vert--lg">
-      <Link to={doc.permalink}>
-        <Heading as="h2">{doc.title}</Heading>
-      </Link>
-      {doc.description && <p>{doc.description}</p>}
-    </article>
+    <Link to={doc.permalink} className={styles.docItem}>
+      <span className={styles.docItemTitle}>{doc.title}</span>
+    </Link>
   );
 }
 
@@ -80,22 +78,26 @@ function DocTagDocListPageContent({
   return (
     <HtmlClassNameProvider
       className={clsx(ThemeClassNames.page.docsTagDocListPage)}>
-      <div className="container margin-vert--lg">
+      <div className={clsx('container', styles.pageContainer)}>
         <div className="row">
-          <main className="col col--8 col--offset-2">
+          <main className="col col--10 col--offset-1">
             {tag.unlisted && <Unlisted />}
-            <header className="margin-bottom--xl">
-              <Heading as="h1">{title}</Heading>
-              {tag.description && <p>{tag.description}</p>}
-              <Link href={tag.allTagsPath}>
-                <Translate
-                  id="theme.tags.tagsPageLink"
-                  description="The label of the link targeting the tag list page">
-                  View all tags
-                </Translate>
-              </Link>
+            <header className={styles.pageHeader}>
+              <Heading as="h1" className={styles.pageTitle}>{tag.label}</Heading>
+              {tag.description && <p className={styles.pageDescription}>{tag.description}</p>}
+              <div className={styles.headerActions}>
+                <span className={styles.tagCount}>{tag.count} 件のドキュメント</span>
+                <Link href={tag.allTagsPath} className={styles.allTagsLink}>
+                  <Translate
+                    id="theme.tags.tagsPageLink"
+                    description="The label of the link targeting the tag list page">
+                    View all tags
+                  </Translate>
+                  →
+                </Link>
+              </div>
             </header>
-            <section className="margin-vert--lg">
+            <section className={styles.docList}>
               {tag.items.map((doc) => (
                 <DocItem key={doc.id} doc={doc} />
               ))}
