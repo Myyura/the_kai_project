@@ -35,3 +35,7 @@ If necessary, use examples or figures.
 
 ## **Kai**
 
+#### Kalman filter
+Kalman filter is an optimal recursive algorithm giving a better estimate based on noisy sensored data and uncertain predicted data. It dynamically balances the uncertainty of the model against the noise of measurements, providing the optimal estimate in real-time systems.
+
+At step $t$, Kalman filter uses the physical model to predict current state by state transition and control matrix & vector, getting a predicted current state; and uses the covariance at $t-1$ step to predict the current covariance matrix. Then, it updates (posterior estimates) the state and the covariance by computed Kalman gain.

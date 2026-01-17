@@ -3,11 +3,13 @@ sidebar_label: '2019年8月実施 筆記試験 第1問'
 tags:
   - Tokyo-University
   - Dynamic-Programming
+  - Catalan-Number
+  - Geometry
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 筆記試験 第1問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff)
+[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
 点列 $v_0, v_1, \dots, v_{n-1}, v_0$ をこの順に結んでできる凸 $n$ 角形が与えられたとき、その凸 $n$ 角形の三角形分割とは、その内部を重なりなく三角形に分割する方法のことである。
@@ -116,27 +118,37 @@ C[i] = C[i] + C[j+2]*C[i-j-1]
 ```
 This will allow the sum to equal the equation found in (2).
 
+The time complexity is $\Theta(n^2)$, and the space complexityu is $\Theta(n)$.
+
 
 ### (4)
-Based on the assumptions:
+**Tomfluff's solution is wrong. Please refer to [here](https://github.com/tomfluff/utokyo-ci-masters-exam/blob/main/2019-Summer/written_exam.md) to see his solution.**
+The original problem actually lacks an important assumption: $i+m-1\le n-1$. Without this assumption, `%` must be in the equation to prevent $v_{i+m-1}$ exceeding $v_{n-1}$.
+In the following we suppose the assumption holds.
+题目实际上缺了一个假设：$i+m-1\le n-1$，如果没有这个假设，我们需要在 index 里包含 `%` 因为有可能超到 `2n` 去。下面我们认为题目给了这个假设。
 
-$$
-E[i,m]=E[i,i'-i]+E[i'+1,m-(i'-i)]+D(i,i')+D(i',i'+1)+D(i'+1,i)
-$$
+In the figure given (a sub-polygon also a clockwisely arranged point sequence), any triangulation has a triangle including $(v_i, v_{i+m-1})$. This triangle has another node $v_k, ~k=i+1,i+2,\dots,i+m-2$. So we can traverse $v_k$.
+在题目给的图（顺时针 sub-polygon）中，任意一种三角剖分必定有一个三角形包含 $(v_i, v_{i+m-1})$，这个三角形另有一个节点 $v_k, ~k=i+1,i+2,\dots,i+m-2$. 所以我们可以遍历 $v_k$.
 
-Basically, we choose an arbitrary triangle $(i,i',i'+1)$ and using the fact all the other information is known. Then we look at the cost of the shape left of the triangle and right of it and combine with the cost of the triangle itself.
+For any $v_k$, the polygon is naturally divided into two clockwise point sequences: $v_i,\dots,v_k$ with $k-i+1$ vertices and $v_k,\dots,v_{i+m-1}$ with $i+m-k$ vertices which corresponds to `E[i,k-i+1]` and `E[k,i+m-k]` respectively.
+
+Also, the triangulation cost in the sub-polygon $v_i,\dots,v_{i+m-1}$ has the created edge $(v_i, v_{i+m-1})$, which corresponds to `D[i,i+m-1]`; and two edges are connected when we choose $v_k$ corresponding to `D[i,k]` and `D[k,i+m-1]`.
+
+So
+$$
+E[i,m]=\min_{k=i+1,\dots,i+m-2} \{E[i,k-i+1]+E[k,i+m-k]+D[i,k]+D[k,i+m-1]+D[i,i+m-1]\}.
+$$
 
 ### (5)
-The following cose assumes (based on no. 4) that $E[i',m']$ and $D(i,j)$ are given.
 
+```pseudocode
+E[i,j] = 2-D array with all infinity, size n*(n+1)
+for i = 0 to n-1
+  E[i,2] = 0
+for m = 3 to n:
+  for i = 0 to n-m:
+    for k = i+1 to i+m-2:
+      E[i,m] = min(E[i,m], E[i,k-i+1]+E[k,i+m-k]+D[i,k]+D[k,i+m-1]+D[i,i+m-1])
+return E[0,n]
 ```
-minimum_cost = +infinity
-for (i=1...n-2)
-    local_cost = E[0,i+1]+E[i+1,n-i+1]+D(0,i)+D(i,i+1)+D(i+1,i)
-    minimal_cost = min(local_cost, minimal_cost)
-return minimal_cost
-```
-
-In this code we go over all possible divisions of the shape n-gon into 2 subshapes and compute the minimum for these with the addition of the dividing edge. This uses the formula acquired in (4).
-
-The time complexity for this, assuming that the information is known as stated in (4) is $O(n)$.
+The time complexity is $\Theta(n^3)$ because of the 3-nested loop, and the space complexity is $\Theta(n^2)$.

@@ -530,6 +530,13 @@ if __name__ == "__main__":
 
 ### (5)
 
+思路：先从左到右while循环遍历，确定每个非空（非全空格）的块。按照块面积确定是不是1, 如果不是的话，因为永远是5*4的面积，所以和0,2~9匹配。
+匹配：可以将这9个pictograph的20个位置分别列出来，然后看差异量，选择argmin；不过这样会在例题的8167处就产生一些缺陷，比如6会识别成7. 
+暂时没有更好的方法。
+
+The idea: We do a while loop from left to right to traverse the columns. When we lock at a chunk not filled with all blankspaces, we first check the non-all-space area (if it is 5 rows 4 columns). 
+If it is 1 (with 5 rows, 1 or 2 columns) then we add 1 to the result and go to the next processing; otherwise we match this 5*4 block with pictographs of [0,2,3,4,5,6,7,8,9] respectively and find the `argmin`. We can do a count-of-differences (i.e. norm of the one-hot difference).
+
 ```python
 import numpy as np
 import math

@@ -34,3 +34,5 @@ If necessary, use examples or figures.
 8) Optical flow
 
 ## **Kai**
+#### Half adder
+A half adder is a combinational circuit with two bits as input and two bits as output. It takes A and B, and arithmetically compute the sum of A and B and the carry of this addition, where the sum $S=A\oplus B$ (the XOR operation) and $C=AB$ (the AND operation), i.e. it consists of a XOR gate and an AND gate. By connecting 2 half adders and an OR gate, we can build a full adder which also takes an input carry as well.
