@@ -24,10 +24,10 @@ Select **four items** out of the following eight items concerning information sy
 ## **Kai**
 **Pipeline hazard**
 
-Pipeline hazard refers to a situation where dependencies in a program result in incorrect execution on the pipeline architecture. There are several types of hazards:
-1. **Structure hazard** - Occures when two commands attempt to access the same memory component at the same time.
-2. **Data hazard** - Occures when a command attempts to use data which has not been finalized yet.
-3. **Control hazard** - Occures when executing a command results in an unwanted jump in the flow of commands (harms the natural order of execution).
+Pipeline hazard refers to a situation where dependencies in a program result in incorrect execution in pipeline or out-of-order execution. There are several types of hazards:
+1. **Structure hazard** - Occurs when two commands attempt to access the same memory component at the same time.
+2. **Data hazard** - Occurs when a command attempts to use data which has not been finalized yet.
+3. **Control hazard** - Occurs when executing a command results in an unwanted jump in the flow of commands (harms the natural order of execution).
 
 #### Register renaming
 
