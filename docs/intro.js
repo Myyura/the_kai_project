@@ -2,46 +2,45 @@ import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './intro.module.css';
 import { FiGithub, FiCheckCircle } from 'react-icons/fi';
-import { FaLanguage } from 'react-icons/fa';
 
 // 数据和文本
 const content = {
   texts: {
     mobileInfo: {
-      zh: <><strong>手机端</strong>请点击左上角菜单栏获取过去问或点击以下学校卡片</>,
-      ja: <><strong>モバイル端末</strong>では、左上のメニューバーをクリックして過去問を取得するか、以下の大学カードをクリックしてください</>
+      zh: <><strong>手机端</strong>请点击左上角菜单栏浏览过去问，或点击下方学校卡片</>,
+      ja: <><strong>スマートフォン</strong>をお使いの方は、左上のメニューから過去問を閲覧するか、下の大学カードをタップしてください</>
     },
     schoolList: {
-      zh: "点击学校快捷卡片可跳转到该校的过去问",
-      ja: "大学の過去問へのショートカット"
+      zh: "选择大学查看过去问",
+      ja: "大学を選んで過去問を見る"
     },
-    license: { zh: "LICENSE", ja: "ライセンス" },
+    license: { zh: "许可协议", ja: "ライセンス" },
     licenseText1: {
-      zh: "项目代码AGPL v3, 试题版权归出题方（校方）所有。",
-      ja: "プロジェクトコードはAGPL v3、試験問題の著作権は出題者（大学側）に帰属します。"
+      zh: "项目代码采用 AGPL v3 协议，试题版权归各大学所有。",
+      ja: "プロジェクトのコードは AGPL v3 ライセンスです。試験問題の著作権は各大学に帰属します。"
     },
-    licenseText2: { zh: "感谢每一位项目的贡献者。", ja: "プロジェクトの全ての貢献者に感謝します。" },
+    licenseText2: { zh: "感谢所有贡献者的付出。", ja: "すべての貢献者に感謝いたします。" },
     licenseText3: {
-      zh: <>如有侵权, 请通过邮件联系 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</>,
-      ja: <>著作権侵害がある場合は、メールで連絡してください: <a href="mailto:376672994@qq.com">376672994@qq.com</a></>
+      zh: <>如有版权问题，请联系 <a href="mailto:376672994@qq.com">376672994@qq.com</a></>,
+      ja: <>著作権に関するお問い合わせは <a href="mailto:376672994@qq.com">376672994@qq.com</a> までご連絡ください</>
     },
-    howToContribute: { zh: "如何贡献", ja: "貢献方法" },
+    howToContribute: { zh: "参与贡献", ja: "貢献する" },
     contribute1: {
-      zh: "熟悉Git：在本GitHub项目中提交PR。",
-      ja: "Gitに詳しい方：このGitHubプロジェクトにPRを提出してください。"
+      zh: <>熟悉 Git：直接在 <Link to="https://github.com/Myyura/the_kai_project">GitHub</Link> 提交 Pull Request</>,
+      ja: <>Gitをお使いの方：<Link to="https://github.com/Myyura/the_kai_project">GitHub</Link> から Pull Request を送信</>
     },
     contribute2: {
-      zh: <>不熟悉Git：发送试题/答案至 <a href="mailto:376672994@qq.com">376672994@qq.com</a>。</>,
-      ja: <>Gitに詳しくない方：試験問題/回答を <a href="mailto:376672994@qq.com">376672994@qq.com</a> に送信してください。</>
+      zh: <>不熟悉 Git：将试题或答案发送至 <a href="mailto:376672994@qq.com">376672994@qq.com</a></>,
+      ja: <>その他の方：試験問題や解答を <a href="mailto:376672994@qq.com">376672994@qq.com</a> に送信</>
     },
-    corrections: { zh: "纠错与讨论", ja: "修正と議論" },
+    corrections: { zh: "纠错与讨论", ja: "修正・質問" },
     correctionsText1: {
-      zh: <>发现错误请至<Link to="https://github.com/Myyura/the_kai_project/issues">Github项目</Link>提交Issue。</>,
-      ja: <>誤りを見つけた場合は、<Link to="https://github.com/Myyura/the_kai_project/issues">Githubプロジェクト</Link>にIssueを提出してください。</>
+      zh: <>发现错误？请在 <Link to="https://github.com/Myyura/the_kai_project/issues">GitHub Issues</Link> 提交反馈</>,
+      ja: <>間違いを見つけたら <Link to="https://github.com/Myyura/the_kai_project/issues">GitHub Issues</Link> でお知らせください</>
     },
     correctionsText2: {
-      zh: "可以通过QQ群讨论题目答案和考试经验，QQ群：925154731。",
-      ja: "QQグループで問題の回答や試験経験について議論できます。QQグループ：925154731"
+      zh: <>交流讨论请加入 <a href="https://qm.qq.com/q/3yjgte7UTe">QQ群 925154731</a> 或 <Link to="https://github.com/Myyura/the_kai_project/discussions">GitHub Discussions</Link></>,
+      ja: <>質問や議論は <Link to="https://github.com/Myyura/the_kai_project/discussions">GitHub Discussions</Link> をご利用ください</>
     }
   },
   schools: [
@@ -95,16 +94,29 @@ export default function Intro() {
 
   return (
     <div className="container">
-      <div className={styles.languageSwitcher}>
-        <button onClick={toggleLanguage} className={styles.languageButton} title="Switch Language">
-          <FaLanguage className={styles.languageIcon} />
-          {language === 'ja' ? '中文' : '日本語'}
-        </button>
+      <div className={styles.pageHeader}>
+        <div className={styles.languageSwitcher}>
+          <span className={styles.languageLabel}>Language</span>
+          <div className={styles.languageToggle}>
+            <button 
+              onClick={language === 'ja' ? toggleLanguage : undefined}
+              className={`${styles.langOption} ${language === 'zh' ? styles.langOptionActive : ''}`}
+            >
+              中文
+            </button>
+            <button 
+              onClick={language === 'zh' ? toggleLanguage : undefined}
+              className={`${styles.langOption} ${language === 'ja' ? styles.langOptionActive : ''}`}
+            >
+              日本語
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className="alert alert--info" role="alert">{t('mobileInfo')}</div>
-      <div className={styles.sectionSpacing}></div>
-      <h2>{t('schoolList')}</h2>
+      <div className="alert alert--info" role="alert" style={{marginBottom: '1rem'}}>{t('mobileInfo')}</div>
+      
+      <h2 className={styles.sectionTitle}>{t('schoolList')}</h2>
 
       <div className={styles.schoolGrid}>
         {content.schools.map((school, index) => (

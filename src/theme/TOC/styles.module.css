@@ -5,45 +5,81 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/* TOC 目录容器 - 简洁现代风格 */
 .tableOfContents {
   max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
   overflow-y: auto;
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 1rem);
-  padding: 0.75rem;
+  padding: 1rem 0.75rem;
   margin-left: 0;
-  transition: border-color 0.2s ease;
+  font-size: 0.85rem;
 }
 
-/* 为目录添加标题样式 */
-.tocTitle {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  color: var(--ifm-color-emphasis-700);
+/* 隐藏滚动条但保持可滚动 */
+.tableOfContents::-webkit-scrollbar {
+  width: 4px;
 }
 
-/* 增强当前阅读章节的显示效果 */
-:global(.table-of-contents__link--active) {
-  font-weight: 600;
-  color: var(--ifm-color-primary) !important;
-  position: relative;
-  background-color: var(--ifm-menu-color-background-active, rgba(0, 0, 0, 0.05));
+.tableOfContents::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tableOfContents::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  padding: 0.2rem 0.5rem;
-  margin-left: -0.5rem;
-  display: inline-block;
 }
 
+.tableOfContents::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .tableOfContents::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .tableOfContents::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 目录链接基础样式 */
 :global(.table-of-contents__link) {
   display: block;
-  transition: all 0.2s ease;
-  margin: 0.3rem 0;
+  padding: 0.35rem 0.75rem;
+  margin: 0.15rem 0;
+  color: var(--ifm-font-color-secondary);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  border-left: 2px solid transparent;
 }
 
 :global(.table-of-contents__link:hover) {
-  color: var(--ifm-color-primary-dark) !important;
+  color: var(--ifm-color-primary) !important;
   text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-left-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] :global(.table-of-contents__link:hover) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 当前激活的目录链接 */
+:global(.table-of-contents__link--active) {
+  font-weight: 600;
+  color: var(--ifm-color-primary) !important;
+  background-color: rgba(46, 133, 85, 0.08);
+  border-left-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] :global(.table-of-contents__link--active) {
+  background-color: rgba(37, 194, 160, 0.1);
+}
+
+/* 二级目录缩进 */
+:global(.table-of-contents__link--active) + ul :global(.table-of-contents__link) {
+  padding-left: 1.25rem;
 }
 
 @media (max-width: 996px) {

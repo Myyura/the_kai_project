@@ -1,0 +1,49 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.tocCollapsible {
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-blur-sm);
+  -webkit-backdrop-filter: var(--custom-blur-sm);
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  margin: 1rem 0;
+  transition: var(--custom-transition);
+}
+
+.tocCollapsible:hover {
+  box-shadow: var(--custom-box-shadow);
+}
+
+.tocCollapsibleContent > ul {
+  border-left: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.3rem 0;
+  font-size: 15px;
+}
+
+[data-theme='dark'] .tocCollapsibleContent > ul {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.tocCollapsibleContent ul li {
+  margin: 0.4rem 0.8rem;
+}
+
+.tocCollapsibleContent a {
+  display: block;
+  color: var(--custom-text-secondary);
+  transition: var(--custom-transition-fast);
+}
+
+.tocCollapsibleContent a:hover {
+  color: var(--ifm-color-primary);
+}
+
+.tocCollapsibleExpanded {
+  transform: none;
+}

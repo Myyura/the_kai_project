@@ -8,21 +8,31 @@
 .readMoreLink {
   display: inline-flex;
   align-items: center;
-  border-radius: 20px;
-  padding: 0.4rem 1rem;
-  background-color: var(--ifm-color-primary);
+  border-radius: var(--custom-border-radius-sm);
+  padding: 0.5rem 1.2rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
   color: var(--ifm-color-white);
-  font-weight: 500;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  transition: var(--custom-transition);
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(46, 133, 85, 0.2);
 }
 
 .readMoreLink:hover {
-  background-color: var(--ifm-color-primary-darker);
+  background: linear-gradient(135deg, var(--ifm-color-primary-dark), var(--ifm-color-primary-darker));
   color: var(--ifm-color-white);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(46, 133, 85, 0.25);
   text-decoration: none;
+}
+
+[data-theme='dark'] .readMoreLink {
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-darker));
+  box-shadow: 0 4px 12px rgba(37, 194, 160, 0.2);
+}
+
+[data-theme='dark'] .readMoreLink:hover {
+  box-shadow: 0 6px 18px rgba(37, 194, 160, 0.25);
 }
 
 .readMoreLabel {
@@ -33,4 +43,9 @@
 .readMoreIcon {
   margin-left: 6px;
   font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+.readMoreLink:hover .readMoreIcon {
+  transform: translateX(3px);
 }

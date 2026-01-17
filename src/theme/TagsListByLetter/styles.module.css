@@ -13,66 +13,75 @@
 }
 
 .sectionCard {
-  background: var(--custom-card-bg, #ffffff);
-  border-radius: var(--custom-border-radius, 8px);
-  box-shadow: var(--custom-box-shadow, 0 4px 10px rgba(0, 0, 0, 0.1));
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-blur);
+  -webkit-backdrop-filter: var(--custom-blur);
+  border-radius: var(--custom-border-radius);
+  border: 1px solid var(--custom-card-border);
+  box-shadow: var(--custom-box-shadow);
   overflow: hidden;
-  transition: var(--custom-transition, all 0.2s ease);
+  transition: var(--custom-transition);
 }
 
 .sectionCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: var(--custom-box-shadow-hover);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 [data-theme='dark'] .sectionCard:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .sectionHeader {
   display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary-light) 100%);
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: linear-gradient(135deg, rgba(46, 133, 85, 0.1) 0%, rgba(46, 133, 85, 0.05) 100%);
+  backdrop-filter: var(--custom-blur-sm);
+  -webkit-backdrop-filter: var(--custom-blur-sm);
 }
 
 [data-theme='dark'] .sectionHeader {
-  background: linear-gradient(135deg, rgba(37, 194, 160, 0.2) 0%, rgba(37, 194, 160, 0.1) 100%);
-  border-bottom-color: var(--ifm-color-emphasis-300);
+  background: linear-gradient(135deg, rgba(37, 194, 160, 0.15) 0%, rgba(37, 194, 160, 0.08) 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .sectionIcon {
   font-size: 1.5rem;
   margin-right: 0.75rem;
+  color: var(--ifm-color-primary);
 }
 
 .sectionTitle {
   margin: 0 !important;
   font-size: 1.25rem !important;
-  font-weight: 600;
-  color: var(--ifm-color-content);
+  font-weight: 700;
+  color: var(--custom-text-primary);
   flex: 1;
 }
 
 .tagCount {
   font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-600);
-  background: var(--ifm-color-emphasis-100);
-  padding: 0.25rem 0.75rem;
+  color: white;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+  padding: 0.3rem 0.85rem;
   border-radius: 20px;
-  font-weight: 500;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(46, 133, 85, 0.2);
 }
 
 [data-theme='dark'] .tagCount {
-  background: var(--ifm-color-emphasis-200);
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-darker));
+  box-shadow: 0 2px 8px rgba(37, 194, 160, 0.2);
 }
 
 .sectionContent {
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.5rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .letterSection {
@@ -86,18 +95,18 @@
 
 .letterHeading {
   font-size: 1rem !important;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--ifm-color-primary);
   margin: 0 0 0.75rem 0 !important;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--ifm-color-primary-lightest);
+  border-bottom: 2px solid rgba(46, 133, 85, 0.2);
   display: inline-block;
   min-width: 2rem;
   text-align: center;
 }
 
 [data-theme='dark'] .letterHeading {
-  border-bottom-color: var(--ifm-color-primary-dark);
+  border-bottom-color: rgba(37, 194, 160, 0.3);
 }
 
 .tagList {
@@ -114,68 +123,58 @@
   margin: 0.2rem 0;
 }
 
-/* University section specific styles */
+/* University section specific styles - Liquid Glass */
 .universitySection .sectionHeader {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%);
 }
 
 .universitySection .sectionHeader .sectionTitle {
-  color: #ffffff;
+  color: var(--custom-text-primary);
 }
 
 .universitySection .sectionHeader .tagCount {
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #ffffff;
 }
 
 [data-theme='dark'] .universitySection .sectionHeader {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
-}
-
-[data-theme='dark'] .universitySection .sectionHeader .sectionTitle {
-  color: var(--ifm-color-content);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.15) 100%);
 }
 
 [data-theme='dark'] .universitySection .sectionHeader .tagCount {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--ifm-color-emphasis-600);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
 }
 
-/* Topics section specific styles */
+/* Topics section specific styles - Liquid Glass */
 .topicsSection .sectionHeader {
-  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  background: linear-gradient(135deg, rgba(17, 153, 142, 0.15) 0%, rgba(56, 239, 125, 0.1) 100%);
 }
 
 .topicsSection .sectionHeader .sectionTitle {
-  color: #ffffff;
+  color: var(--custom-text-primary);
 }
 
 .topicsSection .sectionHeader .tagCount {
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
   color: #ffffff;
 }
 
 [data-theme='dark'] .topicsSection .sectionHeader {
-  background: linear-gradient(135deg, rgba(17, 153, 142, 0.3) 0%, rgba(56, 239, 125, 0.3) 100%);
-}
-
-[data-theme='dark'] .topicsSection .sectionHeader .sectionTitle {
-  color: var(--ifm-color-content);
+  background: linear-gradient(135deg, rgba(17, 153, 142, 0.2) 0%, rgba(56, 239, 125, 0.15) 100%);
 }
 
 [data-theme='dark'] .topicsSection .sectionHeader .tagCount {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--ifm-color-emphasis-600);
+  background: linear-gradient(135deg, rgba(17, 153, 142, 0.8) 0%, rgba(56, 239, 125, 0.8) 100%);
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   .sectionHeader {
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.25rem;
   }
   
   .sectionContent {
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.25rem;
   }
   
   .sectionIcon {

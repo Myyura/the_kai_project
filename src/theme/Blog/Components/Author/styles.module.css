@@ -7,6 +7,14 @@
 
 .authorImage {
   --ifm-avatar-photo-size: 3.6rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: var(--custom-transition);
+}
+
+.authorImage:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .author-as-h1 .authorImage {
@@ -29,6 +37,8 @@
   line-height: 1.1rem;
   display: flex;
   flex-direction: row;
+  font-weight: 600;
+  color: var(--custom-text-primary);
 }
 
 .author-as-h1 .authorName {
@@ -44,13 +54,14 @@
 }
 
 .authorTitle {
-  font-size: 0.8rem;
-  line-height: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.1rem;
   display: -webkit-box;
   overflow: hidden;
   line-clamp: 1;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  color: var(--custom-text-secondary);
 }
 
 .author-as-h1 .authorTitle {
@@ -64,11 +75,17 @@
 }
 
 .authorBlogPostCount {
-  background: var(--ifm-color-secondary);
-  color: var(--ifm-color-black);
-  font-size: 0.8rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+  color: white;
+  font-size: 0.75rem;
   line-height: 1.2;
-  border-radius: var(--ifm-global-radius);
-  padding: 0.1rem 0.4rem;
-  margin-left: 0.3rem;
+  border-radius: 12px;
+  padding: 0.15rem 0.5rem;
+  margin-left: 0.4rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(46, 133, 85, 0.2);
+}
+
+[data-theme='dark'] .authorBlogPostCount {
+  box-shadow: 0 2px 6px rgba(37, 194, 160, 0.2);
 }

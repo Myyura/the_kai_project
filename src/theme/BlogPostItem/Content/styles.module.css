@@ -14,14 +14,23 @@
 
 
 .blogPostContent img {
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--custom-border-radius-sm);
+  box-shadow: var(--custom-box-shadow);
+  transition: var(--custom-transition);
+}
+
+.blogPostContent img:hover {
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .blogPostContent blockquote {
   border-left: 3px solid var(--ifm-color-primary);
   padding: 15px 30px 15px 15px;
-  background-color: var(--ifm-color-emphasis-100);
-  border-radius: 0 8px 8px 0;
+  background: var(--custom-card-bg);
+  backdrop-filter: var(--custom-blur-sm);
+  -webkit-backdrop-filter: var(--custom-blur-sm);
+  border-radius: 0 var(--custom-border-radius-sm) var(--custom-border-radius-sm) 0;
   margin: 20px 0;
+  border: 1px solid var(--custom-card-border);
+  border-left: 3px solid var(--ifm-color-primary);
 }

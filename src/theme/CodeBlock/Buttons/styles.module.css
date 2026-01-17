@@ -1,0 +1,41 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.buttonGroup {
+  display: flex;
+  column-gap: 0.3rem;
+  position: absolute;
+  /* rtl:ignore */
+  right: calc(var(--ifm-pre-padding) / 2);
+  top: calc(var(--ifm-pre-padding) / 2);
+}
+
+.buttonGroup button {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--prism-color);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--custom-border-radius-xs);
+  padding: 0.45rem;
+  line-height: 0;
+  transition: var(--custom-transition);
+  opacity: 0;
+}
+
+.buttonGroup button:focus-visible,
+.buttonGroup button:hover {
+  opacity: 1 !important;
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+:global(.theme-code-block:hover) .buttonGroup button {
+  opacity: 0.5;
+}

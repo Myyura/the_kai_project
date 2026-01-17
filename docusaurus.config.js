@@ -48,6 +48,7 @@ const config = {
   baseUrl: '/',
   markdown: {
     format: 'detect', // 推荐使用此值
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
@@ -85,6 +86,7 @@ const config = {
         highlightSearchTermsOnTargetPage: true,
       }),
     ],
+    '@docusaurus/theme-mermaid',
   ],
 
   // 添加SEO相关插件
