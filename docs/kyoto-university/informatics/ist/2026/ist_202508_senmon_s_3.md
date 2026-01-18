@@ -21,9 +21,11 @@ Answer the following questions. All logarithms are base 2 ($\log_2$). For calcul
 (3) Calculate the average code length $L$ of the binary Huffman code in (2).
 
 **Q.2** Consider a first-order Markov source $M$ defined by the alphabet $A' = \{a, b, c\}$, where the symbols themselves represent the states, and the following transition probability matrix $P$.
+
 $$ 
 P = \begin{bmatrix} 0.60 & 0.15 & 0.25 \\ 0.10 & 0.65 & 0.25 \\ 0.10 & 0.15 & 0.75 \end{bmatrix} 
 $$
+
 For example, if the current symbol is $a$, the probabilities that the next symbol will be $a, b, \text{or } c$ are $0.60, 0.15, \text{and } 0.25$, respectively.
 
 (1) Calculate the stationary distribution $\boldsymbol{\pi} = (\pi_a, \pi_b, \pi_c)$ of this Markov process. Considering a memoryless source $S'$ based on the stationary distribution, calculate its entropy $H(S')$.
