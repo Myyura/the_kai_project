@@ -94,8 +94,10 @@ Next, we consider to further add a force proportional to the velocity of the car
 
 (6) Find the condition regarding $k_1$ and $k_2$ so that $x(t)$ does not oscillate. You can use the following facts if necessary.
 
-> The general solution of a differential equation 
-> $$\frac{d^2x}{dt^2}+a\frac{dx}{dt}+bx=0 \text{ ($a$ and $b$ are real-valued constants)}\cdots\text{(A)}$$ 
+> The general solution of a differential equation
+> 
+> $$ \frac{d^2x}{dt^2}+a\frac{dx}{dt}+bx=0 \text{ ($a$ and $b$ are real-valued constants)}\cdots\text{(A)} $$
+> 
 > can be represented by the solution of the quadratic equation
 > 
 > $$
@@ -105,21 +107,21 @@ Next, we consider to further add a force proportional to the velocity of the car
 > as follows:
 > 1. When Eq.(B) has two different real roots $p$ and $q$,
 > 
->   $$
->   x=C_1e^{pt}+C_2e^{qt}
->   $$
+> $$
+> x=C_1e^{pt}+C_2e^{qt}
+> $$
 > 
 > 3. When Eq.(B) has two different imaginary roots $h\pm ki$,
 > 
->   $$
->   x=e^{ht}(C_1\cos kt+C_2\sin kt)
->   $$
+> $$
+> x=e^{ht}(C_1\cos kt+C_2\sin kt)
+> $$
 > 
 > 5. When Eq.(B) has a double root $p$,
 > 
->   $$
->   x=e^{pt}(C_1+C_2t)
->   $$
+> $$
+> x=e^{pt}(C_1+C_2t)
+> $$
 >
 > Here, $C_1$ and $C_2$ are constants of integration.
 
@@ -137,19 +139,27 @@ Here are the answers to the questions.
 We apply Newton's second law to the motion of the cart along the slope.
 The forces acting on the cart are the applied force $F$ (up the slope) and the component of gravity $Mg \sin\theta$ (down the slope).
 The equation of motion is:
+
 $$ 
  M a = F - Mg \sin\theta 
-$$ 
+$$
+
 The acceleration $a_1$ is:
+
 $$ 
  a_1 = \frac{F - Mg \sin\theta}{M} 
 $$ 
+
 Since initial velocity $v(0)=0$ and initial position $x(0)=0$, we integrate with respect to time $t$:
+
 **Velocity:**
+
 $$ 
  v(t) = a_1 t = \frac{F - Mg \sin\theta}{M} t 
 $$ 
+
 **Position:**
+
 $$ 
  x(t) = \frac{1}{2} a_1 t^2 = \frac{F - Mg \sin\theta}{2M} t^2 
 $$ 
@@ -158,73 +168,99 @@ $$
 
 Let the acceleration during the first phase ($0 \le t \le t_1$) be $a_1 = \frac{F}{M} - g\sin\theta$.
 Let the acceleration during the second phase ($t_1 < t \le t_2$) be $a_2$. The force is $-F$, so:
+
 $$ 
  a_2 = \frac{-F - Mg\sin\theta}{M} = -\frac{F}{M} - g\sin\theta 
 $$ 
 
 At time $t_1$, the position $x_1$ and velocity $v_1$ are:
+
 $$ 
  v_1 = a_1 t_1 
 $$ 
+
 $$ 
  x_1 = \frac{1}{2} a_1 t_1^2 
 $$ 
 
 For $t > t_1$, the velocity is given by $v(t) = v_1 + a_2(t - t_1)$. We require $v(t_2) = 0$:
+
 $$ 
  v_1 + a_2(t_2 - t_1) = 0 \implies t_2 - t_1 = -\frac{v_1}{a_2} 
 $$ 
+
 Substituting $v_1 = a_1 t_1$:
+
 $$ 
  t_2 - t_1 = -\frac{a_1 t_1}{a_2} \implies t_2 = t_1 \left(1 - \frac{a_1}{a_2}\right) = t_1 \left(\frac{a_2 - a_1}{a_2}\right) 
 $$ 
+
 Let's evaluate the ratio term:
+
 $$ 
  a_2 - a_1 = \left(-\frac{F}{M} - g\sin\theta\right) - \left(\frac{F}{M} - g\sin\theta\right) = -\frac{2F}{M} 
 $$ 
+
 So,
+
 $$ 
  t_2 = t_1 \frac{-2F/M}{a_2} = t_1 \frac{2F}{F + Mg\sin\theta} \quad (*1) 
 $$ 
 
 Now consider the position. The total distance traveled is $L$.
+
 $$ 
  L = x(t_2) = x_1 + v_1(t_2 - t_1) + \frac{1}{2}a_2(t_2 - t_1)^2 
 $$ 
+
 Using $(t_2 - t_1) = -v_1/a_2$:
+
 $$ 
  L = x_1 + v_1\left(\frac{-v_1}{a_2}\right) + \frac{1}{2}a_2\left(\frac{v_1^2}{a_2^2}\right) = x_1 - \frac{v_1^2}{2a_2} 
 $$ 
+
 Since $v_1^2 = 2 a_1 x_1$:
+
 $$ 
  L = x_1 - \frac{2 a_1 x_1}{2 a_2} = x_1 \left(1 - \frac{a_1}{a_2}\right) = x_1 \left(\frac{a_2 - a_1}{a_2}\right) 
 $$ 
+
 Substituting $x_1 = \frac{1}{2}a_1 t_1^2$:
+
 $$ 
  L = \frac{1}{2}a_1 t_1^2 \left(\frac{-2F/M}{a_2}\right) 
 $$ 
+
 Solving for $t_1$:
+
 $$ 
  t_1^2 = \frac{2 L a_2}{a_1 (-2F/M)} = \frac{L (-a_2)}{a_1 (F/M)} 
 $$ 
+
 Substitute $a_1$ and $a_2$:
+
 $$ 
  t_1^2 = \frac{L (\frac{F + Mg\sin\theta}{M})}{(\frac{F - Mg\sin\theta}{M}) \frac{F}{M}} = \frac{LM(F + Mg\sin\theta)}{F(F - Mg\sin\theta)} 
 $$ 
+
 Thus:
+
 $$ 
  t_1 = \sqrt{\frac{LM(F + Mg\sin\theta)}{F(F - Mg\sin\theta)}} 
 $$ 
 
 Using relation $(*1)$ to find $t_2$:
+
 $$ 
  t_2 = \frac{2F}{F + Mg\sin\theta} \sqrt{\frac{LM(F + Mg\sin\theta)}{F(F - Mg\sin\theta)}} = \sqrt{\frac{4F^2 L M}{(F+Mg\sin\theta)(F-Mg\sin\theta)}} 
 $$ 
+
 $$ 
  t_2 = \sqrt{\frac{4FLM}{F^2 - (Mg\sin\theta)^2}} 
 $$ 
 
 **Answer:**
+
 $$ 
  t_1 = \sqrt{\frac{LM(F + Mg\sin\theta)}{F(F - Mg\sin\theta)}}, \quad t_2 = \sqrt{\frac{4FLM}{F^2 - (Mg\sin\theta)^2}} 
 $$ 
@@ -232,10 +268,13 @@ $$
 ### (3) Proportional Control (P-Control) Equation
 
 The force applied is $f(t) = k_1(L - x(t))$. The equation of motion ($Ma = \sum F$) is:
+
 $$ 
  M \frac{d^2x}{dt^2} = k_1(L - x) - Mg \sin\theta 
 $$ 
+
 Rearranging the terms:
+
 $$ 
  M \frac{d^2x}{dt^2} + k_1 x = k_1 L - Mg \sin\theta 
 $$ 
@@ -243,13 +282,17 @@ $$
 ### (4) Graph of $x(t)$ for P-Control
 
 This is a harmonic oscillator equation centered at an equilibrium point $x_{eq}$ where the net force is zero:
+
 $$ 
  k_1(L - x_{eq}) = Mg\sin\theta \implies x_{eq} = L - \frac{Mg\sin\theta}{k_1} 
 $$ 
+
 Given $x(0)=0$ and $v(0)=0$, the motion is a cosine wave shifted to start at zero and oscillating around $x_{eq}$.
+
 $$ 
  x(t) = x_{eq} \left(1 - \cos\left(\sqrt{\frac{k_1}{M}}t\right)\right) 
 $$ 
+
 The maximum peak is $2x_{eq}$. The graph oscillates indefinitely between $0$ and $2(L - \frac{Mg\sin\theta}{k_1})$. It does not settle at $L$.
 
 **Graph:**
@@ -266,21 +309,29 @@ The vertical axis is $x(t)$, horizontal is $t$. The curve is a sinusoidal wave s
 ### (6) Condition for Non-oscillatory Motion
 
 The equation of motion is:
+
 $$ 
  M \ddot{x} + k_2 \dot{x} + k_1 x = k_1 L - Mg\sin\theta 
 $$ 
+
 The characteristic equation for the homogeneous part ($M r^2 + k_2 r + k_1 = 0$) determines the behavior.
+
 $$ 
  r^2 + \frac{k_2}{M} r + \frac{k_1}{M} = 0 
 $$ 
+
 For the solution not to oscillate (no imaginary part), the discriminant $D$ of the quadratic equation must be non-negative ($D \ge 0$).
+
 $$ 
  D = \left(\frac{k_2}{M}\right)^2 - 4(1)\left(\frac{k_1}{M}\right) \ge 0 
 $$ 
+
 $$ 
  \frac{k_2^2}{M^2} \ge \frac{4k_1}{M} 
 $$ 
+
 Multiplying by $M^2$:
+
 $$ 
  k_2^2 \ge 4 M k_1 
 $$ 
@@ -289,9 +340,11 @@ $$
 
 Under the condition $k_2^2 \ge 4Mk_1$ (overdamped or critically damped), the system approaches the equilibrium without oscillating.
 The equilibrium position is found by setting derivatives to zero:
+
 $$ 
  k_1 x_{final} = k_1 L - Mg\sin\theta \implies x_{final} = L - \frac{Mg\sin\theta}{k_1} 
 $$ 
+
 The cart starts at $0$ and asymptotically approaches $x_{final}$, which is slightly less than the target $L$ due to gravity (steady-state error).
 
 **Graph:**
