@@ -9,7 +9,7 @@ tags:
 ## **Author**
 [tomfluff](https://github.com/tomfluff)
 
-## **Description**
+## **Description (English)**
 We draw digits from 0 to 9 by the following pictographic characters constructed by `*` and `|` (vertical line).
 `*`, `|`, and a whitespace character are rendered with a fixed-width font.
 
