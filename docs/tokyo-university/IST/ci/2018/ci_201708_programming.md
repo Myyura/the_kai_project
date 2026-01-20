@@ -2,13 +2,16 @@
 sidebar_label: '2017年8月実施 プログラミング'
 tags:
   - Tokyo-University
+  - Programming
+  - Matrix-Multiplication-Algorithms
+  - Computer-Architecture
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2017年8月実施 プログラミング
 
 ## **Author**
 [tomfluff](https://github.com/tomfluff)
 
-## **Description**
+## **Description (English)**
 Assume that matrix elements are non-negative integers and they are stored in main memory.
 
 (1) When the algorithm below is used to multiply an $m \times n$ matrix $A$ and an $n \times m$ matrix $B$, how many times are these matrix elements in $A$ and $B$ read from the main memory? 
