@@ -14,7 +14,11 @@ In the questions below, $(\cdot)^*$, $(\cdot)^{\mathrm{T}}$, and $E[\cdot]$ deno
 
 ### Q.1
 Let $x(n)$ be a discrete-time signal with the index of $n \in \mathbb{Z}$, and define the $z$-transform of $x(n)$ as
-$$ X(z) = \sum_{n=-\infty}^{\infty} x(n)z^{-n}, \quad\quad (*) $$
+
+$$
+X(z) = \sum_{n=-\infty}^{\infty} x(n)z^{-n}, \quad\quad (*)
+$$
+
 where $z$ is a complex variable. Moreover, define the region of convergence of the $z$-transform $X(z)$ as a set of $z$ such that the series in the right-hand side of Eq. $(*)$ is absolutely convergent. Answer the following questions.
 
 (1) Derive the $z$-transform and its region of convergence of a discrete-time signal
