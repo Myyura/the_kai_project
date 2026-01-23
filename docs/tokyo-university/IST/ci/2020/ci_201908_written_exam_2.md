@@ -75,7 +75,13 @@ $$
 Since we gradually divide all inputs into 2 as inputs to the MUX, so the first layer would be $2^{n-1}$ the second $2^{n-2}$ and so on, until we have $2^{n-n}$ as the final MUX which would give the correct output.
 
 ### (4)
+#### itsuitsuki's solution
+No need to be so complex as in tomfluff's solution.
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_2_p5.png" width="403" height="261" alt=""/>
+</figure>
 
+#### tomfluff's solution
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_2_p3.png" width="403" height="261" alt=""/>
 </figure>

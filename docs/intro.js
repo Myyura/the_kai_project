@@ -59,6 +59,8 @@ const content = {
     { name: '筑波大学', url: '/docs/category/%E7%AD%91%E6%B3%A2%E5%A4%A7%E5%AD%A6', description: '研究都市の中核である筑波大学は、スポーツ科学や先端研究で知られ、国際社会に貢献。' },
     { name: '電気通信大学', url: '/docs/category/%E9%9B%BB%E6%B0%97%E9%80%9A%E4%BF%A1%E5%A4%A7%E5%AD%A6', description: '情報通信技術の先駆け、電気通信大学は、産学連携を強化し、実社会での技術革新を推進。' },
     { name: '広島大学', url: '/docs/category/%E5%BA%83%E5%B3%B6%E5%A4%A7%E5%AD%A6', description: '平和教育の拠点である広島大学は、総合的な学問体系を擁し、持続可能な社会づくりに貢献。' },
+    { name: '東京農工大学', url: '/docs/category/%E6%9D%B1%E4%BA%AC%E8%BE%B2%E5%B7%A5%E5%A4%A7%E5%AD%A6', description: '農学と工学を融合する東京農工大学は、生命科学・環境・先端材料やロボティクスなどの研究で存在感を発揮し、持続可能な社会と産業の革新に貢献。' },
+    { name: '金沢大学', url: '/docs/category/%E9%87%91%E6%B2%A2%E5%A4%A7%E5%AD%A6', description: '北陸の学術拠点である金沢大学は、医学・薬学から先端理工、国際文化まで幅広い教育研究を推進し、地域と世界をつなぐ知の創出で社会に貢献。' },
   ]
 };
 
