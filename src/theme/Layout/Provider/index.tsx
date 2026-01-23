@@ -15,6 +15,7 @@ import {
   PluginHtmlClassNameProvider,
 } from '@docusaurus/theme-common/internal';
 import {DocsPreferredVersionContextProvider} from '@docusaurus/plugin-content-docs/client';
+import {LanguageProvider} from '@site/src/context/LanguageContext';
 import type {Props} from '@theme/Layout/Provider';
 
 const Provider = composeProviders([
@@ -27,5 +28,9 @@ const Provider = composeProviders([
 ]);
 
 export default function LayoutProvider({children}: Props): ReactNode {
-  return <Provider>{children}</Provider>;
+  return (
+    <LanguageProvider>
+      <Provider>{children}</Provider>
+    </LanguageProvider>
+  );
 }

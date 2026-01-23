@@ -93,23 +93,28 @@ const translations = {
   }
 };
 
-const useStoredLanguage = (defaultLang = 'zh') => {
-  const [language, setLanguage] = useState(defaultLang);
+// 从 DOM 属性同步读取语言
+const getLanguageFromDOM = () => {
+  if (typeof document === 'undefined') return 'zh';
+  return document.documentElement.getAttribute('data-lang') || 'zh';
+};
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const stored = localStorage.getItem('preferredLanguage');
-    if (stored) setLanguage(stored);
-  }, []);
+const useStoredLanguage = () => {
+  // 使用 useSyncExternalStore 来同步读取语言
+  const language = React.useSyncExternalStore(
+    (callback) => {
+      window.addEventListener('languageChange', callback);
+      return () => window.removeEventListener('languageChange', callback);
+    },
+    getLanguageFromDOM,
+    () => 'zh'
+  );
 
   const toggleLanguage = () => {
-    setLanguage(prev => {
-      const next = prev === 'zh' ? 'ja' : 'zh';
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('preferredLanguage', next);
-      }
-      return next;
-    });
+    const next = language === 'zh' ? 'ja' : 'zh';
+    localStorage.setItem('preferredLanguage', next);
+    document.documentElement.setAttribute('data-lang', next);
+    window.dispatchEvent(new CustomEvent('languageChange', { detail: next }));
   };
 
   return [language, toggleLanguage];

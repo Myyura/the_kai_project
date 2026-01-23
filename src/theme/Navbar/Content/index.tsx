@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {type ReactNode} from 'react';
+import React, {type ReactNode, useMemo} from 'react';
 import clsx from 'clsx';
 import {
   useThemeConfig,
@@ -22,6 +22,7 @@ import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
+import {useLanguage} from '@site/src/context/LanguageContext';
 
 import styles from './styles.module.css';
 
@@ -31,22 +32,32 @@ function useNavbarItems() {
 }
 
 function NavbarItems({items}: {items: NavbarItemConfig[]}): ReactNode {
+  const {t} = useLanguage();
+  
   return (
     <>
-      {items.map((item, i) => (
-        <ErrorCauseBoundary
-          key={i}
-          onError={(error) =>
-            new Error(
-              `A theme navbar item failed to render.
+      {items.map((item, i) => {
+        // 翻译 label
+        const translatedItem = {
+          ...item,
+          label: item.label ? t(item.label, 'navbar') : item.label,
+        };
+        
+        return (
+          <ErrorCauseBoundary
+            key={i}
+            onError={(error) =>
+              new Error(
+                `A theme navbar item failed to render.
 Please double-check the following navbar item (themeConfig.navbar.items) of your Docusaurus config:
 ${JSON.stringify(item, null, 2)}`,
-              {cause: error},
-            )
-          }>
-          <NavbarItem {...item} />
-        </ErrorCauseBoundary>
-      ))}
+                {cause: error},
+              )
+            }>
+            <NavbarItem {...translatedItem} />
+          </ErrorCauseBoundary>
+        );
+      })}
     </>
   );
 }

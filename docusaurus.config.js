@@ -62,6 +62,11 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  // 客户端模块 - 在页面加载时立即执行
+  clientModules: [
+    require.resolve('./src/clientModules/languageInit.js'),
+  ],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -236,7 +241,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: '過去問',
+            label: '过去问',
           },
           {to: '/blog', label: '经验贴', position: 'left'},
           {to: '/docs/tags', label: 'Tags', position: 'left'},
@@ -256,7 +261,7 @@ const config = {
             title: 'Kai Project',
             items: [
               {
-                label: '過去問',
+                label: '过去问',
                 to: '/docs/intro',
               },
               {
