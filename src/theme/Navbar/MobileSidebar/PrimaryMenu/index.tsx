@@ -9,6 +9,7 @@ import React, {type ReactNode} from 'react';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import {useNavbarMobileSidebar} from '@docusaurus/theme-common/internal';
 import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
+import {useLanguage} from '@site/src/context/LanguageContext';
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -18,6 +19,7 @@ function useNavbarItems() {
 // The primary menu displays the navbar items
 export default function NavbarMobilePrimaryMenu(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
+  const {t} = useLanguage();
 
   // TODO how can the order be defined for mobile?
   // Should we allow providing a different list of items?
@@ -25,14 +27,22 @@ export default function NavbarMobilePrimaryMenu(): ReactNode {
 
   return (
     <ul className="menu__list">
-      {items.map((item, i) => (
-        <NavbarItem
-          mobile
-          {...item}
-          onClick={() => mobileSidebar.toggle()}
-          key={i}
-        />
-      ))}
+      {items.map((item, i) => {
+        // 翻译 label
+        const translatedItem = {
+          ...item,
+          label: item.label ? t(item.label, 'navbar') : item.label,
+        };
+        
+        return (
+          <NavbarItem
+            mobile
+            {...translatedItem}
+            onClick={() => mobileSidebar.toggle()}
+            key={i}
+          />
+        );
+      })}
     </ul>
   );
 }

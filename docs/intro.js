@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './intro.module.css';
 import { FiGithub, FiCheckCircle } from 'react-icons/fi';
+import { useLanguage } from '@site/src/context/LanguageContext';
 
 // 数据和文本
 const content = {
@@ -77,17 +78,11 @@ const ActionCard = ({ icon, title, children, url }) => {
 };
 
 export default function Intro() {
-  const [language, setLanguage] = useState('zh');
-
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem('preferredLanguage');
-    if (storedLanguage) setLanguage(storedLanguage);
-  }, []);
+  const { language, setLanguage } = useLanguage();
 
   const toggleLanguage = () => {
     const newLanguage = language === 'ja' ? 'zh' : 'ja';
     setLanguage(newLanguage);
-    localStorage.setItem('preferredLanguage', newLanguage);
   };
 
   const t = (key) => content.texts[key][language] || content.texts[key]['zh'];
