@@ -49,19 +49,30 @@ export const translations = {
   }
 };
 
-// 从 DOM 属性读取语言（由 Root.js 中的同步脚本设置）
-const getLanguageFromDOM = () => {
+// 获取当前语言快照
+const getSnapshot = () => {
   if (typeof document === 'undefined') return 'zh';
   return document.documentElement.getAttribute('data-lang') || 'zh';
 };
 
 // 订阅语言变化
 const subscribeToLanguage = (callback) => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return () => {};
+  
+  // 直接调用 callback，不做条件判断
   window.addEventListener('languageChange', callback);
   window.addEventListener('storage', callback);
+  
+  // 使用 MutationObserver 监听 data-lang 属性变化
+  const observer = new MutationObserver(() => {
+    callback();
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-lang'] });
+  
   return () => {
     window.removeEventListener('languageChange', callback);
     window.removeEventListener('storage', callback);
+    observer.disconnect();
   };
 };
 
@@ -77,8 +88,8 @@ export const LanguageProvider = ({ children }) => {
   // 使用 useSyncExternalStore 来同步读取语言，避免 hydration 不匹配
   const language = useSyncExternalStore(
     subscribeToLanguage,
-    getLanguageFromDOM,  // 客户端
-    () => 'zh'           // SSR 服务端始终返回 'zh'
+    getSnapshot,        // 客户端
+    () => 'zh'          // SSR 服务端始终返回 'zh'
   );
 
   const setLanguage = useCallback((lang) => {
