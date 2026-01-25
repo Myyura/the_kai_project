@@ -189,12 +189,11 @@ Hint: functionA is "Quick Sort"
 (iii)
 
 #### (4-2)
-$O(n \log n)$
+The answer is $O(n \log n)$.
 
-Hint:
 
-Let $T(n)$ denote the time complexity of "Quick Sort" of $n$ elements. Let $c > 0$ be a constant.
-Then we have
+Let $T(n)$ denote the average-case time complexity of "Quick Sort" for $n$ elements. Let $c > 0$ be a constant.
+The recurrence relation is given by:
 
 $$
 \begin{align}
@@ -212,19 +211,30 @@ $$
 \end{align}
 $$
 
-$(1) - (2)$ and we have
+Subtracting $(2)$ from $(1)$ yields:
 
 $$
-\begin{aligned}
-nT(n) - (n-1)T(n-1) &= 2T(n-1) + cn^2 - c(n-1)^2 \\
-nT(n) &= (n+1)T(n-1) + c(2n - 1) \\
-\frac{T(n)}{n+1} &= \frac{T(n-1)}{n} + c \frac{2n - 1}{n(n+1)} \\
-\frac{T(n)}{n+1} - \frac{T(n-1)}{n} &= c (\frac{3}{n+1} - \frac{1}{n})
-\end{aligned}
+nT(n) - (n-1)T(n-1) = 2T(n-1) + cn^2 - c(n-1)^2
 $$
 
-By the Euler–Maclaurin formula we know that $\sum_{i}^{n} \frac{1}{i} = O(\log n)$.
-Hence, summing the following equations
+$$
+nT(n) = (n+1)T(n-1) + c(2n - 1)
+$$
+
+Dividing both sides by $n(n+1)$ to normalize the terms:
+
+$$
+\frac{T(n)}{n+1} = \frac{T(n-1)}{n} + c \frac{2n - 1}{n(n+1)}
+$$
+
+Using partial fraction decomposition, we rewrite the constant term:
+
+$$
+\frac{T(n)}{n+1} - \frac{T(n-1)}{n} = c (\frac{3}{n+1} - \frac{1}{n})
+$$
+
+Since the harmonic series satisfies $\sum_{i=1}^{n} \frac{1}{i} = O(\log n)$.
+Hence, by summing the following equations
 
 $$
 \begin{aligned}
@@ -235,7 +245,7 @@ $$
 \end{aligned}
 $$
 
-we have
+it follows that:
 
 $$
 \begin{aligned}
