@@ -138,7 +138,7 @@ Therefore, the worst case time complexity of the sort is $O(n \log n)$.
 
 ### (5)
 #### (5-1)
-- (あ) n / 2
+- (あ) n / 2 - 1
 - (い) d
 - (う) n
 - (え) i
