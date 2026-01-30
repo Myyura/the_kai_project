@@ -7,7 +7,7 @@ tags:
 
 
 ## **Author**
-[diohabara](https://github.com/diohabara/open_inshi)
+[diohabara](https://github.com/diohabara/open_inshi), [adj-matrix](https://github.com/adj-matrix)
 
 ## **Description**
 離散時間信号 $x$ の出力が，図のような確率密度関数 $p(x)$ に従うとする.
@@ -63,7 +63,7 @@ $$
 &-(2\frac{2}{25}\log\frac{2}{25} + 2\frac{6}{25}\log\frac{6}{25} + \frac{9}{25}\log\frac{9}{25}) \\
 &= (\frac{4}{25}(\log2 - 2\log5)) + \frac{12}{25}(\log2 + \log3 - 2\log5) + \frac{9}{25}(2\log3 - 2\log5) \\
 &= (\frac{16}{25}\log2 + \frac{30}{25}\log3 - 2\log5) \\
-&= -(0.64 + 1.896 - 4.64) = 2,104
+&= -(0.64 + 1.896 - 4.64) = 2.104
 \end{aligned}
 $$
 
@@ -95,7 +95,7 @@ $$
 
 よって、それぞれの信号値が $\frac{1}{5}$ となるように $d_i$ を求める。
 
-$d_1 - d_0 = x_1(>0)$ として、$\frac{1}{2}x_1^2 = \frac{1}{5}$ となる。これを解いて $x_1 = \sqrt{\frac{2}{5}}$ となる。よって、$d_1 = -1 + \sqrt{\frac{2}{5}}$ となり、対称性から $d_2 = 1 - \sqrt{\frac{2}{5}}$
+$d_1 - d_0 = x_1(>0)$ として、$\frac{1}{2}x_1^2 = \frac{1}{5}$ となる。これを解いて $x_1 = \sqrt{\frac{2}{5}}$ となる。よって、$d_1 = -1 + \sqrt{\frac{2}{5}}$ となり、対称性から $d_4 = 1 - \sqrt{\frac{2}{5}}$
 
 同様に考えて、$d_2 = -1 + \frac{2}{\sqrt{5}},d_3 = 1 - \frac{2}{\sqrt{5}}$
 
@@ -127,9 +127,9 @@ $$
 $$
 \begin{aligned}
 \widetilde{x}_1 &= -1 + \frac{2\sqrt{10}}{15} \\
-\widetilde{x}_2 &= -1 + \frac{8\sqrt{5}}{15} \\
+\widetilde{x}_2 &= -1 + \frac{8\sqrt{5}-2\sqrt{10}}{15} \\
 \widetilde{x}_3 &= 0 \\
-\widetilde{x}_4 &= 1 - \frac{8\sqrt{5}}{15} \\
+\widetilde{x}_4 &= 1 - \frac{8\sqrt{5}-2\sqrt{10}}{15} \\
 \widetilde{x}_5 &= 1 - \frac{2\sqrt{10}}{15}
 \end{aligned}
 $$
