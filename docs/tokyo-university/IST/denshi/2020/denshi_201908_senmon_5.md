@@ -7,7 +7,7 @@ tags:
 
 
 ## **Author**
-[diohabara](https://github.com/diohabara/open_inshi)
+[diohabara](https://github.com/diohabara/open_inshi), [adj-matrix](https://github.com/adj-matrix)
 
 ## **Description**
 離散時間信号 $x$ の出力が，図のような確率密度関数 $p(x)$ に従うとする.
