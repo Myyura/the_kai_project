@@ -28,7 +28,7 @@ tags:
 問6 与えられた $ω, R, L$ に対し，$\dot{E}$ と $\dot{I}$ の位相が同じになる場合があるような $C$ の取りうる範囲を求めなさい。また，このとき，$R$ の条件を $ω, C, L$ を用いて表しなさい。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eiec_202208_senmon_electrical_circuit_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electrical_circuit_p1.png" width="600" alt=""/>
 </figure>
 
 ## **Kai**
@@ -50,7 +50,7 @@ $$
 $\omega=0$ のとき $R-j\frac{1}{\omega C}\to R-j\infty$, $\omega=\infty$ のとき $R-j\frac{1}{\omega C}\to R$, したがって下図となる。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eiec_202208_senmon_electrical_circuit_p2.png" width="220" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electrical_circuit_p2.png" width="220" alt=""/>
 </figure>
 
 ### 問3
@@ -87,7 +87,7 @@ $$
 下図のとおり
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eiec_202208_senmon_electrical_circuit_p3.png" width="275" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electrical_circuit_p3.png" width="275" alt=""/>
 </figure>
 
 
