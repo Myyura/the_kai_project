@@ -13,7 +13,8 @@ vv (co-authored with GPT 5.2 extended thinking, finalized by 祭音Myyura)
 $\Sigma = \{a, b, c\}$ とする．$\Sigma$ 上の言語 $L \subseteq \Sigma^*$ に対して，言語 $\mathcal{H}(L)\subseteq \Sigma^*$ を以下によって定義する． 
 
 $$
-\mathcal{H}(L) = \{ w \in \Sigma^* \mid ww \in L \} $$
+\mathcal{H}(L) = \{ w \in \Sigma^* \mid ww \in L \} 
+$$
 
 例えば，$L_1 = \{aa, abc, abab, baab, cca\}$ ならば，$\mathcal{H}(L_1) = \{a, ab\}$ である．以下の問いに答えよ． 
 
