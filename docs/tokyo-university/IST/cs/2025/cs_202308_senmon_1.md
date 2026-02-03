@@ -13,9 +13,9 @@ vv (co-authored with GPT 5.2 extended thinking, finalized by 祭音Myyura)
 $\Sigma = \{a, b, c\}$ とする．$\Sigma$ 上の言語 $L \subseteq \Sigma^*$ に対して，言語 $\mathcal{H}(L)\subseteq \Sigma^*$ を以下によって定義する． 
 
 $$
-\mathcal{H}(L) = \{ w \in \Sigma^* \mid ww \in L \}. $$
+\mathcal{H}(L) = \{ w \in \Sigma^* \mid ww \in L \} $$
 
-例えば，$L_1 = \{aa, abc, abab, baab, cca\}$ ならば，$\mathcal{H}(L_1$ = \{a, ab\}$ である． 以下の問いに答えよ． 
+例えば，$L_1 = \{aa, abc, abab, baab, cca\}$ ならば，$\mathcal{H}(L_1) = \{a, ab\}$ である．以下の問いに答えよ． 
 
 (1) $L_2$ を正規表現 $a(a+b)^*c(a+b)^*bc$ で表される言語とする．$\mathcal{H}(L_2)$ を正規表現として表せ． 
 
@@ -38,21 +38,21 @@ $$
 先把 $L_2$ 的形状写清楚：任意 $s\in L_2$ 都可写成
 
 $$
-s = a,x,c,y,b,c,\quad x,y\in{a,b}^*.
+s = a,x,c,y,b,c,\quad x,y\in\{a,b\}^*
 $$
 
 因此 $s$ 中的字母 $c$ 恰好出现两次（中间一次、末尾一次）。
 
-若 $ww\in L_2)，设 $w$ 中 $c$ 的个数为 $\#_c(w)$。则
+若 $ww\in L_2$，设 $w$ 中 $c$ 的个数为 $\#_c(w)$。则
 
 $$
-\#_c(ww)=2\#_c(w)=2,
+\#_c(ww)=2\#_c(w)=2
 $$
 
 所以 $\#_c(w)=1$。又因为 $ww$ 以 “$bc$” 结尾，所以第二个 $w$ 也以 “$bc$” 结尾，从而 $w$ 必须以 “$bc$” 结尾。结合 $\#_c(w)=1$，可知 $w$ 唯一的 $c$ 就是在末尾，于是
 
 $$
-w \in \{a,b\}^*bc.
+w \in \{a,b\}^*bc
 $$
 
 另外 $ww\in L_2$ 还要求整个串以 $a$ 开头，所以 $w$ 也必须以 $a$ 开头。
@@ -72,7 +72,7 @@ $$
 反过来，任意 $w=aubc$（$u\in(a+b)^*$）都有
 
 $$
-ww = a(ub)c(a u)bc \in a(a+b)^*c(a+b)^*bc = L_2,
+ww = a(ub)c(a u)bc \in a(a+b)^*c(a+b)^*bc = L_2
 $$
 
 所以都属于 $\mathcal{H}(L_2)$。
@@ -80,13 +80,13 @@ $$
 因此
 
 $$
-\mathcal{H}(L_2)=\{a(a+b)^*bc\},
+\mathcal{H}(L_2)=\{a(a+b)^*bc\}
 $$
 
 用正则表达式表示为
 
 $$
-\boxed{a(a+b)^*bc}.
+\boxed{a(a+b)^*bc}
 $$
 
 ### (2)
@@ -99,13 +99,13 @@ $$
 对任意串 $w$，令它在状态集合 $\{q_0,q_1\}$ 上诱导的状态变换为
 
 $$
-f_w(q)=\hat\delta(q,w).
+f_w(q)=\hat\delta(q,w)
 $$
 
 那么
 
 $$
-ww\in L_3 \iff \hat\delta(q_0,ww)=q_1 \iff f_w(f_w(q_0))=q_1.
+ww\in L_3 \iff \hat\delta(q_0,ww)=q_1 \iff f_w(f_w(q_0))=q_1
 $$
 
 注意：一旦 $w$ 中出现过 $a$ 或 $b$，最后一次出现的 $a/b$ 会把状态“重置”为常量（全映到 $q_0$ 或全映到 $q_1$），之后末尾若干个 $c$ 只会在这两个常量间来回翻转。因此：
@@ -169,7 +169,7 @@ $$
 识别。对任意串 $w\in\Sigma^*$，定义它在状态集合上的“整体迁移函数”
 
 $$
-\tau_w:Q\to Q,\qquad \tau_w(q)=\hat\delta(q,w).
+\tau_w:Q\to Q,\qquad \tau_w(q)=\hat\delta(q,w)
 $$
 
 那么
@@ -179,7 +179,7 @@ $$
 w\in \mathcal{H}(L) &\iff ww\in L\\
 &\iff \hat\delta(q_0,ww)\in F\\
 &\iff \hat\delta(\hat\delta(q_0,w),w)\in F\\
-&\iff \tau_w(\tau_w(q_0))\in F.
+&\iff \tau_w(\tau_w(q_0))\in F
 \end{aligned}
 $$
 
@@ -208,13 +208,13 @@ $$
 取
 
 $$
-L=\underbrace{\{a^n b^n c^k \mid n,k\ge 0\}}_{L_1}\ \underbrace{\{a^i b^m c^m \mid i,m\ge 0\}}_{L_2}.
+L=\underbrace{\{a^n b^n c^k \mid n,k\ge 0\}}_{L_1}\ \underbrace{\{a^i b^m c^m \mid i,m\ge 0\}}_{L_2}
 $$
 
 也就是
 
 $$
-L=\{a^n b^n c^k a^i b^m c^m \mid n,k,i,m\ge 0\}.
+L=\{a^n b^n c^k a^i b^m c^m \mid n,k,i,m\ge 0\}
 $$
 
 说明 $L$ 是 CFL：
@@ -242,13 +242,13 @@ $$
 那么
 
 $$
-ww=a^p b^q c^r a^p b^q c^r.
+ww=a^p b^q c^r a^p b^q c^r
 $$
 
 断言：对这类 $w$，有
 
 $$
-ww\in L \iff p=q=r.
+ww\in L \iff p=q=r
 $$
 
 理由如下。
@@ -262,14 +262,14 @@ $$
 \begin{aligned}
 w\in \mathcal{H}(L) &\iff ww\in L \\
 &\iff p=q=r \\
-&\iff w\in \{a^n b^n c^n\mid n\ge 0\}.
+&\iff w\in \{a^n b^n c^n\mid n\ge 0\}
 \end{aligned}
 $$
 
 也就是说
 
 $$
-\mathcal{H}(L)\cap \{a^n b^n c^n\mid n\ge 0\}.
+\mathcal{H}(L)\cap \{a^n b^n c^n\mid n\ge 0\}
 $$
 
 而 $\{a^n b^n c^n\mid n\ge 0\}$ 是经典的“非上下文无关语言”。于是 $\mathcal{H}(L)\cap R$ 不是 CFL，矛盾。
