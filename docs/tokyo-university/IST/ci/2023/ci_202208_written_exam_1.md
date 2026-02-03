@@ -2,7 +2,7 @@
 sidebar_label: '2022年8月実施 筆記試験 第1問'
 tags:
   - Tokyo-University
-  - Automata-Theory
+  - Formal-Languages-and-Automata-Theory
   - Number-Theory
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2022年8月実施 筆記試験 第1問
