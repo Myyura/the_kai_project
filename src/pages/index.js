@@ -3,8 +3,8 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaSearch, FaComments, FaGlobe, FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaLanguage, FaStar } from 'react-icons/fa';
-import React, { useState, useEffect, useMemo } from 'react';
+import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaUsers } from 'react-icons/fa';
+import React, { useState, useMemo } from 'react';
 import { universities } from '../data/universities';
 
 import Heading from '@theme/Heading';
@@ -12,84 +12,72 @@ import styles from './index.module.css';
 
 const translations = {
   zh: {
-    viewPastExams: "查看过去问",
-    viewExperiences: "查看经验贴",
-    features: [
+    heroTagline: '破除信息之壁',
+    heroDescription: '开源的日本大学院入试过去问答案共享平台',
+    viewPastExams: '浏览过去问',
+    viewExperiences: '阅读经验贴',
+    statsExams: '份过去问',
+    statsUniversities: '所大学',
+    statsCommunity: '活跃社区',
+    highlightTitle: '为什么选择我们',
+    highlights: [
       {
-       title: '海量真题解析，高效备考',
-       icon: <FaSearch />,
-       description: <>汇集日本大学院入试的历年真题与解析。<br />按学校、专业、年份快速检索，精准定位所需内容。<br /><b>让备考更有方向，复习更有效率。</b></>
+        title: '完全开源',
+        subtitle: '透明无隐藏',
+        description: '所有内容公开透明，无付费墙，无信息壁垒'
       },
       {
-        title: '活跃社区，互助成长',
-        icon: <FaComments />,
-        description: <>与众多考生和前辈一起交流学习。<br />分享解题思路、备考经验、面试心得。<br /><b>加入 <a href="https://qm.qq.com/q/3yjgte7UTe">QQ群 925154731</a> 参与讨论！</b></>
+        title: '海量真题',
+        subtitle: '覆盖主流院校',
+        description: '汇集东大、京大、阪大等名校历年真题与解析'
       },
       {
-        title: '开源透明，共建共享',
-        icon: <FaGlobe />,
-        description: <>完全开源的项目，所有内容公开透明。<br />无隐藏收费，无信息壁垒。<br /><b>欢迎贡献答案、纠错或提出建议，一起完善这个平台。</b></>
+        title: '社区驱动',
+        subtitle: '共建共享',
+        description: '加入QQ群 925154731，与考生和前辈交流备考经验'
       }
     ],
-    universityInfoTitle: '各大学信息与链接',
-    universityInfoDescription: '快速导航至各大学研究科的官方招生信息页面',
-    websiteLink: '研究科链接',
-    testimonialsTitle: '用户评价',
-    testimonials: [
-      {
-        name: '合格前辈',
-        text: '备考期间这个平台帮了大忙，省去了大量搜集资料的时间。社区里的讨论也让我收获很多。',
-        avatar: 'https://avatars.githubusercontent.com/u/13355503?v=4'
-      },
-      {
-        name: '备考同学',
-        text: '资料非常齐全，前辈们的经验分享给了我很大的帮助和信心。推荐给所有准备考日本大学院的朋友！',
-        avatar: 'https://avatars.githubusercontent.com/u/59238632?v=4'
-      }
-    ],
+    universityTitle: '支持的大学',
+    universityDescription: '快速访问各大学研究科官方信息',
+    websiteLink: '官方链接',
     ctaTitle: '开始你的备考之旅',
-    ctaDescription: '获取全面的备考资源，加入活跃的交流社区。',
-    ctaButtonContribute: '参与贡献'
+    ctaDescription: '加入数千名考生的行列，获取最全面的备考资源',
+    ctaButtonContribute: '参与贡献',
+    ctaButtonGithub: 'GitHub'
   },
   ja: {
-    viewPastExams: "過去問を見る",
-    viewExperiences: "合格体験記",
-    features: [
+    heroTagline: '情報の壁を打ち破る',
+    heroDescription: 'オープンソースの大学院入試過去問解答共有プラットフォーム',
+    viewPastExams: '過去問を見る',
+    viewExperiences: '合格体験記',
+    statsExams: '件の過去問',
+    statsUniversities: '校の大学',
+    statsCommunity: 'コミュニティ',
+    highlightTitle: '選ばれる理由',
+    highlights: [
       {
-        title: '充実した過去問データベース',
-        icon: <FaSearch />,
-        description: '大学院入試の過去問と解答を多数収録。大学・専攻・年度別に検索でき、必要な情報に素早くアクセスできます。効率的な試験対策をサポートします。'
+        title: '完全オープンソース',
+        subtitle: '透明性を重視',
+        description: 'すべてのコンテンツを無料で公開、隠れた料金なし'
       },
       {
-        title: '受験生コミュニティ',
-        icon: <FaComments />,
-        description: <>受験生同士で情報交換や質問ができるコミュニティです。解答の議論や勉強法の共有を通じて、一緒に合格を目指しましょう。<a href="https://github.com/Myyura/the_kai_project/discussions">GitHub Discussions</a>でお気軽にご参加ください。</>
+        title: '豊富な過去問',
+        subtitle: '主要大学をカバー',
+        description: '東大・京大・阪大など有名大学の過去問と解答を収録'
       },
       {
-        title: 'オープンソースプロジェクト',
-        icon: <FaGlobe />,
-        description: 'すべてのコンテンツを無料で公開しているオープンソースプロジェクトです。解答の追加や修正など、どなたでも貢献できます。一緒により良いプラットフォームを作りましょう。'
+        title: 'コミュニティ主導',
+        subtitle: '共に作る',
+        description: 'GitHub Discussionsで受験生同士の情報交換ができます'
       }
     ],
-    universityInfoTitle: '大学情報・リンク集',
-    universityInfoDescription: '各大学の研究科・専攻の公式入試情報ページへのリンクです',
-    websiteLink: '研究科リンク',
-    testimonialsTitle: 'ご利用者の声',
-    testimonials: [
-      {
-        name: '合格者',
-        text: '過去問を探す手間が大幅に省け、効率よく勉強できました。他の受験生との情報交換も役立ちました。',
-        avatar: 'https://avatars.githubusercontent.com/u/13355503?v=4'
-      },
-      {
-        name: '受験生',
-        text: '情報が整理されていて使いやすいです。先輩方の体験記も参考になり、モチベーションが上がりました。大学院受験を考えている方におすすめです。',
-        avatar: 'https://avatars.githubusercontent.com/u/59238632?v=4'
-      }
-    ],
+    universityTitle: '対応大学',
+    universityDescription: '各大学研究科の公式情報へのリンク',
+    websiteLink: '公式リンク',
     ctaTitle: '受験勉強を始めよう',
-    ctaDescription: '過去問・解答・体験記など、大学院受験に役立つ情報が揃っています。',
-    ctaButtonContribute: '貢献する'
+    ctaDescription: '数千人の受験生と一緒に、充実した受験対策を',
+    ctaButtonContribute: '貢献する',
+    ctaButtonGithub: 'GitHub'
   }
 };
 
@@ -100,7 +88,6 @@ const getLanguageFromDOM = () => {
 };
 
 const useStoredLanguage = () => {
-  // 使用 useSyncExternalStore 来同步读取语言
   const language = React.useSyncExternalStore(
     (callback) => {
       window.addEventListener('languageChange', callback);
@@ -120,176 +107,169 @@ const useStoredLanguage = () => {
   return [language, toggleLanguage];
 };
 
-const useToggleMap = () => {
-  const [state, setState] = useState({});
+const useToggleState = (initialState = {}) => {
+  const [state, setState] = useState(initialState);
   const toggle = (key) => setState(prev => ({ ...prev, [key]: !prev[key] }));
   const isOpen = (key) => !!state[key];
   return [isOpen, toggle];
 };
 
-const Feature = ({icon, title, description}) => (
-  <div className={clsx('col col--4')}>
-    <div className={styles.featureCard}>
-      <div className={styles.featureIcon}>{icon}</div>
-      <div className={styles.featureContent}>
-        <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
-        <div className={styles.featureDescription}>{description}</div>
-      </div>
+// 数据统计卡片
+const StatCard = ({ number, label, delay }) => (
+  <div className={styles.statCard} style={{ animationDelay: delay }}>
+    <span className={styles.statNumber}>{number}</span>
+    <span className={styles.statLabel}>{label}</span>
+  </div>
+);
+
+// 特性高亮卡片
+const HighlightCard = ({ title, subtitle, description, index }) => (
+  <div className={styles.highlightCard} style={{ animationDelay: `${index * 0.1}s` }}>
+    <div className={styles.highlightIndex}>0{index + 1}</div>
+    <div className={styles.highlightContent}>
+      <h3 className={styles.highlightTitle}>{title}</h3>
+      <p className={styles.highlightSubtitle}>{subtitle}</p>
+      <p className={styles.highlightDescription}>{description}</p>
     </div>
   </div>
 );
 
-const HomepageHeader = ({ language, toggleLanguage, t }) => {
-  const {siteConfig} = useDocusaurusContext();
+// Hero区域 - 苹果风格大标题
+const HeroSection = ({ language, toggleLanguage, t }) => {
+  const { siteConfig } = useDocusaurusContext();
 
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className={clsx('container', styles.heroContainer)}>
-        <div className={styles.heroTextContainer}>
-          <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
-            {siteConfig.title}
-          </Heading>
-          <p className={clsx('hero__subtitle', styles.heroSubtitle)}>{siteConfig.tagline}</p>
-          <div className={styles.languageSwitcher}>
-            <span className={styles.languageLabel}>Language</span>
-            <div className={styles.languageToggle}>
-              <button 
-                onClick={language === 'ja' ? toggleLanguage : undefined}
-                className={clsx(styles.langOption, language === 'zh' && styles.langOptionActive)}
-              >
-                中文
-              </button>
-              <button 
-                onClick={language === 'zh' ? toggleLanguage : undefined}
-                className={clsx(styles.langOption, language === 'ja' && styles.langOptionActive)}
-              >
-                日本語
-              </button>
-            </div>
-          </div>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
-              to="/docs/intro">
-              {t.viewPastExams} <FaArrowRight className={styles.buttonIcon} />
-            </Link>
-            <Link
-              className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
-              to="/blog">
-              {t.viewExperiences}
-            </Link>
-          </div>
+    <section className={styles.heroSection}>
+      <div className={styles.heroBackground}>
+        <div className={styles.heroGradient} />
+      </div>
+      
+      <div className={styles.heroContent}>
+        {/* 语言切换 */}
+        <div className={styles.languageSwitcher}>
+          <button 
+            onClick={language === 'ja' ? toggleLanguage : undefined}
+            className={clsx(styles.langBtn, language === 'zh' && styles.langBtnActive)}
+          >
+            中文
+          </button>
+          <span className={styles.langDivider}>/</span>
+          <button 
+            onClick={language === 'zh' ? toggleLanguage : undefined}
+            className={clsx(styles.langBtn, language === 'ja' && styles.langBtnActive)}
+          >
+            日本語
+          </button>
+        </div>
+
+        {/* 主标题 */}
+        <Heading as="h1" className={styles.heroTitle}>
+          {siteConfig.title}
+        </Heading>
+        
+        {/* 标语 */}
+        <p className={styles.heroTagline}>{t.heroTagline}</p>
+        <p className={styles.heroDescription}>{t.heroDescription}</p>
+
+        {/* CTA按钮 */}
+        <div className={styles.heroCta}>
+          <Link className={styles.primaryBtn} to="/docs/intro">
+            {t.viewPastExams}
+            <FaArrowRight className={styles.btnIcon} />
+          </Link>
+          <Link className={styles.secondaryBtn} to="/blog">
+            {t.viewExperiences}
+          </Link>
+        </div>
+
+        {/* 统计数据 */}
+        <div className={styles.statsRow}>
+          <StatCard number="1000+" label={t.statsExams} delay="0.2s" />
+          <StatCard number="15+" label={t.statsUniversities} delay="0.3s" />
+          <StatCard number="🔥" label={t.statsCommunity} delay="0.4s" />
         </div>
       </div>
-    </header>
+    </section>
   );
 };
 
-const UniversityInfoFlowchart = ({ language, t }) => {
-  const [isUnivOpen, toggleUniv] = useToggleMap();
-  const [isDeptOpen, toggleDept] = useToggleMap();
+// 特性高亮区域
+const HighlightsSection = ({ t }) => (
+  <section className={styles.highlightsSection}>
+    <div className="container">
+      <Heading as="h2" className={styles.sectionTitle}>
+        {t.highlightTitle}
+      </Heading>
+      <div className={styles.highlightsGrid}>
+        {t.highlights.map((item, index) => (
+          <HighlightCard key={index} {...item} index={index} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// 大学列表区域 - 简化版
+const UniversitySection = ({ language, t }) => {
+  const [isOpen, toggle] = useToggleState();
   const [selectedUniv, setSelectedUniv] = useState('');
-  const [selectedDept, setSelectedDept] = useState('');
 
-  const filteredUniversities = useMemo(() => universities.filter(univ => {
-    if (selectedUniv && univ.id !== selectedUniv) return false;
-    if (selectedDept && !univ.departments.some(dept => dept.id === selectedDept)) return false;
-    return true;
-  }), [selectedUniv, selectedDept]);
-
-  const departmentOptions = useMemo(() => {
-    if (!selectedUniv) return [];
-    return universities.find(u => u.id === selectedUniv)?.departments ?? [];
-  }, [selectedUniv]);
+  const filteredUniversities = useMemo(() => 
+    selectedUniv ? universities.filter(u => u.id === selectedUniv) : universities,
+    [selectedUniv]
+  );
 
   return (
-    <section className={styles.universityInfo}>
+    <section className={styles.universitySection}>
       <div className="container">
-        <Heading as="h2" className={styles.universityInfoTitle}>
-          {t.universityInfoTitle}
+        <Heading as="h2" className={styles.sectionTitle}>
+          {t.universityTitle}
         </Heading>
-        <p className={styles.universityInfoDescription}>
-          {t.universityInfoDescription}
-        </p>
-        
-        <div className={styles.filterContainer}>
-          <div className={styles.selectWrapper}>
-            <select
-              value={selectedUniv}
-              onChange={(e) => {
-                setSelectedUniv(e.target.value);
-                setSelectedDept('');
-              }}
-              className={styles.selectBox}
-            >
-              <option value="">{language === 'zh' ? '所有大学' : 'すべての大学'}</option>
-              {universities.map(univ => (
-                <option key={univ.id} value={univ.id}>{univ.name}</option>
-              ))}
-            </select>
-          </div>
-          <div className={styles.selectWrapper}>
-            <select value={selectedDept} onChange={(e) => setSelectedDept(e.target.value)} className={styles.selectBox} disabled={!selectedUniv}>
-              <option value="">{language === 'zh' ? '所有专攻' : 'すべての専攻'}</option>
-              {departmentOptions.map(dept => (
-                <option key={dept.id} value={dept.id}>{dept.name}</option>
-              ))}
-            </select>
-          </div>
+        <p className={styles.sectionSubtitle}>{t.universityDescription}</p>
+
+        {/* 筛选器 */}
+        <div className={styles.filterBar}>
+          <select
+            value={selectedUniv}
+            onChange={(e) => setSelectedUniv(e.target.value)}
+            className={styles.filterSelect}
+          >
+            <option value="">{language === 'zh' ? '全部大学' : 'すべての大学'}</option>
+            {universities.map(univ => (
+              <option key={univ.id} value={univ.id}>{univ.name}</option>
+            ))}
+          </select>
         </div>
 
-        <div className={styles.flowchartContainer}>
+        {/* 大学网格 */}
+        <div className={styles.universityGrid}>
           {filteredUniversities.map((univ) => (
-            <div key={univ.id} className={styles.universityTimeline}>
+            <div key={univ.id} className={styles.universityCard}>
               <div 
-                className={styles.universityHeader}
-                onClick={() => toggleUniv(univ.id)}
-                style={{borderColor: univ.color}}
+                className={styles.univHeader}
+                onClick={() => toggle(univ.id)}
               >
-                <div 
-                  className={styles.universityName} 
-                  style={{backgroundColor: univ.color}}
-                >
-                  {univ.name}
-                </div>
-                <div className={styles.toggleIcon}>
-                  {isUnivOpen(univ.id) ? <FaChevronUp /> : <FaChevronDown />}
-                </div>
+                <div className={styles.univColorBar} style={{ backgroundColor: univ.color }} />
+                <span className={styles.univName}>{univ.name}</span>
+                <span className={styles.univToggle}>
+                  {isOpen(univ.id) ? <FaChevronUp /> : <FaChevronDown />}
+                </span>
               </div>
               
-              {isUnivOpen(univ.id) && (
-                <div className={styles.departmentsContainer}>
-                  {univ.departments.filter(d => !selectedDept || d.id === selectedDept).map((dept) => {
-                    const deptKey = `${univ.id}-${dept.id}`;
-                    const deptOpen = isDeptOpen(deptKey);
-                    
-                    return (
-                      <div key={dept.id} className={styles.department}>
-                        <div 
-                          className={styles.departmentHeader}
-                          onClick={() => toggleDept(deptKey)}
-                          style={{borderLeftColor: univ.color}}
-                        >
-                          <span className={styles.departmentName}>{dept.name}</span>
-                          <span className={styles.departmentToggle}>
-                            {deptOpen ? <FaChevronUp /> : <FaChevronDown />}
-                          </span>
-                        </div>
-                        
-                        {deptOpen && (
-                          <a 
-                            href={dept.websiteUrl} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className={styles.departmentLink}
-                            style={{borderLeftColor: univ.color}}
-                          >
-                            <FaExternalLinkAlt /> {t.websiteLink}
-                          </a>
-                        )}
-                      </div>
-                    );
-                  })}
+              {isOpen(univ.id) && (
+                <div className={styles.deptList}>
+                  {univ.departments.map((dept) => (
+                    <a 
+                      key={dept.id}
+                      href={dept.websiteUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={styles.deptLink}
+                    >
+                      <span>{dept.name}</span>
+                      <FaExternalLinkAlt className={styles.linkIcon} />
+                    </a>
+                  ))}
                 </div>
               )}
             </div>
@@ -300,60 +280,29 @@ const UniversityInfoFlowchart = ({ language, t }) => {
   );
 };
 
-const HomepageFeatures = ({ t }) => (
-  <section className={styles.features}>
-    <div className="container">
-      <div className="row">
-        {t.features.map((props, idx) => (
-          <Feature key={idx} {...props} />
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const Testimonials = ({ t }) => (
-  <section className={styles.testimonials}>
-    <div className="container">
-      <Heading as="h2" className={styles.testimonialsTitle}>{t.testimonialsTitle}</Heading>
-      <div className={styles.testimonialCards}>
-        {t.testimonials.map((testimonial, index) => (
-          <div key={index} className={styles.testimonialCard}>
-            <div className={styles.testimonialHeader}>
-              <img src={testimonial.avatar} alt={testimonial.name} className={styles.testimonialAvatar} />
-              <div className={styles.testimonialAuthor}>
-                <p className={styles.testimonialName}>{testimonial.name}</p>
-                <div className={styles.testimonialRating}>
-                  {Array.from({ length: 5 }, (_, starIndex) => <FaStar key={starIndex} />)}
-                </div>
-              </div>
-            </div>
-            <p className={styles.testimonialText}>"{testimonial.text}"</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const CallToAction = ({ t }) => (
+// CTA区域 - 苹果风格
+const CtaSection = ({ t }) => (
   <section className={styles.ctaSection}>
-    <div className="container">
-      <div className={styles.ctaContent}>
-        <Heading as="h2" className={styles.ctaTitle}>{t.ctaTitle}</Heading>
-        <p className={styles.ctaDescription}>{t.ctaDescription}</p>
-        <div className={styles.buttons}>
-          <Link
-            className={clsx('button button--lg', styles.heroButton, styles.primaryButton)}
-            to="/docs/intro">
-            {t.viewPastExams} <FaArrowRight className={styles.buttonIcon} />
-          </Link>
-          <Link
-            className={clsx('button button--lg', styles.heroButton, styles.secondaryButton)}
-            to="https://github.com/Myyura/the_kai_project">
-            {t.ctaButtonContribute}
-          </Link>
-        </div>
+    <div className={styles.ctaInner}>
+      <Heading as="h2" className={styles.ctaTitle}>
+        {t.ctaTitle}
+      </Heading>
+      <p className={styles.ctaDescription}>{t.ctaDescription}</p>
+      
+      <div className={styles.ctaButtons}>
+        <Link className={styles.ctaPrimaryBtn} to="/docs/intro">
+          {t.viewPastExams}
+          <FaArrowRight className={styles.btnIcon} />
+        </Link>
+        <a 
+          className={styles.ctaSecondaryBtn} 
+          href="https://github.com/Myyura/the_kai_project"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaGithub className={styles.btnIcon} />
+          {t.ctaButtonGithub}
+        </a>
       </div>
     </div>
   </section>
@@ -362,19 +311,19 @@ const CallToAction = ({ t }) => (
 const Home = () => {
   const [language, toggleLanguage] = useStoredLanguage();
   const t = translations[language];
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
 
   return (
     <Layout
       title={siteConfig.title}
-      description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁">
+      description="开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁"
+    >
       <HomepageStructuredData />
-      <HomepageHeader language={language} toggleLanguage={toggleLanguage} t={t} />
-      <main>
-        <HomepageFeatures t={t} />
-        <UniversityInfoFlowchart language={language} t={t} />
-        <Testimonials t={t} />
-        <CallToAction t={t} />
+      <main className={styles.mainContent}>
+        <HeroSection language={language} toggleLanguage={toggleLanguage} t={t} />
+        <HighlightsSection t={t} />
+        <UniversitySection language={language} t={t} />
+        <CtaSection t={t} />
       </main>
     </Layout>
   );
