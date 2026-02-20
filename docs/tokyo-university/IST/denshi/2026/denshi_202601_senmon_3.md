@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2026年1月実施 専門 第3問
 
 ## **Author**
-瑞穂
+[瑞穂](https://github.com/LiRunyi2001)
 
 ## **Description**
 (1) Write the pseudo code of binary search, with no recursion. 
