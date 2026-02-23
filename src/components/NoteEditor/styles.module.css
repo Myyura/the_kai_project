@@ -1,0 +1,331 @@
+/* ─── 容器 ───────────────────────────────────────────────── */
+.noteContainer {
+  margin-top: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.2s;
+  overflow: hidden;
+}
+
+.noteContainer:hover {
+  border-color: var(--ifm-color-primary-light);
+}
+
+/* ─── 折叠/展开按钮 ──────────────────────────────────────── */
+.noteToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.85rem;
+  transition: background 0.15s;
+}
+
+.noteToggle:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.noteToggleLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.noteIcon {
+  font-size: 0.85em;
+  color: var(--ifm-color-primary);
+}
+
+.noteHeading {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.noteBadge {
+  font-size: 0.72rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 20px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 500;
+}
+
+/* ─── 展开区域主体 ───────────────────────────────────────── */
+.noteBody {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  animation: noteSlideIn 0.2s ease;
+}
+
+@keyframes noteSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── 工具栏 ─────────────────────────────────────────────── */
+.noteToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-50);
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+[data-theme='dark'] .noteToolbar {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.toolbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.toolbarBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.12s;
+}
+
+.toolbarBtn:hover:not(:disabled) {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-primary);
+}
+
+.toolbarBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.modeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-600);
+  transition: all 0.12s;
+}
+
+.modeBtn:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.modeBtnActive {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border-color: var(--ifm-color-primary);
+}
+
+.modeBtnActive:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+/* ─── 文本编辑区 ─────────────────────────────────────────── */
+.noteTextarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 0.8rem 1rem;
+  border: none;
+  outline: none;
+  resize: vertical;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--ifm-font-color-base);
+  background: transparent;
+  tab-size: 2;
+}
+
+.noteTextarea::placeholder {
+  color: var(--ifm-color-emphasis-400);
+  font-family: inherit;
+}
+
+.noteTextarea:focus {
+  background: var(--ifm-color-emphasis-50);
+}
+
+[data-theme='dark'] .noteTextarea:focus {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ─── 预览区 ─────────────────────────────────────────────── */
+.notePreview {
+  min-height: 200px;
+  padding: 0.8rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--ifm-font-color-base);
+  overflow-x: auto;
+}
+
+.notePreview h1,
+.notePreview h2,
+.notePreview h3,
+.notePreview h4,
+.notePreview h5,
+.notePreview h6 {
+  margin: 0.8em 0 0.4em;
+  line-height: 1.3;
+}
+
+.notePreview h1 { font-size: 1.4em; }
+.notePreview h2 { font-size: 1.2em; }
+.notePreview h3 { font-size: 1.08em; }
+
+.notePreview p {
+  margin: 0.5em 0;
+}
+
+.notePreview ul,
+.notePreview ol {
+  margin: 0.4em 0;
+  padding-left: 1.5em;
+}
+
+.notePreview li {
+  margin: 0.2em 0;
+}
+
+.notePreview blockquote {
+  margin: 0.5em 0;
+  padding: 0.4em 0.8em;
+  border-left: 3px solid var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 4px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+[data-theme='dark'] .notePreview blockquote {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.notePreview hr {
+  margin: 0.8em 0;
+  border: none;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.notePreview a {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+}
+
+.notePreview img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 0.5em 0;
+}
+
+.notePreview strong {
+  font-weight: 600;
+}
+
+.emptyPreview {
+  color: var(--ifm-color-emphasis-400);
+  font-style: italic;
+}
+
+/* ─── 代码样式 ───────────────────────────────────────────── */
+.notePreview :global(.note-code-block) {
+  margin: 0.5em 0;
+  padding: 0.7em 1em;
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-100);
+  overflow-x: auto;
+  font-size: 0.88em;
+  line-height: 1.5;
+}
+
+[data-theme='dark'] .notePreview :global(.note-code-block) {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.notePreview :global(.note-code-block) code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  background: none;
+  padding: 0;
+}
+
+.notePreview :global(.note-inline-code) {
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-100);
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+[data-theme='dark'] .notePreview :global(.note-inline-code) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ─── 数学公式样式 ───────────────────────────────────────── */
+.notePreview :global(.note-math-display) {
+  margin: 0.6em 0;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.notePreview :global(.note-math-inline) {
+  display: inline;
+}
+
+/* ─── 底部状态栏 ─────────────────────────────────────────── */
+.noteFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.72rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.saveIndicator {
+  transition: color 0.3s;
+}
+
+.saveFlash {
+  color: var(--ifm-color-primary);
+}
+
+.charCount {
+  margin-left: auto;
+  opacity: 0.7;
+}

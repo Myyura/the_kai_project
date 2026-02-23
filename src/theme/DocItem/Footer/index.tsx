@@ -13,6 +13,7 @@ import TagsListInline from '@theme/TagsListInline';
 import EditMetaRow from '@theme/EditMetaRow';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import ProgressTracker from '@site/src/components/ProgressTracker';
+import NoteEditor from '@site/src/components/NoteEditor';
 
 export default function DocItemFooter(): ReactNode {
   const {metadata} = useDoc();
@@ -55,6 +56,9 @@ export default function DocItemFooter(): ReactNode {
             tags={tags.map((t) => t.label)}
           />
         )}
+      </BrowserOnly>
+      <BrowserOnly>
+        {() => <NoteEditor docId={id} />}
       </BrowserOnly>
     </footer>
   );
