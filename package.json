@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "dev": "docusaurus start"
+    "dev": "docusaurus start",
+    "generate:universities": "node scripts/generate-universities.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",

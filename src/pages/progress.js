@@ -8,6 +8,7 @@ import {
   FaBell, FaFire, FaCalendarAlt
 } from 'react-icons/fa';
 import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
+import { UNIV_MAP } from '@site/src/data/universities';
 import styles from './progress.module.css';
 
 const toTagSlug = (tag) =>
@@ -15,26 +16,6 @@ const toTagSlug = (tag) =>
     .toLowerCase()
     .replace(/[^\w\u3000-\u9fff\uac00-\ud7af\u3040-\u30ff]+/g, '-')
     .replace(/^-+|-+$/g, '');
-
-// 路径段 → 大学显示名
-const UNIV_MAP = {
-  'tokyo-university': '東京大学',
-  'kyoto-university': '京都大学',
-  'osaka-university': '大阪大学',
-  'tohoku-university': '東北大学',
-  'nagoya-university': '名古屋大学',
-  'hokkaido-university': '北海道大学',
-  'kyushu-university': '九州大学',
-  'TITech': '東京科学大学（旧東工大）',
-  'tsukuba-university': '筑波大学',
-  'kobe-university': '神戸大学',
-  'hiroshima-university': '広島大学',
-  'kanazawa-university': '金沢大学',
-  'UEC': '電気通信大学',
-  'TUAT': '東京農工大学',
-  'waseda-university': '早稲田大学',
-  'keio-university': '慶應義塾大学',
-};
 
 const extractUniv = (docId = '') => {
   const seg = docId.split('/')[0] || '';

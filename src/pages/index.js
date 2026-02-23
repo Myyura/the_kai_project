@@ -290,18 +290,29 @@ const UniversitySection = ({ language, t }) => {
               
               {isOpen(univ.id) && (
                 <div className={styles.deptList}>
-                  {univ.departments.map((dept) => (
-                    <a 
-                      key={dept.id}
-                      href={dept.websiteUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={styles.deptLink}
-                    >
-                      <span>{dept.name}</span>
-                      <FaExternalLinkAlt className={styles.linkIcon} />
-                    </a>
-                  ))}
+                  {univ.departments.map((dept) =>
+                    dept.websiteUrl ? (
+                      <a 
+                        key={dept.id}
+                        href={dept.websiteUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className={styles.deptLink}
+                      >
+                        <span>{dept.name}</span>
+                        <FaExternalLinkAlt className={styles.linkIcon} />
+                      </a>
+                    ) : (
+                      <Link
+                        key={dept.id}
+                        to={`/docs/${univ.id}/${dept.id}`}
+                        className={styles.deptLink}
+                      >
+                        <span>{dept.name}</span>
+                        <FaBook className={styles.linkIcon} />
+                      </Link>
+                    )
+                  )}
                 </div>
               )}
             </div>
