@@ -4,6 +4,7 @@ import {
   FaBold, FaItalic, FaHeading, FaCode, FaListUl, FaQuoteLeft,
 } from 'react-icons/fa';
 import { useDocNotes } from '@site/src/hooks/useNotes';
+import { useCurrentLanguage } from '@site/src/context/LanguageContext';
 import { markdownToHtml, renderMathInContainer } from './markdownRenderer';
 import styles from './styles.module.css';
 
@@ -33,11 +34,6 @@ const LABELS = {
     empty: 'ノートはまだありません。編集モードで入力してください',
     charCount: (n) => `${n} 文字`,
   },
-};
-
-const getLanguage = () => {
-  if (typeof document === 'undefined') return 'zh';
-  return document.documentElement.getAttribute('data-lang') || 'zh';
 };
 
 // ─── 时间格式化 ──────────────────────────────────────────────
@@ -72,7 +68,7 @@ export default function NoteEditor({ docId }) {
   const [text, setText] = useState(content);
   const [mode, setMode] = useState('edit');
   const [expanded, setExpanded] = useState(false);
-  const [lang, setLang] = useState(getLanguage);
+  const lang = useCurrentLanguage();
   const [saveFlash, setSaveFlash] = useState(false);
 
   const textareaRef = useRef(null);
@@ -87,13 +83,6 @@ export default function NoteEditor({ docId }) {
   useEffect(() => {
     setText(content);
   }, [content]);
-
-  // 语言切换监听
-  useEffect(() => {
-    const handler = () => setLang(getLanguage());
-    window.addEventListener('languageChange', handler);
-    return () => window.removeEventListener('languageChange', handler);
-  }, []);
 
   // 有内容时自动展开
   useEffect(() => {

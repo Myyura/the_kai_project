@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fa';
 import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
 import { UNIV_MAP } from '@site/src/data/universities';
+import { useStoredLanguage } from '@site/src/context/LanguageContext';
 import styles from './progress.module.css';
 
 const toTagSlug = (tag) =>
@@ -240,29 +241,7 @@ const RecentPracticeSection = ({ entries, t }) => {
   );
 };
 
-// 语言快照
-const getLanguageFromDOM = () => {
-  if (typeof document === 'undefined') return 'zh';
-  return document.documentElement.getAttribute('data-lang') || 'zh';
-};
 
-const useStoredLanguage = () => {
-  const language = React.useSyncExternalStore(
-    (cb) => {
-      window.addEventListener('languageChange', cb);
-      return () => window.removeEventListener('languageChange', cb);
-    },
-    getLanguageFromDOM,
-    () => 'zh'
-  );
-  const toggle = () => {
-    const next = language === 'zh' ? 'ja' : 'zh';
-    localStorage.setItem('preferredLanguage', next);
-    document.documentElement.setAttribute('data-lang', next);
-    window.dispatchEvent(new CustomEvent('languageChange', { detail: next }));
-  };
-  return [language, toggle];
-};
 
 const T = {
   zh: {

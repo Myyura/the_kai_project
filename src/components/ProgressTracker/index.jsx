@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaCheckCircle, FaRedo, FaTimes, FaSyncAlt } from 'react-icons/fa';
 import { useDocProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
+import { useCurrentLanguage } from '@site/src/context/LanguageContext';
 import styles from './styles.module.css';
 
 const LABELS = {
@@ -38,11 +39,6 @@ const LABELS = {
   },
 };
 
-const getLanguage = () => {
-  if (typeof document === 'undefined') return 'zh';
-  return document.documentElement.getAttribute('data-lang') || 'zh';
-};
-
 const BUTTONS = [
   { key: STATUS.COMPLETED, Icon: FaCheckCircle },
   { key: STATUS.REVIEWING, Icon: FaRedo },
@@ -50,15 +46,9 @@ const BUTTONS = [
 
 export default function ProgressTracker({ docId, title, permalink, tags }) {
   const [status, setStatus, refreshReview, updatedAt, reviewCount] = useDocProgress(docId, title, permalink, tags);
-  const [lang, setLang] = React.useState(getLanguage);
+  const lang = useCurrentLanguage();
   const [justRefreshed, setJustRefreshed] = React.useState(false);
   const t = LABELS[lang] ?? LABELS.zh;
-
-  React.useEffect(() => {
-    const handler = () => setLang(getLanguage());
-    window.addEventListener('languageChange', handler);
-    return () => window.removeEventListener('languageChange', handler);
-  }, []);
 
   const handleClick = (newStatus) => {
     setStatus(newStatus === status ? STATUS.NOT_STARTED : newStatus);

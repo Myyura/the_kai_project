@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, useSyncExternalStore } from 'react';
+import React, { createContext, useContext, useCallback, useSyncExternalStore } from 'react';
 
 // 定义翻译内容
 // key 必须与 docusaurus.config.js 中的 label 完全一致
@@ -51,32 +51,80 @@ export const translations = {
   }
 };
 
-// 获取当前语言快照
-const getSnapshot = () => {
+// ─── 语言检测核心（单一来源） ────────────────────────────────
+
+/**
+ * 从 DOM data-lang 属性同步读取语言（SSR 安全）
+ */
+export const getLanguage = () => {
   if (typeof document === 'undefined') return 'zh';
   return document.documentElement.getAttribute('data-lang') || 'zh';
 };
 
-// 订阅语言变化
+/**
+ * 切换语言：写 localStorage + 更新 DOM + 触发事件
+ */
+export const setLanguage = (lang) => {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem('preferredLanguage', lang);
+  document.documentElement.setAttribute('data-lang', lang);
+  window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
+};
+
+/**
+ * 订阅语言变化（配合 useSyncExternalStore 使用）
+ * 监听自定义 languageChange 事件和 MutationObserver
+ */
 const subscribeToLanguage = (callback) => {
   if (typeof window === 'undefined' || typeof document === 'undefined') return () => {};
   
-  // 直接调用 callback，不做条件判断
   window.addEventListener('languageChange', callback);
-  window.addEventListener('storage', callback);
   
-  // 使用 MutationObserver 监听 data-lang 属性变化
-  const observer = new MutationObserver(() => {
-    callback();
-  });
+  const observer = new MutationObserver(callback);
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-lang'] });
   
   return () => {
     window.removeEventListener('languageChange', callback);
-    window.removeEventListener('storage', callback);
     observer.disconnect();
   };
 };
+
+// ─── 公共 Hooks ──────────────────────────────────────────────
+
+/**
+ * 独立 hook：读取当前语言 + 提供 toggle 函数
+ * 不依赖 LanguageProvider，可在任何组件中使用
+ *
+ * @returns {[string, () => void]} [language, toggleLanguage]
+ */
+export const useStoredLanguage = () => {
+  const language = useSyncExternalStore(
+    subscribeToLanguage,
+    getLanguage,
+    () => 'zh'
+  );
+
+  const toggleLanguage = useCallback(() => {
+    setLanguage(language === 'zh' ? 'ja' : 'zh');
+  }, [language]);
+
+  return [language, toggleLanguage];
+};
+
+/**
+ * 只读 hook：仅获取当前语言（不需要切换功能时使用）
+ *
+ * @returns {string} 当前语言 'zh' | 'ja'
+ */
+export const useCurrentLanguage = () => {
+  return useSyncExternalStore(
+    subscribeToLanguage,
+    getLanguage,
+    () => 'zh'
+  );
+};
+
+// ─── Context-based API（用于 Navbar/Footer 等需要翻译函数的场景） ──
 
 const LanguageContext = createContext({
   language: 'zh',
@@ -87,23 +135,7 @@ const LanguageContext = createContext({
 export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider = ({ children }) => {
-  // 使用 useSyncExternalStore 来同步读取语言，避免 hydration 不匹配
-  const language = useSyncExternalStore(
-    subscribeToLanguage,
-    getSnapshot,        // 客户端
-    () => 'zh'          // SSR 服务端始终返回 'zh'
-  );
-
-  const setLanguage = useCallback((lang) => {
-    if (typeof window !== 'undefined') {
-      // 更新 localStorage
-      localStorage.setItem('preferredLanguage', lang);
-      // 更新 DOM 属性
-      document.documentElement.setAttribute('data-lang', lang);
-      // 触发自定义事件通知其他组件
-      window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
-    }
-  }, []);
+  const language = useCurrentLanguage();
 
   // 翻译函数
   const t = useCallback((key, section = 'navbar') => {

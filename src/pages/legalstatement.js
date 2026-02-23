@@ -1,22 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-
-// 从 DOM 属性同步读取语言
-const getLanguageFromDOM = () => {
-  if (typeof document === 'undefined') return 'zh';
-  return document.documentElement.getAttribute('data-lang') || 'zh';
-};
-
-const useStoredLanguage = () => {
-  return React.useSyncExternalStore(
-    (callback) => {
-      window.addEventListener('languageChange', callback);
-      return () => window.removeEventListener('languageChange', callback);
-    },
-    getLanguageFromDOM,
-    () => 'zh'
-  );
-};
+import { useCurrentLanguage } from '../context/LanguageContext';
 
 const content = {
   zh: {
@@ -140,7 +124,7 @@ const content = {
 };
 
 export default function LegalStatement() {
-  const language = useStoredLanguage();
+  const language = useCurrentLanguage();
   const t = content[language] || content.zh;
 
   return (

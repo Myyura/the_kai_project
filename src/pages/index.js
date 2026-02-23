@@ -6,6 +6,7 @@ import HomepageStructuredData from '../components/HomepageStructuredData';
 import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaUsers, FaCheckCircle, FaSyncAlt } from 'react-icons/fa';
 import React, { useState, useMemo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import { useStoredLanguage } from '../context/LanguageContext';
 import { useAllProgress, STATUS } from '../hooks/useProgress';
 import { universities } from '../data/universities';
 
@@ -95,33 +96,6 @@ const translations = {
     ctaButtonProgress: '学習進捗',
     ctaButtonGithub: 'GitHub'
   }
-};
-
-// 从 DOM 属性同步读取语言
-const getLanguageFromDOM = () => {
-  if (typeof document === 'undefined') return 'zh';
-  return document.documentElement.getAttribute('data-lang') || 'zh';
-};
-
-const useStoredLanguage = () => {
-  const language = React.useSyncExternalStore(
-    (callback) => {
-      if (typeof window === 'undefined') return () => {};
-      window.addEventListener('languageChange', callback);
-      return () => window.removeEventListener('languageChange', callback);
-    },
-    getLanguageFromDOM,
-    () => 'zh'
-  );
-
-  const toggleLanguage = () => {
-    const next = language === 'zh' ? 'ja' : 'zh';
-    localStorage.setItem('preferredLanguage', next);
-    document.documentElement.setAttribute('data-lang', next);
-    window.dispatchEvent(new CustomEvent('languageChange', { detail: next }));
-  };
-
-  return [language, toggleLanguage];
 };
 
 const useToggleState = (initialState = {}) => {
