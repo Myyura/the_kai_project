@@ -96,18 +96,6 @@ const config = {
 
   // 添加SEO相关插件
   plugins: [
-    function disableExpensiveBundlerOptimizationPlugin() {
-    return {
-      name: 'disable-expensive-bundler-optimizations',
-      configureWebpack() {
-        return {
-          optimization: {
-            concatenateModules: false,
-          },
-        };
-      },
-    };
-  },
     [
       '@docusaurus/plugin-pwa',
       {
