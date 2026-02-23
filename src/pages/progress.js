@@ -2,6 +2,10 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
+import {
+  FaCheckCircle, FaRedo, FaClipboardList, FaTrashAlt,
+  FaFileAlt, FaArrowRight, FaBuilding
+} from 'react-icons/fa';
 import { useAllProgress, STATUS } from '@site/src/hooks/useProgress';
 import styles from './progress.module.css';
 
@@ -66,7 +70,8 @@ const T = {
     clearAll: '清除全部进度',
     confirmClear: '确定要清除所有进度记录吗？此操作不可恢复。',
     byUniversity: '按大学统计',
-    recentActivity: '进度记录',
+    sectionCompleted: '已完成题目',
+    sectionReviewing: '待复习题目',
     univName: '大学',
     done: '完成',
     review: '复习',
@@ -84,7 +89,8 @@ const T = {
     clearAll: '全て削除',
     confirmClear: '全ての進捗記録を削除しますか？この操作は元に戻せません。',
     byUniversity: '大学別集計',
-    recentActivity: '進捗記録',
+    sectionCompleted: '完了問題',
+    sectionReviewing: '要復習問題',
     univName: '大学',
     done: '完了',
     review: '復習',
@@ -95,11 +101,40 @@ const T = {
 
 const StatusBadge = ({ status, t }) => {
   if (status === STATUS.COMPLETED)
-    return <span className={`${styles.badge} ${styles.badgeCompleted}`}>✅ {t.completed}</span>;
+    return (
+      <span className={`${styles.badge} ${styles.badgeCompleted}`}>
+        <FaCheckCircle className={styles.badgeIcon} /> {t.completed}
+      </span>
+    );
   if (status === STATUS.REVIEWING)
-    return <span className={`${styles.badge} ${styles.badgeReviewing}`}>🔄 {t.reviewing}</span>;
+    return (
+      <span className={`${styles.badge} ${styles.badgeReviewing}`}>
+        <FaRedo className={styles.badgeIcon} /> {t.reviewing}
+      </span>
+    );
   return null;
 };
+
+const EntryRow = ({ entry, t }) => (
+  <div className={styles.entryRow}>
+    <div className={styles.entryInfo}>
+      <span className={styles.entryUniv}>
+        <FaBuilding className={styles.entryUnivIcon} />
+        {extractUniv(entry.id)}
+      </span>
+      <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
+        {entry.title || entry.id}
+      </a>
+    </div>
+    <div className={styles.entryMeta}>
+      {entry.updatedAt && (
+        <span className={styles.entryDate}>
+          {t.lastUpdated}: {new Date(entry.updatedAt).toLocaleDateString('zh-CN')}
+        </span>
+      )}
+    </div>
+  </div>
+);
 
 function ProgressPageInner() {
   const [language, toggleLanguage] = useStoredLanguage();
@@ -119,9 +154,17 @@ function ProgressPageInner() {
     return Object.entries(map).sort((a, b) => b[1].items.length - a[1].items.length);
   }, [entries]);
 
-  // 按更新时间降序排列
-  const sortedEntries = React.useMemo(
-    () => [...entries].sort((a, b) => (b.updatedAt ?? 0) - (a.updatedAt ?? 0)),
+  // 分类按类别排序
+  const completedEntries = React.useMemo(
+    () => entries
+      .filter(e => e.status === STATUS.COMPLETED)
+      .sort((a, b) => (b.updatedAt ?? 0) - (a.updatedAt ?? 0)),
+    [entries]
+  );
+  const reviewingEntries = React.useMemo(
+    () => entries
+      .filter(e => e.status === STATUS.REVIEWING)
+      .sort((a, b) => (b.updatedAt ?? 0) - (a.updatedAt ?? 0)),
     [entries]
   );
 
@@ -155,16 +198,19 @@ function ProgressPageInner() {
       {/* 统计卡片 */}
       <div className={styles.statsRow}>
         <div className={`${styles.statCard} ${styles.statCardCompleted}`}>
+          <FaCheckCircle className={styles.statIcon} style={{ color: '#10b981' }} />
           <span className={styles.statNumber}>{stats.completed}</span>
-          <span className={styles.statLabel}>✅ {t.completed}</span>
+          <span className={styles.statLabel}>{t.completed}</span>
         </div>
         <div className={`${styles.statCard} ${styles.statCardReviewing}`}>
+          <FaRedo className={styles.statIcon} style={{ color: '#f59e0b' }} />
           <span className={styles.statNumber}>{stats.reviewing}</span>
-          <span className={styles.statLabel}>🔄 {t.reviewing}</span>
+          <span className={styles.statLabel}>{t.reviewing}</span>
         </div>
         <div className={styles.statCard}>
+          <FaClipboardList className={styles.statIcon} style={{ color: '#6b7280' }} />
           <span className={styles.statNumber}>{total}</span>
-          <span className={styles.statLabel}>📋 {t.totalTracked}</span>
+          <span className={styles.statLabel}>{t.totalTracked}</span>
         </div>
       </div>
 
@@ -189,9 +235,9 @@ function ProgressPageInner() {
 
       {total === 0 ? (
         <div className={styles.emptyState}>
-          <div className={styles.emptyIcon}>📝</div>
+          <FaFileAlt className={styles.emptyIcon} />
           <p className={styles.emptyText}>{t.noData}</p>
-          <Link to="/docs/intro" className={styles.goBtn}>{t.goExam} →</Link>
+          <Link to="/docs/intro" className={styles.goBtn}>{t.goExam} <FaArrowRight style={{ fontSize: '0.8em' }} /></Link>
         </div>
       ) : (
         <>
@@ -203,9 +249,9 @@ function ProgressPageInner() {
                 <div key={univ} className={styles.univCard}>
                   <div className={styles.univName}>{univ}</div>
                   <div className={styles.univStats}>
-                    <span className={styles.univDone}>✅ {data.completed}</span>
-                    <span className={styles.univReview}>🔄 {data.reviewing}</span>
-                    <span className={styles.univTotal}>📋 {data.items.length}</span>
+                    <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{data.completed}</span>
+                    <span className={styles.univReview}><FaRedo style={{ marginRight: '0.25rem' }} />{data.reviewing}</span>
+                    <span className={styles.univTotal}><FaClipboardList style={{ marginRight: '0.25rem' }} />{data.items.length}</span>
                   </div>
                   <div className={styles.univBar}>
                     <div
@@ -218,35 +264,49 @@ function ProgressPageInner() {
             </div>
           </section>
 
-          {/* 题目列表 */}
-          <section className={styles.section}>
-            <div className={styles.sectionHeader}>
-              <h2 className={styles.sectionTitle}>{t.recentActivity}</h2>
-              <button onClick={handleClear} className={styles.clearBtn}>
-                🗑 {t.clearAll}
-              </button>
-            </div>
-            <div className={styles.entryList}>
-              {sortedEntries.map((entry) => (
-                <div key={entry.id} className={styles.entryRow}>
-                  <div className={styles.entryInfo}>
-                    <span className={styles.entryUniv}>{extractUniv(entry.id)}</span>
-                    <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
-                      {entry.title || entry.id}
-                    </a>
-                  </div>
-                  <div className={styles.entryMeta}>
-                    <StatusBadge status={entry.status} t={t} />
-                    {entry.updatedAt && (
-                      <span className={styles.entryDate}>
-                        {t.lastUpdated}: {new Date(entry.updatedAt).toLocaleDateString('zh-CN')}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          {/* 已完成题目 */}
+          {completedEntries.length > 0 && (
+            <section className={styles.section}>
+              <div className={styles.sectionHeader}>
+                <h2 className={`${styles.sectionTitle} ${styles.sectionTitleCompleted}`}>
+                  <FaCheckCircle className={styles.sectionTitleIcon} />
+                  {t.sectionCompleted}
+                  <span className={styles.sectionCount}>{completedEntries.length}</span>
+                </h2>
+                <button onClick={handleClear} className={styles.clearBtn}>
+                  <FaTrashAlt style={{ marginRight: '0.35rem' }} />{t.clearAll}
+                </button>
+              </div>
+              <div className={styles.entryList}>
+                {completedEntries.map((entry) => (
+                  <EntryRow key={entry.id} entry={entry} t={t} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* 待复习题目 */}
+          {reviewingEntries.length > 0 && (
+            <section className={styles.section}>
+              <div className={styles.sectionHeader}>
+                <h2 className={`${styles.sectionTitle} ${styles.sectionTitleReviewing}`}>
+                  <FaRedo className={styles.sectionTitleIcon} />
+                  {t.sectionReviewing}
+                  <span className={styles.sectionCount}>{reviewingEntries.length}</span>
+                </h2>
+                {completedEntries.length === 0 && (
+                  <button onClick={handleClear} className={styles.clearBtn}>
+                    <FaTrashAlt style={{ marginRight: '0.35rem' }} />{t.clearAll}
+                  </button>
+                )}
+              </div>
+              <div className={styles.entryList}>
+                {reviewingEntries.map((entry) => (
+                  <EntryRow key={entry.id} entry={entry} t={t} />
+                ))}
+              </div>
+            </section>
+          )}
         </>
       )}
     </div>

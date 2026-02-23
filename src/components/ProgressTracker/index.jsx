@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCheckCircle, FaRedo, FaTimes } from 'react-icons/fa';
 import { useDocProgress, STATUS } from '@site/src/hooks/useProgress';
 import styles from './styles.module.css';
 
@@ -25,9 +26,8 @@ const getLanguage = () => {
 };
 
 const BUTTONS = [
-  { key: STATUS.COMPLETED, icon: '✅' },
-  { key: STATUS.REVIEWING, icon: '🔄' },
-  { key: STATUS.NOT_STARTED, icon: '✕' },
+  { key: STATUS.COMPLETED, Icon: FaCheckCircle },
+  { key: STATUS.REVIEWING, Icon: FaRedo },
 ];
 
 export default function ProgressTracker({ docId, title, permalink }) {
@@ -56,14 +56,14 @@ export default function ProgressTracker({ docId, title, permalink }) {
         </span>
       </div>
       <div className={styles.trackerButtons}>
-        {BUTTONS.filter((b) => b.key !== STATUS.NOT_STARTED).map(({ key, icon }) => (
+        {BUTTONS.map(({ key, Icon }) => (
           <button
             key={key}
             onClick={() => handleClick(key)}
             className={`${styles.btn} ${status === key ? styles[`btn_${key}_active`] : styles.btnDefault}`}
             title={t[key]}
           >
-            <span className={styles.btnIcon}>{icon}</span>
+            <Icon className={styles.btnIcon} />
             <span className={styles.btnText}>{t[key]}</span>
           </button>
         ))}
@@ -73,7 +73,7 @@ export default function ProgressTracker({ docId, title, permalink }) {
             className={`${styles.btn} ${styles.btnReset}`}
             title={t[STATUS.NOT_STARTED]}
           >
-            <span className={styles.btnIcon}>✕</span>
+            <FaTimes className={styles.btnIcon} />
             <span className={styles.btnText}>{t[STATUS.NOT_STARTED]}</span>
           </button>
         )}

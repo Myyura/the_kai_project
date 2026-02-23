@@ -322,10 +322,10 @@ const HeroProgressCallout = ({ t }) => {
       {hasData && (
         <span className={styles.heroProgressStats}>
           <span className={styles.heroProgressStatItem} style={{ color: '#10b981' }}>
-            ✅ {stats.completed}
+            <FaCheckCircle style={{ marginRight: '0.2rem', fontSize: '0.85em' }} />{stats.completed}
           </span>
           <span className={styles.heroProgressStatItem} style={{ color: '#f59e0b' }}>
-            🔄 {stats.reviewing}
+            <FaSyncAlt style={{ marginRight: '0.2rem', fontSize: '0.8em' }} />{stats.reviewing}
           </span>
           {stats.total > 0 && (
             <span className={styles.heroProgressBarWrap}>

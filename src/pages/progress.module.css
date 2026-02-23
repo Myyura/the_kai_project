@@ -82,8 +82,13 @@
   border-radius: 12px;
   border: 1px solid var(--ifm-color-emphasis-200);
   background: var(--ifm-background-surface-color);
-  gap: 0.25rem;
+  gap: 0.2rem;
   transition: border-color 0.2s;
+}
+
+.statIcon {
+  font-size: 1.4rem;
+  margin-bottom: 0.15rem;
 }
 
 .statCard:hover {
@@ -170,6 +175,7 @@
 
 .emptyIcon {
   font-size: 3rem;
+  color: var(--ifm-color-emphasis-400);
   margin-bottom: 1rem;
 }
 
@@ -212,6 +218,52 @@
   font-weight: 700;
   margin: 0 0 1rem;
   color: var(--ifm-heading-color);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.sectionTitleIcon {
+  font-size: 1em;
+  flex-shrink: 0;
+}
+
+.sectionTitleCompleted .sectionTitleIcon {
+  color: #10b981;
+}
+
+.sectionTitleReviewing .sectionTitleIcon {
+  color: #f59e0b;
+}
+
+.sectionCount {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-600);
+  margin-left: 0.1rem;
+}
+
+.sectionTitleCompleted .sectionCount {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+[data-theme='dark'] .sectionTitleCompleted .sectionCount {
+  background: rgba(16, 185, 129, 0.18);
+  color: #6ee7b7;
+}
+
+.sectionTitleReviewing .sectionCount {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+
+[data-theme='dark'] .sectionTitleReviewing .sectionCount {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fcd34d;
 }
 
 .sectionHeader .sectionTitle {
@@ -270,20 +322,30 @@
   margin-bottom: 0.5rem;
   font-size: 0.78rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .univDone {
   color: #059669;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .univReview {
   color: #d97706;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .univTotal {
   color: var(--ifm-color-emphasis-500);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .univBar {
@@ -340,6 +402,14 @@
   font-size: 0.72rem;
   color: var(--ifm-color-emphasis-500);
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.entryUnivIcon {
+  font-size: 0.9em;
+  flex-shrink: 0;
 }
 
 .entryTitle {
@@ -377,6 +447,14 @@
   border-radius: 20px;
   font-weight: 600;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.badgeIcon {
+  font-size: 0.85em;
+  flex-shrink: 0;
 }
 
 .badgeCompleted {
