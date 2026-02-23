@@ -518,6 +518,13 @@
   background: rgba(59, 130, 246, 0.12);
   color: #93c5fd;
 }
+
+.reviewRound {
+  margin-left: 0.4rem;
+  font-size: 0.85em;
+  opacity: 0.7;
+  font-weight: 400;
+}
 /* 状态徽章 */
 .badge {
   font-size: 0.75rem;

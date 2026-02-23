@@ -10,12 +10,15 @@ const LABELS = {
     [STATUS.COMPLETED]: '已完成',
     [STATUS.REVIEWING]: '待复习',
     reviewed: '我已复习',
-    reviewedTitle: '复习完成，重置遗忘曲线计时器',
+    reviewedTitle: '复习完成，进入下一轮复习周期',
+    reviewedFinal: '完成全部复习',
+    reviewedFinalTitle: '最后一轮，点击后自动标记为已完成',
     hint: '标记状态后可在「进度总览」中查看所有进度',
     nextReview: '下次复习',
     nextReviewToday: '今日',
     nextReviewIn: (d) => `${d} 天后`,
     nextReviewOverdue: (d) => `已逾期 ${d} 天`,
+    round: (n, total) => `第 ${n + 1} / ${total} 轮`,
   },
   ja: {
     heading: '学習進捗',
@@ -23,12 +26,15 @@ const LABELS = {
     [STATUS.COMPLETED]: '完了',
     [STATUS.REVIEWING]: '要復習',
     reviewed: '復習完了',
-    reviewedTitle: '復習したことを記録し、忘却曲線をリセット',
+    reviewedTitle: '復習したことを記録し、次の復習サイクルへ',
+    reviewedFinal: '全計終了',
+    reviewedFinalTitle: '最終ラウンド。クリックすると記録が「完了」に変わります',
     hint: '「進捗一覧」ページで全体の進捗を確認できます',
     nextReview: '次回復習',
     nextReviewToday: '今日',
     nextReviewIn: (d) => `${d}日後`,
     nextReviewOverdue: (d) => `${d}日超過`,
+    round: (n, total) => `第 ${n + 1} / ${total} 回目`,
   },
 };
 
@@ -43,7 +49,7 @@ const BUTTONS = [
 ];
 
 export default function ProgressTracker({ docId, title, permalink, tags }) {
-  const [status, setStatus, refreshReview, updatedAt] = useDocProgress(docId, title, permalink, tags);
+  const [status, setStatus, refreshReview, updatedAt, reviewCount] = useDocProgress(docId, title, permalink, tags);
   const [lang, setLang] = React.useState(getLanguage);
   const [justRefreshed, setJustRefreshed] = React.useState(false);
   const t = LABELS[lang] ?? LABELS.zh;
@@ -84,16 +90,20 @@ export default function ProgressTracker({ docId, title, permalink, tags }) {
             <span className={styles.btnText}>{t[key]}</span>
           </button>
         ))}
-        {status === STATUS.REVIEWING && (
-          <button
-            onClick={handleRefresh}
-            className={`${styles.btn} ${justRefreshed ? styles.btnRefreshed : styles.btnRefresh}`}
-            title={t.reviewedTitle}
-          >
-            <FaSyncAlt className={`${styles.btnIcon} ${justRefreshed ? styles.spinOnce : ''}`} />
-            <span className={styles.btnText}>{t.reviewed}</span>
-          </button>
-        )}
+        {status === STATUS.REVIEWING && (() => {
+          const info = getReviewInfo(updatedAt, reviewCount);
+          const isLastRound = info && (reviewCount + 1 >= info.totalRounds);
+          return (
+            <button
+              onClick={handleRefresh}
+              className={`${styles.btn} ${justRefreshed ? styles.btnRefreshed : isLastRound ? styles.btnFinal : styles.btnRefresh}`}
+              title={isLastRound ? t.reviewedFinalTitle : t.reviewedTitle}
+            >
+              <FaSyncAlt className={`${styles.btnIcon} ${justRefreshed ? styles.spinOnce : ''}`} />
+              <span className={styles.btnText}>{isLastRound ? t.reviewedFinal : t.reviewed}</span>
+            </button>
+          );
+        })()}
         {status !== STATUS.NOT_STARTED && (
           <button
             onClick={() => setStatus(STATUS.NOT_STARTED)}
@@ -106,7 +116,7 @@ export default function ProgressTracker({ docId, title, permalink, tags }) {
         )}
       </div>
       {status === STATUS.REVIEWING && (() => {
-        const info = getReviewInfo(updatedAt);
+        const info = getReviewInfo(updatedAt, reviewCount);
         if (!info) return null;
         let text, cls;
         if (info.urgency === 'critical') {
@@ -122,6 +132,7 @@ export default function ProgressTracker({ docId, title, permalink, tags }) {
         return (
           <p className={`${styles.nextReviewLine} ${cls}`}>
             📅 {t.nextReview}: <strong>{text}</strong>
+            <span className={styles.reviewRound}>{t.round(reviewCount, info.totalRounds)}</span>
           </p>
         );
       })()}

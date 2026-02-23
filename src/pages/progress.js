@@ -161,7 +161,7 @@ const ReviewReminderSection = ({ entries, t }) => {
   const items = React.useMemo(() => {
     return entries
       .filter((e) => e.status === STATUS.REVIEWING)
-      .map((e) => ({ ...e, reviewInfo: getReviewInfo(e.updatedAt) }))
+      .map((e) => ({ ...e, reviewInfo: getReviewInfo(e.updatedAt, e.reviewCount ?? 0) }))
       .filter((e) => e.reviewInfo && e.reviewInfo.due)
       .sort((a, b) => (URGENCY_ORDER[a.reviewInfo.urgency] ?? 9) - (URGENCY_ORDER[b.reviewInfo.urgency] ?? 9));
   }, [entries]);
@@ -318,6 +318,7 @@ const T = {
     nextReviewToday: '今日复习',
     nextReviewOverdue: (d) => `已逾期 ${d} 天`,
     nextReviewIn: (d) => `${d} 天后`,
+    round: (n, total) => `第 ${n + 1} / ${total} 轮`,
   },
   ja: {
     pageTitle: '学習進捗一覧',
@@ -353,6 +354,7 @@ const T = {
     nextReviewToday: '今日復習',
     nextReviewOverdue: (d) => `${d}日超過`,
     nextReviewIn: (d) => `${d}日後`,
+    round: (n, total) => `第 ${n + 1} / ${total} 回目`,
   },
 };
 
@@ -373,7 +375,7 @@ const StatusBadge = ({ status, t }) => {
 };
 
 const EntryRow = ({ entry, t }) => {
-  const reviewInfo = entry.status === STATUS.REVIEWING ? getReviewInfo(entry.updatedAt) : null;
+  const reviewInfo = entry.status === STATUS.REVIEWING ? getReviewInfo(entry.updatedAt, entry.reviewCount ?? 0) : null;
   const nextReviewText = reviewInfo
     ? reviewInfo.urgency === 'critical'
       ? t.nextReviewOverdue(reviewInfo.overdueDays)
@@ -403,6 +405,7 @@ const EntryRow = ({ entry, t }) => {
           <span className={`${styles.nextReviewBadge} ${nextReviewColor}`}>
             <FaCalendarAlt style={{ marginRight: '0.25rem', fontSize: '0.85em' }} />
             {t.nextReview}: {nextReviewText}
+            {reviewInfo && <span className={styles.reviewRound}>{t.round(entry.reviewCount ?? 0, reviewInfo.totalRounds)}</span>}
           </span>
         )}
         {entry.updatedAt && (

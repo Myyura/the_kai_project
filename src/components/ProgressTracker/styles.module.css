@@ -123,6 +123,30 @@
   color: #fcd34d;
 }
 
+/* 最终轮按钮 */
+.btnFinal {
+  color: #065f46;
+  border-color: #6ee7b7;
+  background: #d1fae5;
+}
+
+.btnFinal:hover {
+  background: #a7f3d0;
+  border-color: #10b981;
+  color: #064e3b;
+}
+
+[data-theme='dark'] .btnFinal {
+  color: #6ee7b7;
+  border-color: #059669;
+  background: rgba(16, 185, 129, 0.15);
+}
+
+[data-theme='dark'] .btnFinal:hover {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: #34d399;
+}
+
 /* 已复习按钮 */
 .btnRefresh {
   color: #0369a1;
@@ -233,6 +257,13 @@
 [data-theme='dark'] .nextReviewSoon {
   background: rgba(59, 130, 246, 0.12);
   color: #93c5fd;
+}
+
+.reviewRound {
+  margin-left: 0.5rem;
+  font-size: 0.85em;
+  opacity: 0.7;
+  font-weight: 400;
 }
 
 .trackerHint a {

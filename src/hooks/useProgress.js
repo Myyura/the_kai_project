@@ -33,26 +33,27 @@ export const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60];
 
 /**
  * 计算下次复习信息
- * @returns {{ due: boolean, urgency: string, daysUntil?: number, overdueDays?: number }}
+ * @param {number} updatedAt  - 上次操作时间戳
+ * @param {number} reviewCount - 已完成的复习次数（0=刚标记）
+ * @returns {{ due: boolean, urgency: string, daysUntil?: number, overdueDays?: number, reviewCount: number, totalRounds: number }}
  */
-export const getReviewInfo = (updatedAt) => {
+export const getReviewInfo = (updatedAt, reviewCount = 0) => {
   if (!updatedAt) return null;
+  const totalRounds = REVIEW_INTERVALS.length;
+  const idx = Math.min(reviewCount, totalRounds - 1);
+  const targetDays = REVIEW_INTERVALS[idx];
   const daysSince = (Date.now() - updatedAt) / 86400000;
-  const nextInterval = REVIEW_INTERVALS.find((d) => d > daysSince);
-  const passedCount = REVIEW_INTERVALS.filter((d) => d <= daysSince).length;
-  if (passedCount === 0)
-    return { due: false, daysUntil: Math.ceil(REVIEW_INTERVALS[0] - daysSince), urgency: 'soon' };
-  if (!nextInterval)
-    return {
-      due: true,
-      overdueDays: Math.floor(daysSince - REVIEW_INTERVALS[REVIEW_INTERVALS.length - 1]),
-      urgency: 'critical',
-    };
-  const daysUntil = nextInterval - daysSince;
+  const daysUntil = targetDays - daysSince;
+  if (daysUntil > 1)
+    return { due: false, daysUntil: Math.ceil(daysUntil), urgency: 'soon', reviewCount, totalRounds };
+  if (daysUntil > 0)
+    return { due: true, daysUntil: 1, urgency: 'urgent', reviewCount, totalRounds };
   return {
     due: true,
-    daysUntil: Math.ceil(daysUntil),
-    urgency: daysUntil < 1 ? 'urgent' : 'normal',
+    overdueDays: Math.floor(-daysUntil),
+    urgency: 'critical',
+    reviewCount,
+    totalRounds,
   };
 };
 
@@ -88,6 +89,10 @@ export const useDocProgress = (docId, title, permalink, tags) => {
           title: title ?? docId,
           permalink: permalink ?? `/docs/${docId}`,
           tags: Array.isArray(tags) ? tags : [],
+          // 切換到复习时初始化次数；其他状态不减不加
+          reviewCount: newStatus === STATUS.REVIEWING
+            ? (statusChanged ? 0 : (prev?.reviewCount ?? 0))
+            : (prev?.reviewCount ?? 0),
           updatedAt: statusChanged ? Date.now() : (prev?.updatedAt ?? Date.now()),
         };
       }
@@ -100,12 +105,19 @@ export const useDocProgress = (docId, title, permalink, tags) => {
   const refreshReview = useCallback(() => {
     const current = readProgressData();
     if (!current[docId]) return;
-    current[docId] = { ...current[docId], updatedAt: Date.now() };
+    const newCount = (current[docId].reviewCount ?? 0) + 1;
+    const isFinished = newCount >= REVIEW_INTERVALS.length;
+    current[docId] = {
+      ...current[docId],
+      reviewCount: newCount,
+      status: isFinished ? STATUS.COMPLETED : current[docId].status,
+      updatedAt: Date.now(),
+    };
     writeProgressData(current);
     setData({ ...current });
   }, [docId]);
 
-  return [status, setStatus, refreshReview, entry?.updatedAt ?? null];
+  return [status, setStatus, refreshReview, entry?.updatedAt ?? null, entry?.reviewCount ?? 0];
 };
 
 /**
