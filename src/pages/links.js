@@ -179,7 +179,7 @@ const LinkCard = ({ link, index, isJob = false }) => {
   return (
     <div 
       className={clsx(styles.linkCard, isJob && styles.jobCard)}
-      style={{ animationDelay: `${index * 0.05}s` }}
+      style={{ animationDelay: index < 8 ? `${index * 0.04}s` : '0.28s' }}
     >
       <div className={styles.cardHeader}>
         <h3 className={styles.cardTitle}>{link.name}</h3>

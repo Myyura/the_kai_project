@@ -106,6 +106,7 @@ const getLanguageFromDOM = () => {
 const useStoredLanguage = () => {
   const language = React.useSyncExternalStore(
     (callback) => {
+      if (typeof window === 'undefined') return () => {};
       window.addEventListener('languageChange', callback);
       return () => window.removeEventListener('languageChange', callback);
     },
