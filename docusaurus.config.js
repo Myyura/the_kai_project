@@ -246,6 +246,7 @@ const config = {
           {to: '/blog', label: '经验贴', position: 'left'},
           {to: '/docs/tags', label: 'Tags', position: 'left'},
           {to: '/links', label: '参考链接', position: 'left'},
+          {to: '/progress', label: '进度', position: 'left'},
           {to: '/legalstatement', label: '法律声明', position: 'left'},
           {
             href: 'https://github.com/Myyura/the_kai_project',

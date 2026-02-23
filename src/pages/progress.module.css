@@ -1,0 +1,432 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* 头部 */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--ifm-heading-color);
+}
+
+.pageSubtitle {
+  font-size: 0.95rem;
+  color: var(--ifm-color-emphasis-600);
+  margin: 0;
+}
+
+/* 语言切换 */
+.langSwitch {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+.langBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-500);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+.langBtn:hover {
+  color: var(--ifm-color-primary);
+}
+
+.langBtnActive {
+  color: var(--ifm-color-primary) !important;
+  font-weight: 700;
+}
+
+.langDivider {
+  color: var(--ifm-color-emphasis-400);
+  font-size: 0.85rem;
+}
+
+/* 统计卡片行 */
+.statsRow {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  flex: 1;
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.1rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+  gap: 0.25rem;
+  transition: border-color 0.2s;
+}
+
+.statCard:hover {
+  border-color: var(--ifm-color-primary-light);
+}
+
+.statCardCompleted {
+  border-color: #6ee7b7;
+  background: linear-gradient(135deg, #f0fdf4, var(--ifm-background-surface-color));
+}
+
+[data-theme='dark'] .statCardCompleted {
+  border-color: #059669;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), var(--ifm-background-surface-color));
+}
+
+.statCardReviewing {
+  border-color: #fbbf24;
+  background: linear-gradient(135deg, #fffbeb, var(--ifm-background-surface-color));
+}
+
+[data-theme='dark'] .statCardReviewing {
+  border-color: #f59e0b;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), var(--ifm-background-surface-color));
+}
+
+.statNumber {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ifm-heading-color);
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 500;
+}
+
+/* 总进度条 */
+.progressBarContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.progressBar {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-200);
+  overflow: hidden;
+  display: flex;
+}
+
+.progressFill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.progressFillCompleted {
+  background: #10b981;
+}
+
+.progressFillReviewing {
+  background: #f59e0b;
+}
+
+.progressLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-600);
+  white-space: nowrap;
+}
+
+/* 空状态 */
+.emptyState {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  border-radius: 16px;
+  border: 2px dashed var(--ifm-color-emphasis-300);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.emptyText {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 1.25rem;
+}
+
+.goBtn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: opacity 0.15s;
+}
+
+.goBtn:hover {
+  opacity: 0.85;
+}
+
+/* 区块通用 */
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.sectionHeader .sectionTitle {
+  margin: 0;
+}
+
+/* 清除按钮 */
+.clearBtn {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 7px;
+  border: 1.5px solid #ef4444;
+  background: transparent;
+  color: #ef4444;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.clearBtn:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* 大学网格 */
+.univGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.univCard {
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.15s;
+}
+
+.univCard:hover {
+  border-color: var(--ifm-color-primary-light);
+}
+
+.univName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+  margin-bottom: 0.5rem;
+}
+
+.univStats {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.78rem;
+  flex-wrap: wrap;
+}
+
+.univDone {
+  color: #059669;
+  font-weight: 600;
+}
+
+.univReview {
+  color: #d97706;
+  font-weight: 600;
+}
+
+.univTotal {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.univBar {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-200);
+  overflow: hidden;
+}
+
+.univBarFill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.univBarCompleted {
+  background: #10b981;
+}
+
+/* 题目列表 */
+.entryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.entryRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.15s, background 0.15s;
+  flex-wrap: wrap;
+}
+
+.entryRow:hover {
+  border-color: var(--ifm-color-primary-light);
+  background: var(--ifm-hover-overlay);
+}
+
+.entryInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.entryUniv {
+  font-size: 0.72rem;
+  color: var(--ifm-color-emphasis-500);
+  font-weight: 500;
+}
+
+.entryTitle {
+  font-size: 0.9rem;
+  color: var(--ifm-link-color);
+  text-decoration: none;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entryTitle:hover {
+  text-decoration: underline;
+}
+
+.entryMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.entryDate {
+  font-size: 0.72rem;
+  color: var(--ifm-color-emphasis-400);
+  white-space: nowrap;
+}
+
+/* 状态徽章 */
+.badge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badgeCompleted {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+[data-theme='dark'] .badgeCompleted {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+}
+
+.badgeReviewing {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+[data-theme='dark'] .badgeReviewing {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+}
+
+@media (max-width: 640px) {
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .statsRow {
+    gap: 0.6rem;
+  }
+
+  .statCard {
+    min-width: 90px;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .statNumber {
+    font-size: 1.75rem;
+  }
+
+  .entryRow {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .entryMeta {
+    align-items: flex-start;
+  }
+}

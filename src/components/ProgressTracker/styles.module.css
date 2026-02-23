@@ -1,0 +1,163 @@
+.tracker {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.2s;
+}
+
+.tracker:hover {
+  border-color: var(--ifm-color-primary-light);
+}
+
+.trackerHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.trackerLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  letter-spacing: 0.02em;
+}
+
+/* 状态徽章 */
+.statusBadge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.badge_not_started {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-600);
+}
+
+.badge_completed {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+[data-theme='dark'] .badge_completed {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+}
+
+.badge_reviewing {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+[data-theme='dark'] .badge_reviewing {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+}
+
+/* 按钮行 */
+.trackerButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--ifm-color-emphasis-200);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  line-height: 1.4;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btnDefault {
+  color: var(--ifm-color-emphasis-700);
+  border-color: var(--ifm-color-emphasis-200);
+}
+
+.btnDefault:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+/* 已完成 - 激活状态 */
+.btn_completed_active {
+  background: #d1fae5;
+  border-color: #6ee7b7;
+  color: #065f46;
+}
+
+[data-theme='dark'] .btn_completed_active {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #059669;
+  color: #6ee7b7;
+}
+
+/* 待复习 - 激活状态 */
+.btn_reviewing_active {
+  background: #fef3c7;
+  border-color: #fbbf24;
+  color: #92400e;
+}
+
+[data-theme='dark'] .btn_reviewing_active {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #f59e0b;
+  color: #fcd34d;
+}
+
+/* 重置按钮 */
+.btnReset {
+  color: var(--ifm-color-emphasis-500);
+  border-color: var(--ifm-color-emphasis-200);
+  font-size: 0.78rem;
+}
+
+.btnReset:hover {
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.btnIcon {
+  font-size: 0.9em;
+}
+
+.btnText {
+  white-space: nowrap;
+}
+
+/* 提示文字 */
+.trackerHint {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.trackerHint a {
+  color: var(--ifm-color-emphasis-500);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--ifm-color-emphasis-400);
+  transition: color 0.15s;
+}
+
+.trackerHint a:hover {
+  color: var(--ifm-color-primary);
+  border-bottom-color: var(--ifm-color-primary);
+}
