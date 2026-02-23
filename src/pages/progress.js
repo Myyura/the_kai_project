@@ -4,9 +4,10 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import {
   FaCheckCircle, FaRedo, FaClipboardList, FaTrashAlt,
-  FaFileAlt, FaArrowRight, FaBuilding, FaTag
+  FaFileAlt, FaArrowRight, FaBuilding, FaTag,
+  FaBell, FaFire, FaCalendarAlt
 } from 'react-icons/fa';
-import { useAllProgress, STATUS } from '@site/src/hooks/useProgress';
+import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
 import styles from './progress.module.css';
 
 const toTagSlug = (tag) =>
@@ -38,6 +39,224 @@ const UNIV_MAP = {
 const extractUniv = (docId = '') => {
   const seg = docId.split('/')[0] || '';
   return UNIV_MAP[seg] || seg || '不明';
+};
+
+const toDateKey = (ts) => {
+  const d = new Date(ts);
+  return [
+    d.getFullYear(),
+    String(d.getMonth() + 1).padStart(2, '0'),
+    String(d.getDate()).padStart(2, '0'),
+  ].join('-');
+};
+
+const MONTHS_ZH = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+const MONTHS_JA = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+const CELL_PX = 13;
+const GAP_PX = 3;
+const GRID_COLS = 52;
+
+// 热力图组件
+const StudyHeatmap = ({ entries, t, language }) => {
+  const MONTHS = language === 'ja' ? MONTHS_JA : MONTHS_ZH;
+
+  const activityMap = React.useMemo(() => {
+    const map = {};
+    entries.forEach((e) => {
+      if (!e.updatedAt) return;
+      const key = toDateKey(e.updatedAt);
+      map[key] = (map[key] || 0) + 1;
+    });
+    return map;
+  }, [entries]);
+
+  const { cells, monthLabels } = React.useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    // 从51周前的周日开始
+    const gridStart = new Date(today);
+    gridStart.setDate(today.getDate() - today.getDay() - 51 * 7);
+
+    const cells = [];
+    for (let i = 0; i < GRID_COLS * 7; i++) {
+      const d = new Date(gridStart);
+      d.setDate(gridStart.getDate() + i);
+      const key = toDateKey(d.getTime());
+      const count = activityMap[key] || 0;
+      const isFuture = d > today;
+      const level = isFuture ? 'future'
+        : count === 0 ? '0'
+        : count === 1 ? '1'
+        : count <= 3 ? '2'
+        : count <= 5 ? '3'
+        : '4';
+      cells.push({ key, count, isFuture, level });
+    }
+
+    const monthLabels = [];
+    let lastMonth = -1;
+    for (let w = 0; w < GRID_COLS; w++) {
+      const d = new Date(gridStart);
+      d.setDate(gridStart.getDate() + w * 7);
+      const m = d.getMonth();
+      if (m !== lastMonth) {
+        monthLabels.push({ col: w, label: MONTHS[m] });
+        lastMonth = m;
+      }
+    }
+    return { cells, monthLabels };
+  }, [activityMap, MONTHS]);
+
+  const totalActivity = Object.values(activityMap).reduce((a, b) => a + b, 0);
+
+  return (
+    <section className={styles.section}>
+      <div className={styles.heatmapHeader}>
+        <h2 className={styles.sectionTitle}>
+          <FaFire className={styles.sectionTitleIcon} style={{ color: '#ef4444' }} />
+          {t.heatmap}
+        </h2>
+        <span className={styles.heatmapTotalCount}>{totalActivity} {t.activitiesUnit}</span>
+      </div>
+      <div className={styles.heatmapScrollWrap}>
+        <div className={styles.heatmapInner}>
+          <div className={styles.heatmapMonthRow}>
+            {monthLabels.map(({ col, label }) => (
+              <span
+                key={col}
+                className={styles.heatmapMonthLabel}
+                style={{ left: `${col * (CELL_PX + GAP_PX)}px` }}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+          <div className={styles.heatmapGrid}>
+            {cells.map((cell, i) => (
+              <div
+                key={i}
+                className={`${styles.heatmapCell} ${styles[`heatmapL${cell.level}`]}`}
+                title={cell.isFuture ? '' : `${cell.key}：${cell.count} ${t.activitiesUnit}`}
+              />
+            ))}
+          </div>
+          <div className={styles.heatmapLegend}>
+            <span>{t.less}</span>
+            {['0','1','2','3','4'].map((l) => (
+              <div key={l} className={`${styles.heatmapCell} ${styles[`heatmapL${l}`]}`} />
+            ))}
+            <span>{t.more}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const URGENCY_ORDER = { critical: 0, urgent: 1, normal: 2, soon: 3 };
+
+// 遗忘曲线提醒组件
+const ReviewReminderSection = ({ entries, t }) => {
+  const items = React.useMemo(() => {
+    return entries
+      .filter((e) => e.status === STATUS.REVIEWING)
+      .map((e) => ({ ...e, reviewInfo: getReviewInfo(e.updatedAt) }))
+      .filter((e) => e.reviewInfo && e.reviewInfo.due)
+      .sort((a, b) => (URGENCY_ORDER[a.reviewInfo.urgency] ?? 9) - (URGENCY_ORDER[b.reviewInfo.urgency] ?? 9));
+  }, [entries]);
+
+  if (items.length === 0) return null;
+
+  const UrgencyBadge = ({ reviewInfo }) => {
+    if (reviewInfo.urgency === 'critical')
+      return <span className={`${styles.urgencyBadge} ${styles.urgencyCritical}`}>{t.critical}</span>;
+    if (reviewInfo.urgency === 'urgent')
+      return <span className={`${styles.urgencyBadge} ${styles.urgencyUrgent}`}>{t.urgent}</span>;
+    return <span className={`${styles.urgencyBadge} ${styles.urgencyNormal}`}>{t.dueNow}</span>;
+  };
+
+  return (
+    <section className={styles.section}>
+      <h2 className={styles.sectionTitle}>
+        <FaBell className={styles.sectionTitleIcon} style={{ color: '#ef4444' }} />
+        {t.reviewDue}
+        <span className={`${styles.sectionCount} ${styles.sectionCountAlert}`}>{items.length}</span>
+      </h2>
+      <div className={styles.reminderList}>
+        {items.map((entry) => (
+          <div
+            key={entry.id}
+            className={`${styles.reminderRow} ${entry.reviewInfo.urgency === 'critical' ? styles.reminderCritical : entry.reviewInfo.urgency === 'urgent' ? styles.reminderUrgent : ''}`}
+          >
+            <div className={styles.entryInfo}>
+              <span className={styles.entryUniv}>
+                <FaBuilding className={styles.entryUnivIcon} />
+                {extractUniv(entry.id)}
+              </span>
+              <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
+                {entry.title || entry.id}
+              </a>
+            </div>
+            <div className={styles.reminderMeta}>
+              <UrgencyBadge reviewInfo={entry.reviewInfo} />
+              {entry.reviewInfo.urgency === 'critical' && (
+                <span className={styles.reminderSub}>{t.overdueDays(entry.reviewInfo.overdueDays)}</span>
+              )}
+              {entry.reviewInfo.urgency === 'normal' && (
+                <span className={styles.reminderSub}>{t.daysLater(entry.reviewInfo.daysUntil)}</span>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// 最近练习组件
+const RecentPracticeSection = ({ entries, t }) => {
+  const items = React.useMemo(() => {
+    const sevenDaysAgo = Date.now() - 7 * 86400000;
+    return entries
+      .filter((e) => e.updatedAt && e.updatedAt >= sevenDaysAgo)
+      .sort((a, b) => (b.updatedAt ?? 0) - (a.updatedAt ?? 0));
+  }, [entries]);
+
+  if (items.length === 0) return null;
+
+  return (
+    <section className={styles.section}>
+      <h2 className={styles.sectionTitle}>
+        <FaCalendarAlt className={styles.sectionTitleIcon} style={{ color: '#3b82f6' }} />
+        {t.recentPractice}
+        <span className={styles.sectionCount}>{items.length}</span>
+      </h2>
+      <div className={styles.entryList}>
+        {items.map((entry) => (
+          <div key={entry.id} className={styles.entryRow}>
+            <div className={styles.entryInfo}>
+              <span className={styles.entryUniv}>
+                <FaBuilding className={styles.entryUnivIcon} />
+                {extractUniv(entry.id)}
+              </span>
+              <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
+                {entry.title || entry.id}
+              </a>
+            </div>
+            <div className={styles.entryMeta}>
+              <StatusBadge status={entry.status} t={t} />
+              {entry.updatedAt && (
+                <span className={styles.entryDate}>
+                  {new Date(entry.updatedAt).toLocaleDateString('zh-CN')}
+                </span>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 // 语言快照
@@ -84,6 +303,21 @@ const T = {
     review: '复习',
     lastUpdated: '更新于',
     open: '查看',
+    heatmap: '学习热力图',
+    less: '少',
+    more: '多',
+    activitiesUnit: '题',
+    reviewDue: '遗忘曲线提醒',
+    recentPractice: '最近7天练习',
+    critical: '严重逾期',
+    urgent: '今日到期',
+    dueNow: '需要复习',
+    overdueDays: (d) => `逾期 ${d} 天`,
+    daysLater: (d) => `还有 ${d} 天`,
+    nextReview: '下次复习',
+    nextReviewToday: '今日复习',
+    nextReviewOverdue: (d) => `已逾期 ${d} 天`,
+    nextReviewIn: (d) => `${d} 天后`,
   },
   ja: {
     pageTitle: '学習進捗一覧',
@@ -104,6 +338,21 @@ const T = {
     review: '復習',
     lastUpdated: '更新',
     open: '開く',
+    heatmap: '学習ヒートマップ',
+    less: '少',
+    more: '多',
+    activitiesUnit: '問',
+    reviewDue: '忘却曲線リマインダー',
+    recentPractice: '直近7日の練習',
+    critical: '大幅超過',
+    urgent: '本日期限',
+    dueNow: '要復習',
+    overdueDays: (d) => `${d}日超過`,
+    daysLater: (d) => `あと${d}日`,
+    nextReview: '次回復習',
+    nextReviewToday: '今日復習',
+    nextReviewOverdue: (d) => `${d}日超過`,
+    nextReviewIn: (d) => `${d}日後`,
   },
 };
 
@@ -123,26 +372,48 @@ const StatusBadge = ({ status, t }) => {
   return null;
 };
 
-const EntryRow = ({ entry, t }) => (
-  <div className={styles.entryRow}>
-    <div className={styles.entryInfo}>
-      <span className={styles.entryUniv}>
-        <FaBuilding className={styles.entryUnivIcon} />
-        {extractUniv(entry.id)}
-      </span>
-      <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
-        {entry.title || entry.id}
-      </a>
-    </div>
-    <div className={styles.entryMeta}>
-      {entry.updatedAt && (
-        <span className={styles.entryDate}>
-          {t.lastUpdated}: {new Date(entry.updatedAt).toLocaleDateString('zh-CN')}
+const EntryRow = ({ entry, t }) => {
+  const reviewInfo = entry.status === STATUS.REVIEWING ? getReviewInfo(entry.updatedAt) : null;
+  const nextReviewText = reviewInfo
+    ? reviewInfo.urgency === 'critical'
+      ? t.nextReviewOverdue(reviewInfo.overdueDays)
+      : reviewInfo.urgency === 'urgent'
+      ? t.nextReviewToday
+      : t.nextReviewIn(reviewInfo.daysUntil)
+    : null;
+  const nextReviewColor = reviewInfo?.urgency === 'critical'
+    ? styles.nextReviewOverdue
+    : reviewInfo?.urgency === 'urgent'
+    ? styles.nextReviewUrgent
+    : styles.nextReviewSoon;
+
+  return (
+    <div className={styles.entryRow}>
+      <div className={styles.entryInfo}>
+        <span className={styles.entryUniv}>
+          <FaBuilding className={styles.entryUnivIcon} />
+          {extractUniv(entry.id)}
         </span>
-      )}
+        <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
+          {entry.title || entry.id}
+        </a>
+      </div>
+      <div className={styles.entryMeta}>
+        {nextReviewText && (
+          <span className={`${styles.nextReviewBadge} ${nextReviewColor}`}>
+            <FaCalendarAlt style={{ marginRight: '0.25rem', fontSize: '0.85em' }} />
+            {t.nextReview}: {nextReviewText}
+          </span>
+        )}
+        {entry.updatedAt && (
+          <span className={styles.entryDate}>
+            {t.lastUpdated}: {new Date(entry.updatedAt).toLocaleDateString('zh-CN')}
+          </span>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 function ProgressPageInner() {
   const [language, toggleLanguage] = useStoredLanguage();
@@ -249,6 +520,15 @@ function ProgressPageInner() {
         </div>
       ) : (
         <>
+          {/* 学习热力图 */}
+          <StudyHeatmap entries={entries} t={t} language={language} />
+
+          {/* 遗忘曲线提醒 */}
+          <ReviewReminderSection entries={entries} t={t} />
+
+          {/* 最近练习 */}
+          <RecentPracticeSection entries={entries} t={t} />
+
           {/* 按知识点统计 */}
           {tagGroups.length > 0 && (
             <section className={styles.section}>

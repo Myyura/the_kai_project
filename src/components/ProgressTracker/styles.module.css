@@ -123,6 +123,52 @@
   color: #fcd34d;
 }
 
+/* 已复习按钮 */
+.btnRefresh {
+  color: #0369a1;
+  border-color: #7dd3fc;
+  background: #f0f9ff;
+}
+
+.btnRefresh:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+  color: #0284c7;
+}
+
+[data-theme='dark'] .btnRefresh {
+  color: #7dd3fc;
+  border-color: #0369a1;
+  background: rgba(14, 165, 233, 0.1);
+}
+
+[data-theme='dark'] .btnRefresh:hover {
+  background: rgba(14, 165, 233, 0.2);
+  border-color: #38bdf8;
+}
+
+.btnRefreshed {
+  color: #059669;
+  border-color: #6ee7b7;
+  background: #d1fae5;
+  pointer-events: none;
+}
+
+[data-theme='dark'] .btnRefreshed {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #059669;
+  color: #6ee7b7;
+}
+
+@keyframes spinOnce {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.spinOnce {
+  animation: spinOnce 0.5s ease;
+}
+
 /* 重置按钮 */
 .btnReset {
   color: var(--ifm-color-emphasis-500);
@@ -148,6 +194,45 @@
   margin: 0;
   font-size: 0.75rem;
   color: var(--ifm-color-emphasis-500);
+}
+
+/* 下次复习时间行 */
+.nextReviewLine {
+  margin: 0.4rem 0 0.4rem;
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.nextReviewOverdue {
+  background: #fee2e2;
+  color: #991b1b;
+}
+[data-theme='dark'] .nextReviewOverdue {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+}
+
+.nextReviewUrgent {
+  background: #fef3c7;
+  color: #92400e;
+}
+[data-theme='dark'] .nextReviewUrgent {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fcd34d;
+}
+
+.nextReviewSoon {
+  background: #eff6ff;
+  color: #1e40af;
+}
+[data-theme='dark'] .nextReviewSoon {
+  background: rgba(59, 130, 246, 0.12);
+  color: #93c5fd;
 }
 
 .trackerHint a {

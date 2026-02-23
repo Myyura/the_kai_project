@@ -481,7 +481,43 @@
   color: var(--ifm-color-emphasis-400);
   white-space: nowrap;
 }
+/* 下次复习徽章 */
+.nextReviewBadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
 
+.nextReviewOverdue {
+  background: #fee2e2;
+  color: #991b1b;
+}
+[data-theme='dark'] .nextReviewOverdue {
+  background: rgba(239, 68, 68, 0.18);
+  color: #fca5a5;
+}
+
+.nextReviewUrgent {
+  background: #fef3c7;
+  color: #92400e;
+}
+[data-theme='dark'] .nextReviewUrgent {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fcd34d;
+}
+
+.nextReviewSoon {
+  background: #eff6ff;
+  color: #1e40af;
+}
+[data-theme='dark'] .nextReviewSoon {
+  background: rgba(59, 130, 246, 0.12);
+  color: #93c5fd;
+}
 /* 状态徽章 */
 .badge {
   font-size: 0.75rem;
@@ -517,6 +553,178 @@
 [data-theme='dark'] .badgeReviewing {
   background: rgba(245, 158, 11, 0.2);
   color: #fcd34d;
+}
+
+/* ================= 学习热力图 ================= */
+.heatmapHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.heatmapTotalCount {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-500);
+  flex-shrink: 0;
+}
+
+.heatmapScrollWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.heatmapInner {
+  display: inline-block;
+  min-width: max-content;
+}
+
+.heatmapMonthRow {
+  position: relative;
+  height: 18px;
+  margin-bottom: 4px;
+}
+
+.heatmapMonthLabel {
+  position: absolute;
+  font-size: 0.7rem;
+  color: var(--ifm-color-emphasis-500);
+  white-space: nowrap;
+  top: 0;
+}
+
+.heatmapGrid {
+  display: grid;
+  grid-template-rows: repeat(7, 13px);
+  grid-auto-flow: column;
+  grid-auto-columns: 13px;
+  gap: 3px;
+}
+
+.heatmapCell {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  transition: opacity 0.15s;
+}
+
+.heatmapCell:hover { opacity: 0.75; }
+
+.heatmapLfuture { background: transparent; }
+.heatmapL0 { background: var(--ifm-color-emphasis-200); }
+.heatmapL1 { background: #bbf7d0; }
+.heatmapL2 { background: #4ade80; }
+.heatmapL3 { background: #16a34a; }
+.heatmapL4 { background: #14532d; }
+
+[data-theme='dark'] .heatmapL0 { background: var(--ifm-color-emphasis-300); }
+[data-theme='dark'] .heatmapL1 { background: #14532d; }
+[data-theme='dark'] .heatmapL2 { background: #166534; }
+[data-theme='dark'] .heatmapL3 { background: #16a34a; }
+[data-theme='dark'] .heatmapL4 { background: #4ade80; }
+
+.heatmapLegend {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+/* ================= 遗忘曲线提醒 ================= */
+.reminderList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reminderRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+  flex-wrap: wrap;
+  transition: border-color 0.15s;
+}
+
+.reminderUrgent {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+[data-theme='dark'] .reminderUrgent {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.reminderCritical {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+[data-theme='dark'] .reminderCritical {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.reminderMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.reminderSub {
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.urgencyBadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+}
+
+.urgencyCritical {
+  background: #fee2e2;
+  color: #991b1b;
+}
+[data-theme='dark'] .urgencyCritical {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.urgencyUrgent {
+  background: #fef3c7;
+  color: #92400e;
+}
+[data-theme='dark'] .urgencyUrgent {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+}
+
+.urgencyNormal {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+[data-theme='dark'] .urgencyNormal {
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+}
+
+.sectionCountAlert {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}
+[data-theme='dark'] .sectionCountAlert {
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #fca5a5 !important;
 }
 
 @media (max-width: 640px) {

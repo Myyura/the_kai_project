@@ -28,6 +28,34 @@ export const writeProgressData = (data) => {
   } catch {}
 };
 
+// 遗忘曲线复习间隔（天）
+export const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60];
+
+/**
+ * 计算下次复习信息
+ * @returns {{ due: boolean, urgency: string, daysUntil?: number, overdueDays?: number }}
+ */
+export const getReviewInfo = (updatedAt) => {
+  if (!updatedAt) return null;
+  const daysSince = (Date.now() - updatedAt) / 86400000;
+  const nextInterval = REVIEW_INTERVALS.find((d) => d > daysSince);
+  const passedCount = REVIEW_INTERVALS.filter((d) => d <= daysSince).length;
+  if (passedCount === 0)
+    return { due: false, daysUntil: Math.ceil(REVIEW_INTERVALS[0] - daysSince), urgency: 'soon' };
+  if (!nextInterval)
+    return {
+      due: true,
+      overdueDays: Math.floor(daysSince - REVIEW_INTERVALS[REVIEW_INTERVALS.length - 1]),
+      urgency: 'critical',
+    };
+  const daysUntil = nextInterval - daysSince;
+  return {
+    due: true,
+    daysUntil: Math.ceil(daysUntil),
+    urgency: daysUntil < 1 ? 'urgent' : 'normal',
+  };
+};
+
 /**
  * 单文档进度钩子
  * @param {string} docId   - 文档 ID（来自 metadata.id）
@@ -53,12 +81,14 @@ export const useDocProgress = (docId, title, permalink, tags) => {
       if (newStatus === STATUS.NOT_STARTED) {
         delete current[docId];
       } else {
+        const prev = current[docId];
+        const statusChanged = !prev || prev.status !== newStatus;
         current[docId] = {
           status: newStatus,
           title: title ?? docId,
           permalink: permalink ?? `/docs/${docId}`,
           tags: Array.isArray(tags) ? tags : [],
-          updatedAt: Date.now(),
+          updatedAt: statusChanged ? Date.now() : (prev?.updatedAt ?? Date.now()),
         };
       }
       writeProgressData(current);
@@ -67,7 +97,15 @@ export const useDocProgress = (docId, title, permalink, tags) => {
     [docId, title, permalink, tags]
   );
 
-  return [status, setStatus];
+  const refreshReview = useCallback(() => {
+    const current = readProgressData();
+    if (!current[docId]) return;
+    current[docId] = { ...current[docId], updatedAt: Date.now() };
+    writeProgressData(current);
+    setData({ ...current });
+  }, [docId]);
+
+  return [status, setStatus, refreshReview, entry?.updatedAt ?? null];
 };
 
 /**
