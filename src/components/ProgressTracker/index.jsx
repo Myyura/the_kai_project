@@ -30,8 +30,8 @@ const BUTTONS = [
   { key: STATUS.REVIEWING, Icon: FaRedo },
 ];
 
-export default function ProgressTracker({ docId, title, permalink }) {
-  const [status, setStatus] = useDocProgress(docId, title, permalink);
+export default function ProgressTracker({ docId, title, permalink, tags }) {
+  const [status, setStatus] = useDocProgress(docId, title, permalink, tags);
   const [lang, setLang] = React.useState(getLanguage);
   const t = LABELS[lang] ?? LABELS.zh;
 

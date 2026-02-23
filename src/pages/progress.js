@@ -4,10 +4,16 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import {
   FaCheckCircle, FaRedo, FaClipboardList, FaTrashAlt,
-  FaFileAlt, FaArrowRight, FaBuilding
+  FaFileAlt, FaArrowRight, FaBuilding, FaTag
 } from 'react-icons/fa';
 import { useAllProgress, STATUS } from '@site/src/hooks/useProgress';
 import styles from './progress.module.css';
+
+const toTagSlug = (tag) =>
+  tag
+    .toLowerCase()
+    .replace(/[^\w\u3000-\u9fff\uac00-\ud7af\u3040-\u30ff]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 // 路径段 → 大学显示名
 const UNIV_MAP = {
@@ -69,6 +75,7 @@ const T = {
     goExam: '浏览过去问',
     clearAll: '清除全部进度',
     confirmClear: '确定要清除所有进度记录吗？此操作不可恢复。',
+    byTag: '按知识点统计',
     byUniversity: '按大学统计',
     sectionCompleted: '已完成题目',
     sectionReviewing: '待复习题目',
@@ -88,6 +95,7 @@ const T = {
     goExam: '過去問を見る',
     clearAll: '全て削除',
     confirmClear: '全ての進捗記録を削除しますか？この操作は元に戻せません。',
+    byTag: 'タグ別集計',
     byUniversity: '大学別集計',
     sectionCompleted: '完了問題',
     sectionReviewing: '要復習問題',
@@ -139,7 +147,7 @@ const EntryRow = ({ entry, t }) => (
 function ProgressPageInner() {
   const [language, toggleLanguage] = useStoredLanguage();
   const t = T[language] ?? T.zh;
-  const { entries, stats, clearAll } = useAllProgress();
+  const { entries, stats, tagGroups, clearAll } = useAllProgress();
 
   // 按大学分组
   const univGroups = React.useMemo(() => {
@@ -241,9 +249,40 @@ function ProgressPageInner() {
         </div>
       ) : (
         <>
+          {/* 按知识点统计 */}
+          {tagGroups.length > 0 && (
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>
+                <FaTag className={styles.sectionTitleIcon} style={{ color: '#6366f1' }} />
+                {t.byTag}
+              </h2>
+              <div className={styles.tagGrid}>
+                {tagGroups.map(([tag, data]) => (
+                  <Link key={tag} to={`/docs/tags/${toTagSlug(tag)}`} className={styles.tagCard}>
+                    <div className={styles.tagName}>{tag}</div>
+                    <div className={styles.univStats}>
+                      <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{data.completed}</span>
+                      <span className={styles.univReview}><FaRedo style={{ marginRight: '0.25rem' }} />{data.reviewing}</span>
+                      <span className={styles.univTotal}><FaClipboardList style={{ marginRight: '0.25rem' }} />{data.total}</span>
+                    </div>
+                    <div className={styles.univBar}>
+                      <div
+                        className={`${styles.univBarFill} ${styles.tagBarCompleted}`}
+                        style={{ width: `${(data.completed / data.total) * 100}%` }}
+                      />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* 按大学统计 */}
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>{t.byUniversity}</h2>
+            <h2 className={styles.sectionTitle}>
+              <FaBuilding className={styles.sectionTitleIcon} style={{ color: '#6b7280' }} />
+              {t.byUniversity}
+            </h2>
             <div className={styles.univGrid}>
               {univGroups.map(([univ, data]) => (
                 <div key={univ} className={styles.univCard}>

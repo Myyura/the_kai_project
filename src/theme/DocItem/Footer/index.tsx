@@ -52,6 +52,7 @@ export default function DocItemFooter(): ReactNode {
             docId={id}
             title={title}
             permalink={permalink}
+            tags={tags.map((t) => t.label)}
           />
         )}
       </BrowserOnly>

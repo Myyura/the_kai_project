@@ -33,8 +33,9 @@ export const writeProgressData = (data) => {
  * @param {string} docId   - 文档 ID（来自 metadata.id）
  * @param {string} title   - 文档标题，用于在总览页显示
  * @param {string} permalink - 文档链接
+ * @param {string[]} tags  - 文档标签列表
  */
-export const useDocProgress = (docId, title, permalink) => {
+export const useDocProgress = (docId, title, permalink, tags) => {
   const [data, setData] = useState(() => readProgressData());
 
   useEffect(() => {
@@ -56,13 +57,14 @@ export const useDocProgress = (docId, title, permalink) => {
           status: newStatus,
           title: title ?? docId,
           permalink: permalink ?? `/docs/${docId}`,
+          tags: Array.isArray(tags) ? tags : [],
           updatedAt: Date.now(),
         };
       }
       writeProgressData(current);
       setData({ ...current });
     },
-    [docId, title, permalink]
+    [docId, title, permalink, tags]
   );
 
   return [status, setStatus];
@@ -94,5 +96,18 @@ export const useAllProgress = () => {
     setData({});
   }, []);
 
-  return { data, entries, stats, clearAll };
+  const tagStats = {};
+  entries.forEach((e) => {
+    if (!Array.isArray(e.tags)) return;
+    e.tags.forEach((tag) => {
+      if (/university$/i.test(tag)) return;
+      if (!tagStats[tag]) tagStats[tag] = { completed: 0, reviewing: 0, total: 0 };
+      tagStats[tag].total++;
+      if (e.status === STATUS.COMPLETED) tagStats[tag].completed++;
+      if (e.status === STATUS.REVIEWING) tagStats[tag].reviewing++;
+    });
+  });
+  const tagGroups = Object.entries(tagStats).sort((a, b) => b[1].total - a[1].total);
+
+  return { data, entries, stats, tagGroups, clearAll };
 };
