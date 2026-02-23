@@ -3,8 +3,10 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaUsers } from 'react-icons/fa';
+import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaUsers, FaCheckCircle, FaSyncAlt } from 'react-icons/fa';
 import React, { useState, useMemo } from 'react';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import { useAllProgress, STATUS } from '../hooks/useProgress';
 import { universities } from '../data/universities';
 
 import Heading from '@theme/Heading';
@@ -40,9 +42,16 @@ const translations = {
     universityTitle: '支持的大学',
     universityDescription: '快速访问各大学研究科官方信息',
     websiteLink: '官方链接',
+    progressBannerTitle: '本地做题进度追踪',
+    progressBannerDesc: '在每道题页面一键标记「已完成」或「待复习」，进度保存在本地浏览器，随时查看整体备考进度。',
+    progressBannerCta: '查看进度总览',
+    progressBannerCompleted: '已完成',
+    progressBannerReviewing: '待复习',
+    progressBannerNoData: '点击任意题目底部即可开始标记',
     ctaTitle: '开始你的备考之旅',
     ctaDescription: '加入数千名考生的行列，获取最全面的备考资源',
     ctaButtonContribute: '参与贡献',
+    ctaButtonProgress: '我的进度',
     ctaButtonGithub: 'GitHub'
   },
   ja: {
@@ -74,9 +83,16 @@ const translations = {
     universityTitle: '対応大学',
     universityDescription: '各大学研究科の公式情報へのリンク',
     websiteLink: '公式リンク',
+    progressBannerTitle: '学習進捗トラッキング',
+    progressBannerDesc: '各問題ページで「完了」「要復習」をワンクリックで記録。進捗はブラウザにローカル保存され、いつでも全体の学習状況を確認できます。',
+    progressBannerCta: '進捗一覧を見る',
+    progressBannerCompleted: '完了',
+    progressBannerReviewing: '要復習',
+    progressBannerNoData: '問題ページの下部でマークを開始できます',
     ctaTitle: '受験勉強を始めよう',
     ctaDescription: '数千人の受験生と一緒に、充実した受験対策を',
     ctaButtonContribute: '貢献する',
+    ctaButtonProgress: '学習進捗',
     ctaButtonGithub: 'GitHub'
   }
 };
@@ -180,6 +196,10 @@ const HeroSection = ({ language, toggleLanguage, t }) => {
           <Link className={styles.secondaryBtn} to="/blog">
             {t.viewExperiences}
           </Link>
+          <Link className={styles.progressBtn} to="/progress">
+            <FaCheckCircle className={styles.btnIcon} />
+            {t.ctaButtonProgress}
+          </Link>
         </div>
 
         {/* 统计数据 */}
@@ -188,6 +208,17 @@ const HeroSection = ({ language, toggleLanguage, t }) => {
           <StatCard number="15+" label={t.statsUniversities} delay="0.3s" />
           <StatCard number="🔥" label={t.statsCommunity} delay="0.4s" />
         </div>
+
+        {/* 进度追踪入口 - 融入 Hero 区底部 */}
+        <BrowserOnly fallback={
+          <Link to="/progress" className={styles.heroProgressCallout}>
+            <FaCheckCircle className={styles.heroProgressIcon} />
+            <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
+            <FaArrowRight className={styles.heroProgressArrow} />
+          </Link>
+        }>
+          {() => <HeroProgressCallout t={t} />}
+        </BrowserOnly>
       </div>
     </section>
   );
@@ -279,6 +310,109 @@ const UniversitySection = ({ language, t }) => {
     </section>
   );
 };
+
+// Hero 区进度内联展示
+const HeroProgressCallout = ({ t }) => {
+  const { stats } = useAllProgress();
+  const hasData = stats.total > 0;
+  return (
+    <Link to="/progress" className={styles.heroProgressCallout}>
+      <FaCheckCircle className={styles.heroProgressIcon} />
+      <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
+      {hasData && (
+        <span className={styles.heroProgressStats}>
+          <span className={styles.heroProgressStatItem} style={{ color: '#10b981' }}>
+            ✅ {stats.completed}
+          </span>
+          <span className={styles.heroProgressStatItem} style={{ color: '#f59e0b' }}>
+            🔄 {stats.reviewing}
+          </span>
+          {stats.total > 0 && (
+            <span className={styles.heroProgressBarWrap}>
+              <span
+                className={styles.heroProgressBarFill}
+                style={{ width: `${Math.round((stats.completed / stats.total) * 100)}%` }}
+              />
+            </span>
+          )}
+        </span>
+      )}
+      <FaArrowRight className={styles.heroProgressArrow} />
+    </Link>
+  );
+};
+
+// 进度功能横幅区块
+const ProgressBannerInner = ({ t }) => {
+  const { stats } = useAllProgress();
+  const hasData = stats.total > 0;
+  return (
+    <div className={styles.progressBannerInner}>
+      <div className={styles.progressBannerLeft}>
+        <div className={styles.progressBannerBadge}>✨ NEW</div>
+        <h2 className={styles.progressBannerTitle}>{t.progressBannerTitle}</h2>
+        <p className={styles.progressBannerDesc}>{t.progressBannerDesc}</p>
+        <Link to="/progress" className={styles.progressBannerBtn}>
+          {t.progressBannerCta}
+          <FaArrowRight className={styles.btnIcon} />
+        </Link>
+      </div>
+      <div className={styles.progressBannerRight}>
+        {hasData ? (
+          <>
+            <div className={styles.progressMiniCard}>
+              <FaCheckCircle className={styles.progressMiniIcon} style={{ color: '#10b981' }} />
+              <span className={styles.progressMiniNum}>{stats.completed}</span>
+              <span className={styles.progressMiniLabel}>{t.progressBannerCompleted}</span>
+            </div>
+            <div className={styles.progressMiniCard}>
+              <FaSyncAlt className={styles.progressMiniIcon} style={{ color: '#f59e0b' }} />
+              <span className={styles.progressMiniNum}>{stats.reviewing}</span>
+              <span className={styles.progressMiniLabel}>{t.progressBannerReviewing}</span>
+            </div>
+            <div className={styles.progressMiniTotal}>
+              <span className={styles.progressMiniTotalNum}>{stats.total}</span>
+              <span className={styles.progressMiniLabel}>Total</span>
+              <div className={styles.progressMiniBar}>
+                <div
+                  className={styles.progressMiniBarFill}
+                  style={{ width: `${Math.round((stats.completed / stats.total) * 100)}%` }}
+                />
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className={styles.progressMiniEmpty}>
+            <span className={styles.progressMiniEmptyIcon}>📋</span>
+            <span className={styles.progressMiniLabel}>{t.progressBannerNoData}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const ProgressBannerSection = ({ t }) => (
+  <section className={styles.progressBannerSection}>
+    <div className="container">
+      <BrowserOnly fallback={
+        <div className={styles.progressBannerInner}>
+          <div className={styles.progressBannerLeft}>
+            <div className={styles.progressBannerBadge}>✨ NEW</div>
+            <h2 className={styles.progressBannerTitle}>{t.progressBannerTitle}</h2>
+            <p className={styles.progressBannerDesc}>{t.progressBannerDesc}</p>
+            <Link to="/progress" className={styles.progressBannerBtn}>
+              {t.progressBannerCta}
+              <FaArrowRight className={styles.btnIcon} />
+            </Link>
+          </div>
+        </div>
+      }>
+        {() => <ProgressBannerInner t={t} />}
+      </BrowserOnly>
+    </div>
+  </section>
+);
 
 // CTA区域 - 苹果风格
 const CtaSection = ({ t }) => (
