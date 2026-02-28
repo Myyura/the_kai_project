@@ -2,11 +2,13 @@
 sidebar_label: "2021年8月実施 専門基礎A [A-1]"
 tags:
   - Kyoto-University
+  - Calculus
+  - Linear-Algebra
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2021年8月実施 専門基礎A \[A-1\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 (1) 次の関数 $f(x)$ について以下の問に答えよ。
