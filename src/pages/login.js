@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import {
   FaCloud, FaEnvelope, FaLock, FaSignInAlt, FaUserPlus,
   FaCheck, FaExclamationTriangle, FaSyncAlt, FaUser,
@@ -9,6 +11,15 @@ import {
 } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
 import { useStoredLanguage } from '@site/src/context/LanguageContext';
+import {
+  checkRateLimit,
+  recordFailedAttempt,
+  resetAttempts,
+  sanitizeAuthError,
+  getRateLimitMessage,
+  getAttemptsLeftMessage,
+  validatePassword,
+} from '@site/src/services/authSecurity';
 import styles from './login.module.css';
 
 // ── 翻译 ────────────────────────────────────────────────────
@@ -23,7 +34,8 @@ const T = {
     email: '邮箱',
     emailPlaceholder: 'you@example.com',
     password: '密码',
-    passwordPlaceholder: '至少 6 位',
+    passwordPlaceholder: '至少8位，含大小写字母和数字',
+    passwordPlaceholderLogin: '请输入密码',
     loginBtn: '登录',
     registerBtn: '注册',
     logging: '登录中...',
@@ -46,7 +58,8 @@ const T = {
     email: 'メール',
     emailPlaceholder: 'you@example.com',
     password: 'パスワード',
-    passwordPlaceholder: '6文字以上',
+    passwordPlaceholder: '8文字以上、大小英字と数字を含む',
+    passwordPlaceholderLogin: 'パスワードを入力',
     loginBtn: 'ログイン',
     registerBtn: '登録',
     logging: 'ログイン中...',
@@ -66,7 +79,10 @@ const T = {
 
 function LoginPageContent() {
   const language = useStoredLanguage();
+  const lang = language === 'ja' ? 'ja' : 'zh';
   const t = language === 'ja' ? T.ja : T.zh;
+  const { siteConfig } = useDocusaurusContext();
+  const hcaptchaSiteKey = siteConfig?.customFields?.hcaptchaSiteKey || '';
 
   const {
     isConfigured, user, isLoggedIn, error,
@@ -78,36 +94,115 @@ function LoginPageContent() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState(null); // { text, isError }
+  const [pwErrors, setPwErrors] = useState([]);
+  const [lockCountdown, setLockCountdown] = useState(0);
+  const [captchaToken, setCaptchaToken] = useState('');
+  const countdownRef = useRef(null);
+  const captchaRef = useRef(null);
+
+  // 锁定倒计时
+  useEffect(() => {
+    const { locked, remainingSeconds } = checkRateLimit();
+    if (locked) startCountdown(remainingSeconds);
+    return () => clearInterval(countdownRef.current);
+  }, []);
+
+  const startCountdown = (seconds) => {
+    setLockCountdown(seconds);
+    clearInterval(countdownRef.current);
+    countdownRef.current = setInterval(() => {
+      setLockCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(countdownRef.current);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
 
   const showMsg = (text, isError = false) => {
     setMsg({ text, isError });
     if (!isError) {
-      // 成功消息 5 秒后清除
       setTimeout(() => setMsg(null), 5000);
+    }
+  };
+
+  // 实时密码强度检查（仅注册模式）
+  const handlePasswordChange = (val) => {
+    setPassword(val);
+    if (mode === 'register' && val.length > 0) {
+      const { errors } = validatePassword(val, lang);
+      setPwErrors(errors);
+    } else {
+      setPwErrors([]);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setMsg(null);
+
+    // hCaptcha 验证检查
+    if (hcaptchaSiteKey && !captchaToken) {
+      showMsg(lang === 'ja' ? 'CAPTCHA認証を完了してください。' : '请先完成人机验证。', true);
+      return;
+    }
+
+    // 频率限制检查（仅登录模式）
+    if (mode === 'login') {
+      const rateCheck = checkRateLimit();
+      if (rateCheck.locked) {
+        showMsg(getRateLimitMessage(rateCheck.remainingSeconds, lang), true);
+        startCountdown(rateCheck.remainingSeconds);
+        return;
+      }
+    }
+
+    // 注册时校验密码强度
+    if (mode === 'register') {
+      const { valid, errors } = validatePassword(password, lang);
+      if (!valid) {
+        setPwErrors(errors);
+        showMsg(errors.join('；'), true);
+        return;
+      }
+    }
+
+    setLoading(true);
 
     try {
       if (mode === 'login') {
-        await loginWithEmail(email, password);
+        await loginWithEmail(email, password, captchaToken || undefined);
+        resetAttempts();
         showMsg(t.loginOk);
-        // 登录成功后跳转进度页
         setTimeout(() => {
           window.location.href = '/progress';
         }, 1000);
       } else {
-        await registerWithEmail(email, password);
+        await registerWithEmail(email, password, captchaToken || undefined);
+        resetAttempts();
         showMsg(t.registerOk);
       }
     } catch (err) {
-      showMsg(err.message || 'Error', true);
+      if (mode === 'login') {
+        const result = recordFailedAttempt();
+        if (result.locked) {
+          showMsg(getRateLimitMessage(result.remainingSeconds, lang), true);
+          startCountdown(result.remainingSeconds);
+        } else if (result.attemptsLeft <= 3) {
+          showMsg(getAttemptsLeftMessage(result.attemptsLeft, lang), true);
+        } else {
+          showMsg(sanitizeAuthError(err, lang), true);
+        }
+      } else {
+        showMsg(err.message || 'Error', true);
+      }
     } finally {
       setLoading(false);
+      // 每次提交后重置 captcha，要求重新验证
+      setCaptchaToken('');
+      captchaRef.current?.resetCaptcha();
     }
   };
 
@@ -204,7 +299,7 @@ function LoginPageContent() {
           <div className={styles.authToggle}>
             <button
               className={`${styles.authTab} ${mode === 'login' ? styles.authTabActive : ''}`}
-              onClick={() => { setMode('login'); setMsg(null); }}
+              onClick={() => { setMode('login'); setMsg(null); setPwErrors([]); }}
             >
               <FaSignInAlt /> {t.tabLogin}
             </button>
@@ -215,6 +310,14 @@ function LoginPageContent() {
               <FaUserPlus /> {t.tabRegister}
             </button>
           </div>
+
+          {/* 锁定倒计时提示 */}
+          {lockCountdown > 0 && (
+            <div className={`${styles.message} ${styles.messageError}`}>
+              <FaExclamationTriangle className={styles.messageIcon} />
+              <span>{getRateLimitMessage(lockCountdown, lang)}</span>
+            </div>
+          )}
 
           {/* 表单 */}
           <form onSubmit={handleSubmit}>
@@ -239,18 +342,38 @@ function LoginPageContent() {
               <input
                 type="password"
                 className={styles.input}
-                placeholder={t.passwordPlaceholder}
+                placeholder={mode === 'register' ? t.passwordPlaceholder : t.passwordPlaceholderLogin}
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => handlePasswordChange(e.target.value)}
                 required
-                minLength={6}
+                minLength={mode === 'register' ? 8 : 6}
                 autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
               />
+              {/* 注册时显示密码强度提示 */}
+              {mode === 'register' && pwErrors.length > 0 && (
+                <ul style={{ color: 'var(--ifm-color-danger)', fontSize: '0.85rem', margin: '4px 0 0', paddingLeft: '1.2em' }}>
+                  {pwErrors.map((e, i) => <li key={i}>{e}</li>)}
+                </ul>
+              )}
             </div>
+
+            {/* hCaptcha 人机验证 */}
+            {hcaptchaSiteKey && (
+              <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }}>
+                <HCaptcha
+                  ref={captchaRef}
+                  sitekey={hcaptchaSiteKey}
+                  onVerify={(token) => setCaptchaToken(token)}
+                  onExpire={() => setCaptchaToken('')}
+                  onError={() => setCaptchaToken('')}
+                />
+              </div>
+            )}
+
             <button
               type="submit"
               className={`${styles.btn} ${styles.btnPrimary}`}
-              disabled={loading}
+              disabled={loading || lockCountdown > 0 || (hcaptchaSiteKey && !captchaToken)}
             >
               {loading
                 ? <><FaSyncAlt className={styles.spin} /> {mode === 'login' ? t.logging : t.registering}</>

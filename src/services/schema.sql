@@ -2,6 +2,19 @@
 -- Kai Project 云同步所需的 Supabase 数据库表结构
 -- 在 Supabase SQL Editor 中执行此脚本即可
 -- ============================================================
+--
+-- ⚠️ 重要：还需在 Supabase Dashboard 中手动配置以下服务端安全项（不可被前端绕过）：
+--
+--   1. Authentication → Rate Limits
+--      → 设置每 IP / 每邮箱的登录尝试频率上限（推荐：10 次/小时）
+--
+--   2. Authentication → Providers → Email
+--      → Min password length = 8
+--
+--   3. Authentication → Bot and Abuse Protection
+--      → 启用 hCaptcha 或 Cloudflare Turnstile（防自动化暴力破解）
+--
+-- ============================================================
 
 -- 启用 UUID 扩展
 create extension if not exists "uuid-ossp";

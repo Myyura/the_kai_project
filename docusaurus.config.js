@@ -44,6 +44,7 @@ const config = {
   customFields: {
     supabaseUrl: process.env.SUPABASE_URL || '',
     supabaseAnonKey: process.env.SUPABASE_ANON_KEY || '',
+    hcaptchaSiteKey: process.env.HCAPTCHA_SITE_KEY || '',
   },
   
 

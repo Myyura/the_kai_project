@@ -58,6 +58,8 @@ export const getSupabaseClient = () => {
       persistSession: true,
       autoRefreshToken: true,
       storageKey: 'kai_supabase_auth',
+      flowType: 'pkce',             // 使用 PKCE 流程，防止授权码拦截攻击
+      detectSessionInUrl: false,     // 禁止自动从 URL 中读取 token，防止 token 泄露
     },
   });
   return _clientCache;

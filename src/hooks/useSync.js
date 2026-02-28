@@ -127,22 +127,23 @@ export const useSync = () => {
 
   // ── 认证操作（仅邮箱） ────────────────────────────────────
 
-  const loginWithEmail = useCallback(async (email, password) => {
+  const loginWithEmail = useCallback(async (email, password, captchaToken) => {
     setError(null);
     try {
-      return await signInWithEmail(email, password);
+      return await signInWithEmail(email, password, captchaToken);
     } catch (err) {
-      setError(err.message);
+      // 不在 state 中存储原始错误信息，让调用方用 sanitizeAuthError 脱敏
+      setError('操作失败');
       throw err;
     }
   }, []);
 
-  const registerWithEmail = useCallback(async (email, password) => {
+  const registerWithEmail = useCallback(async (email, password, captchaToken) => {
     setError(null);
     try {
-      return await signUpWithEmail(email, password);
+      return await signUpWithEmail(email, password, captchaToken);
     } catch (err) {
-      setError(err.message);
+      setError('操作失败');
       throw err;
     }
   }, []);

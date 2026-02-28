@@ -8,6 +8,7 @@
  */
 
 import { getSupabaseClient } from './supabaseClient';
+import { validateSyncData } from './authSecurity';
 import { STORAGE_KEY as PROGRESS_KEY, readProgressData, writeProgressData } from '../hooks/useProgress';
 import { NOTES_STORAGE_KEY, readNotesData, writeNotesData } from '../hooks/useNotes';
 
@@ -110,6 +111,16 @@ export const pullRemoteData = async () => {
   const progress = typeof remote.progress === 'object' ? remote.progress : {};
   const notes = typeof remote.notes === 'object' ? remote.notes : {};
 
+  // 安全校验：验证远端数据结构，防止恶意数据注入 localStorage
+  const progressCheck = validateSyncData(progress);
+  if (!progressCheck.valid) {
+    throw new Error(`远端 progress 数据异常: ${progressCheck.reason}`);
+  }
+  const notesCheck = validateSyncData(notes);
+  if (!notesCheck.valid) {
+    throw new Error(`远端 notes 数据异常: ${notesCheck.reason}`);
+  }
+
   writeProgressData(progress);
   writeNotesData(notes);
   return { pulled: true };
@@ -132,6 +143,16 @@ export const syncMerge = async () => {
   const localNotes = readNotesData();
   const remoteProgress = (remote && typeof remote.progress === 'object') ? remote.progress : {};
   const remoteNotes = (remote && typeof remote.notes === 'object') ? remote.notes : {};
+
+  // 安全校验远端数据
+  const progressCheck = validateSyncData(remoteProgress);
+  if (!progressCheck.valid) {
+    throw new Error(`远端 progress 数据异常: ${progressCheck.reason}`);
+  }
+  const notesCheck2 = validateSyncData(remoteNotes);
+  if (!notesCheck2.valid) {
+    throw new Error(`远端 notes 数据异常: ${notesCheck2.reason}`);
+  }
 
   const mergedProgress = mergeByTimestamp(localProgress, remoteProgress);
   const mergedNotes = mergeByTimestamp(localNotes, remoteNotes);
@@ -166,10 +187,12 @@ export const syncMerge = async () => {
 /**
  * 邮箱 + 密码注册
  */
-export const signUpWithEmail = async (email, password) => {
+export const signUpWithEmail = async (email, password, captchaToken) => {
   const sb = getSupabaseClient();
   if (!sb) throw new Error('Supabase 未配置');
-  const { data, error } = await sb.auth.signUp({ email, password });
+  const options = { email, password };
+  if (captchaToken) options.options = { captchaToken };
+  const { data, error } = await sb.auth.signUp(options);
   if (error) throw error;
   return data;
 };
@@ -177,10 +200,12 @@ export const signUpWithEmail = async (email, password) => {
 /**
  * 邮箱 + 密码登录
  */
-export const signInWithEmail = async (email, password) => {
+export const signInWithEmail = async (email, password, captchaToken) => {
   const sb = getSupabaseClient();
   if (!sb) throw new Error('Supabase 未配置');
-  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+  const options = { email, password };
+  if (captchaToken) options.options = { captchaToken };
+  const { data, error } = await sb.auth.signInWithPassword(options);
   if (error) throw error;
   return data;
 };
@@ -195,13 +220,17 @@ export const signOut = async () => {
 };
 
 /**
- * 获取当前会话
+ * 获取当前会话（通过服务端验证 JWT）
+ * 注意：使用 getUser() 而非 getSession()，
+ * getSession() 仅读取本地存储不验证 JWT，存在被篡改风险
  */
 export const getSession = async () => {
   const sb = getSupabaseClient();
   if (!sb) return null;
-  const { data: { session } } = await sb.auth.getSession();
-  return session;
+  const { data: { user }, error } = await sb.auth.getUser();
+  if (error || !user) return null;
+  // 构造兼容的 session-like 对象，供上层读取 user
+  return { user };
 };
 
 /**
