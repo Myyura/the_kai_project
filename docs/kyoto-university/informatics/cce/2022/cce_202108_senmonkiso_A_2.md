@@ -2,11 +2,14 @@
 sidebar_label: "2021年8月実施 専門基礎A [A-2]"
 tags:
   - Kyoto-University
+  - Differential-Equation
+  - Complex-Analysis
+  - Fourier-Analysis
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2021年8月実施 専門基礎A \[A-2\]
 
 ## **Author**
-Miyake
+[Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 (1) 関数 $f(t)$ のフーリエ余弦変換は次式で定義される。 
