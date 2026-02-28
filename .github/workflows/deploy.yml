@@ -26,6 +26,9 @@ jobs:
         run: npx update-browserslist-db@latest
       - name: 构建网站
         run: yarn build
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: 上传构建制品
         uses: actions/upload-pages-artifact@v3

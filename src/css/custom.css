@@ -118,6 +118,39 @@ main {
   color: var(--ifm-color-primary);
 }
 
+/* 登录按钮突出显示 */
+.navbar__link--login {
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+  border-radius: var(--custom-border-radius-xs);
+  padding: 0.35rem 1rem !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: var(--custom-transition-fast) !important;
+  margin-left: 0.4rem;
+}
+
+.navbar__link--login:hover {
+  background: var(--ifm-color-primary-dark);
+  color: #fff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(46, 133, 85, 0.3);
+}
+
+.navbar__link--login::after {
+  display: none !important;
+}
+
+[data-theme='dark'] .navbar__link--login {
+  background: var(--ifm-color-primary);
+  box-shadow: 0 0 8px rgba(37, 194, 160, 0.2);
+}
+
+[data-theme='dark'] .navbar__link--login:hover {
+  background: var(--ifm-color-primary-light);
+  box-shadow: 0 4px 16px rgba(37, 194, 160, 0.35);
+}
+
 /* Reduce title size in blog list */
 .blog-list-page h2[class*="title"]
 {

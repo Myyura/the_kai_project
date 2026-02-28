@@ -39,6 +39,12 @@ const config = {
   title: 'The Kai Project',
   tagline: 'Answer to the Ultimate Question of Life, the Universe, and Everything',
   favicon: 'img/favicon.ico',
+
+  // Supabase 凭据通过环境变量注入（GitHub Secrets → CI 环境变量）
+  customFields: {
+    supabaseUrl: process.env.SUPABASE_URL || '',
+    supabaseAnonKey: process.env.SUPABASE_ANON_KEY || '',
+  },
   
 
   // Set the production url of your site here
@@ -236,6 +242,12 @@ const config = {
           {to: '/links', label: '参考链接', position: 'left'},
           {to: '/progress', label: '进度', position: 'left'},
           {to: '/legalstatement', label: '法律声明', position: 'left'},
+          {
+            to: '/login',
+            label: '登录',
+            position: 'right',
+            className: 'navbar__link--login',
+          },
           {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',

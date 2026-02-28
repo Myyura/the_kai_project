@@ -10,6 +10,7 @@ import {
 import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
 import { UNIV_MAP } from '@site/src/data/universities';
 import { useStoredLanguage } from '@site/src/context/LanguageContext';
+import CloudSyncPanel from '@site/src/components/CloudSyncPanel';
 import styles from './progress.module.css';
 
 const toTagSlug = (tag) =>
@@ -246,7 +247,7 @@ const RecentPracticeSection = ({ entries, t }) => {
 const T = {
   zh: {
     pageTitle: '做题进度总览',
-    pageSubtitle: '所有标记过的过去问进度，数据保存在本地浏览器中',
+    pageSubtitle: '所有标记过的过去问进度，数据保存在本地浏览器中。可通过下方「云同步」跨设备同步。',
     completed: '已完成',
     reviewing: '待复习',
     totalTracked: '已追踪',
@@ -282,7 +283,7 @@ const T = {
   },
   ja: {
     pageTitle: '学習進捗一覧',
-    pageSubtitle: 'マークした過去問の進捗。データはブラウザのローカルストレージに保存されます。',
+    pageSubtitle: 'マークした過去問の進捗。ブラウザに保存されます。下の「クラウド同期」でデバイス間同期が可能です。',
     completed: '完了',
     reviewing: '要復習',
     totalTracked: '追跡中',
@@ -591,6 +592,9 @@ function ProgressPageInner() {
           )}
         </>
       )}
+
+      {/* 云同步 — 放在页面最底部 */}
+      <CloudSyncPanel language={language} />
     </div>
   );
 }
