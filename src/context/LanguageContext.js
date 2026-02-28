@@ -72,20 +72,50 @@ export const setLanguage = (lang) => {
 };
 
 /**
- * 订阅语言变化（配合 useSyncExternalStore 使用）
- * 监听自定义 languageChange 事件和 MutationObserver
+ * 单例 observer + 订阅集合模式
+ * 无论多少组件调用 useSyncExternalStore，始终只有 1 个 MutationObserver 和 1 个事件监听
  */
+const languageSubscribers = new Set();
+let singletonObserver = null;
+
+const notifySubscribers = () => {
+  languageSubscribers.forEach((cb) => cb());
+};
+
+const startObserving = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  window.addEventListener('languageChange', notifySubscribers);
+  singletonObserver = new MutationObserver(notifySubscribers);
+  singletonObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-lang'],
+  });
+};
+
+const stopObserving = () => {
+  if (typeof window === 'undefined') return;
+  window.removeEventListener('languageChange', notifySubscribers);
+  if (singletonObserver) {
+    singletonObserver.disconnect();
+    singletonObserver = null;
+  }
+};
+
 const subscribeToLanguage = (callback) => {
   if (typeof window === 'undefined' || typeof document === 'undefined') return () => {};
-  
-  window.addEventListener('languageChange', callback);
-  
-  const observer = new MutationObserver(callback);
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-lang'] });
-  
+
+  // 第一个订阅者加入时启动 observer
+  if (languageSubscribers.size === 0) {
+    startObserving();
+  }
+  languageSubscribers.add(callback);
+
   return () => {
-    window.removeEventListener('languageChange', callback);
-    observer.disconnect();
+    languageSubscribers.delete(callback);
+    // 最后一个订阅者离开时停止 observer
+    if (languageSubscribers.size === 0) {
+      stopObserving();
+    }
   };
 };
 

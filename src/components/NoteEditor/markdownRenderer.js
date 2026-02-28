@@ -12,12 +12,42 @@ function escapeHtml(text) {
     .replace(/"/g, '&quot;');
 }
 
+// ─── URL 安全校验（防止 javascript: 等 XSS 协议） ──────────────
+const SAFE_URL_PROTOCOLS = /^(?:https?|mailto|tel|ftp):/i;
+const DATA_IMAGE_PATTERN = /^data:image\/[a-z+]+;base64,/i;
+
+function sanitizeUrl(url) {
+  const trimmed = url.trim();
+  // 允许相对路径（以 / . # 开头或不含冒号）
+  if (trimmed.startsWith('/') || trimmed.startsWith('.') || trimmed.startsWith('#') || !trimmed.includes(':')) {
+    return escapeHtml(trimmed);
+  }
+  // 允许安全协议
+  if (SAFE_URL_PROTOCOLS.test(trimmed)) {
+    return escapeHtml(trimmed);
+  }
+  // 允许 base64 图片
+  if (DATA_IMAGE_PATTERN.test(trimmed)) {
+    return escapeHtml(trimmed);
+  }
+  // 拒绝其他协议（javascript:, vbscript:, data:text/html 等）
+  return '';
+}
+
 // ─── 行内元素处理 ────────────────────────────────────────────
 function processInline(text) {
-  // 图片 ![alt](url)
-  text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%"/>');
-  // 链接 [text](url)
-  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  // 图片 ![alt](url) — URL 经过 sanitize 防止 XSS
+  text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, url) => {
+    const safeUrl = sanitizeUrl(url);
+    if (!safeUrl) return escapeHtml(`![${alt}](${url})`);
+    return `<img src="${safeUrl}" alt="${escapeHtml(alt)}" style="max-width:100%"/>`;
+  });
+  // 链接 [text](url) — URL 经过 sanitize 防止 XSS
+  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
+    const safeUrl = sanitizeUrl(url);
+    if (!safeUrl) return escapeHtml(`[${label}](${url})`);
+    return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
+  });
   // 粗斜体 ***text***
   text = text.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
   // 粗体 **text**
