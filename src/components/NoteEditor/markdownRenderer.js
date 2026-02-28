@@ -44,6 +44,7 @@ function processInline(text) {
   });
   // 链接 [text](url) — URL 经过 sanitize 防止 XSS
   text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
+    const safeUrl = sanitizeUrl(url);
     if (!safeUrl) return escapeHtml(`[${label}](${url})`);
     return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
   });
