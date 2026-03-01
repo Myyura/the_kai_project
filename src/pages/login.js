@@ -87,7 +87,7 @@ function LoginPageContent() {
   const history = useHistory();
 
   const {
-    isConfigured, user, isLoggedIn, error,
+    isConfigured, user, isLoggedIn, authReady, error,
     loginWithEmail, registerWithEmail, signOut,
   } = useSync();
 
@@ -212,6 +212,23 @@ function LoginPageContent() {
     await signOut();
     showMsg(t.logoutOk);
   };
+
+  // 认证状态尚未确认 → 显示加载中，避免闪烁
+  if (!authReady && !user) {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.card}>
+          <div className={styles.cardHeader}>
+            <FaCloud className={styles.cardIcon} />
+            <h2 className={styles.cardTitle}>{t.title}</h2>
+          </div>
+          <div className={styles.cardBody} style={{ textAlign: 'center', padding: '2rem' }}>
+            <FaSyncAlt className={styles.spin} style={{ fontSize: '1.5rem', color: 'var(--ifm-color-primary)' }} />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // 未配置 Supabase → 显示提示
   if (!isConfigured) {

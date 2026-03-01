@@ -10,7 +10,7 @@
  */
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useInitSupabase } from '../services/supabaseClient';
+import { useInitSupabase, getCachedUser } from '../services/supabaseClient';
 import {
   syncMerge,
   pushLocalData,
@@ -28,7 +28,11 @@ export const useSync = () => {
   // 从 Docusaurus siteConfig 初始化 Supabase 凭据
   const isConfigured = useInitSupabase();
 
-  const [user, setUser] = useState(null);
+  // 同步读取缓存的 user，避免异步 getSession 导致的闪烁
+  const [user, setUser] = useState(() => {
+    try { return getCachedUser(); } catch { return null; }
+  });
+  const [authReady, setAuthReady] = useState(false);
   const [syncing, setSyncing] = useState(false);
   const [lastSynced, setLastSynced] = useState(null);
   const [error, setError] = useState(null);
@@ -55,6 +59,7 @@ export const useSync = () => {
           setUser(session?.user ?? null);
         }
       } catch {}
+      if (mountedRef.current) setAuthReady(true);
 
       unsub = onAuthStateChange((_event, session) => {
         if (mountedRef.current) {
@@ -163,6 +168,7 @@ export const useSync = () => {
     isConfigured,
     user,
     isLoggedIn: !!user,
+    authReady,
     syncing,
     lastSynced,
     error,

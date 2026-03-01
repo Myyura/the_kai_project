@@ -18,12 +18,15 @@ const T = {
 };
 
 function LoginButtonInner() {
-  const { isConfigured, user, isLoggedIn } = useSync();
+  const { isConfigured, user, isLoggedIn, authReady } = useSync();
   const { language } = useLanguage();
   const t = language === 'ja' ? T.ja : T.zh;
 
   // 环境变量未配置 → 不显示
   if (!isConfigured) return null;
+
+  // 认证状态尚未确认 → 不渲染，避免闪烁
+  if (!authReady && !user) return null;
 
   if (isLoggedIn) {
     // 取邮箱 @ 前的部分作为显示名

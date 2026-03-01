@@ -73,3 +73,23 @@ export const useInitSupabase = () => {
   initSiteConfig(siteConfig);
   return isSupabaseConfigured();
 };
+
+/**
+ * 同步读取 localStorage 中缓存的 Supabase session user
+ * 用于初始渲染时立即获取登录状态，避免异步请求导致的闪烁
+ */
+export const getCachedUser = () => {
+  try {
+    const raw = localStorage.getItem('kai_supabase_auth');
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    // Supabase JS v2 在 localStorage 中存储的结构
+    const user = parsed?.user || parsed?.session?.user || null;
+    // 检查 token 是否已过期（粗略检查）
+    const expiresAt = parsed?.expires_at || parsed?.session?.expires_at;
+    if (expiresAt && expiresAt * 1000 < Date.now()) return null;
+    return user;
+  } catch {
+    return null;
+  }
+};
