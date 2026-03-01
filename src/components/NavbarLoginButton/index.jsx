@@ -25,8 +25,18 @@ function LoginButtonInner() {
   // 环境变量未配置 → 不显示
   if (!isConfigured) return null;
 
-  // 认证状态尚未确认 → 不渲染，避免闪烁
-  if (!authReady && !user) return null;
+  // 认证状态尚未确认 → 渲染占位符保持布局稳定，避免闪烁
+  if (!authReady && !user) {
+    return (
+      <span
+        className="navbar__link navbar__link--login"
+        style={{ visibility: 'hidden', pointerEvents: 'none' }}
+        aria-hidden="true"
+      >
+        {t.login}
+      </span>
+    );
+  }
 
   if (isLoggedIn) {
     // 取邮箱 @ 前的部分作为显示名
@@ -53,8 +63,20 @@ function LoginButtonInner() {
 }
 
 export default function NavbarLoginButton() {
+  // SSR fallback：渲染与真实按钮尺寸一致的不可见占位符，防止 hydration 布局跳动
+  const fallback = (
+    <span
+      className="navbar__link navbar__link--login"
+      style={{ visibility: 'hidden', pointerEvents: 'none' }}
+      aria-hidden="true"
+    >
+      {/* 用中文"登录"作为占位宽度基准 */}
+      登录
+    </span>
+  );
+
   return (
-    <BrowserOnly fallback={null}>
+    <BrowserOnly fallback={fallback}>
       {() => <LoginButtonInner />}
     </BrowserOnly>
   );
