@@ -2,6 +2,7 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 2.5rem 1.5rem 4rem;
+  overflow-x: hidden;
 }
 
 /* 头部 */
@@ -579,11 +580,12 @@
 .heatmapScrollWrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  width: 100%;
 }
 
 .heatmapInner {
   display: inline-block;
-  min-width: max-content;
 }
 
 .heatmapMonthRow {
@@ -611,7 +613,7 @@
 .heatmapCell {
   width: 13px;
   height: 13px;
-  border-radius: 3px;
+  border-radius: 2px;
   transition: opacity 0.15s;
 }
 
