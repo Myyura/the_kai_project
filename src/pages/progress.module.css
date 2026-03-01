@@ -577,47 +577,76 @@
   flex-shrink: 0;
 }
 
-.heatmapScrollWrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  max-width: 100%;
+/* 热力图容器，定义 gap CSS 变量 */
+.heatmapWrap {
+  --hm-gap: 3px;
   width: 100%;
 }
 
-.heatmapInner {
-  display: inline-block;
+@media (max-width: 480px) {
+  .heatmapWrap {
+    --hm-gap: 1.5px;
+  }
 }
 
+/* 月份标签行 */
 .heatmapMonthRow {
   position: relative;
-  height: 18px;
-  margin-bottom: 4px;
+  height: 16px;
+  margin-bottom: 2px;
 }
 
 .heatmapMonthLabel {
   position: absolute;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--ifm-color-emphasis-500);
   white-space: nowrap;
   top: 0;
 }
 
-.heatmapGrid {
-  display: grid;
-  grid-template-rows: repeat(7, 13px);
-  grid-auto-flow: column;
-  grid-auto-columns: 13px;
-  gap: 3px;
+@media (min-width: 641px) {
+  .heatmapMonthRow {
+    height: 18px;
+    margin-bottom: 3px;
+  }
+  .heatmapMonthLabel {
+    font-size: 0.7rem;
+  }
 }
 
+/* 热力图网格：52列 × 7行，1fr 自动填满容器 */
+.heatmapGrid {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-template-rows: repeat(7, auto);
+  grid-auto-flow: column;
+  gap: var(--hm-gap);
+  width: 100%;
+}
+
+/* 热力图格子：aspect-ratio 保证正方形 */
 .heatmapCell {
-  width: 13px;
-  height: 13px;
+  aspect-ratio: 1;
   border-radius: 2px;
   transition: opacity 0.15s;
 }
 
 .heatmapCell:hover { opacity: 0.75; }
+
+/* 图例格子（固定尺寸） */
+.heatmapLegendCell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .heatmapLegendCell {
+    width: 10px;
+    height: 10px;
+  }
+}
 
 .heatmapLfuture { background: transparent; }
 .heatmapL0 { background: var(--ifm-color-emphasis-200); }
@@ -635,8 +664,8 @@
 .heatmapLegend {
   display: flex;
   align-items: center;
-  gap: 3px;
-  margin-top: 8px;
+  gap: 4px;
+  margin-top: 6px;
   font-size: 0.72rem;
   color: var(--ifm-color-emphasis-500);
 }

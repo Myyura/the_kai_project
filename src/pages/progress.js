@@ -36,42 +36,11 @@ const toDateKey = (ts) => {
 const MONTHS_ZH = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
 const MONTHS_JA = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
 
-// 热力图默认尺寸（桌面端）
-const CELL_DEFAULTS = { cellPx: 13, gapPx: 3, gridCols: 52 };
+const GRID_COLS = 52;
 
-// 根据容器宽度计算最佳格子尺寸和列数
-const computeHeatmapDims = (containerWidth) => {
-  let cellPx, gapPx;
-  if (containerWidth < 400) {
-    cellPx = 9; gapPx = 2;
-  } else if (containerWidth < 600) {
-    cellPx = 10; gapPx = 2;
-  } else {
-    cellPx = 13; gapPx = 3;
-  }
-  const gridCols = Math.max(13, Math.min(52, Math.floor(containerWidth / (cellPx + gapPx))));
-  return { cellPx, gapPx, gridCols };
-};
-
-// 热力图组件
+// 热力图组件 —— 纯 CSS 自适应，不需要 JS 测量
 const StudyHeatmap = ({ entries, t, language }) => {
   const MONTHS = language === 'ja' ? MONTHS_JA : MONTHS_ZH;
-  const wrapRef = React.useRef(null);
-  const [dims, setDims] = React.useState(CELL_DEFAULTS);
-  const { cellPx, gapPx, gridCols } = dims;
-
-  React.useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const update = () => {
-      const w = el.clientWidth;
-      if (w > 0) setDims(computeHeatmapDims(w));
-    };
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
 
   const activityMap = React.useMemo(() => {
     const map = {};
@@ -86,12 +55,12 @@ const StudyHeatmap = ({ entries, t, language }) => {
   const { cells, monthLabels } = React.useMemo(() => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    // 从 (gridCols-1) 周前的周日开始
+    // 从 51 周前的周日开始
     const gridStart = new Date(today);
-    gridStart.setDate(today.getDate() - today.getDay() - (gridCols - 1) * 7);
+    gridStart.setDate(today.getDate() - today.getDay() - 51 * 7);
 
     const cells = [];
-    for (let i = 0; i < gridCols * 7; i++) {
+    for (let i = 0; i < GRID_COLS * 7; i++) {
       const d = new Date(gridStart);
       d.setDate(gridStart.getDate() + i);
       const key = toDateKey(d.getTime());
@@ -108,7 +77,7 @@ const StudyHeatmap = ({ entries, t, language }) => {
 
     const monthLabels = [];
     let lastMonth = -1;
-    for (let w = 0; w < gridCols; w++) {
+    for (let w = 0; w < GRID_COLS; w++) {
       const d = new Date(gridStart);
       d.setDate(gridStart.getDate() + w * 7);
       const m = d.getMonth();
@@ -118,7 +87,7 @@ const StudyHeatmap = ({ entries, t, language }) => {
       }
     }
     return { cells, monthLabels };
-  }, [activityMap, MONTHS, gridCols]);
+  }, [activityMap, MONTHS]);
 
   const totalActivity = Object.values(activityMap).reduce((a, b) => a + b, 0);
 
@@ -131,47 +100,33 @@ const StudyHeatmap = ({ entries, t, language }) => {
         </h2>
         <span className={styles.heatmapTotalCount}>{totalActivity} {t.activitiesUnit}</span>
       </div>
-      <div ref={wrapRef} className={styles.heatmapScrollWrap}>
-        <div className={styles.heatmapInner}>
-          <div className={styles.heatmapMonthRow}>
-            {monthLabels.map(({ col, label }) => (
-              <span
-                key={col}
-                className={styles.heatmapMonthLabel}
-                style={{ left: `${col * (cellPx + gapPx)}px` }}
-              >
-                {label}
-              </span>
-            ))}
-          </div>
-          <div
-            className={styles.heatmapGrid}
-            style={{
-              gridTemplateRows: `repeat(7, ${cellPx}px)`,
-              gridAutoColumns: `${cellPx}px`,
-              gap: `${gapPx}px`,
-            }}
-          >
-            {cells.map((cell, i) => (
-              <div
-                key={i}
-                className={`${styles.heatmapCell} ${styles[`heatmapL${cell.level}`]}`}
-                style={{ width: `${cellPx}px`, height: `${cellPx}px` }}
-                title={cell.isFuture ? '' : `${cell.key}：${cell.count} ${t.activitiesUnit}`}
-              />
-            ))}
-          </div>
-          <div className={styles.heatmapLegend}>
-            <span>{t.less}</span>
-            {['0','1','2','3','4'].map((l) => (
-              <div
-                key={l}
-                className={`${styles.heatmapCell} ${styles[`heatmapL${l}`]}`}
-                style={{ width: `${cellPx}px`, height: `${cellPx}px` }}
-              />
-            ))}
-            <span>{t.more}</span>
-          </div>
+      <div className={styles.heatmapWrap}>
+        <div className={styles.heatmapMonthRow}>
+          {monthLabels.map(({ col, label }) => (
+            <span
+              key={col}
+              className={styles.heatmapMonthLabel}
+              style={{ left: `calc(${col} / ${GRID_COLS} * (100% + var(--hm-gap)))` }}
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+        <div className={styles.heatmapGrid}>
+          {cells.map((cell, i) => (
+            <div
+              key={i}
+              className={`${styles.heatmapCell} ${styles[`heatmapL${cell.level}`]}`}
+              title={cell.isFuture ? '' : `${cell.key}：${cell.count} ${t.activitiesUnit}`}
+            />
+          ))}
+        </div>
+        <div className={styles.heatmapLegend}>
+          <span>{t.less}</span>
+          {['0','1','2','3','4'].map((l) => (
+            <div key={l} className={`${styles.heatmapLegendCell} ${styles[`heatmapL${l}`]}`} />
+          ))}
+          <span>{t.more}</span>
         </div>
       </div>
     </section>
