@@ -1,0 +1,198 @@
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: var(--ifm-heading-color);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.sectionTitleIcon {
+  font-size: 1em;
+  flex-shrink: 0;
+  color: #f59e0b;
+}
+
+/* ── 排行榜列表 ──────────────────────────────────────────── */
+
+.leaderboardList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+  transition: background 0.12s;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background: var(--ifm-color-emphasis-50);
+}
+
+.rowCurrent {
+  background: rgba(99, 102, 241, 0.06);
+  border-radius: 8px;
+  border-bottom-color: transparent;
+}
+
+.rowCurrent:hover {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+[data-theme='dark'] .rowCurrent {
+  background: rgba(99, 102, 241, 0.12);
+}
+
+[data-theme='dark'] .rowCurrent:hover {
+  background: rgba(99, 102, 241, 0.18);
+}
+
+/* ── 排名徽章 ────────────────────────────────────────────── */
+
+.rank {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-600);
+}
+
+.rank1 {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(245, 158, 11, 0.3);
+}
+
+.rank2 {
+  background: linear-gradient(135deg, #d1d5db, #9ca3af);
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(156, 163, 175, 0.3);
+}
+
+.rank3 {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(180, 83, 9, 0.3);
+}
+
+/* ── 数量与标记 ──────────────────────────────────────────── */
+
+.youTag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
+  margin-left: 0.35rem;
+  flex-shrink: 0;
+}
+
+[data-theme='dark'] .youTag {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+.count {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
+}
+
+.countUnit {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-500);
+  margin-left: 0.2rem;
+}
+
+/* ── 进度条 ──────────────────────────────────────────────── */
+
+.bar {
+  flex: 1;
+  max-width: 120px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  transition: width 0.4s ease;
+}
+
+.barFillTop {
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+}
+
+/* ── 空状态 / 加载 / 错误 ────────────────────────────────── */
+
+.emptyState {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.loading {
+  text-align: center;
+  padding: 1.2rem 1rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ── 响应式 ──────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .row {
+    padding: 0.55rem 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .bar {
+    display: none;
+  }
+
+  .rank {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.7rem;
+  }
+}

@@ -11,6 +11,7 @@ import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgre
 import { UNIV_MAP } from '@site/src/data/universities';
 import { useStoredLanguage } from '@site/src/context/LanguageContext';
 import CloudSyncPanel from '@site/src/components/CloudSyncPanel';
+import Leaderboard from '@site/src/components/Leaderboard';
 import styles from './progress.module.css';
 
 const toTagSlug = (tag) =>
@@ -482,6 +483,9 @@ function ProgressPageInner() {
         <>
           {/* 学习热力图 */}
           <StudyHeatmap entries={entries} t={t} language={language} />
+
+          {/* 本周刷题排行榜 */}
+          <Leaderboard language={language} />
 
           {/* 遗忘曲线提醒 */}
           <ReviewReminderSection entries={entries} t={t} />

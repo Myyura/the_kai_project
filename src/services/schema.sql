@@ -78,3 +78,50 @@ begin
   return now();
 end;
 $$ language plpgsql security definer;
+
+-- ── 本周刷题排行榜 RPC ─────────────────────────────────────
+--
+-- 安全模型：
+--   使用 security definer 在服务端完成跨用户聚合，客户端无法访问原始数据。
+--   函数内部强制要求已登录（auth.uid() IS NOT NULL），未登录调用直接返回空。
+--   返回值仅包含刷题数量 + 是否为当前用户，不暴露任何用户身份信息。
+--   通过 REVOKE/GRANT 限制仅 authenticated 角色可调用。
+--
+create or replace function get_weekly_leaderboard()
+returns table (
+  weekly_count bigint,
+  is_current_user boolean
+) as $$
+declare
+  week_start_ms bigint;
+begin
+  -- 仅已登录用户可调用
+  if auth.uid() is null then
+    return;
+  end if;
+
+  -- 计算本周一 00:00 UTC 的毫秒级时间戳（与前端 Date.now() 对齐）
+  week_start_ms := (extract(epoch from date_trunc('week', now())) * 1000)::bigint;
+
+  return query
+  select
+    sub.cnt as weekly_count,
+    (sub.user_id = auth.uid()) as is_current_user
+  from (
+    select
+      ud_inner.user_id,
+      count(*) as cnt
+    from user_data ud_inner,
+         lateral jsonb_each(ud_inner.progress) as kv(doc_id, doc_val)
+    where (doc_val->>'updatedAt')::bigint >= week_start_ms
+    group by ud_inner.user_id
+    having count(*) > 0
+  ) sub
+  order by sub.cnt desc
+  limit 10;
+end;
+$$ language plpgsql security definer;
+
+-- 仅允许已登录用户调用排行榜函数
+revoke execute on function get_weekly_leaderboard() from public, anon;
+grant execute on function get_weekly_leaderboard() to authenticated;

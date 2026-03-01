@@ -324,3 +324,18 @@ export const onAuthStateChange = (callback) => {
   const { data: { subscription } } = sb.auth.onAuthStateChange(callback);
   return () => subscription.unsubscribe();
 };
+
+// ── 排行榜 ──────────────────────────────────────────────────
+
+/**
+ * 获取本周刷题排行榜（Top 10）
+ * 通过 security definer RPC 函数在服务端聚合，不受 RLS 限制
+ * @returns {Promise<Array<{ display_name: string, weekly_count: number, is_current_user: boolean }>>}
+ */
+export const fetchWeeklyLeaderboard = async () => {
+  const sb = getSupabaseClient();
+  if (!sb) return [];
+  const { data, error } = await sb.rpc('get_weekly_leaderboard');
+  if (error) throw error;
+  return data || [];
+};
