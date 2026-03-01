@@ -131,6 +131,13 @@ main {
   text-decoration: none !important;
 }
 
+/* 移动端隐藏顶栏登录按钮（已在侧边菜单中显示） */
+@media (max-width: 996px) {
+  .navbar__items--right .navbar__link--login {
+    display: none;
+  }
+}
+
 .navbar__link--login:hover {
   background: var(--ifm-color-primary-dark);
   color: #fff !important;
