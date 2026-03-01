@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
+import {useHistory} from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import {
@@ -83,6 +84,7 @@ function LoginPageContent() {
   const t = language === 'ja' ? T.ja : T.zh;
   const { siteConfig } = useDocusaurusContext();
   const hcaptchaSiteKey = siteConfig?.customFields?.hcaptchaSiteKey || '';
+  const history = useHistory();
 
   const {
     isConfigured, user, isLoggedIn, error,
@@ -177,7 +179,7 @@ function LoginPageContent() {
         resetAttempts();
         showMsg(t.loginOk);
         setTimeout(() => {
-          window.location.href = '/progress';
+          history.push('/progress');
         }, 1000);
       } else {
         await registerWithEmail(email, password, captchaToken || undefined);
