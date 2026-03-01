@@ -14,6 +14,7 @@ import EditMetaRow from '@theme/EditMetaRow';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import ProgressTracker from '@site/src/components/ProgressTracker';
 import NoteEditor from '@site/src/components/NoteEditor';
+import ShareAsImage from '@site/src/components/ShareAsImage';
 
 export default function DocItemFooter(): ReactNode {
   const {metadata} = useDoc();
@@ -47,6 +48,9 @@ export default function DocItemFooter(): ReactNode {
           lastUpdatedBy={lastUpdatedBy}
         />
       )}
+      <BrowserOnly>
+        {() => <ShareAsImage docId={id} title={title} />}
+      </BrowserOnly>
       <BrowserOnly>
         {() => (
           <ProgressTracker
