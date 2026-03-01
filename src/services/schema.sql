@@ -93,6 +93,7 @@ returns table (
   is_current_user boolean
 ) as $$
 declare
+  week_start_ts timestamptz;
   week_start_ms bigint;
 begin
   -- 仅已登录用户可调用
@@ -100,27 +101,34 @@ begin
     return;
   end if;
 
-  -- 计算本周一 00:00 UTC 的毫秒级时间戳（与前端 Date.now() 对齐）
-  week_start_ms := (extract(epoch from date_trunc('week', now())) * 1000)::bigint;
+  week_start_ts := date_trunc('week', now());
+  -- 毫秒级时间戳（与前端 Date.now() 对齐）
+  week_start_ms := (extract(epoch from week_start_ts) * 1000)::bigint;
 
   return query
   select
-    sub.cnt as weekly_count,
-    (sub.user_id = auth.uid()) as is_current_user
+    sub.cnt::bigint as weekly_count,
+    (sub.uid = auth.uid()) as is_current_user
   from (
     select
-      ud_inner.user_id,
-      count(*) as cnt
-    from user_data ud_inner,
-         lateral jsonb_each(ud_inner.progress) as kv(doc_id, doc_val)
-    where (doc_val->>'updatedAt')::bigint >= week_start_ms
-    group by ud_inner.user_id
-    having count(*) > 0
+      ud.user_id as uid,
+      jsonb_array_length(
+        jsonb_path_query_array(
+          ud.progress,
+          '$.* ? (@.updatedAt >= $ws)',
+          jsonb_build_object('ws', week_start_ms)
+        )
+      ) as cnt
+    from public.user_data ud
+    -- 利用 idx_user_data_updated_at B-tree 索引快速跳过本周未同步的用户
+    where ud.updated_at >= week_start_ts
   ) sub
+  where sub.cnt > 0
   order by sub.cnt desc
   limit 10;
 end;
-$$ language plpgsql security definer;
+$$ language plpgsql security definer
+set search_path = '';
 
 -- 仅允许已登录用户调用排行榜函数
 revoke execute on function get_weekly_leaderboard() from public, anon;
