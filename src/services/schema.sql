@@ -69,3 +69,12 @@ create trigger update_user_data_updated_at
   before update on user_data
   for each row
   execute function update_updated_at_column();
+
+-- ── 服务端时间 RPC ──────────────────────────────────────────
+-- 供客户端校准本地时钟偏移量（返回 ISO 8601 字符串）
+create or replace function get_server_time()
+returns timestamptz as $$
+begin
+  return now();
+end;
+$$ language plpgsql security definer;

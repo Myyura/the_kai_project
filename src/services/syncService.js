@@ -12,6 +12,79 @@ import { validateSyncData } from './authSecurity';
 import { STORAGE_KEY as PROGRESS_KEY, readProgressData, writeProgressData } from '../hooks/useProgress';
 import { NOTES_STORAGE_KEY, readNotesData, writeNotesData } from '../hooks/useNotes';
 
+// ── 离线脏标记 ──────────────────────────────────────────────
+
+const SYNC_DIRTY_KEY = 'kai_sync_dirty';
+
+/** 标记本地数据已修改，待同步 */
+export const markSyncDirty = () => {
+  try { localStorage.setItem(SYNC_DIRTY_KEY, '1'); } catch {}
+};
+
+/** 检查是否有待同步的本地修改 */
+export const isSyncDirty = () => {
+  try { return localStorage.getItem(SYNC_DIRTY_KEY) === '1'; } catch { return false; }
+};
+
+/** 清除脏标记（同步成功后调用） */
+export const clearSyncDirty = () => {
+  try { localStorage.removeItem(SYNC_DIRTY_KEY); } catch {}
+};
+
+// ── 服务端时间偏移量 ────────────────────────────────────────
+//
+// 客户端时钟可能与服务器不一致。
+// 每次同步时获取服务端时间，计算 offset = serverNow - clientNow，
+// 后续写入 updatedAt 时使用 Date.now() + offset 以对齐服务端。
+
+const OFFSET_KEY = 'kai_server_time_offset';
+let _serverTimeOffset = null;
+
+/**
+ * 获取服务端时间偏移量（毫秒）。
+ * 已缓存则直接返回，否则返回 0。
+ */
+export const getServerTimeOffset = () => {
+  if (_serverTimeOffset !== null) return _serverTimeOffset;
+  try {
+    const cached = localStorage.getItem(OFFSET_KEY);
+    if (cached !== null) {
+      _serverTimeOffset = Number(cached);
+      return _serverTimeOffset;
+    }
+  } catch {}
+  return 0;
+};
+
+/**
+ * 通过轻量 RPC 获取 Supabase 服务端时间并计算偏移量。
+ * 内部使用 PostgreSQL now() 确保和 DB 触发器一致。
+ */
+export const calibrateServerTime = async () => {
+  const sb = getSupabaseClient();
+  if (!sb) return;
+  try {
+    const before = Date.now();
+    const { data, error } = await sb.rpc('get_server_time');
+    const after = Date.now();
+    if (error || !data) return;
+    // 服务端返回 ISO 字符串，取请求中点作为客户端参考
+    const serverMs = new Date(data).getTime();
+    const clientMs = Math.round((before + after) / 2);
+    const offset = serverMs - clientMs;
+    _serverTimeOffset = offset;
+    try { localStorage.setItem(OFFSET_KEY, String(offset)); } catch {}
+  } catch {
+    // 失败时保持旧值或 0，不影响同步流程
+  }
+};
+
+/**
+ * 获取校准后的当前时间戳（毫秒）
+ * 在本地写入 updatedAt 时使用，以对齐服务端时钟
+ */
+export const getCalibratedNow = () => Date.now() + getServerTimeOffset();
+
 // ── 辅助 ────────────────────────────────────────────────────
 
 /**
@@ -54,13 +127,14 @@ export const getCurrentUserId = async () => {
 
 /**
  * 从远端拉取数据
+ * @param {string} [_userId] - 可选，已知的 user_id（避免重复调用 getUser）
  * @returns {{ progress: object, notes: object, updated_at: string } | null}
  */
-export const fetchRemoteData = async () => {
+export const fetchRemoteData = async (_userId) => {
   const sb = getSupabaseClient();
   if (!sb) throw new Error('Supabase 未配置');
 
-  const userId = await getCurrentUserId();
+  const userId = _userId || await getCurrentUserId();
   if (!userId) throw new Error('未登录');
 
   const { data, error } = await sb
@@ -75,12 +149,13 @@ export const fetchRemoteData = async () => {
 
 /**
  * 推送本地数据到远端（upsert）
+ * @param {string} [_userId] - 可选，已知的 user_id（避免重复调用 getUser）
  */
-export const pushLocalData = async () => {
+export const pushLocalData = async (_userId) => {
   const sb = getSupabaseClient();
   if (!sb) throw new Error('Supabase 未配置');
 
-  const userId = await getCurrentUserId();
+  const userId = _userId || await getCurrentUserId();
   if (!userId) throw new Error('未登录');
 
   const progress = readProgressData();
@@ -93,7 +168,7 @@ export const pushLocalData = async () => {
         user_id: userId,
         progress,
         notes,
-        updated_at: new Date().toISOString(),
+        // updated_at 由 DB 触发器 update_updated_at_column() 自动设置服务端时间
       },
       { onConflict: 'user_id' },
     );
@@ -103,9 +178,10 @@ export const pushLocalData = async () => {
 
 /**
  * 从远端拉取并替换本地数据
+ * @param {string} [_userId] - 可选，已知的 user_id（避免重复调用 getUser）
  */
-export const pullRemoteData = async () => {
-  const remote = await fetchRemoteData();
+export const pullRemoteData = async (_userId) => {
+  const remote = await fetchRemoteData(_userId);
   if (!remote) return { pulled: false, reason: 'no_remote_data' };
 
   const progress = typeof remote.progress === 'object' ? remote.progress : {};
@@ -121,8 +197,8 @@ export const pullRemoteData = async () => {
     throw new Error(`远端 notes 数据异常: ${notesCheck.reason}`);
   }
 
-  writeProgressData(progress);
-  writeNotesData(notes);
+  writeProgressData(progress, { skipDirty: true });
+  writeNotesData(notes, { skipDirty: true });
   return { pulled: true };
 };
 
@@ -137,7 +213,11 @@ export const syncMerge = async () => {
   const userId = await getCurrentUserId();
   if (!userId) throw new Error('未登录');
 
-  const remote = await fetchRemoteData();
+  // 校准客户端时钟偏移量
+  await calibrateServerTime();
+
+  // 直接传入 userId，避免 fetchRemoteData 内部再次调用 getUser()
+  const remote = await fetchRemoteData(userId);
 
   const localProgress = readProgressData();
   const localNotes = readNotesData();
@@ -157,9 +237,9 @@ export const syncMerge = async () => {
   const mergedProgress = mergeByTimestamp(localProgress, remoteProgress);
   const mergedNotes = mergeByTimestamp(localNotes, remoteNotes);
 
-  // 写回本地
-  writeProgressData(mergedProgress);
-  writeNotesData(mergedNotes);
+  // 写回本地（云端合并结果，不标记 dirty）
+  writeProgressData(mergedProgress, { skipDirty: true });
+  writeNotesData(mergedNotes, { skipDirty: true });
 
   // 写回远端
   const { error } = await sb
@@ -169,7 +249,7 @@ export const syncMerge = async () => {
         user_id: userId,
         progress: mergedProgress,
         notes: mergedNotes,
-        updated_at: new Date().toISOString(),
+        // updated_at 由 DB 触发器 update_updated_at_column() 自动设置服务端时间
       },
       { onConflict: 'user_id' },
     );

@@ -242,27 +242,29 @@ export const validateSyncData = (data) => {
     return { valid: false, reason: 'Data exceeds maximum size limit' };
   }
 
-  // 检查每个值的结构（不能包含函数、不能有原型污染键）
+  // 递归检查所有层级（不能包含函数、不能有原型污染键）
   const DANGEROUS_KEYS = ['__proto__', 'constructor', 'prototype'];
-  for (const key of Object.keys(data)) {
-    if (DANGEROUS_KEYS.includes(key)) {
-      return { valid: false, reason: `Forbidden key: ${key}` };
-    }
+  const MAX_DEPTH = 10;
 
-    const val = data[key];
-    if (typeof val === 'function') {
-      return { valid: false, reason: 'Functions are not allowed in data' };
+  const checkObject = (obj, depth) => {
+    if (depth > MAX_DEPTH) {
+      return { valid: false, reason: 'Data nesting too deep' };
     }
-
-    // 递归检查嵌套对象中的危险键
-    if (val && typeof val === 'object') {
-      for (const innerKey of Object.keys(val)) {
-        if (DANGEROUS_KEYS.includes(innerKey)) {
-          return { valid: false, reason: `Forbidden nested key: ${innerKey}` };
-        }
+    for (const key of Object.keys(obj)) {
+      if (DANGEROUS_KEYS.includes(key)) {
+        return { valid: false, reason: `Forbidden key: ${key}` };
+      }
+      const val = obj[key];
+      if (typeof val === 'function') {
+        return { valid: false, reason: 'Functions are not allowed in data' };
+      }
+      if (val && typeof val === 'object' && !Array.isArray(val)) {
+        const inner = checkObject(val, depth + 1);
+        if (!inner.valid) return inner;
       }
     }
-  }
+    return { valid: true };
+  };
 
-  return { valid: true };
+  return checkObject(data, 0);
 };

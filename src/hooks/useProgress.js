@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { getCalibratedNow } from '../services/syncService';
 
 export const STORAGE_KEY = 'kai_progress';
 
@@ -20,11 +21,15 @@ export const readProgressData = () => {
 };
 
 // 将进度数据写入 localStorage 并触发更新事件
-export const writeProgressData = (data) => {
+export const writeProgressData = (data, { skipDirty = false } = {}) => {
   if (typeof window === 'undefined') return;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     window.dispatchEvent(new Event('kai_progress_updated'));
+    // 标记本地有未同步修改（从云端拉取写入时 skipDirty=true）
+    if (!skipDirty) {
+      import('../services/syncService').then(m => m.markSyncDirty()).catch(() => {});
+    }
   } catch {}
 };
 
@@ -93,7 +98,7 @@ export const useDocProgress = (docId, title, permalink, tags) => {
           reviewCount: newStatus === STATUS.REVIEWING
             ? (statusChanged ? 0 : (prev?.reviewCount ?? 0))
             : (prev?.reviewCount ?? 0),
-          updatedAt: statusChanged ? Date.now() : (prev?.updatedAt ?? Date.now()),
+          updatedAt: statusChanged ? getCalibratedNow() : (prev?.updatedAt ?? getCalibratedNow()),
         };
       }
       writeProgressData(current);
@@ -111,7 +116,7 @@ export const useDocProgress = (docId, title, permalink, tags) => {
       ...current[docId],
       reviewCount: newCount,
       status: isFinished ? STATUS.COMPLETED : current[docId].status,
-      updatedAt: Date.now(),
+      updatedAt: getCalibratedNow(),
     };
     writeProgressData(current);
     setData({ ...current });

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { getCalibratedNow } from '../services/syncService';
 
 export const NOTES_STORAGE_KEY = 'kai_notes';
 
@@ -14,11 +15,15 @@ export const readNotesData = () => {
 };
 
 // 将笔记数据写入 localStorage 并触发更新事件
-export const writeNotesData = (data) => {
+export const writeNotesData = (data, { skipDirty = false } = {}) => {
   if (typeof window === 'undefined') return;
   try {
     localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(data));
     window.dispatchEvent(new Event('kai_notes_updated'));
+    // 标记本地有未同步修改（从云端拉取写入时 skipDirty=true）
+    if (!skipDirty) {
+      import('../services/syncService').then(m => m.markSyncDirty()).catch(() => {});
+    }
   } catch {}
 };
 
@@ -47,7 +52,7 @@ export const useDocNotes = (docId) => {
       } else {
         current[docId] = {
           content: newContent,
-          updatedAt: Date.now(),
+          updatedAt: getCalibratedNow(),
         };
       }
       writeNotesData(current);
