@@ -734,34 +734,199 @@
   color: #fca5a5 !important;
 }
 
-@media (max-width: 640px) {
+/* ================= 平板端适配 ================= */
+@media (max-width: 768px) {
+  .page {
+    padding: 2rem 1rem 3rem;
+  }
+
   .pageTitle {
-    font-size: 1.5rem;
+    font-size: 1.65rem;
+  }
+
+  .univGrid {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
+
+  .tagGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .entryTitle {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+/* ================= 手机端适配 ================= */
+@media (max-width: 640px) {
+  .page {
+    padding: 1.25rem 0.75rem 2.5rem;
+  }
+
+  .pageTitle {
+    font-size: 1.35rem;
+  }
+
+  .pageSubtitle {
+    font-size: 0.85rem;
   }
 
   .header {
     flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
   }
 
+  /* 统计卡片 */
   .statsRow {
-    gap: 0.6rem;
-  }
-
-  .statCard {
-    min-width: 90px;
-    padding: 0.75rem 0.5rem;
-  }
-
-  .statNumber {
-    font-size: 1.75rem;
-  }
-
-  .entryRow {
-    flex-direction: column;
     gap: 0.5rem;
   }
 
+  .statCard {
+    min-width: 0;
+    flex-basis: calc(33.333% - 0.35rem);
+    padding: 0.7rem 0.4rem;
+  }
+
+  .statIcon {
+    font-size: 1.15rem;
+  }
+
+  .statNumber {
+    font-size: 1.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.72rem;
+  }
+
+  /* 进度条 */
+  .progressBarContainer {
+    margin-bottom: 1.75rem;
+  }
+
+  /* 区块间距 */
+  .section {
+    margin-bottom: 1.75rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.05rem;
+  }
+
+  /* section header（标题 + 清除按钮）*/
+  .sectionHeader {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* 题目列表行 */
+  .entryRow {
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.65rem 0.75rem;
+  }
+
   .entryMeta {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .entryTitle {
+    font-size: 0.85rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* 遗忘曲线提醒行 */
+  .reminderRow {
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .reminderMeta {
+    justify-content: flex-start;
+  }
+
+  /* 下次复习徽章 */
+  .nextReviewBadge {
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  /* 大学网格 */
+  .univGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .univCard {
+    padding: 0.7rem 0.75rem;
+  }
+
+  /* 标签网格 */
+  .tagGrid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .tagCard {
+    padding: 0.65rem 0.75rem;
+  }
+
+  /* 热力图 */
+  .heatmapHeader {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .heatmapHeader .sectionTitle {
+    font-size: 1.05rem;
+  }
+
+  /* 空状态 */
+  .emptyState {
+    padding: 2.5rem 1rem;
+  }
+
+  .emptyIcon {
+    font-size: 2.25rem;
+  }
+}
+
+/* ================= 超小屏幕 (<380px) ================= */
+@media (max-width: 380px) {
+  .page {
+    padding: 1rem 0.5rem 2rem;
+  }
+
+  .statsRow {
+    flex-direction: column;
+  }
+
+  .statCard {
+    flex-basis: auto;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .statNumber {
+    font-size: 1.35rem;
+  }
+
+  .univGrid,
+  .tagGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
     align-items: flex-start;
   }
 }
