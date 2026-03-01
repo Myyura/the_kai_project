@@ -243,12 +243,6 @@ const config = {
           {to: '/progress', label: '进度', position: 'left'},
           {to: '/legalstatement', label: '法律声明', position: 'left'},
           {
-            to: '/login',
-            label: '登录',
-            position: 'right',
-            className: 'navbar__link--login',
-          },
-          {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',
             position: 'right',

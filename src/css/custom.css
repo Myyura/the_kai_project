@@ -128,6 +128,7 @@ main {
   font-size: 0.85rem;
   transition: var(--custom-transition-fast) !important;
   margin-left: 0.4rem;
+  text-decoration: none !important;
 }
 
 .navbar__link--login:hover {
@@ -141,6 +142,22 @@ main {
   display: none !important;
 }
 
+/* 已登录状态 */
+.navbar__link--login-active {
+  background: transparent;
+  color: var(--ifm-color-primary) !important;
+  border: 1.5px solid var(--ifm-color-primary);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navbar__link--login-active:hover {
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+}
+
 [data-theme='dark'] .navbar__link--login {
   background: var(--ifm-color-primary);
   box-shadow: 0 0 8px rgba(37, 194, 160, 0.2);
@@ -148,6 +165,19 @@ main {
 
 [data-theme='dark'] .navbar__link--login:hover {
   background: var(--ifm-color-primary-light);
+  box-shadow: 0 4px 16px rgba(37, 194, 160, 0.35);
+}
+
+[data-theme='dark'] .navbar__link--login-active {
+  background: transparent;
+  color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary);
+  box-shadow: none;
+}
+
+[data-theme='dark'] .navbar__link--login-active:hover {
+  background: var(--ifm-color-primary);
+  color: #fff !important;
   box-shadow: 0 4px 16px rgba(37, 194, 160, 0.35);
 }
 
