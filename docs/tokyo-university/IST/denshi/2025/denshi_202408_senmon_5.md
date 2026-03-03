@@ -2,7 +2,7 @@
 sidebar_label: "2024年8月実施 専門 第5問"
 tags:
   - Tokyo-University
-  - Digital-Signal-Processing
+  - Signal-Processing
   - Z-Transform
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2024年8月実施 専門 第5問
@@ -26,7 +26,10 @@ where $z$ is a complex variable, $\alpha, \beta, \gamma$ are real constant numbe
 (4) In (2), when $\alpha = 4$ and $\beta = \gamma = \frac{1}{2}$, find the magnitude response $|H(e^{j\Omega})|$ and the phase response $\angle H(e^{j\Omega})$ in $L$, where $j$ is the imaginary unit and $\Omega$ is the angular frequency.
 
 (5) In (2), when $\alpha = 4, \beta = 1$, and $\gamma = \frac{1}{9}$, find the impulse response $h[n]$ of $L$ using the following discrete-time unit step signal $u[n]$.
-$$u[n] = \begin{cases} 1 & (n \ge 0) \\ 0 & (n < 0) \end{cases}$$
+
+$$
+u[n] = \begin{cases} 1 & (n \ge 0) \\ 0 & (n < 0) \end{cases}
+$$
 
 ## **Kai**
 ### (1)
@@ -63,7 +66,10 @@ i.e., $-3 < \gamma < 1$
 ### (4)
 
 Given $\alpha = 4, \beta = \gamma = \frac{1}{2}$
-$H(z) = \frac{4z^2}{2z^2 - 2z} = \frac{2z}{z - 1}$
+
+$$
+H(z) = \frac{4z^2}{2z^2 - 2z} = \frac{2z}{z - 1}
+$$
 
 Since $z = e^{j\Omega}$, $H(e^{j\Omega}) = \frac{2e^{j\Omega}}{e^{j\Omega} - 1} = \frac{2e^{j\Omega}}{e^{j\frac{\Omega}{2}}(e^{j\frac{\Omega}{2}} - e^{-j\frac{\Omega}{2}})} = \frac{e^{j\frac{\Omega}{2}}}{j \sin\frac{\Omega}{2}}$
 
@@ -78,9 +84,16 @@ In summary:
 ### (5)
 
 Given $\alpha = 4, \beta = 1, \gamma = \frac{1}{9}$
-$H(z) = \frac{4z^2}{4z^2 - 4z + \frac{8}{9}} = \frac{1}{1 - z^{-1} + \frac{2}{9}z^{-2}} = \frac{1}{(1 - \frac{2}{3}z^{-1})(1 - \frac{1}{3}z^{-1})}$
 
-i.e., $H(z) = \frac{6}{3 - 2z^{-1}} + \frac{-3}{3 - z^{-1}} = \frac{2}{1 - (\frac{2}{3})z^{-1}} - \frac{1}{1 - (\frac{1}{3})z^{-1}}$
+$$
+H(z) = \frac{4z^2}{4z^2 - 4z + \frac{8}{9}} = \frac{1}{1 - z^{-1} + \frac{2}{9}z^{-2}} = \frac{1}{(1 - \frac{2}{3}z^{-1})(1 - \frac{1}{3}z^{-1})}
+$$
+
+i.e.,
+
+$$
+H(z) = \frac{6}{3 - 2z^{-1}} + \frac{-3}{3 - z^{-1}} = \frac{2}{1 - (\frac{2}{3})z^{-1}} - \frac{1}{1 - (\frac{1}{3})z^{-1}}
+$$
 
 Inverse Z-transform using $u[n]$:
 - $h[n] = \left( 2\left(\frac{2}{3}\right)^n - \left(\frac{1}{3}\right)^n \right) u[n]$
