@@ -27,8 +27,8 @@ Answer the following questions on virtual memory.
 ## **Kai**
 ### (1)
 
-**Temporal locality:** The principle stating that if a data location is referenced then it will tend to be referenced again soon.
-**Spatial locality:** The locality principle stating that if a data location is referenced, data locations with nearby addresses will tend to be referenced soon.
+- **Temporal locality:** The principle stating that if a data location is referenced then it will tend to be referenced again soon.
+- **Spatial locality:** The locality principle stating that if a data location is referenced, data locations with nearby addresses will tend to be referenced soon.
 
 ### (2)
 
@@ -45,6 +45,7 @@ A TLB miss occurs when no entry in the TLB matches a virtual address. A TLB miss
 ### (4)
 
 **Page fault:** An event that occurs when an accessed page is not present in main memory.
+
 **Process:**
 *   **Exception:** Address translation fails $\rightarrow$ Hardware triggers a Page Fault Exception.
 *   **Trap:** Trap to OS Kernel $\rightarrow$ Save current process state $\rightarrow$ Block the current process.

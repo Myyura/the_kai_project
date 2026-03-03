@@ -37,25 +37,26 @@ Then, explain how the instruction-level parallelism of the code above is improve
 ## **Kai**
 ### (1)
 
-Flow dependency: Read after write (RAW)
-Anti dependency: Write after read (WAR)
-Input dependency: Read after read (RAR)
-Output dependency: Write after write (WAW)
+- Flow dependency: Read after write (RAW)
+- Anti dependency: Write after read (WAR)
+- Input dependency: Read after read (RAR)
+- Output dependency: Write after write (WAW)
 
 ### (2)
 
 The following dependencies that cause precedence constraints (hazards) are:
+
 Flow dependency (RAW), Anti dependency (WAR), Output dependency (WAW)
 
 ### (3)
 
-True dependency: Flow dependency (RAW)
-False dependency: Anti-dependency and Output dependency (WAR and WAW)
+- True dependency: Flow dependency (RAW)
+- False dependency: Anti-dependency and Output dependency (WAR and WAW)
 
 ### (4)
 
-Flow dependencies: (L1, L2), (L1, L3), (L2, L4), (L3, L4)
-Anti dependencies: (L2, L3), (L2, L4), (L3, L4)
+- Flow dependencies: (L1, L2), (L1, L3), (L2, L4), (L3, L4)
+- Anti dependencies: (L2, L3), (L2, L4), (L3, L4)
 
 ### (5)
 
@@ -69,6 +70,7 @@ L4:   add r1 = r1 + r2 ;
 ```
 
 To solve WAR (2,3) (2,4) (3,4) and WAW (1,3) (3,4)
+
 First, solve WAR (2,3)
 ```text
 L1:   ld  r1 = *r0 ;
