@@ -1,5 +1,5 @@
 ---
-sidebar_label: "専門 第5問"
+sidebar_label: "2014年8月実施 専門 第5問"
 tags:
   - Tokyo-University
 ---

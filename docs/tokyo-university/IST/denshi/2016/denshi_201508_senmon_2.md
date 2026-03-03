@@ -27,12 +27,12 @@ I6: ST   [ δ ] 0(r5)
 
 (2) Answer the relevant data dependency for the following instruction pairs (i) and (ii), respectively. Choose the correct answer from the following a, b, and c.
 
-(i) instruction `I1` and instruction `I2`
-(ii) instruction `I1` and instruction `I3`
+- (i) instruction `I1` and instruction `I2`
+- (ii) instruction `I1` and instruction `I3`
 
-a. Read After Write (Flow dependency)
-b. Write After Read (Anti-dependency)
-c. Write After Write (Output dependency)
+- a. Read After Write (Flow dependency)
+- b. Write After Read (Anti-dependency)
+- c. Write After Write (Output dependency)
 
 (3) Consider a pipelined processor whose stage organization and processing times are given in the following table. Answer the operation frequency of this processor. Each stage is completed within a cycle. You can assume that margins such as for mitigating clock skew are already involved in the values in the table. Note that [ps] represents $10^{-12}$ seconds.
 
@@ -63,7 +63,9 @@ $\alpha :$ `r1` $\qquad$ $\beta :$ `-1` $\qquad$ $\gamma :$ `r1` $\qquad$ $\delt
 ### (3)
 
 Since the minimum clock cycle time is determined by the stage with the longest latency.
+
 Max Latency $= 300 \text{ ps}$ (Memory Access)
+
 Therefore, Frequency $f = \frac{1}{300\text{ps}} = \frac{1}{300 \times 10^{-12}} \text{ Hz} \approx 3.33 \times 10^9 \text{ Hz}$
 
 ### (4)
@@ -95,5 +97,6 @@ i.e. $\text{CPI} = \frac{9}{5} = 1.8$
 
 Since predictor is used, the process in (4) will be revised to step into next IF in cycle 7.
 i.e. every 5 instruction need 6 total cycles. i.e. $\text{CPI} = \frac{6}{5} = 1.2$
+
 Since $\text{IPS} = \frac{\text{Instructions}}{\text{Time}} = \frac{1}{\text{CPI} \cdot \text{Cycle Time}} = \frac{1}{1.2 \cdot 300 \times 10^{-12}} = \frac{1}{3.6 \times 10^{-10}} = \frac{50}{18} \times 10^9$
 i.e. $\text{IPS} \approx 2.78 \times 10^9 \text{ instruction/s}$
