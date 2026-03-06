@@ -109,4 +109,6 @@ Select $N-1$ pivot words ($P_1, P_2, \dots, P_{N-1}$) such that the total freque
 
 Then Mapping Function:
 
-$$f(word) = i \quad \text{where} \quad P_i \le word < P_{i+1} \quad (P_0 = -\infty, P_N = +\infty)$$
+$$
+f(word) = i \quad \text{where} \quad P_i \le word < P_{i+1} \quad (P_0 = -\infty, P_N = +\infty)
+$$
