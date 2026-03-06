@@ -70,18 +70,33 @@ Therefore $\quad q = x + 6 \quad r = -3$.
 ### (3)
 
 - Let $r_k$ be the remainder at iteration $k$.
-- Since $$r_{k+1} = r_k - \frac{\text{LT}(r_k)}{\text{LT}(g_k)} g_k$$
+- Since
+$$
+r_{k+1} = r_k - \frac{\text{LT}(r_k)}{\text{LT}(g_k)} g_k
+$$
 - Let $\deg(r_k) = m, \deg(g_k) = n$, then
-$$\deg(r_{k+1}) = \deg\left(r_k - \frac{\text{LT}(r_k)}{\text{LT}(g_k)} g_k\right) = \deg\left( \sum_{i=0}^m r_i x^i - \frac{r_m x^m}{g_n x^n} \sum_{i=0}^n g_i x^i \right)$$
-- i.e., $$
+$$
+\deg(r_{k+1}) = \deg\left(r_k - \frac{\text{LT}(r_k)}{\text{LT}(g_k)} g_k\right) = \deg\left( \sum_{i=0}^m r_i x^i - \frac{r_m x^m}{g_n x^n} \sum_{i=0}^n g_i x^i \right)
+$$
+- i.e.,
+$$
 \begin{align*}
 \deg(r_{k+1}) &= \deg\left( \sum_{i=0}^{m-1} r_i x^i + r_m x^m - \frac{r_m x^m}{g_n x^n} \left( \sum_{i=0}^{n-1} g_i x^i + g_n x^n \right) \right) \\
 &= \deg\left( \sum_{i=0}^{m-1} r_i x^i + r_m x^m - \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i - r_m x^{m-n+n} \right) \\
 &= \deg\left( \sum_{i=0}^{m-1} r_i x^i - \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i \right)
 \end{align*}
 $$
-- Since $$\deg\left( \sum_{i=0}^{m-1} r_i x^i \right) \le m - 1 < \deg(r_k)$$ $$\deg\left( \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i \right) = m - 1 < \deg(r_k)$$
-- Therefore $$\deg(r_{k+1}) < \deg(r_k)$$
+- Since
+$$
+\deg\left( \sum_{i=0}^{m-1} r_i x^i \right) \le m - 1 < \deg(r_k)
+$$
+$$
+\deg\left( \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i \right) = m - 1 < \deg(r_k)
+$$
+- Therefore
+$$
+\deg(r_{k+1}) < \deg(r_k)
+$$
 - Since if $\deg(r) < \deg(g)$ the loop stops and $\deg(g)$ will not change.
 - Therefore the algorithm always terminates.
 

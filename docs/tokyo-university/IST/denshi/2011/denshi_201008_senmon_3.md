@@ -43,10 +43,15 @@ count_frequency(File sorted_words_file) {
 ### (1)
 
 *   Error 1: `output_pair(word, num)` outputs the current word with previous count.
+
     Correction: `output_pair(previous_word, num)`
+
 *   Error 2: The counter `num` is not reset after outputting.
+
     Correction: Set `num = 0` after the output block.
+
 *   Error 3: The last group of words is not outputted after while loop finishes.
+
     Correction: Add an `if (num > 0) output_pair(previous_word, num);`
 
 ### (2)
@@ -102,4 +107,6 @@ Use Range Partitioning based on Sampling.
 
 Select $N-1$ pivot words ($P_1, P_2, \dots, P_{N-1}$) such that the total frequency in each range is approximately equal.
 
-Then Mapping Function: $$f(word) = i \quad \text{where} \quad P_i \le word < P_{i+1} \quad (P_0 = -\infty, P_N = +\infty)$$
+Then Mapping Function:
+
+$$f(word) = i \quad \text{where} \quad P_i \le word < P_{i+1} \quad (P_0 = -\infty, P_N = +\infty)$$
