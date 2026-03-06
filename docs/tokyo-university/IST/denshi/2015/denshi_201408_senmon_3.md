@@ -14,7 +14,9 @@ tags:
 
 Let $f = a_0 + a_1 x + \dots + a_m x^m$ and $g = b_0 + b_1 x + \dots + b_n x^n$ be polynomials of $x$ ($a_i$ and $b_i$ are real. $a_m \neq 0$ and $b_n \neq 0$). We represent the leading terms of the polynomials $f$ and $g$ by $\text{LT}(f) = a_m x^m$ and $\text{LT}(g) = b_n x^n$, and their degrees by $\deg(f) = m$ and $\deg(g) = n$. The polynomial division, where $f$ is divided by a non-zero polynomial $g$, is given by
 
-$$f = qg + r.$$
+$$
+f = qg + r.
+$$
 
 Here quotient $q$ and remainder $r$ are polynomials of $x$ satisfying $r = 0$ or $\deg(r) < \deg(g)$. In this case, we represent $r = \text{remainder}(f, g)$ and $q = \text{quotient}(f, g)$.
 
@@ -68,37 +70,47 @@ Therefore $\quad q = x + 6 \quad r = -3$.
 - **(a)**: `r - (LT(r) / LT(g)) * g`
 
 ### (3)
+Let $r_k$ be the remainder at iteration $k$.
+Since
 
-- Let $r_k$ be the remainder at iteration $k$.
-- Since
 $$
 r_{k+1} = r_k - \frac{\text{LT}(r_k)}{\text{LT}(g_k)} g_k
 $$
-- Let $\deg(r_k) = m, \deg(g_k) = n$, then
+
+Let $\deg(r_k) = m, \deg(g_k) = n$, then
+
 $$
 \deg(r_{k+1}) = \deg\left(r_k - \frac{\text{LT}(r_k)}{\text{LT}(g_k)} g_k\right) = \deg\left( \sum_{i=0}^m r_i x^i - \frac{r_m x^m}{g_n x^n} \sum_{i=0}^n g_i x^i \right)
 $$
-- i.e.,
+
+i.e.,
+
 $$
-\begin{align*}
+\begin{aligned}
 \deg(r_{k+1}) &= \deg\left( \sum_{i=0}^{m-1} r_i x^i + r_m x^m - \frac{r_m x^m}{g_n x^n} \left( \sum_{i=0}^{n-1} g_i x^i + g_n x^n \right) \right) \\
 &= \deg\left( \sum_{i=0}^{m-1} r_i x^i + r_m x^m - \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i - r_m x^{m-n+n} \right) \\
 &= \deg\left( \sum_{i=0}^{m-1} r_i x^i - \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i \right)
-\end{align*}
+\end{aligned}
 $$
-- Since
+
+Since
+
 $$
 \deg\left( \sum_{i=0}^{m-1} r_i x^i \right) \le m - 1 < \deg(r_k)
 $$
+
 $$
 \deg\left( \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i \right) = m - 1 < \deg(r_k)
 $$
-- Therefore
+
+Therefore
+
 $$
 \deg(r_{k+1}) < \deg(r_k)
 $$
-- Since if $\deg(r) < \deg(g)$ the loop stops and $\deg(g)$ will not change.
-- Therefore the algorithm always terminates.
+
+Since if $\deg(r) < \deg(g)$ the loop stops and $\deg(g)$ will not change.
+Therefore the algorithm always terminates.
 
 ### (4)
 
@@ -106,21 +118,21 @@ $$
 - **(c)**: `rem`
 
 ### (5)
-
 According to (3),
+
 $$
-\begin{align*}
+\begin{aligned}
 \deg(r_{k+1}) &= \deg\left( \sum_{i=0}^{m-1} r_i x^i - \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i \right) \\
 &= \deg\left( \sum_{i=0}^{m-2} r_i x^i - \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-2} g_i x^i + \left(r_{m-1} - \frac{r_m}{g_n} g_{n-1}\right) x^{m-1} \right)
-\end{align*}
+\end{aligned}
 $$
 
-In GCD, $\quad s_{next} = \text{remainder}(h, s)$
+In GCD, $\quad s_{next} = \text{remainder}(h, s)$.
 
-According to the analysis of (3), we know $\deg(rem) < \deg(s)$ and $\deg(s_{k+1}) < \deg(s_k)$
+According to the analysis of (3), we know $\deg(rem) < \deg(s)$ and $\deg(s_{k+1}) < \deg(s_k)$.
 
 To find the worst case, we need let $\deg(s_{k+1}) = \deg(s_k) - 1$.
 
-In this case, the degree of $s$ follows the sequence: $n, n-1, n-2, \dots, 1, 0$, where $n = \deg(g)$
+In this case, the degree of $s$ follows the sequence: $n, n-1, n-2, \dots, 1, 0$, where $n = \deg(g)$.
 
-The total number of steps is the length of this sequence plus the final step: $\deg(g) + 1$
+The total number of steps is the length of this sequence plus the final step: $\deg(g) + 1$.
