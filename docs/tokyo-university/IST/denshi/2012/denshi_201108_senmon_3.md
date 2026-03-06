@@ -58,7 +58,9 @@ Select U.Name, U.Phone_Number
 
 ### (4)
 
-$$\pi_{\text{Name}, \text{Phone\_Number}} \left( \sigma_{\text{Publisher}='A' \land (\text{Date} - \text{Lent\_Date} \ge 10)} \left( \text{Users} \bowtie \text{Lending\_Status} \bowtie \text{Books} \right) \right)$$
+$$
+\pi_{\text{Name}, \text{Phone\_Number}} \left( \sigma_{\text{Publisher}='A' \land (\text{Date} - \text{Lent\_Date} \ge 10)} \left( \text{Users} \bowtie \text{Lending\_Status} \bowtie \text{Books} \right) \right)
+$$
 
 Relationship:
 - Naive execution: Compute all Cartesian product/Join of all the tables first leading to high cost
