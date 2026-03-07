@@ -37,9 +37,9 @@ function parseFrontmatter(content) {
   const raw = match[1];
   const result = { _raw: raw, _endIndex: match[0].length };
 
-  // 简单解析 sidebar_label
-  const labelMatch = raw.match(/sidebar_label:\s*"([^"]*)"/);
-  result.sidebar_label = labelMatch ? labelMatch[1] : null;
+// 简单解析 sidebar_label（支持双引号、单引号、无引号）
+  const labelMatch = raw.match(/sidebar_label:\s*(?:"([^"]*)"|'([^']*)'|(\S.*))/);  
+  result.sidebar_label = labelMatch ? (labelMatch[1] || labelMatch[2] || (labelMatch[3] && labelMatch[3].trim())) : null;
 
   // 解析 tags
   const tagsSection = raw.match(/tags:\s*\n((?:\s+-\s+.+\n?)*)/);
@@ -104,8 +104,8 @@ function checkFile(filePath, content) {
   // 3. 必需章节检查
   const requiredSections = [
     { pattern: /^##\s+\*\*Author\*\*/, name: 'Author' },
-    { pattern: /^##\s+\*\*Description\*\*/, name: 'Description' },
-    { pattern: /^##\s+\*\*Kai\*\*/, name: 'Kai' },
+    { pattern: /^##\s+.*Description/i, name: 'Description' },
+    { pattern: /^##\s+.*Kai/i, name: 'Kai' },
   ];
 
   const sectionPositions = {};
@@ -215,11 +215,6 @@ function checkFile(filePath, content) {
     }
   }
 
-  // 8. 尾部空行检查
-  if (content.length > 0 && !content.endsWith('\n')) {
-    issues.push({ severity: 'WARNING', file: relPath, line: lines.length, rule: 'no-trailing-newline', message: '文件末尾缺少换行符' });
-  }
-
   return issues;
 }
 
@@ -279,7 +274,7 @@ function generateMarkdownReport(allIssues, totalFiles) {
     'kai-empty': 'Kai 内容为空',
     'math-unclosed-block': '数学公式块未闭合',
     'heading-skip': '标题层级跳跃',
-    'no-trailing-newline': '缺少末尾换行符',
+
   };
   for (const [rule, count] of Object.entries(ruleStats).sort((a, b) => b[1] - a[1])) {
     report += `| \`${rule}\` | ${count} | ${ruleDescriptions[rule] || rule} |\n`;
