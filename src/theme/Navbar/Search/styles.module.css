@@ -22,6 +22,6 @@ See https://github.com/facebook/docusaurus/pull/9385
 
 @media (min-width: 997px) {
   .navbarSearchContainer {
-    padding: 0 var(--ifm-navbar-item-padding-horizontal);
+    padding: 0 0.4rem;
   }
 }

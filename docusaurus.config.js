@@ -251,6 +251,8 @@ const config = {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',
             position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ],
       },

@@ -49,6 +49,9 @@ const T = {
     logoutOk: '已退出登录。',
     backProgress: '← 返回进度页',
     notConfigured: '云同步尚未配置，请联系站长。',
+    emailRequired: '请输入邮箱地址',
+    emailInvalid: '请输入有效的邮箱地址',
+    passwordRequired: '请输入密码',
   },
   ja: {
     pageTitle: 'ログイン - クラウド同期',
@@ -73,6 +76,9 @@ const T = {
     logoutOk: 'ログアウトしました。',
     backProgress: '← 進捗ページに戻る',
     notConfigured: 'クラウド同期が設定されていません。管理者にお問い合わせください。',
+    emailRequired: 'メールアドレスを入力してください',
+    emailInvalid: '有効なメールアドレスを入力してください',
+    passwordRequired: 'パスワードを入力してください',
   },
 };
 
@@ -96,7 +102,7 @@ function LoginPageContent() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState(null); // { text, isError }
-  const [pwErrors, setPwErrors] = useState([]);
+  const [pwChecks, setPwChecks] = useState(null); // [{ label, passed }] or null
   const [lockCountdown, setLockCountdown] = useState(0);
   const [captchaToken, setCaptchaToken] = useState('');
   const countdownRef = useRef(null);
@@ -131,19 +137,48 @@ function LoginPageContent() {
   };
 
   // 实时密码强度检查（仅注册模式）
+  const pwRules = lang === 'ja'
+    ? [
+        { test: (pw) => pw.length >= 8, label: '8文字以上' },
+        { test: (pw) => /[a-z]/.test(pw), label: '小文字を含む' },
+        { test: (pw) => /[A-Z]/.test(pw), label: '大文字を含む' },
+        { test: (pw) => /[0-9]/.test(pw), label: '数字を含む' },
+      ]
+    : [
+        { test: (pw) => pw.length >= 8, label: '至少 8 个字符' },
+        { test: (pw) => /[a-z]/.test(pw), label: '包含小写字母' },
+        { test: (pw) => /[A-Z]/.test(pw), label: '包含大写字母' },
+        { test: (pw) => /[0-9]/.test(pw), label: '包含数字' },
+      ];
+
   const handlePasswordChange = (val) => {
     setPassword(val);
     if (mode === 'register' && val.length > 0) {
-      const { errors } = validatePassword(val, lang);
-      setPwErrors(errors);
+      setPwChecks(pwRules.map((r) => ({ label: r.label, passed: r.test(val) })));
     } else {
-      setPwErrors([]);
+      setPwChecks(null);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMsg(null);
+
+    // 邮箱格式校验
+    if (!email.trim()) {
+      showMsg(t.emailRequired, true);
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showMsg(t.emailInvalid, true);
+      return;
+    }
+
+    // 密码非空校验
+    if (!password) {
+      showMsg(t.passwordRequired, true);
+      return;
+    }
 
     // hCaptcha 验证检查
     if (hcaptchaSiteKey && !captchaToken) {
@@ -163,10 +198,9 @@ function LoginPageContent() {
 
     // 注册时校验密码强度
     if (mode === 'register') {
-      const { valid, errors } = validatePassword(password, lang);
+      const { valid } = validatePassword(password, lang);
       if (!valid) {
-        setPwErrors(errors);
-        showMsg(errors.join('；'), true);
+        setPwChecks(pwRules.map((r) => ({ label: r.label, passed: r.test(password) })));
         return;
       }
     }
@@ -304,7 +338,7 @@ function LoginPageContent() {
 
         <div className={styles.cardBody}>
           {/* 消息提示 */}
-          {(msg || error) && (
+          {(msg || (!msg && error)) && (
             <div className={`${styles.message} ${(msg?.isError || (!msg && error)) ? styles.messageError : styles.messageSuccess}`}>
               {(msg?.isError || (!msg && error))
                 ? <FaExclamationTriangle className={styles.messageIcon} />
@@ -318,7 +352,7 @@ function LoginPageContent() {
           <div className={styles.authToggle}>
             <button
               className={`${styles.authTab} ${mode === 'login' ? styles.authTabActive : ''}`}
-              onClick={() => { setMode('login'); setMsg(null); setPwErrors([]); }}
+              onClick={() => { setMode('login'); setMsg(null); setPwChecks(null); }}
             >
               <FaSignInAlt /> {t.tabLogin}
             </button>
@@ -339,7 +373,7 @@ function LoginPageContent() {
           )}
 
           {/* 表单 */}
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
             <div className={styles.inputGroup}>
               <label className={styles.inputLabel}>
                 <FaEnvelope className={styles.inputIcon} /> {t.email}
@@ -368,10 +402,15 @@ function LoginPageContent() {
                 minLength={mode === 'register' ? 8 : 6}
                 autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
               />
-              {/* 注册时显示密码强度提示 */}
-              {mode === 'register' && pwErrors.length > 0 && (
-                <ul style={{ color: 'var(--ifm-color-danger)', fontSize: '0.85rem', margin: '4px 0 0', paddingLeft: '1.2em' }}>
-                  {pwErrors.map((e, i) => <li key={i}>{e}</li>)}
+              {/* 注册时显示密码要求清单 */}
+              {mode === 'register' && pwChecks && (
+                <ul style={{ fontSize: '0.82rem', margin: '6px 0 0', paddingLeft: '0.2em', listStyle: 'none' }}>
+                  {pwChecks.map((c, i) => (
+                    <li key={i} style={{ color: c.passed ? 'var(--ifm-color-primary)' : 'var(--ifm-color-emphasis-500)', display: 'flex', alignItems: 'center', gap: '0.3rem', padding: '1px 0' }}>
+                      {c.passed ? <FaCheck style={{ fontSize: '0.7rem' }} /> : <span style={{ display: 'inline-block', width: '0.7rem', height: '0.7rem', borderRadius: '50%', border: '1.5px solid var(--ifm-color-emphasis-400)' }} />}
+                      <span style={{ textDecoration: c.passed ? 'line-through' : 'none', opacity: c.passed ? 0.6 : 1 }}>{c.label}</span>
+                    </li>
+                  ))}
                 </ul>
               )}
             </div>

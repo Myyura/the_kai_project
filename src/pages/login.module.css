@@ -10,39 +10,43 @@
 
 .card {
   width: 100%;
-  max-width: 400px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 14px;
+  max-width: 420px;
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
   overflow: hidden;
   background: var(--ifm-background-color);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--custom-box-shadow);
+  backdrop-filter: var(--custom-blur-sm);
 }
 
 .cardHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
-  padding: 1.5rem 1.5rem 1rem;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  gap: 0.4rem;
+  padding: 2rem 1.5rem 1.2rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-color-primary) 100%);
   color: #fff;
   text-align: center;
 }
 
 .cardIcon {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 0.25rem;
+  opacity: 0.9;
 }
 
 .cardTitle {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 
 .cardSubtitle {
   font-size: 0.85rem;
-  opacity: 0.85;
+  opacity: 0.8;
+  max-width: 280px;
+  line-height: 1.4;
 }
 
 .cardBody {
@@ -53,10 +57,11 @@
 
 .authToggle {
   display: flex;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
   overflow: hidden;
   margin-bottom: 1.2rem;
+  background: var(--ifm-color-emphasis-100);
 }
 
 .authTab {
@@ -68,16 +73,19 @@
   font-weight: 600;
   cursor: pointer;
   color: var(--ifm-color-emphasis-600);
-  transition: all 0.15s;
+  transition: var(--custom-transition-fast);
+  border-radius: var(--custom-border-radius-xs);
+  margin: 2px;
 }
 
 .authTab:hover {
-  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
 }
 
 .authTabActive {
   background: var(--ifm-color-primary);
   color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .authTabActive:hover {
@@ -103,24 +111,25 @@
 
 .inputIcon {
   font-size: 0.78rem;
+  color: var(--ifm-color-primary);
 }
 
 .input {
   width: 100%;
-  padding: 0.6rem 0.85rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
   font-size: 0.9rem;
   background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base);
-  transition: border-color 0.15s;
+  transition: var(--custom-transition-fast);
   box-sizing: border-box;
 }
 
 .input:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 0 3px rgba(46, 133, 85, 0.12);
 }
 
 /* ── Buttons ────────────────────────────────────────────── */
@@ -131,14 +140,15 @@
   justify-content: center;
   gap: 0.4rem;
   width: 100%;
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1rem;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--custom-border-radius-xs);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: var(--custom-transition-fast);
   margin-top: 0.5rem;
+  text-decoration: none;
 }
 
 .btn:disabled {
@@ -152,7 +162,10 @@
 }
 
 .btnPrimary:hover:not(:disabled) {
-  filter: brightness(1.1);
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(46, 133, 85, 0.25);
+  color: #fff;
 }
 
 /* ── Message ────────────────────────────────────────────── */
@@ -161,22 +174,24 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.55rem 0.75rem;
-  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--custom-border-radius-xs);
   font-size: 0.82rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  animation: fadeIn 0.2s ease;
+  animation: fadeIn 0.25s ease;
 }
 
 .messageSuccess {
   background: #ecfdf5;
   color: #059669;
+  border: 1px solid #a7f3d0;
 }
 
 .messageError {
   background: #fef2f2;
   color: #dc2626;
+  border: 1px solid #fecaca;
 }
 
 .messageIcon {
@@ -188,8 +203,14 @@
 .backLink {
   display: block;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-500);
+  transition: var(--custom-transition-fast);
+}
+
+.backLink:hover {
+  color: var(--ifm-color-primary);
 }
 
 /* ── Already logged in ──────────────────────────────────── */
@@ -216,21 +237,23 @@
 }
 
 .btnSecondary {
-  background: var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
   color: var(--ifm-font-color-base);
+  border: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .btnSecondary:hover:not(:disabled) {
-  background: var(--ifm-color-emphasis-300);
+  background: var(--ifm-color-emphasis-200);
 }
 
 .btnDanger {
-  background: #fee2e2;
+  background: transparent;
   color: #dc2626;
+  border: 1px solid #fecaca;
 }
 
 .btnDanger:hover:not(:disabled) {
-  background: #fecaca;
+  background: #fee2e2;
 }
 
 /* ── Spin ───────────────────────────────────────────────── */
@@ -240,7 +263,7 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
+  from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -251,14 +274,51 @@
 
 /* ── Dark mode ──────────────────────────────────────────── */
 
+[data-theme='dark'] .card {
+  background: var(--custom-card-bg);
+  border-color: var(--custom-card-border);
+}
+
+[data-theme='dark'] .authToggle {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .authTab:hover {
+  color: var(--ifm-color-primary-light);
+}
+
+[data-theme='dark'] .input {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .input:focus {
+  box-shadow: 0 0 0 3px rgba(37, 194, 160, 0.15);
+}
+
 [data-theme='dark'] .messageSuccess {
   background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
 }
 
 [data-theme='dark'] .messageError {
   background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+[data-theme='dark'] .btnSecondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .btnSecondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='dark'] .btnDanger {
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+[data-theme='dark'] .btnDanger:hover:not(:disabled) {
   background: rgba(220, 38, 38, 0.15);
 }
