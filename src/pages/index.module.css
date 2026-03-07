@@ -121,11 +121,12 @@
 
 /* 主标题 - 大而醒目 */
 .heroTitle {
-  font-size: clamp(3rem, 8vw, 5.5rem) !important;
+  font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.2;
   margin: 0 0 1.5rem;
+  padding-bottom: 0.05em;
   background: linear-gradient(135deg, #1d1d1f 0%, #424245 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
