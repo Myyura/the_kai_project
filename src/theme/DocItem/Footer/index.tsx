@@ -5,16 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {type ReactNode} from 'react';
+import React, {type ReactNode, lazy, Suspense} from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import TagsListInline from '@theme/TagsListInline';
 import EditMetaRow from '@theme/EditMetaRow';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import ProgressTracker from '@site/src/components/ProgressTracker';
-import NoteEditor from '@site/src/components/NoteEditor';
-import ShareAsImage from '@site/src/components/ShareAsImage';
+
+const ProgressTracker = lazy(() => import('@site/src/components/ProgressTracker'));
+const NoteEditor = lazy(() => import('@site/src/components/NoteEditor'));
+const ShareAsImage = lazy(() => import('@site/src/components/ShareAsImage'));
 
 export default function DocItemFooter(): ReactNode {
   const {metadata} = useDoc();
@@ -50,7 +51,7 @@ export default function DocItemFooter(): ReactNode {
       )}
       <BrowserOnly>
         {() => (
-          <>
+          <Suspense fallback={null}>
             <ShareAsImage docId={id} title={title} />
             <ProgressTracker
               docId={id}
@@ -59,7 +60,7 @@ export default function DocItemFooter(): ReactNode {
               tags={tags.map((t) => t.label)}
             />
             <NoteEditor docId={id} />
-          </>
+          </Suspense>
         )}
       </BrowserOnly>
     </footer>

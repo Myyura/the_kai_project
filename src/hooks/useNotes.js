@@ -1,14 +1,21 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { getCalibratedNow } from '../services/syncService';
 
 export const NOTES_STORAGE_KEY = 'kai_notes';
+
+// 模块级缓存，避免多组件同时 JSON.parse
+let _notesCache = null;
+let _notesRaw = null;
 
 // 从 localStorage 读取全部笔记数据
 export const readNotesData = () => {
   if (typeof window === 'undefined') return {};
   try {
     const raw = localStorage.getItem(NOTES_STORAGE_KEY);
-    return raw ? JSON.parse(raw) : {};
+    if (raw === _notesRaw && _notesCache) return _notesCache;
+    _notesRaw = raw;
+    _notesCache = raw ? JSON.parse(raw) : {};
+    return _notesCache;
   } catch {
     return {};
   }
@@ -18,7 +25,10 @@ export const readNotesData = () => {
 export const writeNotesData = (data, { skipDirty = false } = {}) => {
   if (typeof window === 'undefined') return;
   try {
-    localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(data));
+    const json = JSON.stringify(data);
+    _notesRaw = json;
+    _notesCache = data;
+    localStorage.setItem(NOTES_STORAGE_KEY, json);
     window.dispatchEvent(new Event('kai_notes_updated'));
     // 标记本地有未同步修改（从云端拉取写入时 skipDirty=true）
     if (!skipDirty) {
@@ -77,7 +87,10 @@ export const useAllNotes = () => {
     return () => window.removeEventListener('kai_notes_updated', handler);
   }, []);
 
-  const entries = Object.entries(data).map(([id, val]) => ({ id, ...val }));
+  const entries = useMemo(
+    () => Object.entries(data).map(([id, val]) => ({ id, ...val })),
+    [data]
+  );
 
   const clearAll = useCallback(() => {
     writeNotesData({});

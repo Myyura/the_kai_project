@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useCallback, useSyncExternalStore } from 'react';
+import React, { createContext, useContext, useCallback, useSyncExternalStore, useMemo } from 'react';
 
 // 定义翻译内容
 // key 必须与 docusaurus.config.js 中的 label 完全一致

@@ -59,8 +59,16 @@ export const getServerTimeOffset = () => {
 /**
  * 通过轻量 RPC 获取 Supabase 服务端时间并计算偏移量。
  * 内部使用 PostgreSQL now() 确保和 DB 触发器一致。
+ * 对同一时刻的多次调用进行去重，只发出一次请求。
  */
+let _calibratePromise = null;
 export const calibrateServerTime = async () => {
+  if (_calibratePromise) return _calibratePromise;
+  _calibratePromise = _calibrateServerTimeImpl();
+  try { await _calibratePromise; } finally { _calibratePromise = null; }
+};
+
+const _calibrateServerTimeImpl = async () => {
   const sb = getSupabaseClient();
   if (!sb) return;
   try {

@@ -39,6 +39,11 @@ const config = {
   tagline: 'Answer to the Ultimate Question of Life, the Universe, and Everything',
   favicon: 'img/favicon.ico',
 
+  headTags: [
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: 'anonymous' } },
+    { tagName: 'link', attributes: { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' } },
+  ],
+
   // Supabase 凭据通过环境变量注入（GitHub Secrets → CI 环境变量）
   customFields: {
     supabaseUrl: process.env.SUPABASE_URL || '',
@@ -91,10 +96,10 @@ const config = {
         language: ["zh", "en", "ja"],
         indexDocs: true,
         indexBlog: true,
-        indexPages: true,
+        indexPages: false,
         docsRouteBasePath: "/docs",
         blogRouteBasePath: "/blog",
-        highlightSearchTermsOnTargetPage: true,
+        highlightSearchTermsOnTargetPage: false,
       }),
     ],
     '@docusaurus/theme-mermaid',

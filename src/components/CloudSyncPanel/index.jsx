@@ -6,7 +6,7 @@
  * 未登录显示提示卡片，已登录显示用户信息 + 同步按钮网格。
  */
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   FaCloud, FaCloudUploadAlt, FaCloudDownloadAlt, FaSyncAlt,
   FaSignOutAlt, FaCheck, FaExclamationTriangle,
@@ -24,13 +24,19 @@ export default function CloudSyncPanel({ language = 'zh' }) {
   } = useSync();
 
   const [actionMsg, setActionMsg] = useState(null);
+  const msgTimerRef = useRef(null);
   const t = language === 'ja' ? T.ja : T.zh;
+
+  useEffect(() => {
+    return () => { if (msgTimerRef.current) clearTimeout(msgTimerRef.current); };
+  }, []);
 
   if (!isConfigured) return null;
 
   const showMsg = (msg, isError = false) => {
     setActionMsg({ text: msg, isError });
-    setTimeout(() => setActionMsg(null), 4000);
+    if (msgTimerRef.current) clearTimeout(msgTimerRef.current);
+    msgTimerRef.current = setTimeout(() => setActionMsg(null), 4000);
   };
 
   const handleSync = async () => {

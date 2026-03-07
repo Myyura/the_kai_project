@@ -22,7 +22,7 @@ let _siteConfig = null;
  * 之后非 React 代码也能通过缓存拿到凭据。
  */
 export const initSiteConfig = (siteConfig) => {
-  _siteConfig = siteConfig;
+  if (!_siteConfig) _siteConfig = siteConfig;
 };
 
 const getCredentials = () => {

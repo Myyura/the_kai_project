@@ -148,7 +148,7 @@ const localizeSource = (src) => {
 };
 
 // 链接卡片组件
-const LinkCard = ({ link, index, isJob = false }) => {
+const LinkCard = React.memo(({ link, index, isJob = false }) => {
   const host = safeHostname(link.url);
   const source = detectSource(link.url);
   
@@ -182,7 +182,7 @@ const LinkCard = ({ link, index, isJob = false }) => {
       </div>
     </div>
   );
-};
+});
 
 // 主页面组件
 export default function Links() {

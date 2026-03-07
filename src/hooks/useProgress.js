@@ -9,12 +9,19 @@ export const STATUS = {
   REVIEWING: 'reviewing',
 };
 
+// 模块级缓存，避免多组件同时 JSON.parse
+let _progressCache = null;
+let _progressRaw = null;
+
 // 从 localStorage 读取全部进度数据
 export const readProgressData = () => {
   if (typeof window === 'undefined') return {};
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : {};
+    if (raw === _progressRaw && _progressCache) return _progressCache;
+    _progressRaw = raw;
+    _progressCache = raw ? JSON.parse(raw) : {};
+    return _progressCache;
   } catch {
     return {};
   }
@@ -24,7 +31,10 @@ export const readProgressData = () => {
 export const writeProgressData = (data, { skipDirty = false } = {}) => {
   if (typeof window === 'undefined') return;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    const json = JSON.stringify(data);
+    _progressRaw = json;
+    _progressCache = data;
+    localStorage.setItem(STORAGE_KEY, json);
     window.dispatchEvent(new Event('kai_progress_updated'));
     // 标记本地有未同步修改（从云端拉取写入时 skipDirty=true）
     if (!skipDirty) {
