@@ -281,31 +281,65 @@ function generateMarkdownReport(allIssues, totalFiles) {
   }
   report += '\n';
 
-  // 按大学分组详细报告
+  // 按目录层级分组详细报告
   report += `## 🏫 按大学分组详情\n\n`;
-  const uniKeys = Object.keys(byUniversity).sort();
+
+  // 构建目录树: { uni: { dept: { subject: { year: [issues] } } } }
+  const tree = {};
+  for (const issue of allIssues) {
+    // docs/university/department/subject/year/file.md
+    const parts = issue.file.split('/');
+    const uni = parts[1] || 'other';
+    // 剩余路径中，最后一个是文件名，倒数第二个是年份，其余为中间层级
+    const fileName = parts[parts.length - 1];
+    const middleParts = parts.slice(2, -1); // department/.../year
+    const subPath = middleParts.join('/') || '_root';
+
+    if (!tree[uni]) tree[uni] = {};
+    if (!tree[uni][subPath]) tree[uni][subPath] = {};
+    if (!tree[uni][subPath][fileName]) tree[uni][subPath][fileName] = [];
+    tree[uni][subPath][fileName].push(issue);
+  }
+
+  const uniKeys = Object.keys(tree).sort();
   for (const uni of uniKeys) {
-    const uniIssues = byUniversity[uni];
-    const uniErrors = uniIssues.filter(i => i.severity === 'ERROR').length;
-    const uniWarnings = uniIssues.filter(i => i.severity === 'WARNING').length;
-    report += `### ${uni} (${uniErrors} errors, ${uniWarnings} warnings)\n\n`;
-
-    // 按文件分组
-    const byFile = {};
-    for (const issue of uniIssues) {
-      if (!byFile[issue.file]) byFile[issue.file] = [];
-      byFile[issue.file].push(issue);
-    }
-
-    for (const [file, fileIssues] of Object.entries(byFile)) {
-      report += `<details>\n<summary><code>${file}</code> (${fileIssues.length} issues)</summary>\n\n`;
-      report += `| 行号 | 级别 | 规则 | 说明 |\n`;
-      report += `|------|------|------|------|\n`;
-      for (const issue of fileIssues) {
-        const icon = issue.severity === 'ERROR' ? '🔴' : '🟡';
-        report += `| ${issue.line} | ${icon} ${issue.severity} | \`${issue.rule}\` | ${issue.message} |\n`;
+    // 收集该大学所有 issues
+    const allUniIssues = [];
+    for (const sub of Object.values(tree[uni])) {
+      for (const fileIssues of Object.values(sub)) {
+        allUniIssues.push(...fileIssues);
       }
-      report += `\n</details>\n\n`;
+    }
+    const uniErrorCount = allUniIssues.filter(i => i.severity === 'ERROR').length;
+    const uniWarningCount = allUniIssues.filter(i => i.severity === 'WARNING').length;
+
+    report += `### ${uni} (${uniErrorCount} errors, ${uniWarningCount} warnings)\n\n`;
+
+    const subPaths = Object.keys(tree[uni]).sort();
+    for (const subPath of subPaths) {
+      const subFiles = tree[uni][subPath];
+      const allSubIssues = [];
+      for (const fileIssues of Object.values(subFiles)) {
+        allSubIssues.push(...fileIssues);
+      }
+      const subIssueCount = allSubIssues.length;
+
+      report += `<details>\n<summary><b>${subPath}</b> (${subIssueCount} issues)</summary>\n\n`;
+
+      const fileNames = Object.keys(subFiles).sort();
+      for (const fileName of fileNames) {
+        const fileIssues = subFiles[fileName];
+        report += `**${fileName}**\n\n`;
+        report += `| 行号 | 级别 | 规则 | 说明 |\n`;
+        report += `|------|------|------|------|\n`;
+        for (const issue of fileIssues) {
+          const icon = issue.severity === 'ERROR' ? '🔴' : '🟡';
+          report += `| ${issue.line} | ${icon} ${issue.severity} | \`${issue.rule}\` | ${issue.message} |\n`;
+        }
+        report += `\n`;
+      }
+
+      report += `</details>\n\n`;
     }
   }
 
