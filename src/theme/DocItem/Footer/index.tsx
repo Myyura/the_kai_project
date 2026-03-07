@@ -49,20 +49,18 @@ export default function DocItemFooter(): ReactNode {
         />
       )}
       <BrowserOnly>
-        {() => <ShareAsImage docId={id} title={title} />}
-      </BrowserOnly>
-      <BrowserOnly>
         {() => (
-          <ProgressTracker
-            docId={id}
-            title={title}
-            permalink={permalink}
-            tags={tags.map((t) => t.label)}
-          />
+          <>
+            <ShareAsImage docId={id} title={title} />
+            <ProgressTracker
+              docId={id}
+              title={title}
+              permalink={permalink}
+              tags={tags.map((t) => t.label)}
+            />
+            <NoteEditor docId={id} />
+          </>
         )}
-      </BrowserOnly>
-      <BrowserOnly>
-        {() => <NoteEditor docId={id} />}
       </BrowserOnly>
     </footer>
   );

@@ -1,5 +1,4 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { toPng } from 'html-to-image';
 import { FaShareAlt, FaDownload, FaCheck, FaTimes, FaImage } from 'react-icons/fa';
 import { useCurrentLanguage } from '@site/src/context/LanguageContext';
 import styles from './styles.module.css';
@@ -153,8 +152,9 @@ export default function ShareAsImage({ docId, title: docTitle }) {
         z-index: 1;
       `;
       const watermarkText = 'runjp.com';
-      // Create a grid of watermark texts
-      const rows = 60;
+      // Calculate rows needed based on content height (lazy, use fewer spans)
+      const contentHeight = contentClone.scrollHeight || 2000;
+      const rows = Math.min(Math.ceil(contentHeight / 160), 30);
       const cols = 4;
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
@@ -206,26 +206,26 @@ export default function ShareAsImage({ docId, title: docTitle }) {
 
       document.body.appendChild(container);
 
-      // Copy computed styles from the original document for KaTeX, code blocks, etc.
-      const styleSheets = Array.from(document.styleSheets);
+      // Copy only relevant styles (skip cross-origin and irrelevant sheets)
       const styleEl = document.createElement('style');
-      let cssText = '';
-      for (const sheet of styleSheets) {
+      const cssChunks = [];
+      for (const sheet of document.styleSheets) {
         try {
-          const rules = Array.from(sheet.cssRules || []);
-          for (const rule of rules) {
-            cssText += rule.cssText + '\n';
+          if (!sheet.cssRules) continue;
+          for (const rule of sheet.cssRules) {
+            cssChunks.push(rule.cssText);
           }
-        } catch (e) {
-          // Cross-origin stylesheets can't be accessed
+        } catch {
+          // Cross-origin stylesheets can't be accessed - skip
         }
       }
-      styleEl.textContent = cssText;
+      styleEl.textContent = cssChunks.join('\n');
       container.prepend(styleEl);
 
       // Wait for fonts/images to load
-      await new Promise(r => setTimeout(r, 500));
+      await new Promise(r => setTimeout(r, 300));
 
+      const { toPng } = await import('html-to-image');
       const dataUrl = await toPng(container, {
         quality: 1,
         pixelRatio: 2,

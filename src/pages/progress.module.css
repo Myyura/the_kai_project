@@ -628,7 +628,7 @@
 .heatmapCell {
   aspect-ratio: 1;
   border-radius: 2px;
-  transition: opacity 0.15s;
+  contain: strict;
 }
 
 .heatmapCell:hover { opacity: 0.75; }

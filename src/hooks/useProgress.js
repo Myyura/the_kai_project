@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { getCalibratedNow } from '../services/syncService';
 
 export const STORAGE_KEY = 'kai_progress';
@@ -138,31 +138,40 @@ export const useAllProgress = () => {
     return () => window.removeEventListener('kai_progress_updated', handler);
   }, []);
 
-  const entries = Object.entries(data).map(([id, val]) => ({ id, ...val }));
+  const entries = useMemo(
+    () => Object.entries(data).map(([id, val]) => ({ id, ...val })),
+    [data]
+  );
 
-  const stats = {
-    completed: entries.filter((e) => e.status === STATUS.COMPLETED).length,
-    reviewing: entries.filter((e) => e.status === STATUS.REVIEWING).length,
-    total: entries.length,
-  };
+  const stats = useMemo(() => {
+    let completed = 0;
+    let reviewing = 0;
+    for (const e of entries) {
+      if (e.status === STATUS.COMPLETED) completed++;
+      else if (e.status === STATUS.REVIEWING) reviewing++;
+    }
+    return { completed, reviewing, total: entries.length };
+  }, [entries]);
 
   const clearAll = useCallback(() => {
     writeProgressData({});
     setData({});
   }, []);
 
-  const tagStats = {};
-  entries.forEach((e) => {
-    if (!Array.isArray(e.tags)) return;
-    e.tags.forEach((tag) => {
-      if (/university$/i.test(tag)) return;
-      if (!tagStats[tag]) tagStats[tag] = { completed: 0, reviewing: 0, total: 0 };
-      tagStats[tag].total++;
-      if (e.status === STATUS.COMPLETED) tagStats[tag].completed++;
-      if (e.status === STATUS.REVIEWING) tagStats[tag].reviewing++;
-    });
-  });
-  const tagGroups = Object.entries(tagStats).sort((a, b) => b[1].total - a[1].total);
+  const tagGroups = useMemo(() => {
+    const tagStats = {};
+    for (const e of entries) {
+      if (!Array.isArray(e.tags)) continue;
+      for (const tag of e.tags) {
+        if (/university$/i.test(tag)) continue;
+        if (!tagStats[tag]) tagStats[tag] = { completed: 0, reviewing: 0, total: 0 };
+        tagStats[tag].total++;
+        if (e.status === STATUS.COMPLETED) tagStats[tag].completed++;
+        else if (e.status === STATUS.REVIEWING) tagStats[tag].reviewing++;
+      }
+    }
+    return Object.entries(tagStats).sort((a, b) => b[1].total - a[1].total);
+  }, [entries]);
 
   return { data, entries, stats, tagGroups, clearAll };
 };

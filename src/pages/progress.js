@@ -316,7 +316,7 @@ const T = {
   },
 };
 
-const StatusBadge = ({ status, t }) => {
+const StatusBadge = React.memo(({ status, t }) => {
   if (status === STATUS.COMPLETED)
     return (
       <span className={`${styles.badge} ${styles.badgeCompleted}`}>
@@ -330,9 +330,9 @@ const StatusBadge = ({ status, t }) => {
       </span>
     );
   return null;
-};
+});
 
-const EntryRow = ({ entry, t }) => {
+const EntryRow = React.memo(({ entry, t }) => {
   const reviewInfo = entry.status === STATUS.REVIEWING ? getReviewInfo(entry.updatedAt, entry.reviewCount ?? 0) : null;
   const nextReviewText = reviewInfo
     ? reviewInfo.urgency === 'critical'
@@ -374,7 +374,7 @@ const EntryRow = ({ entry, t }) => {
       </div>
     </div>
   );
-};
+});
 
 function ProgressPageInner() {
   const [language, toggleLanguage] = useStoredLanguage();

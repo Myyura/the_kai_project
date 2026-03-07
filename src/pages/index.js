@@ -3,8 +3,8 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaUsers, FaCheckCircle, FaSyncAlt } from 'react-icons/fa';
-import React, { useState, useMemo } from 'react';
+import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaCheckCircle, FaSyncAlt } from 'react-icons/fa';
+import React, { useState, useMemo, memo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { useStoredLanguage } from '../context/LanguageContext';
 import { useAllProgress, STATUS } from '../hooks/useProgress';
@@ -106,15 +106,15 @@ const useToggleState = (initialState = {}) => {
 };
 
 // 数据统计卡片
-const StatCard = ({ number, label, delay }) => (
+const StatCard = memo(({ number, label, delay }) => (
   <div className={styles.statCard} style={{ animationDelay: delay }}>
     <span className={styles.statNumber}>{number}</span>
     <span className={styles.statLabel}>{label}</span>
   </div>
-);
+));
 
 // 特性高亮卡片
-const HighlightCard = ({ title, subtitle, description, index }) => (
+const HighlightCard = memo(({ title, subtitle, description, index }) => (
   <div className={styles.highlightCard} style={{ animationDelay: `${index * 0.1}s` }}>
     <div className={styles.highlightIndex}>0{index + 1}</div>
     <div className={styles.highlightContent}>
@@ -123,7 +123,7 @@ const HighlightCard = ({ title, subtitle, description, index }) => (
       <p className={styles.highlightDescription}>{description}</p>
     </div>
   </div>
-);
+));
 
 // Hero区域 - 苹果风格大标题
 const HeroSection = ({ language, toggleLanguage, t }) => {
@@ -200,7 +200,7 @@ const HeroSection = ({ language, toggleLanguage, t }) => {
 };
 
 // 特性高亮区域
-const HighlightsSection = ({ t }) => (
+const HighlightsSection = memo(({ t }) => (
   <section className={styles.highlightsSection}>
     <div className="container">
       <Heading as="h2" className={styles.sectionTitle}>
@@ -213,7 +213,7 @@ const HighlightsSection = ({ t }) => (
       </div>
     </div>
   </section>
-);
+));
 
 // 大学列表区域 - 简化版
 const UniversitySection = ({ language, t }) => {
@@ -401,7 +401,7 @@ const ProgressBannerSection = ({ t }) => (
 );
 
 // CTA区域 - 苹果风格
-const CtaSection = ({ t }) => (
+const CtaSection = memo(({ t }) => (
   <section className={styles.ctaSection}>
     <div className={styles.ctaInner}>
       <Heading as="h2" className={styles.ctaTitle}>
@@ -426,7 +426,7 @@ const CtaSection = ({ t }) => (
       </div>
     </div>
   </section>
-);
+));
 
 const Home = () => {
   const [language, toggleLanguage] = useStoredLanguage();

@@ -74,6 +74,12 @@ main {
   animation: fadeInPage 0.3s ease-in;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  main {
+    animation: none;
+  }
+}
+
 @keyframes fadeInPage {
   from {
     opacity: 0;
@@ -91,8 +97,6 @@ main {
   border-radius: var(--custom-border-radius);
   overflow: hidden;
   background: var(--custom-card-bg);
-  backdrop-filter: var(--custom-blur);
-  -webkit-backdrop-filter: var(--custom-blur);
   border: 1px solid var(--custom-card-border);
 }
 
@@ -109,8 +113,6 @@ main {
 /* Alert 样式优化 - Liquid Glass */
 .alert {
   border-radius: var(--custom-border-radius-sm);
-  backdrop-filter: var(--custom-blur-sm);
-  -webkit-backdrop-filter: var(--custom-blur-sm);
 }
 
 /* 导航栏链接悬停效果 */

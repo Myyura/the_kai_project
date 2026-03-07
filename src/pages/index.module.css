@@ -77,7 +77,6 @@
   max-width: 900px;
   text-align: center;
   animation: fadeInUp 0.7s ease-out;
-  will-change: transform, opacity;
 }
 
 /* 语言切换 - 极简风格 */
@@ -267,7 +266,6 @@
   flex-direction: column;
   align-items: center;
   animation: fadeInUp 0.6s ease-out backwards;
-  will-change: transform, opacity;
 }
 
 .statNumber {
@@ -305,7 +303,6 @@
               background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.6s ease-out backwards;
   animation-delay: 0.4s;
-  will-change: transform, opacity;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -395,6 +392,8 @@
 .highlightsSection {
   padding: 8rem 2rem;
   background: #f5f5f7;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 [data-theme='dark'] .highlightsSection {
@@ -435,7 +434,6 @@
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.6s ease-out backwards;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
-  will-change: transform, opacity;
   contain: layout style;
 }
 
@@ -494,6 +492,8 @@
 .universitySection {
   padding: 8rem 2rem;
   background: white;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 
 [data-theme='dark'] .universitySection {
@@ -679,7 +679,6 @@
   border: 1px solid rgba(16, 185, 129, 0.2);
   box-shadow: 0 4px 30px rgba(16, 185, 129, 0.08);
   animation: fadeInUp 0.6s ease-out;
-  will-change: transform, opacity;
   flex-wrap: wrap;
 }
 
@@ -871,6 +870,8 @@
   padding: 10rem 2rem;
   background: linear-gradient(180deg, #f5f5f7 0%, white 100%);
   text-align: center;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 [data-theme='dark'] .ctaSection {
