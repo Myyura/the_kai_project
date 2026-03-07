@@ -1,0 +1,85 @@
+name: 解答文档格式审阅
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: '审阅范围（留空则审阅全部）'
+        required: false
+        default: ''
+        type: string
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  review:
+    name: 格式审阅
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 执行格式审阅
+        id: review
+        run: |
+          # 运行审阅脚本，将报告写入文件
+          node scripts/review-format.js > report.md 2> review-stderr.log || true
+          cat review-stderr.log >&2
+
+          # 同时生成 JSON 用于后续判断
+          node scripts/review-format.js --json > report.json 2>/dev/null || true
+
+          # 读取问题总数
+          TOTAL_ISSUES=$(node -e "const r=require('./report.json'); console.log(r.issues.length)" 2>/dev/null || echo "0")
+          TOTAL_FILES=$(node -e "const r=require('./report.json'); console.log(r.totalFiles)" 2>/dev/null || echo "0")
+          TOTAL_ERRORS=$(node -e "const r=require('./report.json'); console.log(r.issues.filter(i=>i.severity==='ERROR').length)" 2>/dev/null || echo "0")
+          TOTAL_WARNINGS=$(node -e "const r=require('./report.json'); console.log(r.issues.filter(i=>i.severity==='WARNING').length)" 2>/dev/null || echo "0")
+
+          echo "total_issues=$TOTAL_ISSUES" >> "$GITHUB_OUTPUT"
+          echo "total_files=$TOTAL_FILES" >> "$GITHUB_OUTPUT"
+          echo "total_errors=$TOTAL_ERRORS" >> "$GITHUB_OUTPUT"
+          echo "total_warnings=$TOTAL_WARNINGS" >> "$GITHUB_OUTPUT"
+
+      - name: 创建 GitHub Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('report.md', 'utf-8');
+            const totalIssues = '${{ steps.review.outputs.total_issues }}';
+            const totalFiles = '${{ steps.review.outputs.total_files }}';
+            const totalErrors = '${{ steps.review.outputs.total_errors }}';
+            const totalWarnings = '${{ steps.review.outputs.total_warnings }}';
+
+            const today = new Date().toISOString().split('T')[0];
+            const title = `[格式审阅] ${today} — ${totalErrors} errors, ${totalWarnings} warnings (共 ${totalFiles} 文件)`;
+
+            // GitHub Issue body 有 65536 字符限制
+            let body = report;
+            if (body.length > 60000) {
+              body = body.substring(0, 60000) + '\n\n---\n\n> ⚠️ 报告过长，已截断。完整报告请查看 Actions artifacts。';
+            }
+
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['format-review']
+            });
+
+            core.info(`Issue created: ${issue.data.html_url}`);
+
+      - name: 上传完整报告
+        uses: actions/upload-artifact@v4
+        with:
+          name: format-review-report
+          path: |
+            report.md
+            report.json
+          retention-days: 30
