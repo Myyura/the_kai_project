@@ -568,7 +568,7 @@ function ProgressPageInner() {
             </section>
           )}
 
-          {/* 待复习题目 */
+          {/* 待复习题目 */}
           {reviewingEntries.length > 0 && (
             <section className={styles.section}>
               <div className={styles.sectionHeader}>
