@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学研究科 2023年8月実施 数学 第1問
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
 Let $\mathbb{R}^3$ be the set of the three-dimensional real column vectors and $\mathbb{R}^{3 \times 3}$ be the set of the three-by-three real matrices. Let $\mathbf{n}_1$, $\mathbf{n}_2$, and $\mathbf{n}_3 \in \mathbb{R}^3$ be linearly independent unit-length vectors and $\mathbf{n}_4 \in \mathbb{R}^3$ be a unit-length vector not parallel to $\mathbf{n}_1$, $\mathbf{n}_2$, or $\mathbf{n}_3$. Let $\mathbf{A}$ and $\mathbf{B}$ be square matrices defined as
@@ -228,7 +228,48 @@ $$
 \mathbf{x}^\mathrm{T} \mathbf{B} \mathbf{x} = \mathbf{x}^\mathrm{T} \left( \sum_{i=1}^{4} \mathbf{n}_i \mathbf{n}_i^\mathrm{T} \right) \mathbf{x} = \sum_{i=1}^{4} (\mathbf{n}_i^\mathrm{T} \mathbf{x})^2.
 $$
 
-Since $\mathbf{n}_i$ are unit vectors and linearly independent, the sum $\sum_{i=1}^{4} (\mathbf{n}_i^\mathrm{T} \mathbf{x})^2$ is strictly positive for any non-zero $\mathbf{x}$, proving that $\mathbf{B}$ is positive definite.
+Since each term is nonnegative, we have
+
+$$
+\mathbf{x}^{\mathrm T}\mathbf{B}\mathbf{x}\ge 0.
+$$
+
+Now suppose
+
+$$
+\mathbf{x}^{\mathrm T}\mathbf{B}\mathbf{x}=0.
+$$
+
+Then
+
+$$
+(\mathbf{n}_i^{\mathrm T}\mathbf{x})^2=0
+\quad (i=1,2,3,4),
+$$
+
+so in particular
+
+$$
+\mathbf{n}_1^{\mathrm T}\mathbf{x}
+=
+\mathbf{n}_2^{\mathrm T}\mathbf{x}
+=
+\mathbf{n}_3^{\mathrm T}\mathbf{x}
+=0.
+$$
+
+Because $\mathbf{n}_1,\mathbf{n}_2,\mathbf{n}_3$ are linearly independent in $\mathbb{R}^3$, they form a basis of $\mathbb{R}^3$. Therefore the only vector orthogonal to all three is the zero vector, so $\mathbf{x}=0$, contradicting the assumption that $\mathbf{x}\neq 0$.
+
+Thus,
+
+$$
+\mathbf{x}^{\mathrm T}\mathbf{B}\mathbf{x}>0
+\qquad (\mathbf{x}\neq 0),
+$$
+
+and therefore $\mathbf{B}$ is positive definite.
+
+Hence $\mathbf{B}$ is a **positive definite symmetric matrix**.
 
 ### (4)
 
@@ -281,127 +322,164 @@ $$
 $$
 
 ### (5)
-#### (a)
-##### Orthogonal Projection onto a Line
+Let $l_i$ be the line through $Q_i$ with direction $\mathbf{n}_i$, where the position vector of $Q_i$ is $\mathbf{x}_i$, and let $\mathbf{y}\in\mathbb{R}^3$ be the position vector of an arbitrary point $P$.
 
-Given a vector $\mathbf{y} \in \mathbb{R}^3$, the orthogonal projection of $\mathbf{y}$ onto a line in the direction of a unit vector $\mathbf{n}_i$ is calculated as follows:
+#### (a) Express $\mathbf{W}_i$ using $\mathbf{n}_i$ and $\mathbf{I}$.
 
-1. **Dot Product Calculation**:
-   - The scalar projection of $\mathbf{y}$ onto $\mathbf{n}_i$ is given by the dot product $\mathbf{n}_i^\mathrm{T} \mathbf{y}$.
-
-2. **Vector Projection**:
-   - The vector projection of $\mathbf{y}$ onto the line parallel to $\mathbf{n}_i$ is then:
-
+The orthogonal projection of $\mathbf{y}$ onto the line $l_i$ is
 $$
-\text{Proj}_{\mathbf{n}_i}(\mathbf{y}) = (\mathbf{n}_i^\mathrm{T} \mathbf{y}) \mathbf{n}_i.
+\mathbf{R}_i
+=
+\mathbf{x}_i+\bigl(\mathbf{n}_i^{\mathrm T}(\mathbf{y}-\mathbf{x}_i)\bigr)\mathbf{n}_i.
 $$
-
-3. **Matrix Representation**:
-   - This vector projection can be represented in matrix form. Specifically, if we want to express this operation as a matrix multiplication where $\mathbf{W}_i \mathbf{y}$ gives the projection, then the matrix $\mathbf{W}_i$ must satisfy:
-
+This can be rewritten as
 $$
-\mathbf{W}_i \mathbf{y} = (\mathbf{n}_i^\mathrm{T} \mathbf{y}) \mathbf{n}_i.
+\mathbf{R}_i
+=
+\mathbf{y}
+-
+\left(\mathbf{I}-\mathbf{n}_i\mathbf{n}_i^{\mathrm T}\right)(\mathbf{y}-\mathbf{x}_i).
 $$
-
-   - To express this operation using a matrix, note that:
-
+Comparing this with
 $$
-\mathbf{W}_i = \mathbf{n}_i \mathbf{n}_i^\mathrm{T}.
+\mathbf{R}_i=\mathbf{y}-\mathbf{W}_i(\mathbf{y}-\mathbf{x}_i),
 $$
-
-   - This is because when $\mathbf{W}_i$ acts on a vector $\mathbf{y}$, it first computes the dot product $\mathbf{n}_i^\mathrm{T} \mathbf{y}$ (which is a scalar), and then multiplies this scalar by $\mathbf{n}_i$ to produce the vector projection.
-
-#### (b)
-We calculate:
-
+we obtain
 $$
-\mathbf{W}_i^\mathrm{T} \mathbf{W}_i = (\mathbf{n}_i \mathbf{n}_i^\mathrm{T})^\mathrm{T} (\mathbf{n}_i \mathbf{n}_i^\mathrm{T}) = \mathbf{n}_i \mathbf{n}_i^\mathrm{T} \mathbf{n}_i \mathbf{n}_i^\mathrm{T}.
+\boxed{\mathbf{W}_i=\mathbf{I}-\mathbf{n}_i\mathbf{n}_i^{\mathrm T}.}
 $$
 
-Since $\mathbf{n}_i^\mathrm{T} \mathbf{n}_i = 1$, we have:
+### **(b)** Show that $\mathbf{W}_i^{\mathrm T}\mathbf{W}_i=\mathbf{W}_i$.
 
+From part (a),
 $$
-\mathbf{W}_i^\mathrm{T} \mathbf{W}_i = \mathbf{n}_i \mathbf{n}_i^\mathrm{T} = \mathbf{W}_i.
+\mathbf{W}_i=\mathbf{I}-\mathbf{n}_i\mathbf{n}_i^{\mathrm T}.
 $$
-
-#### ($c$)
-
-We need to find the point $\mathbf{S} \in \Sigma$ that minimizes the sum of squared distances to three orthogonal lines.
-
-The projection of a point $\mathbf{y}$ onto the line $l_i$ parallel to $\mathbf{n}_i$ is given by:
-
+Since $\mathbf{n}_i\mathbf{n}_i^{\mathrm T}$ is symmetric, $\mathbf{W}_i$ is also symmetric:
 $$
-\mathbf{R}_i = \mathbf{y} - \mathbf{W}_i(\mathbf{y} - \mathbf{x}_i),
+\mathbf{W}_i^{\mathrm T}=\mathbf{W}_i.
 $$
-
-where $\mathbf{W}_i = \mathbf{n}_i \mathbf{n}_i^\mathrm{T}$ is the orthogonal projection matrix onto $l_i$.
-
-##### Sum of Squared Distances
-
-The distance from $\mathbf{y}$ to the line $l_i$ is:
-
+Moreover, because $\mathbf{n}_i$ is a unit vector,
 $$
-\|\mathbf{y} - \mathbf{R}_i\| = \|\mathbf{y} - (\mathbf{y} - \mathbf{W}_i(\mathbf{y} - \mathbf{x}_i))\| = \|\mathbf{W}_i(\mathbf{y} - \mathbf{x}_i)\|.
+(\mathbf{n}_i\mathbf{n}_i^{\mathrm T})^2
+=
+\mathbf{n}_i(\mathbf{n}_i^{\mathrm T}\mathbf{n}_i)\mathbf{n}_i^{\mathrm T}
+=
+\mathbf{n}_i\mathbf{n}_i^{\mathrm T}.
 $$
-
-The sum of squared distances from $\mathbf{y}$ to the three lines is:
-
+Hence
 $$
-\sum_{i=1}^3 \|\mathbf{W}_i(\mathbf{y} - \mathbf{x}_i)\|^2.
+\mathbf{W}_i^{2}
+=
+(\mathbf{I}-\mathbf{n}_i\mathbf{n}_i^{\mathrm T})^2
+=
+\mathbf{I}-2\mathbf{n}_i\mathbf{n}_i^{\mathrm T}
++(\mathbf{n}_i\mathbf{n}_i^{\mathrm T})^2
+=
+\mathbf{I}-\mathbf{n}_i\mathbf{n}_i^{\mathrm T}
+=
+\mathbf{W}_i.
 $$
-
-##### Objective Function for Minimization
-
-The objective is to minimize the sum:
-
+Therefore,
 $$
-S(\mathbf{y}) = \sum_{i=1}^3 (\mathbf{y} - \mathbf{x}_i)^\mathrm{T} \mathbf{W}_i^\mathrm{T} \mathbf{W}_i (\mathbf{y} - \mathbf{x}_i).
+\boxed{\mathbf{W}_i^{\mathrm T}\mathbf{W}_i=\mathbf{W}_i.}
 $$
 
-Since $\mathbf{W}_i^\mathrm{T} \mathbf{W}_i = \mathbf{W}_i$ (as derived in part (b)), this simplifies to:
+### **(c)** Express $\mathbf{w}$ using $\mathbf{W}_i$ and $\mathbf{x}_i$ $(i=1,2,3)$, assuming $\mathbf{n}_1,\mathbf{n}_2,\mathbf{n}_3$ are mutually orthogonal.
 
+We want the point $\mathbf{S}\in\Sigma$, where
 $$
-S(\mathbf{y}) = \sum_{i=1}^3 (\mathbf{y} - \mathbf{x}_i)^\mathrm{T} \mathbf{W}_i (\mathbf{y} - \mathbf{x}_i).
+\Sigma=\{\mathbf{x}\in\mathbb{R}^3\mid \mathbf{a}^{\mathrm T}\mathbf{x}=b\},
 $$
+such that the sum of squared distances from $\mathbf{S}$ to the three lines $l_1,l_2,l_3$ is minimized.
 
-##### Setting Up the Minimization Problem
-
-Expanding the quadratic form:
-
+For a point $\mathbf{y}\in\mathbb{R}^3$, the vector from $\mathbf{R}_i$ to $\mathbf{y}$ is
 $$
-S(\mathbf{y}) = \sum_{i=1}^3 \left[\mathbf{y}^\mathrm{T} \mathbf{W}_i \mathbf{y} - 2 \mathbf{y}^\mathrm{T} \mathbf{W}_i \mathbf{x}_i + \mathbf{x}_i^\mathrm{T} \mathbf{W}_i \mathbf{x}_i \right].
+\mathbf{y}-\mathbf{R}_i=\mathbf{W}_i(\mathbf{y}-\mathbf{x}_i),
 $$
-
-To minimize $S(\mathbf{y})$, we take the derivative with respect to $\mathbf{y}$ and set it to zero:
-
+so the squared distance from $\mathbf{y}$ to $l_i$ is
 $$
-\nabla S(\mathbf{y}) = 2 \sum_{i=1}^3 \left[\mathbf{W}_i \mathbf{y} - \mathbf{W}_i \mathbf{x}_i \right] = 0.
+\|\mathbf{y}-\mathbf{R}_i\|^2
+=
+\|\mathbf{W}_i(\mathbf{y}-\mathbf{x}_i)\|^2.
 $$
-
-Simplifying:
-
+Thus the objective function is
 $$
-\sum_{i=1}^3 \mathbf{W}_i \mathbf{y} = \sum_{i=1}^3 \mathbf{W}_i \mathbf{x}_i.
+f(\mathbf{y})
+=
+\sum_{i=1}^3 \|\mathbf{W}_i(\mathbf{y}-\mathbf{x}_i)\|^2.
 $$
-
-##### Solving for $\mathbf{y}$
-
-Since $\mathbf{n}_1$, $\mathbf{n}_2$, and $\mathbf{n}_3$ are orthogonal, their corresponding $\mathbf{W}_i$ matrices satisfy:
-
+Using part (b), this becomes
 $$
-\sum_{i=1}^3 \mathbf{W}_i = \mathbf{I}.
+f(\mathbf{y})
+=
+\sum_{i=1}^3 (\mathbf{y}-\mathbf{x}_i)^{\mathrm T}\mathbf{W}_i(\mathbf{y}-\mathbf{x}_i).
 $$
 
-Thus:
-
+Expanding,
 $$
-\mathbf{y} = \sum_{i=1}^3 \mathbf{W}_i \mathbf{x}_i.
+f(\mathbf{y})
+=
+\mathbf{y}^{\mathrm T}\left(\sum_{i=1}^3 \mathbf{W}_i\right)\mathbf{y}
+-2\mathbf{y}^{\mathrm T}\sum_{i=1}^3 \mathbf{W}_i\mathbf{x}_i
++\text{constant}.
 $$
 
-This $\mathbf{y}$ minimizes the sum of squared distances to the three lines, and we denote this $\mathbf{y}$ as $\mathbf{w}$:
-
+Now, since $\mathbf{n}_1,\mathbf{n}_2,\mathbf{n}_3$ are mutually orthogonal unit vectors, they form an orthonormal basis of $\mathbb{R}^3$. Therefore,
 $$
-\mathbf{w} = \sum_{i=1}^3 \mathbf{W}_i \mathbf{x}_i.
+\mathbf{n}_1\mathbf{n}_1^{\mathrm T}
++\mathbf{n}_2\mathbf{n}_2^{\mathrm T}
++\mathbf{n}_3\mathbf{n}_3^{\mathrm T}
+=
+\mathbf{I}.
+$$
+Hence
+$$
+\sum_{i=1}^3 \mathbf{W}_i
+=
+\sum_{i=1}^3 (\mathbf{I}-\mathbf{n}_i\mathbf{n}_i^{\mathrm T})
+=
+3\mathbf{I}-\mathbf{I}
+=
+2\mathbf{I}.
+$$
+So
+$$
+f(\mathbf{y})
+=
+2\mathbf{y}^{\mathrm T}\mathbf{y}
+-2\mathbf{y}^{\mathrm T}\sum_{i=1}^3 \mathbf{W}_i\mathbf{x}_i
++\text{constant}.
+$$
+Completing the square, we get
+$$
+f(\mathbf{y})
+=
+2\left\|
+\mathbf{y}-\frac12\sum_{i=1}^3 \mathbf{W}_i\mathbf{x}_i
+\right\|^2
++\text{constant}.
+$$
+Therefore, the unconstrained minimizer is
+$$
+\mathbf{w}
+=
+\frac12\sum_{i=1}^3 \mathbf{W}_i\mathbf{x}_i.
+$$
+
+Since $\mathbf{S}$ is constrained to lie on the plane $\Sigma$, it is the orthogonal projection of $\mathbf{w}$ onto $\Sigma$, which is why its position vector is written as
+$$
+\left(\mathbf{I}-\frac{\mathbf{a}\mathbf{a}^{\mathrm T}}{\mathbf{a}^{\mathrm T}\mathbf{a}}\right)\mathbf{w}
++\frac{\mathbf{a}b}{\mathbf{a}^{\mathrm T}\mathbf{a}}.
+$$
+
+Thus,
+$$
+\boxed{
+\mathbf{w}
+=
+\frac12\sum_{i=1}^3 \mathbf{W}_i\mathbf{x}_i
+}.
 $$
 
 ## **Knowledge**
