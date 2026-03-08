@@ -77,6 +77,7 @@ const config = {
   // 客户端模块 - 在页面加载时立即执行
   clientModules: [
     require.resolve('./src/clientModules/languageInit.js'),
+    require.resolve('./src/clientModules/offlineStatus.js'),
   ],
 
   // Even if you don't use internationalization, you can use this field to set
@@ -113,9 +114,11 @@ const config = {
       {
         debug: false,
         offlineModeActivationStrategies: [
-          'standalone', 
+          'standalone',
           'queryString',
+          'appInstalled',
         ],
+        swCustom: require.resolve('./src/sw.js'),
         pwaHead: [
           {
             tagName: 'link',

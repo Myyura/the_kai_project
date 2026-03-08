@@ -6,7 +6,7 @@
   "display": "standalone",
   "scope": "./",
   "start_url": "./index.html",
-  "description": "开源的、便捷的、分享与讨论修考试题答案的平台",
+  "description": "开源的、便捷的、分享与讨论修考试题答案的平台 / オープンソースで便利な、大学院入試過去問の解答を共有・議論するプラットフォーム",
   "orientation": "any",
   "icons": [
     {
