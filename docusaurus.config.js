@@ -40,7 +40,8 @@ const config = {
   favicon: 'img/favicon.ico',
 
   headTags: [
-    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: 'anonymous' } },
+    // cdn.jsdelivr.net 仅在 NoteEditor 中懒加载 KaTeX 时使用，首屏不请求，不使用 preconnect（避免无效连接）。
+    // 保留 dns-prefetch：开销极低，KaTeX 实际加载时仍可加速 DNS 解析。
     { tagName: 'link', attributes: { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' } },
   ],
 
