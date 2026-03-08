@@ -7,7 +7,7 @@ export default function HomepageStructuredData() {
     "@type": "WebSite",
     "name": "The Kai Project",
     "url": "https://runjp.com/",
-    "description": "开源的、便捷的、分享与讨论修考试题答案的平台，破除信息之壁",
+    "description": "开源的日本大学院入试过去问解答共享平台，破除信息之壁 | 大学院入試過去問のオープンソース解答共有プラットフォーム",
     "publisher": {
       "@type": "Organization",
       "name": "The Kai Project Team",
@@ -24,7 +24,7 @@ export default function HomepageStructuredData() {
     "about": {
       "@type": "EducationalOrganization",
       "name": "The Kai Project",
-      "description": "提供考试资料与答案的开源平台"
+      "description": "提供日本大学院入试过去问与解答的开源平台 | 大学院入試の過去問と解答を提供するオープンソースプラットフォーム"
     }
   };
 

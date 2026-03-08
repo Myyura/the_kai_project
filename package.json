@@ -29,6 +29,7 @@
     "@types/react": "^19.2.7",
     "clsx": "^2.1.1",
     "html-to-image": "^1.11.13",
+    "markdown-it": "^14.1.1",
     "open-ask-ai": "^0.7.3",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.2.3",

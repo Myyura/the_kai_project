@@ -451,7 +451,7 @@ function LoginPageContent() {
 
 export default function LoginPage() {
   return (
-    <Layout title="登录">
+    <Layout title="登录 / ログイン">
       <BrowserOnly fallback={<div style={{ minHeight: '60vh' }} />}>
         {() => <LoginPageContent />}
       </BrowserOnly>

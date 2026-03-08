@@ -1,195 +1,109 @@
 /**
- * 轻量级 Markdown → HTML 转换器 + KaTeX 动态加载
- * 无需额外 npm 依赖，LaTeX 渲染通过 CDN 动态加载 KaTeX
+ * Markdown → HTML using markdown-it + CDN KaTeX for math rendering
+ * Supports: headers, nested lists, tables, blockquotes, fenced code,
+ *           strikethrough, links, images, inline/block math
  */
 
-// ─── HTML 转义 ───────────────────────────────────────────────
-function escapeHtml(text) {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
+import MarkdownIt from 'markdown-it';
 
 // ─── URL 安全校验（防止 javascript: 等 XSS 协议） ──────────────
-const SAFE_URL_PROTOCOLS = /^(?:https?|mailto|tel|ftp):/i;
-const DATA_IMAGE_PATTERN = /^data:image\/[a-z+]+;base64,/i;
+const SAFE_PROTOCOLS = /^(?:https?|mailto|tel|ftp):/i;
+const DATA_IMAGE = /^data:image\/[a-z+]+;base64,/i;
 
 function sanitizeUrl(url) {
-  const trimmed = url.trim();
-  // 允许相对路径（以 / . # 开头或不含冒号）
-  if (trimmed.startsWith('/') || trimmed.startsWith('.') || trimmed.startsWith('#') || !trimmed.includes(':')) {
-    return escapeHtml(trimmed);
-  }
-  // 允许安全协议
-  if (SAFE_URL_PROTOCOLS.test(trimmed)) {
-    return escapeHtml(trimmed);
-  }
-  // 允许 base64 图片
-  if (DATA_IMAGE_PATTERN.test(trimmed)) {
-    return escapeHtml(trimmed);
-  }
-  // 拒绝其他协议（javascript:, vbscript:, data:text/html 等）
-  return '';
+  const s = (url || '').trim();
+  if (!s) return null;
+  if (!s.includes(':') || s.startsWith('/') || s.startsWith('.') || s.startsWith('#')) return s;
+  if (SAFE_PROTOCOLS.test(s) || DATA_IMAGE.test(s)) return s;
+  return null; // 拒绝 javascript:, vbscript:, data:text/html 等危险协议
 }
 
-// ─── 行内元素处理 ────────────────────────────────────────────
-function processInline(text) {
-  // 图片 ![alt](url) — URL 经过 sanitize 防止 XSS
-  text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, url) => {
-    const safeUrl = sanitizeUrl(url);
-    if (!safeUrl) return escapeHtml(`![${alt}](${url})`);
-    return `<img src="${safeUrl}" alt="${escapeHtml(alt)}" style="max-width:100%"/>`;
-  });
-  // 链接 [text](url) — URL 经过 sanitize 防止 XSS
-  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
-    const safeUrl = sanitizeUrl(url);
-    if (!safeUrl) return escapeHtml(`[${label}](${url})`);
-    return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
-  });
-  // 粗斜体 ***text***
-  text = text.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
-  // 粗体 **text**
-  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  // 斜体 *text*
-  text = text.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
-  // 删除线 ~~text~~
-  text = text.replace(/~~(.+?)~~/g, '<del>$1</del>');
-  return text;
-}
+// ─── markdown-it 实例 ────────────────────────────────────────
+const md = new MarkdownIt({
+  html: false,        // 禁止用户输入原始 HTML（XSS 防护）
+  linkify: true,      // 自动将纯 URL 转为链接
+  typographer: false,
+  breaks: true,       // 单换行 → <br>（与原行为一致）
+});
+
+// 链接：加 target="_blank" + rel，并清理 URL
+const _origLinkOpen = md.renderer.rules.link_open
+  || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+  const token = tokens[idx];
+  const hrefIdx = token.attrIndex('href');
+  if (hrefIdx >= 0) {
+    const safe = sanitizeUrl(token.attrs[hrefIdx][1]);
+    token.attrs[hrefIdx][1] = safe !== null ? safe : '#';
+  }
+  token.attrSet('target', '_blank');
+  token.attrSet('rel', 'noopener noreferrer');
+  return _origLinkOpen(tokens, idx, options, env, self);
+};
+
+// 图片：清理 src，限制最大宽度
+md.renderer.rules.image = (tokens, idx) => {
+  const token = tokens[idx];
+  const srcIdx = token.attrIndex('src');
+  const rawSrc = srcIdx >= 0 ? token.attrs[srcIdx][1] : '';
+  const safeSrc = sanitizeUrl(rawSrc);
+  const alt = token.children
+    ? token.children.reduce((acc, t) => acc + (t.content || ''), '')
+    : '';
+  const escapedSrc = safeSrc ? md.utils.escapeHtml(safeSrc) : '';
+  const escapedAlt = md.utils.escapeHtml(alt);
+  return `<img src="${escapedSrc}" alt="${escapedAlt}" style="max-width:100%"/>`;
+};
+
+// 代码块：保持原有 CSS 类名
+md.renderer.rules.fence = (tokens, idx) => {
+  const token = tokens[idx];
+  const lang = token.info ? ` class="language-${md.utils.escapeHtml(token.info.trim())}"` : '';
+  const code = md.utils.escapeHtml(token.content.trimEnd());
+  return `<pre class="note-code-block"><code${lang}>${code}</code></pre>\n`;
+};
+
+md.renderer.rules.code_block = (tokens, idx) => {
+  const code = md.utils.escapeHtml(tokens[idx].content.trimEnd());
+  return `<pre class="note-code-block"><code>${code}</code></pre>\n`;
+};
+
+// 行内代码：保持原有 CSS 类名
+md.renderer.rules.code_inline = (tokens, idx) => {
+  const code = md.utils.escapeHtml(tokens[idx].content);
+  return `<code class="note-inline-code">${code}</code>`;
+};
 
 // ─── Markdown → HTML 主函数 ──────────────────────────────────
 export function markdownToHtml(text) {
   if (!text) return '';
 
-  // 保护区块：代码块、数学块、行内代码、行内公式
-  const blocks = [];
+  const mathBlocks = [];
+  let src = text;
 
-  let html = text;
-
-  // 栅栏代码块 ```lang\n...\n```
-  html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) => {
-    const idx = blocks.length;
-    blocks.push(`<pre class="note-code-block"><code>${escapeHtml(code.trimEnd())}</code></pre>`);
-    return `\n%%B${idx}%%\n`;
+  // 1. 保护显示数学公式 $$...$$（多行支持），用空行隔离使其成为独立块
+  src = src.replace(/\$\$([\s\S]*?)\$\$/g, (_, math) => {
+    const idx = mathBlocks.length;
+    mathBlocks.push(`<div class="note-math-display" data-math="${encodeURIComponent(math.trim())}"></div>`);
+    return `\n\nMD_MATH_BLOCK_${idx}\n\n`;
   });
 
-  // 显示数学 $$...$$
-  html = html.replace(/\$\$([\s\S]*?)\$\$/g, (_, math) => {
-    const idx = blocks.length;
-    blocks.push(`<div class="note-math-display" data-math="${encodeURIComponent(math.trim())}"></div>`);
-    return `\n%%B${idx}%%\n`;
+  // 2. 保护行内数学公式 $...$（单行，不匹配 $$）
+  src = src.replace(/(?<!\$)\$(?!\$)([^\$\n]+?)\$(?!\$)/g, (_, math) => {
+    const idx = mathBlocks.length;
+    mathBlocks.push(`<span class="note-math-inline" data-math="${encodeURIComponent(math)}"></span>`);
+    return `MD_MATH_INLINE_${idx}`;
   });
 
-  // 行内代码 `...`
-  html = html.replace(/`([^`]+)`/g, (_, code) => {
-    const idx = blocks.length;
-    blocks.push(`<code class="note-inline-code">${escapeHtml(code)}</code>`);
-    return `%%B${idx}%%`;
-  });
+  // 3. 通过 markdown-it 渲染（支持表格、嵌套列表等）
+  let html = md.render(src);
 
-  // 行内数学 $...$（不匹配跨行、不匹配 $$）
-  html = html.replace(/(?<!\$)\$(?!\$)([^\$\n]+?)\$(?!\$)/g, (_, math) => {
-    const idx = blocks.length;
-    blocks.push(`<span class="note-math-inline" data-math="${encodeURIComponent(math)}"></span>`);
-    return `%%B${idx}%%`;
-  });
+  // 4. 还原块级数学公式（markdown-it 将其包裹为 <p>MD_MATH_BLOCK_N</p>）
+  html = html.replace(/<p>\s*MD_MATH_BLOCK_(\d+)\s*<\/p>/g, (_, i) => mathBlocks[parseInt(i)]);
+  html = html.replace(/MD_MATH_BLOCK_(\d+)/g, (_, i) => mathBlocks[parseInt(i)]);
 
-  // 按行处理块级元素
-  const lines = html.split('\n');
-  const result = [];
-  let i = 0;
-
-  while (i < lines.length) {
-    const line = lines[i];
-
-    // 已保护的区块
-    if (/^%%B\d+%%$/.test(line.trim())) {
-      result.push(line.trim());
-      i++;
-      continue;
-    }
-
-    // 标题 # ~ ######
-    const headerMatch = line.match(/^(#{1,6})\s+(.+)$/);
-    if (headerMatch) {
-      const level = headerMatch[1].length;
-      result.push(`<h${level}>${processInline(headerMatch[2])}</h${level}>`);
-      i++;
-      continue;
-    }
-
-    // 水平线
-    if (/^(-{3,}|\*{3,}|_{3,})$/.test(line.trim())) {
-      result.push('<hr/>');
-      i++;
-      continue;
-    }
-
-    // 引用块 >
-    if (/^>\s?/.test(line)) {
-      const quoteLines = [];
-      while (i < lines.length && /^>\s?/.test(lines[i])) {
-        quoteLines.push(lines[i].replace(/^>\s?/, ''));
-        i++;
-      }
-      result.push(`<blockquote>${quoteLines.map(l => processInline(l)).join('<br/>')}</blockquote>`);
-      continue;
-    }
-
-    // 无序列表 - / * / +
-    if (/^[-*+]\s+/.test(line)) {
-      const items = [];
-      while (i < lines.length && /^[-*+]\s+/.test(lines[i])) {
-        items.push(lines[i].replace(/^[-*+]\s+/, ''));
-        i++;
-      }
-      result.push('<ul>' + items.map(it => `<li>${processInline(it)}</li>`).join('') + '</ul>');
-      continue;
-    }
-
-    // 有序列表 1. 2. 3.
-    if (/^\d+\.\s+/.test(line)) {
-      const items = [];
-      while (i < lines.length && /^\d+\.\s+/.test(lines[i])) {
-        items.push(lines[i].replace(/^\d+\.\s+/, ''));
-        i++;
-      }
-      result.push('<ol>' + items.map(it => `<li>${processInline(it)}</li>`).join('') + '</ol>');
-      continue;
-    }
-
-    // 空行
-    if (line.trim() === '') {
-      i++;
-      continue;
-    }
-
-    // 段落（合并连续非空行）
-    const paraLines = [];
-    while (
-      i < lines.length &&
-      lines[i].trim() !== '' &&
-      !/^#{1,6}\s/.test(lines[i]) &&
-      !/^[-*+]\s/.test(lines[i]) &&
-      !/^\d+\.\s/.test(lines[i]) &&
-      !/^>\s?/.test(lines[i]) &&
-      !/^(-{3,}|\*{3,}|_{3,})$/.test(lines[i].trim()) &&
-      !/^%%B\d+%%$/.test(lines[i].trim())
-    ) {
-      paraLines.push(lines[i]);
-      i++;
-    }
-    if (paraLines.length > 0) {
-      result.push(`<p>${processInline(paraLines.join('<br/>'))}</p>`);
-    }
-  }
-
-  html = result.join('\n');
-
-  // 还原保护区块
-  html = html.replace(/%%B(\d+)%%/g, (_, idx) => blocks[parseInt(idx)]);
+  // 5. 还原行内数学公式
+  html = html.replace(/MD_MATH_INLINE_(\d+)/g, (_, i) => mathBlocks[parseInt(i)]);
 
   return html;
 }

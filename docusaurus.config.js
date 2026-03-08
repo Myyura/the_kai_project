@@ -210,12 +210,12 @@ const config = {
       // SEO相关配置
       metadata: [
         {name: 'keywords', content: '過去問, 日本考研, 修士, 过去问答案, 東京大学, 大学院院试, 情报理工'},
-        {name: 'description', content: '开源的、便捷的、分享与讨论日本大学院入学考试答案的平台'},
+        {name: 'description', content: '开源的日本大学院入试过去问解答共享平台，破除信息之壁 | 大学院入試過去問のオープンソース解答共有プラットフォーム'},
         {name: 'author', content: 'The Kai Project Team'},
         {property: 'og:type', content: 'website'},
-        {property: 'og:title', content: 'The Kai Project - 分享与讨论日本大学院入学考试答案的平台'},
+        {property: 'og:title', content: 'The Kai Project - 日本大学院入試過去問解答 | 日本考研过去问答案'},
         {property: 'og:url', content: 'https://runjp.com'},
-        {property: 'og:description', content: '开源的、便捷的、分享与讨论日本大学院入学考试答案的平台'},
+        {property: 'og:description', content: '开源的日本大学院入试过去问解答共享平台，破除信息之壁 | 大学院入試過去問のオープンソース解答共有プラットフォーム'},
         {property: 'og:image', content: 'https://runjp.com/img/docusaurus-social-card.png'},
         {name: 'twitter:card', content: 'summary_large_image'},
       ],

@@ -195,7 +195,7 @@ const ReviewReminderSection = ({ entries, t }) => {
 };
 
 // 最近练习组件
-const RecentPracticeSection = ({ entries, t }) => {
+const RecentPracticeSection = ({ entries, t, language }) => {
   const items = React.useMemo(() => {
     const sevenDaysAgo = Date.now() - 7 * 86400000;
     return entries
@@ -228,7 +228,7 @@ const RecentPracticeSection = ({ entries, t }) => {
               <StatusBadge status={entry.status} t={t} />
               {entry.updatedAt && (
                 <span className={styles.entryDate}>
-                  {new Date(entry.updatedAt).toLocaleDateString('zh-CN')}
+                  {new Date(entry.updatedAt).toLocaleDateString(language === 'ja' ? 'ja-JP' : 'zh-CN')}
                 </span>
               )}
             </div>
@@ -332,7 +332,7 @@ const StatusBadge = React.memo(({ status, t }) => {
   return null;
 });
 
-const EntryRow = React.memo(({ entry, t }) => {
+const EntryRow = React.memo(({ entry, t, language }) => {
   const reviewInfo = entry.status === STATUS.REVIEWING ? getReviewInfo(entry.updatedAt, entry.reviewCount ?? 0) : null;
   const nextReviewText = reviewInfo
     ? reviewInfo.urgency === 'critical'
@@ -368,7 +368,7 @@ const EntryRow = React.memo(({ entry, t }) => {
         )}
         {entry.updatedAt && (
           <span className={styles.entryDate}>
-            {t.lastUpdated}: {new Date(entry.updatedAt).toLocaleDateString('zh-CN')}
+            {t.lastUpdated}: {new Date(entry.updatedAt).toLocaleDateString(language === 'ja' ? 'ja-JP' : 'zh-CN')}
           </span>
         )}
       </div>
@@ -491,7 +491,7 @@ function ProgressPageInner() {
           <ReviewReminderSection entries={entries} t={t} />
 
           {/* 最近练习 */}
-          <RecentPracticeSection entries={entries} t={t} />
+          <RecentPracticeSection entries={entries} t={t} language={language} />
 
           {/* 按知识点统计 */}
           {tagGroups.length > 0 && (
@@ -562,13 +562,13 @@ function ProgressPageInner() {
               </div>
               <div className={styles.entryList}>
                 {completedEntries.map((entry) => (
-                  <EntryRow key={entry.id} entry={entry} t={t} />
+                  <EntryRow key={entry.id} entry={entry} t={t} language={language} />
                 ))}
               </div>
             </section>
           )}
 
-          {/* 待复习题目 */}
+          {/* 待复习题目 */
           {reviewingEntries.length > 0 && (
             <section className={styles.section}>
               <div className={styles.sectionHeader}>
@@ -585,7 +585,7 @@ function ProgressPageInner() {
               </div>
               <div className={styles.entryList}>
                 {reviewingEntries.map((entry) => (
-                  <EntryRow key={entry.id} entry={entry} t={t} />
+                  <EntryRow key={entry.id} entry={entry} t={t} language={language} />
                 ))}
               </div>
             </section>
@@ -601,7 +601,7 @@ function ProgressPageInner() {
 
 export default function ProgressPage() {
   return (
-    <Layout title="进度总览 | Progress">
+    <Layout title="进度总览 / 学習進捗一覧">
       <BrowserOnly fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>Loading...</div>}>
         {() => <ProgressPageInner />}
       </BrowserOnly>
