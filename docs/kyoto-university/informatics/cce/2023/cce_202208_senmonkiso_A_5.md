@@ -37,7 +37,8 @@ Source $\rightarrow$ source encoder $\rightarrow$ channel encoder $\rightarrow$ 
 "Memoryless" means the current output is not related to previous ones.  
 "stationary" means the output behaviour keeps the same over time. 
 
-#### (b) construct the Huffman code:
+#### (b)
+construct the Huffman code:
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_A_5_p1.png" width="500" alt=""/>
