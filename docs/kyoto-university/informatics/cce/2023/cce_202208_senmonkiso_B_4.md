@@ -67,7 +67,8 @@ Answer the following questions.
 **Simplified POS expression for f:**
 
 $$
-f = (b + d)(a + \bar{b} + \bar{c})(\bar{a} + b + c) $$
+f = (b + d)(a + \bar{b} + \bar{c})(\bar{a} + b + c) 
+$$
 
 #### (c)
 From part (b), the minimum POS form is
