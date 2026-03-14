@@ -2,11 +2,13 @@
 sidebar_label: "2023年8月実施 専門基礎A [A-1]"
 tags:
   - Kyoto-University
+  - Calculus
+  - Linear-Algebra
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2023年8月実施 専門基礎A \[A-1\]
 
 ## **Author**
-祭音Myyura (with GPT5.1)
+祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
 下記のすべての問に答えよ。
@@ -289,12 +291,13 @@ $$
 $\lambda=3$ のとき $(A-3I)\mathbf{v}=0$ を解くと，独立な解として
 
 $$
-  \mathbf{v}*{3}^{(1)} =
+  \mathbf{v}_{3}^{(1)} =
   \begin{bmatrix}1\\1\\0\end{bmatrix},\qquad
-  \mathbf{v}*{3}^{(2)} =
+  \mathbf{v}_{3}^{(2)} =
   \begin{bmatrix}1\\0\\1\end{bmatrix}
 $$
-  をとることができる。
+
+をとることができる。
 
 したがって，固有値と対応する固有ベクトルは例えば
 
