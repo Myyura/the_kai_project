@@ -1,4 +1,15 @@
 <div align="center">
+
+<!-- Project Icon Placeholder: replace with <img src="docs/assets/logo.png" width="120" /> -->
+
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-green.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![The Kai Project](https://img.shields.io/badge/Powered%20by-The%20Kai%20Project-2e8555)](https://runjp.com)
+[![GitHub](https://img.shields.io/badge/GitHub-the__kai__project-181717?logo=github)](https://github.com/Myyura/the_kai_project)
+
+</div>
+
+
+<div align="center">
   <h1 align="center">
     The Kai Project 
     <br />
@@ -126,6 +137,16 @@ The Kai Project maintains a QQ group for community discussion about exam solutio
 [QQ Group: 925154731](https://qm.qq.com/q/MVPd9wniQU)
 
 Feedback received through community discussions may be incorporated into the repository by maintainers or used to guide future contributions.
+
+# 📝 CLA Signing
+
+Before we can merge your pull request, you must sign our [Contributor License Agreement (CLA)](CLA.md). This legal agreement ensures that your contributions are properly licensed, allowing the project to continue being distributed under the GNU Affero General Public License v3.0.
+
+After submitting your pull request, the CLA bot will guide you through the signing process. To sign the CLA, simply add a comment in your PR stating:
+
+```text
+I have read the CLA Document and I sign the CLA
+```
 
 # ©️ License and Copyright
 All code contributions to the Kai Project are subject to the GNU Affero General Public License v3.0.
