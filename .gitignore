@@ -20,5 +20,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # Copilot agents
-.github/agents/
+.github
 /kai_study_app
