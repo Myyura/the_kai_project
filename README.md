@@ -1,4 +1,15 @@
 <div align="center">
+
+<!-- Project Icon Placeholder: replace with <img src="docs/assets/logo.png" width="120" /> -->
+
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-green.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![The Kai Project](https://img.shields.io/badge/Powered%20by-The%20Kai%20Project-2e8555)](https://runjp.com)
+[![GitHub](https://img.shields.io/badge/GitHub-the__kai__project-181717?logo=github)](https://github.com/Myyura/the_kai_project)
+
+</div>
+
+
+<div align="center">
   <h1 align="center">
     The Kai Project 
     <br />
