@@ -127,6 +127,16 @@ The Kai Project maintains a QQ group for community discussion about exam solutio
 
 Feedback received through community discussions may be incorporated into the repository by maintainers or used to guide future contributions.
 
+# 📝 CLA Signing
+
+Before we can merge your pull request, you must sign our [Contributor License Agreement (CLA)](CLA.md). This legal agreement ensures that your contributions are properly licensed, allowing the project to continue being distributed under the GNU Affero General Public License v3.0.
+
+After submitting your pull request, the CLA bot will guide you through the signing process. To sign the CLA, simply add a comment in your PR stating:
+
+```text
+I have read the CLA Document and I sign the CLA
+```
+
 # ©️ License and Copyright
 All code contributions to the Kai Project are subject to the GNU Affero General Public License v3.0.
 
