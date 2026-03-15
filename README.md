@@ -124,29 +124,35 @@ This corresponds to:
 For contributors who are not familiar with Git, the project accepts contributions via email.
 
 Steps for Email Submission:
-1. Prepare your content following the formatting guidelines
-2. Send your content to the project email address: 376672994@qq.com
-3. Project maintainers will review your submission
-4. If approved, maintainers will add your content to the repository
+1. Prepare your content following the formatting guidelines.
+2. Please read our [Contributor License Agreement (CLA)](CLA.md).
+3. Send your content to the project email address: **376672994@qq.com**. 
+   **⚠️ Crucial Step:** You must explicitly include the following statement in your email body: *"I have read and agree to The Kai Project CLA."* Without this explicit consent, we cannot legally merge your valuable contributions.
+4. Project maintainers will review your submission.
+5. If approved, maintainers will add your content to the repository.
 
 This method is designed to lower the barrier to entry for contributors who want to share valuable content but don't have technical Git experience.
 
-## 💬 Community Discussion
-The Kai Project maintains a QQ group for community discussion about exam solutions and your experience with the exam, or let us know if the answers are wrong via GitHub issues!
+## 📝 CLA Signing
 
-[QQ Group: 925154731](https://qm.qq.com/q/MVPd9wniQU)
+Before we can merge your contributions, you must sign our [Contributor License Agreement (CLA)](CLA.md). This legal agreement ensures that your contributions are properly licensed, allowing the project to continue being distributed safely under the GNU Affero General Public License v3.0, while protecting both you and the project.
 
-Feedback received through community discussions may be incorporated into the repository by maintainers or used to guide future contributions.
-
-# 📝 CLA Signing
-
-Before we can merge your pull request, you must sign our [Contributor License Agreement (CLA)](CLA.md). This legal agreement ensures that your contributions are properly licensed, allowing the project to continue being distributed under the GNU Affero General Public License v3.0.
-
+**For GitHub Users (Pull Requests):**
 After submitting your pull request, the CLA bot will guide you through the signing process. To sign the CLA, simply add a comment in your PR stating:
 
 ```text
 I have read the CLA Document and I sign the CLA
 ```
+
+**For Non-GitHub Users (Email Submissions):**
+As mentioned in the Email Submissions section, simply include the statement "I have read and agree to The Kai Project CLA." in the body of your submission email.
+
+# 💬 Community Discussion
+The Kai Project maintains a QQ group for community discussion about exam solutions and your experience with the exam, or let us know if the answers are wrong via GitHub issues!
+
+[QQ Group: 925154731](https://qm.qq.com/q/MVPd9wniQU)
+
+Feedback received through community discussions may be incorporated into the repository by maintainers or used to guide future contributions.
 
 # ©️ License and Copyright
 All code contributions to the Kai Project are subject to the GNU Affero General Public License v3.0.
