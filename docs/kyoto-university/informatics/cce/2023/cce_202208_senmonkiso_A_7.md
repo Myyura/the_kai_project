@@ -3,7 +3,11 @@ sidebar_label: "2022年8月実施 専門基礎A [A-7]"
 tags:
   - Kyoto-University
   - Computer-Architecture
+  - Binary-Representation
+  - Floating-Point-Representation
   - IEEE-754
+  - Addressing-Modes
+  - Pipeline
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2022年8月実施 専門基礎A \[A-7\]
 
