@@ -3,7 +3,7 @@ sidebar_label: "2022年8月実施 専門基礎A [A-7]"
 tags:
   - Kyoto-University
   - Computer-Architecture
-  - Binary-Representation
+  - Number-Representation
   - Floating-Point-Representation
   - IEEE-754
   - Addressing-Modes

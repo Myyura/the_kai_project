@@ -3,6 +3,10 @@ sidebar_label: "2021年8月実施 専門基礎A [A-7]"
 tags:
   - Kyoto-University
   - Computer-Architecture
+  - Number-Representation
+  - Memory-Alignment
+  - Performance-Analysis
+  - Branch-Penalty
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2021年8月実施 専門基礎A \[A-7\]
 

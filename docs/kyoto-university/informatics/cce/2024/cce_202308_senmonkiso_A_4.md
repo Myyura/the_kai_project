@@ -3,7 +3,7 @@ sidebar_label: "2023年8月実施 専門基礎A [A-4]"
 tags:
   - Kyoto-University
   - Computer-Architecture
-  - Floating-Point-Representation
+  - Number-Representation
   - IEEE-754
   - Pipeline
   - Branch-Prediction
