@@ -101,15 +101,15 @@ function checkFile(filePath, content) {
     issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: 'title-missing', message: '文档缺少 H1 标题' });
   }
 
-  // 3. 必需章节检查
-  const requiredSections = [
+  // 3. 章节检查
+  const trackedSections = [
     { pattern: /^##\s+\*\*Author\*\*/, name: 'Author' },
     { pattern: /^##\s+.*Description/i, name: 'Description' },
     { pattern: /^##\s+.*Kai/i, name: 'Kai' },
   ];
 
   const sectionPositions = {};
-  for (const sec of requiredSections) {
+  for (const sec of trackedSections) {
     for (let i = 0; i < lines.length; i++) {
       if (sec.pattern.test(lines[i].trim())) {
         sectionPositions[sec.name] = i + 1; // 1-based
@@ -118,10 +118,18 @@ function checkFile(filePath, content) {
     }
   }
 
-  for (const sec of requiredSections) {
-    if (!sectionPositions[sec.name]) {
-      issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: `section-missing-${sec.name.toLowerCase()}`, message: `缺少必需章节: ## **${sec.name}**` });
-    }
+  if (!sectionPositions['Author']) {
+    issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: 'section-missing-author', message: '缺少必需章节: ## **Author**' });
+  }
+
+  if (!sectionPositions['Description'] && !sectionPositions['Kai']) {
+    issues.push({
+      severity: 'ERROR',
+      file: relPath,
+      line: 1,
+      rule: 'section-missing-description-or-kai',
+      message: '缺少必需章节: 至少包含 ## **Description** 或 ## **Kai** 之一',
+    });
   }
 
   // 4. 章节顺序检查
@@ -140,10 +148,11 @@ function checkFile(filePath, content) {
   }
 
   // 5. Description 内容为空检查
-  if (sectionPositions['Description'] && sectionPositions['Kai']) {
+  if (sectionPositions['Description']) {
     const descStart = sectionPositions['Description']; // 1-based
-    const kaiStart = sectionPositions['Kai'];           // 1-based
-    const descContent = lines.slice(descStart, kaiStart - 1).join('\n').trim();
+    const kaiStart = sectionPositions['Kai'];          // 1-based
+    const descEnd = kaiStart && kaiStart > descStart ? kaiStart - 1 : lines.length;
+    const descContent = lines.slice(descStart, descEnd).join('\n').trim();
     if (descContent === '') {
       issues.push({ severity: 'WARNING', file: relPath, line: descStart, rule: 'description-empty', message: '## **Description** 章节内容为空' });
     }
@@ -267,8 +276,7 @@ function generateMarkdownReport(allIssues, totalFiles) {
     'frontmatter-tags': '缺少 tags',
     'title-missing': '缺少 H1 标题',
     'section-missing-author': '缺少 Author 章节',
-    'section-missing-description': '缺少 Description 章节',
-    'section-missing-kai': '缺少 Kai 章节',
+    'section-missing-description-or-kai': '缺少 Description/Kai 章节',
     'section-order': '章节顺序错误',
     'description-empty': 'Description 内容为空',
     'kai-empty': 'Kai 内容为空',
