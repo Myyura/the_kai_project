@@ -4,13 +4,16 @@ tags:
   - Tokyo-University
 ---
 
+# 東京大学 新領域創成科学研究科 複雑理工学専攻 2021年8月実施 専門基礎科目
 ## Slot 1: 1.1 Calculus (40 minutes)
 
 Answer the following questions. All constants and variables are real numbers. All functions are real functions. Omit the derivations and write only the answers.
 
 (Q.1) Let y(x) be a function satisfying the differential equation
 
-$$\frac{\mathrm{d}^2 y}{\mathrm{d}x^2} + 3\frac{\mathrm{d}y}{\mathrm{d}x} + 2y = f(x).$$
+$$
+\frac{\mathrm{d}^2 y}{\mathrm{d}x^2} + 3\frac{\mathrm{d}y}{\mathrm{d}x} + 2y = f(x).
+$$
 
 - (1) Obtain the solution for f(x) = 0. Use  $C_1$  and  $C_2$  for arbitrary constants.
 - (2) Obtain the solution for  $f(x) = e^{2x}$ . e is the base of the natural logarithm.
