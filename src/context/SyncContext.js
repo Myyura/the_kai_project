@@ -27,6 +27,7 @@ import {
 } from '../services/syncService';
 
 const LAST_SYNCED_KEY = 'kai_last_synced';
+const AUTO_SYNC_INTERVAL_MS = 60_000;
 
 /** @type {React.Context<ReturnType<typeof useSyncInternal> | null>} */
 export const SyncContext = createContext(null);
@@ -47,6 +48,8 @@ function useSyncInternal() {
   const [lastSynced, setLastSynced] = useState(null);
   const [error, setError] = useState(null);
   const mountedRef = useRef(true);
+  const initialPullUserRef = useRef(null);
+  const initialPullDoneRef = useRef(false);
 
   // 读取上次同步时间
   useEffect(() => {
@@ -92,6 +95,15 @@ function useSyncInternal() {
     return () => { mountedRef.current = false; };
   }, []);
 
+  // 登录用户变化时，重置“首次拉取”标记
+  useEffect(() => {
+    const userId = user?.id ?? null;
+    if (initialPullUserRef.current !== userId) {
+      initialPullUserRef.current = userId;
+      initialPullDoneRef.current = false;
+    }
+  }, [user?.id]);
+
   const recordSync = useCallback(() => {
     const ts = Date.now();
     setLastSynced(ts);
@@ -99,7 +111,7 @@ function useSyncInternal() {
     clearSyncDirty();
   }, []);
 
-  // ── 离线恢复自动同步（全局唯一） ─────────────────────────
+  // ── 登录后自动同步（每分钟增量检查） ─────────────────────
 
   const autoSyncRef = useRef(false);
 
@@ -107,37 +119,63 @@ function useSyncInternal() {
     if (!isConfigured) return;
 
     const tryAutoSync = async () => {
-      if (!mountedRef.current || !user || !navigator.onLine || !isSyncDirty() || autoSyncRef.current) return;
+      if (
+        !mountedRef.current
+        || !authReady
+        || !user
+        || !navigator.onLine
+        || document.visibilityState === 'hidden'
+        || autoSyncRef.current
+      ) return;
+
+      const userId = user.id;
+      const shouldMerge = isSyncDirty();
+      const shouldInitialPull = !initialPullDoneRef.current;
+      if (!shouldMerge && !shouldInitialPull) return;
+
       autoSyncRef.current = true;
       try {
-        await syncMerge();
+        if (shouldMerge) {
+          await syncMerge(userId);
+          initialPullDoneRef.current = true;
+        } else if (shouldInitialPull) {
+          await pullRemoteData(userId);
+          initialPullDoneRef.current = true;
+        }
+
         if (mountedRef.current) {
-          const ts = Date.now();
-          setLastSynced(ts);
-          localStorage.setItem(LAST_SYNCED_KEY, String(ts));
-          clearSyncDirty();
+          recordSync();
         }
       } catch {
-        // 静默失败，用户仍可手动同步
+        // 静默失败，等待下一次定时/online/可见时重试
       } finally {
         autoSyncRef.current = false;
       }
     };
 
-    const handleOnline = () => tryAutoSync();
+    const timerId = window.setInterval(() => {
+      void tryAutoSync();
+    }, AUTO_SYNC_INTERVAL_MS);
+
+    const handleOnline = () => {
+      void tryAutoSync();
+    };
     const handleVisible = () => {
-      if (document.visibilityState === 'visible') tryAutoSync();
+      if (document.visibilityState === 'visible') {
+        void tryAutoSync();
+      }
     };
 
     window.addEventListener('online', handleOnline);
     document.addEventListener('visibilitychange', handleVisible);
-    tryAutoSync();
+    void tryAutoSync();
 
     return () => {
+      window.clearInterval(timerId);
       window.removeEventListener('online', handleOnline);
       document.removeEventListener('visibilitychange', handleVisible);
     };
-  }, [isConfigured, user]);
+  }, [isConfigured, authReady, user, recordSync]);
 
   // ── 同步操作 ──────────────────────────────────────────────
 
@@ -145,7 +183,7 @@ function useSyncInternal() {
     setSyncing(true);
     setError(null);
     try {
-      const result = await syncMerge();
+      const result = await syncMerge(user?.id);
       recordSync();
       return result;
     } catch (err) {
@@ -154,13 +192,13 @@ function useSyncInternal() {
     } finally {
       if (mountedRef.current) setSyncing(false);
     }
-  }, [recordSync]);
+  }, [recordSync, user?.id]);
 
   const push = useCallback(async () => {
     setSyncing(true);
     setError(null);
     try {
-      await pushLocalData();
+      await pushLocalData(user?.id);
       recordSync();
     } catch (err) {
       setError(err.message || '推送失败');
@@ -168,13 +206,13 @@ function useSyncInternal() {
     } finally {
       if (mountedRef.current) setSyncing(false);
     }
-  }, [recordSync]);
+  }, [recordSync, user?.id]);
 
   const pull = useCallback(async () => {
     setSyncing(true);
     setError(null);
     try {
-      const result = await pullRemoteData();
+      const result = await pullRemoteData(user?.id);
       if (result.pulled) recordSync();
       return result;
     } catch (err) {
@@ -183,7 +221,7 @@ function useSyncInternal() {
     } finally {
       if (mountedRef.current) setSyncing(false);
     }
-  }, [recordSync]);
+  }, [recordSync, user?.id]);
 
   // ── 认证操作 ──────────────────────────────────────────────
 

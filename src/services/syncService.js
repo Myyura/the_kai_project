@@ -768,11 +768,11 @@ export const pullRemoteData = async (_userId) => {
  * 3. 仅回写增量到远端（含 tombstone 删除）
  * 4. 返回冲突提示（按时间戳自动解决）
  */
-export const syncMerge = async () => {
+export const syncMerge = async (_userId) => {
   const sb = getSupabaseClient();
   if (!sb) throw new Error('Supabase 未配置');
 
-  const userId = await getCurrentUserId();
+  const userId = _userId || await getCurrentUserId();
   if (!userId) throw new Error('未登录');
 
   await calibrateServerTime();
