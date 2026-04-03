@@ -11,6 +11,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const matter = require('gray-matter');
 
 const DOCS_DIR = path.resolve(__dirname, '..', 'docs');
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -109,27 +110,57 @@ function readScopedFiles() {
 }
 
 function parseFrontmatter(content) {
-  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!match) return null;
-  const raw = match[1];
-  const result = { _raw: raw, _endIndex: match[0].length };
+  try {
+    const parsed = matter(content);
+    const hasFrontmatter =
+      parsed.matter.trim().length > 0 ||
+      parsed.isEmpty === true ||
+      typeof parsed.empty === 'string';
 
-// 简单解析 sidebar_label（支持双引号、单引号、无引号）
-  const labelMatch = raw.match(/sidebar_label:\s*(?:"([^"]*)"|'([^']*)'|(\S.*))/);  
-  result.sidebar_label = labelMatch ? (labelMatch[1] || labelMatch[2] || (labelMatch[3] && labelMatch[3].trim())) : null;
+    if (!hasFrontmatter) {
+      return { hasFrontmatter: false };
+    }
 
-  // 解析 tags
-  const tagsSection = raw.match(/tags:\s*\n((?:\s+-\s+.+\n?)*)/);
-  if (tagsSection) {
-    result.tags = tagsSection[1]
-      .split('\n')
-      .map(line => line.replace(/^\s+-\s+/, '').trim())
-      .filter(Boolean);
-  } else {
-    result.tags = null;
+    const sidebarRaw = parsed.data?.sidebar_label;
+    const sidebarLabel =
+      sidebarRaw === null || sidebarRaw === undefined
+        ? null
+        : String(sidebarRaw).trim() || null;
+
+    const tagsRaw = parsed.data?.tags;
+    let tags = null;
+    if (Array.isArray(tagsRaw)) {
+      tags = tagsRaw
+        .map((tag) => (tag === null || tag === undefined ? '' : String(tag).trim()))
+        .filter(Boolean);
+    } else if (typeof tagsRaw === 'string') {
+      const value = tagsRaw.trim();
+      tags = value ? [value] : [];
+    }
+
+    const body = parsed.content ?? '';
+    const bodyStartIndex = Math.max(0, content.length - body.length);
+    const bodyStartLine = getLineNumber(content, bodyStartIndex);
+
+    return {
+      hasFrontmatter: true,
+      parseError: null,
+      sidebar_label: sidebarLabel,
+      tags,
+      body,
+      bodyStartLine,
+    };
+  } catch (error) {
+    const looksLikeFrontmatter = /^\uFEFF?---\s*\r?\n/.test(content);
+    return {
+      hasFrontmatter: looksLikeFrontmatter,
+      parseError: looksLikeFrontmatter ? error : null,
+      sidebar_label: null,
+      tags: null,
+      body: content,
+      bodyStartLine: 1,
+    };
   }
-
-  return result;
 }
 
 function getLineNumber(content, charIndex) {
@@ -145,9 +176,24 @@ function checkFile(filePath, content) {
 
   // 1. YAML Frontmatter
   const fm = parseFrontmatter(content);
-  if (!fm) {
+  if (!fm || !fm.hasFrontmatter) {
     issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: 'frontmatter-missing', message: '缺少 YAML frontmatter（---）' });
     return issues; // 无法继续检查
+  }
+
+  if (fm.parseError) {
+    const yamlLine = Number.isInteger(fm.parseError?.mark?.line)
+      ? fm.parseError.mark.line + 2
+      : 1;
+    const parseMsg = String(fm.parseError.reason || fm.parseError.message || 'YAML 解析失败').replace(/\s+/g, ' ').trim();
+    issues.push({
+      severity: 'ERROR',
+      file: relPath,
+      line: yamlLine,
+      rule: 'frontmatter-invalid-yaml',
+      message: `frontmatter YAML 语法错误: ${parseMsg}`,
+    });
+    return issues;
   }
 
   if (!fm.sidebar_label) {
@@ -159,14 +205,13 @@ function checkFile(filePath, content) {
   }
 
   // 2. 标题检查（frontmatter 之后的第一行非空内容应为 H1）
-  const afterFm = content.substring(fm._endIndex);
-  const afterFmLines = afterFm.split('\n');
+  const afterFmLines = fm.body.split('\n');
   let foundTitle = false;
   let titleLineIdx = 0;
   for (let i = 0; i < afterFmLines.length; i++) {
     const trimmed = afterFmLines[i].trim();
     if (trimmed === '') continue;
-    titleLineIdx = getLineNumber(content, fm._endIndex) + i;
+    titleLineIdx = fm.bodyStartLine + i;
     if (trimmed.startsWith('# ')) {
       foundTitle = true;
     } else {
@@ -349,6 +394,7 @@ function generateMarkdownReport(allIssues, totalFiles) {
   report += `|------|------|------|\n`;
   const ruleDescriptions = {
     'frontmatter-missing': '缺少 YAML frontmatter',
+    'frontmatter-invalid-yaml': 'frontmatter YAML 语法错误',
     'frontmatter-sidebar-label': '缺少 sidebar_label',
     'frontmatter-tags': '缺少 tags',
     'title-missing': '缺少 H1 标题',

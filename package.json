@@ -28,6 +28,7 @@
     "@supabase/supabase-js": "^2.98.0",
     "@types/react": "^19.2.7",
     "clsx": "^2.1.1",
+    "gray-matter": "4.0.3",
     "html-to-image": "^1.11.13",
     "markdown-it": "^14.1.1",
     "open-ask-ai": "^0.7.3",
