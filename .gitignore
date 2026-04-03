@@ -22,3 +22,4 @@ yarn-error.log*
 # Copilot agents
 .github
 /kai_study_app
+/.vscode
