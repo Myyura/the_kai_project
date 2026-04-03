@@ -17,6 +17,8 @@ import {
   pullRemoteData,
   signInWithEmail,
   signUpWithEmail,
+  signInWithGitHub,
+  exchangeOAuthCodeForSession,
   signOut as doSignOut,
   getSession,
   onAuthStateChange,
@@ -205,6 +207,31 @@ function useSyncInternal() {
     }
   }, []);
 
+  const loginWithGitHub = useCallback(async (redirectTo) => {
+    setError(null);
+    try {
+      return await signInWithGitHub(redirectTo);
+    } catch (err) {
+      setError('操作失败');
+      throw err;
+    }
+  }, []);
+
+  const completeOAuthCallback = useCallback(async (code) => {
+    setError(null);
+    try {
+      const data = await exchangeOAuthCodeForSession(code);
+      const nextUser = data?.user ?? data?.session?.user ?? null;
+      if (mountedRef.current && nextUser) {
+        setUser(nextUser);
+      }
+      return data;
+    } catch (err) {
+      setError('操作失败');
+      throw err;
+    }
+  }, []);
+
   const signOut = useCallback(async () => {
     setError(null);
     try {
@@ -228,6 +255,8 @@ function useSyncInternal() {
     pull,
     loginWithEmail,
     registerWithEmail,
+    loginWithGitHub,
+    completeOAuthCallback,
     signOut,
   };
 }

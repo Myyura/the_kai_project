@@ -299,6 +299,37 @@ export const signInWithEmail = async (email, password, captchaToken) => {
 };
 
 /**
+ * GitHub OAuth 登录（跳转授权页）
+ * @param {string} [redirectTo] - 授权完成后回跳地址
+ */
+export const signInWithGitHub = async (redirectTo) => {
+  const sb = getSupabaseClient();
+  if (!sb) throw new Error('Supabase 未配置');
+
+  const options = redirectTo ? { redirectTo } : undefined;
+  const { data, error } = await sb.auth.signInWithOAuth({
+    provider: 'github',
+    options,
+  });
+  if (error) throw error;
+  return data;
+};
+
+/**
+ * 处理 OAuth 回跳 code，交换为 session
+ * 注意：detectSessionInUrl=false 时需手动调用
+ */
+export const exchangeOAuthCodeForSession = async (code) => {
+  const sb = getSupabaseClient();
+  if (!sb) throw new Error('Supabase 未配置');
+  if (!code) throw new Error('缺少 OAuth 授权码');
+
+  const { data, error } = await sb.auth.exchangeCodeForSession(code);
+  if (error) throw error;
+  return data;
+};
+
+/**
  * 登出
  */
 export const signOut = async () => {

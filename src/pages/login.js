@@ -7,7 +7,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import {
   FaCloud, FaEnvelope, FaLock, FaSignInAlt, FaUserPlus,
-  FaCheck, FaExclamationTriangle, FaSyncAlt, FaUser,
+  FaCheck, FaExclamationTriangle, FaSyncAlt, FaUser, FaGithub,
   FaSignOutAlt, FaArrowRight,
 } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
@@ -38,9 +38,14 @@ const T = {
     passwordPlaceholder: '至少8位，含大小写字母和数字',
     passwordPlaceholderLogin: '请输入密码',
     loginBtn: '登录',
+    githubLoginBtn: '使用 GitHub 登录',
     registerBtn: '注册',
     logging: '登录中...',
     registering: '注册中...',
+    oauthProcessing: '正在处理 GitHub 登录...',
+    oauthRedirecting: '正在跳转到 GitHub 授权...',
+    oauthFailed: 'GitHub 登录失败，请重试。',
+    oauthOr: '或使用邮箱登录',
     loginOk: '登录成功！正在跳转进度页...',
     registerOk: '注册成功！请查收验证邮件，验证后即可登录。',
     alreadyIn: '你已登录',
@@ -65,9 +70,14 @@ const T = {
     passwordPlaceholder: '8文字以上、大小英字と数字を含む',
     passwordPlaceholderLogin: 'パスワードを入力',
     loginBtn: 'ログイン',
+    githubLoginBtn: 'GitHubでログイン',
     registerBtn: '登録',
     logging: 'ログイン中...',
     registering: '登録中...',
+    oauthProcessing: 'GitHubログインを処理中...',
+    oauthRedirecting: 'GitHub認証ページへ移動しています...',
+    oauthFailed: 'GitHubログインに失敗しました。再試行してください。',
+    oauthOr: 'またはメールでログイン',
     loginOk: 'ログイン成功！進捗ページへ移動中...',
     registerOk: '登録成功！確認メールをご確認ください。',
     alreadyIn: 'ログイン済み',
@@ -85,7 +95,7 @@ const T = {
 // ── 主组件 ──────────────────────────────────────────────────
 
 function LoginPageContent() {
-  const language = useStoredLanguage();
+  const [language] = useStoredLanguage();
   const lang = language === 'ja' ? 'ja' : 'zh';
   const t = language === 'ja' ? T.ja : T.zh;
   const { siteConfig } = useDocusaurusContext();
@@ -94,13 +104,14 @@ function LoginPageContent() {
 
   const {
     isConfigured, user, isLoggedIn, authReady, error,
-    loginWithEmail, registerWithEmail, signOut,
+    loginWithEmail, registerWithEmail, loginWithGitHub, completeOAuthCallback, signOut,
   } = useSync();
 
   const [mode, setMode] = useState('login'); // 'login' | 'register'
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [oauthLoading, setOauthLoading] = useState(false);
   const [msg, setMsg] = useState(null); // { text, isError }
   const [pwChecks, setPwChecks] = useState(null); // [{ label, passed }] or null
   const [lockCountdown, setLockCountdown] = useState(0);
@@ -114,6 +125,53 @@ function LoginPageContent() {
     if (locked) startCountdown(remainingSeconds);
     return () => clearInterval(countdownRef.current);
   }, []);
+
+  // OAuth 回调处理：detectSessionInUrl=false 时需手动交换 code
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const oauthErr = params.get('error');
+    const oauthErrDesc = params.get('error_description');
+    if (!code && !oauthErr && !oauthErrDesc) return;
+
+    const clearQuery = () => {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    };
+
+    if (oauthErr || oauthErrDesc) {
+      showMsg(oauthErrDesc || t.oauthFailed, true);
+      clearQuery();
+      return;
+    }
+
+    let disposed = false;
+    const run = async () => {
+      setOauthLoading(true);
+      try {
+        await completeOAuthCallback(code);
+        if (disposed) return;
+        resetAttempts();
+        showMsg(t.loginOk);
+        clearQuery();
+        setTimeout(() => {
+          history.push('/progress');
+        }, 1000);
+      } catch (err) {
+        if (disposed) return;
+        showMsg(err?.message || t.oauthFailed, true);
+        clearQuery();
+      } finally {
+        if (!disposed) setOauthLoading(false);
+      }
+    };
+
+    run();
+    return () => {
+      disposed = true;
+    };
+  }, [completeOAuthCallback, history, t.loginOk, t.oauthFailed]);
 
   const startCountdown = (seconds) => {
     setLockCountdown(seconds);
@@ -247,6 +305,22 @@ function LoginPageContent() {
     showMsg(t.logoutOk);
   };
 
+  const handleGitHubLogin = async () => {
+    if (typeof window === 'undefined') return;
+
+    setMsg(null);
+    setOauthLoading(true);
+    try {
+      const redirectTo = `${window.location.origin}/login`;
+      await loginWithGitHub(redirectTo);
+      showMsg(t.oauthRedirecting);
+      // 正常情况下会立即跳转到 GitHub，不会执行到 finally
+    } catch (err) {
+      showMsg(err?.message || t.oauthFailed, true);
+      setOauthLoading(false);
+    }
+  };
+
   // 认证状态尚未确认 → 显示加载中，避免闪烁
   if (!authReady && !user) {
     return (
@@ -372,6 +446,26 @@ function LoginPageContent() {
             </div>
           )}
 
+          {mode === 'login' && (
+            <>
+              <button
+                type="button"
+                className={`${styles.btn} ${styles.btnGithub}`}
+                onClick={handleGitHubLogin}
+                disabled={loading || oauthLoading}
+              >
+                {oauthLoading
+                  ? <><FaSyncAlt className={styles.spin} /> {t.oauthProcessing}</>
+                  : <><FaGithub /> {t.githubLoginBtn}</>
+                }
+              </button>
+
+              <div className={styles.oauthDivider}>
+                <span>{t.oauthOr}</span>
+              </div>
+            </>
+          )}
+
           {/* 表单 */}
           <form onSubmit={handleSubmit} noValidate>
             <div className={styles.inputGroup}>
@@ -431,7 +525,7 @@ function LoginPageContent() {
             <button
               type="submit"
               className={`${styles.btn} ${styles.btnPrimary}`}
-              disabled={loading || lockCountdown > 0 || (hcaptchaSiteKey && !captchaToken)}
+              disabled={loading || oauthLoading || lockCountdown > 0 || (hcaptchaSiteKey && !captchaToken)}
             >
               {loading
                 ? <><FaSyncAlt className={styles.spin} /> {mode === 'login' ? t.logging : t.registering}</>
