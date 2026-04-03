@@ -13,6 +13,8 @@ const fs = require('fs');
 const path = require('path');
 
 const DOCS_DIR = path.resolve(__dirname, '..', 'docs');
+const REPO_ROOT = path.resolve(__dirname, '..');
+const DOCS_FILE_RE = /^docs\/.*\.(md|mdx)$/i;
 
 // ─── 辅助函数 ───────────────────────────────────────────────
 
@@ -29,6 +31,81 @@ function getAllMdFiles(dir) {
     }
   }
   return results;
+}
+
+function normalizePath(p) {
+  return p.replace(/\\/g, '/');
+}
+
+function getArgValue(flagName) {
+  const argv = process.argv;
+  const idx = argv.indexOf(flagName);
+  if (idx < 0) return null;
+  return argv[idx + 1] || null;
+}
+
+function resolveWithinRepo(inputPath) {
+  if (!inputPath) return null;
+  const raw = String(inputPath).trim();
+  if (!raw) return null;
+
+  const asAbsolute = path.isAbsolute(raw)
+    ? raw
+    : path.resolve(REPO_ROOT, raw);
+  const rel = normalizePath(path.relative(REPO_ROOT, asAbsolute));
+  const baseName = path.basename(asAbsolute);
+
+  if (!DOCS_FILE_RE.test(rel)) return null;
+  if (baseName === 'intro.mdx') return null;
+  if (!fs.existsSync(asAbsolute)) return null;
+  if (!fs.statSync(asAbsolute).isFile()) return null;
+
+  return asAbsolute;
+}
+
+function readScopedFiles() {
+  const fromCli = getArgValue('--files');
+  const fromFileArg = getArgValue('--files-from');
+
+  if (!fromCli && !fromFileArg) {
+    return null;
+  }
+
+  const candidates = [];
+
+  if (fromCli) {
+    candidates.push(
+      ...fromCli
+        .split(/[\n,]/)
+        .map((s) => s.trim())
+        .filter(Boolean),
+    );
+  }
+
+  if (fromFileArg) {
+    const fileListPath = path.isAbsolute(fromFileArg)
+      ? fromFileArg
+      : path.resolve(REPO_ROOT, fromFileArg);
+    if (!fs.existsSync(fileListPath)) {
+      throw new Error(`--files-from 指定的文件不存在: ${fromFileArg}`);
+    }
+    const lines = fs
+      .readFileSync(fileListPath, 'utf-8')
+      .split(/\r?\n/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    candidates.push(...lines);
+  }
+
+  const unique = new Map();
+  for (const file of candidates) {
+    const abs = resolveWithinRepo(file);
+    if (!abs) continue;
+    const rel = normalizePath(path.relative(REPO_ROOT, abs));
+    if (!unique.has(rel)) unique.set(rel, abs);
+  }
+
+  return Array.from(unique.values());
 }
 
 function parseFrontmatter(content) {
@@ -358,9 +435,13 @@ function generateMarkdownReport(allIssues, totalFiles) {
 
 function main() {
   const jsonMode = process.argv.includes('--json');
-  const mdFiles = getAllMdFiles(DOCS_DIR);
+  const scopedFiles = readScopedFiles();
+  const mdFiles = scopedFiles || getAllMdFiles(DOCS_DIR);
+  const scopedMode = scopedFiles !== null;
 
-  console.error(`[review-format] 扫描到 ${mdFiles.length} 个文档文件`);
+  console.error(
+    `[review-format] 扫描到 ${mdFiles.length} 个文档文件${scopedMode ? '（按指定范围）' : ''}`,
+  );
 
   const allIssues = [];
   for (const file of mdFiles) {

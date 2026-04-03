@@ -1,6 +1,14 @@
 name: 部署到 GitHub Pages
 
 on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
   push:
     branches:
       - main
@@ -32,6 +40,7 @@ jobs:
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
 
       - name: 上传构建制品
+        if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
@@ -39,6 +48,7 @@ jobs:
   deploy:
     name: 部署到 GitHub Pages
     needs: build
+    if: github.event_name == 'push'
 
     # 给予 GITHUB_TOKEN 进行 Pages 部署所必须的权限
     permissions:

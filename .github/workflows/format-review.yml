@@ -1,16 +1,23 @@
 name: 解答文档格式审阅
 
 on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    paths:
+      - docs/**
   workflow_dispatch:
     inputs:
       scope:
-        description: '审阅范围（留空则审阅全部）'
+        description: '手动指定审阅文件（逗号分隔，留空审阅全部 docs）'
         required: false
         default: ''
         type: string
 
 permissions:
-  issues: write
   contents: read
 
 jobs:
@@ -19,89 +26,111 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
+      - name: 计算审阅范围
+        id: scope
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          : > changed-doc-files.txt
+          MODE="full"
+
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            MODE="pr_changed"
+            BASE_REF="${{ github.event.pull_request.base.ref }}"
+            git fetch --no-tags --prune --depth=1 origin "$BASE_REF"
+            git diff --name-only --diff-filter=ACMR "origin/$BASE_REF...HEAD" -- docs > _changed_docs_raw.txt || true
+            grep -E '^docs/.*\.(md|mdx)$' _changed_docs_raw.txt > changed-doc-files.txt || true
+          elif [[ -n "${{ inputs.scope }}" ]]; then
+            MODE="manual_scope"
+            echo "${{ inputs.scope }}" | tr ',' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | sed '/^$/d' > changed-doc-files.txt
+          fi
+
+          COUNT="$(wc -l < changed-doc-files.txt | tr -d ' ')"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "[review-format] mode=$MODE, files=$COUNT"
+
       - name: 执行格式审阅
         id: review
+        shell: bash
         run: |
-          # 运行审阅脚本，将报告写入文件
-          node scripts/review-format.js > report.md 2> review-stderr.log || true
-          cat review-stderr.log >&2
+          set +e
+          MODE="${{ steps.scope.outputs.mode }}"
+          COUNT="${{ steps.scope.outputs.count }}"
 
-          # 同时生成 JSON 用于后续判断
-          node scripts/review-format.js --json > report.json 2>/dev/null || true
+          if [[ "$MODE" == "full" ]]; then
+            node scripts/review-format.js > report.md 2> review-stderr.log
+            EXIT_MD=$?
+            node scripts/review-format.js --json > report.json 2>/dev/null
+            EXIT_JSON=$?
+          elif [[ "$COUNT" != "0" ]]; then
+            node scripts/review-format.js --files-from changed-doc-files.txt > report.md 2> review-stderr.log
+            EXIT_MD=$?
+            node scripts/review-format.js --json --files-from changed-doc-files.txt > report.json 2>/dev/null
+            EXIT_JSON=$?
+          else
+            echo "[review-format] PR 未修改 docs/*.md(x)，跳过审阅。"
+            printf '%s\n' '# 📋 解答文档格式审阅报告' '' '本次 PR 未修改 `docs/**/*.md` 或 `docs/**/*.mdx` 文件，已跳过格式审阅。' > report.md
+            echo '{"totalFiles":0,"issues":[]}' > report.json
+            : > review-stderr.log
+            EXIT_MD=0
+            EXIT_JSON=0
+          fi
+
+          cat review-stderr.log >&2 || true
 
           # 读取问题总数
-          TOTAL_ISSUES=$(node -e "const r=require('./report.json'); console.log(r.issues.length)" 2>/dev/null || echo "0")
-          TOTAL_FILES=$(node -e "const r=require('./report.json'); console.log(r.totalFiles)" 2>/dev/null || echo "0")
-          TOTAL_ERRORS=$(node -e "const r=require('./report.json'); console.log(r.issues.filter(i=>i.severity==='ERROR').length)" 2>/dev/null || echo "0")
-          TOTAL_WARNINGS=$(node -e "const r=require('./report.json'); console.log(r.issues.filter(i=>i.severity==='WARNING').length)" 2>/dev/null || echo "0")
+          TOTAL_ISSUES=$(node -e "const r=require('./report.json'); console.log((r.issues||[]).length)" 2>/dev/null || echo "0")
+          TOTAL_FILES=$(node -e "const r=require('./report.json'); console.log(r.totalFiles||0)" 2>/dev/null || echo "0")
+          TOTAL_ERRORS=$(node -e "const r=require('./report.json'); console.log((r.issues||[]).filter(i=>i.severity==='ERROR').length)" 2>/dev/null || echo "0")
+          TOTAL_WARNINGS=$(node -e "const r=require('./report.json'); console.log((r.issues||[]).filter(i=>i.severity==='WARNING').length)" 2>/dev/null || echo "0")
 
           echo "total_issues=$TOTAL_ISSUES" >> "$GITHUB_OUTPUT"
           echo "total_files=$TOTAL_FILES" >> "$GITHUB_OUTPUT"
           echo "total_errors=$TOTAL_ERRORS" >> "$GITHUB_OUTPUT"
           echo "total_warnings=$TOTAL_WARNINGS" >> "$GITHUB_OUTPUT"
 
-      - name: 关闭旧的格式审阅 Issues
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const issues = await github.paginate(github.rest.issues.listForRepo, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: 'format-review',
-              state: 'open',
-              per_page: 100
-            });
-            for (const issue of issues) {
-              await github.rest.issues.update({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issue.number,
-                state: 'closed',
-                state_reason: 'not_planned'
-              });
-              core.info(`Closed issue #${issue.number}: ${issue.title}`);
-            }
+          if [[ "$EXIT_MD" -ne 0 || "$EXIT_JSON" -ne 0 ]]; then
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          fi
 
-      - name: 创建 GitHub Issue
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            const report = fs.readFileSync('report.md', 'utf-8');
-            const totalIssues = '${{ steps.review.outputs.total_issues }}';
-            const totalFiles = '${{ steps.review.outputs.total_files }}';
-            const totalErrors = '${{ steps.review.outputs.total_errors }}';
-            const totalWarnings = '${{ steps.review.outputs.total_warnings }}';
-
-            const today = new Date().toISOString().split('T')[0];
-            const title = `[格式审阅] ${today} — ${totalErrors} errors, ${totalWarnings} warnings (共 ${totalFiles} 文件)`;
-
-            // GitHub Issue body 有 65536 字符限制
-            let body = report;
-            if (body.length > 60000) {
-              body = body.substring(0, 60000) + '\n\n---\n\n> ⚠️ 报告过长，已截断。完整报告请查看 Actions artifacts。';
-            }
-
-            const issue = await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: title,
-              body: body,
-              labels: ['format-review']
-            });
-
-            core.info(`Issue created: ${issue.data.html_url}`);
+      - name: 写入工作流摘要
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## 格式审阅结果"
+            echo ""
+            echo "- 范围模式: \`${{ steps.scope.outputs.mode }}\`"
+            echo "- 审阅文件数: ${{ steps.review.outputs.total_files }}"
+            echo "- ERROR: ${{ steps.review.outputs.total_errors }}"
+            echo "- WARNING: ${{ steps.review.outputs.total_warnings }}"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: 上传完整报告
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: format-review-report
           path: |
             report.md
             report.json
+            changed-doc-files.txt
           retention-days: 30
+
+      - name: 存在 ERROR 时阻止合并
+        if: steps.review.outputs.failed == 'true'
+        shell: bash
+        run: |
+          echo "格式审阅存在 ERROR，已阻止合并。"
+          exit 1
