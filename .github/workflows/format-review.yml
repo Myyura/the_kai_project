@@ -7,8 +7,6 @@ on:
       - synchronize
       - reopened
       - ready_for_review
-    paths:
-      - docs/**
   workflow_dispatch:
     inputs:
       scope:
