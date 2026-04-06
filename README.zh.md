@@ -194,11 +194,24 @@ blog/
 在合并贡献之前，你需要签署 [贡献者许可协议（CLA）](CLA.md)。
 
 **对于 GitHub 用户（Pull Requests）：**
-目前看起来，这个仓库的 CLA 流程更像是由 GitHub 侧的 assistant/bot 处理，而不是通过仓库内的 workflow 实现。提交 PR 后，请按照 PR 对话区中出现的提示完成签署。如果 bot 要求你在评论区留下签署语句，请以它提示的内容为准。这个仓库中使用过的一种签署语句是：
+现在仓库已通过工作流自动检查 CLA：[.github/workflows/cla-check.yml](.github/workflows/cla-check.yml)。
+
+提交 PR 后，请由 PR 作者本人在以下任一位置写入签署语句：
+- PR 描述
+- PR 对话区评论
+- PR Review 评论
+
+可用签署语句：
 
 ```text
 I have read the CLA Document and I sign the CLA
 ```
+
+```text
+I have read and agree to The Kai Project CLA.
+```
+
+如果未检测到签署语句，`CLA 检查` 工作流会失败并自动留言提醒；补充签署语句后会自动通过。
 
 **对于非 GitHub 用户（邮件投稿）：**
 如上所述，在邮件正文中包含 *“我已阅读并同意 The Kai Project CLA。”* 即可。

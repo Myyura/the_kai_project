@@ -1,0 +1,202 @@
+name: CLA 签署检查
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+      - ready_for_review
+  issue_comment:
+    types:
+      - created
+      - edited
+  pull_request_review:
+    types:
+      - submitted
+      - edited
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+  statuses: write
+
+jobs:
+  cla:
+    name: CLA 检查
+    runs-on: ubuntu-latest
+    steps:
+      - name: 校验 CLA 签署状态
+        id: cla
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const marker = '<!-- cla-check-reminder -->';
+            const requiredStatements = [
+              'I have read the CLA Document and I sign the CLA',
+              'I have read and agree to The Kai Project CLA.'
+            ];
+
+            const normalize = (text) => String(text || '').toLowerCase().replace(/\s+/g, ' ').trim();
+            const normalizedRequiredStatements = requiredStatements.map(normalize);
+            const containsSignatureStatement = (text) => {
+              const normalizedText = normalize(text);
+              return normalizedRequiredStatements.some((statement) => normalizedText.includes(statement));
+            };
+
+            let prNumber = null;
+            if (context.eventName === 'pull_request_target') {
+              prNumber = context.payload.pull_request.number;
+            } else if (context.eventName === 'issue_comment' && context.payload.issue?.pull_request) {
+              prNumber = context.payload.issue.number;
+            } else if (context.eventName === 'pull_request_review') {
+              prNumber = context.payload.pull_request.number;
+            }
+
+            if (!prNumber) {
+              core.info('当前事件不对应 Pull Request，跳过 CLA 检查。');
+              core.setOutput('skip', 'true');
+              return;
+            }
+
+            const { data: pr } = await github.rest.pulls.get({
+              owner,
+              repo,
+              pull_number: prNumber,
+            });
+
+            const author = pr.user.login;
+            const trustedAssociations = new Set(['OWNER', 'MEMBER', 'COLLABORATOR']);
+            const defaultBranch = context.payload.repository?.default_branch || 'main';
+            const claUrl = `${context.serverUrl}/${owner}/${repo}/blob/${defaultBranch}/CLA.md`;
+
+            const issueComments = await github.paginate(github.rest.issues.listComments, {
+              owner,
+              repo,
+              issue_number: prNumber,
+              per_page: 100,
+            });
+
+            const reminderComment = issueComments.find((comment) =>
+              comment.user?.type === 'Bot' && String(comment.body || '').includes(marker)
+            );
+
+            const createOrUpdateReminderComment = async () => {
+              const body = [
+                marker,
+                '### CLA 签署未完成',
+                '请由 PR 作者本人在当前 PR 的描述、评论或 Review 评论中添加以下任意一句签署语句：',
+                '',
+                '- `I have read the CLA Document and I sign the CLA`',
+                '- `I have read and agree to The Kai Project CLA.`',
+                '',
+                `CLA 文档：${claUrl}`,
+                '',
+                '添加后工作流会自动重新检查并通过。',
+              ].join('\n');
+
+              if (reminderComment) {
+                await github.rest.issues.updateComment({
+                  owner,
+                  repo,
+                  comment_id: reminderComment.id,
+                  body,
+                });
+                return;
+              }
+
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: prNumber,
+                body,
+              });
+            };
+
+            const deleteReminderComment = async () => {
+              if (!reminderComment) {
+                return;
+              }
+              await github.rest.issues.deleteComment({
+                owner,
+                repo,
+                comment_id: reminderComment.id,
+              });
+            };
+
+            let signed = false;
+            let evidence = '';
+
+            if (trustedAssociations.has(pr.author_association)) {
+              signed = true;
+              evidence = `作者关联身份为 ${pr.author_association}，自动通过`;
+            } else if (containsSignatureStatement(pr.body)) {
+              signed = true;
+              evidence = '在 PR 描述中检测到签署语句';
+            } else {
+              const issueCommentSigned = issueComments.some((comment) =>
+                comment.user?.login === author && containsSignatureStatement(comment.body)
+              );
+
+              if (issueCommentSigned) {
+                signed = true;
+                evidence = '在 PR 评论中检测到签署语句';
+              } else {
+                const reviews = await github.paginate(github.rest.pulls.listReviews, {
+                  owner,
+                  repo,
+                  pull_number: prNumber,
+                  per_page: 100,
+                });
+
+                const reviewSigned = reviews.some((review) =>
+                  review.user?.login === author && containsSignatureStatement(review.body)
+                );
+
+                if (reviewSigned) {
+                  signed = true;
+                  evidence = '在 PR Review 评论中检测到签署语句';
+                }
+              }
+            }
+
+            if (signed) {
+              await deleteReminderComment();
+            } else {
+              await createOrUpdateReminderComment();
+            }
+
+            await github.rest.repos.createCommitStatus({
+              owner,
+              repo,
+              sha: pr.head.sha,
+              state: signed ? 'success' : 'failure',
+              context: 'CLA / Signature',
+              description: signed ? 'CLA 签署校验通过' : '请先签署 CLA 再合并',
+              target_url: `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`,
+            });
+
+            core.setOutput('signed', signed ? 'true' : 'false');
+            core.setOutput('reason', evidence || '未检测到签署语句');
+
+      - name: 写入工作流摘要
+        if: steps.cla.outputs.skip != 'true'
+        shell: bash
+        run: |
+          {
+            echo "## CLA 检查结果"
+            echo ""
+            echo "- 是否通过: ${{ steps.cla.outputs.signed }}"
+            echo "- 说明: ${{ steps.cla.outputs.reason }}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 未签署时阻止合并
+        if: steps.cla.outputs.skip != 'true' && steps.cla.outputs.signed != 'true'
+        shell: bash
+        run: |
+          echo "未检测到 CLA 签署语句，检查失败。"
+          exit 1

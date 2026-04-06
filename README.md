@@ -195,11 +195,24 @@ Steps for email submission:
 Before we can merge your contributions, you must sign our [Contributor License Agreement (CLA)](CLA.md).
 
 **For GitHub users (Pull Requests):**
-The current CLA flow appears to be handled by a GitHub-side assistant/bot rather than by a workflow stored in this repository. After opening a PR, please follow the instructions shown in the PR conversation. If the bot asks for a signature comment, use the statement requested there. One statement that has been used for this repository is:
+CLA signing is now checked automatically by the workflow in this repository: [.github/workflows/cla-check.yml](.github/workflows/cla-check.yml).
+
+After opening a PR, please add a signature statement in any one of these places (by the PR author):
+- PR description
+- PR conversation comment
+- PR review comment
+
+Accepted statements:
 
 ```text
 I have read the CLA Document and I sign the CLA
 ```
+
+```text
+I have read and agree to The Kai Project CLA.
+```
+
+If no statement is detected, the `CLA 检查` workflow will fail and leave a reminder comment. Once a valid statement is added, the check will pass automatically.
 
 **For non-GitHub users (Email submissions):**
 As mentioned above, include the statement *"I have read and agree to The Kai Project CLA."* in the email body.
