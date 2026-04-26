@@ -42,7 +42,7 @@ export default function CloudSyncPanel({ language = 'zh' }) {
   const handleSync = async () => {
     try {
       const result = await sync();
-      showMsg(t.syncDone(result.progressKeys, result.notesKeys));
+      showMsg(t.syncDone(result.progressKeys, result.notesKeys, result.conflictsCount || 0));
     } catch (e) { showMsg(e.message, true); }
   };
 
@@ -56,7 +56,7 @@ export default function CloudSyncPanel({ language = 'zh' }) {
   const handlePull = async () => {
     try {
       const r = await pull();
-      showMsg(r.pulled ? t.pullDone : t.pullEmpty);
+      showMsg(r.pulled ? t.pullDone(r.conflictsCount || 0) : t.pullEmpty);
     } catch (e) { showMsg(e.message, true); }
   };
 
@@ -157,9 +157,13 @@ const T = {
     pull: '从云端拉取',
     pullDesc: '云端覆盖本地',
     lastSynced: '上次同步',
-    syncDone: (p, n) => `同步完成！进度 ${p} 条，笔记 ${n} 条`,
+    syncDone: (p, n, c = 0) => c > 0
+      ? `同步完成！进度 ${p} 条，笔记 ${n} 条，发现 ${c} 条冲突并已按最新更新时间自动解决。`
+      : `同步完成！进度 ${p} 条，笔记 ${n} 条`,
     pushDone: '推送成功！',
-    pullDone: '拉取成功！',
+    pullDone: (c = 0) => c > 0
+      ? `拉取成功！发现 ${c} 条冲突并已按最新更新时间自动解决。`
+      : '拉取成功！',
     pullEmpty: '云端暂无数据。',
     logoutOk: '已退出登录。',
   },
@@ -176,9 +180,13 @@ const T = {
     pull: 'クラウドから取得',
     pullDesc: 'クラウドで上書き',
     lastSynced: '最終同期',
-    syncDone: (p, n) => `同期完了！進捗 ${p} 件、メモ ${n} 件`,
+    syncDone: (p, n, c = 0) => c > 0
+      ? `同期完了！進捗 ${p} 件、メモ ${n} 件。競合 ${c} 件を検出し、最新更新時刻で自動解決しました。`
+      : `同期完了！進捗 ${p} 件、メモ ${n} 件`,
     pushDone: '送信成功！',
-    pullDone: '取得成功！',
+    pullDone: (c = 0) => c > 0
+      ? `取得成功！競合 ${c} 件を検出し、最新更新時刻で自動解決しました。`
+      : '取得成功！',
     pullEmpty: 'クラウドにデータがありません。',
     logoutOk: 'ログアウトしました。',
   },

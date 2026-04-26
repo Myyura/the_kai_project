@@ -115,18 +115,31 @@ const safeHostname = (url) => {
   }
 };
 
+// Helper: 域名匹配（精确匹配或子域名匹配）
+const isAllowedHost = (host, allowedHost) => host === allowedHost || host.endsWith(`.${allowedHost}`);
+
+const sourceHostRules = [
+  { source: 'GitHub', hosts: ['github.com'] },
+  { source: 'YouTube', hosts: ['youtube.com', 'youtu.be'] },
+  { source: 'Zhihu', hosts: ['zhihu.com'] },
+  { source: 'Xiaohongshu', hosts: ['xiaohongshu.com', 'xhslink.com'] },
+  { source: 'Qiita', hosts: ['qiita.com'] },
+  { source: 'Google Sites', hosts: ['sites.google.com'] },
+  { source: 'Hatena', hosts: ['hatenablog.jp', 'hatenadiary.jp'] },
+  { source: 'Mathlog', hosts: ['mathlog.info'] },
+];
+
 // Helper: 检测来源
 const detectSource = (url) => {
   const host = safeHostname(url).toLowerCase();
   if (!host) return 'Other';
-  if (host.includes('github.com')) return 'GitHub';
-  if (host.includes('youtube.com') || host.includes('youtu.be')) return 'YouTube';
-  if (host.includes('zhihu.com')) return 'Zhihu';
-  if (host.includes('xiaohongshu.com') || host.includes('xhslink.com')) return 'Xiaohongshu';
-  if (host.includes('qiita.com')) return 'Qiita';
-  if (host.includes('sites.google.com')) return 'Google Sites';
-  if (host.includes('hatenablog.jp') || host.includes('hatenadiary.jp')) return 'Hatena';
-  if (host.includes('mathlog.info')) return 'Mathlog';
+
+  for (const rule of sourceHostRules) {
+    if (rule.hosts.some((allowedHost) => isAllowedHost(host, allowedHost))) {
+      return rule.source;
+    }
+  }
+
   return 'Blog';
 };
 

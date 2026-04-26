@@ -16,8 +16,19 @@ import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 // ─── 1. KaTeX CDN (jsdelivr) ────────────────────────────────────────────────
 // Cache KaTeX JS, CSS and font files with CacheFirst.
 // Versioned URLs don't change, so a long TTL is safe.
+const isKaTeXAsset = ({ url }) => {
+  if (url.hostname !== 'cdn.jsdelivr.net') return false;
+  if (!url.pathname.startsWith('/npm/katex@')) return false;
+
+  return (
+    url.pathname.endsWith('/dist/katex.min.css') ||
+    url.pathname.endsWith('/dist/katex.min.js') ||
+    url.pathname.includes('/dist/fonts/')
+  );
+};
+
 registerRoute(
-  ({ url }) => url.hostname === 'cdn.jsdelivr.net',
+  isKaTeXAsset,
   new CacheFirst({
     cacheName: 'katex-cdn',
     plugins: [

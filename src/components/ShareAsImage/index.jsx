@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { FaShareAlt, FaDownload, FaCheck, FaTimes, FaImage } from 'react-icons/fa';
 import { useCurrentLanguage } from '@site/src/context/LanguageContext';
 import styles from './styles.module.css';
@@ -28,6 +28,242 @@ const LABELS = {
   },
 };
 
+const WORKER_TIMEOUT_MS = 1200;
+
+// 白名单样式：仅覆盖导出图片所需的排版元素，避免复制全站 style rules。
+const SHARE_STYLE_WHITELIST = `
+  .share-image-container,
+  .share-image-container * {
+    box-sizing: border-box;
+  }
+
+  .share-image-container .share-markdown {
+    position: relative;
+    z-index: 0;
+    color: #1a1a2e;
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: break-word;
+  }
+
+  .share-image-container .share-markdown h1,
+  .share-image-container .share-markdown h2,
+  .share-image-container .share-markdown h3,
+  .share-image-container .share-markdown h4 {
+    color: #111827;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 1.15em 0 0.55em;
+  }
+
+  .share-image-container .share-markdown h1 {
+    font-size: 1.9rem;
+  }
+
+  .share-image-container .share-markdown h2 {
+    font-size: 1.45rem;
+  }
+
+  .share-image-container .share-markdown h3 {
+    font-size: 1.2rem;
+  }
+
+  .share-image-container .share-markdown p,
+  .share-image-container .share-markdown ul,
+  .share-image-container .share-markdown ol,
+  .share-image-container .share-markdown blockquote,
+  .share-image-container .share-markdown pre,
+  .share-image-container .share-markdown table {
+    margin: 0.75em 0;
+  }
+
+  .share-image-container .share-markdown ul,
+  .share-image-container .share-markdown ol {
+    padding-left: 1.4em;
+  }
+
+  .share-image-container .share-markdown li {
+    margin: 0.3em 0;
+  }
+
+  .share-image-container .share-markdown a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+
+  .share-image-container .share-markdown img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 0.85em 0;
+  }
+
+  .share-image-container .share-markdown code {
+    background: #f1f5f9;
+    border-radius: 6px;
+    padding: 0.15em 0.38em;
+    font-size: 0.9em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
+    color: #0f172a;
+  }
+
+  .share-image-container .share-markdown pre {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    overflow-x: auto;
+  }
+
+  .share-image-container .share-markdown pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .share-image-container .share-markdown table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dbe3ee;
+    font-size: 0.96em;
+  }
+
+  .share-image-container .share-markdown th,
+  .share-image-container .share-markdown td {
+    border: 1px solid #dbe3ee;
+    padding: 0.5em 0.65em;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .share-image-container .share-markdown th {
+    background: #eef3fb;
+    font-weight: 700;
+  }
+
+  .share-image-container .share-markdown blockquote {
+    margin: 0.85em 0;
+    padding: 0.55em 0.9em;
+    background: #f8fafc;
+    border-left: 4px solid #2e8555;
+    color: #334155;
+  }
+
+  .share-image-container .share-markdown hr {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 1.2em 0;
+  }
+`;
+
+const SHARE_RENDER_WORKER_SCRIPT = `
+self.onmessage = function(event) {
+  var data = event.data || {};
+  var id = data.id;
+  var type = data.type;
+  var payload = data.payload || {};
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  try {
+    if (type === 'watermark-layout') {
+      var height = Number(payload.height || 0);
+      var rowGap = Number(payload.rowGap || 160);
+      var colGap = Number(payload.colGap || 260);
+      var offsetX = Number(payload.offsetX || 130);
+      var maxRows = Number(payload.maxRows || 32);
+      var maxCols = Number(payload.maxCols || 4);
+
+      var rows = clamp(Math.ceil(height / rowGap), 1, maxRows);
+      var cols = clamp(maxCols, 1, 10);
+      var positions = [];
+
+      for (var r = 0; r < rows; r += 1) {
+        for (var c = 0; c < cols; c += 1) {
+          positions.push({
+            top: r * rowGap,
+            left: c * colGap + (r % 2 === 0 ? 0 : offsetX),
+          });
+        }
+      }
+
+      self.postMessage({ id: id, ok: true, payload: { positions: positions } });
+      return;
+    }
+
+    if (type === 'sanitize-filename') {
+      var raw = String(payload.value || 'share');
+      var safe = raw
+        .replace(/[^a-zA-Z0-9\\u4e00-\\u9fff\\u3040-\\u309f\\u30a0-\\u30ff-]+/g, '_')
+        .replace(/_+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .slice(0, 80);
+
+      self.postMessage({ id: id, ok: true, payload: { fileName: safe || 'share' } });
+      return;
+    }
+
+    self.postMessage({ id: id, ok: false, error: 'Unknown task type' });
+  } catch (err) {
+    self.postMessage({
+      id: id,
+      ok: false,
+      error: (err && err.message) ? err.message : 'Worker failed',
+    });
+  }
+};
+`;
+
+function createRenderWorker() {
+  if (typeof window === 'undefined' || typeof Worker === 'undefined') {
+    return null;
+  }
+
+  try {
+    const blob = new Blob([SHARE_RENDER_WORKER_SCRIPT], { type: 'text/javascript' });
+    const blobUrl = URL.createObjectURL(blob);
+    const worker = new Worker(blobUrl);
+    return { worker, blobUrl };
+  } catch {
+    return null;
+  }
+}
+
+function sanitizeFileNameLocal(raw) {
+  return String(raw || 'share')
+    .replace(/[^a-zA-Z0-9\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff-]+/g, '_')
+    .replace(/_+/g, '_')
+    .replace(/^_+|_+$/g, '')
+    .slice(0, 80) || 'share';
+}
+
+function computeWatermarkLayoutFallback({
+  height,
+  rowGap = 160,
+  colGap = 260,
+  offsetX = 130,
+  maxRows = 32,
+  maxCols = 4,
+}) {
+  const rows = Math.max(1, Math.min(Math.ceil(height / rowGap), maxRows));
+  const cols = Math.max(1, Math.min(maxCols, 10));
+  const positions = [];
+
+  for (let r = 0; r < rows; r += 1) {
+    for (let c = 0; c < cols; c += 1) {
+      positions.push({
+        top: r * rowGap,
+        left: c * colGap + (r % 2 === 0 ? 0 : offsetX),
+      });
+    }
+  }
+
+  return positions;
+}
+
 /** Get the document title from the article header */
 function getDocTitle() {
   const article = document.querySelector('article .theme-doc-markdown');
@@ -45,14 +281,16 @@ function getDocBreadcrumbs() {
 }
 
 /** Clone the full article content */
-function cloneArticleContent() {
-  const article = document.querySelector('article .theme-doc-markdown');
+function cloneArticleContent(article) {
   if (!article) return null;
   const clone = article.cloneNode(true);
   // Remove anchor links from headings
   clone.querySelectorAll('.hash-link, a.anchor').forEach(a => a.remove());
   // Remove interactive / share elements
-  clone.querySelectorAll('button, input, .share-as-image-wrapper, [class*="ShareAsImage"], [class*="ProgressTracker"], [class*="NoteEditor"]').forEach(el => el.remove());
+  clone
+    .querySelectorAll('button, input, textarea, select, script, style, .share-as-image-wrapper, [class*="ShareAsImage"], [class*="ProgressTracker"], [class*="NoteEditor"], [class*="copyButton"]')
+    .forEach(el => el.remove());
+  clone.classList.add('share-markdown');
   return clone;
 }
 
@@ -64,6 +302,121 @@ export default function ShareAsImage({ docId, title: docTitle }) {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [toast, setToast] = useState(null);
   const toastTimerRef = useRef(null);
+  const workerRef = useRef(null);
+  const workerBlobUrlRef = useRef('');
+  const requestIdRef = useRef(0);
+  const pendingRequestMapRef = useRef(new Map());
+
+  useEffect(() => {
+    return () => {
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const workerBundle = createRenderWorker();
+    if (!workerBundle) return undefined;
+
+    workerRef.current = workerBundle.worker;
+    workerBlobUrlRef.current = workerBundle.blobUrl;
+
+    workerBundle.worker.onmessage = (event) => {
+      const { id, ok, payload, error } = event.data || {};
+      const pending = pendingRequestMapRef.current.get(id);
+      if (!pending) return;
+
+      clearTimeout(pending.timer);
+      pendingRequestMapRef.current.delete(id);
+
+      if (ok === false) {
+        pending.reject(new Error(error || 'Worker task failed'));
+        return;
+      }
+      pending.resolve(payload);
+    };
+
+    workerBundle.worker.onerror = () => {
+      for (const pending of pendingRequestMapRef.current.values()) {
+        clearTimeout(pending.timer);
+        pending.reject(new Error('Worker crashed'));
+      }
+      pendingRequestMapRef.current.clear();
+    };
+
+    return () => {
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+
+      for (const pending of pendingRequestMapRef.current.values()) {
+        clearTimeout(pending.timer);
+        pending.reject(new Error('Worker terminated'));
+      }
+      pendingRequestMapRef.current.clear();
+
+      if (workerRef.current) {
+        workerRef.current.terminate();
+        workerRef.current = null;
+      }
+
+      if (workerBlobUrlRef.current) {
+        URL.revokeObjectURL(workerBlobUrlRef.current);
+        workerBlobUrlRef.current = '';
+      }
+    };
+  }, []);
+
+  const requestWorkerTask = useCallback((type, payload, timeoutMs = WORKER_TIMEOUT_MS) => {
+    const worker = workerRef.current;
+    if (!worker) {
+      return Promise.reject(new Error('Worker unavailable'));
+    }
+
+    const requestId = ++requestIdRef.current;
+
+    return new Promise((resolve, reject) => {
+      const timer = window.setTimeout(() => {
+        pendingRequestMapRef.current.delete(requestId);
+        reject(new Error('Worker timeout'));
+      }, timeoutMs);
+
+      pendingRequestMapRef.current.set(requestId, { resolve, reject, timer });
+      worker.postMessage({ id: requestId, type, payload });
+    });
+  }, []);
+
+  const buildWatermarkLayout = useCallback(async (height) => {
+    const payload = {
+      height,
+      rowGap: 160,
+      colGap: 260,
+      offsetX: 130,
+      maxRows: 32,
+      maxCols: 4,
+    };
+
+    try {
+      const result = await requestWorkerTask('watermark-layout', payload, 900);
+      if (Array.isArray(result?.positions) && result.positions.length > 0) {
+        return result.positions;
+      }
+    } catch {
+      // Worker 不可用时回退到主线程轻量计算。
+    }
+
+    return computeWatermarkLayoutFallback(payload);
+  }, [requestWorkerTask]);
+
+  const getSafeFileName = useCallback(async () => {
+    const raw = docTitle || docId || 'share';
+
+    try {
+      const result = await requestWorkerTask('sanitize-filename', { value: raw }, 500);
+      if (result?.fileName) return result.fileName;
+    } catch {
+      // Worker 不可用时走本地回退。
+    }
+
+    return sanitizeFileNameLocal(raw);
+  }, [docId, docTitle, requestWorkerTask]);
 
   const showToast = useCallback((msg, type = 'info') => {
     setToast({ msg, type });
@@ -75,16 +428,18 @@ export default function ShareAsImage({ docId, title: docTitle }) {
     setGenerating(true);
     setPreviewUrl(null);
 
+    let container = null;
+
     try {
-      const contentClone = cloneArticleContent();
+      const article = document.querySelector('article .theme-doc-markdown');
+      const contentClone = cloneArticleContent(article);
       if (!contentClone) {
         showToast(L.shareFail, 'error');
-        setGenerating(false);
         return;
       }
 
       // Build a temporary container to render the image
-      const container = document.createElement('div');
+      container = document.createElement('div');
       container.className = 'share-image-container';
       container.style.cssText = `
         position: fixed;
@@ -97,6 +452,10 @@ export default function ShareAsImage({ docId, title: docTitle }) {
         color: #1a1a2e;
         z-index: -1;
       `;
+
+      const styleEl = document.createElement('style');
+      styleEl.textContent = SHARE_STYLE_WHITELIST;
+      container.appendChild(styleEl);
 
       // Header with logo and title
       const header = document.createElement('div');
@@ -138,44 +497,6 @@ export default function ShareAsImage({ docId, title: docTitle }) {
       const contentWrapper = document.createElement('div');
       contentWrapper.style.cssText = 'position: relative;';
       contentWrapper.appendChild(contentClone);
-
-      // Diagonal repeating watermark overlay
-      const watermarkOverlay = document.createElement('div');
-      watermarkOverlay.style.cssText = `
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        overflow: hidden;
-        z-index: 1;
-      `;
-      const watermarkText = 'runjp.com';
-      // Calculate rows needed based on content height (lazy, use fewer spans)
-      const contentHeight = contentClone.scrollHeight || 2000;
-      const rows = Math.min(Math.ceil(contentHeight / 160), 30);
-      const cols = 4;
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const span = document.createElement('span');
-          span.textContent = watermarkText;
-          span.style.cssText = `
-            position: absolute;
-            top: ${r * 160}px;
-            left: ${c * 260 + (r % 2 === 0 ? 0 : 130)}px;
-            font-size: 18px;
-            font-weight: 700;
-            color: rgba(46, 133, 85, 0.08);
-            transform: rotate(-30deg);
-            white-space: nowrap;
-            user-select: none;
-            letter-spacing: 2px;
-          `;
-          watermarkOverlay.appendChild(span);
-        }
-      }
-      contentWrapper.appendChild(watermarkOverlay);
       container.appendChild(contentWrapper);
 
       // Footer bar
@@ -205,22 +526,44 @@ export default function ShareAsImage({ docId, title: docTitle }) {
       container.appendChild(footer);
 
       document.body.appendChild(container);
+      await new Promise((resolve) => requestAnimationFrame(resolve));
 
-      // Copy only relevant styles (skip cross-origin and irrelevant sheets)
-      const styleEl = document.createElement('style');
-      const cssChunks = [];
-      for (const sheet of document.styleSheets) {
-        try {
-          if (!sheet.cssRules) continue;
-          for (const rule of sheet.cssRules) {
-            cssChunks.push(rule.cssText);
-          }
-        } catch {
-          // Cross-origin stylesheets can't be accessed - skip
-        }
+      const contentHeight = contentWrapper.scrollHeight || contentClone.scrollHeight || 2000;
+      const positions = await buildWatermarkLayout(contentHeight);
+
+      // Diagonal repeating watermark overlay
+      const watermarkOverlay = document.createElement('div');
+      watermarkOverlay.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+      `;
+      const watermarkText = 'runjp.com';
+
+      for (const pos of positions) {
+        const span = document.createElement('span');
+        span.textContent = watermarkText;
+        span.style.cssText = `
+          position: absolute;
+          top: ${pos.top}px;
+          left: ${pos.left}px;
+          font-size: 18px;
+          font-weight: 700;
+          color: rgba(46, 133, 85, 0.08);
+          transform: rotate(-30deg);
+          white-space: nowrap;
+          user-select: none;
+          letter-spacing: 2px;
+        `;
+        watermarkOverlay.appendChild(span);
       }
-      styleEl.textContent = cssChunks.join('\n');
-      container.prepend(styleEl);
+
+      contentWrapper.appendChild(watermarkOverlay);
 
       // Wait for fonts/images to load
       await new Promise(r => setTimeout(r, 300));
@@ -229,6 +572,7 @@ export default function ShareAsImage({ docId, title: docTitle }) {
       const dataUrl = await toPng(container, {
         quality: 1,
         pixelRatio: 2,
+        cacheBust: true,
         backgroundColor: '#ffffff',
         style: {
           position: 'static',
@@ -237,25 +581,27 @@ export default function ShareAsImage({ docId, title: docTitle }) {
         },
       });
 
-      document.body.removeChild(container);
       setPreviewUrl(dataUrl);
     } catch (err) {
       console.error('Failed to generate image:', err);
       showToast(L.shareFail, 'error');
     } finally {
+      if (container && container.parentNode) {
+        container.parentNode.removeChild(container);
+      }
       setGenerating(false);
     }
-  }, [docTitle, L, showToast]);
+  }, [docTitle, L, buildWatermarkLayout, showToast]);
 
-  const downloadImage = useCallback(() => {
+  const downloadImage = useCallback(async () => {
     if (!previewUrl) return;
     const link = document.createElement('a');
-    const fileName = (docTitle || docId || 'share').replace(/[^a-zA-Z0-9\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff]/g, '_');
+    const fileName = await getSafeFileName();
     link.download = `${fileName}.png`;
     link.href = previewUrl;
     link.click();
     showToast(L.download + ' ✓', 'success');
-  }, [previewUrl, docTitle, docId, L, showToast]);
+  }, [previewUrl, getSafeFileName, L, showToast]);
 
   const shareImage = useCallback(async () => {
     if (!previewUrl) return;
@@ -263,7 +609,8 @@ export default function ShareAsImage({ docId, title: docTitle }) {
     try {
       const res = await fetch(previewUrl);
       const blob = await res.blob();
-      const file = new File([blob], `${docTitle || 'share'}.png`, { type: 'image/png' });
+      const fileName = await getSafeFileName();
+      const file = new File([blob], `${fileName}.png`, { type: 'image/png' });
 
       if (navigator.share && navigator.canShare?.({ files: [file] })) {
         await navigator.share({
@@ -286,7 +633,7 @@ export default function ShareAsImage({ docId, title: docTitle }) {
         showToast(L.shareFail, 'error');
       }
     }
-  }, [previewUrl, docTitle, L, showToast, downloadImage]);
+  }, [previewUrl, getSafeFileName, docTitle, L, showToast, downloadImage]);
 
   const closePreview = useCallback(() => {
     setPreviewUrl(null);

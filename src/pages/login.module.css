@@ -168,6 +168,39 @@
   color: #fff;
 }
 
+.btnGithub {
+  background: #111827;
+  color: #fff;
+  margin-top: 0;
+}
+
+.btnGithub:hover:not(:disabled) {
+  background: #0b1220;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.32);
+}
+
+.oauthDivider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0.95rem 0 0.8rem;
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.8rem;
+}
+
+.oauthDivider::before,
+.oauthDivider::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.oauthDivider span {
+  padding: 0 0.55rem;
+}
+
 /* ── Message ────────────────────────────────────────────── */
 
 .message {
@@ -313,6 +346,19 @@
 
 [data-theme='dark'] .btnSecondary:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .btnGithub {
+  background: #0f172a;
+}
+
+[data-theme='dark'] .btnGithub:hover:not(:disabled) {
+  background: #111827;
+}
+
+[data-theme='dark'] .oauthDivider::before,
+[data-theme='dark'] .oauthDivider::after {
+  border-top-color: rgba(255, 255, 255, 0.14);
 }
 
 [data-theme='dark'] .btnDanger {

@@ -26,6 +26,8 @@ export const writeNotesData = (data, { skipDirty = false } = {}) => {
   if (typeof window === 'undefined') return;
   try {
     const json = JSON.stringify(data);
+    // 数据未变化时跳过写入和脏标记，减少无效同步请求
+    if (json === _notesRaw) return;
     _notesRaw = json;
     _notesCache = data;
     localStorage.setItem(NOTES_STORAGE_KEY, json);

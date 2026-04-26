@@ -11,8 +11,11 @@
 
 const fs = require('fs');
 const path = require('path');
+const matter = require('gray-matter');
 
 const DOCS_DIR = path.resolve(__dirname, '..', 'docs');
+const REPO_ROOT = path.resolve(__dirname, '..');
+const DOCS_FILE_RE = /^docs\/.*\.(md|mdx)$/i;
 
 // ─── 辅助函数 ───────────────────────────────────────────────
 
@@ -31,28 +34,133 @@ function getAllMdFiles(dir) {
   return results;
 }
 
-function parseFrontmatter(content) {
-  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!match) return null;
-  const raw = match[1];
-  const result = { _raw: raw, _endIndex: match[0].length };
+function normalizePath(p) {
+  return p.replace(/\\/g, '/');
+}
 
-// 简单解析 sidebar_label（支持双引号、单引号、无引号）
-  const labelMatch = raw.match(/sidebar_label:\s*(?:"([^"]*)"|'([^']*)'|(\S.*))/);  
-  result.sidebar_label = labelMatch ? (labelMatch[1] || labelMatch[2] || (labelMatch[3] && labelMatch[3].trim())) : null;
+function getArgValue(flagName) {
+  const argv = process.argv;
+  const idx = argv.indexOf(flagName);
+  if (idx < 0) return null;
+  return argv[idx + 1] || null;
+}
 
-  // 解析 tags
-  const tagsSection = raw.match(/tags:\s*\n((?:\s+-\s+.+\n?)*)/);
-  if (tagsSection) {
-    result.tags = tagsSection[1]
-      .split('\n')
-      .map(line => line.replace(/^\s+-\s+/, '').trim())
-      .filter(Boolean);
-  } else {
-    result.tags = null;
+function resolveWithinRepo(inputPath) {
+  if (!inputPath) return null;
+  const raw = String(inputPath).trim();
+  if (!raw) return null;
+
+  const asAbsolute = path.isAbsolute(raw)
+    ? raw
+    : path.resolve(REPO_ROOT, raw);
+  const rel = normalizePath(path.relative(REPO_ROOT, asAbsolute));
+  const baseName = path.basename(asAbsolute);
+
+  if (!DOCS_FILE_RE.test(rel)) return null;
+  if (baseName === 'intro.mdx') return null;
+  if (!fs.existsSync(asAbsolute)) return null;
+  if (!fs.statSync(asAbsolute).isFile()) return null;
+
+  return asAbsolute;
+}
+
+function readScopedFiles() {
+  const fromCli = getArgValue('--files');
+  const fromFileArg = getArgValue('--files-from');
+
+  if (!fromCli && !fromFileArg) {
+    return null;
   }
 
-  return result;
+  const candidates = [];
+
+  if (fromCli) {
+    candidates.push(
+      ...fromCli
+        .split(/[\n,]/)
+        .map((s) => s.trim())
+        .filter(Boolean),
+    );
+  }
+
+  if (fromFileArg) {
+    const fileListPath = path.isAbsolute(fromFileArg)
+      ? fromFileArg
+      : path.resolve(REPO_ROOT, fromFileArg);
+    if (!fs.existsSync(fileListPath)) {
+      throw new Error(`--files-from 指定的文件不存在: ${fromFileArg}`);
+    }
+    const lines = fs
+      .readFileSync(fileListPath, 'utf-8')
+      .split(/\r?\n/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    candidates.push(...lines);
+  }
+
+  const unique = new Map();
+  for (const file of candidates) {
+    const abs = resolveWithinRepo(file);
+    if (!abs) continue;
+    const rel = normalizePath(path.relative(REPO_ROOT, abs));
+    if (!unique.has(rel)) unique.set(rel, abs);
+  }
+
+  return Array.from(unique.values());
+}
+
+function parseFrontmatter(content) {
+  try {
+    const parsed = matter(content);
+    const hasFrontmatter =
+      parsed.matter.trim().length > 0 ||
+      parsed.isEmpty === true ||
+      typeof parsed.empty === 'string';
+
+    if (!hasFrontmatter) {
+      return { hasFrontmatter: false };
+    }
+
+    const sidebarRaw = parsed.data?.sidebar_label;
+    const sidebarLabel =
+      sidebarRaw === null || sidebarRaw === undefined
+        ? null
+        : String(sidebarRaw).trim() || null;
+
+    const tagsRaw = parsed.data?.tags;
+    let tags = null;
+    if (Array.isArray(tagsRaw)) {
+      tags = tagsRaw
+        .map((tag) => (tag === null || tag === undefined ? '' : String(tag).trim()))
+        .filter(Boolean);
+    } else if (typeof tagsRaw === 'string') {
+      const value = tagsRaw.trim();
+      tags = value ? [value] : [];
+    }
+
+    const body = parsed.content ?? '';
+    const bodyStartIndex = Math.max(0, content.length - body.length);
+    const bodyStartLine = getLineNumber(content, bodyStartIndex);
+
+    return {
+      hasFrontmatter: true,
+      parseError: null,
+      sidebar_label: sidebarLabel,
+      tags,
+      body,
+      bodyStartLine,
+    };
+  } catch (error) {
+    const looksLikeFrontmatter = /^\uFEFF?---\s*\r?\n/.test(content);
+    return {
+      hasFrontmatter: looksLikeFrontmatter,
+      parseError: looksLikeFrontmatter ? error : null,
+      sidebar_label: null,
+      tags: null,
+      body: content,
+      bodyStartLine: 1,
+    };
+  }
 }
 
 function getLineNumber(content, charIndex) {
@@ -68,9 +176,24 @@ function checkFile(filePath, content) {
 
   // 1. YAML Frontmatter
   const fm = parseFrontmatter(content);
-  if (!fm) {
+  if (!fm || !fm.hasFrontmatter) {
     issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: 'frontmatter-missing', message: '缺少 YAML frontmatter（---）' });
     return issues; // 无法继续检查
+  }
+
+  if (fm.parseError) {
+    const yamlLine = Number.isInteger(fm.parseError?.mark?.line)
+      ? fm.parseError.mark.line + 2
+      : 1;
+    const parseMsg = String(fm.parseError.reason || fm.parseError.message || 'YAML 解析失败').replace(/\s+/g, ' ').trim();
+    issues.push({
+      severity: 'ERROR',
+      file: relPath,
+      line: yamlLine,
+      rule: 'frontmatter-invalid-yaml',
+      message: `frontmatter YAML 语法错误: ${parseMsg}`,
+    });
+    return issues;
   }
 
   if (!fm.sidebar_label) {
@@ -82,14 +205,13 @@ function checkFile(filePath, content) {
   }
 
   // 2. 标题检查（frontmatter 之后的第一行非空内容应为 H1）
-  const afterFm = content.substring(fm._endIndex);
-  const afterFmLines = afterFm.split('\n');
+  const afterFmLines = fm.body.split('\n');
   let foundTitle = false;
   let titleLineIdx = 0;
   for (let i = 0; i < afterFmLines.length; i++) {
     const trimmed = afterFmLines[i].trim();
     if (trimmed === '') continue;
-    titleLineIdx = getLineNumber(content, fm._endIndex) + i;
+    titleLineIdx = fm.bodyStartLine + i;
     if (trimmed.startsWith('# ')) {
       foundTitle = true;
     } else {
@@ -101,15 +223,15 @@ function checkFile(filePath, content) {
     issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: 'title-missing', message: '文档缺少 H1 标题' });
   }
 
-  // 3. 必需章节检查
-  const requiredSections = [
+  // 3. 章节检查
+  const trackedSections = [
     { pattern: /^##\s+\*\*Author\*\*/, name: 'Author' },
     { pattern: /^##\s+.*Description/i, name: 'Description' },
     { pattern: /^##\s+.*Kai/i, name: 'Kai' },
   ];
 
   const sectionPositions = {};
-  for (const sec of requiredSections) {
+  for (const sec of trackedSections) {
     for (let i = 0; i < lines.length; i++) {
       if (sec.pattern.test(lines[i].trim())) {
         sectionPositions[sec.name] = i + 1; // 1-based
@@ -118,10 +240,18 @@ function checkFile(filePath, content) {
     }
   }
 
-  for (const sec of requiredSections) {
-    if (!sectionPositions[sec.name]) {
-      issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: `section-missing-${sec.name.toLowerCase()}`, message: `缺少必需章节: ## **${sec.name}**` });
-    }
+  if (!sectionPositions['Author']) {
+    issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: 'section-missing-author', message: '缺少必需章节: ## **Author**' });
+  }
+
+  if (!sectionPositions['Description'] && !sectionPositions['Kai']) {
+    issues.push({
+      severity: 'ERROR',
+      file: relPath,
+      line: 1,
+      rule: 'section-missing-description-or-kai',
+      message: '缺少必需章节: 至少包含 ## **Description** 或 ## **Kai** 之一',
+    });
   }
 
   // 4. 章节顺序检查
@@ -140,10 +270,11 @@ function checkFile(filePath, content) {
   }
 
   // 5. Description 内容为空检查
-  if (sectionPositions['Description'] && sectionPositions['Kai']) {
+  if (sectionPositions['Description']) {
     const descStart = sectionPositions['Description']; // 1-based
-    const kaiStart = sectionPositions['Kai'];           // 1-based
-    const descContent = lines.slice(descStart, kaiStart - 1).join('\n').trim();
+    const kaiStart = sectionPositions['Kai'];          // 1-based
+    const descEnd = kaiStart && kaiStart > descStart ? kaiStart - 1 : lines.length;
+    const descContent = lines.slice(descStart, descEnd).join('\n').trim();
     if (descContent === '') {
       issues.push({ severity: 'WARNING', file: relPath, line: descStart, rule: 'description-empty', message: '## **Description** 章节内容为空' });
     }
@@ -263,12 +394,12 @@ function generateMarkdownReport(allIssues, totalFiles) {
   report += `|------|------|------|\n`;
   const ruleDescriptions = {
     'frontmatter-missing': '缺少 YAML frontmatter',
+    'frontmatter-invalid-yaml': 'frontmatter YAML 语法错误',
     'frontmatter-sidebar-label': '缺少 sidebar_label',
     'frontmatter-tags': '缺少 tags',
     'title-missing': '缺少 H1 标题',
     'section-missing-author': '缺少 Author 章节',
-    'section-missing-description': '缺少 Description 章节',
-    'section-missing-kai': '缺少 Kai 章节',
+    'section-missing-description-or-kai': '缺少 Description/Kai 章节',
     'section-order': '章节顺序错误',
     'description-empty': 'Description 内容为空',
     'kai-empty': 'Kai 内容为空',
@@ -350,9 +481,13 @@ function generateMarkdownReport(allIssues, totalFiles) {
 
 function main() {
   const jsonMode = process.argv.includes('--json');
-  const mdFiles = getAllMdFiles(DOCS_DIR);
+  const scopedFiles = readScopedFiles();
+  const mdFiles = scopedFiles || getAllMdFiles(DOCS_DIR);
+  const scopedMode = scopedFiles !== null;
 
-  console.error(`[review-format] 扫描到 ${mdFiles.length} 个文档文件`);
+  console.error(
+    `[review-format] 扫描到 ${mdFiles.length} 个文档文件${scopedMode ? '（按指定范围）' : ''}`,
+  );
 
   const allIssues = [];
   for (const file of mdFiles) {
