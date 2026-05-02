@@ -20,16 +20,12 @@ tags:
 [ (b) ] 計算機では, [ (c) ] が示すメインメモリアドレスから, プログラムの構成要素である機械語命令を読み出し, これをデコード (decode) して実行する. 機械語命令は, その種類を示す [ (d) ] 部と, 演算対象のデータである [ (e) ] の格納場所を示すアドレス部から成る.
 
 ### 【選択肢】
-(ア) データフロー型 (dataflow architecture)
-(イ) オペコード (operation code, opcode)
-(ウ) プログラムカウンタ (program counter)
-(エ) アーキテクチャ (architecture)
-(オ) VLIW (very long instruction word)
-(カ) オペランド (operand)
-(キ) 命令レジスタ (instruction register)
-(ク) メモリデータレジスタ (memory data register)
-(ケ) スーパースカラ (superscalar)
-(コ) ノイマン型 (von Neumann architecture)
+| | | |
+| :--- | :--- | :--- |
+| (ア) データフロー型 (dataflow architecture) | (イ) オペコード (operation code, opcode) | (ウ) プログラムカウンタ (program counter) |
+| (エ) アーキテクチャ (architecture) | (オ) VLIW (very long instruction word) | (カ) オペランド (operand) |
+| (キ) 命令レジスタ (instruction register) | (ク) メモリデータレジスタ (memory data register) | (ケ) スーパースカラ (superscalar) |
+| (コ) ノイマン型 (von Neumann architecture) | | |
 
 (1-2) 一つの機械語命令 (以下, 命令と略す) の処理を $n$ 段のステージ (stage) に分け, 1 ステージを 1 クロックサイクル (clock cycle) で実行する同期型 CPU を考える. クロック周波数を $f$ [Hz] とする. 以下の (1-2-1)～(1-2-4) に答えよ.
 
