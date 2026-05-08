@@ -39,6 +39,11 @@ type ApiKey = {
   rate_limit_per_minute: number;
 };
 
+type ApiAccess = {
+  status: string;
+  expires_at: string | null;
+};
+
 type RequestContext = {
   apiKey: ApiKey | null;
   path: string;
@@ -149,6 +154,19 @@ async function authenticateApiKey(req: Request) {
     return { response: errorResponse(403, 'invalid_api_key', 'Invalid or revoked API key.') };
   }
 
+  const { data: accessData, error: accessError } = await supabase
+    .from('api_access_requests')
+    .select('status,expires_at')
+    .eq('user_id', data.user_id)
+    .maybeSingle();
+
+  if (accessError) throw accessError;
+  const access = accessData as ApiAccess | null;
+  const isExpired = access?.expires_at ? new Date(access.expires_at).getTime() < Date.now() : false;
+  if (!access || access.status !== 'approved' || isExpired) {
+    return { response: errorResponse(403, 'api_access_not_approved', 'API access is not approved or has been revoked.') };
+  }
+
   return { apiKey: data as ApiKey };
 }
 
@@ -158,6 +176,7 @@ async function enforceRateLimit(apiKey: ApiKey) {
 
   const now = new Date();
   now.setSeconds(0, 0);
+
   const { data, error } = await supabase.rpc('register_api_request', {
     p_api_key_id: apiKey.id,
     p_window_start: now.toISOString(),

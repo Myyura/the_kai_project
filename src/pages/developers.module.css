@@ -29,7 +29,7 @@
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.75rem;
   margin-bottom: 1rem;
 }
@@ -159,19 +159,23 @@
   align-items: end;
 }
 
-.createForm label {
+.createForm label,
+.requestForm label {
   display: grid;
   gap: 0.35rem;
   margin: 0;
 }
 
-.createForm label span {
+.createForm label span,
+.requestForm label span {
   color: var(--ifm-color-emphasis-700);
   font-size: 0.84rem;
   font-weight: 700;
 }
 
-.createForm input {
+.createForm input,
+.requestForm input,
+.requestForm textarea {
   width: 100%;
   min-height: 42px;
   box-sizing: border-box;
@@ -183,10 +187,65 @@
   font-size: 0.92rem;
 }
 
-.createForm input:focus {
+.requestForm textarea {
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.createForm input:focus,
+.requestForm input:focus,
+.requestForm textarea:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
   box-shadow: 0 0 0 3px rgba(46, 133, 85, 0.12);
+}
+
+.requestForm {
+  margin-top: 1rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+.fullSpan {
+  grid-column: 1 / -1;
+}
+
+.checkboxLabel {
+  align-content: end;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.5rem;
+  min-height: 42px;
+  padding: 0.65rem 0;
+}
+
+.checkboxLabel input {
+  width: auto;
+  min-height: 0;
+  margin: 0.12rem 0 0;
+}
+
+.statusPanel {
+  border-left: 3px solid var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  border-radius: var(--custom-border-radius-xs);
+  padding: 0.85rem 1rem;
+}
+
+.statusPanel strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.statusPanel p {
+  margin: 0.2rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .primaryButton,
@@ -372,6 +431,11 @@
   color: var(--ifm-color-emphasis-600);
 }
 
+.statusPending {
+  background: #fffbeb;
+  color: #92400e;
+}
+
 .codeBlock {
   overflow-x: auto;
   margin: 0.85rem 0 0;
@@ -406,8 +470,13 @@
 
   .stats,
   .createForm,
+  .formGrid,
   .newKeyBox {
     grid-template-columns: 1fr;
+  }
+
+  .fullSpan {
+    grid-column: auto;
   }
 
   .primaryButton,
@@ -426,14 +495,25 @@
   border-color: var(--custom-card-border);
 }
 
-[data-theme='dark'] .createForm input {
+[data-theme='dark'] .createForm input,
+[data-theme='dark'] .requestForm input,
+[data-theme='dark'] .requestForm textarea {
   border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .statusPanel {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 [data-theme='dark'] .messageSuccess,
 [data-theme='dark'] .statusActive {
   background: rgba(16, 185, 129, 0.1);
   border-color: rgba(16, 185, 129, 0.2);
+}
+
+[data-theme='dark'] .statusPending {
+  background: rgba(245, 158, 11, 0.13);
+  color: #fbbf24;
 }
 
 [data-theme='dark'] .messageError {

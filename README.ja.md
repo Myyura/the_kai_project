@@ -87,12 +87,14 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 3. その SQL ファイルに書かれている認証レート制限、パスワードポリシー、hCaptcha などの設定を行います。
 
 ## 開発者向け JSON API
-登録ユーザーは開発者センターで API Key を作成し、JSON API から過去問と解答データを取得できます。API Key の平文は作成時に一度だけ表示されます。データベースには SHA-256 hash のみ保存されます。
+登録ユーザーは開発者センターで JSON API アクセスを申請できます。プロジェクトメンテナーの承認後、API Key を作成して過去問と解答データを取得できます。API Key の平文は作成時に一度だけ表示されます。データベースには SHA-256 hash のみ保存されます。
 
 ### 登録ユーザー向けの使い方
 1. Web サイトにログインし、`/developers` から JSON API 機能に入ります。`/developers/api` を直接開くこともできます。
-2. API Key を作成し、`kai_live_...` の値をすぐに保存します。
-3. `Authorization: Bearer kai_live_...` を付けて Content API を呼び出します。Content API は匿名リクエストやログイン JWT を受け付けません。
+2. 利用目的、想定利用量、商用利用の有無を記入して API アクセスを申請します。
+3. プロジェクトメンテナーの審査を待ちます。承認後、このページで API Key を作成できます。
+4. API Key を作成し、`kai_live_...` の値をすぐに保存します。
+5. `Authorization: Bearer kai_live_...` を付けて Content API を呼び出します。Content API は匿名リクエストやログイン JWT を受け付けません。
 
 利用できるエンドポイント:
 
@@ -134,6 +136,9 @@ yarn api:sync
 ```
 
 4. Supabase Function secrets に `API_LOG_SALT` が設定されていることを確認し、両方の function で JWT verification を無効にします。
+5. Supabase Dashboard で `api_access_requests` テーブルの申請を確認します。`status` を `approved` に変更すると API Key 作成を許可できます。拒否または停止する場合は `rejected` / `revoked` を使います。
+
+最初のバージョンでは、承認済みユーザーは全員同じ無料枠を使います: `60 requests/minute`、active key は最大 `3` 個です。`api_access_requests` と `api_keys` には、将来の商用プランや段階的なクォータのために `plan`、`commercial_allowed` などのフィールドを予約しています。
 
 # 👏 貢献方法
 このプロジェクトは複数のチャンネルを通じてコミュニティからの貢献を奨励しています。

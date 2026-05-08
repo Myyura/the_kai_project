@@ -90,12 +90,14 @@ If you want to enable cloud sync end-to-end:
 3. Configure the auth security items noted in that SQL file, including rate limits, password policy, and hCaptcha.
 
 ## Developer JSON API
-Registered users can create an API key in the developer center and use the JSON API to read exam and answer data. API keys are shown only once when created; the database stores only SHA-256 hashes.
+Registered users can request JSON API access in the developer center. After a project maintainer approves the request, the user can create an API key and read exam and answer data. API keys are shown only once when created; the database stores only SHA-256 hashes.
 
 ### For registered users
 1. Log in on the website and open `/developers`, then enter the JSON API feature. You can also open `/developers/api` directly.
-2. Create an API key and save the `kai_live_...` value immediately.
-3. Call the content API with `Authorization: Bearer kai_live_...`. The content API does not accept anonymous requests or login JWTs.
+2. Submit an API access request describing the intended use, expected usage volume, and whether it includes commercial use.
+3. Wait for project maintainer review. Once approved, the page will allow API key creation.
+4. Create an API key and save the `kai_live_...` value immediately.
+5. Call the content API with `Authorization: Bearer kai_live_...`. The content API does not accept anonymous requests or login JWTs.
 
 Available endpoints:
 
@@ -137,6 +139,9 @@ yarn api:sync
 ```
 
 4. Confirm the Supabase Function secrets include `API_LOG_SALT`, and disable JWT verification for both functions.
+5. Review requests in the `api_access_requests` table from the Supabase Dashboard: set `status` to `approved` to allow key creation, or use `rejected` / `revoked` to deny or pause access.
+
+The first version gives all approved users the same free limits: `60 requests/minute` and up to `3` active keys. `api_access_requests` and `api_keys` already reserve fields such as `plan` and `commercial_allowed` for future commercial plans and tiered quotas.
 
 # 👏 Contribution
 The project encourages community contributions through multiple channels:

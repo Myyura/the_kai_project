@@ -327,7 +327,8 @@ grant execute on function get_weekly_leaderboard() to authenticated;
 --   2. 前端登录 JWT 只用于调用 developer-api-keys Edge Function 管理 API Key。
 --   3. 第三方内容 API 只接受 kai_live_* API Key，不接受匿名访问或登录 JWT。
 --   4. API Key 明文只在创建时返回一次，数据库仅保存 SHA-256 hash。
---   5. 下列表启用 RLS，前端 anon/authenticated 客户端不可直接读写，由 Edge Function service role 访问。
+--   5. API 访问采用申请制，管理员在 Supabase Dashboard 中将申请状态改为 approved 后才能创建 key。
+--   6. 下列表启用 RLS，前端 anon/authenticated 客户端不可直接读写，由 Edge Function service role 访问。
 
 -- ── 结构化题库文档 ────────────────────────────────────────
 create table if not exists exam_documents (
@@ -377,6 +378,57 @@ create trigger update_exam_documents_updated_at
 alter table exam_documents enable row level security;
 revoke all on table exam_documents from anon, authenticated;
 
+-- ── 开发者 API 访问申请 ───────────────────────────────────
+create table if not exists api_access_requests (
+  id                         uuid primary key default uuid_generate_v4(),
+  user_id                    uuid not null references auth.users(id) on delete cascade,
+  status                     text not null default 'pending',
+  applicant_name             text not null default '',
+  organization               text not null default '',
+  contact_email              text not null default '',
+  website                    text not null default '',
+  intended_use               text not null,
+  commercial_use             boolean not null default false,
+
+  -- 商业化/访问级别预留字段：第一版统一使用 free 配置。
+  plan                       text not null default 'free',
+  rate_limit_per_minute      integer not null default 60,
+  max_active_keys            integer not null default 3,
+  commercial_allowed         boolean not null default false,
+  expires_at                 timestamptz,
+
+  reviewed_by                uuid references auth.users(id) on delete set null,
+  reviewed_at                timestamptz,
+  review_note                text,
+  updated_at                 timestamptz not null default now(),
+  created_at                 timestamptz not null default now(),
+
+  constraint api_access_requests_user_unique unique (user_id),
+  constraint api_access_requests_status_check check (status in ('pending', 'approved', 'rejected', 'revoked')),
+  constraint api_access_requests_plan_check check (plan in ('free', 'research', 'partner', 'commercial')),
+  constraint api_access_requests_intended_use_length check (char_length(trim(intended_use)) between 20 and 4000),
+  constraint api_access_requests_rate_limit_check check (rate_limit_per_minute between 1 and 600),
+  constraint api_access_requests_max_keys_check check (max_active_keys between 1 and 10)
+);
+
+create index if not exists idx_api_access_requests_status
+  on api_access_requests(status, created_at desc);
+create index if not exists idx_api_access_requests_user_id
+  on api_access_requests(user_id);
+
+drop trigger if exists update_api_access_requests_updated_at on api_access_requests;
+create trigger update_api_access_requests_updated_at
+  before update on api_access_requests
+  for each row
+  execute function update_updated_at_column();
+
+-- 清理旧版字段，当前只保留每分钟限流。
+alter table api_access_requests drop constraint if exists api_access_requests_expected_monthly_check;
+alter table api_access_requests drop column if exists expected_monthly_requests;
+
+alter table api_access_requests enable row level security;
+revoke all on table api_access_requests from anon, authenticated;
+
 -- ── 开发者 API Key ────────────────────────────────────────
 create table if not exists api_keys (
   id                      uuid primary key default uuid_generate_v4(),
@@ -386,6 +438,7 @@ create table if not exists api_keys (
   key_hash                text not null unique,
   status                  text not null default 'active',
   rate_limit_per_minute   integer not null default 60,
+  plan                    text not null default 'free',
   request_count           bigint not null default 0,
   last_used_at            timestamptz,
   revoked_at              timestamptz,
@@ -394,8 +447,27 @@ create table if not exists api_keys (
 
   constraint api_keys_name_length check (char_length(name) between 1 and 80),
   constraint api_keys_status_check check (status in ('active', 'revoked')),
-  constraint api_keys_rate_limit_check check (rate_limit_per_minute between 1 and 600)
+  constraint api_keys_rate_limit_check check (rate_limit_per_minute between 1 and 600),
+  constraint api_keys_plan_check check (plan in ('free', 'research', 'partner', 'commercial'))
 );
+
+alter table api_keys add column if not exists plan text not null default 'free';
+
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint where conname = 'api_keys_plan_check'
+  ) then
+    alter table api_keys
+      add constraint api_keys_plan_check
+      check (plan in ('free', 'research', 'partner', 'commercial'));
+  end if;
+end;
+$$;
+
+-- 清理旧版字段，当前只保留每分钟限流。
+alter table api_keys drop constraint if exists api_keys_monthly_quota_check;
+alter table api_keys drop column if exists monthly_quota;
 
 create index if not exists idx_api_keys_user_id
   on api_keys(user_id, created_at desc);
@@ -440,6 +512,8 @@ alter table api_request_logs enable row level security;
 revoke all on table api_request_logs from anon, authenticated;
 
 -- ── API 限流窗口 ──────────────────────────────────────────
+drop table if exists api_usage_months;
+
 create table if not exists api_usage_windows (
   api_key_id     uuid not null references api_keys(id) on delete cascade,
   window_start   timestamptz not null,
@@ -463,7 +537,9 @@ create trigger update_api_usage_windows_updated_at
 alter table api_usage_windows enable row level security;
 revoke all on table api_usage_windows from anon, authenticated;
 
--- 原子递增限流窗口，并在允许请求时更新 API Key 总调用量。
+-- 原子递增分钟限流窗口，并在允许请求时更新 API Key 总调用量。
+drop function if exists register_api_request(uuid, timestamptz, integer);
+drop function if exists register_api_request(uuid, timestamptz, integer, timestamptz, integer);
 create or replace function register_api_request(
   p_api_key_id uuid,
   p_window_start timestamptz,
@@ -474,7 +550,7 @@ returns table (
   current_count integer
 ) as $$
 declare
-  next_count integer;
+  next_minute_count integer;
 begin
   insert into public.api_usage_windows (api_key_id, window_start, request_count)
   values (p_api_key_id, p_window_start, 1)
@@ -482,16 +558,16 @@ begin
   do update set
     request_count = public.api_usage_windows.request_count + 1,
     updated_at = now()
-  returning request_count into next_count;
+  returning request_count into next_minute_count;
 
-  if next_count <= p_limit then
+  if next_minute_count <= p_limit then
     update public.api_keys
     set request_count = request_count + 1,
         last_used_at = now()
     where id = p_api_key_id;
   end if;
 
-  return query select (next_count <= p_limit), next_count;
+  return query select (next_minute_count <= p_limit), next_minute_count;
 end;
 $$ language plpgsql security definer
 set search_path = '';
