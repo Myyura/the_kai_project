@@ -317,3 +317,184 @@ set search_path = '';
 -- 仅允许已登录用户调用排行榜函数
 revoke execute on function get_weekly_leaderboard() from public, anon;
 grant execute on function get_weekly_leaderboard() to authenticated;
+
+-- ============================================================
+-- Public API：题库 JSON API 所需表结构
+-- ============================================================
+--
+-- 安全模型：
+--   1. auth.users 继续作为网站用户/开发者账号体系。
+--   2. 前端登录 JWT 只用于调用 developer-api-keys Edge Function 管理 API Key。
+--   3. 第三方内容 API 只接受 kai_live_* API Key，不接受匿名访问或登录 JWT。
+--   4. API Key 明文只在创建时返回一次，数据库仅保存 SHA-256 hash。
+--   5. 下列表启用 RLS，前端 anon/authenticated 客户端不可直接读写，由 Edge Function service role 访问。
+
+-- ── 结构化题库文档 ────────────────────────────────────────
+create table if not exists exam_documents (
+  doc_id                text primary key,
+  type                  text not null default 'exam',
+  source_path           text not null,
+  title                 text not null,
+  sidebar_label         text,
+  university_id         text,
+  university_name       text,
+  department_id         text,
+  department_name       text,
+  program_id            text,
+  program_name          text,
+  year                  integer,
+  year_label            text,
+  file_slug             text,
+  tags                  jsonb not null default '[]'::jsonb,
+  author_markdown       text not null default '',
+  description_markdown  text not null default '',
+  kai_markdown          text not null default '',
+  full_markdown         text not null default '',
+  permalink             text not null,
+  content_hash          text not null,
+  synced_at             timestamptz not null default now(),
+  updated_at            timestamptz not null default now(),
+  created_at            timestamptz not null default now(),
+
+  constraint exam_documents_type_check check (type in ('exam', 'guide')),
+  constraint exam_documents_year_check check (year is null or (year >= 1900 and year <= 2100)),
+  constraint exam_documents_tags_is_array check (jsonb_typeof(tags) = 'array')
+);
+
+create index if not exists idx_exam_documents_catalog
+  on exam_documents(type, university_id, department_id, program_id, year);
+create index if not exists idx_exam_documents_year
+  on exam_documents(year);
+create index if not exists idx_exam_documents_tags
+  on exam_documents using gin(tags);
+
+drop trigger if exists update_exam_documents_updated_at on exam_documents;
+create trigger update_exam_documents_updated_at
+  before update on exam_documents
+  for each row
+  execute function update_updated_at_column();
+
+alter table exam_documents enable row level security;
+revoke all on table exam_documents from anon, authenticated;
+
+-- ── 开发者 API Key ────────────────────────────────────────
+create table if not exists api_keys (
+  id                      uuid primary key default uuid_generate_v4(),
+  user_id                 uuid not null references auth.users(id) on delete cascade,
+  name                    text not null,
+  key_prefix              text not null,
+  key_hash                text not null unique,
+  status                  text not null default 'active',
+  rate_limit_per_minute   integer not null default 60,
+  request_count           bigint not null default 0,
+  last_used_at            timestamptz,
+  revoked_at              timestamptz,
+  updated_at              timestamptz not null default now(),
+  created_at              timestamptz not null default now(),
+
+  constraint api_keys_name_length check (char_length(name) between 1 and 80),
+  constraint api_keys_status_check check (status in ('active', 'revoked')),
+  constraint api_keys_rate_limit_check check (rate_limit_per_minute between 1 and 600)
+);
+
+create index if not exists idx_api_keys_user_id
+  on api_keys(user_id, created_at desc);
+create index if not exists idx_api_keys_status
+  on api_keys(status);
+
+drop trigger if exists update_api_keys_updated_at on api_keys;
+create trigger update_api_keys_updated_at
+  before update on api_keys
+  for each row
+  execute function update_updated_at_column();
+
+alter table api_keys enable row level security;
+revoke all on table api_keys from anon, authenticated;
+
+-- ── API 调用日志 ──────────────────────────────────────────
+create table if not exists api_request_logs (
+  id             uuid primary key default uuid_generate_v4(),
+  api_key_id     uuid references api_keys(id) on delete set null,
+  user_id        uuid references auth.users(id) on delete set null,
+  method         text not null,
+  path           text not null,
+  query_params   jsonb not null default '{}'::jsonb,
+  status_code    integer not null,
+  result_count   integer,
+  duration_ms    integer,
+  ip_hash        text,
+  user_agent     text,
+  created_at     timestamptz not null default now(),
+
+  constraint api_request_logs_query_params_is_object check (jsonb_typeof(query_params) = 'object')
+);
+
+create index if not exists idx_api_request_logs_key_created
+  on api_request_logs(api_key_id, created_at desc);
+create index if not exists idx_api_request_logs_user_created
+  on api_request_logs(user_id, created_at desc);
+create index if not exists idx_api_request_logs_status
+  on api_request_logs(status_code);
+
+alter table api_request_logs enable row level security;
+revoke all on table api_request_logs from anon, authenticated;
+
+-- ── API 限流窗口 ──────────────────────────────────────────
+create table if not exists api_usage_windows (
+  api_key_id     uuid not null references api_keys(id) on delete cascade,
+  window_start   timestamptz not null,
+  request_count  integer not null default 0,
+  updated_at     timestamptz not null default now(),
+  created_at     timestamptz not null default now(),
+
+  primary key (api_key_id, window_start),
+  constraint api_usage_windows_request_count_check check (request_count >= 0)
+);
+
+create index if not exists idx_api_usage_windows_window_start
+  on api_usage_windows(window_start desc);
+
+drop trigger if exists update_api_usage_windows_updated_at on api_usage_windows;
+create trigger update_api_usage_windows_updated_at
+  before update on api_usage_windows
+  for each row
+  execute function update_updated_at_column();
+
+alter table api_usage_windows enable row level security;
+revoke all on table api_usage_windows from anon, authenticated;
+
+-- 原子递增限流窗口，并在允许请求时更新 API Key 总调用量。
+create or replace function register_api_request(
+  p_api_key_id uuid,
+  p_window_start timestamptz,
+  p_limit integer
+)
+returns table (
+  allowed boolean,
+  current_count integer
+) as $$
+declare
+  next_count integer;
+begin
+  insert into public.api_usage_windows (api_key_id, window_start, request_count)
+  values (p_api_key_id, p_window_start, 1)
+  on conflict (api_key_id, window_start)
+  do update set
+    request_count = public.api_usage_windows.request_count + 1,
+    updated_at = now()
+  returning request_count into next_count;
+
+  if next_count <= p_limit then
+    update public.api_keys
+    set request_count = request_count + 1,
+        last_used_at = now()
+    where id = p_api_key_id;
+  end if;
+
+  return query select (next_count <= p_limit), next_count;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function register_api_request(uuid, timestamptz, integer) from public, anon, authenticated;
+grant execute on function register_api_request(uuid, timestamptz, integer) to service_role;

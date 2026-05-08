@@ -1,0 +1,7 @@
+project_id = "the_kai_project"
+
+[functions.developer-api-keys]
+verify_jwt = false
+
+[functions.kai-api]
+verify_jwt = false

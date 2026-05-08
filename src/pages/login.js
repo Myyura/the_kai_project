@@ -19,6 +19,7 @@ import {
   sanitizeAuthError,
   getRateLimitMessage,
   getAttemptsLeftMessage,
+  isInvalidCredentialsError,
   validatePassword,
 } from '@site/src/services/authSecurity';
 import styles from './login.module.css';
@@ -289,12 +290,16 @@ function LoginPageContent() {
       }
     } catch (err) {
       if (mode === 'login') {
-        const result = recordFailedAttempt();
-        if (result.locked) {
-          showMsg(getRateLimitMessage(result.remainingSeconds, lang), true);
-          startCountdown(result.remainingSeconds);
-        } else if (result.attemptsLeft <= 3) {
-          showMsg(getAttemptsLeftMessage(result.attemptsLeft, lang), true);
+        if (isInvalidCredentialsError(err)) {
+          const result = recordFailedAttempt();
+          if (result.locked) {
+            showMsg(getRateLimitMessage(result.remainingSeconds, lang), true);
+            startCountdown(result.remainingSeconds);
+          } else if (result.attemptsLeft <= 3) {
+            showMsg(getAttemptsLeftMessage(result.attemptsLeft, lang), true);
+          } else {
+            showMsg(sanitizeAuthError(err, lang), true);
+          }
         } else {
           showMsg(sanitizeAuthError(err, lang), true);
         }

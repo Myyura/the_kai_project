@@ -30,6 +30,8 @@ jobs:
 
       - name: 安装依赖
         run: yarn install
+      - name: 校验 API 数据
+        run: yarn api:validate
       - name: 更新浏览器列表数据库
         run: npx update-browserslist-db@latest
       - name: 构建网站
@@ -38,6 +40,31 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
+
+      - name: 部署 Supabase Edge Functions
+        if: github.event_name == 'push'
+        run: |
+          if [ -z "$SUPABASE_ACCESS_TOKEN" ] || [ -z "$SUPABASE_PROJECT_REF" ]; then
+            echo "Supabase deploy secrets are not configured; skipping Edge Function deploy."
+            exit 0
+          fi
+          npx supabase@latest functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
+          npx supabase@latest functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+
+      - name: 同步 API 数据到 Supabase
+        if: github.event_name == 'push'
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "Supabase sync secrets are not configured; skipping API data sync."
+            exit 0
+          fi
+          yarn api:sync
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
       - name: 上传构建制品
         if: github.event_name == 'push'

@@ -89,7 +89,7 @@ const config = {
   },
 
   // 添加本地搜索功能
-  themes: [
+  themes: /** @type {import('@docusaurus/types').PluginConfig[]} */ ([
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
@@ -105,7 +105,7 @@ const config = {
       }),
     ],
     '@docusaurus/theme-mermaid',
-  ],
+  ]),
 
   // 添加SEO相关插件
   plugins: [
@@ -251,6 +251,7 @@ const config = {
           {to: '/links', label: '参考链接', position: 'left'},
           {to: '/progress', label: '进度', position: 'left'},
           {to: '/admission', label: '录取数据', position: 'left'},
+          {to: '/developers', label: 'API', position: 'left'},
           {to: '/legalstatement', label: '法律声明', position: 'left'},
           {
             href: 'https://github.com/Myyura/the_kai_project',
@@ -290,6 +291,10 @@ const config = {
               {
                 label: '录取数据',
                 to: '/admission',
+              },
+              {
+                label: 'API',
+                to: '/developers',
               },
               {
                 label: '法律声明',

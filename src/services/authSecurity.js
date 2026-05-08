@@ -114,6 +114,8 @@ const ERROR_MAP = {
   'For security purposes': 'auth_rate_limit',
   'over_email_send_rate_limit': 'auth_rate_limit',
   'Signups not allowed': 'auth_signups_disabled',
+  'captcha protection': 'auth_captcha_required',
+  'captcha_token': 'auth_captcha_required',
 };
 
 const SAFE_MESSAGES = {
@@ -125,6 +127,7 @@ const SAFE_MESSAGES = {
     auth_invalid_email: '邮箱格式不正确。',
     auth_rate_limit: '操作过于频繁，请稍后再试。',
     auth_signups_disabled: '暂不开放注册，请联系管理员。',
+    auth_captcha_required: '请先完成人机验证后再继续。',
     auth_unknown: '操作失败，请稍后重试。',
     auth_locked: (sec) => `登录尝试次数过多，请 ${sec} 秒后再试。`,
     auth_attempts_left: (n) => `邮箱或密码不正确，还可尝试 ${n} 次。`,
@@ -137,6 +140,7 @@ const SAFE_MESSAGES = {
     auth_invalid_email: 'メールアドレスの形式が正しくありません。',
     auth_rate_limit: '操作が頻繁すぎます。しばらくしてから再試行してください。',
     auth_signups_disabled: '現在登録を受け付けていません。管理者にお問い合わせください。',
+    auth_captcha_required: 'CAPTCHA認証を完了してから続行してください。',
     auth_unknown: '操作に失敗しました。しばらくしてから再試行してください。',
     auth_locked: (sec) => `ログイン試行回数が上限に達しました。${sec}秒後にお試しください。`,
     auth_attempts_left: (n) => `メールアドレスまたはパスワードが正しくありません。残り${n}回。`,
@@ -161,6 +165,11 @@ export const sanitizeAuthError = (err, lang = 'zh') => {
 
   // 不暴露未知错误的原始内容
   return messages.auth_unknown;
+};
+
+export const isInvalidCredentialsError = (err) => {
+  const msg = typeof err === 'string' ? err : (err?.message || '');
+  return msg.toLowerCase().includes('invalid login credentials');
 };
 
 /**

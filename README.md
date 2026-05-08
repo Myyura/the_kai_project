@@ -65,10 +65,12 @@ Useful repository scripts:
 ```bash
 yarn generate:universities
 yarn review:format
+yarn api:validate
 ```
 
 - `yarn generate:universities`: regenerate `src/data/universities.js` after changing the `docs/` directory structure or `_category_.json` labels.
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
+- `yarn api:validate`: validate the structured data used by the public JSON API.
 
 ## Optional cloud sync configuration
 The site works without any cloud credentials: documentation pages, blog posts, local progress tracking, and local notes still work. If the environment variables below are not set, login, cloud sync, and the leaderboard are unavailable.
@@ -86,6 +88,41 @@ If you want to enable cloud sync end-to-end:
 1. Create a Supabase project.
 2. Run [src/services/schema.sql](src/services/schema.sql) in the Supabase SQL editor.
 3. Configure the auth security items noted in that SQL file, including rate limits, password policy, and hCaptcha.
+
+## Developer JSON API
+The project can expose exam data through Supabase Edge Functions while reusing the existing login system as the developer identity layer.
+
+1. Run the latest [src/services/schema.sql](src/services/schema.sql) in Supabase.
+2. Deploy the functions in [supabase/functions](supabase/functions):
+
+```bash
+npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
+npx supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
+```
+
+You can also deploy from the Supabase Dashboard Edge Functions editor: create `developer-api-keys` and `kai-api`, then add each function's own `index.ts`, `http.ts`, and `crypto.ts`. Each function directory is self-contained and does not import files outside its own directory.
+
+3. Sync structured exam documents:
+
+```bash
+SUPABASE_URL="https://your-project.supabase.co" \
+SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
+yarn api:sync
+```
+
+4. Log in on the website and open `/developers` to create an API key.
+
+Content API examples:
+
+```bash
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/catalog"
+
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
+```
+
+The content API does not accept anonymous requests or login JWTs. API keys are shown once on creation; only SHA-256 hashes are stored.
 
 # 👏 Contribution
 The project encourages community contributions through multiple channels:

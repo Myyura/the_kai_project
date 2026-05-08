@@ -64,10 +64,12 @@ yarn serve
 ```bash
 yarn generate:universities
 yarn review:format
+yarn api:validate
 ```
 
 - `yarn generate:universities`：当你修改 `docs/` 目录结构或 `_category_.json` 标签后，重新生成 `src/data/universities.js`。
 - `yarn review:format`：在提交 PR 前检查 `docs/` 下题解文档的格式。
+- `yarn api:validate`：检查 JSON API 使用的结构化题库数据。
 
 ## 可选的云同步配置
 即使不配置云端环境变量，站点的核心功能仍可正常使用，包括文档、博客、本地做题进度和本地笔记。若不配置下面这些变量，则登录、云同步和排行榜功能不可用。
@@ -85,6 +87,41 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 1. 创建一个 Supabase 项目。
 2. 在 Supabase SQL Editor 中执行 [src/services/schema.sql](src/services/schema.sql)。
 3. 按该 SQL 文件中的说明，配置认证限流、密码策略和 hCaptcha 等安全项。
+
+## 开发者 JSON API
+本项目可以复用现有登录系统作为开发者身份层，并通过 Supabase Edge Functions 对外提供题目与答案 JSON。
+
+1. 在 Supabase SQL Editor 中执行最新版 [src/services/schema.sql](src/services/schema.sql)。
+2. 部署 [supabase/functions](supabase/functions) 中的 Edge Functions：
+
+```bash
+npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
+npx supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
+```
+
+也可以在 Supabase Dashboard 的 Edge Functions 编辑器中部署：分别创建 `developer-api-keys` 和 `kai-api`，并把对应函数目录下的 `index.ts`、`http.ts`、`crypto.ts` 加到该函数中。每个函数目录都是自包含的，不依赖函数目录外的共享文件。
+
+3. 同步结构化题库数据：
+
+```bash
+SUPABASE_URL="https://your-project.supabase.co" \
+SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
+yarn api:sync
+```
+
+4. 登录网站后访问 `/developers` 创建 API Key。
+
+调用示例：
+
+```bash
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/catalog"
+
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
+```
+
+内容 API 不接受匿名请求或登录 JWT。API Key 明文只在创建时显示一次，数据库只保存 SHA-256 hash。
 
 # 👏 贡献方式
 项目通过多种渠道鼓励社区贡献：

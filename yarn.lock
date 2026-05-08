@@ -1646,7 +1646,7 @@
     postcss-sort-media-queries "^5.2.0"
     tslib "^2.6.0"
 
-"@docusaurus/faster@^3.9.2":
+"@docusaurus/faster@3.9.2":
   version "3.9.2"
   resolved "https://registry.yarnpkg.com/@docusaurus/faster/-/faster-3.9.2.tgz#47b69f39ed935fdcc8dc03896274fca29056e962"
   integrity sha512-DEVIwhbrZZ4ir31X+qQNEQqDWkgCJUV6kiPPAd2MGTY8n5/n0c4B8qA5k1ipF2izwH00JEf0h6Daaut71zzkyw==
@@ -1952,7 +1952,7 @@
     tslib "^2.6.0"
     utility-types "^3.10.0"
 
-"@docusaurus/theme-mermaid@^3.9.2":
+"@docusaurus/theme-mermaid@3.9.2":
   version "3.9.2"
   resolved "https://registry.yarnpkg.com/@docusaurus/theme-mermaid/-/theme-mermaid-3.9.2.tgz#f065e4b4b319560ddd8c3be65ce9dd19ce1d5cc8"
   integrity sha512-5vhShRDq/ntLzdInsQkTdoKWSzw8d1jB17sNPYhA/KvYYFXfuVEGHLM6nrf8MFbV8TruAHDG21Fn3W4lO8GaDw==
