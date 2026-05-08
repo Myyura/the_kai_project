@@ -4,6 +4,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {
+  FaArrowRight,
   FaCheck,
   FaClipboard,
   FaCode,
@@ -23,8 +24,13 @@ const T = {
   zh: {
     pageTitle: '开发者中心',
     title: '开发者中心',
-    subtitle: '为第三方工具创建 API Key，调用 The Kai Project 的题目与答案 JSON 数据。',
-    notConfigured: 'Supabase 尚未配置，暂时无法使用开发者 API。',
+    subtitle: '管理面向第三方工具和自动化工作流的功能。',
+    apiTitle: 'JSON API',
+    apiSubtitle: '创建 API Key，调用 The Kai Project 的题目与答案 JSON 数据。',
+    apiFeatureDesc: '题目目录、答案内容与来源信息的结构化访问。',
+    apiFeatureCta: '管理 API Key',
+    available: '可用',
+    notConfigured: 'Supabase 尚未配置，暂时无法使用 JSON API。',
     loginRequired: '登录后可以创建和管理 API Key。',
     login: '登录 / 注册',
     keyName: 'Key 名称',
@@ -64,8 +70,13 @@ const T = {
   ja: {
     pageTitle: '開発者センター',
     title: '開発者センター',
-    subtitle: 'サードパーティーツール用の API Key を作成し、The Kai Project の問題と解答 JSON を利用できます。',
-    notConfigured: 'Supabase が設定されていないため、開発者 API は利用できません。',
+    subtitle: 'サードパーティーツールと自動化向けの機能を管理できます。',
+    apiTitle: 'JSON API',
+    apiSubtitle: 'API Key を作成し、The Kai Project の問題と解答 JSON を利用できます。',
+    apiFeatureDesc: '問題カタログ、解答本文、出典情報を構造化データとして利用できます。',
+    apiFeatureCta: 'API Key を管理',
+    available: '利用可能',
+    notConfigured: 'Supabase が設定されていないため、JSON API は利用できません。',
     loginRequired: 'ログインすると API Key を作成・管理できます。',
     login: 'ログイン / 登録',
     keyName: 'Key 名称',
@@ -119,7 +130,7 @@ function formatDate(value, language, fallback) {
   }
 }
 
-function DevelopersContent() {
+export function DeveloperApiContent() {
   const [language] = useStoredLanguage();
   const lang = language === 'ja' ? 'ja' : 'zh';
   const t = T[lang];
@@ -245,7 +256,7 @@ function DevelopersContent() {
       <div className={styles.shell}>
         <section className={styles.noticePanel}>
           <FaExclamationTriangle className={styles.noticeIcon} />
-          <h1>{t.title}</h1>
+          <h1>{t.apiTitle}</h1>
           <p>{t.notConfigured}</p>
         </section>
       </div>
@@ -257,7 +268,7 @@ function DevelopersContent() {
       <div className={styles.shell}>
         <section className={styles.noticePanel}>
           <FaKey className={styles.noticeIcon} />
-          <h1>{t.title}</h1>
+          <h1>{t.apiTitle}</h1>
           <p>{t.loginRequired}</p>
           <Link to="/login" className={styles.primaryButton}>
             <FaSignInAlt /> {t.login}
@@ -271,8 +282,8 @@ function DevelopersContent() {
     <div className={styles.shell}>
       <header className={styles.header}>
         <div>
-          <h1>{t.title}</h1>
-          <p>{t.subtitle}</p>
+          <h1>{t.apiTitle}</h1>
+          <p>{t.apiSubtitle}</p>
         </div>
         <button type="button" className={styles.secondaryButton} onClick={loadKeys} disabled={loading}>
           <FaRedo className={loading ? styles.spin : ''} /> {t.refresh}
@@ -397,6 +408,40 @@ function DevelopersContent() {
         <p className={styles.hint}>{t.docsHint}</p>
         <pre className={styles.codeBlock}><code>{curlExample}</code></pre>
       </section>
+    </div>
+  );
+}
+
+function DevelopersContent() {
+  const [language] = useStoredLanguage();
+  const lang = language === 'ja' ? 'ja' : 'zh';
+  const t = T[lang];
+
+  return (
+    <div className={styles.shell}>
+      <header className={styles.header}>
+        <div>
+          <h1>{t.title}</h1>
+          <p>{t.subtitle}</p>
+        </div>
+      </header>
+
+      <div className={styles.featureGrid}>
+        <Link to="/developers/api" className={styles.featureCard}>
+          <div className={styles.featureIcon}>
+            <FaCode />
+          </div>
+          <div className={styles.featureMeta}>
+            <span>{t.available}</span>
+            <h2>{t.apiTitle}</h2>
+            <p>{t.apiFeatureDesc}</p>
+          </div>
+          <strong>
+            {t.apiFeatureCta}
+            <FaArrowRight />
+          </strong>
+        </Link>
+      </div>
     </div>
   );
 }

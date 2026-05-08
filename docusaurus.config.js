@@ -251,7 +251,7 @@ const config = {
           {to: '/links', label: '参考链接', position: 'left'},
           {to: '/progress', label: '进度', position: 'left'},
           {to: '/admission', label: '录取数据', position: 'left'},
-          {to: '/developers', label: 'API', position: 'left'},
+          {to: '/developers', label: '开发者中心', position: 'left'},
           {to: '/legalstatement', label: '法律声明', position: 'left'},
           {
             href: 'https://github.com/Myyura/the_kai_project',
@@ -293,7 +293,7 @@ const config = {
                 to: '/admission',
               },
               {
-                label: 'API',
+                label: '开发者中心',
                 to: '/developers',
               },
               {

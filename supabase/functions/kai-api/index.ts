@@ -14,8 +14,10 @@ const API_LOG_SALT = Deno.env.get('API_LOG_SALT') || 'kai-api';
 const API_VERSION = 'v1';
 const SITE_URL = 'https://runjp.com';
 const CONTENT_NOTICE = 'The Kai Project API content is provided for personal study and research use only. Commercial use requires permission from the relevant rights holders.';
+const CATALOG_CACHE_TTL_MS = 10 * 60 * 1000;
 
 let supabaseClient: ReturnType<typeof createClient> | null = null;
+let catalogCache: { expiresAt: number; body: Record<string, unknown>; resultCount: number } | null = null;
 
 function getSupabase() {
   if (!SUPABASE_URL || !SERVICE_ROLE_KEY) return null;
@@ -107,6 +109,17 @@ async function logRequest(req: Request, ctx: RequestContext, statusCode: number)
     });
   } catch (error) {
     console.error('Failed to write API request log', error);
+  }
+}
+
+function scheduleLogRequest(req: Request, ctx: RequestContext, statusCode: number) {
+  const task = logRequest(req, ctx, statusCode);
+  const runtime = globalThis as typeof globalThis & {
+    EdgeRuntime?: { waitUntil?: (promise: Promise<unknown>) => void };
+  };
+
+  if (runtime.EdgeRuntime?.waitUntil) {
+    runtime.EdgeRuntime.waitUntil(task);
   }
 }
 
@@ -245,6 +258,11 @@ function publicExamRow(row: Record<string, unknown>, includeContent: boolean) {
 }
 
 async function fetchCatalog(ctx: RequestContext) {
+  if (catalogCache && catalogCache.expiresAt > Date.now()) {
+    ctx.resultCount = catalogCache.resultCount;
+    return jsonResponse(catalogCache.body);
+  }
+
   const supabase = getSupabase();
   if (!supabase) throw new Error('Supabase Edge Function is not configured.');
 
@@ -341,7 +359,13 @@ async function fetchCatalog(ctx: RequestContext) {
   });
 
   ctx.resultCount = rows.length;
-  return jsonResponse(withEnvelope({ count: rows.length, universities: catalog }));
+  const body = withEnvelope({ count: rows.length, universities: catalog });
+  catalogCache = {
+    expiresAt: Date.now() + CATALOG_CACHE_TTL_MS,
+    body,
+    resultCount: rows.length,
+  };
+  return jsonResponse(body);
 }
 
 async function fetchExams(req: Request, ctx: RequestContext) {
@@ -455,14 +479,14 @@ serve(async (req) => {
 
   if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
     const response = errorResponse(500, 'server_not_configured', 'Supabase Edge Function is not configured.');
-    await logRequest(req, ctx, response.status);
+    scheduleLogRequest(req, ctx, response.status);
     return response;
   }
 
   try {
     const auth = await authenticateApiKey(req);
     if ('response' in auth) {
-      await logRequest(req, ctx, auth.response.status);
+      scheduleLogRequest(req, ctx, auth.response.status);
       return auth.response;
     }
     const apiKey = auth.apiKey;
@@ -470,17 +494,17 @@ serve(async (req) => {
 
     const rate = await enforceRateLimit(apiKey);
     if ('response' in rate) {
-      await logRequest(req, ctx, rate.response.status);
+      scheduleLogRequest(req, ctx, rate.response.status);
       return rate.response;
     }
 
     const response = await handleApiRequest(req, ctx);
-    await logRequest(req, ctx, response.status);
+    scheduleLogRequest(req, ctx, response.status);
     return response;
   } catch (error) {
     console.error(error);
     const response = errorResponse(500, 'internal_error', 'API request failed.');
-    await logRequest(req, ctx, response.status);
+    scheduleLogRequest(req, ctx, response.status);
     return response;
   }
 });

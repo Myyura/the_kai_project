@@ -86,6 +86,55 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 2. Supabase の SQL Editor で [src/services/schema.sql](src/services/schema.sql) を実行します。
 3. その SQL ファイルに書かれている認証レート制限、パスワードポリシー、hCaptcha などの設定を行います。
 
+## 開発者向け JSON API
+登録ユーザーは開発者センターで API Key を作成し、JSON API から過去問と解答データを取得できます。API Key の平文は作成時に一度だけ表示されます。データベースには SHA-256 hash のみ保存されます。
+
+### 登録ユーザー向けの使い方
+1. Web サイトにログインし、`/developers` から JSON API 機能に入ります。`/developers/api` を直接開くこともできます。
+2. API Key を作成し、`kai_live_...` の値をすぐに保存します。
+3. `Authorization: Bearer kai_live_...` を付けて Content API を呼び出します。Content API は匿名リクエストやログイン JWT を受け付けません。
+
+利用できるエンドポイント:
+
+- `GET /v1/catalog`: 大学、研究科、専攻、年度、ドキュメント数を返します。
+- `GET /v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content`: 条件に合う過去問を検索します。`include=content` を付けると Markdown 本文も返します。
+- `GET /v1/exams/{doc_id}`: ドキュメント ID で 1 件取得します。
+
+呼び出し例:
+
+```bash
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/catalog"
+
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
+```
+
+レスポンスには常に `apiVersion`、`sourceUrl`、`license`、`contentNotice` が含まれます。コンテンツは個人の学習・研究目的で提供され、商用利用には別途許可が必要です。
+
+### プロジェクトメンテナー向けのデプロイ
+このプロジェクトは既存のログインシステムを開発者 ID として再利用し、Supabase Edge Functions から過去問と解答 JSON を提供します。
+
+1. Supabase の SQL Editor で最新版の [src/services/schema.sql](src/services/schema.sql) を実行します。
+2. [supabase/functions](supabase/functions) の Edge Functions をデプロイします。
+
+```bash
+npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
+npx supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
+```
+
+Supabase Dashboard の Edge Functions エディタからデプロイすることもできます。`developer-api-keys` と `kai-api` をそれぞれ作成し、各 function ディレクトリ内の `index.ts`、`http.ts`、`crypto.ts` を追加してください。各 function ディレクトリは自己完結しており、外部の共有ファイルには依存しません。
+
+3. 構造化された過去問データを同期します。
+
+```bash
+SUPABASE_URL="https://your-project.supabase.co" \
+SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
+yarn api:sync
+```
+
+4. Supabase Function secrets に `API_LOG_SALT` が設定されていることを確認し、両方の function で JWT verification を無効にします。
+
 # 👏 貢献方法
 このプロジェクトは複数のチャンネルを通じてコミュニティからの貢献を奨励しています。
 - Git Pull Request: Git に慣れている方向け

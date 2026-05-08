@@ -90,7 +90,33 @@ If you want to enable cloud sync end-to-end:
 3. Configure the auth security items noted in that SQL file, including rate limits, password policy, and hCaptcha.
 
 ## Developer JSON API
-The project can expose exam data through Supabase Edge Functions while reusing the existing login system as the developer identity layer.
+Registered users can create an API key in the developer center and use the JSON API to read exam and answer data. API keys are shown only once when created; the database stores only SHA-256 hashes.
+
+### For registered users
+1. Log in on the website and open `/developers`, then enter the JSON API feature. You can also open `/developers/api` directly.
+2. Create an API key and save the `kai_live_...` value immediately.
+3. Call the content API with `Authorization: Bearer kai_live_...`. The content API does not accept anonymous requests or login JWTs.
+
+Available endpoints:
+
+- `GET /v1/catalog`: returns universities, departments, programs, years, and document counts.
+- `GET /v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content`: queries exam documents; `include=content` returns markdown content.
+- `GET /v1/exams/{doc_id}`: returns one document by ID.
+
+Examples:
+
+```bash
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/catalog"
+
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
+```
+
+Responses always include `apiVersion`, `sourceUrl`, `license`, and `contentNotice`. Content is provided for personal study and research use only; commercial use requires separate permission.
+
+### For project maintainers
+The project exposes exam data through Supabase Edge Functions while reusing the existing login system as the developer identity layer.
 
 1. Run the latest [src/services/schema.sql](src/services/schema.sql) in Supabase.
 2. Deploy the functions in [supabase/functions](supabase/functions):
@@ -110,19 +136,7 @@ SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
 yarn api:sync
 ```
 
-4. Log in on the website and open `/developers` to create an API key.
-
-Content API examples:
-
-```bash
-curl -H "Authorization: Bearer kai_live_..." \
-  "https://your-project.supabase.co/functions/v1/kai-api/v1/catalog"
-
-curl -H "Authorization: Bearer kai_live_..." \
-  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
-```
-
-The content API does not accept anonymous requests or login JWTs. API keys are shown once on creation; only SHA-256 hashes are stored.
+4. Confirm the Supabase Function secrets include `API_LOG_SALT`, and disable JWT verification for both functions.
 
 # 👏 Contribution
 The project encourages community contributions through multiple channels:

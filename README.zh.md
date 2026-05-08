@@ -89,7 +89,33 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 3. 按该 SQL 文件中的说明，配置认证限流、密码策略和 hCaptcha 等安全项。
 
 ## 开发者 JSON API
-本项目可以复用现有登录系统作为开发者身份层，并通过 Supabase Edge Functions 对外提供题目与答案 JSON。
+注册用户可以在开发者中心创建 API Key，并通过 JSON API 读取题目与答案数据。API Key 明文只在创建时显示一次，请立即保存；数据库只保存 SHA-256 hash。
+
+### 注册用户如何使用
+1. 登录网站后访问 `/developers`，进入 JSON API 功能。也可以直接打开 `/developers/api`。
+2. 创建一个 API Key，并保存 `kai_live_...` 明文。
+3. 使用 `Authorization: Bearer kai_live_...` 调用内容 API。内容 API 不接受匿名请求或登录 JWT。
+
+可用接口：
+
+- `GET /v1/catalog`：返回大学、院系、专攻、年份和题目数量。
+- `GET /v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content`：按条件查询题目；`include=content` 会返回题目/答案正文。
+- `GET /v1/exams/{doc_id}`：按文档 ID 查询单篇题目。
+
+调用示例：
+
+```bash
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/catalog"
+
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
+```
+
+响应固定包含 `apiVersion`、`sourceUrl`、`license`、`contentNotice`。内容仅限个人学习研究使用，商业使用需另行取得许可。
+
+### 项目维护者如何部署
+本项目复用现有登录系统作为开发者身份层，并通过 Supabase Edge Functions 对外提供题目与答案 JSON。
 
 1. 在 Supabase SQL Editor 中执行最新版 [src/services/schema.sql](src/services/schema.sql)。
 2. 部署 [supabase/functions](supabase/functions) 中的 Edge Functions：
@@ -109,19 +135,7 @@ SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
 yarn api:sync
 ```
 
-4. 登录网站后访问 `/developers` 创建 API Key。
-
-调用示例：
-
-```bash
-curl -H "Authorization: Bearer kai_live_..." \
-  "https://your-project.supabase.co/functions/v1/kai-api/v1/catalog"
-
-curl -H "Authorization: Bearer kai_live_..." \
-  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
-```
-
-内容 API 不接受匿名请求或登录 JWT。API Key 明文只在创建时显示一次，数据库只保存 SHA-256 hash。
+4. 确认 Supabase Function secrets 已配置 `API_LOG_SALT`，并关闭两个函数的 JWT verification。
 
 # 👏 贡献方式
 项目通过多种渠道鼓励社区贡献：
