@@ -19,6 +19,7 @@ import {
   signUpWithEmail,
   signInWithGitHub,
   exchangeOAuthCodeForSession,
+  sendPasswordResetEmail,
   signOut as doSignOut,
   getSession,
   onAuthStateChange,
@@ -270,6 +271,16 @@ function useSyncInternal() {
     }
   }, []);
 
+  const requestPasswordReset = useCallback(async (email, redirectTo, captchaToken) => {
+    setError(null);
+    try {
+      return await sendPasswordResetEmail(email, redirectTo, captchaToken);
+    } catch (err) {
+      setError('操作失败');
+      throw err;
+    }
+  }, []);
+
   const signOut = useCallback(async () => {
     setError(null);
     try {
@@ -295,6 +306,7 @@ function useSyncInternal() {
     registerWithEmail,
     loginWithGitHub,
     completeOAuthCallback,
+    requestPasswordReset,
     signOut,
   };
 }

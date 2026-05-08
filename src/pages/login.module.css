@@ -132,6 +132,30 @@
   box-shadow: 0 0 0 3px rgba(46, 133, 85, 0.12);
 }
 
+.forgotButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.45rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.forgotButton:hover:not(:disabled) {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+}
+
+.forgotButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 /* ── Buttons ────────────────────────────────────────────── */
 
 .btn {

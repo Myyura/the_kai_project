@@ -4,7 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
 import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaCheckCircle, FaSyncAlt } from 'react-icons/fa';
-import React, { useState, useMemo, memo } from 'react';
+import React, { useEffect, useState, useMemo, memo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { useStoredLanguage } from '../context/LanguageContext';
 import { useAllProgress, STATUS } from '../hooks/useProgress';
@@ -103,6 +103,22 @@ const useToggleState = (initialState = {}) => {
   const toggle = (key) => setState(prev => ({ ...prev, [key]: !prev[key] }));
   const isOpen = (key) => !!state[key];
   return [isOpen, toggle];
+};
+
+const RecoveryRedirect = () => {
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+    const looksLikeRecovery = url.searchParams.has('code')
+      || hashParams.get('type') === 'recovery'
+      || hashParams.has('access_token');
+
+    if (looksLikeRecovery) {
+      window.location.replace(`/reset-password${window.location.search}${window.location.hash}`);
+    }
+  }, []);
+
+  return null;
 };
 
 // 数据统计卡片
@@ -438,6 +454,7 @@ const Home = () => {
       title={siteConfig.title}
       description="开源的日本大学院入试过去问解答共享平台，破除信息之壁 | 大学院入試過去問のオープンソース解答共有プラットフォーム"
     >
+      <BrowserOnly>{() => <RecoveryRedirect />}</BrowserOnly>
       <HomepageStructuredData />
       <main className={styles.mainContent}>
         <HeroSection language={language} toggleLanguage={toggleLanguage} t={t} />

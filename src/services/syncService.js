@@ -893,6 +893,72 @@ export const exchangeOAuthCodeForSession = async (code) => {
 };
 
 /**
+ * 发送密码重置邮件
+ */
+export const sendPasswordResetEmail = async (email, redirectTo, captchaToken) => {
+  const sb = getSupabaseClient();
+  if (!sb) throw new Error('Supabase 未配置');
+
+  const options = {};
+  if (redirectTo) options.redirectTo = redirectTo;
+  if (captchaToken) options.captchaToken = captchaToken;
+
+  const { data, error } = await sb.auth.resetPasswordForEmail(email, options);
+  if (error) throw error;
+  return data;
+};
+
+/**
+ * 从密码重置链接恢复会话。兼容 PKCE code 与旧 implicit hash 两种回跳形态。
+ */
+export const recoverPasswordSessionFromUrl = async () => {
+  const sb = getSupabaseClient();
+  if (!sb) throw new Error('Supabase 未配置');
+  if (typeof window === 'undefined') return null;
+
+  const url = new URL(window.location.href);
+  const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+  const errorDescription = url.searchParams.get('error_description') || hashParams.get('error_description');
+  if (errorDescription) throw new Error(decodeURIComponent(errorDescription));
+
+  const code = url.searchParams.get('code');
+  if (code) {
+    const data = await exchangeOAuthCodeForSession(code);
+    url.searchParams.delete('code');
+    window.history.replaceState({}, document.title, `${url.pathname}${url.search}${url.hash}`);
+    return data;
+  }
+
+  const accessToken = hashParams.get('access_token');
+  const refreshToken = hashParams.get('refresh_token');
+  if (accessToken && refreshToken) {
+    const { data, error } = await sb.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    });
+    if (error) throw error;
+    window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+    return data;
+  }
+
+  const { data, error } = await sb.auth.getSession();
+  if (error) throw error;
+  return data;
+};
+
+/**
+ * 更新当前登录/恢复会话用户的密码
+ */
+export const updateCurrentUserPassword = async (password) => {
+  const sb = getSupabaseClient();
+  if (!sb) throw new Error('Supabase 未配置');
+
+  const { data, error } = await sb.auth.updateUser({ password });
+  if (error) throw error;
+  return data;
+};
+
+/**
  * 登出
  */
 export const signOut = async () => {

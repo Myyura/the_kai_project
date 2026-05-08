@@ -8,7 +8,7 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 import {
   FaCloud, FaEnvelope, FaLock, FaSignInAlt, FaUserPlus,
   FaCheck, FaExclamationTriangle, FaSyncAlt, FaUser, FaGithub,
-  FaSignOutAlt, FaArrowRight,
+  FaSignOutAlt, FaArrowRight, FaKey,
 } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
 import { useStoredLanguage } from '@site/src/context/LanguageContext';
@@ -46,6 +46,10 @@ const T = {
     oauthRedirecting: '正在跳转到 GitHub 授权...',
     oauthFailed: 'GitHub 登录失败，请重试。',
     oauthOr: '或使用邮箱登录',
+    forgotPassword: '忘记密码？',
+    resetSending: '发送中...',
+    resetEmailSent: '重置邮件已发送，请查收邮箱。',
+    resetEmailHint: '先输入邮箱地址，再发送重置邮件。',
     loginOk: '登录成功！正在跳转进度页...',
     registerOk: '注册成功！请查收验证邮件，验证后即可登录。',
     alreadyIn: '你已登录',
@@ -78,6 +82,10 @@ const T = {
     oauthRedirecting: 'GitHub認証ページへ移動しています...',
     oauthFailed: 'GitHubログインに失敗しました。再試行してください。',
     oauthOr: 'またはメールでログイン',
+    forgotPassword: 'パスワードをお忘れですか？',
+    resetSending: '送信中...',
+    resetEmailSent: 'リセットメールを送信しました。メールをご確認ください。',
+    resetEmailHint: 'メールアドレスを入力してからリセットメールを送信してください。',
     loginOk: 'ログイン成功！進捗ページへ移動中...',
     registerOk: '登録成功！確認メールをご確認ください。',
     alreadyIn: 'ログイン済み',
@@ -104,13 +112,14 @@ function LoginPageContent() {
 
   const {
     isConfigured, user, isLoggedIn, authReady, error,
-    loginWithEmail, registerWithEmail, loginWithGitHub, completeOAuthCallback, signOut,
+    loginWithEmail, registerWithEmail, loginWithGitHub, completeOAuthCallback, requestPasswordReset, signOut,
   } = useSync();
 
   const [mode, setMode] = useState('login'); // 'login' | 'register'
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [resetLoading, setResetLoading] = useState(false);
   const [oauthLoading, setOauthLoading] = useState(false);
   const [msg, setMsg] = useState(null); // { text, isError }
   const [pwChecks, setPwChecks] = useState(null); // [{ label, passed }] or null
@@ -321,6 +330,36 @@ function LoginPageContent() {
     }
   };
 
+  const handlePasswordReset = async () => {
+    const trimmedEmail = email.trim();
+    setMsg(null);
+    if (!trimmedEmail) {
+      showMsg(t.resetEmailHint, true);
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      showMsg(t.emailInvalid, true);
+      return;
+    }
+    if (hcaptchaSiteKey && !captchaToken) {
+      showMsg(lang === 'ja' ? 'CAPTCHA認証を完了してください。' : '请先完成人机验证。', true);
+      return;
+    }
+
+    setResetLoading(true);
+    try {
+      const redirectTo = `${window.location.origin}/reset-password`;
+      await requestPasswordReset(trimmedEmail, redirectTo, captchaToken || undefined);
+      showMsg(t.resetEmailSent);
+    } catch (err) {
+      showMsg(err?.message || t.resetEmailHint, true);
+    } finally {
+      setResetLoading(false);
+      setCaptchaToken('');
+      captchaRef.current?.resetCaptcha();
+    }
+  };
+
   // 认证状态尚未确认 → 显示加载中，避免闪烁
   if (!authReady && !user) {
     return (
@@ -506,6 +545,19 @@ function LoginPageContent() {
                     </li>
                   ))}
                 </ul>
+              )}
+              {mode === 'login' && (
+                <button
+                  type="button"
+                  className={styles.forgotButton}
+                  onClick={handlePasswordReset}
+                  disabled={loading || oauthLoading || resetLoading || (hcaptchaSiteKey && !captchaToken)}
+                >
+                  {resetLoading
+                    ? <><FaSyncAlt className={styles.spin} /> {t.resetSending}</>
+                    : <><FaKey /> {t.forgotPassword}</>
+                  }
+                </button>
               )}
             </div>
 
