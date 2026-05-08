@@ -387,7 +387,7 @@ create table if not exists api_access_requests (
   organization               text not null default '',
   contact_email              text not null default '',
   website                    text not null default '',
-  intended_use               text not null,
+  intended_use               text not null default '',
   commercial_use             boolean not null default false,
 
   -- 商业化/访问级别预留字段：第一版统一使用 free 配置。
@@ -406,7 +406,7 @@ create table if not exists api_access_requests (
   constraint api_access_requests_user_unique unique (user_id),
   constraint api_access_requests_status_check check (status in ('pending', 'approved', 'rejected', 'revoked')),
   constraint api_access_requests_plan_check check (plan in ('free', 'research', 'partner', 'commercial')),
-  constraint api_access_requests_intended_use_length check (char_length(trim(intended_use)) between 20 and 4000),
+  constraint api_access_requests_intended_use_length check (char_length(trim(intended_use)) <= 4000),
   constraint api_access_requests_rate_limit_check check (rate_limit_per_minute between 1 and 600),
   constraint api_access_requests_max_keys_check check (max_active_keys between 1 and 10)
 );
@@ -421,6 +421,15 @@ create trigger update_api_access_requests_updated_at
   before update on api_access_requests
   for each row
   execute function update_updated_at_column();
+
+-- 使用目的为选填，只保留最大长度限制。
+update api_access_requests set intended_use = '' where intended_use is null;
+alter table api_access_requests alter column intended_use set default '';
+alter table api_access_requests alter column intended_use set not null;
+alter table api_access_requests drop constraint if exists api_access_requests_intended_use_length;
+alter table api_access_requests
+  add constraint api_access_requests_intended_use_length
+  check (char_length(trim(intended_use)) <= 4000);
 
 -- 清理旧版字段，当前只保留每分钟限流。
 alter table api_access_requests drop constraint if exists api_access_requests_expected_monthly_check;

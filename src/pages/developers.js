@@ -34,7 +34,7 @@ const T = {
     loginRequired: '登录后可以申请 API 访问权限并管理 API Key。',
     login: '登录 / 注册',
     accessRequestTitle: '申请 API 访问权限',
-    accessRequestDesc: '请简单说明你的使用场景。提交后由项目维护者审核，审核通过后即可创建 API Key。',
+    accessRequestDesc: '提交后由项目维护者审核，审核通过后即可创建 API Key。',
     applicantName: '姓名 / 昵称',
     applicantNamePlaceholder: '例如：山田太郎',
     organization: '组织 / 学校 / 项目',
@@ -42,8 +42,8 @@ const T = {
     contactEmail: '联系邮箱',
     website: '项目网址 / GitHub',
     websitePlaceholder: '可选',
-    intendedUse: '使用目的',
-    intendedUsePlaceholder: '请说明你计划如何使用这些题目与答案数据，至少 20 个字符。',
+    intendedUse: '使用目的（选填）',
+    intendedUsePlaceholder: '可选：简单说明你计划如何使用这些题目与答案数据。',
     commercialUse: '包含商业用途',
     submitRequest: '提交申请',
     submittingRequest: '提交中...',
@@ -51,7 +51,7 @@ const T = {
     requestPendingTitle: '申请审核中',
     requestPendingDesc: '你的 API 访问申请正在等待审核。审核通过后，这里会开放 API Key 创建功能。',
     requestRejectedTitle: '申请未通过',
-    requestRejectedDesc: '你可以修改使用说明后重新提交申请。',
+    requestRejectedDesc: '你可以修改申请信息后重新提交申请。',
     requestRevokedTitle: 'API 访问已暂停',
     requestRevokedDesc: '该账号的 API 访问权限已被暂停。如需恢复，请联系项目维护者。',
     reviewNote: '审核备注',
@@ -105,7 +105,7 @@ const T = {
     loginRequired: 'ログインすると API アクセスを申請し、API Key を管理できます。',
     login: 'ログイン / 登録',
     accessRequestTitle: 'API アクセスを申請',
-    accessRequestDesc: '利用目的を簡単に記入してください。プロジェクトメンテナーの承認後、API Key を作成できます。',
+    accessRequestDesc: 'プロジェクトメンテナーの承認後、API Key を作成できます。',
     applicantName: '名前 / ニックネーム',
     applicantNamePlaceholder: '例：山田太郎',
     organization: '所属 / 学校 / プロジェクト',
@@ -113,8 +113,8 @@ const T = {
     contactEmail: '連絡先メール',
     website: 'プロジェクト URL / GitHub',
     websitePlaceholder: '任意',
-    intendedUse: '利用目的',
-    intendedUsePlaceholder: '問題と解答データをどのように利用する予定かを 20 文字以上で記入してください。',
+    intendedUse: '利用目的（任意）',
+    intendedUsePlaceholder: '任意：問題と解答データをどのように利用する予定かを簡単に記入してください。',
     commercialUse: '商用利用を含む',
     submitRequest: '申請を送信',
     submittingRequest: '送信中...',
@@ -122,7 +122,7 @@ const T = {
     requestPendingTitle: '申請は確認中です',
     requestPendingDesc: 'API アクセス申請は審査待ちです。承認後、このページで API Key を作成できます。',
     requestRejectedTitle: '申請は承認されませんでした',
-    requestRejectedDesc: '利用目的を修正して再申請できます。',
+    requestRejectedDesc: '申請内容を修正して再申請できます。',
     requestRevokedTitle: 'API アクセスは停止されています',
     requestRevokedDesc: 'このアカウントの API アクセスは停止されています。再開が必要な場合はメンテナーへ連絡してください。',
     reviewNote: '審査メモ',
@@ -453,10 +453,8 @@ export function DeveloperApiContent() {
                   value={requestForm.intendedUse}
                   onChange={(event) => handleRequestChange('intendedUse', event.target.value)}
                   placeholder={t.intendedUsePlaceholder}
-                  minLength={20}
                   maxLength={4000}
                   rows={5}
-                  required
                 />
               </label>
             </div>

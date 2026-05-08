@@ -94,7 +94,7 @@ Registered users can request JSON API access in the developer center. After a pr
 
 ### For registered users
 1. Log in on the website and open `/developers`, then enter the JSON API feature. You can also open `/developers/api` directly.
-2. Submit an API access request describing the intended use, expected usage volume, and whether it includes commercial use.
+2. Submit an API access request. Intended use is optional; mark the commercial-use checkbox when applicable.
 3. Wait for project maintainer review. Once approved, the page will allow API key creation.
 4. Create an API key and save the `kai_live_...` value immediately.
 5. Call the content API with `Authorization: Bearer kai_live_...`. The content API does not accept anonymous requests or login JWTs.

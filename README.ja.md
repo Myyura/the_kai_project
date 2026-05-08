@@ -91,7 +91,7 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 
 ### 登録ユーザー向けの使い方
 1. Web サイトにログインし、`/developers` から JSON API 機能に入ります。`/developers/api` を直接開くこともできます。
-2. 利用目的、想定利用量、商用利用の有無を記入して API アクセスを申請します。
+2. API アクセスを申請します。利用目的は任意項目です。商用利用を含む場合はチェックしてください。
 3. プロジェクトメンテナーの審査を待ちます。承認後、このページで API Key を作成できます。
 4. API Key を作成し、`kai_live_...` の値をすぐに保存します。
 5. `Authorization: Bearer kai_live_...` を付けて Content API を呼び出します。Content API は匿名リクエストやログイン JWT を受け付けません。

@@ -194,10 +194,6 @@ async function requestAccess(user: { id: string; email?: string }, body: Record<
   const intendedUse = cleanText(body?.intendedUse, 4000);
   const commercialUse = Boolean(body?.commercialUse);
 
-  if (intendedUse.length < 20) {
-    return errorResponse(400, 'intended_use_too_short', 'Please describe the intended API use in at least 20 characters.');
-  }
-
   const payload = {
     user_id: user.id,
     status: 'pending',
