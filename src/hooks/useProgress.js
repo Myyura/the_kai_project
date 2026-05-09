@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { getCalibratedNow } from '../services/syncService';
+import { addStorageOwnerChangeListener, getScopedStorageKey } from '../services/localStorageScope';
 
 export const STORAGE_KEY = 'kai_progress';
 
@@ -12,13 +13,16 @@ export const STATUS = {
 // 模块级缓存，避免多组件同时 JSON.parse
 let _progressCache = null;
 let _progressRaw = null;
+let _progressStorageKey = null;
 
 // 从 localStorage 读取全部进度数据
-export const readProgressData = () => {
+export const readProgressData = ({ storageOwner } = {}) => {
   if (typeof window === 'undefined') return {};
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw === _progressRaw && _progressCache) return _progressCache;
+    const key = getScopedStorageKey(STORAGE_KEY, storageOwner);
+    const raw = localStorage.getItem(key);
+    if (key === _progressStorageKey && raw === _progressRaw && _progressCache) return _progressCache;
+    _progressStorageKey = key;
     _progressRaw = raw;
     _progressCache = raw ? JSON.parse(raw) : {};
     return _progressCache;
@@ -28,19 +32,23 @@ export const readProgressData = () => {
 };
 
 // 将进度数据写入 localStorage 并触发更新事件
-export const writeProgressData = (data, { skipDirty = false } = {}) => {
+export const writeProgressData = (data, { skipDirty = false, storageOwner } = {}) => {
   if (typeof window === 'undefined') return;
   try {
+    const key = getScopedStorageKey(STORAGE_KEY, storageOwner);
     const json = JSON.stringify(data);
     // 数据未变化时跳过写入和脏标记，减少无效同步请求
-    if (json === _progressRaw) return;
+    if (key === _progressStorageKey && json === _progressRaw) return;
+    _progressStorageKey = key;
     _progressRaw = json;
     _progressCache = data;
-    localStorage.setItem(STORAGE_KEY, json);
-    window.dispatchEvent(new Event('kai_progress_updated'));
+    localStorage.setItem(key, json);
+    if (key === getScopedStorageKey(STORAGE_KEY)) {
+      window.dispatchEvent(new Event('kai_progress_updated'));
+    }
     // 标记本地有未同步修改（从云端拉取写入时 skipDirty=true）
     if (!skipDirty) {
-      import('../services/syncService').then(m => m.markSyncDirty()).catch(() => {});
+      import('../services/syncService').then(m => m.markSyncDirty({ storageOwner })).catch(() => {});
     }
   } catch {}
 };
@@ -87,7 +95,11 @@ export const useDocProgress = (docId, title, permalink, tags) => {
   useEffect(() => {
     const handler = () => setData(readProgressData());
     window.addEventListener('kai_progress_updated', handler);
-    return () => window.removeEventListener('kai_progress_updated', handler);
+    const removeStorageOwnerListener = addStorageOwnerChangeListener(handler);
+    return () => {
+      window.removeEventListener('kai_progress_updated', handler);
+      removeStorageOwnerListener();
+    };
   }, []);
 
   const entry = data[docId];
@@ -147,7 +159,11 @@ export const useAllProgress = () => {
     setData(readProgressData());
     const handler = () => setData(readProgressData());
     window.addEventListener('kai_progress_updated', handler);
-    return () => window.removeEventListener('kai_progress_updated', handler);
+    const removeStorageOwnerListener = addStorageOwnerChangeListener(handler);
+    return () => {
+      window.removeEventListener('kai_progress_updated', handler);
+      removeStorageOwnerListener();
+    };
   }, []);
 
   const entries = useMemo(

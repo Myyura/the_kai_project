@@ -9,6 +9,7 @@
  */
 
 import { getSupabaseClient } from './supabaseClient';
+import { getScopedStorageKey, getStorageOwnerForUser } from './localStorageScope';
 import { validateSyncData } from './authSecurity';
 import { readProgressData, writeProgressData } from '../hooks/useProgress';
 import { readNotesData, writeNotesData } from '../hooks/useNotes';
@@ -31,18 +32,18 @@ let _serverTimeOffset = null;
 let _calibratePromise = null;
 
 /** 标记本地数据已修改，待同步 */
-export const markSyncDirty = () => {
-  try { localStorage.setItem(SYNC_DIRTY_KEY, '1'); } catch {}
+export const markSyncDirty = ({ storageOwner } = {}) => {
+  try { localStorage.setItem(getScopedStorageKey(SYNC_DIRTY_KEY, storageOwner), '1'); } catch {}
 };
 
 /** 检查是否有待同步的本地修改 */
-export const isSyncDirty = () => {
-  try { return localStorage.getItem(SYNC_DIRTY_KEY) === '1'; } catch { return false; }
+export const isSyncDirty = ({ storageOwner } = {}) => {
+  try { return localStorage.getItem(getScopedStorageKey(SYNC_DIRTY_KEY, storageOwner)) === '1'; } catch { return false; }
 };
 
 /** 清除脏标记（同步成功后调用） */
-export const clearSyncDirty = () => {
-  try { localStorage.removeItem(SYNC_DIRTY_KEY); } catch {}
+export const clearSyncDirty = ({ storageOwner } = {}) => {
+  try { localStorage.removeItem(getScopedStorageKey(SYNC_DIRTY_KEY, storageOwner)); } catch {}
 };
 
 /**
@@ -103,9 +104,9 @@ const toMs = (value, fallback = 0) => {
 
 const toIsoFromMs = (ms) => new Date(toMs(ms, Date.now())).toISOString();
 
-const readJsonObject = (key) => {
+const readJsonObject = (key, storageOwner) => {
   try {
-    const raw = localStorage.getItem(key);
+    const raw = localStorage.getItem(getScopedStorageKey(key, storageOwner));
     if (!raw) return {};
     const parsed = JSON.parse(raw);
     if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
@@ -113,20 +114,20 @@ const readJsonObject = (key) => {
   return {};
 };
 
-const writeJsonObject = (key, value) => {
-  try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+const writeJsonObject = (key, value, storageOwner) => {
+  try { localStorage.setItem(getScopedStorageKey(key, storageOwner), JSON.stringify(value)); } catch {}
 };
 
-const readSyncCursorMs = () => {
+const readSyncCursorMs = (storageOwner) => {
   try {
-    return toMs(localStorage.getItem(SYNC_CURSOR_KEY), 0);
+    return toMs(localStorage.getItem(getScopedStorageKey(SYNC_CURSOR_KEY, storageOwner)), 0);
   } catch {
     return 0;
   }
 };
 
-const writeSyncCursorMs = (ms) => {
-  try { localStorage.setItem(SYNC_CURSOR_KEY, String(toMs(ms, Date.now()))); } catch {}
+const writeSyncCursorMs = (ms, storageOwner) => {
+  try { localStorage.setItem(getScopedStorageKey(SYNC_CURSOR_KEY, storageOwner), String(toMs(ms, Date.now()))); } catch {}
 };
 
 const buildSnapshot = (map) => {
@@ -138,23 +139,23 @@ const buildSnapshot = (map) => {
   return snapshot;
 };
 
-const readSnapshots = () => ({
-  progress: readJsonObject(PROGRESS_SNAPSHOT_KEY),
-  notes: readJsonObject(NOTES_SNAPSHOT_KEY),
+const readSnapshots = (storageOwner) => ({
+  progress: readJsonObject(PROGRESS_SNAPSHOT_KEY, storageOwner),
+  notes: readJsonObject(NOTES_SNAPSHOT_KEY, storageOwner),
 });
 
-const writeSnapshots = (progressMap, notesMap) => {
-  writeJsonObject(PROGRESS_SNAPSHOT_KEY, buildSnapshot(progressMap));
-  writeJsonObject(NOTES_SNAPSHOT_KEY, buildSnapshot(notesMap));
+const writeSnapshots = (progressMap, notesMap, storageOwner) => {
+  writeJsonObject(PROGRESS_SNAPSHOT_KEY, buildSnapshot(progressMap), storageOwner);
+  writeJsonObject(NOTES_SNAPSHOT_KEY, buildSnapshot(notesMap), storageOwner);
 };
 
-const saveConflictHints = (conflicts) => {
+const saveConflictHints = (conflicts, storageOwner) => {
   if (!Array.isArray(conflicts) || conflicts.length === 0) return;
   writeJsonObject(SYNC_CONFLICT_LOG_KEY, {
     at: Date.now(),
     count: conflicts.length,
     conflicts: conflicts.slice(0, 30),
-  });
+  }, storageOwner);
 };
 
 const normalizeProgressEntry = (docId, raw) => {
@@ -608,10 +609,10 @@ const applyRemoteNoteRows = (localMap, rows, cursorMs, conflicts) => {
   return { nextMap: next, applied, remoteAppliedIds };
 };
 
-const checkpointSync = ({ progressMap, notesMap, cursorMs }) => {
-  writeSnapshots(progressMap, notesMap);
-  writeSyncCursorMs(cursorMs);
-  clearSyncDirty();
+const checkpointSync = ({ progressMap, notesMap, cursorMs, storageOwner }) => {
+  writeSnapshots(progressMap, notesMap, storageOwner);
+  writeSyncCursorMs(cursorMs, storageOwner);
+  clearSyncDirty({ storageOwner });
 };
 
 // ── 核心 API ────────────────────────────────────────────────
@@ -662,14 +663,15 @@ export const pushLocalData = async (_userId) => {
 
   const userId = _userId || await getCurrentUserId();
   if (!userId) throw new Error('未登录');
+  const storageOwner = getStorageOwnerForUser(userId);
 
   await calibrateServerTime();
 
-  const localProgress = sanitizeProgressMap(readProgressData());
-  const localNotes = sanitizeNotesMap(readNotesData());
+  const localProgress = sanitizeProgressMap(readProgressData({ storageOwner }));
+  const localNotes = sanitizeNotesMap(readNotesData({ storageOwner }));
   assertValidSyncData(localProgress, localNotes);
 
-  const snapshots = readSnapshots();
+  const snapshots = readSnapshots(storageOwner);
   const progressDelta = computeLocalDelta(localProgress, snapshots.progress);
   const notesDelta = computeLocalDelta(localNotes, snapshots.notes);
 
@@ -681,7 +683,7 @@ export const pushLocalData = async (_userId) => {
 
   if (totalDelta === 0) {
     const nowMs = getCalibratedNow();
-    checkpointSync({ progressMap: localProgress, notesMap: localNotes, cursorMs: nowMs });
+    checkpointSync({ progressMap: localProgress, notesMap: localNotes, cursorMs: nowMs, storageOwner });
     return {
       pushed: false,
       reason: 'no_local_changes',
@@ -700,7 +702,7 @@ export const pushLocalData = async (_userId) => {
   ]);
 
   const nowMs = getCalibratedNow();
-  checkpointSync({ progressMap: localProgress, notesMap: localNotes, cursorMs: nowMs });
+  checkpointSync({ progressMap: localProgress, notesMap: localNotes, cursorMs: nowMs, storageOwner });
 
   return {
     pushed: true,
@@ -724,16 +726,17 @@ export const pullRemoteData = async (_userId) => {
 
   const userId = _userId || await getCurrentUserId();
   if (!userId) throw new Error('未登录');
+  const storageOwner = getStorageOwnerForUser(userId);
 
   await calibrateServerTime();
 
-  const cursorMs = readSyncCursorMs();
+  const cursorMs = readSyncCursorMs(storageOwner);
   const { progressRows, noteRows } = await fetchRemoteRows(sb, userId, cursorMs);
   const noRemoteChanges = progressRows.length === 0 && noteRows.length === 0;
 
   const conflicts = [];
-  const localProgress = sanitizeProgressMap(readProgressData());
-  const localNotes = sanitizeNotesMap(readNotesData());
+  const localProgress = sanitizeProgressMap(readProgressData({ storageOwner }));
+  const localNotes = sanitizeNotesMap(readNotesData({ storageOwner }));
 
   const progressRes = applyRemoteProgressRows(localProgress, progressRows, cursorMs, conflicts);
   const notesRes = applyRemoteNoteRows(localNotes, noteRows, cursorMs, conflicts);
@@ -742,12 +745,12 @@ export const pullRemoteData = async (_userId) => {
 
   assertValidSyncData(mergedProgress, mergedNotes);
 
-  if (progressRes.applied > 0) writeProgressData(mergedProgress, { skipDirty: true });
-  if (notesRes.applied > 0) writeNotesData(mergedNotes, { skipDirty: true });
+  if (progressRes.applied > 0) writeProgressData(mergedProgress, { skipDirty: true, storageOwner });
+  if (notesRes.applied > 0) writeNotesData(mergedNotes, { skipDirty: true, storageOwner });
 
   const nowMs = getCalibratedNow();
-  checkpointSync({ progressMap: mergedProgress, notesMap: mergedNotes, cursorMs: nowMs });
-  saveConflictHints(conflicts);
+  checkpointSync({ progressMap: mergedProgress, notesMap: mergedNotes, cursorMs: nowMs, storageOwner });
+  saveConflictHints(conflicts, storageOwner);
 
   return {
     pulled: !noRemoteChanges,
@@ -774,14 +777,15 @@ export const syncMerge = async (_userId) => {
 
   const userId = _userId || await getCurrentUserId();
   if (!userId) throw new Error('未登录');
+  const storageOwner = getStorageOwnerForUser(userId);
 
   await calibrateServerTime();
 
-  const cursorMs = readSyncCursorMs();
-  const snapshots = readSnapshots();
+  const cursorMs = readSyncCursorMs(storageOwner);
+  const snapshots = readSnapshots(storageOwner);
 
-  const baseProgress = sanitizeProgressMap(readProgressData());
-  const baseNotes = sanitizeNotesMap(readNotesData());
+  const baseProgress = sanitizeProgressMap(readProgressData({ storageOwner }));
+  const baseNotes = sanitizeNotesMap(readNotesData({ storageOwner }));
 
   const { progressRows, noteRows } = await fetchRemoteRows(sb, userId, cursorMs);
 
@@ -793,8 +797,8 @@ export const syncMerge = async (_userId) => {
   const mergedNotes = notesRes.nextMap;
   assertValidSyncData(mergedProgress, mergedNotes);
 
-  if (progressRes.applied > 0) writeProgressData(mergedProgress, { skipDirty: true });
-  if (notesRes.applied > 0) writeNotesData(mergedNotes, { skipDirty: true });
+  if (progressRes.applied > 0) writeProgressData(mergedProgress, { skipDirty: true, storageOwner });
+  if (notesRes.applied > 0) writeNotesData(mergedNotes, { skipDirty: true, storageOwner });
 
   const progressDelta = computeLocalDelta(
     mergedProgress,
@@ -816,8 +820,8 @@ export const syncMerge = async (_userId) => {
   ]);
 
   const nowMs = getCalibratedNow();
-  checkpointSync({ progressMap: mergedProgress, notesMap: mergedNotes, cursorMs: nowMs });
-  saveConflictHints(conflicts);
+  checkpointSync({ progressMap: mergedProgress, notesMap: mergedNotes, cursorMs: nowMs, storageOwner });
+  saveConflictHints(conflicts, storageOwner);
 
   return {
     progressKeys: Object.keys(mergedProgress).length,

@@ -12,6 +12,12 @@
 import React, { createContext, useState, useEffect, useCallback, useRef } from 'react';
 import { useInitSupabase, getCachedUser } from '../services/supabaseClient';
 import {
+  getScopedStorageKey,
+  getStorageOwner,
+  getStorageOwnerForUser,
+  setStorageOwner,
+} from '../services/localStorageScope';
+import {
   syncMerge,
   pushLocalData,
   pullRemoteData,
@@ -30,6 +36,16 @@ import {
 const LAST_SYNCED_KEY = 'kai_last_synced';
 const AUTO_SYNC_INTERVAL_MS = 60_000;
 
+const readLastSynced = () => {
+  try {
+    const ts = localStorage.getItem(getScopedStorageKey(LAST_SYNCED_KEY));
+    const parsed = ts ? Number(ts) : null;
+    return Number.isFinite(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+};
+
 /** @type {React.Context<ReturnType<typeof useSyncInternal> | null>} */
 export const SyncContext = createContext(null);
 
@@ -42,23 +58,22 @@ function useSyncInternal() {
 
   // 同步读取缓存的 user，避免异步 getSession 导致的闪烁
   const [user, setUser] = useState(() => {
-    try { return getCachedUser(); } catch { return null; }
+    try {
+      const cachedUser = getCachedUser();
+      setStorageOwner(cachedUser?.id ?? null, { notify: false });
+      return cachedUser;
+    } catch {
+      setStorageOwner(null, { notify: false });
+      return null;
+    }
   });
   const [authReady, setAuthReady] = useState(false);
   const [syncing, setSyncing] = useState(false);
-  const [lastSynced, setLastSynced] = useState(null);
+  const [lastSynced, setLastSynced] = useState(() => readLastSynced());
   const [error, setError] = useState(null);
   const mountedRef = useRef(true);
   const initialPullUserRef = useRef(null);
   const initialPullDoneRef = useRef(false);
-
-  // 读取上次同步时间
-  useEffect(() => {
-    try {
-      const ts = localStorage.getItem(LAST_SYNCED_KEY);
-      if (ts) setLastSynced(Number(ts));
-    } catch {}
-  }, []);
 
   // 认证状态监听（全局唯一）
   useEffect(() => {
@@ -96,20 +111,25 @@ function useSyncInternal() {
     return () => { mountedRef.current = false; };
   }, []);
 
-  // 登录用户变化时，重置“首次拉取”标记
+  // 登录用户变化时，切换本地数据命名空间并重置“首次拉取”标记
   useEffect(() => {
     const userId = user?.id ?? null;
     if (initialPullUserRef.current !== userId) {
+      setStorageOwner(userId);
+      setLastSynced(readLastSynced());
       initialPullUserRef.current = userId;
       initialPullDoneRef.current = false;
     }
   }, [user?.id]);
 
-  const recordSync = useCallback(() => {
+  const recordSync = useCallback((userId) => {
+    const storageOwner = getStorageOwnerForUser(userId);
     const ts = Date.now();
-    setLastSynced(ts);
-    localStorage.setItem(LAST_SYNCED_KEY, String(ts));
-    clearSyncDirty();
+    localStorage.setItem(getScopedStorageKey(LAST_SYNCED_KEY, storageOwner), String(ts));
+    clearSyncDirty({ storageOwner });
+    if (getStorageOwner() === storageOwner) {
+      setLastSynced(ts);
+    }
   }, []);
 
   // ── 登录后自动同步（每分钟增量检查） ─────────────────────
@@ -130,7 +150,8 @@ function useSyncInternal() {
       ) return;
 
       const userId = user.id;
-      const shouldMerge = isSyncDirty();
+      const storageOwner = getStorageOwnerForUser(userId);
+      const shouldMerge = isSyncDirty({ storageOwner });
       const shouldInitialPull = !initialPullDoneRef.current;
       if (!shouldMerge && !shouldInitialPull) return;
 
@@ -138,14 +159,18 @@ function useSyncInternal() {
       try {
         if (shouldMerge) {
           await syncMerge(userId);
-          initialPullDoneRef.current = true;
+          if (initialPullUserRef.current === userId) {
+            initialPullDoneRef.current = true;
+          }
         } else if (shouldInitialPull) {
           await pullRemoteData(userId);
-          initialPullDoneRef.current = true;
+          if (initialPullUserRef.current === userId) {
+            initialPullDoneRef.current = true;
+          }
         }
 
         if (mountedRef.current) {
-          recordSync();
+          recordSync(userId);
         }
       } catch {
         // 静默失败，等待下一次定时/online/可见时重试
@@ -183,9 +208,10 @@ function useSyncInternal() {
   const sync = useCallback(async () => {
     setSyncing(true);
     setError(null);
+    const userId = user?.id;
     try {
-      const result = await syncMerge(user?.id);
-      recordSync();
+      const result = await syncMerge(userId);
+      recordSync(userId);
       return result;
     } catch (err) {
       setError(err.message || '同步失败');
@@ -198,9 +224,10 @@ function useSyncInternal() {
   const push = useCallback(async () => {
     setSyncing(true);
     setError(null);
+    const userId = user?.id;
     try {
-      await pushLocalData(user?.id);
-      recordSync();
+      await pushLocalData(userId);
+      recordSync(userId);
     } catch (err) {
       setError(err.message || '推送失败');
       throw err;
@@ -212,9 +239,10 @@ function useSyncInternal() {
   const pull = useCallback(async () => {
     setSyncing(true);
     setError(null);
+    const userId = user?.id;
     try {
-      const result = await pullRemoteData(user?.id);
-      if (result.pulled) recordSync();
+      const result = await pullRemoteData(userId);
+      if (result.pulled) recordSync(userId);
       return result;
     } catch (err) {
       setError(err.message || '拉取失败');
