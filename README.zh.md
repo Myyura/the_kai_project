@@ -63,13 +63,19 @@ yarn serve
 
 ```bash
 yarn generate:universities
+yarn generate:site-stats
+yarn content:validate
 yarn review:format
 yarn api:validate
 ```
 
 - `yarn generate:universities`：当你修改 `docs/` 目录结构或 `_category_.json` 标签后，重新生成 `src/data/universities.js`。
+- `yarn generate:site-stats`：使用 JSON API 的同一套扫描逻辑重新生成 `src/data/siteStats.json`。
+- `yarn content:validate`：校验 `src/data/` 下贡献者可编辑的 JSON 数据，包括参考链接、录取数据和大学元数据。
 - `yarn review:format`：在提交 PR 前检查 `docs/` 下题解文档的格式。
 - `yarn api:validate`：检查 JSON API 使用的结构化题库数据。
+
+贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`admissions.json`、`universityMetadata.json`。自动生成的 `universities.js` 和 `siteStats.json` 可用上面的脚本刷新。
 
 ## 可选的云同步配置
 即使不配置云端环境变量，站点的核心功能仍可正常使用，包括文档、博客、本地做题进度和本地笔记。若不配置下面这些变量，则登录、云同步和排行榜功能不可用。

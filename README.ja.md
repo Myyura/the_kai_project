@@ -63,11 +63,19 @@ yarn serve
 
 ```bash
 yarn generate:universities
+yarn generate:site-stats
+yarn content:validate
 yarn review:format
+yarn api:validate
 ```
 
 - `yarn generate:universities`: `docs/` の構成や `_category_.json` を変更したあと、`src/data/universities.js` を再生成します。
+- `yarn generate:site-stats`: JSON API と同じスキャン結果から `src/data/siteStats.json` を再生成します。
+- `yarn content:validate`: `src/data/` 配下の編集可能な JSON データ（リンク、入試データ、大学メタデータ）を検証します。
 - `yarn review:format`: `docs/` 配下の解答ドキュメント形式をレビューします。
+- `yarn api:validate`: 公開 JSON API 用の構造化データを検証します。
+
+コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`admissions.json`、`universityMetadata.json` にあります。生成ファイルの `universities.js` と `siteStats.json` は上記スクリプトで更新できます。
 
 ## 任意のクラウド同期設定
 クラウド用の環境変数がなくても、ドキュメント、ブログ、ローカル進捗、ローカルノートなどの基本機能はそのまま使えます。以下の変数を設定しない場合、ログイン、クラウド同期、ランキングは利用できません。

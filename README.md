@@ -64,13 +64,19 @@ Useful repository scripts:
 
 ```bash
 yarn generate:universities
+yarn generate:site-stats
+yarn content:validate
 yarn review:format
 yarn api:validate
 ```
 
 - `yarn generate:universities`: regenerate `src/data/universities.js` after changing the `docs/` directory structure or `_category_.json` labels.
+- `yarn generate:site-stats`: regenerate `src/data/siteStats.json` from the same scan used by the public JSON API.
+- `yarn content:validate`: validate contributor-editable JSON data under `src/data/`, including links, admissions, and university metadata.
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
 - `yarn api:validate`: validate the structured data used by the public JSON API.
+
+Contributor-editable content data lives in JSON files under `src/data/`: `links.json`, `admissions.json`, and `universityMetadata.json`. The generated `universities.js` and `siteStats.json` files should be refreshed with the scripts above.
 
 ## Optional cloud sync configuration
 The site works without any cloud credentials: documentation pages, blog posts, local progress tracking, and local notes still work. If the environment variables below are not set, login, cloud sync, and the leaderboard are unavailable.

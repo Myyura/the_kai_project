@@ -9,6 +9,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import { useStoredLanguage } from '../context/LanguageContext';
 import { useAllProgress, STATUS } from '../hooks/useProgress';
 import { universities } from '../data/universities';
+import siteStats from '../data/siteStats.json';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -195,8 +196,8 @@ const HeroSection = ({ language, toggleLanguage, t }) => {
 
         {/* 统计数据 */}
         <div className={styles.statsRow}>
-          <StatCard number="1000+" label={t.statsExams} delay="0.2s" />
-          <StatCard number="15+" label={t.statsUniversities} delay="0.3s" />
+          <StatCard number={String(siteStats.examDocuments)} label={t.statsExams} delay="0.2s" />
+          <StatCard number={String(siteStats.universities)} label={t.statsUniversities} delay="0.3s" />
           <StatCard number="🔥" label={t.statsCommunity} delay="0.4s" />
         </div>
 

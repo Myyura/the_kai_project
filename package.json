@@ -1,19 +1,23 @@
 {
-  "name": "docusaurus",
+  "name": "the-kai-project",
   "version": "0.0.0",
+  "description": "Open-source Japanese graduate school entrance exam archive and study platform.",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
+    "start": "node scripts/generate-site-stats.js && docusaurus start",
+    "build": "node scripts/validate-content-data.js && node scripts/generate-site-stats.js && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "dev": "docusaurus start",
+    "dev": "yarn start",
     "generate:universities": "node scripts/generate-universities.js",
+    "generate:site-stats": "node scripts/generate-site-stats.js",
+    "content:validate": "node scripts/validate-content-data.js",
+    "data:validate": "yarn content:validate && yarn api:validate",
     "review:format": "node scripts/review-format.js",
     "api:generate": "node scripts/generate-api-data.js",
     "api:validate": "node scripts/generate-api-data.js --validate",
@@ -62,6 +66,5 @@
   "engines": {
     "node": ">=20",
     "yarn": ">=1.22.0"
-  },
-  "description": "Docusaurus example project"
+  }
 }
