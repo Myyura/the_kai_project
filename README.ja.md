@@ -135,6 +135,8 @@ SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
 yarn api:sync
 ```
 
+このコマンドは現在の `docs/` ディレクトリをミラーします。現在のドキュメントを upsert し、ローカルに存在しない古い `exam_documents` 行を物理削除します。
+
 4. Supabase Function secrets に `API_LOG_SALT` が設定されていることを確認し、両方の function で JWT verification を無効にします。
 5. Supabase Dashboard で `api_access_requests` テーブルの申請を確認します。`status` を `approved` に変更すると API Key 作成を許可できます。拒否または停止する場合は `rejected` / `revoked` を使います。
 

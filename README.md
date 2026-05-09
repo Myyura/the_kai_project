@@ -138,6 +138,8 @@ SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
 yarn api:sync
 ```
 
+This command mirrors the current `docs/` tree: it upserts current documents and hard-deletes stale `exam_documents` rows whose `doc_id` no longer exists locally.
+
 4. Confirm the Supabase Function secrets include `API_LOG_SALT`, and disable JWT verification for both functions.
 5. Review requests in the `api_access_requests` table from the Supabase Dashboard: set `status` to `approved` to allow key creation, or use `rejected` / `revoked` to deny or pause access.
 

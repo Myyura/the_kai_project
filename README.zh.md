@@ -137,6 +137,8 @@ SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
 yarn api:sync
 ```
 
+该命令会镜像当前 `docs/` 目录：upsert 当前文档，并硬删除本地已不存在的 `exam_documents` 旧行。
+
 4. 确认 Supabase Function secrets 已配置 `API_LOG_SALT`，并关闭两个函数的 JWT verification。
 5. 通过 Supabase Dashboard 审核 `api_access_requests` 表中的申请：将 `status` 改为 `approved` 即可允许用户创建 API Key；可用 `rejected` 或 `revoked` 拒绝或暂停访问。
 
