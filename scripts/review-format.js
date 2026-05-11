@@ -12,6 +12,7 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
+const { validateTags } = require('./tag-taxonomy');
 
 const DOCS_DIR = path.resolve(__dirname, '..', 'docs');
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -202,6 +203,16 @@ function checkFile(filePath, content) {
 
   if (!fm.tags || fm.tags.length === 0) {
     issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: 'frontmatter-tags', message: '缺少或为空的 tags' });
+  } else {
+    for (const tagIssue of validateTags(fm.tags)) {
+      issues.push({
+        severity: tagIssue.severity,
+        file: relPath,
+        line: 1,
+        rule: tagIssue.rule,
+        message: tagIssue.message,
+      });
+    }
   }
 
   // 2. 标题检查（frontmatter 之后的第一行非空内容应为 H1）
@@ -397,6 +408,10 @@ function generateMarkdownReport(allIssues, totalFiles) {
     'frontmatter-invalid-yaml': 'frontmatter YAML 语法错误',
     'frontmatter-sidebar-label': '缺少 sidebar_label',
     'frontmatter-tags': '缺少 tags',
+    'frontmatter-tags-deprecated': '使用了已废弃 tag',
+    'frontmatter-tags-duplicate': '同一文档内重复 tag',
+    'frontmatter-tags-no-topic': '缺少考点 tag',
+    'frontmatter-tags-unknown': 'tag 池暂未收录的新 tag',
     'title-missing': '缺少 H1 标题',
     'section-missing-author': '缺少 Author 章节',
     'section-missing-description-or-kai': '缺少 Description/Kai 章节',

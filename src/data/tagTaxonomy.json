@@ -1,0 +1,354 @@
+{
+  "version": 1,
+  "policy": {
+    "unknownTags": "warning",
+    "deprecatedTags": "error",
+    "schoolTags": "derived-from-path-preferred"
+  },
+  "subjects": {
+    "Mathematics": {
+      "labelZh": "数学",
+      "labelJa": "数学",
+      "descriptionZh": "基础数学、应用数学、离散数学与概率统计。",
+      "descriptionJa": "基礎数学、応用数学、離散数学、確率統計。"
+    },
+    "Computer-Science": {
+      "labelZh": "计算机科学",
+      "labelJa": "計算機科学",
+      "descriptionZh": "算法、数据结构、形式语言、系统与计算理论。",
+      "descriptionJa": "アルゴリズム、データ構造、形式言語、システム、計算理論。"
+    },
+    "Electrical-Electronic": {
+      "labelZh": "电气电子",
+      "labelJa": "電気電子",
+      "descriptionZh": "电路、电子、信号、通信与计算机硬件。",
+      "descriptionJa": "回路、電子、信号、通信、計算機ハードウェア。"
+    },
+    "Physics": {
+      "labelZh": "物理",
+      "labelJa": "物理",
+      "descriptionZh": "力学、电磁学、量子与物理数学。",
+      "descriptionJa": "力学、電磁気学、量子論、物理数学。"
+    },
+    "Chemistry": {
+      "labelZh": "化学",
+      "labelJa": "化学",
+      "descriptionZh": "物理化学、无机化学等化学相关考点。",
+      "descriptionJa": "物理化学、無機化学などの化学分野。"
+    },
+    "Statistics-Data-Science": {
+      "labelZh": "统计与数据科学",
+      "labelJa": "統計・データ科学",
+      "descriptionZh": "统计推断、机器学习、信息论与数据分析。",
+      "descriptionJa": "統計推論、機械学習、情報理論、データ分析。"
+    },
+    "Operations-Research": {
+      "labelZh": "运筹与优化",
+      "labelJa": "オペレーションズ・リサーチ",
+      "descriptionZh": "优化、排队论、动态规划与决策问题。",
+      "descriptionJa": "最適化、待ち行列、動的計画法、意思決定問題。"
+    },
+    "Bioinformatics": {
+      "labelZh": "生命与认知信息",
+      "labelJa": "生命・認知情報",
+      "descriptionZh": "序列分析、认知神经、医学信息等交叉方向。",
+      "descriptionJa": "配列解析、認知神経、医療情報などの学際領域。"
+    },
+    "Engineering": {
+      "labelZh": "工学基础",
+      "labelJa": "工学基礎",
+      "descriptionZh": "机械、材料、土木等工学基础题。",
+      "descriptionJa": "機械、材料、土木などの工学基礎。"
+    },
+    "General": {
+      "labelZh": "资料与综合",
+      "labelJa": "資料・総合",
+      "descriptionZh": "题解说明、参考资料和暂不宜细分的综合标签。",
+      "descriptionJa": "解答方針、参考資料、まだ細分化しない総合タグ。"
+    }
+  },
+  "subjectOrder": [
+    "Mathematics",
+    "Computer-Science",
+    "Electrical-Electronic",
+    "Statistics-Data-Science",
+    "Operations-Research",
+    "Physics",
+    "Chemistry",
+    "Bioinformatics",
+    "Engineering",
+    "General"
+  ],
+  "schoolTags": {
+    "Tokyo-University": {
+      "universityId": "tokyo-university",
+      "label": "東京大学",
+      "aliases": ["tokyo-university", "東京大学"]
+    },
+    "Kyoto-University": {
+      "universityId": "kyoto-university",
+      "label": "京都大学",
+      "aliases": ["kyoto-university", "京都大学"]
+    },
+    "Kyushu-University": {
+      "universityId": "kyushu-university",
+      "label": "九州大学",
+      "aliases": ["kyushu-university", "九州大学"]
+    },
+    "TITech": {
+      "universityId": "TITech",
+      "label": "東京科學大學 旧・東京工業大学",
+      "aliases": ["Tokyo-Institute-of-Technology", "東京科學大學 旧・東京工業大学"]
+    },
+    "Nagoya-University": {
+      "universityId": "nagoya-university",
+      "label": "名古屋大学",
+      "aliases": ["nagoya-university", "名古屋大学"]
+    },
+    "Tohoku-University": {
+      "universityId": "tohoku-university",
+      "label": "東北大学",
+      "aliases": ["tohoku-university", "東北大学"]
+    },
+    "Osaka-University": {
+      "universityId": "osaka-university",
+      "label": "大阪大学",
+      "aliases": ["osaka-university", "大阪大学"]
+    },
+    "Hiroshima-University": {
+      "universityId": "hiroshima-university",
+      "label": "広島大学",
+      "aliases": ["hiroshima-university", "広島大学"]
+    },
+    "Kobe-University": {
+      "universityId": "kobe-university",
+      "label": "神戸大学",
+      "aliases": ["kobe-university", "神戸大学"]
+    },
+    "Waseda-University": {
+      "universityId": "waseda-university",
+      "label": "早稲田大学",
+      "aliases": ["waseda-university", "早稲田大学"]
+    },
+    "Tsukuba-University": {
+      "universityId": "tsukuba-university",
+      "label": "筑波大学",
+      "aliases": ["tsukuba-university", "筑波大学"]
+    },
+    "Hokkaido-University": {
+      "universityId": "hokkaido-university",
+      "label": "北海道大学",
+      "aliases": ["hokkaido-university", "北海道大学"]
+    },
+    "Kanazawa-University": {
+      "universityId": "kanazawa-university",
+      "label": "金沢大学",
+      "aliases": ["kanazawa-university", "金沢大学"]
+    },
+    "Keio-University": {
+      "universityId": "keio-university",
+      "label": "慶應義塾大学",
+      "aliases": ["keio-university", "慶應義塾大学"]
+    },
+    "Tokyo-University-of-Agriculture-and-Technology": {
+      "universityId": "TUAT",
+      "label": "東京農工大学",
+      "aliases": ["TUAT", "東京農工大学"]
+    },
+    "University-of-Electro-Communications": {
+      "universityId": "UEC",
+      "label": "電気通信大学",
+      "aliases": ["UEC", "電気通信大学"]
+    }
+  },
+  "topics": {
+    "Additive-Binary-Channel": {"subjects": ["Statistics-Data-Science", "Electrical-Electronic"]},
+    "Addressing-Modes": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Algorithm": {"subjects": ["Computer-Science"]},
+    "Algorithm-Complexity": {"subjects": ["Computer-Science"]},
+    "Assembly-Language": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Backtracking": {"subjects": ["Computer-Science"]},
+    "BFS": {"subjects": ["Computer-Science"]},
+    "Binary-Heap": {"subjects": ["Computer-Science"]},
+    "Binary-Insertion-Sort": {"subjects": ["Computer-Science"]},
+    "Binary-Linear-Codes": {"subjects": ["Statistics-Data-Science", "Electrical-Electronic"]},
+    "Binary-Search": {"subjects": ["Computer-Science"]},
+    "Binary-Search-Tree": {"subjects": ["Computer-Science"]},
+    "Bioinformatics": {"subjects": ["Bioinformatics"]},
+    "Bipartite-Graph": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Bipartite-Matching": {"subjects": ["Computer-Science", "Operations-Research", "Mathematics"]},
+    "Branch-And-Bound": {"subjects": ["Operations-Research", "Computer-Science"]},
+    "Branch-Penalty": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Branch-Prediction": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "BST": {"subjects": ["Computer-Science"]},
+    "Bubble-Sort": {"subjects": ["Computer-Science"]},
+    "Bucket-Sort": {"subjects": ["Computer-Science"]},
+    "Cache": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Calculus": {"subjects": ["Mathematics"]},
+    "Catalan-Number": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Channel-Capacity": {"subjects": ["Statistics-Data-Science", "Electrical-Electronic"]},
+    "Channel-Coding": {"subjects": ["Statistics-Data-Science", "Electrical-Electronic"]},
+    "Classification": {"subjects": ["Statistics-Data-Science"]},
+    "Cognitive-Neuroscience": {"subjects": ["Bioinformatics"]},
+    "Combinatorial-Circuit": {"subjects": ["Electrical-Electronic", "Computer-Science"]},
+    "Complete-Graph": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Complex-Analysis": {"subjects": ["Mathematics"]},
+    "Complex-Numbers": {"subjects": ["Mathematics"]},
+    "Computer-Architecture": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Conditional-Probability": {"subjects": ["Statistics-Data-Science", "Mathematics"]},
+    "Context-Free-Grammar": {"subjects": ["Computer-Science"]},
+    "Control-Hazard": {"subjects": ["Computer-Science", "Electrical-Electronic"], "aliases": ["Control-Hazards"]},
+    "Control-Theory": {"subjects": ["Electrical-Electronic", "Mathematics"]},
+    "Convolution": {"subjects": ["Mathematics", "Electrical-Electronic", "Computer-Science"]},
+    "Convex-Hull": {"subjects": ["Computer-Science", "Mathematics"]},
+    "Counting-Sort": {"subjects": ["Computer-Science"]},
+    "Cyclic-Code": {"subjects": ["Statistics-Data-Science", "Electrical-Electronic"]},
+    "Data-Structure": {"subjects": ["Computer-Science"]},
+    "Data-Structure-And-Algorithms": {"subjects": ["Computer-Science"]},
+    "Database": {"subjects": ["Computer-Science"]},
+    "Decision-Tree": {"subjects": ["Statistics-Data-Science", "Computer-Science"]},
+    "DFS": {"subjects": ["Computer-Science"]},
+    "Differential-Equation": {"subjects": ["Mathematics"]},
+    "Digital-Circuit": {"subjects": ["Electrical-Electronic", "Computer-Science"]},
+    "Digital-Signal": {"subjects": ["Electrical-Electronic"], "aliases": ["Ditital-Signal"]},
+    "Discrete-Fourier-Transform": {"subjects": ["Electrical-Electronic", "Mathematics"]},
+    "Discrete-Mathematics": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Divide-And-Conquer": {"subjects": ["Computer-Science"], "aliases": ["Divide-and-Conquer"]},
+    "Double-Pointer": {"subjects": ["Computer-Science"]},
+    "Dynamic-Programming": {"subjects": ["Computer-Science", "Operations-Research"]},
+    "Eigenvalues-and-Eigenvectors": {"subjects": ["Mathematics"]},
+    "Electrical-Circuit": {"subjects": ["Electrical-Electronic"]},
+    "Electromagnetism": {"subjects": ["Physics", "Electrical-Electronic"]},
+    "Electronic-Circuit": {"subjects": ["Electrical-Electronic"]},
+    "Entropy": {"subjects": ["Statistics-Data-Science"]},
+    "Euler-Circuit": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Exponential-Distribution": {"subjects": ["Statistics-Data-Science"]},
+    "Fisher-Exact-Test": {"subjects": ["Statistics-Data-Science", "Bioinformatics"]},
+    "Fisher-Linear-Discriminant-Analysis": {"subjects": ["Statistics-Data-Science"]},
+    "Floating-Point-Representation": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Formal-Languages-and-Automata-Theory": {"subjects": ["Computer-Science"]},
+    "Fourier-Analysis": {"subjects": ["Mathematics", "Electrical-Electronic"]},
+    "Geometry": {"subjects": ["Mathematics"]},
+    "Graphics": {"subjects": ["Computer-Science"]},
+    "Graph-Isomorphism": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Graph-Theory": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Greatest-Common-Divisor": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Greedy": {"subjects": ["Computer-Science"]},
+    "Green’s-Identity": {"subjects": ["Mathematics", "Physics"]},
+    "Half-Full-Adders": {"subjects": ["Electrical-Electronic", "Computer-Science"]},
+    "Hamming-Weight": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Hash-Table": {"subjects": ["Computer-Science"]},
+    "Heap-Sort": {"subjects": ["Computer-Science"]},
+    "Hermitian-Matrix": {"subjects": ["Mathematics", "Physics"]},
+    "Huffman-Coding": {"subjects": ["Computer-Science", "Statistics-Data-Science"]},
+    "IEEE-754": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Information-Theory": {"subjects": ["Statistics-Data-Science", "Computer-Science"]},
+    "Insertion-Sort": {"subjects": ["Computer-Science"]},
+    "Knapsack-Problem": {"subjects": ["Computer-Science", "Operations-Research"]},
+    "Knowledge-Representation": {"subjects": ["Computer-Science"]},
+    "Knuth-Morris-Pratt-Algorithm": {"subjects": ["Computer-Science"]},
+    "Least-Squares-Method": {"subjects": ["Statistics-Data-Science", "Mathematics"]},
+    "Linear-Algebra": {"subjects": ["Mathematics"]},
+    "Linear-Transformation": {"subjects": ["Mathematics"]},
+    "Logic-Design": {"subjects": ["Electrical-Electronic", "Computer-Science"]},
+    "Longest-Common-Subsequence": {"subjects": ["Computer-Science", "Bioinformatics"]},
+    "Longest-Palindrome-Substring": {"subjects": ["Computer-Science"]},
+    "Machine-Learning": {"subjects": ["Statistics-Data-Science", "Computer-Science"]},
+    "Markov-Chain": {"subjects": ["Statistics-Data-Science", "Mathematics"]},
+    "Markov-Information-Source": {"subjects": ["Statistics-Data-Science"]},
+    "Markov-Source": {"subjects": ["Statistics-Data-Science"]},
+    "Master-Theorem": {"subjects": ["Computer-Science"]},
+    "Matrix-Diagonalization": {"subjects": ["Mathematics"]},
+    "Matrix-Limit": {"subjects": ["Mathematics"]},
+    "Matrix-Multiplication-Algorithms": {"subjects": ["Computer-Science", "Mathematics"]},
+    "Max-Flow": {"subjects": ["Computer-Science", "Operations-Research", "Mathematics"]},
+    "Maximum-Likelihood-Estimation": {"subjects": ["Statistics-Data-Science"]},
+    "Maximum-Matching": {"subjects": ["Computer-Science", "Operations-Research", "Mathematics"]},
+    "Maximum-Subarray-Sum": {"subjects": ["Computer-Science"]},
+    "Mealy-Machine": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Mechanics": {"subjects": ["Physics", "Engineering"]},
+    "Mechanics-of-Materials": {"subjects": ["Engineering", "Physics"]},
+    "Median-Of-Medians": {"subjects": ["Computer-Science"]},
+    "Memory-Alignment": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Merge-Sort": {"subjects": ["Computer-Science"]},
+    "Minimum-Edit-Distance": {"subjects": ["Computer-Science", "Bioinformatics"]},
+    "Minimum-Spanning-Tree": {"subjects": ["Computer-Science", "Mathematics", "Operations-Research"]},
+    "Minimum-Window-Substring": {"subjects": ["Computer-Science"]},
+    "Monte-Carlo-Integration": {"subjects": ["Statistics-Data-Science", "Mathematics"]},
+    "Moore-Machine": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Mutual-Information": {"subjects": ["Statistics-Data-Science"]},
+    "Network": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Number-Representation": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Number-Theory": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Operating-System": {"subjects": ["Computer-Science"]},
+    "Operations-Research": {"subjects": ["Operations-Research", "Mathematics"]},
+    "Order-Statistics": {"subjects": ["Statistics-Data-Science", "Mathematics"]},
+    "Orthogonal-Decomposition": {"subjects": ["Mathematics"]},
+    "Parallelism": {"subjects": ["Computer-Science"]},
+    "Partitioning": {"subjects": ["Computer-Science"]},
+    "Performance-Analysis": {"subjects": ["Computer-Science"]},
+    "Pipeline": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Pipelining": {"subjects": ["Computer-Science", "Electrical-Electronic"]},
+    "Planar-Graph": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Priority-Queue": {"subjects": ["Computer-Science"]},
+    "Probability-And-Statistics": {"subjects": ["Statistics-Data-Science", "Mathematics"]},
+    "Programming": {"subjects": ["Computer-Science"]},
+    "Projection-And-Reconstruction": {"subjects": ["Computer-Science", "Mathematics"]},
+    "Pseudoinverse-Matrix": {"subjects": ["Mathematics"]},
+    "Quantum-Computing": {"subjects": ["Computer-Science", "Physics"]},
+    "Queue": {"subjects": ["Computer-Science"]},
+    "Queueing-Theory": {"subjects": ["Operations-Research", "Statistics-Data-Science"]},
+    "Quick-Select": {"subjects": ["Computer-Science"]},
+    "Quick-Sort": {"subjects": ["Computer-Science"]},
+    "Radix-Sort": {"subjects": ["Computer-Science"], "aliases": ["Radix-sort"]},
+    "Recurrence-Relation": {"subjects": ["Mathematics", "Computer-Science"]},
+    "Reinforcement-Learning": {"subjects": ["Statistics-Data-Science", "Computer-Science"]},
+    "Selection-Sort": {"subjects": ["Computer-Science"]},
+    "Semantic-Network": {"subjects": ["Computer-Science"]},
+    "Sequence-Alignment": {"subjects": ["Bioinformatics", "Computer-Science"]},
+    "Sequential-Circuit": {"subjects": ["Electrical-Electronic", "Computer-Science"]},
+    "Shortest-Path-Problem": {"subjects": ["Computer-Science", "Mathematics", "Operations-Research"]},
+    "Sigmoid-Function": {"subjects": ["Statistics-Data-Science", "Mathematics"]},
+    "Signal-Processing": {"subjects": ["Electrical-Electronic", "Mathematics"]},
+    "Sorting-Algorithm": {"subjects": ["Computer-Science"]},
+    "Source-Coding": {"subjects": ["Statistics-Data-Science", "Computer-Science"]},
+    "Stack": {"subjects": ["Computer-Science"]},
+    "String-Matching": {"subjects": ["Computer-Science"]},
+    "Subset-Sum-Problem": {"subjects": ["Computer-Science", "Operations-Research"]},
+    "SVD": {"subjects": ["Mathematics"]},
+    "Synchronous-Circuit": {"subjects": ["Electrical-Electronic", "Computer-Science"]},
+    "Trace-of-Matrix": {"subjects": ["Mathematics"]},
+    "Trie": {"subjects": ["Computer-Science"]},
+    "Union-Find-Data-Structure": {"subjects": ["Computer-Science"], "aliases": ["Union–Find-Data-Sturcture", "Union-Find-Data-Sturcture"]},
+    "Vector-Analysis": {"subjects": ["Mathematics", "Physics"]},
+    "Vector-Calculus": {"subjects": ["Mathematics", "Physics"]},
+    "Virtual-Memory": {"subjects": ["Computer-Science"]},
+    "Z-Transform": {"subjects": ["Electrical-Electronic", "Mathematics"]}
+  },
+  "deprecatedTags": {
+    "Control-Hazards": {
+      "replaceWith": "Control-Hazard",
+      "reason": "Use singular form for this architecture hazard tag."
+    },
+    "Ditital-Signal": {
+      "replaceWith": "Digital-Signal",
+      "reason": "Typo in Digital."
+    },
+    "Divide-and-Conquer": {
+      "replaceWith": "Divide-And-Conquer",
+      "reason": "Normalize capitalization."
+    },
+    "Radix-sort": {
+      "replaceWith": "Radix-Sort",
+      "reason": "Normalize capitalization."
+    },
+    "Union–Find-Data-Sturcture": {
+      "replaceWith": "Union-Find-Data-Structure",
+      "reason": "Typo in Structure and normalize dash characters."
+    },
+    "Union-Find-Data-Sturcture": {
+      "replaceWith": "Union-Find-Data-Structure",
+      "reason": "Typo in Structure."
+    }
+  }
+}

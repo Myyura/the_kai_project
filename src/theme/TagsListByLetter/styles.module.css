@@ -1,187 +1,332 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 .tagsContainer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin: 1.5rem 0;
+  gap: 1.25rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.summaryItem {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+}
+
+.summaryNumber {
+  display: block;
+  font-size: 1.45rem;
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+}
+
+.summaryLabel {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
 }
 
 .sectionCard {
-  background: var(--custom-card-bg);
-  backdrop-filter: var(--custom-blur);
-  -webkit-backdrop-filter: var(--custom-blur);
-  border-radius: var(--custom-border-radius);
-  border: 1px solid var(--custom-card-border);
-  box-shadow: var(--custom-box-shadow);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
   overflow: hidden;
-  transition: var(--custom-transition);
-}
-
-.sectionCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--custom-box-shadow-hover);
-  border-color: rgba(255, 255, 255, 0.7);
-}
-
-[data-theme='dark'] .sectionCard:hover {
-  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .sectionHeader {
   display: flex;
-  align-items: center;
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  background: linear-gradient(135deg, rgba(46, 133, 85, 0.1) 0%, rgba(46, 133, 85, 0.05) 100%);
-  backdrop-filter: var(--custom-blur-sm);
-  -webkit-backdrop-filter: var(--custom-blur-sm);
-}
-
-[data-theme='dark'] .sectionHeader {
-  background: linear-gradient(135deg, rgba(37, 194, 160, 0.15) 0%, rgba(37, 194, 160, 0.08) 100%);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-.sectionIcon {
-  font-size: 1.5rem;
-  margin-right: 0.75rem;
-  color: var(--ifm-color-primary);
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
 }
 
 .sectionTitle {
   margin: 0 !important;
-  font-size: 1.25rem !important;
+  font-size: 1.2rem !important;
+  line-height: 1.3;
   font-weight: 700;
-  color: var(--custom-text-primary);
-  flex: 1;
+  color: var(--ifm-heading-color);
+}
+
+.sectionSubtitle {
+  max-width: 54rem;
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ifm-color-emphasis-700);
 }
 
 .tagCount {
-  font-size: 0.85rem;
-  color: white;
-  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
-  padding: 0.3rem 0.85rem;
-  border-radius: 20px;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(46, 133, 85, 0.2);
+  flex: 0 0 auto;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--ifm-color-primary-lightest);
+  border-radius: 999px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-[data-theme='dark'] .tagCount {
-  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-darker));
-  box-shadow: 0 2px 8px rgba(37, 194, 160, 0.2);
-}
-
-.sectionContent {
-  padding: 1.25rem 1.5rem;
+.schoolGrid,
+.tagGrid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.55rem;
+  padding: 1rem 1.25rem 1.2rem;
 }
 
-.letterSection {
-  width: 100%;
-  margin-bottom: 1rem;
+.subjectList {
+  display: flex;
+  flex-direction: column;
 }
 
-.letterSection:last-child {
-  margin-bottom: 0;
+.subjectBlock {
+  padding: 1rem 1.25rem 1.15rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
-.letterHeading {
+.subjectBlock:last-child {
+  border-bottom: 0;
+}
+
+.subjectHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.subjectTitle {
+  margin: 0 !important;
   font-size: 1rem !important;
-  font-weight: 700;
-  color: var(--ifm-color-primary);
-  margin: 0 0 0.75rem 0 !important;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(46, 133, 85, 0.2);
-  display: inline-block;
+  line-height: 1.35;
+  color: var(--ifm-heading-color);
+}
+
+.subjectDescription {
+  margin: 0.2rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.subjectCount {
+  flex: 0 0 auto;
   min-width: 2rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.75rem;
+  font-weight: 700;
   text-align: center;
 }
 
-[data-theme='dark'] .letterHeading {
-  border-bottom-color: rgba(37, 194, 160, 0.3);
-}
-
-.tagList {
-  list-style: none;
+.subjectBlock .tagGrid {
   padding: 0;
-  margin: 0;
+}
+
+.tagPill {
+  display: inline-flex;
+  align-items: stretch;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  gap: 0.3rem;
+  padding: 0.42rem 0.48rem 0.42rem 0.7rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font-size: 0.88rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.tagMainRow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  gap: 0.45rem;
+}
+
+.tagPill:hover {
+  transform: translateY(-1px);
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary-contrast-background);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.withDetails {
+  padding-bottom: 0.5rem;
+}
+
+.tagName {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-weight: 650;
+}
+
+.tagPillCount {
+  flex: 0 0 auto;
+  min-width: 1.55rem;
+  padding: 0.1rem 0.38rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.74rem;
+  font-weight: 750;
+  text-align: center;
+}
+
+.tagDetailRow {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.6rem 0.8rem;
+  min-width: 0;
+  gap: 0.28rem 0.35rem;
 }
 
-.tag {
-  display: inline-block;
-  margin: 0.2rem 0;
+.tagDetailLabel {
+  flex: 0 0 auto;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
-/* University section specific styles - Liquid Glass */
-.universitySection .sectionHeader {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%);
+.tagDetailChips {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+  gap: 0.25rem;
 }
 
-.universitySection .sectionHeader .sectionTitle {
-  color: var(--custom-text-primary);
+.tagDetailChip {
+  max-width: 12rem;
+  padding: 0.08rem 0.35rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.universitySection .sectionHeader .tagCount {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #ffffff;
+.school {
+  border-color: rgba(37, 99, 235, 0.32);
 }
 
-[data-theme='dark'] .universitySection .sectionHeader {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.15) 100%);
+.school .tagPillCount {
+  background: rgba(37, 99, 235, 0.12);
+  color: #1d4ed8;
 }
 
-[data-theme='dark'] .universitySection .sectionHeader .tagCount {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+.topic {
+  border-color: rgba(22, 163, 74, 0.3);
 }
 
-/* Topics section specific styles - Liquid Glass */
-.topicsSection .sectionHeader {
-  background: linear-gradient(135deg, rgba(17, 153, 142, 0.15) 0%, rgba(56, 239, 125, 0.1) 100%);
+.topic .tagPillCount {
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
 }
 
-.topicsSection .sectionHeader .sectionTitle {
-  color: var(--custom-text-primary);
+.pending {
+  border-style: dashed;
+  border-color: rgba(217, 119, 6, 0.42);
 }
 
-.topicsSection .sectionHeader .tagCount {
-  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-  color: #ffffff;
+.pending .tagPillCount {
+  background: rgba(217, 119, 6, 0.13);
+  color: #b45309;
 }
 
-[data-theme='dark'] .topicsSection .sectionHeader {
-  background: linear-gradient(135deg, rgba(17, 153, 142, 0.2) 0%, rgba(56, 239, 125, 0.15) 100%);
+.deprecated {
+  border-color: rgba(220, 38, 38, 0.42);
 }
 
-[data-theme='dark'] .topicsSection .sectionHeader .tagCount {
-  background: linear-gradient(135deg, rgba(17, 153, 142, 0.8) 0%, rgba(56, 239, 125, 0.8) 100%);
+.deprecated .tagPillCount {
+  background: rgba(220, 38, 38, 0.12);
+  color: #b91c1c;
 }
 
-/* Responsive design */
+[data-theme='dark'] .sectionCard,
+[data-theme='dark'] .summaryItem,
+[data-theme='dark'] .tagPill {
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .sectionHeader {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .tagDetailChip {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .school .tagPillCount {
+  color: #93c5fd;
+}
+
+[data-theme='dark'] .topic .tagPillCount {
+  color: #86efac;
+}
+
+[data-theme='dark'] .pending .tagPillCount {
+  color: #facc15;
+}
+
+[data-theme='dark'] .deprecated .tagPillCount {
+  color: #fca5a5;
+}
+
 @media (max-width: 768px) {
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeader,
+  .subjectHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tagCount,
+  .subjectCount {
+    width: fit-content;
+  }
+
+  .schoolGrid,
+  .tagGrid,
+  .subjectBlock,
   .sectionHeader {
-    padding: 1rem 1.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  
-  .sectionContent {
-    padding: 1rem 1.25rem;
+
+  .tagPill {
+    width: 100%;
   }
-  
-  .sectionIcon {
-    font-size: 1.25rem;
-  }
-  
-  .sectionTitle {
-    font-size: 1.1rem !important;
+
+  .tagDetailChip {
+    max-width: 100%;
   }
 }

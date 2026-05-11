@@ -5,7 +5,7 @@ tags:
   - Computer-Architecture
   - Number-Representation
   - Branch-Prediction
-  - Control-Hazards
+  - Control-Hazard
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2024年8月実施 専門基礎A \[A-4\]
 

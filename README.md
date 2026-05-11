@@ -66,17 +66,19 @@ Useful repository scripts:
 yarn generate:universities
 yarn generate:site-stats
 yarn content:validate
+yarn tags:audit
 yarn review:format
 yarn api:validate
 ```
 
 - `yarn generate:universities`: regenerate `src/data/universities.js` after changing the `docs/` directory structure or `_category_.json` labels.
 - `yarn generate:site-stats`: regenerate `src/data/siteStats.json` from the same scan used by the public JSON API.
-- `yarn content:validate`: validate contributor-editable JSON data under `src/data/`, including links, admissions, and university metadata.
+- `yarn content:validate`: validate contributor-editable JSON data under `src/data/`, including links, admissions, university metadata, and the tag taxonomy.
+- `yarn tags:audit`: summarize site-wide tag usage, pending new tags, docs without topic tags, and deprecated tags.
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
 - `yarn api:validate`: validate the structured data used by the public JSON API.
 
-Contributor-editable content data lives in JSON files under `src/data/`: `links.json`, `admissions.json`, and `universityMetadata.json`. The generated `universities.js` and `siteStats.json` files should be refreshed with the scripts above.
+Contributor-editable content data lives in JSON files under `src/data/`: `links.json`, `admissions.json`, `universityMetadata.json`, and `tagTaxonomy.json`. The generated `universities.js` and `siteStats.json` files should be refreshed with the scripts above.
 
 ## Optional cloud sync configuration
 The site works without any cloud credentials: documentation pages, blog posts, local progress tracking, and local notes still work. If the environment variables below are not set, login, cloud sync, and the leaderboard are unavailable.
@@ -191,10 +193,19 @@ Rules enforced by the repository formatter:
 - `## **Description**` and `## **Kai**` are optional individually, but at least one of them must exist.
 - If both are present, keep the order `Author` → `Description` → `Kai`.
 
+Tag rules:
+- Prefer existing topic tags from [src/data/tagTaxonomy.json](src/data/tagTaxonomy.json).
+- Subject associations in the taxonomy should be strong associations found in actual problem content, not broad theoretical overlap.
+- School tags remain compatible, but the site primarily derives school metadata from the `docs/school/department/...` path.
+- Correct new topic tags are allowed; `yarn review:format` reports them as warnings instead of blocking the PR.
+- Deprecated or typo tags are reported as errors with the canonical replacement.
+- If a document only has a school tag and no topic tag, the formatter reports a warning.
+
 Before opening a PR, please run:
 
 ```bash
 yarn review:format
+yarn tags:audit
 ```
 
 ### Blog posts

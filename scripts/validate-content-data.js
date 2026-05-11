@@ -191,6 +191,100 @@ function validateUniversityMetadata(data) {
   }
 }
 
+function validateTagTaxonomy(data) {
+  if (!requireObject(data, 'tagTaxonomy.json')) return;
+
+  if (data.version !== undefined) {
+    requireInteger(data.version, 'tagTaxonomy.json.version', { min: 1 });
+  }
+
+  const subjectIds = new Set();
+  if (requireObject(data.subjects, 'tagTaxonomy.json.subjects')) {
+    for (const [subjectId, subject] of Object.entries(data.subjects)) {
+      subjectIds.add(subjectId);
+      const base = `tagTaxonomy.json.subjects.${subjectId}`;
+      if (!requireObject(subject, base)) continue;
+      requireString(subject.labelZh, `${base}.labelZh`);
+      requireString(subject.labelJa, `${base}.labelJa`);
+      if (subject.descriptionZh !== undefined) {
+        requireString(subject.descriptionZh, `${base}.descriptionZh`, { allowEmpty: true });
+      }
+      if (subject.descriptionJa !== undefined) {
+        requireString(subject.descriptionJa, `${base}.descriptionJa`, { allowEmpty: true });
+      }
+    }
+  }
+
+  if (requireArray(data.subjectOrder, 'tagTaxonomy.json.subjectOrder')) {
+    data.subjectOrder.forEach((subjectId, index) => {
+      if (requireString(subjectId, `tagTaxonomy.json.subjectOrder[${index}]`) && !subjectIds.has(subjectId)) {
+        addError(`tagTaxonomy.json.subjectOrder[${index}]`, `unknown subject "${subjectId}"`);
+      }
+    });
+  }
+
+  const canonicalTags = new Set();
+  const aliasOwners = new Map();
+  const registerAlias = (alias, owner, pathLabel) => {
+    if (!requireString(alias, pathLabel)) return;
+    if (canonicalTags.has(alias)) {
+      addError(pathLabel, `must not duplicate canonical tag "${alias}"`);
+      return;
+    }
+    if (aliasOwners.has(alias) && aliasOwners.get(alias) !== owner) {
+      addError(pathLabel, `alias "${alias}" already belongs to "${aliasOwners.get(alias)}"`);
+      return;
+    }
+    aliasOwners.set(alias, owner);
+  };
+
+  if (requireObject(data.schoolTags, 'tagTaxonomy.json.schoolTags')) {
+    for (const [tagId, tag] of Object.entries(data.schoolTags)) {
+      canonicalTags.add(tagId);
+      const base = `tagTaxonomy.json.schoolTags.${tagId}`;
+      if (!requireObject(tag, base)) continue;
+      requireString(tag.universityId, `${base}.universityId`);
+      requireString(tag.label, `${base}.label`);
+      if (tag.aliases !== undefined && requireArray(tag.aliases, `${base}.aliases`)) {
+        tag.aliases.forEach((alias, index) => registerAlias(alias, tagId, `${base}.aliases[${index}]`));
+      }
+    }
+  }
+
+  if (requireObject(data.topics, 'tagTaxonomy.json.topics')) {
+    for (const tagId of Object.keys(data.topics)) {
+      canonicalTags.add(tagId);
+    }
+    for (const [tagId, tag] of Object.entries(data.topics)) {
+      const base = `tagTaxonomy.json.topics.${tagId}`;
+      if (!requireObject(tag, base)) continue;
+      if (requireArray(tag.subjects, `${base}.subjects`)) {
+        tag.subjects.forEach((subjectId, index) => {
+          if (requireString(subjectId, `${base}.subjects[${index}]`) && !subjectIds.has(subjectId)) {
+            addError(`${base}.subjects[${index}]`, `unknown subject "${subjectId}"`);
+          }
+        });
+      }
+      if (tag.aliases !== undefined && requireArray(tag.aliases, `${base}.aliases`)) {
+        tag.aliases.forEach((alias, index) => registerAlias(alias, tagId, `${base}.aliases[${index}]`));
+      }
+    }
+  }
+
+  if (requireObject(data.deprecatedTags, 'tagTaxonomy.json.deprecatedTags')) {
+    for (const [tagId, deprecated] of Object.entries(data.deprecatedTags)) {
+      const base = `tagTaxonomy.json.deprecatedTags.${tagId}`;
+      if (!requireObject(deprecated, base)) continue;
+      if (requireString(deprecated.replaceWith, `${base}.replaceWith`) && !canonicalTags.has(deprecated.replaceWith)) {
+        addError(`${base}.replaceWith`, `unknown replacement "${deprecated.replaceWith}"`);
+      }
+      if (deprecated.reason !== undefined) {
+        requireString(deprecated.reason, `${base}.reason`, { allowEmpty: true });
+      }
+    }
+  }
+}
+
 function validateSiteStats(data) {
   if (!requireObject(data, 'siteStats.json')) return;
   for (const key of ['totalDocuments', 'examDocuments', 'guideDocuments', 'universities', 'departments', 'programs']) {
@@ -201,6 +295,7 @@ function validateSiteStats(data) {
 validateLinks(readJson('src/data/links.json'));
 validateAdmissions(readJson('src/data/admissions.json'));
 validateUniversityMetadata(readJson('src/data/universityMetadata.json'));
+validateTagTaxonomy(readJson('src/data/tagTaxonomy.json'));
 validateSiteStats(readJson('src/data/siteStats.json'));
 
 if (errors.length > 0) {

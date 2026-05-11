@@ -65,17 +65,19 @@ yarn serve
 yarn generate:universities
 yarn generate:site-stats
 yarn content:validate
+yarn tags:audit
 yarn review:format
 yarn api:validate
 ```
 
 - `yarn generate:universities`: `docs/` の構成や `_category_.json` を変更したあと、`src/data/universities.js` を再生成します。
 - `yarn generate:site-stats`: JSON API と同じスキャン結果から `src/data/siteStats.json` を再生成します。
-- `yarn content:validate`: `src/data/` 配下の編集可能な JSON データ（リンク、入試データ、大学メタデータ）を検証します。
+- `yarn content:validate`: `src/data/` 配下の編集可能な JSON データ（リンク、入試データ、大学メタデータ、タグ分類）を検証します。
+- `yarn tags:audit`: サイト全体のタグ使用状況、未分類タグ、考点タグがない文書、廃止タグを確認します。
 - `yarn review:format`: `docs/` 配下の解答ドキュメント形式をレビューします。
 - `yarn api:validate`: 公開 JSON API 用の構造化データを検証します。
 
-コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`admissions.json`、`universityMetadata.json` にあります。生成ファイルの `universities.js` と `siteStats.json` は上記スクリプトで更新できます。
+コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`admissions.json`、`universityMetadata.json`、`tagTaxonomy.json` にあります。生成ファイルの `universities.js` と `siteStats.json` は上記スクリプトで更新できます。
 
 ## 任意のクラウド同期設定
 クラウド用の環境変数がなくても、ドキュメント、ブログ、ローカル進捗、ローカルノートなどの基本機能はそのまま使えます。以下の変数を設定しない場合、ログイン、クラウド同期、ランキングは利用できません。
@@ -190,10 +192,19 @@ tags:
 - `## **Description**` と `## **Kai**` は個別には任意だが、少なくともどちらか一方は必要
 - 両方ある場合の順序は `Author` → `Description` → `Kai`
 
+タグのルール:
+- できるだけ [src/data/tagTaxonomy.json](src/data/tagTaxonomy.json) の既存の考点タグを使ってください。
+- タグ分類の関連科目は、実際の問題内容に現れる強い関連に限定し、広い理論上の重なりだけでは付けません。
+- 学校タグは互換性のため残しますが、サイトは主に `docs/学校/研究科/...` のパスから学校情報を推定します。
+- 正しい新しい考点タグはそのまま提出できます。`yarn review:format` では warning になり、PR はブロックされません。
+- 廃止済みまたは明らかな typo タグは error になり、置換先の canonical tag が表示されます。
+- 学校タグだけで考点タグがない文書は warning になります。
+
 PR を出す前に、次のコマンドを実行することをおすすめします。
 
 ```bash
 yarn review:format
+yarn tags:audit
 ```
 
 ### ブログ記事

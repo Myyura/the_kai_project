@@ -17,6 +17,7 @@
     "generate:universities": "node scripts/generate-universities.js",
     "generate:site-stats": "node scripts/generate-site-stats.js",
     "content:validate": "node scripts/validate-content-data.js",
+    "tags:audit": "node scripts/audit-tags.js",
     "data:validate": "yarn content:validate && yarn api:validate",
     "review:format": "node scripts/review-format.js",
     "api:generate": "node scripts/generate-api-data.js",

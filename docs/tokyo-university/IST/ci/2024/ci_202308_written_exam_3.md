@@ -2,7 +2,6 @@
 sidebar_label: '2023年8月実施 筆記試験 第3問'
 tags:
   - Tokyo-University
-  - Explanation
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2023年8月実施 筆記試験 第3問
 
@@ -30,4 +29,3 @@ An algorithm paradigm that stores the optimal solution structures of subproblems
 **k-nearest neighbor algorithm**
 
 A classification algorithm which selects a list of $k$ nearest neighboring data points from the query vector in a space (usually Euclidean) and assign the class of the query as the majority class among the list. The error of this classifier is not less than that of an optimal Bayesian classifier, but not greater than 2 times the error of that Bayesian classifier. (Also, this algorithm can be implemented by a KD-Tree or Ball Tree to efficiently search neighbors.)
-

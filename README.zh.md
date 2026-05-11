@@ -65,17 +65,19 @@ yarn serve
 yarn generate:universities
 yarn generate:site-stats
 yarn content:validate
+yarn tags:audit
 yarn review:format
 yarn api:validate
 ```
 
 - `yarn generate:universities`：当你修改 `docs/` 目录结构或 `_category_.json` 标签后，重新生成 `src/data/universities.js`。
 - `yarn generate:site-stats`：使用 JSON API 的同一套扫描逻辑重新生成 `src/data/siteStats.json`。
-- `yarn content:validate`：校验 `src/data/` 下贡献者可编辑的 JSON 数据，包括参考链接、录取数据和大学元数据。
+- `yarn content:validate`：校验 `src/data/` 下贡献者可编辑的 JSON 数据，包括参考链接、录取数据、大学元数据和 tag 池。
+- `yarn tags:audit`：统计全站 tag 使用情况，列出待归类新 tag、缺少考点 tag 的文档和废弃 tag。
 - `yarn review:format`：在提交 PR 前检查 `docs/` 下题解文档的格式。
 - `yarn api:validate`：检查 JSON API 使用的结构化题库数据。
 
-贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`admissions.json`、`universityMetadata.json`。自动生成的 `universities.js` 和 `siteStats.json` 可用上面的脚本刷新。
+贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`admissions.json`、`universityMetadata.json` 和 `tagTaxonomy.json`。自动生成的 `universities.js` 和 `siteStats.json` 可用上面的脚本刷新。
 
 ## 可选的云同步配置
 即使不配置云端环境变量，站点的核心功能仍可正常使用，包括文档、博客、本地做题进度和本地笔记。若不配置下面这些变量，则登录、云同步和排行榜功能不可用。
@@ -190,10 +192,19 @@ tags:
 - `## **Description**` 和 `## **Kai**` 可以分别缺省，但两者至少要有一个存在
 - 如果两个章节都存在，顺序应保持为 `Author` → `Description` → `Kai`
 
+tag 规则：
+- 推荐从 [src/data/tagTaxonomy.json](src/data/tagTaxonomy.json) 选择已有考点 tag。
+- tag 池中的关联科目应以题目内容中确实出现的强关联为准，不按宽泛的理论交叉来归类。
+- 学校 tag 暂时保持兼容，但站点会优先从 `docs/学校/研究科/...` 路径推导学校信息。
+- 正确的新考点 tag 可以直接提交；`yarn review:format` 只会给 warning，不会阻止 PR。
+- 明确废弃或拼写错误的 tag 会给 error，并提示应替换成哪个 canonical tag。
+- 如果一篇文档只有学校 tag，没有任何考点 tag，脚本会给 warning，建议补充 1 个或多个考点。
+
 提交 PR 前建议先运行：
 
 ```bash
 yarn review:format
+yarn tags:audit
 ```
 
 ### 博客文章
