@@ -296,6 +296,7 @@
     "Projection-And-Reconstruction": {"subjects": ["Computer-Science", "Mathematics"]},
     "Pseudoinverse-Matrix": {"subjects": ["Mathematics"]},
     "Quantum-Computing": {"subjects": ["Computer-Science", "Physics"]},
+    "Quantum-Mechanics": {"subjects": ["Physics"]},
     "Queue": {"subjects": ["Computer-Science"]},
     "Queueing-Theory": {"subjects": ["Operations-Research", "Statistics-Data-Science"]},
     "Quick-Select": {"subjects": ["Computer-Science"]},
@@ -317,10 +318,10 @@
     "Subset-Sum-Problem": {"subjects": ["Computer-Science", "Operations-Research"]},
     "SVD": {"subjects": ["Mathematics"]},
     "Synchronous-Circuit": {"subjects": ["Electrical-Electronic", "Computer-Science"]},
+    "Thermodynamics": {"subjects": ["Physics"]},
     "Trace-of-Matrix": {"subjects": ["Mathematics"]},
     "Trie": {"subjects": ["Computer-Science"]},
     "Union-Find-Data-Structure": {"subjects": ["Computer-Science"], "aliases": ["Union–Find-Data-Sturcture", "Union-Find-Data-Sturcture"]},
-    "Vector-Analysis": {"subjects": ["Mathematics", "Physics"]},
     "Vector-Calculus": {"subjects": ["Mathematics", "Physics"]},
     "Virtual-Memory": {"subjects": ["Computer-Science"]},
     "Z-Transform": {"subjects": ["Electrical-Electronic", "Mathematics"]}
@@ -349,6 +350,10 @@
     "Union-Find-Data-Sturcture": {
       "replaceWith": "Union-Find-Data-Structure",
       "reason": "Typo in Structure."
+    },
+    "Vector-Analysis": {
+      "replaceWith": "Vector-Calculus",
+      "reason": "Use Vector-Calculus as the canonical English tag for ベクトル解析."
     }
   }
 }
