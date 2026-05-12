@@ -2,6 +2,7 @@
 sidebar_label: "2022年8月実施 専門科目2 [2] 量子力学"
 tags:
   - Hokkaido-University
+  - Quantum-Mechanics
 ---
 # 北海道大学 情報科学院 情報科学専攻 情報エレクトロニクスコース 2022年8月実施 専門科目2 \[2\] 量子力学
 
@@ -9,6 +10,123 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+以下の各問において $i$ を虚数単位とする。また、$\hbar$ はプランク定数 $h$ を $2\pi$ で割った定数とする。
+
+### 1.
+ハミルトニアンが
+
+$$
+H=
+\begin{pmatrix}
+\varepsilon_1 & 0 \\
+0 & \varepsilon_2
+\end{pmatrix}
+$$
+
+で与えられている物理系がある。以下の問いに答えよ。
+
+(1) 状態ベクトルを
+
+$$
+|\varphi(t)\rangle
+=
+c_1(t)
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix}
++
+c_2(t)
+\begin{pmatrix}
+0 \\
+1
+\end{pmatrix}
+$$
+
+と表したとき、$|\varphi(t)\rangle$ が満たすシュレディンガー方程式を考えることにより、
+$c_1(t)$ と $c_2(t)$ が初期値 $c_1(0)$、$c_2(0)$ によって
+
+$$
+c_1(t)=c_1(0)\exp\left(-i\frac{\varepsilon_1 t}{\hbar}\right)
+$$
+
+$$
+c_2(t)=c_2(0)\exp\left(-i\frac{\varepsilon_2 t}{\hbar}\right)
+$$
+
+で与えられることを示せ。
+
+(2) オブザーバブル
+
+$$
+\hat{\sigma}
+=
+\begin{pmatrix}
+\cos 2\theta & \sin 2\theta \\
+\sin 2\theta & -\cos 2\theta
+\end{pmatrix}
+$$
+
+の固有ベクトルが
+
+$$
+|\lambda_1\rangle
+=
+\begin{pmatrix}
+\cos\theta \\
+\sin\theta
+\end{pmatrix}
+$$
+
+$$
+|\lambda_2\rangle
+=
+\begin{pmatrix}
+-\sin\theta \\
+\cos\theta
+\end{pmatrix}
+$$
+
+であることを示せ。
+
+(3) 状態ベクトルの初期値が
+
+$$
+|\varphi(0)\rangle=|\lambda_1\rangle
+$$
+
+であるとき、時刻 $t\geq 0$ でオブザーバブル $\hat{\sigma}$ を測定して結果 $\lambda_1$ が得られる確率を求めよ。
+
+### 2.
+図1のように、$x<0$ で $V(x)=\infty$、$0\leq x$ で $V(x)=v_0x$
+ただし、$v_0>0$ とする、と与えられている1次元ポテンシャル中に質量 $m$ の粒子が閉じ込められている。
+
+以下の問いに答えよ。必要であれば正整数 $n$ について成立する次の公式を用いてよい。
+
+$$
+\int_0^\infty x^n e^{-sx}\,dx
+=
+\frac{n!}{s^{n+1}}
+$$
+
+(1) 波動関数を
+
+$$
+\psi(x)
+=
+\begin{cases}
+0, & -\infty<x<0, \\
+Cxe^{-\alpha x}, & 0\leq x<\infty
+\end{cases}
+$$
+
+としたとき、規格化定数 $C$ を定めよ。ただし、$\alpha>0$ であるとする。
+
+(2) (1) の波動関数で表される状態のエネルギーの期待値を求めよ。
+
+<figure style="text-aligned:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hokkaido_university/IST/joele/joele_202208_senmon2_2_p1.png" width="300"  alt=""/>
+</figure>
 
 ## **Kai**
 ### 1.
