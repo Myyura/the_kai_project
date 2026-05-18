@@ -8,6 +8,8 @@
  * - 远端数据结构验证
  */
 
+import {getUiMessages} from '@site/src/i18n/messages';
+
 // ── 频率限制（Rate Limiting） ──────────────────────────────
 
 const RATE_LIMIT_KEY = 'kai_auth_attempts';
@@ -118,35 +120,6 @@ const ERROR_MAP = {
   'captcha_token': 'auth_captcha_required',
 };
 
-const SAFE_MESSAGES = {
-  zh: {
-    auth_invalid_credentials: '邮箱或密码不正确。',
-    auth_email_not_confirmed: '请先查收验证邮件并完成确认。',
-    auth_user_exists: '该邮箱已注册，请直接登录。',
-    auth_password_too_short: '密码不符合要求，请检查后重试。',
-    auth_invalid_email: '邮箱格式不正确。',
-    auth_rate_limit: '操作过于频繁，请稍后再试。',
-    auth_signups_disabled: '暂不开放注册，请联系管理员。',
-    auth_captcha_required: '请先完成人机验证后再继续。',
-    auth_unknown: '操作失败，请稍后重试。',
-    auth_locked: (sec) => `登录尝试次数过多，请 ${sec} 秒后再试。`,
-    auth_attempts_left: (n) => `邮箱或密码不正确，还可尝试 ${n} 次。`,
-  },
-  ja: {
-    auth_invalid_credentials: 'メールアドレスまたはパスワードが正しくありません。',
-    auth_email_not_confirmed: '確認メールを確認してください。',
-    auth_user_exists: 'このメールアドレスは登録済みです。ログインしてください。',
-    auth_password_too_short: 'パスワードが要件を満たしていません。',
-    auth_invalid_email: 'メールアドレスの形式が正しくありません。',
-    auth_rate_limit: '操作が頻繁すぎます。しばらくしてから再試行してください。',
-    auth_signups_disabled: '現在登録を受け付けていません。管理者にお問い合わせください。',
-    auth_captcha_required: 'CAPTCHA認証を完了してから続行してください。',
-    auth_unknown: '操作に失敗しました。しばらくしてから再試行してください。',
-    auth_locked: (sec) => `ログイン試行回数が上限に達しました。${sec}秒後にお試しください。`,
-    auth_attempts_left: (n) => `メールアドレスまたはパスワードが正しくありません。残り${n}回。`,
-  },
-};
-
 /**
  * 将 Supabase 原始错误转换为安全的用户提示
  * @param {Error|string} err
@@ -155,7 +128,7 @@ const SAFE_MESSAGES = {
  */
 export const sanitizeAuthError = (err, lang = 'zh') => {
   const msg = typeof err === 'string' ? err : (err?.message || '');
-  const messages = SAFE_MESSAGES[lang] || SAFE_MESSAGES.zh;
+  const messages = getUiMessages('auth', lang);
 
   for (const [pattern, key] of Object.entries(ERROR_MAP)) {
     if (msg.toLowerCase().includes(pattern.toLowerCase())) {
@@ -176,12 +149,12 @@ export const isInvalidCredentialsError = (err) => {
  * 获取锁定相关的错误提示
  */
 export const getRateLimitMessage = (seconds, lang = 'zh') => {
-  const messages = SAFE_MESSAGES[lang] || SAFE_MESSAGES.zh;
+  const messages = getUiMessages('auth', lang);
   return messages.auth_locked(seconds);
 };
 
 export const getAttemptsLeftMessage = (attemptsLeft, lang = 'zh') => {
-  const messages = SAFE_MESSAGES[lang] || SAFE_MESSAGES.zh;
+  const messages = getUiMessages('auth', lang);
   return messages.auth_attempts_left(attemptsLeft);
 };
 
@@ -195,7 +168,7 @@ export const getAttemptsLeftMessage = (attemptsLeft, lang = 'zh') => {
  */
 export const validatePassword = (pw, lang = 'zh') => {
   const errors = [];
-  const t = lang === 'ja' ? PW_ERRORS.ja : PW_ERRORS.zh;
+  const t = getUiMessages('passwordErrors', lang);
 
   if (pw.length < 8) errors.push(t.minLength);
   if (!/[a-z]/.test(pw)) errors.push(t.lowercase);
@@ -203,21 +176,6 @@ export const validatePassword = (pw, lang = 'zh') => {
   if (!/[0-9]/.test(pw)) errors.push(t.digit);
 
   return { valid: errors.length === 0, errors };
-};
-
-const PW_ERRORS = {
-  zh: {
-    minLength: '至少 8 个字符',
-    lowercase: '需包含小写字母',
-    uppercase: '需包含大写字母',
-    digit: '需包含数字',
-  },
-  ja: {
-    minLength: '8文字以上',
-    lowercase: '小文字を含む必要があります',
-    uppercase: '大文字を含む必要があります',
-    digit: '数字を含む必要があります',
-  },
 };
 
 // ── 远端数据验证 ─────────────────────────────────────────────

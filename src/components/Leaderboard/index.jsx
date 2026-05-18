@@ -10,34 +10,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { FaTrophy, FaSyncAlt } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
 import { fetchWeeklyLeaderboard } from '@site/src/services/syncService';
+import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
-
-const T = {
-  zh: {
-    title: '本周刷题排行榜',
-    unit: '题',
-    you: '← 你',
-    userLabel: '用户',
-    empty: '本周暂无刷题记录，来当第一名吧！',
-    loading: '加载中...',
-    error: '加载失败，点击重试',
-    loginHint: '登录后可查看排行榜',
-  },
-  ja: {
-    title: '今週の学習ランキング',
-    unit: '問',
-    you: '← あなた',
-    userLabel: 'ユーザー',
-    empty: '今週はまだ記録がありません。1位を目指しましょう！',
-    loading: '読み込み中...',
-    error: '読み込み失敗。クリックして再試行',
-    loginHint: 'ログインするとランキングを確認できます',
-  },
-};
 
 export default function Leaderboard({ language = 'zh' }) {
   const { isConfigured, isLoggedIn } = useSync();
-  const t = language === 'ja' ? T.ja : T.zh;
+  const t = getUiMessages('leaderboard', language);
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);

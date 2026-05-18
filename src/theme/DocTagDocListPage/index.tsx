@@ -20,6 +20,8 @@ import Heading from '@theme/Heading';
 import tagTaxonomy from '@site/src/data/tagTaxonomy.json';
 import {universities} from '@site/src/data/universities';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
+import {normalizeLanguage} from '@site/src/i18n/config';
+import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
 
 type DocListItem = Props['tag']['items'][number];
@@ -29,11 +31,12 @@ interface TopicMeta {
   aliases?: string[];
 }
 
-type Language = 'zh' | 'ja';
+type Language = 'zh' | 'ja' | 'en';
 
 interface SubjectMeta {
   labelZh?: string;
   labelJa?: string;
+  labelEn?: string;
 }
 
 const subjects = tagTaxonomy.subjects as Record<string, SubjectMeta>;
@@ -47,43 +50,11 @@ const deprecatedTags = tagTaxonomy.deprecatedTags as Record<
   {replaceWith: string; reason?: string}
 >;
 
-const COPY = {
-  zh: {
-    tagKinds: {
-      school: '学校',
-      topic: '考点',
-      deprecated: '需替换',
-      pending: '待归类',
-    },
-    useInstead: (tag: string) => `建议改用 ${tag}`,
-    pendingDetails: '尚未进入 tag 池',
-    other: '其他',
-    docCount: (count: number) => `${count} 篇文档`,
-    allTags: '查看所有 tags',
-    pageTitle: (count: number, tagName: string) => `"${tagName}" 下的 ${count} 篇文档`,
-  },
-  ja: {
-    tagKinds: {
-      school: '大学',
-      topic: 'トピック',
-      deprecated: '置換推奨',
-      pending: '未分類',
-    },
-    useInstead: (tag: string) => `${tag} への置換を推奨`,
-    pendingDetails: 'まだタグプールに登録されていません',
-    other: 'その他',
-    docCount: (count: number) => `${count} 件のドキュメント`,
-    allTags: 'すべてのタグを見る',
-    pageTitle: (count: number, tagName: string) => `"${tagName}" のドキュメント ${count} 件`,
-  },
-} as const;
-
-function normalizeLanguage(language: string): Language {
-  return language === 'ja' ? 'ja' : 'zh';
-}
+const getCopy = (language: Language) => getUiMessages('docTagList', language);
 
 function getSubjectLabel(subjectId: string, language: Language): string {
   const subject = subjects[subjectId];
+  if (language === 'en') return subject?.labelEn || subjectId;
   return (language === 'ja' ? subject?.labelJa : subject?.labelZh) || subjectId;
 }
 
@@ -121,7 +92,7 @@ function getTagKind(tagLabel: string, language: Language): {
   tone: 'school' | 'topic' | 'pending' | 'deprecated';
   details?: string;
 } {
-  const t = COPY[language];
+  const t = getCopy(language);
   const school = getSchoolTag(tagLabel);
   if (school) {
     return {
@@ -170,7 +141,7 @@ function getPathParts(doc: DocListItem): string[] {
 }
 
 function getUniversityLabel(universityId: string | undefined, language: Language): string {
-  if (!universityId) return COPY[language].other;
+  if (!universityId) return getCopy(language).other;
   return universityLookup.get(universityId)?.name || universityId;
 }
 
@@ -179,7 +150,7 @@ function getDepartmentLabel(
   departmentId: string | undefined,
   language: Language,
 ): string {
-  if (!universityId || !departmentId) return COPY[language].other;
+  if (!universityId || !departmentId) return getCopy(language).other;
   const university = universityLookup.get(universityId);
   const department = university?.departments?.find((item) => item.id === departmentId);
   return department?.name || departmentId;
@@ -222,7 +193,7 @@ function groupDocs(
 }
 
 function getPageTitle(props: Props, language: Language): string {
-  return COPY[language].pageTitle(props.tag.count, props.tag.label);
+  return getCopy(language).pageTitle(props.tag.count, props.tag.label);
 }
 
 function DocItem({
@@ -263,7 +234,7 @@ function DocTagDocListPageContent({
   const tagKind = getTagKind(tag.label, language);
   const groupBy = getSchoolTag(tag.label) ? 'school' : 'topic';
   const groups = groupDocs(tag.items, tag.label, language);
-  const t = COPY[language];
+  const t = getCopy(language);
 
   return (
     <HtmlClassNameProvider
@@ -321,7 +292,7 @@ function DocTagDocListPageContent({
 }
 
 export default function DocTagDocListPage(props: Props): ReactNode {
-  const language = normalizeLanguage(useCurrentLanguage());
+  const language = normalizeLanguage(useCurrentLanguage()) as Language;
   const title = getPageTitle(props, language);
   return (
     <>

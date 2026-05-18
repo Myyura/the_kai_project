@@ -5,42 +5,15 @@ import {
 } from 'react-icons/fa';
 import { useDocNotes } from '@site/src/hooks/useNotes';
 import { useCurrentLanguage } from '@site/src/context/LanguageContext';
+import {useUiText} from '@site/src/i18n/useUiText';
 import { markdownToHtml, renderMathInContainer } from './markdownRenderer';
 import styles from './styles.module.css';
-
-// ─── 多语言标签 ──────────────────────────────────────────────
-const LABELS = {
-  zh: {
-    heading: '笔记',
-    edit: '编辑',
-    preview: '预览',
-    placeholder: '在此输入笔记，支持 Markdown 和 LaTeX 语法…\n\n示例：\n## 解题思路\n由 $f(x) = x^2$ 可得…\n\n$$\\int_0^1 f(x)\\,dx$$',
-    saved: '已保存',
-    lastSaved: (s) => `${s}前保存`,
-    expand: '展开笔记',
-    collapse: '收起笔记',
-    empty: '暂无笔记，切换到编辑模式开始记录',
-    charCount: (n) => `${n} 字`,
-  },
-  ja: {
-    heading: 'ノート',
-    edit: '編集',
-    preview: 'プレビュー',
-    placeholder: 'ここにノートを入力（Markdown・LaTeX 対応）…\n\n例：\n## 解法メモ\n$f(x) = x^2$ より…\n\n$$\\int_0^1 f(x)\\,dx$$',
-    saved: '保存済み',
-    lastSaved: (s) => `${s}前に保存`,
-    expand: 'ノートを展開',
-    collapse: 'ノートを折りたたむ',
-    empty: 'ノートはまだありません。編集モードで入力してください',
-    charCount: (n) => `${n} 文字`,
-  },
-};
 
 // ─── 时间格式化 ──────────────────────────────────────────────
 function formatTimeSince(timestamp, lang) {
   if (!timestamp) return '';
   const seconds = Math.floor((Date.now() - timestamp) / 1000);
-  if (seconds < 5) return lang === 'ja' ? 'たった今' : '刚刚';
+  if (seconds < 5) return lang === 'en' ? 'just now' : lang === 'ja' ? 'たった今' : '刚刚';
   if (seconds < 60) return `${seconds}s`;
   const minutes = Math.floor(seconds / 60);
   if (minutes < 60) return `${minutes}min`;
@@ -69,6 +42,7 @@ export default function NoteEditor({ docId }) {
   const [mode, setMode] = useState('edit');
   const [expanded, setExpanded] = useState(false);
   const lang = useCurrentLanguage();
+  const t = useUiText('noteEditor');
   const [saveFlash, setSaveFlash] = useState(false);
 
   const textareaRef = useRef(null);
@@ -76,8 +50,6 @@ export default function NoteEditor({ docId }) {
   const saveTimerRef = useRef(null);
   const textRef = useRef(text);
   textRef.current = text;
-
-  const t = LABELS[lang] ?? LABELS.zh;
 
   // 外部数据同步（其他标签页修改等）
   useEffect(() => {

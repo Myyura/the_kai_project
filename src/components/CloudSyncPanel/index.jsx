@@ -14,6 +14,7 @@ import {
 } from 'react-icons/fa';
 import Link from '@docusaurus/Link';
 import { useSync } from '@site/src/hooks/useSync';
+import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
 
 export default function CloudSyncPanel({ language = 'zh' }) {
@@ -25,7 +26,7 @@ export default function CloudSyncPanel({ language = 'zh' }) {
 
   const [actionMsg, setActionMsg] = useState(null);
   const msgTimerRef = useRef(null);
-  const t = language === 'ja' ? T.ja : T.zh;
+  const t = getUiMessages('cloudSync', language);
 
   useEffect(() => {
     return () => { if (msgTimerRef.current) clearTimeout(msgTimerRef.current); };
@@ -140,54 +141,3 @@ export default function CloudSyncPanel({ language = 'zh' }) {
     </section>
   );
 }
-
-// ── 翻译 ────────────────────────────────────────────────────
-
-const T = {
-  zh: {
-    title: '云同步',
-    loginFirst: '登录后可跨设备同步做题进度和笔记。数据通过 Supabase 加密存储。',
-    goLogin: '前往登录',
-    loggedIn: '已登录',
-    logout: '退出',
-    syncMerge: '双向合并',
-    syncMergeDesc: '按时间戳合并（推荐）',
-    push: '推送到云端',
-    pushDesc: '本地覆盖云端',
-    pull: '从云端拉取',
-    pullDesc: '云端覆盖本地',
-    lastSynced: '上次同步',
-    syncDone: (p, n, c = 0) => c > 0
-      ? `同步完成！进度 ${p} 条，笔记 ${n} 条，发现 ${c} 条冲突并已按最新更新时间自动解决。`
-      : `同步完成！进度 ${p} 条，笔记 ${n} 条`,
-    pushDone: '推送成功！',
-    pullDone: (c = 0) => c > 0
-      ? `拉取成功！发现 ${c} 条冲突并已按最新更新时间自动解决。`
-      : '拉取成功！',
-    pullEmpty: '云端暂无数据。',
-    logoutOk: '已退出登录。',
-  },
-  ja: {
-    title: 'クラウド同期',
-    loginFirst: 'ログインすると、デバイス間で進捗とメモを同期できます。Supabaseで暗号化保存。',
-    goLogin: 'ログインページへ',
-    loggedIn: 'ログイン中',
-    logout: 'ログアウト',
-    syncMerge: '双方向マージ',
-    syncMergeDesc: 'タイムスタンプで統合（推奨）',
-    push: 'クラウドへ送信',
-    pushDesc: 'ローカルで上書き',
-    pull: 'クラウドから取得',
-    pullDesc: 'クラウドで上書き',
-    lastSynced: '最終同期',
-    syncDone: (p, n, c = 0) => c > 0
-      ? `同期完了！進捗 ${p} 件、メモ ${n} 件。競合 ${c} 件を検出し、最新更新時刻で自動解決しました。`
-      : `同期完了！進捗 ${p} 件、メモ ${n} 件`,
-    pushDone: '送信成功！',
-    pullDone: (c = 0) => c > 0
-      ? `取得成功！競合 ${c} 件を検出し、最新更新時刻で自動解決しました。`
-      : '取得成功！',
-    pullEmpty: 'クラウドにデータがありません。',
-    logoutOk: 'ログアウトしました。',
-  },
-};

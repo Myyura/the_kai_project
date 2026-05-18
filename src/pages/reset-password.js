@@ -3,7 +3,8 @@ import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import { FaCheck, FaExclamationTriangle, FaKey, FaLock, FaSyncAlt } from 'react-icons/fa';
-import { useStoredLanguage } from '@site/src/context/LanguageContext';
+import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
+import {useUiText} from '@site/src/i18n/useUiText';
 import { useSync } from '@site/src/hooks/useSync';
 import {
   recoverPasswordSessionFromUrl,
@@ -12,49 +13,10 @@ import {
 import { validatePassword } from '@site/src/services/authSecurity';
 import styles from './reset-password.module.css';
 
-const T = {
-  zh: {
-    pageTitle: '重置密码',
-    title: '设置新密码',
-    subtitle: '请输入一个新的登录密码',
-    loading: '正在验证重置链接...',
-    invalidLink: '重置链接无效或已过期，请重新发送重置邮件。',
-    password: '新密码',
-    passwordPlaceholder: '至少8位，含大小写字母和数字',
-    confirmPassword: '确认新密码',
-    confirmPlaceholder: '再次输入新密码',
-    passwordRequired: '请输入新密码。',
-    passwordWeak: '密码不符合要求。',
-    passwordMismatch: '两次输入的密码不一致。',
-    update: '更新密码',
-    updating: '更新中...',
-    success: '密码已更新，可以使用新密码登录。',
-    backLogin: '返回登录',
-  },
-  ja: {
-    pageTitle: 'パスワードリセット',
-    title: '新しいパスワード',
-    subtitle: '新しいログインパスワードを入力してください',
-    loading: 'リセットリンクを確認しています...',
-    invalidLink: 'リセットリンクが無効、または期限切れです。もう一度メールを送信してください。',
-    password: '新しいパスワード',
-    passwordPlaceholder: '8文字以上、大小英字と数字を含む',
-    confirmPassword: '新しいパスワードの確認',
-    confirmPlaceholder: 'もう一度入力',
-    passwordRequired: '新しいパスワードを入力してください。',
-    passwordWeak: 'パスワードが要件を満たしていません。',
-    passwordMismatch: 'パスワードが一致しません。',
-    update: 'パスワードを更新',
-    updating: '更新中...',
-    success: 'パスワードを更新しました。新しいパスワードでログインできます。',
-    backLogin: 'ログインへ戻る',
-  },
-};
-
 function ResetPasswordContent() {
-  const [language] = useStoredLanguage();
-  const lang = language === 'ja' ? 'ja' : 'zh';
-  const t = T[lang];
+  const language = useCurrentLanguage();
+  const lang = normalizeLanguage(language);
+  const t = useUiText('resetPassword');
   const { isConfigured } = useSync();
 
   const [ready, setReady] = useState(false);
@@ -213,7 +175,7 @@ function ResetPasswordContent() {
 
 export default function ResetPasswordPage() {
   return (
-    <Layout title={T.zh.pageTitle}>
+    <Layout title="重置密码 / Reset Password">
       <BrowserOnly fallback={<div style={{ minHeight: '60vh' }} />}>
         {() => <ResetPasswordContent />}
       </BrowserOnly>

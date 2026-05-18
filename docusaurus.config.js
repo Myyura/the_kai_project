@@ -85,7 +85,21 @@ const config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans'],
+    locales: ['zh-Hans', 'ja', 'en'],
+    localeConfigs: {
+      'zh-Hans': {
+        label: '中文',
+        htmlLang: 'zh-Hans',
+      },
+      ja: {
+        label: '日本語',
+        htmlLang: 'ja-JP',
+      },
+      en: {
+        label: 'English',
+        htmlLang: 'en-US',
+      },
+    },
   },
 
   // 添加本地搜索功能
@@ -213,12 +227,12 @@ const config = {
       // SEO相关配置
       metadata: [
         {name: 'keywords', content: '過去問, 日本考研, 修士, 过去问答案, 東京大学, 大学院院试, 情报理工'},
-        {name: 'description', content: '开源的日本大学院入试过去问解答共享平台，破除信息之壁 | 大学院入試過去問のオープンソース解答共有プラットフォーム'},
+        {name: 'description', content: '开源的日本大学院入试过去问解答共享平台，破除信息之壁 | 大学院入試過去問のオープンソース解答共有プラットフォーム | Open-source Japanese graduate school entrance exam archive'},
         {name: 'author', content: 'The Kai Project Team'},
         {property: 'og:type', content: 'website'},
         {property: 'og:title', content: 'The Kai Project - 日本大学院入試過去問解答 | 日本考研过去问答案'},
         {property: 'og:url', content: 'https://runjp.com'},
-        {property: 'og:description', content: '开源的日本大学院入试过去问解答共享平台，破除信息之壁 | 大学院入試過去問のオープンソース解答共有プラットフォーム'},
+        {property: 'og:description', content: '开源的日本大学院入试过去问解答共享平台，破除信息之壁 | 大学院入試過去問のオープンソース解答共有プラットフォーム | Open-source Japanese graduate school entrance exam archive'},
         {property: 'og:image', content: 'https://runjp.com/img/docusaurus-social-card.png'},
         {name: 'twitter:card', content: 'summary_large_image'},
       ],
@@ -252,6 +266,10 @@ const config = {
           {to: '/progress', label: '进度', position: 'left'},
           {to: '/developers', label: '开发者中心', position: 'left'},
           {to: '/legalstatement', label: '法律声明', position: 'left'},
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
           {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',

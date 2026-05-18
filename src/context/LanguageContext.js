@@ -1,55 +1,13 @@
-import React, { createContext, useContext, useCallback, useSyncExternalStore, useMemo } from 'react';
+import React, { createContext, useContext, useCallback, useSyncExternalStore } from 'react';
+import {
+  DEFAULT_LANGUAGE,
+  LANGUAGE_OPTIONS,
+  getLanguageLocale,
+  normalizeLanguage,
+} from '@site/src/i18n/config';
+import {getUiMessage} from '@site/src/i18n/messages';
 
-// 定义翻译内容
-// key 必须与 docusaurus.config.js 中的 label 完全一致
-export const translations = {
-  zh: {
-    navbar: {
-      '过去问': '过去问',
-      '经验贴': '经验贴',
-      'Tags': 'Tags',
-      '参考链接': '参考链接',
-      '进度': '进度',
-      '法律声明': '法律声明',
-      'GitHub': 'GitHub',
-    },
-    footer: {
-      'Kai Project': 'Kai Project',
-      '过去问': '过去问',
-      '经验贴': '经验贴',
-      'Tags': 'Tags',
-      '参考链接': '参考链接',
-      '法律声明': '法律声明',
-      'Community': '社区',
-      'QQ group: 925154731': 'QQ群: 925154731',
-      'More': '更多',
-      'GitHub': 'GitHub',
-    }
-  },
-  ja: {
-    navbar: {
-      '过去问': '過去問',
-      '经验贴': '合格体験記',
-      'Tags': 'タグ',
-      '参考链接': '参考リンク',
-      '进度': '進捗',
-      '法律声明': '法的事項',
-      'GitHub': 'GitHub',
-    },
-    footer: {
-      'Kai Project': 'Kai Project',
-      '过去问': '過去問',
-      '经验贴': '合格体験記',
-      'Tags': 'タグ',
-      '参考链接': '参考リンク',
-      '法律声明': '法的事項',
-      'Community': 'コミュニティ',
-      'QQ group: 925154731': 'QQグループ: 925154731',
-      'More': 'その他',
-      'GitHub': 'GitHub',
-    }
-  }
-};
+export {DEFAULT_LANGUAGE, LANGUAGE_OPTIONS, getLanguageLocale, normalizeLanguage};
 
 // ─── 语言检测核心（单一来源） ────────────────────────────────
 
@@ -57,8 +15,8 @@ export const translations = {
  * 从 DOM data-lang 属性同步读取语言（SSR 安全）
  */
 export const getLanguage = () => {
-  if (typeof document === 'undefined') return 'zh';
-  return document.documentElement.getAttribute('data-lang') || 'zh';
+  if (typeof document === 'undefined') return DEFAULT_LANGUAGE;
+  return normalizeLanguage(document.documentElement.getAttribute('data-lang'));
 };
 
 /**
@@ -66,9 +24,11 @@ export const getLanguage = () => {
  */
 export const setLanguage = (lang) => {
   if (typeof window === 'undefined') return;
-  localStorage.setItem('preferredLanguage', lang);
-  document.documentElement.setAttribute('data-lang', lang);
-  window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
+  const nextLanguage = normalizeLanguage(lang);
+  localStorage.setItem('preferredLanguage', nextLanguage);
+  document.documentElement.setAttribute('data-lang', nextLanguage);
+  document.documentElement.setAttribute('lang', getLanguageLocale(nextLanguage));
+  window.dispatchEvent(new CustomEvent('languageChange', { detail: nextLanguage }));
 };
 
 /**
@@ -125,39 +85,46 @@ const subscribeToLanguage = (callback) => {
  * 独立 hook：读取当前语言 + 提供 toggle 函数
  * 不依赖 LanguageProvider，可在任何组件中使用
  *
- * @returns {[string, () => void]} [language, toggleLanguage]
+ * @returns {[string, (nextLanguage?: string) => void]} [language, setStoredLanguage]
  */
 export const useStoredLanguage = () => {
   const language = useSyncExternalStore(
     subscribeToLanguage,
     getLanguage,
-    () => 'zh'
+    () => DEFAULT_LANGUAGE
   );
 
-  const toggleLanguage = useCallback(() => {
-    setLanguage(language === 'zh' ? 'ja' : 'zh');
+  const setStoredLanguage = useCallback((nextLanguage) => {
+    if (nextLanguage) {
+      setLanguage(nextLanguage);
+      return;
+    }
+
+    const currentIndex = LANGUAGE_OPTIONS.findIndex((item) => item.code === language);
+    const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % LANGUAGE_OPTIONS.length : 0;
+    setLanguage(LANGUAGE_OPTIONS[nextIndex].code);
   }, [language]);
 
-  return [language, toggleLanguage];
+  return [language, setStoredLanguage];
 };
 
 /**
  * 只读 hook：仅获取当前语言（不需要切换功能时使用）
  *
- * @returns {string} 当前语言 'zh' | 'ja'
+ * @returns {string} 当前语言 'zh' | 'ja' | 'en'
  */
 export const useCurrentLanguage = () => {
   return useSyncExternalStore(
     subscribeToLanguage,
     getLanguage,
-    () => 'zh'
+    () => DEFAULT_LANGUAGE
   );
 };
 
 // ─── Context-based API（用于 Navbar/Footer 等需要翻译函数的场景） ──
 
 const LanguageContext = createContext({
-  language: 'zh',
+  language: DEFAULT_LANGUAGE,
   setLanguage: () => {},
   t: (key, section = 'navbar') => key,
 });
@@ -169,7 +136,7 @@ export const LanguageProvider = ({ children }) => {
 
   // 翻译函数
   const t = useCallback((key, section = 'navbar') => {
-    return translations[language]?.[section]?.[key] || key;
+    return getUiMessage(section, key, language);
   }, [language]);
 
   const value = { language, setLanguage, t };

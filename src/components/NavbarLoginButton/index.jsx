@@ -10,17 +10,11 @@ import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import { useSync } from '@site/src/hooks/useSync';
-import { useLanguage } from '@site/src/context/LanguageContext';
-
-const T = {
-  zh: { login: '登录', loggedIn: '已登录' },
-  ja: { login: 'ログイン', loggedIn: 'ログイン中' },
-};
+import {useUiText} from '@site/src/i18n/useUiText';
 
 function LoginButtonInner() {
   const { isConfigured, user, isLoggedIn, authReady } = useSync();
-  const { language } = useLanguage();
-  const t = language === 'ja' ? T.ja : T.zh;
+  const t = useUiText('navbarLogin');
 
   // 环境变量未配置 → 不显示
   if (!isConfigured) return null;

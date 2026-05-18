@@ -11,7 +11,8 @@ import {
   FaSignOutAlt, FaArrowRight, FaKey,
 } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
-import { useStoredLanguage } from '@site/src/context/LanguageContext';
+import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
+import {useUiText} from '@site/src/i18n/useUiText';
 import {
   checkRateLimit,
   recordFailedAttempt,
@@ -24,89 +25,12 @@ import {
 } from '@site/src/services/authSecurity';
 import styles from './login.module.css';
 
-// ── 翻译 ────────────────────────────────────────────────────
-
-const T = {
-  zh: {
-    pageTitle: '登录 - 云同步',
-    title: '云同步',
-    subtitle: '登录后可跨设备同步你的做题进度和笔记',
-    tabLogin: '登录',
-    tabRegister: '注册',
-    email: '邮箱',
-    emailPlaceholder: 'you@example.com',
-    password: '密码',
-    passwordPlaceholder: '至少8位，含大小写字母和数字',
-    passwordPlaceholderLogin: '请输入密码',
-    loginBtn: '登录',
-    githubLoginBtn: '使用 GitHub 登录',
-    registerBtn: '注册',
-    logging: '登录中...',
-    registering: '注册中...',
-    oauthProcessing: '正在处理 GitHub 登录...',
-    oauthRedirecting: '正在跳转到 GitHub 授权...',
-    oauthFailed: 'GitHub 登录失败，请重试。',
-    oauthOr: '或使用邮箱登录',
-    forgotPassword: '忘记密码？',
-    resetSending: '发送中...',
-    resetEmailSent: '重置邮件已发送，请查收邮箱。',
-    resetEmailHint: '先输入邮箱地址，再发送重置邮件。',
-    loginOk: '登录成功！正在跳转进度页...',
-    registerOk: '注册成功！请查收验证邮件，验证后即可登录。',
-    alreadyIn: '你已登录',
-    goProgress: '前往进度页',
-    logout: '退出登录',
-    logoutOk: '已退出登录。',
-    backProgress: '← 返回进度页',
-    notConfigured: '云同步尚未配置，请联系站长。',
-    emailRequired: '请输入邮箱地址',
-    emailInvalid: '请输入有效的邮箱地址',
-    passwordRequired: '请输入密码',
-  },
-  ja: {
-    pageTitle: 'ログイン - クラウド同期',
-    title: 'クラウド同期',
-    subtitle: 'ログインすると、デバイス間で進捗とメモを同期できます',
-    tabLogin: 'ログイン',
-    tabRegister: '新規登録',
-    email: 'メール',
-    emailPlaceholder: 'you@example.com',
-    password: 'パスワード',
-    passwordPlaceholder: '8文字以上、大小英字と数字を含む',
-    passwordPlaceholderLogin: 'パスワードを入力',
-    loginBtn: 'ログイン',
-    githubLoginBtn: 'GitHubでログイン',
-    registerBtn: '登録',
-    logging: 'ログイン中...',
-    registering: '登録中...',
-    oauthProcessing: 'GitHubログインを処理中...',
-    oauthRedirecting: 'GitHub認証ページへ移動しています...',
-    oauthFailed: 'GitHubログインに失敗しました。再試行してください。',
-    oauthOr: 'またはメールでログイン',
-    forgotPassword: 'パスワードをお忘れですか？',
-    resetSending: '送信中...',
-    resetEmailSent: 'リセットメールを送信しました。メールをご確認ください。',
-    resetEmailHint: 'メールアドレスを入力してからリセットメールを送信してください。',
-    loginOk: 'ログイン成功！進捗ページへ移動中...',
-    registerOk: '登録成功！確認メールをご確認ください。',
-    alreadyIn: 'ログイン済み',
-    goProgress: '進捗ページへ',
-    logout: 'ログアウト',
-    logoutOk: 'ログアウトしました。',
-    backProgress: '← 進捗ページに戻る',
-    notConfigured: 'クラウド同期が設定されていません。管理者にお問い合わせください。',
-    emailRequired: 'メールアドレスを入力してください',
-    emailInvalid: '有効なメールアドレスを入力してください',
-    passwordRequired: 'パスワードを入力してください',
-  },
-};
-
 // ── 主组件 ──────────────────────────────────────────────────
 
 function LoginPageContent() {
-  const [language] = useStoredLanguage();
-  const lang = language === 'ja' ? 'ja' : 'zh';
-  const t = language === 'ja' ? T.ja : T.zh;
+  const language = useCurrentLanguage();
+  const lang = normalizeLanguage(language);
+  const t = useUiText('login');
   const { siteConfig } = useDocusaurusContext();
   const hcaptchaSiteKey = siteConfig?.customFields?.hcaptchaSiteKey || '';
   const history = useHistory();
@@ -205,19 +129,14 @@ function LoginPageContent() {
   };
 
   // 实时密码强度检查（仅注册模式）
-  const pwRules = lang === 'ja'
-    ? [
-        { test: (pw) => pw.length >= 8, label: '8文字以上' },
-        { test: (pw) => /[a-z]/.test(pw), label: '小文字を含む' },
-        { test: (pw) => /[A-Z]/.test(pw), label: '大文字を含む' },
-        { test: (pw) => /[0-9]/.test(pw), label: '数字を含む' },
-      ]
-    : [
-        { test: (pw) => pw.length >= 8, label: '至少 8 个字符' },
-        { test: (pw) => /[a-z]/.test(pw), label: '包含小写字母' },
-        { test: (pw) => /[A-Z]/.test(pw), label: '包含大写字母' },
-        { test: (pw) => /[0-9]/.test(pw), label: '包含数字' },
-      ];
+  const pwRuleLabels = t.passwordRules;
+
+  const pwRules = [
+    { test: (pw) => pw.length >= 8, label: pwRuleLabels[0] },
+    { test: (pw) => /[a-z]/.test(pw), label: pwRuleLabels[1] },
+    { test: (pw) => /[A-Z]/.test(pw), label: pwRuleLabels[2] },
+    { test: (pw) => /[0-9]/.test(pw), label: pwRuleLabels[3] },
+  ];
 
   const handlePasswordChange = (val) => {
     setPassword(val);
@@ -250,7 +169,7 @@ function LoginPageContent() {
 
     // hCaptcha 验证检查
     if (hcaptchaSiteKey && !captchaToken) {
-      showMsg(lang === 'ja' ? 'CAPTCHA認証を完了してください。' : '请先完成人机验证。', true);
+      showMsg(t.captchaRequired, true);
       return;
     }
 
@@ -347,7 +266,7 @@ function LoginPageContent() {
       return;
     }
     if (hcaptchaSiteKey && !captchaToken) {
-      showMsg(lang === 'ja' ? 'CAPTCHA認証を完了してください。' : '请先完成人机验证。', true);
+      showMsg(t.captchaRequired, true);
       return;
     }
 
@@ -602,7 +521,7 @@ function LoginPageContent() {
 
 export default function LoginPage() {
   return (
-    <Layout title="登录 / ログイン">
+    <Layout title="登录 / ログイン / Login">
       <BrowserOnly fallback={<div style={{ minHeight: '60vh' }} />}>
         {() => <LoginPageContent />}
       </BrowserOnly>

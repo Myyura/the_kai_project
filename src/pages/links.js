@@ -2,7 +2,9 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import { FaExternalLinkAlt, FaLink, FaBriefcase, FaBook } from 'react-icons/fa';
-import { useStoredLanguage } from '../context/LanguageContext';
+import {useCurrentLanguage} from '../context/LanguageContext';
+import LanguageSwitcher from '../components/LanguageSwitcher';
+import {useUiText} from '../i18n/useUiText';
 import styles from './links.module.css';
 import content from '../data/links.json';
 
@@ -99,49 +101,41 @@ const LinkCard = React.memo(({ link, index, isJob = false }) => {
 
 // 主页面组件
 export default function Links() {
-  const [language, toggleLanguage] = useStoredLanguage();
-  const t = content[language] || content.zh;
-  const totalAll = t.links.length + t.jobLinks.length;
+  const language = useCurrentLanguage();
+  const pageCopy = useUiText('linksPage');
+  const linkContent = content[language] || content.zh;
+  const totalAll = linkContent.links.length + linkContent.jobLinks.length;
 
   return (
-    <Layout title={t.title}>
+    <Layout title={pageCopy.title}>
       <div className={styles.linksPage}>
         {/* 页面头部 */}
         <header className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>{t.heading}</h1>
-          <p className={styles.pageSubtitle}>{t.subtitle}</p>
+          <h1 className={styles.pageTitle}>{pageCopy.heading}</h1>
+          <p className={styles.pageSubtitle}>{pageCopy.subtitle}</p>
           
           {/* 语言切换 */}
-          <div className={styles.langSwitch}>
-            <button 
-              onClick={() => language !== 'zh' && toggleLanguage()}
-              className={clsx(styles.langBtn, language === 'zh' && styles.langBtnActive)}
-            >
-              中文
-            </button>
-            <span className={styles.langDivider}>/</span>
-            <button 
-              onClick={() => language !== 'ja' && toggleLanguage()}
-              className={clsx(styles.langBtn, language === 'ja' && styles.langBtnActive)}
-            >
-              日本語
-            </button>
-          </div>
+          <LanguageSwitcher
+            className={styles.langSwitch}
+            buttonClassName={styles.langBtn}
+            activeButtonClassName={styles.langBtnActive}
+            dividerClassName={styles.langDivider}
+          />
         </header>
 
         {/* 统计条 */}
         <div className={styles.statsBar}>
           <div className={styles.statItem}>
             <span className={styles.statNumber}>{totalAll}</span>
-            <span className={styles.statLabel}>{t.statsLinks}</span>
+            <span className={styles.statLabel}>{pageCopy.statsLinks}</span>
           </div>
           <div className={styles.statItem}>
             <span className={styles.statNumber}>20+</span>
-            <span className={styles.statLabel}>{t.statsContributors}</span>
+            <span className={styles.statLabel}>{pageCopy.statsContributors}</span>
           </div>
           <div className={styles.statItem}>
             <span className={styles.statNumber}>2</span>
-            <span className={styles.statLabel}>{t.statsCategories}</span>
+            <span className={styles.statLabel}>{pageCopy.statsCategories}</span>
           </div>
         </div>
 
@@ -150,12 +144,12 @@ export default function Links() {
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
               <FaBook style={{ marginRight: '0.5rem', opacity: 0.7 }} />
-              {t.section1Title}
+              {pageCopy.section1Title}
             </h2>
           </div>
           
           <div className={styles.linksGrid}>
-            {t.links.map((link, idx) => (
+            {linkContent.links.map((link, idx) => (
               <LinkCard 
                 key={link.url} 
                 link={link} 
@@ -170,12 +164,12 @@ export default function Links() {
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
               <FaBriefcase style={{ marginRight: '0.5rem', opacity: 0.7 }} />
-              {t.section2Title}
+              {pageCopy.section2Title}
             </h2>
           </div>
           
           <div className={styles.linksGrid}>
-            {t.jobLinks.map((link, idx) => (
+            {linkContent.jobLinks.map((link, idx) => (
               <LinkCard 
                 key={link.url} 
                 link={link} 

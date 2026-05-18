@@ -2,9 +2,11 @@
  * Client module: shows a non-intrusive offline/online status banner.
  * Runs before React hydration (pure DOM, no React dependency).
  *
- * Bilingual: reads document.documentElement.getAttribute('data-lang')
- * to decide between Chinese and Japanese text.
+ * Reads document.documentElement.getAttribute('data-lang') to decide between
+ * Chinese, Japanese, and English text.
  */
+
+import {getUiMessages} from '@site/src/i18n/messages';
 
 (function () {
   if (typeof window === 'undefined') return;
@@ -14,19 +16,9 @@
   let hideTimer = null;
 
   function getLang() {
-    return document.documentElement.getAttribute('data-lang') === 'ja' ? 'ja' : 'zh';
+    var lang = document.documentElement.getAttribute('data-lang');
+    return lang === 'ja' || lang === 'en' ? lang : 'zh';
   }
-
-  const MESSAGES = {
-    offline: {
-      zh: '📴 当前离线，显示已缓存内容',
-      ja: '📴 オフライン中 — キャッシュを表示しています',
-    },
-    online: {
-      zh: '✅ 网络已恢复',
-      ja: '✅ ネットワーク接続を回復しました',
-    },
-  };
 
   const STYLES = `
     position: fixed;
@@ -57,7 +49,7 @@
 
   function showToast(type) {
     const lang = getLang();
-    const msg = MESSAGES[type][lang];
+    const msg = getUiMessages('offlineStatus', lang)[type];
     const bg = type === 'offline' ? '#e74c3c' : '#27ae60';
 
     clearTimeout(hideTimer);

@@ -11,6 +11,8 @@ import type {Props} from '@theme/TagsListByLetter';
 import Heading from '@theme/Heading';
 import tagTaxonomy from '@site/src/data/tagTaxonomy.json';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
+import {normalizeLanguage} from '@site/src/i18n/config';
+import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
 
 interface TagType {
@@ -23,8 +25,10 @@ interface TagType {
 interface SubjectMeta {
   labelZh?: string;
   labelJa?: string;
+  labelEn?: string;
   descriptionZh?: string;
   descriptionJa?: string;
+  descriptionEn?: string;
 }
 
 interface TopicMeta {
@@ -44,50 +48,19 @@ const deprecatedTags = tagTaxonomy.deprecatedTags as Record<
 >;
 const subjectOrder = tagTaxonomy.subjectOrder as string[];
 
-type Language = 'zh' | 'ja';
+type Language = 'zh' | 'ja' | 'en';
 
-const COPY = {
-  zh: {
-    summarySchools: '学校入口',
-    summaryTopics: '已归类考点',
-    summaryPending: '待归类 tag',
-    tagsUnit: 'tags',
-    schoolTitle: '学校',
-    schoolSubtitle: '学校 tag 由目录结构辅助识别；页面展示仍兼容现有 frontmatter。',
-    topicsTitle: '科目与考点',
-    topicsSubtitle: '考点 tag 按主科目展示；跨科目 tag 会在条目中标出相关方向。',
-    relatedSubjects: '关联科目',
-    schoolDisplayName: '学校名',
-    pendingTitle: '待归类',
-    pendingSubtitle: '这些 tag 暂未进入 tag 池；它们仍可访问，维护者可在 review 后决定是否收录。',
-  },
-  ja: {
-    summarySchools: '大学タグ',
-    summaryTopics: '分類済みトピック',
-    summaryPending: '未分類タグ',
-    tagsUnit: 'タグ',
-    schoolTitle: '大学',
-    schoolSubtitle: '大学タグはディレクトリ構造からも判定します。既存の frontmatter 表示にも対応しています。',
-    topicsTitle: '科目とトピック',
-    topicsSubtitle: 'トピックタグは主科目ごとに表示します。複数科目にまたがるタグは関連分野も併記します。',
-    relatedSubjects: '関連科目',
-    schoolDisplayName: '大学名',
-    pendingTitle: '未分類',
-    pendingSubtitle: 'まだタグプールに登録されていないタグです。ページは表示され、レビュー後に採用可否を判断できます。',
-  },
-} as const;
-
-function normalizeLanguage(language: string): Language {
-  return language === 'ja' ? 'ja' : 'zh';
-}
+const getCopy = (language: Language) => getUiMessages('tagsList', language);
 
 function getSubjectLabel(subjectId: string, language: Language): string {
   const subject = subjects[subjectId];
+  if (language === 'en') return subject?.labelEn || subjectId;
   return (language === 'ja' ? subject?.labelJa : subject?.labelZh) || subjectId;
 }
 
 function getSubjectDescription(subjectId: string, language: Language): string | undefined {
   const subject = subjects[subjectId];
+  if (language === 'en') return subject?.descriptionEn;
   return language === 'ja' ? subject?.descriptionJa : subject?.descriptionZh;
 }
 
@@ -140,7 +113,7 @@ function TaxonomySummary({
   pendingCount: number;
   language: Language;
 }) {
-  const t = COPY[language];
+  const t = getCopy(language);
   return (
     <div className={styles.summaryGrid}>
       <div className={styles.summaryItem}>
@@ -178,7 +151,7 @@ function SectionHeader({
         </Heading>
         {subtitle && <p className={styles.sectionSubtitle}>{subtitle}</p>}
       </div>
-      <span className={styles.tagCount}>{count} {COPY[language].tagsUnit}</span>
+      <span className={styles.tagCount}>{count} {getCopy(language).tagsUnit}</span>
     </div>
   );
 }
@@ -222,7 +195,7 @@ function TagPill({
 
 function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) {
   if (tags.length === 0) return null;
-  const t = COPY[language];
+  const t = getCopy(language);
 
   return (
     <section className={styles.sectionCard}>
@@ -260,6 +233,7 @@ function SubjectSection({
   language: Language;
 }) {
   if (tags.length === 0) return null;
+  const t = getCopy(language);
   const subjectDescription = getSubjectDescription(subjectId, language);
 
   return (
@@ -286,7 +260,7 @@ function SubjectSection({
               key={tag.permalink}
               tag={tag}
               tone={isDeprecatedTag(tag.label) ? 'deprecated' : 'topic'}
-              detailLabel={secondarySubjects.length ? COPY[language].relatedSubjects : undefined}
+              detailLabel={secondarySubjects.length ? t.relatedSubjects : undefined}
               detailValues={secondarySubjects.length ? secondarySubjects : undefined}
             />
           );
@@ -298,7 +272,7 @@ function SubjectSection({
 
 function TopicSections({tags, language}: {tags: TagType[]; language: Language}) {
   if (tags.length === 0) return null;
-  const t = COPY[language];
+  const t = getCopy(language);
 
   const bySubject = new Map<string, TagType[]>();
   for (const tag of tags) {
@@ -336,7 +310,7 @@ function TopicSections({tags, language}: {tags: TagType[]; language: Language}) 
 
 function PendingSection({tags, language}: {tags: TagType[]; language: Language}) {
   if (tags.length === 0) return null;
-  const t = COPY[language];
+  const t = getCopy(language);
 
   return (
     <section className={styles.sectionCard}>
@@ -356,7 +330,7 @@ function PendingSection({tags, language}: {tags: TagType[]; language: Language})
 }
 
 export default function TagsListByLetter({tags}: Props): ReactNode {
-  const language = normalizeLanguage(useCurrentLanguage());
+  const language = normalizeLanguage(useCurrentLanguage()) as Language;
   const normalizedTags = tags as TagType[];
   const universityTags = normalizedTags.filter((tag) => isSchoolTag(tag.label));
   const topicTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && getTopicMeta(tag.label));

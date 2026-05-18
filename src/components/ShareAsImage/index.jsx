@@ -1,32 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { FaShareAlt, FaDownload, FaCheck, FaTimes, FaImage } from 'react-icons/fa';
-import { useCurrentLanguage } from '@site/src/context/LanguageContext';
+import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
-
-const LABELS = {
-  zh: {
-    heading: '分享为图片',
-    generating: '生成中...',
-    download: '下载图片',
-    share: '分享',
-    copied: '已复制到剪贴板',
-    shareSuccess: '分享成功',
-    shareFail: '生成失败，请重试',
-    preview: '预览',
-    watermark: 'The Kai Project · runjp.com',
-  },
-  ja: {
-    heading: '画像として共有',
-    generating: '生成中...',
-    download: '画像をダウンロード',
-    share: '共有',
-    copied: 'クリップボードにコピーしました',
-    shareSuccess: '共有に成功しました',
-    shareFail: '生成に失敗しました。再試行してください',
-    preview: 'プレビュー',
-    watermark: 'The Kai Project · runjp.com',
-  },
-};
 
 const WORKER_TIMEOUT_MS = 1200;
 
@@ -295,8 +270,7 @@ function cloneArticleContent(article) {
 }
 
 export default function ShareAsImage({ docId, title: docTitle }) {
-  const lang = useCurrentLanguage();
-  const L = LABELS[lang] || LABELS.zh;
+  const L = useUiText('shareAsImage');
 
   const [generating, setGenerating] = useState(false);
   const [previewUrl, setPreviewUrl] = useState(null);

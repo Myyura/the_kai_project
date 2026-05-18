@@ -16,159 +16,15 @@ import {
   FaTrashAlt,
 } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
-import { useStoredLanguage } from '@site/src/context/LanguageContext';
+import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
+import {useUiText} from '@site/src/i18n/useUiText';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
 import styles from './developers.module.css';
-
-const T = {
-  zh: {
-    pageTitle: '开发者中心',
-    title: '开发者中心',
-    subtitle: '管理面向第三方工具和自动化工作流的功能。',
-    apiTitle: 'JSON API',
-    apiSubtitle: '创建 API Key，调用 The Kai Project 的题目与答案 JSON 数据。',
-    apiFeatureDesc: '题目目录、答案内容与来源信息的结构化访问。',
-    apiFeatureCta: '管理 API Key',
-    available: '可用',
-    notConfigured: 'Supabase 尚未配置，暂时无法使用 JSON API。',
-    loginRequired: '登录后可以申请 API 访问权限并管理 API Key。',
-    login: '登录 / 注册',
-    accessRequestTitle: '申请 API 访问权限',
-    accessRequestDesc: '提交后由项目维护者审核，审核通过后即可创建 API Key。',
-    applicantName: '姓名 / 昵称',
-    applicantNamePlaceholder: '例如：山田太郎',
-    organization: '组织 / 学校 / 项目',
-    organizationPlaceholder: '可选',
-    contactEmail: '联系邮箱',
-    website: '项目网址 / GitHub',
-    websitePlaceholder: '可选',
-    intendedUse: '使用目的（选填）',
-    intendedUsePlaceholder: '可选：简单说明你计划如何使用这些题目与答案数据。',
-    commercialUse: '包含商业用途',
-    submitRequest: '提交申请',
-    submittingRequest: '提交中...',
-    requestSubmitted: '申请已提交，请等待项目维护者审核。',
-    requestPendingTitle: '申请审核中',
-    requestPendingDesc: '你的 API 访问申请正在等待审核。审核通过后，这里会开放 API Key 创建功能。',
-    requestRejectedTitle: '申请未通过',
-    requestRejectedDesc: '你可以修改申请信息后重新提交申请。',
-    requestRevokedTitle: 'API 访问已暂停',
-    requestRevokedDesc: '该账号的 API 访问权限已被暂停。如需恢复，请联系项目维护者。',
-    reviewNote: '审核备注',
-    accessStatus: '访问状态',
-    accessNotApproved: 'API 访问权限审核通过后才能创建 API Key。',
-    keyName: 'Key 名称',
-    keyNamePlaceholder: '例如：我的题库机器人',
-    createKey: '创建 API Key',
-    creating: '创建中...',
-    refresh: '刷新',
-    activeKeys: 'Active Keys',
-    totalRequests: '总调用量',
-    rateLimit: '默认限流',
-    requestsPerMinute: '次/分钟',
-    newKeyTitle: '请立即保存这个 API Key',
-    newKeyNotice: '出于安全原因，明文只会显示这一次。数据库仅保存 hash。',
-    copy: '复制',
-    copied: '已复制',
-    keyList: 'API Keys',
-    noKeys: '还没有 API Key。',
-    name: '名称',
-    prefix: '前缀',
-    status: '状态',
-    requests: '调用量',
-    lastUsed: '最近调用',
-    createdAt: '创建时间',
-    actions: '操作',
-    never: '从未',
-    revoke: '撤销',
-    revoked: '已撤销',
-    active: '可用',
-    apiExample: '调用示例',
-    sessionMissing: '登录会话已过期，请重新登录。',
-    loadFailed: '读取 API Key 失败。',
-    createFailed: '创建 API Key 失败。',
-    revokeFailed: '撤销 API Key 失败。',
-    confirmRevoke: '确定要撤销这个 API Key 吗？撤销后无法恢复。',
-    docsHint: '内容 API 使用 Authorization: Bearer kai_live_...，不接受匿名调用或登录 JWT。',
-    requestFailed: '提交 API 访问申请失败。',
-  },
-  ja: {
-    pageTitle: '開発者センター',
-    title: '開発者センター',
-    subtitle: 'サードパーティーツールと自動化向けの機能を管理できます。',
-    apiTitle: 'JSON API',
-    apiSubtitle: 'API Key を作成し、The Kai Project の問題と解答 JSON を利用できます。',
-    apiFeatureDesc: '問題カタログ、解答本文、出典情報を構造化データとして利用できます。',
-    apiFeatureCta: 'API Key を管理',
-    available: '利用可能',
-    notConfigured: 'Supabase が設定されていないため、JSON API は利用できません。',
-    loginRequired: 'ログインすると API アクセスを申請し、API Key を管理できます。',
-    login: 'ログイン / 登録',
-    accessRequestTitle: 'API アクセスを申請',
-    accessRequestDesc: 'プロジェクトメンテナーの承認後、API Key を作成できます。',
-    applicantName: '名前 / ニックネーム',
-    applicantNamePlaceholder: '例：山田太郎',
-    organization: '所属 / 学校 / プロジェクト',
-    organizationPlaceholder: '任意',
-    contactEmail: '連絡先メール',
-    website: 'プロジェクト URL / GitHub',
-    websitePlaceholder: '任意',
-    intendedUse: '利用目的（任意）',
-    intendedUsePlaceholder: '任意：問題と解答データをどのように利用する予定かを簡単に記入してください。',
-    commercialUse: '商用利用を含む',
-    submitRequest: '申請を送信',
-    submittingRequest: '送信中...',
-    requestSubmitted: '申請を送信しました。プロジェクトメンテナーの確認をお待ちください。',
-    requestPendingTitle: '申請は確認中です',
-    requestPendingDesc: 'API アクセス申請は審査待ちです。承認後、このページで API Key を作成できます。',
-    requestRejectedTitle: '申請は承認されませんでした',
-    requestRejectedDesc: '申請内容を修正して再申請できます。',
-    requestRevokedTitle: 'API アクセスは停止されています',
-    requestRevokedDesc: 'このアカウントの API アクセスは停止されています。再開が必要な場合はメンテナーへ連絡してください。',
-    reviewNote: '審査メモ',
-    accessStatus: 'アクセス状態',
-    accessNotApproved: 'API アクセスが承認されると API Key を作成できます。',
-    keyName: 'Key 名称',
-    keyNamePlaceholder: '例：自分の過去問ボット',
-    createKey: 'API Key を作成',
-    creating: '作成中...',
-    refresh: '更新',
-    activeKeys: 'Active Keys',
-    totalRequests: '総リクエスト数',
-    rateLimit: '既定の制限',
-    requestsPerMinute: '回/分',
-    newKeyTitle: 'この API Key を今すぐ保存してください',
-    newKeyNotice: '安全のため、平文表示はこの一度だけです。データベースには hash のみ保存されます。',
-    copy: 'コピー',
-    copied: 'コピー済み',
-    keyList: 'API Keys',
-    noKeys: 'API Key はまだありません。',
-    name: '名称',
-    prefix: 'Prefix',
-    status: '状態',
-    requests: 'リクエスト数',
-    lastUsed: '最終利用',
-    createdAt: '作成日時',
-    actions: '操作',
-    never: '未使用',
-    revoke: '無効化',
-    revoked: '無効',
-    active: '有効',
-    apiExample: '利用例',
-    sessionMissing: 'ログインセッションが期限切れです。再ログインしてください。',
-    loadFailed: 'API Key の取得に失敗しました。',
-    createFailed: 'API Key の作成に失敗しました。',
-    revokeFailed: 'API Key の無効化に失敗しました。',
-    confirmRevoke: 'この API Key を無効化しますか？元に戻すことはできません。',
-    docsHint: 'Content API は Authorization: Bearer kai_live_... を使用します。匿名呼び出しやログイン JWT は受け付けません。',
-    requestFailed: 'API アクセス申請の送信に失敗しました。',
-  },
-};
 
 function formatDate(value, language, fallback) {
   if (!value) return fallback;
   try {
-    return new Date(value).toLocaleString(language === 'ja' ? 'ja-JP' : 'zh-CN', {
+    return new Date(value).toLocaleString(getLanguageLocale(language), {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
@@ -181,9 +37,8 @@ function formatDate(value, language, fallback) {
 }
 
 export function DeveloperApiContent() {
-  const [language] = useStoredLanguage();
-  const lang = language === 'ja' ? 'ja' : 'zh';
-  const t = T[lang];
+  const language = useCurrentLanguage();
+  const t = useUiText('developers');
   const { siteConfig } = useDocusaurusContext();
   const supabaseUrl = siteConfig?.customFields?.supabaseUrl || '';
   const apiBaseUrl = supabaseUrl ? `${supabaseUrl}/functions/v1/kai-api` : '';
@@ -609,8 +464,8 @@ export function DeveloperApiContent() {
                       </span>
                     </td>
                     <td>{key.requestCount}</td>
-                    <td>{formatDate(key.lastUsedAt, lang, t.never)}</td>
-                    <td>{formatDate(key.createdAt, lang, t.never)}</td>
+                    <td>{formatDate(key.lastUsedAt, language, t.never)}</td>
+                    <td>{formatDate(key.createdAt, language, t.never)}</td>
                     <td>
                       <button
                         type="button"
@@ -644,9 +499,7 @@ export function DeveloperApiContent() {
 }
 
 function DevelopersContent() {
-  const [language] = useStoredLanguage();
-  const lang = language === 'ja' ? 'ja' : 'zh';
-  const t = T[lang];
+  const t = useUiText('developers');
 
   return (
     <div className={styles.shell}>
@@ -679,7 +532,7 @@ function DevelopersContent() {
 
 export default function DevelopersPage() {
   return (
-    <Layout title={T.zh.pageTitle}>
+    <Layout title="开发者中心 / Developer Center">
       <BrowserOnly fallback={<div style={{ minHeight: '60vh' }} />}>
         {() => <DevelopersContent />}
       </BrowserOnly>

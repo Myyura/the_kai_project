@@ -9,62 +9,82 @@
     "Mathematics": {
       "labelZh": "数学",
       "labelJa": "数学",
+      "labelEn": "Math",
       "descriptionZh": "基础数学、应用数学、离散数学与概率统计。",
-      "descriptionJa": "基礎数学、応用数学、離散数学、確率統計。"
+      "descriptionJa": "基礎数学、応用数学、離散数学、確率統計。",
+      "descriptionEn": "Core mathematics, applied mathematics, discrete math, probability, and statistics."
     },
     "Computer-Science": {
       "labelZh": "计算机科学",
       "labelJa": "計算機科学",
+      "labelEn": "CS (Computer Science)",
       "descriptionZh": "算法、数据结构、形式语言、系统与计算理论。",
-      "descriptionJa": "アルゴリズム、データ構造、形式言語、システム、計算理論。"
+      "descriptionJa": "アルゴリズム、データ構造、形式言語、システム、計算理論。",
+      "descriptionEn": "Algorithms, data structures, formal languages, systems, and theory of computation."
     },
     "Electrical-Electronic": {
       "labelZh": "电气电子",
       "labelJa": "電気電子",
+      "labelEn": "EE (Electrical & Electronic)",
       "descriptionZh": "电路、电子、信号、通信与计算机硬件。",
-      "descriptionJa": "回路、電子、信号、通信、計算機ハードウェア。"
+      "descriptionJa": "回路、電子、信号、通信、計算機ハードウェア。",
+      "descriptionEn": "Circuits, electronics, signals, communications, and computer hardware."
     },
     "Physics": {
       "labelZh": "物理",
       "labelJa": "物理",
+      "labelEn": "Physics",
       "descriptionZh": "力学、电磁学、量子与物理数学。",
-      "descriptionJa": "力学、電磁気学、量子論、物理数学。"
+      "descriptionJa": "力学、電磁気学、量子論、物理数学。",
+      "descriptionEn": "Mechanics, electromagnetism, quantum topics, and mathematical physics."
     },
     "Chemistry": {
       "labelZh": "化学",
       "labelJa": "化学",
+      "labelEn": "Chemistry",
       "descriptionZh": "物理化学、无机化学等化学相关考点。",
-      "descriptionJa": "物理化学、無機化学などの化学分野。"
+      "descriptionJa": "物理化学、無機化学などの化学分野。",
+      "descriptionEn": "Physical chemistry, inorganic chemistry, and related chemistry topics."
     },
     "Statistics-Data-Science": {
       "labelZh": "统计与数据科学",
       "labelJa": "統計・データ科学",
+      "labelEn": "Statistics & Data Science",
       "descriptionZh": "统计推断、机器学习、信息论与数据分析。",
-      "descriptionJa": "統計推論、機械学習、情報理論、データ分析。"
+      "descriptionJa": "統計推論、機械学習、情報理論、データ分析。",
+      "descriptionEn": "Statistical inference, machine learning, information theory, and data analysis."
     },
     "Operations-Research": {
       "labelZh": "运筹与优化",
       "labelJa": "オペレーションズ・リサーチ",
+      "labelEn": "OR (Operations Research)",
       "descriptionZh": "优化、排队论、动态规划与决策问题。",
-      "descriptionJa": "最適化、待ち行列、動的計画法、意思決定問題。"
+      "descriptionJa": "最適化、待ち行列、動的計画法、意思決定問題。",
+      "descriptionEn": "Optimization, queueing theory, dynamic programming, and decision problems."
     },
     "Bioinformatics": {
       "labelZh": "生命与认知信息",
       "labelJa": "生命・認知情報",
+      "labelEn": "Bioinformatics & Cognitive Science",
       "descriptionZh": "序列分析、认知神经、医学信息等交叉方向。",
-      "descriptionJa": "配列解析、認知神経、医療情報などの学際領域。"
+      "descriptionJa": "配列解析、認知神経、医療情報などの学際領域。",
+      "descriptionEn": "Sequence analysis, cognitive neuroscience, medical informatics, and related interdisciplinary topics."
     },
     "Engineering": {
       "labelZh": "工学基础",
       "labelJa": "工学基礎",
+      "labelEn": "Engineering Fundamentals",
       "descriptionZh": "机械、材料、土木等工学基础题。",
-      "descriptionJa": "機械、材料、土木などの工学基礎。"
+      "descriptionJa": "機械、材料、土木などの工学基礎。",
+      "descriptionEn": "Foundational engineering problems in mechanics, materials, civil engineering, and related fields."
     },
     "General": {
       "labelZh": "资料与综合",
       "labelJa": "資料・総合",
+      "labelEn": "References & General",
       "descriptionZh": "题解说明、参考资料和暂不宜细分的综合标签。",
-      "descriptionJa": "解答方針、参考資料、まだ細分化しない総合タグ。"
+      "descriptionJa": "解答方針、参考資料、まだ細分化しない総合タグ。",
+      "descriptionEn": "Solution notes, reference material, and broad tags that are not yet worth splitting further."
     }
   },
   "subjectOrder": [
