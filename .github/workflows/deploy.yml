@@ -15,10 +15,15 @@ on:
     # 如果你想要进一步定义触发、路径以及其他内容，请检阅 Github Actions 文档
     # https://docs.github.com/zh/actions/using-workflows/workflow-syntax-for-github-actions#on
 
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build:
     name: 构建 Docusaurus
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -29,18 +34,20 @@ jobs:
           cache: yarn
 
       - name: 安装依赖
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: 校验 API 数据
         run: yarn api:validate
-      - name: 更新浏览器列表数据库
-        run: npx update-browserslist-db@latest
       - name: 构建网站
         run: yarn build
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
-
+      - name: 检查 Pages 构建入口
+        run: |
+          test -f build/index.html
+          test -f build/ja/index.html
+          test -f build/en/index.html
       - name: 部署 Supabase Edge Functions
         if: github.event_name == 'push'
         run: |

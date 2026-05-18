@@ -85,19 +85,11 @@ const config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans', 'ja', 'en'],
+    locales: ['zh-Hans'],
     localeConfigs: {
       'zh-Hans': {
         label: '中文',
         htmlLang: 'zh-Hans',
-      },
-      ja: {
-        label: '日本語',
-        htmlLang: 'ja-JP',
-      },
-      en: {
-        label: 'English',
-        htmlLang: 'en-US',
       },
     },
   },
@@ -266,10 +258,6 @@ const config = {
           {to: '/progress', label: '进度', position: 'left'},
           {to: '/developers', label: '开发者中心', position: 'left'},
           {to: '/legalstatement', label: '法律声明', position: 'left'},
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
           {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',

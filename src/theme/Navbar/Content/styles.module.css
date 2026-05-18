@@ -12,6 +12,41 @@ Hide color mode toggle in small viewports
   .colorModeToggle {
     display: none;
   }
+
+  .languageSwitcher {
+    display: none;
+  }
+}
+
+.languageSwitcher {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0 0.5rem;
+}
+
+.languageButton {
+  background: transparent;
+  border: 0;
+  color: var(--ifm-navbar-link-color);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.15rem;
+}
+
+.languageButton:hover,
+.languageButtonActive {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
+.languageButtonActive {
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.languageDivider {
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.85rem;
 }
 
 /*

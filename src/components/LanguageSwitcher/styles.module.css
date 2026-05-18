@@ -1,0 +1,27 @@
+.switcher {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
+.button {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.2rem 0.15rem;
+}
+
+.button:hover,
+.buttonActive {
+  color: var(--ifm-link-color);
+}
+
+.buttonActive {
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.divider {
+  color: var(--ifm-color-emphasis-500);
+}

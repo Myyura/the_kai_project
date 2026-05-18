@@ -9,6 +9,7 @@ import React, {type ReactNode} from 'react';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import {useNavbarMobileSidebar} from '@docusaurus/theme-common/internal';
 import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
+import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import NavbarLoginButton from '@site/src/components/NavbarLoginButton';
 import {useLanguage} from '@site/src/context/LanguageContext';
 
@@ -44,6 +45,9 @@ export default function NavbarMobilePrimaryMenu(): ReactNode {
           />
         );
       })}
+      <li className="menu__list-item" style={{padding: '0.5rem 0.75rem'}}>
+        <LanguageSwitcher />
+      </li>
       <li className="menu__list-item" style={{marginTop: '0.5rem'}}>
         <NavbarLoginButton />
       </li>

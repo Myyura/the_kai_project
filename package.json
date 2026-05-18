@@ -6,7 +6,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "node scripts/generate-site-stats.js && docusaurus start",
-    "build": "node scripts/validate-content-data.js && node scripts/generate-site-stats.js && docusaurus build",
+    "build": "node scripts/validate-content-data.js && node scripts/generate-site-stats.js && docusaurus build && node scripts/generate-locale-aliases.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
