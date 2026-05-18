@@ -41,7 +41,7 @@ $$
 このときの $t>0$ の出力電圧 $v_0(t)$ を $R,\,R_f,\,C,\,t$ を用いて表しなさい。ただし，時刻 $t=0$ において，キャパシタ $C$ の初期電荷は 0 とする。
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eiec_202208_senmon_electronic_circuit_p1.png" width="600" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electronic_circuit_p1.png" width="600" alt=""/>
 </figure>
 
 ## **Kai**
