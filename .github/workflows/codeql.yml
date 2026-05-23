@@ -26,7 +26,7 @@ jobs:
           - language: javascript-typescript
             build-mode: none
           - language: actions
-           build-mode: none
+            build-mode: none
 
     steps:
       - name: Checkout repository
@@ -40,12 +40,6 @@ jobs:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
           queries: security-and-quality     
-          
-          
-          paths-ignore: 
-            - 'node_modules'
-            - 'build'
-            - 'static'
 
 
       - name: Perform CodeQL Analysis
