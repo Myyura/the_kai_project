@@ -428,6 +428,15 @@
       "descriptionJa": "熱力学、統計集団、分布関数、物性基礎。",
       "descriptionEn": "Thermodynamics, ensembles, distribution functions, and foundations of physical properties."
     },
+    "Physics.Ocean-Physics": {
+      "subject": "Physics",
+      "labelZh": "物理海洋学",
+      "labelJa": "海洋物理学",
+      "labelEn": "Ocean Physics",
+      "descriptionZh": "海洋中的波动、流动、传播与物理过程。",
+      "descriptionJa": "海洋における波動、流れ、伝播、物理過程。",
+      "descriptionEn": "Waves, flows, propagation, and physical processes in the ocean."
+    },
     "Chemistry.Physical-Chemistry": {
       "subject": "Chemistry",
       "labelZh": "物理化学",
@@ -538,6 +547,7 @@
     "Physics.Electromagnetism",
     "Physics.Quantum-Mechanics",
     "Physics.Thermodynamics",
+    "Physics.Ocean-Physics",
     "Chemistry.Physical-Chemistry",
     "Chemistry.Inorganic-Chemistry",
     "Bioinformatics.Bioinformatics",
@@ -804,6 +814,13 @@
         "Computer-Science"
       ]
     },
+    "Mathematics.Discrete-Mathematics.Binomial-Coefficient": {
+      "subsubject": "Mathematics.Discrete-Mathematics",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
     "Mathematics.Discrete-Mathematics.Catalan-Number": {
       "subsubject": "Mathematics.Discrete-Mathematics",
       "subjects": [
@@ -1000,6 +1017,12 @@
         "Computer-Science"
       ]
     },
+    "Mathematics.Vector-Calculus.Divergence-Theorem": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
     "Mathematics.Vector-Calculus.Green’s-Identity": {
       "subsubject": "Mathematics.Vector-Calculus",
       "subjects": [
@@ -1159,12 +1182,12 @@
         "Statistics-Data-Science"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Maximum-Matching": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+    "Mathematics.Graph-Theory.Maximum-Matching": {
+      "subsubject": "Mathematics.Graph-Theory",
       "subjects": [
+        "Mathematics",
         "Computer-Science",
-        "Operations-Research",
-        "Mathematics"
+        "Operations-Research"
       ]
     },
     "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum": {
@@ -1582,6 +1605,10 @@
       "replaceWith": "Mathematics.Calculus",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
+    "Binomial-Coefficient": {
+      "replaceWith": "Mathematics.Discrete-Mathematics.Binomial-Coefficient",
+      "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
+    },
     "Catalan-Number": {
       "replaceWith": "Mathematics.Discrete-Mathematics.Catalan-Number",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
@@ -1605,6 +1632,10 @@
     "Combinatorial-Circuit": {
       "replaceWith": "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+    },
+    "Computer-Science.Data-Structures-Algorithms.Maximum-Matching": {
+      "replaceWith": "Mathematics.Graph-Theory.Maximum-Matching",
+      "reason": "Maximum-Matching 已迁移到图论命名空间，请使用 Mathematics.Graph-Theory.Maximum-Matching。"
     },
     "Complete-Graph": {
       "replaceWith": "Mathematics.Graph-Theory.Complete-Graph",
@@ -1689,6 +1720,10 @@
     "Digital-Signal": {
       "replaceWith": "Electrical-Electronic.Signal-Processing",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
+    },
+    "Divergence-Theorem": {
+      "replaceWith": "Mathematics.Vector-Calculus.Divergence-Theorem",
+      "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
     },
     "Discrete-Fourier-Transform": {
       "replaceWith": "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform",
@@ -1923,7 +1958,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Maximum-Matching": {
-      "replaceWith": "Computer-Science.Data-Structures-Algorithms.Maximum-Matching",
+      "replaceWith": "Mathematics.Graph-Theory.Maximum-Matching",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Maximum-Subarray-Sum": {

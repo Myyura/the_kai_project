@@ -2,6 +2,7 @@
 sidebar_label: "2019年8月実施 専門科目I 問題2"
 tags:
   - Hiroshima-University
+  - Mathematics.Calculus
 ---
 # 広島大学 先進理工系科学研究科 情報科学プログラム 2019年8月実施 専門科目I 問題2
 

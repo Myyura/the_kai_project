@@ -208,6 +208,10 @@
   label: "Physics.Thermodynamics"
   permalink: "/subsubject/physics/thermodynamics"
   description: "Physics / Thermodynamics"
+"Physics.Ocean-Physics":
+  label: "Physics.Ocean-Physics"
+  permalink: "/subsubject/physics/ocean-physics"
+  description: "Physics / Ocean-Physics"
 "Chemistry.Physical-Chemistry":
   label: "Chemistry.Physical-Chemistry"
   permalink: "/subsubject/chemistry/physical-chemistry"
@@ -320,6 +324,10 @@
   label: "Computer-Science.Computer-Architecture.Cache"
   permalink: "/topic/computer-science/computer-architecture/cache"
   description: "Computer-Science / Computer-Architecture / Cache"
+"Mathematics.Discrete-Mathematics.Binomial-Coefficient":
+  label: "Mathematics.Discrete-Mathematics.Binomial-Coefficient"
+  permalink: "/topic/mathematics/discrete-mathematics/binomial-coefficient"
+  description: "Mathematics / Discrete-Mathematics / Binomial-Coefficient"
 "Mathematics.Discrete-Mathematics.Catalan-Number":
   label: "Mathematics.Discrete-Mathematics.Catalan-Number"
   permalink: "/topic/mathematics/discrete-mathematics/catalan-number"
@@ -440,6 +448,10 @@
   label: "Computer-Science.Data-Structures-Algorithms.Greedy"
   permalink: "/topic/computer-science/data-structures-algorithms/greedy"
   description: "Computer-Science / Data-Structures-Algorithms / Greedy"
+"Mathematics.Vector-Calculus.Divergence-Theorem":
+  label: "Mathematics.Vector-Calculus.Divergence-Theorem"
+  permalink: "/topic/mathematics/vector-calculus/divergence-theorem"
+  description: "Mathematics / Vector-Calculus / Divergence-Theorem"
 "Mathematics.Vector-Calculus.Green’s-Identity":
   label: "Mathematics.Vector-Calculus.Green’s-Identity"
   permalink: "/topic/mathematics/vector-calculus/green-s-identity"
@@ -540,10 +552,10 @@
   label: "Statistics-Data-Science.Statistical-Inference.Maximum-Likelihood-Estimation"
   permalink: "/topic/statistics-data-science/statistical-inference/maximum-likelihood-estimation"
   description: "Statistics-Data-Science / Statistical-Inference / Maximum-Likelihood-Estimation"
-"Computer-Science.Data-Structures-Algorithms.Maximum-Matching":
-  label: "Computer-Science.Data-Structures-Algorithms.Maximum-Matching"
-  permalink: "/topic/computer-science/data-structures-algorithms/maximum-matching"
-  description: "Computer-Science / Data-Structures-Algorithms / Maximum-Matching"
+"Mathematics.Graph-Theory.Maximum-Matching":
+  label: "Mathematics.Graph-Theory.Maximum-Matching"
+  permalink: "/topic/mathematics/graph-theory/maximum-matching"
+  description: "Mathematics / Graph-Theory / Maximum-Matching"
 "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum":
   label: "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum"
   permalink: "/topic/computer-science/data-structures-algorithms/maximum-subarray-sum"
