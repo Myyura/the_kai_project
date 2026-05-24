@@ -1,12 +1,10 @@
 ---
-sidebar_label: "2023年8月実施 専門基礎A [A-2]"
+sidebar_label: '2023年8月実施 専門基礎A [A-2]'
 tags:
   - Kyoto-University
-  - Digital-Circuit
-  - Logic-Design
-  - Sequential-Circuit
-  - Moore-Machine
-  - Mealy-Machine
+  - Electrical-Electronic.Digital-Logic.Sequential-Circuit
+  - Computer-Science.Formal-Languages.Moore-Machine
+  - Computer-Science.Formal-Languages.Mealy-Machine
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2023年8月実施 専門基礎A \[A-2\]
 

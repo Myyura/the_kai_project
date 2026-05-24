@@ -1,9 +1,9 @@
 ---
-sidebar_label: '2014年8月実施 筆記試験 第1問'
+sidebar_label: 2014年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Algorithm-Complexity
-  - Divide-And-Conquer
+  - Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity
+  - Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2014年8月実施 筆記試験 第1問
 ## **Author**

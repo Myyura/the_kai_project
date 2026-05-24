@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2022年8月実施 専門科目 [1] 力学"
+sidebar_label: '2022年8月実施 専門科目 [1] 力学'
 sidebar_position: 1
 tags:
   - Hiroshima-University
-  - Mechanics
+  - Physics.Mechanics
 ---
 # 広島大学 先進理工系科学研究科 物理学プログラム 2022年8月実施 専門科目 \[1\] 力学
 

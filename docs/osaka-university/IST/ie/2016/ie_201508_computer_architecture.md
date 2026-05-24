@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2015年8月実施 計算機システムとシステムプログラム"
+sidebar_label: 2015年8月実施 計算機システムとシステムプログラム
 tags:
   - Osaka-University
-  - Computer-Architecture
+  - Computer-Science.Computer-Architecture
 ---
 # 大阪大学 情報科学研究科 情報工学 2015年8月実施 計算機システムとシステムプログラム
 

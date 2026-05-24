@@ -1,10 +1,10 @@
 ---
-sidebar_label: "2019年8月実施 アルゴリズムとプログラミング"
+sidebar_label: 2019年8月実施 アルゴリズムとプログラミング
 tags:
   - Osaka-University
-  - Sorting-Algorithm
-  - Binary-Heap
-  - Heap-Sort
+  - Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm
+  - Computer-Science.Data-Structures-Algorithms.Binary-Heap
+  - Computer-Science.Data-Structures-Algorithms.Heap-Sort
 ---
 # 大阪大学 情報科学研究科 情報工学 2019年8月実施 アルゴリズムとプログラミング
 

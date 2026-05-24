@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2022年8月実施 電磁気学1"
+sidebar_label: 2022年8月実施 電磁気学1
 tags:
   - TITech
-  - Electromagnetism
+  - Physics.Electromagnetism
 ---
 # 東京工業大学 工学院 電気電子系 2022年8月実施 電磁気学1
 

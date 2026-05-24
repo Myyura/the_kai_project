@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2025年8月実施 専門科目 S-5"
+sidebar_label: 2025年8月実施 専門科目 S-5
 tags:
   - Kyoto-University
-  - Formal-Languages-and-Automata-Theory
+  - Computer-Science.Formal-Languages
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2025年8月実施 専門科目 S-5
 ## **Author**

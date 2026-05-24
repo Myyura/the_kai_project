@@ -205,7 +205,7 @@ export function DeveloperApiContent() {
 
   const exampleKey = newKey || 'kai_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
   const curlExample = apiBaseUrl
-    ? `curl -H "Authorization: Bearer ${exampleKey}" \\\n  "${apiBaseUrl}/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"`
+    ? `curl -H "Authorization: Bearer ${exampleKey}" \\\n  "${apiBaseUrl}/v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache&include=content"`
     : 'Supabase URL is not configured.';
 
   const renderAccessRequestPanel = () => {

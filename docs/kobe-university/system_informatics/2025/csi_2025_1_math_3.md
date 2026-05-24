@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2025年度 第一期 数学 3"
+sidebar_label: 2025年度 第一期 数学 3
 tags:
   - Kobe-University
-  - Differential-Equation
+  - Mathematics.Differential-Equations
 ---
 # 神戸大学 システム情報学研究科 2025年度 第一期 数学 3
 

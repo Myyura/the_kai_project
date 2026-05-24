@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2020年8月実施 アルゴリズムとプログラミング"
+sidebar_label: 2020年8月実施 アルゴリズムとプログラミング
 tags:
   - Osaka-University
-  - Queue
+  - Computer-Science.Data-Structures-Algorithms.Queue
 ---
 # 大阪大学 情報科学研究科 情報工学 2020年8月実施 アルゴリズムとプログラミング
 

@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2022年8月実施 数学 I"
+sidebar_label: 2022年8月実施 数学 I
 tags:
   - Kanazawa-University
-  - Differential-Equation
+  - Mathematics.Differential-Equations
 ---
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 数学 I
 

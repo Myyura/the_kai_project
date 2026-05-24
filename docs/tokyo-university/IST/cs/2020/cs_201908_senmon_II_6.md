@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2019年8月実施 専門科目II 問題6"
+sidebar_label: 2019年8月実施 専門科目II 問題6
 tags:
   - Tokyo-University
-  - Probability-And-Statistics
+  - Statistics-Data-Science.Probability-Statistics
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目II 問題6
 

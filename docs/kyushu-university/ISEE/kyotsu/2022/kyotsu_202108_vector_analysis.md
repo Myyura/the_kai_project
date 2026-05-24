@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2021年8月実施 ベクトル解析"
+sidebar_label: 2021年8月実施 ベクトル解析
 tags:
   - Kyushu-University
-  - Vector-Calculus
+  - Mathematics.Vector-Calculus
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2021年8月実施 ベクトル解析
 

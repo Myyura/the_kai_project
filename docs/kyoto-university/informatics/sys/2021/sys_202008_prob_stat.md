@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2020年8月実施 専門科目 確率統計"
+sidebar_label: 2020年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
-  - Probability-And-Statistics
+  - Statistics-Data-Science.Probability-Statistics
 ---
 # 京都大学 情報学研究科 システム科学専攻 2020年8月実施 専門科目 確率統計
 

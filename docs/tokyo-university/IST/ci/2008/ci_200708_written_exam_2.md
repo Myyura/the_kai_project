@@ -1,9 +1,9 @@
 ---
-sidebar_label: '2007年8月実施 筆記試験 第2問'
+sidebar_label: 2007年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Computer-Architecture
-  - Operating-System
+  - Computer-Science.Computer-Architecture
+  - Computer-Science.Operating-Systems
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2007年8月実施 筆記試験 第2問
 ## **Author**

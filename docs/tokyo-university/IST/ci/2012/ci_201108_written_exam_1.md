@@ -1,11 +1,10 @@
 ---
-sidebar_label: '2011年8月実施 筆記試験 第1問'
+sidebar_label: 2011年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Operations-Research
-  - Branch-And-Bound
-  - Dynamic-Programming
-  - Knapsack-Problem
+  - Operations-Research.Optimization.Branch-And-Bound
+  - Computer-Science.Data-Structures-Algorithms.Dynamic-Programming
+  - Computer-Science.Data-Structures-Algorithms.Knapsack-Problem
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2011年8月実施 筆記試験 第1問
 ## **Author**

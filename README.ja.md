@@ -64,6 +64,7 @@ yarn serve
 ```bash
 yarn generate:universities
 yarn generate:site-stats
+yarn tags:generate
 yarn content:validate
 yarn tags:audit
 yarn review:format
@@ -72,12 +73,13 @@ yarn api:validate
 
 - `yarn generate:universities`: `docs/` の構成や `_category_.json` を変更したあと、`src/data/universities.js` を再生成します。
 - `yarn generate:site-stats`: JSON API と同じスキャン結果から `src/data/siteStats.json` を再生成します。
+- `yarn tags:generate`: `src/data/tagTaxonomy.json` から `docs/tags.yml` を再生成します。
 - `yarn content:validate`: `src/data/` 配下の編集可能な JSON データ（リンク、入試データ、大学メタデータ、タグ分類）を検証します。
-- `yarn tags:audit`: サイト全体のタグ使用状況、未分類タグ、考点タグがない文書、廃止タグを確認します。
+- `yarn tags:audit`: サイト全体の大学、大科目、サブ科目、考点、未分類、廃止タグの使用状況を確認します。
 - `yarn review:format`: `docs/` 配下の解答ドキュメント形式をレビューします。
 - `yarn api:validate`: 公開 JSON API 用の構造化データを検証します。
 
-コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`admissions.json`、`universityMetadata.json`、`tagTaxonomy.json` にあります。生成ファイルの `universities.js` と `siteStats.json` は上記スクリプトで更新できます。
+コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`admissions.json`、`universityMetadata.json`、`tagTaxonomy.json` にあります。生成ファイルの `universities.js`、`siteStats.json`、`docs/tags.yml` は上記スクリプトで更新できます。
 
 ## 任意のクラウド同期設定
 クラウド用の環境変数がなくても、ドキュメント、ブログ、ローカル進捗、ローカルノートなどの基本機能はそのまま使えます。以下の変数を設定しない場合、ログイン、クラウド同期、ランキングは利用できません。
@@ -110,7 +112,10 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 
 - `GET /v1/catalog`: 大学、研究科、専攻、年度、ドキュメント数を返します。
 - `GET /v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content`: 条件に合う過去問を検索します。`include=content` を付けると Markdown 本文も返します。
+- `GET /v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache`: 派生した学習 taxonomy で検索します。
 - `GET /v1/exams/{doc_id}`: ドキュメント ID で 1 件取得します。
+
+過去問レスポンスには frontmatter の元の `tags` に加え、派生フィールド `schoolTags`、`learningTags`、`subjectIds`、`subsubjectIds`、`topicIds` が含まれます。トピック ID は `Subject.Subsubject.Topic` 形式です。`learningTags` は各学習タグが `subsubject`、具体的な `topic`、または未分類タグのどれかを示し、topic 項目には `short_id` も含まれます。
 
 呼び出し例:
 
@@ -120,6 +125,9 @@ curl -H "Authorization: Bearer kai_live_..." \
 
 curl -H "Authorization: Bearer kai_live_..." \
   "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
+
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache"
 ```
 
 レスポンスには常に `apiVersion`、`sourceUrl`、`license`、`contentNotice` が含まれます。コンテンツは個人の学習・研究目的で提供され、商用利用には別途許可が必要です。
@@ -169,6 +177,7 @@ yarn api:sync
 sidebar_label: 'サイドバーに表示されるタイトル'
 tags:
   - Tokyo-University
+  - Subsubject-Tag
   - Topic-Tag
 ---
 
@@ -193,12 +202,12 @@ tags:
 - 両方ある場合の順序は `Author` → `Description` → `Kai`
 
 タグのルール:
-- できるだけ [src/data/tagTaxonomy.json](src/data/tagTaxonomy.json) の既存の考点タグを使ってください。
+- できるだけ [src/data/tagTaxonomy.json](src/data/tagTaxonomy.json) の canonical サブ科目 ID と namespaced トピック ID を使ってください。大科目タグと旧い短いトピックタグは frontmatter では無効です。
 - タグ分類の関連科目は、実際の問題内容に現れる強い関連に限定し、広い理論上の重なりだけでは付けません。
 - 学校タグは互換性のため残しますが、サイトは主に `docs/学校/研究科/...` のパスから学校情報を推定します。
-- 正しい新しい考点タグはそのまま提出できます。`yarn review:format` では warning になり、PR はブロックされません。
+- 正しい新しいサブ科目タグまたは考点タグはそのまま提出できます。`yarn review:format` では warning になり、PR はブロックされません。
 - 廃止済みまたは明らかな typo タグは error になり、置換先の canonical tag が表示されます。
-- 学校タグだけで考点タグがない文書は warning になります。
+- 学校タグだけで学習タグがない文書は warning になります。サブ科目タグだけの文書は、問題文から判断できる場合に具体的な考点タグの追加が推奨されます。
 
 PR を出す前に、次のコマンドを実行することをおすすめします。
 

@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2026年1月実施 専門 第5問"
+sidebar_label: 2026年1月実施 専門 第5問
 tags:
   - Tokyo-University
-  - Information-Theory
+  - Statistics-Data-Science.Information-Theory
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2026年1月実施 専門 第5問
 

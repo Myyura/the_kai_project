@@ -1,8 +1,8 @@
 ---
-sidebar_label: '2022年8月実施 プログラミング 第1問'
+sidebar_label: 2022年8月実施 プログラミング 第1問
 tags:
   - Tokyo-University
-  - Programming
+  - Computer-Science.Programming
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2022年8月実施 プログラミング 第1問
 

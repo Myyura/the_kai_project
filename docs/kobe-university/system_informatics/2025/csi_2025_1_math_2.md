@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2025年度 第一期 数学 2"
+sidebar_label: 2025年度 第一期 数学 2
 tags:
   - Kobe-University
-  - Complex-Analysis
+  - Mathematics.Complex-Analysis
 ---
 # 神戸大学 システム情報学研究科 2025年度 第一期 数学 2
 

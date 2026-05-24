@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2020年8月実施 専門基礎B [B-4]"
+sidebar_label: '2020年8月実施 専門基礎B [B-4]'
 tags:
   - Kyoto-University
-  - Digital-Circuit
+  - Electrical-Electronic.Digital-Logic
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2020年8月実施 専門基礎B \[B-4\]
 

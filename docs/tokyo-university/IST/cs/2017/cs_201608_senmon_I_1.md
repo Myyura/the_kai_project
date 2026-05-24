@@ -1,8 +1,8 @@
 ---
-sidebar_label: '2016年8月実施 専門科目I 問題1'
+sidebar_label: 2016年8月実施 専門科目I 問題1
 tags:
   - Tokyo-University
-  - Formal-Languages-and-Automata-Theory
+  - Computer-Science.Formal-Languages
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2016年8月実施 専門科目I 問題1
 

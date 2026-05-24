@@ -1,9 +1,9 @@
 ---
-sidebar_label: '2018年8月実施 プログラミング'
+sidebar_label: 2018年8月実施 プログラミング
 tags:
   - Tokyo-University
-  - Programming
-  - Graphics
+  - Computer-Science.Programming
+  - Computer-Science.Graphics
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 プログラミング
 

@@ -225,6 +225,11 @@ function selectColumns(includeContent: boolean) {
     'year_label',
     'file_slug',
     'tags',
+    'school_tags',
+    'learning_tags',
+    'subject_ids',
+    'subsubject_ids',
+    'topic_ids',
     'permalink',
     'source_path',
     'updated_at',
@@ -259,6 +264,11 @@ function publicExamRow(row: Record<string, unknown>, includeContent: boolean) {
     yearLabel: row.year_label,
     fileSlug: row.file_slug,
     tags: row.tags || [],
+    schoolTags: row.school_tags || [],
+    learningTags: row.learning_tags || [],
+    subjectIds: row.subject_ids || [],
+    subsubjectIds: row.subsubject_ids || [],
+    topicIds: row.topic_ids || [],
     permalink: row.permalink,
     sourcePath: row.source_path,
     updatedAt: row.updated_at,
@@ -420,6 +430,17 @@ async function fetchExams(req: Request, ctx: RequestContext) {
       return errorResponse(400, 'invalid_year', 'year must be a four digit number.');
     }
     query = query.eq('year', parsedYear);
+  }
+
+  for (const [param, column] of [
+    ['tag', 'tags'],
+    ['schoolTag', 'school_tags'],
+    ['subject', 'subject_ids'],
+    ['subsubject', 'subsubject_ids'],
+    ['topic', 'topic_ids'],
+  ] as const) {
+    const value = url.searchParams.get(param);
+    if (value) query = query.contains(column, [value]);
   }
 
   const { data, error, count } = await query;

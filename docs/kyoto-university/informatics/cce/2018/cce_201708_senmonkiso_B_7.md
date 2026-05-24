@@ -1,10 +1,10 @@
 ---
-sidebar_label: "2017年8月実施 専門基礎B [B-7]"
+sidebar_label: '2017年8月実施 専門基礎B [B-7]'
 tags:
   - Kyoto-University
-  - Dynamic-Programming
-  - Divide-And-Conquer
-  - Maximum-Subarray-Sum
+  - Computer-Science.Data-Structures-Algorithms.Dynamic-Programming
+  - Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer
+  - Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2017年8月実施 専門基礎B \[B-7\]
 

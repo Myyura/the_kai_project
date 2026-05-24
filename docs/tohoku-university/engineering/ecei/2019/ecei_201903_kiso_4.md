@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2019年3月実施 基礎科目 問題4 情報基礎2"
+sidebar_label: 2019年3月実施 基礎科目 問題4 情報基礎2
 tags:
   - Tohoku-University
-  - Sorting-Algorithm
-  - Bubble-Sort
-  - Selection-Sort
-  - Heap-Sort
+  - Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm
+  - Computer-Science.Data-Structures-Algorithms.Bubble-Sort
+  - Computer-Science.Data-Structures-Algorithms.Selection-Sort
+  - Computer-Science.Data-Structures-Algorithms.Heap-Sort
 ---
 # 東北大学 工学研究科 電気・情報系 2019年3月実施 基礎科目 問題4 情報基礎2
 

@@ -1,9 +1,8 @@
 ---
-sidebar_label: "2019年8月実施 専門 第3問"
+sidebar_label: 2019年8月実施 専門 第3問
 tags:
   - Tokyo-University
-  - Data-Structure-And-Algorithms
-  - Minimum-Window-Substring
+  - Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2019年8月実施 専門 第3問
 

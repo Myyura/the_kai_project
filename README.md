@@ -65,6 +65,7 @@ Useful repository scripts:
 ```bash
 yarn generate:universities
 yarn generate:site-stats
+yarn tags:generate
 yarn content:validate
 yarn tags:audit
 yarn review:format
@@ -73,12 +74,13 @@ yarn api:validate
 
 - `yarn generate:universities`: regenerate `src/data/universities.js` after changing the `docs/` directory structure or `_category_.json` labels.
 - `yarn generate:site-stats`: regenerate `src/data/siteStats.json` from the same scan used by the public JSON API.
+- `yarn tags:generate`: regenerate `docs/tags.yml` from `src/data/tagTaxonomy.json`.
 - `yarn content:validate`: validate contributor-editable JSON data under `src/data/`, including links, admissions, university metadata, and the tag taxonomy.
-- `yarn tags:audit`: summarize site-wide tag usage, pending new tags, docs without topic tags, and deprecated tags.
+- `yarn tags:audit`: summarize site-wide school, subject, subsubject, topic, pending, and deprecated tag usage.
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
 - `yarn api:validate`: validate the structured data used by the public JSON API.
 
-Contributor-editable content data lives in JSON files under `src/data/`: `links.json`, `admissions.json`, `universityMetadata.json`, and `tagTaxonomy.json`. The generated `universities.js` and `siteStats.json` files should be refreshed with the scripts above.
+Contributor-editable content data lives in JSON files under `src/data/`: `links.json`, `admissions.json`, `universityMetadata.json`, and `tagTaxonomy.json`. The generated `universities.js`, `siteStats.json`, and `docs/tags.yml` files should be refreshed with the scripts above.
 
 ## Optional cloud sync configuration
 The site works without any cloud credentials: documentation pages, blog posts, local progress tracking, and local notes still work. If the environment variables below are not set, login, cloud sync, and the leaderboard are unavailable.
@@ -111,7 +113,10 @@ Available endpoints:
 
 - `GET /v1/catalog`: returns universities, departments, programs, years, and document counts.
 - `GET /v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content`: queries exam documents; `include=content` returns markdown content.
+- `GET /v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache`: filters by the derived learning taxonomy.
 - `GET /v1/exams/{doc_id}`: returns one document by ID.
+
+Exam rows include the original frontmatter `tags` plus derived taxonomy fields: `schoolTags`, `learningTags`, `subjectIds`, `subsubjectIds`, and `topicIds`. Topic IDs are namespaced as `Subject.Subsubject.Topic`; `learningTags` identifies whether each learning tag is a `subsubject`, concrete `topic`, or pending tag, and topic entries include `short_id`.
 
 Examples:
 
@@ -121,6 +126,9 @@ curl -H "Authorization: Bearer kai_live_..." \
 
 curl -H "Authorization: Bearer kai_live_..." \
   "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
+
+curl -H "Authorization: Bearer kai_live_..." \
+  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache"
 ```
 
 Responses always include `apiVersion`, `sourceUrl`, `license`, and `contentNotice`. Content is provided for personal study and research use only; commercial use requires separate permission.
@@ -170,6 +178,7 @@ Each answer markdown document should look like this:
 sidebar_label: 'Title displayed in sidebar'
 tags:
   - Tokyo-University
+  - Subsubject-Tag
   - Topic-Tag
 ---
 
@@ -194,12 +203,12 @@ Rules enforced by the repository formatter:
 - If both are present, keep the order `Author` → `Description` → `Kai`.
 
 Tag rules:
-- Prefer existing topic tags from [src/data/tagTaxonomy.json](src/data/tagTaxonomy.json).
+- Prefer existing canonical subsubject IDs and namespaced topic IDs from [src/data/tagTaxonomy.json](src/data/tagTaxonomy.json). Top-level subject tags and legacy short topic tags are not valid frontmatter tags.
 - Subject associations in the taxonomy should be strong associations found in actual problem content, not broad theoretical overlap.
 - School tags remain compatible, but the site primarily derives school metadata from the `docs/school/department/...` path.
-- Correct new topic tags are allowed; `yarn review:format` reports them as warnings instead of blocking the PR.
+- Correct new subsubject or topic tags are allowed; `yarn review:format` reports them as warnings instead of blocking the PR.
 - Deprecated or typo tags are reported as errors with the canonical replacement.
-- If a document only has a school tag and no topic tag, the formatter reports a warning.
+- If a document only has a school tag and no learning tag, the formatter reports a warning. If it has only a subsubject tag, the formatter suggests adding a more concrete topic when the problem statement has enough signal.
 
 Before opening a PR, please run:
 

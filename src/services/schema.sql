@@ -347,6 +347,11 @@ create table if not exists exam_documents (
   year_label            text,
   file_slug             text,
   tags                  jsonb not null default '[]'::jsonb,
+  school_tags           jsonb not null default '[]'::jsonb,
+  learning_tags         jsonb not null default '[]'::jsonb,
+  subject_ids           jsonb not null default '[]'::jsonb,
+  subsubject_ids        jsonb not null default '[]'::jsonb,
+  topic_ids             jsonb not null default '[]'::jsonb,
   author_markdown       text not null default '',
   description_markdown  text not null default '',
   kai_markdown          text not null default '',
@@ -359,8 +364,20 @@ create table if not exists exam_documents (
 
   constraint exam_documents_type_check check (type in ('exam', 'guide')),
   constraint exam_documents_year_check check (year is null or (year >= 1900 and year <= 2100)),
-  constraint exam_documents_tags_is_array check (jsonb_typeof(tags) = 'array')
+  constraint exam_documents_tags_is_array check (jsonb_typeof(tags) = 'array'),
+  constraint exam_documents_school_tags_is_array check (jsonb_typeof(school_tags) = 'array'),
+  constraint exam_documents_learning_tags_is_array check (jsonb_typeof(learning_tags) = 'array'),
+  constraint exam_documents_subject_ids_is_array check (jsonb_typeof(subject_ids) = 'array'),
+  constraint exam_documents_subsubject_ids_is_array check (jsonb_typeof(subsubject_ids) = 'array'),
+  constraint exam_documents_topic_ids_is_array check (jsonb_typeof(topic_ids) = 'array')
 );
+
+alter table exam_documents
+  add column if not exists school_tags jsonb not null default '[]'::jsonb,
+  add column if not exists learning_tags jsonb not null default '[]'::jsonb,
+  add column if not exists subject_ids jsonb not null default '[]'::jsonb,
+  add column if not exists subsubject_ids jsonb not null default '[]'::jsonb,
+  add column if not exists topic_ids jsonb not null default '[]'::jsonb;
 
 create index if not exists idx_exam_documents_catalog
   on exam_documents(type, university_id, department_id, program_id, year);
@@ -368,6 +385,14 @@ create index if not exists idx_exam_documents_year
   on exam_documents(year);
 create index if not exists idx_exam_documents_tags
   on exam_documents using gin(tags);
+create index if not exists idx_exam_documents_school_tags
+  on exam_documents using gin(school_tags);
+create index if not exists idx_exam_documents_subject_ids
+  on exam_documents using gin(subject_ids);
+create index if not exists idx_exam_documents_subsubject_ids
+  on exam_documents using gin(subsubject_ids);
+create index if not exists idx_exam_documents_topic_ids
+  on exam_documents using gin(topic_ids);
 
 drop trigger if exists update_exam_documents_updated_at on exam_documents;
 create trigger update_exam_documents_updated_at

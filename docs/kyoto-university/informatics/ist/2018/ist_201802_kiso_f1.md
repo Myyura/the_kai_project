@@ -1,10 +1,10 @@
 ---
-sidebar_label: "2018年2月実施 情報学基礎 F-1"
+sidebar_label: 2018年2月実施 情報学基礎 F-1
 tags:
   - Kyoto-University
-  - Hash-Table
-  - BFS
-  - DFS
+  - Computer-Science.Data-Structures-Algorithms.Hash-Table
+  - Computer-Science.Data-Structures-Algorithms.BFS
+  - Computer-Science.Data-Structures-Algorithms.DFS
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2019年8月実施 情報学基礎 F-1
 

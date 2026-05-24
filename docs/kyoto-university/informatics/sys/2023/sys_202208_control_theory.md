@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2022年8月実施 専門科目 制御工学"
+sidebar_label: 2022年8月実施 専門科目 制御工学
 tags:
   - Kyoto-University
-  - Control-Theory
+  - Electrical-Electronic.Control-Theory
 ---
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 専門科目 制御工学
 

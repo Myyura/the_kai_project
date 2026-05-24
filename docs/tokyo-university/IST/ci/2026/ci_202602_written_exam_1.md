@@ -1,9 +1,8 @@
 ---
-sidebar_label: '2026年2月実施 筆記試験 第1問'
+sidebar_label: 2026年2月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Computer-Architecture
-  - Number-Representation
+  - Computer-Science.Computer-Architecture.Number-Representation
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2026年2月実施 筆記試験 第1問
 ## **Author**

@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
+const { resolveDocumentTags } = require('./tag-taxonomy');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');
@@ -169,6 +170,10 @@ function buildExamDocument(filePath) {
   const sidebarLabel = parsed.data?.sidebar_label ? String(parsed.data.sidebar_label).trim() : null;
   const title = getTitle(fullMarkdown, sidebarLabel || pathMeta.fileSlug);
   const contentHash = crypto.createHash('sha256').update(raw).digest('hex');
+  const tags = parseTags(parsed.data?.tags);
+  const resolvedTags = resolveDocumentTags(tags, {
+    universityId: pathMeta.universityId,
+  });
 
   return {
     doc_id: pathMeta.docId,
@@ -185,7 +190,12 @@ function buildExamDocument(filePath) {
     year: pathMeta.year,
     year_label: pathMeta.yearLabel,
     file_slug: pathMeta.fileSlug,
-    tags: parseTags(parsed.data?.tags),
+    tags,
+    school_tags: resolvedTags.school_tags,
+    learning_tags: resolvedTags.learning_tags,
+    subject_ids: resolvedTags.subject_ids,
+    subsubject_ids: resolvedTags.subsubject_ids,
+    topic_ids: resolvedTags.topic_ids,
     author_markdown: sections.authorMarkdown,
     description_markdown: sections.descriptionMarkdown,
     kai_markdown: sections.kaiMarkdown,

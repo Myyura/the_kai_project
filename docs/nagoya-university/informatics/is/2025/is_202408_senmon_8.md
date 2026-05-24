@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2024年8月実施 専門 問8"
+sidebar_label: 2024年8月実施 専門 問8
 tags:
   - Nagoya-University
-  - Sorting-Algorithm
-  - Merge-Sort
+  - Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm
+  - Computer-Science.Data-Structures-Algorithms.Merge-Sort
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2024年8月実施 専門 問8
 

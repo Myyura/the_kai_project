@@ -1,8 +1,8 @@
 ---
-sidebar_label: '2007年8月実施 筆記試験 第1問'
+sidebar_label: 2007年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Number-Theory
+  - Mathematics.Number-Theory
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2007年8月実施 筆記試験 第1問
 ## **Author**

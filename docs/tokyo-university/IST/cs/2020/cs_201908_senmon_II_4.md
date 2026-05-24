@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2019年8月実施 専門科目II 問題4"
+sidebar_label: 2019年8月実施 専門科目II 問題4
 tags:
   - Tokyo-University
-  - Graph-Theory
-  - Minimum-Spanning-Tree
+  - Computer-Science.Data-Structures-Algorithms.Minimum-Spanning-Tree
+  - Mathematics.Graph-Theory
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目II 問題4
 

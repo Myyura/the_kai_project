@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2015年8月実施 プログラミング"
+sidebar_label: 2015年8月実施 プログラミング
 tags:
   - Nagoya-University
-  - Binary-Search-Tree
+  - Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2015年8月実施 プログラミング
 

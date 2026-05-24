@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2018年8月実施 アルゴリズム・プログラミング"
+sidebar_label: 2018年8月実施 アルゴリズム・プログラミング
 tags:
   - Kyushu-University
-  - Sorting-Algorithm
-  - Divide-And-Conquer
-  - Binary-Heap
-  - Heap-Sort
+  - Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm
+  - Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer
+  - Computer-Science.Data-Structures-Algorithms.Binary-Heap
+  - Computer-Science.Data-Structures-Algorithms.Heap-Sort
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2018年8月実施 アルゴリズム・プログラミング
 

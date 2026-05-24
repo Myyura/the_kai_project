@@ -1,8 +1,8 @@
 ---
-sidebar_label: '2012年8月実施 筆記試験 第2問'
+sidebar_label: 2012年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Digital-Circuit
+  - Electrical-Electronic.Digital-Logic
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2012年8月実施 筆記試験 第2問
 ## **Author**

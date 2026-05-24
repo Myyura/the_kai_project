@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2023年2・3月実施 基礎科目 問題2 電気回路"
+sidebar_label: 2023年2・3月実施 基礎科目 問題2 電気回路
 tags:
   - Tohoku-University
-  - Electrical-Circuit
+  - Electrical-Electronic.Circuits
 ---
 # 東北大学 工学研究科 電気・情報系 2023年2・3月実施 基礎科目 問題2 電気回路
 

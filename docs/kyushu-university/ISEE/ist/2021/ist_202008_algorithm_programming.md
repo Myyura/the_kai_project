@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2020年8月実施 アルゴリズム・プログラミング"
+sidebar_label: 2020年8月実施 アルゴリズム・プログラミング
 tags:
   - Kyushu-University
-  - Dynamic-Programming
-  - Merge-Sort
+  - Computer-Science.Data-Structures-Algorithms.Dynamic-Programming
+  - Computer-Science.Data-Structures-Algorithms.Merge-Sort
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2020年8月実施 アルゴリズム・プログラミング
 

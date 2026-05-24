@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2021年8月実施 専門 問3"
+sidebar_label: 2021年8月実施 専門 問3
 tags:
   - Nagoya-University
-  - Median-Of-Medians
+  - Computer-Science.Data-Structures-Algorithms.Median-Of-Medians
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2021年8月実施 専門 問3
 

@@ -9,8 +9,42 @@ import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import type {Props} from '@theme/Tag';
+import tagTaxonomy from '@site/src/data/tagTaxonomy.json';
 
 import styles from './styles.module.css';
+
+interface TopicMeta {
+  subsubject?: string;
+}
+
+interface SubsubjectMeta {
+  subject?: string;
+}
+
+const topics = tagTaxonomy.topics as Record<string, TopicMeta>;
+const subsubjects = tagTaxonomy.subsubjects as Record<string, SubsubjectMeta>;
+
+function getSubsubjectShortId(subsubjectId: string): string {
+  const subjectId = subsubjects[subsubjectId]?.subject;
+  const prefix = subjectId ? `${subjectId}.` : '';
+  return prefix && subsubjectId.startsWith(prefix)
+    ? subsubjectId.slice(prefix.length)
+    : subsubjectId;
+}
+
+function getTopicShortId(topicId: string): string {
+  const subsubjectId = topics[topicId]?.subsubject;
+  const prefix = subsubjectId ? `${subsubjectId}.` : '';
+  return prefix && topicId.startsWith(prefix)
+    ? topicId.slice(prefix.length)
+    : topicId.split('.').pop() || topicId;
+}
+
+function getDisplayLabel(label: string): string {
+  if (topics[label]) return getTopicShortId(label);
+  if (subsubjects[label]) return getSubsubjectShortId(label);
+  return label;
+}
 
 export default function Tag({
   permalink,
@@ -25,9 +59,9 @@ export default function Tag({
       title={description}
       className={clsx(
         styles.tag,
-        count ? styles.tagWithCount : styles.tagRegular,
+      count ? styles.tagWithCount : styles.tagRegular,
       )}>
-      {label}
+      {getDisplayLabel(label)}
       {count && <span>{count}</span>}
     </Link>
   );

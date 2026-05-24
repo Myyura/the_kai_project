@@ -17,12 +17,10 @@ const SCHOOL_TAGS = new Set(
     ...(meta.aliases || []),
   ]),
 );
-const DEPRECATED_TAG_REPLACEMENTS = Object.fromEntries(
-  Object.entries(tagTaxonomy.deprecatedTags || {}).map(([tag, meta]) => [tag, meta.replaceWith]),
-);
+const SUBJECT_TAGS = new Set(Object.keys(tagTaxonomy.subjects || {}));
 
 const isSchoolTag = (tag) => SCHOOL_TAGS.has(tag);
-const normalizeTopicTag = (tag) => DEPRECATED_TAG_REPLACEMENTS[tag] || tag;
+const isSubjectTag = (tag) => SUBJECT_TAGS.has(tag);
 
 // 模块级缓存，避免多组件同时 JSON.parse
 let _progressCache = null;
@@ -206,7 +204,8 @@ export const useAllProgress = () => {
       if (!Array.isArray(e.tags)) continue;
       for (const rawTag of e.tags) {
         if (isSchoolTag(rawTag)) continue;
-        const tag = normalizeTopicTag(rawTag);
+        if (isSubjectTag(rawTag)) continue;
+        const tag = rawTag;
         if (!tagStats[tag]) tagStats[tag] = { completed: 0, reviewing: 0, total: 0 };
         tagStats[tag].total++;
         if (e.status === STATUS.COMPLETED) tagStats[tag].completed++;

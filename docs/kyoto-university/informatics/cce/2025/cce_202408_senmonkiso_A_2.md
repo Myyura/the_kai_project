@@ -1,10 +1,9 @@
 ---
-sidebar_label: "2024年8月実施 専門基礎A [A-2]"
+sidebar_label: '2024年8月実施 専門基礎A [A-2]'
 tags:
   - Kyoto-University
-  - Digital-Circuit
-  - Logic-Design
-  - Moore-Machine
+  - Computer-Science.Formal-Languages.Moore-Machine
+  - Electrical-Electronic.Digital-Logic
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2024年8月実施 専門基礎A \[A-2\]
 

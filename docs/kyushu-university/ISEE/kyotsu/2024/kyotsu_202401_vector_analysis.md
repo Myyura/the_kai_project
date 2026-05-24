@@ -1,9 +1,8 @@
 ---
-sidebar_label: "2024年1月実施 ベクトル解析"
+sidebar_label: 2024年1月実施 ベクトル解析
 tags:
   - Kyushu-University
-  - Vector-Calculus
-  - Green’s-Identity
+  - Mathematics.Vector-Calculus.Green’s-Identity
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2024年1月実施 ベクトル解析
 

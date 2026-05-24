@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2019年8月実施 解析学・微積分"
+sidebar_label: 2019年8月実施 解析学・微積分
 tags:
   - Kyushu-University
-  - Differential-Equation
-  - Complex-Analysis
+  - Mathematics.Differential-Equations
+  - Mathematics.Complex-Analysis
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2019年8月実施 解析学・微積分
 

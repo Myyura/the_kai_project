@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2024年8月実施 数学A 2"
+sidebar_label: 2024年8月実施 数学A 2
 tags:
   - Tohoku-University
-  - Linear-Algebra
+  - Mathematics.Linear-Algebra
 ---
 # 東北大学 工学研究科 機械系 2024年8月実施 数学A 2
 

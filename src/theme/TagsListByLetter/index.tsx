@@ -22,7 +22,7 @@ interface TagType {
   description?: string;
 }
 
-interface SubjectMeta {
+interface LocalizedMeta {
   labelZh?: string;
   labelJa?: string;
   labelEn?: string;
@@ -31,12 +31,20 @@ interface SubjectMeta {
   descriptionEn?: string;
 }
 
-interface TopicMeta {
-  subjects?: string[];
-  aliases?: string[];
+interface SubsubjectMeta extends LocalizedMeta {
+  subject?: string;
 }
 
-const subjects = tagTaxonomy.subjects as Record<string, SubjectMeta>;
+interface TopicMeta {
+  subsubject?: string;
+  subjects?: string[];
+}
+
+type Language = 'zh' | 'ja' | 'en';
+type Tone = 'school' | 'subsubject' | 'topic' | 'pending' | 'deprecated';
+
+const subjects = tagTaxonomy.subjects as Record<string, LocalizedMeta>;
+const subsubjects = tagTaxonomy.subsubjects as Record<string, SubsubjectMeta>;
 const topics = tagTaxonomy.topics as Record<string, TopicMeta>;
 const schoolTags = tagTaxonomy.schoolTags as Record<
   string,
@@ -47,21 +55,34 @@ const deprecatedTags = tagTaxonomy.deprecatedTags as Record<
   {replaceWith: string; reason?: string}
 >;
 const subjectOrder = tagTaxonomy.subjectOrder as string[];
-
-type Language = 'zh' | 'ja' | 'en';
+const subsubjectOrder = tagTaxonomy.subsubjectOrder as string[];
 
 const getCopy = (language: Language) => getUiMessages('tagsList', language);
 
+function getLocalizedLabel(meta: LocalizedMeta | undefined, fallback: string, language: Language): string {
+  if (language === 'en') return meta?.labelEn || fallback;
+  return (language === 'ja' ? meta?.labelJa : meta?.labelZh) || fallback;
+}
+
+function getLocalizedDescription(meta: LocalizedMeta | undefined, language: Language): string | undefined {
+  if (language === 'en') return meta?.descriptionEn;
+  return language === 'ja' ? meta?.descriptionJa : meta?.descriptionZh;
+}
+
 function getSubjectLabel(subjectId: string, language: Language): string {
-  const subject = subjects[subjectId];
-  if (language === 'en') return subject?.labelEn || subjectId;
-  return (language === 'ja' ? subject?.labelJa : subject?.labelZh) || subjectId;
+  return getLocalizedLabel(subjects[subjectId], subjectId, language);
 }
 
 function getSubjectDescription(subjectId: string, language: Language): string | undefined {
-  const subject = subjects[subjectId];
-  if (language === 'en') return subject?.descriptionEn;
-  return language === 'ja' ? subject?.descriptionJa : subject?.descriptionZh;
+  return getLocalizedDescription(subjects[subjectId], language);
+}
+
+function getSubsubjectLabel(subsubjectId: string, language: Language): string {
+  return getLocalizedLabel(subsubjects[subsubjectId], subsubjectId, language);
+}
+
+function getSubsubjectDescription(subsubjectId: string, language: Language): string | undefined {
+  return getLocalizedDescription(subsubjects[subsubjectId], language);
 }
 
 const schoolTagLookup = new Set(
@@ -71,23 +92,61 @@ const schoolTagLookup = new Set(
   ]),
 );
 
-const topicAliasLookup = new Map<string, string>();
-for (const [tag, meta] of Object.entries(topics)) {
-  for (const alias of meta.aliases || []) {
-    if (!topics[alias]) {
-      topicAliasLookup.set(alias, tag);
-    }
-  }
+function getSubsubjectId(tagLabel: string): string | null {
+  if (subsubjects[tagLabel]) return tagLabel;
+  return null;
+}
+
+function getSubsubjectMeta(tagLabel: string): SubsubjectMeta | null {
+  const id = getSubsubjectId(tagLabel);
+  return id ? subsubjects[id] : null;
+}
+
+function getTopicId(tagLabel: string): string | null {
+  if (topics[tagLabel]) return tagLabel;
+  return null;
 }
 
 function getTopicMeta(tagLabel: string): TopicMeta | null {
-  if (topics[tagLabel]) return topics[tagLabel];
-  const aliasOf = topicAliasLookup.get(tagLabel);
-  return aliasOf ? topics[aliasOf] : null;
+  const id = getTopicId(tagLabel);
+  return id ? topics[id] : null;
+}
+
+function getTopicSubsubjectId(tagLabel: string): string {
+  return getTopicMeta(tagLabel)?.subsubject || 'General.Reference-Material';
+}
+
+function getSubsubjectShortId(subsubjectId: string): string {
+  const subjectId = subsubjects[subsubjectId]?.subject;
+  const prefix = subjectId ? `${subjectId}.` : '';
+  return prefix && subsubjectId.startsWith(prefix)
+    ? subsubjectId.slice(prefix.length)
+    : subsubjectId;
+}
+
+function getSubsubjectDisplayId(subsubjectId: string): string {
+  return getSubsubjectShortId(subsubjectId);
+}
+
+function getTopicShortId(topicId: string): string {
+  const topic = getTopicMeta(topicId);
+  const prefix = topic?.subsubject ? `${topic.subsubject}.` : '';
+  return prefix && topicId.startsWith(prefix)
+    ? topicId.slice(prefix.length)
+    : topicId.split('.').pop() || topicId;
+}
+
+function getTagDisplayName(tagLabel: string): string {
+  if (getTopicMeta(tagLabel)) return getTopicShortId(tagLabel);
+  if (getSubsubjectMeta(tagLabel)) return getSubsubjectDisplayId(tagLabel);
+  return tagLabel;
 }
 
 function getPrimarySubject(tagLabel: string): string {
-  return getTopicMeta(tagLabel)?.subjects?.[0] || 'General';
+  const subsubjectId = getSubsubjectId(tagLabel);
+  if (subsubjectId) return subsubjects[subsubjectId]?.subject || 'General';
+  const topicSubsubject = subsubjects[getTopicSubsubjectId(tagLabel)];
+  return topicSubsubject?.subject || getTopicMeta(tagLabel)?.subjects?.[0] || 'General';
 }
 
 function isSchoolTag(tagLabel: string): boolean {
@@ -99,16 +158,18 @@ function isDeprecatedTag(tagLabel: string): boolean {
 }
 
 function byCountThenName(a: TagType, b: TagType): number {
-  return b.count - a.count || a.label.localeCompare(b.label);
+  return b.count - a.count || a.label.localeCompare(b.label, 'en');
 }
 
 function TaxonomySummary({
   schoolCount,
+  subsubjectCount,
   topicCount,
   pendingCount,
   language,
 }: {
   schoolCount: number;
+  subsubjectCount: number;
   topicCount: number;
   pendingCount: number;
   language: Language;
@@ -119,6 +180,10 @@ function TaxonomySummary({
       <div className={styles.summaryItem}>
         <span className={styles.summaryNumber}>{schoolCount}</span>
         <span className={styles.summaryLabel}>{t.summarySchools}</span>
+      </div>
+      <div className={styles.summaryItem}>
+        <span className={styles.summaryNumber}>{subsubjectCount}</span>
+        <span className={styles.summaryLabel}>{t.summarySubsubjects}</span>
       </div>
       <div className={styles.summaryItem}>
         <span className={styles.summaryNumber}>{topicCount}</span>
@@ -158,14 +223,16 @@ function SectionHeader({
 
 function TagPill({
   tag,
+  displayName,
   detailLabel,
   detailValues,
   tone,
 }: {
   tag: TagType;
+  displayName?: string;
   detailLabel?: string;
   detailValues?: ReactNode[];
-  tone?: 'school' | 'topic' | 'pending' | 'deprecated';
+  tone?: Tone;
 }) {
   const hasDetails = Boolean(detailLabel && detailValues?.length);
 
@@ -174,7 +241,7 @@ function TagPill({
       to={tag.permalink}
       className={`${styles.tagPill} ${tone ? styles[tone] : ''} ${hasDetails ? styles.withDetails : ''}`}>
       <span className={styles.tagMainRow}>
-        <span className={styles.tagName}>{tag.label}</span>
+        <span className={styles.tagName}>{displayName || getTagDisplayName(tag.label)}</span>
         <span className={styles.tagPillCount}>{tag.count}</span>
       </span>
       {hasDetails && (
@@ -212,6 +279,7 @@ function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) 
             <TagPill
               key={tag.permalink}
               tag={tag}
+              displayName={tag.label}
               tone="school"
               detailLabel={school?.label && school.label !== tag.label ? t.schoolDisplayName : undefined}
               detailValues={school?.label && school.label !== tag.label ? [school.label] : undefined}
@@ -223,18 +291,28 @@ function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) 
   );
 }
 
+interface SubsubjectGroup {
+  subsubjectId: string;
+  subsubjectTag?: TagType;
+  topicTags: TagType[];
+}
+
 function SubjectSection({
   subjectId,
-  tags,
+  groups,
   language,
 }: {
   subjectId: string;
-  tags: TagType[];
+  groups: SubsubjectGroup[];
   language: Language;
 }) {
-  if (tags.length === 0) return null;
+  if (groups.length === 0) return null;
   const t = getCopy(language);
   const subjectDescription = getSubjectDescription(subjectId, language);
+  const tagCount = groups.reduce(
+    (sum, group) => sum + group.topicTags.length + (group.subsubjectTag ? 1 : 0),
+    0,
+  );
 
   return (
     <section className={styles.subjectBlock}>
@@ -247,22 +325,63 @@ function SubjectSection({
             <p className={styles.subjectDescription}>{subjectDescription}</p>
           )}
         </div>
-        <span className={styles.subjectCount}>{tags.length}</span>
+        <span className={styles.subjectCount}>{tagCount}</span>
       </div>
-      <div className={styles.tagGrid}>
-        {tags.sort(byCountThenName).map((tag) => {
-          const tagSubjects = getTopicMeta(tag.label)?.subjects || [];
-          const secondarySubjects = tagSubjects
-            .filter((id) => id !== subjectId)
-            .map((id) => getSubjectLabel(id, language));
+      <div className={styles.subsubjectList}>
+        {groups.map((group) => {
+          const topicTags = group.topicTags.sort(byCountThenName);
+          const subsubjectLabel = getSubsubjectLabel(group.subsubjectId, language);
+          const subsubjectDisplayId = getSubsubjectDisplayId(group.subsubjectId);
+          const subsubjectTitle = (
+            <span className={styles.subsubjectTitleText}>
+              <span>{subsubjectLabel}</span>
+              <span className={styles.subsubjectTitleId}>（{subsubjectDisplayId}）</span>
+            </span>
+          );
           return (
-            <TagPill
-              key={tag.permalink}
-              tag={tag}
-              tone={isDeprecatedTag(tag.label) ? 'deprecated' : 'topic'}
-              detailLabel={secondarySubjects.length ? t.relatedSubjects : undefined}
-              detailValues={secondarySubjects.length ? secondarySubjects : undefined}
-            />
+            <section key={group.subsubjectId} className={styles.subsubjectBlock}>
+              <div className={styles.subsubjectHeader}>
+                <div>
+                  <Heading as="h4" className={styles.subsubjectTitle}>
+                    {group.subsubjectTag ? (
+                      <Link
+                        to={group.subsubjectTag.permalink}
+                        className={styles.subsubjectTitleLink}>
+                        {subsubjectTitle}
+                      </Link>
+                    ) : (
+                      subsubjectTitle
+                    )}
+                  </Heading>
+                  {getSubsubjectDescription(group.subsubjectId, language) && (
+                    <p className={styles.subsubjectDescription}>
+                      {getSubsubjectDescription(group.subsubjectId, language)}
+                    </p>
+                  )}
+                </div>
+                <span className={styles.subsubjectCount}>
+                  {topicTags.length + (group.subsubjectTag ? 1 : 0)}
+                </span>
+              </div>
+              <div className={styles.tagGrid}>
+                {topicTags.map((tag) => {
+                  const tagSubjects = getTopicMeta(tag.label)?.subjects || [];
+                  const secondarySubjects = tagSubjects
+                    .filter((id) => id !== subjectId)
+                    .map((id) => getSubjectLabel(id, language));
+                  return (
+                    <TagPill
+                      key={tag.permalink}
+                      tag={tag}
+                      displayName={getTopicShortId(tag.label)}
+                      tone={isDeprecatedTag(tag.label) ? 'deprecated' : 'topic'}
+                      detailLabel={secondarySubjects.length ? t.relatedSubjects : undefined}
+                      detailValues={secondarySubjects.length ? secondarySubjects : undefined}
+                    />
+                  );
+                })}
+              </div>
+            </section>
           );
         })}
       </div>
@@ -270,15 +389,39 @@ function SubjectSection({
   );
 }
 
-function TopicSections({tags, language}: {tags: TagType[]; language: Language}) {
-  if (tags.length === 0) return null;
+function LearningSections({
+  subsubjectTags,
+  topicTags,
+  language,
+}: {
+  subsubjectTags: TagType[];
+  topicTags: TagType[];
+  language: Language;
+}) {
+  const total = subsubjectTags.length + topicTags.length;
+  if (total === 0) return null;
   const t = getCopy(language);
 
-  const bySubject = new Map<string, TagType[]>();
-  for (const tag of tags) {
-    const subject = getPrimarySubject(tag.label);
-    if (!bySubject.has(subject)) bySubject.set(subject, []);
-    bySubject.get(subject)!.push(tag);
+  const bySubject = new Map<string, Map<string, SubsubjectGroup>>();
+  const ensureGroup = (subjectId: string, subsubjectId: string): SubsubjectGroup => {
+    if (!bySubject.has(subjectId)) bySubject.set(subjectId, new Map());
+    const subjectGroups = bySubject.get(subjectId)!;
+    if (!subjectGroups.has(subsubjectId)) {
+      subjectGroups.set(subsubjectId, {subsubjectId, topicTags: []});
+    }
+    return subjectGroups.get(subsubjectId)!;
+  };
+
+  for (const tag of subsubjectTags) {
+    const subsubjectId = getSubsubjectId(tag.label) || 'General.Reference-Material';
+    const subjectId = getPrimarySubject(tag.label);
+    ensureGroup(subjectId, subsubjectId).subsubjectTag = tag;
+  }
+
+  for (const tag of topicTags) {
+    const subsubjectId = getTopicSubsubjectId(tag.label);
+    const subjectId = getPrimarySubject(tag.label);
+    ensureGroup(subjectId, subsubjectId).topicTags.push(tag);
   }
 
   const orderedSubjects = [
@@ -286,12 +429,23 @@ function TopicSections({tags, language}: {tags: TagType[]; language: Language}) 
     ...Array.from(bySubject.keys()).filter((subject) => !subjectOrder.includes(subject)),
   ];
 
+  const orderedGroups = (groups: Map<string, SubsubjectGroup>) => {
+    const order = new Map(subsubjectOrder.map((id, index) => [id, index]));
+    return Array.from(groups.values()).sort((a, b) => {
+      const ai = order.get(a.subsubjectId) ?? Number.MAX_SAFE_INTEGER;
+      const bi = order.get(b.subsubjectId) ?? Number.MAX_SAFE_INTEGER;
+      if (ai !== bi) return ai - bi;
+      return getSubsubjectLabel(a.subsubjectId, language)
+        .localeCompare(getSubsubjectLabel(b.subsubjectId, language), 'en');
+    });
+  };
+
   return (
     <section className={styles.sectionCard}>
       <SectionHeader
         title={t.topicsTitle}
         subtitle={t.topicsSubtitle}
-        count={tags.length}
+        count={total}
         language={language}
       />
       <div className={styles.subjectList}>
@@ -299,7 +453,7 @@ function TopicSections({tags, language}: {tags: TagType[]; language: Language}) 
           <SubjectSection
             key={subjectId}
             subjectId={subjectId}
-            tags={bySubject.get(subjectId) || []}
+            groups={orderedGroups(bySubject.get(subjectId)!)}
             language={language}
           />
         ))}
@@ -333,19 +487,25 @@ export default function TagsListByLetter({tags}: Props): ReactNode {
   const language = normalizeLanguage(useCurrentLanguage()) as Language;
   const normalizedTags = tags as TagType[];
   const universityTags = normalizedTags.filter((tag) => isSchoolTag(tag.label));
-  const topicTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && getTopicMeta(tag.label));
-  const pendingTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && !getTopicMeta(tag.label));
+  const subsubjectTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && getSubsubjectMeta(tag.label));
+  const topicTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && !getSubsubjectMeta(tag.label) && getTopicMeta(tag.label));
+  const pendingTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && !getSubsubjectMeta(tag.label) && !getTopicMeta(tag.label));
 
   return (
     <section className={styles.tagsContainer}>
       <TaxonomySummary
         schoolCount={universityTags.length}
+        subsubjectCount={subsubjectTags.length}
         topicCount={topicTags.length}
         pendingCount={pendingTags.length}
         language={language}
       />
       <SchoolSection tags={[...universityTags]} language={language} />
-      <TopicSections tags={[...topicTags]} language={language} />
+      <LearningSections
+        subsubjectTags={[...subsubjectTags]}
+        topicTags={[...topicTags]}
+        language={language}
+      />
       <PendingSection tags={[...pendingTags]} language={language} />
     </section>
   );

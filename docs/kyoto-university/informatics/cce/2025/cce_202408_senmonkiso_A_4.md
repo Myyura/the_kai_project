@@ -1,11 +1,10 @@
 ---
-sidebar_label: "2024年8月実施 専門基礎A [A-4]"
+sidebar_label: '2024年8月実施 専門基礎A [A-4]'
 tags:
   - Kyoto-University
-  - Computer-Architecture
-  - Number-Representation
-  - Branch-Prediction
-  - Control-Hazard
+  - Computer-Science.Computer-Architecture.Number-Representation
+  - Computer-Science.Computer-Architecture.Branch-Prediction
+  - Computer-Science.Computer-Architecture.Control-Hazard
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2024年8月実施 専門基礎A \[A-4\]
 

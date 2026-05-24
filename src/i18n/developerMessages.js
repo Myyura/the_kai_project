@@ -67,7 +67,7 @@ export const developerMessages = {
     createFailed: '创建 API Key 失败。',
     revokeFailed: '撤销 API Key 失败。',
     confirmRevoke: '确定要撤销这个 API Key 吗？撤销后无法恢复。',
-    docsHint: '内容 API 使用 Authorization: Bearer kai_live_...，不接受匿名调用或登录 JWT。',
+    docsHint: '内容 API 使用 Authorization: Bearer kai_live_...；题目可按 tag、subject、subsubject、namespaced topic 过滤。',
     requestFailed: '提交 API 访问申请失败。',
   },
   ja: {
@@ -138,7 +138,7 @@ export const developerMessages = {
     createFailed: 'API Key の作成に失敗しました。',
     revokeFailed: 'API Key の無効化に失敗しました。',
     confirmRevoke: 'この API Key を無効化しますか？元に戻すことはできません。',
-    docsHint: 'Content API は Authorization: Bearer kai_live_... を使用します。匿名呼び出しやログイン JWT は受け付けません。',
+    docsHint: 'Content API は Authorization: Bearer kai_live_... を使用します。問題は tag、subject、subsubject、namespaced topic で絞り込めます。',
     requestFailed: 'API アクセス申請の送信に失敗しました。',
   },
   en: {
@@ -209,7 +209,7 @@ export const developerMessages = {
     createFailed: 'Failed to create API key.',
     revokeFailed: 'Failed to revoke API key.',
     confirmRevoke: 'Revoke this API key? This cannot be undone.',
-    docsHint: 'The content API uses Authorization: Bearer kai_live_... Anonymous calls and login JWTs are not accepted.',
+    docsHint: 'The content API uses Authorization: Bearer kai_live_... Exams can be filtered by tag, subject, subsubject, and namespaced topic.',
     requestFailed: 'Failed to submit API access request.',
   },
 };

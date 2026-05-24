@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2021年8月実施 確率・統計"
+sidebar_label: 2021年8月実施 確率・統計
 tags:
   - Nagoya-University
-  - Probability-And-Statistics
+  - Statistics-Data-Science.Probability-Statistics
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2021年8月実施 確率・統計
 

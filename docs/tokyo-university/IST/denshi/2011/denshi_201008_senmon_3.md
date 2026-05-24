@@ -1,10 +1,9 @@
 ---
-sidebar_label: "2010年8月実施 専門 第3問"
+sidebar_label: 2010年8月実施 専門 第3問
 tags:
   - Tokyo-University
-  - Data-Structure-And-Algorithms
-  - Merge-Sort
-  - Hash-Table
+  - Computer-Science.Data-Structures-Algorithms.Merge-Sort
+  - Computer-Science.Data-Structures-Algorithms.Hash-Table
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2010年8月実施 専門 第3問
 

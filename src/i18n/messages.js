@@ -883,13 +883,15 @@ export const UI_MESSAGES = {
   tagsList: {
     zh: {
       summarySchools: '学校入口',
+      summarySubsubjects: '已归类子科目',
       summaryTopics: '已归类考点',
       summaryPending: '待归类 tag',
       tagsUnit: 'tags',
       schoolTitle: '学校',
-      schoolSubtitle: '学校 tag 由目录结构辅助识别；页面展示仍兼容现有 frontmatter。',
+      schoolSubtitle: '学校 tag 由目录结构辅助识别；frontmatter 中暂时保留学校入口。',
       topicsTitle: '科目与考点',
-      topicsSubtitle: '考点 tag 按主科目展示；跨科目 tag 会在条目中标出相关方向。',
+      topicsSubtitle: '学习 tag 按大类学科、子科目、namespaced 考点展示；跨学科考点会标出相关方向。',
+      subsubjectEntry: '子科目',
       relatedSubjects: '关联科目',
       schoolDisplayName: '学校名',
       pendingTitle: '待归类',
@@ -897,13 +899,15 @@ export const UI_MESSAGES = {
     },
     ja: {
       summarySchools: '大学タグ',
+      summarySubsubjects: '分類済みサブ科目',
       summaryTopics: '分類済みトピック',
       summaryPending: '未分類タグ',
       tagsUnit: 'タグ',
       schoolTitle: '大学',
-      schoolSubtitle: '大学タグはディレクトリ構造からも判定します。既存の frontmatter 表示にも対応しています。',
+      schoolSubtitle: '大学タグはディレクトリ構造からも判定します。frontmatter には大学入口を当面残します。',
       topicsTitle: '科目とトピック',
-      topicsSubtitle: 'トピックタグは主科目ごとに表示します。複数科目にまたがるタグは関連分野も併記します。',
+      topicsSubtitle: '学習タグを大科目、サブ科目、namespaced トピックの順に表示します。複数分野にまたがるタグは関連分野も併記します。',
+      subsubjectEntry: 'サブ科目',
       relatedSubjects: '関連科目',
       schoolDisplayName: '大学名',
       pendingTitle: '未分類',
@@ -911,13 +915,15 @@ export const UI_MESSAGES = {
     },
     en: {
       summarySchools: 'School entries',
+      summarySubsubjects: 'Classified subsubjects',
       summaryTopics: 'Classified topics',
       summaryPending: 'Pending tags',
       tagsUnit: 'tags',
       schoolTitle: 'Schools',
-      schoolSubtitle: 'School tags are inferred from the directory structure while staying compatible with existing frontmatter.',
+      schoolSubtitle: 'School tags are inferred from the directory structure while school entries remain in frontmatter for now.',
       topicsTitle: 'Subjects and Topics',
-      topicsSubtitle: 'Topic tags are grouped by primary subject; cross-subject tags show related areas in each entry.',
+      topicsSubtitle: 'Learning tags are grouped by subject, subsubject, and namespaced topic; cross-subject topics show related areas.',
+      subsubjectEntry: 'Subsubject',
       relatedSubjects: 'Related subjects',
       schoolDisplayName: 'School name',
       pendingTitle: 'Pending',
@@ -929,6 +935,7 @@ export const UI_MESSAGES = {
     zh: {
       tagKinds: {
         school: '学校',
+        subsubject: '子科目',
         topic: '考点',
         deprecated: '需替换',
         pending: '待归类',
@@ -943,6 +950,7 @@ export const UI_MESSAGES = {
     ja: {
       tagKinds: {
         school: '大学',
+        subsubject: 'サブ科目',
         topic: 'トピック',
         deprecated: '置換推奨',
         pending: '未分類',
@@ -957,6 +965,7 @@ export const UI_MESSAGES = {
     en: {
       tagKinds: {
         school: 'School',
+        subsubject: 'Subsubject',
         topic: 'Topic',
         deprecated: 'Replace',
         pending: 'Pending',

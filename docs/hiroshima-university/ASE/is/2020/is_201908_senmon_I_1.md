@@ -1,9 +1,8 @@
 ---
-sidebar_label: "2019年8月実施 専門科目I 問題1"
+sidebar_label: 2019年8月実施 専門科目I 問題1
 tags:
   - Hiroshima-University
-  - Eigenvalues-and-Eigenvectors
-  - Linear-Algebra
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
 # 広島大学 先進理工系科学研究科 情報科学プログラム 2019年8月実施 専門科目I 問題1
 

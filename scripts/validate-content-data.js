@@ -2,9 +2,11 @@
 
 const fs = require('fs');
 const path = require('path');
+const { buildTagsYaml } = require('./generate-docusaurus-tags');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');
+const DOCS_TAGS_PATH = path.join(DOCS_DIR, 'tags.yml');
 
 const errors = [];
 
@@ -224,6 +226,10 @@ function validateTagTaxonomy(data) {
   }
 
   const canonicalTags = new Set();
+  for (const tagId of Object.keys(data.schoolTags || {})) canonicalTags.add(tagId);
+  for (const tagId of Object.keys(data.subsubjects || {})) canonicalTags.add(tagId);
+  for (const tagId of Object.keys(data.topics || {})) canonicalTags.add(tagId);
+
   const aliasOwners = new Map();
   const registerAlias = (alias, owner, pathLabel) => {
     if (!requireString(alias, pathLabel)) return;
@@ -251,13 +257,75 @@ function validateTagTaxonomy(data) {
     }
   }
 
-  if (requireObject(data.topics, 'tagTaxonomy.json.topics')) {
-    for (const tagId of Object.keys(data.topics)) {
-      canonicalTags.add(tagId);
+  const subsubjectIds = new Set();
+  if (data.version >= 2 || data.subsubjects !== undefined) {
+    if (requireObject(data.subsubjects, 'tagTaxonomy.json.subsubjects')) {
+      for (const [subsubjectId, subsubject] of Object.entries(data.subsubjects)) {
+        subsubjectIds.add(subsubjectId);
+        const base = `tagTaxonomy.json.subsubjects.${subsubjectId}`;
+        if (!requireObject(subsubject, base)) continue;
+        if (requireString(subsubject.subject, `${base}.subject`) && !subjectIds.has(subsubject.subject)) {
+          addError(`${base}.subject`, `unknown subject "${subsubject.subject}"`);
+        }
+        requireString(subsubject.labelZh, `${base}.labelZh`);
+        requireString(subsubject.labelJa, `${base}.labelJa`);
+        if (subsubject.labelEn !== undefined) {
+          requireString(subsubject.labelEn, `${base}.labelEn`);
+        }
+        if (subsubject.descriptionZh !== undefined) {
+          requireString(subsubject.descriptionZh, `${base}.descriptionZh`, { allowEmpty: true });
+        }
+        if (subsubject.descriptionJa !== undefined) {
+          requireString(subsubject.descriptionJa, `${base}.descriptionJa`, { allowEmpty: true });
+        }
+        if (subsubject.descriptionEn !== undefined) {
+          requireString(subsubject.descriptionEn, `${base}.descriptionEn`, { allowEmpty: true });
+        }
+        if (subsubject.aliases !== undefined && requireArray(subsubject.aliases, `${base}.aliases`)) {
+          if (data.version >= 3) {
+            addError(`${base}.aliases`, 'learning tag aliases are not allowed in taxonomy v3');
+          } else {
+            subsubject.aliases.forEach((alias, index) => registerAlias(alias, subsubjectId, `${base}.aliases[${index}]`));
+          }
+        }
+      }
     }
+
+    if (requireArray(data.subsubjectOrder, 'tagTaxonomy.json.subsubjectOrder')) {
+      data.subsubjectOrder.forEach((subsubjectId, index) => {
+        if (
+          requireString(subsubjectId, `tagTaxonomy.json.subsubjectOrder[${index}]`)
+          && !subsubjectIds.has(subsubjectId)
+        ) {
+          addError(`tagTaxonomy.json.subsubjectOrder[${index}]`, `unknown subsubject "${subsubjectId}"`);
+        }
+      });
+    }
+  }
+
+  if (requireObject(data.topics, 'tagTaxonomy.json.topics')) {
     for (const [tagId, tag] of Object.entries(data.topics)) {
       const base = `tagTaxonomy.json.topics.${tagId}`;
       if (!requireObject(tag, base)) continue;
+      if (data.version >= 2) {
+        if (requireString(tag.subsubject, `${base}.subsubject`) && !subsubjectIds.has(tag.subsubject)) {
+          addError(`${base}.subsubject`, `unknown subsubject "${tag.subsubject}"`);
+        }
+        if (data.version >= 3 && typeof tag.subsubject === 'string') {
+          const expectedPrefix = `${tag.subsubject}.`;
+          if (!tagId.startsWith(expectedPrefix)) {
+            addError(base, `topic key must start with "${expectedPrefix}"`);
+          } else {
+            const shortId = tagId.slice(expectedPrefix.length);
+            if (!shortId) {
+              addError(base, 'topic short id must not be empty');
+            }
+            if (shortId.includes('.')) {
+              addError(base, 'topic short id must not contain "."');
+            }
+          }
+        }
+      }
       if (requireArray(tag.subjects, `${base}.subjects`)) {
         tag.subjects.forEach((subjectId, index) => {
           if (requireString(subjectId, `${base}.subjects[${index}]`) && !subjectIds.has(subjectId)) {
@@ -266,7 +334,11 @@ function validateTagTaxonomy(data) {
         });
       }
       if (tag.aliases !== undefined && requireArray(tag.aliases, `${base}.aliases`)) {
-        tag.aliases.forEach((alias, index) => registerAlias(alias, tagId, `${base}.aliases[${index}]`));
+        if (data.version >= 3) {
+          addError(`${base}.aliases`, 'learning tag aliases are not allowed in taxonomy v3');
+        } else {
+          tag.aliases.forEach((alias, index) => registerAlias(alias, tagId, `${base}.aliases[${index}]`));
+        }
       }
     }
   }
@@ -275,13 +347,32 @@ function validateTagTaxonomy(data) {
     for (const [tagId, deprecated] of Object.entries(data.deprecatedTags)) {
       const base = `tagTaxonomy.json.deprecatedTags.${tagId}`;
       if (!requireObject(deprecated, base)) continue;
-      if (requireString(deprecated.replaceWith, `${base}.replaceWith`) && !canonicalTags.has(deprecated.replaceWith)) {
+      if (
+        requireString(deprecated.replaceWith, `${base}.replaceWith`)
+        && !canonicalTags.has(deprecated.replaceWith)
+        && !aliasOwners.has(deprecated.replaceWith)
+      ) {
         addError(`${base}.replaceWith`, `unknown replacement "${deprecated.replaceWith}"`);
       }
       if (deprecated.reason !== undefined) {
         requireString(deprecated.reason, `${base}.reason`, { allowEmpty: true });
       }
     }
+  }
+}
+
+function validateGeneratedTagsFile(tagTaxonomy) {
+  const expected = buildTagsYaml(tagTaxonomy);
+  let actual = '';
+  try {
+    actual = fs.readFileSync(DOCS_TAGS_PATH, 'utf-8');
+  } catch {
+    addError('docs/tags.yml', 'missing generated Docusaurus tags metadata');
+    return;
+  }
+
+  if (actual !== expected) {
+    addError('docs/tags.yml', 'is out of date; run node scripts/generate-docusaurus-tags.js');
   }
 }
 
@@ -295,7 +386,9 @@ function validateSiteStats(data) {
 validateLinks(readJson('src/data/links.json'));
 validateAdmissions(readJson('src/data/admissions.json'));
 validateUniversityMetadata(readJson('src/data/universityMetadata.json'));
-validateTagTaxonomy(readJson('src/data/tagTaxonomy.json'));
+const tagTaxonomy = readJson('src/data/tagTaxonomy.json');
+validateTagTaxonomy(tagTaxonomy);
+if (tagTaxonomy) validateGeneratedTagsFile(tagTaxonomy);
 validateSiteStats(readJson('src/data/siteStats.json'));
 
 if (errors.length > 0) {

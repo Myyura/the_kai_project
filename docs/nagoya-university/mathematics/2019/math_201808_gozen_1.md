@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2018年8月実施 午前の部 [1]"
+sidebar_label: '2018年8月実施 午前の部 [1]'
 tags:
   - Nagoya-University
-  - Linear-Algebra
+  - Mathematics.Linear-Algebra
 ---
 # 名古屋大学 多元数理科学研究科 2018年8月実施 午前の部 \[1\]
 

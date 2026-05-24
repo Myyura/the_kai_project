@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2023年2・3月実施実施 基礎科目 問題4 情報基礎2"
+sidebar_label: 2023年2・3月実施実施 基礎科目 問題4 情報基礎2
 tags:
   - Tohoku-University
-  - Graph-Theory
-  - Minimum-Spanning-Tree
+  - Computer-Science.Data-Structures-Algorithms.Minimum-Spanning-Tree
+  - Mathematics.Graph-Theory
 ---
 # 東北大学 工学研究科 電気・情報系 2023年2・3月実施実施 基礎科目 問題4 情報基礎2
 

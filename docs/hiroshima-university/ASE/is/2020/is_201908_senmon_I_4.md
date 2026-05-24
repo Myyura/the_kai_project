@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2019年8月実施 専門科目I 問題4"
+sidebar_label: 2019年8月実施 専門科目I 問題4
 tags:
   - Hiroshima-University
-  - Graph-Theory
-  - Maximum-Matching
+  - Computer-Science.Data-Structures-Algorithms.Maximum-Matching
+  - Mathematics.Graph-Theory
 ---
 # 広島大学 先進理工系科学研究科 情報科学プログラム 2019年8月実施 専門科目I 問題4
 

@@ -1,10 +1,9 @@
 ---
-sidebar_label: '2009年8月実施 筆記試験 第3問'
+sidebar_label: 2009年8月実施 筆記試験 第3問
 tags:
   - Tokyo-University
-  - Digital-Circuit
-  - Half-Full-Adders
-  - Combinatorial-Circuit
+  - Electrical-Electronic.Digital-Logic.Half-Full-Adders
+  - Electrical-Electronic.Digital-Logic.Combinatorial-Circuit
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2009年8月実施 筆記試験 第3問
 ## **Author**

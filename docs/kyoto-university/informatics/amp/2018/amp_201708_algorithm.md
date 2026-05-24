@@ -1,9 +1,8 @@
 ---
-sidebar_label: "2017年8月実施 アルゴリズム基礎"
+sidebar_label: 2017年8月実施 アルゴリズム基礎
 tags:
   - Kyoto-University
-  - Graph-Theory
-  - Bipartite-Graph
+  - Mathematics.Graph-Theory.Bipartite-Graph
 ---
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 アルゴリズム基礎
 

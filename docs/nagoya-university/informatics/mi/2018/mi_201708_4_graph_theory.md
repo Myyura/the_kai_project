@@ -1,9 +1,8 @@
 ---
-sidebar_label: "2017年8月実施 問題4 グラフ理論"
+sidebar_label: 2017年8月実施 問題4 グラフ理論
 tags:
   - Nagoya-University
-  - Graph-Theory
-  - Planar-Graph
+  - Mathematics.Graph-Theory.Planar-Graph
 ---
 # 名古屋大学 情報学研究科 数理情報学専攻 2017年8月実施 問題4 グラフ理論
 

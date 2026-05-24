@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2023年8月実施 数学 第1問"
+sidebar_label: 2023年8月実施 数学 第1問
 tags:
   - Tokyo-University
-  - Linear-Algebra
+  - Mathematics.Linear-Algebra
 ---
 # 東京大学 情報理工学研究科 2023年8月実施 数学 第1問
 

@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2019年8月実施 アルゴリズム基礎"
+sidebar_label: 2019年8月実施 アルゴリズム基礎
 tags:
   - Kyoto-University
-  - Graph-Theory
+  - Mathematics.Graph-Theory
 ---
 # 京都大学 情報学研究科 数理工学専攻 2019年8月実施 アルゴリズム基礎
 

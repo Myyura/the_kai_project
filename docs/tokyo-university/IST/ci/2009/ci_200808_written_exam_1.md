@@ -1,9 +1,9 @@
 ---
-sidebar_label: '2008年8月実施 筆記試験 第1問'
+sidebar_label: 2008年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Binary-Search
-  - Hash-Table
+  - Computer-Science.Data-Structures-Algorithms.Binary-Search
+  - Computer-Science.Data-Structures-Algorithms.Hash-Table
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2008年8月実施 筆記試験 第1問
 ## **Author**

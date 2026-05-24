@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2023年8月実施 数学【I】"
+sidebar_label: 2023年8月実施 数学【I】
 tags:
   - Kyoto-University
-  - Linear-Algebra
+  - Mathematics.Linear-Algebra
 ---
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 数学【I】
 

@@ -1,9 +1,9 @@
 ---
-sidebar_label: "2021年1月実施 専門科目I 問題4"
+sidebar_label: 2021年1月実施 専門科目I 問題4
 tags:
   - Hiroshima-University
-  - Graph-Theory
-  - Minimum-Spanning-Tree
+  - Computer-Science.Data-Structures-Algorithms.Minimum-Spanning-Tree
+  - Mathematics.Graph-Theory
 ---
 # 広島大学 先進理工系科学研究科 情報科学プログラム 2021年1月実施 専門科目I 問題4
 

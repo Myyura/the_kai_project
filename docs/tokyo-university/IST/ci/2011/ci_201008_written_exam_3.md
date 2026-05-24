@@ -1,9 +1,9 @@
 ---
-sidebar_label: '2010年8月実施 筆記試験 第3問'
+sidebar_label: 2010年8月実施 筆記試験 第3問
 tags:
   - Tokyo-University
-  - Signal-Processing
-  - Linear-Algebra
+  - Electrical-Electronic.Signal-Processing
+  - Mathematics.Linear-Algebra
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2010年8月実施 筆記試験 第3問
 ## **Author**

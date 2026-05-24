@@ -1,11 +1,10 @@
 ---
-sidebar_label: "2022年8月実施 専門科目 アルゴリズムとデータ構造"
+sidebar_label: 2022年8月実施 専門科目 アルゴリズムとデータ構造
 tags:
   - Kanazawa-University
-  - Data-Structure-And-Algorithms
-  - Linked-List
-  - Queue
-  - Tower-of-Hanoi
+  - Computer-Science.Data-Structures-Algorithms.Linked-List
+  - Computer-Science.Data-Structures-Algorithms.Queue
+  - Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi
 ---
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 専門科目 アルゴリズムとデータ構造
 

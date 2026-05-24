@@ -1,9 +1,8 @@
 ---
-sidebar_label: '2010年8月実施 筆記試験 第2問'
+sidebar_label: 2010年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Computer-Architecture
-  - Assembly-Language
+  - Computer-Science.Computer-Architecture.Assembly-Language
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2010年8月実施 筆記試験 第2問
 ## **Author**

@@ -1,8 +1,8 @@
 ---
-sidebar_label: "2016年8月実施 アルゴリズムとプログラミング"
+sidebar_label: 2016年8月実施 アルゴリズムとプログラミング
 tags:
   - Osaka-University
-  - Shortest-Path-Problem
+  - Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem
 ---
 # 大阪大学 情報科学研究科 情報工学 2016年8月実施 アルゴリズムとプログラミング
 

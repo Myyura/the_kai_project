@@ -1,10 +1,9 @@
 ---
-sidebar_label: '2024年8月実施 筆記試験 第1問'
+sidebar_label: 2024年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Markov-Chain
-  - Linear-Algebra
-  - Matrix-Limit
+  - Statistics-Data-Science.Stochastic-Processes.Markov-Chain
+  - Mathematics.Linear-Algebra.Matrix-Limit
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2024年8月実施 筆記試験 第1問
 

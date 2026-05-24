@@ -1,9 +1,9 @@
 ---
-sidebar_label: "情報理工学位プログラム 2017年2月実施 基礎科目 情報2"
+sidebar_label: 情報理工学位プログラム 2017年2月実施 基礎科目 情報2
 tags:
   - Tsukuba-University
-  - Trie
-  - Queue
+  - Computer-Science.Data-Structures-Algorithms.Trie
+  - Computer-Science.Data-Structures-Algorithms.Queue
 ---
 # 筑波大学 理工情報生命学術院 システム情報工学研究群 情報理工学位プログラム 2017年2月実施 基礎科目 情報2
 

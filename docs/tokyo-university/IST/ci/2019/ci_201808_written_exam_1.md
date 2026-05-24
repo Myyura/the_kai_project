@@ -1,13 +1,13 @@
 ---
-sidebar_label: '2018年8月実施 筆記試験 第1問'
+sidebar_label: 2018年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Algorithm-Complexity
-  - Programming
-  - Graphics
-  - BFS
-  - Matrix-Limit
-  - Convolution
+  - Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity
+  - Computer-Science.Data-Structures-Algorithms.BFS
+  - Mathematics.Linear-Algebra.Matrix-Limit
+  - Mathematics.Fourier-Analysis.Convolution
+  - Computer-Science.Programming
+  - Computer-Science.Graphics
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 筆記試験 第1問
 
