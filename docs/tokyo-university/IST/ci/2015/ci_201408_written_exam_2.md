@@ -3,7 +3,7 @@ sidebar_label: 2014年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
   - Computer-Science.Networks
-  - Statistics-Data-Science.Probability-Statistics
+  - Probability-Statistics.Probability
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2014年8月実施 筆記試験 第2問
 ## **Author**

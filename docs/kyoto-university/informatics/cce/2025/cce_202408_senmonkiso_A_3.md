@@ -2,11 +2,11 @@
 sidebar_label: '2024年8月実施 専門基礎A [A-3]'
 tags:
   - Kyoto-University
-  - Statistics-Data-Science.Information-Theory.Entropy
-  - Statistics-Data-Science.Information-Theory.Mutual-Information
-  - Statistics-Data-Science.Stochastic-Processes.Markov-Source
-  - Statistics-Data-Science.Information-Theory.Additive-Binary-Channel
-  - Statistics-Data-Science.Information-Theory.Channel-Capacity
+  - Computer-Science.Information-Theory.Entropy
+  - Computer-Science.Information-Theory.Mutual-Information
+  - Probability-Statistics.Stochastic-Processes.Markov-Source
+  - Computer-Science.Information-Theory.Additive-Binary-Channel
+  - Computer-Science.Information-Theory.Channel-Capacity
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2024年8月実施 専門基礎A \[A-3\]
 

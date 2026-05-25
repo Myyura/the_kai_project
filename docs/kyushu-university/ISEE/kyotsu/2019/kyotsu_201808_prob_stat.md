@@ -2,7 +2,7 @@
 sidebar_label: "2018年8月実施 確率・統計"
 tags:
   - Kyushu-University
-  - Statistics-Data-Science.Probability-Statistics
+  - Probability-Statistics.Probability
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2018年8月実施 確率・統計
 

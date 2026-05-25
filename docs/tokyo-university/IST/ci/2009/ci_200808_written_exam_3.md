@@ -2,8 +2,8 @@
 sidebar_label: 2008年8月実施 筆記試験 第3問
 tags:
   - Tokyo-University
-  - Computer-Science.Artificial-Intelligence.Semantic-Network
-  - Computer-Science.Artificial-Intelligence.Knowledge-Representation
+  - Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network
+  - Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2008年8月実施 筆記試験 第3問
 ## **Author**

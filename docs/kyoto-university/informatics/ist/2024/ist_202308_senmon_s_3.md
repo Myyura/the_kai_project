@@ -2,8 +2,8 @@
 sidebar_label: 2023年8月実施 専門科目 S-3
 tags:
   - Kyoto-University
-  - Statistics-Data-Science.Machine-Learning.Classification
-  - Statistics-Data-Science.Statistical-Inference.Fisher-Linear-Discriminant-Analysis
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Classification
+  - Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2023年8月実施 専門科目 S-3
 

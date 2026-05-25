@@ -2,7 +2,7 @@
 sidebar_label: 2020年8月実施 専門科目 S-3
 tags:
   - Kyoto-University
-  - Statistics-Data-Science.Machine-Learning
+  - Data-Science-Artificial-Intelligence.Machine-Learning
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2020年8月実施 専門科目 S-3
 

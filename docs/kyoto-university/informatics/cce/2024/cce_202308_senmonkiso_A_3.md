@@ -2,10 +2,10 @@
 sidebar_label: '2023年8月実施 専門基礎A [A-3]'
 tags:
   - Kyoto-University
-  - Statistics-Data-Science.Information-Theory.Source-Coding
-  - Statistics-Data-Science.Information-Theory.Huffman-Coding
-  - Statistics-Data-Science.Information-Theory.Channel-Coding
-  - Statistics-Data-Science.Information-Theory.Cyclic-Code
+  - Computer-Science.Information-Theory.Source-Coding
+  - Computer-Science.Information-Theory.Huffman-Coding
+  - Computer-Science.Information-Theory.Channel-Coding
+  - Computer-Science.Information-Theory.Cyclic-Code
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2023年8月実施 専門基礎A \[A-3\]
 

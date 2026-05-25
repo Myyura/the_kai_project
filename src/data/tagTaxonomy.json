@@ -50,13 +50,21 @@
       "descriptionJa": "物理化学、無機化学などの化学分野。",
       "descriptionEn": "Physical chemistry, inorganic chemistry, and related chemistry topics."
     },
-    "Statistics-Data-Science": {
-      "labelZh": "统计与数据科学",
-      "labelJa": "統計・データ科学",
-      "labelEn": "Statistics & Data Science",
-      "descriptionZh": "统计推断、机器学习、信息论与数据分析。",
-      "descriptionJa": "統計推論、機械学習、情報理論、データ分析。",
-      "descriptionEn": "Statistical inference, machine learning, information theory, and data analysis."
+    "Probability-Statistics": {
+      "labelZh": "概率与统计",
+      "labelJa": "確率・統計",
+      "labelEn": "Probability & Statistics",
+      "descriptionZh": "概率论、统计推断、随机过程与相关方法。",
+      "descriptionJa": "確率論、統計推論、確率過程、および関連手法。",
+      "descriptionEn": "Probability theory, statistical inference, stochastic processes, and related methods."
+    },
+    "Data-Science-Artificial-Intelligence": {
+      "labelZh": "数据科学与人工智能",
+      "labelJa": "データ科学・人工知能",
+      "labelEn": "Data Science & Artificial Intelligence",
+      "descriptionZh": "数据分析、机器学习、知识表示与智能系统。",
+      "descriptionJa": "データ分析、機械学習、知識表現、知的システム。",
+      "descriptionEn": "Data analysis, machine learning, knowledge representation, and intelligent systems."
     },
     "Operations-Research": {
       "labelZh": "运筹与优化",
@@ -95,7 +103,8 @@
     "Mathematics",
     "Computer-Science",
     "Electrical-Electronic",
-    "Statistics-Data-Science",
+    "Probability-Statistics",
+    "Data-Science-Artificial-Intelligence",
     "Operations-Research",
     "Physics",
     "Chemistry",
@@ -266,8 +275,17 @@
       "descriptionJa": "コンピュータグラフィックス、幾何処理、投影と再構成。",
       "descriptionEn": "Computer graphics, geometric processing, projection, and reconstruction."
     },
-    "Computer-Science.Artificial-Intelligence": {
-      "subject": "Computer-Science",
+    "Data-Science-Artificial-Intelligence.Data-Science": {
+      "subject": "Data-Science-Artificial-Intelligence",
+      "labelZh": "数据科学",
+      "labelJa": "データ科学",
+      "labelEn": "Data Science",
+      "descriptionZh": "数据处理、数据分析、特征工程与数据驱动建模。",
+      "descriptionJa": "データ処理、データ分析、特徴量設計、データ駆動モデリング。",
+      "descriptionEn": "Data processing, analysis, feature engineering, and data-driven modeling."
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence": {
+      "subject": "Data-Science-Artificial-Intelligence",
       "labelZh": "人工智能基础",
       "labelJa": "人工知能基礎",
       "labelEn": "Artificial Intelligence",
@@ -329,17 +347,17 @@
       "descriptionJa": "通信路、符号化、情報伝送、誤り制御。",
       "descriptionEn": "Communication channels, coding, information transmission, and error control."
     },
-    "Statistics-Data-Science.Probability-Statistics": {
-      "subject": "Statistics-Data-Science",
-      "labelZh": "概率与统计",
-      "labelJa": "確率・統計",
-      "labelEn": "Probability & Statistics",
-      "descriptionZh": "概率分布、条件概率、统计量与基础统计模型。",
-      "descriptionJa": "確率分布、条件付き確率、統計量、基礎的な統計モデル。",
-      "descriptionEn": "Probability distributions, conditional probability, statistics, and basic statistical models."
+    "Probability-Statistics.Probability": {
+      "subject": "Probability-Statistics",
+      "labelZh": "概率论",
+      "labelJa": "確率論",
+      "labelEn": "Probability",
+      "descriptionZh": "概率分布、条件概率、随机变量与基础概率模型。",
+      "descriptionJa": "確率分布、条件付き確率、確率変数、基礎的な確率モデル。",
+      "descriptionEn": "Probability distributions, conditional probability, random variables, and foundational probability models."
     },
-    "Statistics-Data-Science.Statistical-Inference": {
-      "subject": "Statistics-Data-Science",
+    "Probability-Statistics.Statistical-Inference": {
+      "subject": "Probability-Statistics",
       "labelZh": "统计推断",
       "labelJa": "統計推論",
       "labelEn": "Statistical Inference",
@@ -347,8 +365,8 @@
       "descriptionJa": "推定、検定、最尤法、判別分析。",
       "descriptionEn": "Estimation, testing, maximum likelihood, and discriminant analysis."
     },
-    "Statistics-Data-Science.Information-Theory": {
-      "subject": "Statistics-Data-Science",
+    "Computer-Science.Information-Theory": {
+      "subject": "Computer-Science",
       "labelZh": "信息论",
       "labelJa": "情報理論",
       "labelEn": "Information Theory",
@@ -356,8 +374,8 @@
       "descriptionJa": "エントロピー、相互情報量、情報源符号化、通信路容量、誤り訂正符号。",
       "descriptionEn": "Entropy, mutual information, source coding, channel capacity, and error-correcting codes."
     },
-    "Statistics-Data-Science.Machine-Learning": {
-      "subject": "Statistics-Data-Science",
+    "Data-Science-Artificial-Intelligence.Machine-Learning": {
+      "subject": "Data-Science-Artificial-Intelligence",
       "labelZh": "机器学习",
       "labelJa": "機械学習",
       "labelEn": "Machine Learning",
@@ -365,8 +383,8 @@
       "descriptionJa": "分類、決定木、強化学習、学習モデル。",
       "descriptionEn": "Classification, decision trees, reinforcement learning, and learning models."
     },
-    "Statistics-Data-Science.Stochastic-Processes": {
-      "subject": "Statistics-Data-Science",
+    "Probability-Statistics.Stochastic-Processes": {
+      "subject": "Probability-Statistics",
       "labelZh": "随机过程",
       "labelJa": "確率過程",
       "labelEn": "Stochastic Processes",
@@ -529,18 +547,19 @@
     "Computer-Science.Databases",
     "Computer-Science.Networks",
     "Computer-Science.Graphics",
-    "Computer-Science.Artificial-Intelligence",
+    "Computer-Science.Information-Theory",
     "Computer-Science.Quantum-Computing",
     "Electrical-Electronic.Circuits",
     "Electrical-Electronic.Digital-Logic",
     "Electrical-Electronic.Signal-Processing",
     "Electrical-Electronic.Control-Theory",
     "Electrical-Electronic.Communications",
-    "Statistics-Data-Science.Probability-Statistics",
-    "Statistics-Data-Science.Statistical-Inference",
-    "Statistics-Data-Science.Information-Theory",
-    "Statistics-Data-Science.Machine-Learning",
-    "Statistics-Data-Science.Stochastic-Processes",
+    "Probability-Statistics.Probability",
+    "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Stochastic-Processes",
+    "Data-Science-Artificial-Intelligence.Data-Science",
+    "Data-Science-Artificial-Intelligence.Machine-Learning",
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
     "Operations-Research.Optimization",
     "Operations-Research.Queueing-Theory",
     "Physics.Mechanics",
@@ -688,10 +707,10 @@
     }
   },
   "topics": {
-    "Statistics-Data-Science.Information-Theory.Additive-Binary-Channel": {
-      "subsubject": "Statistics-Data-Science.Information-Theory",
+    "Computer-Science.Information-Theory.Additive-Binary-Channel": {
+      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
-        "Statistics-Data-Science",
+        "Computer-Science",
         "Electrical-Electronic"
       ]
     },
@@ -737,10 +756,10 @@
         "Computer-Science"
       ]
     },
-    "Statistics-Data-Science.Information-Theory.Binary-Linear-Codes": {
-      "subsubject": "Statistics-Data-Science.Information-Theory",
+    "Computer-Science.Information-Theory.Binary-Linear-Codes": {
+      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
-        "Statistics-Data-Science",
+        "Computer-Science",
         "Electrical-Electronic"
       ]
     },
@@ -834,24 +853,24 @@
         "Mathematics"
       ]
     },
-    "Statistics-Data-Science.Information-Theory.Channel-Capacity": {
-      "subsubject": "Statistics-Data-Science.Information-Theory",
+    "Computer-Science.Information-Theory.Channel-Capacity": {
+      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
-        "Statistics-Data-Science",
+        "Computer-Science",
         "Electrical-Electronic"
       ]
     },
-    "Statistics-Data-Science.Information-Theory.Channel-Coding": {
-      "subsubject": "Statistics-Data-Science.Information-Theory",
+    "Computer-Science.Information-Theory.Channel-Coding": {
+      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
-        "Statistics-Data-Science",
+        "Computer-Science",
         "Electrical-Electronic"
       ]
     },
-    "Statistics-Data-Science.Machine-Learning.Classification": {
-      "subsubject": "Statistics-Data-Science.Machine-Learning",
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Classification": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "subjects": [
-        "Statistics-Data-Science"
+        "Data-Science-Artificial-Intelligence"
       ]
     },
     "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit": {
@@ -874,10 +893,10 @@
         "Mathematics"
       ]
     },
-    "Statistics-Data-Science.Probability-Statistics.Conditional-Probability": {
-      "subsubject": "Statistics-Data-Science.Probability-Statistics",
+    "Probability-Statistics.Probability.Conditional-Probability": {
+      "subsubject": "Probability-Statistics.Probability",
       "subjects": [
-        "Statistics-Data-Science",
+        "Probability-Statistics",
         "Mathematics"
       ]
     },
@@ -913,17 +932,17 @@
         "Computer-Science"
       ]
     },
-    "Statistics-Data-Science.Information-Theory.Cyclic-Code": {
-      "subsubject": "Statistics-Data-Science.Information-Theory",
+    "Computer-Science.Information-Theory.Cyclic-Code": {
+      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
-        "Statistics-Data-Science",
+        "Computer-Science",
         "Electrical-Electronic"
       ]
     },
-    "Statistics-Data-Science.Machine-Learning.Decision-Tree": {
-      "subsubject": "Statistics-Data-Science.Machine-Learning",
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "subjects": [
-        "Statistics-Data-Science",
+        "Data-Science-Artificial-Intelligence",
         "Computer-Science"
       ]
     },
@@ -965,10 +984,10 @@
         "Mathematics"
       ]
     },
-    "Statistics-Data-Science.Information-Theory.Entropy": {
-      "subsubject": "Statistics-Data-Science.Information-Theory",
+    "Computer-Science.Information-Theory.Entropy": {
+      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
-        "Statistics-Data-Science"
+        "Computer-Science"
       ]
     },
     "Mathematics.Graph-Theory.Euler-Circuit": {
@@ -978,23 +997,23 @@
         "Computer-Science"
       ]
     },
-    "Statistics-Data-Science.Probability-Statistics.Exponential-Distribution": {
-      "subsubject": "Statistics-Data-Science.Probability-Statistics",
+    "Probability-Statistics.Probability.Exponential-Distribution": {
+      "subsubject": "Probability-Statistics.Probability",
       "subjects": [
-        "Statistics-Data-Science"
+        "Probability-Statistics"
       ]
     },
-    "Statistics-Data-Science.Statistical-Inference.Fisher-Exact-Test": {
-      "subsubject": "Statistics-Data-Science.Statistical-Inference",
+    "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
-        "Statistics-Data-Science",
+        "Probability-Statistics",
         "Bioinformatics"
       ]
     },
-    "Statistics-Data-Science.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
-      "subsubject": "Statistics-Data-Science.Statistical-Inference",
+    "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
-        "Statistics-Data-Science"
+        "Probability-Statistics"
       ]
     },
     "Computer-Science.Computer-Architecture.Floating-Point-Representation": {
@@ -1066,11 +1085,10 @@
         "Mathematics"
       ]
     },
-    "Statistics-Data-Science.Information-Theory.Huffman-Coding": {
-      "subsubject": "Statistics-Data-Science.Information-Theory",
+    "Computer-Science.Information-Theory.Huffman-Coding": {
+      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
-        "Computer-Science",
-        "Statistics-Data-Science"
+        "Computer-Science"
       ]
     },
     "Computer-Science.Computer-Architecture.IEEE-754": {
@@ -1092,9 +1110,10 @@
         "Operations-Research"
       ]
     },
-    "Computer-Science.Artificial-Intelligence.Knowledge-Representation": {
-      "subsubject": "Computer-Science.Artificial-Intelligence",
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "subjects": [
+        "Data-Science-Artificial-Intelligence",
         "Computer-Science"
       ]
     },
@@ -1104,10 +1123,10 @@
         "Computer-Science"
       ]
     },
-    "Statistics-Data-Science.Statistical-Inference.Least-Squares-Method": {
-      "subsubject": "Statistics-Data-Science.Statistical-Inference",
+    "Probability-Statistics.Statistical-Inference.Least-Squares-Method": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
-        "Statistics-Data-Science",
+        "Probability-Statistics",
         "Mathematics"
       ]
     },
@@ -1130,23 +1149,23 @@
         "Computer-Science"
       ]
     },
-    "Statistics-Data-Science.Stochastic-Processes.Markov-Chain": {
-      "subsubject": "Statistics-Data-Science.Stochastic-Processes",
+    "Probability-Statistics.Stochastic-Processes.Markov-Chain": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
       "subjects": [
-        "Statistics-Data-Science",
+        "Probability-Statistics",
         "Mathematics"
       ]
     },
-    "Statistics-Data-Science.Stochastic-Processes.Markov-Information-Source": {
-      "subsubject": "Statistics-Data-Science.Stochastic-Processes",
+    "Probability-Statistics.Stochastic-Processes.Markov-Information-Source": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
       "subjects": [
-        "Statistics-Data-Science"
+        "Probability-Statistics"
       ]
     },
-    "Statistics-Data-Science.Stochastic-Processes.Markov-Source": {
-      "subsubject": "Statistics-Data-Science.Stochastic-Processes",
+    "Probability-Statistics.Stochastic-Processes.Markov-Source": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
       "subjects": [
-        "Statistics-Data-Science"
+        "Probability-Statistics"
       ]
     },
     "Computer-Science.Data-Structures-Algorithms.Master-Theorem": {
@@ -1182,10 +1201,10 @@
         "Mathematics"
       ]
     },
-    "Statistics-Data-Science.Statistical-Inference.Maximum-Likelihood-Estimation": {
-      "subsubject": "Statistics-Data-Science.Statistical-Inference",
+    "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
-        "Statistics-Data-Science"
+        "Probability-Statistics"
       ]
     },
     "Mathematics.Graph-Theory.Maximum-Matching": {
@@ -1248,10 +1267,10 @@
         "Computer-Science"
       ]
     },
-    "Statistics-Data-Science.Statistical-Inference.Monte-Carlo-Integration": {
-      "subsubject": "Statistics-Data-Science.Statistical-Inference",
+    "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
-        "Statistics-Data-Science",
+        "Probability-Statistics",
         "Mathematics"
       ]
     },
@@ -1262,10 +1281,10 @@
         "Electrical-Electronic"
       ]
     },
-    "Statistics-Data-Science.Information-Theory.Mutual-Information": {
-      "subsubject": "Statistics-Data-Science.Information-Theory",
+    "Computer-Science.Information-Theory.Mutual-Information": {
+      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
-        "Statistics-Data-Science"
+        "Computer-Science"
       ]
     },
     "Computer-Science.Computer-Architecture.Number-Representation": {
@@ -1274,10 +1293,10 @@
         "Computer-Science"
       ]
     },
-    "Statistics-Data-Science.Probability-Statistics.Order-Statistics": {
-      "subsubject": "Statistics-Data-Science.Probability-Statistics",
+    "Probability-Statistics.Probability.Order-Statistics": {
+      "subsubject": "Probability-Statistics.Probability",
       "subjects": [
-        "Statistics-Data-Science",
+        "Probability-Statistics",
         "Mathematics"
       ]
     },
@@ -1381,10 +1400,10 @@
         "Computer-Science"
       ]
     },
-    "Statistics-Data-Science.Machine-Learning.Reinforcement-Learning": {
-      "subsubject": "Statistics-Data-Science.Machine-Learning",
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "subjects": [
-        "Statistics-Data-Science",
+        "Data-Science-Artificial-Intelligence",
         "Computer-Science"
       ]
     },
@@ -1394,9 +1413,10 @@
         "Computer-Science"
       ]
     },
-    "Computer-Science.Artificial-Intelligence.Semantic-Network": {
-      "subsubject": "Computer-Science.Artificial-Intelligence",
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "subjects": [
+        "Data-Science-Artificial-Intelligence",
         "Computer-Science"
       ]
     },
@@ -1428,10 +1448,10 @@
         "Operations-Research"
       ]
     },
-    "Statistics-Data-Science.Machine-Learning.Sigmoid-Function": {
-      "subsubject": "Statistics-Data-Science.Machine-Learning",
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "subjects": [
-        "Statistics-Data-Science",
+        "Data-Science-Artificial-Intelligence",
         "Mathematics"
       ]
     },
@@ -1441,10 +1461,9 @@
         "Computer-Science"
       ]
     },
-    "Statistics-Data-Science.Information-Theory.Source-Coding": {
-      "subsubject": "Statistics-Data-Science.Information-Theory",
+    "Computer-Science.Information-Theory.Source-Coding": {
+      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
-        "Statistics-Data-Science",
         "Computer-Science"
       ]
     },
@@ -1533,7 +1552,7 @@
   },
   "deprecatedTags": {
     "Additive-Binary-Channel": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory.Additive-Binary-Channel",
+      "replaceWith": "Computer-Science.Information-Theory.Additive-Binary-Channel",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Addressing-Modes": {
@@ -1569,7 +1588,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Binary-Linear-Codes": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory.Binary-Linear-Codes",
+      "replaceWith": "Computer-Science.Information-Theory.Binary-Linear-Codes",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Binary-Search": {
@@ -1637,15 +1656,15 @@
       "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
     },
     "Channel-Capacity": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory.Channel-Capacity",
+      "replaceWith": "Computer-Science.Information-Theory.Channel-Capacity",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Channel-Coding": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory.Channel-Coding",
+      "replaceWith": "Computer-Science.Information-Theory.Channel-Coding",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Classification": {
-      "replaceWith": "Statistics-Data-Science.Machine-Learning.Classification",
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Classification",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Cognitive-Neuroscience": {
@@ -1677,7 +1696,7 @@
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Conditional-Probability": {
-      "replaceWith": "Statistics-Data-Science.Probability-Statistics.Conditional-Probability",
+      "replaceWith": "Probability-Statistics.Probability.Conditional-Probability",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Context-Free-Grammar": {
@@ -1709,7 +1728,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Cyclic-Code": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory.Cyclic-Code",
+      "replaceWith": "Computer-Science.Information-Theory.Cyclic-Code",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Data-Structure": {
@@ -1725,7 +1744,7 @@
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Decision-Tree": {
-      "replaceWith": "Statistics-Data-Science.Machine-Learning.Decision-Tree",
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "DFS": {
@@ -1793,7 +1812,7 @@
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Entropy": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory.Entropy",
+      "replaceWith": "Computer-Science.Information-Theory.Entropy",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Euler-Circuit": {
@@ -1801,15 +1820,15 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Exponential-Distribution": {
-      "replaceWith": "Statistics-Data-Science.Probability-Statistics.Exponential-Distribution",
+      "replaceWith": "Probability-Statistics.Probability.Exponential-Distribution",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Fisher-Exact-Test": {
-      "replaceWith": "Statistics-Data-Science.Statistical-Inference.Fisher-Exact-Test",
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Fisher-Linear-Discriminant-Analysis": {
-      "replaceWith": "Statistics-Data-Science.Statistical-Inference.Fisher-Linear-Discriminant-Analysis",
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Floating-Point-Representation": {
@@ -1877,7 +1896,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Huffman-Coding": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory.Huffman-Coding",
+      "replaceWith": "Computer-Science.Information-Theory.Huffman-Coding",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "IEEE-754": {
@@ -1885,7 +1904,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Information-Theory": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory",
+      "replaceWith": "Computer-Science.Information-Theory",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Inorganic-Chemistry": {
@@ -1901,7 +1920,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Knowledge-Representation": {
-      "replaceWith": "Computer-Science.Artificial-Intelligence.Knowledge-Representation",
+      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Knuth-Morris-Pratt-Algorithm": {
@@ -1909,7 +1928,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Least-Squares-Method": {
-      "replaceWith": "Statistics-Data-Science.Statistical-Inference.Least-Squares-Method",
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Least-Squares-Method",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Linear-Algebra": {
@@ -1937,19 +1956,19 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Machine-Learning": {
-      "replaceWith": "Statistics-Data-Science.Machine-Learning",
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Markov-Chain": {
-      "replaceWith": "Statistics-Data-Science.Stochastic-Processes.Markov-Chain",
+      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Chain",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Markov-Information-Source": {
-      "replaceWith": "Statistics-Data-Science.Stochastic-Processes.Markov-Information-Source",
+      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Information-Source",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Markov-Source": {
-      "replaceWith": "Statistics-Data-Science.Stochastic-Processes.Markov-Source",
+      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Source",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Master-Theorem": {
@@ -1977,7 +1996,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Maximum-Likelihood-Estimation": {
-      "replaceWith": "Statistics-Data-Science.Statistical-Inference.Maximum-Likelihood-Estimation",
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Maximum-Matching": {
@@ -2025,7 +2044,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Monte-Carlo-Integration": {
-      "replaceWith": "Statistics-Data-Science.Statistical-Inference.Monte-Carlo-Integration",
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Moore-Machine": {
@@ -2033,7 +2052,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Mutual-Information": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory.Mutual-Information",
+      "replaceWith": "Computer-Science.Information-Theory.Mutual-Information",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Network": {
@@ -2057,7 +2076,7 @@
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Order-Statistics": {
-      "replaceWith": "Statistics-Data-Science.Probability-Statistics.Order-Statistics",
+      "replaceWith": "Probability-Statistics.Probability.Order-Statistics",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Orthogonal-Decomposition": {
@@ -2097,7 +2116,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Probability-And-Statistics": {
-      "replaceWith": "Statistics-Data-Science.Probability-Statistics",
+      "replaceWith": "Probability-Statistics.Probability",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Programming": {
@@ -2153,7 +2172,7 @@
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Reinforcement-Learning": {
-      "replaceWith": "Statistics-Data-Science.Machine-Learning.Reinforcement-Learning",
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Selection-Sort": {
@@ -2161,7 +2180,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Semantic-Network": {
-      "replaceWith": "Computer-Science.Artificial-Intelligence.Semantic-Network",
+      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Sequence-Alignment": {
@@ -2181,7 +2200,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Sigmoid-Function": {
-      "replaceWith": "Statistics-Data-Science.Machine-Learning.Sigmoid-Function",
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Signal-Processing": {
@@ -2193,7 +2212,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Source-Coding": {
-      "replaceWith": "Statistics-Data-Science.Information-Theory.Source-Coding",
+      "replaceWith": "Computer-Science.Information-Theory.Source-Coding",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Stack": {
@@ -2263,6 +2282,134 @@
     "Z-Transform": {
       "replaceWith": "Electrical-Electronic.Signal-Processing.Z-Transform",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+    },
+    "Statistics-Data-Science.Probability-Statistics": {
+      "replaceWith": "Probability-Statistics.Probability",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Stochastic-Processes": {
+      "replaceWith": "Probability-Statistics.Stochastic-Processes",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory": {
+      "replaceWith": "Computer-Science.Information-Theory",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Computer-Science.Artificial-Intelligence": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Additive-Binary-Channel": {
+      "replaceWith": "Computer-Science.Information-Theory.Additive-Binary-Channel",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Binary-Linear-Codes": {
+      "replaceWith": "Computer-Science.Information-Theory.Binary-Linear-Codes",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Channel-Capacity": {
+      "replaceWith": "Computer-Science.Information-Theory.Channel-Capacity",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Channel-Coding": {
+      "replaceWith": "Computer-Science.Information-Theory.Channel-Coding",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning.Classification": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Classification",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Probability-Statistics.Conditional-Probability": {
+      "replaceWith": "Probability-Statistics.Probability.Conditional-Probability",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Cyclic-Code": {
+      "replaceWith": "Computer-Science.Information-Theory.Cyclic-Code",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning.Decision-Tree": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Entropy": {
+      "replaceWith": "Computer-Science.Information-Theory.Entropy",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Probability-Statistics.Exponential-Distribution": {
+      "replaceWith": "Probability-Statistics.Probability.Exponential-Distribution",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Fisher-Exact-Test": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Huffman-Coding": {
+      "replaceWith": "Computer-Science.Information-Theory.Huffman-Coding",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Computer-Science.Artificial-Intelligence.Knowledge-Representation": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Least-Squares-Method": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Least-Squares-Method",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Stochastic-Processes.Markov-Chain": {
+      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Chain",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Stochastic-Processes.Markov-Information-Source": {
+      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Information-Source",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Stochastic-Processes.Markov-Source": {
+      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Source",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Maximum-Likelihood-Estimation": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Monte-Carlo-Integration": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Mutual-Information": {
+      "replaceWith": "Computer-Science.Information-Theory.Mutual-Information",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Probability-Statistics.Order-Statistics": {
+      "replaceWith": "Probability-Statistics.Probability.Order-Statistics",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning.Reinforcement-Learning": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Computer-Science.Artificial-Intelligence.Semantic-Network": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning.Sigmoid-Function": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Source-Coding": {
+      "replaceWith": "Computer-Science.Information-Theory.Source-Coding",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     }
   }
 }

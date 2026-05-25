@@ -2,7 +2,7 @@
 sidebar_label: "2021年8月実施 第I期 統計学 第2問"
 tags:
   - Kobe-University
-  - Statistics-Data-Science.Probability-Statistics
+  - Probability-Statistics.Probability
 ---
 # 神戸大学 経済学研究科 2021年8月実施 第I期 統計学 第2問
 

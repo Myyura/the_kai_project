@@ -136,10 +136,14 @@
   label: "Computer-Science.Graphics"
   permalink: "/subsubject/computer-science/graphics"
   description: "Computer-Science / Graphics"
-"Computer-Science.Artificial-Intelligence":
-  label: "Computer-Science.Artificial-Intelligence"
-  permalink: "/subsubject/computer-science/artificial-intelligence"
-  description: "Computer-Science / Artificial-Intelligence"
+"Data-Science-Artificial-Intelligence.Data-Science":
+  label: "Data-Science-Artificial-Intelligence.Data-Science"
+  permalink: "/subsubject/data-science-artificial-intelligence/data-science"
+  description: "Data-Science-Artificial-Intelligence / Data-Science"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence"
+  permalink: "/subsubject/data-science-artificial-intelligence/artificial-intelligence"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence"
 "Computer-Science.Quantum-Computing":
   label: "Computer-Science.Quantum-Computing"
   permalink: "/subsubject/computer-science/quantum-computing"
@@ -164,26 +168,26 @@
   label: "Electrical-Electronic.Communications"
   permalink: "/subsubject/electrical-electronic/communications"
   description: "Electrical-Electronic / Communications"
-"Statistics-Data-Science.Probability-Statistics":
-  label: "Statistics-Data-Science.Probability-Statistics"
-  permalink: "/subsubject/statistics-data-science/probability-statistics"
-  description: "Statistics-Data-Science / Probability-Statistics"
-"Statistics-Data-Science.Statistical-Inference":
-  label: "Statistics-Data-Science.Statistical-Inference"
-  permalink: "/subsubject/statistics-data-science/statistical-inference"
-  description: "Statistics-Data-Science / Statistical-Inference"
-"Statistics-Data-Science.Information-Theory":
-  label: "Statistics-Data-Science.Information-Theory"
-  permalink: "/subsubject/statistics-data-science/information-theory"
-  description: "Statistics-Data-Science / Information-Theory"
-"Statistics-Data-Science.Machine-Learning":
-  label: "Statistics-Data-Science.Machine-Learning"
-  permalink: "/subsubject/statistics-data-science/machine-learning"
-  description: "Statistics-Data-Science / Machine-Learning"
-"Statistics-Data-Science.Stochastic-Processes":
-  label: "Statistics-Data-Science.Stochastic-Processes"
-  permalink: "/subsubject/statistics-data-science/stochastic-processes"
-  description: "Statistics-Data-Science / Stochastic-Processes"
+"Probability-Statistics.Probability":
+  label: "Probability-Statistics.Probability"
+  permalink: "/subsubject/probability-statistics/probability"
+  description: "Probability-Statistics / Probability"
+"Probability-Statistics.Statistical-Inference":
+  label: "Probability-Statistics.Statistical-Inference"
+  permalink: "/subsubject/probability-statistics/statistical-inference"
+  description: "Probability-Statistics / Statistical-Inference"
+"Computer-Science.Information-Theory":
+  label: "Computer-Science.Information-Theory"
+  permalink: "/subsubject/computer-science/information-theory"
+  description: "Computer-Science / Information-Theory"
+"Data-Science-Artificial-Intelligence.Machine-Learning":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning"
+  permalink: "/subsubject/data-science-artificial-intelligence/machine-learning"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning"
+"Probability-Statistics.Stochastic-Processes":
+  label: "Probability-Statistics.Stochastic-Processes"
+  permalink: "/subsubject/probability-statistics/stochastic-processes"
+  description: "Probability-Statistics / Stochastic-Processes"
 "Operations-Research.Optimization":
   label: "Operations-Research.Optimization"
   permalink: "/subsubject/operations-research/optimization"
@@ -244,10 +248,10 @@
   label: "General.Reference-Material"
   permalink: "/subsubject/general/reference-material"
   description: "General / Reference-Material"
-"Statistics-Data-Science.Information-Theory.Additive-Binary-Channel":
-  label: "Statistics-Data-Science.Information-Theory.Additive-Binary-Channel"
-  permalink: "/topic/statistics-data-science/information-theory/additive-binary-channel"
-  description: "Statistics-Data-Science / Information-Theory / Additive-Binary-Channel"
+"Computer-Science.Information-Theory.Additive-Binary-Channel":
+  label: "Computer-Science.Information-Theory.Additive-Binary-Channel"
+  permalink: "/topic/computer-science/information-theory/additive-binary-channel"
+  description: "Computer-Science / Information-Theory / Additive-Binary-Channel"
 "Computer-Science.Computer-Architecture.Addressing-Modes":
   label: "Computer-Science.Computer-Architecture.Addressing-Modes"
   permalink: "/topic/computer-science/computer-architecture/addressing-modes"
@@ -276,10 +280,10 @@
   label: "Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort"
   permalink: "/topic/computer-science/data-structures-algorithms/binary-insertion-sort"
   description: "Computer-Science / Data-Structures-Algorithms / Binary-Insertion-Sort"
-"Statistics-Data-Science.Information-Theory.Binary-Linear-Codes":
-  label: "Statistics-Data-Science.Information-Theory.Binary-Linear-Codes"
-  permalink: "/topic/statistics-data-science/information-theory/binary-linear-codes"
-  description: "Statistics-Data-Science / Information-Theory / Binary-Linear-Codes"
+"Computer-Science.Information-Theory.Binary-Linear-Codes":
+  label: "Computer-Science.Information-Theory.Binary-Linear-Codes"
+  permalink: "/topic/computer-science/information-theory/binary-linear-codes"
+  description: "Computer-Science / Information-Theory / Binary-Linear-Codes"
 "Computer-Science.Data-Structures-Algorithms.Binary-Search":
   label: "Computer-Science.Data-Structures-Algorithms.Binary-Search"
   permalink: "/topic/computer-science/data-structures-algorithms/binary-search"
@@ -336,18 +340,18 @@
   label: "Mathematics.Calculus.Cauchy-Sequence"
   permalink: "/topic/mathematics/calculus/cauchy-sequence"
   description: "Mathematics / Calculus / Cauchy-Sequence"
-"Statistics-Data-Science.Information-Theory.Channel-Capacity":
-  label: "Statistics-Data-Science.Information-Theory.Channel-Capacity"
-  permalink: "/topic/statistics-data-science/information-theory/channel-capacity"
-  description: "Statistics-Data-Science / Information-Theory / Channel-Capacity"
-"Statistics-Data-Science.Information-Theory.Channel-Coding":
-  label: "Statistics-Data-Science.Information-Theory.Channel-Coding"
-  permalink: "/topic/statistics-data-science/information-theory/channel-coding"
-  description: "Statistics-Data-Science / Information-Theory / Channel-Coding"
-"Statistics-Data-Science.Machine-Learning.Classification":
-  label: "Statistics-Data-Science.Machine-Learning.Classification"
-  permalink: "/topic/statistics-data-science/machine-learning/classification"
-  description: "Statistics-Data-Science / Machine-Learning / Classification"
+"Computer-Science.Information-Theory.Channel-Capacity":
+  label: "Computer-Science.Information-Theory.Channel-Capacity"
+  permalink: "/topic/computer-science/information-theory/channel-capacity"
+  description: "Computer-Science / Information-Theory / Channel-Capacity"
+"Computer-Science.Information-Theory.Channel-Coding":
+  label: "Computer-Science.Information-Theory.Channel-Coding"
+  permalink: "/topic/computer-science/information-theory/channel-coding"
+  description: "Computer-Science / Information-Theory / Channel-Coding"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Classification":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Classification"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/classification"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Classification"
 "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit":
   label: "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit"
   permalink: "/topic/electrical-electronic/digital-logic/combinatorial-circuit"
@@ -360,10 +364,10 @@
   label: "Mathematics.Complex-Analysis.Complex-Numbers"
   permalink: "/topic/mathematics/complex-analysis/complex-numbers"
   description: "Mathematics / Complex-Analysis / Complex-Numbers"
-"Statistics-Data-Science.Probability-Statistics.Conditional-Probability":
-  label: "Statistics-Data-Science.Probability-Statistics.Conditional-Probability"
-  permalink: "/topic/statistics-data-science/probability-statistics/conditional-probability"
-  description: "Statistics-Data-Science / Probability-Statistics / Conditional-Probability"
+"Probability-Statistics.Probability.Conditional-Probability":
+  label: "Probability-Statistics.Probability.Conditional-Probability"
+  permalink: "/topic/probability-statistics/probability/conditional-probability"
+  description: "Probability-Statistics / Probability / Conditional-Probability"
 "Computer-Science.Formal-Languages.Context-Free-Grammar":
   label: "Computer-Science.Formal-Languages.Context-Free-Grammar"
   permalink: "/topic/computer-science/formal-languages/context-free-grammar"
@@ -384,14 +388,14 @@
   label: "Computer-Science.Data-Structures-Algorithms.Counting-Sort"
   permalink: "/topic/computer-science/data-structures-algorithms/counting-sort"
   description: "Computer-Science / Data-Structures-Algorithms / Counting-Sort"
-"Statistics-Data-Science.Information-Theory.Cyclic-Code":
-  label: "Statistics-Data-Science.Information-Theory.Cyclic-Code"
-  permalink: "/topic/statistics-data-science/information-theory/cyclic-code"
-  description: "Statistics-Data-Science / Information-Theory / Cyclic-Code"
-"Statistics-Data-Science.Machine-Learning.Decision-Tree":
-  label: "Statistics-Data-Science.Machine-Learning.Decision-Tree"
-  permalink: "/topic/statistics-data-science/machine-learning/decision-tree"
-  description: "Statistics-Data-Science / Machine-Learning / Decision-Tree"
+"Computer-Science.Information-Theory.Cyclic-Code":
+  label: "Computer-Science.Information-Theory.Cyclic-Code"
+  permalink: "/topic/computer-science/information-theory/cyclic-code"
+  description: "Computer-Science / Information-Theory / Cyclic-Code"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/decision-tree"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Decision-Tree"
 "Computer-Science.Data-Structures-Algorithms.DFS":
   label: "Computer-Science.Data-Structures-Algorithms.DFS"
   permalink: "/topic/computer-science/data-structures-algorithms/dfs"
@@ -416,26 +420,26 @@
   label: "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors"
   permalink: "/topic/mathematics/linear-algebra/eigenvalues-and-eigenvectors"
   description: "Mathematics / Linear-Algebra / Eigenvalues-and-Eigenvectors"
-"Statistics-Data-Science.Information-Theory.Entropy":
-  label: "Statistics-Data-Science.Information-Theory.Entropy"
-  permalink: "/topic/statistics-data-science/information-theory/entropy"
-  description: "Statistics-Data-Science / Information-Theory / Entropy"
+"Computer-Science.Information-Theory.Entropy":
+  label: "Computer-Science.Information-Theory.Entropy"
+  permalink: "/topic/computer-science/information-theory/entropy"
+  description: "Computer-Science / Information-Theory / Entropy"
 "Mathematics.Graph-Theory.Euler-Circuit":
   label: "Mathematics.Graph-Theory.Euler-Circuit"
   permalink: "/topic/mathematics/graph-theory/euler-circuit"
   description: "Mathematics / Graph-Theory / Euler-Circuit"
-"Statistics-Data-Science.Probability-Statistics.Exponential-Distribution":
-  label: "Statistics-Data-Science.Probability-Statistics.Exponential-Distribution"
-  permalink: "/topic/statistics-data-science/probability-statistics/exponential-distribution"
-  description: "Statistics-Data-Science / Probability-Statistics / Exponential-Distribution"
-"Statistics-Data-Science.Statistical-Inference.Fisher-Exact-Test":
-  label: "Statistics-Data-Science.Statistical-Inference.Fisher-Exact-Test"
-  permalink: "/topic/statistics-data-science/statistical-inference/fisher-exact-test"
-  description: "Statistics-Data-Science / Statistical-Inference / Fisher-Exact-Test"
-"Statistics-Data-Science.Statistical-Inference.Fisher-Linear-Discriminant-Analysis":
-  label: "Statistics-Data-Science.Statistical-Inference.Fisher-Linear-Discriminant-Analysis"
-  permalink: "/topic/statistics-data-science/statistical-inference/fisher-linear-discriminant-analysis"
-  description: "Statistics-Data-Science / Statistical-Inference / Fisher-Linear-Discriminant-Analysis"
+"Probability-Statistics.Probability.Exponential-Distribution":
+  label: "Probability-Statistics.Probability.Exponential-Distribution"
+  permalink: "/topic/probability-statistics/probability/exponential-distribution"
+  description: "Probability-Statistics / Probability / Exponential-Distribution"
+"Probability-Statistics.Statistical-Inference.Fisher-Exact-Test":
+  label: "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test"
+  permalink: "/topic/probability-statistics/statistical-inference/fisher-exact-test"
+  description: "Probability-Statistics / Statistical-Inference / Fisher-Exact-Test"
+"Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis":
+  label: "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis"
+  permalink: "/topic/probability-statistics/statistical-inference/fisher-linear-discriminant-analysis"
+  description: "Probability-Statistics / Statistical-Inference / Fisher-Linear-Discriminant-Analysis"
 "Computer-Science.Computer-Architecture.Floating-Point-Representation":
   label: "Computer-Science.Computer-Architecture.Floating-Point-Representation"
   permalink: "/topic/computer-science/computer-architecture/floating-point-representation"
@@ -480,10 +484,10 @@
   label: "Mathematics.Linear-Algebra.Hermitian-Matrix"
   permalink: "/topic/mathematics/linear-algebra/hermitian-matrix"
   description: "Mathematics / Linear-Algebra / Hermitian-Matrix"
-"Statistics-Data-Science.Information-Theory.Huffman-Coding":
-  label: "Statistics-Data-Science.Information-Theory.Huffman-Coding"
-  permalink: "/topic/statistics-data-science/information-theory/huffman-coding"
-  description: "Statistics-Data-Science / Information-Theory / Huffman-Coding"
+"Computer-Science.Information-Theory.Huffman-Coding":
+  label: "Computer-Science.Information-Theory.Huffman-Coding"
+  permalink: "/topic/computer-science/information-theory/huffman-coding"
+  description: "Computer-Science / Information-Theory / Huffman-Coding"
 "Computer-Science.Computer-Architecture.IEEE-754":
   label: "Computer-Science.Computer-Architecture.IEEE-754"
   permalink: "/topic/computer-science/computer-architecture/ieee-754"
@@ -496,18 +500,18 @@
   label: "Computer-Science.Data-Structures-Algorithms.Knapsack-Problem"
   permalink: "/topic/computer-science/data-structures-algorithms/knapsack-problem"
   description: "Computer-Science / Data-Structures-Algorithms / Knapsack-Problem"
-"Computer-Science.Artificial-Intelligence.Knowledge-Representation":
-  label: "Computer-Science.Artificial-Intelligence.Knowledge-Representation"
-  permalink: "/topic/computer-science/artificial-intelligence/knowledge-representation"
-  description: "Computer-Science / Artificial-Intelligence / Knowledge-Representation"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation"
+  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/knowledge-representation"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Knowledge-Representation"
 "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm":
   label: "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm"
   permalink: "/topic/computer-science/data-structures-algorithms/knuth-morris-pratt-algorithm"
   description: "Computer-Science / Data-Structures-Algorithms / Knuth-Morris-Pratt-Algorithm"
-"Statistics-Data-Science.Statistical-Inference.Least-Squares-Method":
-  label: "Statistics-Data-Science.Statistical-Inference.Least-Squares-Method"
-  permalink: "/topic/statistics-data-science/statistical-inference/least-squares-method"
-  description: "Statistics-Data-Science / Statistical-Inference / Least-Squares-Method"
+"Probability-Statistics.Statistical-Inference.Least-Squares-Method":
+  label: "Probability-Statistics.Statistical-Inference.Least-Squares-Method"
+  permalink: "/topic/probability-statistics/statistical-inference/least-squares-method"
+  description: "Probability-Statistics / Statistical-Inference / Least-Squares-Method"
 "Mathematics.Linear-Algebra.Linear-Transformation":
   label: "Mathematics.Linear-Algebra.Linear-Transformation"
   permalink: "/topic/mathematics/linear-algebra/linear-transformation"
@@ -520,18 +524,18 @@
   label: "Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring"
   permalink: "/topic/computer-science/data-structures-algorithms/longest-palindrome-substring"
   description: "Computer-Science / Data-Structures-Algorithms / Longest-Palindrome-Substring"
-"Statistics-Data-Science.Stochastic-Processes.Markov-Chain":
-  label: "Statistics-Data-Science.Stochastic-Processes.Markov-Chain"
-  permalink: "/topic/statistics-data-science/stochastic-processes/markov-chain"
-  description: "Statistics-Data-Science / Stochastic-Processes / Markov-Chain"
-"Statistics-Data-Science.Stochastic-Processes.Markov-Information-Source":
-  label: "Statistics-Data-Science.Stochastic-Processes.Markov-Information-Source"
-  permalink: "/topic/statistics-data-science/stochastic-processes/markov-information-source"
-  description: "Statistics-Data-Science / Stochastic-Processes / Markov-Information-Source"
-"Statistics-Data-Science.Stochastic-Processes.Markov-Source":
-  label: "Statistics-Data-Science.Stochastic-Processes.Markov-Source"
-  permalink: "/topic/statistics-data-science/stochastic-processes/markov-source"
-  description: "Statistics-Data-Science / Stochastic-Processes / Markov-Source"
+"Probability-Statistics.Stochastic-Processes.Markov-Chain":
+  label: "Probability-Statistics.Stochastic-Processes.Markov-Chain"
+  permalink: "/topic/probability-statistics/stochastic-processes/markov-chain"
+  description: "Probability-Statistics / Stochastic-Processes / Markov-Chain"
+"Probability-Statistics.Stochastic-Processes.Markov-Information-Source":
+  label: "Probability-Statistics.Stochastic-Processes.Markov-Information-Source"
+  permalink: "/topic/probability-statistics/stochastic-processes/markov-information-source"
+  description: "Probability-Statistics / Stochastic-Processes / Markov-Information-Source"
+"Probability-Statistics.Stochastic-Processes.Markov-Source":
+  label: "Probability-Statistics.Stochastic-Processes.Markov-Source"
+  permalink: "/topic/probability-statistics/stochastic-processes/markov-source"
+  description: "Probability-Statistics / Stochastic-Processes / Markov-Source"
 "Computer-Science.Data-Structures-Algorithms.Master-Theorem":
   label: "Computer-Science.Data-Structures-Algorithms.Master-Theorem"
   permalink: "/topic/computer-science/data-structures-algorithms/master-theorem"
@@ -552,10 +556,10 @@
   label: "Computer-Science.Data-Structures-Algorithms.Max-Flow"
   permalink: "/topic/computer-science/data-structures-algorithms/max-flow"
   description: "Computer-Science / Data-Structures-Algorithms / Max-Flow"
-"Statistics-Data-Science.Statistical-Inference.Maximum-Likelihood-Estimation":
-  label: "Statistics-Data-Science.Statistical-Inference.Maximum-Likelihood-Estimation"
-  permalink: "/topic/statistics-data-science/statistical-inference/maximum-likelihood-estimation"
-  description: "Statistics-Data-Science / Statistical-Inference / Maximum-Likelihood-Estimation"
+"Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation":
+  label: "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation"
+  permalink: "/topic/probability-statistics/statistical-inference/maximum-likelihood-estimation"
+  description: "Probability-Statistics / Statistical-Inference / Maximum-Likelihood-Estimation"
 "Mathematics.Graph-Theory.Maximum-Matching":
   label: "Mathematics.Graph-Theory.Maximum-Matching"
   permalink: "/topic/mathematics/graph-theory/maximum-matching"
@@ -592,26 +596,26 @@
   label: "Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring"
   permalink: "/topic/computer-science/data-structures-algorithms/minimum-window-substring"
   description: "Computer-Science / Data-Structures-Algorithms / Minimum-Window-Substring"
-"Statistics-Data-Science.Statistical-Inference.Monte-Carlo-Integration":
-  label: "Statistics-Data-Science.Statistical-Inference.Monte-Carlo-Integration"
-  permalink: "/topic/statistics-data-science/statistical-inference/monte-carlo-integration"
-  description: "Statistics-Data-Science / Statistical-Inference / Monte-Carlo-Integration"
+"Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration":
+  label: "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration"
+  permalink: "/topic/probability-statistics/statistical-inference/monte-carlo-integration"
+  description: "Probability-Statistics / Statistical-Inference / Monte-Carlo-Integration"
 "Computer-Science.Formal-Languages.Moore-Machine":
   label: "Computer-Science.Formal-Languages.Moore-Machine"
   permalink: "/topic/computer-science/formal-languages/moore-machine"
   description: "Computer-Science / Formal-Languages / Moore-Machine"
-"Statistics-Data-Science.Information-Theory.Mutual-Information":
-  label: "Statistics-Data-Science.Information-Theory.Mutual-Information"
-  permalink: "/topic/statistics-data-science/information-theory/mutual-information"
-  description: "Statistics-Data-Science / Information-Theory / Mutual-Information"
+"Computer-Science.Information-Theory.Mutual-Information":
+  label: "Computer-Science.Information-Theory.Mutual-Information"
+  permalink: "/topic/computer-science/information-theory/mutual-information"
+  description: "Computer-Science / Information-Theory / Mutual-Information"
 "Computer-Science.Computer-Architecture.Number-Representation":
   label: "Computer-Science.Computer-Architecture.Number-Representation"
   permalink: "/topic/computer-science/computer-architecture/number-representation"
   description: "Computer-Science / Computer-Architecture / Number-Representation"
-"Statistics-Data-Science.Probability-Statistics.Order-Statistics":
-  label: "Statistics-Data-Science.Probability-Statistics.Order-Statistics"
-  permalink: "/topic/statistics-data-science/probability-statistics/order-statistics"
-  description: "Statistics-Data-Science / Probability-Statistics / Order-Statistics"
+"Probability-Statistics.Probability.Order-Statistics":
+  label: "Probability-Statistics.Probability.Order-Statistics"
+  permalink: "/topic/probability-statistics/probability/order-statistics"
+  description: "Probability-Statistics / Probability / Order-Statistics"
 "Mathematics.Linear-Algebra.Orthogonal-Decomposition":
   label: "Mathematics.Linear-Algebra.Orthogonal-Decomposition"
   permalink: "/topic/mathematics/linear-algebra/orthogonal-decomposition"
@@ -676,18 +680,18 @@
   label: "Mathematics.Discrete-Mathematics.Recurrence-Relation"
   permalink: "/topic/mathematics/discrete-mathematics/recurrence-relation"
   description: "Mathematics / Discrete-Mathematics / Recurrence-Relation"
-"Statistics-Data-Science.Machine-Learning.Reinforcement-Learning":
-  label: "Statistics-Data-Science.Machine-Learning.Reinforcement-Learning"
-  permalink: "/topic/statistics-data-science/machine-learning/reinforcement-learning"
-  description: "Statistics-Data-Science / Machine-Learning / Reinforcement-Learning"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/reinforcement-learning"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Reinforcement-Learning"
 "Computer-Science.Data-Structures-Algorithms.Selection-Sort":
   label: "Computer-Science.Data-Structures-Algorithms.Selection-Sort"
   permalink: "/topic/computer-science/data-structures-algorithms/selection-sort"
   description: "Computer-Science / Data-Structures-Algorithms / Selection-Sort"
-"Computer-Science.Artificial-Intelligence.Semantic-Network":
-  label: "Computer-Science.Artificial-Intelligence.Semantic-Network"
-  permalink: "/topic/computer-science/artificial-intelligence/semantic-network"
-  description: "Computer-Science / Artificial-Intelligence / Semantic-Network"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network"
+  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/semantic-network"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Semantic-Network"
 "Mathematics.Calculus.Sequence-Convergence":
   label: "Mathematics.Calculus.Sequence-Convergence"
   permalink: "/topic/mathematics/calculus/sequence-convergence"
@@ -704,18 +708,18 @@
   label: "Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem"
   permalink: "/topic/computer-science/data-structures-algorithms/shortest-path-problem"
   description: "Computer-Science / Data-Structures-Algorithms / Shortest-Path-Problem"
-"Statistics-Data-Science.Machine-Learning.Sigmoid-Function":
-  label: "Statistics-Data-Science.Machine-Learning.Sigmoid-Function"
-  permalink: "/topic/statistics-data-science/machine-learning/sigmoid-function"
-  description: "Statistics-Data-Science / Machine-Learning / Sigmoid-Function"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/sigmoid-function"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Sigmoid-Function"
 "Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm":
   label: "Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm"
   permalink: "/topic/computer-science/data-structures-algorithms/sorting-algorithm"
   description: "Computer-Science / Data-Structures-Algorithms / Sorting-Algorithm"
-"Statistics-Data-Science.Information-Theory.Source-Coding":
-  label: "Statistics-Data-Science.Information-Theory.Source-Coding"
-  permalink: "/topic/statistics-data-science/information-theory/source-coding"
-  description: "Statistics-Data-Science / Information-Theory / Source-Coding"
+"Computer-Science.Information-Theory.Source-Coding":
+  label: "Computer-Science.Information-Theory.Source-Coding"
+  permalink: "/topic/computer-science/information-theory/source-coding"
+  description: "Computer-Science / Information-Theory / Source-Coding"
 "Computer-Science.Data-Structures-Algorithms.Stack":
   label: "Computer-Science.Data-Structures-Algorithms.Stack"
   permalink: "/topic/computer-science/data-structures-algorithms/stack"

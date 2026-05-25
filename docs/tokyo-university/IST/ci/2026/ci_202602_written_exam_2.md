@@ -2,7 +2,7 @@
 sidebar_label: 2026年2月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Statistics-Data-Science.Probability-Statistics
+  - Probability-Statistics.Probability
   - Operations-Research.Queueing-Theory
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2026年2月実施 筆記試験 第2問

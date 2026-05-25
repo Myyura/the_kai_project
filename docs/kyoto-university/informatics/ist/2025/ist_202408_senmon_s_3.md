@@ -2,8 +2,8 @@
 sidebar_label: 2024年8月実施 専門科目 S-3
 tags:
   - Kyoto-University
-  - Statistics-Data-Science.Information-Theory.Channel-Coding
-  - Statistics-Data-Science.Information-Theory.Binary-Linear-Codes
+  - Computer-Science.Information-Theory.Channel-Coding
+  - Computer-Science.Information-Theory.Binary-Linear-Codes
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2024年8月実施 専門科目 S-3
 
