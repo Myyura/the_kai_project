@@ -2,6 +2,7 @@
 sidebar_label: "2023年8月実施 プログラミング"
 tags:
   - Nagoya-University
+  - Computer-Science.Programming
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2023年8月実施 プログラミング
 

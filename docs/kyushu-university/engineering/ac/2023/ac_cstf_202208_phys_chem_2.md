@@ -2,6 +2,7 @@
 sidebar_label: "2022年8月実施 物理化学2"
 tags:
   - Kyushu-University
+  - Chemistry.Physical-Chemistry
 ---
 # 九州大学 工学府 応用化学専攻 機能物質化学系 2022年8月実施 物理化学2
 

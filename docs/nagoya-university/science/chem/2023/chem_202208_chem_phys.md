@@ -2,6 +2,7 @@
 sidebar_label: "2022年8月実施 物理化学"
 tags:
   - Nagoya-University
+  - Chemistry.Physical-Chemistry
 ---
 # 名古屋大学 理学研究科 化学系 2022年8月実施 物理化学
 

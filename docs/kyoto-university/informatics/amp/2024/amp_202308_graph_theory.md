@@ -3,6 +3,7 @@ sidebar_label: 2023年8月実施 グラフ理論
 tags:
   - Kyoto-University
   - Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem
+  - Mathematics.Graph-Theory
 ---
 # 京都大学 情報学研究科 数理工学専攻 2023年8月実施 グラフ理論
 

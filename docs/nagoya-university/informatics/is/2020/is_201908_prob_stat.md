@@ -2,6 +2,7 @@
 sidebar_label: "2019年8月実施 確率・統計"
 tags:
   - Nagoya-University
+  - Statistics-Data-Science.Probability-Statistics
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2019年8月実施 確率・統計
 

@@ -2,6 +2,7 @@
 sidebar_label: "2018年8月実施 プログラミング"
 tags:
   - Nagoya-University
+  - Computer-Science.Programming
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2018年8月実施 プログラミング
 

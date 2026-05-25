@@ -2,6 +2,7 @@
 sidebar_label: "2023年8月実施 常微分方程式"
 tags:
   - Kyoto-University
+  - Mathematics.Differential-Equations
 ---
 # 京都大学 情報学研究科 数理工学専攻 2023年8月実施 常微分方程式
 
