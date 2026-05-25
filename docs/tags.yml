@@ -332,6 +332,10 @@
   label: "Mathematics.Discrete-Mathematics.Catalan-Number"
   permalink: "/topic/mathematics/discrete-mathematics/catalan-number"
   description: "Mathematics / Discrete-Mathematics / Catalan-Number"
+"Mathematics.Calculus.Cauchy-Sequence":
+  label: "Mathematics.Calculus.Cauchy-Sequence"
+  permalink: "/topic/mathematics/calculus/cauchy-sequence"
+  description: "Mathematics / Calculus / Cauchy-Sequence"
 "Statistics-Data-Science.Information-Theory.Channel-Capacity":
   label: "Statistics-Data-Science.Information-Theory.Channel-Capacity"
   permalink: "/topic/statistics-data-science/information-theory/channel-capacity"
@@ -684,6 +688,10 @@
   label: "Computer-Science.Artificial-Intelligence.Semantic-Network"
   permalink: "/topic/computer-science/artificial-intelligence/semantic-network"
   description: "Computer-Science / Artificial-Intelligence / Semantic-Network"
+"Mathematics.Calculus.Sequence-Convergence":
+  label: "Mathematics.Calculus.Sequence-Convergence"
+  permalink: "/topic/mathematics/calculus/sequence-convergence"
+  description: "Mathematics / Calculus / Sequence-Convergence"
 "Bioinformatics.Bioinformatics.Sequence-Alignment":
   label: "Bioinformatics.Bioinformatics.Sequence-Alignment"
   permalink: "/topic/bioinformatics/bioinformatics/sequence-alignment"

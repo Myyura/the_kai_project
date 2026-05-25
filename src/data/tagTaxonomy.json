@@ -828,6 +828,12 @@
         "Computer-Science"
       ]
     },
+    "Mathematics.Calculus.Cauchy-Sequence": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
     "Statistics-Data-Science.Information-Theory.Channel-Capacity": {
       "subsubject": "Statistics-Data-Science.Information-Theory",
       "subjects": [
@@ -1394,6 +1400,12 @@
         "Computer-Science"
       ]
     },
+    "Mathematics.Calculus.Sequence-Convergence": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
     "Bioinformatics.Bioinformatics.Sequence-Alignment": {
       "subsubject": "Bioinformatics.Bioinformatics",
       "subjects": [
@@ -1612,6 +1624,10 @@
     "Catalan-Number": {
       "replaceWith": "Mathematics.Discrete-Mathematics.Catalan-Number",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+    },
+    "Cauchy-Sequence": {
+      "replaceWith": "Mathematics.Calculus.Cauchy-Sequence",
+      "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
     },
     "Channel-Capacity": {
       "replaceWith": "Statistics-Data-Science.Information-Theory.Channel-Capacity",
@@ -2144,6 +2160,10 @@
     "Sequence-Alignment": {
       "replaceWith": "Bioinformatics.Bioinformatics.Sequence-Alignment",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+    },
+    "Sequence-Convergence": {
+      "replaceWith": "Mathematics.Calculus.Sequence-Convergence",
+      "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
     },
     "Sequential-Circuit": {
       "replaceWith": "Electrical-Electronic.Digital-Logic.Sequential-Circuit",
