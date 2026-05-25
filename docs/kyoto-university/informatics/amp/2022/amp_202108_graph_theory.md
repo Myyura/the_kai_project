@@ -2,8 +2,7 @@
 sidebar_label: 2021年8月実施 グラフ理論
 tags:
   - Kyoto-University
-  - Computer-Science.Data-Structures-Algorithms.Minimum-Spanning-Tree
-  - Mathematics.Graph-Theory
+  - Mathematics.Graph-Theory.Minimum-Spanning-Tree
 ---
 # 京都大学 情報学研究科 数理工学専攻 2021年8月実施 グラフ理論
 

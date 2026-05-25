@@ -2,7 +2,7 @@
 sidebar_label: 2021年8月実施 専門 問1
 tags:
   - Nagoya-University
-  - Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem
+  - Mathematics.Graph-Theory.Shortest-Path-Problem
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2021年8月実施 専門 問1
 

@@ -2,8 +2,7 @@
 sidebar_label: 2020年8月実施 専門科目II 問題2
 tags:
   - Hiroshima-University
-  - Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem
-  - Mathematics.Graph-Theory
+  - Mathematics.Graph-Theory.Shortest-Path-Problem
 ---
 # 広島大学 先進理工系科学研究科 情報科学プログラム 2020年8月実施 専門科目II 問題2
 

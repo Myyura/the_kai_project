@@ -248,62 +248,18 @@
   label: "General.Reference-Material"
   permalink: "/subsubject/general/reference-material"
   description: "General / Reference-Material"
-"Computer-Science.Information-Theory.Additive-Binary-Channel":
-  label: "Computer-Science.Information-Theory.Additive-Binary-Channel"
-  permalink: "/topic/computer-science/information-theory/additive-binary-channel"
-  description: "Computer-Science / Information-Theory / Additive-Binary-Channel"
+"Bioinformatics.Bioinformatics.Sequence-Alignment":
+  label: "Bioinformatics.Bioinformatics.Sequence-Alignment"
+  permalink: "/topic/bioinformatics/bioinformatics/sequence-alignment"
+  description: "Bioinformatics / Bioinformatics / Sequence-Alignment"
 "Computer-Science.Computer-Architecture.Addressing-Modes":
   label: "Computer-Science.Computer-Architecture.Addressing-Modes"
   permalink: "/topic/computer-science/computer-architecture/addressing-modes"
   description: "Computer-Science / Computer-Architecture / Addressing-Modes"
-"Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity":
-  label: "Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity"
-  permalink: "/topic/computer-science/data-structures-algorithms/algorithm-complexity"
-  description: "Computer-Science / Data-Structures-Algorithms / Algorithm-Complexity"
 "Computer-Science.Computer-Architecture.Assembly-Language":
   label: "Computer-Science.Computer-Architecture.Assembly-Language"
   permalink: "/topic/computer-science/computer-architecture/assembly-language"
   description: "Computer-Science / Computer-Architecture / Assembly-Language"
-"Computer-Science.Data-Structures-Algorithms.Backtracking":
-  label: "Computer-Science.Data-Structures-Algorithms.Backtracking"
-  permalink: "/topic/computer-science/data-structures-algorithms/backtracking"
-  description: "Computer-Science / Data-Structures-Algorithms / Backtracking"
-"Computer-Science.Data-Structures-Algorithms.BFS":
-  label: "Computer-Science.Data-Structures-Algorithms.BFS"
-  permalink: "/topic/computer-science/data-structures-algorithms/bfs"
-  description: "Computer-Science / Data-Structures-Algorithms / BFS"
-"Computer-Science.Data-Structures-Algorithms.Binary-Heap":
-  label: "Computer-Science.Data-Structures-Algorithms.Binary-Heap"
-  permalink: "/topic/computer-science/data-structures-algorithms/binary-heap"
-  description: "Computer-Science / Data-Structures-Algorithms / Binary-Heap"
-"Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort":
-  label: "Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort"
-  permalink: "/topic/computer-science/data-structures-algorithms/binary-insertion-sort"
-  description: "Computer-Science / Data-Structures-Algorithms / Binary-Insertion-Sort"
-"Computer-Science.Information-Theory.Binary-Linear-Codes":
-  label: "Computer-Science.Information-Theory.Binary-Linear-Codes"
-  permalink: "/topic/computer-science/information-theory/binary-linear-codes"
-  description: "Computer-Science / Information-Theory / Binary-Linear-Codes"
-"Computer-Science.Data-Structures-Algorithms.Binary-Search":
-  label: "Computer-Science.Data-Structures-Algorithms.Binary-Search"
-  permalink: "/topic/computer-science/data-structures-algorithms/binary-search"
-  description: "Computer-Science / Data-Structures-Algorithms / Binary-Search"
-"Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree":
-  label: "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree"
-  permalink: "/topic/computer-science/data-structures-algorithms/binary-search-tree"
-  description: "Computer-Science / Data-Structures-Algorithms / Binary-Search-Tree"
-"Mathematics.Graph-Theory.Bipartite-Graph":
-  label: "Mathematics.Graph-Theory.Bipartite-Graph"
-  permalink: "/topic/mathematics/graph-theory/bipartite-graph"
-  description: "Mathematics / Graph-Theory / Bipartite-Graph"
-"Computer-Science.Data-Structures-Algorithms.Bipartite-Matching":
-  label: "Computer-Science.Data-Structures-Algorithms.Bipartite-Matching"
-  permalink: "/topic/computer-science/data-structures-algorithms/bipartite-matching"
-  description: "Computer-Science / Data-Structures-Algorithms / Bipartite-Matching"
-"Operations-Research.Optimization.Branch-And-Bound":
-  label: "Operations-Research.Optimization.Branch-And-Bound"
-  permalink: "/topic/operations-research/optimization/branch-and-bound"
-  description: "Operations-Research / Optimization / Branch-And-Bound"
 "Computer-Science.Computer-Architecture.Branch-Penalty":
   label: "Computer-Science.Computer-Architecture.Branch-Penalty"
   permalink: "/topic/computer-science/computer-architecture/branch-penalty"
@@ -312,334 +268,38 @@
   label: "Computer-Science.Computer-Architecture.Branch-Prediction"
   permalink: "/topic/computer-science/computer-architecture/branch-prediction"
   description: "Computer-Science / Computer-Architecture / Branch-Prediction"
-"Computer-Science.Data-Structures-Algorithms.BST":
-  label: "Computer-Science.Data-Structures-Algorithms.BST"
-  permalink: "/topic/computer-science/data-structures-algorithms/bst"
-  description: "Computer-Science / Data-Structures-Algorithms / BST"
-"Computer-Science.Data-Structures-Algorithms.Bubble-Sort":
-  label: "Computer-Science.Data-Structures-Algorithms.Bubble-Sort"
-  permalink: "/topic/computer-science/data-structures-algorithms/bubble-sort"
-  description: "Computer-Science / Data-Structures-Algorithms / Bubble-Sort"
-"Computer-Science.Data-Structures-Algorithms.Bucket-Sort":
-  label: "Computer-Science.Data-Structures-Algorithms.Bucket-Sort"
-  permalink: "/topic/computer-science/data-structures-algorithms/bucket-sort"
-  description: "Computer-Science / Data-Structures-Algorithms / Bucket-Sort"
 "Computer-Science.Computer-Architecture.Cache":
   label: "Computer-Science.Computer-Architecture.Cache"
   permalink: "/topic/computer-science/computer-architecture/cache"
   description: "Computer-Science / Computer-Architecture / Cache"
-"Mathematics.Discrete-Mathematics.Binomial-Coefficient":
-  label: "Mathematics.Discrete-Mathematics.Binomial-Coefficient"
-  permalink: "/topic/mathematics/discrete-mathematics/binomial-coefficient"
-  description: "Mathematics / Discrete-Mathematics / Binomial-Coefficient"
-"Probability-Statistics.Fundamentals.Binomial-Distribution":
-  label: "Probability-Statistics.Fundamentals.Binomial-Distribution"
-  permalink: "/topic/probability-statistics/fundamentals/binomial-distribution"
-  description: "Probability-Statistics / Fundamentals / Binomial-Distribution"
-"Mathematics.Discrete-Mathematics.Catalan-Number":
-  label: "Mathematics.Discrete-Mathematics.Catalan-Number"
-  permalink: "/topic/mathematics/discrete-mathematics/catalan-number"
-  description: "Mathematics / Discrete-Mathematics / Catalan-Number"
-"Mathematics.Calculus.Cauchy-Sequence":
-  label: "Mathematics.Calculus.Cauchy-Sequence"
-  permalink: "/topic/mathematics/calculus/cauchy-sequence"
-  description: "Mathematics / Calculus / Cauchy-Sequence"
-"Computer-Science.Information-Theory.Channel-Capacity":
-  label: "Computer-Science.Information-Theory.Channel-Capacity"
-  permalink: "/topic/computer-science/information-theory/channel-capacity"
-  description: "Computer-Science / Information-Theory / Channel-Capacity"
-"Computer-Science.Information-Theory.Channel-Coding":
-  label: "Computer-Science.Information-Theory.Channel-Coding"
-  permalink: "/topic/computer-science/information-theory/channel-coding"
-  description: "Computer-Science / Information-Theory / Channel-Coding"
-"Data-Science-Artificial-Intelligence.Machine-Learning.Classification":
-  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Classification"
-  permalink: "/topic/data-science-artificial-intelligence/machine-learning/classification"
-  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Classification"
-"Electrical-Electronic.Digital-Logic.Combinatorial-Circuit":
-  label: "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit"
-  permalink: "/topic/electrical-electronic/digital-logic/combinatorial-circuit"
-  description: "Electrical-Electronic / Digital-Logic / Combinatorial-Circuit"
-"Mathematics.Graph-Theory.Complete-Graph":
-  label: "Mathematics.Graph-Theory.Complete-Graph"
-  permalink: "/topic/mathematics/graph-theory/complete-graph"
-  description: "Mathematics / Graph-Theory / Complete-Graph"
-"Mathematics.Complex-Analysis.Complex-Numbers":
-  label: "Mathematics.Complex-Analysis.Complex-Numbers"
-  permalink: "/topic/mathematics/complex-analysis/complex-numbers"
-  description: "Mathematics / Complex-Analysis / Complex-Numbers"
-"Probability-Statistics.Fundamentals.Conditional-Probability":
-  label: "Probability-Statistics.Fundamentals.Conditional-Probability"
-  permalink: "/topic/probability-statistics/fundamentals/conditional-probability"
-  description: "Probability-Statistics / Fundamentals / Conditional-Probability"
-"Probability-Statistics.Fundamentals.Correlation-Coefficient":
-  label: "Probability-Statistics.Fundamentals.Correlation-Coefficient"
-  permalink: "/topic/probability-statistics/fundamentals/correlation-coefficient"
-  description: "Probability-Statistics / Fundamentals / Correlation-Coefficient"
-"Probability-Statistics.Statistical-Inference.Confidence-Interval":
-  label: "Probability-Statistics.Statistical-Inference.Confidence-Interval"
-  permalink: "/topic/probability-statistics/statistical-inference/confidence-interval"
-  description: "Probability-Statistics / Statistical-Inference / Confidence-Interval"
-"Computer-Science.Formal-Languages.Context-Free-Grammar":
-  label: "Computer-Science.Formal-Languages.Context-Free-Grammar"
-  permalink: "/topic/computer-science/formal-languages/context-free-grammar"
-  description: "Computer-Science / Formal-Languages / Context-Free-Grammar"
 "Computer-Science.Computer-Architecture.Control-Hazard":
   label: "Computer-Science.Computer-Architecture.Control-Hazard"
   permalink: "/topic/computer-science/computer-architecture/control-hazard"
   description: "Computer-Science / Computer-Architecture / Control-Hazard"
-"Mathematics.Fourier-Analysis.Convolution":
-  label: "Mathematics.Fourier-Analysis.Convolution"
-  permalink: "/topic/mathematics/fourier-analysis/convolution"
-  description: "Mathematics / Fourier-Analysis / Convolution"
-"Computer-Science.Data-Structures-Algorithms.Convex-Hull":
-  label: "Computer-Science.Data-Structures-Algorithms.Convex-Hull"
-  permalink: "/topic/computer-science/data-structures-algorithms/convex-hull"
-  description: "Computer-Science / Data-Structures-Algorithms / Convex-Hull"
-"Computer-Science.Data-Structures-Algorithms.Counting-Sort":
-  label: "Computer-Science.Data-Structures-Algorithms.Counting-Sort"
-  permalink: "/topic/computer-science/data-structures-algorithms/counting-sort"
-  description: "Computer-Science / Data-Structures-Algorithms / Counting-Sort"
-"Computer-Science.Information-Theory.Cyclic-Code":
-  label: "Computer-Science.Information-Theory.Cyclic-Code"
-  permalink: "/topic/computer-science/information-theory/cyclic-code"
-  description: "Computer-Science / Information-Theory / Cyclic-Code"
-"Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree":
-  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree"
-  permalink: "/topic/data-science-artificial-intelligence/machine-learning/decision-tree"
-  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Decision-Tree"
-"Computer-Science.Data-Structures-Algorithms.DFS":
-  label: "Computer-Science.Data-Structures-Algorithms.DFS"
-  permalink: "/topic/computer-science/data-structures-algorithms/dfs"
-  description: "Computer-Science / Data-Structures-Algorithms / DFS"
-"Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform":
-  label: "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform"
-  permalink: "/topic/electrical-electronic/signal-processing/discrete-fourier-transform"
-  description: "Electrical-Electronic / Signal-Processing / Discrete-Fourier-Transform"
-"Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer":
-  label: "Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer"
-  permalink: "/topic/computer-science/data-structures-algorithms/divide-and-conquer"
-  description: "Computer-Science / Data-Structures-Algorithms / Divide-And-Conquer"
-"Computer-Science.Data-Structures-Algorithms.Double-Pointer":
-  label: "Computer-Science.Data-Structures-Algorithms.Double-Pointer"
-  permalink: "/topic/computer-science/data-structures-algorithms/double-pointer"
-  description: "Computer-Science / Data-Structures-Algorithms / Double-Pointer"
-"Computer-Science.Data-Structures-Algorithms.Dynamic-Programming":
-  label: "Computer-Science.Data-Structures-Algorithms.Dynamic-Programming"
-  permalink: "/topic/computer-science/data-structures-algorithms/dynamic-programming"
-  description: "Computer-Science / Data-Structures-Algorithms / Dynamic-Programming"
-"Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors":
-  label: "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors"
-  permalink: "/topic/mathematics/linear-algebra/eigenvalues-and-eigenvectors"
-  description: "Mathematics / Linear-Algebra / Eigenvalues-and-Eigenvectors"
-"Computer-Science.Information-Theory.Entropy":
-  label: "Computer-Science.Information-Theory.Entropy"
-  permalink: "/topic/computer-science/information-theory/entropy"
-  description: "Computer-Science / Information-Theory / Entropy"
-"Mathematics.Graph-Theory.Euler-Circuit":
-  label: "Mathematics.Graph-Theory.Euler-Circuit"
-  permalink: "/topic/mathematics/graph-theory/euler-circuit"
-  description: "Mathematics / Graph-Theory / Euler-Circuit"
-"Probability-Statistics.Fundamentals.Exponential-Distribution":
-  label: "Probability-Statistics.Fundamentals.Exponential-Distribution"
-  permalink: "/topic/probability-statistics/fundamentals/exponential-distribution"
-  description: "Probability-Statistics / Fundamentals / Exponential-Distribution"
-"Probability-Statistics.Statistical-Inference.Fisher-Exact-Test":
-  label: "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test"
-  permalink: "/topic/probability-statistics/statistical-inference/fisher-exact-test"
-  description: "Probability-Statistics / Statistical-Inference / Fisher-Exact-Test"
-"Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis":
-  label: "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis"
-  permalink: "/topic/probability-statistics/statistical-inference/fisher-linear-discriminant-analysis"
-  description: "Probability-Statistics / Statistical-Inference / Fisher-Linear-Discriminant-Analysis"
 "Computer-Science.Computer-Architecture.Floating-Point-Representation":
   label: "Computer-Science.Computer-Architecture.Floating-Point-Representation"
   permalink: "/topic/computer-science/computer-architecture/floating-point-representation"
   description: "Computer-Science / Computer-Architecture / Floating-Point-Representation"
-"Mathematics.Graph-Theory.Graph-Isomorphism":
-  label: "Mathematics.Graph-Theory.Graph-Isomorphism"
-  permalink: "/topic/mathematics/graph-theory/graph-isomorphism"
-  description: "Mathematics / Graph-Theory / Graph-Isomorphism"
-"Mathematics.Number-Theory.Greatest-Common-Divisor":
-  label: "Mathematics.Number-Theory.Greatest-Common-Divisor"
-  permalink: "/topic/mathematics/number-theory/greatest-common-divisor"
-  description: "Mathematics / Number-Theory / Greatest-Common-Divisor"
-"Computer-Science.Data-Structures-Algorithms.Greedy":
-  label: "Computer-Science.Data-Structures-Algorithms.Greedy"
-  permalink: "/topic/computer-science/data-structures-algorithms/greedy"
-  description: "Computer-Science / Data-Structures-Algorithms / Greedy"
-"Mathematics.Vector-Calculus.Divergence-Theorem":
-  label: "Mathematics.Vector-Calculus.Divergence-Theorem"
-  permalink: "/topic/mathematics/vector-calculus/divergence-theorem"
-  description: "Mathematics / Vector-Calculus / Divergence-Theorem"
-"Mathematics.Vector-Calculus.Green’s-Identity":
-  label: "Mathematics.Vector-Calculus.Green’s-Identity"
-  permalink: "/topic/mathematics/vector-calculus/green-s-identity"
-  description: "Mathematics / Vector-Calculus / Green’s-Identity"
-"Electrical-Electronic.Digital-Logic.Half-Full-Adders":
-  label: "Electrical-Electronic.Digital-Logic.Half-Full-Adders"
-  permalink: "/topic/electrical-electronic/digital-logic/half-full-adders"
-  description: "Electrical-Electronic / Digital-Logic / Half-Full-Adders"
 "Computer-Science.Computer-Architecture.Hamming-Weight":
   label: "Computer-Science.Computer-Architecture.Hamming-Weight"
   permalink: "/topic/computer-science/computer-architecture/hamming-weight"
   description: "Computer-Science / Computer-Architecture / Hamming-Weight"
-"Computer-Science.Data-Structures-Algorithms.Hash-Table":
-  label: "Computer-Science.Data-Structures-Algorithms.Hash-Table"
-  permalink: "/topic/computer-science/data-structures-algorithms/hash-table"
-  description: "Computer-Science / Data-Structures-Algorithms / Hash-Table"
-"Computer-Science.Data-Structures-Algorithms.Heap-Sort":
-  label: "Computer-Science.Data-Structures-Algorithms.Heap-Sort"
-  permalink: "/topic/computer-science/data-structures-algorithms/heap-sort"
-  description: "Computer-Science / Data-Structures-Algorithms / Heap-Sort"
-"Mathematics.Linear-Algebra.Hermitian-Matrix":
-  label: "Mathematics.Linear-Algebra.Hermitian-Matrix"
-  permalink: "/topic/mathematics/linear-algebra/hermitian-matrix"
-  description: "Mathematics / Linear-Algebra / Hermitian-Matrix"
-"Computer-Science.Information-Theory.Huffman-Coding":
-  label: "Computer-Science.Information-Theory.Huffman-Coding"
-  permalink: "/topic/computer-science/information-theory/huffman-coding"
-  description: "Computer-Science / Information-Theory / Huffman-Coding"
 "Computer-Science.Computer-Architecture.IEEE-754":
   label: "Computer-Science.Computer-Architecture.IEEE-754"
   permalink: "/topic/computer-science/computer-architecture/ieee-754"
   description: "Computer-Science / Computer-Architecture / IEEE-754"
-"Computer-Science.Data-Structures-Algorithms.Insertion-Sort":
-  label: "Computer-Science.Data-Structures-Algorithms.Insertion-Sort"
-  permalink: "/topic/computer-science/data-structures-algorithms/insertion-sort"
-  description: "Computer-Science / Data-Structures-Algorithms / Insertion-Sort"
-"Computer-Science.Data-Structures-Algorithms.Knapsack-Problem":
-  label: "Computer-Science.Data-Structures-Algorithms.Knapsack-Problem"
-  permalink: "/topic/computer-science/data-structures-algorithms/knapsack-problem"
-  description: "Computer-Science / Data-Structures-Algorithms / Knapsack-Problem"
-"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation":
-  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation"
-  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/knowledge-representation"
-  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Knowledge-Representation"
-"Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm":
-  label: "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm"
-  permalink: "/topic/computer-science/data-structures-algorithms/knuth-morris-pratt-algorithm"
-  description: "Computer-Science / Data-Structures-Algorithms / Knuth-Morris-Pratt-Algorithm"
-"Probability-Statistics.Statistical-Inference.Least-Squares-Method":
-  label: "Probability-Statistics.Statistical-Inference.Least-Squares-Method"
-  permalink: "/topic/probability-statistics/statistical-inference/least-squares-method"
-  description: "Probability-Statistics / Statistical-Inference / Least-Squares-Method"
-"Mathematics.Linear-Algebra.Linear-Transformation":
-  label: "Mathematics.Linear-Algebra.Linear-Transformation"
-  permalink: "/topic/mathematics/linear-algebra/linear-transformation"
-  description: "Mathematics / Linear-Algebra / Linear-Transformation"
-"Computer-Science.Data-Structures-Algorithms.Longest-Common-Subsequence":
-  label: "Computer-Science.Data-Structures-Algorithms.Longest-Common-Subsequence"
-  permalink: "/topic/computer-science/data-structures-algorithms/longest-common-subsequence"
-  description: "Computer-Science / Data-Structures-Algorithms / Longest-Common-Subsequence"
-"Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring":
-  label: "Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring"
-  permalink: "/topic/computer-science/data-structures-algorithms/longest-palindrome-substring"
-  description: "Computer-Science / Data-Structures-Algorithms / Longest-Palindrome-Substring"
-"Probability-Statistics.Stochastic-Processes.Markov-Chain":
-  label: "Probability-Statistics.Stochastic-Processes.Markov-Chain"
-  permalink: "/topic/probability-statistics/stochastic-processes/markov-chain"
-  description: "Probability-Statistics / Stochastic-Processes / Markov-Chain"
-"Probability-Statistics.Stochastic-Processes.Markov-Information-Source":
-  label: "Probability-Statistics.Stochastic-Processes.Markov-Information-Source"
-  permalink: "/topic/probability-statistics/stochastic-processes/markov-information-source"
-  description: "Probability-Statistics / Stochastic-Processes / Markov-Information-Source"
-"Probability-Statistics.Stochastic-Processes.Markov-Source":
-  label: "Probability-Statistics.Stochastic-Processes.Markov-Source"
-  permalink: "/topic/probability-statistics/stochastic-processes/markov-source"
-  description: "Probability-Statistics / Stochastic-Processes / Markov-Source"
-"Computer-Science.Data-Structures-Algorithms.Master-Theorem":
-  label: "Computer-Science.Data-Structures-Algorithms.Master-Theorem"
-  permalink: "/topic/computer-science/data-structures-algorithms/master-theorem"
-  description: "Computer-Science / Data-Structures-Algorithms / Master-Theorem"
-"Mathematics.Linear-Algebra.Matrix-Diagonalization":
-  label: "Mathematics.Linear-Algebra.Matrix-Diagonalization"
-  permalink: "/topic/mathematics/linear-algebra/matrix-diagonalization"
-  description: "Mathematics / Linear-Algebra / Matrix-Diagonalization"
-"Mathematics.Linear-Algebra.Matrix-Limit":
-  label: "Mathematics.Linear-Algebra.Matrix-Limit"
-  permalink: "/topic/mathematics/linear-algebra/matrix-limit"
-  description: "Mathematics / Linear-Algebra / Matrix-Limit"
-"Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms":
-  label: "Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms"
-  permalink: "/topic/computer-science/data-structures-algorithms/matrix-multiplication-algorithms"
-  description: "Computer-Science / Data-Structures-Algorithms / Matrix-Multiplication-Algorithms"
-"Computer-Science.Data-Structures-Algorithms.Max-Flow":
-  label: "Computer-Science.Data-Structures-Algorithms.Max-Flow"
-  permalink: "/topic/computer-science/data-structures-algorithms/max-flow"
-  description: "Computer-Science / Data-Structures-Algorithms / Max-Flow"
-"Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation":
-  label: "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation"
-  permalink: "/topic/probability-statistics/statistical-inference/maximum-likelihood-estimation"
-  description: "Probability-Statistics / Statistical-Inference / Maximum-Likelihood-Estimation"
-"Mathematics.Graph-Theory.Maximum-Matching":
-  label: "Mathematics.Graph-Theory.Maximum-Matching"
-  permalink: "/topic/mathematics/graph-theory/maximum-matching"
-  description: "Mathematics / Graph-Theory / Maximum-Matching"
-"Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum":
-  label: "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum"
-  permalink: "/topic/computer-science/data-structures-algorithms/maximum-subarray-sum"
-  description: "Computer-Science / Data-Structures-Algorithms / Maximum-Subarray-Sum"
-"Computer-Science.Formal-Languages.Mealy-Machine":
-  label: "Computer-Science.Formal-Languages.Mealy-Machine"
-  permalink: "/topic/computer-science/formal-languages/mealy-machine"
-  description: "Computer-Science / Formal-Languages / Mealy-Machine"
-"Computer-Science.Data-Structures-Algorithms.Median-Of-Medians":
-  label: "Computer-Science.Data-Structures-Algorithms.Median-Of-Medians"
-  permalink: "/topic/computer-science/data-structures-algorithms/median-of-medians"
-  description: "Computer-Science / Data-Structures-Algorithms / Median-Of-Medians"
 "Computer-Science.Computer-Architecture.Memory-Alignment":
   label: "Computer-Science.Computer-Architecture.Memory-Alignment"
   permalink: "/topic/computer-science/computer-architecture/memory-alignment"
   description: "Computer-Science / Computer-Architecture / Memory-Alignment"
-"Computer-Science.Data-Structures-Algorithms.Merge-Sort":
-  label: "Computer-Science.Data-Structures-Algorithms.Merge-Sort"
-  permalink: "/topic/computer-science/data-structures-algorithms/merge-sort"
-  description: "Computer-Science / Data-Structures-Algorithms / Merge-Sort"
-"Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance":
-  label: "Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance"
-  permalink: "/topic/computer-science/data-structures-algorithms/minimum-edit-distance"
-  description: "Computer-Science / Data-Structures-Algorithms / Minimum-Edit-Distance"
-"Computer-Science.Data-Structures-Algorithms.Minimum-Spanning-Tree":
-  label: "Computer-Science.Data-Structures-Algorithms.Minimum-Spanning-Tree"
-  permalink: "/topic/computer-science/data-structures-algorithms/minimum-spanning-tree"
-  description: "Computer-Science / Data-Structures-Algorithms / Minimum-Spanning-Tree"
-"Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring":
-  label: "Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring"
-  permalink: "/topic/computer-science/data-structures-algorithms/minimum-window-substring"
-  description: "Computer-Science / Data-Structures-Algorithms / Minimum-Window-Substring"
-"Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration":
-  label: "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration"
-  permalink: "/topic/probability-statistics/statistical-inference/monte-carlo-integration"
-  description: "Probability-Statistics / Statistical-Inference / Monte-Carlo-Integration"
-"Computer-Science.Formal-Languages.Moore-Machine":
-  label: "Computer-Science.Formal-Languages.Moore-Machine"
-  permalink: "/topic/computer-science/formal-languages/moore-machine"
-  description: "Computer-Science / Formal-Languages / Moore-Machine"
-"Computer-Science.Information-Theory.Mutual-Information":
-  label: "Computer-Science.Information-Theory.Mutual-Information"
-  permalink: "/topic/computer-science/information-theory/mutual-information"
-  description: "Computer-Science / Information-Theory / Mutual-Information"
 "Computer-Science.Computer-Architecture.Number-Representation":
   label: "Computer-Science.Computer-Architecture.Number-Representation"
   permalink: "/topic/computer-science/computer-architecture/number-representation"
   description: "Computer-Science / Computer-Architecture / Number-Representation"
-"Probability-Statistics.Fundamentals.Order-Statistics":
-  label: "Probability-Statistics.Fundamentals.Order-Statistics"
-  permalink: "/topic/probability-statistics/fundamentals/order-statistics"
-  description: "Probability-Statistics / Fundamentals / Order-Statistics"
-"Mathematics.Linear-Algebra.Orthogonal-Decomposition":
-  label: "Mathematics.Linear-Algebra.Orthogonal-Decomposition"
-  permalink: "/topic/mathematics/linear-algebra/orthogonal-decomposition"
-  description: "Mathematics / Linear-Algebra / Orthogonal-Decomposition"
 "Computer-Science.Computer-Architecture.Parallelism":
   label: "Computer-Science.Computer-Architecture.Parallelism"
   permalink: "/topic/computer-science/computer-architecture/parallelism"
   description: "Computer-Science / Computer-Architecture / Parallelism"
-"Computer-Science.Data-Structures-Algorithms.Partitioning":
-  label: "Computer-Science.Data-Structures-Algorithms.Partitioning"
-  permalink: "/topic/computer-science/data-structures-algorithms/partitioning"
-  description: "Computer-Science / Data-Structures-Algorithms / Partitioning"
 "Computer-Science.Computer-Architecture.Performance-Analysis":
   label: "Computer-Science.Computer-Architecture.Performance-Analysis"
   permalink: "/topic/computer-science/computer-architecture/performance-analysis"
@@ -652,26 +312,134 @@
   label: "Computer-Science.Computer-Architecture.Pipelining"
   permalink: "/topic/computer-science/computer-architecture/pipelining"
   description: "Computer-Science / Computer-Architecture / Pipelining"
-"Mathematics.Graph-Theory.Planar-Graph":
-  label: "Mathematics.Graph-Theory.Planar-Graph"
-  permalink: "/topic/mathematics/graph-theory/planar-graph"
-  description: "Mathematics / Graph-Theory / Planar-Graph"
+"Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity":
+  label: "Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity"
+  permalink: "/topic/computer-science/data-structures-algorithms/algorithm-complexity"
+  description: "Computer-Science / Data-Structures-Algorithms / Algorithm-Complexity"
+"Computer-Science.Data-Structures-Algorithms.Backtracking":
+  label: "Computer-Science.Data-Structures-Algorithms.Backtracking"
+  permalink: "/topic/computer-science/data-structures-algorithms/backtracking"
+  description: "Computer-Science / Data-Structures-Algorithms / Backtracking"
+"Computer-Science.Data-Structures-Algorithms.Binary-Heap":
+  label: "Computer-Science.Data-Structures-Algorithms.Binary-Heap"
+  permalink: "/topic/computer-science/data-structures-algorithms/binary-heap"
+  description: "Computer-Science / Data-Structures-Algorithms / Binary-Heap"
+"Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort":
+  label: "Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort"
+  permalink: "/topic/computer-science/data-structures-algorithms/binary-insertion-sort"
+  description: "Computer-Science / Data-Structures-Algorithms / Binary-Insertion-Sort"
+"Computer-Science.Data-Structures-Algorithms.Binary-Search":
+  label: "Computer-Science.Data-Structures-Algorithms.Binary-Search"
+  permalink: "/topic/computer-science/data-structures-algorithms/binary-search"
+  description: "Computer-Science / Data-Structures-Algorithms / Binary-Search"
+"Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree":
+  label: "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree"
+  permalink: "/topic/computer-science/data-structures-algorithms/binary-search-tree"
+  description: "Computer-Science / Data-Structures-Algorithms / Binary-Search-Tree"
+"Computer-Science.Data-Structures-Algorithms.BST":
+  label: "Computer-Science.Data-Structures-Algorithms.BST"
+  permalink: "/topic/computer-science/data-structures-algorithms/bst"
+  description: "Computer-Science / Data-Structures-Algorithms / BST"
+"Computer-Science.Data-Structures-Algorithms.Bubble-Sort":
+  label: "Computer-Science.Data-Structures-Algorithms.Bubble-Sort"
+  permalink: "/topic/computer-science/data-structures-algorithms/bubble-sort"
+  description: "Computer-Science / Data-Structures-Algorithms / Bubble-Sort"
+"Computer-Science.Data-Structures-Algorithms.Bucket-Sort":
+  label: "Computer-Science.Data-Structures-Algorithms.Bucket-Sort"
+  permalink: "/topic/computer-science/data-structures-algorithms/bucket-sort"
+  description: "Computer-Science / Data-Structures-Algorithms / Bucket-Sort"
+"Computer-Science.Data-Structures-Algorithms.Convex-Hull":
+  label: "Computer-Science.Data-Structures-Algorithms.Convex-Hull"
+  permalink: "/topic/computer-science/data-structures-algorithms/convex-hull"
+  description: "Computer-Science / Data-Structures-Algorithms / Convex-Hull"
+"Computer-Science.Data-Structures-Algorithms.Counting-Sort":
+  label: "Computer-Science.Data-Structures-Algorithms.Counting-Sort"
+  permalink: "/topic/computer-science/data-structures-algorithms/counting-sort"
+  description: "Computer-Science / Data-Structures-Algorithms / Counting-Sort"
+"Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer":
+  label: "Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer"
+  permalink: "/topic/computer-science/data-structures-algorithms/divide-and-conquer"
+  description: "Computer-Science / Data-Structures-Algorithms / Divide-And-Conquer"
+"Computer-Science.Data-Structures-Algorithms.Double-Pointer":
+  label: "Computer-Science.Data-Structures-Algorithms.Double-Pointer"
+  permalink: "/topic/computer-science/data-structures-algorithms/double-pointer"
+  description: "Computer-Science / Data-Structures-Algorithms / Double-Pointer"
+"Computer-Science.Data-Structures-Algorithms.Dynamic-Programming":
+  label: "Computer-Science.Data-Structures-Algorithms.Dynamic-Programming"
+  permalink: "/topic/computer-science/data-structures-algorithms/dynamic-programming"
+  description: "Computer-Science / Data-Structures-Algorithms / Dynamic-Programming"
+"Computer-Science.Data-Structures-Algorithms.Greedy":
+  label: "Computer-Science.Data-Structures-Algorithms.Greedy"
+  permalink: "/topic/computer-science/data-structures-algorithms/greedy"
+  description: "Computer-Science / Data-Structures-Algorithms / Greedy"
+"Computer-Science.Data-Structures-Algorithms.Hash-Table":
+  label: "Computer-Science.Data-Structures-Algorithms.Hash-Table"
+  permalink: "/topic/computer-science/data-structures-algorithms/hash-table"
+  description: "Computer-Science / Data-Structures-Algorithms / Hash-Table"
+"Computer-Science.Data-Structures-Algorithms.Heap-Sort":
+  label: "Computer-Science.Data-Structures-Algorithms.Heap-Sort"
+  permalink: "/topic/computer-science/data-structures-algorithms/heap-sort"
+  description: "Computer-Science / Data-Structures-Algorithms / Heap-Sort"
+"Computer-Science.Data-Structures-Algorithms.Insertion-Sort":
+  label: "Computer-Science.Data-Structures-Algorithms.Insertion-Sort"
+  permalink: "/topic/computer-science/data-structures-algorithms/insertion-sort"
+  description: "Computer-Science / Data-Structures-Algorithms / Insertion-Sort"
+"Computer-Science.Data-Structures-Algorithms.Knapsack-Problem":
+  label: "Computer-Science.Data-Structures-Algorithms.Knapsack-Problem"
+  permalink: "/topic/computer-science/data-structures-algorithms/knapsack-problem"
+  description: "Computer-Science / Data-Structures-Algorithms / Knapsack-Problem"
+"Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm":
+  label: "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm"
+  permalink: "/topic/computer-science/data-structures-algorithms/knuth-morris-pratt-algorithm"
+  description: "Computer-Science / Data-Structures-Algorithms / Knuth-Morris-Pratt-Algorithm"
+"Computer-Science.Data-Structures-Algorithms.Linked-List":
+  label: "Computer-Science.Data-Structures-Algorithms.Linked-List"
+  permalink: "/topic/computer-science/data-structures-algorithms/linked-list"
+  description: "Computer-Science / Data-Structures-Algorithms / Linked-List"
+"Computer-Science.Data-Structures-Algorithms.Longest-Common-Subsequence":
+  label: "Computer-Science.Data-Structures-Algorithms.Longest-Common-Subsequence"
+  permalink: "/topic/computer-science/data-structures-algorithms/longest-common-subsequence"
+  description: "Computer-Science / Data-Structures-Algorithms / Longest-Common-Subsequence"
+"Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring":
+  label: "Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring"
+  permalink: "/topic/computer-science/data-structures-algorithms/longest-palindrome-substring"
+  description: "Computer-Science / Data-Structures-Algorithms / Longest-Palindrome-Substring"
+"Computer-Science.Data-Structures-Algorithms.Master-Theorem":
+  label: "Computer-Science.Data-Structures-Algorithms.Master-Theorem"
+  permalink: "/topic/computer-science/data-structures-algorithms/master-theorem"
+  description: "Computer-Science / Data-Structures-Algorithms / Master-Theorem"
+"Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms":
+  label: "Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms"
+  permalink: "/topic/computer-science/data-structures-algorithms/matrix-multiplication-algorithms"
+  description: "Computer-Science / Data-Structures-Algorithms / Matrix-Multiplication-Algorithms"
+"Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum":
+  label: "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum"
+  permalink: "/topic/computer-science/data-structures-algorithms/maximum-subarray-sum"
+  description: "Computer-Science / Data-Structures-Algorithms / Maximum-Subarray-Sum"
+"Computer-Science.Data-Structures-Algorithms.Median-Of-Medians":
+  label: "Computer-Science.Data-Structures-Algorithms.Median-Of-Medians"
+  permalink: "/topic/computer-science/data-structures-algorithms/median-of-medians"
+  description: "Computer-Science / Data-Structures-Algorithms / Median-Of-Medians"
+"Computer-Science.Data-Structures-Algorithms.Merge-Sort":
+  label: "Computer-Science.Data-Structures-Algorithms.Merge-Sort"
+  permalink: "/topic/computer-science/data-structures-algorithms/merge-sort"
+  description: "Computer-Science / Data-Structures-Algorithms / Merge-Sort"
+"Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance":
+  label: "Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance"
+  permalink: "/topic/computer-science/data-structures-algorithms/minimum-edit-distance"
+  description: "Computer-Science / Data-Structures-Algorithms / Minimum-Edit-Distance"
+"Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring":
+  label: "Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring"
+  permalink: "/topic/computer-science/data-structures-algorithms/minimum-window-substring"
+  description: "Computer-Science / Data-Structures-Algorithms / Minimum-Window-Substring"
+"Computer-Science.Data-Structures-Algorithms.Partitioning":
+  label: "Computer-Science.Data-Structures-Algorithms.Partitioning"
+  permalink: "/topic/computer-science/data-structures-algorithms/partitioning"
+  description: "Computer-Science / Data-Structures-Algorithms / Partitioning"
 "Computer-Science.Data-Structures-Algorithms.Priority-Queue":
   label: "Computer-Science.Data-Structures-Algorithms.Priority-Queue"
   permalink: "/topic/computer-science/data-structures-algorithms/priority-queue"
   description: "Computer-Science / Data-Structures-Algorithms / Priority-Queue"
-"Computer-Science.Graphics.Projection-And-Reconstruction":
-  label: "Computer-Science.Graphics.Projection-And-Reconstruction"
-  permalink: "/topic/computer-science/graphics/projection-and-reconstruction"
-  description: "Computer-Science / Graphics / Projection-And-Reconstruction"
-"Mathematics.Linear-Algebra.Pseudoinverse-Matrix":
-  label: "Mathematics.Linear-Algebra.Pseudoinverse-Matrix"
-  permalink: "/topic/mathematics/linear-algebra/pseudoinverse-matrix"
-  description: "Mathematics / Linear-Algebra / Pseudoinverse-Matrix"
-"Computer-Science.Quantum-Computing.Quantum-Computing":
-  label: "Computer-Science.Quantum-Computing.Quantum-Computing"
-  permalink: "/topic/computer-science/quantum-computing/quantum-computing"
-  description: "Computer-Science / Quantum-Computing / Quantum-Computing"
 "Computer-Science.Data-Structures-Algorithms.Queue":
   label: "Computer-Science.Data-Structures-Algorithms.Queue"
   permalink: "/topic/computer-science/data-structures-algorithms/queue"
@@ -688,50 +456,14 @@
   label: "Computer-Science.Data-Structures-Algorithms.Radix-Sort"
   permalink: "/topic/computer-science/data-structures-algorithms/radix-sort"
   description: "Computer-Science / Data-Structures-Algorithms / Radix-Sort"
-"Mathematics.Discrete-Mathematics.Recurrence-Relation":
-  label: "Mathematics.Discrete-Mathematics.Recurrence-Relation"
-  permalink: "/topic/mathematics/discrete-mathematics/recurrence-relation"
-  description: "Mathematics / Discrete-Mathematics / Recurrence-Relation"
-"Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning":
-  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning"
-  permalink: "/topic/data-science-artificial-intelligence/machine-learning/reinforcement-learning"
-  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Reinforcement-Learning"
 "Computer-Science.Data-Structures-Algorithms.Selection-Sort":
   label: "Computer-Science.Data-Structures-Algorithms.Selection-Sort"
   permalink: "/topic/computer-science/data-structures-algorithms/selection-sort"
   description: "Computer-Science / Data-Structures-Algorithms / Selection-Sort"
-"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network":
-  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network"
-  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/semantic-network"
-  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Semantic-Network"
-"Mathematics.Calculus.Sequence-Convergence":
-  label: "Mathematics.Calculus.Sequence-Convergence"
-  permalink: "/topic/mathematics/calculus/sequence-convergence"
-  description: "Mathematics / Calculus / Sequence-Convergence"
-"Bioinformatics.Bioinformatics.Sequence-Alignment":
-  label: "Bioinformatics.Bioinformatics.Sequence-Alignment"
-  permalink: "/topic/bioinformatics/bioinformatics/sequence-alignment"
-  description: "Bioinformatics / Bioinformatics / Sequence-Alignment"
-"Electrical-Electronic.Digital-Logic.Sequential-Circuit":
-  label: "Electrical-Electronic.Digital-Logic.Sequential-Circuit"
-  permalink: "/topic/electrical-electronic/digital-logic/sequential-circuit"
-  description: "Electrical-Electronic / Digital-Logic / Sequential-Circuit"
-"Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem":
-  label: "Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem"
-  permalink: "/topic/computer-science/data-structures-algorithms/shortest-path-problem"
-  description: "Computer-Science / Data-Structures-Algorithms / Shortest-Path-Problem"
-"Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function":
-  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function"
-  permalink: "/topic/data-science-artificial-intelligence/machine-learning/sigmoid-function"
-  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Sigmoid-Function"
 "Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm":
   label: "Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm"
   permalink: "/topic/computer-science/data-structures-algorithms/sorting-algorithm"
   description: "Computer-Science / Data-Structures-Algorithms / Sorting-Algorithm"
-"Computer-Science.Information-Theory.Source-Coding":
-  label: "Computer-Science.Information-Theory.Source-Coding"
-  permalink: "/topic/computer-science/information-theory/source-coding"
-  description: "Computer-Science / Information-Theory / Source-Coding"
 "Computer-Science.Data-Structures-Algorithms.Stack":
   label: "Computer-Science.Data-Structures-Algorithms.Stack"
   permalink: "/topic/computer-science/data-structures-algorithms/stack"
@@ -744,22 +476,10 @@
   label: "Computer-Science.Data-Structures-Algorithms.Subset-Sum-Problem"
   permalink: "/topic/computer-science/data-structures-algorithms/subset-sum-problem"
   description: "Computer-Science / Data-Structures-Algorithms / Subset-Sum-Problem"
-"Mathematics.Linear-Algebra.SVD":
-  label: "Mathematics.Linear-Algebra.SVD"
-  permalink: "/topic/mathematics/linear-algebra/svd"
-  description: "Mathematics / Linear-Algebra / SVD"
-"Electrical-Electronic.Digital-Logic.Synchronous-Circuit":
-  label: "Electrical-Electronic.Digital-Logic.Synchronous-Circuit"
-  permalink: "/topic/electrical-electronic/digital-logic/synchronous-circuit"
-  description: "Electrical-Electronic / Digital-Logic / Synchronous-Circuit"
-"Mathematics.Linear-Algebra.Trace-of-Matrix":
-  label: "Mathematics.Linear-Algebra.Trace-of-Matrix"
-  permalink: "/topic/mathematics/linear-algebra/trace-of-matrix"
-  description: "Mathematics / Linear-Algebra / Trace-of-Matrix"
-"Mathematics.Graph-Theory.Tree-Metric":
-  label: "Mathematics.Graph-Theory.Tree-Metric"
-  permalink: "/topic/mathematics/graph-theory/tree-metric"
-  description: "Mathematics / Graph-Theory / Tree-Metric"
+"Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi":
+  label: "Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi"
+  permalink: "/topic/computer-science/data-structures-algorithms/tower-of-hanoi"
+  description: "Computer-Science / Data-Structures-Algorithms / Tower-of-Hanoi"
 "Computer-Science.Data-Structures-Algorithms.Trie":
   label: "Computer-Science.Data-Structures-Algorithms.Trie"
   permalink: "/topic/computer-science/data-structures-algorithms/trie"
@@ -768,19 +488,311 @@
   label: "Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure"
   permalink: "/topic/computer-science/data-structures-algorithms/union-find-data-structure"
   description: "Computer-Science / Data-Structures-Algorithms / Union-Find-Data-Structure"
+"Computer-Science.Formal-Languages.Context-Free-Grammar":
+  label: "Computer-Science.Formal-Languages.Context-Free-Grammar"
+  permalink: "/topic/computer-science/formal-languages/context-free-grammar"
+  description: "Computer-Science / Formal-Languages / Context-Free-Grammar"
+"Computer-Science.Formal-Languages.Mealy-Machine":
+  label: "Computer-Science.Formal-Languages.Mealy-Machine"
+  permalink: "/topic/computer-science/formal-languages/mealy-machine"
+  description: "Computer-Science / Formal-Languages / Mealy-Machine"
+"Computer-Science.Formal-Languages.Moore-Machine":
+  label: "Computer-Science.Formal-Languages.Moore-Machine"
+  permalink: "/topic/computer-science/formal-languages/moore-machine"
+  description: "Computer-Science / Formal-Languages / Moore-Machine"
+"Computer-Science.Graphics.Projection-And-Reconstruction":
+  label: "Computer-Science.Graphics.Projection-And-Reconstruction"
+  permalink: "/topic/computer-science/graphics/projection-and-reconstruction"
+  description: "Computer-Science / Graphics / Projection-And-Reconstruction"
+"Computer-Science.Information-Theory.Additive-Binary-Channel":
+  label: "Computer-Science.Information-Theory.Additive-Binary-Channel"
+  permalink: "/topic/computer-science/information-theory/additive-binary-channel"
+  description: "Computer-Science / Information-Theory / Additive-Binary-Channel"
+"Computer-Science.Information-Theory.Binary-Linear-Codes":
+  label: "Computer-Science.Information-Theory.Binary-Linear-Codes"
+  permalink: "/topic/computer-science/information-theory/binary-linear-codes"
+  description: "Computer-Science / Information-Theory / Binary-Linear-Codes"
+"Computer-Science.Information-Theory.Channel-Capacity":
+  label: "Computer-Science.Information-Theory.Channel-Capacity"
+  permalink: "/topic/computer-science/information-theory/channel-capacity"
+  description: "Computer-Science / Information-Theory / Channel-Capacity"
+"Computer-Science.Information-Theory.Channel-Coding":
+  label: "Computer-Science.Information-Theory.Channel-Coding"
+  permalink: "/topic/computer-science/information-theory/channel-coding"
+  description: "Computer-Science / Information-Theory / Channel-Coding"
+"Computer-Science.Information-Theory.Cyclic-Code":
+  label: "Computer-Science.Information-Theory.Cyclic-Code"
+  permalink: "/topic/computer-science/information-theory/cyclic-code"
+  description: "Computer-Science / Information-Theory / Cyclic-Code"
+"Computer-Science.Information-Theory.Entropy":
+  label: "Computer-Science.Information-Theory.Entropy"
+  permalink: "/topic/computer-science/information-theory/entropy"
+  description: "Computer-Science / Information-Theory / Entropy"
+"Computer-Science.Information-Theory.Huffman-Coding":
+  label: "Computer-Science.Information-Theory.Huffman-Coding"
+  permalink: "/topic/computer-science/information-theory/huffman-coding"
+  description: "Computer-Science / Information-Theory / Huffman-Coding"
+"Computer-Science.Information-Theory.Mutual-Information":
+  label: "Computer-Science.Information-Theory.Mutual-Information"
+  permalink: "/topic/computer-science/information-theory/mutual-information"
+  description: "Computer-Science / Information-Theory / Mutual-Information"
+"Computer-Science.Information-Theory.Source-Coding":
+  label: "Computer-Science.Information-Theory.Source-Coding"
+  permalink: "/topic/computer-science/information-theory/source-coding"
+  description: "Computer-Science / Information-Theory / Source-Coding"
 "Computer-Science.Operating-Systems.Virtual-Memory":
   label: "Computer-Science.Operating-Systems.Virtual-Memory"
   permalink: "/topic/computer-science/operating-systems/virtual-memory"
   description: "Computer-Science / Operating-Systems / Virtual-Memory"
+"Computer-Science.Quantum-Computing.Quantum-Computing":
+  label: "Computer-Science.Quantum-Computing.Quantum-Computing"
+  permalink: "/topic/computer-science/quantum-computing/quantum-computing"
+  description: "Computer-Science / Quantum-Computing / Quantum-Computing"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation"
+  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/knowledge-representation"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Knowledge-Representation"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network"
+  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/semantic-network"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Semantic-Network"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Classification":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Classification"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/classification"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Classification"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/decision-tree"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Decision-Tree"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/reinforcement-learning"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Reinforcement-Learning"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/sigmoid-function"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Sigmoid-Function"
+"Electrical-Electronic.Digital-Logic.Combinatorial-Circuit":
+  label: "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit"
+  permalink: "/topic/electrical-electronic/digital-logic/combinatorial-circuit"
+  description: "Electrical-Electronic / Digital-Logic / Combinatorial-Circuit"
+"Electrical-Electronic.Digital-Logic.Half-Full-Adders":
+  label: "Electrical-Electronic.Digital-Logic.Half-Full-Adders"
+  permalink: "/topic/electrical-electronic/digital-logic/half-full-adders"
+  description: "Electrical-Electronic / Digital-Logic / Half-Full-Adders"
+"Electrical-Electronic.Digital-Logic.Sequential-Circuit":
+  label: "Electrical-Electronic.Digital-Logic.Sequential-Circuit"
+  permalink: "/topic/electrical-electronic/digital-logic/sequential-circuit"
+  description: "Electrical-Electronic / Digital-Logic / Sequential-Circuit"
+"Electrical-Electronic.Digital-Logic.Synchronous-Circuit":
+  label: "Electrical-Electronic.Digital-Logic.Synchronous-Circuit"
+  permalink: "/topic/electrical-electronic/digital-logic/synchronous-circuit"
+  description: "Electrical-Electronic / Digital-Logic / Synchronous-Circuit"
+"Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform":
+  label: "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform"
+  permalink: "/topic/electrical-electronic/signal-processing/discrete-fourier-transform"
+  description: "Electrical-Electronic / Signal-Processing / Discrete-Fourier-Transform"
 "Electrical-Electronic.Signal-Processing.Z-Transform":
   label: "Electrical-Electronic.Signal-Processing.Z-Transform"
   permalink: "/topic/electrical-electronic/signal-processing/z-transform"
   description: "Electrical-Electronic / Signal-Processing / Z-Transform"
-"Computer-Science.Data-Structures-Algorithms.Linked-List":
-  label: "Computer-Science.Data-Structures-Algorithms.Linked-List"
-  permalink: "/topic/computer-science/data-structures-algorithms/linked-list"
-  description: "Computer-Science / Data-Structures-Algorithms / Linked-List"
-"Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi":
-  label: "Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi"
-  permalink: "/topic/computer-science/data-structures-algorithms/tower-of-hanoi"
-  description: "Computer-Science / Data-Structures-Algorithms / Tower-of-Hanoi"
+"Mathematics.Calculus.Cauchy-Sequence":
+  label: "Mathematics.Calculus.Cauchy-Sequence"
+  permalink: "/topic/mathematics/calculus/cauchy-sequence"
+  description: "Mathematics / Calculus / Cauchy-Sequence"
+"Mathematics.Calculus.Sequence-Convergence":
+  label: "Mathematics.Calculus.Sequence-Convergence"
+  permalink: "/topic/mathematics/calculus/sequence-convergence"
+  description: "Mathematics / Calculus / Sequence-Convergence"
+"Mathematics.Complex-Analysis.Complex-Numbers":
+  label: "Mathematics.Complex-Analysis.Complex-Numbers"
+  permalink: "/topic/mathematics/complex-analysis/complex-numbers"
+  description: "Mathematics / Complex-Analysis / Complex-Numbers"
+"Mathematics.Discrete-Mathematics.Binomial-Coefficient":
+  label: "Mathematics.Discrete-Mathematics.Binomial-Coefficient"
+  permalink: "/topic/mathematics/discrete-mathematics/binomial-coefficient"
+  description: "Mathematics / Discrete-Mathematics / Binomial-Coefficient"
+"Mathematics.Discrete-Mathematics.Catalan-Number":
+  label: "Mathematics.Discrete-Mathematics.Catalan-Number"
+  permalink: "/topic/mathematics/discrete-mathematics/catalan-number"
+  description: "Mathematics / Discrete-Mathematics / Catalan-Number"
+"Mathematics.Discrete-Mathematics.Recurrence-Relation":
+  label: "Mathematics.Discrete-Mathematics.Recurrence-Relation"
+  permalink: "/topic/mathematics/discrete-mathematics/recurrence-relation"
+  description: "Mathematics / Discrete-Mathematics / Recurrence-Relation"
+"Mathematics.Fourier-Analysis.Convolution":
+  label: "Mathematics.Fourier-Analysis.Convolution"
+  permalink: "/topic/mathematics/fourier-analysis/convolution"
+  description: "Mathematics / Fourier-Analysis / Convolution"
+"Mathematics.Graph-Theory.Bipartite-Graph":
+  label: "Mathematics.Graph-Theory.Bipartite-Graph"
+  permalink: "/topic/mathematics/graph-theory/bipartite-graph"
+  description: "Mathematics / Graph-Theory / Bipartite-Graph"
+"Mathematics.Graph-Theory.Bipartite-Matching":
+  label: "Mathematics.Graph-Theory.Bipartite-Matching"
+  permalink: "/topic/mathematics/graph-theory/bipartite-matching"
+  description: "Mathematics / Graph-Theory / Bipartite-Matching"
+"Mathematics.Graph-Theory.Breadth-First-Search":
+  label: "Mathematics.Graph-Theory.Breadth-First-Search"
+  permalink: "/topic/mathematics/graph-theory/breadth-first-search"
+  description: "Mathematics / Graph-Theory / Breadth-First-Search"
+"Mathematics.Graph-Theory.Complete-Graph":
+  label: "Mathematics.Graph-Theory.Complete-Graph"
+  permalink: "/topic/mathematics/graph-theory/complete-graph"
+  description: "Mathematics / Graph-Theory / Complete-Graph"
+"Mathematics.Graph-Theory.Depth-First-Search":
+  label: "Mathematics.Graph-Theory.Depth-First-Search"
+  permalink: "/topic/mathematics/graph-theory/depth-first-search"
+  description: "Mathematics / Graph-Theory / Depth-First-Search"
+"Mathematics.Graph-Theory.Euler-Circuit":
+  label: "Mathematics.Graph-Theory.Euler-Circuit"
+  permalink: "/topic/mathematics/graph-theory/euler-circuit"
+  description: "Mathematics / Graph-Theory / Euler-Circuit"
+"Mathematics.Graph-Theory.Fundamentals":
+  label: "Mathematics.Graph-Theory.Fundamentals"
+  permalink: "/topic/mathematics/graph-theory/fundamentals"
+  description: "Mathematics / Graph-Theory / Fundamentals"
+"Mathematics.Graph-Theory.Graph-Isomorphism":
+  label: "Mathematics.Graph-Theory.Graph-Isomorphism"
+  permalink: "/topic/mathematics/graph-theory/graph-isomorphism"
+  description: "Mathematics / Graph-Theory / Graph-Isomorphism"
+"Mathematics.Graph-Theory.Matching":
+  label: "Mathematics.Graph-Theory.Matching"
+  permalink: "/topic/mathematics/graph-theory/matching"
+  description: "Mathematics / Graph-Theory / Matching"
+"Mathematics.Graph-Theory.Maximum-Flow":
+  label: "Mathematics.Graph-Theory.Maximum-Flow"
+  permalink: "/topic/mathematics/graph-theory/maximum-flow"
+  description: "Mathematics / Graph-Theory / Maximum-Flow"
+"Mathematics.Graph-Theory.Maximum-Matching":
+  label: "Mathematics.Graph-Theory.Maximum-Matching"
+  permalink: "/topic/mathematics/graph-theory/maximum-matching"
+  description: "Mathematics / Graph-Theory / Maximum-Matching"
+"Mathematics.Graph-Theory.Minimum-Spanning-Tree":
+  label: "Mathematics.Graph-Theory.Minimum-Spanning-Tree"
+  permalink: "/topic/mathematics/graph-theory/minimum-spanning-tree"
+  description: "Mathematics / Graph-Theory / Minimum-Spanning-Tree"
+"Mathematics.Graph-Theory.Planar-Graph":
+  label: "Mathematics.Graph-Theory.Planar-Graph"
+  permalink: "/topic/mathematics/graph-theory/planar-graph"
+  description: "Mathematics / Graph-Theory / Planar-Graph"
+"Mathematics.Graph-Theory.Shortest-Path-Problem":
+  label: "Mathematics.Graph-Theory.Shortest-Path-Problem"
+  permalink: "/topic/mathematics/graph-theory/shortest-path-problem"
+  description: "Mathematics / Graph-Theory / Shortest-Path-Problem"
+"Mathematics.Graph-Theory.Topological-Sort":
+  label: "Mathematics.Graph-Theory.Topological-Sort"
+  permalink: "/topic/mathematics/graph-theory/topological-sort"
+  description: "Mathematics / Graph-Theory / Topological-Sort"
+"Mathematics.Graph-Theory.Tree-Metric":
+  label: "Mathematics.Graph-Theory.Tree-Metric"
+  permalink: "/topic/mathematics/graph-theory/tree-metric"
+  description: "Mathematics / Graph-Theory / Tree-Metric"
+"Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors":
+  label: "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors"
+  permalink: "/topic/mathematics/linear-algebra/eigenvalues-and-eigenvectors"
+  description: "Mathematics / Linear-Algebra / Eigenvalues-and-Eigenvectors"
+"Mathematics.Linear-Algebra.Hermitian-Matrix":
+  label: "Mathematics.Linear-Algebra.Hermitian-Matrix"
+  permalink: "/topic/mathematics/linear-algebra/hermitian-matrix"
+  description: "Mathematics / Linear-Algebra / Hermitian-Matrix"
+"Mathematics.Linear-Algebra.Linear-Transformation":
+  label: "Mathematics.Linear-Algebra.Linear-Transformation"
+  permalink: "/topic/mathematics/linear-algebra/linear-transformation"
+  description: "Mathematics / Linear-Algebra / Linear-Transformation"
+"Mathematics.Linear-Algebra.Matrix-Diagonalization":
+  label: "Mathematics.Linear-Algebra.Matrix-Diagonalization"
+  permalink: "/topic/mathematics/linear-algebra/matrix-diagonalization"
+  description: "Mathematics / Linear-Algebra / Matrix-Diagonalization"
+"Mathematics.Linear-Algebra.Matrix-Limit":
+  label: "Mathematics.Linear-Algebra.Matrix-Limit"
+  permalink: "/topic/mathematics/linear-algebra/matrix-limit"
+  description: "Mathematics / Linear-Algebra / Matrix-Limit"
+"Mathematics.Linear-Algebra.Orthogonal-Decomposition":
+  label: "Mathematics.Linear-Algebra.Orthogonal-Decomposition"
+  permalink: "/topic/mathematics/linear-algebra/orthogonal-decomposition"
+  description: "Mathematics / Linear-Algebra / Orthogonal-Decomposition"
+"Mathematics.Linear-Algebra.Pseudoinverse-Matrix":
+  label: "Mathematics.Linear-Algebra.Pseudoinverse-Matrix"
+  permalink: "/topic/mathematics/linear-algebra/pseudoinverse-matrix"
+  description: "Mathematics / Linear-Algebra / Pseudoinverse-Matrix"
+"Mathematics.Linear-Algebra.SVD":
+  label: "Mathematics.Linear-Algebra.SVD"
+  permalink: "/topic/mathematics/linear-algebra/svd"
+  description: "Mathematics / Linear-Algebra / SVD"
+"Mathematics.Linear-Algebra.Trace-of-Matrix":
+  label: "Mathematics.Linear-Algebra.Trace-of-Matrix"
+  permalink: "/topic/mathematics/linear-algebra/trace-of-matrix"
+  description: "Mathematics / Linear-Algebra / Trace-of-Matrix"
+"Mathematics.Number-Theory.Greatest-Common-Divisor":
+  label: "Mathematics.Number-Theory.Greatest-Common-Divisor"
+  permalink: "/topic/mathematics/number-theory/greatest-common-divisor"
+  description: "Mathematics / Number-Theory / Greatest-Common-Divisor"
+"Mathematics.Vector-Calculus.Divergence-Theorem":
+  label: "Mathematics.Vector-Calculus.Divergence-Theorem"
+  permalink: "/topic/mathematics/vector-calculus/divergence-theorem"
+  description: "Mathematics / Vector-Calculus / Divergence-Theorem"
+"Mathematics.Vector-Calculus.Green’s-Identity":
+  label: "Mathematics.Vector-Calculus.Green’s-Identity"
+  permalink: "/topic/mathematics/vector-calculus/green-s-identity"
+  description: "Mathematics / Vector-Calculus / Green’s-Identity"
+"Operations-Research.Optimization.Branch-And-Bound":
+  label: "Operations-Research.Optimization.Branch-And-Bound"
+  permalink: "/topic/operations-research/optimization/branch-and-bound"
+  description: "Operations-Research / Optimization / Branch-And-Bound"
+"Probability-Statistics.Fundamentals.Binomial-Distribution":
+  label: "Probability-Statistics.Fundamentals.Binomial-Distribution"
+  permalink: "/topic/probability-statistics/fundamentals/binomial-distribution"
+  description: "Probability-Statistics / Fundamentals / Binomial-Distribution"
+"Probability-Statistics.Fundamentals.Conditional-Probability":
+  label: "Probability-Statistics.Fundamentals.Conditional-Probability"
+  permalink: "/topic/probability-statistics/fundamentals/conditional-probability"
+  description: "Probability-Statistics / Fundamentals / Conditional-Probability"
+"Probability-Statistics.Fundamentals.Correlation-Coefficient":
+  label: "Probability-Statistics.Fundamentals.Correlation-Coefficient"
+  permalink: "/topic/probability-statistics/fundamentals/correlation-coefficient"
+  description: "Probability-Statistics / Fundamentals / Correlation-Coefficient"
+"Probability-Statistics.Fundamentals.Exponential-Distribution":
+  label: "Probability-Statistics.Fundamentals.Exponential-Distribution"
+  permalink: "/topic/probability-statistics/fundamentals/exponential-distribution"
+  description: "Probability-Statistics / Fundamentals / Exponential-Distribution"
+"Probability-Statistics.Fundamentals.Order-Statistics":
+  label: "Probability-Statistics.Fundamentals.Order-Statistics"
+  permalink: "/topic/probability-statistics/fundamentals/order-statistics"
+  description: "Probability-Statistics / Fundamentals / Order-Statistics"
+"Probability-Statistics.Statistical-Inference.Confidence-Interval":
+  label: "Probability-Statistics.Statistical-Inference.Confidence-Interval"
+  permalink: "/topic/probability-statistics/statistical-inference/confidence-interval"
+  description: "Probability-Statistics / Statistical-Inference / Confidence-Interval"
+"Probability-Statistics.Statistical-Inference.Fisher-Exact-Test":
+  label: "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test"
+  permalink: "/topic/probability-statistics/statistical-inference/fisher-exact-test"
+  description: "Probability-Statistics / Statistical-Inference / Fisher-Exact-Test"
+"Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis":
+  label: "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis"
+  permalink: "/topic/probability-statistics/statistical-inference/fisher-linear-discriminant-analysis"
+  description: "Probability-Statistics / Statistical-Inference / Fisher-Linear-Discriminant-Analysis"
+"Probability-Statistics.Statistical-Inference.Least-Squares-Method":
+  label: "Probability-Statistics.Statistical-Inference.Least-Squares-Method"
+  permalink: "/topic/probability-statistics/statistical-inference/least-squares-method"
+  description: "Probability-Statistics / Statistical-Inference / Least-Squares-Method"
+"Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation":
+  label: "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation"
+  permalink: "/topic/probability-statistics/statistical-inference/maximum-likelihood-estimation"
+  description: "Probability-Statistics / Statistical-Inference / Maximum-Likelihood-Estimation"
+"Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration":
+  label: "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration"
+  permalink: "/topic/probability-statistics/statistical-inference/monte-carlo-integration"
+  description: "Probability-Statistics / Statistical-Inference / Monte-Carlo-Integration"
+"Probability-Statistics.Stochastic-Processes.Markov-Chain":
+  label: "Probability-Statistics.Stochastic-Processes.Markov-Chain"
+  permalink: "/topic/probability-statistics/stochastic-processes/markov-chain"
+  description: "Probability-Statistics / Stochastic-Processes / Markov-Chain"
+"Probability-Statistics.Stochastic-Processes.Markov-Information-Source":
+  label: "Probability-Statistics.Stochastic-Processes.Markov-Information-Source"
+  permalink: "/topic/probability-statistics/stochastic-processes/markov-information-source"
+  description: "Probability-Statistics / Stochastic-Processes / Markov-Information-Source"
+"Probability-Statistics.Stochastic-Processes.Markov-Source":
+  label: "Probability-Statistics.Stochastic-Processes.Markov-Source"
+  permalink: "/topic/probability-statistics/stochastic-processes/markov-source"
+  description: "Probability-Statistics / Stochastic-Processes / Markov-Source"

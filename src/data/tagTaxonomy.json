@@ -707,11 +707,11 @@
     }
   },
   "topics": {
-    "Computer-Science.Information-Theory.Additive-Binary-Channel": {
-      "subsubject": "Computer-Science.Information-Theory",
+    "Bioinformatics.Bioinformatics.Sequence-Alignment": {
+      "subsubject": "Bioinformatics.Bioinformatics",
       "subjects": [
-        "Computer-Science",
-        "Electrical-Electronic"
+        "Bioinformatics",
+        "Computer-Science"
       ]
     },
     "Computer-Science.Computer-Architecture.Addressing-Modes": {
@@ -720,80 +720,9 @@
         "Computer-Science"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
     "Computer-Science.Computer-Architecture.Assembly-Language": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Backtracking": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.BFS": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Binary-Heap": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Information-Theory.Binary-Linear-Codes": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science",
-        "Electrical-Electronic"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Binary-Search": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Bipartite-Graph": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Bipartite-Matching": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Operations-Research",
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Branch-And-Bound": {
-      "subsubject": "Operations-Research.Optimization",
-      "subjects": [
-        "Operations-Research",
         "Computer-Science"
       ]
     },
@@ -809,117 +738,8 @@
         "Computer-Science"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.BST": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Bubble-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Bucket-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
     "Computer-Science.Computer-Architecture.Cache": {
       "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Discrete-Mathematics.Binomial-Coefficient": {
-      "subsubject": "Mathematics.Discrete-Mathematics",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Probability-Statistics.Fundamentals.Binomial-Distribution": {
-      "subsubject": "Probability-Statistics.Fundamentals",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Mathematics.Discrete-Mathematics.Catalan-Number": {
-      "subsubject": "Mathematics.Discrete-Mathematics",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Calculus.Cauchy-Sequence": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Information-Theory.Channel-Capacity": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science",
-        "Electrical-Electronic"
-      ]
-    },
-    "Computer-Science.Information-Theory.Channel-Coding": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science",
-        "Electrical-Electronic"
-      ]
-    },
-    "Data-Science-Artificial-Intelligence.Machine-Learning.Classification": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
-      "subjects": [
-        "Data-Science-Artificial-Intelligence"
-      ]
-    },
-    "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "subjects": [
-        "Electrical-Electronic",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Complete-Graph": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Complex-Analysis.Complex-Numbers": {
-      "subsubject": "Mathematics.Complex-Analysis",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Probability-Statistics.Fundamentals.Conditional-Probability": {
-      "subsubject": "Probability-Statistics.Fundamentals",
-      "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Probability-Statistics.Fundamentals.Correlation-Coefficient": {
-      "subsubject": "Probability-Statistics.Fundamentals",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Confidence-Interval": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Computer-Science.Formal-Languages.Context-Free-Grammar": {
-      "subsubject": "Computer-Science.Formal-Languages",
       "subjects": [
         "Computer-Science"
       ]
@@ -930,181 +750,14 @@
         "Computer-Science"
       ]
     },
-    "Mathematics.Fourier-Analysis.Convolution": {
-      "subsubject": "Mathematics.Fourier-Analysis",
-      "subjects": [
-        "Mathematics",
-        "Electrical-Electronic"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Convex-Hull": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Counting-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Information-Theory.Cyclic-Code": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science",
-        "Electrical-Electronic"
-      ]
-    },
-    "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
-      "subjects": [
-        "Data-Science-Artificial-Intelligence",
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.DFS": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "subjects": [
-        "Electrical-Electronic",
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Double-Pointer": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Dynamic-Programming": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Information-Theory.Entropy": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Euler-Circuit": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Probability-Statistics.Fundamentals.Exponential-Distribution": {
-      "subsubject": "Probability-Statistics.Fundamentals",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
-        "Bioinformatics"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
     "Computer-Science.Computer-Architecture.Floating-Point-Representation": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "subjects": [
         "Computer-Science"
       ]
     },
-    "Mathematics.Graph-Theory.Graph-Isomorphism": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Number-Theory.Greatest-Common-Divisor": {
-      "subsubject": "Mathematics.Number-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Greedy": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Vector-Calculus.Divergence-Theorem": {
-      "subsubject": "Mathematics.Vector-Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Vector-Calculus.Green’s-Identity": {
-      "subsubject": "Mathematics.Vector-Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Electrical-Electronic.Digital-Logic.Half-Full-Adders": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "subjects": [
-        "Electrical-Electronic",
-        "Computer-Science"
-      ]
-    },
     "Computer-Science.Computer-Architecture.Hamming-Weight": {
       "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Hash-Table": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Heap-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Hermitian-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Information-Theory.Huffman-Coding": {
-      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
         "Computer-Science"
       ]
@@ -1115,192 +768,8 @@
         "Computer-Science"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Insertion-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Knapsack-Problem": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
-      "subjects": [
-        "Data-Science-Artificial-Intelligence",
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Least-Squares-Method": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Linear-Transformation": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Longest-Common-Subsequence": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Bioinformatics"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Probability-Statistics.Stochastic-Processes.Markov-Chain": {
-      "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Probability-Statistics.Stochastic-Processes.Markov-Information-Source": {
-      "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Stochastic-Processes.Markov-Source": {
-      "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Master-Theorem": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Matrix-Diagonalization": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Matrix-Limit": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Max-Flow": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Operations-Research",
-        "Mathematics"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Mathematics.Graph-Theory.Maximum-Matching": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Formal-Languages.Mealy-Machine": {
-      "subsubject": "Computer-Science.Formal-Languages",
-      "subjects": [
-        "Computer-Science",
-        "Electrical-Electronic"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Median-Of-Medians": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
     "Computer-Science.Computer-Architecture.Memory-Alignment": {
       "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Merge-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Bioinformatics"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Minimum-Spanning-Tree": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Mathematics",
-        "Operations-Research"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Formal-Languages.Moore-Machine": {
-      "subsubject": "Computer-Science.Formal-Languages",
-      "subjects": [
-        "Computer-Science",
-        "Electrical-Electronic"
-      ]
-    },
-    "Computer-Science.Information-Theory.Mutual-Information": {
-      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
         "Computer-Science"
       ]
@@ -1311,27 +780,8 @@
         "Computer-Science"
       ]
     },
-    "Probability-Statistics.Fundamentals.Order-Statistics": {
-      "subsubject": "Probability-Statistics.Fundamentals",
-      "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Orthogonal-Decomposition": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
     "Computer-Science.Computer-Architecture.Parallelism": {
       "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Partitioning": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
       "subjects": [
         "Computer-Science"
       ]
@@ -1354,10 +804,195 @@
         "Computer-Science"
       ]
     },
-    "Mathematics.Graph-Theory.Planar-Graph": {
-      "subsubject": "Mathematics.Graph-Theory",
+    "Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
       "subjects": [
-        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Backtracking": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Binary-Heap": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Binary-Search": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.BST": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Bubble-Sort": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Bucket-Sort": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Convex-Hull": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science",
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Counting-Sort": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Double-Pointer": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Dynamic-Programming": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Greedy": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Hash-Table": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Heap-Sort": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Insertion-Sort": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Knapsack-Problem": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Linked-List": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Longest-Common-Subsequence": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science",
+        "Bioinformatics"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Master-Theorem": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science",
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Median-Of-Medians": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Merge-Sort": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science",
+        "Bioinformatics"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Data-Structures-Algorithms.Partitioning": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
         "Computer-Science"
       ]
     },
@@ -1365,26 +1000,6 @@
       "subsubject": "Computer-Science.Data-Structures-Algorithms",
       "subjects": [
         "Computer-Science"
-      ]
-    },
-    "Computer-Science.Graphics.Projection-And-Reconstruction": {
-      "subsubject": "Computer-Science.Graphics",
-      "subjects": [
-        "Computer-Science",
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Pseudoinverse-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Quantum-Computing.Quantum-Computing": {
-      "subsubject": "Computer-Science.Quantum-Computing",
-      "subjects": [
-        "Computer-Science",
-        "Physics"
       ]
     },
     "Computer-Science.Data-Structures-Algorithms.Queue": {
@@ -1411,76 +1026,14 @@
         "Computer-Science"
       ]
     },
-    "Mathematics.Discrete-Mathematics.Recurrence-Relation": {
-      "subsubject": "Mathematics.Discrete-Mathematics",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
-      "subjects": [
-        "Data-Science-Artificial-Intelligence",
-        "Computer-Science"
-      ]
-    },
     "Computer-Science.Data-Structures-Algorithms.Selection-Sort": {
       "subsubject": "Computer-Science.Data-Structures-Algorithms",
       "subjects": [
         "Computer-Science"
       ]
     },
-    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
-      "subjects": [
-        "Data-Science-Artificial-Intelligence",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Calculus.Sequence-Convergence": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Bioinformatics.Bioinformatics.Sequence-Alignment": {
-      "subsubject": "Bioinformatics.Bioinformatics",
-      "subjects": [
-        "Bioinformatics",
-        "Computer-Science"
-      ]
-    },
-    "Electrical-Electronic.Digital-Logic.Sequential-Circuit": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "subjects": [
-        "Electrical-Electronic",
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Mathematics",
-        "Operations-Research"
-      ]
-    },
-    "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
-      "subjects": [
-        "Data-Science-Artificial-Intelligence",
-        "Mathematics"
-      ]
-    },
     "Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm": {
       "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Information-Theory.Source-Coding": {
-      "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
         "Computer-Science"
       ]
@@ -1504,29 +1057,9 @@
         "Operations-Research"
       ]
     },
-    "Mathematics.Linear-Algebra.SVD": {
-      "subsubject": "Mathematics.Linear-Algebra",
+    "Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
       "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Electrical-Electronic.Digital-Logic.Synchronous-Circuit": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "subjects": [
-        "Electrical-Electronic",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Trace-of-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Graph-Theory.Tree-Metric": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
         "Computer-Science"
       ]
     },
@@ -1542,10 +1075,179 @@
         "Computer-Science"
       ]
     },
+    "Computer-Science.Formal-Languages.Context-Free-Grammar": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Mealy-Machine": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "subjects": [
+        "Computer-Science",
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Moore-Machine": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "subjects": [
+        "Computer-Science",
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Graphics.Projection-And-Reconstruction": {
+      "subsubject": "Computer-Science.Graphics",
+      "subjects": [
+        "Computer-Science",
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Additive-Binary-Channel": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science",
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Binary-Linear-Codes": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science",
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Channel-Capacity": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science",
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Channel-Coding": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science",
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Cyclic-Code": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science",
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Entropy": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Information-Theory.Huffman-Coding": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Information-Theory.Mutual-Information": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Information-Theory.Source-Coding": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
     "Computer-Science.Operating-Systems.Virtual-Memory": {
       "subsubject": "Computer-Science.Operating-Systems",
       "subjects": [
         "Computer-Science"
+      ]
+    },
+    "Computer-Science.Quantum-Computing.Quantum-Computing": {
+      "subsubject": "Computer-Science.Quantum-Computing",
+      "subjects": [
+        "Computer-Science",
+        "Physics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Classification": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "subjects": [
+        "Electrical-Electronic",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Half-Full-Adders": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "subjects": [
+        "Electrical-Electronic",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Sequential-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "subjects": [
+        "Electrical-Electronic",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Synchronous-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "subjects": [
+        "Electrical-Electronic",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "subjects": [
+        "Electrical-Electronic",
+        "Mathematics"
       ]
     },
     "Electrical-Electronic.Signal-Processing.Z-Transform": {
@@ -1555,16 +1257,338 @@
         "Mathematics"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Linked-List": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+    "Mathematics.Calculus.Cauchy-Sequence": {
+      "subsubject": "Mathematics.Calculus",
       "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Calculus.Sequence-Convergence": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Complex-Analysis.Complex-Numbers": {
+      "subsubject": "Mathematics.Complex-Analysis",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Discrete-Mathematics.Binomial-Coefficient": {
+      "subsubject": "Mathematics.Discrete-Mathematics",
+      "subjects": [
+        "Mathematics",
         "Computer-Science"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+    "Mathematics.Discrete-Mathematics.Catalan-Number": {
+      "subsubject": "Mathematics.Discrete-Mathematics",
       "subjects": [
+        "Mathematics",
         "Computer-Science"
+      ]
+    },
+    "Mathematics.Discrete-Mathematics.Recurrence-Relation": {
+      "subsubject": "Mathematics.Discrete-Mathematics",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Convolution": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "subjects": [
+        "Mathematics",
+        "Electrical-Electronic"
+      ]
+    },
+    "Mathematics.Graph-Theory.Bipartite-Graph": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Bipartite-Matching": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Breadth-First-Search": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Complete-Graph": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Depth-First-Search": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Euler-Circuit": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Fundamentals": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Graph-Isomorphism": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Matching": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Maximum-Flow": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Maximum-Matching": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Minimum-Spanning-Tree": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Planar-Graph": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Shortest-Path-Problem": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Topological-Sort": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Tree-Metric": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Hermitian-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Linear-Transformation": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Matrix-Diagonalization": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Matrix-Limit": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Orthogonal-Decomposition": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Pseudoinverse-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.SVD": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Trace-of-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Number-Theory.Greatest-Common-Divisor": {
+      "subsubject": "Mathematics.Number-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Divergence-Theorem": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Green’s-Identity": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Optimization.Branch-And-Bound": {
+      "subsubject": "Operations-Research.Optimization",
+      "subjects": [
+        "Operations-Research",
+        "Computer-Science"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Binomial-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Conditional-Probability": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Correlation-Coefficient": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Exponential-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Order-Statistics": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Confidence-Interval": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Bioinformatics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Least-Squares-Method": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Stochastic-Processes.Markov-Chain": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Stochastic-Processes.Markov-Information-Source": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Stochastic-Processes.Markov-Source": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
+      "subjects": [
+        "Probability-Statistics"
       ]
     }
   },
@@ -1594,8 +1618,8 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "BFS": {
-      "replaceWith": "Computer-Science.Data-Structures-Algorithms.BFS",
-      "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+      "replaceWith": "Mathematics.Graph-Theory.Breadth-First-Search",
+      "reason": "旧缩写 tag 已废弃，请使用图论命名空间中的全称 topic ID。"
     },
     "Binary-Heap": {
       "replaceWith": "Computer-Science.Data-Structures-Algorithms.Binary-Heap",
@@ -1617,6 +1641,10 @@
       "replaceWith": "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
+    "Binomial-Coefficient": {
+      "replaceWith": "Mathematics.Discrete-Mathematics.Binomial-Coefficient",
+      "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
+    },
     "Bioinformatics": {
       "replaceWith": "Bioinformatics.Bioinformatics",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
@@ -1626,8 +1654,8 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Bipartite-Matching": {
-      "replaceWith": "Computer-Science.Data-Structures-Algorithms.Bipartite-Matching",
-      "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+      "replaceWith": "Mathematics.Graph-Theory.Bipartite-Matching",
+      "reason": "旧扁平考点 tag 已废弃，请使用图论命名空间中的 canonical topic ID。"
     },
     "Branch-And-Bound": {
       "replaceWith": "Operations-Research.Optimization.Branch-And-Bound",
@@ -1661,10 +1689,6 @@
       "replaceWith": "Mathematics.Calculus",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
-    "Binomial-Coefficient": {
-      "replaceWith": "Mathematics.Discrete-Mathematics.Binomial-Coefficient",
-      "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
-    },
     "Catalan-Number": {
       "replaceWith": "Mathematics.Discrete-Mathematics.Catalan-Number",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
@@ -1693,10 +1717,6 @@
       "replaceWith": "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
-    "Computer-Science.Data-Structures-Algorithms.Maximum-Matching": {
-      "replaceWith": "Mathematics.Graph-Theory.Maximum-Matching",
-      "reason": "Maximum-Matching 已迁移到图论命名空间，请使用 Mathematics.Graph-Theory.Maximum-Matching。"
-    },
     "Complete-Graph": {
       "replaceWith": "Mathematics.Graph-Theory.Complete-Graph",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
@@ -1712,6 +1732,46 @@
     "Computer-Architecture": {
       "replaceWith": "Computer-Science.Computer-Architecture",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
+    },
+    "Computer-Science.Artificial-Intelligence": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Computer-Science.Artificial-Intelligence.Knowledge-Representation": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Computer-Science.Artificial-Intelligence.Semantic-Network": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Computer-Science.Data-Structures-Algorithms.BFS": {
+      "replaceWith": "Mathematics.Graph-Theory.Breadth-First-Search",
+      "reason": "图遍历 topic 已迁移到图论命名空间，并改用全称。"
+    },
+    "Computer-Science.Data-Structures-Algorithms.Bipartite-Matching": {
+      "replaceWith": "Mathematics.Graph-Theory.Bipartite-Matching",
+      "reason": "图算法 topic 已迁移到图论命名空间。"
+    },
+    "Computer-Science.Data-Structures-Algorithms.DFS": {
+      "replaceWith": "Mathematics.Graph-Theory.Depth-First-Search",
+      "reason": "图遍历 topic 已迁移到图论命名空间，并改用全称。"
+    },
+    "Computer-Science.Data-Structures-Algorithms.Max-Flow": {
+      "replaceWith": "Mathematics.Graph-Theory.Maximum-Flow",
+      "reason": "图算法 topic 已迁移到图论命名空间。"
+    },
+    "Computer-Science.Data-Structures-Algorithms.Maximum-Matching": {
+      "replaceWith": "Mathematics.Graph-Theory.Maximum-Matching",
+      "reason": "Maximum-Matching 已迁移到图论命名空间，请使用 Mathematics.Graph-Theory.Maximum-Matching。"
+    },
+    "Computer-Science.Data-Structures-Algorithms.Minimum-Spanning-Tree": {
+      "replaceWith": "Mathematics.Graph-Theory.Minimum-Spanning-Tree",
+      "reason": "图算法 topic 已迁移到图论命名空间。"
+    },
+    "Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem": {
+      "replaceWith": "Mathematics.Graph-Theory.Shortest-Path-Problem",
+      "reason": "图算法 topic 已迁移到图论命名空间。"
     },
     "Conditional-Probability": {
       "replaceWith": "Probability-Statistics.Fundamentals.Conditional-Probability",
@@ -1766,8 +1826,8 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "DFS": {
-      "replaceWith": "Computer-Science.Data-Structures-Algorithms.DFS",
-      "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+      "replaceWith": "Mathematics.Graph-Theory.Depth-First-Search",
+      "reason": "旧缩写 tag 已废弃，请使用图论命名空间中的全称 topic ID。"
     },
     "Differential-Equation": {
       "replaceWith": "Mathematics.Differential-Equations",
@@ -1781,10 +1841,6 @@
       "replaceWith": "Electrical-Electronic.Signal-Processing",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
-    "Divergence-Theorem": {
-      "replaceWith": "Mathematics.Vector-Calculus.Divergence-Theorem",
-      "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
-    },
     "Discrete-Fourier-Transform": {
       "replaceWith": "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
@@ -1796,6 +1852,10 @@
     "Ditital-Signal": {
       "replaceWith": "Electrical-Electronic.Signal-Processing",
       "reason": "Typo in Digital."
+    },
+    "Divergence-Theorem": {
+      "replaceWith": "Mathematics.Vector-Calculus.Divergence-Theorem",
+      "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
     },
     "Divide-and-Conquer": {
       "replaceWith": "Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer",
@@ -2010,8 +2070,8 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Max-Flow": {
-      "replaceWith": "Computer-Science.Data-Structures-Algorithms.Max-Flow",
-      "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+      "replaceWith": "Mathematics.Graph-Theory.Maximum-Flow",
+      "reason": "旧扁平考点 tag 已废弃，请使用图论命名空间中的 canonical topic ID。"
     },
     "Maximum-Likelihood-Estimation": {
       "replaceWith": "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation",
@@ -2054,8 +2114,8 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Minimum-Spanning-Tree": {
-      "replaceWith": "Computer-Science.Data-Structures-Algorithms.Minimum-Spanning-Tree",
-      "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+      "replaceWith": "Mathematics.Graph-Theory.Minimum-Spanning-Tree",
+      "reason": "旧扁平考点 tag 已废弃，请使用图论命名空间中的 canonical topic ID。"
     },
     "Minimum-Window-Substring": {
       "replaceWith": "Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring",
@@ -2137,6 +2197,22 @@
       "replaceWith": "Probability-Statistics.Fundamentals",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
+    "Probability-Statistics.Probability": {
+      "replaceWith": "Probability-Statistics.Fundamentals",
+      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical subsubject ID。"
+    },
+    "Probability-Statistics.Probability.Conditional-Probability": {
+      "replaceWith": "Probability-Statistics.Fundamentals.Conditional-Probability",
+      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical topic ID。"
+    },
+    "Probability-Statistics.Probability.Exponential-Distribution": {
+      "replaceWith": "Probability-Statistics.Fundamentals.Exponential-Distribution",
+      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical topic ID。"
+    },
+    "Probability-Statistics.Probability.Order-Statistics": {
+      "replaceWith": "Probability-Statistics.Fundamentals.Order-Statistics",
+      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical topic ID。"
+    },
     "Programming": {
       "replaceWith": "Computer-Science.Programming",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
@@ -2214,8 +2290,8 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Shortest-Path-Problem": {
-      "replaceWith": "Computer-Science.Data-Structures-Algorithms.Shortest-Path-Problem",
-      "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+      "replaceWith": "Mathematics.Graph-Theory.Shortest-Path-Problem",
+      "reason": "旧扁平考点 tag 已废弃，请使用图论命名空间中的 canonical topic ID。"
     },
     "Sigmoid-Function": {
       "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function",
@@ -2236,6 +2312,122 @@
     "Stack": {
       "replaceWith": "Computer-Science.Data-Structures-Algorithms.Stack",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+    },
+    "Statistics-Data-Science.Information-Theory": {
+      "replaceWith": "Computer-Science.Information-Theory",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Additive-Binary-Channel": {
+      "replaceWith": "Computer-Science.Information-Theory.Additive-Binary-Channel",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Binary-Linear-Codes": {
+      "replaceWith": "Computer-Science.Information-Theory.Binary-Linear-Codes",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Channel-Capacity": {
+      "replaceWith": "Computer-Science.Information-Theory.Channel-Capacity",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Channel-Coding": {
+      "replaceWith": "Computer-Science.Information-Theory.Channel-Coding",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Cyclic-Code": {
+      "replaceWith": "Computer-Science.Information-Theory.Cyclic-Code",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Entropy": {
+      "replaceWith": "Computer-Science.Information-Theory.Entropy",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Huffman-Coding": {
+      "replaceWith": "Computer-Science.Information-Theory.Huffman-Coding",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Mutual-Information": {
+      "replaceWith": "Computer-Science.Information-Theory.Mutual-Information",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Information-Theory.Source-Coding": {
+      "replaceWith": "Computer-Science.Information-Theory.Source-Coding",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning.Classification": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Classification",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning.Decision-Tree": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning.Reinforcement-Learning": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Machine-Learning.Sigmoid-Function": {
+      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Probability-Statistics": {
+      "replaceWith": "Probability-Statistics.Fundamentals",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Probability-Statistics.Conditional-Probability": {
+      "replaceWith": "Probability-Statistics.Fundamentals.Conditional-Probability",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Probability-Statistics.Exponential-Distribution": {
+      "replaceWith": "Probability-Statistics.Fundamentals.Exponential-Distribution",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Probability-Statistics.Order-Statistics": {
+      "replaceWith": "Probability-Statistics.Fundamentals.Order-Statistics",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Fisher-Exact-Test": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Least-Squares-Method": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Least-Squares-Method",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Maximum-Likelihood-Estimation": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Statistical-Inference.Monte-Carlo-Integration": {
+      "replaceWith": "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Stochastic-Processes": {
+      "replaceWith": "Probability-Statistics.Stochastic-Processes",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Stochastic-Processes.Markov-Chain": {
+      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Chain",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Stochastic-Processes.Markov-Information-Source": {
+      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Information-Source",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
+    },
+    "Statistics-Data-Science.Stochastic-Processes.Markov-Source": {
+      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Source",
+      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     },
     "String-Matching": {
       "replaceWith": "Computer-Science.Data-Structures-Algorithms.String-Matching",
@@ -2300,150 +2492,6 @@
     "Z-Transform": {
       "replaceWith": "Electrical-Electronic.Signal-Processing.Z-Transform",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
-    },
-    "Probability-Statistics.Probability": {
-      "replaceWith": "Probability-Statistics.Fundamentals",
-      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical subsubject ID。"
-    },
-    "Probability-Statistics.Probability.Conditional-Probability": {
-      "replaceWith": "Probability-Statistics.Fundamentals.Conditional-Probability",
-      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical topic ID。"
-    },
-    "Probability-Statistics.Probability.Exponential-Distribution": {
-      "replaceWith": "Probability-Statistics.Fundamentals.Exponential-Distribution",
-      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical topic ID。"
-    },
-    "Probability-Statistics.Probability.Order-Statistics": {
-      "replaceWith": "Probability-Statistics.Fundamentals.Order-Statistics",
-      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical topic ID。"
-    },
-    "Statistics-Data-Science.Probability-Statistics": {
-      "replaceWith": "Probability-Statistics.Fundamentals",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Statistical-Inference": {
-      "replaceWith": "Probability-Statistics.Statistical-Inference",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Stochastic-Processes": {
-      "replaceWith": "Probability-Statistics.Stochastic-Processes",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Machine-Learning": {
-      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory": {
-      "replaceWith": "Computer-Science.Information-Theory",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Computer-Science.Artificial-Intelligence": {
-      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory.Additive-Binary-Channel": {
-      "replaceWith": "Computer-Science.Information-Theory.Additive-Binary-Channel",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory.Binary-Linear-Codes": {
-      "replaceWith": "Computer-Science.Information-Theory.Binary-Linear-Codes",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory.Channel-Capacity": {
-      "replaceWith": "Computer-Science.Information-Theory.Channel-Capacity",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory.Channel-Coding": {
-      "replaceWith": "Computer-Science.Information-Theory.Channel-Coding",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Machine-Learning.Classification": {
-      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Classification",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Probability-Statistics.Conditional-Probability": {
-      "replaceWith": "Probability-Statistics.Fundamentals.Conditional-Probability",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory.Cyclic-Code": {
-      "replaceWith": "Computer-Science.Information-Theory.Cyclic-Code",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Machine-Learning.Decision-Tree": {
-      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory.Entropy": {
-      "replaceWith": "Computer-Science.Information-Theory.Entropy",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Probability-Statistics.Exponential-Distribution": {
-      "replaceWith": "Probability-Statistics.Fundamentals.Exponential-Distribution",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Statistical-Inference.Fisher-Exact-Test": {
-      "replaceWith": "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
-      "replaceWith": "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory.Huffman-Coding": {
-      "replaceWith": "Computer-Science.Information-Theory.Huffman-Coding",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Computer-Science.Artificial-Intelligence.Knowledge-Representation": {
-      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Statistical-Inference.Least-Squares-Method": {
-      "replaceWith": "Probability-Statistics.Statistical-Inference.Least-Squares-Method",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Stochastic-Processes.Markov-Chain": {
-      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Chain",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Stochastic-Processes.Markov-Information-Source": {
-      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Information-Source",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Stochastic-Processes.Markov-Source": {
-      "replaceWith": "Probability-Statistics.Stochastic-Processes.Markov-Source",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Statistical-Inference.Maximum-Likelihood-Estimation": {
-      "replaceWith": "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Statistical-Inference.Monte-Carlo-Integration": {
-      "replaceWith": "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory.Mutual-Information": {
-      "replaceWith": "Computer-Science.Information-Theory.Mutual-Information",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Probability-Statistics.Order-Statistics": {
-      "replaceWith": "Probability-Statistics.Fundamentals.Order-Statistics",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Machine-Learning.Reinforcement-Learning": {
-      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Computer-Science.Artificial-Intelligence.Semantic-Network": {
-      "replaceWith": "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Machine-Learning.Sigmoid-Function": {
-      "replaceWith": "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
-    },
-    "Statistics-Data-Science.Information-Theory.Source-Coding": {
-      "replaceWith": "Computer-Science.Information-Theory.Source-Coding",
-      "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     }
   }
 }
