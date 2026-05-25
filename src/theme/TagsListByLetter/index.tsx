@@ -5,10 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {type ReactNode} from 'react';
+import React, {useEffect, useMemo, useState, type ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import type {Props} from '@theme/TagsListByLetter';
 import Heading from '@theme/Heading';
+import {FiChevronDown, FiSearch} from 'react-icons/fi';
 import tagTaxonomy from '@site/src/data/tagTaxonomy.json';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
 import {normalizeLanguage} from '@site/src/i18n/config';
@@ -161,66 +162,6 @@ function byCountThenName(a: TagType, b: TagType): number {
   return b.count - a.count || a.label.localeCompare(b.label, 'en');
 }
 
-function TaxonomySummary({
-  schoolCount,
-  subsubjectCount,
-  topicCount,
-  pendingCount,
-  language,
-}: {
-  schoolCount: number;
-  subsubjectCount: number;
-  topicCount: number;
-  pendingCount: number;
-  language: Language;
-}) {
-  const t = getCopy(language);
-  return (
-    <div className={styles.summaryGrid}>
-      <div className={styles.summaryItem}>
-        <span className={styles.summaryNumber}>{schoolCount}</span>
-        <span className={styles.summaryLabel}>{t.summarySchools}</span>
-      </div>
-      <div className={styles.summaryItem}>
-        <span className={styles.summaryNumber}>{subsubjectCount}</span>
-        <span className={styles.summaryLabel}>{t.summarySubsubjects}</span>
-      </div>
-      <div className={styles.summaryItem}>
-        <span className={styles.summaryNumber}>{topicCount}</span>
-        <span className={styles.summaryLabel}>{t.summaryTopics}</span>
-      </div>
-      <div className={styles.summaryItem}>
-        <span className={styles.summaryNumber}>{pendingCount}</span>
-        <span className={styles.summaryLabel}>{t.summaryPending}</span>
-      </div>
-    </div>
-  );
-}
-
-function SectionHeader({
-  title,
-  subtitle,
-  count,
-  language,
-}: {
-  title: string;
-  subtitle?: string;
-  count: number;
-  language: Language;
-}) {
-  return (
-    <div className={styles.sectionHeader}>
-      <div>
-        <Heading as="h2" className={styles.sectionTitle}>
-          {title}
-        </Heading>
-        {subtitle && <p className={styles.sectionSubtitle}>{subtitle}</p>}
-      </div>
-      <span className={styles.tagCount}>{count} {getCopy(language).tagsUnit}</span>
-    </div>
-  );
-}
-
 function TagPill({
   tag,
   displayName,
@@ -265,13 +206,11 @@ function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) 
   const t = getCopy(language);
 
   return (
-    <section className={styles.sectionCard}>
-      <SectionHeader
-        title={t.schoolTitle}
-        subtitle={t.schoolSubtitle}
-        count={tags.length}
-        language={language}
-      />
+    <section className={styles.schoolPanel} role="tabpanel" id="tags-panel-schools">
+      <header className={styles.simplePanelHeader}>
+        <Heading as="h2" className={styles.panelTitle}>{t.schoolTitle}</Heading>
+        <span className={styles.panelCount}>{tags.length}</span>
+      </header>
       <div className={styles.schoolGrid}>
         {tags.sort(byCountThenName).map((tag) => {
           const school = schoolTags[tag.label];
@@ -297,91 +236,146 @@ interface SubsubjectGroup {
   topicTags: TagType[];
 }
 
-function SubjectSection({
-  subjectId,
-  groups,
-  language,
-}: {
-  subjectId: string;
-  groups: SubsubjectGroup[];
-  language: Language;
-}) {
-  if (groups.length === 0) return null;
-  const t = getCopy(language);
-  const subjectDescription = getSubjectDescription(subjectId, language);
-  const tagCount = groups.reduce(
+interface DisplaySubsubjectGroup extends SubsubjectGroup {
+  autoOpen?: boolean;
+}
+
+function countGroupTags(groups: SubsubjectGroup[]): number {
+  return groups.reduce(
     (sum, group) => sum + group.topicTags.length + (group.subsubjectTag ? 1 : 0),
     0,
   );
+}
+
+function textMatches(query: string, ...values: Array<string | undefined>): boolean {
+  return values.some((value) => value?.toLocaleLowerCase().includes(query));
+}
+
+function TopicLink({
+  tag,
+  subjectId,
+  language,
+}: {
+  tag: TagType;
+  subjectId: string;
+  language: Language;
+}) {
+  const t = getCopy(language);
+  const secondarySubjects = (getTopicMeta(tag.label)?.subjects || [])
+    .filter((id) => id !== subjectId)
+    .map((id) => getSubjectLabel(id, language));
 
   return (
-    <section className={styles.subjectBlock}>
-      <div className={styles.subjectHeader}>
+    <Link
+      to={tag.permalink}
+      className={`${styles.topicLink} ${isDeprecatedTag(tag.label) ? styles.deprecated : ''}`}>
+      <span className={styles.topicName}>{getTopicShortId(tag.label)}</span>
+      {secondarySubjects.length > 0 && (
+        <span className={styles.topicRelated}>
+          <span className={styles.topicRelatedLabel}>{t.relatedSubjects}</span>
+          {secondarySubjects.map((subject) => (
+            <span key={subject} className={styles.topicRelatedChip}>{subject}</span>
+          ))}
+        </span>
+      )}
+      <span className={styles.topicCount}>{tag.count}</span>
+    </Link>
+  );
+}
+
+function SubjectPanel({
+  subjectId,
+  groups,
+  language,
+  isSearching,
+}: {
+  subjectId: string;
+  groups: DisplaySubsubjectGroup[];
+  language: Language;
+  isSearching: boolean;
+}) {
+  const subjectDescription = getSubjectDescription(subjectId, language);
+
+  return (
+    <section className={styles.subjectPanel}>
+      <header className={styles.subjectPanelHeader}>
         <div>
-          <Heading as="h3" id={subjectId} className={styles.subjectTitle}>
+          <Heading as="h2" className={styles.subjectPanelTitle}>
             {getSubjectLabel(subjectId, language)}
           </Heading>
           {subjectDescription && (
-            <p className={styles.subjectDescription}>{subjectDescription}</p>
+            <p className={styles.subjectPanelDescription}>{subjectDescription}</p>
           )}
         </div>
-        <span className={styles.subjectCount}>{tagCount}</span>
-      </div>
-      <div className={styles.subsubjectList}>
+        <span className={styles.subjectPanelCount}>{countGroupTags(groups)}</span>
+      </header>
+      <div className={styles.subsubjectRows}>
         {groups.map((group) => {
-          const topicTags = group.topicTags.sort(byCountThenName);
-          const subsubjectLabel = getSubsubjectLabel(group.subsubjectId, language);
-          const subsubjectDisplayId = getSubsubjectDisplayId(group.subsubjectId);
+          const topicTags = [...group.topicTags].sort(byCountThenName);
           const subsubjectTitle = (
-            <span className={styles.subsubjectTitleText}>
-              <span>{subsubjectLabel}</span>
-              <span className={styles.subsubjectTitleId}>（{subsubjectDisplayId}）</span>
-            </span>
+            <>
+              <span>{getSubsubjectLabel(group.subsubjectId, language)}</span>
+              <span className={styles.subsubjectId}>
+                ({getSubsubjectDisplayId(group.subsubjectId)})
+              </span>
+            </>
           );
-          return (
-            <section key={group.subsubjectId} className={styles.subsubjectBlock}>
-              <div className={styles.subsubjectHeader}>
+          const title = group.subsubjectTag ? (
+            <Link to={group.subsubjectTag.permalink} className={styles.subsubjectLink}>
+              {subsubjectTitle}
+            </Link>
+          ) : (
+            <span className={styles.subsubjectName}>{subsubjectTitle}</span>
+          );
+
+          if (topicTags.length === 0) {
+            return (
+              <div key={group.subsubjectId} className={styles.subsubjectStaticRow}>
                 <div>
-                  <Heading as="h4" className={styles.subsubjectTitle}>
-                    {group.subsubjectTag ? (
-                      <Link
-                        to={group.subsubjectTag.permalink}
-                        className={styles.subsubjectTitleLink}>
-                        {subsubjectTitle}
-                      </Link>
-                    ) : (
-                      subsubjectTitle
-                    )}
-                  </Heading>
+                  {title}
                   {getSubsubjectDescription(group.subsubjectId, language) && (
                     <p className={styles.subsubjectDescription}>
                       {getSubsubjectDescription(group.subsubjectId, language)}
                     </p>
                   )}
                 </div>
-                <span className={styles.subsubjectCount}>
-                  {topicTags.length + (group.subsubjectTag ? 1 : 0)}
+                {group.subsubjectTag && (
+                  <span className={styles.rowCount}>{group.subsubjectTag.count}</span>
+                )}
+              </div>
+            );
+          }
+
+          return (
+            <details
+              key={`${group.subsubjectId}-${isSearching ? 'search' : 'browse'}`}
+              className={styles.subsubjectDisclosure}
+              defaultOpen={Boolean(isSearching && group.autoOpen)}>
+              <summary className={styles.subsubjectSummary}>
+                <span className={styles.subsubjectSummaryText}>
+                  {title}
+                  {getSubsubjectDescription(group.subsubjectId, language) && (
+                    <span className={styles.subsubjectDescription}>
+                      {getSubsubjectDescription(group.subsubjectId, language)}
+                    </span>
+                  )}
                 </span>
+                <span className={styles.rowMeta}>
+                  <span className={styles.rowCount}>{topicTags.length}</span>
+                  <FiChevronDown className={styles.rowChevron} aria-hidden="true" />
+                </span>
+              </summary>
+              <div className={styles.topicRows}>
+                {topicTags.map((tag) => (
+                  <TopicLink
+                    key={tag.permalink}
+                    tag={tag}
+                    subjectId={subjectId}
+                    language={language}
+                  />
+                ))}
               </div>
-              <div className={styles.tagGrid}>
-                {topicTags.map((tag) => {
-                  const tagSubjects = getTopicMeta(tag.label)?.subjects || [];
-                  const secondarySubjects = tagSubjects
-                    .filter((id) => id !== subjectId)
-                    .map((id) => getSubjectLabel(id, language));
-                  return (
-                    <TagPill
-                      key={tag.permalink}
-                      tag={tag}
-                      displayName={getTopicShortId(tag.label)}
-                      tone={isDeprecatedTag(tag.label) ? 'deprecated' : 'topic'}
-                      detailLabel={secondarySubjects.length ? t.relatedSubjects : undefined}
-                      detailValues={secondarySubjects.length ? secondarySubjects : undefined}
-                    />
-                  );
-                })}
-              </div>
-            </section>
+            </details>
           );
         })}
       </div>
@@ -398,36 +392,41 @@ function LearningSections({
   topicTags: TagType[];
   language: Language;
 }) {
-  const total = subsubjectTags.length + topicTags.length;
-  if (total === 0) return null;
   const t = getCopy(language);
+  const [query, setQuery] = useState('');
+  const bySubject = useMemo(() => {
+    const grouped = new Map<string, Map<string, SubsubjectGroup>>();
+    const ensureGroup = (subjectId: string, subsubjectId: string): SubsubjectGroup => {
+      if (!grouped.has(subjectId)) grouped.set(subjectId, new Map());
+      const subjectGroups = grouped.get(subjectId)!;
+      if (!subjectGroups.has(subsubjectId)) {
+        subjectGroups.set(subsubjectId, {subsubjectId, topicTags: []});
+      }
+      return subjectGroups.get(subsubjectId)!;
+    };
 
-  const bySubject = new Map<string, Map<string, SubsubjectGroup>>();
-  const ensureGroup = (subjectId: string, subsubjectId: string): SubsubjectGroup => {
-    if (!bySubject.has(subjectId)) bySubject.set(subjectId, new Map());
-    const subjectGroups = bySubject.get(subjectId)!;
-    if (!subjectGroups.has(subsubjectId)) {
-      subjectGroups.set(subsubjectId, {subsubjectId, topicTags: []});
+    for (const tag of subsubjectTags) {
+      const subsubjectId = getSubsubjectId(tag.label) || 'General.Reference-Material';
+      ensureGroup(getPrimarySubject(tag.label), subsubjectId).subsubjectTag = tag;
     }
-    return subjectGroups.get(subsubjectId)!;
-  };
+    for (const tag of topicTags) {
+      const subsubjectId = getTopicSubsubjectId(tag.label);
+      ensureGroup(getPrimarySubject(tag.label), subsubjectId).topicTags.push(tag);
+    }
+    return grouped;
+  }, [subsubjectTags, topicTags]);
 
-  for (const tag of subsubjectTags) {
-    const subsubjectId = getSubsubjectId(tag.label) || 'General.Reference-Material';
-    const subjectId = getPrimarySubject(tag.label);
-    ensureGroup(subjectId, subsubjectId).subsubjectTag = tag;
-  }
-
-  for (const tag of topicTags) {
-    const subsubjectId = getTopicSubsubjectId(tag.label);
-    const subjectId = getPrimarySubject(tag.label);
-    ensureGroup(subjectId, subsubjectId).topicTags.push(tag);
-  }
-
-  const orderedSubjects = [
+  const orderedSubjects = useMemo(() => [
     ...subjectOrder.filter((subject) => bySubject.has(subject)),
     ...Array.from(bySubject.keys()).filter((subject) => !subjectOrder.includes(subject)),
-  ];
+  ], [bySubject]);
+  const [selectedSubject, setSelectedSubject] = useState(orderedSubjects[0] || '');
+
+  useEffect(() => {
+    if (!orderedSubjects.includes(selectedSubject)) {
+      setSelectedSubject(orderedSubjects[0] || '');
+    }
+  }, [orderedSubjects, selectedSubject]);
 
   const orderedGroups = (groups: Map<string, SubsubjectGroup>) => {
     const order = new Map(subsubjectOrder.map((id, index) => [id, index]));
@@ -440,23 +439,103 @@ function LearningSections({
     });
   };
 
+  const search = query.trim().toLocaleLowerCase();
+  const isSearching = search.length > 0;
+  const visibleGroups = new Map<string, DisplaySubsubjectGroup[]>();
+
+  for (const subjectId of orderedSubjects) {
+    const sourceGroups = orderedGroups(bySubject.get(subjectId)!);
+    if (!isSearching) {
+      visibleGroups.set(subjectId, sourceGroups);
+      continue;
+    }
+
+    const subjectMatches = textMatches(
+      search,
+      subjectId,
+      getSubjectLabel(subjectId, language),
+      getSubjectDescription(subjectId, language),
+    );
+    const filteredGroups = sourceGroups.flatMap((group) => {
+      const subsubjectMatches = textMatches(
+        search,
+        group.subsubjectId,
+        getSubsubjectLabel(group.subsubjectId, language),
+        getSubsubjectDescription(group.subsubjectId, language),
+      );
+      const matchingTopics = group.topicTags.filter((tag) => textMatches(
+        search,
+        tag.label,
+        getTopicShortId(tag.label),
+      ));
+
+      if (!subjectMatches && !subsubjectMatches && matchingTopics.length === 0) return [];
+      return [{
+        ...group,
+        topicTags: subjectMatches || subsubjectMatches ? group.topicTags : matchingTopics,
+        autoOpen: !subjectMatches && (subsubjectMatches || matchingTopics.length > 0),
+      }];
+    });
+    if (filteredGroups.length > 0) visibleGroups.set(subjectId, filteredGroups);
+  }
+
+  const navigationSubjects = isSearching
+    ? orderedSubjects.filter((subjectId) => visibleGroups.has(subjectId))
+    : orderedSubjects;
+  const displayedSubjects = isSearching
+    ? navigationSubjects
+    : selectedSubject && visibleGroups.has(selectedSubject) ? [selectedSubject] : [];
+
+  if (subsubjectTags.length + topicTags.length === 0) return null;
+
   return (
-    <section className={styles.sectionCard}>
-      <SectionHeader
-        title={t.topicsTitle}
-        subtitle={t.topicsSubtitle}
-        count={total}
-        language={language}
-      />
-      <div className={styles.subjectList}>
-        {orderedSubjects.map((subjectId) => (
-          <SubjectSection
-            key={subjectId}
-            subjectId={subjectId}
-            groups={orderedGroups(bySubject.get(subjectId)!)}
-            language={language}
+    <section className={styles.learningExplorer} role="tabpanel" id="tags-panel-learning">
+      <header className={styles.explorerHeader}>
+        <Heading as="h2" className={styles.explorerTitle}>{t.topicsTitle}</Heading>
+        <label className={styles.searchField}>
+          <FiSearch className={styles.searchIcon} aria-hidden="true" />
+          <input
+            className={styles.searchInput}
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t.searchPlaceholder}
+            aria-label={t.searchPlaceholder}
           />
-        ))}
+        </label>
+      </header>
+      <div className={styles.explorerLayout}>
+        <nav className={styles.subjectNavigation} aria-label={t.subjectNavigation}>
+          {navigationSubjects.map((subjectId) => (
+            <button
+              key={subjectId}
+              type="button"
+              className={`${styles.subjectNavItem} ${!isSearching && selectedSubject === subjectId ? styles.subjectNavItemActive : ''}`}
+              onClick={() => {
+                setQuery('');
+                setSelectedSubject(subjectId);
+              }}>
+              <span>{getSubjectLabel(subjectId, language)}</span>
+              <span className={styles.subjectNavCount}>
+                {countGroupTags(orderedGroups(bySubject.get(subjectId)!))}
+              </span>
+            </button>
+          ))}
+        </nav>
+        <div className={styles.subjectResults}>
+          {displayedSubjects.map((subjectId) => (
+            <SubjectPanel
+              key={subjectId}
+              subjectId={subjectId}
+              groups={visibleGroups.get(subjectId)!}
+              language={language}
+              isSearching={isSearching}
+            />
+          ))}
+          {isSearching && displayedSubjects.length === 0 && (
+            <p className={styles.noResults}>{t.noResults}</p>
+          )}
+        </div>
       </div>
     </section>
   );
@@ -467,13 +546,11 @@ function PendingSection({tags, language}: {tags: TagType[]; language: Language})
   const t = getCopy(language);
 
   return (
-    <section className={styles.sectionCard}>
-      <SectionHeader
-        title={t.pendingTitle}
-        subtitle={t.pendingSubtitle}
-        count={tags.length}
-        language={language}
-      />
+    <section className={styles.pendingPanel}>
+      <header className={styles.simplePanelHeader}>
+        <Heading as="h2" className={styles.panelTitle}>{t.pendingTitle}</Heading>
+        <span className={styles.panelCount}>{tags.length}</span>
+      </header>
       <div className={styles.tagGrid}>
         {tags.sort(byCountThenName).map((tag) => (
           <TagPill key={tag.permalink} tag={tag} tone="pending" />
@@ -485,28 +562,51 @@ function PendingSection({tags, language}: {tags: TagType[]; language: Language})
 
 export default function TagsListByLetter({tags}: Props): ReactNode {
   const language = normalizeLanguage(useCurrentLanguage()) as Language;
+  const t = getCopy(language);
+  const [activeView, setActiveView] = useState<'learning' | 'schools'>('learning');
   const normalizedTags = tags as TagType[];
   const universityTags = normalizedTags.filter((tag) => isSchoolTag(tag.label));
   const subsubjectTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && getSubsubjectMeta(tag.label));
   const topicTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && !getSubsubjectMeta(tag.label) && getTopicMeta(tag.label));
   const pendingTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && !getSubsubjectMeta(tag.label) && !getTopicMeta(tag.label));
+  const learningCount = subsubjectTags.length + topicTags.length;
 
   return (
     <section className={styles.tagsContainer}>
-      <TaxonomySummary
-        schoolCount={universityTags.length}
-        subsubjectCount={subsubjectTags.length}
-        topicCount={topicTags.length}
-        pendingCount={pendingTags.length}
-        language={language}
-      />
-      <SchoolSection tags={[...universityTags]} language={language} />
-      <LearningSections
-        subsubjectTags={[...subsubjectTags]}
-        topicTags={[...topicTags]}
-        language={language}
-      />
-      <PendingSection tags={[...pendingTags]} language={language} />
+      <div className={styles.viewTabs} role="tablist" aria-label={t.viewTabsLabel}>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeView === 'learning'}
+          aria-controls="tags-panel-learning"
+          className={`${styles.viewTab} ${activeView === 'learning' ? styles.viewTabActive : ''}`}
+          onClick={() => setActiveView('learning')}>
+          <span>{t.learningView}</span>
+          <span className={styles.viewTabCount}>{learningCount}</span>
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeView === 'schools'}
+          aria-controls="tags-panel-schools"
+          className={`${styles.viewTab} ${activeView === 'schools' ? styles.viewTabActive : ''}`}
+          onClick={() => setActiveView('schools')}>
+          <span>{t.schoolsView}</span>
+          <span className={styles.viewTabCount}>{universityTags.length}</span>
+        </button>
+      </div>
+      {activeView === 'learning' ? (
+        <>
+          <LearningSections
+            subsubjectTags={[...subsubjectTags]}
+            topicTags={[...topicTags]}
+            language={language}
+          />
+          <PendingSection tags={[...pendingTags]} language={language} />
+        </>
+      ) : (
+        <SchoolSection tags={[...universityTags]} language={language} />
+      )}
     </section>
   );
 }
