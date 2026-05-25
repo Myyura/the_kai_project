@@ -740,6 +740,10 @@
   label: "Mathematics.Linear-Algebra.Trace-of-Matrix"
   permalink: "/topic/mathematics/linear-algebra/trace-of-matrix"
   description: "Mathematics / Linear-Algebra / Trace-of-Matrix"
+"Mathematics.Graph-Theory.Tree-Metric":
+  label: "Mathematics.Graph-Theory.Tree-Metric"
+  permalink: "/topic/mathematics/graph-theory/tree-metric"
+  description: "Mathematics / Graph-Theory / Tree-Metric"
 "Computer-Science.Data-Structures-Algorithms.Trie":
   label: "Computer-Science.Data-Structures-Algorithms.Trie"
   permalink: "/topic/computer-science/data-structures-algorithms/trie"

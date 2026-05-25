@@ -1486,6 +1486,13 @@
         "Mathematics"
       ]
     },
+    "Mathematics.Graph-Theory.Tree-Metric": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
     "Computer-Science.Data-Structures-Algorithms.Trie": {
       "subsubject": "Computer-Science.Data-Structures-Algorithms",
       "subjects": [
@@ -2220,6 +2227,10 @@
     "Trace-of-Matrix": {
       "replaceWith": "Mathematics.Linear-Algebra.Trace-of-Matrix",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+    },
+    "Tree-Metric": {
+      "replaceWith": "Mathematics.Graph-Theory.Tree-Metric",
+      "reason": "短考点 tag 不再允许，请使用 namespaced topic ID。"
     },
     "Trie": {
       "replaceWith": "Computer-Science.Data-Structures-Algorithms.Trie",
