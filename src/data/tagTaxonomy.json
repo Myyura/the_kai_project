@@ -347,14 +347,14 @@
       "descriptionJa": "通信路、符号化、情報伝送、誤り制御。",
       "descriptionEn": "Communication channels, coding, information transmission, and error control."
     },
-    "Probability-Statistics.Probability": {
+    "Probability-Statistics.Fundamentals": {
       "subject": "Probability-Statistics",
-      "labelZh": "概率论",
-      "labelJa": "確率論",
-      "labelEn": "Probability",
-      "descriptionZh": "概率分布、条件概率、随机变量与基础概率模型。",
-      "descriptionJa": "確率分布、条件付き確率、確率変数、基礎的な確率モデル。",
-      "descriptionEn": "Probability distributions, conditional probability, random variables, and foundational probability models."
+      "labelZh": "基础概率统计",
+      "labelJa": "確率・統計基礎",
+      "labelEn": "Probability & Statistics Fundamentals",
+      "descriptionZh": "基本概率计算、常见分布、基础统计量与相关性分析。",
+      "descriptionJa": "基本的な確率計算、代表的な分布、基礎統計量、相関分析。",
+      "descriptionEn": "Basic probability calculations, common distributions, foundational statistics, and correlation analysis."
     },
     "Probability-Statistics.Statistical-Inference": {
       "subject": "Probability-Statistics",
@@ -554,7 +554,7 @@
     "Electrical-Electronic.Signal-Processing",
     "Electrical-Electronic.Control-Theory",
     "Electrical-Electronic.Communications",
-    "Probability-Statistics.Probability",
+    "Probability-Statistics.Fundamentals",
     "Probability-Statistics.Statistical-Inference",
     "Probability-Statistics.Stochastic-Processes",
     "Data-Science-Artificial-Intelligence.Data-Science",
@@ -840,6 +840,12 @@
         "Computer-Science"
       ]
     },
+    "Probability-Statistics.Fundamentals.Binomial-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Mathematics.Discrete-Mathematics.Catalan-Number": {
       "subsubject": "Mathematics.Discrete-Mathematics",
       "subjects": [
@@ -893,11 +899,23 @@
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability.Conditional-Probability": {
-      "subsubject": "Probability-Statistics.Probability",
+    "Probability-Statistics.Fundamentals.Conditional-Probability": {
+      "subsubject": "Probability-Statistics.Fundamentals",
       "subjects": [
         "Probability-Statistics",
         "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Correlation-Coefficient": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Confidence-Interval": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
       ]
     },
     "Computer-Science.Formal-Languages.Context-Free-Grammar": {
@@ -997,8 +1015,8 @@
         "Computer-Science"
       ]
     },
-    "Probability-Statistics.Probability.Exponential-Distribution": {
-      "subsubject": "Probability-Statistics.Probability",
+    "Probability-Statistics.Fundamentals.Exponential-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
       "subjects": [
         "Probability-Statistics"
       ]
@@ -1293,8 +1311,8 @@
         "Computer-Science"
       ]
     },
-    "Probability-Statistics.Probability.Order-Statistics": {
-      "subsubject": "Probability-Statistics.Probability",
+    "Probability-Statistics.Fundamentals.Order-Statistics": {
+      "subsubject": "Probability-Statistics.Fundamentals",
       "subjects": [
         "Probability-Statistics",
         "Mathematics"
@@ -1696,7 +1714,7 @@
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Conditional-Probability": {
-      "replaceWith": "Probability-Statistics.Probability.Conditional-Probability",
+      "replaceWith": "Probability-Statistics.Fundamentals.Conditional-Probability",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Context-Free-Grammar": {
@@ -1820,7 +1838,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Exponential-Distribution": {
-      "replaceWith": "Probability-Statistics.Probability.Exponential-Distribution",
+      "replaceWith": "Probability-Statistics.Fundamentals.Exponential-Distribution",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Fisher-Exact-Test": {
@@ -2076,7 +2094,7 @@
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Order-Statistics": {
-      "replaceWith": "Probability-Statistics.Probability.Order-Statistics",
+      "replaceWith": "Probability-Statistics.Fundamentals.Order-Statistics",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Orthogonal-Decomposition": {
@@ -2116,7 +2134,7 @@
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
     "Probability-And-Statistics": {
-      "replaceWith": "Probability-Statistics.Probability",
+      "replaceWith": "Probability-Statistics.Fundamentals",
       "reason": "旧子科目 alias 已废弃，请使用 canonical subsubject ID。"
     },
     "Programming": {
@@ -2283,8 +2301,24 @@
       "replaceWith": "Electrical-Electronic.Signal-Processing.Z-Transform",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
+    "Probability-Statistics.Probability": {
+      "replaceWith": "Probability-Statistics.Fundamentals",
+      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical subsubject ID。"
+    },
+    "Probability-Statistics.Probability.Conditional-Probability": {
+      "replaceWith": "Probability-Statistics.Fundamentals.Conditional-Probability",
+      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical topic ID。"
+    },
+    "Probability-Statistics.Probability.Exponential-Distribution": {
+      "replaceWith": "Probability-Statistics.Fundamentals.Exponential-Distribution",
+      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical topic ID。"
+    },
+    "Probability-Statistics.Probability.Order-Statistics": {
+      "replaceWith": "Probability-Statistics.Fundamentals.Order-Statistics",
+      "reason": "概率与基础统计已合并为 Fundamentals，请使用新的 canonical topic ID。"
+    },
     "Statistics-Data-Science.Probability-Statistics": {
-      "replaceWith": "Probability-Statistics.Probability",
+      "replaceWith": "Probability-Statistics.Fundamentals",
       "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     },
     "Statistics-Data-Science.Statistical-Inference": {
@@ -2328,7 +2362,7 @@
       "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     },
     "Statistics-Data-Science.Probability-Statistics.Conditional-Probability": {
-      "replaceWith": "Probability-Statistics.Probability.Conditional-Probability",
+      "replaceWith": "Probability-Statistics.Fundamentals.Conditional-Probability",
       "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     },
     "Statistics-Data-Science.Information-Theory.Cyclic-Code": {
@@ -2344,7 +2378,7 @@
       "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     },
     "Statistics-Data-Science.Probability-Statistics.Exponential-Distribution": {
-      "replaceWith": "Probability-Statistics.Probability.Exponential-Distribution",
+      "replaceWith": "Probability-Statistics.Fundamentals.Exponential-Distribution",
       "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     },
     "Statistics-Data-Science.Statistical-Inference.Fisher-Exact-Test": {
@@ -2392,7 +2426,7 @@
       "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     },
     "Statistics-Data-Science.Probability-Statistics.Order-Statistics": {
-      "replaceWith": "Probability-Statistics.Probability.Order-Statistics",
+      "replaceWith": "Probability-Statistics.Fundamentals.Order-Statistics",
       "reason": "旧 taxonomy tag 已废弃，请使用新的 canonical tag。"
     },
     "Statistics-Data-Science.Machine-Learning.Reinforcement-Learning": {

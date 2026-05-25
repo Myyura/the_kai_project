@@ -3,7 +3,7 @@ sidebar_label: 2023年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
   - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Probability
+  - Probability-Statistics.Fundamentals
   - Data-Science-Artificial-Intelligence.Machine-Learning
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2023年8月実施 筆記試験 第1問

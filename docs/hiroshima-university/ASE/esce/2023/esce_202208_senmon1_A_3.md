@@ -3,7 +3,7 @@ sidebar_label: 2022年8月実施 専門科目I A-3
 sidebar_position: 1
 tags:
   - Hiroshima-University
-  - Probability-Statistics.Probability.Conditional-Probability
+  - Probability-Statistics.Fundamentals.Conditional-Probability
 ---
 # 広島大学 先進理工系科学研究科 電気システム制御プログラム 2022年8月実施 専門科目I A-3
 

@@ -2,7 +2,7 @@
 sidebar_label: 2024年8月実施 確率・統計
 tags:
   - Nagoya-University
-  - Probability-Statistics.Probability
+  - Probability-Statistics.Fundamentals
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2024年8月実施 確率・統計
 

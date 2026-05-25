@@ -168,10 +168,10 @@
   label: "Electrical-Electronic.Communications"
   permalink: "/subsubject/electrical-electronic/communications"
   description: "Electrical-Electronic / Communications"
-"Probability-Statistics.Probability":
-  label: "Probability-Statistics.Probability"
-  permalink: "/subsubject/probability-statistics/probability"
-  description: "Probability-Statistics / Probability"
+"Probability-Statistics.Fundamentals":
+  label: "Probability-Statistics.Fundamentals"
+  permalink: "/subsubject/probability-statistics/fundamentals"
+  description: "Probability-Statistics / Fundamentals"
 "Probability-Statistics.Statistical-Inference":
   label: "Probability-Statistics.Statistical-Inference"
   permalink: "/subsubject/probability-statistics/statistical-inference"
@@ -332,6 +332,10 @@
   label: "Mathematics.Discrete-Mathematics.Binomial-Coefficient"
   permalink: "/topic/mathematics/discrete-mathematics/binomial-coefficient"
   description: "Mathematics / Discrete-Mathematics / Binomial-Coefficient"
+"Probability-Statistics.Fundamentals.Binomial-Distribution":
+  label: "Probability-Statistics.Fundamentals.Binomial-Distribution"
+  permalink: "/topic/probability-statistics/fundamentals/binomial-distribution"
+  description: "Probability-Statistics / Fundamentals / Binomial-Distribution"
 "Mathematics.Discrete-Mathematics.Catalan-Number":
   label: "Mathematics.Discrete-Mathematics.Catalan-Number"
   permalink: "/topic/mathematics/discrete-mathematics/catalan-number"
@@ -364,10 +368,18 @@
   label: "Mathematics.Complex-Analysis.Complex-Numbers"
   permalink: "/topic/mathematics/complex-analysis/complex-numbers"
   description: "Mathematics / Complex-Analysis / Complex-Numbers"
-"Probability-Statistics.Probability.Conditional-Probability":
-  label: "Probability-Statistics.Probability.Conditional-Probability"
-  permalink: "/topic/probability-statistics/probability/conditional-probability"
-  description: "Probability-Statistics / Probability / Conditional-Probability"
+"Probability-Statistics.Fundamentals.Conditional-Probability":
+  label: "Probability-Statistics.Fundamentals.Conditional-Probability"
+  permalink: "/topic/probability-statistics/fundamentals/conditional-probability"
+  description: "Probability-Statistics / Fundamentals / Conditional-Probability"
+"Probability-Statistics.Fundamentals.Correlation-Coefficient":
+  label: "Probability-Statistics.Fundamentals.Correlation-Coefficient"
+  permalink: "/topic/probability-statistics/fundamentals/correlation-coefficient"
+  description: "Probability-Statistics / Fundamentals / Correlation-Coefficient"
+"Probability-Statistics.Statistical-Inference.Confidence-Interval":
+  label: "Probability-Statistics.Statistical-Inference.Confidence-Interval"
+  permalink: "/topic/probability-statistics/statistical-inference/confidence-interval"
+  description: "Probability-Statistics / Statistical-Inference / Confidence-Interval"
 "Computer-Science.Formal-Languages.Context-Free-Grammar":
   label: "Computer-Science.Formal-Languages.Context-Free-Grammar"
   permalink: "/topic/computer-science/formal-languages/context-free-grammar"
@@ -428,10 +440,10 @@
   label: "Mathematics.Graph-Theory.Euler-Circuit"
   permalink: "/topic/mathematics/graph-theory/euler-circuit"
   description: "Mathematics / Graph-Theory / Euler-Circuit"
-"Probability-Statistics.Probability.Exponential-Distribution":
-  label: "Probability-Statistics.Probability.Exponential-Distribution"
-  permalink: "/topic/probability-statistics/probability/exponential-distribution"
-  description: "Probability-Statistics / Probability / Exponential-Distribution"
+"Probability-Statistics.Fundamentals.Exponential-Distribution":
+  label: "Probability-Statistics.Fundamentals.Exponential-Distribution"
+  permalink: "/topic/probability-statistics/fundamentals/exponential-distribution"
+  description: "Probability-Statistics / Fundamentals / Exponential-Distribution"
 "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test":
   label: "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test"
   permalink: "/topic/probability-statistics/statistical-inference/fisher-exact-test"
@@ -612,10 +624,10 @@
   label: "Computer-Science.Computer-Architecture.Number-Representation"
   permalink: "/topic/computer-science/computer-architecture/number-representation"
   description: "Computer-Science / Computer-Architecture / Number-Representation"
-"Probability-Statistics.Probability.Order-Statistics":
-  label: "Probability-Statistics.Probability.Order-Statistics"
-  permalink: "/topic/probability-statistics/probability/order-statistics"
-  description: "Probability-Statistics / Probability / Order-Statistics"
+"Probability-Statistics.Fundamentals.Order-Statistics":
+  label: "Probability-Statistics.Fundamentals.Order-Statistics"
+  permalink: "/topic/probability-statistics/fundamentals/order-statistics"
+  description: "Probability-Statistics / Fundamentals / Order-Statistics"
 "Mathematics.Linear-Algebra.Orthogonal-Decomposition":
   label: "Mathematics.Linear-Algebra.Orthogonal-Decomposition"
   permalink: "/topic/mathematics/linear-algebra/orthogonal-decomposition"
