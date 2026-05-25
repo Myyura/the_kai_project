@@ -38,31 +38,75 @@ Answer the following questions.
 (3) Let $s, t \in V$ be two distinct vertices. Show how to test whether $G$ has only one shortest path between $s$ and $t$ or not in $O(|V| + |E|)$.
 
 ## **Kai**
-Let $P_{u, v}$ denote a $s,t$-path and $P_{u,v}^*$ denote a shortest $s,t$-path between two vertices $u \in V$ and $v \in V$, respectively.
-
-For a path $P_{u, v} = (a_1 = u, a_2, \ldots, a_k = v)$ we define a subpath $P_{u, v, a_i, a_k}, 1 \le i \le j \le k$ of $P_{u, v}$ as $P_{u, v, a_i, a_k} = (a_i, \ldots, a_j)$.
-
 Let $|P|$ denote the length of a path $P$.
 
 ### (1)
-We first prove that for any common vertex $c$ of $P_{s, u}^*$ and $P_{s, v}^*$, i.e. $c \in V(P_{s, u}^*) \cap V(P_{s, v}^*)$, we have $|P_{s,u, s,c}^*| = |P_{s,v, s,c}^*|$.
+Let $P_u$ be a shortest path from $s$ to $u$, and let $P_v$ be a shortest path from $s$ to $v$.
 
-Assume that $|P_{s,u, s,c}^*| < |P_{s,v, s,c}^*|$ for a vertex $c$.
-Then the length of the path from $s$ to $v$ defined by edges $E(P_{s,u, s,c}^*) \cup E(P_{s,v,c,v}^*)$ is smaller than $|P_{s,v}^*|$, which is contradictory to the fact that $P_{s,v}^*$ is a shortest path from $s$ to $v$.
+Since both paths start at $s$, they have at least one common vertex. Let $z$ be the last common vertex of $P_u$ and $P_v$.
 
-Then, let $c^*$ be the last common vertex of $P_{s, u}^*$ and $P_{s, v}^*$, the length of cycle $C = E(P_{s,u, c^*,u}^*) \cup \{u,v\} \cup E(P_{s,v, c^*,v}^*)$ is
+Denote by $P_u[z,u]$ the subpath of $P_u$ from $z$ to $u$, and by $P_v[z,v]$ the subpath of $P_v$ from $z$ to $v$. Since $z$ is the last common vertex of $P_u$ and $P_v$, these two subpaths have no common vertices except $z$.
+
+Let
 
 $$
-\begin{aligned}
-|C| &= |P_{s, u}^*| - |P_{s,u, s,c^*}^*| + |P_{s, v}^*| - |P_{s,v, s,c^*}^*| + 1 \\
-&= 2 \times |P_{s, u}^*| - 2 \times |P_{s,u, s,c^*}^*| + 1
-\end{aligned}
+\ell_u = |P_u[z,u]|,\qquad \ell_v = |P_v[z,v]|.
+$$
+
+We show that $\ell_u=\ell_v$.
+
+Since $P_u$ and $P_v$ are shortest paths, by assumption,
+
+$$
+|P_u|=d(s,u)=|P_v|=d(s,v).
+$$
+
+Also,
+
+$$
+|P_u|=|P_u[s,z]|+\ell_u,
+$$
+
+and
+
+$$
+|P_v|=|P_v[s,z]|+\ell_v.
+$$
+
+Since **every subpath of a shortest path is also a shortest path**, both
+$P_u[s,z]$ and $P_v[s,z]$ are shortest paths from $s$ to $z$.
+Therefore,
+
+$$
+|P_u[s,z]|=|P_v[s,z]|=d(s,z).
+$$
+
+Combining these equalities, we obtain
+
+$$
+\ell_u=\ell_v.
+$$
+
+Now consider the cycle formed by the path $P_u[z,u]$, the edge $(u,v)$, and the reverse of the path $P_v[z,v]$.
+
+Because $z$ is the last common vertex of $P_u$ and $P_v$, the two paths $P_u[z,u]$ and $P_v[z,v]$ have no common vertices except $z$. Therefore, the above closed walk is a simple cycle.
+
+The length of this cycle is
+
+$$
+\ell_u+1+\ell_v.
+$$
+
+Since $\ell_u=\ell_v$, this length is
+
+$$
+2\ell_u+1,
 $$
 
 which is odd.
 
 ### (2)
-The idea algorithm can be established from the following statement and (1):
+The algorithm can be established from the following statement and (1):
 
 - A simple undirected graph $G=(V,E)$ is bipartite iff it contains no odd
 length cycle.
@@ -76,23 +120,24 @@ Then we know that vertices $u_{2i}, (i=1,2, \ldots)$ are in vertex set $X_2$, wh
 
 Therefore, if $G$ is bipartite, there is no odd length cycle in $G$.
 
-($\Leftarrow$) Let $s \in V$ be an arbitrary vertex.
-Let $X_1 = \{u \mid \text{dist}(s, u) \text{ is odd}\}$ and $X_2 = \{u \mid \text{dist}(s, u) \text{ is even}\}$ be two subsets of $V$.
+($\Leftarrow$) Run BFS from arbitrary $s$. Color each vertex according to the parity of $\text{dist}(s,v)$.
 
-Assume that there exists two vertices $u, v \in X_1$ such that $uv \in E$.
+For every edge $uv$, if $u$ and $v$ have the same color, then since adjacent vertices in an unweighted graph have BFS distances differing by at most $1$, they must satisfy $\text{dist}(s,u)=\text{dist}(s,v)$.
 
-With similar statement in (1), let $c^*$ be the last common vertex of $P_{s, u}^*$ and $P_{s, v}^*$, the length of cycle $C = E(P_{s,u, c^*,u}^*) \cup \{u,v\} \cup E(P_{s,v, c^*,v}^*)$ is odd, which is a contradiction.
-
-Therefore, if $G$ contains no odd length cycle, then $G$ is bipartite.
+By (1), this edge lies on an odd cycle, so G is not bipartite. If no such edge exists, all edges go between the two color classes, hence the graph is bipartite.
 
 #### Algorithm
 Let $s \in V$ be an arbitrary vertex.
-We use BFS to compute all the distances from $s$ to vertices $u \in V \setminus \{s\}$ and check whether there exists two vertices of same distances are adjacent.
+We use BFS to color vertices according to the parity of their distances from $s$, and then check whether there exists an edge whose endpoints have the same color.
 
 ```text
-algorithm IsBipartite(G(V, E), s):
-    Q <- create an empty queue
+algorithm IsBipartite(G):
+    for each v in V:
+        color[v] <- null
+
+    choose an arbitrary vertex s
     color[s] <- RED
+    Q <- create an empty queue
     Q.enqueue(s)
 
     while Q is not empty:
@@ -100,19 +145,43 @@ algorithm IsBipartite(G(V, E), s):
         for each n2 in n1.Adj():
             if color[n2] = null:
                 if color[n1] = RED:
-                    color[n2] = BLUE
+                    color[n2] <- BLUE
                 else:
-                    color[n2] = RED
+                    color[n2] <- RED
                 Q.enqueue(n2)
             else:
                 if color[n2] = color[n1]:
-                    return 'Graph is not Bipartite'
+                    return "Graph is not bipartite"
 
-    return 'Graph is Bipartite'
+    return "Graph is bipartite"
 ```
 
+Since BFS scans each vertex and each edge a constant number of times, the running time is $O(|V|+|E|)$.
+
 ### (3)
-- Use BFS to find a shortest $s, t$-path $P_{s, t}^*$ in $G = (V, E)$.
-- Let $e$ denote an edge of $P_{s, t}^*$. Use BFS to find a shortest $s, t$-path $P_{s, t}^{*}$ in $G = (V, E \setminus \{e\})$ .
-- If length of the two paths we found are same, then $G$ have two or more shortest paths between $s$ and $t$.
-- If length of the two paths we found are not same, then $G$ has only one shortest path between $s$ and $t$.
+Let $\text{dist}[v]$ be the distance from $s$ to $v$, and let $\text{cnt}[v]$ denote the number of shortest paths from $s$ to $v$, truncated at $2$. Thus, $\text{cnt}[v]=2$ means that there are at least two shortest paths from $s$ to $v$.
+
+```text
+for each v in V:
+    dist[v] = INF
+    cnt[v] = 0
+
+dist[s] = 0
+cnt[s] = 1
+Q.push(s)
+
+while Q is not empty:
+    u = Q.pop()
+    for each v in Adj[u]:
+        if dist[v] == INF:
+            dist[v] = dist[u] + 1
+            cnt[v] = cnt[u]
+            Q.push(v)
+        else if dist[v] == dist[u] + 1:
+            cnt[v] = min(2, cnt[v] + cnt[u])
+
+if cnt[t] == 1:
+    return "unique"
+else:
+    return "not unique"
+```
