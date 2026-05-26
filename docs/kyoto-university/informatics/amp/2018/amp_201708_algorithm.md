@@ -3,7 +3,7 @@ sidebar_label: 2017年8月実施 アルゴリズム基礎
 tags:
   - Kyoto-University
   - Mathematics.Graph-Theory.Bipartite-Graph
-  - Computer-Science.Data-Structures-Algorithms
+  - Mathematics.Graph-Theory.Breadth-First-Search
 ---
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 アルゴリズム基礎
 
@@ -47,7 +47,7 @@ BFS-Tree(G, s):
 If there exits an edge $(u, v)$ between $V_j$ and $V_k$ such that $j+2 \leq k$, w.l.o.g assume that $u \in V_j$ and $v \in V_k$, then the distance from $s$ to $v$ is at most
 
 $$
-\text{dist}(s, v) = \text{dist}(s, u) + \text{dist}(u, v) = j + 1
+\text{dist}(s, v) \le \text{dist}(s, u) + \text{dist}(u, v) = j + 1
 $$
 
 which contradicts $\text{dist}(s,v) = k \geq j + 2$.
@@ -62,19 +62,43 @@ $$
 \end{aligned}
 $$
 
-According to question (ii), there is no edge between $V_j$ and $V_k$ if $j$ and $k$ are both even or odd.
-Also, according to the statement of question (iii), no $V_i$ contains a pair of adjacent vertices.
-Hence no two vertices within the same set are adjacent, which implies that $G$ is a bipartite graph.
+We show that there is no edge between two vertices both in $X$, and also no edge between two vertices both in $Y$.
+
+First, consider two different layers $V_j$ and $V_k$ with the same parity. If $j \neq k$, then
+
+$$
+|j-k| \ge 2
+$$
+
+according to the result of question (ii), there is no edge between $V_j$ and $V_k$.
+
+Next, by the assumption, no $V_i$ contains a pair of adjacent vertices.
+Hence no two vertices within the same set are adjacent, which implies that all edges of $G$ go between $X$ and $Y$, i.e., $G$ is a bipartite graph.
 
 ### (iv)
 We prove the statement by contradiction.
 
-Assume that $G$ is bipartite.
-Suppose that there exists two adjacent vertices $u_i$ and $v_i$ in a $V_i \ (i \geq 1)$.
+Suppose that some $V_i$ contains a pair of adjacent vertices $(u,v)$.
+Since $u, v \in V_i$, the paths from $s$ to $u$ and from $s$ to $v$ in the BFS tree $T$ both have length $i$.
 
-Then there must exists two vertices $u_{i-1}, v_{i-1} \in V_{i-1}$ adjacent to $u_i$ and $v_i$, respectively.
-If $u_{i-1} = v_{i-1}$, then a contradiction to the definition of bipartite graph.
-Hence we assume that $u_{i-1} \neq v_{i-1}$.
-Repeat the above construction and finally we will be in the situation that $u_{0} = v_{0} = s$, which leads to a contradiction.
+Let $P_u$ be the unique path from $s$ to $u$ in $T$, and let $P_v$ be the unique path from $s$ to $v$ in $T$. Let $w$ be the last common vertex of these two paths. Suppose that $w \in V_l$. Then the path from $w$ to $u$ in $T$ has length
 
-Therefore, if some $V_i$ contains a pair of adjacent vertices then $G$ is not a bipartite graph.
+$$
+i - l
+$$
+
+and the path from $w$ to $v$ in $T$ also has length
+
+$$
+i - l
+$$
+
+Moreover, these two paths have no common vertices except $w$. Therefore, by taking the path from $w$ to $u$, then the edge $(u,v)$, and then the path from $v$ back to $w$, we obtain a cycle.
+
+The length of this cycle is
+
+$$
+(i−l)+1+(i−l)=2(i−l)+1.
+$$
+
+which is an odd number.
