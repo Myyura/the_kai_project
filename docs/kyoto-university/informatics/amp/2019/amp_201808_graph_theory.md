@@ -72,7 +72,11 @@ Let $P_{s,u}^v$ denote the subpath of $P_{s,u}$ ends at $v$ (note that $P_{s,u}^
 If $C$ is not a negative cycle, i.e., $w(C) \geq 0$, then we have
 
 $$
-w(P_{s,u}^v) = w(P_{s,u}) - w(C) \leq \text{dist}(s,u) - w(c) < \text{dist}(s,v)
+\begin{aligned}
+w(P_{s,u}^v) &= w(P_{s,u}) - w(C) + w(u,v) \\
+&= \text{dist}(s,u) - w(C) + w(u,v) \\
+&< \text{dist}(s,v)
+\end{aligned}
 $$
 
 which contradicts the definition of $\text{dist}(s,v)$. Therefore, $C$ is a negative cycle.
@@ -81,7 +85,14 @@ which contradicts the definition of $\text{dist}(s,v)$. Therefore, $C$ is a nega
 (Note: this question is actually asking a proof of correctness of Dijkstra's algorithm)
 
 Since the weight of each edge is non-negative, there does not exist negative cycle.
-Hence by the definition of $\text{dist}(s,v^*)$ and question (2) we know that
+
+By the contrapositive of Question (2), since there is no negative cycle, for every edge $(u,v)$
+
+$$
+\text{dist}(s,v) \leq \text{dist}(s,u) + w(u,v)
+$$
+
+Hence 
 
 $$
 \text{dist}(s,v^*) \leq \text{dist}(s,u^*) + w(u^*,v^*)
@@ -89,13 +100,14 @@ $$
 
 Any path from $s$ to $v^*$ must go through an edge from $S$ to $V \setminus S$.
 Hence, let $P_{s, v^*} = \{s, \ldots, u', v', \ldots, v^*\}$ denote a shortest simple path from $s$ to $v$.
-W.l.o.g. we assume that $u' \in S, v' \in V \setminus S$ and let $P_1 = \{s, \ldots, u'\}$ and $P_2 = \{v', \ldots, v^*\}$ denote the subpaths of $P_{s, v^*}$.
+Let $(u',v')$ be the first edge on $P_{s,v^*}$ that crosses from $S$ to $V \setminus S$ and let $P_1 = \{s, \ldots, u'\}$ and $P_2 = \{v', \ldots, v^*\}$ denote the subpaths of $P_{s, v^*}$.
 Then,
 
 $$
 \begin{aligned}
-    \text{dist}(s,v^*) &= w(P_{s, v^*}) = w(P_1) + w(u',v') + w(P_2) \\
-    &\geq w(P_1) + w(u', v') \ \ (\text{the weight of each edge is non-negative}) \\
+    \text{dist}(s,v^*) &= w(P_{s, v^*}) = w(P_1) + w(u'v') + w(P_2) \\
+    &\geq w(P_1) + w(u'v') \ \ (\text{the weight of each edge is non-negative}) \\
+    &\geq \text{dist}(s,u') + w(u'v') \\
     &\geq \text{dist}(s,u^*) + w(u^*,v^*) \ \ (\text{definition of }(u^*,v^*))
 \end{aligned}
 $$
