@@ -624,6 +624,10 @@
   label: "Mathematics.Fourier-Analysis.Convolution"
   permalink: "/topic/mathematics/fourier-analysis/convolution"
   description: "Mathematics / Fourier-Analysis / Convolution"
+"Mathematics.Graph-Theory.Articulation-Point":
+  label: "Mathematics.Graph-Theory.Articulation-Point"
+  permalink: "/topic/mathematics/graph-theory/articulation-point"
+  description: "Mathematics / Graph-Theory / Articulation-Point"
 "Mathematics.Graph-Theory.Bipartite-Graph":
   label: "Mathematics.Graph-Theory.Bipartite-Graph"
   permalink: "/topic/mathematics/graph-theory/bipartite-graph"

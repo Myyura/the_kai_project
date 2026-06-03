@@ -1303,6 +1303,13 @@
         "Electrical-Electronic"
       ]
     },
+    "Mathematics.Graph-Theory.Articulation-Point": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
     "Mathematics.Graph-Theory.Bipartite-Graph": {
       "subsubject": "Mathematics.Graph-Theory",
       "subjects": [
@@ -1609,6 +1616,10 @@
       "replaceWith": "Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
     },
+    "Articulation-Point": {
+      "replaceWith": "Mathematics.Graph-Theory.Articulation-Point",
+      "reason": "旧扁平考点 tag 已废弃，请使用图论命名空间中的 canonical topic ID。"
+    },
     "Assembly-Language": {
       "replaceWith": "Computer-Science.Computer-Architecture.Assembly-Language",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
@@ -1804,6 +1815,10 @@
     "Counting-Sort": {
       "replaceWith": "Computer-Science.Data-Structures-Algorithms.Counting-Sort",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+    },
+    "Cut-Vertex": {
+      "replaceWith": "Mathematics.Graph-Theory.Articulation-Point",
+      "reason": "请使用图论命名空间中的 canonical topic ID：Articulation-Point。"
     },
     "Cyclic-Code": {
       "replaceWith": "Computer-Science.Information-Theory.Cyclic-Code",
