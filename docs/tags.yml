@@ -644,6 +644,10 @@
   label: "Mathematics.Graph-Theory.Complete-Graph"
   permalink: "/topic/mathematics/graph-theory/complete-graph"
   description: "Mathematics / Graph-Theory / Complete-Graph"
+"Mathematics.Graph-Theory.Connectivity":
+  label: "Mathematics.Graph-Theory.Connectivity"
+  permalink: "/topic/mathematics/graph-theory/connectivity"
+  description: "Mathematics / Graph-Theory / Connectivity"
 "Mathematics.Graph-Theory.Depth-First-Search":
   label: "Mathematics.Graph-Theory.Depth-First-Search"
   permalink: "/topic/mathematics/graph-theory/depth-first-search"

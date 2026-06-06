@@ -1339,6 +1339,13 @@
         "Computer-Science"
       ]
     },
+    "Mathematics.Graph-Theory.Connectivity": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
     "Mathematics.Graph-Theory.Depth-First-Search": {
       "subsubject": "Mathematics.Graph-Theory",
       "subjects": [
@@ -1787,6 +1794,10 @@
     "Conditional-Probability": {
       "replaceWith": "Probability-Statistics.Fundamentals.Conditional-Probability",
       "reason": "旧扁平考点 tag 已废弃，请使用 namespaced topic ID。"
+    },
+    "Connectivity": {
+      "replaceWith": "Mathematics.Graph-Theory.Connectivity",
+      "reason": "旧扁平考点 tag 已废弃，请使用图论命名空间中的 canonical topic ID。"
     },
     "Context-Free-Grammar": {
       "replaceWith": "Computer-Science.Formal-Languages.Context-Free-Grammar",
