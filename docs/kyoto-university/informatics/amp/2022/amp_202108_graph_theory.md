@@ -41,15 +41,22 @@ Prove that $w_{\text{max}}(T^*) \le w_{\text{max}}(T)$ holds for every spanning 
 ### (i)
 Let $T^* = (V, E^*)$ be one minimum spanning tree that contains the tree $(X, F)$.
 
-From the connectivity of $T^*$, we know that there exists an edge $e_X \in E^*$ that connects $X$ and $V \setminus X$, i.e. $e_X \in E(X)$.
-We substitute edge $e_X$ by edge $a_F$ and let $T'$ denote thetree after substitution, i.e. $T' = (V, E^* \setminus \{e_X\} \cup \{a_F\})$.
+If $a_F \in E^*$, then $T^*$ itself contains $(X\cup{u,v},F\cup{a_F})$, so there is nothing to prove.
 
-Since $a_F \in E(X)$ is an edge with the minimum weight among the edges in $E(X)$, we know that $w(a_F) \le w(e_X)$.
+Since $a_F \notin E^*$, the graph $T^* \cup a_f$ contains a cycle $C$ (called the fundamental cycle of $a_f$). Hence along the cycle $C$, there must be another edge $b \neq a_F$ that also cross the same cut, i.e.,
+
+$$
+b \in E^* \cap E(X)
+$$
+
+We substitute edge $b$ by edge $a_F$ and let $T'$ denote the tree after substitution, i.e. $T' = (V, E^* \cup \{a_F\} \setminus \{b\})$.
+
+Since $a_F \in E(X)$ is an edge with the minimum weight among the edges in $E(X)$, we know that $w(a_F) \le w(b)$.
 
 Hence
 
 $$
-w(T') = w(T^*) - w(e_X) + w(a_F) \le w(T^*).
+w(T') = w(T^*) - w(b) + w(a_F) \le w(T^*).
 $$
 
 Hence $T'$ is a minimum spanning tree of $G$ contains $(X \cup \{u, v\}, F \cup \{a_F\})$
@@ -75,7 +82,9 @@ The induction hypothesis will be that after each iteration, the tree $T$ is a su
 This is trivially true at the start, since initially $T$ is just a single node and no edges. 
 
 Suppose that at some point in the algorithm we have $T = (X, F)$ which a subgraph of some minimum spanning tree $T^*$.
-Since the Prim's algorithm finds an edge $e = uv \in E(x)$ of minimum weight, from (i) we know that there exists a minimum spanning tree of $G$ that contains $(X \cup \{u, v\}, F \cup \{e\})$. This maintains the induction, so proves the correctness.
+Since the Prim's algorithm finds an edge $e = uv \in E(X)$ of minimum weight, from (i) we know that there exists a minimum spanning tree of $G$ that contains $(X \cup \{u, v\}, F \cup \{e\})$. Therefore the induction hypothesis is preserved after this iteration.
+
+When the algorithm terminates, we have $X=V$. Since one new vertex and one new edge are added in each iteration, $F$ has $|V|-1$ edges and $(V,F)$ is a spanning tree. By the induction argument, $(V,F)$ is contained in some minimum spanning tree. Therefore Prim’s algorithm correctly outputs a minimum spanning tree of $G$.
 
 ### (iii)
 Prove by contradiction:
