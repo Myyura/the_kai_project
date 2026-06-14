@@ -307,6 +307,10 @@ const config = {
             title: 'Community',
             items: [
               {
+                label: 'Discord',
+                href: 'https://discord.gg/VcUHXzB9Mk',
+              },
+              {
                 label: 'QQ group: 925154731',
                 href: 'https://qm.qq.com/q/MVPd9wniQU',
               },

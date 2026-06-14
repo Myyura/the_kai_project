@@ -2,7 +2,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaCheckCircle, FaSyncAlt } from 'react-icons/fa';
+import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq } from 'react-icons/fa';
 import React, { useEffect, useState, useMemo, memo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import LanguageSwitcher from '../components/LanguageSwitcher';
@@ -133,6 +133,58 @@ const HighlightsSection = memo(({ t }) => (
         {t.highlights.map((item, index) => (
           <HighlightCard key={index} {...item} index={index} />
         ))}
+      </div>
+    </div>
+  </section>
+));
+
+// 社区入口区域
+const CommunitySection = memo(({ t }) => (
+  <section className={styles.communitySection}>
+    <div className="container">
+      <div className={styles.communityCard}>
+        <div className={styles.communityGlow} />
+        <div className={styles.communityContent}>
+          <span className={styles.communityEyebrow}>{t.communityEyebrow}</span>
+          <Heading as="h2" className={styles.communityTitle}>
+            {t.communityTitle}
+          </Heading>
+          <p className={styles.communityDescription}>{t.communityDescription}</p>
+          <div className={styles.communityTopics}>
+            {t.communityTopics.map((topic) => (
+              <span key={topic} className={styles.communityTopic}>{topic}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.communityActions}>
+          <a
+            className={styles.discordBtn}
+            href="https://discord.gg/VcUHXzB9Mk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaDiscord className={styles.communityBtnIcon} />
+            <span>
+              <strong>{t.communityDiscordCta}</strong>
+              <small>{t.communityDiscordHint}</small>
+            </span>
+            <FaExternalLinkAlt className={styles.communityExternalIcon} />
+          </a>
+          <a
+            className={styles.qqBtn}
+            href="https://qm.qq.com/q/MVPd9wniQU"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaQq className={styles.communityBtnIcon} />
+            <span>
+              <strong>{t.communityQqCta}</strong>
+              <small>{t.communityQqHint}</small>
+            </span>
+            <FaExternalLinkAlt className={styles.communityExternalIcon} />
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -365,6 +417,7 @@ const Home = () => {
       <main className={styles.mainContent}>
         <HeroSection t={t} />
         <HighlightsSection t={t} />
+        <CommunitySection t={t} />
         <UniversitySection t={t} />
         <CtaSection t={t} />
       </main>

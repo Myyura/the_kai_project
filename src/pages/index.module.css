@@ -496,6 +496,206 @@
   margin: 0;
 }
 
+/* ===== 社区入口区域 ===== */
+.communitySection {
+  padding: 0 2rem 8rem;
+  background: #f5f5f7;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+}
+
+[data-theme='dark'] .communitySection {
+  background: #1d1d1f;
+}
+
+.communityCard {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.65fr);
+  align-items: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(88, 101, 242, 0.14);
+  border-radius: 28px;
+  background: linear-gradient(135deg, #ffffff 0%, #f7f7ff 100%);
+  box-shadow: 0 18px 60px rgba(30, 31, 60, 0.08);
+}
+
+[data-theme='dark'] .communityCard {
+  border-color: rgba(142, 150, 255, 0.2);
+  background: linear-gradient(135deg, #28282b 0%, #22222d 100%);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
+}
+
+.communityGlow {
+  position: absolute;
+  z-index: -1;
+  top: -180px;
+  right: -120px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(88, 101, 242, 0.15);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+[data-theme='dark'] .communityGlow {
+  background: rgba(88, 101, 242, 0.22);
+}
+
+.communityContent {
+  position: relative;
+}
+
+.communityEyebrow {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(88, 101, 242, 0.1);
+  color: #5865f2;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+[data-theme='dark'] .communityEyebrow {
+  background: rgba(142, 150, 255, 0.14);
+  color: #aeb4ff;
+}
+
+.communityTitle {
+  margin: 0 0 1rem;
+  color: var(--ifm-font-color-base);
+  font-size: clamp(2rem, 3.4vw, 2.75rem) !important;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.communityDescription {
+  max-width: 620px;
+  margin: 0;
+  color: #68686d;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+[data-theme='dark'] .communityDescription {
+  color: #a1a1a6;
+}
+
+.communityTopics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.communityTopic {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 999px;
+  color: #68686d;
+  background: rgba(255, 255, 255, 0.65);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+[data-theme='dark'] .communityTopic {
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #c7c7cc;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.communityActions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.discordBtn,
+.qqBtn {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  text-decoration: none !important;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.discordBtn {
+  color: white !important;
+  background: #5865f2;
+  box-shadow: 0 10px 24px rgba(88, 101, 242, 0.28);
+}
+
+.discordBtn:hover {
+  transform: translate3d(0, -3px, 0);
+  color: white !important;
+  background: #4752c4;
+  box-shadow: 0 14px 30px rgba(88, 101, 242, 0.36);
+}
+
+.qqBtn {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--ifm-font-color-base) !important;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+[data-theme='dark'] .qqBtn {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.qqBtn:hover {
+  transform: translate3d(0, -3px, 0);
+  border-color: rgba(88, 101, 242, 0.35);
+  color: var(--ifm-font-color-base) !important;
+  box-shadow: 0 12px 26px rgba(30, 31, 60, 0.1);
+}
+
+.communityBtnIcon {
+  font-size: 1.65rem;
+}
+
+.discordBtn span,
+.qqBtn span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.discordBtn strong,
+.qqBtn strong {
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.discordBtn small,
+.qqBtn small {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  opacity: 0.72;
+}
+
+.communityExternalIcon {
+  font-size: 0.7rem;
+  opacity: 0.65;
+}
+
 /* ===== 大学列表区域 ===== */
 .universitySection {
   padding: 8rem 2rem;
@@ -992,6 +1192,7 @@
   .statCard,
   .highlightCard,
   .universityCard,
+  .communityCard,
   .progressBannerInner,
   .heroProgressCallout {
     animation: none !important;
@@ -1001,6 +1202,8 @@
   }
 
   .highlightCard:hover,
+  .discordBtn:hover,
+  .qqBtn:hover,
   .heroProgressCallout:hover {
     transform: none;
   }
@@ -1037,15 +1240,26 @@
   }
   
   .highlightsSection,
+  .communitySection,
   .universitySection,
   .progressBannerSection,
   .ctaSection {
     padding: 5rem 1.5rem;
   }
+
+  .communitySection {
+    padding-top: 0;
+  }
   
   .highlightsGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .communityCard {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 3rem;
   }
   
   .highlightCard {
@@ -1122,6 +1336,20 @@
   
   .highlightTitle {
     font-size: 1.25rem;
+  }
+
+  .communitySection {
+    padding: 0 1rem 5rem;
+  }
+
+  .communityCard {
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    border-radius: 22px;
+  }
+
+  .communityDescription {
+    font-size: 0.95rem;
   }
   
   .universityGrid {
