@@ -524,10 +524,10 @@
   margin: 0 auto;
   padding: 3.5rem;
   overflow: hidden;
-  border: 1px solid rgba(88, 101, 242, 0.14);
+  border: 1px solid rgba(var(--theme-accent-rgb), 0.14);
   border-radius: 28px;
-  background: linear-gradient(135deg, #ffffff 0%, #f7f7ff 100%);
-  box-shadow: 0 18px 60px rgba(30, 31, 60, 0.08);
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8f4 100%);
+  box-shadow: 0 18px 60px rgba(var(--theme-accent-rgb), 0.08);
 }
 
 [data-theme='dark'] .communityCard {
@@ -544,7 +544,7 @@
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background: rgba(88, 101, 242, 0.15);
+  background: rgba(var(--theme-accent-rgb), 0.14);
   filter: blur(12px);
   pointer-events: none;
 }
@@ -562,8 +562,8 @@
   margin-bottom: 1rem;
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  background: rgba(88, 101, 242, 0.1);
-  color: #5865f2;
+  background: rgba(var(--theme-accent-rgb), 0.1);
+  color: var(--ifm-color-primary-dark);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -605,10 +605,10 @@
 
 .communityTopic {
   padding: 0.4rem 0.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(var(--theme-accent-rgb), 0.13);
   border-radius: 999px;
   color: #68686d;
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.72);
   font-size: 0.8rem;
   font-weight: 500;
 }
@@ -642,15 +642,15 @@
 
 .discordBtn {
   color: white !important;
-  background: #5865f2;
-  box-shadow: 0 10px 24px rgba(88, 101, 242, 0.28);
+  background: var(--ifm-color-primary);
+  box-shadow: 0 10px 24px rgba(var(--theme-accent-rgb), 0.28);
 }
 
 .discordBtn:hover {
   transform: translate3d(0, -3px, 0);
   color: white !important;
-  background: #4752c4;
-  box-shadow: 0 14px 30px rgba(88, 101, 242, 0.36);
+  background: var(--ifm-color-primary-dark);
+  box-shadow: 0 14px 30px rgba(var(--theme-accent-rgb), 0.36);
 }
 
 [data-theme='dark'] .discordBtn {
@@ -664,7 +664,7 @@
 }
 
 .qqBtn {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(var(--theme-accent-rgb), 0.12);
   color: var(--ifm-font-color-base) !important;
   background: rgba(255, 255, 255, 0.78);
 }
@@ -676,9 +676,9 @@
 
 .qqBtn:hover {
   transform: translate3d(0, -3px, 0);
-  border-color: rgba(88, 101, 242, 0.35);
+  border-color: rgba(var(--theme-accent-rgb), 0.35);
   color: var(--ifm-font-color-base) !important;
-  box-shadow: 0 12px 26px rgba(30, 31, 60, 0.1);
+  box-shadow: 0 12px 26px rgba(var(--theme-accent-rgb), 0.12);
 }
 
 [data-theme='dark'] .qqBtn:hover {
