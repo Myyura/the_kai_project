@@ -164,7 +164,7 @@ yarn api:sync
 项目通过多种渠道鼓励社区贡献：
 - Git Pull Request：适合熟悉 Git 的贡献者
 - 邮件投稿：适合希望通过邮件发送内容的用户
-- 社区讨论：通过 QQ 群讨论题目答案和考试经验，或通过 GitHub issues 告知我们答案错误
+- 社区讨论：通过 Discord 或 QQ 群讨论题目答案和备考经验，或通过 GitHub issues 告知我们答案错误
 
 ## 📝 格式规范
 `docs/` 下的题解文档请尽量遵循统一格式。
@@ -301,7 +301,9 @@ I have read and agree to The Kai Project CLA.
 如上所述，在邮件正文中包含 *“我已阅读并同意 The Kai Project CLA。”* 即可。
 
 # 💬 社区讨论
-The Kai Project 维护一个 QQ 群用于社区讨论考试解答和考试经验，或通过 GitHub issues 告知我们答案错误！
+欢迎加入 The Kai Project 的 Discord 或 QQ 群，讨论考试解答、分享备考经验并提供反馈。也可以通过 GitHub issues 告知我们答案错误。
+
+[加入 Discord](https://discord.gg/VcUHXzB9Mk)
 
 [QQ群：925154731](https://qm.qq.com/q/MVPd9wniQU)
 

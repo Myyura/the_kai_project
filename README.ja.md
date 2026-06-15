@@ -164,7 +164,7 @@ yarn api:sync
 このプロジェクトは複数のチャンネルを通じてコミュニティからの貢献を奨励しています。
 - Git Pull Request: Git に慣れている方向け
 - メール投稿: メールでの送信を希望する方向け
-- コミュニティ議論: QQ グループで解答や受験経験を共有したり、GitHub issues で誤りを知らせたりできます
+- コミュニティ議論: Discord または QQ グループで解答や受験経験を共有したり、GitHub issues で誤りを知らせたりできます
 
 ## 📝 フォーマットガイドライン
 `docs/` 配下の解答ドキュメントは、できるだけ統一フォーマットで投稿してください。
@@ -301,7 +301,9 @@ I have read and agree to The Kai Project CLA.
 上記のとおり、メール本文に *「私は The Kai Project CLA を読み、これに同意します。」* を含めてください。
 
 # 💬 コミュニティ議論
-The Kai Project では、試験解答や受験経験についてコミュニティディスカッション用の QQ グループを維持しています。解答に誤りがある場合は GitHub issues からも知らせてください。
+The Kai Project の Discord または QQ グループに参加して、試験解答や受験経験を共有し、フィードバックをお寄せください。解答に誤りがある場合は GitHub issues からも知らせてください。
+
+[Discord に参加](https://discord.gg/VcUHXzB9Mk)
 
 [QQグループ：925154731](https://qm.qq.com/q/MVPd9wniQU)
 

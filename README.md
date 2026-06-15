@@ -165,7 +165,7 @@ The first version gives all approved users the same free limits: `60 requests/mi
 The project encourages community contributions through multiple channels:
 - Git Pull Requests: For contributors familiar with Git
 - Email Submissions: For users who prefer to send content via email
-- Community Discussion: Discuss the answers to the questions and your experience with the exam via the QQ group, or let us know if the answers are wrong via GitHub issues!
+- Community Discussion: Discuss exam solutions and preparation experience via Discord or the QQ group, or report incorrect answers through GitHub issues!
 
 ## 📝 Formatting guidelines
 All answer-document contributions under `docs/` should follow a consistent structure.
@@ -302,7 +302,9 @@ If no statement is detected, the `CLA 检查` workflow will fail and leave a rem
 As mentioned above, include the statement *"I have read and agree to The Kai Project CLA."* in the email body.
 
 # 💬 Community Discussion
-The Kai Project maintains a QQ group for community discussion about exam solutions and your experience with the exam, or let us know if the answers are wrong via GitHub issues!
+Join The Kai Project community on Discord or QQ to discuss exam solutions, share preparation experience, and provide feedback. You can also report incorrect answers through GitHub issues.
+
+[Discord](https://discord.gg/VcUHXzB9Mk)
 
 [QQ Group: 925154731](https://qm.qq.com/q/MVPd9wniQU)
 
