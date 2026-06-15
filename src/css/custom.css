@@ -13,8 +13,21 @@
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
+  --theme-accent-rgb: 46, 133, 85;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Kai 夜间品牌色：深海军蓝、蓝青渐变与少量引导金 */
+  --kai-navy-950: #04152f;
+  --kai-navy-900: #061a36;
+  --kai-navy-800: #0a2854;
+  --kai-blue: #0b67c9;
+  --kai-blue-rgb: 11, 103, 201;
+  --kai-action: #0b67c9;
+  --kai-cyan: #35c6d9;
+  --kai-cyan-rgb: 53, 198, 217;
+  --kai-gold: #f0b84a;
+  --kai-gold-rgb: 240, 184, 74;
   
   /* Liquid Glass 设计系统变量 */
   --custom-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -35,20 +48,28 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #087dae;
+  --ifm-color-primary-dark: #06719e;
+  --ifm-color-primary-darker: #066b96;
+  --ifm-color-primary-darkest: #05577b;
+  --ifm-color-primary-light: #168bb9;
+  --ifm-color-primary-lighter: #2092bf;
+  --ifm-color-primary-lightest: #4ab0d0;
+  --theme-accent-rgb: 53, 198, 217;
+  --ifm-link-color: #62d7e5;
+  --ifm-link-hover-color: #8be5ee;
+  --ifm-background-color: #06172f;
+  --ifm-background-surface-color: #0a2345;
+  --ifm-navbar-background-color: rgba(6, 23, 47, 0.9);
+  --ifm-font-color-base: #dcecff;
+  --ifm-color-primary-contrast-foreground: #ffffff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
   /* 黑暗模式 Liquid Glass 设计系统变量 */
   --custom-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   --custom-box-shadow-hover: 0 14px 48px rgba(0, 0, 0, 0.35);
-  --custom-card-bg: rgba(37, 37, 40, 0.5);
-  --custom-card-border: rgba(255, 255, 255, 0.08);
+  --custom-card-bg: rgba(10, 35, 69, 0.65);
+  --custom-card-border: rgba(var(--kai-cyan-rgb), 0.1);
   --custom-text-primary: rgba(255, 255, 255, 0.96);
   --custom-text-secondary: rgba(255, 255, 255, 0.75);
   --custom-text-muted: rgba(255, 255, 255, 0.55);
@@ -56,12 +77,22 @@
 
 /* 添加黑暗模式下 heroBanner 的样式 */
 [data-theme='dark'] .hero--primary {
-  background-image: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+  background-image: linear-gradient(135deg, var(--kai-navy-900) 0%, var(--kai-blue) 62%, var(--kai-cyan) 100%);
 }
 
 /* 导航栏防换行 - 中等宽度视口缩小间距 */
 .navbar__inner {
   flex-wrap: nowrap;
+}
+
+.navbar__logo img {
+  border-radius: 8px;
+}
+
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(var(--kai-cyan-rgb), 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .navbar__items {
@@ -196,7 +227,7 @@ main {
   background: var(--ifm-color-primary-dark);
   color: #fff !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(46, 133, 85, 0.3);
+  box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.3);
 }
 
 .navbar__link--login::after {
@@ -220,13 +251,13 @@ main {
 }
 
 [data-theme='dark'] .navbar__link--login {
-  background: var(--ifm-color-primary);
-  box-shadow: 0 0 8px rgba(37, 194, 160, 0.2);
+  background: var(--kai-action);
+  box-shadow: 0 0 8px rgba(53, 198, 217, 0.2);
 }
 
 [data-theme='dark'] .navbar__link--login:hover {
-  background: var(--ifm-color-primary-light);
-  box-shadow: 0 4px 16px rgba(37, 194, 160, 0.35);
+  background: #1378e4;
+  box-shadow: 0 4px 16px rgba(53, 198, 217, 0.35);
 }
 
 [data-theme='dark'] .navbar__link--login-active {
@@ -239,7 +270,7 @@ main {
 [data-theme='dark'] .navbar__link--login-active:hover {
   background: var(--ifm-color-primary);
   color: #fff !important;
-  box-shadow: 0 4px 16px rgba(37, 194, 160, 0.35);
+  box-shadow: 0 4px 16px rgba(53, 198, 217, 0.35);
 }
 
 /* Reduce title size in blog list */
@@ -307,6 +338,11 @@ main {
   --ifm-footer-background-color: #1c1e21;
   --ifm-footer-padding-vertical: 20px; 
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .footer--dark {
+  --ifm-footer-background-color: var(--kai-navy-950);
+  border-top-color: rgba(var(--kai-cyan-rgb), 0.16);
 }
 
 .footer .container {
@@ -421,4 +457,3 @@ main {
     padding-top: 8px; 
   }
 }
-

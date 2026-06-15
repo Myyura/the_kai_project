@@ -102,7 +102,7 @@
   width: 42px;
   height: 42px;
   border-radius: var(--custom-border-radius-xs);
-  background: rgba(46, 133, 85, 0.12);
+  background: rgba(var(--theme-accent-rgb), 0.12);
   color: var(--ifm-color-primary);
   font-size: 1.1rem;
 }
@@ -197,7 +197,7 @@
 .requestForm textarea:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(46, 133, 85, 0.12);
+  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.12);
 }
 
 .requestForm {

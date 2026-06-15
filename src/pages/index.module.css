@@ -71,10 +71,10 @@
 
 [data-theme='dark'] .heroGradient {
   background: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.2), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(37, 194, 160, 0.15), transparent),
-    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(255, 107, 107, 0.1), transparent),
-    linear-gradient(180deg, #1a1a1c 0%, #0d0d0f 100%);
+    radial-gradient(ellipse 80% 52% at 50% -20%, rgba(var(--kai-blue-rgb), 0.3), transparent),
+    radial-gradient(ellipse 62% 42% at 82% 52%, rgba(var(--kai-cyan-rgb), 0.18), transparent),
+    radial-gradient(ellipse 45% 34% at 18% 82%, rgba(var(--kai-gold-rgb), 0.08), transparent),
+    linear-gradient(180deg, var(--kai-navy-800) 0%, var(--kai-navy-950) 100%);
 }
 
 .heroContent {
@@ -141,9 +141,14 @@
 }
 
 [data-theme='dark'] .heroTitle {
-  background: linear-gradient(135deg, #f5f5f7 0%, #a1a1a6 100%);
+  background: linear-gradient(135deg, #f5fbff 0%, var(--kai-cyan) 68%, #8de8f0 100%);
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+[data-theme='dark'] .heroTagline,
+[data-theme='dark'] .highlightSubtitle {
+  color: var(--kai-cyan);
 }
 
 /* 标语 */
@@ -190,12 +195,12 @@
 .primaryBtn {
   background: var(--ifm-color-primary);
   color: white !important;
-  box-shadow: 0 4px 14px rgba(46, 133, 85, 0.4);
+  box-shadow: 0 4px 14px rgba(var(--theme-accent-rgb), 0.4);
 }
 
 .primaryBtn:hover {
   transform: scale3d(1.02, 1.02, 1);
-  box-shadow: 0 6px 20px rgba(46, 133, 85, 0.5);
+  box-shadow: 0 6px 20px rgba(var(--theme-accent-rgb), 0.5);
   color: white !important;
   text-decoration: none;
 }
@@ -405,7 +410,7 @@
 }
 
 [data-theme='dark'] .highlightsSection {
-  background: #1d1d1f;
+  background: #081d3b;
 }
 
 .sectionTitle {
@@ -446,7 +451,7 @@
 }
 
 [data-theme='dark'] .highlightCard {
-  background: #2d2d2f;
+  background: #0b284d;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -505,7 +510,7 @@
 }
 
 [data-theme='dark'] .communitySection {
-  background: #1d1d1f;
+  background: #081d3b;
 }
 
 .communityCard {
@@ -526,9 +531,9 @@
 }
 
 [data-theme='dark'] .communityCard {
-  border-color: rgba(142, 150, 255, 0.2);
-  background: linear-gradient(135deg, #28282b 0%, #22222d 100%);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
+  border-color: rgba(53, 198, 217, 0.14);
+  background: #0b284d;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .communityGlow {
@@ -545,7 +550,7 @@
 }
 
 [data-theme='dark'] .communityGlow {
-  background: rgba(88, 101, 242, 0.22);
+  background: rgba(var(--kai-gold-rgb), 0.1);
 }
 
 .communityContent {
@@ -566,8 +571,8 @@
 }
 
 [data-theme='dark'] .communityEyebrow {
-  background: rgba(142, 150, 255, 0.14);
-  color: #aeb4ff;
+  background: rgba(var(--kai-gold-rgb), 0.14);
+  color: #f5ce7a;
 }
 
 .communityTitle {
@@ -648,6 +653,16 @@
   box-shadow: 0 14px 30px rgba(88, 101, 242, 0.36);
 }
 
+[data-theme='dark'] .discordBtn {
+  background: var(--kai-action);
+  box-shadow: 0 4px 14px rgba(53, 198, 217, 0.22);
+}
+
+[data-theme='dark'] .discordBtn:hover {
+  background: #1378e4;
+  box-shadow: 0 8px 22px rgba(53, 198, 217, 0.3);
+}
+
 .qqBtn {
   border: 1px solid rgba(0, 0, 0, 0.08);
   color: var(--ifm-font-color-base) !important;
@@ -664,6 +679,11 @@
   border-color: rgba(88, 101, 242, 0.35);
   color: var(--ifm-font-color-base) !important;
   box-shadow: 0 12px 26px rgba(30, 31, 60, 0.1);
+}
+
+[data-theme='dark'] .qqBtn:hover {
+  border-color: rgba(53, 198, 217, 0.4);
+  box-shadow: 0 8px 22px rgba(53, 198, 217, 0.12);
 }
 
 .communityBtnIcon {
@@ -705,7 +725,7 @@
 }
 
 [data-theme='dark'] .universitySection {
-  background: #0d0d0f;
+  background: var(--kai-navy-950);
 }
 
 /* 筛选栏 */
@@ -732,7 +752,7 @@
 }
 
 [data-theme='dark'] .filterSelect {
-  background-color: #2d2d2f;
+  background-color: #0a2345;
   border-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -743,7 +763,7 @@
 .filterSelect:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(46, 133, 85, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.1);
 }
 
 /* 大学瀑布流布局 */
@@ -766,7 +786,7 @@
 }
 
 [data-theme='dark'] .universityCard {
-  background: #1d1d1f;
+  background: #0a2345;
 }
 
 .universityCard:hover {
@@ -844,12 +864,12 @@
 }
 
 .deptLink:hover {
-  background: rgba(46, 133, 85, 0.05);
+  background: rgba(var(--theme-accent-rgb), 0.05);
   padding-left: 2.75rem;
 }
 
 [data-theme='dark'] .deptLink:hover {
-  background: rgba(37, 194, 160, 0.1);
+  background: rgba(53, 198, 217, 0.1);
 }
 
 .linkIcon {
@@ -871,7 +891,7 @@
 }
 
 [data-theme='dark'] .progressBannerSection {
-  background: #0d0d0f;
+  background: var(--kai-navy-950);
 }
 
 .progressBannerInner {
@@ -1083,7 +1103,7 @@
 }
 
 [data-theme='dark'] .ctaSection {
-  background: linear-gradient(180deg, #1d1d1f 0%, #0d0d0f 100%);
+  background: linear-gradient(180deg, #081d3b 0%, var(--kai-navy-950) 100%);
 }
 
 .ctaInner {
@@ -1131,12 +1151,12 @@
 .ctaPrimaryBtn {
   background: var(--ifm-color-primary);
   color: white !important;
-  box-shadow: 0 4px 14px rgba(46, 133, 85, 0.4);
+  box-shadow: 0 4px 14px rgba(var(--theme-accent-rgb), 0.4);
 }
 
 .ctaPrimaryBtn:hover {
   transform: scale3d(1.02, 1.02, 1);
-  box-shadow: 0 6px 20px rgba(46, 133, 85, 0.5);
+  box-shadow: 0 6px 20px rgba(var(--theme-accent-rgb), 0.5);
 }
 
 .ctaSecondaryBtn {

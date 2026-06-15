@@ -37,11 +37,11 @@
 .menuLinkActive {
   font-weight: 600;
   border-left: 3px solid var(--ifm-color-primary);
-  background: rgba(46, 133, 85, 0.08);
+  background: rgba(var(--theme-accent-rgb), 0.08);
 }
 
 [data-theme='dark'] .menuLinkActive {
-  background: rgba(37, 194, 160, 0.1);
+  background: rgba(53, 198, 217, 0.1);
 }
 
 .sidebarTitle {

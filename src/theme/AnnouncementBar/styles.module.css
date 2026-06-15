@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   height: var(--docusaurus-announcement-bar-height);
-  background: linear-gradient(135deg, rgba(46, 133, 85, 0.1), rgba(46, 133, 85, 0.05));
+  background: linear-gradient(135deg, rgba(var(--theme-accent-rgb), 0.1), rgba(var(--theme-accent-rgb), 0.05));
   backdrop-filter: var(--custom-blur-sm);
   -webkit-backdrop-filter: var(--custom-blur-sm);
   color: var(--custom-text-primary);
@@ -21,7 +21,7 @@
 }
 
 [data-theme='dark'] .announcementBar {
-  background: linear-gradient(135deg, rgba(37, 194, 160, 0.12), rgba(37, 194, 160, 0.06));
+  background: linear-gradient(135deg, rgba(53, 198, 217, 0.12), rgba(53, 198, 217, 0.06));
   border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 

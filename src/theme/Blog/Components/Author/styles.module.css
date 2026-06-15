@@ -83,9 +83,9 @@
   padding: 0.15rem 0.5rem;
   margin-left: 0.4rem;
   font-weight: 600;
-  box-shadow: 0 2px 6px rgba(46, 133, 85, 0.2);
+  box-shadow: 0 2px 6px rgba(var(--theme-accent-rgb), 0.2);
 }
 
 [data-theme='dark'] .authorBlogPostCount {
-  box-shadow: 0 2px 6px rgba(37, 194, 160, 0.2);
+  box-shadow: 0 2px 6px rgba(53, 198, 217, 0.2);
 }

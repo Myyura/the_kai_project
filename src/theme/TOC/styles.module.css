@@ -69,12 +69,12 @@
 :global(.table-of-contents__link--active) {
   font-weight: 600;
   color: var(--ifm-color-primary) !important;
-  background-color: rgba(46, 133, 85, 0.08);
+  background-color: rgba(var(--theme-accent-rgb), 0.08);
   border-left-color: var(--ifm-color-primary);
 }
 
 [data-theme='dark'] :global(.table-of-contents__link--active) {
-  background-color: rgba(37, 194, 160, 0.1);
+  background-color: rgba(53, 198, 217, 0.1);
 }
 
 /* 二级目录缩进 */

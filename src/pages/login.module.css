@@ -30,6 +30,10 @@
   text-align: center;
 }
 
+[data-theme='dark'] .cardHeader {
+  background: linear-gradient(135deg, var(--kai-navy-900) 0%, var(--kai-blue) 72%, var(--kai-cyan) 100%);
+}
+
 .cardIcon {
   font-size: 2.2rem;
   margin-bottom: 0.25rem;
@@ -129,7 +133,7 @@
 .input:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(46, 133, 85, 0.12);
+  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.12);
 }
 
 .forgotButton {
@@ -188,7 +192,7 @@
 .btnPrimary:hover:not(:disabled) {
   background: var(--ifm-color-primary-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(46, 133, 85, 0.25);
+  box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.25);
   color: #fff;
 }
 
@@ -350,7 +354,7 @@
 }
 
 [data-theme='dark'] .input:focus {
-  box-shadow: 0 0 0 3px rgba(37, 194, 160, 0.15);
+  box-shadow: 0 0 0 3px rgba(53, 198, 217, 0.15);
 }
 
 [data-theme='dark'] .messageSuccess {

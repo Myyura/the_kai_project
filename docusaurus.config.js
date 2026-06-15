@@ -241,9 +241,9 @@ const config = {
       navbar: {
         title: 'The Kai Project',
         logo: {
-          alt: 'Site Logo',
-          src: 'img/logo.svg',
-          srcDark: 'img/logo_dark.svg',
+          alt: 'Kai icon',
+          src: 'img/kai-icon-light.png',
+          srcDark: 'img/kai-icon.png',
         },
         items: [
           {

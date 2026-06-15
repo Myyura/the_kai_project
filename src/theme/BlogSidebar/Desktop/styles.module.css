@@ -77,12 +77,12 @@
 .sidebarItemLinkActive {
   color: var(--ifm-color-primary) !important;
   font-weight: 600;
-  background: rgba(46, 133, 85, 0.08);
+  background: rgba(var(--theme-accent-rgb), 0.08);
   border-left: 3px solid var(--ifm-color-primary);
 }
 
 [data-theme='dark'] .sidebarItemLinkActive {
-  background: rgba(37, 194, 160, 0.1);
+  background: rgba(53, 198, 217, 0.1);
 }
 
 @media (max-width: 996px) {

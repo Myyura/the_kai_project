@@ -46,7 +46,7 @@
 }
 
 [data-theme='dark'] .pageTitle {
-  background: linear-gradient(135deg, #f5f5f7 0%, #a1a1a6 100%);
+  background: linear-gradient(135deg, #f5fbff 0%, var(--kai-cyan) 68%, #8de8f0 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -58,6 +58,10 @@
   margin: 0 auto;
   line-height: 1.6;
   animation: fadeInUp 0.8s ease-out 0.1s backwards;
+}
+
+[data-theme='dark'] .pageSubtitle {
+  color: #a9bbcf;
 }
 
 /* ===== 语言切换 ===== */
@@ -158,7 +162,7 @@
 }
 
 [data-theme='dark'] .linkCard {
-  background: #1d1d1f;
+  background: #0a2345;
 }
 
 .linkCard:hover {
@@ -217,6 +221,10 @@
   overflow: hidden;
 }
 
+[data-theme='dark'] .cardDesc {
+  color: #a9bbcf;
+}
+
 /* 卡片底部 */
 .cardFooter {
   display: flex;
@@ -236,6 +244,10 @@
   display: flex;
   align-items: center;
   gap: 0.35rem;
+}
+
+[data-theme='dark'] .domainText {
+  color: #91a8c1;
 }
 
 .domainText svg {
@@ -269,12 +281,12 @@
 /* ===== 就职链接卡片 - 特殊样式 ===== */
 .jobCard {
   background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%);
-  border: 1px solid rgba(46, 133, 85, 0.1);
+  border: 1px solid rgba(var(--theme-accent-rgb), 0.1);
 }
 
 [data-theme='dark'] .jobCard {
-  background: linear-gradient(135deg, #1d1d1f 0%, #252528 100%);
-  border-color: rgba(37, 194, 160, 0.15);
+  background: linear-gradient(135deg, #0a2345 0%, #0b2b53 100%);
+  border-color: rgba(53, 198, 217, 0.15);
 }
 
 .jobCard:hover {

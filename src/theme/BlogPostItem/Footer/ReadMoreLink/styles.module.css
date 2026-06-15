@@ -15,24 +15,24 @@
   font-weight: 600;
   transition: var(--custom-transition);
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(46, 133, 85, 0.2);
+  box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.2);
 }
 
 .readMoreLink:hover {
   background: linear-gradient(135deg, var(--ifm-color-primary-dark), var(--ifm-color-primary-darker));
   color: var(--ifm-color-white);
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(46, 133, 85, 0.25);
+  box-shadow: 0 6px 18px rgba(var(--theme-accent-rgb), 0.25);
   text-decoration: none;
 }
 
 [data-theme='dark'] .readMoreLink {
   background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-darker));
-  box-shadow: 0 4px 12px rgba(37, 194, 160, 0.2);
+  box-shadow: 0 4px 12px rgba(53, 198, 217, 0.2);
 }
 
 [data-theme='dark'] .readMoreLink:hover {
-  box-shadow: 0 6px 18px rgba(37, 194, 160, 0.25);
+  box-shadow: 0 6px 18px rgba(53, 198, 217, 0.25);
 }
 
 .readMoreLabel {
