@@ -13,7 +13,7 @@ const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';
 const API_LOG_SALT = Deno.env.get('API_LOG_SALT') || 'kai-api';
 const API_VERSION = 'v1';
 const SITE_URL = 'https://runjp.com';
-const CONTENT_NOTICE = 'The Kai Project API content is provided for personal study and research use only. Commercial use requires permission from the relevant rights holders.';
+const CONTENT_NOTICE = 'Core public content remains openly accessible on The Kai Project. API access, bulk reuse, redistribution, commercial integration, and other uses beyond ordinary browsing and personal study are subject to the project content/API terms and any applicable third-party rights.';
 const CATALOG_CACHE_TTL_MS = 10 * 60 * 1000;
 
 let supabaseClient: ReturnType<typeof createClient> | null = null;
@@ -56,7 +56,10 @@ function withEnvelope(payload: Record<string, unknown>) {
   return {
     apiVersion: API_VERSION,
     sourceUrl: SITE_URL,
-    license: 'AGPL-3.0',
+    license: {
+      code: 'AGPL-3.0',
+      content: 'See The Kai Project content/API terms and third-party rights notices.',
+    },
     contentNotice: CONTENT_NOTICE,
     ...payload,
   };

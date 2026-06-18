@@ -42,7 +42,11 @@ To the maximum extent permitted by the relevant law, and subject to the terms an
 
 Based on the grant of rights in Sections 2.1 and 2.2, if We include Your Contribution in a Material, We may license the Contribution under any license, including copyleft, permissive, commercial, or proprietary licenses.
 
-### 2.4 Moral Rights
+### 2.4 Public Core Content Commitment
+
+Contributions accepted into the public core archive of The Kai Project, including community-contributed exam references, public solutions, study materials, and related documentation, are intended to remain publicly accessible as part of the Project's open-source public archive. The Kai Project may still provide supporting services, APIs, learning tools, tutoring support, hosting, partnerships, or other operational arrangements to support long-term maintenance and development, provided that such arrangements do not remove the public accessibility of Contributions already accepted into the public core archive.
+
+### 2.5 Moral Rights
 
 To the fullest extent permitted by law, You hereby waive, and agree not to assert, all of Your "moral rights" in or relating to Your Contributions for the benefit of The Kai Project, its assigns, and their respective direct and indirect sublicensees.
 

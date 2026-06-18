@@ -17,13 +17,19 @@
 </div>
 
 # 📖 Introduction
-The Kai Project is an open-source platform for sharing Japanese graduate school entrance exam questions, solutions, and preparation experience. In addition to the content library itself, the site now includes study tools that help users track progress, take notes, and sync practice records across devices.
+The Kai Project is an open-source platform for Japanese graduate school entrance exam archives, public solutions, and preparation experience. In addition to the content library itself, the site now includes study tools that help users track progress, take notes, and sync practice records across devices.
 
 ```text
 "Answer to the Ultimate Question of Life, the Universe, and Everything"
 ```
 
 Project website: [Japanese graduate school entrance exam answers](https://runjp.com/)
+
+## Open Source and Sustainable Operation
+
+The Kai Project is built around an open-source project and a public study archive. Community-maintained exam indexes, public solutions, study materials, and related documentation form the project's core public content and are intended to remain openly accessible to learners.
+
+To support long-term maintenance, technical services, and community operations, the project may explore sustainable operation around learning tools, account features, data APIs, tutoring support, or partner integrations. These supporting services or partnership arrangements do not change the open-access nature of the core public content.
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/sample.png" width="700" alt=""/>
@@ -83,7 +89,7 @@ yarn api:validate
 Contributor-editable content data lives in JSON files under `src/data/`: `links.json`, `admissions.json`, `universityMetadata.json`, and `tagTaxonomy.json`. The generated `universities.js`, `siteStats.json`, and `docs/tags.yml` files should be refreshed with the scripts above.
 
 ## Optional cloud sync configuration
-The site works without any cloud credentials: documentation pages, blog posts, local progress tracking, and local notes still work. If the environment variables below are not set, login, cloud sync, and the leaderboard are unavailable.
+The site works without any cloud credentials: core public content such as documentation pages, blog posts, exam pages, and public solutions remains accessible. If the environment variables below are not set, login, personal center, progress/notes, cloud sync, and the leaderboard are unavailable.
 
 ```bash
 export SUPABASE_URL="https://your-project.supabase.co"
@@ -104,7 +110,7 @@ Registered users can request JSON API access in the developer center. After a pr
 
 ### For registered users
 1. Log in on the website and open `/developers`, then enter the JSON API feature. You can also open `/developers/api` directly.
-2. Submit an API access request. Intended use is optional; mark the commercial-use checkbox when applicable.
+2. Submit an API access request. Intended use is optional; if the use involves an organization, bulk reuse, or commercial integration, please describe it in the request.
 3. Wait for project maintainer review. Once approved, the page will allow API key creation.
 4. Create an API key and save the `kai_live_...` value immediately.
 5. Call the content API with `Authorization: Bearer kai_live_...`. The content API does not accept anonymous requests or login JWTs.
@@ -131,7 +137,7 @@ curl -H "Authorization: Bearer kai_live_..." \
   "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache"
 ```
 
-Responses always include `apiVersion`, `sourceUrl`, `license`, and `contentNotice`. Content is provided for personal study and research use only; commercial use requires separate permission.
+Responses always include `apiVersion`, `sourceUrl`, `license`, and `contentNotice`. Core public content remains openly accessible; API access, bulk reuse, redistribution, commercial integration, and other uses beyond ordinary browsing and personal study are subject to the project's separately published content/API terms, and users are responsible for obtaining any necessary permissions from the relevant rights holders.
 
 ### For project maintainers
 The project exposes exam data through Supabase Edge Functions while reusing the existing login system as the developer identity layer.
@@ -159,13 +165,15 @@ This command mirrors the current `docs/` tree: it upserts current documents and 
 4. Confirm the Supabase Function secrets include `API_LOG_SALT`, and disable JWT verification for both functions.
 5. Review requests in the `api_access_requests` table from the Supabase Dashboard: set `status` to `approved` to allow key creation, or use `rejected` / `revoked` to deny or pause access.
 
-The first version gives all approved users the same free limits: `60 requests/minute` and up to `3` active keys. `api_access_requests` and `api_keys` already reserve fields such as `plan` and `commercial_allowed` for future commercial plans and tiered quotas.
+The first version gives all approved users the same baseline access configuration: `60 requests/minute` and up to `3` active keys. `api_access_requests` and `api_keys` already reserve fields such as `plan` and `commercial_allowed` for future partner access, institutional scenarios, and tiered quota management.
 
 # 👏 Contribution
 The project encourages community contributions through multiple channels:
 - Git Pull Requests: For contributors familiar with Git
 - Email Submissions: For users who prefer to send content via email
 - Community Discussion: Discuss exam solutions and preparation experience via Discord or the QQ group, or report incorrect answers through GitHub issues!
+
+Contributions merged into the public exam archive and public solution library become part of The Kai Project's core public content and are intended to remain openly accessible. Sustainable operation around learning tools, data APIs, tutoring support, or partner integrations does not change the open-access nature of these accepted core public contributions.
 
 ## 📝 Formatting guidelines
 All answer-document contributions under `docs/` should follow a consistent structure.
@@ -312,6 +320,8 @@ Feedback received through community discussions may be incorporated into the rep
 
 # ©️ License and Copyright
 All code contributions to The Kai Project are subject to the GNU Affero General Public License v3.0.
+
+Public solution, study-material, and documentation contributions are governed by the [Contributor License Agreement (CLA)](CLA.md). The project keeps core public content accessible as part of its open-source public archive while preserving room for long-term operation around supporting tools, APIs, service support, and partnership scenarios.
 
 In addition, exam question copyright belongs to the respective schools/institutions.
 

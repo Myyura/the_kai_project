@@ -92,7 +92,7 @@ export const UI_MESSAGES = {
   home: {
     zh: {
       heroTagline: '破除信息之壁',
-      heroDescription: '开源的日本大学院入试过去问答案共享平台',
+      heroDescription: '开源的日本大学院入试过去问与公开题解共享平台',
       viewPastExams: '浏览过去问',
       viewExperiences: '阅读经验贴',
       statsExams: '份过去问',
@@ -100,7 +100,7 @@ export const UI_MESSAGES = {
       statsCommunity: '活跃社区',
       highlightTitle: '为什么选择我们',
       highlights: [
-        {title: '完全开源', subtitle: '透明无隐藏', description: '所有内容公开透明，无付费墙，无信息壁垒'},
+        {title: '完全开源', subtitle: '透明无隐藏', description: '核心题库与公开题解持续开放访问，降低备考信息壁垒'},
         {title: '海量真题', subtitle: '覆盖主流院校', description: '汇集东大、京大、阪大等名校历年真题与解析'},
         {title: '社区驱动', subtitle: '共建共享', description: '加入 Discord 或 QQ 群，与考生和前辈交流备考经验'},
       ],
@@ -130,7 +130,7 @@ export const UI_MESSAGES = {
     },
     ja: {
       heroTagline: '情報の壁を打ち破る',
-      heroDescription: 'オープンソースの大学院入試過去問解答共有プラットフォーム',
+      heroDescription: 'オープンソースの大学院入試過去問・公開解答共有プラットフォーム',
       viewPastExams: '過去問を見る',
       viewExperiences: '合格体験記',
       statsExams: '件の過去問',
@@ -138,7 +138,7 @@ export const UI_MESSAGES = {
       statsCommunity: 'コミュニティ',
       highlightTitle: '選ばれる理由',
       highlights: [
-        {title: '完全オープンソース', subtitle: '透明性を重視', description: 'すべてのコンテンツを無料で公開、隠れた料金なし'},
+        {title: '完全オープンソース', subtitle: '透明性を重視', description: '中核的な過去問と公開解答を継続的にオープンアクセスで提供'},
         {title: '豊富な過去問', subtitle: '主要大学をカバー', description: '東大・京大・阪大など有名大学の過去問と解答を収録'},
         {title: 'コミュニティ主導', subtitle: '共に作る', description: 'DiscordまたはQQグループで受験生同士の情報交換ができます'},
       ],
@@ -168,7 +168,7 @@ export const UI_MESSAGES = {
     },
     en: {
       heroTagline: 'Break the information barrier',
-      heroDescription: 'An open-source archive of Japanese graduate school entrance exam solutions',
+      heroDescription: 'An open-source platform for Japanese graduate school entrance exam archives and public solutions',
       viewPastExams: 'Browse Past Exams',
       viewExperiences: 'Read Stories',
       statsExams: 'exam files',
@@ -176,7 +176,7 @@ export const UI_MESSAGES = {
       statsCommunity: 'active community',
       highlightTitle: 'Why Use Kai',
       highlights: [
-        {title: 'Open Source', subtitle: 'Transparent by default', description: 'All content is public, free to inspect, and kept outside paywalls.'},
+        {title: 'Open Source', subtitle: 'Transparent by default', description: 'Core exam archives and public solutions remain openly accessible.'},
         {title: 'Large Exam Archive', subtitle: 'Major schools covered', description: 'Past exams and solutions from UTokyo, Kyoto, Osaka, and more.'},
         {title: 'Community Driven', subtitle: 'Built together', description: 'Join Discord or QQ to share notes, solutions, and preparation experience.'},
       ],

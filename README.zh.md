@@ -17,13 +17,19 @@
 </div>
 
 # 📖 项目介绍
-The Kai Project 是一个面向日本大学院入试过去问、答案与备考经验分享的开源平台。除了资料库本身，站点现在也提供了做题进度追踪、题目笔记和跨设备同步等学习工具，帮助用户更系统地备考。
+The Kai Project 是一个面向日本大学院入试过去问、公开题解与备考经验分享的开源平台。除了资料库本身，站点现在也提供了做题进度追踪、题目笔记和跨设备同步等学习工具，帮助用户更系统地备考。
 
 ```text
 "Answer to the Ultimate Question of Life, the Universe, and Everything"
 ```
 
 项目网站：[日本大学院入学考试答案](https://runjp.com/)
+
+## 开源项目与可持续运营
+
+The Kai Project 以开源项目和公开资料库为基础。由社区共同维护的题库索引、公开题解、备考资料及相关说明，作为项目的核心公开内容，将持续面向公众提供开放访问。
+
+为支持项目的长期维护、技术服务和社区运营，项目可能围绕学习工具、账号功能、数据接口、辅导支持或合作接入等方向探索可持续运营方式。相关功能或合作安排不会改变核心公开内容的开放访问属性。
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/sample.png" width="700" alt=""/>
@@ -82,7 +88,7 @@ yarn api:validate
 贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`admissions.json`、`universityMetadata.json` 和 `tagTaxonomy.json`。自动生成的 `universities.js`、`siteStats.json` 和 `docs/tags.yml` 可用上面的脚本刷新。
 
 ## 可选的云同步配置
-即使不配置云端环境变量，站点的核心功能仍可正常使用，包括文档、博客、本地做题进度和本地笔记。若不配置下面这些变量，则登录、云同步和排行榜功能不可用。
+即使不配置云端环境变量，站点的核心公开内容仍可正常访问，包括文档、博客、题目与题解。若不配置下面这些变量，则登录、个人中心、进度/笔记、云同步和排行榜功能不可用。
 
 ```bash
 export SUPABASE_URL="https://your-project.supabase.co"
@@ -103,7 +109,7 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 
 ### 注册用户如何使用
 1. 登录网站后访问 `/developers`，进入 JSON API 功能。也可以直接打开 `/developers/api`。
-2. 填写 API 访问申请；使用目的为选填项，商业用途请如实勾选。
+2. 填写 API 访问申请；使用目的为选填项，如涉及机构项目、批量复用或商业性接入，请在申请中如实说明。
 3. 等待项目维护者审核。审核通过后，页面会开放 API Key 创建功能。
 4. 创建一个 API Key，并保存 `kai_live_...` 明文。
 5. 使用 `Authorization: Bearer kai_live_...` 调用内容 API。内容 API 不接受匿名请求或登录 JWT。
@@ -130,7 +136,7 @@ curl -H "Authorization: Bearer kai_live_..." \
   "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache"
 ```
 
-响应固定包含 `apiVersion`、`sourceUrl`、`license`、`contentNotice`。内容仅限个人学习研究使用，商业使用需另行取得许可。
+响应固定包含 `apiVersion`、`sourceUrl`、`license`、`contentNotice`。核心公开内容保持开放访问；API 访问、批量复用、再分发、商业性接入及其他超出普通浏览和个人学习范围的使用，应遵守项目另行公布的内容/API条款，并自行确保取得相关权利人的必要授权。
 
 ### 项目维护者如何部署
 本项目复用现有登录系统作为开发者身份层，并通过 Supabase Edge Functions 对外提供题目与答案 JSON。
@@ -158,13 +164,15 @@ yarn api:sync
 4. 确认 Supabase Function secrets 已配置 `API_LOG_SALT`，并关闭两个函数的 JWT verification。
 5. 通过 Supabase Dashboard 审核 `api_access_requests` 表中的申请：将 `status` 改为 `approved` 即可允许用户创建 API Key；可用 `rejected` 或 `revoked` 拒绝或暂停访问。
 
-第一版默认所有通过用户使用相同免费额度：`60 requests/minute`、最多 `3` 个 active key。`api_access_requests` 和 `api_keys` 中已经预留 `plan`、`commercial_allowed` 等字段，后续可用于商业化和分层配额。
+第一版默认所有通过用户使用相同基础访问配置：`60 requests/minute`、最多 `3` 个 active key。`api_access_requests` 和 `api_keys` 中已经预留 `plan`、`commercial_allowed` 等字段，后续可用于合作接入、机构场景和分层配额管理。
 
 # 👏 贡献方式
 项目通过多种渠道鼓励社区贡献：
 - Git Pull Request：适合熟悉 Git 的贡献者
 - 邮件投稿：适合希望通过邮件发送内容的用户
 - 社区讨论：通过 Discord 或 QQ 群讨论题目答案和备考经验，或通过 GitHub issues 告知我们答案错误
+
+合并进入公开题库与公开题解库的贡献，将作为 The Kai Project 核心公开内容的一部分持续开放访问。项目围绕学习工具、数据接口、辅导支持或合作接入开展的可持续运营探索，不改变这些已合并核心公开内容的开放访问属性。
 
 ## 📝 格式规范
 `docs/` 下的题解文档请尽量遵循统一格式。
@@ -311,6 +319,8 @@ I have read and agree to The Kai Project CLA.
 
 # ©️ 许可证和版权
 对 The Kai Project 的所有代码贡献都受 GNU Affero General Public License v3.0 约束。
+
+公开题解、备考资料与相关文档贡献适用 [贡献者许可协议（CLA）](CLA.md)。项目将核心公开内容作为开源共享资料库的一部分持续提供访问，同时保留围绕配套工具、API、服务支持和合作场景进行长期运营的空间。
 
 此外，考试题目版权归各自的学校/机构所有。
 

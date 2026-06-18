@@ -415,7 +415,7 @@ create table if not exists api_access_requests (
   intended_use               text not null default '',
   commercial_use             boolean not null default false,
 
-  -- 商业化/访问级别预留字段：第一版统一使用 free 配置。
+  -- 合作接入/访问级别预留字段：第一版统一使用基础配置。
   plan                       text not null default 'free',
   rate_limit_per_minute      integer not null default 60,
   max_active_keys            integer not null default 3,

@@ -9,9 +9,10 @@ const content = {
       {
         title: '版权声明',
         items: [
-          '本网站属公益性网络服务平台，所有内容与服务均基于非商业、非盈利、非广告目的提供。',
+          '本网站以开源项目和公开资料库为基础，核心公开内容包括题库索引、社区贡献题解、公开备考资料及相关说明。上述内容将持续面向公众开放访问，用于支持个人学习、研究与备考参考。',
+          '为保障项目长期维护、技术服务与社区运营，本网站可能提供与学习体验、账号功能、数据接口、辅导支持或合作接入相关的配套功能。此类功能的提供方式不影响核心公开内容的开放访问属性。',
           '网站部分内容为个人学习、研究目的而合理使用他人已发表作品，在注明作者及出处前提下依法转载。如权利人认为涉嫌侵权，请于14个工作日内发送邮件至376672994@qq.com，我们将第一时间核实并按照权利人要求进行更正或删除。',
-          '用户通过本网站获取的学术资料、文献等内容，仅限于个人学习研究使用，不得用于商业用途。任何商业机构未经著作权人书面授权不得擅自使用。',
+          '用户如需对公开内容进行批量复制、再分发、商业性接入或其他超出普通浏览和个人学习范围的使用，应遵守本网站另行公布的内容/API条款，并自行确保取得相关权利人的必要授权。',
         ],
       },
       {
@@ -32,7 +33,11 @@ const content = {
         items: [
           {
             subtitle: '我们收集您的哪些信息',
-            content: '根据您的选择和终端配置（尤其是Cookie和其它跟踪器），当您访问我们的网站时，我们的服务器会自动收集某些浏览器或设备生成的信息，包括但不限于：您的访问的域名；您的访问日期、时间和持续时长；浏览器类型；操作系统。',
+            content: '根据您的选择和终端配置（尤其是Cookie和其它跟踪器），当您访问我们的网站时，我们的服务器会自动收集某些浏览器或设备生成的信息，包括但不限于：您的访问的域名；您的访问日期、时间和持续时长；浏览器类型；操作系统。若您使用登录、个人中心、云同步、排行榜或开发者 API 功能，我们还可能处理您的账号邮箱、认证标识、学习进度、题目笔记、复习状态、同步记录、API 访问申请信息、API Key 元数据及必要的调用日志。',
+          },
+          {
+            subtitle: '信息使用目的',
+            content: '上述信息主要用于提供账号登录、学习数据同步、个人中心展示、排行榜、API 访问审核、安全风控、服务维护和用户支持。我们会根据功能需要采取合理的数据最小化措施。',
           },
           {
             subtitle: '个人信息的跨境转移',
@@ -68,9 +73,10 @@ const content = {
       {
         title: '著作権について',
         items: [
-          '本ウェブサイトは公益性のあるネットワークサービスプラットフォームであり、すべてのコンテンツとサービスは非商業的、非営利、非広告目的で提供されています。',
+          '本ウェブサイトはオープンソースプロジェクトと公開学習アーカイブを基盤としており、問題カタログ、コミュニティによる公開解答、公開学習資料および関連説明を中核的な公開コンテンツと位置づけています。これらのコンテンツは、個人の学習、研究、受験準備を支援するため、継続的に公開アクセス可能な形で提供されます。',
+          'プロジェクトの継続的な保守、技術サービス、コミュニティ運営を支えるため、本ウェブサイトは学習体験、アカウント機能、データ API、学習支援、提携連携等に関連する補助的な機能を提供する場合があります。これらの提供形態は、中核的な公開コンテンツの公開アクセス性を変更するものではありません。',
           '本ウェブサイトの一部のコンテンツは、著作権法第32条に基づく「引用」として、個人の学習・研究目的で他者の公表された著作物を利用しています。出典を明記した上で適法に引用しております。権利者の方で著作権侵害の恐れがあるとお考えの場合は、14営業日以内に376672994@qq.comまでメールにてご連絡ください。確認の上、権利者の方のご要望に応じて訂正または削除いたします。',
-          '利用者が本ウェブサイトから取得した学術資料、文献等のコンテンツは、個人の学習研究目的に限り使用でき、商業目的での使用は禁止されています。著作権者の書面による許諾なく、いかなる商業機関も使用することはできません。',
+          '公開コンテンツの一括複製、再配布、商業的な接続、または通常の閲覧・個人学習の範囲を超える利用を行う場合は、本ウェブサイトが別途公表するコンテンツ/API 条項を遵守し、必要に応じて関連する権利者から適切な許諾を得てください。',
         ],
       },
       {
@@ -91,7 +97,11 @@ const content = {
         items: [
           {
             subtitle: '収集する情報',
-            content: 'お客様の選択と端末の設定（特にCookieおよびその他のトラッキング技術）に応じて、お客様が本ウェブサイトにアクセスした際、当方のサーバーはブラウザまたはデバイスが生成する特定の情報を自動的に収集します。これには、アクセスしたドメイン名、アクセス日時と滞在時間、ブラウザの種類、オペレーティングシステムが含まれますが、これらに限定されません。',
+            content: 'お客様の選択と端末の設定（特にCookieおよびその他のトラッキング技術）に応じて、お客様が本ウェブサイトにアクセスした際、当方のサーバーはブラウザまたはデバイスが生成する特定の情報を自動的に収集します。これには、アクセスしたドメイン名、アクセス日時と滞在時間、ブラウザの種類、オペレーティングシステムが含まれますが、これらに限定されません。ログイン、マイページ、クラウド同期、ランキング、開発者 API を利用する場合、アカウントのメールアドレス、認証 ID、学習進捗、問題ノート、復習状態、同期記録、API アクセス申請情報、API Key のメタデータ、必要な呼び出しログを処理することがあります。',
+          },
+          {
+            subtitle: '情報の利用目的',
+            content: 'これらの情報は主に、ログイン、学習データ同期、マイページ表示、ランキング、API アクセス審査、安全対策、サービス保守、ユーザーサポートのために利用します。機能上必要な範囲で、合理的なデータ最小化に努めます。',
           },
           {
             subtitle: '個人情報の越境移転',
@@ -127,9 +137,10 @@ const content = {
       {
         title: 'Copyright Notice',
         items: [
-          'This website is a public-interest online service platform. All content and services are provided for non-commercial, non-profit, and non-advertising purposes.',
+          'This website is built around an open-source project and a public study archive. Its core public content includes the exam catalog, community-contributed public solutions, public study materials, and related documentation. These materials are provided with continuing public access to support personal study, research, and exam preparation.',
+          'To support long-term maintenance, technical services, and community operations, this website may provide supporting features related to learning experience, account services, data APIs, tutoring support, or partner integrations. The way these supporting features are provided does not change the open-access nature of the core public content.',
           'Some materials on this website may include reasonable use of published works by third parties for personal study and research purposes, with authorship and source information indicated where applicable. If a rights holder believes that any content may infringe their rights, please contact us by email at 376672994@qq.com within 14 business days. We will review the request promptly and correct or remove the relevant content as appropriate.',
-          'Academic materials, references, and other content obtained through this website are limited to personal study and research use. They may not be used for commercial purposes. No commercial organization may use such materials without written authorization from the relevant copyright holder.',
+          'Bulk copying, redistribution, commercial integration, or any other use of public content beyond ordinary browsing and personal study must comply with the content/API terms separately published by this website, and users are responsible for obtaining any necessary permissions from the relevant rights holders.',
         ],
       },
       {
@@ -150,7 +161,11 @@ const content = {
         items: [
           {
             subtitle: 'Information We Collect',
-            content: 'Depending on your choices and device settings, especially cookies and other tracking mechanisms, our servers may automatically collect certain information generated by your browser or device when you visit this website. Such information may include, but is not limited to, the domain name you visit from, the date, time, and duration of your visit, browser type, and operating system.',
+            content: 'Depending on your choices and device settings, especially cookies and other tracking mechanisms, our servers may automatically collect certain information generated by your browser or device when you visit this website. Such information may include, but is not limited to, the domain name you visit from, the date, time, and duration of your visit, browser type, and operating system. If you use login, personal center, cloud sync, leaderboard, or developer API features, we may also process your account email, authentication identifier, study progress, problem notes, review status, sync records, API access request information, API key metadata, and necessary request logs.',
+          },
+          {
+            subtitle: 'How We Use Information',
+            content: 'We use this information primarily to provide authentication, learning data sync, personal center views, leaderboard features, API access review, security controls, service maintenance, and user support. We take reasonable steps to limit processing to what is necessary for the relevant feature.',
           },
           {
             subtitle: 'Cross-Border Transfer of Personal Information',

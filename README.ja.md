@@ -17,13 +17,19 @@
 </div>
 
 # 📖 はじめに
-The Kai Project は、日本の大学院入試過去問、解答、受験経験を共有するためのオープンソースプラットフォームです。資料アーカイブだけでなく、学習進捗管理、問題ごとのノート、デバイス間同期など、日々の勉強に役立つ機能も備えています。
+The Kai Project は、日本の大学院入試過去問、公開解答、受験経験を共有するためのオープンソースプラットフォームです。資料アーカイブだけでなく、学習進捗管理、問題ごとのノート、デバイス間同期など、日々の勉強に役立つ機能も備えています。
 
 ```text
 "Answer to the Ultimate Question of Life, the Universe, and Everything"
 ```
 
 プロジェクトウェブサイト: [日本の大学院入試問題解答](https://runjp.com/)
+
+## オープンソースと継続的な運営
+
+The Kai Project はオープンソースプロジェクトと公開学習アーカイブを基盤としています。コミュニティによって維持される過去問インデックス、公開解答、学習資料および関連ドキュメントは、プロジェクトの中核的な公開コンテンツとして、学習者が継続的にアクセスできる形で提供されます。
+
+長期的な保守、技術サービス、コミュニティ運営を支えるため、プロジェクトは学習ツール、アカウント機能、データ API、学習支援、提携連携などに関する持続可能な運営方法を検討する場合があります。これらの補助的なサービスや連携は、中核的な公開コンテンツのオープンアクセス性を変更するものではありません。
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/sample.png" width="700" alt=""/>
@@ -82,7 +88,7 @@ yarn api:validate
 コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`admissions.json`、`universityMetadata.json`、`tagTaxonomy.json` にあります。生成ファイルの `universities.js`、`siteStats.json`、`docs/tags.yml` は上記スクリプトで更新できます。
 
 ## 任意のクラウド同期設定
-クラウド用の環境変数がなくても、ドキュメント、ブログ、ローカル進捗、ローカルノートなどの基本機能はそのまま使えます。以下の変数を設定しない場合、ログイン、クラウド同期、ランキングは利用できません。
+クラウド用の環境変数がなくても、ドキュメント、ブログ、過去問ページ、公開解答などの中核的な公開コンテンツは引き続き利用できます。以下の変数を設定しない場合、ログイン、マイページ、進捗/ノート、クラウド同期、ランキングは利用できません。
 
 ```bash
 export SUPABASE_URL="https://your-project.supabase.co"
@@ -103,7 +109,7 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 
 ### 登録ユーザー向けの使い方
 1. Web サイトにログインし、`/developers` から JSON API 機能に入ります。`/developers/api` を直接開くこともできます。
-2. API アクセスを申請します。利用目的は任意項目です。商用利用を含む場合はチェックしてください。
+2. API アクセスを申請します。利用目的は任意項目です。組織での利用、一括再利用、商業的な接続を含む場合は、申請内容にその旨を記載してください。
 3. プロジェクトメンテナーの審査を待ちます。承認後、このページで API Key を作成できます。
 4. API Key を作成し、`kai_live_...` の値をすぐに保存します。
 5. `Authorization: Bearer kai_live_...` を付けて Content API を呼び出します。Content API は匿名リクエストやログイン JWT を受け付けません。
@@ -130,7 +136,7 @@ curl -H "Authorization: Bearer kai_live_..." \
   "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache"
 ```
 
-レスポンスには常に `apiVersion`、`sourceUrl`、`license`、`contentNotice` が含まれます。コンテンツは個人の学習・研究目的で提供され、商用利用には別途許可が必要です。
+レスポンスには常に `apiVersion`、`sourceUrl`、`license`、`contentNotice` が含まれます。中核的な公開コンテンツはオープンにアクセスできますが、API アクセス、一括再利用、再配布、商業的な接続、通常の閲覧や個人学習の範囲を超える利用については、プロジェクトが別途公表するコンテンツ/API 条項に従い、必要に応じて関連する権利者から適切な許諾を得る必要があります。
 
 ### プロジェクトメンテナー向けのデプロイ
 このプロジェクトは既存のログインシステムを開発者 ID として再利用し、Supabase Edge Functions から過去問と解答 JSON を提供します。
@@ -158,13 +164,15 @@ yarn api:sync
 4. Supabase Function secrets に `API_LOG_SALT` が設定されていることを確認し、両方の function で JWT verification を無効にします。
 5. Supabase Dashboard で `api_access_requests` テーブルの申請を確認します。`status` を `approved` に変更すると API Key 作成を許可できます。拒否または停止する場合は `rejected` / `revoked` を使います。
 
-最初のバージョンでは、承認済みユーザーは全員同じ無料枠を使います: `60 requests/minute`、active key は最大 `3` 個です。`api_access_requests` と `api_keys` には、将来の商用プランや段階的なクォータのために `plan`、`commercial_allowed` などのフィールドを予約しています。
+最初のバージョンでは、承認済みユーザーは全員同じ基本アクセス設定を使用します: `60 requests/minute`、active key は最大 `3` 個です。`api_access_requests` と `api_keys` には、将来の提携アクセス、機関利用、段階的なクォータ管理のために `plan`、`commercial_allowed` などのフィールドを予約しています。
 
 # 👏 貢献方法
 このプロジェクトは複数のチャンネルを通じてコミュニティからの貢献を奨励しています。
 - Git Pull Request: Git に慣れている方向け
 - メール投稿: メールでの送信を希望する方向け
 - コミュニティ議論: Discord または QQ グループで解答や受験経験を共有したり、GitHub issues で誤りを知らせたりできます
+
+公開過去問アーカイブおよび公開解答ライブラリにマージされた貢献は、The Kai Project の中核的な公開コンテンツの一部として、継続的にオープンアクセス可能な形で提供されることを意図しています。学習ツール、データ API、学習支援、提携連携などに関する持続可能な運営は、受け入れ済みの中核的な公開貢献のオープンアクセス性を変更するものではありません。
 
 ## 📝 フォーマットガイドライン
 `docs/` 配下の解答ドキュメントは、できるだけ統一フォーマットで投稿してください。
@@ -311,6 +319,8 @@ The Kai Project の Discord または QQ グループに参加して、試験解
 
 # ©️ ライセンスと著作権
 The Kai Project へのすべてのコード貢献は、GNU Affero General Public License v3.0 の対象です。
+
+公開解答、学習資料、関連ドキュメントの貢献には [コントリビューターライセンス同意書 (CLA)](CLA.md) が適用されます。プロジェクトは中核的な公開コンテンツをオープンソースの公開アーカイブの一部としてアクセス可能に保ちつつ、補助ツール、API、サービス支援、提携シナリオに関する長期的な運営の余地を保持します。
 
 また、入試問題の著作権は各学校・機関に帰属します。
 
