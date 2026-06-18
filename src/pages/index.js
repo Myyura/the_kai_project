@@ -8,6 +8,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import {useUiText} from '../i18n/useUiText';
 import { useAllProgress } from '../hooks/useProgress';
+import { useSync } from '../hooks/useSync';
 import { universities } from '../data/universities';
 import siteStats from '../data/siteStats.json';
 
@@ -94,7 +95,7 @@ const HeroSection = ({ t }) => {
           <Link className={styles.secondaryBtn} to="/blog">
             {t.viewExperiences}
           </Link>
-          <Link className={styles.progressBtn} to="/progress">
+          <Link className={styles.progressBtn} to="/me">
             <FaCheckCircle className={styles.btnIcon} />
             {t.ctaButtonProgress}
           </Link>
@@ -109,7 +110,7 @@ const HeroSection = ({ t }) => {
 
         {/* 进度追踪入口 - 融入 Hero 区底部 */}
         <BrowserOnly fallback={
-          <Link to="/progress" className={styles.heroProgressCallout}>
+          <Link to="/me" className={styles.heroProgressCallout}>
             <FaCheckCircle className={styles.heroProgressIcon} />
             <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
             <FaArrowRight className={styles.heroProgressArrow} />
@@ -274,10 +275,24 @@ const UniversitySection = ({ t }) => {
 
 // Hero 区进度内联展示
 const HeroProgressCallout = ({ t }) => {
+  const { isConfigured, isLoggedIn } = useSync();
+  if (!isConfigured || !isLoggedIn) {
+    return (
+      <Link to="/me" className={styles.heroProgressCallout}>
+        <FaCheckCircle className={styles.heroProgressIcon} />
+        <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
+        <FaArrowRight className={styles.heroProgressArrow} />
+      </Link>
+    );
+  }
+  return <HeroProgressCalloutStats t={t} />;
+};
+
+const HeroProgressCalloutStats = ({ t }) => {
   const { stats } = useAllProgress();
   const hasData = stats.total > 0;
   return (
-    <Link to="/progress" className={styles.heroProgressCallout}>
+    <Link to="/me" className={styles.heroProgressCallout}>
       <FaCheckCircle className={styles.heroProgressIcon} />
       <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
       {hasData && (
@@ -305,6 +320,14 @@ const HeroProgressCallout = ({ t }) => {
 
 // 进度功能横幅区块
 const ProgressBannerInner = ({ t }) => {
+  const { isConfigured, isLoggedIn } = useSync();
+  if (!isConfigured || !isLoggedIn) {
+    return <ProgressBannerGuest t={t} />;
+  }
+  return <ProgressBannerStats t={t} />;
+};
+
+const ProgressBannerStats = ({ t }) => {
   const { stats } = useAllProgress();
   const hasData = stats.total > 0;
   return (
@@ -313,7 +336,7 @@ const ProgressBannerInner = ({ t }) => {
         <div className={styles.progressBannerBadge}>✨ NEW</div>
         <h2 className={styles.progressBannerTitle}>{t.progressBannerTitle}</h2>
         <p className={styles.progressBannerDesc}>{t.progressBannerDesc}</p>
-        <Link to="/progress" className={styles.progressBannerBtn}>
+        <Link to="/me" className={styles.progressBannerBtn}>
           {t.progressBannerCta}
           <FaArrowRight className={styles.btnIcon} />
         </Link>
@@ -353,6 +376,26 @@ const ProgressBannerInner = ({ t }) => {
   );
 };
 
+const ProgressBannerGuest = ({ t }) => (
+  <div className={styles.progressBannerInner}>
+    <div className={styles.progressBannerLeft}>
+      <div className={styles.progressBannerBadge}>LOGIN</div>
+      <h2 className={styles.progressBannerTitle}>{t.progressBannerTitle}</h2>
+      <p className={styles.progressBannerDesc}>{t.progressBannerDesc}</p>
+      <Link to="/me" className={styles.progressBannerBtn}>
+        {t.progressBannerCta}
+        <FaArrowRight className={styles.btnIcon} />
+      </Link>
+    </div>
+    <div className={styles.progressBannerRight}>
+      <div className={styles.progressMiniEmpty}>
+        <span className={styles.progressMiniEmptyIcon}>📋</span>
+        <span className={styles.progressMiniLabel}>{t.progressBannerNoData}</span>
+      </div>
+    </div>
+  </div>
+);
+
 const ProgressBannerSection = ({ t }) => (
   <section className={styles.progressBannerSection}>
     <div className="container">
@@ -362,7 +405,7 @@ const ProgressBannerSection = ({ t }) => (
             <div className={styles.progressBannerBadge}>✨ NEW</div>
             <h2 className={styles.progressBannerTitle}>{t.progressBannerTitle}</h2>
             <p className={styles.progressBannerDesc}>{t.progressBannerDesc}</p>
-            <Link to="/progress" className={styles.progressBannerBtn}>
+            <Link to="/me" className={styles.progressBannerBtn}>
               {t.progressBannerCta}
               <FaArrowRight className={styles.btnIcon} />
             </Link>

@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 import { FaCheckCircle, FaRedo, FaTimes, FaSyncAlt } from 'react-icons/fa';
 import { useDocProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
+import { useSync } from '@site/src/hooks/useSync';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
 
@@ -9,19 +11,55 @@ const BUTTONS = [
   { key: STATUS.REVIEWING, Icon: FaRedo },
 ];
 
-export default function ProgressTracker({ docId, title, permalink, tags }) {
+function ProgressGate({ t, type = 'login' }) {
+  const unavailable = type === 'unavailable';
+  return (
+    <div className={`${styles.tracker} ${styles.trackerGate}`}>
+      <div className={styles.trackerHeader}>
+        <span className={styles.trackerLabel}>{t.heading}</span>
+        <span className={`${styles.statusBadge} ${styles.badge_not_started}`}>
+          {unavailable ? t.unavailableBadge : t.loginBadge}
+        </span>
+      </div>
+      <p className={styles.trackerGateText}>
+        {unavailable ? t.unavailableText : t.loginRequired}
+      </p>
+      {!unavailable && (
+        <Link to="/login" className={styles.trackerGateBtn}>
+          {t.loginCta}
+        </Link>
+      )}
+    </div>
+  );
+}
+
+function ProgressTrackerContent({ docId, title, permalink, tags }) {
   const [status, setStatus, refreshReview, updatedAt, reviewCount] = useDocProgress(docId, title, permalink, tags);
   const [justRefreshed, setJustRefreshed] = React.useState(false);
+  const [refreshLocked, setRefreshLocked] = React.useState(false);
+  const refreshLockedRef = React.useRef(false);
+  const unlockTimerRef = React.useRef(null);
   const t = useUiText('progressTracker');
+
+  React.useEffect(() => () => {
+    if (unlockTimerRef.current) clearTimeout(unlockTimerRef.current);
+  }, []);
 
   const handleClick = (newStatus) => {
     setStatus(newStatus === status ? STATUS.NOT_STARTED : newStatus);
   };
 
   const handleRefresh = () => {
+    if (refreshLockedRef.current) return;
+    refreshLockedRef.current = true;
+    setRefreshLocked(true);
     refreshReview();
     setJustRefreshed(true);
-    setTimeout(() => setJustRefreshed(false), 2000);
+    unlockTimerRef.current = setTimeout(() => {
+      refreshLockedRef.current = false;
+      setRefreshLocked(false);
+      setJustRefreshed(false);
+    }, 2000);
   };
 
   return (
@@ -52,6 +90,7 @@ export default function ProgressTracker({ docId, title, permalink, tags }) {
               onClick={handleRefresh}
               className={`${styles.btn} ${justRefreshed ? styles.btnRefreshed : isLastRound ? styles.btnFinal : styles.btnRefresh}`}
               title={isLastRound ? t.reviewedFinalTitle : t.reviewedTitle}
+              disabled={refreshLocked}
             >
               <FaSyncAlt className={`${styles.btnIcon} ${justRefreshed ? styles.spinOnce : ''}`} />
               <span className={styles.btnText}>{isLastRound ? t.reviewedFinal : t.reviewed}</span>
@@ -91,8 +130,18 @@ export default function ProgressTracker({ docId, title, permalink, tags }) {
         );
       })()}
       <p className={styles.trackerHint}>
-        <a href="/progress">{t.hint}</a>
+        <Link to="/me">{t.hint}</Link>
       </p>
     </div>
   );
+}
+
+export default function ProgressTracker(props) {
+  const { isConfigured, isLoggedIn, authReady } = useSync();
+  const t = useUiText('progressTracker');
+
+  if (isConfigured && !authReady && !isLoggedIn) return null;
+  if (!isLoggedIn) return <ProgressGate t={t} />;
+  if (!isConfigured) return <ProgressGate t={t} type="unavailable" />;
+  return <ProgressTrackerContent {...props} />;
 }

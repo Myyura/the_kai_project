@@ -90,7 +90,7 @@ function LoginPageContent() {
         showMsg(t.loginOk);
         clearQuery();
         setTimeout(() => {
-          history.push('/progress');
+          history.push('/me');
         }, 1000);
       } catch (err) {
         if (disposed) return;
@@ -200,7 +200,7 @@ function LoginPageContent() {
         resetAttempts();
         showMsg(t.loginOk);
         setTimeout(() => {
-          history.push('/progress');
+          history.push('/me');
         }, 1000);
       } else {
         await registerWithEmail(email, password, captchaToken || undefined);
@@ -284,23 +284,6 @@ function LoginPageContent() {
     }
   };
 
-  // 认证状态尚未确认 → 显示加载中，避免闪烁
-  if (!authReady && !user) {
-    return (
-      <div className={styles.wrapper}>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <FaCloud className={styles.cardIcon} />
-            <h2 className={styles.cardTitle}>{t.title}</h2>
-          </div>
-          <div className={styles.cardBody} style={{ textAlign: 'center', padding: '2rem' }}>
-            <FaSyncAlt className={styles.spin} style={{ fontSize: '1.5rem', color: 'var(--ifm-color-primary)' }} />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   // 未配置 Supabase → 显示提示
   if (!isConfigured) {
     return (
@@ -312,7 +295,24 @@ function LoginPageContent() {
           </div>
           <div className={styles.cardBody}>
             <p>{t.notConfigured}</p>
-            <Link to="/progress" className={styles.backLink}>{t.backProgress}</Link>
+            <Link to="/me" className={styles.backLink}>{t.backProgress}</Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 认证状态尚未确认 → 显示加载中，避免闪烁
+  if (!authReady && !user) {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.card}>
+          <div className={styles.cardHeader}>
+            <FaCloud className={styles.cardIcon} />
+            <h2 className={styles.cardTitle}>{t.title}</h2>
+          </div>
+          <div className={styles.cardBody} style={{ textAlign: 'center', padding: '2rem' }}>
+            <FaSyncAlt className={styles.spin} style={{ fontSize: '1.5rem', color: 'var(--ifm-color-primary)' }} />
           </div>
         </div>
       </div>
@@ -344,7 +344,7 @@ function LoginPageContent() {
               <p className={styles.userEmail}>{user?.email}</p>
               <div className={styles.loggedInActions}>
                 <Link
-                  to="/progress"
+                  to="/me"
                   className={`${styles.btn} ${styles.btnPrimary}`}
                 >
                   <FaArrowRight /> {t.goProgress}
@@ -510,7 +510,7 @@ function LoginPageContent() {
             </button>
           </form>
 
-          <Link to="/progress" className={styles.backLink}>{t.backProgress}</Link>
+          <Link to="/me" className={styles.backLink}>{t.backProgress}</Link>
         </div>
       </div>
     </div>

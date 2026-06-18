@@ -14,8 +14,25 @@ import {
 } from 'react-icons/fa';
 import Link from '@docusaurus/Link';
 import { useSync } from '@site/src/hooks/useSync';
+import { readSyncConflictLog, clearSyncConflictLog } from '@site/src/services/syncService';
 import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
+
+const formatTime = (ts) => ts ? new Date(ts).toLocaleString() : '-';
+
+const renderConflictSummary = (summary, type, t) => {
+  if (!summary) return t.emptySide;
+  if (summary.deleted) return t.deletedSide;
+  if (type === 'progress') {
+    const status = summary.status === 'completed'
+      ? t.completed
+      : summary.status === 'reviewing'
+      ? t.reviewing
+      : '-';
+    return `${status} · ${t.reviewCount(summary.reviewCount ?? 0)}`;
+  }
+  return summary.excerpt || t.emptyNote;
+};
 
 export default function CloudSyncPanel({ language = 'zh' }) {
   const {
@@ -25,11 +42,19 @@ export default function CloudSyncPanel({ language = 'zh' }) {
   } = useSync();
 
   const [actionMsg, setActionMsg] = useState(null);
+  const [conflictLog, setConflictLog] = useState(null);
+  const [conflictsOpen, setConflictsOpen] = useState(false);
   const msgTimerRef = useRef(null);
   const t = getUiMessages('cloudSync', language);
 
   useEffect(() => {
-    return () => { if (msgTimerRef.current) clearTimeout(msgTimerRef.current); };
+    const refreshConflictLog = () => setConflictLog(readSyncConflictLog());
+    refreshConflictLog();
+    window.addEventListener('kai_sync_conflict_log_updated', refreshConflictLog);
+    return () => {
+      if (msgTimerRef.current) clearTimeout(msgTimerRef.current);
+      window.removeEventListener('kai_sync_conflict_log_updated', refreshConflictLog);
+    };
   }, []);
 
   if (!isConfigured) return null;
@@ -43,6 +68,7 @@ export default function CloudSyncPanel({ language = 'zh' }) {
   const handleSync = async () => {
     try {
       const result = await sync();
+      setConflictLog(readSyncConflictLog());
       showMsg(t.syncDone(result.progressKeys, result.notesKeys, result.conflictsCount || 0));
     } catch (e) { showMsg(e.message, true); }
   };
@@ -57,6 +83,7 @@ export default function CloudSyncPanel({ language = 'zh' }) {
   const handlePull = async () => {
     try {
       const r = await pull();
+      setConflictLog(readSyncConflictLog());
       showMsg(r.pulled ? t.pullDone(r.conflictsCount || 0) : t.pullEmpty);
     } catch (e) { showMsg(e.message, true); }
   };
@@ -64,6 +91,12 @@ export default function CloudSyncPanel({ language = 'zh' }) {
   const handleSignOut = async () => {
     await signOut();
     showMsg(t.logoutOk);
+  };
+
+  const handleClearConflicts = () => {
+    clearSyncConflictLog();
+    setConflictLog(null);
+    setConflictsOpen(false);
   };
 
   const msgData = actionMsg || (error ? { text: error, isError: true } : null);
@@ -135,6 +168,60 @@ export default function CloudSyncPanel({ language = 'zh' }) {
             <p className={styles.lastSynced}>
               {t.lastSynced}: {new Date(lastSynced).toLocaleString()}
             </p>
+          )}
+
+          {conflictLog && (
+            <div className={styles.conflictPanel}>
+              <div className={styles.conflictHeader}>
+                <button
+                  type="button"
+                  className={styles.conflictToggle}
+                  onClick={() => setConflictsOpen((v) => !v)}
+                >
+                  <FaExclamationTriangle />
+                  {t.conflictTitle(conflictLog.count || conflictLog.conflicts.length)}
+                </button>
+                <button
+                  type="button"
+                  className={styles.clearConflictBtn}
+                  onClick={handleClearConflicts}
+                >
+                  {t.clearConflicts}
+                </button>
+              </div>
+              {conflictsOpen && (
+                <div className={styles.conflictList}>
+                  {conflictLog.conflicts.map((conflict, idx) => (
+                    <div key={`${conflict.type}-${conflict.docId}-${idx}`} className={styles.conflictItem}>
+                      <div className={styles.conflictItemHeader}>
+                        <span className={styles.conflictType}>
+                          {conflict.type === 'progress' ? t.progressConflict : t.noteConflict}
+                        </span>
+                        <Link to={conflict.permalink || `/docs/${conflict.docId}`} className={styles.conflictDoc}>
+                          {conflict.title || conflict.docId}
+                        </Link>
+                      </div>
+                      <div className={styles.conflictMeta}>
+                        <span>{t.reason}: {t.conflictReasons[conflict.reason] || conflict.reason}</span>
+                        <span>{t.winner}: {t.winners[conflict.winner] || conflict.winner}</span>
+                      </div>
+                      <div className={styles.conflictSides}>
+                        <div>
+                          <strong>{t.localSide}</strong>
+                          <small>{formatTime(conflict.localUpdatedAt)}</small>
+                          <p>{renderConflictSummary(conflict.localSummary, conflict.type, t)}</p>
+                        </div>
+                        <div>
+                          <strong>{t.remoteSide}</strong>
+                          <small>{formatTime(conflict.remoteUpdatedAt)}</small>
+                          <p>{renderConflictSummary(conflict.remoteSummary, conflict.type, t)}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           )}
         </>
       )}

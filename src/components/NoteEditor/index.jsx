@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import Link from '@docusaurus/Link';
 import {
   FaPen, FaEye, FaChevronDown, FaChevronUp,
   FaBold, FaItalic, FaHeading, FaCode, FaListUl, FaQuoteLeft,
 } from 'react-icons/fa';
 import { useDocNotes } from '@site/src/hooks/useNotes';
+import { useSync } from '@site/src/hooks/useSync';
 import { useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import { markdownToHtml, renderMathInContainer } from './markdownRenderer';
@@ -35,8 +37,30 @@ const TOOLBAR_ACTIONS = [
   { key: 'displayMath', label: '$$', before: '\n$$\n', after: '\n$$\n', placeholder: '\\int_0^1 f(x)\\,dx' },
 ];
 
+function NoteGate({ t, type = 'login' }) {
+  const unavailable = type === 'unavailable';
+  return (
+    <div className={`${styles.noteContainer} ${styles.noteGate}`}>
+      <div className={styles.noteToggleStatic}>
+        <span className={styles.noteToggleLeft}>
+          <FaPen className={styles.noteIcon} />
+          <span className={styles.noteHeading}>{t.heading}</span>
+        </span>
+      </div>
+      <div className={styles.noteGateBody}>
+        <p>{unavailable ? t.unavailableText : t.loginRequired}</p>
+        {!unavailable && (
+          <Link to="/login" className={styles.noteGateBtn}>
+            {t.loginCta}
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ─── 主组件 ──────────────────────────────────────────────────
-export default function NoteEditor({ docId }) {
+function NoteEditorContent({ docId }) {
   const { content, updatedAt, saveNote } = useDocNotes(docId);
   const [text, setText] = useState(content);
   const [mode, setMode] = useState('edit');
@@ -253,4 +277,14 @@ export default function NoteEditor({ docId }) {
       )}
     </div>
   );
+}
+
+export default function NoteEditor(props) {
+  const { isConfigured, isLoggedIn, authReady } = useSync();
+  const t = useUiText('noteEditor');
+
+  if (isConfigured && !authReady && !isLoggedIn) return null;
+  if (!isLoggedIn) return <NoteGate t={t} />;
+  if (!isConfigured) return <NoteGate t={t} type="unavailable" />;
+  return <NoteEditorContent {...props} />;
 }

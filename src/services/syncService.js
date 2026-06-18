@@ -156,6 +156,24 @@ const saveConflictHints = (conflicts, storageOwner) => {
     count: conflicts.length,
     conflicts: conflicts.slice(0, 30),
   }, storageOwner);
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new Event('kai_sync_conflict_log_updated'));
+  }
+};
+
+export const readSyncConflictLog = ({ storageOwner } = {}) => {
+  const log = readJsonObject(SYNC_CONFLICT_LOG_KEY, storageOwner);
+  if (!log || !Array.isArray(log.conflicts) || log.conflicts.length === 0) return null;
+  return log;
+};
+
+export const clearSyncConflictLog = ({ storageOwner } = {}) => {
+  try {
+    localStorage.removeItem(getScopedStorageKey(SYNC_CONFLICT_LOG_KEY, storageOwner));
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('kai_sync_conflict_log_updated'));
+    }
+  } catch {}
 };
 
 const normalizeProgressEntry = (docId, raw) => {
@@ -220,6 +238,71 @@ const isProgressEqual = (a, b) => {
 const isNotesEqual = (a, b) => {
   if (!a || !b) return false;
   return a.content === b.content && toMs(a.updatedAt, 0) === toMs(b.updatedAt, 0);
+};
+
+const summarizeText = (text, limit = 180) => {
+  const normalized = String(text || '').trim().replace(/\s+/g, ' ');
+  if (!normalized) return '';
+  return normalized.length > limit ? `${normalized.slice(0, limit)}...` : normalized;
+};
+
+const summarizeProgressEntry = (entry, fallbackUpdatedAt = 0, deleted = false) => {
+  if (deleted) return { deleted: true, updatedAt: fallbackUpdatedAt };
+  if (!entry) return null;
+  return {
+    status: entry.status || null,
+    reviewCount: Math.max(0, toMs(entry.reviewCount, 0)),
+    updatedAt: toMs(entry.updatedAt, fallbackUpdatedAt),
+  };
+};
+
+const summarizeNoteEntry = (entry, fallbackUpdatedAt = 0, deleted = false) => {
+  if (deleted) return { deleted: true, updatedAt: fallbackUpdatedAt };
+  if (!entry) return null;
+  const content = typeof entry.content === 'string' ? entry.content : '';
+  return {
+    excerpt: summarizeText(content),
+    charCount: content.trim().length,
+    updatedAt: toMs(entry.updatedAt, fallbackUpdatedAt),
+  };
+};
+
+const createConflict = ({
+  type,
+  docId,
+  winner,
+  reason,
+  localUpdatedAt,
+  remoteUpdatedAt,
+  local,
+  remote,
+  remoteDeleted = false,
+}) => {
+  const title = type === 'progress'
+    ? (local?.title || remote?.title || docId)
+    : docId;
+  const permalink = type === 'progress'
+    ? (local?.permalink || remote?.permalink || `/docs/${docId}`)
+    : `/docs/${docId}`;
+  const localSummary = type === 'progress'
+    ? summarizeProgressEntry(local, localUpdatedAt)
+    : summarizeNoteEntry(local, localUpdatedAt);
+  const remoteSummary = type === 'progress'
+    ? summarizeProgressEntry(remote, remoteUpdatedAt, remoteDeleted)
+    : summarizeNoteEntry(remote, remoteUpdatedAt, remoteDeleted);
+
+  return {
+    type,
+    docId,
+    title,
+    permalink,
+    winner,
+    reason,
+    localUpdatedAt,
+    remoteUpdatedAt,
+    localSummary,
+    remoteSummary,
+  };
 };
 
 const computeLocalDelta = (localMap, snapshotMap, ignoreUpsertIds = new Set()) => {
@@ -420,26 +503,32 @@ const applyRemoteProgressRows = (localMap, rows, cursorMs, conflicts) => {
       if (!local) continue;
       if (localTs > remoteTs) {
         if (bothChanged) {
-          conflicts.push({
+          conflicts.push(createConflict({
             type: 'progress',
             docId,
             winner: 'local',
             reason: 'delete_vs_edit',
             localUpdatedAt: localTs,
             remoteUpdatedAt: remoteTs,
-          });
+            local,
+            remote: null,
+            remoteDeleted: true,
+          }));
         }
         continue;
       }
       if (bothChanged) {
-        conflicts.push({
+        conflicts.push(createConflict({
           type: 'progress',
           docId,
           winner: 'remote',
           reason: 'delete_vs_edit',
           localUpdatedAt: localTs,
           remoteUpdatedAt: remoteTs,
-        });
+          local,
+          remote: null,
+          remoteDeleted: true,
+        }));
       }
       delete next[docId];
       applied += 1;
@@ -464,14 +553,16 @@ const applyRemoteProgressRows = (localMap, rows, cursorMs, conflicts) => {
         applied += 1;
         remoteAppliedIds.add(docId);
         if (bothChanged) {
-          conflicts.push({
+          conflicts.push(createConflict({
             type: 'progress',
             docId,
             winner: 'remote',
             reason: 'both_modified',
             localUpdatedAt: localTs,
             remoteUpdatedAt: remoteTs,
-          });
+            local,
+            remote: remoteEntry,
+          }));
         }
       }
       continue;
@@ -479,27 +570,31 @@ const applyRemoteProgressRows = (localMap, rows, cursorMs, conflicts) => {
 
     if (localTs > remoteTs) {
       if (!same && bothChanged) {
-        conflicts.push({
+        conflicts.push(createConflict({
           type: 'progress',
           docId,
           winner: 'local',
           reason: 'both_modified',
           localUpdatedAt: localTs,
           remoteUpdatedAt: remoteTs,
-        });
+          local,
+          remote: remoteEntry,
+        }));
       }
       continue;
     }
 
     if (!same) {
-      conflicts.push({
+      conflicts.push(createConflict({
         type: 'progress',
         docId,
         winner: 'local',
         reason: 'same_timestamp',
         localUpdatedAt: localTs,
         remoteUpdatedAt: remoteTs,
-      });
+        local,
+        remote: remoteEntry,
+      }));
     }
   }
 
@@ -523,26 +618,32 @@ const applyRemoteNoteRows = (localMap, rows, cursorMs, conflicts) => {
       if (!local) continue;
       if (localTs > remoteTs) {
         if (bothChanged) {
-          conflicts.push({
+          conflicts.push(createConflict({
             type: 'note',
             docId,
             winner: 'local',
             reason: 'delete_vs_edit',
             localUpdatedAt: localTs,
             remoteUpdatedAt: remoteTs,
-          });
+            local,
+            remote: null,
+            remoteDeleted: true,
+          }));
         }
         continue;
       }
       if (bothChanged) {
-        conflicts.push({
+        conflicts.push(createConflict({
           type: 'note',
           docId,
           winner: 'remote',
           reason: 'delete_vs_edit',
           localUpdatedAt: localTs,
           remoteUpdatedAt: remoteTs,
-        });
+          local,
+          remote: null,
+          remoteDeleted: true,
+        }));
       }
       delete next[docId];
       applied += 1;
@@ -567,14 +668,16 @@ const applyRemoteNoteRows = (localMap, rows, cursorMs, conflicts) => {
         applied += 1;
         remoteAppliedIds.add(docId);
         if (bothChanged) {
-          conflicts.push({
+          conflicts.push(createConflict({
             type: 'note',
             docId,
             winner: 'remote',
             reason: 'both_modified',
             localUpdatedAt: localTs,
             remoteUpdatedAt: remoteTs,
-          });
+            local,
+            remote: remoteEntry,
+          }));
         }
       }
       continue;
@@ -582,27 +685,31 @@ const applyRemoteNoteRows = (localMap, rows, cursorMs, conflicts) => {
 
     if (localTs > remoteTs) {
       if (!same && bothChanged) {
-        conflicts.push({
+        conflicts.push(createConflict({
           type: 'note',
           docId,
           winner: 'local',
           reason: 'both_modified',
           localUpdatedAt: localTs,
           remoteUpdatedAt: remoteTs,
-        });
+          local,
+          remote: remoteEntry,
+        }));
       }
       continue;
     }
 
     if (!same) {
-      conflicts.push({
+      conflicts.push(createConflict({
         type: 'note',
         docId,
         winner: 'local',
         reason: 'same_timestamp',
         localUpdatedAt: localTs,
         remoteUpdatedAt: remoteTs,
-      });
+        local,
+        remote: remoteEntry,
+      }));
     }
   }
 

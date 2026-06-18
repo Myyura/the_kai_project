@@ -241,6 +241,150 @@
   text-align: center;
 }
 
+/* ── 冲突详情 ───────────────────────────────────────────── */
+
+.conflictPanel {
+  margin-top: 1rem;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  background: #fffbeb;
+  padding: 0.75rem;
+}
+
+[data-theme='dark'] .conflictPanel {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: #d97706;
+}
+
+.conflictHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.conflictToggle,
+.clearConflictBtn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.conflictToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #92400e;
+  padding: 0;
+}
+
+[data-theme='dark'] .conflictToggle {
+  color: #fcd34d;
+}
+
+.clearConflictBtn {
+  color: var(--ifm-color-emphasis-600);
+  padding: 0.2rem 0.35rem;
+}
+
+.clearConflictBtn:hover {
+  color: #ef4444;
+}
+
+.conflictList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.conflictItem {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(146, 64, 14, 0.18);
+  background: var(--ifm-background-surface-color);
+}
+
+.conflictItemHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.conflictType {
+  flex-shrink: 0;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.16);
+  color: #92400e;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+[data-theme='dark'] .conflictType {
+  color: #fcd34d;
+  background: rgba(245, 158, 11, 0.2);
+}
+
+.conflictDoc {
+  min-width: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.conflictMeta {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.55rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.75rem;
+}
+
+.conflictSides {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.conflictSides > div {
+  min-width: 0;
+  padding: 0.55rem;
+  border-radius: 7px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.conflictSides strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.76rem;
+}
+
+.conflictSides small {
+  display: block;
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.7rem;
+}
+
+.conflictSides p {
+  margin: 0.35rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .conflictSides {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── 动画 ───────────────────────────────────────────────── */
 
 .spin {

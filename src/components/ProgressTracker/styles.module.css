@@ -87,6 +87,12 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+  transform: none;
+}
+
 .btnDefault {
   color: var(--ifm-color-emphasis-700);
   border-color: var(--ifm-color-emphasis-200);
@@ -218,6 +224,30 @@
   margin: 0;
   font-size: 0.75rem;
   color: var(--ifm-color-emphasis-500);
+}
+
+.trackerGate {
+  border-style: dashed;
+}
+
+.trackerGateText {
+  margin: 0 0 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.trackerGateBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.38rem 0.8rem;
+  border-radius: 7px;
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none !important;
 }
 
 /* 下次复习时间行 */

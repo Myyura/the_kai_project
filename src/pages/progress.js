@@ -5,15 +5,18 @@ import Link from '@docusaurus/Link';
 import {
   FaCheckCircle, FaRedo, FaClipboardList, FaTrashAlt,
   FaFileAlt, FaArrowRight, FaBuilding, FaTag,
-  FaBell, FaFire, FaCalendarAlt
+  FaBell, FaFire, FaCalendarAlt, FaStickyNote,
+  FaSearch, FaUserCircle, FaLock, FaSignInAlt, FaCloud
 } from 'react-icons/fa';
 import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
+import { useAllNotes } from '@site/src/hooks/useNotes';
 import { UNIV_MAP } from '@site/src/data/universities';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import CloudSyncPanel from '@site/src/components/CloudSyncPanel';
 import Leaderboard from '@site/src/components/Leaderboard';
 import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import {useUiText} from '@site/src/i18n/useUiText';
+import { useSync } from '@site/src/hooks/useSync';
 import styles from './progress.module.css';
 
 const toTagSlug = (tag) =>
@@ -304,10 +307,167 @@ const EntryRow = React.memo(({ entry, t, language }) => {
   );
 });
 
-function ProgressPageInner() {
+const formatDateTime = (ts, language) => {
+  if (!ts) return '';
+  return new Date(ts).toLocaleString(getLanguageLocale(language), {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+};
+
+const CenterLockedState = ({ t, type = 'login' }) => {
+  const unavailable = type === 'unavailable';
+  return (
+    <div className={styles.centerLocked}>
+      <div className={styles.centerLockedIcon}>
+        {unavailable ? <FaCloud /> : <FaLock />}
+      </div>
+      <h2 className={styles.centerLockedTitle}>
+        {unavailable ? t.unavailableTitle : t.lockedTitle}
+      </h2>
+      <p className={styles.centerLockedText}>
+        {unavailable ? t.unavailableText : t.lockedText}
+      </p>
+      {!unavailable && (
+        <Link to="/login" className={styles.centerLockedBtn}>
+          <FaSignInAlt /> {t.loginCta}
+        </Link>
+      )}
+      <div className={styles.unlockGrid}>
+        {t.unlockItems.map((item) => (
+          <div key={item.title} className={styles.unlockCard}>
+            <strong>{item.title}</strong>
+            <span>{item.desc}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const CenterLoadingState = ({ t }) => (
+  <div className={styles.centerLocked}>
+    <div className={styles.centerLockedIcon}>
+      <FaRedo className={styles.spinIcon} />
+    </div>
+    <h2 className={styles.centerLockedTitle}>{t.loading}</h2>
+  </div>
+);
+
+const AccountOverview = ({ user, stats, notesCount, t }) => (
+  <section className={styles.accountPanel}>
+    <div className={styles.accountIdentity}>
+      <FaUserCircle className={styles.accountAvatar} />
+      <div>
+        <h2 className={styles.accountTitle}>{t.accountTitle}</h2>
+        <p className={styles.accountEmail}>{user?.email || t.loggedIn}</p>
+      </div>
+    </div>
+    <div className={styles.accountStats}>
+      <div className={styles.accountStat}>
+        <span>{stats.completed}</span>
+        <small>{t.completed}</small>
+      </div>
+      <div className={styles.accountStat}>
+        <span>{stats.reviewing}</span>
+        <small>{t.reviewing}</small>
+      </div>
+      <div className={styles.accountStat}>
+        <span>{notesCount}</span>
+        <small>{t.notes}</small>
+      </div>
+    </div>
+  </section>
+);
+
+const NotesSection = ({ noteEntries, progressEntries, t, language }) => {
+  const [query, setQuery] = React.useState('');
+  const progressById = React.useMemo(() => {
+    const map = {};
+    progressEntries.forEach((entry) => { map[entry.id] = entry; });
+    return map;
+  }, [progressEntries]);
+
+  const items = React.useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+    return noteEntries
+      .map((note) => {
+        const progress = progressById[note.id] || {};
+        const content = note.content || '';
+        return {
+          ...note,
+          title: progress.title || note.id,
+          permalink: progress.permalink || `/docs/${note.id}`,
+          univ: extractUniv(note.id),
+          excerpt: content.trim().replace(/\s+/g, ' ').slice(0, 180),
+          charCount: content.trim().length,
+        };
+      })
+      .filter((note) => {
+        if (!normalizedQuery) return true;
+        return [
+          note.id,
+          note.title,
+          note.univ,
+          note.excerpt,
+        ].some((value) => String(value || '').toLowerCase().includes(normalizedQuery));
+      })
+      .sort((a, b) => (b.updatedAt ?? 0) - (a.updatedAt ?? 0));
+  }, [noteEntries, progressById, query]);
+
+  return (
+    <section className={styles.section}>
+      <div className={styles.sectionHeader}>
+        <h2 className={styles.sectionTitle}>
+          <FaStickyNote className={styles.sectionTitleIcon} style={{ color: '#8b5cf6' }} />
+          {t.notesTitle}
+          <span className={styles.sectionCount}>{noteEntries.length}</span>
+        </h2>
+        <label className={styles.noteSearch}>
+          <FaSearch />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={t.searchNotes}
+          />
+        </label>
+      </div>
+      {noteEntries.length === 0 ? (
+        <div className={styles.notesEmpty}>{t.noNotes}</div>
+      ) : items.length === 0 ? (
+        <div className={styles.notesEmpty}>{t.noNoteResults}</div>
+      ) : (
+        <div className={styles.notesList}>
+          {items.map((note) => (
+            <Link key={note.id} to={note.permalink} className={styles.noteRow}>
+              <div className={styles.noteRowTop}>
+                <span className={styles.entryUniv}>
+                  <FaBuilding className={styles.entryUnivIcon} />
+                  {note.univ}
+                </span>
+                <span className={styles.noteDate}>{formatDateTime(note.updatedAt, language)}</span>
+              </div>
+              <strong className={styles.noteTitle}>{note.title}</strong>
+              <p className={styles.noteExcerpt}>{note.excerpt || t.emptyNoteExcerpt}</p>
+              <span className={styles.noteCount}>{t.charCount(note.charCount)}</span>
+            </Link>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+};
+
+function PersonalCenterDashboard({ user }) {
   const language = useCurrentLanguage();
   const t = useUiText('progress');
+  const centerT = useUiText('personalCenter');
   const { entries, stats, tagGroups, clearAll } = useAllProgress();
+  const { entries: noteEntries } = useAllNotes();
 
   // 按大学分组
   const univGroups = React.useMemo(() => {
@@ -341,14 +501,15 @@ function ProgressPageInner() {
   };
 
   const total = stats.total;
+  const hasAnyPersonalData = total > 0 || noteEntries.length > 0;
 
   return (
     <div className={styles.page}>
       {/* 头部 */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1 className={styles.pageTitle}>{t.pageTitle}</h1>
-          <p className={styles.pageSubtitle}>{t.pageSubtitle}</p>
+          <h1 className={styles.pageTitle}>{centerT.pageTitle}</h1>
+          <p className={styles.pageSubtitle}>{centerT.pageSubtitle}</p>
         </div>
         <LanguageSwitcher
           className={styles.langSwitch}
@@ -357,6 +518,13 @@ function ProgressPageInner() {
           dividerClassName={styles.langDivider}
         />
       </header>
+
+      <AccountOverview
+        user={user}
+        stats={stats}
+        notesCount={noteEntries.length}
+        t={centerT}
+      />
 
       {/* 统计卡片 */}
       <div className={styles.statsRow}>
@@ -396,7 +564,7 @@ function ProgressPageInner() {
         </div>
       )}
 
-      {total === 0 ? (
+      {!hasAnyPersonalData ? (
         <div className={styles.emptyState}>
           <FaFileAlt className={styles.emptyIcon} />
           <p className={styles.emptyText}>{t.noData}</p>
@@ -405,16 +573,24 @@ function ProgressPageInner() {
       ) : (
         <>
           {/* 学习热力图 */}
-          <StudyHeatmap entries={entries} t={t} language={language} />
+          {total > 0 && <StudyHeatmap entries={entries} t={t} language={language} />}
 
           {/* 本周刷题排行榜 */}
           <Leaderboard language={language} />
 
+          {/* 用户笔记 */}
+          <NotesSection
+            noteEntries={noteEntries}
+            progressEntries={entries}
+            t={centerT}
+            language={language}
+          />
+
           {/* 遗忘曲线提醒 */}
-          <ReviewReminderSection entries={entries} t={t} />
+          {total > 0 && <ReviewReminderSection entries={entries} t={t} />}
 
           {/* 最近练习 */}
-          <RecentPracticeSection entries={entries} t={t} language={language} />
+          {total > 0 && <RecentPracticeSection entries={entries} t={t} language={language} />}
 
           {/* 按知识点统计 */}
           {tagGroups.length > 0 && (
@@ -445,30 +621,32 @@ function ProgressPageInner() {
           )}
 
           {/* 按大学统计 */}
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>
-              <FaBuilding className={styles.sectionTitleIcon} style={{ color: '#6b7280' }} />
-              {t.byUniversity}
-            </h2>
-            <div className={styles.univGrid}>
-              {univGroups.map(([univ, data]) => (
-                <div key={univ} className={styles.univCard}>
-                  <div className={styles.univName}>{univ}</div>
-                  <div className={styles.univStats}>
-                    <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{data.completed}</span>
-                    <span className={styles.univReview}><FaRedo style={{ marginRight: '0.25rem' }} />{data.reviewing}</span>
-                    <span className={styles.univTotal}><FaClipboardList style={{ marginRight: '0.25rem' }} />{data.items.length}</span>
+          {total > 0 && (
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>
+                <FaBuilding className={styles.sectionTitleIcon} style={{ color: '#6b7280' }} />
+                {t.byUniversity}
+              </h2>
+              <div className={styles.univGrid}>
+                {univGroups.map(([univ, data]) => (
+                  <div key={univ} className={styles.univCard}>
+                    <div className={styles.univName}>{univ}</div>
+                    <div className={styles.univStats}>
+                      <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{data.completed}</span>
+                      <span className={styles.univReview}><FaRedo style={{ marginRight: '0.25rem' }} />{data.reviewing}</span>
+                      <span className={styles.univTotal}><FaClipboardList style={{ marginRight: '0.25rem' }} />{data.items.length}</span>
+                    </div>
+                    <div className={styles.univBar}>
+                      <div
+                        className={`${styles.univBarFill} ${styles.univBarCompleted}`}
+                        style={{ width: `${(data.completed / data.items.length) * 100}%` }}
+                      />
+                    </div>
                   </div>
-                  <div className={styles.univBar}>
-                    <div
-                      className={`${styles.univBarFill} ${styles.univBarCompleted}`}
-                      style={{ width: `${(data.completed / data.items.length) * 100}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* 已完成题目 */}
           {completedEntries.length > 0 && (
@@ -522,9 +700,42 @@ function ProgressPageInner() {
   );
 }
 
+function ProgressPageInner() {
+  const centerT = useUiText('personalCenter');
+  const { isConfigured, isLoggedIn, authReady, user } = useSync();
+
+  if (isConfigured && isLoggedIn) {
+    return <PersonalCenterDashboard user={user} />;
+  }
+
+  return (
+    <div className={styles.page}>
+      <header className={styles.header}>
+        <div className={styles.headerContent}>
+          <h1 className={styles.pageTitle}>{centerT.pageTitle}</h1>
+          <p className={styles.pageSubtitle}>{centerT.pageSubtitle}</p>
+        </div>
+        <LanguageSwitcher
+          className={styles.langSwitch}
+          buttonClassName={styles.langBtn}
+          activeButtonClassName={styles.langBtnActive}
+          dividerClassName={styles.langDivider}
+        />
+      </header>
+      {isConfigured && !authReady ? (
+        <CenterLoadingState t={centerT} />
+      ) : !isLoggedIn ? (
+        <CenterLockedState t={centerT} />
+      ) : (
+        <CenterLockedState t={centerT} type="unavailable" />
+      )}
+    </div>
+  );
+}
+
 export default function ProgressPage() {
   return (
-    <Layout title="进度总览 / 学習進捗一覧 / Study Progress">
+    <Layout title="个人中心 / マイページ / Personal Center">
       <BrowserOnly fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>Loading...</div>}>
         {() => <ProgressPageInner />}
       </BrowserOnly>

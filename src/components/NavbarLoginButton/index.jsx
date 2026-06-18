@@ -2,7 +2,7 @@
  * NavbarLoginButton — 导航栏登录按钮（动态显示登录状态）
  *
  * - 未登录 → 绿色按钮 "登录" / "ログイン"，点击跳转 /login
- * - 已登录 → 显示邮箱前缀，点击跳转 /login（管理页面）
+ * - 已登录 → 显示邮箱前缀，点击跳转 /me（个人中心）
  * - SSR 时不渲染（BrowserOnly）
  */
 
@@ -40,7 +40,7 @@ function LoginButtonInner() {
 
     return (
       <Link
-        to="/login"
+        to="/me"
         className="navbar__link navbar__link--login navbar__link--login-active"
         title={user?.email || t.loggedIn}
       >

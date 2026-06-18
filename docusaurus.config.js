@@ -255,7 +255,7 @@ const config = {
           {to: '/blog', label: '经验贴', position: 'left'},
           {to: '/docs/tags', label: 'Tags', position: 'left'},
           {to: '/links', label: '参考链接', position: 'left'},
-          {to: '/progress', label: '进度', position: 'left'},
+          {to: '/me', label: '个人中心', position: 'left'},
           {to: '/developers', label: '开发者中心', position: 'left'},
           {to: '/legalstatement', label: '法律声明', position: 'left'},
           {
@@ -290,8 +290,8 @@ const config = {
                 to: '/links',
               },
               {
-                label: '进度',
-                to: '/progress',
+                label: '个人中心',
+                to: '/me',
               },
               {
                 label: '开发者中心',

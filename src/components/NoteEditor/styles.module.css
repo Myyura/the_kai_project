@@ -31,6 +31,16 @@
   background: var(--ifm-color-emphasis-100);
 }
 
+.noteToggleStatic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.85rem;
+}
+
 .noteToggleLeft {
   display: flex;
   align-items: center;
@@ -60,6 +70,35 @@
 .noteBody {
   border-top: 1px solid var(--ifm-color-emphasis-200);
   animation: noteSlideIn 0.2s ease;
+}
+
+.noteGate {
+  border-style: dashed;
+}
+
+.noteGateBody {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.75rem 1rem 1rem;
+}
+
+.noteGateBody p {
+  margin: 0 0 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.noteGateBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.38rem 0.8rem;
+  border-radius: 7px;
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none !important;
 }
 
 @keyframes noteSlideIn {
