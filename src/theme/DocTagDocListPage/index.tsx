@@ -53,10 +53,6 @@ const schoolTags = tagTaxonomy.schoolTags as Record<
   string,
   {universityId?: string; label?: string; aliases?: string[]}
 >;
-const deprecatedTags = tagTaxonomy.deprecatedTags as Record<
-  string,
-  {replaceWith: string; reason?: string}
->;
 
 const getCopy = (language: Language) => getUiMessages('docTagList', language);
 
@@ -120,13 +116,12 @@ function getTagDisplayName(tagLabel: string): string {
   if (getTopicMeta(tagLabel)) return getTopicShortId(tagLabel);
   const school = getSchoolTag(tagLabel);
   if (school) return school.id;
-  if (deprecatedTags[tagLabel]) return tagLabel;
   return tagLabel;
 }
 
 function getTagKind(tagLabel: string, language: Language): {
   label: string;
-  tone: 'school' | 'subsubject' | 'topic' | 'pending' | 'deprecated';
+  tone: 'school' | 'subsubject' | 'topic' | 'pending';
   details?: string;
 } {
   const t = getCopy(language);
@@ -165,14 +160,6 @@ function getTagKind(tagLabel: string, language: Language): {
       label: t.tagKinds.topic,
       tone: 'topic',
       details: subjectLabels,
-    };
-  }
-
-  if (deprecatedTags[tagLabel]) {
-    return {
-      label: t.tagKinds.deprecated,
-      tone: 'deprecated',
-      details: t.useInstead(deprecatedTags[tagLabel].replaceWith),
     };
   }
 

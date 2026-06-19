@@ -343,22 +343,6 @@ function validateTagTaxonomy(data) {
     }
   }
 
-  if (requireObject(data.deprecatedTags, 'tagTaxonomy.json.deprecatedTags')) {
-    for (const [tagId, deprecated] of Object.entries(data.deprecatedTags)) {
-      const base = `tagTaxonomy.json.deprecatedTags.${tagId}`;
-      if (!requireObject(deprecated, base)) continue;
-      if (
-        requireString(deprecated.replaceWith, `${base}.replaceWith`)
-        && !canonicalTags.has(deprecated.replaceWith)
-        && !aliasOwners.has(deprecated.replaceWith)
-      ) {
-        addError(`${base}.replaceWith`, `unknown replacement "${deprecated.replaceWith}"`);
-      }
-      if (deprecated.reason !== undefined) {
-        requireString(deprecated.reason, `${base}.reason`, { allowEmpty: true });
-      }
-    }
-  }
 }
 
 function validateGeneratedTagsFile(tagTaxonomy) {

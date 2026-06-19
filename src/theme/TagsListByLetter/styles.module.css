@@ -523,11 +523,6 @@
   color: #b45309;
 }
 
-.deprecated .topicCount {
-  background: rgba(220, 38, 38, 0.12);
-  color: #b91c1c;
-}
-
 [data-theme='dark'] .viewTabs,
 [data-theme='dark'] .searchField,
 [data-theme='dark'] .tagPill {
@@ -544,10 +539,6 @@
 
 [data-theme='dark'] .pending .tagPillCount {
   color: #facc15;
-}
-
-[data-theme='dark'] .deprecated .topicCount {
-  color: #fca5a5;
 }
 
 @media (max-width: 768px) {

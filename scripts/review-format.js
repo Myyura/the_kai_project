@@ -408,7 +408,6 @@ function generateMarkdownReport(allIssues, totalFiles) {
     'frontmatter-invalid-yaml': 'frontmatter YAML 语法错误',
     'frontmatter-sidebar-label': '缺少 sidebar_label',
     'frontmatter-tags': '缺少 tags',
-    'frontmatter-tags-deprecated': '使用了已废弃 tag',
     'frontmatter-tags-duplicate': '同一文档内重复 tag',
     'frontmatter-tags-no-learning-tag': '缺少学习 tag',
     'frontmatter-tags-no-topic': '缺少具体考点 tag',

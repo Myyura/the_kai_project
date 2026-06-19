@@ -42,7 +42,7 @@ interface TopicMeta {
 }
 
 type Language = 'zh' | 'ja' | 'en';
-type Tone = 'school' | 'subsubject' | 'topic' | 'pending' | 'deprecated';
+type Tone = 'school' | 'subsubject' | 'topic' | 'pending';
 
 const subjects = tagTaxonomy.subjects as Record<string, LocalizedMeta>;
 const subsubjects = tagTaxonomy.subsubjects as Record<string, SubsubjectMeta>;
@@ -50,10 +50,6 @@ const topics = tagTaxonomy.topics as Record<string, TopicMeta>;
 const schoolTags = tagTaxonomy.schoolTags as Record<
   string,
   {label?: string; aliases?: string[]}
->;
-const deprecatedTags = tagTaxonomy.deprecatedTags as Record<
-  string,
-  {replaceWith: string; reason?: string}
 >;
 const subjectOrder = tagTaxonomy.subjectOrder as string[];
 const subsubjectOrder = tagTaxonomy.subsubjectOrder as string[];
@@ -152,10 +148,6 @@ function getPrimarySubject(tagLabel: string): string {
 
 function isSchoolTag(tagLabel: string): boolean {
   return schoolTagLookup.has(tagLabel);
-}
-
-function isDeprecatedTag(tagLabel: string): boolean {
-  return Boolean(deprecatedTags[tagLabel]);
 }
 
 function byCountThenName(a: TagType, b: TagType): number {
@@ -266,9 +258,7 @@ function TopicLink({
     .map((id) => getSubjectLabel(id, language));
 
   return (
-    <Link
-      to={tag.permalink}
-      className={`${styles.topicLink} ${isDeprecatedTag(tag.label) ? styles.deprecated : ''}`}>
+    <Link to={tag.permalink} className={styles.topicLink}>
       <span className={styles.topicName}>{getTopicShortId(tag.label)}</span>
       {secondarySubjects.length > 0 && (
         <span className={styles.topicRelated}>

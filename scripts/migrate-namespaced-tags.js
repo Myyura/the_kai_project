@@ -63,7 +63,6 @@ function buildMigration(taxonomy) {
   const schools = new Map();
   const subsubjects = new Map();
   const topics = new Map();
-  const rejected = new Map();
 
   for (const [id, meta] of Object.entries(taxonomy.schoolTags || {})) {
     schools.set(id, id);
@@ -74,10 +73,6 @@ function buildMigration(taxonomy) {
     subsubjects.set(id, id);
     for (const alias of meta.aliases || []) {
       subsubjects.set(alias, id);
-      rejected.set(alias, {
-        replaceWith: id,
-        reason: '旧子科目 alias 已废弃，请使用 canonical subsubject ID。',
-      });
     }
   }
 
@@ -89,27 +84,9 @@ function buildMigration(taxonomy) {
     }
     nextTopics[nextId] = stripLearningAliases(meta);
     topics.set(id, nextId);
-    if (id !== nextId) {
-      rejected.set(id, {
-        replaceWith: nextId,
-        reason: '旧扁平考点 tag 已废弃，请使用 namespaced topic ID。',
-      });
-    }
     for (const alias of meta.aliases || []) {
       topics.set(alias, nextId);
-      rejected.set(alias, {
-        replaceWith: nextId,
-        reason: '旧考点 alias 已废弃，请使用 namespaced topic ID。',
-      });
     }
-  }
-
-  for (const [tag, meta] of Object.entries(taxonomy.deprecatedTags || {})) {
-    const replacement = topics.get(meta.replaceWith) || subsubjects.get(meta.replaceWith) || meta.replaceWith;
-    rejected.set(tag, {
-      replaceWith: replacement,
-      reason: meta.reason || '旧 tag 已废弃。',
-    });
   }
 
   const nextSubsubjects = {};
@@ -125,13 +102,9 @@ function buildMigration(taxonomy) {
       subsubjectTags: 'canonical-subsubject-only',
       topicTags: 'namespaced-topic-only',
       subjectTags: 'derived-from-subsubject',
-      legacyLearningTags: 'error',
     },
     subsubjects: nextSubsubjects,
     topics: nextTopics,
-    deprecatedTags: Object.fromEntries(
-      Array.from(rejected.entries()).sort((a, b) => a[0].localeCompare(b[0])),
-    ),
   };
 
   return {
@@ -230,7 +203,6 @@ function printSummary(results, migration) {
   console.log(`  documents changed: ${changed.length}`);
   console.log(`  explicit subject tags removed: ${removedSubjects}`);
   console.log(`  redundant subsubject tags removed: ${redundantSubsubjects}`);
-  console.log(`  rejected legacy tags: ${Object.keys(migration.nextTaxonomy.deprecatedTags).length}`);
 
   if (topicMappings.length) {
     console.log('\nSample topic mappings');

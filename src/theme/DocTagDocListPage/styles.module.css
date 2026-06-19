@@ -54,11 +54,6 @@
   color: #b45309;
 }
 
-.deprecated {
-  background: rgba(220, 38, 38, 0.12);
-  color: #b91c1c;
-}
-
 .pageTitle {
   margin: 0 !important;
   color: var(--ifm-heading-color);
@@ -225,10 +220,6 @@
 
 [data-theme='dark'] .pending {
   color: #facc15;
-}
-
-[data-theme='dark'] .deprecated {
-  color: #fca5a5;
 }
 
 @media (max-width: 768px) {

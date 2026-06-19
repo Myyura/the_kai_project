@@ -628,6 +628,10 @@
   label: "Mathematics.Graph-Theory.Articulation-Point"
   permalink: "/topic/mathematics/graph-theory/articulation-point"
   description: "Mathematics / Graph-Theory / Articulation-Point"
+"Mathematics.Graph-Theory.Bellman-Ford-Algorithm":
+  label: "Mathematics.Graph-Theory.Bellman-Ford-Algorithm"
+  permalink: "/topic/mathematics/graph-theory/bellman-ford-algorithm"
+  description: "Mathematics / Graph-Theory / Bellman-Ford-Algorithm"
 "Mathematics.Graph-Theory.Bipartite-Graph":
   label: "Mathematics.Graph-Theory.Bipartite-Graph"
   permalink: "/topic/mathematics/graph-theory/bipartite-graph"
@@ -652,6 +656,10 @@
   label: "Mathematics.Graph-Theory.Depth-First-Search"
   permalink: "/topic/mathematics/graph-theory/depth-first-search"
   description: "Mathematics / Graph-Theory / Depth-First-Search"
+"Mathematics.Graph-Theory.Dijkstra-Algorithm":
+  label: "Mathematics.Graph-Theory.Dijkstra-Algorithm"
+  permalink: "/topic/mathematics/graph-theory/dijkstra-algorithm"
+  description: "Mathematics / Graph-Theory / Dijkstra-Algorithm"
 "Mathematics.Graph-Theory.Euler-Circuit":
   label: "Mathematics.Graph-Theory.Euler-Circuit"
   permalink: "/topic/mathematics/graph-theory/euler-circuit"
@@ -664,6 +672,10 @@
   label: "Mathematics.Graph-Theory.Graph-Isomorphism"
   permalink: "/topic/mathematics/graph-theory/graph-isomorphism"
   description: "Mathematics / Graph-Theory / Graph-Isomorphism"
+"Mathematics.Graph-Theory.Kruskal-Algorithm":
+  label: "Mathematics.Graph-Theory.Kruskal-Algorithm"
+  permalink: "/topic/mathematics/graph-theory/kruskal-algorithm"
+  description: "Mathematics / Graph-Theory / Kruskal-Algorithm"
 "Mathematics.Graph-Theory.Matching":
   label: "Mathematics.Graph-Theory.Matching"
   permalink: "/topic/mathematics/graph-theory/matching"

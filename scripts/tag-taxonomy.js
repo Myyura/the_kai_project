@@ -77,16 +77,6 @@ function classifyTag(rawTag) {
   const tag = normalizeTagValue(rawTag);
   if (!tag) return { kind: 'empty', id: tag };
 
-  const deprecated = taxonomy.deprecatedTags?.[tag];
-  if (deprecated) {
-    return {
-      kind: 'deprecated',
-      id: tag,
-      replaceWith: deprecated.replaceWith,
-      reason: deprecated.reason,
-    };
-  }
-
   if (LOOKUP.subjectTags.has(tag)) return LOOKUP.subjectTags.get(tag);
   if (LOOKUP.schoolTags.has(tag)) return LOOKUP.schoolTags.get(tag);
   if (LOOKUP.subsubjectTags.has(tag)) return LOOKUP.subsubjectTags.get(tag);
@@ -197,6 +187,7 @@ function validateTags(tags) {
   const topicSubsubjects = new Map();
   let learningTagCount = 0;
   let topicCount = 0;
+  let unknownTagCount = 0;
 
   for (const tag of tags || []) {
     const normalized = normalizeTagValue(tag);
@@ -213,15 +204,6 @@ function validateTags(tags) {
     }
 
     const info = classifyTag(normalized);
-    if (info.kind === 'deprecated') {
-      issues.push({
-        severity: 'ERROR',
-        rule: 'frontmatter-tags-deprecated',
-        message: `tag "${normalized}" 已废弃，请改用 "${info.replaceWith}"。${info.reason || ''}`.trim(),
-      });
-      continue;
-    }
-
     if (info.kind === 'subject') {
       issues.push({
         severity: 'ERROR',
@@ -231,10 +213,11 @@ function validateTags(tags) {
     }
 
     if (info.kind === 'unknown') {
+      unknownTagCount += 1;
       issues.push({
         severity: 'WARNING',
         rule: 'frontmatter-tags-unknown',
-        message: `新 tag "${normalized}" 暂未收录在 tagTaxonomy.json；如果这是正确的新子科目或考点，可以保留并在 PR 描述中说明。`,
+        message: `新 tag "${normalized}" 暂未收录在当前 tag 列表中；请对比是否存在拼写错误，或联系管理员审查并补充该 tag。`,
       });
     }
 
@@ -270,7 +253,7 @@ function validateTags(tags) {
       rule: 'frontmatter-tags-no-learning-tag',
       message: '当前文档只有学校/位置类 tag，建议至少补充 1 个子科目或考点 tag。',
     });
-  } else if ((tags || []).length > 0 && topicCount === 0) {
+  } else if ((tags || []).length > 0 && topicCount === 0 && unknownTagCount === 0) {
     issues.push({
       severity: 'WARNING',
       rule: 'frontmatter-tags-no-topic',
@@ -287,7 +270,6 @@ function getKnownTagIds() {
     subjects: Array.from(LOOKUP.subjectTags.keys()),
     subsubjects: Array.from(LOOKUP.subsubjectTags.keys()),
     topics: Array.from(LOOKUP.topicTags.keys()),
-    deprecated: Object.keys(taxonomy.deprecatedTags || {}),
   };
 }
 

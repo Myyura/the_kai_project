@@ -34,7 +34,6 @@ const data = buildApiData();
   const subsubjectCounts = new Map();
   const topicCounts = new Map();
   const unknownCounts = new Map();
-  const deprecatedCounts = new Map();
   const noLearningTagDocs = [];
   const noTopicDocs = [];
   const tagIssues = [];
@@ -62,10 +61,9 @@ const data = buildApiData();
           increment(subjectCounts, subjectId);
         }
         if (info.subsubjectId) increment(subsubjectCounts, info.subsubjectId);
-      } else if (info.kind === 'deprecated') {
-        increment(deprecatedCounts, `${info.id} -> ${info.replaceWith}`);
       } else if (info.kind === 'unknown') {
         hasLearningTag = true;
+        hasTopicTag = true;
         increment(unknownCounts, tag);
       }
     }
@@ -87,7 +85,6 @@ const data = buildApiData();
     knownSubjects: known.subjects.length,
     knownSubsubjects: known.subsubjects.length,
     knownTopicTags: known.topics.length,
-    deprecatedTags: known.deprecated.length,
     usedSchoolTags: schoolCounts.size,
     usedSubjects: subjectCounts.size,
     usedSubsubjects: subsubjectCounts.size,
@@ -100,7 +97,6 @@ const data = buildApiData();
     subjectUsage: sortCounts(subjectCounts).map(([tag, count]) => ({ tag, count })),
     subsubjectUsage: sortCounts(subsubjectCounts).map(([tag, count]) => ({ tag, count })),
     unknownTags: sortCounts(unknownCounts).map(([tag, count]) => ({ tag, count })),
-    deprecatedTagUsage: sortCounts(deprecatedCounts).map(([tag, count]) => ({ tag, count })),
     noLearningTagDocExamples: noLearningTagDocs.slice(0, 30),
     noTopicDocExamples: noTopicDocs.slice(0, 30),
   };
@@ -127,7 +123,6 @@ const data = buildApiData();
     printCountTable('Top subsubjects', sortCounts(subsubjectCounts), 40);
     printCountTable('Top topic tags', sortCounts(topicCounts), 50);
     printCountTable('Unknown tags', sortCounts(unknownCounts), 80);
-    printCountTable('Deprecated tag usage', sortCounts(deprecatedCounts), 80);
 
     if (noLearningTagDocs.length) {
       console.log('\nDocs without learning tag');
