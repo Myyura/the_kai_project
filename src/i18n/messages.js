@@ -653,7 +653,7 @@ export const UI_MESSAGES = {
       passwordMismatch: '两次输入的密码不一致。',
       update: '更新密码',
       updating: '更新中...',
-      success: '密码已更新，可以使用新密码登录。',
+      success: '密码已更新，正在返回登录页。',
       backLogin: '返回登录',
     },
     ja: {
@@ -671,7 +671,7 @@ export const UI_MESSAGES = {
       passwordMismatch: 'パスワードが一致しません。',
       update: 'パスワードを更新',
       updating: '更新中...',
-      success: 'パスワードを更新しました。新しいパスワードでログインできます。',
+      success: 'パスワードを更新しました。ログインページへ戻ります。',
       backLogin: 'ログインへ戻る',
     },
     en: {
@@ -689,7 +689,7 @@ export const UI_MESSAGES = {
       passwordMismatch: 'The two passwords do not match.',
       update: 'Update password',
       updating: 'Updating...',
-      success: 'Password updated. You can now log in with the new password.',
+      success: 'Password updated. Returning to login...',
       backLogin: 'Back to login',
     },
   },
