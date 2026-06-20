@@ -1,11 +1,13 @@
 import { serve } from 'https://deno.land/std@0.224.0/http/server.ts';
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.48.1';
 import {
-  corsHeaders,
+  corsHeadersFor,
   errorResponse,
   getBearerToken,
+  isAllowedOrigin,
   jsonResponse,
   readJsonBody,
+  withCors,
 } from './http.ts';
 import { randomBase64Url, sha256Hex } from './crypto.ts';
 
@@ -323,32 +325,37 @@ async function revokeKey(userId: string, body: Record<string, unknown>) {
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders });
+    const status = isAllowedOrigin(req) ? 200 : 403;
+    return new Response(status === 200 ? 'ok' : 'forbidden', { status, headers: corsHeadersFor(req) });
+  }
+
+  if (!isAllowedOrigin(req)) {
+    return withCors(req, errorResponse(403, 'origin_not_allowed', 'Origin is not allowed.'));
   }
 
   if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
-    return errorResponse(500, 'server_not_configured', 'Supabase Edge Function is not configured.');
+    return withCors(req, errorResponse(500, 'server_not_configured', 'Supabase Edge Function is not configured.'));
   }
 
   const auth = await requireUser(req);
-  if ('response' in auth) return auth.response;
+  if ('response' in auth) return withCors(req, auth.response);
 
   try {
-    if (req.method === 'GET') return await listKeys(auth.user.id);
+    if (req.method === 'GET') return withCors(req, await listKeys(auth.user.id));
     if (req.method === 'POST') {
       const body = await readJsonBody(req);
       if (body?.action === 'request_access') {
-        return await requestAccess(auth.user, body);
+        return withCors(req, await requestAccess(auth.user, body));
       }
-      return await createKey(auth.user.id, body);
+      return withCors(req, await createKey(auth.user.id, body));
     }
     if (req.method === 'DELETE') {
       const body = await readJsonBody(req);
-      return await revokeKey(auth.user.id, body);
+      return withCors(req, await revokeKey(auth.user.id, body));
     }
-    return errorResponse(405, 'method_not_allowed', 'Method not allowed.');
+    return withCors(req, errorResponse(405, 'method_not_allowed', 'Method not allowed.'));
   } catch (error) {
     console.error(error);
-    return errorResponse(500, 'internal_error', 'Developer API key request failed.');
+    return withCors(req, errorResponse(500, 'internal_error', 'Developer API key request failed.'));
   }
 });

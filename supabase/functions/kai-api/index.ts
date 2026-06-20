@@ -10,11 +10,14 @@ import { sha256Hex } from './crypto.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';
-const API_LOG_SALT = Deno.env.get('API_LOG_SALT') || 'kai-api';
+const API_LOG_SALT = Deno.env.get('API_LOG_SALT') || '';
 const API_VERSION = 'v1';
 const SITE_URL = 'https://runjp.com';
 const CONTENT_NOTICE = 'Core public content remains openly accessible on The Kai Project. API access, bulk reuse, redistribution, commercial integration, and other uses beyond ordinary browsing and personal study are subject to the project content/API terms and any applicable third-party rights.';
 const CATALOG_CACHE_TTL_MS = 10 * 60 * 1000;
+const DEFAULT_PAGE_LIMIT = 100;
+const MAX_PAGE_LIMIT = 500;
+const CONTENT_PAGE_LIMIT = 50;
 
 let supabaseClient: ReturnType<typeof createClient> | null = null;
 let catalogCache: { expiresAt: number; body: Record<string, unknown>; resultCount: number } | null = null;
@@ -94,13 +97,13 @@ function getClientIp(req: Request) {
 
 async function hashIp(req: Request) {
   const ip = getClientIp(req);
-  if (!ip) return null;
+  if (!ip || !API_LOG_SALT) return null;
   return await sha256Hex(`${API_LOG_SALT}:${ip}`);
 }
 
 async function logRequest(req: Request, ctx: RequestContext, statusCode: number) {
   const supabase = getSupabase();
-  if (!supabase) return;
+  if (!supabase || !API_LOG_SALT) return;
 
   try {
     await supabase.from('api_request_logs').insert({
@@ -406,7 +409,11 @@ async function fetchExams(req: Request, ctx: RequestContext) {
 
   const url = new URL(req.url);
   const includeContent = url.searchParams.get('include') === 'content';
-  const limit = parsePositiveInt(url.searchParams.get('limit'), 100, 500);
+  const limit = parsePositiveInt(
+    url.searchParams.get('limit'),
+    includeContent ? CONTENT_PAGE_LIMIT : DEFAULT_PAGE_LIMIT,
+    includeContent ? CONTENT_PAGE_LIMIT : MAX_PAGE_LIMIT,
+  );
   const offset = Math.max(0, Number(url.searchParams.get('offset') || 0) || 0);
   const type = url.searchParams.get('type') || 'exam';
 
@@ -520,7 +527,7 @@ serve(async (req) => {
     resultCount: null,
   };
 
-  if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
+  if (!SUPABASE_URL || !SERVICE_ROLE_KEY || !API_LOG_SALT) {
     const response = errorResponse(500, 'server_not_configured', 'Supabase Edge Function is not configured.');
     scheduleLogRequest(req, ctx, response.status);
     return response;
