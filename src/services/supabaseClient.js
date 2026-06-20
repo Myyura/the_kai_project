@@ -43,6 +43,24 @@ export const isSupabaseConfigured = () => {
 
 let _clientCache = null;
 
+const AUTH_STORAGE_KEY = 'kai_supabase_auth';
+
+const createConfiguredClient = (authOverrides = {}) => {
+  const { url, anonKey } = getCredentials();
+  if (!url || !anonKey) return null;
+
+  return createClient(url, anonKey, {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      storageKey: AUTH_STORAGE_KEY,
+      flowType: 'pkce',             // 使用 PKCE 流程，防止授权码拦截攻击
+      detectSessionInUrl: false,     // 禁止自动从 URL 中读取 token，防止 token 泄露
+      ...authOverrides,
+    },
+  });
+};
+
 /**
  * 获取 Supabase 客户端实例（单例）
  * 如果构建时未注入凭据则返回 null
@@ -50,20 +68,20 @@ let _clientCache = null;
 export const getSupabaseClient = () => {
   if (_clientCache) return _clientCache;
 
-  const { url, anonKey } = getCredentials();
-  if (!url || !anonKey) return null;
-
-  _clientCache = createClient(url, anonKey, {
-    auth: {
-      persistSession: true,
-      autoRefreshToken: true,
-      storageKey: 'kai_supabase_auth',
-      flowType: 'pkce',             // 使用 PKCE 流程，防止授权码拦截攻击
-      detectSessionInUrl: false,     // 禁止自动从 URL 中读取 token，防止 token 泄露
-    },
-  });
+  _clientCache = createConfiguredClient();
   return _clientCache;
 };
+
+/**
+ * 邮件动作（注册确认/密码重置）使用 implicit link，避免依赖发起请求浏览器中的 PKCE verifier。
+ */
+export const getSupabaseEmailActionClient = () => createConfiguredClient({
+  persistSession: false,
+  autoRefreshToken: false,
+  flowType: 'implicit',
+});
+
+export const getSupabasePasswordResetClient = getSupabaseEmailActionClient;
 
 /**
  * React Hook：在组件树顶层调用一次，用来把 siteConfig 注入到本模块
@@ -80,7 +98,7 @@ export const useInitSupabase = () => {
  */
 export const getCachedUser = () => {
   try {
-    const raw = localStorage.getItem('kai_supabase_auth');
+    const raw = localStorage.getItem(AUTH_STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     // Supabase JS v2 在 localStorage 中存储的结构

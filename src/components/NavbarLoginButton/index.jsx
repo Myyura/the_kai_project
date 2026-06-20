@@ -20,7 +20,7 @@ function LoginButtonInner() {
   if (!isConfigured) return null;
 
   // 认证状态尚未确认 → 渲染占位符保持布局稳定，避免闪烁
-  if (!authReady && !user) {
+  if (!authReady) {
     return (
       <span
         className="navbar__link navbar__link--login"

@@ -694,6 +694,39 @@ export const UI_MESSAGES = {
     },
   },
 
+  authCallback: {
+    zh: {
+      title: '正在完成登录',
+      subtitle: '请稍候，正在验证认证链接',
+      processing: '正在处理认证回调...',
+      loginSuccess: '登录成功，正在前往个人中心...',
+      signupSuccess: '邮箱确认成功，正在前往个人中心...',
+      failed: '认证链接无效或已过期，请重新登录。',
+      notConfigured: '云同步尚未配置，请联系站点管理员。',
+      backLogin: '返回登录',
+    },
+    ja: {
+      title: 'ログイン処理中',
+      subtitle: '認証リンクを確認しています',
+      processing: '認証コールバックを処理しています...',
+      loginSuccess: 'ログインしました。マイページへ移動しています...',
+      signupSuccess: 'メール確認が完了しました。マイページへ移動しています...',
+      failed: '認証リンクが無効、または期限切れです。もう一度ログインしてください。',
+      notConfigured: 'クラウド同期はまだ設定されていません。管理者にお問い合わせください。',
+      backLogin: 'ログインへ戻る',
+    },
+    en: {
+      title: 'Completing Login',
+      subtitle: 'Verifying the authentication link',
+      processing: 'Processing authentication callback...',
+      loginSuccess: 'Logged in. Redirecting to your personal center...',
+      signupSuccess: 'Email confirmed. Redirecting to your personal center...',
+      failed: 'The authentication link is invalid or expired. Please log in again.',
+      notConfigured: 'Cloud sync is not configured yet. Please contact the site owner.',
+      backLogin: 'Back to login',
+    },
+  },
+
   navbarLogin: {
     zh: {login: '登录', loggedIn: '已登录'},
     ja: {login: 'ログイン', loggedIn: 'ログイン中'},

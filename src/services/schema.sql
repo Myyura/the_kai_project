@@ -14,6 +14,9 @@
 --   3. Authentication → Bot and Abuse Protection
 --      → 启用 hCaptcha 或 Cloudflare Turnstile（防自动化暴力破解）
 --
+--   4. Authentication → URL Configuration
+--      → 将站点的 /auth/callback 和 /reset-password 加入允许的 Redirect URLs
+--
 -- ============================================================
 
 -- 启用 UUID 扩展

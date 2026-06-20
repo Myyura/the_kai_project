@@ -37,7 +37,7 @@ function LoginPageContent() {
 
   const {
     isConfigured, user, isLoggedIn, authReady, error,
-    loginWithEmail, registerWithEmail, loginWithGitHub, completeOAuthCallback, requestPasswordReset, signOut,
+    loginWithEmail, registerWithEmail, loginWithGitHub, requestPasswordReset, signOut,
   } = useSync();
 
   const [mode, setMode] = useState('login'); // 'login' | 'register'
@@ -59,53 +59,6 @@ function LoginPageContent() {
     if (locked) startCountdown(remainingSeconds);
     return () => clearInterval(countdownRef.current);
   }, []);
-
-  // OAuth 回调处理：detectSessionInUrl=false 时需手动交换 code
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-    const oauthErr = params.get('error');
-    const oauthErrDesc = params.get('error_description');
-    if (!code && !oauthErr && !oauthErrDesc) return;
-
-    const clearQuery = () => {
-      window.history.replaceState({}, document.title, window.location.pathname);
-    };
-
-    if (oauthErr || oauthErrDesc) {
-      showMsg(oauthErrDesc || t.oauthFailed, true);
-      clearQuery();
-      return;
-    }
-
-    let disposed = false;
-    const run = async () => {
-      setOauthLoading(true);
-      try {
-        await completeOAuthCallback(code);
-        if (disposed) return;
-        resetAttempts();
-        showMsg(t.loginOk);
-        clearQuery();
-        setTimeout(() => {
-          history.push('/me');
-        }, 1000);
-      } catch (err) {
-        if (disposed) return;
-        showMsg(err?.message || t.oauthFailed, true);
-        clearQuery();
-      } finally {
-        if (!disposed) setOauthLoading(false);
-      }
-    };
-
-    run();
-    return () => {
-      disposed = true;
-    };
-  }, [completeOAuthCallback, history, t.loginOk, t.oauthFailed]);
 
   const startCountdown = (seconds) => {
     setLockCountdown(seconds);
@@ -203,7 +156,8 @@ function LoginPageContent() {
           history.push('/me');
         }, 1000);
       } else {
-        await registerWithEmail(email, password, captchaToken || undefined);
+        const emailRedirectTo = `${window.location.origin}/auth/callback`;
+        await registerWithEmail(email, password, captchaToken || undefined, emailRedirectTo);
         resetAttempts();
         showMsg(t.registerOk);
       }
@@ -244,7 +198,7 @@ function LoginPageContent() {
     setMsg(null);
     setOauthLoading(true);
     try {
-      const redirectTo = `${window.location.origin}/login`;
+      const redirectTo = `${window.location.origin}/auth/callback`;
       await loginWithGitHub(redirectTo);
       showMsg(t.oauthRedirecting);
       // 正常情况下会立即跳转到 GitHub，不会执行到 finally
@@ -303,7 +257,7 @@ function LoginPageContent() {
   }
 
   // 认证状态尚未确认 → 显示加载中，避免闪烁
-  if (!authReady && !user) {
+  if (!authReady) {
     return (
       <div className={styles.wrapper}>
         <div className={styles.card}>

@@ -19,6 +19,7 @@ import { useSync } from '@site/src/hooks/useSync';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
+import { getVerifiedAccessToken } from '@site/src/services/syncService';
 import styles from './developers.module.css';
 
 function formatDate(value, language, fallback) {
@@ -82,8 +83,7 @@ export function DeveloperApiContent() {
     const supabase = getSupabaseClient();
     if (!supabase) throw new Error(t.notConfigured);
 
-    const { data: sessionData } = await supabase.auth.getSession();
-    const accessToken = sessionData?.session?.access_token;
+    const accessToken = await getVerifiedAccessToken();
     if (!accessToken) throw new Error(t.sessionMissing);
 
     const { data, error } = await supabase.functions.invoke('developer-api-keys', {
@@ -323,7 +323,7 @@ export function DeveloperApiContent() {
     );
   };
 
-  if (!authReady && !user) {
+  if (!authReady) {
     return (
       <div className={styles.shell}>
         <div className={styles.loadingPanel}>
