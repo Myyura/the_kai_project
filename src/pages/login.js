@@ -11,6 +11,7 @@ import {
   FaSignOutAlt, FaArrowRight, FaKey,
 } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
+import NoIndex from '@site/src/components/NoIndex';
 import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import {
@@ -476,6 +477,7 @@ function LoginPageContent() {
 export default function LoginPage() {
   return (
     <Layout title="登录 / ログイン / Login">
+      <NoIndex />
       <BrowserOnly fallback={<div style={{ minHeight: '60vh' }} />}>
         {() => <LoginPageContent />}
       </BrowserOnly>

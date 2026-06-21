@@ -10,6 +10,28 @@ import rehypeMathjax from 'rehype-mathjax';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const PRECACHE_URL_PATTERNS = [
+  /^index\.html$/,
+  /^404\.html$/,
+  /^[^/]+\.sw\.js$/,
+  /^assets\/js\/runtime~main\.[^/]+\.js$/,
+  /^assets\/js\/main\.[^/]+\.js$/,
+  /^assets\/css\/styles\.[^/]+\.css$/,
+  /^manifest\.json$/,
+  /^browserconfig\.xml$/,
+  /^img\/favicon\.ico$/,
+  /^img\/kai-icon(?:-light)?\.png$/,
+  /^img\/logo(?:-\d+)?\.png$/,
+  /^img\/logo(?:_dark)?\.svg$/,
+];
+
+const filterPrecacheManifest = async (manifestEntries) => ({
+  manifest: manifestEntries.filter((entry) => (
+    PRECACHE_URL_PATTERNS.some((pattern) => pattern.test(entry.url))
+  )),
+  warnings: [],
+});
+
  /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: {
@@ -163,7 +185,7 @@ const config = {
           },
         ],
         injectManifestConfig: {
-          globPatterns: ['**/*.{js,html,css,svg,png,jpg,jpeg,gif}'],
+          manifestTransforms: [filterPrecacheManifest],
         },
         
       },
@@ -196,6 +218,15 @@ const config = {
         },
         theme: {
           customCss: './src/css/custom.css',
+        },
+        sitemap: {
+          ignorePatterns: [
+            '/auth/callback',
+            '/login',
+            '/me',
+            '/reset-password',
+            '/search',
+          ],
         },
         gtag: {
           trackingID: 'G-JJMZK98D6Y',

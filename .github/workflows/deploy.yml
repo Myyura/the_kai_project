@@ -46,8 +46,9 @@ jobs:
       - name: 检查 Pages 构建入口
         run: |
           test -f build/index.html
-          test -f build/ja/index.html
-          test -f build/en/index.html
+          test ! -d build/ja
+          test ! -d build/en
+          test ! -f build/progress.html
       - name: 部署 Supabase Edge Functions
         if: github.event_name == 'push'
         run: |

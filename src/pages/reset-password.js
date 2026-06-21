@@ -6,6 +6,7 @@ import {useHistory} from '@docusaurus/router';
 import { FaCheck, FaExclamationTriangle, FaKey, FaLock, FaSyncAlt } from 'react-icons/fa';
 import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
+import NoIndex from '@site/src/components/NoIndex';
 import { useSync } from '@site/src/hooks/useSync';
 import {
   recoverPasswordSessionFromUrl,
@@ -193,6 +194,7 @@ function ResetPasswordContent() {
 export default function ResetPasswordPage() {
   return (
     <Layout title="重置密码 / Reset Password">
+      <NoIndex />
       <BrowserOnly fallback={<div style={{ minHeight: '60vh' }} />}>
         {() => <ResetPasswordContent />}
       </BrowserOnly>

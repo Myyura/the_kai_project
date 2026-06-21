@@ -5,6 +5,7 @@ import Link from '@docusaurus/Link';
 import {useHistory} from '@docusaurus/router';
 import { FaCheck, FaCloud, FaExclamationTriangle, FaSyncAlt } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
+import NoIndex from '@site/src/components/NoIndex';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from '../login.module.css';
 
@@ -88,6 +89,7 @@ function AuthCallbackContent() {
 export default function AuthCallbackPage() {
   return (
     <Layout title="Auth Callback">
+      <NoIndex />
       <BrowserOnly fallback={<div style={{ minHeight: '60vh' }} />}>
         {() => <AuthCallbackContent />}
       </BrowserOnly>
