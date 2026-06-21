@@ -12,6 +12,8 @@ import {
   FaSignInAlt,
 } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
+import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
+import {useUiText} from '@site/src/i18n/useUiText';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
 import { getVerifiedAccessToken } from '@site/src/services/syncService';
 import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
@@ -56,10 +58,10 @@ function resolveOptionValue(value, customValue) {
   return value === CUSTOM_OPTION ? String(customValue || '').trim() : value;
 }
 
-function formatDate(value) {
+function formatDate(value, language) {
   if (!value) return '';
   try {
-    return new Date(value).toLocaleString('zh-CN', {
+    return new Date(value).toLocaleString(getLanguageLocale(language), {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
@@ -77,18 +79,13 @@ function statusClass(status) {
   return styles.statusPending;
 }
 
-function statusText(status) {
-  const map = {
-    pending_issue: '创建 Issue 中',
-    issue_created: 'Issue 已创建',
-    failed: '创建失败',
-    converted: '已转为 PR',
-    closed: '已关闭',
-  };
-  return map[status] || status || '未知';
+function statusText(status, t) {
+  return t.statusLabels?.[status] || status || t.statusLabels?.unknown || 'Unknown';
 }
 
 export function ContributeContent({ embedded = false } = {}) {
+  const language = useCurrentLanguage();
+  const t = useUiText('contributions');
   const { isConfigured, isLoggedIn, authReady, user } = useSync();
   const [form, setForm] = useState(initialForm);
   const [submissions, setSubmissions] = useState([]);
@@ -121,10 +118,10 @@ export function ContributeContent({ embedded = false } = {}) {
 
   const invokeSubmissionFunction = useCallback(async (method, body) => {
     const supabase = getSupabaseClient();
-    if (!supabase) throw new Error('Supabase 未配置');
+    if (!supabase) throw new Error(t.notConfigured);
 
     const accessToken = await getVerifiedAccessToken();
-    if (!accessToken) throw new Error('登录会话已过期，请重新登录');
+    if (!accessToken) throw new Error(t.sessionMissing);
 
     const { data, error } = await supabase.functions.invoke('content-submissions', {
       method,
@@ -135,11 +132,11 @@ export function ContributeContent({ embedded = false } = {}) {
     });
 
     if (error) {
-      throw new Error(await getEdgeFunctionErrorMessage(error, '投稿服务请求失败，请稍后重试。'));
+      throw new Error(await getEdgeFunctionErrorMessage(error, t.requestFailed));
     }
     if (data?.error) throw new Error(data.error.message || data.error.code);
     return data;
-  }, []);
+  }, [t.notConfigured, t.requestFailed, t.sessionMissing]);
 
   const loadSubmissions = useCallback(async () => {
     if (!isLoggedIn) return;
@@ -148,11 +145,11 @@ export function ContributeContent({ embedded = false } = {}) {
       const data = await invokeSubmissionFunction('GET');
       setSubmissions(data?.submissions || []);
     } catch (error) {
-      setMessage({ type: 'error', text: error?.message || '投稿记录加载失败' });
+      setMessage({ type: 'error', text: error?.message || t.loadFailed });
     } finally {
       setLoading(false);
     }
-  }, [invokeSubmissionFunction, isLoggedIn]);
+  }, [invokeSubmissionFunction, isLoggedIn, t.loadFailed]);
 
   useEffect(() => {
     if (authReady && isLoggedIn) {
@@ -174,9 +171,9 @@ export function ContributeContent({ embedded = false } = {}) {
         targetTitle: title || current.targetTitle,
       }));
     } else if (type === 'correction') {
-      setMessage({ type: 'error', text: '请从具体题解页底部的「纠错/补充」进入，系统会自动带入目标题解。' });
+      setMessage({ type: 'error', text: t.enterFromDocPage });
     }
-  }, []);
+  }, [t.enterFromDocPage]);
 
   const updateForm = (field, value) => {
     setForm((current) => ({
@@ -233,17 +230,17 @@ export function ContributeContent({ embedded = false } = {}) {
     const universityId = resolveOptionValue(form.universityId, form.customUniversityId);
     const departmentId = resolveOptionValue(form.departmentId, form.customDepartmentId);
     const programId = resolveOptionValue(form.programId, form.customProgramId);
-    if (!form.authorName.trim()) return '请填写公开署名。';
-    if (!form.claAccepted) return '请先确认已阅读并同意 CLA。';
+    if (!form.authorName.trim()) return t.authorRequired;
+    if (!form.claAccepted) return t.claRequired;
     if (form.submissionType === 'new_solution') {
-      if (!form.title.trim()) return '请填写题解标题。';
-      if (!universityId || !departmentId || !form.year) return '请选择或填写学校、院系，并填写考试年度。';
-      if (form.programId === CUSTOM_OPTION && !programId) return '请填写项目/专业目录，或选择“不清楚/不填写”。';
-      if (!form.descriptionMarkdown.trim() && !form.kaiMarkdown.trim()) return 'Description 或 Kai 至少填写一项。';
+      if (!form.title.trim()) return t.titleRequired;
+      if (!universityId || !departmentId || !form.year) return t.metaRequired;
+      if (form.programId === CUSTOM_OPTION && !programId) return t.customProgramRequired;
+      if (!form.descriptionMarkdown.trim() && !form.kaiMarkdown.trim()) return t.markdownRequired;
     }
     if (form.submissionType === 'correction') {
-      if (!form.targetDocId.trim()) return '请从具体题解页底部的「纠错/补充」进入。';
-      if (!form.correctionMarkdown.trim()) return '请填写纠错或补充内容。';
+      if (!form.targetDocId.trim()) return t.targetRequired;
+      if (!form.correctionMarkdown.trim()) return t.correctionRequired;
     }
     return null;
   };
@@ -285,7 +282,7 @@ export function ContributeContent({ embedded = false } = {}) {
 
       const issueUrl = data?.submission?.issueUrl || '';
       setLastIssueUrl(issueUrl);
-      setMessage({ type: 'success', text: '投稿已创建为 GitHub Issue，维护者会在那里继续审核。' });
+      setMessage({ type: 'success', text: t.submitSuccess });
       setForm((current) => ({
         ...initialForm,
         submissionType: current.submissionType,
@@ -295,7 +292,7 @@ export function ContributeContent({ embedded = false } = {}) {
       }));
       await loadSubmissions();
     } catch (error) {
-      setMessage({ type: 'error', text: error?.message || '投稿失败，请稍后重试。' });
+      setMessage({ type: 'error', text: error?.message || t.submitFailed });
     } finally {
       setSubmitting(false);
     }
@@ -316,8 +313,8 @@ export function ContributeContent({ embedded = false } = {}) {
       <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
         <section className={styles.noticePanel}>
           <FaExclamationTriangle className={styles.noticeIcon} />
-          <h1>站内投稿</h1>
-          <p>当前站点尚未配置 Supabase，投稿功能暂不可用。</p>
+          <h1>{t.pageTitle}</h1>
+          <p>{t.notConfigured}</p>
         </section>
       </div>
     );
@@ -328,10 +325,10 @@ export function ContributeContent({ embedded = false } = {}) {
       <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
         <section className={styles.noticePanel}>
           <FaClipboardList className={styles.noticeIcon} />
-          <h1>站内投稿</h1>
-          <p>请先登录，再提交新题解或从题解页发起纠错。投稿会被创建为公开 GitHub Issue。</p>
+          <h1>{t.pageTitle}</h1>
+          <p>{t.loginRequired}</p>
           <Link to="/login" className={styles.primaryButton}>
-            <FaSignInAlt /> 登录
+            <FaSignInAlt /> {t.login}
           </Link>
         </section>
       </div>
@@ -342,15 +339,15 @@ export function ContributeContent({ embedded = false } = {}) {
     <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
       <header className={styles.header}>
         <div>
-          <h1>{isCorrectionMode ? '题解纠错/补充' : '站内投稿'}</h1>
+          <h1>{isCorrectionMode ? t.correctionTitle : t.pageTitle}</h1>
           <p>
             {isCorrectionMode
-              ? '当前题解的信息已自动带入。请只填写需要更正或补充的内容。'
-              : '提交新的题目描述或解答，系统会创建公开 GitHub Issue；维护者确认后，bot 会整理成规范 PR。'}
+              ? t.headerCorrection
+              : t.headerNew}
           </p>
         </div>
         <button type="button" className={styles.secondaryButton} onClick={loadSubmissions} disabled={loading}>
-          <FaRedo className={loading ? styles.spin : ''} /> 刷新记录
+          <FaRedo className={loading ? styles.spin : ''} /> {t.refreshRecords}
         </button>
       </header>
 
@@ -360,7 +357,7 @@ export function ContributeContent({ embedded = false } = {}) {
           <span>{message.text}</span>
           {lastIssueUrl && (
             <a href={lastIssueUrl} target="_blank" rel="noreferrer">
-              查看 Issue <FaExternalLinkAlt />
+              {t.viewIssue} <FaExternalLinkAlt />
             </a>
           )}
         </div>
@@ -371,36 +368,36 @@ export function ContributeContent({ embedded = false } = {}) {
           <div className={styles.modeNotice}>
             {isCorrectionMode ? <FaEdit /> : <FaPaperPlane />}
             <div>
-              <strong>{isCorrectionMode ? '纠错/补充' : '新增题解'}</strong>
+              <strong>{isCorrectionMode ? t.modeCorrection : t.modeNew}</strong>
               <span>
                 {isCorrectionMode
-                  ? '这个入口只能从具体题解页进入，目标文档由系统自动填写。'
-                  : '如果只是修正某篇现有题解，请回到该题解页底部点击「纠错/补充」。'}
+                  ? t.modeCorrectionHint
+                  : t.modeNewHint}
               </span>
             </div>
           </div>
 
           <div className={styles.formGrid}>
             <label>
-              <span>公开署名</span>
+              <span>{t.author}</span>
               <input
                 value={form.authorName}
                 onChange={(event) => updateForm('authorName', event.target.value)}
-                placeholder="例如：祭音Myyura"
+                placeholder={t.authorPlaceholder}
                 maxLength={120}
               />
-              <small className={styles.smallHint}>会展示在 Issue 和最终文档中；登录邮箱不会公开。</small>
+              <small className={styles.smallHint}>{t.authorHint}</small>
             </label>
 
             {isCorrectionMode ? (
               <div className={`${styles.targetSummary} ${styles.fullSpan}`}>
-                <span>目标题解</span>
-                <strong>{form.targetTitle || form.targetDocId || '未识别题解'}</strong>
+                <span>{t.targetSolution}</span>
+                <strong>{form.targetTitle || form.targetDocId || t.unknownTarget}</strong>
                 {form.targetDocId && <small>{form.targetDocId}</small>}
               </div>
             ) : (
               <label>
-                <span>考试年度</span>
+                <span>{t.year}</span>
                 <input
                   type="number"
                   min="1900"
@@ -415,97 +412,97 @@ export function ContributeContent({ embedded = false } = {}) {
             {!isCorrectionMode && (
               <>
                 <label>
-                  <span>学校</span>
+                  <span>{t.university}</span>
                   <select value={form.universityId} onChange={(event) => handleUniversityChange(event.target.value)}>
                     {universities.map((item) => (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     ))}
-                    <option value={CUSTOM_OPTION}>其他（手动填写）</option>
+                    <option value={CUSTOM_OPTION}>{t.customOption}</option>
                   </select>
                   {form.universityId === CUSTOM_OPTION && (
                     <input
                       value={form.customUniversityId}
                       onChange={(event) => updateForm('customUniversityId', event.target.value)}
-                      placeholder="学校目录名，例如：ritsumeikan-university"
+                      placeholder={t.customUniversityPlaceholder}
                       maxLength={120}
                     />
                   )}
-                  <small className={styles.smallHint}>列表里没有时选择“其他”，建议填写英文、罗马字或官网常用英文。</small>
+                  <small className={styles.smallHint}>{t.universityHint}</small>
                 </label>
                 <label>
-                  <span>院系</span>
+                  <span>{t.department}</span>
                   <select value={form.departmentId} onChange={(event) => handleDepartmentChange(event.target.value)}>
                     {selectedDepartments.map((item) => (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     ))}
-                    <option value={CUSTOM_OPTION}>其他（手动填写）</option>
+                    <option value={CUSTOM_OPTION}>{t.customOption}</option>
                   </select>
                   {form.departmentId === CUSTOM_OPTION && (
                     <input
                       value={form.customDepartmentId}
                       onChange={(event) => updateForm('customDepartmentId', event.target.value)}
-                      placeholder="院系目录名，例如：information-science"
+                      placeholder={t.customDepartmentPlaceholder}
                       maxLength={120}
                     />
                   )}
-                  <small className={styles.smallHint}>不在列表中时可手动填写，维护者会在 Issue 中确认最终目录。</small>
+                  <small className={styles.smallHint}>{t.departmentHint}</small>
                 </label>
                 <label>
-                  <span>项目/专业目录（可选）</span>
+                  <span>{t.program}</span>
                   <select value={form.programId} onChange={(event) => handleProgramChange(event.target.value)}>
-                    <option value="">不清楚 / 不填写</option>
+                    <option value="">{t.programNone}</option>
                     {programOptions.map((item) => (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     ))}
-                    <option value={CUSTOM_OPTION}>其他（手动填写）</option>
+                    <option value={CUSTOM_OPTION}>{t.customOption}</option>
                   </select>
                   {form.programId === CUSTOM_OPTION && (
                     <input
                       value={form.customProgramId}
                       onChange={(event) => updateForm('customProgramId', event.target.value)}
-                      placeholder="项目/专业目录名"
+                      placeholder={t.customProgramPlaceholder}
                       maxLength={160}
                     />
                   )}
-                  <small className={styles.smallHint}>不确定时保持“不清楚 / 不填写”，维护者可以在 PR 前补正。</small>
+                  <small className={styles.smallHint}>{t.programHint}</small>
                 </label>
                 <label>
-                  <span>文件标识（可选）</span>
+                  <span>{t.fileSlug}</span>
                   <input
                     value={form.fileSlug}
                     onChange={(event) => updateForm('fileSlug', event.target.value)}
-                    placeholder="可留空，系统会根据标题自动生成"
+                    placeholder={t.fileSlugPlaceholder}
                     maxLength={120}
                   />
-                  <small className={styles.smallHint}>留空时会先去掉标题中的空格，再生成文件名；维护者仍可在 PR 中调整。</small>
+                  <small className={styles.smallHint}>{t.fileSlugHint}</small>
                 </label>
                 <label>
-                  <span>题解标题</span>
+                  <span>{t.title}</span>
                   <input
                     value={form.title}
                     onChange={(event) => updateForm('title', event.target.value)}
-                    placeholder="例如：神戸大学 システム情報学研究科 2025年度 第一期 数学 1"
+                    placeholder={t.titlePlaceholder}
                     maxLength={180}
                   />
                 </label>
                 <label>
-                  <span>侧边栏标题（可选）</span>
+                  <span>{t.sidebarLabel}</span>
                   <input
                     value={form.sidebarLabel}
                     onChange={(event) => updateForm('sidebarLabel', event.target.value)}
-                    placeholder="例如：2025年度 第一期 数学 1"
+                    placeholder={t.sidebarPlaceholder}
                     maxLength={120}
                   />
                 </label>
                 <label className={styles.fullSpan}>
-                  <span>Tags</span>
+                  <span>{t.tags}</span>
                   <input
                     list="submission-tag-options"
                     value={form.tagsText}
                     onChange={(event) => updateForm('tagsText', event.target.value)}
-                    placeholder="用逗号分隔，例如：Mathematics.Linear-Algebra, Mathematics.Calculus"
+                    placeholder={t.tagsPlaceholder}
                   />
-                  <small className={styles.smallHint}>可以先填你知道的 tag；不确定也可以留空，维护者会整理。</small>
+                  <small className={styles.smallHint}>{t.tagsHint}</small>
                 </label>
               </>
             )}
@@ -513,32 +510,32 @@ export function ContributeContent({ embedded = false } = {}) {
             {!isCorrectionMode ? (
               <>
                 <label className={styles.fullSpan}>
-                  <span>Description Markdown</span>
+                  <span>{t.descriptionLabel}</span>
                   <textarea
                     value={form.descriptionMarkdown}
                     onChange={(event) => updateForm('descriptionMarkdown', event.target.value)}
                     rows={9}
-                    placeholder="题面摘要、转写或说明。支持 Markdown / LaTeX。"
+                    placeholder={t.descriptionPlaceholder}
                   />
                 </label>
                 <label className={styles.fullSpan}>
-                  <span>Kai Markdown</span>
+                  <span>{t.kaiLabel}</span>
                   <textarea
                     value={form.kaiMarkdown}
                     onChange={(event) => updateForm('kaiMarkdown', event.target.value)}
                     rows={12}
-                    placeholder="题解正文。支持 Markdown / LaTeX。"
+                    placeholder={t.kaiPlaceholder}
                   />
                 </label>
               </>
             ) : (
               <label className={styles.fullSpan}>
-                <span>纠错或补充内容</span>
+                <span>{t.correctionLabel}</span>
                 <textarea
                   value={form.correctionMarkdown}
                   onChange={(event) => updateForm('correctionMarkdown', event.target.value)}
                   rows={12}
-                  placeholder="请说明哪里有误、建议如何修改，或直接给出可追加的 Markdown 内容。"
+                  placeholder={t.correctionPlaceholder}
                 />
               </label>
             )}
@@ -551,18 +548,18 @@ export function ContributeContent({ embedded = false } = {}) {
               onChange={(event) => updateForm('claAccepted', event.target.checked)}
             />
             <span>
-              我已阅读并同意 The Kai Project CLA，并确认有权提交这些内容。
+              {t.claText}
               <br />
-              <small className={styles.smallHint}>该确认会被写入 Issue 的签名 payload，供后续转换 PR 时校验。</small>
+              <small className={styles.smallHint}>{t.claHint}</small>
             </span>
           </label>
 
           <div className={styles.actions}>
             <button type="submit" className={styles.primaryButton} disabled={submitting}>
               {submitting ? <FaRedo className={styles.spin} /> : <FaPaperPlane />}
-              {submitting ? '提交中' : '创建投稿 Issue'}
+              {submitting ? t.submitting : t.createIssue}
             </button>
-            <span className={styles.hint}>当前账号：{user?.email}</span>
+            <span className={styles.hint}>{t.currentAccount(user?.email)}</span>
           </div>
           <datalist id="submission-tag-options">
             {tagOptions.map((tag) => <option key={tag} value={tag} />)}
@@ -571,19 +568,19 @@ export function ContributeContent({ embedded = false } = {}) {
 
         <aside className={styles.panel}>
           <div className={styles.sectionHeader}>
-            <h2><FaCodeBranch /> 最近投稿</h2>
+            <h2><FaCodeBranch /> {t.recentSubmissions}</h2>
           </div>
           {submissions.length === 0 ? (
-            <p className={styles.emptyText}>还没有投稿记录。</p>
+            <p className={styles.emptyText}>{t.noSubmissions}</p>
           ) : (
             <div className={styles.submissionList}>
               {submissions.map((item) => (
                 <div key={item.id} className={styles.submissionItem}>
                   <strong>{item.title || item.targetDocId || item.id}</strong>
                   <div className={styles.submissionMeta}>
-                    <span className={`${styles.statusBadge} ${statusClass(item.status)}`}>{statusText(item.status)}</span>
-                    <span>{item.submissionType === 'new_solution' ? '新增题解' : '纠错/补充'}</span>
-                    <span>{formatDate(item.createdAt)}</span>
+                    <span className={`${styles.statusBadge} ${statusClass(item.status)}`}>{statusText(item.status, t)}</span>
+                    <span>{item.submissionType === 'new_solution' ? t.modeNew : t.modeCorrection}</span>
+                    <span>{formatDate(item.createdAt, language)}</span>
                   </div>
                   <div className={styles.actions} style={{ marginTop: '0.7rem' }}>
                     {item.issueUrl && (

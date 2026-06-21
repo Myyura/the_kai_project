@@ -28,9 +28,9 @@ const toTagSlug = (tag) =>
     .replace(/[^\w\u3000-\u9fff\uac00-\ud7af\u3040-\u30ff]+/g, '-')
     .replace(/^-+|-+$/g, '');
 
-const extractUniv = (docId = '') => {
+const extractUniv = (docId = '', fallback = '') => {
   const seg = docId.split('/')[0] || '';
-  return UNIV_MAP[seg] || seg || '不明';
+  return UNIV_MAP[seg] || seg || fallback;
 };
 
 const toDateKey = (ts) => {
@@ -49,9 +49,9 @@ const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','
 const GRID_COLS = 52;
 
 const PERSONAL_CENTER_TABS = [
-  { id: 'overview', label: '学习概览', icon: FaClipboardList, to: '/me' },
-  { id: 'contribute', label: '我的投稿', icon: FaPaperPlane, to: '/me?tab=contribute' },
-  { id: 'developer-api', label: '开发者 API', icon: FaKey, to: '/me?tab=developer-api' },
+  { id: 'overview', labelKey: 'overview', icon: FaClipboardList, to: '/me' },
+  { id: 'contribute', labelKey: 'contribute', icon: FaPaperPlane, to: '/me?tab=contribute' },
+  { id: 'developer-api', labelKey: 'developerApi', icon: FaKey, to: '/me?tab=developer-api' },
 ];
 
 function getActivePersonalTab() {
@@ -61,8 +61,10 @@ function getActivePersonalTab() {
 }
 
 function PersonalCenterTabs({ activeTab = 'overview' }) {
+  const centerT = useUiText('personalCenter');
+
   return (
-    <nav className={styles.centerTabs} aria-label="个人中心功能">
+    <nav className={styles.centerTabs} aria-label={centerT.tabsLabel}>
       {PERSONAL_CENTER_TABS.map((item) => {
         const Icon = item.icon;
         const active = item.id === activeTab;
@@ -73,7 +75,7 @@ function PersonalCenterTabs({ activeTab = 'overview' }) {
             className={`${styles.centerTab} ${active ? styles.centerTabActive : ''}`}
           >
             <Icon />
-            <span>{item.label}</span>
+            <span>{centerT.tabs?.[item.labelKey] || item.id}</span>
           </Link>
         );
       })}
@@ -234,7 +236,7 @@ const ReviewReminderSection = ({ entries, t }) => {
             <div className={styles.entryInfo}>
               <span className={styles.entryUniv}>
                 <FaBuilding className={styles.entryUnivIcon} />
-                {extractUniv(entry.id)}
+                {extractUniv(entry.id, t.unknownSchool)}
               </span>
               <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
                 {entry.title || entry.id}
@@ -280,7 +282,7 @@ const RecentPracticeSection = ({ entries, t, language }) => {
             <div className={styles.entryInfo}>
               <span className={styles.entryUniv}>
                 <FaBuilding className={styles.entryUnivIcon} />
-                {extractUniv(entry.id)}
+                {extractUniv(entry.id, t.unknownSchool)}
               </span>
               <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
                 {entry.title || entry.id}
@@ -339,7 +341,7 @@ const EntryRow = React.memo(({ entry, t, language }) => {
       <div className={styles.entryInfo}>
         <span className={styles.entryUniv}>
           <FaBuilding className={styles.entryUnivIcon} />
-          {extractUniv(entry.id)}
+          {extractUniv(entry.id, t.unknownSchool)}
         </span>
         <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
           {entry.title || entry.id}
@@ -457,7 +459,7 @@ const NotesSection = ({ noteEntries, progressEntries, t, language }) => {
           ...note,
           title: progress.title || note.id,
           permalink: progress.permalink || `/docs/${note.id}`,
-          univ: extractUniv(note.id),
+          univ: extractUniv(note.id, t.unknownSchool),
           excerpt: content.trim().replace(/\s+/g, ' ').slice(0, 180),
           charCount: content.trim().length,
         };
@@ -529,7 +531,7 @@ function PersonalCenterDashboard({ user }) {
   const univGroups = React.useMemo(() => {
     const map = {};
     entries.forEach((e) => {
-      const univ = extractUniv(e.id);
+      const univ = extractUniv(e.id, centerT.unknownSchool);
       if (!map[univ]) map[univ] = { completed: 0, reviewing: 0, items: [] };
       map[univ].items.push(e);
       if (e.status === STATUS.COMPLETED) map[univ].completed++;
@@ -791,9 +793,11 @@ function ProgressPageInner() {
 }
 
 export default function ProgressPage() {
+  const centerT = useUiText('personalCenter');
+
   return (
-    <Layout title="个人中心 / マイページ / Personal Center">
-      <BrowserOnly fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>Loading...</div>}>
+    <Layout title={centerT.pageTitle}>
+      <BrowserOnly fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>{centerT.loadingShort}</div>}>
         {() => <ProgressPageInner />}
       </BrowserOnly>
     </Layout>
