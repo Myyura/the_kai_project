@@ -14,6 +14,7 @@ import {
 import { useSync } from '@site/src/hooks/useSync';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
 import { getVerifiedAccessToken } from '@site/src/services/syncService';
+import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
 import { universities } from '@site/src/data/universities';
 import tagTaxonomy from '@site/src/data/tagTaxonomy.json';
 import styles from './styles.module.css';
@@ -116,7 +117,9 @@ export function ContributeContent({ embedded = false } = {}) {
       },
     });
 
-    if (error) throw error;
+    if (error) {
+      throw new Error(await getEdgeFunctionErrorMessage(error, '投稿服务请求失败，请稍后重试。'));
+    }
     if (data?.error) throw new Error(data.error.message || data.error.code);
     return data;
   }, []);

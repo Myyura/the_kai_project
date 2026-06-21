@@ -18,6 +18,7 @@ import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/Languag
 import {useUiText} from '@site/src/i18n/useUiText';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
 import { getVerifiedAccessToken } from '@site/src/services/syncService';
+import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
 import styles from './styles.module.css';
 
 function formatDate(value, language, fallback) {
@@ -92,7 +93,9 @@ export function DeveloperApiContent({ embedded = false } = {}) {
       },
     });
 
-    if (error) throw error;
+    if (error) {
+      throw new Error(await getEdgeFunctionErrorMessage(error, t.loadFailed));
+    }
     if (data?.error) throw new Error(data.error.message || data.error.code);
     return data;
   }, [t.notConfigured, t.sessionMissing]);

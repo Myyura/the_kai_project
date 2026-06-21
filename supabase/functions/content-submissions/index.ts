@@ -217,6 +217,32 @@ function publicSubmission(row: Record<string, unknown>) {
   };
 }
 
+function submissionDatabaseErrorResponse(error: unknown, code: string) {
+  const errorLike = error && typeof error === 'object'
+    ? error as { code?: unknown; message?: unknown }
+    : null;
+  const message = typeof errorLike?.message === 'string'
+    ? errorLike.message
+    : error instanceof Error
+      ? error.message
+      : String(error || '');
+  const pgCode = typeof errorLike?.code === 'string' ? errorLike.code : '';
+
+  if (
+    pgCode === '42P01'
+    || message.includes('content_submissions')
+    || message.includes('does not exist')
+  ) {
+    return errorResponse(
+      500,
+      'submission_schema_missing',
+      '投稿服务数据库尚未初始化，请先在 Supabase SQL Editor 执行最新的 src/services/schema.sql 后重试。',
+    );
+  }
+
+  return errorResponse(500, code, '投稿服务数据库请求失败，请稍后重试。');
+}
+
 async function requireUser(req: Request) {
   const supabase = getSupabase();
   if (!supabase) {
@@ -384,7 +410,7 @@ async function listSubmissions(userId: string) {
     .order('created_at', { ascending: false })
     .limit(50);
 
-  if (error) throw error;
+  if (error) return submissionDatabaseErrorResponse(error, 'submission_query_failed');
   return jsonResponse({ submissions: (data || []).map(publicSubmission) });
 }
 
@@ -425,7 +451,7 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
     .select('id')
     .single();
 
-  if (insertError) throw insertError;
+  if (insertError) return submissionDatabaseErrorResponse(insertError, 'submission_insert_failed');
 
   payload.submissionId = inserted.id;
   const canonicalPayload = stableStringify(payload);
@@ -458,7 +484,7 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
     .select('id,submission_type,status,title,target_doc_id,issue_number,issue_url,pr_number,pr_url,failure_reason,updated_at,created_at')
     .single();
 
-  if (updateError) throw updateError;
+  if (updateError) return submissionDatabaseErrorResponse(updateError, 'submission_update_failed');
   return jsonResponse({ submission: publicSubmission(updated) }, 201);
 }
 
