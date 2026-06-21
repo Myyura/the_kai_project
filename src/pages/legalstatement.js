@@ -46,7 +46,7 @@ const content = {
       {
         icon: FaEdit,
         title: '投稿与纠错',
-        text: '在个人中心的「我的投稿」提交新题解或纠错。系统会创建公开 GitHub Issue，维护者确认后再由 bot 转成规范 PR。',
+        text: '在个人中心的「我的投稿」提交新题解；现有题解的纠错请从题解页底部进入，系统会自动带入目标题解。投稿会创建公开 GitHub Issue，维护者确认后再由 bot 转成规范 PR。',
         link: { to: '/me?tab=contribute', label: '前往我的投稿' },
       },
       {
@@ -157,7 +157,7 @@ const content = {
       { icon: FaTasks, title: 'Track progress', text: 'Mark questions as completed or reviewing, then view synced stats in your personal center.' },
       { icon: FaStickyNote, title: 'Write notes', text: 'Each question page supports Markdown / LaTeX notes.' },
       { icon: FaCamera, title: 'Share as image', text: 'Create a source-marked image from a solution page for study discussions.' },
-      { icon: FaEdit, title: 'Submit or correct content', text: 'Use the contribution tab in your personal center to submit new solutions or corrections.', link: { to: '/me?tab=contribute', label: 'Open submissions' } },
+      { icon: FaEdit, title: 'Submit or correct content', text: 'Use the contribution tab in your personal center for new solutions. Open corrections from the bottom of an existing solution page so the target document is filled automatically.', link: { to: '/me?tab=contribute', label: 'Open submissions' } },
       { icon: FaCode, title: 'Developer API', text: 'Apply for JSON API access and manage API keys in your personal center.', link: { to: '/me?tab=developer-api', label: 'Open API' } },
     ],
     contributionTitle: 'Community Contribution Flow',

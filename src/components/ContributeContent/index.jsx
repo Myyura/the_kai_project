@@ -19,14 +19,21 @@ import { universities } from '@site/src/data/universities';
 import tagTaxonomy from '@site/src/data/tagTaxonomy.json';
 import styles from './styles.module.css';
 
+const CUSTOM_OPTION = '__custom__';
+const defaultUniversityId = universities[0]?.id || '';
+const defaultDepartmentId = universities[0]?.departments?.[0]?.id || '';
+
 const initialForm = {
   submissionType: 'new_solution',
   title: '',
   sidebarLabel: '',
   authorName: '',
-  universityId: universities[0]?.id || '',
-  departmentId: universities[0]?.departments?.[0]?.id || '',
+  universityId: defaultUniversityId,
+  customUniversityId: '',
+  departmentId: defaultDepartmentId,
+  customDepartmentId: '',
   programId: '',
+  customProgramId: '',
   year: '',
   fileSlug: '',
   targetDocId: '',
@@ -43,6 +50,10 @@ function splitTags(value) {
     .split(/[\n,]/)
     .map((tag) => tag.trim())
     .filter(Boolean);
+}
+
+function resolveOptionValue(value, customValue) {
+  return value === CUSTOM_OPTION ? String(customValue || '').trim() : value;
 }
 
 function formatDate(value) {
@@ -85,13 +96,19 @@ export function ContributeContent({ embedded = false } = {}) {
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState(null);
   const [lastIssueUrl, setLastIssueUrl] = useState('');
+  const isCorrectionMode = form.submissionType === 'correction';
 
   const selectedUniversity = useMemo(
-    () => universities.find((item) => item.id === form.universityId) || universities[0],
+    () => universities.find((item) => item.id === form.universityId),
     [form.universityId],
   );
 
   const selectedDepartments = selectedUniversity?.departments || [];
+  const selectedDepartment = useMemo(
+    () => selectedDepartments.find((item) => item.id === form.departmentId),
+    [form.departmentId, selectedDepartments],
+  );
+  const programOptions = selectedDepartment?.programs || [];
 
   const tagOptions = useMemo(() => {
     const tags = [
@@ -149,13 +166,15 @@ export function ContributeContent({ embedded = false } = {}) {
     const type = params.get('type');
     const docId = params.get('docId');
     const title = params.get('title');
-    if (type === 'correction' || docId) {
+    if (docId) {
       setForm((current) => ({
         ...current,
         submissionType: 'correction',
         targetDocId: docId || current.targetDocId,
         targetTitle: title || current.targetTitle,
       }));
+    } else if (type === 'correction') {
+      setMessage({ type: 'error', text: '请从具体题解页底部的「纠错/补充」进入，系统会自动带入目标题解。' });
     }
   }, []);
 
@@ -166,33 +185,64 @@ export function ContributeContent({ embedded = false } = {}) {
     }));
   };
 
-  const setSubmissionType = (submissionType) => {
-    setMessage(null);
-    setForm((current) => ({
-      ...current,
-      submissionType,
-    }));
-  };
-
   const handleUniversityChange = (universityId) => {
+    if (universityId === CUSTOM_OPTION) {
+      setForm((current) => ({
+        ...current,
+        universityId,
+        customUniversityId: '',
+        departmentId: CUSTOM_OPTION,
+        customDepartmentId: '',
+        programId: '',
+        customProgramId: '',
+      }));
+      return;
+    }
+
     const nextUniversity = universities.find((item) => item.id === universityId);
     setForm((current) => ({
       ...current,
       universityId,
+      customUniversityId: '',
       departmentId: nextUniversity?.departments?.[0]?.id || '',
+      customDepartmentId: '',
+      programId: '',
+      customProgramId: '',
+    }));
+  };
+
+  const handleDepartmentChange = (departmentId) => {
+    setForm((current) => ({
+      ...current,
+      departmentId,
+      customDepartmentId: departmentId === CUSTOM_OPTION ? current.customDepartmentId : '',
+      programId: '',
+      customProgramId: '',
+    }));
+  };
+
+  const handleProgramChange = (programId) => {
+    setForm((current) => ({
+      ...current,
+      programId,
+      customProgramId: programId === CUSTOM_OPTION ? current.customProgramId : '',
     }));
   };
 
   const validateForm = () => {
+    const universityId = resolveOptionValue(form.universityId, form.customUniversityId);
+    const departmentId = resolveOptionValue(form.departmentId, form.customDepartmentId);
+    const programId = resolveOptionValue(form.programId, form.customProgramId);
     if (!form.authorName.trim()) return '请填写公开署名。';
     if (!form.claAccepted) return '请先确认已阅读并同意 CLA。';
     if (form.submissionType === 'new_solution') {
       if (!form.title.trim()) return '请填写题解标题。';
-      if (!form.universityId || !form.departmentId || !form.year) return '请选择学校、院系并填写考试年度。';
+      if (!universityId || !departmentId || !form.year) return '请选择或填写学校、院系，并填写考试年度。';
+      if (form.programId === CUSTOM_OPTION && !programId) return '请填写项目/专业目录，或选择“不清楚/不填写”。';
       if (!form.descriptionMarkdown.trim() && !form.kaiMarkdown.trim()) return 'Description 或 Kai 至少填写一项。';
     }
     if (form.submissionType === 'correction') {
-      if (!form.targetDocId.trim()) return '请填写要纠错的文档 ID。';
+      if (!form.targetDocId.trim()) return '请从具体题解页底部的「纠错/补充」进入。';
       if (!form.correctionMarkdown.trim()) return '请填写纠错或补充内容。';
     }
     return null;
@@ -211,14 +261,17 @@ export function ContributeContent({ embedded = false } = {}) {
 
     setSubmitting(true);
     try {
+      const universityId = resolveOptionValue(form.universityId, form.customUniversityId);
+      const departmentId = resolveOptionValue(form.departmentId, form.customDepartmentId);
+      const programId = resolveOptionValue(form.programId, form.customProgramId);
       const data = await invokeSubmissionFunction('POST', {
         submissionType: form.submissionType,
         title: form.title,
         sidebarLabel: form.sidebarLabel,
         authorName: form.authorName,
-        universityId: form.universityId,
-        departmentId: form.departmentId,
-        programId: form.programId,
+        universityId,
+        departmentId,
+        programId,
         year: form.year,
         fileSlug: form.fileSlug,
         targetDocId: form.targetDocId,
@@ -236,6 +289,8 @@ export function ContributeContent({ embedded = false } = {}) {
       setForm((current) => ({
         ...initialForm,
         submissionType: current.submissionType,
+        targetDocId: current.submissionType === 'correction' ? current.targetDocId : '',
+        targetTitle: current.submissionType === 'correction' ? current.targetTitle : '',
         authorName: current.authorName,
       }));
       await loadSubmissions();
@@ -274,7 +329,7 @@ export function ContributeContent({ embedded = false } = {}) {
         <section className={styles.noticePanel}>
           <FaClipboardList className={styles.noticeIcon} />
           <h1>站内投稿</h1>
-          <p>请先登录，再提交题解或纠错内容。投稿会被创建为公开 GitHub Issue。</p>
+          <p>请先登录，再提交新题解或从题解页发起纠错。投稿会被创建为公开 GitHub Issue。</p>
           <Link to="/login" className={styles.primaryButton}>
             <FaSignInAlt /> 登录
           </Link>
@@ -287,8 +342,12 @@ export function ContributeContent({ embedded = false } = {}) {
     <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
       <header className={styles.header}>
         <div>
-          <h1>站内投稿</h1>
-          <p>把题解或纠错内容提交成公开 GitHub Issue。维护者确认后，bot 会把内容整理成规范 PR。</p>
+          <h1>{isCorrectionMode ? '题解纠错/补充' : '站内投稿'}</h1>
+          <p>
+            {isCorrectionMode
+              ? '当前题解的信息已自动带入。请只填写需要更正或补充的内容。'
+              : '提交新的题目描述或解答，系统会创建公开 GitHub Issue；维护者确认后，bot 会整理成规范 PR。'}
+          </p>
         </div>
         <button type="button" className={styles.secondaryButton} onClick={loadSubmissions} disabled={loading}>
           <FaRedo className={loading ? styles.spin : ''} /> 刷新记录
@@ -309,23 +368,16 @@ export function ContributeContent({ embedded = false } = {}) {
 
       <div className={styles.layoutGrid}>
         <form className={styles.panel} onSubmit={handleSubmit}>
-          <div className={styles.typeSwitch}>
-            <button
-              type="button"
-              className={`${styles.typeButton} ${form.submissionType === 'new_solution' ? styles.typeButtonActive : ''}`}
-              onClick={() => setSubmissionType('new_solution')}
-            >
-              <FaPaperPlane />
-              <span><strong>新增题解</strong><br />提交新的题目描述或解答。</span>
-            </button>
-            <button
-              type="button"
-              className={`${styles.typeButton} ${form.submissionType === 'correction' ? styles.typeButtonActive : ''}`}
-              onClick={() => setSubmissionType('correction')}
-            >
-              <FaEdit />
-              <span><strong>纠错/补充</strong><br />指出现有题解的问题或追加说明。</span>
-            </button>
+          <div className={styles.modeNotice}>
+            {isCorrectionMode ? <FaEdit /> : <FaPaperPlane />}
+            <div>
+              <strong>{isCorrectionMode ? '纠错/补充' : '新增题解'}</strong>
+              <span>
+                {isCorrectionMode
+                  ? '这个入口只能从具体题解页进入，目标文档由系统自动填写。'
+                  : '如果只是修正某篇现有题解，请回到该题解页底部点击「纠错/补充」。'}
+              </span>
+            </div>
           </div>
 
           <div className={styles.formGrid}>
@@ -340,16 +392,12 @@ export function ContributeContent({ embedded = false } = {}) {
               <small className={styles.smallHint}>会展示在 Issue 和最终文档中；登录邮箱不会公开。</small>
             </label>
 
-            {form.submissionType === 'correction' ? (
-              <label>
-                <span>目标文档 ID</span>
-                <input
-                  value={form.targetDocId}
-                  onChange={(event) => updateForm('targetDocId', event.target.value)}
-                  placeholder="例如：kobe-university/system_informatics/2025/csi_2025_1_math_1"
-                  maxLength={260}
-                />
-              </label>
+            {isCorrectionMode ? (
+              <div className={`${styles.targetSummary} ${styles.fullSpan}`}>
+                <span>目标题解</span>
+                <strong>{form.targetTitle || form.targetDocId || '未识别题解'}</strong>
+                {form.targetDocId && <small>{form.targetDocId}</small>}
+              </div>
             ) : (
               <label>
                 <span>考试年度</span>
@@ -364,7 +412,7 @@ export function ContributeContent({ embedded = false } = {}) {
               </label>
             )}
 
-            {form.submissionType === 'new_solution' && (
+            {!isCorrectionMode && (
               <>
                 <label>
                   <span>学校</span>
@@ -372,33 +420,64 @@ export function ContributeContent({ embedded = false } = {}) {
                     {universities.map((item) => (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     ))}
+                    <option value={CUSTOM_OPTION}>其他（手动填写）</option>
                   </select>
+                  {form.universityId === CUSTOM_OPTION && (
+                    <input
+                      value={form.customUniversityId}
+                      onChange={(event) => updateForm('customUniversityId', event.target.value)}
+                      placeholder="学校目录名，例如：ritsumeikan-university"
+                      maxLength={120}
+                    />
+                  )}
+                  <small className={styles.smallHint}>列表里没有时选择“其他”，建议填写英文、罗马字或官网常用英文。</small>
                 </label>
                 <label>
                   <span>院系</span>
-                  <select value={form.departmentId} onChange={(event) => updateForm('departmentId', event.target.value)}>
+                  <select value={form.departmentId} onChange={(event) => handleDepartmentChange(event.target.value)}>
                     {selectedDepartments.map((item) => (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     ))}
+                    <option value={CUSTOM_OPTION}>其他（手动填写）</option>
                   </select>
+                  {form.departmentId === CUSTOM_OPTION && (
+                    <input
+                      value={form.customDepartmentId}
+                      onChange={(event) => updateForm('customDepartmentId', event.target.value)}
+                      placeholder="院系目录名，例如：information-science"
+                      maxLength={120}
+                    />
+                  )}
+                  <small className={styles.smallHint}>不在列表中时可手动填写，维护者会在 Issue 中确认最终目录。</small>
                 </label>
                 <label>
                   <span>项目/专业目录（可选）</span>
-                  <input
-                    value={form.programId}
-                    onChange={(event) => updateForm('programId', event.target.value)}
-                    placeholder="例如：cs、math、ap"
-                    maxLength={160}
-                  />
+                  <select value={form.programId} onChange={(event) => handleProgramChange(event.target.value)}>
+                    <option value="">不清楚 / 不填写</option>
+                    {programOptions.map((item) => (
+                      <option key={item.id} value={item.id}>{item.name}</option>
+                    ))}
+                    <option value={CUSTOM_OPTION}>其他（手动填写）</option>
+                  </select>
+                  {form.programId === CUSTOM_OPTION && (
+                    <input
+                      value={form.customProgramId}
+                      onChange={(event) => updateForm('customProgramId', event.target.value)}
+                      placeholder="项目/专业目录名"
+                      maxLength={160}
+                    />
+                  )}
+                  <small className={styles.smallHint}>不确定时保持“不清楚 / 不填写”，维护者可以在 PR 前补正。</small>
                 </label>
                 <label>
                   <span>文件标识（可选）</span>
                   <input
                     value={form.fileSlug}
                     onChange={(event) => updateForm('fileSlug', event.target.value)}
-                    placeholder="例如：csi_2025_1_math_1"
+                    placeholder="可留空，系统会根据标题自动生成"
                     maxLength={120}
                   />
+                  <small className={styles.smallHint}>留空时会先去掉标题中的空格，再生成文件名；维护者仍可在 PR 中调整。</small>
                 </label>
                 <label>
                   <span>题解标题</span>
@@ -431,19 +510,7 @@ export function ContributeContent({ embedded = false } = {}) {
               </>
             )}
 
-            {form.submissionType === 'correction' && (
-              <label className={styles.fullSpan}>
-                <span>目标标题（可选）</span>
-                <input
-                  value={form.targetTitle}
-                  onChange={(event) => updateForm('targetTitle', event.target.value)}
-                  placeholder="用于 Issue 标题展示"
-                  maxLength={180}
-                />
-              </label>
-            )}
-
-            {form.submissionType === 'new_solution' ? (
+            {!isCorrectionMode ? (
               <>
                 <label className={styles.fullSpan}>
                   <span>Description Markdown</span>

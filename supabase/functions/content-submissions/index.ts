@@ -151,7 +151,12 @@ function submissionTitle(payload: SubmissionPayload) {
 function buildIssueBody(payload: SubmissionPayload, signature: string) {
   const label = payload.submissionType === 'new_solution' ? '新增题解' : '纠错/补充';
   const target = payload.submissionType === 'new_solution'
-    ? `${payload.document.universityId}/${payload.document.departmentId}/${payload.document.programId || '-'} / ${payload.document.year || '-'}`
+    ? [
+      payload.document.universityId,
+      payload.document.departmentId,
+      payload.document.programId,
+      payload.document.year ? String(payload.document.year) : '',
+    ].filter(Boolean).join(' / ')
     : payload.document.targetDocId;
   const encodedPayload = base64Url(stableStringify(payload));
 
@@ -284,7 +289,7 @@ function validateSubmission(body: Record<string, unknown>) {
   const programId = cleanText(body.programId, 160);
   const rawYear = Number(body.year);
   const year = Number.isInteger(rawYear) && rawYear >= 1900 && rawYear <= 2100 ? rawYear : null;
-  const fileSlug = cleanSlug(body.fileSlug) || `submission-${Date.now()}`;
+  const fileSlug = cleanSlug(body.fileSlug);
   const targetDocId = normalizeDocId(body.targetDocId);
   const targetTitle = cleanText(body.targetTitle, 180);
   const tags = normalizeTags(body.tags);

@@ -95,6 +95,10 @@ function cleanSegment(input, fallback = 'submission') {
   return cleaned || fallback;
 }
 
+function slugFromTitle(title) {
+  return String(title || '').replace(/\s+/g, '');
+}
+
 function cleanProgramPath(input) {
   return normalizePath(input)
     .split('/')
@@ -118,7 +122,10 @@ function buildNewSolutionPath(payload) {
   const programPath = cleanProgramPath(doc.programId);
   if (programPath) parts.push(...programPath.split('/'));
   parts.push(String(year));
-  parts.push(`${cleanSegment(doc.fileSlug, `submission-${payload.submissionId.slice(0, 8)}`)}.md`);
+  const fileSlug = cleanSegment(doc.fileSlug, '')
+    || cleanSegment(slugFromTitle(doc.title), '')
+    || `submission-${payload.submissionId.slice(0, 8)}`;
+  parts.push(`${fileSlug}.md`);
   return parts.join('/');
 }
 

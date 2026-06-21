@@ -68,41 +68,35 @@
   font-size: 2rem;
 }
 
-.typeSwitch {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-}
-
-.typeButton {
+.modeNotice {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0.65rem;
-  align-items: center;
-  min-height: 54px;
+  align-items: start;
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base);
   padding: 0.75rem;
-  cursor: pointer;
-  text-align: left;
+  margin-bottom: 1rem;
 }
 
-.typeButton strong,
+.modeNotice > svg {
+  margin-top: 0.15rem;
+  color: var(--ifm-color-primary);
+}
+
+.modeNotice strong,
 .sectionHeader h2 {
   letter-spacing: 0;
 }
 
-.typeButton span {
+.modeNotice span {
+  display: block;
+  margin-top: 0.15rem;
   color: var(--ifm-color-emphasis-600);
   font-size: 0.82rem;
-}
-
-.typeButtonActive {
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.12);
+  line-height: 1.45;
 }
 
 .formGrid {
@@ -160,6 +154,31 @@
   color: var(--ifm-color-emphasis-600);
   font-size: 0.78rem;
   line-height: 1.45;
+}
+
+.targetSummary {
+  display: grid;
+  gap: 0.25rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  background: var(--ifm-color-emphasis-100);
+  padding: 0.8rem;
+}
+
+.targetSummary span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.targetSummary strong {
+  font-size: 0.96rem;
+  letter-spacing: 0;
+}
+
+.targetSummary small {
+  color: var(--ifm-color-emphasis-600);
+  overflow-wrap: anywhere;
 }
 
 .checkboxLabel {
@@ -333,8 +352,7 @@
 
 @media (max-width: 900px) {
   .layoutGrid,
-  .formGrid,
-  .typeSwitch {
+  .formGrid {
     grid-template-columns: 1fr;
   }
 
@@ -372,12 +390,14 @@
 [data-theme='dark'] .formGrid input,
 [data-theme='dark'] .formGrid select,
 [data-theme='dark'] .formGrid textarea,
-[data-theme='dark'] .typeButton,
+[data-theme='dark'] .modeNotice,
+[data-theme='dark'] .targetSummary,
 [data-theme='dark'] .submissionItem {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-[data-theme='dark'] .checkboxLabel {
+[data-theme='dark'] .checkboxLabel,
+[data-theme='dark'] .targetSummary {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.12);
 }
