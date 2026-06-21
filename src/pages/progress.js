@@ -6,7 +6,8 @@ import {
   FaCheckCircle, FaRedo, FaClipboardList, FaTrashAlt,
   FaFileAlt, FaArrowRight, FaBuilding, FaTag,
   FaBell, FaFire, FaCalendarAlt, FaStickyNote,
-  FaSearch, FaUserCircle, FaLock, FaSignInAlt, FaCloud
+  FaSearch, FaUserCircle, FaLock, FaSignInAlt, FaCloud,
+  FaPaperPlane, FaKey
 } from 'react-icons/fa';
 import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
 import { useAllNotes } from '@site/src/hooks/useNotes';
@@ -17,6 +18,8 @@ import Leaderboard from '@site/src/components/Leaderboard';
 import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import {useUiText} from '@site/src/i18n/useUiText';
 import { useSync } from '@site/src/hooks/useSync';
+import { ContributeContent } from '@site/src/components/ContributeContent';
+import { DeveloperApiContent } from '@site/src/components/DeveloperApiContent';
 import styles from './progress.module.css';
 
 const toTagSlug = (tag) =>
@@ -44,6 +47,59 @@ const MONTHS_JA = ['1月','2月','3月','4月','5月','6月','7月','8月','9月
 const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 const GRID_COLS = 52;
+
+const PERSONAL_CENTER_TABS = [
+  { id: 'overview', label: '学习概览', icon: FaClipboardList, to: '/me' },
+  { id: 'contribute', label: '我的投稿', icon: FaPaperPlane, to: '/me?tab=contribute' },
+  { id: 'developer-api', label: '开发者 API', icon: FaKey, to: '/me?tab=developer-api' },
+];
+
+function getActivePersonalTab() {
+  if (typeof window === 'undefined') return 'overview';
+  const tab = new URLSearchParams(window.location.search).get('tab');
+  return PERSONAL_CENTER_TABS.some((item) => item.id === tab) ? tab : 'overview';
+}
+
+function PersonalCenterTabs({ activeTab = 'overview' }) {
+  return (
+    <nav className={styles.centerTabs} aria-label="个人中心功能">
+      {PERSONAL_CENTER_TABS.map((item) => {
+        const Icon = item.icon;
+        const active = item.id === activeTab;
+        return (
+          <Link
+            key={item.id}
+            to={item.to}
+            className={`${styles.centerTab} ${active ? styles.centerTabActive : ''}`}
+          >
+            <Icon />
+            <span>{item.label}</span>
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}
+
+function PersonalCenterHeader({ activeTab = 'overview' }) {
+  const centerT = useUiText('personalCenter');
+
+  return (
+    <header className={styles.header}>
+      <div className={styles.headerContent}>
+        <h1 className={styles.pageTitle}>{centerT.pageTitle}</h1>
+        <p className={styles.pageSubtitle}>{centerT.pageSubtitle}</p>
+        <PersonalCenterTabs activeTab={activeTab} />
+      </div>
+      <LanguageSwitcher
+        className={styles.langSwitch}
+        buttonClassName={styles.langBtn}
+        activeButtonClassName={styles.langBtnActive}
+        dividerClassName={styles.langDivider}
+      />
+    </header>
+  );
+}
 
 // 热力图组件 —— 纯 CSS 自适应，不需要 JS 测量
 const StudyHeatmap = ({ entries, t, language }) => {
@@ -506,18 +562,7 @@ function PersonalCenterDashboard({ user }) {
   return (
     <div className={styles.page}>
       {/* 头部 */}
-      <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <h1 className={styles.pageTitle}>{centerT.pageTitle}</h1>
-          <p className={styles.pageSubtitle}>{centerT.pageSubtitle}</p>
-        </div>
-        <LanguageSwitcher
-          className={styles.langSwitch}
-          buttonClassName={styles.langBtn}
-          activeButtonClassName={styles.langBtnActive}
-          dividerClassName={styles.langDivider}
-        />
-      </header>
+      <PersonalCenterHeader activeTab="overview" />
 
       <AccountOverview
         user={user}
@@ -703,25 +748,37 @@ function PersonalCenterDashboard({ user }) {
 function ProgressPageInner() {
   const centerT = useUiText('personalCenter');
   const { isConfigured, isLoggedIn, authReady, user } = useSync();
+  const activeTab = getActivePersonalTab();
 
   if (isConfigured && isLoggedIn) {
+    if (activeTab === 'contribute') {
+      return (
+        <>
+          <div className={styles.page}>
+            <PersonalCenterHeader activeTab="contribute" />
+          </div>
+          <ContributeContent embedded />
+        </>
+      );
+    }
+
+    if (activeTab === 'developer-api') {
+      return (
+        <>
+          <div className={styles.page}>
+            <PersonalCenterHeader activeTab="developer-api" />
+          </div>
+          <DeveloperApiContent embedded />
+        </>
+      );
+    }
+
     return <PersonalCenterDashboard user={user} />;
   }
 
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <h1 className={styles.pageTitle}>{centerT.pageTitle}</h1>
-          <p className={styles.pageSubtitle}>{centerT.pageSubtitle}</p>
-        </div>
-        <LanguageSwitcher
-          className={styles.langSwitch}
-          buttonClassName={styles.langBtn}
-          activeButtonClassName={styles.langBtnActive}
-          dividerClassName={styles.langDivider}
-        />
-      </header>
+      <PersonalCenterHeader activeTab={activeTab} />
       {isConfigured && !authReady ? (
         <CenterLoadingState t={centerT} />
       ) : !isLoggedIn ? (

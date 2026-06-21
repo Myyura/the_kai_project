@@ -1,0 +1,400 @@
+.shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.embeddedShell {
+  padding-top: 0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.header h1,
+.noticePanel h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.85rem;
+  letter-spacing: 0;
+}
+
+.header p,
+.noticePanel p,
+.hint {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.65;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.panel,
+.noticePanel,
+.loadingPanel {
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--ifm-background-color);
+  box-shadow: var(--custom-box-shadow);
+}
+
+.panel {
+  padding: 1.15rem;
+}
+
+.noticePanel,
+.loadingPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.noticeIcon {
+  margin-bottom: 0.75rem;
+  color: var(--ifm-color-primary);
+  font-size: 2rem;
+}
+
+.typeSwitch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.typeButton {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: center;
+  min-height: 54px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  padding: 0.75rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.typeButton strong,
+.sectionHeader h2 {
+  letter-spacing: 0;
+}
+
+.typeButton span {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.82rem;
+}
+
+.typeButtonActive {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.12);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.fullSpan {
+  grid-column: 1 / -1;
+}
+
+.formGrid label,
+.checkboxLabel {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.formGrid label span,
+.checkboxLabel span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.formGrid input,
+.formGrid select,
+.formGrid textarea {
+  width: 100%;
+  min-height: 42px;
+  box-sizing: border-box;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  padding: 0.65rem 0.8rem;
+  font-size: 0.92rem;
+}
+
+.formGrid textarea {
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.formGrid input:focus,
+.formGrid select:focus,
+.formGrid textarea:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.12);
+}
+
+.smallHint {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.checkboxLabel {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: start;
+  margin: 1rem 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  background: var(--ifm-color-emphasis-100);
+  padding: 0.8rem;
+}
+
+.checkboxLabel input {
+  margin-top: 0.18rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  min-height: 38px;
+  border-radius: var(--custom-border-radius-xs);
+  padding: 0.58rem 0.85rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--custom-transition-fast);
+  white-space: nowrap;
+}
+
+.primaryButton {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--ifm-color-primary-dark);
+  color: #fff;
+}
+
+.secondaryButton {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+}
+
+.secondaryButton:hover:not(:disabled) {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  border-radius: var(--custom-border-radius-xs);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.messageSuccess {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+}
+
+.messageError {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.sectionHeader h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  font-size: 1.12rem;
+}
+
+.submissionList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.submissionItem {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  padding: 0.85rem;
+}
+
+.submissionItem strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.submissionMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.82rem;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.18rem 0.5rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.statusIssue {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.statusPending {
+  background: #fffbeb;
+  color: #92400e;
+}
+
+.statusFailed {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.emptyText {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+  .layoutGrid,
+  .formGrid,
+  .typeSwitch {
+    grid-template-columns: 1fr;
+  }
+
+  .fullSpan {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 1rem, 1120px);
+    padding-top: 1.2rem;
+  }
+
+  .header,
+  .sectionHeader,
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}
+
+[data-theme='dark'] .panel,
+[data-theme='dark'] .noticePanel,
+[data-theme='dark'] .loadingPanel {
+  background: var(--custom-card-bg);
+  border-color: var(--custom-card-border);
+}
+
+[data-theme='dark'] .formGrid input,
+[data-theme='dark'] .formGrid select,
+[data-theme='dark'] .formGrid textarea,
+[data-theme='dark'] .typeButton,
+[data-theme='dark'] .submissionItem {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .checkboxLabel {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .messageSuccess,
+[data-theme='dark'] .statusIssue {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+[data-theme='dark'] .messageError,
+[data-theme='dark'] .statusFailed {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+[data-theme='dark'] .statusPending {
+  background: rgba(245, 158, 11, 0.13);
+  color: #fbbf24;
+}

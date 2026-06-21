@@ -32,6 +32,40 @@
   margin: 0;
 }
 
+.centerTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.centerTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  min-height: 36px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-700);
+  padding: 0.45rem 0.75rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: all 0.18s;
+}
+
+.centerTab:hover {
+  border-color: var(--ifm-color-primary-light);
+  color: var(--ifm-color-primary);
+}
+
+.centerTabActive {
+  border-color: var(--ifm-color-primary);
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
+  color: var(--ifm-color-primary);
+}
+
 /* 语言切换 */
 .langSwitch {
   display: flex;

@@ -1,0 +1,94 @@
+name: Convert submission issue to PR
+
+on:
+  issues:
+    types:
+      - labeled
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  convert:
+    name: Create draft PR from web submission
+    if: github.event.label.name == 'submission:ready-for-pr'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ secrets.CONTENT_BOT_TOKEN || github.token }}
+      CLA_ATTESTATION_SECRET: ${{ secrets.CLA_ATTESTATION_SECRET }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      BRANCH_NAME: codex/submission-${{ github.event.issue.number }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.CONTENT_BOT_TOKEN || github.token }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Convert issue payload
+        id: convert
+        run: |
+          set -euo pipefail
+          git checkout -B "$BRANCH_NAME"
+          node scripts/convert-submission-issue.js \
+            --event "$GITHUB_EVENT_PATH" \
+            --result .submission-result.json \
+            --pr-body .submission-pr-body.md
+          node <<'NODE' >> "$GITHUB_OUTPUT"
+          const fs = require('fs');
+          const result = JSON.parse(fs.readFileSync('.submission-result.json', 'utf8'));
+          console.log(`file_path=${result.filePath}`);
+          console.log(`pr_title=${result.prTitle}`);
+          console.log(`branch_name=${result.branchName}`);
+          NODE
+
+      - name: Validate generated document
+        run: |
+          yarn review:format --files "${{ steps.convert.outputs.file_path }}"
+          yarn api:validate
+
+      - name: Commit generated document
+        run: |
+          set -euo pipefail
+          git config user.name "the-kai-project-bot"
+          git config user.email "the-kai-project-bot@users.noreply.github.com"
+          git add "${{ steps.convert.outputs.file_path }}"
+          git commit -m "${{ steps.convert.outputs.pr_title }}"
+          git push --force-with-lease origin "$BRANCH_NAME"
+
+      - name: Open draft PR
+        id: pr
+        run: |
+          set -euo pipefail
+          pr_url="$(gh pr create \
+            --draft \
+            --base main \
+            --head "$BRANCH_NAME" \
+            --title "${{ steps.convert.outputs.pr_title }}" \
+            --body-file .submission-pr-body.md)"
+          echo "url=$pr_url" >> "$GITHUB_OUTPUT"
+
+      - name: Mark issue converted
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "已从该投稿创建 draft PR：${{ steps.pr.outputs.url }}"
+          gh issue edit "$ISSUE_NUMBER" \
+            --add-label "submission:converted" \
+            --remove-label "submission:ready-for-pr"
+
+      - name: Report conversion failure
+        if: failure()
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "自动转换 PR 失败。请查看本次 GitHub Actions 日志，修正投稿内容后重新添加 \`submission:ready-for-pr\` 标签。"

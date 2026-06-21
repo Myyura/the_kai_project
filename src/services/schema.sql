@@ -611,3 +611,72 @@ set search_path = '';
 
 revoke execute on function register_api_request(uuid, timestamptz, integer) from public, anon, authenticated;
 grant execute on function register_api_request(uuid, timestamptz, integer) to service_role;
+
+-- ============================================================
+-- Content Submissions：站内投稿 → GitHub Issue 收件箱
+-- ============================================================
+--
+-- 安全模型：
+--   1. 用户只能通过 content-submissions Edge Function 创建和查询自己的投稿。
+--   2. 前端 anon/authenticated 客户端不可直接读写投稿表。
+--   3. 公开 GitHub Issue 不包含用户邮箱或 Supabase user_id，只展示用户填写的公开署名。
+--   4. CLA 确认通过 payload_signature 写入 Issue，后续 GitHub Action 转 PR 时验证。
+
+create table if not exists content_submissions (
+  id                    uuid primary key default uuid_generate_v4(),
+  user_id               uuid not null references auth.users(id) on delete cascade,
+  submission_type       text not null,
+  status                text not null default 'pending_issue',
+  title                 text not null default '',
+  public_author         text not null default '',
+  university_id         text not null default '',
+  department_id         text not null default '',
+  program_id            text not null default '',
+  year                  integer,
+  file_slug             text not null default '',
+  target_doc_id         text not null default '',
+  target_title          text not null default '',
+  tags                  jsonb not null default '[]'::jsonb,
+  description_markdown  text not null default '',
+  kai_markdown          text not null default '',
+  correction_markdown   text not null default '',
+  cla_accepted_at       timestamptz not null,
+  payload_hash          text,
+  payload_signature     text,
+  issue_number          integer,
+  issue_url             text,
+  pr_number             integer,
+  pr_url                text,
+  failure_reason        text,
+  updated_at            timestamptz not null default now(),
+  created_at            timestamptz not null default now(),
+
+  constraint content_submissions_type_check
+    check (submission_type in ('new_solution', 'correction')),
+  constraint content_submissions_status_check
+    check (status in ('pending_issue', 'issue_created', 'failed', 'converted', 'closed')),
+  constraint content_submissions_year_check
+    check (year is null or (year >= 1900 and year <= 2100)),
+  constraint content_submissions_tags_is_array
+    check (jsonb_typeof(tags) = 'array'),
+  constraint content_submissions_title_length
+    check (char_length(title) <= 240),
+  constraint content_submissions_author_length
+    check (char_length(public_author) <= 160)
+);
+
+create index if not exists idx_content_submissions_user_created
+  on content_submissions(user_id, created_at desc);
+create index if not exists idx_content_submissions_status_created
+  on content_submissions(status, created_at desc);
+create index if not exists idx_content_submissions_issue_number
+  on content_submissions(issue_number);
+
+drop trigger if exists update_content_submissions_updated_at on content_submissions;
+create trigger update_content_submissions_updated_at
+  before update on content_submissions
+  for each row
+  execute function update_updated_at_column();
+
+alter table content_submissions enable row level security;
+revoke all on table content_submissions from anon, authenticated;

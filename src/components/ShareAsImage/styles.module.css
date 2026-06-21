@@ -2,6 +2,10 @@
   margin-top: 1.5rem;
 }
 
+.wrapperCompact {
+  margin-top: 0;
+}
+
 /* ─── Trigger button ─── */
 .triggerBtn {
   display: inline-flex;
@@ -33,6 +37,15 @@
 .triggerIcon {
   font-size: 1rem;
   color: var(--ifm-color-primary);
+}
+
+.docActionBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 /* ─── Shared action button base ─── */
