@@ -7,7 +7,7 @@ import {
   FaFileAlt, FaArrowRight, FaBuilding, FaTag,
   FaBell, FaFire, FaCalendarAlt, FaStickyNote,
   FaSearch, FaUserCircle, FaLock, FaSignInAlt, FaCloud,
-  FaPaperPlane, FaKey
+  FaPaperPlane, FaKey, FaRobot
 } from 'react-icons/fa';
 import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
 import { useAllNotes } from '@site/src/hooks/useNotes';
@@ -21,6 +21,7 @@ import {useUiText} from '@site/src/i18n/useUiText';
 import { useSync } from '@site/src/hooks/useSync';
 import { ContributeContent } from '@site/src/components/ContributeContent';
 import { DeveloperApiContent } from '@site/src/components/DeveloperApiContent';
+import { AgentTutorContent } from '@site/src/components/AgentTutorContent';
 import styles from './me.module.css';
 
 const toTagSlug = (tag) =>
@@ -51,6 +52,7 @@ const GRID_COLS = 52;
 
 const PERSONAL_CENTER_TABS = [
   { id: 'overview', labelKey: 'overview', icon: FaClipboardList, to: '/me' },
+  { id: 'ai-tutor', labelKey: 'aiTutor', icon: FaRobot, to: '/me?tab=ai-tutor', hidden: true },
   { id: 'contribute', labelKey: 'contribute', icon: FaPaperPlane, to: '/me?tab=contribute' },
   { id: 'developer-api', labelKey: 'developerApi', icon: FaKey, to: '/me?tab=developer-api' },
 ];
@@ -66,7 +68,7 @@ function PersonalCenterTabs({ activeTab = 'overview' }) {
 
   return (
     <nav className={styles.centerTabs} aria-label={centerT.tabsLabel}>
-      {PERSONAL_CENTER_TABS.map((item) => {
+      {PERSONAL_CENTER_TABS.filter((item) => !item.hidden).map((item) => {
         const Icon = item.icon;
         const active = item.id === activeTab;
         return (
@@ -772,6 +774,17 @@ function MePageInner() {
             <PersonalCenterHeader activeTab="developer-api" />
           </div>
           <DeveloperApiContent embedded />
+        </>
+      );
+    }
+
+    if (activeTab === 'ai-tutor') {
+      return (
+        <>
+          <div className={styles.page}>
+            <PersonalCenterHeader activeTab="ai-tutor" />
+          </div>
+          <AgentTutorContent embedded />
         </>
       );
     }

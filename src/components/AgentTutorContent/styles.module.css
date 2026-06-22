@@ -1,0 +1,351 @@
+.shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.embeddedShell {
+  padding-top: 0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.header h1,
+.noticePanel h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.85rem;
+  letter-spacing: 0;
+}
+
+.header p,
+.noticePanel p,
+.statusPanel p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.65;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.statItem,
+.panel,
+.noticePanel,
+.loadingPanel {
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--ifm-background-color);
+  box-shadow: var(--custom-box-shadow);
+}
+
+.statItem {
+  min-width: 0;
+  padding: 1rem;
+}
+
+.statItem span,
+.statItem small,
+.sessionDetails dt {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.statItem span,
+.statItem small {
+  display: block;
+}
+
+.statItem strong {
+  display: block;
+  min-width: 0;
+  margin: 0.25rem 0 0.15rem;
+  overflow-wrap: anywhere;
+  color: var(--ifm-font-color-base);
+  font-size: 1.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.panel {
+  padding: 1.15rem;
+}
+
+.panel h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+.panel h2 svg {
+  color: var(--ifm-color-primary);
+}
+
+.noticePanel,
+.loadingPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.noticeIcon {
+  margin-bottom: 0.75rem;
+  color: var(--ifm-color-primary);
+  font-size: 2rem;
+}
+
+.statusPanel,
+.message {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: start;
+  margin-bottom: 1rem;
+  border-radius: var(--custom-border-radius-xs);
+  padding: 0.85rem 1rem;
+}
+
+.statusPanel {
+  border: 1px solid var(--ifm-color-warning-dark);
+  background: var(--ifm-color-warning-contrast-background);
+}
+
+.statusPanel svg {
+  margin-top: 0.2rem;
+  color: var(--ifm-color-warning-dark);
+}
+
+.message {
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.message svg {
+  margin-top: 0.2rem;
+}
+
+.messageSuccess {
+  background: rgba(34, 197, 94, 0.1);
+  color: #15803d;
+}
+
+.messageError {
+  background: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+}
+
+.toggleList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.toggleRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  margin: 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  background: var(--ifm-background-surface-color);
+  padding: 0.85rem;
+}
+
+.toggleText {
+  min-width: 0;
+}
+
+.toggleText strong,
+.toggleText small {
+  display: block;
+}
+
+.toggleText strong {
+  margin-bottom: 0.18rem;
+  color: var(--ifm-font-color-base);
+}
+
+.toggleText small {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.5;
+}
+
+.toggleRow input {
+  width: 42px;
+  height: 24px;
+  appearance: none;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-200);
+  cursor: pointer;
+  transition: var(--custom-transition-fast);
+}
+
+.toggleRow input::before {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 2px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
+  content: "";
+  transition: var(--custom-transition-fast);
+}
+
+.toggleRow input:checked {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+}
+
+.toggleRow input:checked::before {
+  transform: translateX(18px);
+}
+
+.toggleRow input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.primaryButton,
+.secondaryButton,
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  min-height: 38px;
+  border-radius: var(--custom-border-radius-xs);
+  padding: 0.58rem 0.85rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--custom-transition-fast);
+  white-space: nowrap;
+}
+
+.primaryButton {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--ifm-color-primary-dark);
+  color: #fff;
+}
+
+.secondaryButton,
+.iconButton {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+}
+
+.secondaryButton:hover:not(:disabled),
+.iconButton:hover:not(:disabled) {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled,
+.iconButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.sessionActions {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.sessionDetails {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+}
+
+.sessionDetails > div {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  min-width: 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 0.65rem;
+}
+
+.sessionDetails dt {
+  margin: 0;
+}
+
+.sessionDetails dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--ifm-font-color-base);
+}
+
+.tokenLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tokenLine code {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 996px) {
+  .stats,
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 1rem, 1120px);
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .stats,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toggleRow,
+  .sessionDetails > div {
+    grid-template-columns: 1fr;
+  }
+}

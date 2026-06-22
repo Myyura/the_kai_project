@@ -462,6 +462,7 @@ export const UI_MESSAGES = {
       unknownSchool: '未知学校',
       tabs: {
         overview: '学习概览',
+        aiTutor: 'AI 辅导',
         contribute: '我的投稿',
         developerApi: '开发者 API',
       },
@@ -496,6 +497,7 @@ export const UI_MESSAGES = {
       unknownSchool: '不明な大学',
       tabs: {
         overview: '学習概要',
+        aiTutor: 'AI Tutor',
         contribute: '投稿',
         developerApi: '開発者 API',
       },
@@ -530,6 +532,7 @@ export const UI_MESSAGES = {
       unknownSchool: 'Unknown school',
       tabs: {
         overview: 'Overview',
+        aiTutor: 'AI Tutor',
         contribute: 'Submissions',
         developerApi: 'Developer API',
       },
