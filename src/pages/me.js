@@ -91,17 +91,19 @@ function PersonalCenterHeader({ activeTab = 'overview' }) {
 
   return (
     <header className={styles.header}>
-      <div className={styles.headerContent}>
-        <h1 className={styles.pageTitle}>{centerT.pageTitle}</h1>
-        <p className={styles.pageSubtitle}>{centerT.pageSubtitle}</p>
-        <PersonalCenterTabs activeTab={activeTab} />
+      <div className={styles.headerTop}>
+        <div className={styles.headerContent}>
+          <h1 className={styles.pageTitle}>{centerT.pageTitle}</h1>
+          <p className={styles.pageSubtitle}>{centerT.pageSubtitle}</p>
+        </div>
+        <LanguageSwitcher
+          className={styles.langSwitch}
+          buttonClassName={styles.langBtn}
+          activeButtonClassName={styles.langBtnActive}
+          dividerClassName={styles.langDivider}
+        />
       </div>
-      <LanguageSwitcher
-        className={styles.langSwitch}
-        buttonClassName={styles.langBtn}
-        activeButtonClassName={styles.langBtnActive}
-        dividerClassName={styles.langDivider}
-      />
+      <PersonalCenterTabs activeTab={activeTab} />
     </header>
   );
 }
