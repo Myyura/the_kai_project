@@ -26,12 +26,17 @@ const RecoveryRedirect = () => {
   useEffect(() => {
     const url = new URL(window.location.href);
     const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
-    const looksLikeRecovery = url.searchParams.has('code')
-      || hashParams.get('type') === 'recovery'
-      || hashParams.has('access_token');
+    const type = url.searchParams.get('type') || hashParams.get('type');
+    const looksLikeAuthCallback = url.searchParams.has('code')
+      || url.searchParams.has('token_hash')
+      || url.searchParams.has('error')
+      || hashParams.has('token_hash')
+      || hashParams.has('access_token')
+      || hashParams.has('error');
 
-    if (looksLikeRecovery) {
-      window.location.replace(`/reset-password${window.location.search}${window.location.hash}`);
+    if (looksLikeAuthCallback) {
+      const target = type === 'recovery' ? '/reset-password' : '/auth/callback';
+      window.location.replace(`${target}${window.location.search}${window.location.hash}`);
     }
   }, []);
 

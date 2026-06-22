@@ -1,6 +1,4 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import Layout from '@theme/Layout';
-import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {
@@ -19,7 +17,9 @@ import { useSync } from '@site/src/hooks/useSync';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
-import styles from './developers.module.css';
+import { getVerifiedAccessToken } from '@site/src/services/syncService';
+import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
+import styles from './styles.module.css';
 
 function formatDate(value, language, fallback) {
   if (!value) return fallback;
@@ -36,7 +36,7 @@ function formatDate(value, language, fallback) {
   }
 }
 
-export function DeveloperApiContent() {
+export function DeveloperApiContent({ embedded = false } = {}) {
   const language = useCurrentLanguage();
   const t = useUiText('developers');
   const { siteConfig } = useDocusaurusContext();
@@ -82,8 +82,7 @@ export function DeveloperApiContent() {
     const supabase = getSupabaseClient();
     if (!supabase) throw new Error(t.notConfigured);
 
-    const { data: sessionData } = await supabase.auth.getSession();
-    const accessToken = sessionData?.session?.access_token;
+    const accessToken = await getVerifiedAccessToken();
     if (!accessToken) throw new Error(t.sessionMissing);
 
     const { data, error } = await supabase.functions.invoke('developer-api-keys', {
@@ -94,7 +93,9 @@ export function DeveloperApiContent() {
       },
     });
 
-    if (error) throw error;
+    if (error) {
+      throw new Error(await getEdgeFunctionErrorMessage(error, t.loadFailed));
+    }
     if (data?.error) throw new Error(data.error.message || data.error.code);
     return data;
   }, [t.notConfigured, t.sessionMissing]);
@@ -323,9 +324,9 @@ export function DeveloperApiContent() {
     );
   };
 
-  if (!authReady && !user) {
+  if (!authReady) {
     return (
-      <div className={styles.shell}>
+      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
         <div className={styles.loadingPanel}>
           <FaRedo className={styles.spin} />
         </div>
@@ -335,7 +336,7 @@ export function DeveloperApiContent() {
 
   if (!isConfigured) {
     return (
-      <div className={styles.shell}>
+      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
         <section className={styles.noticePanel}>
           <FaExclamationTriangle className={styles.noticeIcon} />
           <h1>{t.apiTitle}</h1>
@@ -347,7 +348,7 @@ export function DeveloperApiContent() {
 
   if (!isLoggedIn) {
     return (
-      <div className={styles.shell}>
+      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
         <section className={styles.noticePanel}>
           <FaKey className={styles.noticeIcon} />
           <h1>{t.apiTitle}</h1>
@@ -361,7 +362,7 @@ export function DeveloperApiContent() {
   }
 
   return (
-    <div className={styles.shell}>
+    <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
       <header className={styles.header}>
         <div>
           <h1>{t.apiTitle}</h1>
@@ -495,47 +496,5 @@ export function DeveloperApiContent() {
         <pre className={styles.codeBlock}><code>{curlExample}</code></pre>
       </section>
     </div>
-  );
-}
-
-function DevelopersContent() {
-  const t = useUiText('developers');
-
-  return (
-    <div className={styles.shell}>
-      <header className={styles.header}>
-        <div>
-          <h1>{t.title}</h1>
-          <p>{t.subtitle}</p>
-        </div>
-      </header>
-
-      <div className={styles.featureGrid}>
-        <Link to="/developers/api" className={styles.featureCard}>
-          <div className={styles.featureIcon}>
-            <FaCode />
-          </div>
-          <div className={styles.featureMeta}>
-            <span>{t.available}</span>
-            <h2>{t.apiTitle}</h2>
-            <p>{t.apiFeatureDesc}</p>
-          </div>
-          <strong>
-            {t.apiFeatureCta}
-            <FaArrowRight />
-          </strong>
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-export default function DevelopersPage() {
-  return (
-    <Layout title="开发者中心 / Developer Center">
-      <BrowserOnly fallback={<div style={{ minHeight: '60vh' }} />}>
-        {() => <DevelopersContent />}
-      </BrowserOnly>
-    </Layout>
   );
 }

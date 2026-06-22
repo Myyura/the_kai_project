@@ -1,10 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import {useLocation} from '@docusaurus/router';
+import {useHistory, useLocation} from '@docusaurus/router';
 import {LANGUAGE_OPTIONS, useStoredLanguage} from '@site/src/context/LanguageContext';
 import styles from './styles.module.css';
 
-const stripLocalePrefix = (pathname) => {
+const stripLegacyLocalePrefix = (pathname) => {
   const trimTrailingSlash = (value) => (
     value.length > 1 && value.endsWith('/') ? value.slice(0, -1) : value
   );
@@ -18,15 +18,15 @@ const stripLocalePrefix = (pathname) => {
   return trimTrailingSlash(pathname || '/');
 };
 
-const getLocalizedPath = (pathname, language) => {
-  const basePath = stripLocalePrefix(pathname);
-  if (language === 'en') {
-    return `/en${basePath === '/' ? '/' : basePath}`;
-  }
-  if (language === 'ja') {
-    return `/ja${basePath === '/' ? '/' : basePath}`;
-  }
-  return basePath;
+const buildLanguageUrl = (location, language) => {
+  const params = new URLSearchParams(location.search || '');
+  params.set('lang', language);
+  const search = params.toString();
+  return {
+    pathname: stripLegacyLocalePrefix(location.pathname),
+    search: search ? `?${search}` : '',
+    hash: location.hash || '',
+  };
 };
 
 export default function LanguageSwitcher({
@@ -36,16 +36,12 @@ export default function LanguageSwitcher({
   dividerClassName,
 }) {
   const [language, setLanguage] = useStoredLanguage();
+  const history = useHistory();
   const location = useLocation();
 
   const switchLanguage = (nextLanguage) => {
     setLanguage(nextLanguage);
-    const nextPath = getLocalizedPath(location.pathname, nextLanguage);
-    const nextUrl = `${nextPath}${location.search || ''}${location.hash || ''}`;
-    const currentUrl = `${location.pathname}${location.search || ''}${location.hash || ''}`;
-    if (nextUrl !== currentUrl && typeof window !== 'undefined') {
-      window.location.assign(nextUrl);
-    }
+    history.replace(buildLanguageUrl(location, nextLanguage));
   };
 
   return (

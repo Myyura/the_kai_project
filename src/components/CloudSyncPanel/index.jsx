@@ -36,7 +36,7 @@ const renderConflictSummary = (summary, type, t) => {
 
 export default function CloudSyncPanel({ language = 'zh' }) {
   const {
-    isConfigured, user, isLoggedIn, syncing,
+    isConfigured, user, isLoggedIn, authReady, syncing,
     lastSynced, error,
     sync, push, pull, signOut,
   } = useSync();
@@ -57,7 +57,7 @@ export default function CloudSyncPanel({ language = 'zh' }) {
     };
   }, []);
 
-  if (!isConfigured) return null;
+  if (!isConfigured || !authReady) return null;
 
   const showMsg = (msg, isError = false) => {
     setActionMsg({ text: msg, isError });

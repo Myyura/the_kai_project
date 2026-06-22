@@ -7,49 +7,75 @@
 
 import React, {type ReactNode, lazy, Suspense} from 'react';
 import clsx from 'clsx';
+import Head from '@docusaurus/Head';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
-import EditMetaRow from '@theme/EditMetaRow';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import Link from '@docusaurus/Link';
+import {FaEdit} from 'react-icons/fa';
+import shareStyles from '@site/src/components/ShareAsImage/styles.module.css';
 
 const ProgressTracker = lazy(() => import('@site/src/components/ProgressTracker'));
 const NoteEditor = lazy(() => import('@site/src/components/NoteEditor'));
 const ShareAsImage = lazy(() => import('@site/src/components/ShareAsImage'));
 
 export default function DocItemFooter(): ReactNode {
-  const {metadata} = useDoc();
-  const {editUrl, lastUpdatedAt, lastUpdatedBy, tags, id, title, permalink} = metadata;
-
-  const canDisplayEditMetaRow = !!(editUrl || lastUpdatedAt || lastUpdatedBy);
+  const {metadata, frontMatter} = useDoc();
+  const {tags, id, title, permalink} = metadata;
+  const contributionUrl = `/me?tab=contribute&type=correction&docId=${encodeURIComponent(id)}&title=${encodeURIComponent(title)}`;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: metadata.title || frontMatter.title || '文档页面',
+    author: {
+      '@type': 'Organization',
+      name: 'The Kai Project Team',
+      url: 'https://runjp.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'The Kai Project',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://runjp.com/img/logo-512.png',
+      },
+    },
+    description:
+      frontMatter.description ||
+      metadata.description ||
+      'The Kai Project 文档',
+  };
 
   return (
-    <footer
-      className={clsx(ThemeClassNames.docs.docFooter, 'docusaurus-mt-lg')}>
-      {canDisplayEditMetaRow && (
-        <EditMetaRow
-          className={clsx(
-            'margin-top--sm',
-            ThemeClassNames.docs.docFooterEditMetaRow,
+    <>
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Head>
+      <footer
+        className={clsx(ThemeClassNames.docs.docFooter, 'docusaurus-mt-lg')}>
+        <BrowserOnly>
+          {() => (
+            <Suspense fallback={null}>
+              <div className={shareStyles.docActionBar}>
+                <ShareAsImage docId={id} title={title} compact />
+                <Link className={shareStyles.triggerBtn} to={contributionUrl}>
+                  <FaEdit className={shareStyles.triggerIcon} />
+                  <span>纠错/补充</span>
+                </Link>
+              </div>
+              <ProgressTracker
+                docId={id}
+                title={title}
+                permalink={permalink}
+                tags={tags.map((t) => t.label)}
+              />
+              <NoteEditor docId={id} />
+            </Suspense>
           )}
-          editUrl={editUrl}
-          lastUpdatedAt={lastUpdatedAt}
-          lastUpdatedBy={lastUpdatedBy}
-        />
-      )}
-      <BrowserOnly>
-        {() => (
-          <Suspense fallback={null}>
-            <ShareAsImage docId={id} title={title} />
-            <ProgressTracker
-              docId={id}
-              title={title}
-              permalink={permalink}
-              tags={tags.map((t) => t.label)}
-            />
-            <NoteEditor docId={id} />
-          </Suspense>
-        )}
-      </BrowserOnly>
-    </footer>
+        </BrowserOnly>
+      </footer>
+    </>
   );
 }

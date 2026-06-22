@@ -24,7 +24,7 @@ import {
   signInWithEmail,
   signUpWithEmail,
   signInWithGitHub,
-  exchangeOAuthCodeForSession,
+  completeAuthCallbackFromUrl,
   sendPasswordResetEmail,
   signOut as doSignOut,
   getSession,
@@ -56,17 +56,15 @@ function useSyncInternal() {
   // 从 Docusaurus siteConfig 初始化 Supabase 凭据
   const isConfigured = useInitSupabase();
 
-  // 同步读取缓存的 user，避免异步 getSession 导致的闪烁
-  const [user, setUser] = useState(() => {
+  // 缓存用户仅用于过渡展示；正式登录态必须等待 getUser() 服务端校验。
+  const [cachedUser, setCachedUser] = useState(() => {
     try {
-      const cachedUser = getCachedUser();
-      setStorageOwner(cachedUser?.id ?? null, { notify: false });
-      return cachedUser;
+      return getCachedUser();
     } catch {
-      setStorageOwner(null, { notify: false });
       return null;
     }
   });
+  const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
   const [syncing, setSyncing] = useState(false);
   const [lastSynced, setLastSynced] = useState(() => readLastSynced());
@@ -86,20 +84,33 @@ function useSyncInternal() {
         const session = await getSession();
         if (mountedRef.current) {
           setUser(session?.user ?? null);
+          setCachedUser(session?.user ?? null);
         }
-      } catch {}
+      } catch {
+        if (mountedRef.current) {
+          setUser(null);
+          setCachedUser(null);
+        }
+      }
       if (mountedRef.current) setAuthReady(true);
 
       unsub = onAuthStateChange((event, session) => {
         if (!mountedRef.current) return;
 
+        if (event === 'INITIAL_SESSION') {
+          return;
+        }
+
         if (event === 'TOKEN_REFRESHED' && !session) {
           setUser(null);
+          setCachedUser(null);
           setError('会话已过期，请重新登录。');
           return;
         }
 
-        setUser(session?.user ?? null);
+        const nextUser = session?.user ?? null;
+        setUser(nextUser);
+        setCachedUser(nextUser);
       });
     };
 
@@ -131,6 +142,13 @@ function useSyncInternal() {
       setLastSynced(ts);
     }
   }, []);
+
+  const requireVerifiedUserId = useCallback(() => {
+    if (!authReady || !user?.id) {
+      throw new Error('请先登录。');
+    }
+    return user.id;
+  }, [authReady, user?.id]);
 
   // ── 登录后自动同步（每分钟增量检查） ─────────────────────
 
@@ -208,8 +226,8 @@ function useSyncInternal() {
   const sync = useCallback(async () => {
     setSyncing(true);
     setError(null);
-    const userId = user?.id;
     try {
+      const userId = requireVerifiedUserId();
       const result = await syncMerge(userId);
       recordSync(userId);
       return result;
@@ -219,13 +237,13 @@ function useSyncInternal() {
     } finally {
       if (mountedRef.current) setSyncing(false);
     }
-  }, [recordSync, user?.id]);
+  }, [recordSync, requireVerifiedUserId]);
 
   const push = useCallback(async () => {
     setSyncing(true);
     setError(null);
-    const userId = user?.id;
     try {
+      const userId = requireVerifiedUserId();
       await pushLocalData(userId);
       recordSync(userId);
     } catch (err) {
@@ -234,13 +252,13 @@ function useSyncInternal() {
     } finally {
       if (mountedRef.current) setSyncing(false);
     }
-  }, [recordSync, user?.id]);
+  }, [recordSync, requireVerifiedUserId]);
 
   const pull = useCallback(async () => {
     setSyncing(true);
     setError(null);
-    const userId = user?.id;
     try {
+      const userId = requireVerifiedUserId();
       const result = await pullRemoteData(userId);
       if (result.pulled) recordSync(userId);
       return result;
@@ -250,7 +268,7 @@ function useSyncInternal() {
     } finally {
       if (mountedRef.current) setSyncing(false);
     }
-  }, [recordSync, user?.id]);
+  }, [recordSync, requireVerifiedUserId]);
 
   // ── 认证操作 ──────────────────────────────────────────────
 
@@ -264,10 +282,10 @@ function useSyncInternal() {
     }
   }, []);
 
-  const registerWithEmail = useCallback(async (email, password, captchaToken) => {
+  const registerWithEmail = useCallback(async (email, password, captchaToken, emailRedirectTo) => {
     setError(null);
     try {
-      return await signUpWithEmail(email, password, captchaToken);
+      return await signUpWithEmail(email, password, captchaToken, emailRedirectTo);
     } catch (err) {
       setError('操作失败');
       throw err;
@@ -284,13 +302,14 @@ function useSyncInternal() {
     }
   }, []);
 
-  const completeOAuthCallback = useCallback(async (code) => {
+  const completeAuthCallback = useCallback(async () => {
     setError(null);
     try {
-      const data = await exchangeOAuthCodeForSession(code);
+      const data = await completeAuthCallbackFromUrl();
       const nextUser = data?.user ?? data?.session?.user ?? null;
       if (mountedRef.current && nextUser) {
         setUser(nextUser);
+        setCachedUser(nextUser);
       }
       return data;
     } catch (err) {
@@ -314,6 +333,7 @@ function useSyncInternal() {
     try {
       await doSignOut();
       setUser(null);
+      setCachedUser(null);
     } catch (err) {
       setError(err.message);
     }
@@ -322,7 +342,8 @@ function useSyncInternal() {
   return {
     isConfigured,
     user,
-    isLoggedIn: !!user,
+    cachedUser,
+    isLoggedIn: authReady && !!user,
     authReady,
     syncing,
     lastSynced,
@@ -333,7 +354,7 @@ function useSyncInternal() {
     loginWithEmail,
     registerWithEmail,
     loginWithGitHub,
-    completeOAuthCallback,
+    completeAuthCallback,
     requestPasswordReset,
     signOut,
   };

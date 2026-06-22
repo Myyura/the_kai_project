@@ -3,7 +3,7 @@
  * generate-universities.js
  *
  * 从 docs/ 目录结构自动生成 src/data/universities.js
- * 大学和院系列表由 docs/ 中实际存在的文件夹及其 _category_.json 决定，
+ * 大学、院系和项目目录由 docs/ 中实际存在的文件夹及其 _category_.json 决定，
  * 颜色和官网链接等附加元数据维护在 src/data/universityMetadata.json。
  *
  * 用法：
@@ -28,6 +28,44 @@ function readCategoryJson(dirPath) {
   } catch {
     return null;
   }
+}
+
+function scanPrograms(deptDir) {
+  const programs = new Map();
+
+  function addProgram(segments) {
+    if (segments.length === 0) return;
+    const id = segments.join('/');
+    if (programs.has(id)) return;
+
+    const programDir = path.join(deptDir, ...segments);
+    const category = readCategoryJson(programDir);
+    programs.set(id, {
+      id,
+      name: category?.label || segments.join(' / '),
+      _position: category?.position ?? 999,
+    });
+  }
+
+  function walk(currentDir, segments) {
+    const entries = fs.readdirSync(currentDir, { withFileTypes: true });
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue;
+      if (entry.name.startsWith('_') || entry.name.startsWith('.')) continue;
+
+      if (/^\d{4}$/.test(entry.name)) {
+        addProgram(segments);
+        continue;
+      }
+
+      walk(path.join(currentDir, entry.name), [...segments, entry.name]);
+    }
+  }
+
+  walk(deptDir, []);
+  return Array.from(programs.values())
+    .sort((a, b) => a._position - b._position || a.name.localeCompare(b.name))
+    .map(({ _position, ...rest }) => rest);
 }
 
 // ─── 主逻辑：扫描 docs/ 生成数据 ────────────────────────────
@@ -61,6 +99,10 @@ function scanDocs() {
         name: deptCategory.label,
         _position: deptCategory.position ?? 999,
       };
+      const programs = scanPrograms(deptDir);
+      if (programs.length > 0) {
+        dept.programs = programs;
+      }
       if (WEBSITE_URLS[deptKey]) {
         dept.websiteUrl = WEBSITE_URLS[deptKey];
       }
@@ -105,10 +147,11 @@ const output = `\
 // ============================================================
 
 /**
- * 大学及院系信息（从 docs/ 目录结构自动扫描生成）
+ * 大学、院系及项目目录信息（从 docs/ 目录结构自动扫描生成）
  *
  * 每所大学的 id 对应 docs/ 下的文件夹名，
  * 每个院系的 id 对应该大学文件夹下的子文件夹名，
+ * 每个项目目录的 id 对应院系下、年度目录前的路径，
  * name 取自各级 _category_.json 的 label 字段。
  */
 export const universities = ${univArrayStr};

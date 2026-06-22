@@ -103,6 +103,7 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 1. 创建一个 Supabase 项目。
 2. 在 Supabase SQL Editor 中执行 [src/services/schema.sql](src/services/schema.sql)。
 3. 按该 SQL 文件中的说明，配置认证限流、密码策略和 hCaptcha 等安全项。
+4. 在 Supabase Authentication → URL Configuration 中加入站点回调地址，包括 `https://your-domain/auth/callback` 和 `https://your-domain/reset-password`。
 
 ## 开发者 JSON API
 注册用户可以在开发者中心申请 JSON API 访问权限。项目维护者审核通过后，用户可以创建 API Key 并读取题目与答案数据。API Key 明文只在创建时显示一次，请立即保存；数据库只保存 SHA-256 hash。

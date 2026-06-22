@@ -46,8 +46,9 @@ jobs:
       - name: 检查 Pages 构建入口
         run: |
           test -f build/index.html
-          test -f build/ja/index.html
-          test -f build/en/index.html
+          test ! -d build/ja
+          test ! -d build/en
+          test ! -f build/progress.html
       - name: 部署 Supabase Edge Functions
         if: github.event_name == 'push'
         run: |
@@ -57,6 +58,9 @@ jobs:
           fi
           npx supabase@latest functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
           npx supabase@latest functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
+          npx supabase@latest functions deploy content-submissions --project-ref "$SUPABASE_PROJECT_REF"
+          npx supabase@latest functions deploy agent-session --project-ref "$SUPABASE_PROJECT_REF"
+          npx supabase@latest functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF"
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
           SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}

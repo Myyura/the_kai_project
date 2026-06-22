@@ -1,233 +1,295 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
+import {
+  FaBookOpen,
+  FaCamera,
+  FaCloud,
+  FaCode,
+  FaEdit,
+  FaExclamationTriangle,
+  FaFileContract,
+  FaRoute,
+  FaShieldAlt,
+  FaStickyNote,
+  FaTasks,
+} from 'react-icons/fa';
 import { useCurrentLanguage } from '../context/LanguageContext';
+import styles from './legalstatement.module.css';
 
 const content = {
   zh: {
-    title: '法律声明',
-    sections: [
+    title: '帮助与声明',
+    subtitle: '这里集中说明 The Kai Project 的主要功能、投稿流程、版权与隐私政策。',
+    guideTitle: '使用指南',
+    guides: [
       {
+        icon: FaBookOpen,
+        title: '浏览过去问与题解',
+        text: '从顶部「过去问」进入题库，按大学、研究科、年度和题目浏览。题解页面支持本地搜索、标签浏览和离线访问。',
+      },
+      {
+        icon: FaTasks,
+        title: '记录做题进度',
+        text: '在题解页底部可标记已完成或待复习。登录后，进度会同步到个人中心，并展示统计、热力图和复习提醒。',
+      },
+      {
+        icon: FaStickyNote,
+        title: '写题目笔记',
+        text: '每个题解页都可以记录 Markdown / LaTeX 笔记。登录后可跨设备同步，并在个人中心集中检索。',
+      },
+      {
+        icon: FaCamera,
+        title: '分享为图片',
+        text: '题解页底部的「分享为图片」会把当前题解渲染为带来源标识的图片，方便学习群讨论和复习保存。',
+      },
+      {
+        icon: FaEdit,
+        title: '投稿与纠错',
+        text: '在个人中心的「我的投稿」提交新题解；现有题解的纠错请从题解页底部进入，系统会自动带入目标题解。投稿会创建公开 GitHub Issue，维护者确认后再由 bot 转成规范 PR。',
+        link: { to: '/me?tab=contribute', label: '前往我的投稿' },
+      },
+      {
+        icon: FaCode,
+        title: '开发者 API',
+        text: '如果需要以 JSON 方式读取题库数据，可在个人中心申请 API 访问。审核通过后可以创建 API Key。',
+        link: { to: '/me?tab=developer-api', label: '查看开发者 API' },
+      },
+    ],
+    contributionTitle: '社区贡献流程',
+    contributionSteps: [
+      '轻度用户优先使用站内投稿表单提交新题解，不需要理解 Git、frontmatter、目录结构或 CI。',
+      '现有题解的纠错从具体题解页底部进入，系统会自动带入目标文档。',
+      '投稿默认进入公开 GitHub Issue，社区可以在 Issue 中讨论、补充来源或指出问题。',
+      '维护者确认内容可用后，给 Issue 添加 submission:ready-for-pr 标签，bot 会生成 draft PR。',
+      '正式公开内容仍以 Git 仓库中的 Markdown 为准；只有 PR 合并后才进入公开题库和 API 数据。',
+    ],
+    legalTitle: '法律与隐私声明',
+    legalSections: [
+      {
+        icon: FaFileContract,
         title: '版权声明',
         items: [
           '本网站以开源项目和公开资料库为基础，核心公开内容包括题库索引、社区贡献题解、公开备考资料及相关说明。上述内容将持续面向公众开放访问，用于支持个人学习、研究与备考参考。',
           '为保障项目长期维护、技术服务与社区运营，本网站可能提供与学习体验、账号功能、数据接口、辅导支持或合作接入相关的配套功能。此类功能的提供方式不影响核心公开内容的开放访问属性。',
-          '网站部分内容为个人学习、研究目的而合理使用他人已发表作品，在注明作者及出处前提下依法转载。如权利人认为涉嫌侵权，请于14个工作日内发送邮件至376672994@qq.com，我们将第一时间核实并按照权利人要求进行更正或删除。',
+          '网站部分内容为个人学习、研究目的而合理使用他人已发表作品，并尽量注明作者及出处。如权利人认为涉嫌侵权，请于14个工作日内发送邮件至376672994@qq.com，我们将核实并按照权利人要求进行更正或删除。',
           '用户如需对公开内容进行批量复制、再分发、商业性接入或其他超出普通浏览和个人学习范围的使用，应遵守本网站另行公布的内容/API条款，并自行确保取得相关权利人的必要授权。',
         ],
       },
       {
+        icon: FaExclamationTriangle,
         title: '免责声明',
         items: [
-          {
-            subtitle: '网站超链接责任',
-            content: '本网站可能保留有第三方网站或网址的链接，是否访问这些链接或接受相应第三方服务将由您自行做出决定，如果您决定访问任何与本网站链接的第三方网站，其可能带来的结果和风险将全部由您自行承担，在法律允许的范围内，我们并不就这些链接上所提供的任何信息、数据、观点、图片、陈述或建议的准确性、完整性、充分性和可靠性提供承诺或保证，亦不对这些链接中的内容承担任何责任。我们强烈建议您了解并仔细阅读您访问的所有第三方网站的法律声明及隐私政策。',
-          },
-          {
-            subtitle: '内容准确性',
-            content: '在法律允许的范围内，本网站不提供任何形式的（无论是明示的或默示的）关于本网站所载内容的及时性、有效性、完整性可用性等方面的保证。用户因使用本网站内容所导致的任何后果，本网站不承担任何法律责任。',
-          },
+          '本网站可能保留第三方网站或网址链接，是否访问这些链接或接受第三方服务由您自行决定。访问第三方网站产生的结果和风险由您自行承担。',
+          '在法律允许的范围内，我们不对第三方链接中的信息、数据、观点、图片、陈述或建议的准确性、完整性、充分性和可靠性提供承诺或保证。',
+          '在法律允许的范围内，本网站不提供任何形式的关于内容及时性、有效性、完整性、可用性的保证。用户因使用本站内容导致的任何后果，本网站不承担法律责任。',
         ],
       },
       {
+        icon: FaShieldAlt,
         title: '隐私声明',
         items: [
-          {
-            subtitle: '我们收集您的哪些信息',
-            content: '根据您的选择和终端配置（尤其是Cookie和其它跟踪器），当您访问我们的网站时，我们的服务器会自动收集某些浏览器或设备生成的信息，包括但不限于：您的访问的域名；您的访问日期、时间和持续时长；浏览器类型；操作系统。若您使用登录、个人中心、云同步、排行榜或开发者 API 功能，我们还可能处理您的账号邮箱、认证标识、学习进度、题目笔记、复习状态、同步记录、API 访问申请信息、API Key 元数据及必要的调用日志。',
-          },
-          {
-            subtitle: '信息使用目的',
-            content: '上述信息主要用于提供账号登录、学习数据同步、个人中心展示、排行榜、API 访问审核、安全风控、服务维护和用户支持。我们会根据功能需要采取合理的数据最小化措施。',
-          },
-          {
-            subtitle: '个人信息的跨境转移',
-            content: '我们通过遍布全球的资源和服务器或服务，这意味着，您的个人信息可能会被转移到您使用产品或服务所在国家/地区的境外管辖区，或受到来自境外实体的访问。您理解并同意我们可能会将您的个人信息转移到境外管辖区。在该等情况下，我们将采取合理措施以确保您的信息在该等国家或区域的法律要求项下存在足够的保护。',
-          },
-          {
-            subtitle: 'Cookies的管理和追踪机制',
-            content: '您可以在浏览器中管理cookie和追踪机制的设置。请注意您所做的设置仅涉及当前情况下使用的浏览器。',
-          },
-          {
-            subtitle: '停用所有Cookies',
-            content: '若您希望禁用所有cookies，请前往您的浏览器设置并停用Cookies设置。',
-          },
-          {
-            subtitle: '未成年人',
-            content: '我们的网站不对未成年人（特别是14周岁以下的未成年人）提供产品和服务。',
-          },
-          {
-            subtitle: '您的权利',
-            content: '在您接受服务的过程中，为了您可以更加便捷的访问、删除您的个人信息，您可以通过下文所列的方式联系我们，我们将在合理时间内回复您的请求。',
-          },
+          '访问本站时，服务器可能自动收集浏览器或设备生成的信息，包括访问时间、浏览器类型、操作系统等。',
+          '若您使用登录、个人中心、云同步、排行榜、投稿或开发者 API 功能，我们可能处理账号邮箱、认证标识、学习进度、题目笔记、投稿记录、API 申请信息、API Key 元数据及必要调用日志。',
+          '上述信息主要用于提供账号登录、学习数据同步、个人中心展示、投稿状态、API 访问审核、安全风控、服务维护和用户支持。我们会根据功能需要采取合理的数据最小化措施。',
+          '您可以在浏览器中管理 Cookie 和追踪机制设置。如需访问或删除个人信息，可通过下方联系方式联系我们。',
         ],
       },
-      {
-        title: '联系我们',
-        content: '如果您对本站声明有任何疑问，您可以发送电子邮件至376672994@qq.com联系我们，我们将在合理的时间内予以回复。',
-      },
     ],
+    contactTitle: '联系我们',
+    contactText: '如果您对本站声明、投稿流程或内容权利有任何疑问，请发送邮件至 376672994@qq.com。我们将在合理时间内回复。',
   },
   ja: {
-    title: '法的事項',
-    sections: [
+    title: 'ヘルプと声明',
+    subtitle: 'The Kai Project の主な機能、投稿フロー、著作権・プライバシーに関する説明をまとめています。',
+    guideTitle: '使い方',
+    guides: [
+      { icon: FaBookOpen, title: '過去問と解答を見る', text: '「過去問」から大学・研究科・年度ごとに問題と解答を閲覧できます。' },
+      { icon: FaTasks, title: '進捗を記録する', text: '問題ページで完了・復習中を記録し、ログイン後はマイページで同期・集計できます。' },
+      { icon: FaStickyNote, title: 'ノートを書く', text: '各問題ページで Markdown / LaTeX 対応ノートを保存できます。' },
+      { icon: FaCamera, title: '画像として共有', text: '問題ページ下部から、出典付きの画像として解答を共有できます。' },
+      { icon: FaEdit, title: '投稿と訂正', text: '新規解答はマイページの投稿機能から送信します。既存解答の訂正は問題ページ下部から開始すると、対象文書が自動入力されます。', link: { to: '/me?tab=contribute', label: '投稿へ' } },
+      { icon: FaCode, title: '開発者 API', text: 'JSON API の利用申請と API Key 管理はマイページで行えます。', link: { to: '/me?tab=developer-api', label: 'API を見る' } },
+    ],
+    contributionTitle: 'コミュニティ投稿フロー',
+    contributionSteps: [
+      '軽い投稿者はサイト内フォームから新規解答を投稿でき、Git や文書形式を理解する必要はありません。',
+      '既存解答の訂正は各問題ページ下部から開始し、対象文書を手入力しない設計です。',
+      '投稿は公開 GitHub Issue になり、コミュニティで確認できます。',
+      'メンテナーが確認後、ラベルを付けると bot が draft PR を作成します。',
+      '正式公開される内容は、PR がマージされた Git リポジトリ内の Markdown を正とします。',
+    ],
+    legalTitle: '法的事項とプライバシー',
+    legalSections: [
       {
+        icon: FaFileContract,
         title: '著作権について',
         items: [
-          '本ウェブサイトはオープンソースプロジェクトと公開学習アーカイブを基盤としており、問題カタログ、コミュニティによる公開解答、公開学習資料および関連説明を中核的な公開コンテンツと位置づけています。これらのコンテンツは、個人の学習、研究、受験準備を支援するため、継続的に公開アクセス可能な形で提供されます。',
-          'プロジェクトの継続的な保守、技術サービス、コミュニティ運営を支えるため、本ウェブサイトは学習体験、アカウント機能、データ API、学習支援、提携連携等に関連する補助的な機能を提供する場合があります。これらの提供形態は、中核的な公開コンテンツの公開アクセス性を変更するものではありません。',
-          '本ウェブサイトの一部のコンテンツは、著作権法第32条に基づく「引用」として、個人の学習・研究目的で他者の公表された著作物を利用しています。出典を明記した上で適法に引用しております。権利者の方で著作権侵害の恐れがあるとお考えの場合は、14営業日以内に376672994@qq.comまでメールにてご連絡ください。確認の上、権利者の方のご要望に応じて訂正または削除いたします。',
-          '公開コンテンツの一括複製、再配布、商業的な接続、または通常の閲覧・個人学習の範囲を超える利用を行う場合は、本ウェブサイトが別途公表するコンテンツ/API 条項を遵守し、必要に応じて関連する権利者から適切な許諾を得てください。',
+          '本サイトの中核的な公開コンテンツは、個人の学習・研究・受験準備を支援するため継続的に公開されます。',
+          '補助機能、API、学習支援、提携連携などの提供形態は、中核的な公開コンテンツの公開アクセス性を変更するものではありません。',
+          '権利侵害の可能性がある場合は 376672994@qq.com までご連絡ください。確認の上、訂正または削除します。',
         ],
       },
       {
+        icon: FaExclamationTriangle,
         title: '免責事項',
         items: [
-          {
-            subtitle: '外部リンクについて',
-            content: '本ウェブサイトには第三者のウェブサイトへのリンクが含まれている場合があります。これらのリンクへのアクセスまたは第三者のサービスの利用は、利用者ご自身の判断によるものとします。本ウェブサイトとリンクされた第三者のウェブサイトにアクセスすることを選択した場合、その結果生じるすべてのリスクは利用者ご自身が負担するものとします。法律で許容される範囲において、当方はこれらのリンク先で提供される情報、データ、意見、画像、記述または提案の正確性、完全性、十分性および信頼性について、いかなる保証も行わず、これらのリンク先のコンテンツについていかなる責任も負いません。アクセスするすべての第三者ウェブサイトの利用規約およびプライバシーポリシーを十分にご確認いただくことを強くお勧めいたします。',
-          },
-          {
-            subtitle: 'コンテンツの正確性',
-            content: '法律で許容される範囲において、本ウェブサイトは、掲載されているコンテンツの適時性、有効性、完全性、利用可能性等について、明示または黙示を問わず、いかなる形式の保証も提供いたしません。利用者が本ウェブサイトのコンテンツを使用することによって生じたいかなる結果についても、本ウェブサイトは法的責任を負いません。',
-          },
+          '外部リンクへのアクセスおよび第三者サービスの利用は利用者ご自身の判断によります。',
+          '本サイトの内容の正確性、完全性、利用可能性について、法律で許容される範囲で保証を行いません。',
         ],
       },
       {
-        title: 'プライバシーポリシー',
+        icon: FaShieldAlt,
+        title: 'プライバシー',
         items: [
-          {
-            subtitle: '収集する情報',
-            content: 'お客様の選択と端末の設定（特にCookieおよびその他のトラッキング技術）に応じて、お客様が本ウェブサイトにアクセスした際、当方のサーバーはブラウザまたはデバイスが生成する特定の情報を自動的に収集します。これには、アクセスしたドメイン名、アクセス日時と滞在時間、ブラウザの種類、オペレーティングシステムが含まれますが、これらに限定されません。ログイン、マイページ、クラウド同期、ランキング、開発者 API を利用する場合、アカウントのメールアドレス、認証 ID、学習進捗、問題ノート、復習状態、同期記録、API アクセス申請情報、API Key のメタデータ、必要な呼び出しログを処理することがあります。',
-          },
-          {
-            subtitle: '情報の利用目的',
-            content: 'これらの情報は主に、ログイン、学習データ同期、マイページ表示、ランキング、API アクセス審査、安全対策、サービス保守、ユーザーサポートのために利用します。機能上必要な範囲で、合理的なデータ最小化に努めます。',
-          },
-          {
-            subtitle: '個人情報の越境移転',
-            content: '当方は世界各地に分散したリソースとサーバーまたはサービスを通じてサービスを提供しています。これは、お客様の個人情報が、お客様が製品またはサービスを利用している国・地域以外の管轄区域に移転される可能性があること、または外国の事業体からアクセスされる可能性があることを意味します。お客様は、当方がお客様の個人情報を国外の管轄区域に移転する可能性があることを理解し、同意するものとします。そのような場合、当方は当該国または地域の法的要件の下でお客様の情報が十分に保護されるよう、合理的な措置を講じます。',
-          },
-          {
-            subtitle: 'Cookieの管理とトラッキング',
-            content: 'お客様はブラウザでCookieとトラッキング機能の設定を管理できます。設定した内容は、現在ご使用のブラウザにのみ適用されることにご注意ください。',
-          },
-          {
-            subtitle: 'すべてのCookieの無効化',
-            content: 'すべてのCookieを無効にしたい場合は、ブラウザの設定からCookie設定を無効にしてください。',
-          },
-          {
-            subtitle: '未成年者について',
-            content: '本ウェブサイトは、未成年者（特に16歳未満の方）に対して製品やサービスを提供していません。',
-          },
-          {
-            subtitle: 'お客様の権利',
-            content: 'サービスをご利用いただく過程で、お客様の個人情報へのアクセス、削除をより便利に行えるよう、以下に記載の方法でお問い合わせいただければ、合理的な期間内にご対応いたします。',
-          },
+          'ログイン、同期、投稿、API 機能の提供に必要な範囲で、アカウント情報や利用記録を処理する場合があります。',
+          'これらの情報はサービス提供、保守、安全対策、サポートのために利用されます。',
         ],
-      },
-      {
-        title: 'お問い合わせ',
-        content: '本サイトの声明についてご質問がある場合は、376672994@qq.comまでメールにてお問い合わせください。合理的な期間内にご返答いたします。',
       },
     ],
+    contactTitle: 'お問い合わせ',
+    contactText: 'ご質問は 376672994@qq.com までメールでお問い合わせください。',
   },
   en: {
-    title: 'Legal Notice',
-    sections: [
+    title: 'Help & Notices',
+    subtitle: 'A concise guide to The Kai Project features, contribution flow, copyright, and privacy.',
+    guideTitle: 'User Guide',
+    guides: [
+      { icon: FaBookOpen, title: 'Browse exams and solutions', text: 'Use Past Exams to browse by university, department, year, and question.' },
+      { icon: FaTasks, title: 'Track progress', text: 'Mark questions as completed or reviewing, then view synced stats in your personal center.' },
+      { icon: FaStickyNote, title: 'Write notes', text: 'Each question page supports Markdown / LaTeX notes.' },
+      { icon: FaCamera, title: 'Share as image', text: 'Create a source-marked image from a solution page for study discussions.' },
+      { icon: FaEdit, title: 'Submit or correct content', text: 'Use the contribution tab in your personal center for new solutions. Open corrections from the bottom of an existing solution page so the target document is filled automatically.', link: { to: '/me?tab=contribute', label: 'Open submissions' } },
+      { icon: FaCode, title: 'Developer API', text: 'Apply for JSON API access and manage API keys in your personal center.', link: { to: '/me?tab=developer-api', label: 'Open API' } },
+    ],
+    contributionTitle: 'Community Contribution Flow',
+    contributionSteps: [
+      'Light contributors submit new solutions through the website without knowing Git, frontmatter, or CI.',
+      'Corrections for existing solutions start from the bottom of that solution page so the target document is filled automatically.',
+      'Submissions become public GitHub Issues for discussion.',
+      'Maintainers add the ready label when content is usable, and the bot opens a draft PR.',
+      'Merged Markdown in the Git repository remains the source of truth for public content and API data.',
+    ],
+    legalTitle: 'Legal & Privacy Notices',
+    legalSections: [
       {
-        title: 'Copyright Notice',
+        icon: FaFileContract,
+        title: 'Copyright',
         items: [
-          'This website is built around an open-source project and a public study archive. Its core public content includes the exam catalog, community-contributed public solutions, public study materials, and related documentation. These materials are provided with continuing public access to support personal study, research, and exam preparation.',
-          'To support long-term maintenance, technical services, and community operations, this website may provide supporting features related to learning experience, account services, data APIs, tutoring support, or partner integrations. The way these supporting features are provided does not change the open-access nature of the core public content.',
-          'Some materials on this website may include reasonable use of published works by third parties for personal study and research purposes, with authorship and source information indicated where applicable. If a rights holder believes that any content may infringe their rights, please contact us by email at 376672994@qq.com within 14 business days. We will review the request promptly and correct or remove the relevant content as appropriate.',
-          'Bulk copying, redistribution, commercial integration, or any other use of public content beyond ordinary browsing and personal study must comply with the content/API terms separately published by this website, and users are responsible for obtaining any necessary permissions from the relevant rights holders.',
+          'Core public content remains openly accessible to support personal study, research, and exam preparation.',
+          'Supporting features such as accounts, APIs, tutoring support, or integrations do not change the open-access nature of accepted core content.',
+          'If you believe any content infringes your rights, contact 376672994@qq.com and we will review the request.',
         ],
       },
       {
+        icon: FaExclamationTriangle,
         title: 'Disclaimer',
         items: [
-          {
-            subtitle: 'External Links',
-            content: 'This website may contain links to third-party websites or URLs. Whether to access those links or use the corresponding third-party services is your own decision. If you choose to visit any third-party website linked from this website, all resulting consequences and risks are borne by you. To the extent permitted by law, we do not make any commitment or warranty regarding the accuracy, completeness, adequacy, or reliability of any information, data, opinions, images, statements, or suggestions provided through those links, and we do not assume responsibility for the content of third-party websites. We strongly recommend that you review the legal notices and privacy policies of any third-party websites you visit.',
-          },
-          {
-            subtitle: 'Content Accuracy',
-            content: 'To the extent permitted by law, this website provides no express or implied warranty of any kind regarding the timeliness, validity, completeness, availability, or other aspects of the content published on this website. This website assumes no legal responsibility for any consequences arising from your use of its content.',
-          },
+          'External links are accessed at your own decision and risk.',
+          'To the extent permitted by law, this website provides no warranty regarding timeliness, completeness, availability, or accuracy of content.',
         ],
       },
       {
-        title: 'Privacy Notice',
+        icon: FaShieldAlt,
+        title: 'Privacy',
         items: [
-          {
-            subtitle: 'Information We Collect',
-            content: 'Depending on your choices and device settings, especially cookies and other tracking mechanisms, our servers may automatically collect certain information generated by your browser or device when you visit this website. Such information may include, but is not limited to, the domain name you visit from, the date, time, and duration of your visit, browser type, and operating system. If you use login, personal center, cloud sync, leaderboard, or developer API features, we may also process your account email, authentication identifier, study progress, problem notes, review status, sync records, API access request information, API key metadata, and necessary request logs.',
-          },
-          {
-            subtitle: 'How We Use Information',
-            content: 'We use this information primarily to provide authentication, learning data sync, personal center views, leaderboard features, API access review, security controls, service maintenance, and user support. We take reasonable steps to limit processing to what is necessary for the relevant feature.',
-          },
-          {
-            subtitle: 'Cross-Border Transfer of Personal Information',
-            content: 'We provide resources, servers, or services across multiple regions. This means that your personal information may be transferred to jurisdictions outside the country or region where you use the product or service, or may be accessed by entities located outside that jurisdiction. You understand and agree that we may transfer your personal information to such jurisdictions. In these cases, we will take reasonable measures to ensure that your information receives adequate protection under the legal requirements of the relevant country or region.',
-          },
-          {
-            subtitle: 'Cookie and Tracking Management',
-            content: 'You can manage cookie and tracking settings in your browser. Please note that the settings you choose apply only to the browser currently in use.',
-          },
-          {
-            subtitle: 'Disabling All Cookies',
-            content: 'If you wish to disable all cookies, please go to your browser settings and turn off cookie settings.',
-          },
-          {
-            subtitle: 'Minors',
-            content: 'This website does not provide products or services to minors, especially children under the age of 14.',
-          },
-          {
-            subtitle: 'Your Rights',
-            content: 'During your use of our services, you may contact us through the method listed below to request access to or deletion of your personal information. We will respond to your request within a reasonable period of time.',
-          },
+          'When you use login, sync, submissions, or API features, we may process account metadata and necessary service records.',
+          'This information is used for service delivery, maintenance, security, review, and support.',
         ],
-      },
-      {
-        title: 'Contact Us',
-        content: 'If you have any questions about this notice, you may contact us by email at 376672994@qq.com. We will respond within a reasonable period of time.',
       },
     ],
+    contactTitle: 'Contact',
+    contactText: 'For questions, please email 376672994@qq.com.',
   },
 };
 
+function getLanguageContent(language) {
+  if (language === 'ja') return content.ja;
+  if (language === 'en') return content.en;
+  return content.zh;
+}
+
 export default function LegalStatement() {
   const language = useCurrentLanguage();
-  const t = content[language] || content.zh;
+  const t = getLanguageContent(language);
 
   return (
     <Layout title={t.title}>
-      <div className="container margin-vert--lg">
-        {t.sections.map((section, sectionIndex) => (
-          <div key={sectionIndex}>
-            <h2>{section.title}</h2>
-            {section.content && <p>{section.content}</p>}
-            {section.items && (
-              <ol>
-                {section.items.map((item, itemIndex) => (
-                  <li key={itemIndex} style={{ marginBottom: '1rem' }}>
-                    {typeof item === 'string' ? (
-                      item
-                    ) : (
-                      <>
-                        <strong>{item.subtitle}</strong>
-                        <br />
-                        {item.content}
-                      </>
-                    )}
-                  </li>
-                ))}
-              </ol>
-            )}
+      <main className={styles.shell}>
+        <section className={styles.hero}>
+          <div>
+            <span className={styles.eyebrow}>The Kai Project</span>
+            <h1>{t.title}</h1>
+            <p>{t.subtitle}</p>
           </div>
-        ))}
-      </div>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <FaRoute />
+            <h2>{t.guideTitle}</h2>
+          </div>
+          <div className={styles.guideGrid}>
+            {t.guides.map((guide) => {
+              const Icon = guide.icon;
+              return (
+                <article key={guide.title} className={styles.guideCard}>
+                  <Icon className={styles.guideIcon} />
+                  <h3>{guide.title}</h3>
+                  <p>{guide.text}</p>
+                  {guide.link && (
+                    <Link to={guide.link.to} className={styles.inlineLink}>
+                      {guide.link.label}
+                    </Link>
+                  )}
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <FaEdit />
+            <h2>{t.contributionTitle}</h2>
+          </div>
+          <ol className={styles.processList}>
+            {t.contributionSteps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <FaFileContract />
+            <h2>{t.legalTitle}</h2>
+          </div>
+          <div className={styles.noticeStack}>
+            {t.legalSections.map((section) => {
+              const Icon = section.icon;
+              return (
+                <article key={section.title} className={styles.noticePanel}>
+                  <div className={styles.noticeTitle}>
+                    <Icon />
+                    <h3>{section.title}</h3>
+                  </div>
+                  <ul>
+                    {section.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className={styles.contactPanel}>
+          <h2>{t.contactTitle}</h2>
+          <p>{t.contactText}</p>
+        </section>
+      </main>
     </Layout>
   );
 }

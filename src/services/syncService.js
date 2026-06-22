@@ -8,7 +8,11 @@
  * 4. 双端同条目都更新时返回冲突提示（仍按时间戳自动解）
  */
 
-import { getSupabaseClient } from './supabaseClient';
+import {
+  getSupabaseClient,
+  getSupabaseEmailActionClient,
+  getSupabasePasswordResetClient,
+} from './supabaseClient';
 import { getScopedStorageKey, getStorageOwnerForUser } from './localStorageScope';
 import { validateSyncData } from './authSecurity';
 import { readProgressData, writeProgressData } from '../hooks/useProgress';
@@ -949,11 +953,14 @@ export const syncMerge = async (_userId) => {
 /**
  * 邮箱 + 密码注册
  */
-export const signUpWithEmail = async (email, password, captchaToken) => {
-  const sb = getSupabaseClient();
+export const signUpWithEmail = async (email, password, captchaToken, emailRedirectTo) => {
+  const sb = getSupabaseEmailActionClient();
   if (!sb) throw new Error('Supabase 未配置');
   const options = { email, password };
-  if (captchaToken) options.options = { captchaToken };
+  const actionOptions = {};
+  if (captchaToken) actionOptions.captchaToken = captchaToken;
+  if (emailRedirectTo) actionOptions.emailRedirectTo = emailRedirectTo;
+  if (Object.keys(actionOptions).length > 0) options.options = actionOptions;
   const { data, error } = await sb.auth.signUp(options);
   if (error) throw error;
   return data;
@@ -1003,11 +1010,92 @@ export const exchangeOAuthCodeForSession = async (code) => {
   return data;
 };
 
+const clearRecoveryUrlParams = (url) => {
+  url.searchParams.delete('code');
+  url.searchParams.delete('token_hash');
+  url.searchParams.delete('type');
+  window.history.replaceState({}, document.title, `${url.pathname}${url.search}`);
+};
+
+const clearAuthUrlParams = (url) => {
+  url.searchParams.delete('code');
+  url.searchParams.delete('token_hash');
+  url.searchParams.delete('type');
+  url.searchParams.delete('error');
+  url.searchParams.delete('error_description');
+  window.history.replaceState({}, document.title, `${url.pathname}${url.search}`);
+};
+
+const CALLBACK_TOKEN_HASH_TYPES = new Set(['signup', 'invite', 'magiclink', 'email']);
+
+/**
+ * 统一处理登录/注册类 Auth 回调。密码 recovery 仍交给 reset-password 页面。
+ */
+export const completeAuthCallbackFromUrl = async () => {
+  const sb = getSupabaseClient();
+  if (!sb) throw new Error('Supabase 未配置');
+  if (typeof window === 'undefined') return null;
+
+  const url = new URL(window.location.href);
+  const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+  const errorDescription = url.searchParams.get('error_description') || hashParams.get('error_description');
+  if (errorDescription) {
+    clearAuthUrlParams(url);
+    throw new Error(decodeURIComponent(errorDescription));
+  }
+
+  const type = url.searchParams.get('type') || hashParams.get('type') || null;
+  if (type === 'recovery') {
+    return { redirectToResetPassword: true };
+  }
+
+  const code = url.searchParams.get('code');
+  if (code) {
+    const data = await exchangeOAuthCodeForSession(code);
+    clearAuthUrlParams(url);
+    return { ...data, type: type || 'oauth' };
+  }
+
+  const tokenHash = url.searchParams.get('token_hash') || hashParams.get('token_hash');
+  if (tokenHash) {
+    if (!CALLBACK_TOKEN_HASH_TYPES.has(type)) {
+      throw new Error('认证链接类型不正确，请重新发送邮件。');
+    }
+    const { data, error } = await sb.auth.verifyOtp({
+      token_hash: tokenHash,
+      type,
+    });
+    if (error) throw error;
+    clearAuthUrlParams(url);
+    return { ...data, type };
+  }
+
+  const accessToken = hashParams.get('access_token');
+  const refreshToken = hashParams.get('refresh_token');
+  if (accessToken && refreshToken) {
+    if (type && type !== 'signup' && type !== 'invite' && type !== 'magiclink' && type !== 'email') {
+      throw new Error('认证链接类型不正确，请重新发送邮件。');
+    }
+    const { data, error } = await sb.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    });
+    if (error) throw error;
+    clearAuthUrlParams(url);
+    return { ...data, type: type || 'email' };
+  }
+
+  const { data, error } = await sb.auth.getSession();
+  if (error) throw error;
+  if (!data?.session) throw new Error('认证链接无效或已过期，请重新登录。');
+  return { ...data, type };
+};
+
 /**
  * 发送密码重置邮件
  */
 export const sendPasswordResetEmail = async (email, redirectTo, captchaToken) => {
-  const sb = getSupabaseClient();
+  const sb = getSupabasePasswordResetClient();
   if (!sb) throw new Error('Supabase 未配置');
 
   const options = {};
@@ -1020,7 +1108,7 @@ export const sendPasswordResetEmail = async (email, redirectTo, captchaToken) =>
 };
 
 /**
- * 从密码重置链接恢复会话。兼容 PKCE code 与旧 implicit hash 两种回跳形态。
+ * 从密码重置链接恢复会话。只接受明确的 recovery 链接，旧版 PKCE code 链接需重新发送。
  */
 export const recoverPasswordSessionFromUrl = async () => {
   const sb = getSupabaseClient();
@@ -1032,23 +1120,34 @@ export const recoverPasswordSessionFromUrl = async () => {
   const errorDescription = url.searchParams.get('error_description') || hashParams.get('error_description');
   if (errorDescription) throw new Error(decodeURIComponent(errorDescription));
 
-  const code = url.searchParams.get('code');
-  if (code) {
-    const data = await exchangeOAuthCodeForSession(code);
-    url.searchParams.delete('code');
-    window.history.replaceState({}, document.title, `${url.pathname}${url.search}${url.hash}`);
+  const type = url.searchParams.get('type') || hashParams.get('type');
+  const hasLegacyCode = url.searchParams.has('code');
+  if (hasLegacyCode) {
+    throw new Error('这是一封旧版重置链接，请重新发送重置邮件并打开最新链接。');
+  }
+
+  const tokenHash = url.searchParams.get('token_hash') || hashParams.get('token_hash');
+  if (tokenHash) {
+    if (type !== 'recovery') throw new Error('重置链接类型不正确，请重新发送重置邮件。');
+    const { data, error } = await sb.auth.verifyOtp({
+      token_hash: tokenHash,
+      type: 'recovery',
+    });
+    if (error) throw error;
+    clearRecoveryUrlParams(url);
     return data;
   }
 
   const accessToken = hashParams.get('access_token');
   const refreshToken = hashParams.get('refresh_token');
   if (accessToken && refreshToken) {
+    if (type !== 'recovery') throw new Error('重置链接类型不正确，请重新发送重置邮件。');
     const { data, error } = await sb.auth.setSession({
       access_token: accessToken,
       refresh_token: refreshToken,
     });
     if (error) throw error;
-    window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+    clearRecoveryUrlParams(url);
     return data;
   }
 
@@ -1090,6 +1189,23 @@ export const getSession = async () => {
   if (error || !user) return null;
   // 构造兼容的 session-like 对象，供上层读取 user
   return { user };
+};
+
+/**
+ * 获取经过服务端验证的当前 access token。
+ * getSession() 只读本地存储；这里先 getUser() 校验 JWT，再返回 token。
+ */
+export const getVerifiedAccessToken = async () => {
+  const sb = getSupabaseClient();
+  if (!sb) return null;
+
+  const { data: { session }, error: sessionError } = await sb.auth.getSession();
+  if (sessionError || !session?.access_token) return null;
+
+  const { data: { user }, error: userError } = await sb.auth.getUser();
+  if (userError || !user) return null;
+
+  return session.access_token;
 };
 
 /**

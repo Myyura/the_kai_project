@@ -14,6 +14,9 @@
 --   3. Authentication → Bot and Abuse Protection
 --      → 启用 hCaptcha 或 Cloudflare Turnstile（防自动化暴力破解）
 --
+--   4. Authentication → URL Configuration
+--      → 将站点的 /auth/callback 和 /reset-password 加入允许的 Redirect URLs
+--
 -- ============================================================
 
 -- 启用 UUID 扩展
@@ -608,3 +611,603 @@ set search_path = '';
 
 revoke execute on function register_api_request(uuid, timestamptz, integer) from public, anon, authenticated;
 grant execute on function register_api_request(uuid, timestamptz, integer) to service_role;
+
+-- ============================================================
+-- Agent Bridge：私有学习辅导 Agent 接入骨架
+-- ============================================================
+--
+-- 安全模型：
+--   1. 开源主站只保存 agent_user_id 映射、授权、套餐与用量账本。
+--   2. 私有 Agent 保存 prompt/tools/RAG/模型调用细节。
+--   3. 前端只能通过 agent-session Edge Function 创建短期 session。
+--   4. 私有 Agent 只能通过 agent-context Edge Function 读取授权后的上下文。
+--   5. 下列表启用 RLS，前端 anon/authenticated 客户端不可直接读写。
+
+create table if not exists agent_user_links (
+  agent_user_id uuid primary key default uuid_generate_v4(),
+  user_id       uuid not null unique references auth.users(id) on delete cascade,
+  updated_at    timestamptz not null default now(),
+  created_at    timestamptz not null default now()
+);
+
+create index if not exists idx_agent_user_links_user_id
+  on agent_user_links(user_id);
+
+drop trigger if exists update_agent_user_links_updated_at on agent_user_links;
+create trigger update_agent_user_links_updated_at
+  before update on agent_user_links
+  for each row
+  execute function update_updated_at_column();
+
+alter table agent_user_links enable row level security;
+revoke all on table agent_user_links from anon, authenticated;
+
+create table if not exists agent_sessions (
+  id             uuid primary key default uuid_generate_v4(),
+  agent_user_id  uuid not null references agent_user_links(agent_user_id) on delete cascade,
+  status         text not null default 'active',
+  scopes         jsonb not null default '[]'::jsonb,
+  expires_at     timestamptz not null,
+  revoked_at     timestamptz,
+  updated_at     timestamptz not null default now(),
+  created_at     timestamptz not null default now(),
+
+  constraint agent_sessions_status_check
+    check (status in ('active', 'revoked', 'expired')),
+  constraint agent_sessions_scopes_is_array
+    check (jsonb_typeof(scopes) = 'array')
+);
+
+create index if not exists idx_agent_sessions_agent_user_created
+  on agent_sessions(agent_user_id, created_at desc);
+create index if not exists idx_agent_sessions_expires
+  on agent_sessions(expires_at);
+
+drop trigger if exists update_agent_sessions_updated_at on agent_sessions;
+create trigger update_agent_sessions_updated_at
+  before update on agent_sessions
+  for each row
+  execute function update_updated_at_column();
+
+alter table agent_sessions enable row level security;
+revoke all on table agent_sessions from anon, authenticated;
+
+create table if not exists user_ai_consents (
+  user_id                    uuid primary key references auth.users(id) on delete cascade,
+  allow_progress_context     boolean not null default false,
+  allow_notes_context        boolean not null default false,
+  allow_chat_history_context boolean not null default false,
+  updated_at                 timestamptz not null default now(),
+  created_at                 timestamptz not null default now()
+);
+
+drop trigger if exists update_user_ai_consents_updated_at on user_ai_consents;
+create trigger update_user_ai_consents_updated_at
+  before update on user_ai_consents
+  for each row
+  execute function update_updated_at_column();
+
+alter table user_ai_consents enable row level security;
+revoke all on table user_ai_consents from anon, authenticated;
+
+create table if not exists ai_entitlements (
+  user_id                 uuid primary key references auth.users(id) on delete cascade,
+  plan                    text not null default 'free',
+  status                  text not null default 'active',
+  monthly_message_limit   integer not null default 50,
+  monthly_token_limit     bigint not null default 500000,
+  enabled_models          jsonb not null default '[]'::jsonb,
+  current_period_start    date not null default (date_trunc('month', now())::date),
+  current_period_end      date not null default ((date_trunc('month', now()) + interval '1 month')::date),
+  updated_at              timestamptz not null default now(),
+  created_at              timestamptz not null default now(),
+
+  constraint ai_entitlements_plan_check
+    check (plan in ('free', 'pro', 'team', 'admin')),
+  constraint ai_entitlements_status_check
+    check (status in ('active', 'trialing', 'past_due', 'canceled', 'suspended')),
+  constraint ai_entitlements_message_limit_check
+    check (monthly_message_limit >= 0),
+  constraint ai_entitlements_token_limit_check
+    check (monthly_token_limit >= 0),
+  constraint ai_entitlements_enabled_models_is_array
+    check (jsonb_typeof(enabled_models) = 'array')
+);
+
+drop trigger if exists update_ai_entitlements_updated_at on ai_entitlements;
+create trigger update_ai_entitlements_updated_at
+  before update on ai_entitlements
+  for each row
+  execute function update_updated_at_column();
+
+alter table ai_entitlements enable row level security;
+revoke all on table ai_entitlements from anon, authenticated;
+
+create table if not exists ai_usage_months (
+  user_id            uuid not null references auth.users(id) on delete cascade,
+  period_start       date not null,
+  period_end         date not null,
+  plan               text not null default 'free',
+  messages_used      integer not null default 0,
+  messages_reserved  integer not null default 0,
+  input_tokens       bigint not null default 0,
+  output_tokens      bigint not null default 0,
+  total_tokens       bigint not null default 0,
+  cost_micros        bigint not null default 0,
+  updated_at         timestamptz not null default now(),
+  created_at         timestamptz not null default now(),
+
+  primary key (user_id, period_start),
+  constraint ai_usage_months_plan_check
+    check (plan in ('free', 'pro', 'team', 'admin')),
+  constraint ai_usage_months_nonnegative_check
+    check (
+      messages_used >= 0
+      and messages_reserved >= 0
+      and input_tokens >= 0
+      and output_tokens >= 0
+      and total_tokens >= 0
+      and cost_micros >= 0
+    )
+);
+
+create index if not exists idx_ai_usage_months_period
+  on ai_usage_months(period_start desc);
+
+drop trigger if exists update_ai_usage_months_updated_at on ai_usage_months;
+create trigger update_ai_usage_months_updated_at
+  before update on ai_usage_months
+  for each row
+  execute function update_updated_at_column();
+
+alter table ai_usage_months enable row level security;
+revoke all on table ai_usage_months from anon, authenticated;
+
+create table if not exists ai_usage_reservations (
+  id                 uuid primary key default uuid_generate_v4(),
+  user_id            uuid not null references auth.users(id) on delete cascade,
+  agent_user_id      uuid not null references agent_user_links(agent_user_id) on delete cascade,
+  session_id         uuid not null references agent_sessions(id) on delete cascade,
+  idempotency_key    text not null,
+  status             text not null default 'reserved',
+  period_start       date not null,
+  reserved_messages  integer not null default 1,
+  committed_at       timestamptz,
+  canceled_at        timestamptz,
+  cancel_reason      text,
+  updated_at         timestamptz not null default now(),
+  created_at         timestamptz not null default now(),
+
+  constraint ai_usage_reservations_session_key_unique unique (session_id, idempotency_key),
+  constraint ai_usage_reservations_status_check
+    check (status in ('reserved', 'committed', 'canceled', 'expired')),
+  constraint ai_usage_reservations_key_length
+    check (char_length(trim(idempotency_key)) between 1 and 160),
+  constraint ai_usage_reservations_reserved_messages_check
+    check (reserved_messages > 0)
+);
+
+create index if not exists idx_ai_usage_reservations_user_created
+  on ai_usage_reservations(user_id, created_at desc);
+create index if not exists idx_ai_usage_reservations_session
+  on ai_usage_reservations(session_id);
+
+drop trigger if exists update_ai_usage_reservations_updated_at on ai_usage_reservations;
+create trigger update_ai_usage_reservations_updated_at
+  before update on ai_usage_reservations
+  for each row
+  execute function update_updated_at_column();
+
+alter table ai_usage_reservations enable row level security;
+revoke all on table ai_usage_reservations from anon, authenticated;
+
+create table if not exists ai_usage_events (
+  id             uuid primary key default uuid_generate_v4(),
+  reservation_id uuid references ai_usage_reservations(id) on delete set null,
+  user_id        uuid not null references auth.users(id) on delete cascade,
+  agent_user_id  uuid not null references agent_user_links(agent_user_id) on delete cascade,
+  session_id     uuid references agent_sessions(id) on delete set null,
+  provider       text not null default '',
+  model          text not null default '',
+  input_tokens   bigint not null default 0,
+  output_tokens  bigint not null default 0,
+  total_tokens   bigint not null default 0,
+  cost_micros    bigint not null default 0,
+  status         text not null default 'succeeded',
+  latency_ms     integer,
+  error_code     text,
+  created_at     timestamptz not null default now(),
+
+  constraint ai_usage_events_reservation_unique unique (reservation_id),
+  constraint ai_usage_events_status_check
+    check (status in ('succeeded', 'failed', 'canceled')),
+  constraint ai_usage_events_nonnegative_check
+    check (
+      input_tokens >= 0
+      and output_tokens >= 0
+      and total_tokens >= 0
+      and cost_micros >= 0
+      and (latency_ms is null or latency_ms >= 0)
+    )
+);
+
+create index if not exists idx_ai_usage_events_user_created
+  on ai_usage_events(user_id, created_at desc);
+create index if not exists idx_ai_usage_events_session_created
+  on ai_usage_events(session_id, created_at desc);
+
+alter table ai_usage_events enable row level security;
+revoke all on table ai_usage_events from anon, authenticated;
+
+drop function if exists reserve_ai_message(uuid, text);
+create or replace function reserve_ai_message(
+  p_session_id uuid,
+  p_idempotency_key text
+)
+returns table (
+  allowed boolean,
+  code text,
+  reservation_id uuid,
+  current_messages integer,
+  message_limit integer,
+  period_start date
+) as $$
+declare
+  v_session public.agent_sessions%rowtype;
+  v_link public.agent_user_links%rowtype;
+  v_entitlement public.ai_entitlements%rowtype;
+  v_reservation public.ai_usage_reservations%rowtype;
+  v_period_start date;
+  v_period_end date;
+  v_used integer;
+  v_reserved integer;
+  v_key text;
+begin
+  v_key := nullif(trim(coalesce(p_idempotency_key, '')), '');
+  if v_key is null then
+    return query select false, 'invalid_idempotency_key', null::uuid, 0, 0, null::date;
+    return;
+  end if;
+
+  select *
+    into v_session
+    from public.agent_sessions
+    where id = p_session_id
+      and status = 'active'
+      and expires_at > now();
+
+  if not found then
+    return query select false, 'invalid_session', null::uuid, 0, 0, null::date;
+    return;
+  end if;
+
+  select *
+    into v_link
+    from public.agent_user_links
+    where agent_user_id = v_session.agent_user_id;
+
+  if not found then
+    return query select false, 'agent_user_not_found', null::uuid, 0, 0, null::date;
+    return;
+  end if;
+
+  select *
+    into v_reservation
+    from public.ai_usage_reservations
+    where session_id = p_session_id
+      and idempotency_key = v_key;
+
+  if found then
+    select coalesce(messages_used, 0), coalesce(messages_reserved, 0)
+      into v_used, v_reserved
+      from public.ai_usage_months
+      where user_id = v_reservation.user_id
+        and period_start = v_reservation.period_start;
+
+    return query select
+      (v_reservation.status in ('reserved', 'committed')),
+      v_reservation.status,
+      v_reservation.id,
+      coalesce(v_used, 0) + coalesce(v_reserved, 0),
+      coalesce((select monthly_message_limit from public.ai_entitlements where user_id = v_reservation.user_id), 0),
+      v_reservation.period_start;
+    return;
+  end if;
+
+  insert into public.ai_entitlements (user_id)
+  values (v_link.user_id)
+  on conflict (user_id) do nothing;
+
+  select *
+    into v_entitlement
+    from public.ai_entitlements
+    where user_id = v_link.user_id
+    for update;
+
+  if v_entitlement.status not in ('active', 'trialing') then
+    return query select false, 'entitlement_inactive', null::uuid, 0, v_entitlement.monthly_message_limit, null::date;
+    return;
+  end if;
+
+  v_period_start := date_trunc('month', now())::date;
+  v_period_end := (date_trunc('month', now()) + interval '1 month')::date;
+
+  insert into public.ai_usage_months (user_id, period_start, period_end, plan)
+  values (v_link.user_id, v_period_start, v_period_end, v_entitlement.plan)
+  on conflict (user_id, period_start) do nothing;
+
+  select messages_used, messages_reserved
+    into v_used, v_reserved
+    from public.ai_usage_months
+    where user_id = v_link.user_id
+      and period_start = v_period_start
+    for update;
+
+  if coalesce(v_used, 0) + coalesce(v_reserved, 0) >= v_entitlement.monthly_message_limit then
+    return query select false, 'quota_exceeded', null::uuid, coalesce(v_used, 0) + coalesce(v_reserved, 0), v_entitlement.monthly_message_limit, v_period_start;
+    return;
+  end if;
+
+  update public.ai_usage_months
+  set messages_reserved = messages_reserved + 1,
+      plan = v_entitlement.plan
+  where user_id = v_link.user_id
+    and period_start = v_period_start;
+
+  insert into public.ai_usage_reservations (
+    user_id,
+    agent_user_id,
+    session_id,
+    idempotency_key,
+    period_start
+  )
+  values (
+    v_link.user_id,
+    v_link.agent_user_id,
+    v_session.id,
+    v_key,
+    v_period_start
+  )
+  returning * into v_reservation;
+
+  return query select true, 'reserved', v_reservation.id, coalesce(v_used, 0) + coalesce(v_reserved, 0) + 1, v_entitlement.monthly_message_limit, v_period_start;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+drop function if exists commit_ai_usage(uuid, text, text, bigint, bigint, bigint, text, integer, text);
+create or replace function commit_ai_usage(
+  p_reservation_id uuid,
+  p_provider text,
+  p_model text,
+  p_input_tokens bigint,
+  p_output_tokens bigint,
+  p_cost_micros bigint,
+  p_status text,
+  p_latency_ms integer,
+  p_error_code text
+)
+returns table (
+  accepted boolean,
+  code text,
+  event_id uuid
+) as $$
+declare
+  v_reservation public.ai_usage_reservations%rowtype;
+  v_event_id uuid;
+  v_input bigint;
+  v_output bigint;
+  v_cost bigint;
+  v_total bigint;
+  v_status text;
+begin
+  select *
+    into v_reservation
+    from public.ai_usage_reservations
+    where id = p_reservation_id
+    for update;
+
+  if not found then
+    return query select false, 'reservation_not_found', null::uuid;
+    return;
+  end if;
+
+  select id into v_event_id
+    from public.ai_usage_events
+    where reservation_id = v_reservation.id;
+
+  if v_reservation.status = 'committed' then
+    return query select true, 'already_committed', v_event_id;
+    return;
+  end if;
+
+  if v_reservation.status <> 'reserved' then
+    return query select false, v_reservation.status, v_event_id;
+    return;
+  end if;
+
+  v_input := greatest(coalesce(p_input_tokens, 0), 0);
+  v_output := greatest(coalesce(p_output_tokens, 0), 0);
+  v_total := v_input + v_output;
+  v_cost := greatest(coalesce(p_cost_micros, 0), 0);
+  v_status := case when p_status in ('succeeded', 'failed', 'canceled') then p_status else 'failed' end;
+
+  insert into public.ai_usage_events (
+    reservation_id,
+    user_id,
+    agent_user_id,
+    session_id,
+    provider,
+    model,
+    input_tokens,
+    output_tokens,
+    total_tokens,
+    cost_micros,
+    status,
+    latency_ms,
+    error_code
+  )
+  values (
+    v_reservation.id,
+    v_reservation.user_id,
+    v_reservation.agent_user_id,
+    v_reservation.session_id,
+    left(coalesce(p_provider, ''), 80),
+    left(coalesce(p_model, ''), 120),
+    v_input,
+    v_output,
+    v_total,
+    v_cost,
+    v_status,
+    case when p_latency_ms is null then null else greatest(p_latency_ms, 0) end,
+    nullif(left(coalesce(p_error_code, ''), 120), '')
+  )
+  on conflict (reservation_id) do update set
+    reservation_id = excluded.reservation_id
+  returning id into v_event_id;
+
+  update public.ai_usage_reservations
+  set status = 'committed',
+      committed_at = now()
+  where id = v_reservation.id;
+
+  update public.ai_usage_months
+  set messages_reserved = greatest(messages_reserved - v_reservation.reserved_messages, 0),
+      messages_used = messages_used + v_reservation.reserved_messages,
+      input_tokens = input_tokens + v_input,
+      output_tokens = output_tokens + v_output,
+      total_tokens = total_tokens + v_total,
+      cost_micros = cost_micros + v_cost
+  where user_id = v_reservation.user_id
+    and period_start = v_reservation.period_start;
+
+  return query select true, 'committed', v_event_id;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+drop function if exists cancel_ai_reservation(uuid, text);
+create or replace function cancel_ai_reservation(
+  p_reservation_id uuid,
+  p_reason text
+)
+returns table (
+  accepted boolean,
+  code text,
+  reservation_id uuid
+) as $$
+declare
+  v_reservation public.ai_usage_reservations%rowtype;
+begin
+  select *
+    into v_reservation
+    from public.ai_usage_reservations
+    where id = p_reservation_id
+    for update;
+
+  if not found then
+    return query select false, 'reservation_not_found', null::uuid;
+    return;
+  end if;
+
+  if v_reservation.status = 'committed' then
+    return query select false, 'already_committed', v_reservation.id;
+    return;
+  end if;
+
+  if v_reservation.status = 'canceled' then
+    return query select true, 'already_canceled', v_reservation.id;
+    return;
+  end if;
+
+  update public.ai_usage_reservations
+  set status = 'canceled',
+      canceled_at = now(),
+      cancel_reason = nullif(left(coalesce(p_reason, ''), 240), '')
+  where id = v_reservation.id;
+
+  update public.ai_usage_months
+  set messages_reserved = greatest(messages_reserved - v_reservation.reserved_messages, 0)
+  where user_id = v_reservation.user_id
+    and period_start = v_reservation.period_start;
+
+  return query select true, 'canceled', v_reservation.id;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function reserve_ai_message(uuid, text) from public, anon, authenticated;
+revoke execute on function commit_ai_usage(uuid, text, text, bigint, bigint, bigint, text, integer, text) from public, anon, authenticated;
+revoke execute on function cancel_ai_reservation(uuid, text) from public, anon, authenticated;
+grant execute on function reserve_ai_message(uuid, text) to service_role;
+grant execute on function commit_ai_usage(uuid, text, text, bigint, bigint, bigint, text, integer, text) to service_role;
+grant execute on function cancel_ai_reservation(uuid, text) to service_role;
+
+-- ============================================================
+-- Content Submissions：站内投稿 → GitHub Issue 收件箱
+-- ============================================================
+--
+-- 安全模型：
+--   1. 用户只能通过 content-submissions Edge Function 创建和查询自己的投稿。
+--   2. 前端 anon/authenticated 客户端不可直接读写投稿表。
+--   3. 公开 GitHub Issue 不包含用户邮箱或 Supabase user_id，只展示用户填写的公开署名。
+--   4. CLA 确认通过 payload_signature 写入 Issue，后续 GitHub Action 转 PR 时验证。
+
+create table if not exists content_submissions (
+  id                    uuid primary key default uuid_generate_v4(),
+  user_id               uuid not null references auth.users(id) on delete cascade,
+  submission_type       text not null,
+  status                text not null default 'pending_issue',
+  title                 text not null default '',
+  public_author         text not null default '',
+  university_id         text not null default '',
+  department_id         text not null default '',
+  program_id            text not null default '',
+  year                  integer,
+  file_slug             text not null default '',
+  target_doc_id         text not null default '',
+  target_title          text not null default '',
+  tags                  jsonb not null default '[]'::jsonb,
+  description_markdown  text not null default '',
+  kai_markdown          text not null default '',
+  correction_markdown   text not null default '',
+  cla_accepted_at       timestamptz not null,
+  payload_hash          text,
+  payload_signature     text,
+  issue_number          integer,
+  issue_url             text,
+  pr_number             integer,
+  pr_url                text,
+  failure_reason        text,
+  updated_at            timestamptz not null default now(),
+  created_at            timestamptz not null default now(),
+
+  constraint content_submissions_type_check
+    check (submission_type in ('new_solution', 'correction')),
+  constraint content_submissions_status_check
+    check (status in ('pending_issue', 'issue_created', 'failed', 'converted', 'closed')),
+  constraint content_submissions_year_check
+    check (year is null or (year >= 1900 and year <= 2100)),
+  constraint content_submissions_tags_is_array
+    check (jsonb_typeof(tags) = 'array'),
+  constraint content_submissions_title_length
+    check (char_length(title) <= 240),
+  constraint content_submissions_author_length
+    check (char_length(public_author) <= 160)
+);
+
+create index if not exists idx_content_submissions_user_created
+  on content_submissions(user_id, created_at desc);
+create index if not exists idx_content_submissions_status_created
+  on content_submissions(status, created_at desc);
+create index if not exists idx_content_submissions_issue_number
+  on content_submissions(issue_number);
+
+drop trigger if exists update_content_submissions_updated_at on content_submissions;
+create trigger update_content_submissions_updated_at
+  before update on content_submissions
+  for each row
+  execute function update_updated_at_column();
+
+alter table content_submissions enable row level security;
+revoke all on table content_submissions from anon, authenticated;

@@ -104,6 +104,7 @@ If you want to enable cloud sync end-to-end:
 1. Create a Supabase project.
 2. Run [src/services/schema.sql](src/services/schema.sql) in the Supabase SQL editor.
 3. Configure the auth security items noted in that SQL file, including rate limits, password policy, and hCaptcha.
+4. Add the site callback URLs in Supabase Authentication → URL Configuration, including `https://your-domain/auth/callback` and `https://your-domain/reset-password`.
 
 ## Developer JSON API
 Registered users can request JSON API access in the developer center. After a project maintainer approves the request, the user can create an API key and read exam and answer data. API keys are shown only once when created; the database stores only SHA-256 hashes.

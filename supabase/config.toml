@@ -5,3 +5,9 @@ verify_jwt = false
 
 [functions.kai-api]
 verify_jwt = false
+
+[functions.agent-session]
+verify_jwt = false
+
+[functions.agent-context]
+verify_jwt = false

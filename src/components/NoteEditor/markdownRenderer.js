@@ -8,7 +8,7 @@ import MarkdownIt from 'markdown-it';
 
 // ─── URL 安全校验（防止 javascript: 等 XSS 协议） ──────────────
 const SAFE_PROTOCOLS = /^(?:https?|mailto|tel|ftp):/i;
-const DATA_IMAGE = /^data:image\/[a-z+]+;base64,/i;
+const DATA_IMAGE = /^data:image\/(?:png|jpe?g|gif|webp);base64,[a-z0-9+/]+=*$/i;
 
 function sanitizeUrl(url) {
   const s = (url || '').trim();

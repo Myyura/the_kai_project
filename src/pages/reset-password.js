@@ -1,30 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
+import {useHistory} from '@docusaurus/router';
 import { FaCheck, FaExclamationTriangle, FaKey, FaLock, FaSyncAlt } from 'react-icons/fa';
 import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
+import NoIndex from '@site/src/components/NoIndex';
 import { useSync } from '@site/src/hooks/useSync';
 import {
   recoverPasswordSessionFromUrl,
+  signOut as signOutCurrentSession,
   updateCurrentUserPassword,
 } from '@site/src/services/syncService';
 import { validatePassword } from '@site/src/services/authSecurity';
 import styles from './reset-password.module.css';
 
 function ResetPasswordContent() {
+  const history = useHistory();
   const language = useCurrentLanguage();
   const lang = normalizeLanguage(language);
   const t = useUiText('resetPassword');
   const { isConfigured } = useSync();
 
   const [ready, setReady] = useState(false);
+  const [completed, setCompleted] = useState(false);
   const [checking, setChecking] = useState(true);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
   const [submitting, setSubmitting] = useState(false);
+  const redirectTimerRef = useRef(null);
 
   useEffect(() => {
     if (!isConfigured) {
@@ -59,6 +65,10 @@ function ResetPasswordContent() {
     };
   }, [isConfigured, t.invalidLink]);
 
+  useEffect(() => () => {
+    if (redirectTimerRef.current) window.clearTimeout(redirectTimerRef.current);
+  }, []);
+
   const showError = (text) => setMessage({ type: 'error', text });
   const showSuccess = (text) => setMessage({ type: 'success', text });
 
@@ -84,7 +94,15 @@ function ResetPasswordContent() {
       await updateCurrentUserPassword(password);
       setPassword('');
       setConfirmPassword('');
+      setReady(false);
+      setCompleted(true);
+      try {
+        await signOutCurrentSession();
+      } catch {}
       showSuccess(t.success);
+      redirectTimerRef.current = window.setTimeout(() => {
+        history.replace('/login');
+      }, 1600);
     } catch (error) {
       showError(error?.message || t.invalidLink);
     } finally {
@@ -119,7 +137,7 @@ function ResetPasswordContent() {
             </div>
           )}
 
-          {ready && (
+          {ready && !completed && (
             <form onSubmit={handleSubmit} noValidate>
               <div className={styles.inputGroup}>
                 <label className={styles.inputLabel}>
@@ -176,6 +194,7 @@ function ResetPasswordContent() {
 export default function ResetPasswordPage() {
   return (
     <Layout title="重置密码 / Reset Password">
+      <NoIndex />
       <BrowserOnly fallback={<div style={{ minHeight: '60vh' }} />}>
         {() => <ResetPasswordContent />}
       </BrowserOnly>

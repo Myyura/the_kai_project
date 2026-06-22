@@ -269,7 +269,7 @@ function cloneArticleContent(article) {
   return clone;
 }
 
-export default function ShareAsImage({ docId, title: docTitle }) {
+export default function ShareAsImage({ docId, title: docTitle, compact = false }) {
   const L = useUiText('shareAsImage');
 
   const [generating, setGenerating] = useState(false);
@@ -614,7 +614,7 @@ export default function ShareAsImage({ docId, title: docTitle }) {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${compact ? styles.wrapperCompact : ''}`}>
       {/* Trigger button */}
       <button
         className={styles.triggerBtn}

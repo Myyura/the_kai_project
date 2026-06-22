@@ -10,6 +10,28 @@ import rehypeMathjax from 'rehype-mathjax';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const PRECACHE_URL_PATTERNS = [
+  /^index\.html$/,
+  /^404\.html$/,
+  /^[^/]+\.sw\.js$/,
+  /^assets\/js\/runtime~main\.[^/]+\.js$/,
+  /^assets\/js\/main\.[^/]+\.js$/,
+  /^assets\/css\/styles\.[^/]+\.css$/,
+  /^manifest\.json$/,
+  /^browserconfig\.xml$/,
+  /^img\/favicon\.ico$/,
+  /^img\/kai-icon(?:-light)?\.png$/,
+  /^img\/logo(?:-\d+)?\.png$/,
+  /^img\/logo(?:_dark)?\.svg$/,
+];
+
+const filterPrecacheManifest = async (manifestEntries) => ({
+  manifest: manifestEntries.filter((entry) => (
+    PRECACHE_URL_PATTERNS.some((pattern) => pattern.test(entry.url))
+  )),
+  warnings: [],
+});
+
  /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: {
@@ -163,7 +185,7 @@ const config = {
           },
         ],
         injectManifestConfig: {
-          globPatterns: ['**/*.{js,html,css,svg,png,jpg,jpeg,gif}'],
+          manifestTransforms: [filterPrecacheManifest],
         },
         
       },
@@ -180,10 +202,6 @@ const config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeMathjax],
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/Myyura/the_kai_project/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -192,11 +210,7 @@ const config = {
             xslt: true,
           },
           blogSidebarTitle: 'All posts',
-          blogSidebarCount: 'ALL',          
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/Myyura/the_kai_project/tree/main/',
+          blogSidebarCount: 'ALL',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -204,6 +218,15 @@ const config = {
         },
         theme: {
           customCss: './src/css/custom.css',
+        },
+        sitemap: {
+          ignorePatterns: [
+            '/auth/callback',
+            '/login',
+            '/me',
+            '/reset-password',
+            '/search',
+          ],
         },
         gtag: {
           trackingID: 'G-JJMZK98D6Y',
@@ -256,8 +279,7 @@ const config = {
           {to: '/docs/tags', label: 'Tags', position: 'left'},
           {to: '/links', label: '参考链接', position: 'left'},
           {to: '/me', label: '个人中心', position: 'left'},
-          {to: '/developers', label: '开发者中心', position: 'left'},
-          {to: '/legalstatement', label: '法律声明', position: 'left'},
+          {to: '/legalstatement', label: '帮助与声明', position: 'left'},
           {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',
@@ -294,11 +316,7 @@ const config = {
                 to: '/me',
               },
               {
-                label: '开发者中心',
-                to: '/developers',
-              },
-              {
-                label: '法律声明',
+                label: '帮助与声明',
                 to: '/legalstatement',
               },
             ],
