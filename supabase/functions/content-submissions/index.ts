@@ -516,6 +516,14 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
     .single();
 
   if (updateError) return submissionDatabaseErrorResponse(updateError, 'submission_update_failed');
+
+  const { error: reputationError } = await supabase.rpc('refresh_user_reputation', {
+    p_user_id: userId,
+  });
+  if (reputationError) {
+    console.error('reputation_refresh_failed', reputationError);
+  }
+
   return jsonResponse({ submission: publicSubmission(updated) }, 201);
 }
 

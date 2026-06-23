@@ -423,6 +423,9 @@ create table if not exists user_reputation_profiles (
   contribution_score         integer not null default 0,
   accepted_solution_count    integer not null default 0,
   accepted_correction_count  integer not null default 0,
+  submitted_solution_issue_count integer not null default 0,
+  submitted_correction_issue_count integer not null default 0,
+  issue_submission_count     integer not null default 0,
   converted_submission_count integer not null default 0,
   last_contribution_at       timestamptz,
   recalculated_at            timestamptz not null default now(),
@@ -443,6 +446,9 @@ create table if not exists user_reputation_profiles (
       and contribution_score >= 0
       and accepted_solution_count >= 0
       and accepted_correction_count >= 0
+      and submitted_solution_issue_count >= 0
+      and submitted_correction_issue_count >= 0
+      and issue_submission_count >= 0
       and converted_submission_count >= 0
     )
 );
@@ -456,11 +462,28 @@ alter table user_reputation_profiles
   add column if not exists contribution_score integer not null default 0,
   add column if not exists accepted_solution_count integer not null default 0,
   add column if not exists accepted_correction_count integer not null default 0,
+  add column if not exists submitted_solution_issue_count integer not null default 0,
+  add column if not exists submitted_correction_issue_count integer not null default 0,
+  add column if not exists issue_submission_count integer not null default 0,
   add column if not exists converted_submission_count integer not null default 0,
   add column if not exists last_contribution_at timestamptz,
   add column if not exists recalculated_at timestamptz not null default now(),
   add column if not exists updated_at timestamptz not null default now(),
   add column if not exists created_at timestamptz not null default now();
+
+alter table user_reputation_profiles drop constraint if exists user_reputation_profiles_scores_check;
+alter table user_reputation_profiles
+  add constraint user_reputation_profiles_scores_check
+  check (
+    account_age_score >= 0
+    and contribution_score >= 0
+    and accepted_solution_count >= 0
+    and accepted_correction_count >= 0
+    and submitted_solution_issue_count >= 0
+    and submitted_correction_issue_count >= 0
+    and issue_submission_count >= 0
+    and converted_submission_count >= 0
+  );
 
 create index if not exists idx_user_reputation_profiles_level
   on user_reputation_profiles(level desc, reputation_points desc);
@@ -495,12 +518,33 @@ create table if not exists user_reputation_events (
   constraint user_reputation_events_points_check
     check (points >= 0),
   constraint user_reputation_events_event_type_check
-    check (event_type in ('account_age', 'accepted_solution', 'accepted_correction', 'pr_merged', 'manual_adjustment')),
+    check (event_type in (
+      'account_age',
+      'submitted_solution_issue',
+      'submitted_correction_issue',
+      'accepted_solution',
+      'accepted_correction',
+      'pr_merged',
+      'manual_adjustment'
+    )),
   constraint user_reputation_events_source_not_blank
     check (char_length(trim(source_type)) > 0 and char_length(trim(source_id)) > 0),
   constraint user_reputation_events_user_source_unique
     unique (user_id, event_type, source_type, source_id)
 );
+
+alter table user_reputation_events drop constraint if exists user_reputation_events_event_type_check;
+alter table user_reputation_events
+  add constraint user_reputation_events_event_type_check
+  check (event_type in (
+    'account_age',
+    'submitted_solution_issue',
+    'submitted_correction_issue',
+    'accepted_solution',
+    'accepted_correction',
+    'pr_merged',
+    'manual_adjustment'
+  ));
 
 create index if not exists idx_user_reputation_events_user_occurred
   on user_reputation_events(user_id, occurred_at desc);
@@ -1729,6 +1773,9 @@ returns table (
   contribution_score integer,
   accepted_solution_count integer,
   accepted_correction_count integer,
+  submitted_solution_issue_count integer,
+  submitted_correction_issue_count integer,
+  issue_submission_count integer,
   converted_submission_count integer,
   last_contribution_at timestamptz,
   recalculated_at timestamptz
@@ -1740,7 +1787,12 @@ declare
   v_account_age_score integer;
   v_accepted_solution_count integer;
   v_accepted_correction_count integer;
+  v_submitted_solution_issue_count integer;
+  v_submitted_correction_issue_count integer;
+  v_issue_submission_count integer;
+  v_issue_submission_score integer;
   v_converted_submission_count integer;
+  v_last_issue_at timestamptz;
   v_last_contribution_at timestamptz;
   v_contribution_score integer;
   v_reputation_points integer;
@@ -1789,7 +1841,35 @@ begin
   v_accepted_solution_count := coalesce(v_accepted_solution_count, 0);
   v_accepted_correction_count := coalesce(v_accepted_correction_count, 0);
   v_converted_submission_count := coalesce(v_converted_submission_count, 0);
-  v_contribution_score := v_accepted_solution_count * 80 + v_accepted_correction_count * 25;
+
+  select
+    count(*) filter (where s.submission_type = 'new_solution')::integer,
+    count(*) filter (where s.submission_type = 'correction')::integer,
+    count(*)::integer,
+    max(coalesce(s.updated_at, s.created_at))
+  into
+    v_submitted_solution_issue_count,
+    v_submitted_correction_issue_count,
+    v_issue_submission_count,
+    v_last_issue_at
+  from public.content_submissions s
+  where s.user_id = v_target_user_id
+    and s.status = 'issue_created';
+
+  v_submitted_solution_issue_count := coalesce(v_submitted_solution_issue_count, 0);
+  v_submitted_correction_issue_count := coalesce(v_submitted_correction_issue_count, 0);
+  v_issue_submission_count := coalesce(v_issue_submission_count, 0);
+  v_issue_submission_score := v_submitted_solution_issue_count * 40 + v_submitted_correction_issue_count * 13;
+  v_contribution_score :=
+    v_accepted_solution_count * 80
+    + v_accepted_correction_count * 25
+    + v_issue_submission_score;
+  if v_last_issue_at is not null then
+    v_last_contribution_at := case
+      when v_last_contribution_at is null then v_last_issue_at
+      else greatest(v_last_contribution_at, v_last_issue_at)
+    end;
+  end if;
   v_reputation_points := v_account_age_score + v_contribution_score;
 
   if v_reputation_points >= 800 then
@@ -1816,7 +1896,13 @@ begin
 
   delete from public.user_reputation_events e
   where e.user_id = v_target_user_id
-    and e.event_type in ('account_age', 'accepted_solution', 'accepted_correction')
+    and e.event_type in (
+      'account_age',
+      'submitted_solution_issue',
+      'submitted_correction_issue',
+      'accepted_solution',
+      'accepted_correction'
+    )
     and e.source_type in ('auth_user', 'content_submission');
 
   if v_account_age_score > 0 then
@@ -1847,6 +1933,45 @@ begin
       occurred_at = excluded.occurred_at,
       metadata = excluded.metadata;
   end if;
+
+  insert into public.user_reputation_events (
+    user_id,
+    event_type,
+    source_type,
+    source_id,
+    points,
+    occurred_at,
+    metadata
+  )
+  select
+    v_target_user_id,
+    case
+      when s.submission_type = 'new_solution' then 'submitted_solution_issue'
+      else 'submitted_correction_issue'
+    end,
+    'content_submission',
+    s.id::text,
+    case
+      when s.submission_type = 'new_solution' then 40
+      else 13
+    end,
+    coalesce(s.updated_at, s.created_at, now()),
+    jsonb_strip_nulls(jsonb_build_object(
+      'submissionType', s.submission_type,
+      'status', s.status,
+      'title', s.title,
+      'targetDocId', s.target_doc_id,
+      'issueNumber', s.issue_number,
+      'issueUrl', s.issue_url
+    ))
+  from public.content_submissions s
+  where s.user_id = v_target_user_id
+    and s.status = 'issue_created'
+  on conflict on constraint user_reputation_events_user_source_unique
+  do update set
+    points = excluded.points,
+    occurred_at = excluded.occurred_at,
+    metadata = excluded.metadata;
 
   insert into public.user_reputation_events (
     user_id,
@@ -1897,6 +2022,9 @@ begin
     contribution_score,
     accepted_solution_count,
     accepted_correction_count,
+    submitted_solution_issue_count,
+    submitted_correction_issue_count,
+    issue_submission_count,
     converted_submission_count,
     last_contribution_at,
     recalculated_at,
@@ -1912,6 +2040,9 @@ begin
     v_contribution_score,
     v_accepted_solution_count,
     v_accepted_correction_count,
+    v_submitted_solution_issue_count,
+    v_submitted_correction_issue_count,
+    v_issue_submission_count,
     v_converted_submission_count,
     v_last_contribution_at,
     now(),
@@ -1927,6 +2058,9 @@ begin
     contribution_score = excluded.contribution_score,
     accepted_solution_count = excluded.accepted_solution_count,
     accepted_correction_count = excluded.accepted_correction_count,
+    submitted_solution_issue_count = excluded.submitted_solution_issue_count,
+    submitted_correction_issue_count = excluded.submitted_correction_issue_count,
+    issue_submission_count = excluded.issue_submission_count,
     converted_submission_count = excluded.converted_submission_count,
     last_contribution_at = excluded.last_contribution_at,
     recalculated_at = now(),
@@ -1951,6 +2085,9 @@ begin
     p.contribution_score,
     p.accepted_solution_count,
     p.accepted_correction_count,
+    p.submitted_solution_issue_count,
+    p.submitted_correction_issue_count,
+    p.issue_submission_count,
     p.converted_submission_count,
     p.last_contribution_at,
     p.recalculated_at
@@ -1971,6 +2108,9 @@ returns table (
   contribution_score integer,
   accepted_solution_count integer,
   accepted_correction_count integer,
+  submitted_solution_issue_count integer,
+  submitted_correction_issue_count integer,
+  issue_submission_count integer,
   converted_submission_count integer,
   last_contribution_at timestamptz,
   recalculated_at timestamptz
