@@ -406,6 +406,510 @@ create trigger update_exam_documents_updated_at
 alter table exam_documents enable row level security;
 revoke all on table exam_documents from anon, authenticated;
 
+-- ── 用户社区信誉 ───────────────────────────────────────────
+--
+-- 设计：
+--   1. profile 是当前快照，用于个人中心展示与难度评价加权。
+--   2. events 是可重算的贡献事件账本，便于以后加入 PR merged/closed 等 GitHub 状态。
+--   3. 前端只展示等级与贡献次数；积分、升级距离和评价权重不直接展示。
+
+create table if not exists user_reputation_profiles (
+  user_id                    uuid primary key references auth.users(id) on delete cascade,
+  level                      integer not null default 0,
+  level_key                  text not null default 'newcomer',
+  reputation_points          integer not null default 0,
+  rating_weight              numeric(4, 2) not null default 1.00,
+  account_age_score          integer not null default 0,
+  contribution_score         integer not null default 0,
+  accepted_solution_count    integer not null default 0,
+  accepted_correction_count  integer not null default 0,
+  converted_submission_count integer not null default 0,
+  last_contribution_at       timestamptz,
+  recalculated_at            timestamptz not null default now(),
+  updated_at                 timestamptz not null default now(),
+  created_at                 timestamptz not null default now(),
+
+  constraint user_reputation_profiles_level_check
+    check (level between 0 and 4),
+  constraint user_reputation_profiles_level_key_check
+    check (level_key in ('newcomer', 'learner', 'contributor', 'trusted_contributor', 'core_contributor')),
+  constraint user_reputation_profiles_points_check
+    check (reputation_points >= 0),
+  constraint user_reputation_profiles_rating_weight_check
+    check (rating_weight between 1.00 and 1.50),
+  constraint user_reputation_profiles_scores_check
+    check (
+      account_age_score >= 0
+      and contribution_score >= 0
+      and accepted_solution_count >= 0
+      and accepted_correction_count >= 0
+      and converted_submission_count >= 0
+    )
+);
+
+alter table user_reputation_profiles
+  add column if not exists level integer not null default 0,
+  add column if not exists level_key text not null default 'newcomer',
+  add column if not exists reputation_points integer not null default 0,
+  add column if not exists rating_weight numeric(4, 2) not null default 1.00,
+  add column if not exists account_age_score integer not null default 0,
+  add column if not exists contribution_score integer not null default 0,
+  add column if not exists accepted_solution_count integer not null default 0,
+  add column if not exists accepted_correction_count integer not null default 0,
+  add column if not exists converted_submission_count integer not null default 0,
+  add column if not exists last_contribution_at timestamptz,
+  add column if not exists recalculated_at timestamptz not null default now(),
+  add column if not exists updated_at timestamptz not null default now(),
+  add column if not exists created_at timestamptz not null default now();
+
+create index if not exists idx_user_reputation_profiles_level
+  on user_reputation_profiles(level desc, reputation_points desc);
+
+drop trigger if exists update_user_reputation_profiles_updated_at on user_reputation_profiles;
+create trigger update_user_reputation_profiles_updated_at
+  before update on user_reputation_profiles
+  for each row
+  execute function update_updated_at_column();
+
+alter table user_reputation_profiles enable row level security;
+
+drop policy if exists "Users can view own reputation profile" on user_reputation_profiles;
+create policy "Users can view own reputation profile"
+  on user_reputation_profiles for select
+  using (auth.uid() = user_id);
+
+revoke all on table user_reputation_profiles from anon, authenticated;
+grant select on table user_reputation_profiles to authenticated;
+
+create table if not exists user_reputation_events (
+  id            uuid primary key default uuid_generate_v4(),
+  user_id       uuid not null references auth.users(id) on delete cascade,
+  event_type    text not null,
+  source_type   text not null,
+  source_id     text not null,
+  points        integer not null default 0,
+  occurred_at   timestamptz not null default now(),
+  metadata      jsonb not null default '{}'::jsonb,
+  created_at    timestamptz not null default now(),
+
+  constraint user_reputation_events_points_check
+    check (points >= 0),
+  constraint user_reputation_events_event_type_check
+    check (event_type in ('account_age', 'accepted_solution', 'accepted_correction', 'pr_merged', 'manual_adjustment')),
+  constraint user_reputation_events_source_not_blank
+    check (char_length(trim(source_type)) > 0 and char_length(trim(source_id)) > 0),
+  constraint user_reputation_events_user_source_unique
+    unique (user_id, event_type, source_type, source_id)
+);
+
+create index if not exists idx_user_reputation_events_user_occurred
+  on user_reputation_events(user_id, occurred_at desc);
+create index if not exists idx_user_reputation_events_source
+  on user_reputation_events(source_type, source_id);
+
+alter table user_reputation_events enable row level security;
+
+drop policy if exists "Users can view own reputation events" on user_reputation_events;
+create policy "Users can view own reputation events"
+  on user_reputation_events for select
+  using (auth.uid() = user_id);
+
+revoke all on table user_reputation_events from anon, authenticated;
+grant select on table user_reputation_events to authenticated;
+
+-- ── 社区难度评价 ─────────────────────────────────────────
+--
+-- 设计：
+--   1. 前端仅展示 easy / medium / hard 三档。
+--   2. 数据库存储为 1 / 2 / 3，并维护普通分与信誉加权分，方便后续相似题推荐排序。
+--   3. 每个用户对每道题只能保留一个评价，可随时改票。
+--   4. 聚合表只暴露匿名统计，不暴露任何用户身份。
+
+create table if not exists exam_difficulty_votes (
+  id          uuid primary key default uuid_generate_v4(),
+  user_id     uuid not null references auth.users(id) on delete cascade,
+  doc_id      text not null,
+  difficulty  smallint not null,
+  updated_at  timestamptz not null default now(),
+  created_at  timestamptz not null default now(),
+
+  constraint exam_difficulty_votes_user_doc_unique unique (user_id, doc_id),
+  constraint exam_difficulty_votes_difficulty_check check (difficulty in (1, 2, 3)),
+  constraint exam_difficulty_votes_doc_id_not_blank check (char_length(trim(doc_id)) > 0)
+);
+
+create index if not exists idx_exam_difficulty_votes_doc_id
+  on exam_difficulty_votes(doc_id);
+create index if not exists idx_exam_difficulty_votes_user_updated
+  on exam_difficulty_votes(user_id, updated_at desc);
+
+drop trigger if exists update_exam_difficulty_votes_updated_at on exam_difficulty_votes;
+create trigger update_exam_difficulty_votes_updated_at
+  before update on exam_difficulty_votes
+  for each row
+  execute function update_updated_at_column();
+
+alter table exam_difficulty_votes enable row level security;
+
+drop policy if exists "Users can view own difficulty votes" on exam_difficulty_votes;
+create policy "Users can view own difficulty votes"
+  on exam_difficulty_votes for select
+  using (auth.uid() = user_id);
+
+drop policy if exists "Users can insert own difficulty votes" on exam_difficulty_votes;
+create policy "Users can insert own difficulty votes"
+  on exam_difficulty_votes for insert
+  with check (auth.uid() = user_id);
+
+drop policy if exists "Users can update own difficulty votes" on exam_difficulty_votes;
+create policy "Users can update own difficulty votes"
+  on exam_difficulty_votes for update
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+drop policy if exists "Users can delete own difficulty votes" on exam_difficulty_votes;
+create policy "Users can delete own difficulty votes"
+  on exam_difficulty_votes for delete
+  using (auth.uid() = user_id);
+
+revoke all on table exam_difficulty_votes from anon, authenticated;
+grant select on table exam_difficulty_votes to authenticated;
+
+create table if not exists exam_difficulty_stats (
+  doc_id                 text primary key,
+  vote_count             integer not null default 0,
+  easy_count             integer not null default 0,
+  medium_count           integer not null default 0,
+  hard_count             integer not null default 0,
+  average_score          numeric(4, 2),
+  bayesian_score         numeric(4, 2),
+  effective_vote_weight  numeric(8, 2) not null default 0,
+  weighted_average_score numeric(4, 2),
+  weighted_bayesian_score numeric(4, 2),
+  suggested_difficulty   text,
+  assigned_difficulty    text,
+  confidence             text not null default 'collecting',
+  updated_at             timestamptz not null default now(),
+  created_at             timestamptz not null default now(),
+
+  constraint exam_difficulty_stats_vote_count_check check (vote_count >= 0),
+  constraint exam_difficulty_stats_easy_count_check check (easy_count >= 0),
+  constraint exam_difficulty_stats_medium_count_check check (medium_count >= 0),
+  constraint exam_difficulty_stats_hard_count_check check (hard_count >= 0),
+  constraint exam_difficulty_stats_effective_vote_weight_check check (effective_vote_weight >= 0),
+  constraint exam_difficulty_stats_suggested_check
+    check (suggested_difficulty in ('easy', 'medium', 'hard') or suggested_difficulty is null),
+  constraint exam_difficulty_stats_assigned_check
+    check (assigned_difficulty in ('easy', 'medium', 'hard') or assigned_difficulty is null),
+  constraint exam_difficulty_stats_confidence_check
+    check (confidence in ('collecting', 'provisional', 'stable'))
+);
+
+alter table exam_difficulty_stats
+  add column if not exists effective_vote_weight numeric(8, 2) not null default 0,
+  add column if not exists weighted_average_score numeric(4, 2),
+  add column if not exists weighted_bayesian_score numeric(4, 2);
+
+create index if not exists idx_exam_difficulty_stats_assigned
+  on exam_difficulty_stats(assigned_difficulty, vote_count desc);
+create index if not exists idx_exam_difficulty_stats_bayesian
+  on exam_difficulty_stats(bayesian_score);
+create index if not exists idx_exam_difficulty_stats_weighted_bayesian
+  on exam_difficulty_stats(weighted_bayesian_score);
+
+drop trigger if exists update_exam_difficulty_stats_updated_at on exam_difficulty_stats;
+create trigger update_exam_difficulty_stats_updated_at
+  before update on exam_difficulty_stats
+  for each row
+  execute function update_updated_at_column();
+
+alter table exam_difficulty_stats enable row level security;
+
+drop policy if exists "Anyone can view difficulty stats" on exam_difficulty_stats;
+create policy "Anyone can view difficulty stats"
+  on exam_difficulty_stats for select
+  using (true);
+
+revoke all on table exam_difficulty_stats from anon, authenticated;
+grant select on table exam_difficulty_stats to anon, authenticated;
+
+create or replace function difficulty_label_from_score(p_score numeric)
+returns text as $$
+begin
+  if p_score is null then
+    return null;
+  end if;
+
+  if p_score < 1.67 then
+    return 'easy';
+  end if;
+
+  if p_score < 2.34 then
+    return 'medium';
+  end if;
+
+  return 'hard';
+end;
+$$ language plpgsql immutable;
+
+create or replace function refresh_exam_difficulty_stats(p_doc_id text)
+returns void as $$
+declare
+  v_doc_id text := nullif(trim(p_doc_id), '');
+  v_vote_count integer;
+  v_easy_count integer;
+  v_medium_count integer;
+  v_hard_count integer;
+  v_sum integer;
+  v_weighted_sum numeric;
+  v_effective_vote_weight numeric(8, 2);
+  v_average numeric(4, 2);
+  v_bayesian numeric(4, 2);
+  v_weighted_average numeric(4, 2);
+  v_weighted_bayesian numeric(4, 2);
+  v_suggested text;
+  v_assigned text;
+  v_confidence text;
+begin
+  if v_doc_id is null then
+    return;
+  end if;
+
+  select
+    count(*)::integer,
+    count(*) filter (where difficulty = 1)::integer,
+    count(*) filter (where difficulty = 2)::integer,
+    count(*) filter (where difficulty = 3)::integer,
+    coalesce(sum(v.difficulty), 0)::integer,
+    round(coalesce(sum(v.difficulty * coalesce(p.rating_weight, 1.00)), 0), 2),
+    round(coalesce(sum(coalesce(p.rating_weight, 1.00)), 0), 2)
+  into
+    v_vote_count,
+    v_easy_count,
+    v_medium_count,
+    v_hard_count,
+    v_sum,
+    v_weighted_sum,
+    v_effective_vote_weight
+  from public.exam_difficulty_votes v
+  left join public.user_reputation_profiles p on p.user_id = v.user_id
+  where v.doc_id = v_doc_id;
+
+  if v_vote_count = 0 then
+    delete from public.exam_difficulty_stats where doc_id = v_doc_id;
+    return;
+  end if;
+
+  -- Bayesian 平滑：以 medium(2) 作为 5 票先验；最终标签使用信誉加权分。
+  v_average := round((v_sum::numeric / v_vote_count), 2);
+  v_bayesian := round(((v_sum + 10)::numeric / (v_vote_count + 5)), 2);
+  v_weighted_average := round((v_weighted_sum / nullif(v_effective_vote_weight, 0)), 2);
+  v_weighted_bayesian := round(((v_weighted_sum + 10)::numeric / (v_effective_vote_weight + 5)), 2);
+  v_suggested := public.difficulty_label_from_score(v_weighted_bayesian);
+  v_assigned := case
+    when v_vote_count >= 10 and v_effective_vote_weight >= 10 then v_suggested
+    else null
+  end;
+  v_confidence := case
+    when v_vote_count >= 10 and v_effective_vote_weight >= 10 then 'stable'
+    when v_vote_count >= 5 then 'provisional'
+    else 'collecting'
+  end;
+
+  insert into public.exam_difficulty_stats (
+    doc_id,
+    vote_count,
+    easy_count,
+    medium_count,
+    hard_count,
+    average_score,
+    bayesian_score,
+    effective_vote_weight,
+    weighted_average_score,
+    weighted_bayesian_score,
+    suggested_difficulty,
+    assigned_difficulty,
+    confidence,
+    updated_at
+  )
+  values (
+    v_doc_id,
+    v_vote_count,
+    v_easy_count,
+    v_medium_count,
+    v_hard_count,
+    v_average,
+    v_bayesian,
+    v_effective_vote_weight,
+    v_weighted_average,
+    v_weighted_bayesian,
+    v_suggested,
+    v_assigned,
+    v_confidence,
+    now()
+  )
+  on conflict (doc_id)
+  do update set
+    vote_count = excluded.vote_count,
+    easy_count = excluded.easy_count,
+    medium_count = excluded.medium_count,
+    hard_count = excluded.hard_count,
+    average_score = excluded.average_score,
+    bayesian_score = excluded.bayesian_score,
+    effective_vote_weight = excluded.effective_vote_weight,
+    weighted_average_score = excluded.weighted_average_score,
+    weighted_bayesian_score = excluded.weighted_bayesian_score,
+    suggested_difficulty = excluded.suggested_difficulty,
+    assigned_difficulty = excluded.assigned_difficulty,
+    confidence = excluded.confidence,
+    updated_at = now();
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function refresh_exam_difficulty_stats_after_vote()
+returns trigger as $$
+begin
+  if tg_op = 'DELETE' then
+    perform public.refresh_exam_difficulty_stats(old.doc_id);
+    return old;
+  end if;
+
+  if tg_op = 'UPDATE' and old.doc_id <> new.doc_id then
+    perform public.refresh_exam_difficulty_stats(old.doc_id);
+    perform public.refresh_exam_difficulty_stats(new.doc_id);
+    return new;
+  end if;
+
+  perform public.refresh_exam_difficulty_stats(new.doc_id);
+  return new;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+drop trigger if exists refresh_exam_difficulty_stats_after_vote on exam_difficulty_votes;
+create trigger refresh_exam_difficulty_stats_after_vote
+  after insert or update or delete on exam_difficulty_votes
+  for each row
+  execute function refresh_exam_difficulty_stats_after_vote();
+
+drop function if exists set_exam_difficulty_vote(text, smallint);
+drop function if exists get_exam_difficulty(text);
+
+create or replace function get_exam_difficulty(p_doc_id text)
+returns table (
+  doc_id text,
+  user_difficulty smallint,
+  vote_count integer,
+  easy_count integer,
+  medium_count integer,
+  hard_count integer,
+  average_score numeric,
+  bayesian_score numeric,
+  effective_vote_weight numeric,
+  weighted_average_score numeric,
+  weighted_bayesian_score numeric,
+  suggested_difficulty text,
+  assigned_difficulty text,
+  confidence text,
+  stable_threshold integer,
+  updated_at timestamptz
+) as $$
+declare
+  v_doc_id text := nullif(trim(p_doc_id), '');
+begin
+  if v_doc_id is null then
+    return;
+  end if;
+
+  return query
+  select
+    v_doc_id,
+    (
+      select v.difficulty
+      from public.exam_difficulty_votes v
+      where v.doc_id = v_doc_id
+        and v.user_id = auth.uid()
+      limit 1
+    ) as user_difficulty,
+    coalesce(s.vote_count, 0)::integer,
+    coalesce(s.easy_count, 0)::integer,
+    coalesce(s.medium_count, 0)::integer,
+    coalesce(s.hard_count, 0)::integer,
+    s.average_score,
+    s.bayesian_score,
+    coalesce(s.effective_vote_weight, 0)::numeric,
+    s.weighted_average_score,
+    s.weighted_bayesian_score,
+    s.suggested_difficulty,
+    s.assigned_difficulty,
+    coalesce(s.confidence, 'collecting')::text,
+    10::integer,
+    s.updated_at
+  from (select 1) seed
+  left join public.exam_difficulty_stats s on s.doc_id = v_doc_id;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function set_exam_difficulty_vote(
+  p_doc_id text,
+  p_difficulty smallint
+)
+returns table (
+  doc_id text,
+  user_difficulty smallint,
+  vote_count integer,
+  easy_count integer,
+  medium_count integer,
+  hard_count integer,
+  average_score numeric,
+  bayesian_score numeric,
+  effective_vote_weight numeric,
+  weighted_average_score numeric,
+  weighted_bayesian_score numeric,
+  suggested_difficulty text,
+  assigned_difficulty text,
+  confidence text,
+  stable_threshold integer,
+  updated_at timestamptz
+) as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_doc_id text := nullif(trim(p_doc_id), '');
+begin
+  if v_user_id is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+
+  if v_doc_id is null then
+    raise exception 'invalid_doc_id' using errcode = '22023';
+  end if;
+
+  if p_difficulty not in (1, 2, 3) then
+    raise exception 'invalid_difficulty' using errcode = '22023';
+  end if;
+
+  insert into public.exam_difficulty_votes (user_id, doc_id, difficulty)
+  values (v_user_id, v_doc_id, p_difficulty)
+  on conflict (user_id, doc_id)
+  do update set
+    difficulty = excluded.difficulty,
+    updated_at = now();
+
+  return query select * from public.get_exam_difficulty(v_doc_id);
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function difficulty_label_from_score(numeric) from public, anon, authenticated;
+revoke execute on function refresh_exam_difficulty_stats(text) from public, anon, authenticated;
+revoke execute on function refresh_exam_difficulty_stats_after_vote() from public, anon, authenticated;
+revoke execute on function get_exam_difficulty(text) from public, anon, authenticated;
+revoke execute on function set_exam_difficulty_vote(text, smallint) from public, anon, authenticated;
+grant execute on function get_exam_difficulty(text) to anon, authenticated;
+grant execute on function set_exam_difficulty_vote(text, smallint) to authenticated;
+
 -- ── 开发者 API 访问申请 ───────────────────────────────────
 create table if not exists api_access_requests (
   id                         uuid primary key default uuid_generate_v4(),
@@ -459,9 +963,8 @@ alter table api_access_requests
   add constraint api_access_requests_intended_use_length
   check (char_length(trim(intended_use)) <= 4000);
 
--- 清理旧版字段，当前只保留每分钟限流。
+-- 旧版字段不再由业务读取；repeatable schema 不主动删除数据列。
 alter table api_access_requests drop constraint if exists api_access_requests_expected_monthly_check;
-alter table api_access_requests drop column if exists expected_monthly_requests;
 
 alter table api_access_requests enable row level security;
 revoke all on table api_access_requests from anon, authenticated;
@@ -502,9 +1005,8 @@ begin
 end;
 $$;
 
--- 清理旧版字段，当前只保留每分钟限流。
+-- 旧版字段不再由业务读取；repeatable schema 不主动删除数据列。
 alter table api_keys drop constraint if exists api_keys_monthly_quota_check;
-alter table api_keys drop column if exists monthly_quota;
 
 create index if not exists idx_api_keys_user_id
   on api_keys(user_id, created_at desc);
@@ -549,7 +1051,8 @@ alter table api_request_logs enable row level security;
 revoke all on table api_request_logs from anon, authenticated;
 
 -- ── API 限流窗口 ──────────────────────────────────────────
-drop table if exists api_usage_months;
+-- 旧版 api_usage_months 如已存在则保留，避免重复执行 schema 时删除历史数据。
+-- 当前限流逻辑使用 api_usage_windows。
 
 create table if not exists api_usage_windows (
   api_key_id     uuid not null references api_keys(id) on delete cascade,
@@ -1211,3 +1714,282 @@ create trigger update_content_submissions_updated_at
 
 alter table content_submissions enable row level security;
 revoke all on table content_submissions from anon, authenticated;
+
+drop function if exists get_my_reputation();
+drop function if exists refresh_user_reputation(uuid);
+
+create or replace function refresh_user_reputation(p_user_id uuid)
+returns table (
+  user_id uuid,
+  level integer,
+  level_key text,
+  reputation_points integer,
+  rating_weight numeric,
+  account_age_score integer,
+  contribution_score integer,
+  accepted_solution_count integer,
+  accepted_correction_count integer,
+  converted_submission_count integer,
+  last_contribution_at timestamptz,
+  recalculated_at timestamptz
+) as $$
+declare
+  v_target_user_id uuid := coalesce(p_user_id, auth.uid());
+  v_registered_at timestamptz;
+  v_account_age_days integer;
+  v_account_age_score integer;
+  v_accepted_solution_count integer;
+  v_accepted_correction_count integer;
+  v_converted_submission_count integer;
+  v_last_contribution_at timestamptz;
+  v_contribution_score integer;
+  v_reputation_points integer;
+  v_level integer;
+  v_level_key text;
+  v_rating_weight numeric(4, 2);
+  v_vote_doc_id text;
+begin
+  if v_target_user_id is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+
+  if auth.uid() is not null and auth.uid() <> v_target_user_id then
+    raise exception 'forbidden' using errcode = '42501';
+  end if;
+
+  select u.created_at
+    into v_registered_at
+    from auth.users u
+    where u.id = v_target_user_id;
+
+  if v_registered_at is null then
+    raise exception 'user_not_found' using errcode = 'P0002';
+  end if;
+
+  v_account_age_days := greatest(
+    0,
+    floor(extract(epoch from (now() - v_registered_at)) / 86400)::integer
+  );
+  v_account_age_score := least(100, floor(v_account_age_days::numeric / 7)::integer * 4);
+
+  select
+    count(*) filter (where s.submission_type = 'new_solution')::integer,
+    count(*) filter (where s.submission_type = 'correction')::integer,
+    count(*)::integer,
+    max(coalesce(s.updated_at, s.created_at))
+  into
+    v_accepted_solution_count,
+    v_accepted_correction_count,
+    v_converted_submission_count,
+    v_last_contribution_at
+  from public.content_submissions s
+  where s.user_id = v_target_user_id
+    and s.status = 'converted';
+
+  v_accepted_solution_count := coalesce(v_accepted_solution_count, 0);
+  v_accepted_correction_count := coalesce(v_accepted_correction_count, 0);
+  v_converted_submission_count := coalesce(v_converted_submission_count, 0);
+  v_contribution_score := v_accepted_solution_count * 80 + v_accepted_correction_count * 25;
+  v_reputation_points := v_account_age_score + v_contribution_score;
+
+  if v_reputation_points >= 800 then
+    v_level := 4;
+    v_level_key := 'core_contributor';
+    v_rating_weight := 1.50;
+  elsif v_reputation_points >= 350 then
+    v_level := 3;
+    v_level_key := 'trusted_contributor';
+    v_rating_weight := 1.30;
+  elsif v_reputation_points >= 150 then
+    v_level := 2;
+    v_level_key := 'contributor';
+    v_rating_weight := 1.15;
+  elsif v_reputation_points >= 50 then
+    v_level := 1;
+    v_level_key := 'learner';
+    v_rating_weight := 1.05;
+  else
+    v_level := 0;
+    v_level_key := 'newcomer';
+    v_rating_weight := 1.00;
+  end if;
+
+  delete from public.user_reputation_events e
+  where e.user_id = v_target_user_id
+    and e.event_type in ('account_age', 'accepted_solution', 'accepted_correction')
+    and e.source_type in ('auth_user', 'content_submission');
+
+  if v_account_age_score > 0 then
+    insert into public.user_reputation_events (
+      user_id,
+      event_type,
+      source_type,
+      source_id,
+      points,
+      occurred_at,
+      metadata
+    )
+    values (
+      v_target_user_id,
+      'account_age',
+      'auth_user',
+      v_target_user_id::text,
+      v_account_age_score,
+      v_registered_at,
+      jsonb_build_object(
+        'registeredAt', v_registered_at,
+        'accountAgeDays', v_account_age_days
+      )
+    )
+    on conflict on constraint user_reputation_events_user_source_unique
+    do update set
+      points = excluded.points,
+      occurred_at = excluded.occurred_at,
+      metadata = excluded.metadata;
+  end if;
+
+  insert into public.user_reputation_events (
+    user_id,
+    event_type,
+    source_type,
+    source_id,
+    points,
+    occurred_at,
+    metadata
+  )
+  select
+    v_target_user_id,
+    case
+      when s.submission_type = 'new_solution' then 'accepted_solution'
+      else 'accepted_correction'
+    end,
+    'content_submission',
+    s.id::text,
+    case
+      when s.submission_type = 'new_solution' then 80
+      else 25
+    end,
+    coalesce(s.updated_at, s.created_at, now()),
+    jsonb_strip_nulls(jsonb_build_object(
+      'submissionType', s.submission_type,
+      'title', s.title,
+      'targetDocId', s.target_doc_id,
+      'issueNumber', s.issue_number,
+      'prNumber', s.pr_number,
+      'prUrl', s.pr_url
+    ))
+  from public.content_submissions s
+  where s.user_id = v_target_user_id
+    and s.status = 'converted'
+  on conflict on constraint user_reputation_events_user_source_unique
+  do update set
+    points = excluded.points,
+    occurred_at = excluded.occurred_at,
+    metadata = excluded.metadata;
+
+  insert into public.user_reputation_profiles (
+    user_id,
+    level,
+    level_key,
+    reputation_points,
+    rating_weight,
+    account_age_score,
+    contribution_score,
+    accepted_solution_count,
+    accepted_correction_count,
+    converted_submission_count,
+    last_contribution_at,
+    recalculated_at,
+    updated_at
+  )
+  values (
+    v_target_user_id,
+    v_level,
+    v_level_key,
+    v_reputation_points,
+    v_rating_weight,
+    v_account_age_score,
+    v_contribution_score,
+    v_accepted_solution_count,
+    v_accepted_correction_count,
+    v_converted_submission_count,
+    v_last_contribution_at,
+    now(),
+    now()
+  )
+  on conflict on constraint user_reputation_profiles_pkey
+  do update set
+    level = excluded.level,
+    level_key = excluded.level_key,
+    reputation_points = excluded.reputation_points,
+    rating_weight = excluded.rating_weight,
+    account_age_score = excluded.account_age_score,
+    contribution_score = excluded.contribution_score,
+    accepted_solution_count = excluded.accepted_solution_count,
+    accepted_correction_count = excluded.accepted_correction_count,
+    converted_submission_count = excluded.converted_submission_count,
+    last_contribution_at = excluded.last_contribution_at,
+    recalculated_at = now(),
+    updated_at = now();
+
+  for v_vote_doc_id in
+    select distinct v.doc_id
+    from public.exam_difficulty_votes v
+    where v.user_id = v_target_user_id
+  loop
+    perform public.refresh_exam_difficulty_stats(v_vote_doc_id);
+  end loop;
+
+  return query
+  select
+    p.user_id,
+    p.level,
+    p.level_key,
+    p.reputation_points,
+    p.rating_weight,
+    p.account_age_score,
+    p.contribution_score,
+    p.accepted_solution_count,
+    p.accepted_correction_count,
+    p.converted_submission_count,
+    p.last_contribution_at,
+    p.recalculated_at
+  from public.user_reputation_profiles p
+  where p.user_id = v_target_user_id;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function get_my_reputation()
+returns table (
+  user_id uuid,
+  level integer,
+  level_key text,
+  reputation_points integer,
+  rating_weight numeric,
+  account_age_score integer,
+  contribution_score integer,
+  accepted_solution_count integer,
+  accepted_correction_count integer,
+  converted_submission_count integer,
+  last_contribution_at timestamptz,
+  recalculated_at timestamptz
+) as $$
+declare
+  v_user_id uuid := auth.uid();
+begin
+  if v_user_id is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+
+  return query
+  select *
+  from public.refresh_user_reputation(v_user_id);
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function refresh_user_reputation(uuid) from public, anon, authenticated;
+revoke execute on function get_my_reputation() from public, anon, authenticated;
+grant execute on function refresh_user_reputation(uuid) to authenticated, service_role;
+grant execute on function get_my_reputation() to authenticated;

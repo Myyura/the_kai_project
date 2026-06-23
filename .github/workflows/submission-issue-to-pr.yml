@@ -53,6 +53,7 @@ jobs:
           console.log(`file_path=${result.filePath}`);
           console.log(`pr_title=${result.prTitle}`);
           console.log(`branch_name=${result.branchName}`);
+          console.log(`submission_id=${result.submissionId}`);
           NODE
 
       - name: Validate generated document
@@ -79,7 +80,9 @@ jobs:
             --head "$BRANCH_NAME" \
             --title "${{ steps.convert.outputs.pr_title }}" \
             --body-file .submission-pr-body.md)"
+          pr_number="$(gh pr view "$pr_url" --json number --jq '.number')"
           echo "url=$pr_url" >> "$GITHUB_OUTPUT"
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
 
       - name: Mark issue converted
         run: |
@@ -88,7 +91,50 @@ jobs:
             --add-label "submission:converted" \
             --remove-label "submission:ready-for-pr"
 
+      - name: Notify submission backend
+        run: |
+          set -euo pipefail
+          if [ -z "$SUPABASE_URL" ] || [ -z "$CONTENT_SUBMISSION_CALLBACK_SECRET" ]; then
+            echo "Submission callback secrets are not configured; skipping backend writeback."
+            exit 0
+          fi
+
+          node <<'NODE'
+          (async () => {
+            const endpoint = `${process.env.SUPABASE_URL.replace(/\/$/, '')}/functions/v1/content-submissions/conversion`;
+            const body = {
+              submissionId: process.env.SUBMISSION_ID,
+              issueNumber: Number(process.env.ISSUE_NUMBER),
+              prNumber: Number(process.env.PR_NUMBER),
+              prUrl: process.env.PR_URL,
+            };
+
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-Kai-Submission-Callback-Secret': process.env.CONTENT_SUBMISSION_CALLBACK_SECRET,
+              },
+              body: JSON.stringify(body),
+            });
+
+            if (!response.ok) {
+              const text = await response.text();
+              throw new Error(`Submission callback failed: ${response.status} ${text}`);
+            }
+          })().catch((error) => {
+            console.error(error);
+            process.exit(1);
+          });
+          NODE
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          CONTENT_SUBMISSION_CALLBACK_SECRET: ${{ secrets.CONTENT_SUBMISSION_CALLBACK_SECRET }}
+          SUBMISSION_ID: ${{ steps.convert.outputs.submission_id }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          PR_URL: ${{ steps.pr.outputs.url }}
+
       - name: Report conversion failure
         if: failure()
         run: |
-          gh issue comment "$ISSUE_NUMBER" --body "自动转换 PR 失败。请查看本次 GitHub Actions 日志，修正投稿内容后重新添加 \`submission:ready-for-pr\` 标签。"
+          gh issue comment "$ISSUE_NUMBER" --body "自动转换 PR 或后端状态回写失败。请查看本次 GitHub Actions 日志；若已创建 PR 但仅回写失败，可在配置密钥后重新运行本 workflow。"

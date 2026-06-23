@@ -26,7 +26,7 @@ export function corsHeadersFor(req: Request) {
   return {
     'Access-Control-Allow-Origin': allowedOrigin,
     'Vary': 'Origin',
-    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-kai-submission-callback-secret',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   };
 }
@@ -47,7 +47,7 @@ export function withCors(req: Request, response: Response) {
 export const corsHeaders = {
   'Access-Control-Allow-Origin': DEFAULT_ALLOWED_ORIGINS[0],
   'Vary': 'Origin',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-kai-submission-callback-secret',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
 };
 

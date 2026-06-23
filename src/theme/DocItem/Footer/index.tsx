@@ -16,6 +16,7 @@ import {FaEdit} from 'react-icons/fa';
 import shareStyles from '@site/src/components/ShareAsImage/styles.module.css';
 
 const ProgressTracker = lazy(() => import('@site/src/components/ProgressTracker'));
+const DifficultyRating = lazy(() => import('@site/src/components/DifficultyRating'));
 const NoteEditor = lazy(() => import('@site/src/components/NoteEditor'));
 const ShareAsImage = lazy(() => import('@site/src/components/ShareAsImage'));
 
@@ -65,6 +66,7 @@ export default function DocItemFooter(): ReactNode {
                   <span>纠错/补充</span>
                 </Link>
               </div>
+              <DifficultyRating docId={id} />
               <ProgressTracker
                 docId={id}
                 title={title}

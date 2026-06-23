@@ -19,6 +19,7 @@ import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import NoIndex from '@site/src/components/NoIndex';
 import {useUiText} from '@site/src/i18n/useUiText';
 import { useSync } from '@site/src/hooks/useSync';
+import { useReputation } from '@site/src/hooks/useReputation';
 import { ContributeContent } from '@site/src/components/ContributeContent';
 import { DeveloperApiContent } from '@site/src/components/DeveloperApiContent';
 import { AgentTutorContent } from '@site/src/components/AgentTutorContent';
@@ -420,31 +421,50 @@ const CenterLoadingState = ({ t }) => (
   </div>
 );
 
-const AccountOverview = ({ user, stats, notesCount, t }) => (
-  <section className={styles.accountPanel}>
-    <div className={styles.accountIdentity}>
-      <FaUserCircle className={styles.accountAvatar} />
-      <div>
-        <h2 className={styles.accountTitle}>{t.accountTitle}</h2>
-        <p className={styles.accountEmail}>{user?.email || t.loggedIn}</p>
+const AccountOverview = ({ user, stats, notesCount, reputation, reputationLoading, t }) => {
+  const levelKey = reputation?.levelKey || 'newcomer';
+  const levelLabel = reputationLoading
+    ? t.reputationLoading
+    : (t.reputationLevels?.[levelKey] || t.reputationLevels?.newcomer || levelKey);
+
+  return (
+    <section className={styles.accountPanel}>
+      <div className={styles.accountIdentity}>
+        <FaUserCircle className={styles.accountAvatar} />
+        <div className={styles.accountIdentityText}>
+          <h2 className={styles.accountTitle}>{t.accountTitle}</h2>
+          <p className={styles.accountEmail}>{user?.email || t.loggedIn}</p>
+          <div className={styles.reputationSummary}>
+            <span className={styles.reputationLabel}>{t.communityLevel}</span>
+            <span className={styles.reputationBadge}>{levelLabel}</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <div className={styles.accountStats}>
-      <div className={styles.accountStat}>
-        <span>{stats.completed}</span>
-        <small>{t.completed}</small>
+      <div className={styles.accountStats}>
+        <div className={styles.accountStat}>
+          <span>{stats.completed}</span>
+          <small>{t.completed}</small>
+        </div>
+        <div className={styles.accountStat}>
+          <span>{stats.reviewing}</span>
+          <small>{t.reviewing}</small>
+        </div>
+        <div className={styles.accountStat}>
+          <span>{notesCount}</span>
+          <small>{t.notes}</small>
+        </div>
+        <div className={styles.accountStat}>
+          <span>{reputation?.acceptedSolutionCount || 0}</span>
+          <small>{t.acceptedSolutions}</small>
+        </div>
+        <div className={styles.accountStat}>
+          <span>{reputation?.acceptedCorrectionCount || 0}</span>
+          <small>{t.acceptedCorrections}</small>
+        </div>
       </div>
-      <div className={styles.accountStat}>
-        <span>{stats.reviewing}</span>
-        <small>{t.reviewing}</small>
-      </div>
-      <div className={styles.accountStat}>
-        <span>{notesCount}</span>
-        <small>{t.notes}</small>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const NotesSection = ({ noteEntries, progressEntries, t, language }) => {
   const [query, setQuery] = React.useState('');
@@ -531,6 +551,7 @@ function PersonalCenterDashboard({ user }) {
   const centerT = useUiText('personalCenter');
   const { entries, stats, tagGroups, clearAll } = useAllProgress();
   const { entries: noteEntries } = useAllNotes();
+  const { reputation, loading: reputationLoading } = useReputation({ enabled: Boolean(user?.id) });
 
   // 按大学分组
   const univGroups = React.useMemo(() => {
@@ -575,6 +596,8 @@ function PersonalCenterDashboard({ user }) {
         user={user}
         stats={stats}
         notesCount={noteEntries.length}
+        reputation={reputation}
+        reputationLoading={reputationLoading}
         t={centerT}
       />
 

@@ -15,6 +15,7 @@ const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';
 const CONTENT_BOT_TOKEN = Deno.env.get('CONTENT_BOT_TOKEN') || '';
 const CLA_ATTESTATION_SECRET = Deno.env.get('CLA_ATTESTATION_SECRET') || '';
+const CONTENT_SUBMISSION_CALLBACK_SECRET = Deno.env.get('CONTENT_SUBMISSION_CALLBACK_SECRET') || '';
 const GITHUB_REPOSITORY = Deno.env.get('GITHUB_REPOSITORY') || 'Myyura/the_kai_project';
 const MAX_MARKDOWN_LENGTH = 60000;
 const MAX_TEXT_LENGTH = 240;
@@ -40,6 +41,16 @@ function getSupabase() {
     });
   }
   return supabaseClient;
+}
+
+function getApiPath(req: Request) {
+  const url = new URL(req.url);
+  const marker = '/content-submissions';
+  const markerIndex = url.pathname.indexOf(marker);
+  const path = markerIndex >= 0
+    ? url.pathname.slice(markerIndex + marker.length)
+    : url.pathname;
+  return path || '/';
 }
 
 type SubmissionType = 'new_solution' | 'correction';
@@ -246,6 +257,21 @@ function submissionDatabaseErrorResponse(error: unknown, code: string) {
   }
 
   return errorResponse(500, code, '投稿服务数据库请求失败，请稍后重试。');
+}
+
+function requireCallbackSecret(req: Request) {
+  if (!CONTENT_SUBMISSION_CALLBACK_SECRET) {
+    return { response: errorResponse(500, 'callback_secret_missing', 'CONTENT_SUBMISSION_CALLBACK_SECRET is not configured.') };
+  }
+
+  const headerSecret = req.headers.get('x-kai-submission-callback-secret')?.trim() || '';
+  const bearerSecret = getBearerToken(req) || '';
+  const supplied = headerSecret || bearerSecret;
+  if (!supplied || supplied !== CONTENT_SUBMISSION_CALLBACK_SECRET) {
+    return { response: errorResponse(403, 'invalid_callback_secret', 'Invalid callback secret.') };
+  }
+
+  return { ok: true };
 }
 
 async function requireUser(req: Request) {
@@ -493,6 +519,65 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
   return jsonResponse({ submission: publicSubmission(updated) }, 201);
 }
 
+function parsePositiveInteger(value: unknown) {
+  const parsed = Number(value);
+  if (!Number.isInteger(parsed) || parsed <= 0) return null;
+  return parsed;
+}
+
+async function markSubmissionConverted(body: Record<string, unknown>) {
+  const supabase = getSupabase();
+  if (!supabase) throw new Error('Supabase Edge Function is not configured.');
+
+  const submissionId = cleanText(body.submissionId, 80);
+  const issueNumber = parsePositiveInteger(body.issueNumber);
+  const prNumber = parsePositiveInteger(body.prNumber);
+  const prUrl = cleanText(body.prUrl, 500);
+
+  if (!submissionId) {
+    return errorResponse(400, 'missing_submission_id', 'submissionId is required.');
+  }
+  if (!issueNumber) {
+    return errorResponse(400, 'invalid_issue_number', 'issueNumber must be a positive integer.');
+  }
+  if (!prNumber) {
+    return errorResponse(400, 'invalid_pr_number', 'prNumber must be a positive integer.');
+  }
+  const expectedPrUrl = `https://github.com/${GITHUB_REPOSITORY}/pull/${prNumber}`;
+  if (prUrl.toLowerCase() !== expectedPrUrl.toLowerCase()) {
+    return errorResponse(400, 'invalid_pr_url', 'prUrl must match the configured GitHub repository and PR number.');
+  }
+
+  const { data, error } = await supabase
+    .from('content_submissions')
+    .update({
+      status: 'converted',
+      pr_number: prNumber,
+      pr_url: prUrl,
+      failure_reason: null,
+    })
+    .eq('id', submissionId)
+    .eq('issue_number', issueNumber)
+    .select('id,user_id,submission_type,status,title,target_doc_id,issue_number,issue_url,pr_number,pr_url,failure_reason,updated_at,created_at')
+    .maybeSingle();
+
+  if (error) return submissionDatabaseErrorResponse(error, 'submission_conversion_update_failed');
+  if (!data) {
+    return errorResponse(404, 'submission_not_found', 'Matching submission was not found.');
+  }
+
+  if (typeof data.user_id === 'string' && data.user_id) {
+    const { error: reputationError } = await supabase.rpc('refresh_user_reputation', {
+      p_user_id: data.user_id,
+    });
+    if (reputationError) {
+      console.error('reputation_refresh_failed', reputationError);
+    }
+  }
+
+  return jsonResponse({ submission: publicSubmission(data) });
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     const status = isAllowedOrigin(req) ? 200 : 403;
@@ -505,6 +590,24 @@ serve(async (req) => {
 
   if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
     return withCors(req, errorResponse(500, 'server_not_configured', 'Supabase Edge Function is not configured.'));
+  }
+
+  const path = getApiPath(req);
+  if (path === '/conversion') {
+    if (req.method !== 'POST') {
+      return withCors(req, errorResponse(405, 'method_not_allowed', 'Method not allowed.'));
+    }
+
+    const callbackAuth = requireCallbackSecret(req);
+    if ('response' in callbackAuth) return withCors(req, callbackAuth.response);
+
+    try {
+      const body = await readJsonBody(req);
+      return withCors(req, await markSubmissionConverted(body));
+    } catch (error) {
+      console.error(error);
+      return withCors(req, errorResponse(500, 'internal_error', 'Submission conversion callback failed.'));
+    }
   }
 
   const auth = await requireUser(req);

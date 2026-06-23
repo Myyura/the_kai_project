@@ -1143,6 +1143,10 @@
   min-width: 0;
 }
 
+.accountIdentityText {
+  min-width: 0;
+}
+
 .accountAvatar {
   flex-shrink: 0;
   font-size: 2rem;
@@ -1162,8 +1166,38 @@
   text-overflow: ellipsis;
 }
 
+.reputationSummary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+}
+
+.reputationLabel {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.reputationBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.45rem;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--ifm-color-primary-lightest);
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
 .accountStats {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 0.6rem;
   flex-shrink: 0;
 }
@@ -1189,6 +1223,7 @@
   margin-top: 0.25rem;
   font-size: 0.72rem;
   color: var(--ifm-color-emphasis-600);
+  line-height: 1.15;
 }
 
 .noteSearch {
@@ -1305,7 +1340,7 @@
   }
 
   .accountStat {
-    flex: 1;
+    flex: 1 1 calc(50% - 0.3rem);
     min-width: 0;
   }
 
