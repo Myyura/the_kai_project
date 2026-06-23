@@ -2,8 +2,10 @@
 sidebar_label: 2023年8月実施 専門科目 問題3
 tags:
   - Tokyo-University
-  - Mathematics.Graph-Theory.Fundamentals
+  - Mathematics.Graph-Theory.Connectivity
   - Mathematics.Graph-Theory.Depth-First-Search
+  - Mathematics.Graph-Theory.Articulation-Point
+  - Mathematics.Graph-Theory.Spanning-Tree
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2023年8月実施 専門科目 問題3
 
