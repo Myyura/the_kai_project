@@ -1352,6 +1352,14 @@
         "Computer-Science"
       ]
     },
+    "Mathematics.Graph-Theory.Cut": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
     "Mathematics.Graph-Theory.Depth-First-Search": {
       "subsubject": "Mathematics.Graph-Theory",
       "subjects": [
