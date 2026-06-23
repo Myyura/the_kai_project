@@ -464,22 +464,26 @@ async function handleReserve(body: Record<string, unknown>, ctx: AgentContext) {
     return errorResponse(400, 'invalid_idempotency_key', 'A non-empty idempotency key is required.');
   }
 
+  const model = typeof body?.model === 'string' ? body.model : '';
   const { data, error } = await supabase.rpc('reserve_ai_message', {
     p_session_id: ctx.sessionId,
     p_idempotency_key: idempotencyKey,
+    p_model: model,
   });
 
   if (error) throw error;
   const result = Array.isArray(data) ? data[0] : data;
   const allowed = Boolean(result?.allowed);
   const code = result?.code || (allowed ? 'reserved' : 'rejected');
-  const status = allowed ? 200 : code === 'quota_exceeded' ? 402 : 403;
+  // 余额不足（任一池）→ 402；其余拒绝 → 403
+  const insufficient = code === 'insufficient_credit' || code === 'insufficient_premium_credit';
+  const status = allowed ? 200 : insufficient ? 402 : 403;
   return jsonResponse({
     allowed,
     code,
     reservationId: result?.reservation_id || null,
-    currentMessages: result?.current_messages ?? null,
-    messageLimit: result?.message_limit ?? null,
+    creditPool: result?.credit_pool ?? null,
+    creditBalanceMicros: result?.credit_balance_micros ?? null,
     periodStart: result?.period_start ?? null,
   }, status);
 }
@@ -511,13 +515,14 @@ async function handleCommit(body: Record<string, unknown>, ctx: AgentContext) {
     return errorResponse(403, 'reservation_session_mismatch', 'Reservation does not belong to this agent session.');
   }
 
+  // 成本不再由 agent 传入：本服务按 ai_model_prices 价目表用 token 明细计算并扣 credit。
   const { data, error } = await supabase.rpc('commit_ai_usage', {
     p_reservation_id: reservationId,
     p_provider: typeof body?.provider === 'string' ? body.provider : '',
     p_model: typeof body?.model === 'string' ? body.model : '',
     p_input_tokens: Math.max(0, Number(body?.inputTokens || 0) || 0),
+    p_cached_input_tokens: Math.max(0, Number(body?.cachedInputTokens || 0) || 0),
     p_output_tokens: Math.max(0, Number(body?.outputTokens || 0) || 0),
-    p_cost_micros: Math.max(0, Number(body?.costMicros || 0) || 0),
     p_status: typeof body?.status === 'string' ? body.status : 'succeeded',
     p_latency_ms: body?.latencyMs == null ? null : Math.max(0, Number(body.latencyMs || 0) || 0),
     p_error_code: typeof body?.errorCode === 'string' ? body.errorCode : '',
@@ -529,6 +534,7 @@ async function handleCommit(body: Record<string, unknown>, ctx: AgentContext) {
     accepted: Boolean(result?.accepted),
     code: result?.code || null,
     eventId: result?.event_id || null,
+    costMicros: result?.cost_micros ?? null,
   }, result?.accepted ? 200 : 409);
 }
 
