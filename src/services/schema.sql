@@ -1243,6 +1243,11 @@ create table if not exists ai_entitlements (
   status                  text not null default 'active',
   monthly_message_limit   integer not null default 50,
   monthly_token_limit     bigint not null default 500000,
+  -- 双 credit 池（微美元；1 美元 = 1_000_000）。按 token 实际消耗折算美元后从对应池扣减：
+  --   credit_balance_micros          标准池（如 gpt-5.3-codex-spark）
+  --   premium_credit_balance_micros  付费池（如 gpt-5.5，付费用户特权；余额 0 即无权使用）
+  credit_balance_micros         bigint not null default 0,
+  premium_credit_balance_micros bigint not null default 0,
   enabled_models          jsonb not null default '[]'::jsonb,
   current_period_start    date not null default (date_trunc('month', now())::date),
   current_period_end      date not null default ((date_trunc('month', now()) + interval '1 month')::date),
@@ -1278,6 +1283,7 @@ create table if not exists ai_usage_months (
   messages_used      integer not null default 0,
   messages_reserved  integer not null default 0,
   input_tokens       bigint not null default 0,
+  cached_input_tokens bigint not null default 0,
   output_tokens      bigint not null default 0,
   total_tokens       bigint not null default 0,
   cost_micros        bigint not null default 0,
@@ -1292,11 +1298,16 @@ create table if not exists ai_usage_months (
       messages_used >= 0
       and messages_reserved >= 0
       and input_tokens >= 0
+      and cached_input_tokens >= 0
       and output_tokens >= 0
       and total_tokens >= 0
       and cost_micros >= 0
     )
 );
+
+-- 按 token 实际消耗计费：补缓存输入 token（计费更低，单独累计便于按缓存价折算）。
+alter table ai_usage_months
+  add column if not exists cached_input_tokens bigint not null default 0;
 
 create index if not exists idx_ai_usage_months_period
   on ai_usage_months(period_start desc);
@@ -1357,6 +1368,7 @@ create table if not exists ai_usage_events (
   provider       text not null default '',
   model          text not null default '',
   input_tokens   bigint not null default 0,
+  cached_input_tokens bigint not null default 0,
   output_tokens  bigint not null default 0,
   total_tokens   bigint not null default 0,
   cost_micros    bigint not null default 0,
@@ -1371,12 +1383,16 @@ create table if not exists ai_usage_events (
   constraint ai_usage_events_nonnegative_check
     check (
       input_tokens >= 0
+      and cached_input_tokens >= 0
       and output_tokens >= 0
       and total_tokens >= 0
       and cost_micros >= 0
       and (latency_ms is null or latency_ms >= 0)
     )
 );
+
+alter table ai_usage_events
+  add column if not exists cached_input_tokens bigint not null default 0;
 
 create index if not exists idx_ai_usage_events_user_created
   on ai_usage_events(user_id, created_at desc);
@@ -1386,17 +1402,72 @@ create index if not exists idx_ai_usage_events_session_created
 alter table ai_usage_events enable row level security;
 revoke all on table ai_usage_events from anon, authenticated;
 
+-- ── 模型价目表（按官方 API 价格，每 1M token 的微美元单价；1 美元 = 1_000_000）──
+create table if not exists ai_model_prices (
+  model                           text primary key,
+  input_micro_usd_per_mtok        bigint not null,
+  cached_input_micro_usd_per_mtok bigint not null default 0,
+  output_micro_usd_per_mtok       bigint not null,
+  -- 该模型计费扣减的 credit 池：standard（如 spark）/ premium（如 gpt-5.5，付费特权）。
+  credit_pool                     text not null default 'standard',
+  updated_at                      timestamptz not null default now(),
+  created_at                      timestamptz not null default now(),
+
+  constraint ai_model_prices_nonnegative_check check (
+    input_micro_usd_per_mtok >= 0
+    and cached_input_micro_usd_per_mtok >= 0
+    and output_micro_usd_per_mtok >= 0
+  ),
+  constraint ai_model_prices_credit_pool_check check (credit_pool in ('standard', 'premium'))
+);
+
+alter table ai_model_prices
+  add column if not exists credit_pool text not null default 'standard';
+
+drop trigger if exists update_ai_model_prices_updated_at on ai_model_prices;
+create trigger update_ai_model_prices_updated_at
+  before update on ai_model_prices
+  for each row
+  execute function update_updated_at_column();
+
+alter table ai_model_prices enable row level security;
+revoke all on table ai_model_prices from anon, authenticated;
+
+-- 种子价（官方 https://developers.openai.com/api/docs/pricing，请随官方调价更新）：
+--   gpt-5.5             : in $5.00 / cached $0.50 / out $30.00 每 1M（官方确认）
+--   gpt-5.3-codex-spark : in $1.75 / cached $0.175 / out $14.00 每 1M
+--     注：spark 当前为 research preview（尚未正式上 API），in/out 多方一致，
+--     cached 官方未单列、按「约为输入价 1/10」推算；正式上线后请复核。
+insert into ai_model_prices (model, input_micro_usd_per_mtok, cached_input_micro_usd_per_mtok, output_micro_usd_per_mtok, credit_pool)
+values
+  ('gpt-5.5', 5000000, 500000, 30000000, 'premium'),
+  ('gpt-5.3-codex-spark', 1750000, 175000, 14000000, 'standard')
+on conflict (model) do update set
+  input_micro_usd_per_mtok = excluded.input_micro_usd_per_mtok,
+  cached_input_micro_usd_per_mtok = excluded.cached_input_micro_usd_per_mtok,
+  output_micro_usd_per_mtok = excluded.output_micro_usd_per_mtok,
+  credit_pool = excluded.credit_pool,
+  updated_at = now();
+
+-- 既有 ai_entitlements 补双 credit 池列（幂等）
+alter table ai_entitlements
+  add column if not exists credit_balance_micros bigint not null default 0,
+  add column if not exists premium_credit_balance_micros bigint not null default 0;
+
+-- ── 预留：按 credit 余额放行（单轮成本未知，余额 > 0 即放行占位，commit 时按实扣）──
 drop function if exists reserve_ai_message(uuid, text);
+drop function if exists reserve_ai_message(uuid, text, text);
 create or replace function reserve_ai_message(
   p_session_id uuid,
-  p_idempotency_key text
+  p_idempotency_key text,
+  p_model text
 )
 returns table (
   allowed boolean,
   code text,
   reservation_id uuid,
-  current_messages integer,
-  message_limit integer,
+  credit_pool text,
+  credit_balance_micros bigint,
   period_start date
 ) as $$
 declare
@@ -1406,15 +1477,18 @@ declare
   v_reservation public.ai_usage_reservations%rowtype;
   v_period_start date;
   v_period_end date;
-  v_used integer;
-  v_reserved integer;
   v_key text;
+  v_pool text;
+  v_balance bigint;
 begin
   v_key := nullif(trim(coalesce(p_idempotency_key, '')), '');
   if v_key is null then
-    return query select false, 'invalid_idempotency_key', null::uuid, 0, 0, null::date;
+    return query select false, 'invalid_idempotency_key', null::uuid, null::text, 0::bigint, null::date;
     return;
   end if;
+
+  -- 该模型扣减哪个 credit 池（未登记则归 standard）
+  v_pool := coalesce((select credit_pool from public.ai_model_prices where model = p_model), 'standard');
 
   select *
     into v_session
@@ -1424,7 +1498,7 @@ begin
       and expires_at > now();
 
   if not found then
-    return query select false, 'invalid_session', null::uuid, 0, 0, null::date;
+    return query select false, 'invalid_session', null::uuid, v_pool, 0::bigint, null::date;
     return;
   end if;
 
@@ -1434,10 +1508,11 @@ begin
     where agent_user_id = v_session.agent_user_id;
 
   if not found then
-    return query select false, 'agent_user_not_found', null::uuid, 0, 0, null::date;
+    return query select false, 'agent_user_not_found', null::uuid, v_pool, 0::bigint, null::date;
     return;
   end if;
 
+  -- 幂等：同一 (session, key) 已预留则回放
   select *
     into v_reservation
     from public.ai_usage_reservations
@@ -1445,18 +1520,15 @@ begin
       and idempotency_key = v_key;
 
   if found then
-    select coalesce(messages_used, 0), coalesce(messages_reserved, 0)
-      into v_used, v_reserved
-      from public.ai_usage_months
-      where user_id = v_reservation.user_id
-        and period_start = v_reservation.period_start;
-
     return query select
       (v_reservation.status in ('reserved', 'committed')),
       v_reservation.status,
       v_reservation.id,
-      coalesce(v_used, 0) + coalesce(v_reserved, 0),
-      coalesce((select monthly_message_limit from public.ai_entitlements where user_id = v_reservation.user_id), 0),
+      v_pool,
+      coalesce((
+        select case when v_pool = 'premium' then premium_credit_balance_micros else credit_balance_micros end
+        from public.ai_entitlements where user_id = v_reservation.user_id
+      ), 0)::bigint,
       v_reservation.period_start;
     return;
   end if;
@@ -1472,7 +1544,18 @@ begin
     for update;
 
   if v_entitlement.status not in ('active', 'trialing') then
-    return query select false, 'entitlement_inactive', null::uuid, 0, v_entitlement.monthly_message_limit, null::date;
+    return query select false, 'entitlement_inactive', null::uuid, v_pool, 0::bigint, null::date;
+    return;
+  end if;
+
+  -- 对应池余额门槛：用尽即拒（premium 池 = gpt-5.5 付费特权；单轮成本未知，至多透支一轮）
+  v_balance := case when v_pool = 'premium'
+                    then v_entitlement.premium_credit_balance_micros
+                    else v_entitlement.credit_balance_micros end;
+  if v_balance <= 0 then
+    return query select false,
+      case when v_pool = 'premium' then 'insufficient_premium_credit' else 'insufficient_credit' end,
+      null::uuid, v_pool, v_balance, null::date;
     return;
   end if;
 
@@ -1482,18 +1565,6 @@ begin
   insert into public.ai_usage_months (user_id, period_start, period_end, plan)
   values (v_link.user_id, v_period_start, v_period_end, v_entitlement.plan)
   on conflict (user_id, period_start) do nothing;
-
-  select messages_used, messages_reserved
-    into v_used, v_reserved
-    from public.ai_usage_months
-    where user_id = v_link.user_id
-      and period_start = v_period_start
-    for update;
-
-  if coalesce(v_used, 0) + coalesce(v_reserved, 0) >= v_entitlement.monthly_message_limit then
-    return query select false, 'quota_exceeded', null::uuid, coalesce(v_used, 0) + coalesce(v_reserved, 0), v_entitlement.monthly_message_limit, v_period_start;
-    return;
-  end if;
 
   update public.ai_usage_months
   set messages_reserved = messages_reserved + 1,
@@ -1517,19 +1588,22 @@ begin
   )
   returning * into v_reservation;
 
-  return query select true, 'reserved', v_reservation.id, coalesce(v_used, 0) + coalesce(v_reserved, 0) + 1, v_entitlement.monthly_message_limit, v_period_start;
+  return query select true, 'reserved', v_reservation.id, v_pool, v_balance, v_period_start;
 end;
 $$ language plpgsql security definer
 set search_path = '';
 
+-- 注：函数类型签名不变 (uuid,text,text,bigint,bigint,bigint,text,integer,text)，
+-- 仅把第 6 个 bigint 从 p_cost_micros 改为 p_cached_input_tokens——成本不再由调用方传入，
+-- 改为本函数按 ai_model_prices 价目表计算，并从 credit 余额扣减。
 drop function if exists commit_ai_usage(uuid, text, text, bigint, bigint, bigint, text, integer, text);
 create or replace function commit_ai_usage(
   p_reservation_id uuid,
   p_provider text,
   p_model text,
   p_input_tokens bigint,
+  p_cached_input_tokens bigint,
   p_output_tokens bigint,
-  p_cost_micros bigint,
   p_status text,
   p_latency_ms integer,
   p_error_code text
@@ -1537,15 +1611,19 @@ create or replace function commit_ai_usage(
 returns table (
   accepted boolean,
   code text,
-  event_id uuid
+  event_id uuid,
+  cost_micros bigint
 ) as $$
 declare
   v_reservation public.ai_usage_reservations%rowtype;
   v_event_id uuid;
+  v_price public.ai_model_prices%rowtype;
   v_input bigint;
+  v_cached bigint;
+  v_billable_input bigint;
   v_output bigint;
-  v_cost bigint;
   v_total bigint;
+  v_cost bigint;
   v_status text;
 begin
   select *
@@ -1555,7 +1633,7 @@ begin
     for update;
 
   if not found then
-    return query select false, 'reservation_not_found', null::uuid;
+    return query select false, 'reservation_not_found', null::uuid, 0::bigint;
     return;
   end if;
 
@@ -1564,20 +1642,43 @@ begin
     where reservation_id = v_reservation.id;
 
   if v_reservation.status = 'committed' then
-    return query select true, 'already_committed', v_event_id;
+    return query select true, 'already_committed', v_event_id, 0::bigint;
     return;
   end if;
 
   if v_reservation.status <> 'reserved' then
-    return query select false, v_reservation.status, v_event_id;
+    return query select false, v_reservation.status, v_event_id, 0::bigint;
     return;
   end if;
 
   v_input := greatest(coalesce(p_input_tokens, 0), 0);
+  v_cached := least(greatest(coalesce(p_cached_input_tokens, 0), 0), v_input);
   v_output := greatest(coalesce(p_output_tokens, 0), 0);
+  v_billable_input := greatest(v_input - v_cached, 0);  -- 缓存命中部分按缓存价、其余按正常价
   v_total := v_input + v_output;
-  v_cost := greatest(coalesce(p_cost_micros, 0), 0);
   v_status := case when p_status in ('succeeded', 'failed', 'canceled') then p_status else 'failed' end;
+
+  -- 按官方价目算美元成本（微美元）；未命中价目表则计 0 且照常记账，便于排查漏配
+  select *
+    into v_price
+    from public.ai_model_prices
+    where model = p_model;
+
+  if found then
+    -- 原始成本（微美元）→ 四舍五入到 0.001 美元（1000 微美元）粒度，单次最低 0.001 美元。
+    v_cost := greatest(
+      round(
+        (
+          v_billable_input * v_price.input_micro_usd_per_mtok
+          + v_cached * v_price.cached_input_micro_usd_per_mtok
+          + v_output * v_price.output_micro_usd_per_mtok
+        )::numeric / 1000000000
+      ) * 1000,
+      1000
+    )::bigint;
+  else
+    v_cost := 0;  -- 未登记价目：计 0、不扣费，便于排查漏配
+  end if;
 
   insert into public.ai_usage_events (
     reservation_id,
@@ -1587,6 +1688,7 @@ begin
     provider,
     model,
     input_tokens,
+    cached_input_tokens,
     output_tokens,
     total_tokens,
     cost_micros,
@@ -1602,6 +1704,7 @@ begin
     left(coalesce(p_provider, ''), 80),
     left(coalesce(p_model, ''), 120),
     v_input,
+    v_cached,
     v_output,
     v_total,
     v_cost,
@@ -1622,13 +1725,25 @@ begin
   set messages_reserved = greatest(messages_reserved - v_reservation.reserved_messages, 0),
       messages_used = messages_used + v_reservation.reserved_messages,
       input_tokens = input_tokens + v_input,
+      cached_input_tokens = cached_input_tokens + v_cached,
       output_tokens = output_tokens + v_output,
       total_tokens = total_tokens + v_total,
       cost_micros = cost_micros + v_cost
   where user_id = v_reservation.user_id
     and period_start = v_reservation.period_start;
 
-  return query select true, 'committed', v_event_id;
+  -- 从对应 credit 池扣减实际美元成本（premium=gpt-5.5；未命中价目时 credit_pool 为 NULL→standard 扣 0，无副作用）
+  if v_price.credit_pool = 'premium' then
+    update public.ai_entitlements
+    set premium_credit_balance_micros = premium_credit_balance_micros - v_cost
+    where user_id = v_reservation.user_id;
+  else
+    update public.ai_entitlements
+    set credit_balance_micros = credit_balance_micros - v_cost
+    where user_id = v_reservation.user_id;
+  end if;
+
+  return query select true, 'committed', v_event_id, v_cost;
 end;
 $$ language plpgsql security definer
 set search_path = '';
@@ -1683,10 +1798,10 @@ end;
 $$ language plpgsql security definer
 set search_path = '';
 
-revoke execute on function reserve_ai_message(uuid, text) from public, anon, authenticated;
+revoke execute on function reserve_ai_message(uuid, text, text) from public, anon, authenticated;
 revoke execute on function commit_ai_usage(uuid, text, text, bigint, bigint, bigint, text, integer, text) from public, anon, authenticated;
 revoke execute on function cancel_ai_reservation(uuid, text) from public, anon, authenticated;
-grant execute on function reserve_ai_message(uuid, text) to service_role;
+grant execute on function reserve_ai_message(uuid, text, text) to service_role;
 grant execute on function commit_ai_usage(uuid, text, text, bigint, bigint, bigint, text, integer, text) to service_role;
 grant execute on function cancel_ai_reservation(uuid, text) to service_role;
 
