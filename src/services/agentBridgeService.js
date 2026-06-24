@@ -38,8 +38,27 @@ export function updateAgentConsents(consents) {
   });
 }
 
-export function createAgentSession() {
-  return invokeAgentSession('POST', {
-    action: 'create_session',
-  });
+// 以下聊天接口全部经 agent-session 服务端代理转发到 amaterasu，浏览器永不直连计算平面。
+export function startChat({ prompt, model, title, description, pics } = {}) {
+  return invokeAgentSession('POST', { action: 'chat_start', prompt, model, title, description, pics });
+}
+
+export function continueChat({ sessionId, prompt, model, pics } = {}) {
+  return invokeAgentSession('POST', { action: 'chat_continue', sessionId, prompt, model, pics });
+}
+
+export function listChats({ search, cursor, limit } = {}) {
+  return invokeAgentSession('POST', { action: 'chat_list', search, cursor, limit });
+}
+
+export function getChatHistory(sessionId) {
+  return invokeAgentSession('POST', { action: 'chat_history', sessionId });
+}
+
+export function renameChat(sessionId, title) {
+  return invokeAgentSession('POST', { action: 'chat_rename', sessionId, title });
+}
+
+export function deleteChat(sessionId) {
+  return invokeAgentSession('POST', { action: 'chat_delete', sessionId });
 }
