@@ -239,7 +239,6 @@ async function getStatus(user: User) {
   const state = await loadState(user.id);
   return jsonResponse({
     configured: isAgentConfigured(),
-    agentBaseUrl: AGENT_BASE_URL || null,
     agentUserId: state.link.agent_user_id,
     consents: publicConsents(state.consents),
     entitlements: publicEntitlement(state.entitlement),
@@ -278,18 +277,20 @@ function buildScopes(consents: ConsentRow) {
   return scopes;
 }
 
-async function createSession(user: User) {
-  if (!isAgentConfigured()) {
-    return errorResponse(503, 'agent_not_configured', 'Agent bridge is not configured.');
+async function ensureActiveState(
+  user: User,
+): Promise<{ error: Response } | { state: Awaited<ReturnType<typeof loadState>> }> {
+  const state = await loadState(user.id);
+  if (!['active', 'trialing'].includes(state.entitlement.status)) {
+    return { error: errorResponse(403, 'ai_entitlement_inactive', 'AI tutor access is not active for this account.') };
   }
+  return { state };
+}
 
+// 签发一个短期 session token（ES256，aud=kai-agent，sub=agent_user_id），仅用于本服务端 → amaterasu 的内部调用，绝不下发给浏览器。
+async function mintSessionToken(state: Awaited<ReturnType<typeof loadState>>) {
   const supabase = getSupabase();
   if (!supabase) throw new Error('Supabase Edge Function is not configured.');
-  const state = await loadState(user.id);
-
-  if (!['active', 'trialing'].includes(state.entitlement.status)) {
-    return errorResponse(403, 'ai_entitlement_inactive', 'AI tutor access is not active for this account.');
-  }
 
   const now = Math.floor(Date.now() / 1000);
   const exp = now + SESSION_TTL_SECONDS;
@@ -298,14 +299,9 @@ async function createSession(user: User) {
 
   const { data, error } = await supabase
     .from('agent_sessions')
-    .insert({
-      agent_user_id: state.link.agent_user_id,
-      scopes,
-      expires_at: expiresAt,
-    })
+    .insert({ agent_user_id: state.link.agent_user_id, scopes, expires_at: expiresAt })
     .select('id,expires_at')
     .single();
-
   if (error) throw error;
 
   const payload = {
@@ -324,18 +320,77 @@ async function createSession(user: User) {
     iat: now,
     exp,
   };
+  return await signJwt(payload, getPrivateJwk());
+}
 
-  const sessionToken = await signJwt(payload, getPrivateJwk());
-  return jsonResponse({
-    agentBaseUrl: AGENT_BASE_URL,
-    agentUserId: state.link.agent_user_id,
-    sessionId: data.id,
-    sessionToken,
-    expiresAt: data.expires_at,
-    consents: publicConsents(state.consents),
-    entitlements: publicEntitlement(state.entitlement),
-    usage: state.usage,
+// 浏览器 → 本函数 → amaterasu 的服务端代理：amaterasu 只接受携带本服务签发 token 的服务间调用，用户拿不到直连凭据。
+type AgentCall = { method: string; path: string; payload?: unknown };
+
+function enc(value: unknown) {
+  return encodeURIComponent(String(value ?? ''));
+}
+
+function requireSessionId(body: Record<string, unknown>) {
+  const id = typeof body?.sessionId === 'string' ? body.sessionId.trim() : '';
+  if (!id) throw new Error('missing_session_id');
+  return id;
+}
+
+function buildQuery(body: Record<string, unknown>, keys: string[]) {
+  const params = new URLSearchParams();
+  for (const key of keys) {
+    const value = body?.[key];
+    if (value !== undefined && value !== null && value !== '') params.set(key, String(value));
+  }
+  const query = params.toString();
+  return query ? `?${query}` : '';
+}
+
+const CHAT_ACTIONS: Record<string, (body: Record<string, unknown>) => AgentCall> = {
+  chat_start: (b) => ({
+    method: 'POST',
+    path: '/sessions',
+    payload: { prompt: b.prompt, model: b.model, title: b.title, description: b.description, pics: b.pics },
+  }),
+  chat_continue: (b) => ({
+    method: 'POST',
+    path: `/sessions/${enc(requireSessionId(b))}/messages`,
+    payload: { prompt: b.prompt, model: b.model, pics: b.pics },
+  }),
+  chat_list: (b) => ({ method: 'GET', path: `/sessions${buildQuery(b, ['search', 'cursor', 'limit'])}` }),
+  chat_history: (b) => ({ method: 'GET', path: `/sessions/${enc(requireSessionId(b))}` }),
+  chat_rename: (b) => ({ method: 'PATCH', path: `/sessions/${enc(requireSessionId(b))}`, payload: { title: b.title } }),
+  chat_delete: (b) => ({ method: 'DELETE', path: `/sessions/${enc(requireSessionId(b))}` }),
+};
+
+async function proxyChat(user: User, call: AgentCall, wantStream = false) {
+  if (!isAgentConfigured()) {
+    return errorResponse(503, 'agent_not_configured', 'Agent bridge is not configured.');
+  }
+  const result = await ensureActiveState(user);
+  if ('error' in result) return result.error;
+
+  const sessionToken = await mintSessionToken(result.state);
+  const res = await fetch(`${AGENT_BASE_URL.replace(/\/+$/, '')}${call.path}`, {
+    method: call.method,
+    headers: {
+      Authorization: `Bearer ${sessionToken}`,
+      ...(call.payload !== undefined ? { 'Content-Type': 'application/json' } : {}),
+      ...(wantStream ? { Accept: 'text/event-stream' } : {}),
+    },
+    body: call.payload !== undefined ? JSON.stringify(call.payload) : undefined,
   });
+
+  // 流式：把 agent 的 SSE 流原样透传给浏览器（Deno 边收边发，不缓冲）。
+  if (wantStream && res.body) {
+    return new Response(res.body, {
+      status: res.status,
+      headers: { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
+    });
+  }
+
+  const text = await res.text();
+  return jsonResponse(text ? JSON.parse(text) : {}, res.status);
 }
 
 serve(async (req) => {
@@ -358,11 +413,22 @@ serve(async (req) => {
 
     if (req.method === 'POST') {
       const body = await readJsonBody(req);
-      if (body?.action === 'update_consents') {
+      const action = typeof body?.action === 'string' ? body.action : '';
+      if (action === 'update_consents') {
         return withCors(req, await updateConsents(auth.user, body));
       }
-      if (body?.action === 'create_session') {
-        return withCors(req, await createSession(auth.user));
+      const chat = CHAT_ACTIONS[action];
+      if (chat) {
+        try {
+          const wantStream = (action === 'chat_start' || action === 'chat_continue')
+            && (req.headers.get('accept') || '').includes('text/event-stream');
+          return withCors(req, await proxyChat(auth.user, chat(body), wantStream));
+        } catch (err) {
+          if (err instanceof Error && err.message === 'missing_session_id') {
+            return withCors(req, errorResponse(400, 'missing_session_id', 'A session id is required.'));
+          }
+          throw err;
+        }
       }
       return withCors(req, errorResponse(400, 'unknown_action', 'Unknown agent session action.'));
     }

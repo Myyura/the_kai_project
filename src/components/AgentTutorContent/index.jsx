@@ -1,18 +1,17 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   FaCheckCircle,
-  FaClipboard,
   FaExclamationTriangle,
   FaPlay,
   FaRedo,
   FaRobot,
   FaShieldAlt,
 } from 'react-icons/fa';
-import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
+import { useCurrentLanguage } from '@site/src/context/LanguageContext';
 import { useSync } from '@site/src/hooks/useSync';
 import {
-  createAgentSession,
   loadAgentBridgeStatus,
+  startChat,
   updateAgentConsents,
 } from '@site/src/services/agentBridgeService';
 import styles from './styles.module.css';
@@ -50,6 +49,7 @@ const TEXT = {
     sessionId: 'Session ID',
     expiresAt: '过期时间',
     tokenPreview: 'Session token',
+    replyPreview: '回复',
     consentProgress: '学习进度',
     consentProgressDesc: '允许 agent 读取题目完成状态、复习状态和标签摘要。',
     consentNotes: '题目笔记',
@@ -89,6 +89,7 @@ const TEXT = {
     sessionId: 'Session ID',
     expiresAt: '有効期限',
     tokenPreview: 'Session token',
+    replyPreview: '応答',
     consentProgress: '学習進捗',
     consentProgressDesc: 'agent が問題の完了状態、復習状態、タグ概要を読めるようにします。',
     consentNotes: '問題ノート',
@@ -128,6 +129,7 @@ const TEXT = {
     sessionId: 'Session ID',
     expiresAt: 'Expires at',
     tokenPreview: 'Session token',
+    replyPreview: 'Reply',
     consentProgress: 'Study progress',
     consentProgressDesc: 'Allow the agent to read problem status, review status, and tag summaries.',
     consentNotes: 'Problem notes',
@@ -145,27 +147,6 @@ function formatNumber(value) {
 function formatLimit(used, limit, t) {
   const safeLimit = Number(limit || 0);
   return `${formatNumber(used)} / ${safeLimit > 0 ? formatNumber(safeLimit) : t.unlimited}`;
-}
-
-function formatDate(value, language) {
-  if (!value) return '-';
-  try {
-    return new Date(value).toLocaleString(getLanguageLocale(language), {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-  } catch {
-    return '-';
-  }
-}
-
-function shortToken(token) {
-  if (!token) return '';
-  if (token.length <= 36) return token;
-  return `${token.slice(0, 18)}...${token.slice(-12)}`;
 }
 
 function StatItem({ label, value, sub }) {
@@ -205,7 +186,6 @@ export function AgentTutorContent({ embedded = false } = {}) {
   const [loading, setLoading] = useState(false);
   const [savingField, setSavingField] = useState('');
   const [creating, setCreating] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   const consents = status?.consents || {};
   const usage = status?.usage || {};
@@ -279,32 +259,19 @@ export function AgentTutorContent({ embedded = false } = {}) {
     }
   };
 
+  // 经 agent-session 服务端代理发一条测试消息，验证端到端链路（浏览器不直连 amaterasu、不接触 token）。
   const handleCreateSession = async () => {
     setCreating(true);
-    setCopied(false);
     setMessage(null);
     try {
-      const data = await createAgentSession();
+      const data = await startChat({ prompt: 'ping' });
       setSession(data);
-      setStatus((current) => current ? {
-        ...current,
-        consents: data?.consents || current.consents,
-        entitlements: data?.entitlements || current.entitlements,
-        usage: data?.usage || current.usage,
-      } : current);
       setMessage({ type: 'success', text: t.sessionReady });
     } catch (error) {
       setMessage({ type: 'error', text: error?.message || t.sessionFailed });
     } finally {
       setCreating(false);
     }
-  };
-
-  const handleCopyToken = async () => {
-    if (!session?.sessionToken) return;
-    await navigator.clipboard.writeText(session.sessionToken);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1600);
   };
 
   if (!authReady || loading && !status) {
@@ -361,7 +328,7 @@ export function AgentTutorContent({ embedded = false } = {}) {
         <StatItem
           label={t.bridgeStatus}
           value={configured ? t.configured : t.notConfigured}
-          sub={status?.agentBaseUrl || '-'}
+          sub={status?.agentUserId || '-'}
         />
         <StatItem
           label={t.plan}
@@ -421,30 +388,12 @@ export function AgentTutorContent({ embedded = false } = {}) {
           {session ? (
             <dl className={styles.sessionDetails}>
               <div>
-                <dt>{t.agentEndpoint}</dt>
-                <dd>{session.agentBaseUrl || '-'}</dd>
-              </div>
-              <div>
-                <dt>{t.agentUserId}</dt>
-                <dd>{session.agentUserId || '-'}</dd>
-              </div>
-              <div>
                 <dt>{t.sessionId}</dt>
                 <dd>{session.sessionId || '-'}</dd>
               </div>
               <div>
-                <dt>{t.expiresAt}</dt>
-                <dd>{formatDate(session.expiresAt, language)}</dd>
-              </div>
-              <div>
-                <dt>{t.tokenPreview}</dt>
-                <dd className={styles.tokenLine}>
-                  <code>{shortToken(session.sessionToken)}</code>
-                  <button className={styles.iconButton} type="button" onClick={handleCopyToken} title={t.copyToken}>
-                    <FaClipboard />
-                    <span>{copied ? t.copied : t.copyToken}</span>
-                  </button>
-                </dd>
+                <dt>{t.replyPreview}</dt>
+                <dd>{session.reply || '-'}</dd>
               </div>
             </dl>
           ) : null}
