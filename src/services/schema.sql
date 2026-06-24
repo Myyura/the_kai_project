@@ -936,7 +936,7 @@ begin
 
   insert into public.exam_difficulty_votes (user_id, doc_id, difficulty)
   values (v_user_id, v_doc_id, p_difficulty)
-  on conflict (user_id, doc_id)
+  on conflict on constraint exam_difficulty_votes_user_doc_unique
   do update set
     difficulty = excluded.difficulty,
     updated_at = now();
