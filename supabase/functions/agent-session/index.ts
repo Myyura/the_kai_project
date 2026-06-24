@@ -363,7 +363,7 @@ const CHAT_ACTIONS: Record<string, (body: Record<string, unknown>) => AgentCall>
   chat_delete: (b) => ({ method: 'DELETE', path: `/sessions/${enc(requireSessionId(b))}` }),
 };
 
-async function proxyChat(user: User, call: AgentCall) {
+async function proxyChat(user: User, call: AgentCall, wantStream = false) {
   if (!isAgentConfigured()) {
     return errorResponse(503, 'agent_not_configured', 'Agent bridge is not configured.');
   }
@@ -376,9 +376,18 @@ async function proxyChat(user: User, call: AgentCall) {
     headers: {
       Authorization: `Bearer ${sessionToken}`,
       ...(call.payload !== undefined ? { 'Content-Type': 'application/json' } : {}),
+      ...(wantStream ? { Accept: 'text/event-stream' } : {}),
     },
     body: call.payload !== undefined ? JSON.stringify(call.payload) : undefined,
   });
+
+  // 流式：把 agent 的 SSE 流原样透传给浏览器（Deno 边收边发，不缓冲）。
+  if (wantStream && res.body) {
+    return new Response(res.body, {
+      status: res.status,
+      headers: { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
+    });
+  }
 
   const text = await res.text();
   return jsonResponse(text ? JSON.parse(text) : {}, res.status);
@@ -411,7 +420,9 @@ serve(async (req) => {
       const chat = CHAT_ACTIONS[action];
       if (chat) {
         try {
-          return withCors(req, await proxyChat(auth.user, chat(body)));
+          const wantStream = (action === 'chat_start' || action === 'chat_continue')
+            && (req.headers.get('accept') || '').includes('text/event-stream');
+          return withCors(req, await proxyChat(auth.user, chat(body), wantStream));
         } catch (err) {
           if (err instanceof Error && err.message === 'missing_session_id') {
             return withCors(req, errorResponse(400, 'missing_session_id', 'A session id is required.'));

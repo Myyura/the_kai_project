@@ -25,11 +25,13 @@ export const initSiteConfig = (siteConfig) => {
   if (!_siteConfig) _siteConfig = siteConfig;
 };
 
-const getCredentials = () => {
+export const getSupabaseCredentials = () => {
   const url = _siteConfig?.customFields?.supabaseUrl || '';
   const anonKey = _siteConfig?.customFields?.supabaseAnonKey || '';
   return { url, anonKey };
 };
+
+const getCredentials = getSupabaseCredentials;
 
 /**
  * 判断 Supabase 是否已配置（构建时是否注入了有效凭据）
