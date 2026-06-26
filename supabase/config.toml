@@ -6,6 +6,9 @@ verify_jwt = false
 [functions.kai-api]
 verify_jwt = false
 
+[functions.content-submissions]
+verify_jwt = false
+
 [functions.agent-session]
 verify_jwt = false
 
