@@ -2,7 +2,9 @@
 sidebar_label: "2023年8月実施 情1"
 tags:
   - Nagoya-University
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Fundamentals
+  - Computer-Science.Programming.Base-Conversion
+  - Computer-Science.Programming.Bitwise-Operation
 ---
 # 名古屋大学 情報学研究科 複雑系科学専攻 2023年8月実施 情1
 
