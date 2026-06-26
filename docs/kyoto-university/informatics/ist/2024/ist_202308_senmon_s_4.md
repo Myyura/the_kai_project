@@ -7,7 +7,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2023年8月実施 専門科目 S-4
 
 ## **Author**
-[Isidore](https://github.com/heacsing), 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki)
+[Isidore](https://github.com/heacsing), 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki), [sure](https://github.com/Myyura/the_kai_project/issues/121)
 
 ## **Description**
 以下ではすべて記憶のない定常情報源を考える。なお、解答には理由も明確に示すこと。
@@ -52,7 +52,7 @@ $$
 
 ### 設問6
 次の通信路行列により定まる通信路の容量を $C$ とする。
-なお、入力アルファベットのサイズは $n$、出力アルファベットのサイズは $n$ である。
+なお、入力アルファベットのサイズは $2$、出力アルファベットのサイズは $n$ である。
 
 $$
 \begin{bmatrix}
@@ -90,12 +90,12 @@ $$
 Thus the maximum of $H$ is $H(0.5, 0.5) = 1$, the minimum of $H$ is $H(0, 1) = 0$.
 
 ### 設問2
-By using the method of Lagrange multiplier, we have
+By using the method of Lagrange multiplier, we have the Lagrangian for the entropy function:
 
 $$
 \begin{aligned}
 L(p,q,\lambda)
-&= (m+1)p\log_{2} p+(m-1)q\log_{2} q+\lambda(1-(m+1)p-(m-1)q)
+&= -(m+1)p\log_{2} p - (m-1)q\log_{2} q + \lambda(1-(m+1)p-(m-1)q)
 \end{aligned}
 $$
 
@@ -105,11 +105,9 @@ $$
 \begin{aligned}
 \begin{cases}
 \displaystyle
-\frac{\partial L}{\partial p} &= (m+1)\log_{2} p+(m+1)-(m+1)\lambda =
-(m+1)(\log_{2} p+1-\lambda) = 0 \\
+\frac{\partial L}{\partial p} &= -(m+1)\left(\log_{2} p + \frac{1}{\ln 2}\right) - (m+1)\lambda = 0 \\[1em]
 \displaystyle
-\frac{\partial L}{\partial q} &= (m-1)\log_{2} q+(m-1)-(m-1)\lambda = 
-(m-1)(\log_{2} q+1-\lambda) = 0 \\
+\frac{\partial L}{\partial q} &= -(m-1)\left(\log_{2} q + \frac{1}{\ln 2}\right) - (m-1)\lambda = 0 \\[1em]
 \displaystyle
 \frac{\partial L}{\partial \lambda} &= 1-(m+1)p-(m-1)q = 0
 \end{cases}
@@ -120,15 +118,18 @@ we have
 
 $$
 \begin{aligned}
-\lambda &= \log_{2} p + 1 = \log_{2} q + 1
+\lambda &= -\log_{2} p - \frac{1}{\ln 2} = -\log_{2} q - \frac{1}{\ln 2}
 \end{aligned}
 $$
 
-hence $L$ is maximized when $p = q = \frac{1}{2m}$ and the maximum of entropy is
+which implies $p = q$. Substituting this into the third equation, we get $2mp = 1$, hence $L$ is maximized when $p = q = \frac{1}{2m}$.
 
 $$
 \begin{aligned}
-H(p,q) &= p\log_{2} \frac{1}{p}+q\log_{2} \frac{1}{q} = \left(\frac{1}{2m}\log_{2} 2m\right)\cdot 2 = \frac{1}{m}+\frac{1}{m}\log_{2} m
+H(p,q) &= -(m+1)p\log_{2} p - (m-1)q\log_{2} q \\[0.7em]
+&= -(m+1)\left(\frac{1}{2m}\right)\log_{2} \left(\frac{1}{2m}\right) - (m-1)\left(\frac{1}{2m}\right)\log_{2} \left(\frac{1}{2m}\right) \\[0.7em]
+&= -\left(\frac{2m}{2m}\right)\log_{2}\left(\frac{1}{2m}\right) \\[0.7em]
+&= \log_{2}(2m) = \log_{2} m + 1
 \end{aligned}
 $$
 
@@ -148,15 +149,16 @@ $$
 \end{aligned}
 $$
 
-and
+Comparing the two boundary values:$$\begin{aligned}
 
 $$
 \begin{aligned}
 \min\left\{H(p,q)\right\}
 &= \min\left\{
-(m-1)\cdot\frac{1}{m-1}\log_{2}(m-1),~
-(m+1)\cdot\frac{1}{m+1}\log_{2}(m+1)
+-(m-1)\left(\frac{1}{m-1}\right)\log_{2}\left(\frac{1}{m-1}\right),~
+-(m+1)\left(\frac{1}{m+1}\right)\log_{2}\left(\frac{1}{m+1}\right)
 \right\}\\[0.7em]
+&= \min\left\{\log_{2}(m-1), \log_{2}(m+1)\right\}\\[0.7em]
 &= \log_{2}(m-1)
 \end{aligned}
 $$
