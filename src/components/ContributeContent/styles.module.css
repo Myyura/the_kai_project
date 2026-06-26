@@ -156,6 +156,26 @@
   line-height: 1.45;
 }
 
+.inlineTextLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+  color: var(--ifm-color-primary);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.inlineTextLink:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+}
+
+.inlineLinkIcon {
+  width: 0.72em;
+  height: 0.72em;
+  flex: 0 0 auto;
+}
+
 .targetSummary {
   display: grid;
   gap: 0.25rem;

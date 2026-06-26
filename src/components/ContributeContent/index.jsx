@@ -22,6 +22,7 @@ import tagTaxonomy from '@site/src/data/tagTaxonomy.json';
 import styles from './styles.module.css';
 
 const CUSTOM_OPTION = '__custom__';
+const CLA_URL = 'https://github.com/Myyura/the_kai_project/blob/main/CLA.md';
 const defaultUniversityId = universities[0]?.id || '';
 const defaultDepartmentId = universities[0]?.departments?.[0]?.id || '';
 
@@ -548,7 +549,18 @@ export function ContributeContent({ embedded = false } = {}) {
               onChange={(event) => updateForm('claAccepted', event.target.checked)}
             />
             <span>
-              {t.claText}
+              {t.claTextPrefix}
+              <a
+                className={styles.inlineTextLink}
+                href={CLA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(event) => event.stopPropagation()}
+              >
+                {t.claLinkText}
+                <FaExternalLinkAlt className={styles.inlineLinkIcon} aria-hidden="true" />
+              </a>
+              {t.claTextSuffix}
               <br />
               <small className={styles.smallHint}>{t.claHint}</small>
             </span>
