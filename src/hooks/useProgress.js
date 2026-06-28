@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { getCalibratedNow } from '../services/syncService';
+import { queuePracticeEvent } from '../services/practiceEvents';
 import { addStorageOwnerChangeListener, getScopedStorageKey } from '../services/localStorageScope';
 import tagTaxonomy from '../data/tagTaxonomy.json';
 
@@ -120,11 +121,14 @@ export const useDocProgress = (docId, title, permalink, tags) => {
   const setStatus = useCallback(
     (newStatus) => {
       const current = readProgressData();
+      const occurredAt = getCalibratedNow();
+      let shouldRecordPractice = false;
       if (newStatus === STATUS.NOT_STARTED) {
         delete current[docId];
       } else {
         const prev = current[docId];
         const statusChanged = !prev || prev.status !== newStatus;
+        shouldRecordPractice = !prev;
         current[docId] = {
           status: newStatus,
           title: title ?? docId,
@@ -134,10 +138,11 @@ export const useDocProgress = (docId, title, permalink, tags) => {
           reviewCount: newStatus === STATUS.REVIEWING
             ? (statusChanged ? 0 : (prev?.reviewCount ?? 0))
             : (prev?.reviewCount ?? 0),
-          updatedAt: statusChanged ? getCalibratedNow() : (prev?.updatedAt ?? getCalibratedNow()),
+          updatedAt: statusChanged ? occurredAt : (prev?.updatedAt ?? occurredAt),
         };
       }
       writeProgressData(current);
+      if (shouldRecordPractice) queuePracticeEvent(docId, 'practice', occurredAt);
       setData({ ...current });
     },
     [docId, title, permalink, tags]
@@ -146,15 +151,17 @@ export const useDocProgress = (docId, title, permalink, tags) => {
   const refreshReview = useCallback(() => {
     const current = readProgressData();
     if (!current[docId]) return;
+    const occurredAt = getCalibratedNow();
     const newCount = (current[docId].reviewCount ?? 0) + 1;
     const isFinished = newCount >= REVIEW_INTERVALS.length;
     current[docId] = {
       ...current[docId],
       reviewCount: newCount,
       status: isFinished ? STATUS.COMPLETED : current[docId].status,
-      updatedAt: getCalibratedNow(),
+      updatedAt: occurredAt,
     };
     writeProgressData(current);
+    queuePracticeEvent(docId, 'review', occurredAt);
     setData({ ...current });
   }, [docId]);
 

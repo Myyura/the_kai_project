@@ -17,6 +17,10 @@ import { getScopedStorageKey, getStorageOwnerForUser } from './localStorageScope
 import { validateSyncData } from './authSecurity';
 import { readProgressData, writeProgressData } from '../hooks/useProgress';
 import { readNotesData, writeNotesData } from '../hooks/useNotes';
+import {
+  readPendingPracticeEvents,
+  removePendingPracticeEvents,
+} from './practiceEvents';
 
 // ── 存储键 ──────────────────────────────────────────────────
 
@@ -29,6 +33,7 @@ const SYNC_CONFLICT_LOG_KEY = 'kai_sync_conflict_log';
 
 const PROGRESS_TABLE = 'user_progress_items';
 const NOTES_TABLE = 'user_note_items';
+const PRACTICE_EVENT_BATCH_SIZE = 500;
 
 // ── 基础状态 ────────────────────────────────────────────────
 
@@ -469,6 +474,18 @@ const markNotesDeleted = async (sb, userId, docIds, deletedAtMs) => {
   return rows.length;
 };
 
+const uploadPracticeEvents = async (sb, events) => {
+  if (!Array.isArray(events) || events.length === 0) return 0;
+  let uploaded = 0;
+  for (let offset = 0; offset < events.length; offset += PRACTICE_EVENT_BATCH_SIZE) {
+    const batch = events.slice(offset, offset + PRACTICE_EVENT_BATCH_SIZE);
+    const { data, error } = await sb.rpc('record_practice_events', { p_events: batch });
+    if (error) throw schemaUpgradeError(error);
+    uploaded += Number(data) || 0;
+  }
+  return uploaded;
+};
+
 // ── 远端增量应用到本地 ───────────────────────────────────────
 
 const rowClientTs = (row) => toMs(row?.client_updated_at, toMs(new Date(row?.updated_at).getTime(), 0));
@@ -780,6 +797,7 @@ export const pushLocalData = async (_userId) => {
 
   const localProgress = sanitizeProgressMap(readProgressData({ storageOwner }));
   const localNotes = sanitizeNotesMap(readNotesData({ storageOwner }));
+  const pendingPracticeEvents = readPendingPracticeEvents({ storageOwner });
   assertValidSyncData(localProgress, localNotes);
 
   const snapshots = readSnapshots(storageOwner);
@@ -790,7 +808,8 @@ export const pushLocalData = async (_userId) => {
     Object.keys(progressDelta.upserts).length
     + progressDelta.deletes.length
     + Object.keys(notesDelta.upserts).length
-    + notesDelta.deletes.length;
+    + notesDelta.deletes.length
+    + pendingPracticeEvents.length;
 
   if (totalDelta === 0) {
     const nowMs = getCalibratedNow();
@@ -805,13 +824,15 @@ export const pushLocalData = async (_userId) => {
   }
 
   const deletedAtMs = getCalibratedNow();
-  const [progressUpserts, notesUpserts, progressDeletes, notesDeletes] = await Promise.all([
+  const [progressUpserts, notesUpserts, progressDeletes, notesDeletes, practiceEvents] = await Promise.all([
     upsertProgressRows(sb, userId, progressDelta.upserts),
     upsertNotesRows(sb, userId, notesDelta.upserts),
     markProgressDeleted(sb, userId, progressDelta.deletes, deletedAtMs),
     markNotesDeleted(sb, userId, notesDelta.deletes, deletedAtMs),
+    uploadPracticeEvents(sb, pendingPracticeEvents),
   ]);
 
+  removePendingPracticeEvents(pendingPracticeEvents.map((event) => event.id), { storageOwner });
   const nowMs = getCalibratedNow();
   checkpointSync({ progressMap: localProgress, notesMap: localNotes, cursorMs: nowMs, storageOwner });
 
@@ -821,6 +842,7 @@ export const pushLocalData = async (_userId) => {
     notesUpserts,
     progressDeletes,
     notesDeletes,
+    practiceEvents,
     progressKeys: Object.keys(localProgress).length,
     notesKeys: Object.keys(localNotes).length,
     conflictsCount: 0,
@@ -861,6 +883,7 @@ export const pullRemoteData = async (_userId) => {
 
   const nowMs = getCalibratedNow();
   checkpointSync({ progressMap: mergedProgress, notesMap: mergedNotes, cursorMs: nowMs, storageOwner });
+  if (readPendingPracticeEvents({ storageOwner }).length > 0) markSyncDirty({ storageOwner });
   saveConflictHints(conflicts, storageOwner);
 
   return {
@@ -897,6 +920,7 @@ export const syncMerge = async (_userId) => {
 
   const baseProgress = sanitizeProgressMap(readProgressData({ storageOwner }));
   const baseNotes = sanitizeNotesMap(readNotesData({ storageOwner }));
+  const pendingPracticeEvents = readPendingPracticeEvents({ storageOwner });
 
   const { progressRows, noteRows } = await fetchRemoteRows(sb, userId, cursorMs);
 
@@ -923,13 +947,15 @@ export const syncMerge = async (_userId) => {
   );
 
   const deletedAtMs = getCalibratedNow();
-  const [progressUpserts, notesUpserts, progressDeletes, notesDeletes] = await Promise.all([
+  const [progressUpserts, notesUpserts, progressDeletes, notesDeletes, practiceEvents] = await Promise.all([
     upsertProgressRows(sb, userId, progressDelta.upserts),
     upsertNotesRows(sb, userId, notesDelta.upserts),
     markProgressDeleted(sb, userId, progressDelta.deletes, deletedAtMs),
     markNotesDeleted(sb, userId, notesDelta.deletes, deletedAtMs),
+    uploadPracticeEvents(sb, pendingPracticeEvents),
   ]);
 
+  removePendingPracticeEvents(pendingPracticeEvents.map((event) => event.id), { storageOwner });
   const nowMs = getCalibratedNow();
   checkpointSync({ progressMap: mergedProgress, notesMap: mergedNotes, cursorMs: nowMs, storageOwner });
   saveConflictHints(conflicts, storageOwner);
@@ -943,6 +969,7 @@ export const syncMerge = async (_userId) => {
     pushedNoteUpserts: notesUpserts,
     pushedProgressDeletes: progressDeletes,
     pushedNoteDeletes: notesDeletes,
+    pushedPracticeEvents: practiceEvents,
     conflictsCount: conflicts.length,
     conflicts: conflicts.slice(0, 20),
   };
@@ -1222,15 +1249,29 @@ export const onAuthStateChange = (callback) => {
 
 // ── 排行榜 ──────────────────────────────────────────────────
 
-/**
- * 获取本周刷题排行榜（Top 10）
- * 通过 security definer RPC 函数在服务端聚合，不受 RLS 限制
- * @returns {Promise<Array<{ display_name: string, weekly_count: number, is_current_user: boolean }>>}
- */
-export const fetchWeeklyLeaderboard = async () => {
+export const fetchPracticeLeaderboard = async (period = 'half_month') => {
   const sb = getSupabaseClient();
   if (!sb) return [];
-  const { data, error } = await sb.rpc('get_weekly_leaderboard');
+  const { data, error } = await sb.rpc('get_practice_leaderboard', { p_period: period });
   if (error) throw error;
   return data || [];
+};
+
+export const fetchLeaderboardProfile = async () => {
+  const sb = getSupabaseClient();
+  if (!sb) return null;
+  const { data, error } = await sb.rpc('get_my_leaderboard_profile');
+  if (error) throw error;
+  return data?.[0] || null;
+};
+
+export const updateLeaderboardProfile = async ({ displayName, isAnonymous }) => {
+  const sb = getSupabaseClient();
+  if (!sb) throw new Error('Supabase 未配置');
+  const { data, error } = await sb.rpc('set_my_leaderboard_profile', {
+    p_display_name: displayName,
+    p_is_anonymous: Boolean(isAnonymous),
+  });
+  if (error) throw error;
+  return data?.[0] || null;
 };

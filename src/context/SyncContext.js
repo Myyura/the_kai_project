@@ -140,6 +140,7 @@ function useSyncInternal() {
     clearSyncDirty({ storageOwner });
     if (getStorageOwner() === storageOwner) {
       setLastSynced(ts);
+      window.dispatchEvent(new CustomEvent('kai_sync_completed', { detail: { at: ts } }));
     }
   }, []);
 

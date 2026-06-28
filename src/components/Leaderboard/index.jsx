@@ -1,118 +1,329 @@
-/**
- * Leaderboard — 本周刷题排行榜
- *
- * 展示已登录用户中本周刷题量 Top 10。
- * 通过 Supabase RPC 在服务端聚合数据，邮箱脱敏显示。
- * 未登录或 Supabase 未配置时不渲染。
- */
-
-import React, { useState, useEffect, useCallback } from 'react';
-import { FaTrophy, FaSyncAlt } from 'react-icons/fa';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import Link from '@docusaurus/Link';
+import {
+  FaCog,
+  FaSave,
+  FaSyncAlt,
+  FaTrophy,
+  FaUser,
+  FaUserSecret,
+} from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
-import { fetchWeeklyLeaderboard } from '@site/src/services/syncService';
-import {getUiMessages} from '@site/src/i18n/messages';
+import {
+  fetchLeaderboardProfile,
+  fetchPracticeLeaderboard,
+  updateLeaderboardProfile,
+} from '@site/src/services/syncService';
+import { getUiMessages } from '@site/src/i18n/messages';
 import styles from './styles.module.css';
+
+const PERIODS = ['half_month', 'six_months'];
+
+const localeFor = (language) => (
+  language === 'ja' ? 'ja-JP' : language === 'en' ? 'en-US' : 'zh-CN'
+);
+
+const formatPeriodRange = (start, end, language) => {
+  if (!start || !end) return '';
+  const formatter = new Intl.DateTimeFormat(localeFor(language), {
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'Asia/Tokyo',
+  });
+  return `${formatter.format(new Date(`${start}T00:00:00+09:00`))} – ${formatter.format(new Date(`${end}T00:00:00+09:00`))}`;
+};
 
 export default function Leaderboard({ language = 'zh' }) {
   const { isConfigured, isLoggedIn } = useSync();
   const t = getUiMessages('leaderboard', language);
-
+  const [period, setPeriod] = useState('half_month');
   const [data, setData] = useState([]);
+  const [profile, setProfile] = useState(null);
+  const [draftName, setDraftName] = useState('');
+  const [draftAnonymous, setDraftAnonymous] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [fetched, setFetched] = useState(false);
+  const [error, setError] = useState(null);
+  const [profileError, setProfileError] = useState(null);
 
-  const load = useCallback(async () => {
-    setLoading(true);
+  const load = useCallback(async ({ silent = false } = {}) => {
+    if (!isConfigured || !isLoggedIn) return;
+    if (silent) setRefreshing(true);
+    else setLoading(true);
     setError(null);
     try {
-      const result = await fetchWeeklyLeaderboard();
-      setData(result);
+      const [leaderboard, nextProfile] = await Promise.all([
+        fetchPracticeLeaderboard(period),
+        fetchLeaderboardProfile(),
+      ]);
+      setData(leaderboard);
+      setProfile(nextProfile);
+      setDraftName(nextProfile?.display_name || '');
+      setDraftAnonymous(Boolean(nextProfile?.is_anonymous));
       setFetched(true);
-    } catch (e) {
-      setError(e.message || 'Error');
+    } catch (loadError) {
+      setError(loadError.message || 'Error');
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
-  }, []);
+  }, [isConfigured, isLoggedIn, period]);
 
-  // 登录状态就绪后自动加载一次
   useEffect(() => {
-    if (isConfigured && isLoggedIn && !fetched) {
-      load();
+    void load();
+  }, [load]);
+
+  useEffect(() => {
+    const handleSync = () => void load({ silent: true });
+    window.addEventListener('kai_sync_completed', handleSync);
+    return () => window.removeEventListener('kai_sync_completed', handleSync);
+  }, [load]);
+
+  const topRows = useMemo(() => data.filter((item) => item.is_top_ten), [data]);
+  const currentUser = useMemo(() => data.find((item) => item.is_current_user) || null, [data]);
+  const maxCount = topRows[0]?.problem_count || 1;
+  const periodRange = formatPeriodRange(
+    currentUser?.period_start || topRows[0]?.period_start,
+    currentUser?.period_end || topRows[0]?.period_end,
+    language,
+  );
+
+  const saveProfile = async () => {
+    const name = draftName.trim();
+    if (name.length < 2) {
+      setProfileError(t.nameTooShort);
+      return;
     }
-  }, [isConfigured, isLoggedIn, fetched, load]);
+    setSaving(true);
+    setProfileError(null);
+    try {
+      const nextProfile = await updateLeaderboardProfile({
+        displayName: name,
+        isAnonymous: draftAnonymous,
+      });
+      setProfile(nextProfile);
+      setDraftName(nextProfile?.display_name || name);
+      setDraftAnonymous(Boolean(nextProfile?.is_anonymous));
+      setSettingsOpen(false);
+      await load({ silent: true });
+    } catch (saveError) {
+      setProfileError(saveError.message || t.profileSaveError);
+    } finally {
+      setSaving(false);
+    }
+  };
 
-  if (!isConfigured) return null;
+  if (!isConfigured || !isLoggedIn) return null;
 
-  // 未登录 → 不渲染（排行榜需要登录才能查看）
-  if (!isLoggedIn) return null;
-
-  const maxCount = data.length > 0 ? data[0].weekly_count : 1;
+  const currentCount = Number(currentUser?.problem_count) || 0;
+  const currentRank = currentUser?.rank_position;
+  const gap = Number(currentUser?.gap_to_previous) || 0;
+  const percentile = Number(currentUser?.percentile) || 0;
+  const participantCount = Number(currentUser?.participant_count || topRows[0]?.participant_count) || 0;
+  const currentOutsideTop = currentUser && !currentUser.is_top_ten && currentCount > 0;
+  const previewName = profile?.anonymous_name || t.anonymousFallback;
 
   return (
     <section className={styles.section}>
-      <h2 className={styles.sectionTitle}>
-        <FaTrophy className={styles.sectionTitleIcon} />
-        {t.title}
-      </h2>
+      <div className={styles.header}>
+        <div className={styles.titleGroup}>
+          <h2 className={styles.sectionTitle}>
+            <FaTrophy className={styles.sectionTitleIcon} />
+            {t.title}
+          </h2>
+          <span className={styles.periodRange}>
+            {periodRange}{periodRange ? ` · ${t.japanTime}` : ''}
+          </span>
+        </div>
+        <div className={styles.headerActions}>
+          <button
+            type="button"
+            className={`${styles.iconButton} ${settingsOpen ? styles.iconButtonActive : ''}`}
+            onClick={() => setSettingsOpen((open) => !open)}
+            aria-label={t.profileSettings}
+            title={t.profileSettings}
+          >
+            <FaCog />
+          </button>
+          <button
+            type="button"
+            className={styles.iconButton}
+            onClick={() => load({ silent: true })}
+            disabled={loading || refreshing}
+            aria-label={t.refresh}
+            title={t.refresh}
+          >
+            <FaSyncAlt className={loading || refreshing ? styles.spin : ''} />
+          </button>
+        </div>
+      </div>
 
-      {loading && (
+      <div className={styles.periodTabs} role="group" aria-label={t.periodLabel}>
+        {PERIODS.map((item) => (
+          <button
+            key={item}
+            type="button"
+            className={`${styles.periodTab} ${period === item ? styles.periodTabActive : ''}`}
+            onClick={() => setPeriod(item)}
+            aria-pressed={period === item}
+          >
+            {t.periods[item]}
+          </button>
+        ))}
+      </div>
+
+      {settingsOpen && (
+        <div className={styles.settingsPanel}>
+          <div className={styles.settingsField}>
+            <label htmlFor="leaderboard-display-name">{t.nickname}</label>
+            <input
+              id="leaderboard-display-name"
+              type="text"
+              value={draftName}
+              maxLength={32}
+              onChange={(event) => setDraftName(event.target.value)}
+              placeholder={t.nicknamePlaceholder}
+            />
+          </div>
+          <label className={styles.privacyToggle}>
+            <input
+              type="checkbox"
+              checked={draftAnonymous}
+              onChange={(event) => setDraftAnonymous(event.target.checked)}
+            />
+            <span className={styles.toggleTrack} aria-hidden="true"><span /></span>
+            <span>
+              <strong>{t.anonymousMode}</strong>
+              <small>{t.anonymousHint(previewName)}</small>
+            </span>
+          </label>
+          <div className={styles.settingsFooter}>
+            {profileError && <span className={styles.settingsError}>{profileError}</span>}
+            <button
+              type="button"
+              className={styles.saveButton}
+              onClick={saveProfile}
+              disabled={saving}
+            >
+              <FaSave /> {saving ? t.saving : t.save}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {loading && !fetched && (
         <div className={styles.loading}>
-          <FaSyncAlt className={styles.spin} />
-          {t.loading}
+          <FaSyncAlt className={styles.spin} /> {t.loading}
         </div>
       )}
 
       {error && !loading && (
-        <div
-          className={styles.emptyState}
-          style={{ cursor: 'pointer' }}
-          onClick={load}
-        >
+        <button type="button" className={styles.errorState} onClick={() => load()}>
           {t.error}
-        </div>
+        </button>
       )}
 
-      {!loading && !error && data.length === 0 && fetched && (
-        <div className={styles.emptyState}>{t.empty}</div>
-      )}
+      {!error && fetched && (
+        <>
+          <div className={styles.mySummary}>
+            <div className={styles.summaryIdentity}>
+              <span className={styles.summaryAvatar}><FaUser /></span>
+              <div>
+                <span className={styles.summaryEyebrow}>{t.myPerformance}</span>
+                <strong>{currentUser?.display_name || profile?.display_name || t.you}</strong>
+              </div>
+            </div>
+            <div className={styles.summaryMetrics}>
+              <div>
+                <strong>{currentRank ? `#${currentRank}` : '–'}</strong>
+                <span>{t.rank}</span>
+              </div>
+              <div>
+                <strong>{currentCount}</strong>
+                <span>{t.problemCount}</span>
+              </div>
+              <div>
+                <strong>{percentile}%</strong>
+                <span>{t.surpassed}</span>
+              </div>
+            </div>
+            <div className={styles.summaryMessage}>
+              {currentCount === 0 ? (
+                <Link to="/docs/intro">{t.startPracticing}</Link>
+              ) : currentRank === 1 ? t.firstPlace
+                : gap > 0 ? t.gapToPrevious(gap)
+                  : t.keepGoing}
+            </div>
+          </div>
 
-      {!loading && !error && data.length > 0 && (
-        <div className={styles.leaderboardList}>
-          {data.map((item, idx) => {
-            const rank = idx + 1;
-            const rankClass = rank === 1 ? styles.rank1
-              : rank === 2 ? styles.rank2
-              : rank === 3 ? styles.rank3
-              : '';
-            const barPct = Math.round((item.weekly_count / maxCount) * 100);
+          <div className={styles.listHeader}>
+            <span>{t.topLearners}</span>
+            <span>{t.participants(participantCount)}</span>
+          </div>
 
-            return (
-              <div
-                key={idx}
-                className={`${styles.row} ${item.is_current_user ? styles.rowCurrent : ''}`}
-              >
-                <div className={`${styles.rank} ${rankClass}`}>
-                  {rank}
-                </div>
-                <div className={styles.bar}>
+          {topRows.length === 0 ? (
+            <div className={styles.emptyState}>{t.empty}</div>
+          ) : (
+            <div className={styles.leaderboardList}>
+              {topRows.map((item) => {
+                const rank = Number(item.rank_position);
+                const rankClass = rank === 1 ? styles.rank1
+                  : rank === 2 ? styles.rank2
+                    : rank === 3 ? styles.rank3
+                      : '';
+                const barPct = Math.round((Number(item.problem_count) / maxCount) * 100);
+                return (
                   <div
-                    className={`${styles.barFill} ${rank <= 3 ? styles.barFillTop : ''}`}
-                    style={{ width: `${barPct}%` }}
-                  />
+                    key={`${item.rank_position}-${item.display_name}-${item.is_current_user}`}
+                    className={`${styles.row} ${item.is_current_user ? styles.rowCurrent : ''}`}
+                  >
+                    <span className={`${styles.rank} ${rankClass}`}>{rank}</span>
+                    <span className={styles.avatar}>
+                      {item.is_anonymous ? <FaUserSecret /> : (item.display_name?.[0] || <FaUser />)}
+                    </span>
+                    <div className={styles.learner}>
+                      <div className={styles.learnerName}>
+                        <span>{item.display_name}</span>
+                        {item.is_current_user && <span className={styles.youTag}>{t.you}</span>}
+                      </div>
+                      <div className={styles.bar}>
+                        <div
+                          className={`${styles.barFill} ${rank <= 3 ? styles.barFillTop : ''}`}
+                          style={{ width: `${barPct}%` }}
+                        />
+                      </div>
+                    </div>
+                    <span className={styles.count}>
+                      {item.problem_count}<span>{t.unit}</span>
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {currentOutsideTop && (
+            <div className={styles.currentOutside}>
+              <span className={styles.outsideDivider}>{t.yourPosition}</span>
+              <div className={`${styles.row} ${styles.rowCurrent}`}>
+                <span className={styles.rank}>{currentRank}</span>
+                <span className={styles.avatar}><FaUser /></span>
+                <div className={styles.learner}>
+                  <div className={styles.learnerName}>
+                    <span>{currentUser.display_name}</span>
+                    <span className={styles.youTag}>{t.you}</span>
+                  </div>
                 </div>
                 <span className={styles.count}>
-                  {item.weekly_count}
-                  <span className={styles.countUnit}>{t.unit}</span>
+                  {currentCount}<span>{t.unit}</span>
                 </span>
-                {item.is_current_user && (
-                  <span className={styles.youTag}>{t.you}</span>
-                )}
               </div>
-            );
-          })}
-        </div>
+            </div>
+          )}
+        </>
       )}
     </section>
   );

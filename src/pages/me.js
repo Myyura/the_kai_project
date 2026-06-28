@@ -639,6 +639,9 @@ function PersonalCenterDashboard({ user }) {
         </div>
       )}
 
+      {/* 半月 / 近半年刷题排行榜，新用户也可查看 */}
+      <Leaderboard language={language} />
+
       {!hasAnyPersonalData ? (
         <div className={styles.emptyState}>
           <FaFileAlt className={styles.emptyIcon} />
@@ -649,9 +652,6 @@ function PersonalCenterDashboard({ user }) {
         <>
           {/* 学习热力图 */}
           {total > 0 && <StudyHeatmap entries={entries} t={t} language={language} />}
-
-          {/* 本周刷题排行榜 */}
-          <Leaderboard language={language} />
 
           {/* 用户笔记 */}
           <NotesSection

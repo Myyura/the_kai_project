@@ -91,6 +91,7 @@ const content = {
         items: [
           '访问本站时，服务器可能自动收集浏览器或设备生成的信息，包括访问时间、浏览器类型、操作系统等。',
           '若您使用登录、个人中心、云同步、排行榜、投稿或开发者 API 功能，我们可能处理账号邮箱、认证标识、学习进度、题目笔记、投稿记录、API 申请信息、API Key 元数据及必要调用日志。',
+          '刷题排行榜默认展示您的账号昵称或自行设置的榜单昵称，不展示邮箱；您可随时在排行榜设置中切换为匿名 Kai友。排行榜会公开周期内练习题数、名次及所选显示名称。',
           '上述信息主要用于提供账号登录、学习数据同步、个人中心展示、投稿状态、API 访问审核、安全风控、服务维护和用户支持。我们会根据功能需要采取合理的数据最小化措施。',
           '您可以在浏览器中管理 Cookie 和追踪机制设置。如需访问或删除个人信息，可通过下方联系方式联系我们。',
         ],
@@ -143,6 +144,7 @@ const content = {
         title: 'プライバシー',
         items: [
           'ログイン、同期、投稿、API 機能の提供に必要な範囲で、アカウント情報や利用記録を処理する場合があります。',
+          '学習ランキングには、メールアドレスではなくアカウントの表示名または設定した表示名と学習問題数・順位が公開されます。設定から匿名の Kai友 表示へ切り替えられます。',
           'これらの情報はサービス提供、保守、安全対策、サポートのために利用されます。',
         ],
       },
@@ -194,6 +196,7 @@ const content = {
         title: 'Privacy',
         items: [
           'When you use login, sync, submissions, or API features, we may process account metadata and necessary service records.',
+          'The practice leaderboard publishes your account or chosen display name, problem count, and rank, but not your email address. You can switch to an anonymous Kai Friend name in leaderboard settings.',
           'This information is used for service delivery, maintenance, security, review, and support.',
         ],
       },

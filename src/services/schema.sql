@@ -272,54 +272,341 @@ begin
 end;
 $$ language plpgsql security definer;
 
--- ── 本周刷题排行榜 RPC ─────────────────────────────────────
+-- ── 刷题排行榜 ─────────────────────────────────────────────
 --
--- 安全模型：
---   使用 security definer 在服务端完成跨用户聚合，客户端无法访问原始数据。
---   函数内部强制要求已登录（auth.uid() IS NOT NULL），未登录调用直接返回空。
---   返回值仅包含刷题数量 + 是否为当前用户，不暴露任何用户身份信息。
---   通过 REVOKE/GRANT 限制仅 authenticated 角色可调用。
---
-create or replace function get_weekly_leaderboard()
-returns table (
-  weekly_count bigint,
-  is_current_user boolean
-) as $$
+-- 排行榜使用不可变练习事件统计周期内练习过的不同题目，避免进度快照同步、
+-- 状态反复切换或同一事件重试导致榜单数字失真。所有周期按日本时间计算。
+
+create table if not exists user_practice_events (
+  event_id     uuid not null,
+  user_id      uuid not null references auth.users(id) on delete cascade,
+  doc_id       text not null,
+  event_type   text not null,
+  occurred_at  timestamptz not null,
+  recorded_at  timestamptz not null default now(),
+
+  constraint user_practice_events_pkey primary key (user_id, event_id),
+  constraint user_practice_events_doc_id_check
+    check (char_length(trim(doc_id)) between 1 and 500),
+  constraint user_practice_events_type_check
+    check (event_type in ('practice', 'review'))
+);
+
+create index if not exists idx_user_practice_events_period
+  on user_practice_events(occurred_at desc, user_id, doc_id);
+
+alter table user_practice_events enable row level security;
+revoke all on table user_practice_events from public, anon, authenticated;
+
+-- 客户端仅能通过受控 RPC 批量写入自己的事件；事件 ID 保证重试幂等。
+create or replace function record_practice_events(p_events jsonb)
+returns integer as $$
 declare
-  week_start_ms bigint;
+  v_user_id uuid := auth.uid();
+  v_event jsonb;
+  v_event_id uuid;
+  v_doc_id text;
+  v_event_type text;
+  v_occurred_at timestamptz;
+  v_occurred_ms bigint;
+  v_inserted integer := 0;
+  v_row_count integer := 0;
 begin
-  -- 仅已登录用户可调用
-  if auth.uid() is null then
-    return;
+  if v_user_id is null then
+    raise exception 'Authentication required';
+  end if;
+  if p_events is null or jsonb_typeof(p_events) <> 'array' then
+    raise exception 'Practice events must be an array';
+  end if;
+  if jsonb_array_length(p_events) > 500 then
+    raise exception 'Practice events must be an array of at most 500 items';
   end if;
 
-  -- 毫秒级时间戳（与前端 Date.now() 对齐）
-  week_start_ms := (extract(epoch from date_trunc('week', now())) * 1000)::bigint;
+  for v_event in select value from jsonb_array_elements(p_events)
+  loop
+    if coalesce(v_event->>'id', '') !~* '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$' then
+      continue;
+    end if;
+    v_event_id := (v_event->>'id')::uuid;
+    v_doc_id := left(trim(coalesce(v_event->>'docId', '')), 500);
+    v_event_type := coalesce(v_event->>'eventType', 'practice');
+    begin
+      v_occurred_ms := (v_event->>'occurredAt')::bigint;
+      v_occurred_at := to_timestamp(v_occurred_ms / 1000.0);
+    exception when others then
+      v_occurred_at := now();
+    end;
+    if v_occurred_at is null then
+      v_occurred_at := now();
+    end if;
 
-  return query
-  select
-    sub.cnt::bigint as weekly_count,
-    (sub.uid = auth.uid()) as is_current_user
-  from (
-    select
-      upi.user_id as uid,
-      count(*) as cnt
-    from public.user_progress_items upi
-    where upi.deleted_at is null
-      and upi.status in ('completed', 'reviewing')
-      and upi.client_updated_at >= week_start_ms
-    group by upi.user_id
-  ) sub
-  where sub.cnt > 0
-  order by sub.cnt desc
-  limit 10;
+    if v_doc_id = '' or v_event_type not in ('practice', 'review') then
+      continue;
+    end if;
+    if v_occurred_at > now() + interval '5 minutes' then
+      v_occurred_at := now();
+    elsif v_occurred_at < now() - interval '210 days' then
+      v_occurred_at := now() - interval '210 days';
+    end if;
+
+    insert into public.user_practice_events (
+      event_id, user_id, doc_id, event_type, occurred_at
+    ) values (
+      v_event_id, v_user_id, v_doc_id, v_event_type, v_occurred_at
+    ) on conflict (user_id, event_id) do nothing;
+    get diagnostics v_row_count = row_count;
+    v_inserted := v_inserted + v_row_count;
+  end loop;
+
+  return v_inserted;
 end;
 $$ language plpgsql security definer
 set search_path = '';
 
--- 仅允许已登录用户调用排行榜函数
-revoke execute on function get_weekly_leaderboard() from public, anon;
-grant execute on function get_weekly_leaderboard() to authenticated;
+revoke execute on function record_practice_events(jsonb) from public, anon;
+grant execute on function record_practice_events(jsonb) to authenticated;
+
+-- 初次升级时保留最近半年的现有进度作为一次兼容事件。之后全部使用事件账本。
+insert into public.user_practice_events (
+  event_id, user_id, doc_id, event_type, occurred_at
+)
+select
+  uuid_generate_v5(
+    uuid_ns_url(),
+    'kai-progress:' || upi.user_id::text || ':' || upi.doc_id || ':' || upi.client_updated_at::text
+  ),
+  upi.user_id,
+  upi.doc_id,
+  'practice',
+  to_timestamp(upi.client_updated_at / 1000.0)
+from public.user_progress_items upi
+where upi.deleted_at is null
+  and upi.status in ('completed', 'reviewing')
+  and upi.client_updated_at >= (extract(epoch from now() - interval '6 months') * 1000)::bigint
+on conflict (user_id, event_id) do nothing;
+
+-- 排行榜昵称资料。默认公开账号昵称，用户可覆盖昵称或切换为匿名 Kai友。
+create table if not exists user_leaderboard_profiles (
+  user_id       uuid primary key references auth.users(id) on delete cascade,
+  display_name  text,
+  is_anonymous  boolean not null default false,
+  updated_at    timestamptz not null default now(),
+  created_at    timestamptz not null default now(),
+
+  constraint user_leaderboard_profiles_name_check
+    check (display_name is null or char_length(trim(display_name)) between 2 and 32)
+);
+
+drop trigger if exists update_user_leaderboard_profiles_updated_at on user_leaderboard_profiles;
+create trigger update_user_leaderboard_profiles_updated_at
+  before update on user_leaderboard_profiles
+  for each row execute function update_updated_at_column();
+
+alter table user_leaderboard_profiles enable row level security;
+revoke all on table user_leaderboard_profiles from public, anon, authenticated;
+
+create or replace function leaderboard_default_display_name(p_user_id uuid)
+returns text as $$
+  select left(regexp_replace(coalesce(
+    nullif(trim(u.raw_user_meta_data->>'user_name'), ''),
+    nullif(trim(u.raw_user_meta_data->>'preferred_username'), ''),
+    nullif(trim(u.raw_user_meta_data->>'full_name'), ''),
+    nullif(trim(u.raw_user_meta_data->>'name'), ''),
+    'Kai友 ' || upper(substr(md5(p_user_id::text), 1, 4))
+  ), '[[:space:]]+', ' ', 'g'), 32)
+  from auth.users u
+  where u.id = p_user_id;
+$$ language sql stable security definer
+set search_path = '';
+
+revoke execute on function leaderboard_default_display_name(uuid) from public, anon, authenticated;
+
+create or replace function get_my_leaderboard_profile()
+returns table (display_name text, is_anonymous boolean, anonymous_name text) as $$
+begin
+  if auth.uid() is null then
+    return;
+  end if;
+  return query
+  select
+    coalesce(p.display_name, public.leaderboard_default_display_name(auth.uid())),
+    coalesce(p.is_anonymous, false),
+    'Kai友 ' || upper(substr(md5(auth.uid()::text), 1, 4))
+  from (select 1) seed
+  left join public.user_leaderboard_profiles p on p.user_id = auth.uid();
+end;
+$$ language plpgsql stable security definer
+set search_path = '';
+
+revoke execute on function get_my_leaderboard_profile() from public, anon;
+grant execute on function get_my_leaderboard_profile() to authenticated;
+
+create or replace function set_my_leaderboard_profile(
+  p_display_name text,
+  p_is_anonymous boolean
+)
+returns table (display_name text, is_anonymous boolean, anonymous_name text) as $$
+declare
+  v_name text := left(regexp_replace(trim(coalesce(p_display_name, '')), '[[:space:]]+', ' ', 'g'), 32);
+begin
+  if auth.uid() is null then
+    raise exception 'Authentication required';
+  end if;
+  if char_length(v_name) < 2 then
+    raise exception 'Display name must contain at least 2 characters';
+  end if;
+
+  insert into public.user_leaderboard_profiles (user_id, display_name, is_anonymous)
+  values (auth.uid(), v_name, coalesce(p_is_anonymous, false))
+  on conflict (user_id) do update set
+    display_name = excluded.display_name,
+    is_anonymous = excluded.is_anonymous;
+
+  return query select * from public.get_my_leaderboard_profile();
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function set_my_leaderboard_profile(text, boolean) from public, anon;
+grant execute on function set_my_leaderboard_profile(text, boolean) to authenticated;
+
+drop function if exists get_weekly_leaderboard();
+drop function if exists get_practice_leaderboard(text);
+
+create function get_practice_leaderboard(p_period text default 'half_month')
+returns table (
+  rank_position bigint,
+  display_name text,
+  problem_count bigint,
+  is_current_user boolean,
+  is_anonymous boolean,
+  is_top_ten boolean,
+  participant_count bigint,
+  gap_to_previous bigint,
+  percentile integer,
+  period_start date,
+  period_end date
+) as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_today date := (now() at time zone 'Asia/Tokyo')::date;
+  v_start_date date;
+  v_end_date date;
+  v_start_at timestamptz;
+  v_end_at timestamptz;
+begin
+  if v_user_id is null then
+    return;
+  end if;
+  if p_period not in ('half_month', 'six_months') then
+    raise exception 'Unsupported leaderboard period';
+  end if;
+
+  if p_period = 'half_month' then
+    if extract(day from v_today) <= 15 then
+      v_start_date := date_trunc('month', v_today)::date;
+      v_end_date := v_start_date + 15;
+    else
+      v_start_date := date_trunc('month', v_today)::date + 15;
+      v_end_date := (date_trunc('month', v_today) + interval '1 month')::date;
+    end if;
+  else
+    v_start_date := (v_today - interval '6 months')::date;
+    v_end_date := v_today + 1;
+  end if;
+
+  v_start_at := v_start_date::timestamp at time zone 'Asia/Tokyo';
+  v_end_at := v_end_date::timestamp at time zone 'Asia/Tokyo';
+
+  return query
+  with counts as (
+    select
+      e.user_id,
+      count(distinct e.doc_id)::bigint as practiced
+    from public.user_practice_events e
+    where e.occurred_at >= v_start_at
+      and e.occurred_at < v_end_at
+    group by e.user_id
+  ), ranked as (
+    select
+      c.user_id,
+      c.practiced,
+      dense_rank() over (order by c.practiced desc) as place,
+      row_number() over (order by c.practiced desc, c.user_id) as list_position,
+      count(*) over () as participants
+    from counts c
+  )
+  select
+    r.place,
+    case
+      when coalesce(p.is_anonymous, false)
+        then 'Kai友 ' || upper(substr(md5(r.user_id::text), 1, 4))
+      else coalesce(p.display_name, public.leaderboard_default_display_name(r.user_id))
+    end,
+    r.practiced,
+    r.user_id = v_user_id,
+    coalesce(p.is_anonymous, false),
+    r.list_position <= 10,
+    r.participants,
+    case when r.user_id = v_user_id then coalesce((
+      select min(c2.practiced) - r.practiced
+      from counts c2
+      where c2.practiced > r.practiced
+    ), 0) else 0 end,
+    case
+      when r.participants <= 1 then 0
+      else floor(100.0 * (
+        select count(*) from counts c3 where c3.practiced < r.practiced
+      ) / (r.participants - 1))::integer
+    end,
+    v_start_date,
+    v_end_date - 1
+  from ranked r
+  left join public.user_leaderboard_profiles p on p.user_id = r.user_id
+  where r.list_position <= 10 or r.user_id = v_user_id
+  order by r.list_position;
+
+  if not exists (
+    select 1
+    from public.user_practice_events own_event
+    where own_event.user_id = v_user_id
+      and own_event.occurred_at >= v_start_at
+      and own_event.occurred_at < v_end_at
+  ) then
+    rank_position := null;
+    problem_count := 0;
+    is_current_user := true;
+    is_top_ten := false;
+    gap_to_previous := 0;
+    percentile := 0;
+    period_start := v_start_date;
+    period_end := v_end_date - 1;
+
+    select
+      coalesce(profile.is_anonymous, false),
+      case
+        when coalesce(profile.is_anonymous, false)
+          then 'Kai友 ' || upper(substr(md5(v_user_id::text), 1, 4))
+        else coalesce(profile.display_name, public.leaderboard_default_display_name(v_user_id))
+      end
+    into is_anonymous, display_name
+    from (select 1) seed
+    left join public.user_leaderboard_profiles profile on profile.user_id = v_user_id;
+
+    select count(distinct event_user.user_id)
+    into participant_count
+    from public.user_practice_events event_user
+    where event_user.occurred_at >= v_start_at
+      and event_user.occurred_at < v_end_at;
+
+    return next;
+  end if;
+end;
+$$ language plpgsql stable security definer
+set search_path = '';
+
+revoke execute on function get_practice_leaderboard(text) from public, anon;
+grant execute on function get_practice_leaderboard(text) to authenticated;
 
 -- ============================================================
 -- Public API：题库 JSON API 所需表结构
