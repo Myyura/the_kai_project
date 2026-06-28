@@ -39,7 +39,7 @@ $$
 
 (1) $\hat{\beta}$ 求めよ。
 
-(2) $\hat{\epsilon_i} = y_i - \hat{\beta}x_i$ とおくと、$\sum_{i = 1}^n x_i\hat{\epsilon_i}$ が成り立つことを示せ。
+(2) $\hat{\epsilon_i} = y_i - \hat{\beta}x_i$ とおくと、$\sum_{i = 1}^n x_i\hat{\epsilon_i} = 0$ が成り立つことを示せ。
 
 ### 設問4 
 
