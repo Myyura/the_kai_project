@@ -38,7 +38,16 @@ export const setLanguage = (lang) => {
 const languageSubscribers = new Set();
 let singletonObserver = null;
 
+const syncDocumentLocale = () => {
+  if (typeof document === 'undefined') return;
+  const expectedLocale = getLanguageLocale(getLanguage());
+  if (document.documentElement.getAttribute('lang') !== expectedLocale) {
+    document.documentElement.setAttribute('lang', expectedLocale);
+  }
+};
+
 const notifySubscribers = () => {
+  syncDocumentLocale();
   languageSubscribers.forEach((cb) => cb());
 };
 
@@ -48,8 +57,9 @@ const startObserving = () => {
   singletonObserver = new MutationObserver(notifySubscribers);
   singletonObserver.observe(document.documentElement, {
     attributes: true,
-    attributeFilter: ['data-lang'],
+    attributeFilter: ['data-lang', 'lang'],
   });
+  syncDocumentLocale();
 };
 
 const stopObserving = () => {
