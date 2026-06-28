@@ -33,7 +33,7 @@ const formatPeriodRange = (start, end, language) => {
   return `${formatter.format(new Date(`${start}T00:00:00+09:00`))} – ${formatter.format(new Date(`${end}T00:00:00+09:00`))}`;
 };
 
-export default function Leaderboard({ language = 'zh' }) {
+export default function Leaderboard({ language = 'zh', compact = false }) {
   const { isConfigured, isLoggedIn } = useSync();
   const t = getUiMessages('leaderboard', language);
   const [period, setPeriod] = useState('half_month');
@@ -127,7 +127,7 @@ export default function Leaderboard({ language = 'zh' }) {
   const previewName = profile?.anonymous_name || t.anonymousFallback;
 
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} ${compact ? styles.compactSection : ''}`}>
       <div className={styles.header}>
         <div className={styles.titleGroup}>
           <h2 className={styles.sectionTitle}>

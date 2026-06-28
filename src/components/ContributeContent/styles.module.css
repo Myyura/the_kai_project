@@ -4,8 +4,9 @@
   padding: 2.5rem 0 4rem;
 }
 
-.embeddedShell {
-  padding-top: 0;
+.shell.embeddedShell {
+  width: 100%;
+  padding: 0;
 }
 
 .header {

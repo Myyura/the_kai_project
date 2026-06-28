@@ -1,7 +1,7 @@
 .page {
-  max-width: 900px;
+  width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 2.5rem 0 4rem;
   overflow-x: hidden;
 }
 
@@ -231,6 +231,34 @@
   font-weight: 600;
   color: var(--ifm-color-emphasis-600);
   white-space: nowrap;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  grid-template-areas: 'main sidebar';
+  gap: 1rem;
+  align-items: start;
+}
+
+.dashboardMain {
+  grid-area: main;
+  min-width: 0;
+}
+
+.dashboardSidebar {
+  grid-area: sidebar;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--ifm-background-color);
+  box-shadow: var(--custom-box-shadow);
+}
+
+[data-theme='dark'] .dashboardSidebar {
+  border-color: var(--custom-card-border);
+  background: var(--custom-card-bg);
 }
 
 /* 空状态 */
@@ -833,9 +861,19 @@
 }
 
 /* ================= 平板端适配 ================= */
+@media (max-width: 900px) {
+  .dashboardGrid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'sidebar'
+      'main';
+  }
+}
+
 @media (max-width: 768px) {
   .page {
-    padding: 2rem 1rem 3rem;
+    width: min(1120px, calc(100% - 2rem));
+    padding: 2rem 0 3rem;
   }
 
   .pageTitle {
@@ -859,7 +897,8 @@
 /* ================= 手机端适配 ================= */
 @media (max-width: 640px) {
   .page {
-    padding: 1.25rem 0.75rem 2.5rem;
+    width: min(1120px, calc(100% - 1.5rem));
+    padding: 1.25rem 0 2.5rem;
   }
 
   .pageTitle {
@@ -1008,7 +1047,8 @@
 /* ================= 超小屏幕 (<380px) ================= */
 @media (max-width: 380px) {
   .page {
-    padding: 1rem 0.5rem 2rem;
+    width: calc(100% - 1rem);
+    padding: 1rem 0 2rem;
   }
 
   .statsRow {

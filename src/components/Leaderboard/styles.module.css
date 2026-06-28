@@ -2,6 +2,40 @@
   margin-bottom: 2.5rem;
 }
 
+.compactSection {
+  margin-bottom: 0;
+}
+
+.compactSection .header {
+  align-items: flex-start;
+}
+
+.compactSection .periodTabs {
+  display: grid;
+  width: 100%;
+}
+
+.compactSection .settingsPanel {
+  grid-template-columns: 1fr;
+  padding: 0.8rem 0;
+  border-width: 1px 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.compactSection .mySummary {
+  grid-template-columns: 1fr;
+  padding: 0.9rem 0;
+  border-width: 1px 0;
+  border-left: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.compactSection .summaryMessage {
+  grid-column: auto;
+}
+
 .header,
 .titleGroup,
 .headerActions,

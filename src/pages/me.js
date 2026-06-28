@@ -639,17 +639,20 @@ function PersonalCenterDashboard({ user }) {
         </div>
       )}
 
-      {/* 半月 / 近半年刷题排行榜，新用户也可查看 */}
-      <Leaderboard language={language} />
+      <div className={styles.dashboardGrid}>
+        <aside className={styles.dashboardSidebar}>
+          <Leaderboard language={language} compact />
+        </aside>
 
-      {!hasAnyPersonalData ? (
-        <div className={styles.emptyState}>
-          <FaFileAlt className={styles.emptyIcon} />
-          <p className={styles.emptyText}>{t.noData}</p>
-          <Link to="/docs/intro" className={styles.goBtn}>{t.goExam} <FaArrowRight style={{ fontSize: '0.8em' }} /></Link>
-        </div>
-      ) : (
-        <>
+        <div className={styles.dashboardMain}>
+          {!hasAnyPersonalData ? (
+            <div className={styles.emptyState}>
+              <FaFileAlt className={styles.emptyIcon} />
+              <p className={styles.emptyText}>{t.noData}</p>
+              <Link to="/docs/intro" className={styles.goBtn}>{t.goExam} <FaArrowRight style={{ fontSize: '0.8em' }} /></Link>
+            </div>
+          ) : (
+            <>
           {/* 学习热力图 */}
           {total > 0 && <StudyHeatmap entries={entries} t={t} language={language} />}
 
@@ -766,8 +769,10 @@ function PersonalCenterDashboard({ user }) {
               </div>
             </section>
           )}
-        </>
-      )}
+            </>
+          )}
+        </div>
+      </div>
 
       {/* 云同步 — 放在页面最底部 */}
       <CloudSyncPanel language={language} />
@@ -783,23 +788,19 @@ function MePageInner() {
   if (isConfigured && isLoggedIn) {
     if (activeTab === 'contribute') {
       return (
-        <>
-          <div className={styles.page}>
-            <PersonalCenterHeader activeTab="contribute" />
-          </div>
+        <div className={styles.page}>
+          <PersonalCenterHeader activeTab="contribute" />
           <ContributeContent embedded />
-        </>
+        </div>
       );
     }
 
     if (activeTab === 'developer-api') {
       return (
-        <>
-          <div className={styles.page}>
-            <PersonalCenterHeader activeTab="developer-api" />
-          </div>
+        <div className={styles.page}>
+          <PersonalCenterHeader activeTab="developer-api" />
           <DeveloperApiContent embedded />
-        </>
+        </div>
       );
     }
 
