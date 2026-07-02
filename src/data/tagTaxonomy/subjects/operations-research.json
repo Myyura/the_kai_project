@@ -1,0 +1,44 @@
+{
+  "id": "Operations-Research",
+  "subject": {
+    "labelZh": "运筹与优化",
+    "labelJa": "オペレーションズ・リサーチ",
+    "labelEn": "OR (Operations Research)",
+    "descriptionZh": "优化、排队论、动态规划与决策问题。",
+    "descriptionJa": "最適化、待ち行列、動的計画法、意思決定問題。",
+    "descriptionEn": "Optimization, queueing theory, dynamic programming, and decision problems."
+  },
+  "subsubjects": {
+    "Operations-Research.Optimization": {
+      "subject": "Operations-Research",
+      "labelZh": "优化与运筹",
+      "labelJa": "最適化・OR",
+      "labelEn": "Optimization & OR",
+      "descriptionZh": "优化建模、分支定界、组合优化与决策问题。",
+      "descriptionJa": "最適化モデリング、分枝限定法、組合せ最適化、意思決定問題。",
+      "descriptionEn": "Optimization modeling, branch and bound, combinatorial optimization, and decision problems."
+    },
+    "Operations-Research.Queueing-Theory": {
+      "subject": "Operations-Research",
+      "labelZh": "排队论",
+      "labelJa": "待ち行列理論",
+      "labelEn": "Queueing Theory",
+      "descriptionZh": "排队模型、到达过程、服务过程与系统性能。",
+      "descriptionJa": "待ち行列モデル、到着過程、サービス過程、システム性能。",
+      "descriptionEn": "Queueing models, arrival processes, service processes, and system performance."
+    }
+  },
+  "subsubjectOrder": [
+    "Operations-Research.Optimization",
+    "Operations-Research.Queueing-Theory"
+  ],
+  "topics": {
+    "Operations-Research.Optimization.Branch-And-Bound": {
+      "subsubject": "Operations-Research.Optimization",
+      "subjects": [
+        "Operations-Research",
+        "Computer-Science"
+      ]
+    }
+  }
+}

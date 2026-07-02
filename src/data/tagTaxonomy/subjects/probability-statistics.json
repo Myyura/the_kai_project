@@ -1,0 +1,137 @@
+{
+  "id": "Probability-Statistics",
+  "subject": {
+    "labelZh": "概率与统计",
+    "labelJa": "確率・統計",
+    "labelEn": "Probability & Statistics",
+    "descriptionZh": "概率论、统计推断、随机过程与相关方法。",
+    "descriptionJa": "確率論、統計推論、確率過程、および関連手法。",
+    "descriptionEn": "Probability theory, statistical inference, stochastic processes, and related methods."
+  },
+  "subsubjects": {
+    "Probability-Statistics.Fundamentals": {
+      "subject": "Probability-Statistics",
+      "labelZh": "基础概率统计",
+      "labelJa": "確率・統計基礎",
+      "labelEn": "Probability & Statistics Fundamentals",
+      "descriptionZh": "基本概率计算、常见分布、基础统计量与相关性分析。",
+      "descriptionJa": "基本的な確率計算、代表的な分布、基礎統計量、相関分析。",
+      "descriptionEn": "Basic probability calculations, common distributions, foundational statistics, and correlation analysis."
+    },
+    "Probability-Statistics.Statistical-Inference": {
+      "subject": "Probability-Statistics",
+      "labelZh": "统计推断",
+      "labelJa": "統計推論",
+      "labelEn": "Statistical Inference",
+      "descriptionZh": "估计、检验、最大似然与判别分析。",
+      "descriptionJa": "推定、検定、最尤法、判別分析。",
+      "descriptionEn": "Estimation, testing, maximum likelihood, and discriminant analysis."
+    },
+    "Probability-Statistics.Stochastic-Processes": {
+      "subject": "Probability-Statistics",
+      "labelZh": "随机过程",
+      "labelJa": "確率過程",
+      "labelEn": "Stochastic Processes",
+      "descriptionZh": "马尔可夫链、随机源与随机过程模型。",
+      "descriptionJa": "マルコフ連鎖、確率情報源、確率過程モデル。",
+      "descriptionEn": "Markov chains, stochastic sources, and stochastic process models."
+    }
+  },
+  "subsubjectOrder": [
+    "Probability-Statistics.Fundamentals",
+    "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Stochastic-Processes"
+  ],
+  "topics": {
+    "Probability-Statistics.Fundamentals.Binomial-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Conditional-Probability": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Correlation-Coefficient": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Exponential-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Order-Statistics": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Confidence-Interval": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Bioinformatics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Least-Squares-Method": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Stochastic-Processes.Markov-Chain": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Stochastic-Processes.Markov-Information-Source": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Stochastic-Processes.Markov-Source": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    }
+  }
+}

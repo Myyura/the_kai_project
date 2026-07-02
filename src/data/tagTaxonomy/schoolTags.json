@@ -1,0 +1,130 @@
+{
+  "Tokyo-University": {
+    "universityId": "tokyo-university",
+    "label": "東京大学",
+    "aliases": [
+      "tokyo-university",
+      "東京大学"
+    ]
+  },
+  "Kyoto-University": {
+    "universityId": "kyoto-university",
+    "label": "京都大学",
+    "aliases": [
+      "kyoto-university",
+      "京都大学"
+    ]
+  },
+  "Kyushu-University": {
+    "universityId": "kyushu-university",
+    "label": "九州大学",
+    "aliases": [
+      "kyushu-university",
+      "九州大学"
+    ]
+  },
+  "TITech": {
+    "universityId": "TITech",
+    "label": "東京科學大學 旧・東京工業大学",
+    "aliases": [
+      "Tokyo-Institute-of-Technology",
+      "東京科學大學 旧・東京工業大学"
+    ]
+  },
+  "Nagoya-University": {
+    "universityId": "nagoya-university",
+    "label": "名古屋大学",
+    "aliases": [
+      "nagoya-university",
+      "名古屋大学"
+    ]
+  },
+  "Tohoku-University": {
+    "universityId": "tohoku-university",
+    "label": "東北大学",
+    "aliases": [
+      "tohoku-university",
+      "東北大学"
+    ]
+  },
+  "Osaka-University": {
+    "universityId": "osaka-university",
+    "label": "大阪大学",
+    "aliases": [
+      "osaka-university",
+      "大阪大学"
+    ]
+  },
+  "Hiroshima-University": {
+    "universityId": "hiroshima-university",
+    "label": "広島大学",
+    "aliases": [
+      "hiroshima-university",
+      "広島大学"
+    ]
+  },
+  "Kobe-University": {
+    "universityId": "kobe-university",
+    "label": "神戸大学",
+    "aliases": [
+      "kobe-university",
+      "神戸大学"
+    ]
+  },
+  "Waseda-University": {
+    "universityId": "waseda-university",
+    "label": "早稲田大学",
+    "aliases": [
+      "waseda-university",
+      "早稲田大学"
+    ]
+  },
+  "Tsukuba-University": {
+    "universityId": "tsukuba-university",
+    "label": "筑波大学",
+    "aliases": [
+      "tsukuba-university",
+      "筑波大学"
+    ]
+  },
+  "Hokkaido-University": {
+    "universityId": "hokkaido-university",
+    "label": "北海道大学",
+    "aliases": [
+      "hokkaido-university",
+      "北海道大学"
+    ]
+  },
+  "Kanazawa-University": {
+    "universityId": "kanazawa-university",
+    "label": "金沢大学",
+    "aliases": [
+      "kanazawa-university",
+      "金沢大学"
+    ]
+  },
+  "Keio-University": {
+    "universityId": "keio-university",
+    "label": "慶應義塾大学",
+    "aliases": [
+      "keio-university",
+      "慶應義塾大学"
+    ]
+  },
+  "Tokyo-University-of-Agriculture-and-Technology": {
+    "universityId": "TUAT",
+    "label": "東京農工大学",
+    "aliases": [
+      "TUAT",
+      "東京農工大学"
+    ]
+  },
+  "University-of-Electro-Communications": {
+    "universityId": "UEC",
+    "label": "電気通信大学",
+    "aliases": [
+      "UEC",
+      "電気通信大学"
+    ]
+  }
+}

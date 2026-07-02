@@ -194,17 +194,17 @@ function validateUniversityMetadata(data) {
 }
 
 function validateTagTaxonomy(data) {
-  if (!requireObject(data, 'tagTaxonomy.json')) return;
+  if (!requireObject(data, 'tagTaxonomy')) return;
 
   if (data.version !== undefined) {
-    requireInteger(data.version, 'tagTaxonomy.json.version', { min: 1 });
+    requireInteger(data.version, 'tagTaxonomy.version', { min: 1 });
   }
 
   const subjectIds = new Set();
-  if (requireObject(data.subjects, 'tagTaxonomy.json.subjects')) {
+  if (requireObject(data.subjects, 'tagTaxonomy.subjects')) {
     for (const [subjectId, subject] of Object.entries(data.subjects)) {
       subjectIds.add(subjectId);
-      const base = `tagTaxonomy.json.subjects.${subjectId}`;
+      const base = `tagTaxonomy.subjects.${subjectId}`;
       if (!requireObject(subject, base)) continue;
       requireString(subject.labelZh, `${base}.labelZh`);
       requireString(subject.labelJa, `${base}.labelJa`);
@@ -217,10 +217,10 @@ function validateTagTaxonomy(data) {
     }
   }
 
-  if (requireArray(data.subjectOrder, 'tagTaxonomy.json.subjectOrder')) {
+  if (requireArray(data.subjectOrder, 'tagTaxonomy.subjectOrder')) {
     data.subjectOrder.forEach((subjectId, index) => {
-      if (requireString(subjectId, `tagTaxonomy.json.subjectOrder[${index}]`) && !subjectIds.has(subjectId)) {
-        addError(`tagTaxonomy.json.subjectOrder[${index}]`, `unknown subject "${subjectId}"`);
+      if (requireString(subjectId, `tagTaxonomy.subjectOrder[${index}]`) && !subjectIds.has(subjectId)) {
+        addError(`tagTaxonomy.subjectOrder[${index}]`, `unknown subject "${subjectId}"`);
       }
     });
   }
@@ -244,10 +244,10 @@ function validateTagTaxonomy(data) {
     aliasOwners.set(alias, owner);
   };
 
-  if (requireObject(data.schoolTags, 'tagTaxonomy.json.schoolTags')) {
+  if (requireObject(data.schoolTags, 'tagTaxonomy.schoolTags')) {
     for (const [tagId, tag] of Object.entries(data.schoolTags)) {
       canonicalTags.add(tagId);
-      const base = `tagTaxonomy.json.schoolTags.${tagId}`;
+      const base = `tagTaxonomy.schoolTags.${tagId}`;
       if (!requireObject(tag, base)) continue;
       requireString(tag.universityId, `${base}.universityId`);
       requireString(tag.label, `${base}.label`);
@@ -259,10 +259,10 @@ function validateTagTaxonomy(data) {
 
   const subsubjectIds = new Set();
   if (data.version >= 2 || data.subsubjects !== undefined) {
-    if (requireObject(data.subsubjects, 'tagTaxonomy.json.subsubjects')) {
+    if (requireObject(data.subsubjects, 'tagTaxonomy.subsubjects')) {
       for (const [subsubjectId, subsubject] of Object.entries(data.subsubjects)) {
         subsubjectIds.add(subsubjectId);
-        const base = `tagTaxonomy.json.subsubjects.${subsubjectId}`;
+        const base = `tagTaxonomy.subsubjects.${subsubjectId}`;
         if (!requireObject(subsubject, base)) continue;
         if (requireString(subsubject.subject, `${base}.subject`) && !subjectIds.has(subsubject.subject)) {
           addError(`${base}.subject`, `unknown subject "${subsubject.subject}"`);
@@ -291,21 +291,21 @@ function validateTagTaxonomy(data) {
       }
     }
 
-    if (requireArray(data.subsubjectOrder, 'tagTaxonomy.json.subsubjectOrder')) {
+    if (requireArray(data.subsubjectOrder, 'tagTaxonomy.subsubjectOrder')) {
       data.subsubjectOrder.forEach((subsubjectId, index) => {
         if (
-          requireString(subsubjectId, `tagTaxonomy.json.subsubjectOrder[${index}]`)
+          requireString(subsubjectId, `tagTaxonomy.subsubjectOrder[${index}]`)
           && !subsubjectIds.has(subsubjectId)
         ) {
-          addError(`tagTaxonomy.json.subsubjectOrder[${index}]`, `unknown subsubject "${subsubjectId}"`);
+          addError(`tagTaxonomy.subsubjectOrder[${index}]`, `unknown subsubject "${subsubjectId}"`);
         }
       });
     }
   }
 
-  if (requireObject(data.topics, 'tagTaxonomy.json.topics')) {
+  if (requireObject(data.topics, 'tagTaxonomy.topics')) {
     for (const [tagId, tag] of Object.entries(data.topics)) {
-      const base = `tagTaxonomy.json.topics.${tagId}`;
+      const base = `tagTaxonomy.topics.${tagId}`;
       if (!requireObject(tag, base)) continue;
       if (data.version >= 2) {
         if (requireString(tag.subsubject, `${base}.subsubject`) && !subsubjectIds.has(tag.subsubject)) {
@@ -370,7 +370,7 @@ function validateSiteStats(data) {
 validateLinks(readJson('src/data/links.json'));
 validateAdmissions(readJson('src/data/admissions.json'));
 validateUniversityMetadata(readJson('src/data/universityMetadata.json'));
-const tagTaxonomy = readJson('src/data/tagTaxonomy.json');
+const tagTaxonomy = require('../src/data/tagTaxonomy');
 validateTagTaxonomy(tagTaxonomy);
 if (tagTaxonomy) validateGeneratedTagsFile(tagTaxonomy);
 validateSiteStats(readJson('src/data/siteStats.json'));

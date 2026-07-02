@@ -1,0 +1,23 @@
+{
+  "version": 3,
+  "policy": {
+    "unknownTags": "warning",
+    "schoolTags": "derived-from-path-preferred",
+    "subsubjectTags": "canonical-subsubject-only",
+    "subjectTags": "derived-from-subsubject",
+    "topicTags": "namespaced-topic-only"
+  },
+  "subjectOrder": [
+    "Mathematics",
+    "Computer-Science",
+    "Electrical-Electronic",
+    "Probability-Statistics",
+    "Data-Science-Artificial-Intelligence",
+    "Operations-Research",
+    "Physics",
+    "Chemistry",
+    "Bioinformatics",
+    "Engineering",
+    "General"
+  ]
+}

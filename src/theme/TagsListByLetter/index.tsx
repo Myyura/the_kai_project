@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 import type {Props} from '@theme/TagsListByLetter';
 import Heading from '@theme/Heading';
 import {FiChevronDown, FiSearch} from 'react-icons/fi';
-import tagTaxonomy from '@site/src/data/tagTaxonomy.json';
+import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
 import {normalizeLanguage} from '@site/src/i18n/config';
 import {getUiMessages} from '@site/src/i18n/messages';

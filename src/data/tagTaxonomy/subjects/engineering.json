@@ -1,0 +1,46 @@
+{
+  "id": "Engineering",
+  "subject": {
+    "labelZh": "工学基础",
+    "labelJa": "工学基礎",
+    "labelEn": "Engineering Fundamentals",
+    "descriptionZh": "机械、材料、土木等工学基础题。",
+    "descriptionJa": "機械、材料、土木などの工学基礎。",
+    "descriptionEn": "Foundational engineering problems in mechanics, materials, civil engineering, and related fields."
+  },
+  "subsubjects": {
+    "Engineering.Mechanics-of-Materials": {
+      "subject": "Engineering",
+      "labelZh": "材料力学",
+      "labelJa": "材料力学",
+      "labelEn": "Mechanics of Materials",
+      "descriptionZh": "应力、应变、梁、材料变形与强度。",
+      "descriptionJa": "応力、ひずみ、梁、材料変形、強度。",
+      "descriptionEn": "Stress, strain, beams, material deformation, and strength."
+    },
+    "Engineering.Fluid-Mechanics": {
+      "subject": "Engineering",
+      "labelZh": "流体力学",
+      "labelJa": "流体力学",
+      "labelEn": "Fluid Mechanics",
+      "descriptionZh": "流体运动、波动、连续介质与工程流动问题。",
+      "descriptionJa": "流体運動、波動、連続体、工学的な流れ問題。",
+      "descriptionEn": "Fluid motion, waves, continua, and engineering flow problems."
+    },
+    "Engineering.Materials-Science": {
+      "subject": "Engineering",
+      "labelZh": "材料科学",
+      "labelJa": "材料科学",
+      "labelEn": "Materials Science",
+      "descriptionZh": "材料结构、性质、相变与材料工程基础。",
+      "descriptionJa": "材料構造、性質、相転移、材料工学基礎。",
+      "descriptionEn": "Material structures, properties, phase transitions, and materials engineering basics."
+    }
+  },
+  "subsubjectOrder": [
+    "Engineering.Mechanics-of-Materials",
+    "Engineering.Fluid-Mechanics",
+    "Engineering.Materials-Science"
+  ],
+  "topics": {}
+}

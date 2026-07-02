@@ -1,0 +1,88 @@
+{
+  "id": "Data-Science-Artificial-Intelligence",
+  "subject": {
+    "labelZh": "数据科学与人工智能",
+    "labelJa": "データ科学・人工知能",
+    "labelEn": "Data Science & Artificial Intelligence",
+    "descriptionZh": "数据分析、机器学习、知识表示与智能系统。",
+    "descriptionJa": "データ分析、機械学習、知識表現、知的システム。",
+    "descriptionEn": "Data analysis, machine learning, knowledge representation, and intelligent systems."
+  },
+  "subsubjects": {
+    "Data-Science-Artificial-Intelligence.Data-Science": {
+      "subject": "Data-Science-Artificial-Intelligence",
+      "labelZh": "数据科学",
+      "labelJa": "データ科学",
+      "labelEn": "Data Science",
+      "descriptionZh": "数据处理、数据分析、特征工程与数据驱动建模。",
+      "descriptionJa": "データ処理、データ分析、特徴量設計、データ駆動モデリング。",
+      "descriptionEn": "Data processing, analysis, feature engineering, and data-driven modeling."
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence": {
+      "subject": "Data-Science-Artificial-Intelligence",
+      "labelZh": "人工智能基础",
+      "labelJa": "人工知能基礎",
+      "labelEn": "Artificial Intelligence",
+      "descriptionZh": "知识表示、语义网络与智能系统基础。",
+      "descriptionJa": "知識表現、意味ネットワーク、知的システムの基礎。",
+      "descriptionEn": "Knowledge representation, semantic networks, and foundations of intelligent systems."
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning": {
+      "subject": "Data-Science-Artificial-Intelligence",
+      "labelZh": "机器学习",
+      "labelJa": "機械学習",
+      "labelEn": "Machine Learning",
+      "descriptionZh": "分类、决策树、强化学习与学习模型。",
+      "descriptionJa": "分類、決定木、強化学習、学習モデル。",
+      "descriptionEn": "Classification, decision trees, reinforcement learning, and learning models."
+    }
+  },
+  "subsubjectOrder": [
+    "Data-Science-Artificial-Intelligence.Data-Science",
+    "Data-Science-Artificial-Intelligence.Machine-Learning",
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence"
+  ],
+  "topics": {
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Classification": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Mathematics"
+      ]
+    }
+  }
+}

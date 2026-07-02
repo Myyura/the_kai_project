@@ -79,13 +79,13 @@ yarn api:validate
 
 - `yarn generate:universities`：当你修改 `docs/` 目录结构或 `_category_.json` 标签后，重新生成 `src/data/universities.js`。
 - `yarn generate:site-stats`：使用 JSON API 的同一套扫描逻辑重新生成 `src/data/siteStats.json`。
-- `yarn tags:generate`：根据 `src/data/tagTaxonomy.json` 重新生成 `docs/tags.yml`。
+- `yarn tags:generate`：根据 `src/data/tagTaxonomy/` 下按科目拆分的文件重新生成 `docs/tags.yml`。
 - `yarn content:validate`：校验 `src/data/` 下贡献者可编辑的 JSON 数据，包括参考链接、录取数据、大学元数据和 tag 池。
 - `yarn tags:audit`：统计全站学校、学科、子科目、考点、待归类和废弃 tag 的使用情况。
 - `yarn review:format`：在提交 PR 前检查 `docs/` 下题解文档的格式。
 - `yarn api:validate`：检查 JSON API 使用的结构化题库数据。
 
-贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`admissions.json`、`universityMetadata.json` 和 `tagTaxonomy.json`。自动生成的 `universities.js`、`siteStats.json` 和 `docs/tags.yml` 可用上面的脚本刷新。
+贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`admissions.json`、`universityMetadata.json` 和 `tagTaxonomy/` 目录。tag 定义按主科目存放在 `tagTaxonomy/subjects/`，全局策略和学校 tag 则存放在同级文件中。自动生成的 `universities.js`、`siteStats.json` 和 `docs/tags.yml` 可用上面的脚本刷新。
 
 ## 可选的云同步配置
 即使不配置云端环境变量，站点的核心公开内容仍可正常访问，包括文档、博客、题目与题解。若不配置下面这些变量，则登录、个人中心、进度/笔记、云同步和排行榜功能不可用。
@@ -211,11 +211,11 @@ tags:
 - 如果两个章节都存在，顺序应保持为 `Author` → `Description` → `Kai`
 
 tag 规则：
-- 推荐从 [src/data/tagTaxonomy.json](src/data/tagTaxonomy.json) 选择已有 canonical 子科目 ID 与 namespaced 考点 ID。一级学科与旧短考点 tag 都不是有效 frontmatter tag。
+- 推荐从[按科目拆分的 tag 文件](src/data/tagTaxonomy/subjects)中选择已有 canonical 子科目 ID 与 namespaced 考点 ID。一级学科与旧短考点 tag 都不是有效 frontmatter tag。
 - tag 池中的关联科目应以题目内容中确实出现的强关联为准，不按宽泛的理论交叉来归类。
 - 学校 tag 暂时保持兼容，但站点会优先从 `docs/学校/研究科/...` 路径推导学校信息。
 - 正确的新子科目或考点 tag 可以直接提交；`yarn review:format` 只会给 warning，不会阻止 PR。
-- 明确废弃或拼写错误的 tag 会给 error，并提示应替换成哪个 canonical tag。
+- 当前 tag 池中不存在的 tag 会作为新 tag 给出提示，便于检查拼写或联系管理员审查。
 - 如果一篇文档只有学校 tag，没有任何学习 tag，脚本会给 warning。若只有子科目 tag，脚本会建议在题面线索足够时继续补充具体考点。
 
 提交 PR 前建议先运行：

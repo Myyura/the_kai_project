@@ -1,4 +1,4 @@
-const taxonomy = require('../src/data/tagTaxonomy.json');
+const taxonomy = require('../src/data/tagTaxonomy');
 
 function normalizeTagValue(value) {
   return String(value ?? '').trim();

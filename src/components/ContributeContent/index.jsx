@@ -18,7 +18,7 @@ import { getSupabaseClient } from '@site/src/services/supabaseClient';
 import { getVerifiedAccessToken } from '@site/src/services/syncService';
 import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
 import { universities } from '@site/src/data/universities';
-import tagTaxonomy from '@site/src/data/tagTaxonomy.json';
+import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import styles from './styles.module.css';
 
 const CUSTOM_OPTION = '__custom__';

@@ -1,0 +1,36 @@
+{
+  "id": "Chemistry",
+  "subject": {
+    "labelZh": "化学",
+    "labelJa": "化学",
+    "labelEn": "Chemistry",
+    "descriptionZh": "物理化学、无机化学等化学相关考点。",
+    "descriptionJa": "物理化学、無機化学などの化学分野。",
+    "descriptionEn": "Physical chemistry, inorganic chemistry, and related chemistry topics."
+  },
+  "subsubjects": {
+    "Chemistry.Physical-Chemistry": {
+      "subject": "Chemistry",
+      "labelZh": "物理化学",
+      "labelJa": "物理化学",
+      "labelEn": "Physical Chemistry",
+      "descriptionZh": "热化学、反应动力学、量子化学与物理化学基础。",
+      "descriptionJa": "熱化学、反応速度論、量子化学、物理化学基礎。",
+      "descriptionEn": "Thermochemistry, reaction kinetics, quantum chemistry, and physical chemistry basics."
+    },
+    "Chemistry.Inorganic-Chemistry": {
+      "subject": "Chemistry",
+      "labelZh": "无机化学",
+      "labelJa": "無機化学",
+      "labelEn": "Inorganic Chemistry",
+      "descriptionZh": "元素、配位化学、无机反应与结构。",
+      "descriptionJa": "元素、錯体化学、無機反応、構造。",
+      "descriptionEn": "Elements, coordination chemistry, inorganic reactions, and structures."
+    }
+  },
+  "subsubjectOrder": [
+    "Chemistry.Physical-Chemistry",
+    "Chemistry.Inorganic-Chemistry"
+  ],
+  "topics": {}
+}

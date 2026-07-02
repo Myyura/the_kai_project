@@ -1,0 +1,66 @@
+{
+  "id": "Physics",
+  "subject": {
+    "labelZh": "物理",
+    "labelJa": "物理",
+    "labelEn": "Physics",
+    "descriptionZh": "力学、电磁学、量子与物理数学。",
+    "descriptionJa": "力学、電磁気学、量子論、物理数学。",
+    "descriptionEn": "Mechanics, electromagnetism, quantum topics, and mathematical physics."
+  },
+  "subsubjects": {
+    "Physics.Mechanics": {
+      "subject": "Physics",
+      "labelZh": "力学",
+      "labelJa": "力学",
+      "labelEn": "Mechanics",
+      "descriptionZh": "经典力学、振动、旋转参考系与连续介质基础。",
+      "descriptionJa": "古典力学、振動、回転座標系、連続体の基礎。",
+      "descriptionEn": "Classical mechanics, oscillation, rotating frames, and continuum basics."
+    },
+    "Physics.Electromagnetism": {
+      "subject": "Physics",
+      "labelZh": "电磁学",
+      "labelJa": "電磁気学",
+      "labelEn": "Electromagnetism",
+      "descriptionZh": "电场、磁场、麦克斯韦方程与电磁现象。",
+      "descriptionJa": "電場、磁場、マクスウェル方程式、電磁現象。",
+      "descriptionEn": "Electric fields, magnetic fields, Maxwell equations, and electromagnetic phenomena."
+    },
+    "Physics.Quantum-Mechanics": {
+      "subject": "Physics",
+      "labelZh": "量子力学",
+      "labelJa": "量子力学",
+      "labelEn": "Quantum Mechanics",
+      "descriptionZh": "量子态、算符、自旋与量子统计基础。",
+      "descriptionJa": "量子状態、演算子、スピン、量子統計の基礎。",
+      "descriptionEn": "Quantum states, operators, spin, and foundations of quantum statistics."
+    },
+    "Physics.Thermodynamics": {
+      "subject": "Physics",
+      "labelZh": "热力学与统计物理",
+      "labelJa": "熱力学・統計物理",
+      "labelEn": "Thermodynamics & Statistical Physics",
+      "descriptionZh": "热力学、统计系综、分布函数与物性基础。",
+      "descriptionJa": "熱力学、統計集団、分布関数、物性基礎。",
+      "descriptionEn": "Thermodynamics, ensembles, distribution functions, and foundations of physical properties."
+    },
+    "Physics.Ocean-Physics": {
+      "subject": "Physics",
+      "labelZh": "物理海洋学",
+      "labelJa": "海洋物理学",
+      "labelEn": "Ocean Physics",
+      "descriptionZh": "海洋中的波动、流动、传播与物理过程。",
+      "descriptionJa": "海洋における波動、流れ、伝播、物理過程。",
+      "descriptionEn": "Waves, flows, propagation, and physical processes in the ocean."
+    }
+  },
+  "subsubjectOrder": [
+    "Physics.Mechanics",
+    "Physics.Electromagnetism",
+    "Physics.Quantum-Mechanics",
+    "Physics.Thermodynamics",
+    "Physics.Ocean-Physics"
+  ],
+  "topics": {}
+}

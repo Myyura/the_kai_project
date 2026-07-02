@@ -1,0 +1,109 @@
+{
+  "id": "Electrical-Electronic",
+  "subject": {
+    "labelZh": "电气电子",
+    "labelJa": "電気電子",
+    "labelEn": "EE (Electrical & Electronic)",
+    "descriptionZh": "电路、电子、信号、通信与计算机硬件。",
+    "descriptionJa": "回路、電子、信号、通信、計算機ハードウェア。",
+    "descriptionEn": "Circuits, electronics, signals, communications, and computer hardware."
+  },
+  "subsubjects": {
+    "Electrical-Electronic.Circuits": {
+      "subject": "Electrical-Electronic",
+      "labelZh": "电路与电子电路",
+      "labelJa": "電気回路・電子回路",
+      "labelEn": "Circuits & Electronics",
+      "descriptionZh": "电路分析、电子电路与模拟/数字硬件基础。",
+      "descriptionJa": "回路解析、電子回路、アナログ/デジタルハードウェア基礎。",
+      "descriptionEn": "Circuit analysis, electronic circuits, and analog/digital hardware foundations."
+    },
+    "Electrical-Electronic.Digital-Logic": {
+      "subject": "Electrical-Electronic",
+      "labelZh": "数字逻辑",
+      "labelJa": "デジタル論理",
+      "labelEn": "Digital Logic",
+      "descriptionZh": "组合逻辑、时序逻辑、加法器与同步电路。",
+      "descriptionJa": "組合せ論理、順序論理、加算器、同期回路。",
+      "descriptionEn": "Combinational logic, sequential logic, adders, and synchronous circuits."
+    },
+    "Electrical-Electronic.Signal-Processing": {
+      "subject": "Electrical-Electronic",
+      "labelZh": "信号处理",
+      "labelJa": "信号処理",
+      "labelEn": "Signal Processing",
+      "descriptionZh": "离散信号、变换、滤波与频域分析。",
+      "descriptionJa": "離散信号、変換、フィルタリング、周波数領域解析。",
+      "descriptionEn": "Discrete signals, transforms, filtering, and frequency-domain analysis."
+    },
+    "Electrical-Electronic.Control-Theory": {
+      "subject": "Electrical-Electronic",
+      "labelZh": "控制理论",
+      "labelJa": "制御理論",
+      "labelEn": "Control Theory",
+      "descriptionZh": "系统建模、稳定性、反馈与控制系统分析。",
+      "descriptionJa": "システムモデリング、安定性、フィードバック、制御系解析。",
+      "descriptionEn": "System modeling, stability, feedback, and control system analysis."
+    },
+    "Electrical-Electronic.Communications": {
+      "subject": "Electrical-Electronic",
+      "labelZh": "通信与编码",
+      "labelJa": "通信・符号化",
+      "labelEn": "Communications & Coding",
+      "descriptionZh": "通信信道、编码、信息传输与误差控制。",
+      "descriptionJa": "通信路、符号化、情報伝送、誤り制御。",
+      "descriptionEn": "Communication channels, coding, information transmission, and error control."
+    }
+  },
+  "subsubjectOrder": [
+    "Electrical-Electronic.Circuits",
+    "Electrical-Electronic.Digital-Logic",
+    "Electrical-Electronic.Signal-Processing",
+    "Electrical-Electronic.Control-Theory",
+    "Electrical-Electronic.Communications"
+  ],
+  "topics": {
+    "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "subjects": [
+        "Electrical-Electronic",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Half-Full-Adders": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "subjects": [
+        "Electrical-Electronic",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Sequential-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "subjects": [
+        "Electrical-Electronic",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Synchronous-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "subjects": [
+        "Electrical-Electronic",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "subjects": [
+        "Electrical-Electronic",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Z-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "subjects": [
+        "Electrical-Electronic",
+        "Mathematics"
+      ]
+    }
+  }
+}

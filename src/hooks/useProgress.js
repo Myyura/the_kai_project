@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { getCalibratedNow } from '../services/syncService';
 import { queuePracticeEvent } from '../services/practiceEvents';
 import { addStorageOwnerChangeListener, getScopedStorageKey } from '../services/localStorageScope';
-import tagTaxonomy from '../data/tagTaxonomy.json';
+import tagTaxonomy from '../data/tagTaxonomy';
 
 export const STORAGE_KEY = 'kai_progress';
 

@@ -80,13 +80,13 @@ yarn api:validate
 
 - `yarn generate:universities`: regenerate `src/data/universities.js` after changing the `docs/` directory structure or `_category_.json` labels.
 - `yarn generate:site-stats`: regenerate `src/data/siteStats.json` from the same scan used by the public JSON API.
-- `yarn tags:generate`: regenerate `docs/tags.yml` from `src/data/tagTaxonomy.json`.
+- `yarn tags:generate`: regenerate `docs/tags.yml` from the subject files under `src/data/tagTaxonomy/`.
 - `yarn content:validate`: validate contributor-editable JSON data under `src/data/`, including links, admissions, university metadata, and the tag taxonomy.
 - `yarn tags:audit`: summarize site-wide school, subject, subsubject, topic, pending, and deprecated tag usage.
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
 - `yarn api:validate`: validate the structured data used by the public JSON API.
 
-Contributor-editable content data lives in JSON files under `src/data/`: `links.json`, `admissions.json`, `universityMetadata.json`, and `tagTaxonomy.json`. The generated `universities.js`, `siteStats.json`, and `docs/tags.yml` files should be refreshed with the scripts above.
+Contributor-editable content data lives under `src/data/`: `links.json`, `admissions.json`, `universityMetadata.json`, and the `tagTaxonomy/` directory. Tag definitions are split by primary subject under `tagTaxonomy/subjects/`; global policy and school tags live alongside them. The generated `universities.js`, `siteStats.json`, and `docs/tags.yml` files should be refreshed with the scripts above.
 
 ## Optional cloud sync configuration
 The site works without any cloud credentials: core public content such as documentation pages, blog posts, exam pages, and public solutions remains accessible. If the environment variables below are not set, login, personal center, progress/notes, cloud sync, and the leaderboard are unavailable.
@@ -212,11 +212,11 @@ Rules enforced by the repository formatter:
 - If both are present, keep the order `Author` → `Description` → `Kai`.
 
 Tag rules:
-- Prefer existing canonical subsubject IDs and namespaced topic IDs from [src/data/tagTaxonomy.json](src/data/tagTaxonomy.json). Top-level subject tags and legacy short topic tags are not valid frontmatter tags.
+- Prefer existing canonical subsubject IDs and namespaced topic IDs from the [subject taxonomy files](src/data/tagTaxonomy/subjects). Top-level subject tags and legacy short topic tags are not valid frontmatter tags.
 - Subject associations in the taxonomy should be strong associations found in actual problem content, not broad theoretical overlap.
 - School tags remain compatible, but the site primarily derives school metadata from the `docs/school/department/...` path.
 - Correct new subsubject or topic tags are allowed; `yarn review:format` reports them as warnings instead of blocking the PR.
-- Deprecated or typo tags are reported as errors with the canonical replacement.
+- Tags missing from the current taxonomy are reported as new tags so contributors can check their spelling or request review.
 - If a document only has a school tag and no learning tag, the formatter reports a warning. If it has only a subsubject tag, the formatter suggests adding a more concrete topic when the problem statement has enough signal.
 
 Before opening a PR, please run:

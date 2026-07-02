@@ -1,0 +1,434 @@
+{
+  "id": "Mathematics",
+  "subject": {
+    "labelZh": "数学",
+    "labelJa": "数学",
+    "labelEn": "Math",
+    "descriptionZh": "基础数学、应用数学、离散数学与概率统计。",
+    "descriptionJa": "基礎数学、応用数学、離散数学、確率統計。",
+    "descriptionEn": "Core mathematics, applied mathematics, discrete math, probability, and statistics."
+  },
+  "subsubjects": {
+    "Mathematics.Calculus": {
+      "subject": "Mathematics",
+      "labelZh": "微积分",
+      "labelJa": "微積分",
+      "labelEn": "Calculus",
+      "descriptionZh": "极限、微分、积分与多变量微积分。",
+      "descriptionJa": "極限、微分、積分、多変数微積分。",
+      "descriptionEn": "Limits, differentiation, integration, and multivariable calculus."
+    },
+    "Mathematics.Linear-Algebra": {
+      "subject": "Mathematics",
+      "labelZh": "线性代数",
+      "labelJa": "線形代数",
+      "labelEn": "Linear Algebra",
+      "descriptionZh": "矩阵、线性变换、特征值、分解与内积空间。",
+      "descriptionJa": "行列、線形変換、固有値、分解、内積空間。",
+      "descriptionEn": "Matrices, linear transformations, eigenvalues, decompositions, and inner product spaces."
+    },
+    "Mathematics.Complex-Analysis": {
+      "subject": "Mathematics",
+      "labelZh": "复分析",
+      "labelJa": "複素解析",
+      "labelEn": "Complex Analysis",
+      "descriptionZh": "复数、复函数、留数与解析函数。",
+      "descriptionJa": "複素数、複素関数、留数、正則関数。",
+      "descriptionEn": "Complex numbers, complex functions, residues, and analytic functions."
+    },
+    "Mathematics.Differential-Equations": {
+      "subject": "Mathematics",
+      "labelZh": "微分方程",
+      "labelJa": "微分方程式",
+      "labelEn": "Differential Equations",
+      "descriptionZh": "常微分方程、动力系统与相关解析方法。",
+      "descriptionJa": "常微分方程式、力学系、関連する解析手法。",
+      "descriptionEn": "Ordinary differential equations, dynamical systems, and related analysis methods."
+    },
+    "Mathematics.Vector-Calculus": {
+      "subject": "Mathematics",
+      "labelZh": "向量分析",
+      "labelJa": "ベクトル解析",
+      "labelEn": "Vector Calculus",
+      "descriptionZh": "梯度、散度、旋度、线积分与曲面积分。",
+      "descriptionJa": "勾配、発散、回転、線積分、面積分。",
+      "descriptionEn": "Gradient, divergence, curl, line integrals, and surface integrals."
+    },
+    "Mathematics.Discrete-Mathematics": {
+      "subject": "Mathematics",
+      "labelZh": "离散数学",
+      "labelJa": "離散数学",
+      "labelEn": "Discrete Mathematics",
+      "descriptionZh": "组合、递推、离散结构与基础证明。",
+      "descriptionJa": "組合せ、漸化式、離散構造、基礎的な証明。",
+      "descriptionEn": "Combinatorics, recurrences, discrete structures, and basic proofs."
+    },
+    "Mathematics.Graph-Theory": {
+      "subject": "Mathematics",
+      "labelZh": "图论",
+      "labelJa": "グラフ理論",
+      "labelEn": "Graph Theory",
+      "descriptionZh": "图、树、匹配、平面图与图同构。",
+      "descriptionJa": "グラフ、木、マッチング、平面グラフ、同型。",
+      "descriptionEn": "Graphs, trees, matchings, planar graphs, and graph isomorphism."
+    },
+    "Mathematics.Number-Theory": {
+      "subject": "Mathematics",
+      "labelZh": "数论",
+      "labelJa": "整数論",
+      "labelEn": "Number Theory",
+      "descriptionZh": "整数、整除、最大公约数与数论算法。",
+      "descriptionJa": "整数、整除、最大公約数、整数論的アルゴリズム。",
+      "descriptionEn": "Integers, divisibility, greatest common divisors, and number-theoretic algorithms."
+    },
+    "Mathematics.Fourier-Analysis": {
+      "subject": "Mathematics",
+      "labelZh": "傅里叶分析",
+      "labelJa": "フーリエ解析",
+      "labelEn": "Fourier Analysis",
+      "descriptionZh": "傅里叶级数、傅里叶变换与卷积。",
+      "descriptionJa": "フーリエ級数、フーリエ変換、畳み込み。",
+      "descriptionEn": "Fourier series, Fourier transforms, and convolution."
+    },
+    "Mathematics.Geometry": {
+      "subject": "Mathematics",
+      "labelZh": "几何",
+      "labelJa": "幾何",
+      "labelEn": "Geometry",
+      "descriptionZh": "几何对象、空间结构与计算几何基础。",
+      "descriptionJa": "幾何対象、空間構造、計算幾何の基礎。",
+      "descriptionEn": "Geometric objects, spatial structures, and computational geometry basics."
+    }
+  },
+  "subsubjectOrder": [
+    "Mathematics.Calculus",
+    "Mathematics.Linear-Algebra",
+    "Mathematics.Complex-Analysis",
+    "Mathematics.Differential-Equations",
+    "Mathematics.Vector-Calculus",
+    "Mathematics.Discrete-Mathematics",
+    "Mathematics.Graph-Theory",
+    "Mathematics.Number-Theory",
+    "Mathematics.Fourier-Analysis",
+    "Mathematics.Geometry"
+  ],
+  "topics": {
+    "Mathematics.Calculus.Cauchy-Sequence": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Calculus.Sequence-Convergence": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Complex-Analysis.Complex-Numbers": {
+      "subsubject": "Mathematics.Complex-Analysis",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Discrete-Mathematics.Binomial-Coefficient": {
+      "subsubject": "Mathematics.Discrete-Mathematics",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Discrete-Mathematics.Catalan-Number": {
+      "subsubject": "Mathematics.Discrete-Mathematics",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Discrete-Mathematics.Recurrence-Relation": {
+      "subsubject": "Mathematics.Discrete-Mathematics",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Convolution": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "subjects": [
+        "Mathematics",
+        "Electrical-Electronic"
+      ]
+    },
+    "Mathematics.Graph-Theory.Articulation-Point": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Bellman-Ford-Algorithm": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Bipartite-Graph": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Bipartite-Matching": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Breadth-First-Search": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Complete-Graph": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Connectivity": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Cut": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Depth-First-Search": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Dijkstra-Algorithm": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Euler-Circuit": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Fundamentals": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Graph-Isomorphism": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Kruskal-Algorithm": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Matching": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Maximum-Flow": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Maximum-Matching": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Minimum-Spanning-Tree": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Planar-Graph": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Prim-Algorithm": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Shortest-Path-Problem": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Spanning-Tree": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Graph-Theory.Topological-Sort": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Graph-Theory.Tree-Metric": {
+      "subsubject": "Mathematics.Graph-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Affine-Transformation": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Hermitian-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Linear-Transformation": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Matrix-Diagonalization": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Matrix-Limit": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Matrix-Power": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Orthogonal-Decomposition": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Orthogonal-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Pseudoinverse-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.SVD": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Trace-of-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Number-Theory.Greatest-Common-Divisor": {
+      "subsubject": "Mathematics.Number-Theory",
+      "subjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Divergence-Theorem": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Green’s-Identity": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    }
+  }
+}

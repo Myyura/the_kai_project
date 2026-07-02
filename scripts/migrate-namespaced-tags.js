@@ -7,7 +7,9 @@ const { buildTagsYaml } = require('./generate-docusaurus-tags');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');
-const TAXONOMY_PATH = path.join(REPO_ROOT, 'src/data/tagTaxonomy.json');
+const TAXONOMY_DIR = path.join(REPO_ROOT, 'src/data/tagTaxonomy');
+const TAXONOMY_CONFIG_PATH = path.join(TAXONOMY_DIR, 'config.json');
+const TAXONOMY_SUBJECTS_DIR = path.join(TAXONOMY_DIR, 'subjects');
 const DOCS_TAGS_PATH = path.join(REPO_ROOT, 'docs/tags.yml');
 
 function normalizePath(input) {
@@ -20,6 +22,36 @@ function readJson(filePath) {
 
 function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
+}
+
+function writeTaxonomy(taxonomy) {
+  const config = readJson(TAXONOMY_CONFIG_PATH);
+  writeJson(TAXONOMY_CONFIG_PATH, {
+    ...config,
+    version: taxonomy.version,
+    policy: taxonomy.policy,
+    subjectOrder: taxonomy.subjectOrder,
+  });
+
+  for (const fileName of fs.readdirSync(TAXONOMY_SUBJECTS_DIR).filter((name) => name.endsWith('.json'))) {
+    const filePath = path.join(TAXONOMY_SUBJECTS_DIR, fileName);
+    const definition = readJson(filePath);
+    const subsubjects = Object.fromEntries(
+      Object.entries(taxonomy.subsubjects).filter(([, meta]) => meta.subject === definition.id),
+    );
+    const subsubjectIds = new Set(Object.keys(subsubjects));
+    const topics = Object.fromEntries(
+      Object.entries(taxonomy.topics).filter(([, meta]) => subsubjectIds.has(meta.subsubject)),
+    );
+
+    writeJson(filePath, {
+      ...definition,
+      subject: taxonomy.subjects[definition.id],
+      subsubjects,
+      subsubjectOrder: taxonomy.subsubjectOrder.filter((id) => subsubjectIds.has(id)),
+      topics,
+    });
+  }
 }
 
 function listMarkdownFiles(dirPath) {
@@ -229,13 +261,13 @@ function main() {
     process.exit(1);
   }
 
-  const taxonomy = readJson(TAXONOMY_PATH);
+  const taxonomy = require('../src/data/tagTaxonomy');
   const migration = buildMigration(taxonomy);
   const files = listMarkdownFiles(DOCS_DIR);
   const results = files.map((file) => migrateDocument(file, migration, write)).filter(Boolean);
 
   if (write) {
-    writeJson(TAXONOMY_PATH, migration.nextTaxonomy);
+    writeTaxonomy(migration.nextTaxonomy);
     fs.writeFileSync(DOCS_TAGS_PATH, buildTagsYaml(migration.nextTaxonomy));
   }
 
