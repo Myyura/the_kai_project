@@ -26,11 +26,21 @@
       "descriptionZh": "排队模型、到达过程、服务过程与系统性能。",
       "descriptionJa": "待ち行列モデル、到着過程、サービス過程、システム性能。",
       "descriptionEn": "Queueing models, arrival processes, service processes, and system performance."
+    },
+    "Operations-Research.Game-Theory": {
+      "subject": "Operations-Research",
+      "labelZh": "博弈论",
+      "labelJa": "ゲーム理論",
+      "labelEn": "Game Theory",
+      "descriptionZh": "零和博弈、鞍点、纳什均衡与策略互动。",
+      "descriptionJa": "ゼロ和ゲーム、鞍点、ナッシュ均衡、戦略的相互作用。",
+      "descriptionEn": "Zero-sum games, saddle points, Nash equilibria, and strategic interaction."
     }
   },
   "subsubjectOrder": [
     "Operations-Research.Optimization",
-    "Operations-Research.Queueing-Theory"
+    "Operations-Research.Queueing-Theory",
+    "Operations-Research.Game-Theory"
   ],
   "topics": {
     "Operations-Research.Optimization.Branch-And-Bound": {
@@ -38,6 +48,56 @@
       "subjects": [
         "Operations-Research",
         "Computer-Science"
+      ]
+    },
+    "Operations-Research.Optimization.Linear-Programming": {
+      "subsubject": "Operations-Research.Optimization",
+      "subjects": [
+        "Operations-Research",
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Optimization.Linear-Programming-Duality": {
+      "subsubject": "Operations-Research.Optimization",
+      "subjects": [
+        "Operations-Research",
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Optimization.Simplex-Method": {
+      "subsubject": "Operations-Research.Optimization",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Optimization.Stepping-Stone-Method": {
+      "subsubject": "Operations-Research.Optimization",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Optimization.Transportation-Problem": {
+      "subsubject": "Operations-Research.Optimization",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Game-Theory.Nash-Equilibrium": {
+      "subsubject": "Operations-Research.Game-Theory",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Game-Theory.Prisoners-Dilemma": {
+      "subsubject": "Operations-Research.Game-Theory",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Game-Theory.Saddle-Point": {
+      "subsubject": "Operations-Research.Game-Theory",
+      "subjects": [
+        "Operations-Research"
       ]
     }
   }

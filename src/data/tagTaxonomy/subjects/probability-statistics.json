@@ -43,6 +43,25 @@
     "Probability-Statistics.Stochastic-Processes"
   ],
   "topics": {
+    "Probability-Statistics.Fundamentals.Conditional-Density": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Law-of-Large-Numbers": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Normal-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Probability-Statistics.Fundamentals.Binomial-Distribution": {
       "subsubject": "Probability-Statistics.Fundamentals",
       "subjects": [
@@ -102,6 +121,36 @@
       ]
     },
     "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.ANOVA": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Experimental-Design": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Hypothesis-Testing": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Method-of-Moments": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Simple-Linear-Regression": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
         "Probability-Statistics"

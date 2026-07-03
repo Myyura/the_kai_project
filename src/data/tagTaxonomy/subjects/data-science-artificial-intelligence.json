@@ -63,6 +63,18 @@
         "Data-Science-Artificial-Intelligence"
       ]
     },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Ensemble-Learning": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.K-Means": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "subjects": [
@@ -82,6 +94,12 @@
       "subjects": [
         "Data-Science-Artificial-Intelligence",
         "Mathematics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Support-Vector-Machine": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence"
       ]
     }
   }

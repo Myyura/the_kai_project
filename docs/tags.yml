@@ -196,6 +196,10 @@
   label: "Operations-Research.Queueing-Theory"
   permalink: "/subsubject/operations-research/queueing-theory"
   description: "Operations-Research / Queueing-Theory"
+"Operations-Research.Game-Theory":
+  label: "Operations-Research.Game-Theory"
+  permalink: "/subsubject/operations-research/game-theory"
+  description: "Operations-Research / Game-Theory"
 "Physics.Mechanics":
   label: "Physics.Mechanics"
   permalink: "/subsubject/physics/mechanics"
@@ -520,6 +524,10 @@
   label: "Computer-Science.Information-Theory.Channel-Coding"
   permalink: "/topic/computer-science/information-theory/channel-coding"
   description: "Computer-Science / Information-Theory / Channel-Coding"
+"Computer-Science.Information-Theory.Conditional-Entropy":
+  label: "Computer-Science.Information-Theory.Conditional-Entropy"
+  permalink: "/topic/computer-science/information-theory/conditional-entropy"
+  description: "Computer-Science / Information-Theory / Conditional-Entropy"
 "Computer-Science.Information-Theory.Cyclic-Code":
   label: "Computer-Science.Information-Theory.Cyclic-Code"
   permalink: "/topic/computer-science/information-theory/cyclic-code"
@@ -540,6 +548,10 @@
   label: "Computer-Science.Information-Theory.Source-Coding"
   permalink: "/topic/computer-science/information-theory/source-coding"
   description: "Computer-Science / Information-Theory / Source-Coding"
+"Computer-Science.Information-Theory.Typical-Sequence":
+  label: "Computer-Science.Information-Theory.Typical-Sequence"
+  permalink: "/topic/computer-science/information-theory/typical-sequence"
+  description: "Computer-Science / Information-Theory / Typical-Sequence"
 "Computer-Science.Operating-Systems.Virtual-Memory":
   label: "Computer-Science.Operating-Systems.Virtual-Memory"
   permalink: "/topic/computer-science/operating-systems/virtual-memory"
@@ -588,6 +600,14 @@
   label: "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree"
   permalink: "/topic/data-science-artificial-intelligence/machine-learning/decision-tree"
   description: "Data-Science-Artificial-Intelligence / Machine-Learning / Decision-Tree"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Ensemble-Learning":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Ensemble-Learning"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/ensemble-learning"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Ensemble-Learning"
+"Data-Science-Artificial-Intelligence.Machine-Learning.K-Means":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.K-Means"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/k-means"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / K-Means"
 "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning":
   label: "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning"
   permalink: "/topic/data-science-artificial-intelligence/machine-learning/reinforcement-learning"
@@ -596,6 +616,10 @@
   label: "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function"
   permalink: "/topic/data-science-artificial-intelligence/machine-learning/sigmoid-function"
   description: "Data-Science-Artificial-Intelligence / Machine-Learning / Sigmoid-Function"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Support-Vector-Machine":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Support-Vector-Machine"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/support-vector-machine"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Support-Vector-Machine"
 "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit":
   label: "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit"
   permalink: "/topic/electrical-electronic/digital-logic/combinatorial-circuit"
@@ -624,6 +648,22 @@
   label: "Mathematics.Calculus.Cauchy-Sequence"
   permalink: "/topic/mathematics/calculus/cauchy-sequence"
   description: "Mathematics / Calculus / Cauchy-Sequence"
+"Mathematics.Calculus.Constrained-Optimization":
+  label: "Mathematics.Calculus.Constrained-Optimization"
+  permalink: "/topic/mathematics/calculus/constrained-optimization"
+  description: "Mathematics / Calculus / Constrained-Optimization"
+"Mathematics.Calculus.Double-Integral":
+  label: "Mathematics.Calculus.Double-Integral"
+  permalink: "/topic/mathematics/calculus/double-integral"
+  description: "Mathematics / Calculus / Double-Integral"
+"Mathematics.Calculus.Improper-Integral":
+  label: "Mathematics.Calculus.Improper-Integral"
+  permalink: "/topic/mathematics/calculus/improper-integral"
+  description: "Mathematics / Calculus / Improper-Integral"
+"Mathematics.Calculus.Multivariable-Differentiation":
+  label: "Mathematics.Calculus.Multivariable-Differentiation"
+  permalink: "/topic/mathematics/calculus/multivariable-differentiation"
+  description: "Mathematics / Calculus / Multivariable-Differentiation"
 "Mathematics.Calculus.Sequence-Convergence":
   label: "Mathematics.Calculus.Sequence-Convergence"
   permalink: "/topic/mathematics/calculus/sequence-convergence"
@@ -756,6 +796,10 @@
   label: "Mathematics.Linear-Algebra.Hermitian-Matrix"
   permalink: "/topic/mathematics/linear-algebra/hermitian-matrix"
   description: "Mathematics / Linear-Algebra / Hermitian-Matrix"
+"Mathematics.Linear-Algebra.Linear-Independence":
+  label: "Mathematics.Linear-Algebra.Linear-Independence"
+  permalink: "/topic/mathematics/linear-algebra/linear-independence"
+  description: "Mathematics / Linear-Algebra / Linear-Independence"
 "Mathematics.Linear-Algebra.Linear-Transformation":
   label: "Mathematics.Linear-Algebra.Linear-Transformation"
   permalink: "/topic/mathematics/linear-algebra/linear-transformation"
@@ -772,6 +816,10 @@
   label: "Mathematics.Linear-Algebra.Matrix-Power"
   permalink: "/topic/mathematics/linear-algebra/matrix-power"
   description: "Mathematics / Linear-Algebra / Matrix-Power"
+"Mathematics.Linear-Algebra.Matrix-Rank":
+  label: "Mathematics.Linear-Algebra.Matrix-Rank"
+  permalink: "/topic/mathematics/linear-algebra/matrix-rank"
+  description: "Mathematics / Linear-Algebra / Matrix-Rank"
 "Mathematics.Linear-Algebra.Orthogonal-Decomposition":
   label: "Mathematics.Linear-Algebra.Orthogonal-Decomposition"
   permalink: "/topic/mathematics/linear-algebra/orthogonal-decomposition"
@@ -804,14 +852,50 @@
   label: "Mathematics.Vector-Calculus.Green’s-Identity"
   permalink: "/topic/mathematics/vector-calculus/green-s-identity"
   description: "Mathematics / Vector-Calculus / Green’s-Identity"
+"Operations-Research.Game-Theory.Nash-Equilibrium":
+  label: "Operations-Research.Game-Theory.Nash-Equilibrium"
+  permalink: "/topic/operations-research/game-theory/nash-equilibrium"
+  description: "Operations-Research / Game-Theory / Nash-Equilibrium"
+"Operations-Research.Game-Theory.Prisoners-Dilemma":
+  label: "Operations-Research.Game-Theory.Prisoners-Dilemma"
+  permalink: "/topic/operations-research/game-theory/prisoners-dilemma"
+  description: "Operations-Research / Game-Theory / Prisoners-Dilemma"
+"Operations-Research.Game-Theory.Saddle-Point":
+  label: "Operations-Research.Game-Theory.Saddle-Point"
+  permalink: "/topic/operations-research/game-theory/saddle-point"
+  description: "Operations-Research / Game-Theory / Saddle-Point"
 "Operations-Research.Optimization.Branch-And-Bound":
   label: "Operations-Research.Optimization.Branch-And-Bound"
   permalink: "/topic/operations-research/optimization/branch-and-bound"
   description: "Operations-Research / Optimization / Branch-And-Bound"
+"Operations-Research.Optimization.Linear-Programming":
+  label: "Operations-Research.Optimization.Linear-Programming"
+  permalink: "/topic/operations-research/optimization/linear-programming"
+  description: "Operations-Research / Optimization / Linear-Programming"
+"Operations-Research.Optimization.Linear-Programming-Duality":
+  label: "Operations-Research.Optimization.Linear-Programming-Duality"
+  permalink: "/topic/operations-research/optimization/linear-programming-duality"
+  description: "Operations-Research / Optimization / Linear-Programming-Duality"
+"Operations-Research.Optimization.Simplex-Method":
+  label: "Operations-Research.Optimization.Simplex-Method"
+  permalink: "/topic/operations-research/optimization/simplex-method"
+  description: "Operations-Research / Optimization / Simplex-Method"
+"Operations-Research.Optimization.Stepping-Stone-Method":
+  label: "Operations-Research.Optimization.Stepping-Stone-Method"
+  permalink: "/topic/operations-research/optimization/stepping-stone-method"
+  description: "Operations-Research / Optimization / Stepping-Stone-Method"
+"Operations-Research.Optimization.Transportation-Problem":
+  label: "Operations-Research.Optimization.Transportation-Problem"
+  permalink: "/topic/operations-research/optimization/transportation-problem"
+  description: "Operations-Research / Optimization / Transportation-Problem"
 "Probability-Statistics.Fundamentals.Binomial-Distribution":
   label: "Probability-Statistics.Fundamentals.Binomial-Distribution"
   permalink: "/topic/probability-statistics/fundamentals/binomial-distribution"
   description: "Probability-Statistics / Fundamentals / Binomial-Distribution"
+"Probability-Statistics.Fundamentals.Conditional-Density":
+  label: "Probability-Statistics.Fundamentals.Conditional-Density"
+  permalink: "/topic/probability-statistics/fundamentals/conditional-density"
+  description: "Probability-Statistics / Fundamentals / Conditional-Density"
 "Probability-Statistics.Fundamentals.Conditional-Probability":
   label: "Probability-Statistics.Fundamentals.Conditional-Probability"
   permalink: "/topic/probability-statistics/fundamentals/conditional-probability"
@@ -824,14 +908,30 @@
   label: "Probability-Statistics.Fundamentals.Exponential-Distribution"
   permalink: "/topic/probability-statistics/fundamentals/exponential-distribution"
   description: "Probability-Statistics / Fundamentals / Exponential-Distribution"
+"Probability-Statistics.Fundamentals.Law-of-Large-Numbers":
+  label: "Probability-Statistics.Fundamentals.Law-of-Large-Numbers"
+  permalink: "/topic/probability-statistics/fundamentals/law-of-large-numbers"
+  description: "Probability-Statistics / Fundamentals / Law-of-Large-Numbers"
+"Probability-Statistics.Fundamentals.Normal-Distribution":
+  label: "Probability-Statistics.Fundamentals.Normal-Distribution"
+  permalink: "/topic/probability-statistics/fundamentals/normal-distribution"
+  description: "Probability-Statistics / Fundamentals / Normal-Distribution"
 "Probability-Statistics.Fundamentals.Order-Statistics":
   label: "Probability-Statistics.Fundamentals.Order-Statistics"
   permalink: "/topic/probability-statistics/fundamentals/order-statistics"
   description: "Probability-Statistics / Fundamentals / Order-Statistics"
+"Probability-Statistics.Statistical-Inference.ANOVA":
+  label: "Probability-Statistics.Statistical-Inference.ANOVA"
+  permalink: "/topic/probability-statistics/statistical-inference/anova"
+  description: "Probability-Statistics / Statistical-Inference / ANOVA"
 "Probability-Statistics.Statistical-Inference.Confidence-Interval":
   label: "Probability-Statistics.Statistical-Inference.Confidence-Interval"
   permalink: "/topic/probability-statistics/statistical-inference/confidence-interval"
   description: "Probability-Statistics / Statistical-Inference / Confidence-Interval"
+"Probability-Statistics.Statistical-Inference.Experimental-Design":
+  label: "Probability-Statistics.Statistical-Inference.Experimental-Design"
+  permalink: "/topic/probability-statistics/statistical-inference/experimental-design"
+  description: "Probability-Statistics / Statistical-Inference / Experimental-Design"
 "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test":
   label: "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test"
   permalink: "/topic/probability-statistics/statistical-inference/fisher-exact-test"
@@ -840,6 +940,10 @@
   label: "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis"
   permalink: "/topic/probability-statistics/statistical-inference/fisher-linear-discriminant-analysis"
   description: "Probability-Statistics / Statistical-Inference / Fisher-Linear-Discriminant-Analysis"
+"Probability-Statistics.Statistical-Inference.Hypothesis-Testing":
+  label: "Probability-Statistics.Statistical-Inference.Hypothesis-Testing"
+  permalink: "/topic/probability-statistics/statistical-inference/hypothesis-testing"
+  description: "Probability-Statistics / Statistical-Inference / Hypothesis-Testing"
 "Probability-Statistics.Statistical-Inference.Least-Squares-Method":
   label: "Probability-Statistics.Statistical-Inference.Least-Squares-Method"
   permalink: "/topic/probability-statistics/statistical-inference/least-squares-method"
@@ -848,10 +952,18 @@
   label: "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation"
   permalink: "/topic/probability-statistics/statistical-inference/maximum-likelihood-estimation"
   description: "Probability-Statistics / Statistical-Inference / Maximum-Likelihood-Estimation"
+"Probability-Statistics.Statistical-Inference.Method-of-Moments":
+  label: "Probability-Statistics.Statistical-Inference.Method-of-Moments"
+  permalink: "/topic/probability-statistics/statistical-inference/method-of-moments"
+  description: "Probability-Statistics / Statistical-Inference / Method-of-Moments"
 "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration":
   label: "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration"
   permalink: "/topic/probability-statistics/statistical-inference/monte-carlo-integration"
   description: "Probability-Statistics / Statistical-Inference / Monte-Carlo-Integration"
+"Probability-Statistics.Statistical-Inference.Simple-Linear-Regression":
+  label: "Probability-Statistics.Statistical-Inference.Simple-Linear-Regression"
+  permalink: "/topic/probability-statistics/statistical-inference/simple-linear-regression"
+  description: "Probability-Statistics / Statistical-Inference / Simple-Linear-Regression"
 "Probability-Statistics.Stochastic-Processes.Markov-Chain":
   label: "Probability-Statistics.Stochastic-Processes.Markov-Chain"
   permalink: "/topic/probability-statistics/stochastic-processes/markov-chain"

@@ -113,6 +113,31 @@
     "Mathematics.Geometry"
   ],
   "topics": {
+    "Mathematics.Calculus.Constrained-Optimization": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics",
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Calculus.Double-Integral": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Calculus.Improper-Integral": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Calculus.Multivariable-Differentiation": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
     "Mathematics.Calculus.Cauchy-Sequence": {
       "subsubject": "Mathematics.Calculus",
       "subjects": [
@@ -358,6 +383,18 @@
       ]
     },
     "Mathematics.Linear-Algebra.Linear-Transformation": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Linear-Independence": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Matrix-Rank": {
       "subsubject": "Mathematics.Linear-Algebra",
       "subjects": [
         "Mathematics"

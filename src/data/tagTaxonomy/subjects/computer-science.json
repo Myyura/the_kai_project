@@ -542,6 +542,12 @@
         "Computer-Science"
       ]
     },
+    "Computer-Science.Information-Theory.Conditional-Entropy": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
     "Computer-Science.Information-Theory.Huffman-Coding": {
       "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
@@ -555,6 +561,12 @@
       ]
     },
     "Computer-Science.Information-Theory.Source-Coding": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
+    "Computer-Science.Information-Theory.Typical-Sequence": {
       "subsubject": "Computer-Science.Information-Theory",
       "subjects": [
         "Computer-Science"
