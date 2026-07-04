@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年9月実施 問題1 情報理論"
+sidebar_label: "2016年9月実施 情報数理応用 問題1"
 tags:
   - Waseda-University
   - Computer-Science.Information-Theory.Entropy
@@ -8,7 +8,7 @@ tags:
   - Computer-Science.Information-Theory.Typical-Sequence
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 問題1 情報理論
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 情報数理応用 問題1
 
 ## **Author**
 祭音Myyura

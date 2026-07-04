@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年9月実施 問題2 機械学習"
+sidebar_label: "2016年9月実施 情報数理応用 問題2"
 tags:
   - Waseda-University
   - Data-Science-Artificial-Intelligence.Machine-Learning.K-Means
@@ -8,7 +8,7 @@ tags:
   - Data-Science-Artificial-Intelligence.Machine-Learning.Ensemble-Learning
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 問題2 機械学習
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 情報数理応用 問題2
 
 ## **Author**
 祭音Myyura
