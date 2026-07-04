@@ -57,6 +57,22 @@
         "Computer-Science"
       ]
     },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.A-Star-Algorithm": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Best-First-Search": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Classification": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "subjects": [

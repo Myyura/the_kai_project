@@ -35,12 +35,32 @@
       "descriptionZh": "零和博弈、鞍点、纳什均衡与策略互动。",
       "descriptionJa": "ゼロ和ゲーム、鞍点、ナッシュ均衡、戦略的相互作用。",
       "descriptionEn": "Zero-sum games, saddle points, Nash equilibria, and strategic interaction."
+    },
+    "Operations-Research.Inventory-Management": {
+      "subject": "Operations-Research",
+      "labelZh": "库存管理",
+      "labelJa": "在庫管理",
+      "labelEn": "Inventory Management",
+      "descriptionZh": "订货批量、补货策略、持有成本与数量折扣。",
+      "descriptionJa": "発注量、補充方策、保管費用、数量割引。",
+      "descriptionEn": "Order quantities, replenishment policies, holding costs, and quantity discounts."
+    },
+    "Operations-Research.Decision-Analysis": {
+      "subject": "Operations-Research",
+      "labelZh": "决策分析",
+      "labelJa": "意思決定分析",
+      "labelEn": "Decision Analysis",
+      "descriptionZh": "多准则决策、层次分析法与判断一致性。",
+      "descriptionJa": "多基準意思決定、階層分析法、判断の整合性。",
+      "descriptionEn": "Multi-criteria decision making, analytic hierarchy process, and judgment consistency."
     }
   },
   "subsubjectOrder": [
     "Operations-Research.Optimization",
     "Operations-Research.Queueing-Theory",
-    "Operations-Research.Game-Theory"
+    "Operations-Research.Game-Theory",
+    "Operations-Research.Inventory-Management",
+    "Operations-Research.Decision-Analysis"
   ],
   "topics": {
     "Operations-Research.Optimization.Branch-And-Bound": {
@@ -96,6 +116,30 @@
     },
     "Operations-Research.Game-Theory.Saddle-Point": {
       "subsubject": "Operations-Research.Game-Theory",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Inventory-Management.Economic-Order-Quantity": {
+      "subsubject": "Operations-Research.Inventory-Management",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Inventory-Management.Quantity-Discount": {
+      "subsubject": "Operations-Research.Inventory-Management",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Decision-Analysis.Analytic-Hierarchy-Process": {
+      "subsubject": "Operations-Research.Decision-Analysis",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Decision-Analysis.Pairwise-Comparison-Consistency": {
+      "subsubject": "Operations-Research.Decision-Analysis",
       "subjects": [
         "Operations-Research"
       ]

@@ -200,6 +200,14 @@
   label: "Operations-Research.Game-Theory"
   permalink: "/subsubject/operations-research/game-theory"
   description: "Operations-Research / Game-Theory"
+"Operations-Research.Inventory-Management":
+  label: "Operations-Research.Inventory-Management"
+  permalink: "/subsubject/operations-research/inventory-management"
+  description: "Operations-Research / Inventory-Management"
+"Operations-Research.Decision-Analysis":
+  label: "Operations-Research.Decision-Analysis"
+  permalink: "/subsubject/operations-research/decision-analysis"
+  description: "Operations-Research / Decision-Analysis"
 "Physics.Mechanics":
   label: "Physics.Mechanics"
   permalink: "/subsubject/physics/mechanics"
@@ -584,6 +592,14 @@
   label: "Computer-Science.Quantum-Computing.Quantum-Computing"
   permalink: "/topic/computer-science/quantum-computing/quantum-computing"
   description: "Computer-Science / Quantum-Computing / Quantum-Computing"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence.A-Star-Algorithm":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.A-Star-Algorithm"
+  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/a-star-algorithm"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / A-Star-Algorithm"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Best-First-Search":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Best-First-Search"
+  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/best-first-search"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Best-First-Search"
 "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation":
   label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation"
   permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/knowledge-representation"
@@ -852,6 +868,14 @@
   label: "Mathematics.Vector-Calculus.Green’s-Identity"
   permalink: "/topic/mathematics/vector-calculus/green-s-identity"
   description: "Mathematics / Vector-Calculus / Green’s-Identity"
+"Operations-Research.Decision-Analysis.Analytic-Hierarchy-Process":
+  label: "Operations-Research.Decision-Analysis.Analytic-Hierarchy-Process"
+  permalink: "/topic/operations-research/decision-analysis/analytic-hierarchy-process"
+  description: "Operations-Research / Decision-Analysis / Analytic-Hierarchy-Process"
+"Operations-Research.Decision-Analysis.Pairwise-Comparison-Consistency":
+  label: "Operations-Research.Decision-Analysis.Pairwise-Comparison-Consistency"
+  permalink: "/topic/operations-research/decision-analysis/pairwise-comparison-consistency"
+  description: "Operations-Research / Decision-Analysis / Pairwise-Comparison-Consistency"
 "Operations-Research.Game-Theory.Nash-Equilibrium":
   label: "Operations-Research.Game-Theory.Nash-Equilibrium"
   permalink: "/topic/operations-research/game-theory/nash-equilibrium"
@@ -864,6 +888,14 @@
   label: "Operations-Research.Game-Theory.Saddle-Point"
   permalink: "/topic/operations-research/game-theory/saddle-point"
   description: "Operations-Research / Game-Theory / Saddle-Point"
+"Operations-Research.Inventory-Management.Economic-Order-Quantity":
+  label: "Operations-Research.Inventory-Management.Economic-Order-Quantity"
+  permalink: "/topic/operations-research/inventory-management/economic-order-quantity"
+  description: "Operations-Research / Inventory-Management / Economic-Order-Quantity"
+"Operations-Research.Inventory-Management.Quantity-Discount":
+  label: "Operations-Research.Inventory-Management.Quantity-Discount"
+  permalink: "/topic/operations-research/inventory-management/quantity-discount"
+  description: "Operations-Research / Inventory-Management / Quantity-Discount"
 "Operations-Research.Optimization.Branch-And-Bound":
   label: "Operations-Research.Optimization.Branch-And-Bound"
   permalink: "/topic/operations-research/optimization/branch-and-bound"
