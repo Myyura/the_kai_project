@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年9月実施 統計科学 問題3"
+sidebar_label: "2016年7月実施 統計科学 問題3"
 tags:
   - Waseda-University
   - Probability-Statistics.Statistical-Inference.Experimental-Design
   - Probability-Statistics.Statistical-Inference.ANOVA
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 統計科学 問題3
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 統計科学 問題3
 
 ## **Author**
 祭音Myyura

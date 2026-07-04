@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年9月実施 知識情報処理 問題15"
+sidebar_label: "2016年7月実施 知識情報処理 問題15"
 tags:
   - Waseda-University
   - Data-Science-Artificial-Intelligence.Artificial-Intelligence.Best-First-Search
   - Data-Science-Artificial-Intelligence.Artificial-Intelligence.A-Star-Algorithm
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 知識情報処理 問題15
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 知識情報処理 問題15
 
 ## **Author**
 祭音Myyura

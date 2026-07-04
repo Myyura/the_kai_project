@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年9月実施 統計科学 問題4"
+sidebar_label: "2016年7月実施 統計科学 問題4"
 tags:
   - Waseda-University
   - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
@@ -8,7 +8,7 @@ tags:
   - Probability-Statistics.Fundamentals.Law-of-Large-Numbers
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 統計科学 問題4
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 統計科学 問題4
 
 ## **Author**
 祭音Myyura

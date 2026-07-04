@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年9月実施 オペレーションズリサーチ 問題8"
+sidebar_label: "2016年7月実施 オペレーションズリサーチ 問題8"
 tags:
   - Waseda-University
   - Operations-Research.Optimization.Transportation-Problem
   - Operations-Research.Optimization.Stepping-Stone-Method
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 オペレーションズリサーチ 問題8
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 オペレーションズリサーチ 問題8
 
 ## **Author**
 祭音Myyura

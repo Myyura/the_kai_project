@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2016年9月実施 数理基礎 E"
+sidebar_label: "2016年7月実施 数理基礎 E"
 tags:
   - Waseda-University
   - Probability-Statistics.Statistical-Inference.Simple-Linear-Regression
@@ -7,7 +7,7 @@ tags:
   - Probability-Statistics.Statistical-Inference.Hypothesis-Testing
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 数理基礎 E
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 数理基礎 E
 
 ## **Author**
 祭音Myyura

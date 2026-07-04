@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年9月実施 オペレーションズリサーチ 問題7"
+sidebar_label: "2016年7月実施 オペレーションズリサーチ 問題7"
 tags:
   - Waseda-University
   - Operations-Research.Optimization.Simplex-Method
   - Operations-Research.Optimization.Linear-Programming-Duality
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 オペレーションズリサーチ 問題7
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 オペレーションズリサーチ 問題7
 
 ## **Author**
 祭音Myyura

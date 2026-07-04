@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年9月実施 数理基礎 A"
+sidebar_label: "2016年7月実施 数理基礎 A"
 tags:
   - Waseda-University
   - Mathematics.Calculus.Constrained-Optimization
   - Mathematics.Calculus.Multivariable-Differentiation
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 数理基礎 A
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 数理基礎 A
 
 ## **Author**
 祭音Myyura

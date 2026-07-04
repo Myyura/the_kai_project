@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年9月実施 数理基礎 D"
+sidebar_label: "2016年7月実施 数理基礎 D"
 tags:
   - Waseda-University
   - Mathematics.Linear-Algebra.Linear-Independence
   - Mathematics.Linear-Algebra.Matrix-Power
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 数理基礎 D
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 数理基礎 D
 
 ## **Author**
 祭音Myyura

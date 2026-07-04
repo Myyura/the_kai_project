@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2016年9月実施 数理基礎 B"
+sidebar_label: "2016年7月実施 数理基礎 B"
 tags:
   - Waseda-University
   - Mathematics.Calculus.Double-Integral
   - Mathematics.Calculus.Improper-Integral
 ---
 
-# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年9月実施 数理基礎 B
+# 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 数理基礎 B
 
 ## **Author**
 祭音Myyura
