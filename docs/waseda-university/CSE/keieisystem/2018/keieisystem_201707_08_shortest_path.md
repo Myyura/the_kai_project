@@ -58,15 +58,15 @@ $$
 3本の候補経路の費用は
 
 $$
-1\to2\to4:7,qquad
-1\to3\to4:7,qquad
+1\to2\to4:7,\qquad
+1\to3\to4:7,\qquad
 1\to2\to3\to4:6
 $$
 
 なので、最適解は
 
 $$
-\boxed{x_{12}=x_{23}=x_{34}=1,quad x_{13}=x_{24}=0},qquad
+\boxed{x_{12}=x_{23}=x_{34}=1,quad x_{13}=x_{24}=0},\qquad
 \boxed{z^*=6}.
 $$
 

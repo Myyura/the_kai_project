@@ -16,7 +16,7 @@ tags:
 独立同分布な2値確率変数 $X_i\in\{0,1\}$ が
 
 $$
-P(X_i=1\mid\theta)=\theta,qquad
+P(X_i=1\mid\theta)=\theta,\qquad
 P(X_i=0\mid\theta)=1-\theta
 $$
 
@@ -24,7 +24,7 @@ $$
 
 $$
 p(\theta)=\frac{\Gamma(5)}{\Gamma(3)\Gamma(2)}
-\theta^2(1-\theta),qquad 0\leq\theta\leq1
+\theta^2(1-\theta),\qquad 0\leq\theta\leq1
 $$
 
 である。
@@ -111,7 +111,7 @@ $$
 
 $$
 P(X_{11}=1\mid x^{10})
-=E[\theta\mid x^{10}]=\frac23,qquad
+=E[\theta\mid x^{10}]=\frac23,\qquad
 P(X_{11}=0\mid x^{10})=\frac13.
 $$
 

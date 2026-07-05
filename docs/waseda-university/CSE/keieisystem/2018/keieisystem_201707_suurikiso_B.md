@@ -37,7 +37,7 @@ $$
 を考える。停留条件は
 
 $$
-x(3x-2\lambda)=0,qquad
+x(3x-2\lambda)=0,\qquad
 y(3y-2\lambda)=0.
 $$
 

@@ -40,14 +40,14 @@ tags:
 尺度母数表示のガンマ分布では
 
 $$
-E[X]=\alpha\sigma,qquad
+E[X]=\alpha\sigma,\qquad
 \operatorname{Var}(X)=\alpha\sigma^2.
 $$
 
 したがって
 
 $$
-\boxed{E[X]=4\sigma,qquad \operatorname{Var}(X)=4\sigma^2}.
+\boxed{E[X]=4\sigma,\qquad \operatorname{Var}(X)=4\sigma^2}.
 $$
 
 ### [小問 1-2]
@@ -80,8 +80,8 @@ $$
 である。各平方和は
 
 $$
-SS_A=2,qquad SS_B=18,qquad
-SS_{AB}=0,qquad SS_E=2,qquad SS_T=22.
+SS_A=2,\qquad SS_B=18,\qquad
+SS_{AB}=0,\qquad SS_E=2,\qquad SS_T=22.
 $$
 
 よって分散分析表は次のとおりである。

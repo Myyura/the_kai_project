@@ -86,7 +86,7 @@ $$
 最小点では前者が非正、後者が非負なので
 
 $$
-z\leq\frac{151}{11},qquad
+z\leq\frac{151}{11},\qquad
 z\geq\frac{140}{11}.
 $$
 

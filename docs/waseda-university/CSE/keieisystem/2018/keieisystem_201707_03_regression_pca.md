@@ -49,7 +49,7 @@ $$
 
 $$
 \boxed{
-\hat\beta_1=\frac{cd-be}{ac-b^2},qquad
+\hat\beta_1=\frac{cd-be}{ac-b^2},\qquad
 \hat\beta_2=\frac{ae-bd}{ac-b^2}
 }.
 $$

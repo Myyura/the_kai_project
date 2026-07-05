@@ -40,14 +40,14 @@ $$
 よって
 
 $$
-\lambda_1=3,qquad \lambda_2=-3.
+\lambda_1=3,\qquad \lambda_2=-3.
 $$
 
 $\lambda_1=3$ では $-2x+2y=0$、$\lambda_2=-3$ では $4x+2y=0$ なので、対応する固有空間は
 
 $$
 \boxed{
-E_3=\operatorname{span}\left\{\binom11\right\},qquad
+E_3=\operatorname{span}\left\{\binom11\right\},\qquad
 E_{-3}=\operatorname{span}\left\{\binom1{-2}\right\}
 }.
 $$
@@ -57,7 +57,7 @@ $$
 $X=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とおく。$XJ=JX$ を成分ごとに比較すると
 
 $$
-b=-c,qquad d=a
+b=-c,\qquad d=a
 $$
 
 を得る。したがって、$J$ と可換な行列は必ず

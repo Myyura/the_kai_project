@@ -25,8 +25,8 @@ tags:
 $\bar x=2$、$\bar y=3/2$ であり、偏差平方和と偏差積和は
 
 $$
-\sum_i(x_i-\bar x)^2=2,qquad
-\sum_i(y_i-\bar y)^2=1,qquad
+\sum_i(x_i-\bar x)^2=2,\qquad
+\sum_i(y_i-\bar y)^2=1,\qquad
 \sum_i(x_i-\bar x)(y_i-\bar y)=1.
 $$
 

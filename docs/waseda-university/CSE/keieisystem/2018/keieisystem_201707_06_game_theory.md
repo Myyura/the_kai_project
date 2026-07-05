@@ -38,13 +38,13 @@ $$
 相手が $C$ のとき、自店は $C$ なら $A$、$D$ なら $2A$ を得る。相手が $D$ のときも、自店は $C$ なら $A/3$、$D$ なら $A/2$ を得る。したがって
 
 $$
-2A>A,qquad \frac A2>\frac A3
+2A>A,\qquad \frac A2>\frac A3
 $$
 
 より、両店にとって $D$ は $C$ を厳密に支配する戦略である。よって唯一のナッシュ均衡は
 
 $$
-\boxed{(D,D)},qquad \text{利得 }\boxed{(A/2,A/2)}
+\boxed{(D,D)},\qquad \text{利得 }\boxed{(A/2,A/2)}
 $$
 
 である。

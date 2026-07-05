@@ -79,7 +79,7 @@ $$
 であり、
 
 $$
-\boxed{w^*=\frac{45}{2}},qquad
+\boxed{w^*=\frac{45}{2}},\qquad
 \boxed{z^*=-\frac{45}{2}}.
 $$
 

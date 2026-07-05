@@ -26,7 +26,7 @@ tags:
    を持つ2次元正規分布であり、平均はそれぞれ
 
    $$
-   \boldsymbol\mu_1=(-4,4)^{\mathsf T},qquad
+   \boldsymbol\mu_1=(-4,4)^{\mathsf T},\qquad
    \boldsymbol\mu_2=(4,-4)^{\mathsf T}
    $$
 
