@@ -117,6 +117,71 @@
       "subjects": [
         "Data-Science-Artificial-Intelligence"
       ]
+    },
+    "Data-Science-Artificial-Intelligence.Data-Science.Principal-Component-Analysis": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Curse-of-Dimensionality": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.K-Nearest-Neighbors": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Random-Forest": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Naive-Bayes": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Morphological-Analysis": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Minimax-Algorithm": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science",
+        "Operations-Research"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Alpha-Beta-Pruning": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "subjects": [
+        "Data-Science-Artificial-Intelligence",
+        "Computer-Science",
+        "Operations-Research"
+      ]
     }
   }
 }

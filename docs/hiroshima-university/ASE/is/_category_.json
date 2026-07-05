@@ -2,7 +2,8 @@
   "label": "情報科学プログラム",
   "position": 2,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/hiroshima-university-ASE-is"
   },
   "key": "hiroshima-university-ASE-is"
 }

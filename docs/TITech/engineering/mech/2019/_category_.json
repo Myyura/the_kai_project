@@ -2,7 +2,8 @@
   "label": "2019年度",
   "position": 2019,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/TITech-engineering-mech-2019"
   },
   "key": "TITech-engineering-mech-2019"
 }

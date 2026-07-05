@@ -2,7 +2,8 @@
   "label": "マテリアル・開発系",
   "position": 5,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/tohoku-university-engineering-material"
   },
   "key": "tohoku-university-engineering-material"
 }

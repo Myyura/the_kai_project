@@ -2,7 +2,8 @@
   "label": "数学教室",
   "position": 1,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/tohoku-university-information_sciences-math"
   },
   "key": "tohoku-university-information_sciences-math"
 }

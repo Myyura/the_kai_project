@@ -596,6 +596,10 @@
   label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.A-Star-Algorithm"
   permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/a-star-algorithm"
   description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / A-Star-Algorithm"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Alpha-Beta-Pruning":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Alpha-Beta-Pruning"
+  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/alpha-beta-pruning"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Alpha-Beta-Pruning"
 "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Best-First-Search":
   label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Best-First-Search"
   permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/best-first-search"
@@ -604,14 +608,30 @@
   label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation"
   permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/knowledge-representation"
   description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Knowledge-Representation"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Minimax-Algorithm":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Minimax-Algorithm"
+  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/minimax-algorithm"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Minimax-Algorithm"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence.Morphological-Analysis":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Morphological-Analysis"
+  permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/morphological-analysis"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Morphological-Analysis"
 "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network":
   label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network"
   permalink: "/topic/data-science-artificial-intelligence/artificial-intelligence/semantic-network"
   description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence / Semantic-Network"
+"Data-Science-Artificial-Intelligence.Data-Science.Principal-Component-Analysis":
+  label: "Data-Science-Artificial-Intelligence.Data-Science.Principal-Component-Analysis"
+  permalink: "/topic/data-science-artificial-intelligence/data-science/principal-component-analysis"
+  description: "Data-Science-Artificial-Intelligence / Data-Science / Principal-Component-Analysis"
 "Data-Science-Artificial-Intelligence.Machine-Learning.Classification":
   label: "Data-Science-Artificial-Intelligence.Machine-Learning.Classification"
   permalink: "/topic/data-science-artificial-intelligence/machine-learning/classification"
   description: "Data-Science-Artificial-Intelligence / Machine-Learning / Classification"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Curse-of-Dimensionality":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Curse-of-Dimensionality"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/curse-of-dimensionality"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Curse-of-Dimensionality"
 "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree":
   label: "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree"
   permalink: "/topic/data-science-artificial-intelligence/machine-learning/decision-tree"
@@ -624,6 +644,22 @@
   label: "Data-Science-Artificial-Intelligence.Machine-Learning.K-Means"
   permalink: "/topic/data-science-artificial-intelligence/machine-learning/k-means"
   description: "Data-Science-Artificial-Intelligence / Machine-Learning / K-Means"
+"Data-Science-Artificial-Intelligence.Machine-Learning.K-Nearest-Neighbors":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.K-Nearest-Neighbors"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/k-nearest-neighbors"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / K-Nearest-Neighbors"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Naive-Bayes":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Naive-Bayes"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/naive-bayes"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Naive-Bayes"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/neural-network"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Neural-Network"
+"Data-Science-Artificial-Intelligence.Machine-Learning.Random-Forest":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning.Random-Forest"
+  permalink: "/topic/data-science-artificial-intelligence/machine-learning/random-forest"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning / Random-Forest"
 "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning":
   label: "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning"
   permalink: "/topic/data-science-artificial-intelligence/machine-learning/reinforcement-learning"
@@ -636,6 +672,10 @@
   label: "Data-Science-Artificial-Intelligence.Machine-Learning.Support-Vector-Machine"
   permalink: "/topic/data-science-artificial-intelligence/machine-learning/support-vector-machine"
   description: "Data-Science-Artificial-Intelligence / Machine-Learning / Support-Vector-Machine"
+"Electrical-Electronic.Control-Theory.Feedback-Control":
+  label: "Electrical-Electronic.Control-Theory.Feedback-Control"
+  permalink: "/topic/electrical-electronic/control-theory/feedback-control"
+  description: "Electrical-Electronic / Control-Theory / Feedback-Control"
 "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit":
   label: "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit"
   permalink: "/topic/electrical-electronic/digital-logic/combinatorial-circuit"
@@ -668,14 +708,34 @@
   label: "Mathematics.Calculus.Constrained-Optimization"
   permalink: "/topic/mathematics/calculus/constrained-optimization"
   description: "Mathematics / Calculus / Constrained-Optimization"
+"Mathematics.Calculus.Definite-Integral":
+  label: "Mathematics.Calculus.Definite-Integral"
+  permalink: "/topic/mathematics/calculus/definite-integral"
+  description: "Mathematics / Calculus / Definite-Integral"
+"Mathematics.Calculus.Differentiation":
+  label: "Mathematics.Calculus.Differentiation"
+  permalink: "/topic/mathematics/calculus/differentiation"
+  description: "Mathematics / Calculus / Differentiation"
 "Mathematics.Calculus.Double-Integral":
   label: "Mathematics.Calculus.Double-Integral"
   permalink: "/topic/mathematics/calculus/double-integral"
   description: "Mathematics / Calculus / Double-Integral"
+"Mathematics.Calculus.Gamma-Function":
+  label: "Mathematics.Calculus.Gamma-Function"
+  permalink: "/topic/mathematics/calculus/gamma-function"
+  description: "Mathematics / Calculus / Gamma-Function"
+"Mathematics.Calculus.Implicit-Differentiation":
+  label: "Mathematics.Calculus.Implicit-Differentiation"
+  permalink: "/topic/mathematics/calculus/implicit-differentiation"
+  description: "Mathematics / Calculus / Implicit-Differentiation"
 "Mathematics.Calculus.Improper-Integral":
   label: "Mathematics.Calculus.Improper-Integral"
   permalink: "/topic/mathematics/calculus/improper-integral"
   description: "Mathematics / Calculus / Improper-Integral"
+"Mathematics.Calculus.Limit":
+  label: "Mathematics.Calculus.Limit"
+  permalink: "/topic/mathematics/calculus/limit"
+  description: "Mathematics / Calculus / Limit"
 "Mathematics.Calculus.Multivariable-Differentiation":
   label: "Mathematics.Calculus.Multivariable-Differentiation"
   permalink: "/topic/mathematics/calculus/multivariable-differentiation"
@@ -804,6 +864,14 @@
   label: "Mathematics.Linear-Algebra.Affine-Transformation"
   permalink: "/topic/mathematics/linear-algebra/affine-transformation"
   description: "Mathematics / Linear-Algebra / Affine-Transformation"
+"Mathematics.Linear-Algebra.Block-Matrix-Inverse":
+  label: "Mathematics.Linear-Algebra.Block-Matrix-Inverse"
+  permalink: "/topic/mathematics/linear-algebra/block-matrix-inverse"
+  description: "Mathematics / Linear-Algebra / Block-Matrix-Inverse"
+"Mathematics.Linear-Algebra.Commuting-Matrices":
+  label: "Mathematics.Linear-Algebra.Commuting-Matrices"
+  permalink: "/topic/mathematics/linear-algebra/commuting-matrices"
+  description: "Mathematics / Linear-Algebra / Commuting-Matrices"
 "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors":
   label: "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors"
   permalink: "/topic/mathematics/linear-algebra/eigenvalues-and-eigenvectors"
@@ -824,6 +892,10 @@
   label: "Mathematics.Linear-Algebra.Matrix-Diagonalization"
   permalink: "/topic/mathematics/linear-algebra/matrix-diagonalization"
   description: "Mathematics / Linear-Algebra / Matrix-Diagonalization"
+"Mathematics.Linear-Algebra.Matrix-Exponential":
+  label: "Mathematics.Linear-Algebra.Matrix-Exponential"
+  permalink: "/topic/mathematics/linear-algebra/matrix-exponential"
+  description: "Mathematics / Linear-Algebra / Matrix-Exponential"
 "Mathematics.Linear-Algebra.Matrix-Limit":
   label: "Mathematics.Linear-Algebra.Matrix-Limit"
   permalink: "/topic/mathematics/linear-algebra/matrix-limit"
@@ -836,6 +908,10 @@
   label: "Mathematics.Linear-Algebra.Matrix-Rank"
   permalink: "/topic/mathematics/linear-algebra/matrix-rank"
   description: "Mathematics / Linear-Algebra / Matrix-Rank"
+"Mathematics.Linear-Algebra.Nilpotent-Matrix":
+  label: "Mathematics.Linear-Algebra.Nilpotent-Matrix"
+  permalink: "/topic/mathematics/linear-algebra/nilpotent-matrix"
+  description: "Mathematics / Linear-Algebra / Nilpotent-Matrix"
 "Mathematics.Linear-Algebra.Orthogonal-Decomposition":
   label: "Mathematics.Linear-Algebra.Orthogonal-Decomposition"
   permalink: "/topic/mathematics/linear-algebra/orthogonal-decomposition"
@@ -848,6 +924,10 @@
   label: "Mathematics.Linear-Algebra.Pseudoinverse-Matrix"
   permalink: "/topic/mathematics/linear-algebra/pseudoinverse-matrix"
   description: "Mathematics / Linear-Algebra / Pseudoinverse-Matrix"
+"Mathematics.Linear-Algebra.Stochastic-Matrix":
+  label: "Mathematics.Linear-Algebra.Stochastic-Matrix"
+  permalink: "/topic/mathematics/linear-algebra/stochastic-matrix"
+  description: "Mathematics / Linear-Algebra / Stochastic-Matrix"
 "Mathematics.Linear-Algebra.SVD":
   label: "Mathematics.Linear-Algebra.SVD"
   permalink: "/topic/mathematics/linear-algebra/svd"
@@ -872,10 +952,26 @@
   label: "Operations-Research.Decision-Analysis.Analytic-Hierarchy-Process"
   permalink: "/topic/operations-research/decision-analysis/analytic-hierarchy-process"
   description: "Operations-Research / Decision-Analysis / Analytic-Hierarchy-Process"
+"Operations-Research.Decision-Analysis.Decision-Under-Uncertainty":
+  label: "Operations-Research.Decision-Analysis.Decision-Under-Uncertainty"
+  permalink: "/topic/operations-research/decision-analysis/decision-under-uncertainty"
+  description: "Operations-Research / Decision-Analysis / Decision-Under-Uncertainty"
 "Operations-Research.Decision-Analysis.Pairwise-Comparison-Consistency":
   label: "Operations-Research.Decision-Analysis.Pairwise-Comparison-Consistency"
   permalink: "/topic/operations-research/decision-analysis/pairwise-comparison-consistency"
   description: "Operations-Research / Decision-Analysis / Pairwise-Comparison-Consistency"
+"Operations-Research.Decision-Analysis.Sensitivity-Analysis":
+  label: "Operations-Research.Decision-Analysis.Sensitivity-Analysis"
+  permalink: "/topic/operations-research/decision-analysis/sensitivity-analysis"
+  description: "Operations-Research / Decision-Analysis / Sensitivity-Analysis"
+"Operations-Research.Game-Theory.Backward-Induction":
+  label: "Operations-Research.Game-Theory.Backward-Induction"
+  permalink: "/topic/operations-research/game-theory/backward-induction"
+  description: "Operations-Research / Game-Theory / Backward-Induction"
+"Operations-Research.Game-Theory.Chain-Store-Paradox":
+  label: "Operations-Research.Game-Theory.Chain-Store-Paradox"
+  permalink: "/topic/operations-research/game-theory/chain-store-paradox"
+  description: "Operations-Research / Game-Theory / Chain-Store-Paradox"
 "Operations-Research.Game-Theory.Nash-Equilibrium":
   label: "Operations-Research.Game-Theory.Nash-Equilibrium"
   permalink: "/topic/operations-research/game-theory/nash-equilibrium"
@@ -892,6 +988,10 @@
   label: "Operations-Research.Inventory-Management.Economic-Order-Quantity"
   permalink: "/topic/operations-research/inventory-management/economic-order-quantity"
   description: "Operations-Research / Inventory-Management / Economic-Order-Quantity"
+"Operations-Research.Inventory-Management.Newsvendor-Problem":
+  label: "Operations-Research.Inventory-Management.Newsvendor-Problem"
+  permalink: "/topic/operations-research/inventory-management/newsvendor-problem"
+  description: "Operations-Research / Inventory-Management / Newsvendor-Problem"
 "Operations-Research.Inventory-Management.Quantity-Discount":
   label: "Operations-Research.Inventory-Management.Quantity-Discount"
   permalink: "/topic/operations-research/inventory-management/quantity-discount"
@@ -920,10 +1020,22 @@
   label: "Operations-Research.Optimization.Transportation-Problem"
   permalink: "/topic/operations-research/optimization/transportation-problem"
   description: "Operations-Research / Optimization / Transportation-Problem"
+"Operations-Research.Optimization.Traveling-Salesman-Problem":
+  label: "Operations-Research.Optimization.Traveling-Salesman-Problem"
+  permalink: "/topic/operations-research/optimization/traveling-salesman-problem"
+  description: "Operations-Research / Optimization / Traveling-Salesman-Problem"
+"Operations-Research.Queueing-Theory.Average-Waiting-Time":
+  label: "Operations-Research.Queueing-Theory.Average-Waiting-Time"
+  permalink: "/topic/operations-research/queueing-theory/average-waiting-time"
+  description: "Operations-Research / Queueing-Theory / Average-Waiting-Time"
 "Probability-Statistics.Fundamentals.Binomial-Distribution":
   label: "Probability-Statistics.Fundamentals.Binomial-Distribution"
   permalink: "/topic/probability-statistics/fundamentals/binomial-distribution"
   description: "Probability-Statistics / Fundamentals / Binomial-Distribution"
+"Probability-Statistics.Fundamentals.Chi-Square-Distribution":
+  label: "Probability-Statistics.Fundamentals.Chi-Square-Distribution"
+  permalink: "/topic/probability-statistics/fundamentals/chi-square-distribution"
+  description: "Probability-Statistics / Fundamentals / Chi-Square-Distribution"
 "Probability-Statistics.Fundamentals.Conditional-Density":
   label: "Probability-Statistics.Fundamentals.Conditional-Density"
   permalink: "/topic/probability-statistics/fundamentals/conditional-density"
@@ -940,6 +1052,10 @@
   label: "Probability-Statistics.Fundamentals.Exponential-Distribution"
   permalink: "/topic/probability-statistics/fundamentals/exponential-distribution"
   description: "Probability-Statistics / Fundamentals / Exponential-Distribution"
+"Probability-Statistics.Fundamentals.Gamma-Distribution":
+  label: "Probability-Statistics.Fundamentals.Gamma-Distribution"
+  permalink: "/topic/probability-statistics/fundamentals/gamma-distribution"
+  description: "Probability-Statistics / Fundamentals / Gamma-Distribution"
 "Probability-Statistics.Fundamentals.Law-of-Large-Numbers":
   label: "Probability-Statistics.Fundamentals.Law-of-Large-Numbers"
   permalink: "/topic/probability-statistics/fundamentals/law-of-large-numbers"
@@ -952,10 +1068,22 @@
   label: "Probability-Statistics.Fundamentals.Order-Statistics"
   permalink: "/topic/probability-statistics/fundamentals/order-statistics"
   description: "Probability-Statistics / Fundamentals / Order-Statistics"
+"Probability-Statistics.Fundamentals.Uniform-Distribution":
+  label: "Probability-Statistics.Fundamentals.Uniform-Distribution"
+  permalink: "/topic/probability-statistics/fundamentals/uniform-distribution"
+  description: "Probability-Statistics / Fundamentals / Uniform-Distribution"
 "Probability-Statistics.Statistical-Inference.ANOVA":
   label: "Probability-Statistics.Statistical-Inference.ANOVA"
   permalink: "/topic/probability-statistics/statistical-inference/anova"
   description: "Probability-Statistics / Statistical-Inference / ANOVA"
+"Probability-Statistics.Statistical-Inference.Bayesian-Inference":
+  label: "Probability-Statistics.Statistical-Inference.Bayesian-Inference"
+  permalink: "/topic/probability-statistics/statistical-inference/bayesian-inference"
+  description: "Probability-Statistics / Statistical-Inference / Bayesian-Inference"
+"Probability-Statistics.Statistical-Inference.Beta-Bernoulli-Model":
+  label: "Probability-Statistics.Statistical-Inference.Beta-Bernoulli-Model"
+  permalink: "/topic/probability-statistics/statistical-inference/beta-bernoulli-model"
+  description: "Probability-Statistics / Statistical-Inference / Beta-Bernoulli-Model"
 "Probability-Statistics.Statistical-Inference.Confidence-Interval":
   label: "Probability-Statistics.Statistical-Inference.Confidence-Interval"
   permalink: "/topic/probability-statistics/statistical-inference/confidence-interval"
@@ -980,6 +1108,10 @@
   label: "Probability-Statistics.Statistical-Inference.Least-Squares-Method"
   permalink: "/topic/probability-statistics/statistical-inference/least-squares-method"
   description: "Probability-Statistics / Statistical-Inference / Least-Squares-Method"
+"Probability-Statistics.Statistical-Inference.Mahalanobis-Distance":
+  label: "Probability-Statistics.Statistical-Inference.Mahalanobis-Distance"
+  permalink: "/topic/probability-statistics/statistical-inference/mahalanobis-distance"
+  description: "Probability-Statistics / Statistical-Inference / Mahalanobis-Distance"
 "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation":
   label: "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation"
   permalink: "/topic/probability-statistics/statistical-inference/maximum-likelihood-estimation"
@@ -992,10 +1124,30 @@
   label: "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration"
   permalink: "/topic/probability-statistics/statistical-inference/monte-carlo-integration"
   description: "Probability-Statistics / Statistical-Inference / Monte-Carlo-Integration"
+"Probability-Statistics.Statistical-Inference.Multicollinearity":
+  label: "Probability-Statistics.Statistical-Inference.Multicollinearity"
+  permalink: "/topic/probability-statistics/statistical-inference/multicollinearity"
+  description: "Probability-Statistics / Statistical-Inference / Multicollinearity"
+"Probability-Statistics.Statistical-Inference.Multiple-Regression":
+  label: "Probability-Statistics.Statistical-Inference.Multiple-Regression"
+  permalink: "/topic/probability-statistics/statistical-inference/multiple-regression"
+  description: "Probability-Statistics / Statistical-Inference / Multiple-Regression"
+"Probability-Statistics.Statistical-Inference.Orthogonal-Array":
+  label: "Probability-Statistics.Statistical-Inference.Orthogonal-Array"
+  permalink: "/topic/probability-statistics/statistical-inference/orthogonal-array"
+  description: "Probability-Statistics / Statistical-Inference / Orthogonal-Array"
+"Probability-Statistics.Statistical-Inference.Regression-Diagnostics":
+  label: "Probability-Statistics.Statistical-Inference.Regression-Diagnostics"
+  permalink: "/topic/probability-statistics/statistical-inference/regression-diagnostics"
+  description: "Probability-Statistics / Statistical-Inference / Regression-Diagnostics"
 "Probability-Statistics.Statistical-Inference.Simple-Linear-Regression":
   label: "Probability-Statistics.Statistical-Inference.Simple-Linear-Regression"
   permalink: "/topic/probability-statistics/statistical-inference/simple-linear-regression"
   description: "Probability-Statistics / Statistical-Inference / Simple-Linear-Regression"
+"Probability-Statistics.Statistical-Inference.Split-Plot-Design":
+  label: "Probability-Statistics.Statistical-Inference.Split-Plot-Design"
+  permalink: "/topic/probability-statistics/statistical-inference/split-plot-design"
+  description: "Probability-Statistics / Statistical-Inference / Split-Plot-Design"
 "Probability-Statistics.Stochastic-Processes.Markov-Chain":
   label: "Probability-Statistics.Stochastic-Processes.Markov-Chain"
   permalink: "/topic/probability-statistics/stochastic-processes/markov-chain"

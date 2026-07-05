@@ -2,7 +2,8 @@
   "label": "基礎工学研究科",
   "position": 2,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/osaka-university-engineering_sciences"
   },
   "key": "osaka-university-engineering_sciences"
 }

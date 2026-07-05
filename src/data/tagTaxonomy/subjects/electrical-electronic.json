@@ -63,6 +63,14 @@
     "Electrical-Electronic.Communications"
   ],
   "topics": {
+    "Electrical-Electronic.Control-Theory.Feedback-Control": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "subjects": [
+        "Electrical-Electronic",
+        "Engineering",
+        "Operations-Research"
+      ]
+    },
     "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "subjects": [

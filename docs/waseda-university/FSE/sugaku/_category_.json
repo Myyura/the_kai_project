@@ -2,7 +2,8 @@
   "label": "数学応用数理専攻",
   "position": 3,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/waseda-university-FSE-sugaku"
   },
   "key": "waseda-university-FSE-sugaku"
 }

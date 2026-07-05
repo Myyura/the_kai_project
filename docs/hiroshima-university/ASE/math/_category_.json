@@ -2,7 +2,8 @@
   "label": "数学プログラム",
   "position": 3,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/hiroshima-university-ASE-math"
   },
   "key": "hiroshima-university-ASE-math"
 }

@@ -2,7 +2,8 @@
   "label": "化学・バイオ系",
   "position": 2,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/tohoku-university-engineering-che"
   },
   "key": "tohoku-university-engineering-che"
 }

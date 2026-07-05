@@ -150,6 +150,37 @@
         "Mathematics"
       ]
     },
+    "Mathematics.Calculus.Differentiation": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Calculus.Limit": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Calculus.Definite-Integral": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Calculus.Gamma-Function": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics",
+        "Probability-Statistics"
+      ]
+    },
+    "Mathematics.Calculus.Implicit-Differentiation": {
+      "subsubject": "Mathematics.Calculus",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
     "Mathematics.Complex-Analysis.Complex-Numbers": {
       "subsubject": "Mathematics.Complex-Analysis",
       "subjects": [
@@ -446,6 +477,38 @@
       "subsubject": "Mathematics.Linear-Algebra",
       "subjects": [
         "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Commuting-Matrices": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Block-Matrix-Inverse": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Stochastic-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics",
+        "Probability-Statistics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Nilpotent-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Matrix-Exponential": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "subjects": [
+        "Mathematics",
+        "Electrical-Electronic"
       ]
     },
     "Mathematics.Number-Theory.Greatest-Common-Divisor": {

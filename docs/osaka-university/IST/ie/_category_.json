@@ -2,7 +2,8 @@
   "label": "情報工学",
   "position": 1,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/osaka-university-IST-ie"
   },
   "key": "osaka-university-IST-ie"
 }

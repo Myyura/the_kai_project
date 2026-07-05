@@ -2,7 +2,8 @@
   "label": "機械系専攻",
   "position": 3,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/kyushu-university-engineering-mech"
   },
   "key": "kyushu-university-engineering-mech"
 }

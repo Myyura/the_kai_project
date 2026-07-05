@@ -2,7 +2,8 @@
   "label": "2025年度",
   "position": 2025,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/kyoto-university-informatics-amp-2025"
   },
   "key": "kyoto-university-informatics-amp-2025"
 }

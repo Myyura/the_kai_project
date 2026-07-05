@@ -2,7 +2,8 @@
   "label": "機械系",
   "position": 6,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/tohoku-university-engineering-mech"
   },
   "key": "tohoku-university-engineering-mech"
 }

@@ -2,7 +2,8 @@
   "label": "名古屋大学",
   "position": 6,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/nagoya-university"
   },
   "key": "nagoya-university"
 }

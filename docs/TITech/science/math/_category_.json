@@ -2,7 +2,8 @@
   "label": "数学系",
   "position": 2,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/TITech-science-math"
   },
   "key": "TITech-science-math"
 }

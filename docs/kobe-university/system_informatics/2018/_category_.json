@@ -2,7 +2,8 @@
   "label": "2018年度",
   "position": 2018,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/kobe-university-system_informatics-2018"
   },
   "key": "kobe-university-system_informatics-2018"
 }

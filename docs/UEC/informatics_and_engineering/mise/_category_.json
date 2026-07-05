@@ -2,7 +2,8 @@
   "label": "機械知能システム学専攻",
   "position": 3,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/UEC-informatics_and_engineering-mise"
   },
   "key": "UEC-informatics_and_engineering-mise"
 }

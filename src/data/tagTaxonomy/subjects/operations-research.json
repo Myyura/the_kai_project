@@ -63,6 +63,13 @@
     "Operations-Research.Decision-Analysis"
   ],
   "topics": {
+    "Operations-Research.Queueing-Theory.Average-Waiting-Time": {
+      "subsubject": "Operations-Research.Queueing-Theory",
+      "subjects": [
+        "Operations-Research",
+        "Probability-Statistics"
+      ]
+    },
     "Operations-Research.Optimization.Branch-And-Bound": {
       "subsubject": "Operations-Research.Optimization",
       "subjects": [
@@ -102,6 +109,14 @@
         "Operations-Research"
       ]
     },
+    "Operations-Research.Optimization.Traveling-Salesman-Problem": {
+      "subsubject": "Operations-Research.Optimization",
+      "subjects": [
+        "Operations-Research",
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
     "Operations-Research.Game-Theory.Nash-Equilibrium": {
       "subsubject": "Operations-Research.Game-Theory",
       "subjects": [
@@ -120,6 +135,18 @@
         "Operations-Research"
       ]
     },
+    "Operations-Research.Game-Theory.Backward-Induction": {
+      "subsubject": "Operations-Research.Game-Theory",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Game-Theory.Chain-Store-Paradox": {
+      "subsubject": "Operations-Research.Game-Theory",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
     "Operations-Research.Inventory-Management.Economic-Order-Quantity": {
       "subsubject": "Operations-Research.Inventory-Management",
       "subjects": [
@@ -132,6 +159,13 @@
         "Operations-Research"
       ]
     },
+    "Operations-Research.Inventory-Management.Newsvendor-Problem": {
+      "subsubject": "Operations-Research.Inventory-Management",
+      "subjects": [
+        "Operations-Research",
+        "Probability-Statistics"
+      ]
+    },
     "Operations-Research.Decision-Analysis.Analytic-Hierarchy-Process": {
       "subsubject": "Operations-Research.Decision-Analysis",
       "subjects": [
@@ -142,6 +176,19 @@
       "subsubject": "Operations-Research.Decision-Analysis",
       "subjects": [
         "Operations-Research"
+      ]
+    },
+    "Operations-Research.Decision-Analysis.Sensitivity-Analysis": {
+      "subsubject": "Operations-Research.Decision-Analysis",
+      "subjects": [
+        "Operations-Research"
+      ]
+    },
+    "Operations-Research.Decision-Analysis.Decision-Under-Uncertainty": {
+      "subsubject": "Operations-Research.Decision-Analysis",
+      "subjects": [
+        "Operations-Research",
+        "Probability-Statistics"
       ]
     }
   }

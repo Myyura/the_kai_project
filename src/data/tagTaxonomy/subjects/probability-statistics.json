@@ -94,6 +94,25 @@
         "Mathematics"
       ]
     },
+    "Probability-Statistics.Fundamentals.Gamma-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Uniform-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Fundamentals.Chi-Square-Distribution": {
+      "subsubject": "Probability-Statistics.Fundamentals",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Probability-Statistics.Statistical-Inference.Confidence-Interval": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
@@ -160,6 +179,62 @@
       "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
         "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Bayesian-Inference": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Beta-Bernoulli-Model": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Multiple-Regression": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Multicollinearity": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Split-Plot-Design": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Orthogonal-Array": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Engineering"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Regression-Diagnostics": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Mahalanobis-Distance": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "subjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence",
         "Mathematics"
       ]
     },

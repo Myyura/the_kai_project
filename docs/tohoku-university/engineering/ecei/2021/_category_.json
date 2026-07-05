@@ -2,7 +2,8 @@
   "label": "2021年度",
   "position": 2021,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/category/tohoku-university-engineering-ecei-2021"
   },
   "key": "tohoku-university-engineering-ecei-2021"
 }
