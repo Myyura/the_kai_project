@@ -5,8 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {type ReactNode, useMemo} from 'react';
+import React, {Suspense, lazy, type ReactNode} from 'react';
 import clsx from 'clsx';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import {
   useThemeConfig,
   ErrorCauseBoundary,
@@ -18,7 +19,6 @@ import {
 } from '@docusaurus/theme-common/internal';
 import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
-import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
@@ -27,6 +27,20 @@ import NavbarLoginButton from '@site/src/components/NavbarLoginButton';
 import {useLanguage} from '@site/src/context/LanguageContext';
 
 import styles from './styles.module.css';
+
+const LazySearchBar = lazy(() => import('@theme/SearchBar'));
+
+function DeferredSearchBar(): ReactNode {
+  return (
+    <BrowserOnly fallback={null}>
+      {() => (
+        <Suspense fallback={null}>
+          <LazySearchBar />
+        </Suspense>
+      )}
+    </BrowserOnly>
+  );
+}
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -123,7 +137,7 @@ export default function NavbarContent(): ReactNode {
           <NavbarColorModeToggle className={styles.colorModeToggle} />
           {!searchBarItem && (
             <NavbarSearch>
-              <SearchBar />
+              <DeferredSearchBar />
             </NavbarSearch>
           )}
           <NavbarLoginButton />

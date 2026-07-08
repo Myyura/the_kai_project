@@ -78,6 +78,17 @@ function getSubjectAnchorId(subjectId: string): string {
   return `subject-${subjectId.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 }
 
+function getSubjectIdFromHash(hash: string, subjectIds: string[]): string | null {
+  let decodedHash = hash;
+  try {
+    decodedHash = decodeURIComponent(hash);
+  } catch {
+    decodedHash = hash;
+  }
+  const normalizedHash = decodedHash.replace(/^#/, '');
+  return subjectIds.find((subjectId) => getSubjectAnchorId(subjectId) === normalizedHash) || null;
+}
+
 function getSubsubjectLabel(subsubjectId: string, language: Language): string {
   return getLocalizedLabel(subsubjects[subsubjectId], subsubjectId, language);
 }
@@ -282,16 +293,18 @@ function SubjectPanel({
   groups,
   language,
   isSearching,
+  isActive,
 }: {
   subjectId: string;
   groups: DisplaySubsubjectGroup[];
   language: Language;
   isSearching: boolean;
+  isActive: boolean;
 }) {
   const subjectDescription = getSubjectDescription(subjectId, language);
 
   return (
-    <section className={styles.subjectPanel}>
+    <section className={`${styles.subjectPanel} ${isActive ? styles.subjectPanelActive : ''}`}>
       <header className={styles.subjectPanelHeader}>
         <div>
           <Heading
@@ -417,13 +430,53 @@ function LearningSections({
     ...subjectOrder.filter((subject) => bySubject.has(subject)),
     ...Array.from(bySubject.keys()).filter((subject) => !subjectOrder.includes(subject)),
   ], [bySubject]);
-  const [selectedSubject, setSelectedSubject] = useState(orderedSubjects[0] || '');
+  const [selectedSubject, setSelectedSubject] = useState(() => {
+    if (typeof window === 'undefined') return orderedSubjects[0] || '';
+    return getSubjectIdFromHash(window.location.hash, orderedSubjects) || orderedSubjects[0] || '';
+  });
 
   useEffect(() => {
     if (!orderedSubjects.includes(selectedSubject)) {
       setSelectedSubject(orderedSubjects[0] || '');
     }
   }, [orderedSubjects, selectedSubject]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+
+    const syncSubjectFromHash = () => {
+      const subjectFromHash = getSubjectIdFromHash(window.location.hash, orderedSubjects);
+      if (subjectFromHash) {
+        setQuery('');
+        setSelectedSubject(subjectFromHash);
+      }
+    };
+
+    syncSubjectFromHash();
+    window.addEventListener('hashchange', syncSubjectFromHash);
+    window.addEventListener('popstate', syncSubjectFromHash);
+    return () => {
+      window.removeEventListener('hashchange', syncSubjectFromHash);
+      window.removeEventListener('popstate', syncSubjectFromHash);
+    };
+  }, [orderedSubjects]);
+
+  const navigateToSubject = (event: React.MouseEvent<HTMLAnchorElement>, subjectId: string) => {
+    event.preventDefault();
+    const anchorId = getSubjectAnchorId(subjectId);
+    setQuery('');
+    setSelectedSubject(subjectId);
+
+    if (typeof window === 'undefined') return;
+    window.history.pushState(
+      null,
+      '',
+      `${window.location.pathname}${window.location.search}#${anchorId}`,
+    );
+    window.requestAnimationFrame(() => {
+      document.getElementById(anchorId)?.scrollIntoView({block: 'start'});
+    });
+  };
 
   const orderedGroups = (groups: Map<string, SubsubjectGroup>) => {
     const order = new Map(subsubjectOrder.map((id, index) => [id, index]));
@@ -507,10 +560,7 @@ function LearningSections({
               to={`#${getSubjectAnchorId(subjectId)}`}
               className={`${styles.subjectNavItem} ${!isSearching && selectedSubject === subjectId ? styles.subjectNavItemActive : ''}`}
               aria-current={!isSearching && selectedSubject === subjectId ? 'true' : undefined}
-              onClick={() => {
-                setQuery('');
-                setSelectedSubject(subjectId);
-              }}>
+              onClick={(event) => navigateToSubject(event, subjectId)}>
               <span>{getSubjectLabel(subjectId, language)}</span>
               <span className={styles.subjectNavCount}>
                 {countGroupTags(orderedGroups(bySubject.get(subjectId)!))}
@@ -526,6 +576,7 @@ function LearningSections({
               groups={visibleGroups.get(subjectId)!}
               language={language}
               isSearching={isSearching}
+              isActive={!isSearching && selectedSubject === subjectId}
             />
           ))}
           {isSearching && displayedSubjects.length === 0 && (
