@@ -3,7 +3,7 @@
  * Compiled and bundled by Rspack together with the Docusaurus-generated SW.
  *
  * Adds runtime caching for:
- *  1. Same-origin navigations (NetworkFirst) — docs/blog pages are cached after visit
+ *  1. Same-origin navigations (NetworkOnly) — avoid stale HTML after deploy
  *  2. Route chunks, CSS, and images (CacheFirst) — versioned assets are cached on demand
  *  3. CDN KaTeX assets (CacheFirst, 30-day TTL) — so NoteEditor math works offline
  *  4. /search-index.json (StaleWhileRevalidate) — so local search works offline
@@ -11,7 +11,7 @@
  */
 
 import { registerRoute } from 'workbox-routing';
-import { CacheFirst, NetworkFirst, StaleWhileRevalidate } from 'workbox-strategies';
+import { CacheFirst, NetworkOnly, StaleWhileRevalidate } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
@@ -47,25 +47,15 @@ const isImageAsset = ({ url }) => {
 };
 
 // ─── 1. Same-origin pages ───────────────────────────────────────────────────
-// Keep docs/blog/function pages out of install-time precache, then cache pages
-// once the user actually visits them.
+// NetworkOnly: avoid serving stale HTML after deploy (old HTML → missing hashed
+// bundles → browser parses 404 HTML as JS → SyntaxError on main.*.js:1).
 registerRoute(
   ({ request, url }) => (
     isSameOrigin({ url }) &&
     request.mode === 'navigate' &&
     !isPrecachedPath(url.pathname)
   ),
-  new NetworkFirst({
-    cacheName: 'pages-runtime',
-    networkTimeoutSeconds: 3,
-    plugins: [
-      new CacheableResponsePlugin({ statuses: [200] }),
-      new ExpirationPlugin({
-        maxEntries: 80,
-        maxAgeSeconds: 7 * 24 * 60 * 60, // 7 days
-      }),
-    ],
-  }),
+  new NetworkOnly(),
 );
 
 // ─── 2. Route chunks, CSS, and images ───────────────────────────────────────
@@ -125,14 +115,23 @@ registerRoute(
   }),
 );
 
-// ─── Deploy safety: drop stale HTML caches on SW activate ─────────────────────
-// After each deploy, hashed JS/CSS filenames change. pages-runtime may still
-// serve old HTML that references removed bundles → browser parses 404 HTML as JS.
-const RUNTIME_CACHES_TO_PURGE_ON_ACTIVATE = ['pages-runtime'];
+// ─── Deploy safety: drop stale runtime caches on SW activate ──────────────────
+const RUNTIME_CACHES_TO_PURGE_ON_ACTIVATE = [
+  'pages-runtime',
+  'assets-runtime',
+  'images-runtime',
+];
+
+self.addEventListener('install', () => {
+  self.skipWaiting();
+});
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    Promise.all(RUNTIME_CACHES_TO_PURGE_ON_ACTIVATE.map((name) => caches.delete(name))),
+    Promise.all([
+      ...RUNTIME_CACHES_TO_PURGE_ON_ACTIVATE.map((name) => caches.delete(name)),
+      self.clients.claim(),
+    ]),
   );
 });
 

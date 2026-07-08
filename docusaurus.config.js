@@ -57,6 +57,48 @@ function sortYearCategoriesDesc(items) {
   ));
 }
 
+function safeRspackJsMinifierPlugin() {
+  return {
+    name: 'safe-rspack-js-minifier',
+    configureWebpack(config, isServer, {currentBundler}) {
+      if (isServer || currentBundler.name !== 'rspack') {
+        return {};
+      }
+
+      const rspack = require('@rspack/core');
+      const currentMinimizers = config.optimization?.minimizer || [];
+      const jsMinimizer = new rspack.SwcJsMinimizerRspackPlugin({
+        minimizerOptions: {
+          minify: true,
+          ecma: 2020,
+          compress: {
+            ecma: 5,
+          },
+          module: true,
+          mangle: true,
+          safari10: true,
+          format: {
+            ecma: 5,
+            comments: false,
+            ascii_only: true,
+            quote_keys: true,
+            keep_quoted_props: true,
+          },
+        },
+      });
+
+      return {
+        mergeStrategy: {
+          'optimization.minimizer': 'replace',
+        },
+        optimization: {
+          minimizer: [jsMinimizer, ...currentMinimizers.slice(1)],
+        },
+      };
+    },
+  };
+}
+
  /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: {
@@ -87,6 +129,12 @@ const config = {
   favicon: 'img/favicon.ico',
 
   headTags: [
+    // Runs before deferred main/runtime bundles — recovers when SW serves stale assets.
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: require('./src/headScripts/pwaRecoveryInline.js'),
+    },
     // cdn.jsdelivr.net 仅在 NoteEditor 中懒加载 KaTeX 时使用，首屏不请求，不使用 preconnect（避免无效连接）。
     // 保留 dns-prefetch：开销极低，KaTeX 实际加载时仍可加速 DNS 解析。
     { tagName: 'link', attributes: { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' } },
@@ -163,6 +211,7 @@ const config = {
 
   // 添加SEO相关插件
   plugins: [
+    safeRspackJsMinifierPlugin,
     [
       '@docusaurus/plugin-pwa',
       {
