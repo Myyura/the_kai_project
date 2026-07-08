@@ -100,6 +100,18 @@
   label: "Discrete-Mathematics.Discrete-Mathematics"
   permalink: "/subsubject/discrete-mathematics/discrete-mathematics"
   description: "Discrete-Mathematics / Discrete-Mathematics"
+"Probability-Statistics.Statistical-Inference":
+  label: "Probability-Statistics.Statistical-Inference"
+  permalink: "/subsubject/probability-statistics/statistical-inference"
+  description: "Probability-Statistics / Statistical-Inference"
+"Probability-Statistics.Stochastic-Processes":
+  label: "Probability-Statistics.Stochastic-Processes"
+  permalink: "/subsubject/probability-statistics/stochastic-processes"
+  description: "Probability-Statistics / Stochastic-Processes"
+"Probability-Statistics.Probability-and-Statistics-Basics":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics"
+  permalink: "/subsubject/probability-statistics/probability-and-statistics-basics"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics"
 "Graph-Theory-Combinatorial-Optimization.Graph-Theory":
   label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
   permalink: "/subsubject/graph-theory-combinatorial-optimization/graph-theory"
@@ -112,6 +124,26 @@
   label: "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization"
   permalink: "/subsubject/graph-theory-combinatorial-optimization/combinatorial-optimization"
   description: "Graph-Theory-Combinatorial-Optimization / Combinatorial-Optimization"
+"Operations-Research.Optimization":
+  label: "Operations-Research.Optimization"
+  permalink: "/subsubject/operations-research/optimization"
+  description: "Operations-Research / Optimization"
+"Operations-Research.Queueing-Theory":
+  label: "Operations-Research.Queueing-Theory"
+  permalink: "/subsubject/operations-research/queueing-theory"
+  description: "Operations-Research / Queueing-Theory"
+"Operations-Research.Game-Theory":
+  label: "Operations-Research.Game-Theory"
+  permalink: "/subsubject/operations-research/game-theory"
+  description: "Operations-Research / Game-Theory"
+"Operations-Research.Inventory-Management":
+  label: "Operations-Research.Inventory-Management"
+  permalink: "/subsubject/operations-research/inventory-management"
+  description: "Operations-Research / Inventory-Management"
+"Operations-Research.Decision-Analysis":
+  label: "Operations-Research.Decision-Analysis"
+  permalink: "/subsubject/operations-research/decision-analysis"
+  description: "Operations-Research / Decision-Analysis"
 "Computer-Science.Data-Structures-Algorithms":
   label: "Computer-Science.Data-Structures-Algorithms"
   permalink: "/subsubject/computer-science/data-structures-algorithms"
@@ -152,6 +184,18 @@
   label: "Computer-Science.Information-Theory"
   permalink: "/subsubject/computer-science/information-theory"
   description: "Computer-Science / Information-Theory"
+"Data-Science-Artificial-Intelligence.Data-Science":
+  label: "Data-Science-Artificial-Intelligence.Data-Science"
+  permalink: "/subsubject/data-science-artificial-intelligence/data-science"
+  description: "Data-Science-Artificial-Intelligence / Data-Science"
+"Data-Science-Artificial-Intelligence.Artificial-Intelligence":
+  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence"
+  permalink: "/subsubject/data-science-artificial-intelligence/artificial-intelligence"
+  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence"
+"Data-Science-Artificial-Intelligence.Machine-Learning":
+  label: "Data-Science-Artificial-Intelligence.Machine-Learning"
+  permalink: "/subsubject/data-science-artificial-intelligence/machine-learning"
+  description: "Data-Science-Artificial-Intelligence / Machine-Learning"
 "Electrical-Electronic.Circuits":
   label: "Electrical-Electronic.Circuits"
   permalink: "/subsubject/electrical-electronic/circuits"
@@ -172,50 +216,6 @@
   label: "Electrical-Electronic.Communications"
   permalink: "/subsubject/electrical-electronic/communications"
   description: "Electrical-Electronic / Communications"
-"Probability-Statistics.Statistical-Inference":
-  label: "Probability-Statistics.Statistical-Inference"
-  permalink: "/subsubject/probability-statistics/statistical-inference"
-  description: "Probability-Statistics / Statistical-Inference"
-"Probability-Statistics.Stochastic-Processes":
-  label: "Probability-Statistics.Stochastic-Processes"
-  permalink: "/subsubject/probability-statistics/stochastic-processes"
-  description: "Probability-Statistics / Stochastic-Processes"
-"Probability-Statistics.Probability-and-Statistics-Basics":
-  label: "Probability-Statistics.Probability-and-Statistics-Basics"
-  permalink: "/subsubject/probability-statistics/probability-and-statistics-basics"
-  description: "Probability-Statistics / Probability-and-Statistics-Basics"
-"Data-Science-Artificial-Intelligence.Data-Science":
-  label: "Data-Science-Artificial-Intelligence.Data-Science"
-  permalink: "/subsubject/data-science-artificial-intelligence/data-science"
-  description: "Data-Science-Artificial-Intelligence / Data-Science"
-"Data-Science-Artificial-Intelligence.Artificial-Intelligence":
-  label: "Data-Science-Artificial-Intelligence.Artificial-Intelligence"
-  permalink: "/subsubject/data-science-artificial-intelligence/artificial-intelligence"
-  description: "Data-Science-Artificial-Intelligence / Artificial-Intelligence"
-"Data-Science-Artificial-Intelligence.Machine-Learning":
-  label: "Data-Science-Artificial-Intelligence.Machine-Learning"
-  permalink: "/subsubject/data-science-artificial-intelligence/machine-learning"
-  description: "Data-Science-Artificial-Intelligence / Machine-Learning"
-"Operations-Research.Optimization":
-  label: "Operations-Research.Optimization"
-  permalink: "/subsubject/operations-research/optimization"
-  description: "Operations-Research / Optimization"
-"Operations-Research.Queueing-Theory":
-  label: "Operations-Research.Queueing-Theory"
-  permalink: "/subsubject/operations-research/queueing-theory"
-  description: "Operations-Research / Queueing-Theory"
-"Operations-Research.Game-Theory":
-  label: "Operations-Research.Game-Theory"
-  permalink: "/subsubject/operations-research/game-theory"
-  description: "Operations-Research / Game-Theory"
-"Operations-Research.Inventory-Management":
-  label: "Operations-Research.Inventory-Management"
-  permalink: "/subsubject/operations-research/inventory-management"
-  description: "Operations-Research / Inventory-Management"
-"Operations-Research.Decision-Analysis":
-  label: "Operations-Research.Decision-Analysis"
-  permalink: "/subsubject/operations-research/decision-analysis"
-  description: "Operations-Research / Decision-Analysis"
 "Physics.Mechanics":
   label: "Physics.Mechanics"
   permalink: "/subsubject/physics/mechanics"
@@ -496,6 +496,10 @@
   label: "Computer-Science.Data-Structures-Algorithms.Trie"
   permalink: "/topic/computer-science/data-structures-algorithms/trie"
   description: "Computer-Science / Data-Structures-Algorithms / Trie"
+"Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure":
+  label: "Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure"
+  permalink: "/topic/computer-science/data-structures-algorithms/union-find-data-structure"
+  description: "Computer-Science / Data-Structures-Algorithms / Union-Find-Data-Structure"
 "Computer-Science.Formal-Languages.Context-Free-Grammar":
   label: "Computer-Science.Formal-Languages.Context-Free-Grammar"
   permalink: "/topic/computer-science/formal-languages/context-free-grammar"
@@ -760,10 +764,6 @@
   label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Topological-Sort"
   permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/topological-sort"
   description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Topological-Sort"
-"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Union-Find-Data-Structure":
-  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Union-Find-Data-Structure"
-  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/union-find-data-structure"
-  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Union-Find-Data-Structure"
 "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Graph":
   label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Graph"
   permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/bipartite-graph"

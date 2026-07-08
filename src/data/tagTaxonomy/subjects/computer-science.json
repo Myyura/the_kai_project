@@ -456,6 +456,12 @@
         "Computer-Science"
       ]
     },
+    "Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure": {
+      "subsubject": "Computer-Science.Data-Structures-Algorithms",
+      "subjects": [
+        "Computer-Science"
+      ]
+    },
     "Computer-Science.Formal-Languages.Context-Free-Grammar": {
       "subsubject": "Computer-Science.Formal-Languages",
       "subjects": [

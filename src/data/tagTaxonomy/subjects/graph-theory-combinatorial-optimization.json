@@ -23,9 +23,9 @@
       "labelZh": "图算法",
       "labelJa": "グラフアルゴリズム",
       "labelEn": "Graph Algorithms",
-      "descriptionZh": "图搜索、最短路算法、生成树算法、拓扑排序、并查集与图结构判定。",
-      "descriptionJa": "グラフ探索、最短路アルゴリズム、全域木アルゴリズム、トポロジカルソート、Union-Find、グラフ構造判定。",
-      "descriptionEn": "Graph search, shortest-path algorithms, spanning-tree algorithms, topological sorting, union-find, and graph-structure tests."
+      "descriptionZh": "图搜索、最短路算法、生成树算法、拓扑排序与图结构判定。",
+      "descriptionJa": "グラフ探索、最短路アルゴリズム、全域木アルゴリズム、トポロジカルソート、グラフ構造判定。",
+      "descriptionEn": "Graph search, shortest-path algorithms, spanning-tree algorithms, topological sorting, and graph-structure tests."
     },
     "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization": {
       "subject": "Graph-Theory-Combinatorial-Optimization",
@@ -128,13 +128,6 @@
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Topological-Sort": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
-        "Computer-Science"
-      ]
-    },
-    "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Union-Find-Data-Structure": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
       "subjects": [
         "Graph-Theory-Combinatorial-Optimization",
