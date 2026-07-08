@@ -2,7 +2,7 @@
 sidebar_label: "2018年7月実施 統計科学 問題7"
 tags:
   - Waseda-University
-  - Probability-Statistics.Fundamentals.Conditional-Probability
+  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability
   - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
   - Probability-Statistics.Statistical-Inference.Orthogonal-Array
   - Probability-Statistics.Statistical-Inference.Multiple-Regression

@@ -2,7 +2,7 @@
 sidebar_label: '2017年8月実施 専門科目 システム理論 [1]'
 tags:
   - Kobe-University
-  - Mathematics.Graph-Theory.Minimum-Spanning-Tree
+  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Minimum-Spanning-Tree
 ---
 # 神戸大学 システム情報学研究科 2017年8月実施 専門科目 システム理論 \[1\]
 

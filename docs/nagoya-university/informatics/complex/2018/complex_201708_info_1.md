@@ -2,7 +2,7 @@
 sidebar_label: "2017年8月実施 情1"
 tags:
   - Nagoya-University
-  - Computer-Science.Programming.Fundamentals
+  - Computer-Science.Programming.Programming-Basics
   - Computer-Science.Programming.Base-Conversion
   - Computer-Science.Programming.Bitwise-Operation
   - Computer-Science.Programming.Pascal-Triangle

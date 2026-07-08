@@ -2,8 +2,8 @@
 sidebar_label: "2017年7月実施 統計科学 問題4"
 tags:
   - Waseda-University
-  - Probability-Statistics.Fundamentals.Gamma-Distribution
-  - Probability-Statistics.Statistical-Inference.ANOVA
+  - Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution
+  - Probability-Statistics.Statistical-Inference.Analysis-of-Variance
   - Probability-Statistics.Statistical-Inference.Split-Plot-Design
 ---
 

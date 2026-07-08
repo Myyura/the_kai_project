@@ -9,15 +9,6 @@
     "descriptionEn": "Probability theory, statistical inference, stochastic processes, and related methods."
   },
   "subsubjects": {
-    "Probability-Statistics.Fundamentals": {
-      "subject": "Probability-Statistics",
-      "labelZh": "基础概率统计",
-      "labelJa": "確率・統計基礎",
-      "labelEn": "Probability & Statistics Fundamentals",
-      "descriptionZh": "基本概率计算、常见分布、基础统计量与相关性分析。",
-      "descriptionJa": "基本的な確率計算、代表的な分布、基礎統計量、相関分析。",
-      "descriptionEn": "Basic probability calculations, common distributions, foundational statistics, and correlation analysis."
-    },
     "Probability-Statistics.Statistical-Inference": {
       "subject": "Probability-Statistics",
       "labelZh": "统计推断",
@@ -35,80 +26,85 @@
       "descriptionZh": "马尔可夫链、随机源与随机过程模型。",
       "descriptionJa": "マルコフ連鎖、確率情報源、確率過程モデル。",
       "descriptionEn": "Markov chains, stochastic sources, and stochastic process models."
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics": {
+      "subject": "Probability-Statistics",
+      "labelZh": "概率统计基础",
+      "labelJa": "確率・統計基礎",
+      "labelEn": "Probability & Statistics Basics",
+      "descriptionZh": "基本概率计算、常见分布、基础统计量与相关性分析。",
+      "descriptionJa": "基本的な確率計算、代表的な分布、基礎統計量、相関分析。",
+      "descriptionEn": "Basic probability calculations, common distributions, foundational statistics, and correlation analysis."
     }
   },
   "subsubjectOrder": [
-    "Probability-Statistics.Fundamentals",
+    "Probability-Statistics.Probability-and-Statistics-Basics",
     "Probability-Statistics.Statistical-Inference",
     "Probability-Statistics.Stochastic-Processes"
   ],
   "topics": {
-    "Probability-Statistics.Fundamentals.Conditional-Density": {
-      "subsubject": "Probability-Statistics.Fundamentals",
+    "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
       "subjects": [
         "Probability-Statistics"
       ]
     },
-    "Probability-Statistics.Fundamentals.Law-of-Large-Numbers": {
-      "subsubject": "Probability-Statistics.Fundamentals",
-      "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Probability-Statistics.Fundamentals.Normal-Distribution": {
-      "subsubject": "Probability-Statistics.Fundamentals",
+    "Probability-Statistics.Probability-and-Statistics-Basics.Law-of-Large-Numbers": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
       "subjects": [
         "Probability-Statistics"
       ]
     },
-    "Probability-Statistics.Fundamentals.Binomial-Distribution": {
-      "subsubject": "Probability-Statistics.Fundamentals",
+    "Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
       "subjects": [
         "Probability-Statistics"
       ]
     },
-    "Probability-Statistics.Fundamentals.Conditional-Probability": {
-      "subsubject": "Probability-Statistics.Fundamentals",
-      "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Probability-Statistics.Fundamentals.Correlation-Coefficient": {
-      "subsubject": "Probability-Statistics.Fundamentals",
+    "Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
       "subjects": [
         "Probability-Statistics"
       ]
     },
-    "Probability-Statistics.Fundamentals.Exponential-Distribution": {
-      "subsubject": "Probability-Statistics.Fundamentals",
+    "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
       "subjects": [
         "Probability-Statistics"
       ]
     },
-    "Probability-Statistics.Fundamentals.Order-Statistics": {
-      "subsubject": "Probability-Statistics.Fundamentals",
-      "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Probability-Statistics.Fundamentals.Gamma-Distribution": {
-      "subsubject": "Probability-Statistics.Fundamentals",
-      "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Probability-Statistics.Fundamentals.Uniform-Distribution": {
-      "subsubject": "Probability-Statistics.Fundamentals",
+    "Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
       "subjects": [
         "Probability-Statistics"
       ]
     },
-    "Probability-Statistics.Fundamentals.Chi-Square-Distribution": {
-      "subsubject": "Probability-Statistics.Fundamentals",
+    "Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+      "subjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Chi-Square-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
       "subjects": [
         "Probability-Statistics"
       ]
@@ -135,8 +131,7 @@
     "Probability-Statistics.Statistical-Inference.Least-Squares-Method": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
+        "Probability-Statistics"
       ]
     },
     "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation": {
@@ -145,7 +140,7 @@
         "Probability-Statistics"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.ANOVA": {
+    "Probability-Statistics.Statistical-Inference.Analysis-of-Variance": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
         "Probability-Statistics"
@@ -178,8 +173,7 @@
     "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
+        "Probability-Statistics"
       ]
     },
     "Probability-Statistics.Statistical-Inference.Bayesian-Inference": {
@@ -234,15 +228,13 @@
       "subsubject": "Probability-Statistics.Statistical-Inference",
       "subjects": [
         "Probability-Statistics",
-        "Data-Science-Artificial-Intelligence",
-        "Mathematics"
+        "Data-Science-Artificial-Intelligence"
       ]
     },
     "Probability-Statistics.Stochastic-Processes.Markov-Chain": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
       "subjects": [
-        "Probability-Statistics",
-        "Mathematics"
+        "Probability-Statistics"
       ]
     },
     "Probability-Statistics.Stochastic-Processes.Markov-Information-Source": {

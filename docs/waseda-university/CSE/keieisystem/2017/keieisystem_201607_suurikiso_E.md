@@ -3,7 +3,7 @@ sidebar_label: "2016年7月実施 数理基礎 E"
 tags:
   - Waseda-University
   - Probability-Statistics.Statistical-Inference.Simple-Linear-Regression
-  - Probability-Statistics.Fundamentals.Normal-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution
   - Probability-Statistics.Statistical-Inference.Hypothesis-Testing
 ---
 

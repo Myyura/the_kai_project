@@ -3,8 +3,8 @@ sidebar_label: "2019年7月実施 統計科学 問題7"
 tags:
   - Waseda-University
   - Mathematics.Calculus.Double-Integral
-  - Probability-Statistics.Fundamentals.Conditional-Density
-  - Probability-Statistics.Statistical-Inference.ANOVA
+  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density
+  - Probability-Statistics.Statistical-Inference.Analysis-of-Variance
   - Probability-Statistics.Statistical-Inference.Mahalanobis-Distance
 ---
 

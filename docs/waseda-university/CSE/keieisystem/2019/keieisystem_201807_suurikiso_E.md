@@ -2,11 +2,11 @@
 sidebar_label: "2018年7月実施 数理基礎 E"
 tags:
   - Waseda-University
-  - Probability-Statistics.Fundamentals.Uniform-Distribution
-  - Probability-Statistics.Fundamentals.Normal-Distribution
-  - Probability-Statistics.Fundamentals.Chi-Square-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Chi-Square-Distribution
   - Probability-Statistics.Statistical-Inference.Confidence-Interval
-  - Probability-Statistics.Statistical-Inference.ANOVA
+  - Probability-Statistics.Statistical-Inference.Analysis-of-Variance
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2018年7月実施 数理基礎 E

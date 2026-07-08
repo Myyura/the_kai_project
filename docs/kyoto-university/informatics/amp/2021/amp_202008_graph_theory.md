@@ -2,7 +2,7 @@
 sidebar_label: 2020年8月実施 グラフ理論
 tags:
   - Kyoto-University
-  - Mathematics.Graph-Theory.Maximum-Flow
+  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Flow
 ---
 # 京都大学 情報学研究科 数理工学専攻 2020年8月実施 グラフ理論
 

@@ -4,9 +4,9 @@
     "labelZh": "计算机科学",
     "labelJa": "計算機科学",
     "labelEn": "CS (Computer Science)",
-    "descriptionZh": "算法、数据结构、形式语言、系统与计算理论。",
-    "descriptionJa": "アルゴリズム、データ構造、形式言語、システム、計算理論。",
-    "descriptionEn": "Algorithms, data structures, formal languages, systems, and theory of computation."
+    "descriptionZh": "算法、数据结构、形式语言、系统、信息论与计算理论。",
+    "descriptionJa": "アルゴリズム、データ構造、形式言語、システム、情報理論、計算理論。",
+    "descriptionEn": "Algorithms, data structures, formal languages, systems, information theory, and theory of computation."
   },
   "subsubjects": {
     "Computer-Science.Data-Structures-Algorithms": {
@@ -14,9 +14,9 @@
       "labelZh": "数据结构与算法",
       "labelJa": "データ構造とアルゴリズム",
       "labelEn": "Data Structures & Algorithms",
-      "descriptionZh": "常见数据结构、排序、搜索、图算法、动态规划与算法复杂度。",
-      "descriptionJa": "主要なデータ構造、整列、探索、グラフアルゴリズム、動的計画法、計算量。",
-      "descriptionEn": "Common data structures, sorting, searching, graph algorithms, dynamic programming, and complexity."
+      "descriptionZh": "常见数据结构、排序、搜索、动态规划与算法复杂度。图算法归入“图论与组合优化”。",
+      "descriptionJa": "主要なデータ構造、整列、探索、動的計画法、計算量。グラフアルゴリズムは「グラフ理論・組合せ最適化」に分類する。",
+      "descriptionEn": "Common data structures, sorting, searching, dynamic programming, and complexity. Graph algorithms live under Graph Theory & Combinatorial Optimization."
     },
     "Computer-Science.Programming": {
       "subject": "Computer-Science",
@@ -191,12 +191,6 @@
         "Computer-Science"
       ]
     },
-    "Computer-Science.Computer-Architecture.Pipeline": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
     "Computer-Science.Computer-Architecture.Pipelining": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "subjects": [
@@ -234,12 +228,6 @@
       ]
     },
     "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.BST": {
       "subsubject": "Computer-Science.Data-Structures-Algorithms",
       "subjects": [
         "Computer-Science"
@@ -468,12 +456,6 @@
         "Computer-Science"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
     "Computer-Science.Formal-Languages.Context-Free-Grammar": {
       "subsubject": "Computer-Science.Formal-Languages",
       "subjects": [
@@ -597,12 +579,6 @@
         "Mathematics"
       ]
     },
-    "Computer-Science.Programming.Fundamentals": {
-      "subsubject": "Computer-Science.Programming",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
     "Computer-Science.Programming.Palindrome-Number": {
       "subsubject": "Computer-Science.Programming",
       "subjects": [
@@ -622,6 +598,12 @@
       "subjects": [
         "Computer-Science",
         "Physics"
+      ]
+    },
+    "Computer-Science.Programming.Programming-Basics": {
+      "subsubject": "Computer-Science.Programming",
+      "subjects": [
+        "Computer-Science"
       ]
     }
   }

@@ -4,7 +4,7 @@ tags:
   - Kyoto-University
   - Computer-Science.Computer-Architecture.Number-Representation
   - Computer-Science.Computer-Architecture.IEEE-754
-  - Computer-Science.Computer-Architecture.Pipeline
+  - Computer-Science.Computer-Architecture.Pipelining
   - Computer-Science.Computer-Architecture.Branch-Prediction
   - Computer-Science.Computer-Architecture.Control-Hazard
 ---

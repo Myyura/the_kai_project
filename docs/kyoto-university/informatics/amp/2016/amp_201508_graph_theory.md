@@ -2,7 +2,7 @@
 sidebar_label: 2015年8月実施 グラフ理論
 tags:
   - Kyoto-University
-  - Mathematics.Graph-Theory.Minimum-Spanning-Tree
+  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Minimum-Spanning-Tree
 ---
 # 京都大学 情報学研究科 数理工学専攻 2015年8月実施 グラフ理論
 

@@ -2,8 +2,8 @@
 sidebar_label: 2017年8月実施 アルゴリズム基礎
 tags:
   - Kyoto-University
-  - Mathematics.Graph-Theory.Bipartite-Graph
-  - Mathematics.Graph-Theory.Breadth-First-Search
+  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Graph
+  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Breadth-First-Search
 ---
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 アルゴリズム基礎
 

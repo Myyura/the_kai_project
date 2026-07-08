@@ -5,7 +5,7 @@ tags:
   - Operations-Research.Optimization.Simplex-Method
   - Operations-Research.Optimization.Linear-Programming-Duality
   - Operations-Research.Decision-Analysis.Sensitivity-Analysis
-  - Mathematics.Graph-Theory.Maximum-Flow
+  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Flow
   - Operations-Research.Optimization.Branch-And-Bound
   - Computer-Science.Data-Structures-Algorithms.Knapsack-Problem
 ---

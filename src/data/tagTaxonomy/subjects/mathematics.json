@@ -1,12 +1,12 @@
 {
   "id": "Mathematics",
   "subject": {
-    "labelZh": "数学",
-    "labelJa": "数学",
-    "labelEn": "Math",
-    "descriptionZh": "基础数学、应用数学、离散数学与概率统计。",
-    "descriptionJa": "基礎数学、応用数学、離散数学、確率統計。",
-    "descriptionEn": "Core mathematics, applied mathematics, discrete math, probability, and statistics."
+    "labelZh": "基础数学",
+    "labelJa": "基礎数学",
+    "labelEn": "Foundational Math",
+    "descriptionZh": "微积分、线性代数、复分析、微分方程、傅里叶分析、数论与几何等基础数学内容。",
+    "descriptionJa": "微積分、線形代数、複素解析、微分方程式、フーリエ解析、整数論、幾何などの基礎数学。",
+    "descriptionEn": "Foundational mathematics such as calculus, linear algebra, complex analysis, differential equations, Fourier analysis, number theory, and geometry."
   },
   "subsubjects": {
     "Mathematics.Calculus": {
@@ -54,24 +54,6 @@
       "descriptionJa": "勾配、発散、回転、線積分、面積分。",
       "descriptionEn": "Gradient, divergence, curl, line integrals, and surface integrals."
     },
-    "Mathematics.Discrete-Mathematics": {
-      "subject": "Mathematics",
-      "labelZh": "离散数学",
-      "labelJa": "離散数学",
-      "labelEn": "Discrete Mathematics",
-      "descriptionZh": "组合、递推、离散结构与基础证明。",
-      "descriptionJa": "組合せ、漸化式、離散構造、基礎的な証明。",
-      "descriptionEn": "Combinatorics, recurrences, discrete structures, and basic proofs."
-    },
-    "Mathematics.Graph-Theory": {
-      "subject": "Mathematics",
-      "labelZh": "图论",
-      "labelJa": "グラフ理論",
-      "labelEn": "Graph Theory",
-      "descriptionZh": "图、树、匹配、平面图与图同构。",
-      "descriptionJa": "グラフ、木、マッチング、平面グラフ、同型。",
-      "descriptionEn": "Graphs, trees, matchings, planar graphs, and graph isomorphism."
-    },
     "Mathematics.Number-Theory": {
       "subject": "Mathematics",
       "labelZh": "数论",
@@ -106,8 +88,6 @@
     "Mathematics.Complex-Analysis",
     "Mathematics.Differential-Equations",
     "Mathematics.Vector-Calculus",
-    "Mathematics.Discrete-Mathematics",
-    "Mathematics.Graph-Theory",
     "Mathematics.Number-Theory",
     "Mathematics.Fourier-Analysis",
     "Mathematics.Geometry"
@@ -187,212 +167,11 @@
         "Mathematics"
       ]
     },
-    "Mathematics.Discrete-Mathematics.Binomial-Coefficient": {
-      "subsubject": "Mathematics.Discrete-Mathematics",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Discrete-Mathematics.Catalan-Number": {
-      "subsubject": "Mathematics.Discrete-Mathematics",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Discrete-Mathematics.Recurrence-Relation": {
-      "subsubject": "Mathematics.Discrete-Mathematics",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
     "Mathematics.Fourier-Analysis.Convolution": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "subjects": [
         "Mathematics",
         "Electrical-Electronic"
-      ]
-    },
-    "Mathematics.Graph-Theory.Articulation-Point": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Bellman-Ford-Algorithm": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Bipartite-Graph": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Bipartite-Matching": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Breadth-First-Search": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Complete-Graph": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Connectivity": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Cut": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Depth-First-Search": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Dijkstra-Algorithm": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Euler-Circuit": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Fundamentals": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Graph-Isomorphism": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Kruskal-Algorithm": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Matching": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Maximum-Flow": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Maximum-Matching": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Minimum-Spanning-Tree": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Planar-Graph": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Prim-Algorithm": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Shortest-Path-Problem": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Spanning-Tree": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science",
-        "Operations-Research"
-      ]
-    },
-    "Mathematics.Graph-Theory.Topological-Sort": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
-      ]
-    },
-    "Mathematics.Graph-Theory.Tree-Metric": {
-      "subsubject": "Mathematics.Graph-Theory",
-      "subjects": [
-        "Mathematics",
-        "Computer-Science"
       ]
     },
     "Mathematics.Linear-Algebra.Affine-Transformation": {
@@ -467,7 +246,7 @@
         "Mathematics"
       ]
     },
-    "Mathematics.Linear-Algebra.SVD": {
+    "Mathematics.Linear-Algebra.Singular-Value-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra",
       "subjects": [
         "Mathematics"

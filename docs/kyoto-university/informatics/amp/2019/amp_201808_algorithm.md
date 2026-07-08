@@ -2,8 +2,8 @@
 sidebar_label: 2018年8月実施 アルゴリズム基礎
 tags:
   - Kyoto-University
-  - Mathematics.Graph-Theory.Articulation-Point
-  - Mathematics.Graph-Theory.Depth-First-Search
+  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Articulation-Point
+  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Depth-First-Search
 ---
 # 京都大学 情報学研究科 数理工学専攻 2018年8月実施 アルゴリズム基礎
 

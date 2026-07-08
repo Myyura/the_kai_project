@@ -2,7 +2,7 @@
 sidebar_label: 2015年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Mathematics.Graph-Theory.Shortest-Path-Problem
+  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
   - Computer-Science.Networks
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2015年8月実施 筆記試験 第2問

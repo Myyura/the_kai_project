@@ -2,7 +2,7 @@
 sidebar_label: 2020年8月実施 専門科目 問題1
 tags:
   - Tokyo-University
-  - Mathematics.Graph-Theory.Planar-Graph
+  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Planar-Graph
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2020年8月実施 専門科目 問題1
 

@@ -2,7 +2,7 @@
 sidebar_label: '2017年8月実施 専門科目 計算機科学 [2]'
 tags:
   - Kobe-University
-  - Mathematics.Graph-Theory.Depth-First-Search
+  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Depth-First-Search
 ---
 # 神戸大学 システム情報学研究科 2017年8月実施 専門科目 計算機科学 \[2\]
 

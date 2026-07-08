@@ -1,0 +1,48 @@
+{
+  "id": "Discrete-Mathematics",
+  "subject": {
+    "labelZh": "离散数学",
+    "labelJa": "離散数学",
+    "labelEn": "Discrete Mathematics",
+    "descriptionZh": "组合、递推、计数、离散结构与基础证明方法；图论相关内容归入“图论与组合优化”。",
+    "descriptionJa": "組合せ、漸化式、数え上げ、離散構造、基礎的な証明方法。グラフ理論関連は「グラフ理論・組合せ最適化」に分類する。",
+    "descriptionEn": "Combinatorics, recurrences, counting, discrete structures, and basic proof methods. Graph-related content lives under Graph Theory & Combinatorial Optimization."
+  },
+  "subsubjects": {
+    "Discrete-Mathematics.Discrete-Mathematics": {
+      "subject": "Discrete-Mathematics",
+      "labelZh": "离散数学",
+      "labelJa": "離散数学",
+      "labelEn": "Discrete Mathematics",
+      "descriptionZh": "组合计数、递推关系、离散结构与基础证明。",
+      "descriptionJa": "組合せ数え上げ、漸化式、離散構造、基礎的な証明。",
+      "descriptionEn": "Combinatorial counting, recurrence relations, discrete structures, and foundational proofs."
+    }
+  },
+  "subsubjectOrder": [
+    "Discrete-Mathematics.Discrete-Mathematics"
+  ],
+  "topics": {
+    "Discrete-Mathematics.Discrete-Mathematics.Binomial-Coefficient": {
+      "subsubject": "Discrete-Mathematics.Discrete-Mathematics",
+      "subjects": [
+        "Discrete-Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Discrete-Mathematics.Catalan-Number": {
+      "subsubject": "Discrete-Mathematics.Discrete-Mathematics",
+      "subjects": [
+        "Discrete-Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Discrete-Mathematics.Recurrence-Relation": {
+      "subsubject": "Discrete-Mathematics.Discrete-Mathematics",
+      "subjects": [
+        "Discrete-Mathematics",
+        "Computer-Science"
+      ]
+    }
+  }
+}

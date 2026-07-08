@@ -2,7 +2,7 @@
 sidebar_label: 2021年8月実施 専門科目I 問題4
 tags:
   - Hiroshima-University
-  - Mathematics.Graph-Theory.Planar-Graph
+  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Planar-Graph
 ---
 # 広島大学 先進理工系科学研究科 情報科学プログラム 2021年8月実施 専門科目I 問題4
 

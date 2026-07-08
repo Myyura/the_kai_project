@@ -2,7 +2,7 @@
 sidebar_label: "2017年8月実施 確率・統計"
 tags:
   - Nagoya-University
-  - Probability-Statistics.Fundamentals
+  - Probability-Statistics.Probability-and-Statistics-Basics
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2017年8月実施 確率・統計
 

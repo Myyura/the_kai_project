@@ -3,7 +3,7 @@ sidebar_label: 情報理工学位プログラム 2017年8月実施 基礎科目 
 tags:
   - Tsukuba-University
   - Computer-Science.Data-Structures-Algorithms.Priority-Queue
-  - Mathematics.Graph-Theory.Breadth-First-Search
+  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Breadth-First-Search
 ---
 # 筑波大学 理工情報生命学術院 システム情報工学研究群 情報理工学位プログラム 2017年8月実施 基礎科目 情報2
 

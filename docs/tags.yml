@@ -84,14 +84,6 @@
   label: "Mathematics.Vector-Calculus"
   permalink: "/subsubject/mathematics/vector-calculus"
   description: "Mathematics / Vector-Calculus"
-"Mathematics.Discrete-Mathematics":
-  label: "Mathematics.Discrete-Mathematics"
-  permalink: "/subsubject/mathematics/discrete-mathematics"
-  description: "Mathematics / Discrete-Mathematics"
-"Mathematics.Graph-Theory":
-  label: "Mathematics.Graph-Theory"
-  permalink: "/subsubject/mathematics/graph-theory"
-  description: "Mathematics / Graph-Theory"
 "Mathematics.Number-Theory":
   label: "Mathematics.Number-Theory"
   permalink: "/subsubject/mathematics/number-theory"
@@ -104,6 +96,22 @@
   label: "Mathematics.Geometry"
   permalink: "/subsubject/mathematics/geometry"
   description: "Mathematics / Geometry"
+"Discrete-Mathematics.Discrete-Mathematics":
+  label: "Discrete-Mathematics.Discrete-Mathematics"
+  permalink: "/subsubject/discrete-mathematics/discrete-mathematics"
+  description: "Discrete-Mathematics / Discrete-Mathematics"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
+  permalink: "/subsubject/graph-theory-combinatorial-optimization/graph-theory"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms"
+  permalink: "/subsubject/graph-theory-combinatorial-optimization/graph-algorithms"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms"
+"Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization":
+  label: "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization"
+  permalink: "/subsubject/graph-theory-combinatorial-optimization/combinatorial-optimization"
+  description: "Graph-Theory-Combinatorial-Optimization / Combinatorial-Optimization"
 "Computer-Science.Data-Structures-Algorithms":
   label: "Computer-Science.Data-Structures-Algorithms"
   permalink: "/subsubject/computer-science/data-structures-algorithms"
@@ -164,10 +172,6 @@
   label: "Electrical-Electronic.Communications"
   permalink: "/subsubject/electrical-electronic/communications"
   description: "Electrical-Electronic / Communications"
-"Probability-Statistics.Fundamentals":
-  label: "Probability-Statistics.Fundamentals"
-  permalink: "/subsubject/probability-statistics/fundamentals"
-  description: "Probability-Statistics / Fundamentals"
 "Probability-Statistics.Statistical-Inference":
   label: "Probability-Statistics.Statistical-Inference"
   permalink: "/subsubject/probability-statistics/statistical-inference"
@@ -176,6 +180,10 @@
   label: "Probability-Statistics.Stochastic-Processes"
   permalink: "/subsubject/probability-statistics/stochastic-processes"
   description: "Probability-Statistics / Stochastic-Processes"
+"Probability-Statistics.Probability-and-Statistics-Basics":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics"
+  permalink: "/subsubject/probability-statistics/probability-and-statistics-basics"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics"
 "Data-Science-Artificial-Intelligence.Data-Science":
   label: "Data-Science-Artificial-Intelligence.Data-Science"
   permalink: "/subsubject/data-science-artificial-intelligence/data-science"
@@ -316,10 +324,6 @@
   label: "Computer-Science.Computer-Architecture.Performance-Analysis"
   permalink: "/topic/computer-science/computer-architecture/performance-analysis"
   description: "Computer-Science / Computer-Architecture / Performance-Analysis"
-"Computer-Science.Computer-Architecture.Pipeline":
-  label: "Computer-Science.Computer-Architecture.Pipeline"
-  permalink: "/topic/computer-science/computer-architecture/pipeline"
-  description: "Computer-Science / Computer-Architecture / Pipeline"
 "Computer-Science.Computer-Architecture.Pipelining":
   label: "Computer-Science.Computer-Architecture.Pipelining"
   permalink: "/topic/computer-science/computer-architecture/pipelining"
@@ -348,10 +352,6 @@
   label: "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree"
   permalink: "/topic/computer-science/data-structures-algorithms/binary-search-tree"
   description: "Computer-Science / Data-Structures-Algorithms / Binary-Search-Tree"
-"Computer-Science.Data-Structures-Algorithms.BST":
-  label: "Computer-Science.Data-Structures-Algorithms.BST"
-  permalink: "/topic/computer-science/data-structures-algorithms/bst"
-  description: "Computer-Science / Data-Structures-Algorithms / BST"
 "Computer-Science.Data-Structures-Algorithms.Bubble-Sort":
   label: "Computer-Science.Data-Structures-Algorithms.Bubble-Sort"
   permalink: "/topic/computer-science/data-structures-algorithms/bubble-sort"
@@ -496,10 +496,6 @@
   label: "Computer-Science.Data-Structures-Algorithms.Trie"
   permalink: "/topic/computer-science/data-structures-algorithms/trie"
   description: "Computer-Science / Data-Structures-Algorithms / Trie"
-"Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure":
-  label: "Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure"
-  permalink: "/topic/computer-science/data-structures-algorithms/union-find-data-structure"
-  description: "Computer-Science / Data-Structures-Algorithms / Union-Find-Data-Structure"
 "Computer-Science.Formal-Languages.Context-Free-Grammar":
   label: "Computer-Science.Formal-Languages.Context-Free-Grammar"
   permalink: "/topic/computer-science/formal-languages/context-free-grammar"
@@ -576,10 +572,6 @@
   label: "Computer-Science.Programming.Fibonacci-Numbers"
   permalink: "/topic/computer-science/programming/fibonacci-numbers"
   description: "Computer-Science / Programming / Fibonacci-Numbers"
-"Computer-Science.Programming.Fundamentals":
-  label: "Computer-Science.Programming.Fundamentals"
-  permalink: "/topic/computer-science/programming/fundamentals"
-  description: "Computer-Science / Programming / Fundamentals"
 "Computer-Science.Programming.Palindrome-Number":
   label: "Computer-Science.Programming.Palindrome-Number"
   permalink: "/topic/computer-science/programming/palindrome-number"
@@ -588,6 +580,10 @@
   label: "Computer-Science.Programming.Pascal-Triangle"
   permalink: "/topic/computer-science/programming/pascal-triangle"
   description: "Computer-Science / Programming / Pascal-Triangle"
+"Computer-Science.Programming.Programming-Basics":
+  label: "Computer-Science.Programming.Programming-Basics"
+  permalink: "/topic/computer-science/programming/programming-basics"
+  description: "Computer-Science / Programming / Programming-Basics"
 "Computer-Science.Quantum-Computing.Quantum-Computing":
   label: "Computer-Science.Quantum-Computing.Quantum-Computing"
   permalink: "/topic/computer-science/quantum-computing/quantum-computing"
@@ -672,6 +668,18 @@
   label: "Data-Science-Artificial-Intelligence.Machine-Learning.Support-Vector-Machine"
   permalink: "/topic/data-science-artificial-intelligence/machine-learning/support-vector-machine"
   description: "Data-Science-Artificial-Intelligence / Machine-Learning / Support-Vector-Machine"
+"Discrete-Mathematics.Discrete-Mathematics.Binomial-Coefficient":
+  label: "Discrete-Mathematics.Discrete-Mathematics.Binomial-Coefficient"
+  permalink: "/topic/discrete-mathematics/discrete-mathematics/binomial-coefficient"
+  description: "Discrete-Mathematics / Discrete-Mathematics / Binomial-Coefficient"
+"Discrete-Mathematics.Discrete-Mathematics.Catalan-Number":
+  label: "Discrete-Mathematics.Discrete-Mathematics.Catalan-Number"
+  permalink: "/topic/discrete-mathematics/discrete-mathematics/catalan-number"
+  description: "Discrete-Mathematics / Discrete-Mathematics / Catalan-Number"
+"Discrete-Mathematics.Discrete-Mathematics.Recurrence-Relation":
+  label: "Discrete-Mathematics.Discrete-Mathematics.Recurrence-Relation"
+  permalink: "/topic/discrete-mathematics/discrete-mathematics/recurrence-relation"
+  description: "Discrete-Mathematics / Discrete-Mathematics / Recurrence-Relation"
 "Electrical-Electronic.Control-Theory.Feedback-Control":
   label: "Electrical-Electronic.Control-Theory.Feedback-Control"
   permalink: "/topic/electrical-electronic/control-theory/feedback-control"
@@ -700,6 +708,110 @@
   label: "Electrical-Electronic.Signal-Processing.Z-Transform"
   permalink: "/topic/electrical-electronic/signal-processing/z-transform"
   description: "Electrical-Electronic / Signal-Processing / Z-Transform"
+"Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Flow":
+  label: "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Flow"
+  permalink: "/topic/graph-theory-combinatorial-optimization/combinatorial-optimization/maximum-flow"
+  description: "Graph-Theory-Combinatorial-Optimization / Combinatorial-Optimization / Maximum-Flow"
+"Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Matching":
+  label: "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Matching"
+  permalink: "/topic/graph-theory-combinatorial-optimization/combinatorial-optimization/maximum-matching"
+  description: "Graph-Theory-Combinatorial-Optimization / Combinatorial-Optimization / Maximum-Matching"
+"Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Minimum-Spanning-Tree":
+  label: "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Minimum-Spanning-Tree"
+  permalink: "/topic/graph-theory-combinatorial-optimization/combinatorial-optimization/minimum-spanning-tree"
+  description: "Graph-Theory-Combinatorial-Optimization / Combinatorial-Optimization / Minimum-Spanning-Tree"
+"Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem":
+  label: "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem"
+  permalink: "/topic/graph-theory-combinatorial-optimization/combinatorial-optimization/shortest-path-problem"
+  description: "Graph-Theory-Combinatorial-Optimization / Combinatorial-Optimization / Shortest-Path-Problem"
+"Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Traveling-Salesman-Problem":
+  label: "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Traveling-Salesman-Problem"
+  permalink: "/topic/graph-theory-combinatorial-optimization/combinatorial-optimization/traveling-salesman-problem"
+  description: "Graph-Theory-Combinatorial-Optimization / Combinatorial-Optimization / Traveling-Salesman-Problem"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Articulation-Point":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Articulation-Point"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/articulation-point"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Articulation-Point"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Bellman-Ford-Algorithm":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Bellman-Ford-Algorithm"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/bellman-ford-algorithm"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Bellman-Ford-Algorithm"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Breadth-First-Search":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Breadth-First-Search"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/breadth-first-search"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Breadth-First-Search"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Depth-First-Search":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Depth-First-Search"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/depth-first-search"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Depth-First-Search"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Dijkstra-Algorithm":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Dijkstra-Algorithm"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/dijkstra-algorithm"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Dijkstra-Algorithm"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Kruskal-Algorithm":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Kruskal-Algorithm"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/kruskal-algorithm"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Kruskal-Algorithm"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Prim-Algorithm":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Prim-Algorithm"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/prim-algorithm"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Prim-Algorithm"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Topological-Sort":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Topological-Sort"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/topological-sort"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Topological-Sort"
+"Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Union-Find-Data-Structure":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Union-Find-Data-Structure"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-algorithms/union-find-data-structure"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Algorithms / Union-Find-Data-Structure"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Graph":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Graph"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/bipartite-graph"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Bipartite-Graph"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Matching":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Matching"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/bipartite-matching"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Bipartite-Matching"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Complete-Graph":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Complete-Graph"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/complete-graph"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Complete-Graph"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/connectivity"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Connectivity"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Cut":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Cut"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/cut"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Cut"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Euler-Circuit":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Euler-Circuit"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/euler-circuit"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Euler-Circuit"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Basics":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Basics"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/graph-basics"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Graph-Basics"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Isomorphism":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Isomorphism"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/graph-isomorphism"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Graph-Isomorphism"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Matching":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Matching"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/matching"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Matching"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Planar-Graph":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Planar-Graph"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/planar-graph"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Planar-Graph"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Spanning-Tree":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Spanning-Tree"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/spanning-tree"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Spanning-Tree"
+"Graph-Theory-Combinatorial-Optimization.Graph-Theory.Tree-Metric":
+  label: "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Tree-Metric"
+  permalink: "/topic/graph-theory-combinatorial-optimization/graph-theory/tree-metric"
+  description: "Graph-Theory-Combinatorial-Optimization / Graph-Theory / Tree-Metric"
 "Mathematics.Calculus.Cauchy-Sequence":
   label: "Mathematics.Calculus.Cauchy-Sequence"
   permalink: "/topic/mathematics/calculus/cauchy-sequence"
@@ -748,118 +860,10 @@
   label: "Mathematics.Complex-Analysis.Complex-Numbers"
   permalink: "/topic/mathematics/complex-analysis/complex-numbers"
   description: "Mathematics / Complex-Analysis / Complex-Numbers"
-"Mathematics.Discrete-Mathematics.Binomial-Coefficient":
-  label: "Mathematics.Discrete-Mathematics.Binomial-Coefficient"
-  permalink: "/topic/mathematics/discrete-mathematics/binomial-coefficient"
-  description: "Mathematics / Discrete-Mathematics / Binomial-Coefficient"
-"Mathematics.Discrete-Mathematics.Catalan-Number":
-  label: "Mathematics.Discrete-Mathematics.Catalan-Number"
-  permalink: "/topic/mathematics/discrete-mathematics/catalan-number"
-  description: "Mathematics / Discrete-Mathematics / Catalan-Number"
-"Mathematics.Discrete-Mathematics.Recurrence-Relation":
-  label: "Mathematics.Discrete-Mathematics.Recurrence-Relation"
-  permalink: "/topic/mathematics/discrete-mathematics/recurrence-relation"
-  description: "Mathematics / Discrete-Mathematics / Recurrence-Relation"
 "Mathematics.Fourier-Analysis.Convolution":
   label: "Mathematics.Fourier-Analysis.Convolution"
   permalink: "/topic/mathematics/fourier-analysis/convolution"
   description: "Mathematics / Fourier-Analysis / Convolution"
-"Mathematics.Graph-Theory.Articulation-Point":
-  label: "Mathematics.Graph-Theory.Articulation-Point"
-  permalink: "/topic/mathematics/graph-theory/articulation-point"
-  description: "Mathematics / Graph-Theory / Articulation-Point"
-"Mathematics.Graph-Theory.Bellman-Ford-Algorithm":
-  label: "Mathematics.Graph-Theory.Bellman-Ford-Algorithm"
-  permalink: "/topic/mathematics/graph-theory/bellman-ford-algorithm"
-  description: "Mathematics / Graph-Theory / Bellman-Ford-Algorithm"
-"Mathematics.Graph-Theory.Bipartite-Graph":
-  label: "Mathematics.Graph-Theory.Bipartite-Graph"
-  permalink: "/topic/mathematics/graph-theory/bipartite-graph"
-  description: "Mathematics / Graph-Theory / Bipartite-Graph"
-"Mathematics.Graph-Theory.Bipartite-Matching":
-  label: "Mathematics.Graph-Theory.Bipartite-Matching"
-  permalink: "/topic/mathematics/graph-theory/bipartite-matching"
-  description: "Mathematics / Graph-Theory / Bipartite-Matching"
-"Mathematics.Graph-Theory.Breadth-First-Search":
-  label: "Mathematics.Graph-Theory.Breadth-First-Search"
-  permalink: "/topic/mathematics/graph-theory/breadth-first-search"
-  description: "Mathematics / Graph-Theory / Breadth-First-Search"
-"Mathematics.Graph-Theory.Complete-Graph":
-  label: "Mathematics.Graph-Theory.Complete-Graph"
-  permalink: "/topic/mathematics/graph-theory/complete-graph"
-  description: "Mathematics / Graph-Theory / Complete-Graph"
-"Mathematics.Graph-Theory.Connectivity":
-  label: "Mathematics.Graph-Theory.Connectivity"
-  permalink: "/topic/mathematics/graph-theory/connectivity"
-  description: "Mathematics / Graph-Theory / Connectivity"
-"Mathematics.Graph-Theory.Cut":
-  label: "Mathematics.Graph-Theory.Cut"
-  permalink: "/topic/mathematics/graph-theory/cut"
-  description: "Mathematics / Graph-Theory / Cut"
-"Mathematics.Graph-Theory.Depth-First-Search":
-  label: "Mathematics.Graph-Theory.Depth-First-Search"
-  permalink: "/topic/mathematics/graph-theory/depth-first-search"
-  description: "Mathematics / Graph-Theory / Depth-First-Search"
-"Mathematics.Graph-Theory.Dijkstra-Algorithm":
-  label: "Mathematics.Graph-Theory.Dijkstra-Algorithm"
-  permalink: "/topic/mathematics/graph-theory/dijkstra-algorithm"
-  description: "Mathematics / Graph-Theory / Dijkstra-Algorithm"
-"Mathematics.Graph-Theory.Euler-Circuit":
-  label: "Mathematics.Graph-Theory.Euler-Circuit"
-  permalink: "/topic/mathematics/graph-theory/euler-circuit"
-  description: "Mathematics / Graph-Theory / Euler-Circuit"
-"Mathematics.Graph-Theory.Fundamentals":
-  label: "Mathematics.Graph-Theory.Fundamentals"
-  permalink: "/topic/mathematics/graph-theory/fundamentals"
-  description: "Mathematics / Graph-Theory / Fundamentals"
-"Mathematics.Graph-Theory.Graph-Isomorphism":
-  label: "Mathematics.Graph-Theory.Graph-Isomorphism"
-  permalink: "/topic/mathematics/graph-theory/graph-isomorphism"
-  description: "Mathematics / Graph-Theory / Graph-Isomorphism"
-"Mathematics.Graph-Theory.Kruskal-Algorithm":
-  label: "Mathematics.Graph-Theory.Kruskal-Algorithm"
-  permalink: "/topic/mathematics/graph-theory/kruskal-algorithm"
-  description: "Mathematics / Graph-Theory / Kruskal-Algorithm"
-"Mathematics.Graph-Theory.Matching":
-  label: "Mathematics.Graph-Theory.Matching"
-  permalink: "/topic/mathematics/graph-theory/matching"
-  description: "Mathematics / Graph-Theory / Matching"
-"Mathematics.Graph-Theory.Maximum-Flow":
-  label: "Mathematics.Graph-Theory.Maximum-Flow"
-  permalink: "/topic/mathematics/graph-theory/maximum-flow"
-  description: "Mathematics / Graph-Theory / Maximum-Flow"
-"Mathematics.Graph-Theory.Maximum-Matching":
-  label: "Mathematics.Graph-Theory.Maximum-Matching"
-  permalink: "/topic/mathematics/graph-theory/maximum-matching"
-  description: "Mathematics / Graph-Theory / Maximum-Matching"
-"Mathematics.Graph-Theory.Minimum-Spanning-Tree":
-  label: "Mathematics.Graph-Theory.Minimum-Spanning-Tree"
-  permalink: "/topic/mathematics/graph-theory/minimum-spanning-tree"
-  description: "Mathematics / Graph-Theory / Minimum-Spanning-Tree"
-"Mathematics.Graph-Theory.Planar-Graph":
-  label: "Mathematics.Graph-Theory.Planar-Graph"
-  permalink: "/topic/mathematics/graph-theory/planar-graph"
-  description: "Mathematics / Graph-Theory / Planar-Graph"
-"Mathematics.Graph-Theory.Prim-Algorithm":
-  label: "Mathematics.Graph-Theory.Prim-Algorithm"
-  permalink: "/topic/mathematics/graph-theory/prim-algorithm"
-  description: "Mathematics / Graph-Theory / Prim-Algorithm"
-"Mathematics.Graph-Theory.Shortest-Path-Problem":
-  label: "Mathematics.Graph-Theory.Shortest-Path-Problem"
-  permalink: "/topic/mathematics/graph-theory/shortest-path-problem"
-  description: "Mathematics / Graph-Theory / Shortest-Path-Problem"
-"Mathematics.Graph-Theory.Spanning-Tree":
-  label: "Mathematics.Graph-Theory.Spanning-Tree"
-  permalink: "/topic/mathematics/graph-theory/spanning-tree"
-  description: "Mathematics / Graph-Theory / Spanning-Tree"
-"Mathematics.Graph-Theory.Topological-Sort":
-  label: "Mathematics.Graph-Theory.Topological-Sort"
-  permalink: "/topic/mathematics/graph-theory/topological-sort"
-  description: "Mathematics / Graph-Theory / Topological-Sort"
-"Mathematics.Graph-Theory.Tree-Metric":
-  label: "Mathematics.Graph-Theory.Tree-Metric"
-  permalink: "/topic/mathematics/graph-theory/tree-metric"
-  description: "Mathematics / Graph-Theory / Tree-Metric"
 "Mathematics.Linear-Algebra.Affine-Transformation":
   label: "Mathematics.Linear-Algebra.Affine-Transformation"
   permalink: "/topic/mathematics/linear-algebra/affine-transformation"
@@ -924,14 +928,14 @@
   label: "Mathematics.Linear-Algebra.Pseudoinverse-Matrix"
   permalink: "/topic/mathematics/linear-algebra/pseudoinverse-matrix"
   description: "Mathematics / Linear-Algebra / Pseudoinverse-Matrix"
+"Mathematics.Linear-Algebra.Singular-Value-Decomposition":
+  label: "Mathematics.Linear-Algebra.Singular-Value-Decomposition"
+  permalink: "/topic/mathematics/linear-algebra/singular-value-decomposition"
+  description: "Mathematics / Linear-Algebra / Singular-Value-Decomposition"
 "Mathematics.Linear-Algebra.Stochastic-Matrix":
   label: "Mathematics.Linear-Algebra.Stochastic-Matrix"
   permalink: "/topic/mathematics/linear-algebra/stochastic-matrix"
   description: "Mathematics / Linear-Algebra / Stochastic-Matrix"
-"Mathematics.Linear-Algebra.SVD":
-  label: "Mathematics.Linear-Algebra.SVD"
-  permalink: "/topic/mathematics/linear-algebra/svd"
-  description: "Mathematics / Linear-Algebra / SVD"
 "Mathematics.Linear-Algebra.Trace-of-Matrix":
   label: "Mathematics.Linear-Algebra.Trace-of-Matrix"
   permalink: "/topic/mathematics/linear-algebra/trace-of-matrix"
@@ -1020,62 +1024,58 @@
   label: "Operations-Research.Optimization.Transportation-Problem"
   permalink: "/topic/operations-research/optimization/transportation-problem"
   description: "Operations-Research / Optimization / Transportation-Problem"
-"Operations-Research.Optimization.Traveling-Salesman-Problem":
-  label: "Operations-Research.Optimization.Traveling-Salesman-Problem"
-  permalink: "/topic/operations-research/optimization/traveling-salesman-problem"
-  description: "Operations-Research / Optimization / Traveling-Salesman-Problem"
 "Operations-Research.Queueing-Theory.Average-Waiting-Time":
   label: "Operations-Research.Queueing-Theory.Average-Waiting-Time"
   permalink: "/topic/operations-research/queueing-theory/average-waiting-time"
   description: "Operations-Research / Queueing-Theory / Average-Waiting-Time"
-"Probability-Statistics.Fundamentals.Binomial-Distribution":
-  label: "Probability-Statistics.Fundamentals.Binomial-Distribution"
-  permalink: "/topic/probability-statistics/fundamentals/binomial-distribution"
-  description: "Probability-Statistics / Fundamentals / Binomial-Distribution"
-"Probability-Statistics.Fundamentals.Chi-Square-Distribution":
-  label: "Probability-Statistics.Fundamentals.Chi-Square-Distribution"
-  permalink: "/topic/probability-statistics/fundamentals/chi-square-distribution"
-  description: "Probability-Statistics / Fundamentals / Chi-Square-Distribution"
-"Probability-Statistics.Fundamentals.Conditional-Density":
-  label: "Probability-Statistics.Fundamentals.Conditional-Density"
-  permalink: "/topic/probability-statistics/fundamentals/conditional-density"
-  description: "Probability-Statistics / Fundamentals / Conditional-Density"
-"Probability-Statistics.Fundamentals.Conditional-Probability":
-  label: "Probability-Statistics.Fundamentals.Conditional-Probability"
-  permalink: "/topic/probability-statistics/fundamentals/conditional-probability"
-  description: "Probability-Statistics / Fundamentals / Conditional-Probability"
-"Probability-Statistics.Fundamentals.Correlation-Coefficient":
-  label: "Probability-Statistics.Fundamentals.Correlation-Coefficient"
-  permalink: "/topic/probability-statistics/fundamentals/correlation-coefficient"
-  description: "Probability-Statistics / Fundamentals / Correlation-Coefficient"
-"Probability-Statistics.Fundamentals.Exponential-Distribution":
-  label: "Probability-Statistics.Fundamentals.Exponential-Distribution"
-  permalink: "/topic/probability-statistics/fundamentals/exponential-distribution"
-  description: "Probability-Statistics / Fundamentals / Exponential-Distribution"
-"Probability-Statistics.Fundamentals.Gamma-Distribution":
-  label: "Probability-Statistics.Fundamentals.Gamma-Distribution"
-  permalink: "/topic/probability-statistics/fundamentals/gamma-distribution"
-  description: "Probability-Statistics / Fundamentals / Gamma-Distribution"
-"Probability-Statistics.Fundamentals.Law-of-Large-Numbers":
-  label: "Probability-Statistics.Fundamentals.Law-of-Large-Numbers"
-  permalink: "/topic/probability-statistics/fundamentals/law-of-large-numbers"
-  description: "Probability-Statistics / Fundamentals / Law-of-Large-Numbers"
-"Probability-Statistics.Fundamentals.Normal-Distribution":
-  label: "Probability-Statistics.Fundamentals.Normal-Distribution"
-  permalink: "/topic/probability-statistics/fundamentals/normal-distribution"
-  description: "Probability-Statistics / Fundamentals / Normal-Distribution"
-"Probability-Statistics.Fundamentals.Order-Statistics":
-  label: "Probability-Statistics.Fundamentals.Order-Statistics"
-  permalink: "/topic/probability-statistics/fundamentals/order-statistics"
-  description: "Probability-Statistics / Fundamentals / Order-Statistics"
-"Probability-Statistics.Fundamentals.Uniform-Distribution":
-  label: "Probability-Statistics.Fundamentals.Uniform-Distribution"
-  permalink: "/topic/probability-statistics/fundamentals/uniform-distribution"
-  description: "Probability-Statistics / Fundamentals / Uniform-Distribution"
-"Probability-Statistics.Statistical-Inference.ANOVA":
-  label: "Probability-Statistics.Statistical-Inference.ANOVA"
-  permalink: "/topic/probability-statistics/statistical-inference/anova"
-  description: "Probability-Statistics / Statistical-Inference / ANOVA"
+"Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/binomial-distribution"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Binomial-Distribution"
+"Probability-Statistics.Probability-and-Statistics-Basics.Chi-Square-Distribution":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Chi-Square-Distribution"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/chi-square-distribution"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Chi-Square-Distribution"
+"Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/conditional-density"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Conditional-Density"
+"Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/conditional-probability"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Conditional-Probability"
+"Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/correlation-coefficient"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Correlation-Coefficient"
+"Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/exponential-distribution"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Exponential-Distribution"
+"Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/gamma-distribution"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Gamma-Distribution"
+"Probability-Statistics.Probability-and-Statistics-Basics.Law-of-Large-Numbers":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Law-of-Large-Numbers"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/law-of-large-numbers"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Law-of-Large-Numbers"
+"Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/normal-distribution"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Normal-Distribution"
+"Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/order-statistics"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Order-Statistics"
+"Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/uniform-distribution"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Uniform-Distribution"
+"Probability-Statistics.Statistical-Inference.Analysis-of-Variance":
+  label: "Probability-Statistics.Statistical-Inference.Analysis-of-Variance"
+  permalink: "/topic/probability-statistics/statistical-inference/analysis-of-variance"
+  description: "Probability-Statistics / Statistical-Inference / Analysis-of-Variance"
 "Probability-Statistics.Statistical-Inference.Bayesian-Inference":
   label: "Probability-Statistics.Statistical-Inference.Bayesian-Inference"
   permalink: "/topic/probability-statistics/statistical-inference/bayesian-inference"

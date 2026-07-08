@@ -2,7 +2,7 @@
 sidebar_label: "2017年7月実施 オペレーションズリサーチ 問題8"
 tags:
   - Waseda-University
-  - Mathematics.Graph-Theory.Shortest-Path-Problem
+  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
   - Operations-Research.Optimization.Linear-Programming-Duality
 ---
 

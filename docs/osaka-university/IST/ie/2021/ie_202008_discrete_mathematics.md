@@ -2,7 +2,7 @@
 sidebar_label: "2020年8月実施 離散構造"
 tags:
   - Osaka-University
-  - Mathematics.Discrete-Mathematics
+  - Discrete-Mathematics.Discrete-Mathematics
 ---
 # 大阪大学 情報科学研究科 情報工学 2020年8月実施 離散構造
 

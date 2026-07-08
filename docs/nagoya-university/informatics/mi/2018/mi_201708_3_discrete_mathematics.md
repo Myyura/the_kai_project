@@ -2,7 +2,7 @@
 sidebar_label: 2017年8月実施 問題3 離散数学
 tags:
   - Nagoya-University
-  - Mathematics.Discrete-Mathematics
+  - Discrete-Mathematics.Discrete-Mathematics
 ---
 # 名古屋大学 情報学研究科 数理情報学専攻 2017年8月実施 問題3 離散数学
 

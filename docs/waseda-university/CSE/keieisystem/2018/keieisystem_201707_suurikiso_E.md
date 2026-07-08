@@ -2,8 +2,8 @@
 sidebar_label: "2017年7月実施 数理基礎 E"
 tags:
   - Waseda-University
-  - Probability-Statistics.Fundamentals.Correlation-Coefficient
-  - Probability-Statistics.Fundamentals.Normal-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient
+  - Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution
   - Probability-Statistics.Statistical-Inference.Confidence-Interval
 ---
 

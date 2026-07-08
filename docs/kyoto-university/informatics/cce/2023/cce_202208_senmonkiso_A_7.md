@@ -6,7 +6,7 @@ tags:
   - Computer-Science.Computer-Architecture.Floating-Point-Representation
   - Computer-Science.Computer-Architecture.IEEE-754
   - Computer-Science.Computer-Architecture.Addressing-Modes
-  - Computer-Science.Computer-Architecture.Pipeline
+  - Computer-Science.Computer-Architecture.Pipelining
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2022年8月実施 専門基礎A \[A-7\]
 

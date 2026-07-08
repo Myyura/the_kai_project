@@ -2,8 +2,8 @@
 sidebar_label: 2024年8月実施 専門 問4
 tags:
   - Nagoya-University
-  - Mathematics.Graph-Theory.Complete-Graph
-  - Mathematics.Graph-Theory.Graph-Isomorphism
+  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Complete-Graph
+  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Isomorphism
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2024年8月実施 専門 問4
 

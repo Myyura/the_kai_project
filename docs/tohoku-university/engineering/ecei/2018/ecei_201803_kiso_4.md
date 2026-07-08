@@ -2,7 +2,7 @@
 sidebar_label: 2018年3月実施 基礎科目 問題4 情報基礎2
 tags:
   - Tohoku-University
-  - Mathematics.Graph-Theory.Euler-Circuit
+  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Euler-Circuit
 ---
 # 東北大学 工学研究科 電気・情報系 2018年3月実施 基礎科目 問題4 情報基礎2
 
