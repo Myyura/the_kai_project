@@ -52,7 +52,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/types": "3.9.2",
-    "baseline-browser-mapping": "^2.10.42"
+    "baseline-browser-mapping": "^2.10.13"
   },
   "resolutions": {
     "@babel/plugin-transform-modules-systemjs": "7.29.4",
