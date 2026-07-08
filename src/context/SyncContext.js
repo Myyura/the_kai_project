@@ -10,30 +10,33 @@
  */
 
 import React, { createContext, useState, useEffect, useCallback, useRef } from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useInitSupabase, getCachedUser } from '../services/supabaseClient';
+import {
+  getScopedStorageKey,
+  getStorageOwner,
+  getStorageOwnerForUser,
+  setStorageOwner,
+} from '../services/localStorageScope';
+import {
+  syncMerge,
+  pushLocalData,
+  pullRemoteData,
+  signInWithEmail,
+  signUpWithEmail,
+  signInWithGitHub,
+  completeAuthCallbackFromUrl,
+  sendPasswordResetEmail,
+  signOut as doSignOut,
+  getSession,
+  onAuthStateChange,
+  isSyncDirty,
+  clearSyncDirty,
+} from '../services/syncService';
 
 const LAST_SYNCED_KEY = 'kai_last_synced';
 const AUTO_SYNC_INTERVAL_MS = 60_000;
 
-let syncServicesPromise = null;
-
-const loadSyncServices = () => {
-  if (!syncServicesPromise) {
-    syncServicesPromise = Promise.all([
-      import('../services/supabaseClient'),
-      import('../services/localStorageScope'),
-      import('../services/syncService'),
-    ]).then(([supabaseClient, localStorageScope, syncService]) => ({
-      ...supabaseClient,
-      ...localStorageScope,
-      ...syncService,
-    }));
-  }
-  return syncServicesPromise;
-};
-
-const readLastSynced = (getScopedStorageKey) => {
-  if (!getScopedStorageKey) return null;
+const readLastSynced = () => {
   try {
     const ts = localStorage.getItem(getScopedStorageKey(LAST_SYNCED_KEY));
     const parsed = ts ? Number(ts) : null;
@@ -50,93 +53,49 @@ export const SyncContext = createContext(null);
  * 内部 Hook — 包含所有同步/认证逻辑，仅在 SyncProvider 中调用一次
  */
 function useSyncInternal() {
-  const { siteConfig } = useDocusaurusContext();
-  const [services, setServices] = useState(null);
-  const [isConfigured, setIsConfigured] = useState(true);
+  // 从 Docusaurus siteConfig 初始化 Supabase 凭据
+  const isConfigured = useInitSupabase();
 
   // 缓存用户仅用于过渡展示；正式登录态必须等待 getUser() 服务端校验。
-  const [cachedUser, setCachedUser] = useState(null);
+  const [cachedUser, setCachedUser] = useState(() => {
+    try {
+      return getCachedUser();
+    } catch {
+      return null;
+    }
+  });
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
   const [syncing, setSyncing] = useState(false);
-  const [lastSynced, setLastSynced] = useState(null);
+  const [lastSynced, setLastSynced] = useState(() => readLastSynced());
   const [error, setError] = useState(null);
   const mountedRef = useRef(true);
   const initialPullUserRef = useRef(null);
   const initialPullDoneRef = useRef(false);
 
-  useEffect(() => {
-    let disposed = false;
-
-    const initServices = async () => {
-      try {
-        const loadedServices = await loadSyncServices();
-        loadedServices.initSiteConfig(siteConfig);
-        if (disposed || !mountedRef.current) return;
-
-        const configured = loadedServices.isSupabaseConfigured();
-        setServices(loadedServices);
-        setIsConfigured(configured);
-        setLastSynced(readLastSynced(loadedServices.getScopedStorageKey));
-
-        if (!configured) {
-          setUser(null);
-          setCachedUser(null);
-          setAuthReady(true);
-          return;
-        }
-
-        try {
-          setCachedUser(loadedServices.getCachedUser());
-        } catch {
-          setCachedUser(null);
-        }
-      } catch {
-        if (disposed || !mountedRef.current) return;
-        setServices(null);
-        setIsConfigured(false);
-        setAuthReady(true);
-        setError('云同步初始化失败。');
-      }
-    };
-
-    void initServices();
-    return () => {
-      disposed = true;
-    };
-  }, [siteConfig]);
-
-  const ensureServices = useCallback(() => {
-    if (!services) {
-      throw new Error('云同步正在初始化，请稍后再试。');
-    }
-    return services;
-  }, [services]);
-
   // 认证状态监听（全局唯一）
   useEffect(() => {
-    if (!services || !isConfigured) return;
+    if (!isConfigured) return;
 
-    let disposed = false;
     let unsub = () => {};
 
     const init = async () => {
       try {
-        const session = await services.getSession();
-        if (!disposed && mountedRef.current) {
+        const session = await getSession();
+        if (mountedRef.current) {
           setUser(session?.user ?? null);
           setCachedUser(session?.user ?? null);
         }
       } catch {
-        if (!disposed && mountedRef.current) {
+        if (mountedRef.current) {
           setUser(null);
           setCachedUser(null);
         }
       }
-      if (!disposed && mountedRef.current) setAuthReady(true);
+      if (mountedRef.current) setAuthReady(true);
 
-      unsub = services.onAuthStateChange((event, session) => {
-        if (disposed || !mountedRef.current) return;
+      unsub = onAuthStateChange((event, session) => {
+        if (!mountedRef.current) return;
 
         if (event === 'INITIAL_SESSION') {
           return;
@@ -156,11 +115,8 @@ function useSyncInternal() {
     };
 
     init();
-    return () => {
-      disposed = true;
-      unsub();
-    };
-  }, [services, isConfigured]);
+    return () => { unsub(); };
+  }, [isConfigured]);
 
   useEffect(() => {
     return () => { mountedRef.current = false; };
@@ -168,27 +124,25 @@ function useSyncInternal() {
 
   // 登录用户变化时，切换本地数据命名空间并重置“首次拉取”标记
   useEffect(() => {
-    if (!services) return;
     const userId = user?.id ?? null;
     if (initialPullUserRef.current !== userId) {
-      services.setStorageOwner(userId);
-      setLastSynced(readLastSynced(services.getScopedStorageKey));
+      setStorageOwner(userId);
+      setLastSynced(readLastSynced());
       initialPullUserRef.current = userId;
       initialPullDoneRef.current = false;
     }
-  }, [services, user?.id]);
+  }, [user?.id]);
 
   const recordSync = useCallback((userId) => {
-    const s = ensureServices();
-    const storageOwner = s.getStorageOwnerForUser(userId);
+    const storageOwner = getStorageOwnerForUser(userId);
     const ts = Date.now();
-    localStorage.setItem(s.getScopedStorageKey(LAST_SYNCED_KEY, storageOwner), String(ts));
-    s.clearSyncDirty({ storageOwner });
-    if (s.getStorageOwner() === storageOwner) {
+    localStorage.setItem(getScopedStorageKey(LAST_SYNCED_KEY, storageOwner), String(ts));
+    clearSyncDirty({ storageOwner });
+    if (getStorageOwner() === storageOwner) {
       setLastSynced(ts);
       window.dispatchEvent(new CustomEvent('kai_sync_completed', { detail: { at: ts } }));
     }
-  }, [ensureServices]);
+  }, []);
 
   const requireVerifiedUserId = useCallback(() => {
     if (!authReady || !user?.id) {
@@ -202,7 +156,7 @@ function useSyncInternal() {
   const autoSyncRef = useRef(false);
 
   useEffect(() => {
-    if (!services || !isConfigured) return;
+    if (!isConfigured) return;
 
     const tryAutoSync = async () => {
       if (
@@ -215,20 +169,20 @@ function useSyncInternal() {
       ) return;
 
       const userId = user.id;
-      const storageOwner = services.getStorageOwnerForUser(userId);
-      const shouldMerge = services.isSyncDirty({ storageOwner });
+      const storageOwner = getStorageOwnerForUser(userId);
+      const shouldMerge = isSyncDirty({ storageOwner });
       const shouldInitialPull = !initialPullDoneRef.current;
       if (!shouldMerge && !shouldInitialPull) return;
 
       autoSyncRef.current = true;
       try {
         if (shouldMerge) {
-          await services.syncMerge(userId);
+          await syncMerge(userId);
           if (initialPullUserRef.current === userId) {
             initialPullDoneRef.current = true;
           }
         } else if (shouldInitialPull) {
-          await services.pullRemoteData(userId);
+          await pullRemoteData(userId);
           if (initialPullUserRef.current === userId) {
             initialPullDoneRef.current = true;
           }
@@ -266,17 +220,16 @@ function useSyncInternal() {
       window.removeEventListener('online', handleOnline);
       document.removeEventListener('visibilitychange', handleVisible);
     };
-  }, [services, isConfigured, authReady, user, recordSync]);
+  }, [isConfigured, authReady, user, recordSync]);
 
   // ── 同步操作 ──────────────────────────────────────────────
 
   const sync = useCallback(async () => {
-    const s = ensureServices();
     setSyncing(true);
     setError(null);
     try {
       const userId = requireVerifiedUserId();
-      const result = await s.syncMerge(userId);
+      const result = await syncMerge(userId);
       recordSync(userId);
       return result;
     } catch (err) {
@@ -285,15 +238,14 @@ function useSyncInternal() {
     } finally {
       if (mountedRef.current) setSyncing(false);
     }
-  }, [ensureServices, recordSync, requireVerifiedUserId]);
+  }, [recordSync, requireVerifiedUserId]);
 
   const push = useCallback(async () => {
-    const s = ensureServices();
     setSyncing(true);
     setError(null);
     try {
       const userId = requireVerifiedUserId();
-      await s.pushLocalData(userId);
+      await pushLocalData(userId);
       recordSync(userId);
     } catch (err) {
       setError(err.message || '推送失败');
@@ -301,15 +253,14 @@ function useSyncInternal() {
     } finally {
       if (mountedRef.current) setSyncing(false);
     }
-  }, [ensureServices, recordSync, requireVerifiedUserId]);
+  }, [recordSync, requireVerifiedUserId]);
 
   const pull = useCallback(async () => {
-    const s = ensureServices();
     setSyncing(true);
     setError(null);
     try {
       const userId = requireVerifiedUserId();
-      const result = await s.pullRemoteData(userId);
+      const result = await pullRemoteData(userId);
       if (result.pulled) recordSync(userId);
       return result;
     } catch (err) {
@@ -318,48 +269,44 @@ function useSyncInternal() {
     } finally {
       if (mountedRef.current) setSyncing(false);
     }
-  }, [ensureServices, recordSync, requireVerifiedUserId]);
+  }, [recordSync, requireVerifiedUserId]);
 
   // ── 认证操作 ──────────────────────────────────────────────
 
   const loginWithEmail = useCallback(async (email, password, captchaToken) => {
-    const s = ensureServices();
     setError(null);
     try {
-      return await s.signInWithEmail(email, password, captchaToken);
+      return await signInWithEmail(email, password, captchaToken);
     } catch (err) {
       setError('操作失败');
       throw err;
     }
-  }, [ensureServices]);
+  }, []);
 
   const registerWithEmail = useCallback(async (email, password, captchaToken, emailRedirectTo) => {
-    const s = ensureServices();
     setError(null);
     try {
-      return await s.signUpWithEmail(email, password, captchaToken, emailRedirectTo);
+      return await signUpWithEmail(email, password, captchaToken, emailRedirectTo);
     } catch (err) {
       setError('操作失败');
       throw err;
     }
-  }, [ensureServices]);
+  }, []);
 
   const loginWithGitHub = useCallback(async (redirectTo) => {
-    const s = ensureServices();
     setError(null);
     try {
-      return await s.signInWithGitHub(redirectTo);
+      return await signInWithGitHub(redirectTo);
     } catch (err) {
       setError('操作失败');
       throw err;
     }
-  }, [ensureServices]);
+  }, []);
 
   const completeAuthCallback = useCallback(async () => {
-    const s = ensureServices();
     setError(null);
     try {
-      const data = await s.completeAuthCallbackFromUrl();
+      const data = await completeAuthCallbackFromUrl();
       const nextUser = data?.user ?? data?.session?.user ?? null;
       if (mountedRef.current && nextUser) {
         setUser(nextUser);
@@ -370,30 +317,28 @@ function useSyncInternal() {
       setError('操作失败');
       throw err;
     }
-  }, [ensureServices]);
+  }, []);
 
   const requestPasswordReset = useCallback(async (email, redirectTo, captchaToken) => {
-    const s = ensureServices();
     setError(null);
     try {
-      return await s.sendPasswordResetEmail(email, redirectTo, captchaToken);
+      return await sendPasswordResetEmail(email, redirectTo, captchaToken);
     } catch (err) {
       setError('操作失败');
       throw err;
     }
-  }, [ensureServices]);
+  }, []);
 
   const signOut = useCallback(async () => {
-    const s = ensureServices();
     setError(null);
     try {
-      await s.signOut();
+      await doSignOut();
       setUser(null);
       setCachedUser(null);
     } catch (err) {
       setError(err.message);
     }
-  }, [ensureServices]);
+  }, []);
 
   return {
     isConfigured,
