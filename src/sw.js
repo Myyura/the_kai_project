@@ -125,6 +125,17 @@ registerRoute(
   }),
 );
 
+// ─── Deploy safety: drop stale HTML caches on SW activate ─────────────────────
+// After each deploy, hashed JS/CSS filenames change. pages-runtime may still
+// serve old HTML that references removed bundles → browser parses 404 HTML as JS.
+const RUNTIME_CACHES_TO_PURGE_ON_ACTIVATE = ['pages-runtime'];
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    Promise.all(RUNTIME_CACHES_TO_PURGE_ON_ACTIVATE.map((name) => caches.delete(name))),
+  );
+});
+
 // ─── 4. Local search index ───────────────────────────────────────────────────
 // The search-index.json is ~11.6 MB — too large for the Workbox precache
 // (default 2 MB limit).  Use StaleWhileRevalidate so it is cached on the

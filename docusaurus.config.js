@@ -124,6 +124,7 @@ const config = {
   // 客户端模块 - 在页面加载时立即执行
   clientModules: [
     require.resolve('./src/clientModules/languageInit.js'),
+    require.resolve('./src/clientModules/pwaRecovery.js'),
     require.resolve('./src/clientModules/offlineStatus.js'),
   ],
 
