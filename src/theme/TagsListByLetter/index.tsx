@@ -74,6 +74,10 @@ function getSubjectDescription(subjectId: string, language: Language): string | 
   return getLocalizedDescription(subjects[subjectId], language);
 }
 
+function getSubjectAnchorId(subjectId: string): string {
+  return `subject-${subjectId.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+}
+
 function getSubsubjectLabel(subsubjectId: string, language: Language): string {
   return getLocalizedLabel(subsubjects[subsubjectId], subsubjectId, language);
 }
@@ -290,7 +294,10 @@ function SubjectPanel({
     <section className={styles.subjectPanel}>
       <header className={styles.subjectPanelHeader}>
         <div>
-          <Heading as="h2" className={styles.subjectPanelTitle}>
+          <Heading
+            as="h2"
+            id={getSubjectAnchorId(subjectId)}
+            className={styles.subjectPanelTitle}>
             {getSubjectLabel(subjectId, language)}
           </Heading>
           {subjectDescription && (
@@ -472,9 +479,7 @@ function LearningSections({
   const navigationSubjects = isSearching
     ? orderedSubjects.filter((subjectId) => visibleGroups.has(subjectId))
     : orderedSubjects;
-  const displayedSubjects = isSearching
-    ? navigationSubjects
-    : selectedSubject && visibleGroups.has(selectedSubject) ? [selectedSubject] : [];
+  const displayedSubjects = navigationSubjects;
 
   if (subsubjectTags.length + topicTags.length === 0) return null;
 
@@ -497,10 +502,11 @@ function LearningSections({
       <div className={styles.explorerLayout}>
         <nav className={styles.subjectNavigation} aria-label={t.subjectNavigation}>
           {navigationSubjects.map((subjectId) => (
-            <button
+            <Link
               key={subjectId}
-              type="button"
+              to={`#${getSubjectAnchorId(subjectId)}`}
               className={`${styles.subjectNavItem} ${!isSearching && selectedSubject === subjectId ? styles.subjectNavItemActive : ''}`}
+              aria-current={!isSearching && selectedSubject === subjectId ? 'true' : undefined}
               onClick={() => {
                 setQuery('');
                 setSelectedSubject(subjectId);
@@ -509,7 +515,7 @@ function LearningSections({
               <span className={styles.subjectNavCount}>
                 {countGroupTags(orderedGroups(bySubject.get(subjectId)!))}
               </span>
-            </button>
+            </Link>
           ))}
         </nav>
         <div className={styles.subjectResults}>

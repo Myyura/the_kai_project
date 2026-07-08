@@ -161,12 +161,14 @@
   font-size: 0.87rem;
   font-weight: 600;
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .subjectNavItem:hover {
   background: var(--ifm-color-emphasis-100);
   color: var(--ifm-font-color-base);
+  text-decoration: none;
 }
 
 .subjectNavItemActive {
