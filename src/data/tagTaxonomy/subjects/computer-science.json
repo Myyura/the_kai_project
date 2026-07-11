@@ -284,6 +284,9 @@
         "Computer-Science.Data-Structures-Algorithms.Selection-Sort"
       ]
     },
+    "Computer-Science.Algorithm-Design.Shell-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design"
+    },
     "Computer-Science.Algorithm-Design.Sorting-Algorithm": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
@@ -319,6 +322,9 @@
       "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Control-Hazard": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Endianness": {
       "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Floating-Point-Representation": {
@@ -458,6 +464,9 @@
       ]
     },
     "Computer-Science.Formal-Languages.Context-Free-Grammar": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Deterministic-Finite-Automaton": {
       "subsubject": "Computer-Science.Formal-Languages"
     },
     "Computer-Science.Formal-Languages.Mealy-Machine": {

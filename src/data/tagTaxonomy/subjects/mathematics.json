@@ -166,6 +166,9 @@
     "Mathematics.Calculus.Limit": {
       "subsubject": "Mathematics.Calculus"
     },
+    "Mathematics.Calculus.Local-Extrema": {
+      "subsubject": "Mathematics.Calculus"
+    },
     "Mathematics.Calculus.Multivariable-Differentiation": {
       "subsubject": "Mathematics.Calculus"
     },

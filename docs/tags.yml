@@ -116,6 +116,14 @@
   label: "Discrete-Mathematics.Combinatorics"
   permalink: "/subsubject/discrete-mathematics/combinatorics"
   description: "Discrete-Mathematics / Combinatorics"
+"Discrete-Mathematics.Set-Theory":
+  label: "Discrete-Mathematics.Set-Theory"
+  permalink: "/subsubject/discrete-mathematics/set-theory"
+  description: "Discrete-Mathematics / Set-Theory"
+"Discrete-Mathematics.Mathematical-Logic":
+  label: "Discrete-Mathematics.Mathematical-Logic"
+  permalink: "/subsubject/discrete-mathematics/mathematical-logic"
+  description: "Discrete-Mathematics / Mathematical-Logic"
 "Probability-Statistics.Statistical-Inference":
   label: "Probability-Statistics.Statistical-Inference"
   permalink: "/subsubject/probability-statistics/statistical-inference"
@@ -388,6 +396,10 @@
   label: "Computer-Science.Algorithm-Design.Selection-Sort"
   permalink: "/topic/computer-science/algorithm-design/selection-sort"
   description: "Computer-Science / Algorithm-Design / Selection-Sort"
+"Computer-Science.Algorithm-Design.Shell-Sort":
+  label: "Computer-Science.Algorithm-Design.Shell-Sort"
+  permalink: "/topic/computer-science/algorithm-design/shell-sort"
+  description: "Computer-Science / Algorithm-Design / Shell-Sort"
 "Computer-Science.Algorithm-Design.Sorting-Algorithm":
   label: "Computer-Science.Algorithm-Design.Sorting-Algorithm"
   permalink: "/topic/computer-science/algorithm-design/sorting-algorithm"
@@ -424,6 +436,10 @@
   label: "Computer-Science.Computer-Architecture.Control-Hazard"
   permalink: "/topic/computer-science/computer-architecture/control-hazard"
   description: "Computer-Science / Computer-Architecture / Control-Hazard"
+"Computer-Science.Computer-Architecture.Endianness":
+  label: "Computer-Science.Computer-Architecture.Endianness"
+  permalink: "/topic/computer-science/computer-architecture/endianness"
+  description: "Computer-Science / Computer-Architecture / Endianness"
 "Computer-Science.Computer-Architecture.Floating-Point-Representation":
   label: "Computer-Science.Computer-Architecture.Floating-Point-Representation"
   permalink: "/topic/computer-science/computer-architecture/floating-point-representation"
@@ -524,6 +540,10 @@
   label: "Computer-Science.Formal-Languages.Context-Free-Grammar"
   permalink: "/topic/computer-science/formal-languages/context-free-grammar"
   description: "Computer-Science / Formal-Languages / Context-Free-Grammar"
+"Computer-Science.Formal-Languages.Deterministic-Finite-Automaton":
+  label: "Computer-Science.Formal-Languages.Deterministic-Finite-Automaton"
+  permalink: "/topic/computer-science/formal-languages/deterministic-finite-automaton"
+  description: "Computer-Science / Formal-Languages / Deterministic-Finite-Automaton"
 "Computer-Science.Formal-Languages.Mealy-Machine":
   label: "Computer-Science.Formal-Languages.Mealy-Machine"
   permalink: "/topic/computer-science/formal-languages/mealy-machine"
@@ -720,6 +740,22 @@
   label: "Discrete-Mathematics.Combinatorics.Recurrence-Relation"
   permalink: "/topic/discrete-mathematics/combinatorics/recurrence-relation"
   description: "Discrete-Mathematics / Combinatorics / Recurrence-Relation"
+"Discrete-Mathematics.Mathematical-Logic.Mathematical-Induction":
+  label: "Discrete-Mathematics.Mathematical-Logic.Mathematical-Induction"
+  permalink: "/topic/discrete-mathematics/mathematical-logic/mathematical-induction"
+  description: "Discrete-Mathematics / Mathematical-Logic / Mathematical-Induction"
+"Discrete-Mathematics.Mathematical-Logic.Predicate-Logic":
+  label: "Discrete-Mathematics.Mathematical-Logic.Predicate-Logic"
+  permalink: "/topic/discrete-mathematics/mathematical-logic/predicate-logic"
+  description: "Discrete-Mathematics / Mathematical-Logic / Predicate-Logic"
+"Discrete-Mathematics.Set-Theory.Cardinality":
+  label: "Discrete-Mathematics.Set-Theory.Cardinality"
+  permalink: "/topic/discrete-mathematics/set-theory/cardinality"
+  description: "Discrete-Mathematics / Set-Theory / Cardinality"
+"Discrete-Mathematics.Set-Theory.Image-and-Preimage":
+  label: "Discrete-Mathematics.Set-Theory.Image-and-Preimage"
+  permalink: "/topic/discrete-mathematics/set-theory/image-and-preimage"
+  description: "Discrete-Mathematics / Set-Theory / Image-and-Preimage"
 "Electrical-Electronic.Control-Theory.Feedback-Control":
   label: "Electrical-Electronic.Control-Theory.Feedback-Control"
   permalink: "/topic/electrical-electronic/control-theory/feedback-control"
@@ -884,6 +920,10 @@
   label: "Mathematics.Calculus.Limit"
   permalink: "/topic/mathematics/calculus/limit"
   description: "Mathematics / Calculus / Limit"
+"Mathematics.Calculus.Local-Extrema":
+  label: "Mathematics.Calculus.Local-Extrema"
+  permalink: "/topic/mathematics/calculus/local-extrema"
+  description: "Mathematics / Calculus / Local-Extrema"
 "Mathematics.Calculus.Multivariable-Differentiation":
   label: "Mathematics.Calculus.Multivariable-Differentiation"
   permalink: "/topic/mathematics/calculus/multivariable-differentiation"
@@ -1096,6 +1136,22 @@
   label: "Probability-Statistics.Probability-and-Statistics-Basics.Law-of-Large-Numbers"
   permalink: "/topic/probability-statistics/probability-and-statistics-basics/law-of-large-numbers"
   description: "Probability-Statistics / Probability-and-Statistics-Basics / Law-of-Large-Numbers"
+"Probability-Statistics.Probability-and-Statistics-Basics.Lognormal-Distribution":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Lognormal-Distribution"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/lognormal-distribution"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Lognormal-Distribution"
+"Probability-Statistics.Probability-and-Statistics-Basics.Mixed-Distribution":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Mixed-Distribution"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/mixed-distribution"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Mixed-Distribution"
+"Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/moment-generating-function"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Moment-Generating-Function"
+"Probability-Statistics.Probability-and-Statistics-Basics.Negative-Binomial-Distribution":
+  label: "Probability-Statistics.Probability-and-Statistics-Basics.Negative-Binomial-Distribution"
+  permalink: "/topic/probability-statistics/probability-and-statistics-basics/negative-binomial-distribution"
+  description: "Probability-Statistics / Probability-and-Statistics-Basics / Negative-Binomial-Distribution"
 "Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution":
   label: "Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution"
   permalink: "/topic/probability-statistics/probability-and-statistics-basics/normal-distribution"
