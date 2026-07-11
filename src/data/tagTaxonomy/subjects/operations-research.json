@@ -123,6 +123,9 @@
     "Operations-Research.Optimization.Simplex-Method": {
       "subsubject": "Operations-Research.Optimization"
     },
+    "Operations-Research.Optimization.Sensitivity-Analysis": {
+      "subsubject": "Operations-Research.Optimization"
+    },
     "Operations-Research.Optimization.Stepping-Stone-Method": {
       "subsubject": "Operations-Research.Optimization"
     },

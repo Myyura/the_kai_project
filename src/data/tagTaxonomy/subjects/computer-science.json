@@ -336,6 +336,12 @@
     "Computer-Science.Computer-Architecture.IEEE-754": {
       "subsubject": "Computer-Science.Computer-Architecture"
     },
+    "Computer-Science.Computer-Architecture.Instruction-Cycle": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Instruction-Encoding": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
     "Computer-Science.Computer-Architecture.Memory-Alignment": {
       "subsubject": "Computer-Science.Computer-Architecture"
     },

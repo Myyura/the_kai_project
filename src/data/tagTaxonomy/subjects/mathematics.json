@@ -271,6 +271,15 @@
     "Mathematics.Abstract-Algebra.Finite-Group": {
       "subsubject": "Mathematics.Abstract-Algebra"
     },
+    "Mathematics.Abstract-Algebra.Gaussian-Integers": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Quotient-Ring": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Quadratic-Integer-Ring": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
     "Mathematics.Topology.Hausdorff-Space": {
       "subsubject": "Mathematics.Topology"
     },
@@ -279,6 +288,12 @@
     },
     "Mathematics.Functional-Analysis.Uniform-Convergence": {
       "subsubject": "Mathematics.Functional-Analysis"
+    },
+    "Mathematics.Functional-Analysis.Bounded-Linear-Operator": {
+      "subsubject": "Mathematics.Functional-Analysis"
+    },
+    "Mathematics.Differential-Equations.Wave-Equation": {
+      "subsubject": "Mathematics.Differential-Equations"
     },
     "Mathematics.Vector-Calculus.Divergence-Theorem": {
       "subsubject": "Mathematics.Vector-Calculus"

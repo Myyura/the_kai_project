@@ -452,6 +452,14 @@
   label: "Computer-Science.Computer-Architecture.IEEE-754"
   permalink: "/topic/computer-science/computer-architecture/ieee-754"
   description: "Computer-Science / Computer-Architecture / IEEE-754"
+"Computer-Science.Computer-Architecture.Instruction-Cycle":
+  label: "Computer-Science.Computer-Architecture.Instruction-Cycle"
+  permalink: "/topic/computer-science/computer-architecture/instruction-cycle"
+  description: "Computer-Science / Computer-Architecture / Instruction-Cycle"
+"Computer-Science.Computer-Architecture.Instruction-Encoding":
+  label: "Computer-Science.Computer-Architecture.Instruction-Encoding"
+  permalink: "/topic/computer-science/computer-architecture/instruction-encoding"
+  description: "Computer-Science / Computer-Architecture / Instruction-Encoding"
 "Computer-Science.Computer-Architecture.Memory-Alignment":
   label: "Computer-Science.Computer-Architecture.Memory-Alignment"
   permalink: "/topic/computer-science/computer-architecture/memory-alignment"
@@ -904,6 +912,18 @@
   label: "Mathematics.Abstract-Algebra.Finite-Group"
   permalink: "/topic/mathematics/abstract-algebra/finite-group"
   description: "Mathematics / Abstract-Algebra / Finite-Group"
+"Mathematics.Abstract-Algebra.Gaussian-Integers":
+  label: "Mathematics.Abstract-Algebra.Gaussian-Integers"
+  permalink: "/topic/mathematics/abstract-algebra/gaussian-integers"
+  description: "Mathematics / Abstract-Algebra / Gaussian-Integers"
+"Mathematics.Abstract-Algebra.Quadratic-Integer-Ring":
+  label: "Mathematics.Abstract-Algebra.Quadratic-Integer-Ring"
+  permalink: "/topic/mathematics/abstract-algebra/quadratic-integer-ring"
+  description: "Mathematics / Abstract-Algebra / Quadratic-Integer-Ring"
+"Mathematics.Abstract-Algebra.Quotient-Ring":
+  label: "Mathematics.Abstract-Algebra.Quotient-Ring"
+  permalink: "/topic/mathematics/abstract-algebra/quotient-ring"
+  description: "Mathematics / Abstract-Algebra / Quotient-Ring"
 "Mathematics.Calculus.Cauchy-Sequence":
   label: "Mathematics.Calculus.Cauchy-Sequence"
   permalink: "/topic/mathematics/calculus/cauchy-sequence"
@@ -956,10 +976,18 @@
   label: "Mathematics.Complex-Analysis.Complex-Numbers"
   permalink: "/topic/mathematics/complex-analysis/complex-numbers"
   description: "Mathematics / Complex-Analysis / Complex-Numbers"
+"Mathematics.Differential-Equations.Wave-Equation":
+  label: "Mathematics.Differential-Equations.Wave-Equation"
+  permalink: "/topic/mathematics/differential-equations/wave-equation"
+  description: "Mathematics / Differential-Equations / Wave-Equation"
 "Mathematics.Fourier-Analysis.Convolution":
   label: "Mathematics.Fourier-Analysis.Convolution"
   permalink: "/topic/mathematics/fourier-analysis/convolution"
   description: "Mathematics / Fourier-Analysis / Convolution"
+"Mathematics.Functional-Analysis.Bounded-Linear-Operator":
+  label: "Mathematics.Functional-Analysis.Bounded-Linear-Operator"
+  permalink: "/topic/mathematics/functional-analysis/bounded-linear-operator"
+  description: "Mathematics / Functional-Analysis / Bounded-Linear-Operator"
 "Mathematics.Functional-Analysis.Normed-Space":
   label: "Mathematics.Functional-Analysis.Normed-Space"
   permalink: "/topic/mathematics/functional-analysis/normed-space"
@@ -1124,6 +1152,10 @@
   label: "Operations-Research.Optimization.Linear-Programming-Duality"
   permalink: "/topic/operations-research/optimization/linear-programming-duality"
   description: "Operations-Research / Optimization / Linear-Programming-Duality"
+"Operations-Research.Optimization.Sensitivity-Analysis":
+  label: "Operations-Research.Optimization.Sensitivity-Analysis"
+  permalink: "/topic/operations-research/optimization/sensitivity-analysis"
+  description: "Operations-Research / Optimization / Sensitivity-Analysis"
 "Operations-Research.Optimization.Simplex-Method":
   label: "Operations-Research.Optimization.Simplex-Method"
   permalink: "/topic/operations-research/optimization/simplex-method"
