@@ -61,6 +61,9 @@
     "Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution": {
       "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Geometric-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    },
     "Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution": {
       "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
@@ -83,6 +86,12 @@
       "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
     "Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Poisson-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Coupon-Collector-Problem": {
       "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
     "Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution": {

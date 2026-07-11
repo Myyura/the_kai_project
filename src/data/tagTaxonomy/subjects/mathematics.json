@@ -244,6 +244,12 @@
     "Mathematics.Linear-Algebra.Orthogonal-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
+    "Mathematics.Linear-Algebra.Positive-Semidefinite-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
     "Mathematics.Linear-Algebra.Singular-Value-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra",
       "aliases": [
@@ -261,6 +267,18 @@
       "relatedSubjects": [
         "Computer-Science"
       ]
+    },
+    "Mathematics.Abstract-Algebra.Finite-Group": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Topology.Hausdorff-Space": {
+      "subsubject": "Mathematics.Topology"
+    },
+    "Mathematics.Functional-Analysis.Normed-Space": {
+      "subsubject": "Mathematics.Functional-Analysis"
+    },
+    "Mathematics.Functional-Analysis.Uniform-Convergence": {
+      "subsubject": "Mathematics.Functional-Analysis"
     },
     "Mathematics.Vector-Calculus.Divergence-Theorem": {
       "subsubject": "Mathematics.Vector-Calculus"

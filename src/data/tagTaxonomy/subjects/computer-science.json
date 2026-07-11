@@ -469,6 +469,9 @@
     "Computer-Science.Formal-Languages.Deterministic-Finite-Automaton": {
       "subsubject": "Computer-Science.Formal-Languages"
     },
+    "Computer-Science.Formal-Languages.Pumping-Lemma": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
     "Computer-Science.Formal-Languages.Mealy-Machine": {
       "subsubject": "Computer-Science.Formal-Languages",
       "relatedSubjects": [
@@ -539,6 +542,12 @@
       "subsubject": "Computer-Science.Information-Theory"
     },
     "Computer-Science.Operating-Systems.Virtual-Memory": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Process-Synchronization": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Peterson-Algorithm": {
       "subsubject": "Computer-Science.Operating-Systems"
     },
     "Computer-Science.Programming.Base-Conversion": {

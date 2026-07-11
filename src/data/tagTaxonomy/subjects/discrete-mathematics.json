@@ -79,6 +79,9 @@
     "Discrete-Mathematics.Set-Theory.Cardinality": {
       "subsubject": "Discrete-Mathematics.Set-Theory"
     },
+    "Discrete-Mathematics.Set-Theory.Binary-Relations": {
+      "subsubject": "Discrete-Mathematics.Set-Theory"
+    },
     "Discrete-Mathematics.Mathematical-Logic.Predicate-Logic": {
       "subsubject": "Discrete-Mathematics.Mathematical-Logic"
     },
