@@ -20,10 +20,30 @@
       "aliases": [
         "Discrete-Mathematics.Discrete-Mathematics"
       ]
+    },
+    "Discrete-Mathematics.Set-Theory": {
+      "subject": "Discrete-Mathematics",
+      "labelZh": "集合论",
+      "labelJa": "集合論",
+      "labelEn": "Set Theory",
+      "descriptionZh": "集合、映射、像与逆像、基数及有限集合的基本结构。",
+      "descriptionJa": "集合、写像、像と逆像、濃度、有限集合の基本構造。",
+      "descriptionEn": "Sets, maps, images and preimages, cardinality, and basic finite-set structures."
+    },
+    "Discrete-Mathematics.Mathematical-Logic": {
+      "subject": "Discrete-Mathematics",
+      "labelZh": "数理逻辑与证明",
+      "labelJa": "数理論理と証明",
+      "labelEn": "Mathematical Logic and Proof",
+      "descriptionZh": "命题与谓词逻辑、量词以及离散数学中的基本证明方法。",
+      "descriptionJa": "命題論理、述語論理、量化記号、離散数学の基本的な証明法。",
+      "descriptionEn": "Propositional and predicate logic, quantifiers, and basic proof methods in discrete mathematics."
     }
   },
   "subsubjectOrder": [
-    "Discrete-Mathematics.Combinatorics"
+    "Discrete-Mathematics.Combinatorics",
+    "Discrete-Mathematics.Set-Theory",
+    "Discrete-Mathematics.Mathematical-Logic"
   ],
   "topics": {
     "Discrete-Mathematics.Combinatorics.Binomial-Coefficient": {
@@ -52,6 +72,18 @@
       "aliases": [
         "Discrete-Mathematics.Discrete-Mathematics.Recurrence-Relation"
       ]
+    },
+    "Discrete-Mathematics.Set-Theory.Image-and-Preimage": {
+      "subsubject": "Discrete-Mathematics.Set-Theory"
+    },
+    "Discrete-Mathematics.Set-Theory.Cardinality": {
+      "subsubject": "Discrete-Mathematics.Set-Theory"
+    },
+    "Discrete-Mathematics.Mathematical-Logic.Predicate-Logic": {
+      "subsubject": "Discrete-Mathematics.Mathematical-Logic"
+    },
+    "Discrete-Mathematics.Mathematical-Logic.Mathematical-Induction": {
+      "subsubject": "Discrete-Mathematics.Mathematical-Logic"
     }
   }
 }
