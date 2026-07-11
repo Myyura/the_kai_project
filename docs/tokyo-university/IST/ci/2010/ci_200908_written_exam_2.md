@@ -2,7 +2,7 @@
 sidebar_label: 2009年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Computer-Science.Graphics.Projection-And-Reconstruction
+  - Computer-Science.Graphics.Projection-and-Reconstruction
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2009年8月実施 筆記試験 第2問
 ## **Author**

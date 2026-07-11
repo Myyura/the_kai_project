@@ -2,9 +2,8 @@
 sidebar_label: 2018年8月実施 アルゴリズムとプログラミング
 tags:
   - Osaka-University
-  - Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm
-  - Computer-Science.Data-Structures-Algorithms.Bubble-Sort
-  - Computer-Science.Data-Structures-Algorithms.Quick-Sort
+  - Computer-Science.Algorithm-Design.Bubble-Sort
+  - Computer-Science.Algorithm-Design.Quick-Sort
   - Computer-Science.Programming
 ---
 # 大阪大学 情報科学研究科 情報工学 2018年8月実施 アルゴリズムとプログラミング

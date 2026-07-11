@@ -3,7 +3,7 @@
   "subject": {
     "labelZh": "电气电子",
     "labelJa": "電気電子",
-    "labelEn": "EE (Electrical & Electronic)",
+    "labelEn": "Electrical and Electronic Engineering",
     "descriptionZh": "电路、电子、信号、通信与计算机硬件。",
     "descriptionJa": "回路、電子、信号、通信、計算機ハードウェア。",
     "descriptionEn": "Circuits, electronics, signals, communications, and computer hardware."
@@ -65,51 +65,47 @@
   "topics": {
     "Electrical-Electronic.Control-Theory.Feedback-Control": {
       "subsubject": "Electrical-Electronic.Control-Theory",
-      "subjects": [
-        "Electrical-Electronic",
+      "relatedSubjects": [
         "Engineering",
         "Operations-Research"
       ]
     },
     "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
-      "subjects": [
-        "Electrical-Electronic",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
-    "Electrical-Electronic.Digital-Logic.Half-Full-Adders": {
+    "Electrical-Electronic.Digital-Logic.Half-and-Full-Adders": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
-      "subjects": [
-        "Electrical-Electronic",
+      "relatedSubjects": [
         "Computer-Science"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Digital-Logic.Half-Full-Adders"
       ]
     },
     "Electrical-Electronic.Digital-Logic.Sequential-Circuit": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
-      "subjects": [
-        "Electrical-Electronic",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Electrical-Electronic.Digital-Logic.Synchronous-Circuit": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
-      "subjects": [
-        "Electrical-Electronic",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
-      "subjects": [
-        "Electrical-Electronic",
+      "relatedSubjects": [
         "Mathematics"
       ]
     },
     "Electrical-Electronic.Signal-Processing.Z-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
-      "subjects": [
-        "Electrical-Electronic",
+      "relatedSubjects": [
         "Mathematics"
       ]
     }

@@ -2,7 +2,7 @@
 sidebar_label: 2023年8月実施 専門 問6
 tags:
   - Nagoya-University
-  - Computer-Science.Data-Structures-Algorithms.Dynamic-Programming
+  - Computer-Science.Dynamic-Programming.Dynamic-Programming
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2023年8月実施 専門 問6
 

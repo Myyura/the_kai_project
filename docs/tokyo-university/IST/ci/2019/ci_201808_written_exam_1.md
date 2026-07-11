@@ -2,7 +2,7 @@
 sidebar_label: 2018年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity
+  - Computer-Science.Algorithm-Design.Algorithm-Complexity
   - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Breadth-First-Search
   - Mathematics.Linear-Algebra.Matrix-Limit
   - Mathematics.Fourier-Analysis.Convolution

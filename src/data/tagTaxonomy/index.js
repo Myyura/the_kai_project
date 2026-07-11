@@ -2,12 +2,12 @@ const config = require('./config.json');
 const schoolTags = require('./schoolTags.json');
 const bioinformatics = require('./subjects/bioinformatics.json');
 const chemistry = require('./subjects/chemistry.json');
+const cognitiveScienceNeuroscience = require('./subjects/cognitive-science-neuroscience.json');
 const computerScience = require('./subjects/computer-science.json');
 const dataScienceArtificialIntelligence = require('./subjects/data-science-artificial-intelligence.json');
 const discreteMathematics = require('./subjects/discrete-mathematics.json');
 const electricalElectronic = require('./subjects/electrical-electronic.json');
 const engineering = require('./subjects/engineering.json');
-const general = require('./subjects/general.json');
 const graphTheoryCombinatorialOptimization = require('./subjects/graph-theory-combinatorial-optimization.json');
 const mathematics = require('./subjects/mathematics.json');
 const operationsResearch = require('./subjects/operations-research.json');
@@ -17,12 +17,12 @@ const probabilityStatistics = require('./subjects/probability-statistics.json');
 const subjectFiles = [
   bioinformatics,
   chemistry,
+  cognitiveScienceNeuroscience,
   computerScience,
   dataScienceArtificialIntelligence,
   discreteMathematics,
   electricalElectronic,
   engineering,
-  general,
   graphTheoryCombinatorialOptimization,
   mathematics,
   operationsResearch,

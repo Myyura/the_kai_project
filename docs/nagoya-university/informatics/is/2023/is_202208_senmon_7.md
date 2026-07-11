@@ -2,8 +2,8 @@
 sidebar_label: 2022年8月実施 専門 問7
 tags:
   - Nagoya-University
-  - Computer-Science.Data-Structures-Algorithms.Binary-Search
-  - Computer-Science.Data-Structures-Algorithms.Dynamic-Programming
+  - Computer-Science.Algorithm-Design.Binary-Search
+  - Computer-Science.Dynamic-Programming.Dynamic-Programming
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2022年8月実施 専門 問7
 

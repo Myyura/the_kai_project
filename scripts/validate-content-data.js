@@ -206,8 +206,12 @@ function validateTagTaxonomy(data) {
       subjectIds.add(subjectId);
       const base = `tagTaxonomy.subjects.${subjectId}`;
       if (!requireObject(subject, base)) continue;
+      if (!/^[A-Za-z0-9-]+$/.test(subjectId)) {
+        addError(base, 'subject id must contain only ASCII letters, digits, and hyphens');
+      }
       requireString(subject.labelZh, `${base}.labelZh`);
       requireString(subject.labelJa, `${base}.labelJa`);
+      requireString(subject.labelEn, `${base}.labelEn`);
       if (subject.descriptionZh !== undefined) {
         requireString(subject.descriptionZh, `${base}.descriptionZh`, { allowEmpty: true });
       }
@@ -264,6 +268,9 @@ function validateTagTaxonomy(data) {
         subsubjectIds.add(subsubjectId);
         const base = `tagTaxonomy.subsubjects.${subsubjectId}`;
         if (!requireObject(subsubject, base)) continue;
+        if (!/^[A-Za-z0-9.-]+$/.test(subsubjectId)) {
+          addError(base, 'subsubject id must contain only ASCII letters, digits, periods, and hyphens');
+        }
         if (requireString(subsubject.subject, `${base}.subject`) && !subjectIds.has(subsubject.subject)) {
           addError(`${base}.subject`, `unknown subject "${subsubject.subject}"`);
         }
@@ -282,11 +289,7 @@ function validateTagTaxonomy(data) {
           requireString(subsubject.descriptionEn, `${base}.descriptionEn`, { allowEmpty: true });
         }
         if (subsubject.aliases !== undefined && requireArray(subsubject.aliases, `${base}.aliases`)) {
-          if (data.version >= 3) {
-            addError(`${base}.aliases`, 'learning tag aliases are not allowed in taxonomy v3');
-          } else {
-            subsubject.aliases.forEach((alias, index) => registerAlias(alias, subsubjectId, `${base}.aliases[${index}]`));
-          }
+          subsubject.aliases.forEach((alias, index) => registerAlias(alias, subsubjectId, `${base}.aliases[${index}]`));
         }
       }
     }
@@ -307,6 +310,9 @@ function validateTagTaxonomy(data) {
     for (const [tagId, tag] of Object.entries(data.topics)) {
       const base = `tagTaxonomy.topics.${tagId}`;
       if (!requireObject(tag, base)) continue;
+      if (!/^[A-Za-z0-9.-]+$/.test(tagId)) {
+        addError(base, 'topic id must contain only ASCII letters, digits, periods, and hyphens');
+      }
       if (data.version >= 2) {
         if (requireString(tag.subsubject, `${base}.subsubject`) && !subsubjectIds.has(tag.subsubject)) {
           addError(`${base}.subsubject`, `unknown subsubject "${tag.subsubject}"`);
@@ -326,19 +332,21 @@ function validateTagTaxonomy(data) {
           }
         }
       }
-      if (requireArray(tag.subjects, `${base}.subjects`)) {
-        tag.subjects.forEach((subjectId, index) => {
-          if (requireString(subjectId, `${base}.subjects[${index}]`) && !subjectIds.has(subjectId)) {
-            addError(`${base}.subjects[${index}]`, `unknown subject "${subjectId}"`);
+      if (tag.subjects !== undefined) {
+        addError(`${base}.subjects`, 'use subsubject for the primary subject and relatedSubjects for associations');
+      }
+      if (tag.relatedSubjects !== undefined && requireArray(tag.relatedSubjects, `${base}.relatedSubjects`)) {
+        tag.relatedSubjects.forEach((subjectId, index) => {
+          if (requireString(subjectId, `${base}.relatedSubjects[${index}]`) && !subjectIds.has(subjectId)) {
+            addError(`${base}.relatedSubjects[${index}]`, `unknown subject "${subjectId}"`);
           }
         });
       }
       if (tag.aliases !== undefined && requireArray(tag.aliases, `${base}.aliases`)) {
-        if (data.version >= 3) {
-          addError(`${base}.aliases`, 'learning tag aliases are not allowed in taxonomy v3');
-        } else {
-          tag.aliases.forEach((alias, index) => registerAlias(alias, tagId, `${base}.aliases[${index}]`));
-        }
+        tag.aliases.forEach((alias, index) => registerAlias(alias, tagId, `${base}.aliases[${index}]`));
+      }
+      if (tag.broad !== undefined && typeof tag.broad !== 'boolean') {
+        addError(`${base}.broad`, 'must be a boolean');
       }
     }
   }

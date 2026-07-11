@@ -2,7 +2,7 @@
 sidebar_label: 2017年8月実施 プログラミング
 tags:
   - Tokyo-University
-  - Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms
+  - Computer-Science.Algorithm-Design.Matrix-Multiplication-Algorithms
   - Computer-Science.Programming
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2017年8月実施 プログラミング

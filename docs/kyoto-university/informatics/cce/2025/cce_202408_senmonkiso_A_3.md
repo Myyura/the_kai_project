@@ -4,7 +4,7 @@ tags:
   - Kyoto-University
   - Computer-Science.Information-Theory.Entropy
   - Computer-Science.Information-Theory.Mutual-Information
-  - Probability-Statistics.Stochastic-Processes.Markov-Source
+  - Probability-Statistics.Stochastic-Processes.Markov-Information-Source
   - Computer-Science.Information-Theory.Additive-Binary-Channel
   - Computer-Science.Information-Theory.Channel-Capacity
 ---

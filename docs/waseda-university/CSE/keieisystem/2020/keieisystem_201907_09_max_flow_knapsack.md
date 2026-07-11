@@ -1,13 +1,13 @@
 ---
-sidebar_label: "2019年7月実施 オペレーションズリサーチ 問題9"
+sidebar_label: 2019年7月実施 オペレーションズリサーチ 問題9
 tags:
   - Waseda-University
   - Operations-Research.Optimization.Simplex-Method
   - Operations-Research.Optimization.Linear-Programming-Duality
   - Operations-Research.Decision-Analysis.Sensitivity-Analysis
   - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Flow
-  - Operations-Research.Optimization.Branch-And-Bound
-  - Computer-Science.Data-Structures-Algorithms.Knapsack-Problem
+  - Operations-Research.Optimization.Branch-and-Bound
+  - Computer-Science.Dynamic-Programming.Knapsack-Problem
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2019年7月実施 オペレーションズリサーチ 問題9

@@ -2,7 +2,7 @@
 sidebar_label: 2016年8月実施 専門 第3問
 tags:
   - Tokyo-University
-  - Computer-Science.Data-Structures-Algorithms
+  - Computer-Science.Algorithm-Design.Boyer-Moore-Majority-Vote-Algorithm
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2016年8月実施 専門 第3問
 

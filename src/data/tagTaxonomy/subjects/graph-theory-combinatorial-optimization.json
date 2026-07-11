@@ -45,166 +45,129 @@
   "topics": {
     "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Flow": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Matching": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Minimum-Spanning-Tree": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Traveling-Salesman-Problem": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
-        "Computer-Science"
-      ]
-    },
-    "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Articulation-Point": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Bellman-Ford-Algorithm": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Breadth-First-Search": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.BFS",
+        "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.BFS"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Depth-First-Search": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.DFS",
+        "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.DFS"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Dijkstra-Algorithm": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Kruskal-Algorithm": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Prim-Algorithm": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Topological-Sort": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
-    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Graph": {
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Articulation-Point": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Articulation-Point"
       ]
+    },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Graph": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Matching": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Complete-Graph": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Cut": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Euler-Circuit": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Basics": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "broad": true
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Isomorphism": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Matching": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Planar-Graph": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Spanning-Tree": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Tree-Metric": {
-      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
-      "subjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     }
   }
 }

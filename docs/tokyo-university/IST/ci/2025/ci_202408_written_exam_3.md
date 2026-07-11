@@ -2,7 +2,7 @@
 sidebar_label: 2024年8月実施 筆記試験 第3問
 tags:
   - Tokyo-University
-  - Computer-Science.Data-Structures-Algorithms.Radix-Sort
+  - Computer-Science.Algorithm-Design.Radix-Sort
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2024年8月実施 筆記試験 第3問
 

@@ -80,233 +80,192 @@
       "descriptionZh": "几何对象、空间结构与计算几何基础。",
       "descriptionJa": "幾何対象、空間構造、計算幾何の基礎。",
       "descriptionEn": "Geometric objects, spatial structures, and computational geometry basics."
+    },
+    "Mathematics.Real-Analysis": {
+      "subject": "Mathematics",
+      "labelZh": "实分析",
+      "labelJa": "実解析",
+      "labelEn": "Real Analysis",
+      "descriptionZh": "实数、序列与函数的极限、连续性、测度与积分基础。",
+      "descriptionJa": "実数、数列と関数の極限、連続性、測度、積分の基礎。",
+      "descriptionEn": "Real numbers, limits of sequences and functions, continuity, measure, and integration foundations."
+    },
+    "Mathematics.Abstract-Algebra": {
+      "subject": "Mathematics",
+      "labelZh": "抽象代数",
+      "labelJa": "抽象代数",
+      "labelEn": "Abstract Algebra",
+      "descriptionZh": "群、环、域、同态与代数结构。",
+      "descriptionJa": "群、環、体、準同型、代数構造。",
+      "descriptionEn": "Groups, rings, fields, homomorphisms, and algebraic structures."
+    },
+    "Mathematics.Topology": {
+      "subject": "Mathematics",
+      "labelZh": "拓扑学",
+      "labelJa": "位相幾何学",
+      "labelEn": "Topology",
+      "descriptionZh": "拓扑空间、连续映射、紧致性、连通性与基本拓扑性质。",
+      "descriptionJa": "位相空間、連続写像、コンパクト性、連結性、基本的な位相的性質。",
+      "descriptionEn": "Topological spaces, continuous maps, compactness, connectedness, and foundational topological properties."
+    },
+    "Mathematics.Functional-Analysis": {
+      "subject": "Mathematics",
+      "labelZh": "泛函分析",
+      "labelJa": "関数解析",
+      "labelEn": "Functional Analysis",
+      "descriptionZh": "赋范空间、内积空间、线性算子与无限维分析。",
+      "descriptionJa": "ノルム空間、内積空間、線形作用素、無限次元解析。",
+      "descriptionEn": "Normed spaces, inner-product spaces, linear operators, and infinite-dimensional analysis."
     }
   },
   "subsubjectOrder": [
     "Mathematics.Calculus",
     "Mathematics.Linear-Algebra",
+    "Mathematics.Real-Analysis",
     "Mathematics.Complex-Analysis",
     "Mathematics.Differential-Equations",
     "Mathematics.Vector-Calculus",
+    "Mathematics.Abstract-Algebra",
     "Mathematics.Number-Theory",
     "Mathematics.Fourier-Analysis",
-    "Mathematics.Geometry"
+    "Mathematics.Topology",
+    "Mathematics.Geometry",
+    "Mathematics.Functional-Analysis"
   ],
   "topics": {
+    "Mathematics.Calculus.Cauchy-Sequence": {
+      "subsubject": "Mathematics.Calculus"
+    },
     "Mathematics.Calculus.Constrained-Optimization": {
       "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics",
+      "relatedSubjects": [
         "Operations-Research"
       ]
     },
-    "Mathematics.Calculus.Double-Integral": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Calculus.Improper-Integral": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Calculus.Multivariable-Differentiation": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Calculus.Cauchy-Sequence": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Calculus.Sequence-Convergence": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
+    "Mathematics.Calculus.Definite-Integral": {
+      "subsubject": "Mathematics.Calculus"
     },
     "Mathematics.Calculus.Differentiation": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Calculus"
     },
-    "Mathematics.Calculus.Limit": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Calculus.Definite-Integral": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
+    "Mathematics.Calculus.Double-Integral": {
+      "subsubject": "Mathematics.Calculus"
     },
     "Mathematics.Calculus.Gamma-Function": {
       "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics",
+      "relatedSubjects": [
         "Probability-Statistics"
       ]
     },
     "Mathematics.Calculus.Implicit-Differentiation": {
-      "subsubject": "Mathematics.Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Improper-Integral": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Limit": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Multivariable-Differentiation": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Sequence-Convergence": {
+      "subsubject": "Mathematics.Calculus"
     },
     "Mathematics.Complex-Analysis.Complex-Numbers": {
-      "subsubject": "Mathematics.Complex-Analysis",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Complex-Analysis"
     },
     "Mathematics.Fourier-Analysis.Convolution": {
       "subsubject": "Mathematics.Fourier-Analysis",
-      "subjects": [
-        "Mathematics",
+      "relatedSubjects": [
         "Electrical-Electronic"
       ]
     },
     "Mathematics.Linear-Algebra.Affine-Transformation": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Block-Matrix-Inverse": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Commuting-Matrices": {
+      "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Hermitian-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Linear-Transformation": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Linear-Independence": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Linear-Algebra"
     },
-    "Mathematics.Linear-Algebra.Matrix-Rank": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
+    "Mathematics.Linear-Algebra.Linear-Transformation": {
+      "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Matrix-Diagonalization": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Matrix-Exponential": {
       "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
+      "relatedSubjects": [
+        "Electrical-Electronic"
       ]
     },
     "Mathematics.Linear-Algebra.Matrix-Limit": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Matrix-Power": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Matrix-Rank": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Matrix-Trace": {
       "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
+      "aliases": [
+        "Mathematics.Linear-Algebra.Trace-of-Matrix"
       ]
+    },
+    "Mathematics.Linear-Algebra.Moore-Penrose-Pseudoinverse": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "aliases": [
+        "Mathematics.Linear-Algebra.Pseudoinverse-Matrix"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Nilpotent-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Orthogonal-Decomposition": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Orthogonal-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Pseudoinverse-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Singular-Value-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Trace-of-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Commuting-Matrices": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Block-Matrix-Inverse": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
+      "aliases": [
+        "Mathematics.Linear-Algebra.SVD"
       ]
     },
     "Mathematics.Linear-Algebra.Stochastic-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics",
+      "relatedSubjects": [
         "Probability-Statistics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Nilpotent-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics"
-      ]
-    },
-    "Mathematics.Linear-Algebra.Matrix-Exponential": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "subjects": [
-        "Mathematics",
-        "Electrical-Electronic"
       ]
     },
     "Mathematics.Number-Theory.Greatest-Common-Divisor": {
       "subsubject": "Mathematics.Number-Theory",
-      "subjects": [
-        "Mathematics",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     },
     "Mathematics.Vector-Calculus.Divergence-Theorem": {
-      "subsubject": "Mathematics.Vector-Calculus",
-      "subjects": [
-        "Mathematics"
-      ]
+      "subsubject": "Mathematics.Vector-Calculus"
     },
-    "Mathematics.Vector-Calculus.Green’s-Identity": {
+    "Mathematics.Vector-Calculus.Greens-Identities": {
       "subsubject": "Mathematics.Vector-Calculus",
-      "subjects": [
-        "Mathematics"
+      "aliases": [
+        "Mathematics.Vector-Calculus.Green’s-Identity"
       ]
     }
   }

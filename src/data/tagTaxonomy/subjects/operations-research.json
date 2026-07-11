@@ -3,7 +3,7 @@
   "subject": {
     "labelZh": "运筹与优化",
     "labelJa": "オペレーションズ・リサーチ",
-    "labelEn": "OR (Operations Research)",
+    "labelEn": "Operations Research",
     "descriptionZh": "线性与连续优化、排队论、博弈论、库存管理与决策分析。",
     "descriptionJa": "線形・連続最適化、待ち行列、ゲーム理論、在庫管理、意思決定分析。",
     "descriptionEn": "Linear and continuous optimization, queueing theory, game theory, inventory management, and decision analysis."
@@ -13,7 +13,7 @@
       "subject": "Operations-Research",
       "labelZh": "优化与运筹",
       "labelJa": "最適化・OR",
-      "labelEn": "Optimization & OR",
+      "labelEn": "Optimization",
       "descriptionZh": "线性规划、优化建模、运输问题与经典 OR 求解方法；离散组合优化归入“图论与组合优化”。",
       "descriptionJa": "線形計画、最適化モデリング、輸送問題、古典的なOR解法。離散的な組合せ最適化は「グラフ理論・組合せ最適化」に分類する。",
       "descriptionEn": "Linear programming, optimization modeling, transportation problems, and classic OR solution methods. Discrete combinatorial optimization lives under Graph Theory & Combinatorial Optimization."
@@ -63,121 +63,75 @@
     "Operations-Research.Decision-Analysis"
   ],
   "topics": {
-    "Operations-Research.Queueing-Theory.Average-Waiting-Time": {
-      "subsubject": "Operations-Research.Queueing-Theory",
-      "subjects": [
-        "Operations-Research",
-        "Probability-Statistics"
-      ]
-    },
-    "Operations-Research.Optimization.Branch-And-Bound": {
-      "subsubject": "Operations-Research.Optimization",
-      "subjects": [
-        "Operations-Research",
-        "Computer-Science"
-      ]
-    },
-    "Operations-Research.Optimization.Linear-Programming": {
-      "subsubject": "Operations-Research.Optimization",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Optimization.Linear-Programming-Duality": {
-      "subsubject": "Operations-Research.Optimization",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Optimization.Simplex-Method": {
-      "subsubject": "Operations-Research.Optimization",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Optimization.Stepping-Stone-Method": {
-      "subsubject": "Operations-Research.Optimization",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Optimization.Transportation-Problem": {
-      "subsubject": "Operations-Research.Optimization",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Game-Theory.Nash-Equilibrium": {
-      "subsubject": "Operations-Research.Game-Theory",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Game-Theory.Prisoners-Dilemma": {
-      "subsubject": "Operations-Research.Game-Theory",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Game-Theory.Saddle-Point": {
-      "subsubject": "Operations-Research.Game-Theory",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Game-Theory.Backward-Induction": {
-      "subsubject": "Operations-Research.Game-Theory",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Game-Theory.Chain-Store-Paradox": {
-      "subsubject": "Operations-Research.Game-Theory",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Inventory-Management.Economic-Order-Quantity": {
-      "subsubject": "Operations-Research.Inventory-Management",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Inventory-Management.Quantity-Discount": {
-      "subsubject": "Operations-Research.Inventory-Management",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Inventory-Management.Newsvendor-Problem": {
-      "subsubject": "Operations-Research.Inventory-Management",
-      "subjects": [
-        "Operations-Research",
-        "Probability-Statistics"
-      ]
-    },
     "Operations-Research.Decision-Analysis.Analytic-Hierarchy-Process": {
-      "subsubject": "Operations-Research.Decision-Analysis",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Decision-Analysis.Pairwise-Comparison-Consistency": {
-      "subsubject": "Operations-Research.Decision-Analysis",
-      "subjects": [
-        "Operations-Research"
-      ]
-    },
-    "Operations-Research.Decision-Analysis.Sensitivity-Analysis": {
-      "subsubject": "Operations-Research.Decision-Analysis",
-      "subjects": [
-        "Operations-Research"
-      ]
+      "subsubject": "Operations-Research.Decision-Analysis"
     },
     "Operations-Research.Decision-Analysis.Decision-Under-Uncertainty": {
       "subsubject": "Operations-Research.Decision-Analysis",
-      "subjects": [
-        "Operations-Research",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Operations-Research.Decision-Analysis.Pairwise-Comparison-Consistency": {
+      "subsubject": "Operations-Research.Decision-Analysis"
+    },
+    "Operations-Research.Decision-Analysis.Sensitivity-Analysis": {
+      "subsubject": "Operations-Research.Decision-Analysis"
+    },
+    "Operations-Research.Game-Theory.Backward-Induction": {
+      "subsubject": "Operations-Research.Game-Theory"
+    },
+    "Operations-Research.Game-Theory.Chain-Store-Paradox": {
+      "subsubject": "Operations-Research.Game-Theory"
+    },
+    "Operations-Research.Game-Theory.Nash-Equilibrium": {
+      "subsubject": "Operations-Research.Game-Theory"
+    },
+    "Operations-Research.Game-Theory.Prisoners-Dilemma": {
+      "subsubject": "Operations-Research.Game-Theory"
+    },
+    "Operations-Research.Game-Theory.Saddle-Point": {
+      "subsubject": "Operations-Research.Game-Theory"
+    },
+    "Operations-Research.Inventory-Management.Economic-Order-Quantity": {
+      "subsubject": "Operations-Research.Inventory-Management"
+    },
+    "Operations-Research.Inventory-Management.Newsvendor-Problem": {
+      "subsubject": "Operations-Research.Inventory-Management",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Operations-Research.Inventory-Management.Quantity-Discount": {
+      "subsubject": "Operations-Research.Inventory-Management"
+    },
+    "Operations-Research.Optimization.Branch-and-Bound": {
+      "subsubject": "Operations-Research.Optimization",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Operations-Research.Optimization.Branch-And-Bound"
+      ]
+    },
+    "Operations-Research.Optimization.Linear-Programming": {
+      "subsubject": "Operations-Research.Optimization"
+    },
+    "Operations-Research.Optimization.Linear-Programming-Duality": {
+      "subsubject": "Operations-Research.Optimization"
+    },
+    "Operations-Research.Optimization.Simplex-Method": {
+      "subsubject": "Operations-Research.Optimization"
+    },
+    "Operations-Research.Optimization.Stepping-Stone-Method": {
+      "subsubject": "Operations-Research.Optimization"
+    },
+    "Operations-Research.Optimization.Transportation-Problem": {
+      "subsubject": "Operations-Research.Optimization"
+    },
+    "Operations-Research.Queueing-Theory.Average-Waiting-Time": {
+      "subsubject": "Operations-Research.Queueing-Theory",
+      "relatedSubjects": [
         "Probability-Statistics"
       ]
     }

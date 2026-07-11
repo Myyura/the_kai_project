@@ -3,7 +3,7 @@ sidebar_label: 2014年8月実施 専門 第3問
 tags:
   - Tokyo-University
   - Mathematics.Number-Theory.Greatest-Common-Divisor
-  - Computer-Science.Data-Structures-Algorithms
+  - Computer-Science.Algorithm-Design.Euclidean-Algorithm
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2014年8月実施 専門 第3問
 

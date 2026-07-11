@@ -2,7 +2,6 @@
 sidebar_label: "2021年8月実施 情1"
 tags:
   - Nagoya-University
-  - Computer-Science.Programming.Programming-Basics
   - Computer-Science.Programming.Base-Conversion
   - Computer-Science.Programming.Bitwise-Operation
 ---

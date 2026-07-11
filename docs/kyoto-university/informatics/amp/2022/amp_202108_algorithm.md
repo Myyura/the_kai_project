@@ -4,7 +4,6 @@ tags:
   - Kyoto-University
   - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
   - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Breadth-First-Search
-  - Computer-Science.Data-Structures-Algorithms
 ---
 # 京都大学 情報学研究科 数理工学専攻 2021年8月実施 アルゴリズム基礎
 

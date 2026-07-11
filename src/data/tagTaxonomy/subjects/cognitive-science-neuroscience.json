@@ -1,0 +1,29 @@
+{
+  "id": "Cognitive-Science-Neuroscience",
+  "subject": {
+    "labelZh": "认知科学与神经科学",
+    "labelJa": "認知科学・神経科学",
+    "labelEn": "Cognitive Science & Neuroscience",
+    "descriptionZh": "认知、神经系统、脑科学与相关信息处理。",
+    "descriptionJa": "認知、神経系、脳科学、関連する情報処理。",
+    "descriptionEn": "Cognition, nervous systems, brain science, and related information processing."
+  },
+  "subsubjects": {
+    "Cognitive-Science-Neuroscience.Cognitive-Neuroscience": {
+      "subject": "Cognitive-Science-Neuroscience",
+      "labelZh": "认知神经科学",
+      "labelJa": "認知神経科学",
+      "labelEn": "Cognitive Neuroscience",
+      "descriptionZh": "认知过程、神经系统与脑功能。",
+      "descriptionJa": "認知過程、神経系、脳機能。",
+      "descriptionEn": "Cognitive processes, nervous systems, and brain function.",
+      "aliases": [
+        "Bioinformatics.Cognitive-Neuroscience"
+      ]
+    }
+  },
+  "subsubjectOrder": [
+    "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
+  ],
+  "topics": {}
+}

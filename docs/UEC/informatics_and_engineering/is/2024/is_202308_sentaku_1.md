@@ -2,10 +2,9 @@
 sidebar_label: 2023年8月実施 選択問題 アルゴリズムとデータ構造
 tags:
   - University-of-Electro-Communications
-  - Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm
-  - Computer-Science.Data-Structures-Algorithms.Insertion-Sort
-  - Computer-Science.Data-Structures-Algorithms.Merge-Sort
-  - Computer-Science.Data-Structures-Algorithms.Quick-Sort
+  - Computer-Science.Algorithm-Design.Insertion-Sort
+  - Computer-Science.Algorithm-Design.Merge-Sort
+  - Computer-Science.Algorithm-Design.Quick-Sort
 ---
 # 電気通信大学 情報理工学研究科 情報学専攻 2023年8月実施 選択問題 アルゴリズムとデータ構造
 

@@ -2,8 +2,8 @@
 sidebar_label: 2019年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Computer-Science.Data-Structures-Algorithms.Dynamic-Programming
-  - Discrete-Mathematics.Discrete-Mathematics.Catalan-Number
+  - Computer-Science.Dynamic-Programming.Dynamic-Programming
+  - Discrete-Mathematics.Combinatorics.Catalan-Number
   - Mathematics.Geometry
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 筆記試験 第1問

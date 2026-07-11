@@ -16,6 +16,18 @@ function buildTagLookup() {
   const topicTags = new Map();
   const aliasTags = new Map();
 
+  function registerAlias(alias, canonical) {
+    if (
+      !alias
+      || subjectTags.has(alias)
+      || schoolTags.has(alias)
+      || subsubjectTags.has(alias)
+      || topicTags.has(alias)
+      || aliasTags.has(alias)
+    ) return;
+    aliasTags.set(alias, { ...canonical, aliasOf: canonical.id });
+  }
+
   for (const [id, meta] of Object.entries(taxonomy.subjects || {})) {
     subjectTags.set(id, { kind: 'subject', id, ...meta });
   }
@@ -24,11 +36,6 @@ function buildTagLookup() {
     schoolTags.set(id, { kind: 'school', id, ...meta });
     if (meta.universityId) {
       schoolTagsByUniversityId.set(meta.universityId, { kind: 'school', id, ...meta });
-    }
-    for (const alias of meta.aliases || []) {
-      if (!schoolTags.has(alias) && !aliasTags.has(alias)) {
-        aliasTags.set(alias, { kind: 'school', id, aliasOf: id, ...meta });
-      }
     }
   }
 
@@ -40,8 +47,10 @@ function buildTagLookup() {
   for (const [id, meta] of Object.entries(taxonomy.topics || {})) {
     const subsubjectId = meta.subsubject || null;
     const subsubject = subsubjectId ? subsubjectTags.get(subsubjectId) : null;
-    const primarySubjectId = subsubject?.subjectId || meta.subjects?.[0] || null;
-    const subjectIds = meta.subjects?.length ? meta.subjects : [primarySubjectId].filter(Boolean);
+    const primarySubjectId = subsubject?.subjectId || null;
+    const subjectIds = [primarySubjectId].filter(Boolean);
+    const relatedSubjectIds = (meta.relatedSubjects || [])
+      .filter((subjectId) => subjectId !== primarySubjectId);
     const shortId = getTopicShortId(id, meta);
     topicTags.set(id, {
       kind: 'topic',
@@ -50,8 +59,22 @@ function buildTagLookup() {
       subsubjectId,
       primarySubjectId,
       subjectIds,
+      relatedSubjectIds,
       ...meta,
     });
+  }
+
+  for (const [id, meta] of Object.entries(taxonomy.schoolTags || {})) {
+    const canonical = schoolTags.get(id);
+    for (const alias of meta.aliases || []) registerAlias(alias, canonical);
+  }
+  for (const [id, meta] of Object.entries(taxonomy.subsubjects || {})) {
+    const canonical = subsubjectTags.get(id);
+    for (const alias of meta.aliases || []) registerAlias(alias, canonical);
+  }
+  for (const [id, meta] of Object.entries(taxonomy.topics || {})) {
+    const canonical = topicTags.get(id);
+    for (const alias of meta.aliases || []) registerAlias(alias, canonical);
   }
 
   return {
@@ -109,9 +132,12 @@ function getSubsubjectInfo(subsubjectId) {
 
 function getTopicSubjectIds(info) {
   if (!info || info.kind !== 'topic') return [];
-  return info.subjectIds?.length
-    ? info.subjectIds
-    : [info.primarySubjectId].filter(Boolean);
+  return [info.primarySubjectId].filter(Boolean);
+}
+
+function getTopicRelatedSubjectIds(info) {
+  if (!info || info.kind !== 'topic') return [];
+  return info.relatedSubjectIds || [];
 }
 
 function resolveDocumentTags(tags, { universityId } = {}) {
@@ -156,6 +182,7 @@ function resolveDocumentTags(tags, { universityId } = {}) {
         id: info.id,
         short_id: info.shortId,
         subject_ids: getTopicSubjectIds(info),
+        related_subject_ids: getTopicRelatedSubjectIds(info),
         primary_subject_id: info.primarySubjectId,
         subsubject_id: info.subsubjectId,
       });
@@ -183,6 +210,7 @@ function resolveDocumentTags(tags, { universityId } = {}) {
 function validateTags(tags) {
   const issues = [];
   const seen = new Map();
+  const canonicalSeen = new Map();
   const subsubjectTags = new Set();
   const topicSubsubjects = new Map();
   let learningTagCount = 0;
@@ -204,6 +232,25 @@ function validateTags(tags) {
     }
 
     const info = classifyTag(normalized);
+    if (info.aliasOf) {
+      issues.push({
+        severity: 'WARNING',
+        rule: 'frontmatter-tags-alias',
+        message: `旧 tag "${normalized}" 已弃用，请改为 "${info.id}"。`,
+      });
+    }
+
+    if (info.kind !== 'unknown' && info.kind !== 'empty') {
+      if (canonicalSeen.has(info.id) && canonicalSeen.get(info.id) !== normalized) {
+        issues.push({
+          severity: 'ERROR',
+          rule: 'frontmatter-tags-canonical-duplicate',
+          message: `tag "${normalized}" 与 "${canonicalSeen.get(info.id)}" 指向同一 canonical tag "${info.id}"。`,
+        });
+      } else {
+        canonicalSeen.set(info.id, normalized);
+      }
+    }
     if (info.kind === 'subject') {
       issues.push({
         severity: 'ERROR',
@@ -247,6 +294,20 @@ function validateTags(tags) {
     }
   }
 
+  for (const [subsubjectId, topicIds] of topicSubsubjects) {
+    if (topicIds.length < 2) continue;
+    for (const topicId of topicIds) {
+      const topic = LOOKUP.topicTags.get(topicId);
+      if (topic?.broad) {
+        issues.push({
+          severity: 'WARNING',
+          rule: 'frontmatter-tags-redundant-broad-topic',
+          message: `宽泛 tag "${topicId}" 与同一子科目的具体考点同时存在，建议移除宽泛 tag。`,
+        });
+      }
+    }
+  }
+
   if ((tags || []).length > 0 && learningTagCount === 0) {
     issues.push({
       severity: 'WARNING',
@@ -277,6 +338,7 @@ module.exports = {
   taxonomy,
   classifyTag,
   getTopicShortId,
+  getTopicRelatedSubjectIds,
   getKnownTagIds,
   getSchoolTagForUniversity,
   getSubsubjectInfo,

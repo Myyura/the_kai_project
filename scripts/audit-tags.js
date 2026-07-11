@@ -31,6 +31,7 @@ function main() {
 const data = buildApiData();
   const schoolCounts = new Map();
   const subjectCounts = new Map();
+  const relatedSubjectCounts = new Map();
   const subsubjectCounts = new Map();
   const topicCounts = new Map();
   const unknownCounts = new Map();
@@ -60,6 +61,9 @@ const data = buildApiData();
         for (const subjectId of info.subjectIds || [info.primarySubjectId].filter(Boolean)) {
           increment(subjectCounts, subjectId);
         }
+        for (const subjectId of info.relatedSubjectIds || []) {
+          increment(relatedSubjectCounts, subjectId);
+        }
         if (info.subsubjectId) increment(subsubjectCounts, info.subsubjectId);
       } else if (info.kind === 'unknown') {
         hasLearningTag = true;
@@ -78,6 +82,10 @@ const data = buildApiData();
   const known = getKnownTagIds();
   const errors = tagIssues.filter((issue) => issue.severity === 'ERROR');
   const warnings = tagIssues.filter((issue) => issue.severity === 'WARNING');
+  const deprecatedAliases = tagIssues.filter((issue) => issue.rule === 'frontmatter-tags-alias');
+  const redundantBroadTopics = tagIssues.filter(
+    (issue) => issue.rule === 'frontmatter-tags-redundant-broad-topic',
+  );
 
   const result = {
     documents: data.documents.length,
@@ -94,7 +102,10 @@ const data = buildApiData();
     docsWithoutTopicTag: noTopicDocs.length,
     errors: errors.length,
     warnings: warnings.length,
+    deprecatedAliases: deprecatedAliases.length,
+    redundantBroadTopics: redundantBroadTopics.length,
     subjectUsage: sortCounts(subjectCounts).map(([tag, count]) => ({ tag, count })),
+    relatedSubjectUsage: sortCounts(relatedSubjectCounts).map(([tag, count]) => ({ tag, count })),
     subsubjectUsage: sortCounts(subsubjectCounts).map(([tag, count]) => ({ tag, count })),
     unknownTags: sortCounts(unknownCounts).map(([tag, count]) => ({ tag, count })),
     noLearningTagDocExamples: noLearningTagDocs.slice(0, 30),
@@ -117,9 +128,12 @@ const data = buildApiData();
     console.log(`  docs without topic tag: ${result.docsWithoutTopicTag}`);
     console.log(`  tag errors: ${result.errors}`);
     console.log(`  tag warnings: ${result.warnings}`);
+    console.log(`  deprecated aliases: ${result.deprecatedAliases}`);
+    console.log(`  redundant broad topics: ${result.redundantBroadTopics}`);
 
     printCountTable('Top school tags', sortCounts(schoolCounts), 25);
     printCountTable('Top subjects', sortCounts(subjectCounts), 25);
+    printCountTable('Related subject associations', sortCounts(relatedSubjectCounts), 25);
     printCountTable('Top subsubjects', sortCounts(subsubjectCounts), 40);
     printCountTable('Top topic tags', sortCounts(topicCounts), 50);
     printCountTable('Unknown tags', sortCounts(unknownCounts), 80);

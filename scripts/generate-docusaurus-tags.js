@@ -45,7 +45,7 @@ function buildPermalink(kind, id, taxonomy) {
 
   const topic = taxonomy.topics[id];
   const subsubject = taxonomy.subsubjects[topic?.subsubject] || {};
-  const subjectId = subsubject.subject || topic?.subjects?.[0] || 'General';
+  const subjectId = subsubject.subject || 'General';
   return [
     '/topic',
     kebabCase(subjectId),
@@ -68,7 +68,7 @@ function buildDescription(kind, id, taxonomy) {
   const topic = taxonomy.topics[id];
   const subsubject = taxonomy.subsubjects[topic?.subsubject] || {};
   return [
-    subsubject.subject || topic?.subjects?.[0] || 'General',
+    subsubject.subject || 'General',
     getSubsubjectShortId(topic.subsubject, subsubject),
     getTopicShortId(id, topic),
   ].join(' / ');

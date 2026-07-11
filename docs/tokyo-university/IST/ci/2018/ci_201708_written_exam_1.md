@@ -3,7 +3,7 @@ sidebar_label: 2017年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
   - Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree
-  - Computer-Science.Data-Structures-Algorithms.Dynamic-Programming
+  - Computer-Science.Dynamic-Programming.Dynamic-Programming
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2017年8月実施 筆記試験 第1問
 

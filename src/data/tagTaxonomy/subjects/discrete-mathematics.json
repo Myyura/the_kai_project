@@ -9,39 +9,48 @@
     "descriptionEn": "Combinatorics, recurrences, counting, discrete structures, and basic proof methods. Graph-related content lives under Graph Theory & Combinatorial Optimization."
   },
   "subsubjects": {
-    "Discrete-Mathematics.Discrete-Mathematics": {
+    "Discrete-Mathematics.Combinatorics": {
       "subject": "Discrete-Mathematics",
-      "labelZh": "离散数学",
-      "labelJa": "離散数学",
-      "labelEn": "Discrete Mathematics",
-      "descriptionZh": "组合计数、递推关系、离散结构与基础证明。",
-      "descriptionJa": "組合せ数え上げ、漸化式、離散構造、基礎的な証明。",
-      "descriptionEn": "Combinatorial counting, recurrence relations, discrete structures, and foundational proofs."
+      "labelZh": "组合数学",
+      "labelJa": "組合せ論",
+      "labelEn": "Combinatorics",
+      "descriptionZh": "组合计数、二项式系数、卡特兰数与递推关系。",
+      "descriptionJa": "組合せ数え上げ、二項係数、カタラン数、漸化式。",
+      "descriptionEn": "Combinatorial counting, binomial coefficients, Catalan numbers, and recurrence relations.",
+      "aliases": [
+        "Discrete-Mathematics.Discrete-Mathematics"
+      ]
     }
   },
   "subsubjectOrder": [
-    "Discrete-Mathematics.Discrete-Mathematics"
+    "Discrete-Mathematics.Combinatorics"
   ],
   "topics": {
-    "Discrete-Mathematics.Discrete-Mathematics.Binomial-Coefficient": {
-      "subsubject": "Discrete-Mathematics.Discrete-Mathematics",
-      "subjects": [
-        "Discrete-Mathematics",
+    "Discrete-Mathematics.Combinatorics.Binomial-Coefficient": {
+      "subsubject": "Discrete-Mathematics.Combinatorics",
+      "relatedSubjects": [
         "Computer-Science"
+      ],
+      "aliases": [
+        "Discrete-Mathematics.Discrete-Mathematics.Binomial-Coefficient"
       ]
     },
-    "Discrete-Mathematics.Discrete-Mathematics.Catalan-Number": {
-      "subsubject": "Discrete-Mathematics.Discrete-Mathematics",
-      "subjects": [
-        "Discrete-Mathematics",
+    "Discrete-Mathematics.Combinatorics.Catalan-Number": {
+      "subsubject": "Discrete-Mathematics.Combinatorics",
+      "relatedSubjects": [
         "Computer-Science"
+      ],
+      "aliases": [
+        "Discrete-Mathematics.Discrete-Mathematics.Catalan-Number"
       ]
     },
-    "Discrete-Mathematics.Discrete-Mathematics.Recurrence-Relation": {
-      "subsubject": "Discrete-Mathematics.Discrete-Mathematics",
-      "subjects": [
-        "Discrete-Mathematics",
+    "Discrete-Mathematics.Combinatorics.Recurrence-Relation": {
+      "subsubject": "Discrete-Mathematics.Combinatorics",
+      "relatedSubjects": [
         "Computer-Science"
+      ],
+      "aliases": [
+        "Discrete-Mathematics.Discrete-Mathematics.Recurrence-Relation"
       ]
     }
   }

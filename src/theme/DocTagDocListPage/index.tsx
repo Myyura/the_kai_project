@@ -28,7 +28,7 @@ type DocListItem = Props['tag']['items'][number];
 
 interface TopicMeta {
   subsubject?: string;
-  subjects?: string[];
+  relatedSubjects?: string[];
 }
 
 type Language = 'zh' | 'ja' | 'en';
@@ -147,10 +147,9 @@ function getTagKind(tagLabel: string, language: Language): {
   const topic = getTopicMeta(tagLabel);
   if (topic) {
     const subsubjectLabel = topic.subsubject ? getSubsubjectLabel(topic.subsubject, language) : null;
-    const primarySubject = topic.subsubject ? subsubjects[topic.subsubject]?.subject : topic.subjects?.[0];
+    const primarySubject = topic.subsubject ? subsubjects[topic.subsubject]?.subject : null;
     const subjectLabel = getSubjectLabel(primarySubject || 'General', language);
-    const relatedSubjects = (topic.subjects || [])
-      .filter((subjectId) => subjectId !== primarySubject)
+    const relatedSubjects = (topic.relatedSubjects || [])
       .map((subjectId) => getSubjectLabel(subjectId, language));
     const subjectLabels = [
       subsubjectLabel ? `${subjectLabel} / ${subsubjectLabel}` : subjectLabel,

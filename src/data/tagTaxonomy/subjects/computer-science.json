@@ -3,21 +3,12 @@
   "subject": {
     "labelZh": "计算机科学",
     "labelJa": "計算機科学",
-    "labelEn": "CS (Computer Science)",
+    "labelEn": "Computer Science",
     "descriptionZh": "算法、数据结构、形式语言、系统、信息论与计算理论。",
     "descriptionJa": "アルゴリズム、データ構造、形式言語、システム、情報理論、計算理論。",
     "descriptionEn": "Algorithms, data structures, formal languages, systems, information theory, and theory of computation."
   },
   "subsubjects": {
-    "Computer-Science.Data-Structures-Algorithms": {
-      "subject": "Computer-Science",
-      "labelZh": "数据结构与算法",
-      "labelJa": "データ構造とアルゴリズム",
-      "labelEn": "Data Structures & Algorithms",
-      "descriptionZh": "常见数据结构、排序、搜索、动态规划与算法复杂度。图算法归入“图论与组合优化”。",
-      "descriptionJa": "主要なデータ構造、整列、探索、動的計画法、計算量。グラフアルゴリズムは「グラフ理論・組合せ最適化」に分類する。",
-      "descriptionEn": "Common data structures, sorting, searching, dynamic programming, and complexity. Graph algorithms live under Graph Theory & Combinatorial Optimization."
-    },
     "Computer-Science.Programming": {
       "subject": "Computer-Science",
       "labelZh": "程序设计",
@@ -98,10 +89,49 @@
       "descriptionZh": "熵、互信息、信源编码、信道容量与纠错编码。",
       "descriptionJa": "エントロピー、相互情報量、情報源符号化、通信路容量、誤り訂正符号。",
       "descriptionEn": "Entropy, mutual information, source coding, channel capacity, and error-correcting codes."
+    },
+    "Computer-Science.Data-Structures": {
+      "subject": "Computer-Science",
+      "labelZh": "数据结构",
+      "labelJa": "データ構造",
+      "labelEn": "Data Structures",
+      "descriptionZh": "树、堆、哈希表、链表、队列、栈、字典树与并查集等数据组织结构。",
+      "descriptionJa": "木、ヒープ、ハッシュ表、連結リスト、キュー、スタック、トライ、素集合データ構造。",
+      "descriptionEn": "Trees, heaps, hash tables, linked lists, queues, stacks, tries, and disjoint-set data structures."
+    },
+    "Computer-Science.Algorithm-Design": {
+      "subject": "Computer-Science",
+      "labelZh": "算法设计与分析",
+      "labelJa": "アルゴリズム設計と解析",
+      "labelEn": "Algorithm Design & Analysis",
+      "descriptionZh": "复杂度、分治、贪心、回溯、排序、搜索、选择与通用算法设计方法。",
+      "descriptionJa": "計算量、分割統治、貪欲法、バックトラッキング、整列、探索、選択、一般的な設計手法。",
+      "descriptionEn": "Complexity, divide and conquer, greedy methods, backtracking, sorting, searching, selection, and general algorithm design."
+    },
+    "Computer-Science.Dynamic-Programming": {
+      "subject": "Computer-Science",
+      "labelZh": "动态规划",
+      "labelJa": "動的計画法",
+      "labelEn": "Dynamic Programming",
+      "descriptionZh": "动态规划方法及背包、子集和、公共子序列、编辑距离等典型问题。",
+      "descriptionJa": "動的計画法とナップサック、部分和、共通部分列、編集距離などの典型問題。",
+      "descriptionEn": "Dynamic programming and canonical problems such as knapsack, subset sum, common subsequences, and edit distance."
+    },
+    "Computer-Science.String-Algorithms": {
+      "subject": "Computer-Science",
+      "labelZh": "字符串算法",
+      "labelJa": "文字列アルゴリズム",
+      "labelEn": "String Algorithms",
+      "descriptionZh": "字符串匹配、模式搜索、回文与滑动窗口等算法。",
+      "descriptionJa": "文字列照合、パターン探索、回文、スライディングウィンドウなどのアルゴリズム。",
+      "descriptionEn": "String matching, pattern search, palindromes, sliding windows, and related algorithms."
     }
   },
   "subsubjectOrder": [
-    "Computer-Science.Data-Structures-Algorithms",
+    "Computer-Science.Data-Structures",
+    "Computer-Science.Algorithm-Design",
+    "Computer-Science.Dynamic-Programming",
+    "Computer-Science.String-Algorithms",
     "Computer-Science.Programming",
     "Computer-Science.Computer-Architecture",
     "Computer-Science.Operating-Systems",
@@ -113,503 +143,451 @@
     "Computer-Science.Quantum-Computing"
   ],
   "topics": {
-    "Computer-Science.Computer-Architecture.Addressing-Modes": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Algorithm-Design.Algorithm-Complexity": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity"
       ]
+    },
+    "Computer-Science.Algorithm-Design.Backtracking": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Backtracking"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Binary-Insertion-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Binary-Search": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Binary-Search"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Boyer-Moore-Majority-Vote-Algorithm": {
+      "subsubject": "Computer-Science.Algorithm-Design"
+    },
+    "Computer-Science.Algorithm-Design.Bubble-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Bubble-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Bucket-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Bucket-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Convex-Hull": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Mathematics"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Convex-Hull"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Counting-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Counting-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Divide-and-Conquer": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Euclidean-Algorithm": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Greedy-Algorithm": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Greedy"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Heap-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Heap-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Insertion-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Insertion-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Master-Theorem": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Master-Theorem"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Matrix-Multiplication-Algorithms": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Mathematics"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Median-of-Medians": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Median-Of-Medians"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Merge-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Merge-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Partitioning": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Partitioning"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Quick-Select": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Quick-Select"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Quick-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Quick-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Radix-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Radix-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Selection-Sort": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Selection-Sort"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Sorting-Algorithm": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm"
+      ],
+      "broad": true
+    },
+    "Computer-Science.Algorithm-Design.Tower-of-Hanoi": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Two-Pointers": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Double-Pointer"
+      ]
+    },
+    "Computer-Science.Computer-Architecture.Addressing-Modes": {
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Assembly-Language": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Branch-Penalty": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Branch-Prediction": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Cache": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Control-Hazard": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Floating-Point-Representation": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Hamming-Weight": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.IEEE-754": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Memory-Alignment": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Number-Representation": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Parallelism": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Performance-Analysis": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Pipelining": {
       "subsubject": "Computer-Science.Computer-Architecture",
-      "subjects": [
-        "Computer-Science"
+      "aliases": [
+        "Computer-Science.Computer-Architecture.Pipeline"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Data-Structures.Binary-Heap": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Binary-Heap"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Backtracking": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Data-Structures.Binary-Search-Tree": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree",
+        "Computer-Science.Data-Structures-Algorithms.BST"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Binary-Heap": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Data-Structures.Hash-Table": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Hash-Table"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Data-Structures.Linked-List": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Linked-List"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Binary-Search": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Data-Structures.Priority-Queue": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Priority-Queue"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Data-Structures.Queue": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Queue"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Bubble-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Data-Structures.Stack": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Stack"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Bucket-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Data-Structures.Tree-Data-Structure": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
+    "Computer-Science.Data-Structures.Trie": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Trie"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Convex-Hull": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Mathematics"
+    "Computer-Science.Data-Structures.Union-Find-Data-Structure": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Counting-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Double-Pointer": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Dynamic-Programming": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
+    "Computer-Science.Dynamic-Programming.Dynamic-Programming": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
         "Operations-Research"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Dynamic-Programming"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Greedy": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Hash-Table": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Heap-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Insertion-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Knapsack-Problem": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
+    "Computer-Science.Dynamic-Programming.Knapsack-Problem": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
         "Operations-Research"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Knapsack-Problem"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Linked-List": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Longest-Common-Subsequence": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
+    "Computer-Science.Dynamic-Programming.Longest-Common-Subsequence": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
         "Bioinformatics"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Longest-Common-Subsequence"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+    "Computer-Science.Dynamic-Programming.Maximum-Subarray-Sum": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Master-Theorem": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
-        "Mathematics"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Median-Of-Medians": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Merge-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
+    "Computer-Science.Dynamic-Programming.Minimum-Edit-Distance": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
         "Bioinformatics"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance"
       ]
     },
-    "Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Partitioning": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Priority-Queue": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Queue": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Quick-Select": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Quick-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Radix-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Selection-Sort": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Stack": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.String-Matching": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Subset-Sum-Problem": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science",
+    "Computer-Science.Dynamic-Programming.Subset-Sum-Problem": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
         "Operations-Research"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Trie": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure": {
-      "subsubject": "Computer-Science.Data-Structures-Algorithms",
-      "subjects": [
-        "Computer-Science"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Subset-Sum-Problem"
       ]
     },
     "Computer-Science.Formal-Languages.Context-Free-Grammar": {
-      "subsubject": "Computer-Science.Formal-Languages",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Formal-Languages"
     },
     "Computer-Science.Formal-Languages.Mealy-Machine": {
       "subsubject": "Computer-Science.Formal-Languages",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Electrical-Electronic"
       ]
     },
     "Computer-Science.Formal-Languages.Moore-Machine": {
       "subsubject": "Computer-Science.Formal-Languages",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Electrical-Electronic"
       ]
     },
-    "Computer-Science.Graphics.Projection-And-Reconstruction": {
+    "Computer-Science.Graphics.Projection-and-Reconstruction": {
       "subsubject": "Computer-Science.Graphics",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Mathematics"
+      ],
+      "aliases": [
+        "Computer-Science.Graphics.Projection-And-Reconstruction"
       ]
     },
     "Computer-Science.Information-Theory.Additive-Binary-Channel": {
       "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Electrical-Electronic"
       ]
     },
     "Computer-Science.Information-Theory.Binary-Linear-Codes": {
       "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Electrical-Electronic"
       ]
     },
     "Computer-Science.Information-Theory.Channel-Capacity": {
       "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Electrical-Electronic"
       ]
     },
     "Computer-Science.Information-Theory.Channel-Coding": {
       "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Electrical-Electronic"
       ]
     },
+    "Computer-Science.Information-Theory.Conditional-Entropy": {
+      "subsubject": "Computer-Science.Information-Theory"
+    },
     "Computer-Science.Information-Theory.Cyclic-Code": {
       "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Electrical-Electronic"
       ]
     },
     "Computer-Science.Information-Theory.Entropy": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science"
-      ]
-    },
-    "Computer-Science.Information-Theory.Conditional-Entropy": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Information-Theory"
     },
     "Computer-Science.Information-Theory.Huffman-Coding": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Information-Theory"
     },
     "Computer-Science.Information-Theory.Mutual-Information": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Information-Theory"
     },
     "Computer-Science.Information-Theory.Source-Coding": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Information-Theory"
     },
     "Computer-Science.Information-Theory.Typical-Sequence": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Information-Theory"
     },
     "Computer-Science.Operating-Systems.Virtual-Memory": {
-      "subsubject": "Computer-Science.Operating-Systems",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Operating-Systems"
     },
     "Computer-Science.Programming.Base-Conversion": {
-      "subsubject": "Computer-Science.Programming",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Programming"
     },
     "Computer-Science.Programming.Bitwise-Operation": {
-      "subsubject": "Computer-Science.Programming",
-      "subjects": [
-        "Computer-Science"
-      ]
+      "subsubject": "Computer-Science.Programming"
     },
     "Computer-Science.Programming.Fibonacci-Numbers": {
       "subsubject": "Computer-Science.Programming",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Mathematics"
       ]
     },
     "Computer-Science.Programming.Palindrome-Number": {
       "subsubject": "Computer-Science.Programming",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Mathematics"
       ]
     },
     "Computer-Science.Programming.Pascal-Triangle": {
       "subsubject": "Computer-Science.Programming",
-      "subjects": [
-        "Computer-Science",
+      "relatedSubjects": [
         "Mathematics"
-      ]
-    },
-    "Computer-Science.Quantum-Computing.Quantum-Computing": {
-      "subsubject": "Computer-Science.Quantum-Computing",
-      "subjects": [
-        "Computer-Science",
-        "Physics"
       ]
     },
     "Computer-Science.Programming.Programming-Basics": {
       "subsubject": "Computer-Science.Programming",
-      "subjects": [
-        "Computer-Science"
+      "broad": true
+    },
+    "Computer-Science.Quantum-Computing.Quantum-Computing": {
+      "subsubject": "Computer-Science.Quantum-Computing",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Computer-Science.String-Algorithms.Knuth-Morris-Pratt-Algorithm": {
+      "subsubject": "Computer-Science.String-Algorithms",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm"
+      ]
+    },
+    "Computer-Science.String-Algorithms.Longest-Palindromic-Substring": {
+      "subsubject": "Computer-Science.String-Algorithms",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring"
+      ]
+    },
+    "Computer-Science.String-Algorithms.Minimum-Window-Substring": {
+      "subsubject": "Computer-Science.String-Algorithms",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring"
+      ]
+    },
+    "Computer-Science.String-Algorithms.String-Matching": {
+      "subsubject": "Computer-Science.String-Algorithms",
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.String-Matching"
       ]
     }
   }

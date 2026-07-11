@@ -38,7 +38,7 @@ interface SubsubjectMeta extends LocalizedMeta {
 
 interface TopicMeta {
   subsubject?: string;
-  subjects?: string[];
+  relatedSubjects?: string[];
 }
 
 type Language = 'zh' | 'ja' | 'en';
@@ -125,7 +125,7 @@ function getTopicMeta(tagLabel: string): TopicMeta | null {
 }
 
 function getTopicSubsubjectId(tagLabel: string): string {
-  return getTopicMeta(tagLabel)?.subsubject || 'General.Reference-Material';
+  return getTopicMeta(tagLabel)?.subsubject || '';
 }
 
 function getSubsubjectShortId(subsubjectId: string): string {
@@ -158,7 +158,7 @@ function getPrimarySubject(tagLabel: string): string {
   const subsubjectId = getSubsubjectId(tagLabel);
   if (subsubjectId) return subsubjects[subsubjectId]?.subject || 'General';
   const topicSubsubject = subsubjects[getTopicSubsubjectId(tagLabel)];
-  return topicSubsubject?.subject || getTopicMeta(tagLabel)?.subjects?.[0] || 'General';
+  return topicSubsubject?.subject || 'General';
 }
 
 function isSchoolTag(tagLabel: string): boolean {
@@ -268,8 +268,7 @@ function TopicLink({
   language: Language;
 }) {
   const t = getCopy(language);
-  const secondarySubjects = (getTopicMeta(tag.label)?.subjects || [])
-    .filter((id) => id !== subjectId)
+  const secondarySubjects = (getTopicMeta(tag.label)?.relatedSubjects || [])
     .map((id) => getSubjectLabel(id, language));
 
   return (

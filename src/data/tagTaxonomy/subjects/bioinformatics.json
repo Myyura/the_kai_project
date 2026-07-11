@@ -1,12 +1,12 @@
 {
   "id": "Bioinformatics",
   "subject": {
-    "labelZh": "生命与认知信息",
-    "labelJa": "生命・認知情報",
-    "labelEn": "Bioinformatics & Cognitive Science",
-    "descriptionZh": "序列分析、认知神经、医学信息等交叉方向。",
-    "descriptionJa": "配列解析、認知神経、医療情報などの学際領域。",
-    "descriptionEn": "Sequence analysis, cognitive neuroscience, medical informatics, and related interdisciplinary topics."
+    "labelZh": "生物信息学",
+    "labelJa": "バイオインフォマティクス",
+    "labelEn": "Bioinformatics",
+    "descriptionZh": "序列分析、计算生物学、医学信息与生命信息处理。",
+    "descriptionJa": "配列解析、計算生物学、医療情報、生命情報処理。",
+    "descriptionEn": "Sequence analysis, computational biology, medical informatics, and biological information processing."
   },
   "subsubjects": {
     "Bioinformatics.Bioinformatics": {
@@ -17,26 +17,15 @@
       "descriptionZh": "序列分析、编辑距离、比对与生命信息处理。",
       "descriptionJa": "配列解析、編集距離、アラインメント、生命情報処理。",
       "descriptionEn": "Sequence analysis, edit distance, alignment, and biological information processing."
-    },
-    "Bioinformatics.Cognitive-Neuroscience": {
-      "subject": "Bioinformatics",
-      "labelZh": "认知神经科学",
-      "labelJa": "認知神経科学",
-      "labelEn": "Cognitive Neuroscience",
-      "descriptionZh": "认知、神经系统与相关信息处理问题。",
-      "descriptionJa": "認知、神経系、関連する情報処理問題。",
-      "descriptionEn": "Cognition, nervous systems, and related information processing problems."
     }
   },
   "subsubjectOrder": [
-    "Bioinformatics.Bioinformatics",
-    "Bioinformatics.Cognitive-Neuroscience"
+    "Bioinformatics.Bioinformatics"
   ],
   "topics": {
     "Bioinformatics.Bioinformatics.Sequence-Alignment": {
       "subsubject": "Bioinformatics.Bioinformatics",
-      "subjects": [
-        "Bioinformatics",
+      "relatedSubjects": [
         "Computer-Science"
       ]
     }

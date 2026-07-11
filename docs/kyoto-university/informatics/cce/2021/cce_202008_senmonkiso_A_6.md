@@ -2,9 +2,8 @@
 sidebar_label: '2020年8月実施 専門基礎A [A-6]'
 tags:
   - Kyoto-University
-  - Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm
-  - Computer-Science.Data-Structures-Algorithms.Merge-Sort
-  - Computer-Science.Data-Structures-Algorithms.Bubble-Sort
+  - Computer-Science.Algorithm-Design.Merge-Sort
+  - Computer-Science.Algorithm-Design.Bubble-Sort
   - Mathematics.Number-Theory.Greatest-Common-Divisor
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2020年8月実施 専門基礎A \[A-6\]

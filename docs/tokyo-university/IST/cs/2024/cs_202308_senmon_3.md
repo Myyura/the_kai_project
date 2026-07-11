@@ -4,7 +4,7 @@ tags:
   - Tokyo-University
   - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity
   - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Depth-First-Search
-  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Articulation-Point
+  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Articulation-Point
   - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Spanning-Tree
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2023年8月実施 専門科目 問題3

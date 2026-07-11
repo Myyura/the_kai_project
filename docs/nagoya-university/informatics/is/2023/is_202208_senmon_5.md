@@ -2,7 +2,7 @@
 sidebar_label: 2022年8月実施 専門 問5
 tags:
   - Nagoya-University
-  - Computer-Science.Data-Structures-Algorithms.Binary-Heap
+  - Computer-Science.Data-Structures.Binary-Heap
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2022年8月実施 専門 問5
 

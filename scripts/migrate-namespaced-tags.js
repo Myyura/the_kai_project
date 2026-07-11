@@ -67,12 +67,6 @@ function listMarkdownFiles(dirPath) {
   return files.sort((a, b) => normalizePath(a).localeCompare(normalizePath(b)));
 }
 
-function stripLearningAliases(meta) {
-  if (!meta || typeof meta !== 'object' || Array.isArray(meta)) return meta;
-  const { aliases, ...rest } = meta;
-  return rest;
-}
-
 function topicShortId(topicId, topic) {
   const prefix = topic?.subsubject ? `${topic.subsubject}.` : '';
   return prefix && topicId.startsWith(prefix)
@@ -114,7 +108,7 @@ function buildMigration(taxonomy) {
     if (nextTopics[nextId]) {
       throw new Error(`Duplicate namespaced topic id: ${nextId}`);
     }
-    nextTopics[nextId] = stripLearningAliases(meta);
+    nextTopics[nextId] = meta;
     topics.set(id, nextId);
     for (const alias of meta.aliases || []) {
       topics.set(alias, nextId);
@@ -123,12 +117,12 @@ function buildMigration(taxonomy) {
 
   const nextSubsubjects = {};
   for (const [id, meta] of Object.entries(taxonomy.subsubjects || {})) {
-    nextSubsubjects[id] = stripLearningAliases(meta);
+    nextSubsubjects[id] = meta;
   }
 
   const nextTaxonomy = {
     ...taxonomy,
-    version: 3,
+    version: taxonomy.version,
     policy: {
       ...(taxonomy.policy || {}),
       subsubjectTags: 'canonical-subsubject-only',

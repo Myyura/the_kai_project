@@ -2,7 +2,7 @@
 sidebar_label: 2018年2月実施 情報学基礎 F-1
 tags:
   - Kyoto-University
-  - Computer-Science.Data-Structures-Algorithms.Hash-Table
+  - Computer-Science.Data-Structures.Hash-Table
   - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Breadth-First-Search
   - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Depth-First-Search
 ---

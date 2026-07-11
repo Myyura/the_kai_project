@@ -2,8 +2,7 @@
 sidebar_label: 2016年8月実施 プログラミング
 tags:
   - Nagoya-University
-  - Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm
-  - Computer-Science.Data-Structures-Algorithms.Merge-Sort
+  - Computer-Science.Algorithm-Design.Merge-Sort
   - Computer-Science.Programming
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2016年8月実施 プログラミング

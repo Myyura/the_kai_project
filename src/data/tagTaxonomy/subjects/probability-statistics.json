@@ -43,210 +43,130 @@
     "Probability-Statistics.Stochastic-Processes"
   ],
   "topics": {
-    "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Law-of-Large-Numbers": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
     "Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
     "Probability-Statistics.Probability-and-Statistics-Basics.Chi-Square-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
-      "subjects": [
-        "Probability-Statistics"
-      ]
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
-    "Probability-Statistics.Statistical-Inference.Confidence-Interval": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
+    "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
-    "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
-        "Bioinformatics"
-      ]
+    "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
-    "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
+    "Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
-    "Probability-Statistics.Statistical-Inference.Least-Squares-Method": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
+    "Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
-    "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
+    "Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Law-of-Large-Numbers": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    },
+    "Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
     },
     "Probability-Statistics.Statistical-Inference.Analysis-of-Variance": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Experimental-Design": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Hypothesis-Testing": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Method-of-Moments": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Simple-Linear-Regression": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
+      "aliases": [
+        "Probability-Statistics.Statistical-Inference.ANOVA"
       ]
     },
     "Probability-Statistics.Statistical-Inference.Bayesian-Inference": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
+      "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
     "Probability-Statistics.Statistical-Inference.Beta-Bernoulli-Model": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Confidence-Interval": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
+    },
+    "Probability-Statistics.Statistical-Inference.Experimental-Design": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
+    },
+    "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "relatedSubjects": [
+        "Bioinformatics"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
+    },
+    "Probability-Statistics.Statistical-Inference.Hypothesis-Testing": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
+    },
+    "Probability-Statistics.Statistical-Inference.Least-Squares-Method": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
+    },
+    "Probability-Statistics.Statistical-Inference.Mahalanobis-Distance": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
+    },
+    "Probability-Statistics.Statistical-Inference.Method-of-Moments": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
+    },
+    "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
+    },
+    "Probability-Statistics.Statistical-Inference.Multicollinearity": {
+      "subsubject": "Probability-Statistics.Statistical-Inference",
+      "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
     "Probability-Statistics.Statistical-Inference.Multiple-Regression": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
+      "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Multicollinearity": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
-        "Data-Science-Artificial-Intelligence"
-      ]
-    },
-    "Probability-Statistics.Statistical-Inference.Split-Plot-Design": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics"
       ]
     },
     "Probability-Statistics.Statistical-Inference.Orthogonal-Array": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
+      "relatedSubjects": [
         "Engineering"
       ]
     },
     "Probability-Statistics.Statistical-Inference.Regression-Diagnostics": {
       "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
+      "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Mahalanobis-Distance": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
-      "subjects": [
-        "Probability-Statistics",
-        "Data-Science-Artificial-Intelligence"
-      ]
+    "Probability-Statistics.Statistical-Inference.Simple-Linear-Regression": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
+    },
+    "Probability-Statistics.Statistical-Inference.Split-Plot-Design": {
+      "subsubject": "Probability-Statistics.Statistical-Inference"
     },
     "Probability-Statistics.Stochastic-Processes.Markov-Chain": {
-      "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "subjects": [
-        "Probability-Statistics"
-      ]
+      "subsubject": "Probability-Statistics.Stochastic-Processes"
     },
     "Probability-Statistics.Stochastic-Processes.Markov-Information-Source": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "subjects": [
-        "Probability-Statistics"
-      ]
-    },
-    "Probability-Statistics.Stochastic-Processes.Markov-Source": {
-      "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "subjects": [
-        "Probability-Statistics"
+      "aliases": [
+        "Probability-Statistics.Stochastic-Processes.Markov-Source"
       ]
     }
   }
