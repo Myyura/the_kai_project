@@ -2,7 +2,9 @@
 sidebar_label: "2019年8月実施 オートマトンと言語"
 tags:
   - Kyushu-University
-  - Computer-Science.Formal-Languages
+  - Computer-Science.Formal-Languages.Deterministic-Finite-Automaton
+  - Computer-Science.Formal-Languages.Deterministic-Finite-Automaton-Minimization
+  - Computer-Science.Formal-Languages.Context-Free-Grammar
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2019年8月実施 オートマトンと言語
 

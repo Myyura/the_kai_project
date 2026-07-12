@@ -2,6 +2,13 @@
 sidebar_label: "2022年8月実施 地球惑星科学系 数学"
 tags:
   - Nagoya-University
+  - Mathematics.Linear-Algebra.Matrix-Determinant
+  - Mathematics.Calculus.Integration-by-Parts
+  - Mathematics.Calculus.Integration-by-Substitution
+  - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Fourier-Analysis.Fourier-Transform-Scaling-and-Frequency-Shift
+  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution
 ---
 # 名古屋大学 環境学研究科 地球環境科学専攻 地球惑星科学系 2022年8月実施 数学
 

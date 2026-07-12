@@ -2,6 +2,7 @@
 sidebar_label: '2021年8月実施 専門科目 第1問'
 tags:
   - Tokyo-University
+  - Physics.Quantum-Mechanics.Heisenberg-Uncertainty-and-Minimum-Uncertainty-Gaussian
 ---
 
 # 東京大学 理学系研究科 物理学専攻 2021年8月実施 専門科目 第1問

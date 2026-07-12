@@ -2,7 +2,12 @@
 sidebar_label: 2021年8月実施 数学【I】
 tags:
   - Kyoto-University
-  - Mathematics.Linear-Algebra
+  - Discrete-Mathematics.Combinatorics.Recurrence-Relation
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Matrix-Limit
+  - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
+  - Mathematics.Linear-Algebra.Gram-Schmidt-Orthogonalization
+  - Mathematics.Linear-Algebra.Projection-Operator
 ---
 # 京都大学 情報学研究科 システム科学専攻 2021年8月実施 数学【I】
 

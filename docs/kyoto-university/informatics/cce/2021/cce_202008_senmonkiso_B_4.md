@@ -2,7 +2,11 @@
 sidebar_label: '2020年8月実施 専門基礎B [B-4]'
 tags:
   - Kyoto-University
-  - Electrical-Electronic.Digital-Logic
+  - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
+  - Electrical-Electronic.Digital-Logic.Not-AND-and-Not-OR-Universal-Gates
+  - Computer-Science.Formal-Languages.Mealy-Machine
+  - Electrical-Electronic.Digital-Logic.Finite-State-Machine-Minimization
+  - Electrical-Electronic.Digital-Logic.D-Flip-Flop
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2020年8月実施 専門基礎B \[B-4\]
 

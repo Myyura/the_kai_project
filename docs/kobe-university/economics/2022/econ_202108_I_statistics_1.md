@@ -2,7 +2,9 @@
 sidebar_label: "2021年8月実施 第I期 統計学 第1問"
 tags:
   - Kobe-University
-  - Probability-Statistics.Probability-and-Statistics-Basics
+  - Probability-Statistics.Probability-and-Statistics-Basics.Geometric-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability
+  - Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution
 ---
 # 神戸大学 経済学研究科 2021年8月実施 第I期 統計学 第1問
 

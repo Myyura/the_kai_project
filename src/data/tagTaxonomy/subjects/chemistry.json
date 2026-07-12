@@ -32,5 +32,56 @@
     "Chemistry.Physical-Chemistry",
     "Chemistry.Inorganic-Chemistry"
   ],
-  "topics": {}
+  "topics": {
+    "Chemistry.Physical-Chemistry.Einstein-Solid-Heat-Capacity": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Entropy-Change": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Ideal-Gas-Thermodynamics": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Consecutive-First-Order-Reaction-Kinetics": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Operator-Commutator": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Physics",
+        "Mathematics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Planck-Blackbody-Law": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Wavefunction-Normalization": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Physics",
+        "Mathematics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Wien-Displacement-Law": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    }
+  }
 }

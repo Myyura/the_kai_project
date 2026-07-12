@@ -2,9 +2,9 @@
 sidebar_label: '2021年8月実施 専門基礎A [A-2]'
 tags:
   - Kyoto-University
-  - Mathematics.Differential-Equations
-  - Mathematics.Complex-Analysis
-  - Mathematics.Fourier-Analysis
+  - Mathematics.Fourier-Analysis.Fourier-Cosine-Transform
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Complex-Analysis.Residue-Theorem
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2021年8月実施 専門基礎A \[A-2\]
 

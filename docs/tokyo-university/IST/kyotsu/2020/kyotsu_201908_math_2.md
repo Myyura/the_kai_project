@@ -2,6 +2,9 @@
 sidebar_label: "2019年8月実施 数学 第2問"
 tags:
   - Tokyo-University
+  - Mathematics.Geometry.Arc-Length-Parameter-and-Planar-Curvature
+  - Mathematics.Geometry.Steiner-Formula-for-Convex-Parallel-Body
+  - Mathematics.Calculus.Change-of-Variables-and-Jacobian
 ---
 # 東京大学 情報理工学研究科 2019年8月実施 数学 第2問
 

@@ -2,6 +2,9 @@
 sidebar_label: '2016年8月実施 数学 第5問'
 tags:
   - Tokyo-University
+  - Mathematics.Differential-Equations.Laplace-Transform
+  - Mathematics.Differential-Equations.Systems-of-ODEs
+  - Mathematics.Differential-Equations.Initial-Value-Problem
 ---
 
 # 東京大学 工学系研究科 2016年8月実施 数学 第5問

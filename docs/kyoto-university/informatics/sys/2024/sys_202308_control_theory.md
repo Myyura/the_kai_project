@@ -2,7 +2,11 @@
 sidebar_label: 2023年8月実施 専門科目 制御工学
 tags:
   - Kyoto-University
-  - Electrical-Electronic.Control-Theory
+  - Electrical-Electronic.Control-Theory.Transfer-Function
+  - Electrical-Electronic.Control-Theory.Step-Response
+  - Electrical-Electronic.Control-Theory.Routh-Hurwitz-Stability
+  - Electrical-Electronic.Control-Theory.Steady-State-Error
+  - Electrical-Electronic.Control-Theory.Bode-Plot-and-Stability-Margins
 ---
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 専門科目 制御工学
 
@@ -69,5 +73,4 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p2_s.jpg" width="700" alt=""/>
 </figure>
-
 

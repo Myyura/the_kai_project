@@ -2,6 +2,14 @@
 sidebar_label: '2010年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Computer-Science.Programming.Higher-Order-Functions
+  - Computer-Science.Security.Public-Key-Infrastructure
+  - Computer-Science.Networks.Autonomous-System-Numbers
+  - Engineering.Robotics.Simultaneous-Localization-and-Mapping
+  - Engineering.Robotics.Articulated-Link-Mechanism-Representation
+  - Mathematics.Linear-Algebra.Moore-Penrose-Pseudoinverse
+  - Electrical-Electronic.Control-Theory.H-Infinity-Control
+  - Data-Science-Artificial-Intelligence.Data-Science.Principal-Component-Analysis
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2010年8月実施 筆記試験 第4問
 ## **Author**

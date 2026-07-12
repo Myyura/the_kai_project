@@ -2,6 +2,9 @@
 sidebar_label: "2018年8月実施 数理科学 I [4]"
 tags:
   - Osaka-University
+  - Mathematics.Differential-Equations.Systems-of-ODEs
+  - Mathematics.Differential-Equations.Higher-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Boundary-Conditions-at-Infinity
 ---
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2018年8月実施 数理科学 I \[4\]
 

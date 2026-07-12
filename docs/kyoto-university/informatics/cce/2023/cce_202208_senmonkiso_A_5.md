@@ -2,7 +2,11 @@
 sidebar_label: '2022年8月実施 専門基礎A [A-5]'
 tags:
   - Kyoto-University
-  - Computer-Science.Information-Theory
+  - Computer-Science.Information-Theory.Huffman-Coding
+  - Computer-Science.Information-Theory.Entropy
+  - Computer-Science.Information-Theory.Binary-Symmetric-Channel
+  - Computer-Science.Information-Theory.Channel-Capacity
+  - Computer-Science.Information-Theory.Minimum-Distance-Error-Correction
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2022年8月実施 専門基礎A \[A-5\]
 

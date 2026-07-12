@@ -2,6 +2,14 @@
 sidebar_label: '2011年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Control-Theory.Feedback-and-Feedforward-Control
+  - Electrical-Electronic.Control-Theory.Kalman-Filter
+  - Computer-Science.Graphics.Edge-Line-Detection-in-Grayscale-Images
+  - Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network-Training-Methods
+  - Computer-Science.Computer-Architecture.Pipeline-Hazards
+  - Computer-Science.Computer-Architecture.Microprogrammed-Control
+  - Computer-Science.Distributed-Systems.Client-Server-and-Peer-to-Peer-Comparison
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2011年8月実施 筆記試験 第4問
 ## **Author**

@@ -2,6 +2,9 @@
 sidebar_label: "2021年8月実施 数学 問1"
 tags:
   - Kyushu-University
+  - Mathematics.Linear-Algebra.Orthogonal-Diagonalization-of-Symmetric-Matrices
+  - Mathematics.Linear-Algebra.Positive-Semidefinite-Matrix
+  - Mathematics.Linear-Algebra.Matrix-Power
 ---
 # 九州大学 工学府 機械系専攻 2021年8月実施 数学 問1
 

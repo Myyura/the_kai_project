@@ -2,7 +2,12 @@
 sidebar_label: 2025年8月実施 専門科目 S-2
 tags:
   - Kyoto-University
-  - Data-Science-Artificial-Intelligence.Machine-Learning
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Nearest-Centroid-Classifier
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Linear-Discriminant-Analysis
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Logistic-Regression
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Softmax-Regression
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Feedforward-Neural-Network
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Backpropagation
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2025年8月実施 専門科目 S-2
 

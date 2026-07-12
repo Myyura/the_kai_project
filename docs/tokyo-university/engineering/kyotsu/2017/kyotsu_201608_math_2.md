@@ -2,6 +2,11 @@
 sidebar_label: '2016年8月実施 数学 第2問'
 tags:
   - Tokyo-University
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+  - Mathematics.Linear-Algebra.Matrix-Power
+  - Mathematics.Linear-Algebra.Simultaneous-Diagonalization-of-Commuting-Operators
+  - Mathematics.Linear-Algebra.Positive-Definite-Matrix-Square-Root
+  - Mathematics.Linear-Algebra.Determinant-Maximization-at-Fixed-Trace
 ---
 
 # 東京大学 工学系研究科 2016年8月実施 数学 第2問

@@ -2,6 +2,14 @@
 sidebar_label: "2021年8月実施 数学 (ALL)"
 tags:
   - Kyushu-University
+  - Mathematics.Calculus.Surface-Area-by-Double-Integral
+  - Mathematics.Vector-Calculus.Polar-Coordinates
+  - Mathematics.Differential-Equations.Exact-Differential-Equation
+  - Mathematics.Differential-Equations.Integrating-Factor
+  - Mathematics.Linear-Algebra.Nilpotent-Matrix
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
+  - Probability-Statistics.Statistical-Inference.Normal-Mean-Confidence-Interval-with-Known-Variance
 ---
 # 九州大学 工学府 土木工学専攻 2021年8月実施 数学 (ALL)
 

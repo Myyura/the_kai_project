@@ -2,7 +2,8 @@
 sidebar_label: 2013年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Data-Science-Artificial-Intelligence.Machine-Learning
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Online-Learning-with-Expert-Advice
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Regret-Bound
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2013年8月実施 筆記試験 第1問
 ## **Author**

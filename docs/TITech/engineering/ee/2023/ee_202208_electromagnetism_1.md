@@ -2,7 +2,9 @@
 sidebar_label: 2022年8月実施 電磁気学1
 tags:
   - TITech
-  - Physics.Electromagnetism
+  - Physics.Electromagnetism.Capacitance-and-Electrostatic-Energy
+  - Physics.Electromagnetism.Electrostatic-Force
+  - Physics.Electromagnetism.Dielectrics-and-Boundary-Conditions
 ---
 # 東京工業大学 工学院 電気電子系 2022年8月実施 電磁気学1
 

@@ -2,6 +2,9 @@
 sidebar_label: "2023年8月実施 数学A 1"
 tags:
   - Tohoku-University
+  - Mathematics.Calculus.Taylor-Series
+  - Mathematics.Calculus.Integration-by-Substitution
+  - Mathematics.Calculus.Double-Integral
 ---
 # 東北大学 量子エネルギー工学専攻 2023年8月実施 数学A 1
 

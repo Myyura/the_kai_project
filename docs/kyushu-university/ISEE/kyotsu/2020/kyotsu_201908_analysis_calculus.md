@@ -2,9 +2,8 @@
 sidebar_label: 2019年8月実施 解析学・微積分
 tags:
   - Kyushu-University
-  - Mathematics.Differential-Equations
-  - Mathematics.Complex-Analysis
-  - Mathematics.Calculus
+  - Mathematics.Differential-Equations.Riccati-Equation
+  - Mathematics.Complex-Analysis.Conformal-Mapping
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2019年8月実施 解析学・微積分
 

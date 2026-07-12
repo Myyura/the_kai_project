@@ -2,9 +2,10 @@
 sidebar_label: 2021年8月実施 解析学・微積分
 tags:
   - Kyushu-University
-  - Mathematics.Calculus
-  - Mathematics.Differential-Equations
-  - Mathematics.Complex-Analysis
+  - Mathematics.Calculus.Chain-Rule
+  - Mathematics.Calculus.Multivariable-Differentiation
+  - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation
+  - Mathematics.Complex-Analysis.Cauchy-Integral-Formula
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2021年8月実施 解析学・微積分
 

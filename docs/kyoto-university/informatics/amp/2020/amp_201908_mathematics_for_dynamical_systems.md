@@ -2,6 +2,9 @@
 sidebar_label: "2019年8月実施 力学系数学"
 tags:
   - Kyoto-University
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Reduction-of-Order
+  - Mathematics.Differential-Equations.Differential-Galois-Theory
 ---
 # 京都大学 情報学研究科 数理工学専攻 2019年8月実施 力学系数学
 

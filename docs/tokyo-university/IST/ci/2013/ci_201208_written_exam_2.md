@@ -2,7 +2,10 @@
 sidebar_label: 2012年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Electrical-Electronic.Digital-Logic
+  - Electrical-Electronic.Digital-Logic.Counter-Circuit
+  - Electrical-Electronic.Digital-Logic.Comparator-Circuit
+  - Electrical-Electronic.Digital-Logic.Pulse-Width-Modulation
+  - Electrical-Electronic.Digital-Logic.D-Flip-Flop
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2012年8月実施 筆記試験 第2問
 ## **Author**

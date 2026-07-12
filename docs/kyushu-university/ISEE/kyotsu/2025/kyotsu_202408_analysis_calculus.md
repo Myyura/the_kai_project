@@ -2,9 +2,10 @@
 sidebar_label: 2024年8月実施 解析学・微積分
 tags:
   - Kyushu-University
-  - Mathematics.Calculus
-  - Mathematics.Differential-Equations
-  - Mathematics.Complex-Analysis
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Differential-Equations.Laplace-Transform
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Complex-Analysis.Cauchy-Riemann-Equations
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2024年8月実施 解析学・微積分
 

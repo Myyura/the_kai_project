@@ -2,7 +2,13 @@
 sidebar_label: 2022年8月実施 専門科目 問題4
 tags:
   - Tokyo-University
-  - Computer-Science.Computer-Architecture
+  - Computer-Science.Computer-Architecture.Endianness
+  - Computer-Science.Computer-Architecture.Pipelining
+  - Computer-Science.Computer-Architecture.Data-Hazard
+  - Computer-Science.Computer-Architecture.Control-Hazard
+  - Computer-Science.Computer-Architecture.Cache
+  - Computer-Science.Computer-Architecture.Cache-Address-Mapping
+  - Computer-Science.Computer-Architecture.Performance-Analysis
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2022年8月実施 専門科目 問題4
 

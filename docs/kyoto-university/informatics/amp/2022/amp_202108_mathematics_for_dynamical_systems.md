@@ -2,6 +2,9 @@
 sidebar_label: "2021年8月実施 力学系数学"
 tags:
   - Kyoto-University
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Polynomial-Solutions-of-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Wronskian
 ---
 # 京都大学 情報学研究科 数理工学専攻 2021年8月実施 力学系数学
 

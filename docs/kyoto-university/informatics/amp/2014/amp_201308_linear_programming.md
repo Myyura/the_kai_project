@@ -2,7 +2,10 @@
 sidebar_label: "2013年8月実施 線形計画"
 tags:
   - Kyoto-University
-  - Operations-Research.Optimization
+  - Operations-Research.Optimization.Linear-Programming
+  - Operations-Research.Optimization.Linear-Programming-Duality
+  - Operations-Research.Optimization.Interior-Point-Method
+  - Operations-Research.Optimization.Complementary-Slackness
 ---
 # 京都大学 情報学研究科 数理工学専攻 2013年8月実施 線形計画
 

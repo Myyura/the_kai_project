@@ -2,7 +2,12 @@
 sidebar_label: 2021年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Computer-Science.Networks
+  - Computer-Science.Networks.Stop-and-Wait-Automatic-Repeat-Request
+  - Computer-Science.Networks.Reliable-Data-Transfer
+  - Computer-Science.Networks.Sliding-Window-Protocol
+  - Computer-Science.Networks.Bandwidth-Delay-Product
+  - Computer-Science.Networks.Available-Bandwidth-Estimation
+  - Computer-Science.Networks.Protocol-Throughput-and-Utilization
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 筆記試験 第2問
 
@@ -35,4 +40,3 @@ Next, we would like to simultaneously deliver the same $500\text{ Mbyte}$ video 
 (6) Show two solutions to enable normal video playback even when $D_2$ is larger than $D_{2\text{max}}$. Note that the bandwidth $B_i$ and the propagation delay $D_i$ of the communication line, and the size of transferred packets, $m_1$ and $m_2$, cannot be changed.
 
 ## **Kai**
-

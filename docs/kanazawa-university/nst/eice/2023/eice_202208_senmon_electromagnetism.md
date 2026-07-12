@@ -2,7 +2,9 @@
 sidebar_label: 2022年8月実施 専門科目 電気磁気学
 tags:
   - Kanazawa-University
-  - Physics.Electromagnetism
+  - Physics.Electromagnetism.Electric-Potential-and-Field
+  - Physics.Electromagnetism.Biot-Savart-Law
+  - Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance
 ---
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 専門科目 電気磁気学
 

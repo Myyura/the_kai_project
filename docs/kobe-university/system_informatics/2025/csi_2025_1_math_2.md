@@ -2,7 +2,9 @@
 sidebar_label: 2025年度 第一期 数学 2
 tags:
   - Kobe-University
-  - Mathematics.Complex-Analysis
+  - Mathematics.Complex-Analysis.Singularities-and-Poles
+  - Mathematics.Complex-Analysis.Residue-Theorem
+  - Mathematics.Complex-Analysis.Real-Integral-by-Residues
 ---
 # 神戸大学 システム情報学研究科 2025年度 第一期 数学 2
 

@@ -2,6 +2,14 @@
 sidebar_label: '2009年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Probability-Statistics.Probability-and-Statistics-Basics.Bayes-Theorem
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree
+  - Electrical-Electronic.Communications.Spread-Spectrum-Communication
+  - Computer-Science.Databases.Relational-Database-Normalization
+  - Computer-Science.Formal-Languages.Turing-Machine
+  - Computer-Science.Computer-Architecture.Snooping-Cache-Coherence
+  - Computer-Science.Programming.Unicode-Character-Encoding
+  - Computer-Science.Security.User-Authentication-Methods
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2009年8月実施 筆記試験 第4問
 ## **Author**

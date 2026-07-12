@@ -2,6 +2,14 @@
 sidebar_label: '2006年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Signal-Processing.Sampling-Theorem-and-Aliasing
+  - Computer-Science.Computer-Architecture.Reduced-Instruction-Set-Computer-and-Complex-Instruction-Set-Computer-Architectures
+  - Computer-Science.Networks.Transmission-Control-Protocol-and-User-Datagram-Protocol
+  - Computer-Science.Algorithm-Design.Heap-Sort
+  - Computer-Science.Programming.Functional-Programming-Language-Features
+  - Operations-Research.Optimization.Branch-and-Bound
+  - Data-Science-Artificial-Intelligence.Artificial-Intelligence.Natural-Language-Morphology-and-Morphemes
+  - Computer-Science.Graphics.Homogeneous-Coordinates
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2006年8月実施 筆記試験 第4問
 ## **Author**

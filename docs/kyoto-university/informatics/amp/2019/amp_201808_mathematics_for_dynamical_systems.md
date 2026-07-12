@@ -2,6 +2,8 @@
 sidebar_label: "2018年8月実施 力学系数学"
 tags:
   - Kyoto-University
+  - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Polynomial-Solutions-of-Ordinary-Differential-Equation
 ---
 # 京都大学 情報学研究科 数理工学専攻 2018年8月実施 力学系数学
 

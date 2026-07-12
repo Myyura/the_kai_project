@@ -2,6 +2,8 @@
 sidebar_label: "2015年8月実施 専門 第5問"
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Signal-Processing.Power-Spectrum-and-Parseval-Energy-Identity
+  - Mathematics.Fourier-Analysis.Parseval-Identity
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2015年8月実施 専門 第5問
 

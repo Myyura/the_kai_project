@@ -3,7 +3,9 @@ sidebar_label: 2007年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
   - Computer-Science.Computer-Architecture
-  - Computer-Science.Operating-Systems
+  - Computer-Science.Operating-Systems.Process-Synchronization
+  - Computer-Science.Operating-Systems.Atomic-Operations
+  - Computer-Science.Operating-Systems.Message-Passing-Synchronization
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2007年8月実施 筆記試験 第2問
 ## **Author**

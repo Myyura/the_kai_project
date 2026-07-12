@@ -72,6 +72,24 @@
       "descriptionJa": "コンピュータグラフィックス、幾何処理、投影と再構成。",
       "descriptionEn": "Computer graphics, geometric processing, projection, and reconstruction."
     },
+    "Computer-Science.Security": {
+      "subject": "Computer-Science",
+      "labelZh": "信息安全",
+      "labelJa": "情報セキュリティ",
+      "labelEn": "Information Security",
+      "descriptionZh": "认证、公钥基础设施、网络攻击与安全机制。",
+      "descriptionJa": "認証、公開鍵基盤、ネットワーク攻撃、セキュリティ機構。",
+      "descriptionEn": "Authentication, public-key infrastructure, network attacks, and security mechanisms."
+    },
+    "Computer-Science.Distributed-Systems": {
+      "subject": "Computer-Science",
+      "labelZh": "分布式系统",
+      "labelJa": "分散システム",
+      "labelEn": "Distributed Systems",
+      "descriptionZh": "分布式计算、客户端服务器、对等网络与资源协同。",
+      "descriptionJa": "分散計算、クライアントサーバ、P2P、資源協調。",
+      "descriptionEn": "Distributed computing, client-server systems, peer-to-peer networks, and resource coordination."
+    },
     "Computer-Science.Quantum-Computing": {
       "subject": "Computer-Science",
       "labelZh": "量子计算",
@@ -139,10 +157,33 @@
     "Computer-Science.Databases",
     "Computer-Science.Networks",
     "Computer-Science.Graphics",
+    "Computer-Science.Security",
+    "Computer-Science.Distributed-Systems",
     "Computer-Science.Information-Theory",
     "Computer-Science.Quantum-Computing"
   ],
   "topics": {
+    "Computer-Science.Algorithm-Design.Comparison-Sorting-Decision-Tree-Lower-Bound": {
+      "subsubject": "Computer-Science.Algorithm-Design"
+    },
+    "Computer-Science.Algorithm-Design.Constrained-Adjacent-Swap-Reachability-Counting": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Metric-Order-Transfer-with-Minimum-Comparisons": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Big-O-Equivalence-and-Algebra": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
     "Computer-Science.Algorithm-Design.Algorithm-Complexity": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
@@ -203,6 +244,12 @@
         "Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer"
       ]
     },
+    "Computer-Science.Algorithm-Design.Randomized-Quickselect": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Computer-Science.Algorithm-Design.Euclidean-Algorithm": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
@@ -215,11 +262,29 @@
         "Computer-Science.Data-Structures-Algorithms.Greedy"
       ]
     },
+    "Computer-Science.Algorithm-Design.Set-Cover-Problem": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Greedy-Set-Cover": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Order-Sensitivity-of-Greedy-Algorithms": {
+      "subsubject": "Computer-Science.Algorithm-Design"
+    },
     "Computer-Science.Algorithm-Design.Heap-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Heap-Sort"
       ]
+    },
+    "Computer-Science.Algorithm-Design.Max-Heapify": {
+      "subsubject": "Computer-Science.Algorithm-Design"
     },
     "Computer-Science.Algorithm-Design.Insertion-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
@@ -231,6 +296,30 @@
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Master-Theorem"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Horner-Method": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Karatsuba-Integer-Multiplication": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Recurrence-Relation-Complexity": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Algorithm-Design.Asymptotic-Upper-and-Lower-Bound-Proofs": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Mathematics"
       ]
     },
     "Computer-Science.Algorithm-Design.Matrix-Multiplication-Algorithms": {
@@ -300,10 +389,52 @@
         "Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi"
       ]
     },
+    "Computer-Science.Algorithm-Design.Sorting-Network-Comparator-Count-and-Depth": {
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
     "Computer-Science.Algorithm-Design.Two-Pointers": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Double-Pointer"
+      ]
+    },
+    "Computer-Science.Computer-Architecture.Out-of-Order-Execution": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Snooping-Cache-Coherence": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Pipeline-Hazards": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Microprogrammed-Control": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Translation-Lookaside-Buffer": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Register-Renaming": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Single-Instruction-Multiple-Data-Architecture": {
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "aliases": [
+        "Computer-Science.Computer-Architecture.SIMD-Architecture"
+      ]
+    },
+    "Computer-Science.Computer-Architecture.Thread-Level-Speculative-Execution": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Program-Counter": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Floating-Point-Rounding-Error": {
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "relatedSubjects": [
+        "Mathematics"
       ]
     },
     "Computer-Science.Computer-Architecture.Addressing-Modes": {
@@ -318,7 +449,71 @@
     "Computer-Science.Computer-Architecture.Branch-Prediction": {
       "subsubject": "Computer-Science.Computer-Architecture"
     },
+    "Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Instructions-per-Cycle-with-Variable-Latency-Memory-Access": {
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "aliases": [
+        "Computer-Science.Computer-Architecture.IPC-with-Variable-Latency-Memory-Access"
+      ]
+    },
+    "Computer-Science.Computer-Architecture.Cache-Aware-Loop-and-Register-Reuse": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Hardware-Prefetching": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Non-Blocking-Cache": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Sequential-Random-and-Pointer-Chasing-Access": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Memory-Level-Parallelism": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
     "Computer-Science.Computer-Architecture.Cache": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Sequential-Access-Cache-Hit-Rate": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Two-Way-Set-Associative-Cache-Datapath": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Sensor-Acquisition-Pipeline-Scheduling": {
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "relatedSubjects": [
+        "Electrical-Electronic",
+        "Engineering"
+      ]
+    },
+    "Computer-Science.Computer-Architecture.Reduced-Instruction-Set-Computer-and-Complex-Instruction-Set-Computer-Architectures": {
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "aliases": [
+        "Computer-Science.Computer-Architecture.RISC-and-CISC-Architectures"
+      ]
+    },
+    "Computer-Science.Computer-Architecture.Amdahls-Law": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Average-Memory-Access-Time": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Cache-Address-Mapping": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Cache-Miss-Types": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Data-Forwarding": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Data-Hazard": {
       "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Control-Hazard": {
@@ -333,8 +528,11 @@
     "Computer-Science.Computer-Architecture.Hamming-Weight": {
       "subsubject": "Computer-Science.Computer-Architecture"
     },
-    "Computer-Science.Computer-Architecture.IEEE-754": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+    "Computer-Science.Computer-Architecture.IEEE-Standard-754-Floating-Point-Arithmetic": {
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "aliases": [
+        "Computer-Science.Computer-Architecture.IEEE-754"
+      ]
     },
     "Computer-Science.Computer-Architecture.Instruction-Cycle": {
       "subsubject": "Computer-Science.Computer-Architecture"
@@ -345,6 +543,19 @@
     "Computer-Science.Computer-Architecture.Memory-Alignment": {
       "subsubject": "Computer-Science.Computer-Architecture"
     },
+    "Computer-Science.Computer-Architecture.Locality-of-Reference": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Multi-Level-Cache": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Non-Adjacent-Form-Signed-Binary-Representation": {
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "relatedSubjects": [
+        "Discrete-Mathematics",
+        "Mathematics"
+      ]
+    },
     "Computer-Science.Computer-Architecture.Number-Representation": {
       "subsubject": "Computer-Science.Computer-Architecture"
     },
@@ -352,6 +563,15 @@
       "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Performance-Analysis": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Structural-Hazard": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Superscalar-Execution": {
+      "subsubject": "Computer-Science.Computer-Architecture"
+    },
+    "Computer-Science.Computer-Architecture.Write-Back-Policy": {
       "subsubject": "Computer-Science.Computer-Architecture"
     },
     "Computer-Science.Computer-Architecture.Pipelining": {
@@ -366,6 +586,24 @@
         "Computer-Science.Data-Structures-Algorithms.Binary-Heap"
       ]
     },
+    "Computer-Science.Data-Structures.B-Tree": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
+    "Computer-Science.Data-Structures.Balanced-Binary-Search-Tree-Height-Bounds": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Data-Structures.Minimum-Nodes-in-Height-Balanced-Binary-Tree": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Data-Structures.Heap-Order-Assignment-by-Linear-Time-Construction": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
     "Computer-Science.Data-Structures.Binary-Search-Tree": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
@@ -373,10 +611,28 @@
         "Computer-Science.Data-Structures-Algorithms.BST"
       ]
     },
+    "Computer-Science.Data-Structures.Binary-Search-Tree-Insertion-and-Deletion": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
+    "Computer-Science.Data-Structures.Inorder-Tree-Traversal": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
+    "Computer-Science.Data-Structures.Tree-Sort-Complexity": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
     "Computer-Science.Data-Structures.Hash-Table": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Hash-Table"
+      ]
+    },
+    "Computer-Science.Data-Structures.Separate-Chaining-Hashing": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
+    "Computer-Science.Data-Structures.Expected-Insertion-Cost-in-Hashing": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "relatedSubjects": [
+        "Probability-Statistics"
       ]
     },
     "Computer-Science.Data-Structures.Linked-List": {
@@ -384,6 +640,12 @@
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Linked-List"
       ]
+    },
+    "Computer-Science.Data-Structures.Sorted-Linked-List-Insertion": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
+    "Computer-Science.Data-Structures.Linked-List-Reversal": {
+      "subsubject": "Computer-Science.Data-Structures"
     },
     "Computer-Science.Data-Structures.Priority-Queue": {
       "subsubject": "Computer-Science.Data-Structures",
@@ -397,6 +659,13 @@
         "Computer-Science.Data-Structures-Algorithms.Queue"
       ]
     },
+    "Computer-Science.Data-Structures.Sparse-Matrix": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "relatedSubjects": [
+        "Mathematics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
     "Computer-Science.Data-Structures.Stack": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
@@ -404,6 +673,15 @@
       ]
     },
     "Computer-Science.Data-Structures.Tree-Data-Structure": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
+    "Computer-Science.Data-Structures.Expression-Tree": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
+    "Computer-Science.Data-Structures.Reverse-Polish-Notation": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
+    "Computer-Science.Data-Structures.Postorder-Tree-Traversal": {
       "subsubject": "Computer-Science.Data-Structures"
     },
     "Computer-Science.Data-Structures.Trie": {
@@ -416,6 +694,12 @@
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure"
+      ]
+    },
+    "Computer-Science.Data-Structures.Union-Find-Path-Compression": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "relatedSubjects": [
+        "Graph-Theory-Combinatorial-Optimization"
       ]
     },
     "Computer-Science.Dynamic-Programming.Dynamic-Programming": {
@@ -435,6 +719,12 @@
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Knapsack-Problem"
       ]
+    },
+    "Computer-Science.Dynamic-Programming.Zero-One-Knapsack-Recurrence": {
+      "subsubject": "Computer-Science.Dynamic-Programming"
+    },
+    "Computer-Science.Dynamic-Programming.Greedy-Failure-for-Zero-One-Knapsack": {
+      "subsubject": "Computer-Science.Dynamic-Programming"
     },
     "Computer-Science.Dynamic-Programming.Longest-Common-Subsequence": {
       "subsubject": "Computer-Science.Dynamic-Programming",
@@ -469,14 +759,166 @@
         "Computer-Science.Data-Structures-Algorithms.Subset-Sum-Problem"
       ]
     },
+    "Computer-Science.Dynamic-Programming.Counting-Ordered-Pairings": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Dynamic-Programming.Pattern-Occurrence-Probability": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Bioinformatics"
+      ]
+    },
+    "Computer-Science.Dynamic-Programming.Dynamic-Programming-Principle": {
+      "subsubject": "Computer-Science.Dynamic-Programming"
+    },
+    "Computer-Science.Dynamic-Programming.Counting-Subset-Sum-Dynamic-Programming": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "aliases": [
+        "Computer-Science.Dynamic-Programming.Counting-Subset-Sum-DP"
+      ]
+    },
+    "Computer-Science.Dynamic-Programming.Unbounded-Minimum-Coin-Change": {
+      "subsubject": "Computer-Science.Dynamic-Programming"
+    },
+    "Computer-Science.Dynamic-Programming.Unbounded-Coin-Change-Counting": {
+      "subsubject": "Computer-Science.Dynamic-Programming"
+    },
+    "Computer-Science.Formal-Languages.Nondeterministic-Polynomial-Time-Completeness": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "relatedSubjects": [
+        "Discrete-Mathematics",
+        "Operations-Research"
+      ],
+      "aliases": [
+        "Computer-Science.Formal-Languages.NP-Completeness"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Left-to-Right-Leftmost-Derivation-One-Lookahead-Parsing": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "aliases": [
+        "Computer-Science.Formal-Languages.LL1-Parsing"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Left-to-Right-Rightmost-Derivation-Parsing": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "aliases": [
+        "Computer-Science.Formal-Languages.LR-Parsing"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Backus-Naur-Form": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
     "Computer-Science.Formal-Languages.Context-Free-Grammar": {
       "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Context-Free-Grammar-Emptiness-Problem": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "aliases": [
+        "Computer-Science.Formal-Languages.CFG-Emptiness-Problem"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Chomsky-Normal-Form": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Context-Free-Language-Closure-Properties": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Deterministic-Finite-Automaton-Minimization": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "aliases": [
+        "Computer-Science.Formal-Languages.DFA-Minimization"
+      ]
     },
     "Computer-Science.Formal-Languages.Deterministic-Finite-Automaton": {
       "subsubject": "Computer-Science.Formal-Languages"
     },
+    "Computer-Science.Formal-Languages.Epsilon-Nondeterministic-Finite-Automaton": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "aliases": [
+        "Computer-Science.Formal-Languages.Epsilon-NFA"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Finite-State-Transduction": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Equal-Length-Prefix-Operation": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Language-Shuffle": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Language-Substitution": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Language-Square-Root": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Left-Quotient": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Nondeterministic-Finite-Automaton": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Nondeterministic-Finite-Automaton-to-Deterministic-Finite-Automaton-Conversion": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "aliases": [
+        "Computer-Science.Formal-Languages.NFA-to-DFA-Conversion"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Parse-Tree": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Product-Automaton": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
     "Computer-Science.Formal-Languages.Pumping-Lemma": {
       "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Regular-Expression": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Regular-Language-Closure-Properties": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Context-Free-Language-Regular-Intersection": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ],
+      "aliases": [
+        "Computer-Science.Formal-Languages.CFL-Regular-Intersection"
+      ]
+    },
+    "Computer-Science.Formal-Languages.Regular-Language-Decision-Problems": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Regular-Grammar-and-Regular-Language": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Turing-Machine": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Automata-State-Complexity": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
     },
     "Computer-Science.Formal-Languages.Mealy-Machine": {
       "subsubject": "Computer-Science.Formal-Languages",
@@ -490,6 +932,35 @@
         "Electrical-Electronic"
       ]
     },
+    "Computer-Science.Graphics.Invariant-Image-Features": {
+      "subsubject": "Computer-Science.Graphics",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Computer-Science.Graphics.Optical-Flow": {
+      "subsubject": "Computer-Science.Graphics",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Computer-Science.Graphics.Ray-Tracing": {
+      "subsubject": "Computer-Science.Graphics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Physics"
+      ]
+    },
+    "Computer-Science.Graphics.Procedural-Modeling": {
+      "subsubject": "Computer-Science.Graphics"
+    },
+    "Computer-Science.Graphics.Hough-Transform-for-Line-Detection": {
+      "subsubject": "Computer-Science.Graphics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
     "Computer-Science.Graphics.Projection-and-Reconstruction": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
@@ -497,6 +968,36 @@
       ],
       "aliases": [
         "Computer-Science.Graphics.Projection-And-Reconstruction"
+      ]
+    },
+    "Computer-Science.Graphics.Pinhole-Camera-and-Vanishing-Points": {
+      "subsubject": "Computer-Science.Graphics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Graphics.Orthogonal-Vanishing-Point-Camera-Calibration": {
+      "subsubject": "Computer-Science.Graphics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Graphics.Edge-Line-Detection-in-Grayscale-Images": {
+      "subsubject": "Computer-Science.Graphics",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Computer-Science.Graphics.Robot-Camera-Extrinsic-Calibration": {
+      "subsubject": "Computer-Science.Graphics",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Computer-Science.Graphics.Homogeneous-Coordinates": {
+      "subsubject": "Computer-Science.Graphics",
+      "relatedSubjects": [
+        "Mathematics"
       ]
     },
     "Computer-Science.Information-Theory.Additive-Binary-Channel": {
@@ -517,7 +1018,64 @@
         "Electrical-Electronic"
       ]
     },
+    "Computer-Science.Information-Theory.Binary-Symmetric-Channel": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Electrical-Electronic",
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Additive-Markov-Noise-Channel": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Electrical-Electronic",
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Finite-State-Channel-with-Memory": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Binary-Markov-Source-Run-Length-and-Entropy-Rate": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Parity-Bit-Single-Error-Detection": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Hamming-74-Code-and-Minimum-Distance": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Discrete-Mathematics",
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Interleaving-for-Burst-Error": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Markov-Source-Stationary-Distribution": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Computer-Science.Information-Theory.Channel-Coding": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Channel-Coding-Theorem": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
@@ -526,7 +1084,25 @@
     "Computer-Science.Information-Theory.Conditional-Entropy": {
       "subsubject": "Computer-Science.Information-Theory"
     },
+    "Computer-Science.Information-Theory.Entropy-Chain-Rule": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Pointwise-Mutual-Information": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Computer-Science.Information-Theory.Cyclic-Code": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Cyclic-Redundancy-Check": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
@@ -535,17 +1111,212 @@
     "Computer-Science.Information-Theory.Entropy": {
       "subsubject": "Computer-Science.Information-Theory"
     },
+    "Computer-Science.Information-Theory.Self-Information-Axioms": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Mathematics",
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Coding-Efficiency": {
+      "subsubject": "Computer-Science.Information-Theory"
+    },
+    "Computer-Science.Information-Theory.Entropy-Rate": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Differential-Entropy": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Kraft-Inequality-for-Binary-Trees": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Entropy-Lower-Bound-on-Weighted-External-Path-Length": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Information-Theory.Optimal-Alphabetic-Binary-Tree": {
+      "subsubject": "Computer-Science.Information-Theory"
+    },
+    "Computer-Science.Information-Theory.Block-vs-Run-Length-Source-Coding": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Computer-Science.Information-Theory.Huffman-Coding": {
       "subsubject": "Computer-Science.Information-Theory"
+    },
+    "Computer-Science.Information-Theory.Information-Theoretic-Lower-Bound": {
+      "subsubject": "Computer-Science.Information-Theory"
+    },
+    "Computer-Science.Information-Theory.Instantaneous-Code": {
+      "subsubject": "Computer-Science.Information-Theory"
+    },
+    "Computer-Science.Information-Theory.Minimum-Distance-Error-Correction": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Discrete-Mathematics",
+        "Electrical-Electronic"
+      ]
+    },
+    "Computer-Science.Information-Theory.Kullback-Leibler-Divergence": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence"
+      ]
     },
     "Computer-Science.Information-Theory.Mutual-Information": {
       "subsubject": "Computer-Science.Information-Theory"
     },
+    "Computer-Science.Information-Theory.Renyi-Entropy": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Computer-Science.Information-Theory.Source-Coding": {
       "subsubject": "Computer-Science.Information-Theory"
     },
+    "Computer-Science.Information-Theory.Source-Extension": {
+      "subsubject": "Computer-Science.Information-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Computer-Science.Information-Theory.Typical-Sequence": {
       "subsubject": "Computer-Science.Information-Theory"
+    },
+    "Computer-Science.Networks.Common-Gateway-Interface": {
+      "subsubject": "Computer-Science.Networks"
+    },
+    "Computer-Science.Networks.Autonomous-System-Numbers": {
+      "subsubject": "Computer-Science.Networks"
+    },
+    "Computer-Science.Networks.Domain-Name-System": {
+      "subsubject": "Computer-Science.Networks"
+    },
+    "Computer-Science.Networks.Internet-Protocol-Version-4-and-Version-6": {
+      "subsubject": "Computer-Science.Networks",
+      "aliases": [
+        "Computer-Science.Networks.IPv4-and-IPv6"
+      ]
+    },
+    "Computer-Science.Networks.Carrier-Sense-Multiple-Access-with-Collision-Detection": {
+      "subsubject": "Computer-Science.Networks",
+      "aliases": [
+        "Computer-Science.Networks.CSMA-CD"
+      ]
+    },
+    "Computer-Science.Networks.Transparent-Web-Cache-in-Wide-Area-Networks": {
+      "subsubject": "Computer-Science.Networks"
+    },
+    "Computer-Science.Networks.Available-Bandwidth-Estimation": {
+      "subsubject": "Computer-Science.Networks"
+    },
+    "Computer-Science.Networks.Transmission-Control-Protocol-and-User-Datagram-Protocol": {
+      "subsubject": "Computer-Science.Networks",
+      "aliases": [
+        "Computer-Science.Networks.TCP-and-UDP-Transport-Protocols"
+      ]
+    },
+    "Computer-Science.Networks.Bandwidth-Delay-Product": {
+      "subsubject": "Computer-Science.Networks",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Networks.Internet-Protocol-Version-4-Subnetting": {
+      "subsubject": "Computer-Science.Networks",
+      "aliases": [
+        "Computer-Science.Networks.IPv4-Subnetting"
+      ]
+    },
+    "Computer-Science.Networks.Packetization-Delay": {
+      "subsubject": "Computer-Science.Networks"
+    },
+    "Computer-Science.Networks.Protocol-Throughput-and-Utilization": {
+      "subsubject": "Computer-Science.Networks"
+    },
+    "Computer-Science.Networks.Reliable-Data-Transfer": {
+      "subsubject": "Computer-Science.Networks",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Networks.Server-Concurrency-and-Request-Queueing": {
+      "subsubject": "Computer-Science.Networks",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Computer-Science.Networks.Sliding-Window-Protocol": {
+      "subsubject": "Computer-Science.Networks"
+    },
+    "Computer-Science.Networks.Stop-and-Wait-Automatic-Repeat-Request": {
+      "subsubject": "Computer-Science.Networks",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ],
+      "aliases": [
+        "Computer-Science.Networks.Stop-and-Wait-ARQ"
+      ]
+    },
+    "Computer-Science.Databases.Query-Optimization": {
+      "subsubject": "Computer-Science.Databases"
+    },
+    "Computer-Science.Databases.Relational-Database-Normalization": {
+      "subsubject": "Computer-Science.Databases"
+    },
+    "Computer-Science.Databases.Relational-Algebra": {
+      "subsubject": "Computer-Science.Databases",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Databases.Relational-Model-and-Structured-Query-Language": {
+      "subsubject": "Computer-Science.Databases",
+      "aliases": [
+        "Computer-Science.Databases.Relational-Model-and-SQL"
+      ]
+    },
+    "Computer-Science.Databases.Schema-Design-and-Aggregation": {
+      "subsubject": "Computer-Science.Databases"
+    },
+    "Computer-Science.Operating-Systems.Concurrent-Task-Pool-with-Atomic-Work-Index": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Mutual-Exclusion-Primitives": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Test-and-Set-and-Swap-Spinlocks": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Page-Faults-and-Loop-Order-Locality": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Processes-and-Threads": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Inter-Process-Communication": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Real-Time-Systems": {
+      "subsubject": "Computer-Science.Operating-Systems",
+      "relatedSubjects": [
+        "Engineering"
+      ]
     },
     "Computer-Science.Operating-Systems.Virtual-Memory": {
       "subsubject": "Computer-Science.Operating-Systems"
@@ -553,11 +1324,134 @@
     "Computer-Science.Operating-Systems.Process-Synchronization": {
       "subsubject": "Computer-Science.Operating-Systems"
     },
+    "Computer-Science.Operating-Systems.Atomic-Operations": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Central-Processing-Unit-Scheduling": {
+      "subsubject": "Computer-Science.Operating-Systems",
+      "aliases": [
+        "Computer-Science.Operating-Systems.CPU-Scheduling"
+      ]
+    },
+    "Computer-Science.Operating-Systems.Deadlock-and-Starvation": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Dining-Philosophers-Problem": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Message-Passing-Synchronization": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Page-Replacement": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Priority-Aging": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Round-Robin-Scheduling": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Semaphore": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Shortest-Job-First-Scheduling": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
+    "Computer-Science.Operating-Systems.Page-Table": {
+      "subsubject": "Computer-Science.Operating-Systems"
+    },
     "Computer-Science.Operating-Systems.Peterson-Algorithm": {
       "subsubject": "Computer-Science.Operating-Systems"
     },
+    "Computer-Science.Programming.Reflection": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Referential-Transparency": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Higher-Order-Functions": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Unicode-Character-Encoding": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Tail-Recursion": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Closure": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Just-in-Time-Compilation": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Lambda-Expression": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Call-by-Value-vs-Call-by-Name": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Evaluation-Strategy-and-Termination": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Call-by-Value-and-Call-by-Reference": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Garbage-Collection": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Type-Checking-and-Type-Inference": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
     "Computer-Science.Programming.Base-Conversion": {
       "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Functional-Programming-Language-Features": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Caesar-Cipher": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Arbitrary-Precision-Arithmetic": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Programming.Approximate-Glyph-Recognition": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Computer-Science.Programming.Binary-File-Format-and-Endianness": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Character-Frequency-Analysis": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Programming.Connected-Component-Labeling": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Computer-Science.Programming.Code-Clone-Detection": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Dynamic-Memory-Allocation": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.File-Input-and-Output": {
+      "subsubject": "Computer-Science.Programming",
+      "aliases": [
+        "Computer-Science.Programming.File-IO"
+      ]
     },
     "Computer-Science.Programming.Bitwise-Operation": {
       "subsubject": "Computer-Science.Programming"
@@ -567,6 +1461,67 @@
       "relatedSubjects": [
         "Mathematics"
       ]
+    },
+    "Computer-Science.Programming.Integer-Overflow": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Programming.Multibyte-String-Processing": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Linear-Congruential-Generator": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Mathematics",
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Programming.NumPy-Array-Operations": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Computer-Science.Programming.Pointers-and-Arrays": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Prime-Enumeration": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Programming.Python-Object-Mutability": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Recursion": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Roman-Numeral-Conversion": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Sliding-Window-Pattern-Matching": {
+      "subsubject": "Computer-Science.Programming",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Computer-Science.Programming.String-Processing": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.String-Parsing": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Static-Interval-Analysis": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Substitution-Cipher": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Variable-Scope": {
+      "subsubject": "Computer-Science.Programming"
     },
     "Computer-Science.Programming.Palindrome-Number": {
       "subsubject": "Computer-Science.Programming",
@@ -584,16 +1539,82 @@
       "subsubject": "Computer-Science.Programming",
       "broad": true
     },
+    "Computer-Science.Programming.C-Short-Circuit-Evaluation": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.C-Operator-Precedence-and-Associativity": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Programming.Pointer-to-Pointer": {
+      "subsubject": "Computer-Science.Programming"
+    },
+    "Computer-Science.Security.Buffer-Overflow": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Security.Public-Key-Cryptography": {
+      "subsubject": "Computer-Science.Security",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Security.Cross-Site-Scripting": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Security.Network-Security-Protocols": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Security.Secure-Sockets-Layer": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Security.Targeted-Email-Attack": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Security.Phishing-Attack": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Security.Public-Key-Infrastructure": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Security.User-Authentication-Methods": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Distributed-Systems.Distributed-Hashing": {
+      "subsubject": "Computer-Science.Distributed-Systems",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Computer-Science.Distributed-Systems.Grid-Computing": {
+      "subsubject": "Computer-Science.Distributed-Systems"
+    },
+    "Computer-Science.Distributed-Systems.Client-Server-and-Peer-to-Peer-Comparison": {
+      "subsubject": "Computer-Science.Distributed-Systems"
+    },
     "Computer-Science.Quantum-Computing.Quantum-Computing": {
       "subsubject": "Computer-Science.Quantum-Computing",
       "relatedSubjects": [
         "Physics"
       ]
     },
+    "Computer-Science.String-Algorithms.Rabin-Karp-Rolling-Hash": {
+      "subsubject": "Computer-Science.String-Algorithms"
+    },
+    "Computer-Science.String-Algorithms.Hash-Collision-Verification-and-Worst-Case": {
+      "subsubject": "Computer-Science.String-Algorithms",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Computer-Science.String-Algorithms.Knuth-Morris-Pratt-Algorithm": {
       "subsubject": "Computer-Science.String-Algorithms",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm"
+      ]
+    },
+    "Computer-Science.String-Algorithms.Knuth-Morris-Pratt-Failure-and-Shift-Table": {
+      "subsubject": "Computer-Science.String-Algorithms",
+      "aliases": [
+        "Computer-Science.String-Algorithms.KMP-Failure-and-Shift-Table"
       ]
     },
     "Computer-Science.String-Algorithms.Longest-Palindromic-Substring": {

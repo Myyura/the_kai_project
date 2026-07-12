@@ -2,6 +2,10 @@
 sidebar_label: "2024年8月実施 数学A 1"
 tags:
   - Tohoku-University
+  - Mathematics.Calculus.Limit
+  - Mathematics.Calculus.Improper-Integral
+  - Mathematics.Calculus.Integration-by-Parts
+  - Mathematics.Calculus.Constrained-Optimization
 ---
 # 東北大学 工学研究科 機械系 2024年8月実施 数学A 1
 

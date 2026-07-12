@@ -3,7 +3,9 @@ sidebar_label: '2022年8月実施 専門科目 [1] 力学'
 sidebar_position: 1
 tags:
   - Hiroshima-University
-  - Physics.Mechanics
+  - Physics.Mechanics.Damped-Harmonic-Motion
+  - Physics.Mechanics.Lagrangian-Mechanics
+  - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 # 広島大学 先進理工系科学研究科 物理学プログラム 2022年8月実施 専門科目 \[1\] 力学
 

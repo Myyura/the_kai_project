@@ -35,12 +35,114 @@
       "descriptionZh": "材料结构、性质、相变与材料工程基础。",
       "descriptionJa": "材料構造、性質、相転移、材料工学基礎。",
       "descriptionEn": "Material structures, properties, phase transitions, and materials engineering basics."
+    },
+    "Engineering.Robotics": {
+      "subject": "Engineering",
+      "labelZh": "机器人学",
+      "labelJa": "ロボティクス",
+      "labelEn": "Robotics",
+      "descriptionZh": "机器人运动学、雅可比矩阵、静力学与执行器控制。",
+      "descriptionJa": "ロボット運動学、ヤコビ行列、静力学、アクチュエータ制御。",
+      "descriptionEn": "Robot kinematics, Jacobians, statics, and actuator control."
     }
   },
   "subsubjectOrder": [
     "Engineering.Mechanics-of-Materials",
     "Engineering.Fluid-Mechanics",
     "Engineering.Materials-Science"
+    ,"Engineering.Robotics"
   ],
-  "topics": {}
+  "topics": {
+    "Engineering.Robotics.Autonomous-Vehicle-Dynamic-Map": {
+      "subsubject": "Engineering.Robotics",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Engineering.Robotics.Zero-Moment-Point": {
+      "subsubject": "Engineering.Robotics",
+      "relatedSubjects": [
+        "Physics",
+        "Mathematics"
+      ]
+    },
+    "Engineering.Robotics.Force-Control-Implementation": {
+      "subsubject": "Engineering.Robotics",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Engineering.Mechanics-of-Materials.Strain-Gauge": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Engineering.Robotics.Forward-and-Inverse-Kinematics-of-Serial-Manipulator": {
+      "subsubject": "Engineering.Robotics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Engineering.Robotics.Simultaneous-Localization-and-Mapping": {
+      "subsubject": "Engineering.Robotics",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Probability-Statistics"
+      ]
+    },
+    "Engineering.Robotics.Articulated-Link-Mechanism-Representation": {
+      "subsubject": "Engineering.Robotics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Engineering.Robotics.Manipulator-Jacobian-and-End-Effector-Velocity": {
+      "subsubject": "Engineering.Robotics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Engineering.Robotics.Jacobian-Transpose-Joint-Torque": {
+      "subsubject": "Engineering.Robotics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Physics"
+      ]
+    },
+    "Engineering.Fluid-Mechanics.Logarithmic-Wind-Profile-and-Wind-Power-Scaling": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Physics"
+      ]
+    },
+    "Engineering.Mechanics-of-Materials.Beam-Deflection": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Engineering.Mechanics-of-Materials.Euler-Buckling": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "relatedSubjects": [
+        "Mathematics",
+        "Physics"
+      ]
+    },
+    "Engineering.Mechanics-of-Materials.Thermal-Deformation-Compatibility": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Engineering.Mechanics-of-Materials.Yielding": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    }
+  }
 }

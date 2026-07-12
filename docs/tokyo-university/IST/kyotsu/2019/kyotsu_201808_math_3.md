@@ -2,6 +2,9 @@
 sidebar_label: "2018年8月実施 数学 第3問"
 tags:
   - Tokyo-University
+  - Probability-Statistics.Probability-and-Statistics-Basics.Random-Ray-Intersection-with-Polygon
+  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density-by-Variable-Transformation
+  - Probability-Statistics.Probability-and-Statistics-Basics.Geometric-Probability
 ---
 # 東京大学 情報理工学研究科 2018年8月実施 数学 第3問
 

@@ -2,7 +2,8 @@
 sidebar_label: 2024年1月実施 線形代数
 tags:
   - Kyushu-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Rayleigh-Quotient
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2024年1月実施 線形代数
 

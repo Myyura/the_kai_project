@@ -2,7 +2,9 @@
 sidebar_label: 2015年8月実施 プログラミング
 tags:
   - Tokyo-University
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Base-Conversion
+  - Computer-Science.Programming.Roman-Numeral-Conversion
+  - Computer-Science.Programming.String-Parsing
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2015年8月実施 プログラミング
 

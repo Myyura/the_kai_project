@@ -2,6 +2,8 @@
 sidebar_label: "2023年8月実施 基礎科目 [1]"
 tags:
   - Kyushu-University
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Orthogonal-Diagonalization-of-Symmetric-Matrices
 ---
 # 九州大学 数理学府 数理学コース 2023年8月実施 基礎科目 \[1\]
 

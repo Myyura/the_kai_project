@@ -2,7 +2,13 @@
 sidebar_label: "2019年8月実施 計算機アーキテクチャ"
 tags:
   - Kyushu-University
-  - Computer-Science.Computer-Architecture
+  - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
+  - Computer-Science.Computer-Architecture.Pipelining
+  - Computer-Science.Computer-Architecture.Data-Hazard
+  - Computer-Science.Computer-Architecture.Data-Forwarding
+  - Computer-Science.Computer-Architecture.Cache
+  - Computer-Science.Computer-Architecture.Cache-Address-Mapping
+  - Computer-Science.Computer-Architecture.Average-Memory-Access-Time
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2019年8月実施 計算機アーキテクチャ
 

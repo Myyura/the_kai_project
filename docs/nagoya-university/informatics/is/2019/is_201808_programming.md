@@ -2,7 +2,11 @@
 sidebar_label: "2018年8月実施 プログラミング"
 tags:
   - Nagoya-University
-  - Computer-Science.Programming
+  - Computer-Science.Programming.String-Processing
+  - Computer-Science.Programming.Multibyte-String-Processing
+  - Computer-Science.Programming.Pointers-and-Arrays
+  - Computer-Science.Programming.Dynamic-Memory-Allocation
+  - Computer-Science.Programming.Bitwise-Operation
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2018年8月実施 プログラミング
 

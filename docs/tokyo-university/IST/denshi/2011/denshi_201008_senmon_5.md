@@ -2,6 +2,9 @@
 sidebar_label: "2010年8月実施 専門 第5問"
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Signal-Processing.Z-Transform-Time-Shift
+  - Electrical-Electronic.Signal-Processing.Convolution-Theorem
+  - Electrical-Electronic.Signal-Processing.Discrete-Time-Transfer-Function-and-Impulse-Response
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2010年8月実施 専門 第5問 
 

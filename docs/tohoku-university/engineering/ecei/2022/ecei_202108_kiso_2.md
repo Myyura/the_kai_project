@@ -2,7 +2,10 @@
 sidebar_label: 2021年8月実施 基礎科目 問題2 電気回路
 tags:
   - Tohoku-University
-  - Electrical-Electronic.Circuits
+  - Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis
+  - Electrical-Electronic.Circuits.Alternating-Current-Power-and-Power-Factor
+  - Electrical-Electronic.Circuits.Mutual-Inductance
+  - Electrical-Electronic.Circuits.Wheatstone-Bridge
 ---
 # 東北大学 工学研究科 電気・情報系 2021年8月実施 基礎科目 問題2 電気回路
 

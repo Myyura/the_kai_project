@@ -2,6 +2,11 @@
 sidebar_label: "2022年8月実施 【数学-1,2】"
 tags:
   - Tohoku-University
+  - Mathematics.Linear-Algebra.Matrix-Inverse
+  - Mathematics.Vector-Calculus.Divergence-Theorem
+  - Mathematics.Calculus.Triple-Integral
+  - Mathematics.Complex-Analysis.Complex-Roots
+  - Mathematics.Complex-Analysis.Taylor-Series-and-Radius-of-Convergence
 ---
 # 東北大学 工学研究科 マテリアル・開発系 2022年8月実施 【数学-1,2】
 

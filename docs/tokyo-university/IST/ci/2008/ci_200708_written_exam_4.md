@@ -2,6 +2,14 @@
 sidebar_label: '2007年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Computer-Science.Algorithm-Design.Divide-and-Conquer
+  - Computer-Science.Data-Structures.B-Tree
+  - Electrical-Electronic.Signal-Processing.Sampling-Theorem-and-Aliasing
+  - Electrical-Electronic.Signal-Processing.Impulse-and-Step-Response-Relationship
+  - Data-Science-Artificial-Intelligence.Data-Science.Vector-Quantization
+  - Computer-Science.Computer-Architecture.Out-of-Order-Execution
+  - Computer-Science.Formal-Languages.Regular-Grammar-and-Regular-Language
+  - Computer-Science.Networks.Common-Gateway-Interface
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2007年8月実施 筆記試験 第4問
 ## **Author**

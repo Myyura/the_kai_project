@@ -2,7 +2,12 @@
 sidebar_label: 2021年8月実施 数学【II】
 tags:
   - Kyoto-University
-  - Mathematics.Calculus
+  - Mathematics.Calculus.Change-of-Variables-and-Jacobian
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Calculus.Improper-Integral
+  - Mathematics.Calculus.Limit
+  - Mathematics.Vector-Calculus.Tangent-Plane
+  - Mathematics.Calculus.Constrained-Optimization
 ---
 # 京都大学 情報学研究科 システム科学専攻 2021年8月実施 数学【II】
 

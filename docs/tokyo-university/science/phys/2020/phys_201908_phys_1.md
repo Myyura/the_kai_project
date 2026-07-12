@@ -2,6 +2,9 @@
 sidebar_label: '2019年8月実施 物理学 第1問'
 tags:
   - Tokyo-University
+  - Physics.Quantum-Mechanics.Pauli-Matrices
+  - Physics.Quantum-Mechanics.Bell-State-Correlation
+  - Physics.Quantum-Mechanics.Bell-Inequality-and-Local-Hidden-Variable-Contradiction
 ---
 
 # 東京大学 理学系研究科 物理学専攻 2019年8月実施 物理学 第1問

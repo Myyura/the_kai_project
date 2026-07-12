@@ -2,6 +2,12 @@
 sidebar_label: "2019年8月実施 専門科目 第1問"
 tags:
   - Tokyo-University
+  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
+  - Probability-Statistics.Statistical-Inference.Family-Wise-Error-Rate
+  - Probability-Statistics.Statistical-Inference.Confidence-Interval-Width-vs-Sample-Size
+  - Probability-Statistics.Probability-and-Statistics-Basics.Weibull-Distribution
+  - Probability-Statistics.Statistical-Inference.Odds-Ratio-and-Confidence-Interval
+  - Probability-Statistics.Statistical-Inference.Receiver-Operating-Characteristic-Curve-Interpretation
 ---
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2019年8月実施 専門科目 第1問
 

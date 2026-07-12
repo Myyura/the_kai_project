@@ -2,6 +2,14 @@
 sidebar_label: "2022年8月実施 専門科目 S-3"
 tags:
   - Kyoto-University
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Feedforward-Neural-Network
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Multi-Label-Classification
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Binary-Cross-Entropy
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Backpropagation
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Vanishing-Gradient-and-Mitigation
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Feature-Standardization
+  - Probability-Statistics.Statistical-Inference.Mahalanobis-Distance
+  - Probability-Statistics.Probability-and-Statistics-Basics.Covariance-Matrix
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2022年8月実施 専門科目 S-3
 

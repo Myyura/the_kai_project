@@ -2,7 +2,10 @@
 sidebar_label: 2011年8月実施 専門 第3問
 tags:
   - Tokyo-University
-  - Computer-Science.Databases
+  - Computer-Science.Databases.Relational-Model-and-Structured-Query-Language
+  - Computer-Science.Databases.Relational-Algebra
+  - Computer-Science.Databases.Query-Optimization
+  - Computer-Science.Databases.Schema-Design-and-Aggregation
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2011年8月実施 専門 第3問
 

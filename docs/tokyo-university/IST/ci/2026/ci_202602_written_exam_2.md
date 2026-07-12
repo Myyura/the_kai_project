@@ -3,7 +3,10 @@ sidebar_label: 2026年2月実施 筆記試験 第2問
 tags:
   - Tokyo-University
   - Probability-Statistics.Probability-and-Statistics-Basics
-  - Operations-Research.Queueing-Theory
+  - Probability-Statistics.Stochastic-Processes.Birth-Death-Process
+  - Operations-Research.Queueing-Theory.M-M-1-Queue
+  - Operations-Research.Queueing-Theory.Littles-Law
+  - Operations-Research.Queueing-Theory.Average-Waiting-Time
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2026年2月実施 筆記試験 第2問
 ## **Author**

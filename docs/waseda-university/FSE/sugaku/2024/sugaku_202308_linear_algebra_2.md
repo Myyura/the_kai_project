@@ -2,7 +2,11 @@
 sidebar_label: '2023年8月実施 線形代数 [2]'
 tags:
   - Waseda-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Projection-Operator
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Gram-Schmidt-Orthogonalization
+  - Mathematics.Linear-Algebra.Orthogonal-Matrix
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
 ---
 # 早稲田大学 基幹理工学研究科 数学応用数理専攻 2023年8月実施 線形代数 \[2\]
 

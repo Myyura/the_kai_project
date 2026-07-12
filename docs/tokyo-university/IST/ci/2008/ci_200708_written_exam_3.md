@@ -2,6 +2,7 @@
 sidebar_label: '2007年8月実施 筆記試験 第3問'
 tags:
   - Tokyo-University
+  - Computer-Science.Graphics.Hough-Transform-for-Line-Detection
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2007年8月実施 筆記試験 第3問
 ## **Author**
@@ -28,5 +29,4 @@ The point $P_0(a_0, b_0)$ of the $a$-$b$ parameter coordinates (Fig. 4) shows th
 (3) Consider the three points $(x_i, y_i), 1 \le i \le 3$ on a line as in Fig. 5. Let $L_i$ be a line that passes $(x_i, y_i), 1 \le i \le 3$. Rotate each line $L_i$ at $(x_i, y_i)$. Illustrate the corresponding trajectories of the point $P_i$ in the $a$-$b$ coordinates.
 
 (4) Considering the methods described above, explain how to get the equations of the two straight boundary lines from the points of Fig. 2.
-
 

@@ -2,6 +2,9 @@
 sidebar_label: "2012年8月実施 専門 第2問"
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Digital-Logic.Synchronous-Modulo-Counter
+  - Electrical-Electronic.Digital-Logic.Periodic-Sequence-Generator
+  - Electrical-Electronic.Digital-Logic.Karnaugh-Map-Minimization
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2012年8月実施 専門 第2問 
 

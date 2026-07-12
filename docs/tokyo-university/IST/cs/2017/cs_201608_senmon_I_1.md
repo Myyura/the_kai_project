@@ -2,7 +2,10 @@
 sidebar_label: 2016年8月実施 専門科目I 問題1
 tags:
   - Tokyo-University
-  - Computer-Science.Formal-Languages
+  - Computer-Science.Formal-Languages.Nondeterministic-Finite-Automaton
+  - Computer-Science.Formal-Languages.Deterministic-Finite-Automaton
+  - Computer-Science.Formal-Languages.Regular-Language-Closure-Properties
+  - Computer-Science.Formal-Languages.Regular-Language-Decision-Problems
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2016年8月実施 専門科目I 問題1
 

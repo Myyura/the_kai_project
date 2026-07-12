@@ -2,6 +2,9 @@
 sidebar_label: "2023年8月実施 数学 [1]"
 tags:
   - Waseda-University
+  - Mathematics.Linear-Algebra.Matrix-Exponential
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+  - Mathematics.Differential-Equations.Systems-of-ODEs
 ---
 # 早稲田大学 基幹理工学研究科 機械科学・航空宇宙専攻 2023年8月実施 数学 \[1\]
 

@@ -2,6 +2,9 @@
 sidebar_label: "2023年8月実施 専門科目 問題4"
 tags:
   - Tokyo-University
+  - Computer-Science.Programming.Call-by-Value-vs-Call-by-Name
+  - Computer-Science.Programming.Evaluation-Strategy-and-Termination
+  - Computer-Science.Programming.Recursion
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2023年8月実施 専門科目 問題4
 

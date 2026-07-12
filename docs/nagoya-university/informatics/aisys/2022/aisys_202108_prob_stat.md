@@ -2,7 +2,10 @@
 sidebar_label: 2021年8月実施 確率・統計
 tags:
   - Nagoya-University
-  - Probability-Statistics.Probability-and-Statistics-Basics
+  - Probability-Statistics.Probability-and-Statistics-Basics.Geometric-Probability
+  - Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Random-Variable-Transformation
+  - Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2021年8月実施 確率・統計
 

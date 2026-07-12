@@ -2,6 +2,9 @@
 sidebar_label: "2018年8月実施 数学 第2問"
 tags:
   - Tokyo-University
+  - Mathematics.Complex-Analysis.Contour-Shift-of-Gaussian-Integral
+  - Mathematics.Fourier-Analysis.Fourier-Transform-Solution-of-Wave-Equation
+  - Mathematics.Differential-Equations.Wave-Equation
 ---
 # 東京大学 情報理工学研究科 2018年8月実施 数学 第2問
 

@@ -2,6 +2,15 @@
 sidebar_label: "2018年8月実施 専門科目 第1問"
 tags:
   - Tokyo-University
+  - Probability-Statistics.Statistical-Inference.Measurement-Scales-and-Summary-Statistics
+  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density
+  - Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function
+  - Mathematics.Calculus.Beta-Function
+  - Mathematics.Calculus.Gamma-Function
+  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Memoryless-Property
+  - Probability-Statistics.Statistical-Inference.Central-Limit-Theorem
+  - Probability-Statistics.Statistical-Inference.Type-II-Error-Interpretation
+  - Probability-Statistics.Statistical-Inference.Adjusted-R-Squared
 ---
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2018年8月実施 専門科目 第1問
 

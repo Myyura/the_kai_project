@@ -2,6 +2,10 @@
 sidebar_label: "2023年8月実施 専門科目 問題2"
 tags:
   - Tokyo-University
+  - Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate
+  - Computer-Science.Computer-Architecture.Instructions-per-Cycle-with-Variable-Latency-Memory-Access
+  - Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization
+  - Computer-Science.Computer-Architecture.Cache-Aware-Loop-and-Register-Reuse
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2023年8月実施 専門科目 問題2
 

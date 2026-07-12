@@ -2,7 +2,9 @@
 sidebar_label: "2024年8月実施 プログラミング"
 tags:
   - Nagoya-University
-  - Computer-Science.Programming
+  - Computer-Science.Programming.NumPy-Array-Operations
+  - Computer-Science.Programming.Recursion
+  - Mathematics.Linear-Algebra.Smith-Normal-Form
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2024年8月実施 プログラミング
 

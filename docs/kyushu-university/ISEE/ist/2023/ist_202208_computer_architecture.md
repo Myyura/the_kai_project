@@ -2,7 +2,12 @@
 sidebar_label: "2022年8月実施 計算機アーキテクチャ"
 tags:
   - Kyushu-University
-  - Computer-Science.Computer-Architecture
+  - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
+  - Computer-Science.Computer-Architecture.Pipelining
+  - Computer-Science.Computer-Architecture.Superscalar-Execution
+  - Computer-Science.Computer-Architecture.Performance-Analysis
+  - Computer-Science.Computer-Architecture.Cache
+  - Computer-Science.Computer-Architecture.Cache-Miss-Types
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2022年8月実施 計算機アーキテクチャ
 

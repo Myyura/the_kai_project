@@ -2,7 +2,9 @@
 sidebar_label: 2025年度 第一期 数学 3
 tags:
   - Kobe-University
-  - Mathematics.Differential-Equations
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Wronskian
+  - Mathematics.Differential-Equations.Reduction-of-Order
 ---
 # 神戸大学 システム情報学研究科 2025年度 第一期 数学 3
 

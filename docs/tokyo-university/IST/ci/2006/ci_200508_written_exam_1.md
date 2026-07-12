@@ -2,6 +2,8 @@
 sidebar_label: '2005年8月実施 筆記試験 第1問'
 tags:
   - Tokyo-University
+  - Computer-Science.Dynamic-Programming.Minimum-Edit-Distance
+  - Computer-Science.Algorithm-Design.Algorithm-Complexity
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2005年8月実施 筆記試験 第1問
 ## **Author**

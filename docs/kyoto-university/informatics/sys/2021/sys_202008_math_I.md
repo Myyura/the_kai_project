@@ -2,7 +2,13 @@
 sidebar_label: 2020年8月実施 数学【I】
 tags:
   - Kyoto-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Projection-Operator
+  - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
+  - Mathematics.Linear-Algebra.Matrix-Rank
+  - Mathematics.Linear-Algebra.Matrix-Determinant
+  - Mathematics.Linear-Algebra.Matrix-Inverse
+  - Mathematics.Linear-Algebra.Rayleigh-Quotient
+  - Mathematics.Linear-Algebra.Quadratic-Form
 ---
 # 京都大学 情報学研究科 システム科学専攻 2020年8月実施 数学【I】
 

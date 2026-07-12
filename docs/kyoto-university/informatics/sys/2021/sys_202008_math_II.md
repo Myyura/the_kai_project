@@ -2,7 +2,9 @@
 sidebar_label: 2020年8月実施 数学【II】
 tags:
   - Kyoto-University
-  - Mathematics.Calculus
+  - Mathematics.Real-Analysis.Functional-Equation
+  - Mathematics.Calculus.Limit
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
 ---
 # 京都大学 情報学研究科 システム科学専攻 2020年8月実施 数学【II】
 

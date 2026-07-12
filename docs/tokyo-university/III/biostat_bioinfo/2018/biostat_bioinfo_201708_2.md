@@ -2,6 +2,10 @@
 sidebar_label: "2017年8月実施 専門科目 第2問"
 tags:
   - Tokyo-University
+  - Probability-Statistics.Probability-and-Statistics-Basics.Joint-Density-on-Triangular-Support
+  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density
+  - Probability-Statistics.Probability-and-Statistics-Basics.Marginal-Densities-and-Independence-Test
+  - Probability-Statistics.Probability-and-Statistics-Basics.Covariance-under-Affine-Transformation
 ---
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2017年8月実施 専門科目 第2問
 

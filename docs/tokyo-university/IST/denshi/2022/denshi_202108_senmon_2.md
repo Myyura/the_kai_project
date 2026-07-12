@@ -2,8 +2,12 @@
 sidebar_label: 2021年8月実施 専門 第2問
 tags:
   - Tokyo-University
-  - Computer-Science.Computer-Architecture
-  - Computer-Science.Operating-Systems
+  - Computer-Science.Computer-Architecture.Cache
+  - Computer-Science.Computer-Architecture.Multi-Level-Cache
+  - Computer-Science.Computer-Architecture.Performance-Analysis
+  - Computer-Science.Computer-Architecture.Write-Back-Policy
+  - Computer-Science.Operating-Systems.Virtual-Memory
+  - Computer-Science.Operating-Systems.Page-Table
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2021年8月実施 専門 第2問
 

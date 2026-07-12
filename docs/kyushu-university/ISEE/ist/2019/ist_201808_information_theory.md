@@ -2,7 +2,9 @@
 sidebar_label: "2018年8月実施 情報理論"
 tags:
   - Kyushu-University
-  - Computer-Science.Information-Theory
+  - Computer-Science.Information-Theory.Entropy
+  - Computer-Science.Information-Theory.Huffman-Coding
+  - Probability-Statistics.Stochastic-Processes.Markov-Information-Source
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2018年8月実施 情報理論
 

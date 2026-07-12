@@ -2,7 +2,11 @@
 sidebar_label: 2024年8月実施 数学【I】
 tags:
   - Kyoto-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Nilpotent-Matrix
+  - Mathematics.Linear-Algebra.Kernel-and-Image
+  - Mathematics.Linear-Algebra.Vector-Space-and-Subspace
+  - Mathematics.Linear-Algebra.Skew-Symmetric-Matrix
+  - Mathematics.Linear-Algebra.Matrix-Determinant
 ---
 # 京都大学 情報学研究科 システム科学専攻 2024年8月実施 数学【I】
 

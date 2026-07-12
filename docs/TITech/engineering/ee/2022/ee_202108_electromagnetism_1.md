@@ -2,7 +2,11 @@
 sidebar_label: 2021年8月実施 電磁気学1
 tags:
   - TITech
-  - Physics.Electromagnetism
+  - Physics.Electromagnetism.Coaxial-Capacitor-and-Line
+  - Physics.Electromagnetism.Gauss-Law
+  - Physics.Electromagnetism.Electric-Potential-and-Field
+  - Physics.Electromagnetism.Capacitance-and-Electrostatic-Energy
+  - Physics.Electromagnetism.Dielectrics-and-Boundary-Conditions
 ---
 # 東京工業大学 工学院 電気電子系 2021年8月実施 電磁気学1
 

@@ -2,7 +2,9 @@
 sidebar_label: 2021年2・3月実施 基礎科目 問題2 電気回路
 tags:
   - Tohoku-University
-  - Electrical-Electronic.Circuits
+  - Electrical-Electronic.Circuits.Circuit-Transient-Response
+  - Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Damping
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
 ---
 # 東北大学 工学研究科 電気・情報系 2021年2・3月実施 基礎科目 問題2 電気回路
 

@@ -2,6 +2,9 @@
 sidebar_label: "2022年8月実施 専門科目1 問1 (応用数学I)"
 tags:
   - Hokkaido-University
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Rayleigh-Quotient
+  - Mathematics.Linear-Algebra.Quadratic-Form
 ---
 # 北海道大学 情報科学院 情報科学専攻 システム情報科学コース 2022年8月実施 専門科目1 問1 (応用数学I)
 

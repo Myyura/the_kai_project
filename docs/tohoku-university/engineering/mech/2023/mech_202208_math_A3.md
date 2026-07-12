@@ -2,6 +2,10 @@
 sidebar_label: "2022年8月実施 数学A 3"
 tags:
   - Tohoku-University
+  - Mathematics.Vector-Calculus.Gradient-Divergence-and-Curl
+  - Mathematics.Vector-Calculus.Divergence-Theorem
+  - Mathematics.Vector-Calculus.Stokes-Theorem
+  - Mathematics.Vector-Calculus.Surface-Integral
 ---
 # 東北大学 工学研究科 機械系 2022年8月実施 数学A 3
 

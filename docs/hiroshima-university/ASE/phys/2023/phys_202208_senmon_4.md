@@ -3,7 +3,8 @@ sidebar_label: '2022年8月実施 専門科目 [4] 熱統計力学'
 sidebar_position: 2
 tags:
   - Hiroshima-University
-  - Physics.Thermodynamics
+  - Physics.Thermodynamics.Enthalpy-and-Thermodynamic-Relations
+  - Physics.Thermodynamics.Joule-Thomson-Effect
 ---
 # 広島大学 先進理工系科学研究科 物理学プログラム 2022年8月実施 専門科目 \[4\] 熱統計力学
 

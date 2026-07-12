@@ -2,7 +2,10 @@
 sidebar_label: "2021年8月実施 情報理論"
 tags:
   - Kyushu-University
-  - Computer-Science.Information-Theory
+  - Computer-Science.Information-Theory.Channel-Capacity
+  - Probability-Statistics.Stochastic-Processes.Markov-Information-Source
+  - Computer-Science.Information-Theory.Entropy-Rate
+  - Computer-Science.Information-Theory.Huffman-Coding
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2021年8月実施 情報理論
 

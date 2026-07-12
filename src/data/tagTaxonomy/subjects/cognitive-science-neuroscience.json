@@ -25,5 +25,42 @@
   "subsubjectOrder": [
     "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
   ],
-  "topics": {}
+  "topics": {
+    "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Attentional-Orienting": {
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
+    },
+    "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Dissociation-Methods": {
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
+    },
+    "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Magnetoencephalography-vs-Functional-Magnetic-Resonance-Imaging": {
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
+      "relatedSubjects": [
+        "Engineering"
+      ],
+      "aliases": [
+        "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.MEG-vs-fMRI"
+      ]
+    },
+    "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Reaction-Time-Experiment-Design": {
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Sensory-Processing-and-Illusions": {
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
+    },
+    "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Speed-Accuracy-Tradeoff": {
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
+    },
+    "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Voxel-Based-Morphometry-and-Diffusion-Tensor-Imaging": {
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ],
+      "aliases": [
+        "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.VBM-and-DTI"
+      ]
+    }
+  }
 }

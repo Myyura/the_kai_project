@@ -2,6 +2,11 @@
 sidebar_label: "2018年8月実施 専門科目I 問題2"
 tags:
   - Tokyo-University
+  - Computer-Science.Operating-Systems.Virtual-Memory
+  - Computer-Science.Operating-Systems.Page-Table
+  - Computer-Science.Operating-Systems.Page-Replacement
+  - Computer-Science.Computer-Architecture.Translation-Lookaside-Buffer
+  - Computer-Science.Operating-Systems.Page-Faults-and-Loop-Order-Locality
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2018年8月実施 専門科目I 問題2
 
@@ -128,4 +133,3 @@ page faults in total.
 
 
 This one was also solved in Silberschatz's *Operating Systems Concepts, 9th ed.,* Chapter 9.9.5.
-

@@ -2,7 +2,14 @@
 sidebar_label: 2023年8月実施 数学【I】
 tags:
   - Kyoto-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Systems-of-Linear-Equations
+  - Mathematics.Linear-Algebra.Matrix-Trace
+  - Mathematics.Linear-Algebra.Matrix-Determinant
+  - Mathematics.Linear-Algebra.Nilpotent-Matrix
+  - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
+  - Mathematics.Linear-Algebra.Projection-Operator
+  - Mathematics.Linear-Algebra.Matrix-Rank
+  - Mathematics.Linear-Algebra.Kernel-and-Image
 ---
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 数学【I】
 

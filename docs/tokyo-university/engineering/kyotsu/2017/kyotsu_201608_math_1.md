@@ -2,6 +2,10 @@
 sidebar_label: '2016年8月実施 数学 第1問'
 tags:
   - Tokyo-University
+  - Mathematics.Calculus.Integration-by-Substitution
+  - Mathematics.Differential-Equations.Clairaut-Equation-and-Singular-Solution
+  - Mathematics.Differential-Equations.Cauchy-Euler-Equation
+  - Mathematics.Differential-Equations.Method-of-Undetermined-Coefficients
 ---
 
 # 東京大学 工学系研究科 2016年8月実施 数学 第1問

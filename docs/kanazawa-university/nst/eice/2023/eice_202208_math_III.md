@@ -2,7 +2,9 @@
 sidebar_label: 2022年8月実施 数学 III
 tags:
   - Kanazawa-University
-  - Mathematics.Complex-Analysis
+  - Mathematics.Complex-Analysis.Singularities-and-Poles
+  - Mathematics.Complex-Analysis.Residue-Theorem
+  - Mathematics.Complex-Analysis.Contour-Integration
 ---
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 数学 III
 

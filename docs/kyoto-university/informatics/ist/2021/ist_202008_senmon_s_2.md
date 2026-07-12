@@ -2,6 +2,14 @@
 sidebar_label: "2020年8月実施 専門科目 S-2"
 tags:
   - Kyoto-University
+  - Probability-Statistics.Probability-and-Statistics-Basics.Poisson-Distribution
+  - Probability-Statistics.Statistical-Inference.Central-Limit-Theorem
+  - Probability-Statistics.Statistical-Inference.Student-t-Confidence-Interval
+  - Probability-Statistics.Statistical-Inference.Common-Significance-Interpretation-Errors
+  - Probability-Statistics.Statistical-Inference.Bonferroni-Correction
+  - Probability-Statistics.Statistical-Inference.Effect-Size
+  - Probability-Statistics.Statistical-Inference.Bootstrap-Method
+  - Probability-Statistics.Statistical-Inference.Statistical-Power
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2020年8月実施 専門科目 S-2
 

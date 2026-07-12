@@ -2,6 +2,14 @@
 sidebar_label: '2014年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Computer-Science.Computer-Architecture.Superscalar-Execution
+  - Computer-Science.Security.Cross-Site-Scripting
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Support-Vector-Machine
+  - Engineering.Mechanics-of-Materials.Strain-Gauge
+  - Electrical-Electronic.Digital-Logic.Half-and-Full-Adders
+  - Computer-Science.Programming.Just-in-Time-Compilation
+  - Electrical-Electronic.Digital-Logic.Pulse-Width-Modulation
+  - Computer-Science.Graphics.Optical-Flow
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2014年8月実施 筆記試験 第4問
 ## **Author**

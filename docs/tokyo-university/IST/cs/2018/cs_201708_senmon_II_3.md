@@ -2,6 +2,10 @@
 sidebar_label: "2017年8月実施 専門科目II 問題3"
 tags:
   - Tokyo-University
+  - Computer-Science.Data-Structures.Minimum-Nodes-in-Height-Balanced-Binary-Tree
+  - Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence
+  - Computer-Science.Data-Structures.Heap-Order-Assignment-by-Linear-Time-Construction
+  - Computer-Science.Algorithm-Design.Algorithm-Complexity
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2017年8月実施 専門科目II 問題3
 

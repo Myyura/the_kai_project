@@ -2,6 +2,8 @@
 sidebar_label: "2021年8月実施 基礎科目 問題6 数学基礎"
 tags:
   - Tohoku-University
+  - Mathematics.Fourier-Analysis.Fourier-Series
+  - Mathematics.Fourier-Analysis.Infinite-Series-from-Fourier-Series
 ---
 # 東北大学 工学研究科 電気・情報系 2021年8月実施 基礎科目 問題6 数学基礎
 

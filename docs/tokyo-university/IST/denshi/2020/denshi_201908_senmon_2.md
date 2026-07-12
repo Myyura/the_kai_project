@@ -2,6 +2,9 @@
 sidebar_label: "2019年8月実施 専門 第2問"
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Digital-Logic.Ripple-Carry-Adder
+  - Electrical-Electronic.Digital-Logic.Signed-Addition-Subtraction-and-Overflow-Detection
+  - Computer-Science.Computer-Architecture.Number-Representation
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2019年8月実施 専門 第2問 
 

@@ -4,7 +4,7 @@ tags:
   - Kyoto-University
   - Computer-Science.Computer-Architecture.Number-Representation
   - Computer-Science.Computer-Architecture.Floating-Point-Representation
-  - Computer-Science.Computer-Architecture.IEEE-754
+  - Computer-Science.Computer-Architecture.IEEE-Standard-754-Floating-Point-Arithmetic
   - Computer-Science.Computer-Architecture.Addressing-Modes
   - Computer-Science.Computer-Architecture.Pipelining
 ---

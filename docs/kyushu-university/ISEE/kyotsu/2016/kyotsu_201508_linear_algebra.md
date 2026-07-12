@@ -2,7 +2,9 @@
 sidebar_label: 2015年8月実施 線形代数
 tags:
   - Kyushu-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Orthogonal-Matrix
+  - Mathematics.Linear-Algebra.Vector-Space-and-Subspace
+  - Mathematics.Linear-Algebra.Linear-Independence
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2015年8月実施 線形代数
 

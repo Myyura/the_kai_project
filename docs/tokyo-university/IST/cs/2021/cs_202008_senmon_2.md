@@ -2,7 +2,9 @@
 sidebar_label: 2020年8月実施 専門科目 問題2
 tags:
   - Tokyo-University
-  - Computer-Science.Formal-Languages
+  - Computer-Science.Formal-Languages.Language-Substitution
+  - Computer-Science.Formal-Languages.Epsilon-Nondeterministic-Finite-Automaton
+  - Computer-Science.Formal-Languages.Regular-Language-Closure-Properties
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2020年8月実施 専門科目 問題2
 

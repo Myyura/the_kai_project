@@ -2,6 +2,10 @@
 sidebar_label: "2025年度 第一期 数学 1"
 tags:
   - Kobe-University
+  - Mathematics.Calculus.Intermediate-Value-Theorem
+  - Mathematics.Calculus.Definite-Integral
+  - Mathematics.Linear-Algebra.Linear-Transformation
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
 # 神戸大学 システム情報学研究科 2025年度 第一期 数学 1
 

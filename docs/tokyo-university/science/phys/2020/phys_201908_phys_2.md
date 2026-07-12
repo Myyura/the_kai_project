@@ -2,6 +2,11 @@
 sidebar_label: '2019年8月実施 物理学 第2問'
 tags:
   - Tokyo-University
+  - Physics.Thermodynamics.Classical-Ideal-Gas-Partition-Function-and-Gibbs-Factor
+  - Physics.Thermodynamics.Classical-Ideal-Gas-Entropy-and-Low-Temperature-Failure
+  - Physics.Thermodynamics.Fermi-Dirac-Grand-Canonical-Distribution
+  - Physics.Thermodynamics.High-Temperature-Fermi-Gas-Classical-Limit
+  - Physics.Thermodynamics.Low-Temperature-Fermi-Gas-Heat-Capacity-and-Entropy
 ---
 
 # 東京大学 理学系研究科 物理学専攻 2019年8月実施 物理学 第2問

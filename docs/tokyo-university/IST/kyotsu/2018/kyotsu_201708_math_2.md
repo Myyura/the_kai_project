@@ -2,6 +2,8 @@
 sidebar_label: "2017年8月実施 数学 第2問"
 tags:
   - Tokyo-University
+  - Mathematics.Real-Analysis.Uniform-Convergence-by-Supremum-Error
+  - Mathematics.Real-Analysis.Asymptotics-of-Nonlinear-Sequence-Recurrence
 ---
 # 東京大学 情報理工学研究科 2017年8月実施 数学 第2問
 

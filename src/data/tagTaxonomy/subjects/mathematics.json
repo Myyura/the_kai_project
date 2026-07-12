@@ -63,6 +63,15 @@
       "descriptionJa": "整数、整除、最大公約数、整数論的アルゴリズム。",
       "descriptionEn": "Integers, divisibility, greatest common divisors, and number-theoretic algorithms."
     },
+    "Mathematics.Numerical-Analysis": {
+      "subject": "Mathematics",
+      "labelZh": "数值分析",
+      "labelJa": "数値解析",
+      "labelEn": "Numerical Analysis",
+      "descriptionZh": "数值微分、数值积分、误差分析与数值稳定性。",
+      "descriptionJa": "数値微分、数値積分、誤差解析、数値安定性。",
+      "descriptionEn": "Numerical differentiation, integration, error analysis, and numerical stability."
+    },
     "Mathematics.Fourier-Analysis": {
       "subject": "Mathematics",
       "labelZh": "傅里叶分析",
@@ -127,14 +136,120 @@
     "Mathematics.Vector-Calculus",
     "Mathematics.Abstract-Algebra",
     "Mathematics.Number-Theory",
+    "Mathematics.Numerical-Analysis",
     "Mathematics.Fourier-Analysis",
     "Mathematics.Topology",
     "Mathematics.Geometry",
     "Mathematics.Functional-Analysis"
   ],
   "topics": {
+    "Mathematics.Real-Analysis.Improper-Integrals-with-Floor-and-Fractional-Part": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Real-Analysis.Differentiability-from-Polynomial-Approximation-Rate": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Real-Analysis.Bernstein-Inequality-for-Trigonometric-Polynomials": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Real-Analysis.Exponential-Kernel-Sequence-Divergence-and-Continuum-Limit": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Real-Analysis.Frullani-Integral-by-Parameter-Differentiation": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Real-Analysis.Interchange-of-Limit-Derivative-and-Integral": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Numerical-Analysis.Lagrange-Polynomial-Interpolation": {
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Real-Analysis.Uniform-Convergence-by-Supremum-Error": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Real-Analysis.Asymptotics-of-Nonlinear-Sequence-Recurrence": {
+      "subsubject": "Mathematics.Real-Analysis",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Mathematics.Numerical-Analysis.Lie-Trotter-Product-Formula-and-Operator-Splitting": {
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Numerical-Analysis.Central-Finite-Difference-for-Second-Derivative": {
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Numerical-Analysis.Roundoff-vs-Truncation-Error": {
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Numerical-Analysis.Exponential-Convergence-of-Trapezoidal-Rule-for-Analytic-Periodic-Functions": {
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Numerical-Analysis.Composite-Trapezoidal-Rule": {
+      "subsubject": "Mathematics.Numerical-Analysis"
+    },
+    "Mathematics.Numerical-Analysis.Richardson-Extrapolation-for-Trapezoidal-Error": {
+      "subsubject": "Mathematics.Numerical-Analysis"
+    },
     "Mathematics.Calculus.Cauchy-Sequence": {
       "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Arc-Length": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Related-Rates": {
+      "subsubject": "Mathematics.Calculus",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Calculus.Hyperbolic-Functions-from-Power-Series": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Logarithmic-Improper-Integrals-by-Inversion": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Inverse-Hyperbolic-Sine-Integral": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Ellipse-Tangent-and-Intercept-Optimization": {
+      "subsubject": "Mathematics.Calculus",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Calculus.Elliptic-Region-Change-of-Variables": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Sigmoid-and-Hyperbolic-Tangent-Derivatives": {
+      "subsubject": "Mathematics.Calculus",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Mathematics.Calculus.Beta-Function": {
+      "subsubject": "Mathematics.Calculus",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
     },
     "Mathematics.Calculus.Constrained-Optimization": {
       "subsubject": "Mathematics.Calculus",
@@ -142,14 +257,48 @@
         "Operations-Research"
       ]
     },
+    "Mathematics.Calculus.Calculus-of-Variations": {
+      "subsubject": "Mathematics.Calculus",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Calculus.Continuity-and-Differentiability": {
+      "subsubject": "Mathematics.Calculus"
+    },
     "Mathematics.Calculus.Definite-Integral": {
       "subsubject": "Mathematics.Calculus"
     },
     "Mathematics.Calculus.Differentiation": {
       "subsubject": "Mathematics.Calculus"
     },
+    "Mathematics.Calculus.Implicit-Function-Local-Power-Series": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Logarithmic-Differentiation": {
+      "subsubject": "Mathematics.Calculus"
+    },
     "Mathematics.Calculus.Double-Integral": {
       "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Surface-Area-by-Double-Integral": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Change-of-Variables-and-Jacobian": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Chain-Rule": {
+      "subsubject": "Mathematics.Calculus",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Mathematics.Calculus.Gamma-Function-Log-Derivatives-and-Log-Moments": {
+      "subsubject": "Mathematics.Calculus",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
     },
     "Mathematics.Calculus.Gamma-Function": {
       "subsubject": "Mathematics.Calculus",
@@ -157,10 +306,37 @@
         "Probability-Statistics"
       ]
     },
+    "Mathematics.Calculus.Gaussian-Integral": {
+      "subsubject": "Mathematics.Calculus",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Mathematics.Calculus.Integration-by-Substitution": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Tangent-Half-Angle-Substitution": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Integration-by-Parts": {
+      "subsubject": "Mathematics.Calculus"
+    },
     "Mathematics.Calculus.Implicit-Differentiation": {
       "subsubject": "Mathematics.Calculus"
     },
+    "Mathematics.Calculus.Indefinite-Integral": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Integral-of-Inverse-Function": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Intermediate-Value-Theorem": {
+      "subsubject": "Mathematics.Calculus"
+    },
     "Mathematics.Calculus.Improper-Integral": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.LHopital-Rule": {
       "subsubject": "Mathematics.Calculus"
     },
     "Mathematics.Calculus.Limit": {
@@ -169,16 +345,153 @@
     "Mathematics.Calculus.Local-Extrema": {
       "subsubject": "Mathematics.Calculus"
     },
+    "Mathematics.Calculus.Partial-Fraction-Integration": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Parametric-Differentiation": {
+      "subsubject": "Mathematics.Calculus"
+    },
     "Mathematics.Calculus.Multivariable-Differentiation": {
       "subsubject": "Mathematics.Calculus"
     },
+    "Mathematics.Calculus.Multivariable-Taylor-Expansion": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Hessian-Test-for-Multivariable-Extrema": {
+      "subsubject": "Mathematics.Calculus",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
     "Mathematics.Calculus.Sequence-Convergence": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Taylor-Series": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Geometric-Series-and-Partial-Sum-Remainder": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Infinite-Series": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Power-Series": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Volume-of-Revolution-by-Washers": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Volume-of-Revolution-by-Cylindrical-Shells": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Triple-Integral": {
       "subsubject": "Mathematics.Calculus"
     },
     "Mathematics.Complex-Analysis.Complex-Numbers": {
       "subsubject": "Mathematics.Complex-Analysis"
     },
+    "Mathematics.Complex-Analysis.Complex-Exponential-and-Polar-Form": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Complex-Roots": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Cauchy-Integral-Formula": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Argument-Principle-and-Winding-Number": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Branch-Cut": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Cauchy-Riemann-Equations": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Harmonic-Functions-and-Harmonic-Conjugates": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Conformal-Mapping": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Dirichlet-Integral-by-Indented-Contour": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Contour-Integration": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Contour-Shift-of-Gaussian-Integral": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Infinite-Series-by-Residues": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Taylor-Series-and-Radius-of-Convergence": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Laurent-Series": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Mobius-Transformation": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Residue-Theorem": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Residue-at-Higher-Order-Pole": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Real-Integral-by-Residues": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Fresnel-Integral-by-Contour-Rotation": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Singularities-and-Poles": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
     "Mathematics.Fourier-Analysis.Convolution": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Fourier-Transform-Scaling-and-Frequency-Shift": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Parseval-Identity": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Orthogonal-Function-Systems": {
+      "subsubject": "Mathematics.Fourier-Analysis"
+    },
+    "Mathematics.Fourier-Analysis.Fourier-Transform-Differentiation-and-Time-Multiplication": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Fourier-Transform-Solution-of-Wave-Equation": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Fourier-Transform-Solution-of-Heat-Equation": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Fourier-Series": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Electrical-Electronic"
@@ -193,10 +506,102 @@
     "Mathematics.Linear-Algebra.Commuting-Matrices": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
+    "Mathematics.Linear-Algebra.Condition-Number": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Convex-Combination": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Cayley-Hamilton-Theorem": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
     "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Hermitian-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Unitary-Discrete-Fourier-Transform-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Electrical-Electronic",
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Mathematics.Linear-Algebra.Unitary-DFT-Matrix"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Realification-of-Unitary-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Parameterization-of-Two-Dimensional-Unitary-and-Special-Unitary-Matrices": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Physics"
+      ],
+      "aliases": [
+        "Mathematics.Linear-Algebra.Parameterization-of-U2-and-SU2-Matrices"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Unitary-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Spectral-Decomposition-of-Hermitian-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Gram-Schmidt-Orthogonalization": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Gram-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Householder-Transformation": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Low-Rank-Approximation": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Inner-Product-Induced-by-Positive-Definite-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Symmetric-and-Skew-Symmetric-Decomposition": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Jordan-Normal-Form": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Generalized-Eigenvalue-Characteristic-Polynomial-Recurrence": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Invariant-Subspace-and-Restricted-Operator": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Generalized-Eigenvectors-and-Invariant-Subspaces": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Linear-Independence": {
@@ -205,7 +610,79 @@
     "Mathematics.Linear-Algebra.Linear-Transformation": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
+    "Mathematics.Linear-Algebra.Affine-Solution-Space-of-Linear-System": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Linear-Operator-on-Polynomial-Space": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Jacobi-Iterative-Method": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Kernel-and-Image": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Kronecker-Product-and-Eigenvalues": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Physics",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Subspace-Sum-and-Intersection-Dimension": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Simultaneous-Diagonalization-of-Commuting-Operators": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Gaussian-Elimination": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Lower-Upper-Decomposition": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Mathematics.Linear-Algebra.LU-Decomposition"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Simultaneous-Diagonalization-of-Parameterized-Operators": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
     "Mathematics.Linear-Algebra.Matrix-Diagonalization": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Parameterized-Eigenvalues-and-Rank": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Discrete-Linear-Dynamical-System-Convergence": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Engineering",
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Best-Fit-Hyperplane-through-Origin": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Fitting-Decomposition": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Matrix-Determinant": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Vandermonde-Determinant": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Cramers-Rule": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Matrix-Exponential": {
@@ -214,11 +691,59 @@
         "Electrical-Electronic"
       ]
     },
+    "Mathematics.Linear-Algebra.Determinant-of-Matrix-Exponential": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Characteristic-Polynomial-Coefficients-from-Eigenvalues": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.PageRank-Teleportation-Fixed-Point-and-Contraction": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Computer-Science",
+        "Graph-Theory-Combinatorial-Optimization"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Sylvester-Equation-with-Positive-Definite-Coefficient": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
     "Mathematics.Linear-Algebra.Matrix-Limit": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
+    "Mathematics.Linear-Algebra.Matrix-Norm": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Matrix-Inverse": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Determinant-of-Inverse-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Cross-Product-Area-and-Scalar-Triple-Product-Volume": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
     "Mathematics.Linear-Algebra.Matrix-Power": {
       "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Companion-Matrix-for-Linear-Recurrences": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Tridiagonal-Determinant-Recurrence": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
     },
     "Mathematics.Linear-Algebra.Matrix-Rank": {
       "subsubject": "Mathematics.Linear-Algebra"
@@ -227,6 +752,16 @@
       "subsubject": "Mathematics.Linear-Algebra",
       "aliases": [
         "Mathematics.Linear-Algebra.Trace-of-Matrix"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Rank-Criterion-for-Linear-System-Consistency": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Least-Squares-and-Minimum-Norm-Solutions": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Operations-Research"
       ]
     },
     "Mathematics.Linear-Algebra.Moore-Penrose-Pseudoinverse": {
@@ -238,13 +773,102 @@
     "Mathematics.Linear-Algebra.Nilpotent-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
+    "Mathematics.Linear-Algebra.Inverse-of-Identity-plus-Nilpotent-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Orthogonal-Complement": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
     "Mathematics.Linear-Algebra.Orthogonal-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Orthogonal-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
+    "Mathematics.Linear-Algebra.Orthogonal-Diagonalization-of-Symmetric-Matrices": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Permutation-Matrix-and-Minimal-Polynomial": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Projection-Operator": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Distance-from-Point-to-Linear-Subspace": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Centroid-Least-Squares-of-Rotation-Orbit": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Rotation-Matrix-and-Axis-Angle": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Quadratic-Form": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Orthogonal-Upper-Triangular-Decomposition": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Mathematics.Linear-Algebra.QR-Decomposition"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Rayleigh-Quotient": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Courant-Fischer-Minimax-Principle": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Skew-Symmetric-Subspace-under-Congruence": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Skew-Symmetric-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Smith-Normal-Form": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
     "Mathematics.Linear-Algebra.Positive-Semidefinite-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Positive-Definite-Matrix-Square-Root": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Determinant-Maximization-at-Fixed-Trace": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Positive-Definite-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Operations-Research"
@@ -262,13 +886,92 @@
         "Probability-Statistics"
       ]
     },
+    "Mathematics.Linear-Algebra.Stationary-Iterative-Method": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Systems-of-Linear-Equations": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Diagonal-Dominance": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Vector-Space-and-Subspace": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Basis-and-Dimension": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
     "Mathematics.Number-Theory.Greatest-Common-Divisor": {
       "subsubject": "Mathematics.Number-Theory",
       "relatedSubjects": [
         "Computer-Science"
       ]
     },
+    "Mathematics.Number-Theory.Divisor-Counting-Function": {
+      "subsubject": "Mathematics.Number-Theory",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Number-Theory.Mobius-Inversion": {
+      "subsubject": "Mathematics.Number-Theory",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Mathematics.Number-Theory.Prime-Diophantine-Equation": {
+      "subsubject": "Mathematics.Number-Theory"
+    },
+    "Mathematics.Number-Theory.Prime-Factorization": {
+      "subsubject": "Mathematics.Number-Theory",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Mathematics.Number-Theory.Unit-Fraction-Decomposition": {
+      "subsubject": "Mathematics.Number-Theory",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
     "Mathematics.Abstract-Algebra.Finite-Group": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Galois-Group-and-Intermediate-Fields-of-Nested-Radicals": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Endomorphism-Ring-of-an-Ideal-and-Colon-Ideal": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Burnside-Lemma-and-Derangement-Proportion": {
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "relatedSubjects": [
+        "Discrete-Mathematics",
+        "Probability-Statistics"
+      ]
+    },
+    "Mathematics.Abstract-Algebra.Quotient-Ring-Chinese-Remainder-Theorem-Decomposition-and-Unit-Group": {
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "aliases": [
+        "Mathematics.Abstract-Algebra.Quotient-Ring-CRT-Decomposition-and-Unit-Group"
+      ]
+    },
+    "Mathematics.Abstract-Algebra.Tensor-Square-Vanishing-and-Artinian-Rings": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Nilpotent-Conjugacy-Classes-under-General-Linear-and-Special-Linear-Groups": {
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "aliases": [
+        "Mathematics.Abstract-Algebra.Nilpotent-Conjugacy-Classes-under-GL-and-SL"
+      ]
+    },
+    "Mathematics.Abstract-Algebra.Laurent-Polynomial-Ring-as-Quotient-Ring": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Kernel-Ideal-and-First-Isomorphism-Theorem": {
       "subsubject": "Mathematics.Abstract-Algebra"
     },
     "Mathematics.Abstract-Algebra.Gaussian-Integers": {
@@ -280,11 +983,32 @@
     "Mathematics.Abstract-Algebra.Quadratic-Integer-Ring": {
       "subsubject": "Mathematics.Abstract-Algebra"
     },
+    "Mathematics.Abstract-Algebra.Quaternion-Algebra": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Topology.Homology-of-a-Projective-Subspace-and-Nontrivial-Loop": {
+      "subsubject": "Mathematics.Topology"
+    },
+    "Mathematics.Topology.Compactness-Preserving-Injections-and-Continuity": {
+      "subsubject": "Mathematics.Topology"
+    },
+    "Mathematics.Topology.Hausdorff-Closure-and-Connectedness-in-a-Custom-Topology": {
+      "subsubject": "Mathematics.Topology"
+    },
     "Mathematics.Topology.Hausdorff-Space": {
+      "subsubject": "Mathematics.Topology"
+    },
+    "Mathematics.Topology.Locally-Constant-Functions-on-Connected-Spaces": {
       "subsubject": "Mathematics.Topology"
     },
     "Mathematics.Functional-Analysis.Normed-Space": {
       "subsubject": "Mathematics.Functional-Analysis"
+    },
+    "Mathematics.Functional-Analysis.Uniform-Convergence-of-Iterated-Sine-and-LogSumExp": {
+      "subsubject": "Mathematics.Functional-Analysis",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
     },
     "Mathematics.Functional-Analysis.Uniform-Convergence": {
       "subsubject": "Mathematics.Functional-Analysis"
@@ -295,14 +1019,383 @@
     "Mathematics.Differential-Equations.Wave-Equation": {
       "subsubject": "Mathematics.Differential-Equations"
     },
+    "Mathematics.Differential-Equations.Laplace-Transform": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "aliases": [
+        "Mathematics.Differential-Equations.Second-Order-Linear-ODE"
+      ]
+    },
+    "Mathematics.Differential-Equations.Linear-Ordinary-Differential-Equation-with-Exponential-Forcing": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "aliases": [
+        "Mathematics.Differential-Equations.Linear-ODE-with-Exponential-Forcing"
+      ]
+    },
+    "Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation-by-Variable-Substitution": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "aliases": [
+        "Mathematics.Differential-Equations.First-Order-ODE-by-Variable-Substitution"
+      ]
+    },
+    "Mathematics.Differential-Equations.Clairaut-Equation-and-Singular-Solution": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Cauchy-Euler-Equation": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Method-of-Undetermined-Coefficients": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Ermakov-Pinney-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "aliases": [
+        "Mathematics.Differential-Equations.First-Order-ODE"
+      ]
+    },
+    "Mathematics.Differential-Equations.Initial-Value-Problem": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Dirichlet-Heat-Equation-by-Fourier-Sine-Series": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Differential-Equations.Heat-Kernel-with-Dirac-Initial-Data": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Physics",
+        "Probability-Statistics"
+      ]
+    },
+    "Mathematics.Differential-Equations.Resonant-Forcing": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Polynomial-Solutions-of-Ordinary-Differential-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "aliases": [
+        "Mathematics.Differential-Equations.Polynomial-Solutions-of-ODE"
+      ]
+    },
+    "Mathematics.Differential-Equations.Exact-Differential-Equation": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Integrating-Factor": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Bessel-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Differential-Equations.Helmholtz-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Differential-Equations.Hermite-Equation-and-Polynomial-Recurrence": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Differential-Equations.Characteristic-Roots-and-Stability": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Mathematics.Differential-Equations.Homogeneous-First-Order-Ordinary-Differential-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "aliases": [
+        "Mathematics.Differential-Equations.Homogeneous-First-Order-ODE"
+      ]
+    },
+    "Mathematics.Differential-Equations.Higher-Order-Linear-Ordinary-Differential-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "aliases": [
+        "Mathematics.Differential-Equations.Higher-Order-Linear-ODE"
+      ]
+    },
+    "Mathematics.Differential-Equations.Frobenius-Method": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Power-Series-Solution-and-Coefficient-Recurrence": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Boundary-Conditions-at-Infinity": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Bounded-Solution-of-Forced-Ordinary-Differential-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "aliases": [
+        "Mathematics.Differential-Equations.Bounded-Solution-of-Forced-ODE"
+      ]
+    },
+    "Mathematics.Differential-Equations.Normal-Modes-of-Coupled-Linear-ODEs": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Differential-Equations.Riccati-Equation": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Reduction-of-Order": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Differential-Galois-Theory": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Orthogonal-Trajectories": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "aliases": [
+        "Mathematics.Differential-Equations.Separable-ODE"
+      ]
+    },
+    "Mathematics.Differential-Equations.Separation-of-Variables-for-Partial-Differential-Equation": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ],
+      "aliases": [
+        "Mathematics.Differential-Equations.Separation-of-Variables-for-PDE"
+      ]
+    },
+    "Mathematics.Differential-Equations.Generalized-Lotka-Volterra-Lyapunov-Stability": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Differential-Equations.Systems-of-ODEs": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Fundamental-Matrix": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Mathematics.Differential-Equations.Variational-Equation": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Commuting-Vector-Field-Symmetries": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Wronskian": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Geometry.Involute-of-a-Circle": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Rigidity-of-Intrinsic-Path-Metric-Isometries": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Scaling-of-Differential-Form-Integrals-on-Shrinking-Spheres": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Maximum-Size-of-Pairwise-Obtuse-Vector-Set": {
+      "subsubject": "Mathematics.Geometry",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Mathematics.Geometry.Arc-Length-Parameter-and-Planar-Curvature": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Steiner-Formula-for-Convex-Parallel-Body": {
+      "subsubject": "Mathematics.Geometry",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Geometry.Linear-Image-of-Circular-Arcs-and-Area-Scaling": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Gaussian-Curvature-of-Ruled-Surface": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Law-of-Cosines": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Periodic-Line-Coverage-by-Equally-Spaced-Receivers": {
+      "subsubject": "Mathematics.Geometry",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Mathematics.Geometry.Concurrency-and-Parallelism-of-Three-Lines": {
+      "subsubject": "Mathematics.Geometry",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Mathematics.Geometry.Cardioid": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Astroid": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Complex-Plane-Geometry": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Torus-Volume": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Fourier-Analysis.Fourier-Cosine-Transform": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Electrical-Electronic",
+        "Physics"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Fourier-Series-Solution-of-Ordinary-Differential-Equation": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Electrical-Electronic",
+        "Physics"
+      ],
+      "aliases": [
+        "Mathematics.Fourier-Analysis.Fourier-Series-Solution-of-ODE"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Fourier-Sine-and-Cosine-Series": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Electrical-Electronic",
+        "Physics"
+      ]
+    },
+    "Mathematics.Fourier-Analysis.Infinite-Series-from-Fourier-Series": {
+      "subsubject": "Mathematics.Fourier-Analysis"
+    },
+    "Mathematics.Vector-Calculus.Two-Dimensional-Laplacian-Fundamental-Solution": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Polar-Coordinate-Differentials": {
+      "subsubject": "Mathematics.Vector-Calculus"
+    },
     "Mathematics.Vector-Calculus.Divergence-Theorem": {
       "subsubject": "Mathematics.Vector-Calculus"
+    },
+    "Mathematics.Vector-Calculus.Directional-Derivative": {
+      "subsubject": "Mathematics.Vector-Calculus"
+    },
+    "Mathematics.Vector-Calculus.Gradient-Divergence-and-Curl": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "relatedSubjects": [
+        "Physics"
+      ]
     },
     "Mathematics.Vector-Calculus.Greens-Identities": {
       "subsubject": "Mathematics.Vector-Calculus",
       "aliases": [
         "Mathematics.Vector-Calculus.Green’s-Identity"
       ]
+    },
+    "Mathematics.Vector-Calculus.Laplacian": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Line-Integral": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Scalar-Line-Integral": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Polar-Coordinates": {
+      "subsubject": "Mathematics.Vector-Calculus"
+    },
+    "Mathematics.Vector-Calculus.Plane-and-Distance-in-Three-Dimensional-Euclidean-Space": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "aliases": [
+        "Mathematics.Vector-Calculus.Plane-and-Distance-in-R3"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Hyperplane-to-Hypersphere-Distance": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Stokes-Theorem": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Parametric-Surface": {
+      "subsubject": "Mathematics.Vector-Calculus"
+    },
+    "Mathematics.Vector-Calculus.Laplacian-in-Polar-Coordinates": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Surface-Integral": {
+      "subsubject": "Mathematics.Vector-Calculus",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Mathematics.Vector-Calculus.Surface-Normal": {
+      "subsubject": "Mathematics.Vector-Calculus"
+    },
+    "Mathematics.Vector-Calculus.Tangent-Plane": {
+      "subsubject": "Mathematics.Vector-Calculus"
+    },
+    "Mathematics.Differential-Equations.Bernoulli-Equation": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Linear-Algebra.Parameterized-Diagonalizability": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Real-Analysis.Functional-Equation": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Real-Analysis.Dirichlet-Test-for-Improper-Integrals": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Real-Analysis.Functions-of-Bounded-Variation": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Real-Analysis.Zero-Gradient-on-Path-Connected-Domain": {
+      "subsubject": "Mathematics.Real-Analysis"
     }
   }
 }

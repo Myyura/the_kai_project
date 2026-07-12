@@ -2,7 +2,9 @@
 sidebar_label: 2022年2・3月実施 基礎科目 問題2 電気回路
 tags:
   - Tohoku-University
-  - Electrical-Electronic.Circuits
+  - Electrical-Electronic.Circuits.Mutual-Inductance
+  - Electrical-Electronic.Circuits.Transformer-Equivalent-Circuit
+  - Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis
 ---
 # 東北大学 工学研究科 電気・情報系 2022年2・3月実施 基礎科目 問題2 電気回路
 

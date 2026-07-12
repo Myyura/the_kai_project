@@ -2,6 +2,10 @@
 sidebar_label: "2022年8月実施 数学A 1"
 tags:
   - Tohoku-University
+  - Mathematics.Calculus.Integration-by-Substitution
+  - Mathematics.Calculus.Limit
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Vector-Calculus.Polar-Coordinates
 ---
 # 東北大学 工学研究科 機械系 2022年8月実施 数学A 1
 

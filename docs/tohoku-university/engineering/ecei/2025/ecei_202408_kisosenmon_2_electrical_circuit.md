@@ -2,7 +2,12 @@
 sidebar_label: 2024年8月実施 基礎専門科目 問題2 電気回路
 tags:
   - Tohoku-University
-  - Electrical-Electronic.Circuits
+  - Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis
+  - Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Resonance
+  - Electrical-Electronic.Circuits.Mutual-Inductance
+  - Electrical-Electronic.Circuits.Transformer-Equivalent-Circuit
+  - Electrical-Electronic.Circuits.Circuit-Transient-Response
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
 ---
 # 東北大学 工学研究科 電気・情報系 2024年8月実施 基礎専門科目 問題2 電気回路
 

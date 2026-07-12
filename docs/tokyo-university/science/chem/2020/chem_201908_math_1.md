@@ -2,6 +2,9 @@
 sidebar_label: '2019年8月実施 数理科学'
 tags:
   - Tokyo-University
+  - Physics.Mechanics.Small-Angle-Pendulum
+  - Physics.Mechanics.Two-Dimensional-Harmonic-Oscillator-Effective-Potential
+  - Physics.Mechanics.Radial-Small-Oscillation-Frequency
 ---
 
 # 東京大学 理学系研究科 化学専攻 2019年8月実施 数理科学

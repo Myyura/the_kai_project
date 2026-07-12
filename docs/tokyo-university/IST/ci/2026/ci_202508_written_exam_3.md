@@ -2,6 +2,14 @@
 sidebar_label: '2025年8月実施 筆記試験 第3問'
 tags:
   - Tokyo-University
+  - Computer-Science.Algorithm-Design.Merge-Sort
+  - Computer-Science.Programming.Garbage-Collection
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Transformer
+  - Computer-Science.Operating-Systems.Virtual-Memory
+  - Computer-Science.Computer-Architecture.Program-Counter
+  - Computer-Science.Computer-Architecture.Floating-Point-Rounding-Error
+  - Electrical-Electronic.Control-Theory.Brushless-Motor
+  - Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2025年8月実施 筆記試験 第3問
 

@@ -2,6 +2,14 @@
 sidebar_label: '2008年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Control-Theory.Position-and-Torque-Feedback
+  - Electrical-Electronic.Circuits.Proximity-Sensor-Principles
+  - Probability-Statistics.Statistical-Inference.Measurement-Uncertainty
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Hidden-Markov-Model
+  - Computer-Science.Distributed-Systems.Grid-Computing
+  - Computer-Science.Security.Phishing-Attack
+  - Computer-Science.Programming.Reflection
+  - Computer-Science.Programming.Referential-Transparency
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2008年8月実施 筆記試験 第4問
 ## **Author**

@@ -2,7 +2,9 @@
 sidebar_label: 2021年8月実施 専門科目 問題3
 tags:
   - Tokyo-University
-  - Computer-Science.Formal-Languages
+  - Computer-Science.Formal-Languages.Finite-State-Transduction
+  - Computer-Science.Formal-Languages.Epsilon-Nondeterministic-Finite-Automaton
+  - Computer-Science.Formal-Languages.Context-Free-Language-Closure-Properties
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2021年8月実施 専門科目 問題3
 

@@ -2,7 +2,13 @@
 sidebar_label: 2023年8月実施 電磁気学1
 tags:
   - TITech
-  - Physics.Electromagnetism
+  - Physics.Electromagnetism.Coaxial-Capacitor-and-Line
+  - Physics.Electromagnetism.Ampere-Law
+  - Physics.Electromagnetism.Gauss-Law
+  - Physics.Electromagnetism.Dielectrics-and-Boundary-Conditions
+  - Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance
+  - Physics.Electromagnetism.Capacitance-and-Electrostatic-Energy
+  - Physics.Electromagnetism.Electrostatic-Shielding
 ---
 # 東京工業大学 工学院 電気電子系 2023年8月実施 電磁気学1
 

@@ -2,6 +2,9 @@
 sidebar_label: "2018年8月実施 数理科学 II [7]"
 tags:
   - Osaka-University
+  - Probability-Statistics.Probability-and-Statistics-Basics.Minimum-of-Independent-Exponentials
+  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Statistical-Inference.Constrained-Maximum-Likelihood-Estimation
 ---
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2018年8月実施 数理科学 II \[7\]
 

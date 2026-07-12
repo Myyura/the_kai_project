@@ -2,6 +2,12 @@
 sidebar_label: "2019年8月実施 数学 第1問"
 tags:
   - Tokyo-University
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Matrix-Power
+  - Mathematics.Linear-Algebra.Matrix-Exponential
+  - Mathematics.Linear-Algebra.Cayley-Hamilton-Theorem
+  - Mathematics.Linear-Algebra.Rotation-Matrix-and-Axis-Angle
+  - Mathematics.Linear-Algebra.Centroid-Least-Squares-of-Rotation-Orbit
 ---
 # 東京大学 情報理工学研究科 2019年8月実施 数学 第1問
 

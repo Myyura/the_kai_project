@@ -2,6 +2,8 @@
 sidebar_label: "2023年8月実施 基礎科目 問題4 情報基礎2"
 tags:
   - Tohoku-University
+  - Discrete-Mathematics.Set-Theory.Image-of-Intersection
+  - Discrete-Mathematics.Set-Theory.Composition-of-Injective-and-Surjective-Maps
 ---
 # 東北大学 工学研究科 電気・情報系 2023年8月実施 基礎科目 問題4 情報基礎2
 

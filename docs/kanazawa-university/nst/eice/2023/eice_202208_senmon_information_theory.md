@@ -2,7 +2,12 @@
 sidebar_label: 2022年8月実施 専門科目 情報理論
 tags:
   - Kanazawa-University
-  - Computer-Science.Information-Theory
+  - Computer-Science.Information-Theory.Source-Extension
+  - Computer-Science.Information-Theory.Entropy
+  - Computer-Science.Information-Theory.Minimum-Distance-Error-Correction
+  - Computer-Science.Information-Theory.Binary-Symmetric-Channel
+  - Computer-Science.Information-Theory.Conditional-Entropy
+  - Computer-Science.Information-Theory.Channel-Capacity
 ---
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 専門科目 情報理論
 

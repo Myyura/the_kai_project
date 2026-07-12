@@ -2,6 +2,14 @@
 sidebar_label: '2013年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Data-Science-Artificial-Intelligence.Data-Science.Term-Frequency-Inverse-Document-Frequency
+  - Engineering.Robotics.Zero-Moment-Point
+  - Computer-Science.Distributed-Systems.Distributed-Hashing
+  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Bayesian-Network
+  - Electrical-Electronic.Digital-Logic.Carry-Lookahead-Adder
+  - Computer-Science.Programming.Closure
+  - Computer-Science.Formal-Languages.Deterministic-Finite-Automaton
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2013年8月実施 筆記試験 第4問
 ## **Author**

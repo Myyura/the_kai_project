@@ -2,7 +2,9 @@
 sidebar_label: 2017年8月実施 ベクトル解析
 tags:
   - Kyushu-University
-  - Mathematics.Vector-Calculus
+  - Mathematics.Vector-Calculus.Line-Integral
+  - Mathematics.Vector-Calculus.Surface-Integral
+  - Mathematics.Vector-Calculus.Stokes-Theorem
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2017年8月実施 ベクトル解析
 

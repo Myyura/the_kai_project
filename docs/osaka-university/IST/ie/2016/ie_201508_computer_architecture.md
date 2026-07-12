@@ -2,7 +2,13 @@
 sidebar_label: 2015年8月実施 計算機システムとシステムプログラム
 tags:
   - Osaka-University
-  - Computer-Science.Computer-Architecture
+  - Computer-Science.Computer-Architecture.Instruction-Cycle
+  - Computer-Science.Computer-Architecture.Pipelining
+  - Computer-Science.Computer-Architecture.Data-Hazard
+  - Computer-Science.Computer-Architecture.Structural-Hazard
+  - Computer-Science.Computer-Architecture.Cache
+  - Computer-Science.Computer-Architecture.Average-Memory-Access-Time
+  - Computer-Science.Computer-Architecture.Locality-of-Reference
 ---
 # 大阪大学 情報科学研究科 情報工学 2015年8月実施 計算機システムとシステムプログラム
 

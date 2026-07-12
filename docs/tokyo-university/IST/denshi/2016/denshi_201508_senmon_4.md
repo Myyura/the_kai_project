@@ -2,6 +2,9 @@
 sidebar_label: "2015年8月実施 専門 第4問"
 tags:
   - Tokyo-University
+  - Computer-Science.Information-Theory.Parity-Bit-Single-Error-Detection
+  - Computer-Science.Information-Theory.Hamming-74-Code-and-Minimum-Distance
+  - Computer-Science.Information-Theory.Interleaving-for-Burst-Error
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2015年8月実施 専門 第4問
 

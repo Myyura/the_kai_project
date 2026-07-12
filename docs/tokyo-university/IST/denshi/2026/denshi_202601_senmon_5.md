@@ -2,7 +2,12 @@
 sidebar_label: 2026年1月実施 専門 第5問
 tags:
   - Tokyo-University
-  - Computer-Science.Information-Theory
+  - Computer-Science.Information-Theory.Source-Extension
+  - Computer-Science.Information-Theory.Entropy
+  - Computer-Science.Information-Theory.Huffman-Coding
+  - Probability-Statistics.Stochastic-Processes.Markov-Information-Source
+  - Computer-Science.Information-Theory.Channel-Capacity
+  - Computer-Science.Information-Theory.Cyclic-Redundancy-Check
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2026年1月実施 専門 第5問
 

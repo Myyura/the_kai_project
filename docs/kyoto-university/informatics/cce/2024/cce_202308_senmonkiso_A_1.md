@@ -2,8 +2,9 @@
 sidebar_label: '2023年8月実施 専門基礎A [A-1]'
 tags:
   - Kyoto-University
-  - Mathematics.Calculus
-  - Mathematics.Linear-Algebra
+  - Mathematics.Vector-Calculus.Polar-Coordinates
+  - Mathematics.Calculus.Beta-Function
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2023年8月実施 専門基礎A \[A-1\]
 

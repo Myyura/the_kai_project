@@ -2,6 +2,9 @@
 sidebar_label: "2014年8月実施 力学系数学"
 tags:
   - Kyoto-University
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Reduction-of-Order
+  - Mathematics.Differential-Equations.Characteristic-Roots-and-Stability
 ---
 # 京都大学 情報学研究科 数理工学専攻 2014年8月実施 力学系数学
 

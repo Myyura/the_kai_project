@@ -2,7 +2,12 @@
 sidebar_label: 2022年8月実施 専門科目 制御工学
 tags:
   - Kyoto-University
-  - Electrical-Electronic.Control-Theory
+  - Electrical-Electronic.Control-Theory.Linearization
+  - Electrical-Electronic.Control-Theory.Transfer-Function
+  - Electrical-Electronic.Control-Theory.Step-Response
+  - Electrical-Electronic.Control-Theory.Routh-Hurwitz-Stability
+  - Electrical-Electronic.Control-Theory.Lead-Compensation
+  - Electrical-Electronic.Control-Theory.Bode-Plot-and-Stability-Margins
 ---
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 専門科目 制御工学
 

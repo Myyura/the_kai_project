@@ -2,7 +2,8 @@
 sidebar_label: 2020年8月実施 ベクトル解析
 tags:
   - Kyushu-University
-  - Mathematics.Vector-Calculus
+  - Mathematics.Vector-Calculus.Plane-and-Distance-in-Three-Dimensional-Euclidean-Space
+  - Mathematics.Vector-Calculus.Line-Integral
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2020年8月実施 ベクトル解析
 

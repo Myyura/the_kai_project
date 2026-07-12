@@ -2,6 +2,10 @@
 sidebar_label: "2016年8月実施 数学 第3問"
 tags:
   - Tokyo-University
+  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Memoryless-Property
+  - Probability-Statistics.Probability-and-Statistics-Basics.Minimum-of-Independent-Exponentials
+  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Race-and-Order-of-Arrival
 ---
 # 東京大学 情報理工学研究科 2016年8月実施 数学 第3問
 

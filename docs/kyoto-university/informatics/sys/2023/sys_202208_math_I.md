@@ -2,7 +2,12 @@
 sidebar_label: 2022年8月実施 数学【I】
 tags:
   - Kyoto-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Jacobi-Iterative-Method
+  - Mathematics.Linear-Algebra.Systems-of-Linear-Equations
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Stochastic-Matrix
+  - Mathematics.Linear-Algebra.Matrix-Power
+  - Mathematics.Linear-Algebra.Matrix-Limit
 ---
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 数学【I】
 

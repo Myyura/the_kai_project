@@ -2,6 +2,11 @@
 sidebar_label: "2016年8月実施 数学 第1問"
 tags:
   - Tokyo-University
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+  - Mathematics.Linear-Algebra.Matrix-Power
+  - Mathematics.Linear-Algebra.Matrix-Limit
+  - Mathematics.Linear-Algebra.Rayleigh-Quotient
 ---
 # 東京大学 情報理工学研究科 2016年8月実施 数学 第1問
 

@@ -2,7 +2,11 @@
 sidebar_label: 2022年8月実施 数学【II】
 tags:
   - Kyoto-University
-  - Mathematics.Calculus
+  - Mathematics.Calculus.Limit
+  - Mathematics.Calculus.Improper-Integral
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Calculus.Constrained-Optimization
+  - Mathematics.Vector-Calculus.Tangent-Plane
 ---
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 数学【II】
 

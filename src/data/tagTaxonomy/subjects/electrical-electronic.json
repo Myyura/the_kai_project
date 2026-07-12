@@ -63,6 +63,155 @@
     "Electrical-Electronic.Communications"
   ],
   "topics": {
+    "Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Alternating-Current-Power-and-Power-Factor": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Physics"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Circuits.AC-Power-and-Power-Factor"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Active-Filter": {
+      "subsubject": "Electrical-Electronic.Circuits"
+    },
+    "Electrical-Electronic.Circuits.Circuit-Transfer-Function": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Boost-Converter-Switching-Transient": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Physics",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Circuit-Transient-Response": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Maximum-Power-Transfer": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Mesh-Analysis": {
+      "subsubject": "Electrical-Electronic.Circuits"
+    },
+    "Electrical-Electronic.Circuits.Kirchhoff-Laws": {
+      "subsubject": "Electrical-Electronic.Circuits"
+    },
+    "Electrical-Electronic.Circuits.Metal-Oxide-Semiconductor-Field-Effect-Transistor-Bias-and-Small-Signal-Analysis": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Physics"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Circuits.MOSFET-Bias-and-Small-Signal-Analysis"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Mutual-Inductance": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Nodal-Analysis": {
+      "subsubject": "Electrical-Electronic.Circuits"
+    },
+    "Electrical-Electronic.Circuits.Operational-Amplifier": {
+      "subsubject": "Electrical-Electronic.Circuits"
+    },
+    "Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Mathematics",
+        "Physics"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Quarter-Wave-Transformer": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Damping": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Mathematics",
+        "Physics"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Circuits.RLC-Damping"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Resonance": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Physics"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Circuits.RLC-Resonance"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Resistor-Capacitor-Charging-and-Discharging": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Mathematics",
+        "Physics"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Circuits.RC-Charging-and-Discharging"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Superposition-Theorem": {
+      "subsubject": "Electrical-Electronic.Circuits"
+    },
+    "Electrical-Electronic.Circuits.Three-Phase-Circuit": {
+      "subsubject": "Electrical-Electronic.Circuits"
+    },
+    "Electrical-Electronic.Circuits.Thevenin-and-Norton-Equivalent": {
+      "subsubject": "Electrical-Electronic.Circuits"
+    },
+    "Electrical-Electronic.Circuits.Transmission-Line-and-Impedance-Matching": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Transformer-Equivalent-Circuit": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Two-Port-Network": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Wheatstone-Bridge": {
+      "subsubject": "Electrical-Electronic.Circuits"
+    },
+    "Electrical-Electronic.Communications.Code-Division-Multiple-Access": {
+      "subsubject": "Electrical-Electronic.Communications",
+      "relatedSubjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
     "Electrical-Electronic.Control-Theory.Feedback-Control": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
@@ -70,7 +219,236 @@
         "Operations-Research"
       ]
     },
+    "Electrical-Electronic.Control-Theory.Position-and-Torque-Feedback": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Feedback-and-Feedforward-Control": {
+      "subsubject": "Electrical-Electronic.Control-Theory"
+    },
+    "Electrical-Electronic.Control-Theory.H-Infinity-Control": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Kalman-Filter": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Bode-Plot-and-Stability-Margins": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Disturbance-Rejection": {
+      "subsubject": "Electrical-Electronic.Control-Theory"
+    },
+    "Electrical-Electronic.Control-Theory.Inverse-Kinematics": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Mathematics",
+        "Engineering"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Lead-Compensation": {
+      "subsubject": "Electrical-Electronic.Control-Theory"
+    },
+    "Electrical-Electronic.Control-Theory.Linearization": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Nyquist-Stability-Criterion": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Proportional-Integral-Derivative-and-Integral-Proportional-Derivative-Control": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "aliases": [
+        "Electrical-Electronic.Control-Theory.PID-and-I-PD-Control"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Robot-Arm-Kinematics": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Engineering",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Routh-Hurwitz-Stability": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Force-Control": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Stepping-Motor": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Brushless-Motor": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Engineering",
+        "Physics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Step-Response": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Steady-State-Error": {
+      "subsubject": "Electrical-Electronic.Control-Theory"
+    },
+    "Electrical-Electronic.Control-Theory.Transfer-Function": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Damping-and-Oscillation": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Physics",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Three-Dimensional-Position-Sensing": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Engineering",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Collision-Free-Trajectory-Planning": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "relatedSubjects": [
+        "Operations-Research",
+        "Graph-Theory-Combinatorial-Optimization"
+      ]
+    },
     "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Comparator-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Counter-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Critical-Path-Delay": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Ripple-vs-Synchronous-Counter-Propagation-Delay": {
+      "subsubject": "Electrical-Electronic.Digital-Logic"
+    },
+    "Electrical-Electronic.Digital-Logic.Synchronous-Decade-and-Up-Down-Counter": {
+      "subsubject": "Electrical-Electronic.Digital-Logic"
+    },
+    "Electrical-Electronic.Digital-Logic.Mealy-Sequence-Detector-State-Minimization": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Moore-Machine-State-Minimization-and-Encoding": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Synchronous-Modulo-Counter": {
+      "subsubject": "Electrical-Electronic.Digital-Logic"
+    },
+    "Electrical-Electronic.Digital-Logic.Periodic-Sequence-Generator": {
+      "subsubject": "Electrical-Electronic.Digital-Logic"
+    },
+    "Electrical-Electronic.Digital-Logic.Karnaugh-Map-Minimization": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Field-Programmable-Gate-Array": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Digital-Logic.FPGA"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Flip-Flop": {
+      "subsubject": "Electrical-Electronic.Digital-Logic"
+    },
+    "Electrical-Electronic.Digital-Logic.One-Hot-Mealy-Parity-Checker": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Complementary-Metal-Oxide-Semiconductor-Logic-Transistor-Count-Optimization": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Digital-Logic.CMOS-Logic-Transistor-Count-Optimization"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.D-Flip-Flop": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Finite-State-Machine-Minimization": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Carry-Lookahead-Adder": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Asynchronous-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic"
+    },
+    "Electrical-Electronic.Digital-Logic.Majority-Gate-Logic-Synthesis": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
@@ -85,7 +463,58 @@
         "Electrical-Electronic.Digital-Logic.Half-Full-Adders"
       ]
     },
+    "Electrical-Electronic.Digital-Logic.Not-AND-and-Not-OR-Universal-Gates": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Digital-Logic.NAND-NOR-Universal-Gates"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Pulse-Width-Modulation": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Rising-Edge-Detector": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Full-Adder-and-Critical-Path": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Signed-Addition-Subtraction-and-Overflow-Detection": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Ripple-Carry-Adder": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Combinational-Binary-Multiplier": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
     "Electrical-Electronic.Digital-Logic.Sequential-Circuit": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.Shift-Register": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
@@ -98,6 +527,198 @@
       ]
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform-Time-Reversal-and-Shift": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Signal-Processing.DFT-Time-Reversal-and-Shift"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Bandlimited-Signal-Reconstruction-from-Samples": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Fourier-Conjugate-Symmetry-and-Modulation": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Continuous-Time-Fourier-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Dirac-Comb-Fourier-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Convolution-Theorem": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Fast-Fourier-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Fourier-Slice-Theorem": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Discrete-Cosine-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Autocorrelation-and-Power-Spectral-Density": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Wavelet-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Cepstrum": {
+      "subsubject": "Electrical-Electronic.Signal-Processing"
+    },
+    "Electrical-Electronic.Signal-Processing.Impulse-Train-Sampling-and-Spectral-Replication": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Scalar-Quantizer-Probability-and-Centroid-Reconstruction": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Maximum-Entropy-Quantizer-Boundaries": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Probability-Statistics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Sampling-Theorem-and-Aliasing": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Impulse-and-Step-Response-Relationship": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Communications.Spread-Spectrum-Communication": {
+      "subsubject": "Electrical-Electronic.Communications",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Electrical-Electronic.Circuits.Proximity-Sensor-Principles": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "relatedSubjects": [
+        "Physics",
+        "Engineering"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Causal-Response-Hilbert-Transform-Relation": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Single-Sideband-Modulation": {
+      "subsubject": "Electrical-Electronic.Signal-Processing"
+    },
+    "Electrical-Electronic.Signal-Processing.Wiener-Filter": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Infinite-Impulse-Response-Filter-Transfer-Function-and-Realization": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Electrical-Electronic.Signal-Processing.IIR-Filter-Transfer-Function-and-Realization"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Ideal-Low-Pass-Impulse-Response": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Z-Transform-Time-Shift": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Discrete-Time-Transfer-Function-and-Impulse-Response": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Power-Spectrum-and-Parseval-Energy-Identity": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics",
+        "Physics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Bilinear-Transform-for-Analog-to-Digital-Filter": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Discrete-Time-Filter-Realization": {
+      "subsubject": "Electrical-Electronic.Signal-Processing"
+    },
+    "Electrical-Electronic.Signal-Processing.Z-Transform-of-Geometric-Sequence": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Signal-Processing.Discrete-Time-System-Transfer-and-Frequency-Response": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"

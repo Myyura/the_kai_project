@@ -2,7 +2,10 @@
 sidebar_label: 2019年8月実施 専門科目I 問題2
 tags:
   - Tokyo-University
-  - Computer-Science.Operating-Systems
+  - Computer-Science.Operating-Systems.Dining-Philosophers-Problem
+  - Computer-Science.Operating-Systems.Semaphore
+  - Computer-Science.Operating-Systems.Deadlock-and-Starvation
+  - Computer-Science.Operating-Systems.Process-Synchronization
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目I 問題2
 

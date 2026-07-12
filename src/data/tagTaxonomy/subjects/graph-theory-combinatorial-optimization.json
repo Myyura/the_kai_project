@@ -43,6 +43,48 @@
     "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization"
   ],
   "topics": {
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Adjacency-Spectrum-of-Path-and-Complete-Graphs": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Spectral-Diameter-Bound": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Laplacian-Positive-Semidefiniteness": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Heat-Equation-on-Cycle-Graph-by-Discrete-Fourier-Transform": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics",
+        "Electrical-Electronic"
+      ],
+      "aliases": [
+        "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Heat-Equation-on-Cycle-Graph-by-DFT"
+      ]
+    },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Consensus-Dynamics-and-Algebraic-Connectivity": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics",
+        "Electrical-Electronic",
+        "Engineering"
+      ]
+    },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Laplacian": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
     "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Flow": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization",
       "relatedSubjects": [
@@ -61,7 +103,19 @@
         "Computer-Science"
       ]
     },
+    "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.A-Star-Shortest-Path-Search": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
     "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Mandatory-Vertex-in-All-Shortest-Paths": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science"
@@ -132,6 +186,13 @@
         "Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Articulation-Point"
       ]
     },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Adjacency-Matrix-and-Walk-Counting": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Bipartite-Graph": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
@@ -141,8 +202,23 @@
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Complete-Graph": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
     },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Clique": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
+    },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
+    },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Vertex-Degree": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
+    },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Diameter": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"
+    },
+    "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Extremal-Graph-Construction": {
+      "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
     },
     "Graph-Theory-Combinatorial-Optimization.Graph-Theory.Cut": {
       "subsubject": "Graph-Theory-Combinatorial-Optimization.Graph-Theory"

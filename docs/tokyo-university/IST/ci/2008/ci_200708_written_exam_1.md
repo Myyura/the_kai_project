@@ -2,7 +2,9 @@
 sidebar_label: 2007年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Mathematics.Number-Theory
+  - Mathematics.Number-Theory.Divisor-Counting-Function
+  - Mathematics.Number-Theory.Prime-Factorization
+  - Computer-Science.Algorithm-Design.Backtracking
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2007年8月実施 筆記試験 第1問
 ## **Author**

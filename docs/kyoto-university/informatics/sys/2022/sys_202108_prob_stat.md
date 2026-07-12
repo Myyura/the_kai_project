@@ -2,7 +2,14 @@
 sidebar_label: 2021年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
-  - Probability-Statistics.Probability-and-Statistics-Basics
+  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution
+  - Probability-Statistics.Statistical-Inference.Hypothesis-Testing
+  - Probability-Statistics.Statistical-Inference.Confidence-Interval
+  - Probability-Statistics.Probability-and-Statistics-Basics.Cauchy-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Chi-Square-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function
+  - Probability-Statistics.Statistical-Inference.Method-of-Moments
 ---
 # 京都大学 情報学研究科 システム科学専攻 2021年8月実施 専門科目 確率統計
 

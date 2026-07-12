@@ -2,7 +2,11 @@
 sidebar_label: 2023年8月実施 数学 第1問
 tags:
   - Tokyo-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Matrix-Rank
+  - Mathematics.Linear-Algebra.Positive-Semidefinite-Matrix
+  - Probability-Statistics.Statistical-Inference.Least-Squares-Method
+  - Mathematics.Linear-Algebra.Projection-Operator
+  - Mathematics.Calculus.Constrained-Optimization
 ---
 # 東京大学 情報理工学研究科 2023年8月実施 数学 第1問
 

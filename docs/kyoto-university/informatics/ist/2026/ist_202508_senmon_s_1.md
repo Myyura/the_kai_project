@@ -2,7 +2,11 @@
 sidebar_label: 2025年8月実施 専門科目 S-1
 tags:
   - Kyoto-University
-  - Probability-Statistics.Probability-and-Statistics-Basics
+  - Probability-Statistics.Statistical-Inference.Beta-Bernoulli-Model
+  - Probability-Statistics.Statistical-Inference.Bayesian-Inference
+  - Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient
+  - Probability-Statistics.Statistical-Inference.Selection-Bias
+  - Probability-Statistics.Statistical-Inference.Effect-Size
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2025年8月実施 専門科目 S-1
 

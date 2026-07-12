@@ -2,7 +2,10 @@
 sidebar_label: 2021年8月実施 専門科目 問題1
 tags:
   - Tokyo-University
-  - Computer-Science.Operating-Systems
+  - Computer-Science.Operating-Systems.Central-Processing-Unit-Scheduling
+  - Computer-Science.Operating-Systems.Shortest-Job-First-Scheduling
+  - Computer-Science.Operating-Systems.Round-Robin-Scheduling
+  - Computer-Science.Operating-Systems.Priority-Aging
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2021年8月実施 専門科目 問題1
 

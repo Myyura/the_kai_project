@@ -2,6 +2,10 @@
 sidebar_label: "2019年8月実施 専門科目II 問題5"
 tags:
   - Tokyo-University
+  - Mathematics.Numerical-Analysis.Central-Finite-Difference-for-Second-Derivative
+  - Mathematics.Numerical-Analysis.Roundoff-vs-Truncation-Error
+  - Mathematics.Numerical-Analysis.Composite-Trapezoidal-Rule
+  - Mathematics.Numerical-Analysis.Richardson-Extrapolation-for-Trapezoidal-Error
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目II 問題5
 

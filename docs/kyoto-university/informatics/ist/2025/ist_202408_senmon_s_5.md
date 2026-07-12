@@ -2,7 +2,9 @@
 sidebar_label: 2024年8月実施 専門科目 S-5
 tags:
   - Kyoto-University
-  - Computer-Science.Formal-Languages
+  - Computer-Science.Formal-Languages.Deterministic-Finite-Automaton
+  - Computer-Science.Formal-Languages.Product-Automaton
+  - Computer-Science.Formal-Languages.Regular-Language-Closure-Properties
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2024年8月実施 専門科目 S-5
 

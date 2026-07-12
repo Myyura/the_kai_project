@@ -2,7 +2,9 @@
 sidebar_label: 2022年8月実施 専門科目I 問題1
 tags:
   - Hiroshima-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+  - Mathematics.Linear-Algebra.Orthogonal-Matrix
 ---
 # 広島大学 先進理工系科学研究科 情報科学プログラム 2022年8月実施 専門科目I 問題1
 

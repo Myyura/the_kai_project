@@ -3,6 +3,9 @@ sidebar_label: 2022年8月実施 プログラミング 第1問
 tags:
   - Tokyo-University
   - Computer-Science.Programming
+  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
+  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity
+  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Spanning-Tree
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2022年8月実施 プログラミング 第1問
 

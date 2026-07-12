@@ -2,7 +2,8 @@
 sidebar_label: "2022年8月実施 基礎科目 無機・物理化学"
 tags:
   - Tohoku-University
-  - Chemistry.Physical-Chemistry
+  - Chemistry.Physical-Chemistry.Ideal-Gas-Thermodynamics
+  - Chemistry.Physical-Chemistry.Entropy-Change
   - Chemistry.Inorganic-Chemistry
 ---
 # 東北大学 工学研究科 化学・バイオ系 2022年8月実施 基礎科目 無機・物理化学 

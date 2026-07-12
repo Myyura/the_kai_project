@@ -2,6 +2,8 @@
 sidebar_label: "2021年8月実施 II-1"
 tags:
   - Osaka-University
+  - Mathematics.Calculus.Calculus-of-Variations
+  - Physics.Electromagnetism.Fermat-Principle-and-Snells-Law
 ---
 # 大阪大学 基礎工学研究科 生体システム工学 2021年8月実施 II-1
 

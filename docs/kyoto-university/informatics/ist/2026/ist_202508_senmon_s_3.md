@@ -2,7 +2,11 @@
 sidebar_label: 2025年8月実施 専門科目 S-3
 tags:
   - Kyoto-University
-  - Computer-Science.Information-Theory
+  - Computer-Science.Information-Theory.Entropy
+  - Computer-Science.Information-Theory.Huffman-Coding
+  - Computer-Science.Information-Theory.Coding-Efficiency
+  - Probability-Statistics.Stochastic-Processes.Markov-Information-Source
+  - Computer-Science.Information-Theory.Entropy-Rate
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2025年8月実施 専門科目 S-3
 

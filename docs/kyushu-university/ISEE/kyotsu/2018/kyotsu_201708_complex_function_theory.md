@@ -2,7 +2,9 @@
 sidebar_label: 2017年8月実施 複素関数論
 tags:
   - Kyushu-University
-  - Mathematics.Complex-Analysis
+  - Mathematics.Complex-Analysis.Branch-Cut
+  - Mathematics.Complex-Analysis.Residue-Theorem
+  - Mathematics.Complex-Analysis.Real-Integral-by-Residues
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2017年8月実施 複素関数論
 

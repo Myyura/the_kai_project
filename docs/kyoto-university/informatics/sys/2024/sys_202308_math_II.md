@@ -2,7 +2,13 @@
 sidebar_label: 2023年8月実施 数学【II】
 tags:
   - Kyoto-University
-  - Mathematics.Calculus
+  - Mathematics.Calculus.Local-Extrema
+  - Mathematics.Calculus.Constrained-Optimization
+  - Computer-Science.Information-Theory.Entropy
+  - Mathematics.Calculus.Limit
+  - Mathematics.Calculus.Chain-Rule
+  - Mathematics.Calculus.Multivariable-Differentiation
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Backpropagation
 ---
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 数学【II】
 

@@ -2,6 +2,10 @@
 sidebar_label: "2019年8月実施 専門科目 第2問"
 tags:
   - Tokyo-University
+  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Minimum-of-Independent-Exponentials
+  - Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics
+  - Probability-Statistics.Statistical-Inference.Estimator-Bias
 ---
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2019年8月実施 専門科目 第2問
 

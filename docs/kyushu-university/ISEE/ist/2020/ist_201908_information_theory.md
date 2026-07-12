@@ -2,7 +2,11 @@
 sidebar_label: "2019年8月実施 情報理論"
 tags:
   - Kyushu-University
-  - Computer-Science.Information-Theory
+  - Probability-Statistics.Stochastic-Processes.Markov-Information-Source
+  - Computer-Science.Information-Theory.Entropy-Rate
+  - Computer-Science.Information-Theory.Conditional-Entropy
+  - Computer-Science.Information-Theory.Mutual-Information
+  - Computer-Science.Information-Theory.Channel-Capacity
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2019年8月実施 情報理論
 

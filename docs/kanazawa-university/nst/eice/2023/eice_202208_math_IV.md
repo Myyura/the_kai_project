@@ -2,7 +2,9 @@
 sidebar_label: 2022年8月実施 数学 IV
 tags:
   - Kanazawa-University
-  - Mathematics.Fourier-Analysis
+  - Mathematics.Fourier-Analysis.Fourier-Sine-and-Cosine-Series
+  - Mathematics.Fourier-Analysis.Fourier-Series-Solution-of-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
 ---
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 数学 IV
 

@@ -2,7 +2,9 @@
 sidebar_label: 2019年8月実施 電磁気学1
 tags:
   - TITech
-  - Physics.Electromagnetism
+  - Physics.Electromagnetism.Gauss-Law
+  - Physics.Electromagnetism.Electric-Potential-and-Field
+  - Physics.Electromagnetism.Superposition-Principle
 ---
 # 東京工業大学 工学院 電気電子系 2019年8月実施 電磁気学1
 

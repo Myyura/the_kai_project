@@ -2,6 +2,9 @@
 sidebar_label: "2021年8月実施 数学 第1問"
 tags:
   - Tokyo-University
+  - Mathematics.Real-Analysis.Frullani-Integral-by-Parameter-Differentiation
+  - Mathematics.Real-Analysis.Interchange-of-Limit-Derivative-and-Integral
+  - Mathematics.Functional-Analysis.Uniform-Convergence
 ---
 # 東京大学 情報理工学研究科 2021年8月実施 数学 第1問
 

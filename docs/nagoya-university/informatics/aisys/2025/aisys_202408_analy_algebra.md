@@ -2,6 +2,13 @@
 sidebar_label: "2024年8月実施 解析・線形代数"
 tags:
   - Nagoya-University
+  - Mathematics.Differential-Equations.Higher-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Systems-of-ODEs
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Geometry.Complex-Plane-Geometry
+  - Mathematics.Geometry.Astroid
+  - Mathematics.Calculus.Change-of-Variables-and-Jacobian
+  - Mathematics.Calculus.Triple-Integral
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2024年8月実施 解析・線形代数
 

@@ -2,6 +2,9 @@
 sidebar_label: "2022年8月実施 数学 第2問"
 tags:
   - Tokyo-University
+  - Mathematics.Differential-Equations.Bounded-Solution-of-Forced-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Normal-Modes-of-Coupled-Linear-ODEs
+  - Mathematics.Differential-Equations.Bernoulli-Equation
 ---
 # 東京大学 情報理工学研究科 2022年8月実施 数学 第2問
 

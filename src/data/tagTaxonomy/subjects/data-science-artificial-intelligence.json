@@ -43,6 +43,172 @@
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence"
   ],
   "topics": {
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Perceptron": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Transformer": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Stochastic-Gradient-Descent": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Mathematics",
+        "Operations-Research"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Data-Science.Term-Frequency-Inverse-Document-Frequency": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Data-Science-Artificial-Intelligence.Data-Science.TF-IDF"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Bayesian-Network": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Deep-Learning": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Data-Science.Vector-Quantization": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Hidden-Markov-Model": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Natural-Language-Morphology-and-Morphemes": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Data-Science.Image-Filtering-and-Moments": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Mathematics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Data-Science.Image-Color-Quantization": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Mixture-Model": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Generative-Classifier": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Bayesian-Decision-Boundary": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Expectation-Maximization-Algorithm": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Backpropagation": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Covariate-Shift-and-Importance-Weighting": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Feedforward-Neural-Network": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Multi-Label-Classification": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Binary-Cross-Entropy": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Vanishing-Gradient-and-Mitigation": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Feature-Standardization": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Linear-Discriminant-Analysis": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Logistic-Regression": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Nearest-Centroid-Classifier": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Online-Learning-with-Expert-Advice": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Regret-Bound": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Operations-Research"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Softmax-Regression": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.A-Star-Algorithm": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [
@@ -124,6 +290,13 @@
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
+      ]
+    },
+    "Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network-Training-Methods": {
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "relatedSubjects": [
+        "Mathematics",
+        "Computer-Science"
       ]
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network": {

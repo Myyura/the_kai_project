@@ -2,6 +2,9 @@
 sidebar_label: "2019年8月実施 数理科学 I [6]"
 tags:
   - Osaka-University
+  - Probability-Statistics.Statistical-Inference.Poisson-Gamma-Conjugacy
+  - Probability-Statistics.Probability-and-Statistics-Basics.Negative-Binomial-Distribution
+  - Mathematics.Calculus.Gamma-Function
 ---
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2019年8月実施 数理科学 I \[6\]
 

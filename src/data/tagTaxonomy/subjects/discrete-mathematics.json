@@ -46,6 +46,16 @@
     "Discrete-Mathematics.Mathematical-Logic"
   ],
   "topics": {
+    "Discrete-Mathematics.Combinatorics.Reconstruction-from-Pairwise-Sums": {
+      "subsubject": "Discrete-Mathematics.Combinatorics"
+    },
+    "Discrete-Mathematics.Combinatorics.Matroid-Theory": {
+      "subsubject": "Discrete-Mathematics.Combinatorics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
     "Discrete-Mathematics.Combinatorics.Binomial-Coefficient": {
       "subsubject": "Discrete-Mathematics.Combinatorics",
       "relatedSubjects": [
@@ -53,6 +63,12 @@
       ],
       "aliases": [
         "Discrete-Mathematics.Discrete-Mathematics.Binomial-Coefficient"
+      ]
+    },
+    "Discrete-Mathematics.Combinatorics.Binomial-Inversion": {
+      "subsubject": "Discrete-Mathematics.Combinatorics",
+      "relatedSubjects": [
+        "Mathematics"
       ]
     },
     "Discrete-Mathematics.Combinatorics.Catalan-Number": {
@@ -72,6 +88,19 @@
       "aliases": [
         "Discrete-Mathematics.Discrete-Mathematics.Recurrence-Relation"
       ]
+    },
+    "Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence": {
+      "subsubject": "Discrete-Mathematics.Combinatorics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Set-Theory.Image-of-Intersection": {
+      "subsubject": "Discrete-Mathematics.Set-Theory"
+    },
+    "Discrete-Mathematics.Set-Theory.Composition-of-Injective-and-Surjective-Maps": {
+      "subsubject": "Discrete-Mathematics.Set-Theory"
     },
     "Discrete-Mathematics.Set-Theory.Image-and-Preimage": {
       "subsubject": "Discrete-Mathematics.Set-Theory"

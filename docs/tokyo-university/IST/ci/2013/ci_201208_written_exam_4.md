@@ -2,6 +2,15 @@
 sidebar_label: '2012年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
+  - Computer-Science.Formal-Languages.Nondeterministic-Polynomial-Time-Completeness
+  - Computer-Science.Programming.Tail-Recursion
+  - Electrical-Electronic.Control-Theory.Step-Response
+  - Electrical-Electronic.Control-Theory.Transfer-Function
+  - Electrical-Electronic.Signal-Processing.Discrete-Cosine-Transform
+  - Computer-Science.Security.Public-Key-Cryptography
+  - Computer-Science.Networks.Domain-Name-System
+  - Computer-Science.Computer-Architecture.Translation-Lookaside-Buffer
+  - Computer-Science.Formal-Languages.Left-to-Right-Leftmost-Derivation-One-Lookahead-Parsing
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2012年8月実施 筆記試験 第4問
 ## **Author**

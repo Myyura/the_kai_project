@@ -2,6 +2,9 @@
 sidebar_label: "2016年8月実施 数学 第2問"
 tags:
   - Tokyo-University
+  - Mathematics.Differential-Equations.Dirichlet-Heat-Equation-by-Fourier-Sine-Series
+  - Mathematics.Differential-Equations.Separation-of-Variables-for-Partial-Differential-Equation
+  - Mathematics.Fourier-Analysis.Fourier-Sine-and-Cosine-Series
 ---
 # 東京大学 情報理工学研究科 2016年8月実施 数学 第2問
 

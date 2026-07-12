@@ -2,7 +2,9 @@
 sidebar_label: 2020年8月実施 専門科目II 問題3
 tags:
   - Hiroshima-University
-  - Computer-Science.Programming
+  - Computer-Science.Programming.String-Processing
+  - Computer-Science.Programming.Pointers-and-Arrays
+  - Computer-Science.Programming.Recursion
 ---
 # 広島大学 先進理工系科学研究科 情報科学プログラム 2020年8月実施 専門科目II 問題3
 

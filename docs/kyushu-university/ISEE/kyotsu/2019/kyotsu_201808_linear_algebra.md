@@ -2,7 +2,10 @@
 sidebar_label: "2018年8月実施 線形代数"
 tags:
   - Kyushu-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+  - Mathematics.Linear-Algebra.Matrix-Inverse
+  - Mathematics.Linear-Algebra.Matrix-Power
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2018年8月実施 線形代数
 

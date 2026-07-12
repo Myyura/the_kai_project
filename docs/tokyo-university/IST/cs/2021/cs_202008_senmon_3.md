@@ -2,6 +2,9 @@
 sidebar_label: "2020年8月実施 専門科目 問題3"
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Digital-Logic.One-Hot-Mealy-Parity-Checker
+  - Electrical-Electronic.Digital-Logic.Complementary-Metal-Oxide-Semiconductor-Logic-Transistor-Count-Optimization
+  - Computer-Science.Formal-Languages.Mealy-Machine
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2020年8月実施 専門科目 問題3
 

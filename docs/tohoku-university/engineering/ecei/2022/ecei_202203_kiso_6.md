@@ -2,7 +2,9 @@
 sidebar_label: 2022年3月実施 基礎科目 問題6 数学基礎
 tags:
   - Tohoku-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Cayley-Hamilton-Theorem
+  - Mathematics.Differential-Equations.Laplace-Transform
 ---
 # 東北大学 工学研究科 電気・情報系 2022年3月実施 基礎科目 問題6 数学基礎
 

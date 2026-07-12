@@ -2,7 +2,10 @@
 sidebar_label: 2019年8月実施 電磁気学2
 tags:
   - TITech
-  - Physics.Electromagnetism
+  - Physics.Electromagnetism.Biot-Savart-Law
+  - Physics.Electromagnetism.Ampere-Law
+  - Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance
+  - Physics.Electromagnetism.Magnetic-Energy
 ---
 # 東京工業大学 工学院 電気電子系 2019年8月実施 電磁気学2
 

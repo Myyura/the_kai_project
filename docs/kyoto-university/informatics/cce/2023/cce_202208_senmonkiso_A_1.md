@@ -2,8 +2,11 @@
 sidebar_label: '2022年8月実施 専門基礎A [A-1]'
 tags:
   - Kyoto-University
-  - Mathematics.Calculus
-  - Mathematics.Linear-Algebra
+  - Mathematics.Calculus.Local-Extrema
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Calculus.Arc-Length
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2022年8月実施 専門基礎A \[A-1\]
 

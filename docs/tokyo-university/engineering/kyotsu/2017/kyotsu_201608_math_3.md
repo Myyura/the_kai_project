@@ -2,6 +2,10 @@
 sidebar_label: '2016年8月実施 数学 第3問'
 tags:
   - Tokyo-University
+  - Mathematics.Complex-Analysis.Contour-Integration
+  - Mathematics.Complex-Analysis.Residue-Theorem
+  - Mathematics.Complex-Analysis.Residue-at-Higher-Order-Pole
+  - Mathematics.Complex-Analysis.Argument-Principle-and-Winding-Number
 ---
 
 # 東京大学 工学系研究科 2016年8月実施 数学 第3問

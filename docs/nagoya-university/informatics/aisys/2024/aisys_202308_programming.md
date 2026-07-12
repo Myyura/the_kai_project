@@ -2,7 +2,12 @@
 sidebar_label: "2023年8月実施 プログラミング"
 tags:
   - Nagoya-University
-  - Computer-Science.Programming
+  - Computer-Science.Programming.NumPy-Array-Operations
+  - Computer-Science.Programming.Python-Object-Mutability
+  - Computer-Science.Computer-Architecture.Floating-Point-Representation
+  - Computer-Science.Programming.Variable-Scope
+  - Computer-Science.Programming.Prime-Enumeration
+  - Computer-Science.Programming.Sliding-Window-Pattern-Matching
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2023年8月実施 プログラミング
 

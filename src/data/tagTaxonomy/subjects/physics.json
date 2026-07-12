@@ -53,6 +53,15 @@
       "descriptionZh": "海洋中的波动、流动、传播与物理过程。",
       "descriptionJa": "海洋における波動、流れ、伝播、物理過程。",
       "descriptionEn": "Waves, flows, propagation, and physical processes in the ocean."
+    },
+    "Physics.Astrophysics": {
+      "subject": "Physics",
+      "labelZh": "天体物理",
+      "labelJa": "天体物理学",
+      "labelEn": "Astrophysics",
+      "descriptionZh": "天文观测、光子统计、恒星事件与天体信号分析。",
+      "descriptionJa": "天文観測、光子統計、恒星現象、天体信号解析。",
+      "descriptionEn": "Astronomical observation, photon statistics, stellar events, and astrophysical signal analysis."
     }
   },
   "subsubjectOrder": [
@@ -60,7 +69,598 @@
     "Physics.Electromagnetism",
     "Physics.Quantum-Mechanics",
     "Physics.Thermodynamics",
-    "Physics.Ocean-Physics"
+    "Physics.Ocean-Physics",
+    "Physics.Astrophysics"
   ],
-  "topics": {}
+  "topics": {
+    "Physics.Astrophysics.Photon-Counting-Poisson-Process": {
+      "subsubject": "Physics.Astrophysics",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Physics.Astrophysics.Exposure-Time-Signal-to-Noise-with-Readout-Noise": {
+      "subsubject": "Physics.Astrophysics",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Astrophysics.Central-Limit-Theorem-Based-Simulation-of-Observation-Noise": {
+      "subsubject": "Physics.Astrophysics",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Physics.Astrophysics.CLT-Based-Simulation-of-Observation-Noise"
+      ]
+    },
+    "Physics.Mechanics.Two-Dimensional-Harmonic-Oscillator-Effective-Potential": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Radial-Small-Oscillation-Frequency": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Small-Oscillations-of-a-Chain-Pendulum": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Damped-Harmonic-Motion": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Mechanics.Lagrangian-Mechanics": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Hamilton-Principle-and-Euler-Lagrange-Equation": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Gyroscopic-Precession": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Mechanics.Cyclic-Coordinate-and-Conserved-Momentum": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Action-Integral-and-Adiabatic-Invariant": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Small-Angle-Pendulum": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Involute-Constrained-Motion": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Spring-Pendulum-Coupled-Normal-Modes": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Angular-Momentum-Conservation-and-Areal-Velocity": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Mechanics.Lagrangian-and-Hamiltonian-for-Holonomic-Constraints": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Two-Body-Central-Force-and-Effective-Potential": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Coupled-Rigid-Body-Normal-Modes": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Rotating-Frame-Coriolis-and-Centrifugal-Forces": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Mechanics.Larmor-Theorem": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Mechanics.Beats-in-Coupled-Oscillators": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Mechanics.Time-Dependent-Harmonic-Oscillator": {
+      "subsubject": "Physics.Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Ocean-Physics.Group-Velocity-and-Wave-Packets": {
+      "subsubject": "Physics.Ocean-Physics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Engineering"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Harmonic-Oscillator-Ground-State": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.First-Order-Perturbation-of-Displaced-Oscillator": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.First-Order-Time-Dependent-Perturbation-Transition-Probability": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Harmonic-Oscillator-First-Excited-State": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Quantum-Measurement": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Pauli-Matrices": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Quantum-Observable-Expectation-and-Variance": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Qubit-State-Tomography": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Tensor-Product-Separability-and-Entanglement": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Density-Matrix-and-Mixed-State": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Computer-Science"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Bell-Inequality-and-Local-Hidden-Variable-Contradiction": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Heisenberg-Uncertainty-and-Minimum-Uncertainty-Gaussian": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Bell-State-Correlation": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Pauli-Matrix-Exponential-and-Unitary-Evolution": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Quantum-State-Time-Evolution": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Lewis-Riesenfeld-Invariant": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Creation-and-Annihilation-Operators": {
+      "subsubject": "Physics.Quantum-Mechanics"
+    },
+    "Physics.Quantum-Mechanics.Number-Operator-Spectrum": {
+      "subsubject": "Physics.Quantum-Mechanics"
+    },
+    "Physics.Quantum-Mechanics.Harmonic-Oscillator-Uncertainty": {
+      "subsubject": "Physics.Quantum-Mechanics"
+    },
+    "Physics.Quantum-Mechanics.Coherent-State-and-Number-Fluctuation": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Canonical-Commutation-Relations": {
+      "subsubject": "Physics.Quantum-Mechanics"
+    },
+    "Physics.Quantum-Mechanics.Rectangular-Barrier-Tunneling": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Wavefunction-Matching-at-Potential-Steps": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Finite-Dimensional-Hamiltonian": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.One-Dimensional-Infinite-Square-Well": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Identical-Fermions-Spin-and-Spatial-Symmetry": {
+      "subsubject": "Physics.Quantum-Mechanics"
+    },
+    "Physics.Quantum-Mechanics.Degenerate-Harmonic-Oscillator-States": {
+      "subsubject": "Physics.Quantum-Mechanics"
+    },
+    "Physics.Quantum-Mechanics.Particle-in-Circular-Well": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Chemistry"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Two-Level-Tunneling-and-Rabi-Oscillation": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Time-Evolution-of-Two-Level-System": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Quantum-Mechanics.Wavefunction-Normalization-and-Energy-Expectation": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "relatedSubjects": [
+        "Mathematics",
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Enthalpy-and-Thermodynamic-Relations": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry",
+        "Mathematics"
+      ]
+    },
+    "Physics.Thermodynamics.Joule-Thomson-Effect": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry",
+        "Engineering"
+      ]
+    },
+    "Physics.Thermodynamics.Classical-Ideal-Gas-Partition-Function-and-Gibbs-Factor": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Classical-Ideal-Gas-Entropy-and-Low-Temperature-Failure": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Fermi-Dirac-Grand-Canonical-Distribution": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Physics.Thermodynamics.High-Temperature-Fermi-Gas-Classical-Limit": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Low-Temperature-Fermi-Gas-Heat-Capacity-and-Entropy": {
+      "subsubject": "Physics.Thermodynamics"
+    },
+    "Physics.Thermodynamics.Ideal-Gas-Entropy-of-Mixing": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Grand-Canonical-Ideal-Gas": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Langmuir-Adsorption-Isotherm": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Chemical-Equilibrium-and-Vant-Hoff-Relation": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Canonical-Partition-Function": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Helmholtz-Free-Energy-Differential": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Maxwell-Relations": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Ideal-Gas-Free-Expansion": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Clapeyron-Equation": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Photon-Gas-and-Stefan-Boltzmann-Law": {
+      "subsubject": "Physics.Thermodynamics",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Ampere-Law": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Biot-Savart-Law": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Capacitance-and-Electrostatic-Energy": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Coaxial-Capacitor-and-Line": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Dielectrics-and-Boundary-Conditions": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Electric-Potential-and-Field": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Electrostatic-Force": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Electromagnetic-Wave": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic",
+        "Mathematics"
+      ]
+    },
+    "Physics.Electromagnetism.Electrostatic-Shielding": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Gauss-Law": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Electromagnetism.Helmholtz-Coil": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Magnetic-Force": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Lorentz-Force-and-Charged-Particle-Motion": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Electromagnetism.Crossed-Electric-and-Magnetic-Fields": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Cyclotron-Motion": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Drude-Relaxation-Time": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Hall-Angle": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Rotating-Conductor-Motional-Electromotive-Force": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ],
+      "aliases": [
+        "Physics.Electromagnetism.Rotating-Conductor-Motional-EMF"
+      ]
+    },
+    "Physics.Electromagnetism.Magnetic-Energy": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Magnetic-Dipole-Torque": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Fields-on-Axis-of-Charged-Rotating-Ring": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Rectangular-Cavity-Eigenmodes": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Mathematics",
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Current-Loop-Magnetic-Moment-and-Torque": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Fermat-Principle-and-Snells-Law": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Electromagnetism.Electric-Dipole-Potential": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Conducting-Sphere-in-Uniform-Electric-Field": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Physics.Electromagnetism.Surface-Current-Boundary-Condition": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Spherical-Capacitor": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
+    "Physics.Electromagnetism.Superposition-Principle": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    }
+  }
 }

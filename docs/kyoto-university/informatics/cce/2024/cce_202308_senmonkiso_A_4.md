@@ -3,7 +3,7 @@ sidebar_label: '2023年8月実施 専門基礎A [A-4]'
 tags:
   - Kyoto-University
   - Computer-Science.Computer-Architecture.Number-Representation
-  - Computer-Science.Computer-Architecture.IEEE-754
+  - Computer-Science.Computer-Architecture.IEEE-Standard-754-Floating-Point-Arithmetic
   - Computer-Science.Computer-Architecture.Pipelining
   - Computer-Science.Computer-Architecture.Branch-Prediction
   - Computer-Science.Computer-Architecture.Control-Hazard

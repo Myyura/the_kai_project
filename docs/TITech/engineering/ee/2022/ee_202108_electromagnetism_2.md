@@ -2,7 +2,11 @@
 sidebar_label: 2021年8月実施 電磁気学2
 tags:
   - TITech
-  - Physics.Electromagnetism
+  - Electrical-Electronic.Circuits.Transmission-Line-and-Impedance-Matching
+  - Physics.Electromagnetism.Ampere-Law
+  - Physics.Electromagnetism.Gauss-Law
+  - Physics.Electromagnetism.Electromagnetic-Wave
+  - Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance
 ---
 # 東京工業大学 工学院 電気電子系 2021年8月実施 電磁気学2
 

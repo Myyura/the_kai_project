@@ -2,6 +2,8 @@
 sidebar_label: "2019年8月実施 情報数理学 数学解析"
 tags:
   - Osaka-University
+  - Mathematics.Differential-Equations.Systems-of-ODEs
+  - Probability-Statistics.Stochastic-Processes.Poisson-Process-Forward-Equations
 ---
 # 大阪大学 情報科学研究科 情報数理学専攻 2019年8月実施 情報数理学 数学解析
 

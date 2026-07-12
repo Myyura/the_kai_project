@@ -2,6 +2,11 @@
 sidebar_label: "2019年8月実施 専門科目 S-2"
 tags:
   - Kyoto-University
+  - Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution
+  - Probability-Statistics.Statistical-Inference.Exact-Binomial-Test
+  - Probability-Statistics.Statistical-Inference.Family-Wise-Error-Rate
+  - Probability-Statistics.Statistical-Inference.Confidence-Interval
+  - Probability-Statistics.Statistical-Inference.Hypothesizing-After-Results-Are-Known
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2019年8月実施 専門科目 S-2
 

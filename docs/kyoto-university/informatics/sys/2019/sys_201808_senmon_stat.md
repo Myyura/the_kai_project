@@ -2,7 +2,11 @@
 sidebar_label: 2018年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
-  - Probability-Statistics.Probability-and-Statistics-Basics
+  - Probability-Statistics.Probability-and-Statistics-Basics.Joint-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability
+  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Statistical-Inference.Estimator-Consistency
+  - Probability-Statistics.Probability-and-Statistics-Basics.Hypergeometric-Distribution
 ---
 # 京都大学 情報学研究科 システム科学専攻 2018年8月実施 専門科目 確率統計
 

@@ -2,7 +2,9 @@
 sidebar_label: 2023年8月実施 基礎科目 問題2 電気回路
 tags:
   - Tohoku-University
-  - Electrical-Electronic.Circuits
+  - Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis
+  - Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Resonance
+  - Electrical-Electronic.Circuits.Mutual-Inductance
 ---
 # 東北大学 工学研究科 電気・情報系 2023年8月実施 基礎科目 問題2 電気回路
 

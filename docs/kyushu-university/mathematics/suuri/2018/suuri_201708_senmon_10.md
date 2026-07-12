@@ -2,6 +2,9 @@
 sidebar_label: "2017年8月実施 専門科目 [10]"
 tags:
   - Kyushu-University
+  - Probability-Statistics.Statistical-Inference.Uniform-Endpoint-Estimation
+  - Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics
+  - Probability-Statistics.Statistical-Inference.Unbiased-Estimation
 ---
 # 九州大学 数理学府 数理学コース 2017年8月実施 専門科目 \[10\]
 

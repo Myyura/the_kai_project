@@ -2,6 +2,9 @@
 sidebar_label: "2014年8月実施 専門 第5問"
 tags:
   - Tokyo-University
+  - Computer-Science.Information-Theory.Markov-Source-Stationary-Distribution
+  - Computer-Science.Information-Theory.Binary-Markov-Source-Run-Length-and-Entropy-Rate
+  - Computer-Science.Information-Theory.Entropy-Rate
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2015年度 専門 第5問
 

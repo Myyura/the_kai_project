@@ -2,7 +2,13 @@
 sidebar_label: 2025年8月実施 専門科目 S-6
 tags:
   - Kyoto-University
-  - Cognitive-Science-Neuroscience.Cognitive-Neuroscience
+  - Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Reaction-Time-Experiment-Design
+  - Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Speed-Accuracy-Tradeoff
+  - Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Magnetoencephalography-vs-Functional-Magnetic-Resonance-Imaging
+  - Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Sensory-Processing-and-Illusions
+  - Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Attentional-Orienting
+  - Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Voxel-Based-Morphometry-and-Diffusion-Tensor-Imaging
+  - Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Dissociation-Methods
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2025年8月実施 専門科目 S-6
 ## **Author**

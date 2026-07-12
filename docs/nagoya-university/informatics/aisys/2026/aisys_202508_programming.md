@@ -2,7 +2,8 @@
 sidebar_label: "2025年8月実施 プログラミング"
 tags:
   - Nagoya-University
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Connected-Component-Labeling
+  - Computer-Science.Data-Structures.Union-Find-Data-Structure
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2025年8月実施 プログラミング
 

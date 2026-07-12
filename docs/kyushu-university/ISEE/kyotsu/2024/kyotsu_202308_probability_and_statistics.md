@@ -2,7 +2,8 @@
 sidebar_label: "2023年8月実施 確率・統計"
 tags:
   - Kyushu-University
-  - Probability-Statistics.Probability-and-Statistics-Basics
+  - Probability-Statistics.Probability-and-Statistics-Basics.Combinatorial-Probability
+  - Probability-Statistics.Probability-and-Statistics-Basics.Hypergeometric-Distribution
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2023年8月実施 確率・統計
 

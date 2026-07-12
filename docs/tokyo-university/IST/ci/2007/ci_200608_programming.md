@@ -2,7 +2,10 @@
 sidebar_label: 2006年8月実施 プログラミング
 tags:
   - Tokyo-University
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Caesar-Cipher
+  - Computer-Science.Programming.Substitution-Cipher
+  - Computer-Science.Programming.Character-Frequency-Analysis
+  - Computer-Science.Information-Theory.Huffman-Coding
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2006年8月実施 プログラミング
 

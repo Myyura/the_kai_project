@@ -2,7 +2,9 @@
 sidebar_label: 2022年8月実施 数学 I
 tags:
   - Kanazawa-University
-  - Mathematics.Differential-Equations
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Riccati-Equation
+  - Mathematics.Differential-Equations.Exact-Differential-Equation
 ---
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 数学 I
 

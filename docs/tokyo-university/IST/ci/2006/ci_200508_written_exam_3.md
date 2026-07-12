@@ -2,6 +2,10 @@
 sidebar_label: '2005年8月実施 筆記試験 第3問'
 tags:
   - Tokyo-University
+  - Computer-Science.Graphics.Pinhole-Camera-and-Vanishing-Points
+  - Computer-Science.Graphics.Orthogonal-Vanishing-Point-Camera-Calibration
+  - Computer-Science.Graphics.Edge-Line-Detection-in-Grayscale-Images
+  - Computer-Science.Graphics.Robot-Camera-Extrinsic-Calibration
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2005年8月実施 筆記試験 第3問
 ## **Author**

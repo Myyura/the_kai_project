@@ -2,6 +2,8 @@
 sidebar_label: "2022年8月実施 数学 第1問"
 tags:
   - Tokyo-University
+  - Mathematics.Linear-Algebra.Vandermonde-Determinant
+  - Mathematics.Numerical-Analysis.Lagrange-Polynomial-Interpolation
 ---
 # 東京大学 情報理工学研究科 2022年8月実施 数学 第1問
 

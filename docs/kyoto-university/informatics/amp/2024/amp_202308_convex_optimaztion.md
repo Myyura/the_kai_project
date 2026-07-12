@@ -2,7 +2,10 @@
 sidebar_label: "2023年8月実施 凸最適化"
 tags:
   - Kyoto-University
-  - Operations-Research.Optimization
+  - Operations-Research.Optimization.Linear-Programming
+  - Operations-Research.Optimization.Linear-Programming-Duality
+  - Operations-Research.Optimization.Convex-Optimization
+  - Operations-Research.Optimization.Karush-Kuhn-Tucker-Conditions
 ---
 # 京都大学 情報学研究科 数理工学専攻 2023年8月実施 凸最適化
 

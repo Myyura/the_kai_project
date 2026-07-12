@@ -2,7 +2,8 @@
 sidebar_label: 2022年8月実施 専門科目 電気回路
 tags:
   - Kanazawa-University
-  - Electrical-Electronic.Circuits
+  - Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis
+  - Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Resonance
 ---
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 専門科目 電気回路
 

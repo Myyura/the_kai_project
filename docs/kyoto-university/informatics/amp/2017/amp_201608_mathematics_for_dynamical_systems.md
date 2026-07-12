@@ -2,6 +2,8 @@
 sidebar_label: "2016年8月実施 力学系数学"
 tags:
   - Kyoto-University
+  - Mathematics.Differential-Equations.Systems-of-ODEs
+  - Mathematics.Linear-Algebra.Systems-of-Linear-Equations
 ---
 # 京都大学 情報学研究科 数理工学専攻 2016年8月実施 力学系数学
 

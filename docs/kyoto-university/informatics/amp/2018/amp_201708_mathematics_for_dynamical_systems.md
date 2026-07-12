@@ -2,6 +2,10 @@
 sidebar_label: "2017年8月実施 力学系数学"
 tags:
   - Kyoto-University
+  - Mathematics.Differential-Equations.Systems-of-ODEs
+  - Mathematics.Differential-Equations.Fundamental-Matrix
+  - Mathematics.Linear-Algebra.Matrix-Exponential
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
 ---
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 力学系数学
 

@@ -2,6 +2,12 @@
 sidebar_label: '2021年8月実施 セッション 1'
 tags:
   - Tokyo-University
+  - Mathematics.Differential-Equations.Bernoulli-Equation
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+  - Mathematics.Linear-Algebra.Matrix-Power
+  - Mathematics.Calculus.Gaussian-Integral
+  - Probability-Statistics.Statistical-Inference.Diagnostic-Test-Positive-Predictive-Value
+  - Mathematics.Calculus.Constrained-Optimization
 ---
 
 # 東京大学 工学系研究科 技術経営戦略学専攻 2021年8月実施 セッション 1

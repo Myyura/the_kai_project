@@ -2,6 +2,10 @@
 sidebar_label: "2021年8月実施 専門科目 S-3"
 tags:
   - Kyoto-University
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Mixture-Model
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Generative-Classifier
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Bayesian-Decision-Boundary
+  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2021年8月実施 専門科目 S-3
 

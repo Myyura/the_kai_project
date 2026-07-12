@@ -2,6 +2,13 @@
 sidebar_label: "2021年8月実施 専門科目 S-2"
 tags:
   - Kyoto-University
+  - Probability-Statistics.Statistical-Inference.Statistical-Power
+  - Probability-Statistics.Statistical-Inference.Sample-Size-for-Target-Power
+  - Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution
+  - Probability-Statistics.Probability-and-Statistics-Basics.Poisson-Approximation-to-Binomial
+  - Probability-Statistics.Statistical-Inference.One-Sample-Proportion-Z-Test
+  - Probability-Statistics.Probability-and-Statistics-Basics.Covariance-under-Affine-Transformation
+  - Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2021年8月実施 専門科目 S-2
 

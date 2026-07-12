@@ -2,6 +2,7 @@
 sidebar_label: "2019年8月実施 数学 第3問"
 tags:
   - Tokyo-University
+  - Operations-Research.Decision-Analysis.Secretary-Problem-and-One-over-e-Rule
 ---
 # 東京大学 情報理工学研究科 2019年8月実施 数学 第3問
 
@@ -133,4 +134,3 @@ $$
 $$
 f'(q) = -\ln q -1 = 0 \qquad q = \frac{1}{e}
 $$
-

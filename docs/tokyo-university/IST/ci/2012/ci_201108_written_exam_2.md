@@ -2,7 +2,11 @@
 sidebar_label: 2011年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Computer-Science.Networks
+  - Computer-Science.Networks.Stop-and-Wait-Automatic-Repeat-Request
+  - Computer-Science.Networks.Reliable-Data-Transfer
+  - Computer-Science.Networks.Sliding-Window-Protocol
+  - Computer-Science.Networks.Bandwidth-Delay-Product
+  - Computer-Science.Networks.Protocol-Throughput-and-Utilization
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2011年8月実施 筆記試験 第2問
 ## **Author**

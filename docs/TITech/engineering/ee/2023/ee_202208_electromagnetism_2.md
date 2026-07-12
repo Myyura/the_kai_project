@@ -2,7 +2,7 @@
 sidebar_label: 2022年8月実施 電磁気学2
 tags:
   - TITech
-  - Physics.Electromagnetism
+  - Physics.Electromagnetism.Lorentz-Force-and-Charged-Particle-Motion
 ---
 # 東京工業大学 工学院 電気電子系 2022年8月実施 電磁気学2
 

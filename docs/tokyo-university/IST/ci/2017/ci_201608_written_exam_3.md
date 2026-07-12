@@ -2,6 +2,14 @@
 sidebar_label: '2016年8月実施 筆記試験 第3問'
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Signal-Processing.Wavelet-Transform
+  - Electrical-Electronic.Signal-Processing.Cepstrum
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Deep-Learning
+  - Engineering.Robotics.Zero-Moment-Point
+  - Computer-Science.Security.Secure-Sockets-Layer
+  - Computer-Science.Security.Targeted-Email-Attack
+  - Computer-Science.Graphics.Hough-Transform-for-Line-Detection
+  - Computer-Science.Programming.Lambda-Expression
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2016年8月実施 筆記試験 第3問
 

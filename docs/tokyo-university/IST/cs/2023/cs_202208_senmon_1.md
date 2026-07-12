@@ -2,7 +2,10 @@
 sidebar_label: 2022年8月実施 専門科目 問題1
 tags:
   - Tokyo-University
-  - Computer-Science.Formal-Languages
+  - Computer-Science.Formal-Languages.Equal-Length-Prefix-Operation
+  - Computer-Science.Formal-Languages.Regular-Expression
+  - Computer-Science.Formal-Languages.Context-Free-Grammar
+  - Computer-Science.Formal-Languages.Context-Free-Language-Closure-Properties
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2022年8月実施 専門科目 問題1
 

@@ -2,7 +2,9 @@
 sidebar_label: 2013年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Computer-Science.Computer-Architecture
+  - Computer-Science.Operating-Systems.Virtual-Memory
+  - Computer-Science.Operating-Systems.Page-Replacement
+  - Computer-Science.Computer-Architecture.Performance-Analysis
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2013年8月実施 筆記試験 第2問
 ## **Author**

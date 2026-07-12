@@ -2,6 +2,11 @@
 sidebar_label: "2021年8月実施 数学 問題1"
 tags:
   - Kyushu-University
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+  - Mathematics.Linear-Algebra.Matrix-Limit
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Calculus.Triple-Integral
+  - Mathematics.Vector-Calculus.Polar-Coordinates
 ---
 # 九州大学 工学府 量子物理工学専攻 2021年8月実施 数学 問題1
 

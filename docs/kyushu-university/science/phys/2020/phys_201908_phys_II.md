@@ -2,6 +2,10 @@
 sidebar_label: "2019年8月実施 物理学 [II]"
 tags:
   - Kyushu-University
+  - Physics.Electromagnetism.Electric-Dipole-Potential
+  - Physics.Electromagnetism.Conducting-Sphere-in-Uniform-Electric-Field
+  - Physics.Electromagnetism.Gauss-Law
+  - Physics.Electromagnetism.Surface-Current-Boundary-Condition
 ---
 # 九州大学 理学府 物理学専攻 2019年8月実施 物理学 \[II\]
 

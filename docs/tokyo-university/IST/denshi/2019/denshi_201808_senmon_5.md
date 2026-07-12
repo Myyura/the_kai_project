@@ -2,6 +2,8 @@
 sidebar_label: "2018年8月実施 専門 第5問"
 tags:
   - Tokyo-University
+  - Electrical-Electronic.Signal-Processing.Impulse-Train-Sampling-and-Spectral-Replication
+  - Electrical-Electronic.Signal-Processing.Sampling-Theorem-and-Aliasing
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2018年8月実施 専門 第5問
 

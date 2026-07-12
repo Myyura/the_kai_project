@@ -2,7 +2,9 @@
 sidebar_label: 2022年8月実施 専門科目 問題3
 tags:
   - Tokyo-University
-  - Computer-Science.Operating-Systems
+  - Computer-Science.Operating-Systems.Virtual-Memory
+  - Computer-Science.Operating-Systems.Page-Replacement
+  - Computer-Science.Operating-Systems.Page-Table
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2022年8月実施 専門科目 問題3
 

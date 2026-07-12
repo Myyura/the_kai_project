@@ -2,6 +2,11 @@
 sidebar_label: "2019年8月実施 第3問"
 tags:
   - Tokyo-University
+  - Physics.Quantum-Mechanics.Creation-and-Annihilation-Operators
+  - Physics.Quantum-Mechanics.Harmonic-Oscillator-Ground-State
+  - Physics.Quantum-Mechanics.Harmonic-Oscillator-First-Excited-State
+  - Physics.Quantum-Mechanics.First-Order-Time-Dependent-Perturbation-Transition-Probability
+  - Physics.Quantum-Mechanics.Quantum-Observable-Expectation-and-Variance
 ---
 # 東京大学 新領域創成科学研究科 物質系専攻 2019年8月実施 第3問
 

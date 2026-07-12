@@ -2,7 +2,9 @@
 sidebar_label: 2017年8月実施 電磁気学2
 tags:
   - TITech
-  - Physics.Electromagnetism
+  - Physics.Electromagnetism.Capacitance-and-Electrostatic-Energy
+  - Physics.Electromagnetism.Electrostatic-Force
+  - Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance
 ---
 # 東京工業大学 工学院 電気電子系 2017年8月実施 電磁気学2
 
