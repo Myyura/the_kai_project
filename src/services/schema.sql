@@ -3196,7 +3196,7 @@ returns table (
   archived_at timestamptz,
   item_id uuid,
   doc_id text,
-  position integer,
+  "position" integer,
   annotation_markdown text,
   title text,
   permalink text,
