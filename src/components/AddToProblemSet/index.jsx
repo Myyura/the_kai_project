@@ -18,7 +18,7 @@ const setName = (problemSet, t) => {
   return problemSet.title;
 };
 
-export default function AddToProblemSet({docId}) {
+export default function AddToProblemSet({docId, variant = 'default'}) {
   const featureEnabled = useProblemSetsFeature();
   const {isLoggedIn, authReady} = useSync();
   const t = useUiText('problemSets');
@@ -136,7 +136,7 @@ export default function AddToProblemSet({docId}) {
       <button
         ref={triggerRef}
         type="button"
-        className={`${styles.trigger} ${containsAny ? styles.triggerActive : ''}`}
+        className={`${styles.trigger} ${variant === 'panel' ? styles.triggerPanel : ''} ${containsAny ? styles.triggerActive : ''}`}
         onClick={openPicker}
       >
         {containsAny ? <FaCheck /> : <FaBookmark />}

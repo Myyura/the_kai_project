@@ -1324,6 +1324,21 @@ export const UI_MESSAGES = {
     },
   },
 
+  learningPanel: {
+    zh: {
+      title: '我的学习',
+      hint: '集中管理这道题的进度、题集与笔记',
+    },
+    ja: {
+      title: '学習ツール',
+      hint: 'この問題の進捗・問題セット・ノートをまとめて管理',
+    },
+    en: {
+      title: 'My Study',
+      hint: 'Manage progress, problem sets, and notes for this problem',
+    },
+  },
+
   problemSets: {
     zh: {
       title: '我的题集',

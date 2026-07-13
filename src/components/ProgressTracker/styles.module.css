@@ -11,6 +11,17 @@
   border-color: var(--ifm-color-primary-light);
 }
 
+.trackerEmbedded {
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.trackerEmbedded:hover {
+  border-color: transparent;
+}
+
 .trackerHeader {
   display: flex;
   align-items: center;

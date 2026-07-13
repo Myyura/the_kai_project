@@ -37,10 +37,10 @@ const TOOLBAR_ACTIONS = [
   { key: 'displayMath', label: '$$', before: '\n$$\n', after: '\n$$\n', placeholder: '\\int_0^1 f(x)\\,dx' },
 ];
 
-function NoteGate({ t, type = 'login' }) {
+function NoteGate({ t, type = 'login', embedded = false }) {
   const unavailable = type === 'unavailable';
   return (
-    <div className={`${styles.noteContainer} ${styles.noteGate}`}>
+    <div className={`${styles.noteContainer} ${styles.noteGate} ${embedded ? styles.noteEmbedded : ''}`}>
       <div className={styles.noteToggleStatic}>
         <span className={styles.noteToggleLeft}>
           <FaPen className={styles.noteIcon} />
@@ -60,7 +60,7 @@ function NoteGate({ t, type = 'login' }) {
 }
 
 // ─── 主组件 ──────────────────────────────────────────────────
-function NoteEditorContent({ docId }) {
+function NoteEditorContent({ docId, embedded = false }) {
   const { content, updatedAt, saveNote } = useDocNotes(docId);
   const [text, setText] = useState(content);
   const [mode, setMode] = useState('edit');
@@ -187,7 +187,7 @@ function NoteEditorContent({ docId }) {
   const hasContent = text.trim().length > 0;
 
   return (
-    <div className={styles.noteContainer}>
+    <div className={`${styles.noteContainer} ${embedded ? styles.noteEmbedded : ''}`}>
       {/* 折叠/展开头部 */}
       <button
         className={styles.noteToggle}
@@ -284,7 +284,7 @@ export default function NoteEditor(props) {
   const t = useUiText('noteEditor');
 
   if (isConfigured && !authReady && !isLoggedIn) return null;
-  if (!isLoggedIn) return <NoteGate t={t} />;
-  if (!isConfigured) return <NoteGate t={t} type="unavailable" />;
+  if (!isLoggedIn) return <NoteGate t={t} embedded={props.embedded} />;
+  if (!isConfigured) return <NoteGate t={t} type="unavailable" embedded={props.embedded} />;
   return <NoteEditorContent {...props} />;
 }

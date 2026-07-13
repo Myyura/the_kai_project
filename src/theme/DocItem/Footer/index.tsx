@@ -12,8 +12,10 @@ import {ThemeClassNames} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
-import {FaEdit} from 'react-icons/fa';
+import {FaEdit, FaGraduationCap} from 'react-icons/fa';
+import {useUiText} from '@site/src/i18n/useUiText';
 import shareStyles from '@site/src/components/ShareAsImage/styles.module.css';
+import styles from './styles.module.css';
 
 const ProgressTracker = lazy(() => import('@site/src/components/ProgressTracker'));
 const DifficultyRating = lazy(() => import('@site/src/components/DifficultyRating'));
@@ -25,6 +27,7 @@ const ProblemSetNavigator = lazy(() => import('@site/src/components/ProblemSetNa
 export default function DocItemFooter(): ReactNode {
   const {metadata, frontMatter} = useDoc();
   const {tags, id, title, permalink} = metadata;
+  const learningPanelText = useUiText('learningPanel');
   const contributionUrl = `/me?tab=contribute&type=correction&docId=${encodeURIComponent(id)}&title=${encodeURIComponent(title)}`;
   const structuredData = {
     '@context': 'https://schema.org',
@@ -62,22 +65,34 @@ export default function DocItemFooter(): ReactNode {
           {() => (
             <Suspense fallback={null}>
               <ProblemSetNavigator docId={id} />
+              <DifficultyRating docId={id} />
+              <section className={styles.learningPanel} aria-labelledby="doc-learning-panel-title">
+                <header className={styles.learningPanelHeader}>
+                  <div className={styles.learningPanelHeading}>
+                    <FaGraduationCap aria-hidden="true" />
+                    <div>
+                      <h2 id="doc-learning-panel-title">{learningPanelText.title}</h2>
+                      <p>{learningPanelText.hint}</p>
+                    </div>
+                  </div>
+                  <AddToProblemSet docId={id} variant="panel" />
+                </header>
+                <ProgressTracker
+                  docId={id}
+                  title={title}
+                  permalink={permalink}
+                  tags={tags.map((t) => t.label)}
+                  embedded
+                />
+                <NoteEditor docId={id} embedded />
+              </section>
               <div className={shareStyles.docActionBar}>
                 <ShareAsImage docId={id} title={title} compact />
-                <AddToProblemSet docId={id} />
                 <Link className={shareStyles.triggerBtn} to={contributionUrl}>
                   <FaEdit className={shareStyles.triggerIcon} />
                   <span>纠错/补充</span>
                 </Link>
               </div>
-              <DifficultyRating docId={id} />
-              <ProgressTracker
-                docId={id}
-                title={title}
-                permalink={permalink}
-                tags={tags.map((t) => t.label)}
-              />
-              <NoteEditor docId={id} />
             </Suspense>
           )}
         </BrowserOnly>

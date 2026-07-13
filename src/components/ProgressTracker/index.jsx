@@ -11,10 +11,10 @@ const BUTTONS = [
   { key: STATUS.REVIEWING, Icon: FaRedo },
 ];
 
-function ProgressGate({ t, type = 'login' }) {
+function ProgressGate({ t, type = 'login', embedded = false }) {
   const unavailable = type === 'unavailable';
   return (
-    <div className={`${styles.tracker} ${styles.trackerGate}`}>
+    <div className={`${styles.tracker} ${styles.trackerGate} ${embedded ? styles.trackerEmbedded : ''}`}>
       <div className={styles.trackerHeader}>
         <span className={styles.trackerLabel}>{t.heading}</span>
         <span className={`${styles.statusBadge} ${styles.badge_not_started}`}>
@@ -33,7 +33,7 @@ function ProgressGate({ t, type = 'login' }) {
   );
 }
 
-function ProgressTrackerContent({ docId, title, permalink, tags }) {
+function ProgressTrackerContent({ docId, title, permalink, tags, embedded = false }) {
   const [status, setStatus, refreshReview, updatedAt, reviewCount] = useDocProgress(docId, title, permalink, tags);
   const [justRefreshed, setJustRefreshed] = React.useState(false);
   const [refreshLocked, setRefreshLocked] = React.useState(false);
@@ -63,7 +63,7 @@ function ProgressTrackerContent({ docId, title, permalink, tags }) {
   };
 
   return (
-    <div className={styles.tracker}>
+    <div className={`${styles.tracker} ${embedded ? styles.trackerEmbedded : ''}`}>
       <div className={styles.trackerHeader}>
         <span className={styles.trackerLabel}>{t.heading}</span>
         <span className={`${styles.statusBadge} ${styles[`badge_${status}`]}`}>
@@ -141,7 +141,7 @@ export default function ProgressTracker(props) {
   const t = useUiText('progressTracker');
 
   if (isConfigured && !authReady && !isLoggedIn) return null;
-  if (!isLoggedIn) return <ProgressGate t={t} />;
-  if (!isConfigured) return <ProgressGate t={t} type="unavailable" />;
+  if (!isLoggedIn) return <ProgressGate t={t} embedded={props.embedded} />;
+  if (!isConfigured) return <ProgressGate t={t} type="unavailable" embedded={props.embedded} />;
   return <ProgressTrackerContent {...props} />;
 }

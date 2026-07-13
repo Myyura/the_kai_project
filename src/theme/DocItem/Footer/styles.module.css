@@ -1,0 +1,63 @@
+.learningPanel {
+  margin-top: 2rem;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 8px 26px rgba(15, 23, 42, .05);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.learningPanel:hover {
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 55%, var(--ifm-color-emphasis-200));
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+}
+
+.learningPanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: color-mix(in srgb, var(--ifm-color-primary) 5%, var(--ifm-background-surface-color));
+}
+
+.learningPanelHeading {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  min-width: 0;
+}
+
+.learningPanelHeading > svg {
+  flex: 0 0 auto;
+  color: var(--ifm-color-primary);
+  font-size: 1.15rem;
+}
+
+.learningPanelHeading h2 {
+  margin: 0;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.learningPanelHeading p {
+  margin: .16rem 0 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: .76rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 520px) {
+  .learningPanelHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .learningPanelHeader > button {
+    justify-content: center;
+    width: 100%;
+  }
+}

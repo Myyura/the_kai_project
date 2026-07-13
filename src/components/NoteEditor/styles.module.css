@@ -12,6 +12,18 @@
   border-color: var(--ifm-color-primary-light);
 }
 
+.noteEmbedded {
+  margin-top: 0;
+  border: 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0;
+  background: transparent;
+}
+
+.noteEmbedded:hover {
+  border-top-color: var(--ifm-color-emphasis-200);
+}
+
 /* ─── 折叠/展开按钮 ──────────────────────────────────────── */
 .noteToggle {
   display: flex;
