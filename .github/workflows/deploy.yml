@@ -43,6 +43,7 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
+          PROBLEM_SETS_ENABLED: 'true'
       - name: 检查 Pages 构建入口
         run: |
           test -f build/index.html
