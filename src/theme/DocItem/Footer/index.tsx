@@ -19,6 +19,8 @@ const ProgressTracker = lazy(() => import('@site/src/components/ProgressTracker'
 const DifficultyRating = lazy(() => import('@site/src/components/DifficultyRating'));
 const NoteEditor = lazy(() => import('@site/src/components/NoteEditor'));
 const ShareAsImage = lazy(() => import('@site/src/components/ShareAsImage'));
+const AddToProblemSet = lazy(() => import('@site/src/components/AddToProblemSet'));
+const ProblemSetNavigator = lazy(() => import('@site/src/components/ProblemSetNavigator'));
 
 export default function DocItemFooter(): ReactNode {
   const {metadata, frontMatter} = useDoc();
@@ -59,8 +61,10 @@ export default function DocItemFooter(): ReactNode {
         <BrowserOnly>
           {() => (
             <Suspense fallback={null}>
+              <ProblemSetNavigator docId={id} />
               <div className={shareStyles.docActionBar}>
                 <ShareAsImage docId={id} title={title} compact />
+                <AddToProblemSet docId={id} />
                 <Link className={shareStyles.triggerBtn} to={contributionUrl}>
                   <FaEdit className={shareStyles.triggerIcon} />
                   <span>纠错/补充</span>

@@ -293,16 +293,12 @@ async function requireUser(req: Request) {
   return { user: data.user };
 }
 
-function validateSubmission(body: Record<string, unknown>) {
+function validateSubmission(body: Record<string, unknown>, publicAuthor: string) {
   const submissionType = cleanText(body.submissionType, 40) as SubmissionType;
   if (submissionType !== 'new_solution' && submissionType !== 'correction') {
     return { error: errorResponse(400, 'invalid_type', 'Submission type must be new_solution or correction.') };
   }
 
-  const authorName = cleanText(body.authorName, 120);
-  if (!authorName) {
-    return { error: errorResponse(400, 'missing_author', 'Author name is required.') };
-  }
   if (!body.claAccepted) {
     return { error: errorResponse(400, 'cla_required', 'CLA confirmation is required.') };
   }
@@ -343,7 +339,7 @@ function validateSubmission(body: Record<string, unknown>) {
     submissionId: '',
     submissionType,
     createdAt: now,
-    publicAuthor: authorName,
+    publicAuthor,
     cla: {
       acceptedAt: now,
       statement: 'I have read and agree to The Kai Project CLA.',
@@ -452,7 +448,22 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
     return errorResponse(500, 'attestation_secret_missing', 'CLA_ATTESTATION_SECRET is not configured.');
   }
 
-  const validation = validateSubmission(body);
+  const { data: profile, error: profileError } = await supabase
+    .from('user_public_profiles')
+    .select('nickname,discriminator,nickname_confirmed_at')
+    .eq('user_id', userId)
+    .maybeSingle();
+  if (profileError) return submissionDatabaseErrorResponse(profileError, 'profile_query_failed');
+  if (!profile?.nickname_confirmed_at) {
+    return errorResponse(
+      409,
+      'nickname_confirmation_required',
+      '请先在个人中心确认公开昵称，再提交题解或纠错。',
+    );
+  }
+  const publicAuthor = `${profile.nickname} #${String(profile.discriminator).padStart(5, '0')}`;
+
+  const validation = validateSubmission(body, publicAuthor);
   if ('error' in validation) return validation.error;
   const payload = validation.payload;
 

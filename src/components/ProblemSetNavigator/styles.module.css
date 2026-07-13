@@ -1,0 +1,10 @@
+.navigator { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1rem 0; padding: .8rem; border: 1px solid var(--ifm-color-primary-light); border-radius: .75rem; background: rgba(37, 99, 235, .06); }
+.context { display: flex; align-items: center; gap: .6rem; min-width: 0; }
+.context > svg { color: var(--ifm-color-primary); }
+.context > div { display: grid; min-width: 0; }
+.context a { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.context span { color: var(--ifm-color-emphasis-700); font-size: .75rem; }
+.actions { display: flex; gap: .5rem; }
+.actions a { display: inline-flex; align-items: center; gap: .35rem; padding: .42rem .6rem; border-radius: .5rem; background: var(--ifm-background-color); text-decoration: none; }
+@media (max-width: 650px) { .navigator { align-items: stretch; flex-direction: column; } .actions { justify-content: space-between; } }
+

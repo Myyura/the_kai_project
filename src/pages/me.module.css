@@ -1166,6 +1166,7 @@
 
 .accountPanel {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -1174,6 +1175,110 @@
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 12px;
   background: var(--ifm-background-surface-color);
+}
+
+.accountNickname {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 1rem;
+}
+
+.profileSettings {
+  flex: 1 0 100%;
+  width: 100%;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.profileIdentityRow,
+.profilePrivacyRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0;
+}
+
+.profileIdentityRow > div,
+.profilePrivacyRow > div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.profileLabel,
+.profilePrivacyRow small {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.78rem;
+}
+
+.profileDisplayName {
+  font-size: 1.05rem;
+}
+
+.profileWarning {
+  color: #b45309;
+}
+
+.profileButton,
+.profileSaveButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.55rem;
+  padding: 0.5rem 0.7rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+}
+
+.profileSaveButton {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.profileEditor {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) auto;
+  align-items: end;
+  gap: 0.55rem;
+  margin: 0.45rem 0;
+  padding: 0.75rem;
+  border-radius: 0.65rem;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.profileEditor label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.profileEditor input {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.65rem;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+}
+
+.profileEditor > small {
+  grid-column: 1 / -1;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.profileMessage {
+  margin: 0.4rem 0 0;
+  color: #047857;
+  font-size: 0.82rem;
+}
+
+.profileMessageError {
+  color: #b91c1c;
 }
 
 .accountIdentity {

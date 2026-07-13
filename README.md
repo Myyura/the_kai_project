@@ -40,7 +40,7 @@ To support long-term maintenance, technical services, and community operations, 
 - Exam-experience blog posts and preparation write-ups
 - Per-question progress tracking with review reminders and a progress dashboard
 - Built-in notes on each question page with Markdown and LaTeX support
-- Optional login, cloud sync, and weekly leaderboard powered by Supabase
+- Unified public nicknames, private problem sets, cloud sync, and a practice leaderboard powered by Supabase
 - Local search, PWA/offline support, and share-as-image for answer pages
 
 # 🛠️ Local Development
@@ -95,16 +95,20 @@ The site works without any cloud credentials: core public content such as docume
 export SUPABASE_URL="https://your-project.supabase.co"
 export SUPABASE_ANON_KEY="your-anon-key"
 export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
+export PROBLEM_SETS_ENABLED="true"
 ```
 
 - `SUPABASE_URL` and `SUPABASE_ANON_KEY` enable authentication and cloud sync.
 - `HCAPTCHA_SITE_KEY` is optional but recommended for abuse protection on the login/register page.
+- `PROBLEM_SETS_ENABLED` is a release flag. It must be exactly `true` to expose private problem-set UI; leave it unset until the latest schema is deployed and verified.
 
 If you want to enable cloud sync end-to-end:
 1. Create a Supabase project.
 2. Run [src/services/schema.sql](src/services/schema.sql) in the Supabase SQL editor.
 3. Configure the auth security items noted in that SQL file, including rate limits, password policy, and hCaptcha.
 4. Add the site callback URLs in Supabase Authentication → URL Configuration, including `https://your-domain/auth/callback` and `https://your-domain/reset-password`.
+5. Deploy `supabase/functions/content-submissions` so contribution authors are read from the unified public profile instead of request data.
+6. Verify nickname and private problem-set RPCs with test accounts, then rebuild with `PROBLEM_SETS_ENABLED=true`.
 
 ## Developer JSON API
 Registered users can request JSON API access in the developer center. After a project maintainer approves the request, the user can create an API key and read exam and answer data. API keys are shown only once when created; the database stores only SHA-256 hashes.

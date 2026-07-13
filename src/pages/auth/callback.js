@@ -7,6 +7,7 @@ import { FaCheck, FaCloud, FaExclamationTriangle, FaSyncAlt } from 'react-icons/
 import { useSync } from '@site/src/hooks/useSync';
 import NoIndex from '@site/src/components/NoIndex';
 import {useUiText} from '@site/src/i18n/useUiText';
+import {getAuthReturnTarget} from '@site/src/services/authReturn';
 import styles from '../login.module.css';
 
 function AuthCallbackContent() {
@@ -40,7 +41,7 @@ function AuthCallbackContent() {
         setStatus('success');
         setMessage(successMessage);
         window.setTimeout(() => {
-          if (!disposed) history.replace('/me');
+          if (!disposed) history.replace(getAuthReturnTarget('/me'));
         }, 900);
       } catch (error) {
         if (disposed) return;

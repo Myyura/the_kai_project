@@ -7,7 +7,7 @@ import {
   FaFileAlt, FaArrowRight, FaBuilding, FaTag,
   FaBell, FaFire, FaCalendarAlt, FaStickyNote,
   FaSearch, FaUserCircle, FaLock, FaSignInAlt, FaCloud,
-  FaPaperPlane, FaKey, FaRobot
+  FaPaperPlane, FaKey, FaRobot, FaEdit, FaSave, FaEye, FaEyeSlash, FaLayerGroup
 } from 'react-icons/fa';
 import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
 import { useAllNotes } from '@site/src/hooks/useNotes';
@@ -20,9 +20,12 @@ import NoIndex from '@site/src/components/NoIndex';
 import {useUiText} from '@site/src/i18n/useUiText';
 import { useSync } from '@site/src/hooks/useSync';
 import { useReputation } from '@site/src/hooks/useReputation';
+import { usePublicProfile } from '@site/src/hooks/usePublicProfile';
+import { useProblemSetsFeature } from '@site/src/hooks/useProblemSetsFeature';
 import { ContributeContent } from '@site/src/components/ContributeContent';
 import { DeveloperApiContent } from '@site/src/components/DeveloperApiContent';
 import { AgentTutorContent } from '@site/src/components/AgentTutorContent';
+import ProblemSetsContent from '@site/src/components/ProblemSetsContent';
 import styles from './me.module.css';
 
 const toTagSlug = (tag) =>
@@ -53,23 +56,26 @@ const GRID_COLS = 52;
 
 const PERSONAL_CENTER_TABS = [
   { id: 'overview', labelKey: 'overview', icon: FaClipboardList, to: '/me' },
+  { id: 'sets', labelKey: 'sets', icon: FaLayerGroup, to: '/me?tab=sets' },
   { id: 'ai-tutor', labelKey: 'aiTutor', icon: FaRobot, to: '/me?tab=ai-tutor', hidden: true },
   { id: 'contribute', labelKey: 'contribute', icon: FaPaperPlane, to: '/me?tab=contribute' },
   { id: 'developer-api', labelKey: 'developerApi', icon: FaKey, to: '/me?tab=developer-api' },
 ];
 
-function getActivePersonalTab() {
+function getActivePersonalTab(problemSetsEnabled) {
   if (typeof window === 'undefined') return 'overview';
   const tab = new URLSearchParams(window.location.search).get('tab');
+  if (tab === 'sets' && !problemSetsEnabled) return 'overview';
   return PERSONAL_CENTER_TABS.some((item) => item.id === tab) ? tab : 'overview';
 }
 
 function PersonalCenterTabs({ activeTab = 'overview' }) {
   const centerT = useUiText('personalCenter');
+  const problemSetsEnabled = useProblemSetsFeature();
 
   return (
     <nav className={styles.centerTabs} aria-label={centerT.tabsLabel}>
-      {PERSONAL_CENTER_TABS.filter((item) => !item.hidden).map((item) => {
+      {PERSONAL_CENTER_TABS.filter((item) => !item.hidden && (item.id !== 'sets' || problemSetsEnabled)).map((item) => {
         const Icon = item.icon;
         const active = item.id === activeTab;
         return (
@@ -421,7 +427,91 @@ const CenterLoadingState = ({ t }) => (
   </div>
 );
 
+const PublicProfileSettings = ({ t }) => {
+  const {profile, loading, saveNickname, setLeaderboardVisible} = usePublicProfile();
+  const [editing, setEditing] = React.useState(false);
+  const [draft, setDraft] = React.useState('');
+  const [message, setMessage] = React.useState(null);
+
+  React.useEffect(() => {
+    setDraft(profile?.nickname || '');
+  }, [profile?.nickname]);
+
+  const handleSave = async () => {
+    setMessage(null);
+    try {
+      await saveNickname(draft);
+      setEditing(false);
+      setMessage({type: 'success', text: t.nicknameSaved});
+    } catch (error) {
+      const raw = error?.message || '';
+      const text = raw.includes('cooldown') ? t.nicknameCooldown
+        : (raw.includes('characters') || raw.includes('length')) ? t.nicknameCharacters
+          : t.nicknameSaveError;
+      setMessage({type: 'error', text});
+    }
+  };
+
+  const handleVisibility = async () => {
+    setMessage(null);
+    try {
+      await setLeaderboardVisible(!profile?.leaderboardVisible);
+      setMessage({type: 'success', text: t.leaderboardVisibilitySaved});
+    } catch {
+      setMessage({type: 'error', text: t.leaderboardVisibilityError});
+    }
+  };
+
+  return (
+    <div className={styles.profileSettings}>
+      <div className={styles.profileIdentityRow}>
+        <div>
+          <span className={styles.profileLabel}>{t.publicNickname}</span>
+          <strong className={styles.profileDisplayName}>{profile?.displayName || t.loadingShort}</strong>
+          {!profile?.nicknameConfirmed && <small className={styles.profileWarning}>{t.nicknameNeedsConfirmation}</small>}
+        </div>
+        <button type="button" className={styles.profileButton} onClick={() => setEditing((value) => !value)}>
+          <FaEdit /> {t.editNickname}
+        </button>
+      </div>
+      {editing && (
+        <div className={styles.profileEditor}>
+          <label>
+            <span>{t.nicknameNamePart}</span>
+            <input
+              value={draft}
+              maxLength={24}
+              onChange={(event) => setDraft(event.target.value)}
+              placeholder={t.nicknamePlaceholder}
+            />
+          </label>
+          <button type="button" className={styles.profileSaveButton} disabled={loading} onClick={handleSave}>
+            <FaSave /> {loading ? t.saving : t.saveNickname}
+          </button>
+          <small>{t.nicknameRule}</small>
+        </div>
+      )}
+      <div className={styles.profilePrivacyRow}>
+        <div>
+          <strong>{t.leaderboardPrivacy}</strong>
+          <small>{profile?.leaderboardVisible ? t.leaderboardPublicHint : t.leaderboardHiddenHint}</small>
+        </div>
+        <button type="button" className={styles.profileButton} disabled={loading || !profile} onClick={handleVisibility}>
+          {profile?.leaderboardVisible ? <FaEye /> : <FaEyeSlash />}
+          {profile?.leaderboardVisible ? t.publicStatus : t.hiddenStatus}
+        </button>
+      </div>
+      {message && (
+        <p className={`${styles.profileMessage} ${message.type === 'error' ? styles.profileMessageError : ''}`}>
+          {message.text}
+        </p>
+      )}
+    </div>
+  );
+};
+
 const AccountOverview = ({ user, stats, notesCount, reputation, reputationLoading, t }) => {
+  const {profile} = usePublicProfile();
   const levelKey = reputation?.levelKey || 'newcomer';
   const levelLabel = reputationLoading
     ? t.reputationLoading
@@ -433,6 +523,7 @@ const AccountOverview = ({ user, stats, notesCount, reputation, reputationLoadin
         <FaUserCircle className={styles.accountAvatar} />
         <div className={styles.accountIdentityText}>
           <h2 className={styles.accountTitle}>{t.accountTitle}</h2>
+          <strong className={styles.accountNickname}>{profile?.displayName || t.loadingShort}</strong>
           <p className={styles.accountEmail}>{user?.email || t.loggedIn}</p>
           <div className={styles.reputationSummary}>
             <span className={styles.reputationLabel}>{t.communityLevel}</span>
@@ -462,6 +553,7 @@ const AccountOverview = ({ user, stats, notesCount, reputation, reputationLoadin
           <small>{t.acceptedCorrections}</small>
         </div>
       </div>
+      <PublicProfileSettings t={t} />
     </section>
   );
 };
@@ -783,9 +875,19 @@ function PersonalCenterDashboard({ user }) {
 function MePageInner() {
   const centerT = useUiText('personalCenter');
   const { isConfigured, isLoggedIn, authReady, user } = useSync();
-  const activeTab = getActivePersonalTab();
+  const problemSetsEnabled = useProblemSetsFeature();
+  const activeTab = getActivePersonalTab(problemSetsEnabled);
 
   if (isConfigured && isLoggedIn) {
+    if (activeTab === 'sets') {
+      return (
+        <div className={styles.page}>
+          <PersonalCenterHeader activeTab="sets" />
+          <ProblemSetsContent />
+        </div>
+      );
+    }
+
     if (activeTab === 'contribute') {
       return (
         <div className={styles.page}>

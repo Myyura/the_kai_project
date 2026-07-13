@@ -83,11 +83,13 @@ function useSyncInternal() {
       try {
         const session = await getSession();
         if (mountedRef.current) {
+          setStorageOwner(session?.user?.id ?? null);
           setUser(session?.user ?? null);
           setCachedUser(session?.user ?? null);
         }
       } catch {
         if (mountedRef.current) {
+          setStorageOwner(null);
           setUser(null);
           setCachedUser(null);
         }
@@ -102,6 +104,7 @@ function useSyncInternal() {
         }
 
         if (event === 'TOKEN_REFRESHED' && !session) {
+          setStorageOwner(null);
           setUser(null);
           setCachedUser(null);
           setError('会话已过期，请重新登录。');
@@ -109,6 +112,7 @@ function useSyncInternal() {
         }
 
         const nextUser = session?.user ?? null;
+        setStorageOwner(nextUser?.id ?? null);
         setUser(nextUser);
         setCachedUser(nextUser);
       });
@@ -309,6 +313,7 @@ function useSyncInternal() {
       const data = await completeAuthCallbackFromUrl();
       const nextUser = data?.user ?? data?.session?.user ?? null;
       if (mountedRef.current && nextUser) {
+        setStorageOwner(nextUser.id);
         setUser(nextUser);
         setCachedUser(nextUser);
       }
@@ -333,6 +338,7 @@ function useSyncInternal() {
     setError(null);
     try {
       await doSignOut();
+      setStorageOwner(null);
       setUser(null);
       setCachedUser(null);
     } catch (err) {

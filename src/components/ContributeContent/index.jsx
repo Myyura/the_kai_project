@@ -12,6 +12,7 @@ import {
   FaSignInAlt,
 } from 'react-icons/fa';
 import { useSync } from '@site/src/hooks/useSync';
+import { usePublicProfile } from '@site/src/hooks/usePublicProfile';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
@@ -30,7 +31,6 @@ const initialForm = {
   submissionType: 'new_solution',
   title: '',
   sidebarLabel: '',
-  authorName: '',
   universityId: defaultUniversityId,
   customUniversityId: '',
   departmentId: defaultDepartmentId,
@@ -88,6 +88,7 @@ export function ContributeContent({ embedded = false } = {}) {
   const language = useCurrentLanguage();
   const t = useUiText('contributions');
   const { isConfigured, isLoggedIn, authReady, user } = useSync();
+  const { profile } = usePublicProfile();
   const [form, setForm] = useState(initialForm);
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -231,7 +232,7 @@ export function ContributeContent({ embedded = false } = {}) {
     const universityId = resolveOptionValue(form.universityId, form.customUniversityId);
     const departmentId = resolveOptionValue(form.departmentId, form.customDepartmentId);
     const programId = resolveOptionValue(form.programId, form.customProgramId);
-    if (!form.authorName.trim()) return t.authorRequired;
+    if (!profile?.nicknameConfirmed) return t.nicknameRequired;
     if (!form.claAccepted) return t.claRequired;
     if (form.submissionType === 'new_solution') {
       if (!form.title.trim()) return t.titleRequired;
@@ -266,7 +267,6 @@ export function ContributeContent({ embedded = false } = {}) {
         submissionType: form.submissionType,
         title: form.title,
         sidebarLabel: form.sidebarLabel,
-        authorName: form.authorName,
         universityId,
         departmentId,
         programId,
@@ -289,7 +289,6 @@ export function ContributeContent({ embedded = false } = {}) {
         submissionType: current.submissionType,
         targetDocId: current.submissionType === 'correction' ? current.targetDocId : '',
         targetTitle: current.submissionType === 'correction' ? current.targetTitle : '',
-        authorName: current.authorName,
       }));
       await loadSubmissions();
     } catch (error) {
@@ -379,16 +378,13 @@ export function ContributeContent({ embedded = false } = {}) {
           </div>
 
           <div className={styles.formGrid}>
-            <label>
+            <div className={styles.targetSummary}>
               <span>{t.author}</span>
-              <input
-                value={form.authorName}
-                onChange={(event) => updateForm('authorName', event.target.value)}
-                placeholder={t.authorPlaceholder}
-                maxLength={120}
-              />
-              <small className={styles.smallHint}>{t.authorHint}</small>
-            </label>
+              <strong>{profile?.displayName || t.nicknameNotReady}</strong>
+              {!profile?.nicknameConfirmed && (
+                <small><Link to="/me">{t.confirmNickname}</Link></small>
+              )}
+            </div>
 
             {isCorrectionMode ? (
               <div className={`${styles.targetSummary} ${styles.fullSpan}`}>

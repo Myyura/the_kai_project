@@ -2535,3 +2535,1039 @@ revoke execute on function refresh_user_reputation(uuid) from public, anon, auth
 revoke execute on function get_my_reputation() from public, anon, authenticated;
 grant execute on function refresh_user_reputation(uuid) to authenticated, service_role;
 grant execute on function get_my_reputation() to authenticated;
+
+-- ============================================================
+-- V3：统一公开昵称与私人题集
+-- ============================================================
+
+-- ── 全站统一公开资料 ────────────────────────────────────────
+
+create table if not exists user_public_profiles (
+  user_id                uuid primary key references auth.users(id) on delete cascade,
+  public_id              uuid not null default uuid_generate_v4() unique,
+  nickname               text not null,
+  nickname_normalized    text not null,
+  discriminator          integer not null,
+  nickname_confirmed_at  timestamptz,
+  nickname_changed_at    timestamptz,
+  leaderboard_visible    boolean not null default true,
+  updated_at              timestamptz not null default now(),
+  created_at              timestamptz not null default now(),
+
+  constraint user_public_profiles_nickname_length_check
+    check (char_length(nickname) between 2 and 24),
+  constraint user_public_profiles_nickname_hash_check
+    check (position('#' in nickname) = 0),
+  constraint user_public_profiles_discriminator_check
+    check (discriminator between 0 and 99999),
+  constraint user_public_profiles_nickname_tag_unique
+    unique (nickname_normalized, discriminator)
+);
+
+create index if not exists idx_user_public_profiles_public_id
+  on user_public_profiles(public_id);
+create index if not exists idx_user_public_profiles_leaderboard
+  on user_public_profiles(leaderboard_visible, user_id);
+
+drop trigger if exists update_user_public_profiles_updated_at on user_public_profiles;
+create trigger update_user_public_profiles_updated_at
+  before update on user_public_profiles
+  for each row execute function update_updated_at_column();
+
+alter table user_public_profiles enable row level security;
+revoke all on table user_public_profiles from public, anon, authenticated;
+grant select, insert, update, delete on table user_public_profiles to service_role;
+
+create or replace function normalize_public_nickname(p_nickname text)
+returns text as $$
+  select lower(regexp_replace(trim(normalize(coalesce(p_nickname, ''), NFKC)), '[[:space:]]+', ' ', 'g'));
+$$ language sql immutable;
+
+create or replace function validate_public_nickname(p_nickname text)
+returns text as $$
+declare
+  v_name text := regexp_replace(trim(normalize(coalesce(p_nickname, ''), NFKC)), '[[:space:]]+', ' ', 'g');
+begin
+  if char_length(v_name) < 2 or char_length(v_name) > 24 then
+    raise exception 'nickname_length_invalid' using errcode = '22023';
+  end if;
+  if position('#' in v_name) > 0 or v_name ~ '[[:cntrl:]]' then
+    raise exception 'nickname_characters_invalid' using errcode = '22023';
+  end if;
+  if position(chr(1564) in v_name) > 0
+    or position(chr(8206) in v_name) > 0
+    or position(chr(8207) in v_name) > 0
+    or position(chr(8234) in v_name) > 0
+    or position(chr(8235) in v_name) > 0
+    or position(chr(8236) in v_name) > 0
+    or position(chr(8237) in v_name) > 0
+    or position(chr(8238) in v_name) > 0
+    or position(chr(8294) in v_name) > 0
+    or position(chr(8295) in v_name) > 0
+    or position(chr(8296) in v_name) > 0
+    or position(chr(8297) in v_name) > 0 then
+    raise exception 'nickname_characters_invalid' using errcode = '22023';
+  end if;
+  return v_name;
+end;
+$$ language plpgsql immutable;
+
+create or replace function format_public_nickname(p_nickname text, p_discriminator integer)
+returns text as $$
+  select trim(p_nickname) || ' #' || lpad(p_discriminator::text, 5, '0');
+$$ language sql immutable;
+
+create or replace function ensure_user_public_profile(p_user_id uuid)
+returns user_public_profiles as $$
+declare
+  v_profile public.user_public_profiles%rowtype;
+  v_candidate integer;
+  v_attempt integer := 0;
+  v_normalized text := public.normalize_public_nickname('Kai友');
+begin
+  if p_user_id is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+
+  select * into v_profile
+  from public.user_public_profiles p
+  where p.user_id = p_user_id;
+  if found then
+    return v_profile;
+  end if;
+
+  loop
+    v_candidate := floor(random() * 100000)::integer;
+    insert into public.user_public_profiles (
+      user_id, nickname, nickname_normalized, discriminator
+    ) values (
+      p_user_id, 'Kai友', v_normalized, v_candidate
+    )
+    on conflict do nothing
+    returning * into v_profile;
+
+    if found then
+      return v_profile;
+    end if;
+
+    select * into v_profile
+    from public.user_public_profiles p
+    where p.user_id = p_user_id;
+    if found then
+      return v_profile;
+    end if;
+
+    v_attempt := v_attempt + 1;
+    if v_attempt >= 200 then
+      raise exception 'nickname_discriminator_exhausted' using errcode = '54000';
+    end if;
+  end loop;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function normalize_public_nickname(text) from public, anon, authenticated;
+revoke execute on function validate_public_nickname(text) from public, anon, authenticated;
+revoke execute on function format_public_nickname(text, integer) from public, anon, authenticated;
+revoke execute on function ensure_user_public_profile(uuid) from public, anon, authenticated;
+
+create or replace function get_my_public_profile()
+returns table (
+  public_id uuid,
+  nickname text,
+  discriminator integer,
+  display_name text,
+  nickname_confirmed boolean,
+  nickname_changed_at timestamptz,
+  next_nickname_change_at timestamptz,
+  leaderboard_visible boolean
+) as $$
+declare
+  v_profile public.user_public_profiles%rowtype;
+begin
+  v_profile := public.ensure_user_public_profile(auth.uid());
+  return query select
+    v_profile.public_id,
+    v_profile.nickname,
+    v_profile.discriminator,
+    public.format_public_nickname(v_profile.nickname, v_profile.discriminator),
+    v_profile.nickname_confirmed_at is not null,
+    v_profile.nickname_changed_at,
+    case
+      when v_profile.nickname_changed_at is null then null
+      else v_profile.nickname_changed_at + interval '30 days'
+    end,
+    v_profile.leaderboard_visible;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function confirm_or_change_my_nickname(p_nickname text)
+returns table (
+  public_id uuid,
+  nickname text,
+  discriminator integer,
+  display_name text,
+  nickname_confirmed boolean,
+  nickname_changed_at timestamptz,
+  next_nickname_change_at timestamptz,
+  leaderboard_visible boolean
+) as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_profile public.user_public_profiles%rowtype;
+  v_name text := public.validate_public_nickname(p_nickname);
+  v_normalized text := public.normalize_public_nickname(p_nickname);
+  v_discriminator integer;
+  v_attempt integer := 0;
+  v_is_change boolean;
+begin
+  v_profile := public.ensure_user_public_profile(v_user_id);
+  v_is_change := v_name <> v_profile.nickname or v_normalized <> v_profile.nickname_normalized;
+
+  if v_is_change
+    and v_profile.nickname_confirmed_at is not null
+    and v_profile.nickname_changed_at is not null
+    and v_profile.nickname_changed_at + interval '30 days' > now() then
+    raise exception 'nickname_change_cooldown' using errcode = '55000';
+  end if;
+
+  v_discriminator := v_profile.discriminator;
+  if v_is_change and exists (
+    select 1 from public.user_public_profiles p
+    where p.nickname_normalized = v_normalized
+      and p.discriminator = v_discriminator
+      and p.user_id <> v_user_id
+  ) then
+    loop
+      v_discriminator := floor(random() * 100000)::integer;
+      exit when not exists (
+        select 1 from public.user_public_profiles p
+        where p.nickname_normalized = v_normalized
+          and p.discriminator = v_discriminator
+      );
+      v_attempt := v_attempt + 1;
+      if v_attempt >= 200 then
+        raise exception 'nickname_discriminator_exhausted' using errcode = '54000';
+      end if;
+    end loop;
+  end if;
+
+  update public.user_public_profiles p set
+    nickname = v_name,
+    nickname_normalized = v_normalized,
+    discriminator = v_discriminator,
+    nickname_confirmed_at = coalesce(p.nickname_confirmed_at, now()),
+    nickname_changed_at = case
+      when p.nickname_confirmed_at is null or v_is_change then now()
+      else p.nickname_changed_at
+    end
+  where p.user_id = v_user_id;
+
+  return query select * from public.get_my_public_profile();
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function set_my_leaderboard_visibility(p_visible boolean)
+returns table (
+  public_id uuid,
+  nickname text,
+  discriminator integer,
+  display_name text,
+  nickname_confirmed boolean,
+  nickname_changed_at timestamptz,
+  next_nickname_change_at timestamptz,
+  leaderboard_visible boolean
+) as $$
+declare
+  v_user_id uuid := auth.uid();
+begin
+  perform public.ensure_user_public_profile(v_user_id);
+  update public.user_public_profiles p
+  set leaderboard_visible = coalesce(p_visible, false)
+  where p.user_id = v_user_id;
+  return query select * from public.get_my_public_profile();
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function get_my_public_profile() from public, anon;
+revoke execute on function confirm_or_change_my_nickname(text) from public, anon;
+revoke execute on function set_my_leaderboard_visibility(boolean) from public, anon;
+grant execute on function get_my_public_profile() to authenticated;
+grant execute on function confirm_or_change_my_nickname(text) to authenticated;
+grant execute on function set_my_leaderboard_visibility(boolean) to authenticated;
+
+-- 将旧排行榜资料迁入统一资料。旧昵称含 # 时保留清理后的名称，但要求重新确认。
+do $$
+declare
+  v_user record;
+  v_profile public.user_public_profiles%rowtype;
+  v_name text;
+  v_normalized text;
+  v_discriminator integer;
+  v_had_profile boolean;
+begin
+  for v_user in
+    select
+      u.id,
+      lp.display_name,
+      coalesce(lp.is_anonymous, false) as was_anonymous
+    from auth.users u
+    left join public.user_leaderboard_profiles lp on lp.user_id = u.id
+  loop
+    select exists (
+      select 1 from public.user_public_profiles p where p.user_id = v_user.id
+    ) into v_had_profile;
+    if v_had_profile then
+      continue;
+    end if;
+    v_profile := public.ensure_user_public_profile(v_user.id);
+    if v_user.display_name is null then
+      update public.user_public_profiles
+      set leaderboard_visible = not v_user.was_anonymous
+      where user_id = v_user.id;
+      continue;
+    end if;
+
+    v_name := regexp_replace(v_user.display_name, '#', '', 'g');
+    begin
+      v_name := public.validate_public_nickname(v_name);
+    exception when others then
+      v_name := 'Kai友';
+    end;
+    v_normalized := public.normalize_public_nickname(v_name);
+    v_discriminator := v_profile.discriminator;
+
+    while exists (
+      select 1 from public.user_public_profiles p
+      where p.nickname_normalized = v_normalized
+        and p.discriminator = v_discriminator
+        and p.user_id <> v_user.id
+    ) loop
+      v_discriminator := floor(random() * 100000)::integer;
+    end loop;
+
+    update public.user_public_profiles set
+      nickname = v_name,
+      nickname_normalized = v_normalized,
+      discriminator = v_discriminator,
+      nickname_confirmed_at = case
+        when position('#' in v_user.display_name) > 0 then null
+        else now()
+      end,
+      nickname_changed_at = null,
+      leaderboard_visible = not v_user.was_anonymous
+    where user_id = v_user.id;
+  end loop;
+end;
+$$;
+
+-- 旧昵称 RPC 保留为兼容包装器。
+create or replace function get_my_leaderboard_profile()
+returns table (display_name text, is_anonymous boolean, anonymous_name text) as $$
+declare
+  v_profile record;
+begin
+  select * into v_profile from public.get_my_public_profile();
+  return query select
+    v_profile.nickname,
+    not v_profile.leaderboard_visible,
+    v_profile.display_name;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function set_my_leaderboard_profile(
+  p_display_name text,
+  p_is_anonymous boolean
+)
+returns table (display_name text, is_anonymous boolean, anonymous_name text) as $$
+begin
+  perform * from public.confirm_or_change_my_nickname(p_display_name);
+  perform * from public.set_my_leaderboard_visibility(not coalesce(p_is_anonymous, false));
+  return query select * from public.get_my_leaderboard_profile();
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function get_my_leaderboard_profile() from public, anon;
+revoke execute on function set_my_leaderboard_profile(text, boolean) from public, anon;
+grant execute on function get_my_leaderboard_profile() to authenticated;
+grant execute on function set_my_leaderboard_profile(text, boolean) to authenticated;
+
+create or replace function get_practice_leaderboard(p_period text default 'half_month')
+returns table (
+  rank_position bigint,
+  display_name text,
+  problem_count bigint,
+  is_current_user boolean,
+  is_anonymous boolean,
+  is_top_ten boolean,
+  participant_count bigint,
+  gap_to_previous bigint,
+  percentile integer,
+  period_start date,
+  period_end date
+) as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_profile public.user_public_profiles%rowtype;
+  v_today date := (now() at time zone 'Asia/Tokyo')::date;
+  v_start_date date;
+  v_end_date date;
+  v_start_at timestamptz;
+  v_end_at timestamptz;
+  v_has_public_row boolean := false;
+begin
+  if v_user_id is null then return; end if;
+  if p_period not in ('half_month', 'six_months') then
+    raise exception 'Unsupported leaderboard period';
+  end if;
+  v_profile := public.ensure_user_public_profile(v_user_id);
+
+  if p_period = 'half_month' then
+    if extract(day from v_today) <= 15 then
+      v_start_date := date_trunc('month', v_today)::date;
+      v_end_date := v_start_date + 15;
+    else
+      v_start_date := date_trunc('month', v_today)::date + 15;
+      v_end_date := (date_trunc('month', v_today) + interval '1 month')::date;
+    end if;
+  else
+    v_start_date := (v_today - interval '6 months')::date;
+    v_end_date := v_today + 1;
+  end if;
+  v_start_at := v_start_date::timestamp at time zone 'Asia/Tokyo';
+  v_end_at := v_end_date::timestamp at time zone 'Asia/Tokyo';
+
+  return query
+  with counts as (
+    select e.user_id, count(distinct e.doc_id)::bigint as practiced
+    from public.user_practice_events e
+    join public.user_public_profiles profile
+      on profile.user_id = e.user_id and profile.leaderboard_visible
+    where e.occurred_at >= v_start_at and e.occurred_at < v_end_at
+    group by e.user_id
+  ), ranked as (
+    select
+      c.user_id,
+      c.practiced,
+      dense_rank() over (order by c.practiced desc) as place,
+      row_number() over (order by c.practiced desc, c.user_id) as list_position,
+      count(*) over () as participants
+    from counts c
+  )
+  select
+    r.place,
+    public.format_public_nickname(p.nickname, p.discriminator),
+    r.practiced,
+    r.user_id = v_user_id,
+    false,
+    r.list_position <= 10,
+    r.participants,
+    case when r.user_id = v_user_id then coalesce((
+      select min(c2.practiced) - r.practiced from counts c2 where c2.practiced > r.practiced
+    ), 0) else 0 end,
+    case when r.participants <= 1 then 0 else floor(100.0 * (
+      select count(*) from counts c3 where c3.practiced < r.practiced
+    ) / (r.participants - 1))::integer end,
+    v_start_date,
+    v_end_date - 1
+  from ranked r
+  join public.user_public_profiles p on p.user_id = r.user_id
+  where r.list_position <= 10 or r.user_id = v_user_id
+  order by r.list_position;
+
+  select v_profile.leaderboard_visible and exists (
+    select 1 from public.user_practice_events e
+    where e.user_id = v_user_id
+      and e.occurred_at >= v_start_at and e.occurred_at < v_end_at
+  ) into v_has_public_row;
+
+  if not v_has_public_row then
+    rank_position := null;
+    display_name := public.format_public_nickname(v_profile.nickname, v_profile.discriminator);
+    select count(distinct e.doc_id)::bigint into problem_count
+    from public.user_practice_events e
+    where e.user_id = v_user_id
+      and e.occurred_at >= v_start_at and e.occurred_at < v_end_at;
+    problem_count := coalesce(problem_count, 0);
+    is_current_user := true;
+    is_anonymous := not v_profile.leaderboard_visible;
+    is_top_ten := false;
+    select count(distinct e.user_id)::bigint into participant_count
+    from public.user_practice_events e
+    join public.user_public_profiles p on p.user_id = e.user_id and p.leaderboard_visible
+    where e.occurred_at >= v_start_at and e.occurred_at < v_end_at;
+    gap_to_previous := 0;
+    percentile := 0;
+    period_start := v_start_date;
+    period_end := v_end_date - 1;
+    return next;
+  end if;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function get_practice_leaderboard(text) from public, anon;
+grant execute on function get_practice_leaderboard(text) to authenticated;
+
+-- ── 私人题集 ───────────────────────────────────────────────
+
+create table if not exists problem_sets (
+  id             uuid primary key default uuid_generate_v4(),
+  owner_user_id  uuid not null references auth.users(id) on delete cascade,
+  kind           text not null,
+  title          text,
+  description    text not null default '',
+  archived_at    timestamptz,
+  deleted_at     timestamptz,
+  updated_at     timestamptz not null default now(),
+  created_at     timestamptz not null default now(),
+
+  constraint problem_sets_kind_check
+    check (kind in ('system_later', 'system_mistakes', 'custom')),
+  constraint problem_sets_title_check
+    check (
+      (kind <> 'custom' and title is null)
+      or (kind = 'custom' and char_length(trim(title)) between 1 and 80)
+    ),
+  constraint problem_sets_description_check
+    check (char_length(description) <= 2000),
+  constraint problem_sets_system_archive_check
+    check (kind = 'custom' or (archived_at is null and deleted_at is null))
+);
+
+create unique index if not exists idx_problem_sets_owner_system_kind
+  on problem_sets(owner_user_id, kind)
+  where kind in ('system_later', 'system_mistakes');
+create index if not exists idx_problem_sets_owner_updated
+  on problem_sets(owner_user_id, updated_at desc)
+  where deleted_at is null;
+
+create table if not exists problem_set_items (
+  id                  uuid primary key default uuid_generate_v4(),
+  set_id              uuid not null references problem_sets(id) on delete cascade,
+  doc_id              text not null,
+  position            integer not null default 0,
+  annotation_markdown text not null default '',
+  title_snapshot      text not null default '',
+  permalink_snapshot  text not null default '',
+  tags_snapshot       jsonb not null default '[]'::jsonb,
+  updated_at          timestamptz not null default now(),
+  created_at          timestamptz not null default now(),
+
+  constraint problem_set_items_set_doc_unique unique (set_id, doc_id),
+  constraint problem_set_items_doc_not_blank check (char_length(trim(doc_id)) > 0),
+  constraint problem_set_items_position_check check (position >= 0),
+  constraint problem_set_items_annotation_check check (char_length(annotation_markdown) <= 1000),
+  constraint problem_set_items_tags_check check (jsonb_typeof(tags_snapshot) = 'array')
+);
+
+create index if not exists idx_problem_set_items_order
+  on problem_set_items(set_id, position, created_at);
+create index if not exists idx_problem_set_items_doc
+  on problem_set_items(doc_id, set_id);
+
+drop trigger if exists update_problem_sets_updated_at on problem_sets;
+create trigger update_problem_sets_updated_at
+  before update on problem_sets
+  for each row execute function update_updated_at_column();
+drop trigger if exists update_problem_set_items_updated_at on problem_set_items;
+create trigger update_problem_set_items_updated_at
+  before update on problem_set_items
+  for each row execute function update_updated_at_column();
+
+alter table problem_sets enable row level security;
+alter table problem_set_items enable row level security;
+
+drop policy if exists "Users can view own problem sets" on problem_sets;
+create policy "Users can view own problem sets" on problem_sets for select
+  using (auth.uid() = owner_user_id);
+drop policy if exists "Users can manage own problem sets" on problem_sets;
+create policy "Users can manage own problem sets" on problem_sets for all
+  using (auth.uid() = owner_user_id)
+  with check (auth.uid() = owner_user_id);
+drop policy if exists "Users can view own problem set items" on problem_set_items;
+create policy "Users can view own problem set items" on problem_set_items for select
+  using (exists (
+    select 1 from public.problem_sets s
+    where s.id = set_id and s.owner_user_id = auth.uid()
+  ));
+drop policy if exists "Users can manage own problem set items" on problem_set_items;
+create policy "Users can manage own problem set items" on problem_set_items for all
+  using (exists (
+    select 1 from public.problem_sets s
+    where s.id = set_id and s.owner_user_id = auth.uid()
+  ))
+  with check (exists (
+    select 1 from public.problem_sets s
+    where s.id = set_id and s.owner_user_id = auth.uid()
+  ));
+
+revoke all on table problem_sets, problem_set_items from public, anon, authenticated;
+grant select, insert, update, delete on table problem_sets, problem_set_items to service_role;
+
+create or replace function ensure_my_problem_sets()
+returns void as $$
+declare
+  v_user_id uuid := auth.uid();
+begin
+  if v_user_id is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  insert into public.problem_sets(owner_user_id, kind, title)
+  values
+    (v_user_id, 'system_later', null),
+    (v_user_id, 'system_mistakes', null)
+  on conflict do nothing;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function compact_problem_set_positions(p_set_id uuid)
+returns void as $$
+  update public.problem_set_items i
+  set position = ordered.next_position
+  from (
+    select
+      item.id,
+      (row_number() over (order by item.position, item.created_at, item.id) - 1)::integer as next_position
+    from public.problem_set_items item
+    where item.set_id = p_set_id
+  ) ordered
+  where i.id = ordered.id and i.position <> ordered.next_position;
+$$ language sql security definer
+set search_path = '';
+
+create or replace function get_my_problem_sets(p_doc_id text default null)
+returns table (
+  id uuid,
+  kind text,
+  title text,
+  description text,
+  item_count bigint,
+  completed_count bigint,
+  reviewing_count bigint,
+  contains_doc boolean,
+  archived_at timestamptz,
+  updated_at timestamptz,
+  created_at timestamptz
+) as $$
+declare
+  v_user_id uuid := auth.uid();
+begin
+  perform public.ensure_my_problem_sets();
+  return query
+  select
+    s.id,
+    s.kind,
+    s.title,
+    s.description,
+    count(i.id)::bigint,
+    count(i.id) filter (where p.status = 'completed' and p.deleted_at is null)::bigint,
+    count(i.id) filter (where p.status = 'reviewing' and p.deleted_at is null)::bigint,
+    case when nullif(trim(p_doc_id), '') is null then false
+      else coalesce(bool_or(i.doc_id = trim(p_doc_id)), false) end,
+    s.archived_at,
+    s.updated_at,
+    s.created_at
+  from public.problem_sets s
+  left join public.problem_set_items i on i.set_id = s.id
+  left join public.user_progress_items p
+    on p.user_id = v_user_id and p.doc_id = i.doc_id
+  where s.owner_user_id = v_user_id and s.deleted_at is null
+  group by s.id
+  order by
+    case s.kind when 'system_later' then 0 when 'system_mistakes' then 1 else 2 end,
+    s.updated_at desc;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function get_my_problem_set(p_set_id uuid)
+returns table (
+  set_id uuid,
+  kind text,
+  set_title text,
+  set_description text,
+  archived_at timestamptz,
+  item_id uuid,
+  doc_id text,
+  position integer,
+  annotation_markdown text,
+  title text,
+  permalink text,
+  tags jsonb,
+  content_available boolean,
+  progress_status text,
+  review_count integer,
+  item_updated_at timestamptz,
+  item_created_at timestamptz
+) as $$
+declare
+  v_user_id uuid := auth.uid();
+begin
+  if v_user_id is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  if not exists (
+    select 1 from public.problem_sets s
+    where s.id = p_set_id and s.owner_user_id = v_user_id and s.deleted_at is null
+  ) then
+    raise exception 'problem_set_not_found' using errcode = 'P0002';
+  end if;
+
+  return query
+  select
+    s.id,
+    s.kind,
+    s.title,
+    s.description,
+    s.archived_at,
+    i.id,
+    i.doc_id,
+    i.position,
+    i.annotation_markdown,
+    coalesce(d.title, i.title_snapshot),
+    coalesce(d.permalink, i.permalink_snapshot),
+    coalesce(d.tags, i.tags_snapshot),
+    d.doc_id is not null,
+    coalesce(p.status, 'not_started'),
+    coalesce(p.review_count, 0),
+    i.updated_at,
+    i.created_at
+  from public.problem_sets s
+  left join public.problem_set_items i on i.set_id = s.id
+  left join public.exam_documents d on d.doc_id = i.doc_id
+  left join public.user_progress_items p
+    on p.user_id = v_user_id and p.doc_id = i.doc_id and p.deleted_at is null
+  where s.id = p_set_id
+  order by
+    case when s.kind = 'custom' then i.position end asc nulls last,
+    case when s.kind <> 'custom' then i.created_at end desc nulls last,
+    i.created_at;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function create_my_problem_set(p_title text, p_description text default '')
+returns uuid as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_id uuid;
+  v_title text := trim(coalesce(p_title, ''));
+  v_description text := coalesce(p_description, '');
+begin
+  if v_user_id is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
+  perform 1 from auth.users u where u.id = v_user_id for update;
+  if char_length(v_title) < 1 or char_length(v_title) > 80 then
+    raise exception 'problem_set_title_invalid' using errcode = '22023';
+  end if;
+  if char_length(v_description) > 2000 then
+    raise exception 'problem_set_description_too_long' using errcode = '22023';
+  end if;
+  if (select count(*) from public.problem_sets s
+      where s.owner_user_id = v_user_id and s.kind = 'custom' and s.deleted_at is null) >= 100 then
+    raise exception 'problem_set_limit_reached' using errcode = '54000';
+  end if;
+  insert into public.problem_sets(owner_user_id, kind, title, description)
+  values (v_user_id, 'custom', v_title, v_description)
+  returning id into v_id;
+  return v_id;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function update_my_problem_set(p_set_id uuid, p_title text, p_description text default '')
+returns void as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_title text := trim(coalesce(p_title, ''));
+  v_description text := coalesce(p_description, '');
+begin
+  if char_length(v_title) < 1 or char_length(v_title) > 80 then
+    raise exception 'problem_set_title_invalid' using errcode = '22023';
+  end if;
+  if char_length(v_description) > 2000 then
+    raise exception 'problem_set_description_too_long' using errcode = '22023';
+  end if;
+  update public.problem_sets s
+  set title = v_title, description = v_description
+  where s.id = p_set_id and s.owner_user_id = v_user_id
+    and s.kind = 'custom' and s.deleted_at is null;
+  if not found then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function archive_my_problem_set(p_set_id uuid, p_archived boolean)
+returns void as $$
+begin
+  update public.problem_sets s
+  set archived_at = case when coalesce(p_archived, false) then now() else null end
+  where s.id = p_set_id and s.owner_user_id = auth.uid()
+    and s.kind = 'custom' and s.deleted_at is null;
+  if not found then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function delete_my_problem_set(p_set_id uuid)
+returns void as $$
+begin
+  update public.problem_sets s set deleted_at = now(), archived_at = now()
+  where s.id = p_set_id and s.owner_user_id = auth.uid()
+    and s.kind = 'custom' and s.deleted_at is null;
+  if not found then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function set_doc_problem_set_memberships(
+  p_doc_id text,
+  p_set_ids uuid[] default '{}'::uuid[]
+)
+returns void as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_doc_id text := nullif(trim(p_doc_id), '');
+  v_set_ids uuid[] := coalesce(p_set_ids, '{}'::uuid[]);
+  v_set_id uuid;
+  v_doc public.exam_documents%rowtype;
+  v_position integer;
+  v_touched_set_ids uuid[];
+begin
+  if v_user_id is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
+  if v_doc_id is null then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
+  perform public.ensure_my_problem_sets();
+  perform 1 from public.problem_sets s
+  where s.owner_user_id = v_user_id and s.deleted_at is null and s.archived_at is null
+  order by s.id for update;
+
+  select * into v_doc from public.exam_documents d where d.doc_id = v_doc_id;
+  if not found then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
+
+  if exists (
+    select 1 from unnest(v_set_ids) requested(id)
+    left join public.problem_sets s
+      on s.id = requested.id and s.owner_user_id = v_user_id
+      and s.deleted_at is null and s.archived_at is null
+    where s.id is null
+  ) then
+    raise exception 'invalid_problem_set' using errcode = '22023';
+  end if;
+
+  select coalesce(array_agg(distinct i.set_id), '{}'::uuid[]) into v_touched_set_ids
+  from public.problem_set_items i
+  join public.problem_sets s on s.id = i.set_id
+  where i.doc_id = v_doc_id and s.owner_user_id = v_user_id
+    and s.deleted_at is null and s.archived_at is null;
+
+  delete from public.problem_set_items i
+  using public.problem_sets s
+  where i.set_id = s.id and i.doc_id = v_doc_id
+    and s.owner_user_id = v_user_id and s.deleted_at is null and s.archived_at is null
+    and not (s.id = any(v_set_ids));
+
+  foreach v_set_id in array v_touched_set_ids loop
+    perform public.compact_problem_set_positions(v_set_id);
+  end loop;
+
+  foreach v_set_id in array v_set_ids loop
+    if (select count(*) from public.problem_set_items i where i.set_id = v_set_id) >= 2000
+      and not exists (select 1 from public.problem_set_items i where i.set_id = v_set_id and i.doc_id = v_doc_id) then
+      raise exception 'problem_set_item_limit_reached' using errcode = '54000';
+    end if;
+    select coalesce(max(i.position), -1) + 1 into v_position
+    from public.problem_set_items i where i.set_id = v_set_id;
+    insert into public.problem_set_items (
+      set_id, doc_id, position, title_snapshot, permalink_snapshot, tags_snapshot
+    ) values (
+      v_set_id, v_doc_id, v_position, v_doc.title, v_doc.permalink, v_doc.tags
+    ) on conflict (set_id, doc_id) do nothing;
+  end loop;
+
+  update public.problem_sets s set updated_at = now()
+  where s.owner_user_id = v_user_id and s.deleted_at is null
+    and (s.id = any(v_set_ids) or s.id = any(v_touched_set_ids));
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function reorder_problem_set_items(p_set_id uuid, p_item_ids uuid[])
+returns void as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_total integer;
+begin
+  if not exists (
+    select 1 from public.problem_sets s
+    where s.id = p_set_id and s.owner_user_id = v_user_id
+      and s.kind = 'custom' and s.deleted_at is null and s.archived_at is null
+  ) then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
+
+  select count(*) into v_total from public.problem_set_items i where i.set_id = p_set_id;
+  if coalesce(array_length(p_item_ids, 1), 0) <> v_total
+    or (select count(distinct x) from unnest(coalesce(p_item_ids, '{}'::uuid[])) x) <> v_total
+    or exists (
+      select 1 from unnest(coalesce(p_item_ids, '{}'::uuid[])) x
+      left join public.problem_set_items i on i.id = x and i.set_id = p_set_id
+      where i.id is null
+    ) then
+    raise exception 'invalid_problem_set_order' using errcode = '22023';
+  end if;
+
+  update public.problem_set_items i set position = (ordered.ordinality - 1)::integer
+  from unnest(p_item_ids) with ordinality ordered(id, ordinality)
+  where i.id = ordered.id and i.set_id = p_set_id;
+  update public.problem_sets set updated_at = now() where id = p_set_id;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function update_problem_set_item_annotation(p_item_id uuid, p_annotation text)
+returns void as $$
+declare
+  v_annotation text := coalesce(p_annotation, '');
+begin
+  if char_length(v_annotation) > 1000 then
+    raise exception 'problem_set_annotation_too_long' using errcode = '22023';
+  end if;
+  update public.problem_set_items i set annotation_markdown = v_annotation
+  from public.problem_sets s
+  where i.id = p_item_id and s.id = i.set_id
+    and s.owner_user_id = auth.uid()
+    and s.deleted_at is null and s.archived_at is null;
+  if not found then raise exception 'problem_set_item_not_found' using errcode = 'P0002'; end if;
+  update public.problem_sets s set updated_at = now()
+  where s.id = (select i.set_id from public.problem_set_items i where i.id = p_item_id);
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function remove_problem_set_items(p_set_id uuid, p_item_ids uuid[])
+returns void as $$
+begin
+  if not exists (
+    select 1 from public.problem_sets s
+    where s.id = p_set_id and s.owner_user_id = auth.uid()
+      and s.deleted_at is null and s.archived_at is null
+  ) then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
+  if exists (
+    select 1 from unnest(coalesce(p_item_ids, '{}'::uuid[])) requested(id)
+    left join public.problem_set_items i on i.id = requested.id and i.set_id = p_set_id
+    where i.id is null
+  ) then raise exception 'problem_set_item_not_found' using errcode = 'P0002'; end if;
+  delete from public.problem_set_items i
+  where i.set_id = p_set_id and i.id = any(coalesce(p_item_ids, '{}'::uuid[]));
+  perform public.compact_problem_set_positions(p_set_id);
+  update public.problem_sets set updated_at = now() where id = p_set_id;
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+create or replace function transfer_problem_set_items(
+  p_source_set_id uuid,
+  p_target_set_id uuid,
+  p_item_ids uuid[],
+  p_copy boolean default false
+)
+returns void as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_target_count integer;
+  v_new_count integer;
+  v_offset integer;
+begin
+  if p_source_set_id = p_target_set_id then return; end if;
+  perform 1 from public.problem_sets s
+  where s.id in (p_source_set_id, p_target_set_id)
+    and s.owner_user_id = v_user_id
+  order by s.id for update;
+  if not exists (
+    select 1 from public.problem_sets s where s.id = p_source_set_id
+      and s.owner_user_id = v_user_id and s.deleted_at is null and s.archived_at is null
+  ) or not exists (
+    select 1 from public.problem_sets s where s.id = p_target_set_id
+      and s.owner_user_id = v_user_id and s.deleted_at is null and s.archived_at is null
+  ) then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
+
+  if exists (
+    select 1 from unnest(coalesce(p_item_ids, '{}'::uuid[])) requested(id)
+    left join public.problem_set_items source
+      on source.id = requested.id and source.set_id = p_source_set_id
+    where source.id is null
+  ) then raise exception 'problem_set_item_not_found' using errcode = 'P0002'; end if;
+
+  select count(*) into v_target_count from public.problem_set_items where set_id = p_target_set_id;
+  select count(*) into v_new_count
+  from public.problem_set_items source
+  where source.set_id = p_source_set_id
+    and source.id = any(coalesce(p_item_ids, '{}'::uuid[]))
+    and not exists (
+      select 1 from public.problem_set_items target
+      where target.set_id = p_target_set_id and target.doc_id = source.doc_id
+    );
+  if v_target_count + v_new_count > 2000 then
+    raise exception 'problem_set_item_limit_reached' using errcode = '54000';
+  end if;
+  select coalesce(max(position), -1) + 1 into v_offset
+  from public.problem_set_items where set_id = p_target_set_id;
+
+  insert into public.problem_set_items (
+    set_id, doc_id, position, annotation_markdown,
+    title_snapshot, permalink_snapshot, tags_snapshot
+  )
+  select
+    p_target_set_id,
+    source.doc_id,
+    (v_offset + row_number() over (order by source.position, source.created_at) - 1)::integer,
+    source.annotation_markdown,
+    source.title_snapshot,
+    source.permalink_snapshot,
+    source.tags_snapshot
+  from public.problem_set_items source
+  where source.set_id = p_source_set_id
+    and source.id = any(coalesce(p_item_ids, '{}'::uuid[]))
+  on conflict (set_id, doc_id) do nothing;
+
+  if not coalesce(p_copy, false) then
+    delete from public.problem_set_items source
+    where source.set_id = p_source_set_id
+      and source.id = any(coalesce(p_item_ids, '{}'::uuid[]));
+    perform public.compact_problem_set_positions(p_source_set_id);
+  end if;
+  update public.problem_sets set updated_at = now()
+  where id in (p_source_set_id, p_target_set_id);
+end;
+$$ language plpgsql security definer
+set search_path = '';
+
+revoke execute on function ensure_my_problem_sets() from public, anon, authenticated;
+revoke execute on function compact_problem_set_positions(uuid) from public, anon, authenticated;
+revoke execute on function get_my_problem_sets(text) from public, anon;
+revoke execute on function get_my_problem_set(uuid) from public, anon;
+revoke execute on function create_my_problem_set(text, text) from public, anon;
+revoke execute on function update_my_problem_set(uuid, text, text) from public, anon;
+revoke execute on function archive_my_problem_set(uuid, boolean) from public, anon;
+revoke execute on function delete_my_problem_set(uuid) from public, anon;
+revoke execute on function set_doc_problem_set_memberships(text, uuid[]) from public, anon;
+revoke execute on function reorder_problem_set_items(uuid, uuid[]) from public, anon;
+revoke execute on function update_problem_set_item_annotation(uuid, text) from public, anon;
+revoke execute on function remove_problem_set_items(uuid, uuid[]) from public, anon;
+revoke execute on function transfer_problem_set_items(uuid, uuid, uuid[], boolean) from public, anon;
+
+grant execute on function get_my_problem_sets(text) to authenticated;
+grant execute on function get_my_problem_set(uuid) to authenticated;
+grant execute on function create_my_problem_set(text, text) to authenticated;
+grant execute on function update_my_problem_set(uuid, text, text) to authenticated;
+grant execute on function archive_my_problem_set(uuid, boolean) to authenticated;
+grant execute on function delete_my_problem_set(uuid) to authenticated;
+grant execute on function set_doc_problem_set_memberships(text, uuid[]) to authenticated;
+grant execute on function reorder_problem_set_items(uuid, uuid[]) to authenticated;
+grant execute on function update_problem_set_item_annotation(uuid, text) to authenticated;
+grant execute on function remove_problem_set_items(uuid, uuid[]) to authenticated;
+grant execute on function transfer_problem_set_items(uuid, uuid, uuid[], boolean) to authenticated;

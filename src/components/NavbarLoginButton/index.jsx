@@ -2,7 +2,7 @@
  * NavbarLoginButton — 导航栏登录按钮（动态显示登录状态）
  *
  * - 未登录 → 绿色按钮 "登录" / "ログイン"，点击跳转 /login
- * - 已登录 → 显示邮箱前缀，点击跳转 /me（个人中心）
+ * - 已登录 → 显示全站统一昵称，点击跳转 /me（个人中心）
  * - SSR 时不渲染（BrowserOnly）
  */
 
@@ -10,10 +10,12 @@ import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import { useSync } from '@site/src/hooks/useSync';
+import { usePublicProfile } from '@site/src/hooks/usePublicProfile';
 import {useUiText} from '@site/src/i18n/useUiText';
 
 function LoginButtonInner() {
   const { isConfigured, user, isLoggedIn, authReady } = useSync();
+  const { profile } = usePublicProfile();
   const t = useUiText('navbarLogin');
 
   // 环境变量未配置 → 不显示
@@ -33,10 +35,7 @@ function LoginButtonInner() {
   }
 
   if (isLoggedIn) {
-    // 取邮箱 @ 前的部分作为显示名
-    const display = user?.email
-      ? user.email.split('@')[0]
-      : t.loggedIn;
+    const display = profile?.displayName || t.loggedIn;
 
     return (
       <Link

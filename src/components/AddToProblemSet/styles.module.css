@@ -1,0 +1,73 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: .55rem;
+  padding: .5rem .7rem;
+  color: var(--ifm-color-emphasis-800);
+  background: var(--ifm-background-surface-color);
+  cursor: pointer;
+  font: inherit;
+}
+
+.trigger:hover,
+.triggerActive {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, .56);
+}
+
+.dialog {
+  width: min(34rem, 100%);
+  max-height: min(44rem, calc(100vh - 2rem));
+  overflow: auto;
+  border-radius: .9rem;
+  padding: 1rem;
+  background: var(--ifm-background-color);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .3);
+  outline: none;
+}
+
+.dialog > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dialog h2 { display: flex; align-items: center; gap: .5rem; margin: 0; font-size: 1.15rem; }
+.dialog header p { margin: .3rem 0 0; color: var(--ifm-color-emphasis-700); }
+.closeButton { border: 0; background: transparent; color: inherit; cursor: pointer; font-size: 1.1rem; }
+
+.optionList { display: grid; gap: .45rem; margin: 1rem 0; }
+.option { display: flex; align-items: center; gap: .7rem; padding: .7rem; border: 1px solid var(--ifm-color-emphasis-200); border-radius: .65rem; cursor: pointer; }
+.option > span { display: grid; flex: 1; }
+.option small { color: var(--ifm-color-emphasis-600); }
+.option em { font-size: .68rem; font-style: normal; color: var(--ifm-color-primary); }
+
+.createRow { display: grid; grid-template-columns: 1fr auto; gap: .5rem; }
+.createRow input { min-width: 0; border: 1px solid var(--ifm-color-emphasis-300); border-radius: .55rem; padding: .6rem .7rem; background: var(--ifm-background-color); color: var(--ifm-font-color-base); }
+.createRow button,
+.saveButton,
+.cancelButton { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; border: 0; border-radius: .55rem; padding: .6rem .8rem; cursor: pointer; }
+.createRow button,
+.saveButton { color: white; background: var(--ifm-color-primary); }
+.cancelButton { background: var(--ifm-color-emphasis-200); color: var(--ifm-font-color-base); }
+.dialog > footer { display: flex; justify-content: flex-end; gap: .5rem; margin-top: 1rem; }
+.message { margin: .7rem 0 0; color: var(--ifm-color-primary-darkest); }
+.stateText { padding: 2rem; text-align: center; color: var(--ifm-color-emphasis-600); }
+
+@media (max-width: 520px) {
+  .createRow { grid-template-columns: 1fr; }
+  .dialog > footer > button { flex: 1; }
+}
+

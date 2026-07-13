@@ -14,6 +14,7 @@ import { useSync } from '@site/src/hooks/useSync';
 import NoIndex from '@site/src/components/NoIndex';
 import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
+import {getAuthReturnTarget} from '@site/src/services/authReturn';
 import {
   checkRateLimit,
   recordFailedAttempt,
@@ -154,7 +155,7 @@ function LoginPageContent() {
         resetAttempts();
         showMsg(t.loginOk);
         setTimeout(() => {
-          history.push('/me');
+          history.push(getAuthReturnTarget('/me'));
         }, 1000);
       } else {
         const emailRedirectTo = `${window.location.origin}/auth/callback`;

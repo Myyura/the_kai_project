@@ -1,20 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import Link from '@docusaurus/Link';
-import {
-  FaCog,
-  FaSave,
-  FaSyncAlt,
-  FaTrophy,
-  FaUser,
-  FaUserSecret,
-} from 'react-icons/fa';
-import { useSync } from '@site/src/hooks/useSync';
-import {
-  fetchLeaderboardProfile,
-  fetchPracticeLeaderboard,
-  updateLeaderboardProfile,
-} from '@site/src/services/syncService';
-import { getUiMessages } from '@site/src/i18n/messages';
+import {FaSyncAlt, FaTrophy, FaUser, FaUserSecret} from 'react-icons/fa';
+import {useSync} from '@site/src/hooks/useSync';
+import {usePublicProfile} from '@site/src/hooks/usePublicProfile';
+import {fetchPracticeLeaderboard} from '@site/src/services/syncService';
+import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
 
 const PERIODS = ['half_month', 'six_months'];
@@ -33,36 +23,24 @@ const formatPeriodRange = (start, end, language) => {
   return `${formatter.format(new Date(`${start}T00:00:00+09:00`))} – ${formatter.format(new Date(`${end}T00:00:00+09:00`))}`;
 };
 
-export default function Leaderboard({ language = 'zh', compact = false }) {
-  const { isConfigured, isLoggedIn } = useSync();
+export default function Leaderboard({language = 'zh', compact = false}) {
+  const {isConfigured, isLoggedIn} = useSync();
+  const {profile} = usePublicProfile();
   const t = getUiMessages('leaderboard', language);
   const [period, setPeriod] = useState('half_month');
   const [data, setData] = useState([]);
-  const [profile, setProfile] = useState(null);
-  const [draftName, setDraftName] = useState('');
-  const [draftAnonymous, setDraftAnonymous] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-  const [saving, setSaving] = useState(false);
   const [fetched, setFetched] = useState(false);
   const [error, setError] = useState(null);
-  const [profileError, setProfileError] = useState(null);
 
-  const load = useCallback(async ({ silent = false } = {}) => {
+  const load = useCallback(async ({silent = false} = {}) => {
     if (!isConfigured || !isLoggedIn) return;
     if (silent) setRefreshing(true);
     else setLoading(true);
     setError(null);
     try {
-      const [leaderboard, nextProfile] = await Promise.all([
-        fetchPracticeLeaderboard(period),
-        fetchLeaderboardProfile(),
-      ]);
-      setData(leaderboard);
-      setProfile(nextProfile);
-      setDraftName(nextProfile?.display_name || '');
-      setDraftAnonymous(Boolean(nextProfile?.is_anonymous));
+      setData(await fetchPracticeLeaderboard(period));
       setFetched(true);
     } catch (loadError) {
       setError(loadError.message || 'Error');
@@ -72,14 +50,15 @@ export default function Leaderboard({ language = 'zh', compact = false }) {
     }
   }, [isConfigured, isLoggedIn, period]);
 
+  useEffect(() => { void load(); }, [load]);
   useEffect(() => {
-    void load();
-  }, [load]);
-
-  useEffect(() => {
-    const handleSync = () => void load({ silent: true });
-    window.addEventListener('kai_sync_completed', handleSync);
-    return () => window.removeEventListener('kai_sync_completed', handleSync);
+    const handleRefresh = () => void load({silent: true});
+    window.addEventListener('kai_sync_completed', handleRefresh);
+    window.addEventListener('kai_public_profile_updated', handleRefresh);
+    return () => {
+      window.removeEventListener('kai_sync_completed', handleRefresh);
+      window.removeEventListener('kai_public_profile_updated', handleRefresh);
+    };
   }, [load]);
 
   const topRows = useMemo(() => data.filter((item) => item.is_top_ten), [data]);
@@ -91,31 +70,6 @@ export default function Leaderboard({ language = 'zh', compact = false }) {
     language,
   );
 
-  const saveProfile = async () => {
-    const name = draftName.trim();
-    if (name.length < 2) {
-      setProfileError(t.nameTooShort);
-      return;
-    }
-    setSaving(true);
-    setProfileError(null);
-    try {
-      const nextProfile = await updateLeaderboardProfile({
-        displayName: name,
-        isAnonymous: draftAnonymous,
-      });
-      setProfile(nextProfile);
-      setDraftName(nextProfile?.display_name || name);
-      setDraftAnonymous(Boolean(nextProfile?.is_anonymous));
-      setSettingsOpen(false);
-      await load({ silent: true });
-    } catch (saveError) {
-      setProfileError(saveError.message || t.profileSaveError);
-    } finally {
-      setSaving(false);
-    }
-  };
-
   if (!isConfigured || !isLoggedIn) return null;
 
   const currentCount = Number(currentUser?.problem_count) || 0;
@@ -123,8 +77,8 @@ export default function Leaderboard({ language = 'zh', compact = false }) {
   const gap = Number(currentUser?.gap_to_previous) || 0;
   const percentile = Number(currentUser?.percentile) || 0;
   const participantCount = Number(currentUser?.participant_count || topRows[0]?.participant_count) || 0;
-  const currentOutsideTop = currentUser && !currentUser.is_top_ten && currentCount > 0;
-  const previewName = profile?.anonymous_name || t.anonymousFallback;
+  const currentOutsideTop = currentUser && !currentUser.is_top_ten && currentCount > 0 && currentRank;
+  const isHidden = profile ? !profile.leaderboardVisible : Boolean(currentUser?.is_anonymous);
 
   return (
     <section className={`${styles.section} ${compact ? styles.compactSection : ''}`}>
@@ -138,27 +92,16 @@ export default function Leaderboard({ language = 'zh', compact = false }) {
             {periodRange}{periodRange ? ` · ${t.japanTime}` : ''}
           </span>
         </div>
-        <div className={styles.headerActions}>
-          <button
-            type="button"
-            className={`${styles.iconButton} ${settingsOpen ? styles.iconButtonActive : ''}`}
-            onClick={() => setSettingsOpen((open) => !open)}
-            aria-label={t.profileSettings}
-            title={t.profileSettings}
-          >
-            <FaCog />
-          </button>
-          <button
-            type="button"
-            className={styles.iconButton}
-            onClick={() => load({ silent: true })}
-            disabled={loading || refreshing}
-            aria-label={t.refresh}
-            title={t.refresh}
-          >
-            <FaSyncAlt className={loading || refreshing ? styles.spin : ''} />
-          </button>
-        </div>
+        <button
+          type="button"
+          className={styles.iconButton}
+          onClick={() => load({silent: true})}
+          disabled={loading || refreshing}
+          aria-label={t.refresh}
+          title={t.refresh}
+        >
+          <FaSyncAlt className={loading || refreshing ? styles.spin : ''} />
+        </button>
       </div>
 
       <div className={styles.periodTabs} role="group" aria-label={t.periodLabel}>
@@ -175,83 +118,32 @@ export default function Leaderboard({ language = 'zh', compact = false }) {
         ))}
       </div>
 
-      {settingsOpen && (
-        <div className={styles.settingsPanel}>
-          <div className={styles.settingsField}>
-            <label htmlFor="leaderboard-display-name">{t.nickname}</label>
-            <input
-              id="leaderboard-display-name"
-              type="text"
-              value={draftName}
-              maxLength={32}
-              onChange={(event) => setDraftName(event.target.value)}
-              placeholder={t.nicknamePlaceholder}
-            />
-          </div>
-          <label className={styles.privacyToggle}>
-            <input
-              type="checkbox"
-              checked={draftAnonymous}
-              onChange={(event) => setDraftAnonymous(event.target.checked)}
-            />
-            <span className={styles.toggleTrack} aria-hidden="true"><span /></span>
-            <span>
-              <strong>{t.anonymousMode}</strong>
-              <small>{t.anonymousHint(previewName)}</small>
-            </span>
-          </label>
-          <div className={styles.settingsFooter}>
-            {profileError && <span className={styles.settingsError}>{profileError}</span>}
-            <button
-              type="button"
-              className={styles.saveButton}
-              onClick={saveProfile}
-              disabled={saving}
-            >
-              <FaSave /> {saving ? t.saving : t.save}
-            </button>
-          </div>
-        </div>
-      )}
-
       {loading && !fetched && (
-        <div className={styles.loading}>
-          <FaSyncAlt className={styles.spin} /> {t.loading}
-        </div>
+        <div className={styles.loading}><FaSyncAlt className={styles.spin} /> {t.loading}</div>
       )}
-
       {error && !loading && (
-        <button type="button" className={styles.errorState} onClick={() => load()}>
-          {t.error}
-        </button>
+        <button type="button" className={styles.errorState} onClick={() => load()}>{t.error}</button>
       )}
 
       {!error && fetched && (
         <>
           <div className={styles.mySummary}>
             <div className={styles.summaryIdentity}>
-              <span className={styles.summaryAvatar}><FaUser /></span>
+              <span className={styles.summaryAvatar}>{isHidden ? <FaUserSecret /> : <FaUser />}</span>
               <div>
                 <span className={styles.summaryEyebrow}>{t.myPerformance}</span>
-                <strong>{currentUser?.display_name || profile?.display_name || t.you}</strong>
+                <strong>{currentUser?.display_name || profile?.displayName || t.you}</strong>
               </div>
             </div>
             <div className={styles.summaryMetrics}>
-              <div>
-                <strong>{currentRank ? `#${currentRank}` : '–'}</strong>
-                <span>{t.rank}</span>
-              </div>
-              <div>
-                <strong>{currentCount}</strong>
-                <span>{t.problemCount}</span>
-              </div>
-              <div>
-                <strong>{percentile}%</strong>
-                <span>{t.surpassed}</span>
-              </div>
+              <div><strong>{currentRank ? `#${currentRank}` : '–'}</strong><span>{t.rank}</span></div>
+              <div><strong>{currentCount}</strong><span>{t.problemCount}</span></div>
+              <div><strong>{isHidden ? '–' : `${percentile}%`}</strong><span>{t.surpassed}</span></div>
             </div>
             <div className={styles.summaryMessage}>
-              {currentCount === 0 ? (
+              {isHidden ? (
+                <Link to="/me">{t.hiddenFromLeaderboard || t.profileSettings}</Link>
+              ) : currentCount === 0 ? (
                 <Link to="/docs/intro">{t.startPracticing}</Link>
               ) : currentRank === 1 ? t.firstPlace
                 : gap > 0 ? t.gapToPrevious(gap)
@@ -272,8 +164,7 @@ export default function Leaderboard({ language = 'zh', compact = false }) {
                 const rank = Number(item.rank_position);
                 const rankClass = rank === 1 ? styles.rank1
                   : rank === 2 ? styles.rank2
-                    : rank === 3 ? styles.rank3
-                      : '';
+                    : rank === 3 ? styles.rank3 : '';
                 const barPct = Math.round((Number(item.problem_count) / maxCount) * 100);
                 return (
                   <div
@@ -281,9 +172,7 @@ export default function Leaderboard({ language = 'zh', compact = false }) {
                     className={`${styles.row} ${item.is_current_user ? styles.rowCurrent : ''}`}
                   >
                     <span className={`${styles.rank} ${rankClass}`}>{rank}</span>
-                    <span className={styles.avatar}>
-                      {item.is_anonymous ? <FaUserSecret /> : (item.display_name?.[0] || <FaUser />)}
-                    </span>
+                    <span className={styles.avatar}>{item.display_name?.[0] || <FaUser />}</span>
                     <div className={styles.learner}>
                       <div className={styles.learnerName}>
                         <span>{item.display_name}</span>
@@ -292,13 +181,11 @@ export default function Leaderboard({ language = 'zh', compact = false }) {
                       <div className={styles.bar}>
                         <div
                           className={`${styles.barFill} ${rank <= 3 ? styles.barFillTop : ''}`}
-                          style={{ width: `${barPct}%` }}
+                          style={{width: `${barPct}%`}}
                         />
                       </div>
                     </div>
-                    <span className={styles.count}>
-                      {item.problem_count}<span>{t.unit}</span>
-                    </span>
+                    <span className={styles.count}>{item.problem_count}<span>{t.unit}</span></span>
                   </div>
                 );
               })}
@@ -317,9 +204,7 @@ export default function Leaderboard({ language = 'zh', compact = false }) {
                     <span className={styles.youTag}>{t.you}</span>
                   </div>
                 </div>
-                <span className={styles.count}>
-                  {currentCount}<span>{t.unit}</span>
-                </span>
+                <span className={styles.count}>{currentCount}<span>{t.unit}</span></span>
               </div>
             </div>
           )}
