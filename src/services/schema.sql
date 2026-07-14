@@ -1,6 +1,7 @@
 -- ============================================================
--- Kai Project 云同步所需的 Supabase 数据库表结构
--- 在 Supabase SQL Editor 中执行此脚本即可
+-- Kai Project 当前 Supabase 数据库结构（最终状态）
+-- 新环境可在 Supabase SQL Editor 中执行本脚本；旧环境的一次性数据迁移与
+-- 遗留对象删除请执行 supabase/manual/20260714_cleanup_legacy_schema.sql。
 -- ============================================================
 --
 -- ⚠️ 重要：还需在 Supabase Dashboard 中手动配置以下服务端安全项（不可被前端绕过）：
@@ -144,124 +145,8 @@ create trigger update_user_note_items_updated_at
   for each row
   execute function update_updated_at_column();
 
--- ============================================================
--- Migration：从旧版 user_data(progress+notes JSONB 整行) 迁移到 V2 分表
--- ============================================================
--- 可重复执行：通过 ON CONFLICT + client_updated_at 比较保证幂等。
--- 建议在低峰期执行，并先备份数据库。
-
-do $$
-begin
-  if to_regclass('public.user_data') is null then
-    raise notice 'Legacy table public.user_data not found, skip migration.';
-    return;
-  end if;
-
-  -- 迁移 progress
-  execute $sql_progress$
-    insert into public.user_progress_items (
-      user_id,
-      doc_id,
-      status,
-      title,
-      permalink,
-      tags,
-      review_count,
-      client_updated_at,
-      deleted_at,
-      created_at,
-      updated_at
-    )
-    select
-      ud.user_id,
-      kv.key as doc_id,
-      case
-        when (kv.value->>'status') in ('completed', 'reviewing') then kv.value->>'status'
-        else null
-      end as status,
-      nullif(trim(kv.value->>'title'), '') as title,
-      nullif(trim(kv.value->>'permalink'), '') as permalink,
-      case
-        when jsonb_typeof(kv.value->'tags') = 'array' then kv.value->'tags'
-        else '[]'::jsonb
-      end as tags,
-      greatest(
-        0,
-        case
-          when coalesce(kv.value->>'reviewCount', '') ~ '^[0-9]+$' then (kv.value->>'reviewCount')::int
-          else 0
-        end
-      ) as review_count,
-      case
-        when coalesce(kv.value->>'updatedAt', '') ~ '^[0-9]+$' then (kv.value->>'updatedAt')::bigint
-        else (extract(epoch from coalesce(ud.updated_at, now())) * 1000)::bigint
-      end as client_updated_at,
-      null::timestamptz as deleted_at,
-      coalesce(ud.created_at, now()) as created_at,
-      coalesce(ud.updated_at, now()) as updated_at
-    from public.user_data ud
-    cross join lateral jsonb_each(coalesce(ud.progress, '{}'::jsonb)) kv
-    where jsonb_typeof(kv.value) = 'object'
-      and (kv.value->>'status') in ('completed', 'reviewing')
-    on conflict (user_id, doc_id)
-    do update set
-      status = excluded.status,
-      title = excluded.title,
-      permalink = excluded.permalink,
-      tags = excluded.tags,
-      review_count = excluded.review_count,
-      client_updated_at = excluded.client_updated_at,
-      deleted_at = excluded.deleted_at,
-      updated_at = now()
-    where excluded.client_updated_at > user_progress_items.client_updated_at;
-  $sql_progress$;
-
-  -- 迁移 notes
-  execute $sql_notes$
-    insert into public.user_note_items (
-      user_id,
-      doc_id,
-      content,
-      client_updated_at,
-      deleted_at,
-      created_at,
-      updated_at
-    )
-    select
-      ud.user_id,
-      kv.key as doc_id,
-      kv.value->>'content' as content,
-      case
-        when coalesce(kv.value->>'updatedAt', '') ~ '^[0-9]+$' then (kv.value->>'updatedAt')::bigint
-        else (extract(epoch from coalesce(ud.updated_at, now())) * 1000)::bigint
-      end as client_updated_at,
-      null::timestamptz as deleted_at,
-      coalesce(ud.created_at, now()) as created_at,
-      coalesce(ud.updated_at, now()) as updated_at
-    from public.user_data ud
-    cross join lateral jsonb_each(coalesce(ud.notes, '{}'::jsonb)) kv
-    where jsonb_typeof(kv.value) = 'object'
-      and nullif(trim(kv.value->>'content'), '') is not null
-    on conflict (user_id, doc_id)
-    do update set
-      content = excluded.content,
-      client_updated_at = excluded.client_updated_at,
-      deleted_at = excluded.deleted_at,
-      updated_at = now()
-    where excluded.client_updated_at > user_note_items.client_updated_at;
-  $sql_notes$;
-
-  raise notice 'Migration from public.user_data to V2 tables completed.';
-end;
-$$;
-
--- 迁移后可手动验证：
--- select count(*) from public.user_progress_items;
--- select count(*) from public.user_note_items;
---
--- 若确认迁移无误，可选操作（谨慎）：
--- alter table public.user_data rename to user_data_legacy_backup;
--- 或在冷静期后 drop table public.user_data;
+-- 旧版 user_data 的数据迁移与清理已移至：
+-- supabase/manual/20260714_cleanup_legacy_schema.sql
 
 -- ── 服务端时间 RPC ──────────────────────────────────────────
 -- 供客户端校准本地时钟偏移量（返回 ISO 8601 字符串）
@@ -366,247 +251,8 @@ set search_path = '';
 revoke execute on function record_practice_events(jsonb) from public, anon;
 grant execute on function record_practice_events(jsonb) to authenticated;
 
--- 初次升级时保留最近半年的现有进度作为一次兼容事件。之后全部使用事件账本。
-insert into public.user_practice_events (
-  event_id, user_id, doc_id, event_type, occurred_at
-)
-select
-  uuid_generate_v5(
-    uuid_ns_url(),
-    'kai-progress:' || upi.user_id::text || ':' || upi.doc_id || ':' || upi.client_updated_at::text
-  ),
-  upi.user_id,
-  upi.doc_id,
-  'practice',
-  to_timestamp(upi.client_updated_at / 1000.0)
-from public.user_progress_items upi
-where upi.deleted_at is null
-  and upi.status in ('completed', 'reviewing')
-  and upi.client_updated_at >= (extract(epoch from now() - interval '6 months') * 1000)::bigint
-on conflict (user_id, event_id) do nothing;
-
--- 排行榜昵称资料。默认公开账号昵称，用户可覆盖昵称或切换为匿名 Kai友。
-create table if not exists user_leaderboard_profiles (
-  user_id       uuid primary key references auth.users(id) on delete cascade,
-  display_name  text,
-  is_anonymous  boolean not null default false,
-  updated_at    timestamptz not null default now(),
-  created_at    timestamptz not null default now(),
-
-  constraint user_leaderboard_profiles_name_check
-    check (display_name is null or char_length(trim(display_name)) between 2 and 32)
-);
-
-drop trigger if exists update_user_leaderboard_profiles_updated_at on user_leaderboard_profiles;
-create trigger update_user_leaderboard_profiles_updated_at
-  before update on user_leaderboard_profiles
-  for each row execute function update_updated_at_column();
-
-alter table user_leaderboard_profiles enable row level security;
-revoke all on table user_leaderboard_profiles from public, anon, authenticated;
-
-create or replace function leaderboard_default_display_name(p_user_id uuid)
-returns text as $$
-  select left(regexp_replace(coalesce(
-    nullif(trim(u.raw_user_meta_data->>'user_name'), ''),
-    nullif(trim(u.raw_user_meta_data->>'preferred_username'), ''),
-    nullif(trim(u.raw_user_meta_data->>'full_name'), ''),
-    nullif(trim(u.raw_user_meta_data->>'name'), ''),
-    'Kai友 ' || upper(substr(md5(p_user_id::text), 1, 4))
-  ), '[[:space:]]+', ' ', 'g'), 32)
-  from auth.users u
-  where u.id = p_user_id;
-$$ language sql stable security definer
-set search_path = '';
-
-revoke execute on function leaderboard_default_display_name(uuid) from public, anon, authenticated;
-
-create or replace function get_my_leaderboard_profile()
-returns table (display_name text, is_anonymous boolean, anonymous_name text) as $$
-begin
-  if auth.uid() is null then
-    return;
-  end if;
-  return query
-  select
-    coalesce(p.display_name, public.leaderboard_default_display_name(auth.uid())),
-    coalesce(p.is_anonymous, false),
-    'Kai友 ' || upper(substr(md5(auth.uid()::text), 1, 4))
-  from (select 1) seed
-  left join public.user_leaderboard_profiles p on p.user_id = auth.uid();
-end;
-$$ language plpgsql stable security definer
-set search_path = '';
-
-revoke execute on function get_my_leaderboard_profile() from public, anon;
-grant execute on function get_my_leaderboard_profile() to authenticated;
-
-create or replace function set_my_leaderboard_profile(
-  p_display_name text,
-  p_is_anonymous boolean
-)
-returns table (display_name text, is_anonymous boolean, anonymous_name text) as $$
-declare
-  v_name text := left(regexp_replace(trim(coalesce(p_display_name, '')), '[[:space:]]+', ' ', 'g'), 32);
-begin
-  if auth.uid() is null then
-    raise exception 'Authentication required';
-  end if;
-  if char_length(v_name) < 2 then
-    raise exception 'Display name must contain at least 2 characters';
-  end if;
-
-  insert into public.user_leaderboard_profiles (user_id, display_name, is_anonymous)
-  values (auth.uid(), v_name, coalesce(p_is_anonymous, false))
-  on conflict (user_id) do update set
-    display_name = excluded.display_name,
-    is_anonymous = excluded.is_anonymous;
-
-  return query select * from public.get_my_leaderboard_profile();
-end;
-$$ language plpgsql security definer
-set search_path = '';
-
-revoke execute on function set_my_leaderboard_profile(text, boolean) from public, anon;
-grant execute on function set_my_leaderboard_profile(text, boolean) to authenticated;
-
-drop function if exists get_weekly_leaderboard();
-drop function if exists get_practice_leaderboard(text);
-
-create function get_practice_leaderboard(p_period text default 'half_month')
-returns table (
-  rank_position bigint,
-  display_name text,
-  problem_count bigint,
-  is_current_user boolean,
-  is_anonymous boolean,
-  is_top_ten boolean,
-  participant_count bigint,
-  gap_to_previous bigint,
-  percentile integer,
-  period_start date,
-  period_end date
-) as $$
-declare
-  v_user_id uuid := auth.uid();
-  v_today date := (now() at time zone 'Asia/Tokyo')::date;
-  v_start_date date;
-  v_end_date date;
-  v_start_at timestamptz;
-  v_end_at timestamptz;
-begin
-  if v_user_id is null then
-    return;
-  end if;
-  if p_period not in ('half_month', 'six_months') then
-    raise exception 'Unsupported leaderboard period';
-  end if;
-
-  if p_period = 'half_month' then
-    if extract(day from v_today) <= 15 then
-      v_start_date := date_trunc('month', v_today)::date;
-      v_end_date := v_start_date + 15;
-    else
-      v_start_date := date_trunc('month', v_today)::date + 15;
-      v_end_date := (date_trunc('month', v_today) + interval '1 month')::date;
-    end if;
-  else
-    v_start_date := (v_today - interval '6 months')::date;
-    v_end_date := v_today + 1;
-  end if;
-
-  v_start_at := v_start_date::timestamp at time zone 'Asia/Tokyo';
-  v_end_at := v_end_date::timestamp at time zone 'Asia/Tokyo';
-
-  return query
-  with counts as (
-    select
-      e.user_id,
-      count(distinct e.doc_id)::bigint as practiced
-    from public.user_practice_events e
-    where e.occurred_at >= v_start_at
-      and e.occurred_at < v_end_at
-    group by e.user_id
-  ), ranked as (
-    select
-      c.user_id,
-      c.practiced,
-      dense_rank() over (order by c.practiced desc) as place,
-      row_number() over (order by c.practiced desc, c.user_id) as list_position,
-      count(*) over () as participants
-    from counts c
-  )
-  select
-    r.place,
-    case
-      when coalesce(p.is_anonymous, false)
-        then 'Kai友 ' || upper(substr(md5(r.user_id::text), 1, 4))
-      else coalesce(p.display_name, public.leaderboard_default_display_name(r.user_id))
-    end,
-    r.practiced,
-    r.user_id = v_user_id,
-    coalesce(p.is_anonymous, false),
-    r.list_position <= 10,
-    r.participants,
-    case when r.user_id = v_user_id then coalesce((
-      select min(c2.practiced) - r.practiced
-      from counts c2
-      where c2.practiced > r.practiced
-    ), 0) else 0 end,
-    case
-      when r.participants <= 1 then 0
-      else floor(100.0 * (
-        select count(*) from counts c3 where c3.practiced < r.practiced
-      ) / (r.participants - 1))::integer
-    end,
-    v_start_date,
-    v_end_date - 1
-  from ranked r
-  left join public.user_leaderboard_profiles p on p.user_id = r.user_id
-  where r.list_position <= 10 or r.user_id = v_user_id
-  order by r.list_position;
-
-  if not exists (
-    select 1
-    from public.user_practice_events own_event
-    where own_event.user_id = v_user_id
-      and own_event.occurred_at >= v_start_at
-      and own_event.occurred_at < v_end_at
-  ) then
-    rank_position := null;
-    problem_count := 0;
-    is_current_user := true;
-    is_top_ten := false;
-    gap_to_previous := 0;
-    percentile := 0;
-    period_start := v_start_date;
-    period_end := v_end_date - 1;
-
-    select
-      coalesce(profile.is_anonymous, false),
-      case
-        when coalesce(profile.is_anonymous, false)
-          then 'Kai友 ' || upper(substr(md5(v_user_id::text), 1, 4))
-        else coalesce(profile.display_name, public.leaderboard_default_display_name(v_user_id))
-      end
-    into is_anonymous, display_name
-    from (select 1) seed
-    left join public.user_leaderboard_profiles profile on profile.user_id = v_user_id;
-
-    select count(distinct event_user.user_id)
-    into participant_count
-    from public.user_practice_events event_user
-    where event_user.occurred_at >= v_start_at
-      and event_user.occurred_at < v_end_at;
-
-    return next;
-  end if;
-end;
-$$ language plpgsql stable security definer
-set search_path = '';
-
-revoke execute on function get_practice_leaderboard(text) from public, anon;
-grant execute on function get_practice_leaderboard(text) to authenticated;
+-- 旧进度事件回填、旧排行榜资料迁移及遗留对象清理已移至：
+-- supabase/manual/20260714_cleanup_legacy_schema.sql
 
 -- ============================================================
 -- Public API：题库 JSON API 所需表结构
@@ -661,13 +307,6 @@ create table if not exists exam_documents (
   constraint exam_documents_subsubject_ids_is_array check (jsonb_typeof(subsubject_ids) = 'array'),
   constraint exam_documents_topic_ids_is_array check (jsonb_typeof(topic_ids) = 'array')
 );
-
-alter table exam_documents
-  add column if not exists school_tags jsonb not null default '[]'::jsonb,
-  add column if not exists learning_tags jsonb not null default '[]'::jsonb,
-  add column if not exists subject_ids jsonb not null default '[]'::jsonb,
-  add column if not exists subsubject_ids jsonb not null default '[]'::jsonb,
-  add column if not exists topic_ids jsonb not null default '[]'::jsonb;
 
 create index if not exists idx_exam_documents_catalog
   on exam_documents(type, university_id, department_id, program_id, year);
@@ -740,38 +379,6 @@ create table if not exists user_reputation_profiles (
     )
 );
 
-alter table user_reputation_profiles
-  add column if not exists level integer not null default 0,
-  add column if not exists level_key text not null default 'newcomer',
-  add column if not exists reputation_points integer not null default 0,
-  add column if not exists rating_weight numeric(4, 2) not null default 1.00,
-  add column if not exists account_age_score integer not null default 0,
-  add column if not exists contribution_score integer not null default 0,
-  add column if not exists accepted_solution_count integer not null default 0,
-  add column if not exists accepted_correction_count integer not null default 0,
-  add column if not exists submitted_solution_issue_count integer not null default 0,
-  add column if not exists submitted_correction_issue_count integer not null default 0,
-  add column if not exists issue_submission_count integer not null default 0,
-  add column if not exists converted_submission_count integer not null default 0,
-  add column if not exists last_contribution_at timestamptz,
-  add column if not exists recalculated_at timestamptz not null default now(),
-  add column if not exists updated_at timestamptz not null default now(),
-  add column if not exists created_at timestamptz not null default now();
-
-alter table user_reputation_profiles drop constraint if exists user_reputation_profiles_scores_check;
-alter table user_reputation_profiles
-  add constraint user_reputation_profiles_scores_check
-  check (
-    account_age_score >= 0
-    and contribution_score >= 0
-    and accepted_solution_count >= 0
-    and accepted_correction_count >= 0
-    and submitted_solution_issue_count >= 0
-    and submitted_correction_issue_count >= 0
-    and issue_submission_count >= 0
-    and converted_submission_count >= 0
-  );
-
 create index if not exists idx_user_reputation_profiles_level
   on user_reputation_profiles(level desc, reputation_points desc);
 
@@ -819,19 +426,6 @@ create table if not exists user_reputation_events (
   constraint user_reputation_events_user_source_unique
     unique (user_id, event_type, source_type, source_id)
 );
-
-alter table user_reputation_events drop constraint if exists user_reputation_events_event_type_check;
-alter table user_reputation_events
-  add constraint user_reputation_events_event_type_check
-  check (event_type in (
-    'account_age',
-    'submitted_solution_issue',
-    'submitted_correction_issue',
-    'accepted_solution',
-    'accepted_correction',
-    'pr_merged',
-    'manual_adjustment'
-  ));
 
 create index if not exists idx_user_reputation_events_user_occurred
   on user_reputation_events(user_id, occurred_at desc);
@@ -935,11 +529,6 @@ create table if not exists exam_difficulty_stats (
   constraint exam_difficulty_stats_confidence_check
     check (confidence in ('collecting', 'provisional', 'stable'))
 );
-
-alter table exam_difficulty_stats
-  add column if not exists effective_vote_weight numeric(8, 2) not null default 0,
-  add column if not exists weighted_average_score numeric(4, 2),
-  add column if not exists weighted_bayesian_score numeric(4, 2);
 
 create index if not exists idx_exam_difficulty_stats_assigned
   on exam_difficulty_stats(assigned_difficulty, vote_count desc);
@@ -1124,9 +713,6 @@ create trigger refresh_exam_difficulty_stats_after_vote
   for each row
   execute function refresh_exam_difficulty_stats_after_vote();
 
-drop function if exists set_exam_difficulty_vote(text, smallint);
-drop function if exists get_exam_difficulty(text);
-
 create or replace function get_exam_difficulty(p_doc_id text)
 returns table (
   doc_id text,
@@ -1276,26 +862,12 @@ create table if not exists api_access_requests (
 
 create index if not exists idx_api_access_requests_status
   on api_access_requests(status, created_at desc);
-create index if not exists idx_api_access_requests_user_id
-  on api_access_requests(user_id);
 
 drop trigger if exists update_api_access_requests_updated_at on api_access_requests;
 create trigger update_api_access_requests_updated_at
   before update on api_access_requests
   for each row
   execute function update_updated_at_column();
-
--- 使用目的为选填，只保留最大长度限制。
-update api_access_requests set intended_use = '' where intended_use is null;
-alter table api_access_requests alter column intended_use set default '';
-alter table api_access_requests alter column intended_use set not null;
-alter table api_access_requests drop constraint if exists api_access_requests_intended_use_length;
-alter table api_access_requests
-  add constraint api_access_requests_intended_use_length
-  check (char_length(trim(intended_use)) <= 4000);
-
--- 旧版字段不再由业务读取；repeatable schema 不主动删除数据列。
-alter table api_access_requests drop constraint if exists api_access_requests_expected_monthly_check;
 
 alter table api_access_requests enable row level security;
 revoke all on table api_access_requests from anon, authenticated;
@@ -1321,23 +893,6 @@ create table if not exists api_keys (
   constraint api_keys_rate_limit_check check (rate_limit_per_minute between 1 and 600),
   constraint api_keys_plan_check check (plan in ('free', 'research', 'partner', 'commercial'))
 );
-
-alter table api_keys add column if not exists plan text not null default 'free';
-
-do $$
-begin
-  if not exists (
-    select 1 from pg_constraint where conname = 'api_keys_plan_check'
-  ) then
-    alter table api_keys
-      add constraint api_keys_plan_check
-      check (plan in ('free', 'research', 'partner', 'commercial'));
-  end if;
-end;
-$$;
-
--- 旧版字段不再由业务读取；repeatable schema 不主动删除数据列。
-alter table api_keys drop constraint if exists api_keys_monthly_quota_check;
 
 create index if not exists idx_api_keys_user_id
   on api_keys(user_id, created_at desc);
@@ -1381,9 +936,7 @@ create index if not exists idx_api_request_logs_status
 alter table api_request_logs enable row level security;
 revoke all on table api_request_logs from anon, authenticated;
 
--- ── API 限流窗口 ──────────────────────────────────────────
--- 旧版 api_usage_months 如已存在则保留，避免重复执行 schema 时删除历史数据。
--- 当前限流逻辑使用 api_usage_windows。
+-- ── API 分钟限流窗口 ────────────────────────────────────────
 
 create table if not exists api_usage_windows (
   api_key_id     uuid not null references api_keys(id) on delete cascade,
@@ -1409,8 +962,6 @@ alter table api_usage_windows enable row level security;
 revoke all on table api_usage_windows from anon, authenticated;
 
 -- 原子递增分钟限流窗口，并在允许请求时更新 API Key 总调用量。
-drop function if exists register_api_request(uuid, timestamptz, integer);
-drop function if exists register_api_request(uuid, timestamptz, integer, timestamptz, integer);
 create or replace function register_api_request(
   p_api_key_id uuid,
   p_window_start timestamptz,
@@ -1463,9 +1014,6 @@ create table if not exists agent_user_links (
   updated_at    timestamptz not null default now(),
   created_at    timestamptz not null default now()
 );
-
-create index if not exists idx_agent_user_links_user_id
-  on agent_user_links(user_id);
 
 drop trigger if exists update_agent_user_links_updated_at on agent_user_links;
 create trigger update_agent_user_links_updated_at
@@ -1592,10 +1140,6 @@ create table if not exists ai_usage_months (
     )
 );
 
--- 按 token 实际消耗计费：补缓存输入 token（计费更低，单独累计便于按缓存价折算）。
-alter table ai_usage_months
-  add column if not exists cached_input_tokens bigint not null default 0;
-
 create index if not exists idx_ai_usage_months_period
   on ai_usage_months(period_start desc);
 
@@ -1634,8 +1178,6 @@ create table if not exists ai_usage_reservations (
 
 create index if not exists idx_ai_usage_reservations_user_created
   on ai_usage_reservations(user_id, created_at desc);
-create index if not exists idx_ai_usage_reservations_session
-  on ai_usage_reservations(session_id);
 
 drop trigger if exists update_ai_usage_reservations_updated_at on ai_usage_reservations;
 create trigger update_ai_usage_reservations_updated_at
@@ -1678,9 +1220,6 @@ create table if not exists ai_usage_events (
     )
 );
 
-alter table ai_usage_events
-  add column if not exists cached_input_tokens bigint not null default 0;
-
 create index if not exists idx_ai_usage_events_user_created
   on ai_usage_events(user_id, created_at desc);
 create index if not exists idx_ai_usage_events_session_created
@@ -1708,9 +1247,6 @@ create table if not exists ai_model_prices (
   constraint ai_model_prices_credit_pool_check check (credit_pool in ('standard', 'premium'))
 );
 
-alter table ai_model_prices
-  add column if not exists credit_pool text not null default 'standard';
-
 drop trigger if exists update_ai_model_prices_updated_at on ai_model_prices;
 create trigger update_ai_model_prices_updated_at
   before update on ai_model_prices
@@ -1729,21 +1265,9 @@ insert into ai_model_prices (model, input_micro_usd_per_mtok, cached_input_micro
 values
   ('gpt-5.5', 5000000, 500000, 30000000, 'premium'),
   ('gpt-5.3-codex-spark', 1750000, 175000, 14000000, 'standard')
-on conflict (model) do update set
-  input_micro_usd_per_mtok = excluded.input_micro_usd_per_mtok,
-  cached_input_micro_usd_per_mtok = excluded.cached_input_micro_usd_per_mtok,
-  output_micro_usd_per_mtok = excluded.output_micro_usd_per_mtok,
-  credit_pool = excluded.credit_pool,
-  updated_at = now();
-
--- 既有 ai_entitlements 补双 credit 池列（幂等）
-alter table ai_entitlements
-  add column if not exists credit_balance_micros bigint not null default 0,
-  add column if not exists premium_credit_balance_micros bigint not null default 0;
+on conflict (model) do nothing;
 
 -- ── 预留：按 credit 余额放行（单轮成本未知，余额 > 0 即放行占位，commit 时按实扣）──
-drop function if exists reserve_ai_message(uuid, text);
-drop function if exists reserve_ai_message(uuid, text, text);
 create or replace function reserve_ai_message(
   p_session_id uuid,
   p_idempotency_key text,
@@ -1880,10 +1404,6 @@ end;
 $$ language plpgsql security definer
 set search_path = '';
 
--- 注：函数类型签名不变 (uuid,text,text,bigint,bigint,bigint,text,integer,text)，
--- 仅把第 6 个 bigint 从 p_cost_micros 改为 p_cached_input_tokens——成本不再由调用方传入，
--- 改为本函数按 ai_model_prices 价目表计算，并从 credit 余额扣减。
-drop function if exists commit_ai_usage(uuid, text, text, bigint, bigint, bigint, text, integer, text);
 create or replace function commit_ai_usage(
   p_reservation_id uuid,
   p_provider text,
@@ -2035,7 +1555,6 @@ end;
 $$ language plpgsql security definer
 set search_path = '';
 
-drop function if exists cancel_ai_reservation(uuid, text);
 create or replace function cancel_ai_reservation(
   p_reservation_id uuid,
   p_reason text
@@ -2160,9 +1679,6 @@ create trigger update_content_submissions_updated_at
 
 alter table content_submissions enable row level security;
 revoke all on table content_submissions from anon, authenticated;
-
-drop function if exists get_my_reputation();
-drop function if exists refresh_user_reputation(uuid);
 
 create or replace function refresh_user_reputation(p_user_id uuid)
 returns table (
@@ -2564,8 +2080,6 @@ create table if not exists user_public_profiles (
     unique (nickname_normalized, discriminator)
 );
 
-create index if not exists idx_user_public_profiles_public_id
-  on user_public_profiles(public_id);
 create index if not exists idx_user_public_profiles_leaderboard
   on user_public_profiles(leaderboard_visible, user_id);
 
@@ -2799,70 +2313,8 @@ grant execute on function get_my_public_profile() to authenticated;
 grant execute on function confirm_or_change_my_nickname(text) to authenticated;
 grant execute on function set_my_leaderboard_visibility(boolean) to authenticated;
 
--- 将旧排行榜资料迁入统一资料。旧昵称含 # 时保留清理后的名称，但要求重新确认。
-do $$
-declare
-  v_user record;
-  v_profile public.user_public_profiles%rowtype;
-  v_name text;
-  v_normalized text;
-  v_discriminator integer;
-  v_had_profile boolean;
-begin
-  for v_user in
-    select
-      u.id,
-      lp.display_name,
-      coalesce(lp.is_anonymous, false) as was_anonymous
-    from auth.users u
-    left join public.user_leaderboard_profiles lp on lp.user_id = u.id
-  loop
-    select exists (
-      select 1 from public.user_public_profiles p where p.user_id = v_user.id
-    ) into v_had_profile;
-    if v_had_profile then
-      continue;
-    end if;
-    v_profile := public.ensure_user_public_profile(v_user.id);
-    if v_user.display_name is null then
-      update public.user_public_profiles
-      set leaderboard_visible = not v_user.was_anonymous
-      where user_id = v_user.id;
-      continue;
-    end if;
-
-    v_name := regexp_replace(v_user.display_name, '#', '', 'g');
-    begin
-      v_name := public.validate_public_nickname(v_name);
-    exception when others then
-      v_name := 'Kai友';
-    end;
-    v_normalized := public.normalize_public_nickname(v_name);
-    v_discriminator := v_profile.discriminator;
-
-    while exists (
-      select 1 from public.user_public_profiles p
-      where p.nickname_normalized = v_normalized
-        and p.discriminator = v_discriminator
-        and p.user_id <> v_user.id
-    ) loop
-      v_discriminator := floor(random() * 100000)::integer;
-    end loop;
-
-    update public.user_public_profiles set
-      nickname = v_name,
-      nickname_normalized = v_normalized,
-      discriminator = v_discriminator,
-      nickname_confirmed_at = case
-        when position('#' in v_user.display_name) > 0 then null
-        else now()
-      end,
-      nickname_changed_at = null,
-      leaderboard_visible = not v_user.was_anonymous
-    where user_id = v_user.id;
-  end loop;
-end;
-$$;
+-- 旧排行榜资料迁移已移至：
+-- supabase/manual/20260714_cleanup_legacy_schema.sql
 
 -- 旧昵称 RPC 保留为兼容包装器。
 create or replace function get_my_leaderboard_profile()
