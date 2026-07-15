@@ -18,12 +18,14 @@ import {useUiText} from '@site/src/i18n/useUiText';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
 import { getVerifiedAccessToken } from '@site/src/services/syncService';
 import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
+import { buildDiffPreview, markdownHasChanges } from '@site/src/services/correctionDiff';
 import { universities } from '@site/src/data/universities';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import styles from './styles.module.css';
 
 const CUSTOM_OPTION = '__custom__';
 const CLA_URL = 'https://github.com/Myyura/the_kai_project/blob/main/CLA.md';
+const MAX_NEW_SOLUTION_MARKDOWN_LENGTH = 50000;
 const defaultUniversityId = universities[0]?.id || '';
 const defaultDepartmentId = universities[0]?.departments?.[0]?.id || '';
 
@@ -41,10 +43,10 @@ const initialForm = {
   fileSlug: '',
   targetDocId: '',
   targetTitle: '',
+  targetSourcePath: '',
   tagsText: '',
   descriptionMarkdown: '',
   kaiMarkdown: '',
-  correctionMarkdown: '',
   claAccepted: false,
 };
 
@@ -57,6 +59,10 @@ function splitTags(value) {
 
 function resolveOptionValue(value, customValue) {
   return value === CUSTOM_OPTION ? String(customValue || '').trim() : value;
+}
+
+function normalizedMarkdownLength(value) {
+  return String(value || '').replace(/\r\n?/g, '\n').trim().length;
 }
 
 function formatDate(value, language) {
@@ -95,7 +101,24 @@ export function ContributeContent({ embedded = false } = {}) {
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState(null);
   const [lastIssueUrl, setLastIssueUrl] = useState('');
+  const [sourceLoading, setSourceLoading] = useState(false);
+  const [sourceError, setSourceError] = useState('');
+  const [sourcePath, setSourcePath] = useState('');
+  const [baseBlobSha, setBaseBlobSha] = useState('');
+  const [originalMarkdown, setOriginalMarkdown] = useState('');
+  const [proposedMarkdown, setProposedMarkdown] = useState('');
+  const [correctionView, setCorrectionView] = useState('edit');
   const isCorrectionMode = form.submissionType === 'correction';
+  const newSolutionMarkdownLength = normalizedMarkdownLength(form.descriptionMarkdown)
+    + normalizedMarkdownLength(form.kaiMarkdown);
+  const newSolutionMarkdownTooLong = newSolutionMarkdownLength > MAX_NEW_SOLUTION_MARKDOWN_LENGTH;
+
+  const diffPreview = useMemo(
+    () => correctionView === 'diff'
+      ? buildDiffPreview(originalMarkdown, proposedMarkdown)
+      : { additions: 0, deletions: 0, hunks: [] },
+    [correctionView, originalMarkdown, proposedMarkdown],
+  );
 
   const selectedUniversity = useMemo(
     () => universities.find((item) => item.id === form.universityId),
@@ -118,14 +141,14 @@ export function ContributeContent({ embedded = false } = {}) {
     return Array.from(new Set(tags)).sort();
   }, []);
 
-  const invokeSubmissionFunction = useCallback(async (method, body) => {
+  const invokeSubmissionFunction = useCallback(async (method, body, endpoint = '') => {
     const supabase = getSupabaseClient();
     if (!supabase) throw new Error(t.notConfigured);
 
     const accessToken = await getVerifiedAccessToken();
     if (!accessToken) throw new Error(t.sessionMissing);
 
-    const { data, error } = await supabase.functions.invoke('content-submissions', {
+    const { data, error } = await supabase.functions.invoke(`content-submissions${endpoint}`, {
       method,
       body,
       headers: {
@@ -165,17 +188,54 @@ export function ContributeContent({ embedded = false } = {}) {
     const type = params.get('type');
     const docId = params.get('docId');
     const title = params.get('title');
+    const sourcePathParam = params.get('sourcePath');
     if (docId) {
       setForm((current) => ({
         ...current,
         submissionType: 'correction',
         targetDocId: docId || current.targetDocId,
         targetTitle: title || current.targetTitle,
+        targetSourcePath: sourcePathParam || current.targetSourcePath,
       }));
     } else if (type === 'correction') {
       setMessage({ type: 'error', text: t.enterFromDocPage });
     }
   }, [t.enterFromDocPage]);
+
+  const loadCorrectionSource = async () => {
+    if (!isCorrectionMode || !form.targetDocId || !isLoggedIn) return;
+    setSourceLoading(true);
+    setSourceError('');
+    try {
+      const data = await invokeSubmissionFunction('POST', {
+        targetDocId: form.targetDocId,
+        sourcePath: form.targetSourcePath,
+      }, '/source');
+      const content = data?.source?.content;
+      const sha = data?.source?.blobSha;
+      if (typeof content !== 'string' || !sha) throw new Error(t.sourceInvalid);
+      setSourcePath(data.source.path || `docs/${form.targetDocId}.md`);
+      setBaseBlobSha(sha);
+      setOriginalMarkdown(content);
+      setProposedMarkdown(content);
+      setCorrectionView('edit');
+    } catch (error) {
+      setSourcePath('');
+      setBaseBlobSha('');
+      setOriginalMarkdown('');
+      setProposedMarkdown('');
+      setSourceError(error?.message || t.sourceLoadFailed);
+    } finally {
+      setSourceLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    void loadCorrectionSource();
+    // Reload only when the selected document or login state changes. Switching
+    // the UI language must not discard an in-progress edit.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.targetDocId, isCorrectionMode, isLoggedIn]);
 
   const updateForm = (field, value) => {
     setForm((current) => ({
@@ -239,10 +299,13 @@ export function ContributeContent({ embedded = false } = {}) {
       if (!universityId || !departmentId || !form.year) return t.metaRequired;
       if (form.programId === CUSTOM_OPTION && !programId) return t.customProgramRequired;
       if (!form.descriptionMarkdown.trim() && !form.kaiMarkdown.trim()) return t.markdownRequired;
+      if (newSolutionMarkdownTooLong) return t.markdownTooLong;
     }
     if (form.submissionType === 'correction') {
       if (!form.targetDocId.trim()) return t.targetRequired;
-      if (!form.correctionMarkdown.trim()) return t.correctionRequired;
+      if (sourceLoading) return t.sourceLoading;
+      if (!baseBlobSha || sourceError) return t.sourceRequired;
+      if (!markdownHasChanges(originalMarkdown, proposedMarkdown)) return t.correctionRequired;
     }
     return null;
   };
@@ -263,32 +326,50 @@ export function ContributeContent({ embedded = false } = {}) {
       const universityId = resolveOptionValue(form.universityId, form.customUniversityId);
       const departmentId = resolveOptionValue(form.departmentId, form.customDepartmentId);
       const programId = resolveOptionValue(form.programId, form.customProgramId);
-      const data = await invokeSubmissionFunction('POST', {
+      const commonPayload = {
         submissionType: form.submissionType,
-        title: form.title,
-        sidebarLabel: form.sidebarLabel,
-        universityId,
-        departmentId,
-        programId,
-        year: form.year,
-        fileSlug: form.fileSlug,
-        targetDocId: form.targetDocId,
-        targetTitle: form.targetTitle,
-        tags: splitTags(form.tagsText),
-        descriptionMarkdown: form.descriptionMarkdown,
-        kaiMarkdown: form.kaiMarkdown,
-        correctionMarkdown: form.correctionMarkdown,
         claAccepted: form.claAccepted,
-      });
+      };
+      const requestPayload = form.submissionType === 'new_solution'
+        ? {
+          ...commonPayload,
+          title: form.title,
+          sidebarLabel: form.sidebarLabel,
+          universityId,
+          departmentId,
+          programId,
+          year: form.year,
+          fileSlug: form.fileSlug,
+          tags: splitTags(form.tagsText),
+          descriptionMarkdown: form.descriptionMarkdown,
+          kaiMarkdown: form.kaiMarkdown,
+        }
+        : {
+          ...commonPayload,
+          targetDocId: form.targetDocId,
+          targetTitle: form.targetTitle,
+          sourcePath,
+          baseBlobSha,
+          proposedMarkdown,
+        };
+      const data = await invokeSubmissionFunction('POST', requestPayload);
 
       const issueUrl = data?.submission?.issueUrl || '';
       setLastIssueUrl(issueUrl);
-      setMessage({ type: 'success', text: t.submitSuccess });
+      setMessage({
+        type: 'success',
+        text: data?.conflict ? t.submitConflictSuccess : t.submitSuccess,
+      });
+      if (form.submissionType === 'correction') {
+        setProposedMarkdown(originalMarkdown);
+        setCorrectionView('edit');
+      }
       setForm((current) => ({
         ...initialForm,
         submissionType: current.submissionType,
         targetDocId: current.submissionType === 'correction' ? current.targetDocId : '',
         targetTitle: current.submissionType === 'correction' ? current.targetTitle : '',
+        targetSourcePath: current.submissionType === 'correction' ? current.targetSourcePath : '',
       }));
       await loadSubmissions();
     } catch (error) {
@@ -513,6 +594,7 @@ export function ContributeContent({ embedded = false } = {}) {
                     onChange={(event) => updateForm('descriptionMarkdown', event.target.value)}
                     rows={9}
                     placeholder={t.descriptionPlaceholder}
+                    maxLength={MAX_NEW_SOLUTION_MARKDOWN_LENGTH}
                   />
                 </label>
                 <label className={styles.fullSpan}>
@@ -522,19 +604,104 @@ export function ContributeContent({ embedded = false } = {}) {
                     onChange={(event) => updateForm('kaiMarkdown', event.target.value)}
                     rows={12}
                     placeholder={t.kaiPlaceholder}
+                    maxLength={MAX_NEW_SOLUTION_MARKDOWN_LENGTH}
                   />
+                  <small
+                    className={`${styles.smallHint} ${newSolutionMarkdownTooLong ? styles.lengthExceeded : ''}`}
+                    aria-live="polite">
+                    {t.markdownLength
+                      .replace('{current}', newSolutionMarkdownLength.toLocaleString(getLanguageLocale(language)))
+                      .replace('{max}', MAX_NEW_SOLUTION_MARKDOWN_LENGTH.toLocaleString(getLanguageLocale(language)))}
+                  </small>
                 </label>
               </>
             ) : (
-              <label className={styles.fullSpan}>
-                <span>{t.correctionLabel}</span>
-                <textarea
-                  value={form.correctionMarkdown}
-                  onChange={(event) => updateForm('correctionMarkdown', event.target.value)}
-                  rows={12}
-                  placeholder={t.correctionPlaceholder}
-                />
-              </label>
+              <section className={`${styles.correctionEditor} ${styles.fullSpan}`}>
+                <div className={styles.editorToolbar}>
+                  <div>
+                    <strong>{t.sourceEditorTitle}</strong>
+                    <small>{sourcePath || t.sourcePathPending}</small>
+                  </div>
+                  <div className={styles.editorTabs} role="group" aria-label={t.editorViewLabel}>
+                    <button
+                      type="button"
+                      className={correctionView === 'edit' ? styles.activeTab : ''}
+                      aria-pressed={correctionView === 'edit'}
+                      onClick={() => setCorrectionView('edit')}
+                    >
+                      {t.editSource}
+                    </button>
+                    <button
+                      type="button"
+                      className={correctionView === 'diff' ? styles.activeTab : ''}
+                      aria-pressed={correctionView === 'diff'}
+                      onClick={() => setCorrectionView('diff')}
+                      disabled={sourceLoading || Boolean(sourceError)}
+                    >
+                      {t.previewDiff}
+                    </button>
+                  </div>
+                </div>
+
+                {sourceLoading ? (
+                  <div className={styles.editorState}><FaRedo className={styles.spin} /> {t.sourceLoading}</div>
+                ) : sourceError ? (
+                  <div className={styles.editorState}>
+                    <FaExclamationTriangle />
+                    <span>{sourceError}</span>
+                    <button type="button" className={styles.secondaryButton} onClick={loadCorrectionSource}>
+                      {t.retrySource}
+                    </button>
+                  </div>
+                ) : correctionView === 'edit' ? (
+                  <>
+                    <textarea
+                      className={styles.sourceTextarea}
+                      value={proposedMarkdown}
+                      onChange={(event) => setProposedMarkdown(event.target.value)}
+                      rows={24}
+                      spellCheck={false}
+                      aria-label={t.sourceEditorTitle}
+                    />
+                    <small className={styles.smallHint}>{t.sourceEditorHint}</small>
+                  </>
+                ) : (
+                  <div className={styles.diffPanel}>
+                    <div className={styles.diffStats}>
+                      <span className={styles.additionText}>+{diffPreview.additions}</span>
+                      <span className={styles.deletionText}>−{diffPreview.deletions}</span>
+                    </div>
+                    {diffPreview.hunks.length === 0 ? (
+                      <p className={styles.emptyText}>{t.noChanges}</p>
+                    ) : (
+                      <pre className={styles.diffCode} aria-label={t.previewDiff}>
+                        <code>
+                          <span className={styles.diffFileLine}>--- a/{sourcePath}</span>{'\n'}
+                          <span className={styles.diffFileLine}>+++ b/{sourcePath}</span>{'\n'}
+                          {diffPreview.hunks.map((hunk, hunkIndex) => (
+                            <React.Fragment key={`${hunk.header}-${hunkIndex}`}>
+                              <span className={styles.diffHunkLine}>{hunk.header}</span>{'\n'}
+                              {hunk.lines.map((line, lineIndex) => (
+                                <React.Fragment key={`${hunkIndex}-${lineIndex}`}>
+                                  <span className={
+                                    line.type === 'insert'
+                                      ? styles.diffAddedLine
+                                      : line.type === 'delete'
+                                        ? styles.diffDeletedLine
+                                        : styles.diffContextLine
+                                  }>
+                                    {line.type === 'insert' ? '+' : line.type === 'delete' ? '-' : ' '}{line.line}
+                                  </span>{'\n'}
+                                </React.Fragment>
+                              ))}
+                            </React.Fragment>
+                          ))}
+                        </code>
+                      </pre>
+                    )}
+                  </div>
+                )}
+              </section>
             )}
           </div>
 
@@ -563,7 +730,11 @@ export function ContributeContent({ embedded = false } = {}) {
           </label>
 
           <div className={styles.actions}>
-            <button type="submit" className={styles.primaryButton} disabled={submitting}>
+            <button
+              type="submit"
+              className={styles.primaryButton}
+              disabled={submitting || (isCorrectionMode && sourceLoading)}
+            >
               {submitting ? <FaRedo className={styles.spin} /> : <FaPaperPlane />}
               {submitting ? t.submitting : t.createIssue}
             </button>
@@ -587,6 +758,9 @@ export function ContributeContent({ embedded = false } = {}) {
                   <strong>{item.title || item.targetDocId || item.id}</strong>
                   <div className={styles.submissionMeta}>
                     <span className={`${styles.statusBadge} ${statusClass(item.status)}`}>{statusText(item.status, t)}</span>
+                    {item.correctionConflict && (
+                      <span className={`${styles.statusBadge} ${styles.statusFailed}`}>{t.conflictBadge}</span>
+                    )}
                     <span>{item.submissionType === 'new_solution' ? t.modeNew : t.modeCorrection}</span>
                     <span>{formatDate(item.createdAt, language)}</span>
                   </div>

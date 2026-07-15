@@ -27,8 +27,10 @@ const ProblemSetNavigator = lazy(() => import('@site/src/components/ProblemSetNa
 export default function DocItemFooter(): ReactNode {
   const {metadata, frontMatter} = useDoc();
   const {tags, id, title, permalink} = metadata;
+  const source = typeof metadata.source === 'string' ? metadata.source.replace(/^@site\//, '') : '';
+  const canCorrectSource = /\.mdx?$/i.test(source);
   const learningPanelText = useUiText('learningPanel');
-  const contributionUrl = `/me?tab=contribute&type=correction&docId=${encodeURIComponent(id)}&title=${encodeURIComponent(title)}`;
+  const contributionUrl = `/me?tab=contribute&type=correction&docId=${encodeURIComponent(id)}&title=${encodeURIComponent(title)}&sourcePath=${encodeURIComponent(source)}`;
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -88,10 +90,12 @@ export default function DocItemFooter(): ReactNode {
               </section>
               <div className={shareStyles.docActionBar}>
                 <ShareAsImage docId={id} title={title} compact />
-                <Link className={shareStyles.triggerBtn} to={contributionUrl}>
-                  <FaEdit className={shareStyles.triggerIcon} />
-                  <span>纠错/补充</span>
-                </Link>
+                {canCorrectSource && (
+                  <Link className={shareStyles.triggerBtn} to={contributionUrl}>
+                    <FaEdit className={shareStyles.triggerIcon} />
+                    <span>{learningPanelText.correctionAction}</span>
+                  </Link>
+                )}
               </div>
             </Suspense>
           )}

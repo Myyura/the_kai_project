@@ -143,6 +143,177 @@
   line-height: 1.55;
 }
 
+.correctionEditor {
+  min-width: 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  background: var(--ifm-background-surface-color);
+  overflow: hidden;
+}
+
+.editorToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.7rem 0.8rem;
+}
+
+.editorToolbar > div:first-child {
+  min-width: 0;
+}
+
+.editorToolbar strong,
+.editorToolbar small {
+  display: block;
+}
+
+.editorToolbar small {
+  margin-top: 0.18rem;
+  color: var(--ifm-color-emphasis-600);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.editorTabs {
+  display: inline-flex;
+  flex: 0 0 auto;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: calc(var(--custom-border-radius-xs) - 2px);
+  overflow: hidden;
+}
+
+.editorTabs button {
+  border: 0;
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  background: transparent;
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+  padding: 0.46rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.editorTabs button:last-child {
+  border-right: 0;
+}
+
+.editorTabs button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.editorTabs .activeTab {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.sourceTextarea {
+  display: block;
+  width: 100%;
+  min-height: 440px;
+  box-sizing: border-box;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--ifm-background-color) !important;
+  padding: 1rem !important;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.84rem !important;
+  line-height: 1.65 !important;
+  tab-size: 2;
+  resize: vertical;
+}
+
+.sourceTextarea:focus {
+  box-shadow: inset 0 0 0 2px var(--ifm-color-primary) !important;
+}
+
+.correctionEditor > .smallHint {
+  display: block;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.65rem 0.8rem;
+}
+
+.editorState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 220px;
+  padding: 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  text-align: center;
+}
+
+.diffPanel {
+  background: var(--ifm-background-color);
+}
+
+.diffPanel > .emptyText {
+  margin: 0;
+  padding: 1rem;
+}
+
+.diffStats {
+  display: flex;
+  gap: 0.6rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.55rem 0.8rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.additionText {
+  color: #15803d;
+}
+
+.deletionText {
+  color: #dc2626;
+}
+
+.diffCode {
+  max-height: 560px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0.8rem 0;
+  overflow: auto;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.diffCode code > span {
+  display: inline-block;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 0 0.85rem;
+  white-space: pre;
+}
+
+.diffFileLine,
+.diffHunkLine {
+  color: var(--ifm-color-emphasis-700);
+  background: rgba(var(--theme-accent-rgb), 0.1);
+}
+
+.diffAddedLine {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.diffDeletedLine {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.diffContextLine {
+  color: var(--ifm-font-color-base);
+}
+
 .formGrid input:focus,
 .formGrid select:focus,
 .formGrid textarea:focus {
@@ -155,6 +326,11 @@
   color: var(--ifm-color-emphasis-600);
   font-size: 0.78rem;
   line-height: 1.45;
+}
+
+.lengthExceeded {
+  color: var(--ifm-color-danger-dark);
+  font-weight: 700;
 }
 
 .inlineTextLink {
@@ -413,8 +589,24 @@
 [data-theme='dark'] .formGrid textarea,
 [data-theme='dark'] .modeNotice,
 [data-theme='dark'] .targetSummary,
-[data-theme='dark'] .submissionItem {
+[data-theme='dark'] .submissionItem,
+[data-theme='dark'] .correctionEditor,
+[data-theme='dark'] .editorToolbar,
+[data-theme='dark'] .editorTabs,
+[data-theme='dark'] .editorTabs button,
+[data-theme='dark'] .correctionEditor > .smallHint,
+[data-theme='dark'] .diffStats {
   border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .diffAddedLine {
+  color: #bbf7d0;
+  background: rgba(22, 101, 52, 0.35);
+}
+
+[data-theme='dark'] .diffDeletedLine {
+  color: #fecaca;
+  background: rgba(153, 27, 27, 0.35);
 }
 
 [data-theme='dark'] .checkboxLabel,

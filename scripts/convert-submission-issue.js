@@ -37,17 +37,18 @@ function main() {
   verifySubmissionSignature(submission, process.env.CLA_ATTESTATION_SECRET || '');
 
   const { payload } = submission;
-  const writeResult = writeSubmissionToRepo({ repoRoot: REPO_ROOT, payload, issue });
+  const writeResult = writeSubmissionToRepo({ repoRoot: REPO_ROOT, payload });
   const titlePrefix = payload.submissionType === 'new_solution' ? 'Add submission' : 'Update submission';
   const prTitle = `${titlePrefix} from issue #${issue.number}`;
   const branchName = `codex/submission-${issue.number}`;
-  const prBody = buildPullRequestBody({
-    payload,
-    issue,
-    relativePath: writeResult.relativePath,
-  });
-
-  fs.writeFileSync(prBodyPath, `${prBody}\n`, 'utf8');
+  if (!writeResult.conflict) {
+    const prBody = buildPullRequestBody({
+      payload,
+      issue,
+      relativePath: writeResult.relativePath,
+    });
+    fs.writeFileSync(prBodyPath, `${prBody}\n`, 'utf8');
+  }
   writeJson(resultPath, {
     action: writeResult.action,
     branchName,
@@ -56,9 +57,17 @@ function main() {
     prBodyPath,
     submissionId: payload.submissionId,
     submissionType: payload.submissionType,
+    conflict: Boolean(writeResult.conflict),
+    conflictKind: writeResult.conflictKind || null,
+    expectedBlobSha: writeResult.expectedBlobSha || null,
+    currentBlobSha: writeResult.currentBlobSha || null,
   });
 
-  console.log(`Converted submission issue #${issue.number}: ${writeResult.relativePath}`);
+  if (writeResult.conflict) {
+    console.log(`Submission issue #${issue.number} conflicts with ${writeResult.relativePath}.`);
+  } else {
+    console.log(`Converted submission issue #${issue.number}: ${writeResult.relativePath}`);
+  }
 }
 
 main();

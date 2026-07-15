@@ -1638,7 +1638,9 @@ create table if not exists content_submissions (
   tags                  jsonb not null default '[]'::jsonb,
   description_markdown  text not null default '',
   kai_markdown          text not null default '',
-  correction_markdown   text not null default '',
+  correction_base_sha   text not null default '',
+  correction_patch      jsonb not null default '[]'::jsonb,
+  correction_conflict   boolean not null default false,
   cla_accepted_at       timestamptz not null,
   payload_hash          text,
   payload_signature     text,
@@ -1658,10 +1660,22 @@ create table if not exists content_submissions (
     check (year is null or (year >= 1900 and year <= 2100)),
   constraint content_submissions_tags_is_array
     check (jsonb_typeof(tags) = 'array'),
+  constraint content_submissions_patch_is_array
+    check (jsonb_typeof(correction_patch) = 'array'),
+  constraint content_submissions_correction_sha
+    check (
+      submission_type <> 'correction'
+      or correction_base_sha ~ '^[a-f0-9]{40}$'
+    ),
   constraint content_submissions_title_length
     check (char_length(title) <= 240),
   constraint content_submissions_author_length
-    check (char_length(public_author) <= 160)
+    check (char_length(public_author) <= 160),
+  constraint content_submissions_new_solution_markdown_length
+    check (
+      submission_type <> 'new_solution'
+      or char_length(description_markdown) + char_length(kai_markdown) <= 50000
+    )
 );
 
 create index if not exists idx_content_submissions_user_created

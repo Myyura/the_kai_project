@@ -54,14 +54,31 @@ jobs:
           console.log(`pr_title=${result.prTitle}`);
           console.log(`branch_name=${result.branchName}`);
           console.log(`submission_id=${result.submissionId}`);
+          console.log(`conflict=${result.conflict ? 'true' : 'false'}`);
+          console.log(`conflict_kind=${result.conflictKind || ''}`);
           NODE
 
+      - name: Mark submission conflict
+        if: steps.convert.outputs.conflict == 'true'
+        run: |
+          if [ "${{ steps.convert.outputs.conflict_kind }}" = "target_exists" ]; then
+            message="无法自动生成 PR：目标文件路径已经存在。请调整题解的文件标识，或确认是否应该改为纠错投稿。"
+          else
+            message="无法自动生成 PR：题解原文已经发生变化，签名 diff 的基准版本与当前仓库不一致。请基于最新原文重新提交纠错。"
+          fi
+          gh issue comment "$ISSUE_NUMBER" --body "$message"
+          gh issue edit "$ISSUE_NUMBER" \
+            --add-label "submission:conflict" \
+            --remove-label "submission:ready-for-pr"
+
       - name: Validate generated document
+        if: steps.convert.outputs.conflict != 'true'
         run: |
           yarn review:format --files "${{ steps.convert.outputs.file_path }}"
           yarn api:validate
 
       - name: Commit generated document
+        if: steps.convert.outputs.conflict != 'true'
         run: |
           set -euo pipefail
           git config user.name "${{ github.event.sender.login }}"
@@ -72,6 +89,7 @@ jobs:
 
       - name: Open draft PR
         id: pr
+        if: steps.convert.outputs.conflict != 'true'
         run: |
           set -euo pipefail
           pr_url="$(gh pr create \
@@ -85,6 +103,7 @@ jobs:
           echo "number=$pr_number" >> "$GITHUB_OUTPUT"
 
       - name: Mark issue converted
+        if: steps.convert.outputs.conflict != 'true'
         run: |
           gh issue comment "$ISSUE_NUMBER" --body "已从该投稿创建 draft PR：${{ steps.pr.outputs.url }}"
           gh issue edit "$ISSUE_NUMBER" \
@@ -92,6 +111,7 @@ jobs:
             --remove-label "submission:ready-for-pr"
 
       - name: Notify submission backend
+        if: steps.convert.outputs.conflict != 'true'
         run: |
           set -euo pipefail
           if [ -z "$SUPABASE_URL" ] || [ -z "$CONTENT_SUBMISSION_CALLBACK_SECRET" ]; then

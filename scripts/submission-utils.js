@@ -27,6 +27,21 @@ function hmacSha256Hex(secret, input) {
   return crypto.createHmac('sha256', secret).update(input).digest('hex');
 }
 
+function extractMarkdownBlock(body, name) {
+  const pattern = new RegExp(
+    `<!--\\s*kai-submission-${name}:start\\s*-->\\r?\\n`
+      + '(?<fence>`{3,}|~{3,})markdown\\r?\\n'
+      + '(?<content>[\\s\\S]*?)\\r?\\n'
+      + '\\k<fence>\\r?\\n'
+      + `<!--\\s*kai-submission-${name}:end\\s*-->`,
+  );
+  const match = String(body || '').match(pattern);
+  if (!match?.groups) {
+    throw new Error(`Issue body does not contain a signed ${name} Markdown block.`);
+  }
+  return match.groups.content;
+}
+
 function extractSubmissionFromIssueBody(body) {
   const payloadMatch = String(body || '').match(PAYLOAD_RE);
   const signatureMatch = String(body || '').match(SIGNATURE_RE);
@@ -35,6 +50,21 @@ function extractSubmissionFromIssueBody(body) {
   }
 
   const payload = JSON.parse(base64UrlDecode(payloadMatch[1]));
+  if (payload?.version !== 3) {
+    throw new Error('Unsupported submission payload version.');
+  }
+  if (payload.submissionType === 'new_solution') {
+    if (
+      payload.content?.descriptionMarkdown
+      || payload.content?.kaiMarkdown
+    ) {
+      throw new Error('New-solution Issue payload must not duplicate visible Markdown content.');
+    }
+    payload.content = {
+      descriptionMarkdown: extractMarkdownBlock(body, 'description'),
+      kaiMarkdown: extractMarkdownBlock(body, 'kai'),
+    };
+  }
   return {
     payload,
     canonicalPayload: stableStringify(payload),
@@ -56,19 +86,29 @@ function verifySubmissionSignature({ canonicalPayload, signature }, secret) {
 
 function rejectDangerousMdx(markdown, fieldName) {
   const lines = String(markdown || '').split(/\r?\n/);
+  let fence = null;
   for (let index = 0; index < lines.length; index += 1) {
     const line = lines[index];
+    const fenceMatch = line.match(/^\s*(`{3,}|~{3,})/);
+    if (fenceMatch) {
+      const marker = fenceMatch[1][0];
+      const length = fenceMatch[1].length;
+      if (!fence) fence = { marker, length };
+      else if (marker === fence.marker && length >= fence.length) fence = null;
+      continue;
+    }
+    if (fence) continue;
     if (/^\s*(import|export)\s/.test(line)) {
       throw new Error(`${fieldName} contains MDX import/export at line ${index + 1}.`);
     }
-    if (/<\/?[A-Z][A-Za-z0-9_.:-]*(\s|>|\/)/.test(line)) {
+    if (/<\/?[A-Z][A-Za-z0-9_.:-]*(?:\s[^<>]*?)?\/?>/.test(line)) {
       throw new Error(`${fieldName} contains JSX-like markup at line ${index + 1}.`);
     }
   }
 }
 
 function validateSubmissionPayload(payload) {
-  if (!payload || payload.version !== 1) throw new Error('Unsupported submission payload version.');
+  if (!payload || payload.version !== 3) throw new Error('Unsupported submission payload version.');
   if (payload.submissionType !== 'new_solution' && payload.submissionType !== 'correction') {
     throw new Error('Unsupported submission type.');
   }
@@ -78,7 +118,15 @@ function validateSubmissionPayload(payload) {
 
   rejectDangerousMdx(payload.content?.descriptionMarkdown, 'Description');
   rejectDangerousMdx(payload.content?.kaiMarkdown, 'Kai');
-  rejectDangerousMdx(payload.content?.correctionMarkdown, 'Correction');
+  if (payload.submissionType === 'correction') {
+    const correction = payload.correction;
+    if (!correction || !/^[a-f0-9]{40}$/.test(correction.baseBlobSha || '')) {
+      throw new Error('Correction payload is missing a valid base blob SHA.');
+    }
+    if (!Array.isArray(correction.changes) || correction.changes.length === 0) {
+      throw new Error('Correction payload contains no line changes.');
+    }
+  }
 }
 
 function normalizePath(input) {
@@ -176,30 +224,59 @@ function buildNewSolutionMarkdown(payload) {
 }
 
 function targetPathForCorrection(payload) {
-  const targetDocId = normalizePath(payload.document?.targetDocId)
-    .replace(/^docs\//, '')
-    .replace(/\.mdx?$/i, '');
+  const targetDocId = normalizePath(payload.document?.targetDocId).replace(/^docs\//, '').replace(/\.mdx?$/i, '');
   if (!targetDocId) throw new Error('Correction payload is missing targetDocId.');
-  return `docs/${targetDocId}.md`;
+  const sourcePath = normalizePath(payload.correction?.sourcePath);
+  const sourceDocId = sourcePath.replace(/^docs\//, '').replace(/\.mdx?$/i, '');
+  if (sourceDocId !== targetDocId || !/^docs\/[A-Za-z0-9._/-]+\.mdx?$/.test(sourcePath)) {
+    throw new Error('Correction source path does not match targetDocId.');
+  }
+  if (sourcePath.split('/').some((segment) => !segment || segment === '.' || segment === '..')) {
+    throw new Error('Correction source path contains an invalid segment.');
+  }
+  return sourcePath;
 }
 
-function appendCorrectionMarkdown(existing, payload, issue) {
-  const correction = String(payload.content?.correctionMarkdown || '').trim();
-  if (!correction) throw new Error('Correction payload contains no correction markdown.');
-  const heading = `Correction from Issue #${issue.number}`;
-  const block = [
-    `### ${heading}`,
-    '',
-    `**Author:** ${payload.publicAuthor}`,
-    '',
-    correction,
-  ].join('\n');
+function gitBlobSha(content) {
+  const bytes = Buffer.isBuffer(content) ? content : Buffer.from(String(content), 'utf8');
+  const header = Buffer.from(`blob ${bytes.length}\0`, 'utf8');
+  return crypto.createHash('sha1').update(Buffer.concat([header, bytes])).digest('hex');
+}
 
-  const trimmed = existing.trimEnd();
-  if (/^##\s+\*\*Kai\*\*/m.test(trimmed)) {
-    return `${trimmed}\n\n${block}\n`;
+function applyLineChanges(existing, changes) {
+  const originalLines = String(existing).replace(/\r\n?/g, '\n').split('\n');
+  const output = [];
+  let cursor = 0;
+
+  for (const change of changes) {
+    if (
+      !change
+      || !Number.isInteger(change.oldStart)
+      || change.oldStart < cursor
+      || !Array.isArray(change.oldLines)
+      || !Array.isArray(change.newLines)
+      || !change.oldLines.every((line) => typeof line === 'string')
+      || !change.newLines.every((line) => typeof line === 'string')
+    ) {
+      throw new Error('Correction payload contains an invalid line change.');
+    }
+    if (change.oldStart > originalLines.length) {
+      throw new Error('Correction line change starts outside the source document.');
+    }
+
+    output.push(...originalLines.slice(cursor, change.oldStart));
+    const actualOldLines = originalLines.slice(change.oldStart, change.oldStart + change.oldLines.length);
+    if (
+      actualOldLines.length !== change.oldLines.length
+      || actualOldLines.some((line, index) => line !== change.oldLines[index])
+    ) {
+      throw new Error('Correction line change does not match the signed source content.');
+    }
+    output.push(...change.newLines);
+    cursor = change.oldStart + change.oldLines.length;
   }
-  return `${trimmed}\n\n## **Kai**\n${block}\n`;
+  output.push(...originalLines.slice(cursor));
+  return output.join('\n');
 }
 
 function ensureWithinRepo(repoRoot, relativePath) {
@@ -211,14 +288,19 @@ function ensureWithinRepo(repoRoot, relativePath) {
   return absolutePath;
 }
 
-function writeSubmissionToRepo({ repoRoot, payload, issue }) {
+function writeSubmissionToRepo({ repoRoot, payload }) {
   validateSubmissionPayload(payload);
 
   if (payload.submissionType === 'new_solution') {
     const relativePath = buildNewSolutionPath(payload);
     const absolutePath = ensureWithinRepo(repoRoot, relativePath);
     if (fs.existsSync(absolutePath)) {
-      throw new Error(`Target file already exists: ${relativePath}`);
+      return {
+        relativePath,
+        action: 'conflict',
+        conflict: true,
+        conflictKind: 'target_exists',
+      };
     }
     fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
     fs.writeFileSync(absolutePath, buildNewSolutionMarkdown(payload), 'utf8');
@@ -231,8 +313,22 @@ function writeSubmissionToRepo({ repoRoot, payload, issue }) {
     throw new Error(`Target document does not exist: ${relativePath}`);
   }
   const existing = fs.readFileSync(absolutePath, 'utf8');
-  fs.writeFileSync(absolutePath, appendCorrectionMarkdown(existing, payload, issue), 'utf8');
-  return { relativePath, action: 'update' };
+  const currentBlobSha = gitBlobSha(Buffer.from(existing, 'utf8'));
+  if (payload.correction.conflict || currentBlobSha !== payload.correction.baseBlobSha) {
+    return {
+      relativePath,
+      action: 'conflict',
+      conflict: true,
+      conflictKind: 'source_changed',
+      expectedBlobSha: payload.correction.baseBlobSha,
+      currentBlobSha,
+    };
+  }
+
+  const proposed = applyLineChanges(existing, payload.correction.changes);
+  rejectDangerousMdx(proposed, 'Proposed document');
+  fs.writeFileSync(absolutePath, proposed, 'utf8');
+  return { relativePath, action: 'update', conflict: false };
 }
 
 function buildPullRequestBody({ payload, issue, relativePath }) {
@@ -245,14 +341,17 @@ function buildPullRequestBody({ payload, issue, relativePath }) {
     `- File: \`${relativePath}\``,
     `- Public author: ${payload.publicAuthor}`,
     `- CLA accepted at: ${payload.cla.acceptedAt}`,
+    ...(payload.correction ? [`- Base blob: \`${payload.correction.baseBlobSha}\``] : []),
     '',
     'This PR was generated from a signed The Kai Project web submission payload.',
   ].join('\n');
 }
 
 module.exports = {
+  applyLineChanges,
   buildPullRequestBody,
   extractSubmissionFromIssueBody,
+  gitBlobSha,
   stableStringify,
   verifySubmissionSignature,
   writeSubmissionToRepo,
