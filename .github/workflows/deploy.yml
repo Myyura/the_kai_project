@@ -24,6 +24,8 @@ jobs:
     name: 构建 Docusaurus
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -44,6 +46,7 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
           PROBLEM_SETS_ENABLED: 'true'
+          GITHUB_TOKEN: ${{ github.token }}
       - name: 检查 Pages 构建入口
         run: |
           test -f build/index.html

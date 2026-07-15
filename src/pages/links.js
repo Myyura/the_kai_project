@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
-import { FaExternalLinkAlt, FaLink, FaBriefcase, FaBook } from 'react-icons/fa';
-import {useCurrentLanguage} from '../context/LanguageContext';
+import {
+  FaBookOpen,
+  FaBriefcase,
+  FaExternalLinkAlt,
+  FaSearch,
+} from 'react-icons/fa';
+import { useCurrentLanguage } from '../context/LanguageContext';
 import LanguageSwitcher from '../components/LanguageSwitcher';
-import {useUiText} from '../i18n/useUiText';
+import { useUiText } from '../i18n/useUiText';
 import styles from './links.module.css';
 import content from '../data/links.json';
 
-// Helper: 获取域名
-const safeHostname = (url) => {
+function safeHostname(url) {
   try {
     return new URL(url).hostname.replace(/^www\./, '');
   } catch {
     return '';
   }
-};
+}
 
-// Helper: 域名匹配（精确匹配或子域名匹配）
-const isAllowedHost = (host, allowedHost) => host === allowedHost || host.endsWith(`.${allowedHost}`);
+function isAllowedHost(host, allowedHost) {
+  return host === allowedHost || host.endsWith(`.${allowedHost}`);
+}
 
 const sourceHostRules = [
   { source: 'GitHub', hosts: ['github.com'] },
@@ -26,160 +31,171 @@ const sourceHostRules = [
   { source: 'Zhihu', hosts: ['zhihu.com'] },
   { source: 'Xiaohongshu', hosts: ['xiaohongshu.com', 'xhslink.com'] },
   { source: 'Qiita', hosts: ['qiita.com'] },
-  { source: 'Google Sites', hosts: ['sites.google.com'] },
+  { source: 'Google', hosts: ['sites.google.com'] },
   { source: 'Hatena', hosts: ['hatenablog.jp', 'hatenadiary.jp'] },
   { source: 'Mathlog', hosts: ['mathlog.info'] },
 ];
 
-// Helper: 检测来源
-const detectSource = (url) => {
+function detectSource(url) {
   const host = safeHostname(url).toLowerCase();
   if (!host) return 'Other';
+  const rule = sourceHostRules.find((item) => (
+    item.hosts.some((allowedHost) => isAllowedHost(host, allowedHost))
+  ));
+  return rule?.source || 'Web';
+}
 
-  for (const rule of sourceHostRules) {
-    if (rule.hosts.some((allowedHost) => isAllowedHost(host, allowedHost))) {
-      return rule.source;
-    }
-  }
+const ResourceCard = React.memo(function ResourceCard({ resource, pageCopy }) {
+  const host = safeHostname(resource.url);
+  const source = detectSource(resource.url);
+  const CategoryIcon = resource.category === 'career' ? FaBriefcase : FaBookOpen;
 
-  return 'Blog';
-};
-
-// Helper: 本地化来源名称
-const localizeSource = (src) => {
-  const map = {
-    GitHub: 'GitHub',
-    YouTube: 'YouTube',
-    Zhihu: '知乎',
-    Xiaohongshu: '小红书',
-    Qiita: 'Qiita',
-    'Google Sites': 'Google',
-    Hatena: 'Hatena',
-    Mathlog: 'Mathlog',
-    Blog: 'Blog',
-    Other: 'Other',
-  };
-  return map[src] || src;
-};
-
-// 链接卡片组件
-const LinkCard = React.memo(({ link, index, isJob = false }) => {
-  const host = safeHostname(link.url);
-  const source = detectSource(link.url);
-  
   return (
-    <div 
-      className={clsx(styles.linkCard, isJob && styles.jobCard)}
-      style={{ animationDelay: index < 8 ? `${index * 0.04}s` : '0.28s' }}
+    <a
+      className={clsx(styles.resourceCard, resource.category === 'career' && styles.careerCard)}
+      href={resource.url}
+      target="_blank"
+      rel="noopener noreferrer"
     >
-      <div className={styles.cardHeader}>
-        <h3 className={styles.cardTitle}>{link.name}</h3>
-        <span className={styles.sourceTag}>{localizeSource(source)}</span>
+      <div className={styles.resourceCardTop}>
+        <span className={styles.resourceIcon} aria-hidden="true"><CategoryIcon /></span>
+        <span className={styles.sourceTag}>{source}</span>
       </div>
-      
-      <p className={styles.cardDesc}>
-        {link.desc || '—'}
-      </p>
-      
-      <div className={styles.cardFooter}>
-        <span className={styles.domainText}>
-          <FaLink />
-          {host}
-        </span>
-        <a 
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.openLink}
-        >
-          <FaExternalLinkAlt />
-        </a>
+      <h3>{resource.name}</h3>
+      <p>{resource.desc || pageCopy.noDescription}</p>
+      <div className={styles.resourceCardFooter}>
+        <span>{host}</span>
+        <FaExternalLinkAlt aria-hidden="true" />
       </div>
-    </div>
+    </a>
   );
 });
 
-// 主页面组件
 export default function Links() {
   const language = useCurrentLanguage();
   const pageCopy = useUiText('linksPage');
   const linkContent = content[language] || content.zh;
-  const totalAll = linkContent.links.length + linkContent.jobLinks.length;
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchText, setSearchText] = useState('');
+
+  const resources = useMemo(() => [
+    ...linkContent.links.map((item) => ({ ...item, category: 'study' })),
+    ...linkContent.jobLinks.map((item) => ({ ...item, category: 'career' })),
+  ], [linkContent]);
+
+  const filteredResources = useMemo(() => {
+    const query = searchText.trim().toLocaleLowerCase();
+    return resources.filter((resource) => {
+      if (activeCategory !== 'all' && resource.category !== activeCategory) return false;
+      if (!query) return true;
+      return [resource.name, resource.desc, safeHostname(resource.url), detectSource(resource.url)]
+        .some((value) => String(value || '').toLocaleLowerCase().includes(query));
+    });
+  }, [activeCategory, resources, searchText]);
+
+  const categoryOptions = [
+    { key: 'all', label: pageCopy.filterAll },
+    { key: 'study', label: pageCopy.filterStudy },
+    { key: 'career', label: pageCopy.filterCareer },
+  ];
 
   return (
-    <Layout title={pageCopy.title}>
-      <div className={styles.linksPage}>
-        {/* 页面头部 */}
-        <header className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>{pageCopy.heading}</h1>
-          <p className={styles.pageSubtitle}>{pageCopy.subtitle}</p>
-          
-          {/* 语言切换 */}
-          <LanguageSwitcher
-            className={styles.langSwitch}
-            buttonClassName={styles.langBtn}
-            activeButtonClassName={styles.langBtnActive}
-            dividerClassName={styles.langDivider}
-          />
-        </header>
-
-        {/* 统计条 */}
-        <div className={styles.statsBar}>
-          <div className={styles.statItem}>
-            <span className={styles.statNumber}>{totalAll}</span>
-            <span className={styles.statLabel}>{pageCopy.statsLinks}</span>
+    <Layout title={pageCopy.title} description={pageCopy.subtitle}>
+      <main className={styles.linksPage}>
+        <section className={styles.hero}>
+          <div className={styles.heroGlow} aria-hidden="true" />
+          <div className={styles.heroCopy}>
+            <span className={styles.eyebrow}>{pageCopy.eyebrow}</span>
+            <h1>{pageCopy.heading}</h1>
+            <p>{pageCopy.subtitle}</p>
+            <div className={styles.heroActions}>
+              <a href="#resources" className={styles.primaryAction}>{pageCopy.exploreResources}</a>
+            </div>
           </div>
-          <div className={styles.statItem}>
-            <span className={styles.statNumber}>20+</span>
-            <span className={styles.statLabel}>{pageCopy.statsContributors}</span>
-          </div>
-          <div className={styles.statItem}>
-            <span className={styles.statNumber}>2</span>
-            <span className={styles.statLabel}>{pageCopy.statsCategories}</span>
-          </div>
-        </div>
-
-        {/* 题解与参考资料 */}
-        <section>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>
-              <FaBook style={{ marginRight: '0.5rem', opacity: 0.7 }} />
-              {pageCopy.section1Title}
-            </h2>
-          </div>
-          
-          <div className={styles.linksGrid}>
-            {linkContent.links.map((link, idx) => (
-              <LinkCard 
-                key={link.url} 
-                link={link} 
-                index={idx}
-              />
-            ))}
+          <div className={styles.heroSide}>
+            <LanguageSwitcher
+              className={styles.langSwitch}
+              buttonClassName={styles.langBtn}
+              activeButtonClassName={styles.langBtnActive}
+              dividerClassName={styles.langDivider}
+            />
+            <div className={styles.heroStats}>
+              <div>
+                <strong>{linkContent.links.length}</strong>
+                <span>{pageCopy.studyStat}</span>
+              </div>
+              <div>
+                <strong>{linkContent.jobLinks.length}</strong>
+                <span>{pageCopy.careerStat}</span>
+              </div>
+              <div>
+                <strong>{resources.length}</strong>
+                <span>{pageCopy.resourcesStat}</span>
+              </div>
+            </div>
+            <p className={styles.heroNote}>{pageCopy.heroNote}</p>
           </div>
         </section>
 
-        {/* 就职信息 */}
-        <section>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>
-              <FaBriefcase style={{ marginRight: '0.5rem', opacity: 0.7 }} />
-              {pageCopy.section2Title}
-            </h2>
+        <section id="resources" className={styles.contentSection}>
+          <div className={styles.sectionHeading}>
+            <div>
+              <span className={styles.sectionEyebrow}>{pageCopy.resourcesEyebrow}</span>
+              <h2>{pageCopy.resourcesTitle}</h2>
+              <p>{pageCopy.resourcesSubtitle}</p>
+            </div>
+            <span className={styles.resultCount}>{pageCopy.resultCount(filteredResources.length)}</span>
           </div>
-          
-          <div className={styles.linksGrid}>
-            {linkContent.jobLinks.map((link, idx) => (
-              <LinkCard 
-                key={link.url} 
-                link={link} 
-                index={idx}
-                isJob={true}
+
+          <div className={styles.resourceToolbar}>
+            <label className={styles.searchBox}>
+              <FaSearch aria-hidden="true" />
+              <span className="sr-only">{pageCopy.searchLabel}</span>
+              <input
+                type="search"
+                value={searchText}
+                onChange={(event) => setSearchText(event.target.value)}
+                placeholder={pageCopy.searchPlaceholder}
               />
-            ))}
+            </label>
+            <div className={styles.categoryTabs} role="group" aria-label={pageCopy.categoryLabel}>
+              {categoryOptions.map((option) => (
+                <button
+                  key={option.key}
+                  type="button"
+                  className={activeCategory === option.key ? styles.activeCategory : ''}
+                  aria-pressed={activeCategory === option.key}
+                  onClick={() => setActiveCategory(option.key)}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {filteredResources.length > 0 ? (
+            <div className={styles.resourcesGrid}>
+              {filteredResources.map((resource) => (
+                <ResourceCard key={resource.url} resource={resource} pageCopy={pageCopy} />
+              ))}
+            </div>
+          ) : (
+            <div className={styles.emptyState}>
+              <FaSearch aria-hidden="true" />
+              <strong>{pageCopy.noResults}</strong>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchText('');
+                  setActiveCategory('all');
+                }}
+              >
+                {pageCopy.clearFilters}
+              </button>
+            </div>
+          )}
         </section>
-      </div>
+      </main>
     </Layout>
   );
 }

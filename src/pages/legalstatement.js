@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import {
   FaBookOpen,
   FaCamera,
+  FaChevronDown,
   FaCode,
+  FaCodeBranch,
   FaEdit,
   FaExclamationTriangle,
+  FaExternalLinkAlt,
   FaFileContract,
+  FaGithub,
   FaLayerGroup,
   FaRoute,
   FaShieldAlt,
   FaStickyNote,
   FaTasks,
+  FaUsers,
 } from 'react-icons/fa';
 import { useCurrentLanguage } from '../context/LanguageContext';
+import { fetchSiteContributors } from '../services/contributorService';
+import githubContributorData from '../data/githubContributors.json';
 import styles from './legalstatement.module.css';
+
+const REPOSITORY_URL = 'https://github.com/Myyura/the_kai_project';
 
 const content = {
   zh: {
@@ -70,6 +79,25 @@ const content = {
       '维护者确认内容可用后，给 Issue 添加 submission:ready-for-pr 标签，bot 会生成 draft PR。',
       '正式公开内容仍以 Git 仓库中的 Markdown 为准；只有 PR 合并后才进入公开题库和 API 数据。',
     ],
+    acknowledgements: {
+      eyebrow: 'Special Thanks',
+      title: '特别鸣谢每一位贡献者',
+      description: '感谢所有参与代码、文档、题解与纠错的朋友。名单默认收起，展开后可查看完整贡献记录。',
+      summaryTitle: '查看完整贡献者名单',
+      summaryHint: (count) => `包含 ${count} 位 GitHub 贡献者，以及已通过的站内投稿者`,
+      githubTitle: 'GitHub 贡献者',
+      githubHint: '按仓库贡献记录自动生成，并排除 bot 账号。',
+      githubContributionCount: (count) => `${count} 次仓库贡献`,
+      viewGitHub: '查看 GitHub 统计',
+      siteTitle: '站内内容贡献者',
+      siteHint: '题解投稿或纠错成功转为 PR 后自动计入。',
+      contribute: '参与投稿',
+      loading: '正在读取站内贡献记录…',
+      unavailable: '站内贡献记录暂时无法读取。',
+      empty: '还没有已通过的站内投稿，期待第一位贡献者。',
+      siteBreakdown: (solutions, corrections) => `${solutions} 篇题解 · ${corrections} 次纠错`,
+      privacy: '这里只展示投稿时使用的公开昵称和已通过数量，不展示邮箱、账号 ID 或待审核内容。',
+    },
     legalTitle: '法律与隐私声明',
     legalSections: [
       {
@@ -98,6 +126,7 @@ const content = {
           '访问本站时，服务器可能自动收集浏览器或设备生成的信息，包括访问时间、浏览器类型、操作系统等。',
           '若您使用登录、个人中心、云同步、私人题集、排行榜、投稿或开发者 API 功能，我们可能处理账号邮箱、认证标识、统一公开昵称、学习进度、题目笔记、私人题集及选题说明、投稿记录、API 申请信息、API Key 元数据及必要调用日志。',
           '刷题排行榜默认展示全站统一昵称，不展示邮箱。您可在个人中心关闭排行榜可见性；关闭后不参与公开排名和参与人数统计，但仍可查看自己的练习数量。',
+          '投稿成功转为 PR 后，社区贡献者区域可能展示投稿时使用的统一公开昵称及已通过投稿数量；不会展示邮箱、账号标识或未通过审核的投稿。',
           '上述信息主要用于提供账号登录、学习数据同步、个人中心展示、投稿状态、API 访问审核、安全风控、服务维护和用户支持。我们会根据功能需要采取合理的数据最小化措施。',
           '您可以在浏览器中管理 Cookie 和追踪机制设置。如需访问或删除个人信息，可通过下方联系方式联系我们。',
         ],
@@ -158,6 +187,25 @@ const content = {
       'メンテナーが内容を確認し、Issue に submission:ready-for-pr ラベルを付けると、Bot が下書き PR を作成します。',
       '正式に公開される内容は Git リポジトリ内の Markdown を正とし、PR のマージ後に公開問題集と API データへ反映されます。',
     ],
+    acknowledgements: {
+      eyebrow: 'Special Thanks',
+      title: 'すべての貢献者に心から感謝します',
+      description: 'コード、文書、解答、訂正に参加してくださった皆さまに感謝します。完全な一覧は通常折りたたまれています。',
+      summaryTitle: '貢献者の完全な一覧を見る',
+      summaryHint: (count) => `GitHub 貢献者 ${count} 人と、承認済みのサイト内投稿者`,
+      githubTitle: 'GitHub 貢献者',
+      githubHint: 'リポジトリの貢献記録から自動生成し、bot は除外します。',
+      githubContributionCount: (count) => `リポジトリへの貢献 ${count} 件`,
+      viewGitHub: 'GitHub の統計を見る',
+      siteTitle: 'サイト内コンテンツ貢献者',
+      siteHint: '解答投稿または訂正が PR に変換されると自動的に集計されます。',
+      contribute: '投稿に参加',
+      loading: 'サイト内の貢献記録を読み込み中…',
+      unavailable: 'サイト内の貢献記録を現在読み込めません。',
+      empty: '承認済みのサイト内投稿はまだありません。最初の貢献をお待ちしています。',
+      siteBreakdown: (solutions, corrections) => `解答 ${solutions} 件 · 訂正 ${corrections} 件`,
+      privacy: '投稿時の公開ニックネームと承認済み件数のみを表示し、メール、アカウント ID、審査中の内容は表示しません。',
+    },
     legalTitle: '法的情報・プライバシー',
     legalSections: [
       {
@@ -186,6 +234,7 @@ const content = {
           '本サイトへのアクセス時に、アクセス日時、ブラウザーの種類、オペレーティングシステムなど、ブラウザーまたは端末から送信される情報をサーバーが自動的に収集する場合があります。',
           'ログイン、マイページ、クラウド同期、非公開の問題セット、学習ランキング、投稿、開発者 API を利用する場合、メールアドレス、認証識別子、統一公開ニックネーム、学習進捗、問題ノート、問題セットと選択メモ、投稿履歴、API 利用申請、API Key のメタデータ、必要なアクセスログを処理する場合があります。',
           '学習ランキングには統一公開ニックネームが表示され、メールアドレスは表示されません。マイページでランキング公開を無効にすると、公開順位と参加人数から除外されますが、自分の学習数は確認できます。',
+          '投稿が PR に変換された後、コミュニティ貢献者欄に投稿時の統一公開ニックネームと承認済み投稿数を表示する場合があります。メールアドレス、アカウント識別子、未承認の投稿は表示されません。',
           'これらの情報は、ログイン、学習データの同期、マイページの表示、投稿状況の確認、API 利用審査、安全対策、サービスの保守、利用者サポートのために使用します。機能の提供に必要な範囲で、データの最小化に努めます。',
           'Cookie やトラッキングに関する設定はブラウザーで管理できます。ご自身の個人情報の開示または削除を希望する場合は、下記の連絡先までお問い合わせください。',
         ],
@@ -246,6 +295,25 @@ const content = {
       'After a maintainer confirms that the content is ready, they add the submission:ready-for-pr label and the Bot creates a draft pull request.',
       'Markdown in the Git repository remains the source of truth. Content appears in the public archive and API data only after the pull request is merged.',
     ],
+    acknowledgements: {
+      eyebrow: 'Special Thanks',
+      title: 'With thanks to every contributor',
+      description: 'We are grateful to everyone who improves the code, documentation, solutions, and corrections. The complete list is collapsed by default.',
+      summaryTitle: 'View the complete contributor list',
+      summaryHint: (count) => `${count} GitHub contributors plus accepted site contributors`,
+      githubTitle: 'GitHub contributors',
+      githubHint: 'Generated from repository contribution records with bot accounts excluded.',
+      githubContributionCount: (count) => `${count} repository contributions`,
+      viewGitHub: 'View GitHub insights',
+      siteTitle: 'Site content contributors',
+      siteHint: 'Counted after a solution or correction is converted to a pull request.',
+      contribute: 'Contribute content',
+      loading: 'Loading site contribution records…',
+      unavailable: 'Site contribution records are temporarily unavailable.',
+      empty: 'No accepted site submissions yet. The first contributor could be you.',
+      siteBreakdown: (solutions, corrections) => `${solutions} solutions · ${corrections} corrections`,
+      privacy: 'Only the public nickname used for submission and accepted counts are shown—never email addresses, account IDs, or pending content.',
+    },
     legalTitle: 'Legal & Privacy Notices',
     legalSections: [
       {
@@ -274,6 +342,7 @@ const content = {
           'When you visit the website, our servers may automatically receive information generated by your browser or device, including access time, browser type, and operating system.',
           'If you use login, the Personal Center, cloud sync, private problem sets, practice leaderboards, submissions, or the Developer API, we may process your account email, authentication identifiers, unified public nickname, study progress, problem notes, private sets and item notes, submission history, API access applications, API key metadata, and necessary request logs.',
           'The practice leaderboard displays your unified public nickname and does not display your email address. You can disable leaderboard visibility in Personal Center; hidden accounts are excluded from public rankings and participant counts but can still see their own practice total.',
+          'After a submission is converted to a PR, the community contributor area may display the unified public nickname used for that submission and the number of accepted submissions. It does not display email addresses, account identifiers, or unaccepted submissions.',
           'We use this information to provide authentication, learning-data sync, Personal Center displays, submission status, API access review, security controls, service maintenance, and user support. We apply reasonable data-minimization measures based on what each feature requires.',
           'You can manage cookies and tracking controls in your browser. To request access to or deletion of your personal information, contact us using the details below.',
         ],
@@ -288,6 +357,157 @@ function getLanguageContent(language) {
   if (language === 'ja') return content.ja;
   if (language === 'en') return content.en;
   return content.zh;
+}
+
+function contributorInitials(displayName) {
+  const visibleName = String(displayName || '').split('#')[0].trim();
+  return Array.from(visibleName).slice(0, 2).join('').toUpperCase() || 'K';
+}
+
+function GitHubContributor({ contributor, copy }) {
+  return (
+    <a
+      className={styles.githubContributor}
+      href={contributor.profileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src={contributor.avatarUrl} alt="" loading="lazy" />
+      <span className={styles.contributorIdentity}>
+        <strong>{contributor.login}</strong>
+        <small>{copy.githubContributionCount(contributor.contributions)}</small>
+      </span>
+      <FaExternalLinkAlt aria-hidden="true" />
+    </a>
+  );
+}
+
+function SiteContributor({ contributor, copy }) {
+  return (
+    <div className={styles.siteContributor}>
+      <span className={styles.siteContributorAvatar} aria-hidden="true">
+        {contributorInitials(contributor.displayName)}
+      </span>
+      <span className={styles.contributorIdentity}>
+        <strong>{contributor.displayName}</strong>
+        <small>{copy.siteBreakdown(contributor.solutionCount, contributor.correctionCount)}</small>
+      </span>
+      <span className={styles.contributionCount}>{contributor.contributionCount}</span>
+    </div>
+  );
+}
+
+function ContributorAcknowledgements({ copy }) {
+  const githubContributors = githubContributorData.contributors || [];
+  const [isOpen, setIsOpen] = useState(false);
+  const [siteContributors, setSiteContributors] = useState([]);
+  const [siteContributorsLoading, setSiteContributorsLoading] = useState(true);
+  const [siteContributorsError, setSiteContributorsError] = useState(false);
+  const siteContributorsRequested = useRef(false);
+
+  useEffect(() => {
+    if (!isOpen || siteContributorsRequested.current) return undefined;
+
+    let active = true;
+    siteContributorsRequested.current = true;
+    setSiteContributorsLoading(true);
+    setSiteContributorsError(false);
+
+    fetchSiteContributors()
+      .then((rows) => {
+        if (active) setSiteContributors(rows);
+      })
+      .catch(() => {
+        if (active) setSiteContributorsError(true);
+      })
+      .finally(() => {
+        if (active) setSiteContributorsLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [isOpen]);
+
+  return (
+    <div className={styles.acknowledgementsBlock}>
+      <div className={styles.acknowledgementsIntro}>
+        <span className={styles.acknowledgementsIcon} aria-hidden="true"><FaUsers /></span>
+        <div>
+          <span className={styles.acknowledgementsEyebrow}>{copy.eyebrow}</span>
+          <h3>{copy.title}</h3>
+          <p>{copy.description}</p>
+        </div>
+      </div>
+
+      <details
+        className={styles.contributorDisclosure}
+        onToggle={(event) => setIsOpen(event.currentTarget.open)}
+      >
+        <summary>
+          <span>
+            <strong>{copy.summaryTitle}</strong>
+            <small>{copy.summaryHint(githubContributors.length)}</small>
+          </span>
+          <FaChevronDown className={styles.disclosureChevron} aria-hidden="true" />
+        </summary>
+
+        <div className={styles.contributorDisclosureBody}>
+          <section className={styles.contributorGroup}>
+            <div className={styles.contributorGroupHeading}>
+              <div>
+                <span className={styles.contributorGroupIcon}><FaGithub aria-hidden="true" /></span>
+                <div>
+                  <h4>{copy.githubTitle}</h4>
+                  <p>{copy.githubHint}</p>
+                </div>
+              </div>
+              <a href={`${REPOSITORY_URL}/graphs/contributors`} target="_blank" rel="noopener noreferrer">
+                {copy.viewGitHub} <FaExternalLinkAlt aria-hidden="true" />
+              </a>
+            </div>
+            <div className={styles.contributorGrid}>
+              {githubContributors.map((contributor) => (
+                <GitHubContributor key={contributor.login} contributor={contributor} copy={copy} />
+              ))}
+            </div>
+          </section>
+
+          <section className={styles.contributorGroup}>
+            <div className={styles.contributorGroupHeading}>
+              <div>
+                <span className={styles.contributorGroupIcon}><FaCodeBranch aria-hidden="true" /></span>
+                <div>
+                  <h4>{copy.siteTitle}</h4>
+                  <p>{copy.siteHint}</p>
+                </div>
+              </div>
+              <Link to="/me?tab=contribute">{copy.contribute}</Link>
+            </div>
+
+            {siteContributorsLoading ? (
+              <div className={styles.contributorState}>{copy.loading}</div>
+            ) : siteContributorsError ? (
+              <div className={styles.contributorState}>{copy.unavailable}</div>
+            ) : siteContributors.length > 0 ? (
+              <div className={styles.contributorGrid}>
+                {siteContributors.map((contributor) => (
+                  <SiteContributor
+                    key={contributor.displayName}
+                    contributor={contributor}
+                    copy={copy}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className={styles.contributorState}>{copy.empty}</div>
+            )}
+            <p className={styles.contributorPrivacy}>{copy.privacy}</p>
+          </section>
+        </div>
+      </details>
+    </div>
+  );
 }
 
 export default function LegalStatement() {
@@ -339,6 +559,7 @@ export default function LegalStatement() {
               <li key={step}>{step}</li>
             ))}
           </ol>
+          <ContributorAcknowledgements copy={t.acknowledgements} />
         </section>
 
         <section className={styles.section}>

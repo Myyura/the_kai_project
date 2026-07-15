@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "node scripts/generate-docusaurus-tags.js && node scripts/generate-site-stats.js && docusaurus start",
-    "build": "node scripts/generate-docusaurus-tags.js && node scripts/validate-content-data.js && node scripts/generate-site-stats.js && docusaurus build",
+    "start": "node scripts/generate-docusaurus-tags.js && node scripts/generate-site-stats.js && node scripts/generate-github-contributors.js && docusaurus start",
+    "build": "node scripts/generate-docusaurus-tags.js && node scripts/validate-content-data.js && node scripts/generate-site-stats.js && node scripts/generate-github-contributors.js && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -16,6 +16,7 @@
     "dev": "yarn start",
     "generate:universities": "node scripts/generate-universities.js",
     "generate:site-stats": "node scripts/generate-site-stats.js",
+    "generate:contributors": "node scripts/generate-github-contributors.js",
     "tags:generate": "node scripts/generate-docusaurus-tags.js",
     "tags:migrate": "node scripts/migrate-namespaced-tags.js",
     "content:validate": "node scripts/generate-docusaurus-tags.js --check && node scripts/validate-content-data.js",
