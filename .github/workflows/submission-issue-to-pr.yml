@@ -92,12 +92,22 @@ jobs:
         if: steps.convert.outputs.conflict != 'true'
         run: |
           set -euo pipefail
-          pr_url="$(gh pr create \
-            --draft \
+          pr_url="$(gh pr list \
+            --state open \
             --base main \
             --head "$BRANCH_NAME" \
-            --title "${{ steps.convert.outputs.pr_title }}" \
-            --body-file .submission-pr-body.md)"
+            --json url \
+            --jq '.[0].url // empty')"
+          if [ -z "$pr_url" ]; then
+            pr_url="$(gh pr create \
+              --draft \
+              --base main \
+              --head "$BRANCH_NAME" \
+              --title "${{ steps.convert.outputs.pr_title }}" \
+              --body-file .submission-pr-body.md)"
+          else
+            echo "Reusing existing pull request: $pr_url"
+          fi
           pr_number="$(gh pr view "$pr_url" --json number --jq '.number')"
           echo "url=$pr_url" >> "$GITHUB_OUTPUT"
           echo "number=$pr_number" >> "$GITHUB_OUTPUT"
@@ -114,7 +124,7 @@ jobs:
         if: steps.convert.outputs.conflict != 'true'
         run: |
           set -euo pipefail
-          if [ -z "$SUPABASE_URL" ] || [ -z "$CONTENT_SUBMISSION_CALLBACK_SECRET" ]; then
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ] || [ -z "$CONTENT_SUBMISSION_CALLBACK_SECRET" ]; then
             echo "Submission callback secrets are not configured; skipping backend writeback."
             exit 0
           fi
@@ -133,6 +143,8 @@ jobs:
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY}`,
+                apikey: process.env.SUPABASE_ANON_KEY,
                 'X-Kai-Submission-Callback-Secret': process.env.CONTENT_SUBMISSION_CALLBACK_SECRET,
               },
               body: JSON.stringify(body),
@@ -149,6 +161,7 @@ jobs:
           NODE
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           CONTENT_SUBMISSION_CALLBACK_SECRET: ${{ secrets.CONTENT_SUBMISSION_CALLBACK_SECRET }}
           SUBMISSION_ID: ${{ steps.convert.outputs.submission_id }}
           PR_NUMBER: ${{ steps.pr.outputs.number }}
@@ -157,4 +170,9 @@ jobs:
       - name: Report conversion failure
         if: failure()
         run: |
-          gh issue comment "$ISSUE_NUMBER" --body "自动转换 PR 或后端状态回写失败。请查看本次 GitHub Actions 日志；若已创建 PR 但仅回写失败，可在配置密钥后重新运行本 workflow。"
+          if [ -n "${{ steps.pr.outputs.url }}" ]; then
+            message="PR 已成功创建，但投稿后端状态回写失败。请查看本次 GitHub Actions 日志。"
+          else
+            message="自动转换 PR 失败。请查看本次 GitHub Actions 日志。"
+          fi
+          gh issue comment "$ISSUE_NUMBER" --body "$message"
