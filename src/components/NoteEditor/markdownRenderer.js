@@ -81,28 +81,42 @@ export function markdownToHtml(text) {
   const mathBlocks = [];
   let src = text;
 
-  // 1. 保护显示数学公式 $$...$$（多行支持），用空行隔离使其成为独立块
+  // 1. 保护 Docusaurus 文档常用的 \[...\] 块级公式
+  src = src.replace(/\\\[([\s\S]*?)\\\]/g, (_, math) => {
+    const idx = mathBlocks.length;
+    mathBlocks.push(`<div class="note-math-display" data-math="${encodeURIComponent(math.trim())}"></div>`);
+    return `\n\nMD_MATH_BLOCK_${idx}\n\n`;
+  });
+
+  // 2. 保护 \(...\) 行内公式
+  src = src.replace(/\\\(([\s\S]*?)\\\)/g, (_, math) => {
+    const idx = mathBlocks.length;
+    mathBlocks.push(`<span class="note-math-inline" data-math="${encodeURIComponent(math)}"></span>`);
+    return `MD_MATH_INLINE_${idx}`;
+  });
+
+  // 3. 保护显示数学公式 $$...$$（多行支持），用空行隔离使其成为独立块
   src = src.replace(/\$\$([\s\S]*?)\$\$/g, (_, math) => {
     const idx = mathBlocks.length;
     mathBlocks.push(`<div class="note-math-display" data-math="${encodeURIComponent(math.trim())}"></div>`);
     return `\n\nMD_MATH_BLOCK_${idx}\n\n`;
   });
 
-  // 2. 保护行内数学公式 $...$（单行，不匹配 $$）
+  // 4. 保护行内数学公式 $...$（单行，不匹配 $$）
   src = src.replace(/(?<!\$)\$(?!\$)([^\$\n]+?)\$(?!\$)/g, (_, math) => {
     const idx = mathBlocks.length;
     mathBlocks.push(`<span class="note-math-inline" data-math="${encodeURIComponent(math)}"></span>`);
     return `MD_MATH_INLINE_${idx}`;
   });
 
-  // 3. 通过 markdown-it 渲染（支持表格、嵌套列表等）
+  // 5. 通过 markdown-it 渲染（支持表格、嵌套列表等）
   let html = md.render(src);
 
-  // 4. 还原块级数学公式（markdown-it 将其包裹为 <p>MD_MATH_BLOCK_N</p>）
+  // 6. 还原块级数学公式（markdown-it 将其包裹为 <p>MD_MATH_BLOCK_N</p>）
   html = html.replace(/<p>\s*MD_MATH_BLOCK_(\d+)\s*<\/p>/g, (_, i) => mathBlocks[parseInt(i)]);
   html = html.replace(/MD_MATH_BLOCK_(\d+)/g, (_, i) => mathBlocks[parseInt(i)]);
 
-  // 5. 还原行内数学公式
+  // 7. 还原行内数学公式
   html = html.replace(/MD_MATH_INLINE_(\d+)/g, (_, i) => mathBlocks[parseInt(i)]);
 
   return html;
@@ -165,11 +179,11 @@ export async function renderMathInContainer(container) {
     // KaTeX 加载失败，显示原始公式
     mathElements.forEach((el) => {
       const math = decodeURIComponent(el.getAttribute('data-math'));
-      el.textContent = displayPrefix(el) + math;
+      el.textContent = displaySource(el, math);
     });
   }
 }
 
-function displayPrefix(el) {
-  return el.classList.contains('note-math-display') ? '$$' : '$';
+function displaySource(el, math) {
+  return el.classList.contains('note-math-display') ? `$$${math}$$` : `$${math}$`;
 }

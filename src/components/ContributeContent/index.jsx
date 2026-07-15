@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from '@docusaurus/Link';
 import {
   FaCheck,
@@ -19,6 +19,7 @@ import { getSupabaseClient } from '@site/src/services/supabaseClient';
 import { getVerifiedAccessToken } from '@site/src/services/syncService';
 import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
 import { buildDiffPreview, markdownHasChanges } from '@site/src/services/correctionDiff';
+import { markdownToHtml, renderMathInContainer } from '@site/src/components/NoteEditor/markdownRenderer';
 import { universities } from '@site/src/data/universities';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import styles from './styles.module.css';
@@ -108,6 +109,8 @@ export function ContributeContent({ embedded = false } = {}) {
   const [originalMarkdown, setOriginalMarkdown] = useState('');
   const [proposedMarkdown, setProposedMarkdown] = useState('');
   const [correctionView, setCorrectionView] = useState('edit');
+  const [newSolutionView, setNewSolutionView] = useState('edit');
+  const newSolutionPreviewRef = useRef(null);
   const isCorrectionMode = form.submissionType === 'correction';
   const newSolutionMarkdownLength = normalizedMarkdownLength(form.descriptionMarkdown)
     + normalizedMarkdownLength(form.kaiMarkdown);
@@ -119,6 +122,36 @@ export function ContributeContent({ embedded = false } = {}) {
       : { additions: 0, deletions: 0, hunks: [] },
     [correctionView, originalMarkdown, proposedMarkdown],
   );
+
+  const newSolutionPreviewMarkdown = useMemo(() => {
+    const title = form.title.trim() || t.previewUntitled;
+    const author = profile?.displayName || t.nicknameNotReady;
+    const description = form.descriptionMarkdown.trim();
+    const kai = form.kaiMarkdown.trim();
+    const sections = [
+      `# ${title}`,
+      '',
+      '## **Author**',
+      author,
+    ];
+
+    if (description) sections.push('', '## **Description**', description);
+    if (kai) sections.push('', '## **Kai**', kai);
+    return sections.join('\n');
+  }, [
+    form.descriptionMarkdown,
+    form.kaiMarkdown,
+    form.title,
+    profile?.displayName,
+    t.nicknameNotReady,
+    t.previewUntitled,
+  ]);
+
+  useEffect(() => {
+    if (newSolutionView !== 'preview' || !newSolutionPreviewRef.current) return;
+    newSolutionPreviewRef.current.innerHTML = markdownToHtml(newSolutionPreviewMarkdown);
+    void renderMathInContainer(newSolutionPreviewRef.current);
+  }, [newSolutionPreviewMarkdown, newSolutionView]);
 
   const selectedUniversity = useMemo(
     () => universities.find((item) => item.id === form.universityId),
@@ -363,6 +396,8 @@ export function ContributeContent({ embedded = false } = {}) {
       if (form.submissionType === 'correction') {
         setProposedMarkdown(originalMarkdown);
         setCorrectionView('edit');
+      } else {
+        setNewSolutionView('edit');
       }
       setForm((current) => ({
         ...initialForm,
@@ -586,35 +621,71 @@ export function ContributeContent({ embedded = false } = {}) {
             )}
 
             {!isCorrectionMode ? (
-              <>
-                <label className={styles.fullSpan}>
-                  <span>{t.descriptionLabel}</span>
-                  <textarea
-                    value={form.descriptionMarkdown}
-                    onChange={(event) => updateForm('descriptionMarkdown', event.target.value)}
-                    rows={9}
-                    placeholder={t.descriptionPlaceholder}
-                    maxLength={MAX_NEW_SOLUTION_MARKDOWN_LENGTH}
+              <section className={`${styles.correctionEditor} ${styles.fullSpan}`}>
+                <div className={styles.editorToolbar}>
+                  <div>
+                    <strong>{t.submissionEditorTitle}</strong>
+                    <small className={styles.editorHint}>{t.submissionEditorHint}</small>
+                  </div>
+                  <div className={styles.editorTabs} role="group" aria-label={t.editorViewLabel}>
+                    <button
+                      type="button"
+                      className={newSolutionView === 'edit' ? styles.activeTab : ''}
+                      aria-pressed={newSolutionView === 'edit'}
+                      onClick={() => setNewSolutionView('edit')}
+                    >
+                      {t.editSubmission}
+                    </button>
+                    <button
+                      type="button"
+                      className={newSolutionView === 'preview' ? styles.activeTab : ''}
+                      aria-pressed={newSolutionView === 'preview'}
+                      onClick={() => setNewSolutionView('preview')}
+                    >
+                      {t.previewSubmission}
+                    </button>
+                  </div>
+                </div>
+
+                {newSolutionView === 'edit' ? (
+                  <div className={styles.solutionEditFields}>
+                    <label>
+                      <span>{t.descriptionLabel}</span>
+                      <textarea
+                        value={form.descriptionMarkdown}
+                        onChange={(event) => updateForm('descriptionMarkdown', event.target.value)}
+                        rows={9}
+                        placeholder={t.descriptionPlaceholder}
+                        maxLength={MAX_NEW_SOLUTION_MARKDOWN_LENGTH}
+                      />
+                    </label>
+                    <label>
+                      <span>{t.kaiLabel}</span>
+                      <textarea
+                        value={form.kaiMarkdown}
+                        onChange={(event) => updateForm('kaiMarkdown', event.target.value)}
+                        rows={12}
+                        placeholder={t.kaiPlaceholder}
+                        maxLength={MAX_NEW_SOLUTION_MARKDOWN_LENGTH}
+                      />
+                    </label>
+                  </div>
+                ) : (
+                  <div
+                    ref={newSolutionPreviewRef}
+                    className={`${styles.solutionPreview} markdown`}
+                    role="region"
+                    aria-label={t.previewSubmission}
                   />
-                </label>
-                <label className={styles.fullSpan}>
-                  <span>{t.kaiLabel}</span>
-                  <textarea
-                    value={form.kaiMarkdown}
-                    onChange={(event) => updateForm('kaiMarkdown', event.target.value)}
-                    rows={12}
-                    placeholder={t.kaiPlaceholder}
-                    maxLength={MAX_NEW_SOLUTION_MARKDOWN_LENGTH}
-                  />
-                  <small
-                    className={`${styles.smallHint} ${newSolutionMarkdownTooLong ? styles.lengthExceeded : ''}`}
-                    aria-live="polite">
-                    {t.markdownLength
-                      .replace('{current}', newSolutionMarkdownLength.toLocaleString(getLanguageLocale(language)))
-                      .replace('{max}', MAX_NEW_SOLUTION_MARKDOWN_LENGTH.toLocaleString(getLanguageLocale(language)))}
-                  </small>
-                </label>
-              </>
+                )}
+                <small
+                  className={`${styles.smallHint} ${newSolutionMarkdownTooLong ? styles.lengthExceeded : ''}`}
+                  aria-live="polite">
+                  {t.markdownLength
+                    .replace('{current}', newSolutionMarkdownLength.toLocaleString(getLanguageLocale(language)))
+                    .replace('{max}', MAX_NEW_SOLUTION_MARKDOWN_LENGTH.toLocaleString(getLanguageLocale(language)))}
+                </small>
+              </section>
             ) : (
               <section className={`${styles.correctionEditor} ${styles.fullSpan}`}>
                 <div className={styles.editorToolbar}>
@@ -745,7 +816,7 @@ export function ContributeContent({ embedded = false } = {}) {
           </datalist>
         </form>
 
-        <aside className={styles.panel}>
+        <aside className={`${styles.panel} ${styles.historyPanel}`}>
           <div className={styles.sectionHeader}>
             <h2><FaCodeBranch /> {t.recentSubmissions}</h2>
           </div>
@@ -764,14 +835,14 @@ export function ContributeContent({ embedded = false } = {}) {
                     <span>{item.submissionType === 'new_solution' ? t.modeNew : t.modeCorrection}</span>
                     <span>{formatDate(item.createdAt, language)}</span>
                   </div>
-                  <div className={styles.actions} style={{ marginTop: '0.7rem' }}>
+                  <div className={styles.submissionLinks}>
                     {item.issueUrl && (
-                      <a className={styles.secondaryButton} href={item.issueUrl} target="_blank" rel="noreferrer">
+                      <a className={styles.submissionLink} href={item.issueUrl} target="_blank" rel="noreferrer">
                         Issue #{item.issueNumber} <FaExternalLinkAlt />
                       </a>
                     )}
                     {item.prUrl && (
-                      <a className={styles.secondaryButton} href={item.prUrl} target="_blank" rel="noreferrer">
+                      <a className={styles.submissionLink} href={item.prUrl} target="_blank" rel="noreferrer">
                         PR #{item.prNumber} <FaExternalLinkAlt />
                       </a>
                     )}
