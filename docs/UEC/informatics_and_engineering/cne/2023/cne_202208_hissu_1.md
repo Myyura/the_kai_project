@@ -106,9 +106,9 @@ $$
 
 $$
   \begin{align}
-  -2x+(1+a)y-2z = 0 \tag{a} \label{a}
+  -2x+(1+a)y-2z = 0 \tag{a}
   \\
-  4x+(1-a)y+4z = 0 \tag{b} \label{b}
+  4x+(1-a)y+4z = 0 \tag{b}
   \end{align}
 $$
 
@@ -117,7 +117,7 @@ $$
 
 $$
   \begin{align}
-  (a+3)y = 0 \tag{c} \label{c}
+  (a+3)y = 0 \tag{c}
   \end{align}
 $$
 

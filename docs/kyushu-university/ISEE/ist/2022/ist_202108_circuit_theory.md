@@ -58,7 +58,7 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p4.png" width="515" height="220" alt=""/>
 </figure>
 
-## **Kai** 
+## **Kai**
 ### 【問 1】
 
 <figure style="text-align:center;">
@@ -87,7 +87,7 @@ $$
 $$
 \begin{align}
 \bigg|\frac{E}{I_1}\bigg| = 2 \Leftrightarrow &\sqrt{R_1^2 + X_1^2} = 2 \notag \\
-&R_1^2 + X_1^2 = 4 \tag{①}
+&R_1^2 + X_1^2 = 4 \tag{\textcircled{1}}
 \end{align}
 $$
 
@@ -95,7 +95,7 @@ $$
 
 $$
 \begin{align}
-R_1 = \sqrt{3}X_1 \tag{②}
+R_1 = \sqrt{3}X_1 \tag{\textcircled{2}}
 \end{align}
 $$
 
@@ -113,7 +113,7 @@ $$
 V &= V_1 - V_2 \\
 &= \frac{R_1}{R_1 + jX_1}E - \frac{jX_2}{R_2 + jX_2}E \\
 \frac{V}{E} &= \frac{R_1(R_2 + jX_2) - jX_2(R_1 + jX_1)}{(R_1 + jX_1)(R_2 + jX_2)} \\
-&= \frac{R_1R_2 + X_1X_2}{R_1R_2 - X_1X_2 + j(R_1X_2 + R_2X_1)} 
+&= \frac{R_1R_2 + X_1X_2}{R_1R_2 - X_1X_2 + j(R_1X_2 + R_2X_1)}
 \end{aligned}
 $$
 
@@ -123,7 +123,7 @@ $$
 \begin{align}
 \frac{V}{E} &= \frac{\sqrt{3}R_2 + X_2}{\sqrt{3}R_2 - X_2 + j(R_2 + \sqrt{3}X_2)} \notag \\
 &= \frac{(\sqrt{3}R_2 + X_2)[(\sqrt{3}R_2 - X_2) - j(R_2 + \sqrt{3}X_2)]}{(\sqrt{3}R_2 - X_2)^2 + (R_2 + \sqrt{3}X_2)^2} \notag \\
-&= \frac{\sqrt{3}R_2 + X_2}{4(R_2^2 + X_2^2)}[(\sqrt{3}R_2 - X_2) - j(R_2 + \sqrt{3}X_2)] \tag{③} 
+&= \frac{\sqrt{3}R_2 + X_2}{4(R_2^2 + X_2^2)}[(\sqrt{3}R_2 - X_2) - j(R_2 + \sqrt{3}X_2)] \tag{\textcircled{3}}
 \end{align}
 $$
 
@@ -137,7 +137,7 @@ $$
 \begin{aligned}
 \frac{\sqrt{3}R_2 + X_2}{2\sqrt{R_2^2 + X_2^2}} &= 1 \\
 (R_2 - \sqrt{3}X_2)^2 &= 0 \\
-R_2 & = \sqrt{3}X_2 
+R_2 & = \sqrt{3}X_2
 \end{aligned}
 $$
 
@@ -162,7 +162,7 @@ $$
 \begin{align}
 Z_a &= Z_b \notag \\
 Z_1 &= \frac{Z_aZ_b}{Z_a + Z_b} = \frac{1}{2}Z_a \notag \\
-&= \frac{1}{2}(5 - j2) \tag{①} \\ 
+&= \frac{1}{2}(5 - j2) \tag{\textcircled{1}} \\
 \end{align}
 $$
 
@@ -179,7 +179,7 @@ $$
 $$
 \begin{align}
 Y_2 = G + jB,Z_2 &= \frac{1}{G + jB} \notag \\
-&= \frac{G - jB}{G^2 + B^2} \tag{②}
+&= \frac{G - jB}{G^2 + B^2} \tag{\textcircled{2}}
 \end{align}
 $$
 
@@ -194,14 +194,14 @@ $$
 $$
 \left \{
 \begin{align}
-\frac{5}{2} &= \frac{G}{G^2 + B^2} &\tag{③} \\
-1 &= \frac{B}{G^2 + B^2} &\tag{④}
+\frac{5}{2} &= \frac{G}{G^2 + B^2} &\tag{\textcircled{3}} \\
+1 &= \frac{B}{G^2 + B^2} &\tag{\textcircled{4}}
 \end{align}
 \right.
 $$
 
 $$
-\frac{③}{④} \Leftrightarrow \frac{5}{2} = \frac{G}{B} \Leftrightarrow G = \frac{5}{2}B
+\frac{\textcircled{3}}{\textcircled{4}} \Leftrightarrow \frac{5}{2} = \frac{G}{B} \Leftrightarrow G = \frac{5}{2}B
 $$
 
 $$
@@ -252,7 +252,7 @@ $$
 $$
 \begin{pmatrix}
 V_1 \\ V_2
-\end{pmatrix} = 
+\end{pmatrix} =
 \begin{pmatrix}
 Z_1 + Z_2 & Z_2 \\
 Z_2 & Z_2 + Z_3 \\
@@ -284,8 +284,8 @@ $Z_4$ を接続すると、
 $$
 \left \{
 \begin{align}
-&V_2 = -I_2Z_4 \tag{①} \\
-&V_2 = Z_2I_1 + (Z_2 + Z_3)I_2 \tag{②}
+&V_2 = -I_2Z_4 \tag{\textcircled{1}} \\
+&V_2 = Z_2I_1 + (Z_2 + Z_3)I_2 \tag{\textcircled{2}}
 \end{align}
 \right.
 $$
@@ -356,13 +356,13 @@ $$
 &i(0) = 1 \\
 &q(0) = 1 \\
 \end{aligned}
-\right. \Leftrightarrow 
+\right. \Leftrightarrow
 \left \{
 \begin{aligned}
 &\alpha C_1 + \beta C_2 = 1 \\
 &C_1 + C_2 = 1
 \end{aligned}
-\right. 
+\right.
 $$
 
 $$

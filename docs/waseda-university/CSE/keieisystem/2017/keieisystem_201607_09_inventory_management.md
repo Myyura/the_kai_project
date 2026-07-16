@@ -26,39 +26,39 @@ tags:
 時刻0の在庫を $Q$ とし、$m$ 回目の入荷時刻までの期間を $[0,T]$ とする。この期間の総販売量は
 
 $$
-\boxed{\text{① }dT}
+\boxed{\text{\textcircled{1} }dT}
 $$
 
 である。在庫は入荷のたびに $Q$ だけ増え、期間の始点と終点で同じ水準に戻るので
 
 $$
 dT=mQ,\qquad
-\boxed{\text{② }m=\frac{dT}{Q}}.
+\boxed{\text{\textcircled{2} }m=\frac{dT}{Q}}.
 $$
 
 在庫量は $Q$ から0まで直線的に減少するため、平均在庫量は
 
 $$
-\boxed{\text{③ }\frac{Q}{2}}.
+\boxed{\text{\textcircled{3} }\frac{Q}{2}}.
 $$
 
 したがって期間 $[0,T]$ の保管費用と発注費用は
 
 $$
-\boxed{\text{④ }\frac{BQT}{2}},\qquad
-\boxed{\text{⑤ }\frac{KdT}{Q}}
+\boxed{\text{\textcircled{4} }\frac{BQT}{2}},\qquad
+\boxed{\text{\textcircled{5} }\frac{KdT}{Q}}
 $$
 
 となる。入荷間隔は $Q/d$ であり、入荷の $p$ 時間前に発注するので、$k$ 回目の発注時刻は
 
 $$
-\boxed{\text{⑥ }\frac{kQ}{d}-p}
+\boxed{\text{\textcircled{6} }\frac{kQ}{d}-p}
 $$
 
 である。単位時間当たりの総費用は
 
 $$
-\boxed{\text{⑦ }C(Q)=\frac{BQ}{2}+\frac{Kd}{Q}}.
+\boxed{\text{\textcircled{7} }C(Q)=\frac{BQ}{2}+\frac{Kd}{Q}}.
 $$
 
 $Q>0$ で微分すると
@@ -71,7 +71,7 @@ $$
 よって経済的発注量は
 
 $$
-\boxed{\text{⑧ }Q^*=\sqrt{\frac{2Kd}{B}}}.
+\boxed{\text{\textcircled{8} }Q^*=\sqrt{\frac{2Kd}{B}}}.
 $$
 
 ### [小問 2]

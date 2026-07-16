@@ -67,8 +67,8 @@ Zero
 
 $$
 \begin{align}
-I_1 &= jX_1(I_0 - I_1) \tag{①} \\
-I_2 &= -jX_2(I_0 - I_2) \tag{②} \\
+I_1 &= jX_1(I_0 - I_1) \tag{\textcircled{1}} \\
+I_2 &= -jX_2(I_0 - I_2) \tag{\textcircled{2}} \\
 \end{align}
 $$
 
@@ -211,7 +211,7 @@ $I_1$ に関して
 
 $$
 \begin{align}
-E = R(I_1 - I_2) \tag{①}
+E = R(I_1 - I_2) \tag{\textcircled{1}}
 \end{align}
 $$
 
@@ -219,14 +219,14 @@ $I_2$ に関して
 
 $$
 \begin{align}
-0 = R(I_2 - I_1) + j\omega L_1I_2 + j\omega MI_3 \tag{②}
+0 = R(I_2 - I_1) + j\omega L_1I_2 + j\omega MI_3 \tag{\textcircled{2}}
 \end{align}
 $$
 
 $I_3$ に関して
 
 $$
-0 = j\omega L_2I_2 + j\omega MI_2  + I_3R \tag{③}
+0 = j\omega L_2I_2 + j\omega MI_2  + I_3R \tag{\textcircled{3}}
 $$
 
 #### (2)
@@ -235,9 +235,9 @@ $$
 $$
 \left \{
 \begin{align}
-&RI_1 - RI_2 = E \tag{①} \\
-&-RI_1 + (R + j\omega L_1)I_2 + j\omega MI_3 = 0 \tag{②} \\
-&j\omega MI_2 + (j\omega L_2 + R)I_3 = 0 \tag{③} \\
+&RI_1 - RI_2 = E \tag{\textcircled{1}} \\
+&-RI_1 + (R + j\omega L_1)I_2 + j\omega MI_3 = 0 \tag{\textcircled{2}} \\
+&j\omega MI_2 + (j\omega L_2 + R)I_3 = 0 \tag{\textcircled{3}} \\
 \end{align}
 \right.
 $$
@@ -308,8 +308,8 @@ $$
 
 $$
 \begin{align}
-E &= R_1i_1(t) + \frac{1}{C}q(t) \tag{①} \\
-i_1(t) &= \frac{dq(t)}{dt} \tag{②}
+E &= R_1i_1(t) + \frac{1}{C}q(t) \tag{\textcircled{1}} \\
+i_1(t) &= \frac{dq(t)}{dt} \tag{\textcircled{2}}
 \end{align}
 $$
 

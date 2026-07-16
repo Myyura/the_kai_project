@@ -74,7 +74,8 @@ Instantaneous codes satisfy the **Prefix condition**, which ensures that no code
 #### (c)
 
 $$
-L = \sum_i P_i l_i = 0.4 \times 1 + 0.2 \times 3 + 0.16 \times 3 + 0.16 \times 3 + 0.08 \times 3 $$
+L = \sum_i P_i l_i = 0.4 \times 1 + 0.2 \times 3 + 0.16 \times 3 + 0.16 \times 3 + 0.08 \times 3
+$$
 
 $$
 L = 2.2 \text{ bits / symbol}

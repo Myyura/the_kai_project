@@ -24,8 +24,8 @@ $$
 $$
 \left \{
 \begin{align}
-&\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \tag{①} \\
-&\frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} \tag{②} \\
+&\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \tag{\textcircled{1}} \\
+&\frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} \tag{\textcircled{2}} \\
 \end{align}
 \right.
 $$
@@ -34,7 +34,7 @@ $$
 \begin{align}
 &\frac{\partial x}{\partial r} = \cos\theta ,\frac{\partial y}{\partial r} = \sin\theta \notag \\
 &\frac{\partial x}{\partial \theta} = -r\sin\theta, \notag \\
-&\frac{\partial y}{\partial \theta} = r\cos\theta \Leftrightarrow \cos\theta = \frac{1}{r}\frac{\partial y}{\partial \theta} \tag{③}
+&\frac{\partial y}{\partial \theta} = r\cos\theta \Leftrightarrow \cos\theta = \frac{1}{r}\frac{\partial y}{\partial \theta} \tag{\textcircled{3}}
 \end{align}
 $$
 

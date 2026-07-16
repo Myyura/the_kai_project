@@ -98,7 +98,7 @@ $$
 
 $$
 \begin{align}
-R^2 = X_1X_2 \tag{①}
+R^2 = X_1X_2 \tag{\textcircled{1}}
 \end{align}
 $$
 
@@ -117,7 +117,7 @@ $$
 
 $$
 \begin{align}
-X_2 = \frac{16}{X_1} \tag{②}
+X_2 = \frac{16}{X_1} \tag{\textcircled{2}}
 \end{align}
 $$
 
@@ -281,7 +281,7 @@ $V_a$ 関して
 
 $$
 \begin{align}
-J - \frac{V_a}{R_0} = \frac{V_a - V_b}{R_1} + \frac{V_a - V_c}{R_3 + \frac{1}{j\omega C_3}} \tag{①}
+J - \frac{V_a}{R_0} = \frac{V_a - V_b}{R_1} + \frac{V_a - V_c}{R_3 + \frac{1}{j\omega C_3}} \tag{\textcircled{1}}
 \end{align}
 $$
 
@@ -289,7 +289,7 @@ $V_b$ 関して
 
 $$
 \begin{align}
-\frac{V_a - V_b}{R_1} = \frac{V_b - V_c}{R_5} + \frac{V_b}{R_2} \tag{②}
+\frac{V_a - V_b}{R_1} = \frac{V_b - V_c}{R_5} + \frac{V_b}{R_2} \tag{\textcircled{2}}
 \end{align}
 $$
 
@@ -297,7 +297,7 @@ $V_c$ 関して
 
 $$
 \begin{align}
-\frac{V_a - V_c}{R_3 + \frac{1}{j\omega C_3}} + \frac{V_b - V_c}{R_5} = \frac{V_c}{\frac{1}{j\omega C_4}//R_4} \tag{③}
+\frac{V_a - V_c}{R_3 + \frac{1}{j\omega C_3}} + \frac{V_b - V_c}{R_5} = \frac{V_c}{\frac{1}{j\omega C_4}//R_4} \tag{\textcircled{3}}
 \end{align}
 $$
 

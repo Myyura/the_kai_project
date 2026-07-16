@@ -71,7 +71,7 @@ L} \notag\\
 &= R + \frac{j\omega L}{1 - \omega^2CL} \notag\\
 &= R + \frac{j \cdot 2 \cdot \frac{\sqrt{3}}{6}}{1 - 4 \cdot \sqrt{3} \cdot \frac{\sqrt{3}}{6}} \notag\\
 &= R + \frac{\frac{\sqrt{3}}{3}j}{1 - 2} \notag\\
-&= R - \frac{\sqrt{3}}{3}j \tag{①}
+&= R - \frac{\sqrt{3}}{3}j \tag{\textcircled{1}}
 \end{align}
 $$
 
@@ -82,7 +82,7 @@ $$
 $$
 \begin{align}
 Z_{\text{全}} &= Ae^{-\frac{\pi}{6}}(A > 0) \notag \\
-&= A(\frac{\sqrt{3}}{2} - \frac{1}{2}j) \tag{②}
+&= A(\frac{\sqrt{3}}{2} - \frac{1}{2}j) \tag{\textcircled{2}}
 \end{align}
 $$
 
@@ -91,8 +91,8 @@ $$
 $$
 \left \{
 \begin{align}
-R &= \frac{\sqrt{3}}{2}A \quad \tag{③} \\
--\frac{\sqrt{3}}{3} &= -\frac{A}{2} \tag{④}
+R &= \frac{\sqrt{3}}{2}A \quad \tag{\textcircled{3}} \\
+-\frac{\sqrt{3}}{3} &= -\frac{A}{2} \tag{\textcircled{4}}
 \end{align}
 \right.
 $$

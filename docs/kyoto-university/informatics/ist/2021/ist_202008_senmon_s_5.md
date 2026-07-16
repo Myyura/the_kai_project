@@ -89,8 +89,8 @@ $$
 \begin{aligned}
 X_s[k]&= \sum_{n=0}^{N-1}x_s[n]e^{-j\frac{2\pi}{N}kn}\\
 &=\sum_{n=0}^{S-1}x[N+n-s]e^{-j\frac{2\pi}{N}kn}+\sum_{n=s}^{N-1}x[n-s]e^{-j\frac{2\pi}{N}kn}\\
-&\text{assume ①:} m=N+n-s;n=m+s-N\\
-&\text{assume ②:} m=n-s;n=m+s\\
+&\text{assume \textcircled{1}:} m=N+n-s;n=m+s-N\\
+&\text{assume \textcircled{2}:} m=n-s;n=m+s\\
 &=\sum_{m=N-s}^{N-1}x[m]e^{-j\frac{2\pi}{N}k(m+s-N)}+\sum_{m=0}^{N-S-1}x[m]e^{-j\frac{2\pi}{N}k(m+s)}\\
 &=e^{-j\frac{2\pi}{N}ks}\sum_{m=0}^{N-1}x[m]e^{-j\frac{2\pi}{N}km}\\
 &\text{Thus: } x_s[k]=X[k]e^{-j\frac{2\pi}{N}ks}\\

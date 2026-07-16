@@ -27,12 +27,12 @@ $$
 と定義する。空欄 1 から 8 に、選択肢
 
 $$
-\text{⓪ }=,\quad
-\text{① }\in,\quad
-\text{② }\subset,\quad
-\text{③ }\supseteq,\quad
-\text{④ }\to,\quad
-\text{⑤ }\mapsto
+\text{\textcircled{0} }=,\quad
+\text{\textcircled{1} }\in,\quad
+\text{\textcircled{2} }\subset,\quad
+\text{\textcircled{3} }\supseteq,\quad
+\text{\textcircled{4} }\to,\quad
+\text{\textcircled{5} }\mapsto
 $$
 
 から適切なものを入れよ。
@@ -59,15 +59,15 @@ $$
 と定義する。空欄 9 から 24 に、選択肢
 
 $$
-\text{⓪ }\forall x,\quad
-\text{① }\forall y,\quad
-\text{② }\exists x,\quad
-\text{③ }\exists y,\quad
-\text{④ }\neg,\quad
-\text{⑤ }\lor,\quad
-\text{⑥ }\land,\quad
-\text{⑦ }\Rightarrow,\quad
-\text{⑧ }\Leftrightarrow
+\text{\textcircled{0} }\forall x,\quad
+\text{\textcircled{1} }\forall y,\quad
+\text{\textcircled{2} }\exists x,\quad
+\text{\textcircled{3} }\exists y,\quad
+\text{\textcircled{4} }\neg,\quad
+\text{\textcircled{5} }\lor,\quad
+\text{\textcircled{6} }\land,\quad
+\text{\textcircled{7} }\Rightarrow,\quad
+\text{\textcircled{8} }\Leftrightarrow
 $$
 
 から適切なものを入れよ。

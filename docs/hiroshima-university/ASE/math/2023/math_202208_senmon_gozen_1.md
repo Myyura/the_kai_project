@@ -179,7 +179,7 @@ $$
 $$
   \begin{align}
   X \cap Y = \left\{ 0_V \right\}
-  \tag{*} \label{*}
+  \tag{*}
   \end{align}
 $$
 

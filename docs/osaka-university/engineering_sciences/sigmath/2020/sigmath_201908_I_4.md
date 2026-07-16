@@ -33,7 +33,7 @@ $$
   \sum_{k=1}^\infty k C_k x^{k-1}
   + \sum_{k=1}^\infty (-2 C_k) x^{k+1}
   = 2x^3
-  \tag{A} \label{A}
+  \tag{A}
   \end{align}
 $$
 

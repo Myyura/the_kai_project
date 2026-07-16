@@ -50,7 +50,7 @@ $$
 $$
 \int_C \frac{f(z)}{g(z)} dz
 =2\pi i  e^{-3\pi i/4}.
-\tag{★}
+\tag{*}
 $$
 
 ### (3)

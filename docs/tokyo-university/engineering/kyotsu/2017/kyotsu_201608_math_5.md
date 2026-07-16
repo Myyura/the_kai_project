@@ -166,8 +166,8 @@ $x(t),y(t)$ のラプラス変換をそれぞれ, $L[x(t)] = X(s)$, $L[y(t)] = Y
 $$
 \left\{
 \begin{align}
-L\bigg[\frac{\text{d}x(t)}{\text{d}t}\bigg] &= -X(s) \label{(a)} \tag{a} \\
-L\bigg[\frac{\text{d}y(t)}{\text{d}t}\bigg] &= X(s) - 2Y(s) \label{(b)} \tag{b}
+L\bigg[\frac{\text{d}x(t)}{\text{d}t}\bigg] &= -X(s) \tag{a} \\
+L\bigg[\frac{\text{d}y(t)}{\text{d}t}\bigg] &= X(s) - 2Y(s) \tag{b}
 \end{align}
 \right.
 $$

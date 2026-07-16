@@ -42,18 +42,18 @@ $$
 
 ## **Kai**
 ### (i)
-If $k = 1$, then $a(t) = tb(t) = 0.
+If $k = 1$, then $a(t) = tb(t) = 0$.
 
 If $k \geq 2$, then $k(k-1) + kta(t) + t^2b(t) = 0$.
 
 Easy to see  $k(k-1) + kta(t) + t^2b(t) = 0$ is neccessary and sufficient.
 
 ### (ii)
-Let $\Phi(t) = u(t)t^k, u(t) !\equiv \text{Constant}$, 
+Let $\Phi(t) = u(t)t^k, u(t) \not\equiv \text{Constant}$,
 
 $$
 \Phi '(t) = kt^{k-1}u(t) + t^ku'(t)
-$$,
+$$
 
 $$
 \Phi''(t) = t^ku''(t) + 2kt^{k-1}u'(t) + k(k-1)t^{k-2}u(t)

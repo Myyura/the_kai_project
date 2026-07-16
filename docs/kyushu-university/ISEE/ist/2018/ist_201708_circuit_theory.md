@@ -35,7 +35,7 @@ $2$ 端子対回路 $N$ と電圧 $E$ の電源，インピーダンス $Z_G$ �
 $$
 Z = \begin{bmatrix}
 z_{11} & z_{12} \\
-z_{21} & z_{22} \\   
+z_{21} & z_{22} \\
 \end{bmatrix}
 $$
 
@@ -73,7 +73,7 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p4.png" width="365" height="180" alt=""/>
 </figure>
 
-## **Kai** 
+## **Kai**
 ### 【問 1】
 #### (1)
 
@@ -129,7 +129,7 @@ $$
 $$
 \begin{pmatrix}
 V_1 \\ V_2
-\end{pmatrix} = 
+\end{pmatrix} =
 \begin{pmatrix}
 Z_{11} & Z_{12} \\
 Z_{21} & Z_{22} \\
@@ -243,7 +243,7 @@ $V_2 = 0$ のとき、
 
 $$
 \begin{align}
--I_2 &= \frac{Z_b}{Z_b + Z_c}I_1 \tag{①} 
+-I_2 &= \frac{Z_b}{Z_b + Z_c}I_1 \tag{\textcircled{1}}
 \end{align}
 $$
 
@@ -253,7 +253,7 @@ $$
 
 $$
 \begin{align}
--I_2 &= \frac{Z_{21}}{Z_{22}}I_1 \tag{②} 
+-I_2 &= \frac{Z_{21}}{Z_{22}}I_1 \tag{\textcircled{2}}
 \end{align}
 $$
 
@@ -277,7 +277,7 @@ $0 = Z_{11}I_1 + Z_{12}I_2$
 
 $$
 \begin{align}
--I_1 = \frac{Z_{12}}{Z_{11}}I_2 \tag{③}
+-I_1 = \frac{Z_{12}}{Z_{11}}I_2 \tag{\textcircled{3}}
 \end{align}
 $$
 
@@ -285,7 +285,7 @@ $$
 
 $$
 \begin{align}
--I_1 = \frac{Z_b}{Z_a + Z_b}I_2 \tag{④}
+-I_1 = \frac{Z_b}{Z_a + Z_b}I_2 \tag{\textcircled{4}}
 \end{align}
 $$
 
@@ -301,7 +301,7 @@ $$
 Z = \begin{bmatrix}
 Z_{11} & Z_{12} \\
 Z_{21} & Z_{22} \\
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 Z_a + Z_b & Z_b \\
 Z_b & Z_b + Z_c \\
@@ -354,8 +354,8 @@ $$
 $$
 \left \{
 \begin{align}
--X_1X_2 &= R_0R_L \tag{①} \\
-X_1R_L &= R_0(X_1 + X_2) \tag{②} \\
+-X_1X_2 &= R_0R_L \tag{\textcircled{1}} \\
+X_1R_L &= R_0(X_1 + X_2) \tag{\textcircled{2}} \\
 \end{align}
 \right.
 $$
@@ -364,7 +364,7 @@ $$
 
 $$
 \begin{align}
-X_1 = -\frac{R_0}{R_0 - R_L}X_2 \tag{③}
+X_1 = -\frac{R_0}{R_0 - R_L}X_2 \tag{\textcircled{3}}
 \end{align}
 $$
 
@@ -410,7 +410,7 @@ X_2 &= -\frac{R_0^2}{X_1^2 + R_0^2}X_1
 $$
 
 $$
-\frac{\partial}{\partial X_2^2} \cdot f(X_2) = 2X_1^2 + 2R_0^2 > 0 
+\frac{\partial}{\partial X_2^2} \cdot f(X_2) = 2X_1^2 + 2R_0^2 > 0
 $$
 
 よって、
@@ -428,9 +428,9 @@ $P(X_1)$ について、$\frac{\partial}{\partial X_1} \cdot P(X_1) = 0,\frac{\p
 
 $$
 \begin{align}
-E = Ri_0(t) + L\frac{di(t)}{dt} \tag{①} \\
-i_0(t) = i(t) + \frac{dq(t)}{dt} \tag{②} \\
-\frac{q(t)}{C} = L\frac{di(t)}{dt} \Leftrightarrow q(t) = CL\frac{di(t)}{dt} \Leftrightarrow \frac{dq(t)}{dt} = CL\frac{di(t)^2}{dt^2} \tag{③}
+E = Ri_0(t) + L\frac{di(t)}{dt} \tag{\textcircled{1}} \\
+i_0(t) = i(t) + \frac{dq(t)}{dt} \tag{\textcircled{2}} \\
+\frac{q(t)}{C} = L\frac{di(t)}{dt} \Leftrightarrow q(t) = CL\frac{di(t)}{dt} \Leftrightarrow \frac{dq(t)}{dt} = CL\frac{di(t)^2}{dt^2} \tag{\textcircled{3}}
 \end{align}
 $$
 
@@ -446,7 +446,7 @@ $\frac{E}{R_C L} = \frac{1}{CL}i_s \Leftrightarrow i_s = \frac{E}{R}$
 
 $0 = \frac{d^2i(t)}{dt^2} + \frac{1}{R_C}\frac{di(t)}{dt} + \frac{1}{CL}i(t)$
 
-$i_c(t) = Ae^{\lambda t}$ 
+$i_c(t) = Ae^{\lambda t}$
 
 $0 = \lambda^2 + \frac{1}{R_C}\lambda + \frac{1}{CL}$
 

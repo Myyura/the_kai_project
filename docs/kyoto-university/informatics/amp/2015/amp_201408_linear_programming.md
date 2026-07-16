@@ -109,7 +109,8 @@ $$
 Lagrangian:
 
 $$
-L(x, \lambda) = -c^\top x + \lambda ^\top (Ax - b)$$
+L(x, \lambda) = -c^\top x + \lambda ^\top (Ax - b)
+$$
 
 Lagrange dual function:
 

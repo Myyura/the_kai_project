@@ -107,7 +107,7 @@ $$
 したがって空欄は
 
 $$
-\boxed{②=t=W+z,\qquad③=h(t-x),\qquad④=s(x-t)}.
+\boxed{\textcircled{2}=t=W+z,\qquad\textcircled{3}=h(t-x),\qquad\textcircled{4}=s(x-t)}.
 $$
 
 ### [小問 2-4]

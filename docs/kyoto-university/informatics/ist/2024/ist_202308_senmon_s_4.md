@@ -232,7 +232,7 @@ $$
 and when $\frac13+\frac13u=\frac12$ i.e. $u=\frac12$, i.e. when $p_X(0)=p_X(1)=\frac12$, $I(X;Y)$ reaches the capacity
 
 $$
-C=-\frac32+2-\frac34\log_23+\frac34\cancelto 1{\log_2 2}=\frac54-\frac34\log_23.
+C=-\frac32+2-\frac34\log_23+\frac34\underbrace{\log_2 2}_{=1}=\frac54-\frac34\log_23.
 $$
 
 ### 設問6
@@ -257,7 +257,7 @@ H(Y)&=H\left(
 H(u',1-u')
 \\&\le H\left(
 \frac12+\frac1{2(n-1)},\underbrace{\frac1{2(n-1)},\frac1{2(n-1)},\dots,\frac1{2(n-1)}}_{(n-2)\text{ terms}}
-\right) + \left(\frac12+\frac1{2(n-1)}\right)\cancelto 1{\log_2 2}
+\right) + \left(\frac12+\frac1{2(n-1)}\right)\underbrace{\log_2 2}_{=1}
 \end{aligned}
 $$
 

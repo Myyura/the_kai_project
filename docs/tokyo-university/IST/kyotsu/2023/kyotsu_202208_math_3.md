@@ -11,21 +11,21 @@ tags:
 [hari64boli64](https://github.com/hari64boli64/GraduateSchoolEntranceExamination)
 
 ## **Description**
-丸石 $○$ と四角い石 $□$ をランダムに左から右に一直線上に一つずつ並べる。
+丸石 $\bigcirc$ と四角い石 $\square$ をランダムに左から右に一直線上に一つずつ並べる。
 $0 < q < 1$ として、丸石を確率 $1 - q$、四角い石を確率 $q$ で独立同一分布に従って並べていく。
 $M$ を正の整数として、四角い石が $M$ 個連続して並べられた直後に並べることを停止する。
 $M = 4$ の場合の例を以下に示す。
 
-- 列 $1$ $○□□□□$
-- 列 $2$ $□○□○○□□□□$
+- 列 $1$ $\bigcirc\square\square\square\square$
+- 列 $2$ $\square\bigcirc\square\bigcirc\bigcirc\square\square\square\square$
 
 停止後の石の数を表す確率変数を $L$ とする。
 上に示した列の場合、列 $1$ と列 $2$ はそれぞれ $L = 5$、$L = 9$ となる。
 
 並べている途中の状態を考える。$k$ を非負整数とし、右端から四角い石が $k$ 個連続している状態を $C_k$ とする。例えば、$M = 4$ の時に以下の列を考える。
 
-- 列 $3$ $○□□□○○□□$
-- 列 $4$ $□○□○○$
+- 列 $3$ $\bigcirc\square\square\square\bigcirc\bigcirc\square\square$
+- 列 $4$ $\square\bigcirc\square\bigcirc\bigcirc$
 
 $M = 4$ の場合を考えているため、列 $3$ と列 $4$ はまだ停止していない。
 列 $3$ は右端から四角い石が $2$ 個連続しているので状態 $C_2$ である。

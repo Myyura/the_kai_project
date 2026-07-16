@@ -199,7 +199,7 @@ $$
 \begin{align}
 T(n) &= \frac{1}{n} \Big(\sum_{i=0}^{n-1} T(i) T(n-i-1) \Big) + cn \nonumber \\
 T(n) &= \frac{2}{n} \Big(\sum_{i=0}^{n-1} T(i) \Big) + cn \nonumber \\
-nT(n) &= 2\Big(\sum_{i=0}^{n-1} T(i) \Big) + cn^2 \tag{1} \label{1}
+nT(n) &= 2\Big(\sum_{i=0}^{n-1} T(i) \Big) + cn^2 \tag{1}
 \end{align}
 $$
 
@@ -207,7 +207,7 @@ and
 
 $$
 \begin{align}
-(n-1)T(n-1) = 2\Big(\sum_{i=0}^{n-2} T(i) \Big) + c(n-1)^2 \tag{2} \label{2}
+(n-1)T(n-1) = 2\Big(\sum_{i=0}^{n-2} T(i) \Big) + c(n-1)^2 \tag{2}
 \end{align}
 $$
 

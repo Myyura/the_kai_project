@@ -46,7 +46,7 @@ $$
 
 $$
 \begin{align}
-\oint_C f(z)dz = \int_{CR}f(z)dz + \int_{C_1}f(z)dz + \int_{C\varepsilon}f(z)dz + \int_{C_2}f(z)dz \tag{①}
+\oint_C f(z)dz = \int_{CR}f(z)dz + \int_{C_1}f(z)dz + \int_{C\varepsilon}f(z)dz + \int_{C_2}f(z)dz \tag{\textcircled{1}}
 \end{align}
 $$
 
@@ -74,13 +74,13 @@ $$
 \lim_{R \rightarrow \infty,\varepsilon \rightarrow 0}\int_{C_1}f(z)dz &= \int_0^{\infty}\frac{(\ln x + \pi i)^2}{x^2 + 1}dx \notag \\
 &= \int_0^{\infty} \frac{(\ln x)^2}{x^2 + 1}dx + 2\pi i \int_0^{\infty}\frac{\ln x}{x^2 + 1}dx - \pi^2\int_0^{\infty}\frac{1}{x^2 + 1}dx \notag \\
 &= \int_0^{\infty} \frac{(\ln x)^2}{x^2 + 1}dx + 2\pi i \int_0^{\infty}\frac{\ln x}{x^2 + 1}dx - \pi^2[\tan^{-1}x]_0^{\infty} \notag \\
-&= \int_0^{\infty}\frac{(\ln x)^2}{x^2 + 1}dx + 2\pi i \int_0^{\infty}\frac{ln x}{x^2 + 1}dx - \frac{\pi^3}{2} \tag{②}
+&= \int_0^{\infty}\frac{(\ln x)^2}{x^2 + 1}dx + 2\pi i \int_0^{\infty}\frac{ln x}{x^2 + 1}dx - \frac{\pi^3}{2} \tag{\textcircled{2}}
 \end{align}
 $$
 
 $$
 \begin{align}
-\lim_{R \rightarrow \infty,\varepsilon \rightarrow 0}\int_{C_1}f(z)dz = \int_0^{\infty} \frac{(\ln x)^2}{x^2 + 1}dx \tag{③}
+\lim_{R \rightarrow \infty,\varepsilon \rightarrow 0}\int_{C_1}f(z)dz = \int_0^{\infty} \frac{(\ln x)^2}{x^2 + 1}dx \tag{\textcircled{3}}
 \end{align}
 $$
 
@@ -130,7 +130,7 @@ $$
 
 $$
 \begin{align}
-\therefore \int_0^{\infty}\frac{ln x}{x^2 + 1}dx = 0 \tag{④}
+\therefore \int_0^{\infty}\frac{ln x}{x^2 + 1}dx = 0 \tag{\textcircled{4}}
 \end{align}
 $$
 

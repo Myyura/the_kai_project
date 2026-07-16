@@ -90,7 +90,8 @@ $$
 $$
 
 $$
-\mathbf{1}^\top (\theta y_1 + (1-\theta) y_2) \leq 1$$
+\mathbf{1}^\top (\theta y_1 + (1-\theta) y_2) \leq 1
+$$
 
 $$
 c^\top (\theta y_1 + (1-\theta)y_2) = \theta c^\top y_1 + (1-\theta)c^\top y_2 \leq c^\top \widetilde{y}

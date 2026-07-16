@@ -91,9 +91,9 @@ $$
 
 $$
 \begin{align}
-\frac{\partial f}{\partial x} &= y - x^3 \tag{a} \label{a}
+\frac{\partial f}{\partial x} &= y - x^3 \tag{a}
 \\
-\frac{\partial f}{\partial y} &= x - \sin y \tag{b} \label{b}
+\frac{\partial f}{\partial y} &= x - \sin y \tag{b}
 \end{align}
 $$
 
@@ -102,7 +102,7 @@ $$
 
 $$
 \begin{align}
-f(x,y) = xy - \frac{1}{4} x^4 + g(y) \tag{c} \label{c}
+f(x,y) = xy - \frac{1}{4} x^4 + g(y) \tag{c}
 \end{align}
 $$
 

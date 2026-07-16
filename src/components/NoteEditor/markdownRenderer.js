@@ -135,14 +135,14 @@ export function loadKaTeX() {
     if (!document.querySelector('link[href*="katex"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';
+      link.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css';
       link.crossOrigin = 'anonymous';
       document.head.appendChild(link);
     }
 
     // 加载 JS
     const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
+    script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js';
     script.crossOrigin = 'anonymous';
     script.onload = () => resolve(window.katex);
     script.onerror = () => {

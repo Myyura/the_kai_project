@@ -6,7 +6,7 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 import remarkMath from 'remark-math';
-import rehypeMathjax from 'rehype-mathjax';
+import rehypeKatex from 'rehype-katex';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -128,6 +128,14 @@ const config = {
   tagline: 'Answer to the Ultimate Question of Life, the Universe, and Everything',
   favicon: 'img/favicon.ico',
 
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css',
+      type: 'text/css',
+      crossorigin: 'anonymous',
+    },
+  ],
+
   headTags: [
     // Runs before deferred main/runtime bundles — recovers when SW serves stale assets.
     {
@@ -135,9 +143,8 @@ const config = {
       attributes: {},
       innerHTML: require('./src/headScripts/pwaRecoveryInline.js'),
     },
-    // cdn.jsdelivr.net 仅在 NoteEditor 中懒加载 KaTeX 时使用，首屏不请求，不使用 preconnect（避免无效连接）。
-    // 保留 dns-prefetch：开销极低，KaTeX 实际加载时仍可加速 DNS 解析。
-    { tagName: 'link', attributes: { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' } },
+    // KaTeX CSS is loaded from jsDelivr for documentation pages and reused by NoteEditor.
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: 'anonymous' } },
   ],
 
   // Supabase 凭据通过环境变量注入（GitHub Secrets → CI 环境变量）
@@ -276,7 +283,13 @@ const config = {
         docs: {
           
           remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeMathjax],
+          rehypePlugins: [
+            [rehypeKatex, {
+              // Existing exam content includes CJK text inside math expressions.
+              strict: false,
+              throwOnError: true,
+            }],
+          ],
           sidebarPath: './sidebars.js',
           sidebarItemsGenerator: async (generatorArgs) => {
             const sidebarItems = await generatorArgs.defaultSidebarItemsGenerator(generatorArgs);
@@ -328,7 +341,7 @@ const config = {
         {property: 'og:title', content: 'The Kai Project - 日本大学院入試過去問解答 | 日本考研过去问答案'},
         {property: 'og:url', content: 'https://runjp.com'},
         {property: 'og:description', content: '开源的日本大学院入试过去问与公开题解共享平台，破除信息之壁 | オープンソースの大学院入試過去問・公開解答共有プラットフォーム | Open-source platform for Japanese graduate school entrance exam archives and public solutions'},
-        {property: 'og:image', content: 'https://runjp.com/img/docusaurus-social-card.png'},
+        {property: 'og:image', content: 'https://runjp.com/img/kai-social-card.png'},
         {name: 'twitter:card', content: 'summary_large_image'},
       ],
       colorMode: {
@@ -339,8 +352,7 @@ const config = {
           autoCollapseCategories: true,
         },
       },
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.png',
+      image: 'img/kai-social-card.png',
       navbar: {
         title: 'The Kai Project',
         logo: {

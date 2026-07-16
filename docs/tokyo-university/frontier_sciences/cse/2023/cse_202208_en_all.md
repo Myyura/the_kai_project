@@ -117,7 +117,9 @@ $$h(z,x) = \exp\left(\frac{x}{2}\left(z - \frac{1}{z}\right)\right).$$
 
 (i) Show that the following relationship holds, <u>using the</u> residue theorem.
 
-$$J_k(x) = \frac{1}{\pi} \int_0^{\pi} \cos(x \sin \theta - k\theta) d\theta \tag{1}$$
+$$
+J_k(x) = \frac{1}{\pi} \int_0^{\pi} \cos(x \sin \theta - k\theta) d\theta \tag{1}
+$$
 
 - (ii) Let a be a real constant. Obtain  $\frac{d}{d\theta}\sin(a\sin\theta)$ . Omit the derivations and write only the answer.
 - (iii) Suppose  $x \neq 0$ . Express  $J_{k-1}(x) J_{k+1}(x)$  and  $J_{k-1}(x) + J_{k+1}(x)$  in terms of  $J_k(x)$  and  $\frac{\mathrm{d}J_k(x)}{\mathrm{d}x}$ . You may use equation (1). Omit the derivations and write only the answer.

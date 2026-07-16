@@ -119,7 +119,9 @@ where a is a positive real constant. Answer the following questions. Omit the de
 - (Q.2) A real function h(t) is defined as  $h(t) = \int_{-\infty}^{\infty} g(t+s)g(s)\mathrm{d}s$ , where s is a real number. Express the Fourier transform  $H(\omega)$  of h(t) in terms of  $G(\omega)$  and its complex conjugate  $\overline{G(\omega)}$ .
 - (Q.3) Let z be a complex number. Consider the following contour integral along the integral path  $C = C_1 + C_2$  shown in Figure 1.
 
-$$\oint_C \frac{e^{izt}}{z^2 + a^2} dz \quad (t \ge 0). \tag{1}$$
+$$
+\oint_C \frac{e^{izt}}{z^2 + a^2} dz \quad (t \ge 0). \tag{1}
+$$
 
  $C_1$  is the line segment connecting -R and R, and  $C_2$  is the upper semicircle with radius R centered at the origin O, where R > a. Re z and Im z represent the real and imaginary part of z, respectively.
 

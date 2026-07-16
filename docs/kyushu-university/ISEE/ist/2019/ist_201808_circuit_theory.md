@@ -70,10 +70,10 @@ $R_1,R_2,X_1,X_2$ の問の関係式を示せ
 
 $$
 \begin{align}
-&R_2I_2 = jX_2(I_1 - I_2) \tag{①} \\
-&(R_2 + jX_2)I_2 = jX_2I_1 \tag{①'} \\
-&E = \{R_1 + jX_1 + (R_2 // jX_2)\}I_1 \tag{②} \\
-&E = (R_1 + jX_1 + \frac{jR_2X_2}{R_2 + jX_2})I_1 \tag{②'}
+&R_2I_2 = jX_2(I_1 - I_2) \tag{\textcircled{1}} \\
+&(R_2 + jX_2)I_2 = jX_2I_1 \tag{\textcircled{1}'} \\
+&E = \{R_1 + jX_1 + (R_2 // jX_2)\}I_1 \tag{\textcircled{2}} \\
+&E = (R_1 + jX_1 + \frac{jR_2X_2}{R_2 + jX_2})I_1 \tag{\textcircled{2}'}
 \end{align}
 $$
 
@@ -110,7 +110,7 @@ $$
 
 $$
 \begin{align}
-R_1 + R_2 + \frac{X_1R_2}{X_2} = 8 \tag{①}
+R_1 + R_2 + \frac{X_1R_2}{X_2} = 8 \tag{\textcircled{1}}
 \end{align}
 $$
 
@@ -129,7 +129,7 @@ $X_2 > 0$ より、
 
 $$
 \begin{align}
-R_2 = \sqrt{3}X_2 \tag{②}
+R_2 = \sqrt{3}X_2 \tag{\textcircled{2}}
 \end{align}
 $$
 
@@ -141,7 +141,7 @@ $$
 \frac{\text{V}}{I_1} &= R_1 + jX_1 \notag \\
 \bigg|\frac{\text{V}}{I_1}\bigg| &= \sqrt{R_1^2 + X_1^2} \notag \\
 2 &= \sqrt{R_1^2 + X_1^2} \notag \\
-4 &= R_1^2 + X_1^2 \tag{③}
+4 &= R_1^2 + X_1^2 \tag{\textcircled{3}}
 \end{align}
 $$
 
@@ -171,8 +171,8 @@ $R_1 > 0$ より、
 
 $$
 \begin{align}
-R_1 = 1 \tag{④} \\
-③\text{より、 }X_1 = \sqrt{3} \tag{⑤}
+R_1 = 1 \tag{\textcircled{4}} \\
+\textcircled{3}\text{より、 }X_1 = \sqrt{3} \tag{\textcircled{5}}
 \end{align}
 $$
 
@@ -205,9 +205,9 @@ $$
 
 $$
 \begin{align}
-V_1 = j\omega L_1I_1 + j\omega MI_2 \tag{①} \\
-V_2 = j\omega L_2I_2 + j\omega MI_1 \tag{②} \\
-E = R_1I_1 + V_1 \tag{③}
+V_1 = j\omega L_1I_1 + j\omega MI_2 \tag{\textcircled{1}} \\
+V_2 = j\omega L_2I_2 + j\omega MI_1 \tag{\textcircled{2}} \\
+E = R_1I_1 + V_1 \tag{\textcircled{3}}
 \end{align}
 $$
 
@@ -216,8 +216,8 @@ $$
 $$
 \begin{align}
 E = R_1I_1 + j\omega L_1I_1 + j\omega MI_2 \notag \\
-E = (R_1 + j\omega L_1)I_1 + j\omega MI_2 \tag{④} \\
-V_2 = -I_2(jX + R_L) \tag{⑤}
+E = (R_1 + j\omega L_1)I_1 + j\omega MI_2 \tag{\textcircled{4}} \\
+V_2 = -I_2(jX + R_L) \tag{\textcircled{5}}
 \end{align}
 $$
 
@@ -226,7 +226,7 @@ $$
 $$
 \begin{align}
 -jXI_2 - R_LI_2 = j\omega L_2I_2 + j\omega MI_1 \notag \\
-j\omega MI_1 + (R_L + jX + j\omega L_2)I_2 = 0 \tag{⑥}
+j\omega MI_1 + (R_L + jX + j\omega L_2)I_2 = 0 \tag{\textcircled{6}}
 \end{align}
 $$
 
@@ -320,13 +320,13 @@ $$
 
 $$
 \begin{align}
-&I_0 + I_1 = I_3 + I_5 \tag{①} \\
-&I_1 = I + I_2 \tag{②} \\
-&I_2 = I_3 + I_4 \tag{③} \\
-&I_5 = I_4 + I \tag{④} \\
-&E = Z_0(I_0 + I_3) \tag{⑤} \\
-&rI = Z_1I_2 + Z_2I_4 \tag{⑥} \\
-&E = Z_1I_1 + rI + Z_2I_5 \tag{⑦} \\
+&I_0 + I_1 = I_3 + I_5 \tag{\textcircled{1}} \\
+&I_1 = I + I_2 \tag{\textcircled{2}} \\
+&I_2 = I_3 + I_4 \tag{\textcircled{3}} \\
+&I_5 = I_4 + I \tag{\textcircled{4}} \\
+&E = Z_0(I_0 + I_3) \tag{\textcircled{5}} \\
+&rI = Z_1I_2 + Z_2I_4 \tag{\textcircled{6}} \\
+&E = Z_1I_1 + rI + Z_2I_5 \tag{\textcircled{7}} \\
 \end{align}
 $$
 
@@ -336,7 +336,7 @@ $$
 
 $$
 \begin{align}
-I_0 + I + I_2 = I_3 + I_5 \tag{①'}
+I_0 + I + I_2 = I_3 + I_5 \tag{\textcircled{1}'}
 \end{align}
 $$
 
@@ -345,7 +345,7 @@ $$
 $$
 \begin{align}
 E &= Z_1(I_1 + I_2) + rI + Z_2I_5 \notag \\
-E &= (Z_1 + r)I + Z_1I_2 + Z_2I_5 \tag{⑦'}
+E &= (Z_1 + r)I + Z_1I_2 + Z_2I_5 \tag{\textcircled{7}'}
 \end{align}
 $$
 
@@ -356,7 +356,7 @@ $$
 $$
 \begin{align}
 I_0 + I + I_3 + I_4 &= I_3 + I_5 \notag \\
-I_0 + I + I_4 &= I_5 \tag{⑧}
+I_0 + I + I_4 &= I_5 \tag{\textcircled{8}}
 \end{align}
 $$
 
@@ -365,7 +365,7 @@ $$
 $$
 \begin{align}
 rI &= Z_1(I_3 + I_4) + Z_2I_4 \notag \\
-r_I &= Z_1I_3 + (Z_1 + Z_2)I_4 \tag{⑥'}
+r_I &= Z_1I_3 + (Z_1 + Z_2)I_4 \tag{\textcircled{6}'}
 \end{align}
 $$
 
@@ -373,7 +373,7 @@ $$
 
 $$
 \begin{align}
-E = (Z_1 + r)I + Z_1(I_3 + I_4) + Z_2I_5 \tag{⑦''}
+E = (Z_1 + r)I + Z_1(I_3 + I_4) + Z_2I_5 \tag{\textcircled{7}''}
 \end{align}
 $$
 
@@ -383,7 +383,7 @@ $$
 
 $$
 \begin{align}
-I_0 + I + I_4 = I_4 + I \Leftrightarrow I_0 = 0 \tag{⑨}
+I_0 + I + I_4 = I_4 + I \Leftrightarrow I_0 = 0 \tag{\textcircled{9}}
 \end{align}
 $$
 
@@ -392,7 +392,7 @@ $$
 $$
 \begin{align}
 E &= (Z_1 + r)I + Z_1(I_3 + I_4) + Z_2(I_4 + I) \notag \\
-E &= (Z_1 + Z_2 + r)I + Z_1I_3 + (Z_1 + Z_2)I_4 \tag{⑦'''}
+E &= (Z_1 + Z_2 + r)I + Z_1I_3 + (Z_1 + Z_2)I_4 \tag{\textcircled{7}'''}
 \end{align}
 $$
 
@@ -403,7 +403,7 @@ $$
 $$
 \begin{align}
 E = Z_0I_3 \notag \\
-\therefore \ I_3 = \frac{E}{Z_0} \tag{⑩}
+\therefore \ I_3 = \frac{E}{Z_0} \tag{\textcircled{10}}
 \end{align}
 $$
 
@@ -412,7 +412,7 @@ $$
 ⑥' より、
 
 $$
-rI = Z_1 \cdot \frac{E}{Z_0} + (Z_1 + Z_2)I_4 \tag{⑥''}
+rI = Z_1 \cdot \frac{E}{Z_0} + (Z_1 + Z_2)I_4 \tag{\textcircled{6}''}
 $$
 
 ⑦'' より、
@@ -420,7 +420,7 @@ $$
 $$
 \begin{align}
 E = (Z_1 + Z_2 + r)I + \frac{Z_1}{Z_0}E + (Z_1 + Z_2)I_4 \notag \\
-\frac{Z_0 - Z_1}{Z_0}E - (Z_1 + Z_2 + r)I = (Z_1 + Z_2)I_4 \tag{⑪}
+\frac{Z_0 - Z_1}{Z_0}E - (Z_1 + Z_2 + r)I = (Z_1 + Z_2)I_4 \tag{\textcircled{11}}
 \end{align}
 $$
 
@@ -470,8 +470,8 @@ $t > 0$ における $q(t)$
 
 $$
 \begin{align}
-E &= R_1i(t) + \frac{q(t)}{C} \tag{①}\\
-i(t) &= \frac{dq(t)}{dt} \tag{②}
+E &= R_1i(t) + \frac{q(t)}{C} \tag{\textcircled{1}}\\
+i(t) &= \frac{dq(t)}{dt} \tag{\textcircled{2}}
 \end{align}
 $$
 
