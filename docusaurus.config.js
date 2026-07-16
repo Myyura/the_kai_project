@@ -10,6 +10,8 @@ import rehypeKatex from 'rehype-katex';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const sequentialBundles = process.env.DOCUSAURUS_SEQUENTIAL_BUNDLES === 'true';
+
 const PRECACHE_URL_PATTERNS = [
   /^index\.html$/,
   /^404\.html$/,
@@ -99,6 +101,23 @@ function safeRspackJsMinifierPlugin() {
   };
 }
 
+function sequentialBundlesPlugin() {
+  return {
+    name: 'sequential-bundles',
+    configureWebpack(_config, isServer) {
+      if (!sequentialBundles) {
+        return {};
+      }
+
+      // Docusaurus normally builds both configurations at once. Make the
+      // larger client bundle wait for the server bundle in memory-constrained CI.
+      return isServer
+        ? {name: 'server'}
+        : {name: 'client', dependencies: ['server']};
+    },
+  };
+}
+
  /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: {
@@ -114,7 +133,9 @@ const config = {
       rspackBundler: true,
       rspackPersistentCache: true,
       ssgWorkerThreads: true,
-      mdxCrossCompilerCache: true,
+      // The cross-compiler cache coordinates concurrent MDX loaders and would
+      // deadlock when the server and client configurations run sequentially.
+      mdxCrossCompilerCache: !sequentialBundles,
     },
     experimental_storage: {
       type: 'localStorage',
@@ -220,6 +241,7 @@ const config = {
   // 添加SEO相关插件
   plugins: [
     safeRspackJsMinifierPlugin,
+    sequentialBundlesPlugin,
     [
       '@docusaurus/plugin-pwa',
       {

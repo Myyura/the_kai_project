@@ -22,10 +22,8 @@ concurrency:
 jobs:
   build:
     name: 构建 Docusaurus
-    # Pin the runner image while ubuntu-latest hosted runners are being
-    # terminated unexpectedly during the Docusaurus compilation phase.
     runs-on: ubuntu-22.04
-    timeout-minutes: 20
+    timeout-minutes: 45
     permissions:
       contents: read
     steps:
@@ -41,10 +39,27 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: 校验 API 数据
         run: yarn api:validate
+      - name: 配置构建交换空间
+        run: |
+          sudo fallocate -l 8G /swapfile
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          free -h
       - name: 构建网站
-        run: yarn build
+        run: /usr/bin/time -v yarn build
         env:
           DOCUSAURUS_PERF_LOGGER: 'true'
+          # Build the server and client bundles sequentially, then keep SSG
+          # concurrency bounded. This trades build time for a lower peak RSS.
+          DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true'
+          DOCUSAURUS_NO_PERSISTENT_CACHE: 'true'
+          DISABLE_RSPACK_INCREMENTAL: 'true'
+          DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2'
+          DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000'
+          RAYON_NUM_THREADS: '1'
+          RSPACK_BLOCKING_THREADS: '1'
+          NODE_OPTIONS: '--max-old-space-size=4096'
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
