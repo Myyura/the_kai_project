@@ -40,11 +40,29 @@ jobs:
       - name: 校验 API 数据
         run: yarn api:validate
       - name: 配置构建交换空间
+        shell: bash
         run: |
-          sudo fallocate -l 8G /swapfile
-          sudo chmod 600 /swapfile
-          sudo mkswap /swapfile
-          sudo swapon /swapfile
+          set -euo pipefail
+
+          target_swap_bytes=$((8 * 1024 * 1024 * 1024))
+          existing_swap_bytes=$(sudo swapon --show=SIZE --bytes --noheadings \
+            | awk '{total += $1} END {print total + 0}')
+
+          if [ "$existing_swap_bytes" -ge "$target_swap_bytes" ]; then
+            echo "Existing swap is already at least 8 GiB; reusing it."
+          else
+            extra_swap_bytes=$((target_swap_bytes - existing_swap_bytes))
+            extra_swap_file=/kai-build.swap
+
+            echo "Existing swap: $existing_swap_bytes bytes"
+            echo "Adding swap: $extra_swap_bytes bytes at $extra_swap_file"
+            sudo fallocate -l "$extra_swap_bytes" "$extra_swap_file"
+            sudo chmod 600 "$extra_swap_file"
+            sudo mkswap "$extra_swap_file"
+            sudo swapon "$extra_swap_file"
+          fi
+
+          sudo swapon --show
           free -h
       - name: 构建网站
         run: /usr/bin/time -v yarn build
