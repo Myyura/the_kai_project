@@ -22,7 +22,9 @@ concurrency:
 jobs:
   build:
     name: 构建 Docusaurus
-    runs-on: ubuntu-latest
+    # Pin the runner image while ubuntu-latest hosted runners are being
+    # terminated unexpectedly during the Docusaurus compilation phase.
+    runs-on: ubuntu-22.04
     timeout-minutes: 20
     permissions:
       contents: read
@@ -42,6 +44,7 @@ jobs:
       - name: 构建网站
         run: yarn build
         env:
+          DOCUSAURUS_PERF_LOGGER: 'true'
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
