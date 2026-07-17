@@ -457,3 +457,74 @@ main {
     padding-top: 8px; 
   }
 }
+
+/* Client-rendered SMILES blocks used by notes and contribution previews. */
+.note-smiles-figure {
+  margin: 0.75rem 0;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  background: var(--ifm-background-surface-color);
+}
+
+.note-smiles-surface {
+  position: relative;
+  display: flex;
+  min-height: 9rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem;
+  overflow-x: auto;
+}
+
+.note-smiles-structure {
+  display: block;
+  width: min(100%, 42rem);
+  height: auto;
+  margin: auto;
+}
+
+.note-smiles-status {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.note-smiles-caption {
+  padding: 0.5rem 0.7rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.76rem;
+  overflow-wrap: anywhere;
+}
+
+.note-smiles-caption code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  white-space: normal;
+}
+
+.note-smiles-figure[data-smiles-state='error'] .note-smiles-structure {
+  visibility: hidden;
+}
+
+.note-smiles-figure[data-smiles-state='error'] .note-smiles-status {
+  color: var(--ifm-color-danger-dark);
+}
+
+@media only screen and (max-width: 576px) {
+  .note-smiles-surface {
+    min-height: 7rem;
+    padding: 0.65rem;
+  }
+}

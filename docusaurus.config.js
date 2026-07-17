@@ -6,8 +6,7 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
-import 'katex/contrib/mhchem';
+import rehypeKatexWithMhchem from './src/markdown/rehypeKatexWithMhchem.js';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -307,7 +306,7 @@ const config = {
           
           remarkPlugins: [remarkMath],
           rehypePlugins: [
-            [rehypeKatex, {
+            [rehypeKatexWithMhchem, {
               // Existing exam content includes CJK text inside math expressions.
               strict: false,
               throwOnError: true,

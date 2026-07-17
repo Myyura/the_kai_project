@@ -8,7 +8,8 @@ import { useDocNotes } from '@site/src/hooks/useNotes';
 import { useSync } from '@site/src/hooks/useSync';
 import { useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
-import { markdownToHtml, renderMathInContainer } from './markdownRenderer';
+import useDocumentColorMode from '@site/src/components/Chemistry/useDocumentColorMode';
+import { markdownToHtml, renderMathInContainer, renderSmilesInContainer } from './markdownRenderer';
 import styles from './styles.module.css';
 
 // ─── 时间格式化 ──────────────────────────────────────────────
@@ -66,6 +67,7 @@ function NoteEditorContent({ docId, embedded = false }) {
   const [mode, setMode] = useState('edit');
   const [expanded, setExpanded] = useState(false);
   const lang = useCurrentLanguage();
+  const colorMode = useDocumentColorMode();
   const t = useUiText('noteEditor');
   const [saveFlash, setSaveFlash] = useState(false);
 
@@ -114,10 +116,14 @@ function NoteEditorContent({ docId, embedded = false }) {
   useEffect(() => {
     if (mode === 'preview' && previewRef.current) {
       const html = markdownToHtml(text);
-      previewRef.current.innerHTML = html;
-      renderMathInContainer(previewRef.current);
+      const container = previewRef.current;
+      container.innerHTML = html;
+      void Promise.all([
+        renderMathInContainer(container),
+        renderSmilesInContainer(container, colorMode),
+      ]);
     }
-  }, [mode, text]);
+  }, [colorMode, mode, text]);
 
   // ─── 工具栏插入 ──────────────────────────────────────────
   const handleToolbar = useCallback(
