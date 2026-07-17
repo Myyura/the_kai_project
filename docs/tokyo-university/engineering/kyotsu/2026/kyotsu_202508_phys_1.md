@@ -18,6 +18,10 @@ GPT-5.6 Sol
 
 両質点を静止状態から運動させる。摩擦および糸の質量、太さ、伸びを無視し、糸はたるまないものとする。重力加速度を $g$ として、次の問いに答えよ。
 
+<figure style={{ textAlign: "center" }}>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_1_p1.png" width="300" alt=""/>
+</figure>
+
 ### I
 
 質点 A が台を滑り落ちる間の糸の張力 $T$ を求めよ。

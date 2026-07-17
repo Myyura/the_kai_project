@@ -41,6 +41,10 @@ $$
 
 となることを示せ。
 
+<figure style={{ textAlign: "center" }}>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_2_p1.png" width="200" alt=""/>
+</figure>
+
 ### II
 
 原点 O を中心とする半径 $R$ の薄い導体球殻が真空中に置かれている。外部から一様な静電場
@@ -53,6 +57,10 @@ $$
 
 1. 外部電場と誘起電荷の両方を考慮し、球殻外部の静電ポテンシャルを求めよ。基準は任意に選んでよい。
 2. 球殻上の任意の点の位置ベクトルを $\boldsymbol{s}\ (|\boldsymbol{s}|=R)$ とする。球殻上の面電荷密度 $\sigma(\boldsymbol{s})$ を求めよ。
+
+<figure style={{ textAlign: "center" }}>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_2_p2.png" width="300" alt=""/>
+</figure>
 
 ### III
 
@@ -78,6 +86,10 @@ S=\pi\rho^2
 $$
 
 を磁気双極子モーメントとする。ただし、$\boldsymbol{k}$ は $+z$ 方向の単位ベクトルである。$\boldsymbol{A}(\boldsymbol{r})$ を $\boldsymbol{m}$ と $\boldsymbol{r}$ で表せ。
+
+<figure style={{ textAlign: "center" }}>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_2_p3.png" width="300" alt=""/>
+</figure>
 
 ## **Kai**
 
