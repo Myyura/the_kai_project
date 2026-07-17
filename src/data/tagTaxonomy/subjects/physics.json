@@ -661,6 +661,18 @@
       "relatedSubjects": [
         "Mathematics"
       ]
+    },
+    "Physics.Mechanics.Connected-Particles-and-Tension": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Mechanics.Center-of-Mass-and-Angular-Momentum": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Electromagnetism.Magnetic-Dipole-Vector-Potential": {
+      "subsubject": "Physics.Electromagnetism",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
     }
   }
 }

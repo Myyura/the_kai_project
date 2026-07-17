@@ -26,11 +26,21 @@
       "descriptionZh": "元素、配位化学、无机反应与结构。",
       "descriptionJa": "元素、錯体化学、無機反応、構造。",
       "descriptionEn": "Elements, coordination chemistry, inorganic reactions, and structures."
+    },
+    "Chemistry.Organic-Chemistry": {
+      "subject": "Chemistry",
+      "labelZh": "????",
+      "labelJa": "????",
+      "labelEn": "Organic Chemistry",
+      "descriptionZh": "????????????????????",
+      "descriptionJa": "????????????????????",
+      "descriptionEn": "Organic reaction mechanisms, synthesis, stereochemistry, and structure determination."
     }
   },
   "subsubjectOrder": [
     "Chemistry.Physical-Chemistry",
-    "Chemistry.Inorganic-Chemistry"
+    "Chemistry.Inorganic-Chemistry",
+    "Chemistry.Organic-Chemistry"
   ],
   "topics": {
     "Chemistry.Physical-Chemistry.Einstein-Solid-Heat-Capacity": {
@@ -81,6 +91,64 @@
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Particle-in-a-Box-and-HOMO-LUMO-Transition": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Physics",
+        "Mathematics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Langmuir-Hinshelwood-CO-Oxidation": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Enzyme-Inhibition-and-Lineweaver-Burk-Plot": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Bioinformatics"
+      ]
+    },
+    "Chemistry.Inorganic-Chemistry.Stepwise-Complex-Formation-and-Ligand-Field": {
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Chemistry.Inorganic-Chemistry.Coordination-Compound-Composition": {
+      "subsubject": "Chemistry.Inorganic-Chemistry"
+    },
+    "Chemistry.Inorganic-Chemistry.Radius-Ratio-Rule-and-Ionic-Coordination": {
+      "subsubject": "Chemistry.Inorganic-Chemistry"
+    },
+    "Chemistry.Inorganic-Chemistry.Oxygen-Vacancies-in-Stabilized-Zirconia": {
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Chemistry.Organic-Chemistry.Robinson-Annulation": {
+      "subsubject": "Chemistry.Organic-Chemistry"
+    },
+    "Chemistry.Organic-Chemistry.Stork-Enamine-Alkylation": {
+      "subsubject": "Chemistry.Organic-Chemistry"
+    },
+    "Chemistry.Organic-Chemistry.Diels-Alder-and-Amino-Claisen-Rearrangements": {
+      "subsubject": "Chemistry.Organic-Chemistry"
+    },
+    "Chemistry.Organic-Chemistry.Cyclohexane-Trans-Diaxial-E2-Elimination": {
+      "subsubject": "Chemistry.Organic-Chemistry"
+    },
+    "Chemistry.Organic-Chemistry.Friedel-Crafts-Acylation-to-Alkylbenzene": {
+      "subsubject": "Chemistry.Organic-Chemistry"
+    },
+    "Chemistry.Organic-Chemistry.Arene-Oxide-NIH-Shift": {
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "relatedSubjects": [
+        "Bioinformatics"
       ]
     }
   }

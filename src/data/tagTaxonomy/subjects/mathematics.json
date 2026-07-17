@@ -1396,6 +1396,27 @@
     },
     "Mathematics.Real-Analysis.Zero-Gradient-on-Path-Connected-Domain": {
       "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Linear-Algebra.Permutation-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Mathematics.Linear-Algebra.Rotation-Matrix": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Mathematics.Geometry.Gaussian-Curvature": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Fourier-Analysis.Fourier-Transform": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
     }
   }
 }
