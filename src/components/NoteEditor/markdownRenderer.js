@@ -1,10 +1,13 @@
 /**
- * Markdown → HTML using markdown-it + CDN KaTeX for math rendering
+ * Markdown → HTML using markdown-it + KaTeX for math rendering
  * Supports: headers, nested lists, tables, blockquotes, fenced code,
  *           strikethrough, links, images, inline/block math
  */
 
 import MarkdownIt from 'markdown-it';
+import {drawSmiles, getDocumentColorMode} from '@site/src/components/Chemistry/smilesRenderer';
+
+const MAX_SMILES_PER_CONTAINER = 24;
 
 // ─── URL 安全校验（防止 javascript: 等 XSS 协议） ──────────────
 const SAFE_PROTOCOLS = /^(?:https?|mailto|tel|ftp):/i;
@@ -58,6 +61,25 @@ md.renderer.rules.image = (tokens, idx) => {
 // 代码块：保持原有 CSS 类名
 md.renderer.rules.fence = (tokens, idx) => {
   const token = tokens[idx];
+  const info = token.info ? token.info.trim() : '';
+  const language = info.split(/\s+/, 1)[0].toLowerCase();
+
+  if (language === 'smiles') {
+    const smiles = token.content.trim();
+    const encodedSmiles = encodeURIComponent(smiles);
+    const escapedSmiles = md.utils.escapeHtml(smiles);
+    const ariaLabel = md.utils.escapeHtml(`Chemical structure: ${smiles}`);
+    return [
+      `<figure class="note-smiles-figure" data-smiles="${encodedSmiles}" data-smiles-state="loading">`,
+      '<div class="note-smiles-surface">',
+      `<svg class="note-smiles-structure" role="img" aria-label="${ariaLabel}"></svg>`,
+      '<span class="note-smiles-status" role="status">Rendering structure…</span>',
+      '</div>',
+      `<figcaption class="note-smiles-caption"><code>${escapedSmiles}</code></figcaption>`,
+      '</figure>\n',
+    ].join('');
+  }
+
   const lang = token.info ? ` class="language-${md.utils.escapeHtml(token.info.trim())}"` : '';
   const code = md.utils.escapeHtml(token.content.trimEnd());
   return `<pre class="note-code-block"><code${lang}>${code}</code></pre>\n`;
@@ -122,35 +144,23 @@ export function markdownToHtml(text) {
   return html;
 }
 
-// ─── KaTeX 动态加载 ─────────────────────────────────────────
+// ─── KaTeX + mhchem 动态加载 ────────────────────────────────
 let katexPromise = null;
 
 export function loadKaTeX() {
-  if (typeof window === 'undefined') return Promise.reject();
-  if (window.katex) return Promise.resolve(window.katex);
+  if (typeof window === 'undefined') {
+    return Promise.reject(new Error('KaTeX is only loaded in the browser.'));
+  }
   if (katexPromise) return katexPromise;
 
-  katexPromise = new Promise((resolve, reject) => {
-    // 加载 CSS
-    if (!document.querySelector('link[href*="katex"]')) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css';
-      link.crossOrigin = 'anonymous';
-      document.head.appendChild(link);
-    }
-
-    // 加载 JS
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js';
-    script.crossOrigin = 'anonymous';
-    script.onload = () => resolve(window.katex);
-    script.onerror = () => {
+  katexPromise = Promise.all([
+    import('katex'),
+    import('katex/contrib/mhchem'),
+  ]).then(([katexModule]) => katexModule.default || katexModule)
+    .catch((error) => {
       katexPromise = null;
-      reject(new Error('Failed to load KaTeX'));
-    };
-    document.head.appendChild(script);
-  });
+      throw error;
+    });
 
   return katexPromise;
 }
@@ -170,7 +180,14 @@ export async function renderMathInContainer(container) {
       const math = decodeURIComponent(el.getAttribute('data-math'));
       const displayMode = el.classList.contains('note-math-display');
       try {
-        katex.render(math, el, { displayMode, throwOnError: false });
+        katex.render(math, el, {
+          displayMode,
+          throwOnError: false,
+          strict: false,
+          trust: false,
+          maxSize: 20,
+          maxExpand: 1000,
+        });
       } catch {
         el.textContent = math;
       }
@@ -182,6 +199,49 @@ export async function renderMathInContainer(container) {
       el.textContent = displaySource(el, math);
     });
   }
+}
+
+/**
+ * 渲染容器内由 ```smiles fenced block 生成的结构式占位符。
+ * @param {HTMLElement} container
+ * @param {'light'|'dark'} [theme]
+ */
+export async function renderSmilesInContainer(container, theme = getDocumentColorMode()) {
+  if (!container) return;
+  const figures = Array.from(container.querySelectorAll('[data-smiles]'));
+  if (figures.length === 0) return;
+
+  const renderable = figures.slice(0, MAX_SMILES_PER_CONTAINER);
+  figures.slice(MAX_SMILES_PER_CONTAINER).forEach((figure) => {
+    figure.dataset.smilesState = 'error';
+    const status = figure.querySelector('.note-smiles-status');
+    if (status) status.textContent = 'Too many SMILES structures in one preview.';
+  });
+
+  await Promise.all(renderable.map(async (figure) => {
+    const svg = figure.querySelector('.note-smiles-structure');
+    const status = figure.querySelector('.note-smiles-status');
+    figure.setAttribute('aria-busy', 'true');
+
+    try {
+      const smiles = decodeURIComponent(figure.getAttribute('data-smiles') || '');
+      const result = await drawSmiles(svg, smiles, theme, {
+        isCurrent: () => figure.isConnected && container.contains(figure),
+      });
+      if (!result) return;
+      figure.dataset.smilesState = 'ready';
+      figure.removeAttribute('aria-busy');
+      if (status) status.hidden = true;
+    } catch {
+      figure.dataset.smilesState = 'error';
+      figure.removeAttribute('aria-busy');
+      if (status) {
+        status.hidden = false;
+        status.setAttribute('role', 'alert');
+        status.textContent = 'Unable to render this SMILES structure.';
+      }
+    }
+  }));
 }
 
 function displaySource(el, math) {

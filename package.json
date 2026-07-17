@@ -41,6 +41,7 @@
     "clsx": "^2.1.1",
     "gray-matter": "4.0.3",
     "html-to-image": "^1.11.13",
+    "katex": "0.16.25",
     "markdown-it": "^14.1.1",
     "open-ask-ai": "^0.7.3",
     "prism-react-renderer": "^2.4.1",
@@ -48,7 +49,8 @@
     "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
     "rehype-katex": "^7.0.1",
-    "remark-math": "^6.0.0"
+    "remark-math": "^6.0.0",
+    "smiles-drawer": "2.4.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",

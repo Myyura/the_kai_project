@@ -4663,6 +4663,11 @@ chokidar@^3.5.3, chokidar@^3.6.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
+chroma-js@^2.4.2:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/chroma-js/-/chroma-js-2.6.0.tgz#578743dd359698a75067a19fa5571dec54d0b70b"
+  integrity sha512-BLHvCB9s8Z1EV4ethr6xnkl/P2YRFOGqfgvuMG/MyCbZPrTA+NeiByY6XvgF0zP4/2deU2CXnWyMa3zu1LqQ3A==
+
 chrome-trace-event@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz#05bffd7ff928465093314708c93bdfa9bd1f0f5b"
@@ -7638,7 +7643,7 @@ jsonpointer@^5.0.0:
   resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-5.0.1.tgz#2110e0af0900fd37467b5907ecd13a7884a1b559"
   integrity sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ==
 
-katex@^0.16.0:
+katex@0.16.25, katex@^0.16.0:
   version "0.16.25"
   resolved "https://registry.yarnpkg.com/katex/-/katex-0.16.25.tgz#61699984277e3bdb3e89e0e446b83cd0a57d87db"
   integrity sha512-woHRUZ/iF23GBP1dkDQMh1QBad9dmr8/PAwNA54VrSOVYgI12MAcE14TqnDdQOdzyEonGzMepYnqBMYdsoAr8Q==
@@ -10862,6 +10867,13 @@ slash@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
+
+smiles-drawer@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/smiles-drawer/-/smiles-drawer-2.4.1.tgz#eacce8cc0bd0706149f468ad3f28fc0969098599"
+  integrity sha512-kJeD91Bp8EwLTQouq4az7hn5zUYdIaLQoyFt8XlsqriugPiZOdBFADJMUnfqDYpyu3XK9SFpBgTuDtczpbSUbA==
+  dependencies:
+    chroma-js "^2.4.2"
 
 smob@^1.0.0:
   version "1.5.0"

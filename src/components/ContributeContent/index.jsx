@@ -15,11 +15,16 @@ import { useSync } from '@site/src/hooks/useSync';
 import { usePublicProfile } from '@site/src/hooks/usePublicProfile';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
+import useDocumentColorMode from '@site/src/components/Chemistry/useDocumentColorMode';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
 import { getVerifiedAccessToken } from '@site/src/services/syncService';
 import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
 import { buildDiffPreview, markdownHasChanges } from '@site/src/services/correctionDiff';
-import { markdownToHtml, renderMathInContainer } from '@site/src/components/NoteEditor/markdownRenderer';
+import {
+  markdownToHtml,
+  renderMathInContainer,
+  renderSmilesInContainer,
+} from '@site/src/components/NoteEditor/markdownRenderer';
 import { universities } from '@site/src/data/universities';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import styles from './styles.module.css';
@@ -93,6 +98,7 @@ function statusText(status, t) {
 
 export function ContributeContent({ embedded = false } = {}) {
   const language = useCurrentLanguage();
+  const colorMode = useDocumentColorMode();
   const t = useUiText('contributions');
   const { isConfigured, isLoggedIn, authReady, user } = useSync();
   const { profile } = usePublicProfile();
@@ -149,9 +155,13 @@ export function ContributeContent({ embedded = false } = {}) {
 
   useEffect(() => {
     if (newSolutionView !== 'preview' || !newSolutionPreviewRef.current) return;
-    newSolutionPreviewRef.current.innerHTML = markdownToHtml(newSolutionPreviewMarkdown);
-    void renderMathInContainer(newSolutionPreviewRef.current);
-  }, [newSolutionPreviewMarkdown, newSolutionView]);
+    const container = newSolutionPreviewRef.current;
+    container.innerHTML = markdownToHtml(newSolutionPreviewMarkdown);
+    void Promise.all([
+      renderMathInContainer(container),
+      renderSmilesInContainer(container, colorMode),
+    ]);
+  }, [colorMode, newSolutionPreviewMarkdown, newSolutionView]);
 
   const selectedUniversity = useMemo(
     () => universities.find((item) => item.id === form.universityId),

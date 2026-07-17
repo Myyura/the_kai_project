@@ -9,6 +9,7 @@ import React, {isValidElement, type ReactNode} from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import ElementContent from '@theme/CodeBlock/Content/Element';
 import StringContent from '@theme/CodeBlock/Content/String';
+import MoleculeFigure from '@site/src/components/Chemistry/MoleculeFigure';
 import type {Props} from '@theme/CodeBlock';
 
 /**
@@ -35,6 +36,16 @@ export default function CodeBlock({
   // relevant styles.
   const isBrowser = useIsBrowser();
   const children = maybeStringifyChildren(rawChildren);
+  const isSmiles =
+    props.language?.toLowerCase() === 'smiles' ||
+    /(?:^|\s)language-smiles(?:\s|$)/i.test(props.className || '');
+
+  if (isSmiles && typeof children === 'string') {
+    return (
+      <MoleculeFigure key={String(isBrowser)} smiles={children} title={props.title} />
+    );
+  }
+
   const CodeBlockComp =
     typeof children === 'string' ? StringContent : ElementContent;
   return (
