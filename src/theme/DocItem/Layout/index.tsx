@@ -18,6 +18,13 @@ import DocItemTOCDesktop from '@theme/DocItem/TOC/Desktop';
 import DocItemContent from '@theme/DocItem/Content';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import ContentVisibility from '@theme/ContentVisibility';
+import {
+  AnnotationSidebar,
+  DocumentAnnotationsProvider,
+  DocumentChangeNotice,
+  InlineAnnotationController,
+  MobileAnnotationAccess,
+} from '@site/src/components/DocumentAnnotations';
 import type {Props} from '@theme/DocItem/Layout';
 
 import styles from './styles.module.css';
@@ -50,22 +57,34 @@ export default function DocItemLayout({children}: Props): ReactNode {
   const docTOC = useDocTOC();
   const {metadata} = useDoc();
   return (
-    <div className="row">
-      <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
-        <ContentVisibility metadata={metadata} />
-        <DocVersionBanner />
-        <div className={styles.docItemContainer}>
-          <article>
-            <DocBreadcrumbs />
-            <DocVersionBadge />
-            {docTOC.mobile}
-            <DocItemContent>{children}</DocItemContent>
-            <DocItemFooter />
-          </article>
-          <DocItemPaginator />
+    <DocumentAnnotationsProvider key={metadata.id} docId={metadata.id}>
+      <div className="row">
+        <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
+          <ContentVisibility metadata={metadata} />
+          <DocVersionBanner />
+          <div className={styles.docItemContainer}>
+            <article>
+              <DocBreadcrumbs />
+              <DocVersionBadge />
+              {docTOC.mobile}
+              <DocumentChangeNotice />
+              <DocItemContent>{children}</DocItemContent>
+              <InlineAnnotationController />
+              <DocItemFooter />
+            </article>
+            <DocItemPaginator />
+          </div>
         </div>
+        {docTOC.desktop && (
+          <div className="col col--3">
+            <div className={styles.docRightRail}>
+              <div className={styles.tocPane}>{docTOC.desktop}</div>
+              <AnnotationSidebar />
+            </div>
+          </div>
+        )}
       </div>
-      {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
-    </div>
+      <MobileAnnotationAccess />
+    </DocumentAnnotationsProvider>
   );
 }

@@ -10,6 +10,11 @@ import { useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import useDocumentColorMode from '@site/src/components/Chemistry/useDocumentColorMode';
 import { markdownToHtml, renderMathInContainer, renderSmilesInContainer } from './markdownRenderer';
+import {
+  parseNoteDocument,
+  stripAnnotationMetadata,
+  updateFreeNoteContent,
+} from '@site/src/services/noteAnnotations';
 import styles from './styles.module.css';
 
 // ─── 时间格式化 ──────────────────────────────────────────────
@@ -62,8 +67,9 @@ function NoteGate({ t, type = 'login', embedded = false }) {
 
 // ─── 主组件 ──────────────────────────────────────────────────
 function NoteEditorContent({ docId, embedded = false }) {
-  const { content, updatedAt, saveNote } = useDocNotes(docId);
-  const [text, setText] = useState(content);
+  const { content, updatedAt, patchNote } = useDocNotes(docId);
+  const parsedContent = parseNoteDocument(content);
+  const [text, setText] = useState(parsedContent.freeContent);
   const [mode, setMode] = useState('edit');
   const [expanded, setExpanded] = useState(false);
   const lang = useCurrentLanguage();
@@ -79,8 +85,12 @@ function NoteEditorContent({ docId, embedded = false }) {
 
   // 外部数据同步（其他标签页修改等）
   useEffect(() => {
-    setText(content);
+    setText(parseNoteDocument(content).freeContent);
   }, [content]);
+
+  const saveFreeContent = useCallback((nextFreeContent) => {
+    patchNote((latestContent) => updateFreeNoteContent(latestContent, nextFreeContent));
+  }, [patchNote]);
 
   // 有内容时自动展开
   useEffect(() => {
@@ -92,10 +102,10 @@ function NoteEditorContent({ docId, embedded = false }) {
     return () => {
       if (saveTimerRef.current) {
         clearTimeout(saveTimerRef.current);
-        saveNote(textRef.current);
+        saveFreeContent(textRef.current);
       }
     };
-  }, [saveNote]);
+  }, [saveFreeContent]);
 
   // ─── 防抖保存 ────────────────────────────────────────────
   const handleChange = useCallback(
@@ -104,12 +114,12 @@ function NoteEditorContent({ docId, embedded = false }) {
       setText(val);
       if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
       saveTimerRef.current = setTimeout(() => {
-        saveNote(val);
+        saveFreeContent(val);
         setSaveFlash(true);
         setTimeout(() => setSaveFlash(false), 1500);
       }, 600);
     },
-    [saveNote]
+    [saveFreeContent]
   );
 
   // ─── 预览渲染 ────────────────────────────────────────────
@@ -158,7 +168,7 @@ function NoteEditorContent({ docId, embedded = false }) {
       setText(newValue);
       if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
       saveTimerRef.current = setTimeout(() => {
-        saveNote(newValue);
+        saveFreeContent(newValue);
         setSaveFlash(true);
         setTimeout(() => setSaveFlash(false), 1500);
       }, 600);
@@ -168,7 +178,7 @@ function NoteEditorContent({ docId, embedded = false }) {
         textarea.setSelectionRange(cursorStart, cursorEnd);
       });
     },
-    [saveNote]
+    [saveFreeContent]
   );
 
   // ─── Tab 缩进支持 ────────────────────────────────────────
@@ -191,6 +201,8 @@ function NoteEditorContent({ docId, embedded = false }) {
   );
 
   const hasContent = text.trim().length > 0;
+  const totalCharCount = stripAnnotationMetadata(content).length;
+  const hasAnyContent = totalCharCount > 0;
 
   return (
     <div className={`${styles.noteContainer} ${embedded ? styles.noteEmbedded : ''}`}>
@@ -203,8 +215,8 @@ function NoteEditorContent({ docId, embedded = false }) {
         <span className={styles.noteToggleLeft}>
           <FaPen className={styles.noteIcon} />
           <span className={styles.noteHeading}>{t.heading}</span>
-          {hasContent && !expanded && (
-            <span className={styles.noteBadge}>{t.charCount(text.trim().length)}</span>
+          {hasAnyContent && !expanded && (
+            <span className={styles.noteBadge}>{t.charCount(totalCharCount)}</span>
           )}
         </span>
         {expanded ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}

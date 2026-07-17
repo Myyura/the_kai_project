@@ -372,7 +372,14 @@ async function handleNotes(req: Request, ctx: AgentContext) {
   return jsonResponse({
     items: (data || []).map((row) => ({
       docId: row.doc_id,
-      content: row.content || '',
+      content: String(row.content || '')
+        .replace(/<!-- kai-annotations:start:v1:[^\n]* -->/g, '')
+        .replace(/<!-- kai-ann:v1:[^\n]* -->/g, '')
+        .replace(/<!-- kai-ann:body -->/g, '')
+        .replace(/<!-- \/kai-ann -->/g, '')
+        .replace(/<!-- kai-annotations:end -->/g, '')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim(),
       clientUpdatedAt: row.client_updated_at,
       updatedAt: row.updated_at,
     })),

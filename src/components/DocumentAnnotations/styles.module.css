@@ -1,0 +1,577 @@
+.selectionAction {
+  position: fixed;
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  padding: .48rem .72rem;
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 45%, var(--ifm-color-emphasis-200));
+  border-radius: 999px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, .18);
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.selectionComposer {
+  position: fixed;
+  z-index: 1200;
+  width: min(328px, calc(100vw - 24px));
+  padding: .75rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 16px 42px rgba(15, 23, 42, .22);
+}
+
+.composerQuote {
+  max-height: 4.5rem;
+  margin-bottom: .55rem;
+  overflow: auto;
+  color: var(--ifm-color-emphasis-600);
+  font-size: .75rem;
+  line-height: 1.5;
+}
+
+.selectionComposer textarea,
+.cardEditor textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  outline: none;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  line-height: 1.55;
+}
+
+.selectionComposer textarea {
+  min-height: 104px;
+  padding: .6rem .7rem;
+  font-size: .82rem;
+}
+
+.selectionComposer textarea:focus,
+.cardEditor textarea:focus,
+.titleInput:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ifm-color-primary) 16%, transparent);
+}
+
+.composerActions,
+.cardActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .45rem;
+  margin-top: .55rem;
+}
+
+.textButton,
+.primaryButton,
+.confirmButton,
+.deleteButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .3rem;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.textButton {
+  padding: .38rem .65rem;
+  border: 0;
+  background: transparent;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.primaryButton,
+.confirmButton {
+  padding: .4rem .72rem;
+  border: 1px solid var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.markerLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.annotationMarker {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 25px;
+  height: 25px;
+  padding: 0 5px;
+  transform: translateY(-50%);
+  border: 1px solid color-mix(in srgb, #eab308 45%, var(--ifm-color-emphasis-200));
+  border-radius: 999px;
+  background: color-mix(in srgb, #facc15 14%, var(--ifm-background-surface-color));
+  color: #a16207;
+  cursor: pointer;
+  pointer-events: auto;
+  font-size: .66rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, .1);
+}
+
+:global(::highlight(kai-annotations)) {
+  color: inherit;
+  background: rgba(250, 204, 21, .28);
+  text-decoration: underline 1px rgba(202, 138, 4, .6);
+}
+
+:global(::highlight(kai-active-annotation)) {
+  color: inherit;
+  background: rgba(249, 115, 22, .34);
+  text-decoration: underline 2px rgba(234, 88, 12, .8);
+}
+
+.annotationPanel {
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  background: var(--ifm-background-surface-color);
+}
+
+.panel_sidebar {
+  display: flex;
+  min-height: 112px;
+  max-height: 42vh;
+  flex-direction: column;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .7rem .75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.panelHeader > div,
+.footerTitle {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  min-width: 0;
+}
+
+.panelHeader svg,
+.footerTitle svg {
+  color: #ca8a04;
+}
+
+.panelHeader strong,
+.footerTitle strong {
+  color: var(--ifm-color-emphasis-800);
+  font-size: .82rem;
+}
+
+.panelHeader span,
+.footerTitle span {
+  padding: .05rem .4rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-600);
+  font-size: .68rem;
+}
+
+.iconButton,
+.sheetClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: var(--ifm-color-emphasis-500);
+  cursor: pointer;
+}
+
+.annotationSearch {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  margin: .55rem .6rem 0;
+  padding: .38rem .5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 7px;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.annotationSearch input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  font-size: .75rem;
+}
+
+.annotationList {
+  min-height: 0;
+  padding: .55rem;
+  overflow-y: auto;
+}
+
+.annotationCard {
+  padding: .62rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  cursor: pointer;
+  transition: border-color .15s, box-shadow .15s, background .15s;
+}
+
+.annotationCard + .annotationCard {
+  margin-top: .48rem;
+}
+
+.annotationCard:hover,
+.annotationCardActive {
+  border-color: color-mix(in srgb, #eab308 62%, var(--ifm-color-emphasis-200));
+  box-shadow: 0 3px 10px rgba(161, 98, 7, .09);
+}
+
+.annotationCardActive {
+  cursor: default;
+}
+
+.cardTopline,
+.cardEditorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.cardTopline strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ifm-color-emphasis-800);
+  font-size: .78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardTopline span,
+.lineLabel {
+  flex: 0 0 auto;
+  color: var(--ifm-color-emphasis-500);
+  font-size: .65rem;
+}
+
+.quoteExcerpt {
+  margin-top: .32rem;
+  overflow: hidden;
+  color: var(--ifm-color-emphasis-600);
+  font-size: .7rem;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bodyExcerpt {
+  display: -webkit-box;
+  margin: .35rem 0 0;
+  overflow: hidden;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .72rem;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.titleInput {
+  min-width: 0;
+  width: 100%;
+  padding: .3rem .4rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  outline: 0;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.cardEditor blockquote {
+  max-height: 4.2rem;
+  margin: .48rem 0;
+  padding: .38rem .5rem;
+  overflow: auto;
+  border-left: 2px solid #eab308;
+  background: color-mix(in srgb, #facc15 7%, transparent);
+  color: var(--ifm-color-emphasis-600);
+  font-size: .7rem;
+  line-height: 1.45;
+}
+
+.cardEditor textarea {
+  min-height: 90px;
+  padding: .5rem .55rem;
+  font-size: .75rem;
+}
+
+.deleteButton {
+  padding: .35rem .55rem;
+  border: 1px solid color-mix(in srgb, #dc2626 38%, var(--ifm-color-emphasis-200));
+  background: transparent;
+  color: #dc2626;
+}
+
+.statusBadge,
+.statusRow {
+  margin-top: .4rem;
+  border-radius: 6px;
+  font-size: .66rem;
+  line-height: 1.4;
+}
+
+.statusBadge {
+  display: inline-flex;
+  padding: .18rem .38rem;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .35rem .45rem;
+}
+
+.status_ok {
+  background: rgba(34, 197, 94, .1);
+  color: #15803d;
+}
+
+.status_warning {
+  background: rgba(245, 158, 11, .12);
+  color: #b45309;
+}
+
+.status_danger {
+  background: rgba(239, 68, 68, .1);
+  color: #dc2626;
+}
+
+.emptyPanel {
+  padding: .75rem .5rem;
+  color: var(--ifm-color-emphasis-500);
+  font-size: .72rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.footerAnnotations {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding: .8rem 1rem 1rem;
+}
+
+.footerTitle {
+  margin-bottom: .65rem;
+}
+
+.panel_footer {
+  border: 0;
+  background: transparent;
+}
+
+.panel_footer .annotationList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: .55rem;
+  padding: 0;
+  overflow: visible;
+}
+
+.panel_footer .annotationCard + .annotationCard {
+  margin-top: 0;
+}
+
+.changeNotice {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1rem;
+  padding: .72rem .85rem;
+  border: 1px solid rgba(245, 158, 11, .35);
+  border-radius: 10px;
+  background: rgba(245, 158, 11, .08);
+  color: var(--ifm-color-emphasis-700);
+}
+
+.changeNotice > svg {
+  flex: 0 0 auto;
+  color: #d97706;
+}
+
+.changeNotice > div {
+  min-width: 0;
+  flex: 1;
+}
+
+.changeNotice strong {
+  display: block;
+  font-size: .8rem;
+}
+
+.changeNotice p {
+  margin: .1rem 0 0;
+  font-size: .72rem;
+  line-height: 1.45;
+}
+
+.changeNotice button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: .32rem;
+  padding: .38rem .58rem;
+  border: 1px solid #d97706;
+  border-radius: 7px;
+  background: transparent;
+  color: #b45309;
+  cursor: pointer;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.undoToast {
+  position: fixed;
+  z-index: 1300;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .65rem .8rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 9px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .2);
+  color: var(--ifm-color-emphasis-700);
+  font-size: .75rem;
+}
+
+.undoToast button {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  border: 0;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.mobileAccessButton,
+.mobileBackdrop {
+  display: none;
+}
+
+@media (max-width: 996px) {
+  .annotationMarker {
+    left: auto !important;
+    right: -4px;
+  }
+
+  .mobileAccessButton {
+    position: fixed;
+    z-index: 850;
+    right: .85rem;
+    bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .38rem;
+    padding: .58rem .72rem;
+    border: 1px solid color-mix(in srgb, #eab308 50%, var(--ifm-color-emphasis-200));
+    border-radius: 999px;
+    background: var(--ifm-background-surface-color);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, .18);
+    color: #a16207;
+    cursor: pointer;
+    font-size: .75rem;
+    font-weight: 700;
+  }
+
+  .mobileBackdrop {
+    position: fixed;
+    z-index: 1250;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    background: rgba(15, 23, 42, .42);
+  }
+
+  .mobileSheet {
+    position: relative;
+    width: 100%;
+    max-height: min(76vh, 720px);
+    padding: .85rem .75rem max(.75rem, env(safe-area-inset-bottom));
+    border-radius: 16px 16px 0 0;
+    background: var(--ifm-background-color);
+    box-shadow: 0 -12px 36px rgba(15, 23, 42, .2);
+    overflow: auto;
+  }
+
+  .sheetHandle {
+    width: 42px;
+    height: 4px;
+    margin: 0 auto .6rem;
+    border-radius: 999px;
+    background: var(--ifm-color-emphasis-300);
+  }
+
+  .sheetClose {
+    position: absolute;
+    top: .72rem;
+    right: .8rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .panel_mobile {
+    border: 0;
+    background: transparent;
+  }
+
+  .panel_mobile .annotationList {
+    max-height: 58vh;
+  }
+
+  .selectionComposer {
+    position: fixed;
+    inset: auto .75rem max(.75rem, env(safe-area-inset-bottom)) !important;
+    width: auto;
+  }
+
+  .selectionAction {
+    top: auto !important;
+    right: .75rem;
+    bottom: max(.8rem, env(safe-area-inset-bottom));
+    left: auto !important;
+  }
+
+  .changeNotice {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .changeNotice button {
+    margin-left: 1.55rem;
+  }
+}
+

@@ -7,6 +7,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import remarkMath from 'remark-math';
 import rehypeKatexWithMhchem from './src/markdown/rehypeKatexWithMhchem.js';
+import rehypeAnnotationSourceLines from './src/markdown/rehypeAnnotationSourceLines.js';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -306,11 +307,13 @@ const config = {
           
           remarkPlugins: [remarkMath],
           rehypePlugins: [
+            rehypeAnnotationSourceLines,
             [rehypeKatexWithMhchem, {
               // Existing exam content includes CJK text inside math expressions.
               strict: false,
               throwOnError: true,
             }],
+            rehypeAnnotationSourceLines,
           ],
           sidebarPath: './sidebars.js',
           sidebarItemsGenerator: async (generatorArgs) => {

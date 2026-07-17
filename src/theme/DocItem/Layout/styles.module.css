@@ -14,4 +14,25 @@
   .docItemCol {
     max-width: 75% !important;
   }
+
+  .docRightRail {
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 1rem);
+    display: flex;
+    max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+    min-height: 0;
+    flex-direction: column;
+    gap: .75rem;
+  }
+
+  .tocPane {
+    flex: 1 1 auto;
+    min-height: 96px;
+    overflow-y: auto;
+  }
+
+  .tocPane :global(.theme-doc-toc-desktop) {
+    position: static;
+    max-height: none;
+  }
 }

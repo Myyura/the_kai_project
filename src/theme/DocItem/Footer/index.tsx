@@ -16,6 +16,7 @@ import {FaEdit, FaGraduationCap} from 'react-icons/fa';
 import {useUiText} from '@site/src/i18n/useUiText';
 import shareStyles from '@site/src/components/ShareAsImage/styles.module.css';
 import styles from './styles.module.css';
+import {FooterAnnotationSection} from '@site/src/components/DocumentAnnotations';
 
 const ProgressTracker = lazy(() => import('@site/src/components/ProgressTracker'));
 const DifficultyRating = lazy(() => import('@site/src/components/DifficultyRating'));
@@ -87,6 +88,7 @@ export default function DocItemFooter(): ReactNode {
                   embedded
                 />
                 <NoteEditor docId={id} embedded />
+                <FooterAnnotationSection />
               </section>
               <div className={shareStyles.docActionBar}>
                 <ShareAsImage docId={id} title={title} compact />

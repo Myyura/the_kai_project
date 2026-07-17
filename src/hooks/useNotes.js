@@ -48,6 +48,33 @@ export const writeNotesData = (data, { skipDirty = false, storageOwner } = {}) =
 };
 
 /**
+ * Atomically update one document note against the latest cached value.
+ * Inline annotations and the footer editor must both use this path so a
+ * debounced save cannot replace changes made by the other surface.
+ */
+export const updateDocNoteContent = (docId, updater) => {
+  const current = readNotesData();
+  const previousContent = current[docId]?.content ?? '';
+  const nextContent = typeof updater === 'function'
+    ? updater(previousContent)
+    : String(updater ?? '');
+
+  if (nextContent === previousContent) return current[docId] ?? null;
+
+  const next = {...current};
+  if (nextContent.trim() === '') {
+    delete next[docId];
+  } else {
+    next[docId] = {
+      content: nextContent,
+      updatedAt: getCalibratedNow(),
+    };
+  }
+  writeNotesData(next);
+  return next[docId] ?? null;
+};
+
+/**
  * 单文档笔记钩子
  * @param {string} docId - 文档 ID（来自 metadata.id）
  */
@@ -70,22 +97,19 @@ export const useDocNotes = (docId) => {
 
   const saveNote = useCallback(
     (newContent) => {
-      const current = readNotesData();
-      if (newContent.trim() === '') {
-        delete current[docId];
-      } else {
-        current[docId] = {
-          content: newContent,
-          updatedAt: getCalibratedNow(),
-        };
-      }
-      writeNotesData(current);
-      setData({ ...current });
+      updateDocNoteContent(docId, newContent);
+      setData({...readNotesData()});
     },
     [docId]
   );
 
-  return { content, updatedAt, saveNote };
+  const patchNote = useCallback((updater) => {
+    const entry = updateDocNoteContent(docId, updater);
+    setData({...readNotesData()});
+    return entry;
+  }, [docId]);
+
+  return { content, updatedAt, saveNote, patchNote };
 };
 
 /**

@@ -26,6 +26,7 @@ import { ContributeContent } from '@site/src/components/ContributeContent';
 import { DeveloperApiContent } from '@site/src/components/DeveloperApiContent';
 import { AgentTutorContent } from '@site/src/components/AgentTutorContent';
 import ProblemSetsContent from '@site/src/components/ProblemSetsContent';
+import {parseNoteDocument, stripAnnotationMetadata} from '@site/src/services/noteAnnotations';
 import styles from './me.module.css';
 
 const toTagSlug = (tag) =>
@@ -571,7 +572,8 @@ const NotesSection = ({ noteEntries, progressEntries, t, language }) => {
     return noteEntries
       .map((note) => {
         const progress = progressById[note.id] || {};
-        const content = note.content || '';
+        const content = stripAnnotationMetadata(note.content || '');
+        const annotationCount = parseNoteDocument(note.content || '').annotations.length;
         return {
           ...note,
           title: progress.title || note.id,
@@ -579,6 +581,7 @@ const NotesSection = ({ noteEntries, progressEntries, t, language }) => {
           univ: extractUniv(note.id, t.unknownSchool),
           excerpt: content.trim().replace(/\s+/g, ' ').slice(0, 180),
           charCount: content.trim().length,
+          annotationCount,
         };
       })
       .filter((note) => {
@@ -628,7 +631,10 @@ const NotesSection = ({ noteEntries, progressEntries, t, language }) => {
               </div>
               <strong className={styles.noteTitle}>{note.title}</strong>
               <p className={styles.noteExcerpt}>{note.excerpt || t.emptyNoteExcerpt}</p>
-              <span className={styles.noteCount}>{t.charCount(note.charCount)}</span>
+              <span className={styles.noteCount}>
+                {t.charCount(note.charCount)}
+                {note.annotationCount > 0 ? ` · ${t.annotationCount(note.annotationCount)}` : ''}
+              </span>
             </Link>
           ))}
         </div>
