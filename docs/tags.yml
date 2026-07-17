@@ -296,6 +296,10 @@
   label: "Chemistry.Inorganic-Chemistry"
   permalink: "/subsubject/chemistry/inorganic-chemistry"
   description: "Chemistry / Inorganic-Chemistry"
+"Chemistry.Organic-Chemistry":
+  label: "Chemistry.Organic-Chemistry"
+  permalink: "/subsubject/chemistry/organic-chemistry"
+  description: "Chemistry / Organic-Chemistry"
 "Bioinformatics.Bioinformatics":
   label: "Bioinformatics.Bioinformatics"
   permalink: "/subsubject/bioinformatics/bioinformatics"
@@ -324,6 +328,46 @@
   label: "Bioinformatics.Bioinformatics.Sequence-Alignment"
   permalink: "/topic/bioinformatics/bioinformatics/sequence-alignment"
   description: "Bioinformatics / Bioinformatics / Sequence-Alignment"
+"Chemistry.Inorganic-Chemistry.Coordination-Compound-Composition":
+  label: "Chemistry.Inorganic-Chemistry.Coordination-Compound-Composition"
+  permalink: "/topic/chemistry/inorganic-chemistry/coordination-compound-composition"
+  description: "Chemistry / Inorganic-Chemistry / Coordination-Compound-Composition"
+"Chemistry.Inorganic-Chemistry.Oxygen-Vacancies-in-Stabilized-Zirconia":
+  label: "Chemistry.Inorganic-Chemistry.Oxygen-Vacancies-in-Stabilized-Zirconia"
+  permalink: "/topic/chemistry/inorganic-chemistry/oxygen-vacancies-in-stabilized-zirconia"
+  description: "Chemistry / Inorganic-Chemistry / Oxygen-Vacancies-in-Stabilized-Zirconia"
+"Chemistry.Inorganic-Chemistry.Radius-Ratio-Rule-and-Ionic-Coordination":
+  label: "Chemistry.Inorganic-Chemistry.Radius-Ratio-Rule-and-Ionic-Coordination"
+  permalink: "/topic/chemistry/inorganic-chemistry/radius-ratio-rule-and-ionic-coordination"
+  description: "Chemistry / Inorganic-Chemistry / Radius-Ratio-Rule-and-Ionic-Coordination"
+"Chemistry.Inorganic-Chemistry.Stepwise-Complex-Formation-and-Ligand-Field":
+  label: "Chemistry.Inorganic-Chemistry.Stepwise-Complex-Formation-and-Ligand-Field"
+  permalink: "/topic/chemistry/inorganic-chemistry/stepwise-complex-formation-and-ligand-field"
+  description: "Chemistry / Inorganic-Chemistry / Stepwise-Complex-Formation-and-Ligand-Field"
+"Chemistry.Organic-Chemistry.Arene-Oxide-NIH-Shift":
+  label: "Chemistry.Organic-Chemistry.Arene-Oxide-NIH-Shift"
+  permalink: "/topic/chemistry/organic-chemistry/arene-oxide-nih-shift"
+  description: "Chemistry / Organic-Chemistry / Arene-Oxide-NIH-Shift"
+"Chemistry.Organic-Chemistry.Cyclohexane-Trans-Diaxial-E2-Elimination":
+  label: "Chemistry.Organic-Chemistry.Cyclohexane-Trans-Diaxial-E2-Elimination"
+  permalink: "/topic/chemistry/organic-chemistry/cyclohexane-trans-diaxial-e2-elimination"
+  description: "Chemistry / Organic-Chemistry / Cyclohexane-Trans-Diaxial-E2-Elimination"
+"Chemistry.Organic-Chemistry.Diels-Alder-and-Amino-Claisen-Rearrangements":
+  label: "Chemistry.Organic-Chemistry.Diels-Alder-and-Amino-Claisen-Rearrangements"
+  permalink: "/topic/chemistry/organic-chemistry/diels-alder-and-amino-claisen-rearrangements"
+  description: "Chemistry / Organic-Chemistry / Diels-Alder-and-Amino-Claisen-Rearrangements"
+"Chemistry.Organic-Chemistry.Friedel-Crafts-Acylation-to-Alkylbenzene":
+  label: "Chemistry.Organic-Chemistry.Friedel-Crafts-Acylation-to-Alkylbenzene"
+  permalink: "/topic/chemistry/organic-chemistry/friedel-crafts-acylation-to-alkylbenzene"
+  description: "Chemistry / Organic-Chemistry / Friedel-Crafts-Acylation-to-Alkylbenzene"
+"Chemistry.Organic-Chemistry.Robinson-Annulation":
+  label: "Chemistry.Organic-Chemistry.Robinson-Annulation"
+  permalink: "/topic/chemistry/organic-chemistry/robinson-annulation"
+  description: "Chemistry / Organic-Chemistry / Robinson-Annulation"
+"Chemistry.Organic-Chemistry.Stork-Enamine-Alkylation":
+  label: "Chemistry.Organic-Chemistry.Stork-Enamine-Alkylation"
+  permalink: "/topic/chemistry/organic-chemistry/stork-enamine-alkylation"
+  description: "Chemistry / Organic-Chemistry / Stork-Enamine-Alkylation"
 "Chemistry.Physical-Chemistry.Consecutive-First-Order-Reaction-Kinetics":
   label: "Chemistry.Physical-Chemistry.Consecutive-First-Order-Reaction-Kinetics"
   permalink: "/topic/chemistry/physical-chemistry/consecutive-first-order-reaction-kinetics"
@@ -336,14 +380,26 @@
   label: "Chemistry.Physical-Chemistry.Entropy-Change"
   permalink: "/topic/chemistry/physical-chemistry/entropy-change"
   description: "Chemistry / Physical-Chemistry / Entropy-Change"
+"Chemistry.Physical-Chemistry.Enzyme-Inhibition-and-Lineweaver-Burk-Plot":
+  label: "Chemistry.Physical-Chemistry.Enzyme-Inhibition-and-Lineweaver-Burk-Plot"
+  permalink: "/topic/chemistry/physical-chemistry/enzyme-inhibition-and-lineweaver-burk-plot"
+  description: "Chemistry / Physical-Chemistry / Enzyme-Inhibition-and-Lineweaver-Burk-Plot"
 "Chemistry.Physical-Chemistry.Ideal-Gas-Thermodynamics":
   label: "Chemistry.Physical-Chemistry.Ideal-Gas-Thermodynamics"
   permalink: "/topic/chemistry/physical-chemistry/ideal-gas-thermodynamics"
   description: "Chemistry / Physical-Chemistry / Ideal-Gas-Thermodynamics"
+"Chemistry.Physical-Chemistry.Langmuir-Hinshelwood-CO-Oxidation":
+  label: "Chemistry.Physical-Chemistry.Langmuir-Hinshelwood-CO-Oxidation"
+  permalink: "/topic/chemistry/physical-chemistry/langmuir-hinshelwood-co-oxidation"
+  description: "Chemistry / Physical-Chemistry / Langmuir-Hinshelwood-CO-Oxidation"
 "Chemistry.Physical-Chemistry.Operator-Commutator":
   label: "Chemistry.Physical-Chemistry.Operator-Commutator"
   permalink: "/topic/chemistry/physical-chemistry/operator-commutator"
   description: "Chemistry / Physical-Chemistry / Operator-Commutator"
+"Chemistry.Physical-Chemistry.Particle-in-a-Box-and-HOMO-LUMO-Transition":
+  label: "Chemistry.Physical-Chemistry.Particle-in-a-Box-and-HOMO-LUMO-Transition"
+  permalink: "/topic/chemistry/physical-chemistry/particle-in-a-box-and-homo-lumo-transition"
+  description: "Chemistry / Physical-Chemistry / Particle-in-a-Box-and-HOMO-LUMO-Transition"
 "Chemistry.Physical-Chemistry.Planck-Blackbody-Law":
   label: "Chemistry.Physical-Chemistry.Planck-Blackbody-Law"
   permalink: "/topic/chemistry/physical-chemistry/planck-blackbody-law"
@@ -3088,6 +3144,10 @@
   label: "Mathematics.Fourier-Analysis.Fourier-Sine-and-Cosine-Series"
   permalink: "/topic/mathematics/fourier-analysis/fourier-sine-and-cosine-series"
   description: "Mathematics / Fourier-Analysis / Fourier-Sine-and-Cosine-Series"
+"Mathematics.Fourier-Analysis.Fourier-Transform":
+  label: "Mathematics.Fourier-Analysis.Fourier-Transform"
+  permalink: "/topic/mathematics/fourier-analysis/fourier-transform"
+  description: "Mathematics / Fourier-Analysis / Fourier-Transform"
 "Mathematics.Fourier-Analysis.Fourier-Transform-Differentiation-and-Time-Multiplication":
   label: "Mathematics.Fourier-Analysis.Fourier-Transform-Differentiation-and-Time-Multiplication"
   permalink: "/topic/mathematics/fourier-analysis/fourier-transform-differentiation-and-time-multiplication"
@@ -3152,6 +3212,10 @@
   label: "Mathematics.Geometry.Concurrency-and-Parallelism-of-Three-Lines"
   permalink: "/topic/mathematics/geometry/concurrency-and-parallelism-of-three-lines"
   description: "Mathematics / Geometry / Concurrency-and-Parallelism-of-Three-Lines"
+"Mathematics.Geometry.Gaussian-Curvature":
+  label: "Mathematics.Geometry.Gaussian-Curvature"
+  permalink: "/topic/mathematics/geometry/gaussian-curvature"
+  description: "Mathematics / Geometry / Gaussian-Curvature"
 "Mathematics.Geometry.Gaussian-Curvature-of-Ruled-Surface":
   label: "Mathematics.Geometry.Gaussian-Curvature-of-Ruled-Surface"
   permalink: "/topic/mathematics/geometry/gaussian-curvature-of-ruled-surface"
@@ -3448,6 +3512,10 @@
   label: "Mathematics.Linear-Algebra.Parameterized-Eigenvalues-and-Rank"
   permalink: "/topic/mathematics/linear-algebra/parameterized-eigenvalues-and-rank"
   description: "Mathematics / Linear-Algebra / Parameterized-Eigenvalues-and-Rank"
+"Mathematics.Linear-Algebra.Permutation-Matrix":
+  label: "Mathematics.Linear-Algebra.Permutation-Matrix"
+  permalink: "/topic/mathematics/linear-algebra/permutation-matrix"
+  description: "Mathematics / Linear-Algebra / Permutation-Matrix"
 "Mathematics.Linear-Algebra.Permutation-Matrix-and-Minimal-Polynomial":
   label: "Mathematics.Linear-Algebra.Permutation-Matrix-and-Minimal-Polynomial"
   permalink: "/topic/mathematics/linear-algebra/permutation-matrix-and-minimal-polynomial"
@@ -3484,6 +3552,10 @@
   label: "Mathematics.Linear-Algebra.Realification-of-Unitary-Matrix"
   permalink: "/topic/mathematics/linear-algebra/realification-of-unitary-matrix"
   description: "Mathematics / Linear-Algebra / Realification-of-Unitary-Matrix"
+"Mathematics.Linear-Algebra.Rotation-Matrix":
+  label: "Mathematics.Linear-Algebra.Rotation-Matrix"
+  permalink: "/topic/mathematics/linear-algebra/rotation-matrix"
+  description: "Mathematics / Linear-Algebra / Rotation-Matrix"
 "Mathematics.Linear-Algebra.Rotation-Matrix-and-Axis-Angle":
   label: "Mathematics.Linear-Algebra.Rotation-Matrix-and-Axis-Angle"
   permalink: "/topic/mathematics/linear-algebra/rotation-matrix-and-axis-angle"
@@ -4084,6 +4156,10 @@
   label: "Physics.Electromagnetism.Magnetic-Dipole-Torque"
   permalink: "/topic/physics/electromagnetism/magnetic-dipole-torque"
   description: "Physics / Electromagnetism / Magnetic-Dipole-Torque"
+"Physics.Electromagnetism.Magnetic-Dipole-Vector-Potential":
+  label: "Physics.Electromagnetism.Magnetic-Dipole-Vector-Potential"
+  permalink: "/topic/physics/electromagnetism/magnetic-dipole-vector-potential"
+  description: "Physics / Electromagnetism / Magnetic-Dipole-Vector-Potential"
 "Physics.Electromagnetism.Magnetic-Energy":
   label: "Physics.Electromagnetism.Magnetic-Energy"
   permalink: "/topic/physics/electromagnetism/magnetic-energy"
@@ -4124,6 +4200,14 @@
   label: "Physics.Mechanics.Beats-in-Coupled-Oscillators"
   permalink: "/topic/physics/mechanics/beats-in-coupled-oscillators"
   description: "Physics / Mechanics / Beats-in-Coupled-Oscillators"
+"Physics.Mechanics.Center-of-Mass-and-Angular-Momentum":
+  label: "Physics.Mechanics.Center-of-Mass-and-Angular-Momentum"
+  permalink: "/topic/physics/mechanics/center-of-mass-and-angular-momentum"
+  description: "Physics / Mechanics / Center-of-Mass-and-Angular-Momentum"
+"Physics.Mechanics.Connected-Particles-and-Tension":
+  label: "Physics.Mechanics.Connected-Particles-and-Tension"
+  permalink: "/topic/physics/mechanics/connected-particles-and-tension"
+  description: "Physics / Mechanics / Connected-Particles-and-Tension"
 "Physics.Mechanics.Coupled-Rigid-Body-Normal-Modes":
   label: "Physics.Mechanics.Coupled-Rigid-Body-Normal-Modes"
   permalink: "/topic/physics/mechanics/coupled-rigid-body-normal-modes"
