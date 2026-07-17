@@ -29,11 +29,11 @@
     },
     "Chemistry.Organic-Chemistry": {
       "subject": "Chemistry",
-      "labelZh": "????",
-      "labelJa": "????",
+      "labelZh": "有机化学",
+      "labelJa": "有機化学",
       "labelEn": "Organic Chemistry",
-      "descriptionZh": "????????????????????",
-      "descriptionJa": "????????????????????",
+      "descriptionZh": "有机反应机理、合成、立体化学与结构鉴定。",
+      "descriptionJa": "有機反応機構、合成、立体化学、構造決定。",
       "descriptionEn": "Organic reaction mechanisms, synthesis, stereochemistry, and structure determination."
     }
   },
