@@ -13,7 +13,6 @@ tags:
 # 東京大学 工学系研究科 2025年8月実施 化学 第3問
 
 ## **Author**
-
 GPT-5.6 Sol
 
 ## **Description**
@@ -24,28 +23,39 @@ GPT-5.6 Sol
 
 次の反応における主生成物 A から K の構造式を示せ。
 
-1. 図示された N-ベンジル置換ピリドンのヒドロキシメチル基を PCC で酸化する。
-2. イソプロピリデンシクロヘキサンを $\mathrm{O_3}$、続いて $\mathrm{Zn/H_3O^+}$ で処理し、B と C を得る。
-3. 2-メチルシクロヘキサン-1,3-ジオンと $\mathrm{CH_2{=}CHCOCH_2CH_3}$ を塩基存在下で加熱し、D を得る。
-4. 1-テトラロンとピロリジンを加熱して E とし、続いて $\mathrm{CH_3I}$、加熱、酸加水分解により F を得る。
-5. 2,3-ジメチル-1,3-ブタジエンとアクロレインを加熱して G を得る。
-6. 4-オクチンを $\mathrm{Na/NH_3(l)}$ で還元して H を得る。
-7. 2-ヘキセナールに $\mathrm{C_2H_5MgBr}$ を作用させ、酸処理して I を得る。
-8. ベンゾニトリルを $\mathrm{LiAlD_4}$ で還元し、水で処理して J を得る。
-9. 4-ブロモ-N-アリルアニリンを $\mathrm{BF_3\mathord{\cdot}O(C_2H_5)_2}$ 存在下で加熱して K を得る。
+<figure style={{ textAlign: "center" }}>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p1.png" width="600" alt=""/>
+</figure>
 
 ### II
 
-cis-2-メチルシクロヘキサン-1-オール L を $\mathrm{TsCl/py}$ で cis-1-トシラート M とし、$\mathrm{KOtBu}$ で処理すると N が主生成物、3-メチルシクロヘキサ-1-エン O が副生成物となる。
+以下の化合物 L を出発物質とする多段階反応では，化合物 N，O がそれぞれ主生成物，副生成物として得られる。ここで，Ts，py はそれぞれ p-トルエンスルホニル基，ピリジンを表す。以下の問いに答えよ。
+
+<figure style={{ textAlign: "center" }}>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p2.png" width="500" alt=""/>
+</figure>
 
 1. N の構造を示し、N が優先する理由を反応機構から説明せよ。
 2. L から O を主生成物として得る多段階反応経路を一つ示せ。
 
 ### III
+1. 以下の化合物 P の反応で得られた化合物 Q を単離精製した。化合物 Q の $^1\mathrm{H}\ \ce{NMR}$ スペクトルを $\ce{CDCl3}$ 中で測定したところ，$\delta = 7.77$ ppm および $8.26$ ppm に，同一のカップリング定数を有する 2 つのダブレットシグナルが観測された。化合物 Q の構造式を描け。
 
-1. ビフェニル P を $\mathrm{HNO_3/H_2SO_4}$ でニトロ化した。生成物 Q の $^1\mathrm{H}$ NMR では、$\delta=7.77$、$8.26\ \mathrm{ppm}$ に同じカップリング定数をもつ二つのダブレットが観測された。Q の構造を示せ。
-2. ベンゼンから n-プロピルベンゼン R を主生成物として合成する多段階経路を一つ示せ。
-3. フェニルアラニン S の芳香環上の D を保持したまま、アレーンオキシド T を経て重水素化チロシン U が生じる。T から U への電子の流れを示せ。
+<figure style={{ textAlign: "center" }}>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p3.png" width="400" alt=""/>
+</figure>
+
+2. ベンゼンを出発物質として化合物 R を主生成物として合成するための多段階反応経路を 1 つ示せ。
+
+<figure style={{ textAlign: "center" }}>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p4.png" width="200" alt=""/>
+</figure>
+
+3. ヒト肝臓におけるヒドロキシラーゼを触媒とするフェニルアラニンの水酸化反応の反応経路は，以下のように提案されている。この反応において，重水素標識化されたフェニルアラニン S から，対応する重水素化チロシン U が得られる。中間体 T からチロシン U が生成する反応機構を，巻き矢印で電子の流れを示しながら描け。
+
+<figure style={{ textAlign: "center" }}>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p5.png" width="500" alt=""/>
+</figure>
 
 ## **Kai**
 ### I
