@@ -31,7 +31,7 @@ S(u,v)=\frac{e^u+e^{-u}}2\cos v\,\boldsymbol i
 $$
 
 $$
--2\le u\le2,qquad0\le v\le2\pi
+-2\le u\le2,\qquad0\le v\le2\pi
 $$
 
 とする。
@@ -145,23 +145,23 @@ $$
 第一基本量は
 
 $$
-E=S_u\cdot S_u=\cosh^2u,qquad
-F=S_u\cdot S_v=0,qquad
+E=S_u\cdot S_u=\cosh^2u,\qquad
+F=S_u\cdot S_v=0,\qquad
 G=S_v\cdot S_v=\cosh^2u.
 $$
 
 単位法線ベクトルを
 
 $$
-\boldsymbol n=left(-\frac{\cos v}{\cosh u},
+\boldsymbol n=\left(-\frac{\cos v}{\cosh u},
 -\frac{\sin v}{\cosh u},\tanh u\right)
 $$
 
 と選ぶと、第二基本量の係数は
 
 $$
-e=S_{uu}\cdot\boldsymbol n=-1,qquad
-f=S_{uv}\cdot\boldsymbol n=0,qquad
+e=S_{uu}\cdot\boldsymbol n=-1,\qquad
+f=S_{uv}\cdot\boldsymbol n=0,\qquad
 g=S_{vv}\cdot\boldsymbol n=1.
 $$
 

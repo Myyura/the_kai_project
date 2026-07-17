@@ -152,7 +152,7 @@ $$
 したがって、
 
 $$
-\boxed{a_0=1,qquad a_n=0,qquad
+\boxed{a_0=1,\qquad a_n=0,\qquad
 b_n=\frac{1-(-1)^n}{\pi n}}
 $$
 
@@ -180,8 +180,8 @@ $$
 よって、
 
 $$
-\boxed{a_0=\frac4\pi,qquad
-a_n=\frac{4(-1)^{n+1}}{\pi(4n^2-1)},qquad b_n=0}
+\boxed{a_0=\frac4\pi,\qquad
+a_n=\frac{4(-1)^{n+1}}{\pi(4n^2-1)},\qquad b_n=0}
 $$
 
 である。

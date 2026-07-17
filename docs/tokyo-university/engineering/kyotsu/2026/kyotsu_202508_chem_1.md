@@ -48,30 +48,22 @@ $$
 
 となることを示せ。
 2. 規格化条件から $A$、$B$ を決定せよ。
-3. 図示された 11 個の共役二重結合をもつ分子について、22 個の $\pi$ 電子が共役結合の全長 $L$ の一次元井戸内を運動すると近似する。HOMO-LUMO 遷移の吸収波長 $\lambda$ を $L,m,h,c$ で表せ。
+3. 図示された 11 個の共役二重結合をもつ $\beta$-カロテンについて、22 個の $\pi$ 電子が共役結合の全長 $L$ の一次元井戸内を運動すると近似する。HOMO-LUMO 遷移の吸収波長 $\lambda$ を $L,m,h,c$ で表せ。図示された分子は次の構造である。
+
+```smiles
+CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/C=C/C=C(\C)/C=C/C=C(\C)/C=C/C2=C(C)CCCC2(C)C)/C)/C
+```
 
 ### II
 
-均一な固体触媒表面で、次の素反応による CO 酸化を考える。$\sigma$ は空きサイト、吸着種間の相互作用はないものとする。
+均一な固体触媒表面で、次の素反応による CO 酸化を考える。$\sigma$ は空きサイト、吸着種間の相互作用はないものとする。以下の反応式では空きサイト $\sigma$ を `*` と略記する。
 
 $$
 \begin{aligned}
-\mathrm{CO}+\sigma
-&\rightleftharpoons
-\mathrm{CO}\mathord{\cdot}\sigma,
-\\
-\mathrm{O_2}+2\sigma
-&\rightleftharpoons
-2\mathrm{O}\mathord{\cdot}\sigma,
-\\
-\mathrm{CO}\mathord{\cdot}\sigma
-+\mathrm{O}\mathord{\cdot}\sigma
-&\longrightarrow
-\mathrm{CO_2}\mathord{\cdot}\sigma+\sigma,
-\\
-\mathrm{CO_2}\mathord{\cdot}\sigma
-&\rightleftharpoons
-\mathrm{CO_2}+\sigma.
+&\ce{CO + * <=> CO*},\\
+&\ce{O2 + 2* <=> 2O*},\\
+&\ce{CO* + O* -> CO2* + *},\\
+&\ce{CO2* <=> CO2 + *}.
 \end{aligned}
 $$
 
@@ -101,13 +93,9 @@ $$
 次の酵素反応を考える。
 
 $$
-\mathrm{E+S}
-\rightleftharpoons
-\mathrm{ES},
+\ce{E + S <=> ES},
 \qquad
-\mathrm{ES}
-\longrightarrow
-\mathrm{E+P}.
+\ce{ES -> E + P}.
 $$
 
 1. ES の解離定数を $K_{\mathrm{S}}$、最大反応速度を $V_{\max}$、基質濃度を $[\mathrm{S}]$ とし、結合反応を平衡とみなす。反応速度 $v$ を求めよ。

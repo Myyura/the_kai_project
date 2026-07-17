@@ -17,7 +17,7 @@ GPT-5.6 Sol
 壺 $A$ に赤玉が $R$ 個、緑玉が $G$ 個入っている。ここから同時に $n$ 個を取り出し、その中の赤玉の個数を確率変数 $X$ とする。ただし
 
 $$
-n\ge1,qquad R\ge n,qquad G\ge n
+n\ge1,\qquad R\ge n,\qquad G\ge n
 $$
 
 とする。
@@ -50,7 +50,7 @@ $$
 $n=2,R=3,G=6$ を代入すると、
 
 $$
-\boxed{\mathbb E[X]=\frac23,qquad
+\boxed{\mathbb E[X]=\frac23,\qquad
 \operatorname{Var}(X)=\frac7{18}}
 $$
 
