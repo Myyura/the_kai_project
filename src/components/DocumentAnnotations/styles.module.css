@@ -116,10 +116,10 @@
   height: 25px;
   padding: 0 5px;
   transform: translateY(-50%);
-  border: 1px solid color-mix(in srgb, #eab308 45%, var(--ifm-color-emphasis-200));
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 45%, var(--ifm-color-emphasis-200));
   border-radius: 999px;
-  background: color-mix(in srgb, #facc15 14%, var(--ifm-background-surface-color));
-  color: #a16207;
+  background: color-mix(in srgb, var(--ifm-color-primary) 11%, var(--ifm-background-surface-color));
+  color: var(--ifm-color-primary);
   cursor: pointer;
   pointer-events: auto;
   font-size: .66rem;
@@ -128,17 +128,19 @@
 
 :global(::highlight(kai-annotations)) {
   color: inherit;
-  background: rgba(250, 204, 21, .28);
-  text-decoration: underline 1px rgba(202, 138, 4, .6);
+  background: color-mix(in srgb, var(--ifm-color-primary) 22%, transparent);
+  text-decoration: underline 1px color-mix(in srgb, var(--ifm-color-primary) 65%, transparent);
 }
 
 :global(::highlight(kai-active-annotation)) {
   color: inherit;
-  background: rgba(249, 115, 22, .34);
-  text-decoration: underline 2px rgba(234, 88, 12, .8);
+  background: color-mix(in srgb, var(--ifm-color-primary) 32%, transparent);
+  text-decoration: underline 2px var(--ifm-color-primary);
 }
 
 .annotationPanel {
+  box-sizing: border-box;
+  width: 100%;
   overflow: hidden;
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 10px;
@@ -158,6 +160,7 @@
   justify-content: space-between;
   padding: .7rem .75rem;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: color-mix(in srgb, var(--ifm-color-primary) 4%, var(--ifm-background-surface-color));
 }
 
 .panelHeader > div,
@@ -170,7 +173,7 @@
 
 .panelHeader svg,
 .footerTitle svg {
-  color: #ca8a04;
+  color: var(--ifm-color-primary);
 }
 
 .panelHeader strong,
@@ -222,12 +225,13 @@
 
 .annotationList {
   min-height: 0;
-  padding: .55rem;
+  padding: .45rem;
   overflow-y: auto;
 }
 
 .annotationCard {
-  padding: .62rem;
+  min-width: 0;
+  padding: .45rem .52rem;
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 8px;
   background: var(--ifm-background-color);
@@ -236,20 +240,21 @@
 }
 
 .annotationCard + .annotationCard {
-  margin-top: .48rem;
+  margin-top: .35rem;
 }
 
 .annotationCard:hover,
 .annotationCardActive {
-  border-color: color-mix(in srgb, #eab308 62%, var(--ifm-color-emphasis-200));
-  box-shadow: 0 3px 10px rgba(161, 98, 7, .09);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 58%, var(--ifm-color-emphasis-200));
+  background: color-mix(in srgb, var(--ifm-color-primary) 3%, var(--ifm-background-color));
+  box-shadow: 0 3px 10px color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
 }
 
 .annotationCardActive {
+  padding: .62rem;
   cursor: default;
 }
 
-.cardTopline,
 .cardEditorHeader {
   display: flex;
   align-items: center;
@@ -257,41 +262,54 @@
   gap: .5rem;
 }
 
-.cardTopline strong {
+.cardCompact {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: .38rem;
+}
+
+.cardCompact strong {
+  max-width: 7.5rem;
   min-width: 0;
   overflow: hidden;
   color: var(--ifm-color-emphasis-800);
-  font-size: .78rem;
+  font-size: .74rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.cardTopline span,
-.lineLabel {
-  flex: 0 0 auto;
-  color: var(--ifm-color-emphasis-500);
-  font-size: .65rem;
-}
-
-.quoteExcerpt {
-  margin-top: .32rem;
+.cardSummary {
+  min-width: 0;
   overflow: hidden;
   color: var(--ifm-color-emphasis-600);
-  font-size: .7rem;
-  line-height: 1.45;
+  font-size: .69rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.bodyExcerpt {
-  display: -webkit-box;
-  margin: .35rem 0 0;
-  overflow: hidden;
-  color: var(--ifm-color-emphasis-700);
-  font-size: .72rem;
-  line-height: 1.5;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+.compactLine,
+.lineLabel {
+  color: var(--ifm-color-emphasis-500);
+  font-size: .65rem;
+  white-space: nowrap;
+}
+
+.compactStatus {
+  font-size: .68rem;
+}
+
+.statusText_ok {
+  color: #15803d;
+}
+
+.statusText_warning {
+  color: var(--ifm-color-primary);
+}
+
+.statusText_danger {
+  color: #dc2626;
 }
 
 .titleInput {
@@ -312,11 +330,38 @@
   margin: .48rem 0;
   padding: .38rem .5rem;
   overflow: auto;
-  border-left: 2px solid #eab308;
-  background: color-mix(in srgb, #facc15 7%, transparent);
+  border-left: 2px solid var(--ifm-color-primary);
+  background: color-mix(in srgb, var(--ifm-color-primary) 6%, transparent);
   color: var(--ifm-color-emphasis-600);
   font-size: .7rem;
   line-height: 1.45;
+}
+
+.cardEditorMeta {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: .3rem;
+}
+
+.detailClose {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ifm-color-emphasis-500);
+  cursor: pointer;
+  font-size: .68rem;
+}
+
+.detailClose:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
 }
 
 .cardEditor textarea {
@@ -358,8 +403,8 @@
 }
 
 .status_warning {
-  background: rgba(245, 158, 11, .12);
-  color: #b45309;
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
+  color: var(--ifm-color-primary);
 }
 
 .status_danger {
@@ -377,11 +422,22 @@
 
 .footerAnnotations {
   border-top: 1px solid var(--ifm-color-emphasis-200);
-  padding: .8rem 1rem 1rem;
 }
 
-.footerTitle {
-  margin-bottom: .65rem;
+.footerToggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: .7rem 1rem;
+  border: 0;
+  background: transparent;
+  color: var(--ifm-color-emphasis-600);
+  cursor: pointer;
+}
+
+.footerToggle:hover {
+  background: var(--ifm-color-emphasis-100);
 }
 
 .panel_footer {
@@ -391,14 +447,23 @@
 
 .panel_footer .annotationList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: .55rem;
-  padding: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .5rem;
+  padding: .8rem 1rem 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
   overflow: visible;
 }
 
 .panel_footer .annotationCard + .annotationCard {
   margin-top: 0;
+}
+
+.panel_footer .annotationCardActive {
+  grid-column: 1 / -1;
+}
+
+.panel_footer .annotationSearch {
+  margin: .75rem 1rem 0;
 }
 
 .changeNotice {
@@ -407,15 +472,15 @@
   gap: .75rem;
   margin-bottom: 1rem;
   padding: .72rem .85rem;
-  border: 1px solid rgba(245, 158, 11, .35);
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 35%, var(--ifm-color-emphasis-200));
   border-radius: 10px;
-  background: rgba(245, 158, 11, .08);
+  background: color-mix(in srgb, var(--ifm-color-primary) 7%, var(--ifm-background-color));
   color: var(--ifm-color-emphasis-700);
 }
 
 .changeNotice > svg {
   flex: 0 0 auto;
-  color: #d97706;
+  color: var(--ifm-color-primary);
 }
 
 .changeNotice > div {
@@ -440,10 +505,10 @@
   align-items: center;
   gap: .32rem;
   padding: .38rem .58rem;
-  border: 1px solid #d97706;
+  border: 1px solid var(--ifm-color-primary);
   border-radius: 7px;
   background: transparent;
-  color: #b45309;
+  color: var(--ifm-color-primary);
   cursor: pointer;
   font-size: .72rem;
   font-weight: 700;
@@ -497,11 +562,11 @@
     align-items: center;
     gap: .38rem;
     padding: .58rem .72rem;
-    border: 1px solid color-mix(in srgb, #eab308 50%, var(--ifm-color-emphasis-200));
+    border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 50%, var(--ifm-color-emphasis-200));
     border-radius: 999px;
     background: var(--ifm-background-surface-color);
     box-shadow: 0 6px 20px rgba(15, 23, 42, .18);
-    color: #a16207;
+    color: var(--ifm-color-primary);
     cursor: pointer;
     font-size: .75rem;
     font-weight: 700;
@@ -575,3 +640,14 @@
   }
 }
 
+@media (max-width: 720px) {
+  .panel_footer .annotationList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .panel_footer .annotationList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

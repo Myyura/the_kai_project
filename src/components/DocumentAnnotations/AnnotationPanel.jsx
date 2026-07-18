@@ -1,6 +1,8 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   FaCheck,
+  FaChevronDown,
+  FaChevronUp,
   FaEdit,
   FaExclamationTriangle,
   FaSearch,
@@ -17,9 +19,16 @@ const excerpt = (value, limit = 180) => {
   return normalized.length > limit ? `${normalized.slice(0, limit)}…` : normalized;
 };
 
-export function AnnotationCard({annotation, surface = 'sidebar'}) {
+export function AnnotationCard({
+  annotation,
+  surface = 'sidebar',
+  expanded,
+  onExpand,
+  onCollapse,
+}) {
   const {
     activeId,
+    setActiveId,
     documentHash,
     resolutions,
     updateAnnotation,
@@ -28,7 +37,8 @@ export function AnnotationCard({annotation, surface = 'sidebar'}) {
     focusAnnotation,
   } = useDocumentAnnotations();
   const t = useUiText('annotations');
-  const active = activeId === annotation.id;
+  const selected = activeId === annotation.id;
+  const detailOpen = typeof expanded === 'boolean' ? expanded : selected;
   const [title, setTitle] = useState(annotation.title);
   const [body, setBody] = useState(annotation.bodyMarkdown);
   const dirtyRef = useRef(false);
@@ -80,12 +90,24 @@ export function AnnotationCard({annotation, surface = 'sidebar'}) {
         ? {tone: 'warning', label: t.sourceMoved(resolution.currentLine)}
         : {tone: 'ok', label: t.sourceStillExists}
     : null;
+  const compactSummary = excerpt(annotation.bodyMarkdown || annotation.exact, 120) || t.emptyAnnotation;
+
+  const closeDetails = (event) => {
+    event.stopPropagation();
+    flush();
+    setActiveId(null);
+    onCollapse?.();
+  };
 
   return (
     <article
-      className={`${styles.annotationCard} ${active ? styles.annotationCardActive : ''} ${styles[`surface_${surface}`] || ''}`}
-      onClick={() => !active && focusAnnotation(annotation.id, {openMobile: surface === 'mobile'})}>
-      {active ? (
+      className={`${styles.annotationCard} ${selected || detailOpen ? styles.annotationCardActive : ''} ${styles[`surface_${surface}`] || ''}`}
+      onClick={() => {
+        if (detailOpen) return;
+        focusAnnotation(annotation.id, {openMobile: surface === 'mobile'});
+        onExpand?.();
+      }}>
+      {detailOpen ? (
         <div className={styles.cardEditor} onClick={(event) => event.stopPropagation()}>
           <div className={styles.cardEditorHeader}>
             <input
@@ -95,7 +117,12 @@ export function AnnotationCard({annotation, surface = 'sidebar'}) {
               onBlur={flush}
               aria-label={t.annotationName}
             />
-            <span className={styles.lineLabel}>{t.line(annotation.line)}</span>
+            <div className={styles.cardEditorMeta}>
+              <span className={styles.lineLabel}>{t.line(annotation.line)}</span>
+              <button type="button" className={styles.detailClose} onClick={closeDetails} aria-label={t.close}>
+                <FaChevronUp aria-hidden="true" />
+              </button>
+            </div>
           </div>
           <blockquote>{annotation.exact}</blockquote>
           <textarea
@@ -125,19 +152,18 @@ export function AnnotationCard({annotation, surface = 'sidebar'}) {
           </div>
         </div>
       ) : (
-        <>
-          <div className={styles.cardTopline}>
-            <strong>{annotation.title}</strong>
-            <span>{t.line(annotation.line)}</span>
-          </div>
-          <div className={styles.quoteExcerpt}>“{excerpt(annotation.exact, 90)}”</div>
-          <p className={styles.bodyExcerpt}>{excerpt(annotation.bodyMarkdown, 150) || t.emptyAnnotation}</p>
+        <div className={styles.cardCompact} title={`${annotation.title} · ${compactSummary}`}>
+          <strong>{annotation.title}</strong>
+          <span className={styles.cardSummary}>{compactSummary}</span>
           {status && (
-            <div className={`${styles.statusBadge} ${styles[`status_${status.tone}`]}`}>
-              {status.label}
-            </div>
+            <FaExclamationTriangle
+              className={`${styles.compactStatus} ${styles[`statusText_${status.tone}`]}`}
+              aria-label={status.label}
+              title={status.label}
+            />
           )}
-        </>
+          <span className={styles.compactLine}>{t.line(annotation.line)}</span>
+        </div>
       )}
     </article>
   );
@@ -153,6 +179,7 @@ function AnnotationList({surface = 'sidebar', showHeader = true}) {
   } = useDocumentAnnotations();
   const t = useUiText('annotations');
   const [query, setQuery] = useState('');
+  const [expandedFooterId, setExpandedFooterId] = useState(null);
   const staleIds = useMemo(() => new Set(staleAnnotations.map((item) => item.id)), [staleAnnotations]);
   const items = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -194,7 +221,14 @@ function AnnotationList({surface = 'sidebar', showHeader = true}) {
       )}
       <div className={styles.annotationList}>
         {items.length > 0 ? items.map((annotation) => (
-          <AnnotationCard key={annotation.id} annotation={annotation} surface={surface} />
+          <AnnotationCard
+            key={annotation.id}
+            annotation={annotation}
+            surface={surface}
+            expanded={surface === 'footer' ? expandedFooterId === annotation.id : undefined}
+            onExpand={surface === 'footer' ? () => setExpandedFooterId(annotation.id) : undefined}
+            onCollapse={surface === 'footer' ? () => setExpandedFooterId(null) : undefined}
+          />
         )) : (
           <div className={styles.emptyPanel}>
             {annotations.length === 0 ? t.emptyPanel : t.noSearchResults}
@@ -212,16 +246,24 @@ export function AnnotationSidebar() {
 export function FooterAnnotationSection() {
   const {enabled, annotations} = useDocumentAnnotations();
   const t = useUiText('annotations');
+  const [expanded, setExpanded] = useState(false);
   if (!enabled || annotations.length === 0) return null;
 
   return (
     <section className={styles.footerAnnotations}>
-      <div className={styles.footerTitle}>
-        <FaStickyNote aria-hidden="true" />
-        <strong>{t.inlineAnnotations}</strong>
-        <span>{annotations.length}</span>
-      </div>
-      <AnnotationList surface="footer" showHeader={false} />
+      <button
+        type="button"
+        className={styles.footerToggle}
+        onClick={() => setExpanded((value) => !value)}
+        aria-expanded={expanded}>
+        <span className={styles.footerTitle}>
+          <FaStickyNote aria-hidden="true" />
+          <strong>{t.inlineAnnotations}</strong>
+          <span>{annotations.length}</span>
+        </span>
+        {expanded ? <FaChevronUp aria-hidden="true" /> : <FaChevronDown aria-hidden="true" />}
+      </button>
+      {expanded && <AnnotationList surface="footer" showHeader={false} />}
     </section>
   );
 }

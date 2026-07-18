@@ -7,13 +7,40 @@
 
 /* TOC 目录容器 - 简洁现代风格 */
 .tableOfContents {
+  box-sizing: border-box;
+  width: 100%;
   max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
   overflow-y: auto;
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 1rem);
-  padding: 1rem 0.75rem;
+  padding: 0;
   margin-left: 0;
-  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.8rem;
+}
+
+.tocTitle {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .7rem .75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: color-mix(in srgb, var(--ifm-color-primary) 4%, var(--ifm-background-surface-color));
+  color: var(--ifm-color-emphasis-800);
+}
+
+.tocTitle svg {
+  color: var(--ifm-color-primary);
+}
+
+.tocTitle strong {
+  font-size: .82rem;
+}
+
+.tableOfContents > :global(.table-of-contents) {
+  margin: .42rem;
+  padding: 0;
+  border-left: 0;
 }
 
 /* 隐藏滚动条但保持可滚动 */
@@ -45,19 +72,20 @@
 /* 目录链接基础样式 */
 :global(.table-of-contents__link) {
   display: block;
-  padding: 0.35rem 0.75rem;
-  margin: 0.15rem 0;
+  padding: 0.38rem 0.55rem;
+  margin: 0.1rem 0;
   color: var(--ifm-font-color-secondary);
   text-decoration: none;
   border-radius: 6px;
   transition: all 0.15s ease;
-  border-left: 2px solid transparent;
+  border: 1px solid transparent;
+  border-left-width: 2px;
 }
 
 :global(.table-of-contents__link:hover) {
   color: var(--ifm-color-primary) !important;
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: color-mix(in srgb, var(--ifm-color-primary) 4%, transparent);
   border-left-color: var(--ifm-color-primary);
 }
 
@@ -69,7 +97,7 @@
 :global(.table-of-contents__link--active) {
   font-weight: 600;
   color: var(--ifm-color-primary) !important;
-  background-color: rgba(var(--theme-accent-rgb), 0.08);
+  background-color: color-mix(in srgb, var(--ifm-color-primary) 9%, transparent);
   border-left-color: var(--ifm-color-primary);
 }
 

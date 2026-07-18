@@ -19,6 +19,8 @@
     position: sticky;
     top: calc(var(--ifm-navbar-height) + 1rem);
     display: flex;
+    box-sizing: border-box;
+    width: 100%;
     max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
     min-height: 0;
     flex-direction: column;
@@ -27,12 +29,20 @@
 
   .tocPane {
     flex: 1 1 auto;
+    box-sizing: border-box;
+    width: 100%;
     min-height: 96px;
     overflow-y: auto;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 10px;
+    background: var(--ifm-background-surface-color);
   }
 
   .tocPane :global(.theme-doc-toc-desktop) {
     position: static;
+    box-sizing: border-box;
+    width: 100%;
     max-height: none;
+    overflow: visible;
   }
 }
