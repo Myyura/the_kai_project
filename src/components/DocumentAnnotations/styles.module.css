@@ -126,6 +126,13 @@
   box-shadow: 0 2px 8px rgba(15, 23, 42, .1);
 }
 
+.annotationMarker:hover,
+.annotationMarkerActive {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
 :global(::highlight(kai-annotations)) {
   color: inherit;
   background: color-mix(in srgb, var(--ifm-color-primary) 22%, transparent);

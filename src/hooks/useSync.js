@@ -5,8 +5,8 @@
  * 本 Hook 仅从 Context 读取，保持原有 API 不变。
  *
  * 提供：
- * - 认证状态 (user, cachedUser, isLoggedIn)
- *   user/isLoggedIn 仅在服务端校验完成后成立；cachedUser 只能用于过渡展示
+ * - 认证状态 (user, isLoggedIn)
+ *   user/isLoggedIn 仅在服务端校验完成后成立
  * - Supabase 配置状态 (isConfigured，构建时注入)
  * - 同步操作 (sync, push, pull)
  * - 邮箱登录/注册/登出方法

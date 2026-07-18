@@ -1,12 +1,39 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {createPortal} from 'react-dom';
 import {FaNoteSticky} from 'react-icons/fa6';
+import {
+  canonicalizeAnnotationText,
+  findAnnotationTextOffsets,
+} from '@site/src/services/annotationTextMatch';
 import {useDocumentAnnotations} from './context';
 import styles from './styles.module.css';
 
 const BLOCK_SELECTOR = '[data-kai-annotatable="true"][data-kai-source-line]';
 
 const getLine = (element) => Number(element?.getAttribute('data-kai-source-line')) || 1;
+
+const shouldIgnoreTextNode = (node) => Boolean(
+  node.parentElement?.closest?.('.katex-mathml, script, style, [hidden]')
+);
+
+const getRenderableTextModel = (block) => {
+  const textNodes = [];
+  const walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT);
+  let node;
+  let fullText = '';
+
+  while ((node = walker.nextNode())) {
+    if (shouldIgnoreTextNode(node)) continue;
+    textNodes.push({
+      node,
+      start: fullText.length,
+      end: fullText.length + node.nodeValue.length,
+    });
+    fullText += node.nodeValue;
+  }
+
+  return {fullText, textNodes};
+};
 
 const hashText = (value) => {
   let hash = 2166136261;
@@ -20,46 +47,63 @@ const hashText = (value) => {
 const computeDocumentHash = (container) => {
   const blocks = Array.from(container.querySelectorAll(BLOCK_SELECTOR));
   const source = blocks
-    .map((block) => `${getLine(block)}:${block.textContent || ''}`)
+    .map((block) => (
+      `${getLine(block)}:${canonicalizeAnnotationText(getRenderableTextModel(block).fullText)}`
+    ))
     .join('\n');
   return hashText(source);
 };
 
 const findTextRange = (block, exact) => {
   if (!block || !exact) return null;
-  const textNodes = [];
-  const walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT);
-  let node;
-  let fullText = '';
-  while ((node = walker.nextNode())) {
-    textNodes.push({node, start: fullText.length, end: fullText.length + node.nodeValue.length});
-    fullText += node.nodeValue;
-  }
+  const {fullText, textNodes} = getRenderableTextModel(block);
+  const offsets = findAnnotationTextOffsets(fullText, exact);
+  const ranges = offsets.map(({start, end}) => {
+    const startNode = textNodes.find((item) => start >= item.start && start < item.end);
+    const endNode = textNodes.find((item) => end > item.start && end <= item.end);
+    if (!startNode || !endNode) return null;
 
-  const startOffset = fullText.indexOf(exact);
-  if (startOffset < 0) return null;
-  const endOffset = startOffset + exact.length;
-  const startNode = textNodes.find((item) => startOffset >= item.start && startOffset < item.end);
-  const endNode = textNodes.find((item) => endOffset > item.start && endOffset <= item.end);
-  if (!startNode || !endNode) return null;
+    const range = document.createRange();
+    range.setStart(startNode.node, start - startNode.start);
+    range.setEnd(endNode.node, end - endNode.start);
+    return range;
+  }).filter(Boolean);
 
-  const range = document.createRange();
-  range.setStart(startNode.node, startOffset - startNode.start);
-  range.setEnd(endNode.node, endOffset - endNode.start);
-  return range;
+  return ranges.find((range) => Array.from(range.getClientRects()).some((rect) => (
+    rect.width > 0 && rect.height > 0
+  ))) || ranges[0] || null;
+};
+
+const getRenderableSelectionText = (block, range) => {
+  const {textNodes} = getRenderableTextModel(block);
+  let selected = '';
+
+  textNodes.forEach(({node}) => {
+    try {
+      if (!range.intersectsNode(node)) return;
+    } catch {
+      return;
+    }
+    const start = node === range.startContainer ? range.startOffset : 0;
+    const end = node === range.endContainer ? range.endOffset : node.nodeValue.length;
+    selected += node.nodeValue.slice(start, end);
+  });
+
+  return canonicalizeAnnotationText(selected);
 };
 
 const resolveAnnotation = (container, annotation) => {
   const blocks = Array.from(container.querySelectorAll(BLOCK_SELECTOR));
   const candidates = blocks
-    .filter((block) => (block.textContent || '').includes(annotation.exact))
+    .map((block) => ({block, range: findTextRange(block, annotation.exact)}))
+    .filter((candidate) => candidate.range)
     .sort((a, b) => {
-      const lineDistance = Math.abs(getLine(a) - annotation.line) - Math.abs(getLine(b) - annotation.line);
+      const lineDistance = Math.abs(getLine(a.block) - annotation.line) - Math.abs(getLine(b.block) - annotation.line);
       if (lineDistance !== 0) return lineDistance;
-      return (a.textContent || '').length - (b.textContent || '').length;
+      return getRenderableTextModel(a.block).fullText.length - getRenderableTextModel(b.block).fullText.length;
     });
-  const block = candidates[0] || null;
-  const range = block ? findTextRange(block, annotation.exact) : null;
+  const block = candidates[0]?.block || null;
+  const range = candidates[0]?.range || null;
   const currentLine = block ? getLine(block) : null;
   return {
     found: Boolean(block),
@@ -101,23 +145,26 @@ export default function InlineAnnotationController() {
   const updateMarkerPositions = useCallback(() => {
     if (!container) return;
     const containerRect = container.getBoundingClientRect();
-    const grouped = new Map();
-
-    annotations.forEach((annotation) => {
+    const positioned = annotations.map((annotation) => {
       const resolution = resolved[annotation.id];
-      if (!resolution?.block) return;
-      const existing = grouped.get(resolution.block) || [];
-      existing.push(annotation.id);
-      grouped.set(resolution.block, existing);
-    });
-
-    setMarkers(Array.from(grouped.entries()).map(([block, ids]) => {
-      const rect = block.getBoundingClientRect();
+      if (!resolution?.block) return null;
+      const rangeRect = resolution.range?.getClientRects?.()[0];
+      const rect = rangeRect && rangeRect.height > 0
+        ? rangeRect
+        : resolution.block.getBoundingClientRect();
       return {
-        ids,
+        id: annotation.id,
+        title: annotation.title,
         top: rect.top - containerRect.top + Math.min(10, rect.height / 2),
         left: container.clientWidth + 4,
       };
+    }).filter(Boolean).sort((a, b) => a.top - b.top);
+
+    let previousTop = -Infinity;
+    setMarkers(positioned.map((marker) => {
+      const top = Math.max(marker.top, previousTop + 28);
+      previousTop = top;
+      return {...marker, top};
     }));
   }, [annotations, container, resolved]);
 
@@ -169,7 +216,7 @@ export default function InlineAnnotationController() {
         const endBlock = endElement?.closest?.(BLOCK_SELECTOR);
         if (!startBlock || startBlock !== endBlock) return;
 
-        const exact = selection.toString().trim();
+        const exact = getRenderableSelectionText(startBlock, range);
         if (!exact) return;
         const rect = range.getBoundingClientRect();
         setSelectionDraft({
@@ -245,14 +292,13 @@ export default function InlineAnnotationController() {
     <div className={styles.markerLayer} aria-hidden="false">
       {markers.map((marker) => (
         <button
-          key={marker.ids.join(':')}
+          key={marker.id}
           type="button"
-          className={styles.annotationMarker}
+          className={`${styles.annotationMarker} ${activeId === marker.id ? styles.annotationMarkerActive : ''}`}
           style={{top: marker.top, left: marker.left}}
-          onClick={() => focusAnnotation(marker.ids[0], {openMobile: window.innerWidth <= 996})}
-          aria-label={`${marker.ids.length} annotations`}>
+          onClick={() => focusAnnotation(marker.id, {openMobile: window.innerWidth <= 996})}
+          aria-label={marker.title}>
           <FaNoteSticky aria-hidden="true" />
-          {marker.ids.length > 1 && <span>{marker.ids.length}</span>}
         </button>
       ))}
     </div>,

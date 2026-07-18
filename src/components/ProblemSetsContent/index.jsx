@@ -30,6 +30,7 @@ import {
   updateMyProblemSet,
   updateProblemSetItemAnnotation,
 } from '@site/src/services/problemSetService';
+import {getDocumentTitle} from '@site/src/services/documentMetadata';
 import styles from './styles.module.css';
 
 const getSetId = () => {
@@ -221,7 +222,10 @@ function ProblemSetDetail({setId}) {
   if (!problemSet) return null;
 
   const isCustom = problemSet.kind === PROBLEM_SET_KIND.CUSTOM;
-  const items = problemSet.items || [];
+  const items = (problemSet.items || []).map((item) => ({
+    ...item,
+    title: getDocumentTitle(item.docId, item.title),
+  }));
   const filtered = items.filter((item) => {
     const matchesText = !query.trim()
       || item.title.toLowerCase().includes(query.trim().toLowerCase())

@@ -134,10 +134,5 @@ export const useAllNotes = () => {
     [data]
   );
 
-  const clearAll = useCallback(() => {
-    writeNotesData({});
-    setData({});
-  }, []);
-
-  return { data, entries, clearAll };
+  return { data, entries };
 };

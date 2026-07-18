@@ -375,6 +375,14 @@ function validateSiteStats(data) {
   }
 }
 
+function validateDocumentTitles(data) {
+  if (!requireObject(data, 'documentTitles.json')) return;
+  for (const [docId, title] of Object.entries(data)) {
+    requireString(docId, 'documentTitles.json key');
+    requireString(title, `documentTitles.json.${docId}`);
+  }
+}
+
 validateLinks(readJson('src/data/links.json'));
 validateAdmissions(readJson('src/data/admissions.json'));
 validateUniversityMetadata(readJson('src/data/universityMetadata.json'));
@@ -382,6 +390,7 @@ const tagTaxonomy = require('../src/data/tagTaxonomy');
 validateTagTaxonomy(tagTaxonomy);
 if (tagTaxonomy) validateGeneratedTagsFile(tagTaxonomy);
 validateSiteStats(readJson('src/data/siteStats.json'));
+validateDocumentTitles(readJson('src/data/documentTitles.json'));
 
 if (errors.length > 0) {
   console.error('Content data validation failed:');

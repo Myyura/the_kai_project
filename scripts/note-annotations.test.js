@@ -26,6 +26,10 @@ const {
   updateAnnotation,
   updateFreeNoteContent,
 } = loadModule('src/services/noteAnnotations.js');
+const {
+  canonicalizeAnnotationText,
+  findAnnotationTextOffsets,
+} = loadModule('src/services/annotationTextMatch.js');
 
 test('free-form note and annotations round-trip through one content string', () => {
   const initial = {freeContent: '# 思路\n先看边界。', annotations: [], nextNumber: 1};
@@ -138,4 +142,25 @@ test('rehype plugin keeps a line-bearing wrapper around display math', () => {
   assert.equal(tree.children[0].properties['data-kai-math-block'], 'true');
   assert.equal(tree.children[0].properties['data-kai-source-line'], '24');
   assert.equal(tree.children[0].children[0].tagName, 'pre');
+});
+
+test('annotation matching tolerates whitespace introduced around formulas', () => {
+  assert.deepEqual(
+    findAnnotationTextOffsets('由 f(x) 可知', '由\nf(x)\t可知'),
+    [{start: 0, end: 9}]
+  );
+});
+
+test('annotation matching returns every visible occurrence', () => {
+  assert.deepEqual(
+    findAnnotationTextOffsets('f(x) 与 f(x)', 'f(x)'),
+    [{start: 0, end: 4}, {start: 7, end: 11}]
+  );
+});
+
+test('annotation anchors canonicalize layout whitespace and zero-width text', () => {
+  assert.equal(
+    canonicalizeAnnotationText('  由\n f(x)\u200b  可知  '),
+    '由 f(x) 可知'
+  );
 });

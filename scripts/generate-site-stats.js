@@ -5,6 +5,7 @@ const path = require('path');
 const { buildApiData } = require('./api-data');
 
 const OUTPUT_FILE = path.resolve(__dirname, '..', 'src', 'data', 'siteStats.json');
+const DOCUMENT_TITLES_FILE = path.resolve(__dirname, '..', 'src', 'data', 'documentTitles.json');
 
 function uniqueCount(values) {
   return new Set(values.filter(Boolean)).size;
@@ -36,10 +37,20 @@ function main() {
     })),
   };
 
+  const documentTitles = Object.fromEntries(
+    data.documents
+      .filter((doc) => doc.doc_id && doc.title)
+      .sort((a, b) => a.doc_id.localeCompare(b.doc_id))
+      .map((doc) => [doc.doc_id, doc.title])
+  );
+
   fs.writeFileSync(OUTPUT_FILE, `${JSON.stringify(stats, null, 2)}\n`, 'utf-8');
+  fs.writeFileSync(DOCUMENT_TITLES_FILE, `${JSON.stringify(documentTitles, null, 2)}\n`, 'utf-8');
   console.log(`Generated site stats: ${OUTPUT_FILE}`);
   console.log(`  exams: ${stats.examDocuments}`);
   console.log(`  universities: ${stats.universities}`);
+  console.log(`Generated document titles: ${DOCUMENT_TITLES_FILE}`);
+  console.log(`  documents: ${Object.keys(documentTitles).length}`);
 }
 
 main();

@@ -190,8 +190,12 @@ function LoginPageContent() {
   };
 
   const handleSignOut = async () => {
-    await signOut();
-    showMsg(t.logoutOk);
+    try {
+      await signOut();
+      showMsg(t.logoutOk);
+    } catch (err) {
+      showMsg(sanitizeAuthError(err, lang), true);
+    }
   };
 
   const handleGitHubLogin = async () => {

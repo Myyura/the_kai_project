@@ -324,16 +324,6 @@ export function DeveloperApiContent({ embedded = false } = {}) {
     );
   };
 
-  if (!authReady) {
-    return (
-      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
-        <div className={styles.loadingPanel}>
-          <FaRedo className={styles.spin} />
-        </div>
-      </div>
-    );
-  }
-
   if (!isConfigured) {
     return (
       <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
@@ -342,6 +332,16 @@ export function DeveloperApiContent({ embedded = false } = {}) {
           <h1>{t.apiTitle}</h1>
           <p>{t.notConfigured}</p>
         </section>
+      </div>
+    );
+  }
+
+  if (!authReady) {
+    return (
+      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+        <div className={styles.loadingPanel}>
+          <FaRedo className={styles.spin} />
+        </div>
       </div>
     );
   }

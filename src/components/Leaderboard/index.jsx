@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import Link from '@docusaurus/Link';
 import {FaSyncAlt, FaTrophy, FaUser, FaUserSecret} from 'react-icons/fa';
 import {useSync} from '@site/src/hooks/useSync';
@@ -33,20 +33,28 @@ export default function Leaderboard({language = 'zh', compact = false}) {
   const [refreshing, setRefreshing] = useState(false);
   const [fetched, setFetched] = useState(false);
   const [error, setError] = useState(null);
+  const requestSeqRef = useRef(0);
 
   const load = useCallback(async ({silent = false} = {}) => {
     if (!isConfigured || !isLoggedIn) return;
+    const seq = requestSeqRef.current + 1;
+    requestSeqRef.current = seq;
     if (silent) setRefreshing(true);
     else setLoading(true);
     setError(null);
     try {
-      setData(await fetchPracticeLeaderboard(period));
-      setFetched(true);
+      const next = await fetchPracticeLeaderboard(period);
+      if (requestSeqRef.current === seq) {
+        setData(next);
+        setFetched(true);
+      }
     } catch (loadError) {
-      setError(loadError.message || 'Error');
+      if (requestSeqRef.current === seq) setError(loadError.message || 'Error');
     } finally {
-      setLoading(false);
-      setRefreshing(false);
+      if (requestSeqRef.current === seq) {
+        setLoading(false);
+        setRefreshing(false);
+      }
     }
   }, [isConfigured, isLoggedIn, period]);
 

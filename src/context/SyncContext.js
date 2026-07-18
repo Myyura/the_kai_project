@@ -10,7 +10,7 @@
  */
 
 import React, { createContext, useState, useEffect, useCallback, useRef } from 'react';
-import { useInitSupabase, getCachedUser } from '../services/supabaseClient';
+import { useInitSupabase } from '../services/supabaseClient';
 import {
   getScopedStorageKey,
   getStorageOwner,
@@ -56,14 +56,6 @@ function useSyncInternal() {
   // 从 Docusaurus siteConfig 初始化 Supabase 凭据
   const isConfigured = useInitSupabase();
 
-  // 缓存用户仅用于过渡展示；正式登录态必须等待 getUser() 服务端校验。
-  const [cachedUser, setCachedUser] = useState(() => {
-    try {
-      return getCachedUser();
-    } catch {
-      return null;
-    }
-  });
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
   const [syncing, setSyncing] = useState(false);
@@ -85,13 +77,11 @@ function useSyncInternal() {
         if (mountedRef.current) {
           setStorageOwner(session?.user?.id ?? null);
           setUser(session?.user ?? null);
-          setCachedUser(session?.user ?? null);
         }
       } catch {
         if (mountedRef.current) {
           setStorageOwner(null);
           setUser(null);
-          setCachedUser(null);
         }
       }
       if (mountedRef.current) setAuthReady(true);
@@ -106,7 +96,6 @@ function useSyncInternal() {
         if (event === 'TOKEN_REFRESHED' && !session) {
           setStorageOwner(null);
           setUser(null);
-          setCachedUser(null);
           setError('会话已过期，请重新登录。');
           return;
         }
@@ -114,7 +103,6 @@ function useSyncInternal() {
         const nextUser = session?.user ?? null;
         setStorageOwner(nextUser?.id ?? null);
         setUser(nextUser);
-        setCachedUser(nextUser);
       });
     };
 
@@ -123,6 +111,7 @@ function useSyncInternal() {
   }, [isConfigured]);
 
   useEffect(() => {
+    mountedRef.current = true;
     return () => { mountedRef.current = false; };
   }, []);
 
@@ -315,7 +304,6 @@ function useSyncInternal() {
       if (mountedRef.current && nextUser) {
         setStorageOwner(nextUser.id);
         setUser(nextUser);
-        setCachedUser(nextUser);
       }
       return data;
     } catch (err) {
@@ -340,16 +328,15 @@ function useSyncInternal() {
       await doSignOut();
       setStorageOwner(null);
       setUser(null);
-      setCachedUser(null);
     } catch (err) {
       setError(err.message);
+      throw err;
     }
   }, []);
 
   return {
     isConfigured,
     user,
-    cachedUser,
     isLoggedIn: authReady && !!user,
     authReady,
     syncing,

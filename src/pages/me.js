@@ -11,7 +11,6 @@ import {
 } from 'react-icons/fa';
 import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
 import { useAllNotes } from '@site/src/hooks/useNotes';
-import { UNIV_MAP } from '@site/src/data/universities';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import CloudSyncPanel from '@site/src/components/CloudSyncPanel';
 import Leaderboard from '@site/src/components/Leaderboard';
@@ -26,19 +25,8 @@ import { ContributeContent } from '@site/src/components/ContributeContent';
 import { DeveloperApiContent } from '@site/src/components/DeveloperApiContent';
 import { AgentTutorContent } from '@site/src/components/AgentTutorContent';
 import ProblemSetsContent from '@site/src/components/ProblemSetsContent';
-import {parseNoteDocument, stripAnnotationMetadata} from '@site/src/services/noteAnnotations';
+import {buildPersonalCenterData} from '@site/src/services/personalCenterData';
 import styles from './me.module.css';
-
-const toTagSlug = (tag) =>
-  tag
-    .toLowerCase()
-    .replace(/[^\w\u3000-\u9fff\uac00-\ud7af\u3040-\u30ff]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-
-const extractUniv = (docId = '', fallback = '') => {
-  const seg = docId.split('/')[0] || '';
-  return UNIV_MAP[seg] || seg || fallback;
-};
 
 const toDateKey = (ts) => {
   const d = new Date(ts);
@@ -213,6 +201,18 @@ const StudyHeatmap = ({ entries, t, language }) => {
 
 const URGENCY_ORDER = { critical: 0, urgent: 1, normal: 2, soon: 3 };
 
+const DocumentEntryIdentity = React.memo(({entry}) => (
+  <div className={styles.entryInfo}>
+    <span className={styles.entryUniv}>
+      <FaBuilding className={styles.entryUnivIcon} />
+      {entry.university}
+    </span>
+    <Link to={entry.permalink} className={styles.entryTitle}>
+      {entry.title}
+    </Link>
+  </div>
+));
+
 // 遗忘曲线提醒组件
 const ReviewReminderSection = ({ entries, t }) => {
   const items = React.useMemo(() => {
@@ -246,22 +246,11 @@ const ReviewReminderSection = ({ entries, t }) => {
             key={entry.id}
             className={`${styles.reminderRow} ${entry.reviewInfo.urgency === 'critical' ? styles.reminderCritical : entry.reviewInfo.urgency === 'urgent' ? styles.reminderUrgent : ''}`}
           >
-            <div className={styles.entryInfo}>
-              <span className={styles.entryUniv}>
-                <FaBuilding className={styles.entryUnivIcon} />
-                {extractUniv(entry.id, t.unknownSchool)}
-              </span>
-              <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
-                {entry.title || entry.id}
-              </a>
-            </div>
+            <DocumentEntryIdentity entry={entry} />
             <div className={styles.reminderMeta}>
               <UrgencyBadge reviewInfo={entry.reviewInfo} />
               {entry.reviewInfo.urgency === 'critical' && (
                 <span className={styles.reminderSub}>{t.overdueDays(entry.reviewInfo.overdueDays)}</span>
-              )}
-              {entry.reviewInfo.urgency === 'normal' && (
-                <span className={styles.reminderSub}>{t.daysLater(entry.reviewInfo.daysUntil)}</span>
               )}
             </div>
           </div>
@@ -292,15 +281,7 @@ const RecentPracticeSection = ({ entries, t, language }) => {
       <div className={styles.entryList}>
         {items.map((entry) => (
           <div key={entry.id} className={styles.entryRow}>
-            <div className={styles.entryInfo}>
-              <span className={styles.entryUniv}>
-                <FaBuilding className={styles.entryUnivIcon} />
-                {extractUniv(entry.id, t.unknownSchool)}
-              </span>
-              <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
-                {entry.title || entry.id}
-              </a>
-            </div>
+            <DocumentEntryIdentity entry={entry} />
             <div className={styles.entryMeta}>
               <StatusBadge status={entry.status} t={t} />
               {entry.updatedAt && (
@@ -351,15 +332,7 @@ const EntryRow = React.memo(({ entry, t, language }) => {
 
   return (
     <div className={styles.entryRow}>
-      <div className={styles.entryInfo}>
-        <span className={styles.entryUniv}>
-          <FaBuilding className={styles.entryUnivIcon} />
-          {extractUniv(entry.id, t.unknownSchool)}
-        </span>
-        <a href={entry.permalink || `/docs/${entry.id}`} className={styles.entryTitle}>
-          {entry.title || entry.id}
-        </a>
-      </div>
+      <DocumentEntryIdentity entry={entry} />
       <div className={styles.entryMeta}>
         {nextReviewText && (
           <span className={`${styles.nextReviewBadge} ${nextReviewColor}`}>
@@ -428,8 +401,8 @@ const CenterLoadingState = ({ t }) => (
   </div>
 );
 
-const PublicProfileSettings = ({ t }) => {
-  const {profile, loading, saveNickname, setLeaderboardVisible} = usePublicProfile();
+const PublicProfileSettings = ({ t, profileState }) => {
+  const {profile, loading, saveNickname, setLeaderboardVisible} = profileState;
   const [editing, setEditing] = React.useState(false);
   const [draft, setDraft] = React.useState('');
   const [message, setMessage] = React.useState(null);
@@ -512,7 +485,8 @@ const PublicProfileSettings = ({ t }) => {
 };
 
 const AccountOverview = ({ user, stats, notesCount, reputation, reputationLoading, t }) => {
-  const {profile} = usePublicProfile();
+  const profileState = usePublicProfile();
+  const {profile} = profileState;
   const levelKey = reputation?.levelKey || 'newcomer';
   const levelLabel = reputationLoading
     ? t.reputationLoading
@@ -554,47 +528,27 @@ const AccountOverview = ({ user, stats, notesCount, reputation, reputationLoadin
           <small>{t.acceptedCorrections}</small>
         </div>
       </div>
-      <PublicProfileSettings t={t} />
+      <PublicProfileSettings t={t} profileState={profileState} />
     </section>
   );
 };
 
-const NotesSection = ({ noteEntries, progressEntries, t, language }) => {
+const NotesSection = ({ noteEntries, t, language }) => {
   const [query, setQuery] = React.useState('');
-  const progressById = React.useMemo(() => {
-    const map = {};
-    progressEntries.forEach((entry) => { map[entry.id] = entry; });
-    return map;
-  }, [progressEntries]);
 
   const items = React.useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return noteEntries
-      .map((note) => {
-        const progress = progressById[note.id] || {};
-        const content = stripAnnotationMetadata(note.content || '');
-        const annotationCount = parseNoteDocument(note.content || '').annotations.length;
-        return {
-          ...note,
-          title: progress.title || note.id,
-          permalink: progress.permalink || `/docs/${note.id}`,
-          univ: extractUniv(note.id, t.unknownSchool),
-          excerpt: content.trim().replace(/\s+/g, ' ').slice(0, 180),
-          charCount: content.trim().length,
-          annotationCount,
-        };
-      })
       .filter((note) => {
         if (!normalizedQuery) return true;
         return [
           note.id,
           note.title,
-          note.univ,
+          note.university,
           note.excerpt,
         ].some((value) => String(value || '').toLowerCase().includes(normalizedQuery));
-      })
-      .sort((a, b) => (b.updatedAt ?? 0) - (a.updatedAt ?? 0));
-  }, [noteEntries, progressById, query]);
+      });
+  }, [noteEntries, query]);
 
   return (
     <section className={styles.section}>
@@ -625,7 +579,7 @@ const NotesSection = ({ noteEntries, progressEntries, t, language }) => {
               <div className={styles.noteRowTop}>
                 <span className={styles.entryUniv}>
                   <FaBuilding className={styles.entryUnivIcon} />
-                  {note.univ}
+                  {note.university}
                 </span>
                 <span className={styles.noteDate}>{formatDateTime(note.updatedAt, language)}</span>
               </div>
@@ -647,43 +601,31 @@ function PersonalCenterDashboard({ user }) {
   const language = useCurrentLanguage();
   const t = useUiText('progress');
   const centerT = useUiText('personalCenter');
-  const { entries, stats, tagGroups, clearAll } = useAllProgress();
-  const { entries: noteEntries } = useAllNotes();
+  const {entries: rawProgressEntries, clearAll} = useAllProgress();
+  const {entries: rawNoteEntries} = useAllNotes();
   const { reputation, loading: reputationLoading } = useReputation({ enabled: Boolean(user?.id) });
-
-  // 按大学分组
-  const univGroups = React.useMemo(() => {
-    const map = {};
-    entries.forEach((e) => {
-      const univ = extractUniv(e.id, centerT.unknownSchool);
-      if (!map[univ]) map[univ] = { completed: 0, reviewing: 0, items: [] };
-      map[univ].items.push(e);
-      if (e.status === STATUS.COMPLETED) map[univ].completed++;
-      if (e.status === STATUS.REVIEWING) map[univ].reviewing++;
-    });
-    return Object.entries(map).sort((a, b) => b[1].items.length - a[1].items.length);
-  }, [entries]);
-
-  // 分类按类别排序
-  const completedEntries = React.useMemo(
-    () => entries
-      .filter(e => e.status === STATUS.COMPLETED)
-      .sort((a, b) => (b.updatedAt ?? 0) - (a.updatedAt ?? 0)),
-    [entries]
-  );
-  const reviewingEntries = React.useMemo(
-    () => entries
-      .filter(e => e.status === STATUS.REVIEWING)
-      .sort((a, b) => (b.updatedAt ?? 0) - (a.updatedAt ?? 0)),
-    [entries]
-  );
+  const personalData = React.useMemo(() => buildPersonalCenterData({
+    progressEntries: rawProgressEntries,
+    noteEntries: rawNoteEntries,
+    unknownSchool: centerT.unknownSchool,
+  }), [centerT.unknownSchool, rawNoteEntries, rawProgressEntries]);
+  const {
+    progressItems: entries,
+    noteItems: noteEntries,
+    completedItems: completedEntries,
+    reviewingItems: reviewingEntries,
+    activityItems,
+    universityGroups: univGroups,
+    tagGroups,
+    stats,
+    hasAnyData: hasAnyPersonalData,
+  } = personalData;
 
   const handleClear = () => {
     if (window.confirm(t.confirmClear)) clearAll();
   };
 
   const total = stats.total;
-  const hasAnyPersonalData = total > 0 || noteEntries.length > 0;
 
   return (
     <div className={styles.page}>
@@ -693,7 +635,7 @@ function PersonalCenterDashboard({ user }) {
       <AccountOverview
         user={user}
         stats={stats}
-        notesCount={noteEntries.length}
+        notesCount={stats.notes}
         reputation={reputation}
         reputationLoading={reputationLoading}
         t={centerT}
@@ -720,20 +662,25 @@ function PersonalCenterDashboard({ user }) {
 
       {/* 总进度条 */}
       {total > 0 && (
-        <div className={styles.progressBarContainer}>
-          <div className={styles.progressBar}>
-            <div
-              className={`${styles.progressFill} ${styles.progressFillCompleted}`}
-              style={{ width: `${(stats.completed / total) * 100}%` }}
-            />
-            <div
-              className={`${styles.progressFill} ${styles.progressFillReviewing}`}
-              style={{ width: `${(stats.reviewing / total) * 100}%` }}
-            />
+        <div className={styles.progressOverview}>
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progressBar}>
+              <div
+                className={`${styles.progressFill} ${styles.progressFillCompleted}`}
+                style={{ width: `${(stats.completed / total) * 100}%` }}
+              />
+              <div
+                className={`${styles.progressFill} ${styles.progressFillReviewing}`}
+                style={{ width: `${(stats.reviewing / total) * 100}%` }}
+              />
+            </div>
+            <span className={styles.progressLabel}>
+              {stats.completed}/{total}
+            </span>
           </div>
-          <span className={styles.progressLabel}>
-            {stats.completed}/{total}
-          </span>
+          <button onClick={handleClear} className={styles.clearBtn}>
+            <FaTrashAlt style={{ marginRight: '0.35rem' }} />{t.clearAll}
+          </button>
         </div>
       )}
 
@@ -752,12 +699,11 @@ function PersonalCenterDashboard({ user }) {
           ) : (
             <>
           {/* 学习热力图 */}
-          {total > 0 && <StudyHeatmap entries={entries} t={t} language={language} />}
+          {activityItems.length > 0 && <StudyHeatmap entries={activityItems} t={t} language={language} />}
 
           {/* 用户笔记 */}
           <NotesSection
             noteEntries={noteEntries}
-            progressEntries={entries}
             t={centerT}
             language={language}
           />
@@ -777,7 +723,7 @@ function PersonalCenterDashboard({ user }) {
               </h2>
               <div className={styles.tagGrid}>
                 {tagGroups.map(([tag, data]) => (
-                  <Link key={tag} to={`/docs/tags/${toTagSlug(tag)}`} className={styles.tagCard}>
+                  <Link key={tag} to={data.permalink} className={styles.tagCard}>
                     <div className={styles.tagName}>{tag}</div>
                     <div className={styles.univStats}>
                       <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{data.completed}</span>
@@ -833,9 +779,6 @@ function PersonalCenterDashboard({ user }) {
                   {t.sectionCompleted}
                   <span className={styles.sectionCount}>{completedEntries.length}</span>
                 </h2>
-                <button onClick={handleClear} className={styles.clearBtn}>
-                  <FaTrashAlt style={{ marginRight: '0.35rem' }} />{t.clearAll}
-                </button>
               </div>
               <div className={styles.entryList}>
                 {completedEntries.map((entry) => (
@@ -854,11 +797,6 @@ function PersonalCenterDashboard({ user }) {
                   {t.sectionReviewing}
                   <span className={styles.sectionCount}>{reviewingEntries.length}</span>
                 </h2>
-                {completedEntries.length === 0 && (
-                  <button onClick={handleClear} className={styles.clearBtn}>
-                    <FaTrashAlt style={{ marginRight: '0.35rem' }} />{t.clearAll}
-                  </button>
-                )}
               </div>
               <div className={styles.entryList}>
                 {reviewingEntries.map((entry) => (
@@ -929,12 +867,12 @@ function MePageInner() {
   return (
     <div className={styles.page}>
       <PersonalCenterHeader activeTab={activeTab} />
-      {isConfigured && !authReady ? (
-        <CenterLoadingState t={centerT} />
-      ) : !isLoggedIn ? (
-        <CenterLockedState t={centerT} />
-      ) : (
+      {!isConfigured ? (
         <CenterLockedState t={centerT} type="unavailable" />
+      ) : !authReady ? (
+        <CenterLoadingState t={centerT} />
+      ) : (
+        <CenterLockedState t={centerT} />
       )}
     </div>
   );

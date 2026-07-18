@@ -15,10 +15,14 @@ import {
 import Link from '@docusaurus/Link';
 import { useSync } from '@site/src/hooks/useSync';
 import { readSyncConflictLog, clearSyncConflictLog } from '@site/src/services/syncService';
+import {getDocumentTitle} from '@site/src/services/documentMetadata';
+import {getLanguageLocale} from '@site/src/context/LanguageContext';
 import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
 
-const formatTime = (ts) => ts ? new Date(ts).toLocaleString() : '-';
+const formatTime = (ts, language) => ts
+  ? new Date(ts).toLocaleString(getLanguageLocale(language))
+  : '-';
 
 const renderConflictSummary = (summary, type, t) => {
   if (!summary) return t.emptySide;
@@ -89,8 +93,12 @@ export default function CloudSyncPanel({ language = 'zh' }) {
   };
 
   const handleSignOut = async () => {
-    await signOut();
-    showMsg(t.logoutOk);
+    try {
+      await signOut();
+      showMsg(t.logoutOk);
+    } catch (e) {
+      showMsg(e.message, true);
+    }
   };
 
   const handleClearConflicts = () => {
@@ -166,7 +174,7 @@ export default function CloudSyncPanel({ language = 'zh' }) {
           {/* 上次同步 */}
           {lastSynced && (
             <p className={styles.lastSynced}>
-              {t.lastSynced}: {new Date(lastSynced).toLocaleString()}
+              {t.lastSynced}: {formatTime(lastSynced, language)}
             </p>
           )}
 
@@ -198,7 +206,7 @@ export default function CloudSyncPanel({ language = 'zh' }) {
                           {conflict.type === 'progress' ? t.progressConflict : t.noteConflict}
                         </span>
                         <Link to={conflict.permalink || `/docs/${conflict.docId}`} className={styles.conflictDoc}>
-                          {conflict.title || conflict.docId}
+                          {getDocumentTitle(conflict.docId, conflict.title)}
                         </Link>
                       </div>
                       <div className={styles.conflictMeta}>
@@ -208,12 +216,12 @@ export default function CloudSyncPanel({ language = 'zh' }) {
                       <div className={styles.conflictSides}>
                         <div>
                           <strong>{t.localSide}</strong>
-                          <small>{formatTime(conflict.localUpdatedAt)}</small>
+                          <small>{formatTime(conflict.localUpdatedAt, language)}</small>
                           <p>{renderConflictSummary(conflict.localSummary, conflict.type, t)}</p>
                         </div>
                         <div>
                           <strong>{t.remoteSide}</strong>
-                          <small>{formatTime(conflict.remoteUpdatedAt)}</small>
+                          <small>{formatTime(conflict.remoteUpdatedAt, language)}</small>
                           <p>{renderConflictSummary(conflict.remoteSummary, conflict.type, t)}</p>
                         </div>
                       </div>

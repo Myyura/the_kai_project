@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { getCalibratedNow } from '../services/syncService';
 import { queuePracticeEvent } from '../services/practiceEvents';
 import { addStorageOwnerChangeListener, getScopedStorageKey } from '../services/localStorageScope';
-import tagTaxonomy from '../data/tagTaxonomy';
 
 export const STORAGE_KEY = 'kai_progress';
 
@@ -11,17 +10,6 @@ export const STATUS = {
   COMPLETED: 'completed',
   REVIEWING: 'reviewing',
 };
-
-const SCHOOL_TAGS = new Set(
-  Object.entries(tagTaxonomy.schoolTags || {}).flatMap(([tag, meta]) => [
-    tag,
-    ...(meta.aliases || []),
-  ]),
-);
-const SUBJECT_TAGS = new Set(Object.keys(tagTaxonomy.subjects || {}));
-
-const isSchoolTag = (tag) => SCHOOL_TAGS.has(tag);
-const isSubjectTag = (tag) => SUBJECT_TAGS.has(tag);
 
 // 模块级缓存，避免多组件同时 JSON.parse
 let _progressCache = null;
@@ -205,22 +193,5 @@ export const useAllProgress = () => {
     setData({});
   }, []);
 
-  const tagGroups = useMemo(() => {
-    const tagStats = {};
-    for (const e of entries) {
-      if (!Array.isArray(e.tags)) continue;
-      for (const rawTag of e.tags) {
-        if (isSchoolTag(rawTag)) continue;
-        if (isSubjectTag(rawTag)) continue;
-        const tag = rawTag;
-        if (!tagStats[tag]) tagStats[tag] = { completed: 0, reviewing: 0, total: 0 };
-        tagStats[tag].total++;
-        if (e.status === STATUS.COMPLETED) tagStats[tag].completed++;
-        else if (e.status === STATUS.REVIEWING) tagStats[tag].reviewing++;
-      }
-    }
-    return Object.entries(tagStats).sort((a, b) => b[1].total - a[1].total);
-  }, [entries]);
-
-  return { data, entries, stats, tagGroups, clearAll };
+  return { data, entries, stats, clearAll };
 };

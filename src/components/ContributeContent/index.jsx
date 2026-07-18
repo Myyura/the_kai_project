@@ -19,6 +19,7 @@ import useDocumentColorMode from '@site/src/components/Chemistry/useDocumentColo
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
 import { getVerifiedAccessToken } from '@site/src/services/syncService';
 import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
+import {getDocumentTitle} from '@site/src/services/documentMetadata';
 import { buildDiffPreview, markdownHasChanges } from '@site/src/services/correctionDiff';
 import {
   markdownToHtml,
@@ -424,16 +425,6 @@ export function ContributeContent({ embedded = false } = {}) {
     }
   };
 
-  if (!authReady) {
-    return (
-      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
-        <div className={styles.loadingPanel}>
-          <FaRedo className={styles.spin} />
-        </div>
-      </div>
-    );
-  }
-
   if (!isConfigured) {
     return (
       <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
@@ -442,6 +433,16 @@ export function ContributeContent({ embedded = false } = {}) {
           <h1>{t.pageTitle}</h1>
           <p>{t.notConfigured}</p>
         </section>
+      </div>
+    );
+  }
+
+  if (!authReady) {
+    return (
+      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+        <div className={styles.loadingPanel}>
+          <FaRedo className={styles.spin} />
+        </div>
       </div>
     );
   }
@@ -836,7 +837,7 @@ export function ContributeContent({ embedded = false } = {}) {
             <div className={styles.submissionList}>
               {submissions.map((item) => (
                 <div key={item.id} className={styles.submissionItem}>
-                  <strong>{item.title || item.targetDocId || item.id}</strong>
+                  <strong>{getDocumentTitle(item.targetDocId, item.title || item.id)}</strong>
                   <div className={styles.submissionMeta}>
                     <span className={`${styles.statusBadge} ${statusClass(item.status)}`}>{statusText(item.status, t)}</span>
                     {item.correctionConflict && (

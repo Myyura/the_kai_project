@@ -197,11 +197,19 @@
 }
 
 /* 总进度条 */
-.progressBarContainer {
+.progressOverview {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   margin-bottom: 2.5rem;
+}
+
+.progressBarContainer {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .progressBar {
@@ -948,8 +956,15 @@
   }
 
   /* 进度条 */
-  .progressBarContainer {
+  .progressOverview {
+    align-items: stretch;
+    flex-direction: column;
+    gap: .65rem;
     margin-bottom: 1.75rem;
+  }
+
+  .progressOverview .clearBtn {
+    align-self: flex-end;
   }
 
   /* 区块间距 */
