@@ -42,16 +42,13 @@ test('browser runtime ships only identity exceptions, not the full manifest', ()
   assert.deepEqual(runtime.aliases, manifest.aliases);
 });
 
-test('the identity migration preserves existing user-owned database rows', () => {
-  const migrationPath = path.resolve(
-    __dirname,
-    '..',
-    'supabase/migrations/20260718000100_direct_database_study_model.sql',
-  );
-  const sql = fs.readFileSync(migrationPath, 'utf8').toLowerCase();
+test('the consolidated baseline preserves user-owned database rows', () => {
+  const schemaPath = path.resolve(__dirname, '..', 'src/services/schema.sql');
+  const sql = fs.readFileSync(schemaPath, 'utf8').toLowerCase();
+  const topLevelSql = sql.replace(/\$\$[\s\S]*?\$\$/g, '');
   assert.doesNotMatch(sql, /truncate\s+/);
-  assert.doesNotMatch(sql, /drop\s+table/);
-  assert.doesNotMatch(sql, /delete\s+from\s+user_(?:progress|note|practice)/);
+  assert.doesNotMatch(topLevelSql, /drop\s+table\s+(?:if\s+exists\s+)?(?:public\.)?user_/);
+  assert.doesNotMatch(topLevelSql, /delete\s+from\s+user_(?:progress|note|practice)/);
   for (const table of [
     'user_progress_items',
     'user_note_items',
@@ -62,27 +59,49 @@ test('the identity migration preserves existing user-owned database rows', () =>
   }
 });
 
-test('ordered migrations contain no top-level destructive row operations', () => {
+test('the current baseline has no pending historical migrations', () => {
   const migrationDirectory = path.resolve(__dirname, '..', 'supabase/migrations');
   const migrations = fs.readdirSync(migrationDirectory).filter((name) => name.endsWith('.sql'));
-  assert.ok(migrations.length >= 3);
-  for (const migration of migrations) {
-    const sql = fs.readFileSync(path.join(migrationDirectory, migration), 'utf8');
-    assert.equal((sql.match(/\$\$/g) || []).length % 2, 0, `${migration} has unbalanced $$ blocks`);
-    const topLevelSql = sql.replace(/\$\$[\s\S]*?\$\$/g, '').toLowerCase();
-    assert.doesNotMatch(topLevelSql, /\btruncate\s+/);
-    assert.doesNotMatch(topLevelSql, /\bdelete\s+from\s+/);
-    assert.doesNotMatch(topLevelSql, /\bdrop\s+table\s+/);
+  assert.deepEqual(migrations, []);
+});
+
+test('the one-time baseline finalizer cannot delete user-owned rows', () => {
+  const cleanupPath = path.resolve(
+    __dirname,
+    '..',
+    'supabase/manual/20260718_finalize_consolidated_baseline.sql',
+  );
+  const sql = fs.readFileSync(cleanupPath, 'utf8').toLowerCase();
+  const topLevelSql = sql.replace(/\$\$[\s\S]*?\$\$/g, '');
+
+  assert.doesNotMatch(sql, /truncate\s+/);
+  assert.doesNotMatch(topLevelSql, /delete\s+from\s+public\./);
+  assert.doesNotMatch(topLevelSql, /drop\s+table\s+(?:if\s+exists\s+)?public\.user_/);
+  assert.doesNotMatch(topLevelSql, /alter\s+table\s+public\.user_(?!public_profiles\b)/);
+  assert.match(sql, /delete\s+from\s+supabase_migrations\.schema_migrations/);
+  for (const version of ['20260718000100', '20260718000200', '20260718000300']) {
+    assert.match(sql, new RegExp(version));
   }
 });
 
-test('catalog cutover drops document bodies without touching user-owned columns', () => {
-  const migrationPath = path.resolve(
+test('legacy cleanup migrates rows with current UUID identities before dropping old tables', () => {
+  const cleanupPath = path.resolve(
     __dirname,
     '..',
-    'supabase/migrations/20260718000300_lightweight_document_catalog.sql',
+    'supabase/manual/20260714_cleanup_legacy_schema.sql',
   );
-  const sql = fs.readFileSync(migrationPath, 'utf8').toLowerCase();
+  const sql = fs.readFileSync(cleanupPath, 'utf8').toLowerCase();
+
+  assert.match(sql, /public\.resolve_document_uuid\(kv\.key\)/);
+  assert.match(sql, /event_id,\s*user_id,\s*doc_id,\s*document_uuid/);
+  assert.match(sql, /legacy user_data verification failed/);
+  assert.match(sql, /legacy leaderboard profile verification failed/);
+  assert.doesNotMatch(sql, /drop\s+(?:table|function)[^;]+\bcascade\b/);
+});
+
+test('the consolidated baseline ends on the lightweight document catalog', () => {
+  const schemaPath = path.resolve(__dirname, '..', 'src/services/schema.sql');
+  const sql = fs.readFileSync(schemaPath, 'utf8').toLowerCase();
   const topLevelSql = sql.replace(/\$\$[\s\S]*?\$\$/g, '');
   assert.match(sql, /rename\s+to\s+document_catalog/);
   for (const column of [
@@ -95,4 +114,6 @@ test('catalog cutover drops document bodies without touching user-owned columns'
   }
   assert.doesNotMatch(topLevelSql, /alter\s+table\s+(?:public\.)?user_\w+[\s\S]{0,120}drop\s+column/);
   assert.doesNotMatch(topLevelSql, /delete\s+from\s+(?:public\.)?(?:user_|problem_set)/);
+  assert.doesNotMatch(sql, /leaderboard_visible/);
+  assert.doesNotMatch(sql, /create\s+table\s+if\s+not\s+exists\s+operational_retention_policies/);
 });

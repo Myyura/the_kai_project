@@ -103,7 +103,7 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 
 如果你要完整启用账号功能：
 1. 创建一个 Supabase 项目。全新空数据库先执行一次 `src/services/schema.sql` 作为基线；已有数据库不要重复执行该文件。
-2. 使用 `supabase db push` 按顺序执行 `supabase/migrations/` 下的迁移。已有项目从这一步开始；这些迁移只做增量变更并保留用户数据行。
+2. 当前基线没有待执行的历史迁移；以后新增的结构变化才会放入 `supabase/migrations/` 并由部署流程自动应用。
 3. 按该 SQL 文件中的说明，配置认证限流、密码策略和 hCaptcha 等安全项。
 4. 在 Supabase Authentication → URL Configuration 中加入站点回调地址，包括 `https://your-domain/auth/callback` 和 `https://your-domain/reset-password`。
 
@@ -144,8 +144,8 @@ curl -H "Authorization: Bearer kai_live_..." \
 ### 项目维护者如何部署
 本项目复用现有登录系统作为开发者身份层，并通过 Supabase Edge Functions 对外提供题目与答案 JSON。
 
-1. 全新空数据库先执行一次 [src/services/schema.sql](src/services/schema.sql)；已有数据库不要重复执行基线。随后按顺序应用 [supabase/migrations](supabase/migrations) 中尚未执行的迁移。
-2. 部署 [supabase/functions](supabase/functions) 中的 Edge Functions。生产 GitHub Actions 会使用 `SUPABASE_ACCESS_TOKEN`、`SUPABASE_PROJECT_REF` 和 `SUPABASE_DB_PASSWORD` 自动完成迁移和部署，缺少任一项都会终止发布：
+1. 全新空数据库只执行一次 [src/services/schema.sql](src/services/schema.sql)；它已经包含当前完整结构。已有数据库不要重复执行基线。将 20260718 三份迁移折叠进基线的现有生产项目，应在下次新增迁移前执行一次 [基线收尾 SQL](supabase/manual/20260718_finalize_consolidated_baseline.sql)。
+2. 部署 [supabase/functions](supabase/functions) 中的 Edge Functions。生产 GitHub Actions 使用 `SUPABASE_ACCESS_TOKEN` 和 `SUPABASE_PROJECT_REF` 自动部署函数；只有存在新的数据库迁移时才额外需要 `SUPABASE_DB_PASSWORD`：
 
 ```bash
 npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"

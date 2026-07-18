@@ -2,7 +2,8 @@
 --
 -- Run this file in Supabase Dashboard > SQL Editor only after:
 --   1. taking a database backup;
---   2. applying the current src/services/schema.sql successfully;
+--   2. confirming the current production migrations are already applied
+--      (do not re-run src/services/schema.sql on an existing database);
 --   3. confirming no older application build is still writing legacy tables.
 --
 -- The transaction intentionally avoids CASCADE. Unexpected dependencies make
@@ -23,14 +24,18 @@ begin
   end if;
 
   if to_regclass('public.user_progress_items') is null
-    or to_regclass('public.user_note_items') is null then
-    raise exception 'Current sync tables are missing. Apply src/services/schema.sql first.';
+    or to_regclass('public.user_note_items') is null
+    or to_regclass('public.document_registry') is null
+    or to_regclass('public.document_aliases') is null
+    or to_regprocedure('public.resolve_document_uuid(text)') is null then
+    raise exception 'The current UUID study model is missing. Stop and verify the production migration.';
   end if;
 
   execute $sql_progress$
     insert into public.user_progress_items (
       user_id,
       doc_id,
+      document_uuid,
       status,
       title,
       permalink,
@@ -44,6 +49,7 @@ begin
     select
       ud.user_id,
       kv.key,
+      public.resolve_document_uuid(kv.key),
       kv.value->>'status',
       nullif(trim(kv.value->>'title'), ''),
       nullif(trim(kv.value->>'permalink'), ''),
@@ -88,6 +94,7 @@ begin
     insert into public.user_note_items (
       user_id,
       doc_id,
+      document_uuid,
       content,
       client_updated_at,
       deleted_at,
@@ -97,6 +104,7 @@ begin
     select
       ud.user_id,
       kv.key,
+      public.resolve_document_uuid(kv.key),
       kv.value->>'content',
       case
         when coalesce(kv.value->>'updatedAt', '') ~ '^[0-9]+$'
@@ -171,7 +179,7 @@ $$;
 -- ── One-time compatibility practice events ───────────────────
 
 insert into public.user_practice_events (
-  event_id, user_id, doc_id, event_type, occurred_at
+  event_id, user_id, doc_id, document_uuid, event_type, occurred_at
 )
 select
   uuid_generate_v5(
@@ -180,6 +188,7 @@ select
   ),
   upi.user_id,
   upi.doc_id,
+  upi.document_uuid,
   'practice',
   to_timestamp(upi.client_updated_at / 1000.0)
 from public.user_progress_items upi
@@ -205,14 +214,13 @@ begin
 
   if to_regclass('public.user_public_profiles') is null
     or to_regprocedure('public.ensure_user_public_profile(uuid)') is null then
-    raise exception 'Current public profile schema is missing. Apply src/services/schema.sql first.';
+    raise exception 'Current public profile schema is missing. Stop and verify the production migration.';
   end if;
 
   for v_user in
     select
       lp.user_id as id,
-      lp.display_name,
-      coalesce(lp.is_anonymous, false) as was_anonymous
+      lp.display_name
     from public.user_leaderboard_profiles lp
   loop
     if exists (
@@ -223,9 +231,6 @@ begin
 
     v_profile := public.ensure_user_public_profile(v_user.id);
     if v_user.display_name is null then
-      update public.user_public_profiles
-      set leaderboard_visible = not v_user.was_anonymous
-      where user_id = v_user.id;
       continue;
     end if;
 
@@ -256,8 +261,7 @@ begin
           when position('#' in v_user.display_name) > 0 then null
           else now()
         end,
-        nickname_changed_at = null,
-        leaderboard_visible = not v_user.was_anonymous
+        nickname_changed_at = null
     where user_id = v_user.id;
   end loop;
 

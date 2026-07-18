@@ -134,13 +134,21 @@ jobs:
           version: 2.101.0
       - name: 迁移数据库并部署函数
         run: |
-          if [ -z "$SUPABASE_ACCESS_TOKEN" ] || [ -z "$SUPABASE_PROJECT_REF" ] || [ -z "$SUPABASE_DB_PASSWORD" ]; then
-            echo "::error::SUPABASE_ACCESS_TOKEN, SUPABASE_PROJECT_REF and SUPABASE_DB_PASSWORD are required for a production deployment."
+          if [ -z "$SUPABASE_ACCESS_TOKEN" ] || [ -z "$SUPABASE_PROJECT_REF" ]; then
+            echo "::error::SUPABASE_ACCESS_TOKEN and SUPABASE_PROJECT_REF are required for a production deployment."
             exit 1
           fi
-          supabase link --project-ref "$SUPABASE_PROJECT_REF"
-          supabase db push --linked --include-all --dry-run
-          supabase db push --linked --include-all
+          if compgen -G 'supabase/migrations/*.sql' > /dev/null; then
+            if [ -z "$SUPABASE_DB_PASSWORD" ]; then
+              echo "::error::SUPABASE_DB_PASSWORD is required when pending database migrations exist."
+              exit 1
+            fi
+            supabase link --project-ref "$SUPABASE_PROJECT_REF"
+            supabase db push --linked --include-all --dry-run
+            supabase db push --linked --include-all
+          else
+            echo "No pending database migrations; using the consolidated production baseline."
+          fi
           supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
           supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
           supabase functions deploy content-submissions --project-ref "$SUPABASE_PROJECT_REF"

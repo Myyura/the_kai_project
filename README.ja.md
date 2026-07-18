@@ -103,7 +103,7 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 
 アカウント機能を有効にする場合:
 1. Supabase プロジェクトを作成します。空の新規データベースでは、最初に `src/services/schema.sql` を一度だけベースラインとして適用します。既存データベースには再適用しないでください。
-2. `supabase db push` で `supabase/migrations/` のマイグレーションを順に適用します。既存環境はこの手順から開始し、ユーザーデータ行は保持されます。
+2. 現在のベースラインに未適用の履歴マイグレーションはありません。今後の構造変更だけを `supabase/migrations/` に追加し、デプロイ処理で適用します。
 3. その SQL ファイルに書かれている認証レート制限、パスワードポリシー、hCaptcha などの設定を行います。
 
 ## 開発者向け JSON API
@@ -143,8 +143,8 @@ curl -H "Authorization: Bearer kai_live_..." \
 ### プロジェクトメンテナー向けのデプロイ
 このプロジェクトは既存のログインシステムを開発者 ID として再利用し、Supabase Edge Functions から過去問と解答 JSON を提供します。
 
-1. 空の新規データベースだけで [src/services/schema.sql](src/services/schema.sql) を一度実行し、既存データベースにはベースラインを再適用しないでください。その後、[supabase/migrations](supabase/migrations) の未適用マイグレーションを順番に適用します。
-2. [supabase/functions](supabase/functions) の Edge Functions をデプロイします。本番 GitHub Actions は `SUPABASE_ACCESS_TOKEN`、`SUPABASE_PROJECT_REF`、`SUPABASE_DB_PASSWORD` を使ってマイグレーションとデプロイを自動実行し、いずれかが不足している場合はリリースを停止します。
+1. 空の新規データベースだけで [src/services/schema.sql](src/services/schema.sql) を一度実行してください。現在の完全な構造が含まれているため、既存データベースには再適用しないでください。20260718 の 3 つのマイグレーションをベースラインへ統合した既存の本番環境では、次のマイグレーションを追加する前に [ベースライン最終化 SQL](supabase/manual/20260718_finalize_consolidated_baseline.sql) を一度実行してください。
+2. [supabase/functions](supabase/functions) の Edge Functions をデプロイします。本番 GitHub Actions は `SUPABASE_ACCESS_TOKEN` と `SUPABASE_PROJECT_REF` で関数をデプロイし、新しいデータベースマイグレーションがある場合だけ `SUPABASE_DB_PASSWORD` も必要です。
 
 ```bash
 npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"

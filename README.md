@@ -106,7 +106,7 @@ export PROBLEM_SETS_ENABLED="true"
 
 To enable account features end-to-end:
 1. Create a Supabase project. For a blank project, apply `src/services/schema.sql` once as the baseline; do not reapply it to an existing database.
-2. Apply the ordered migrations under `supabase/migrations/` with `supabase db push`. Existing installations start here; the migrations are additive and preserve user rows.
+2. The current baseline has no pending historical migrations. Future schema changes will be added under `supabase/migrations/` and applied by the deployment workflow.
 3. Configure the auth security items noted in that SQL file, including rate limits, password policy, and hCaptcha.
 4. Add the site callback URLs in Supabase Authentication → URL Configuration, including `https://your-domain/auth/callback` and `https://your-domain/reset-password`.
 5. Deploy `supabase/functions/content-submissions` so contribution authors are read from the unified public profile instead of request data.
@@ -149,8 +149,8 @@ Responses always include `apiVersion`, `sourceUrl`, `license`, and `contentNotic
 ### For project maintainers
 The project exposes exam data through Supabase Edge Functions while reusing the existing login system as the developer identity layer.
 
-1. Apply [src/services/schema.sql](src/services/schema.sql) once only for a blank database; never reapply the baseline to an existing database. Then apply pending migrations from [supabase/migrations](supabase/migrations) in order.
-2. Deploy the functions in [supabase/functions](supabase/functions). Production GitHub Actions performs the migration and deployment with `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF`, and `SUPABASE_DB_PASSWORD`; a missing value fails the release:
+1. Apply [src/services/schema.sql](src/services/schema.sql) once only for a blank database; it already contains the complete current structure. Never reapply the baseline to an existing database. Existing production projects whose three 20260718 migrations were squashed should run the [baseline finalization SQL](supabase/manual/20260718_finalize_consolidated_baseline.sql) once before adding another migration.
+2. Deploy the functions in [supabase/functions](supabase/functions). Production GitHub Actions uses `SUPABASE_ACCESS_TOKEN` and `SUPABASE_PROJECT_REF` for function deployment; `SUPABASE_DB_PASSWORD` is additionally required only when a new database migration exists:
 
 ```bash
 npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
