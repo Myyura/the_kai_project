@@ -13,28 +13,6 @@ import rehypeAnnotationSourceLines from './src/markdown/rehypeAnnotationSourceLi
 
 const sequentialBundles = process.env.DOCUSAURUS_SEQUENTIAL_BUNDLES === 'true';
 
-const PRECACHE_URL_PATTERNS = [
-  /^index\.html$/,
-  /^404\.html$/,
-  /^[^/]+\.sw\.js$/,
-  /^assets\/js\/runtime~main\.[^/]+\.js$/,
-  /^assets\/js\/main\.[^/]+\.js$/,
-  /^assets\/css\/styles\.[^/]+\.css$/,
-  /^manifest\.json$/,
-  /^browserconfig\.xml$/,
-  /^img\/favicon\.ico$/,
-  /^img\/kai-icon(?:-light)?\.png$/,
-  /^img\/logo(?:-\d+)?\.png$/,
-  /^img\/logo(?:_dark)?\.svg$/,
-];
-
-const filterPrecacheManifest = async (manifestEntries) => ({
-  manifest: manifestEntries.filter((entry) => (
-    PRECACHE_URL_PATTERNS.some((pattern) => pattern.test(entry.url))
-  )),
-  warnings: [],
-});
-
 function getYearCategoryLabel(item) {
   if (item.type !== 'category') {
     return null;
@@ -159,12 +137,6 @@ const config = {
   ],
 
   headTags: [
-    // Runs before deferred main/runtime bundles — recovers when SW serves stale assets.
-    {
-      tagName: 'script',
-      attributes: {},
-      innerHTML: require('./src/headScripts/pwaRecoveryInline.js'),
-    },
     // KaTeX CSS is loaded from jsDelivr for documentation pages and reused by NoteEditor.
     { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: 'anonymous' } },
   ],
@@ -202,8 +174,8 @@ const config = {
   // 客户端模块 - 在页面加载时立即执行
   clientModules: [
     require.resolve('./src/clientModules/languageInit.js'),
-    require.resolve('./src/clientModules/pwaRecovery.js'),
-    require.resolve('./src/clientModules/offlineStatus.js'),
+    // One-release cleanup for service workers installed by the retired web PWA.
+    require.resolve('./src/clientModules/removeLegacyPwa.js'),
   ],
 
   // Even if you don't use internationalization, you can use this field to set
@@ -234,6 +206,14 @@ const config = {
         docsRouteBasePath: "/docs",
         blogRouteBasePath: "/blog",
         highlightSearchTermsOnTargetPage: false,
+        ignoreCssSelectors: [
+          'nav',
+          'footer',
+          '.breadcrumbs',
+          '.table-of-contents',
+          '.pagination-nav',
+          '.theme-doc-footer',
+        ],
       }),
     ],
     '@docusaurus/theme-mermaid',
@@ -243,59 +223,6 @@ const config = {
   plugins: [
     safeRspackJsMinifierPlugin,
     sequentialBundlesPlugin,
-    [
-      '@docusaurus/plugin-pwa',
-      {
-        debug: false,
-        offlineModeActivationStrategies: [
-          'standalone',
-          'queryString',
-          'appInstalled',
-        ],
-        swCustom: require.resolve('./src/sw.js'),
-        pwaHead: [
-          {
-            tagName: 'link',
-            rel: 'icon',
-            href: '/img/logo-192.png',
-          },
-          {
-            tagName: 'link',
-            rel: 'manifest',
-            href: '/manifest.json',
-          },
-          {
-            tagName: 'meta',
-            name: 'theme-color',
-            content: '#3578e5',
-          },
-          {
-            tagName: 'meta',
-            name: 'mobile-web-app-capable',
-            content: 'yes',
-          },
-          {
-            tagName: 'meta',
-            name: 'apple-mobile-web-app-status-bar-style',
-            content: '#3578e5',
-          },
-          {
-            tagName: 'link',
-            rel: 'apple-touch-icon',
-            href: '/img/logo-192.png',
-          },
-          {
-            tagName: 'meta',
-            name: 'msapplication-config',
-            content: '/browserconfig.xml',
-          },
-        ],
-        injectManifestConfig: {
-          manifestTransforms: [filterPrecacheManifest],
-        },
-        
-      },
-    ],
   ],
 
   presets: [

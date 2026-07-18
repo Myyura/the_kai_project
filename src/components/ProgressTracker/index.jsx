@@ -2,7 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import { FaCheckCircle, FaRedo, FaTimes, FaSyncAlt } from 'react-icons/fa';
 import { useDocProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
-import { useSync } from '@site/src/hooks/useSync';
+import { useAuth } from '@site/src/hooks/useAuth';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
 
@@ -137,7 +137,7 @@ function ProgressTrackerContent({ docId, title, permalink, tags, embedded = fals
 }
 
 export default function ProgressTracker(props) {
-  const { isConfigured, isLoggedIn, authReady } = useSync();
+  const { isConfigured, isLoggedIn, authReady } = useAuth();
   const t = useUiText('progressTracker');
 
   if (isConfigured && !authReady && !isLoggedIn) return null;

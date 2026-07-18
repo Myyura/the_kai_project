@@ -20,7 +20,6 @@ import {
 import {useProblemSet, useProblemSets} from '@site/src/hooks/useProblemSets';
 import {useUiText} from '@site/src/i18n/useUiText';
 import {
-  PROBLEM_SET_KIND,
   archiveMyProblemSet,
   createMyProblemSet,
   deleteMyProblemSet,
@@ -30,6 +29,7 @@ import {
   updateMyProblemSet,
   updateProblemSetItemAnnotation,
 } from '@site/src/services/problemSetService';
+import {PROBLEM_SET_KIND} from '@site/src/services/problemSetTypes';
 import {getDocumentTitle} from '@site/src/services/documentMetadata';
 import styles from './styles.module.css';
 
@@ -85,7 +85,7 @@ function ProblemSetList() {
       setMessage(t.created);
       await refresh();
     } catch (createError) {
-      setMessage(createError?.message === 'offline_read_only' ? t.offlineReadOnly : t.saveFailed);
+      setMessage(t.saveFailed);
     } finally {
       setCreating(false);
     }
@@ -97,7 +97,7 @@ function ProblemSetList() {
       await archiveMyProblemSet(problemSet.id, !problemSet.archivedAt);
       await refresh();
     } catch (archiveError) {
-      setMessage(archiveError?.message === 'offline_read_only' ? t.offlineReadOnly : t.saveFailed);
+      setMessage(t.saveFailed);
     }
   };
 
@@ -244,7 +244,7 @@ function ProblemSetDetail({setId}) {
       setMessage(successText);
       await refresh();
     } catch (actionError) {
-      setMessage(actionError?.message === 'offline_read_only' ? t.offlineReadOnly : t.saveFailed);
+      setMessage(t.saveFailed);
     }
   };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import { DIFFICULTY, DIFFICULTY_KEYS } from '@site/src/services/difficultyService';
 import { useExamDifficulty } from '@site/src/hooks/useDifficulty';
-import { useSync } from '@site/src/hooks/useSync';
+import { useAuth } from '@site/src/hooks/useAuth';
 import { useUiText } from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
 
@@ -49,7 +49,7 @@ function DifficultyUnavailable({ t }) {
 }
 
 export default function DifficultyRating({ docId }) {
-  const { isConfigured, isLoggedIn, authReady } = useSync();
+  const { isConfigured, isLoggedIn, authReady } = useAuth();
   const t = useUiText('difficultyRating');
   const {
     difficulty,
@@ -59,15 +59,25 @@ export default function DifficultyRating({ docId }) {
     refresh,
     rate,
   } = useExamDifficulty(docId, {
-    enabled: isConfigured && authReady,
+    enabled: isConfigured && authReady && isLoggedIn,
     refreshKey: isLoggedIn ? 'in' : 'out',
   });
 
   if (!isConfigured) return <DifficultyUnavailable t={t} />;
   if (!authReady) return null;
+  if (!isLoggedIn) {
+    return (
+      <div className={styles.rating}>
+        <span className={styles.ratingLabel}>{t.heading}</span>
+        <p className={styles.helperText}>
+          {t.loginRequired} <Link to="/login">{t.loginCta}</Link>
+        </p>
+      </div>
+    );
+  }
 
   const selectedKey = getDifficultyKey(difficulty?.userDifficulty);
-  const disabled = !isLoggedIn || saving;
+  const disabled = saving;
 
   return (
     <div className={styles.rating}>
@@ -105,14 +115,6 @@ export default function DifficultyRating({ docId }) {
       {isLoggedIn && selectedKey && (
         <p className={styles.helperText}>
           {saving ? t.saving : t.myVote(t.labels[selectedKey])}
-        </p>
-      )}
-
-      {!isLoggedIn && (
-        <p className={styles.helperText}>
-          {t.loginRequired}
-          {' '}
-          <Link to="/login">{t.loginCta}</Link>
         </p>
       )}
 

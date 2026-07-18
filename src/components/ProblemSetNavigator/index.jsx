@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import {FaArrowLeft, FaArrowRight, FaLayerGroup} from 'react-icons/fa';
-import {useSync} from '@site/src/hooks/useSync';
+import {useAuth} from '@site/src/hooks/useAuth';
 import {useProblemSet} from '@site/src/hooks/useProblemSets';
 import {useProblemSetsFeature} from '@site/src/hooks/useProblemSetsFeature';
 import {useUiText} from '@site/src/i18n/useUiText';
-import {PROBLEM_SET_KIND} from '@site/src/services/problemSetService';
+import {PROBLEM_SET_KIND} from '@site/src/services/problemSetTypes';
 import styles from './styles.module.css';
 
 const getSetId = () => {
@@ -21,7 +21,7 @@ const linkFor = (permalink, setId) => {
 
 export default function ProblemSetNavigator({docId}) {
   const featureEnabled = useProblemSetsFeature();
-  const {isLoggedIn} = useSync();
+  const {isLoggedIn} = useAuth();
   const t = useUiText('problemSets');
   const setId = getSetId();
   const {problemSet} = useProblemSet(setId, {enabled: Boolean(featureEnabled && isLoggedIn && setId)});

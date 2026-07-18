@@ -1,5 +1,5 @@
 import { serve } from 'https://deno.land/std@0.224.0/http/server.ts';
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.48.1';
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.98.0';
 import {
   corsHeaders,
   errorResponse,
@@ -217,6 +217,7 @@ function parsePositiveInt(value: string | null, fallback: number, max: number) {
 
 function selectColumns(includeContent: boolean) {
   const base = [
+    'document_uuid',
     'doc_id',
     'type',
     'title',
@@ -250,6 +251,7 @@ function selectColumns(includeContent: boolean) {
 
 function publicExamRow(row: Record<string, unknown>, includeContent: boolean) {
   const item: Record<string, unknown> = {
+    documentUuid: row.document_uuid,
     docId: row.doc_id,
     type: row.type,
     title: row.title,
@@ -471,13 +473,30 @@ async function fetchExamDetail(docId: string, ctx: RequestContext) {
   const supabase = getSupabase();
   if (!supabase) throw new Error('Supabase Edge Function is not configured.');
 
-  const { data, error } = await supabase
+  let { data, error } = await supabase
     .from('exam_documents')
     .select(selectColumns(true))
     .eq('doc_id', docId)
     .maybeSingle();
 
   if (error) throw error;
+  if (!data) {
+    const {data: alias, error: aliasError} = await supabase
+      .from('document_aliases')
+      .select('document_uuid')
+      .eq('doc_id', docId)
+      .maybeSingle();
+    if (aliasError) throw aliasError;
+    if (alias?.document_uuid) {
+      const current = await supabase
+        .from('exam_documents')
+        .select(selectColumns(true))
+        .eq('document_uuid', alias.document_uuid)
+        .maybeSingle();
+      if (current.error) throw current.error;
+      data = current.data;
+    }
+  }
   if (!data) {
     ctx.resultCount = 0;
     return jsonResponse(withEnvelope({

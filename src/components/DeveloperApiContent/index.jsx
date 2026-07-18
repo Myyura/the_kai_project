@@ -13,11 +13,11 @@ import {
   FaSignInAlt,
   FaTrashAlt,
 } from 'react-icons/fa';
-import { useSync } from '@site/src/hooks/useSync';
+import { useAuth } from '@site/src/hooks/useAuth';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
-import { getVerifiedAccessToken } from '@site/src/services/syncService';
+import { getVerifiedAccessToken } from '@site/src/services/authService';
 import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
 import styles from './styles.module.css';
 
@@ -42,7 +42,7 @@ export function DeveloperApiContent({ embedded = false } = {}) {
   const { siteConfig } = useDocusaurusContext();
   const supabaseUrl = siteConfig?.customFields?.supabaseUrl || '';
   const apiBaseUrl = supabaseUrl ? `${supabaseUrl}/functions/v1/kai-api` : '';
-  const { isConfigured, user, isLoggedIn, authReady } = useSync();
+  const { isConfigured, user, isLoggedIn, authReady } = useAuth();
 
   const [keys, setKeys] = useState([]);
   const [accessRequest, setAccessRequest] = useState(null);

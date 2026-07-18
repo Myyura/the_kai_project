@@ -7,17 +7,16 @@ import {
   FaFileAlt, FaArrowRight, FaBuilding, FaTag,
   FaBell, FaFire, FaCalendarAlt, FaStickyNote,
   FaSearch, FaUserCircle, FaLock, FaSignInAlt, FaCloud,
-  FaPaperPlane, FaKey, FaRobot, FaEdit, FaSave, FaEye, FaEyeSlash, FaLayerGroup
+  FaPaperPlane, FaKey, FaRobot, FaEdit, FaSave, FaLayerGroup
 } from 'react-icons/fa';
 import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
 import { useAllNotes } from '@site/src/hooks/useNotes';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
-import CloudSyncPanel from '@site/src/components/CloudSyncPanel';
 import Leaderboard from '@site/src/components/Leaderboard';
 import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import NoIndex from '@site/src/components/NoIndex';
 import {useUiText} from '@site/src/i18n/useUiText';
-import { useSync } from '@site/src/hooks/useSync';
+import { useAuth } from '@site/src/hooks/useAuth';
 import { useReputation } from '@site/src/hooks/useReputation';
 import { usePublicProfile } from '@site/src/hooks/usePublicProfile';
 import { useProblemSetsFeature } from '@site/src/hooks/useProblemSetsFeature';
@@ -402,7 +401,7 @@ const CenterLoadingState = ({ t }) => (
 );
 
 const PublicProfileSettings = ({ t, profileState }) => {
-  const {profile, loading, saveNickname, setLeaderboardVisible} = profileState;
+  const {profile, loading, saveNickname} = profileState;
   const [editing, setEditing] = React.useState(false);
   const [draft, setDraft] = React.useState('');
   const [message, setMessage] = React.useState(null);
@@ -423,16 +422,6 @@ const PublicProfileSettings = ({ t, profileState }) => {
         : (raw.includes('characters') || raw.includes('length')) ? t.nicknameCharacters
           : t.nicknameSaveError;
       setMessage({type: 'error', text});
-    }
-  };
-
-  const handleVisibility = async () => {
-    setMessage(null);
-    try {
-      await setLeaderboardVisible(!profile?.leaderboardVisible);
-      setMessage({type: 'success', text: t.leaderboardVisibilitySaved});
-    } catch {
-      setMessage({type: 'error', text: t.leaderboardVisibilityError});
     }
   };
 
@@ -465,16 +454,6 @@ const PublicProfileSettings = ({ t, profileState }) => {
           <small>{t.nicknameRule}</small>
         </div>
       )}
-      <div className={styles.profilePrivacyRow}>
-        <div>
-          <strong>{t.leaderboardPrivacy}</strong>
-          <small>{profile?.leaderboardVisible ? t.leaderboardPublicHint : t.leaderboardHiddenHint}</small>
-        </div>
-        <button type="button" className={styles.profileButton} disabled={loading || !profile} onClick={handleVisibility}>
-          {profile?.leaderboardVisible ? <FaEye /> : <FaEyeSlash />}
-          {profile?.leaderboardVisible ? t.publicStatus : t.hiddenStatus}
-        </button>
-      </div>
       {message && (
         <p className={`${styles.profileMessage} ${message.type === 'error' ? styles.profileMessageError : ''}`}>
           {message.text}
@@ -621,8 +600,13 @@ function PersonalCenterDashboard({ user }) {
     hasAnyData: hasAnyPersonalData,
   } = personalData;
 
-  const handleClear = () => {
-    if (window.confirm(t.confirmClear)) clearAll();
+  const handleClear = async () => {
+    if (!window.confirm(t.confirmClear)) return;
+    try {
+      await clearAll();
+    } catch (error) {
+      console.error('Failed to clear progress', error);
+    }
   };
 
   const total = stats.total;
@@ -678,7 +662,7 @@ function PersonalCenterDashboard({ user }) {
               {stats.completed}/{total}
             </span>
           </div>
-          <button onClick={handleClear} className={styles.clearBtn}>
+          <button onClick={() => void handleClear()} className={styles.clearBtn}>
             <FaTrashAlt style={{ marginRight: '0.35rem' }} />{t.clearAll}
           </button>
         </div>
@@ -810,15 +794,13 @@ function PersonalCenterDashboard({ user }) {
         </div>
       </div>
 
-      {/* 云同步 — 放在页面最底部 */}
-      <CloudSyncPanel language={language} />
     </div>
   );
 }
 
 function MePageInner() {
   const centerT = useUiText('personalCenter');
-  const { isConfigured, isLoggedIn, authReady, user } = useSync();
+  const { isConfigured, isLoggedIn, authReady, user } = useAuth();
   const problemSetsEnabled = useProblemSetsFeature();
   const activeTab = getActivePersonalTab(problemSetsEnabled);
 

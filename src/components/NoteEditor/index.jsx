@@ -5,7 +5,7 @@ import {
   FaBold, FaItalic, FaHeading, FaCode, FaListUl, FaQuoteLeft,
 } from 'react-icons/fa';
 import { useDocNotes } from '@site/src/hooks/useNotes';
-import { useSync } from '@site/src/hooks/useSync';
+import { useAuth } from '@site/src/hooks/useAuth';
 import { useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import useDocumentColorMode from '@site/src/components/Chemistry/useDocumentColorMode';
@@ -67,7 +67,7 @@ function NoteGate({ t, type = 'login', embedded = false }) {
 
 // ─── 主组件 ──────────────────────────────────────────────────
 function NoteEditorContent({ docId, embedded = false }) {
-  const { content, updatedAt, patchNote } = useDocNotes(docId);
+  const { content, updatedAt, patchNote, saving, error } = useDocNotes(docId);
   const parsedContent = parseNoteDocument(content);
   const [text, setText] = useState(parsedContent.freeContent);
   const [mode, setMode] = useState('edit');
@@ -280,7 +280,9 @@ function NoteEditorContent({ docId, embedded = false }) {
 
           {/* 底部状态栏 */}
           <div className={styles.noteFooter}>
-            {updatedAt && (
+            {saving && <span className={styles.saveIndicator}>{t.saving}</span>}
+            {error && <span className={styles.saveIndicator}>{t.saveError}</span>}
+            {!saving && !error && updatedAt && (
               <span className={`${styles.saveIndicator} ${saveFlash ? styles.saveFlash : ''}`}>
                 ✓ {t.lastSaved(formatTimeSince(updatedAt, lang))}
               </span>
@@ -298,7 +300,7 @@ function NoteEditorContent({ docId, embedded = false }) {
 }
 
 export default function NoteEditor(props) {
-  const { isConfigured, isLoggedIn, authReady } = useSync();
+  const { isConfigured, isLoggedIn, authReady } = useAuth();
   const t = useUiText('noteEditor');
 
   if (isConfigured && !authReady && !isLoggedIn) return null;

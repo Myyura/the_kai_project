@@ -1,14 +1,10 @@
 import React from 'react';
 import {FaBookmark, FaCheck, FaLayerGroup, FaPlus, FaSave, FaTimes} from 'react-icons/fa';
-import {useSync} from '@site/src/hooks/useSync';
+import {useAuth} from '@site/src/hooks/useAuth';
 import {useProblemSets} from '@site/src/hooks/useProblemSets';
 import {useProblemSetsFeature} from '@site/src/hooks/useProblemSetsFeature';
 import {useUiText} from '@site/src/i18n/useUiText';
-import {
-  PROBLEM_SET_KIND,
-  createMyProblemSet,
-  setDocProblemSetMemberships,
-} from '@site/src/services/problemSetService';
+import {PROBLEM_SET_KIND} from '@site/src/services/problemSetTypes';
 import {consumeAuthReturnIntent, saveAuthReturnIntent} from '@site/src/services/authReturn';
 import styles from './styles.module.css';
 
@@ -20,7 +16,7 @@ const setName = (problemSet, t) => {
 
 export default function AddToProblemSet({docId, variant = 'default'}) {
   const featureEnabled = useProblemSetsFeature();
-  const {isLoggedIn, authReady} = useSync();
+  const {isLoggedIn, authReady} = useAuth();
   const t = useUiText('problemSets');
   const {sets, loading, error, refresh} = useProblemSets(docId, {enabled: featureEnabled && isLoggedIn});
   const [open, setOpen] = React.useState(false);
@@ -101,13 +97,14 @@ export default function AddToProblemSet({docId, variant = 'default'}) {
     setSaving(true);
     setMessage('');
     try {
+      const {createMyProblemSet} = await import('@site/src/services/problemSetService');
       const id = await createMyProblemSet({title: newTitle.trim()});
       pendingCreatedSetIdsRef.current.add(id);
       setSelected((current) => [...current, id]);
       setNewTitle('');
       await refresh();
     } catch (createError) {
-      setMessage(createError?.message === 'offline_read_only' ? t.offlineReadOnly : t.saveFailed);
+      setMessage(t.saveFailed);
     } finally {
       setSaving(false);
     }
@@ -117,13 +114,14 @@ export default function AddToProblemSet({docId, variant = 'default'}) {
     setSaving(true);
     setMessage('');
     try {
+      const {setDocProblemSetMemberships} = await import('@site/src/services/problemSetService');
       await setDocProblemSetMemberships(docId, selected);
       pendingCreatedSetIdsRef.current.clear();
       await refresh();
       setMessage(t.saved);
       window.setTimeout(() => setOpen(false), 350);
     } catch (saveError) {
-      setMessage(saveError?.message === 'offline_read_only' ? t.offlineReadOnly : t.saveFailed);
+      setMessage(t.saveFailed);
     } finally {
       setSaving(false);
     }

@@ -12,7 +12,6 @@ const normalizeProfile = (row) => {
     nicknameConfirmed: Boolean(row.nickname_confirmed),
     nicknameChangedAt: row.nickname_changed_at || null,
     nextNicknameChangeAt: row.next_nickname_change_at || null,
-    leaderboardVisible: Boolean(row.leaderboard_visible),
   };
 };
 
@@ -28,9 +27,5 @@ export const fetchMyPublicProfile = () => callProfileRpc('get_my_public_profile'
 
 export const confirmOrChangeMyNickname = (nickname) => (
   callProfileRpc('confirm_or_change_my_nickname', { p_nickname: nickname })
-);
-
-export const setMyLeaderboardVisibility = (visible) => (
-  callProfileRpc('set_my_leaderboard_visibility', { p_visible: Boolean(visible) })
 );
 

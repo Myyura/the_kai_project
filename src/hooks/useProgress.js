@@ -1,9 +1,11 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
-import { getCalibratedNow } from '../services/syncService';
-import { queuePracticeEvent } from '../services/practiceEvents';
-import { addStorageOwnerChangeListener, getScopedStorageKey } from '../services/localStorageScope';
+import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {useAuth} from './useAuth';
 
-export const STORAGE_KEY = 'kai_progress';
+const addProgressUpdatedListener = (listener) => {
+  if (typeof window === 'undefined') return () => {};
+  window.addEventListener('kai_progress_updated', listener);
+  return () => window.removeEventListener('kai_progress_updated', listener);
+};
 
 export const STATUS = {
   NOT_STARTED: 'not_started',
@@ -11,58 +13,8 @@ export const STATUS = {
   REVIEWING: 'reviewing',
 };
 
-// 模块级缓存，避免多组件同时 JSON.parse
-let _progressCache = null;
-let _progressRaw = null;
-let _progressStorageKey = null;
-
-// 从 localStorage 读取全部进度数据
-export const readProgressData = ({ storageOwner } = {}) => {
-  if (typeof window === 'undefined') return {};
-  try {
-    const key = getScopedStorageKey(STORAGE_KEY, storageOwner);
-    const raw = localStorage.getItem(key);
-    if (key === _progressStorageKey && raw === _progressRaw && _progressCache) return _progressCache;
-    _progressStorageKey = key;
-    _progressRaw = raw;
-    _progressCache = raw ? JSON.parse(raw) : {};
-    return _progressCache;
-  } catch {
-    return {};
-  }
-};
-
-// 将进度数据写入 localStorage 并触发更新事件
-export const writeProgressData = (data, { skipDirty = false, storageOwner } = {}) => {
-  if (typeof window === 'undefined') return;
-  try {
-    const key = getScopedStorageKey(STORAGE_KEY, storageOwner);
-    const json = JSON.stringify(data);
-    // 数据未变化时跳过写入和脏标记，减少无效同步请求
-    if (key === _progressStorageKey && json === _progressRaw) return;
-    _progressStorageKey = key;
-    _progressRaw = json;
-    _progressCache = data;
-    localStorage.setItem(key, json);
-    if (key === getScopedStorageKey(STORAGE_KEY)) {
-      window.dispatchEvent(new Event('kai_progress_updated'));
-    }
-    // 标记本地有未同步修改（从云端拉取写入时 skipDirty=true）
-    if (!skipDirty) {
-      import('../services/syncService').then(m => m.markSyncDirty({ storageOwner })).catch(() => {});
-    }
-  } catch {}
-};
-
-// 遗忘曲线复习间隔（天）
 export const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60];
 
-/**
- * 计算下次复习信息
- * @param {number} updatedAt  - 上次操作时间戳
- * @param {number} reviewCount - 已完成的复习次数（0=刚标记）
- * @returns {{ due: boolean, urgency: string, daysUntil?: number, overdueDays?: number, reviewCount: number, totalRounds: number }}
- */
 export const getReviewInfo = (updatedAt, reviewCount = 0) => {
   if (!updatedAt) return null;
   const totalRounds = REVIEW_INTERVALS.length;
@@ -70,10 +22,12 @@ export const getReviewInfo = (updatedAt, reviewCount = 0) => {
   const targetDays = REVIEW_INTERVALS[idx];
   const daysSince = (Date.now() - updatedAt) / 86400000;
   const daysUntil = targetDays - daysSince;
-  if (daysUntil > 1)
-    return { due: false, daysUntil: Math.ceil(daysUntil), urgency: 'soon', reviewCount, totalRounds };
-  if (daysUntil > 0)
-    return { due: true, daysUntil: 1, urgency: 'urgent', reviewCount, totalRounds };
+  if (daysUntil > 1) {
+    return {due: false, daysUntil: Math.ceil(daysUntil), urgency: 'soon', reviewCount, totalRounds};
+  }
+  if (daysUntil > 0) {
+    return {due: true, daysUntil: 1, urgency: 'urgent', reviewCount, totalRounds};
+  }
   return {
     due: true,
     overdueDays: Math.floor(-daysUntil),
@@ -83,115 +37,182 @@ export const getReviewInfo = (updatedAt, reviewCount = 0) => {
   };
 };
 
-/**
- * 单文档进度钩子
- * @param {string} docId   - 文档 ID（来自 metadata.id）
- * @param {string} title   - 文档标题，用于在总览页显示
- * @param {string} permalink - 文档链接
- * @param {string[]} tags  - 文档标签列表
- */
-export const useDocProgress = (docId, title, permalink, tags) => {
-  const [data, setData] = useState(() => readProgressData());
+export function useDocProgress(docId, title, permalink, tags) {
+  const {isLoggedIn, user} = useAuth();
+  const [entry, setEntry] = useState(null);
+  const [loading, setLoading] = useState(Boolean(isLoggedIn));
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(null);
+  const currentUserIdRef = useRef(user?.id || '');
+  currentUserIdRef.current = user?.id || '';
 
   useEffect(() => {
-    const handler = () => setData(readProgressData());
-    window.addEventListener('kai_progress_updated', handler);
-    const removeStorageOwnerListener = addStorageOwnerChangeListener(handler);
-    return () => {
-      window.removeEventListener('kai_progress_updated', handler);
-      removeStorageOwnerListener();
-    };
-  }, []);
+    setSaving(false);
+    setError(null);
+  }, [user?.id]);
 
-  const entry = data[docId];
-  const status = entry?.status ?? STATUS.NOT_STARTED;
-
-  const setStatus = useCallback(
-    (newStatus) => {
-      const current = readProgressData();
-      const occurredAt = getCalibratedNow();
-      let shouldRecordPractice = false;
-      if (newStatus === STATUS.NOT_STARTED) {
-        delete current[docId];
-      } else {
-        const prev = current[docId];
-        const statusChanged = !prev || prev.status !== newStatus;
-        shouldRecordPractice = !prev;
-        current[docId] = {
-          status: newStatus,
-          title: title ?? docId,
-          permalink: permalink ?? `/docs/${docId}`,
-          tags: Array.isArray(tags) ? tags : [],
-          // 切換到复习时初始化次数；其他状态不减不加
-          reviewCount: newStatus === STATUS.REVIEWING
-            ? (statusChanged ? 0 : (prev?.reviewCount ?? 0))
-            : (prev?.reviewCount ?? 0),
-          updatedAt: statusChanged ? occurredAt : (prev?.updatedAt ?? occurredAt),
-        };
+  const refresh = useCallback(async () => {
+    if (!isLoggedIn || !docId) {
+      setEntry(null);
+      setLoading(false);
+      return null;
+    }
+    const operationUserId = user?.id || '';
+    setLoading(true);
+    try {
+      const {fetchDocProgress} = await import('../services/studyDataService');
+      const value = await fetchDocProgress(docId);
+      if (currentUserIdRef.current === operationUserId) {
+        setEntry(value);
+        setError(null);
       }
-      writeProgressData(current);
-      if (shouldRecordPractice) queuePracticeEvent(docId, 'practice', occurredAt);
-      setData({ ...current });
-    },
-    [docId, title, permalink, tags]
-  );
+      return value;
+    } catch (nextError) {
+      if (currentUserIdRef.current === operationUserId) setError(nextError);
+      return null;
+    } finally {
+      if (currentUserIdRef.current === operationUserId) setLoading(false);
+    }
+  }, [docId, isLoggedIn, user?.id]);
+
+  useEffect(() => {
+    let active = true;
+    void refresh();
+    const removeListener = addProgressUpdatedListener((event) => {
+      if (event.detail?.userId && event.detail.userId !== currentUserIdRef.current) return;
+      if (!active || (event.detail?.docId && event.detail.docId !== docId)) return;
+      if (event.detail?.docId === docId) setEntry(event.detail.value || null);
+      else void refresh();
+    });
+    return () => {
+      active = false;
+      removeListener();
+    };
+  }, [docId, refresh, user?.id]);
+
+  const persist = useCallback(async (nextEntry, eventType) => {
+    const operationUserId = user?.id || '';
+    const previous = entry;
+    setEntry(nextEntry);
+    setSaving(true);
+    setError(null);
+    try {
+      if (!nextEntry) {
+        const {deleteDocProgress} = await import('../services/studyDataService');
+        await deleteDocProgress(docId);
+        if (currentUserIdRef.current === operationUserId) setEntry(null);
+        return null;
+      }
+      const {saveDocProgress} = await import('../services/studyDataService');
+      const saved = await saveDocProgress({
+        ...nextEntry,
+        docId,
+        eventType,
+        expectedUserId: operationUserId,
+      });
+      if (currentUserIdRef.current === operationUserId) setEntry(saved);
+      return saved;
+    } catch (nextError) {
+      if (currentUserIdRef.current === operationUserId) {
+        setEntry(previous);
+        setError(nextError);
+      }
+      return null;
+    } finally {
+      if (currentUserIdRef.current === operationUserId) setSaving(false);
+    }
+  }, [docId, entry, user?.id]);
+
+  const setStatus = useCallback((newStatus) => {
+    if (newStatus === STATUS.NOT_STARTED) return persist(null, null);
+    const statusChanged = !entry || entry.status !== newStatus;
+    return persist({
+      docId,
+      status: newStatus,
+      title: title || docId,
+      permalink: permalink || `/docs/${docId}`,
+      tags: Array.isArray(tags) ? tags : [],
+      reviewCount: newStatus === STATUS.REVIEWING && statusChanged
+        ? 0
+        : (entry?.reviewCount || 0),
+      updatedAt: statusChanged ? Date.now() : (entry?.updatedAt || Date.now()),
+    }, entry ? null : 'practice');
+  }, [docId, entry, permalink, persist, tags, title]);
 
   const refreshReview = useCallback(() => {
-    const current = readProgressData();
-    if (!current[docId]) return;
-    const occurredAt = getCalibratedNow();
-    const newCount = (current[docId].reviewCount ?? 0) + 1;
-    const isFinished = newCount >= REVIEW_INTERVALS.length;
-    current[docId] = {
-      ...current[docId],
-      reviewCount: newCount,
-      status: isFinished ? STATUS.COMPLETED : current[docId].status,
-      updatedAt: occurredAt,
-    };
-    writeProgressData(current);
-    queuePracticeEvent(docId, 'review', occurredAt);
-    setData({ ...current });
-  }, [docId]);
+    if (!entry) return Promise.resolve(null);
+    const reviewCount = (entry.reviewCount || 0) + 1;
+    return persist({
+      ...entry,
+      status: reviewCount >= REVIEW_INTERVALS.length ? STATUS.COMPLETED : entry.status,
+      reviewCount,
+      updatedAt: Date.now(),
+    }, 'review');
+  }, [entry, persist]);
 
-  return [status, setStatus, refreshReview, entry?.updatedAt ?? null, entry?.reviewCount ?? 0];
-};
+  return [
+    entry?.status || STATUS.NOT_STARTED,
+    setStatus,
+    refreshReview,
+    entry?.updatedAt || null,
+    entry?.reviewCount || 0,
+    {loading, saving, error, refresh},
+  ];
+}
 
-/**
- * 全局进度统计钩子
- */
-export const useAllProgress = () => {
-  const [data, setData] = useState(() => readProgressData());
+export function useAllProgress() {
+  const {isLoggedIn, user} = useAuth();
+  const [entries, setEntries] = useState([]);
+  const [loading, setLoading] = useState(Boolean(isLoggedIn));
+  const [error, setError] = useState(null);
+  const requestRef = useRef(0);
+
+  const refresh = useCallback(async () => {
+    if (!isLoggedIn) {
+      requestRef.current += 1;
+      setEntries([]);
+      setLoading(false);
+      return [];
+    }
+    const requestId = ++requestRef.current;
+    setLoading(true);
+    try {
+      const {fetchAllProgress} = await import('../services/studyDataService');
+      const values = await fetchAllProgress();
+      if (requestRef.current === requestId) {
+        setEntries(values);
+        setError(null);
+      }
+      return values;
+    } catch (nextError) {
+      if (requestRef.current === requestId) setError(nextError);
+      return [];
+    } finally {
+      if (requestRef.current === requestId) setLoading(false);
+    }
+  }, [isLoggedIn, user?.id]);
 
   useEffect(() => {
-    setData(readProgressData());
-    const handler = () => setData(readProgressData());
-    window.addEventListener('kai_progress_updated', handler);
-    const removeStorageOwnerListener = addStorageOwnerChangeListener(handler);
-    return () => {
-      window.removeEventListener('kai_progress_updated', handler);
-      removeStorageOwnerListener();
-    };
-  }, []);
+    void refresh();
+    return addProgressUpdatedListener((event) => {
+      if (!event.detail?.userId || event.detail.userId === user?.id) void refresh();
+    });
+  }, [refresh, user?.id]);
 
-  const entries = useMemo(
-    () => Object.entries(data).map(([id, val]) => ({ id, ...val })),
-    [data]
-  );
+  const stats = useMemo(() => entries.reduce((result, item) => {
+    if (item.status === STATUS.COMPLETED) result.completed += 1;
+    if (item.status === STATUS.REVIEWING) result.reviewing += 1;
+    result.total += 1;
+    return result;
+  }, {completed: 0, reviewing: 0, total: 0}), [entries]);
 
-  const stats = useMemo(() => {
-    let completed = 0;
-    let reviewing = 0;
-    for (const e of entries) {
-      if (e.status === STATUS.COMPLETED) completed++;
-      else if (e.status === STATUS.REVIEWING) reviewing++;
-    }
-    return { completed, reviewing, total: entries.length };
-  }, [entries]);
+  const clearAll = useCallback(async () => {
+    const requestId = requestRef.current;
+    const {clearMyProgress} = await import('../services/studyDataService');
+    await clearMyProgress();
+    if (requestRef.current === requestId) setEntries([]);
+  }, [user?.id]);
 
-  const clearAll = useCallback(() => {
-    writeProgressData({});
-    setData({});
-  }, []);
-
-  return { data, entries, stats, clearAll };
-};
+  const data = useMemo(() => Object.fromEntries(entries.map((item) => [item.id, item])), [entries]);
+  return {data, entries, stats, clearAll, loading, error, refresh};
+}

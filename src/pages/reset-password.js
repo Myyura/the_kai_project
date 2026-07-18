@@ -7,12 +7,12 @@ import { FaCheck, FaExclamationTriangle, FaKey, FaLock, FaSyncAlt } from 'react-
 import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import NoIndex from '@site/src/components/NoIndex';
-import { useSync } from '@site/src/hooks/useSync';
+import { useAuth } from '@site/src/hooks/useAuth';
 import {
   recoverPasswordSessionFromUrl,
   signOut as signOutCurrentSession,
   updateCurrentUserPassword,
-} from '@site/src/services/syncService';
+} from '@site/src/services/authService';
 import { validatePassword } from '@site/src/services/authSecurity';
 import styles from './reset-password.module.css';
 
@@ -21,7 +21,7 @@ function ResetPasswordContent() {
   const language = useCurrentLanguage();
   const lang = normalizeLanguage(language);
   const t = useUiText('resetPassword');
-  const { isConfigured } = useSync();
+  const { isConfigured } = useAuth();
 
   const [ready, setReady] = useState(false);
   const [completed, setCompleted] = useState(false);

@@ -12,6 +12,7 @@ function uniqueCount(values) {
 }
 
 function main() {
+  const check = process.argv.includes('--check');
   const data = buildApiData();
   const errors = data.issues.filter((issue) => issue.severity === 'error');
   if (errors.length) {
@@ -44,8 +45,23 @@ function main() {
       .map((doc) => [doc.doc_id, doc.title])
   );
 
-  fs.writeFileSync(OUTPUT_FILE, `${JSON.stringify(stats, null, 2)}\n`, 'utf-8');
-  fs.writeFileSync(DOCUMENT_TITLES_FILE, `${JSON.stringify(documentTitles, null, 2)}\n`, 'utf-8');
+  const nextStats = `${JSON.stringify(stats, null, 2)}\n`;
+  const nextDocumentTitles = `${JSON.stringify(documentTitles, null, 2)}\n`;
+  if (check) {
+    const currentStats = fs.existsSync(OUTPUT_FILE) ? fs.readFileSync(OUTPUT_FILE, 'utf-8') : '';
+    const currentTitles = fs.existsSync(DOCUMENT_TITLES_FILE)
+      ? fs.readFileSync(DOCUMENT_TITLES_FILE, 'utf-8')
+      : '';
+    if (currentStats !== nextStats || currentTitles !== nextDocumentTitles) {
+      console.error('Generated site data is stale. Run: yarn generate:site-stats');
+      process.exit(1);
+    }
+    console.log('Generated site stats and document titles are up to date.');
+    return;
+  }
+
+  fs.writeFileSync(OUTPUT_FILE, nextStats, 'utf-8');
+  fs.writeFileSync(DOCUMENT_TITLES_FILE, nextDocumentTitles, 'utf-8');
   console.log(`Generated site stats: ${OUTPUT_FILE}`);
   console.log(`  exams: ${stats.examDocuments}`);
   console.log(`  universities: ${stats.universities}`);

@@ -1,5 +1,5 @@
 import { getSupabaseClient, getSupabaseCredentials } from './supabaseClient';
-import { getVerifiedAccessToken } from './syncService';
+import { getVerifiedAccessToken } from './authService';
 import { getEdgeFunctionErrorMessage } from './edgeFunctionErrors';
 
 const FUNCTION_NAME = 'agent-session';

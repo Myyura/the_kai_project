@@ -8,7 +8,7 @@ import {
   FaShieldAlt,
 } from 'react-icons/fa';
 import { useCurrentLanguage } from '@site/src/context/LanguageContext';
-import { useSync } from '@site/src/hooks/useSync';
+import { useAuth } from '@site/src/hooks/useAuth';
 import {
   loadAgentBridgeStatus,
   startChat,
@@ -179,7 +179,7 @@ function ToggleRow({ label, description, checked, disabled, saving, onChange }) 
 export function AgentTutorContent({ embedded = false } = {}) {
   const language = useCurrentLanguage();
   const t = TEXT[language] || TEXT.zh;
-  const { isConfigured, isLoggedIn, authReady } = useSync();
+  const { isConfigured, isLoggedIn, authReady } = useAuth();
   const [status, setStatus] = useState(null);
   const [session, setSession] = useState(null);
   const [message, setMessage] = useState(null);

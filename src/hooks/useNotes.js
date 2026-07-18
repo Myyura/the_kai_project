@@ -1,138 +1,201 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
-import { getCalibratedNow } from '../services/syncService';
-import { addStorageOwnerChangeListener, getScopedStorageKey } from '../services/localStorageScope';
+import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {useAuth} from './useAuth';
 
-export const NOTES_STORAGE_KEY = 'kai_notes';
+const addNotesUpdatedListener = (listener) => {
+  if (typeof window === 'undefined') return () => {};
+  window.addEventListener('kai_notes_updated', listener);
+  return () => window.removeEventListener('kai_notes_updated', listener);
+};
 
-// 模块级缓存，避免多组件同时 JSON.parse
-let _notesCache = null;
-let _notesRaw = null;
-let _notesStorageKey = null;
+const noteCache = new Map();
+const saveChains = new Map();
+const pendingContents = new Map();
 
-// 从 localStorage 读取全部笔记数据
-export const readNotesData = ({ storageOwner } = {}) => {
-  if (typeof window === 'undefined') return {};
-  try {
-    const key = getScopedStorageKey(NOTES_STORAGE_KEY, storageOwner);
-    const raw = localStorage.getItem(key);
-    if (key === _notesStorageKey && raw === _notesRaw && _notesCache) return _notesCache;
-    _notesStorageKey = key;
-    _notesRaw = raw;
-    _notesCache = raw ? JSON.parse(raw) : {};
-    return _notesCache;
-  } catch {
-    return {};
+const emitOptimisticNote = (userId, docId, value) => {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('kai_notes_updated', {
+      detail: {userId, docId, value, optimistic: true},
+    }));
   }
 };
 
-// 将笔记数据写入 localStorage 并触发更新事件
-export const writeNotesData = (data, { skipDirty = false, storageOwner } = {}) => {
-  if (typeof window === 'undefined') return;
-  try {
-    const key = getScopedStorageKey(NOTES_STORAGE_KEY, storageOwner);
-    const json = JSON.stringify(data);
-    // 数据未变化时跳过写入和脏标记，减少无效同步请求
-    if (key === _notesStorageKey && json === _notesRaw) return;
-    _notesStorageKey = key;
-    _notesRaw = json;
-    _notesCache = data;
-    localStorage.setItem(key, json);
-    if (key === getScopedStorageKey(NOTES_STORAGE_KEY)) {
-      window.dispatchEvent(new Event('kai_notes_updated'));
-    }
-    // 标记本地有未同步修改（从云端拉取写入时 skipDirty=true）
-    if (!skipDirty) {
-      import('../services/syncService').then(m => m.markSyncDirty({ storageOwner })).catch(() => {});
-    }
-  } catch {}
+const enqueueSave = (cacheKey, userId, docId, content) => {
+  const previous = saveChains.get(cacheKey) || Promise.resolve();
+  const operation = previous.catch(() => {}).then(async () => {
+    const {saveDocNote} = await import('../services/studyDataService');
+    return saveDocNote(docId, content, userId);
+  });
+  saveChains.set(cacheKey, operation);
+  operation.finally(() => {
+    if (saveChains.get(cacheKey) === operation) saveChains.delete(cacheKey);
+  });
+  return operation;
 };
 
-/**
- * Atomically update one document note against the latest cached value.
- * Inline annotations and the footer editor must both use this path so a
- * debounced save cannot replace changes made by the other surface.
- */
-export const updateDocNoteContent = (docId, updater) => {
-  const current = readNotesData();
-  const previousContent = current[docId]?.content ?? '';
-  const nextContent = typeof updater === 'function'
-    ? updater(previousContent)
-    : String(updater ?? '');
-
-  if (nextContent === previousContent) return current[docId] ?? null;
-
-  const next = {...current};
-  if (nextContent.trim() === '') {
-    delete next[docId];
-  } else {
-    next[docId] = {
-      content: nextContent,
-      updatedAt: getCalibratedNow(),
-    };
-  }
-  writeNotesData(next);
-  return next[docId] ?? null;
-};
-
-/**
- * 单文档笔记钩子
- * @param {string} docId - 文档 ID（来自 metadata.id）
- */
-export const useDocNotes = (docId) => {
-  const [data, setData] = useState(() => readNotesData());
+export function useDocNotes(docId) {
+  const {isLoggedIn, user} = useAuth();
+  const userId = user?.id || '';
+  const cacheKey = userId && docId ? `${userId}:${docId}` : '';
+  const [entry, setEntry] = useState(() => noteCache.get(cacheKey) || null);
+  const [loading, setLoading] = useState(Boolean(isLoggedIn));
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(null);
+  const activeCacheKeyRef = useRef(cacheKey);
+  activeCacheKeyRef.current = cacheKey;
+  const entryCacheKeyRef = useRef(entry ? cacheKey : '');
+  const entryRef = useRef(entry);
+  entryRef.current = entry;
 
   useEffect(() => {
-    const handler = () => setData(readNotesData());
-    window.addEventListener('kai_notes_updated', handler);
-    const removeStorageOwnerListener = addStorageOwnerChangeListener(handler);
-    return () => {
-      window.removeEventListener('kai_notes_updated', handler);
-      removeStorageOwnerListener();
-    };
-  }, []);
+    setSaving(false);
+    setError(null);
+  }, [cacheKey]);
 
-  const entry = data[docId];
-  const content = entry?.content ?? '';
-  const updatedAt = entry?.updatedAt ?? null;
+  const refresh = useCallback(async () => {
+    if (!isLoggedIn || !docId) {
+      setEntry(null);
+      setLoading(false);
+      return null;
+    }
+    setLoading(true);
+    try {
+      const {fetchDocNote} = await import('../services/studyDataService');
+      const value = await fetchDocNote(docId);
+      noteCache.set(cacheKey, value);
+      if (activeCacheKeyRef.current === cacheKey) {
+        entryCacheKeyRef.current = cacheKey;
+        setEntry(value);
+        setError(null);
+      }
+      return value;
+    } catch (nextError) {
+      if (activeCacheKeyRef.current === cacheKey) setError(nextError);
+      return null;
+    } finally {
+      if (activeCacheKeyRef.current === cacheKey) setLoading(false);
+    }
+  }, [cacheKey, docId, isLoggedIn]);
 
-  const saveNote = useCallback(
-    (newContent) => {
-      updateDocNoteContent(docId, newContent);
-      setData({...readNotesData()});
-    },
-    [docId]
-  );
+  useEffect(() => {
+    void refresh();
+    return addNotesUpdatedListener((event) => {
+      if (event.detail?.userId && event.detail.userId !== userId) return;
+      if (event.detail?.docId !== docId) return;
+      const value = event.detail.value || null;
+      const pendingContent = pendingContents.get(cacheKey);
+      if (!event.detail?.optimistic && pendingContent !== undefined && (value?.content || '') !== pendingContent) {
+        return;
+      }
+      noteCache.set(cacheKey, value);
+      entryCacheKeyRef.current = cacheKey;
+      setEntry(value);
+    });
+  }, [cacheKey, docId, refresh, userId]);
 
   const patchNote = useCallback((updater) => {
-    const entry = updateDocNoteContent(docId, updater);
-    setData({...readNotesData()});
-    return entry;
-  }, [docId]);
+    if (!isLoggedIn || !cacheKey) return null;
+    const latest = noteCache.get(cacheKey)
+      || (entryCacheKeyRef.current === cacheKey ? entryRef.current : null)
+      || null;
+    const previousContent = latest?.content || '';
+    const nextContent = typeof updater === 'function'
+      ? updater(previousContent)
+      : String(updater || '');
+    if (nextContent === previousContent) return latest;
 
-  return { content, updatedAt, saveNote, patchNote };
-};
+    const optimistic = {
+      id: docId,
+      content: nextContent,
+      version: latest?.version || 1,
+      updatedAt: latest?.updatedAt || null,
+    };
+    noteCache.set(cacheKey, optimistic);
+    pendingContents.set(cacheKey, nextContent);
+    entryCacheKeyRef.current = cacheKey;
+    setEntry(optimistic);
+    setSaving(true);
+    setError(null);
+    emitOptimisticNote(userId, docId, optimistic);
 
-/**
- * 全局笔记统计钩子（可用于笔记总览页面）
- */
-export const useAllNotes = () => {
-  const [data, setData] = useState(() => readNotesData());
+    void enqueueSave(cacheKey, userId, docId, nextContent).then((saved) => {
+      const current = noteCache.get(cacheKey);
+      if ((current?.content || '') === nextContent) {
+        if (pendingContents.get(cacheKey) === nextContent) pendingContents.delete(cacheKey);
+        noteCache.set(cacheKey, saved);
+        if (activeCacheKeyRef.current === cacheKey) {
+          entryCacheKeyRef.current = cacheKey;
+          setEntry(saved);
+          setSaving(false);
+        }
+      }
+    }).catch((nextError) => {
+      if (pendingContents.get(cacheKey) === nextContent) {
+        pendingContents.delete(cacheKey);
+        if (activeCacheKeyRef.current === cacheKey) {
+          setError(nextError);
+          setSaving(false);
+        }
+      }
+    });
+    return optimistic;
+  }, [cacheKey, docId, isLoggedIn, userId]);
+
+  const saveNote = useCallback((content) => patchNote(content), [patchNote]);
+  const visibleEntry = entryCacheKeyRef.current === cacheKey ? entry : null;
+  return {
+    content: visibleEntry?.content || '',
+    updatedAt: visibleEntry?.updatedAt || null,
+    saveNote,
+    patchNote,
+    loading,
+    saving,
+    error,
+    refresh,
+  };
+}
+
+export function useAllNotes() {
+  const {isLoggedIn, user} = useAuth();
+  const [entries, setEntries] = useState([]);
+  const [loading, setLoading] = useState(Boolean(isLoggedIn));
+  const [error, setError] = useState(null);
+  const requestRef = useRef(0);
+
+  const refresh = useCallback(async () => {
+    if (!isLoggedIn) {
+      requestRef.current += 1;
+      setEntries([]);
+      setLoading(false);
+      return [];
+    }
+    const requestId = ++requestRef.current;
+    setLoading(true);
+    try {
+      const {fetchAllNotes} = await import('../services/studyDataService');
+      const values = await fetchAllNotes();
+      if (requestRef.current === requestId) {
+        values.forEach((value) => noteCache.set(`${user?.id}:${value.id}`, value));
+        setEntries(values);
+        setError(null);
+      }
+      return values;
+    } catch (nextError) {
+      if (requestRef.current === requestId) setError(nextError);
+      return [];
+    } finally {
+      if (requestRef.current === requestId) setLoading(false);
+    }
+  }, [isLoggedIn, user?.id]);
 
   useEffect(() => {
-    setData(readNotesData());
-    const handler = () => setData(readNotesData());
-    window.addEventListener('kai_notes_updated', handler);
-    const removeStorageOwnerListener = addStorageOwnerChangeListener(handler);
-    return () => {
-      window.removeEventListener('kai_notes_updated', handler);
-      removeStorageOwnerListener();
-    };
-  }, []);
+    void refresh();
+    return addNotesUpdatedListener((event) => {
+      if ((!event.detail?.userId || event.detail.userId === user?.id) && !event.detail?.optimistic) {
+        void refresh();
+      }
+    });
+  }, [refresh, user?.id]);
 
-  const entries = useMemo(
-    () => Object.entries(data).map(([id, val]) => ({ id, ...val })),
-    [data]
-  );
-
-  return { data, entries };
-};
+  const data = useMemo(() => Object.fromEntries(entries.map((item) => [item.id, item])), [entries]);
+  return {data, entries, loading, error, refresh};
+}

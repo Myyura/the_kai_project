@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 import {FaPen, FaRotateLeft} from 'react-icons/fa6';
-import {useSync} from '@site/src/hooks/useSync';
+import {useAuth} from '@site/src/hooks/useAuth';
 import useDocAnnotations from '@site/src/hooks/useDocAnnotations';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
@@ -121,7 +121,7 @@ export function DocumentAnnotationsProvider({docId, children}) {
     removeAnnotation,
     restoreAnnotation,
   } = useDocAnnotations(docId);
-  const {isConfigured, isLoggedIn, authReady} = useSync();
+  const {isConfigured, isLoggedIn, authReady} = useAuth();
   const t = useUiText('annotations');
   const [selectionDraft, setSelectionDraftState] = useState(null);
   const [composerOpen, setComposerOpen] = useState(false);
@@ -293,4 +293,3 @@ export function useDocumentAnnotations() {
   }
   return value;
 }
-

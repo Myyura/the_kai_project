@@ -17,7 +17,7 @@
 </div>
 
 # 📖 Introduction
-The Kai Project is an open-source platform for Japanese graduate school entrance exam archives, public solutions, and preparation experience. In addition to the content library itself, the site now includes study tools that help users track progress, take notes, and sync practice records across devices.
+The Kai Project is an open-source platform for Japanese graduate school entrance exam archives, public solutions, and preparation experience. Signed-in users can also track progress, take notes, and manage private study data stored directly in the project database.
 
 ```text
 "Answer to the Ultimate Question of Life, the Universe, and Everything"
@@ -39,9 +39,9 @@ To support long-term maintenance, technical services, and community operations, 
 - Open past-exam and solution database across multiple universities and departments
 - Exam-experience blog posts and preparation write-ups
 - Per-question progress tracking with review reminders and a progress dashboard
-- Built-in Markdown/LaTeX notes plus selectable inline annotations with highlighting, quick navigation, editing, and cloud sync
-- Unified public nicknames, private problem sets, cloud sync, and a practice leaderboard powered by Supabase
-- Local search, PWA/offline support, and share-as-image for answer pages
+- Built-in Markdown/LaTeX notes plus selectable inline annotations with highlighting, quick navigation, and editing
+- Account-based progress, private problem sets, public nicknames, and a practice leaderboard powered by Supabase
+- Local search and share-as-image for answer pages; web document reading requires a network connection
 
 # 🛠️ Local Development
 ## Requirements
@@ -74,6 +74,7 @@ yarn generate:site-stats
 yarn tags:generate
 yarn content:validate
 yarn tags:audit
+yarn documents:validate
 yarn review:format
 yarn api:validate
 ```
@@ -81,15 +82,16 @@ yarn api:validate
 - `yarn generate:universities`: regenerate `src/data/universities.js` after changing the `docs/` directory structure or `_category_.json` labels.
 - `yarn generate:site-stats`: regenerate `src/data/siteStats.json` from the same scan used by the public JSON API.
 - `yarn tags:generate`: regenerate `docs/tags.yml` from the subject files under `src/data/tagTaxonomy/`.
-- `yarn content:validate`: validate contributor-editable JSON data under `src/data/`, including links, admissions, university metadata, and the tag taxonomy.
+- `yarn content:validate`: validate contributor-editable JSON data under `src/data/`, including links, university metadata, and the tag taxonomy.
 - `yarn tags:audit`: summarize site-wide school, subject, subsubject, topic, pending, and deprecated tag usage.
+- `yarn documents:validate`: validate immutable document UUIDs and historical path aliases.
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
 - `yarn api:validate`: validate the structured data used by the public JSON API.
 
-Contributor-editable content data lives under `src/data/`: `links.json`, `admissions.json`, `universityMetadata.json`, and the `tagTaxonomy/` directory. Tag definitions are split by primary subject under `tagTaxonomy/subjects/`; global policy and school tags live alongside them. The generated `universities.js`, `siteStats.json`, and `docs/tags.yml` files should be refreshed with the scripts above.
+Contributor-editable content data lives under `src/data/`: `links.json`, `universityMetadata.json`, and the `tagTaxonomy/` directory. Tag definitions are split by primary subject under `tagTaxonomy/subjects/`; global policy and school tags live alongside them. The generated `universities.js`, `siteStats.json`, and `docs/tags.yml` files should be refreshed with the scripts above.
 
-## Optional cloud sync configuration
-The site works without any cloud credentials: core public content such as documentation pages, blog posts, exam pages, and public solutions remains accessible. If the environment variables below are not set, login, personal center, progress/notes, cloud sync, and the leaderboard are unavailable.
+## Account and database configuration
+Public content remains readable without Supabase credentials. Account-only features such as progress, notes, annotations, private problem sets, and the leaderboard require the following configuration; those records are written directly to the database and anonymous study data is not supported.
 
 ```bash
 export SUPABASE_URL="https://your-project.supabase.co"
@@ -98,13 +100,13 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 export PROBLEM_SETS_ENABLED="true"
 ```
 
-- `SUPABASE_URL` and `SUPABASE_ANON_KEY` enable authentication and cloud sync.
+- `SUPABASE_URL` and `SUPABASE_ANON_KEY` enable authentication and account data.
 - `HCAPTCHA_SITE_KEY` is optional but recommended for abuse protection on the login/register page.
 - `PROBLEM_SETS_ENABLED` is a release flag. It must be exactly `true` to expose private problem-set UI; leave it unset until the latest schema is deployed and verified.
 
-If you want to enable cloud sync end-to-end:
-1. Create a Supabase project.
-2. Run [src/services/schema.sql](src/services/schema.sql) in the Supabase SQL editor.
+To enable account features end-to-end:
+1. Create a Supabase project. For a blank project, apply `src/services/schema.sql` once as the baseline; do not reapply it to an existing database.
+2. Apply the ordered migrations under `supabase/migrations/` with `supabase db push`. Existing installations start here; the migrations are additive and preserve user rows.
 3. Configure the auth security items noted in that SQL file, including rate limits, password policy, and hCaptcha.
 4. Add the site callback URLs in Supabase Authentication → URL Configuration, including `https://your-domain/auth/callback` and `https://your-domain/reset-password`.
 5. Deploy `supabase/functions/content-submissions` so contribution authors are read from the unified public profile instead of request data.
@@ -127,7 +129,7 @@ Available endpoints:
 - `GET /v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache`: filters by the derived learning taxonomy.
 - `GET /v1/exams/{doc_id}`: returns one document by ID.
 
-Exam rows include the original frontmatter `tags` plus derived taxonomy fields: `schoolTags`, `learningTags`, `subjectIds`, `subsubjectIds`, and `topicIds`. Topic IDs are namespaced as `Subject.Subsubject.Topic`; `learningTags` identifies whether each learning tag is a `subsubject`, concrete `topic`, or pending tag, and topic entries include `short_id`.
+Exam rows include an immutable `documentUuid`, the original frontmatter `tags`, and derived taxonomy fields: `schoolTags`, `learningTags`, `subjectIds`, `subsubjectIds`, and `topicIds`. When a document path changes, run `yarn documents:move -- <old-doc-id> <new-doc-id>` so saved progress, notes, votes, and problem-set items keep the same identity. Topic IDs are namespaced as `Subject.Subsubject.Topic`; `learningTags` identifies whether each learning tag is a `subsubject`, concrete `topic`, or pending tag, and topic entries include `short_id`.
 
 Examples:
 
@@ -147,8 +149,8 @@ Responses always include `apiVersion`, `sourceUrl`, `license`, and `contentNotic
 ### For project maintainers
 The project exposes exam data through Supabase Edge Functions while reusing the existing login system as the developer identity layer.
 
-1. Run the latest [src/services/schema.sql](src/services/schema.sql) in Supabase.
-2. Deploy the functions in [supabase/functions](supabase/functions):
+1. Apply [src/services/schema.sql](src/services/schema.sql) once only for a blank database; never reapply the baseline to an existing database. Then apply pending migrations from [supabase/migrations](supabase/migrations) in order.
+2. Deploy the functions in [supabase/functions](supabase/functions). Production GitHub Actions performs the migration and deployment with `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF`, and `SUPABASE_DB_PASSWORD`; a missing value fails the release:
 
 ```bash
 npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
@@ -157,15 +159,19 @@ npx supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
 
 You can also deploy from the Supabase Dashboard Edge Functions editor: create `developer-api-keys` and `kai-api`, then add each function's own `index.ts`, `http.ts`, and `crypto.ts`. Each function directory is self-contained and does not import files outside its own directory.
 
-3. Sync structured exam documents:
+3. GitHub Actions does not store `SUPABASE_SERVICE_ROLE_KEY` or sync the exam data automatically. After a successful deployment, a maintainer temporarily supplies the key in a trusted local terminal and runs the manual sync:
 
 ```bash
-SUPABASE_URL="https://your-project.supabase.co" \
-SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
-yarn api:sync
+printf 'Supabase service-role key: '
+IFS= read -r -s SUPABASE_SERVICE_ROLE_KEY
+printf '\n'
+export SUPABASE_SERVICE_ROLE_KEY
+SUPABASE_URL="https://your-project.supabase.co" yarn api:sync
+unset SUPABASE_SERVICE_ROLE_KEY
 ```
 
 This command mirrors the current `docs/` tree: it upserts current documents and hard-deletes stale `exam_documents` rows whose `doc_id` no longer exists locally.
+This input method keeps the key out of shell history; never commit it or store it in GitHub Actions for this workflow.
 
 4. Confirm the Supabase Function secrets include `API_LOG_SALT`, and disable JWT verification for both functions.
 5. Review requests in the `api_access_requests` table from the Supabase Dashboard: set `status` to `approved` to allow key creation, or use `rejected` / `revoked` to deny or pause access.

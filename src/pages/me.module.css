@@ -1206,8 +1206,7 @@
   border-top: 1px solid var(--ifm-color-emphasis-200);
 }
 
-.profileIdentityRow,
-.profilePrivacyRow {
+.profileIdentityRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1215,14 +1214,12 @@
   padding: 0.45rem 0;
 }
 
-.profileIdentityRow > div,
-.profilePrivacyRow > div {
+.profileIdentityRow > div {
   display: grid;
   gap: 0.15rem;
 }
 
-.profileLabel,
-.profilePrivacyRow small {
+.profileLabel {
   color: var(--ifm-color-emphasis-700);
   font-size: 0.78rem;
 }

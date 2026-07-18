@@ -1,5 +1,5 @@
 import { serve } from 'https://deno.land/std@0.224.0/http/server.ts';
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.48.1';
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.98.0';
 import {
   defaultCorsHeaders,
   errorResponse,
@@ -315,7 +315,7 @@ async function handleProgress(req: Request, ctx: AgentContext) {
 
   let query = supabase
     .from('user_progress_items')
-    .select('doc_id,status,title,permalink,tags,review_count,client_updated_at,updated_at')
+    .select('document_uuid,doc_id,status,title,permalink,tags,review_count,client_updated_at,updated_at')
     .eq('user_id', ctx.userId)
     .is('deleted_at', null)
     .order('updated_at', { ascending: false })
@@ -331,6 +331,7 @@ async function handleProgress(req: Request, ctx: AgentContext) {
 
   return jsonResponse({
     items: (data || []).map((row) => ({
+      documentUuid: row.document_uuid,
       docId: row.doc_id,
       status: row.status,
       title: row.title,
@@ -355,7 +356,7 @@ async function handleNotes(req: Request, ctx: AgentContext) {
 
   let query = supabase
     .from('user_note_items')
-    .select('doc_id,content,client_updated_at,updated_at')
+    .select('document_uuid,doc_id,content,version,client_updated_at,updated_at')
     .eq('user_id', ctx.userId)
     .is('deleted_at', null)
     .order('updated_at', { ascending: false })
@@ -371,7 +372,9 @@ async function handleNotes(req: Request, ctx: AgentContext) {
 
   return jsonResponse({
     items: (data || []).map((row) => ({
+      documentUuid: row.document_uuid,
       docId: row.doc_id,
+      version: row.version,
       content: String(row.content || '')
         .replace(/<!-- kai-annotations:start:v1:[^\n]* -->/g, '')
         .replace(/<!-- kai-ann:v1:[^\n]* -->/g, '')

@@ -9,13 +9,11 @@
 import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
-import { useSync } from '@site/src/hooks/useSync';
-import { usePublicProfile } from '@site/src/hooks/usePublicProfile';
+import { useAuth } from '@site/src/hooks/useAuth';
 import {useUiText} from '@site/src/i18n/useUiText';
 
 function LoginButtonInner() {
-  const { isConfigured, user, isLoggedIn, authReady } = useSync();
-  const { profile } = usePublicProfile();
+  const { isConfigured, user, isLoggedIn, authReady } = useAuth();
   const t = useUiText('navbarLogin');
 
   // 环境变量未配置 → 不显示
@@ -35,15 +33,13 @@ function LoginButtonInner() {
   }
 
   if (isLoggedIn) {
-    const display = profile?.displayName || t.loggedIn;
-
     return (
       <Link
         to="/me"
         className="navbar__link navbar__link--login navbar__link--login-active"
         title={user?.email || t.loggedIn}
       >
-        {display}
+        {t.loggedIn}
       </Link>
     );
   }

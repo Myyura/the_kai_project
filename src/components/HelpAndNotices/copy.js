@@ -7,17 +7,17 @@ const HELP_AND_NOTICES_COPY = {
       {
         id: 'browse',
         title: '浏览过去问与题解',
-        text: '从顶部「过去问」进入题库，按大学、研究科、年度和题目浏览。题解页面支持本地搜索、标签浏览和离线访问。',
+        text: '从顶部「过去问」进入题库，按大学、研究科、年度和题目浏览。题解页面支持本地搜索和标签浏览；网页文档阅读需要网络连接。',
       },
       {
         id: 'progress',
         title: '记录做题进度',
-        text: '在题解页底部可标记已完成或待复习。登录后，进度会同步到个人中心，并展示统计、热力图和复习提醒。',
+        text: '在题解页底部可标记已完成或待复习。登录后，进度会直接保存到账号，并在个人中心展示统计、热力图和复习提醒。',
       },
       {
         id: 'notes',
         title: '写笔记与文中注释',
-        text: '登录后，你既可以在题解页底部记录 Markdown / LaTeX 笔记，也可以直接选中题解中的文字或公式创建文中注释。注释内容会高亮并显示行侧标记，可从侧栏或页面下方的注释列表快速跳转、展开、重命名、编辑或删除。文中注释会自动汇入同一道题的笔记并跨设备同步；题解发生修改时，系统会提醒你重新确认注释位置。',
+        text: '登录后，你既可以在题解页底部记录 Markdown / LaTeX 笔记，也可以直接选中题解中的文字或公式创建文中注释。注释内容会高亮并显示行侧标记，可从侧栏或页面下方的注释列表快速跳转、展开、重命名、编辑或删除。笔记与注释直接保存到账号数据库；题解发生修改时，系统会提醒你重新确认注释位置。',
       },
       {
         id: 'problemSets',
@@ -96,10 +96,10 @@ const HELP_AND_NOTICES_COPY = {
         title: '隐私声明',
         items: [
           '访问本站时，服务器可能自动收集浏览器或设备生成的信息，包括访问时间、浏览器类型、操作系统等。',
-          '若您使用登录、个人中心、云同步、私人题集、排行榜、投稿或开发者 API 功能，我们可能处理账号邮箱、认证标识、统一公开昵称、学习进度、题目笔记及文中注释（包括所选原文、来源行号与定位信息）、私人题集及选题说明、投稿记录、API 申请信息、API Key 元数据及必要调用日志。',
+          '若您使用登录、个人中心、私人题集、排行榜、投稿或开发者 API 功能，我们可能处理账号邮箱、认证标识、统一公开昵称、学习进度、题目笔记及文中注释（包括所选原文、来源行号与定位信息）、私人题集及选题说明、投稿记录、API 申请信息、API Key 元数据及必要调用日志。',
           '刷题排行榜默认展示全站统一昵称，不展示邮箱。您可在个人中心关闭排行榜可见性；关闭后不参与公开排名和参与人数统计，但仍可查看自己的练习数量。',
           '投稿成功转为 PR 后，社区贡献者区域可能展示投稿时使用的统一公开昵称及已通过投稿数量；不会展示邮箱、账号标识或未通过审核的投稿。',
-          '上述信息主要用于提供账号登录、学习数据同步、个人中心展示、投稿状态、API 访问审核、安全风控、服务维护和用户支持。我们会根据功能需要采取合理的数据最小化措施。',
+          '上述信息主要用于提供账号登录、学习数据存储、个人中心展示、投稿状态、API 访问审核、安全风控、服务维护和用户支持。我们会根据功能需要采取合理的数据最小化措施。',
           '您可以在浏览器中管理 Cookie 和追踪机制设置。如需访问或删除个人信息，可通过下方联系方式联系我们。',
         ],
       },
@@ -115,17 +115,17 @@ const HELP_AND_NOTICES_COPY = {
       {
         id: 'browse',
         title: '過去問・解答を探す',
-        text: '上部メニューの「過去問」から、大学、研究科、年度、問題ごとに閲覧できます。解答ページではサイト内検索、タグによる絞り込み、オフライン閲覧も利用できます。',
+        text: '上部メニューの「過去問」から、大学、研究科、年度、問題ごとに閲覧できます。解答ページではサイト内検索とタグによる絞り込みを利用できます。Web 文書の閲覧にはネットワーク接続が必要です。',
       },
       {
         id: 'progress',
         title: '学習進捗を記録する',
-        text: '解答ページの下部で、問題を「完了」または「要復習」に設定できます。ログインするとマイページへ同期され、集計、学習ヒートマップ、復習リマインダーを確認できます。',
+        text: '解答ページの下部で、問題を「完了」または「要復習」に設定できます。ログインするとアカウントへ保存され、マイページで集計、学習ヒートマップ、復習リマインダーを確認できます。',
       },
       {
         id: 'notes',
         title: '問題ノートと本文注釈を書く',
-        text: 'ログイン後は、解答ページ下部に Markdown / LaTeX 対応のノートを書くだけでなく、解答中の文章や数式を選択して本文注釈を作成できます。注釈箇所はハイライトと行横のマーカーで表示され、サイドバーまたはページ下部の一覧から移動・展開・名前変更・編集・削除ができます。本文注釈は同じ問題のノートへ自動的にまとめられ、端末間で同期されます。解答が更新された場合は、注釈位置の再確認を求める通知が表示されます。',
+        text: 'ログイン後は、解答ページ下部に Markdown / LaTeX 対応のノートを書くだけでなく、解答中の文章や数式を選択して本文注釈を作成できます。注釈箇所はハイライトと行横のマーカーで表示され、サイドバーまたはページ下部の一覧から移動・展開・名前変更・編集・削除ができます。ノートと注釈はアカウントデータベースへ直接保存されます。',
       },
       {
         id: 'problemSets',
@@ -204,10 +204,10 @@ const HELP_AND_NOTICES_COPY = {
         title: 'プライバシーに関する方針',
         items: [
           '本サイトへのアクセス時に、アクセス日時、ブラウザーの種類、オペレーティングシステムなど、ブラウザーまたは端末から送信される情報をサーバーが自動的に収集する場合があります。',
-          'ログイン、マイページ、クラウド同期、非公開の問題セット、学習ランキング、投稿、開発者 API を利用する場合、メールアドレス、認証識別子、統一公開ニックネーム、学習進捗、問題ノートと本文注釈（選択した原文、元の行番号、位置情報を含む）、問題セットと選択メモ、投稿履歴、API 利用申請、API Key のメタデータ、必要なアクセスログを処理する場合があります。',
+          'ログイン、マイページ、非公開の問題セット、学習ランキング、投稿、開発者 API を利用する場合、メールアドレス、認証識別子、統一公開ニックネーム、学習進捗、問題ノートと本文注釈（選択した原文、元の行番号、位置情報を含む）、問題セットと選択メモ、投稿履歴、API 利用申請、API Key のメタデータ、必要なアクセスログを処理する場合があります。',
           '学習ランキングには統一公開ニックネームが表示され、メールアドレスは表示されません。マイページでランキング公開を無効にすると、公開順位と参加人数から除外されますが、自分の学習数は確認できます。',
           '投稿が PR に変換された後、コミュニティ貢献者欄に投稿時の統一公開ニックネームと承認済み投稿数を表示する場合があります。メールアドレス、アカウント識別子、未承認の投稿は表示されません。',
-          'これらの情報は、ログイン、学習データの同期、マイページの表示、投稿状況の確認、API 利用審査、安全対策、サービスの保守、利用者サポートのために使用します。機能の提供に必要な範囲で、データの最小化に努めます。',
+          'これらの情報は、ログイン、学習データの保存、マイページの表示、投稿状況の確認、API 利用審査、安全対策、サービスの保守、利用者サポートのために使用します。機能の提供に必要な範囲で、データの最小化に努めます。',
           'Cookie やトラッキングに関する設定はブラウザーで管理できます。ご自身の個人情報の開示または削除を希望する場合は、下記の連絡先までお問い合わせください。',
         ],
       },
@@ -223,17 +223,17 @@ const HELP_AND_NOTICES_COPY = {
       {
         id: 'browse',
         title: 'Browse past exams and solutions',
-        text: 'Open Past Exams from the top navigation to browse by university, graduate school, year, and question. Solution pages also support local search, tag-based browsing, and offline access.',
+        text: 'Open Past Exams from the top navigation to browse by university, graduate school, year, and question. Solution pages support local search and tag-based browsing; web document reading requires a network connection.',
       },
       {
         id: 'progress',
         title: 'Track your progress',
-        text: 'Mark a problem as completed or needing review at the bottom of its solution page. After you log in, your progress syncs to the Personal Center, where you can view statistics, a study heatmap, and review reminders.',
+        text: 'Mark a problem as completed or needing review at the bottom of its solution page. After you log in, the record is saved directly to your account database and appears in the Personal Center with statistics, a study heatmap, and review reminders.',
       },
       {
         id: 'notes',
         title: 'Write notes and inline annotations',
-        text: 'After logging in, you can write Markdown and LaTeX notes at the bottom of a solution page or select text and formulas in the solution to create inline annotations. Annotated passages are highlighted with line-side markers; use the sidebar or footer list to jump to, expand, rename, edit, or delete them. Inline annotations are automatically merged into the same problem note and synced across devices. If a solution changes, the site asks you to review the annotation positions.',
+        text: 'After logging in, you can write Markdown and LaTeX notes at the bottom of a solution page or select text and formulas in the solution to create inline annotations. Annotated passages are highlighted with line-side markers; use the sidebar or footer list to jump to, expand, rename, edit, or delete them. Inline annotations are merged into the same database-backed problem note. If a solution changes, the site asks you to review the annotation positions.',
       },
       {
         id: 'problemSets',
@@ -312,10 +312,10 @@ const HELP_AND_NOTICES_COPY = {
         title: 'Privacy',
         items: [
           'When you visit the website, our servers may automatically receive information generated by your browser or device, including access time, browser type, and operating system.',
-          'If you use login, the Personal Center, cloud sync, private problem sets, practice leaderboards, submissions, or the Developer API, we may process your account email, authentication identifiers, unified public nickname, study progress, problem notes and inline annotations (including selected source text, source line numbers, and positioning data), private sets and item notes, submission history, API access applications, API key metadata, and necessary request logs.',
+          'If you use login, the Personal Center, private problem sets, practice leaderboards, submissions, or the Developer API, we may process your account email, authentication identifiers, unified public nickname, study progress, problem notes and inline annotations (including selected source text, source line numbers, and positioning data), private sets and item notes, submission history, API access applications, API key metadata, and necessary request logs.',
           'The practice leaderboard displays your unified public nickname and does not display your email address. You can disable leaderboard visibility in Personal Center; hidden accounts are excluded from public rankings and participant counts but can still see their own practice total.',
           'After a submission is converted to a PR, the community contributor area may display the unified public nickname used for that submission and the number of accepted submissions. It does not display email addresses, account identifiers, or unaccepted submissions.',
-          'We use this information to provide authentication, learning-data sync, Personal Center displays, submission status, API access review, security controls, service maintenance, and user support. We apply reasonable data-minimization measures based on what each feature requires.',
+          'We use this information to provide authentication, learning-data storage, Personal Center displays, submission status, API access review, security controls, service maintenance, and user support. We apply reasonable data-minimization measures based on what each feature requires.',
           'You can manage cookies and tracking controls in your browser. To request access to or deletion of your personal information, contact us using the details below.',
         ],
       },

@@ -10,7 +10,7 @@ import {
   FaCheck, FaExclamationTriangle, FaSyncAlt, FaUser, FaGithub,
   FaSignOutAlt, FaArrowRight, FaKey,
 } from 'react-icons/fa';
-import { useSync } from '@site/src/hooks/useSync';
+import { useAuth } from '@site/src/hooks/useAuth';
 import NoIndex from '@site/src/components/NoIndex';
 import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
@@ -40,7 +40,7 @@ function LoginPageContent() {
   const {
     isConfigured, user, isLoggedIn, authReady, error,
     loginWithEmail, registerWithEmail, loginWithGitHub, requestPasswordReset, signOut,
-  } = useSync();
+  } = useAuth();
 
   const [mode, setMode] = useState('login'); // 'login' | 'register'
   const [email, setEmail] = useState('');

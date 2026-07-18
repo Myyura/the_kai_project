@@ -1,6 +1,5 @@
 import {useCallback, useMemo} from 'react';
 import {useDocNotes} from './useNotes';
-import {getCalibratedNow} from '../services/syncService';
 import {
   createAnnotation as createAnnotationInDocument,
   deleteAnnotation as deleteAnnotationInDocument,
@@ -28,7 +27,7 @@ export default function useDocAnnotations(docId) {
   const addAnnotation = useCallback((draft) => {
     let created = null;
     patchDocument((latest) => {
-      const result = createAnnotationInDocument(latest, draft, getCalibratedNow());
+      const result = createAnnotationInDocument(latest, draft, Date.now());
       created = result.annotation;
       return result.document;
     });
@@ -40,7 +39,7 @@ export default function useDocAnnotations(docId) {
       latest,
       annotationId,
       patch,
-      getCalibratedNow()
+      Date.now()
     ))
   ), [patchDocument]);
 

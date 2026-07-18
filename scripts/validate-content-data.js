@@ -123,49 +123,6 @@ function validateLinks(data) {
   }
 }
 
-function validateAdmissions(data) {
-  if (!requireObject(data, 'admissions.json')) return;
-  if (requireArray(data.records, 'admissions.json.records')) {
-    const ids = new Set();
-    data.records.forEach((record, index) => {
-      const base = `admissions.json.records[${index}]`;
-      if (!requireObject(record, base)) return;
-      if (requireString(record.id, `${base}.id`)) {
-        if (ids.has(record.id)) addError(`${base}.id`, `duplicate id "${record.id}"`);
-        ids.add(record.id);
-      }
-      requireString(record.universityId, `${base}.universityId`);
-      requireString(record.departmentId, `${base}.departmentId`);
-      requireInteger(record.year, `${base}.year`, { min: 1900, max: 2100 });
-      requireString(record.type, `${base}.type`);
-      requireInteger(record.applicants, `${base}.applicants`, { min: 0 });
-      requireInteger(record.admitted, `${base}.admitted`, { min: 0 });
-      requireNumber(record.rate, `${base}.rate`, { min: 0, max: 100 });
-      requireString(record.note, `${base}.note`, { allowEmpty: true });
-      if (
-        Number.isInteger(record.applicants)
-        && Number.isInteger(record.admitted)
-        && record.admitted > record.applicants
-      ) {
-        addError(`${base}.admitted`, 'must not exceed applicants');
-      }
-    });
-  }
-
-  if (requireArray(data.examTypes, 'admissions.json.examTypes')) {
-    data.examTypes.forEach((value, index) => requireString(value, `admissions.json.examTypes[${index}]`));
-  }
-
-  if (requireArray(data.sortOptions, 'admissions.json.sortOptions')) {
-    data.sortOptions.forEach((option, index) => {
-      const base = `admissions.json.sortOptions[${index}]`;
-      if (!requireObject(option, base)) return;
-      requireString(option.value, `${base}.value`);
-      requireString(option.label, `${base}.label`);
-      requireString(option.labelJa, `${base}.labelJa`);
-    });
-  }
-}
 
 function validateUniversityMetadata(data) {
   if (!requireObject(data, 'universityMetadata.json')) return;
@@ -384,7 +341,6 @@ function validateDocumentTitles(data) {
 }
 
 validateLinks(readJson('src/data/links.json'));
-validateAdmissions(readJson('src/data/admissions.json'));
 validateUniversityMetadata(readJson('src/data/universityMetadata.json'));
 const tagTaxonomy = require('../src/data/tagTaxonomy');
 validateTagTaxonomy(tagTaxonomy);

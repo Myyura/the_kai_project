@@ -1,8 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  fetchExamDifficulty,
-  setExamDifficultyVote,
-} from '../services/difficultyService';
 
 export const useExamDifficulty = (docId, { enabled = true, refreshKey = 0 } = {}) => {
   const [difficulty, setDifficulty] = useState(null);
@@ -24,6 +20,7 @@ export const useExamDifficulty = (docId, { enabled = true, refreshKey = 0 } = {}
     setError(null);
 
     try {
+      const {fetchExamDifficulty} = await import('../services/difficultyService');
       const next = await fetchExamDifficulty(docId);
       if (requestSeqRef.current === seq) {
         setDifficulty(next);
@@ -51,6 +48,7 @@ export const useExamDifficulty = (docId, { enabled = true, refreshKey = 0 } = {}
     setError(null);
 
     try {
+      const {setExamDifficultyVote} = await import('../services/difficultyService');
       const next = await setExamDifficultyVote(docId, value);
       setDifficulty(next);
       return next;

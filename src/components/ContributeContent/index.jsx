@@ -11,13 +11,13 @@ import {
   FaRedo,
   FaSignInAlt,
 } from 'react-icons/fa';
-import { useSync } from '@site/src/hooks/useSync';
+import { useAuth } from '@site/src/hooks/useAuth';
 import { usePublicProfile } from '@site/src/hooks/usePublicProfile';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import useDocumentColorMode from '@site/src/components/Chemistry/useDocumentColorMode';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
-import { getVerifiedAccessToken } from '@site/src/services/syncService';
+import { getVerifiedAccessToken } from '@site/src/services/authService';
 import { getEdgeFunctionErrorMessage } from '@site/src/services/edgeFunctionErrors';
 import {getDocumentTitle} from '@site/src/services/documentMetadata';
 import { buildDiffPreview, markdownHasChanges } from '@site/src/services/correctionDiff';
@@ -101,7 +101,7 @@ export function ContributeContent({ embedded = false } = {}) {
   const language = useCurrentLanguage();
   const colorMode = useDocumentColorMode();
   const t = useUiText('contributions');
-  const { isConfigured, isLoggedIn, authReady, user } = useSync();
+  const { isConfigured, isLoggedIn, authReady, user } = useAuth();
   const { profile } = usePublicProfile();
   const [form, setForm] = useState(initialForm);
   const [submissions, setSubmissions] = useState([]);

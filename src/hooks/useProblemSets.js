@@ -1,111 +1,86 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
-import {
-  addProblemSetsUpdatedListener,
-  fetchMyProblemSet,
-  fetchMyProblemSets,
-  readCachedProblemSet,
-  readCachedProblemSets,
-} from '@site/src/services/problemSetService';
-import {useSync} from '@site/src/hooks/useSync';
-import {getStorageOwnerForUser} from '@site/src/services/localStorageScope';
+import {useAuth} from '@site/src/hooks/useAuth';
+
+const addProblemSetsUpdatedListener = (listener) => {
+  if (typeof window === 'undefined') return () => {};
+  window.addEventListener('kai_problem_sets_updated', listener);
+  return () => window.removeEventListener('kai_problem_sets_updated', listener);
+};
 
 export function useProblemSets(docId = '', {enabled = true} = {}) {
-  const {user} = useSync();
-  const userId = user?.id || '';
-  const [sets, setSets] = useState(() => readCachedProblemSets(docId, userId));
-  const [loading, setLoading] = useState(Boolean(enabled));
+  const {user, isLoggedIn} = useAuth();
+  const [sets, setSets] = useState([]);
+  const [loading, setLoading] = useState(Boolean(enabled && isLoggedIn));
   const [error, setError] = useState(null);
-  const scopeRef = useRef('');
-  const scope = `${userId}:${docId}:${enabled ? 'on' : 'off'}`;
-  scopeRef.current = scope;
+  const requestRef = useRef(0);
 
   const refresh = useCallback(async () => {
-    if (!enabled) {
+    if (!enabled || !isLoggedIn) {
       setSets([]);
       setLoading(false);
       return [];
     }
+    const requestId = ++requestRef.current;
     setLoading(true);
     setError(null);
-    const requestedScope = scope;
     try {
-      const next = await fetchMyProblemSets(docId, userId);
-      if (scopeRef.current === requestedScope) setSets(next);
-      return next;
+      const {fetchMyProblemSets} = await import('@site/src/services/problemSetService');
+      const values = await fetchMyProblemSets(docId);
+      if (requestRef.current === requestId) setSets(values);
+      return values;
     } catch (nextError) {
-      if (scopeRef.current === requestedScope) setError(nextError);
-      return readCachedProblemSets(docId, userId);
+      if (requestRef.current === requestId) setError(nextError);
+      return [];
     } finally {
-      if (scopeRef.current === requestedScope) setLoading(false);
+      if (requestRef.current === requestId) setLoading(false);
     }
-  }, [docId, enabled, scope, userId]);
+  }, [docId, enabled, isLoggedIn]);
 
   useEffect(() => {
-    setSets(enabled ? readCachedProblemSets(docId, userId) : []);
     void refresh();
-    return addProblemSetsUpdatedListener((event) => {
-      if (event.detail?.storageOwner && event.detail.storageOwner !== getStorageOwnerForUser(userId)) return;
-      if (event.detail?.optimistic || event.detail?.rollback) {
-        setSets(enabled ? readCachedProblemSets(docId, userId) : []);
-      } else {
-        void refresh();
-      }
-    });
-  }, [docId, enabled, refresh, userId]);
+    return addProblemSetsUpdatedListener(() => void refresh());
+  }, [refresh, user?.id]);
 
   return {sets, loading, error, refresh};
 }
 
 export function useProblemSet(setId, {enabled = true} = {}) {
-  const {user} = useSync();
-  const userId = user?.id || '';
-  const [problemSet, setProblemSet] = useState(() => readCachedProblemSet(setId, userId));
-  const [loading, setLoading] = useState(Boolean(enabled && setId));
+  const {user, isLoggedIn} = useAuth();
+  const [problemSet, setProblemSet] = useState(null);
+  const [loading, setLoading] = useState(Boolean(enabled && setId && isLoggedIn));
   const [error, setError] = useState(null);
-  const scopeRef = useRef('');
-  const scope = `${userId}:${setId}:${enabled ? 'on' : 'off'}`;
-  scopeRef.current = scope;
+  const requestRef = useRef(0);
 
   const refresh = useCallback(async () => {
-    if (!enabled || !setId) {
+    if (!enabled || !setId || !isLoggedIn) {
+      setProblemSet(null);
       setLoading(false);
       return null;
     }
+    const requestId = ++requestRef.current;
     setLoading(true);
     setError(null);
-    const requestedScope = scope;
     try {
-      const next = await fetchMyProblemSet(setId, userId);
-      if (scopeRef.current === requestedScope) setProblemSet(next);
-      return next;
+      const {fetchMyProblemSet} = await import('@site/src/services/problemSetService');
+      const value = await fetchMyProblemSet(setId);
+      if (requestRef.current === requestId) setProblemSet(value);
+      return value;
     } catch (nextError) {
-      if (scopeRef.current === requestedScope) setError(nextError);
-      return readCachedProblemSet(setId, userId);
+      if (requestRef.current === requestId) setError(nextError);
+      return null;
     } finally {
-      if (scopeRef.current === requestedScope) setLoading(false);
+      if (requestRef.current === requestId) setLoading(false);
     }
-  }, [enabled, scope, setId, userId]);
+  }, [enabled, isLoggedIn, setId]);
 
   useEffect(() => {
-    setProblemSet(enabled ? readCachedProblemSet(setId, userId) : null);
     void refresh();
-    const removeProblemSetsListener = addProblemSetsUpdatedListener((event) => {
-      if (event.detail?.storageOwner && event.detail.storageOwner !== getStorageOwnerForUser(userId)) return;
-      if (event.detail?.optimistic || event.detail?.rollback) {
-        setProblemSet(enabled ? readCachedProblemSet(setId, userId) : null);
-        return;
-      }
+    return addProblemSetsUpdatedListener((event) => {
       if (!event.detail?.setId || event.detail.setId === setId || event.detail.targetSetId === setId) {
         void refresh();
       }
     });
-    const handleProgress = () => void refresh();
-    window.addEventListener('kai_progress_updated', handleProgress);
-    return () => {
-      removeProblemSetsListener();
-      window.removeEventListener('kai_progress_updated', handleProgress);
-    };
-  }, [enabled, refresh, setId, userId]);
+  }, [refresh, setId, user?.id]);
 
   return {problemSet, loading, error, refresh};
 }

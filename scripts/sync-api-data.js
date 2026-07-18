@@ -2,6 +2,7 @@
 
 const { createClient } = require('@supabase/supabase-js');
 const { buildApiData } = require('./api-data');
+const {loadDocumentIdentities} = require('./document-identities');
 
 const BATCH_SIZE = 100;
 const SELECT_PAGE_SIZE = 1000;
@@ -27,11 +28,47 @@ async function upsertInBatches(supabase, rows) {
     const batch = rows.slice(start, start + BATCH_SIZE);
     const { error } = await supabase
       .from('exam_documents')
-      .upsert(batch, { onConflict: 'doc_id' });
+      .upsert(batch, { onConflict: 'document_uuid' });
     if (error) throw error;
     total += batch.length;
     console.log(`  synced ${total}/${rows.length}`);
   }
+}
+
+async function upsertRowsInBatches(supabase, table, rows, onConflict) {
+  for (let start = 0; start < rows.length; start += BATCH_SIZE) {
+    const batch = rows.slice(start, start + BATCH_SIZE);
+    const {error} = await supabase.from(table).upsert(batch, {onConflict});
+    if (error) throw error;
+  }
+}
+
+async function syncDocumentIdentities(supabase, documents) {
+  const manifest = loadDocumentIdentities();
+  const registry = documents.map((document) => ({
+    document_uuid: document.document_uuid,
+    current_doc_id: document.doc_id,
+  }));
+  const aliases = [
+    ...Object.entries(manifest.aliases),
+    ...Object.entries(manifest.current),
+  ].map(([docId, documentUuid]) => ({
+    doc_id: docId,
+    document_uuid: documentUuid,
+    is_current: Boolean(manifest.current[docId]),
+  }));
+
+  await upsertRowsInBatches(supabase, 'document_registry', registry, 'document_uuid');
+  const documentUuids = registry.map((row) => row.document_uuid);
+  for (let start = 0; start < documentUuids.length; start += BATCH_SIZE) {
+    const batch = documentUuids.slice(start, start + BATCH_SIZE);
+    const {error} = await supabase
+      .from('document_aliases')
+      .update({is_current: false})
+      .in('document_uuid', batch);
+    if (error) throw error;
+  }
+  await upsertRowsInBatches(supabase, 'document_aliases', aliases, 'doc_id');
 }
 
 async function fetchRemoteDocIds(supabase) {
@@ -98,6 +135,8 @@ async function main() {
   }
 
   const localDocIds = new Set(rows.map((row) => row.doc_id));
+  console.log(`Syncing ${rows.length} stable document identities...`);
+  await syncDocumentIdentities(supabase, rows);
   console.log(`Syncing ${rows.length} API documents to Supabase...`);
   await upsertInBatches(supabase, rows);
 

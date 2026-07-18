@@ -9,43 +9,26 @@
  */
 
 import { createClient } from '@supabase/supabase-js';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {
+  AUTH_STORAGE_KEY,
+  getSupabaseCredentials,
+  isSupabaseConfigured,
+} from './runtimeConfig';
 
 // ── 构建时注入的凭据 ─────────────────────────────────────────
 
 // Docusaurus 在构建时会把 customFields 内联到 JS bundle 中，
 // 这里用一个懒加载方式获取以兼容 SSR（Node 环境无 siteConfig）。
-let _siteConfig = null;
-
-/**
- * 在 React 组件中调用一次即可初始化 siteConfig。
- * 之后非 React 代码也能通过缓存拿到凭据。
- */
-export const initSiteConfig = (siteConfig) => {
-  if (!_siteConfig) _siteConfig = siteConfig;
-};
-
-export const getSupabaseCredentials = () => {
-  const url = _siteConfig?.customFields?.supabaseUrl || '';
-  const anonKey = _siteConfig?.customFields?.supabaseAnonKey || '';
-  return { url, anonKey };
-};
-
 const getCredentials = getSupabaseCredentials;
 
 /**
  * 判断 Supabase 是否已配置（构建时是否注入了有效凭据）
  */
-export const isSupabaseConfigured = () => {
-  const { url, anonKey } = getCredentials();
-  return !!(url && anonKey);
-};
+export {getSupabaseCredentials, isSupabaseConfigured};
 
 // ── 单例客户端 ───────────────────────────────────────────────
 
 let _clientCache = null;
-
-const AUTH_STORAGE_KEY = 'kai_supabase_auth';
 
 const createConfiguredClient = (authOverrides = {}) => {
   const { url, anonKey } = getCredentials();
@@ -84,32 +67,3 @@ export const getSupabaseEmailActionClient = () => createConfiguredClient({
 });
 
 export const getSupabasePasswordResetClient = getSupabaseEmailActionClient;
-
-/**
- * React Hook：在组件树顶层调用一次，用来把 siteConfig 注入到本模块
- */
-export const useInitSupabase = () => {
-  const { siteConfig } = useDocusaurusContext();
-  initSiteConfig(siteConfig);
-  return isSupabaseConfigured();
-};
-
-/**
- * 同步读取 localStorage 中缓存的 Supabase session user
- * 用于初始渲染时立即获取登录状态，避免异步请求导致的闪烁
- */
-export const getCachedUser = () => {
-  try {
-    const raw = localStorage.getItem(AUTH_STORAGE_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    // Supabase JS v2 在 localStorage 中存储的结构
-    const user = parsed?.user || parsed?.session?.user || null;
-    // 检查 token 是否已过期（粗略检查）
-    const expiresAt = parsed?.expires_at || parsed?.session?.expires_at;
-    if (expiresAt && expiresAt * 1000 < Date.now()) return null;
-    return user;
-  } catch {
-    return null;
-  }
-};

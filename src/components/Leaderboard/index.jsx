@@ -1,9 +1,9 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import Link from '@docusaurus/Link';
-import {FaSyncAlt, FaTrophy, FaUser, FaUserSecret} from 'react-icons/fa';
-import {useSync} from '@site/src/hooks/useSync';
+import {FaSyncAlt, FaTrophy, FaUser} from 'react-icons/fa';
+import {useAuth} from '@site/src/hooks/useAuth';
 import {usePublicProfile} from '@site/src/hooks/usePublicProfile';
-import {fetchPracticeLeaderboard} from '@site/src/services/syncService';
+import {fetchPracticeLeaderboard} from '@site/src/services/leaderboardService';
 import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
 
@@ -24,7 +24,7 @@ const formatPeriodRange = (start, end, language) => {
 };
 
 export default function Leaderboard({language = 'zh', compact = false}) {
-  const {isConfigured, isLoggedIn} = useSync();
+  const {isConfigured, isLoggedIn} = useAuth();
   const {profile} = usePublicProfile();
   const t = getUiMessages('leaderboard', language);
   const [period, setPeriod] = useState('half_month');
@@ -61,10 +61,10 @@ export default function Leaderboard({language = 'zh', compact = false}) {
   useEffect(() => { void load(); }, [load]);
   useEffect(() => {
     const handleRefresh = () => void load({silent: true});
-    window.addEventListener('kai_sync_completed', handleRefresh);
+    window.addEventListener('kai_progress_updated', handleRefresh);
     window.addEventListener('kai_public_profile_updated', handleRefresh);
     return () => {
-      window.removeEventListener('kai_sync_completed', handleRefresh);
+      window.removeEventListener('kai_progress_updated', handleRefresh);
       window.removeEventListener('kai_public_profile_updated', handleRefresh);
     };
   }, [load]);
@@ -86,7 +86,6 @@ export default function Leaderboard({language = 'zh', compact = false}) {
   const percentile = Number(currentUser?.percentile) || 0;
   const participantCount = Number(currentUser?.participant_count || topRows[0]?.participant_count) || 0;
   const currentOutsideTop = currentUser && !currentUser.is_top_ten && currentCount > 0 && currentRank;
-  const isHidden = profile ? !profile.leaderboardVisible : Boolean(currentUser?.is_anonymous);
 
   return (
     <section className={`${styles.section} ${compact ? styles.compactSection : ''}`}>
@@ -137,7 +136,7 @@ export default function Leaderboard({language = 'zh', compact = false}) {
         <>
           <div className={styles.mySummary}>
             <div className={styles.summaryIdentity}>
-              <span className={styles.summaryAvatar}>{isHidden ? <FaUserSecret /> : <FaUser />}</span>
+              <span className={styles.summaryAvatar}><FaUser /></span>
               <div>
                 <span className={styles.summaryEyebrow}>{t.myPerformance}</span>
                 <strong>{currentUser?.display_name || profile?.displayName || t.you}</strong>
@@ -146,12 +145,10 @@ export default function Leaderboard({language = 'zh', compact = false}) {
             <div className={styles.summaryMetrics}>
               <div><strong>{currentRank ? `#${currentRank}` : '–'}</strong><span>{t.rank}</span></div>
               <div><strong>{currentCount}</strong><span>{t.problemCount}</span></div>
-              <div><strong>{isHidden ? '–' : `${percentile}%`}</strong><span>{t.surpassed}</span></div>
+              <div><strong>{`${percentile}%`}</strong><span>{t.surpassed}</span></div>
             </div>
             <div className={styles.summaryMessage}>
-              {isHidden ? (
-                <Link to="/me">{t.hiddenFromLeaderboard || t.profileSettings}</Link>
-              ) : currentCount === 0 ? (
+              {currentCount === 0 ? (
                 <Link to="/docs/intro">{t.startPracticing}</Link>
               ) : currentRank === 1 ? t.firstPlace
                 : gap > 0 ? t.gapToPrevious(gap)

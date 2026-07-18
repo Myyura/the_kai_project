@@ -8,7 +8,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import {useUiText} from '../i18n/useUiText';
 import { useAllProgress } from '../hooks/useProgress';
-import { useSync } from '../hooks/useSync';
+import { useAuth } from '../hooks/useAuth';
 import { universities } from '../data/universities';
 import siteStats from '../data/siteStats.json';
 
@@ -280,7 +280,7 @@ const UniversitySection = ({ t }) => {
 
 // Hero 区进度内联展示
 const HeroProgressCallout = ({ t }) => {
-  const { isConfigured, isLoggedIn } = useSync();
+  const { isConfigured, isLoggedIn } = useAuth();
   if (!isConfigured || !isLoggedIn) {
     return (
       <Link to="/me" className={styles.heroProgressCallout}>
@@ -325,7 +325,7 @@ const HeroProgressCalloutStats = ({ t }) => {
 
 // 进度功能横幅区块
 const ProgressBannerInner = ({ t }) => {
-  const { isConfigured, isLoggedIn } = useSync();
+  const { isConfigured, isLoggedIn } = useAuth();
   if (!isConfigured || !isLoggedIn) {
     return <ProgressBannerGuest t={t} />;
   }

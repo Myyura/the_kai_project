@@ -5,12 +5,14 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const { resolveDocumentTags } = require('./tag-taxonomy');
+const {loadDocumentIdentities, resolveDocumentUuid} = require('./document-identities');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');
 const SITE_URL = 'https://runjp.com';
 
 const CATEGORY_CACHE = new Map();
+const DOCUMENT_IDENTITIES = loadDocumentIdentities();
 
 function normalizePath(input) {
   return input.replace(/\\/g, '/');
@@ -176,6 +178,7 @@ function buildExamDocument(filePath) {
   });
 
   return {
+    document_uuid: resolveDocumentUuid(pathMeta.docId, DOCUMENT_IDENTITIES),
     doc_id: pathMeta.docId,
     type: pathMeta.type,
     source_path: pathMeta.sourcePath,
@@ -221,12 +224,20 @@ function buildApiData() {
 function validateApiData(documents) {
   const issues = [];
   const seen = new Set();
+  const seenUuids = new Set();
 
   for (const doc of documents) {
     if (seen.has(doc.doc_id)) {
       issues.push({ severity: 'error', doc_id: doc.doc_id, message: 'Duplicate doc_id' });
     }
     seen.add(doc.doc_id);
+
+    if (!doc.document_uuid) {
+      issues.push({severity: 'error', doc_id: doc.doc_id, message: 'Missing stable document_uuid'});
+    } else if (seenUuids.has(doc.document_uuid)) {
+      issues.push({severity: 'error', doc_id: doc.doc_id, message: 'Duplicate document_uuid'});
+    }
+    seenUuids.add(doc.document_uuid);
 
     if (!doc.title) {
       issues.push({ severity: 'error', doc_id: doc.doc_id, message: 'Missing title' });
