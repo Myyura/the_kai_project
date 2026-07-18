@@ -10,6 +10,8 @@ const {loadDocumentIdentities, resolveDocumentUuid} = require('./document-identi
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');
 const SITE_URL = 'https://runjp.com';
+const PUBLISHED_CONTENT_SCHEMA_VERSION = 1;
+const PUBLISHED_CONTENT_PREFIX = '/api-content/v1/documents';
 
 const CATEGORY_CACHE = new Map();
 const DOCUMENT_IDENTITIES = loadDocumentIdentities();
@@ -221,6 +223,58 @@ function buildApiData() {
   };
 }
 
+function getPublishedContentPath(documentUuid) {
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(documentUuid || '')) {
+    throw new Error(`Invalid document UUID for published content: ${documentUuid || '(missing)'}`);
+  }
+  return `${PUBLISHED_CONTENT_PREFIX}/${documentUuid.toLowerCase()}.json`;
+}
+
+function toDocumentCatalogRow(doc) {
+  return {
+    document_uuid: doc.document_uuid,
+    doc_id: doc.doc_id,
+    type: doc.type,
+    source_path: doc.source_path,
+    title: doc.title,
+    sidebar_label: doc.sidebar_label,
+    university_id: doc.university_id,
+    university_name: doc.university_name,
+    department_id: doc.department_id,
+    department_name: doc.department_name,
+    program_id: doc.program_id,
+    program_name: doc.program_name,
+    year: doc.year,
+    year_label: doc.year_label,
+    file_slug: doc.file_slug,
+    tags: doc.tags,
+    school_tags: doc.school_tags,
+    learning_tags: doc.learning_tags,
+    subject_ids: doc.subject_ids,
+    subsubject_ids: doc.subsubject_ids,
+    topic_ids: doc.topic_ids,
+    permalink: doc.permalink,
+    content_hash: doc.content_hash,
+    content_path: getPublishedContentPath(doc.document_uuid),
+    synced_at: new Date().toISOString(),
+  };
+}
+
+function toPublishedDocument(doc) {
+  return {
+    schemaVersion: PUBLISHED_CONTENT_SCHEMA_VERSION,
+    documentUuid: doc.document_uuid,
+    docId: doc.doc_id,
+    contentHash: doc.content_hash,
+    sections: {
+      authorMarkdown: doc.author_markdown,
+      descriptionMarkdown: doc.description_markdown,
+      kaiMarkdown: doc.kai_markdown,
+    },
+    fullMarkdown: doc.full_markdown,
+  };
+}
+
 function validateApiData(documents) {
   const issues = [];
   const seen = new Set();
@@ -257,7 +311,12 @@ function validateApiData(documents) {
 }
 
 module.exports = {
+  PUBLISHED_CONTENT_SCHEMA_VERSION,
+  PUBLISHED_CONTENT_PREFIX,
   buildApiData,
   buildExamDocument,
+  getPublishedContentPath,
+  toDocumentCatalogRow,
+  toPublishedDocument,
   validateApiData,
 };

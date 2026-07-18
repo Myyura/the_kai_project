@@ -44,7 +44,7 @@ export function parsePublicJwk(raw: string, name = 'AGENT_SERVICE_PUBLIC_JWK') {
 }
 
 export function publicJwkFromPrivate(jwk: JsonWebKey) {
-  const { kty, crv, x, y, alg, kid, ext } = jwk;
+  const { kty, crv, x, y, alg, kid, ext } = jwk as JsonWebKey & { kid?: string };
   return { kty, crv, x, y, alg, kid, ext } as JsonWebKey;
 }
 

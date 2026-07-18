@@ -150,22 +150,23 @@ curl -H "Authorization: Bearer kai_live_..." \
 ```bash
 npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
 npx supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
+npx supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF"
 ```
 
-也可以在 Supabase Dashboard 的 Edge Functions 编辑器中部署：分别创建 `developer-api-keys` 和 `kai-api`，并把对应函数目录下的 `index.ts`、`http.ts`、`crypto.ts` 加到该函数中。每个函数目录都是自包含的，不依赖函数目录外的共享文件。
+`kai-api` 和 `agent-context` 共用 `supabase/functions/_shared/published-content.ts` 中的静态正文加载器；Supabase CLI 和 GitHub Actions 会自动把共享模块打包，无需手工复制，也无需你在 Dashboard 中逐个更新函数。
 
-3. GitHub Actions 不保存 `SUPABASE_SERVICE_ROLE_KEY`，也不会自动同步题库。部署成功后，由维护者在受信任的本地终端临时设置该密钥并手动同步结构化题库数据：
+3. 文档正文不会镜像到数据库，而是由构建流程按稳定 UUID 发布到 `/api-content/v1/documents/`。GitHub Actions 不保存 `SUPABASE_SERVICE_ROLE_KEY`；部署成功后，由维护者在受信任的本地终端临时设置该密钥，只同步文档身份和轻量目录：
 
 ```bash
 printf 'Supabase service-role key: '
 IFS= read -r -s SUPABASE_SERVICE_ROLE_KEY
 printf '\n'
 export SUPABASE_SERVICE_ROLE_KEY
-SUPABASE_URL="https://your-project.supabase.co" yarn api:sync
+SUPABASE_URL="https://your-project.supabase.co" yarn catalog:sync
 unset SUPABASE_SERVICE_ROLE_KEY
 ```
 
-该命令会镜像当前 `docs/` 目录：upsert 当前文档，并硬删除本地已不存在的 `exam_documents` 旧行。
+该命令只 upsert UUID、路径、标题、链接、标签、分类和内容哈希，并清理已经不存在的 `document_catalog` 目录行；不会上传 Markdown，也不会修改笔记、进度、题集或其他用户表。JSON API 和 Agent 需要正文时，会按 UUID 读取随网站一起发布的静态 JSON。
 该输入方式不会把密钥写入终端历史；不要把它写入仓库、GitHub Secrets 或构建日志。
 
 4. 确认 Supabase Function secrets 已配置 `API_LOG_SALT`，并关闭两个函数的 JWT verification。

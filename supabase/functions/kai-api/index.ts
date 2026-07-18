@@ -7,25 +7,30 @@ import {
   jsonResponse,
 } from './http.ts';
 import { sha256Hex } from './crypto.ts';
+import {
+  DOCUMENT_CATALOG_SELECT,
+  fetchPublishedDocument,
+  type PublishedDocument,
+} from '../_shared/published-content.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';
 const API_LOG_SALT = Deno.env.get('API_LOG_SALT') || '';
 const API_VERSION = 'v1';
-const SITE_URL = 'https://runjp.com';
+const SITE_URL = Deno.env.get('SITE_URL') || 'https://runjp.com';
 const CONTENT_NOTICE = 'Core public content remains openly accessible on The Kai Project. API access, bulk reuse, redistribution, commercial integration, and other uses beyond ordinary browsing and personal study are subject to the project content/API terms and any applicable third-party rights.';
 const CATALOG_CACHE_TTL_MS = 10 * 60 * 1000;
 const DEFAULT_PAGE_LIMIT = 100;
 const MAX_PAGE_LIMIT = 500;
 const CONTENT_PAGE_LIMIT = 50;
 
-let supabaseClient: ReturnType<typeof createClient> | null = null;
+let supabaseClient: ReturnType<typeof createClient<any, 'public'>> | null = null;
 let catalogCache: { expiresAt: number; body: Record<string, unknown>; resultCount: number } | null = null;
 
 function getSupabase() {
   if (!SUPABASE_URL || !SERVICE_ROLE_KEY) return null;
   if (!supabaseClient) {
-    supabaseClient = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
+    supabaseClient = createClient<any, 'public'>(SUPABASE_URL, SERVICE_ROLE_KEY, {
       auth: {
         persistSession: false,
         autoRefreshToken: false,
@@ -46,6 +51,14 @@ type ApiAccess = {
   status: string;
   expires_at: string | null;
 };
+
+type ApiKeyAuthResult =
+  | { response: Response }
+  | { apiKey: ApiKey };
+
+type RateLimitResult =
+  | { response: Response }
+  | { allowed: true };
 
 type RequestContext = {
   apiKey: ApiKey | null;
@@ -134,7 +147,7 @@ function scheduleLogRequest(req: Request, ctx: RequestContext, statusCode: numbe
   }
 }
 
-async function authenticateApiKey(req: Request) {
+async function authenticateApiKey(req: Request): Promise<ApiKeyAuthResult> {
   const supabase = getSupabase();
   if (!supabase) {
     return { response: errorResponse(500, 'server_not_configured', 'Supabase Edge Function is not configured.') };
@@ -176,7 +189,7 @@ async function authenticateApiKey(req: Request) {
   return { apiKey: data as ApiKey };
 }
 
-async function enforceRateLimit(apiKey: ApiKey) {
+async function enforceRateLimit(apiKey: ApiKey): Promise<RateLimitResult> {
   const supabase = getSupabase();
   if (!supabase) throw new Error('Supabase Edge Function is not configured.');
 
@@ -215,41 +228,7 @@ function parsePositiveInt(value: string | null, fallback: number, max: number) {
   return Math.min(Math.floor(parsed), max);
 }
 
-function selectColumns(includeContent: boolean) {
-  const base = [
-    'document_uuid',
-    'doc_id',
-    'type',
-    'title',
-    'sidebar_label',
-    'university_id',
-    'university_name',
-    'department_id',
-    'department_name',
-    'program_id',
-    'program_name',
-    'year',
-    'year_label',
-    'file_slug',
-    'tags',
-    'school_tags',
-    'learning_tags',
-    'subject_ids',
-    'subsubject_ids',
-    'topic_ids',
-    'permalink',
-    'source_path',
-    'updated_at',
-  ];
-
-  if (includeContent) {
-    base.push('author_markdown', 'description_markdown', 'kai_markdown', 'full_markdown');
-  }
-
-  return base.join(',');
-}
-
-function publicExamRow(row: Record<string, unknown>, includeContent: boolean) {
+function publicExamRow(row: Record<string, unknown>, content: PublishedDocument | null = null) {
   const item: Record<string, unknown> = {
     documentUuid: row.document_uuid,
     docId: row.doc_id,
@@ -282,13 +261,10 @@ function publicExamRow(row: Record<string, unknown>, includeContent: boolean) {
     updatedAt: row.updated_at,
   };
 
-  if (includeContent) {
-    item.sections = {
-      authorMarkdown: row.author_markdown || '',
-      descriptionMarkdown: row.description_markdown || '',
-      kaiMarkdown: row.kai_markdown || '',
-    };
-    item.fullMarkdown = row.full_markdown || '';
+  if (content) {
+    item.contentHash = content.contentHash;
+    item.sections = content.sections;
+    item.fullMarkdown = content.fullMarkdown;
   }
 
   return item;
@@ -308,7 +284,7 @@ async function fetchCatalog(ctx: RequestContext) {
 
   for (let from = 0; ; from += pageSize) {
     const { data, error } = await supabase
-      .from('exam_documents')
+      .from('document_catalog')
       .select('doc_id,university_id,university_name,department_id,department_name,program_id,program_name,year')
       .eq('type', 'exam')
       .order('university_id', { ascending: true })
@@ -420,8 +396,8 @@ async function fetchExams(req: Request, ctx: RequestContext) {
   const type = url.searchParams.get('type') || 'exam';
 
   let query = supabase
-    .from('exam_documents')
-    .select(selectColumns(includeContent), { count: 'exact' })
+    .from('document_catalog')
+    .select(DOCUMENT_CATALOG_SELECT, { count: 'exact' })
     .eq('type', type)
     .order('doc_id', { ascending: true })
     .range(offset, offset + limit - 1);
@@ -458,7 +434,15 @@ async function fetchExams(req: Request, ctx: RequestContext) {
   const { data, error, count } = await query;
   if (error) throw error;
 
-  const items = (data || []).map((row) => publicExamRow(row, includeContent));
+  const rows = (data || []) as unknown as Record<string, unknown>[];
+  const items: Record<string, unknown>[] = [];
+  for (let start = 0; start < rows.length; start += 8) {
+    const batch = rows.slice(start, start + 8);
+    const content = includeContent
+      ? await Promise.all(batch.map((row) => fetchPublishedDocument(row, SITE_URL)))
+      : batch.map(() => null);
+    items.push(...batch.map((row, index) => publicExamRow(row, content[index])));
+  }
   ctx.resultCount = items.length;
   return jsonResponse(withEnvelope({
     count: items.length,
@@ -473,13 +457,14 @@ async function fetchExamDetail(docId: string, ctx: RequestContext) {
   const supabase = getSupabase();
   if (!supabase) throw new Error('Supabase Edge Function is not configured.');
 
-  let { data, error } = await supabase
-    .from('exam_documents')
-    .select(selectColumns(true))
+  const initial = await supabase
+    .from('document_catalog')
+    .select(DOCUMENT_CATALOG_SELECT)
     .eq('doc_id', docId)
     .maybeSingle();
 
-  if (error) throw error;
+  if (initial.error) throw initial.error;
+  let data = initial.data as unknown as Record<string, unknown> | null;
   if (!data) {
     const {data: alias, error: aliasError} = await supabase
       .from('document_aliases')
@@ -489,12 +474,12 @@ async function fetchExamDetail(docId: string, ctx: RequestContext) {
     if (aliasError) throw aliasError;
     if (alias?.document_uuid) {
       const current = await supabase
-        .from('exam_documents')
-        .select(selectColumns(true))
+        .from('document_catalog')
+        .select(DOCUMENT_CATALOG_SELECT)
         .eq('document_uuid', alias.document_uuid)
         .maybeSingle();
       if (current.error) throw current.error;
-      data = current.data;
+      data = current.data as unknown as Record<string, unknown> | null;
     }
   }
   if (!data) {
@@ -508,7 +493,8 @@ async function fetchExamDetail(docId: string, ctx: RequestContext) {
   }
 
   ctx.resultCount = 1;
-  return jsonResponse(withEnvelope({ item: publicExamRow(data, true) }));
+  const content = await fetchPublishedDocument(data, SITE_URL);
+  return jsonResponse(withEnvelope({ item: publicExamRow(data, content) }));
 }
 
 async function handleApiRequest(req: Request, ctx: RequestContext) {

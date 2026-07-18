@@ -34,10 +34,6 @@ jobs:
         with:
           node-version: 20
           cache: yarn
-      - uses: supabase/setup-cli@v1
-        with:
-          version: 2.101.0
-
       - name: 安装依赖
         run: yarn install --frozen-lockfile
       - name: 校验 API 数据
@@ -94,30 +90,6 @@ jobs:
           test ! -d build/ja
           test ! -d build/en
           test ! -f build/progress.html
-      - name: 迁移 Supabase 数据库并部署 Edge Functions
-        if: github.event_name == 'push'
-        run: |
-          if [ -z "$SUPABASE_ACCESS_TOKEN" ] || [ -z "$SUPABASE_PROJECT_REF" ] || [ -z "$SUPABASE_DB_PASSWORD" ]; then
-            echo "::error::SUPABASE_ACCESS_TOKEN, SUPABASE_PROJECT_REF and SUPABASE_DB_PASSWORD are required for a production deployment."
-            exit 1
-          fi
-          supabase link --project-ref "$SUPABASE_PROJECT_REF"
-          supabase db push --linked --include-all --dry-run
-          supabase db push --linked --include-all
-          supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
-          supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
-          supabase functions deploy content-submissions --project-ref "$SUPABASE_PROJECT_REF"
-          supabase functions deploy agent-session --project-ref "$SUPABASE_PROJECT_REF"
-          supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF"
-        env:
-          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-          SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
-          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
-
-      # `yarn api:sync` is intentionally run by a maintainer from a trusted
-      # workstation after deployment. Never store the service-role key in
-      # GitHub Actions for this workflow.
-
       - name: 上传构建制品
         if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v3
@@ -144,3 +116,41 @@ jobs:
       - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  backend:
+    name: 迁移 Supabase 并部署 Edge Functions
+    needs: deploy
+    if: github.event_name == 'push'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.101.0
+      - name: 迁移数据库并部署函数
+        run: |
+          if [ -z "$SUPABASE_ACCESS_TOKEN" ] || [ -z "$SUPABASE_PROJECT_REF" ] || [ -z "$SUPABASE_DB_PASSWORD" ]; then
+            echo "::error::SUPABASE_ACCESS_TOKEN, SUPABASE_PROJECT_REF and SUPABASE_DB_PASSWORD are required for a production deployment."
+            exit 1
+          fi
+          supabase link --project-ref "$SUPABASE_PROJECT_REF"
+          supabase db push --linked --include-all --dry-run
+          supabase db push --linked --include-all
+          supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
+          supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
+          supabase functions deploy content-submissions --project-ref "$SUPABASE_PROJECT_REF"
+          supabase functions deploy agent-session --project-ref "$SUPABASE_PROJECT_REF"
+          supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF"
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+
+      # `yarn catalog:sync` is intentionally run by a maintainer from a trusted
+      # workstation after deployment. It syncs identities and discovery
+      # metadata only; Markdown bodies ship with the Pages artifact.

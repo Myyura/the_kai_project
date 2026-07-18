@@ -266,7 +266,10 @@ grant execute on function record_practice_events(jsonb) to authenticated;
 --   5. API 访问采用申请制，管理员在 Supabase Dashboard 中将申请状态改为 approved 后才能创建 key。
 --   6. 下列表启用 RLS，前端 anon/authenticated 客户端不可直接读写，由 Edge Function service role 访问。
 
--- ── 结构化题库文档 ────────────────────────────────────────
+-- ── 结构化题库文档（历史基线）──────────────────────────────
+-- 新环境继续先执行完整基线，再应用有序迁移；迁移
+-- 20260718000300 会将本表改名为 document_catalog，并删除四个 Markdown
+-- 正文列。这里保留旧定义是为了让既有数据库与空数据库走同一条迁移路径。
 create table if not exists exam_documents (
   doc_id                text primary key,
   type                  text not null default 'exam',

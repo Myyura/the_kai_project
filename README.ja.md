@@ -149,22 +149,23 @@ curl -H "Authorization: Bearer kai_live_..." \
 ```bash
 npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
 npx supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
+npx supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF"
 ```
 
-Supabase Dashboard の Edge Functions エディタからデプロイすることもできます。`developer-api-keys` と `kai-api` をそれぞれ作成し、各 function ディレクトリ内の `index.ts`、`http.ts`、`crypto.ts` を追加してください。各 function ディレクトリは自己完結しており、外部の共有ファイルには依存しません。
+`kai-api` と `agent-context` は `supabase/functions/_shared/published-content.ts` の静的本文ローダーを共有します。Supabase CLI と GitHub Actions が自動的にバンドルするため、ファイルの手動コピーや Dashboard での個別更新は不要です。
 
-3. GitHub Actions には `SUPABASE_SERVICE_ROLE_KEY` を保存せず、過去問データも自動同期しません。デプロイ成功後、メンテナーが信頼できるローカル端末で一時的にキーを設定して手動同期します。
+3. Markdown 本文は PostgreSQL に複製せず、ビルド時に安定 UUID ごとの静的 JSON として `/api-content/v1/documents/` に公開します。GitHub Actions には `SUPABASE_SERVICE_ROLE_KEY` を保存しません。デプロイ成功後、メンテナーが信頼できるローカル端末で一時的にキーを設定し、文書 ID と軽量カタログだけを同期します。
 
 ```bash
 printf 'Supabase service-role key: '
 IFS= read -r -s SUPABASE_SERVICE_ROLE_KEY
 printf '\n'
 export SUPABASE_SERVICE_ROLE_KEY
-SUPABASE_URL="https://your-project.supabase.co" yarn api:sync
+SUPABASE_URL="https://your-project.supabase.co" yarn catalog:sync
 unset SUPABASE_SERVICE_ROLE_KEY
 ```
 
-このコマンドは現在の `docs/` ディレクトリをミラーします。現在のドキュメントを upsert し、ローカルに存在しない古い `exam_documents` 行を物理削除します。
+このコマンドは UUID、パス、タイトル、リンク、タグ、分類、コンテンツハッシュだけを upsert し、不要になった `document_catalog` 行を削除します。Markdown、ノート、進捗、問題セットなどのユーザーデータは変更しません。JSON API と Agent は、Web サイトと一緒に公開された静的 JSON から本文を取得します。
 この入力方法ではキーがシェル履歴に残りません。リポジトリや GitHub Actions には保存しないでください。
 
 4. Supabase Function secrets に `API_LOG_SALT` が設定されていることを確認し、両方の function で JWT verification を無効にします。

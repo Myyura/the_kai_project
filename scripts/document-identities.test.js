@@ -65,7 +65,7 @@ test('the identity migration preserves existing user-owned database rows', () =>
 test('ordered migrations contain no top-level destructive row operations', () => {
   const migrationDirectory = path.resolve(__dirname, '..', 'supabase/migrations');
   const migrations = fs.readdirSync(migrationDirectory).filter((name) => name.endsWith('.sql'));
-  assert.ok(migrations.length >= 2);
+  assert.ok(migrations.length >= 3);
   for (const migration of migrations) {
     const sql = fs.readFileSync(path.join(migrationDirectory, migration), 'utf8');
     assert.equal((sql.match(/\$\$/g) || []).length % 2, 0, `${migration} has unbalanced $$ blocks`);
@@ -74,4 +74,25 @@ test('ordered migrations contain no top-level destructive row operations', () =>
     assert.doesNotMatch(topLevelSql, /\bdelete\s+from\s+/);
     assert.doesNotMatch(topLevelSql, /\bdrop\s+table\s+/);
   }
+});
+
+test('catalog cutover drops document bodies without touching user-owned columns', () => {
+  const migrationPath = path.resolve(
+    __dirname,
+    '..',
+    'supabase/migrations/20260718000300_lightweight_document_catalog.sql',
+  );
+  const sql = fs.readFileSync(migrationPath, 'utf8').toLowerCase();
+  const topLevelSql = sql.replace(/\$\$[\s\S]*?\$\$/g, '');
+  assert.match(sql, /rename\s+to\s+document_catalog/);
+  for (const column of [
+    'author_markdown',
+    'description_markdown',
+    'kai_markdown',
+    'full_markdown',
+  ]) {
+    assert.match(sql, new RegExp(`drop\\s+column\\s+if\\s+exists\\s+${column}`));
+  }
+  assert.doesNotMatch(topLevelSql, /alter\s+table\s+(?:public\.)?user_\w+[\s\S]{0,120}drop\s+column/);
+  assert.doesNotMatch(topLevelSql, /delete\s+from\s+(?:public\.)?(?:user_|problem_set)/);
 });

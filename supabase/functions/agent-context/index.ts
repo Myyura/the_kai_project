@@ -13,6 +13,11 @@ import {
   publicJwkFromPrivate,
   verifyJwt,
 } from './jwt.ts';
+import {
+  DOCUMENT_CATALOG_SELECT,
+  fetchPublishedDocument,
+  type PublishedDocument,
+} from '../_shared/published-content.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';
@@ -21,7 +26,7 @@ const AGENT_SESSION_PRIVATE_JWK = Deno.env.get('AGENT_SESSION_PRIVATE_JWK') || '
 const AGENT_SESSION_PUBLIC_JWK = Deno.env.get('AGENT_SESSION_PUBLIC_JWK') || '';
 const SITE_URL = Deno.env.get('SITE_URL') || 'https://runjp.com';
 
-let supabaseClient: ReturnType<typeof createClient> | null = null;
+let supabaseClient: ReturnType<typeof createClient<any, 'public'>> | null = null;
 let servicePublicJwk: JsonWebKey | null = null;
 let sessionPublicJwk: JsonWebKey | null = null;
 
@@ -34,10 +39,14 @@ type AgentContext = {
   consent: Record<string, unknown>;
 };
 
+type AgentAuthResult =
+  | { response: Response }
+  | { ctx: AgentContext };
+
 function getSupabase() {
   if (!SUPABASE_URL || !SERVICE_ROLE_KEY) return null;
   if (!supabaseClient) {
-    supabaseClient = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
+    supabaseClient = createClient<any, 'public'>(SUPABASE_URL, SERVICE_ROLE_KEY, {
       auth: {
         persistSession: false,
         autoRefreshToken: false,
@@ -83,7 +92,7 @@ function hasScope(ctx: AgentContext, scope: string) {
   return ctx.scopes.includes(scope);
 }
 
-async function authenticateAgentRequest(req: Request) {
+async function authenticateAgentRequest(req: Request): Promise<AgentAuthResult> {
   const supabase = getSupabase();
   if (!supabase) {
     return { response: errorResponse(500, 'server_not_configured', 'Supabase Edge Function is not configured.') };
@@ -389,40 +398,38 @@ async function handleNotes(req: Request, ctx: AgentContext) {
   });
 }
 
-function publicDocument(row: Record<string, unknown>) {
+function publicDocument(content: PublishedDocument, catalog: Record<string, unknown>) {
   return {
-    docId: row.doc_id,
-    type: row.type,
-    title: row.title,
+    documentUuid: catalog.document_uuid,
+    docId: catalog.doc_id,
+    contentHash: content.contentHash,
+    type: catalog.type,
+    title: catalog.title,
     university: {
-      id: row.university_id,
-      name: row.university_name,
+      id: catalog.university_id,
+      name: catalog.university_name,
     },
     department: {
-      id: row.department_id,
-      name: row.department_name,
+      id: catalog.department_id,
+      name: catalog.department_name,
     },
-    program: row.program_id ? {
-      id: row.program_id,
-      name: row.program_name,
+    program: catalog.program_id ? {
+      id: catalog.program_id,
+      name: catalog.program_name,
     } : null,
-    year: row.year,
-    yearLabel: row.year_label,
-    tags: row.tags || [],
-    schoolTags: row.school_tags || [],
-    learningTags: row.learning_tags || [],
-    subjectIds: row.subject_ids || [],
-    subsubjectIds: row.subsubject_ids || [],
-    topicIds: row.topic_ids || [],
-    permalink: row.permalink,
-    sourcePath: row.source_path,
-    sections: {
-      authorMarkdown: row.author_markdown || '',
-      descriptionMarkdown: row.description_markdown || '',
-      kaiMarkdown: row.kai_markdown || '',
-    },
-    fullMarkdown: row.full_markdown || '',
-    updatedAt: row.updated_at,
+    year: catalog.year,
+    yearLabel: catalog.year_label,
+    tags: catalog.tags || [],
+    schoolTags: catalog.school_tags || [],
+    learningTags: catalog.learning_tags || [],
+    subjectIds: catalog.subject_ids || [],
+    subsubjectIds: catalog.subsubject_ids || [],
+    topicIds: catalog.topic_ids || [],
+    permalink: catalog.permalink,
+    sourcePath: catalog.source_path,
+    sections: content.sections,
+    fullMarkdown: content.fullMarkdown,
+    updatedAt: catalog.updated_at,
   };
 }
 
@@ -430,40 +437,34 @@ async function handleDocument(docId: string) {
   const supabase = getSupabase();
   if (!supabase) throw new Error('Supabase Edge Function is not configured.');
 
-  const { data, error } = await supabase
-    .from('exam_documents')
-    .select([
-      'doc_id',
-      'type',
-      'title',
-      'university_id',
-      'university_name',
-      'department_id',
-      'department_name',
-      'program_id',
-      'program_name',
-      'year',
-      'year_label',
-      'tags',
-      'school_tags',
-      'learning_tags',
-      'subject_ids',
-      'subsubject_ids',
-      'topic_ids',
-      'permalink',
-      'source_path',
-      'author_markdown',
-      'description_markdown',
-      'kai_markdown',
-      'full_markdown',
-      'updated_at',
-    ].join(','))
+  const initial = await supabase
+    .from('document_catalog')
+    .select(DOCUMENT_CATALOG_SELECT)
     .eq('doc_id', docId)
     .maybeSingle();
 
-  if (error) throw error;
+  if (initial.error) throw initial.error;
+  let data = initial.data as unknown as Record<string, unknown> | null;
+  if (!data) {
+    const {data: alias, error: aliasError} = await supabase
+      .from('document_aliases')
+      .select('document_uuid')
+      .eq('doc_id', docId)
+      .maybeSingle();
+    if (aliasError) throw aliasError;
+    if (alias?.document_uuid) {
+      const current = await supabase
+        .from('document_catalog')
+        .select(DOCUMENT_CATALOG_SELECT)
+        .eq('document_uuid', alias.document_uuid)
+        .maybeSingle();
+      if (current.error) throw current.error;
+      data = current.data as unknown as Record<string, unknown> | null;
+    }
+  }
   if (!data) return errorResponse(404, 'document_not_found', 'Document was not found.');
-  return jsonResponse({ item: publicDocument(data) });
+  const content = await fetchPublishedDocument(data, SITE_URL);
+  return jsonResponse({item: publicDocument(content, data)});
 }
 
 async function handleReserve(body: Record<string, unknown>, ctx: AgentContext) {

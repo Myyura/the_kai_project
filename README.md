@@ -155,22 +155,23 @@ The project exposes exam data through Supabase Edge Functions while reusing the 
 ```bash
 npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
 npx supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
+npx supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF"
 ```
 
-You can also deploy from the Supabase Dashboard Edge Functions editor: create `developer-api-keys` and `kai-api`, then add each function's own `index.ts`, `http.ts`, and `crypto.ts`. Each function directory is self-contained and does not import files outside its own directory.
+`kai-api` and `agent-context` share the static body loader in `supabase/functions/_shared/published-content.ts`. The Supabase CLI and GitHub Actions bundle it automatically, so there is no file to copy and no function to update manually in the Dashboard.
 
-3. GitHub Actions does not store `SUPABASE_SERVICE_ROLE_KEY` or sync the exam data automatically. After a successful deployment, a maintainer temporarily supplies the key in a trusted local terminal and runs the manual sync:
+3. Markdown bodies are not mirrored into PostgreSQL; the build publishes them by stable UUID under `/api-content/v1/documents/`. GitHub Actions does not store `SUPABASE_SERVICE_ROLE_KEY`. After deployment, a maintainer temporarily supplies the key in a trusted local terminal and syncs identities plus the lightweight catalog only:
 
 ```bash
 printf 'Supabase service-role key: '
 IFS= read -r -s SUPABASE_SERVICE_ROLE_KEY
 printf '\n'
 export SUPABASE_SERVICE_ROLE_KEY
-SUPABASE_URL="https://your-project.supabase.co" yarn api:sync
+SUPABASE_URL="https://your-project.supabase.co" yarn catalog:sync
 unset SUPABASE_SERVICE_ROLE_KEY
 ```
 
-This command mirrors the current `docs/` tree: it upserts current documents and hard-deletes stale `exam_documents` rows whose `doc_id` no longer exists locally.
+This command upserts UUIDs, paths, titles, links, tags, taxonomy, and content hashes, then prunes stale `document_catalog` rows. It never uploads Markdown or modifies notes, progress, problem sets, or any other user table. The JSON API and Agent fetch bodies from the static JSON published with the website.
 This input method keeps the key out of shell history; never commit it or store it in GitHub Actions for this workflow.
 
 4. Confirm the Supabase Function secrets include `API_LOG_SALT`, and disable JWT verification for both functions.

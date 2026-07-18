@@ -6,7 +6,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "node scripts/generate-docusaurus-tags.js && node scripts/generate-site-stats.js && docusaurus start",
-    "build": "yarn content:validate && node scripts/generate-site-stats.js --check && docusaurus build && yarn build:check",
+    "build": "yarn content:validate && node scripts/generate-site-stats.js --check && docusaurus build && yarn documents:publish && yarn build:check",
     "build:check": "node scripts/check-build-output.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -26,11 +26,12 @@
     "documents:validate": "node scripts/generate-document-identities.js --check",
     "documents:add": "node scripts/generate-document-identities.js --add",
     "documents:move": "node scripts/generate-document-identities.js --move",
+    "documents:publish": "node scripts/generate-static-document-content.js",
     "data:validate": "yarn content:validate && yarn api:validate",
     "review:format": "node scripts/review-format.js",
     "api:generate": "node scripts/generate-api-data.js",
     "api:validate": "node scripts/generate-api-data.js --validate",
-    "api:sync": "node scripts/sync-api-data.js"
+    "catalog:sync": "node scripts/sync-document-catalog.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
