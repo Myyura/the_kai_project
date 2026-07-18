@@ -39,7 +39,7 @@ To support long-term maintenance, technical services, and community operations, 
 - Open past-exam and solution database across multiple universities and departments
 - Exam-experience blog posts and preparation write-ups
 - Per-question progress tracking with review reminders and a progress dashboard
-- Built-in notes on each question page with Markdown and LaTeX support
+- Built-in Markdown/LaTeX notes plus selectable inline annotations with highlighting, quick navigation, editing, and cloud sync
 - Unified public nicknames, private problem sets, cloud sync, and a practice leaderboard powered by Supabase
 - Local search, PWA/offline support, and share-as-image for answer pages
 

@@ -1,74 +1,46 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import {
-  FaBookOpen,
-  FaCamera,
-  FaChevronDown,
-  FaCode,
-  FaCodeBranch,
-  FaEdit,
-  FaExclamationTriangle,
-  FaExternalLinkAlt,
-  FaFileContract,
-  FaGithub,
-  FaLayerGroup,
-  FaRoute,
-  FaShieldAlt,
-  FaStickyNote,
-  FaTasks,
-  FaUsers,
-} from 'react-icons/fa';
-import { useCurrentLanguage } from '../context/LanguageContext';
-import { fetchSiteContributors } from '../services/contributorService';
-import githubContributorData from '../data/githubContributors.json';
-import styles from './legalstatement.module.css';
-
-const REPOSITORY_URL = 'https://github.com/Myyura/the_kai_project';
-
-const content = {
+const HELP_AND_NOTICES_COPY = {
   zh: {
     title: '帮助与声明',
     subtitle: '这里集中说明 The Kai Project 的主要功能、投稿流程、版权与隐私政策。',
     guideTitle: '使用指南',
     guides: [
       {
-        icon: FaBookOpen,
+        id: 'browse',
         title: '浏览过去问与题解',
         text: '从顶部「过去问」进入题库，按大学、研究科、年度和题目浏览。题解页面支持本地搜索、标签浏览和离线访问。',
       },
       {
-        icon: FaTasks,
+        id: 'progress',
         title: '记录做题进度',
         text: '在题解页底部可标记已完成或待复习。登录后，进度会同步到个人中心，并展示统计、热力图和复习提醒。',
       },
       {
-        icon: FaStickyNote,
-        title: '写题目笔记',
-        text: '每个题解页都可以记录 Markdown / LaTeX 笔记。登录后可跨设备同步，并在个人中心集中检索。',
+        id: 'notes',
+        title: '写笔记与文中注释',
+        text: '登录后，你既可以在题解页底部记录 Markdown / LaTeX 笔记，也可以直接选中题解中的文字或公式创建文中注释。注释内容会高亮并显示行侧标记，可从侧栏或页面下方的注释列表快速跳转、展开、重命名、编辑或删除。文中注释会自动汇入同一道题的笔记并跨设备同步；题解发生修改时，系统会提醒你重新确认注释位置。',
       },
       {
-        icon: FaLayerGroup,
+        id: 'problemSets',
         title: '整理私人题集',
         text: '登录后可把题目加入「稍后再做」「错题本」或自定义题集，在个人中心管理、排序并按题集连续刷题。题集默认仅本人可见。',
-        link: { to: '/me?tab=sets', label: '打开我的题集' },
+        linkLabel: '打开我的题集',
       },
       {
-        icon: FaCamera,
+        id: 'share',
         title: '分享为图片',
         text: '题解页底部的「分享为图片」会把当前题解渲染为带来源标识的图片，方便学习群讨论和复习保存。',
       },
       {
-        icon: FaEdit,
+        id: 'contribute',
         title: '投稿与纠错',
         text: '在个人中心的「我的投稿」提交新题解；现有题解的纠错请从题解页底部进入，系统会自动带入目标题解。投稿会创建公开 GitHub Issue，维护者确认后再由 bot 转成规范 PR。',
-        link: { to: '/me?tab=contribute', label: '前往我的投稿' },
+        linkLabel: '前往我的投稿',
       },
       {
-        icon: FaCode,
+        id: 'developerApi',
         title: '开发者 API',
         text: '如果需要以 JSON 方式读取题库数据，可在个人中心申请 API 访问。审核通过后可以创建 API Key。',
-        link: { to: '/me?tab=developer-api', label: '查看开发者 API' },
+        linkLabel: '查看开发者 API',
       },
     ],
     contributionTitle: '社区贡献流程',
@@ -101,7 +73,7 @@ const content = {
     legalTitle: '法律与隐私声明',
     legalSections: [
       {
-        icon: FaFileContract,
+        id: 'copyright',
         title: '版权声明',
         items: [
           '本网站以开源项目和公开资料库为基础，核心公开内容包括题库索引、社区贡献题解、公开备考资料及相关说明。上述内容将持续面向公众开放访问，用于支持个人学习、研究与备考参考。',
@@ -111,7 +83,7 @@ const content = {
         ],
       },
       {
-        icon: FaExclamationTriangle,
+        id: 'disclaimer',
         title: '免责声明',
         items: [
           '本网站可能保留第三方网站或网址链接，是否访问这些链接或接受第三方服务由您自行决定。访问第三方网站产生的结果和风险由您自行承担。',
@@ -120,11 +92,11 @@ const content = {
         ],
       },
       {
-        icon: FaShieldAlt,
+        id: 'privacy',
         title: '隐私声明',
         items: [
           '访问本站时，服务器可能自动收集浏览器或设备生成的信息，包括访问时间、浏览器类型、操作系统等。',
-          '若您使用登录、个人中心、云同步、私人题集、排行榜、投稿或开发者 API 功能，我们可能处理账号邮箱、认证标识、统一公开昵称、学习进度、题目笔记、私人题集及选题说明、投稿记录、API 申请信息、API Key 元数据及必要调用日志。',
+          '若您使用登录、个人中心、云同步、私人题集、排行榜、投稿或开发者 API 功能，我们可能处理账号邮箱、认证标识、统一公开昵称、学习进度、题目笔记及文中注释（包括所选原文、来源行号与定位信息）、私人题集及选题说明、投稿记录、API 申请信息、API Key 元数据及必要调用日志。',
           '刷题排行榜默认展示全站统一昵称，不展示邮箱。您可在个人中心关闭排行榜可见性；关闭后不参与公开排名和参与人数统计，但仍可查看自己的练习数量。',
           '投稿成功转为 PR 后，社区贡献者区域可能展示投稿时使用的统一公开昵称及已通过投稿数量；不会展示邮箱、账号标识或未通过审核的投稿。',
           '上述信息主要用于提供账号登录、学习数据同步、个人中心展示、投稿状态、API 访问审核、安全风控、服务维护和用户支持。我们会根据功能需要采取合理的数据最小化措施。',
@@ -141,42 +113,42 @@ const content = {
     guideTitle: '利用ガイド',
     guides: [
       {
-        icon: FaBookOpen,
+        id: 'browse',
         title: '過去問・解答を探す',
         text: '上部メニューの「過去問」から、大学、研究科、年度、問題ごとに閲覧できます。解答ページではサイト内検索、タグによる絞り込み、オフライン閲覧も利用できます。',
       },
       {
-        icon: FaTasks,
+        id: 'progress',
         title: '学習進捗を記録する',
         text: '解答ページの下部で、問題を「完了」または「要復習」に設定できます。ログインするとマイページへ同期され、集計、学習ヒートマップ、復習リマインダーを確認できます。',
       },
       {
-        icon: FaStickyNote,
-        title: '問題ノートを書く',
-        text: '各解答ページに Markdown / LaTeX 対応のノートを保存できます。ログイン後は端末間で同期され、マイページからまとめて検索できます。',
+        id: 'notes',
+        title: '問題ノートと本文注釈を書く',
+        text: 'ログイン後は、解答ページ下部に Markdown / LaTeX 対応のノートを書くだけでなく、解答中の文章や数式を選択して本文注釈を作成できます。注釈箇所はハイライトと行横のマーカーで表示され、サイドバーまたはページ下部の一覧から移動・展開・名前変更・編集・削除ができます。本文注釈は同じ問題のノートへ自動的にまとめられ、端末間で同期されます。解答が更新された場合は、注釈位置の再確認を求める通知が表示されます。',
       },
       {
-        icon: FaLayerGroup,
+        id: 'problemSets',
         title: '自分用の問題セットを整理する',
         text: 'ログイン後、「あとで解く」「間違いノート」またはカスタムセットへ問題を追加し、マイページで管理・並べ替え・連続演習できます。セットは本人のみ閲覧できます。',
-        link: { to: '/me?tab=sets', label: '問題セットを開く' },
+        linkLabel: '問題セットを開く',
       },
       {
-        icon: FaCamera,
+        id: 'share',
         title: '画像として共有する',
         text: '解答ページ下部の「画像として共有」から、出典表示付きの画像を作成できます。学習グループでの共有や復習用の保存に利用できます。',
       },
       {
-        icon: FaEdit,
+        id: 'contribute',
         title: '解答の投稿・訂正',
         text: '新しい解答はマイページの「投稿」から送信できます。既存解答の訂正は、その解答ページ下部から開始すると対象文書が自動で入力されます。投稿内容は公開 GitHub Issue となり、メンテナーの確認後に Bot が下書き PR を作成します。',
-        link: { to: '/me?tab=contribute', label: '投稿ページを開く' },
+        linkLabel: '投稿ページを開く',
       },
       {
-        icon: FaCode,
+        id: 'developerApi',
         title: '開発者 API',
         text: '問題データを JSON 形式で取得する場合は、マイページから API 利用を申請できます。承認後に API Key を作成・管理できます。',
-        link: { to: '/me?tab=developer-api', label: '開発者 API を開く' },
+        linkLabel: '開発者 API を開く',
       },
     ],
     contributionTitle: 'コミュニティへの投稿手順',
@@ -209,7 +181,7 @@ const content = {
     legalTitle: '法的情報・プライバシー',
     legalSections: [
       {
-        icon: FaFileContract,
+        id: 'copyright',
         title: '著作権に関する方針',
         items: [
           '本サイトはオープンソースプロジェクトおよび公開資料アーカイブとして運営されています。主要な公開コンテンツには、問題集の索引、コミュニティが投稿した解答、公開されている受験資料、関連する説明が含まれ、個人の学習、研究、受験準備を支援する目的で継続的に公開されます。',
@@ -219,7 +191,7 @@ const content = {
         ],
       },
       {
-        icon: FaExclamationTriangle,
+        id: 'disclaimer',
         title: '免責事項',
         items: [
           '本サイトには第三者が運営するウェブサイトへのリンクが含まれる場合があります。リンク先へのアクセスおよび第三者サービスの利用は、利用者ご自身の判断と責任で行ってください。',
@@ -228,11 +200,11 @@ const content = {
         ],
       },
       {
-        icon: FaShieldAlt,
+        id: 'privacy',
         title: 'プライバシーに関する方針',
         items: [
           '本サイトへのアクセス時に、アクセス日時、ブラウザーの種類、オペレーティングシステムなど、ブラウザーまたは端末から送信される情報をサーバーが自動的に収集する場合があります。',
-          'ログイン、マイページ、クラウド同期、非公開の問題セット、学習ランキング、投稿、開発者 API を利用する場合、メールアドレス、認証識別子、統一公開ニックネーム、学習進捗、問題ノート、問題セットと選択メモ、投稿履歴、API 利用申請、API Key のメタデータ、必要なアクセスログを処理する場合があります。',
+          'ログイン、マイページ、クラウド同期、非公開の問題セット、学習ランキング、投稿、開発者 API を利用する場合、メールアドレス、認証識別子、統一公開ニックネーム、学習進捗、問題ノートと本文注釈（選択した原文、元の行番号、位置情報を含む）、問題セットと選択メモ、投稿履歴、API 利用申請、API Key のメタデータ、必要なアクセスログを処理する場合があります。',
           '学習ランキングには統一公開ニックネームが表示され、メールアドレスは表示されません。マイページでランキング公開を無効にすると、公開順位と参加人数から除外されますが、自分の学習数は確認できます。',
           '投稿が PR に変換された後、コミュニティ貢献者欄に投稿時の統一公開ニックネームと承認済み投稿数を表示する場合があります。メールアドレス、アカウント識別子、未承認の投稿は表示されません。',
           'これらの情報は、ログイン、学習データの同期、マイページの表示、投稿状況の確認、API 利用審査、安全対策、サービスの保守、利用者サポートのために使用します。機能の提供に必要な範囲で、データの最小化に努めます。',
@@ -249,42 +221,42 @@ const content = {
     guideTitle: 'User Guide',
     guides: [
       {
-        icon: FaBookOpen,
+        id: 'browse',
         title: 'Browse past exams and solutions',
         text: 'Open Past Exams from the top navigation to browse by university, graduate school, year, and question. Solution pages also support local search, tag-based browsing, and offline access.',
       },
       {
-        icon: FaTasks,
+        id: 'progress',
         title: 'Track your progress',
         text: 'Mark a problem as completed or needing review at the bottom of its solution page. After you log in, your progress syncs to the Personal Center, where you can view statistics, a study heatmap, and review reminders.',
       },
       {
-        icon: FaStickyNote,
-        title: 'Write problem notes',
-        text: 'Save Markdown and LaTeX notes on any solution page. After you log in, notes sync across devices and can be searched from the Personal Center.',
+        id: 'notes',
+        title: 'Write notes and inline annotations',
+        text: 'After logging in, you can write Markdown and LaTeX notes at the bottom of a solution page or select text and formulas in the solution to create inline annotations. Annotated passages are highlighted with line-side markers; use the sidebar or footer list to jump to, expand, rename, edit, or delete them. Inline annotations are automatically merged into the same problem note and synced across devices. If a solution changes, the site asks you to review the annotation positions.',
       },
       {
-        icon: FaLayerGroup,
+        id: 'problemSets',
         title: 'Organize private problem sets',
         text: 'After logging in, add problems to Do Later, Mistake Book, or custom sets. Manage, reorder, and practise them in sequence from Personal Center. These sets are private to your account.',
-        link: { to: '/me?tab=sets', label: 'Open Problem Sets' },
+        linkLabel: 'Open Problem Sets',
       },
       {
-        icon: FaCamera,
+        id: 'share',
         title: 'Share as an image',
         text: 'Use Share as Image at the bottom of a solution page to create an image that includes source attribution, suitable for study-group discussions or personal review.',
       },
       {
-        icon: FaEdit,
+        id: 'contribute',
         title: 'Submit or correct a solution',
         text: 'Submit a new solution from Submissions in the Personal Center. To correct an existing solution, start from the bottom of that solution page so the target document is filled in automatically. Each submission creates a public GitHub Issue; after review, the Bot converts it into a draft pull request.',
-        link: { to: '/me?tab=contribute', label: 'Open Submissions' },
+        linkLabel: 'Open Submissions',
       },
       {
-        icon: FaCode,
+        id: 'developerApi',
         title: 'Developer API',
         text: 'Apply for API access from the Personal Center if you need exam data in JSON format. Once approved, you can create and manage API keys.',
-        link: { to: '/me?tab=developer-api', label: 'Open Developer API' },
+        linkLabel: 'Open Developer API',
       },
     ],
     contributionTitle: 'Community Contribution Process',
@@ -317,7 +289,7 @@ const content = {
     legalTitle: 'Legal & Privacy Notices',
     legalSections: [
       {
-        icon: FaFileContract,
+        id: 'copyright',
         title: 'Copyright',
         items: [
           'This website is built as an open-source project and public archive. Its core public content includes exam indexes, community-contributed solutions, publicly available study materials, and related documentation. This content remains publicly accessible to support personal study, research, and exam preparation.',
@@ -327,7 +299,7 @@ const content = {
         ],
       },
       {
-        icon: FaExclamationTriangle,
+        id: 'disclaimer',
         title: 'Disclaimer',
         items: [
           'This website may contain links to websites or services operated by third parties. You decide whether to follow those links or use those services and do so at your own risk.',
@@ -336,11 +308,11 @@ const content = {
         ],
       },
       {
-        icon: FaShieldAlt,
+        id: 'privacy',
         title: 'Privacy',
         items: [
           'When you visit the website, our servers may automatically receive information generated by your browser or device, including access time, browser type, and operating system.',
-          'If you use login, the Personal Center, cloud sync, private problem sets, practice leaderboards, submissions, or the Developer API, we may process your account email, authentication identifiers, unified public nickname, study progress, problem notes, private sets and item notes, submission history, API access applications, API key metadata, and necessary request logs.',
+          'If you use login, the Personal Center, cloud sync, private problem sets, practice leaderboards, submissions, or the Developer API, we may process your account email, authentication identifiers, unified public nickname, study progress, problem notes and inline annotations (including selected source text, source line numbers, and positioning data), private sets and item notes, submission history, API access applications, API key metadata, and necessary request logs.',
           'The practice leaderboard displays your unified public nickname and does not display your email address. You can disable leaderboard visibility in Personal Center; hidden accounts are excluded from public rankings and participant counts but can still see their own practice total.',
           'After a submission is converted to a PR, the community contributor area may display the unified public nickname used for that submission and the number of accepted submissions. It does not display email addresses, account identifiers, or unaccepted submissions.',
           'We use this information to provide authentication, learning-data sync, Personal Center displays, submission status, API access review, security controls, service maintenance, and user support. We apply reasonable data-minimization measures based on what each feature requires.',
@@ -354,244 +326,9 @@ const content = {
 };
 
 function getLanguageContent(language) {
-  if (language === 'ja') return content.ja;
-  if (language === 'en') return content.en;
-  return content.zh;
+  if (language === 'ja') return HELP_AND_NOTICES_COPY.ja;
+  if (language === 'en') return HELP_AND_NOTICES_COPY.en;
+  return HELP_AND_NOTICES_COPY.zh;
 }
 
-function contributorInitials(displayName) {
-  const visibleName = String(displayName || '').split('#')[0].trim();
-  return Array.from(visibleName).slice(0, 2).join('').toUpperCase() || 'K';
-}
-
-function GitHubContributor({ contributor, copy }) {
-  return (
-    <a
-      className={styles.githubContributor}
-      href={contributor.profileUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img src={contributor.avatarUrl} alt="" loading="lazy" />
-      <span className={styles.contributorIdentity}>
-        <strong>{contributor.login}</strong>
-        <small>{copy.githubContributionCount(contributor.contributions)}</small>
-      </span>
-      <FaExternalLinkAlt aria-hidden="true" />
-    </a>
-  );
-}
-
-function SiteContributor({ contributor, copy }) {
-  return (
-    <div className={styles.siteContributor}>
-      <span className={styles.siteContributorAvatar} aria-hidden="true">
-        {contributorInitials(contributor.displayName)}
-      </span>
-      <span className={styles.contributorIdentity}>
-        <strong>{contributor.displayName}</strong>
-        <small>{copy.siteBreakdown(contributor.solutionCount, contributor.correctionCount)}</small>
-      </span>
-      <span className={styles.contributionCount}>{contributor.contributionCount}</span>
-    </div>
-  );
-}
-
-function ContributorAcknowledgements({ copy }) {
-  const githubContributors = githubContributorData.contributors || [];
-  const [isOpen, setIsOpen] = useState(false);
-  const [siteContributors, setSiteContributors] = useState([]);
-  const [siteContributorsLoading, setSiteContributorsLoading] = useState(true);
-  const [siteContributorsError, setSiteContributorsError] = useState(false);
-  const siteContributorsRequested = useRef(false);
-
-  useEffect(() => {
-    if (!isOpen || siteContributorsRequested.current) return undefined;
-
-    let active = true;
-    siteContributorsRequested.current = true;
-    setSiteContributorsLoading(true);
-    setSiteContributorsError(false);
-
-    fetchSiteContributors()
-      .then((rows) => {
-        if (active) setSiteContributors(rows);
-      })
-      .catch(() => {
-        if (active) setSiteContributorsError(true);
-      })
-      .finally(() => {
-        if (active) setSiteContributorsLoading(false);
-      });
-
-    return () => {
-      active = false;
-    };
-  }, [isOpen]);
-
-  return (
-    <div className={styles.acknowledgementsBlock}>
-      <div className={styles.acknowledgementsIntro}>
-        <span className={styles.acknowledgementsIcon} aria-hidden="true"><FaUsers /></span>
-        <div>
-          <span className={styles.acknowledgementsEyebrow}>{copy.eyebrow}</span>
-          <h3>{copy.title}</h3>
-          <p>{copy.description}</p>
-        </div>
-      </div>
-
-      <details
-        className={styles.contributorDisclosure}
-        onToggle={(event) => setIsOpen(event.currentTarget.open)}
-      >
-        <summary>
-          <span>
-            <strong>{copy.summaryTitle}</strong>
-            <small>{copy.summaryHint(githubContributors.length)}</small>
-          </span>
-          <FaChevronDown className={styles.disclosureChevron} aria-hidden="true" />
-        </summary>
-
-        <div className={styles.contributorDisclosureBody}>
-          <section className={styles.contributorGroup}>
-            <div className={styles.contributorGroupHeading}>
-              <div>
-                <span className={styles.contributorGroupIcon}><FaGithub aria-hidden="true" /></span>
-                <div>
-                  <h4>{copy.githubTitle}</h4>
-                  <p>{copy.githubHint}</p>
-                </div>
-              </div>
-              <a href={`${REPOSITORY_URL}/graphs/contributors`} target="_blank" rel="noopener noreferrer">
-                {copy.viewGitHub} <FaExternalLinkAlt aria-hidden="true" />
-              </a>
-            </div>
-            <div className={styles.contributorGrid}>
-              {githubContributors.map((contributor) => (
-                <GitHubContributor key={contributor.login} contributor={contributor} copy={copy} />
-              ))}
-            </div>
-          </section>
-
-          <section className={styles.contributorGroup}>
-            <div className={styles.contributorGroupHeading}>
-              <div>
-                <span className={styles.contributorGroupIcon}><FaCodeBranch aria-hidden="true" /></span>
-                <div>
-                  <h4>{copy.siteTitle}</h4>
-                  <p>{copy.siteHint}</p>
-                </div>
-              </div>
-              <Link to="/me?tab=contribute">{copy.contribute}</Link>
-            </div>
-
-            {siteContributorsLoading ? (
-              <div className={styles.contributorState}>{copy.loading}</div>
-            ) : siteContributorsError ? (
-              <div className={styles.contributorState}>{copy.unavailable}</div>
-            ) : siteContributors.length > 0 ? (
-              <div className={styles.contributorGrid}>
-                {siteContributors.map((contributor) => (
-                  <SiteContributor
-                    key={contributor.displayName}
-                    contributor={contributor}
-                    copy={copy}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className={styles.contributorState}>{copy.empty}</div>
-            )}
-            <p className={styles.contributorPrivacy}>{copy.privacy}</p>
-          </section>
-        </div>
-      </details>
-    </div>
-  );
-}
-
-export default function LegalStatement() {
-  const language = useCurrentLanguage();
-  const t = getLanguageContent(language);
-
-  return (
-    <Layout title={t.title}>
-      <main className={styles.shell}>
-        <section className={styles.hero}>
-          <div>
-            <span className={styles.eyebrow}>The Kai Project</span>
-            <h1>{t.title}</h1>
-            <p>{t.subtitle}</p>
-          </div>
-        </section>
-
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <FaRoute />
-            <h2>{t.guideTitle}</h2>
-          </div>
-          <div className={styles.guideGrid}>
-            {t.guides.map((guide) => {
-              const Icon = guide.icon;
-              return (
-                <article key={guide.title} className={styles.guideCard}>
-                  <Icon className={styles.guideIcon} />
-                  <h3>{guide.title}</h3>
-                  <p>{guide.text}</p>
-                  {guide.link && (
-                    <Link to={guide.link.to} className={styles.inlineLink}>
-                      {guide.link.label}
-                    </Link>
-                  )}
-                </article>
-              );
-            })}
-          </div>
-        </section>
-
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <FaEdit />
-            <h2>{t.contributionTitle}</h2>
-          </div>
-          <ol className={styles.processList}>
-            {t.contributionSteps.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
-          <ContributorAcknowledgements copy={t.acknowledgements} />
-        </section>
-
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <FaFileContract />
-            <h2>{t.legalTitle}</h2>
-          </div>
-          <div className={styles.noticeStack}>
-            {t.legalSections.map((section) => {
-              const Icon = section.icon;
-              return (
-                <article key={section.title} className={styles.noticePanel}>
-                  <div className={styles.noticeTitle}>
-                    <Icon />
-                    <h3>{section.title}</h3>
-                  </div>
-                  <ul>
-                    {section.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </article>
-              );
-            })}
-          </div>
-        </section>
-
-        <section className={styles.contactPanel}>
-          <h2>{t.contactTitle}</h2>
-          <p>{t.contactText}</p>
-        </section>
-      </main>
-    </Layout>
-  );
-}
+export { getLanguageContent };

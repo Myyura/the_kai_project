@@ -396,7 +396,7 @@ const config = {
           {to: '/docs/tags', label: 'Tags', position: 'left'},
           {to: '/links', label: '参考链接', position: 'left'},
           {to: '/me', label: '个人中心', position: 'left'},
-          {to: '/legalstatement', label: '帮助与声明', position: 'left'},
+          {to: '/help', label: '帮助与声明', position: 'left'},
           {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',
@@ -434,7 +434,7 @@ const config = {
               },
               {
                 label: '帮助与声明',
-                to: '/legalstatement',
+                to: '/help',
               },
             ],
           },
