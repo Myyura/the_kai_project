@@ -262,7 +262,7 @@ const config = {
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.css', './src/css/kai-ui.css'],
         },
         sitemap: {
           ignorePatterns: [

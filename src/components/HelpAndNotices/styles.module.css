@@ -10,7 +10,7 @@
   justify-content: space-between;
   gap: 1.5rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--kai-glass-border-strong);
   padding-bottom: 1.5rem;
 }
 
@@ -64,10 +64,19 @@
 .guideCard,
 .noticePanel,
 .contactPanel {
-  border: 1px solid var(--custom-card-border);
-  border-radius: var(--custom-border-radius);
-  background: var(--ifm-background-color);
-  box-shadow: var(--custom-box-shadow);
+  border: 1px solid var(--kai-glass-border);
+  border-radius: var(--kai-radius-md);
+  background: var(--kai-glass-bg);
+  -webkit-backdrop-filter: var(--kai-glass-blur-sm);
+  backdrop-filter: var(--kai-glass-blur-sm);
+  box-shadow: var(--kai-shadow-sm);
+  transition: var(--kai-transition);
+}
+
+.guideCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--kai-glass-border-strong);
+  box-shadow: var(--kai-shadow-md);
 }
 
 .guideCard {
@@ -174,11 +183,4 @@
   .hero h1 {
     font-size: 1.65rem;
   }
-}
-
-[data-theme='dark'] .guideCard,
-[data-theme='dark'] .noticePanel,
-[data-theme='dark'] .contactPanel {
-  background: var(--custom-card-bg);
-  border-color: var(--custom-card-border);
 }
