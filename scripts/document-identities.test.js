@@ -6,40 +6,111 @@ const test = require('node:test');
 const {buildApiData} = require('./api-data');
 const {
   DOCUMENT_NAMESPACE,
-  RUNTIME_MANIFEST_PATH,
-  loadDocumentIdentities,
+  OVERRIDES_PATH,
+  loadDocumentIdentityOverrides,
+  resolveDocumentUuid,
   uuidV5,
 } = require('./document-identities');
+const {moveDocumentIdentity, validateOverrides} = require('./generate-document-identities');
+const {buildDocumentIdentityRows} = require('./sync-document-catalog');
 
-test('every current document has one stable UUID', () => {
+test('every ordinary document derives one stable UUID without a manifest entry', () => {
   const data = buildApiData();
-  const manifest = loadDocumentIdentities();
+  const overrides = loadDocumentIdentityOverrides();
   const uuids = data.documents.map((document) => document.document_uuid);
-  assert.equal(data.documents.length, Object.keys(manifest.current).length);
   assert.equal(new Set(uuids).size, uuids.length);
   for (const document of data.documents) {
-    assert.equal(document.document_uuid, manifest.current[document.doc_id]);
+    assert.equal(document.document_uuid, resolveDocumentUuid(document.doc_id, overrides));
+    if (!overrides.current[document.doc_id]) {
+      assert.equal(document.document_uuid, uuidV5(document.doc_id));
+    }
   }
+  assert.equal(
+    resolveDocumentUuid('osaka-university/IST/ie/02-useful_info', overrides),
+    '033e4c27-c818-541e-94ea-fbb2dc2f2113',
+  );
 });
 
-test('initial document identities use the shared UUIDv5 namespace', () => {
-  const manifest = loadDocumentIdentities();
-  assert.equal(manifest.namespace, DOCUMENT_NAMESPACE);
-  for (const [docId, documentUuid] of Object.entries(manifest.current).slice(0, 25)) {
-    assert.equal(documentUuid, uuidV5(docId));
-  }
-});
-
-test('browser runtime ships only identity exceptions, not the full manifest', () => {
-  const runtime = JSON.parse(fs.readFileSync(RUNTIME_MANIFEST_PATH, 'utf8'));
-  const manifest = loadDocumentIdentities();
-  assert.equal(runtime.namespace, DOCUMENT_NAMESPACE);
-  assert.ok(Object.keys(runtime.current).length < Object.keys(manifest.current).length);
-  for (const [docId, documentUuid] of Object.entries(runtime.current)) {
-    assert.equal(documentUuid, manifest.current[docId]);
+test('the repository stores only path-change exceptions', () => {
+  const overrides = JSON.parse(fs.readFileSync(OVERRIDES_PATH, 'utf8'));
+  const fullManifestPath = path.resolve(__dirname, '..', 'src/data/documentIdentities.json');
+  assert.equal(overrides.schemaVersion, 2);
+  assert.equal(overrides.namespace, DOCUMENT_NAMESPACE);
+  assert.equal(fs.existsSync(fullManifestPath), false);
+  for (const [docId, documentUuid] of Object.entries(overrides.current)) {
     assert.notEqual(documentUuid, uuidV5(docId));
   }
-  assert.deepEqual(runtime.aliases, manifest.aliases);
+  assert.deepEqual(validateOverrides(overrides, buildApiData().documents.map((doc) => doc.doc_id)), []);
+});
+
+test('repeated moves stay flat and preserve the original UUID', () => {
+  const empty = {
+    schemaVersion: 2,
+    namespace: DOCUMENT_NAMESPACE,
+    current: {},
+    aliases: {},
+  };
+  const originalUuid = uuidV5('school/department/old');
+  const firstMove = moveDocumentIdentity(
+    empty,
+    ['school/department/middle'],
+    'school/department/old',
+    'school/department/middle',
+  );
+  const secondMove = moveDocumentIdentity(
+    firstMove,
+    ['school/department/current'],
+    'school/department/middle',
+    'school/department/current',
+  );
+
+  assert.equal(secondMove.current['school/department/current'], originalUuid);
+  assert.equal(secondMove.aliases['school/department/old'], originalUuid);
+  assert.equal(secondMove.aliases['school/department/middle'], originalUuid);
+  assert.equal(Object.values(secondMove.aliases).every((uuid) => uuid === originalUuid), true);
+
+  const movedBack = moveDocumentIdentity(
+    secondMove,
+    ['school/department/old'],
+    'school/department/current',
+    'school/department/old',
+  );
+  assert.equal(movedBack.current['school/department/old'], originalUuid);
+  assert.equal(movedBack.aliases['school/department/old'], undefined);
+  assert.equal(movedBack.aliases['school/department/current'], originalUuid);
+  assert.equal(resolveDocumentUuid('school/department/old', movedBack), originalUuid);
+  assert.deepEqual(validateOverrides(movedBack, ['school/department/old']), []);
+
+  const missingReverseMapping = {...movedBack, current: {}};
+  assert.match(
+    validateOverrides(missingReverseMapping, ['school/department/old']).join('\n'),
+    /missing its current path override/,
+  );
+});
+
+test('catalog sync derives current aliases and retains only recorded historical paths', () => {
+  const movedUuid = uuidV5('school/old');
+  const overrides = {
+    schemaVersion: 2,
+    namespace: DOCUMENT_NAMESPACE,
+    current: {'school/current': movedUuid},
+    aliases: {'school/old': movedUuid},
+  };
+  const documents = [
+    {doc_id: 'school/current', document_uuid: movedUuid},
+    {doc_id: 'school/new', document_uuid: uuidV5('school/new')},
+  ];
+  const {registry, aliases} = buildDocumentIdentityRows(documents, overrides);
+
+  assert.deepEqual(registry, [
+    {current_doc_id: 'school/current', document_uuid: movedUuid},
+    {current_doc_id: 'school/new', document_uuid: uuidV5('school/new')},
+  ]);
+  assert.deepEqual(aliases, [
+    {doc_id: 'school/current', document_uuid: movedUuid, is_current: true},
+    {doc_id: 'school/new', document_uuid: uuidV5('school/new'), is_current: true},
+    {doc_id: 'school/old', document_uuid: movedUuid, is_current: false},
+  ]);
 });
 
 test('the consolidated baseline preserves user-owned database rows', () => {
@@ -97,6 +168,23 @@ test('legacy cleanup migrates rows with current UUID identities before dropping 
   assert.match(sql, /legacy user_data verification failed/);
   assert.match(sql, /legacy leaderboard profile verification failed/);
   assert.doesNotMatch(sql, /drop\s+(?:table|function)[^;]+\bcascade\b/);
+});
+
+test('doc_id canonicalization preserves rows and historical aliases', () => {
+  const cleanupPath = path.resolve(
+    __dirname,
+    '..',
+    'supabase/manual/20260719_canonicalize_document_doc_ids.sql',
+  );
+  const sql = fs.readFileSync(cleanupPath, 'utf8').toLowerCase();
+
+  assert.doesNotMatch(sql, /\btruncate\s+/);
+  assert.doesNotMatch(sql, /\bdelete\s+from\s+/);
+  assert.doesNotMatch(sql, /\bdrop\s+(?:table|function|column)\s+/);
+  assert.match(sql, /set\s+doc_id\s*=\s*registry\.current_doc_id/);
+  assert.match(sql, /set\s+target_doc_id\s*=\s*registry\.current_doc_id/);
+  assert.match(sql, /historical aliases are retained/);
+  assert.match(sql, /enable trigger archive_user_note_revision/);
 });
 
 test('the consolidated baseline ends on the lightweight document catalog', () => {

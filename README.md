@@ -80,15 +80,15 @@ yarn api:validate
 ```
 
 - `yarn generate:universities`: regenerate `src/data/universities.js` after changing the `docs/` directory structure or `_category_.json` labels.
-- `yarn generate:site-stats`: regenerate `src/data/siteStats.json` from the same scan used by the public JSON API.
+- `yarn generate:site-stats`: regenerate `src/data/siteStats.json` and `src/data/documentTitles.json` from the public JSON API scan; development and production builds run it automatically.
 - `yarn tags:generate`: regenerate `docs/tags.yml` from the subject files under `src/data/tagTaxonomy/`.
 - `yarn content:validate`: validate contributor-editable JSON data under `src/data/`, including links, university metadata, and the tag taxonomy.
 - `yarn tags:audit`: summarize site-wide school, subject, subsubject, topic, pending, and deprecated tag usage.
-- `yarn documents:validate`: validate immutable document UUIDs and historical path aliases.
+- `yarn documents:validate`: validate automatically derived document UUIDs and the current overrides / historical aliases stored only for renamed paths.
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
 - `yarn api:validate`: validate the structured data used by the public JSON API.
 
-Contributor-editable content data lives under `src/data/`: `links.json`, `universityMetadata.json`, and the `tagTaxonomy/` directory. Tag definitions are split by primary subject under `tagTaxonomy/subjects/`; global policy and school tags live alongside them. The generated `universities.js`, `siteStats.json`, and `docs/tags.yml` files should be refreshed with the scripts above.
+Contributor-editable content data lives under `src/data/`: `links.json`, `universityMetadata.json`, and the `tagTaxonomy/` directory. Tag definitions are split by primary subject under `tagTaxonomy/subjects/`; global policy and school tags live alongside them. Ordinary new documents derive UUIDv5 directly from `docId` and require no identity-manifest update. Only a move or rename requires `yarn documents:move -- <old-doc-id> <new-doc-id>`. Development and production builds refresh `siteStats.json` and `documentTitles.json` automatically; the other generated files can be maintained with the scripts above.
 
 ## Account and database configuration
 Public content remains readable without Supabase credentials. Account-only features such as progress, notes, annotations, private problem sets, and the leaderboard require the following configuration; those records are written directly to the database and anonymous study data is not supported.
@@ -129,7 +129,7 @@ Available endpoints:
 - `GET /v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache`: filters by the derived learning taxonomy.
 - `GET /v1/exams/{doc_id}`: returns one document by ID.
 
-Exam rows include an immutable `documentUuid`, the original frontmatter `tags`, and derived taxonomy fields: `schoolTags`, `learningTags`, `subjectIds`, `subsubjectIds`, and `topicIds`. When a document path changes, run `yarn documents:move -- <old-doc-id> <new-doc-id>` so saved progress, notes, votes, and problem-set items keep the same identity. Topic IDs are namespaced as `Subject.Subsubject.Topic`; `learningTags` identifies whether each learning tag is a `subsubject`, concrete `topic`, or pending tag, and topic entries include `short_id`.
+Exam rows include an immutable `documentUuid`, the original frontmatter `tags`, and derived taxonomy fields: `schoolTags`, `learningTags`, `subjectIds`, `subsubjectIds`, and `topicIds`. Ordinary new documents derive their UUID from the fixed namespace and `docId` without registration. When a path changes, run `yarn documents:move -- <old-doc-id> <new-doc-id>`; it stores only the rename exception and old-path alias in `documentIdentityOverrides.json`, so saved progress, notes, votes, and problem-set items keep the same identity. Topic IDs are namespaced as `Subject.Subsubject.Topic`; `learningTags` identifies whether each learning tag is a `subsubject`, concrete `topic`, or pending tag, and topic entries include `short_id`.
 
 Examples:
 
@@ -173,6 +173,8 @@ unset SUPABASE_SERVICE_ROLE_KEY
 
 This command upserts UUIDs, paths, titles, links, tags, taxonomy, and content hashes, then prunes stale `document_catalog` rows. It never uploads Markdown or modifies notes, progress, problem sets, or any other user table. The JSON API and Agent fetch bodies from the static JSON published with the website.
 This input method keeps the key out of shell history; never commit it or store it in GitHub Actions for this workflow.
+
+After document paths have moved, you may run the [doc_id canonicalization SQL](supabase/manual/20260719_canonicalize_document_doc_ids.sql) manually in Supabase SQL Editor during a low-traffic maintenance window. Take a backup and complete `yarn catalog:sync` first. The repeatable script rewrites legacy `doc_id` snapshots in application tables to `document_registry.current_doc_id` while preserving UUIDs, user rows, timestamps, note versions, and all historical aliases. Every final `stale_row_count` should be `0`.
 
 4. Confirm the Supabase Function secrets include `API_LOG_SALT`, and disable JWT verification for both functions.
 5. Review requests in the `api_access_requests` table from the Supabase Dashboard: set `status` to `approved` to allow key creation, or use `rejected` / `revoked` to deny or pause access.

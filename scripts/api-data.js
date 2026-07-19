@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const { resolveDocumentTags } = require('./tag-taxonomy');
-const {loadDocumentIdentities, resolveDocumentUuid} = require('./document-identities');
+const {loadDocumentIdentityOverrides, resolveDocumentUuid} = require('./document-identities');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');
@@ -14,7 +14,7 @@ const PUBLISHED_CONTENT_SCHEMA_VERSION = 1;
 const PUBLISHED_CONTENT_PREFIX = '/api-content/v1/documents';
 
 const CATEGORY_CACHE = new Map();
-const DOCUMENT_IDENTITIES = loadDocumentIdentities();
+const DOCUMENT_IDENTITY_OVERRIDES = loadDocumentIdentityOverrides();
 
 function normalizePath(input) {
   return input.replace(/\\/g, '/');
@@ -180,7 +180,7 @@ function buildExamDocument(filePath) {
   });
 
   return {
-    document_uuid: resolveDocumentUuid(pathMeta.docId, DOCUMENT_IDENTITIES),
+    document_uuid: resolveDocumentUuid(pathMeta.docId, DOCUMENT_IDENTITY_OVERRIDES),
     doc_id: pathMeta.docId,
     type: pathMeta.type,
     source_path: pathMeta.sourcePath,
