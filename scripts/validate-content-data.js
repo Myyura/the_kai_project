@@ -64,14 +64,6 @@ function requireInteger(value, pathLabel, { min = -Infinity, max = Infinity } = 
   return true;
 }
 
-function requireNumber(value, pathLabel, { min = -Infinity, max = Infinity } = {}) {
-  if (typeof value !== 'number' || !Number.isFinite(value) || value < min || value > max) {
-    addError(pathLabel, `must be a number between ${min} and ${max}`);
-    return false;
-  }
-  return true;
-}
-
 function requireUrl(value, pathLabel) {
   if (!requireString(value, pathLabel)) return false;
   try {

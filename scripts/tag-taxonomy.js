@@ -294,7 +294,7 @@ function validateTags(tags) {
     }
   }
 
-  for (const [subsubjectId, topicIds] of topicSubsubjects) {
+  for (const topicIds of topicSubsubjects.values()) {
     if (topicIds.length < 2) continue;
     for (const topicId of topicIds) {
       const topic = LOOKUP.topicTags.get(topicId);

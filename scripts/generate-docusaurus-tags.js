@@ -104,15 +104,22 @@ function readTaxonomy() {
   return require('../src/data/tagTaxonomy');
 }
 
+function readFileOrEmpty(filePath) {
+  try {
+    return fs.readFileSync(filePath, 'utf-8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return '';
+    throw error;
+  }
+}
+
 function main() {
   const check = process.argv.includes('--check');
   const taxonomy = readTaxonomy();
   const next = buildTagsYaml(taxonomy);
-  const current = fs.existsSync(DOCS_TAGS_PATH)
-    ? fs.readFileSync(DOCS_TAGS_PATH, 'utf-8')
-    : '';
 
   if (check) {
+    const current = readFileOrEmpty(DOCS_TAGS_PATH);
     if (current !== next) {
       console.error('docs/tags.yml is out of date. Run: node scripts/generate-docusaurus-tags.js');
       process.exit(1);

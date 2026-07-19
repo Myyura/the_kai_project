@@ -324,6 +324,7 @@ function LoginPageContent() {
   }
 
   // 未登录 → 登录/注册表单
+  const authMessage = msg || (error ? {text: error, isError: true} : null);
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
@@ -335,13 +336,13 @@ function LoginPageContent() {
 
         <div className={styles.cardBody}>
           {/* 消息提示 */}
-          {(msg || (!msg && error)) && (
-            <div className={`${styles.message} ${(msg?.isError || (!msg && error)) ? styles.messageError : styles.messageSuccess}`}>
-              {(msg?.isError || (!msg && error))
+          {authMessage && (
+            <div className={`${styles.message} ${authMessage.isError ? styles.messageError : styles.messageSuccess}`}>
+              {authMessage.isError
                 ? <FaExclamationTriangle className={styles.messageIcon} />
                 : <FaCheck className={styles.messageIcon} />
               }
-              <span>{msg?.text || error}</span>
+              <span>{authMessage.text}</span>
             </div>
           )}
 

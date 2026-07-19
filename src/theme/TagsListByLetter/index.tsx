@@ -78,14 +78,16 @@ function getSubjectAnchorId(subjectId: string): string {
   return `subject-${subjectId.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 }
 
-function getSubjectIdFromHash(hash: string, subjectIds: string[]): string | null {
-  let decodedHash = hash;
+function decodeHash(hash: string): string {
   try {
-    decodedHash = decodeURIComponent(hash);
+    return decodeURIComponent(hash);
   } catch {
-    decodedHash = hash;
+    return hash;
   }
-  const normalizedHash = decodedHash.replace(/^#/, '');
+}
+
+function getSubjectIdFromHash(hash: string, subjectIds: string[]): string | null {
+  const normalizedHash = decodeHash(hash).replace(/^#/, '');
   return subjectIds.find((subjectId) => getSubjectAnchorId(subjectId) === normalizedHash) || null;
 }
 

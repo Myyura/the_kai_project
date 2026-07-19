@@ -50,10 +50,13 @@ export const normalizeAnnotation = (raw, fallbackNow = Date.now()) => {
   };
 };
 
-const escapeHeading = (value) => String(value || '')
-  .replace(/\r?\n/g, ' ')
-  .replace(/#/g, '\\#')
-  .trim();
+const MARKDOWN_ESCAPABLE_CHARACTERS = new Set("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~");
+
+const escapeHeading = (value) => Array.from(
+  String(value || '').split(/\r\n?|\n/).join(' ').trim(),
+).map((character) => (
+  MARKDOWN_ESCAPABLE_CHARACTERS.has(character) ? `\\${character}` : character
+)).join('');
 
 const quoteMarkdown = (value) => String(value || '')
   .split(/\r?\n/)

@@ -6,6 +6,7 @@
  */
 
 import {
+  createSupabaseAuthCallbackClient,
   getSupabaseClient,
   getSupabaseEmailActionClient,
   getSupabasePasswordResetClient,
@@ -71,99 +72,43 @@ export const signInWithGitHub = async (redirectTo) => {
   return data;
 };
 
-/**
- * 处理 OAuth 回跳 code，交换为 session
- * 注意：detectSessionInUrl=false 时需手动调用
- */
-export const exchangeOAuthCodeForSession = async (code) => {
-  const sb = getSupabaseClient();
+const clearAuthCallbackUrl = () => {
+  window.history.replaceState({}, document.title, window.location.pathname);
+};
+
+const initializeCallbackSession = async ({flowType, persistSession = true}) => {
+  const sb = createSupabaseAuthCallbackClient({flowType, persistSession});
   if (!sb) throw new Error('Supabase 未配置');
-  if (!code) throw new Error('缺少 OAuth 授权码');
 
-  const { data, error } = await sb.auth.exchangeCodeForSession(code);
+  const {error: initializeError} = await sb.auth.initialize();
+  if (initializeError) return {data: null, error: initializeError};
+
+  const {data, error} = await sb.auth.getSession();
+  return {data, error};
+};
+
+const requireCallbackSession = ({data, error}) => {
   if (error) throw error;
-  return data;
+  if (!data?.session) throw new Error('认证链接无效或已过期，请重新登录。');
+  return data.session;
 };
-
-const clearRecoveryUrlParams = (url) => {
-  url.searchParams.delete('code');
-  url.searchParams.delete('token_hash');
-  url.searchParams.delete('type');
-  window.history.replaceState({}, document.title, `${url.pathname}${url.search}`);
-};
-
-const clearAuthUrlParams = (url) => {
-  url.searchParams.delete('code');
-  url.searchParams.delete('token_hash');
-  url.searchParams.delete('type');
-  url.searchParams.delete('error');
-  url.searchParams.delete('error_description');
-  window.history.replaceState({}, document.title, `${url.pathname}${url.search}`);
-};
-
-const CALLBACK_TOKEN_HASH_TYPES = new Set(['signup', 'invite', 'magiclink', 'email']);
 
 /**
  * 统一处理登录/注册类 Auth 回调。密码 recovery 仍交给 reset-password 页面。
  */
 export const completeAuthCallbackFromUrl = async () => {
-  const sb = getSupabaseClient();
-  if (!sb) throw new Error('Supabase 未配置');
   if (typeof window === 'undefined') return null;
 
-  const url = new URL(window.location.href);
-  const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
-  const errorDescription = url.searchParams.get('error_description') || hashParams.get('error_description');
-  if (errorDescription) {
-    clearAuthUrlParams(url);
-    throw new Error(decodeURIComponent(errorDescription));
-  }
-
-  const type = url.searchParams.get('type') || hashParams.get('type') || null;
-  if (type === 'recovery') {
-    return { redirectToResetPassword: true };
-  }
-
-  const code = url.searchParams.get('code');
-  if (code) {
-    const data = await exchangeOAuthCodeForSession(code);
-    clearAuthUrlParams(url);
-    return { ...data, type: type || 'oauth' };
-  }
-
-  const tokenHash = url.searchParams.get('token_hash') || hashParams.get('token_hash');
-  if (tokenHash) {
-    if (!CALLBACK_TOKEN_HASH_TYPES.has(type)) {
-      throw new Error('认证链接类型不正确，请重新发送邮件。');
-    }
-    const { data, error } = await sb.auth.verifyOtp({
-      token_hash: tokenHash,
-      type,
-    });
-    if (error) throw error;
-    clearAuthUrlParams(url);
-    return { ...data, type };
-  }
-
-  const accessToken = hashParams.get('access_token');
-  const refreshToken = hashParams.get('refresh_token');
-  if (accessToken && refreshToken) {
-    if (type && type !== 'signup' && type !== 'invite' && type !== 'magiclink' && type !== 'email') {
-      throw new Error('认证链接类型不正确，请重新发送邮件。');
-    }
-    const { data, error } = await sb.auth.setSession({
-      access_token: accessToken,
-      refresh_token: refreshToken,
-    });
-    if (error) throw error;
-    clearAuthUrlParams(url);
-    return { ...data, type: type || 'email' };
-  }
-
-  const { data, error } = await sb.auth.getSession();
-  if (error) throw error;
-  if (!data?.session) throw new Error('认证链接无效或已过期，请重新登录。');
-  return { ...data, type };
+  // OAuth uses PKCE while cross-device email confirmations use the implicit
+  // flow. Let the SDK validate both formats; only SDK results affect control
+  // flow, never raw URL parameters.
+  const pkceResult = await initializeCallbackSession({flowType: 'pkce'});
+  const result = pkceResult.error
+    ? await initializeCallbackSession({flowType: 'implicit'})
+    : pkceResult;
+  requireCallbackSession(result);
+  clearAuthCallbackUrl();
+  return {...result.data, type: 'authenticated'};
 };
 
 /**
@@ -186,48 +131,24 @@ export const sendPasswordResetEmail = async (email, redirectTo, captchaToken) =>
  * 从密码重置链接恢复会话。只接受明确的 recovery 链接，旧版 PKCE code 链接需重新发送。
  */
 export const recoverPasswordSessionFromUrl = async () => {
-  const sb = getSupabaseClient();
-  if (!sb) throw new Error('Supabase 未配置');
   if (typeof window === 'undefined') return null;
 
-  const url = new URL(window.location.href);
-  const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
-  const errorDescription = url.searchParams.get('error_description') || hashParams.get('error_description');
-  if (errorDescription) throw new Error(decodeURIComponent(errorDescription));
+  // A non-persistent callback client cannot fall back to an unrelated stored
+  // login session, so this page requires a freshly verified recovery link.
+  const callbackResult = await initializeCallbackSession({
+    flowType: 'implicit',
+    persistSession: false,
+  });
+  const callbackSession = requireCallbackSession(callbackResult);
 
-  const type = url.searchParams.get('type') || hashParams.get('type');
-  const hasLegacyCode = url.searchParams.has('code');
-  if (hasLegacyCode) {
-    throw new Error('这是一封旧版重置链接，请重新发送重置邮件并打开最新链接。');
-  }
-
-  const tokenHash = url.searchParams.get('token_hash') || hashParams.get('token_hash');
-  if (tokenHash) {
-    if (type !== 'recovery') throw new Error('重置链接类型不正确，请重新发送重置邮件。');
-    const { data, error } = await sb.auth.verifyOtp({
-      token_hash: tokenHash,
-      type: 'recovery',
-    });
-    if (error) throw error;
-    clearRecoveryUrlParams(url);
-    return data;
-  }
-
-  const accessToken = hashParams.get('access_token');
-  const refreshToken = hashParams.get('refresh_token');
-  if (accessToken && refreshToken) {
-    if (type !== 'recovery') throw new Error('重置链接类型不正确，请重新发送重置邮件。');
-    const { data, error } = await sb.auth.setSession({
-      access_token: accessToken,
-      refresh_token: refreshToken,
-    });
-    if (error) throw error;
-    clearRecoveryUrlParams(url);
-    return data;
-  }
-
-  const { data, error } = await sb.auth.getSession();
+  const sb = getSupabaseClient();
+  if (!sb) throw new Error('Supabase 未配置');
+  const {data, error} = await sb.auth.setSession({
+    access_token: callbackSession.access_token,
+    refresh_token: callbackSession.refresh_token,
+  });
   if (error) throw error;
+  clearAuthCallbackUrl();
   return data;
 };
 
@@ -294,4 +215,3 @@ export const onAuthStateChange = (callback) => {
   const { data: { subscription } } = sb.auth.onAuthStateChange(callback);
   return () => subscription.unsubscribe();
 };
-

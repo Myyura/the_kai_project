@@ -294,7 +294,14 @@ function writeSubmissionToRepo({ repoRoot, payload }) {
   if (payload.submissionType === 'new_solution') {
     const relativePath = buildNewSolutionPath(payload);
     const absolutePath = ensureWithinRepo(repoRoot, relativePath);
-    if (fs.existsSync(absolutePath)) {
+    fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+    try {
+      fs.writeFileSync(absolutePath, buildNewSolutionMarkdown(payload), {
+        encoding: 'utf8',
+        flag: 'wx',
+      });
+    } catch (error) {
+      if (error?.code !== 'EEXIST') throw error;
       return {
         relativePath,
         action: 'conflict',
@@ -302,17 +309,18 @@ function writeSubmissionToRepo({ repoRoot, payload }) {
         conflictKind: 'target_exists',
       };
     }
-    fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
-    fs.writeFileSync(absolutePath, buildNewSolutionMarkdown(payload), 'utf8');
     return { relativePath, action: 'create' };
   }
 
   const relativePath = targetPathForCorrection(payload);
   const absolutePath = ensureWithinRepo(repoRoot, relativePath);
-  if (!fs.existsSync(absolutePath)) {
+  let existing;
+  try {
+    existing = fs.readFileSync(absolutePath, 'utf8');
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
     throw new Error(`Target document does not exist: ${relativePath}`);
   }
-  const existing = fs.readFileSync(absolutePath, 'utf8');
   const currentBlobSha = gitBlobSha(Buffer.from(existing, 'utf8'));
   if (payload.correction.conflict || currentBlobSha !== payload.correction.baseBlobSha) {
     return {

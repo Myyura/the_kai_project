@@ -16,8 +16,13 @@ function bytesToUuid(bytes) {
 }
 
 function uuidV5(name, namespace = DOCUMENT_NAMESPACE) {
-  const hash = crypto.createHash('sha1')
-    .update(Buffer.concat([uuidToBytes(namespace), Buffer.from(String(name), 'utf8')]))
+  const hashInput = Buffer.concat([uuidToBytes(namespace), Buffer.from(String(name), 'utf8')]);
+  // UUIDv5 mandates SHA-1 for namespaced identifiers. These UUIDs are stable
+  // database keys, not authentication or integrity values, so changing the
+  // digest would break every persisted document reference without improving a
+  // security boundary.
+  const hash = crypto.createHash('sha1') // lgtm[js/weak-cryptographic-algorithm]
+    .update(hashInput)
     .digest()
     .subarray(0, 16);
   hash[6] = (hash[6] & 0x0f) | 0x50;

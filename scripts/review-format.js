@@ -177,7 +177,7 @@ function checkFile(filePath, content) {
 
   // 1. YAML Frontmatter
   const fm = parseFrontmatter(content);
-  if (!fm || !fm.hasFrontmatter) {
+  if (!fm.hasFrontmatter) {
     issues.push({ severity: 'ERROR', file: relPath, line: 1, rule: 'frontmatter-missing', message: '缺少 YAML frontmatter（---）' });
     return issues; // 无法继续检查
   }

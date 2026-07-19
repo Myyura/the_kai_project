@@ -102,7 +102,7 @@ export default function DifficultyRating({ docId }) {
               className={`${styles.segmentBtn} ${styles[`segment_${option.key}`]} ${active ? styles.segmentActive : ''}`}
               onClick={() => rate(option.value)}
               disabled={disabled}
-              title={isLoggedIn ? t.voteTitle(t.labels[option.key]) : t.loginRequired}
+              title={t.voteTitle(t.labels[option.key])}
               aria-pressed={active}
             >
               <span className={styles.segmentDot} />
@@ -112,7 +112,7 @@ export default function DifficultyRating({ docId }) {
         })}
       </div>
 
-      {isLoggedIn && selectedKey && (
+      {selectedKey && (
         <p className={styles.helperText}>
           {saving ? t.saving : t.myVote(t.labels[selectedKey])}
         </p>

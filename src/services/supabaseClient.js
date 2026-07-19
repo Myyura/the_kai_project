@@ -67,3 +67,17 @@ export const getSupabaseEmailActionClient = () => createConfiguredClient({
 });
 
 export const getSupabasePasswordResetClient = getSupabaseEmailActionClient;
+
+/**
+ * Auth callback clients let supabase-js parse and verify URL credentials. This
+ * keeps untrusted callback parameters out of application control flow.
+ */
+export const createSupabaseAuthCallbackClient = ({
+  flowType,
+  persistSession = true,
+}) => createConfiguredClient({
+  persistSession,
+  autoRefreshToken: persistSession,
+  flowType,
+  detectSessionInUrl: true,
+});

@@ -62,6 +62,29 @@ test('free-form saves preserve managed annotations', () => {
   assert.equal(parsed.annotations[0].bodyMarkdown, '批注');
 });
 
+test('annotation titles remain one plain Markdown heading', () => {
+  const {document: createdDocument, annotation} = createAnnotation(
+    {freeContent: '', annotations: [], nextNumber: 1},
+    {
+      exact: '原文',
+      line: 3,
+      documentHash: 'h',
+    },
+    1000,
+  );
+  const document = updateAnnotation(createdDocument, annotation.id, {
+    title: 'Title #1\n## injected [link](https://example.com) \\ end',
+  }, 1100);
+  const serialized = serializeNoteDocument(document);
+  const headingLines = serialized.split('\n').filter((line) => /^###\s/.test(line));
+
+  assert.equal(headingLines.length, 1);
+  assert.match(headingLines[0], /\\#1 .*\\#\\# injected/);
+  assert.match(headingLines[0], /\\\[link\\\]/);
+  assert.match(headingLines[0], /\\\\ end$/);
+  assert.equal(parseNoteDocument(serialized).annotations[0].title, document.annotations[0].title);
+});
+
 test('annotation rename, edit, delete, and numbering remain stable', () => {
   const first = createAnnotation(
     {freeContent: '', annotations: [], nextNumber: 1},

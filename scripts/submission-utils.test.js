@@ -136,6 +136,21 @@ test('returns a conflict without writing when the current blob changed', () => {
   });
 });
 
+test('reports a missing correction target without a check-then-read race', () => {
+  const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kai-missing-submission-'));
+  try {
+    assert.throws(
+      () => writeSubmissionToRepo({
+        repoRoot,
+        payload: correctionPayload('first\nwrong\nlast\n'),
+      }),
+      /Target document does not exist/,
+    );
+  } finally {
+    fs.rmSync(repoRoot, {recursive: true, force: true});
+  }
+});
+
 test('keeps an Issue-time conflict blocked even if the file later returns to the base blob', () => {
   const original = 'first\nwrong\nlast\n';
   withRepo(original, ({ repoRoot, filePath }) => {

@@ -5,9 +5,18 @@ const {
   PUBLISHED_CONTENT_SCHEMA_VERSION,
   buildApiData,
   getPublishedContentPath,
+  stripMarkdownDecorations,
   toDocumentCatalogRow,
   toPublishedDocument,
 } = require('./api-data');
+
+test('Markdown labels are parsed to plain text without regex HTML sanitization', () => {
+  assert.equal(
+    stripMarkdownDecorations('<span>Title</span> **bold** [link](https://example.com)'),
+    'Title bold link',
+  );
+  assert.equal(stripMarkdownDecorations('<<script>alert(1)</script>'), 'alert(1)');
+});
 
 test('database catalog rows contain metadata but no Markdown body', () => {
   const document = buildApiData().documents[0];

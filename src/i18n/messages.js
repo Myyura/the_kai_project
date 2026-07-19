@@ -1,5 +1,4 @@
 import {DEFAULT_LANGUAGE, normalizeLanguage} from './config';
-import {developerMessages} from './developerMessages';
 
 export const UI_MESSAGES = {
   navbar: {

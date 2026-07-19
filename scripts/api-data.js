@@ -50,9 +50,56 @@ function listMarkdownFiles(dirPath) {
   return files.sort((a, b) => normalizePath(a).localeCompare(normalizePath(b)));
 }
 
+function isAsciiLetter(character) {
+  const code = character?.charCodeAt(0) || 0;
+  return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
+}
+
+function findHtmlTagEnd(source, start) {
+  let cursor = start + 1;
+  if (source[cursor] === '/') cursor += 1;
+  if (!isAsciiLetter(source[cursor])) return -1;
+
+  let quote = null;
+  for (; cursor < source.length; cursor += 1) {
+    const character = source[cursor];
+    if (quote) {
+      if (character === quote) quote = null;
+      continue;
+    }
+    if (character === '"' || character === "'") {
+      quote = character;
+    } else if (character === '>') {
+      return cursor;
+    } else if (character === '<') {
+      return -1;
+    }
+  }
+  return -1;
+}
+
+function stripHtmlTags(value) {
+  const source = String(value || '');
+  let result = '';
+  let cursor = 0;
+  while (cursor < source.length) {
+    const tagStart = source.indexOf('<', cursor);
+    if (tagStart < 0) return result + source.slice(cursor);
+    result += source.slice(cursor, tagStart);
+    const tagEnd = findHtmlTagEnd(source, tagStart);
+    if (tagEnd < 0) {
+      result += '<';
+      cursor = tagStart + 1;
+    } else {
+      cursor = tagEnd + 1;
+    }
+  }
+  return result;
+}
+
 function stripMarkdownDecorations(value) {
-  return String(value || '')
-    .replace(/<[^>]+>/g, '')
+  return stripHtmlTags(value)
+    .replace(/[<>]/g, '')
     .replace(/[*_`~]/g, '')
     .replace(/\[(.*?)\]\(.*?\)/g, '$1')
     .replace(/#+/g, '')
@@ -316,6 +363,7 @@ module.exports = {
   buildApiData,
   buildExamDocument,
   getPublishedContentPath,
+  stripMarkdownDecorations,
   toDocumentCatalogRow,
   toPublishedDocument,
   validateApiData,
