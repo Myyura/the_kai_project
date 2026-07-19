@@ -79,15 +79,15 @@ yarn api:validate
 ```
 
 - `yarn generate:universities`：当你修改 `docs/` 目录结构或 `_category_.json` 标签后，重新生成 `src/data/universities.js`。
-- `yarn generate:site-stats`：使用 JSON API 的同一套扫描逻辑重新生成 `src/data/siteStats.json`。
+- `yarn generate:site-stats`：使用 JSON API 的同一套扫描逻辑重新生成 `src/data/siteStats.json` 和 `src/data/documentTitles.json`；开发服务器和生产构建会自动执行。
 - `yarn tags:generate`：根据 `src/data/tagTaxonomy/` 下按科目拆分的文件重新生成 `docs/tags.yml`。
 - `yarn content:validate`：校验 `src/data/` 下贡献者可编辑的 JSON 数据，包括参考链接、录取数据、大学元数据和 tag 池。
 - `yarn tags:audit`：统计全站学校、学科、子科目、考点、待归类和废弃 tag 的使用情况。
-- `yarn documents:validate`：校验不会随路径变化的文档 UUID 与历史路径别名。
+- `yarn documents:validate`：校验自动推导的文档 UUID，以及仅在路径重命名时保存的 current override 与历史 alias。
 - `yarn review:format`：在提交 PR 前检查 `docs/` 下题解文档的格式。
 - `yarn api:validate`：检查 JSON API 使用的结构化题库数据。
 
-贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`universityMetadata.json` 和 `tagTaxonomy/` 目录。tag 定义按主科目存放在 `tagTaxonomy/subjects/`，全局策略和学校 tag 则存放在同级文件中。自动生成的 `universities.js`、`siteStats.json` 和 `docs/tags.yml` 可用上面的脚本刷新。
+贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`universityMetadata.json` 和 `tagTaxonomy/` 目录。tag 定义按主科目存放在 `tagTaxonomy/subjects/`，全局策略和学校 tag 则存放在同级文件中。普通新增文档会按 `docId` 自动推导 UUIDv5，不需要修改身份清单；只有移动或重命名文档时才需要执行 `yarn documents:move -- <旧-doc-id> <新-doc-id>`。`siteStats.json` 和 `documentTitles.json` 会在开发及构建时自动刷新，其余生成文件可用上面的脚本维护。
 
 ## 账号与数据库配置
 不配置 Supabase 时，文档、博客、题目与题解等公开内容仍可正常阅读。进度、笔记、文中注释、私人题集和排行榜仅向登录用户开放，数据直接写入数据库，不提供匿名学习数据模式。
@@ -124,7 +124,7 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 - `GET /v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache`：按派生学习 taxonomy 过滤题目。
 - `GET /v1/exams/{doc_id}`：按文档 ID 查询单篇题目。
 
-题目响应会返回不会随路径变化的 `documentUuid`，保留 frontmatter 原始 `tags`，并额外返回派生字段：`schoolTags`、`learningTags`、`subjectIds`、`subsubjectIds`、`topicIds`。移动文档路径时请执行 `yarn documents:move -- <旧-doc-id> <新-doc-id>`，让进度、笔记、难度投票和题集条目继续指向同一份内容。考点 ID 使用 `Subject.Subsubject.Topic` 命名空间；`learningTags` 会标明每个学习 tag 是 `subsubject`、具体 `topic`，还是待归类 tag，topic 项还会包含 `short_id`。
+题目响应会返回不会随路径变化的 `documentUuid`，保留 frontmatter 原始 `tags`，并额外返回派生字段：`schoolTags`、`learningTags`、`subjectIds`、`subsubjectIds`、`topicIds`。普通新增文档的 UUID 会由固定 namespace 和 `docId` 自动推导，无需登记；移动文档路径时请执行 `yarn documents:move -- <旧-doc-id> <新-doc-id>`，该命令只在 `documentIdentityOverrides.json` 中记录重命名例外与旧路径 alias，让进度、笔记、难度投票和题集条目继续指向同一份内容。考点 ID 使用 `Subject.Subsubject.Topic` 命名空间；`learningTags` 会标明每个学习 tag 是 `subsubject`、具体 `topic`，还是待归类 tag，topic 项还会包含 `short_id`。
 
 调用示例：
 
@@ -168,6 +168,8 @@ unset SUPABASE_SERVICE_ROLE_KEY
 
 该命令只 upsert UUID、路径、标题、链接、标签、分类和内容哈希，并清理已经不存在的 `document_catalog` 目录行；不会上传 Markdown，也不会修改笔记、进度、题集或其他用户表。JSON API 和 Agent 需要正文时，会按 UUID 读取随网站一起发布的静态 JSON。
 该输入方式不会把密钥写入终端历史；不要把它写入仓库、GitHub Secrets 或构建日志。
+
+文档发生过路径移动后，可以在低流量维护时段于 Supabase SQL Editor 手动执行 [doc_id 归一化 SQL](supabase/manual/20260719_canonicalize_document_doc_ids.sql)。请先备份并完成 `yarn catalog:sync`；脚本会把用户业务表的旧 `doc_id` 更新为 `document_registry.current_doc_id`，保持 UUID、用户数据、时间戳和笔记版本不变，同时永久保留历史 alias。该脚本可重复执行，最终查询中的 `stale_row_count` 应全部为 `0`。
 
 4. 确认 Supabase Function secrets 已配置 `API_LOG_SALT`，并关闭两个函数的 JWT verification。
 5. 通过 Supabase Dashboard 审核 `api_access_requests` 表中的申请：将 `status` 改为 `approved` 即可允许用户创建 API Key；可用 `rejected` 或 `revoked` 拒绝或暂停访问。

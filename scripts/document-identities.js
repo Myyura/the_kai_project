@@ -3,8 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
-const MANIFEST_PATH = path.join(REPO_ROOT, 'src/data/documentIdentities.json');
-const RUNTIME_MANIFEST_PATH = path.join(REPO_ROOT, 'src/data/documentIdentityOverrides.json');
+const OVERRIDES_PATH = path.join(REPO_ROOT, 'src/data/documentIdentityOverrides.json');
 const DOCUMENT_NAMESPACE = 'ad4a6e2e-1c93-5b0c-91e4-98fb44fa87cd';
 
 function uuidToBytes(uuid) {
@@ -26,25 +25,31 @@ function uuidV5(name, namespace = DOCUMENT_NAMESPACE) {
   return bytesToUuid(hash);
 }
 
-function loadDocumentIdentities() {
-  const parsed = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+function loadDocumentIdentityOverrides() {
+  const parsed = JSON.parse(fs.readFileSync(OVERRIDES_PATH, 'utf8'));
+  if (parsed.namespace && parsed.namespace !== DOCUMENT_NAMESPACE) {
+    throw new Error(`Unexpected document identity namespace: ${parsed.namespace}`);
+  }
   return {
-    schemaVersion: parsed.schemaVersion || 1,
+    schemaVersion: parsed.schemaVersion || 2,
     namespace: parsed.namespace || DOCUMENT_NAMESPACE,
     current: parsed.current || {},
     aliases: parsed.aliases || {},
   };
 }
 
-function resolveDocumentUuid(docId, manifest = loadDocumentIdentities()) {
-  return manifest.current[docId] || manifest.aliases[docId] || null;
+function resolveDocumentUuid(docId, overrides = loadDocumentIdentityOverrides()) {
+  const normalized = String(docId || '').trim();
+  if (!normalized) return null;
+  return overrides.current[normalized]
+    || overrides.aliases[normalized]
+    || uuidV5(normalized, overrides.namespace);
 }
 
 module.exports = {
   DOCUMENT_NAMESPACE,
-  MANIFEST_PATH,
-  RUNTIME_MANIFEST_PATH,
-  loadDocumentIdentities,
+  OVERRIDES_PATH,
+  loadDocumentIdentityOverrides,
   resolveDocumentUuid,
   uuidV5,
 };

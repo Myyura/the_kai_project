@@ -79,15 +79,15 @@ yarn api:validate
 ```
 
 - `yarn generate:universities`: `docs/` の構成や `_category_.json` を変更したあと、`src/data/universities.js` を再生成します。
-- `yarn generate:site-stats`: JSON API と同じスキャン結果から `src/data/siteStats.json` を再生成します。
+- `yarn generate:site-stats`: JSON API と同じスキャン結果から `src/data/siteStats.json` と `src/data/documentTitles.json` を再生成します。開発サーバーと本番ビルドでは自動実行されます。
 - `yarn tags:generate`: `src/data/tagTaxonomy/` の科目別ファイルから `docs/tags.yml` を再生成します。
 - `yarn content:validate`: `src/data/` 配下の編集可能な JSON データ（リンク、入試データ、大学メタデータ、タグ分類）を検証します。
 - `yarn tags:audit`: サイト全体の大学、大科目、サブ科目、考点、未分類、廃止タグの使用状況を確認します。
-- `yarn documents:validate`: 変更されない文書 UUID と過去のパス別名を検証します。
+- `yarn documents:validate`: 自動導出される文書 UUID と、パス変更時だけ保存される current override / 過去 alias を検証します。
 - `yarn review:format`: `docs/` 配下の解答ドキュメント形式をレビューします。
 - `yarn api:validate`: 公開 JSON API 用の構造化データを検証します。
 
-コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`universityMetadata.json`、`tagTaxonomy/` にあります。タグ定義は `tagTaxonomy/subjects/` に主科目別で保存し、全体設定と大学タグは同階層のファイルで管理します。生成ファイルの `universities.js`、`siteStats.json`、`docs/tags.yml` は上記スクリプトで更新できます。
+コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`universityMetadata.json`、`tagTaxonomy/` にあります。タグ定義は `tagTaxonomy/subjects/` に主科目別で保存し、全体設定と大学タグは同階層のファイルで管理します。通常の新規文書は `docId` から UUIDv5 を自動導出するため、ID マニフェストの更新は不要です。移動・改名時だけ `yarn documents:move -- <旧-doc-id> <新-doc-id>` を実行します。`siteStats.json` と `documentTitles.json` は開発・ビルド時に自動更新され、その他の生成ファイルは上記スクリプトで管理できます。
 
 ## アカウントとデータベースの設定
 Supabase の環境変数がなくても公開コンテンツは閲覧できます。進捗、ノート、本文注釈、非公開問題セット、ランキングはログインユーザー専用で、データベースへ直接保存されます。匿名の学習データには対応しません。
@@ -123,7 +123,7 @@ export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
 - `GET /v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache`: 派生した学習 taxonomy で検索します。
 - `GET /v1/exams/{doc_id}`: ドキュメント ID で 1 件取得します。
 
-過去問レスポンスにはパス変更の影響を受けない `documentUuid`、frontmatter の元の `tags`、派生フィールド `schoolTags`、`learningTags`、`subjectIds`、`subsubjectIds`、`topicIds` が含まれます。ドキュメントを移動するときは `yarn documents:move -- <旧-doc-id> <新-doc-id>` を実行し、進捗、ノート、難易度投票、問題セットを同じ内容に結び付けたままにします。トピック ID は `Subject.Subsubject.Topic` 形式です。`learningTags` は各学習タグが `subsubject`、具体的な `topic`、または未分類タグのどれかを示し、topic 項目には `short_id` も含まれます。
+過去問レスポンスにはパス変更の影響を受けない `documentUuid`、frontmatter の元の `tags`、派生フィールド `schoolTags`、`learningTags`、`subjectIds`、`subsubjectIds`、`topicIds` が含まれます。通常の新規文書 UUID は固定 namespace と `docId` から自動導出され、登録作業は不要です。パスを移動するときは `yarn documents:move -- <旧-doc-id> <新-doc-id>` を実行してください。このコマンドは `documentIdentityOverrides.json` に改名例外と旧パス alias だけを保存し、進捗、ノート、難易度投票、問題セットを同じ内容に結び付けたままにします。トピック ID は `Subject.Subsubject.Topic` 形式です。`learningTags` は各学習タグが `subsubject`、具体的な `topic`、または未分類タグのどれかを示し、topic 項目には `short_id` も含まれます。
 
 呼び出し例:
 
@@ -167,6 +167,8 @@ unset SUPABASE_SERVICE_ROLE_KEY
 
 このコマンドは UUID、パス、タイトル、リンク、タグ、分類、コンテンツハッシュだけを upsert し、不要になった `document_catalog` 行を削除します。Markdown、ノート、進捗、問題セットなどのユーザーデータは変更しません。JSON API と Agent は、Web サイトと一緒に公開された静的 JSON から本文を取得します。
 この入力方法ではキーがシェル履歴に残りません。リポジトリや GitHub Actions には保存しないでください。
+
+文書パスを移動した後は、アクセスの少ない保守時間帯に Supabase SQL Editor で [doc_id 正規化 SQL](supabase/manual/20260719_canonicalize_document_doc_ids.sql) を手動実行できます。事前にバックアップを取得し、`yarn catalog:sync` を完了してください。この再実行可能なスクリプトは、UUID、ユーザー行、タイムスタンプ、ノート版数、すべての過去 alias を保持したまま、各アプリケーションテーブルの旧 `doc_id` を `document_registry.current_doc_id` へ更新します。最後の `stale_row_count` はすべて `0` になる必要があります。
 
 4. Supabase Function secrets に `API_LOG_SALT` が設定されていることを確認し、両方の function で JWT verification を無効にします。
 5. Supabase Dashboard で `api_access_requests` テーブルの申請を確認します。`status` を `approved` に変更すると API Key 作成を許可できます。拒否または停止する場合は `rejected` / `revoked` を使います。

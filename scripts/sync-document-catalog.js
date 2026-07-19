@@ -2,7 +2,7 @@
 
 const {createClient} = require('@supabase/supabase-js');
 const {buildApiData, toDocumentCatalogRow} = require('./api-data');
-const {loadDocumentIdentities} = require('./document-identities');
+const {loadDocumentIdentityOverrides} = require('./document-identities');
 
 const BATCH_SIZE = 100;
 const SELECT_PAGE_SIZE = 1000;
@@ -22,21 +22,24 @@ async function upsertRowsInBatches(supabase, table, rows, onConflict) {
   }
 }
 
-async function syncDocumentIdentities(supabase, documents) {
-  const manifest = loadDocumentIdentities();
+function buildDocumentIdentityRows(documents, overrides = loadDocumentIdentityOverrides()) {
   const registry = documents.map((document) => ({
     document_uuid: document.document_uuid,
     current_doc_id: document.doc_id,
   }));
   const aliases = [
-    ...Object.entries(manifest.aliases),
-    ...Object.entries(manifest.current),
-  ].map(([docId, documentUuid]) => ({
+    ...documents.map((document) => [document.doc_id, document.document_uuid, true]),
+    ...Object.entries(overrides.aliases).map(([docId, documentUuid]) => [docId, documentUuid, false]),
+  ].map(([docId, documentUuid, isCurrent]) => ({
     doc_id: docId,
     document_uuid: documentUuid,
-    is_current: Boolean(manifest.current[docId]),
+    is_current: isCurrent,
   }));
+  return {registry, aliases};
+}
 
+async function syncDocumentIdentities(supabase, documents) {
+  const {registry, aliases} = buildDocumentIdentityRows(documents);
   await upsertRowsInBatches(supabase, 'document_registry', registry, 'document_uuid');
   const documentUuids = registry.map((row) => row.document_uuid);
   for (let start = 0; start < documentUuids.length; start += BATCH_SIZE) {
@@ -108,7 +111,11 @@ async function main() {
   console.log(`Document catalog sync completed. Upserted ${catalogRows.length}, pruned ${pruned}; no user tables were modified.`);
 }
 
-main().catch((error) => {
-  console.error(error?.message || error);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error?.message || error);
+    process.exit(1);
+  });
+}
+
+module.exports = {buildDocumentIdentityRows};
