@@ -1,33 +1,16 @@
-const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const {v5: createUuidV5} = require('uuid');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const OVERRIDES_PATH = path.join(REPO_ROOT, 'src/data/documentIdentityOverrides.json');
 const DOCUMENT_NAMESPACE = 'ad4a6e2e-1c93-5b0c-91e4-98fb44fa87cd';
 
-function uuidToBytes(uuid) {
-  return Buffer.from(uuid.replaceAll('-', ''), 'hex');
-}
-
-function bytesToUuid(bytes) {
-  const hex = bytes.toString('hex');
-  return [hex.slice(0, 8), hex.slice(8, 12), hex.slice(12, 16), hex.slice(16, 20), hex.slice(20)].join('-');
-}
-
 function uuidV5(name, namespace = DOCUMENT_NAMESPACE) {
-  const hashInput = Buffer.concat([uuidToBytes(namespace), Buffer.from(String(name), 'utf8')]);
-  // UUIDv5 mandates SHA-1 for namespaced identifiers. These UUIDs are stable
-  // database keys, not authentication or integrity values, so changing the
-  // digest would break every persisted document reference without improving a
-  // security boundary.
-  const hash = crypto.createHash('sha1') // lgtm[js/weak-cryptographic-algorithm]
-    .update(hashInput)
-    .digest()
-    .subarray(0, 16);
-  hash[6] = (hash[6] & 0x0f) | 0x50;
-  hash[8] = (hash[8] & 0x3f) | 0x80;
-  return bytesToUuid(hash);
+  // UUIDv5 is intentionally used for stable, namespaced database identifiers.
+  // Keep the standardized algorithm behind the maintained UUID implementation
+  // instead of invoking its SHA-1 primitive directly in application code.
+  return createUuidV5(String(name), namespace);
 }
 
 function loadDocumentIdentityOverrides() {

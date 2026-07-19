@@ -14,6 +14,10 @@ const {
 const {moveDocumentIdentity, validateOverrides} = require('./generate-document-identities');
 const {buildDocumentIdentityRows} = require('./sync-document-catalog');
 
+test('UUIDv5 document identities retain their persisted output', () => {
+  assert.equal(uuidV5('test'), '06fc238b-b9d4-51c3-8cdc-98a048822522');
+});
+
 test('every ordinary document derives one stable UUID without a manifest entry', () => {
   const data = buildApiData();
   const overrides = loadDocumentIdentityOverrides();
