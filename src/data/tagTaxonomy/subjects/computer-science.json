@@ -750,6 +750,9 @@
         "Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance"
       ]
     },
+    "Computer-Science.Dynamic-Programming.Optimal-Binary-Search-Tree": {
+      "subsubject": "Computer-Science.Dynamic-Programming"
+    },
     "Computer-Science.Dynamic-Programming.Subset-Sum-Problem": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "relatedSubjects": [
