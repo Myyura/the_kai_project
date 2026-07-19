@@ -58,12 +58,10 @@
 
 .contributorDisclosure {
   overflow: hidden;
-  border: 1px solid var(--kai-glass-border);
-  border-radius: var(--kai-radius-md);
-  background: var(--kai-glass-bg);
-  -webkit-backdrop-filter: var(--kai-glass-blur-sm);
-  backdrop-filter: var(--kai-glass-blur-sm);
-  box-shadow: var(--kai-shadow-sm);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--ifm-background-color);
+  box-shadow: var(--custom-box-shadow);
 }
 
 .contributorDisclosure > summary {
@@ -264,8 +262,8 @@
   min-width: 24px;
   height: 24px;
   border-radius: 999px;
-  background: rgba(var(--kai-success-rgb), 0.12);
-  color: var(--kai-success);
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
   padding: 0 0.3rem;
   font-size: 0.66rem;
   font-weight: 800;
@@ -320,14 +318,20 @@
   }
 }
 
+[data-theme='dark'] .contributorDisclosure,
+[data-theme='dark'] .contributorGroup {
+  background: var(--custom-card-bg);
+  border-color: var(--custom-card-border);
+}
+
 [data-theme='dark'] .contributorDisclosureBody,
 [data-theme='dark'] .githubContributor,
 [data-theme='dark'] .siteContributor {
-  background: rgba(7, 27, 55, 0.6);
+  background: #071b37;
 }
 
 [data-theme='dark'] .contributionCount {
-  color: var(--kai-success);
+  color: #6ee7b7;
 }
 
 @media (prefers-reduced-motion: reduce) {

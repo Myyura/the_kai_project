@@ -11,13 +11,12 @@
 .card {
   width: 100%;
   max-width: 420px;
-  border: 1px solid var(--kai-glass-border-strong);
-  border-radius: var(--kai-radius-lg);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
   overflow: hidden;
-  background: var(--kai-glass-bg-strong);
-  -webkit-backdrop-filter: var(--kai-glass-blur);
-  backdrop-filter: var(--kai-glass-blur);
-  box-shadow: var(--kai-shadow-lg);
+  background: var(--ifm-background-color);
+  box-shadow: var(--custom-box-shadow);
+  backdrop-filter: var(--custom-blur-sm);
 }
 
 .cardHeader {
@@ -88,14 +87,14 @@
 }
 
 .authTabActive {
-  background: linear-gradient(135deg, var(--kai-brand), var(--kai-brand-bright));
-  color: var(--ifm-color-primary-contrast-foreground);
-  box-shadow: var(--kai-shadow-glow);
+  background: var(--ifm-color-primary);
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .authTabActive:hover {
-  background: linear-gradient(135deg, var(--kai-brand), var(--kai-brand-bright));
-  color: var(--ifm-color-primary-contrast-foreground);
+  background: var(--ifm-color-primary);
+  color: #fff;
 }
 
 /* ── Inputs ─────────────────────────────────────────────── */
@@ -169,9 +168,9 @@
   justify-content: center;
   gap: 0.4rem;
   width: 100%;
-  padding: 0.72rem 1rem;
+  padding: 0.7rem 1rem;
   border: none;
-  border-radius: var(--kai-radius-full);
+  border-radius: var(--custom-border-radius-xs);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -186,16 +185,15 @@
 }
 
 .btnPrimary {
-  background: linear-gradient(135deg, var(--kai-brand), var(--kai-brand-bright));
-  color: var(--ifm-color-primary-contrast-foreground);
-  box-shadow: var(--kai-shadow-glow);
+  background: var(--ifm-color-primary);
+  color: #fff;
 }
 
 .btnPrimary:hover:not(:disabled) {
+  background: var(--ifm-color-primary-dark);
   transform: translateY(-1px);
-  filter: brightness(1.06);
-  box-shadow: 0 14px 38px rgba(var(--kai-brand-rgb), 0.4);
-  color: var(--ifm-color-primary-contrast-foreground);
+  box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.25);
+  color: #fff;
 }
 
 .btnGithub {
@@ -246,15 +244,15 @@
 }
 
 .messageSuccess {
-  background: rgba(var(--kai-success-rgb), 0.1);
-  color: var(--kai-success);
-  border: 1px solid rgba(var(--kai-success-rgb), 0.25);
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
 }
 
 .messageError {
-  background: rgba(var(--kai-danger-rgb), 0.1);
-  color: var(--kai-danger);
-  border: 1px solid rgba(var(--kai-danger-rgb), 0.25);
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
 }
 
 .messageIcon {
@@ -311,12 +309,12 @@
 
 .btnDanger {
   background: transparent;
-  color: var(--kai-danger);
-  border: 1px solid rgba(var(--kai-danger-rgb), 0.35);
+  color: #dc2626;
+  border: 1px solid #fecaca;
 }
 
 .btnDanger:hover:not(:disabled) {
-  background: rgba(var(--kai-danger-rgb), 0.1);
+  background: #fee2e2;
 }
 
 /* ── Spin ───────────────────────────────────────────────── */
@@ -336,6 +334,11 @@
 }
 
 /* ── Dark mode ──────────────────────────────────────────── */
+
+[data-theme='dark'] .card {
+  background: var(--custom-card-bg);
+  border-color: var(--custom-card-border);
+}
 
 [data-theme='dark'] .authToggle {
   background: rgba(255, 255, 255, 0.05);

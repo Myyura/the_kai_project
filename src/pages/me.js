@@ -160,7 +160,7 @@ const StudyHeatmap = ({ entries, t, language }) => {
     <section className={styles.section}>
       <div className={styles.heatmapHeader}>
         <h2 className={styles.sectionTitle}>
-          <FaFire className={styles.sectionTitleIcon} style={{ color: 'var(--kai-danger)' }} />
+          <FaFire className={styles.sectionTitleIcon} style={{ color: '#ef4444' }} />
           {t.heatmap}
         </h2>
         <span className={styles.heatmapTotalCount}>{totalActivity} {t.activitiesUnit}</span>
@@ -235,7 +235,7 @@ const ReviewReminderSection = ({ entries, t }) => {
   return (
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>
-        <FaBell className={styles.sectionTitleIcon} style={{ color: 'var(--kai-danger)' }} />
+        <FaBell className={styles.sectionTitleIcon} style={{ color: '#ef4444' }} />
         {t.reviewDue}
         <span className={`${styles.sectionCount} ${styles.sectionCountAlert}`}>{items.length}</span>
       </h2>
@@ -273,7 +273,7 @@ const RecentPracticeSection = ({ entries, t, language }) => {
   return (
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>
-        <FaCalendarAlt className={styles.sectionTitleIcon} style={{ color: 'var(--kai-info)' }} />
+        <FaCalendarAlt className={styles.sectionTitleIcon} style={{ color: '#3b82f6' }} />
         {t.recentPractice}
         <span className={styles.sectionCount}>{items.length}</span>
       </h2>
@@ -533,7 +533,7 @@ const NotesSection = ({ noteEntries, t, language }) => {
     <section className={styles.section}>
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle}>
-          <FaStickyNote className={styles.sectionTitleIcon} style={{ color: 'var(--kai-violet)' }} />
+          <FaStickyNote className={styles.sectionTitleIcon} style={{ color: '#8b5cf6' }} />
           {t.notesTitle}
           <span className={styles.sectionCount}>{noteEntries.length}</span>
         </h2>
@@ -628,17 +628,17 @@ function PersonalCenterDashboard({ user }) {
       {/* 统计卡片 */}
       <div className={styles.statsRow}>
         <div className={`${styles.statCard} ${styles.statCardCompleted}`}>
-          <FaCheckCircle className={styles.statIcon} style={{ color: 'var(--kai-success)' }} />
+          <FaCheckCircle className={styles.statIcon} style={{ color: '#10b981' }} />
           <span className={styles.statNumber}>{stats.completed}</span>
           <span className={styles.statLabel}>{t.completed}</span>
         </div>
         <div className={`${styles.statCard} ${styles.statCardReviewing}`}>
-          <FaRedo className={styles.statIcon} style={{ color: 'var(--kai-warning)' }} />
+          <FaRedo className={styles.statIcon} style={{ color: '#f59e0b' }} />
           <span className={styles.statNumber}>{stats.reviewing}</span>
           <span className={styles.statLabel}>{t.reviewing}</span>
         </div>
         <div className={styles.statCard}>
-          <FaClipboardList className={styles.statIcon} style={{ color: 'var(--kai-text-muted)' }} />
+          <FaClipboardList className={styles.statIcon} style={{ color: '#6b7280' }} />
           <span className={styles.statNumber}>{total}</span>
           <span className={styles.statLabel}>{t.totalTracked}</span>
         </div>
@@ -702,7 +702,7 @@ function PersonalCenterDashboard({ user }) {
           {tagGroups.length > 0 && (
             <section className={styles.section}>
               <h2 className={styles.sectionTitle}>
-                <FaTag className={styles.sectionTitleIcon} style={{ color: 'var(--kai-violet)' }} />
+                <FaTag className={styles.sectionTitleIcon} style={{ color: '#6366f1' }} />
                 {t.byTag}
               </h2>
               <div className={styles.tagGrid}>
@@ -730,7 +730,7 @@ function PersonalCenterDashboard({ user }) {
           {total > 0 && (
             <section className={styles.section}>
               <h2 className={styles.sectionTitle}>
-                <FaBuilding className={styles.sectionTitleIcon} style={{ color: 'var(--kai-text-muted)' }} />
+                <FaBuilding className={styles.sectionTitleIcon} style={{ color: '#6b7280' }} />
                 {t.byUniversity}
               </h2>
               <div className={styles.univGrid}>
