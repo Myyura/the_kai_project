@@ -5,6 +5,15 @@ const currentByUuid = Object.fromEntries(
 );
 const uuidPromises = new Map();
 
+export function getCanonicalDocumentId(metadata) {
+  const fallback = String(metadata?.id || '').trim();
+  const source = typeof metadata?.source === 'string'
+    ? metadata.source.replaceAll('\\', '/').replace(/^@site\//, '')
+    : '';
+  const sourceMatch = source.match(/^docs\/(.+)\.mdx?$/i);
+  return sourceMatch?.[1] || fallback;
+}
+
 const uuidToBytes = (uuid) => {
   const hex = uuid.replaceAll('-', '');
   return Uint8Array.from({length: 16}, (_, index) => Number.parseInt(hex.slice(index * 2, index * 2 + 2), 16));

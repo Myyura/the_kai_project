@@ -14,6 +14,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import {FaEdit, FaGraduationCap} from 'react-icons/fa';
 import {useUiText} from '@site/src/i18n/useUiText';
+import {getCanonicalDocumentId} from '@site/src/services/documentIdentity';
 import shareStyles from '@site/src/components/ShareAsImage/styles.module.css';
 import styles from './styles.module.css';
 import {FooterAnnotationSection} from '@site/src/components/DocumentAnnotations';
@@ -27,11 +28,12 @@ const ProblemSetNavigator = lazy(() => import('@site/src/components/ProblemSetNa
 
 export default function DocItemFooter(): ReactNode {
   const {metadata, frontMatter} = useDoc();
-  const {tags, id, title, permalink} = metadata;
+  const {tags, title, permalink} = metadata;
+  const docId = getCanonicalDocumentId(metadata);
   const source = typeof metadata.source === 'string' ? metadata.source.replace(/^@site\//, '') : '';
   const canCorrectSource = /\.mdx?$/i.test(source);
   const learningPanelText = useUiText('learningPanel');
-  const contributionUrl = `/me?tab=contribute&type=correction&docId=${encodeURIComponent(id)}&title=${encodeURIComponent(title)}&sourcePath=${encodeURIComponent(source)}`;
+  const contributionUrl = `/me?tab=contribute&type=correction&docId=${encodeURIComponent(docId)}&title=${encodeURIComponent(title)}&sourcePath=${encodeURIComponent(source)}`;
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -67,8 +69,8 @@ export default function DocItemFooter(): ReactNode {
         <BrowserOnly>
           {() => (
             <Suspense fallback={null}>
-              <ProblemSetNavigator docId={id} />
-              <DifficultyRating docId={id} />
+              <ProblemSetNavigator docId={docId} />
+              <DifficultyRating docId={docId} />
               <section className={styles.learningPanel} aria-labelledby="doc-learning-panel-title">
                 <header className={styles.learningPanelHeader}>
                   <div className={styles.learningPanelHeading}>
@@ -78,20 +80,20 @@ export default function DocItemFooter(): ReactNode {
                       <p>{learningPanelText.hint}</p>
                     </div>
                   </div>
-                  <AddToProblemSet docId={id} variant="panel" />
+                  <AddToProblemSet docId={docId} variant="panel" />
                 </header>
                 <ProgressTracker
-                  docId={id}
+                  docId={docId}
                   title={title}
                   permalink={permalink}
                   tags={tags.map((t) => t.label)}
                   embedded
                 />
-                <NoteEditor docId={id} embedded />
+                <NoteEditor docId={docId} embedded />
                 <FooterAnnotationSection />
               </section>
               <div className={shareStyles.docActionBar}>
-                <ShareAsImage docId={id} title={title} compact />
+                <ShareAsImage docId={docId} title={title} compact />
                 {canCorrectSource && (
                   <Link className={shareStyles.triggerBtn} to={contributionUrl}>
                     <FaEdit className={shareStyles.triggerIcon} />

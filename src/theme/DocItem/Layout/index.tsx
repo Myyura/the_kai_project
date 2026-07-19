@@ -25,6 +25,7 @@ import {
   InlineAnnotationController,
   MobileAnnotationAccess,
 } from '@site/src/components/DocumentAnnotations';
+import {getCanonicalDocumentId} from '@site/src/services/documentIdentity';
 import type {Props} from '@theme/DocItem/Layout';
 
 import styles from './styles.module.css';
@@ -56,8 +57,9 @@ function useDocTOC() {
 export default function DocItemLayout({children}: Props): ReactNode {
   const docTOC = useDocTOC();
   const {metadata} = useDoc();
+  const docId = getCanonicalDocumentId(metadata);
   return (
-    <DocumentAnnotationsProvider key={metadata.id} docId={metadata.id}>
+    <DocumentAnnotationsProvider key={docId} docId={docId}>
       <div className="row">
         <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
           <ContentVisibility metadata={metadata} />
