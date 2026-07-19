@@ -980,6 +980,10 @@
   label: "Computer-Science.Dynamic-Programming.Minimum-Edit-Distance"
   permalink: "/topic/computer-science/dynamic-programming/minimum-edit-distance"
   description: "Computer-Science / Dynamic-Programming / Minimum-Edit-Distance"
+"Computer-Science.Dynamic-Programming.Optimal-Binary-Search-Tree":
+  label: "Computer-Science.Dynamic-Programming.Optimal-Binary-Search-Tree"
+  permalink: "/topic/computer-science/dynamic-programming/optimal-binary-search-tree"
+  description: "Computer-Science / Dynamic-Programming / Optimal-Binary-Search-Tree"
 "Computer-Science.Dynamic-Programming.Pattern-Occurrence-Probability":
   label: "Computer-Science.Dynamic-Programming.Pattern-Occurrence-Probability"
   permalink: "/topic/computer-science/dynamic-programming/pattern-occurrence-probability"
