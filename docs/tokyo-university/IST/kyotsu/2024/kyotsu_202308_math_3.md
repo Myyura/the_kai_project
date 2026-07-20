@@ -2,9 +2,9 @@
 sidebar_label: 2023年8月実施 数学 第3問
 tags:
   - Tokyo-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Combinatorial-Probability
-  - Probability-Statistics.Probability-and-Statistics-Basics.Geometric-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient
+  - Probability-Statistics.Probability-Basics.Combinatorial-Probability
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Geometric-Distribution
+  - Probability-Statistics.Probability-Basics.Correlation-Coefficient
   - Probability-Statistics.Stochastic-Processes.Stopping-Time
 ---
 # 東京大学 情報理工学研究科 2023年8月実施 数学 第3問

@@ -3,9 +3,9 @@ sidebar_label: 2022年8月実施 離散構造
 tags:
   - Osaka-University
   - Discrete-Mathematics.Combinatorics
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Adjacency-Matrix-and-Walk-Counting
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Clique
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity
+  - Discrete-Mathematics.Graph-Theory.Adjacency-Matrix-and-Walk-Counting
+  - Discrete-Mathematics.Graph-Theory.Clique
+  - Discrete-Mathematics.Graph-Theory.Connectivity
 ---
 # 大阪大学 情報科学研究科 情報工学 2022年8月実施 離散構造
 

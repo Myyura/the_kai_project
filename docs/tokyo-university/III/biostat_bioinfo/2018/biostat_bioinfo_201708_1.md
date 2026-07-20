@@ -2,11 +2,11 @@
 sidebar_label: "2017年8月実施 専門科目 第1問"
 tags:
   - Tokyo-University
-  - Probability-Statistics.Statistical-Inference.Mean-Median-and-Quartiles
-  - Probability-Statistics.Statistical-Inference.Diagnostic-Test-Positive-Predictive-Value
-  - Probability-Statistics.Statistical-Inference.Confidence-Interval-Width-vs-Sample-Size
-  - Probability-Statistics.Statistical-Inference.Chi-Square-Pivot-for-Normal-Variance
-  - Probability-Statistics.Statistical-Inference.Affine-Transformation-of-Sample-Mean
+  - Probability-Statistics.Descriptive-Statistics-and-Sampling.Mean-Median-and-Quartiles
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Diagnostic-Test-Positive-Predictive-Value
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval-Width-vs-Sample-Size
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Chi-Square-Pivot-for-Normal-Variance
+  - Probability-Statistics.Descriptive-Statistics-and-Sampling.Affine-Transformation-of-Sample-Mean
 ---
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2017年8月実施 専門科目 第1問
 

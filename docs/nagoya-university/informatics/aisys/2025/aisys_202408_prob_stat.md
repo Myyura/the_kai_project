@@ -2,11 +2,11 @@
 sidebar_label: 2024年8月実施 確率・統計
 tags:
   - Nagoya-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Combinatorial-Probability
-  - Probability-Statistics.Probability-and-Statistics-Basics.Bayes-Theorem
-  - Probability-Statistics.Probability-and-Statistics-Basics.Cumulative-Distribution-Function-and-Probability-Density-Function
-  - Probability-Statistics.Probability-and-Statistics-Basics.Random-Variable-Transformation
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-Distribution
+  - Probability-Statistics.Probability-Basics.Combinatorial-Probability
+  - Probability-Statistics.Probability-Basics.Bayes-Theorem
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Random-Variable-Transformation
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2024年8月実施 確率・統計
 

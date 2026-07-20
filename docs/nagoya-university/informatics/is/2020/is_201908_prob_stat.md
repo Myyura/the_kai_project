@@ -2,9 +2,9 @@
 sidebar_label: "2019年8月実施 確率・統計"
 tags:
   - Nagoya-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Waiting-Time-for-Runs
-  - Probability-Statistics.Probability-and-Statistics-Basics.Joint-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
+  - Probability-Statistics.Stochastic-Processes.Waiting-Time-for-Runs
+  - Probability-Statistics.Probability-Basics.Joint-Distribution
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2019年8月実施 確率・統計
 

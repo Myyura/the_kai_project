@@ -2,9 +2,8 @@
 sidebar_label: "2017年8月実施 線形計画"
 tags:
   - Kyoto-University
-  - Operations-Research.Optimization.Linear-Programming
-  - Operations-Research.Optimization.Linear-Programming-Duality
-  - Operations-Research.Optimization.Total-Unimodularity-and-Integrality
+  - Operations-Research.Linear-Programming.Linear-Programming-Duality
+  - Operations-Research.Linear-Programming.Total-Unimodularity-and-Integrality
 ---
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 線形計画
 

@@ -2,9 +2,9 @@
 sidebar_label: 2019年8月実施 専門科目II 問題6
 tags:
   - Tokyo-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Distribution
+  - Probability-Statistics.Probability-Basics.Conditional-Density
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
   - Data-Science-Artificial-Intelligence.Machine-Learning.Expectation-Maximization-Algorithm
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目II 問題6

@@ -2,11 +2,11 @@
 sidebar_label: 2017年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Statistical-Inference.Unbiased-Estimation
-  - Probability-Statistics.Statistical-Inference.Minimum-Variance-Unbiased-Estimator
-  - Probability-Statistics.Probability-and-Statistics-Basics.Geometric-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Coupon-Collector-Problem
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Minimum-Variance-Unbiased-Estimator
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Geometric-Distribution
+  - Probability-Statistics.Probability-Basics.Coupon-Collector-Problem
 ---
 # 京都大学 情報学研究科 システム科学専攻 2017年8月実施 専門科目 確率統計
 

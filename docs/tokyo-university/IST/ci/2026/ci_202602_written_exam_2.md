@@ -2,7 +2,6 @@
 sidebar_label: 2026年2月実施 筆記試験 第2問
 tags:
   - Tokyo-University
-  - Probability-Statistics.Probability-and-Statistics-Basics
   - Probability-Statistics.Stochastic-Processes.Birth-Death-Process
   - Operations-Research.Queueing-Theory.M-M-1-Queue
   - Operations-Research.Queueing-Theory.Littles-Law

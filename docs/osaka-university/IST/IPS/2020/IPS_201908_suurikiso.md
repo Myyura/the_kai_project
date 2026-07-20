@@ -2,9 +2,9 @@
 sidebar_label: "2019年8月実施 情報数理学 数理基礎"
 tags:
   - Osaka-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Joint-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution
-  - Probability-Statistics.Statistical-Inference.Polynomial-Regression-via-Maximum-Likelihood-Estimation-and-Least-Squares
+  - Probability-Statistics.Probability-Basics.Joint-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Polynomial-Regression-via-Maximum-Likelihood-Estimation-and-Least-Squares
 ---
 # 大阪大学 情報科学研究科 情報数理学専攻 2019年8月実施 情報数理学 数理基礎
 

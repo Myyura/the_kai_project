@@ -2,8 +2,8 @@
 sidebar_label: "2022年8月実施 数学 第3問"
 tags:
   - Tokyo-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Waiting-Time-for-Runs
-  - Probability-Statistics.Probability-and-Statistics-Basics.Waiting-Time-for-Runs-via-Probability-Generating-Functions
+  - Probability-Statistics.Stochastic-Processes.Waiting-Time-for-Runs
+  - Probability-Statistics.Stochastic-Processes.Waiting-Time-for-Runs-via-Probability-Generating-Functions
 ---
 # 東京大学 情報理工学研究科 2022年8月実施 数学 第3問
 

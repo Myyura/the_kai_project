@@ -5,8 +5,8 @@ tags:
   - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
   - Mathematics.Differential-Equations.Method-of-Undetermined-Coefficients
   - Mathematics.Linear-Algebra.Parameterized-Diagonalizability
-  - Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Birthday-Collision-Problem
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Gamma-Distribution
+  - Probability-Statistics.Probability-Basics.Birthday-Collision-Problem
 ---
 
 # 東京大学 工学系研究科 技術経営戦略学専攻 2023年8月実施 専門試験 問題1

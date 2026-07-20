@@ -2,9 +2,9 @@
 sidebar_label: "2016年7月実施 数理基礎 E"
 tags:
   - Waseda-University
-  - Probability-Statistics.Statistical-Inference.Simple-Linear-Regression
-  - Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution
-  - Probability-Statistics.Statistical-Inference.Hypothesis-Testing
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Simple-Linear-Regression
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 数理基礎 E

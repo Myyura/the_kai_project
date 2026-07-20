@@ -3,7 +3,7 @@ sidebar_label: 2014年8月実施 筆記試験 第2問
 tags:
   - Tokyo-University
   - Computer-Science.Networks
-  - Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-Distribution
   - Probability-Statistics.Stochastic-Processes.Markov-Chain
   - Operations-Research.Queueing-Theory.Finite-Capacity-Queue
   - Operations-Research.Queueing-Theory.Packet-Loss

@@ -3,7 +3,6 @@ sidebar_label: 2021年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
   - Computer-Science.Algorithm-Design.Greedy-Algorithm
-  - Computer-Science.Dynamic-Programming.Dynamic-Programming
   - Computer-Science.Dynamic-Programming.Knapsack-Problem
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 筆記試験 第1問

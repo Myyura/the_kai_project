@@ -4,7 +4,7 @@ tags:
   - Tokyo-University
   - Electrical-Electronic.Control-Theory.Position-and-Torque-Feedback
   - Electrical-Electronic.Circuits.Proximity-Sensor-Principles
-  - Probability-Statistics.Statistical-Inference.Measurement-Uncertainty
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Measurement-Uncertainty
   - Data-Science-Artificial-Intelligence.Machine-Learning.Hidden-Markov-Model
   - Computer-Science.Distributed-Systems.Grid-Computing
   - Computer-Science.Security.Phishing-Attack

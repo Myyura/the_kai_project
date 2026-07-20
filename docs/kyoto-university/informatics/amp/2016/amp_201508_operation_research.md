@@ -2,9 +2,8 @@
 sidebar_label: "2015年8月実施 オペレーションズ・リサーチ"
 tags:
   - Kyoto-University
-  - Operations-Research.Optimization.Convex-Optimization
-  - Operations-Research.Optimization.Karush-Kuhn-Tucker-Conditions
-  - Operations-Research.Optimization.Penalty-Method
+  - Operations-Research.Convex-Optimization.Karush-Kuhn-Tucker-Conditions
+  - Operations-Research.Optimization-Basics.Penalty-Method
 ---
 # 京都大学 情報学研究科 数理工学専攻 2015年8月実施 オペレーションズ・リサーチ
 

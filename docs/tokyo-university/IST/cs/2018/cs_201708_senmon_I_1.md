@@ -2,7 +2,7 @@
 sidebar_label: 2017年8月実施 専門科目I 問題1
 tags:
   - Tokyo-University
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
+  - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2017年8月実施 専門科目I 問題1
 

@@ -2,9 +2,9 @@
 sidebar_label: "2022年8月実施 オペレーションズ・リサーチ"
 tags:
   - Kyoto-University
-  - Operations-Research.Optimization.Quadratic-Programming
-  - Operations-Research.Optimization.Trust-Region-Subproblem
-  - Operations-Research.Optimization.Quadratic-Convexification
+  - Operations-Research.Nonlinear-Optimization.Quadratic-Programming
+  - Operations-Research.Nonlinear-Optimization.Trust-Region-Subproblem
+  - Operations-Research.Convex-Optimization.Quadratic-Convexification
 ---
 # 京都大学 情報学研究科 数理工学専攻 2022年8月実施 オペレーションズ・リサーチ
 

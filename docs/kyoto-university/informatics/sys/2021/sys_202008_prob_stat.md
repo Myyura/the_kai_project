@@ -2,13 +2,13 @@
 sidebar_label: 2020年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Statistical-Inference.Unbiased-Estimation
-  - Probability-Statistics.Statistical-Inference.Hypothesis-Testing
-  - Probability-Statistics.Statistical-Inference.Confidence-Interval
-  - Probability-Statistics.Statistical-Inference.Simultaneous-Confidence-Intervals
-  - Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics
-  - Probability-Statistics.Statistical-Inference.Mean-Squared-Error
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Simultaneous-Confidence-Intervals
+  - Probability-Statistics.Probability-Basics.Order-Statistics
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Mean-Squared-Error
 ---
 # 京都大学 情報学研究科 システム科学専攻 2020年8月実施 専門科目 確率統計
 

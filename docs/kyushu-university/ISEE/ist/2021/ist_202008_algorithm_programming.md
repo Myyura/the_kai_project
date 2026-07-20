@@ -2,7 +2,7 @@
 sidebar_label: 2020年8月実施 アルゴリズム・プログラミング
 tags:
   - Kyushu-University
-  - Computer-Science.Dynamic-Programming.Dynamic-Programming
+  - Computer-Science.Dynamic-Programming.Matrix-Chain-Multiplication
   - Computer-Science.Algorithm-Design.Merge-Sort
   - Computer-Science.Programming
 ---

@@ -4,9 +4,9 @@ tags:
   - Osaka-University
   - Discrete-Mathematics.Combinatorics
   - Discrete-Mathematics.Set-Theory.Binary-Relations
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Clique
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Complete-Graph
+  - Discrete-Mathematics.Graph-Theory.Connectivity
+  - Discrete-Mathematics.Graph-Theory.Clique
+  - Discrete-Mathematics.Graph-Theory.Complete-Graph
 ---
 # 大阪大学 情報科学研究科 情報工学 2021年8月実施 離散構造
 

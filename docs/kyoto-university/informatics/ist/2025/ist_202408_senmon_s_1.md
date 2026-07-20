@@ -2,13 +2,13 @@
 sidebar_label: 2024年8月実施 専門科目 S-1
 tags:
   - Kyoto-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Cumulative-Distribution-Function-and-Probability-Density-Function
-  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
-  - Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution
-  - Probability-Statistics.Statistical-Inference.Confidence-Interval
-  - Probability-Statistics.Statistical-Inference.Simple-Linear-Regression
-  - Probability-Statistics.Statistical-Inference.Least-Squares-Method
-  - Probability-Statistics.Statistical-Inference.Prediction-Interval
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Simple-Linear-Regression
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Method
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Prediction-Interval
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2024年8月実施 専門科目 S-1
 

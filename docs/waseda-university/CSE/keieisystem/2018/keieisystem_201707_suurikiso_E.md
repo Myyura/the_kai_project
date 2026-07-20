@@ -2,9 +2,9 @@
 sidebar_label: "2017年7月実施 数理基礎 E"
 tags:
   - Waseda-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient
-  - Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution
-  - Probability-Statistics.Statistical-Inference.Confidence-Interval
+  - Probability-Statistics.Probability-Basics.Correlation-Coefficient
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2017年7月実施 数理基礎 E

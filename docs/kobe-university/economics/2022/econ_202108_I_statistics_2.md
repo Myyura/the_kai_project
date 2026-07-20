@@ -2,10 +2,10 @@
 sidebar_label: "2021年8月実施 第I期 統計学 第2問"
 tags:
   - Kobe-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
-  - Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Uniform-Distribution
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
 ---
 # 神戸大学 経済学研究科 2021年8月実施 第I期 統計学 第2問
 

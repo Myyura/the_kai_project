@@ -2,9 +2,9 @@
 sidebar_label: "2017年8月実施 確率・統計"
 tags:
   - Nagoya-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Poisson-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Poisson-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2017年8月実施 確率・統計
 

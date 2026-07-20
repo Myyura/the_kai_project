@@ -5,7 +5,7 @@ tags:
   - Data-Science-Artificial-Intelligence.Data-Science.Term-Frequency-Inverse-Document-Frequency
   - Engineering.Robotics.Zero-Moment-Point
   - Computer-Science.Distributed-Systems.Distributed-Hashing
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
+  - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
   - Data-Science-Artificial-Intelligence.Machine-Learning.Bayesian-Network
   - Electrical-Electronic.Digital-Logic.Carry-Lookahead-Adder
   - Computer-Science.Programming.Closure

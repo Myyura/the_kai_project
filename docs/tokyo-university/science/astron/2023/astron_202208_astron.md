@@ -3,9 +3,9 @@ sidebar_label: '2022年8月実施 天文学'
 tags:
   - Tokyo-University
   - Physics.Astrophysics.Photon-Counting-Poisson-Process
-  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution
   - Physics.Astrophysics.Exposure-Time-Signal-to-Noise-with-Readout-Noise
-  - Probability-Statistics.Probability-and-Statistics-Basics.Linear-Combination-of-Independent-Normals
+  - Probability-Statistics.Probability-Basics.Linear-Combination-of-Independent-Normals
   - Physics.Astrophysics.Central-Limit-Theorem-Based-Simulation-of-Observation-Noise
 ---
 

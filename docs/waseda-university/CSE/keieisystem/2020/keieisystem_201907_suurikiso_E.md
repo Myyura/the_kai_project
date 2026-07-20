@@ -2,8 +2,8 @@
 sidebar_label: "2019年7月実施 数理基礎 E"
 tags:
   - Waseda-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution
-  - Probability-Statistics.Statistical-Inference.Hypothesis-Testing
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2019年7月実施 数理基礎 E

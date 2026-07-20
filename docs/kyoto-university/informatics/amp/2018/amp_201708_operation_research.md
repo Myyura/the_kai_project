@@ -2,10 +2,10 @@
 sidebar_label: "2017年8月実施 オペレーションズ・リサーチ"
 tags:
   - Kyoto-University
-  - Operations-Research.Optimization.Strong-Convexity-and-Concavity
-  - Operations-Research.Optimization.Quadratic-Programming
-  - Operations-Research.Optimization.Karush-Kuhn-Tucker-Conditions
-  - Operations-Research.Optimization.Projected-Gradient-Method
+  - Operations-Research.Convex-Optimization.Strong-Convexity-and-Concavity
+  - Operations-Research.Nonlinear-Optimization.Quadratic-Programming
+  - Operations-Research.Convex-Optimization.Karush-Kuhn-Tucker-Conditions
+  - Operations-Research.Convex-Optimization.Projected-Gradient-Method
 ---
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 オペレーションズ・リサーチ
 

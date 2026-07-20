@@ -2,12 +2,12 @@
 sidebar_label: 2022年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
-  - Probability-Statistics.Statistical-Inference.Hypothesis-Testing
-  - Probability-Statistics.Statistical-Inference.Statistical-Power
-  - Probability-Statistics.Probability-and-Statistics-Basics.Joint-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Box-Muller-Transform
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Statistical-Power
+  - Probability-Statistics.Probability-Basics.Joint-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Box-Muller-Transform
   - Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Mixture-Model
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
 ---
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 専門科目 確率統計
 

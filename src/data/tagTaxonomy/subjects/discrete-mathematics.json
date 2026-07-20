@@ -4,9 +4,9 @@
     "labelZh": "离散数学",
     "labelJa": "離散数学",
     "labelEn": "Discrete Mathematics",
-    "descriptionZh": "组合、递推、计数、离散结构与基础证明方法；图论相关内容归入“图论与组合优化”。",
-    "descriptionJa": "組合せ、漸化式、数え上げ、離散構造、基礎的な証明方法。グラフ理論関連は「グラフ理論・組合せ最適化」に分類する。",
-    "descriptionEn": "Combinatorics, recurrences, counting, discrete structures, and basic proof methods. Graph-related content lives under Graph Theory & Combinatorial Optimization."
+    "descriptionZh": "组合计数、图论、图算法、集合论、数理逻辑与离散结构。",
+    "descriptionJa": "組合せ計数、グラフ理論、グラフアルゴリズム、集合論、数理論理、離散構造。",
+    "descriptionEn": "Combinatorial counting, graph theory, graph algorithms, set theory, mathematical logic, and discrete structures."
   },
   "subsubjects": {
     "Discrete-Mathematics.Combinatorics": {
@@ -21,6 +21,24 @@
         "Discrete-Mathematics.Discrete-Mathematics"
       ]
     },
+    "Discrete-Mathematics.Graph-Theory": {
+      "subject": "Discrete-Mathematics",
+      "labelZh": "图论",
+      "labelJa": "グラフ理論",
+      "labelEn": "Graph Theory",
+      "descriptionZh": "图、树、割、匹配、连通性、平面图、同构、欧拉回路与基础性质。",
+      "descriptionJa": "グラフ、木、カット、マッチング、連結性、平面グラフ、同型、オイラー回路、基礎性質。",
+      "descriptionEn": "Graphs, trees, cuts, matchings, connectivity, planar graphs, isomorphism, Euler circuits, and foundational properties."
+    },
+    "Discrete-Mathematics.Graph-Algorithms": {
+      "subject": "Discrete-Mathematics",
+      "labelZh": "图算法",
+      "labelJa": "グラフアルゴリズム",
+      "labelEn": "Graph Algorithms",
+      "descriptionZh": "图搜索、最短路算法、生成树算法、拓扑排序与图结构判定。",
+      "descriptionJa": "グラフ探索、最短路アルゴリズム、全域木アルゴリズム、トポロジカルソート、グラフ構造判定。",
+      "descriptionEn": "Graph search, shortest-path algorithms, spanning-tree algorithms, topological sorting, and graph-structure tests."
+    },
     "Discrete-Mathematics.Set-Theory": {
       "subject": "Discrete-Mathematics",
       "labelZh": "集合论",
@@ -32,9 +50,9 @@
     },
     "Discrete-Mathematics.Mathematical-Logic": {
       "subject": "Discrete-Mathematics",
-      "labelZh": "数理逻辑与证明",
-      "labelJa": "数理論理と証明",
-      "labelEn": "Mathematical Logic and Proof",
+      "labelZh": "数理逻辑",
+      "labelJa": "数理論理",
+      "labelEn": "Mathematical Logic",
       "descriptionZh": "命题与谓词逻辑、量词以及离散数学中的基本证明方法。",
       "descriptionJa": "命題論理、述語論理、量化記号、離散数学の基本的な証明法。",
       "descriptionEn": "Propositional and predicate logic, quantifiers, and basic proof methods in discrete mathematics."
@@ -42,6 +60,8 @@
   },
   "subsubjectOrder": [
     "Discrete-Mathematics.Combinatorics",
+    "Discrete-Mathematics.Graph-Theory",
+    "Discrete-Mathematics.Graph-Algorithms",
     "Discrete-Mathematics.Set-Theory",
     "Discrete-Mathematics.Mathematical-Logic"
   ],
@@ -116,6 +136,161 @@
     },
     "Discrete-Mathematics.Mathematical-Logic.Mathematical-Induction": {
       "subsubject": "Discrete-Mathematics.Mathematical-Logic"
+    },
+    "Discrete-Mathematics.Graph-Theory.Adjacency-Spectrum-of-Path-and-Complete-Graphs": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Theory.Spectral-Diameter-Bound": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Theory.Laplacian-Positive-Semidefiniteness": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Theory.Heat-Equation-on-Cycle-Graph-by-Discrete-Fourier-Transform": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics",
+        "Electrical-Electronic"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Theory.Consensus-Dynamics-and-Algebraic-Connectivity": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics",
+        "Electrical-Electronic",
+        "Engineering"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Theory.Graph-Laplacian": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Algorithms.A-Star-Shortest-Path-Search": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Algorithms.Bellman-Ford-Algorithm": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Algorithms.Breadth-First-Search": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.BFS"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Algorithms.Depth-First-Search": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Computer-Science.Data-Structures-Algorithms.DFS"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Algorithms.Dijkstra-Algorithm": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Algorithms.Kruskal-Algorithm": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Algorithms.Prim-Algorithm": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Algorithms.Topological-Sort": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Theory.Articulation-Point": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Theory.Adjacency-Matrix-and-Walk-Counting": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "relatedSubjects": [
+        "Mathematics",
+        "Computer-Science"
+      ]
+    },
+    "Discrete-Mathematics.Graph-Theory.Bipartite-Graph": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Bipartite-Matching": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Complete-Graph": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Clique": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Connectivity": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Vertex-Degree": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Graph-Diameter": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Extremal-Graph-Construction": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Cut": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Euler-Circuit": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Graph-Basics": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "broad": true
+    },
+    "Discrete-Mathematics.Graph-Theory.Graph-Isomorphism": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Matching": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Planar-Graph": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Spanning-Tree": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Tree-Metric": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
     }
   }
 }

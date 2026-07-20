@@ -3,7 +3,7 @@ sidebar_label: '2019年8月実施 筆記試験 第3問'
 tags:
   - Tokyo-University
   - Computer-Science.Operating-Systems.Semaphore
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.A-Star-Shortest-Path-Search
+  - Discrete-Mathematics.Graph-Algorithms.A-Star-Shortest-Path-Search
   - Electrical-Electronic.Digital-Logic.Field-Programmable-Gate-Array
   - Computer-Science.Security.Buffer-Overflow
   - Computer-Science.Formal-Languages.Left-to-Right-Rightmost-Derivation-Parsing

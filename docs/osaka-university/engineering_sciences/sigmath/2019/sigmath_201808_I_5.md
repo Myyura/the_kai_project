@@ -2,8 +2,8 @@
 sidebar_label: "2018年8月実施 数理科学 I [5]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Statistical-Inference.Unbiased-Estimation
-  - Probability-Statistics.Statistical-Inference.Minimum-Variance-Estimator-with-Equicorrelated-Samples
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Minimum-Variance-Estimator-with-Equicorrelated-Samples
   - Mathematics.Calculus.Constrained-Optimization
 ---
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2018年8月実施 数理科学 I \[5\]

@@ -5,8 +5,8 @@ tags:
   - Mathematics.Linear-Algebra.Linear-Independence
   - Mathematics.Linear-Algebra.Gram-Matrix
   - Mathematics.Linear-Algebra.Matrix-Determinant
-  - Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function
-  - Probability-Statistics.Probability-and-Statistics-Basics.Binomial-to-Poisson-Convergence-via-Moment-Generating-Function
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-to-Poisson-Convergence-via-Moment-Generating-Function
 ---
 # 九州大学 経済学府 経済工学専攻 2019年8月実施 経済数学
 

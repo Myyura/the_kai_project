@@ -2,10 +2,10 @@
 sidebar_label: 2023年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Poisson-Distribution
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Statistical-Inference.Weighted-Least-Squares
-  - Probability-Statistics.Probability-and-Statistics-Basics.Copula
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Poisson-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Weighted-Least-Squares
+  - Probability-Statistics.Probability-Basics.Copula
 ---
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 専門科目 確率統計
 

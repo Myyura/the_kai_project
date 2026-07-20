@@ -7,7 +7,7 @@ tags:
   - Electrical-Electronic.Control-Theory.Kalman-Filter
   - Computer-Science.Formal-Languages.Regular-Grammar-and-Regular-Language
   - Computer-Science.Security.Public-Key-Infrastructure
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Traveling-Salesman-Problem
+  - Operations-Research.Combinatorial-Optimization.Traveling-Salesman-Problem
   - Computer-Science.Algorithm-Design.Divide-and-Conquer
   - Data-Science-Artificial-Intelligence.Data-Science.Vector-Quantization
 ---

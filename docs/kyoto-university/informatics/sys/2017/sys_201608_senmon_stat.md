@@ -2,10 +2,10 @@
 sidebar_label: 2016年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Weibull-Distribution
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics
-  - Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Weibull-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Probability-Basics.Order-Statistics
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Uniform-Distribution
 ---
 # 京都大学 情報学研究科 システム科学専攻 2016年8月実施 専門科目 確率統計
 

@@ -5,7 +5,7 @@ tags:
   - Electrical-Electronic.Control-Theory.Feedback-and-Feedforward-Control
   - Electrical-Electronic.Control-Theory.Kalman-Filter
   - Computer-Science.Graphics.Edge-Line-Detection-in-Grayscale-Images
-  - Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration
+  - Probability-Statistics.Computational-Statistics.Monte-Carlo-Integration
   - Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network-Training-Methods
   - Computer-Science.Computer-Architecture.Pipeline-Hazards
   - Computer-Science.Computer-Architecture.Microprogrammed-Control

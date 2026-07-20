@@ -2,7 +2,7 @@
 sidebar_label: 2014年8月実施 アルゴリズム基礎
 tags:
   - Kyoto-University
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
+  - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
 ---
 # 京都大学 情報学研究科 数理工学専攻 2014年8月実施 アルゴリズム基礎
 

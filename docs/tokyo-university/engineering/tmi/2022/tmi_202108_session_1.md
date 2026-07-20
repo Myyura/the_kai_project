@@ -6,7 +6,7 @@ tags:
   - Mathematics.Linear-Algebra.Matrix-Diagonalization
   - Mathematics.Linear-Algebra.Matrix-Power
   - Mathematics.Calculus.Gaussian-Integral
-  - Probability-Statistics.Statistical-Inference.Diagnostic-Test-Positive-Predictive-Value
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Diagnostic-Test-Positive-Predictive-Value
   - Mathematics.Calculus.Constrained-Optimization
 ---
 

@@ -2,8 +2,8 @@
 sidebar_label: 2024年8月実施 グラフ理論
 tags:
   - Kyoto-University
-  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Breadth-First-Search
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
+  - Discrete-Mathematics.Graph-Algorithms.Breadth-First-Search
+  - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
 ---
 # 京都大学 情報学研究科 数理工学専攻 2024年8月実施 グラフ理論
 

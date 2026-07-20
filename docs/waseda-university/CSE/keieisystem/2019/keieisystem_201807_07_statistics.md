@@ -2,11 +2,11 @@
 sidebar_label: "2018年7月実施 統計科学 問題7"
 tags:
   - Waseda-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Statistical-Inference.Orthogonal-Array
-  - Probability-Statistics.Statistical-Inference.Multiple-Regression
-  - Probability-Statistics.Statistical-Inference.Regression-Diagnostics
+  - Probability-Statistics.Probability-Basics.Conditional-Probability
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Orthogonal-Array
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Multiple-Regression
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Regression-Diagnostics
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2018年7月実施 統計科学 問題7

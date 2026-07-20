@@ -2,8 +2,8 @@
 sidebar_label: 2017年8月実施 グラフ理論
 tags:
   - Kyoto-University
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Minimum-Spanning-Tree
-  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Kruskal-Algorithm
+  - Operations-Research.Combinatorial-Optimization.Minimum-Spanning-Tree
+  - Discrete-Mathematics.Graph-Algorithms.Kruskal-Algorithm
 ---
 
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 グラフ理論

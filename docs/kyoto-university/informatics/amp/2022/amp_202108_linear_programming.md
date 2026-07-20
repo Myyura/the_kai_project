@@ -2,9 +2,8 @@
 sidebar_label: "2021年8月実施 線形計画"
 tags:
   - Kyoto-University
-  - Operations-Research.Optimization.Linear-Programming
-  - Operations-Research.Optimization.Linear-Programming-Duality
-  - Operations-Research.Optimization.Parametric-Linear-Programming
+  - Operations-Research.Linear-Programming.Linear-Programming-Duality
+  - Operations-Research.Linear-Programming.Parametric-Linear-Programming
 ---
 # 京都大学 情報学研究科 数理工学専攻 2021年8月実施 線形計画
 

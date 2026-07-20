@@ -8,8 +8,8 @@ tags:
   - Data-Science-Artificial-Intelligence.Machine-Learning.Backpropagation
   - Data-Science-Artificial-Intelligence.Machine-Learning.Vanishing-Gradient-and-Mitigation
   - Data-Science-Artificial-Intelligence.Machine-Learning.Feature-Standardization
-  - Probability-Statistics.Statistical-Inference.Mahalanobis-Distance
-  - Probability-Statistics.Probability-and-Statistics-Basics.Covariance-Matrix
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Mahalanobis-Distance
+  - Probability-Statistics.Probability-Basics.Covariance-Matrix
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2022年8月実施 専門科目 S-3
 

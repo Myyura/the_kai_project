@@ -2,10 +2,10 @@
 sidebar_label: 2020年8月実施 専門科目 S-3
 tags:
   - Kyoto-University
-  - Probability-Statistics.Statistical-Inference.Simple-Linear-Regression
-  - Probability-Statistics.Statistical-Inference.Least-Squares-Method
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Simple-Linear-Regression
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Method
   - Data-Science-Artificial-Intelligence.Machine-Learning.Covariate-Shift-and-Importance-Weighting
-  - Probability-Statistics.Statistical-Inference.Weighted-Least-Squares
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Weighted-Least-Squares
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2020年8月実施 専門科目 S-3
 
