@@ -2,10 +2,10 @@
 sidebar_label: 2024年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
-  - Probability-Statistics.Statistical-Inference.Unbiased-Estimation
-  - Probability-Statistics.Statistical-Inference.Minimum-Variance-Unbiased-Estimator
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Probability-and-Statistics-Basics.Pareto-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Minimum-Variance-Unbiased-Estimator
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Pareto-Distribution
   - Computer-Science.Information-Theory.Kullback-Leibler-Divergence
   - Computer-Science.Information-Theory.Renyi-Entropy
 ---

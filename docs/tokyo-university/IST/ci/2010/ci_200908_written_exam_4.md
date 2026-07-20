@@ -2,7 +2,7 @@
 sidebar_label: '2009年8月実施 筆記試験 第4問'
 tags:
   - Tokyo-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Bayes-Theorem
+  - Probability-Statistics.Probability-Basics.Bayes-Theorem
   - Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree
   - Electrical-Electronic.Communications.Spread-Spectrum-Communication
   - Computer-Science.Databases.Relational-Database-Normalization

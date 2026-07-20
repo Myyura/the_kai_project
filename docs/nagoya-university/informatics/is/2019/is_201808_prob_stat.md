@@ -2,10 +2,10 @@
 sidebar_label: "2018年8月実施 確率・統計"
 tags:
   - Nagoya-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Bayes-Theorem
-  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability
-  - Probability-Statistics.Probability-and-Statistics-Basics.Cumulative-Distribution-Function-and-Probability-Density-Function
-  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
+  - Probability-Statistics.Probability-Basics.Bayes-Theorem
+  - Probability-Statistics.Probability-Basics.Conditional-Probability
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2018年8月実施 確率・統計
 

@@ -62,10 +62,11 @@
 .heroGradient {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(var(--kai-brand-bright-rgb), 0.16), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(var(--kai-brand-rgb), 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(var(--kai-brand-rgb), 0.08), transparent);
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(78, 186, 161, 0.1), transparent),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(255, 182, 185, 0.1), transparent),
+    linear-gradient(180deg, #fafafa 0%, #f5f5f7 100%);
 }
 
 [data-theme='dark'] .heroGradient {
@@ -133,7 +134,7 @@
   line-height: 1.2;
   margin: 0 0 1.5rem;
   padding-bottom: 0.05em;
-  background: linear-gradient(135deg, var(--kai-text-primary) 0%, var(--kai-brand) 100%);
+  background: linear-gradient(135deg, #1d1d1f 0%, #424245 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -161,7 +162,7 @@
 
 .heroDescription {
   font-size: 1.25rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   max-width: 600px;
   margin: 0 auto 3rem;
   line-height: 1.5;
@@ -184,7 +185,7 @@
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: 500;
-  border-radius: var(--kai-radius-full);
+  border-radius: 980px;
   text-decoration: none;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
@@ -192,32 +193,34 @@
 }
 
 .primaryBtn {
-  background: linear-gradient(135deg, var(--kai-brand), var(--kai-brand-bright));
-  color: var(--ifm-color-primary-contrast-foreground) !important;
-  box-shadow: var(--kai-shadow-glow);
+  background: var(--ifm-color-primary);
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(var(--theme-accent-rgb), 0.4);
 }
 
 .primaryBtn:hover {
   transform: scale3d(1.02, 1.02, 1);
-  filter: brightness(1.06);
-  box-shadow: 0 16px 42px rgba(var(--kai-brand-rgb), 0.42);
-  color: var(--ifm-color-primary-contrast-foreground) !important;
+  box-shadow: 0 6px 20px rgba(var(--theme-accent-rgb), 0.5);
+  color: white !important;
   text-decoration: none;
 }
 
 .secondaryBtn {
-  background: var(--kai-glass-bg-strong);
-  -webkit-backdrop-filter: var(--kai-glass-blur-sm);
-  backdrop-filter: var(--kai-glass-blur-sm);
-  border: 1px solid var(--kai-glass-border-strong);
-  color: var(--kai-text-primary) !important;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--ifm-font-color-base) !important;
+}
+
+[data-theme='dark'] .secondaryBtn {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .secondaryBtn:hover {
-  border-color: var(--kai-brand);
-  color: var(--kai-brand) !important;
-  box-shadow: var(--kai-shadow-md);
+  background: rgba(0, 0, 0, 0.1);
   text-decoration: none;
+}
+
+[data-theme='dark'] .secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* 进度按钮 - Hero CTA */
@@ -228,18 +231,18 @@
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: 500;
-  border-radius: var(--kai-radius-full);
+  border-radius: 980px;
   text-decoration: none;
   transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1),
               border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(16, 185, 129, 0.08);
-  color: var(--kai-success) !important;
+  color: #059669 !important;
   border: 1.5px solid rgba(16, 185, 129, 0.25);
 }
 
 [data-theme='dark'] .progressBtn {
   background: rgba(16, 185, 129, 0.1);
-  color: var(--kai-success) !important;
+  color: #6ee7b7 !important;
   border-color: rgba(110, 231, 183, 0.2);
 }
 
@@ -287,7 +290,7 @@
 
 .statLabel {
   font-size: 0.95rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   margin-top: 0.25rem;
 }
 
@@ -338,7 +341,7 @@
 
 .heroProgressIcon {
   font-size: 0.9em;
-  color: var(--kai-success);
+  color: #10b981;
   flex-shrink: 0;
 }
 
@@ -381,28 +384,33 @@
 .heroProgressBarFill {
   display: block;
   height: 100%;
-  background: var(--kai-success);
+  background: #10b981;
   border-radius: 999px;
   transition: width 0.5s ease;
 }
 
 .heroProgressArrow {
   font-size: 0.75em;
-  color: var(--kai-text-muted);
+  color: #86868b;
   transition: transform 0.25s;
   flex-shrink: 0;
 }
 
 .heroProgressCallout:hover .heroProgressArrow {
   transform: translateX(3px);
-  color: var(--kai-success);
+  color: #10b981;
 }
 
 /* ===== 特性高亮区域 ===== */
 .highlightsSection {
   padding: 8rem 2rem;
+  background: #f5f5f7;
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
+}
+
+[data-theme='dark'] .highlightsSection {
+  background: #081d3b;
 }
 
 .sectionTitle {
@@ -417,7 +425,7 @@
 .sectionSubtitle {
   text-align: center;
   font-size: 1.1rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   max-width: 600px;
   margin: -3rem auto 4rem;
 }
@@ -431,25 +439,29 @@
 }
 
 .highlightCard {
-  background: var(--kai-glass-bg);
-  -webkit-backdrop-filter: var(--kai-glass-blur-sm);
-  backdrop-filter: var(--kai-glass-blur-sm);
-  border: 1px solid var(--kai-glass-border);
-  border-radius: var(--kai-radius-lg);
+  background: white;
+  border-radius: 24px;
   padding: 2.5rem;
   position: relative;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.6s ease-out backwards;
-  box-shadow: var(--kai-shadow-sm);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
   contain: layout style;
+}
+
+[data-theme='dark'] .highlightCard {
+  background: #0b284d;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .highlightCard:hover {
   transform: translate3d(0, -8px, 0);
-  box-shadow: var(--kai-shadow-lg);
-  border-color: var(--kai-glass-border-strong);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .highlightCard:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .highlightIndex {
@@ -484,7 +496,7 @@
 
 .highlightDescription {
   font-size: 1rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   line-height: 1.6;
   margin: 0;
 }
@@ -492,8 +504,13 @@
 /* ===== 社区入口区域 ===== */
 .communitySection {
   padding: 0 2rem 8rem;
+  background: #f5f5f7;
   content-visibility: auto;
   contain-intrinsic-size: auto 400px;
+}
+
+[data-theme='dark'] .communitySection {
+  background: #081d3b;
 }
 
 .communityCard {
@@ -507,12 +524,16 @@
   margin: 0 auto;
   padding: 3.5rem;
   overflow: hidden;
-  border: 1px solid var(--kai-glass-border-strong);
-  border-radius: var(--kai-radius-xl);
-  background: var(--kai-glass-bg);
-  -webkit-backdrop-filter: var(--kai-glass-blur);
-  backdrop-filter: var(--kai-glass-blur);
-  box-shadow: var(--kai-shadow-md);
+  border: 1px solid rgba(var(--theme-accent-rgb), 0.14);
+  border-radius: 28px;
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8f4 100%);
+  box-shadow: 0 18px 60px rgba(var(--theme-accent-rgb), 0.08);
+}
+
+[data-theme='dark'] .communityCard {
+  border-color: rgba(53, 198, 217, 0.14);
+  background: #0b284d;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .communityGlow {
@@ -566,13 +587,13 @@
 .communityDescription {
   max-width: 620px;
   margin: 0;
-  color: var(--kai-text-secondary);
+  color: #68686d;
   font-size: 1.05rem;
   line-height: 1.7;
 }
 
 [data-theme='dark'] .communityDescription {
-  color: var(--kai-text-secondary);
+  color: #a1a1a6;
 }
 
 .communityTopics {
@@ -586,16 +607,16 @@
   padding: 0.4rem 0.75rem;
   border: 1px solid rgba(var(--theme-accent-rgb), 0.13);
   border-radius: 999px;
-  color: var(--kai-text-secondary);
+  color: #68686d;
   background: rgba(255, 255, 255, 0.72);
   font-size: 0.8rem;
   font-weight: 500;
 }
 
 [data-theme='dark'] .communityTopic {
-  border-color: var(--kai-glass-border);
-  color: var(--kai-text-secondary);
-  background: var(--kai-glass-bg);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #c7c7cc;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .communityActions {
@@ -620,16 +641,26 @@
 }
 
 .discordBtn {
-  color: var(--ifm-color-primary-contrast-foreground) !important;
-  background: linear-gradient(135deg, var(--kai-brand), var(--kai-brand-bright));
-  box-shadow: var(--kai-shadow-glow);
+  color: white !important;
+  background: var(--ifm-color-primary);
+  box-shadow: 0 10px 24px rgba(var(--theme-accent-rgb), 0.28);
 }
 
 .discordBtn:hover {
   transform: translate3d(0, -3px, 0);
-  filter: brightness(1.06);
-  color: var(--ifm-color-primary-contrast-foreground) !important;
-  box-shadow: 0 16px 42px rgba(var(--kai-brand-rgb), 0.4);
+  color: white !important;
+  background: var(--ifm-color-primary-dark);
+  box-shadow: 0 14px 30px rgba(var(--theme-accent-rgb), 0.36);
+}
+
+[data-theme='dark'] .discordBtn {
+  background: var(--kai-action);
+  box-shadow: 0 4px 14px rgba(53, 198, 217, 0.22);
+}
+
+[data-theme='dark'] .discordBtn:hover {
+  background: #1378e4;
+  box-shadow: 0 8px 22px rgba(53, 198, 217, 0.3);
 }
 
 .qqBtn {
@@ -688,8 +719,13 @@
 /* ===== 大学列表区域 ===== */
 .universitySection {
   padding: 8rem 2rem;
+  background: white;
   content-visibility: auto;
   contain-intrinsic-size: auto 800px;
+}
+
+[data-theme='dark'] .universitySection {
+  background: var(--kai-navy-950);
 }
 
 /* 筛选栏 */
@@ -702,12 +738,10 @@
 .filterSelect {
   padding: 0.875rem 2.5rem 0.875rem 1.25rem;
   font-size: 1rem;
-  border: 1px solid var(--kai-glass-border-strong);
-  border-radius: var(--kai-radius-sm);
-  background: var(--kai-glass-bg-strong);
-  -webkit-backdrop-filter: var(--kai-glass-blur-sm);
-  backdrop-filter: var(--kai-glass-blur-sm);
-  color: var(--kai-text-primary);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: white;
+  color: var(--ifm-font-color-base);
   cursor: pointer;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2386868b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
@@ -715,6 +749,11 @@
   background-position: right 1rem center;
   transition: all 0.2s;
   min-width: 200px;
+}
+
+[data-theme='dark'] .filterSelect {
+  background-color: #0a2345;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .filterSelect:hover {
@@ -736,22 +775,26 @@
 }
 
 .universityCard {
-  background: var(--kai-glass-bg);
-  -webkit-backdrop-filter: var(--kai-glass-blur-sm);
-  backdrop-filter: var(--kai-glass-blur-sm);
-  border: 1px solid var(--kai-glass-border);
-  border-radius: var(--kai-radius-md);
+  background: #f5f5f7;
+  border-radius: 16px;
   overflow: hidden;
-  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   animation: scaleIn 0.4s ease-out backwards;
   break-inside: avoid;
   margin-bottom: 1.5rem;
   contain: layout style;
 }
 
+[data-theme='dark'] .universityCard {
+  background: #0a2345;
+}
+
 .universityCard:hover {
-  box-shadow: var(--kai-shadow-lg);
-  border-color: var(--kai-glass-border-strong);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .universityCard:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .univHeader {
@@ -785,7 +828,7 @@
 }
 
 .univToggle {
-  color: var(--kai-text-muted);
+  color: #86868b;
   font-size: 0.75rem;
   transition: transform 0.3s;
 }
@@ -831,7 +874,7 @@
 
 .linkIcon {
   font-size: 0.75rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   opacity: 0;
   transition: all 0.2s;
 }
@@ -883,7 +926,7 @@
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--kai-success);
+  color: #059669;
   background: rgba(16, 185, 129, 0.12);
   padding: 0.2rem 0.65rem;
   border-radius: 999px;
@@ -891,7 +934,7 @@
 }
 
 [data-theme='dark'] .progressBannerBadge {
-  color: var(--kai-success);
+  color: #6ee7b7;
   background: rgba(16, 185, 129, 0.18);
 }
 
@@ -920,9 +963,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  background: var(--kai-success);
+  background: #059669;
   color: white !important;
-  border-radius: var(--kai-radius-full);
+  border-radius: 980px;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none !important;
@@ -1023,7 +1066,7 @@
 
 .progressMiniBarFill {
   height: 100%;
-  background: var(--kai-success);
+  background: #10b981;
   border-radius: 999px;
   transition: width 0.5s ease;
 }
@@ -1053,9 +1096,14 @@
 /* ===== CTA 区域 ===== */
 .ctaSection {
   padding: 10rem 2rem;
+  background: linear-gradient(180deg, #f5f5f7 0%, white 100%);
   text-align: center;
   content-visibility: auto;
   contain-intrinsic-size: auto 500px;
+}
+
+[data-theme='dark'] .ctaSection {
+  background: linear-gradient(180deg, #081d3b 0%, var(--kai-navy-950) 100%);
 }
 
 .ctaInner {
@@ -1073,7 +1121,7 @@
 
 .ctaDescription {
   font-size: 1.25rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   margin: 0 0 3rem;
   line-height: 1.5;
 }
@@ -1093,7 +1141,7 @@
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: 500;
-  border-radius: var(--kai-radius-full);
+  border-radius: 980px;
   text-decoration: none !important;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
@@ -1101,15 +1149,14 @@
 }
 
 .ctaPrimaryBtn {
-  background: linear-gradient(135deg, var(--kai-brand), var(--kai-brand-bright));
-  color: var(--ifm-color-primary-contrast-foreground) !important;
-  box-shadow: var(--kai-shadow-glow);
+  background: var(--ifm-color-primary);
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(var(--theme-accent-rgb), 0.4);
 }
 
 .ctaPrimaryBtn:hover {
   transform: scale3d(1.02, 1.02, 1);
-  filter: brightness(1.06);
-  box-shadow: 0 16px 42px rgba(var(--kai-brand-rgb), 0.42);
+  box-shadow: 0 6px 20px rgba(var(--theme-accent-rgb), 0.5);
 }
 
 .ctaSecondaryBtn {
@@ -1139,24 +1186,24 @@
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: 500;
-  border-radius: var(--kai-radius-full);
+  border-radius: 980px;
   text-decoration: none !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(16, 185, 129, 0.12);
-  color: var(--kai-success) !important;
+  color: #059669 !important;
   border: 2px solid rgba(16, 185, 129, 0.3);
 }
 
 [data-theme='dark'] .ctaProgressBtn {
   background: rgba(16, 185, 129, 0.12);
-  color: var(--kai-success) !important;
+  color: #6ee7b7 !important;
   border-color: rgba(110, 231, 183, 0.3);
 }
 
 .ctaProgressBtn:hover {
   transform: scale(1.02);
   background: rgba(16, 185, 129, 0.2);
-  border-color: var(--kai-success);
+  border-color: #059669;
 }
 
 /* ===== 减少动画（无障碍 + 低端设备）===== */

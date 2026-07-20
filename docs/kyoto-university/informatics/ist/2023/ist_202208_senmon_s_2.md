@@ -2,12 +2,12 @@
 sidebar_label: "2022年8月実施 専門科目 S-2"
 tags:
   - Kyoto-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
-  - Probability-Statistics.Probability-and-Statistics-Basics.Sum-of-Independent-Poisson-Variables
-  - Probability-Statistics.Statistical-Inference.Regression-through-the-Origin
-  - Probability-Statistics.Statistical-Inference.Least-Squares-Residual-Orthogonality
-  - Probability-Statistics.Statistical-Inference.Positive-Predictive-Value-of-Significant-Results
-  - Probability-Statistics.Statistical-Inference.Independent-Replication-and-Posterior-Odds
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
+  - Probability-Statistics.Probability-Basics.Sum-of-Independent-Poisson-Variables
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Regression-through-the-Origin
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Residual-Orthogonality
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Positive-Predictive-Value-of-Significant-Results
+  - Probability-Statistics.Bayesian-Statistics.Independent-Replication-and-Posterior-Odds
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2022年8月実施 専門科目 S-2
 

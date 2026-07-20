@@ -1,5 +1,5 @@
 /**
- * 过去问数据库落地页 · Kai Glass
+ * Apple-Style Intro Page Design
  */
 
 /* ===== 动画 ===== */
@@ -16,9 +16,9 @@
 
 /* ===== 页面容器 ===== */
 .introPage {
-  width: min(1140px, calc(100% - 2rem));
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 0 4rem;
+  padding: 0 1.5rem 4rem;
 }
 
 /* ===== 页面头部 ===== */
@@ -33,16 +33,16 @@
 }
 
 .pageTitle {
-  font-size: clamp(1.6rem, 4vw, 2rem) !important;
+  font-size: 1.75rem !important;
   font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0 0 0.5rem;
-  color: var(--kai-text-primary);
+  color: var(--ifm-font-color-base);
 }
 
 .pageSubtitle {
   font-size: 1rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   margin: 0;
 }
 
@@ -51,7 +51,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  opacity: 0.75;
+  opacity: 0.7;
   transition: opacity 0.3s;
 }
 
@@ -63,27 +63,25 @@
   background: none;
   border: none;
   font-size: 0.875rem;
-  color: var(--kai-text-primary);
+  color: var(--ifm-font-color-base);
   cursor: pointer;
   padding: 0.25rem 0.5rem;
-  opacity: 0.55;
-  transition: var(--kai-transition-fast);
+  opacity: 0.5;
+  transition: all 0.2s;
 }
 
 .langBtn:hover {
-  opacity: 0.85;
-  color: var(--kai-brand);
+  opacity: 0.8;
 }
 
 .langBtnActive {
   opacity: 1;
-  font-weight: 700;
-  color: var(--kai-brand);
+  font-weight: 600;
 }
 
 .langDivider {
-  color: var(--kai-text-muted);
-  opacity: 0.5;
+  color: var(--ifm-font-color-base);
+  opacity: 0.3;
 }
 
 /* ===== 大学网格区域 ===== */
@@ -103,55 +101,54 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 1.25rem;
-  background: var(--kai-glass-bg);
-  -webkit-backdrop-filter: var(--kai-glass-blur-sm);
-  backdrop-filter: var(--kai-glass-blur-sm);
-  border: 1px solid var(--kai-glass-border);
-  border-radius: var(--kai-radius-md);
-  box-shadow: var(--kai-shadow-sm);
+  background: #f5f5f7;
+  border-radius: 12px;
   text-decoration: none !important;
-  color: var(--kai-text-primary) !important;
-  transition: var(--kai-transition);
+  color: var(--ifm-font-color-base) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.5s ease-out backwards;
 }
 
+[data-theme='dark'] .schoolCard {
+  background: #1d1d1f;
+}
+
 .schoolCard:hover {
-  background: var(--kai-glass-bg-strong);
-  border-color: var(--kai-glass-border-strong);
-  box-shadow: var(--kai-shadow-md);
+  background: #e8e8ed;
   transform: translateX(4px);
 }
 
+[data-theme='dark'] .schoolCard:hover {
+  background: #2d2d2f;
+}
+
 .schoolTag {
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 0.24rem 0.6rem;
-  background: rgba(var(--kai-brand-rgb), 0.12);
-  border: 1px solid rgba(var(--kai-brand-rgb), 0.2);
-  color: var(--kai-brand);
-  border-radius: var(--kai-radius-full);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border-radius: 4px;
   flex-shrink: 0;
-  white-space: nowrap;
 }
 
 .schoolName {
   flex: 1;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.95rem;
 }
 
 .schoolArrow {
   font-size: 0.75rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   opacity: 0;
   transform: translateX(-4px);
-  transition: var(--kai-transition-fast);
+  transition: all 0.25s;
 }
 
 .schoolCard:hover .schoolArrow {
   opacity: 1;
   transform: translateX(0);
-  color: var(--kai-brand);
 }
 
 /* ===== 信息区域 ===== */
@@ -167,20 +164,20 @@
 
 /* ===== 信息卡片 ===== */
 .infoCard {
-  background: var(--kai-glass-bg);
-  -webkit-backdrop-filter: var(--kai-glass-blur-sm);
-  backdrop-filter: var(--kai-glass-blur-sm);
-  border: 1px solid var(--kai-glass-border);
-  border-radius: var(--kai-radius-lg);
-  box-shadow: var(--kai-shadow-sm);
+  background: #f5f5f7;
+  border-radius: 20px;
   padding: 2rem;
   text-align: center;
   animation: fadeInUp 0.6s ease-out backwards;
 }
 
+[data-theme='dark'] .infoCard {
+  background: #1d1d1f;
+}
+
 .infoIcon {
   font-size: 2rem;
-  color: var(--kai-brand);
+  color: var(--ifm-color-primary);
   margin-bottom: 1rem;
 }
 
@@ -188,12 +185,12 @@
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0 0 0.5rem;
-  color: var(--kai-text-primary);
+  color: var(--ifm-font-color-base);
 }
 
 .infoDesc {
   font-size: 0.9rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   margin: 0 0 1.25rem;
 }
 
@@ -208,58 +205,67 @@
   align-items: center;
   justify-content: center;
   padding: 0.6rem 1rem;
-  background: var(--kai-glass-bg-strong);
-  border: 1px solid var(--kai-glass-border);
-  border-radius: var(--kai-radius-sm);
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--kai-text-primary) !important;
+  color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
-  transition: var(--kai-transition-fast);
+  transition: all 0.2s;
+}
+
+[data-theme='dark'] .infoLink {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .infoLink:hover {
-  background: linear-gradient(135deg, var(--kai-brand), var(--kai-brand-bright));
-  border-color: transparent;
-  color: var(--ifm-color-primary-contrast-foreground) !important;
-  box-shadow: var(--kai-shadow-glow);
+  background: var(--ifm-color-primary);
+  color: white !important;
 }
 
 /* ===== 页脚 ===== */
 .pageFooter {
   text-align: center;
   padding-top: 2rem;
-  border-top: 1px solid var(--kai-glass-border);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] .pageFooter {
+  border-top-color: rgba(255, 255, 255, 0.06);
 }
 
 .pageFooter p {
   font-size: 0.85rem;
-  color: var(--kai-text-muted);
+  color: #86868b;
   margin: 0;
 }
 
 /* ===== 响应式 ===== */
 @media (max-width: 768px) {
   .introPage {
-    padding: 0 0 3rem;
+    padding: 1rem 1rem 3rem;
   }
-
+  
   .pageHeader {
     padding: 0.5rem 0 1.5rem;
   }
-
+  
+  .pageTitle {
+    font-size: 1.5rem !important;
+  }
+  
   .pageSubtitle {
     font-size: 0.9rem;
   }
-
+  
   .schoolGrid {
     grid-template-columns: 1fr;
   }
-
+  
   .infoGrid {
     grid-template-columns: 1fr;
   }
-
+  
   .infoCard {
     padding: 1.5rem;
   }

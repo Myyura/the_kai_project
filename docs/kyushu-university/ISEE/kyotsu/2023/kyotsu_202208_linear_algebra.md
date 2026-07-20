@@ -2,7 +2,7 @@
 sidebar_label: 2022年8月実施 線形代数
 tags:
   - Kyushu-University
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Laplacian
+  - Discrete-Mathematics.Graph-Theory.Graph-Laplacian
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2022年8月実施 線形代数

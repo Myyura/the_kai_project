@@ -2,10 +2,10 @@
 sidebar_label: "2018年7月実施 オペレーションズリサーチ 問題9"
 tags:
   - Waseda-University
-  - Operations-Research.Optimization.Simplex-Method
-  - Operations-Research.Optimization.Linear-Programming-Duality
+  - Operations-Research.Linear-Programming.Simplex-Method
+  - Operations-Research.Linear-Programming.Linear-Programming-Duality
   - Operations-Research.Decision-Analysis.Sensitivity-Analysis
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Traveling-Salesman-Problem
+  - Operations-Research.Combinatorial-Optimization.Traveling-Salesman-Problem
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2018年7月実施 オペレーションズリサーチ 問題9

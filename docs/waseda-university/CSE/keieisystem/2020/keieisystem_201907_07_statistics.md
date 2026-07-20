@@ -3,9 +3,9 @@ sidebar_label: "2019年7月実施 統計科学 問題7"
 tags:
   - Waseda-University
   - Mathematics.Calculus.Double-Integral
-  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density
-  - Probability-Statistics.Statistical-Inference.Analysis-of-Variance
-  - Probability-Statistics.Statistical-Inference.Mahalanobis-Distance
+  - Probability-Statistics.Probability-Basics.Conditional-Density
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Analysis-of-Variance
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Mahalanobis-Distance
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2019年7月実施 統計科学 問題7

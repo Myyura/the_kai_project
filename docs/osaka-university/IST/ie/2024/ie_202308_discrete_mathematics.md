@@ -2,7 +2,7 @@
 sidebar_label: 2023年8月実施 離散構造
 tags:
   - Osaka-University
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Graph-Isomorphism
+  - Discrete-Mathematics.Graph-Theory.Graph-Isomorphism
   - Discrete-Mathematics.Combinatorics
 ---
 # 大阪大学 情報科学研究科 情報工学 2023年8月実施 離散構造

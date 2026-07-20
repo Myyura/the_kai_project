@@ -2,9 +2,9 @@
 sidebar_label: "2020年8月実施 専門科目 問題4"
 tags:
   - Tokyo-University
-  - Probability-Statistics.Statistical-Inference.Ordinary-Least-Squares-Normal-Equation-and-Singular-Design
-  - Probability-Statistics.Statistical-Inference.Expected-Ordinary-Least-Squares-Loss-and-Variance-Trace
-  - Probability-Statistics.Statistical-Inference.Ridge-Regularization-for-Singular-Design
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Ordinary-Least-Squares-Normal-Equation-and-Singular-Design
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Expected-Ordinary-Least-Squares-Loss-and-Variance-Trace
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Ridge-Regularization-for-Singular-Design
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2020年8月実施 専門科目 問題4
 

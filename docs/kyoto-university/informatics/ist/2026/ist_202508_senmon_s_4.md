@@ -4,7 +4,7 @@ tags:
   - Kyoto-University
   - Electrical-Electronic.Signal-Processing.Z-Transform
   - Electrical-Electronic.Signal-Processing.Wiener-Filter
-  - Probability-Statistics.Statistical-Inference.Mean-Squared-Error
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Mean-Squared-Error
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2025年8月実施 専門科目 S-4
 

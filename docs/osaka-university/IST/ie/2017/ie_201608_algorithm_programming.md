@@ -2,7 +2,7 @@
 sidebar_label: 2016年8月実施 アルゴリズムとプログラミング
 tags:
   - Osaka-University
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
+  - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
   - Computer-Science.Programming
 ---
 # 大阪大学 情報科学研究科 情報工学 2016年8月実施 アルゴリズムとプログラミング

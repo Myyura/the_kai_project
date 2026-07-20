@@ -4,19 +4,64 @@
     "labelZh": "运筹与优化",
     "labelJa": "オペレーションズ・リサーチ",
     "labelEn": "Operations Research",
-    "descriptionZh": "线性与连续优化、排队论、博弈论、库存管理与决策分析。",
-    "descriptionJa": "線形・連続最適化、待ち行列、ゲーム理論、在庫管理、意思決定分析。",
-    "descriptionEn": "Linear and continuous optimization, queueing theory, game theory, inventory management, and decision analysis."
+    "descriptionZh": "优化基础、线性规划、凸优化、非线性优化、组合优化、元启发式、排队论、博弈论、库存管理与决策分析。",
+    "descriptionJa": "最適化基礎、線形計画、凸最適化、非線形最適化、組合せ最適化、メタヒューリスティクス、待ち行列理論、ゲーム理論、在庫管理、意思決定分析。",
+    "descriptionEn": "Optimization basics, linear, convex, nonlinear and combinatorial optimization, metaheuristics, queueing theory, game theory, inventory management, and decision analysis."
   },
   "subsubjects": {
-    "Operations-Research.Optimization": {
+    "Operations-Research.Optimization-Basics": {
       "subject": "Operations-Research",
-      "labelZh": "优化与运筹",
-      "labelJa": "最適化・OR",
-      "labelEn": "Optimization",
-      "descriptionZh": "线性规划、优化建模、运输问题与经典 OR 求解方法；离散组合优化归入“图论与组合优化”。",
-      "descriptionJa": "線形計画、最適化モデリング、輸送問題、古典的なOR解法。離散的な組合せ最適化は「グラフ理論・組合せ最適化」に分類する。",
-      "descriptionEn": "Linear programming, optimization modeling, transportation problems, and classic OR solution methods. Discrete combinatorial optimization lives under Graph Theory & Combinatorial Optimization."
+      "labelZh": "优化基础",
+      "labelJa": "最適化基礎",
+      "labelEn": "Optimization Basics",
+      "descriptionZh": "优化模型、参数化问题、值函数、罚函数与灵敏度分析等基础概念。",
+      "descriptionJa": "最適化モデル、パラメトリック問題、価値関数、ペナルティ法、感度分析などの基礎概念。",
+      "descriptionEn": "Foundational concepts including optimization models, parametric problems, value functions, penalty methods, and sensitivity analysis."
+    },
+    "Operations-Research.Linear-Programming": {
+      "subject": "Operations-Research",
+      "labelZh": "线性规划",
+      "labelJa": "線形計画",
+      "labelEn": "Linear Programming",
+      "descriptionZh": "线性规划建模、对偶、单纯形法、运输问题、互补松弛与内点相关方法。",
+      "descriptionJa": "線形計画モデリング、双対性、単体法、輸送問題、相補性、内点関連手法。",
+      "descriptionEn": "Linear programming models, duality, simplex methods, transportation problems, complementarity, and related solution methods."
+    },
+    "Operations-Research.Convex-Optimization": {
+      "subject": "Operations-Research",
+      "labelZh": "凸优化",
+      "labelJa": "凸最適化",
+      "labelEn": "Convex Optimization",
+      "descriptionZh": "凸集与凸函数、最优性条件、对偶几何、投影与一阶优化方法。",
+      "descriptionJa": "凸集合と凸関数、最適性条件、双対幾何、射影、一階最適化法。",
+      "descriptionEn": "Convex sets and functions, optimality conditions, dual geometry, projection, and first-order methods."
+    },
+    "Operations-Research.Nonlinear-Optimization": {
+      "subject": "Operations-Research",
+      "labelZh": "非线性优化",
+      "labelJa": "非線形最適化",
+      "labelEn": "Nonlinear Optimization",
+      "descriptionZh": "二次规划、信赖域、正交约束及一般非线性优化问题。",
+      "descriptionJa": "二次計画、信頼領域、直交制約、一般の非線形最適化問題。",
+      "descriptionEn": "Quadratic programming, trust regions, orthogonality constraints, and general nonlinear optimization problems."
+    },
+    "Operations-Research.Combinatorial-Optimization": {
+      "subject": "Operations-Research",
+      "labelZh": "组合优化",
+      "labelJa": "組合せ最適化",
+      "labelEn": "Combinatorial Optimization",
+      "descriptionZh": "最大流、匹配、最短路、最小生成树、旅行商、分支定界与其他离散优化问题。",
+      "descriptionJa": "最大フロー、マッチング、最短路、最小全域木、巡回セールスマン、分枝限定法などの離散最適化問題。",
+      "descriptionEn": "Discrete optimization problems including maximum flow, matching, shortest paths, minimum spanning trees, traveling salesperson, and branch and bound."
+    },
+    "Operations-Research.Metaheuristics": {
+      "subject": "Operations-Research",
+      "labelZh": "元启发式优化",
+      "labelJa": "メタヒューリスティクス",
+      "labelEn": "Metaheuristics",
+      "descriptionZh": "模拟退火等面向复杂搜索空间的随机化近似优化方法。",
+      "descriptionJa": "焼きなまし法など、複雑な探索空間を扱う確率的近似最適化手法。",
+      "descriptionEn": "Randomized approximate optimization methods for complex search spaces, including simulated annealing."
     },
     "Operations-Research.Queueing-Theory": {
       "subject": "Operations-Research",
@@ -56,7 +101,12 @@
     }
   },
   "subsubjectOrder": [
-    "Operations-Research.Optimization",
+    "Operations-Research.Optimization-Basics",
+    "Operations-Research.Linear-Programming",
+    "Operations-Research.Convex-Optimization",
+    "Operations-Research.Nonlinear-Optimization",
+    "Operations-Research.Combinatorial-Optimization",
+    "Operations-Research.Metaheuristics",
     "Operations-Research.Queueing-Theory",
     "Operations-Research.Game-Theory",
     "Operations-Research.Inventory-Management",
@@ -129,222 +179,6 @@
     "Operations-Research.Inventory-Management.Quantity-Discount": {
       "subsubject": "Operations-Research.Inventory-Management"
     },
-    "Operations-Research.Optimization.Orthogonal-Procrustes-via-Singular-Value-Decomposition": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics",
-        "Data-Science-Artificial-Intelligence"
-      ],
-      "aliases": [
-        "Operations-Research.Optimization.Orthogonal-Procrustes-via-SVD"
-      ]
-    },
-    "Operations-Research.Optimization.Accelerated-Gradient-Flow-and-Discrete-Lyapunov-Rate": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Probability-Simplex-Optimization": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Probability-Statistics",
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Minimax-Number-Partitioning-Approximation": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Computer-Science",
-        "Discrete-Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Simulated-Annealing": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Computer-Science",
-        "Probability-Statistics"
-      ]
-    },
-    "Operations-Research.Optimization.Branch-and-Bound": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Computer-Science"
-      ],
-      "aliases": [
-        "Operations-Research.Optimization.Branch-And-Bound"
-      ]
-    },
-    "Operations-Research.Optimization.Complementary-Slackness": {
-      "subsubject": "Operations-Research.Optimization"
-    },
-    "Operations-Research.Optimization.Convex-First-Order-Optimality": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Interior-Point-Method": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Affine-Scaling-Method": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Isotonic-Regression-and-Pool-Adjacent-Violators": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Probability-Statistics",
-        "Computer-Science"
-      ]
-    },
-    "Operations-Research.Optimization.Projection-Theorem-for-Closed-Convex-Sets": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Separating-Hyperplane-Theorem": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Farkas-Lemma": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Convex-Optimization": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Strong-Convexity-and-Concavity": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Jensen-Inequality": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Arithmetic-Mean-Geometric-Mean-Inequality-via-Optimization": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "aliases": [
-        "Operations-Research.Optimization.AM-GM-Inequality-via-Optimization"
-      ]
-    },
-    "Operations-Research.Optimization.Convexity-of-Power-Compositions": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Karush-Kuhn-Tucker-Conditions": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "aliases": [
-        "Operations-Research.Optimization.KKT-Conditions"
-      ]
-    },
-    "Operations-Research.Optimization.One-Norm-Minimization": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Data-Science-Artificial-Intelligence"
-      ],
-      "aliases": [
-        "Operations-Research.Optimization.L1-Norm-Minimization"
-      ]
-    },
-    "Operations-Research.Optimization.Linear-Programming": {
-      "subsubject": "Operations-Research.Optimization"
-    },
-    "Operations-Research.Optimization.Linear-Programming-Duality": {
-      "subsubject": "Operations-Research.Optimization"
-    },
-    "Operations-Research.Optimization.Parametric-Linear-Programming": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Parametric-Optimization-and-Value-Function": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Optimization-over-Convex-Hull": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Penalty-Method": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Projected-Gradient-Method": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Quadratic-Programming": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Trust-Region-Subproblem": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Quadratic-Convexification": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Mathematics"
-      ]
-    },
-    "Operations-Research.Optimization.Simplex-Method": {
-      "subsubject": "Operations-Research.Optimization"
-    },
-    "Operations-Research.Optimization.Sensitivity-Analysis": {
-      "subsubject": "Operations-Research.Optimization"
-    },
-    "Operations-Research.Optimization.Stepping-Stone-Method": {
-      "subsubject": "Operations-Research.Optimization"
-    },
-    "Operations-Research.Optimization.Transportation-Problem": {
-      "subsubject": "Operations-Research.Optimization"
-    },
-    "Operations-Research.Optimization.Total-Unimodularity-and-Integrality": {
-      "subsubject": "Operations-Research.Optimization",
-      "relatedSubjects": [
-        "Graph-Theory-Combinatorial-Optimization",
-        "Discrete-Mathematics"
-      ]
-    },
     "Operations-Research.Queueing-Theory.Average-Waiting-Time": {
       "subsubject": "Operations-Research.Queueing-Theory",
       "relatedSubjects": [
@@ -374,6 +208,257 @@
       "subsubject": "Operations-Research.Queueing-Theory",
       "relatedSubjects": [
         "Computer-Science"
+      ]
+    },
+    "Operations-Research.Nonlinear-Optimization.Orthogonal-Procrustes-via-Singular-Value-Decomposition": {
+      "subsubject": "Operations-Research.Nonlinear-Optimization",
+      "relatedSubjects": [
+        "Mathematics",
+        "Data-Science-Artificial-Intelligence"
+      ],
+      "aliases": [
+        "Operations-Research.Nonlinear-Optimization.Orthogonal-Procrustes-via-SVD"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Accelerated-Gradient-Flow-and-Discrete-Lyapunov-Rate": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Probability-Simplex-Optimization": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Minimax-Number-Partitioning-Approximation": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Discrete-Mathematics"
+      ]
+    },
+    "Operations-Research.Metaheuristics.Simulated-Annealing": {
+      "subsubject": "Operations-Research.Metaheuristics",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Probability-Statistics"
+      ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Branch-and-Bound": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science"
+      ],
+      "aliases": [
+        "Operations-Research.Combinatorial-Optimization.Branch-And-Bound"
+      ]
+    },
+    "Operations-Research.Linear-Programming.Complementary-Slackness": {
+      "subsubject": "Operations-Research.Linear-Programming"
+    },
+    "Operations-Research.Convex-Optimization.Convex-First-Order-Optimality": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Interior-Point-Method": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Linear-Programming.Affine-Scaling-Method": {
+      "subsubject": "Operations-Research.Linear-Programming",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Isotonic-Regression-and-Pool-Adjacent-Violators": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Probability-Statistics",
+        "Computer-Science"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Projection-Theorem-for-Closed-Convex-Sets": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Separating-Hyperplane-Theorem": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Linear-Programming.Farkas-Lemma": {
+      "subsubject": "Operations-Research.Linear-Programming",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Strong-Convexity-and-Concavity": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Jensen-Inequality": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Arithmetic-Mean-Geometric-Mean-Inequality-via-Optimization": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ],
+      "aliases": [
+        "Operations-Research.Convex-Optimization.AM-GM-Inequality-via-Optimization"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Convexity-of-Power-Compositions": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Karush-Kuhn-Tucker-Conditions": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ],
+      "aliases": [
+        "Operations-Research.Convex-Optimization.KKT-Conditions"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.One-Norm-Minimization": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ],
+      "aliases": [
+        "Operations-Research.Convex-Optimization.L1-Norm-Minimization"
+      ]
+    },
+    "Operations-Research.Linear-Programming.Production-Planning": {
+      "subsubject": "Operations-Research.Linear-Programming"
+    },
+    "Operations-Research.Linear-Programming.Linear-Programming-Duality": {
+      "subsubject": "Operations-Research.Linear-Programming"
+    },
+    "Operations-Research.Linear-Programming.Parametric-Linear-Programming": {
+      "subsubject": "Operations-Research.Linear-Programming",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Optimization-Basics.Parametric-Optimization-and-Value-Function": {
+      "subsubject": "Operations-Research.Optimization-Basics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Optimization-over-Convex-Hull": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Optimization-Basics.Penalty-Method": {
+      "subsubject": "Operations-Research.Optimization-Basics",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Projected-Gradient-Method": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Nonlinear-Optimization.Quadratic-Programming": {
+      "subsubject": "Operations-Research.Nonlinear-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Nonlinear-Optimization.Trust-Region-Subproblem": {
+      "subsubject": "Operations-Research.Nonlinear-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Convex-Optimization.Quadratic-Convexification": {
+      "subsubject": "Operations-Research.Convex-Optimization",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Operations-Research.Linear-Programming.Simplex-Method": {
+      "subsubject": "Operations-Research.Linear-Programming"
+    },
+    "Operations-Research.Optimization-Basics.Sensitivity-Analysis": {
+      "subsubject": "Operations-Research.Optimization-Basics"
+    },
+    "Operations-Research.Linear-Programming.Stepping-Stone-Method": {
+      "subsubject": "Operations-Research.Linear-Programming"
+    },
+    "Operations-Research.Linear-Programming.Transportation-Problem": {
+      "subsubject": "Operations-Research.Linear-Programming"
+    },
+    "Operations-Research.Linear-Programming.Total-Unimodularity-and-Integrality": {
+      "subsubject": "Operations-Research.Linear-Programming",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Maximum-Flow": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Discrete-Mathematics"
+      ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Maximum-Matching": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Discrete-Mathematics"
+      ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Minimum-Spanning-Tree": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Discrete-Mathematics"
+      ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Discrete-Mathematics"
+      ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Mandatory-Vertex-in-All-Shortest-Paths": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Discrete-Mathematics"
+      ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Traveling-Salesman-Problem": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Discrete-Mathematics"
       ]
     }
   }

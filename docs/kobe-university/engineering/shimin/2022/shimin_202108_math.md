@@ -2,8 +2,8 @@
 sidebar_label: "2021年8月実施 専門科目 数学"
 tags:
   - Kobe-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Cumulative-Distribution-Function-and-Probability-Density-Function
-  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
   - Mathematics.Linear-Algebra.Jordan-Normal-Form
   - Mathematics.Vector-Calculus.Scalar-Line-Integral
   - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation

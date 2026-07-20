@@ -2,7 +2,7 @@
 sidebar_label: 2019年8月実施 プログラミング
 tags:
   - Tokyo-University
-  - Computer-Science.Dynamic-Programming.Dynamic-Programming
+  - Computer-Science.Dynamic-Programming.Optimal-Compression-Encoding
   - Computer-Science.Programming
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 プログラミング

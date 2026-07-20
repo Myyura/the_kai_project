@@ -2,9 +2,9 @@
 sidebar_label: "2017年7月実施 統計科学 問題3"
 tags:
   - Waseda-University
-  - Probability-Statistics.Statistical-Inference.Least-Squares-Method
-  - Probability-Statistics.Statistical-Inference.Multiple-Regression
-  - Probability-Statistics.Statistical-Inference.Multicollinearity
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Method
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Multiple-Regression
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Multicollinearity
   - Data-Science-Artificial-Intelligence.Data-Science.Principal-Component-Analysis
 ---
 

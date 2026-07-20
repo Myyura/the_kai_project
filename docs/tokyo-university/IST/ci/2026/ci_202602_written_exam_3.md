@@ -2,10 +2,10 @@
 sidebar_label: '2026年2月実施 筆記試験 第3問'
 tags:
   - Tokyo-University
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Minimum-Spanning-Tree
+  - Operations-Research.Combinatorial-Optimization.Minimum-Spanning-Tree
   - Computer-Science.Programming.Type-Checking-and-Type-Inference
   - Computer-Science.Computer-Architecture.Out-of-Order-Execution
-  - Operations-Research.Optimization.Simulated-Annealing
+  - Operations-Research.Metaheuristics.Simulated-Annealing
   - Data-Science-Artificial-Intelligence.Machine-Learning.Stochastic-Gradient-Descent
   - Mathematics.Linear-Algebra.Affine-Transformation
   - Electrical-Electronic.Control-Theory.Proportional-Integral-Derivative-and-Integral-Proportional-Derivative-Control

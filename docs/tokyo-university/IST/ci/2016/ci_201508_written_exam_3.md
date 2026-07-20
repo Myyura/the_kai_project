@@ -2,10 +2,9 @@
 sidebar_label: 2015年8月実施 筆記試験 第3問
 tags:
   - Tokyo-University
-  - Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration
+  - Probability-Statistics.Computational-Statistics.Monte-Carlo-Integration
   - Computer-Science.Graphics
   - Mathematics.Calculus
-  - Probability-Statistics.Probability-and-Statistics-Basics
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2015年8月実施 筆記試験 第3問
 

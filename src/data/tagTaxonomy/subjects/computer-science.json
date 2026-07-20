@@ -699,16 +699,7 @@
     "Computer-Science.Data-Structures.Union-Find-Path-Compression": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
-        "Graph-Theory-Combinatorial-Optimization"
-      ]
-    },
-    "Computer-Science.Dynamic-Programming.Dynamic-Programming": {
-      "subsubject": "Computer-Science.Dynamic-Programming",
-      "relatedSubjects": [
-        "Operations-Research"
-      ],
-      "aliases": [
-        "Computer-Science.Data-Structures-Algorithms.Dynamic-Programming"
+        "Discrete-Mathematics"
       ]
     },
     "Computer-Science.Dynamic-Programming.Knapsack-Problem": {
@@ -1636,6 +1627,36 @@
       "subsubject": "Computer-Science.String-Algorithms",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.String-Matching"
+      ]
+    },
+    "Computer-Science.Dynamic-Programming.Longest-Increasing-Subsequence": {
+      "subsubject": "Computer-Science.Dynamic-Programming"
+    },
+    "Computer-Science.Dynamic-Programming.Matrix-Chain-Multiplication": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
+        "Mathematics"
+      ]
+    },
+    "Computer-Science.Dynamic-Programming.Fibonacci-Memoization": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
+    "Computer-Science.Dynamic-Programming.Decision-Tree-Pruning": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
+        "Data-Science-Artificial-Intelligence"
+      ]
+    },
+    "Computer-Science.Dynamic-Programming.Optimal-Compression-Encoding": {
+      "subsubject": "Computer-Science.Dynamic-Programming"
+    },
+    "Computer-Science.Dynamic-Programming.Minimum-Cost-Polygon-Triangulation": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
       ]
     }
   }

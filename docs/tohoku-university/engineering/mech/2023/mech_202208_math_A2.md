@@ -5,7 +5,7 @@ tags:
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Matrix-Trace
   - Mathematics.Linear-Algebra.Matrix-Power
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Adjacency-Spectrum-of-Path-and-Complete-Graphs
+  - Discrete-Mathematics.Graph-Theory.Adjacency-Spectrum-of-Path-and-Complete-Graphs
 ---
 # 東北大学 工学研究科 機械系 2022年8月実施 数学A 2
 

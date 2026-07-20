@@ -2,8 +2,8 @@
 sidebar_label: "2017年7月実施 オペレーションズリサーチ 問題8"
 tags:
   - Waseda-University
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
-  - Operations-Research.Optimization.Linear-Programming-Duality
+  - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
+  - Operations-Research.Linear-Programming.Linear-Programming-Duality
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2017年7月実施 オペレーションズリサーチ 問題8

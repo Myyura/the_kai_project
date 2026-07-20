@@ -2,8 +2,8 @@
 sidebar_label: "2019年8月実施 午前 数理B"
 tags:
   - TITech
-  - Probability-Statistics.Probability-and-Statistics-Basics.Markov-and-Chebyshev-Inequalities
-  - Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution
+  - Probability-Statistics.Probability-Basics.Markov-and-Chebyshev-Inequalities
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-Distribution
 ---
 # 東京工業大学 工学院 経営工学系 2019年8月実施 午前 数理B
 

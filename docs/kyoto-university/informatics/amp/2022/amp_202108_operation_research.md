@@ -2,9 +2,9 @@
 sidebar_label: "2021年8月実施 オペレーションズ・リサーチ"
 tags:
   - Kyoto-University
-  - Operations-Research.Optimization.Parametric-Optimization-and-Value-Function
-  - Operations-Research.Optimization.Quadratic-Programming
-  - Operations-Research.Optimization.Karush-Kuhn-Tucker-Conditions
+  - Operations-Research.Optimization-Basics.Parametric-Optimization-and-Value-Function
+  - Operations-Research.Nonlinear-Optimization.Quadratic-Programming
+  - Operations-Research.Convex-Optimization.Karush-Kuhn-Tucker-Conditions
   - Mathematics.Linear-Algebra.Rayleigh-Quotient
 ---
 # 京都大学 情報学研究科 数理工学専攻 2021年8月実施 オペレーションズ・リサーチ

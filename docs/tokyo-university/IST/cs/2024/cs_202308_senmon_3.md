@@ -2,10 +2,10 @@
 sidebar_label: 2023年8月実施 専門科目 問題3
 tags:
   - Tokyo-University
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity
-  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Depth-First-Search
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Articulation-Point
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Spanning-Tree
+  - Discrete-Mathematics.Graph-Theory.Connectivity
+  - Discrete-Mathematics.Graph-Algorithms.Depth-First-Search
+  - Discrete-Mathematics.Graph-Theory.Articulation-Point
+  - Discrete-Mathematics.Graph-Theory.Spanning-Tree
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2023年8月実施 専門科目 問題3
 

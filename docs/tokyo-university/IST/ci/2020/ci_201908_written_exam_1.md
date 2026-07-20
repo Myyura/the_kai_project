@@ -2,7 +2,7 @@
 sidebar_label: 2019年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
-  - Computer-Science.Dynamic-Programming.Dynamic-Programming
+  - Computer-Science.Dynamic-Programming.Minimum-Cost-Polygon-Triangulation
   - Discrete-Mathematics.Combinatorics.Catalan-Number
   - Mathematics.Geometry
 ---

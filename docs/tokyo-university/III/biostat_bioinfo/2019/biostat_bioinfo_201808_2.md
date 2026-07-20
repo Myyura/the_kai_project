@@ -2,9 +2,9 @@
 sidebar_label: "2018年8月実施 専門科目 第2問"
 tags:
   - Tokyo-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Laplace-Distribution-Moments-Cumulative-Distribution-Function-and-Quantiles
-  - Probability-Statistics.Statistical-Inference.One-Sided-Test-and-Power-for-Laplace-Location
-  - Probability-Statistics.Statistical-Inference.Statistical-Power
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Laplace-Distribution-Moments-Cumulative-Distribution-Function-and-Quantiles
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.One-Sided-Test-and-Power-for-Laplace-Location
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Statistical-Power
 ---
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2018年8月実施 専門科目 第2問
 

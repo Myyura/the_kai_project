@@ -2,9 +2,9 @@
 sidebar_label: "2019年8月実施 オペレーションズ・リサーチ"
 tags:
   - Kyoto-University
-  - Operations-Research.Optimization.Karush-Kuhn-Tucker-Conditions
-  - Operations-Research.Optimization.Arithmetic-Mean-Geometric-Mean-Inequality-via-Optimization
-  - Operations-Research.Optimization.Convexity-of-Power-Compositions
+  - Operations-Research.Convex-Optimization.Karush-Kuhn-Tucker-Conditions
+  - Operations-Research.Convex-Optimization.Arithmetic-Mean-Geometric-Mean-Inequality-via-Optimization
+  - Operations-Research.Convex-Optimization.Convexity-of-Power-Compositions
 ---
 # 京都大学 情報学研究科 数理工学専攻 2019年8月実施 オペレーションズ・リサーチ
 

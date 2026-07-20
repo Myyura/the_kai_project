@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 7,
   "policy": {
     "unknownTags": "warning",
     "schoolTags": "derived-from-path-preferred",
@@ -13,7 +13,6 @@
     "Mathematics",
     "Discrete-Mathematics",
     "Probability-Statistics",
-    "Graph-Theory-Combinatorial-Optimization",
     "Operations-Research",
     "Computer-Science",
     "Data-Science-Artificial-Intelligence",

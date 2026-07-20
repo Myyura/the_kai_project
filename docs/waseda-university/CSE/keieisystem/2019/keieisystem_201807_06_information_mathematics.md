@@ -2,9 +2,9 @@
 sidebar_label: "2018年7月実施 情報数理応用 問題6"
 tags:
   - Waseda-University
-  - Probability-Statistics.Statistical-Inference.Bayesian-Inference
-  - Probability-Statistics.Statistical-Inference.Beta-Bernoulli-Model
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Bayesian-Statistics.Bayesian-Inference
+  - Probability-Statistics.Bayesian-Statistics.Beta-Bernoulli-Model
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
   - Data-Science-Artificial-Intelligence.Machine-Learning.K-Means
   - Data-Science-Artificial-Intelligence.Machine-Learning.Naive-Bayes
   - Data-Science-Artificial-Intelligence.Artificial-Intelligence.Morphological-Analysis

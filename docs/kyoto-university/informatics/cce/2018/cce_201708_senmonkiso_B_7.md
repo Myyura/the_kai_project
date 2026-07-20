@@ -2,7 +2,6 @@
 sidebar_label: '2017年8月実施 専門基礎B [B-7]'
 tags:
   - Kyoto-University
-  - Computer-Science.Dynamic-Programming.Dynamic-Programming
   - Computer-Science.Algorithm-Design.Divide-and-Conquer
   - Computer-Science.Dynamic-Programming.Maximum-Subarray-Sum
 ---

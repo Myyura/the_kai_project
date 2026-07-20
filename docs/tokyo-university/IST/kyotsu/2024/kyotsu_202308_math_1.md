@@ -4,7 +4,7 @@ tags:
   - Tokyo-University
   - Mathematics.Linear-Algebra.Matrix-Rank
   - Mathematics.Linear-Algebra.Positive-Semidefinite-Matrix
-  - Probability-Statistics.Statistical-Inference.Least-Squares-Method
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Method
   - Mathematics.Linear-Algebra.Projection-Operator
   - Mathematics.Calculus.Constrained-Optimization
 ---

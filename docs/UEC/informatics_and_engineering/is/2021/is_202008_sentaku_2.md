@@ -2,12 +2,12 @@
 sidebar_label: 2020年8月実施 選択問題 確率・オペレーションズリサーチ
 tags:
   - University-of-Electro-Communications
-  - Probability-Statistics.Probability-and-Statistics-Basics.Negative-Binomial-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Mixed-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Lognormal-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function
-  - Operations-Research.Optimization.Linear-Programming
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Negative-Binomial-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Mixed-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Lognormal-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function
+  - Operations-Research.Linear-Programming.Production-Planning
 ---
 # 電気通信大学 情報理工学研究科 情報学専攻 2020年8月実施 選択問題 確率・オペレーションズリサーチ
 

@@ -2,10 +2,10 @@
 sidebar_label: "2016年7月実施 統計科学 問題4"
 tags:
   - Waseda-University
-  - Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Statistical-Inference.Method-of-Moments
-  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density
-  - Probability-Statistics.Probability-and-Statistics-Basics.Law-of-Large-Numbers
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Method-of-Moments
+  - Probability-Statistics.Probability-Basics.Conditional-Density
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Law-of-Large-Numbers
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2016年7月実施 統計科学 問題4

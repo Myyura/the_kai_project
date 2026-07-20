@@ -2,7 +2,7 @@
 sidebar_label: 2022年8月実施 グラフ理論
 tags:
   - Kyoto-University
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Maximum-Flow
+  - Operations-Research.Combinatorial-Optimization.Maximum-Flow
 ---
 # 京都大学 情報学研究科 数理工学専攻 2022年8月実施 グラフ理論
 

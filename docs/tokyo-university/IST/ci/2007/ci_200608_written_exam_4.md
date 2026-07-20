@@ -7,7 +7,7 @@ tags:
   - Computer-Science.Networks.Transmission-Control-Protocol-and-User-Datagram-Protocol
   - Computer-Science.Algorithm-Design.Heap-Sort
   - Computer-Science.Programming.Functional-Programming-Language-Features
-  - Operations-Research.Optimization.Branch-and-Bound
+  - Operations-Research.Combinatorial-Optimization.Branch-and-Bound
   - Data-Science-Artificial-Intelligence.Artificial-Intelligence.Natural-Language-Morphology-and-Morphemes
   - Computer-Science.Graphics.Homogeneous-Coordinates
 ---

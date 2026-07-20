@@ -8,8 +8,8 @@ tags:
   - Mathematics.Differential-Equations.Integrating-Factor
   - Mathematics.Linear-Algebra.Nilpotent-Matrix
   - Mathematics.Linear-Algebra.Matrix-Diagonalization
-  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
-  - Probability-Statistics.Statistical-Inference.Normal-Mean-Confidence-Interval-with-Known-Variance
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Normal-Mean-Confidence-Interval-with-Known-Variance
 ---
 # 九州大学 工学府 土木工学専攻 2021年8月実施 数学 (ALL)
 

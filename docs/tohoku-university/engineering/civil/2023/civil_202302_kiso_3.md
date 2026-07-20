@@ -2,8 +2,8 @@
 sidebar_label: "2023年2月実施 基礎科目 [3] 確率統計"
 tags:
   - Tohoku-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability
-  - Probability-Statistics.Probability-and-Statistics-Basics.Bayes-Theorem
+  - Probability-Statistics.Probability-Basics.Conditional-Probability
+  - Probability-Statistics.Probability-Basics.Bayes-Theorem
 ---
 # 東北大学 工学研究科 土木工学専攻 2023年2月実施 基礎科目 \[3\] 確率統計
 

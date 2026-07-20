@@ -4,8 +4,8 @@ tags:
   - Nagoya-University
   - Computer-Science.Algorithm-Design.Bubble-Sort
   - Computer-Science.Dynamic-Programming.Optimal-Binary-Search-Tree
-  - Graph-Theory-Combinatorial-Optimization.Combinatorial-Optimization.Shortest-Path-Problem
-  - Graph-Theory-Combinatorial-Optimization.Graph-Algorithms.Dijkstra-Algorithm
+  - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
+  - Discrete-Mathematics.Graph-Algorithms.Dijkstra-Algorithm
 ---
 # 名古屋大学 情報学研究科 複雑系科学専攻 2025年8月実施 情3
 

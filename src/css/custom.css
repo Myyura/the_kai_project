@@ -4,220 +4,75 @@
  * work well for content-centric websites.
  */
 
-/* ==========================================================================
-   Kai Glass 设计系统 · 海洋青蓝
-   现代玻璃拟态 × 单一品牌色相（~190° 青蓝，呼应 Kai=海）
-   浅色模式用深青保证对比，深色模式用亮青保证发光感 —— 同一色相族。
-   ========================================================================== */
-
+/* You can override the default Infima variables here. */
 :root {
-  /* ---- 品牌色：海洋青蓝（浅色=深青） ---- */
-  --ifm-color-primary: #0e7490;
-  --ifm-color-primary-dark: #0b647d;
-  --ifm-color-primary-darker: #0a5c73;
-  --ifm-color-primary-darkest: #074655;
-  --ifm-color-primary-light: #128aa9;
-  --ifm-color-primary-lighter: #17a0c0;
-  --ifm-color-primary-lightest: #2bb8d4;
-  --ifm-color-primary-contrast-foreground: #ffffff;
-  --ifm-link-color: #0b647d;
-  --ifm-link-hover-color: #0891b2;
-  --theme-accent-rgb: 14, 116, 144;
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --theme-accent-rgb: 46, 133, 85;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(8, 51, 68, 0.06);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
-  /* 品牌令牌 */
-  --kai-brand: #0e7490;
-  --kai-brand-rgb: 14, 116, 144;
-  --kai-brand-bright: #06b6d4;
-  --kai-brand-bright-rgb: 6, 182, 212;
-
-  /* 深海藏青（深色背景基底；浅色仅作点缀/页脚） */
+  /* Kai 夜间品牌色：深海军蓝、蓝青渐变与少量引导金 */
   --kai-navy-950: #04152f;
   --kai-navy-900: #061a36;
   --kai-navy-800: #0a2854;
-  --kai-blue: #0e7490;
-  --kai-blue-rgb: 14, 116, 144;
-  --kai-action: #0e7490;
+  --kai-blue: #0b67c9;
+  --kai-blue-rgb: 11, 103, 201;
+  --kai-action: #0b67c9;
   --kai-cyan: #35c6d9;
   --kai-cyan-rgb: 53, 198, 217;
   --kai-gold: #f0b84a;
   --kai-gold-rgb: 240, 184, 74;
-
-  /* ---- 玻璃拟态配方 ---- */
-  --kai-glass-bg: rgba(255, 255, 255, 0.6);
-  --kai-glass-bg-strong: rgba(255, 255, 255, 0.82);
-  --kai-glass-border: rgba(14, 116, 144, 0.1);
-  --kai-glass-border-strong: rgba(14, 116, 144, 0.18);
-  --kai-glass-blur: saturate(1.5) blur(16px);
-  --kai-glass-blur-sm: saturate(1.3) blur(10px);
-
-  /* ---- 圆角刻度 ---- */
-  --kai-radius-xs: 8px;
-  --kai-radius-sm: 12px;
-  --kai-radius-md: 16px;
-  --kai-radius-lg: 22px;
-  --kai-radius-xl: 30px;
-  --kai-radius-full: 999px;
-
-  /* ---- 阴影刻度 ---- */
-  --kai-shadow-sm: 0 2px 10px rgba(8, 51, 68, 0.07);
-  --kai-shadow-md: 0 8px 28px rgba(8, 51, 68, 0.1);
-  --kai-shadow-lg: 0 18px 50px rgba(8, 51, 68, 0.14);
-  --kai-shadow-glow: 0 10px 32px rgba(var(--kai-brand-rgb), 0.28);
-
-  /* ---- 过渡 ---- */
-  --kai-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --kai-transition-fast: all 0.18s ease;
-
-  /* ---- 语义状态色（深色模式统一覆盖调亮） ---- */
-  --kai-success: #059669;
-  --kai-success-rgb: 5, 150, 105;
-  --kai-warning: #d97706;
-  --kai-warning-rgb: 217, 119, 6;
-  --kai-danger: #dc2626;
-  --kai-danger-rgb: 220, 38, 38;
-  --kai-info: #2563eb;
-  --kai-info-rgb: 37, 99, 235;
-  --kai-violet: #7c3aed;
-  --kai-violet-rgb: 124, 58, 237;
-
-  /* ---- 文字 ---- */
-  --kai-text-primary: #0f2a33;
-  --kai-text-secondary: rgba(15, 42, 51, 0.72);
-  --kai-text-muted: rgba(15, 42, 51, 0.55);
-
-  /* ---- 全局环境背景（玻璃模糊需底色衬托） ---- */
-  --kai-page-bg:
-    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(var(--kai-brand-bright-rgb), 0.08), transparent),
-    radial-gradient(ellipse 50% 35% at 88% 30%, rgba(var(--kai-brand-rgb), 0.05), transparent),
-    linear-gradient(180deg, #f4f9fa 0%, #eef5f7 100%);
-
-  /* ---- 向后兼容别名（现有文件在用，勿删） ---- */
-  --custom-transition: var(--kai-transition);
-  --custom-transition-fast: var(--kai-transition-fast);
-  --custom-box-shadow: var(--kai-shadow-md);
-  --custom-box-shadow-hover: var(--kai-shadow-lg);
-  --custom-border-radius: var(--kai-radius-lg);
-  --custom-border-radius-sm: var(--kai-radius-md);
-  --custom-border-radius-xs: var(--kai-radius-xs);
-  --custom-card-bg: var(--kai-glass-bg);
-  --custom-card-border: var(--kai-glass-border);
-  --custom-blur: blur(16px);
+  
+  /* Liquid Glass 设计系统变量 */
+  --custom-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --custom-transition-fast: all 0.2s ease;
+  --custom-box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+  --custom-box-shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.1);
+  --custom-border-radius: 20px;
+  --custom-border-radius-sm: 12px;
+  --custom-border-radius-xs: 8px;
+  --custom-card-bg: rgba(255, 255, 255, 0.5);
+  --custom-card-border: rgba(255, 255, 255, 0.4);
+  --custom-blur: blur(15px);
   --custom-blur-sm: blur(10px);
-  --custom-text-primary: var(--kai-text-primary);
-  --custom-text-secondary: var(--kai-text-secondary);
-  --custom-text-muted: var(--kai-text-muted);
+  --custom-text-primary: rgba(0, 0, 0, 0.88);
+  --custom-text-secondary: rgba(0, 0, 0, 0.68);
+  --custom-text-muted: rgba(0, 0, 0, 0.55);
 }
 
-/* 深色模式：同一青蓝色相 → 调亮为发光青，背景沉入深海藏青 */
+/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #35c6d9;
-  --ifm-color-primary-dark: #1fb3c7;
-  --ifm-color-primary-darker: #14a5ba;
-  --ifm-color-primary-darkest: #0e86a0;
-  --ifm-color-primary-light: #4ecfe0;
-  --ifm-color-primary-lighter: #66d8e6;
-  --ifm-color-primary-lightest: #8be5ee;
-  --ifm-color-primary-contrast-foreground: #06222b;
+  --ifm-color-primary: #087dae;
+  --ifm-color-primary-dark: #06719e;
+  --ifm-color-primary-darker: #066b96;
+  --ifm-color-primary-darkest: #05577b;
+  --ifm-color-primary-light: #168bb9;
+  --ifm-color-primary-lighter: #2092bf;
+  --ifm-color-primary-lightest: #4ab0d0;
   --theme-accent-rgb: 53, 198, 217;
   --ifm-link-color: #62d7e5;
   --ifm-link-hover-color: #8be5ee;
   --ifm-background-color: #06172f;
   --ifm-background-surface-color: #0a2345;
-  --ifm-navbar-background-color: rgba(6, 23, 47, 0.7);
+  --ifm-navbar-background-color: rgba(6, 23, 47, 0.9);
   --ifm-font-color-base: #dcecff;
+  --ifm-color-primary-contrast-foreground: #ffffff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-
-  /* 品牌令牌（亮青） */
-  --kai-brand: #35c6d9;
-  --kai-brand-rgb: 53, 198, 217;
-  --kai-brand-bright: #66d8e6;
-  --kai-brand-bright-rgb: 102, 216, 230;
-  --kai-action: #1fb3c7;
-
-  /* 玻璃配方（深） */
-  --kai-glass-bg: rgba(10, 35, 69, 0.5);
-  --kai-glass-bg-strong: rgba(10, 35, 69, 0.78);
-  --kai-glass-border: rgba(53, 198, 217, 0.13);
-  --kai-glass-border-strong: rgba(53, 198, 217, 0.24);
-
-  /* 阴影（深） */
-  --kai-shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.28);
-  --kai-shadow-md: 0 8px 32px rgba(0, 0, 0, 0.34);
-  --kai-shadow-lg: 0 18px 56px rgba(0, 0, 0, 0.44);
-  --kai-shadow-glow: 0 10px 34px rgba(53, 198, 217, 0.22);
-
-  /* 文字（深） */
-  --kai-text-primary: rgba(255, 255, 255, 0.96);
-  --kai-text-secondary: rgba(255, 255, 255, 0.74);
-  --kai-text-muted: rgba(255, 255, 255, 0.55);
-
-  /* 语义色（深：调亮保证对比） */
-  --kai-success: #34d399;
-  --kai-success-rgb: 52, 211, 153;
-  --kai-warning: #fbbf24;
-  --kai-warning-rgb: 251, 191, 36;
-  --kai-danger: #f87171;
-  --kai-danger-rgb: 248, 113, 113;
-  --kai-info: #60a5fa;
-  --kai-info-rgb: 96, 165, 250;
-  --kai-violet: #a78bfa;
-  --kai-violet-rgb: 167, 139, 250;
-
-  /* 全局环境背景（深）：藏青基底 + 青色光晕 */
-  --kai-page-bg:
-    radial-gradient(ellipse 75% 50% at 50% -15%, rgba(var(--kai-brand-rgb), 0.22), transparent),
-    radial-gradient(ellipse 55% 40% at 85% 25%, rgba(var(--kai-brand-bright-rgb), 0.12), transparent),
-    radial-gradient(ellipse 45% 35% at 15% 85%, rgba(var(--kai-gold-rgb), 0.06), transparent),
-    linear-gradient(180deg, var(--kai-navy-900) 0%, var(--kai-navy-950) 100%);
-}
-
-/* ==========================================================================
-   全局基底：环境背景 + 基础元素统一
-   ========================================================================== */
-
-/* 全局环境背景（固定，供玻璃卡片模糊衬托；移动端退回 scroll 避免抖动） */
-body {
-  background: var(--kai-page-bg);
-  background-attachment: fixed;
-  color: var(--kai-text-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-@media (max-width: 996px) {
-  body {
-    background-attachment: scroll;
-  }
-}
-
-/* 选中文字颜色 */
-::selection {
-  background: rgba(var(--kai-brand-rgb), 0.22);
-}
-
-/* 键盘可达性：统一焦点环 */
-:focus-visible {
-  outline: 2px solid var(--kai-brand);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-/* 导航栏玻璃化（浅色模式补 blur，深色已有） */
-.navbar {
-  -webkit-backdrop-filter: saturate(1.5) blur(16px);
-  backdrop-filter: saturate(1.5) blur(16px);
-  background-color: rgba(255, 255, 255, 0.65);
-  border-bottom: 1px solid var(--kai-glass-border);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-}
-
-[data-theme='dark'] .navbar {
-  background-color: rgba(6, 23, 47, 0.6);
-  border-bottom-color: var(--kai-glass-border);
-  box-shadow: none;
+  
+  /* 黑暗模式 Liquid Glass 设计系统变量 */
+  --custom-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --custom-box-shadow-hover: 0 14px 48px rgba(0, 0, 0, 0.35);
+  --custom-card-bg: rgba(10, 35, 69, 0.65);
+  --custom-card-border: rgba(var(--kai-cyan-rgb), 0.1);
+  --custom-text-primary: rgba(255, 255, 255, 0.96);
+  --custom-text-secondary: rgba(255, 255, 255, 0.75);
+  --custom-text-muted: rgba(255, 255, 255, 0.55);
 }
 
 /* 添加黑暗模式下 heroBanner 的样式 */
@@ -232,6 +87,12 @@ body {
 
 .navbar__logo img {
   border-radius: 8px;
+}
+
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(var(--kai-cyan-rgb), 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .navbar__items {

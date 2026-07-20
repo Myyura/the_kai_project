@@ -4,114 +4,164 @@
     "labelZh": "概率与统计",
     "labelJa": "確率・統計",
     "labelEn": "Probability & Statistics",
-    "descriptionZh": "概率论、统计推断、随机过程与相关方法。",
-    "descriptionJa": "確率論、統計推論、確率過程、および関連手法。",
-    "descriptionEn": "Probability theory, statistical inference, stochastic processes, and related methods."
+    "descriptionZh": "概率基础、概率分布与渐近理论、随机过程，以及描述统计、统计推断、统计建模、贝叶斯统计和计算统计。",
+    "descriptionJa": "確率基礎、確率分布と漸近理論、確率過程、記述統計、統計的推定と検定、統計モデリング、ベイズ統計、計算統計。",
+    "descriptionEn": "Probability basics, distributions and asymptotics, stochastic processes, descriptive statistics, inference, statistical modeling, Bayesian statistics, and computational statistics."
   },
   "subsubjects": {
-    "Probability-Statistics.Statistical-Inference": {
+    "Probability-Statistics.Probability-Basics": {
       "subject": "Probability-Statistics",
-      "labelZh": "统计推断",
-      "labelJa": "統計推論",
-      "labelEn": "Statistical Inference",
-      "descriptionZh": "估计、检验、最大似然与判别分析。",
-      "descriptionJa": "推定、検定、最尤法、判別分析。",
-      "descriptionEn": "Estimation, testing, maximum likelihood, and discriminant analysis."
+      "labelZh": "概率基础",
+      "labelJa": "確率基礎",
+      "labelEn": "Probability Basics",
+      "descriptionZh": "条件概率、Bayes 定理、期望与方差、联合分布、相关性、随机变量组合与经典概率问题。",
+      "descriptionJa": "条件付き確率、ベイズの定理、期待値と分散、同時分布、相関、確率変数の組合せ、古典的確率問題。",
+      "descriptionEn": "Conditional probability, Bayes theorem, expectation and variance, joint distributions, dependence, combinations of random variables, and classical probability problems."
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics": {
+      "subject": "Probability-Statistics",
+      "labelZh": "概率分布与渐近理论",
+      "labelJa": "確率分布と漸近理論",
+      "labelEn": "Probability Distributions & Asymptotics",
+      "descriptionZh": "常见离散与连续分布、分布变换、生成函数、大数定律、中心极限定理与分布逼近。",
+      "descriptionJa": "代表的な離散・連続分布、分布変換、母関数、大数の法則、中心極限定理、分布近似。",
+      "descriptionEn": "Common discrete and continuous distributions, distributional transforms, generating functions, laws of large numbers, central limit theorems, and distributional approximations."
     },
     "Probability-Statistics.Stochastic-Processes": {
       "subject": "Probability-Statistics",
       "labelZh": "随机过程",
       "labelJa": "確率過程",
       "labelEn": "Stochastic Processes",
-      "descriptionZh": "马尔可夫链、随机源与随机过程模型。",
-      "descriptionJa": "マルコフ連鎖、確率情報源、確率過程モデル。",
-      "descriptionEn": "Markov chains, stochastic sources, and stochastic process models."
+      "descriptionZh": "马尔可夫链、随机游走、计数过程、等待时间、停止时间与其他带时间或状态结构的随机模型。",
+      "descriptionJa": "マルコフ連鎖、ランダムウォーク、計数過程、待ち時間、停止時刻など、時間または状態構造をもつ確率モデル。",
+      "descriptionEn": "Markov chains, random walks, counting processes, waiting times, stopping times, and other stochastic models with temporal or state structure."
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics": {
+    "Probability-Statistics.Descriptive-Statistics-and-Sampling": {
       "subject": "Probability-Statistics",
-      "labelZh": "概率统计基础",
-      "labelJa": "確率・統計基礎",
-      "labelEn": "Probability & Statistics Basics",
-      "descriptionZh": "基本概率计算、常见分布、基础统计量与相关性分析。",
-      "descriptionJa": "基本的な確率計算、代表的な分布、基礎統計量、相関分析。",
-      "descriptionEn": "Basic probability calculations, common distributions, foundational statistics, and correlation analysis."
+      "labelZh": "描述统计与抽样",
+      "labelJa": "記述統計と標本抽出",
+      "labelEn": "Descriptive Statistics & Sampling",
+      "descriptionZh": "测量尺度、集中趋势、分位数、样本统计量、标准误与抽样偏差。",
+      "descriptionJa": "尺度水準、代表値、分位点、標本統計量、標準誤差、標本抽出バイアス。",
+      "descriptionEn": "Measurement scales, location summaries, quantiles, sample statistics, standard errors, and sampling bias."
+    },
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing": {
+      "subject": "Probability-Statistics",
+      "labelZh": "估计与假设检验",
+      "labelJa": "推定と仮説検定",
+      "labelEn": "Estimation & Hypothesis Testing",
+      "descriptionZh": "点估计与区间估计、最大似然、估计量性质、显著性检验、多重比较、统计功效与样本量。",
+      "descriptionJa": "点推定と区間推定、最尤法、推定量の性質、仮説検定、多重比較、検出力、標本サイズ。",
+      "descriptionEn": "Point and interval estimation, maximum likelihood, estimator properties, significance testing, multiple comparisons, statistical power, and sample size."
+    },
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design": {
+      "subject": "Probability-Statistics",
+      "labelZh": "统计建模与实验设计",
+      "labelJa": "統計モデリングと実験計画",
+      "labelEn": "Statistical Modeling & Experimental Design",
+      "descriptionZh": "线性与多元模型、最小二乘、回归诊断、判别分析、方差分析与实验设计。",
+      "descriptionJa": "線形・多変量モデル、最小二乗法、回帰診断、判別分析、分散分析、実験計画。",
+      "descriptionEn": "Linear and multivariate models, least squares, regression diagnostics, discriminant analysis, analysis of variance, and experimental design."
+    },
+    "Probability-Statistics.Bayesian-Statistics": {
+      "subject": "Probability-Statistics",
+      "labelZh": "贝叶斯统计",
+      "labelJa": "ベイズ統計",
+      "labelEn": "Bayesian Statistics",
+      "descriptionZh": "先验与后验、共轭模型、后验赔率、贝叶斯推断与模型选择。",
+      "descriptionJa": "事前分布と事後分布、共役モデル、事後オッズ、ベイズ推論、モデル選択。",
+      "descriptionEn": "Priors and posteriors, conjugate models, posterior odds, Bayesian inference, and model selection."
+    },
+    "Probability-Statistics.Computational-Statistics": {
+      "subject": "Probability-Statistics",
+      "labelZh": "计算统计",
+      "labelJa": "計算統計",
+      "labelEn": "Computational Statistics",
+      "descriptionZh": "Bootstrap、Monte Carlo 积分、方差缩减与其他计算型统计方法。",
+      "descriptionJa": "ブートストラップ、モンテカルロ積分、分散減少法などの計算統計手法。",
+      "descriptionEn": "Bootstrap, Monte Carlo integration, variance reduction, and other computational statistical methods."
     }
   },
   "subsubjectOrder": [
-    "Probability-Statistics.Probability-and-Statistics-Basics",
-    "Probability-Statistics.Statistical-Inference",
-    "Probability-Statistics.Stochastic-Processes"
+    "Probability-Statistics.Probability-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+    "Probability-Statistics.Stochastic-Processes",
+    "Probability-Statistics.Descriptive-Statistics-and-Sampling",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
+    "Probability-Statistics.Bayesian-Statistics",
+    "Probability-Statistics.Computational-Statistics"
   ],
   "topics": {
-    "Probability-Statistics.Probability-and-Statistics-Basics.Cumulative-Distribution-Function-and-Probability-Density-Function": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "aliases": [
-        "Probability-Statistics.Probability-and-Statistics-Basics.CDF-and-PDF"
+        "Probability-Statistics.Probability-Distributions-and-Asymptotics.CDF-and-PDF"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Covariance-Matrix": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Covariance-Matrix": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Normal-Approximation-via-Stirling": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-Normal-Approximation-via-Stirling": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Binomial-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Bayes-Theorem": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Bayes-Theorem": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Box-Muller-Transform": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Box-Muller-Transform": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
         "Computer-Science"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Cauchy-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Cauchy-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Chi-Square-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Chi-Square-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Conditional-Density": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Marginalization-of-Conditional-Density": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Marginalization-of-Conditional-Density": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Conditional-Probability": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Combinatorial-Probability": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Combinatorial-Probability": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Discrete-Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Zero-Covariance-does-not-Imply-Independence": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Zero-Covariance-does-not-Imply-Independence": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Correlation-Coefficient": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Correlation-Coefficient": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Copula": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Copula": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Memoryless-Property": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Memoryless-Property": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
     "Probability-Statistics.Stochastic-Processes.Exponential-Spacings-and-Poisson-Counting-Process": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
@@ -119,553 +169,553 @@
         "Operations-Research"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Poisson-Count-Maximum-Likelihood-Estimation-for-Rate": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Poisson-Count-Maximum-Likelihood-Estimation-for-Rate": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "aliases": [
-        "Probability-Statistics.Statistical-Inference.Poisson-Count-MLE-for-Rate"
+        "Probability-Statistics.Estimation-and-Hypothesis-Testing.Poisson-Count-MLE-for-Rate"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Exponential-Race-and-Order-of-Arrival": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Stochastic-Processes.Exponential-Race-and-Order-of-Arrival": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
       "relatedSubjects": [
         "Operations-Research"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Minimum-of-Independent-Exponentials": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Minimum-of-Independent-Exponentials": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Expectation-and-Variance": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Geometric-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Geometric-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Random-Walk-on-Fourth-Roots-of-Unity": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Stochastic-Processes.Random-Walk-on-Fourth-Roots-of-Unity": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Random-Ray-Intersection-with-Polygon": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Random-Ray-Intersection-with-Polygon": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Density-by-Variable-Transformation": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Conditional-Density-by-Variable-Transformation": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Geometric-Probability": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Geometric-Probability": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Hypergeometric-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Hypergeometric-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
         "Discrete-Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Joint-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Joint-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Joint-Density-on-Triangular-Support": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Joint-Density-on-Triangular-Support": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Marginal-Densities-and-Independence-Test": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Marginal-Densities-and-Independence-Test": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Levy-Distribution-from-Inverse-Chi-Square": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Levy-Distribution-from-Inverse-Chi-Square": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Stable-Law-Sum-Scaling": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Stable-Law-Sum-Scaling": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Laplace-Distribution-Moments-Cumulative-Distribution-Function-and-Quantiles": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Laplace-Distribution-Moments-Cumulative-Distribution-Function-and-Quantiles": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "aliases": [
-        "Probability-Statistics.Probability-and-Statistics-Basics.Laplace-Distribution-Moments-CDF-and-Quantiles"
+        "Probability-Statistics.Probability-Distributions-and-Asymptotics.Laplace-Distribution-Moments-CDF-and-Quantiles"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Convolution-of-Independent-Random-Variables": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Convolution-of-Independent-Random-Variables": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Gamma-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Gamma-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Law-of-Large-Numbers": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Law-of-Large-Numbers": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Lognormal-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Lognormal-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Mixed-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Mixed-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Moment-Generating-Function-of-Sum-of-Independent-Variables": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function-of-Sum-of-Independent-Variables": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "aliases": [
-        "Probability-Statistics.Probability-and-Statistics-Basics.MGF-of-Sum-of-Independent-Variables"
+        "Probability-Statistics.Probability-Distributions-and-Asymptotics.MGF-of-Sum-of-Independent-Variables"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Markov-and-Chebyshev-Inequalities": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Markov-and-Chebyshev-Inequalities": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Negative-Binomial-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Negative-Binomial-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Order-Statistics": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Uniform-Order-Statistics": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Order-Statistics": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Order-Statistics": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Product-of-Independent-Uniform-Variables": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Product-of-Independent-Uniform-Variables": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Minimum-Order-Statistic-and-Tail-Sum": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Minimum-Order-Statistic-and-Tail-Sum": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Linear-Combination-of-Independent-Normals": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Linear-Combination-of-Independent-Normals": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Normal-Standardization-and-Tail-Probability": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Standardization-and-Tail-Probability": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Statistical-Inference.Uniform-Endpoint-Estimation": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Uniform-Endpoint-Estimation": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Log-Moments-of-Rayleigh-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Log-Moments-of-Rayleigh-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Pareto-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Pareto-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Poisson-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Poisson-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Sum-of-Independent-Poisson-Variables": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Sum-of-Independent-Poisson-Variables": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Poisson-Approximation-to-Binomial": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Poisson-Approximation-to-Binomial": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Binomial-to-Poisson-Convergence-via-Moment-Generating-Function": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-to-Poisson-Convergence-via-Moment-Generating-Function": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "aliases": [
-        "Probability-Statistics.Probability-and-Statistics-Basics.Binomial-to-Poisson-Convergence-via-MGF"
+        "Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-to-Poisson-Convergence-via-MGF"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Covariance-under-Affine-Transformation": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Proportion-and-Base-Rate": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Proportion-and-Base-Rate": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Random-Variable-Transformation": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Random-Variable-Transformation": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Coupon-Collector-Problem": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Coupon-Collector-Problem": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Sum-of-Two-Uniform-Variables": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Sum-of-Two-Uniform-Variables": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Uniform-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Uniform-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Weibull-Distribution": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Weibull-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
         "Engineering"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Weighted-Sum-of-Independent-Bernoulli-Variables": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Basics.Weighted-Sum-of-Independent-Bernoulli-Variables": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Waiting-Time-for-Runs-via-Probability-Generating-Functions": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Stochastic-Processes.Waiting-Time-for-Runs-via-Probability-Generating-Functions": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
       "relatedSubjects": [
         "Discrete-Mathematics"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Two-State-Markov-Chain-Stationary-Reward": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Stochastic-Processes.Two-State-Markov-Chain-Stationary-Reward": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
       "relatedSubjects": [
         "Operations-Research"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Waiting-Time-for-Runs": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Stochastic-Processes.Waiting-Time-for-Runs": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
       "relatedSubjects": [
         "Discrete-Mathematics"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Analysis-of-Variance": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Analysis-of-Variance": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "aliases": [
-        "Probability-Statistics.Statistical-Inference.ANOVA"
+        "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.ANOVA"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Bayesian-Inference": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Bayesian-Statistics.Bayesian-Inference": {
+      "subsubject": "Probability-Statistics.Bayesian-Statistics",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Beta-Bernoulli-Model": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Bayesian-Statistics.Beta-Bernoulli-Model": {
+      "subsubject": "Probability-Statistics.Bayesian-Statistics",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Confidence-Interval": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Normal-Mean-Confidence-Interval-with-Known-Variance": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Normal-Mean-Confidence-Interval-with-Known-Variance": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Experimental-Design": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Experimental-Design": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design"
     },
-    "Probability-Statistics.Statistical-Inference.Effect-Size": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Effect-Size": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design"
     },
-    "Probability-Statistics.Statistical-Inference.Estimator-Consistency": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Consistency": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Fisher-Exact-Test": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Fisher-Exact-Test": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "relatedSubjects": [
         "Bioinformatics"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Fisher-Linear-Discriminant-Analysis": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Fisher-Linear-Discriminant-Analysis": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design"
     },
-    "Probability-Statistics.Statistical-Inference.Hypothesis-Testing": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Type-II-Error-Interpretation": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Type-II-Error-Interpretation": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.One-Sided-Test-and-Power-for-Laplace-Location": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.One-Sided-Test-and-Power-for-Laplace-Location": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Exact-Binomial-Test": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Exact-Binomial-Test": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Family-Wise-Error-Rate": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Family-Wise-Error-Rate": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Bonferroni-Correction": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Bonferroni-Correction": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Hypothesizing-After-Results-Are-Known": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesizing-After-Results-Are-Known": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "aliases": [
-        "Probability-Statistics.Statistical-Inference.HARKing"
+        "Probability-Statistics.Estimation-and-Hypothesis-Testing.HARKing"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Central-Limit-Theorem": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Central-Limit-Theorem": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Statistical-Inference.Student-t-Confidence-Interval": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Student-t-Confidence-Interval": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Bootstrap-Method": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Computational-Statistics.Bootstrap-Method": {
+      "subsubject": "Probability-Statistics.Computational-Statistics",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Common-Significance-Interpretation-Errors": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Common-Significance-Interpretation-Errors": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Least-Squares-Method": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Method": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design"
     },
-    "Probability-Statistics.Statistical-Inference.Regression-through-the-Origin": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Regression-through-the-Origin": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design"
     },
-    "Probability-Statistics.Statistical-Inference.Least-Squares-Residual-Orthogonality": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Residual-Orthogonality": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Mathematics"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Positive-Predictive-Value-of-Significant-Results": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Positive-Predictive-Value-of-Significant-Results": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Independent-Replication-and-Posterior-Odds": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Bayesian-Statistics.Independent-Replication-and-Posterior-Odds": {
+      "subsubject": "Probability-Statistics.Bayesian-Statistics"
     },
-    "Probability-Statistics.Statistical-Inference.Mahalanobis-Distance": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Mahalanobis-Distance": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Mean-Squared-Error": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Mean-Squared-Error": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Standard-Error-of-Sample-Mean": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Descriptive-Statistics-and-Sampling.Standard-Error-of-Sample-Mean": {
+      "subsubject": "Probability-Statistics.Descriptive-Statistics-and-Sampling"
     },
-    "Probability-Statistics.Statistical-Inference.Polynomial-Regression-via-Maximum-Likelihood-Estimation-and-Least-Squares": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Polynomial-Regression-via-Maximum-Likelihood-Estimation-and-Least-Squares": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ],
       "aliases": [
-        "Probability-Statistics.Statistical-Inference.Polynomial-Regression-via-MLE-and-Least-Squares"
+        "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Polynomial-Regression-via-MLE-and-Least-Squares"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Maximum-Likelihood-Estimation": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Lognormal-Parameter-Maximum-Likelihood-Estimation": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Lognormal-Parameter-Maximum-Likelihood-Estimation": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "aliases": [
-        "Probability-Statistics.Statistical-Inference.Lognormal-Parameter-MLE"
+        "Probability-Statistics.Estimation-and-Hypothesis-Testing.Lognormal-Parameter-MLE"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Method-of-Moments": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Method-of-Moments": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Minimum-Variance-Unbiased-Estimator": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Minimum-Variance-Unbiased-Estimator": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Minimum-Variance-Linear-Unbiased-Combination": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Minimum-Variance-Linear-Unbiased-Combination": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "relatedSubjects": [
         "Operations-Research"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Minimum-Variance-Estimator-with-Equicorrelated-Samples": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Minimum-Variance-Estimator-with-Equicorrelated-Samples": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Constrained-Maximum-Likelihood-Estimation": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Constrained-Maximum-Likelihood-Estimation": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "relatedSubjects": [
         "Operations-Research"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Poisson-Gamma-Conjugacy": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Bayesian-Statistics.Poisson-Gamma-Conjugacy": {
+      "subsubject": "Probability-Statistics.Bayesian-Statistics",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Antithetic-Variates": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Computational-Statistics.Antithetic-Variates": {
+      "subsubject": "Probability-Statistics.Computational-Statistics",
       "relatedSubjects": [
         "Computer-Science"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Monte-Carlo-Integration": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Computational-Statistics.Monte-Carlo-Integration": {
+      "subsubject": "Probability-Statistics.Computational-Statistics"
     },
-    "Probability-Statistics.Statistical-Inference.Measurement-Uncertainty": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Measurement-Uncertainty": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "relatedSubjects": [
         "Engineering"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Multicollinearity": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Multicollinearity": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Multiple-Regression": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Multiple-Regression": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Orthogonal-Array": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Orthogonal-Array": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Engineering"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Prediction-Interval": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Prediction-Interval": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Regression-Diagnostics": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Regression-Diagnostics": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Selection-Bias": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Descriptive-Statistics-and-Sampling.Selection-Bias": {
+      "subsubject": "Probability-Statistics.Descriptive-Statistics-and-Sampling",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Ordinary-Least-Squares-Normal-Equation-and-Singular-Design": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Ordinary-Least-Squares-Normal-Equation-and-Singular-Design": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
       ],
       "aliases": [
-        "Probability-Statistics.Statistical-Inference.OLS-Normal-Equation-and-Singular-Design"
+        "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.OLS-Normal-Equation-and-Singular-Design"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Expected-Ordinary-Least-Squares-Loss-and-Variance-Trace": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Expected-Ordinary-Least-Squares-Loss-and-Variance-Trace": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
       ],
       "aliases": [
-        "Probability-Statistics.Statistical-Inference.Expected-OLS-Loss-and-Variance-Trace"
+        "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Expected-OLS-Loss-and-Variance-Trace"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Ridge-Regularization-for-Singular-Design": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Ridge-Regularization-for-Singular-Design": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Operations-Research",
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Simple-Linear-Regression": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Simple-Linear-Regression": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design"
     },
-    "Probability-Statistics.Statistical-Inference.Adjusted-R-Squared": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Adjusted-R-Squared": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Odds-Ratio-and-Confidence-Interval": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Odds-Ratio-and-Confidence-Interval": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "relatedSubjects": [
         "Bioinformatics"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Receiver-Operating-Characteristic-Curve-Interpretation": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Receiver-Operating-Characteristic-Curve-Interpretation": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence",
         "Bioinformatics"
       ],
       "aliases": [
-        "Probability-Statistics.Statistical-Inference.ROC-Curve-Interpretation"
+        "Probability-Statistics.Estimation-and-Hypothesis-Testing.ROC-Curve-Interpretation"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Simultaneous-Confidence-Intervals": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Simultaneous-Confidence-Intervals": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Statistical-Power": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Statistical-Power": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Sample-Size-for-Target-Power": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Sample-Size-for-Target-Power": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.One-Sample-Proportion-Z-Test": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.One-Sample-Proportion-Z-Test": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Split-Plot-Design": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Split-Plot-Design": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design"
     },
-    "Probability-Statistics.Statistical-Inference.Unbiased-Estimation": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Estimator-Bias": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Bias": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Measurement-Scales-and-Summary-Statistics": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Descriptive-Statistics-and-Sampling.Measurement-Scales-and-Summary-Statistics": {
+      "subsubject": "Probability-Statistics.Descriptive-Statistics-and-Sampling"
     },
-    "Probability-Statistics.Statistical-Inference.Mean-Median-and-Quartiles": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Descriptive-Statistics-and-Sampling.Mean-Median-and-Quartiles": {
+      "subsubject": "Probability-Statistics.Descriptive-Statistics-and-Sampling"
     },
-    "Probability-Statistics.Statistical-Inference.Confidence-Interval-Width-vs-Sample-Size": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval-Width-vs-Sample-Size": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Chi-Square-Pivot-for-Normal-Variance": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Chi-Square-Pivot-for-Normal-Variance": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Affine-Transformation-of-Sample-Mean": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Descriptive-Statistics-and-Sampling.Affine-Transformation-of-Sample-Mean": {
+      "subsubject": "Probability-Statistics.Descriptive-Statistics-and-Sampling"
     },
-    "Probability-Statistics.Statistical-Inference.Left-Censored-Exponential-Model": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Left-Censored-Exponential-Model": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Moment-and-Likelihood-Estimation-with-Censoring": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Moment-and-Likelihood-Estimation-with-Censoring": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Exponential-Rate-Maximum-Likelihood-Estimation-and-Bias": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Exponential-Rate-Maximum-Likelihood-Estimation-and-Bias": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "aliases": [
-        "Probability-Statistics.Statistical-Inference.Exponential-Rate-MLE-and-Bias"
+        "Probability-Statistics.Estimation-and-Hypothesis-Testing.Exponential-Rate-MLE-and-Bias"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Uniform-Scale-Unbiased-Estimator": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Uniform-Scale-Unbiased-Estimator": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
-    "Probability-Statistics.Statistical-Inference.Weighted-Least-Squares": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Weighted-Least-Squares": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Birthday-Collision-Problem": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Birthday-Collision-Problem": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Discrete-Mathematics",
         "Computer-Science"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Probability-Generating-Function": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics"
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Probability-Generating-Function": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Probability-Generating-Function-of-Random-Sum": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Probability-Generating-Function-of-Random-Sum": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "aliases": [
-        "Probability-Statistics.Probability-and-Statistics-Basics.PGF-of-Random-Sum"
+        "Probability-Statistics.Probability-Distributions-and-Asymptotics.PGF-of-Random-Sum"
       ]
     },
-    "Probability-Statistics.Statistical-Inference.Diagnostic-Test-Positive-Predictive-Value": {
-      "subsubject": "Probability-Statistics.Statistical-Inference"
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Diagnostic-Test-Positive-Predictive-Value": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     },
     "Probability-Statistics.Stochastic-Processes.Pattern-Probability-in-Markov-Sequence": {
       "subsubject": "Probability-Statistics.Stochastic-Processes"
@@ -673,8 +723,8 @@
     "Probability-Statistics.Stochastic-Processes.Stationary-Pair-Frequencies": {
       "subsubject": "Probability-Statistics.Stochastic-Processes"
     },
-    "Probability-Statistics.Statistical-Inference.Bayesian-Model-Selection-for-Sequence-Sources": {
-      "subsubject": "Probability-Statistics.Statistical-Inference",
+    "Probability-Statistics.Bayesian-Statistics.Bayesian-Model-Selection-for-Sequence-Sources": {
+      "subsubject": "Probability-Statistics.Bayesian-Statistics",
       "relatedSubjects": [
         "Computer-Science"
       ]
@@ -682,7 +732,7 @@
     "Probability-Statistics.Stochastic-Processes.Absorbing-Random-Walk": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
       "relatedSubjects": [
-        "Graph-Theory-Combinatorial-Optimization"
+        "Discrete-Mathematics"
       ]
     },
     "Probability-Statistics.Stochastic-Processes.Gamblers-Ruin-and-Hitting-Probability": {
@@ -701,8 +751,8 @@
         "Probability-Statistics.Stochastic-Processes.Pattern-Occurrence-in-IID-Sequence"
       ]
     },
-    "Probability-Statistics.Probability-and-Statistics-Basics.Collision-Probability-of-Discrete-Distributions": {
-      "subsubject": "Probability-Statistics.Probability-and-Statistics-Basics",
+    "Probability-Statistics.Probability-Basics.Collision-Probability-of-Discrete-Distributions": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
         "Operations-Research"
       ]

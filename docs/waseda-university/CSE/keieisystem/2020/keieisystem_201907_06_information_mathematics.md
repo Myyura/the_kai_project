@@ -2,8 +2,8 @@
 sidebar_label: "2019年7月実施 情報数理応用 問題6"
 tags:
   - Waseda-University
-  - Probability-Statistics.Statistical-Inference.Bayesian-Inference
-  - Probability-Statistics.Statistical-Inference.Beta-Bernoulli-Model
+  - Probability-Statistics.Bayesian-Statistics.Bayesian-Inference
+  - Probability-Statistics.Bayesian-Statistics.Beta-Bernoulli-Model
   - Computer-Science.Information-Theory.Typical-Sequence
   - Data-Science-Artificial-Intelligence.Machine-Learning.Random-Forest
   - Data-Science-Artificial-Intelligence.Machine-Learning.Curse-of-Dimensionality

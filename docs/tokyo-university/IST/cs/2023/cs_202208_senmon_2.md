@@ -2,7 +2,7 @@
 sidebar_label: "2022年8月実施 専門科目 問題2"
 tags:
   - Tokyo-University
-  - Operations-Research.Optimization.Minimax-Number-Partitioning-Approximation
+  - Operations-Research.Combinatorial-Optimization.Minimax-Number-Partitioning-Approximation
   - Computer-Science.Data-Structures.Priority-Queue
   - Computer-Science.Algorithm-Design.Algorithm-Complexity
 ---

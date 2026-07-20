@@ -2,7 +2,7 @@
 sidebar_label: 2025年8月実施 グラフ理論
 tags:
   - Kyoto-University
-  - Graph-Theory-Combinatorial-Optimization.Graph-Theory.Connectivity
+  - Discrete-Mathematics.Graph-Theory.Connectivity
 ---
 # 京都大学 情報学研究科 数理工学専攻 2025年8月実施 グラフ理論
 

@@ -2,8 +2,8 @@
 sidebar_label: '2025年8月実施 数学 第6問'
 tags:
   - Tokyo-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Hypergeometric-Distribution
-  - Probability-Statistics.Probability-and-Statistics-Basics.Conditional-Probability
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Hypergeometric-Distribution
+  - Probability-Statistics.Probability-Basics.Conditional-Probability
   - Computer-Science.Information-Theory.Entropy
 ---
 

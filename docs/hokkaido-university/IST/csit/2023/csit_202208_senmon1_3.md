@@ -2,10 +2,10 @@
 sidebar_label: 2022年8月実施 専門科目1 問3 (確率・統計)
 tags:
   - Hokkaido-University
-  - Probability-Statistics.Probability-and-Statistics-Basics.Cumulative-Distribution-Function-and-Probability-Density-Function
-  - Probability-Statistics.Probability-and-Statistics-Basics.Expectation-and-Variance
-  - Probability-Statistics.Statistical-Inference.Unbiased-Estimation
-  - Probability-Statistics.Probability-and-Statistics-Basics.Normal-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Distribution
 ---
 # 北海道大学 情報科学院 情報科学専攻 情報理工学コース 2022年8月実施 専門科目1 問3 (確率・統計)
 
