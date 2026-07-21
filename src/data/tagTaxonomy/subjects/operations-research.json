@@ -50,9 +50,9 @@
       "labelZh": "组合优化",
       "labelJa": "組合せ最適化",
       "labelEn": "Combinatorial Optimization",
-      "descriptionZh": "最大流、匹配、最短路、最小生成树、旅行商、分支定界与其他离散优化问题。",
-      "descriptionJa": "最大フロー、マッチング、最短路、最小全域木、巡回セールスマン、分枝限定法などの離散最適化問題。",
-      "descriptionEn": "Discrete optimization problems including maximum flow, matching, shortest paths, minimum spanning trees, traveling salesperson, and branch and bound."
+      "descriptionZh": "最大流、匹配、最短路、最小生成树、集合覆盖、旅行商、分支定界与其他离散优化问题。",
+      "descriptionJa": "最大フロー、マッチング、最短路、最小全域木、集合被覆、巡回セールスマン、分枝限定法などの離散最適化問題。",
+      "descriptionEn": "Discrete optimization problems including maximum flow, matching, shortest paths, minimum spanning trees, set cover, traveling salesperson, and branch and bound."
     },
     "Operations-Research.Metaheuristics": {
       "subject": "Operations-Research",
@@ -254,6 +254,12 @@
       ],
       "aliases": [
         "Operations-Research.Combinatorial-Optimization.Branch-And-Bound"
+      ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Set-Cover-Problem": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "relatedSubjects": [
+        "Computer-Science"
       ]
     },
     "Operations-Research.Linear-Programming.Complementary-Slackness": {

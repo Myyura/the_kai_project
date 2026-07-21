@@ -540,10 +540,6 @@
   label: "Computer-Science.Algorithm-Design.Greedy-Algorithm"
   permalink: "/topic/computer-science/algorithm-design/greedy-algorithm"
   description: "Computer-Science / Algorithm-Design / Greedy-Algorithm"
-"Computer-Science.Algorithm-Design.Greedy-Set-Cover":
-  label: "Computer-Science.Algorithm-Design.Greedy-Set-Cover"
-  permalink: "/topic/computer-science/algorithm-design/greedy-set-cover"
-  description: "Computer-Science / Algorithm-Design / Greedy-Set-Cover"
 "Computer-Science.Algorithm-Design.Heap-Sort":
   label: "Computer-Science.Algorithm-Design.Heap-Sort"
   permalink: "/topic/computer-science/algorithm-design/heap-sort"
@@ -616,10 +612,6 @@
   label: "Computer-Science.Algorithm-Design.Selection-Sort"
   permalink: "/topic/computer-science/algorithm-design/selection-sort"
   description: "Computer-Science / Algorithm-Design / Selection-Sort"
-"Computer-Science.Algorithm-Design.Set-Cover-Problem":
-  label: "Computer-Science.Algorithm-Design.Set-Cover-Problem"
-  permalink: "/topic/computer-science/algorithm-design/set-cover-problem"
-  description: "Computer-Science / Algorithm-Design / Set-Cover-Problem"
 "Computer-Science.Algorithm-Design.Shell-Sort":
   label: "Computer-Science.Algorithm-Design.Shell-Sort"
   permalink: "/topic/computer-science/algorithm-design/shell-sort"
@@ -3884,6 +3876,10 @@
   label: "Operations-Research.Combinatorial-Optimization.Minimum-Spanning-Tree"
   permalink: "/topic/operations-research/combinatorial-optimization/minimum-spanning-tree"
   description: "Operations-Research / Combinatorial-Optimization / Minimum-Spanning-Tree"
+"Operations-Research.Combinatorial-Optimization.Set-Cover-Problem":
+  label: "Operations-Research.Combinatorial-Optimization.Set-Cover-Problem"
+  permalink: "/topic/operations-research/combinatorial-optimization/set-cover-problem"
+  description: "Operations-Research / Combinatorial-Optimization / Set-Cover-Problem"
 "Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem":
   label: "Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem"
   permalink: "/topic/operations-research/combinatorial-optimization/shortest-path-problem"

@@ -258,20 +258,11 @@
     },
     "Computer-Science.Algorithm-Design.Greedy-Algorithm": {
       "subsubject": "Computer-Science.Algorithm-Design",
+      "relatedSubjects": [
+        "Operations-Research"
+      ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Greedy"
-      ]
-    },
-    "Computer-Science.Algorithm-Design.Set-Cover-Problem": {
-      "subsubject": "Computer-Science.Algorithm-Design",
-      "relatedSubjects": [
-        "Operations-Research"
-      ]
-    },
-    "Computer-Science.Algorithm-Design.Greedy-Set-Cover": {
-      "subsubject": "Computer-Science.Algorithm-Design",
-      "relatedSubjects": [
-        "Operations-Research"
       ]
     },
     "Computer-Science.Algorithm-Design.Order-Sensitivity-of-Greedy-Algorithms": {
