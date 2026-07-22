@@ -54,7 +54,8 @@
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "smiles-drawer": "2.4.1",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "websocket-driver": "0.7.5"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
