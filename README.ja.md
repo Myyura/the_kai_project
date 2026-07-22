@@ -74,6 +74,7 @@ yarn tags:generate
 yarn content:validate
 yarn tags:audit
 yarn documents:validate
+yarn content:export
 yarn review:format
 yarn api:validate
 ```
@@ -84,6 +85,7 @@ yarn api:validate
 - `yarn content:validate`: `src/data/` 配下の編集可能な JSON データ（リンク、入試データ、大学メタデータ、タグ分類）を検証します。
 - `yarn tags:audit`: サイト全体の大学、大科目、サブ科目、考点、未分類、廃止タグの使用状況を確認します。
 - `yarn documents:validate`: 自動導出される文書 UUID と、パス変更時だけ保存される current override / 過去 alias を検証します。
+- `yarn content:export`: 独立クライアント同期用の完全スナップショット `build/content-export/v1/kai-content-v1.json.gz` を生成します。仕様と同期ルールは [CONTENT_EXPORT.md](CONTENT_EXPORT.md) を参照してください。
 - `yarn review:format`: `docs/` 配下の解答ドキュメント形式をレビューします。
 - `yarn api:validate`: 公開 JSON API 用の構造化データを検証します。
 

@@ -74,6 +74,7 @@ yarn tags:generate
 yarn content:validate
 yarn tags:audit
 yarn documents:validate
+yarn content:export
 yarn review:format
 yarn api:validate
 ```
@@ -84,6 +85,7 @@ yarn api:validate
 - `yarn content:validate`：校验 `src/data/` 下贡献者可编辑的 JSON 数据，包括参考链接、录取数据、大学元数据和 tag 池。
 - `yarn tags:audit`：统计全站学校、学科、子科目、考点、待归类和废弃 tag 的使用情况。
 - `yarn documents:validate`：校验自动推导的文档 UUID，以及仅在路径重命名时保存的 current override 与历史 alias。
+- `yarn content:export`：生成供独立客户端同步的完整内容快照 `build/content-export/v1/kai-content-v1.json.gz`；字段与同步规则参见 [CONTENT_EXPORT.md](CONTENT_EXPORT.md)。
 - `yarn review:format`：在提交 PR 前检查 `docs/` 下题解文档的格式。
 - `yarn api:validate`：检查 JSON API 使用的结构化题库数据。
 

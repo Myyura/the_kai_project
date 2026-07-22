@@ -75,6 +75,7 @@ yarn tags:generate
 yarn content:validate
 yarn tags:audit
 yarn documents:validate
+yarn content:export
 yarn review:format
 yarn api:validate
 ```
@@ -85,6 +86,7 @@ yarn api:validate
 - `yarn content:validate`: validate contributor-editable JSON data under `src/data/`, including links, university metadata, and the tag taxonomy.
 - `yarn tags:audit`: summarize site-wide school, subject, subsubject, topic, pending, and deprecated tag usage.
 - `yarn documents:validate`: validate automatically derived document UUIDs and the current overrides / historical aliases stored only for renamed paths.
+- `yarn content:export`: generate the complete client-sync snapshot at `build/content-export/v1/kai-content-v1.json.gz`; see [CONTENT_EXPORT.md](CONTENT_EXPORT.md) for its contract and import rules.
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
 - `yarn api:validate`: validate the structured data used by the public JSON API.
 

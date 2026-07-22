@@ -6,7 +6,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "node scripts/generate-docusaurus-tags.js && node scripts/generate-site-stats.js && docusaurus start",
-    "build": "node scripts/generate-site-stats.js && yarn content:validate && docusaurus build && yarn documents:publish && yarn build:check",
+    "build": "node scripts/generate-site-stats.js && yarn content:validate && docusaurus build && yarn documents:publish && yarn content:export && yarn build:check",
     "build:check": "node scripts/check-build-output.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -26,6 +26,7 @@
     "documents:validate": "node scripts/generate-document-identities.js --check",
     "documents:move": "node scripts/generate-document-identities.js --move",
     "documents:publish": "node scripts/generate-static-document-content.js",
+    "content:export": "node scripts/generate-content-export.js",
     "data:validate": "yarn content:validate && yarn api:validate",
     "review:format": "node scripts/review-format.js",
     "api:generate": "node scripts/generate-api-data.js",

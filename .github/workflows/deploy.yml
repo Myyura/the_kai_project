@@ -87,6 +87,7 @@ jobs:
       - name: 检查 Pages 构建入口
         run: |
           test -f build/index.html
+          test -f build/content-export/v1/kai-content-v1.json.gz
           test ! -d build/ja
           test ! -d build/en
           test ! -f build/progress.html
