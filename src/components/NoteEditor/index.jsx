@@ -304,7 +304,7 @@ export default function NoteEditor(props) {
   const t = useUiText('noteEditor');
 
   if (!isConfigured) return <NoteGate t={t} type="unavailable" embedded={props.embedded} />;
-  if (isConfigured && !authReady && !isLoggedIn) return null;
+  if (!authReady && !isLoggedIn) return null;
   if (!isLoggedIn) return <NoteGate t={t} embedded={props.embedded} />;
   return <NoteEditorContent {...props} />;
 }

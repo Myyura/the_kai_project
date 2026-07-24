@@ -132,7 +132,7 @@ jobs:
           fetch-depth: 0
       - uses: supabase/setup-cli@ab058987d8d6c725971f6cf9d0b5c98467e30bd1 # v1
         with:
-          version: 2.101.0
+          version: 2.109.1
       - name: 迁移数据库并部署函数
         run: |
           if [ -z "$SUPABASE_ACCESS_TOKEN" ] || [ -z "$SUPABASE_PROJECT_REF" ]; then

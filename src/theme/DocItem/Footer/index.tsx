@@ -573,7 +573,7 @@ export default function DocItemFooter(): ReactNode {
 
   const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
     const currentIndex = tabs.findIndex((tab) => tab.key === activeTab);
-    let nextIndex = currentIndex;
+    let nextIndex: number;
 
     if (event.key === 'ArrowRight') {
       nextIndex = (currentIndex + 1) % tabs.length;

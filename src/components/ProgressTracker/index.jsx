@@ -141,7 +141,7 @@ export default function ProgressTracker(props) {
   const t = useUiText('progressTracker');
 
   if (!isConfigured) return <ProgressGate t={t} type="unavailable" embedded={props.embedded} />;
-  if (isConfigured && !authReady && !isLoggedIn) return null;
+  if (!authReady && !isLoggedIn) return null;
   if (!isLoggedIn) return <ProgressGate t={t} embedded={props.embedded} />;
   return <ProgressTrackerContent {...props} />;
 }
