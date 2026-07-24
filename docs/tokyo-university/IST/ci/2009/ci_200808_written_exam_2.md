@@ -8,7 +8,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Consider an $N$ digit decimal counter specified as follows:
 
 a. A one digit decimal is represented by 4 bits.

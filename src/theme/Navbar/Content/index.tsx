@@ -35,16 +35,23 @@ function useNavbarItems() {
 
 function NavbarItems({items}: {items: NavbarItemConfig[]}): ReactNode {
   const {t} = useLanguage();
-  
+
+  const translateItem = (item: NavbarItemConfig): NavbarItemConfig => {
+    const nestedItems = (item as NavbarItemConfig & {items?: NavbarItemConfig[]}).items;
+    return {
+      ...item,
+      label: item.label ? t(item.label, 'navbar') : item.label,
+      ...(Array.isArray(nestedItems)
+        ? {items: nestedItems.map((child) => translateItem(child))}
+        : {}),
+    } as NavbarItemConfig;
+  };
+
   return (
     <>
       {items.map((item, i) => {
-        // 翻译 label
-        const translatedItem = {
-          ...item,
-          label: item.label ? t(item.label, 'navbar') : item.label,
-        };
-        
+        const translatedItem = translateItem(item);
+
         return (
           <ErrorCauseBoundary
             key={i}

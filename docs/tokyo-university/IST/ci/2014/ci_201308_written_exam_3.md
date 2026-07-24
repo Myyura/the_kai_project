@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 We consider the problem of distinguishing between two hand-written alphabets "C" and "T" using image processing and pattern recognition techniques. Figure 1 shows an input image X. Let $i$ and $j$ denote integers corresponding to the $x$ and $y$ coordinates of a pixel. The value of a pixel $(i, j)$ is represented by $f(i, j)$. Here, we take the top-left pixel as the origin $(0, 0)$ of the coordinates.
 
 <figure style="text-align:center;">

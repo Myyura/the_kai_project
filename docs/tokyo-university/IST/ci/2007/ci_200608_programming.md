@@ -12,7 +12,10 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (日本語)**
+## **Description**
+
+### 日本語
+
 必要なら最後の ASCII コード表を使いなさい. この問題で扱う文字コードは 32～126 と改行に関するコードの計 96 種類のみである. また, 以下で使うファイルはすべて ASCII 文字で, 1 行 76 文字以内である.
 
 **問 1** 鍵として指定した数だけ, アルファベットの英字を循環的に後ろへシフトする非常に単純な暗号 (シーザー暗号) がある. 鍵は 1～25 の整数である. 例えば, 鍵が 4 の場合, `Japan` は `Neter` と暗号化され, 鍵が 25 の場合, `IBM` は `HAL` と暗号化される. なお, 簡単のため, ここでは, 英字の大文字は大文字に, 小文字は小文字に変換されるとし, 空白や改行, 数字, 句読点などの記号は暗号化しない.
@@ -58,7 +61,7 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_p_p2.png" width="600" alt=""/>
 </figure>
 
-## **Description (English)**
+### English
 Refer to the ASCII code table on the last page, if necessary. The number of character codes dealt with in this examination will be 96; that is, from 32 to 126 and that for newline. Files consist of ASCII characters. Every line has no more than 76 characters.
 
 **Q1** Caesar cipher is one of the simplest cipher which shifts alphabet letter by $n$-place in a cyclic manner, where $n$ is the cipher key ranging from 1 to 25. For example, if the key is 4, `Japan` is enciphered into `Neter`, and if the key is 25, `IBM` is enciphered into `HAL`. Here we preserve uppercase and lowercase of alphabet letters, and do not substitute any other characters such as space, digits, and punctuation marks. Decipher the Caesar cipher text in the file `q1.txt`. Namely, infer the key and recover the original English sentences.

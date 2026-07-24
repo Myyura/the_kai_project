@@ -13,7 +13,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 ### Q.1
 Let $\theta$ be the probability of getting heads in a coin toss. Assuming that $\theta$ is a random variable, we want to estimate the probability distribution of $\theta$ from observed data $D$ of independent coin tosses (Bernoulli trials). Here, we introduce a prior distribution of $\theta$ ($p(\theta)$) that follows a beta distribution $\text{Beta}(\theta; \alpha, \beta)$, where $\alpha$ and $\beta$ are the parameters. The probability density function of the beta distribution is given by
 

@@ -10,7 +10,7 @@ tags:
 ## **Author**
 祭音Myyura (with the help of an anonymous contributor), [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Suppose that there are $N$ web pages. A user staying at a web page at time $t$ ($t \ge 0$) will move to one of the linked pages at time $t+1$ with equal probability. If there are no linked pages, the user will stay at the same page as time $t$. Let $p_n^{(t)}$ ($1 \le n \le N$) denote the probability of the user staying at the $n$-th page at time $t$, and $\boldsymbol{p}^{(t)} = (p_1^{(t)} \ p_2^{(t)} \dots p_N^{(t)})^\mathrm{T}$ denote the vector that summarizes them.
 
 First, let us consider the case of $N = 3$ shown in Table 1. When there are three web pages shown in Table 1, the state transition diagram that represents a user's state is depicted as a graph in Figure 1. Each node in the graph shown in Figure 1 corresponds one-to-one to a page in Table 1, and an edge represents a transition between the pages from time $t$ to time $t+1$. The value appended to an edge shows the probability of the transition occurring. Note that when there are no linked pages and a user keeps staying at the same page, it is interpreted as a transition to the same page as time $t$.

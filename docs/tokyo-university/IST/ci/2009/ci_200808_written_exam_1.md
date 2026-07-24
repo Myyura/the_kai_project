@@ -9,7 +9,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Given $n$ records $r_1, r_2, \dots, r_n$, each has a key $k_1, k_2, \dots, k_n$, respectively. Given a key, consider searching for the corresponding record. For a given query key $v$, if there is a key $k_j$ where $v = k_j$ ($1 \le j \le n$) then the search is successful and the record $r_j$ is returned, otherwise the search fails and the failure is returned.
 
 Let $p_j$ be the probability where the query key $v$ is $k_j$, and $p_{\text{miss}}$ be the probability of the search failure. The computation time is almost proportional to the number of comparisons with $v$. Let us calculate the average number of comparisons $\overline{C}$ and the maximum number of comparisons $C_{\text{max}}$.

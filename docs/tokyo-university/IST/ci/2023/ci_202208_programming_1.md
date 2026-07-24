@@ -12,7 +12,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 
 Suppose that we have a maze on a square board with $m \times m$ cells. 
 The cell in the $i$-th row and the $j$-th column is denoted by $(i,j)$, where $0 \leq i \leq m-1$ and $0 \leq j \leq m-1$. 

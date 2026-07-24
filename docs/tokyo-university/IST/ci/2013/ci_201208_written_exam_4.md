@@ -17,6 +17,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 以下に示す情報システムに関する8項目から<u>4項目</u>を選択し、各項目を4～8行程度で説明せよ。必要に応じて例や図を用いてよい。
 
 1) NP 完全性
@@ -28,7 +31,7 @@ tags:
 7) TLB (Translation Lookaside Buffer)
 8) LL(1)構文解析
 
-## **Description (English)**
+### English
 Select <u>four items</u> out of the following eight items concerning information systems, and explain each item in approximately 4~8 lines of text.
 If necessary, use examples or figures.
 

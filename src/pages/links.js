@@ -8,7 +8,6 @@ import {
   FaSearch,
 } from 'react-icons/fa';
 import { useCurrentLanguage } from '../context/LanguageContext';
-import LanguageSwitcher from '../components/LanguageSwitcher';
 import { useUiText } from '../i18n/useUiText';
 import styles from './links.module.css';
 import content from '../data/links.json';
@@ -113,12 +112,6 @@ export default function Links() {
             </div>
           </div>
           <div className={styles.heroSide}>
-            <LanguageSwitcher
-              className={styles.langSwitch}
-              buttonClassName={styles.langBtn}
-              activeButtonClassName={styles.langBtnActive}
-              dividerClassName={styles.langDivider}
-            />
             <div className={styles.heroStats}>
               <div>
                 <strong>{linkContent.links.length}</strong>

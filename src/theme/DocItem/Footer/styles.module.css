@@ -1,3 +1,124 @@
+.workspaceAnchor {
+  display: none;
+}
+
+.studyTabsHost {
+  position: sticky;
+  z-index: 5;
+  top: calc(var(--ifm-navbar-height) + .5rem);
+  margin: 1.25rem 0 1.5rem;
+}
+
+.studyTabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .4rem;
+  padding: .35rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ifm-background-color) 94%, transparent);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.studyTab {
+  display: inline-flex;
+  min-width: 0;
+  min-height: 2.65rem;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .55rem .75rem;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 650;
+  line-height: 1.2;
+  transition:
+    color .16s ease,
+    border-color .16s ease,
+    background .16s ease,
+    box-shadow .16s ease,
+    transform .16s ease;
+}
+
+.studyTab:hover {
+  color: var(--ifm-color-primary);
+  background: color-mix(in srgb, var(--ifm-color-primary) 7%, transparent);
+}
+
+.studyTab:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.studyTabActive {
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 32%, var(--ifm-color-emphasis-200));
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-primary);
+  box-shadow: 0 2px 9px rgba(15, 23, 42, .09);
+}
+
+.studyTabActive:active {
+  transform: translateY(1px);
+}
+
+.studyTab svg {
+  flex: 0 0 auto;
+  font-size: .92rem;
+}
+
+.studyTab span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.studyPanel {
+  min-width: 0;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 5rem);
+}
+
+.studyPanel[hidden] {
+  display: none !important;
+}
+
+.emptyStudySection {
+  display: grid;
+  justify-items: start;
+  gap: .75rem;
+  min-height: 10rem;
+  align-content: center;
+  margin: .5rem 0 1.5rem;
+  padding: 1.5rem;
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ifm-color-emphasis-100) 58%, transparent);
+}
+
+.emptyStudySection p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.emptyStudySection a {
+  font-weight: 650;
+}
+
+.notesWorkspace {
+  margin-top: 0;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 5rem);
+}
+
+.notesWorkspace > *:first-child {
+  margin-top: 0;
+}
+
 .learningPanel {
   margin-top: 2rem;
   overflow: hidden;
@@ -51,6 +172,24 @@
 }
 
 @media (max-width: 520px) {
+  .studyTabsHost {
+    top: calc(var(--ifm-navbar-height) + .25rem);
+    margin-inline: -.2rem;
+  }
+
+  .studyTabs {
+    gap: .25rem;
+    padding: .25rem;
+    border-radius: 10px;
+  }
+
+  .studyTab {
+    min-height: 2.5rem;
+    gap: .35rem;
+    padding-inline: .4rem;
+    font-size: .82rem;
+  }
+
   .learningPanelHeader {
     align-items: stretch;
     flex-direction: column;

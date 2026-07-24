@@ -1,0 +1,18 @@
+.postList > article {
+  margin-bottom: 1rem;
+  padding: 1.35rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-card, 16px);
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--kai-shadow-card);
+}
+
+.postList > article:last-child {
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .postList > article {
+    padding: 1rem;
+  }
+}

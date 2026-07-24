@@ -17,6 +17,7 @@ import SearchMetadata from '@theme/SearchMetadata';
 import type {Props} from '@theme/DocTagDocListPage';
 import Unlisted from '@theme/ContentVisibility/Unlisted';
 import Heading from '@theme/Heading';
+import ContentBrowseModes from '@site/src/components/ContentBrowseModes';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import {universities} from '@site/src/data/universities';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
@@ -284,6 +285,7 @@ function DocTagDocListPageContent({
         <div className="row">
           <main className="col col--10 col--offset-1">
             {tag.unlisted && <Unlisted />}
+            <ContentBrowseModes section="exams" activeMode="tags" />
             <header className={styles.pageHeader}>
               <div className={styles.typeRow}>
                 <span className={`${styles.typeBadge} ${styles[tagKind.tone]}`}>

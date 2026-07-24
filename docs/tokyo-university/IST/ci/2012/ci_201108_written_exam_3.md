@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 As shown in Figure 1, there is a robot arm which has rotational joints at three points $O$, $E$ and $W$, and a two-fingered hand at the end $H$ on an $X$-$Y$ two-dimensional plane. The position of the hand $H$ is $(h_x, h_y)$ and the orientation of the hand $H$ is $h_\theta$, the joint angles are $\theta_1, \theta_2$ and $\theta_3$, and the lengths of the links are $\mathrm{OE}=l_1, \mathrm{EW}=l_2$ and $\mathrm{WH}=l_3$. Answer the following questions:
 
 <figure style="text-align:center;">

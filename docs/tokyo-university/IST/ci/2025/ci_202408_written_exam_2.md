@@ -13,7 +13,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 We transmit data via packet switching between sender S and receiver R connected as shown in Figure 1. Assume that one-way propagation delay $d_{prop}$ is 250 ms and bandwidth $B$ is 200 kbps. Ignore packet losses and assume that the packets are not fragmented during transmission. The communication is full-duplex. The prefix “k” represents $10^3$.
 
 <figure style="text-align:center;">

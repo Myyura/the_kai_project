@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 
 Let $n$ and $r$ be positive integers. For $i=1,2,\dots,n$, let $f_i$ be a univariate real-valued function defined in the integer domain and let $f_i(x_i)$ be $-\infty$ for negative integer $x_i$. Any non-negative integer solution $(x_1,\dots,x_n)$ that satisfies $\sum_{i=1}^n x_i=r$ is called a feasible solution. In addition, a feasible solution that maximizes the objective function $\sum_{i=1}^n f_i(x_i)$ is called an optimal solution and the objective function value at the solution is called the optimal value. This problem is expressed as follows.
 

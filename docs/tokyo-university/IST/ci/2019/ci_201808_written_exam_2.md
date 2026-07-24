@@ -14,6 +14,9 @@ tags:
 [tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 太陽光発電システムについて考えよう。ソーラーパネルの維持管理のため、以下のような運用規則が定められているとする。  
 
 - (i) $n$ 枚のパネルが一つのグループとして維持管理される。  
@@ -40,7 +43,7 @@ tags:
 
 (6) 入力 $n$ ビットの population count 論理回路 $P_n$ を考える時、$n$ が増えると遅延が問題となる。この問題を解決する方法を述べよ。 
 
-## **Description (English)**
+### English
 Let us consider a solar power generation system. Assume that we have operational rules to maintain solar panels as follows; (i) A set of $n$ panels are maintained at the same time as a group. (ii) Each group of panels is periodically examined. (iii) For each group, status of panels is reported as $n$ bit data, where each bit is set to $1$ if the corresponding panel is malfunctioning, and $0$ otherwise. Consider the "population count" problem where we count the total number of malfunctioning panels, i.e., the number $k$ of $1$s in the $n$ bit data. Answer the following questions.
 
 First, let us consider a software solution. Here, $0 < n \le 32, 0 \le k < \log_2 n$. Assume that an arithmetic operation, a logical operation, a shift operation, and a table lookup takes $1$ unit time. For simplicity, assume that increments of indices and comparisons for loops take zero time.

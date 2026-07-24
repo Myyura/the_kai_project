@@ -8,7 +8,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Answer the following questions.
 
 (1) As Figure 1 shows, an orthogonal coordinate frame $\Sigma_C$ of a camera with the lens axis $CZ$ and the projection plane $S$ is placed at the point $C$. The plane $S$ is orthogonal to the lens axis $CZ$ and has the distance $f$ from $C$. The point $Q$ is projected to the point $P$ on the plane $S$ with the coordinates $\mathbf{P}_C=(P_X,P_Y,f)^t$ in $\Sigma_C$. The coordinates of three orientation vectors $CX,CY,CZ$ are described as $\mathbf{X}_\mathbf{W}=(X_X,X_Y,X_Z)^t$, $\mathbf{Y}_\mathbf{W}=(Y_X,Y_Y,Y_Z)^t$ and $\mathbf{Z}_\mathbf{W}=(Z_X,Z_Y,Z_Z)^t$, and the position vector of $C$ is $\mathbf{C}_\mathbf{W}=(C_X,C_Y,C_Z)^t$ in the coordinate frame $\Sigma_W$. The superscript $t$ indicates transpose.

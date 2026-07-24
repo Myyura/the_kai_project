@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [tomfluff](https://github.com/tomfluff)
 
-## **Description (English)**
+## **Description**
 Assume that matrix elements are non-negative integers and they are stored in main memory.
 
 (1) When the algorithm below is used to multiply an $m \times n$ matrix $A$ and an $n \times m$ matrix $B$, how many times are these matrix elements in $A$ and $B$ read from the main memory? 

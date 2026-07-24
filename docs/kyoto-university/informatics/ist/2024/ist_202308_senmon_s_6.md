@@ -9,7 +9,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## Description (English)
+## **Description**
 
 We consider a grammar $G = (\Sigma, N, P, S)$, where $\Sigma, N, P$, and $S$ are a finite set of terminal symbols, a finite set of nonterminal symbols, a finite set of production rules, and the start symbol, respectively.
 

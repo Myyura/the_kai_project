@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 In the following, when a sample $X = (x_1, x_2, x_3, ..., x_N)$ consisting of $N$ observations is obtained for a stochastic process, we calculate the parameters of the original stochastic information source by using maximum likelihood estimation. Maximum likelihood estimation is a type of parameter estimation method and is described below.
 
 > Let $f(x; \theta)$ be the density function of the distribution in accordance with the parameter $\theta$. The likelihood function $L(X|\theta)$ when obtaining a sample $X$ is given by $\prod_{n=1}^{N} f(x_n; \theta)$. Here, $\theta$ that maximizes $L(X|\theta)$ is called a maximum likelihood estimator.

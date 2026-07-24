@@ -45,11 +45,11 @@
 /* ===== Hero 区域 - 苹果风格 ===== */
 .heroSection {
   position: relative;
-  min-height: 100vh;
+  min-height: min(820px, calc(100vh - var(--ifm-navbar-height)));
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem;
+  padding: 5rem 2rem;
   overflow: hidden;
 }
 
@@ -84,46 +84,6 @@
   text-align: center;
   /* 仅使用 transform 动画，保证 h1 LCP 元素 opacity 始终为 1 */
   animation: slideUp 0.7s ease-out;
-}
-
-/* 语言切换 - 极简风格 */
-.languageSwitcher {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 3rem;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-}
-
-.languageSwitcher:hover {
-  opacity: 1;
-}
-
-.langBtn {
-  background: none;
-  border: none;
-  font-size: 0.875rem;
-  color: var(--ifm-font-color-base);
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  opacity: 0.5;
-  transition: all 0.2s;
-}
-
-.langBtn:hover {
-  opacity: 0.8;
-}
-
-.langBtnActive {
-  opacity: 1;
-  font-weight: 600;
-}
-
-.langDivider {
-  color: var(--ifm-font-color-base);
-  opacity: 0.3;
 }
 
 /* 主标题 - 大而醒目 */
@@ -766,10 +726,12 @@
   box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.1);
 }
 
-/* 大学瀑布流布局 */
+/* 大学网格 */
 .universityGrid {
-  column-count: 3;
-  column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -780,8 +742,6 @@
   overflow: hidden;
   transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   animation: scaleIn 0.4s ease-out backwards;
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
   contain: layout style;
 }
 
@@ -799,14 +759,25 @@
 
 .univHeader {
   display: flex;
+  width: 100%;
   align-items: center;
   padding: 1rem 1.25rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
   cursor: pointer;
+  font: inherit;
+  text-align: left;
   transition: background 0.2s;
 }
 
 .univHeader:hover {
   background: rgba(0, 0, 0, 0.03);
+}
+
+.univHeader:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
+  outline-offset: -3px;
 }
 
 [data-theme='dark'] .univHeader:hover {
@@ -875,7 +846,7 @@
 .linkIcon {
   font-size: 0.75rem;
   color: #86868b;
-  opacity: 0;
+  opacity: .65;
   transition: all 0.2s;
 }
 
@@ -1095,7 +1066,7 @@
 
 /* ===== CTA 区域 ===== */
 .ctaSection {
-  padding: 10rem 2rem;
+  padding: 6.5rem 2rem;
   background: linear-gradient(180deg, #f5f5f7 0%, white 100%);
   text-align: center;
   content-visibility: auto;
@@ -1287,17 +1258,13 @@
   }
   
   .universityGrid {
-    column-count: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media screen and (max-width: 640px) {
   .heroSection {
     padding: 4rem 1rem;
-  }
-  
-  .languageSwitcher {
-    margin-bottom: 2rem;
   }
   
   .heroTagline {
@@ -1316,8 +1283,7 @@
   }
   
   .primaryBtn,
-  .secondaryBtn,
-  .progressBtn {
+  .secondaryBtn {
     justify-content: center;
     padding: 0.875rem 1.5rem;
   }
@@ -1373,7 +1339,7 @@
   }
   
   .universityGrid {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
   
   .ctaSection {

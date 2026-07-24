@@ -9,7 +9,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Design a multiplier whose inputs are two 3-bit numbers and the output is a 6-bit number according to the following steps.
 
 (1) Show the truth-table of the full adder and the half adder shown in Figure 1. Then construct them using AND, OR and NOT gates.

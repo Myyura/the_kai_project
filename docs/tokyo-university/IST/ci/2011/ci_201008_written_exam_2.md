@@ -8,7 +8,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 (1) Selection of the number of operands in a $2$-input arithmetic instruction and selection of the method to access memory are important in designing the format of instructions of a processor. Answer the following questions on the instruction format.
 
 1) Describe the pros and cons of $2$-operand instruction format and $3$-operand instruction format for a $2$-input arithmetic instruction.

@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Design a logic circuit to light an LED satisfying the following conditions. Figure 1 shows the connection diagram of the circuit, input signals and an output signal to the LED.
 
 Condition 1: Inputs of the circuit to design are `LEDSTR` and `CLOCK INPUT` ($100\text{ kHz}$ clock input signal). The output of the circuit to design is `LEDOUT`. `LEDOUT` is directly connected to the LED driver and lights the LED. When `LEDOUT` is `H`, LED is on, and when `LEDOUT` is `L`, LED is off.

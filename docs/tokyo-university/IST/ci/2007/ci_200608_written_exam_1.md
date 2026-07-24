@@ -10,6 +10,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 下左図は，$2$ 入力 $2$ 出力の比較器であり，大きさ $2$ のソーティングネットワークでもある。入出力の接続部は黒丸●で表現されている。比較器に左から数を $2$ つ入力すると，小さい数を上から，大きい数を下から右方向へそれぞれ出力する。$2$ 数が等しい場合には，同じ数を上下から出力する。
 
 <figure style="text-align:center;">
@@ -31,7 +34,7 @@ tags:
 
 (4) 同時に実行できる比較を $1$ ステップで実行する場合を考える。大きさ $4$ のソーティングネットワークのステップ数の最小数は $3$ であることが知られている。そのような大きさ $4$ のソーティングネットワークを $1$ つ構成し，ステップ数が $3$ であること，また，正しくソーティングできることを説明しなさい。
 
-## **Description (English)**
+### English
 The left figure below shows a sorting network of size 2. The network has a "comparator module" that has two inputs, represented as lines coming into the module from left, and two outputs, represented as lines going out to right. Note that the connecting points of input/ouptut are indicated by the black dots $\bullet$. The upper output is the smaller of the two inputs and the lower output is the larger. When the 2 values are the same, the value is output from both lines.
 
 <figure style="text-align:center;">

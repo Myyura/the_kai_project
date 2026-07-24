@@ -38,6 +38,43 @@
 
 .section {
   margin-top: 2rem;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
+}
+
+.sectionNav {
+  position: sticky;
+  z-index: 4;
+  top: calc(var(--ifm-navbar-height) + .5rem);
+  display: flex;
+  gap: .5rem;
+  padding: .45rem;
+  overflow-x: auto;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-panel, 12px);
+  background: color-mix(in srgb, var(--ifm-background-color) 92%, transparent);
+  box-shadow: var(--kai-shadow-card);
+  scrollbar-width: thin;
+  backdrop-filter: blur(14px);
+}
+
+.sectionNav a {
+  flex: 0 0 auto;
+  padding: .48rem .72rem;
+  border-radius: var(--kai-radius-control, 10px);
+  color: var(--ifm-color-emphasis-700);
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sectionNav a:hover {
+  background: color-mix(in srgb, var(--ifm-color-primary) 9%, transparent);
+  color: var(--ifm-color-primary);
+}
+
+.sectionNav a:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 1px;
 }
 
 .sectionHeader {
@@ -57,7 +94,7 @@
 
 .guideGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
@@ -116,15 +153,42 @@
 }
 
 .noticePanel {
-  padding: 1rem 1.1rem;
+  overflow: hidden;
 }
 
 .noticeTitle {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  margin-bottom: 0.65rem;
+  padding: 1rem 1.1rem;
   color: var(--ifm-color-primary);
+  cursor: pointer;
+  list-style: none;
+}
+
+.noticeTitle::-webkit-details-marker {
+  display: none;
+}
+
+.noticeTitle::after {
+  margin-left: auto;
+  color: var(--ifm-color-emphasis-500);
+  content: '+';
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.noticePanel[open] .noticeTitle {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.noticePanel[open] .noticeTitle::after {
+  content: '−';
+}
+
+.noticeTitle:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ifm-color-primary) 40%, transparent);
+  outline-offset: -3px;
 }
 
 .noticeTitle h3 {
@@ -138,7 +202,7 @@
   display: grid;
   gap: 0.55rem;
   margin: 0;
-  padding-left: 1.2rem;
+  padding: 1rem 1.25rem 1rem 2.3rem;
   color: var(--ifm-color-emphasis-800);
   line-height: 1.65;
 }
@@ -146,6 +210,7 @@
 .contactPanel {
   margin-top: 2rem;
   padding: 1.1rem;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
 }
 
 .contactPanel h2 {
@@ -173,6 +238,10 @@
 
   .hero h1 {
     font-size: 1.65rem;
+  }
+
+  .guideGrid {
+    grid-template-columns: 1fr;
   }
 }
 

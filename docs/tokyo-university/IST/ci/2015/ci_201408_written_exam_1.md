@@ -9,7 +9,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Let a stack of $n$ pancakes with different sizes be given. A spatula is a tool to flip over pancakes. If you put the spatula under the $k$-th pancake from the top, all top to the $k$-th pancakes are flipped over and placed in the reverse order (Fig.1). Let us rearrange the stack using a spatula so that the smallest pancake appears on the top of the stack, monotonically increasing the size, and the largest at the bottom, which we call "ordered-state". We assume that both sides of each pancake are identical and we know which pancake is the $k$-th biggest in advance. From now, we use this pancake-number $k$ to identify the pancake. A "stack-state" is denoted by the sequence of pancake-numbers from the top to the bottom. For example, using our notation, state transitions in Fig. 1 are described as in Fig. 2. Answer the following questions.
 
 <figure style="text-align:center;">

@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Let $N$ be the number of divisors of a positive integer $J$. Let us compute the smallest $J$ for a given $N$. Note that $J$ and $1$ are included among the divisors of $J$.
 
 (1) Calculate the smallest $J$ each for $N=5$ and $N=8$.

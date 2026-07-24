@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 In the questions below, $(\cdot)^*$, $(\cdot)^{\mathrm{T}}$, and $E[\cdot]$ denote the complex conjugate, the transpose, and the expectation, respectively. $\mathbb{R}$ and $\mathbb{Z}$ denote the set of all real numbers and the set of all integers, respectively.
 
 ### Q.1

@@ -12,6 +12,9 @@ tags:
 [tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 点列 $v_0, v_1, \dots, v_{n-1}, v_0$ をこの順に結んでできる凸 $n$ 角形が与えられたとき、その凸 $n$ 角形の三角形分割とは、その内部を重なりなく三角形に分割する方法のことである。
 
 まずは、凸 $n$ 角形の三角形分割の数を求める。その数を $C[n]$ と書く。例えば、$C[4]$ = 2 である。
@@ -47,7 +50,7 @@ return C[n];
 (5) 上記 (4) で得られた関係式を用いて、任意の凸 $n$ 角形の三角形分割の最小コストを求めるアルゴリズムの疑似コードを、10 行程度で示せ。またその計算量（オーダー）を答えよ。
 
 
-## **Description (English)**
+### English
 Given a convex n-gon made by connecting a point sequence $v_0, ..., v_{n-1}, v_0$ in this order, a triangulation of the convex n-gon is a way of dividing its interior into triangles without overlap.
 
 First, we count the number of triangulations of a convex n-gon. We denote the number as $C[n]$: For example, $C[4]=2$.

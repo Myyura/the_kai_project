@@ -211,17 +211,40 @@ function TagPill({
 }
 
 function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) {
-  if (tags.length === 0) return null;
   const t = getCopy(language);
+  const [query, setQuery] = useState('');
+  if (tags.length === 0) return null;
+  const search = query.trim().toLocaleLowerCase();
+  const filteredTags = tags.filter((tag) => {
+    const school = schoolTags[tag.label];
+    return !search || textMatches(
+      search,
+      tag.label,
+      school?.label,
+      school?.universityId,
+      ...(school?.aliases || []),
+    );
+  });
 
   return (
     <section className={styles.schoolPanel} role="tabpanel" id="tags-panel-schools">
-      <header className={styles.simplePanelHeader}>
+      <header className={styles.explorerHeader}>
         <Heading as="h2" className={styles.panelTitle}>{t.schoolTitle}</Heading>
-        <span className={styles.panelCount}>{tags.length}</span>
+        <label className={styles.searchField}>
+          <FiSearch className={styles.searchIcon} aria-hidden="true" />
+          <input
+            className={styles.searchInput}
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t.schoolSearchPlaceholder}
+            aria-label={t.schoolSearchPlaceholder}
+          />
+        </label>
       </header>
-      <div className={styles.schoolGrid}>
-        {tags.sort(byCountThenName).map((tag) => {
+      {filteredTags.length > 0 ? (
+        <div className={styles.schoolGrid}>
+          {filteredTags.sort(byCountThenName).map((tag) => {
           const school = schoolTags[tag.label];
           return (
             <TagPill
@@ -233,8 +256,11 @@ function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) 
               detailValues={school?.label && school.label !== tag.label ? [school.label] : undefined}
             />
           );
-        })}
-      </div>
+          })}
+        </div>
+      ) : (
+        <p className={styles.noResults}>{t.noSchoolResults}</p>
+      )}
     </section>
   );
 }

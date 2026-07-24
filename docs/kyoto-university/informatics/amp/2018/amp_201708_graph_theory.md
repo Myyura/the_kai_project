@@ -11,7 +11,7 @@ tags:
 ## Author
 祭音Myyura
 
-## Description
+## **Description**
 ### English Version
 Let $\mathbb{R}_+$ be the set of non-negative reals, and let $N=[G,w]$ be a network that consists of a simple connected graph $G=(V,E)$ and an edge weight function
 

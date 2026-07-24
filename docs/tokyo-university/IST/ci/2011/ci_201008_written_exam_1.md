@@ -8,7 +8,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Assume we have $n$ different products $G_1, \dots, G_n$ ($n\ge2$) whose prices are $p_1, \dots, p_n$ respectively, and choose $m$ products $G_{i_1}, \dots, G_{i_m}$ ($2\le m\le n$) from them so that there are no two identical ones. For given two positive integers $q_{\min}, q_{\max}$ such that $q_{\min}<q_{\max}$ and $p_i<q_{\min}$ for each $i=1, \dots, n$, we want to make $q_{\min}<\sum_{j=1}^m p_{i_j}<q_{\max}$, that is, the sum of the prices is between $q_{\min}$ and $q_{\max}$, by choosing an appropriate combination of products. The following Algorithm 1 implements the backtracking algorithm that is one of the solutions to this problem. In the descriptions of Algorithm 1, $\epsilon$ represents an empty sequence. In the descriptions of the procedure "back($\langle G_{i_1}, \dots, G_{i_k}\rangle, S_0$)", the first argument is a sequence of products consisting of the elements of the product set expected to be the solution eventually and the second argument is a set of products that are candidates to be added to the first argument. $k$ is the length of the first argument of this "back" invocation. If $k=0$, the first argument is an empty sequence.
 
 **Algorithm 1**: Invoke "back($\epsilon, \{G_1, \dots, G_n\}$)" where the procedure "back" is defined as follows.

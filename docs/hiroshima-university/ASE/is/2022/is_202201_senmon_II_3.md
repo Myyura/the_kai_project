@@ -10,7 +10,7 @@ tags:
 ## **Author**
 samparker, 祭音Myyura
 
-## **Description** 
+## **Description**
 図 1 の C プログラムは配列 numbers 内の数値をソートし、その途中経過を含めて結果を出力するものである。
 
 (1) 4~8 行目の関数 print は引数として受け取った配列 array の要素を添え字順に出力する。

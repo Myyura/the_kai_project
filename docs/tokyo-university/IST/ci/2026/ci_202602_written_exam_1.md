@@ -8,7 +8,10 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (Memorized version, English)**
+## **Description**
+
+### Memorized version (English)
+
 Consider an 8-bit binary number (e.g., `0b10110111`, where underscores `_` can be freely added as separators without affecting the meaning).
 *   **[7:4]** (Bits 7, 6, 5, 4): represent the exponent **E**.
 *   **[3:0]** (Bits 3, 2, 1, 0): represent the mantissa **M**.

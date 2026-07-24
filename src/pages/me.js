@@ -13,7 +13,6 @@ import { useAllProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgre
 import { useAllNotes } from '@site/src/hooks/useNotes';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import Leaderboard from '@site/src/components/Leaderboard';
-import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import NoIndex from '@site/src/components/NoIndex';
 import {useUiText} from '@site/src/i18n/useUiText';
 import { useAuth } from '@site/src/hooks/useAuth';
@@ -91,12 +90,6 @@ function PersonalCenterHeader({ activeTab = 'overview' }) {
           <h1 className={styles.pageTitle}>{centerT.pageTitle}</h1>
           <p className={styles.pageSubtitle}>{centerT.pageSubtitle}</p>
         </div>
-        <LanguageSwitcher
-          className={styles.langSwitch}
-          buttonClassName={styles.langBtn}
-          activeButtonClassName={styles.langBtnActive}
-          dividerClassName={styles.langDivider}
-        />
       </div>
       <PersonalCenterTabs activeTab={activeTab} />
     </header>

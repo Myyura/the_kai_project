@@ -12,6 +12,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 センサからデータを入力し，演算を行うコンピュータシステムについて，以下の問いに答えよ．
 
 (1) このようなコンピュータシステムの例を図 $1$ に示す．このコンピュータシステムを用いて，$16$ 個のセンサからのデータ $x_i$ ($i=1, 2, \dots, 16$) を入力し，演算 $y_i = f(x_i)$ ($i=1, 2, \dots, 16$) を一度だけ行う場合，この処理を最小時間で実行するプログラムの時間ダイアグラムを示し，その動作の概略を説明せよ．また，この処理に必要となる時間 $t_a$ を求めよ．ただし，ここで用いられている回路ブロックの遅延特性 $t_{\text{MUX}}, t_{\text{SH}}, t_{\text{AD}}, t_{\text{COMP}}$ は，それぞれ，
@@ -35,7 +38,7 @@ $t_{\text{COMP}}$：コンピュータ上で，デジタルパラレル入力 $x
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_2_p1.png" width="600" alt=""/>
 </figure>
 
-## **Description (English)**
+### English
 Answer the following questions about computer systems which carry out some operations on sensor data.
 
 (1) Figure 1 shows a sample configuration of such a computer system. In the case that the system inputs sensor data $x_i$ ($i = 1, 2, \dots, 16$) and computes $y_i = f(x_i)$ ($i = 1, 2, \dots, 16$) for each sensor data $x_i$ only once, show the time diagram for the program which minimizes the time for the whole operation, and describe the outline of the program. In addition, calculate the time $t_a$ needed for the whole operation. Delay times of the circuit blocks used in Figure 1 are defined as:

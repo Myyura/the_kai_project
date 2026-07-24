@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect, useId } from 'react';
 import { FaShareAlt, FaDownload, FaCheck, FaTimes, FaImage } from 'react-icons/fa';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
@@ -255,10 +255,28 @@ function getDocBreadcrumbs() {
   return Array.from(items).map(a => a.textContent.trim()).join(' > ');
 }
 
-/** Clone the full article content */
-function cloneArticleContent(article) {
+/** Clone the selected problem-document content for image export. */
+function cloneArticleContent(article, scope = 'all') {
   if (!article) return null;
   const clone = article.cloneNode(true);
+  const problemPanel = clone.querySelector('[data-kai-study-panel="problem"]');
+  const solutionPanel = clone.querySelector('[data-kai-study-panel="solution"]');
+
+  clone.querySelector('[data-kai-study-tabs-host]')?.remove();
+
+  if (problemPanel && solutionPanel) {
+    if (scope === 'problem') {
+      solutionPanel.remove();
+      problemPanel.removeAttribute('hidden');
+    } else if (scope === 'solution') {
+      problemPanel.remove();
+      solutionPanel.removeAttribute('hidden');
+    } else {
+      problemPanel.removeAttribute('hidden');
+      solutionPanel.removeAttribute('hidden');
+    }
+  }
+
   // Remove anchor links from headings
   clone.querySelectorAll('.hash-link, a.anchor').forEach(a => a.remove());
   // Remove interactive / share elements
@@ -275,7 +293,13 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
   const [generating, setGenerating] = useState(false);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [toast, setToast] = useState(null);
+  const [shareScope, setShareScope] = useState('all');
+  const previewTitleId = useId();
   const toastTimerRef = useRef(null);
+  const triggerButtonRef = useRef(null);
+  const previewModalRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const previousFocusRef = useRef(null);
   const workerRef = useRef(null);
   const workerBlobUrlRef = useRef('');
   const requestIdRef = useRef(0);
@@ -406,7 +430,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
 
     try {
       const article = document.querySelector('article .theme-doc-markdown');
-      const contentClone = cloneArticleContent(article);
+      const contentClone = cloneArticleContent(article, shareScope);
       if (!contentClone) {
         showToast(L.shareFail, 'error');
         return;
@@ -565,7 +589,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
       }
       setGenerating(false);
     }
-  }, [docTitle, L, buildWatermarkLayout, showToast]);
+  }, [docTitle, L, buildWatermarkLayout, shareScope, showToast]);
 
   const downloadImage = useCallback(async () => {
     if (!previewUrl) return;
@@ -613,51 +637,129 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
     setPreviewUrl(null);
   }, []);
 
+  useEffect(() => {
+    if (!previewUrl) return undefined;
+
+    previousFocusRef.current = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closePreview();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !previewModalRef.current) return;
+      const focusable = Array.from(
+        previewModalRef.current.querySelectorAll(
+          'button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      const focusTarget = previousFocusRef.current;
+      if (focusTarget instanceof HTMLElement) {
+        window.requestAnimationFrame(() => focusTarget.focus());
+      } else {
+        window.requestAnimationFrame(() => triggerButtonRef.current?.focus());
+      }
+    };
+  }, [closePreview, previewUrl]);
+
   return (
     <div className={`${styles.wrapper} ${compact ? styles.wrapperCompact : ''}`}>
-      {/* Trigger button */}
-      <button
-        className={styles.triggerBtn}
-        onClick={generateImage}
-        disabled={generating}
-        title={L.heading}
-      >
-        {generating ? (
-          <>
-            <span className={styles.spinner} />
-            <span>{L.generating}</span>
-          </>
-        ) : (
-          <>
-            <FaImage className={styles.triggerIcon} />
-            <span>{L.heading}</span>
-          </>
-        )}
-      </button>
+      <div className={styles.triggerRow}>
+        <label className={styles.scopeControl}>
+          <span>{L.scope}</span>
+          <select
+            value={shareScope}
+            onChange={(event) => setShareScope(event.target.value)}
+            disabled={generating}
+            aria-label={L.scope}>
+            <option value="all">{L.scopeAll}</option>
+            <option value="problem">{L.scopeProblem}</option>
+            <option value="solution">{L.scopeSolution}</option>
+          </select>
+        </label>
+
+        {/* Trigger button */}
+        <button
+          ref={triggerButtonRef}
+          type="button"
+          className={styles.triggerBtn}
+          onClick={generateImage}
+          disabled={generating}
+          title={L.heading}
+        >
+          {generating ? (
+            <>
+              <span className={styles.spinner} />
+              <span>{L.generating}</span>
+            </>
+          ) : (
+            <>
+              <FaImage className={styles.triggerIcon} />
+              <span>{L.heading}</span>
+            </>
+          )}
+        </button>
+      </div>
 
       {/* Preview modal */}
       {previewUrl && (
         <div className={styles.previewOverlay} onClick={closePreview}>
-          <div className={styles.previewModal} onClick={e => e.stopPropagation()}>
+          <div
+            ref={previewModalRef}
+            className={styles.previewModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={previewTitleId}
+            onClick={e => e.stopPropagation()}>
             <div className={styles.previewHeader}>
-              <span>{L.preview}</span>
-              <button className={styles.closeBtn} onClick={closePreview}>
-                <FaTimes />
+              <span id={previewTitleId}>{L.preview}</span>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                className={styles.closeBtn}
+                aria-label={L.close}
+                onClick={closePreview}>
+                <FaTimes aria-hidden="true" />
               </button>
             </div>
             <div className={styles.previewBody}>
               <img
                 src={previewUrl}
-                alt="Preview"
+                alt={L.previewAlt}
                 className={styles.previewImage}
               />
             </div>
             <div className={styles.previewFooter}>
-              <button className={`${styles.actionBtn} ${styles.downloadBtn}`} onClick={downloadImage}>
+              <button type="button" className={`${styles.actionBtn} ${styles.downloadBtn}`} onClick={downloadImage}>
                 <FaDownload />
                 {L.download}
               </button>
-              <button className={`${styles.actionBtn} ${styles.shareBtn}`} onClick={shareImage}>
+              <button type="button" className={`${styles.actionBtn} ${styles.shareBtn}`} onClick={shareImage}>
                 <FaShareAlt />
                 {L.share}
               </button>
@@ -668,7 +770,10 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
 
       {/* Toast */}
       {toast && (
-        <div className={`${styles.toast} ${styles[`toast_${toast.type}`]}`}>
+        <div
+          className={`${styles.toast} ${styles[`toast_${toast.type}`]}`}
+          role="status"
+          aria-live="polite">
           {toast.type === 'success' && <FaCheck />}
           {toast.msg}
         </div>

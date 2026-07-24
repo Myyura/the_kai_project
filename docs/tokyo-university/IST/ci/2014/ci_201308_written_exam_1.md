@@ -9,7 +9,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 We consider a weather prediction system in which a single senior predictor predicts a weather probability distribution on the basis of $N$ predictors' prediction results. Below the system is described in details.
 There are $N$ weather predictors, each of whom outputs a weather probability distribution once a day. Here the weather is a binary random variable taking a value 1 or 0 only (1 means "fine" while 0 means "not fine"). It is assumed that the weather is independent of a day.
 Let the probability distribution that the $i$-th predictor outputs on the $t$-th day be $P_i^{(t)}(X)$ ($X \in \{1, 0\}$) where we let $0 < P_i^{(t)}(X) < 1$ ($X \in \{1, 0\}$). There is a senior predictor who aggregates the outputs of the $N$ predictors. On the $t$-th day, the senior predictor takes a weighted average over the probability distributions output by the $N$ predictors to output a weather probability distribution $\hat{P}^{(t)}(X)$ ($X \in \{1, 0\}$). Here the weight on the $i$-th predictor on the $t$-th day is denoted as $v_i^{(t)}$ ($\sum_{i=1}^N v_i^{(t)} = 1, v_i(t) > 0$ ($i = 1, \dots, N$)). That is, on the $t$-th day, $\hat{P}^{(t)}(X)$ is given by $\sum_{i=1}^N v_i^{(t)} P_i^{(t)}(X)$ (see Figure 1).

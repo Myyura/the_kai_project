@@ -21,12 +21,30 @@ function gzipSize(filePath) {
   return zlib.gzipSync(fs.readFileSync(filePath)).length;
 }
 
+function readRequiredFile(filePath, missingMessage) {
+  try {
+    return fs.readFileSync(filePath);
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      throw new Error(missingMessage);
+    }
+    throw error;
+  }
+}
+
 function formatMiB(bytes) {
   return `${(bytes / 1024 / 1024).toFixed(2)} MiB`;
 }
 
-if (!fs.existsSync(BUILD_DIR)) throw new Error('Missing build output; run yarn build first.');
-const files = walk(BUILD_DIR);
+let files;
+try {
+  files = walk(BUILD_DIR);
+} catch (error) {
+  if (error?.code === 'ENOENT') {
+    throw new Error('Missing build output; run yarn build first.');
+  }
+  throw error;
+}
 const mainBundle = files.find((filePath) => /\/assets\/js\/main\.[^/]+\.js$/.test(filePath));
 const searchIndex = files.find((filePath) => filePath.endsWith('/search-index.json'));
 const contentManifestPath = path.join(BUILD_DIR, 'api-content', 'v1', 'manifest.json');
@@ -38,8 +56,6 @@ const contentExportPath = path.join(
 );
 if (!mainBundle) throw new Error('Main JavaScript bundle was not generated.');
 if (!searchIndex) throw new Error('Search index was not generated.');
-if (!fs.existsSync(contentManifestPath)) throw new Error('Published document content manifest was not generated.');
-if (!fs.existsSync(contentExportPath)) throw new Error('Kai content v1 export was not generated.');
 
 const forbiddenArtifacts = [
   path.join(BUILD_DIR, 'sw.js'),
@@ -52,7 +68,15 @@ if (forbiddenArtifacts.length > 0) {
 
 const mainGzip = gzipSize(mainBundle);
 const searchGzip = gzipSize(searchIndex);
-const contentManifest = JSON.parse(fs.readFileSync(contentManifestPath, 'utf8'));
+const contentManifestBuffer = readRequiredFile(
+  contentManifestPath,
+  'Published document content manifest was not generated.',
+);
+const contentExportBuffer = readRequiredFile(
+  contentExportPath,
+  'Kai content v1 export was not generated.',
+);
+const contentManifest = JSON.parse(contentManifestBuffer.toString('utf8'));
 const publishedContentFiles = files.filter((filePath) => (
   filePath.startsWith(path.join(BUILD_DIR, 'api-content', 'v1', 'documents') + path.sep)
   && filePath.endsWith('.json')
@@ -61,10 +85,10 @@ const publishedContentBytes = publishedContentFiles.reduce(
   (total, filePath) => total + fs.statSync(filePath).size,
   0,
 );
-const contentExportGzip = fs.statSync(contentExportPath).size;
+const contentExportGzip = contentExportBuffer.length;
 let contentExport;
 try {
-  contentExport = JSON.parse(zlib.gunzipSync(fs.readFileSync(contentExportPath)).toString('utf8'));
+  contentExport = JSON.parse(zlib.gunzipSync(contentExportBuffer).toString('utf8'));
 } catch (error) {
   throw new Error(`Kai content v1 export is not valid gzip JSON: ${error.message}`);
 }

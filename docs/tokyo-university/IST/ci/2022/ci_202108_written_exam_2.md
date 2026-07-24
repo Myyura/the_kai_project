@@ -14,7 +14,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 
 Consider packet transfer between the computers shown in the figure.
 

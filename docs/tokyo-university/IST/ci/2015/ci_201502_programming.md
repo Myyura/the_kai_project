@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 (1) The following function $f$ is a function often used as a simple random number generator.
 
 $$

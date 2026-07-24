@@ -9,6 +9,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 3次元空間中のある1点の3次元位置を計測するシステムの例を一つ挙げ、そのシステムに関して以下の事項を説明せよ。システムは、非接触型でも接触型でも、どちらでもよく、計測対象やシステムに何らかの動作条件が必要なものでもよい。
 
 (1) 計測原理の概略、並びに3次元位置を計測するための計算方法
@@ -21,7 +24,7 @@ tags:
 
 (5) このシステムを用いた応用例（一つ）、並びにその動作原理の概略
 
-## **Description (English)**
+### English
 Show a system for measuring a three dimensional position of a point in the three dimensional space and explain the following items on the system. The system can be designed on the basis of either contact or non-contact method. Any operating condition on measuring objects and/or the system can be assumed.
 
 (1) The outline of the measurement principle and the calculation method of the system for detecting the three dimensional position

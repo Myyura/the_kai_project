@@ -1,7 +1,13 @@
 import React from 'react';
 import {AuthProvider} from '@site/src/context/AuthContext';
+import FrameworkLocaleBridge from '@site/src/components/FrameworkLocaleBridge';
 
 // Root 组件 - 语言初始化由 clientModules/languageInit.js 处理
 export default function Root({ children }) {
-  return <AuthProvider>{children}</AuthProvider>;
+  return (
+    <AuthProvider>
+      <FrameworkLocaleBridge />
+      {children}
+    </AuthProvider>
+  );
 }

@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 
 Consider deterministic finite state automata $(Q, \Sigma, \delta, q_0, F)$, where $Q$ is a finite set of states, $\Sigma$ is a finite set of characters, $\delta : Q \times \Sigma \to Q$ is a transition function, $q_0 \in Q$ is a start state, and $F \subseteq Q$ is a set of accept states. Also, $\epsilon \in \Sigma^*$ denotes the empty string.
 Let $\Sigma = \{0, 1, 2, \dots, 9\}$. For $w \in \Sigma^*$, $n(w)$ returns an integer number represented by $w$. For example, $n(52) = 52$ and $n(068) = 68$. For $\epsilon$, we define $n(\epsilon) = 0$.

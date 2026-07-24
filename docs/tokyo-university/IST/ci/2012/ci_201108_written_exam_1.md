@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+### 日本語
+
 品物 $G_1, G_2, \dots, G_n$ はそれぞれ重量 $a_i$ で価値 $c_i$ (ここで $i=1, \dots, n$) を持つ。最大重量限界 $b$ のナップサックに出来るだけ合計価値が大きくなるように品物を詰める問題をナップサック問題といい、一般的に次のように定式化することができる。
 
 [問題 A0]
@@ -58,7 +60,7 @@ $F(j, k)$ : 重量制限 $k$ 以下のなかに詰める品物の候補を $G_1,
 | 4 | | | | | | | | | | |
 | 5 | | | | | | | | | | |
 
-## **Description (English)**
+### English
 Goods $G_1, G_2, \cdots, G_n$ have their weights $a_i$ and value $c_i$ ($i=1,\cdots,n$), respectively. The problem of packing the maximum total value of goods into a knapsack with a weight limit $b$ is called the knapsack problem, which can be generally formulated as
 
 [Problem A0]
