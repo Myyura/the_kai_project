@@ -1,0 +1,187 @@
+.page {
+  width: min(var(--kai-content-width, 1120px), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 5rem;
+}
+
+.hero {
+  max-width: 760px;
+  margin-bottom: 1.6rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: .55rem;
+  color: var(--ifm-color-primary);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0 0 .65rem;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -.04em;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-650);
+  line-height: 1.7;
+}
+
+.searchRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .75rem;
+  margin-bottom: 2rem;
+}
+
+.searchField {
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  gap: .7rem;
+  padding: 0 1rem;
+  border: 1px solid var(--ifm-color-emphasis-250);
+  border-radius: var(--kai-radius-panel, 12px);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-500);
+  box-shadow: var(--kai-shadow-card);
+}
+
+.searchField:focus-within {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), .14);
+}
+
+.searchField input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  font: inherit;
+}
+
+.contextSelect {
+  min-width: 10rem;
+  padding: 0 2.25rem 0 .85rem;
+  border: 1px solid var(--ifm-color-emphasis-250);
+  border-radius: var(--kai-radius-panel, 12px);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+}
+
+.contextSelect:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ifm-color-primary) 38%, transparent);
+  outline-offset: 2px;
+}
+
+.suggestions h2 {
+  margin-bottom: .9rem;
+  font-size: 1.1rem;
+}
+
+.suggestionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.suggestionCard {
+  display: flex;
+  min-height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .9rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-panel, 12px);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.suggestionCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--kai-shadow-card);
+  transform: translateY(-2px);
+}
+
+.suggestionCard:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
+  outline-offset: 2px;
+}
+
+.results {
+  max-width: 840px;
+}
+
+.resultCount,
+.status {
+  color: var(--ifm-color-emphasis-600);
+  font-size: .85rem;
+}
+
+.resultCard {
+  margin-bottom: .85rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-panel, 12px);
+  background: var(--ifm-background-surface-color);
+}
+
+.resultCard h2 {
+  margin: 0 0 .35rem;
+  font-size: 1.08rem;
+}
+
+.resultPath {
+  margin: 0 0 .45rem;
+  color: var(--ifm-color-emphasis-500);
+  font-size: .74rem;
+}
+
+.resultSummary {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .9rem;
+  line-height: 1.65;
+}
+
+.emptyState {
+  padding: 1.4rem;
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: var(--kai-radius-panel, 12px);
+  color: var(--ifm-color-emphasis-650);
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding-top: 1.5rem;
+  }
+
+  .searchRow,
+  .suggestionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contextSelect {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .suggestionCard {
+    transition: none;
+  }
+
+  .suggestionCard:hover {
+    transform: none;
+  }
+}

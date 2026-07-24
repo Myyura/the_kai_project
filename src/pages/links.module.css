@@ -108,35 +108,6 @@
   backdrop-filter: blur(12px);
 }
 
-.langSwitch {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.2rem;
-  margin-bottom: 0.8rem;
-}
-
-.langBtn {
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--links-muted);
-  cursor: pointer;
-  padding: 0.22rem 0.38rem;
-  font-size: 0.72rem;
-}
-
-.langBtnActive {
-  background: rgba(var(--theme-accent-rgb), 0.12);
-  color: var(--ifm-color-primary-dark);
-  font-weight: 800;
-}
-
-.langDivider {
-  align-self: center;
-  color: var(--ifm-color-emphasis-300);
-  font-size: 0.7rem;
-}
-
 .heroStats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -244,6 +215,19 @@
   color: var(--ifm-font-color-base);
   padding: 0.5rem 0.2rem;
   font-size: 0.9rem;
+}
+
+.resourceToolbar:focus-within {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), .12);
+}
+
+.resourceCard:focus-visible,
+.categoryTabs button:focus-visible,
+.primaryAction:focus-visible,
+.emptyState button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
+  outline-offset: 3px;
 }
 
 .categoryTabs {

@@ -20,7 +20,6 @@ import React, {
 import {createPortal} from 'react-dom';
 import clsx from 'clsx';
 import Head from '@docusaurus/Head';
-import {ThemeClassNames} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
@@ -49,7 +48,7 @@ type StudyTab = 'problem' | 'solution' | 'notes';
 type StudyDom = {
   root: HTMLElement;
   tabsHost: HTMLDivElement;
-  panels: Record<Exclude<StudyTab, 'notes'>, HTMLElement>;
+  panels: Record<StudyTab, HTMLElement>;
   originalNodes: HTMLElement[];
 };
 
@@ -138,6 +137,8 @@ function makeStudyDom(
     problemTab: string;
     solutionPanel: string;
     solutionTab: string;
+    notesPanel: string;
+    notesTab: string;
   },
   options: {
     force: boolean;
@@ -223,9 +224,18 @@ function makeStudyDom(
   solutionPanel.setAttribute('aria-labelledby', ids.solutionTab);
   solutionPanel.tabIndex = 0;
 
+  const notesPanel = document.createElement('section');
+  notesPanel.id = ids.notesPanel;
+  notesPanel.className = `${styles.studyPanel} ${styles.notesWorkspace}`;
+  notesPanel.dataset.kaiStudyPanel = 'notes';
+  notesPanel.setAttribute('role', 'tabpanel');
+  notesPanel.setAttribute('aria-labelledby', ids.notesTab);
+  notesPanel.tabIndex = 0;
+
   root.insertBefore(tabsHost, firstContentNode);
   root.insertBefore(problemPanel, firstContentNode);
   root.insertBefore(solutionPanel, firstContentNode);
+  root.insertBefore(notesPanel, firstContentNode);
   problemNodes.forEach((node) => problemPanel.appendChild(node));
   solutionNodes.forEach((node) => solutionPanel.appendChild(node));
   if (!hasStudySectionContent(problemNodes)) {
@@ -254,6 +264,7 @@ function makeStudyDom(
     panels: {
       problem: problemPanel,
       solution: solutionPanel,
+      notes: notesPanel,
     },
     originalNodes: [...problemNodes, ...solutionNodes],
   };
@@ -266,6 +277,7 @@ function restoreStudyDom(studyDom: StudyDom): void {
   });
   panels.problem.remove();
   panels.solution.remove();
+  panels.notes.remove();
   tabsHost.remove();
   delete root.dataset.kaiStudyDocument;
 }
@@ -280,7 +292,8 @@ export default function DocItemFooter(): ReactNode {
   const learningPanelText = useUiText('learningPanel');
   const contributionUrl = `/me?tab=contribute&type=correction&docId=${encodeURIComponent(docId)}&title=${encodeURIComponent(title)}&sourcePath=${encodeURIComponent(source)}`;
   const isExamDocument = /(?:^|\/)\d{4}(?:\/|$)/.test(source || docId);
-  const [isProblemDocument, setIsProblemDocument] = useState(false);
+  const [studyDom, setStudyDom] = useState<StudyDom | null>(null);
+  const isProblemDocument = Boolean(studyDom);
   const [activeTab, setActiveTab] = useState<StudyTab>('problem');
   const layoutAnchorRef = useRef<HTMLSpanElement | null>(null);
   const studyDomRef = useRef<StudyDom | null>(null);
@@ -374,7 +387,7 @@ export default function DocItemFooter(): ReactNode {
       contributionUrl: canCorrectSource ? contributionUrl : '',
     });
     if (!studyDom) {
-      setIsProblemDocument(false);
+      setStudyDom(null);
       return undefined;
     }
 
@@ -395,8 +408,9 @@ export default function DocItemFooter(): ReactNode {
     activeTabRef.current = initialTab;
     studyDom.panels.problem.hidden = initialTab !== 'problem';
     studyDom.panels.solution.hidden = initialTab !== 'solution';
+    studyDom.panels.notes.hidden = initialTab !== 'notes';
     setActiveTab(initialTab);
-    setIsProblemDocument(true);
+    setStudyDom(studyDom);
 
     if (hashTarget) {
       pendingScrollRef.current = {target: hashTarget};
@@ -405,6 +419,7 @@ export default function DocItemFooter(): ReactNode {
     return () => {
       restoreStudyDom(studyDom);
       studyDomRef.current = null;
+      setStudyDom((current) => (current === studyDom ? null : current));
       savedScrollPositionsRef.current = {};
       pendingScrollRef.current = null;
       activeTabRef.current = 'problem';
@@ -426,6 +441,7 @@ export default function DocItemFooter(): ReactNode {
 
     studyDom.panels.problem.hidden = activeTab !== 'problem';
     studyDom.panels.solution.hidden = activeTab !== 'solution';
+    studyDom.panels.notes.hidden = activeTab !== 'notes';
 
     const pendingScroll = pendingScrollRef.current;
     pendingScrollRef.current = null;
@@ -578,7 +594,7 @@ export default function DocItemFooter(): ReactNode {
   };
 
   const tabsPortal =
-    isProblemDocument && studyDomRef.current
+    studyDom
       ? createPortal(
           <div
             className={styles.studyTabs}
@@ -611,7 +627,42 @@ export default function DocItemFooter(): ReactNode {
               );
             })}
           </div>,
-          studyDomRef.current.tabsHost,
+          studyDom.tabsHost,
+        )
+      : null;
+
+  const notesPortal =
+    studyDom
+      ? createPortal(
+          <BrowserOnly>
+            {() => (
+              <Suspense fallback={null}>
+                <ProblemSetNavigator docId={docId} />
+                <section className={styles.learningPanel} aria-labelledby="doc-learning-panel-title">
+                  <header className={styles.learningPanelHeader}>
+                    <div className={styles.learningPanelHeading}>
+                      <FaGraduationCap aria-hidden="true" />
+                      <div>
+                        <h2 id="doc-learning-panel-title">{learningPanelText.title}</h2>
+                        <p>{learningPanelText.hint}</p>
+                      </div>
+                    </div>
+                    <AddToProblemSet docId={docId} variant="panel" />
+                  </header>
+                  <ProgressTracker
+                    docId={docId}
+                    title={title}
+                    permalink={permalink}
+                    tags={tags.map((t) => t.label)}
+                    embedded
+                  />
+                  <NoteEditor docId={docId} embedded />
+                  <FooterAnnotationSection />
+                </section>
+              </Suspense>
+            )}
+          </BrowserOnly>,
+          studyDom.panels.notes,
         )
       : null;
 
@@ -628,43 +679,9 @@ export default function DocItemFooter(): ReactNode {
         aria-hidden="true"
       />
       {tabsPortal}
+      {notesPortal}
       {isProblemDocument && (
         <>
-          <footer
-            id={ids.notesPanel}
-            className={clsx(ThemeClassNames.docs.docFooter, styles.notesWorkspace)}
-            role="tabpanel"
-            aria-labelledby={ids.notesTab}
-            hidden={activeTab !== 'notes'}>
-            <BrowserOnly>
-              {() => (
-                <Suspense fallback={null}>
-                  <ProblemSetNavigator docId={docId} />
-                  <section className={styles.learningPanel} aria-labelledby="doc-learning-panel-title">
-                    <header className={styles.learningPanelHeader}>
-                      <div className={styles.learningPanelHeading}>
-                        <FaGraduationCap aria-hidden="true" />
-                        <div>
-                          <h2 id="doc-learning-panel-title">{learningPanelText.title}</h2>
-                          <p>{learningPanelText.hint}</p>
-                        </div>
-                      </div>
-                      <AddToProblemSet docId={docId} variant="panel" />
-                    </header>
-                    <ProgressTracker
-                      docId={docId}
-                      title={title}
-                      permalink={permalink}
-                      tags={tags.map((t) => t.label)}
-                      embedded
-                    />
-                    <NoteEditor docId={docId} embedded />
-                    <FooterAnnotationSection />
-                  </section>
-                </Suspense>
-              )}
-            </BrowserOnly>
-          </footer>
           <BrowserOnly>
             {() => (
               <Suspense fallback={null}>

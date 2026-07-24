@@ -50,7 +50,14 @@ export default function HelpAndNoticesPage() {
           </div>
         </section>
 
-        <section className={styles.section}>
+        <nav className={styles.sectionNav} aria-label={t.title}>
+          <a href="#user-guide">{t.guideTitle}</a>
+          <a href="#contribution-process">{t.contributionTitle}</a>
+          <a href="#legal-notices">{t.legalTitle}</a>
+          <a href="#contact">{t.contactTitle}</a>
+        </nav>
+
+        <section id="user-guide" className={styles.section}>
           <div className={styles.sectionHeader}>
             <FaRoute />
             <h2>{t.guideTitle}</h2>
@@ -74,7 +81,7 @@ export default function HelpAndNoticesPage() {
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section id="contribution-process" className={styles.section}>
           <div className={styles.sectionHeader}>
             <FaEdit />
             <h2>{t.contributionTitle}</h2>
@@ -87,7 +94,7 @@ export default function HelpAndNoticesPage() {
           <ContributorAcknowledgements copy={t.acknowledgements} />
         </section>
 
-        <section className={styles.section}>
+        <section id="legal-notices" className={styles.section}>
           <div className={styles.sectionHeader}>
             <FaFileContract />
             <h2>{t.legalTitle}</h2>
@@ -96,23 +103,26 @@ export default function HelpAndNoticesPage() {
             {t.legalSections.map((section) => {
               const Icon = LEGAL_SECTION_ICONS[section.id];
               return (
-                <article key={section.id} className={styles.noticePanel}>
-                  <div className={styles.noticeTitle}>
+                <details
+                  key={section.id}
+                  className={styles.noticePanel}
+                  open={section.id === 'copyright'}>
+                  <summary className={styles.noticeTitle}>
                     <Icon />
                     <h3>{section.title}</h3>
-                  </div>
+                  </summary>
                   <ul>
                     {section.items.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                </article>
+                </details>
               );
             })}
           </div>
         </section>
 
-        <section className={styles.contactPanel}>
+        <section id="contact" className={styles.contactPanel}>
           <h2>{t.contactTitle}</h2>
           <p>{t.contactText}</p>
         </section>

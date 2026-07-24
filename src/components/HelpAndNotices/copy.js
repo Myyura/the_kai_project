@@ -28,7 +28,7 @@ const HELP_AND_NOTICES_COPY = {
       {
         id: 'share',
         title: '分享为图片',
-        text: '题解页底部的「分享为图片」会把当前题解渲染为带来源标识的图片，方便学习群讨论和复习保存。',
+        text: '题目页底部的「分享为图片」可选择分享题目、题解或两者全部；默认分享题目与题解，并生成带来源标识的图片。',
       },
       {
         id: 'contribute',
@@ -136,7 +136,7 @@ const HELP_AND_NOTICES_COPY = {
       {
         id: 'share',
         title: '画像として共有する',
-        text: '解答ページ下部の「画像として共有」から、出典表示付きの画像を作成できます。学習グループでの共有や復習用の保存に利用できます。',
+        text: '問題ページ下部の「画像として共有」では、問題のみ・解答のみ・両方を選べます。初期設定は問題と解答の両方で、出典付き画像を生成します。',
       },
       {
         id: 'contribute',
@@ -244,7 +244,7 @@ const HELP_AND_NOTICES_COPY = {
       {
         id: 'share',
         title: 'Share as an image',
-        text: 'Use Share as Image at the bottom of a solution page to create an image that includes source attribution, suitable for study-group discussions or personal review.',
+        text: 'Use Share as Image to export the problem, the solution, or both. The default includes both and adds source attribution for study-group discussions or personal review.',
       },
       {
         id: 'contribute',

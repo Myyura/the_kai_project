@@ -1,0 +1,4 @@
+.breadcrumbsContainer {
+  --ifm-breadcrumb-size-multiplier: .8;
+  margin-bottom: .8rem;
+}

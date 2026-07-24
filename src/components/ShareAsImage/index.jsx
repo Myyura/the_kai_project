@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect, useId } from 'react';
 import { FaShareAlt, FaDownload, FaCheck, FaTimes, FaImage } from 'react-icons/fa';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
@@ -294,7 +294,12 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
   const [previewUrl, setPreviewUrl] = useState(null);
   const [toast, setToast] = useState(null);
   const [shareScope, setShareScope] = useState('all');
+  const previewTitleId = useId();
   const toastTimerRef = useRef(null);
+  const triggerButtonRef = useRef(null);
+  const previewModalRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const previousFocusRef = useRef(null);
   const workerRef = useRef(null);
   const workerBlobUrlRef = useRef('');
   const requestIdRef = useRef(0);
@@ -632,6 +637,56 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
     setPreviewUrl(null);
   }, []);
 
+  useEffect(() => {
+    if (!previewUrl) return undefined;
+
+    previousFocusRef.current = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closePreview();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !previewModalRef.current) return;
+      const focusable = Array.from(
+        previewModalRef.current.querySelectorAll(
+          'button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      const focusTarget = previousFocusRef.current;
+      if (focusTarget instanceof HTMLElement) {
+        window.requestAnimationFrame(() => focusTarget.focus());
+      } else {
+        window.requestAnimationFrame(() => triggerButtonRef.current?.focus());
+      }
+    };
+  }, [closePreview, previewUrl]);
+
   return (
     <div className={`${styles.wrapper} ${compact ? styles.wrapperCompact : ''}`}>
       <div className={styles.triggerRow}>
@@ -650,6 +705,8 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
 
         {/* Trigger button */}
         <button
+          ref={triggerButtonRef}
+          type="button"
           className={styles.triggerBtn}
           onClick={generateImage}
           disabled={generating}
@@ -672,26 +729,37 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
       {/* Preview modal */}
       {previewUrl && (
         <div className={styles.previewOverlay} onClick={closePreview}>
-          <div className={styles.previewModal} onClick={e => e.stopPropagation()}>
+          <div
+            ref={previewModalRef}
+            className={styles.previewModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={previewTitleId}
+            onClick={e => e.stopPropagation()}>
             <div className={styles.previewHeader}>
-              <span>{L.preview}</span>
-              <button className={styles.closeBtn} onClick={closePreview}>
-                <FaTimes />
+              <span id={previewTitleId}>{L.preview}</span>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                className={styles.closeBtn}
+                aria-label={L.close}
+                onClick={closePreview}>
+                <FaTimes aria-hidden="true" />
               </button>
             </div>
             <div className={styles.previewBody}>
               <img
                 src={previewUrl}
-                alt="Preview"
+                alt={L.previewAlt}
                 className={styles.previewImage}
               />
             </div>
             <div className={styles.previewFooter}>
-              <button className={`${styles.actionBtn} ${styles.downloadBtn}`} onClick={downloadImage}>
+              <button type="button" className={`${styles.actionBtn} ${styles.downloadBtn}`} onClick={downloadImage}>
                 <FaDownload />
                 {L.download}
               </button>
-              <button className={`${styles.actionBtn} ${styles.shareBtn}`} onClick={shareImage}>
+              <button type="button" className={`${styles.actionBtn} ${styles.shareBtn}`} onClick={shareImage}>
                 <FaShareAlt />
                 {L.share}
               </button>
@@ -702,7 +770,10 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
 
       {/* Toast */}
       {toast && (
-        <div className={`${styles.toast} ${styles[`toast_${toast.type}`]}`}>
+        <div
+          className={`${styles.toast} ${styles[`toast_${toast.type}`]}`}
+          role="status"
+          aria-live="polite">
           {toast.type === 'success' && <FaCheck />}
           {toast.msg}
         </div>

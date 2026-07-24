@@ -320,10 +320,17 @@ const config = {
             label: '过去问',
           },
           {to: '/blog', label: '经验贴', position: 'left'},
-          {to: '/docs/tags', label: 'Tags', position: 'left'},
-          {to: '/links', label: '参考链接', position: 'left'},
           {to: '/me', label: '个人中心', position: 'left'},
-          {to: '/help', label: '帮助与声明', position: 'left'},
+          {
+            type: 'dropdown',
+            label: '更多',
+            position: 'left',
+            items: [
+              {to: '/docs/tags', label: 'Tags'},
+              {to: '/links', label: '参考链接'},
+              {to: '/help', label: '帮助与声明'},
+            ],
+          },
           {
             href: 'https://github.com/Myyura/the_kai_project',
             label: 'GitHub',

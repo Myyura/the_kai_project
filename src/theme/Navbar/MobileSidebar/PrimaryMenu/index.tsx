@@ -26,16 +26,22 @@ export default function NavbarMobilePrimaryMenu(): ReactNode {
   // TODO how can the order be defined for mobile?
   // Should we allow providing a different list of items?
   const items = useNavbarItems();
+  const translateItem = (item: NavbarItemConfig): NavbarItemConfig => {
+    const nestedItems = (item as NavbarItemConfig & {items?: NavbarItemConfig[]}).items;
+    return {
+      ...item,
+      label: item.label ? t(item.label, 'navbar') : item.label,
+      ...(Array.isArray(nestedItems)
+        ? {items: nestedItems.map((child) => translateItem(child))}
+        : {}),
+    } as NavbarItemConfig;
+  };
 
   return (
     <ul className="menu__list">
       {items.map((item, i) => {
-        // 翻译 label
-        const translatedItem = {
-          ...item,
-          label: item.label ? t(item.label, 'navbar') : item.label,
-        };
-        
+        const translatedItem = translateItem(item);
+
         return (
           <NavbarItem
             mobile

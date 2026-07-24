@@ -1,272 +1,260 @@
-/**
- * Apple-Style Intro Page Design
- */
-
-/* ===== 动画 ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== 页面容器 ===== */
 .introPage {
-  max-width: 1200px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 0 1.5rem 4rem;
+  padding: 0 0 4rem;
 }
 
-/* ===== 页面头部 ===== */
 .pageHeader {
+  max-width: 720px;
+  margin: 0 auto 2rem;
   text-align: center;
-  padding: 0 0 1.5rem;
-  position: relative;
 }
 
-.headerContent {
-  margin-bottom: 0.75rem;
+.eyebrow {
+  display: inline-block;
+  margin-bottom: .55rem;
+  color: var(--ifm-color-primary);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 .pageTitle {
-  font-size: 1.75rem !important;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.5rem;
-  color: var(--ifm-font-color-base);
+  margin: 0 0 .6rem;
+  color: var(--ifm-heading-color);
+  font-size: clamp(1.8rem, 4vw, 2.55rem) !important;
+  letter-spacing: -.035em;
 }
 
 .pageSubtitle {
-  font-size: 1rem;
-  color: #86868b;
   margin: 0;
+  color: var(--ifm-color-emphasis-650);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
-/* ===== 语言切换 ===== */
-.langSwitch {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-}
-
-.langSwitch:hover {
-  opacity: 1;
-}
-
-.langBtn {
-  background: none;
-  border: none;
-  font-size: 0.875rem;
-  color: var(--ifm-font-color-base);
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  opacity: 0.5;
-  transition: all 0.2s;
-}
-
-.langBtn:hover {
-  opacity: 0.8;
-}
-
-.langBtnActive {
-  opacity: 1;
-  font-weight: 600;
-}
-
-.langDivider {
-  color: var(--ifm-font-color-base);
-  opacity: 0.3;
-}
-
-/* ===== 大学网格区域 ===== */
 .schoolsSection {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+}
+
+.searchLabel {
+  display: block;
+  margin-bottom: .45rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  max-width: 520px;
+  margin-bottom: 1.25rem;
+  padding: 0 .9rem;
+  border: 1px solid var(--ifm-color-emphasis-250);
+  border-radius: var(--kai-radius-control, 10px);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-500);
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.searchBox:focus-within {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), .13);
+}
+
+.searchBox input {
+  width: 100%;
+  min-height: 2.8rem;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  font: inherit;
 }
 
 .schoolGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .85rem;
 }
 
-/* ===== 大学卡片 ===== */
 .schoolCard {
+  position: relative;
   display: flex;
+  min-width: 0;
+  min-height: 4.25rem;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.25rem;
-  background: #f5f5f7;
-  border-radius: 12px;
-  text-decoration: none !important;
+  gap: .65rem;
+  padding: .9rem 1rem;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-panel, 12px);
+  background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base) !important;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: fadeInUp 0.5s ease-out backwards;
-}
-
-[data-theme='dark'] .schoolCard {
-  background: #1d1d1f;
+  text-decoration: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
 
 .schoolCard:hover {
-  background: #e8e8ed;
-  transform: translateX(4px);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 48%, var(--ifm-color-emphasis-200));
+  box-shadow: var(--kai-shadow-card, 0 8px 24px rgba(15, 23, 42, .08));
+  transform: translateY(-2px);
 }
 
-[data-theme='dark'] .schoolCard:hover {
-  background: #2d2d2f;
+.schoolCard:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ifm-color-primary) 50%, transparent);
+  outline-offset: 2px;
+}
+
+.schoolColor {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
 }
 
 .schoolTag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  background: var(--ifm-color-primary);
-  color: white;
-  border-radius: 4px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  padding: .18rem .42rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ifm-color-primary) 11%, transparent);
+  color: var(--ifm-color-primary);
+  font-size: .67rem;
+  font-weight: 750;
 }
 
 .schoolName {
+  min-width: 0;
   flex: 1;
-  font-weight: 500;
-  font-size: 0.95rem;
+  overflow: hidden;
+  font-size: .92rem;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .schoolArrow {
-  font-size: 0.75rem;
-  color: #86868b;
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: all 0.25s;
+  flex: 0 0 auto;
+  color: var(--ifm-color-emphasis-500);
+  font-size: .72rem;
 }
 
-.schoolCard:hover .schoolArrow {
-  opacity: 1;
-  transform: translateX(0);
+.emptyState {
+  padding: 2rem;
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: var(--kai-radius-panel, 12px);
+  color: var(--ifm-color-emphasis-600);
+  text-align: center;
 }
 
-/* ===== 信息区域 ===== */
 .infoSection {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .infoGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-/* ===== 信息卡片 ===== */
 .infoCard {
-  background: #f5f5f7;
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: center;
-  animation: fadeInUp 0.6s ease-out backwards;
-}
-
-[data-theme='dark'] .infoCard {
-  background: #1d1d1f;
+  padding: 1.35rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-card, 16px);
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--kai-shadow-card, 0 8px 24px rgba(15, 23, 42, .06));
 }
 
 .infoIcon {
-  font-size: 2rem;
+  margin-bottom: .75rem;
   color: var(--ifm-color-primary);
-  margin-bottom: 1rem;
+  font-size: 1.35rem;
 }
 
 .infoTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem;
-  color: var(--ifm-font-color-base);
+  margin: 0 0 .4rem;
+  font-size: 1.08rem;
 }
 
 .infoDesc {
-  font-size: 0.9rem;
-  color: #86868b;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
+  color: var(--ifm-color-emphasis-650);
+  font-size: .9rem;
+  line-height: 1.65;
 }
 
 .infoLinks {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: .55rem;
 }
 
 .infoLink {
   display: inline-flex;
+  min-height: 2.4rem;
   align-items: center;
-  justify-content: center;
-  padding: 0.6rem 1rem;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--ifm-font-color-base) !important;
+  padding: .5rem .8rem;
+  border: 1px solid var(--ifm-color-emphasis-250);
+  border-radius: var(--kai-radius-control, 10px);
+  color: var(--ifm-color-primary);
+  font-size: .82rem;
+  font-weight: 700;
   text-decoration: none !important;
-  transition: all 0.2s;
-}
-
-[data-theme='dark'] .infoLink {
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .infoLink:hover {
-  background: var(--ifm-color-primary);
-  color: white !important;
+  border-color: var(--ifm-color-primary);
+  background: color-mix(in srgb, var(--ifm-color-primary) 8%, transparent);
 }
 
-/* ===== 页脚 ===== */
+.infoLink:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
 .pageFooter {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-600);
+  font-size: .8rem;
+  line-height: 1.6;
   text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-[data-theme='dark'] .pageFooter {
-  border-top-color: rgba(255, 255, 255, 0.06);
 }
 
 .pageFooter p {
-  font-size: 0.85rem;
-  color: #86868b;
   margin: 0;
 }
 
-/* ===== 响应式 ===== */
-@media (max-width: 768px) {
-  .introPage {
-    padding: 1rem 1rem 3rem;
-  }
-  
-  .pageHeader {
-    padding: 0.5rem 0 1.5rem;
-  }
-  
-  .pageTitle {
-    font-size: 1.5rem !important;
-  }
-  
-  .pageSubtitle {
-    font-size: 0.9rem;
-  }
-  
+@media (max-width: 860px) {
   .schoolGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
+}
+
+@media (max-width: 600px) {
+  .introPage {
+    padding-bottom: 2.5rem;
+  }
+
+  .pageHeader {
+    text-align: left;
+  }
+
+  .schoolGrid,
   .infoGrid {
     grid-template-columns: 1fr;
   }
-  
-  .infoCard {
-    padding: 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schoolCard {
+    transition: none;
+  }
+
+  .schoolCard:hover {
+    transform: none;
   }
 }

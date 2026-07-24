@@ -1,0 +1,40 @@
+:root {
+  --docusaurus-collapse-button-bg: transparent;
+  --docusaurus-collapse-button-bg-hover: rgb(0 0 0 / 10%);
+}
+
+[data-theme='dark']:root {
+  --docusaurus-collapse-button-bg: rgb(255 255 255 / 5%);
+  --docusaurus-collapse-button-bg-hover: rgb(255 255 255 / 10%);
+}
+
+@media (min-width: 997px) {
+  .collapseSidebarButton {
+    position: sticky;
+    bottom: 0;
+    display: block !important;
+    height: 40px;
+    border: 1px solid var(--ifm-toc-border-color);
+    border-radius: 0;
+    background-color: var(--docusaurus-collapse-button-bg);
+  }
+
+  .collapseSidebarButtonIcon {
+    margin-top: 4px;
+    transform: rotate(180deg);
+  }
+
+  [dir='rtl'] .collapseSidebarButtonIcon {
+    transform: rotate(0);
+  }
+
+  .collapseSidebarButton:hover,
+  .collapseSidebarButton:focus {
+    background-color: var(--docusaurus-collapse-button-bg-hover);
+  }
+}
+
+.collapseSidebarButton {
+  display: none;
+  margin: 0;
+}

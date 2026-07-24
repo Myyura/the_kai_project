@@ -6,14 +6,14 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --theme-accent-rgb: 46, 133, 85;
+  --ifm-color-primary: #0b67c9;
+  --ifm-color-primary-dark: #095db6;
+  --ifm-color-primary-darker: #0858ac;
+  --ifm-color-primary-darkest: #07498e;
+  --ifm-color-primary-light: #1e74d0;
+  --ifm-color-primary-lighter: #2a7bd3;
+  --ifm-color-primary-lightest: #5596dd;
+  --theme-accent-rgb: 11, 103, 201;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
@@ -29,14 +29,21 @@
   --kai-gold: #f0b84a;
   --kai-gold-rgb: 240, 184, 74;
   
-  /* Liquid Glass 设计系统变量 */
-  --custom-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --custom-transition-fast: all 0.2s ease;
-  --custom-box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
-  --custom-box-shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.1);
-  --custom-border-radius: 20px;
-  --custom-border-radius-sm: 12px;
-  --custom-border-radius-xs: 8px;
+  /* Kai 组件角色变量 */
+  --kai-radius-card: 16px;
+  --kai-radius-panel: 12px;
+  --kai-radius-control: 10px;
+  --kai-shadow-card: 0 8px 24px rgba(15, 23, 42, 0.07);
+  --kai-shadow-elevated: 0 16px 42px rgba(15, 23, 42, 0.12);
+  --kai-section-space: clamp(4rem, 8vw, 7rem);
+  --kai-content-width: 1120px;
+  --custom-transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  --custom-transition-fast: color 0.16s ease, background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  --custom-box-shadow: var(--kai-shadow-card);
+  --custom-box-shadow-hover: var(--kai-shadow-elevated);
+  --custom-border-radius: var(--kai-radius-card);
+  --custom-border-radius-sm: var(--kai-radius-panel);
+  --custom-border-radius-xs: var(--kai-radius-control);
   --custom-card-bg: rgba(255, 255, 255, 0.5);
   --custom-card-border: rgba(255, 255, 255, 0.4);
   --custom-blur: blur(15px);
@@ -48,13 +55,13 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #087dae;
-  --ifm-color-primary-dark: #06719e;
-  --ifm-color-primary-darker: #066b96;
-  --ifm-color-primary-darkest: #05577b;
-  --ifm-color-primary-light: #168bb9;
-  --ifm-color-primary-lighter: #2092bf;
-  --ifm-color-primary-lightest: #4ab0d0;
+  --ifm-color-primary: #35c6d9;
+  --ifm-color-primary-dark: #26b7ca;
+  --ifm-color-primary-darker: #24adbf;
+  --ifm-color-primary-darkest: #1e8f9e;
+  --ifm-color-primary-light: #4ccddd;
+  --ifm-color-primary-lighter: #57d0df;
+  --ifm-color-primary-lightest: #7bdbe7;
   --theme-accent-rgb: 53, 198, 217;
   --ifm-link-color: #62d7e5;
   --ifm-link-hover-color: #8be5ee;
@@ -66,8 +73,10 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
   /* 黑暗模式 Liquid Glass 设计系统变量 */
-  --custom-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  --custom-box-shadow-hover: 0 14px 48px rgba(0, 0, 0, 0.35);
+  --kai-shadow-card: 0 8px 28px rgba(0, 0, 0, 0.25);
+  --kai-shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.34);
+  --custom-box-shadow: var(--kai-shadow-card);
+  --custom-box-shadow-hover: var(--kai-shadow-elevated);
   --custom-card-bg: rgba(10, 35, 69, 0.65);
   --custom-card-border: rgba(var(--kai-cyan-rgb), 0.1);
   --custom-text-primary: rgba(255, 255, 255, 0.96);
@@ -111,8 +120,10 @@
 }
 
 /* 全局动画改进 - 使用设计系统变量 */
-button, a.button, .navbar__link {
-  transition: var(--custom-transition-fast) !important;
+button,
+a.button,
+.navbar__link {
+  transition: var(--custom-transition-fast);
 }
 
 .button:hover {
@@ -120,29 +131,7 @@ button, a.button, .navbar__link {
   box-shadow: var(--custom-box-shadow);
 }
 
-/* 添加页面过渡效果 */
-main {
-  animation: fadeInPage 0.3s ease-in;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  main {
-    animation: none;
-  }
-}
-
-@keyframes fadeInPage {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 改进卡片样式 - Liquid Glass */
+/* Docusaurus 通用卡片仅统一表面，不注入位移动画。 */
 .card {
   transition: var(--custom-transition);
   border-radius: var(--custom-border-radius);
@@ -152,13 +141,8 @@ main {
 }
 
 .card:hover {
-  transform: translateY(-6px);
   box-shadow: var(--custom-box-shadow-hover);
-  border-color: rgba(255, 255, 255, 0.7);
-}
-
-[data-theme='dark'] .card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 35%, var(--ifm-color-emphasis-200));
 }
 
 /* Alert 样式优化 - Liquid Glass */
@@ -302,12 +286,15 @@ main {
 
 /* Reduce h1 size in markdown content */
 .theme-doc-markdown.markdown h1 {
-  font-size: 1.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
 }
 
-/* Reduce h2 size in markdown content */
 .theme-doc-markdown.markdown h2 {
-  font-size: 1.5rem;
+  font-size: clamp(1.45rem, 3vw, 1.7rem);
+}
+
+.theme-doc-markdown.markdown h3 {
+  font-size: 1.25rem;
 }
 
 /* Footer */

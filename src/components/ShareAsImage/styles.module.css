@@ -56,7 +56,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: border-color .2s, background-color .2s, color .2s;
   letter-spacing: 0.02em;
 }
 
@@ -96,7 +96,14 @@
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background-color .2s, border-color .2s, color .2s;
+}
+
+.triggerBtn:focus-visible,
+.actionBtn:focus-visible,
+.closeBtn:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
 }
 
 .downloadBtn {
@@ -202,7 +209,7 @@
   background: transparent;
   color: var(--ifm-color-emphasis-500);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background-color .15s, color .15s;
   font-size: 0.9rem;
 }
 

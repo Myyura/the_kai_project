@@ -5,7 +5,6 @@ import HomepageStructuredData from '../components/HomepageStructuredData';
 import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq } from 'react-icons/fa';
 import React, { useEffect, useState, useMemo, memo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import LanguageSwitcher from '../components/LanguageSwitcher';
 import {useUiText} from '../i18n/useUiText';
 import { useAllProgress } from '../hooks/useProgress';
 import { useAuth } from '../hooks/useAuth';
@@ -74,14 +73,6 @@ const HeroSection = ({ t }) => {
       </div>
       
       <div className={styles.heroContent}>
-        {/* 语言切换 */}
-        <LanguageSwitcher
-          className={styles.languageSwitcher}
-          buttonClassName={styles.langBtn}
-          activeButtonClassName={styles.langBtnActive}
-          dividerClassName={styles.langDivider}
-        />
-
         {/* 主标题 */}
         <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.title}
@@ -99,10 +90,6 @@ const HeroSection = ({ t }) => {
           </Link>
           <Link className={styles.secondaryBtn} to="/blog">
             {t.viewExperiences}
-          </Link>
-          <Link className={styles.progressBtn} to="/me">
-            <FaCheckCircle className={styles.btnIcon} />
-            {t.ctaButtonProgress}
           </Link>
         </div>
 
@@ -232,19 +219,22 @@ const UniversitySection = ({ t }) => {
         <div className={styles.universityGrid}>
           {filteredUniversities.map((univ) => (
             <div key={univ.id} className={styles.universityCard}>
-              <div 
+              <button
+                type="button"
                 className={styles.univHeader}
                 onClick={() => toggle(univ.id)}
+                aria-expanded={isOpen(univ.id)}
+                aria-controls={`university-${univ.id}-departments`}
               >
                 <div className={styles.univColorBar} style={{ backgroundColor: univ.color }} />
                 <span className={styles.univName}>{univ.name}</span>
                 <span className={styles.univToggle}>
                   {isOpen(univ.id) ? <FaChevronUp /> : <FaChevronDown />}
                 </span>
-              </div>
+              </button>
               
               {isOpen(univ.id) && (
-                <div className={styles.deptList}>
+                <div id={`university-${univ.id}-departments`} className={styles.deptList}>
                   {univ.departments.map((dept) =>
                     dept.websiteUrl ? (
                       <a 

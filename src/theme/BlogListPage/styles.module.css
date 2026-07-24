@@ -1,0 +1,61 @@
+.hero {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-card, 16px);
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--ifm-color-primary) 10%, var(--ifm-background-surface-color)),
+      var(--ifm-background-surface-color));
+}
+
+.hero > span {
+  display: inline-block;
+  margin-bottom: .45rem;
+  color: var(--ifm-color-primary);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0 0 .55rem;
+  font-size: clamp(1.75rem, 4vw, 2.55rem);
+  letter-spacing: -.035em;
+}
+
+.hero p {
+  margin: 0 0 .75rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.65;
+}
+
+.hero small {
+  display: inline-flex;
+  padding: .24rem .55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
+  color: var(--ifm-color-primary);
+  font-weight: 650;
+}
+
+.postList > article {
+  margin-bottom: 1rem;
+  padding: 1.35rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-card, 16px);
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--kai-shadow-card);
+}
+
+.postList > article:last-child {
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .hero,
+  .postList > article {
+    padding: 1rem;
+  }
+}

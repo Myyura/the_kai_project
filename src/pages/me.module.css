@@ -99,39 +99,6 @@
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.24);
 }
 
-/* 语言切换 */
-.langSwitch {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  flex-shrink: 0;
-}
-
-.langBtn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-500);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  transition: all 0.15s;
-}
-
-.langBtn:hover {
-  color: var(--ifm-color-primary);
-}
-
-.langBtnActive {
-  color: var(--ifm-color-primary) !important;
-  font-weight: 700;
-}
-
-.langDivider {
-  color: var(--ifm-color-emphasis-400);
-  font-size: 0.85rem;
-}
-
 /* 统计卡片行 */
 .statsRow {
   display: flex;
@@ -928,8 +895,17 @@
   }
 
   .centerTabs {
-    grid-template-columns: 1fr;
+    display: flex;
     gap: 0.3rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+  }
+
+  .centerTab {
+    min-width: max-content;
+    flex: 1 0 auto;
+    scroll-snap-align: start;
   }
 
   /* 统计卡片 */
