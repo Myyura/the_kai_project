@@ -9,6 +9,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 以下に示す情報システムに関する8項目から<u>4項目</u>を選択し、各項目を5～10行程度で説明せよ。必要に応じて例や図を用いてよい。
 
 1) 関係データベースにおける結合 (join) 演算 (例を挙げて説明すること)．
@@ -20,7 +23,7 @@ tags:
 7) 意味ネットワークによる知識表現法とその特徴 (例を挙げて説明すること)．
 8) PID 制御と，$P, I, D$ 各要素の制御における役割．
 
-## **Description (English)**
+### English
 Select <u>four items</u> out of the following eight items concerning information systems, and explain each item in approximately 5~10 lines of text.
 If necessary, use examples or figures.
 

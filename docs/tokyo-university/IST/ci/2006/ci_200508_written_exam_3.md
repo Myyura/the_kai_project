@@ -12,6 +12,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 図1に示すように，三次元空間中の物体の光が一点C(光学中心)を通って撮像面に投影されるピンホールカメラを考える．光学中心から撮像面へ垂直に引いた直線は光軸と呼ばれ，撮像面と光軸の交点は画像中心と呼ばれる．図1に示すように，光学中心に三次元のカメラ座標系 C-X,Y,Z をとり，画像中心に二次元の画像座標系 I-x,y をとる．光学中心から撮像面までの距離をfとした場合に，三次元空間の点 $\mathbf{P}(X,Y,Z)$ の投影面上の点 $\mathbf{p}(x,y)$ の座標は次のように表される．
 
 $$x=f\frac{X}{Z},\quad y=f\frac{Y}{Z}$$
@@ -30,7 +33,7 @@ $$x=f\frac{X}{Z},\quad y=f\frac{Y}{Z}$$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200508_3_p1.png" width="600" alt=""/>
 </figure>
 
-## **Description (English)**
+### English
 Consider a pinhole camera model as shown in Fig. 1, where the light from an object in three dimensional (3-D) space goes to the screen through a single point C (optical center). The vertical line to the screen through the optical center is called the optical axis, and the point where the optical axis crosses the screen is called the image center. Set the 3-D Camera coordinate system C-X,Y,Z at the optical center and the two dimensional (2-D) Image coordinate system I-x,y at the image center as shown in Fig. 1. When the distance from the optical center to the screen is f and the 3-D point $\mathbf{P}(X, Y, Z)$ is projected to the 2-D point $\mathbf{p}(x, y)$ on the screen, the coordinates of $\mathbf{p}(x, y)$ are described as follows:
 
 $$x=f\frac{X}{Z},\quad y=f\frac{Y}{Z}$$

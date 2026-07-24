@@ -8,7 +8,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Consider a method to find equations of two straight boundary lines of the two-colored regions like Fig. 1. Suppose the points in Fig. 2 are derived through processing the image of Fig. 1 and answer the following questions.
 
 <figure style="text-align:center;">

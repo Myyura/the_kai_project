@@ -11,7 +11,10 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (Memorized version, English)**
+## **Description**
+
+### Memorized version (English)
+
 Consider a server that can only handle one request at a time.
 - Requests arrive continuously at an arrival rate of $\lambda$.
 - The service rate for processing a request is $\mu$.

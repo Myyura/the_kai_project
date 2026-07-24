@@ -15,7 +15,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 
 ### Q.1
 Suppose the probability density function $f(x)$ of a random variable $X$ is as follows.

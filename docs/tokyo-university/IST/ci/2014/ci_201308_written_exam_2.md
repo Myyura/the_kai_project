@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Answer the following questions on virtual memory by paging.
 
 The system consists of a processor, a main memory and a secondary storage (e.g. magnetic disks). The processor issues memory accesses using logical addresses. When the target of access is located in the main memory, the logical address is translated into the physical address by an address translation table. When the target of access is not located in the main memory, a page in the main memory is selected, and the selected page is swapped with the page in the secondary storage that contains the target of the access. The new physical address is then added to the address translation table.

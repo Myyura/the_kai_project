@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang)
 
-## **Description (English)**
+## **Description**
 
 Answer the following questions by writing programs. If you are taking an onsite examination, the files needed for answering the questions are found in the USB flash drive. Store the programs in the USB flash drive before the examination ends. Also the files generated for answering questions must be stored in the USB flash drive. If you are taking an online replacement examination, the files needed for answering the questions are in the given zip file. To submit the programs and the files, follow the instructions separately given. The submission URL is shown on the last page.
 

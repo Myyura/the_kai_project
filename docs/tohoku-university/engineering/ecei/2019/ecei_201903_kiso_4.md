@@ -56,8 +56,8 @@ Answer the following questions.
 - (b) Suppose that the initial values of the array $A$ are $(2, 5, 4, 3, 2)$. We consider displaying the values of the array $A$ every time right after the procedure $Q$ at line 6 and line 19 in **Alg3** is performed. Show all the values of the array $A$ in the order in which they are displayed.
 - (\(c\)) Give the computational complexity of **Alg3** in big $\Theta$ notation.
 
-### Figs
-#### fig. 4(a)
+#### Figs
+##### fig. 4(a)
 ```text
 Alg1 (N):
     for i := 1 to N-1 do
@@ -69,7 +69,7 @@ Alg1 (N):
     endfor
 ```
 
-#### fig. 4(b)
+##### fig. 4(b)
 ```text
 Alg2 (N):
     for i := 1 to N-1 do
@@ -83,7 +83,7 @@ Alg2 (N):
     endfor
 ```
 
-#### fig. 4(\(c\))
+##### fig. 4(\(c\))
 ```text
 Alg3 (N):
     for i := 1 to N do

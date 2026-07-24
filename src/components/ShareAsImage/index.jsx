@@ -255,10 +255,28 @@ function getDocBreadcrumbs() {
   return Array.from(items).map(a => a.textContent.trim()).join(' > ');
 }
 
-/** Clone the full article content */
-function cloneArticleContent(article) {
+/** Clone the selected problem-document content for image export. */
+function cloneArticleContent(article, scope = 'all') {
   if (!article) return null;
   const clone = article.cloneNode(true);
+  const problemPanel = clone.querySelector('[data-kai-study-panel="problem"]');
+  const solutionPanel = clone.querySelector('[data-kai-study-panel="solution"]');
+
+  clone.querySelector('[data-kai-study-tabs-host]')?.remove();
+
+  if (problemPanel && solutionPanel) {
+    if (scope === 'problem') {
+      solutionPanel.remove();
+      problemPanel.removeAttribute('hidden');
+    } else if (scope === 'solution') {
+      problemPanel.remove();
+      solutionPanel.removeAttribute('hidden');
+    } else {
+      problemPanel.removeAttribute('hidden');
+      solutionPanel.removeAttribute('hidden');
+    }
+  }
+
   // Remove anchor links from headings
   clone.querySelectorAll('.hash-link, a.anchor').forEach(a => a.remove());
   // Remove interactive / share elements
@@ -275,6 +293,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
   const [generating, setGenerating] = useState(false);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [toast, setToast] = useState(null);
+  const [shareScope, setShareScope] = useState('all');
   const toastTimerRef = useRef(null);
   const workerRef = useRef(null);
   const workerBlobUrlRef = useRef('');
@@ -406,7 +425,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
 
     try {
       const article = document.querySelector('article .theme-doc-markdown');
-      const contentClone = cloneArticleContent(article);
+      const contentClone = cloneArticleContent(article, shareScope);
       if (!contentClone) {
         showToast(L.shareFail, 'error');
         return;
@@ -565,7 +584,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
       }
       setGenerating(false);
     }
-  }, [docTitle, L, buildWatermarkLayout, showToast]);
+  }, [docTitle, L, buildWatermarkLayout, shareScope, showToast]);
 
   const downloadImage = useCallback(async () => {
     if (!previewUrl) return;
@@ -615,25 +634,40 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
 
   return (
     <div className={`${styles.wrapper} ${compact ? styles.wrapperCompact : ''}`}>
-      {/* Trigger button */}
-      <button
-        className={styles.triggerBtn}
-        onClick={generateImage}
-        disabled={generating}
-        title={L.heading}
-      >
-        {generating ? (
-          <>
-            <span className={styles.spinner} />
-            <span>{L.generating}</span>
-          </>
-        ) : (
-          <>
-            <FaImage className={styles.triggerIcon} />
-            <span>{L.heading}</span>
-          </>
-        )}
-      </button>
+      <div className={styles.triggerRow}>
+        <label className={styles.scopeControl}>
+          <span>{L.scope}</span>
+          <select
+            value={shareScope}
+            onChange={(event) => setShareScope(event.target.value)}
+            disabled={generating}
+            aria-label={L.scope}>
+            <option value="all">{L.scopeAll}</option>
+            <option value="problem">{L.scopeProblem}</option>
+            <option value="solution">{L.scopeSolution}</option>
+          </select>
+        </label>
+
+        {/* Trigger button */}
+        <button
+          className={styles.triggerBtn}
+          onClick={generateImage}
+          disabled={generating}
+          title={L.heading}
+        >
+          {generating ? (
+            <>
+              <span className={styles.spinner} />
+              <span>{L.generating}</span>
+            </>
+          ) : (
+            <>
+              <FaImage className={styles.triggerIcon} />
+              <span>{L.heading}</span>
+            </>
+          )}
+        </button>
+      </div>
 
       {/* Preview modal */}
       {previewUrl && (

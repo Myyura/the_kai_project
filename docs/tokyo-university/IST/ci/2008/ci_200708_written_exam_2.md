@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Synchronization operation among processing elements in a multi-computer is essential to realize mutual exclusion, producer-consumer synchronization. Answer the following questions on realization of synchronization in a multi-computer:
 
 (1) When the multi-computer has a shared memory, describe a method to realize mutual exclusion, then write a pseudo-program to implement the operation.

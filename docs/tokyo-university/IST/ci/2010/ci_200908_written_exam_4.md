@@ -16,6 +16,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 以下に示す情報システムに関する8項目から<u>4項目</u>を選択し、各項目を4～8行程度で説明せよ。必要に応じて例や図を用いてよい。
 
 1) ベイズの定理
@@ -27,7 +30,7 @@ tags:
 7) Unicode
 8) ユーザ認証もしくは個人識別について，あわせて3種類の方法とその比較
 
-## **Description (English)**
+### English
 Select <u>four items</u> out of the following eight items concerning information systems, and explain each item in approximately 4~8 lines of text.
 If necessary, use examples or figures.
 

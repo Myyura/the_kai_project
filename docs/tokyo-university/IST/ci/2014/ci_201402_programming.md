@@ -12,7 +12,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Use 64bit (or less) integer arithmetic when writing the following programs.
 
 (1) Write a program that computes $f(10)$ where $f$ is a function defined as follows:

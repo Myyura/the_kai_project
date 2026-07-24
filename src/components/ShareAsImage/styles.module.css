@@ -6,6 +6,43 @@
   margin-top: 0;
 }
 
+.triggerRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.scopeControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.scopeControl select {
+  min-height: 2.35rem;
+  padding: 0.4rem 2rem 0.4rem 0.7rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 9px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-800);
+  cursor: pointer;
+  font: inherit;
+}
+
+.scopeControl select:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.scopeControl select:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 /* ─── Trigger button ─── */
 .triggerBtn {
   display: inline-flex;
@@ -251,6 +288,25 @@
 
 /* ─── Mobile responsive ─── */
 @media (max-width: 768px) {
+  .triggerRow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .scopeControl {
+    justify-content: space-between;
+  }
+
+  .scopeControl select,
+  .triggerRow > .triggerBtn {
+    flex: 1;
+  }
+
+  .triggerRow > .triggerBtn {
+    justify-content: center;
+    width: 100%;
+  }
+
   .previewModal {
     width: min(95vw, 600px);
     height: 80vh;

@@ -10,7 +10,7 @@ tags:
 ## **Author**
 vv, [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Answer the following questions by writing programs. The files needed for answering the questions are found in the USB flash drive. Store the programs in the USB flash drive before the examination ends.
 
 In this problem, we represent matrices with $r$ rows and $c$ columns in various formats. The entry in the $i$-th row and $j$-th column in a matrix is denoted as the $(i, j)$ entry; the upper left entry of a matrix is the $(1, 1)$ entry, and the entry to the right of it is the $(1, 2)$ entry. We say that, for the $(i, j)$ entry, the row number is $i$ and the column number is $j$. Here, $1 \le i \le r$ and $1 \le j \le c$ hold. For any matrix given in this problem, all entries are integers between $-9$ and $9$, inclusive, no row or column has more than 10 non-zero entries, and the total number of non-zero entries is at most $10^6$.

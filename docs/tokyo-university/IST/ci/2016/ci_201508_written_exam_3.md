@@ -12,6 +12,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 写実的な画像をコンピュータグラフィックスで生成する場合、輝度の計算を幾何光学に基づいた積分で行なうことが多い。今、ある平面上の点において角度 $(\theta, \phi)$ から（図 1 を参照）入射する光の放射輝度を $L(\theta, \phi)$ とするとき、その点における放射照度 $I$ は、
 
 $$
@@ -58,7 +61,7 @@ $$
 
 (5) 長方形近似もしくはモンテカルロ積分を 32 ビットの浮動小数点数を用いて実装したところ、$N$ がある大きな数を超えた時点で、結果がゼロに向かって下がり始めた。この現象について考えられる原因を一つ説明せよ。$N$ は常に正確にカウントされていると仮定すること。
 
-## **Description (English) | AI Translated**
+### English (AI translated)
 
 When generating photorealistic images in computer graphics, radiance calculations are often performed using integrals based on geometric optics. Now, let $L(\theta, \phi)$ be the radiance of light incident from an angle $(\theta, \phi)$ (see Figure 1) at a point on a plane. It is known that the irradiance $I$ at that point is defined as:
 

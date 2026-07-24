@@ -14,6 +14,8 @@ tags:
 
 ## **Description**
 
+### 日本語
+
 図1のような角度$\theta$の斜面に置かれた質量$M$の台車の位置制御を考える。台車には、斜面に沿った$x$軸方向へ力$f$を加え、移動させることができる。力$f$は台車を引き上げるために十分な大きさを与えることができ、台車と床の摩擦および空気抵抗は無視できるものとする。時刻$t$における力$f$および台車の位置と速度をそれぞれ$f(t)$、$x(t)$、$v(t)$と表記する。また、重力加速度の大きさを$g$とする。
 
 <figure style="text-align:center;">
@@ -70,7 +72,7 @@ $f(t)=k_1\{L-x(t)\}-k_2v(t)+k_3\int_0^t\{L-x(\tau)\}d\tau$ を与える。なお
 
 (8) $k_3\int_0^t\{L-x(\tau)\}d\tau$ を加えることによって生じる効果と、その効果が現れる理由を説明せよ。
 
-## **Description (English)**
+### English
 
 Let us consider to control the position of a cart with mass $M$ placed on a slope with angle $\theta$ as illustrated in Figure 1. We can move the cart by force $f$ along the $x$-axis parallel to the slope. Assume that $f$ can be sufficiently large to pull up the cart. Friction between the cart and the slope and air resistance are negligible. We let $f(t), x(t),$ and $v(t)$ denote the force $f$, the position, and the velocity of the cart at time $t$, respectively. The magnitude of gravity acceleration is denoted by $g$.
 

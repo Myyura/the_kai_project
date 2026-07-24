@@ -13,7 +13,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Answer the following questions. All logarithms are base 2 ($\log_2$). For calculations, you must use $\log_2 3 = 1.6$ and $\log_2 5 = 2.3$. Also, round to two decimal places if necessary.
 
 **Q.1** Consider a memoryless stationary source $S$ defined by the alphabet $A = \{a, b, c, d, e, f\}$, where each symbol occurs independently. Their probabilities of occurrence are $P(a) = 0.30, P(b) = 0.25, P(c) = 0.15, P(d) = 0.10, P(e) = 0.10, \text{and } P(f) = 0.10$.

@@ -18,6 +18,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 以下に示す情報システムに関する8項目から<u>4項目</u>を選択し、各項目を4～8行程度で説明せよ。必要に応じて例や図を用いてよい。
 
 1) **運動学と逆運動学**
@@ -29,7 +32,7 @@ tags:
 7) **ネットワークセキュリティープロトコルの例（１つ）**
 8) **リアルタイム性**
 
-## **Description (English) | AI Translated**
+### English (AI translated)
 Select four items out of the following eight items concerning information systems, and explain each item in approximately 4~8 lines of text.
 If necessary, use examples or figures.
 

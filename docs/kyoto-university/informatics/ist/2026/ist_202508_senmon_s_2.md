@@ -14,7 +14,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Let us consider a binary classification problem in which a real-valued vector $\mathbf{X}$ in a $d$-dimensional space is classified into a class $y \in \{0, 1\}$. The boundary between class 0 and class 1 in this space defined by a classification method is referred to as the decision boundary.
 
 ### Q.1

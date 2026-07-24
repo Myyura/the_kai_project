@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Write programs for the following questions. When writing the programs, you must not use a built-in library function that directly implements the specified behavior. For example, the program for (1) must not include a call to `to_i` in Ruby.
 
 (1) Write a program that reads a number in the quaternary representation (base-4 positional notation) and prints it in the decimal representation. For example, it reads `123` and prints `27`.

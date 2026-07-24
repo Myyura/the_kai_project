@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 
 We consider a problem of classifying a three-dimensional vector, where a value of each element is either 0 or 1, into either the class 1 or the class 2. Let $\boldsymbol{x} = (x(1), x(2), x(3)) \in \{0, 1\}^3$ be a vector. Assume that each element of $\boldsymbol{x}$ of the class $y=k$ ($k \in \{1, 2\}$) independently follows a Bernoulli distribution, and let $p(x(j) = 1 | y = k) = \mu^{(k)}(j)$ ($0 \le \mu^{(k)}(j) \le 1, \ j \in \{1, 2, 3\}$) be the probability of $x(j) = 1$. Let $\boldsymbol{\mu}^{(k)} = (\mu^{(k)}(1), \mu^{(k)}(2), \mu^{(k)}(3))$ be parameters of the class $k$.
 

@@ -12,7 +12,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Consider the system (shown in Fig. 1) that transfers the packets arriving from the three input lines to the output line every discrete time $T[\text{sec}]$. When there is any packet in the buffer, one packet in the buffer is transferred to the output line. Packets from the input lines arrive and are stored in the buffer. The packet arriving probability of three input lines are the same value $\lambda(0\leqq\lambda\leqq 1)$, all of arriving packets from input lines have the same size, and the maximum number of packets to be able to be stored in the buffer is three. Since the buffer cannot store the larger number of packets than its capacity, the arrived packet(s) that can not be stored in the buffer is(are) discarded. Here, the packet(s) to be discarded is(are) randomly selected regardless of the input line. Then, answer the following questions.
 
 <figure style="text-align:center;">

@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 Let us consider a dataset that consists of $N$ data where each datum is represented in the form $\boldsymbol{x} = (x_1, x_2, ..., x_b) \quad (x_i \in \{0, 1\}, 1 \le i \le b)$ which is a bit string of length $b \ (b \ge 1)$. Each datum is assigned a unique data ID (identifier) which is a distinct integer. Let's build a system that searches for data close in distance to an arbitrary input datum (query datum). During a search, the system needs to enumerate the data IDs of all data that satisfy the condition. The distance between two data is defined by the Hamming distance between bit strings. The Hamming distance between two bit strings $\boldsymbol{x} = (x_1, x_2, ..., x_b)$ and $\boldsymbol{y} = (y_1, y_2, ..., y_b)$ is defined as follows.
 
 $$

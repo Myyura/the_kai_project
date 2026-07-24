@@ -10,7 +10,7 @@ tags:
 ## **Author**
 samparker, 祭音Myyura
 
-## **Description** 
+## **Description**
 $A,B,C,P,Q$ を $n$ 次の正方行列とする。また, $E$ と $O$ それぞれ $n$ 次の単位行列と零行列とする。
 
 (1) $A$ が $A^2=A$ を満たすとき, $A$ の固有値はすべて $0$ または $1$ であることを証明せよ。

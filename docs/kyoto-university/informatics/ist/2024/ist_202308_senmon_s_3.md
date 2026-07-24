@@ -10,7 +10,7 @@ tags:
 ## **Author**
 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description** 
+## **Description**
 Suppose that samples are given in a 2-dimensional feature space as shown in Table 1.
 The samples are denoted by $x_i = (x_{i1}, x_{i2})^T$, $(i = 1, \ldots, n)$, where $T$ represents the transpose of a vector or a matrix. Answer the following questions.
 

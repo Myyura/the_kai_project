@@ -10,6 +10,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 ある二つの文字列 $str1, str2$ の編集距離はつぎの 3 つの操作を行うことにより $str1$ を $str2$ に変換するのに要する操作の最低回数である．
 - 1 文字挿入する．
 - 1 文字削除する．
@@ -26,7 +29,7 @@ tags:
 
 (5) 編集距離の応用として考えられるものを 3 つ挙げなさい．
 
-## **Description (English)**
+### English
 The *edit distance* between two strings $str1$ and $str2$ is defined as the minimum number of the following operations required to transform $str1$ into $str2$.
 - insert one character
 - delete one character

@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 
 Let us define the Fourier transform $\mathcal{F}[x(t)]$ of a real function $x(t)$ and the inverse Fourier transform $\mathcal{F}^{-1}[X(\omega)]$ of a function $X(\omega)$ with the following formulas, where $t$ and $\omega$ denote real numbers, and $j = \sqrt{-1}$.
 

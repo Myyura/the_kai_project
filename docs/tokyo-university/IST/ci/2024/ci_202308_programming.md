@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang)
 
-## **Description (日本語)**
+## **Description**
 プログラミング言語 $P$ の変数の値は 0 以上 999 以下の整数とする。変数名は `x1`, `x27` のように `x` から始まり 0 以上 999 以下の整数が続く名前とする。  
 
 言語 $P$ のプログラムの実行や分析をするときに，変数 `xN` についての不等式 $S_N \leq xN \leq T_N$ を用いる。

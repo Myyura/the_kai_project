@@ -11,7 +11,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 In kinematic calculations and visual computations in robotics, vector operations are expressed with matrices sometimes. Answer the following questions on inner-product, outer-product, projection and rotation of three dimensional vectors. $\boldsymbol{I}$ is the $3\times3$ identity matrix. The three-dimensional vectors $\boldsymbol{x}$, $\boldsymbol{a}$, $\boldsymbol{b}$ and $\boldsymbol{n}$ are $3\times1$ column vectors:
 $$\boldsymbol{x}=\begin{bmatrix}x_x\\x_y\\x_z\end{bmatrix},\quad\boldsymbol{a}=\begin{bmatrix}a_x\\a_y\\a_z\end{bmatrix},\quad\boldsymbol{b}=\begin{bmatrix}b_x\\b_y\\b_z\end{bmatrix},\quad\boldsymbol{n}=\begin{bmatrix}n_x\\n_y\\n_z\end{bmatrix}.$$
 $\boldsymbol{x}^T$, which is a $1\times3$ row vector, shows the transpose of $\boldsymbol{x}$.

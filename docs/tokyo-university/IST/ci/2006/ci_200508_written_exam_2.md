@@ -12,6 +12,9 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+### 日本語
+
 プロセッサのキャッシュメモリに関する以下の問いに解答せよ．
 
 (1) キャッシュメモリにより，プログラムの実行が高速化する理由を 5 行以内で述べよ．
@@ -28,7 +31,7 @@ for(i = 0; i < N; i = i + 1)
 
 (4) キャッシュメモリのヒット率を向上させるハードウェア技術およびプログラミング技法を合わせて 5 個示し，おのおのを 2 行以内で記述せよ．
 
-## **Description (English)**
+### English
 Answer the following questions about a cache memory in a processor.
 
 (1) Describe the reason within five lines why cache memory increases execution speed of programs.

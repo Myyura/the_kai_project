@@ -12,7 +12,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 A large program often contains duplicate code or code clone. We will write a simple program for detecting duplicate code in a given file.
 
 (1) Write a program that reads `program.txt` in the given USB flash drive and counts the number of semi-colons `;` in that file. The file `program.txt` is a text file.

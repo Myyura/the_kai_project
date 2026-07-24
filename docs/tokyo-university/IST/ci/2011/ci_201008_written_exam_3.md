@@ -10,7 +10,7 @@ tags:
 ## **Author**
 [itsuitsuki](https://github.com/itsuitsuki)
 
-## **Description (English)**
+## **Description**
 (1) As shown in figure 1, four periodical signals $S_i(t)(i=1,2,3,4)$ with a period of $4\Delta t$ are denoted as a sequence of digital signals $\boldsymbol{w}_i=(w_{i1},w_{i2},w_{i3},w_{i4})^T (i=1,2,3,4)$. Each element $w_{ik} (k=1,2,3,4)$ takes on values $+1$ or $-1$. Calculate a $4\times4$ matrix $W$ which consists of each element;
 $$W_{ij}=\frac{1}{4}\boldsymbol{w}_i^T\boldsymbol{w}_j\text{ }(i,j=1,2,3,4)$$
 by using $\boldsymbol{w}_i$ shown in figure 1. T denotes transpose.
