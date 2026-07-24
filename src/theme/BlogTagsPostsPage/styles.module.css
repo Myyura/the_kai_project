@@ -1,0 +1,95 @@
+.tagHeader {
+  margin-bottom: 1.5rem;
+  padding: 1.35rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-card, 16px);
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--ifm-color-primary) 9%, var(--ifm-background-surface-color)),
+      var(--ifm-background-surface-color));
+}
+
+.tagIdentity {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: .6rem;
+  color: var(--ifm-color-emphasis-650);
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.tagIdentity code {
+  padding: .1rem .38rem;
+  color: var(--ifm-color-primary);
+  font-size: .7rem;
+}
+
+.tagHeader h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.25rem) !important;
+  letter-spacing: -.03em;
+}
+
+.tagHeader p {
+  margin: .65rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.tagActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1rem;
+}
+
+.tagActions > span,
+.tagActions > a {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  padding: .3rem .65rem;
+  border: 1px solid var(--ifm-color-emphasis-250);
+  border-radius: 999px;
+  font-size: .76rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.tagActions > span {
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 35%, var(--ifm-color-emphasis-250));
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
+  color: var(--ifm-color-primary);
+}
+
+.tagActions > a:hover {
+  border-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.tagActions > a:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.postList > article {
+  margin-bottom: 1rem;
+  padding: 1.35rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-card, 16px);
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--kai-shadow-card);
+}
+
+.postList > article:last-child {
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .tagHeader,
+  .postList > article {
+    padding: 1rem;
+  }
+}

@@ -309,7 +309,7 @@ const config = {
         title: 'The Kai Project',
         logo: {
           alt: 'Kai icon',
-          src: 'img/kai-icon-light.png',
+          src: 'img/kai-icon.png',
           srcDark: 'img/kai-icon.png',
         },
         items: [
@@ -326,7 +326,6 @@ const config = {
             label: '更多',
             position: 'left',
             items: [
-              {to: '/docs/tags', label: 'Tags'},
               {to: '/links', label: '参考链接'},
               {to: '/help', label: '帮助与声明'},
             ],

@@ -1,0 +1,108 @@
+.browseNav {
+  margin: 0 0 1.75rem;
+}
+
+.browseLabel {
+  display: block;
+  margin-bottom: .55rem;
+  color: var(--ifm-color-emphasis-650);
+  font-size: .74rem;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.modeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .7rem;
+}
+
+.modeLink {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: .7rem;
+  min-width: 0;
+  align-items: center;
+  padding: .78rem .9rem;
+  border: 1px solid var(--ifm-color-emphasis-250);
+  border-radius: var(--kai-radius-panel, 12px);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base) !important;
+  text-decoration: none !important;
+  transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.modeLink:hover {
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 48%, var(--ifm-color-emphasis-250));
+  background: color-mix(in srgb, var(--ifm-color-primary) 5%, var(--ifm-background-surface-color));
+}
+
+.modeLink:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
+  outline-offset: 2px;
+}
+
+.modeLinkActive {
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 62%, var(--ifm-color-emphasis-250));
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--ifm-color-primary) 12%, var(--ifm-background-surface-color)),
+      var(--ifm-background-surface-color));
+  box-shadow: inset 3px 0 0 var(--ifm-color-primary);
+}
+
+.modeIcon {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-650);
+  font-size: .95rem;
+}
+
+.modeLinkActive .modeIcon {
+  background: color-mix(in srgb, var(--ifm-color-primary) 14%, transparent);
+  color: var(--ifm-color-primary);
+}
+
+.modeCopy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: .12rem;
+}
+
+.modeCopy strong {
+  color: var(--ifm-heading-color);
+  font-size: .9rem;
+  line-height: 1.35;
+}
+
+.modeCopy small {
+  overflow: hidden;
+  color: var(--ifm-color-emphasis-650);
+  font-size: .74rem;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .modeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modeCopy small {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modeLink {
+    transition: none;
+  }
+}

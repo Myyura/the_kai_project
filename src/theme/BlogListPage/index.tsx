@@ -11,7 +11,7 @@ import BlogListPaginator from '@theme/BlogListPaginator';
 import SearchMetadata from '@theme/SearchMetadata';
 import BlogPostItems from '@theme/BlogPostItems';
 import BlogListPageStructuredData from '@theme/BlogListPage/StructuredData';
-import {useUiText} from '@site/src/i18n/useUiText';
+import BlogBrowseHeader from '@site/src/components/BlogBrowseHeader';
 import type {Props} from '@theme/BlogListPage';
 import styles from './styles.module.css';
 
@@ -31,7 +31,6 @@ function BlogListPageMetadata({metadata}: Props): ReactNode {
 
 export default function BlogListPage(props: Props): ReactNode {
   const {metadata, items, sidebar} = props;
-  const t = useUiText('blogPage');
   return (
     <HtmlClassNameProvider
       className={clsx(
@@ -41,12 +40,7 @@ export default function BlogListPage(props: Props): ReactNode {
       <BlogListPageMetadata {...props} />
       <BlogListPageStructuredData {...props} />
       <BlogLayout sidebar={sidebar}>
-        <header className={styles.hero}>
-          <span>{t.eyebrow}</span>
-          <h1>{t.title}</h1>
-          <p>{t.subtitle}</p>
-          <small>{t.contentLanguage}</small>
-        </header>
+        <BlogBrowseHeader activeMode="list" />
         <div className={styles.postList}>
           <BlogPostItems items={items} />
         </div>

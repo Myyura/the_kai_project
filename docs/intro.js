@@ -6,6 +6,7 @@ import {
   FaPaperPlane,
   FaSearch,
 } from 'react-icons/fa';
+import ContentBrowseModes from '@site/src/components/ContentBrowseModes';
 import {universities} from '@site/src/data/universities';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './intro.module.css';
@@ -96,6 +97,8 @@ export default function Intro() {
         <h1 className={styles.pageTitle}>{t.title}</h1>
         <p className={styles.pageSubtitle}>{t.subtitle}</p>
       </header>
+
+      <ContentBrowseModes section="exams" activeMode="catalog" />
 
       <section className={styles.schoolsSection} aria-labelledby="university-search-label">
         <label id="university-search-label" className={styles.searchLabel} htmlFor="university-search">

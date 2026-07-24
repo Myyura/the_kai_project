@@ -1,0 +1,28 @@
+.pageHeader {
+  max-width: 760px;
+  margin: 0 auto 1.65rem;
+  text-align: center;
+}
+
+.pageHeader > span {
+  display: inline-block;
+  margin-bottom: .5rem;
+  color: var(--ifm-color-primary);
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.pageHeader h1 {
+  margin: 0 0 .6rem;
+  font-size: clamp(1.8rem, 4vw, 2.55rem) !important;
+  letter-spacing: -.035em;
+}
+
+.pageHeader p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-650);
+  font-size: 1rem;
+  line-height: 1.7;
+}
