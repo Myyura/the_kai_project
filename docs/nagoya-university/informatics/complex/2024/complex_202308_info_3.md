@@ -37,6 +37,8 @@ $$
 
 二分探索木の例を以下に示す。
 
+<div align="center">
+
 ```mermaid
 flowchart TD
   a3((3))
@@ -59,6 +61,8 @@ flowchart TD
   c5((5))
   c3 -->|右| c5
 ```
+
+</div>
 
 3) 2) で作成した二分探索木を通りがけ順（中間順／in-order）で走査する場合，訪問するノードの値を最初から順に示しなさい。
 
@@ -118,6 +122,8 @@ $$
 
 最終的な二分探索木は次の通りである。
 
+<div align="center">
+
 ```mermaid
 flowchart TD
     n11((11))
@@ -137,6 +143,8 @@ flowchart TD
     n5 --> n6
     n13 --> n12
 ```
+
+</div>
 
 ### 3)
 
@@ -158,6 +166,8 @@ $$
 
 3) で得た列は昇順であるため，各値は常に右の子ノードとして挿入される。
 
+<div align="center">
+
 ```mermaid
 flowchart TD
     n2((2))
@@ -177,6 +187,8 @@ flowchart TD
     n11 --> n12
     n12 --> n13
 ```
+
+</div>
 
 よって，右にのみ伸びる二分探索木となる。
 
