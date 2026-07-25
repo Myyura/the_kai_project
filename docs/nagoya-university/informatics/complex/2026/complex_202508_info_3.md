@@ -3,6 +3,7 @@ sidebar_label: "2025年8月実施 情3"
 tags:
   - Nagoya-University
   - Computer-Science.Algorithm-Design.Bubble-Sort
+  - Computer-Science.Data-Structures.Binary-Search-Tree
   - Computer-Science.Dynamic-Programming.Optimal-Binary-Search-Tree
   - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
   - Discrete-Mathematics.Graph-Algorithms.Dijkstra-Algorithm
