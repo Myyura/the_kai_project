@@ -5,6 +5,7 @@ import {
   canonicalizeAnnotationText,
   findAnnotationTextOffsets,
 } from '@site/src/services/annotationTextMatch';
+import {getContainedSelectionRange} from '@site/src/services/annotationSelection';
 import {useDocumentAnnotations} from './context';
 import styles from './styles.module.css';
 
@@ -121,6 +122,7 @@ export default function InlineAnnotationController() {
     activeId,
     setSelectionDraft,
     dismissSelection,
+    composerOpen,
     setDocumentHash,
     setResolutions,
     focusAnnotation,
@@ -197,14 +199,24 @@ export default function InlineAnnotationController() {
   useEffect(() => {
     if (!container || !enabled) return undefined;
 
+    let pendingFrame = null;
+    const scheduleSelectionUpdate = (callback) => {
+      if (pendingFrame !== null) cancelAnimationFrame(pendingFrame);
+      pendingFrame = requestAnimationFrame(() => {
+        pendingFrame = null;
+        callback();
+      });
+    };
+
     const captureSelection = () => {
-      requestAnimationFrame(() => {
+      scheduleSelectionUpdate(() => {
+        if (composerOpen) return;
         const selection = window.getSelection();
-        if (!selection || selection.isCollapsed || selection.rangeCount === 0) {
+        const range = getContainedSelectionRange(selection, container);
+        if (!range) {
+          dismissSelection();
           return;
         }
-        const range = selection.getRangeAt(0);
-        if (!container.contains(range.commonAncestorContainer)) return;
 
         const startElement = range.startContainer.nodeType === Node.TEXT_NODE
           ? range.startContainer.parentElement
@@ -214,10 +226,16 @@ export default function InlineAnnotationController() {
           : range.endContainer;
         const startBlock = startElement?.closest?.(BLOCK_SELECTOR);
         const endBlock = endElement?.closest?.(BLOCK_SELECTOR);
-        if (!startBlock || startBlock !== endBlock) return;
+        if (!startBlock || startBlock !== endBlock) {
+          dismissSelection();
+          return;
+        }
 
         const exact = getRenderableSelectionText(startBlock, range);
-        if (!exact) return;
+        if (!exact) {
+          dismissSelection();
+          return;
+        }
         const rect = range.getBoundingClientRect();
         setSelectionDraft({
           exact,
@@ -232,15 +250,35 @@ export default function InlineAnnotationController() {
       });
     };
 
+    const dismissInvalidSelection = () => {
+      scheduleSelectionUpdate(() => {
+        if (composerOpen) return;
+        const selection = window.getSelection();
+        const range = getContainedSelectionRange(selection, container);
+        if (!range) {
+          dismissSelection();
+        }
+      });
+    };
+
     container.addEventListener('mouseup', captureSelection);
     container.addEventListener('touchend', captureSelection);
     container.addEventListener('keyup', captureSelection);
+    document.addEventListener('selectionchange', dismissInvalidSelection);
     return () => {
+      if (pendingFrame !== null) cancelAnimationFrame(pendingFrame);
       container.removeEventListener('mouseup', captureSelection);
       container.removeEventListener('touchend', captureSelection);
       container.removeEventListener('keyup', captureSelection);
+      document.removeEventListener('selectionchange', dismissInvalidSelection);
     };
-  }, [container, dismissSelection, enabled, setSelectionDraft]);
+  }, [
+    composerOpen,
+    container,
+    dismissSelection,
+    enabled,
+    setSelectionDraft,
+  ]);
 
   useEffect(() => {
     if (!container || typeof CSS === 'undefined' || !CSS.highlights || typeof Highlight === 'undefined') {

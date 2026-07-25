@@ -49,60 +49,14 @@ type StudyDom = {
   root: HTMLElement;
   tabsHost: HTMLDivElement;
   panels: Record<StudyTab, HTMLElement>;
-  originalNodes: HTMLElement[];
+  contentNodes: Record<'problem' | 'solution', HTMLElement[]>;
+  originallyHidden: Set<HTMLElement>;
+  emptyStates: HTMLElement[];
+  generatedIds: HTMLElement[];
 };
 
 const useBrowserLayoutEffect =
   typeof window === 'undefined' ? useEffect : useLayoutEffect;
-
-function normalizeHeading(value: string): string {
-  return value
-    .normalize('NFKC')
-    .replace(/[\u200B-\u200D\uFEFF]/g, '')
-    .replace(/\s+/g, ' ')
-    .replace(/[：:]+$/g, '')
-    .trim()
-    .toLocaleLowerCase();
-}
-
-function isProblemHeading(value: string): boolean {
-  const heading = normalizeHeading(value);
-  return (
-    heading === 'description' ||
-    heading.startsWith('description ') ||
-    heading === 'problem' ||
-    heading === 'question' ||
-    heading === '题目' ||
-    heading === '問題'
-  );
-}
-
-function isAuthorHeading(value: string): boolean {
-  return normalizeHeading(value) === 'author';
-}
-
-function isSolutionHeading(value: string): boolean {
-  const heading = normalizeHeading(value);
-  return (
-    heading === 'kai' ||
-    heading.startsWith('kai ') ||
-    heading.startsWith('kai(') ||
-    heading === 'solution' ||
-    heading === 'answer' ||
-    heading === '题解' ||
-    heading === '解答'
-  );
-}
-
-function isSolutionSupplementHeading(value: string): boolean {
-  const heading = normalizeHeading(value);
-  return (
-    heading === 'knowledge' ||
-    heading.startsWith('knowledge ') ||
-    heading === 'reference' ||
-    heading.startsWith('reference ')
-  );
-}
 
 function makeEmptyStudySection(
   message: string,
@@ -127,7 +81,24 @@ function makeEmptyStudySection(
 }
 
 function hasStudySectionContent(nodes: HTMLElement[]): boolean {
-  return nodes.slice(1).some((node) => !/^H[1-6]$/.test(node.tagName));
+  return nodes.some(
+    (node) => !/^H[1-6]$/.test(node.tagName),
+  );
+}
+
+function makeStudyPanel(
+  name: StudyTab,
+  panelId: string,
+  tabId: string,
+): HTMLElement {
+  const panel = document.createElement('section');
+  panel.id = panelId;
+  panel.classList.add(styles.studyPanel);
+  panel.dataset.kaiStudyPanel = name;
+  panel.setAttribute('role', 'tabpanel');
+  panel.setAttribute('aria-labelledby', tabId);
+  panel.tabIndex = 0;
+  return panel;
 }
 
 function makeStudyDom(
@@ -151,110 +122,92 @@ function makeStudyDom(
   const children = Array.from(root.children).filter(
     (child): child is HTMLElement => child instanceof HTMLElement,
   );
-  const explicitProblemIndex = children.findIndex(
-    (child) => child.tagName === 'H2' && isProblemHeading(child.textContent || ''),
-  );
-  const solutionIndex = children.findIndex(
-    (child, index) =>
-      index > explicitProblemIndex &&
-      child.tagName === 'H2' &&
-      isSolutionHeading(child.textContent || ''),
-  );
-
-  const supplementarySolutionIndex =
-    solutionIndex < 0 && (options.force || explicitProblemIndex >= 0)
-      ? children.findIndex(
-          (child, index) =>
-            index > explicitProblemIndex &&
-            child.tagName === 'H2' &&
-            isSolutionSupplementHeading(child.textContent || ''),
-        )
-      : -1;
-  const resolvedSolutionIndex =
-    solutionIndex >= 0 ? solutionIndex : supplementarySolutionIndex;
-  const inferredProblemIndex =
-    explicitProblemIndex < 0 && options.force
-      ? children.findIndex(
-          (child, index) =>
-            child.tagName === 'H2' &&
-            !isAuthorHeading(child.textContent || '') &&
-            !isSolutionHeading(child.textContent || '') &&
-            !isSolutionSupplementHeading(child.textContent || '') &&
-            (resolvedSolutionIndex < 0 || index < resolvedSolutionIndex),
-        )
-      : -1;
-  const problemIndex =
-    explicitProblemIndex >= 0 ? explicitProblemIndex : inferredProblemIndex;
-
-  if (problemIndex < 0 && resolvedSolutionIndex < 0 && !options.force) {
+  const problemNodes: HTMLElement[] = [];
+  const solutionNodes: HTMLElement[] = [];
+  let currentSection: 'problem' | 'solution' | null = null;
+  children.forEach((child) => {
+    const markedSection = child.dataset.kaiStudySection;
+    if (markedSection === 'problem' || markedSection === 'solution') {
+      currentSection = markedSection;
+    }
+    if (currentSection === 'problem') problemNodes.push(child);
+    if (currentSection === 'solution') solutionNodes.push(child);
+  });
+  if (
+    problemNodes.length === 0
+    && solutionNodes.length === 0
+    && !options.force
+  ) {
     return null;
   }
-
-  const problemNodes =
-    problemIndex >= 0
-      ? children.slice(
-          problemIndex,
-          resolvedSolutionIndex >= 0 ? resolvedSolutionIndex : children.length,
-        )
-      : [];
-  const solutionNodes =
-    resolvedSolutionIndex >= 0
-      ? children.slice(resolvedSolutionIndex)
-      : [];
-  const firstContentNode =
-    problemNodes[0] || solutionNodes[0] || null;
 
   const tabsHost = document.createElement('div');
   tabsHost.className = styles.studyTabsHost;
   tabsHost.dataset.kaiStudyTabsHost = '';
 
-  const problemPanel = document.createElement('section');
-  problemPanel.id = ids.problemPanel;
-  problemPanel.className = styles.studyPanel;
-  problemPanel.dataset.kaiStudyPanel = 'problem';
-  problemPanel.setAttribute('role', 'tabpanel');
-  problemPanel.setAttribute('aria-labelledby', ids.problemTab);
-  problemPanel.tabIndex = 0;
+  const problemPanel = makeStudyPanel(
+    'problem',
+    ids.problemPanel,
+    ids.problemTab,
+  );
+  const solutionPanel = makeStudyPanel(
+    'solution',
+    ids.solutionPanel,
+    ids.solutionTab,
+  );
+  const notesPanel = makeStudyPanel(
+    'notes',
+    ids.notesPanel,
+    ids.notesTab,
+  );
+  notesPanel.classList.add(styles.notesWorkspace);
 
-  const solutionPanel = document.createElement('section');
-  solutionPanel.id = ids.solutionPanel;
-  solutionPanel.className = styles.studyPanel;
-  solutionPanel.dataset.kaiStudyPanel = 'solution';
-  solutionPanel.setAttribute('role', 'tabpanel');
-  solutionPanel.setAttribute('aria-labelledby', ids.solutionTab);
-  solutionPanel.tabIndex = 0;
+  const generatedIds: HTMLElement[] = [];
+  const originallyHidden = new Set(
+    [...problemNodes, ...solutionNodes].filter((node) => node.hidden),
+  );
+  const assignOwnedIds = (
+    nodes: HTMLElement[],
+    panel: HTMLElement,
+    panelId: string,
+  ) => {
+    const ownedIds = nodes.map((node, index) => {
+      if (!node.id) {
+        node.id = `${panelId}-content-${index + 1}`;
+        generatedIds.push(node);
+      }
+      return node.id;
+    });
+    if (ownedIds.length > 0) {
+      panel.setAttribute('aria-owns', ownedIds.join(' '));
+    }
+  };
+  assignOwnedIds(problemNodes, problemPanel, ids.problemPanel);
+  assignOwnedIds(solutionNodes, solutionPanel, ids.solutionPanel);
 
-  const notesPanel = document.createElement('section');
-  notesPanel.id = ids.notesPanel;
-  notesPanel.className = `${styles.studyPanel} ${styles.notesWorkspace}`;
-  notesPanel.dataset.kaiStudyPanel = 'notes';
-  notesPanel.setAttribute('role', 'tabpanel');
-  notesPanel.setAttribute('aria-labelledby', ids.notesTab);
-  notesPanel.tabIndex = 0;
+  root.insertBefore(notesPanel, null);
+  root.insertBefore(solutionPanel, solutionNodes[0] || notesPanel);
+  root.insertBefore(problemPanel, problemNodes[0] || solutionPanel);
+  root.insertBefore(tabsHost, problemPanel);
 
-  root.insertBefore(tabsHost, firstContentNode);
-  root.insertBefore(problemPanel, firstContentNode);
-  root.insertBefore(solutionPanel, firstContentNode);
-  root.insertBefore(notesPanel, firstContentNode);
-  problemNodes.forEach((node) => problemPanel.appendChild(node));
-  solutionNodes.forEach((node) => solutionPanel.appendChild(node));
+  const emptyStates: HTMLElement[] = [];
   if (!hasStudySectionContent(problemNodes)) {
-    problemPanel.appendChild(
-      makeEmptyStudySection(
-        options.missingProblemText,
-        options.contributionLabel,
-        options.contributionUrl,
-      ),
+    const emptyState = makeEmptyStudySection(
+      options.missingProblemText,
+      options.contributionLabel,
+      options.contributionUrl,
     );
+    problemPanel.appendChild(emptyState);
+    emptyStates.push(emptyState);
   }
   if (!hasStudySectionContent(solutionNodes)) {
-    solutionPanel.appendChild(
-      makeEmptyStudySection(
-        options.missingSolutionText,
-        options.contributionLabel,
-        options.contributionUrl,
-      ),
+    const emptyState = makeEmptyStudySection(
+      options.missingSolutionText,
+      options.contributionLabel,
+      options.contributionUrl,
     );
+    solutionPanel.appendChild(emptyState);
+    emptyStates.push(emptyState);
   }
   root.dataset.kaiStudyDocument = '';
 
@@ -266,15 +219,50 @@ function makeStudyDom(
       solution: solutionPanel,
       notes: notesPanel,
     },
-    originalNodes: [...problemNodes, ...solutionNodes],
+    contentNodes: {
+      problem: problemNodes,
+      solution: solutionNodes,
+    },
+    originallyHidden,
+    emptyStates,
+    generatedIds,
   };
 }
 
-function restoreStudyDom(studyDom: StudyDom): void {
-  const {root, tabsHost, panels, originalNodes} = studyDom;
-  originalNodes.forEach((node) => {
-    root.insertBefore(node, panels.problem);
+function setStudyVisibility(studyDom: StudyDom, activeTab: StudyTab): void {
+  studyDom.panels.problem.hidden = activeTab !== 'problem';
+  studyDom.panels.solution.hidden = activeTab !== 'solution';
+  studyDom.panels.notes.hidden = activeTab !== 'notes';
+  studyDom.contentNodes.problem.forEach((node) => {
+    node.hidden = (
+      studyDom.originallyHidden.has(node) || activeTab !== 'problem'
+    );
   });
+  studyDom.contentNodes.solution.forEach((node) => {
+    node.hidden = (
+      studyDom.originallyHidden.has(node) || activeTab !== 'solution'
+    );
+  });
+}
+
+function restoreStudyDom(studyDom: StudyDom): void {
+  const {
+    root,
+    tabsHost,
+    panels,
+    contentNodes,
+    originallyHidden,
+    emptyStates,
+    generatedIds,
+  } = studyDom;
+  contentNodes.problem.forEach((node) => {
+    node.hidden = originallyHidden.has(node);
+  });
+  contentNodes.solution.forEach((node) => {
+    node.hidden = originallyHidden.has(node);
+  });
+  generatedIds.forEach((node) => node.removeAttribute('id'));
+  emptyStates.forEach((emptyState) => emptyState.remove());
   panels.problem.remove();
   panels.solution.remove();
   panels.notes.remove();
@@ -401,14 +389,18 @@ export default function DocItemFooter(): ReactNode {
       hashId = '';
     }
     const hashTarget = hashId ? document.getElementById(hashId) : null;
-    const targetPanel = hashTarget?.closest<HTMLElement>('[data-kai-study-panel]');
+    const targetPanel = hashTarget?.closest<HTMLElement>(
+      '[data-kai-study-section], [data-kai-study-panel]',
+    );
+    const targetSection = (
+      targetPanel?.dataset.kaiStudySection
+      || targetPanel?.dataset.kaiStudyPanel
+    );
     const initialTab =
-      targetPanel?.dataset.kaiStudyPanel === 'solution' ? 'solution' : 'problem';
+      targetSection === 'solution' ? 'solution' : 'problem';
 
     activeTabRef.current = initialTab;
-    studyDom.panels.problem.hidden = initialTab !== 'problem';
-    studyDom.panels.solution.hidden = initialTab !== 'solution';
-    studyDom.panels.notes.hidden = initialTab !== 'notes';
+    setStudyVisibility(studyDom, initialTab);
     setActiveTab(initialTab);
     setStudyDom(studyDom);
 
@@ -439,9 +431,7 @@ export default function DocItemFooter(): ReactNode {
     const studyDom = studyDomRef.current;
     if (!isProblemDocument || !studyDom) return undefined;
 
-    studyDom.panels.problem.hidden = activeTab !== 'problem';
-    studyDom.panels.solution.hidden = activeTab !== 'solution';
-    studyDom.panels.notes.hidden = activeTab !== 'notes';
+    setStudyVisibility(studyDom, activeTab);
 
     const pendingScroll = pendingScrollRef.current;
     pendingScrollRef.current = null;
@@ -475,8 +465,13 @@ export default function DocItemFooter(): ReactNode {
     };
 
     const getTargetTab = (target: HTMLElement): StudyTab | null => {
-      const panel = target.closest<HTMLElement>('[data-kai-study-panel]');
-      const panelName = panel?.dataset.kaiStudyPanel;
+      const panel = target.closest<HTMLElement>(
+        '[data-kai-study-section], [data-kai-study-panel]',
+      );
+      const panelName = (
+        panel?.dataset.kaiStudySection
+        || panel?.dataset.kaiStudyPanel
+      );
       return panelName === 'problem' || panelName === 'solution'
         ? panelName
         : null;
