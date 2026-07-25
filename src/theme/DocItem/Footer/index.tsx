@@ -234,14 +234,18 @@ function setStudyVisibility(studyDom: StudyDom, activeTab: StudyTab): void {
   studyDom.panels.solution.hidden = activeTab !== 'solution';
   studyDom.panels.notes.hidden = activeTab !== 'notes';
   studyDom.contentNodes.problem.forEach((node) => {
-    node.hidden = (
+    const hidden = (
       studyDom.originallyHidden.has(node) || activeTab !== 'problem'
     );
+    node.hidden = hidden;
+    node.classList.toggle(styles.studyContentHidden, hidden);
   });
   studyDom.contentNodes.solution.forEach((node) => {
-    node.hidden = (
+    const hidden = (
       studyDom.originallyHidden.has(node) || activeTab !== 'solution'
     );
+    node.hidden = hidden;
+    node.classList.toggle(styles.studyContentHidden, hidden);
   });
 }
 
@@ -257,9 +261,11 @@ function restoreStudyDom(studyDom: StudyDom): void {
   } = studyDom;
   contentNodes.problem.forEach((node) => {
     node.hidden = originallyHidden.has(node);
+    node.classList.remove(styles.studyContentHidden);
   });
   contentNodes.solution.forEach((node) => {
     node.hidden = originallyHidden.has(node);
+    node.classList.remove(styles.studyContentHidden);
   });
   generatedIds.forEach((node) => node.removeAttribute('id'));
   emptyStates.forEach((emptyState) => emptyState.remove());

@@ -88,6 +88,11 @@
   display: none !important;
 }
 
+.studyContentHidden {
+  /* Infima's explicit table display rule can override the browser's [hidden]. */
+  display: none !important;
+}
+
 .emptyStudySection {
   display: grid;
   justify-items: start;
