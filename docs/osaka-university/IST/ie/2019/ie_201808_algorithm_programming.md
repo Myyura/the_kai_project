@@ -192,26 +192,26 @@ Hint: functionA is "Quick Sort"
 The answer is $O(n \log n)$.
 
 
-Let $T(n)$ denote the average-case time complexity of "Quick Sort" for $n$ elements. Let $c > 0$ be a constant.
+Let $T(n)$ denote the average-case time complexity of Quicksort for an array of $n$ elements. 
+Let $c > 0$ be a constant. 
 The recurrence relation is given by:
 
 $$
 \begin{align}
-T(n) &= \frac{1}{n} \Big(\sum_{i=0}^{n-1} T(i) T(n-i-1) \Big) + cn \nonumber \\
-T(n) &= \frac{2}{n} \Big(\sum_{i=0}^{n-1} T(i) \Big) + cn \nonumber \\
-nT(n) &= 2\Big(\sum_{i=0}^{n-1} T(i) \Big) + cn^2 \tag{1}
+T(n) &= \frac{1}{n} \sum_{i=0}^{n-1} \Big( T(i) + T(n-i-1) \Big) + cn \nonumber \\ 
+T(n) &= \frac{2}{n} \sum_{i=0}^{n-1} T(i) + cn \nonumber \\
+nT(n) &= 2 \sum_{i=0}^{n-1} T(i) + cn^2 \tag{1}
 \end{align}
 $$
 
-and
+For $n-1$, the equation becomes:
 
 $$
-\begin{align}
-(n-1)T(n-1) = 2\Big(\sum_{i=0}^{n-2} T(i) \Big) + c(n-1)^2 \tag{2}
+\begin{align} (n-1)T(n-1) = 2 \sum_{i=0}^{n-2} T(i) + c(n-1)^2 \tag{2}
 \end{align}
 $$
 
-Subtracting $(2)$ from $(1)$ yields:
+Subtracting equation $(2)$ from $(1)$ yields:
 
 $$
 nT(n) - (n-1)T(n-1) = 2T(n-1) + cn^2 - c(n-1)^2
@@ -221,36 +221,40 @@ $$
 nT(n) = (n+1)T(n-1) + c(2n - 1)
 $$
 
-Dividing both sides by $n(n+1)$ to normalize the terms:
+Dividing both sides by $n(n+1)$ to normalize the terms, we get:
 
 $$
 \frac{T(n)}{n+1} = \frac{T(n-1)}{n} + c \frac{2n - 1}{n(n+1)}
 $$
 
-Using partial fraction decomposition, we rewrite the constant term:
+Using partial fraction decomposition, we can rewrite the non-recursive term:
 
 $$
-\frac{T(n)}{n+1} - \frac{T(n-1)}{n} = c (\frac{3}{n+1} - \frac{1}{n})
+\frac{T(n)}{n+1} - \frac{T(n-1)}{n} = c \left(\frac{3}{n+1} - \frac{1}{n}\right)
 $$
 
-Since the harmonic series satisfies $\sum_{i=1}^{n} \frac{1}{i} = O(\log n)$.
-Hence, by summing the following equations
+By expanding and summing this telescoping series for $n, n-1, \dots, 1$, we obtain:
 
 $$
 \begin{aligned}
-\frac{T(n)}{n+1} - \frac{T(n-1)}{n} &= c (\frac{3}{n+1} - \frac{1}{n}) \\
-\frac{T(n-1)}{n} - \frac{T(n-2)}{n-1} &= c (\frac{3}{n} - \frac{1}{n-1}) \\
-&\cdots \\
-\frac{T(1)}{2} - \frac{T(0)}{1} &= c (\frac{3}{2} - \frac{1}{1})
+\frac{T(n)}{n+1} - \frac{T(n-1)}{n} &= c \left(\frac{3}{n+1} - \frac{1}{n}\right) \\
+\frac{T(n-1)}{n} - \frac{T(n-2)}{n-1} &= c \left(\frac{3}{n} - \frac{1}{n-1}\right) \\
+&\vdots \\
+\frac{T(1)}{2} - \frac{T(0)}{1} &= c \left(\frac{3}{2} - \frac{1}{1}\right)
 \end{aligned}
 $$
 
-it follows that:
+Summing both sides of the equations above, the intermediate terms on the left cancel out:
+
+$$
+\frac{T(n)}{n+1} - T(0) = c \sum_{i=1}^{n} \left(\frac{3}{i+1} - \frac{1}{i}\right)
+$$
+
+Since the sum evaluates to a form of the harmonic series, which satisfies $\sum_{i=1}^{n} \frac{1}{i} = O(\log n)$, it follows that:
 
 $$
 \begin{aligned}
-\frac{T(n)}{n+1} &= O(\log n)\\
-T(n) &= O(n \log n)
+\frac{T(n)}{n+1} &= O(\log n) \\ T(n) &= O(n \log n)
 \end{aligned}
 $$
 
