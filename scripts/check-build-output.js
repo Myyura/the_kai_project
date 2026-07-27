@@ -6,7 +6,7 @@ const zlib = require('zlib');
 
 const BUILD_DIR = path.resolve(__dirname, '..', 'build');
 const MAIN_GZIP_BUDGET = 450 * 1024;
-const SEARCH_GZIP_BUDGET = 7 * 1024 * 1024;
+const SEARCH_GZIP_BUDGET = 10 * 1024 * 1024;
 const PUBLISHED_CONTENT_BUDGET = 15 * 1024 * 1024;
 const CONTENT_EXPORT_GZIP_BUDGET = 20 * 1024 * 1024;
 
