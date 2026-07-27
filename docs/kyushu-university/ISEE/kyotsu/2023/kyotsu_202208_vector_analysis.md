@@ -25,6 +25,32 @@ $\quad$ (b) $C_2:C$ 上を点 $A(1,\sqrt{3},0)$ から点 $B(-\sqrt{3},1,0)$ ま
 (2) $S$ を半球面 $x^2 + y^2 + z^2 = 4 (0 \le z)$ と平面 $z = 0$ で囲まれた領域の境界とする。面積分 $\int_{S}\nabla \times \mathbf{F} \cdot d\mathbf{S}$ を求めよ。外向き法線ベクトルを用いよ。
 
 
+### 题目描述
+
+在直角坐标系中，$\mathbf i,\mathbf j,\mathbf k$ 分别为三个坐标轴方向的单位向量，给定
+
+$$
+\mathbf F=y\mathbf i-x\mathbf j+z\mathbf k.
+$$
+
+1. 令 $C$ 为圆 $x^2+y^2=4,\ z=0$，$A=(1,\sqrt3,0)$、$B=(-\sqrt3,1,0)$。分别计算：
+   - 沿 $C$ 从 $A$ 逆时针到 $B$ 的圆弧 $C_1$ 上的 $\int_{C_1}\mathbf F\cdot d\mathbf r$；
+   - 沿 $C$ 从 $A$ 顺时针到 $B$ 的圆弧 $C_2$ 上的 $\int_{C_2}\mathbf F\cdot d\mathbf r$。
+2. 令 $S$ 为由上半球面
+   $$
+   x^2+y^2+z^2=4,\qquad z\ge0
+   $$
+   与平面 $z=0$ 围成实体的完整边界，取外向法线，计算
+   $$
+   \int_S(\nabla\times\mathbf F)\cdot d\mathbf S.
+   $$
+
+#### 考点
+
+- **向量场线积分**：按顺、逆时针分别参数化同一圆上的两段弧并计算环流。
+- **旋度与曲面积分**：求 $\nabla\times\mathbf F$，判断其通过封闭半球边界的总通量。
+- **斯托克斯定理**：理解开曲面边界方向与旋度通量的联系，并结合封闭曲面的边界为空进行判断。
+
 ## **Kai**
 ### (1)
 #### (a)

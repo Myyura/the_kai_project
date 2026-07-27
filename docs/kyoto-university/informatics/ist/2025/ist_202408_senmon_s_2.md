@@ -35,3 +35,34 @@ Table 1: A data set
 (4) Let prior probabilities be $p(y = 1) = \frac{3}{5}$ and $p(y = 2) = \frac{2}{5}$. Compute the estimated class $\hat{y}$ of $\boldsymbol{x} = (1, 1, 1)$ by substituting $\hat{\boldsymbol{\mu}}^{(k)}$ computed in (3) for $\boldsymbol{\mu}^{(k)}$ of the rule shown in (1).
 
 (5) Let a prior probability $p(y = 1)$ be $q \ (0 \le q \le 1)$. We classify $\boldsymbol{x} = (1, 1, 1)$ by substituting $\hat{\boldsymbol{\mu}}^{(k)}$ computed in (3) for $\boldsymbol{\mu}^{(k)}$ of the rule shown in (1). Explain the relation between $q$ and an estimated class $\hat{y}$.
+
+### 题目描述
+
+考虑把三维二元向量 $\boldsymbol{x}=(x^{(1)},x^{(2)},x^{(3)})$ 分类到类别 $y\in\{1,2\}$ 的问题。给定类别 $k$ 时，各分量相互独立且服从 Bernoulli 分布：
+
+$$
+p(x^{(j)}=1\mid y=k)=\mu_j^{(k)},\qquad j=1,2,3.
+$$
+
+现有数据集 $\mathcal{D}=\{(\boldsymbol{x}_i,y_i)\}$，回答下列问题。
+
+1. 使用类别先验概率以及参数 $\boldsymbol{\mu}^{(k)}$，推导比较后验概率的分类规则；若两个类别的后验概率相同，则规定分类为类别 1。
+2. 对每一个类别的样本子集，推导各参数 $\mu_j^{(k)}$ 的最大似然估计量。
+3. 对下表数据计算两个类别的参数估计 $\hat{\boldsymbol{\mu}}^{(1)}$ 与 $\hat{\boldsymbol{\mu}}^{(2)}$，并计算第（1）问所需的分类规则：
+
+   | $i$ | $\boldsymbol{x}_i$ | $y_i$ |
+   | :---: | :---: | :---: |
+   | 1 | $(1,0,0)$ | 1 |
+   | 2 | $(1,0,1)$ | 1 |
+   | 3 | $(1,1,0)$ | 2 |
+   | 4 | $(0,1,0)$ | 1 |
+   | 5 | $(0,0,1)$ | 2 |
+
+4. 令先验概率 $p(y=1)=\frac35$、$p(y=2)=\frac25$，把第（3）问求得的参数估计代入第（1）问的规则，求 $\boldsymbol{x}=(1,1,1)$ 的预测类别 $\hat y$。
+5. 改令 $p(y=1)=q$，其中 $0\leq q\leq1$。仍使用第（3）问的参数估计对 $\boldsymbol{x}=(1,1,1)$ 分类，说明 $q$ 与预测类别 $\hat y$ 之间的关系。
+
+#### 考点
+
+- **Bernoulli 朴素贝叶斯分类**：由条件独立假设分解类条件似然，并结合先验概率比较后验概率。
+- **Bernoulli 参数的最大似然估计**：按类别统计每个二元特征取 1 的频率。
+- **先验敏感性与零概率现象**：代入稀疏样本估计，分析分类结论随类别先验变化的分段关系。

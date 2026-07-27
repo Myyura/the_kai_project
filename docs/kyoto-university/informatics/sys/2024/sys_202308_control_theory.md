@@ -60,6 +60,62 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p2.png" width="200" alt=""/>
 </figure>
 
+### 题目描述
+
+1. 回答关于图 1 的方框图和图 2 的反馈控制系统的下列问题，其中 $a,b,K$ 为常数参数。
+
+   （1）求图 1 中从 $r$ 到 $y$ 的传递函数。
+
+   （2）求第（1）问所得传递函数的阶跃响应。
+
+   （3）求使图 2 的反馈控制系统稳定的 $a,b,K$ 条件。
+
+   （4）当图 2 的反馈控制系统稳定时，用 $a,b,K$ 表示斜坡输入 $r(t)=t$ 下输出的稳态误差
+
+   $$
+   \lim_{t\to\infty}\bigl(r(t)-y(t)\bigr).
+   $$
+
+   （5）在图 2 的反馈控制系统中令 $a=1,b=3$，并允许 $-\infty<K<+\infty$。求闭环极点中实部为正者的个数；重极点按其重数计数。
+
+   <figure style="text-align:center;">
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p1.png" width="500" alt=""/>
+   </figure>
+
+2. 考虑传递函数
+
+   $$
+   G(s)=\frac{s+a}{s(s+1)},
+   $$
+
+   其中 $a$ 是小于 1 的正常数。
+
+   （1）画出 $G(s)$ 增益图的折线近似。
+
+   （2）求使图 3 反馈控制系统的相位裕度至少为 $2\pi/3\ \mathrm{rad}$ 的 $a$ 的条件。
+
+   （3）求 $G(s)$ 的精确增益曲线与其折线近似相交的频率。
+
+   以下设 $H(s)$ 为与 $G(s)$ 具有相同增益的传递函数。
+
+   （4）给出一个满足条件但不同于 $G(s)$ 的 $H(s)$。
+
+   （5）向 $H(s)$ 输入正弦波 $\sin t$。充分长时间后，输出正弦波的振幅为 $5/7$。求满足此条件的 $a$。
+
+   （6）在第（5）问中，进一步要求 $H(s)$ 的输出与输入同相，即相位为 $2n\pi$，其中 $n$ 为整数。求一个满足条件的 $H(s)$。
+
+   <figure style="text-align:center;">
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p2.png" width="200" alt=""/>
+   </figure>
+
+#### 考点
+
+- **方框图化简与闭环传递函数**：组合串并联及反馈环节，得到参考输入到输出的等效模型。
+- **阶跃响应、稳态误差与系统型别**：由极点和低频增益分析瞬态及斜坡跟踪误差。
+- **Routh–Hurwitz 判据**：判断参数化闭环特征多项式的稳定性及右半平面极点数。
+- **Bode 增益折线与相位裕度**：识别零极点拐点、求精确曲线交点并施加裕度约束。
+- **全通因子与同幅异相系统**：构造具有相同幅频响应的不同传递函数，并按相位要求选取因子。
+
 
 ## **Kai**
 ### 問題1
@@ -73,4 +129,3 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p2_s.jpg" width="700" alt=""/>
 </figure>
-

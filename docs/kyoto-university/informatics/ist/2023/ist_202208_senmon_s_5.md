@@ -49,6 +49,48 @@ $$
 
 (3) Compute $\mathcal{F}[f_3(x)]$.
 
+### 题目描述
+
+采用归一化
+
+$$
+\mathcal F[f](k)=\frac1{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}f(x)e^{-ikx}\,dx,
+\qquad
+\delta(x)=\frac1{2\pi}\int_{-\infty}^{\infty}e^{ikx}\,dk,
+$$
+
+其中 $x,k\in\mathbb R$、$i=\sqrt{-1}$。
+
+1. 求 Fourier 变换：
+   1. $f_1(x)=1$（$0\le x\le2$），区间外为 0；
+   2. $f_2(x)=\cos^2(\omega x)$，$\omega\in\mathbb R$。
+2. 三角函数
+   $$
+   f_3(x)=
+   \begin{cases}
+   0,&x<-2,\\
+   x+2,&-2\le x<0,\\
+   2-x,&0\le x<2,\\
+   0,&x\ge2
+   \end{cases}
+   $$
+   按以下步骤求变换：
+   1. 推导卷积定理
+      $$
+      \mathcal F[f*g]
+      =\mathcal F\!\left[\int f(\tau)g(x-\tau)\,d\tau\right]
+      =\sqrt{2\pi}\,\mathcal F[f]\mathcal F[g].
+      $$
+   2. 求 $f_4$ 使 $f_3=f_1*f_4$，并说明卷积如何得到 $f_3$。
+   3. 求 $\mathcal F[f_3]$。
+
+#### 考点
+
+- **Fourier 变换**：直接积分矩形脉冲，并把 $\cos^2$ 展开为常数与复指数以得到 Dirac 冲激谱。
+- **卷积定理**：在题给对称归一化下仔细推导 $\sqrt{2\pi}$ 系数。
+- **三角脉冲的卷积表示**：把三角函数写为两个矩形脉冲卷积，用频域乘积快速求变换。
+
 ## **Kai**
 ### Q.1
 #### (1)

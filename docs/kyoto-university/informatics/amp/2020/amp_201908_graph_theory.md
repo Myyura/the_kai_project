@@ -48,6 +48,26 @@ Answer the following questions.
 > "When $G$ has two minimum spanning trees, some two edges in $G$ have the same weight."
 
 
+### 题目描述
+
+设 $G=(V,E)$ 是每条边 $e$ 带实权 $w(e)$ 的连通简单无向图。对 $G$ 的生成树 $T\subseteq E$，以 $C_T(a)$ 表示加入非树边 $a\in E\setminus T$ 所形成、且含 $a$ 的基本回路；以 $K_T(b)$ 表示删除树边 $b\in T$ 所对应、且含 $b$ 的基本割集。回答：
+
+1. 证明若 $T$ 是最小生成树，则满足条件 C：
+
+   > 对任意 $a\in E\setminus T$ 及每条 $b\in C_T(a)$，都有 $w(a)\ge w(b)$。
+
+2. 证明任意满足条件 C 的生成树 $T$ 也满足条件 K：
+
+   > 对任意 $b\in T$ 及每条 $a\in K_T(b)$，都有 $w(a)\ge w(b)$。
+
+3. 证明若生成树 $T$ 满足条件 K，则 $T$ 是最小生成树。
+4. 判断命题“若 $G$ 有两棵最小生成树，则 $G$ 中至少有两条边权相同”的真伪；若真则证明，若假则给出反例。
+
+#### 考点
+
+- **最小生成树的基本环与基本割性质**：用替换一条树边/非树边的交换论证证明条件 C、K 与最小性的关系。
+- **最小生成树唯一性**：分析不同最小生成树的对称差及交换边权，判断多解是否必然导致重复边权。
+
 ## **Kai**
 ### (i)
 Assume that for an edge $a \in E \setminus T$ there exists an edge $b' \in C_T(a)$ such that $w(a) < w(b')$.

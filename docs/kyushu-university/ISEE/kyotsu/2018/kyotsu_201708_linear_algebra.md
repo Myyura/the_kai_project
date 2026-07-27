@@ -27,6 +27,28 @@ $$
 
 (3) 交代的な行列 $A$ が固有値 $\lambda$ を持つとき，$A$ は $-\lambda$ も固有値として持つことを示せ．ヒント：任意の正方行列 $X$ の行列式 $|X|$ について，$|X| = |X^{\top}|$ が成り立つ．
 
+### 题目描述
+
+称方阵 $A$ 为反对称矩阵，当且仅当 $A^\top=-A$；其中 $A^\top$ 表示转置。回答下列问题：
+
+1. 对任意 $A\in\mathbb R^{n\times n}$ 以及 $1\le i,j\le n$，证明存在 $\boldsymbol x,\boldsymbol y\in\mathbb R^n$，使
+   $$
+   \boldsymbol x^\top A\boldsymbol y=A_{ij},
+   $$
+   其中 $A_{ij}$ 是 $A$ 的第 $(i,j)$ 个元素。
+2. 证明 $A\in\mathbb R^{n\times n}$ 为反对称矩阵的充要条件是
+   $$
+   \boldsymbol y^\top A\boldsymbol x
+   =-\boldsymbol x^\top A\boldsymbol y
+   \qquad(\forall\,\boldsymbol x,\boldsymbol y\in\mathbb R^n).
+   $$
+3. 证明若反对称矩阵 $A$ 具有特征值 $\lambda$，则 $-\lambda$ 也是其特征值。可使用任意方阵 $X$ 满足 $|X|=|X^\top|$。
+
+#### 考点
+
+- **反对称矩阵**：用标准基向量抽取矩阵元素，并证明双线性型恒等式与 $A^\top=-A$ 等价。
+- **特征值成对性质**：结合特征多项式、转置行列式不变性和反对称条件，证明特征值关于零成对出现。
+
 ## **Kai** 
 ### (1)
 

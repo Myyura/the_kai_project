@@ -33,6 +33,31 @@ $L_{abc} = \{a^k b^k c^k \mid k > 0\}$ is not a context-free language. By using 
 ### Q.6
 Prove that the class of context-free languages is not closed under difference $L_1 - L_2$.
 
+### 题目描述
+
+考虑文法 $G=(\Sigma,N,P,S)$，分别由有限终结符集、有限非终结符集、有限产生式集和开始符号组成。
+
+1. 填空：若每条产生式 $\alpha\to\beta$ 均满足
+   $\alpha\in\boxed{(1)}$、$\beta\in\boxed{(2)}$，则 $G$ 是上下文无关文法；由上下文无关文法生成的、定义在
+   $\boxed{(3)}$ 上的语言为上下文无关语言。
+2. 证明
+   $L_{ab}=\{a^mb^mc^n\mid m,n>0\}$ 与
+   $L_{bc}=\{a^mb^nc^n\mid m,n>0\}$ 是上下文无关语言。
+3. 给定生成 $L_1,L_2$ 的 CFG
+   $G_1=(\Sigma,N_1,P_1,S_1)$、
+   $G_2=(\Sigma,N_2,P_2,S_2)$，构造 $G_3$ 证明 CFL 对串接
+   $L_1L_2$ 封闭。
+4. 类似构造证明 CFL 对并集 $L_1\cup L_2$ 封闭。
+5. 已知
+   $L_{abc}=\{a^kb^kc^k\mid k>0\}$ 不是 CFL，利用该事实证明 CFL 对补集不封闭。
+6. 证明 CFL 对差集 $L_1-L_2$ 不封闭。
+
+#### 考点
+
+- **上下文无关文法定义与构造**：填写产生式两侧集合，并为两个计数语言显式设计 CFG。
+- **CFL 封闭性质**：通过新开始符号构造串接、并集文法。
+- **不封闭性归约**：结合 CFL 对并集/交正则语言的封闭性及 $a^kb^kc^k$ 反例，证明补集和差集不封闭。
+
 ## Kai
 ### Q.1
 
@@ -113,7 +138,6 @@ Since $\Sigma^*$ is a CFL with a context-free grammar of $\Sigma$, an arbitrary 
 However, $\overline L=\Sigma^*-L$ is by definition not necessarily a CFL because in Q.5, complement cannot make the class closed (contradiction).
 
 So under difference the class of CFLs is not closed.
-
 
 
 

@@ -46,6 +46,51 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electronic_circuit_p1.png" width="600" alt=""/>
 </figure>
 
+### 题目描述
+
+考虑图 1 所示使用理想运算放大器的电路。
+
+1. 对图 1(a) 电路回答：
+
+   （1）设流过电阻 $R_1$ 的电流为 $i_1$，求输入阻抗 $v_{\mathrm{in}}/i_1$。
+
+   （2）流过电阻 $R_3$ 的电流大小是 $|i_1|$ 的多少倍？
+
+   （3）求电压增益 $v_{\mathrm{out}}/v_{\mathrm{in}}$。
+
+2. 对图 1(b) 电路回答：
+
+   （1）若输入电压 $v_1$ 为角频率 $\omega$ 的正弦波，求稳态传递函数
+
+   $$
+   \frac{v_0(\omega)}{v_1(\omega)}.
+   $$
+
+   （2）令输入电压和流过电阻 $R$ 的电流分别为时间函数 $v_1(t),i(t)$，写出两者关系的积分方程。
+
+   （3）输入单位阶跃
+
+   $$
+   v_1(t)=u(t)=
+   \begin{cases}
+   0&(t<0),\\
+   1&(t\geq0).
+   \end{cases}
+   $$
+
+   在 $t=0$ 时电容 $C$ 的初始电荷为 0。用 $R,R_f,C,t$ 表示 $t>0$ 时的输出电压 $v_0(t)$。
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electronic_circuit_p1.png" width="600" alt=""/>
+</figure>
+
+#### 考点
+
+- **理想运算放大器约束**：使用虚短、虚断和节点电流方程求输入阻抗、电流比例及闭环增益。
+- **含电容反馈网络的传递函数**：在频域以复阻抗表示 RC 支路并推导正弦稳态响应。
+- **时域积分方程**：由电容电压—电流关系与 Kirchhoff 定律建立输入和电流的积分关系。
+- **阶跃暂态响应**：结合零初始电荷求一阶电路输出的指数暂态和稳态值。
+
 ## **Kai**
 ### 問1
 #### (1)

@@ -38,6 +38,39 @@ count_frequency(File sorted_words_file) {
 
 (5) Describe how to balance the load across the machines when the distribution of word frequency is not uniform, and show a concrete mapping function to be used.
 
+### 题目描述
+
+在大型计算机集群上统计大规模文档集中每个单词的出现次数。文档集被划分为 $N$ 份，由 $N$ 台机器并行处理。回答下列问题。
+
+(1) 每台机器先把自己负责的文档拆分成单词，将单词列表排序，再转换为“（单词，频数）”对的列表。下面的伪代码读取一个已排序的单词列表并输出这些数对。找出其中的错误，并说明应如何修正。
+
+```c
+count_frequency(File sorted_words_file) {
+    int num = 0;
+    String word, previous_word = null;
+    while (read a word from sorted_words_file) {
+        if (word is not previous_word AND previous_word is not null) {
+            output_pair(word, num);
+        }
+        num = num + 1;
+        previous_word = word;
+    }
+}
+```
+
+(2) 写出一个函数的伪代码：输入两个“（单词，频数）”对的列表，将它们合并为一个列表。
+
+(3) 说明如何合并由 $N$ 台机器生成的 $N$ 个“（单词，频数）”对列表。
+
+(4) 为避免耗时的合并过程，考虑在排序和计数之前先把单词分发到 $N$ 台机器。为此需要一个把每个单词映射到 $0$ 至 $N-1$ 中某个整数的函数。给出这种映射函数的一个具体例子。
+
+(5) 当单词频率分布不均匀时，说明如何平衡各机器的负载，并给出一个可用的具体映射函数。
+
+#### 考点
+
+- 归并排序与多路归并：要求在保持单词有序的前提下合并二路及 $N$ 路词频表，并正确累加相同单词的频数。
+- 哈希分区与数据倾斜：要求设计单词到机器编号的映射，并针对非均匀词频给出能够平衡负载的分区方案。
+
 ## **Kai**
 ### (1)
 

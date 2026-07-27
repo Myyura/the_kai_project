@@ -49,6 +49,39 @@ Suppose the total cost is given by $Cost = C_s + L \times C_d$, where $C_s$ is t
 
 (8) An enhancement is proposed: $\mu$ can be increased to 12, but the fixed cost $C_s$ will increase to 15. Calculate the new total cost and determine if this change is **economically rational**.
 
+### 题目描述
+
+本页原文标为“英文回忆版”。考虑一次只能处理一个请求的服务器：请求以到达率 \(\lambda\) 连续到来，服务率为 \(\mu\)。在很小时间 \(\Delta t\) 内，新到达概率为 \(\lambda\Delta t\)，当前服务完成概率为 \(\mu\Delta t\)，两个以上事件（如两次到达，或到达与离开同时发生）的概率可忽略，记为 \(o(\Delta t)\)。令 \(P_n(t)\) 为时刻 \(t\) 系统中（等待加服务中）共有 \(n\) 个请求的概率。空系统边界式为
+\[
+P_0(t+\Delta t)=P_0(t)(1-\lambda\Delta t)+P_1(t)\mu\Delta t.
+\]
+
+1. 对 \(n\ge1\)，用 \(P_{n-1}(t),P_n(t),P_{n+1}(t)\) 写出 \(P_n(t+\Delta t)\)。
+2. 假设 \(t\to\infty\) 达到稳态，即 \(P_n(t)\) 不再随时间变化，求 \(P_n\) 的递推关系。
+3. 定义利用率 \(\rho=\lambda/\mu\)。利用归一化 \(\sum_{n=0}^\infty P_n=1\)，求 \(P_n\) 的显式表达式。
+4. 求系统内请求数期望 \(L\)。可使用
+   \[
+   \sum_{n=0}^\infty nx^n=\frac{x}{(1-x)^2},\qquad0<x<1.
+   \]
+5. 用 Little 定律 \(L=\lambda W\) 求请求在系统中平均逗留时间 \(W\)。
+6. 分析 \(\rho\to1\) 时 \(W\) 的变化。
+
+总成本定义为
+\[
+Cost=C_s+LC_d,
+\]
+其中 \(C_s\) 是服务器固定成本，\(C_d\) 是每个请求、每单位时间的延迟成本。
+
+7. 给定 \(\mu=10,\lambda=8,C_s=10,C_d=5\)，计算总成本。
+8. 若把 \(\mu\) 提升到 12，但固定成本 \(C_s\) 增至 15，计算新总成本并判断该升级在经济上是否合理。
+
+#### 考点
+
+- **M/M/1 生灭过程**：从小时间区间事件概率建立前向平衡方程与稳态递推。
+- **稳态队长分布**：在 \(\rho<1\) 下用归一化得到几何分布并计算平均系统人数。
+- **Little 定律与平均等待时间**：由 \(L=\lambda W\) 推导平均逗留时间，解释利用率逼近 1 时发散。
+- **容量成本权衡**：比较提高服务率前后的固定成本和拥塞延迟成本。
+
 ## **Kai (by Gemini 3 Pro)**
 ### 1. Derivation of $P_n(t+\Delta t)$
 

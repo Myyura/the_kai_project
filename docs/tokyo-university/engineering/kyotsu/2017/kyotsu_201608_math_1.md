@@ -37,6 +37,34 @@ x^2 \frac{\text{d}^2y}{\text{d}x^2} - x \frac{\text{d}y}{\text{d}x} - 8y = x^2 \
 \end{align}
 $$
 
+### 题目描述
+
+完成以下三问：
+
+1. 计算定积分
+   $$
+   I=\int_2^4\frac{\mathrm dx}{\sqrt{(x-2)(4-x)}}.
+   $$
+2. 求微分方程
+   $$
+   y=x\frac{\mathrm dy}{\mathrm dx}+\frac{\mathrm dy}{\mathrm dx}
+   +\left(\frac{\mathrm dy}{\mathrm dx}\right)^2
+   $$
+   的一般解和奇解。
+3. 求欧拉型非齐次微分方程
+   $$
+   x^2\frac{\mathrm d^2y}{\mathrm dx^2}
+   -x\frac{\mathrm dy}{\mathrm dx}-8y=x^2
+   $$
+   的一般解。
+
+#### 考点
+
+- 换元积分：把根式中的二次式配成 $1-(x-3)^2$，再作三角换元计算定积分。
+- 克莱罗方程与奇解：把 $y$ 写成关于 $x$ 和斜率 $y'$ 的形式，通过微分分离一般解族与包络奇解。
+- 柯西—欧拉方程：令 $x=e^t$，把变系数方程化为常系数线性方程。
+- 待定系数法：针对指数型非齐次项选取同型试探特解，再与齐次通解叠加。
+
 ## **Kai**
 ### (I)
 

@@ -45,6 +45,32 @@ In addition, compute the inverse $z$-transform $h[n]$.
 - (1) $x[n] = 3\delta [n] - 2\delta [n-2] + 5\delta [n-4]$
 - (2) $x[n] = u[n] - u[n-6]$
 
+### 题目描述
+
+对离散时间 $n\in\mathbb Z$，单位冲激和单位阶跃定义为
+
+$$
+\delta[n]=\begin{cases}1,&n=0\\0,&n\ne0,\end{cases}
+\qquad
+u[n]=\begin{cases}0,&n<0\\1,&n\ge0.\end{cases}
+$$
+
+1. 求下列信号的 $z$ 变换 $X(z)$：
+   1. $x[n]=3\delta[n]-2\delta[n-2]+5\delta[n-4]$；
+   2. $x[n]=nu[n]$。
+2. 对下列传递函数，判断系统稳定性、画出对应电路，并求逆 $z$ 变换 $h[n]$：
+   1. $H(z)=1+2z^{-1}+3z^{-2}$；
+   2. $H(z)=\dfrac{1+2z^{-1}}{2-z^{-1}}$。
+3. 求下列信号的离散时间 Fourier 变换 $F(\omega)$，其中 $\omega$ 为归一化角频率：
+   1. $x[n]=3\delta[n]-2\delta[n-2]+5\delta[n-4]$；
+   2. $x[n]=u[n]-u[n-6]$。
+
+#### 考点
+
+- **$z$ 变换与收敛域**：对移位冲激和右边序列求变换，并结合极点与 ROC 判断稳定性。
+- **离散系统实现与冲激响应**：由 FIR/IIR 传递函数写差分方程、画延迟器电路并作逆变换。
+- **离散时间 Fourier 变换**：利用冲激移位性质与有限矩形序列的几何级数求频谱。
+
 ## **Kai**
 ### Q.1
 #### (1)

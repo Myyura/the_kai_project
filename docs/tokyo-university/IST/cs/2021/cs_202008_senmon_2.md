@@ -38,6 +38,63 @@ Answer the following questions.
 
 (4) For $A_i$ and $L_i$ ($i \in \{0, 1, 2\}$) in question (3), give a deterministic finite automaton that accepts $\{w \in \Sigma^* \mid w\{a \mapsto L_1, b \mapsto L_2\} \subseteq L_0\}$, with a brief explanation.
 
+### 题目描述
+
+令 $\Sigma=\{a,b\}$。对 $w\in\Sigma^*$ 及语言
+$L_a,L_b\subseteq\Sigma^*$，递归定义语言替换：
+$$
+\varepsilon\{a\mapsto L_a,b\mapsto L_b\}=\{\varepsilon\},
+$$
+$$
+(aw)\{a\mapsto L_a,b\mapsto L_b\}
+=\{w_1w_2\mid w_1\in L_a,\quad
+w_2\in w\{a\mapsto L_a,b\mapsto L_b\}\},
+$$
+$$
+(bw)\{a\mapsto L_a,b\mapsto L_b\}
+=\{w_1w_2\mid w_1\in L_b,\quad
+w_2\in w\{a\mapsto L_a,b\mapsto L_b\}\}.
+$$
+对语言 $L$，再定义
+$$
+L\{a\mapsto L_a,b\mapsto L_b\}
+=\bigcup_{w\in L}w\{a\mapsto L_a,b\mapsto L_b\}.
+$$
+回答下列问题。
+
+（1）令
+$L=\{(ab)^ma^n\mid m,n\ge0\}$、
+$L_a=\{bb\}$、
+$L_b=\{ab,a\}$。用正则表达式表示
+$L\{a\mapsto L_a,b\mapsto L_b\}$。
+
+（2）令
+$L'=\{a^mb^n\mid m\ge n\ge0\}$、
+$L'_a=\{a^n\mid n\ge0\}$、
+$L'_b=\{a^mb^m\mid m\ge0\}$。用正则表达式表示
+$$
+\{w\in\Sigma^*\mid
+w\{a\mapsto L'_a,b\mapsto L'_b\}\subseteq L'\}.
+$$
+
+（3）设 DFA $A_i=(Q_i,\Sigma,\delta_i,q_{i,0},F_i)$ 识别语言
+$L_i\ (i=0,1,2)$，且各 $\delta_i$ 均为全函数。构造识别
+$L_0\{a\mapsto L_1,b\mapsto L_2\}$ 的 NFA 并简要说明；允许使用
+$\varepsilon$ 转移。
+
+（4）对同一组自动机，构造识别
+$$
+\{w\in\Sigma^*\mid
+w\{a\mapsto L_1,b\mapsto L_2\}\subseteq L_0\}
+$$
+的 DFA，并简要说明。
+
+#### 考点
+
+- **语言替换运算**：按原字符串中的字符逐段选择替换语言中的字符串，并化简具体正则表达式。
+- **$\varepsilon$-NFA 拼接构造**：让外层自动机的每个字符转移调用相应替换语言的自动机。
+- **正则语言闭包性质**：通过乘积、子集构造及补集处理“所有替换结果均属于目标语言”的全称条件。
+
 ## **Kai**
 ### (1)
 

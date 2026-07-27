@@ -14,6 +14,26 @@ tags:
 
 [2020年度入試問題 Exam paper 数学](https://github.com/Myyura/the_kai_project_assets/blob/7d274740e9aacde6948ee5ca73a336a00fe76d04/kakomonn/tokyo_university/engineering/Description/%E6%95%B0%E5%AD%A62020.pdf)
 
+### 题目描述
+
+原 Description 仅提供 2020 年数学原卷链接，具体题干缺失。根据本地 Kai，能够确认的内容如下：
+
+1. 第一部分研究变系数二阶齐次方程
+   $$
+   \cos x\,y''-\sin x\,y'-\frac{y}{\cos x}=0.
+   $$
+   第一小问把 $y=(\cos x)^m$ 代入并求使其成为解的 $m$；第二小问要求利用所得特解求方程的一般解，并验证两组基本解线性无关。
+2. 第二部分要求计算
+   $$
+   I=\int_1^\infty x^5e^{-x^4+2x^2-1}\,\mathrm dx.
+   $$
+3. Kai 中第三部分标题下没有题干、推导或答案，因而本地内容不能确认第三部分的任何具体要求。
+
+#### 考点
+
+- 变系数二阶线性微分方程：由幂型试探解取得一个特解，再用降阶代换求另一线性独立解。
+- 反常积分与高斯积分：以 $x^2-1$ 换元，把被积式分解为若干标准半轴高斯矩。
+
 ## **Kai**
 ### I.
 #### 1.

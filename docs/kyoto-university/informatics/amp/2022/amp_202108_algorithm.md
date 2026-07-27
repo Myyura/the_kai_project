@@ -37,6 +37,27 @@ Assume that $G$ is stored in adjacency lists. Answer the following questions.
 
 (iii) Construct an example of a directed graph $G = (V, E)$ that contains two vertices $s, t \in V$ and a directed edge $e ∈ E$ such that $\text{dist}(s, t; G) = \text{dist}(t, s; G) = 3 < \text{dist}(s, t; G − e) = \text{dist}(t, s; G − e)$.
 
+### 题目描述
+
+设 $G=(V,E)$ 为以邻接表存储的简单有向图。令 $R(u;G)$ 为从 $u$ 出发沿有向路可达的顶点集合，$\operatorname{dist}(u,v;G)$ 为从 $u$ 到 $v$ 的最短有向路长度；若 $v\notin R(u;G)$，约定
+$\operatorname{dist}(u,v;G)=|V|$。以 $G-e$ 表示删去有向边 $e\in E$ 后的图，$s,t\in V$。回答：
+
+1. 假设 $t\in R(s;G)$，给出在 $O(|V|+|E|)$ 时间内求一条从 $s$ 到 $t$ 的最短有向路的算法。
+2. 给出在 $O(|V|+|E|)$ 时间内判定是否存在边 $e\in E$ 使
+   $\operatorname{dist}(s,t;G-e)>\operatorname{dist}(s,t;G)$ 的算法。
+3. 构造一个含顶点 $s,t$ 和边 $e$ 的有向图，使
+   $$
+   \operatorname{dist}(s,t;G)=\operatorname{dist}(t,s;G)=3
+   <\operatorname{dist}(s,t;G-e)
+   =\operatorname{dist}(t,s;G-e).
+   $$
+
+#### 考点
+
+- **有向无权图的广度优先搜索**：在线性时间内计算最短距离并用前驱恢复最短路。
+- **最短路关键边判定**：通过最短路有向无环结构或最短路计数，判断是否有一条边被所有 $s$ 到 $t$ 的最短路共同使用。
+- **有向图反例构造**：设计同一条有向边同时影响两个方向的长度为 3 的最短路。
+
 ## **Kai**
 ### (i)
 We use BFS to compute shortest paths in an unweighted graph.

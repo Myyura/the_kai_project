@@ -28,6 +28,37 @@ $m \times n$ 実行列 $A$ と $m$ 次元実ベクトル $\boldsymbol{b}$ に対
 
 (4) $S$ が $\mathbb{R}^n$ の部分空間, $A$ が正方行列であるとする。このとき, $A$ が正則行列であるならば, $S = \{\boldsymbol{0}\}$ であることを示せ。
 
+### 题目描述
+
+给定 $m\times n$ 实矩阵 $A$ 和 $\boldsymbol b\in\mathbb R^m$，定义
+
+$$
+S=\{\boldsymbol x\in\mathbb R^n\mid A\boldsymbol x=\boldsymbol b\},
+\qquad
+f(\boldsymbol x)=A\boldsymbol x.
+$$
+
+可直接使用子空间判别准则：$W\subseteq V$ 是实向量空间 $V$ 的子空间，当且仅当 $0\in W$，且 $W$ 对向量加法和实数倍封闭。
+
+1. 当
+   $$
+   A=\begin{bmatrix}
+   2&0&2&0\\
+   0&8&24&24\\
+   0&2&6&6
+   \end{bmatrix}
+   $$
+   时，求 $\ker f$ 的维数及一组基。
+2. 证明一般情况下 $\ker f$ 是 $\mathbb R^n$ 的子空间。
+3. 证明若 $S$ 是 $\mathbb R^n$ 的子空间，则 $\boldsymbol b=\boldsymbol0$。
+4. 再设 $A$ 为方阵且 $S$ 是 $\mathbb R^n$ 的子空间，证明若 $A$ 可逆，则 $S=\{\boldsymbol0\}$。
+
+#### 考点
+
+- **线性映射的核**：解齐次线性方程组，求核空间的维数与基。
+- **子空间判别**：逐项验证核对零向量、加法与数乘封闭，并将同一判据用于非齐次解集。
+- **线性方程组与可逆矩阵**：利用子空间必须含零向量推出 $\boldsymbol b=0$，再由可逆性说明齐次方程仅有零解。
+
 ## **Kai** - By Casablanca
 ### (1)
 Consider $A\vec{x} = 0$

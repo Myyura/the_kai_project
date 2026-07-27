@@ -45,6 +45,44 @@ $$
 
 と表される。このとき，任意の2次元実ベクトル $\vec{v}$ に対して，$A\vec{v}$ は原点を通るある直線を対称軸として線対称の関係になる。その直線の式を示せ。
 
+### 题目描述
+
+以下 $i$ 为虚数单位。
+
+**[1]** 令 $\omega=(-1+\sqrt3i)/2$，对
+
+$$
+A=\begin{pmatrix}
+1&1&1\\1&\omega&\omega^2\\1&\omega^2&\omega
+\end{pmatrix},
+$$
+
+求 $A^2,A^3,A^4$。
+
+**[2]** 坐标变换为 $\boldsymbol x=A\boldsymbol x'+\boldsymbol x_0$，其中
+
+$$
+A=\begin{pmatrix}-4&3\\2&5\end{pmatrix},\qquad
+\boldsymbol x_0=(2,-1)^\top.
+$$
+
+求原平面直线 $x+y+1=0$ 在 $(x',y')$ 平面的方程。
+
+**[3]** 设 $A$ 为正交矩阵：证明内积在 $A$ 下不变；证明其特征值模长为 1；对二阶 $A=(\boldsymbol a_1,\boldsymbol a_2)$，证明两列为相互正交的单位向量；写 $\boldsymbol a_1=(\cos\theta,\sin\theta)^\top$，在 $\det A=1$ 时求 $\boldsymbol a_2$；在 $\det A=-1$ 且
+
+$$
+A=\begin{pmatrix}\cos\theta&\sin\theta\\
+\sin\theta&-\cos\theta\end{pmatrix}
+$$
+
+时，求该镜面反射变换的过原点对称轴方程。
+
+#### 考点
+
+- **复单位根与矩阵幂**：利用 $1+\omega+\omega^2=0$ 简化 Fourier 型矩阵乘积。
+- **仿射坐标变换**：把坐标变换代入原直线方程。
+- **正交矩阵与二维正交变换**：由 $A^\top A=I$ 推导内积、范数、谱性质，并按行列式区分旋转与反射。
+
 ## **Kai**
 ### \[1\]
 $\omega = (-1+\sqrt{3}i)/2$ より、

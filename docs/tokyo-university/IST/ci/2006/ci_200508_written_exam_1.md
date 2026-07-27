@@ -45,3 +45,18 @@ For example, $str1=\text{“sport”}$ is trasnformed into $str2=\text{“sort�
 (4) Calculate the edit distance between $str1=\text{“abrabr”}$ and $str2=\text{“arbarb”}$.
 
 (5) Describe three applications of the edit distance.
+
+### 题目描述
+
+两个字符串 \(str1\) 与 \(str2\) 的编辑距离，是用以下三种操作把 \(str1\) 变成 \(str2\) 所需的最少操作次数：插入一个字符、删除一个字符、把一个字符替换为另一个字符。例如，从 `sport` 删除字符 `p` 即可得到 `sort`，所以二者编辑距离为 1。
+
+1. 求 `commuter` 与 `computers` 的编辑距离。
+2. 记 \(str_n\) 为字符串 \(str\) 的长度为 \(n\) 的前缀，\(m(i,j)\) 为 \(str1_i\) 与 \(str2_j\) 的编辑距离。写出 \(m(i,j)\) 与 \(m(i-1,j)\)、\(m(i,j-1)\)、\(m(i-1,j-1)\) 之间的递推关系。
+3. 根据第 2 问的递推式，给出高效计算两个字符串编辑距离的算法，并说明其时间复杂度与空间复杂度。
+4. 用上述算法求 `abrabr` 与 `arbarb` 的编辑距离。
+5. 举出编辑距离的三种应用。
+
+#### 考点
+
+- **最小编辑距离的动态规划**：以两个字符串的前缀长度为状态，区分插入、删除、替换及字符相同的情形建立递推，并正确设置边界。
+- **算法复杂度分析**：分析二维动态规划所需的计算次数与存储量，并可讨论滚动数组等空间优化。

@@ -42,7 +42,49 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_202108_electrical_circuit_1_p1.png" width="600" alt=""/>
 </figure>
 
-## **Kai** 
+### 题目描述
+
+对原 Description 图 1.1 所示电路回答下列问题。$R,L,C$ 分别表示电阻、感抗元件的电感量和电容器的电容量，$V_{\mathrm{in}}$、$V_{\mathrm{out}}$ 分别为输入、输出电压，虚数单位记为 $j$。电路连接与输入、输出端定义以图 1.1 为准。
+
+第 1 至第 4 问使用图 1.2 所定义的频率传递函数
+
+$$
+H(\omega)=\frac{V_{\mathrm{out}}(\omega)}
+{V_{\mathrm{in}}(\omega)}.
+$$
+
+1. 求电路的 $H(\omega)$，并整理为
+
+   $$
+   H(\omega)
+   =\frac{R}
+   {\boxed{\text{(ア)}}+j\boxed{\text{(イ)}}
+   +\dfrac1{j\boxed{\text{(ウ)}}}},
+   $$
+
+   填写三个方框。
+2. 用 $R,L,C$ 中必要的参数表示使增益 $|H(\omega)|$ 最大的角频率 $\omega_0$。
+3. 求 $\omega=\omega_0$ 时的增益 $|H(\omega_0)|$。
+4. 说明图 1.1 电路作为滤波器时的名称或功能。
+
+第 5 至第 7 问使用 Laplace 变换以及图 1.3 所定义的
+
+$$
+H(s)=\frac{V_{\mathrm{out}}(s)}
+{V_{\mathrm{in}}(s)}.
+$$
+
+5. 求图 1.1 电路的 $H(s)$。
+6. 用 $R,L,C$ 中必要的参数表示 $H(s)$ 的极点。
+7. 假设两个极点均为负实数，记为 $-\alpha_1,-\alpha_2$，且 $\alpha_1>\alpha_2$。求电路的单位阶跃响应 $v_{\mathrm{out}}(t)$；答案只用 $\alpha_1,\alpha_2$ 表示，不使用 $R,L,C$。
+
+#### 考点
+
+- RLC 电路的传递函数：在相量域由串并联阻抗求频率响应，并找出谐振频率、峰值增益及滤波类型。
+- Laplace 域电路分析：把电感、电容写成 $s$ 域阻抗，求传递函数分母的两个极点。
+- 二阶系统暂态响应：在过阻尼的两个不同负实极点条件下作部分分式展开，反变换得到单位阶跃响应。
+
+## **Kai**
 ### (1)
 
 $$

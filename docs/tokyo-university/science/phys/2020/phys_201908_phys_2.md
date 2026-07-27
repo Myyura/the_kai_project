@@ -105,6 +105,82 @@ $$
 9.&nbsp;一方、縮退温度より十分低い温度では、この自由フェルミ粒子系の熱容量 $C_V$ は $T$ に比例して $C_V = \gamma T$ と書けることがわかっている。このことと設問 8 の結果を考慮して、フェルミ粒子系でのエントロピーを温度の関数としてグラフにせよ。
 比較のために、設問 3 で考えたエントロピーの温度依存性も点線で書き加えよ。
 
+### 题目描述
+
+考虑体积 $V$、粒子数 $N$ 的无相互作用粒子系统与温度为 $T$ 的热浴接触，粒子质量为
+$m$。可使用
+$$
+\mathrm dU=\mathrm d'Q-P\,\mathrm dV+\mu\,\mathrm dN,
+\qquad
+\mathrm d'Q=T\,\mathrm dS\quad(\text{可逆}),
+\qquad
+F=U-TS.
+$$
+
+先作经典处理。配分函数和 Hamiltonian 为
+$$
+Z=\frac1{h^{3N}N!}
+\int\cdots\int
+e^{-\beta H}\,
+\mathrm d^{3N}p\,\mathrm d^{3N}x,
+$$
+$$
+H=\sum_{i=1}^N
+\frac{p_{ix}^2+p_{iy}^2+p_{iz}^2}{2m},
+\qquad
+\beta=\frac1{k_BT},\quad h=2\pi\hbar.
+$$
+
+1. 执行积分，求 $Z(T,V,N)$，并据此求压力
+   $P(T,V,N)$。必要时可用高斯积分和大 $N$ 的 Stirling 近似
+   $\ln N!\approx N\ln N-N$。
+2. 配分函数中含 Gibbs 因子 $1/N!$。简要说明若去掉它，Helmholtz
+   自由能将不再满足哪一种热力学性质。
+3. 求熵 $S(T,V,N)$，并说明经典结果在 $T\to0$ 时的行为。
+4. 求定容热容 $C_V(T,V,N)$。
+
+以下把粒子视为无内部自由度的费米子，并在化学势为 $\mu$ 的粒子浴中用巨正则系综处理。单粒子动能为
+$$
+\varepsilon_{\boldsymbol k}
+=\frac{\hbar^2}{2m}(k_x^2+k_y^2+k_z^2).
+$$
+体积为边长 $L$ 的立方体，$V=L^3$，采用周期边界条件。
+
+5. 巨配分函数为
+   $$
+   \Xi(T,V,\mu)
+   =\prod_{\boldsymbol k}
+   \left(1+e^{-\beta(\varepsilon_{\boldsymbol k}-\mu)}\right).
+   $$
+   求波矢 $\boldsymbol k$ 的允许取值。
+6. 利用 $\Xi$ 证明平均总粒子数
+   $$
+   \overline N=\sum_{\boldsymbol k}f(\varepsilon_{\boldsymbol k}),
+   \qquad
+   f(\varepsilon)
+   =\frac1{e^{\beta(\varepsilon-\mu)}+1}.
+   $$
+7. 在远高于简并温度时，$\mu<0$ 且
+   $|\mu|\gg k_BT$，可近似
+   $f(\varepsilon_{\boldsymbol k})
+   \approx e^{-\beta(\varepsilon_{\boldsymbol k}-\mu)}$。
+   当 $L$ 足够大时，把第 6 问的波矢求和改写为积分并计算；令
+   $\overline N=N$，求 $\mu$ 关于 $T,V,N$ 的表达式。
+8. 证明在同一高温区间，熵近似满足
+   $$
+   S\approx-\frac{\mu}{T}N.
+   $$
+9. 在远低于简并温度时，自由费米气体定容热容满足
+   $C_V=\gamma T$。结合该事实和第 8 问，在同一图中定性画出费米气体熵随温度的变化，并用虚线加入第 3 问经典熵的温度依赖以作比较。
+
+#### 考点
+
+- **经典理想气体配分函数**：计算相空间高斯积分，推导状态方程、自由能、熵与定容热容。
+- **Gibbs 因子与广延性**：理解 $1/N!$ 消除可分辨粒子重复计数，并避免 Gibbs 佯谬。
+- **费米–Dirac 巨正则分布**：由巨配分函数求占据数和平均粒子数，并确定周期边界下的波矢格点。
+- **高温经典极限**：把波矢和连续化为三维积分，求化学势并恢复经典熵的主导形式。
+- **低温费米气体**：由 $C_V\propto T$ 积分得到 $S\propto T$，比较满足第三定律的量子熵与低温失效的经典熵。
+
 ## **Kai**
 ### 1.
 

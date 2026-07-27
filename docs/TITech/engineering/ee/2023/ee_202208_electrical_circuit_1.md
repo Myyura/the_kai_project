@@ -29,7 +29,30 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_202208_electrical_circuit_1_p1.png" width="500" alt=""/>
 </figure>
 
-## **Kai** 
+### 题目描述
+
+对原 Description 图 1.1 所示共源电路回答下列问题。图中 MOSFET 在饱和区内，当过驱动电压
+
+$$
+V_{GS}-V_T=1\ \mathrm V
+$$
+
+时，漏极电流为 $I_{D0}$；忽略沟道长度调制。$V_{\mathrm{IN}}$、$V_{\mathrm{OUT}}$ 分别为大信号输入、输出电压，$v_{\mathrm{in}}$、$v_{\mathrm{out}}$ 分别为小信号输入、输出电压，$V_{DD}$ 为电源电压，$R$ 为负载电阻。接线与电压极性以图 1.1 为准。
+
+1. 给出 MOSFET 有漏极电流流过所需的 $V_{\mathrm{IN}}$ 条件。
+2. 用 $I_{D0}$ 表示 MOSFET 在饱和区工作时的漏极电流 $I_D$。
+3. 在第 1 问条件成立时，用含 $I_{D0}$ 的式子给出 MOSFET 保持饱和区工作所需的 $V_{DD}$ 条件；最终式中消去 $V_{\mathrm{OUT}}$。
+4. 使用第 2 问的电流式，用 $I_{D0}$ 表示饱和区的跨导 $g_m$。
+5. 画出图 1.1 电路的小信号等效电路。
+6. 求小信号输入 $v_{\mathrm{in}}$ 对应的小信号输出 $v_{\mathrm{out}}$。
+
+#### 考点
+
+- MOSFET 大信号偏置：用阈值条件、平方律漏极电流和 $V_{DS}\geq V_{GS}-V_T$ 判断导通与饱和区边界。
+- MOSFET 跨导：对饱和区 $I_D$ 关于 $V_{GS}$ 求导，并用标定电流 $I_{D0}$ 表示。
+- 共源放大器小信号分析：在忽略沟道长度调制时建立受控电流源模型，求带电阻负载的反相电压增益。
+
+## **Kai**
 ### (1)
 ドレイン電流が流れるのは、$V_{GS} > V_T$ のときであるので、$V_{IN} > V_{GS}$ より、
 

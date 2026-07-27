@@ -34,6 +34,32 @@ $$
 
 where $\mathbf{n}$ is the outward unit normal vector to the closed surface $S$.
 
+### 题目描述
+
+设 $V$ 为由闭曲面 $S$ 围成的体积，$\mathbf n$ 为 $S$ 的外向单位法向量，且
+
+$$
+d\mathbf S=\mathbf n\,dS.
+$$
+
+证明下列两个体积分与曲面积分恒等式：
+
+1.
+   $$
+   \iiint_V\!\left(f\nabla^2g+(\nabla f)\cdot(\nabla g)\right)dV
+   =\iint_S(f\nabla g)\cdot d\mathbf S.
+   $$
+2.
+   $$
+   \iiint_V\!\left(f\nabla^2g-g\nabla^2f\right)dV
+   =\iint_S(f\nabla g-g\nabla f)\cdot d\mathbf S.
+   $$
+
+#### 考点
+
+- **格林恒等式**：由乘积场的散度展开推导第一格林恒等式，再交换 $f,g$ 并相减得到第二格林恒等式。
+- **高斯散度定理**：把 $\nabla\cdot(f\nabla g)$ 等体积分转换为闭曲面上的外向通量。
+
 ## **Kai**
 ### (1)
 

@@ -17,6 +17,29 @@ Yu
 
 (2) ベクトル場 $\mathbf{F}$ を $\mathbf{F} = \big(-\frac{xy}{4}\big)\mathbf{i} + (z - x)\mathbf{j} + (x + y)\mathbf{k}$ とする。曲線 $C:x = \frac{y^2}{8},y = -z$ に沿って, $(0,0,0)$ から $\big(\frac{9}{2},6,-6\big)$ までの線積分 $\int_{C} \mathbf{F} \cdot d \mathbf{r}$ を計算せよ。
 
+### 题目描述
+
+在直角坐标系中，$\mathbf i,\mathbf j,\mathbf k$ 分别为 $x,y,z$ 轴方向的单位向量。
+
+1. 求由三点 $(2,-6,2)$、$(1,-10,-1)$、$(-1,2,3)$ 确定的平面与点 $(2,-2,-2)$ 之间的距离。
+2. 给定向量场
+   $$
+   \mathbf F=-\frac{xy}{4}\mathbf i+(z-x)\mathbf j+(x+y)\mathbf k,
+   $$
+   沿曲线
+   $$
+   C:\ x=\frac{y^2}{8},\qquad y=-z
+   $$
+   从 $(0,0,0)$ 到 $(9/2,6,-6)$，计算线积分
+   $$
+   \int_C\mathbf F\cdot d\mathbf r.
+   $$
+
+#### 考点
+
+- **三维平面与点面距离**：由三点构造平面法向量和方程，再套用点到平面的距离公式。
+- **向量场线积分**：用单参数表示给定空间曲线，代入 $\mathbf F\cdot\mathbf r'(t)$ 并按指定起终点积分。
+
 ## **Kai**
 ### (1)
 

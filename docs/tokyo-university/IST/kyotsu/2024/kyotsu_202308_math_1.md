@@ -43,6 +43,76 @@ Here, $\mathbf{X}^\mathrm{T}$ and $\mathbf{x}^\mathrm{T}$ denote the transpose o
 - ($c$) Consider a plane $\Sigma = \{\mathbf{x} \in \mathbb{R}^3 \mid \mathbf{a}^\mathrm{T} \mathbf{x} = b\}$ $(\mathbf{a} \in \mathbb{R}^3$ is a non-zero vector, and $b$ is a real number). Let $\mathbf{S} \in \Sigma$ be the point from which the sum of squared distances to $l_1$, $l_2$, and $l_3$ is minimized. When $\mathbf{n}_1$, $\mathbf{n}_2$, and $\mathbf{n}_3$ are orthogonal to each other, the position vector of $\mathbf{S}$ is represented by $\left( \mathbf{I} - \frac{\mathbf{a}\mathbf{a}^\mathrm{T}}{\mathbf{a}^\mathrm{T}\mathbf{a}} \right) \mathbf{w} + \frac{\mathbf{a}b}{\mathbf{a}^\mathrm{T}\mathbf{a}}$. using a vector $\mathbf{w} \in \mathbb{R}^3$ which is independent of $\mathbf{a}$ and $b$. Express $\mathbf{w}$ using $\mathbf{W}_i$ and $\mathbf{x}_i \, (i = 1, 2, 3)$.
 
 
+### 题目描述
+
+设 $\boldsymbol n_1,\boldsymbol n_2,\boldsymbol n_3\in\mathbb R^3$
+是线性无关的单位向量，
+$\boldsymbol n_4$ 是不与前三者任一平行的单位向量。定义
+$$
+A=\begin{pmatrix}
+\boldsymbol n_1^{\mathsf T}-\boldsymbol n_2^{\mathsf T}\\
+\boldsymbol n_2^{\mathsf T}-\boldsymbol n_3^{\mathsf T}\\
+\boldsymbol n_3^{\mathsf T}-\boldsymbol n_4^{\mathsf T}
+\end{pmatrix},
+\qquad
+B=\sum_{i=1}^4\boldsymbol n_i\boldsymbol n_i^{\mathsf T}.
+$$
+回答下列问题。
+
+（1）求使 $\operatorname{rank}(A)=3$ 的
+$\boldsymbol n_4$ 的条件。
+
+（2）考虑四个平面
+$$
+\Pi_i=\{\boldsymbol x\in\mathbb R^3\mid
+\boldsymbol n_i^{\mathsf T}\boldsymbol x-d_i=0\}.
+$$
+假设：$\operatorname{rank}(A)=3$；半空间交
+$$
+\Omega=\{\boldsymbol x\mid
+\boldsymbol n_i^{\mathsf T}\boldsymbol x-d_i\ge0,\ i=1,\ldots,4\}
+$$
+非空；并存在包含于 $\Omega$、同时与四平面相切的球 $C$。若球心位置向量写成
+$A^{-1}\boldsymbol u$，用 $d_1,\ldots,d_4$ 表示
+$\boldsymbol u$。
+
+（3）证明 $B$ 是正定对称矩阵。
+
+（4）点 $P$ 使其到四平面的距离平方和最小。若其位置向量写成
+$B^{-1}\boldsymbol v$，用
+$\boldsymbol n_i,d_i$ 表示 $\boldsymbol v$。
+
+（5）对 $i=1,2,3$，直线 $l_i$ 过位置向量为
+$\boldsymbol x_i$ 的点，并平行于 $\boldsymbol n_i$。任意点
+$P$ 的位置向量为 $\boldsymbol y$，其到 $l_i$ 的正交投影
+$R_i$ 的位置向量写成
+$$
+\boldsymbol y-W_i(\boldsymbol y-\boldsymbol x_i).
+$$
+
+- （a）用 $\boldsymbol n_i$ 和单位矩阵 $I$ 表示 $W_i$。
+- （b）证明 $W_i^{\mathsf T}W_i=W_i$。
+- （c）设约束平面
+  $\Sigma=\{\boldsymbol x\mid\boldsymbol a^{\mathsf T}\boldsymbol x=b\}$，
+  其中 $\boldsymbol a\ne0$。在
+  $\boldsymbol n_1,\boldsymbol n_2,\boldsymbol n_3$ 两两正交时，令
+  $S\in\Sigma$ 为到三条直线距离平方和最小的点。其位置向量写成
+  $$
+  \left(I-\frac{\boldsymbol a\boldsymbol a^{\mathsf T}}
+  {\boldsymbol a^{\mathsf T}\boldsymbol a}\right)\boldsymbol w
+  +\frac{\boldsymbol a b}{\boldsymbol a^{\mathsf T}\boldsymbol a},
+  $$
+  其中 $\boldsymbol w$ 与 $\boldsymbol a,b$ 无关。用
+  $W_i,\boldsymbol x_i$ 表示 $\boldsymbol w$。
+
+#### 考点
+
+- **矩阵秩与向量关系**：把 $A$ 的零空间条件转化为四个法向量的几何约束。
+- **平面等距中心**：由球心到四个定向平面的有符号距离相同建立线性方程。
+- **正定矩阵与最小二乘**：将平面距离平方和展开为以 $B$ 为 Hessian 的严格凸二次函数。
+- **正交投影算子**：构造到直线法空间的投影矩阵并验证幂等、对称性质。
+- **约束二次优化**：先求三条线的无约束最小二乘点，再投影到给定平面。
+
 ## **Kai**
 ### (1)
 

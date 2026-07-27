@@ -125,6 +125,145 @@ $$
 と等しいと置き、$\hat{m}_k = m_k(\theta_1, \theta_2, \ldots, \theta_K)$
 $(k = 1, \ldots, K)$ なる $K$ 個の連立方程式を $\theta_1, \theta_2, \ldots, \theta_K$ について解くことで、推定値 $\theta_1, \theta_2, \ldots, \theta_K$ を得る方法である。
 
+### 题目描述
+
+1. 随机变量 $X$ 服从密度为
+
+   $$
+   f(x;\theta)=
+   \begin{cases}
+   \theta e^{-\theta x}&(x>0),\\
+   0&(x\leq0)
+   \end{cases}
+   $$
+
+   的指数分布，其中 $\theta>0$。对给定常数 $\theta_0>0$，希望在显著性水平 $\alpha$（$0<\alpha<1$）下检验
+
+   $$
+   H_0:\theta=\theta_0,\qquad
+   H_1:\theta<\theta_0.
+   $$
+
+   回答下列问题并写出推导过程。
+
+   （1）预先取常数 $b>0$，当 $X>b$ 时拒绝 $H_0$。求使该检验的显著性水平为 $\alpha$ 的 $b$。
+
+   （2）预先取常数 $c>0$，定义参数 $\theta$ 的置信区间
+
+   $$
+   S(x)=\left\{\theta\ \middle|\ 0<\theta\leq\frac cx\right\}.
+   $$
+
+   求使 $P(\theta\in S(X))=1-\alpha$ 的 $c$。
+
+   （3）对给定常数 $d>0$，定义随机变量 $Y$ 服从事件 $\{X>d\}$ 条件下的 $X$ 的条件分布，即对任意 $y>d$，
+
+   $$
+   P(Y>y)=P(X>y\mid X>d).
+   $$
+
+   预先取 $b'>d$，当 $Y>b'$ 时拒绝 $H_0$。求使该检验显著性水平为 $\alpha$ 的 $b'$。
+
+   （4）希望用第（3）问的 $Y$ 构造 $\theta$ 的置信区间。对某函数 $h(y)$，令
+
+   $$
+   T(y)=\{\theta\mid0<\theta\leq h(y)\}.
+   $$
+
+   求使 $P(\theta\in T(Y))=1-\alpha$ 的函数 $h(y)$。
+
+2. 以下 $N(\mu,\sigma^2)$ 表示均值为 $\mu$、方差为 $\sigma^2$ 的正态分布，$E[\cdot]$ 表示期望。
+
+   （1）给出一组不独立但不相关的实随机变量 $(X,Y)$，并证明二者不独立且不相关。
+
+   （2）设 $X,Y$ 相互独立且均服从 $N(0,1)$。求
+
+   $$
+   Z=\frac XY
+   $$
+
+   的概率密度函数。
+
+   以下各问使用 Gamma 函数
+
+   $$
+   \Gamma(a)=\int_0^\infty x^{a-1}e^{-x}\,dx
+   $$
+
+   以及参数 $a,b>0$ 的密度
+
+   $$
+   g(x;a,b)=
+   \begin{cases}
+   \dfrac{x^{a-1}e^{-x/b}}{b^a\Gamma(a)}&(x>0),\\
+   0&(x\leq0).
+   \end{cases}
+   $$
+
+   将具有该密度的分布记为 $G(a,b)$。必要时可使用
+
+   $$
+   \Gamma(a+1)=a\Gamma(a)\qquad(a>0).
+   $$
+
+   （3）若 $X\sim G(a,b)$，求使矩母函数
+
+   $$
+   M_X(r)=E[e^{rX}]
+   $$
+
+   有限的实数 $r$ 的条件，并在该条件下求 $M_X(r)$。
+
+   （4）设 $X_1,\ldots,X_n$ 相互独立且均服从 $N(0,v)$。证明
+
+   $$
+   Y=\sum_{i=1}^nX_i^2
+   $$
+
+   服从某个 $G(a_1,b_1)$，并用 $v,n$ 表示 $a_1,b_1$。
+
+   （5）若 $X\sim G(a,b)$，用 $a,b$ 表示其均值 $\mu$ 与方差 $\sigma^2$。
+
+   （6）设 $x_1,\ldots,x_n$ 是参数 $a,b$ 未知的 $G(a,b)$ 的随机样本。利用第（5）问和矩估计法，把 $a,b$ 的估计值 $\hat a,\hat b$ 表示为
+
+   $$
+   \bar x=\frac1n\sum_{i=1}^nx_i,\qquad
+   s^2=\frac1n\sum_{i=1}^n(x_i-\bar x)^2
+   $$
+
+   的函数。这里，矩估计法是指：对含 $K$ 个参数 $\theta_1,\ldots,\theta_K$ 的密度 $f(x;\theta_1,\ldots,\theta_K)$，将总体矩
+
+   $$
+   m_k(\theta_1,\ldots,\theta_K)
+   =
+   \int_{-\infty}^{\infty}
+   x^kf(x;\theta_1,\ldots,\theta_K)\,dx
+   $$
+
+   与样本矩
+
+   $$
+   \hat m_k=\frac1n\sum_{i=1}^nx_i^k
+   $$
+
+   相等，解联立方程
+
+   $$
+   \hat m_k=m_k(\theta_1,\ldots,\theta_K),
+   \qquad k=1,\ldots,K,
+   $$
+
+   从而得到各参数估计。
+
+#### 考点
+
+- **指数分布的检验与置信区间**：利用生存函数确定单侧拒绝域与覆盖概率。
+- **无记忆性与截断条件分布**：处理给定生存到 $d$ 后的剩余寿命及相应推断。
+- **不相关与独立的区别**：构造反例并分别验证协方差和联合分布性质。
+- **正态比值与 Cauchy 分布**：通过二维正态变量变换求比值密度。
+- **Gamma/卡方分布与矩母函数**：识别正态平方和的分布并推导 Gamma 分布的矩。
+- **矩估计法**：由样本均值与样本二阶中心矩求 Gamma 形状、尺度参数估计。
+
 ## **Kai**
 ### 問題1
 

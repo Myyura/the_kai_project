@@ -59,6 +59,44 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p4.png" width="360" height="245" alt=""/>
 </figure>
 
+### 题目描述
+
+【问题 1】在[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p1.png)中，
+$C=\sqrt3\,\mathrm F$、$L=\frac{\sqrt3}{6}\,\mathrm H$，电源角频率
+$\omega=2\,\mathrm{rad/s}$；端电压 $V$ 与电流 $I$ 的相位差为
+$\arg(V/I)=-\pi/6\,\mathrm{rad}$，且电路处于稳态。回答：
+
+1. 求 $R$。
+2. 若电流时域表达式为
+   $i(t)=\sin(2t+\frac{\pi}{6})\,\mathrm A$，对应相量为
+   $I=e^{j\pi/6}\,\mathrm A$，求电压相量 $V$ 及其时域表达式 $v(t)$。
+
+【问题 2】同一[原题图片](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p2.png)中的图 2(a) 与图 2(b) 等效。回答：
+
+1. 求图 2(b) 中的阻抗 $Z_1,Z_2,Z_3$。
+2. 在图 2(b) 中，求从端口 $1-1'$ 分别向右、向左看到的阻抗
+   $Z_R,Z_L$；最终表达式不得含符号 $Z_0,Z_1,Z_2,Z_3$。已知
+   $Z_0=R+jX$。
+3. 图 2(b) 的 $Z_0$ 中 $R,X$ 均可调，求使 $Z_0$ 消耗功率最大的 $R,X$。
+
+【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p3.png)，电源角频率为 $\omega$。回答：
+
+1. 若图 3(b) 与图 3(a) 端口 $1-1'$ 左侧的二端网络等效，求 Norton 等效电流源 $J_0$ 和导纳 $Y_0$。
+2. 求图 3(a) 中的电流 $I$。
+
+【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_circuit_theory_p4.png)，已知
+$e(t)=50\sin t\,\mathrm V$，闭合开关 $S$ 前电路已处于稳态。回答：
+
+1. 求 $t=0$ 闭合 $S$ 后瞬间的电流 $i(0^+)$。
+2. 求 $t>0$ 的电流 $i(t)$。
+
+#### 考点
+
+- **相量与阻抗分析**：由电阻—电感—电容参数和端口相位差求电阻，再在正弦参考约定下完成相量、时域量转换。
+- **等效变换与最大功率传输**：将图示网络变换为等效阻抗结构，求端口两侧等效阻抗并对复负载作共轭匹配。
+- **诺顿等效电路**：由短路电流与端口导纳求等效电流源和导纳，再计算接入负载后的支路电流。
+- **一阶开关暂态**：从切换前正弦稳态确定储能元件初值，利用连续性求 $i(0^+)$ 及完整响应。
+
 ## **Kai** 
 ### 【問 1】
 #### (1)

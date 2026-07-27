@@ -59,6 +59,52 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p4.png" width="400" alt=""/>
 </figure>
 
+### 题目描述
+
+【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p1.png)，电源电压 $E$ 与电流 $I$ 同相，即
+$\arg(E/I)=0$，且 $X_1\ne X_2$。回答：
+
+1. 写出 $R_1,X_1,X_2$ 之间的关系。
+2. 当 $|E|=8\,\mathrm V$、$|I|=2\,\mathrm A$、$\frac{|I_1|}{I_2}=2$ 时，求 $R,X_1,X_2$ 的值。
+
+【问题 2】对[图 2 二端口电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p2.png)，回答：
+
+1. 若
+
+   $$
+   \begin{pmatrix}V_1\\I_1\end{pmatrix}
+   =
+   \begin{pmatrix}a&b\\c&d\end{pmatrix}
+   \begin{pmatrix}V_2\\I_2\end{pmatrix},
+   $$
+
+   用 $Z,Y$ 表示传输矩阵
+   $\begin{pmatrix}a&b\\c&d\end{pmatrix}$。
+2. 在端口 $2-2'$ 接入阻抗 $Z_K$ 后，从端口 $1-1'$ 向右看到的输入阻抗也等于 $Z_K$。用 $Z,Y$ 表示 $Z_K$。
+
+【问题 3】对[图 3 交流电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p3.png)，电源角频率为 $\omega$。回答：
+
+1. 以节点电位 $V_a,V_b,V_c$ 为未知量列出节点方程。
+2. 当 $V_b=V_c$ 时，求 $R_0\sim R_5,C_3,C_4,\omega$ 必须满足的条件。
+
+【问题 4】在[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p4.png)中，$t=0$ 时将开关从 $S_1$ 切换到 $S_2$；$t<0$ 时电路已处于稳态。已知
+
+$$
+e_1(t)=4\sin2t\,\mathrm V,\quad E_2=8\,\mathrm V,\quad
+R_1=2\,\Omega,\quad R_2=4\,\Omega,\quad
+L=1\,\mathrm H,\quad C=0.125\,\mathrm F.
+$$
+
+1. 求切换前的电荷 $q(t)$（$t<0$）。
+2. 求切换后的电荷 $q(t)$（$t>0$）。
+
+#### 考点
+
+- **相量与阻抗分析**：利用电压、电流同相及幅值比条件建立电阻与电抗关系并求元件参数。
+- **二端口网络传输参数**：级联串联阻抗与并联导纳的传输矩阵，并求输入阻抗等于负载阻抗时的迭代阻抗。
+- **节点电压法**：以复导纳列写多节点交流电路方程，并由节点等电位条件推导元件平衡关系。
+- **开关电路暂态响应**：分别求切换前交流稳态和切换后二阶电阻—电感—电容响应，正确衔接电容电压与电感电流初值。
+
 ## **Kai** 
 ### 【問 1】
 #### (1)

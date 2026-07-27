@@ -48,6 +48,37 @@ $$
 \exp(A) = \begin{bmatrix} \cos \alpha & -\sin \alpha \\ \sin \alpha & \cos \alpha \end{bmatrix}
 $$
 
+### 题目描述
+
+1. 对实数 $\alpha\ne0$，求矩阵
+
+   $$
+   A=\begin{bmatrix}0&-\alpha\\\alpha&0\end{bmatrix}
+   $$
+
+   的全部特征值和相应特征向量。
+2. 求 $A^k$，其中 $k$ 为正整数。
+3. 对实方阵 $X$，定义矩阵指数
+
+   $$
+   \exp(X)=\sum_{k=0}^{\infty}\frac1{k!}X^k
+   =E+X+\frac1{2!}X^2+\cdots,
+   $$
+
+   该级数对任意矩阵 $X$ 均收敛，$E$ 为单位矩阵。证明
+
+   $$
+   \exp(A)=
+   \begin{bmatrix}
+   \cos\alpha&-\sin\alpha\\
+   \sin\alpha&\cos\alpha
+   \end{bmatrix}.
+   $$
+
+#### 考点
+
+- 特征值与特征向量：求实反对称二阶矩阵在复数域上的谱，并据其幂的周期结构计算矩阵指数。
+
 ## **Kai**
 ### (1)
 Eigenvalues

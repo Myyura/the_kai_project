@@ -70,6 +70,73 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p2.png" width="450" alt=""/>
 </figure>
 
+### 题目描述
+
+1. 对图 1 所示反馈控制系统，传递函数 $P(s)$ 与 $F(s)$ 所表示的系统分别由下列微分方程描述：
+
+   $$
+   \frac{d^2y(t)}{dt^2}
+   -5\frac{dy(t)}{dt}
+   +4y(t)=u(t),
+   $$
+
+   $$
+   a\frac{dz(t)}{dt}+z(t)=y(t).
+   $$
+
+   控制器为
+
+   $$
+   K(s)=K_P+\frac{K_I}{s}+K_Ds,
+   $$
+
+   其中 $a,K_P,K_I,K_D$ 为常数参数。
+
+   （1）求 $P(s)$、$F(s)$，以及从参考输入 $r$ 到输出 $y$ 的传递函数 $G_{yr}(s)$。
+
+   （2）当
+
+   $$
+   a=0,\qquad K_P=2,\qquad K_I=0,\qquad K_D=10
+   $$
+
+   时，求单位阶跃输入 $r(t)=1$ 对应的响应 $y(t)$。
+
+   （3）当 $K_I=1$ 时，求使反馈控制系统稳定的 $a,K_P,K_D$ 条件。
+
+   <figure style="text-align:center;">
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p1.png" width="300" alt=""/>
+   </figure>
+
+2. 传递函数 $P(s)$ 具有图 2 所示的矢量轨迹，虚线表示其渐近线。题面给出的极点条件为各极点取 $0$、没有重合，并且实部为负。令 $k$ 为正常数。
+
+   （1）求使图 3(a) 的反馈控制系统稳定的 $k$ 的条件。
+
+   （2）求使图 3(a) 的反馈控制系统增益裕度至少为 $20\,\mathrm{dB}$ 的 $k$ 的条件。
+
+   （3）求使图 3(b) 的反馈控制系统对区间 $[-0.25,0.25]$ 内每个实数 $\delta$ 都稳定的 $k$ 的条件。
+
+   （4）设 $n$ 为自然数，$a_0,a_1,\ldots,a_{n-1}$ 为非负实数，并要求
+
+   $$
+   \frac{1}
+   {s^n+a_{n-1}s^{n-1}+\cdots+a_1s+a_0}
+   $$
+
+   具有图 2 所示的矢量轨迹。在所有满足条件的传递函数中，求阶数 $n$ 最小者。
+
+   <figure style="text-align:center;">
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p2.png" width="450" alt=""/>
+   </figure>
+
+#### 考点
+
+- **传递函数与闭环系统**：由微分方程进行 Laplace 变换，并组合对象、反馈环节与 PID 控制器。
+- **阶跃响应**：对闭环传递函数作部分分式展开并求逆 Laplace 变换。
+- **Routh–Hurwitz 稳定判据**：从闭环特征多项式推导控制器参数的稳定区域。
+- **Nyquist 判据与增益裕度**：利用矢量轨迹判断闭环稳定性、增益裕度及参数不确定下的鲁棒稳定性。
+- **Bode/Nyquist 渐近特征**：由轨迹形状反推有理传递函数的最低可能阶数和系数。
+
 ## **Kai**
 ###
 

@@ -34,7 +34,51 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_201908_electrical_circuit_2_p1.png" width="600" alt=""/>
 </figure>
 
-## **Kai** 
+### 题目描述
+
+对原 Description 图 2.1 至图 2.5 所示的理想运算放大器电路回答下列问题。理想运放的电压增益为无穷大、输入阻抗为无穷大、输出阻抗为零。$v_A,v_B,v_C,v_D$ 为交流电压，$i_A,i_B,i_C$ 为交流电流，$\omega$ 为角频率，$j$ 为虚数单位。第 3、4、6 问除答案外还须写出推导过程。
+
+1. 对图 2.1 的放大电路，求输入 $v_A,v_B,v_C$ 与输出 $v_D$ 的关系式。
+2. 求图 2.1 电路的三个输入阻抗
+
+   $$
+   \frac{v_A}{i_A},\qquad
+   \frac{v_B}{i_B},\qquad
+   \frac{v_C}{i_C}.
+   $$
+
+3. 求图 2.2 滤波电路的频率传递函数
+
+   $$
+   H(j\omega)=\frac{v_B}{v_A}.
+   $$
+
+4. 把图 2.2 的输出端（右端）接到图 2.3 的输入端（左端）。用 $C,C',R,R'$ 写出使任意角频率下恒有 $v_C=v_A$ 的条件。
+5. 图 2.4 电路的输出电压与输入电压的时间导数成正比，求比例常数 $k$。
+6. 用阻抗 $Z_1,Z_2,Z_3$ 表示图 2.5 电路的输入阻抗
+
+   $$
+   Z_{\mathrm{in}}=\frac{v_A}{i_A}.
+   $$
+
+7. 在图 2.5 中，令 $Z_2$ 为电容 $C$ 的阻抗，$Z_1,Z_3$ 分别为电阻 $R_1,R_3$，可得到
+
+   $$
+   Z_{\mathrm{in}}=j\omega L_e.
+   $$
+
+   求等效电感 $L_e$。
+
+所有元件连接、极性和电流参考方向均以原 Description 的电路图为准。
+
+#### 考点
+
+- 理想运放分析：使用虚短与输入端零电流条件，对多输入加法器求输出和各端口输入阻抗。
+- 有源滤波器传递函数：在相量域列结点方程，求级联网络实现全频率单位传输的元件匹配条件。
+- 运放微分器：由电容电流与反馈电阻关系确定时间微分的比例系数及符号。
+- 广义阻抗变换器：推导三阻抗运放网络的输入阻抗，并用电容与电阻合成正比于 $j\omega$ 的等效电感。
+
+## **Kai**
 ### (1)
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_201908_electrical_circuit_2_p2.png" width="300" alt=""/>

@@ -64,6 +64,57 @@ $$
 
 (4) $\alpha,\beta$ をある値に固定する. ただし, $0 < \alpha < 1 ,\beta > \frac{1}{2}$ とする. 相互情報量 $I(X;Y)$ を最大化する $\gamma$ の値を求めよ. 
 
+### 题目描述
+
+【问题 1】[原题状态迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_information_theory_p1.png)给出了平稳二阶 Markov 信源 $S$，其状态为 `00`、`10`、`01`。回答：
+
+1. 根据状态图求信源 $S$ 的转移概率矩阵 $A$，矩阵行按 `00`、`10`、`01` 的顺序排列。
+2. 若时刻 $0$ 处于状态 `00`，求时刻 $2$ 处于状态 `10` 的概率。
+3. 求信源 $S$ 的平稳分布 $\vec w=(w_1,w_2,w_3)$，其中 $w_1,w_2,w_3$ 依次对应状态 `00`、`10`、`01`。
+4. 对平稳二阶 Markov 信源 $X_1,X_2,\ldots$，证明其熵率
+
+   $$
+   \lim_{n\to\infty}\frac1n H(X_1,X_2,\ldots,X_n)
+   $$
+
+   等于条件熵 $H(X_3\mid X_1,X_2)$。
+5. 求上图 Markov 信源 $S$ 的熵率 $H(S)$。
+
+【问题 2】令 $X,Y$ 为取值于 $\{0,1\}$ 的随机变量。对参数
+$\alpha,\beta,\gamma\in[0,1]$，给定
+
+$$
+\begin{aligned}
+P(X=0)&=\alpha,&P(X=1)&=1-\alpha,\\
+P(Y=0\mid X=0)&=\beta,&P(Y=1\mid X=0)&=1-\beta,\\
+P(Y=0\mid X=1)&=\gamma,&P(Y=1\mid X=1)&=1-\gamma.
+\end{aligned}
+$$
+
+定义二元熵函数
+
+$$
+h(p)=
+\begin{cases}
+-p\log p-(1-p)\log(1-p),&0<p<1,\\
+0,&p=0,1.
+\end{cases}
+$$
+
+回答：
+
+1. 用二元熵函数表示条件熵 $H(Y\mid X)$。
+2. 设 $\beta=1-\gamma$，求使互信息 $I(X;Y)$ 最大的 $\alpha$；并用二元熵函数及参数 $\alpha,\beta$ 表示 $I(X;Y)$ 的最大值。
+3. 固定 $\alpha,\beta$ 且 $0<\alpha<1$，用 $\alpha,\beta$ 表示使 $I(X;Y)$ 最小的 $\gamma$，并给出该最小值。
+4. 固定 $\alpha,\beta$ 且 $0<\alpha<1$、$\beta>\frac12$，求使 $I(X;Y)$ 最大的 $\gamma$。
+
+#### 考点
+
+- **二阶马尔可夫信源**：由状态图构造转移矩阵，计算多步转移概率和平稳分布。
+- **熵率与条件熵**：利用二阶马尔可夫性和熵的链式法则证明熵率公式，并据稳态权重求具体熵率。
+- **条件熵与互信息**：用二元熵函数表达给定二元信道的条件熵和输出熵。
+- **信道容量与参数优化**：在对称或固定转移参数下对输入分布或信道参数优化互信息，求最大值或最小值及其达到条件。
+
 ## **Kai**
 ### 【問 1】
 #### (1)

@@ -48,6 +48,38 @@ $$
 I = \int_0^{2 \pi} \frac{1}{a + \sin \theta} \text{d}\theta \ \ \ \ \ (a > 1)
 $$
 
+### 题目描述
+
+1. 函数 $f(t)$ 的 Fourier 余弦变换及逆变换定义为
+   $$
+   F(\omega)=\int_0^\infty f(t)\cos(\omega t)\,dt,\qquad
+   f(t)=\frac2\pi\int_0^\infty F(\omega)\cos(\omega t)\,d\omega.
+   $$
+   1. 对 $m>0$，求 $f(t)=e^{-mt}$ 的 Fourier 余弦变换。
+   2. 利用上问证明
+      $$
+      \int_0^\infty\frac{\cos(pv)}{v^2+\beta^2}\,dv
+      =\frac{\pi}{2\beta}e^{-p\beta},
+      \qquad p>0,\ \beta>0.
+      $$
+2. 求微分方程
+   $$
+   \frac{d^2y}{dx^2}-2x\frac{dy}{dx}+(x^2-5)y
+   =xe^{x^2/2}
+   $$
+   的一般解。
+3. 利用留数定理求
+   $$
+   I=\int_0^{2\pi}\frac{d\theta}{a+\sin\theta},
+   \qquad a>1.
+   $$
+
+#### 考点
+
+- **Fourier 余弦变换**：直接积分指数函数的变换，并通过逆变换和参数对应推出标准余弦积分。
+- **二阶非齐次线性微分方程**：通过指数因子代换化简变系数方程并求齐次解与特解。
+- **留数定理**：作 $z=e^{i\theta}$ 代换把三角积分化为单位圆上的复积分，选择圆内极点计算留数。
+
 ## **Kai**
 ### (1)
 #### (a)

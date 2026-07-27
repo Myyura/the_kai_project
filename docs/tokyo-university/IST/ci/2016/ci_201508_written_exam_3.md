@@ -108,3 +108,39 @@ write the approximate value of irradiance $I$ using the summation symbol $\Sigma
 (4) Consider the error of the rectangular approximation and the expected value of the error of the Monte Carlo integration. Answer in what cases the error of each method becomes zero for the integrand $L(\phi)$ (assuming $L(\phi) > 0$). Explain based on the solutions to question (2) and question (3). Note that for the rectangular approximation, trivial cases where $L(\phi)$ becomes a step-like function as in Figure 2 are excluded.
 
 (5) When the rectangular approximation or Monte Carlo integration was implemented using 32-bit floating-point numbers, the result started to drop towards zero at the point when $N$ exceeded a certain large number. Explain one possible cause for this phenomenon. Assume that $N$ is always counted correctly.
+
+### 题目描述
+
+写实计算机图形学常按几何光学积分计算亮度。设某平面上一点从方向角 \((\theta,\phi)\) 入射的辐亮度为 \(L(\theta,\phi)\)（方向定义见图 1），该点辐照度为
+\[
+I=\int_0^{2\pi}\int_0^{\pi/2}L(\theta,\phi)\cos\theta\sin\theta\,d\theta\,d\phi.
+\]
+
+1. 假设 \(L\) 与 \(\theta\) 无关，证明
+   \[
+   I=\frac12\int_0^{2\pi}L(\phi)\,d\phi.
+   \]
+   后续各问均采用此假设。
+2. 定义 \(N+1\) 个等分点
+   \[
+   \phi_i=2\pi\frac{i}{N}\qquad(i=0,\ldots,N).
+   \]
+   图 2 中区间 \([\phi_i,\phi_{i+1}]\) 的矩形面积为 \(L(\phi_i)(\phi_{i+1}-\phi_i)\)。利用这一矩形近似，用求和符号写出 \(I\) 的近似式。
+3. 对定义在 \([0,2\pi]\) 且处处为正的概率密度 \(p(\phi)\)，有
+   \[
+   \mathrm E[f(\phi)]=\int_0^{2\pi}f(\phi)p(\phi)\,d\phi.
+   \]
+   若独立生成 \(N\) 个样本 \(\phi_i\sim p(\phi)\)，使用
+   \[
+   \mathrm E[f(\phi)]\approx\frac1N\sum_{i=1}^Nf(\phi_i)
+   \]
+   推导用蒙特卡洛积分近似 \(I\) 的求和式。
+4. 设 \(L(\phi)>0\)。分别说明在何种 \(L(\phi)\) 情况下，矩形近似的误差与蒙特卡洛积分误差的期望为零，并依据第 2、3 问解释。矩形近似中排除 \(L\) 恰好为图 2 那类阶梯函数的平凡情况。
+5. 用 32 位浮点数实现矩形近似或蒙特卡洛积分时，发现 \(N\) 超过某个很大的数后结果开始趋近于零。假设 \(N\) 始终被精确计数，说明一种可能原因。
+
+#### 考点
+
+- **辐照度积分化简**：在辐亮度与极角无关时计算 \(\cos\theta\sin\theta\) 的积分，把半球积分降为一维。
+- **矩形数值积分**：对等距区间求左端点黎曼和，并分析何时近似可精确。
+- **蒙特卡洛积分与重要性采样**：把目标积分改写为关于 \(p(\phi)\) 的期望，以 \(L(\phi_i)/p(\phi_i)\) 的样本均值估计并讨论无方差条件。
+- **浮点数精度与下溢**：分析巨大 \(N\) 下步长、权重或累加量低于 32 位浮点有效分辨率时的舍入、停滞或下溢。

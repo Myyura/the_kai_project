@@ -63,6 +63,43 @@ We design a Moore-type synchronous sequential circuit that has a 1-bit input $x$
 
 (c) We implement a sequential circuit corresponding to the state transition table and the output table derived in Question (b). Derive the excitation function(s) of the D flip-flop(s) and the output function of $z$ in a minimal sum-of-products form. The logic variables of the input and the output of a D flip-flop are $d$ and $q$, respectively. If multiple flip-flops are used, distinguish them by subscripts.
 
+### 题目描述
+
+回答全部问题。$\overline{\phantom{x}}$、$\cdot$、$+$、$\oplus$ 分别表示逻辑非、与、或、异或。
+
+1. 对
+   $$
+   f=((\bar a+\bar c+\bar d)(a+b+c+d))
+   \oplus(\bar b\bar c\bar d+\bar a c d+b\bar c d+a\bar c\bar d)
+   $$
+   回答：
+   1. 给出 $f$ 的所有最简与或式。
+   2. 仅用三输入 NAND 门实现 $f$，使门数最少；可直接使用各变量及其反变量。
+   3. 给出 $f$ 的所有最简或与式。
+   4. 设
+      $$
+      g=\bar c\bar d+\bar a\bar b\bar c+\bar a b c+\bar a\bar b\bar d,
+      \qquad r=\bar a\bar d.
+      $$
+      在所有满足 $f=(g\oplus h)+r$ 的 $h$ 中，求一种最简与或式，使乘积项数最少，并在此基础上文字数最少；若不存在则说明。
+2. 设计一个用 D 触发器实现、输入 $x$、输出 $z$ 均为 1 位的 Moore 同步时序电路。每当连续输入至少两个 $0$，或连续输入至少两个 $1$ 时，输出 $z$ 在下一时钟周期翻转。初态为此前输入是 $0$ 且 $z=0$，D 触发器初值均为 $0$。示例：
+
+   | 时钟周期 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+   |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+   | 输入 $x$ | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 1 | 1 |
+   | 输出 $z$ | 0 | 1 | 0 | 1 | 1 | 1 | 0 | 0 | 1 | 0 |
+
+   1. 画状态转移图。
+   2. 最小化状态数，用最少 D 触发器完成状态编码，并写出编码后的状态转移表、输出表；说明如何验证状态数最少，并给出状态分配。
+   3. 求各 D 触发器激励函数及输出 $z$ 的最简与或式；D 输入、Q 输出分别记作 $d,q$，多个时用下标。
+
+#### 考点
+
+- **布尔函数最小化与 NAND 实现**：求全部最简与或/或与式，并实现最少三输入 NAND 门网络。
+- **受约束逻辑函数求解**：根据异或关系确定 $h$ 的允许取值并作两级逻辑最小化。
+- **Moore 状态机设计与最小化**：状态需记录上一输入及当前输出，随后用等价状态划分证明最小性。
+- **D 触发器逻辑综合**：以最少状态位编码并化简下一状态与输出函数。
+
 ## **Kai**
 ### (1)
 #### (a)

@@ -81,6 +81,35 @@ $(4)$ We consider solving the problem of finding a triangulation with a minimum 
 
 $(5)$ Give approximately 10-line pseudo-code implementing an algorithm to compute the minimum cost of triangulating an arbitrary n-gon using the formula obtained in (4). Also answer the computational complexity (order) of the algorithm.
 
+### 题目描述
+
+按顺序连接 \(v_0,v_1,\ldots,v_{n-1},v_0\) 得到凸 \(n\) 边形。其三角剖分是用互不重叠的三角形恰好覆盖内部。记三角剖分数为 \(C[n]\)，例如 \(C[4]=2\)。
+
+1. 求 \(C[5],C[6],C[7]\)。
+2. 用 \(C[2],C[3],\ldots,C[n-1]\) 表示 \(C[n]\)，约定 \(C[2]=C[3]=1\)。
+3. 下列伪代码计算任意 \(n\) 的 \(C[n]\)。填写空格 ①，并给出算法复杂度。
+
+   ```text
+   C[2] = 1; C[3] = 1;
+   for(i=4...n)
+       C[i] = 0;
+   for(i=4...n)
+       for(j=0...i-3)
+           [        ①        ]
+   return C[n];
+   ```
+
+接着求凸 \(n\) 边形的最小成本三角剖分。一次剖分的成本为所含各三角形成本之和；三角形成本为其三条边成本之和。任意两个顶点 \(v_i,v_j\) 间边成本 \(D[i,j]=D[j,i]\) 全部已知。
+
+4. 把问题分解为子问题。定义 \(E[i,m]\)：从 \(v_i\) 出发按顺时针访问共 \(m\) 个顶点并回到 \(v_i\) 所围多边形的最小剖分成本，几何含义见原图。假设所有 \(i'=0,\ldots,n-1\)、\(m'=2,\ldots,m-1\) 的 \(E[i',m']\) 已算出，且 \(E[i,2]=0\)。用这些 \(E\) 和 \(D[i,j]\) 表示 \(E[i,m]\)，并配图说明分解情形。
+5. 利用第 4 问递推式，用约 10 行伪代码给出任意凸 \(n\) 边形最小剖分成本算法，并分析复杂度。
+
+#### 考点
+
+- **Catalan 数与多边形三角剖分计数**：固定一条基边及与它组成三角形的第三顶点，把左右子多边形计数相乘并求和。
+- **最小成本三角剖分动态规划**：以循环顶点区间为状态，枚举分割三角形，将两个子多边形最优成本与三边成本合并。
+- **算法复杂度**：分析计数递推和区间动态规划的状态数、每状态转移数。
+
 ## **Kai**
 ### (1)
 `C[4]=2`, `C[3]=1`, `C[2]=1`

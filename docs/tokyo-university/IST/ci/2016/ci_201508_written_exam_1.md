@@ -144,3 +144,45 @@ Answer the following questions. Note that there are enough of all components, an
 </figure>
 
 (5) As shown in Figure 6, we want to combine base-3 1-digit counters to realize a base-3 3-digit counter. Realize a base-3 1-digit counter that serves as a component for the base-3 3-digit counter by extending the base-3 1-digit counter shown in question (3) to add a new output signal, and illustrate this base-3 1-digit counter. You may draw a standard logic circuit diagram.
+
+### 题目描述
+
+用电子元件制作一个 \(k\) 进制一位计数器，其中 \(k\ge2\)。输入为时钟 `CLK` 和使能 `EN`，输出计数值 \(c\)，满足 \(0\le c\le k-1\)，启动时初始化为 0。`CLK`、`EN` 均取高电平 H 或低电平 L；`CLK` 从 L 变 H 称为上升沿。
+
+二进制一位计数器在上升沿前后满足
+\[
+\begin{cases}
+c'=(c+1)\bmod2,&\text{EN 为 H},\\
+c'=c,&\text{EN 为 L},
+\end{cases}
+\]
+其中 \(\bmod\) 返回正余数。原文图 3、表 1 以状态 S0、S1 表示 \(c=0,1\)，给出其状态图和状态表。
+
+1. 对三进制一位计数器，要求上升沿时
+   \[
+   \begin{cases}
+   c'=(c+1)\bmod3,&\text{EN 为 H},\\
+   c'=c,&\text{EN 为 L}.
+   \end{cases}
+   \]
+   画状态转移图并列状态转移表，格式可不同于示例。
+2. 把第 1 问改为以升降控制 `UD` 取代 `EN`：
+   \[
+   \begin{cases}
+   c'=(c+1)\bmod3,&\text{UD 为 H},\\
+   c'=(c-1)\bmod3,&\text{UD 为 L}.
+   \end{cases}
+   \]
+   画三进制一位升降计数器的状态图与状态表。
+
+随后只用原文图 4、表 2～6 所定义的部件 A～E 组合电路：A、B、C、D、E 分别为 NOT、AND、OR、XOR 与 D 触发器；D 触发器在 `CLK` 上升沿后把沿到来前输入 \(I\) 的值送到输出 \(O\)。题设保证各类部件数量充足，无须全部使用。`EN` 和计数值只在上升沿变化。二进制示例用信号 \(C_0\) 的 L/H 表示 \(c=0/1\)，其前后状态表与实现见原文表 7、图 5。
+
+3. 用 2 位表示 \(c\)，组合上述部件画出第 1 问三进制一位计数器的电路；也可采用常规逻辑电路符号。
+4. 同样用 2 位表示 \(c\)，画出第 2 问三进制一位升降计数器电路。
+5. 如图 6，把三个三进制一位计数器组合成三进制三位计数器。为第 3 问的一位计数器增加一个新的输出信号，使其可作为级联部件，并画出扩展后的一位计数器电路。
+
+#### 考点
+
+- **同步状态机设计**：由三进制计数及升降规则列状态表、画状态图并编码三个有效状态。
+- **D 触发器次态逻辑**：从当前状态与 EN/UD 推导两个 D 输入的布尔表达式，用基本逻辑门实现。
+- **多位计数器级联**：设计进位或终端计数输出，使低位回绕时使能更高位更新。

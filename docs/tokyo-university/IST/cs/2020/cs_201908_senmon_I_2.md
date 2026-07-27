@@ -68,6 +68,33 @@ void putdown(int i) {
 
 (3) Regarding the C code in question (2), answer whether or not a thread may suffer from starvation, assuming that any enabled thread is eventually scheduled. If your answer is "yes", describe how the starvation occurs and briefly explain how to modify the code to avoid the starvation. If your answer is "no", then explain the reason.
 
+### 题目描述
+
+题中 C 函数描述餐桌哲学家问题中每位哲学家的行为：五个线程在多处理器系统上并发运行
+`philosopher(i)`，其中 $i=0,1,\ldots,4$。每个线程反复交替执行
+`eat()` 和 `think()`；`pickup()`、`putdown()` 分别在进餐前后进行同步，要求相邻的第
+$i$ 个与第 $(i+1)\bmod5$ 个线程不能同时执行 `eat()`。需要用初值均为
+$1$ 的二值信号量实现这两个函数；P、V 操作分别写作 `wait(X)`、
+`signal(X)`。假定 `eat()` 和 `think()` 不产生影响函数外部的副作用。回答下列问题。
+
+（1）对每个 $i$ 设置二值信号量 $R[i]$。在题中第一种实现里，
+`pickup(i)` 依次等待 $R[i]$ 和 $R[(i+1)\bmod5]$，
+`putdown(i)` 再释放二者。说明该实现如何发生死锁。
+
+（2）对每个 $i$ 设置二值信号量 $S[i]$，共享变量 `state[i]` 表示线程状态，
+`mutex` 用于五个线程间的互斥；所有 `state[i]` 初值为 `thinking`。题中重新定义
+`pickup`、`putdown`，并调用 `test(i)`：当某个条件满足时，
+`test` 应把 `state[i]` 设为 `eating` 并执行 `signal(S[i])`。用 C 代码写出
+`test`，使至少有一个线程能够无死锁地反复进餐和思考。本问无需考虑饥饿。
+
+（3）对第（2）问的代码，假设任何已可运行的线程最终都会获得调度，判断某线程是否仍可能饥饿。若可能，描述饥饿发生的过程并简述如何修改代码以避免；若不可能，说明理由。
+
+#### 考点
+
+- **餐桌哲学家与死锁**：识别所有线程各占一个资源并循环等待相邻资源的死锁条件。
+- **二值信号量同步**：在互斥保护下检查相邻状态，通过每线程信号量阻塞和唤醒哲学家。
+- **死锁与饥饿的区别**：分析无死锁方案是否保证公平进展，并设计排队或优先级机制避免无限期等待。
+
 ## **Kai**
 ### (1)
 

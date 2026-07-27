@@ -50,6 +50,22 @@ For example, a rooted tree shown in Fig. 1 (a) is represented by a binary tree o
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_201908_senmon_II_2_p2.png" width="455" height="530" alt=""/>
 </figure>
 
+### 题目描述
+
+用二叉树表示子节点数不受限制的有根树时，可采用“左孩子—右兄弟”表示法。二叉树中的每个节点 $x$ 除键值 $x.key$ 外，还含有三个指针：父节点 $x.p$、最左孩子 $x.lc$ 和紧邻的右兄弟 $x.rs$；相应节点不存在时，对应指针值为 $\mathrm{null}$。图 1(a) 与图 1(b) 给出了普通有根树及其这种二叉树表示的示例。
+
+1. 若有根树有 $n$ 个节点、$m$ 条边，写出 $m$ 与 $n$ 的关系。
+2. 将图 2 中的有根树画成左孩子—右兄弟表示的二叉树，省略父指针 $p$。
+3. 给定有根树的根 $x$，伪代码 `Print-Leftmost(x)` 输出最左下方后代的 `key`；填写图中的空白 $\boxed{A}$、$\boxed{B}$。
+4. 编写伪代码 `Tree-Walk(x)`，输出以 $x$ 为根的树中所有节点的 `key`，输出顺序不限。
+5. 用大 $O$ 记号写出 `Tree-Walk(x)` 的运行时间。
+
+相关树结构、伪代码空白和待转换的树均见图 1、图 2。
+
+#### 考点
+
+- 树形数据结构：理解左孩子—右兄弟表示法，完成指针遍历伪代码，并按节点数分析整棵树遍历的复杂度。
+
 ## **Kai**
 ### (1)
 $n = m + 1$

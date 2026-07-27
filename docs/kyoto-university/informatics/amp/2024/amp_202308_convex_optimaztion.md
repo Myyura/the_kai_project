@@ -53,6 +53,46 @@ where the decision variable of problem Q is the vector $\boldsymbol{x} \in \math
 Obtain an optimal solution of problem Q by using Karush-Kuhn-Tucker conditions.
 
 
+### 题目描述
+
+设 $\boldsymbol c=(c_1,c_2,\ldots,c_n)^\top$，其中 $\top$ 表示转置。考虑以
+$\boldsymbol y=(y_1,\ldots,y_n)^\top$ 为变量的线性规划
+
+$$
+\begin{aligned}
+\mathrm P:\quad
+&\text{最小化}\quad \boldsymbol c^\top\boldsymbol y\\
+&\text{满足}\quad\sum_{i=1}^n y_i\le1,\qquad
+\boldsymbol y\ge0.
+\end{aligned}
+$$
+
+回答：
+
+1. 写出 P 的对偶问题。
+2. 证明 P 有最优解。
+
+令 $Y$ 为 P 的最优解集合，继续回答：
+
+3. 证明 $Y$ 是凸集。
+4. 假设 $c_1=c_2=\cdots=c_n$ 且 $c_1<0$。考虑
+   $$
+   \begin{aligned}
+   \mathrm Q:\quad
+   &\text{最小化}\quad
+   \frac12\bigl(\boldsymbol x^\top\boldsymbol x-
+   \boldsymbol c^\top\boldsymbol x\bigr)\\
+   &\text{满足}\quad\boldsymbol x\in Y,
+   \end{aligned}
+   $$
+   其中 $\boldsymbol x\in\mathbb R^n$。利用 KKT 条件求 Q 的一个最优解。
+
+#### 考点
+
+- **线性规划对偶与解的存在性**：为单个资源不等式和非负变量构造对偶，并证明紧致可行域上的线性目标可达最优值。
+- **最优解集合的凸性**：利用线性目标与凸可行域证明任意两个最优解的凸组合仍最优。
+- **KKT 条件**：在对称目标系数下先刻画最优面 $Y$，再求其上的严格凸二次函数最优解。
+
 ## **Kai**
 ### (i)
 We have Lagrangian: $L(y,\lambda,\nu) = c^\top y + \lambda (\mathbf{1}^\top y - \mathbf{1} ) - \nu^\top y$.

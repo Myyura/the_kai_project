@@ -35,6 +35,38 @@ Answer the following questions:
 
 (5) Consider the problem of assigning each of the given $N_n$ integers to a distinct node of $T_n$. The integer assigned to each node $v$ must be no smaller than any of the integers assigned to $v$'s children. Show an $O(r^n)$ algorithm that computes such an assignment, with a proof that the algorithm runs indeed in $O(r^n)$ time. Note that the $N_n$ integers may not be sorted in the input.
 
+### 题目描述
+
+在一棵树中，记 $L(v)$ 为结点 $v$ 的后代叶结点集合，$p(v,w)$ 为从
+$v$ 到 $w$ 的简单路径所含边数。非叶结点 $v$ 的高度定义为
+$\max_{w\in L(v)}p(v,w)$，叶结点的高度为 $0$，树根的高度称为树的高度。
+
+给定高度为 $n\ge0$ 的二叉树 $T_n$，其中每个结点 $v$ 必须满足以下三种情形之一：
+
+- $v$ 是叶结点；
+- $v$ 只有一个子结点，且 $v$ 的高度为 $1$；
+- $v$ 有两个子结点，且两个子结点的高度相差 $1$。
+
+令 $N_n$ 表示 $T_n$ 的结点数，并令
+$r=(1+\sqrt5)/2$。回答下列问题。
+
+（1）计算 $N_5$。
+
+（2）对 $n\ge2$，用 $N_{n-1}$ 和 $N_{n-2}$ 表示 $N_n$。
+
+（3）证明对每个 $n\ge0$，都有 $N_n\ge r^n$。
+
+（4）证明对每个 $n\ge0$，都有 $N_n\le r^{n+2}$。
+
+（5）现有 $N_n$ 个未必已排序的整数，需要将它们一一分配给 $T_n$ 的不同结点，并使每个结点上的整数都不小于其任一子结点上的整数。给出完成该分配的
+$O(r^n)$ 算法，并证明其运行时间确为 $O(r^n)$。
+
+#### 考点
+
+- **高度平衡二叉树的最少结点数**：由两个子树高度相差一建立结点数递推。
+- **斐波那契型递推与黄金比界**：利用 $r^2=r+1$ 和归纳法证明 $N_n$ 的上下界。
+- **线性时间建堆**：在树结构上构造满足父结点不小于子结点的赋值，并结合 $N_n=\Theta(r^n)$ 证明复杂度。
+
 ## **Kai**
 Setting: $T_n$ stands for AVL tree of height $n$.
 Denote $N_n$ for number of nodes in $T_n$.

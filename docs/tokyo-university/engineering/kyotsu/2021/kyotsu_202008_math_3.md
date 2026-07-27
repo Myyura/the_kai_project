@@ -15,6 +15,32 @@ tags:
 [数学 3 (主に複素関数論)](https://github.com/Myyura/the_kai_project_assets/blob/7d274740e9aacde6948ee5ca73a336a00fe76d04/kakomonn/tokyo_university/engineering/Description/2021_M_3.pdf)
 
 
+### 题目描述
+
+原 Description 仅提供 2021 年“数学 3”原卷链接，具体题干缺失。根据本地 Kai，可以确认：
+
+1. 第一部分考察一次分式变换
+   $$
+   M(z)=\frac{mz}{mz-z+1}.
+   $$
+   在本地解答所采用的 $m\ne1$ 条件下，第一小问求其不动点，第二小问求导数并计算 $M'(0)$；第三小问在 Kai 中为空，无法确认。
+2. 第二部分令非零复数 $z=re^{i\theta}$，研究
+   $$
+   J(z)=e^{-i\alpha}z+e^{i\alpha}z^{-1}.
+   $$
+   本地解答把它写成
+   $$
+   \left(r+\frac1r\right)\cos(\theta-\alpha)
+   +i\left(r-\frac1r\right)\sin(\theta-\alpha)
+   $$
+   并按 $r>1$ 与 $r<1$ 判断 $\operatorname{Im}J(z)>0$ 的区域；原题对 $\alpha,\theta$ 的完整范围未保存在本地。
+3. 第三部分的 Kai 只有一个外部视频链接，没有任何本地题干或解答内容，因此无法确认该部分题意。
+
+#### 考点
+
+- 一次分式变换：通过解 $M(z)=z$ 求不动点，并用复导数描述不动点附近的局部伸缩。
+- 复数极坐标与区域映射：把含 $z$ 与 $z^{-1}$ 的函数分解为实部、虚部，再按模长和辐角判断上半平面的原像。
+
 ## **Kai**
 ### I.
 #### 1.

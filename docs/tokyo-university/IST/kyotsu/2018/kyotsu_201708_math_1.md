@@ -64,6 +64,58 @@ $$
 
 (6)、(3)て求めた $x$ と(4)で求めた $x$ が，いずれも $x=Pb$ の形で表せることを示せ．
 
+### 题目描述
+
+考虑线性方程组
+$$
+Ax=b,
+$$
+其中 $A\in\mathbb R^{m\times n}$、$b\in\mathbb R^m$ 已知，
+$x\in\mathbb R^n$ 未知。把 $b$ 作为末列接在 $A$ 后得到增广矩阵
+$\bar A=(A\mid b)$。回答下列问题。
+
+（1）对
+$$
+A=\begin{pmatrix}1&0&-1\\1&1&0\\0&1&1\end{pmatrix},
+\qquad
+b=\begin{pmatrix}2\\4\\2\end{pmatrix},
+$$
+记 $\bar A$ 的列为 $a_1,a_2,a_3,a_4$。
+
+- （i）求 $a_1,a_2,a_3$ 中线性无关向量的最大个数。
+- （ii）求标量 $x_1,x_2$，使
+  $a_4=x_1a_1+x_2a_2+a_3$，从而证明 $a_4$ 是前三列的线性组合。
+- （iii）求四个列向量中线性无关向量的最大个数。
+
+（2）对任意 $m,n,A,b$，证明若
+$\operatorname{rank}(\bar A)=\operatorname{rank}(A)$，则方程组有解。
+
+（3）若
+$m>n$、
+$\operatorname{rank}(\bar A)=n$ 且
+$\operatorname{rank}(\bar A)>\operatorname{rank}(A)$，方程组无精确解。求使
+$\|b-Ax\|^2$ 最小的 $x$。
+
+（4）若 $m<n$ 且 $\operatorname{rank}(A)=m$，则对任意 $b$ 都有多个解。
+以 $Ax=b$ 为约束，用拉格朗日乘子法求其中使 $\|x\|^2$ 最小的解。
+
+（5）证明对任意 $m,n,A$，满足
+$$
+APA=A,\quad PAP=P,\quad
+(AP)^{\mathsf T}=AP,\quad
+(PA)^{\mathsf T}=PA
+$$
+的 $P\in\mathbb R^{n\times m}$ 唯一确定。
+
+（6）证明第（3）、（4）问所得解均可写成 $x=Pb$。
+
+#### 考点
+
+- **线性方程组相容性的秩判据**：比较系数矩阵与增广矩阵的列空间和秩。
+- **最小二乘解**：在超定且不相容时由正规方程最小化残差范数。
+- **最小范数解**：在欠定满行秩系统中用拉格朗日乘子选出最小二范数解。
+- **Moore–Penrose 伪逆**：理解四个 Penrose 条件的唯一性，并统一表示两类广义解。
+
 ## **Kai**
 ### (1)
 #### (i)

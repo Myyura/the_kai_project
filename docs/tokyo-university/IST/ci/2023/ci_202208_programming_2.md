@@ -77,5 +77,48 @@ Note that, for different pairs of $i$ and $j$, the same wall may be put.
 (3-d) We can reach the goal of this maze when proceeding through the maze by always keeping one wall on the left-hand side in the direction of the move. Write down on the answer sheet the number of the cells visited on the way to the goal. When the same cell is visited twice, that cell is counted only once. Include the start and the goal cells in the cells visited on the way. 
 At first, the upper wall of the start cell is on the left-hand side in the direction of the move.
 
+### 题目描述
+
+考虑 \(m\times m\) 方格迷宫，格 \((i,j)\) 满足 \(0\le i,j\le m-1\)。图 1 的 \(6\times6\) 示例中 A 为 \((0,0)\)，B 为 \((2,5)\)。非负整数序列以逗号分隔存入文件，例如
+
+```text
+2,0,13,0,1,6,8,1
+```
+
+表示第 0 个元素为 2、第 1 个为 0、第 2 个为 13，依此类推。
+
+1. `sequence.txt` 存有序列 \(\{s_k\}\)。写出 \(s_{216}\) 及整个序列最大值。
+2. 按下列规则构造 \(40\times40\) 迷宫。`p.txt` 中序列 \(\{p_k\}\) 的元素只可能是 0、1、2、3。
+   1. 沿迷宫外边界设置墙。
+   2. 对每个 \(1\le i,j\le39\)，令 \(s=i\times40+j\)：
+      - \(p_s=0\)：设置格 \((i,j)\) 的上墙；
+      - \(p_s=1\)：设置格 \((i,j)\) 的左墙；
+      - \(p_s=2\)：设置格 \((i-1,j-1)\) 的下墙；
+      - \(p_s=3\)：设置格 \((i-1,j-1)\) 的右墙。
+
+   不同 \((i,j)\) 可能重复设置同一堵墙。
+   1. 对格 \((5,25),(20,20),(30,33)\)，分别写出上、下、左、右墙是否存在。
+   2. 统计 L 形拐角格数量。其定义是恰有两堵墙，且两墙直接相连成 L 形。
+3. 再按以下规则构造另一个 \(40\times40\) 迷宫，起点 \((0,0)\)，终点 \((39,27)\)。四面有墙的格称为“封闭格”。
+   1. 初始给所有格设置四面墙，使其全为封闭格。
+   2. 当前格设为起点。
+   3. 在当前格的上、下、左、右相邻格中选择一个封闭格 N，拆除当前格与 N 间的墙，移动到 N，并重复。
+
+   选择 N 时使用 `neighbor.txt` 的序列 \(\{n_k\}\)，元素为 0、1、2、3。若当前格为 \((i,j)\)，令 \(s=i+j+h\)，分别以 \(n_s=0,1,2,3\) 表示选择上、左、下、右相邻格；取使所选 N 为封闭格的最小非负整数 \(h\)。
+
+   若没有可选 N，或所需 \(n_s\) 不存在，则选择一个格 C：C 自身不是封闭格，且至少有一个相邻格仍是封闭格，然后把当前位置移到 C。选择 C 使用 `cell.txt` 的序列 \(\{c_k\}\)，其中 \(0\le c_k<40\)。对当前格 \((i,j)\)，在 \(t=2(i+j+h)\)、\(h\ge0\) 中取使 \((c_t,c_{t+1})\) 满足 C 条件的最小 \(t\)。若没有可选 C 或所需 \(c_k\) 不存在，则迷宫构造完成。
+
+   1. 对 \((5,25),(20,20),(30,33)\) 分别写出四面墙是否存在。
+   2. 统计 L 形拐角格数量。
+   3. 找出最长直通道，写出其长度及达到该长度的通道数。通道长度按包含格数计；例如图 1 从 \((0,1)\) 到 \((4,1)\) 长度为 5，该示例最长长度为 5，共两条。
+   4. 采用左手贴墙法从起点走到终点。统计途中访问过的不同格数量，同一格重复经过只计一次，包含起、终点。开始时，起点的上墙位于行进方向左侧。
+
+#### 考点
+
+- **按规则生成迷宫**：精确模拟墙设置、深度优先式拆墙以及由两个外部序列驱动的回退选点。
+- **局部墙形统计**：判定指定格四面墙、L 形角和连续直通道，并正确去除重复墙。
+- **迷宫遍历与左手规则**：维护位置、朝向和访问集合，模拟贴墙行走并统计不同格。
+- **广度优先与图遍历基础**：把格和未封闭相邻关系抽象为图，支持迷宫性质计算。
+
 ## **Kai**
 The sample data files are [here](https://github.com/sophytoeat/Problem/tree/main/%E9%81%8E%E5%8E%BB%E5%95%8F/%E5%89%B5%E9%80%A0%E6%83%85%E5%A0%B1%E5%AD%A6/%E4%B8%80%E8%88%AC%E6%95%99%E8%82%B2%E7%A7%91%E7%9B%AE(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)/2023%E5%B9%B4%E5%BA%A6_%E5%A4%8F_%E4%B8%80%E8%88%AC/%E9%85%8D%E5%B8%83%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF).

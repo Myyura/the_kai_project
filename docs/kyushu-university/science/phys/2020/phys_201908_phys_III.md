@@ -14,6 +14,43 @@ tags:
 
 ## **Description**
 
+### 题目描述
+
+本文件原 Description 为空；现有解答只保留了 A 题，B 题题面与解答均缺失。
+
+**A（量子简谐振子）**：对质量 $m$、角频率 $\omega$ 的一维量子简谐振子，位置与动量算符满足
+
+$$
+[\hat x,\hat p]=i\hbar.
+$$
+
+定义产生、湮灭算符 $\hat a^\dagger,\hat a$ 以及数算符
+
+$$
+\hat N=\hat a^\dagger\hat a,
+\qquad
+\hat N|n\rangle=n|n\rangle.
+$$
+
+1. 求 $[\hat a,\hat a^\dagger]$、$[\hat N,\hat a]$ 和 $[\hat N,\hat a^\dagger]$。
+2. 证明 $\hat a^\dagger|n\rangle$ 与 $\hat a|n\rangle$（非零时）分别是 $\hat N$ 的特征值 $n+1$、$n-1$ 的特征态。
+3. 证明 $\hat N$ 的谱恰为所有非负整数。
+4. 用
+   $$
+   \hat x=\sqrt{\frac{\hbar}{2m\omega}}(\hat a^\dagger+\hat a),
+   \qquad
+   \hat p=i\sqrt{\frac{m\hbar\omega}{2}}(\hat a^\dagger-\hat a)
+   $$
+   计算 $\langle n|\hat x^2|n\rangle$、$\langle n|\hat p^2|n\rangle$ 及二者乘积。
+
+**B**：仓库只保留了标题，无法确认原题内容。
+
+#### 考点
+
+- **产生与湮灭算符**：由正则对易关系推导梯算符及数算符的基本对易式。
+- **数算符谱**：利用升降作用、范数非负性和不存在负特征值证明谱为非负整数。
+- **量子简谐振子涨落**：把 $\hat x,\hat p$ 写成梯算符，利用数态正交性计算二阶矩及不确定度相关量。
+
 ## **Kai**
 ### \[A\]
 #### (1)

@@ -38,6 +38,32 @@ Prove that one of the minimum spanning trees of $G$ contains $(X \cup \{u, v\}, 
 Prove that $w_{\text{max}}(T^*) \le w_{\text{max}}(T)$ holds for every spanning tree $(V, T)$ of $G$.
 
 
+### 题目描述
+
+设 $G=(V,E)$ 为带实数边权 $w(e)$ 的简单连通无向图。对 $X\subseteq V$，令 $E(X)$ 为连接 $X$ 与 $V\setminus X$ 的边集；对 $S\subseteq E$，定义
+
+$$
+w(S)=\sum_{e\in S}w(e),\qquad
+w_{\max}(S)=\max_{e\in S}w(e).
+$$
+
+回答：
+
+1. 设 $(X,F)$（$X\ne V$）是 $G$ 的一棵子树，并假设某棵最小生成树包含 $(X,F)$。令
+   $a_F=uv\in E(X)$ 为 $E(X)$ 中权重最小的边。证明存在一棵最小生成树包含
+   $(X\cup\{u,v\},F\cup\{a_F\})$。
+2. 描述求最小生成树的 Prim 算法，并证明其正确性。
+3. 设 $(V,T^*)$ 是最小生成树。证明对任意生成树 $(V,T)$，
+   $$
+   w_{\max}(T^*)\le w_{\max}(T).
+   $$
+
+#### 考点
+
+- **最小生成树的割性质**：用交换论证证明扩展当前子树时选择跨割最轻边仍能嵌入某棵最小生成树。
+- **Prim 算法正确性**：以逐步保持“当前树包含于某棵最小生成树”的不变量完成证明。
+- **最小瓶颈生成树性质**：证明最小生成树同时最小化所用边中的最大权重。
+
 ## **Kai**
 ### (i)
 Let $T^* = (V, E^*)$ be one minimum spanning tree that contains the tree $(X, F)$.

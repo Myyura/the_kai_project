@@ -60,6 +60,58 @@ $$
 
 同様に $x_1(t) \cdot x_2(t)$ のフーリエ変換は $\frac{1}{2\pi}X_1(\omega) * X_2(\omega)$.
 
+### 题目描述
+
+给定信号 $f(t)$，以时间间隔 $t_s$ 对其采样。把每隔 $t_s$ 排列的狄拉克 $\delta$ 函数组成的信号称为单位冲激列 $\delta_s(t)$：
+
+$$
+\delta_s(t)=\sum_{i=-\infty}^{\infty}\delta(t-it_s).
+$$
+
+采样后的信号为
+
+$$
+f_s(t)=f(t)\delta_s(t).
+$$
+
+回答下列问题。
+
+(1) 把 $\delta_s(t)$ 看作周期为 $t_s$ 的周期信号，求其傅里叶级数展开。
+
+(2) 求 $\delta_s(t)$ 的傅里叶变换 $\Delta_s(\omega)$，其中 $\omega_s=2\pi/t_s$。
+
+(3) 设 $f(t)$、$f_s(t)$ 的傅里叶变换分别为 $F(\omega)$、$F_s(\omega)$，用 $F(\omega)$ 表示 $F_s(\omega)$。
+
+(4) 给出混叠（折叠失真）的定义，说明它在 (3) 的结果中表现为何种现象，并用 $\omega_s$ 写出为避免混叠而要求 $F(\omega)$ 满足的条件。
+
+必要时可使用以下公式。周期为 $T$ 的信号 $x(t)$ 的傅里叶级数为
+
+$$
+\begin{aligned}
+x(t)&=\sum_{i=-\infty}^{\infty}c_i e^{j2\pi it/T},\\
+c_i&=\frac1T\int_{T_0}^{T_0+T}x(t)e^{-j2\pi it/T}\,\mathrm dt.
+\end{aligned}
+$$
+
+信号 $x(t)$ 的傅里叶变换定义为
+
+$$
+X(\omega)=\int_{-\infty}^{\infty}x(t)e^{-j\omega t}\,\mathrm dt,
+$$
+
+且常数信号 $x(t)=1$ 的傅里叶变换为 $2\pi\delta(\omega)$。卷积定义为
+
+$$
+x_1(t)*x_2(t)=\int_{-\infty}^{\infty}x_1(t')x_2(t-t')\,\mathrm dt'.
+$$
+
+若 $x_1(t),x_2(t)$ 的傅里叶变换分别为 $X_1(\omega),X_2(\omega)$，则 $x_1*x_2$ 的傅里叶变换为 $X_1X_2$，而 $x_1x_2$ 的傅里叶变换为 $\frac1{2\pi}X_1*X_2$。
+
+#### 考点
+
+- 冲激列采样与频谱复制：要求把周期冲激列展开并变换为频域冲激列，再由时域乘积得到周期平移的信号频谱。
+- 采样定理与混叠：要求从相邻频谱副本是否重叠说明混叠，并给出原信号带宽相对于采样角频率的限制。
+
 ## **Kai**
 ### (1)
 $\delta_{s}(t) = \sum_{i = -\infty}^{\infty}\delta(t - it_s)$ を $1$ 周期分 $(-\frac{t_s}{2} \le t < \frac{t_s}{2})$ 切り出して、係数を求める。問題文にもあるように係数を求める式は次の通り。

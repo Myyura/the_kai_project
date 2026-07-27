@@ -36,3 +36,18 @@ Show a system for measuring a three dimensional position of a point in the three
 (4) Limits of position accuracy and time resolution of the system and the factors in determining them
 
 (5) An application example using the system and outline of its operating principle
+
+### 题目描述
+
+任选一种测量三维空间中某一点三维位置的系统，并围绕该系统回答下列问题。系统可以是非接触式或接触式，也可以要求被测对象或系统满足某些运动、工作条件。
+
+1. 概述测量原理，以及由观测量计算三维位置的方法。
+2. 说明所需的主要硬件、软件及整体系统构成。
+3. 说明系统正确工作必须满足的主要条件，以及这些条件必要的原因。
+4. 说明位置精度与时间分辨率的极限，并分析决定这些极限的因素。
+5. 举出一个使用该系统的应用，并概述该应用的工作原理。
+
+#### 考点
+
+- **三维位置测量系统设计**：选择一种具体方案，将其传感几何、三维坐标计算、软硬件构成、标定与工作条件贯通说明。
+- **测量性能分析**：结合传感器分辨率、采样率、基线或几何条件、噪声和处理延迟分析空间精度与时间分辨率。

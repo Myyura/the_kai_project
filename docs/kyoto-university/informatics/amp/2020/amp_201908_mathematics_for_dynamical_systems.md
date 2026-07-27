@@ -50,6 +50,46 @@ $$
 ### English Version
 
 
+### 题目描述
+
+设 $a,b\in\mathbb R$，考虑实微分方程
+
+$$
+t\frac{d^2x}{dt^2}+(at+b)\frac{dx}{dt}+x=0. \tag{1}
+$$
+
+令 $X$ 为由 $t$ 的有理函数、方程 (1) 的解以及这些解的高阶导数所组成的所有有理式的集合；特别地，$X$ 包含任意解的二阶导数。令 $G$ 为所有满足下列条件的双射 $\sigma:X\to X$ 的集合：
+
+- 对任意 $f,g\in X$，
+  $\sigma(f+g)=\sigma(f)+\sigma(g)$ 且
+  $\sigma(fg)=\sigma(f)\sigma(g)$；
+- 对任意有理函数 $f$，$\sigma(f)=f$；
+- 对任意 $f\in X$，
+  $\dfrac d{dt}\sigma(f)=\sigma\!\left(\dfrac{df}{dt}\right)$。
+
+已知 $x=e^t$ 是方程 (1) 的解。回答：
+
+1. 确定常数 $a,b$。
+2. 求一个与 $e^t$ 线性无关的解 $x=\phi(t)$。
+3. 证明若 $x(t)$ 是解，则 $\sigma(x(t))$ 对任意 $\sigma\in G$ 也为解。
+4. 取第 2 问的 $\phi(t)$。由第 3 问，对每个 $\sigma\in G$ 存在实常数 $a_{ij}(\sigma)$ 使
+   $$
+   \begin{aligned}
+   \sigma(e^t)&=a_{11}(\sigma)e^t+a_{12}(\sigma)\phi(t),\\
+   \sigma(\phi(t))&=a_{21}(\sigma)e^t+a_{22}(\sigma)\phi(t).
+   \end{aligned}
+   $$
+   令 $A(\sigma)$ 为以 $a_{ij}(\sigma)$ 为 $(i,j)$ 元的二阶方阵。证明对任意 $\sigma_1,\sigma_2\in G$，
+   $$
+   A(\sigma_1)A(\sigma_2)=A(\sigma_2)A(\sigma_1).
+   $$
+
+#### 考点
+
+- **二阶线性方程的参数确定与降阶**：代入已知指数解确定系数，再求一个线性无关解。
+- **微分域自同构**：利用保持四则运算、有理函数和微分的性质，证明自同构将解空间映到自身。
+- **微分 Galois 群的矩阵表示**：在解空间基底下表示自同构，并证明本题所得表示矩阵两两可交换。
+
 ## **Kai**
 ### (i)
 substitute $x$ by $e^t$ in (1),

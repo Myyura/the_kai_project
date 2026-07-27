@@ -27,3 +27,26 @@ Let $p_j$ be the probability where the query key $v$ is $k_j$, and $p_{\text{mis
 (b) Obtain $\overline{C}$ and $C_{\text{max}}$ when $p_1 = p_2 = \dots = p_8, p_{\text{miss}} = 0$.
 
 (4) Describe in general the advantages and disadvantages of sequential search, binary search and search using a hash table.
+
+### 题目描述
+
+给定 \(n\) 条记录 \(r_1,r_2,\ldots,r_n\)，对应键为 \(k_1,k_2,\ldots,k_n\)。对查询键 \(v\)，若存在 \(v=k_j\)（\(1\le j\le n\)），则查找成功并返回 \(r_j\)；否则返回失败。记 \(v=k_j\) 的概率为 \(p_j\)，失败概率为 \(p_{\mathrm{miss}}\)。计算时间近似与同 \(v\) 比较的次数成正比，以下均要求平均比较次数 \(\overline C\) 和最大比较次数 \(C_{\max}\)。
+
+1. 按 \(k_1\) 到 \(k_n\) 的顺序进行顺序查找。
+   1. 当 \(p_1=\cdots=p_n=\frac1{2n}\)、\(p_{\mathrm{miss}}=\frac12\) 时，求 \(\overline C\) 与 \(C_{\max}\)。
+   2. 当 \(p_1=\frac12,p_2=\frac14,\ldots,p_n=\frac1{2^n}\)、\(p_{\mathrm{miss}}=\frac1{2^n}\) 时，证明 \(\overline C\le2\)。
+2. 将键排序后进行二分查找。令 \(n=2^m-1\)，其中 \(m\) 为自然数；一次比较即可判断 \(v<k_j\)、\(v=k_j\) 或 \(v>k_j\)。
+   1. 在 \(p_1=\cdots=p_n=p_{\mathrm{miss}}\) 时，分别对 \(m=1,2,3,4\) 求 \(\overline C\) 与 \(C_{\max}\)。
+   2. 在相同等概率条件下，用 \(m\) 表示 \(\overline C\) 与 \(C_{\max}\)。
+3. 使用大小 \(S=17\) 的哈希表和哈希函数 \(h(x)=x\bmod S\)，依次插入键值
+   \[
+   k_1=10,\ k_2=1,\ k_3=17,\ k_4=97,\ k_5=21,\ k_6=4,\ k_7=39,\ k_8=73.
+   \]
+   1. 自选一种合适的冲突处理方法，画出哈希表结构。
+   2. 当 \(p_1=\cdots=p_8\)、\(p_{\mathrm{miss}}=0\) 时，求 \(\overline C\) 与 \(C_{\max}\)。
+4. 概括比较顺序查找、二分查找和哈希表查找各自的优缺点。
+
+#### 考点
+
+- **顺序查找与二分查找**：结合成功键和失败查询的概率，推导平均及最坏比较次数，并分析完全二叉判定结构。
+- **哈希表与冲突处理**：按给定模哈希函数放置键，选择开放定址或链地址等方案处理碰撞并统计比较次数。

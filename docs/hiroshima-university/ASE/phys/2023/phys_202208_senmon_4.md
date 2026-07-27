@@ -53,6 +53,58 @@ $$
 (6) 問(4)の結果を用いて、気体が理想気体の場合、押し出される前後で気体の温度は変化しないことを示せ。
 
 
+### 题目描述
+
+回答以下各问：
+
+1. 焓 $H$ 用内能 $U$、压强 $p$、体积 $V$ 表示为 $H=U+pV$。由该式、热力学第一定律和比热定义证明
+
+   $$
+   C_p=\left(\frac{\partial H}{\partial T}\right)_p,
+   $$
+
+   其中 $C_p$ 为定压热容，$T$ 为温度。
+2. 对一个封闭系统，已知
+
+   $$
+   dU=T\,dS-p\,dV.
+   $$
+
+   用它证明熵 $S$ 与焓 $H$ 满足
+
+   $$
+   \left(\frac{\partial S}{\partial T}\right)_p
+   =\frac1T\left(\frac{\partial H}{\partial T}\right)_p,
+   $$
+
+   $$
+   \left(\frac{\partial S}{\partial p}\right)_T
+   =\frac1T\left(\frac{\partial H}{\partial p}\right)_T-\frac VT.
+   $$
+3. 利用第 2 问的关系证明
+
+   $$
+   \left(\frac{\partial H}{\partial p}\right)_T
+   =-T\left(\frac{\partial V}{\partial T}\right)_p+V.
+   $$
+4. 在焓保持不变时，用 $T,V,C_p$ 和 $\left(\frac{\partial V}{\partial T}\right)_p$ 表示焦耳—汤姆孙系数
+
+   $$
+   \left(\frac{\partial T}{\partial p}\right)_H.
+   $$
+
+   原 Description 在此处写作 $\left(\frac{\partial H}{\partial p}\right)_T$，但 Kai 的推导对象为上述等焓偏导数，且这与“焓保持不变”及所列变量一致。
+
+接着考虑图 1、图 2 所示的节流实验：绝热圆筒中央固定一个由棉等材料制成的多孔塞，用绝热活塞 I、II 将气体从左侧缓慢推到右侧。初态如图 1，活塞 I 把体积 $V_1$ 的气体封闭在多孔塞左侧，活塞 II 紧贴多孔塞右侧；保持两个活塞所受压强 $p_1,p_2$ 恒定且 $p_1>p_2$，缓慢移动二者，直至终态如图 2，活塞 I 紧贴多孔塞，气体在右侧占据体积 $V_2$。忽略多孔塞体积。
+
+5. 证明此过程中焓守恒。
+6. 利用第 4 问结果证明：若气体为理想气体，则被推出前后的温度不变。
+
+#### 考点
+
+- 焓与热力学关系：从第一定律、基本热力学微分式和麦克斯韦关系推导定压热容及焓的偏导恒等式。
+- 焦耳—汤姆孙效应：对绝热多孔塞节流过程证明等焓，并由焦耳—汤姆孙系数说明理想气体节流前后温度不变。
+
 ## **Kai**
 ### (1)
 微小な熱 $d'Q$ を受け取ったときの $U,H,p,V,T$ の変化量を $dU,dH,dp,dV,dT$

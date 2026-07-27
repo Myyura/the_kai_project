@@ -13,6 +13,28 @@ tags:
 
 ## **Description**
 
+### 题目描述
+
+原文题干缺失。设随机变量 $X_1,\ldots,X_n$ 满足
+$$
+E[X_i]=\mu,\qquad V[X_i]=\sigma^2,\qquad
+\operatorname{Cov}(X_i,X_j)=\theta\quad(i\ne j).
+$$
+对系数向量 $\alpha=(\alpha_1,\ldots,\alpha_n)$，定义线性统计量
+$$T(\alpha)=\sum_{i=1}^n\alpha_iX_i.$$
+
+1. 求 $E[T(\alpha)]$ 以及
+   $\operatorname{Cov}(T(\alpha),T(\beta))$。
+2. 求 $V[T(\alpha)]$。
+3. 在 $T(\alpha)$ 是 $\mu$ 的无偏估计量的约束下，求使方差最小的 $\alpha$，并给出最小方差。
+
+#### 考点
+
+- **线性统计量的矩**：利用期望线性性和协方差双线性展开。
+- **等相关模型**：分离对角方差项与非对角协方差项。
+- **无偏估计**：由系数和等于 1 得到约束。
+- **最小方差线性无偏估计**：用 Lagrange 乘数法证明等权样本均值最优。
+
 ## **Kai**
 ### (1)
 

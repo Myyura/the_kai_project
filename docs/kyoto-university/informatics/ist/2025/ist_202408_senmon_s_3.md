@@ -53,3 +53,67 @@ where $d$ is the Hamming distance and $\boldsymbol{0} = (0, 0, \dots, 0)$.
 $$
 G = \begin{pmatrix} 0 & 0 & 0 & 1 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 1 & 0 \\ 0 & 1 & 1 & 0 & 1 & 0 & 0 \\ 1 & 1 & 0 & 1 & 0 & 0 & 0 \end{pmatrix}.
 $$
+
+### 题目描述
+
+1. 考虑图示的串联系统，其中离散无记忆信道 D 的输入、输出字母表均为四元集合，信道 E 把四元输入映射为二元输出：
+
+   ![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202408_senmon_s_3_p1.png)
+
+   D 与 E 的转移概率矩阵分别为
+
+   $$
+   p(Y\mid X)=
+   \begin{pmatrix}
+   \frac12&\frac12&0&0\\
+   0&\frac12&\frac12&0\\
+   0&0&\frac12&\frac12\\
+   \frac12&0&0&\frac12
+   \end{pmatrix},
+   \qquad
+   q(Z\mid Y)=
+   \begin{pmatrix}
+   1&0\\
+   1&0\\
+   0&1\\
+   0&1
+   \end{pmatrix}.
+   $$
+
+   （1）求信道 D 的信道容量；（2）若输入符号 $a_1,a_3$ 的概率各为 $\frac12$，而 $a_2,a_4$ 的概率为 0，请写出推导过程并计算串联后输入 $X$ 与最终输出 $Z$ 的互信息 $I(X;Z)$。
+
+2. 在二元域上考虑由 $k\times n$ 生成矩阵 $G$ 定义的线性码。对 $k$ 位行向量信息字 $\boldsymbol{w}$，码字为 $\boldsymbol{x}=\boldsymbol{w}G$，所有码字组成 $C(G)$。
+
+   （1）证明任意 $\boldsymbol{x},\boldsymbol{y}\in C(G)$ 的按位异或 $\boldsymbol{x}\oplus\boldsymbol{y}$ 仍属于 $C(G)$。
+
+   （2）证明
+
+   $$
+   \min_{\substack{\boldsymbol{x},\boldsymbol{y}\in C(G)\\\boldsymbol{x}\ne\boldsymbol{y}}}
+   d(\boldsymbol{x},\boldsymbol{y})
+   =
+   \min_{\substack{\boldsymbol{x}\in C(G)\\\boldsymbol{x}\ne\boldsymbol{0}}}
+   d(\boldsymbol{x},\boldsymbol{0}),
+   $$
+
+   其中 $d$ 为 Hamming 距离，$\boldsymbol{0}=(0,0,\ldots,0)$。
+
+   （3）当
+
+   $$
+   G=
+   \begin{pmatrix}
+   0&0&0&1&1&0&1\\
+   0&0&1&1&0&1&0\\
+   0&1&1&0&1&0&0\\
+   1&1&0&1&0&0&0
+   \end{pmatrix}
+   $$
+
+   时，求一个 $n\times n$ 矩阵 $F$，使 $G'=GF$ 生成系统码；再利用 $F$ 与 $G'$ 计算原码 $C(G)$ 的校验矩阵 $H$。
+
+#### 考点
+
+- **信道容量与串联信道互信息**：由转移矩阵分析对称信道容量，并边缘化中间变量求联合分布和互信息。
+- **二元线性码**：利用线性子空间的封闭性证明异或性质及最小距离等式。
+- **系统化与校验矩阵**：通过坐标变换把生成矩阵化为系统形式，并由其构造对应的奇偶校验矩阵。

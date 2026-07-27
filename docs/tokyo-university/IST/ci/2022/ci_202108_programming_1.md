@@ -46,6 +46,29 @@ is stored and the number of characters is 20.
 
 (4) For the numbers of new infections in the text file `infections.txt`, find the shortest period among the periods in which the sum of the new-infection increments is maximized. Write that period on the answer sheet. If more than one such period is found, write all the periods. The first day is Day 1. For example, answer like "From Day 8 to 24". Furthermore, calculate the sum of the new-infection increments during that period, and write that sum on the answer sheet.
 
+### 题目描述
+
+编程回答下列问题。现场考试所需文件在 U 盘中，考试结束前须把程序及生成文件保存回 U 盘；线上替代考试所需文件在给定 zip 中，按另行说明提交，提交网址见试卷末页。
+
+某种病毒每天的新增感染人数按时间顺序存入文本文件，各数以冒号 `:` 分隔。例如五天数据
+`621 591 907 1121 1032`
+存为
+`621:591:907:1121:1032`。
+
+1. 求 `infections.txt` 中第 10 大的新增感染人数并写在答题纸上。排名前先去重；例如 \(1,2,3,3,4\) 的第 3 大是 2。
+2. 对 `data` 文件夹中每个文本文件 \(f\)，按第 1 问求第 10 大值 \(N_f\)，再求所有 \(N_f\) 之和并写在答题纸上。
+3. 设 `infections.txt` 中每日数据为 \(x_0,\ldots,x_{n-1}\)。当天“新增感染增量”为 \(x_i-x_{i-1}\)，第一天之前的人数视为 0。把每天增量无分隔地连接成一个字符串存入 `diff.txt`，并统计字符数写在答题纸上，不计换行；非负数必须以 `+` 开头，负数以 `-` 开头。例如增量
+   `621 -30 0 -316 214 -89`
+   存为
+   `+621-30+0-316+214-89`，字符数为 20。
+4. 对 `infections.txt`，在“增量总和达到最大”的所有连续日期区间中，找长度最短者；第一天记为 Day 1，按 `From Day 8 to 24` 这类格式写在答题纸上。如有多个符合条件的区间，全部写出；另写出该区间内增量之和。
+
+#### 考点
+
+- **文件解析、去重与排序**：读取冒号分隔数据，对每个文件求第 10 大不同值并跨文件汇总。
+- **差分序列与格式化输出**：以首日前值 0 计算逐日增量，显式输出正号并准确统计字符。
+- **最大子数组和**：在线性时间求最大增量和，同时按最短长度及并列区间规则保存答案。
+
 ## **Kai**
 The sample data files are [here](https://github.com/sophytoeat/Problem/tree/main/%E9%81%8E%E5%8E%BB%E5%95%8F/%E5%89%B5%E9%80%A0%E6%83%85%E5%A0%B1%E5%AD%A6/%E4%B8%80%E8%88%AC%E6%95%99%E8%82%B2%E7%A7%91%E7%9B%AE(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)/2022%E5%B9%B4%E5%BA%A6_%E5%A4%8F_%E4%B8%80%E8%88%AC/%E9%85%8D%E5%B8%83%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF).
 

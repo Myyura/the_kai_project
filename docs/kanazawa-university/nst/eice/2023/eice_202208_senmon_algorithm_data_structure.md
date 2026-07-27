@@ -109,6 +109,111 @@ $n$ 枚の円盤すべてを棒 $X$ から棒 $Y$ に最小回数で移動する
 
 (3) (2) で求めた関係式を用いて $a_n$ を $n$ で表しなさい。
 
+### 题目描述
+
+回答下列问题。
+
+1. 图 1 用接近 C 语言的写法给出一个以链表操作数据集合的程序：
+
+   ```c
+   #include <stdio.h>
+   #include <stdlib.h>
+
+   struct nd {
+       char data;
+       struct nd *next;
+   };
+
+   struct tag {
+       struct nd *head;
+       struct nd *tail;
+   };
+
+   void input(char data, struct tag *list) {
+       struct nd *new = malloc(sizeof(struct nd));
+       new->data = data;
+       new->next = NULL;
+
+       if (list->head == NULL && list->tail == NULL) {
+           list->head = new;
+           list->tail = new;
+       } else {
+           list->tail->next = new;
+           list->tail = new;
+       }
+   }
+
+   char output(struct tag *list) {
+       struct nd *tmp;
+       char data = '\0';
+
+       if (list->head != NULL) {
+           data = list->head->data;
+           tmp = list->head;
+           list->head = list->head->next;
+           if (list->head == NULL) list->tail = NULL;
+           free(tmp);
+       }
+
+       return data;
+   }
+
+   int main(void) {
+       struct tag list;
+       char x;
+
+       list.head = NULL; list.tail = NULL;  // ①
+       input('a', &list);                   // ②
+       input('b', &list);                   // ③
+       input('c', &list);                   // ④
+       x = output(&list);                   // ⑤
+       x = output(&list);                   // ⑥
+
+       return 0;
+   }
+   ```
+
+   （1）执行该程序时，画图说明语句 ① 至 ⑥ 各自执行完毕后链表结构如何变化。
+
+   （2）写出具有图中 `input` 和 `output` 两种操作的数据结构名称。
+
+   （3）该数据结构也可用数组实现。说明数组实现与链表实现的区别。
+
+   （4）举出一种会使用该数据结构的数据处理场景。
+
+2. 图 2 中有固定的三根柱 A、B、C，$n$ 个中心有孔且大小各异的圆盘全部按大盘在下的顺序叠在其中一根柱上；图示例为三个圆盘叠在 A 上。移动圆盘须遵守：
+
+   - 每次必须把一个圆盘移动到 A、B、C 中的一根柱上；
+   - 只能移动某根柱最上方的圆盘，且可从任意柱选取；
+   - 不得把大圆盘放在小圆盘上。
+
+   若第 $m$ 小的圆盘（$1\leq m\leq n$）位于柱 $X$ 顶部，把它移到柱 $Y$ 的操作记作
+
+   ```text
+   move(m, X, Y)
+   ```
+
+   把全部 $n$ 个圆盘以最少次数从柱 $X$ 移到柱 $Y$ 的操作记作
+
+   ```text
+   trans(n, X, Y)
+   ```
+
+   其中 $X,Y$ 是 A、B、C 中任意两根不同的柱。
+
+   （1）对图 2 的三个圆盘，用 `move(m, X, Y)` 写出执行 $\operatorname{trans}(3,A,B)$ 的步骤。
+
+   （2）令 $a_n$ 为执行 $\operatorname{trans}(n,X,Y)$ 所需的移动次数。求 $a_1$，并对 $n\geq2$ 给出 $a_n$ 与 $a_{n-1}$ 的递推关系。
+
+   （3）利用第（2）问的递推式，用 $n$ 显式表示 $a_n$。
+
+#### 考点
+
+- **单链表操作**：跟踪头尾指针、结点链接、删除与内存释放后的结构变化。
+- **队列及其实现**：识别先进先出语义，比较链表和循环数组在容量、内存与操作成本上的差异。
+- **数据结构应用**：把队列联系到任务调度、缓冲、广度优先搜索等顺序处理。
+- **Hanoi 塔递归**：把 $n$ 盘移动分解为两次 $n-1$ 盘移动和一次最大盘移动，并解递推式。
+
 ## **Kai**
 ### 問1
 #### (1)

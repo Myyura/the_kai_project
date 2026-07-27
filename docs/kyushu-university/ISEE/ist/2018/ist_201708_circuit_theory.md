@@ -73,6 +73,50 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p4.png" width="365" height="180" alt=""/>
 </figure>
 
+### 题目描述
+
+【问题 1】对[图 1 交流电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p1.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
+
+1. 求电源端看到的等效阻抗 $Z$。
+2. 求电流 $I$。
+3. 求使相位差 $\arg(I/E)=\pi/2$ 成立的条件。
+
+【问题 2】[图 2(a)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p2.png)由二端口网络 $N$、电压源 $E$ 和阻抗 $Z_G$ 构成，并与同一图片中的图 2(b) 等效。回答：
+
+1. 若 $N$ 的阻抗参数矩阵为
+
+   $$
+   Z=
+   \begin{bmatrix}
+   z_{11}&z_{12}\\
+   z_{21}&z_{22}
+   \end{bmatrix},
+   $$
+
+   求图 2(b) 等效电路中的 $E_0$ 与 $Z_0$。
+2. 当二端口网络 $N$ 具体为图 2(c) 所示电路时，求 $E_0$ 与 $Z_0$。
+
+【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p3.png)，电流源 $J$ 的角频率为 $\omega$。回答：
+
+1. 求负载电阻 $R_L$ 中的电流 $I$ 及其消耗功率 $P$。
+2. 分别求下列三种情形中使 $P$ 最大的条件：
+   - (a) $X_1,X_2$ 均可调，且 $R_L<R_0$；
+   - (b) $X_1$ 固定、$X_2$ 可调；
+   - (c) $X_1$ 可调、$X_2$ 固定。
+
+【问题 4】对[图 4 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p4.png)，已知
+$R=2\,\Omega$、$C=\frac16\,\mathrm F$、$L=3\,\mathrm H$。回答：
+
+1. 电源电压 $E=0\,\mathrm V$ 且电路达到稳态后，在 $t=0$ 将 $E$ 改为 $2\,\mathrm V$；求 $t>0$ 的电流 $i(t)$。
+2. 电源电压 $E=4\,\mathrm V$ 且电路达到稳态后，在 $t=0$ 将 $E$ 改为 $8\,\mathrm V$；求 $t>0$ 的电流 $i(t)$。
+
+#### 考点
+
+- **相量与复阻抗**：由电阻—电感—电容网络求输入阻抗、电流及电流超前电压 $\pi/2$ 的参数条件。
+- **二端口网络与戴维南等效**：利用阻抗参数求输出端开路电压和内阻，并对具体网络化简。
+- **最大功率传输**：写出负载功率关于可调电抗的函数，分别处理两个电抗均可调或仅一个可调的约束极值。
+- **电阻—电感—电容暂态响应**：根据电源阶跃前的稳态初值求二阶电路的零输入与零状态组合响应。
+
 ## **Kai**
 ### 【問 1】
 #### (1)

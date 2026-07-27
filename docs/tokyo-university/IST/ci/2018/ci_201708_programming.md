@@ -108,6 +108,79 @@ Write a program that computes the total number of read operations for given $m,n
 Write a program that computes such $p$ (if several, the maximum $p$ among them) for given $m,n$, and $s$.
 Moreover, write the result of the computation in your answer sheet for $m=200$, $n=150$, and $s=600$.
 
+### 题目描述
+
+假设矩阵元素均为非负整数并存放在主存中。
+
+1. 用下列算法把 \(m\times n\) 矩阵 \(A\) 与 \(n\times m\) 矩阵 \(B\) 相乘。求从主存读取 \(A,B\) 元素的总次数；同一元素读两次计两次，不计对 \(C\) 或其他变量的访问。
+
+   ```text
+   var i = 0
+   while i < m begin
+     var j = 0
+     while j < m begin
+       var d = 0
+       var k = 0
+       while k < n begin
+         d = d + a[i, k] * b[k, j]
+         k = k + 1
+       end
+       c[i, j] = d
+       j = j + 1
+     end
+     i = i + 1
+   end
+   ```
+
+2. 文件中的 \(m\times n\) 矩阵以空格分隔元素、逗号分隔行，并在最后一行最后一个元素后写句点。例如
+   \[
+   \begin{pmatrix}0&1&2&3\\4&5&6&7\\8&9&10&11\end{pmatrix}
+   \]
+   写为 `0 1 2 3, 4 5 6 7, 8 9 10 11.`。读取 U 盘中的 `mat1.txt`，在答题纸上写出矩阵行、列数；忽略句点之后的所有字符。
+3. U 盘的 `mat1.txt`、`mat2.txt` 分别存放 \(A,B\)。计算乘积的迹（主对角线元素之和），写在答题纸上。
+4. 矩阵元素从主存读出后进入缓存；只要仍在缓存，再次需要时不读主存。缓存最多容纳 \(s\) 个元素，采用 LRU：满时若要访问未缓存元素，就淘汰最久未使用者，再从主存读入新元素。编写程序，对给定 \(m,n,s\)，计算第 1 问算法中 \(A,B\) 元素的主存读取总次数。
+5. 假设 \(m,n\) 有公因数 \(p\)。为减少缓存条件下的主存读取，把乘法改为如下分块算法；在空格 1～6 中各填一个变量名。
+
+   ```text
+   var u = 0
+   while u < m begin
+     var v = 0
+     while v < m begin
+       var w = 0
+       while w < n begin
+         var i = u
+         while i < [空格1] + [空格2] begin
+           var j = v
+           while j < [空格3] + [空格4] begin
+             var d = 0
+             var k = w
+             while k < [空格5] + [空格6] begin
+               d = d + a[i, k] * b[k, j]
+               k = k + 1
+             end
+             c[i, j] = c[i, j] + d
+             j = j + 1
+           end
+           i = i + 1
+         end
+         w = w + p
+       end
+       v = v + p
+     end
+     u = u + p
+   end
+   ```
+
+6. 在第 4 问的 LRU 缓存下，编写程序对给定 \(m,n,p,s\) 计算第 5 问分块乘法读取 \(A,B\) 元素的总次数。
+7. 在第 6 问中，从 \(m,n\) 的所有公因数里找出使读取总次数最小的 \(p\)；若有多个，取最大的 \(p\)。编写程序对给定 \(m,n,s\) 求它，并在答题纸写出 \(m=200,n=150,s=600\) 时的结果。
+
+#### 考点
+
+- **矩阵乘法的访存计数**：跟踪三重循环对 \(A,B\) 元素的访问顺序与次数。
+- **LRU 缓存模拟**：维护容量为 \(s\) 的最近使用次序，区分命中与需要主存读取的失效。
+- **分块矩阵乘法**：正确补全块边界变量，并利用块复用提高缓存局部性。
+- **参数搜索**：枚举 \(m,n\) 的公因数，模拟访存并按“最少读取、平局取最大 \(p\)”选优。
+
 ## **Kai**
 Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2018-Summer) for the sample data files.
 

@@ -59,6 +59,47 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p4.png" width="556" height="336" alt=""/>
 </figure>
 
+### 题目描述
+
+【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p1.png)，电源电压 $E$ 与电流 $I_2$ 同相，即
+$\arg(E/I_2)=0$。回答：
+
+1. 写出 $R_1,R_2,X_1,X_2$ 之间的关系式。
+2. 当
+   $|I_1|=2\,\mathrm A$、$|I_2|=1\,\mathrm A$、
+   $|V|=4\,\mathrm V$、$|E|=8\,\mathrm V$
+   时，求 $R_1,R_2,X_1,X_2$。
+
+【问题 2】对[图 2 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p2.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
+
+1. 求负载电阻 $R_L$ 中的电流 $I$ 与消耗功率 $P$。
+2. 电抗 $X$ 可调时，求使 $P$ 最大的 $X$。
+
+【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p3.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
+
+1. 求电阻 $r$ 中的电流 $I$。
+2. 当 $z_0=R$、$z_1=jX_1$、$z_2=-jX_2$ 时，求使题面所给相位条件
+   $\arg(E/I_2)=0$ 成立的条件。
+
+【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p4.png)，已知
+
+$$
+E=\frac{\sqrt3}{2}\,\mathrm V,\quad
+R_1=R_2=2\,\Omega,\quad C=4\,\mathrm F,\quad L=1\,\mathrm H.
+$$
+
+1. 保持 $S_2$ 断开，在 $t=0$ 闭合 $S_1$；已知
+   $q(0)=\frac12CE$，求 $t>0$ 的电荷 $q(t)$。
+2. 保持 $S_2$ 断开并闭合 $S_1$，待电路达到稳态后，在 $t=0$ 同时断开 $S_1$、闭合 $S_2$；求 $t>0$ 的电流 $i(t)$。
+3. 求 (2) 中 $|i(t)|$ 达到最大值的时刻 $t$。
+
+#### 考点
+
+- **相量与阻抗分析**：由同相条件和电压、电流幅值约束联立求电阻与电抗，并分析复阻抗网络。
+- **交流最大功率传输**：推导负载功率并选择可调电抗以补偿等效电抗、达到功率极值。
+- **复阻抗网络相位条件**：对一般阻抗网络求支路电流，再代入纯阻、感抗和容抗形式判断输入相位。
+- **二阶开关电路暂态**：利用电容电压、电感电流连续性建立电阻—电感—电容响应，并对阻尼振荡电流求幅值极值时刻。
+
 ## **Kai** 
 ### 【問 1】
 電源電圧 $E$ と電流 $I_2$ の位相差は $\arg(\frac{E}{I_2}) = 0$ である。

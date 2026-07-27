@@ -39,6 +39,33 @@ A matching $A$ is said to be maximal if any superset of $A$ is not a matching.
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_201908_senmon_I_4_p1.png" width="440" height="470" alt=""/>
 </figure>
 
+### 题目描述
+
+在图 $G=(V,E)$ 中，若边集 $A\subseteq E$ 中任意两条边 $e,e'$ 都不共享端点，则称 $A$ 为匹配；若不能再向其中加入任何边而仍保持为匹配，则称其为极大匹配。
+
+1. 给出图 1 所示图的两个极大匹配。
+2. 对图 $G$ 的任意两个极大匹配 $A,B$，证明
+
+   $$
+   |A-B|\le2|B-A|,
+   $$
+
+   其中 $A-B=\{e\in A:e\notin B\}$，$|A|$ 表示集合 $A$ 的基数。
+3. 利用上一步结论和
+
+   $$
+   |A|=|A\cap B|+|A-B|
+   $$
+
+   证明 $|A|\le2|B|$。
+4. 给出一个图的例子，使其存在满足 $|A|=2|B|$ 的极大匹配 $A,B$。
+
+第 1 问所用的具体图见图 1。
+
+#### 考点
+
+- 最大匹配相关组合优化：利用极大匹配中边与端点的对应关系比较两个匹配的规模，并构造达到二倍界的图例。
+
 ## **Kai**
 ### (1)
 

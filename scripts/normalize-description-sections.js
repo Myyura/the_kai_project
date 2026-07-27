@@ -46,7 +46,7 @@ function memorizedLabel(detail) {
 }
 
 function isLanguageHeading(line) {
-  return /^###\s+(?:日本語(?:版)?|English(?: Version)?(?: \(AI translated\))?|Japanese(?: Version)?|中文(?:版)?)\s*$/i.test(
+  return /^###\s+(?:日本語(?:版)?|English(?: Version)?(?: \(AI translated\))?|Japanese(?: Version)?|中文(?:版)?|题目描述)\s*$/i.test(
     line,
   );
 }

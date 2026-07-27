@@ -18,6 +18,35 @@ $$
 \frac{\partial u}{\partial r} = \frac{1}{r}\frac{\partial v}{\partial \theta},\frac{\partial v}{\partial r} = -\frac{1}{r}\frac{\partial u}{\partial \theta}
 $$
 
+### 题目描述
+
+设解析函数 $f(z)=u+iv$，其中
+
+$$
+z=x+iy,\qquad i=\sqrt{-1},
+$$
+
+$x,y$ 为实数，$u,v$ 为实值函数。若
+
+$$
+x=r\cos\theta,\qquad y=r\sin\theta,
+$$
+
+证明极坐标形式的柯西–黎曼方程
+
+$$
+\frac{\partial u}{\partial r}
+=\frac1r\frac{\partial v}{\partial\theta},
+\qquad
+\frac{\partial v}{\partial r}
+=-\frac1r\frac{\partial u}{\partial\theta}.
+$$
+
+#### 考点
+
+- **柯西–黎曼方程**：利用解析函数在直角坐标下满足的偏导关系推导目标恒等式。
+- **极坐标链式法则**：把 $u,v$ 对 $r,\theta$ 的偏导展开为对 $x,y$ 的偏导并进行整理。
+
 ## **Kai** 
 コーシー・リーマンの方程式は以下の式表せる。
 

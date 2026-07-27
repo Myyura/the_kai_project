@@ -50,6 +50,50 @@ I6: ST   [ δ ] 0(r5)
 
 (6) Consider that a branch predictor which memorizes the last branch result associated with its program counter is introduced to this processor. Answer the instructions per second (IPS) of this processor for executing the code of (1) when the size of the array is sufficiently large.
 
+### 题目描述
+
+回答下列问题。
+
+(1) 下列汇编代码依次读取内存中一个数组的元素，求全部元素之和，并把结果存入指定地址。`I1` 至 `I6` 是标签，`r1` 至 `r5` 是寄存器；初始时，`r1`、`r2`、`r5` 分别保存数组元素个数、数组首地址和结果存储地址。用适当的寄存器编号或立即数填写方框 $\alpha$ 至 $\delta$。
+
+```text
+I1: LD   r3   0(r2)
+I2: ADD  r4   r4   r3
+I3: ADDi r2   r2   8
+I4: ADDi r1   [ α ] [ β ]
+I5: BNZ  [ γ ] I1:
+I6: ST   [ δ ] 0(r5)
+```
+
+(2) 分别判断下列指令对的数据相关类型，并从 a～c 中选择：
+
+- (i) `I1` 与 `I2`；
+- (ii) `I1` 与 `I3`。
+
+选项为：a. 写后读（流相关，RAW）；b. 读后写（反相关，WAR）；c. 写后写（输出相关，WAW）。
+
+(3) 某流水线处理器的各阶段及处理时间如下，每个阶段在一个周期内完成，表中已包含缓解时钟偏斜等所需裕量；$1\text{ ps}=10^{-12}\text{ s}$。求处理器工作频率。
+
+|阶段|时间|
+|:---|:---|
+|取指（Fetch）|$250\text{ ps}$|
+|译码（Decode）|$100\text{ ps}$|
+|读寄存器（Register read）|$150\text{ ps}$|
+|执行（Execute）|$100\text{ ps}$|
+|访存（Memory access）|$300\text{ ps}$|
+|写寄存器（Register write）|$150\text{ ps}$|
+
+(4) 在该处理器上执行 (1) 的代码时，若干指令会产生流水线气泡。列出所有这类指令，并分别给出相关冒险类型。假设处理器单发射、顺序执行，且支持操作数前递。
+
+(5) 当数组元素数足够大时，求执行该代码的 CPI。假设取到分支指令后，为确定下一条指令地址，取指阶段停顿 $3$ 个周期。
+
+(6) 若加入一种按程序计数器记录该分支上一次结果的分支预测器，在数组足够大时求执行 (1) 代码的每秒指令数（IPS）。
+
+#### 考点
+
+- 流水线数据与控制冒险：要求在具体循环中识别装载—使用相关和分支停顿，并利用前递条件判断气泡。
+- 流水线性能分析：要求由最慢阶段确定时钟周期，再把缓存外的停顿、分支预测效果折算为 CPI 与 IPS。
+
 ## **Kai**
 ### (1)
 

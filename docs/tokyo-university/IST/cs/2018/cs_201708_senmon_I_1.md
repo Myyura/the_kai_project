@@ -47,6 +47,29 @@ Dijkstra(graph G = (V, E), start node s, length d(u, v) of each edge (u,v)) {
 
 (5) One can reduce the computational complexity of the algorithm by using a priority queue (binary heap) as $Q$. In that case, for each of the code fragments (i) and (ii) in the above pseudo-code, answer the total time spent in the code fragment during the whole run of the refined algorithm, using big $O$ notation.
 
+### 题目描述
+
+考虑在带权有向图上用 Dijkstra 算法求最短路径。顶点集记为 $V$、顶点数为
+$|V|$，边集记为 $E$、边数为 $|E|$。回答下列问题。
+
+（1）画出一个 $|V|=3$ 的输入图，使 Dijkstra 算法不能正确求出最短路径。
+
+（2）题中伪代码用数组 $c[v]$ 计算起点 $s$ 到各顶点 $v$ 的最短路径长度。填写空白
+$\boxed{a}$，即写出从当前取出的顶点 $v$ 沿出边到达 $u$ 时应执行的松弛操作。
+
+（3）以 $S$ 为起点，对题图运行该算法，展示 `while` 循环每次迭代时数组
+$c$ 中各值的变化。
+
+（4）分别用大 $O$ 记号给出整个算法运行过程中代码片段（i）和（ii）的总耗时。这里假设片段（i）每执行一次需 $O(|V|)$ 时间。
+
+（5）若用优先队列（二叉堆）实现 $Q$ 以降低复杂度，再分别给出改进算法中片段（i）和（ii）的总耗时。
+
+#### 考点
+
+- **Dijkstra 算法的适用条件**：通过含负权边的反例理解贪心确定最短距离所需的非负权假设。
+- **边松弛与执行跟踪**：填写距离更新语句，并逐轮跟踪暂定距离数组。
+- **最短路复杂度**：比较顺序扫描与二叉堆实现优先队列时取最小值、删除和更新键值的总成本。
+
 ## **Kai**
 ### (1)
 

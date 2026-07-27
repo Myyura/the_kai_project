@@ -15,6 +15,38 @@ tags:
 
 ## **Description**
 
+### 题目描述
+
+本文件原 Description 为空，现有解答又缺少第 1 题 (2) 和第 2 题 (1)，且没有原题图片或链接，因此无法无虚构地恢复这两小问。其余可确认题意如下。
+
+**第 1 题 (1)**：给定三个依赖实参数 $t$ 的三维向量 $\boldsymbol x_1,\boldsymbol x_2,\boldsymbol x_3$，以它们为列组成矩阵 $X$（原向量各分量未保存在文件中，解答仅给出 $\det X=-9t$）。
+
+1. 求三向量线性无关时 $t$ 的条件。
+2. 对 $\boldsymbol c=(a,b,c)^\top$，利用
+   $$
+   X^\top X\boldsymbol c
+   =\begin{pmatrix}
+   \boldsymbol x_1^\top(X\boldsymbol c)\\
+   \boldsymbol x_2^\top(X\boldsymbol c)\\
+   \boldsymbol x_3^\top(X\boldsymbol c)
+   \end{pmatrix}
+   $$
+   说明 $X^\top X\boldsymbol c=\boldsymbol0$ 与 $X\boldsymbol c=\boldsymbol0$ 的关系。
+3. 求 Gram 矩阵 $X^\top X$ 可逆时 $t$ 的条件。
+
+**第 2 题 (2)**：
+
+1. 对 $X\sim\operatorname{Bin}(n,p)$，求矩母函数 $E(e^{tX})$。
+2. 对 $Y\sim\operatorname{Poisson}(\lambda)$，求矩母函数 $E(e^{tY})$。
+3. 令 $Z_n\sim\operatorname{Bin}(n,\lambda/n)$，求 $E(e^{tZ_n})$ 的 $n\to\infty$ 极限，并由此说明二项分布向参数为 $\lambda$ 的 Poisson 分布收敛。
+
+#### 考点
+
+- **线性无关与行列式**：用列矩阵行列式 $\det X=-9t$ 判断三个向量何时线性无关。
+- **Gram 矩阵**：联系 $\ker(X^\top X)$ 与 $\ker X$，并用 $\det(X^\top X)=(\det X)^2$ 判断可逆性。
+- **矩母函数**：分别由二项式定理和指数级数求二项、Poisson 分布的矩母函数。
+- **二项分布的 Poisson 极限**：在 $p=\lambda/n$ 下取矩母函数极限并识别极限分布。
+
 ## **Kai**
 ### 問 1
 #### (1)

@@ -37,3 +37,29 @@ Design the circuit following the questions below.
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201208_2_p1.png" width="450" alt=""/>
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201208_2_p2.png" width="450" alt=""/>
 </figure>
+
+### 题目描述
+
+设计一个控制 LED 亮度的逻辑电路，连接与波形见原文图 1、2，并满足：
+
+- 输入为三位 `LEDSTR`（`INPUT0, INPUT1, INPUT2`）和频率 \(100\,\mathrm{kHz}\) 的 `CLOCK INPUT`，输出为直接连接 LED 驱动器的 `LEDOUT`；`LEDOUT=H` 时点亮，`LEDOUT=L` 时熄灭。
+- `LEDSTR` 指定亮度：为 0 时完全熄灭，为 5 时持续点亮；在 \(1\le\texttt{LEDSTR}\le4\) 时，感知亮度与其数值成正比；大于等于 6 时电路行为不限。
+- LED 以高于 \(100\,\mathrm{Hz}\) 的频率反复开关时，人眼感知亮度等于其点亮时间占比对应的平均值。
+- 只能使用 AND、OR、XOR、NOT 门和 D 触发器。
+
+按以下步骤设计：
+
+1. 设计一个循环计数的 3 位计数器：
+   \[
+   0\to1\to2\to3\to4\to0\to1\to\cdots.
+   \]
+2. 设计比较两个 3 位数的电路。
+3. 设计 LED PWM 电路：`LEDSTR` 为 1 时每 5 个时钟点亮 1 个时钟周期，为 2 时点亮 2 个周期，依此类推；为 5 时点亮 5 个周期，即始终点亮。
+4. 利用第 3 问电路，再设计一个电路，使 LED 以 `LEDSTR` 指定的亮度点亮一次、熄灭一次，且每次点亮与熄灭均持续一秒以上。
+
+#### 考点
+
+- **计数器与 D 触发器**：由模 5 状态循环推导三位同步计数器的次态逻辑。
+- **三位比较器**：从高位到低位组合相等与大小关系，产生比较结果。
+- **脉宽调制**：比较模 5 计数值与亮度码，以占空比 \(0/5\) 至 \(5/5\) 控制 LED 平均亮度。
+- **多级分频**：从 \(100\,\mathrm{kHz}\) 时钟构造足够低频的计数链，使亮灭阶段各持续至少一秒。

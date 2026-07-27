@@ -41,6 +41,33 @@ $$
 - (a) Find a real number $a$ for which the function $e^{2x}(\cos ay+i\sin ay)$ is holomorphic.
 - (b) Consider a holomorphic function $w(z)$. Suppose the real part of the function $w(z)$ is given as $\operatorname{Re}(w(z))=\cos x\cosh y,$ where $\operatorname{Re}(w(z))$ denotes the real part of the function $w(z)$. Then, find a formula for the function $w(z)$.
 
+### 题目描述
+
+1. 设 $a,b>0$，$\mathbb R$ 为实数集。对椭圆区域
+   $$
+   D=\left\{(x,y)\in\mathbb R^2\ \middle|
+   \frac{x^2}{a^2}+\frac{y^2}{b^2}\le1\right\},
+   $$
+   计算
+   $$
+   \iint_D(x^2+y^2)\,dx\,dy.
+   $$
+2. 使用拉普拉斯变换求解初值问题
+   $$
+   y''+4y=\cosh x-\sinh x,\qquad
+   y(0)=2,\quad y'(0)=3,
+   $$
+   其中 $y'$ 表示 $y(x)$ 对 $x$ 的一阶导数。
+3. 令 $z=x+iy$，其中 $x,y$ 为实数、$i=\sqrt{-1}$。
+   - 求使 $e^{2x}(\cos ay+i\sin ay)$ 为全纯函数的实数 $a$；
+   - 设 $w(z)$ 全纯，且 $\operatorname{Re}w(z)=\cos x\cosh y$，求 $w(z)$ 的一般表达式。
+
+#### 考点
+
+- **二重积分与椭圆变量代换**：用缩放极坐标参数化椭圆，计算 Jacobian 后积分二次函数。
+- **拉普拉斯变换求微分方程**：将二阶初值问题变为代数方程，作部分分式分解并逆变换。
+- **柯西–黎曼方程**：由实部、虚部偏导关系确定参数 $a$，并从给定实部求调和共轭函数。
+
 ## Kai
 ### (1)
 

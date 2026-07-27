@@ -26,6 +26,39 @@ $$
 
 が $f(A)$ の列空間の基底となることを示せ。
 
+### 题目描述
+
+对任意矩阵 $A$ 定义
+
+$$
+f(A)=\frac1{\sqrt2}
+\begin{pmatrix}
+A&A\\
+A&-A
+\end{pmatrix}.
+$$
+
+回答下列问题：
+
+1. 证明若 $A$ 是正交矩阵，则 $f(A)$ 也是正交矩阵。
+2. 令 $A_0=(1)$，并对任意整数 $n\ge1$ 递归定义 $A_n=f(A_{n-1})$。设 $\boldsymbol1=(1,1,\ldots,1)$ 是 $2^n$ 维行向量，求 $\boldsymbol1A_n$。
+3. 若 $\{\boldsymbol v_1,\ldots,\boldsymbol v_d\}$ 是 $A$ 的列空间（由 $A$ 的列向量张成的子空间）的一组基，证明
+   $$
+   \left\{
+   \binom{\boldsymbol v_1}{\boldsymbol v_1},\ldots,
+   \binom{\boldsymbol v_d}{\boldsymbol v_d},
+   \binom{\boldsymbol v_1}{-\boldsymbol v_1},\ldots,
+   \binom{\boldsymbol v_d}{-\boldsymbol v_d}
+   \right\}
+   $$
+   是 $f(A)$ 列空间的一组基。
+
+#### 考点
+
+- **正交矩阵**：通过分块矩阵乘法验证 $f(A)^\top f(A)=I$。
+- **递归分块矩阵**：分析 Hadamard 型递归结构，求全 1 行向量与 $A_n$ 的乘积。
+- **列空间与线性无关**：描述 $f(A)$ 的列向量张成空间，并证明所给 $2d$ 个分块向量既张成该空间又线性无关。
+
 ## **Kai** 
 ### (1)
 $f(A)$ が直交行列 $\Leftrightarrow$ $(f(A))^{-1} = (f(A))^{-1}$ を示す

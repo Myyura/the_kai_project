@@ -34,6 +34,42 @@ $X_t$ は以下の通信路行列によって与えられる通信路を介し�
 
 (5) $Y_t = \alpha$ かつ $Y_{t + 2} = \gamma$ のときの $Y_{t + 1}$ のエントロピー $H(Y_{t + 1}|Y_t = \alpha,Y_{t + 2} = \gamma)$ を求めよ。
 
+### 题目描述
+
+状态转移图给出一个简单 Markov 信息源，输出序列
+$X_1,X_2,\ldots$，其中 $X_t\in\{A,B\}$：
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_201908_senmon_s_4_p1.png" width="350" alt="Markov 信息源状态转移图"/>
+</figure>
+
+$X_t$ 通过下列信道传输，接收
+$Y_t\in\{\alpha,\beta,\gamma\}$：
+
+| 输入 | $\alpha$ | $\beta$ | $\gamma$ |
+|---|---:|---:|---:|
+| $A$ | $2/3$ | $1/3$ | $0$ |
+| $B$ | $0$ | $1/3$ | $2/3$ |
+
+回答：
+
+1. 求该信道的信道容量。
+2. 对接收序列统计 $\alpha,\beta,\gamma$ 的出现次数。时间充分长时，按出现次数从多到少排列三个符号。
+3. 求 Markov 信息源的熵率
+   $$
+   \lim_{t\to\infty}\frac1tH(X_1,\ldots,X_t).
+   $$
+4. 当 $Y_t=\alpha$ 时，求
+   $H(Y_{t+1}\mid Y_t=\alpha)$。
+5. 当 $Y_t=\alpha$ 且 $Y_{t+2}=\gamma$ 时，求
+   $H(Y_{t+1}\mid Y_t=\alpha,Y_{t+2}=\gamma)$。
+
+#### 考点
+
+- **离散无记忆信道容量**：利用信道对称性或互信息最大化求三输出信道容量。
+- **Markov 信源平稳分布与熵率**：由题图转移概率求长期状态频率和条件熵平均。
+- **隐 Markov 输出过程**：结合信源转移与信道观测，计算输出符号长期频率及给定单侧/双侧观测时的条件熵。
+
 ## **Kai**
 ### (1)
 

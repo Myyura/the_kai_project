@@ -57,6 +57,29 @@ GPT-5.6 Sol
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_chem_3_p5.png" width="500" alt=""/>
 </figure>
 
+### 题目描述
+
+本题含三部分有机化学问题，反应底物、试剂和立体结构均以原 Description 中的本地图示为准。
+
+I. 写出图示九组反应的主要产物 A 至 K。反应依次涉及 PCC 氧化，烯烃臭氧分解，Michael 加成—分子内羟醛缩合的 Robinson 环化，Stork 烯胺烷基化，Diels–Alder 环加成，炔烃溶解金属还原，格氏试剂对不饱和醛的加成，$\ce{LiAlD4}$ 还原腈，以及 amino-Claisen 重排。
+
+II. 化合物 L 经图示多步反应得到主产物 N 和副产物 O，其中 Ts 为对甲苯磺酰基、py 为吡啶。画出 N，并从环己烷构象和 E2 机理解释其优先生成原因；另设计一条从 L 出发、使 O 成为主产物的多步路线。
+
+III.
+
+1. 图示化合物 P 反应得到 Q；Q 的 $^1$H NMR 在 $\delta=7.77,8.26$ ppm 处出现耦合常数相同的两个双峰。由反应和芳环对称性确定 Q 的结构。
+2. 从苯出发设计一条多步路线，以图示化合物 R 为主产物。
+3. 在肝脏羟化酶催化的苯丙氨酸羟化中，重氢标记底物 S 经芳烃氧化物中间体 T 生成重氢酪氨酸 U。画出 T 到 U 的完整机理，以弯箭标出开环、重氢 1,2-迁移和恢复芳香性的电子流。
+
+#### 考点
+
+- Robinson 环化：串联 Michael 加成、分子内羟醛反应和脱水构建并环烯酮骨架。
+- Stork 烯胺烷基化：先把酮转为烯胺进行 $\mathrm S_N2$ 碳烷基化，再水解恢复羰基。
+- Diels–Alder 与 amino-Claisen 重排：判断周环反应的新键位置、区域选择性以及烯丙基从氮向芳环邻位的迁移。
+- 环己烷反式二轴 E2 消除：在椅式构象中寻找与离去基反平面的轴向 $\beta$-H，并比较烯烃稳定性。
+- 经 Friedel–Crafts 酰基化合成烷基苯：先以不重排的酰鎓离子接入碳链，再还原羰基避免烷基正离子重排。
+- 芳烃氧化物 NIH 迁移：通过质子化开环、氢或重氢 1,2-迁移及再芳构化解释同位素位置变化。
+
 ## **Kai**
 ### I
 #### I.1 A

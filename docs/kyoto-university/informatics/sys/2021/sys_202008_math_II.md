@@ -79,6 +79,87 @@ $$
 
 (iii) (A), (B), (C) のいずれかが満たされるとき、式 (1) が成り立つことを証明せよ。
 
+### 题目描述
+
+1. 连续函数 $f:[-1,1]\to\mathbb R$ 满足
+
+   $$
+   f(2x^2-1)=2xf(x).
+   $$
+
+   再定义
+
+   $$
+   \mathbb G=\{t\in\mathbb R\mid t\ne n\pi,\ n\in\mathbb Z\},
+   $$
+
+   以及函数 $g:\mathbb G\to\mathbb R$：
+
+   $$
+   g(t)=\frac{f(\cos t)}{\sin t}.
+   $$
+
+   回答下列问题。
+
+   （i）求 $f(-1)$ 与 $f(1)$。
+
+   （ii）证明 $g$ 是奇函数。
+
+   （iii）证明对任意 $t\in\mathbb G$，都有 $g(t)=g(t/2)$。
+
+   （iv）证明
+
+   $$
+   g\left(1+\frac{n\pi}{2^k}\right)=g(1),
+   \qquad n,k\in\mathbb Z.
+   $$
+
+   （v）求函数 $f$，并写出推导过程。
+
+2. 设可微函数 $f:(a,b)\to(0,\infty)$ 与 $g:(a,b)\to\mathbb R$ 满足以下三组条件之一，其中 $a<b$：
+
+   - （A）$\displaystyle\lim_{x\to a+0}f(x)=1$，且 $\displaystyle\lim_{x\to a+0}g(x)=\pm\infty$；
+   - （B）$\displaystyle\lim_{x\to a+0}f(x)=\infty$，且 $\displaystyle\lim_{x\to a+0}g(x)=0$；
+   - （C）$\displaystyle\lim_{x\to a+0}f(x)=0$，且 $\displaystyle\lim_{x\to a+0}g(x)=0$。
+
+   此时有
+
+   $$
+   \lim_{x\to a+0}(f(x))^{g(x)}
+   =
+   \exp\!\left(
+   -\lim_{x\to a+0}
+   \frac{f'(x)(g(x))^2}{f(x)g'(x)}
+   \right).
+   \tag{1}
+   $$
+
+   （i）求下列极限：
+
+   1. $\displaystyle\lim_{x\to+0}(\sin x)^{\sqrt{x}}$；
+   2. $\displaystyle\lim_{x\to+0}
+      \left(\frac2\pi\arctan\frac1x\right)^{1/x}$，
+      其中对任意 $y\in\mathbb R$，$-\frac\pi2<\arctan y<\frac\pi2$。
+
+   （ii）设函数 $h:\mathbb R\to\mathbb R$ 二阶可微，并对某个正实数 $p$ 满足
+
+   $$
+   h''(x)+h(x)=0,\qquad
+   \lim_{x\to+0}(h(x))^{1/x}=p,\qquad
+   \lim_{x\to+0}h(x)>0.
+   $$
+
+   求函数 $h$。
+
+   （iii）证明只要（A）、（B）、（C）之一成立，公式（1）便成立。
+
+#### 考点
+
+- **函数方程与稠密性**：利用倍角恒等式、连续性及稠密点集确定函数。
+- **不定式幂极限**：对 $f(x)^{g(x)}$ 取对数，并用 L’Hôpital 法则处理 $1^\infty$、$\infty^0$、$0^0$ 型。
+- **二阶常系数微分方程**：由通解和边界极限确定积分常数。
+- **极限公式证明**：把幂函数极限归结为 $g\log f$ 的极限并严格验证变形。
+
 
 ## **Kai**
 ### 問1

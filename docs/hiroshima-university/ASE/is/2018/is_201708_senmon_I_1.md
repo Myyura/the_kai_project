@@ -33,6 +33,23 @@ Let $A = \begin{bmatrix} 1 & 3 & 3 \\ 1 & 2 & -4 \\ -1 & 0 & 1 \end{bmatrix}$.
 
 (4) Show that the eigenvalues of the real alternative matrix are $0$ or purely imaginary numbers.
 
+### 题目描述
+
+给定
+
+$$
+A=\begin{bmatrix}1&3&3\\1&2&-4\\-1&0&1\end{bmatrix}.
+$$
+
+1. 将 $A$ 分解为对称矩阵 $S$（$S^T=S$）与实反对称矩阵 $T$（$T^T=-T$）之和 $A=S+T$，其中 $A^T$ 表示 $A$ 的转置。
+2. 求 $S$ 的全部特征值及各特征值对应的特征空间的一组基。
+3. 求 $T$ 的全部特征值及各特征值对应的特征空间的一组基。
+4. 一般地，证明实反对称矩阵的特征值只能是 $0$ 或纯虚数。
+
+#### 考点
+
+- 特征值与特征向量：先由矩阵的对称与反对称分解得到 $S,T$，再分别求其谱与特征空间，并利用反对称性证明实反对称矩阵的特征值类型。
+
 ## **Kai**
 ### (1)
 Let $S = \begin{bmatrix} a & b & c \\ b & d & e \\ c & e & f \end{bmatrix}$ and $T = \begin{bmatrix} 0 & g & h \\ -g & 0 & i \\ -h & -i & 0 \end{bmatrix}$. Then we have

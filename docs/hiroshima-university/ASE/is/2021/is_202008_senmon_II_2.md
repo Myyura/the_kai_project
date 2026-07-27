@@ -41,6 +41,21 @@ Let $N_v$ be a set of adjacent nodes of node $v$. The following algorithm $\text
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202008_senmon_II_2_p1.png" width="800" height="350" alt=""/>
 </figure>
 
+### 题目描述
+
+考虑有向图 $G=(V,E,l)$，其中 $V$ 为顶点集、$E$ 为边集、$l(e)$ 为边 $e$ 的长度，$N_v$ 表示顶点 $v$ 的邻接顶点集。图中给出的算法 $\mathbf{Shortest}(G,s)$ 以 $s$ 为起点，计算从 $s$ 到其他各顶点的最短距离。
+
+1. 表 1 记录以图 $G_1$ 为输入、顶点 $1$ 为起点执行 $\mathbf{Shortest}(G_1,1)$ 时，各轮中每个顶点 $v$ 的 $d(v)$ 值；补全该表。
+2. 当 $G$ 的所有边长均非负时，证明算法结束后，对每个 $v\in V$，$d(v)$ 都等于从 $s$ 到 $v$ 的最短距离。
+3. 证明当 $G$ 中存在负长度边时，$\mathbf{Shortest}(G,s)$ 可能无法求出从 $s$ 出发的最短距离。
+4. 给出 $\mathbf{Shortest}(G,s)$ 的最坏运行时间并说明理由。
+
+算法、图 $G_1$ 与待补全的表 1 均见题中图示。
+
+#### 考点
+
+- 最短路问题：跟踪基于贪心松弛的单源最短路算法，证明其在非负边权下的正确性，分析负边反例及堆实现的复杂度。
+
 ## **Kai**
 ### (1)
 

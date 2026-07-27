@@ -63,6 +63,66 @@ BuildMaxHeap(A)
 
 (3) 図１のアルゴリズムの記法ならい, 配列 A をヒープソートでソートする手続き HeapSort(A) を記述せよ. HeapSort(A) 記述する際, 図１の手続き MaxHeapify と手続き BuildMaxHeap を用いること.
 
+### 题目描述
+
+【问题 1】对于给定数列 $a_1,a_2,\ldots,a_n$，若 $i<j$ 且
+$a_i>a_j$（$1\le i,j\le n$），则称 $(a_i,a_j)$ 为一个逆序对。
+
+1. 求数列 $1,6,3,5,2,4,7$ 的逆序对个数。
+2. 给出一种能高效统计任意数列 $a_1,a_2,\ldots,a_n$ 中逆序对个数的算法。
+
+【问题 2】下列算法处理最大堆。数组 `A[1..A.length]` 满足最大堆性质，是指
+
+$$
+\mathrm{A}[\mathrm{Parent}(i)]\ge \mathrm{A}[i]\qquad(2\le i\le \mathrm{A.length}),
+$$
+
+即除根节点 `A[1]` 外，每个节点 $i$ 的值均不大于其父节点
+$\mathrm{Parent}(i)$ 的值；`A.length` 为数组元素个数，`floor(i)` 表示下取整 $\lfloor i\rfloor$。所用伪代码如下：
+
+```text
+Parent(i)
+    return floor(i/2)
+
+Left(i)
+    return 2*i
+
+Right(i)
+    return 2*i + 1
+
+MaxHeapify(A, i)
+    l = Left(i)
+    r = Right(i)
+    largest = i
+    if l <= A.heapSize && A[l] > A[i]
+        largest = l
+    if r <= A.heapSize && A[r] > A[largest]
+        largest = r
+    if largest != i
+        exchange A[i] with A[largest]
+        MaxHeapify(A, largest)
+
+BuildMaxHeap(A)
+    A.heapSize = A.length
+    for i = floor(A.length / 2) downto 1
+        MaxHeapify(A, i)
+```
+
+回答：
+
+1. 判断数组 $\mathrm{A}=\{25,18,14,6,13,10,2,5,7,11\}$ 是否满足最大堆性质，并说明理由。
+2. 展示对数组
+   $\mathrm{A}=\{27,15,5,18,14,10,3,12,7,11,4,8,6,1\}$
+   执行 `MaxHeapify(A, 3)` 的过程。
+3. 沿用上述算法的记法，写出使用 `MaxHeapify` 与 `BuildMaxHeap` 对数组 `A` 排序的过程 `HeapSort(A)`。
+
+#### 考点
+
+- **分治法统计逆序对**：利用归并过程跨左右区间累计逆序对，以优于逐对检查的方式完成计数。
+- **二叉最大堆**：根据数组下标表示的父子关系检验堆性质，并跟踪 `MaxHeapify` 的交换与递归下沉过程。
+- **堆排序**：在建成最大堆后反复取出堆顶、缩小堆范围并恢复堆性质，写出完整排序伪代码。
+- **算法设计与复杂度意识**：比较直接枚举与分治或堆操作的效率，并准确表达算法步骤。
+
 ## **Kai**
 ### 【問 1】
 #### (1)

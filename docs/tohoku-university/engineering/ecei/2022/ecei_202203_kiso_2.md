@@ -29,6 +29,29 @@ $Z_{ab}$ を $\omega_0,L_1,M,R_1,R_2$ で表わせ。ならびに、$I_1$ と $I
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202203_kiso_2_electrical_circuit.png" width="500"/>
 </figure>
 
+### 题目描述
+
+图 2 为两个具有互感的线圈电路。电源电压和角频率为 $E,\omega$，一次、二次侧电阻为 $R_1,R_2$，自感为 $L_1,L_2$，互感为 $M$，二次侧负载为 $Z$；电流分别为 $I_1,I_2$，端口 c–d 电压为 $V_2$。
+
+1. 画出该耦合电路的 T 形等效电路。
+2. 将二次侧 c–d 短路，用 $\omega,L_2,M,R_2$ 表示电流幅值比 $|I_2|/|I_1|$，并求 $\omega=0$ 时的值。
+3. 移除 $Z$ 并将 c–d 开路。当
+   $$R_1=10\,\Omega,\ R_2=5\,\Omega,\ L_1=10\,\mathrm{mH},\
+   L_2=M=5\,\mathrm{mH},\ \omega=1000\,\mathrm{rad/s}$$
+   时，求开路电压比 $|V_2|/|E|$。
+4. 用 $\omega,L_1,L_2,M,R_1,R_2,Z$ 表示从 a–b 看入的阻抗
+   $$Z_{ab}=E/I_1.$$
+5. 当负载为理想电容 $C$，且
+   $$\omega_0=\frac1{\sqrt{L_2C}},$$
+   用 $\omega_0,L_1,M,R_1,R_2$ 表示 $Z_{ab}$，并证明 $I_1,I_2$ 的相位差为 $\pi/2$。
+
+#### 考点
+
+- **互感线圈等效电路**：把耦合电感转换为 T 形网络。
+- **短路与开路特性**：分别求电流传输比和开路电压比。
+- **反射阻抗**：推导二次负载通过互感反映到一次侧的输入阻抗。
+- **LC 谐振**：在二次侧电抗抵消时化简阻抗并判断电流相位。
+
 ## **Kai** 
 ### (1)
 略

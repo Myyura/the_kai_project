@@ -40,6 +40,29 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202103_kiso_2_electrical_circuit.png" width="400"/>
 </figure>
 
+### 题目描述
+
+如图 2，电感 $L$、电阻 $R$、电容 $C$ 串联。电容预先充电至电压 $E_0$，在 $t=0$ 闭合开关 $S$。对 $t\ge0$ 回答：
+
+1. 以电容电荷 $q(t)$ 为变量，写出电路微分方程及初始条件。
+2. 令特解 $q_s(t)=e^{st}$，写出关于 $s$ 的特征方程并求根。
+3. 当 $R^2=4L/C$（临界阻尼）时，已知
+   $$
+   q(t)=CE_0e^{-\frac{R}{2L}t}\left(1+\frac{Rt}{2L}\right).
+   $$
+   求电流 $i(t)$，并画出含极值位置的波形概图。
+4. 求 $0\le t<\infty$ 内电阻消耗的能量，并证明它等于 $t=0$ 时电容储存的静电能。必要时可用
+   $$
+   \int_0^\infty e^{-at}t^{n-1}\,dt=\frac{(n-1)!}{a^n}.
+   $$
+
+#### 考点
+
+- **串联 RLC 自由响应**：由 KVL 建立二阶常系数微分方程。
+- **特征根与阻尼状态**：识别临界阻尼重根并写出一般解。
+- **电荷与电流关系**：由 $i=-dq/dt$（按选定方向）推导电流波形与极值。
+- **能量守恒**：积分焦耳热并与初始电容能 $\frac12CE_0^2$ 比较。
+
 ## **Kai** 
 ### (1) - (3)
 略

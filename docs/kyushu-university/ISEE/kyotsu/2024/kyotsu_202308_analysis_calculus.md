@@ -36,6 +36,30 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2024_analysis_calculus_p1.png" width="555" height="395" alt=""/>
 </figure>
 
+### 题目描述
+
+1. 计算广义积分
+   $$
+   I=\int_0^\infty x^5e^{-x^4}\,dx.
+   $$
+   可以不加证明地使用 $\int_{-\infty}^\infty e^{-x^2}\,dx=\sqrt\pi$。
+2. 求微分方程
+   $$
+   \frac{dy}{dx}+y=x\sinh x
+   $$
+   的通解。
+3. 对复函数
+   $$
+   f(z)=\frac1{z^4+1},
+   $$
+   求全部极点；再对上图所示、半径 $R>1$ 的半圆闭路 $C$，计算 $\oint_Cf(z)\,dz$。
+
+#### 考点
+
+- **广义积分**：通过幂次代换把积分化为 Gamma/高斯型积分并计算。
+- **一阶线性微分方程**：使用积分因子，并处理含双曲正弦的非齐次项。
+- **留数定理**：求 $z^4+1$ 的全部零点，判断半圆轮廓内的极点并汇总留数。
+
 ## **Kai** - By Casablanca
 ### (1)
 

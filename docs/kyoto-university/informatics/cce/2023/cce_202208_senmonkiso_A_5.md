@@ -32,6 +32,34 @@ Answer all the following questions.
 - (c) Consider communications with $(7,4)$ Hamming code through $C$. Evaluate the probability of decoding failure assuming that any correctable errors are corrected.
 - (d) Find the channel capacity of a cascade of two BSCs with crossover probabilities $p$ and $q$.
 
+### 题目描述
+
+回答全部问题。
+
+1. 一个一般通信系统由信源、信宿、信道编码器、信道译码器、信源编码器、信源译码器和通信信道组成。画出其框图。
+2. 平稳无记忆信源 $S$ 以概率 $0.6,0.16,0.12,0.08,0.04$ 产生符号 $A,B,C,D,E$。可使用 $\log_2 3=1.6$、$\log_2 5=2.3$。
+   1. 说明“无记忆”和“平稳”的定义。
+   2. 为 $S$ 构造一个二元 Huffman 码。
+   3. 求该码的每符号平均码长。
+   4. 求 $S$ 的熵。
+3. 设 $C$ 为交叉概率 $p$ 的无记忆二元对称信道（BSC）。
+   1. 写出 $C$ 的信道矩阵。
+   2. 证明其信道容量为
+      $$
+      1+p\log_2p+(1-p)\log_2(1-p),
+      $$
+      并画出容量关于 $p$ 的图像。
+   3. 通过 $C$ 使用 $(7,4)$ Hamming 码通信，假设所有可纠正错误都被纠正，求译码失败概率。
+   4. 求交叉概率分别为 $p,q$ 的两个 BSC 串联后的信道容量。
+
+#### 考点
+
+- **通信系统基本模型**：按信源编码、信道编码、信道传输及对应逆过程正确排列模块。
+- **Huffman 编码与熵**：根据给定概率构造二元前缀码，计算平均码长与信源熵。
+- **二元对称信道容量**：从互信息最大化推导 $1-H_2(p)$，分析其随交叉概率的变化。
+- **Hamming 码译码失败概率**：利用 $(7,4)$ 码纠正一位错误的能力，计算至少两位出错的概率。
+- **串联信道**：求两个独立 BSC 的等效交叉概率，再代入容量公式。
+
 ## **Kai**
 ### (1) 
 Source $\rightarrow$ source encoder $\rightarrow$ channel encoder $\rightarrow$ Communication channel $\rightarrow$ channel decoder $\rightarrow$ source decoder $\rightarrow$ destination 

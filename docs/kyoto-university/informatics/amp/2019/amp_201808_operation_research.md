@@ -65,6 +65,59 @@ $$
 
 ### English Version
 
+### 题目描述
+
+设 $h:\mathbb R^n\to\mathbb R$ 为凸函数，并定义
+
+$$
+g(t)=2^t,\qquad f(\boldsymbol x)=g(h(\boldsymbol x)).
+$$
+
+给定向量 $\boldsymbol b^i\in\mathbb R^n$（$i=1,\ldots,m$），定义
+
+$$
+\begin{aligned}
+\Delta&=\{\boldsymbol b^1,\boldsymbol b^2,\ldots,\boldsymbol b^m\},\\
+\Gamma&=\left\{\boldsymbol\alpha\in\mathbb R^m\ \middle|\
+\sum_{i=1}^m\alpha_i=1,\ \alpha_i\geqq0\right\},\\
+\Omega&=\left\{\boldsymbol x\in\mathbb R^n\ \middle|\
+\boldsymbol x=\sum_{i=1}^m\alpha_i\boldsymbol b^i,\
+\boldsymbol\alpha\in\Gamma\right\}.
+\end{aligned}
+$$
+
+考虑
+
+$$
+(\mathrm P):\qquad
+\min_{\boldsymbol x\in\Omega}f(\boldsymbol x).
+$$
+
+回答：
+
+1. 证明对任意 $\boldsymbol\alpha\in\Gamma$，
+   $$
+   h\left(\sum_{i=1}^m\alpha_i\boldsymbol b^i\right)
+   \leqq\sum_{i=1}^m\alpha_i h(\boldsymbol b^i).
+   $$
+2. 证明 $g$ 与 $f$ 都是凸函数。
+3. 写出下列以 $\alpha_i$ 为变量的线性规划的 KKT 条件：
+   $$
+   \begin{aligned}
+   &\text{最小化}\quad\sum_{i=1}^m f(\boldsymbol b^i)\alpha_i\\
+   &\text{满足}\quad\sum_{i=1}^m\alpha_i=1,\qquad
+   \alpha_i\geqq0\ (i=1,\ldots,m).
+   \end{aligned}
+   $$
+4. 令 $X^*$ 为 P 的最优解集合，证明
+   $X^*\cap\Delta\ne\varnothing$，即至少有一个给定点 $\boldsymbol b^i$ 本身是最优解。
+
+#### 考点
+
+- **Jensen 不等式与凸组合**：把凸包内任意点表示成给定点的凸组合，并估计 $h$ 及复合函数的值。
+- **凸函数的单调复合**：利用 $2^t$ 的凸性与单调递增性证明 $f=2^h$ 凸。
+- **单纯形线性规划的 KKT 条件**：分析凸组合权重上的线性目标，进而证明原凸包优化至少在一个生成点处达到最优。
+
 ## **Kai**
 ### (i)
 

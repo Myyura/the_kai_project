@@ -59,6 +59,50 @@ $$
 
 ### English Version
 
+### 题目描述
+
+给定
+$\boldsymbol Q\in\mathbb R^{n\times n}$、
+$\boldsymbol q,\boldsymbol u\in\mathbb R^n$，满足：
+
+1. $\boldsymbol Q+\boldsymbol I$ 是半正定对称矩阵；
+2. $\boldsymbol Q\boldsymbol u+\boldsymbol u+\boldsymbol q=\boldsymbol0$；
+3. $\boldsymbol u^\top\boldsymbol u=1$，
+
+其中 $\boldsymbol I$ 为 $n$ 阶单位矩阵。定义
+
+$$
+f(\boldsymbol x)=\frac12\boldsymbol x^\top\boldsymbol Q\boldsymbol x+
+\boldsymbol q^\top\boldsymbol x,\qquad
+g(\boldsymbol x)=f(\boldsymbol x)+\frac12\boldsymbol x^\top\boldsymbol x.
+$$
+
+考虑
+
+$$
+\begin{aligned}
+(\mathrm{P1}):\quad&\min f(\boldsymbol x)
+\quad\text{满足 }\boldsymbol x^\top\boldsymbol x\leqq1,\\
+(\mathrm{P2}):\quad&\min g(\boldsymbol x)
+\quad\text{满足 }\boldsymbol x^\top\boldsymbol x\leqq1.
+\end{aligned}
+$$
+
+回答：
+
+1. 证明对任意 $\boldsymbol x,\boldsymbol y\in\mathbb R^n$，
+   $$
+   g(\boldsymbol x)\geqq g(\boldsymbol y)+
+   \nabla g(\boldsymbol y)^\top(\boldsymbol x-\boldsymbol y).
+   $$
+2. 求 P2 的一个全局最优解，并证明其全局最优性。
+3. 证明 $\boldsymbol u$ 是 P1 的全局最优解。
+
+#### 考点
+
+- **二次函数凸化**：利用 $\boldsymbol Q+\boldsymbol I\succeq0$ 证明加入二次正则项后的 $g$ 凸，并得到一阶支撑不等式。
+- **信赖域二次子问题**：借已知边界驻点 $\boldsymbol u$ 与凸化函数的全局最优性，证明其也是原非凸球约束二次问题的全局最优解。
+
 ## **Kai**
 ### (i)
 

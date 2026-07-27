@@ -13,6 +13,55 @@ tags:
 
 ## **Description**
 
+### 题目描述
+
+> 缺失边界：原 `Description` 及本地 Git 历史均未保存题干。`Kai` 完整保留了第 (1) 题的 (i)—(iv)，但第 (2) 题只有空标题，因此以下只整理能够唯一恢复的第 (1) 题；第 (2) 题的条件与各小问无法恢复。
+
+1. 回答下列有关矩阵指数与线性常微分方程组的问题。
+   1. 对方阵 $A$ 和可逆矩阵 $P$，证明
+
+      $$
+      e^{PAP^{-1}}=Pe^AP^{-1}.
+      $$
+
+   2. 对初值问题
+
+      $$
+      \frac{d\boldsymbol{x}}{dt}=A\boldsymbol{x},\qquad
+      \boldsymbol{x}(0)=\boldsymbol{x}_0,
+      $$
+
+      用矩阵指数表示解。
+   3. 若 $A$ 可对角化，且
+
+      $$
+      A=P
+      \begin{bmatrix}
+      \lambda_1&&\\
+      &\ddots&\\
+      &&\lambda_n
+      \end{bmatrix}
+      P^{-1},
+      $$
+
+      用特征值 $\lambda_1,\ldots,\lambda_n$ 和矩阵 $P$ 写出 $\boldsymbol{x}(t)$。
+   4. 对
+
+      $$
+      A=\begin{bmatrix}1&1\\-2&4\end{bmatrix},\qquad
+      \boldsymbol{x}(0)=
+      \begin{bmatrix}x_{10}\\x_{20}\end{bmatrix},
+      $$
+
+      通过特征值、特征向量和矩阵对角化，求上述初值问题的显式解。
+
+#### 考点
+
+- 矩阵指数：从幂级数定义出发，证明矩阵指数在相似变换下满足 $e^{PAP^{-1}}=Pe^AP^{-1}$。
+- 常微分方程组：验证 $e^{tA}$ 的导数与初值，构造常系数线性系统的状态转移矩阵和初值解。
+- 矩阵对角化：把 $A$ 分解为 $P\operatorname{diag}(\lambda_i)P^{-1}$，将矩阵指数化为各特征模态 $e^{\lambda_i t}$。
+- 特征值与特征向量计算：对给定的 $2\times2$ 矩阵求谱分解，并把初值在特征向量基下展开以得到两个分量的显式表达式。
+
 ## **Kai**
 ### (1)
 #### (i)

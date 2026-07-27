@@ -72,6 +72,58 @@ $$
 を $x_{0},y_{0},z_{0}$ の関数とみなして，$f(x_{0},y_{0},z_{0})$ の最大値および最小値お求めよ．ただし，$x_{0}^2+y_{0}^2+z_{0}^2 \neq 0$ とする．
 
 
+### 题目描述
+
+三维向量满足递推
+$$
+\begin{pmatrix}x_{n+1}\\y_{n+1}\\z_{n+1}\end{pmatrix}
+=A\begin{pmatrix}x_n\\y_n\\z_n\end{pmatrix},
+\qquad n=0,1,2,\ldots,
+$$
+其中 $x_0,y_0,z_0,\alpha$ 为实数，
+$$
+A=\begin{pmatrix}
+1-2\alpha&\alpha&\alpha\\
+\alpha&1-\alpha&0\\
+\alpha&0&1-\alpha
+\end{pmatrix},
+\qquad0<\alpha<\frac13.
+$$
+回答下列问题。
+
+（1）用 $x_0,y_0,z_0$ 表示 $x_n+y_n+z_n$。
+
+（2）求 $A$ 的三个特征值 $\lambda_1,\lambda_2,\lambda_3$ 及对应特征向量
+$v_1,v_2,v_3$。
+
+（3）用这些特征值和特征向量表示矩阵 $A$。
+
+（4）用 $x_0,y_0,z_0,\alpha$ 显式表示
+$(x_n,y_n,z_n)^{\mathsf T}$。
+
+（5）求
+$$
+\lim_{n\to\infty}
+\begin{pmatrix}x_n\\y_n\\z_n\end{pmatrix}.
+$$
+
+（6）在 $x_0^2+y_0^2+z_0^2\ne0$ 下，把
+$$
+f(x_0,y_0,z_0)=
+\frac{(x_0,y_0,z_0)
+\begin{pmatrix}x_{n+1}\\y_{n+1}\\z_{n+1}\end{pmatrix}}
+{(x_0,y_0,z_0)
+\begin{pmatrix}x_n\\y_n\\z_n\end{pmatrix}}
+$$
+视为初始向量的函数，求其最大值和最小值。
+
+#### 考点
+
+- **特征值与特征向量**：利用实对称矩阵的正交特征分解识别守恒方向和衰减方向。
+- **矩阵对角化与矩阵幂**：由 $A^n$ 求递推序列的显式表达式。
+- **矩阵极限**：根据 $0<\alpha<1/3$ 判断各特征值幂的极限。
+- **Rayleigh 商**：将比值化到特征基中，以谱的极值刻画最大、最小值。
+
 ## **Kai**
 ### (1)
 By the following given equations:

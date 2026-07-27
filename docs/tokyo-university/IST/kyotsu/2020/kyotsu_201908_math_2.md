@@ -66,6 +66,67 @@ $$
 と表せることを示せ。
 
 
+### 题目描述
+
+考虑平面光滑曲线
+$\boldsymbol p(t)=(p(t),q(t))$，$t\in[a,b]$，且
+$\mathrm d\boldsymbol p/\mathrm dt\ne(0,0)$。曲线从 $a'$ 到 $b'$ 的长度为
+$$
+l_{a',b'}
+=\int_{a'}^{b'}
+\sqrt{\left(\frac{\mathrm dp}{\mathrm dt}\right)^2+
+\left(\frac{\mathrm dq}{\mathrm dt}\right)^2}\,\mathrm dt,
+$$
+全长记为 $L=l_{a,b}$。令弧长参数 $s=l_{a,t}$，从而
+$s\in[0,L]$。回答下列问题。
+
+（1）证明弧长参数下
+$$
+\sqrt{\left(\frac{\mathrm dp}{\mathrm ds}\right)^2+
+\left(\frac{\mathrm dq}{\mathrm ds}\right)^2}=1.
+$$
+
+（2）令 $\theta(s)$ 为切向量
+$\mathrm d\boldsymbol p/\mathrm ds$ 与 $x$ 轴的夹角，证明
+$$
+\frac{\mathrm dp}{\mathrm ds}\frac{\mathrm d^2q}{\mathrm ds^2}
+-\frac{\mathrm dq}{\mathrm ds}\frac{\mathrm d^2p}{\mathrm ds^2}
+=\frac{\mathrm d\theta}{\mathrm ds}.
+$$
+
+以下假定曲线是凸集 $K$ 的光滑闭边界，并按逆时针方向绕行。
+
+（3）说明为何任意 $s$ 都有 $\mathrm d\theta/\mathrm ds\ge0$。
+
+（4）任一 $K$ 外点可唯一写成
+$$
+\boldsymbol{x}
+=\boldsymbol p(s)+r\boldsymbol u(s),
+$$
+其中 $r$ 是它到 $K$ 的距离，$\boldsymbol u(s)$ 是指向外部的单位法向量。证明坐标变换的 Jacobian 满足
+$$
+\left|
+\det\begin{pmatrix}
+\partial x/\partial s&\partial x/\partial r\\
+\partial y/\partial s&\partial y/\partial r
+\end{pmatrix}
+\right|
+=1+r\frac{\mathrm d\theta}{\mathrm ds}.
+$$
+
+（5）对 $D\ge0$，令 $K_D$ 为距 $K$ 不超过 $D$ 的点集。若
+$K$ 面积为 $A$，证明
+$$
+\operatorname{area}(K_D)=A+LD+\pi D^2.
+$$
+
+#### 考点
+
+- **弧长参数与平面曲率**：由单位切向量推导转角导数和有向曲率公式。
+- **凸曲线**：利用逆时针凸边界的非负曲率与总转角 $2\pi$。
+- **变量替换与 Jacobian**：计算外法线坐标 $(s,r)$ 到平面坐标的面积缩放。
+- **Steiner 平行体公式**：积分边界外条带得到面积的线性项和二次项。
+
 ## **Kai**
 ### (1)
 

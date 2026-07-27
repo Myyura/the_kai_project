@@ -29,6 +29,23 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202403_kiso_2_electrical_circuit.png" width="500"/>
 </figure>
 
+### 题目描述
+
+1. 图 2(a) 中电源电压为 $E$，a–b 与 b–c 间电压分别为 $V_1,V_2$；电流 $I_1$ 分为 $I_2,I_3$，且 $|I_2|=1\,\mathrm A$。以 $I_2$ 为相位基准，角频率为 $100\,\mathrm{rad/s}$，$R=1\,\Omega$，电容与电感分别为 $C,L$。
+   1. 当 $C=1/100\,\mathrm F$、$L=1/100\,\mathrm H$ 时，求 $I_1,I_2,I_3,V_1,V_2,E$ 的相量关系以及功率因数 $\cos\theta$；
+   2. 当 $C=1/25\,\mathrm F$ 时，求使整个电路呈感性的 $L$ 取值范围。
+2. 图 2(b) 为自感 $L_1,L_2$、互感 $M$ 的耦合线圈，满足 $M^2<L_1L_2$，电源角频率为 $\omega$，一次、二次电流为 $I_1,I_2$。
+   1. 证明图 2(b) 与图 2(c) 的 T 形电路等效；
+   2. 将 c–d 短路时，用 $\omega,L_1,L_2,M$ 表示从 a–b 看入的阻抗
+      $$Z_{ab}=E/I_1.$$
+
+#### 考点
+
+- **串并联交流相量**：逐级求支路电流、端电压和源相量。
+- **电路感容性判断**：根据总阻抗或导纳虚部符号确定电感范围。
+- **耦合电感 T 形等效**：由互感符号和端口方程确定三条等效支路。
+- **二次短路输入阻抗**：计算互感产生的反射阻抗。
+
 ## **Kai**
 ### (1)
 #### (a)

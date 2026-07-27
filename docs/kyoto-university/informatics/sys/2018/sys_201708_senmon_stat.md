@@ -67,6 +67,75 @@ $$
 1 + m \sum_{j=1}^{m-1} \frac{1}{j}
 $$
 
+### 题目描述
+
+1. 随机变量 $X_1,\ldots,X_n,Y_1,\ldots,Y_m$ 相互独立，并满足
+
+   $$
+   X_i\sim N(a\theta,\sigma^2)\quad(i=1,\ldots,n),\qquad
+   Y_j\sim N(b\theta,\sigma^2)\quad(j=1,\ldots,m),
+   $$
+
+   其中 $N(\mu,\sigma^2)$ 表示均值为 $\mu$、方差为 $\sigma^2$ 的正态分布；$n,m$ 为正整数，$a,b$ 为已知正常数，$\theta,\sigma^2$ 为未知参数。
+
+   （1）使用全部 $X_1,\ldots,X_n,Y_1,\ldots,Y_m$，求 $\theta$ 与 $\sigma^2$ 的最大似然估计量。
+
+   （2）对常数 $\alpha,\beta$，定义
+
+   $$
+   \widetilde\theta=\alpha\bar X+\beta\bar Y,\qquad
+   \bar X=\frac{X_1+\cdots+X_n}{n},\qquad
+   \bar Y=\frac{Y_1+\cdots+Y_m}{m}.
+   $$
+
+   求 $E(\widetilde\theta)$ 与 $V(\widetilde\theta)$。
+
+   （3）求使 $\widetilde\theta$ 成为 $\theta$ 的无偏估计量时 $\alpha,\beta$ 必须满足的条件；再求在所有此类无偏估计量中使 $V(\widetilde\theta)$ 最小的 $\alpha,\beta$。
+
+2. 抛掷一枚硬币，每次以概率 $p$ 出现正面、以概率 $q=1-p$ 出现反面，其中 $0<p<1$，各次试验相互独立。连续抛掷直到首次出现正面，令 $T$ 表示包括该次正面在内的抛掷次数。
+
+   （1）对 $n=1,2,\ldots$，求 $P(T=n)$。
+
+   （2）求 $T$ 的期望与方差。
+
+   另有一台单窗口老虎机，每次等概率出现 $m$ 种不同图案中的一种，其中 $m=1,2,\ldots$。把图案编号为 $\{1,2,\ldots,m\}$，连续且独立地操作机器，令第 $n$ 次出现的图案编号为
+
+   $$
+   X_n\in\{1,2,\ldots,m\}.
+   $$
+
+   令 $T_{m,i}$ 表示首次收集到 $i$ 种不同图案所需的操作次数，递归定义为
+
+   $$
+   T_{m,i}=
+   \begin{cases}
+   1 & (i=1),\\
+   \min\{n>T_{m,i-1}\mid X_n\ne X_j,\ j=1,\ldots,n-1\}
+   & (i=2,\ldots,m).
+   \end{cases}
+   $$
+
+   （3）对 $i=2,\ldots,m$ 定义
+
+   $$
+   U_{m,i}=T_{m,i}-T_{m,i-1}.
+   $$
+
+   对 $k=1,2,\ldots$，求 $P(U_{m,i}=k)$。
+
+   （4）证明首次集齐全部图案所需次数 $T_{m,m}$ 的期望为
+
+   $$
+   1+m\sum_{j=1}^{m-1}\frac1j.
+   $$
+
+#### 考点
+
+- **正态模型的最大似然估计**：联合两组不同均值系数但共享方差的样本估计位置与尺度参数。
+- **无偏估计与最小方差线性组合**：在无偏约束下用二次优化确定最优权重。
+- **几何分布**：推导首次成功等待时间的概率质量函数、期望和方差。
+- **优惠券收集问题**：把新增图案之间的等待时间分解为几何随机变量并求和。
+
 ## **Kai**
 ### 問題 1
 #### (1)

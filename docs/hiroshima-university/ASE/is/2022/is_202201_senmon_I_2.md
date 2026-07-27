@@ -60,6 +60,42 @@ $$
 defined for $(x,y) \neq (0,0)$.
 
 
+### 题目描述
+
+1. 设 $z=z(u,v)$ 关于实变量 $(u,v)\in\mathbb R^2$ 为 $C^2$ 类函数，并对 $(x,y)\in\mathbb R^2$ 定义变量变换
+
+   $$
+   (u,v)=(x+y,x-y).
+   $$
+
+   用
+
+   $$
+   z_{uu}=\frac{\partial^2z}{\partial u^2},\qquad
+   z_{uv}=\frac{\partial^2z}{\partial u\partial v},\qquad
+   z_{vv}=\frac{\partial^2z}{\partial v^2}
+   $$
+
+   表示
+
+   $$
+   z_{xx}=\frac{\partial^2z}{\partial x^2},\qquad
+   z_{xy}=\frac{\partial^2z}{\partial x\partial y},\qquad
+   z_{yy}=\frac{\partial^2z}{\partial y^2}.
+   $$
+2. 函数
+
+   $$
+   z=(x+y)\ln\{2(x^2+y^2)\}
+   $$
+
+   定义在除原点 $O(0,0)$ 外的平面上。求它的全部局部极值以及取得各极值时的 $(x,y)$。
+
+#### 考点
+
+- 多元微分：对线性变量变换连续使用链式法则，把关于 $x,y$ 的二阶偏导改写为关于 $u,v$ 的二阶偏导。
+- 局部极值：求二维函数在去掉原点后的驻点，并用二阶信息或等价分析判别极大、极小及其位置。
+
 ## **Kai**
 ### (1)
 

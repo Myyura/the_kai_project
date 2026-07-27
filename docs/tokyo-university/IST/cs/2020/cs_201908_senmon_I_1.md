@@ -47,4 +47,52 @@ Answer the following questions.
 
 (4) Let $L_3 = \{a^nb^n \mid n \geq 0\}$ and $L_4 = \{c^md^m \mid m \geq 0\}$. Prove that $L_3 \otimes L_4$ is not a context-free language. Here, you may use the pumping lemma for context-free languages.
 
+### 题目描述
+
+设 $\Sigma$ 为有限字母表，$\varepsilon$ 为空串。对
+$w_1,w_2\in\Sigma^*$，递归定义它们的洗牌（shuffle）
+$w_1\otimes w_2\subseteq\Sigma^*$：
+$$
+\varepsilon\otimes w=w\otimes\varepsilon=\{w\},
+$$
+且对 $a,b\in\Sigma$、$w_1,w_2\in\Sigma^*$，
+$$
+(aw_1)\otimes(bw_2)
+=\{aw\mid w\in w_1\otimes(bw_2)\}
+\cup
+\{bw\mid w\in(aw_1)\otimes w_2\}.
+$$
+对语言 $L_1,L_2\subseteq\Sigma^*$，定义
+$$
+L_1\otimes L_2
+=\bigcup_{w_1\in L_1,\ w_2\in L_2}w_1\otimes w_2.
+$$
+例如
+$$
+\{ab,ba\}\otimes\{\varepsilon,c\}
+=\{ab,cab,acb,abc,ba,cba,bca,bac\}.
+$$
+回答下列问题。
+
+（1）计算 $\{a,bb\}\otimes\{ab,cc\}$。
+
+（2）设 DFA
+$\mathcal A_i=(Q_i,\Sigma,\delta_i,q_{i,0},F_i)$ 分别识别语言
+$L_i\ (i=1,2)$，并假定两个转移函数均为全函数。构造一个识别
+$L_1\otimes L_2$ 的 NFA。
+
+（3）证明第（2）问构造的正确性。
+
+（4）令
+$L_3=\{a^nb^n\mid n\ge0\}$、
+$L_4=\{c^md^m\mid m\ge0\}$。证明
+$L_3\otimes L_4$ 不是上下文无关语言。可以使用上下文无关语言泵引理。
+
+#### 考点
+
+- **语言洗牌运算**：枚举保持两个原字符串内部次序的所有交错结果。
+- **NFA 乘积构造**：用状态对同时记录两个 DFA 的状态，并非确定性地决定每个输入字符交给哪一个自动机。
+- **自动机构造的正确性**：对应输入的每条接受路径与一次合法洗牌分解。
+- **上下文无关语言的泵引理**：选择结构受限的字符串并分析泵入片段，证明洗牌语言的非上下文无关性。
+
 ## **Kai**

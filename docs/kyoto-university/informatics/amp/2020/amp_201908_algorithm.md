@@ -36,6 +36,21 @@ Answer the following questions.
 
 (3) Let $s, t \in V$ be two distinct vertices. Show how to test whether $G$ has only one shortest path between $s$ and $t$ or not in $O(|V| + |E|)$.
 
+### 题目描述
+
+设 $G=(V,E)$ 为以邻接表存储的连通简单无向图。对 $u,v\in V$，以 $\operatorname{dist}(u,v)$ 表示两点之间最短路径的长度。回答：
+
+1. 任取 $s\in V$。证明：若存在边 $uv\in E$ 满足
+   $\operatorname{dist}(s,u)=\operatorname{dist}(s,v)$，则边 $uv$ 位于某个奇数长度的简单回路上。
+2. 给出在 $O(|V|+|E|)$ 时间内判定 $G$ 是否为二分图的方法。
+3. 对两个不同顶点 $s,t\in V$，给出在 $O(|V|+|E|)$ 时间内判定 $s$ 与 $t$ 之间的最短路径是否唯一的方法。
+
+#### 考点
+
+- **广度优先搜索与距离分层**：用 BFS 求无权图最短距离，并由同层边和搜索树路径构造奇环。
+- **二分图线性时间判定**：以 BFS 层奇偶或二染色检查所有边的端点颜色。
+- **最短路径计数**：在 BFS 过程中维护到各顶点的最短路条数或唯一性状态，在线性时间内判断指定终点。
+
 ## **Kai**
 Let $|P|$ denote the length of a path $P$.
 

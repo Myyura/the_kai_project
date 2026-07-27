@@ -89,6 +89,98 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p2.png" width="300" alt=""/>
 </figure>
 
+### 题目描述
+
+1. 回答下列问题。
+
+   （1）某系统的输入 $u(t)$ 与输出 $y(t)$ 满足
+
+   $$
+   \frac{d^2y(t)}{dt^2}+2\sin y(t)=u(t).
+   $$
+
+   考虑输入、输出分别取常值 $u(t)=\bar u$、$y(t)=\bar y$ 的平衡状态。当 $\bar y=\pi/2$ 时，令相对平衡状态的微小输入、输出变化分别为 $\delta u(t),\delta y(t)$。线性化该微分方程，并求从 $\delta u$ 到 $\delta y$ 的传递函数。
+
+   （2）求传递函数
+
+   $$
+   \frac1{(s+1)(s^2+2s+5)}
+   $$
+
+   所对应系统的阶跃响应。
+
+   （3）在图 1 的反馈控制系统中，
+
+   $$
+   P(s)=\frac1{s^2+as+2},\qquad
+   K(s)=b+\frac cs,
+   $$
+
+   其中 $a,b,c$ 为常数参数且 $c\ne0$。求 $b,c$ 的条件，使系统对满足 $2\leq a\leq5$ 的每一个 $a$ 都稳定。
+
+   <figure style="text-align:center;">
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p1.png" width="300" alt=""/>
+   </figure>
+
+   （4）对第（3）问的反馈系统取 $a=1$。求 $b,c$ 的条件，使单位阶跃输入 $r(t)=1$ 的输出 $y(t)$ 同时满足
+
+   $$
+   \lim_{t\to\infty}y(t)=1,\qquad
+   \left|\frac{d^2y}{dt^2}(0)\right|\leq1.
+   $$
+
+2. 相位超前补偿器
+
+   $$
+   C(s)=k\frac{Ts+1}{\alpha Ts+1}
+   $$
+
+   在特定频带内提供相位超前，其中 $k,T>0$，$0<\alpha<1$。已知以下命题：
+
+   > 频率响应 $C(j\omega)$ 的最大相位为
+   > $$
+   > \arctan\frac{1-\alpha}{2\sqrt\alpha},
+   > $$
+   > 且在角频率
+   > $$
+   > \omega_m=\frac1{\sqrt\alpha T}
+   > $$
+   > 处取得。
+
+   （1）求 $\omega=\omega_m=\frac1{\sqrt\alpha T}$ 时 $C(j\omega)$ 的增益。
+
+   （2）当 $k=1,T=2,\alpha=0.1$ 时，画出 $C(s)$ 的 Bode 图概形，并在坐标轴上标出主要数值。增益图可采用折线近似，并可使用
+
+   $$
+   \arctan(0.9\sqrt{10}/2)\approx55^\circ.
+   $$
+
+   （3）考虑图 2 所示由 $P(s),K(s)$ 构成的反馈控制系统。当 $K(s)=1$ 时，相位交叉频率为 $\omega_{pc}=3$，增益裕度为 $GM=3\,\mathrm{dB}$。现采用满足 $\omega_m=\omega_{pc}$ 的相位超前补偿器 $C(s)$，并令 $K(s)=C(s)$，要求开环频率响应 $P(j\omega)K(j\omega)$ 同时满足：
+
+   - 在 $\omega_{pc}$ 处的相位为 $-135^\circ$；
+   - 在 $\omega_{pc}$ 处的增益为 $0\,\mathrm{dB}$。
+
+   求相应的 $k,T,\alpha$。可使用近似 $2\approx6\,\mathrm{dB}$。
+
+   （4）证明上述关于最大相位及其取得频率的命题。可使用
+
+   $$
+   \tan(x-y)=
+   \frac{\tan x-\tan y}{1+\tan x\tan y}.
+   $$
+
+   <figure style="text-align:center;">
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p2.png" width="300" alt=""/>
+   </figure>
+
+#### 考点
+
+- **非线性系统线性化**：在给定平衡点作一阶 Taylor 展开并求小信号传递函数。
+- **阶跃响应与初值性质**：由传递函数求时域响应，并用终值及初始导数约束控制器参数。
+- **Routh–Hurwitz 与鲁棒稳定**：针对区间不确定参数导出统一稳定条件。
+- **相位超前补偿**：分析零极点拐点、最大相位和中心频率，并绘制 Bode 渐近图。
+- **频域补偿器设计**：依据相位交叉频率、增益裕度和目标相位/增益求补偿器参数。
+
 ## **Kai**
 ### 問題1
 

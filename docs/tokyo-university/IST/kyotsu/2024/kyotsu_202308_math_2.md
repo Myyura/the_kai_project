@@ -67,6 +67,67 @@ $$
 S = \int_0^\infty (\log r)^2 p(r) \,\mathrm{d}r - \left(\int_0^\infty (\log r) p(r) \,\mathrm{d}r\right)^2.
 $$
 
+### 题目描述
+
+对正实数 $s$，定义
+$$
+f(s)=\int_0^\infty t^{s-1}e^{-t}\,\mathrm dt.
+$$
+无需证明积分收敛。回答下列问题。
+
+（1）求 $f(1)$。
+
+（2）已知对 $t>0$ 和非负整数 $n$，
+$e^t>t^n/n!$。
+
+- （a）对 $s>0$，证明
+  $$
+  \int_0^1t^{s-1}e^{-t}\,\mathrm dt<\frac1s.
+  $$
+- （b）当 $n>s>0$ 时，证明对任意 $c>1$，
+  $$
+  \int_1^ct^{s-1}e^{-t}\,\mathrm dt
+  <\frac{n!}{n-s}.
+  $$
+
+（3）若
+$$
+f''(s)=\int_0^\infty g(t,s)e^{-t}\,\mathrm dt,
+$$
+求 $g(t,s)$；无需证明可交换微分和积分。
+
+（4）求
+$$
+D=\int_0^\infty(\log t)^2e^{-t}\,\mathrm dt
+-\left(\int_0^\infty(\log t)e^{-t}\,\mathrm dt\right)^2.
+$$
+可以使用
+$$
+\left.\frac{\mathrm d^2}{\mathrm ds^2}\log f(s)\right|_{s=1}
+=\frac{\pi^2}{6}.
+$$
+
+（5）对 $r,\alpha>0$ 定义
+$$
+p(r)=\frac r\alpha
+\exp\left(-\frac{r^2}{2\alpha}\right).
+$$
+求
+$$
+S=\int_0^\infty(\log r)^2p(r)\,\mathrm dr
+-\left(\int_0^\infty(\log r)p(r)\,\mathrm dr\right)^2.
+$$
+
+#### 考点
+
+- **Gamma 函数**：识别积分定义并通过指数函数下界控制端点积分。
+- **参数积分的对数矩**：对 $s$ 求导，使 $\log t$ 与
+  $(\log t)^2$ 出现在被积函数中。
+- **对数 Gamma 的二阶导数**：用
+  $(\log f)''=f''/f-(f'/f)^2$ 计算指数分布下 $\log T$ 的方差。
+- **Rayleigh 分布的对数矩**：以
+  $t=r^2/(2\alpha)$ 变换为指数分布，并分析缩放常数对方差的影响。
+
 ## **Kai**
 ### (1)
 

@@ -68,6 +68,49 @@ We design a sequential circuit that decodes the variable-length codes defined in
 
 (d) We implement a sequential circuit corresponding to the state transition table and the output table derived in (c) with the minimum number of D flip-flops. Derive the excitation function(s) of the D flip-flop(s) and the output functions of $(z_2, z_1, z_0)$ in a minimal sum-of-products form. Here, the initial value of a D flip-flop is 0, and logic variables of the input and the output of a D flip-flop are $d$ and $q$, respectively. If multiple flip-flops are used, distinguish them by subscripts.
 
+### 题目描述
+
+回答全部问题。$\overline{\phantom{x}}$、$\cdot$、$+$、$\oplus$ 分别表示逻辑非、与、或、异或。
+
+1. 对
+   $$
+   f=((\bar a+\bar b+d)(\bar b+\bar c+\bar d)(a+\bar c+d))
+   \oplus(\bar c d+\bar a c\bar d)
+   $$
+   回答：
+   1. 给出 $f$ 的所有最简与或式。
+   2. 仅用三输入 NAND 门实现 $f$，使门数最少；可直接使用 $a,b,c,d$ 及其反变量。
+   3. 设
+      $$
+      g=a\bar b d+\bar a b c\bar d,
+      $$
+      $$
+      r=(\bar a+\bar b+c+d)(\bar a+b+c+\bar d)
+      (\bar a+\bar b+\bar c+d).
+      $$
+      在所有满足 $f=(g+h)r$ 的 $h$ 中，求一种最简与或式，使乘积项数最少，并在此基础上文字数最少；若不存在这样的 $h$，明确说明。
+2. 设计一个可变长码译码时序电路，输入为串行 1 位 $x$，输出为并行 3 位 $(z_2,z_1,z_0)$。码字从最左位开始输入；每识别出一个可变长码就输出对应定长码，否则输出 `000`。初态为尚未输入任何位。
+
+   | 定长码 | 可变长码 |
+   |---|---|
+   | `001` | `0` |
+   | `010` | `10` |
+   | `011` | `110` |
+   | `100` | `1110` |
+   | `101` | `1111` |
+
+   1. 若用 Moore 电路，并在识别码字的下一周期输出，画状态转移图。
+   2. 若用 Mealy 电路，并在识别码字后立即输出，画状态转移图。
+   3. 对第 2 小问的图，用最少状态写出状态转移表和输出表，并说明如何验证状态数最少。
+   4. 用最少 D 触发器实现第 3 小问电路。触发器初值为 $0$，D 输入和 Q 输出分别记作 $d,q$，多个时加下标。求各激励函数和 $z_2,z_1,z_0$ 输出函数的最简与或式。
+
+#### 考点
+
+- **布尔函数化简与 NAND 实现**：求全部最简与或式，并将选择的逻辑式映射为最少三输入 NAND 门网络。
+- **带约束的逻辑函数综合**：根据 $f=(g+h)r$ 推出 $h$ 的必须值、可选值与不可能情形，再最小化。
+- **Moore 与 Mealy 状态机**：为前缀码译码建立“已读前缀”状态，比较延迟一拍输出与转移边即时输出。
+- **状态最小化与 D 触发器实现**：证明最少状态数、选取最少位编码并化简下一状态和输出函数。
+
 ## **Kai**
 ### (1)
 #### (a) Minimum sum-of-products expression of $f$

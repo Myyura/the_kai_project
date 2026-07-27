@@ -44,6 +44,34 @@ when $\alpha = -3$.
 
 (3) Determine the range of the real number $\alpha$ on which the limit $\lim_{R \to +\infty} G(R)$ converges.
 
+### 题目描述
+
+设 $R\ge0$，并定义
+
+$$
+D(R)=\{(x,y)\in\mathbb R^2:1\le x^2+y^2\le(R+1)^2,\ 0\le y\le x\}.
+$$
+
+1. 对任意实数 $\alpha$，计算
+
+   $$
+   G(R)=\iint_{D(R)}x^\alpha y\,dx\,dy.
+   $$
+2. 当 $\alpha=-3$ 时，求
+
+   $$
+   \lim_{R\to+0}
+   \frac{G(R)-\frac R2+\frac{R^2}{4}}{R^3}.
+   $$
+3. 确定使 $\displaystyle\lim_{R\to+\infty}G(R)$ 收敛到有限值的实数 $\alpha$ 的取值范围。
+
+#### 考点
+
+- 二重积分：在扇形环域 $D(R)$ 上建立积分并分离径向与角向部分。
+- 极坐标：用 $x=r\cos\theta,\ y=r\sin\theta$ 准确转换区域、被积函数和面积元。
+- 极限：对 $\alpha=-3$ 时所得表达式作 $R\to0^+$ 的高阶展开。
+- 广义积分：依据径向幂函数在无穷远处的可积性判定 $\alpha$ 的收敛范围。
+
 ## **Kai**
 ### (1)
 Let

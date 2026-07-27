@@ -53,3 +53,68 @@ Let $x_s(t, T) = x_2(t)\delta_T(t)$ be a signal sampled from $x_2(t)$ in Q.2 usi
 $$
 X_s(\omega) = \begin{cases} \mathcal{F}[x_s(t, \frac{2}{3\omega_0})] & (|\omega| \leq \omega_0) \\ 0 & (|\omega| > \omega_0) \end{cases} 
 $$
+
+### 题目描述
+
+连续时间 Fourier 变换及其逆变换定义为
+
+$$
+\mathcal{F}[x(t)]=\int_{-\infty}^{\infty}x(t)e^{-j\omega t}\,dt,\qquad
+\mathcal{F}^{-1}[X(\omega)]=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\omega)e^{j\omega t}\,d\omega.
+$$
+
+1. 证明时域乘积的 Fourier 变换满足
+
+   $$
+   \mathcal{F}[f(t)g(t)]
+   =\frac{1}{2\pi}\bigl(\mathcal{F}[f(t)]*\mathcal{F}[g(t)]\bigr),
+   $$
+
+   其中 $*$ 表示卷积。
+
+2. 求下列两个信号的 Fourier 变换：
+
+   $$
+   x_1(t)=\frac12\{\operatorname{sgn}(T_0-t)+\operatorname{sgn}(T_0+t)\},
+   $$
+
+   其中符号函数 $\operatorname{sgn}(\cdot)$ 按题中定义取值；以及
+
+   $$
+   x_2(t)=
+   \begin{cases}
+   \dfrac{\sin\omega_0t}{\pi t} & (t\ne0),\\[4pt]
+   \dfrac{\omega_0}{\pi} & (t=0).
+   \end{cases}
+   $$
+
+3. 用冲激梳
+
+   $$
+   \delta_T(t)=\sum_{k=-\infty}^{\infty}\delta(t-kT)
+   $$
+
+   对 $x_2(t)$ 采样，令 $x_s(t,T)=x_2(t)\delta_T(t)$。可使用
+
+   $$
+   \mathcal{F}[\delta_T(t)]
+   =\frac1T\sum_{k=-\infty}^{\infty}\delta\left(\omega-\frac{k}{T}\right).
+   $$
+
+   （1）在 $|\omega|\leq3\omega_0$ 范围内画出 $\mathcal{F}[x_s(t,\frac{1}{3\omega_0})]$；（2）求使得在 $|\omega|\leq\omega_0$ 上 $\mathcal{F}[x_2(t)]=\mathcal{F}[x_s(t,T)]$ 成立的 $T$ 的条件；（3）在 $|\omega|\leq3\omega_0$ 范围内画出 $\mathcal{F}[x_s(t,\frac{2}{3\omega_0})]$；（4）定义
+
+   $$
+   X_s(\omega)=
+   \begin{cases}
+   \mathcal{F}[x_s(t,\frac{2}{3\omega_0})] & (|\omega|\leq\omega_0),\\
+   0 & (|\omega|>\omega_0),
+   \end{cases}
+   $$
+
+   在 $|t|\leq\frac{\pi}{\omega_0}$ 范围内画出 $\mathcal{F}^{-1}[X_s(\omega)]$。
+
+#### 考点
+
+- **Fourier 变换的乘积—卷积定理**：依据变换与逆变换定义证明时域乘法对应频域卷积。
+- **矩形脉冲与 sinc 信号变换对**：识别有限宽矩形信号和理想低通信号的 Fourier 变换。
+- **采样定理与混叠**：分析冲激采样造成的频谱周期复制、重叠条件及截频后的逆变换。

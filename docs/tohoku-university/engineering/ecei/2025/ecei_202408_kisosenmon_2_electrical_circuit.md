@@ -35,6 +35,25 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_2024_8_kisosenmon_2_electrical_circuit.png" width="500"/>
 </figure>
 
+### 题目描述
+
+1. 图 2(a)、2(b) 由电阻 $R$、电感 $L$、电容 $C$、变压器及角频率为 $\omega$ 的交流电压源 $V$ 构成。变压器一次、二次自感为 $L_1,L_2$，互感为 $M$。
+   1. 求图 2(a) 从 a–b 看入的输入阻抗；
+   2. 求使图 2(a) 电流相量幅值最大的角频率 $\omega_0$；当 $\omega=\omega_0$ 时，用 $R,L,C,V$ 表示电感、电容电压 $V_L,V_C$；
+   3. 若图 2(b) 与图 2(c) 等效，求图 2(c) 中的阻抗 $Z$；
+   4. 当 $\omega=\omega_0$ 且 $R=0$ 时，求使图 2(b) 从 c–d 看入的阻抗为零所需的变压器耦合系数。
+2. 图 2(d) 是由 $L,C$ 和直流源 $E$ 构成的理想 LC 电路。$t=0$ 闭合开关，电流与电容电荷初值为
+   $$i(0)=0,\qquad q(0)=0.$$
+   1. 求 $t>0$ 时的 $i(t),q(t)$；
+   2. 求电容电压的最大值 $V_{\max}$，以及第一次达到最大值的时刻 $t_m$。
+
+#### 考点
+
+- **串联 RLC 谐振**：令净电抗为零得到最大电流及元件端电压。
+- **互感与耦合系数**：用等效阻抗条件反求 $M/\sqrt{L_1L_2}$。
+- **理想 LC 暂态**：解无阻尼二阶微分方程或使用 Laplace 变换。
+- **能量交换与过冲**：分析电感、电容间周期性交换及电容电压首次峰值。
+
 ## **Kai** 
 ### (1)
 #### (a)

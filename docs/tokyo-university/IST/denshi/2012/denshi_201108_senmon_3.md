@@ -34,6 +34,32 @@ Describe an SQL statement for enumerating the name and the phone number of users
 
 (5) We want to derive a table (popular author list) which lists authors according to the total lending count in descending order. How should we change the schema? Describe an SQL statement for deriving that table.
 
+### 题目描述
+
+回答下列数据库管理系统问题。
+
+(1) 讨论文件系统与数据库管理系统的区别。
+
+(2) 说明关系数据库系统中 SQL 语言的特点。
+
+(3) 某图书馆借阅系统的数据库由以下三个关系表组成：
+
+- `Users (UserID, Name, Address, Phone_Number)`；
+- `Books (BookID, Title, Author, Publisher)`；
+- `Lending_Status (UserID, BookID, Lent_Date)`。
+
+用户在注册时获得用户 ID；`Users` 表保存每位用户的姓名、地址和电话号码。馆内每本书由唯一的 `BookID` 标识，`Books` 表还保存书名、作者和出版社，并假设每本书只有一位作者。`Lending_Status` 表记录哪位用户在何时借了哪本书。写出一条 SQL 语句，列举至少在 10 天前借过出版社 `"A"` 所出版图书的用户姓名与电话号码；可假定日期类型支持减法。
+
+(4) 用关系代数表示 (3) 的查询，并讨论关系运算的执行次序与查询耗时之间的关系。
+
+(5) 希望得到“热门作者列表”，按作者所著图书的总借阅次数降序列出作者。说明应如何改变模式，并写出生成该表的 SQL 语句。
+
+#### 考点
+
+- 关系模型与 SQL：要求依据给定三表模式正确连接用户、借阅和图书数据，并完成日期筛选与投影。
+- 关系代数与查询优化：要求把 SQL 查询写成关系代数，并说明选择等操作下推对中间结果和执行代价的影响。
+- 模式设计与聚合：要求为作者借阅统计调整数据组织，并用分组、计数和排序生成热门作者表。
+
 ## **Kai**
 ### (1)
 

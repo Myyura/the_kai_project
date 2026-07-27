@@ -24,6 +24,32 @@ $n$ 次元ユークリッド空間上の $n+1$ 個の点 $\boldsymbol{p}_1,\bold
 
 (3) 一般に $G$ が半正定値であることを示せ．ただし，$n \times n$ 実対称行列 $A \in \mathbb{R}^{n \times n}$ が半正定値であるとは，任意のベクトル $\boldsymbol{v} \in \mathbb{R}^n$ に対して $\boldsymbol{v}^{\top}A \boldsymbol{v} \geq 0$ が成り立つことをいう．
 
+### 题目描述
+
+在 $n$ 维欧氏空间中给定 $n+1$ 个列向量点 $\boldsymbol p_1,\ldots,\boldsymbol p_{n+1}$，记两点间欧氏距离为
+
+$$
+d_{i,j}=\|\boldsymbol p_i-\boldsymbol p_j\|.
+$$
+
+对 $1\le i,j\le n$ 定义
+
+$$
+g_{i,j}=d_{i,n+1}^2+d_{j,n+1}^2-d_{i,j}^2,
+\qquad G=(g_{i,j})\in\mathbb R^{n\times n}.
+$$
+
+1. 当 $n=2$ 时，分别为以下距离组三点各给出一组满足条件的坐标：
+   - $(d_{1,2},d_{1,3},d_{2,3})=(1,1,1)$；
+   - $(d_{1,2},d_{1,3},d_{2,3})=(1,2,3)$。
+2. 令 $\boldsymbol x_j=\boldsymbol p_j-\boldsymbol p_{n+1}$（$1\le j\le n$），$X=(\boldsymbol x_j)$。对第 1 问的两组点分别计算 $X^\top X$。
+3. 证明一般情况下 $G$ 半正定，即对任意 $\boldsymbol v\in\mathbb R^n$ 均有 $\boldsymbol v^\top G\boldsymbol v\ge0$。
+
+#### 考点
+
+- **距离几何与 Gram 矩阵**：由点间距离构造坐标，并把 $g_{ij}$ 与位移向量内积联系起来。
+- **半正定矩阵**：证明 $G$ 是 Gram 矩阵的常数倍，从而用平方范数说明二次型非负。
+
 ## **Kai**
 ### (1)
 #### (a)

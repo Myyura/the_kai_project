@@ -42,6 +42,33 @@ $w = z^2$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2020_analysis_calculus_p1.png" width="300" height="300" alt=""/>
 </figure>
 
+### 题目描述
+
+本题包括两部分。
+
+**微分方程**：对
+
+$$
+(x^4-1)\frac{dy}{dx}=y^2+2x^3y-3x^2
+$$
+
+回答：
+
+1. 已知它具有 $y_p(x)=ax^3$ 形式的特解（$a$ 为常数），求该特解。
+2. 利用 $y=y_p+1/u(x)$ 的代换求通解。
+
+**复函数论**：在 $z=x+iy$ 平面上，三角形区域 $S$ 由直线 $x=1$、$y=1$、$y=1-x$ 围成，如上图所示。对以下各映射，分别画出 $S$ 在 $w=u+iv$ 平面中的像区域 $S'$，并写出围成 $S'$ 的各边界方程；其中 $x,y,u,v$ 均为实数，$i=\sqrt{-1}$。
+
+1. $w=z+(1-\sqrt3i)$；
+2. $w=2e^{\pi i/6}z+(1-\sqrt3i)$；
+3. $w=z^2$。
+
+#### 考点
+
+- **Riccati 方程**：先确定幂函数形式的特解，再用 $y=y_p+1/u$ 将非线性方程化为一阶线性方程。
+- **复平面几何变换**：分析平移、旋转和缩放对三角形边界及顶点的作用。
+- **共形映射与非线性像**：对平方映射逐条参数化原区域边界，求像曲线方程并判断围成的区域。
+
 ## **Kai** 
 ### 微分方程式
 #### (1)

@@ -83,6 +83,71 @@ print(list_input)
 ```
 #### 図1 (Figure 1)
 
+### 题目描述
+
+【问题 1】假设两个数的加法、乘法和大小比较各自都能在单位时间内完成。回答：
+
+1. 对给定的 $d_1\times d_2$ 矩阵 $A$ 和 $d_2\times d_3$ 矩阵 $B$，[算法 1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p1.png)计算乘积 $C=AB$。求算法 1 的时间复杂度。
+2. 给定 $10\times100$ 矩阵 $A$、$100\times1$ 矩阵 $B$、$1\times100$ 矩阵 $C$ 和 $100\times10$ 矩阵 $D$，要求以算法 1 为子程序计算 $E=ABCD$：
+   - (a) 若按 $E=A(BC)D$ 的顺序相乘，求计算 $E$ 所需加法次数与乘法次数之和。
+   - (b) 用与 (a) 相同的数学表达式形式，写出使计算时间最短的乘法结合顺序，并求按该顺序计算时加法次数与乘法次数之和。
+3. 设 $M_i$（$i=1,\ldots,n$）为 $d_i\times d_{i+1}$ 矩阵，要求用算法 1 计算
+   $X=M_1\cdots M_n$。证明[算法 2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2021_algorithm_programming_p2.png)能在所有乘法结合顺序中给出计算 $X$ 的最小时间复杂度，并求算法 2 本身的时间复杂度。
+
+【问题 2】下列图 1 是用 Python 编写的归并排序程序，第 32 行输入为
+`list_input = [8, 3, 6, 5, 2, 7, 4, 1]`：
+
+```text
+def sort(list_input):
+    copy = list(list_input)
+    merge_sort(copy, list_input, 0, len(list_input)-1)
+
+def merge_sort(copy, result, start, end):
+    if end - start < 1:
+        return
+    if end - start == 1:
+        if result[start] > result[end]:
+            result[start], result[end] = result[end], result[start]
+        return
+
+    mid = int((end + start) / 2)
+    merge_sort(result, copy, (A), (B))
+    merge_sort(result, copy, (C), (D))
+    merge(copy, result, (E), (F), (G))
+
+def merge(copy, result, start, end, mid):
+    i = start
+    j = mid
+    idx = start
+
+    while idx <= end:
+        if j > end or (i < mid and copy[i] < copy[j]):
+            result[idx] = copy[i]
+            i += 1
+        else:
+            result[idx] = copy[j]
+            j += 1
+        idx += 1
+
+list_input=[8, 3, 6, 5, 2, 7, 4, 1]
+sort(list_input)
+print(list_input)
+```
+
+其中 `merge_sort` 将列表 `result` 从 `start` 到 `end` 的元素按升序排列，`sort` 将 `list_input` 的全部元素按升序排列。回答：
+
+1. 填写空格 (A)～(G)，补全 `merge_sort`。
+2. 从调用 `sort` 到执行结束，求 `merge` 的调用次数；并按每次调用分别写出作为实参传入 `merge` 的列表 `copy` 与 `result` 的元素。
+3. 假设删除第 8～11 行：调用 `sort` 后，`list_input` 是否仍按升序排列？并求 `sort` 执行完毕前 `merge_sort` 的调用次数。
+4. 若要使 `sort` 将 `list_input` 按降序排列，指出应修改的行号、该行中的表达式以及修改后的内容。
+
+#### 考点
+
+- **矩阵链乘动态规划**：比较不同括号化顺序的标量运算次数，证明最优子结构与递推算法的正确性，并分析其复杂度。
+- **矩阵乘法复杂度**：依据三重循环和矩阵维数精确计算加法、乘法次数及渐近时间复杂度。
+- **归并排序程序补全**：确定递归区间和归并边界，补齐双缓冲实现中的函数参数。
+- **递归调用跟踪与程序修改**：跟踪各次归并所读写的列表内容和调用次数，分析删除基例的影响，并调整比较条件实现降序排序。
+
 ## **Kai**
 ### 【問 1】
 #### (1)

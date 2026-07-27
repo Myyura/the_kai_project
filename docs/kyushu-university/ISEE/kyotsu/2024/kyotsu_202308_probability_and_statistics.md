@@ -31,6 +31,19 @@ When two balls are randomly drawn from the box, the probability that both balls 
 (3) Find the three smallest values of $N$.
 
 
+### 题目描述
+
+盒中有 $N_1$ 个白球和 $N_2$ 个黑球，总数为 $N=N_1+N_2$。从盒中随机抽取两个球，已知两球均为白球的概率为 $1/2$。
+
+1. 当 $N_2$ 为奇数时，求 $N_1$ 的最小值。
+2. 当 $N_2$ 为偶数时，求 $N_1$ 的最小值。
+3. 按从小到大的顺序，求 $N$ 最小的三个可能值。
+
+#### 考点
+
+- **组合概率与超几何分布**：把不放回抽取两白球的概率写成组合数之比，得到关于 $N_1,N_2$ 的整数方程。
+- **整数与奇偶性约束**：分别在 $N_2$ 为奇数、偶数时分析丢番图方程，寻找最小可行的 $N_1$ 与总数 $N$。
+
 ## **Kai** 
 Let $A$ denote the event "both balls are white", then we have
 

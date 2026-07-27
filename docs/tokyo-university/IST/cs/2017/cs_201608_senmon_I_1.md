@@ -36,6 +36,41 @@ $$
 - **Input:** Nondeterministic finite automaton $\mathcal{A}$.
 - **Output:** Whether the language $\mathcal{L}(\mathcal{A})$ is an infinite set or not.
 
+### 题目描述
+
+对有限字母表 $\Sigma$ 上的语言 $L\subseteq\Sigma^*$，若存在有限自动机
+$\mathcal{A}$ 使 $L=\mathcal{L}(\mathcal{A})$，则称 $L$ 为正则语言，其中
+$$
+\mathcal{L}(\mathcal{A})
+=\{w\in\Sigma^*\mid w\text{ 被 }\mathcal{A}\text{ 接受}\}.
+$$
+回答下列问题。
+
+（1）固定 $\Sigma=\{a,b\}$。对语言
+$$
+L_1=\{w\in\Sigma^*\mid w\text{ 中存在某个字符出现至少两次}\},
+$$
+构造一个状态数不超过 $4$ 的 NFA $\mathcal{A}_1$，满足
+$\mathcal{L}(\mathcal{A}_1)=L_1$。
+
+（2）设 $\Sigma$ 为有限字母表。证明任意有限语言
+$L=\{w_1,\ldots,w_n\}\subseteq\Sigma^*$ 都是正则语言，其中 $n$ 可以为非负整数。
+
+（3）仍令 $\Sigma=\{a,b\}$。针对第（1）问的 $L_1$，构造一个状态数不超过
+$5$ 的 DFA $\mathcal{A}_2$，使
+$$
+\mathcal{L}(\mathcal{A}_2)=\Sigma^*\setminus L_1.
+$$
+
+（4）给出并简要说明一个判定过程：输入一个 NFA $\mathcal{A}$，输出其语言
+$\mathcal{L}(\mathcal{A})$ 是否为无限集。
+
+#### 考点
+
+- **NFA 与 DFA 构造**：分别用非确定性记录“某字符再次出现”，并用确定性状态识别其补语言。
+- **有限语言的正则性**：由单词的自动机或正则表达式构造以及有限并封闭性证明结论。
+- **正则语言判定问题**：结合可达状态、可接受状态和有向环判定有限自动机所识别语言是否无限。
+
 ## **Kai**
 ### (1)
 $\Sigma = \{a,b\}$. 

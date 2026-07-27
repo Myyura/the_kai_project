@@ -66,6 +66,43 @@ From now on, we improve the server and make it possible for the server to proces
 
 Assume that the maximum number of file transmission threads that can run concurrently on the server is $12$. When a file request packet arrives but already $12$ threads are running and the server cannot start a new thread, the file request packet is stored in a queue. When one of the threads terminates, the server immediately starts processing the file request packet at the head of the queue. Answer the time when the server starts processing the file request packet from Client $20$, and the time when Client $20$ completes receiving the file.
 
+### 题目描述
+
+在图 1 所示发送方 S 与接收方 R 间以分组交换传输数据。单向传播时延 \(d_{\mathrm{prop}}=250\,\mathrm{ms}\)，带宽 \(B=200\,\mathrm{kbps}\)。忽略丢包，分组不分片，通信为全双工；前缀 k 表示 \(10^3\)。
+
+1. 分组大小 1500 字节。求 S 开始发送到 R 完整收完的时间，即把全部比特推入信道的发送时延与单向传播时延之和。
+2. 分组仍为 1500 字节。R 每收完一包即向 S 返回 ACK，S 收到 ACK 后立即发下一包；ACK 足够小，可忽略其发送时延。求有效速率（kbps，四舍五入到 1 位小数）。有效速率定义为传输数据量除以“首包开始发送到 S 收到末包 ACK”的时间。
+3. 线路利用率定义为有效速率/带宽。用字节数 \(P\) 表示分组大小，写出利用率公式，并求使利用率至少 20% 的最小 \(P\)。
+
+为在固定包长下提高效率，S 连续发送 \(\omega\) 个包；发完第 \(\omega\) 个时检查首包 ACK 是否到达。若已到达便继续发下一包，否则等 ACK 到达后立即继续；后续均同样处理。
+
+4. 包长 1500 字节时，求使带宽完全利用的最小 \(\omega\)，并画对应时序图。“完全利用”指所有包发完前，S 始终在向信道推送分组。
+5. 用单向传播时延 \(d_{\mathrm{prop}}\)（ms）、带宽 \(B\)（kbps）、包长 \(P\)（字节）表示完全利用带宽所需的最小 \(\omega\)，可用上取整 \(\lceil x\rceil\)。
+
+图 2 网络中，服务器保存大小 \(4\times10^5\) 字节的文件，各客户端先发请求包，服务器收到请求后发送文件。通信全双工，每个客户端与服务器间是独占信道，带宽不受其他信道影响；请求包很小，忽略发送时延。以下 \(t\) 从客户端 1 发请求时起算。
+
+6. 服务器一次只能处理一个文件请求。收到请求后，开始处理到开始发文件需 5 ms；发完文件才算处理完成。忙时到达的新请求进入队列，当前请求完成后立即处理队首。客户端参数为：
+
+   | 客户端 | 发请求时刻 | 单向传播时延 | 带宽 |
+   | :--- | :--- | :--- | :--- |
+   | 1 | \(t=0\,\mathrm{ms}\) | \(50\,\mathrm{ms}\) | \(500\,\mathrm{kbps}\) |
+   | 2 | \(t=30\,\mathrm{ms}\) | \(110\,\mathrm{ms}\) | \(250\,\mathrm{kbps}\) |
+   | 3 | \(t=50\,\mathrm{ms}\) | \(60\,\mathrm{ms}\) | \(800\,\mathrm{kbps}\) |
+
+   分别求三个客户端完整收完文件的时刻。
+
+随后把服务器改为多线程：每收到一个请求就启动专用于该客户端文件发送的线程；开始处理（含启动线程）到开始发文件需 15 ms，发完后线程立即终止。
+
+7. 假设线程数充足且互不干扰，仍用表 1 参数，分别求三个客户端收完文件的时刻。
+8. 有 20 个客户端，网络配置均为单向传播 \(50\,\mathrm{ms}\)、带宽 \(500\,\mathrm{kbps}\)。客户端 1～20 依次每隔 10 ms 发出请求。服务器最多同时运行 12 个文件传输线程；满 12 个时新请求排队，任一线程结束后立即处理队首。求服务器开始处理客户端 20 请求的时刻，以及客户端 20 完整收完文件的时刻。
+
+#### 考点
+
+- **停等协议与线路利用率**：综合包发送时延和往返传播时延计算有效速率，并反求满足目标利用率的包长。
+- **滑动窗口与带宽时延积**：求填满往返时延期间信道所需的最小未确认包数并绘制时序。
+- **服务器串行请求排队**：按请求到达服务器的实际时刻、处理与发送完成时刻模拟单服务队列。
+- **并发线程与容量受限排队**：区分独占客户端链路与服务器线程上限，计算并行完成及第 20 个请求等待时间。
+
 ## **Kai**
 ### (1)
 The transmission delay is

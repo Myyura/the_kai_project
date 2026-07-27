@@ -61,6 +61,38 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p4.png" width="618" height="375" alt=""/>
 </figure>
 
+### 题目描述
+
+【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p1.png)，已知电流 $I_1$ 与 $I_2$ 的相位差
+$\arg(I_1/I_2)=\pi/4$，且 $R=1\,\Omega$。回答：
+
+1. 写出 $X_1$ 与 $X_2$ 的关系式。
+2. 当 $\frac{|I_1|}{|I_2|}=\frac{2\sqrt2}{3}$ 时，求 $X_1,X_2$。
+
+【问题 2】对[图 2 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p2.png)，回答：
+
+1. 将端口 $1-1'$ 左侧网络等效为开路电压 $V_0$、内阻抗 $Z_0$ 的电路，求 $V_0,Z_0$。
+2. 在端口 $1-1'$ 接入可变阻抗 $Z=R+jX$。求使其中电阻 $R$ 的消耗功率 $P$ 最大的 $Z$，并求该最大功率。
+
+【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p3.png)，电源 $E$ 的角频率为 $\omega$。回答：
+
+1. 以网孔电流 $I_1,I_2,I_3$ 为未知量列出网孔方程。
+2. 求从电源 $E$ 端向右看入的阻抗 $Z$。
+
+【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p4.png)，已知
+$E=1\,\mathrm V$、$R_1=R_2=1\,\Omega$、$C=1\,\mathrm F$、$L=1\,\mathrm H$。回答：
+
+1. 保持开关 $S$ 断开并待电路达到稳态后，在 $t=0$ 闭合 $S$；分别求 $t>0$ 的电流 $i_1(t),i_2(t)$。
+2. 保持 $S$ 闭合并待电路达到稳态后，在 $t=0$ 断开 $S$；求 $t>0$ 的 $i_1(t)$。
+3. 对 (2) 的过程，求从 $t=0$ 到再次达到稳态期间，电阻 $R_1,R_2$ 消耗的总能量 $W$。
+
+#### 考点
+
+- **相量与复电抗**：由两支路电流的相位差及幅值比建立复数关系，解出未知电抗。
+- **戴维南等效与最大功率传输**：求端口开路电压和等效内阻抗，并用共轭匹配确定最优复负载及最大功率。
+- **网孔电流法**：为多网孔交流电路列写复阻抗方程，并由输入电压电流比求等效阻抗。
+- **开关电路暂态与能量**：按开关前稳态确定初值，求多支路电阻—电感—电容暂态电流，并积分电阻功率或用能量守恒计算耗散能量。
+
 ## **Kai** 
 ### 【問 1】
 #### (1)

@@ -23,6 +23,29 @@ An $n \times n$ real symmetric matrix $M$ is called positive definite if all its
 
 (2) Let $B = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$. Show that $B$ is positive definite if and only if $a > 0$ and $ac > b^2$.
 
+### 题目描述
+
+若一个 $n\times n$ 实对称矩阵 $M$ 的全部特征值均为正，则称 $M$ 为正定矩阵。
+
+1. 对
+
+   $$
+   A=\begin{pmatrix}1&1&1\\1&2&1\\1&1&2\end{pmatrix},
+   $$
+
+   判断 $A$ 是否为正定矩阵。
+2. 对实对称矩阵
+
+   $$
+   B=\begin{pmatrix}a&b\\b&c\end{pmatrix},
+   $$
+
+   证明 $B$ 为正定矩阵的充要条件是 $a>0$ 且 $ac>b^2$。
+
+#### 考点
+
+- 特征值与特征向量：通过实对称矩阵的特征值判定正定性，并推导二阶实对称矩阵正定的充要条件。
+
 ## **Kai**
 ### (1)
 

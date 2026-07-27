@@ -64,6 +64,59 @@ $$
 
 ### English Version
 
+### 题目描述
+
+给定
+$\boldsymbol A\in\mathbb R^{m\times n}$、
+$\boldsymbol b\in\mathbb R^m$、
+$\boldsymbol C\in\mathbb R^{n\times n}$。对参数
+$\boldsymbol x=(x_1,\ldots,x_n)^\top\in\mathbb R^n$，考虑以
+$\boldsymbol y,\boldsymbol z^i\in\mathbb R^m$（$i=1,\ldots,n$）为变量的问题
+
+$$
+\begin{aligned}
+\mathrm P(\boldsymbol x):\quad
+&\text{最小化}\quad
+\sum_{i=1}^n(\boldsymbol z^i)^\top\boldsymbol z^i
++\boldsymbol y^\top\boldsymbol y
++\boldsymbol x^\top\boldsymbol C\boldsymbol x\\
+&\text{满足}\quad
+\boldsymbol y-\sum_{i=1}^n x_i\boldsymbol z^i
+=\boldsymbol A\boldsymbol x-\boldsymbol b.
+\end{aligned}
+$$
+
+假设其最优值对任意 $\boldsymbol x$ 均有定义，记为 $f(\boldsymbol x)$。回答：
+
+1. 写出 P$(\boldsymbol x)$ 的 KKT 条件。
+2. 证明 P$(\boldsymbol x)$ 的目标函数关于决策变量
+   $\boldsymbol y,\boldsymbol z^1,\ldots,\boldsymbol z^n$ 是凸函数。
+3. 假设 $\boldsymbol C$ 为正定对称矩阵，考虑
+   $\min_{\boldsymbol x\in\mathbb R^n}f(\boldsymbol x)$。若
+   $\boldsymbol x^*$ 是其全局最优解，证明
+   $$
+   (\boldsymbol x^*)^\top\boldsymbol x^*
+   \leqq\frac{\boldsymbol b^\top\boldsymbol b}
+   {\lambda_{\min}(\boldsymbol C)},
+   $$
+   其中 $\lambda_{\min}(\boldsymbol C)$ 为 $\boldsymbol C$ 的最小特征值。
+4. 假设 $\boldsymbol A$、$\boldsymbol b$ 均为零，并对 $\alpha>0$ 考虑
+   $$
+   \min f(\boldsymbol x)
+   \quad\text{满足}\quad
+   \boldsymbol x^\top\boldsymbol x\leqq\alpha.
+   $$
+   若 $(\hat{\boldsymbol x},\rho)$ 与
+   $(\bar{\boldsymbol x},\rho)$ 都满足该问题的 KKT 条件，证明
+   $f(\hat{\boldsymbol x})=f(\bar{\boldsymbol x})$。
+
+#### 考点
+
+- **等式约束二次规划的 KKT 条件**：对参数固定后的强凸二次目标写出驻点与可行性条件。
+- **参数优化值函数**：消去内层变量或利用最优值比较，分析外层函数 $f(\boldsymbol x)$。
+- **Rayleigh 商界**：用正定矩阵最小特征值给出 $\boldsymbol x^\top\boldsymbol C\boldsymbol x$ 的下界，从而控制全局最优解范数。
+- **KKT 解的目标值一致性**：在零数据和球约束的特殊情形下比较满足同一乘子的驻点。
+
 ## **Kai**
 ### (i)
 Lagrangian:

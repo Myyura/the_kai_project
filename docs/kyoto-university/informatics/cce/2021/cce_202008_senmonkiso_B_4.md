@@ -46,6 +46,32 @@ Suppose that we design a Mealy-type synchronous sequential circuit that restores
 * (a) Derive a state transition diagram of the circuit.
 * (b) Show the state transition table and the output table with the minimum number of states. Explain the state transition and the output sequence for the input sequence of 011101.
 
+### 题目描述
+
+回答全部问题。
+
+1. 设计比较两个 2 位二进制整数
+   $A=(a_1a_0)_2$、$B=(b_1b_0)_2$ 的组合电路：当 $A>B$ 时输出 $x=1$，否则输出 $x=0$。
+   1. 写出 $x$ 的最简与或式（最小乘积项之和）。
+   2. 写出 $x$ 的最简或与式（最小和项之积）。
+   3. 仅用最少数量的三输入 NAND 门实现 $x$。可直接使用
+      $a_1,a_0,b_1,b_0$ 及其反变量，以及逻辑常量 $0,1$。
+2. 设计一个输入 $x$、输出 $y$ 均为 1 位的 Mealy 型同步时序电路。当当前输入与前一时钟输入不同，输出 $1$；相同则输出 $0$。启动时假定前一拍输入为 $0$。例如输入 `010110` 时输出 `011101`。
+   1. 画状态转移图。
+   2. 用最少状态写出状态转移表和输出表，并说明如何验证状态数最少。
+   3. 用最少的 D 触发器实现，求各 D 触发器激励函数的最简与或式。D 输入与 Q 输出分别记为 $d,q$，多个触发器时用下标区分；初值为 $0$。
+   4. 求输出 $y$ 的最简与或式。
+3. 设计另一个 Mealy 型同步时序电路，从第 2 问电路的输出 $y$ 恢复原输入 $x$。
+   1. 画状态转移图。
+   2. 用最少状态写出状态转移表和输出表，并说明输入序列 `011101` 时的状态转移与输出序列。
+
+#### 考点
+
+- **布尔函数化简**：由二位比较器真值关系求最简与或式和或与式，并转换为仅 NAND 门实现。
+- **Mealy 状态机设计与最小化**：用“上一拍输入”建立状态，生成异或式输出，并通过状态等价性证明最小状态数。
+- **D 触发器逻辑综合**：选择状态编码后推导下一状态激励函数及输出函数。
+- **有限状态机逆变换**：根据差分输出与已知初始位构造恢复原输入序列的 Mealy 电路。
+
 ## **Kai**
 ### (1)
 

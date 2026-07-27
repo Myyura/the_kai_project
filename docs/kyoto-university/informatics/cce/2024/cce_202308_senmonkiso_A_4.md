@@ -49,6 +49,31 @@ For each of the three schemes A, B, and C, express the penalty for branch predic
 
 (c) Show a branch prediction scheme other than the three schemes shown in (b), describe its characteristics, and evaluate its penalty in the same loop as in (b). Assume that the penalty for branch prediction is the same as that was assumed for the three schemes A, B, and C in (b).
 
+### 题目描述
+
+回答全部问题。
+
+1. 定义 8 位二进制浮点格式 FP8，其字段从最高位到最低位为：1 位符号、3 位偏置指数（偏置为 3）、4 位带隐含首位 1 的尾数。无穷与非规格化数按 IEEE 754 同样方式定义：例如符号为 0、指数为 7、尾数为 0 表示正无穷；指数为 0 表示非规格化数。需要舍入时采用就近舍入、正中时取偶数。
+   1. 将 FP8 位串 `00010110` 的值写成十进制。
+   2. 给出表示十进制 $-3.375$ 的 FP8 位串。
+   3. 写出 FP8 中除负零外最接近零的负数的十进制值。
+   4. 写出 FP8 中除无穷外最大可表示数的十进制值。
+2. 关于流水线处理器：
+   1. 说明什么是控制冒险。
+   2. 比较三种分支预测：
+      - A：总预测不采用；
+      - B：总预测采用；
+      - C：预测结果与该分支上次执行结果相同，首次预测不采用。
+
+      预测正确无罚时；预测不采用而实际采用罚 1 周期；预测采用而实际不采用罚 3 周期。某循环控制分支连续采用 $n$ 次后不采用 1 次（$n\ge0$）。分别用 $n$ 表示该循环首次执行时 A、B、C 的总罚时，并判断哪种方案更优。
+   3. 提出一种不同于 A、B、C 的分支预测方案，说明其特点，并在同一循环和罚时假设下评估其罚时。
+
+#### 考点
+
+- **IEEE 754 类浮点表示**：解析规格化与非规格化 FP8，处理偏置指数、隐含位、极值和舍入。
+- **流水线控制冒险**：说明分支结果未决对取指和流水线清空/停顿的影响。
+- **分支预测策略分析**：逐次跟踪静态预测、一位动态预测及自选方案在循环分支模式下的误预测方向与非对称罚时。
+
 ## **Kai**
 ### (1)
 

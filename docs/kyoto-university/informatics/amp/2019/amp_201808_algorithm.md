@@ -47,6 +47,35 @@ $$
 \operatorname{lowpt}(v)\ge \ell(u).
 $$
 
+### 题目描述
+
+设 $G=(V,E)$ 是含 $n\ge2$ 个顶点的连通简单无向图，$T=(V,F)$ 是以 $s\in V$ 为根的生成树，$\ell:V\to\{1,2,\ldots,n\}$ 是顶点编号，并满足：
+
+1. 对每条边 $uv\in E$，$u$ 在 $T$ 中是 $v$ 的祖先或后代；
+2. 对每个非根顶点 $v$ 及其父顶点 $u$，有 $\ell(u)<\ell(v)$。
+
+令 $L$ 为 $T$ 的叶集，$N(v)$ 为 $v$ 在 $G$ 中的邻接点集合，$D(v)$ 为 $v$ 及其在 $T$ 中所有后代组成的集合。对
+$v\in V\setminus(L\cup\{s\})$ 定义
+
+$$
+\operatorname{lowpt}(v)=
+\min\left\{\ell(y)\ \middle|
+y\in\bigcup_{x\in D(v)}N(x)\right\}.
+$$
+
+回答：
+
+1. 证明任一叶顶点 $u\in L$ 都不是 $G$ 的割点。
+2. 证明根 $s$ 是割点的充要条件是 $s$ 在 $T$ 中至少有两个子顶点。
+3. 证明非叶、非根顶点
+   $u\in V\setminus(L\cup\{s\})$ 是割点的充要条件是：$u$ 在 $T$ 中存在子顶点 $v$ 满足
+   $\operatorname{lowpt}(v)\ge\ell(u)$。
+
+#### 考点
+
+- **深度优先搜索树与 lowpoint**：利用树边、回边的祖先—后代结构刻画子树是否能绕过父顶点连接到更高祖先。
+- **割点判定**：分别证明 DFS 树中叶、根和一般内部顶点成为割点的充要条件。
+
 ## **Kai**
 ### (1)
 Let $u \in L$, i.e., $u$ is a leaf of $T$.

@@ -18,6 +18,39 @@ $$
 S : x^2 + y^2 + z^2 = 1(z \ge 0)
 $$
 
+### 题目描述
+
+在直角坐标系中，$\boldsymbol i,\boldsymbol j,\boldsymbol k$ 分别为 $x,y,z$ 轴正方向的单位向量。令
+
+$$
+S:\ x^2+y^2+z^2=1,\qquad z\ge0
+$$
+
+为上半球面，$C$ 为其边界。对向量场
+
+$$
+\boldsymbol A=y\boldsymbol i-2x\boldsymbol j+xz\boldsymbol k,
+$$
+
+分别计算线积分
+
+$$
+\oint_C\boldsymbol A\cdot d\boldsymbol r
+$$
+
+和曲面积分
+
+$$
+\int_S(\nabla\times\boldsymbol A)\cdot d\boldsymbol S.
+$$
+
+从 $z$ 轴正方向观察时，$C$ 的积分方向为逆时针；$S$ 的法向量取 $z$ 分量非负的方向。
+
+#### 考点
+
+- **线积分与曲面积分**：按给定正向参数化半球边界圆和上半球面，分别直接计算两类积分。
+- **斯托克斯定理**：验证边界方向与曲面法向的一致性，并利用旋度曲面积分等于边界环流。
+
 ## **Kai** 
 線路 $C$ はパラメータ $\theta$ を用して、$C:\boldsymbol{r} = \cos\theta i + \sin\theta j$ と表せる
 

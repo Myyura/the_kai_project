@@ -37,6 +37,37 @@ You may include $k'$ when answering $k$.
 
 (4) Explain the physical meaning of the Parseval's theorem in the Fourier transform.
 
+### 题目描述
+
+记信号 $f(t)$ 的傅里叶变换为 $F(\omega)$，其中 $t$ 为时间变量，$\omega$ 为角频率。
+
+(1) 写出 $f(t)$ 的傅里叶变换 $F(\omega)$ 的定义，并说明傅里叶变换与傅里叶级数展开的区别。
+
+(2) 解释为何 $|F(\omega)|^2$ 表示功率谱，即角频率 $\omega$ 处的功率。
+
+(3) 推导傅里叶变换形式的帕塞瓦尔定理并确定实常数 $k$：
+
+$$
+\int_{-\infty}^{\infty}|f(t)|^2\,\mathrm dt
+=k\int_{-\infty}^{\infty}|F(\omega)|^2\,\mathrm d\omega.
+$$
+
+可以使用 $|f(t)|^2=f(t)\overline{f(t)}$，其中 $\overline{f(t)}$ 是 $f(t)$ 的复共轭；也可以使用卷积积分的傅里叶表示
+
+$$
+\int_{-\infty}^{\infty}f(t-\tau)g(\tau)\,\mathrm d\tau
+=k'\int_{-\infty}^{\infty}F(\omega)G(\omega)e^{j\omega t}\,\mathrm d\omega,
+$$
+
+其中 $j$ 为虚数单位，$k'$ 为实常数。求 $k$ 时可以用 $k'$ 表示答案。
+
+(4) 说明傅里叶变换中帕塞瓦尔定理的物理意义。
+
+#### 考点
+
+- 傅里叶变换与功率谱：要求从变换定义和复频谱幅值说明 $|F(\omega)|^2$ 的含义，并区分变换与级数。
+- 帕塞瓦尔恒等式：要求结合复共轭和卷积关系推导时域、频域能量等价及归一化常数。
+
 ## **Kai**
 ### (1)
 

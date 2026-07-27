@@ -49,6 +49,34 @@ $$
 
 where $\lambda_{\max}$ is the largest eigenvalue of $A$. Use the fact that the symmetric matrix $A$ has eigenvectors $\mathbf{q}_1,\dots,\mathbf{q}_n \in \mathbb{R}^n$ that form an orthonormal basis of $\mathbb{R}^n$.
 
+### 题目描述
+
+设 $A$ 为 $n\times n$ 实矩阵，$\mathbf x$ 为非零的 $n$ 维实列向量，定义 Rayleigh 商
+
+$$
+R_A(\mathbf x)=\frac{\mathbf x^\top A\mathbf x}{\|\mathbf x\|^2}.
+$$
+
+1. 对
+   $$
+   B=\begin{bmatrix}2&0&1\\0&1&0\\1&0&2\end{bmatrix},
+   \qquad
+   \mathbf z=\begin{bmatrix}1\\1\\0\end{bmatrix},
+   $$
+   求 $R_B(\mathbf z)$。
+2. 求 $B$ 的全部特征值以及每个特征值的特征空间。
+3. 设 $A$ 为对称矩阵，证明
+   $$
+   \max_{\mathbf x\ne0}R_A(\mathbf x)=\lambda_{\max},
+   $$
+   其中 $\lambda_{\max}$ 是 $A$ 的最大特征值。可使用如下事实：对称矩阵 $A$ 存在构成 $\mathbb R^n$ 一组标准正交基的特征向量 $\mathbf q_1,\ldots,\mathbf q_n$。
+
+#### 考点
+
+- **Rayleigh 商**：直接计算给定矩阵和向量的商，并理解其对向量缩放不变。
+- **特征值与特征空间**：求具体实对称矩阵的谱分解。
+- **实对称矩阵谱定理**：将任意向量在标准正交特征基中展开，把 Rayleigh 商表示为特征值的加权平均并证明上界可达。
+
 ## **Kai**
 ### (1)
 We are given

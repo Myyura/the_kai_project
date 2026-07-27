@@ -50,6 +50,58 @@ for i = 1 to n-1 do
 
 (5) Explain how to realize an algorithm to determine in the time complexity of $O(n)$ whether there exists a subsequence of length $k$ or more whose elements have mean value $L$ or more.
 
+### 题目描述
+
+设 $A$ 是长度为 $n$（$n\ge1$）的整数数组。数组所有连续子数组中最大的元素和称为最大子段和。算法 `MSS1` 求 $A$ 中所有长度恰为 $k$（$1\le k\le n$）的连续子数组的最大元素和，数组下标从 $0$ 开始。
+
+```text
+MSS1(A, n, k):
+  sumV = 0
+  for j = 0 to k-1 do
+    sumV = sumV + A[j]
+  maxV = sumV
+  for i = 1 to n-k do
+   +-----------------------+
+   |sumV = 0               |
+   |for j = i to i+k-1 do  |  (P)
+   |  sumV = sumV + A[j]   |
+   +-----------------------+
+    maxV = max(sumV, maxV)
+  return maxV
+```
+
+给定
+
+$$
+A=\langle-1,2,-3,3,-2,5,3,-3,-2,3\rangle,
+$$
+
+回答下列问题。
+
+(1) 取 $n=10,k=3$ 执行 `MSS1`。列出每次计算 `max(sumV,maxV)` 之前 `i`、`sumV`、`maxV` 的变化，并用大 $O$ 记号说明算法的时间复杂度。
+
+(2) 修改方框 (P) 内的伪代码，使 `MSS1` 的时间复杂度变为 $O(n)$。
+
+(3) 设计算法 `MSS2(A,n)`，在 $O(n)$ 时间内返回 $A$ 的所有长度不小于 $1$ 的连续子数组中的最大子段和。应以 `MSS1` 为基础，不得定义新数组；还要写出给定 $A$ 中取得该最大和的子数组。
+
+(4) 写出算法 `MSS3(A,n,k)` 的伪代码，使其在 $O(n)$ 时间内返回长度不小于 $k$ 的连续子数组的最大子段和。允许使用由下列代码定义的两个新数组 $B,C$；并写出 $k=5$ 时给定 $A$ 中取得最大和的子数组。
+
+```text
+B[0] = A[0]
+C[0] = min(B[0], 0)
+for i = 1 to n-1 do
+  B[i] = B[i-1] + A[i]
+  C[i] = min(B[i], C[i-1])
+```
+
+(5) 说明如何在 $O(n)$ 时间内判断：是否存在一个长度不小于 $k$、且元素平均值不小于 $L$ 的连续子数组。
+
+#### 考点
+
+- 固定长度滑动窗口：要求用移出、移入元素增量更新长度 $k$ 的子数组和，把重复求和降为线性时间。
+- 最大子段动态规划：要求在不新建数组的限制下维护以当前位置结尾的最优和，并恢复给定实例的最优子数组。
+- 前缀和与长度下界：要求用前缀最小值处理长度至少为 $k$ 的约束，并通过元素减去 $L$ 把平均值判定转化为子段和判定。
+
 ## **Kai**
 ### (1)
 

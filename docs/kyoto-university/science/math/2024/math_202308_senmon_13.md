@@ -57,6 +57,103 @@ $$
 
 を満たすことを示すことにより，$\dot{I}(t) = 0$ を確かめよ．
 
+### 题目描述
+
+回答下列问题。
+
+1. 考虑质量为 1、角频率 $\omega(t)>0$ 随时间 $t\in\mathbb R$ 变化的一维谐振子。其经典 Hamiltonian 为
+
+   $$
+   \mathcal H(t)=\frac12\bigl(p^2+\omega(t)^2q^2\bigr),
+   \qquad(p,q)\in\mathbb R,
+   $$
+
+   其中 $p,q$ 分别表示动量和位置。给定 Hamilton 正则方程的经典解 $(p(t),q(t))$，以及辅助微分方程
+
+   $$
+   \ddot\xi(t)+\omega(t)^2\xi(t)
+   =\frac1{\xi(t)^3}
+   $$
+
+   的实解 $\xi(t)$，证明
+
+   $$
+   \mathcal I(t)
+   =
+   \frac12
+   \left\{
+   \bigl(\xi(t)p(t)-\dot\xi(t)q(t)\bigr)^2
+   +\left(\frac{q(t)}{\xi(t)}\right)^2
+   \right\}
+   $$
+
+   是守恒量，即 $\dot{\mathcal I}(t)=0$。
+
+2. 考虑上一问的量子力学版本。取 $h=1$、$i=\sqrt{-1}$，动量算符 $P$ 与位置算符 $Q$ 满足正则对易关系
+
+   $$
+   [Q,P]=i.
+   $$
+
+   Hamiltonian 为
+
+   $$
+   H(t)=\frac12\bigl(P^2+\omega(t)^2Q^2\bigr).
+   $$
+
+   描述时间演化的幺正算符 $U(t)$ 满足
+
+   $$
+   \dot U(t)=-iH(t)U(t),\qquad U(0)=1.
+   $$
+
+   定义
+
+   $$
+   P(t)=U(t)^\dagger P(0)U(t),\qquad
+   Q(t)=U(t)^\dagger Q(0)U(t),
+   $$
+
+   其中 $P(0)=P,Q(0)=Q$。把第 1 问 $\mathcal I(t)$ 中的 $p(t),q(t)$ 分别替换为 $P(t),Q(t)$，所得算符记为 $I(t)$。再令
+
+   $$
+   A_\pm(t)
+   =
+   \frac1{\sqrt2}
+   \left\{
+   \frac{Q(t)}{\xi(t)}
+   \mp i\bigl(\xi(t)P(t)-\dot\xi(t)Q(t)\bigr)
+   \right\}.
+   $$
+
+   证明
+
+   $$
+   [A_-(t),A_+(t)]=1,
+   $$
+
+   且
+
+   $$
+   I(t)=A_+(t)A_-(t)+\frac12.
+   $$
+
+3. 证明
+
+   $$
+   \dot A_\pm(t)
+   =\frac{\pm i}{\xi(t)^2}A_\pm(t),
+   $$
+
+   并由此验证 $\dot I(t)=0$。
+
+#### 考点
+
+- **含时谐振子与 Ermakov–Pinney 方程**：结合经典运动方程和辅助方程验证 Lewis–Riesenfeld 不变量。
+- **Heisenberg 绘景中的时间演化**：由幺正演化推导位置、动量算符的运动方程。
+- **产生与湮灭算符**：利用正则对易关系计算 $[A_-,A_+]$ 并因式分解不变量。
+- **量子不变量**：通过算符时间导数与相位演化证明 $I(t)$ 守恒。
+
 ## **Kai**
 $\pm, \mp$ はすべて複合同順とする。
 

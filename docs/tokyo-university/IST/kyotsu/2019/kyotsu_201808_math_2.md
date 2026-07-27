@@ -70,6 +70,54 @@ u(x,t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} U(k,t) \exp(ikx)dk
 $$
 
 
+### 题目描述
+
+实值函数 $u(x,t)$ 定义于
+$-\infty<x<\infty,\ t\ge0$，满足波动方程
+$$
+\frac{\partial^2u}{\partial t^2}
+=c^2\frac{\partial^2u}{\partial x^2},
+$$
+以及初始条件
+$$
+u(x,0)=e^{-ax^2},\qquad
+\frac{\partial u}{\partial t}(x,0)=0,
+$$
+其中 $a,c>0$，$i$ 为虚数单位。回答下列问题。
+
+（1）用复积分计算
+$$
+\int_{-\infty}^{\infty}e^{-a(x+id)^2}\,\mathrm dx,
+$$
+其中 $d\in\mathbb R$；可使用高斯积分。
+
+（2）定义关于 $x$ 的 Fourier 变换
+$$
+U(k,t)=\frac1{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}u(x,t)e^{-ikx}\,\mathrm dx.
+$$
+可交换积分与 $t$ 微分，并假定 $u$、$\partial u/\partial x$ 对每个
+$t$ 都在 $x\to\pm\infty$ 时趋于零。
+
+- （i）由波动方程求 $U(k,t)$ 满足的关于 $t$ 的方程。
+- （ii）在零初始速度条件下证明
+  $U(k,t)=F(k)\cos(kct)$。
+- （iii）再利用初始位形求 $F(k)$，从而给出 $U(k,t)$；可用第（1）问。
+
+（3）按
+$$
+u(x,t)=\frac1{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}U(k,t)e^{ikx}\,\mathrm dk
+$$
+计算逆 Fourier 变换，求出 $u(x,t)$。
+
+#### 考点
+
+- **高斯积分的复平移**：通过矩形围道或解析延拓说明积分路径平移不改结果。
+- **Fourier 变换解波动方程**：把空间二阶导数变为 $-k^2$ 乘子，将 PDE 化为模态 ODE。
+- **高斯函数的 Fourier 变换**：由配方和复平移求初始频谱。
+- **波动方程传播**：逆变换得到两个反向传播高斯脉冲的叠加。
+
 ## **Kai**
 ### (1)
 

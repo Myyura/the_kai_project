@@ -92,3 +92,46 @@ $$
 $$
 \int_0^\infty\frac{e^{-px}\cos(px)-e^{-qx}\cos(qx)}{x}\text{d}x = \int_0^{\infty} \frac{f(\text{p}x) - f(\text{q}x)}{x} \text{d}x
 $$
+
+### 题目描述
+
+对 $\alpha\ge1$、$n>0$，定义
+$$
+I_n(\alpha)
+=\int_{1/n}^{n}\frac{f(\alpha x)-f(x)}x\,\mathrm dx,
+$$
+其中实函数 $f$ 在 $x\ge0$ 上连续可微，$f'$ 连续，并满足
+$\lim_{x\to\infty}f(x)=0$。回答下列问题。
+
+（1）令 $J_n(\alpha)=\mathrm dI_n(\alpha)/\mathrm d\alpha$。证明
+$$
+J_n(\alpha)
+=\frac1\alpha\left(f(\alpha n)-f(\alpha/n)\right).
+$$
+可以交换积分与微分。
+
+（2）令
+$I(\alpha)=\lim_{n\to\infty}I_n(\alpha)$。证明对任意
+$\beta\in[1,\alpha]$，$J_n(\beta)$ 的极限存在，且该收敛在
+$[1,\alpha]$ 上一致，并证明
+$$
+I(\alpha)=
+\int_1^\alpha
+\left(\lim_{n\to\infty}J_n(\beta)\right)\,\mathrm d\beta.
+$$
+
+（3）求 $I(\alpha)$。
+
+（4）对 $p>q>0$，计算
+$$
+\int_0^\infty
+\frac{e^{-px}\cos(px)-e^{-qx}\cos(qx)}x\,\mathrm dx.
+$$
+
+#### 考点
+
+- **含参积分求导**：交换导数与积分，并通过变量代换得到端点差。
+- **一致收敛与极限交换**：在紧参数区间上控制
+  $f(\beta n)$ 与 $f(\beta/n)$，合法交换极限和积分。
+- **Frullani 型积分**：得到
+  $I(\alpha)=-f(0)\ln\alpha$，再选择合适缩放函数计算具体积分。

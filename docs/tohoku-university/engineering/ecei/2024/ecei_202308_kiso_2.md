@@ -31,6 +31,26 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202308_kiso_2_electrical_circuit.png" width="600"/>
 </figure>
 
+### 题目描述
+
+1. 图 2(a) 中，交流电流源相量为 $J$，端口 a–b 电压为 $V$，两并联支路阻抗为
+   $$Z_1=2\,\Omega,\qquad Z_2=j2\,\Omega.$$
+   $J$ 分为 $I_1,I_2$，且 $|J|=2\,\mathrm A$。以 $J$ 为相位基准，画出 $I_1,I_2$ 的相量图，并求 $V$ 的有效值和相位。
+2. 对图 2(b) 中含 $R,L,C$ 的网络，电流源角频率为 $\omega$。
+   1. 将 a–b 短路时，电压 $V$ 比电流 $J$ 超前 $\pi/4$；用 $R,L,C$ 表示正角频率 $\omega$；
+   2. 在 c–d 接入电阻 $R_S$ 后，$V,J$ 同相。已知 $0<\omega<1/\sqrt{LC}$，用 $\omega,L,C$ 表示 $R_S$。
+3. 图 2(c) 中含电阻 $R$、耦合电感 $L_1,L_2,M$ 和电容 $C$。源电流 $J$ 分为 $I_1,I_2,I_3$，且
+   $$I_2=2I_1\ne0,\qquad0<M<2L_2-L_1.$$
+   1. 用必要的 $R,L_1,L_2,M,C$ 表示正角频率 $\omega$；
+   2. 用 $R,L_1,L_2,M,\omega$ 表示总导纳 $Y=J/V$。
+
+#### 考点
+
+- **交流分流与相量图**：由并联阻抗计算各支路电流及端电压。
+- **导纳相位条件**：将指定电压电流相位差转化为导纳实虚部关系。
+- **功率因数校正**：选择并联或串联电阻使总导纳为实数。
+- **耦合电感网络**：用阻抗矩阵或 T 形等效结合支路电流比求频率和导纳。
+
 ## **Kai** 
 ### (1)
 

@@ -56,6 +56,72 @@ while (s ≠ 0) {
 
 (5) Given arbitrary polynomials $f$ and $g$ ($\deg(f) \ge \deg(g)$), calculate an upper bound of the number of times that a function remainder is called inside the while-loop during the calculation of $\text{GCD}(f, g)$. Also provide a reason for the obtained result.
 
+### 题目描述
+
+设
+
+$$
+f=a_0+a_1x+\dots+a_mx^m,\qquad
+g=b_0+b_1x+\dots+b_nx^n
+$$
+
+为关于 $x$ 的多项式，其中 $a_i,b_i$ 为实数，$a_m\ne0$、$b_n\ne0$。定义首项 $\operatorname{LT}(f)=a_mx^m$、$\operatorname{LT}(g)=b_nx^n$，次数 $\deg(f)=m$、$\deg(g)=n$。用非零多项式 $g$ 除 $f$ 时，
+
+$$
+f=qg+r,
+$$
+
+其中商 $q$、余式 $r$ 均为多项式，且 $r=0$ 或 $\deg(r)<\deg(g)$；记 $r=\operatorname{remainder}(f,g)$、$q=\operatorname{quotient}(f,g)$。
+
+(1) 当 $f=x^2+7x+3$、$g=x+1$ 时，计算 $\operatorname{quotient}(f,g)$ 和 $\operatorname{remainder}(f,g)$。
+
+(2) 在下列多项式除法伪代码中，用适当表达式填充 (a)。可以直接使用单项式（如 $7x^3$ 或 $-5x^{10}$）的四则运算以及多项式的加减运算。
+
+```text
+Input: f, g
+Output: q, r
+q = 0, r = f
+while (r ≠ 0 and deg(g) ≤ deg(r)) {
+    q = q + LT(r)/LT(g)
+    r = _____ (a) _____
+}
+```
+
+(3) 证明 (2) 的算法一定终止。
+
+(4) 多项式 $f,g$ 的最大公因式是满足下列条件的多项式 $h$：
+
+- $h$ 同时整除 $f$ 和 $g$；
+- 若多项式 $p$ 同时整除 $f$ 和 $g$，则 $p$ 也整除 $h$。
+
+记 $h=\operatorname{GCD}(f,g)$；它在相差非零常数倍的意义下唯一。利用
+
+$$
+\operatorname{GCD}(f,g)=\operatorname{GCD}(f-qg,g),\qquad
+\operatorname{GCD}(f,0)=f
+$$
+
+可按下列过程计算最大公因式，并不失一般性地假设 $\deg(f)\ge\deg(g)$。填写 (b)、(c)。
+
+```text
+Input: f, g
+Output: h
+h = f
+s = g
+while (s ≠ 0) {
+    rem = remainder(h, s)
+    h = ______ (b) ______
+    s = ______ (c) ______
+}
+```
+
+(5) 对任意满足 $\deg(f)\ge\deg(g)$ 的多项式 $f,g$，给出计算 $\operatorname{GCD}(f,g)$ 时，`while` 循环内调用 `remainder` 次数的上界，并说明理由。
+
+#### 考点
+
+- 多项式长除法：要求利用首项相消补全余式更新式，并以余式次数严格下降证明终止。
+- 多项式欧几里得算法：要求依据最大公因式不变性补全迭代变量，并用次数序列估计余式调用次数上界。
+
 ## **Kai**
 ### (1)
 

@@ -69,6 +69,57 @@ $\text{P1}(\boldsymbol{z})$, $\text{P2}(\boldsymbol{z})$, $\text{P3}(\boldsymbol
 
 ### English Version
 
+### 题目描述
+
+设 $\boldsymbol A$ 是 $n\times n$ 正定对称矩阵，并定义
+
+$$
+\begin{aligned}
+f(\boldsymbol x,\boldsymbol z)
+&=-\boldsymbol x^\top\boldsymbol x+
+\boldsymbol z^\top\boldsymbol A\boldsymbol x,\\
+g(\boldsymbol x,\boldsymbol z)
+&=\boldsymbol x^\top\boldsymbol x+
+\boldsymbol z^\top\boldsymbol A\boldsymbol x+
+\boldsymbol z^\top\boldsymbol z,\\
+h(\boldsymbol x,\boldsymbol y)
+&=\boldsymbol x^\top\boldsymbol x+\boldsymbol y^\top\boldsymbol y,
+\end{aligned}
+$$
+
+其中 $\top$ 表示转置。对参数 $\boldsymbol z\in\mathbb R^n$ 考虑：
+
+$$
+\begin{aligned}
+\mathrm{P1}(\boldsymbol z):\quad&
+\max_{\boldsymbol x}\ f(\boldsymbol x,\boldsymbol z)
+\quad\text{满足 }\boldsymbol x^\top\boldsymbol x\leqq1,\\
+\mathrm{P2}(\boldsymbol z):\quad&
+\min_{\boldsymbol x\in\mathbb R^n}\ g(\boldsymbol x,\boldsymbol z),\\
+\mathrm{P3}(\boldsymbol z):\quad&
+\min_{\boldsymbol x,\boldsymbol y}\ h(\boldsymbol x,\boldsymbol y)
+\quad\text{满足 }\boldsymbol x+\boldsymbol y=\boldsymbol z.
+\end{aligned}
+$$
+
+假设三者对每个 $\boldsymbol z$ 都有唯一最优解，分别记为
+$\boldsymbol x^1(\boldsymbol z)$、$\boldsymbol x^2(\boldsymbol z)$ 和
+$(\boldsymbol x^3(\boldsymbol z),\boldsymbol y^3(\boldsymbol z))$。回答：
+
+1. 在
+   $\boldsymbol z^\top\boldsymbol A^\top\boldsymbol A\boldsymbol z\leqq4$
+   的条件下，利用 KKT 条件求 P1$(\boldsymbol z)$ 的最优解 $\boldsymbol x^1(\boldsymbol z)$；注意 P1 是最大化问题。
+2. 利用 KKT 条件求 P3$(\boldsymbol z)$ 的最优解。
+3. 对下列命题分别判定真伪；为真则证明，为假则给出反例：
+   1. $p(\boldsymbol z)=f(\boldsymbol x^1(\boldsymbol z),\boldsymbol z)$ 是凸函数；
+   2. $q(\boldsymbol z)=g(\boldsymbol x^2(\boldsymbol z),\boldsymbol z)$ 是凸函数；
+   3. $r(\boldsymbol z)=h(\boldsymbol x^3(\boldsymbol z),\boldsymbol y^3(\boldsymbol z))$ 是凸函数。
+
+#### 考点
+
+- **二次规划的 KKT 条件**：分别处理球约束最大化问题和线性等式约束最小化问题，求出参数化最优解。
+- **参数优化的值函数**：将最优解代回目标函数，判断三个最优值函数关于参数 $\boldsymbol z$ 的凸性，并以 Hessian、定义或反例论证。
+
 ## **Kai**
 ### (i)
 

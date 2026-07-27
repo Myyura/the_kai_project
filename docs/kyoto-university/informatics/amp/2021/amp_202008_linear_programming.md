@@ -54,6 +54,49 @@ $$
 ### English Version
 
 
+### 题目描述
+
+对参数
+$\boldsymbol y=(y_1,\ldots,y_n)^\top\in\mathbb R^n$，考虑以
+$\boldsymbol x=(x_1,\ldots,x_n)^\top\in\mathbb R^n$ 为变量的线性规划
+
+$$
+\begin{aligned}
+\mathrm P(\boldsymbol y):\quad
+&\text{最大化}\quad \boldsymbol y^\top\boldsymbol x\\
+&\text{满足}\quad \sum_{i=1}^n i x_i=1,\qquad
+\boldsymbol x\geqq\boldsymbol0.
+\end{aligned}
+$$
+
+回答：
+
+1. 写出 P$(\boldsymbol y)$ 的对偶问题。
+2. 证明对任意 $\boldsymbol y\in\mathbb R^n$，P$(\boldsymbol y)$ 都有最优解。
+
+令 $f(\boldsymbol y)$ 为 P$(\boldsymbol y)$ 的最优值（最大值），继续回答：
+
+3. 证明对任意 $\alpha\in[0,1]$ 及
+   $\boldsymbol y,\boldsymbol z\in\mathbb R^n$，
+   $$
+   f(\alpha\boldsymbol y+(1-\alpha)\boldsymbol z)
+   \leqq\alpha f(\boldsymbol y)+(1-\alpha)f(\boldsymbol z).
+   $$
+4. 考虑以 $\boldsymbol y$ 为变量的问题
+   $$
+   \begin{aligned}
+   \mathrm Q:\quad&\text{最小化}\quad f(\boldsymbol y)\\
+   &\text{满足}\quad\sum_{i=1}^n\frac{y_i}{i}=1.
+   \end{aligned}
+   $$
+   证明 Q 的最优值为 $\frac1n$。
+
+#### 考点
+
+- **参数化线性规划与对偶**：写出单等式约束问题的对偶，并由可行集结构证明最优解总能取得。
+- **最优值函数的凸性**：将 $f$ 视为一族线性函数的逐点上确界，证明题给凸性不等式。
+- **凸值函数上的约束最小化**：结合 $f$ 的显式形式或对偶表述，在给定超平面上确定最小值。
+
 ## **Kai**
 ### (i)
 

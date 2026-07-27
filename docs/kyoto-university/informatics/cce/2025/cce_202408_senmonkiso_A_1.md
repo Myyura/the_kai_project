@@ -45,6 +45,36 @@ $$
 
 (b) Let $n$ be a positive integer. Find $A^n$.
 
+### 题目描述
+
+1. 回答积分问题：
+   1. 计算
+      $$
+      I=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}
+      e^{-(x^2+y^2)}\,dx\,dy.
+      $$
+   2. 利用上问结果计算 Gaussian 积分
+      $$
+      J=\int_{-\infty}^{\infty}e^{-x^2}\,dx.
+      $$
+   3. Gamma 函数定义为
+      $$
+      \Gamma(x)=\int_0^\infty e^{-t}t^{x-1}\,dt.
+      $$
+      利用第 2 小问求 $\Gamma(\frac12)$。
+2. 给定
+   $$
+   A=\begin{bmatrix}0&1&2\\-2&3&2\\-1&1&3\end{bmatrix}.
+   $$
+   1. 求 $A$ 的全部特征值及相应特征向量。
+   2. 对正整数 $n$，求 $A^n$。
+
+#### 考点
+
+- **Gaussian 广义积分与极坐标**：把二维积分转为极坐标求值，再由乘积结构得到一维 Gaussian 积分。
+- **Gamma 函数**：通过 $t=x^2$ 代换把 $\Gamma(1/2)$ 与 Gaussian 积分联系起来。
+- **矩阵特征分解与幂**：求三阶矩阵的特征空间并利用对角化计算任意正整数次幂。
+
 ## **Kai**
 ### (1)
 #### (a)

@@ -68,6 +68,56 @@ is known as a discrete cosine tranform (DCT-II), and is used in data compression
 
 Explain an advantage of the discrete cosine transform compared to the discrete Fourier transform in terms of data compression.
 
+### 题目描述
+
+连续时间信号 $f(t)$ 的 Fourier 变换为
+$F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-j\omega t}\,dt$。长度 $N$ 的离散信号为 $x[n]$（$n=0,\ldots,N-1$），其 DFT 记为 $X[k]$。回答各空并写出推导。
+
+1. 若 $f(t)$ 为偶函数，则
+   $$
+   F(\omega)=2\int_0^\infty f(t)\boxed{(A)}\,dt.
+   $$
+   求 $(A)$。
+2. 将 $x[n]$ 循环右移 $s$ 位：
+   $$
+   x_s[n]=
+   \begin{cases}
+   x[N+n-s],&n<s,\\
+   x[n-s],&n\ge s.
+   \end{cases}
+   $$
+   其 DFT 为 $\boxed{(B)}X[k]$。求 $(B)$。
+3. 构造长度 $2N$ 的偶对称延拓
+   $$
+   y[n]=
+   \begin{cases}
+   x[n],&0\le n<N,\\
+   x[2N-1-n],&N\le n<2N.
+   \end{cases}
+   $$
+   其 DFT 写为
+   $$
+   Y[k]=2\boxed{(C)}
+   \sum_{n=0}^{N-1}x[n]\cos\bigl(\boxed{(D)}\bigr).
+   $$
+   求 $(C),(D)$。
+4. 定义 DCT-II
+   $$
+   X_{\mathrm{DCT}}[k]=\alpha_k
+   \sum_{n=0}^{N-1}x[n]\cos\bigl(\boxed{(D)}\bigr),
+   \quad
+   \alpha_0=\frac1{\sqrt N},\quad
+   \alpha_k=\sqrt{\frac2N}.
+   $$
+   从数据压缩角度说明 DCT 相比 DFT 的一个优势，例如其在 JPEG 中的使用。
+
+#### 考点
+
+- **偶信号 Fourier 变换**：利用正弦项奇对称消失，将变换化为实余弦积分。
+- **DFT 循环移位性质**：通过索引代换推导时域循环移位对应的频域线性相位因子。
+- **偶延拓与 DCT-II**：把 $2N$ 点 DFT 配对为余弦和，确定相位因子与余弦角度。
+- **变换编码能量集中**：说明实信号 DCT 的边界延拓减少不连续，常使低频少量系数集中更多能量且无需复数系数。
+
 ## **Kai**
 ### Q.1
 

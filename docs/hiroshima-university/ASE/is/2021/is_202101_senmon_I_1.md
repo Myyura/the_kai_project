@@ -34,6 +34,28 @@ Let $R(\theta) = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \co
 
 (4) Derive the sum formulas for the matrix $R(\theta)$ and cosine by using the result of the diagonalization.
 
+### 题目描述
+
+给定二维旋转矩阵
+
+$$
+R(\theta)=
+\begin{bmatrix}
+\cos\theta&-\sin\theta\\
+\sin\theta&\cos\theta
+\end{bmatrix}.
+$$
+
+1. 求 $R(\theta)$ 的全部特征值及相应特征向量。
+2. 使用酉矩阵 $U$ 将 $R(\theta)$ 对角化。
+3. 利用对角化结果求 $R(\theta)^n$，其中 $n$ 为正整数。
+4. 利用对角化结果推导正弦与余弦的加法公式。
+
+#### 考点
+
+- 特征值与特征向量：在复数域上求二维旋转矩阵的特征值及对应特征向量。
+- 矩阵对角化：构造酉对角化并由对角矩阵的幂推出旋转矩阵幂和三角函数加法公式。
+
 ## **Kai**
 Let $A$ denote matrix $R(\theta)$ and $E$ denote the identity matrix.
 

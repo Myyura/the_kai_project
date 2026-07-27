@@ -26,3 +26,21 @@ Following is a glossary:
 (2) Ordinary programs repeatedly access same memory data. In this case, the page replacement algorithm has large influence on the performance. LRU (Least Recently Used) and FIFO (First In First Out) are typical page replacement algorithms. Show an example of program structure where the LRU page replacement algorithm gives better performance than the FIFO algorithm.
 
 (3) It is difficult to implement exact LRU algorithm for page replacement. For this reason, an approximation algorithm is used instead. Show an approximation algorithm of LRU for page replacement.
+
+### 题目描述
+
+回答分页虚拟内存问题。系统由处理器、主存和磁盘等辅存组成。处理器用逻辑地址访问内存：若目标页在主存，依据地址转换表得到物理地址；若不在主存，则选择一个主存页，与辅存中含目标数据的页进行交换，并把新的物理地址加入转换表。
+
+- 缺页率：所有内存访问中，目标不在主存的访问比例。
+- 页面置换算法：需要把新页调入主存时，选择被换出页的算法。
+- LRU：换出最久未被访问的页面。
+- FIFO：换出最早装入主存的页面。
+
+1. 主存访问时间为 \(T_m\)，辅存访问时间为 \(T_s\)，页大小为 \(4\,\mathrm{KB}\)，并假定主存与辅存间传输整页数据本身不耗时。处理器顺序访问一个远大于主存的向量时，求缺页率和平均访存时间；再代入 \(T_m=100\,\mathrm{ns}\)、\(T_s=1\,\mathrm{ms}\) 计算数值。
+2. 普通程序会反复访问相同数据，置换策略会显著影响性能。给出一种程序访问结构，使 LRU 的性能优于 FIFO。
+3. 精确 LRU 难以实现，实际常用近似算法。给出一种 LRU 近似页面置换算法。
+
+#### 考点
+
+- **分页虚拟内存性能**：根据页大小、顺序访问的空间局部性及缺页代价计算缺页率和有效访问时间。
+- **页面置换策略**：构造访问序列比较 LRU 与 FIFO，并说明时钟算法、访问位等近似 LRU 的实现。

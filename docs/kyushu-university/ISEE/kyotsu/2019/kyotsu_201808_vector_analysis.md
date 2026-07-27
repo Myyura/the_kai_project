@@ -20,6 +20,34 @@ tags:
 
 - $S: 6x + 3y + z = 3, \ \ \ \ (x \ge 0, y \ge 0, z \ge 0)$
 
+### 题目描述
+
+在直角坐标系中，$\boldsymbol i,\boldsymbol j,\boldsymbol k$ 分别为 $x,y,z$ 轴方向的单位向量。
+
+1. 给定标量场
+   $$
+   \phi=e^{xz}\sin y+e^x\cos y
+   $$
+   和向量场
+   $$
+   \boldsymbol A=(2x-z)\boldsymbol i-2\boldsymbol j+2\boldsymbol k,
+   $$
+   求点 $(1,0,1)$ 处 $\phi$ 的梯度在 $\boldsymbol A$ 方向上的分量。
+2. 对向量场
+   $$
+   \boldsymbol A=z\boldsymbol i-3\boldsymbol j+4xy\boldsymbol k,
+   $$
+   计算其通过第一卦限平面片
+   $$
+   S:\ 6x+3y+z=3,\qquad x,y,z\ge0
+   $$
+   的曲面积分。
+
+#### 考点
+
+- **梯度与方向导数**：求指定点的梯度和向量场值，经单位化后计算沿该方向的分量。
+- **向量曲面积分**：将第一卦限平面片投影到坐标平面，确定有向面积元并计算通量。
+
 ## **Kai**
 ### (1)
 

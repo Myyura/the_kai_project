@@ -32,6 +32,42 @@ $$
 \frac{\partial u}{\partial r} = \frac{1}{r} \frac{\partial v}{\partial \theta} , \frac{\partial v}{\partial r} = -\frac{1}{r}\frac{\partial u}{\partial \theta}
 $$
 
+### 题目描述
+
+本题包括两部分。
+
+**微分方程**：求解满足初始条件的线性常微分方程组
+
+$$
+\begin{cases}
+\dfrac{dx}{dt}=x-5y,\\
+\dfrac{dy}{dt}=x-3y,\\
+x(0)=3,\quad y(0)=1.
+\end{cases}
+$$
+
+**复函数论**：设解析函数 $f(z)=u+iv$，其中 $z=x+iy$，$x,y$ 为实数，$u,v$ 为实值函数，$i=\sqrt{-1}$。把 $x,y$ 写成极坐标
+
+$$
+x=r\cos\theta,\qquad y=r\sin\theta,
+$$
+
+证明极坐标形式的柯西–黎曼方程为
+
+$$
+\frac{\partial u}{\partial r}
+=\frac1r\frac{\partial v}{\partial\theta},
+\qquad
+\frac{\partial v}{\partial r}
+=-\frac1r\frac{\partial u}{\partial\theta}.
+$$
+
+#### 考点
+
+- **线性常微分方程组**：结合系数矩阵的特征结构和初始条件求 $x(t),y(t)$。
+- **柯西–黎曼方程**：从直角坐标形式出发，以链式法则推导其极坐标形式。
+- **极坐标偏导变换**：正确计算 $x_r,y_r,x_\theta,y_\theta$，并消去直角坐标偏导。
+
 ## **Kai** 
 ### 微分方程式
 

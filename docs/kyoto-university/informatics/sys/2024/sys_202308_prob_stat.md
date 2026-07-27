@@ -76,6 +76,109 @@ $$
 
 で与えられるとする．$(X,Y)$ のコピュラ $C$ に対応するコピュラ密度関数 $c(u,v)$ を求めよ．
 
+### 题目描述
+
+以下 $P(A)$ 表示事件 $A$ 的概率，$E(X),V(X)$ 分别表示随机变量 $X$ 的期望与方差，$e$ 表示自然对数的底。
+
+1. 某一天第 $i$ 家商店的顾客数 $Y_i$（$i=1,\ldots,n$）相互独立，且服从 Poisson 分布 $\operatorname{Po}(\lambda_i)$，其中 $\lambda_i>0$ 为未知参数。参数为 $\lambda>0$ 的 Poisson 分布概率质量函数为
+
+   $$
+   f(y;\lambda)=\frac{\lambda^ye^{-\lambda}}{y!},
+   \qquad y=0,1,\ldots.
+   $$
+
+   （1）使用 $Y_1,\ldots,Y_n$，求 $\lambda_1,\ldots,\lambda_n$ 的最大似然估计量 $\hat\lambda_1,\ldots,\hat\lambda_n$。
+
+   （2）若 $Y\sim\operatorname{Po}(\lambda)$，求 $E(Y)$ 与 $V(Y)$。
+
+   观察到商店越大，顾客越多。用正常数 $x_i$ 表示第 $i$ 家商店的面积，并假设
+
+   $$
+   \lambda_i=\theta x_i,\qquad i=1,\ldots,n,
+   $$
+
+   其中 $\theta>0$ 未知。
+
+   （3）使用 $Y_1,\ldots,Y_n$，求 $\theta$ 的最大似然估计量 $\hat\theta$。
+
+   （4）求第（3）问 $\hat\theta$ 的期望与方差。
+
+   （5）希望用加权最小二乘法估计 $\theta$。对正常数 $w_1,\ldots,w_n$，令 $\hat\theta_w$ 为使
+
+   $$
+   \sum_{i=1}^nw_i(Y_i-\theta x_i)^2
+   $$
+
+   最小的 $\theta$，求 $\hat\theta_w$。
+
+   （6）求 $\hat\theta_w$ 的期望与方差。
+
+   （7）求使
+
+   $$
+   E\!\left[(\hat\theta_w-\theta)^2\right]
+   $$
+
+   最小的权重 $w_1,\ldots,w_n$，并求此时的 $\hat\theta_w$。
+
+2. 设 $X,Y$ 为实随机变量，边缘分布函数分别为
+
+   $$
+   F_X(x)=P(X\leq x),\qquad
+   F_Y(y)=P(Y\leq y),
+   $$
+
+   边缘密度分别为 $f_X(x),f_Y(y)$。假设对任意实数 $a<b$ 都有
+
+   $$
+   F_X(a)<F_X(b),\qquad F_Y(a)<F_Y(b).
+   $$
+
+   记联合分布函数与联合密度为
+
+   $$
+   F(x,y)=P(X\leq x,Y\leq y),\qquad f(x,y).
+   $$
+
+   （1）令 $U=F_X(X)$。证明 $U$ 服从区间 $[0,1]$ 上的均匀分布。
+
+   （2）设 $U,V$ 均服从 $[0,1]$ 上的均匀分布，其联合分布函数为
+
+   $$
+   C(u,v),\qquad0\leq u,v\leq1,
+   $$
+
+   相应联合密度为
+
+   $$
+   c(u,v)=
+   \frac{\partial^2C(u,v)}{\partial u\,\partial v}.
+   $$
+
+   已知对 $X,Y$ 存在某个 $C$，使
+
+   $$
+   F(x,y)=C\!\bigl(F_X(x),F_Y(y)\bigr).
+   $$
+
+   此时称 $C$ 为 $(X,Y)$ 的 Copula，$c$ 为 Copula 密度。利用上式，用 $c,F_X,F_Y,f_X,f_Y$ 表示联合密度 $f(x,y)$。
+
+   （3）若 $X,Y$ 的联合分布函数为
+
+   $$
+   F(x,y)=\frac1{1+e^{-x}+e^{-y}},
+   $$
+
+   求其 Copula $C$ 对应的 Copula 密度 $c(u,v)$。
+
+#### 考点
+
+- **Poisson 分布与最大似然**：估计独立强度参数及带曝光量 $x_i$ 的共同发生率。
+- **加权最小二乘与最优权重**：推导线性估计量的偏差、方差，并依据异方差结构最小化均方误差。
+- **概率积分变换**：证明连续分布函数作用于自身随机变量后服从均匀分布。
+- **Copula 密度分解**：使用链式法则把联合密度分解为 Copula 密度与边缘密度之积。
+- **边缘反函数与参数化 Copula**：从给定联合分布求边缘分布、反函数及显式 Copula 密度。
+
 
 ## **Kai**
 ### 問題1

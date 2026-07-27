@@ -25,6 +25,40 @@ tags:
    とする。原題が求める積と逆行列の関係を検討せよ。
 3. $A=\begin{pmatrix}0&2&1\\2&3&2\\1&2&0\end{pmatrix}$、$\boldsymbol v_1=(1,0,-1)^{\mathsf T}/\sqrt2$ とする。$\boldsymbol v_1$ が固有ベクトルであることを示し、これと互いに直交する残り2本の単位固有ベクトルを求めよ。
 
+### 题目描述
+
+1. 设 $A$ 为实 $n$ 阶方阵，$\boldsymbol a$ 为向量，并且对某个自然数 $m$ 有
+
+   $$
+   A^m\boldsymbol a\ne\boldsymbol 0,\qquad
+   A^{m+1}\boldsymbol a=\boldsymbol 0.
+   $$
+
+   证明 $\boldsymbol a,A\boldsymbol a,\ldots,A^m\boldsymbol a$ 线性无关。
+2. 对复数 $z=a+bi$ 定义
+
+   $$
+   A(z)=\begin{pmatrix}-a&-b\\b&-a\end{pmatrix}.
+   $$
+
+   检验原题所要求的乘法关系与逆矩阵关系，即比较 $A(z_1z_2)$ 和 $A(z_1)A(z_2)$，并在 $z\ne0$ 时比较 $A(z^{-1})$ 和 $A(z)^{-1}$，同时判断原题关系式中的负号是否成立。
+3. 给定
+
+   $$
+   A=\begin{pmatrix}0&2&1\\2&3&2\\1&2&0\end{pmatrix},
+   \qquad
+   \boldsymbol v_1=\frac{1}{\sqrt2}(1,0,-1)^{\mathsf T},
+   $$
+
+   证明 $\boldsymbol v_1$ 是 $A$ 的特征向量，并求另外两个单位特征向量，使三个向量两两正交。
+
+#### 考点
+
+- **线性无关**：需要利用 $A^{m+1}\boldsymbol a=\boldsymbol0$ 与 $A^m\boldsymbol a\ne\boldsymbol0$ 排除向量列的非平凡线性关系。
+- **复数的矩阵表示**：需要直接计算复数乘积、倒数所对应的矩阵，核验乘法和求逆关系中的符号。
+- **特征值与特征向量**：需要验证已给向量的特征向量性质，并求出其余特征方向。
+- **正交分解**：需要把三个特征向量单位化，并保证所得向量组两两正交。
+
 ## **Kai**
 
 ### [小問 1]

@@ -30,6 +30,28 @@ $$
 
 (3) 一般の $A \in \mathbb{R}^{n×m}$ について，$I \subseteq J \subseteq \{1, 2, \dots , m\}$ かつ $\text{rank}(A[J]) = |J|$ のとき，$\text{rank}(A[I]) = |I|$ が成り立つことを示せ．
 
+### 题目描述
+
+设实矩阵 $A\in\mathbb R^{n\times m}$ 的第 $j$ 列为 $a_j\in\mathbb R^n$。对每个 $J\subseteq\{1,\ldots,m\}$，以 $|J|$ 表示元素个数，并令 $A[J]\in\mathbb R^{n\times|J|}$ 为按下标递增排列所有 $a_j$（$j\in J$）所得的子矩阵。
+
+1. 对
+   $$
+   A=\begin{pmatrix}
+   1&0&0&-2&0&0\\
+   0&1&0&-2&-3&-5\\
+   -2&-2&0&4&6&0
+   \end{pmatrix},
+   $$
+   求全部使列集合 $\{a_j\mid j\in J\}$ 线性无关的 $J\subseteq\{1,\ldots,6\}$。
+2. 对同一矩阵，求全部满足 $\operatorname{rank}(A[J])<|J|$、但每个真子集 $I\subsetneq J$ 均满足 $\operatorname{rank}(A[I])=|I|$ 的 $J$。约定 $\operatorname{rank}(A[\varnothing])=0$。
+3. 对一般的 $A\in\mathbb R^{n\times m}$，证明若 $I\subseteq J\subseteq\{1,\ldots,m\}$ 且 $\operatorname{rank}(A[J])=|J|$，则 $\operatorname{rank}(A[I])=|I|$。
+
+#### 考点
+
+- **线性无关与矩阵秩**：枚举给定矩阵中所有线性无关的列子集，并用秩刻画独立性。
+- **极小相关集**：找出自身相关而任意真子集均独立的列下标集合，即列向量拟阵中的回路。
+- **独立集的遗传性质**：证明线性无关列集的任意子集仍线性无关。
+
 ## **Kai** 
 ### (1)
 

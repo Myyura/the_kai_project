@@ -75,6 +75,52 @@ holds.
 
 (iv) For an $(s, t)$-flow $f$ in $N$, assume that there is no directed path from $s$ to $t$ in the residual network $N_f$. Let $S$ denote the set of vertices that are reachable from $s$ in $N_f$. Prove that $\text{cap}(A) > \text{cap}(S)$ holds for any set $A \subsetneq S$ with $s \in A$.
 
+### 题目描述
+
+设 $G=(V,E)$ 为简单有向图，网络 $N=[G,c]$ 给每条边 $e$ 赋予正实容量 $c(e)>0$。对 $X,Y\subseteq V$，记 $E(X,Y)$ 为从 $X$ 中顶点指向 $Y$ 中顶点的边集，$\mathbb R_+$ 为非负实数集。对指定的 $s,t\in V$，若映射 $f:E\to\mathbb R_+$ 满足
+
+$$
+\sum_{e\in E(\{v\},V\setminus\{v\})}f(e)
+-\sum_{e\in E(V\setminus\{v\},\{v\})}f(e)=0
+\quad(\forall v\in V\setminus\{s,t\})
+$$
+
+以及 $f(e)\le c(e)$，则称其为 $(s,t)$ 流，其流值定义为
+
+$$
+\operatorname{val}(f)=
+\sum_{e\in E(\{s\},V\setminus\{s\})}f(e)
+-\sum_{e\in E(V\setminus\{s\},\{s\})}f(e).
+$$
+
+若 $X\subseteq V$ 满足 $s\in X$、$t\notin X$，则称其为 $(s,t)$ 割，容量为
+
+$$
+\operatorname{cap}(X)=\sum_{e\in E(X,V\setminus X)}c(e).
+$$
+
+回答：
+
+1. 对任意 $(s,t)$ 流 $f$ 和 $(s,t)$ 割 $X$，证明
+   $$
+   \operatorname{val}(f)=
+   \sum_{e\in E(X,V\setminus X)}f(e)
+   -\sum_{e\in E(V\setminus X,X)}f(e).
+   $$
+2. 说明如何由给定流 $f$ 构造残量网络
+   $N_f=[G_f=(V,E_f),c_f]$。
+3. 若 $N_f$ 中存在从 $s$ 到 $t$ 的有向路 $P$，令 $\Delta$ 为 $P$ 上残量容量的最小值。证明原网络中存在流值为
+   $\operatorname{val}(f)+\Delta$ 的 $(s,t)$ 流。
+4. 若 $N_f$ 中不存在从 $s$ 到 $t$ 的有向路，令 $S$ 为在 $N_f$ 中从 $s$ 可达的顶点集。证明对任意满足
+   $s\in A\subsetneq S$ 的集合 $A$，都有
+   $\operatorname{cap}(A)>\operatorname{cap}(S)$。
+
+#### 考点
+
+- **流守恒与割上的净流量**：对割内顶点的守恒式求和，消去内部边并得到流值恒等式。
+- **残量网络与增广路**：正确处理正向剩余容量和反向撤销容量，并沿瓶颈增广得到更大流。
+- **最大流—最小割结构**：由残量可达集构造割，并利用正容量证明其在指定子集关系下的严格容量比较。
+
 ## **Kai**
 ### (i)
 We can rewrite the flow conservation law for any node $u \in V \setminus \{s, t\}$ as

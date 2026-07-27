@@ -55,6 +55,55 @@ $$
 
 ### English Version
 
+### 题目描述
+
+设 $f:\mathbb R^n\to\mathbb R$ 为连续可微凸函数，
+
+$$
+S=\{\boldsymbol x\in\mathbb R^n\mid
+\boldsymbol a^\top\boldsymbol x=b\},
+$$
+
+其中 $\boldsymbol a\ne\boldsymbol0$，$b$ 为标量，$\top$ 表示转置。考虑凸规划
+
+$$
+(\mathrm P):\qquad
+\min_{\boldsymbol x\in S} f(\boldsymbol x).
+$$
+
+对参数 $\boldsymbol z\in\mathbb R^n$，再考虑以 $\boldsymbol y$ 为决策变量的凸二次规划
+
+$$
+\begin{aligned}
+\mathrm P(\boldsymbol z):\quad
+&\text{最小化}\quad
+\nabla f(\boldsymbol z)^\top\boldsymbol y+
+\frac12(\boldsymbol y-\boldsymbol z)^\top(\boldsymbol y-\boldsymbol z)\\
+&\text{满足}\quad \boldsymbol y\in S.
+\end{aligned}
+$$
+
+假设对每个 $\boldsymbol z$，该问题都有唯一最优解
+$\bar{\boldsymbol y}(\boldsymbol z)$。回答：
+
+1. 当 $\boldsymbol z\in S$ 时，用 P$(\boldsymbol z)$ 的 KKT 条件求 $\bar{\boldsymbol y}(\boldsymbol z)$。
+2. 若 $\boldsymbol x\in S$ 且 $\bar{\boldsymbol y}(\boldsymbol x)=\boldsymbol x$，证明 $\boldsymbol x$ 是 P 的最优解。
+3. 若 $\boldsymbol x\in S$ 且 $\bar{\boldsymbol y}(\boldsymbol x)\ne\boldsymbol x$，证明
+   $$
+   \nabla f(\boldsymbol x)^\top
+   \bigl(\bar{\boldsymbol y}(\boldsymbol x)-\boldsymbol x\bigr)<0,
+   \qquad
+   \boldsymbol a^\top
+   \bigl(\bar{\boldsymbol y}(\boldsymbol x)-\boldsymbol x\bigr)=0.
+   $$
+4. 当 $\bar{\boldsymbol y}(\boldsymbol x)\ne\boldsymbol x$ 时，证明 $\boldsymbol x$ 不是 P 的最优解。
+
+#### 考点
+
+- **KKT 条件**：求解带单个仿射等式约束的强凸二次子问题。
+- **投影梯度方向**：解释子问题的不动点与原凸规划最优解的对应关系，并证明非零投影步是保持可行的一阶下降方向。
+- **凸函数一阶最优性**：利用凸性和梯度不等式证明充分最优性及非最优性。
+
 ## **Kai**
 ### (i)
 

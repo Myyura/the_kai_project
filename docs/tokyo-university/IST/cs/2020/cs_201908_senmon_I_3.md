@@ -48,6 +48,54 @@ where $d$ and $q$ are positive integer constants, and $0 < m \leq l(s)$ is assum
 (4) Give an algorithm $H$ that satisfies all of the following conditions: (a) it always answers the solution of problem FIND, (b) it searches for the answer by using hash $h(s, m)$ and function $\text{eq}(r, p)$, and ($c$) if we assume that the number of integers $i$ that satisfy $h(p, l(p)) = h(s + i, l(p))$ for given $s$ and $p$ is $O(1)$ independently of $s$ and $p$, then the algorithm $H$ runs in time $O(l(s) + l(p))$.
 In addition, show in what condition the time complexity of the algorithm $H$ is larger than $O(l(s) + l(p))$. Also, answer the order of the worst-case time complexity of the algorithm $H$ in terms of $l(s)$ and $l(p)$.
 
+### 题目描述
+
+字符串 $s$ 的长度记为 $l(s)$，从 $0$ 开始编号的第 $i$ 个字符记为
+$s[i]$，删去前 $i$ 个字符所得后缀记为 $s+i$，并在这些记号中假设
+$0\le i<l(s)$。例如 $s=\text{PROBLEM}$ 时，
+$s[0]=\text P$、$s+3=\text{BLEM}$。字符集含常数 $N\ge2$ 个字符，每个字符
+$c$ 对应互不相同的正整数 $\operatorname{numval}(c)\le N$。假设计算
+$s+i$、$\operatorname{numval}(c)$、整数加法、乘法和取余均为 $O(1)$，且整数运算不会溢出。
+
+问题 FIND 要求：给定字符串 $p,s$，求 $p$ 在 $s$ 中第一次匹配的起点，即满足
+$$
+\forall j\in\{0,\ldots,l(p)-1\},\quad s[i+j]=p[j]
+$$
+的最小非负整数 $i$；若不存在则返回 $-1$。以下假设
+$l(s)>l(p)>0$。函数 $\operatorname{eq}(r,p)$ 在 $r$ 的前
+$l(p)$ 个字符等于 $p$ 时返回 $1$，否则返回 $0$，耗时
+$O(l(p))$。题中朴素算法 $S$ 从左到右对每个位置调用该函数。
+
+（1）用 $l(s),l(p)$ 表示算法 $S$ 的最坏时间复杂度。
+
+对满足 $0<m\le l(s)$ 的 $m$，定义前 $m$ 个字符的哈希：
+$$
+h(s,m)=
+\left(\sum_{i=0}^{m-1}
+\operatorname{numval}(s[i])d^{m-i-1}\right)\bmod q,
+$$
+其中 $d,q$ 为正常数。
+
+（2）设 $i<l(s)-m$，且已预计算
+$h'=h(s+i,m)$ 和 $d_m=d^{m-1}$。给出在 $O(1)$ 时间内计算
+$h(s+i+1,m)$ 的算法或表达式。
+
+（3）给出算法 $H_0$，在 $O(l(s)+l(p))$ 时间内找出满足
+$h(p,l(p))=h(s+i,l(p))$ 的最小非负 $i$；若不存在则返回 $-1$。并说明在什么条件下
+$H_0$ 的输出不是 FIND 的正确答案。
+
+（4）给出算法 $H$，满足：始终正确求解 FIND；使用哈希 $h$ 和函数
+`eq` 搜索；若对给定 $s,p$，哈希相等的候选位置数与输入无关地为
+$O(1)$，则总耗时为 $O(l(s)+l(p))$。此外说明何种条件会使其耗时超过这一界，并用
+$l(s),l(p)$ 给出最坏时间复杂度。
+
+#### 考点
+
+- **朴素字符串匹配复杂度**：计算逐位置完整比较在最坏情况下的成本。
+- **Rabin–Karp 滚动哈希**：从当前窗口哈希常数时间更新下一窗口哈希。
+- **哈希冲突验证**：哈希相等后使用精确比较保证算法正确，并识别冲突导致的额外开销。
+- **平均与最坏复杂度**：在候选数有界时得到线性时间，在大量碰撞时分析退化上界。
+
 ## **Kai**
 ### (1)
 

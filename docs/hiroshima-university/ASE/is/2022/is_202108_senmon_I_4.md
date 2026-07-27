@@ -34,6 +34,18 @@ A graph is said to be **1-planar** if it can be drawn in the Euclidean plane in 
 (3) It is known that the chromatic number of any 1-planar graph is at most six. Give a vertex coloring of the graph illustrated in (1) with a set of colors ${a, b, c, d, e, f}$ in such a way that any two adjacent vertices are given different colors.
 
 
+### 题目描述
+
+将平面图作如下推广：若图 $G$ 能画在欧氏平面上，使每条边至多与另一条边交叉一次，则称 $G$ 为 **$1$-平面图**；不允许任意三条边交于同一点。
+
+1. 给出一个是 $1$-平面图但不是平面图的例子，并说明它为何不是平面图。
+2. 由定义，任意平面图也是 $1$-平面图。证明任意顶点数不超过 $6$ 的图都是 $1$-平面图。
+3. 已知任意 $1$-平面图的顶点色数至多为 $6$。用颜色集合 $\{a,b,c,d,e,f\}$ 对第 1 问给出的图作顶点着色，使任意相邻顶点颜色不同。
+
+#### 考点
+
+- 平面图：通过完全图的画法与非平面性论证理解 $1$-平面性，并构造六个顶点以内图的 $1$-平面嵌入及合法顶点着色。
+
 ## **Kai**
 ### (1)
 The graph $K_5$ (complete graph of $5$ vertices) is not planar but 1-planar (Fig 1.)

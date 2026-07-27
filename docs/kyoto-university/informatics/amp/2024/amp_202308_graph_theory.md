@@ -52,6 +52,30 @@ $$
 
 (ii) Show an $O(mn)$-time algorithm that determines whether or not there exists a negative cycle in $N$ and that outputs $d^*(v)$ for all $v \in V$ if no negative cycle exists.
 
+### 题目描述
+
+设 $G=(V,E)$ 为简单强连通有向图，$|V|=n$、$|E|=m$。网络 $N=[G,w]$ 给每条边 $e$ 赋实权 $w(e)$。对依次经过
+$v_1,\ldots,v_k$ 的有向路 $P=(v_1,\ldots,v_k)$，定义
+
+$$
+\mu(P)=k-1,\qquad
+\omega(P)=\sum_{i=1}^{k-1}w(v_i,v_{i+1}).
+$$
+
+给定 $s\in V$。对每个 $v\in V$，令 $d(v)$ 为所有从 $s$ 到 $v$ 且边数不超过 $n-1$ 的路的最小权重和；令 $d^*(v)$ 为从 $s$ 到 $v$ 的所有简单路的最小权重和。若回路 $C$ 满足 $\omega(C)<0$，称其为负环。回答：
+
+1. 证明 $N$ 不含负环，当且仅当
+   $$
+   d(u)+w(u,v)\ge d(v),\qquad\forall (u,v)\in E.
+   $$
+2. 给出一个 $O(mn)$ 时间算法：判定 $N$ 是否存在负环；若不存在，则输出所有 $v\in V$ 的 $d^*(v)$。
+
+#### 考点
+
+- **Bellman–Ford 松弛条件**：把至多 $n-1$ 条边的最短路值与对所有边的松弛不等式联系起来。
+- **负环检测**：证明第 $n$ 轮仍可改进距离等价于存在可达负环，并在无负环时输出单源最短距离。
+- **算法复杂度分析**：对全部 $m$ 条边进行 $O(n)$ 轮松弛，得到 $O(mn)$ 总时间。
+
 ## **Kai**
 ### (i)
 

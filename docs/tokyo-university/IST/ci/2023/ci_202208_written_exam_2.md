@@ -57,3 +57,31 @@ A UDP packet is sent for a Voice-over IP application in a network shown in Figur
 (9) The bit error rate of the transmission channel is $\alpha(0 \le \alpha < 1)$. The source node sends each bit three times to improve the error rate. For example, when it transmits 0, it sends 000, and when it transmits 1, it sends 111. When the receiver restores the original data by majority vote, express bit error rate after the restoration as an equation.
 
 (10) In TCP/IP communication, since multiple processes are assumed to be running at the destination node, the destination port number is used to identify the destination process for the received packet. Why did the designers of TCP/IP choose an abstract identifier, the port number, which is independent of its process identifier? Answer two benefits of the port number.
+
+### 题目描述
+
+IPv4 地址是标识互联网位置的 32 位（4 字节）数，每 8 位用十进制表示并以点分隔。地址分配给网络接口，由标识网络的网络 ID 与标识接口的接口 ID 组成；网络写成“点分十进制地址/网络 ID 位数”。
+
+网络可划分为各有唯一网络 ID 的子网，管理员从该子网地址块给接口分配地址。例如 `203.178.168.0/24` 可分为 `203.178.168.0/25`（`.0`～`.127`）与 `203.178.168.128/25`（`.128`～`.255`）。若另有 `203.178.168.0/27` 分给不同子网，则给 `/25` 分配接口地址时必须排除 `/27` 的范围，避免重叠。
+
+1. 互联网中一共有多少个可唯一标识的 IPv4 地址？
+2. 把十六进制 IPv4 地址 `C0A864C8` 写成点分十进制。
+3. 网络 ID 长 20 位的网络最多能给多少个接口分配地址？接口 ID 全 0 与全 1 均保留、不能分配。
+4. 从 `192.168.254.0/23` 为图 2 的六个子网 N1～N6 分配地址。按 N1 到 N6 使用递增地址：N1、N2、N3 分别需给 250、120、110 个接口分配地址，数量包含相应路由器接口；N4、N5、N6 还需给路由器 R1～R3 的相应接口分配地址。仍保留接口 ID 全 0、全 1。分别以 `192.168.a.b - 192.168.d.e` 形式写出各子网地址范围。
+
+图 3 的网络为 VoIP 发送 UDP 包。每包有 100 字节首部和 \(P\) 字节载荷；瓶颈是路由器 1 到路由器 2 的 \(6\,\mathrm{Mbit/s}\) 链路。
+
+5. 源端直接发送恒定 \(128\,\mathrm{kbit/s}\) 编码的语音，必须等载荷完全填满才发包；等待时间称分组化时延。\(P=1000\) 字节时求该时延。
+6. 为使分组化时延低于 20 ms，应如何改变包大小？
+7. 发送大文件时，把载荷吞吐率称为有效吞吐率。用 \(P\) 表示最大有效吞吐率，并分别求 \(P=100\)、\(P=1000\) 字节时的值。
+8. 若每台路由器都以概率 \(s\) 丢弃分组，求图 3 中源端发出的所有分组（包括未到终点者）的平均跳数。向下一节点交付一次称一跳；成功到达终点需 3 跳。
+9. 信道比特错误率为 \(\alpha\)（\(0\le\alpha<1\)）。为降低错误，每位重复发送三次：0 发 `000`，1 发 `111`；接收端多数表决恢复。写出恢复后的比特错误率公式。
+10. TCP/IP 假设目标节点同时运行多个进程，用目标端口号标识接收进程。说明为何采用独立于操作系统进程 ID 的抽象端口号，给出两个好处。
+
+#### 考点
+
+- **IPv4 子网划分**：进行十六进制、点分十进制转换，并按主机数量、保留地址和递增分配约束实施 VLSM。
+- **分组化时延与有效吞吐率**：权衡载荷大小、100 字节首部开销、语音生成速率和 6 Mbit/s 瓶颈带宽。
+- **可靠传输的跳数期望**：按逐路由器存活概率计算分组实际经历的平均链路跳数。
+- **最小距离重复码**：计算三次重复码在多数表决仍出错所需的两位或三位错误概率。
+- **端口抽象**：从跨操作系统互操作、服务的稳定命名及同机多路复用说明端口与进程 ID 解耦的价值。

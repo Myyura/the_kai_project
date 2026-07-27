@@ -43,6 +43,60 @@ Here, assume $S' \notin \{ B_{q,q'} \mid B \in V \land (q, q') \in Q \}$. Prove 
 
 (4) Give a method to decide, given a context-free grammar $G$ in Chomsky normal form and a deterministic finite automaton $\mathcal{A}$ as inputs, whether or not $\mathcal{L}(G) \subseteq \mathcal{L}(\mathcal{A})$ holds. You may use the results of questions (1), (2), and (3).
 
+### 题目描述
+
+以下将 DFA 写成五元组
+$\mathcal{A}=(Q,\Sigma,\delta,q_0,F)$，其中 $Q$ 是有限状态集，
+$\Sigma$ 是有限输入字母表，$\delta:Q\times\Sigma\to Q$ 是转移函数，
+$q_0$ 是初始状态，$F\subseteq Q$ 是接受状态集；将上下文无关文法写成
+$G=(V,\Sigma,P,S)$，其中 $V$ 是有限非终结符集，$\Sigma$ 是有限终结符集，
+$P$ 是有限产生式集，$S\in V$ 是开始符号。
+
+若文法的每条产生式均为
+$B\to CD$、$B\to a$ 或 $S\to\varepsilon$，其中 $B$ 为非终结符，
+$C,D$ 为不同于 $S$ 的非终结符，$a$ 为终结符，则称该文法为乔姆斯基范式。
+记 $\mathcal{L}(\mathcal{A})$ 为自动机接受的语言，
+$\mathcal{L}(G)$ 为文法生成的语言。回答下列问题。
+
+（1）给定 DFA $\mathcal{A}=(Q,\Sigma,\delta,q_0,F)$，构造接受补语言
+$\Sigma^*\setminus\mathcal{L}(\mathcal{A})$ 的 DFA。可假设 $\delta$ 为全函数。
+
+（2）描述一个输入上下文无关文法 $G$、判定
+$\mathcal{L}(G)=\varnothing$ 是否成立的算法。
+
+（3）给定乔姆斯基范式文法 $G=(V,\Sigma,P,S)$ 和 DFA
+$\mathcal{A}=(Q,\Sigma,\delta,q_0,F)$，定义文法 $G_{\mathcal A}$：
+$$
+\begin{aligned}
+V_{\mathcal A}
+ &=\{S'\}\cup\{B_{q,q'}\mid B\in V,\ (q,q')\in Q^2\},\\
+P_{\mathcal A}
+ &=\{B_{q,q'}\to C_{q,q''}D_{q'',q'}
+   \mid B\to CD\in P,\ q,q',q''\in Q\}\\
+ &\quad\cup\{B_{q,q'}\to a
+   \mid B\to a\in P,\ q,q'\in Q,\ \delta(q,a)=q'\}\\
+ &\quad\cup\{S'\to S_{q_0,q}\mid q\in F\}.
+\end{aligned}
+$$
+假设 $S'$ 不属于其他形如 $B_{q,q'}$ 的非终结符。证明
+$$
+\mathcal{L}(G_{\mathcal A})
+=\bigl(\mathcal{L}(G)\cap\mathcal{L}(\mathcal A)\bigr)
+\setminus\{\varepsilon\}.
+$$
+
+（4）给定乔姆斯基范式文法 $G$ 和 DFA $\mathcal A$，给出判定
+$\mathcal{L}(G)\subseteq\mathcal{L}(\mathcal A)$ 是否成立的方法。可以使用前
+三问的结论。
+
+#### 考点
+
+- **正则语言的补运算**：在转移函数完备时翻转 DFA 的接受与非接受状态。
+- **上下文无关文法空语言判定**：计算能够生成终结字符串的非终结符闭包。
+- **上下文无关语言与正则语言的交**：用带自动机起止状态的非终结符构造交语言文法并证明其语义。
+- **语言包含关系判定**：把 $L(G)\subseteq L(\mathcal A)$ 化为
+  $L(G)\cap\overline{L(\mathcal A)}=\varnothing$，同时正确处理空串。
+
 ## **Kai**
 ### (1)
 Given DFA $\mathcal{A} = (Q, \Sigma, \delta, q_0, F)$, give an automaton accepting complement of $\mathcal{L(A)}$, i.e. $\Sigma^*\setminus\mathcal{L(A)}$.

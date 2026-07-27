@@ -34,6 +34,28 @@ When the distribution is stationary and $p = q$, represent each of $q_1, \dots, 
 (5) Show the entropy of $S_2$ with $p$ when the initial distribution is equal to the stationary distribution given in (4).
 
 
+### 题目描述
+
+信息源字母表为 $\Sigma=\{0,1\}$。有限状态、不可约且非周期的 Markov 信息源
+$S_1,S_2$ 满足：
+
+- C1：二者都不会输出含 `11` 的序列；
+- C2：$S_2$ 还不会输出含 `0000` 的序列。
+
+回答：
+
+1. 设 $S_1$ 状态为 $s_1,\ldots,s_m$。画最少状态的转移图，并使在 $s_1$ 时以概率 $p$（$0<p<1$）输出 0。
+2. 设 $S_2$ 状态为 $t_1,\ldots,t_n$。画最少状态的转移图，使在 $t_1$ 时以概率 $p$ 输出 0、在 $t_2$ 时以概率 $q$ 输出 0（$0<p,q<1$）；说明为何满足 C1、C2。
+3. 写出 $S_2$ 的转移矩阵。
+4. 状态分布为 $(q_1,\ldots,q_n)$。当其为平稳分布且 $p=q$ 时，用 $p$ 表示全部 $q_i$。
+5. 初始分布取第 4 问平稳分布时，用 $p$ 表示 $S_2$ 的熵率。
+
+#### 考点
+
+- **受限序列的最小 Markov 状态机**：用最近连续 0 的长度及上一位是否为 1 记录生成约束，并证明状态不可再合并。
+- **Markov 链平稳分布**：从带输出概率的状态图写转移矩阵并解平衡方程。
+- **Markov 信息源熵率**：按平稳状态概率加权各状态的二元输出/转移熵。
+
 ## **Kai**
 ### (1)
 

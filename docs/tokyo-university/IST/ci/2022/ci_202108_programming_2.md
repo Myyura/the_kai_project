@@ -61,6 +61,43 @@ for $\{x_{s+i}\}$.
 
 Find $s$ such that it maximizes the value of $a$ in the approximate formula $ka^i$ for $\{x_{s+i}\}$. Write the values of $s,a,k$ for such $s$ on the answer sheet. Round $a$ and $k$ to 4 decimal places. When more than one such $s$ is found, write the values of $s,a,k$ for every $s$.
 
+### 题目描述
+
+病毒每日新增感染人数按时间顺序存入文本文件，各数以冒号 `:` 分隔。例如 `621 591 907 1121 1032` 存为 `621:591:907:1121:1032`。
+
+1. 设 `infections.txt` 中数据为 \(x_0,\ldots,x_{n-1}\)，对 \(3\le i<n-3\) 定义七日平均
+   \[
+   ave(i)=\frac17\sum_{k=-3}^3x_{i+k}.
+   \]
+   求 \(ave(i)\) 的最大值、最小值及
+   \[
+   \sum_{i=3}^{n-4}ave(i),
+   \]
+   均四舍五入到小数点后 4 位并写在答题纸上。
+2. 文本文件 \(x,y\) 中数据分别为 \(x_0,\ldots,x_{m-1}\) 与 \(y_0,\ldots,y_{n-1}\)，其中 \(m\ge n\)。定义相似度
+   \[
+   s(x,y)=-\min_{0\le i\le m-n}\sum_{k=0}^{n-1}(x_{k+i}-y_k)^2.
+   \]
+   在 `data` 文件夹任意两个文件组成的所有配对中，找相似度最高者，写出文件名和得分；并列时全部写出。
+3. 设 `infections2.txt` 中数据为 \(\{x_i\}_{i=0}^{n-1}\)。用直线 \(ai+k\) 拟合，使 \(\sum_{i=0}^{n-1}(ai+k-x_i)^2\) 最小，给定
+   \[
+   a=\frac{n\sum ix_i-\sum i\sum x_i}{n\sum i^2-(\sum i)^2},\qquad
+   k=\frac{\sum i^2\sum x_i-\sum ix_i\sum i}{n\sum i^2-(\sum i)^2},
+   \]
+   其中所有求和均为 \(i=0,\ldots,n-1\)。计算 \(a,k\)，四舍五入到 4 位小数并写在答题纸上。
+4. 对每个 \(0\le s<n-30\)，取长度 31 的子序列 \(\{x_{s+i}\}_{i=0}^{30}\)，用指数式 \(ka^i\) 拟合，令 \(a,k\) 最小化
+   \[
+   \sum_{i=0}^{30}\left(\log_e(ka^i)-\log_e(x_{s+i}+1)\right)^2.
+   \]
+   找使拟合参数 \(a\) 最大的 \(s\)，写出 \(s,a,k\)，其中 \(a,k\) 四舍五入到 4 位小数；如多个 \(s\) 并列，全部写出。
+
+#### 考点
+
+- **滑动平均与数值汇总**：在合法中心范围内计算七日均值、极值和总和并按要求舍入。
+- **序列对齐相似度**：枚举长序列中与短序列等长的窗口，以最小平方误差定义文件配对得分。
+- **最小二乘直线拟合**：按给定闭式公式计算趋势斜率与截距。
+- **对数线性化的指数拟合**：把 \(ka^i\) 取对数化为关于 \(i\) 的直线，逐窗口估计增长因子并处理并列。
+
 ## **Kai**
 The sample data files are [here](https://github.com/sophytoeat/Problem/tree/main/%E9%81%8E%E5%8E%BB%E5%95%8F/%E5%89%B5%E9%80%A0%E6%83%85%E5%A0%B1%E5%AD%A6/%E4%B8%80%E8%88%AC%E6%95%99%E8%82%B2%E7%A7%91%E7%9B%AE(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)/2022%E5%B9%B4%E5%BA%A6_%E5%A4%8F_%E4%B8%80%E8%88%AC/%E9%85%8D%E5%B8%83%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF).
 
@@ -410,7 +447,6 @@ signed main() {
     return 0;
 }
 ```
-
 
 
 

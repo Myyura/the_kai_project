@@ -58,6 +58,51 @@ $$
 ### English Version
 
 
+### 题目描述
+
+考虑线性规划问题
+
+$$
+\begin{aligned}
+\mathrm{P}:\quad &\text{最小化}\quad \boldsymbol{c}^{\top}\boldsymbol{x}\\
+&\text{满足}\quad \boldsymbol{A}\boldsymbol{x}=\boldsymbol{b},\qquad
+\boldsymbol{x}\geqq\boldsymbol{0},
+\end{aligned}
+$$
+
+其中 $\boldsymbol A$ 是 $m\times n$ 常数矩阵，$\boldsymbol b$、$\boldsymbol c$ 分别是 $m$ 维和 $n$ 维常向量，$\boldsymbol x$ 是 $n$ 维变量向量，$\top$ 表示转置。再考虑含非负参数 $\mu$ 的条件
+
+$$
+Q(\mu):
+\left\{
+\begin{aligned}
+&\boldsymbol A^\top\boldsymbol y+\boldsymbol z=\boldsymbol c,\\
+&\boldsymbol A\boldsymbol x=\boldsymbol b,\\
+&x_i z_i=\mu\quad(i=1,\ldots,n),\\
+&\boldsymbol x\geqq0,\quad\boldsymbol z\geqq0,
+\end{aligned}
+\right.
+$$
+
+其中 $\boldsymbol x,\boldsymbol z\in\mathbb R^n$，$\boldsymbol y\in\mathbb R^m$。假设对每个 $\mu$，满足 $Q(\mu)$ 的向量 $\boldsymbol x,\boldsymbol y,\boldsymbol z$ 唯一存在，并分别记作 $\boldsymbol x(\mu),\boldsymbol y(\mu),\boldsymbol z(\mu)$。回答：
+
+1. 写出问题 P 的对偶问题。
+2. 定义 $h:[0,\infty)\to\mathbb R$，
+   $h(\mu)=\boldsymbol c^\top\boldsymbol x(\mu)-\boldsymbol b^\top\boldsymbol y(\mu)$，证明 $h$ 在 $[0,\infty)$ 上是线性函数。
+3. 证明 $\boldsymbol x(0)$ 是 P 的最优解。
+4. 当 $n=2,m=1$ 且
+   $$
+   \boldsymbol A=(1,1),\qquad \boldsymbol b=1,\qquad
+   \boldsymbol c=\begin{pmatrix}1\\-1\end{pmatrix}
+   $$
+   时，题设的唯一性对任意 $\mu\geqq0$ 成立。求 $\boldsymbol x(\mu)$，并求第 1 问所得对偶问题的最优解。
+
+#### 考点
+
+- **线性规划对偶**：从等式约束的原问题构造对偶，并在具体参数下求对偶最优解。
+- **互补松弛与中心路径条件**：利用 $x_i z_i=\mu$ 连接原、对偶可行性，推导对偶间隙 $h(\mu)$ 及 $\mu=0$ 时的最优性。
+- **内点法代数计算**：在二维实例中联立中心路径方程，显式求出随参数变化的 $\boldsymbol x(\mu)$。
+
 ## **Kai**
 ### (i)
 Lagrangian:

@@ -32,6 +32,25 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka_university/engineering/eei_202008_electrical_circuit_1_p1.png" width="600" alt=""/>
 </figure>
 
+### 题目描述
+
+图 1 的电路在 $t<0$ 时开关 SW1 闭合、SW2 断开，并已达到稳态。$t=0$ 时切换为 SW1 断开、SW2 闭合。电压、电流方向按图定义，且 $v_2(0^-)=0$；$R_1,R_2,C_1,C_2,E$ 均为正实常数。
+
+1. 求切换前瞬间 $t=0^-$ 的 $i(t)$ 与 $v_1(t)$。
+2. 利用电容电压连续性，求切换后瞬间 $t=0^+$ 的 $i(t)$ 与 $v_1(t)$。
+3. 求 $t>0$ 时电流 $i(t)$ 的 Laplace 变换 $I(s)$。
+4. 当
+   $$R_1=3\,\Omega,\quad R_2=2\,\Omega,\quad C_1=C_2=1\,\mathrm F,\quad E=15\,\mathrm V$$
+   时，求 $t>0$ 的 $i(t)$。
+5. 使用第 4 问参数，求 $t>0$ 内阻值为 $R_1$ 的电阻消耗的总能量。
+
+#### 考点
+
+- **开关电路初始条件**：分析直流稳态并使用电容电压不能突变。
+- **RC 网络的 Laplace 域分析**：用 $1/(sC)$ 表示电容并求等效阻抗。
+- **部分分式与反变换**：把电流写成多个指数衰减项。
+- **电阻耗能**：计算 $\int_0^\infty R_1i^2(t)\,dt$。
+
 ## **Kai**
 ### (1)
 

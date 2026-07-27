@@ -55,6 +55,43 @@ $$
 
 ### English Version
 
+### 题目描述
+
+回答下列两大题。
+
+1. 考虑非线性规划
+   $$
+   \begin{aligned}
+   (\mathrm P):\quad&\text{最大化}\quad
+   \theta(\boldsymbol x)=\left(\prod_{i=1}^n x_i\right)^{1/n}\\
+   &\text{满足}\quad
+   \boldsymbol x\in X=
+   \left\{\boldsymbol x\in\mathbb R^n\ \middle|\
+   \sum_{i=1}^n x_i=1,\ x_i\geqq0\right\}.
+   \end{aligned}
+   $$
+   已知 P 有唯一最优解 $\boldsymbol x^*$，且 $\theta$ 在
+   $\mathbb R_+^n=\{\boldsymbol x\mid x_i>0,\ i=1,\ldots,n\}$ 上为凹函数。回答：
+   1. 写出 P 的 KKT 条件，注意 P 是最大化问题。
+   2. 求最优解 $\boldsymbol x^*$。
+   3. 对任意 $\gamma_i\geqq0$，利用 $\boldsymbol x^*$ 证明算术—几何平均不等式
+      $$
+      \frac1n\sum_{i=1}^n\gamma_i
+      \geqq\left(\prod_{i=1}^n\gamma_i\right)^{1/n}.
+      $$
+2. 对正整数 $n$，令 $\mathcal F_n$ 为从 $\mathbb R^n$ 到 $\mathbb R$ 的非负凸函数全体。
+   1. 对 $f\in\mathcal F_n$ 定义
+      $g_f(\boldsymbol x)=f(\boldsymbol x)^2$。证明对任意
+      $f\in\bigcup_{n=1}^\infty\mathcal F_n$，$g_f$ 均为凸函数。
+   2. 对 $\alpha>0$、$f\in\mathcal F_n$ 定义
+      $h_{f,\alpha}(\boldsymbol x)=f(\boldsymbol x)^\alpha$。求最小实数 $\alpha^*$，使对所有 $\alpha\geqq\alpha^*$ 及所有
+      $f\in\bigcup_{n=1}^\infty\mathcal F_n$，$h_{f,\alpha}$ 都是凸函数；并证明该 $\alpha^*$ 的确最小。
+
+#### 考点
+
+- **KKT 条件与几何平均最大化**：在概率单纯形上求几何平均的唯一极值，并据缩放得到 AM–GM 不等式。
+- **凸函数的幂复合**：利用非负凸函数与单调凸幂函数的复合规则证明平方情形，并精确判定对所有此类函数保持凸性的幂指数阈值。
+
 ## **Kai**
 ### (i)
 #### (a)

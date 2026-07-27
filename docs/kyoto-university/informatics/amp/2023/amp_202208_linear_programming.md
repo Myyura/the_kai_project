@@ -62,6 +62,69 @@ $(c)$ $\boldsymbol{\tilde{x} = y + d^*}$ とする。そのとき, $\boldsymbol{
 ### English Version
 
 
+### 题目描述
+
+给定
+$\boldsymbol A\in\mathbb R^{m\times n}$、
+$\boldsymbol b\in\mathbb R^m$、
+$\boldsymbol c\in\mathbb R^n$，考虑
+
+$$
+\begin{aligned}
+\mathrm P:\quad
+&\text{最小化}\quad\boldsymbol c^\top\boldsymbol x\\
+&\text{满足}\quad\boldsymbol A\boldsymbol x=\boldsymbol b,\qquad
+\boldsymbol x\geqq0.
+\end{aligned}
+$$
+
+假设存在严格正的可行向量
+$\boldsymbol y=(y_1,\ldots,y_n)^\top$，即
+$\boldsymbol A\boldsymbol y=\boldsymbol b$ 且每个 $y_i>0$。回答：
+
+1. 令 D 为 P 的对偶问题。假设 $\boldsymbol r^*$ 是 D 的最优解，且对某个 $\varepsilon>0$ 存在 D 的可行解 $\boldsymbol r$ 满足
+   $\boldsymbol c^\top\boldsymbol y-\boldsymbol b^\top\boldsymbol r<\varepsilon$。证明
+   $$
+   \boldsymbol b^\top\boldsymbol r^*-\varepsilon
+   <\boldsymbol b^\top\boldsymbol r
+   \leqq\boldsymbol b^\top\boldsymbol r^*.
+   $$
+2. 令 $\boldsymbol Y=\operatorname{diag}(y_1,\ldots,y_n)$，假设
+   $\boldsymbol A\boldsymbol Y^2\boldsymbol A^\top$ 可逆。考虑
+   $$
+   \begin{aligned}
+   \mathrm Q:\quad
+   &\text{最小化}\quad\boldsymbol c^\top\boldsymbol d\\
+   &\text{满足}\quad\boldsymbol A\boldsymbol d=\boldsymbol0,\qquad
+   \|\boldsymbol Y^{-1}\boldsymbol d\|\leqq\frac12,
+   \end{aligned}
+   $$
+   其中 $\|\boldsymbol z\|=\sqrt{\boldsymbol z^\top\boldsymbol z}$。定义
+   $$
+   \boldsymbol p=
+   (\boldsymbol A\boldsymbol Y^2\boldsymbol A^\top)^{-1}
+   \boldsymbol A\boldsymbol Y^2\boldsymbol c,
+   $$
+   并假设 $\boldsymbol c-\boldsymbol A^\top\boldsymbol p\ne\boldsymbol0$，再令
+   $$
+   \boldsymbol d^*=
+   -\frac{\boldsymbol Y^2(\boldsymbol c-\boldsymbol A^\top\boldsymbol p)}
+   {2\|\boldsymbol Y(\boldsymbol c-\boldsymbol A^\top\boldsymbol p)\|}.
+   $$
+   1. 证明
+      $\boldsymbol c^\top\boldsymbol d^*
+      =-\frac12\|\boldsymbol Y(\boldsymbol c-\boldsymbol A^\top\boldsymbol p)\|$。
+   2. 证明 $\boldsymbol d^*$ 是 Q 的最优解。
+   3. 令 $\tilde{\boldsymbol x}=\boldsymbol y+\boldsymbol d^*$。证明 $\tilde{\boldsymbol x}$ 是 P 的可行解，且
+      $\boldsymbol c^\top\tilde{\boldsymbol x}
+      <\boldsymbol c^\top\boldsymbol y$。
+
+#### 考点
+
+- **线性规划对偶间隙**：利用严格可行原点与近似对偶解，把可行对偶目标夹在最优值附近。
+- **仿射尺度方向**：在椭球信赖域与零空间约束中投影目标梯度，验证给定 $\boldsymbol d^*$ 的可行性和最优性。
+- **内点可行步**：由缩放范数上界保证 $\boldsymbol y+\boldsymbol d^*$ 保持非负，并证明目标严格下降。
+
 ## **Kai**
 ### (i)
 Lagrangian:

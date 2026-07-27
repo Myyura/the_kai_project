@@ -83,6 +83,105 @@ $$
 
 とする。
 
+### 题目描述
+
+以下 $e$ 表示自然对数的底，$\mathbb R$ 表示实数集，向量 $\boldsymbol x$ 的转置记作 $\boldsymbol x^{\mathrm T}$。
+
+1. 回答下列问题。
+
+   （1）对实数 $x>0$ 定义
+
+   $$
+   f(x)=x\log x.
+   $$
+
+   1. 在 $xy$ 平面上画出 $y=f(x)$ 的概形，并标出极值点；求使方程 $f(x)=y$ 的正实数解 $x$ 唯一确定时实数 $y$ 的范围。
+   2. 求不定积分 $\int f(x)\,dx$。
+   3. 对第 1 小问所得范围内的 $y$，把满足 $f(x)=y$ 的 $x$ 记作 $f^{-1}(y)$。用 $y$ 和函数 $f^{-1}$ 表示
+
+      $$
+      \int f^{-1}(y)\,dy.
+      $$
+
+   （2）设 $n$ 为正整数。对实数 $c$，数列 $a_1,a_2,\ldots$ 满足
+
+   $$
+   a_1=c,\qquad
+   a_{n+1}=a_n+1-e^{a_n},
+   \qquad n=1,2,\ldots.
+   $$
+
+   1. 求 $a_2<a_1$ 时 $c$ 的充要条件。
+   2. 令 $c=\frac12$，求
+
+      $$
+      \lim_{n\to\infty}a_n.
+      $$
+
+      若极限不存在，则证明其不存在。可使用 $\sqrt e=1.648\ldots$。
+
+2. 回答下列问题。
+
+   （i）设常数 $b>a>0$，考虑二维 Euclidean 空间中的椭圆
+
+   $$
+   \left\{(x,y)\in\mathbb R^2\
+   \middle|\
+   \frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+   \right\}.
+   $$
+
+   当点 $P$ 在该椭圆上移动时，求 $P$ 与点 $(a,0)$ 之间距离的最大值。
+
+   （ii）在 $n$ 维 Euclidean 空间中，给定非零常向量
+
+   $$
+   \boldsymbol c=(c_1,\ldots,c_n)^{\mathrm T}\ne\boldsymbol0
+   $$
+
+   和常数 $d$，考虑超平面
+
+   $$
+   \left\{
+   \boldsymbol x=(x_1,\ldots,x_n)^{\mathrm T}\in\mathbb R^n
+   \ \middle|\
+   \boldsymbol c^{\mathrm T}\boldsymbol x=d
+   \right\},
+   $$
+
+   其中
+
+   $$
+   \boldsymbol0=(0,\ldots,0)^{\mathrm T}\in\mathbb R^n.
+   $$
+
+   求原点到该超平面的距离。
+
+   （iii）对实数 $p,q$，计算
+
+   $$
+   V=\iint_D
+   \left(2-e^px^2-e^qy^2\right)\,dx\,dy,
+   $$
+
+   其中
+
+   $$
+   D=
+   \left\{(x,y)\in\mathbb R^2\
+   \middle|\
+   e^px^2-e^qy^2\leq2
+   \right\}.
+   $$
+
+#### 考点
+
+- **局部极值与反函数积分**：分析 $x\log x$ 的单调区间，并利用反函数图形或分部积分求原函数。
+- **非线性递推收敛**：研究迭代映射的不动点、单调性和不变区间。
+- **椭圆上的距离优化**：把距离平方参数化或使用 Lagrange 乘数求全局最大值。
+- **点到超平面的距离**：用法向量投影求 $n$ 维公式。
+- **二重积分与无界区域**：通过尺度变换分析给定二次区域上的积分及其收敛性。
+
 ## **Kai**
 ### 問題1
 

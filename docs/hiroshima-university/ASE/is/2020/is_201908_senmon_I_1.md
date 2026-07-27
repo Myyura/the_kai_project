@@ -71,6 +71,35 @@ $$
 
 (2) Find a general term $a_n$ of this sequence.
 
+### 题目描述
+
+数列满足
+
+$$
+a_0=0,\qquad a_1=1,\qquad
+a_{n+2}=a_{n+1}+a_n\quad(n=0,1,2,\ldots),
+$$
+
+其递推关系可借助
+
+$$
+A=\begin{bmatrix}1&1\\1&0\end{bmatrix}
+$$
+
+写成
+
+$$
+\begin{bmatrix}a_{n+2}\\a_{n+1}\end{bmatrix}
+=A\begin{bmatrix}a_{n+1}\\a_n\end{bmatrix}.
+$$
+
+1. 求矩阵 $A$ 的全部特征值及对应的特征向量。
+2. 求该数列的通项 $a_n$。
+
+#### 考点
+
+- 特征值与特征向量：对递推矩阵作谱分解，并利用矩阵幂推导斐波那契型数列的通项公式。
+
 ## **Kai**
 ### (1)
 Eigenvalues

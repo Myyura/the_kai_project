@@ -59,7 +59,64 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_202208_electromagnetism_2_p2.png" width="400" alt=""/>
 </figure>
 
-## **Kai** 
+### 题目描述
+
+质量为 $m$、带正电 $q$ 的粒子在真空中运动，回答下列问题。
+
+1. 如原 Description 图 2.1，区域 I 为 $0\leq y\leq y_1$，其中均匀磁场的磁感应强度为 $B$、方向垂直纸面由外向里，均匀电场强度为 $E$、方向沿 $-x$。区域 II 为 $y>y_1$，没有电场，只有同方向、同大小的均匀磁场。
+
+   粒子从 $y=0$ 处以初速度 $v_0$ 沿 $+y$ 入射，并在区域 I 内沿 $+y$ 直线运动。
+
+   1. 分别求粒子所受磁场力与电场力的大小和方向。
+   2. 求粒子能沿 $+y$ 直线运动所需的 $v_0$ 条件。
+   3. 粒子进入无电场的区域 II 后，画出它直到再次回到 I、II 边界为止的轨迹概略图。
+   4. 设粒子在区域 II 达到的最大 $y$ 坐标为 $y_{\max}$，求从 $y=0$ 到 $y=y_{\max}$ 的过程中外力对粒子所做的功。
+
+2. 如图 2.2，仍有方向垂直纸面由外向里、磁感应强度为 $B$ 的均匀磁场，另有沿 $+y$ 的均匀电场 $E$。$t=0$ 时把粒子静置在原点 O，初速度为 $0$。
+
+   1. 对 $t\geq0$，以 $v_x,v_y$ 表示速度分量。补全运动方程
+
+      $$
+      m\frac{\mathrm dv_x}{\mathrm dt}=\boxed{\text{(ア)}},
+      \tag{2.1}
+      $$
+
+      $$
+      m\frac{\mathrm dv_y}{\mathrm dt}=\boxed{\text{(イ)}}.
+      \tag{2.2}
+      $$
+
+   2. 从 (2.1)、(2.2) 消去 $v_x$，求 $v_y$ 的微分方程；定义
+
+      $$
+      \omega=\frac{qB}{m},
+      $$
+
+      答案中使用 $\omega$。
+   3. 补全速度表达式
+
+      $$
+      v_x=\boxed{\text{(ウ)}}
+      \left[1-\cos\big(\boxed{\text{(エ)}}\big)\right],
+      \tag{2.3}
+      $$
+
+      $$
+      v_y=\boxed{\text{(オ)}}
+      \sin\big(\boxed{\text{(カ)}}\big),
+      \tag{2.4}
+      $$
+
+      答案中使用 $\omega$。
+   4. 用 $\omega$ 表示粒子能达到的最大纵坐标 $y_{\max}$。
+
+#### 考点
+
+- Lorentz 力与速度选择器：用 $q(\boldsymbol E+\boldsymbol v\times\boldsymbol B)$ 判断电、磁力方向，并求两力抵消的入射速度。
+- 均匀磁场中的圆周运动：由磁力提供向心力求轨道半径、轨迹方向和最大纵向位移，并用功－能关系处理分区运动。
+- 正交电磁场中的回旋漂移：联立两个速度分量方程，求 cycloid 型速度与位置，并确定回旋频率及最大 $y$。
+
+## **Kai**
 ### (1)
 #### ①
 磁場: $f = qv_0B,x$ 軸正方向

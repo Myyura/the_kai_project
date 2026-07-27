@@ -43,3 +43,81 @@ For example, if the current symbol is $a$, the probabilities that the next symbo
 (1) Evaluate the coding efficiency of the source $W$ at the character level. First, design a binary Huffman code for $W$, and calculate the average code length per block ($L_{\text{block}}$). Furthermore, calculate the average code length per character for this code. Here, the average code length per character is defined as $L_{\text{char}} = L_{\text{block}}/n_{\text{block}}$, where $n_{\text{block}}$ is the average number of characters in $A$ per source symbol of the variable-length block information source. For example, the block $ba$ consists of two characters in $A$, so its number of characters is 2.
 
 (2) After determining the probability distribution of the characters generated from $W$, consider the average code length of a (binary) Huffman code for a memoryless source that follows this distribution. Discuss the magnitude difference (i.e., which is larger) between the average code length obtained here and the average code length per character found in (1), and explain its cause.
+
+### 题目描述
+
+回答下列问题。所有对数均以 2 为底，即 $\log_2$。计算时必须使用 $\log_2 3=1.6$、$\log_2 5=2.3$；必要时四舍五入到小数点后两位。
+
+1. 考虑字母表
+
+   $$
+   A=\{a,b,c,d,e,f\}
+   $$
+
+   上的无记忆平稳信源 $S$，各符号独立出现，概率为
+
+   $$
+   P(a)=0.30,\quad P(b)=0.25,\quad P(c)=0.15,\quad
+   P(d)=P(e)=P(f)=0.10.
+   $$
+
+   （1）计算熵 $H(S)$。
+
+   （2）根据上述概率设计二元 Huffman 码，并画出 Huffman 树（即时码的码树）。
+
+   （3）计算第（2）问二元 Huffman 码的平均码长 $L$。
+
+2. 考虑字母表 $A'=\{a,b,c\}$ 上的一阶 Markov 信源 $M$，符号本身就是状态，转移概率矩阵为
+
+   $$
+   P=
+   \begin{bmatrix}
+   0.60&0.15&0.25\\
+   0.10&0.65&0.25\\
+   0.10&0.15&0.75
+   \end{bmatrix}.
+   $$
+
+   例如当前符号为 $a$ 时，下一个符号为 $a,b,c$ 的概率依次为 $0.60,0.15,0.25$。
+
+   （1）计算该 Markov 过程的平稳分布
+
+   $$
+   \boldsymbol{\pi}=(\pi_a,\pi_b,\pi_c).
+   $$
+
+   再把该平稳分布视为无记忆信源 $S'$ 的符号分布，计算其熵 $H(S')$。
+
+   （2）计算 Markov 信源 $M$ 的熵率（每符号熵）$H(M)$。
+
+   （3）比较 $H(S')$ 与 $H(M)$ 的大小，并解释二者不同的原因。
+
+3. 从 $A=\{a,b,c,d,e,f\}$ 中连接一个或多个字符形成变长块。把五个变长块
+
+   $$
+   A''=\{ab,ba,cab,dabf,e\}
+   $$
+
+   视为五个单独符号，考虑其上的无记忆平稳信源 $W$。各变长块独立出现，概率为
+
+   $$
+   P(ab)=0.25,\quad P(ba)=0.25,\quad P(cab)=0.20,\quad
+   P(dabf)=0.15,\quad P(e)=0.15.
+   $$
+
+   （1）从字符层面评价信源 $W$ 的编码效率。先为 $W$ 设计二元 Huffman 码并计算每块平均码长 $L_{\mathrm{block}}$，再计算该码的每字符平均码长。定义
+
+   $$
+   L_{\mathrm{char}}=\frac{L_{\mathrm{block}}}{n_{\mathrm{block}}},
+   $$
+
+   其中 $n_{\mathrm{block}}$ 是变长块信源每个源符号所含 $A$ 中字符数的平均值。例如块 $ba$ 由两个 $A$ 中的字符组成，字符数为 2。
+
+   （2）先确定 $W$ 生成的各字符的概率分布，再考虑服从该分布的无记忆信源的二元 Huffman 码平均码长。比较此处所得平均码长与第（1）问每字符平均码长的大小，并解释差异产生的原因。
+
+#### 考点
+
+- **熵与 Huffman 编码**：计算无记忆信源熵、构造最优前缀码并求平均码长。
+- **Markov 信源的平稳分布与熵率**：求解平稳方程，并按状态平稳概率加权条件熵。
+- **记忆性对熵的影响**：比较边缘熵与条件熵，解释状态相关性带来的熵率下降。
+- **变长分块编码效率**：在“每块”和“每字符”尺度间换算，并分析保留块内结构相较逐字符编码的优势。

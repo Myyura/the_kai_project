@@ -58,6 +58,43 @@ $$
 ### English Version
 
 
+### 题目描述
+
+回答下列两问。
+
+1. 考虑互为原、对偶的线性规划
+   $$
+   \begin{aligned}
+   (\mathrm{P1}):\quad&\text{最小化}\quad \boldsymbol c^\top\boldsymbol x\\
+   &\text{满足}\quad \boldsymbol A\boldsymbol x=\boldsymbol b,\quad
+   \boldsymbol x\geqq\boldsymbol0,
+   \end{aligned}
+   $$
+   $$
+   \begin{aligned}
+   (\mathrm{D1}):\quad&\text{最大化}\quad \boldsymbol b^\top\boldsymbol w\\
+   &\text{满足}\quad \boldsymbol A^\top\boldsymbol w\leqq\boldsymbol c.
+   \end{aligned}
+   $$
+   其中 $\boldsymbol A$ 为 $m\times n$ 常数矩阵，$\boldsymbol b,\boldsymbol c$ 分别为 $m$ 维、$n$ 维常向量，$\boldsymbol x,\boldsymbol w$ 分别为 $n$ 维、$m$ 维变量向量，$\top$ 表示转置。假设 P1、D1 分别有最优解 $\boldsymbol x^*,\boldsymbol w^*$，并令
+   $\boldsymbol y^*=\boldsymbol c-\boldsymbol A^\top\boldsymbol w^*$。证明：若 $x_i^*>0$，则 $y_i^*=0$。
+2. 考虑线性规划
+   $$
+   \begin{aligned}
+   (\mathrm{P2}):\quad&\text{最大化}\quad x_5\\
+   &\text{满足}\quad \sum_{i=1}^4x_i\leqq1,\\
+   &\hspace{2.8em}\sum_{i=k+1}^4x_i\leqq kx_k\quad(k=1,2,3),\\
+   &\hspace{2.8em}x_5\leqq4x_4.
+   \end{aligned}
+   $$
+   设其最优解为 $\boldsymbol x^*$。求 P2 的对偶问题的最优解，并证明
+   $\sum_{i=1}^4x_i^*=1$。
+
+#### 考点
+
+- **线性规划对偶与互补松弛**：利用原、对偶最优解的零对偶间隙证明正原变量对应的对偶松弛为零。
+- **对偶最优解构造**：为给定链式约束的线性规划写出并求解对偶，再借最优性论证首个资源约束必取等号。
+
 ## **Kai**
 ### (i)
 

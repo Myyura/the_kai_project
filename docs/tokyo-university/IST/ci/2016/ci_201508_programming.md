@@ -50,3 +50,28 @@ Write a program that reads a number in the decimal representation and prints it 
 fifty four thousand three hundred twelve
 ```
 and prints `54312`. The program may accept at least one English expression for each number. For example, for $1200$, the program may only accept either `one thousand two hundred` or `twelve hundred`.
+
+### 题目描述
+
+编写下列程序时，不得调用直接实现指定功能的内置库函数；例如第 1 问的 Ruby 程序不得调用 `to_i`。
+
+1. 读入一个四进制位权表示的数，输出其十进制值。例如输入 `123`，输出 `27`。
+2. 约定字符 `a,b,c,...,h` 分别表示数字 \(0,1,2,\ldots,7\)。读入用这些字符写成的八进制数并输出十进制值，例如 `bcd` 输出 `83`。
+3. 在答题纸上把十进制数 2015 写成罗马数字。罗马数字使用 `I,V,X,L,C,D,M`，值分别为 \(1,5,10,50,100,500,1000\)。通常从左到右按值递减并相加，无零符号；例如 \(207=\texttt{CCVII}\)，\(1066=\texttt{MLXVI}\)。为避免同一字符连续四次，可使用以下减法写法：`IV`、`IX` 表示 4、9；`XL`、`XC` 表示 40、90；`CD`、`CM` 表示 400、900。因此 \(1904=\texttt{MCMIV}\)。必须选择字符数最少的表示。
+4. 编写程序把罗马数字转换为十进制。输入整数范围为 \(0<n<4000\)。
+5. 编写程序把十进制数转换为按上述标准规则、字符数最少的罗马数字，范围同样为 \(0<n<4000\)。
+6. 使用以下扩展减法规则：一个符号可放在相邻的、比它更大的符号 \(\alpha,\beta\) 之间，其中 \(\alpha>\beta\)，或 \(\alpha\) 不存在。例如 `CIL` 表示 \(100-1+50=149\)，`IL` 表示 \(-1+50=49\)。编写程序把 \(0<n<4000\) 的十进制数转换为符合扩展规则且字符数最少的罗马数字。
+7. 读入用英文单词表示的正整数并输出十进制值，输入小于 100000。例如
+
+   ```text
+   fifty four thousand three hundred twelve
+   ```
+
+   输出 `54312`。每个数只需至少接受一种合法英文表达，例如 1200 可以只支持 `one thousand two hundred` 或 `twelve hundred` 中的一种。
+
+#### 考点
+
+- **进制转换与字符串解析**：不依赖直接转换库，逐字符把四进制或字符映射的八进制位累积为十进制整数。
+- **罗马数字转换**：正确处理标准减法组合、范围限制和最短表示，并反向解析符号串。
+- **扩展罗马数字的最短编码**：在新增减法规则下搜索或动态规划求字符数最少的表示。
+- **英文数词解析**：把个位、十位、百位、千位等词元按局部加法和尺度乘法组合成整数。

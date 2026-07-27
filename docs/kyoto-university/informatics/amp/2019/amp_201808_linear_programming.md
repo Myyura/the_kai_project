@@ -44,6 +44,41 @@ $$
 ### English Version
 
 
+### 题目描述
+
+设 $\boldsymbol A$ 为 $m\times n$ 矩阵，$\boldsymbol b$ 为 $m$ 维向量，并假设存在 $\boldsymbol z\in\mathbb R^n$ 满足
+$\boldsymbol A\boldsymbol z=\boldsymbol b$。考虑以
+$\boldsymbol x,\boldsymbol y\in\mathbb R^n$ 为变量的线性规划
+
+$$
+\begin{aligned}
+(\mathrm P):\quad
+&\text{最小化}\quad \sum_{i=1}^n y_i\\
+&\text{满足}\quad \boldsymbol A\boldsymbol x=\boldsymbol b,\\
+&\hspace{2.8em}y_i\geqq x_i\quad(i=1,\ldots,n),\\
+&\hspace{2.8em}y_i\geqq-x_i\quad(i=1,\ldots,n).
+\end{aligned}
+$$
+
+回答：
+
+1. 写出 P 的对偶问题。
+2. 证明 P 存在最优解。
+3. 当 $m=2,n=3$ 且
+   $$
+   \boldsymbol A=
+   \begin{pmatrix}1&2&0\\0&0&5\end{pmatrix},
+   \qquad
+   \boldsymbol b=\begin{pmatrix}2\\10\end{pmatrix}
+   $$
+   时，求 P 的最优解。
+
+#### 考点
+
+- **一范数最小化的线性规划表示**：由 $y_i\ge\pm x_i$ 将目标识别为最小化 $\|\boldsymbol x\|_1$。
+- **线性规划对偶与最优解存在性**：构造对偶，并结合可行性和目标下界证明最优值可达。
+- **具体线性约束下的一范数优化**：化简等式约束并求出使绝对值和最小的变量。
+
 ## **Kai**
 ### (i)
 Lagrangina: 

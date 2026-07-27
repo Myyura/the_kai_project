@@ -130,6 +130,115 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hokkaido_university/IST/joele/joele_202208_senmon2_2_p1.png" width="300"  alt=""/>
 </figure>
 
+### 题目描述
+
+以下 $i$ 表示虚数单位，$\hbar=h/(2\pi)$。
+
+1. 某物理系统的 Hamiltonian 为
+
+   $$
+   H=
+   \begin{pmatrix}
+   \varepsilon_1&0\\
+   0&\varepsilon_2
+   \end{pmatrix}.
+   $$
+
+   （1）把状态向量写成
+
+   $$
+   |\varphi(t)\rangle
+   =
+   c_1(t)
+   \begin{pmatrix}1\\0\end{pmatrix}
+   +c_2(t)
+   \begin{pmatrix}0\\1\end{pmatrix}.
+   $$
+
+   从 Schrödinger 方程证明
+
+   $$
+   c_1(t)=c_1(0)
+   \exp\left(-i\frac{\varepsilon_1t}{\hbar}\right),
+   $$
+
+   $$
+   c_2(t)=c_2(0)
+   \exp\left(-i\frac{\varepsilon_2t}{\hbar}\right).
+   $$
+
+   （2）对可观测量
+
+   $$
+   \hat\sigma=
+   \begin{pmatrix}
+   \cos2\theta&\sin2\theta\\
+   \sin2\theta&-\cos2\theta
+   \end{pmatrix},
+   $$
+
+   证明其特征向量为
+
+   $$
+   |\lambda_1\rangle=
+   \begin{pmatrix}\cos\theta\\\sin\theta\end{pmatrix},
+   \qquad
+   |\lambda_2\rangle=
+   \begin{pmatrix}-\sin\theta\\\cos\theta\end{pmatrix}.
+   $$
+
+   （3）若初态为
+
+   $$
+   |\varphi(0)\rangle=|\lambda_1\rangle,
+   $$
+
+   求在任意 $t\geq0$ 测量 $\hat\sigma$ 并得到结果 $\lambda_1$ 的概率。
+
+2. 如图 1，质量为 $m$ 的粒子被限制在一维势能
+
+   $$
+   V(x)=
+   \begin{cases}
+   \infty&(x<0),\\
+   v_0x&(x\geq0),
+   \end{cases}
+   \qquad v_0>0
+   $$
+
+   中。必要时可使用对正整数 $n$ 成立的公式
+
+   $$
+   \int_0^\infty x^ne^{-sx}\,dx
+   =\frac{n!}{s^{n+1}}.
+   $$
+
+   （1）若
+
+   $$
+   \psi(x)=
+   \begin{cases}
+   0&(-\infty<x<0),\\
+   Cxe^{-\alpha x}&(0\leq x<\infty),
+   \end{cases}
+   \qquad\alpha>0,
+   $$
+
+   求归一化常数 $C$。
+
+   （2）求该波函数所描述状态的能量期望值。
+
+<figure style="text-aligned:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hokkaido_university/IST/joele/joele_202208_senmon2_2_p1.png" width="300" alt=""/>
+</figure>
+
+#### 考点
+
+- **二能级系统时间演化**：在 Hamiltonian 本征基中分别积分类 Schrödinger 方程。
+- **量子测量概率**：将含相对动力学相位的状态投影到可观测量特征态。
+- **波函数归一化**：利用 Gamma 型积分确定半直线上试探波函数的常数。
+- **能量期望值**：分别计算动能算符和线性势能的期望并求和。
+
 ## **Kai**
 ### 1.
 #### (1)

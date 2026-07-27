@@ -53,3 +53,61 @@ Consider a linear regression model $Y_i = \alpha + \beta x_i + \epsilon_i \ (i =
 (1) Compute the standard deviation of $\hat{\beta}$.
 
 (2) Given a new constant $x_{17}$, show the 95% prediction interval of $Y_{17} = \alpha + \beta x_{17} + \epsilon_{17}$ using $\hat{\alpha}, \hat{\beta}, \sigma$, and $x_1, x_2, \dots, x_{17}$ where $\epsilon_{17}$ is independent of $\epsilon_i \ (i = 1, 2, \dots, 16)$ and follows a normal distribution $\mathrm{N}(0, \sigma^2)$. The value 2.145 for the upper 2.5% point of the $t$-distribution with 14 degrees of freedom may be used.
+
+### 题目描述
+
+1. 随机变量 $X$ 的概率密度函数为
+
+   $$
+   f(x)=
+   \begin{cases}
+   0 & (x<0),\\
+   cx(3-x) & (0\leq x<3),\\
+   0 & (x\geq 3),
+   \end{cases}
+   $$
+
+   其中 $c>0$。（1）求常数 $c$；（2）求 $X$ 的均值与方差。
+
+2. 设 $X$ 与 $Y$ 相互独立，且分别服从二项分布 $\mathrm{B}(m,p)$ 与 $\mathrm{B}(n,p)$。推导 $Z=X+Y$ 的概率分布。
+
+3. 从方差相同的两个正态总体 A、B 中分别随机抽取容量为 18 的样本 $x_1,\ldots,x_{18}$ 与 $y_1,\ldots,y_{18}$。定义
+
+   $$
+   \bar{x}=\frac{1}{18}\sum_{i=1}^{18}x_i,\qquad
+   s_x^2=\frac{1}{17}\sum_{i=1}^{18}(x_i-\bar{x})^2,
+   $$
+
+   $$
+   \bar{y}=\frac{1}{18}\sum_{i=1}^{18}y_i,\qquad
+   s_y^2=\frac{1}{17}\sum_{i=1}^{18}(y_i-\bar{y})^2,
+   $$
+
+   以及
+
+   $$
+   s_{xy}=\frac{1}{17}\sum_{i=1}^{18}(x_i-\bar{x})(y_i-\bar{y}).
+   $$
+
+   自由度为 17 和 34 的 $t$ 分布上侧 $2.5\%$ 分位点可分别取 2.110 和 2.032。（1）若两组样本按 $(x_i,y_i)$ 配对且为随机抽样，请使用上述必要统计量求两个总体均值之差的 $95\%$ 置信区间；（2）若两组样本不配对、分别从两个总体随机抽取，请求该均值差的 $95\%$ 置信区间。
+
+4. 考虑线性回归模型
+
+   $$
+   Y_i=\alpha+\beta x_i+\epsilon_i\qquad(i=1,2,\ldots,16),
+   $$
+
+   其中 $x_i$ 为常数，$\epsilon_i$ 相互独立且服从 $\mathrm{N}(0,\sigma^2)$，$\hat{\alpha}$ 与 $\hat{\beta}$ 分别为 $\alpha$ 与 $\beta$ 的最小二乘估计量。（1）求 $\hat{\beta}$ 的标准差；（2）给定新的常数 $x_{17}$，设
+
+   $$
+   Y_{17}=\alpha+\beta x_{17}+\epsilon_{17},
+   $$
+
+   其中 $\epsilon_{17}$ 与前 16 个误差项独立且同样服从 $\mathrm{N}(0,\sigma^2)$。使用 $\hat{\alpha},\hat{\beta},\sigma$ 以及 $x_1,\ldots,x_{17}$ 写出 $Y_{17}$ 的 $95\%$ 预测区间。自由度为 14 的 $t$ 分布上侧 $2.5\%$ 分位点可取 2.145。
+
+#### 考点
+
+- **概率密度归一化与矩**：利用积分确定归一化常数，并由一阶、二阶矩计算均值和方差。
+- **独立二项随机变量之和**：通过卷积或概率生成函数推导同成功概率下二项分布的可加性。
+- **配对与独立两样本置信区间**：区分配对样本与等方差独立样本，选取相应方差估计和 $t$ 分布自由度。
+- **简单线性回归推断**：计算斜率估计量的标准差，并构造新观测值的预测区间。

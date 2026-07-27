@@ -60,6 +60,60 @@ $$
 
 とおく．ただし、$n\ge2$とする．このとき、$x=(I+B^2)\alpha$において$f$が最小になることを示せ．
 
+### 题目描述
+
+给定
+$$
+A=\begin{pmatrix}
+1&\sqrt2&0\\
+\sqrt2&1&\sqrt2\\
+0&\sqrt2&1
+\end{pmatrix},
+\qquad
+B=\begin{pmatrix}
+0&-2/3&1/3\\
+2/3&0&-2/3\\
+-1/3&2/3&0
+\end{pmatrix},
+$$
+$I$ 为单位矩阵。对实方阵 $X$，定义
+$$
+e^X=\sum_{k=0}^{\infty}\frac{X^k}{k!}.
+$$
+回答下列问题。
+
+（1）求 $A$ 的所有特征值及对应特征向量；所选特征向量须为单位向量，且第一分量为非负实数。
+
+（2）对非负整数 $n$，求 $A^n$。
+
+（3）求 $e^A$。
+
+（4）对实数 $\alpha$，证明
+$$
+e^{\alpha B}
+=I+(\sin\alpha)B+(1-\cos\alpha)B^2.
+$$
+可以使用 Cayley–Hamilton 定理。
+
+（5）给定三维实向量 $\boldsymbol a$，对 $n\ge2$ 定义
+$$
+f(\boldsymbol{x})
+=\sum_{k=1}^n
+\left\|
+e^{(2\pi k/n)B}\boldsymbol a-\boldsymbol{x}
+\right\|^2.
+$$
+证明在
+$\boldsymbol{x}=(I+B^2)\boldsymbol a$ 时 $f$ 取得最小值。
+
+#### 考点
+
+- **实对称矩阵的谱分解**：求标准正交特征基并据此计算矩阵幂与矩阵指数。
+- **Cayley–Hamilton 定理**：由 $B$ 的低次多项式关系把指数级数化为
+  $I,B,B^2$ 的线性组合。
+- **旋转矩阵与轴角表示**：识别 $e^{\alpha B}$ 为绕固定轴旋转。
+- **旋转轨道的最小二乘中心**：平方距离和在样本均值处最小，并利用等角旋转求轨道质心。
+
 ## **Kai**
 ### (1)
 $A$ の固有値を $\lambda$ とすると、

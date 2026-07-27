@@ -117,6 +117,61 @@ $$
 
 holds for each edge $e\in E$.
 
+### 题目描述
+
+记 $\mathbb R_+$ 为非负实数集。设网络 $N=[G,w]$ 由简单连通图 $G=(V,E)$ 与边权函数 $w:E\to\mathbb R_+$ 构成，且 $|V|=n\ge2$。对 $V$ 的划分
+
+$$
+\pi=\{V_1,V_2,\ldots,V_p\},
+$$
+
+令 $E(\pi)$ 为端点分属两个不同块的边集，$\Pi$ 为 $V$ 的全部划分组成的集合。
+
+Kruskal 算法在 $N$ 上得到最小生成树
+
+$$
+T=(V,\{a_1,a_2,\ldots,a_{n-1}\}),
+$$
+
+其中 $a_i$ 是第 $i$ 条加入的树边。令
+
+$$
+T_0=(V,\varnothing),\qquad
+T_i=(V,\{a_1,\ldots,a_i\})\quad(i=1,\ldots,n-1),
+$$
+
+并令 $\pi_i$ 为森林 $T_i$ 的连通分支所形成的划分，故 $\pi_{n-1}=\{V\}$。对每个 $\pi\in\Pi$ 定义
+
+$$
+y(\pi_0)=w(a_1),\qquad
+y(\pi_i)=w(a_{i+1})-w(a_i)\ (i=1,\ldots,n-2),
+$$
+
+而对其余 $\pi\in\Pi\setminus\{\pi_0,\ldots,\pi_{n-2}\}$ 令 $y(\pi)=0$。回答：
+
+1. 描述用于求 $N$ 的最小生成树的 Kruskal 算法。
+2. 证明每条边 $e\in E$ 都存在
+   $j(e)\in\{0,1,\ldots,n-1\}$，使得对所有 $i\le j(e)$ 有
+   $e\in E(\pi_i)$，而对所有 $i>j(e)$ 有
+   $e\notin E(\pi_i)$。
+3. 证明对每个 $i=1,\ldots,n-1$，
+   $$
+   w(a_i)\le w(e),\qquad \forall e\in E(\pi_{i-1}).
+   $$
+4. 证明对每个 $i=1,\ldots,n-1$，
+   $$
+   \sum_{j=0}^{i-1}y(\pi_j)=w(a_i).
+   $$
+5. 证明对每条 $e\in E$，
+   $$
+   \sum_{\pi\in\Pi:\,e\in E(\pi)}y(\pi)\le w(e).
+   $$
+
+#### 考点
+
+- **Kruskal 最小生成树算法**：跟踪按非降权序加入安全边时森林连通分支划分的变化。
+- **划分上的对偶变量构造**：利用边何时停止跨越分支划分及权重差的望远镜求和，证明对每条边的权重约束。
+
 ## Kai
 ### (i)
 Kruskal's algorithm sorts all edges in non-decreasing order of their weights.

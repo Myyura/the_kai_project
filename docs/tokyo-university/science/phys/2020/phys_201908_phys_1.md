@@ -111,6 +111,89 @@ _________________
 
 （この問題は、N. David Mermin, Physics Today 38, 4, pp.38-47 (1985) を参考にした。）
 
+### 题目描述
+
+考虑量子力学二能级系统，观测量由 $2\times2$ Hermitian 矩阵表示。定义
+$$
+\sigma_z=\begin{pmatrix}1&0\\0&-1\end{pmatrix},
+\qquad
+\sigma_x=\begin{pmatrix}0&1\\1&0\end{pmatrix},
+$$
+$$
+\sigma(\theta)
+=(\cos\theta)\sigma_z+(\sin\theta)\sigma_x,
+$$
+并用
+$$
+|\uparrow\rangle=\begin{pmatrix}1\\0\end{pmatrix},
+\qquad
+|\downarrow\rangle=\begin{pmatrix}0\\1\end{pmatrix}
+$$
+表示基态。
+
+1. 在状态 $|\uparrow\rangle$ 中测量 $\sigma_z$，求可能结果
+   $s_z$ 及其期望。
+2. 在同一状态中测量 $\sigma_x$，求可能结果 $s_x$ 及其期望。
+3. 在同一状态中测量 $\sigma(\theta)$，求可能结果
+   $s_\theta$ 及其期望。
+
+再考虑由两个二能级子系统 $A,B$ 组成的复合系统。每次重新制备 singlet 态
+$$
+|\Psi\rangle
+=\frac1{\sqrt2}
+\left(
+|\uparrow\rangle_A|\downarrow\rangle_B
+-|\downarrow\rangle_A|\uparrow\rangle_B
+\right),
+$$
+并在相互分离的位置分别测量 $A,B$。
+
+4. 每次分别测量 $\sigma_z^A,\sigma_z^B$。列出可能的结果对
+   $(s_z^A,s_z^B)$，并求乘积 $s_z^As_z^B$ 的期望。
+5. 每次分别测量 $\sigma_x^A,\sigma_x^B$。列出可能的结果对并求
+   $s_x^As_x^B$ 的期望。
+6. 每次在两侧均测量同一角度的
+   $\sigma^A(\theta),\sigma^B(\theta)$。证明结果满足
+   $s_\theta^A=-s_\theta^B=\pm1$。
+7. 每次分别测量
+   $\sigma^A(\theta),\sigma^B(\varphi)$。列出可能结果对，并求
+   $s_\theta^As_\varphi^B$ 的期望。
+8. 两侧测量者各自独立地以 $1/3$ 概率从角度
+   $0^\circ,120^\circ,240^\circ$ 中选择观测量。列出
+   $(s^A,s^B)$ 的可能值，求乘积 $s^As^B$ 的期望并证明它为 $0$。
+
+最后检验如下确定论假设：每次实验中，即使某个观测量实际上未被测量，三个候选角度的结果
+$$
+(s^A_{0^\circ},s^A_{120^\circ},s^A_{240^\circ}),
+\qquad
+(s^B_{0^\circ},s^B_{120^\circ},s^B_{240^\circ})
+$$
+也都已预先确定，且同角度结果满足
+$$
+s^A_{0^\circ}=-s^B_{0^\circ},\quad
+s^A_{120^\circ}=-s^B_{120^\circ},\quad
+s^A_{240^\circ}=-s^B_{240^\circ}.
+$$
+
+9. 仍让两侧独立、等概率选择三个角度。
+
+   - （i）若 $A$ 的预定结果为 $(+1,+1,+1)$，求
+     $\mathbb E[s^As^B]$。
+   - （ii）若 $A$ 的预定结果为 $(+1,+1,-1)$，求
+     $\mathbb E[s^As^B]$。
+   - （iii）证明当八种
+     $(\pm1,\pm1,\pm1)$ 预定结果以任意方式出现时，
+     $\mathbb E[s^As^B]$ 仍为负数。
+
+由此比较第 8 问量子力学给出的零相关与确定论假设必然给出的负相关。
+
+#### 考点
+
+- **Pauli 矩阵的测量**：求观测量本征值、本征态分解及 Born 概率与期望。
+- **Bell singlet 关联**：计算不同测量轴夹角下两侧结果乘积的量子相关，并证明同轴完全反相关。
+- **随机测量设置**：对三个等间隔方向及独立选角进行全概率平均。
+- **Bell 型不等式与局域预定值矛盾**：枚举预先赋值的符号三元组，证明经典确定论相关受严格负上界约束，与量子结果冲突。
+
 ## **Kai**
 ### 1. 
 

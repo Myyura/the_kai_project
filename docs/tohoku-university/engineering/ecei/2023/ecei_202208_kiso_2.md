@@ -30,6 +30,25 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202208_kiso_2_electrical_circuit.png" width="400"/>
 </figure>
 
+### 题目描述
+
+1. 图 2(a) 为并联 RLC 电路，电源电压与角频率为 $V,\omega$，忽略内阻；$R=50\,\Omega$、$L=2\,\mathrm{mH}$、$C=10\,\mu\mathrm F$。
+   1. 当 $\omega=10^4\,\mathrm{rad/s}$、$V=100\,\mathrm V$ 时，求从 a–b 看入的导纳 $Y_{ab}$，以及电流 $I$ 相对电压的相位差；
+   2. 当 $\omega$ 从 $10^0\,\mathrm{rad/s}$ 起增大时，用超前、滞后、同相描述 $I$ 相位的变化；求谐振频率 $f_0$，并用必要的 $V,R,L,C$ 表示谐振时流过 $R$ 的电流。
+2. 图 2(b) 为两个互感线圈连接负载 $R$ 的电路，自感为 $L_1,L_2$，互感为 $M$，一次、二次侧电压电流为 $V_1,I_1$ 与 $V_2,I_2$。
+   1. 用 $L_1,L_2,R,M,\omega$ 表示从 a–b 看入的输入阻抗 $Z_{ab}$；
+   2. 当耦合系数为 1，且
+      $$V_1=100\,\mathrm V,\quad\omega=10^6\,\mathrm{rad/s},\quad
+      R=10\,\Omega,\quad L_1=10\,\mu\mathrm H,\quad L_2=20\,\mu\mathrm H,$$
+      求二次侧消耗的功率。
+
+#### 考点
+
+- **并联 RLC 导纳**：叠加各支路导纳并由虚部判断相位。
+- **并联谐振**：令总电纳虚部为零求谐振频率。
+- **互感电路输入阻抗**：使用 T 形等效或耦合回路方程。
+- **理想耦合与变压器关系**：由 $M^2=L_1L_2$ 求电压比与负载功率。
+
 ## **Kai** 
 ### (1)
 #### (a)

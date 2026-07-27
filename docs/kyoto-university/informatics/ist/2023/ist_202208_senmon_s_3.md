@@ -50,6 +50,29 @@ Let us consider $n$ training samples of a $d$-dimensional vector $X = (x_1, \dot
 Let $X$ and $Z$ be an original input and its normalized one. 
 Discuss the relationship between the square root of the sum of the squared values in each dimension of $Z$, which is regarded as the Euclidean norm $\|Z\|_2$, and the above Mahalanobis distance.
 
+### 题目描述
+
+1. 考虑全连接前馈神经网络：输入维数 $d$，输出类别数 $c$，有 $m$ 个隐藏层且每层 $n$ 个节点；所有节点包括输出层均用 sigmoid，无偏置，节点 $i,j$ 间权重记为 $w_{ij}$。
+   1. 画网络并标注 $d,c,m,n$，求权重总数。
+   2. 用前一层节点输出 $g_j$ 表示输出节点 $k$ 的输出 $g_k$。
+   3. 要从可能同时含小提琴、长笛、钢琴、歌声中一种或多种的录音识别声源，说明各输出节点训练标签 $t_k$ 如何给定，并解释输出层为何不宜用 softmax。
+   4. 写出单个输出 $g_k$ 与标签 $t_k$ 的二元交叉熵。
+   5. 以各类二元交叉熵之和为目标，推导梯度下降更新输出层权重 $w_{jk}$ 的公式。
+   6. 写出反向传播更新非输出层权重 $w_{ij}$ 的公式，无需推导。
+   7. 解释网络加深后为何难以有效更新权重，并说明缓解方法。
+2. 有 $n$ 个 $d$ 维训练样本 $X=(x_1,\ldots,x_d)^\top$，均值
+   $M=(m_1,\ldots,m_d)^\top$、协方差矩阵 $\Sigma$。
+   1. 写出 $\Sigma$ 的元素 $\sigma_{ij}$ 的计算式。
+   2. 写出样本 $X$ 到训练分布的 Mahalanobis 距离。
+   3. 神经网络常把每维输入标准化为均值 0、方差 1。设原输入为 $X$、标准化后为 $Z$，讨论
+      $\|Z\|_2$ 与上述 Mahalanobis 距离的关系。
+
+#### 考点
+
+- **前馈网络与多标签分类**：计算参数量，写 sigmoid 前向传播，并用独立多热标签和二元交叉熵处理多声源共存。
+- **反向传播与梯度消失**：推导输出层梯度、递推隐藏层误差信号，并说明激活饱和、初始化、归一化、残差连接等缓解手段。
+- **协方差与 Mahalanobis 距离**：从样本计算协方差，辨析逐维标准化欧氏范数只有在忽略相关性/协方差对角时才等同 Mahalanobis 距离。
+
 ## **Kai**
 ### 設問1
 #### (1)

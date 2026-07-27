@@ -29,6 +29,19 @@ Suppose that a random variable $X$ has the probability density function $f(x) = 
 
 (2). Determine the value of $c$ if $E(X) = 1$ and $V(X) = 3$.
 
+### 题目描述
+
+1. 设事件 $A,B,C$ 相互独立，且
+   $P(A)=\frac13$、$P(A\cap B)=\frac15$、$P(A\cup C)=\frac37$，其中 $P(D)$ 表示事件 $D$ 的概率。求 $P(B)$、$P(C)$ 以及条件概率 $P(A\cup B\mid C)$。
+2. 随机变量 $X$ 的概率密度函数为
+   $f(x)=\exp\{-(ax^2+bx+c)\}$，其中 $a,b,c$ 为实数且 $a>0$。
+   1. 用 $a,b$ 表示期望 $E(X)$ 和方差 $V(X)$。
+   2. 当 $E(X)=1$、$V(X)=3$ 时，求 $c$ 的值。
+
+#### 考点
+
+- 条件概率：结合事件独立性、并集概率公式和条件概率定义，反求未知概率并计算 $P(A\cup B\mid C)$。
+
 ## **Kai**
 ### 1.
 事象 $A,B,C$ が独立であることから、

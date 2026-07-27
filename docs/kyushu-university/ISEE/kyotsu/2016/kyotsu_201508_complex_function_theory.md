@@ -33,6 +33,30 @@ Consider the complex function $f(z) = \frac{\pi\cot\pi z}{z^2 + a^2}$, where $a 
 
 (3) Using the value of $\lim_{N \rightarrow \infty}\oint_{C_N}f(z)dz$, prove that $\sum_{n=1}^{\infty}\frac{1}{n^2 + a^2} = \frac{\pi}{2a}\coth \pi a - \frac{1}{2a^2}$.
 
+### 题目描述
+
+设 $a>0$，考虑复函数
+
+$$
+f(z)=\frac{\pi\cot\pi z}{z^2+a^2}.
+$$
+
+1. 求 $f(z)$ 在全部极点处的留数。
+2. 对上图所示的闭合路径 $C_N$（$N$ 为自然数），计算
+   $$
+   \lim_{N\to\infty}\oint_{C_N}f(z)\,dz.
+   $$
+3. 利用该极限证明无穷级数恒等式
+   $$
+   \sum_{n=1}^{\infty}\frac1{n^2+a^2}
+   =\frac{\pi}{2a}\coth(\pi a)-\frac1{2a^2}.
+   $$
+
+#### 考点
+
+- **留数定理**：找出由 $\cot(\pi z)$ 及 $z^2+a^2$ 产生的全部极点，计算留数并应用闭路积分公式。
+- **利用留数求无穷级数**：估计矩形闭路积分在 $N\to\infty$ 时的极限，再把整数极点的留数和整理成给定级数恒等式。
+
 ## **Kai** 
 ### (1)
 

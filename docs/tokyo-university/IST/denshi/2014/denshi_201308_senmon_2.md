@@ -24,6 +24,26 @@ Answer the following questions on virtual memory.
 
 (5) Some processors handle a TLB miss by hardware. On the other hand, it is exceptional to handle a page fault only by hardware. Discuss the reason for such a difference.
 
+### 题目描述
+
+回答下列关于虚拟内存的问题。
+
+(1) 访问局部性可分为时间局部性与空间局部性，解释这两种局部性。
+
+(2) 解释什么是页表。
+
+(3) 解释什么是地址转换后备缓冲器（Translation Lookaside Buffer，TLB），以及 TLB 未命中与页表之间的关系。
+
+(4) 假设执行一条装载指令时发生缺页。从该指令进行地址计算开始，说明地址转换、缺页处理，直至处理完成后重新执行该指令的全过程。
+
+(5) 某些处理器用硬件处理 TLB 未命中，而完全只用硬件处理缺页却很少见。讨论造成这一差异的原因。
+
+#### 考点
+
+- 虚拟内存与访问局部性：要求说明局部性如何支撑分页存储层次，并准确描述页表的地址映射作用。
+- TLB 与缺页异常：要求区分 TLB 未命中和页面不在主存两种情况，并梳理缺页后的软硬件协作流程。
+- 地址转换机制的实现权衡：要求比较硬件处理 TLB 未命中与操作系统处理缺页在延迟、复杂度和资源管理上的差异。
+
 ## **Kai**
 ### (1)
 

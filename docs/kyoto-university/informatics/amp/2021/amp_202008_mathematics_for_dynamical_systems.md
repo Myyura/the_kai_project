@@ -62,6 +62,50 @@ $n$ 個のベクトル $f(\phi(0))$ と $v_j(\phi(0)) \ (j = 1, 2, \ldots, n - 1
 ### English Version
 
 
+### 题目描述
+
+设整数 $n>1$，$f:\mathbb R^n\to\mathbb R^n$ 为 $C^1$ 函数，考虑自治系统
+
+$$
+\frac{d\boldsymbol x}{dt}=f(\boldsymbol x),
+\qquad \boldsymbol x\in\mathbb R^n. \tag{1}
+$$
+
+令 $\boldsymbol x=\phi(t)$ 为定义在 $\mathbb R$ 上、有界且非常值的解。其沿轨道的变分方程为
+
+$$
+\frac{d\boldsymbol y}{dt}=Df(\phi(t))\boldsymbol y,
+\qquad \boldsymbol y\in\mathbb R^n, \tag{2}
+$$
+
+其中 $Df$ 是 $f$ 的 Jacobian 矩阵。回答：
+
+1. 若极限
+   $a_+=\lim_{t\to+\infty}\phi(t)$ 与
+   $a_-=\lim_{t\to-\infty}\phi(t)$ 存在，证明 $\boldsymbol x=a_+$ 和 $\boldsymbol x=a_-$ 都是 (1) 的常值解；并证明 (2) 存在一个在 $\mathbb R$ 上有界且满足
+   $\lim_{t\to\pm\infty}\psi(t)=0$ 的解
+   $\boldsymbol y=\psi(t)$。
+2. 假设存在 $C^1$ 函数 $u:\mathbb R^n\to\mathbb R^n$ 满足
+   $$
+   Du(\boldsymbol x)f(\boldsymbol x)
+   -Df(\boldsymbol x)u(\boldsymbol x)=0.
+   $$
+   若 $f(\phi(0))$ 与 $u(\phi(0))$ 线性无关，求变分方程 (2) 的两个线性无关解。
+3. 假设存在 $n-1$ 个 $C^1$ 函数
+   $v_j:\mathbb R^n\to\mathbb R^n$ 满足
+   $$
+   Dv_j(\boldsymbol x)f(\boldsymbol x)
+   -Df(\boldsymbol x)v_j(\boldsymbol x)=0
+   \quad(j=1,\ldots,n-1),
+   $$
+   且 $f(\phi(0)),v_1(\phi(0)),\ldots,v_{n-1}(\phi(0))$ 线性无关。求 (2) 的一般解。
+
+#### 考点
+
+- **自治系统的变分方程**：对轨道求时间导数，识别 $f(\phi(t))=\phi'(t)$ 为变分方程的解，并分析异宿/同宿轨道端点。
+- **交换向量场对称性**：由 Lie 括号为零的条件证明 $u(\phi(t))$、$v_j(\phi(t))$ 沿轨道给出变分解。
+- **基本解组与一般解**：利用初始时刻的线性无关性建立 $n$ 个变分解组成的基本解组。
+
 ## **Kai**
 ### (i)
 Since $\phi (t)$ is a solution, we have

@@ -56,3 +56,19 @@ Comparisons of two modules of which one's output is another's input cannot be ex
 (3) As regards your answer of (2), if we allow simultaneous operations of comparator modules in a step, how many steps are required to sort $n$ inputs?
 
 (4) Consider the case of executing multiple comparisons simultaneously. It is known that the sorting network of size 4 can be executed in 3 steps. Construct such a sorting network of size 4 and explain the correctness of your answer.
+
+### 题目描述
+
+题图左侧给出一个双输入、双输出比较器，也可视为规模为 2 的排序网络；黑点表示输入、输出连接点。两个数从左侧输入后，较小值从右侧上方输出，较大值从右侧下方输出；若二者相等，上下均输出该值。
+
+用这种比较器构造规模为 \(n\) 的排序网络。网络有 \(n\) 条输入线，从左侧输入 \(n\) 个整数，右侧必须按从上到下的升序输出。若某比较器的输出是另一比较器的输入，两次比较不能在同一步同时执行；彼此无依赖的比较器可以并行。如题图右侧的比较器 1、2 可在一步内同时执行，比较器 3 依赖它们的输出，故整个过程共需两步。
+
+1. 证明原文第二幅图的接线能使三个输入在执行 4 步后必然按升序输出。
+2. 给出一种从规模 \(n-1\) 的排序网络归纳构造规模 \(n\) 排序网络的方法，使比较器总数为 \(O(n^2)\)；说明构造正确性，并写出比较器数量关于 \(n\) 的精确表达式。
+3. 对第 2 问构造的网络，若所有可并行的比较均在同一步执行，写出总步数关于 \(n\) 的表达式。
+4. 已知规模为 4 的排序网络最少可用 3 步完成。构造一个这样的网络，并说明其步数确为 3 且能正确排序。
+
+#### 考点
+
+- **排序网络的比较器数量与深度**：从较小规模网络归纳增添比较器，分别计算总比较器数和考虑并行依赖后的执行层数。
+- **算法正确性与复杂度**：用比较器输出的不变量或分类讨论证明网络对任意输入均能排序，并用渐近记号描述规模。

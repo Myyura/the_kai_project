@@ -89,6 +89,52 @@ $$
 
 (c) $A$ の固有ベクトルをすべて求めよ。
 
+### 题目描述
+
+回答全部问题。
+
+1. 设
+   $z=f(x,y)$、$x=r\cos\theta$、$y=r\sin\theta$，其中 $r>0$。
+   1. 证明
+      $$
+      \left(\frac{\partial z}{\partial x}\right)^2+
+      \left(\frac{\partial z}{\partial y}\right)^2
+      =
+      \left(\frac{\partial z}{\partial r}\right)^2+
+      \frac1{r^2}\left(\frac{\partial z}{\partial\theta}\right)^2.
+      $$
+   2. 证明
+      $$
+      \frac{\partial^2z}{\partial x^2}+
+      \frac{\partial^2z}{\partial y^2}
+      =
+      \frac{\partial^2z}{\partial r^2}
+      +\frac1r\frac{\partial z}{\partial r}
+      +\frac1{r^2}\frac{\partial^2z}{\partial\theta^2}.
+      $$
+2. 定义 Beta 函数
+   $$
+   B(p,q)=\int_0^1x^{p-1}(1-x)^{q-1}\,dx,
+   \qquad p,q>0.
+   $$
+   1. 求 $B(\frac12,1)$；
+   2. 求 $B(\frac12,\frac12)$；
+   3. 对 $p>0,q>1$，证明
+      $pB(p,q)=(q-1)B(p+1,q-1)$。
+3. 给定
+   $$
+   A=\begin{bmatrix}1&2&2\\2&1&-2\\2&-2&1\end{bmatrix}.
+   $$
+   1. 求 $A$ 的特征方程；
+   2. 求全部特征值；
+   3. 求全部特征向量。
+
+#### 考点
+
+- **极坐标下的微分算子**：用链式法则推导梯度模平方和二维 Laplace 算子的极坐标形式。
+- **Beta 函数**：直接计算特殊参数值，并通过分部积分推导递推关系。
+- **特征值与特征向量**：计算三阶对称矩阵的特征多项式，并求各特征空间。
+
 ## **Kai**
 ### (1)
 #### (a)

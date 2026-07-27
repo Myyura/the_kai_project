@@ -30,6 +30,32 @@ Answer the following questions.
 
 (4) Give an $\mathbf{O(m + n)}$-time algorithm which, given an undirected graph with $\mathbf{n}$ vertices and $\mathbf{m}$ edges as an input, determines whether it is an $\mathbf{A}$-graph or not. Explain also the graph data structures used in the algorithm for realizing $\mathbf{B}$-operations and $\mathbf{C}$-operations.
 
+### 题目描述
+
+无向图中的自环连接同一顶点，重边是连接同一对顶点的多条边。以下考虑不含自环、但可含重边的无向图。若从图 $G$ 出发反复执行下列操作，最终可以得到只含一条边的图，则称 $G$ 为 A-图：
+
+- **B 操作**：若一对顶点间有两条重边，则将它们替换为连接该顶点对的一条边；
+- **C 操作**：若边 $(u,v)$ 与 $(v,w)$ 相接，$u\ne w$，且没有其他边与
+  $v$ 关联，则删除 $v$，并用一条连接 $u,w$ 的新边替换原两条边。
+
+回答下列问题。
+
+（1）记 $K_n$ 为 $n$ 个顶点的完全图。分别判断 $K_3$ 和 $K_4$ 是否为 A-图。
+
+（2）证明每个 A-图都是平面图。
+
+（3）对不含重边、具有 $n$ 个顶点的 A-图，求其最大边数并证明；同时对一般
+$n$ 给出达到该上界的 A-图并作说明。
+
+（4）给出一个 $O(m+n)$ 时间算法，输入具有 $n$ 个顶点、$m$ 条边的无向图，判断它是否为 A-图；同时说明为在线性时间内实现 B、C 操作所采用的图数据结构。
+
+#### 考点
+
+- **串并联图式化简**：把 B、C 操作理解为平行边合并与度为二顶点的串联缩并。
+- **平面图保持性**：证明逆向扩展不会破坏平面嵌入，从而得到 A-图的平面性。
+- **极值边数**：根据化简或构造过程建立顶点数与边数的递推上界并给出紧例。
+- **线性时间图算法**：维护重边和可缩并顶点的工作队列，选择支持摊还线性更新的数据结构。
+
 ## **Kai**
 ### (1)
 

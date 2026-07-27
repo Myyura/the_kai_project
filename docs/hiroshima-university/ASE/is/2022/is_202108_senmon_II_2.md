@@ -51,6 +51,26 @@ The first element of array $A$ is represented by $A[1]$.
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202108_senmon_II_2_p1.png" width="600" height="250" alt=""/>
 </figure>
 
+### 题目描述
+
+`Select(A,p,r,i)` 用于在未排序数组 $A$ 的子数组 $A[p]$ 至 $A[r]$ 中找出第 $i$ 小的元素并返回；数组首元素记为 $A[1]$。算法及其调用的 `Partition` 见题中图示。
+
+1. 对
+
+   $$
+   A=\{35,19,3,12,6,20,5,30,34,17\},
+   $$
+
+   写出 `Select(A,1,10,3)` 的返回值。
+2. 对第 1 问的数组调用 `Select(A,1,10,3)` 时会产生递归调用。列出包括首次调用在内的每次 `Select` 调用中参数 $A,p,r,i$ 的值；其中数组 $A$ 必须写出全部元素。
+3. 适当填写算法中的空白 $\boxed{1}$、$\boxed{2}$、$\boxed{3}$。
+4. 若 $A$ 是已按升序排列的 $n$ 元素数组，调用 `Select(A,1,n,1)` 时，计算 `Partition` 第 4 行所执行的比较总次数。
+5. 用大 $O$ 记号写出 `Select` 在 $n$ 元素集合上的期望运行时间，并简要说明理由。
+
+#### 考点
+
+- 快速选择：跟踪分区后的数组与递归参数，补全秩的更新规则，并分析特定枢轴序列下的比较次数及期望复杂度。
+
 ## **Kai**
 ### (1)
 $6$

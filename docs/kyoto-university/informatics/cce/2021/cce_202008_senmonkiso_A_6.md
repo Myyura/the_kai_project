@@ -60,6 +60,47 @@ List up those values on each visit.
 Describe the basic procedure of an algorithm for sorting a sequence of numerical data using
 merge sort. Then, explain its time complexity using n as the length of the sequence.
 
+### 题目描述
+
+1. 为在计算机主存中实现整数线性表，比较数组结构与使用指针的单向链表。设表长为 $n$，分别用大 $O$ 记号给出以下操作在两种实现中的计算步数：
+   - `INSERT(x,p)`：在指针 $p$ 所指单元之后插入元素 $x$；
+   - `DELETE(p)`：删除 $p$ 所指单元的下一个单元（若存在）；
+   - `FIND(i)`：返回从表头起第 $i$ 个单元的值；
+   - `NEXT(p)`：返回 $p$ 所指单元的下一单元位置，不存在则返回 `null`；
+   - `PREVIOUS(p)`：返回 $p$ 所指单元的前一单元位置，不存在则返回 `null`。
+2. 对下列过程 `something` 回答：
+
+   ```text
+   something(int a, int b) {
+     if (b == 0) return a;
+     int r = a;
+     while (r >= b) r = r - b;
+     return something(b, r);
+   }
+   ```
+
+   1. 当 $a=12,b=15$ 时返回什么值？
+   2. 输入一对正整数时，该过程计算什么？说明输入与输出的算术关系。
+   3. 若至少一个输入整数不大于零，说明过程的行为。
+3. 下图流程图表示对数值数组 $A[1],\ldots,A[n]$ 的算法：
+
+   <figure style="text-align:center;">
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_A_6_p1.png" width="500" alt="题目流程图"/>
+   </figure>
+
+   1. 说明算法最终会如何改变数组内容。
+   2. 当 $n=10$ 时，标有“☆”的框最多会被访问多少次？
+   3. 当 $n=6$ 且初值为
+      $A[1..6]=(4,1,7,5,8,9)$ 时，列出每次访问“☆”框时数组各元素的值。
+4. 描述使用归并排序对数值序列排序的基本步骤，并以序列长度 $n$ 说明其时间复杂度。
+
+#### 考点
+
+- **数组与单向链表复杂度**：比较给定位置访问、插入删除、前驱后继查询在连续存储和指针存储中的代价。
+- **欧几里得算法**：识别伪代码用反复减法求余并递归计算最大公约数，同时分析非正输入导致的终止问题。
+- **冒泡排序流程跟踪**：阅读流程图，判断最终排序结果、最坏访问次数并逐步模拟指定数组。
+- **归并排序**：说明分治、合并步骤，并由递归层数分析 $O(n\log n)$ 时间复杂度。
+
 ## **Kai**
 ### (1)
 

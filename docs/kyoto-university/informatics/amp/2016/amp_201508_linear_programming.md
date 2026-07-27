@@ -45,6 +45,43 @@ $$
 ### English Version
 
 
+### 题目描述
+
+设 $f:\mathbb R^n\to\mathbb R$ 为连续可微凸函数，并定义梯度
+
+$$
+\nabla f(\boldsymbol x)=
+\left(\frac{\partial f(\boldsymbol x)}{\partial x_1},\ldots,
+\frac{\partial f(\boldsymbol x)}{\partial x_n}\right)^\top,
+$$
+
+其中 $\top$ 表示转置。考虑线性规划
+
+$$
+\begin{aligned}
+\mathrm P:\quad
+&\text{最小化}\quad \nabla f(\bar{\boldsymbol x})^\top\boldsymbol x\\
+&\text{满足}\quad
+\boldsymbol A(\bar{\boldsymbol x}+\boldsymbol x)\leqq\boldsymbol b,
+\end{aligned}
+$$
+
+其中 $\boldsymbol A$ 是 $m\times n$ 常数矩阵，$\boldsymbol b$ 是 $m$ 维常向量，$\bar{\boldsymbol x}$ 是 $n$ 维常向量，$\boldsymbol x$ 是 $n$ 维变量向量，并假设 P 有最优解。回答：
+
+1. 证明对任意满足
+   $\nabla f(\bar{\boldsymbol x})^\top\boldsymbol d\geqq0$
+   的 $\boldsymbol d\in\mathbb R^n$，都有
+   $f(\bar{\boldsymbol x}+\boldsymbol d)\geqq f(\bar{\boldsymbol x})$。
+2. 写出 P 的对偶问题。
+3. 假设 $\boldsymbol A\bar{\boldsymbol x}\geqq\boldsymbol b$。证明对任意满足 $\boldsymbol A\boldsymbol z\leqq\boldsymbol b$ 的 $\boldsymbol z\in\mathbb R^n$，都有
+   $f(\boldsymbol z)\geqq f(\bar{\boldsymbol x})$。
+
+#### 考点
+
+- **凸函数的一阶不等式**：由梯度方向导数的符号推出函数值的全局比较。
+- **线性规划对偶**：为梯度线性化后的约束问题构造对偶，并利用原、对偶最优性支持结论。
+- **凸优化一阶最优性**：把线性化子问题的最优方向与原凸函数在可行集合上的全局最优性联系起来。
+
 ## **Kai**
 ### (i)
 Since $\nabla f(\bar{x})^\top d \geqq 0$, from first order condition we have

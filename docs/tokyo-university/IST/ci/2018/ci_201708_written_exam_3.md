@@ -28,6 +28,30 @@ Select **four items** out of the following eight items concerning information sy
 7. **Divide and conquer method**
 8. **Vector quantization**
 
+### 题目描述
+
+从下列八个信息系统相关主题中任选四个，每个用约 4～8 行说明；必要时可使用示例或图。
+
+1. 流水线冒险。
+2. 寄存器重命名。
+3. 卡尔曼滤波。
+4. 正则文法与正则语言。
+5. 公钥密码与认证机构。
+6. 旅行商问题。
+7. 分治法。
+8. 向量量化。
+
+#### 考点
+
+- **流水线冒险**：说明结构、数据和控制冲突对重叠执行的影响及停顿、转发等处理。
+- **寄存器重命名**：通过物理寄存器消除 WAR、WAW 伪相关以支持乱序并行。
+- **卡尔曼滤波**：说明状态预测、协方差传播、卡尔曼增益和测量更新。
+- **正则文法与正则语言**：说明线性产生式、有限自动机及二者等价关系。
+- **公钥密码与认证机构**：说明非对称密钥用途及 CA 签发证书建立身份—公钥信任。
+- **旅行商问题**：说明寻找访问每个城市一次并回到起点的最短回路及其组合复杂性。
+- **分治法**：说明分解同类子问题、递归求解和合并结果。
+- **向量量化**：说明以码本最近代表向量编码输入并用于有损压缩。
+
 ## **Kai**
 #### Pipeline hazard
 Pipeline hazard refers to a situation where dependencies in a program result in incorrect execution in pipeline or out-of-order execution. There are several types of hazards:

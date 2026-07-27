@@ -35,6 +35,25 @@ Prove $C=O$ when $\text{tr}(CX) = 0$ for any $n$-dimensional square matrix $X$.
 
 (4) Prove that there are no square matrices $P,Q$ such that $PQ-QP=E$.
 
+### 题目描述
+
+设 $A,B,C,P,Q$ 均为 $n$ 阶方阵，$E$ 和 $O$ 分别为 $n$ 阶单位矩阵与零矩阵。
+
+1. 若 $A^2=A$，证明 $A$ 的每个特征值都是 $0$ 或 $1$。
+2. 设 $B\ne O$，且对某个整数 $k\ge2$ 有 $B^k=O$；证明 $B$ 不可逆。
+3. 对 $n$ 阶方阵 $M=[m_{ij}]$，定义
+
+   $$
+   \operatorname{tr}M=\sum_{i=1}^n m_{ii}.
+   $$
+
+   若对每个 $n$ 阶方阵 $X$ 都有 $\operatorname{tr}(CX)=0$，证明 $C=O$。
+4. 证明不存在满足 $PQ-QP=E$ 的方阵 $P,Q$。
+
+#### 考点
+
+- 特征值与特征向量：把幂等关系 $A^2=A$ 作用于特征向量，限定 $A$ 的全部可能特征值。
+
 ## **Kai** 
 ### (1)
 

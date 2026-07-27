@@ -47,3 +47,25 @@ for(i=0; i < N; i = i + 1)
 (3) Show a block-diagram of a 2-way set associative cache memory, using memories, comparators, multiplexers, registers (flop-flops) etc.
 
 (4) Describe five methods to increase cache hit ratio both in hardware technology and programming techniques. Each item should be described within two lines.
+
+### 题目描述
+
+回答以下关于处理器高速缓存的问题。
+
+1. 在五行以内说明高速缓存能够加快程序执行的原因。
+2. 假设处理器分别设有指令缓存与数据缓存，两者的缓存块大小均为 32 字节。向量 \(A\) 的元素是 32 位数据，长度 \(N\) 足够大；运行下面的 C 程序，把每个元素乘以常数 \(k\)。求该程序的数据缓存命中率。
+
+```c
+for(i = 0; i < N; i = i + 1)
+    A[i] = k * A[i];
+```
+
+3. 使用存储器、比较器、多路选择器、寄存器（触发器）等部件，画出二路组相联高速缓存的框图。
+4. 合计列出五种提高缓存命中率的硬件技术或编程方法，每种方法用不超过两行说明。
+
+#### 考点
+
+- **访问局部性与缓存加速原理**：结合时间局部性、空间局部性及存储层次解释缓存为何能降低平均访存时间。
+- **顺序访问的缓存命中率**：根据 32 字节缓存块和 4 字节整数，分析对大向量连续读写时每次装入所覆盖的元素数及稳态命中情况。
+- **二路组相联缓存结构**：用两路标签与数据阵列、并行比较器、命中选择逻辑以及替换状态等部件组织数据通路。
+- **缓存命中率优化**：从块大小、相联度、预取、替换策略以及循环与数据布局等软硬件手段说明如何减少失效。

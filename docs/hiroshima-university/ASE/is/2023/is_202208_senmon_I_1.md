@@ -24,6 +24,40 @@ $$
 
 where $R(\theta)^T$ denotes the transpose of the matrix $R(\theta)$. Express $\cos 2\theta$ and $\sin 2\theta$ using $x, y, z$.
 
+### 题目描述
+
+1. 求二阶方阵
+
+   $$
+   A=\begin{bmatrix}1&2\\2&3\end{bmatrix}
+   $$
+
+   的全部特征值及相应特征向量。
+2. 设 $x,y,z$ 为实数。求二阶实对称矩阵
+
+   $$
+   A=\begin{bmatrix}x&y\\y&z\end{bmatrix}
+   $$
+
+   的全部特征值，并证明这些特征值均为实数。
+3. 设 $\lambda_1,\lambda_2$ 是上述实对称矩阵 $A$ 的特征值，且 $\lambda_1\ge\lambda_2$。矩阵 $A$ 可用正交矩阵
+
+   $$
+   R(\theta)=
+   \begin{bmatrix}
+   \cos\theta&-\sin\theta\\
+   \sin\theta&\cos\theta
+   \end{bmatrix}
+   $$
+
+   对角化，其中 $R(\theta)^T$ 表示其转置。用 $x,y,z$ 表示 $\cos2\theta$ 和 $\sin2\theta$。
+
+#### 考点
+
+- 特征值与特征向量：求具体及一般二阶实对称矩阵的谱，并由判别式证明特征值为实数。
+- 矩阵对角化：把实对称矩阵化为按 $\lambda_1\ge\lambda_2$ 排列的对角形式，并从非对角元为零推导旋转角。
+- 正交矩阵：利用 $R(\theta)^{-1}=R(\theta)^T$ 表达正交相似变换及 $\cos2\theta,\sin2\theta$。
+
 ## **Kai**
 ### (1)
 For the given matrix:

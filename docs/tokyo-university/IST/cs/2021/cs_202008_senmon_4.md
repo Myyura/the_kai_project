@@ -54,6 +54,59 @@ Answer the following questions. Describe not only an answer but also the derivat
 
 (4) Explain what problem arises when $\mathbf{\Phi}$ is not a regular matrix and suggest a way to remedy the problem.
 
+### 题目描述
+
+设训练样本为
+$\{(\boldsymbol{x}_i,y_i)\}_{i=1}^n$，
+$\boldsymbol{x}_i\in\mathbb R^d$、$y_i\in\mathbb R$，数据由
+$$
+y_i=\boldsymbol{w}^{*\mathsf T}\boldsymbol{x}_i+\varepsilon_i
+$$
+生成，其中噪声 $\varepsilon_i$ 独立同分布，均值为 $0$、方差为
+$\sigma^2>0$。记
+$$
+X=[\boldsymbol{x}_1,\ldots,\boldsymbol{x}_n]^{\mathsf T},\quad
+Y=[y_1,\ldots,y_n]^{\mathsf T},\quad
+\boldsymbol{\varepsilon}=[\varepsilon_1,\ldots,\varepsilon_n]^{\mathsf T},
+$$
+并令 $\Phi=X^{\mathsf T}X/n$，先假定 $\Phi$ 可逆。采用线性预测器
+$f(\boldsymbol{x})=\widehat{\boldsymbol{w}}^{\mathsf T}\boldsymbol{x}$，通过
+$$
+\widehat{\boldsymbol{w}}
+=\mathop{\arg\min}_{\boldsymbol{w}\in\mathbb R^d}L(\boldsymbol{w}),
+\qquad
+L(\boldsymbol{w})
+=\frac1{2n}\|Y-X\boldsymbol{w}\|_2^2
+$$
+学习。以 $\mathbb E_{\boldsymbol{\varepsilon}}$ 表示对观测噪声取期望，
+$\|w\|_A=\sqrt{w^{\mathsf T}Aw}$，$\operatorname{tr}$ 表示迹。各问除答案外还须给出推导。
+
+（1）用 $X,Y,\Phi,n$ 表示 $\widehat{\boldsymbol{w}}$。
+
+（2）将期望损失写成
+$$
+\mathbb E_{\boldsymbol{\varepsilon}}[L(\boldsymbol{w})]
+=\frac12\|\boldsymbol{w}-\boldsymbol{w}^*\|_A^2+b,
+$$
+用 $\Phi,\sigma^2$ 表示 $A\in\mathbb R^{d\times d}$ 和正数 $b$。
+
+（3）将
+$$
+\mathbb E_{\boldsymbol{\varepsilon}}[L(\widehat{\boldsymbol{w}})]
+-\mathbb E_{\boldsymbol{\varepsilon}}[L(\boldsymbol{w}^*)]
+=\frac{\sigma^2}{2n}\operatorname{tr}(B)
+$$
+中的 $B\in\mathbb R^{d\times d}$ 用 $X$ 表示。
+
+（4）说明当 $\Phi$ 不可逆时会出现什么问题，并提出一种补救方法。
+
+#### 考点
+
+- **普通最小二乘与正规方程**：对二次损失求导并利用设计矩阵的 Gram 矩阵求闭式解。
+- **期望训练损失**：分离参数偏差项与噪声常数项，识别二次型矩阵和方差贡献。
+- **估计方差的迹表达式**：运用协方差与迹恒等式推导拟合解相对真参数的期望损失。
+- **奇异设计与岭正则化**：理解不可逆导致解不唯一或公式失效，并通过正则项获得稳定可逆系统。
+
 ## **Kai**
 ### (1)
 

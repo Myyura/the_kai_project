@@ -63,6 +63,28 @@ Let us consider a hardware solution. Here, input is a bit sequence and output is
 (6) To design a population count logic circuit $P_n$, where the input is $n$ bit, latency becomes an issue as $n$ increases. Answer a solution of this latency problem.
 
 
+### 题目描述
+
+太阳能板按以下规则维护：\(n\) 块板为一组，定期按组检查，每组状态以 \(n\) 位数据报告；对应板故障时该位为 1，否则为 0。目标是统计其中 1 的个数，即 population count（汉明重量）。
+
+先考虑软件方法。题设给定 \(0<n\le32\)、\(0\le k<\log_2n\)。一次算术运算、逻辑运算、移位或查表均耗时 1；忽略数组下标加法及循环比较的时间。
+
+1. 写出逐位检查并累加 1 的简单伪代码，给出计算时间。
+2. 用查表加速第 1 问，给出计算时间。
+3. 给出一种比第 1 问快、又不需要第 2 问查表存储空间的方法，写伪代码并给出计算时间。
+
+再考虑硬件，输入为位串，输出为二进制数。
+
+4. 写出三位输入 population count 电路 \(P_3\) 的真值表，并仅用 AND、OR、NOT 门设计电路。
+5. 使用 \(P_3\) 构造六位输入电路 \(P_6\)；必要时可增加 AND、OR、NOT 门。
+6. 对一般 \(n\) 位 \(P_n\)，随着 \(n\) 增大，传播延迟成为问题。说明降低延迟的方法。
+
+#### 考点
+
+- **软件汉明重量算法**：比较逐位扫描、分块查表和并行位运算计数的时间—空间取舍。
+- **组合逻辑 population count**：由三位真值表化简输出逻辑，并把小计数器输出经加法器组合为更宽输入。
+- **加法树与延迟**：用平衡树或进位保存压缩器并行汇总各位，使电路深度由线性降为对数级。
+
 ## **Kai**
 ### (1)
 ```

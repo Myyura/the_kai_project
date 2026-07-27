@@ -83,6 +83,101 @@ $$
 R = \frac{1}{1 - \alpha} \log \int_b^\infty g(x)^\alpha \, dx
 $$
 
+### 题目描述
+
+以下 $E(X),V(X)$ 分别表示随机变量 $X$ 的期望和方差，$N(\mu,\sigma^2)$ 表示均值为 $\mu$、方差为 $\sigma^2$ 的正态分布，$\log x$ 表示自然对数。
+
+1. 已知常数 $x_1,\ldots,x_n$ 均属于区间
+
+   $$
+   I=\left[\frac12,2\right],
+   $$
+
+   已知函数 $g(x)>0$ 在 $I$ 上连续。随机变量 $Y_1,\ldots,Y_n$ 相互独立，且
+
+   $$
+   Y_i\sim N(\theta x_i,g(x_i)),
+   \qquad i=1,\ldots,n,
+   $$
+
+   其中实数 $\theta$ 为未知参数。对常数 $w_1,\ldots,w_n$，考虑估计量
+
+   $$
+   \hat\theta=\sum_{i=1}^nw_iY_i.
+   $$
+
+   （1）求 $E(\hat\theta)$ 与 $V(\hat\theta)$。
+
+   （2）给出 $\hat\theta$ 为无偏估计量时 $w_1,\ldots,w_n$ 的充要条件。
+
+   （3）在无偏约束下，求使 $V(\hat\theta)$ 最小的 $w_1,\ldots,w_n$。
+
+   （4）求 $\theta$ 的最大似然估计量 $\hat\theta_{\mathrm{ML}}$。
+
+   （5）令 $g(x)=1+x^4$。使用第（3）问所得权重时，应如何设置 $x_1,\ldots,x_n$，才能使 $\hat\theta$ 的估计精度最高？
+
+2. 设实随机变量 $X$ 的密度为
+
+   $$
+   f(x)=
+   \begin{cases}
+   \alpha b^\alpha x^{-(1+\alpha)}&(x\geq b),\\
+   0&(x<b),
+   \end{cases}
+   $$
+
+   其中 $b>0,\alpha>1$。
+
+   （1）求 $E(X)$。
+
+   （2）令
+
+   $$
+   Y=\log\frac Xb.
+   $$
+
+   求 $Y$ 的概率密度函数。
+
+   （3）考虑满足
+
+   $$
+   f(x)=
+   \frac{g(x)^\alpha}
+        {\displaystyle\int_b^\infty g(s)^\alpha\,ds}
+   $$
+
+   的概率密度函数 $g(x)$，并规定 $x<b$ 时 $g(x)=0$。求 $x\geq b$ 时的 $g(x)$。
+
+   （4）对上述 $f,g$，定义
+
+   $$
+   D[f\|g]
+   =
+   \int_b^\infty
+   f(x)\log\frac{f(x)}{g(x)}\,dx.
+   $$
+
+   再定义
+
+   $$
+   H=-\int_b^\infty f(x)\log f(x)\,dx,
+   $$
+
+   $$
+   R=\frac1{1-\alpha}
+   \log\int_b^\infty g(x)^\alpha\,dx.
+   $$
+
+   用 $H,R,\alpha$ 表示 $D[f\|g]$。
+
+#### 考点
+
+- **异方差正态线性模型**：计算线性估计量的均值和方差，并写出无偏约束。
+- **最小方差无偏估计与广义最小二乘**：用 Lagrange 乘数得到逆方差加权，并与最大似然估计对照。
+- **最优实验设计**：通过最大化单个设计点提供的 Fisher 信息选择 $x_i$。
+- **Pareto 分布与变量变换**：计算均值，并识别对数尺度下的指数分布。
+- **Escort 分布、KL 散度与 Rényi 熵**：由幂次归一化关系求密度，并推导三种信息量之间的恒等式。
+
 ## **Kai**
 ### 問題1
 

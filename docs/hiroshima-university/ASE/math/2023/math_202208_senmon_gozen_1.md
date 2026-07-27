@@ -38,6 +38,52 @@ $B = (I + A + A^2)/3, C = I - B, X = \text{Ker}\  B, Y = \text{Ker}\  C$ とす�
 
 (4). $V$ の次元が奇数ならば, $A$ は 1 を固有値にもつことを示せ.
 
+### 题目描述
+
+回答 (A)、(B) 中的全部问题。
+
+**(A)** 设 $a$ 为实常数，考虑实矩阵
+
+$$
+A=\begin{pmatrix}1&1&0\\2&3&1\\0&1&a\end{pmatrix}.
+$$
+
+1. 求使 $\operatorname{rank}A=2$ 的 $a$。
+2. 令 $a$ 取第 1 问所得值，以 $x,y,z$ 为未知数、$p,q,r$ 为常数。对实线性方程
+
+   $$
+   A\begin{pmatrix}x\\y\\z\end{pmatrix}
+   =\begin{pmatrix}p\\q\\r\end{pmatrix},
+   $$
+
+   用 $p,q,r$ 写出方程有解的充要条件；条件成立时，求一个不含 $r$ 的一般解表达式。
+
+**(B)** 设 $V$ 为有限维实线性空间，线性映射 $A:V\to V$ 满足 $A^3=I$，其中 $I$ 是 $V$ 上的恒等映射。定义
+
+$$
+B=\frac{I+A+A^2}{3},\qquad
+C=I-B,\qquad
+X=\operatorname{Ker}B,\qquad
+Y=\operatorname{Ker}C.
+$$
+
+映射的复合记作乘积；对线性映射 $T:V\to V$，其核记为 $\operatorname{Ker}T$。
+
+1. 证明 $BC=CB=O$，其中 $O$ 是把 $V$ 的每个元素映到零向量的零映射。
+2. 证明 $V=X\oplus Y$，其中 $\oplus$ 表示向量空间的直和。
+3. 令
+
+   $$
+   W=\{u+A(v)\in V\mid u,v\in X\}.
+   $$
+
+   证明 $W$ 是 $X$ 的子空间，并且 $A(W)\subset W$。
+4. 证明：若 $\dim V$ 为奇数，则 $A$ 有特征值 $1$。
+
+#### 考点
+
+- 特征值与特征向量：结合 $A^3=I$、不变子空间分解和实空间的维数奇偶性，证明奇数维情形必存在特征值 $1$。
+
 ## **Kai**
 ### (A)
 #### (1)

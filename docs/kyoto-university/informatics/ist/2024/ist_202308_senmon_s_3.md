@@ -49,6 +49,30 @@ Explain how we can compare the discriminability of the classifications given in 
 (4) Explain which class given in (1) is suitable for the sample in Table 1 (b). 
 The assumption on the sample distribution required for the discussion must be clearly stated.
 
+### 题目描述
+
+题图表 1 给出二维样本
+$x_i=(x_{i1},x_{i2})^\top$（$i=1,\ldots,n$）：
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202308_senmon_s_3_p1.png" width="280" height="150" alt="二维样本表"/>
+</figure>
+
+1. 对表 1(a) 的分类
+   $C_1=\{x_1,x_3,x_5\}$、
+   $C_2=\{x_2,x_4,x_6\}$，求线性分类函数：把新样本分到 Euclidean 距离更近的类中心。
+2. 另有分类
+   $C_3=\{x_3,x_5,x_6\}$、
+   $C_4=\{x_1,x_2,x_4\}$。说明如何用类内方差和类间方差比较第 1 问与该分类的可分性。
+3. 对第 1 问的每一类，写出计算样本 $x_i$ 的 Mahalanobis 距离的公式。
+4. 说明表 1(b) 的样本更适合第 1 问中的哪一类，并明确说明讨论所需的样本分布假设。
+
+#### 考点
+
+- **最近类中心线性分类器**：展开两个到均值向量的平方距离差，得到线性判别函数。
+- **Fisher 线性判别准则**：用类间散布相对类内散布的比值比较两种标注的可分性。
+- **Mahalanobis 距离与 Gaussian 分类**：用各类协方差逆矩阵度量距离，并说明在 Gaussian 及先验/协方差假设下作分类。
+
 ## **Kai**
 ### (1)
 Let $c_1$ and $c_2$ denote the center of classes $C_1$ and $C_2$, respectively. Then we have

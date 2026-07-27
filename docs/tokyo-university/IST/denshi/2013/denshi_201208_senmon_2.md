@@ -27,6 +27,24 @@ Let us design a binary digital synchronous sequential circuit which outputs $6,1
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2013_2_p1.png" width="700" height="650" alt=""/>
 </figure>
 
+### 题目描述
+
+设计一个二进制数字同步时序电路，使其依次输出 $6,1,0,2,5$；输出 $5$ 后继续周期性重复这一序列。只允许使用 AND、OR、NOT、NAND、NOR、D 触发器和 JK 触发器。题目所需的 MIL 逻辑符号见上图。
+
+(1) 用不超过 $10$ 个词说明什么是时序电路。
+
+(2) 作为准备，设计一个同步模 $8$ 二进制计数器，并用 MIL 符号画出电路。
+
+(3) 利用 (2) 设计一个同步模 $5$ 二进制计数器，用 MIL 符号画出，并尽可能化简电路。
+
+(4) 把 (3) 的模 $5$ 计数器视为黑盒，设计周期性产生 $6,1,0,2,5$ 的同步时序电路，并用 MIL 符号画出；使用卡诺图将电路尽可能化简。
+
+#### 考点
+
+- 同步模计数器：要求用触发器实现模 $8$ 与模 $5$ 状态循环，并处理同步状态转换。
+- 周期序列发生器：要求把计数器状态映射为指定的五项二进制输出序列。
+- 卡诺图化简：要求根据状态/输出真值关系化简组合逻辑并落实为限定门电路。
+
 ## **Kai**
 ### (1)
 Circuit's output determined by its input and past states.

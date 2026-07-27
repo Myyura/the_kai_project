@@ -58,6 +58,39 @@ Answer the folowing questions. If necessary, the following facts (A) and (B) can
 - (a) Prove that $H$ contains no cycle.
 - (b) Let $\mu_2(G)$ denote the length of a shortest 2-circuit in $G$. Prove that $H$ consists of $m(G) +n(G) - \mu_2(G)$ connected components.
 
+### 题目描述
+
+本题中的图均为有限无向图，允许自环和重边。记图 $G$ 的顶点数、边数分别为 $n(G),m(G)$，顶点 $x$ 的度为 $\deg(G,x)$，游走 $C$ 的长度 $l(C)$ 为经过边的总次数。
+
+- 闭游走 $C$ 若恰好一次经过每条边，称为 1-回路（Euler 回路）；若每条边经过一次或两次，称为 2-回路。
+- $G$ 的生成子图 $H$ 若包含 $G$ 的全部顶点，且每个顶点在 $G,H$ 中的度数奇偶性相同，则称为奇偶子图。边数最少的奇偶子图称为最小奇偶子图。
+
+可不加证明地使用：
+
+- 连通图存在 Euler 回路，当且仅当所有顶点度数均为偶数；
+- 含 $n$ 个顶点的树有 $n-1$ 条边。
+
+回答下列问题。
+
+1. 设 $G$ 为连通图。
+   1. 对 $G$ 的任意奇偶子图 $H$，证明 $G$ 存在满足
+      $$l(C)=m(G)+m(H)$$
+      的 2-回路 $C$。
+   2. 对 $G$ 的任意 2-回路 $C$，证明存在奇偶子图 $H$ 满足
+      $$m(H)=l(C)-m(G).$$
+2. 设 $H$ 为连通图 $G$ 的最小奇偶子图。
+   1. 证明 $H$ 不含闭路；
+   2. 记 $G$ 上最短 2-回路的长度为 $\mu_2(G)$，证明 $H$ 恰有
+      $$m(G)+n(G)-\mu_2(G)$$
+      个连通分量。
+
+#### 考点
+
+- **Euler 图判定**：通过复制奇偶子图中的边使所有顶点度数变偶。
+- **游走的边重数**：由 2-回路中被走两次的边构造奇偶子图。
+- **最小奇偶子图**：用删除闭路不改变各顶点度数奇偶性证明其为森林。
+- **森林的边数与分量数**：利用 $m=n-c$ 关联最短 2-回路长度和连通分量数。
+
 ## **Kai**
 ### (1)
 #### (a) From a parity subgraph to a 2-circuit and its length

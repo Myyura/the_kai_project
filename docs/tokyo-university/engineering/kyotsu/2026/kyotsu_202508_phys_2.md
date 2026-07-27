@@ -91,6 +91,27 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_2_p3.png" width="300" alt=""/>
 </figure>
 
+### 题目描述
+
+真空介电常数和磁导率分别为 $\varepsilon_0,\mu_0$。
+
+1. 在 $(0,0,d/2)$、$(0,0,-d/2)$ 分别放置 $+q,-q$，令 $\boldsymbol d$ 从负电荷指向正电荷。先求以无穷远为零点的精确静电势；再在 $|\boldsymbol d|/|\boldsymbol r|\ll1$ 时作远场展开，证明以 $\boldsymbol p=q\boldsymbol d$ 表示的偶极势为
+   $$
+   U(\boldsymbol r)=
+   \frac{\boldsymbol p\cdot\boldsymbol r}
+   {4\pi\varepsilon_0|\boldsymbol r|^3}.
+   $$
+2. 半径 $R$ 的薄导体球壳置于沿 $z$ 方向的一致静电场 $\boldsymbol E_0$ 中。求兼顾外场和感应电荷的球外电势；再由导体边界条件求球面任意点 $\boldsymbol s$ 处的面电荷密度。
+3. 半径 $\rho$、位于 $xy$ 平面的一匝圆线圈通电流 $I$，其矢势由题给线积分定义。在 $|\boldsymbol u|/|\boldsymbol r|\ll1$ 的远场中展开积分，并用题目定义的
+   $\boldsymbol m=\mu_0(\pi\rho^2)I\boldsymbol k$
+   和 $\boldsymbol r$ 表示 $\boldsymbol A(\boldsymbol r)$。
+
+#### 考点
+
+- 电偶极势：叠加两点电荷势并对小电荷间距作多极展开，保留首个非零奇次项。
+- 一致电场中的导体球：解轴对称 Laplace 方程，以球面等势和远场条件确定感应偶极项，再由法向电场跃变求面电荷。
+- 磁偶极矢势：展开圆电流回路的远场线积分，将最低非零项化为 $\boldsymbol m\times\boldsymbol r/r^3$。
+
 ## **Kai**
 
 ### I

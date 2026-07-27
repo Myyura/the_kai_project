@@ -190,6 +190,179 @@ buf->head -= i;
 buf->tail -= i;
 ```
 
+### 题目描述
+
+### 信息 2（1）
+
+考虑用树结构在 C 语言中实现一个保存键（key）—值（value）对的关联数组。键是仅由英文字母 `a`～`z` 组成的字符串，值是正整数。所用结构是一棵如下图所示的有根树。
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tsukuba_university/science_and_technology/sie_cs_201702_info_2_p1.png" width="400" alt=""/>
+</figure>
+
+图中的有根树保存了下表所列五个键值对。
+
+| 键 | 值 |
+| --- | -- |
+| mile | 20 |
+| milk | 15 |
+| pea | 10 |
+| peach | 30 |
+| pie | 25 |
+
+使用下面的结构体 `node` 表示树节点。
+
+```text
+struct node {
+    struct node *c[26];
+    int isEnd;
+    int value;
+}
+```
+
+数组 `c` 保存与字母 `a`～`z` 分别对应的子节点指针；不存在相应子节点时存入 `NULL`。若某节点对应一个键的最后一个字符，则其 `isEnd` 存入 `TRUE`，否则存入 `FALSE`。当 `isEnd` 为 `TRUE` 时，`value` 保存与该键配对的值。
+
+使用该结构体实现下列函数。
+
+- `struct node *new_node()`：新建并初始化节点，返回指向该节点的指针。
+- `void insert(struct node *root, char *key, int value)`：向以 `root` 所指节点为根的树中加入键 `key` 与值 `value` 的组合；若 `key` 已存在，则用 `value` 替换旧值。
+- `int search(struct node *root, char *key)`：在以 `root` 所指节点为根的树中查找键 `key`；若存在，则返回与其配对的值，否则返回 $-1$。
+
+(a) 以下程序使用结构体 `node` 实现 `new_node`、`insert` 和 `search`。填写 \[(A)\]～\[(F)\]，完成程序。
+
+```text
+#define TRUE 1
+#define FALSE 0
+
+struct node *new_node()
+{
+    int i;
+    struct node *n = (struct node *) malloc(sizeof(struct node));
+
+    for (i = 0; i < 26; i++){
+        n->c[i] = NULL;
+    }
+    n->isEnd = FALSE;
+    return n;
+}
+
+void insert (struct node *root, char *key, int value)
+{
+    int l;
+    int len = strlen(key);
+    struct node *n = root;
+
+    for (l = 0; l < len; l++)
+    {
+        int i = key[l] - 'a';
+        if (空欄 [ (A) ]) {
+            n->c[i] = new_node();
+        }
+        n = 空欄 [ (B) ];
+    }
+    n->isEnd = 空欄 [ (C) ];
+    空欄 [ (D) ];
+}
+
+int search (struct node *root, char *key)
+{
+    int l;
+    int len = strlen(key);
+    struct node *n = root;
+
+    for (l = 0; l < len; l++)
+    {
+        int i = key[l] - 'a';
+
+        if (n->c[i] == NULL)
+            return -1;
+
+        n = 空欄 [ (E) ];
+    }
+    if (空欄 [ (F) ]) {
+        return n->value;
+    } else {
+        return -1;
+    }
+}
+```
+
+(b) 以保存了 $n$ 个键值对的有根树为对象，调用 `search` 查找长度为 $k$ 的字符串 `key`。给出最坏情况下的渐近时间复杂度，并说明理由。
+
+### 信息 2（2）
+
+阅读下面的 C 程序并回答各问。
+
+```text
+#define BUFSIZE 24
+
+struct buffer {
+    char store[BUFSIZE];
+    int head, tail;
+};
+
+int put_str(struct buffer *buf, char *str) {
+    int i = buf->tail;
+
+    while (i - buf->head < BUFSIZE) {
+        buf->store[i++ % BUFSIZE] = *str;
+        if (*str == '\0') {
+            buf->tail = i;
+            return 1;
+        } else {
+            str++;
+        }
+    }
+
+    return 0;
+}
+
+int get_str(struct buffer *buf, char *dest) {
+    int i = buf->head;
+
+    if (i == 空欄 [ (A) ]) return 0;
+
+    do {
+        *dest = 空欄 [ (B) ];
+    } while (空欄 [ (C) ] != '\0');
+
+    空欄 [ (D) ] = i;
+    return 1;
+}
+```
+
+(a) 该程序使用定长数组实现一个保存变长字符串的缓冲区。程序第 8～22 行定义的函数把给定字符串存入缓冲区。现有一个 `struct buffer` 型结构体 `buf`，其 `head` 和 `tail` 均设为 12，数组 `store` 的所有元素均初始化为 `'\0'`（空字符）。按下列顺序执行函数后，写出 `buf.store` 的内容。
+
+```text
+put_str(&buf, "ten");
+put_str(&buf, "six");
+put_str(&buf, "three");
+put_str(&buf, "four");
+put_str(&buf, "seven");
+put_str(&buf, "two");
+put_str(&buf, "eight");
+```
+
+(b) 程序第 24～35 行定义了从缓冲区取出一个字符串的函数。若缓冲区为空，函数返回 0；否则，把从 `head` 开始的字符串复制到 `dest` 所指内存区域并返回 1。填写 \[(A)\]～\[(D)\]，完成程序。空格中不得使用函数调用。
+
+(c) 判断该程序实现的数据结构是 FIFO（先进先出）还是 LIFO（后进先出）。
+
+(d) `head` 或 `tail` 的整数溢出可能导致程序误运行。为防止溢出，考虑在第 33 行与第 34 行之间加入以下三行。填写 \[(E)\]；空格中不得使用函数调用。
+
+```text
+i = 空欄 [ (E) ];
+buf->head -= i;
+buf->tail -= i;
+```
+
+#### 考点
+
+- **Trie 字典树**：按字符索引子节点，标记完整键并实现插入、覆盖与查找。
+- **字符串长度与复杂度**：分析字典树操作与键长之间的关系。
+- **环形缓冲区**：使用取模运算在定长数组中循环存放变长、以空字符结尾的字符串。
+- **队列语义**：根据 `head` 与 `tail` 的更新方向判断 FIFO 行为。
+- **边界与整数溢出**：在不改变有效数据位置关系的前提下归一化逻辑下标。
+
 ## **Kai**
 ### 情報2 (1)
 #### (a)

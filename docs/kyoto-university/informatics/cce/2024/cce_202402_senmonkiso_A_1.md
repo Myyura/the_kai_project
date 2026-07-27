@@ -44,6 +44,34 @@ $$
 
 (iii) If the eigenvalues are the same, find $A^n$ for a positive integer $n$.
 
+### 题目描述
+
+1. 求极限
+   $$
+   \lim_{x\to0}\frac{\sinh x}{x}.
+   $$
+2. 对区域
+   $$
+   D=\{(x,y)\mid0\le x+y\le1,\ 0\le x-y\le1\},
+   $$
+   计算
+   $$
+   I=\iint_D x^2\,dx\,dy.
+   $$
+3. 给定上三角矩阵
+   $$
+   A=\begin{pmatrix}a&b\\0&d\end{pmatrix}.
+   $$
+   1. 假设 $A$ 有两个不同特征值，求特征值及相应特征向量。
+   2. 利用第 1 小问的特征值、特征向量，求正整数 $n$ 时的 $A^n$。
+   3. 若两个特征值相同，求正整数 $n$ 时的 $A^n$。
+
+#### 考点
+
+- **基本极限**：利用双曲正弦展开、L'Hôpital 法则或夹逼求零点极限。
+- **二重积分的线性变量代换**：以 $u=x+y,v=x-y$ 将斜矩形区域化为单位正方形，并计算 Jacobian。
+- **上三角矩阵的谱分解与幂**：在特征值相异时对角化求幂，在重根时处理可对角化与 Jordan 型情形。
+
 ## **Kai**
 ### (1)
 We know the Maclaurin series for $\sinh x$ is:

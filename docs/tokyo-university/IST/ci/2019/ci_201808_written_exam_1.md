@@ -115,6 +115,23 @@ We define three vector representations, $x, x',$ and $b$ where $x$ is a vector l
 
 (5) The brightness of the points $x$ converges to $x^{\text{inf}}$ after applying the operation defined in (4) for an infinite number of times. Write down an analytic formula for $x^{\text{inf}}$ using the matrices defined in (4). Do not use limit in the formula.
 
+### 题目描述
+
+考虑一幅由 \(n\times n\) 像素组成的 256 级灰度图。每个像素与横、竖、斜方向的相邻像素相连，即内部点有 8 个邻点。像素 \(p\) 的类型为 `Pixel`，亮度为 `p.brightness`；整图以 `Pixel` 二维数组 `P` 给出。伪代码可使用基本数据结构，复杂度均写成 \(n\) 的函数。
+
+1. 图像为黑色背景上的若干白色物体。给定阈值，先仅保留亮度高于阈值的点，再任选一个保留点，计算包含它的连通区域像素数作为某个物体面积。用不超过 20 行伪代码给出递归算法，并用 \(O\) 记号分析复杂度。
+2. 从白色背景中提取一条无自交黑曲线。已知两个端点，在连接二者的所有相邻像素序列中，求沿途像素亮度总和最小者。用不超过 20 行伪代码给出高效算法并分析复杂度。
+3. 用一条连接图像上、下边界且每行恰经过一个像素的连通点列把图像分为左右两部分；在所有此类点列中，求像素亮度和最小者。用不超过 20 行伪代码给出高效算法并分析复杂度。
+4. 定义一次模糊操作：对每个内部点计算其 8 个邻点亮度平均值，全部算完后同时把所有内部点改为对应平均值。把原内部点亮度列为向量 `x`，更新后为 `x'`，边界等非内部点亮度列为 `b`。恰当定义矩阵并写出 `x`、`x'`、`b` 的关系式。
+5. 无限重复第 4 问后，内部亮度 `x` 收敛为 \(x^{\mathrm{inf}}\)。用第 4 问矩阵写出不含极限符号的解析表达式。
+
+#### 考点
+
+- **连通区域的递归遍历**：用深度优先或广度优先搜索遍历 8 邻域并标记访问点，统计阈值区域面积。
+- **图像网格最短路**：把像素亮度作为路径代价，在无负权网格上求两个端点间最小代价曲线。
+- **最小能量接缝动态规划**：按行递推到达各像素的最小累计亮度，并回溯每行一个点的最优连通序列。
+- **迭代平滑的矩阵极限**：把内部—内部和边界—内部邻接权重写成仿射迭代，并用线性方程求稳态。
+
 ## **Kai**
 ### (1)
 Grayscale image, represented by $n\times n$ array of names `P` of `Pixels`. Each pixel `p` has `p.brightness` which is a 256-level value.

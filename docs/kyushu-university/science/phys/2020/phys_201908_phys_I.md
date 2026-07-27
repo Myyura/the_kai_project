@@ -13,6 +13,47 @@ tags:
 
 ## **Description**
 
+### 题目描述
+
+原 Description 未录入文字；以下按现有解答可确认的分问整理。
+
+**A-I（Hamilton 原理）**：对作用量
+
+$$
+S[q]=\int_{t_1}^{t_2}L(q,\dot q)\,dt
+$$
+
+及固定端点的变分 $q\mapsto q+\delta q$：
+
+1. 写出端点处 $\delta q$ 满足的条件。
+2. 将 $L(q+\delta q,\dot q+\delta\dot q)$ 展开到变分的一阶。
+3. 由 $\delta S=0$ 推导 Euler–Lagrange 方程。
+
+**A-II（简谐振子）**：质量为 $m$、弹性系数为 $k$ 的一维简谐振子，广义坐标为 $q$。
+
+1. 写出 Lagrangian。
+2. 由 Euler–Lagrange 方程推导运动方程。
+3. 写出能量 $E(t)$ 并证明其守恒。
+4. 求 $q(t)$ 的通解。
+
+**B（陀螺进动）**：取 $\boldsymbol i,\boldsymbol j,\boldsymbol k$ 为 $x,y,z$ 正方向单位向量。现有解答所对应的装置为：刚体转动惯量 $I$，质心到固定点 O 的距离 $R$，质量 $m$，重力沿 $-\boldsymbol k$；质心位置为 $X\boldsymbol i+Y\boldsymbol j+Z\boldsymbol k$。先分析角速度为 $\omega_1$ 时，作用点臂长 $l$ 的力 $F$ 在短时间 $\Delta t$ 内造成的角动量改变及偏转角；再对自转角速度 $\omega_2$、轴与竖直方向夹角 $\alpha$ 的重陀螺：
+
+1. 写出初始角动量；
+2. 判断外力矩方向；
+3. 写出冲量作用后的角动量；
+4. 求新角动量与 $z$ 轴夹角；
+5. 求重力矩；
+6. 建立 $X,Y,Z$ 的运动方程；
+7. 在 $t=0$ 时轴投影方位角为零的条件下求 $X(t),Y(t),Z(t)$；
+8. 求进动角速度 $\Omega$。
+
+#### 考点
+
+- **Hamilton 原理与 Euler–Lagrange 方程**：在固定端点变分下分部积分，从作用量驻值推出运动方程。
+- **Lagrangian 力学**：为简谐振子构造动能减势能，推导方程、守恒能量和一般运动。
+- **角动量与力矩冲量**：用 $\Delta\boldsymbol L=\boldsymbol\tau\Delta t$ 判断短时外力对转轴的影响。
+- **陀螺进动**：由重力矩建立质心方向矢量的旋转方程，求定倾角匀速进动及进动频率。
+
 ## **Kai**
 ### \[A-I\]
 #### (1)

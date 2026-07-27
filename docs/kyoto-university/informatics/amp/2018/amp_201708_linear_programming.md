@@ -46,6 +46,44 @@ $$
 
 ### English Version
 
+### 题目描述
+
+对参数
+$\boldsymbol c=(c_1,c_2,c_3,c_4,c_5)^\top\in\mathbb R^5$，考虑线性规划
+
+$$
+\begin{aligned}
+\mathrm P(\boldsymbol c):\quad
+&\text{最小化}\quad \boldsymbol c^\top\boldsymbol x\\
+&\text{满足}\quad x_1+x_2+x_4+x_5=3,\\
+&\hspace{2.8em}x_2+x_3+x_4=3,\\
+&\hspace{2.8em}\boldsymbol x\geqq\boldsymbol0,
+\end{aligned}
+$$
+
+其中决策变量
+$\boldsymbol x=(x_1,x_2,x_3,x_4,x_5)^\top\in\mathbb R^5$，$\top$ 表示转置。令 $X(\boldsymbol c)$ 为 P$(\boldsymbol c)$ 的最优解集合，$\varnothing$ 为空集，并定义
+
+$$
+\mathbb Z^5=\{\boldsymbol z=(z_1,\ldots,z_5)^\top\in\mathbb R^5
+\mid z_i\in\mathbb Z,\ i=1,\ldots,5\}.
+$$
+
+回答：
+
+1. 写出 P$(\boldsymbol c)$ 的对偶问题。
+2. 证明对任意 $\boldsymbol c\in\mathbb R^5$，都有 $X(\boldsymbol c)\ne\varnothing$。
+3. 证明对任意 $\boldsymbol c\in\mathbb R^5$，都有
+   $X(\boldsymbol c)\cap\mathbb Z^5\ne\varnothing$，即至少存在一个整数最优解。
+4. 判断命题“对任意 $\boldsymbol c\in\mathbb R^5$，均有
+   $X(\boldsymbol c)\subseteq\mathbb Z^5$”的真伪；若真则证明，若假则给出反例。
+
+#### 考点
+
+- **线性规划对偶**：为标准形式的参数化原问题构造等式约束对应的对偶。
+- **全酉模与整数性**：根据约束矩阵和整数右端项论证任意目标下存在整数最优顶点。
+- **整数最优解与全部最优解的区别**：辨析“存在整数最优解”是否意味着最优面上的每个点都是整数点，并用证明或反例回答。
+
 ## **Kai**
 ### (i)
 Let $a^{(1)} = [1,1,0,1,1]^\top, a^{(2)} = [0,1,1,1,0]^\top$

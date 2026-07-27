@@ -137,3 +137,28 @@ test('demotes headings inside existing language subsections', () => {
     ].join('\n'),
   );
 });
+
+test('preserves the Chinese problem-description section after language subsections', () => {
+  const source = [
+    '## **Description**',
+    '### 日本語版',
+    '#### 問1',
+    '日本語の問題。',
+    '### English Version',
+    '#### Q.1',
+    'English problem.',
+    '',
+    '### 题目描述',
+    '',
+    '中文题目。',
+    '',
+    '#### 考点',
+    '',
+    '- 图论：分析题目中的图结构。',
+    '',
+    '## **Kai**',
+    'Answer text.',
+  ].join('\n');
+
+  assert.equal(normalizeDescriptionSections(source), source);
+});

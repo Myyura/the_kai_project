@@ -51,7 +51,38 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_202208_electrical_circuit_2_p1.png" width="400" alt=""/>
 </figure>
 
-## **Kai** 
+### 题目描述
+
+考虑原 Description 图 2.1 所示电路。它由五个非零有限电阻 $R_1,R_2,R_3,R_4,R_5$ 和电压源 $E$ 构成；电流 $I_1,I_2,I_3$ 的正方向及闭路 A、B、C 均按图中箭头和标注定义。
+
+1. 对闭路 A 应用电压平衡，写出电阻压降与电源电动势相平衡的方程，填写答题纸方框。
+2. 对闭路 B 写出电阻压降关系，填写方框。
+3. 对闭路 C 写出电阻压降关系，填写方框。
+4. 第 1 至第 3 问方程可写为
+
+   $$
+   \begin{pmatrix}
+   a_{11}&a_{12}&a_{13}\\
+   a_{21}&a_{22}&a_{23}\\
+   a_{31}&a_{32}&a_{33}
+   \end{pmatrix}
+   \begin{pmatrix}I_1\\I_2\\I_3\end{pmatrix}
+   =
+   \begin{pmatrix}E\\0\\0\end{pmatrix}.
+   $$
+
+   用 $R_1,\ldots,R_5$ 写出系数矩阵；三行依次对应闭路 A、B、C。
+5. 用 $R_1,\ldots,R_5$ 表示 $I_2/I_3$，并写出推导过程。
+6. 当流过 $R_5$ 的电流为 $0$ 时，求 $R_1,R_2,R_3,R_4$ 必须满足的条件。
+7. 在第 6 问条件下，用 $R_1,R_2,R_3,R_4,E$ 中必要的量表示 $I_1,I_2$。
+
+#### 考点
+
+- Kirchhoff 电压定律与网孔分析：依照图示参考方向为三个闭路列写含共享支路的线性方程。
+- 电路方程矩阵化：把各电阻对网孔电流的自阻与互阻整理为系数矩阵，并由联立方程求电流比。
+- Wheatstone 电桥平衡：把桥臂 $R_5$ 零电流条件化为四个电阻的比例关系，再化简主支路电流。
+
+## **Kai**
 ### (1)
 
 $$

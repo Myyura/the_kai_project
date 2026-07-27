@@ -32,6 +32,44 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electrical_circuit_p1.png" width="600" alt=""/>
 </figure>
 
+### 题目描述
+
+图 1、图 2 所示电路均处于正弦稳态。图中的 $\omega,R,C,L,\dot E,\dot I,\dot V_C,\dot V_R$ 均表示物理量。
+
+1. 图 1 电路由电阻 $R$、电容 $C$ 和交流电压源 $\dot E$ 构成。求从端子对 $1$–$1'$ 向右看入的复阻抗。
+2. 对第 1 问所得复阻抗，当 $\omega$ 从 $0$ 变化到 $\infty$ 时，在复平面上画出其轨迹。
+3. 取
+
+   $$
+   R=500\,\Omega,\qquad
+   C=20\,\mathrm{nF},\qquad
+   \dot E=1\angle0^\circ\,\mathrm{kV},
+   $$
+
+   $$
+   \frac1{2\pi}=0.159,\qquad
+   f=15.9\,\mathrm{kHz}.
+   $$
+
+   求电流 $\dot I$、电容电压 $\dot V_C$ 和电阻电压 $\dot V_R$，每个量都同时用复数直角坐标形式和相量极坐标形式表示。
+4. 画出 $\dot V_C,\dot V_R$ 与交流电源 $\dot E$ 之间关系的相量图。
+
+随后在图 1 的端子对 $2$–$2'$ 接入电感 $L$，形成图 2 电路。
+
+5. 对图 2 中由 $R,C,L,\dot E$ 构成的电路，用 $\omega,R,C,L$ 将从端子对 $3$–$3'$ 向右看入的复阻抗写成直角坐标形式。
+6. 对给定的 $\omega,R,L$，求能使 $\dot E$ 与 $\dot I$ 同相的电容 $C$ 的可能范围；同时用 $\omega,C,L$ 表示此时 $R$ 必须满足的条件。
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electrical_circuit_p1.png" width="600" alt=""/>
+</figure>
+
+#### 考点
+
+- **相量与复阻抗**：组合电阻、电容和电感的串并联阻抗，使用直角与极坐标形式互换。
+- **阻抗轨迹**：消去频率参数，在复平面上识别 RC 网络阻抗的圆弧/极限点。
+- **正弦稳态电压电流计算**：由总阻抗求电流及元件电压，并绘制满足 Kirchhoff 定律的相量图。
+- **RLC 谐振与同相条件**：令输入阻抗虚部为零，分析电容取值范围及电阻约束。
+
 ## **Kai**
 ### 問1
 

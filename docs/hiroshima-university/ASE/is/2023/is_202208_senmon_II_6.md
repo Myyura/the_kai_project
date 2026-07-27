@@ -38,6 +38,36 @@ $$
 
 where $0 \le p \le 1$.
 
+### 题目描述
+
+定义 sigmoid 函数
+
+$$
+\sigma(x)=\frac{1}{1+\exp(-x)}.
+$$
+
+1. 证明
+
+   $$
+   1-\sigma(x)=\sigma(-x).
+   $$
+2. 证明其导数可写为
+
+   $$
+   \frac{d}{dx}\sigma(x)=\sigma(x)\bigl(1-\sigma(x)\bigr).
+   $$
+3. sigmoid 函数 $\sigma$ 的反函数称为 **logit 函数**。证明
+
+   $$
+   \sigma^{-1}(p)=\log\!\left(\frac{p}{1-p}\right),
+   $$
+
+   其中题面给定 $0\le p\le1$。
+
+#### 考点
+
+- Sigmoid 函数：由定义推导其对称恒等式、导数的自表达形式，并通过代数反解得到 logit 反函数。
+
 ## **Kai**
 Throughout, $\log$ denotes the natural logarithm.
 

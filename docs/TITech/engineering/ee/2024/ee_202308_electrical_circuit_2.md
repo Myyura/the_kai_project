@@ -30,7 +30,30 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/TITech/engineering/ee_202308_electrical_circuit_2_p1.png" width="600" alt=""/>
 </figure>
 
-## **Kai** 
+### 题目描述
+
+对原 Description 图 2.1、2.2 所示电路回答下列问题。$L$ 为电感量，$C$ 为电容量，$V_{\mathrm{IN}},V_{\mathrm{OUT}}$ 为大信号输入、输出电压，$v_{\mathrm{in}},v_{\mathrm{out}}$ 为小信号输入、输出电压，$V_{DD}$ 为直流电源电压。N 沟道 MOSFET 的小信号模型如图 2.3，$v_{gs}$ 为栅源小信号电压，$g_m$ 为跨导，$r_o$ 为输出电阻。$j$ 为虚数单位，$\omega$ 为角频率，忽略体效应。
+
+1. 求图 2.1 电路端子 $ab$ 间的导纳 $Y$。
+2. 求图 2.1 电路端子 $ab$ 间的并联谐振角频率 $\omega_0$。
+3. 图 2.2 以图 2.1 电路作为负载。填写答题纸空格，写出这一电路结构的名称。
+4. 在图 2.2 中，若 N 沟道 MOSFET 中只流过直流漏极电流 $I_D$，求 $V_{\mathrm{OUT}}$。
+5. 画出图 2.2 的小信号等效电路。
+6. 当图 2.2 的输入 $v_{\mathrm{in}}$ 为并联谐振角频率 $\omega_0$ 的信号时，用 $\omega_0,L,C,g_m,r_o$ 中必要的量表示小信号增益
+
+   $$
+   \frac{v_{\mathrm{out}}}{v_{\mathrm{in}}}.
+   $$
+
+所有元件连接、MOSFET 端子和电压参考方向均以原 Description 的合并图为准。
+
+#### 考点
+
+- 并联 RLC 谐振：由电感、电容与损耗支路的总导纳求谐振频率及谐振等效阻抗。
+- MOSFET 直流偏置：利用电感在直流下的短路性质判断输出静态电压。
+- 调谐共源放大器：建立含 $g_mv_{gs}$、$r_o$ 和谐振负载的小信号模型，在 $\omega_0$ 处求电压增益。
+
+## **Kai**
 ### (1)
 
 $$

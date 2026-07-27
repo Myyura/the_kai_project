@@ -38,6 +38,38 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electromagnetism_p1.png" width="600" alt=""/>
 </figure>
 
+### 题目描述
+
+回答真空中电磁现象的下列问题。真空介电常数和磁导率分别为 $\varepsilon_0,\mu_0$。
+
+1. 如图 1，线电荷以均匀线密度 $\lambda>0$ 分布在 $xy$ 平面内、以原点为圆心、半径为 $a$ 的圆环上。
+
+   （1）以无穷远为零势能参考，求 $z$ 轴上点 $P(0,0,z)$ 的电势。
+
+   （2）$z$ 轴上的电场在 $z=z_0>0$ 处取得最大值，求 $z_0$。
+
+   （3）使该圆环电荷绕 $z$ 轴以角速度 $\omega$ 转动，求所形成电流的大小。
+
+2. 如图 2，两个共用 $z$ 轴为轴线的圆形回路 $\#1,\#2$ 位于 $xy$ 平面。两回路半径分别为 $a$ 和 $b$，其中 $b\ll a$；回路 $\#1$ 中有沿箭头方向的稳恒电流 $I$。回路 $\#2$ 含一个间距可忽略的微小缺口。
+
+   （1）求原点处磁场的大小。
+
+   （2）当 $\#1,\#2$ 共面时，求两者的互感。假设回路 $\#2$ 内磁场在其平面内均匀。
+
+   （3）仅使回路 $\#2$ 以速度 $v>0$ 沿 $+z$ 方向匀速运动，其缺口处产生电动势，且该电动势在 $z=z_0>0$ 时最大。求 $z_0$；仍假设 $\#2$ 内磁场在其平面内均匀。
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electromagnetism_p1.png" width="600" alt=""/>
+</figure>
+
+#### 考点
+
+- **圆环电荷的电势与轴向电场**：利用对称性积分电势，再求导并优化电场强度。
+- **旋转电荷等效电流**：由总电荷和转动周期计算稳恒环流。
+- **Biot–Savart 定律**：求圆形电流回路轴线上磁场。
+- **互感与磁通量**：在小回路均匀场近似下计算磁通和互感。
+- **Faraday 电磁感应**：把运动回路的磁通变化率转为电动势，并求其随轴向位置的极值。
+
 ## **Kai**
 
 ### 問1

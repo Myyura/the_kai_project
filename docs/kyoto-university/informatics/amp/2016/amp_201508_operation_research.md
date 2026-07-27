@@ -56,6 +56,61 @@ $$
 
 ### English Version
 
+### 题目描述
+
+设 $f:\mathbb R^n\to\mathbb R$ 二次连续可微，$\boldsymbol a\ne\boldsymbol0$ 为 $n$ 维向量。考虑非线性规划
+
+$$
+\begin{aligned}
+\mathrm P:\quad&\text{最小化}\quad f(\boldsymbol x)\\
+&\text{满足}\quad \boldsymbol a^\top\boldsymbol x=0,
+\end{aligned}
+$$
+
+其中 $\top$ 表示转置，$\boldsymbol x^*$ 是 P 的全局最优解。对非负整数 $k$，再考虑
+
+$$
+\begin{aligned}
+\mathrm P(k):\quad&\text{最小化}\quad f_k(\boldsymbol x)\\
+&\text{满足}\quad
+(\boldsymbol x-\boldsymbol x^*)^\top(\boldsymbol x-\boldsymbol x^*)\leqq1,
+\end{aligned}
+$$
+
+其中
+
+$$
+f_k(\boldsymbol x)=f(\boldsymbol x)
++\frac{k}{2}(\boldsymbol a^\top\boldsymbol x)^2
++\frac12(\boldsymbol x-\boldsymbol x^*)^\top(\boldsymbol x-\boldsymbol x^*).
+$$
+
+令 $\boldsymbol x^k$ 为 P$(k)$ 的全局最优解，并假设
+
+$$
+\lim_{k\to\infty}\boldsymbol x^k=\bar{\boldsymbol x},
+\qquad
+\lim_{k\to\infty}k(\boldsymbol a^\top\boldsymbol x^k)=\bar\lambda.
+$$
+
+回答：
+
+1. 证明对任意非负整数 $k$，都有
+   $f_k(\boldsymbol x^k)\leqq f(\boldsymbol x^*)$。
+2. 证明
+   $\boldsymbol a^\top\bar{\boldsymbol x}=0$ 且
+   $\bar{\boldsymbol x}=\boldsymbol x^*$。
+3. 写出 P$(k)$ 的 KKT 条件。
+4. 证明当 $k$ 充分大时，
+   $\nabla f_k(\boldsymbol x^k)=\boldsymbol0$。
+5. 证明
+   $\nabla f(\boldsymbol x^*)+\bar\lambda\boldsymbol a=\boldsymbol0$。
+
+#### 考点
+
+- **二次罚函数法**：研究罚参数趋于无穷时，惩罚问题最优解的可行性与向原约束最优解的收敛。
+- **KKT 条件**：为带球约束的惩罚子问题写出最优性条件，并证明极限点满足原等式约束问题的拉格朗日驻点条件。
+
 ## **Kai**
 ### (i)
 

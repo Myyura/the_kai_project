@@ -28,6 +28,26 @@ Answer the following questions.
 
 (3) According to the Boolean expression answered in question (2), give a CMOS transistor level circuit that outputs B, given A and the one-hot encoding representation of the current state of the FSM as inputs. You are not allowed to use more than 12 transistors. You may use the inverter mark, but the number of transistors required for the inverters must be included in the total number of transistors. You need not describe unused input signals.
 
+### 题目描述
+
+考虑在有噪环境中逐位收发五位信息的串行通信电路。五位依次为两位起始信号、两位有效载荷和一位奇校验位。发送器初始状态始终输出 `0`；开始发送时先逐位输出 `11`，再从最高位开始输出两位载荷，最后输出校验位，使包含起始位、载荷和校验位在内的五位中 `1` 的总数为奇数；随后回到初始状态并保持输出 `0`。
+
+接收器有来自发送器的一位输入 $A$、表示校验结果的一位输出 $B$ 和两位载荷输出。初始时等待起始信号的第一个 `1`；下一拍若第二个起始位为 `0`，则把首个 `1` 视为噪声并回到初始状态，否则在随后两拍存储载荷，再下一拍接收校验位并检查五位中 `1` 的个数是否为奇数：奇数时令 $B=1$，否则为 $0$。除接收校验位的时钟周期外 $B$ 始终为 $0$；校验后无论结果如何均回到初始状态。
+
+（1）给出具有 $6$ 个状态、输入为 $A$、输出为 $B$ 的 Mealy 型奇校验 FSM 状态转移图；再采用 one-hot 编码给出相应状态转移表和输出表。one-hot 编码中每个状态由仅一位为 `1` 的位串表示。
+
+（2）根据第（1）问的表，用输入 $A$ 和当前状态的 one-hot 表示写出输出
+$B$ 的布尔表达式，并画出相应门级电路。只允许二输入与门、二输入或门和非门，门数不限，未使用的输入信号无需描述。
+
+（3）依据第（2）问的表达式，画出以 $A$ 和当前 one-hot 状态为输入、输出
+$B$ 的 CMOS 晶体管级电路。最多使用 $12$ 个晶体管；可用反相器符号，但反相器所需晶体管也计入总数，未使用的输入无需描述。
+
+#### 考点
+
+- **Mealy 状态机与 one-hot 编码**：按接收阶段和累计奇偶状态设计六状态校验器。
+- **布尔逻辑综合**：从状态/输出表化简 $B$ 的表达式并映射到指定门集。
+- **CMOS 晶体管数优化**：将化简后的逻辑实现为互补 CMOS 网络，并在十二管限制内计入反相器成本。
+
 ## **Kai**
 ### (1)
 

@@ -55,6 +55,33 @@ Explain ‘addressing modes’ in an instruction set architecture of a computer.
 ### (4)
 Consider a processor with load/store architecture which has a 5-stage instruction pipeline and operates with a 2 GHz clock. Assume that the processor is stalled for one clock cycle when the result of a load instruction is used by the next instruction, when a ‘branch’ is taken, or when a ‘jump’ is done, and there is no other pipeline hazard. Calculate the execution time of a program by assuming that the number of executed instructions is 1,000,000, the instruction-mix is ALU: 50%, load: 20%, store: 15%, branch: 10%, and jump: 5%, and the ratio of load-use stalls is 40% and the ratio of branches taken is 50%. (Calculate also the derivation process of your answer.)
 
+### 题目描述
+
+回答全部问题。
+
+1. 二进制数表示：
+   1. 将十进制 $+45$、$-90$ 写成 8 位补码。
+   2. 将 8 位补码 `11110000`、`00001111` 转换为 8 位原码。
+   3. 在 8 位原码体系中计算：
+      (i) `11110000 + 11110000`；
+      (ii) `11110000 − 00001111`。
+   4. 在 8 位补码体系中计算同样两式。
+2. IEEE 754 半精度基本格式含 1 位符号、5 位指数（偏置为 15）和 10 位尾数。
+   1. 将下列位串的值写成二进制科学计数法（例如
+      $+1.0101010101\times2^{-3}$）：
+      (i) `0100 0001 0101 0101`；
+      (ii) `1000 0001 0101 0101`。
+   2. 用 IEEE 754 半精度表示 $-9.625$。
+3. 说明计算机指令集架构中的寻址方式。
+4. 某 load/store 处理器采用五级流水线，时钟频率为 $2\,\mathrm{GHz}$。若 load 结果被下一条指令使用、分支被采用或执行 jump，均停顿 1 周期，且无其他冒险。程序执行 $1{,}000{,}000$ 条指令，指令比例为 ALU $50\%$、load $20\%$、store $15\%$、branch $10\%$、jump $5\%$；load-use 停顿比例为 $40\%$，分支采用比例为 $50\%$。求执行时间，并写出推导过程。
+
+#### 考点
+
+- **补码、原码与定长运算**：完成有符号表示转换和加减法，判断表示范围与溢出。
+- **IEEE 754 半精度浮点数**：解析符号位、偏置指数和隐含首位，并把十进制小数编码为半精度位串。
+- **寻址方式**：说明不同指令如何由寄存器、立即数及地址计算取得操作数。
+- **流水线性能**：按指令混合与各类停顿比例计算额外周期，再用时钟频率换算执行时间。
+
 ## **Kai**
 ### (1)
 #### (a)

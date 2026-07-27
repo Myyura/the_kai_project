@@ -108,6 +108,114 @@ void test3(void) {
 </figure>
 
 
+### 题目描述
+
+图搜索需要避免反复搜索同一结点。下方程序（a）以 C 语言表示对有向图的搜索：
+
+- `struct node` 表示图结点；
+- 字段 `s`、`t` 若保存另一个结点的引用，表示存在从当前结点到该引用结点的边；值为 `NULL` 时相应边不存在；
+- `id` 是结点标识符，`visited` 是访问次数；
+- 递归函数 `dfs(node)` 从 `node` 出发沿边搜索。
+
+```c
+#include <stdio.h>
+#define BUFSIZE 20
+typedef struct node {
+    struct node *s;
+    struct node *t;
+    int id; int visited;
+} *node_tp;
+struct node nodes[BUFSIZE];
+
+void printNode(node_tp node) {
+    printf("(%d, %d)\n", node->id, node->visited);
+}
+void dfs(node_tp node) {
+    node_tp s = node->s;
+    node_tp t = node->t;
+    node->visited++;
+    printNode(node);
+    if (node->visited > 1) return;
+    if (s != NULL) dfs(s);
+    if (t != NULL) dfs(t);
+}
+void initNodes(int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        nodes[i].id = i; nodes[i].visited = 0;
+        nodes[i].s = nodes[i].t = NULL;
+    }
+}
+void link(node_tp node, node_tp s, node_tp t) {
+    node->s = s; node->t = t;
+}
+```
+
+程序（b）中的 `test0`、`test1`、`test2`、`test3` 分别生成图并调用 `dfs`：
+
+```c
+void test0(void) {
+    initNodes(2);
+    link(&nodes[0], &nodes[1], NULL);
+    link(&nodes[1], NULL, &nodes[0]);
+    dfs(&nodes[0]); /* 从结点 0 开始搜索 */
+}
+
+void test1(void) {
+    initNodes(4);
+    link(&nodes[0], &nodes[3], &nodes[1]);
+    link(&nodes[1], &nodes[3], &nodes[2]);
+    link(&nodes[2], &nodes[3], NULL);
+    link(&nodes[3], NULL, &nodes[0]);
+    dfs(&nodes[1]); /* 从结点 1 开始搜索 */
+}
+
+void test2(void) {
+    int i;
+    initNodes(12);
+    for (i = 0; i < 5; i++) {
+        link(&nodes[i], &nodes[2*i+1], &nodes[2*i+2]);
+    }
+    dfs(&nodes[1]); /* 从结点 1 开始搜索 */
+    printf("---\n");
+    dfs(&nodes[0]); /* 从结点 0 开始搜索 */
+}
+
+void test3(void) {
+    int i;
+    initNodes(12);
+    for (i = 0; i < 10; i++) {
+        link(&nodes[i], &nodes[i+1], &nodes[i+2]);
+    }
+    dfs(&nodes[0]); /* 从结点 0 开始搜索 */
+}
+```
+
+图（c）给出 `test0` 生成的结点 0、1 的图及标准输出示例；图中标记 `(s,t)` 表示该边来自起点结点的 `s` 或 `t` 引用。
+
+<figure style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p1.png" width="330" alt=""/>
+</figure>
+
+回答下列问题；作答顺序可以不同，标准输出中的换行也允许增删。
+
+1. 仿照图（c），画出 `test1` 生成的结点 0 至 3 的图，并写出执行后的标准输出。
+2. 仿照图（c），画出 `test2` 生成的结点 0 至 11 的图，并写出执行后的标准输出。
+3. 画出 `test3` 生成的结点 0 至 11 的图。再假设把程序（a）第 18 行的
+
+   ```c
+   if (node->visited > 1) return;
+   ```
+
+   完全删除，求执行 `test3` 后 `nodes[10]` 最终被访问的次数，并简要说明原因。
+
+#### 考点
+
+- **递归深度优先搜索执行跟踪**：按 `s` 后 `t` 的调用顺序模拟递归栈和打印次序。
+- **访问标记与有向环**：理解二次访问即返回如何阻止在环上无限递归。
+- **图的指针表示**：从 `link` 调用还原每个结点的出边并画出有向图。
+- **路径计数动态关系**：删除访问剪枝后，结点访问次数等于从起点到该结点的有向路径数，并按递推计算。
+
 ## **Kai**
 ### (1)
 ```text

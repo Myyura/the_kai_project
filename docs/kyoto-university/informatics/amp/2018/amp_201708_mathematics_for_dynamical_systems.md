@@ -49,6 +49,48 @@ $$
 ### English Version
 
 
+### 题目描述
+
+设 $f(t),g(t),h(t)$ 是 $\mathbb R$ 上的连续函数，
+
+$$
+A(t)=\begin{pmatrix}f(t)&0\\g(t)&h(t)\end{pmatrix},
+$$
+
+并在 $\mathbb R$ 上考虑线性微分方程组
+
+$$
+\frac{d\boldsymbol x}{dt}=A(t)\boldsymbol x,
+\qquad \boldsymbol x\in\mathbb R^2. \tag{1}
+$$
+
+令 $I$ 为二阶单位矩阵，并定义
+
+$$
+F(t)=\int_0^t f(s)\,ds,\quad
+G(t)=\int_0^t g(s)\,ds,\quad
+H(t)=\int_0^t h(s)\,ds.
+$$
+
+假设 $t\ne0$ 时 $F(t)\ne H(t)$。回答：
+
+1. 求满足 $\Phi(0)=I$ 的方程 (1) 的基本矩阵 $\Phi(t)$；基本矩阵指可逆且满足
+   $\dfrac d{dt}\Phi(t)=A(t)\Phi(t)$ 的二阶方阵。
+2. 当 $t\ne0$ 时，对
+   $$
+   \Psi(t)=\begin{pmatrix}F(t)&0\\G(t)&H(t)\end{pmatrix}
+   $$
+   作对角化，并求矩阵指数 $\exp\Psi(t)$。
+3. 若存在常数 $k\in\mathbb R$，使所有 $t\in\mathbb R$ 上
+   $G(t)=k(F(t)-H(t))$，证明第 2 问所得 $\exp\Psi(t)$ 是方程 (1) 的基本矩阵。
+4. 结合前两问，给出一组 $f(t),g(t),h(t)$，使 $\exp\Psi(t)$ 不是方程 (1) 的基本矩阵。
+
+#### 考点
+
+- **变系数线性方程组的基本矩阵**：利用三角结构逐分量求满足单位初值的基本解矩阵。
+- **矩阵对角化与矩阵指数**：对下三角 $2\times2$ 矩阵显式对角化并计算指数。
+- **时变矩阵的非交换性**：辨析 $\exp(\int_0^tA(s)\,ds)$ 何时能成为原系统的基本矩阵，并构造失效例。
+
 ## **Kai**
 ### (i)
 

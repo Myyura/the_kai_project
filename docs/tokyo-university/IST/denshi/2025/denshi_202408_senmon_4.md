@@ -94,6 +94,77 @@ x_4&=[1,1,0]^\top, & y_4&=1, & w_4&=1.
 $$
 
  
+### 题目描述
+
+考虑学习一个以 $D$ 维向量为输入、标量为输出的模型。符号 $\top$ 表示向量或矩阵转置，$\mathbb R$ 为实数集，$\mathbb R^D$ 为 $D$ 维实列向量集合，$\mathbb R^{D\times D}$ 为 $D$ 阶实方阵集合。
+
+训练数据为 $N$ 个输入向量 $x_1,\ldots,x_N$ 及对应输出 $y_1,\ldots,y_N$，其中
+
+$$
+x_i\in\mathbb R^D,\qquad y_i\in\mathbb R\qquad(1\le i\le N).
+$$
+
+把输入逐行排列、输出组成列向量：
+
+$$
+X=\begin{bmatrix}x_1,\dots,x_N\end{bmatrix}^{\top},\qquad
+y=\begin{bmatrix}y_1,\dots,y_N\end{bmatrix}^{\top}.
+$$
+
+学习参数 $\beta\in\mathbb R^D$，并对任意 $x\in\mathbb R^D$ 以
+
+$$
+\hat y=\beta^\top x
+$$
+
+估计输出。回答下列问题。
+
+(1) 对第 $i$ 个训练样本，令
+
+$$
+\hat y_i=\beta^\top x_i,\qquad e_i=y_i-\hat y_i.
+$$
+
+用 $\beta,X,y$ 表示误差平方和
+
+$$
+E=\sum_{i=1}^{N}e_i^2.
+$$
+
+(2) 求使 $E$ 最小的参数 $\beta$ 能够唯一确定的充要条件，并写出此时的 $\beta$。可以使用：对变量 $a\in\mathbb R^D$、常向量 $b\in\mathbb R^D$、常矩阵 $C\in\mathbb R^{D\times D}$，
+
+$$
+\frac{\partial}{\partial a}(b^\top a)=b,\qquad
+\frac{\partial}{\partial a}(a^\top Ca)=(C+C^\top)a.
+$$
+
+(3) 当使 $E$ 最小的 $\beta$ 不能唯一确定时，定性说明输入数据矩阵 $X$ 具有怎样的特性。
+
+(4) 对第 $i$ 个训练样本给定权重 $w_i>0$，定义
+
+$$
+E_w=\sum_{i=1}^{N}w_i e_i^2.
+$$
+
+求使 $E_w$ 最小的 $\beta$ 能够唯一确定的充要条件，并写出此时的 $\beta$；可按需定义新变量。
+
+(5) 对下列数据，求使 $E_w$ 最小的 $\beta$：
+
+$$
+\begin{aligned}
+x_1&=[1,0,1]^\top, &y_1&=2, &w_1&=1,\\
+x_2&=[0,1,1]^\top, &y_2&=3, &w_2&=1,\\
+x_3&=[2,0,1]^\top, &y_3&=3, &w_3&=2,\\
+x_4&=[1,1,0]^\top, &y_4&=1, &w_4&=1.
+\end{aligned}
+$$
+
+#### 考点
+
+- 普通最小二乘：要求把残差平方和写成矩阵二次型，推导正规方程以及解唯一所需的满列秩条件。
+- 加权最小二乘：要求用正权对角矩阵建立加权正规方程，并在给定样本上计算参数。
+- 多重共线性：要求从 $X^\top X$ 奇异解释特征列线性相关为何导致参数不可辨识。
+
 ## **Kai**
 ### (1)
 誤差 $e_i = y_i - \hat{y}_i = y_i - \beta^\top x_i$

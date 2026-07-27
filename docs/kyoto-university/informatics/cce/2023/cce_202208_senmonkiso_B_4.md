@@ -56,6 +56,42 @@ Answer the following questions.
 
 (b) Let $d_2, d_1,$ and $d_0$ be the D input of the D flip-flops that output $q_2, q_1,$ and $q_0$, respectively. We derive $d_2, d_1,$ and $d_0$ as logic functions of $q_2, q_1, q_0,$ and $u$. Show the minimum sum-of-products expressions of $d_2, d_1,$ and $d_0$.
 
+### 题目描述
+
+回答全部问题。上划线、$\cdot$、$+$ 分别表示逻辑非、与、或。
+
+1. 对逻辑函数
+   $$
+   f=(a+b+c+d)(\bar a+b+\bar c+d)(\bar a+b+c)
+   (a+\bar b+\bar c)(a+\bar c+d)
+   $$
+   回答：
+   1. 给出 $f$ 的所有最简与或式。
+   2. 给出 $f$ 的所有最简或与式。
+   3. 仅用三输入 NOR 门实现 $f$，使门数最少；可直接使用 $a,b,c,d$ 及其反变量。
+   4. 设 $g=b+d$、$r=\bar a\bar c d$。在所有满足
+      $f=(g\cdot h)+r$
+      的 $h$ 中，求一种最简与或式，使其乘积项数最少，并在此基础上文字数最少。
+2. 用三个 D 触发器设计输入 $u$、输出 $(q_2,q_1,q_0)$ 的时序电路，三个 Q 输出即为电路输出。
+   - 当 $u=1$ 时，电路为周期 8 的二进制减计数器：
+     $$
+     111\to110\to101\to\cdots\to001\to000\to111.
+     $$
+   - 当 $u=0$ 时，电路为循环移位寄存器，$q_0\to q_2$、$q_2\to q_1$、$q_1\to q_0$；例如
+     $100\to010\to001\to100$。
+
+   回答：
+   1. 写出状态转移表。
+   2. 令 $d_2,d_1,d_0$ 分别为输出 $q_2,q_1,q_0$ 的 D 触发器输入。求它们作为
+      $q_2,q_1,q_0,u$ 的逻辑函数的最简与或式。
+
+#### 考点
+
+- **布尔函数最小化**：枚举全部最简与或式、或与式，并在受约束逻辑分解中按项数和文字数优化。
+- **NOR 通用门实现**：利用最简或与结构转换为仅三输入 NOR 门的最少门网络。
+- **计数器与移位寄存器**：根据控制输入合并两种状态转移规律，完整写出八状态转移表。
+- **D 触发器激励函数**：由下一状态位建立真值表并用 Karnaugh 图化简。
+
 ## **Kai**
 ### (1)
 #### (a)

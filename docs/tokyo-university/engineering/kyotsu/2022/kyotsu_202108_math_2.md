@@ -13,6 +13,34 @@ tags:
 
 [2022年度大学院入学試験問題数学 2 ](https://github.com/Myyura/the_kai_project_assets/blob/2672b44819e556e6b7835902e6d69059ff935039/kakomonn/tokyo_university/engineering/Description/2022_M_2.pdf)
 
+### 题目描述
+
+原 Description 仅提供 2022 年“数学 2”原卷链接，具体题干缺失。根据本地 Kai，能够确认：
+
+1. 第一部分使用实对称矩阵
+   $$
+   A=\begin{pmatrix}7&-2&1\\-2&10&-2\\1&-2&7\end{pmatrix},\qquad
+   B=\begin{pmatrix}5&-1&-1\\-1&5&-1\\-1&-1&5\end{pmatrix}.
+   $$
+   先计算 $AB$；再证明若两个具有互异特征值的 $n$ 阶实对称矩阵 $C,D$ 可交换，则可由同一正交矩阵同时对角化；最后求所有单位向量 $\boldsymbol v$ 及数 $a,b$，使
+   $A\boldsymbol v=a\boldsymbol v$、$B\boldsymbol v=b\boldsymbol v$。
+2. 第二部分把一个二次函数写成
+   $$
+   f(\boldsymbol x)=\boldsymbol x^TA\boldsymbol x+2\boldsymbol b^T\boldsymbol x,
+   \quad
+   A=\begin{pmatrix}2&0&0\\0&2&2\\0&2&2\end{pmatrix},
+   \quad
+   \boldsymbol b=\frac1{2\sqrt2}\begin{pmatrix}0\\-1\\1\end{pmatrix}.
+   $$
+   求 $A,\boldsymbol b$；正交对角化 $A=P^TDP$；在新坐标 $(X,Y,Z)^T=P(x,y,z)^T$ 下把曲面 $f(x,y,z)=0$ 化为 $4X^2+2Y^2-Z=0$；并求该曲面与平面 $y-z-\sqrt2=0$ 所围立体的体积。
+
+#### 考点
+
+- 可交换实对称矩阵的同时对角化：利用不变特征子空间和正交特征基构造共同对角化矩阵。
+- 共同特征向量：比较两个矩阵的各重特征子空间，求其交集中的全部单位向量及对应特征值对。
+- 二次型的正交标准化：通过谱分解旋转坐标，把含交叉项的二次曲面化为标准椭圆抛物面。
+- 截面体积积分：把给定平面变换为 $Z=1$，按 $Z$ 积分椭圆截面积求体积。
+
 ## **Kai**
 ### I.
 #### 1.

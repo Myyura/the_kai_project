@@ -94,6 +94,108 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_math_II_p1.png" width="300" alt=""/>
 </figure>
 
+### 题目描述
+
+1. 令 $\mathbb R$ 为实数集，$e$ 为自然对数的底。对实数 $M>0$，在 $xy$ 平面上定义区域
+
+   $$
+   D(M)=\{(x,y)\in\mathbb R^2\mid y>0,\ Mx>y^2\}.
+   $$
+
+   对实数 $\alpha,\beta$，考虑积分
+
+   $$
+   I_{\alpha,\beta}(M)
+   =
+   \iint_{D(M)}
+   \left(1+\frac{y^2}{x}\right)^{-\alpha}
+   \left(1+\frac{x}{y^2}\right)^{-1/2}
+   e^{-\beta(x+y^2)-\sqrt{x+y^2}+y}
+   \,dx\,dy.
+   $$
+
+   为计算该积分，作变量变换
+
+   $$
+   z=x+y^2,\qquad
+   w=\frac{y^2}{x+y^2}.
+   $$
+
+   以下可使用对自然数 $n\geq1$ 成立的公式
+
+   $$
+   \int_0^\infty t^{n-1}e^{-t}\,dt=(n-1)!.
+   $$
+
+   （i）求区域 $D(M)$ 在上述映射下于 $zw$ 平面中的像 $E(M)$。
+
+   （ii）用 $z,w,\alpha,\beta$ 写出下式方框中的被积函数：
+
+   $$
+   I_{\alpha,\beta}(M)
+   =
+   \iint_{E(M)}
+   \boxed{\qquad}\,dz\,dw.
+   $$
+
+   （iii）计算
+
+   $$
+   I_{0,0}\!\left(\frac13\right)
+   =
+   \frac12\int_0^{1/4}\int_0^\infty
+   e^{-(1-\sqrt w)\sqrt z}\sqrt z\,dz\,dw.
+   $$
+
+   （iv）证明对任意 $\beta>0$，
+
+   $$
+   \lim_{M\to\infty}
+   \frac{\log I_{-1,\beta}(M)}
+        {\log\log M}
+   =1.
+   $$
+
+2. 在以 $x,y,z$ 为直角坐标的三维 Euclidean 空间中，考虑两个椭球面
+
+   $$
+   E:\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1,
+   $$
+
+   $$
+   E':\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=3,
+   $$
+
+   其中 $a,b,c$ 为正常数。
+
+   （i）求椭球面 $E$ 在点 $P(p,q,r)\in E$ 处的切平面方程。
+
+   （ii）取椭球 $E$ 外一点 $Q(l,m,n)$，考虑所有经过 $Q$ 且与 $E$ 相切的平面，并令其全部切点组成集合 $W$。如图 1 所示，$W$ 包含在某个平面 $S$ 内，求 $S$ 的方程。
+
+   平面 $S$ 截取椭球所得截面为一个椭圆，以下记为 $R$。
+
+   （iii）当第（ii）问的点 $Q$ 位于椭球面 $E'$ 上时，求椭圆 $R$ 的中心坐标 $T(x_0,y_0,z_0)$。
+
+   （iv）当 $Q$ 在椭球面 $E'$ 上移动时，求使 $R$ 的中心坐标分量乘积
+
+   $$
+   J=x_0y_0z_0
+   $$
+
+   最大的点 $Q(l,m,n)$，以及该最大值。
+
+   <figure style="text-align:center;">
+     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_math_II_p1.png" width="300" alt=""/>
+   </figure>
+
+#### 考点
+
+- **二重积分的变量代换**：求逆变换、Jacobian 和变换后区域，并整理复杂被积函数。
+- **反常积分与渐近估计**：利用 Gamma 积分计算特殊参数情形，并通过上下界证明对数渐近式。
+- **隐式曲面的切平面**：使用椭球定义函数的梯度写出切平面。
+- **极平面与椭球截面**：刻画外点所有切点所在平面，并求平面截椭球的中心。
+- **约束优化**：在椭球约束下最大化三个坐标分量的乘积。
+
 
 ## **Kai**
 ### 問1

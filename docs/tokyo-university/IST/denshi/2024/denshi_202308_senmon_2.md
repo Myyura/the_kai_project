@@ -38,6 +38,36 @@ Answer the following questions.
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p1.png" width="700" height="600" alt=""/>
 </figure>
 
+### 题目描述
+
+设计如下二进制数字同步时序电路：
+
+- 电路有两个输入 $(X_1,X_0)$ 和一个输出 $Z$；
+- 输入编码字符 $A$ 至 $D$：$A=(0,0)$、$B=(0,1)$、$C=(1,0)$、$D=(1,1)$；
+- 最近连续输入的两个字符为 $AA,AC,CB,CD,DA,DC$ 之一时，$Z=1$，否则 $Z=0$。
+
+回答下列问题，所用 MIL 符号见上图。
+
+(1) 用不超过 $50$ 个词解释什么是同步时序电路。
+
+(2) 以 Mealy 图形式画出状态转移图。使用分别对应字符 $A,B,C,D$ 的 $4$ 个状态，每个状态表示该字符是最近一次输入。
+
+(3) 在最初两个字符输入完成之前，输出必须保持 $Z=0$。为满足这一条件，说明 (2) 的状态转移图应以哪个状态为初始状态。
+
+(4) 化简 (2) 的状态转移图，使其只含 $3$ 个状态。
+
+(5) 根据 (4) 的状态转移图写出状态转移表。
+
+(6) 根据 (5) 的状态转移表画卡诺图。
+
+(7) 利用 (6) 的卡诺图尽可能化简逻辑，并用上图所示 MIL 符号画出电路。
+
+#### 考点
+
+- Mealy 序列检测器：要求根据相邻字符对决定输出，并处理初始输入尚不足两个字符时的输出约束。
+- 状态最小化与编码：要求识别等价的字符历史状态，把四状态机化简为三状态机并列出转移表。
+- 卡诺图化简：要求由现态、输入、次态及输出关系求最简逻辑并实现同步电路。
+
 ## **Kai**
 ### (1)
 Synchronous sequential circuits are digital circuits that use clock signals to determine the timing of their operations.

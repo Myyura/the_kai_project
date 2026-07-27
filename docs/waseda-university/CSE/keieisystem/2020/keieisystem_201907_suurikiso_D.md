@@ -18,6 +18,24 @@ tags:
 2. $A^n=0$ となる正方行列 $A$ の固有値を求めよ。
 3. $A=\begin{pmatrix}a&1\\0&a\end{pmatrix}$ に対し $\exp A$ を求めよ。
 
+### 题目描述
+
+1. 已知 $\boldsymbol a_1,\ldots,\boldsymbol a_r$ 线性无关，而 $\boldsymbol a_1,\ldots,\boldsymbol a_r,\boldsymbol a_{r+1}$ 线性相关。证明 $\boldsymbol a_{r+1}$ 能且只能以一种方式表示成前 $r$ 个向量的线性组合。
+2. 对满足 $A^n=0$ 的方阵 $A$，求其所有可能的特征值。
+3. 对矩阵
+
+   $$
+   A=\begin{pmatrix}a&1\\0&a\end{pmatrix},
+   $$
+
+   求矩阵指数 $\exp A$。
+
+#### 考点
+
+- **线性无关**：需要用前 $r$ 个向量的线性无关性同时证明线性表示的存在性和唯一性。
+- **幂零矩阵**：需要把 $A^n=0$ 作用到特征向量上，以限制 $A$ 的特征值。
+- **矩阵指数**：需要利用矩阵的标量部分与幂零部分计算给定 Jordan 型矩阵的指数。
+
 ## **Kai**
 
 ### [小問 1]

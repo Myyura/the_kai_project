@@ -40,6 +40,53 @@ where $\bar{\mu}$ and $\bar{\sigma}^2$ are the values obtained by the substituti
 - (i) Express $\mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}[\log p_{\mu, \theta}(X^{(n)},Y^{(n)})]$ using $\mu, \theta, \bar{\mu}, \bar{\sigma}^2, X^{(n-1)}$ and $Y^{(n)}$.
 - (ii) Express $(\mu_{t+1}, \theta_{t+1})$ using $n, \bar{\mu}, \bar{\sigma}^2, X^{(n-1)}$ and $Y^{(n)}$.
 
+### 题目描述
+
+均值为 $\mu\in\mathbb R$、方差为 $\sigma^2>0$ 的正态分布
+$N(\mu,\sigma^2)$ 的密度为
+$$
+f(x)=\frac1{\sqrt{2\pi\sigma^2}}
+\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right).
+$$
+设随机变量 $X,Z$ 相互独立，分别服从 $N(\mu,1)$ 与 $N(0,1)$，并令
+$Y=\theta X+Z$，其中 $\theta\in\mathbb R$。对整数 $n>1$，令
+$(X_i,Y_i)\ (i=1,\ldots,n)$ 独立同分布于 $(X,Y)$，记
+$X^{(n)}=(X_1,\ldots,X_n)$、$Y^{(n)}=(Y_1,\ldots,Y_n)$。回答下列问题。
+
+（1）用 $\mu,\theta$ 表示 $\mathbb E[Y]$ 和 $\mathbb V[Y]$。
+
+（2）证明给定 $Y$ 时 $X$ 的条件分布仍为正态分布，并用
+$\mu,\theta,Y$ 表示 $\mathbb E[X\mid Y]$ 与 $\mathbb V[X\mid Y]$。
+
+（3）设 $(x^{(n)},y^{(n)})$ 是
+$(X^{(n)},Y^{(n)})$ 的一个实现。用
+$\mu,\theta,x^{(n)},y^{(n)}$ 写出其联合密度
+$p_{\mu,\theta}(x^{(n)},y^{(n)})$。
+
+（4）现在 $X_n$ 缺失，仅观测到 $(X^{(n-1)},Y^{(n)})$，用 EM 算法估计
+$(\mu,\theta)$。从任意初值 $(\mu_0,\theta_0)$ 出发，更新规则为
+$$
+(\mu_{t+1},\theta_{t+1})
+=\mathop{\arg\max}_{(\mu,\theta)\in\mathbb R^2}
+\mathbb E_{X_n\sim N(\bar\mu,\bar\sigma^2)}
+[\log p_{\mu,\theta}(X^{(n)},Y^{(n)})],
+$$
+其中 $\bar\mu,\bar\sigma^2$ 分别是在第（2）问的条件均值、条件方差表达式中代入
+$(\mu,\theta,Y)=(\mu_t,\theta_t,Y_n)$ 所得；取期望时固定
+$(X^{(n-1)},Y^{(n)})$。
+
+- （i）用 $\mu,\theta,\bar\mu,\bar\sigma^2,X^{(n-1)},Y^{(n)}$
+  表示上述期望对数似然。
+- （ii）用 $n,\bar\mu,\bar\sigma^2,X^{(n-1)},Y^{(n)}$
+  表示更新后的 $(\mu_{t+1},\theta_{t+1})$。
+
+#### 考点
+
+- **正态变量的线性组合**：计算 $Y$ 的均值、方差及 $(X,Y)$ 的联合结构。
+- **条件正态分布**：通过配方或联合高斯公式求 $X\mid Y$ 的均值和方差。
+- **联合似然与最大似然估计**：利用样本独立性写出完整数据密度及对数似然。
+- **EM 算法**：在 E 步用缺失变量的条件矩替代相关充分统计量，并在 M 步求参数闭式更新。
+
 ## **Kai**
 ### (1)
 

@@ -15,6 +15,35 @@ tags:
 [数学2(主に線形代数)](https://github.com/Myyura/the_kai_project_assets/blob/d6bcfb7f9c3ba8257a9649b816e8903f4a4bf22f/kakomonn/tokyo_university/engineering/Description/2021_M_2.pdf)
 
 
+### 题目描述
+
+原 Description 仅提供 2021 年“数学 2”原卷链接，具体题干缺失。根据本地 Kai，能够确认三部分任务：
+
+1. 对
+   $$
+   A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix},
+   $$
+   求特征值；用凯莱—哈密顿定理确定满足 $A^3+aA^2+bA+cI=0$ 的系数；求 $A^{2n+1}$；并把矩阵指数写成 $\exp(tA)=pA^2+qA+rI$ 的形式，求 $p,q,r$。
+2. 对状态 $A,B$ 间以概率 $\alpha,\beta$ 转移的二状态过程，写出概率向量的转移矩阵
+   $$
+   M=\begin{pmatrix}1-\alpha&\beta\\ \alpha&1-\beta\end{pmatrix},
+   $$
+   求其特征值、特征向量和长期稳态概率；再令
+   $R_A(n)=P_A(n)-P_A(\infty)$，推导 $R_A(n+1)$ 与 $R_A(n)$ 的关系。原题对 $\alpha,\beta$ 的取值条件未保存在本地。
+3. 已知 $\boldsymbol a_1,\ldots,\boldsymbol a_m$ 线性无关，判断循环相邻和
+   $$
+   \boldsymbol a_1+\boldsymbol a_2,
+   \boldsymbol a_2+\boldsymbol a_3,\ldots,\
+   \boldsymbol a_m+\boldsymbol a_1
+   $$
+   是否线性无关，并按 $m$ 的奇偶性给出结论。
+
+#### 考点
+
+- 凯莱—哈密顿定理与矩阵函数：用特征多项式递推矩阵幂，并把指数级数化为 $I,A,A^2$ 的线性组合。
+- 马尔可夫转移矩阵：通过特征值 $1$ 的特征向量求二状态过程的稳态分布和几何收敛因子。
+- 线性无关性：把循环相邻和的线性组合按原基向量收集系数，由奇偶闭环条件判断是否只有零解。
+
 ## **Kai**
 ### I.
 #### 1.

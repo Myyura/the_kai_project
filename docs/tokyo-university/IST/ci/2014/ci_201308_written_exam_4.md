@@ -43,6 +43,30 @@ If necessary, use examples or figures.
 7) Closure
 8) Finite automaton
 
+### 题目描述
+
+从下列八个信息系统相关主题中任选四个，每个用约 4～8 行说明；必要时可使用示例或图。
+
+1. tf-idf。
+2. ZMP（零力矩点）。
+3. 分布式哈希。
+4. 最短路径问题。
+5. 贝叶斯网络。
+6. 超前进位。
+7. 闭包（closure）。
+8. 有限自动机。
+
+#### 考点
+
+- **tf-idf**：说明词频与逆文档频率如何共同衡量词对某文档的区分度。
+- **零力矩点**：说明双足机器人支撑面上合力矩水平分量为零的点及其稳定性判据。
+- **分布式哈希**：说明用哈希把键和值分散定位到多节点，并处理节点加入、离开。
+- **最短路径**：说明在带权图上最小化路径边权总和的问题及典型算法。
+- **贝叶斯网络**：说明用有向无环图和条件概率表表示随机变量依赖并进行概率推断。
+- **超前进位**：利用各位进位生成、传播信号并行计算进位，缩短加法器关键路径。
+- **闭包**：说明函数携带其定义时词法环境，使离开原作用域后仍可访问自由变量。
+- **有限自动机**：说明有限状态、输入符号和转移函数如何识别正则语言。
+
 ## **Kai**
 #### Shortest path problem
 For a weighted graph $G=(V,E)$ with weight $w(\cdot\to\cdot)$, the shortest path problem asks for a path $p=(v_{i_1},v_{i_2},\dots,v_{i_{-1}})$ with minimum cost where the cost is the sum of every edge composing the path. For a single source $s$, we constrain $v_{i_1}=s$. For a single destination $t$, we constrain $v_{i_{-1}}=t$. 

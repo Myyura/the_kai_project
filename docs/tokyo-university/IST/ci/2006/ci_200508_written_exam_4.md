@@ -36,4 +36,21 @@ If necessary, use examples or figures.
 7) Knowledge representation using the “Semantic Network”, and its feature. (Explain with an example.)
 8) “PID control”, and the roles of its components: “$P$”, “$I$” and “$D$”．
 
+### 题目描述
+
+从下列八个信息系统相关主题中任选四个，每个用约 5～10 行说明；必要时可使用示例或图。
+
+1. 关系数据库中的连接（join）运算，须举例说明。
+2. 操作系统或程序中进程与线程的区别。
+3. 上下文无关文法，须举例说明。
+4. 计算机图形学中的 Gouraud 着色与 Phong 着色。
+5. Web 常用的 GIF 与 JPEG 图像编码方法。
+6. 使用公钥密码体制的数字签名方法。
+7. 使用语义网络的知识表示方法及其特点，须举例说明。
+8. PID 控制，以及比例 \(P\)、积分 \(I\)、微分 \(D\) 三个环节在控制中的作用。
+
+#### 考点
+
+- **上下文无关文法**：能够用产生式、终结符、非终结符和开始符号定义文法，并通过具体语言或推导示例解释其表达能力。
+
 ## **Kai**

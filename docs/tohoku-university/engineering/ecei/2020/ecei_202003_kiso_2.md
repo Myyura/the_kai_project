@@ -43,6 +43,33 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202003_kiso_2_electrical_circuit_p1.png" width="400"/>
 </figure>
 
+### 题目描述
+
+1. 对图 2(a) 的正弦稳态电路，电压源相量为 $E$；无损传输线长度、特性阻抗和相位常数分别为 $l,Z_0,\beta$，终端负载为 $Z$。
+   1. 用 $Z_0,Z$ 表示端口 (2–2′) 的反射系数；
+   2. 当 $Z=aZ_0$，其中 $a,Z_0>0$ 且 $a\ne1$，求从端口 (1–1′) 看入的输入阻抗 $Z_{\mathrm{in}}$，并求使其为实数的线长 $l$；
+   3. 取 $R_0=10\,\Omega$、$Z_0=50\,\Omega$、$Z=50\,\Omega$。若负载消耗功率为 $0.5\,\mathrm W$，求 $|E|$。
+2. 图 2(b) 的串联 $RL$ 电路由矩形脉冲电压驱动：
+   $$
+   e(t)=
+   \begin{cases}
+   0,&t<0,\\
+   E_0,&0\le t<t_1,\\
+   0,&t\ge t_1,
+   \end{cases}
+   $$
+   且 $t<0$ 时电流为零。
+   1. 求 $0\le t<t_1$ 时的电感电压 $v_L(t)$；
+   2. 求 $t\ge t_1$ 时的 $v_L(t)$；
+   3. 当 $t_1=10L/R$ 时，画出 $0<t<2t_1$ 内 $v_L(t)$ 的大致波形。
+
+#### 考点
+
+- **传输线反射系数**：由负载与特性阻抗的失配程度计算反射。
+- **无损传输线输入阻抗**：使用 $\tan(\beta l)$ 形式的阻抗变换公式。
+- **阻抗匹配与功率**：在匹配终端下结合电压分配和负载功率。
+- **一阶 $RL$ 暂态**：分别求脉冲接通和关断后的指数响应并处理连续电流。
+
 ## **Kai** 
 ### (1)
 #### (a)

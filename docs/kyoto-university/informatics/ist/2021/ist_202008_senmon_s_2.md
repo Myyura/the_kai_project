@@ -53,6 +53,34 @@ Briefly explain the meanings of the two statistical terms chosen from the follow
 - Bootstrap method
 - Statistical power of a test
 
+### 题目描述
+
+1. 每秒事件发生次数 $X\sim\operatorname{Poisson}(\lambda=2)$，可用
+   $e^2\approx7.389$、$e^{-2}\approx0.135$。
+   1. 从下列选出 Poisson 概率质量函数：
+      - $e^\lambda\lambda^x/x!$；
+      - $e^{-\lambda}\lambda^x/x!$；
+      - $e^\lambda\lambda^{-x}/x!$；
+      - $e^{-\lambda}\lambda^{-x}/x!$。
+   2. 求满足 $P(X\ge N)<0.1$ 的最小整数 $N$，并说明理由。
+   3. 令 $S$ 为 $D$ 秒内事件总次数。其分布在 $D$ 增大时趋于正态分布。写出该定理名称，并求极限正态分布的均值、方差。
+2. $Y_1,\ldots,Y_n$ 是来自 $N(\mu,\sigma^2)$ 的容量 $n<30$ 随机样本。题干已给出 $\sigma^2$ 已知时用标准正态枢轴构造 $\mu$ 的 $95\%$ 置信区间的方法。类似说明当 $\sigma^2$ 未知时如何计算该置信区间。
+3. 指出下列统计论证的错误：
+   1. 1000 名参与者完成任务 A、B，两任务得分跨个体相关不显著，因此断言两任务测量的人类能力相互独立。
+   2. 京都实验中测试与控制条件差异显著，东京实验中不显著，因此断言发现了地区差异并计划研究其原因。
+4. 从下列术语中任选两个，简要解释含义：
+   - Bonferroni 校正；
+   - 方差分析中的 $\eta^2$；
+   - Bootstrap 方法；
+   - 检验的统计功效。
+
+#### 考点
+
+- **Poisson 分布与中心极限定理**：计算尾概率阈值，并求独立时间段计数和的正态近似参数。
+- **Student $t$ 置信区间**：未知方差时以样本标准差替代总体标准差，并使用 $t_{n-1}$ 分布临界值。
+- **显著性检验常见误读**：区分“不显著”与独立、以及“一个显著一个不显著”与差异本身显著。
+- **多重校正、效应量、Bootstrap 与功效**：准确说明所选两个概念在推断中的用途。
+
 ## **Kai**
 ### Q.1
 #### (1)

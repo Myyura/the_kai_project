@@ -46,6 +46,49 @@ $$
 ### English Version
 
 
+### 题目描述
+
+设 $\boldsymbol A,\boldsymbol B$ 为 $m\times n$ 矩阵，且
+$A_{ij}=-i-j$（$i=1,\ldots,m$，$j=1,\ldots,n$）。考虑参数化线性规划
+
+$$
+\begin{aligned}
+\mathrm P(\boldsymbol u):\quad
+&\text{最小化}\quad \boldsymbol u^\top\boldsymbol A\boldsymbol x\\
+&\text{满足}\quad\sum_{i=1}^n x_i\leqq1,\quad
+\boldsymbol x\geqq\boldsymbol0,
+\\[2mm]
+\mathrm Q(\boldsymbol v):\quad
+&\text{最小化}\quad \boldsymbol v^\top\boldsymbol B^\top\boldsymbol y\\
+&\text{满足}\quad\sum_{i=1}^m y_i\leqq1,\quad
+\boldsymbol y\geqq\boldsymbol0,
+\end{aligned}
+$$
+
+其中 $\boldsymbol u\in\mathbb R^m$、$\boldsymbol v\in\mathbb R^n$ 为参数，$\boldsymbol x\in\mathbb R^n$、$\boldsymbol y\in\mathbb R^m$ 分别为决策变量。令 $S_P(\boldsymbol u)$、$S_Q(\boldsymbol v)$ 分别为两个问题的全部最优解集合，并定义
+
+$$
+X=\{(\boldsymbol x^*,\boldsymbol y^*)\in\mathbb R^n\times\mathbb R^m
+\mid \boldsymbol x^*\in S_P(\boldsymbol y^*),\
+\boldsymbol y^*\in S_Q(\boldsymbol x^*)\}.
+$$
+
+回答：
+
+1. 写出 P$(\boldsymbol u)$ 的对偶问题。
+2. 若 $\boldsymbol u=(u_1,\ldots,u_m)^\top$ 满足每个 $u_i\leqq0$，证明
+   $\boldsymbol0\in S_P(\boldsymbol u)$。
+3. 若 $\boldsymbol B=-\boldsymbol A$，证明对每个
+   $(\boldsymbol x^*,\boldsymbol y^*)\in X$，
+   $(\boldsymbol y^*)^\top\boldsymbol A\boldsymbol x^*=0$。
+4. 若 $\boldsymbol u\geqq\boldsymbol0$ 且 $\boldsymbol u\ne\boldsymbol0$，求 $S_P(\boldsymbol u)$。
+5. 若 $\boldsymbol B=\boldsymbol A$，求集合 $X$。
+
+#### 考点
+
+- **参数化线性规划对偶**：为单个总量约束下的线性目标构造对偶，并按参数符号刻画最优解集合。
+- **双层最优反应与平衡集合**：把 $\boldsymbol x^*$、$\boldsymbol y^*$ 互为对方参数时的最优性条件联立，分别分析 $\boldsymbol B=\pm\boldsymbol A$。
+
 ## **Kai**
 ### (i)
 Lagrangian:

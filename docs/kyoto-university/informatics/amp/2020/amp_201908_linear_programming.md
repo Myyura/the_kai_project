@@ -62,6 +62,56 @@ $$
 ### English Version
 
 
+### 题目描述
+
+令 $\boldsymbol a^i$（$i=1,\ldots,n$）和 $\boldsymbol b$ 为 $m$ 维向量，$\boldsymbol c=(c_1,\ldots,c_n)^\top$ 为 $n$ 维向量，$\boldsymbol A=[\boldsymbol a^1\ \cdots\ \boldsymbol a^n]$。考虑互为原、对偶的线性规划
+
+$$
+\begin{aligned}
+(\mathrm P):\quad&\min_{\boldsymbol x}\ \boldsymbol c^\top\boldsymbol x\\
+&\boldsymbol A\boldsymbol x=\boldsymbol b,\quad
+\boldsymbol x\geqq\boldsymbol0,
+\end{aligned}
+\qquad
+\begin{aligned}
+(\mathrm D):\quad&\max_{\boldsymbol w}\ \boldsymbol b^\top\boldsymbol w\\
+&\boldsymbol A^\top\boldsymbol w\leqq\boldsymbol c,
+\end{aligned}
+$$
+
+其中 $\boldsymbol x\in\mathbb R^n$、$\boldsymbol w\in\mathbb R^m$。假设 P 有唯一最优解
+$\boldsymbol x^*=(x_1^*,\ldots,x_n^*)^\top$，且 $x_1^*=0$。再考虑以 $\boldsymbol u\in\mathbb R^m$、$v\in\mathbb R$ 为变量的
+
+$$
+\begin{aligned}
+(\mathrm Q):\quad
+&\text{最大化}\quad
+\boldsymbol b^\top\boldsymbol u-(\boldsymbol c^\top\boldsymbol x^*)v\\
+&\text{满足}\quad
+(\boldsymbol a^1)^\top\boldsymbol u-c_1v\leqq-1,\\
+&\hspace{2.8em}
+(\boldsymbol a^i)^\top\boldsymbol u-c_iv\leqq0
+\quad(i=2,\ldots,n),\\
+&\hspace{2.8em}v\geqq0.
+\end{aligned}
+$$
+
+回答：
+
+1. 写出 Q 的对偶问题。
+2. 证明 Q 有最优解。
+3. 证明 Q 的最优值为 $0$。
+4. 若 Q 有一个满足 $v^*>0$ 的最优解 $(\boldsymbol u^*,v^*)$，令
+   $\boldsymbol w^*=\boldsymbol u^*/v^*$。证明 $\boldsymbol w^*$ 是 D 的最优解。
+5. 若 Q 有一个满足 $v^*=0$ 的最优解 $(\boldsymbol u^*,v^*)$，证明存在 D 的最优解 $\boldsymbol w^*$ 满足
+   $(\boldsymbol a^1)^\top\boldsymbol w^*<c_1$。
+
+#### 考点
+
+- **线性规划对偶**：为辅助问题 Q 构造对偶，并结合强对偶分析最优值与解的存在性。
+- **互补松弛与严格松弛**：利用原问题唯一最优解中 $x_1^*=0$，证明可找到对该变量约束严格松弛的对偶最优解。
+- **齐次缩放论证**：按辅助变量 $v^*$ 是否为正分别归一化或处理退化情形，从 Q 的最优解恢复 D 的最优解。
+
 ## **Kai**
 ### (i)
 Lagrangian: 

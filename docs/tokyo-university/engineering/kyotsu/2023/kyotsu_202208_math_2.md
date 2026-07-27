@@ -13,6 +13,34 @@ tags:
 
 [2023年度大学院入学試験問題 数学](https://github.com/Myyura/the_kai_project_assets/blob/2672b44819e556e6b7835902e6d69059ff935039/kakomonn/tokyo_university/engineering/Description/M_J_E_2023.pdf)
 
+### 题目描述
+
+原 Description 仅提供 2023 年数学原卷链接，具体题干缺失。根据本地 Kai，能够确认题目围绕实对称矩阵
+$$
+A(a)=\begin{pmatrix}
+2&1&0\\
+1&3&a\\
+0&a&2
+\end{pmatrix}
+$$
+展开：
+
+1. 当 $a=1$ 时求 $A$ 的特征值，并写出相似对角形 $D$。
+2. 利用实对称矩阵可正交对角化，证明当 $a=1$ 时对任意非零实向量 $\boldsymbol x$ 都有 $\boldsymbol x^TA\boldsymbol x>0$。
+3. 对一般实参数 $a$，求使 $A(a)$ 正定的范围。
+4. 在上述正定范围内，令
+   $$
+   f(\boldsymbol x)=\boldsymbol x^TA(a)\boldsymbol x-
+   \begin{pmatrix}a&0&-1\end{pmatrix}\boldsymbol x,
+   $$
+   求使 $f$ 最小的 $\boldsymbol x=(x_1,x_2,x_3)^T$ 及最小值。
+
+#### 考点
+
+- 实对称矩阵的正交对角化：由特征值和正交特征基把二次型写成平方和。
+- 正定判别：求参数矩阵的全部特征值，并令最小特征值为正得到参数区间。
+- 正定二次函数最优化：令梯度为零解线性方程组，并利用正定 Hessian 保证所得驻点为唯一全局最小点。
+
 ## **Kai**
 ### I.
 $a=1$ のとき

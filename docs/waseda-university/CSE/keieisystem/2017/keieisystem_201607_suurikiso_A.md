@@ -33,6 +33,29 @@ $$
 
 を求めよ。
 
+### 题目描述
+
+回答下列三个微积分小题：
+
+1. 设 $a$ 为正常数。在所有体积等于 $a$ 的三维长方体中，求表面积最小时长方体的长、宽、高。
+2. 已知
+   $$
+   f(x,y)=x^2+y^2,\qquad x=\cos 2t,\qquad y=\sin 3t,
+   $$
+   求 $df/dt$。
+3. 对函数 $f(x,y)=\sqrt{2x-y}$，求四个二阶偏导数
+   $$
+   \frac{\partial^2 f}{\partial y\partial x},\quad
+   \frac{\partial^2 f}{\partial x\partial y},\quad
+   \frac{\partial^2 f}{\partial x^2},\quad
+   \frac{\partial^2 f}{\partial y^2}.
+   $$
+
+#### 考点
+
+- 约束优化：需要在长方体体积固定为 $a$ 的约束下最小化表面积，并确定达到最小值时三条边的长度。
+- 多元微分：需要运用多元复合函数的链式法则计算 $df/dt$，并分别计算根式函数的两个混合二阶偏导与两个纯二阶偏导。
+
 ## **Kai**
 
 ### [小問 A1]

@@ -57,6 +57,44 @@ for(i=0; i<N; i++){          /* L1 */
 
 (c) In the case of previous question (b), if the branch histories of L2, L3, and L4 are managed with one counter without distinction (for example, when predicting the branch of L3 at i=M, the branch history of L2 at i=M and L4 at i=M-1 is used), calculate the branch prediction accuracy of L2, L3, and L4, respectively. Note that the initial state of the 2-bit branch predictor is `00`.
 
+### 题目描述
+
+回答全部问题。
+
+1. 关于计算机数值表示：
+   1. 给出 5 位补码能表示的最大值与最小值的十进制表示。
+   2. 在 5 位补码体系中计算；若溢出只写“Overflow”：
+      1. `01001 + 01101`
+      2. `11110 + 11001`
+   3. 十六进制 4 字节数据 `ABCD1234` 以小端字节序存入内存时，写出各字节在内存中的排列顺序。
+2. 在带分支预测的处理器上执行以下 C 代码。分支“采用”表示执行相应 `for` 或 `if` 的 `{}` 内代码；数组足够大且元素为随机整数，执行中无异常或中断，也不进行循环优化。
+
+   ```c
+   int i;
+   for(i=0; i<N; i++){          /* L1 */
+       if(i%7 == 0){            /* L2 */
+           A[i] = B[i] + 1;
+       }
+       if(i%7 == 1){            /* L3 */
+           A[i] = B[i] - 1;
+       }
+       if(i%7 > 4){             /* L4 */
+           B[i] = B[i] * B[i];
+       }
+   }
+   ```
+
+   1. 采用一位动态预测器：预测本次结果与该分支上次执行结果相同，首次预测不采用；L1–L4 的历史分别管理。假设 $N$ 足够大可视为无穷，分别求 L3、L4 的预测准确率。
+   2. 采用图 2 所示状态转移的二位计数器预测器，状态 `00`,`01` 预测不采用，`10`,`11` 预测采用；L1–L4 各有独立计数器，初态均为 `00`。在同样假设下分别求 L3、L4 的预测准确率。
+   3. 在第 2 小问的二位预测器中，若 L2、L3、L4 不区分而共用一个历史计数器（例如预测 $i=M$ 的 L3 时，已包含同一轮 L2 和上一轮 L4 的结果），初态为 `00`，分别求 L2、L3、L4 的预测准确率。
+
+#### 考点
+
+- **补码范围、运算与溢出**：根据位宽确定有符号范围，并按同号相加的符号变化判断溢出。
+- **小端字节序**：按最低有效字节存放在最低地址的规则排列多字节数据。
+- **一位与二位分支预测**：从各条件随 $i\bmod7$ 的周期结果序列计算稳态预测命中率。
+- **分支历史别名**：分析多个静态分支共用同一饱和计数器时，分支结果交织对预测状态与准确率的影响。
+
 ## **Kai**
 ### (1)
 #### (a) Range of 5-bit Two's Complement

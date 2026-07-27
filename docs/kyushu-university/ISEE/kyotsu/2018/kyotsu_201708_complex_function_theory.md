@@ -24,6 +24,28 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2018_complex_function_theory_p1.png" width="500" alt=""/>
 </figure>
 
+### 题目描述
+
+沿上图所示的钥匙孔型闭合曲线 $C$，考虑复积分
+
+$$
+\oint_C\frac{(\ln z)^2}{z^2+1}\,dz,
+$$
+
+其中外圆半径 $R>1$，内圆半径 $\varepsilon<1$，并采用图示分支。
+
+1. 求该闭路积分的值。
+2. 利用该闭路积分证明
+   $$
+   \int_0^\infty\frac{(\ln x)^2}{x^2+1}\,dx=\frac{\pi^3}{8}.
+   $$
+
+#### 考点
+
+- **对数函数的支割**：处理 $\ln z$ 在支割两侧的取值差，并把闭路各段积分化为实轴积分。
+- **留数定理**：计算轮廓内部极点 $z=i$ 的留数，从而得到闭路积分。
+- **利用留数计算实积分**：证明大小圆弧贡献趋于零，并由闭路积分关系推出含 $(\ln x)^2$ 的广义积分。
+
 ## **Kai** 
 ### (1)
 $f(z) = \frac{(\ln z)^2}{z^2 + 1}$ とおくと、$f(z)$ は $C$ 内部に $1$ 位の極 $i$ をもつ. よって、留数定理より、

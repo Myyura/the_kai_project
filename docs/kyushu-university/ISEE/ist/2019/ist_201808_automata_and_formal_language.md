@@ -78,6 +78,56 @@ $G'$ が意図通りになるよう空欄 $\boxed{\ \ i \ \ }$, $\boxed{\ \ ii \
 また他の数字が直後に続かない単独の 0 が現れることは許すものとする。
 $G'$ は例えば 0 や 1+301 や 0+0-203 を生成するが、00 や 1+0301 は生成しない。
 
+### 题目描述
+
+【问题 1】给定非确定性有限自动机 $M=(K,\Sigma,\delta,q_0,F)$，其中
+$K=\{q_0,q_1\}$、$\Sigma=\{a,b\}$、初始状态为 $q_0$、终态集合
+$F=\{q_0,q_1\}$，转移函数 $\delta$ 见[原题状态迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p1.png)。回答：
+
+1. 枚举 $M$ 接受的所有长度为 $4$ 的字符串。
+2. 记 $M$ 接受的语言为 $L_1$，描述 $L_1$ 中字符串的共同特征。
+3. 画出接受 $L_1$ 且状态数最少的确定性有限自动机的状态迁移图。
+4. 令 $L_2$ 为 $\Sigma$ 上所有以 $a$ 开头、以 $b$ 结尾的字符串组成的语言，画出接受交集语言 $L_1\cap L_2$ 且状态数最少的确定性有限自动机的状态迁移图。
+
+【问题 2】考虑能表示数的加减算式（如 `1+2+3`、`4+4−10`）的上下文无关文法 $G$。其终结符为
+$0,1,2,3,4,5,6,7,8,9,+,−$，非终结符为 $S,N,D$，开始符号为 $S$，产生式为
+
+$$
+\begin{aligned}
+S &\rightarrow N \mid S+N \mid S-N, \\
+N &\rightarrow D \mid DN, \\
+D &\rightarrow 0 \mid 1 \mid 2 \mid 3 \mid 4 \mid 5 \mid 6 \mid 7 \mid 8 \mid 9.
+\end{aligned}
+$$
+
+能从 $S$ 按产生式改写得到的字符串即为 $G$ 生成的字符串；原题以 `4+4−10` 的[推导树](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_automata_and_formal_language_p2.png)为例。回答：
+
+1. 分别判断下列字符串能否由 $G$ 生成；若能，画出推导树；若不能，说明理由：
+   - (a) `5+13+9`
+   - (b) `25`
+   - (c) 空字符串
+   - (d) `-4+15`
+2. 文法 $G$ 还会生成 `05+3-0007` 这类在数值部分前带有多余 `0` 的字符串。现构造文法 $G'$ 排除它们：终结符仍为
+   $0,1,2,3,4,5,6,7,8,9,+,−$，非终结符为 $S,N,M,D$，开始符号为 $S$，且 $\varepsilon$ 表示空字符串，
+
+   $$
+   \begin{aligned}
+   S &\rightarrow N \mid S+N \mid S-N, \\
+   N &\rightarrow 0 \mid \boxed{\ i\ }, \\
+   M &\rightarrow \varepsilon \mid \boxed{\ ii\ } \mid \boxed{\ iii\ }, \\
+   D &\rightarrow 1 \mid 2 \mid 3 \mid 4 \mid 5 \mid 6 \mid 7 \mid 8 \mid 9.
+   \end{aligned}
+   $$
+
+   填写空格 $\boxed{\ i\ }$、$\boxed{\ ii\ }$、$\boxed{\ iii\ }$，使 $G'$ 恰好排除数值部分含无用前导零的情形，而 $G$ 生成的其他字符串仍全部可由 $G'$ 生成。允许不紧跟其他数字的单独 `0`：例如 $G'$ 应生成 `0`、`1+301`、`0+0-203`，但不能生成 `00` 或 `1+0301`。
+
+#### 考点
+
+- **非确定性有限自动机与语言刻画**：从非确定性自动机转移图枚举定长接受串，并归纳 $L_1$ 的字符串特征。
+- **确定性有限自动机最小化与积自动机**：为 $L_1$ 构造最小确定性自动机，并通过语言交运算构造、最小化识别 $L_1\cap L_2$ 的自动机。
+- **上下文无关文法与推导树**：按给定产生式判断算式字符串的可生成性，并为可生成字符串画出完整推导树。
+- **文法约束设计**：补全非终结符 $N,M,D$ 的产生式，在保留合法整数和算式的同时排除多余前导零。
+
 ## **Kai**
 ### 【問１】
 #### (1)

@@ -42,6 +42,35 @@ $\Sigma = \{a, b\}$ を終端記号の集合とする２つの文脈自由文法
 
 (4) 言語 $L(G_1) \setminus L(G_2)$ を説明せよ．ただし，集合 $U, V$ について，$U \setminus V = \{w \mid w \in U \text{ and } w \notin V\}$ とする．
 
+### 题目描述
+
+【问题 1】给定有限自动机 $M=(K,\Sigma,\delta,q_0,F)$，其中 $K$、$\Sigma$、$\delta$、$q_0$、$F$ 依次表示状态集合、字母表、转移函数、初始状态和终态集合，且 $\Sigma=\{a,b,c\}$；状态转移关系见[原题状态迁移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_automata_and_formal_language_p1.png)。回答：
+
+1. 枚举 $M$ 接受的所有长度不超过 $2$ 的字符串。
+2. 记 $M$ 接受的语言为 $L(M)$，画出接受 $L(M)$ 且状态数最少的确定性有限自动机的状态迁移图。
+3. 令 $L$ 为所有被 $M$ 接受、且接受路径不经过状态 $q_4$ 的字符串所组成的语言，给出一个表示 $L$ 的正则表达式。
+
+【问题 2】令 $\Sigma=\{a,b\}$ 为终结符集合，考虑两个上下文无关文法
+$G_1=(N_1,\Sigma,P_1,S)$ 与 $G_2=(N_2,\Sigma,P_2,T)$。其中
+$N_1=\{S,A\}$，
+$P_1=\{S\rightarrow aS\mid aA,\ A\rightarrow bA\mid b\}$，
+$S$ 分别为 $G_1$ 的非终结符集合、产生式集合和开始符号；另有
+$N_2=\{T,B,C\}$，
+$P_2=\{T\to aB\mid Cb,\ B\to\varepsilon\mid aB\mid aBb,\ C\to\varepsilon\mid Cb\mid aCb\}$，
+$T$ 为 $G_2$ 的开始符号。记文法 $G$ 生成的语言为 $L(G)$。回答：
+
+1. 枚举 $G_1$ 生成的所有长度为 $3$ 的字符串。
+2. 描述语言 $L(G_1)$。
+3. 枚举 $G_2$ 生成的所有长度为 $4$ 的字符串。
+4. 描述差集语言 $L(G_1)\setminus L(G_2)$，其中
+   $U\setminus V=\{w\mid w\in U\text{ 且 }w\notin V\}$。
+
+#### 考点
+
+- **确定性有限自动机与最小化**：根据状态迁移图判断短字符串是否被接受，并构造接受同一语言且状态数最少的确定性有限自动机。
+- **正则表达式**：在禁止经过指定状态的路径约束下，概括自动机所接受的字符串并写出对应正则表达式。
+- **上下文无关文法**：由产生式枚举定长字符串、归纳两个文法各自生成的语言，并求语言差集。
+
 ## **Kai**
 ### 【問１】
 #### (1)

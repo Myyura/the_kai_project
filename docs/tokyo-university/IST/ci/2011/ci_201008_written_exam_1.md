@@ -30,3 +30,47 @@ Write an example of the arguments of the "back" procedure invocations succeeding
 (3) Assume that we invoke "back($\langle G_{i_1}, \dots, G_{i_k}\rangle, S_0$)" for a sequence of products $\langle G_{i_1}, \dots, G_{i_k}\rangle$ and a set of products $S_0$, the number of the elements of $S_0$ is $l$, and $t_l$ is the maximum number of invocations of the "back" procedure during the execution of "back($\langle G_{i_1}, \dots, G_{i_k}\rangle, S_0$)" where the invocations include the invocation of "back($\langle G_{i_1}, \dots, G_{i_k}\rangle, S_0$)" itself. Then explain the reason why $t_l=1+\sum_{i=0}^{l-1} t_i$ if $l\ge1$.
 
 (4) Describe the maximum number of invocations of the "back" procedures during the execution of Algorithm 1 for $n$ products $G_1, \dots, G_n$ ($n\ge2$) where the invocations include the invocation of "back($\epsilon, \{G_1, \dots, G_n\}$)" at the beginning of the execution.
+
+### 题目描述
+
+有 \(n\) 种互不相同的商品 \(G_1,\ldots,G_n\)（\(n\ge2\)），价格分别为 \(p_1,\ldots,p_n\)。从中选择互不重复的 \(m\) 件商品 \(G_{i_1},\ldots,G_{i_m}\)（\(2\le m\le n\)）。给定正整数 \(q_{\min}<q_{\max}\)，且每个 \(p_i<q_{\min}\)，目标是找到组合使
+\[
+q_{\min}<\sum_{j=1}^{m}p_{i_j}<q_{\max}.
+\]
+
+算法 1 用回溯法求解。记 \(\epsilon\) 为空序列；过程
+\(\operatorname{back}(\langle G_{i_1},\ldots,G_{i_k}\rangle,S_0)\)
+的第一个参数是当前候选解序列，第二个参数是还可加入的商品集合，\(k\) 为当前序列长度，\(k=0\) 时第一个参数为 \(\epsilon\)。
+
+算法从 \(\operatorname{back}(\epsilon,\{G_1,\ldots,G_n\})\) 开始。每次调用执行：
+
+1. 令局部集合 \(S=S_0\)。
+2. 若当前价格和 \(\sum_{j=1}^{k}p_{i_j}>q_{\min}\)，输出当前商品集合并结束。
+3. 若 \(S\) 为空：当 \(k=0\) 时输出“无解”并结束；当 \(k>0\) 时返回调用者。否则进入下一步。
+4. 从 \(S\) 中选择并删除一个元素 \(G_{i_{k+1}}\)，把它追加到当前序列；再从剩余的 \(S\) 中取出所有满足
+   \[
+   p'+\sum_{j=1}^{k+1}p_{i_j}<q_{\max}
+   \]
+   的商品 \(G'\)，组成不同于 \(S\) 的集合 \(S'\)。递归调用
+   \(\operatorname{back}(\langle G_{i_1},\ldots,G_{i_k},G_{i_{k+1}}\rangle,S')\)，返回后回到第 3 步。
+
+回答下列问题。
+
+1. 对四件商品 \(p_1=1,p_2=2,p_3=3,p_4=4\)，取 \(q_{\min}=8,q_{\max}=10\)。已给调用序列开头
+   \[
+   (\epsilon,\{G_1,G_2,G_3,G_4\})\to
+   (\langle G_4\rangle,\{G_1,G_2,G_3\})\to\cdots .
+   \]
+   按相同格式补出一种后续调用序列，且其中至少发生一次某次 `back` 从第 4 步递归返回第 3 步。
+2. 第 4 步总选 \(S\) 中价格最高的商品通常可减少调用次数，但不一定达到最少。给出一个反例：明确写出 \(n\)、所有 \(p_i\)、\(q_{\min},q_{\max}\)，并像第 1 问一样列出 `back` 的调用参数序列。
+3. 若调用 \(\operatorname{back}(\langle G_{i_1},\ldots,G_{i_k}\rangle,S_0)\) 时 \(|S_0|=l\)，定义 \(t_l\) 为本次调用及其递归过程中 `back` 调用次数的最大值。说明当 \(l\ge1\) 时为何
+   \[
+   t_l=1+\sum_{i=0}^{l-1}t_i.
+   \]
+4. 求算法 1 对 \(n\) 件商品执行时 `back` 的最大调用次数，其中包括最初对空序列的调用。
+
+#### 考点
+
+- **回溯搜索**：理解候选集合随选择和上界约束缩小、递归失败后恢复并尝试下一分支的搜索过程。
+- **搜索顺序与剪枝效果**：构造实例比较“优先选最高价”等启发式顺序对找到解前调用次数的影响。
+- **递归搜索树复杂度**：由各规模子树的递推式求最大调用次数，识别最坏情况下的指数增长。

@@ -89,6 +89,44 @@ holds.
 
 (iv) Let $X$ be an $(s, t)$-cut with the minimum capacity $\text{cap}(X)$ in $N$. Prove that no vertex in $V \setminus X$ is reachable from $s$ in the residual network $N_f$ in (iii).
 
+### 题目描述
+
+记 $\mathbb R_+$ 为非负实数集。网络 $N=[G,c]$ 由简单有向图 $G=(V,E)$ 及容量函数 $c:E\to\mathbb R_+$ 构成。对 $X,Y\subseteq V$，令 $E(X,Y)$ 为从 $X$ 指向 $Y$ 的边集。对指定顶点 $s,t$，$(s,t)$ 流是满足中间顶点流量守恒及 $0\le f(e)\le c(e)$ 的函数 $f:E\to\mathbb R_+$，其流值为
+
+$$
+\operatorname{val}(f)=
+\sum_{e\in E(\{s\},V\setminus\{s\})}f(e)
+-\sum_{e\in E(V\setminus\{s\},\{s\})}f(e).
+$$
+
+满足 $s\in X$、$t\notin X$ 的 $X\subseteq V$ 称为 $(s,t)$ 割，容量为
+
+$$
+\operatorname{cap}(X)=
+\sum_{e\in E(X,V\setminus X)}c(e).
+$$
+
+回答：
+
+1. 对任意 $(s,t)$ 流 $f$ 和 $(s,t)$ 割 $X$，证明
+   $$
+   \operatorname{val}(f)=
+   \sum_{e\in E(X,V\setminus X)}f(e)
+   -\sum_{e\in E(V\setminus X,X)}f(e)
+   \le\operatorname{cap}(X).
+   $$
+2. 说明如何为给定流 $f$ 构造残量网络
+   $N_f=[G_f=(V,E_f),c_f]$。
+3. 若 $N_f$ 不含从 $s$ 到 $t$ 的有向路，令 $S$ 为其中从 $s$ 可达的顶点集。证明
+   $\operatorname{val}(f)=\operatorname{cap}(S)$。
+4. 令 $X$ 为 $N$ 中任意一个最小容量 $(s,t)$ 割。证明在第 3 问的残量网络 $N_f$ 中，从 $s$ 无法到达 $V\setminus X$ 中的任何顶点。
+
+#### 考点
+
+- **流—割弱对偶**：由割上的净流恒等式及容量约束证明任意流值不超过任意割容量。
+- **残量网络与无增广路判据**：构造正反向残量边，并由从源点的可达集证明流值等于某个割容量。
+- **最大流—最小割定理的结构结论**：在达到最优值后比较任意最小割，证明残量可达集包含于其源侧。
+
 ## **Kai**
 ### (i)
 We can rewrite the flow conservation law for any node $u \in V \setminus \{s, t\}$ as

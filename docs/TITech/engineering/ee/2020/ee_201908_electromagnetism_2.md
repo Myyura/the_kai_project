@@ -50,6 +50,83 @@ $$
 
 - (e) この環状コイルの自己インダクタンス $L$ を求めよ。
 
+### 题目描述
+
+回答下列关于直流电流磁场的两组问题。
+
+1. 在 $x$-$y$ 平面内，一圆形导线以原点 O 为圆心、半径为 $a$，其中流过直流电流 $I$。为推导 $z$ 轴上点 $P(0,0,z_1)$ 的磁感应强度 $\boldsymbol B_1$，填写下文的空格 ① 至 ⑥；同一编号处填写同一表达式或词语。真空磁导率为 $\mu_0$，矢量以粗体表示。
+
+   如原 Description 图 2.1，圆电流的微小线元矢量 $\mathrm d\boldsymbol s$ 在 $P$ 处产生 $\mathrm d\boldsymbol B$，把它分解为 $z$ 方向分量 $\mathrm d\boldsymbol B_z$ 与垂直分量 $\mathrm d\boldsymbol B_\perp$，并令 $\mathrm dB_z=|\mathrm d\boldsymbol B_z|$。
+
+   - 对整个圆电流积分时，$\mathrm d\boldsymbol B_\perp$ 的贡献相互抵消，故
+
+     $$
+     |\boldsymbol B_\perp|=\boxed{①}.
+     $$
+
+   - 从 $\mathrm d\boldsymbol s$ 指向 $P$ 的矢量为 $\boldsymbol R$，$R=|\boldsymbol R|$。根据 $\boxed{②}$ 定律，
+
+     $$
+     \mathrm d\boldsymbol B
+     =\frac{\mu_0}{4\pi}I
+     \frac{\mathrm d\boldsymbol s\times\boldsymbol R}{R^3}.
+     $$
+
+   - 因 $\mathrm d\boldsymbol s$ 与 $\boldsymbol R$ 正交，用 $\mu_0,I,a,z_1$ 及 $\mathrm ds=|\mathrm d\boldsymbol s|$ 表示磁场元大小，得到
+
+     $$
+     \mathrm dB=\boxed{③}.
+     $$
+
+   - 若 $\mathrm d\boldsymbol B$ 与 $z$ 轴夹角为 $\varphi$，则
+
+     $$
+     \cos\varphi=\boxed{④},
+     \qquad
+     \mathrm dB_z=\boxed{⑤}.
+     $$
+
+   - 对整个圆电流积分后，
+
+     $$
+     B_z=\boxed{⑥},
+     \qquad
+     \boldsymbol B_1=(\boxed{①},\boxed{①},\boxed{⑥}).
+     $$
+
+2. 如图 2.2，一根细导线密绕在矩形截面的环形磁芯表面（图中虚线处也有绕组），内半径为 $a$、外半径为 $b$、厚度为 $h$，总匝数为 $N$，磁芯磁导率为 $\mu$。
+
+   1. 采用图示柱坐标 $(r,\theta,z)$，证明当磁芯内
+
+      $$
+      a<r<b,\quad0\leq\theta<2\pi,\quad-\frac h2<z<\frac h2
+      $$
+
+      且线圈中流过直流 $J$ 时，
+
+      $$
+      B_r=B_z=0,\qquad
+      B_\theta=\frac{\mu NJ}{2\pi r}.
+      $$
+
+   2. 说明磁芯外部由该直流电流 $J$ 产生的磁场为何为零。
+   3. 证明穿过磁芯截面的磁通为
+
+      $$
+      \Phi=\frac{\mu NJh}{2\pi}
+      \ln\left(\frac ba\right),
+      $$
+
+      其中 $\ln$ 为自然对数。
+   4. 求整个环形线圈储存的磁场能量 $U$。
+   5. 求该环形线圈的自感 $L$。
+
+#### 考点
+
+- Biot–Savart 定律：分解圆电流在轴线上产生的微元磁场，利用旋转对称性消去横向分量并完成线积分。
+- Ampère 环路定律：选择同心圆环路求环形线圈磁芯内的 $B_\theta(r)$，并说明理想密绕情况下外场消失。
+- 磁通、自感与磁能：对非均匀磁场沿矩形截面积分，结合磁链 $N\Phi=LJ$ 和能量关系求 $L,U$。
+
 ## **Kai**
 ### (1)
 ① 0

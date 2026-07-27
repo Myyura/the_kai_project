@@ -44,6 +44,40 @@ Assume that both algorithms are initially called with the vertex $s$ and that th
 
 (2.3) Give a recursive algorithm for DFS in a graph.
 
+### 题目描述
+
+1. 哈希表可用于实现 `INSERT`、`SEARCH`、`DELETE` 等操作。
+   1. 与直接寻址数组相比，哈希表有什么优势？
+   2. 一个长度为 7 的哈希表存储整数键，采用线性探测与
+      $h(x)=x\bmod7$。按顺序插入
+      $0,11,3,7,1,9$ 后，写出表中内容。
+   3. 哈希函数 $h$ 将 $n$ 个不同键均匀散列到长度 $m$ 的数组 $T$。求发生碰撞的无序键对集合
+      $$
+      \{\{k,l\}\mid k\ne l,\ h(k)=h(l)\}
+      $$
+      的期望基数。
+2. BFS 与 DFS 用于遍历树或图。
+   1. 顶点集为 $\{a,b,c,d,e,s\}$，按下列有向邻接表画图：
+      $$
+      \begin{aligned}
+      \operatorname{adj}(s)&=[a,c,d],&
+      \operatorname{adj}(a)&=[],\\
+      \operatorname{adj}(c)&=[b,e],&
+      \operatorname{adj}(b)&=[d],\\
+      \operatorname{adj}(d)&=[c],&
+      \operatorname{adj}(e)&=[s].
+      \end{aligned}
+      $$
+      其中 $\operatorname{adj}(i)$ 列出从 $i$ 指向的邻接顶点。
+   2. 两种算法均从 $s$ 开始，并按邻接表所存顺序访问，分别写出 BFS、DFS 的顶点访问顺序。
+   3. 写出图上 DFS 的递归算法。
+
+#### 考点
+
+- **哈希表与开放寻址**：比较空间需求，模拟线性探测插入，并用指示变量的线性性计算均匀散列下的期望碰撞对数。
+- **BFS 与 DFS**：从邻接表恢复有向图，按给定邻接顺序跟踪队列/递归栈产生的访问序列。
+- **递归深度优先搜索**：使用访问标记并递归遍历未访问邻接点，避免有向环导致重复搜索。
+
 ## **Kai**
 ### Q.1
 #### (1.1)
