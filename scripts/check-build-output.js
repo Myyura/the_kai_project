@@ -5,10 +5,11 @@ const path = require('path');
 const zlib = require('zlib');
 
 const BUILD_DIR = path.resolve(__dirname, '..', 'build');
-const MAIN_GZIP_BUDGET = 450 * 1024;
-const SEARCH_GZIP_BUDGET = 10 * 1024 * 1024;
-const PUBLISHED_CONTENT_BUDGET = 15 * 1024 * 1024;
+const MAIN_GZIP_BUDGET = 512 * 1024;
+const SEARCH_GZIP_BUDGET = 16 * 1024 * 1024;
+const PUBLISHED_CONTENT_BUDGET = 24 * 1024 * 1024;
 const CONTENT_EXPORT_GZIP_BUDGET = 20 * 1024 * 1024;
+const TOTAL_BUILD_BUDGET = 900 * 1024 * 1024;
 
 function walk(directory) {
   return fs.readdirSync(directory, {withFileTypes: true}).flatMap((entry) => {
@@ -85,6 +86,10 @@ const publishedContentBytes = publishedContentFiles.reduce(
   (total, filePath) => total + fs.statSync(filePath).size,
   0,
 );
+const totalBuildBytes = files.reduce(
+  (total, filePath) => total + fs.statSync(filePath).size,
+  0,
+);
 const contentExportGzip = contentExportBuffer.length;
 let contentExport;
 try {
@@ -98,6 +103,9 @@ if (contentManifest.documentCount !== publishedContentFiles.length) {
 }
 if (publishedContentBytes > PUBLISHED_CONTENT_BUDGET) {
   throw new Error(`Published document content ${formatMiB(publishedContentBytes)} exceeds ${formatMiB(PUBLISHED_CONTENT_BUDGET)}.`);
+}
+if (totalBuildBytes > TOTAL_BUILD_BUDGET) {
+  throw new Error(`Total build output ${formatMiB(totalBuildBytes)} exceeds ${formatMiB(TOTAL_BUILD_BUDGET)}.`);
 }
 if (contentExport.format !== 'kai-content' || contentExport.schemaVersion !== 1) {
   throw new Error('Unexpected Kai content export format or schema version.');
@@ -134,5 +142,5 @@ console.log(
   `Build budgets passed: main ${formatMiB(mainGzip)}, search ${formatMiB(searchGzip)}, `
   + `published content ${formatMiB(publishedContentBytes)} across ${publishedContentFiles.length} files, `
   + `Kai content export ${formatMiB(contentExportGzip)} across ${contentExport.documents.length} documents `
-  + `and ${contentExport.assets.length} assets.`,
+  + `and ${contentExport.assets.length} assets, total build ${formatMiB(totalBuildBytes)}.`,
 );

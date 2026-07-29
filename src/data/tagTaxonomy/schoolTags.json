@@ -126,5 +126,29 @@
       "UEC",
       "電気通信大学"
     ]
+  },
+  "Hosei-University": {
+    "universityId": "hosei-university",
+    "label": "法政大学",
+    "aliases": [
+      "hosei-university",
+      "法政大学"
+    ]
+  },
+  "Saitama-University": {
+    "universityId": "saitama-university",
+    "label": "埼玉大学",
+    "aliases": [
+      "saitama-university",
+      "埼玉大学"
+    ]
+  },
+  "Meiji-University": {
+    "universityId": "meiji-university",
+    "label": "明治大学",
+    "aliases": [
+      "meiji-university",
+      "明治大学"
+    ]
   }
 }

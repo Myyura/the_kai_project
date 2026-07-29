@@ -64,6 +64,18 @@
   label: "University-of-Electro-Communications"
   permalink: "/school/university-of-electro-communications"
   description: "University-of-Electro-Communications (電気通信大学)"
+"Hosei-University":
+  label: "Hosei-University"
+  permalink: "/school/hosei-university"
+  description: "Hosei-University (法政大学)"
+"Saitama-University":
+  label: "Saitama-University"
+  permalink: "/school/saitama-university"
+  description: "Saitama-University (埼玉大学)"
+"Meiji-University":
+  label: "Meiji-University"
+  permalink: "/school/meiji-university"
+  description: "Meiji-University (明治大学)"
 "Mathematics.Calculus":
   label: "Mathematics.Calculus"
   permalink: "/subsubject/mathematics/calculus"
@@ -2764,6 +2776,10 @@
   label: "Mathematics.Calculus.Elliptic-Region-Change-of-Variables"
   permalink: "/topic/mathematics/calculus/elliptic-region-change-of-variables"
   description: "Mathematics / Calculus / Elliptic-Region-Change-of-Variables"
+"Mathematics.Calculus.Extrema":
+  label: "Mathematics.Calculus.Extrema"
+  permalink: "/topic/mathematics/calculus/extrema"
+  description: "Mathematics / Calculus / Extrema"
 "Mathematics.Calculus.Gamma-Function":
   label: "Mathematics.Calculus.Gamma-Function"
   permalink: "/topic/mathematics/calculus/gamma-function"
@@ -2812,6 +2828,10 @@
   label: "Mathematics.Calculus.Integral-of-Inverse-Function"
   permalink: "/topic/mathematics/calculus/integral-of-inverse-function"
   description: "Mathematics / Calculus / Integral-of-Inverse-Function"
+"Mathematics.Calculus.Integration":
+  label: "Mathematics.Calculus.Integration"
+  permalink: "/topic/mathematics/calculus/integration"
+  description: "Mathematics / Calculus / Integration"
 "Mathematics.Calculus.Integration-by-Parts":
   label: "Mathematics.Calculus.Integration-by-Parts"
   permalink: "/topic/mathematics/calculus/integration-by-parts"
@@ -3000,6 +3020,10 @@
   label: "Mathematics.Differential-Equations.Boundary-Conditions-at-Infinity"
   permalink: "/topic/mathematics/differential-equations/boundary-conditions-at-infinity"
   description: "Mathematics / Differential-Equations / Boundary-Conditions-at-Infinity"
+"Mathematics.Differential-Equations.Boundary-Value-Problem":
+  label: "Mathematics.Differential-Equations.Boundary-Value-Problem"
+  permalink: "/topic/mathematics/differential-equations/boundary-value-problem"
+  description: "Mathematics / Differential-Equations / Boundary-Value-Problem"
 "Mathematics.Differential-Equations.Bounded-Solution-of-Forced-Ordinary-Differential-Equation":
   label: "Mathematics.Differential-Equations.Bounded-Solution-of-Forced-Ordinary-Differential-Equation"
   permalink: "/topic/mathematics/differential-equations/bounded-solution-of-forced-ordinary-differential-equation"
@@ -3312,6 +3336,10 @@
   label: "Mathematics.Linear-Algebra.Centroid-Least-Squares-of-Rotation-Orbit"
   permalink: "/topic/mathematics/linear-algebra/centroid-least-squares-of-rotation-orbit"
   description: "Mathematics / Linear-Algebra / Centroid-Least-Squares-of-Rotation-Orbit"
+"Mathematics.Linear-Algebra.Characteristic-Polynomial":
+  label: "Mathematics.Linear-Algebra.Characteristic-Polynomial"
+  permalink: "/topic/mathematics/linear-algebra/characteristic-polynomial"
+  description: "Mathematics / Linear-Algebra / Characteristic-Polynomial"
 "Mathematics.Linear-Algebra.Characteristic-Polynomial-Coefficients-from-Eigenvalues":
   label: "Mathematics.Linear-Algebra.Characteristic-Polynomial-Coefficients-from-Eigenvalues"
   permalink: "/topic/mathematics/linear-algebra/characteristic-polynomial-coefficients-from-eigenvalues"
@@ -3484,6 +3512,10 @@
   label: "Mathematics.Linear-Algebra.Matrix-Norm"
   permalink: "/topic/mathematics/linear-algebra/matrix-norm"
   description: "Mathematics / Linear-Algebra / Matrix-Norm"
+"Mathematics.Linear-Algebra.Matrix-Operations":
+  label: "Mathematics.Linear-Algebra.Matrix-Operations"
+  permalink: "/topic/mathematics/linear-algebra/matrix-operations"
+  description: "Mathematics / Linear-Algebra / Matrix-Operations"
 "Mathematics.Linear-Algebra.Matrix-Power":
   label: "Mathematics.Linear-Algebra.Matrix-Power"
   permalink: "/topic/mathematics/linear-algebra/matrix-power"
@@ -3780,6 +3812,10 @@
   label: "Mathematics.Topology.Locally-Constant-Functions-on-Connected-Spaces"
   permalink: "/topic/mathematics/topology/locally-constant-functions-on-connected-spaces"
   description: "Mathematics / Topology / Locally-Constant-Functions-on-Connected-Spaces"
+"Mathematics.Topology.Metric-Space":
+  label: "Mathematics.Topology.Metric-Space"
+  permalink: "/topic/mathematics/topology/metric-space"
+  description: "Mathematics / Topology / Metric-Space"
 "Mathematics.Vector-Calculus.Directional-Derivative":
   label: "Mathematics.Vector-Calculus.Directional-Derivative"
   permalink: "/topic/mathematics/vector-calculus/directional-derivative"
@@ -4032,6 +4068,10 @@
   label: "Operations-Research.Linear-Programming.Linear-Programming-Duality"
   permalink: "/topic/operations-research/linear-programming/linear-programming-duality"
   description: "Operations-Research / Linear-Programming / Linear-Programming-Duality"
+"Operations-Research.Linear-Programming.Linear-Programming-Problem":
+  label: "Operations-Research.Linear-Programming.Linear-Programming-Problem"
+  permalink: "/topic/operations-research/linear-programming/linear-programming-problem"
+  description: "Operations-Research / Linear-Programming / Linear-Programming-Problem"
 "Operations-Research.Linear-Programming.Parametric-Linear-Programming":
   label: "Operations-Research.Linear-Programming.Parametric-Linear-Programming"
   permalink: "/topic/operations-research/linear-programming/parametric-linear-programming"
@@ -4784,6 +4824,10 @@
   label: "Probability-Statistics.Probability-Basics.Coupon-Collector-Problem"
   permalink: "/topic/probability-statistics/probability-basics/coupon-collector-problem"
   description: "Probability-Statistics / Probability-Basics / Coupon-Collector-Problem"
+"Probability-Statistics.Probability-Basics.Covariance":
+  label: "Probability-Statistics.Probability-Basics.Covariance"
+  permalink: "/topic/probability-statistics/probability-basics/covariance"
+  description: "Probability-Statistics / Probability-Basics / Covariance"
 "Probability-Statistics.Probability-Basics.Covariance-Matrix":
   label: "Probability-Statistics.Probability-Basics.Covariance-Matrix"
   permalink: "/topic/probability-statistics/probability-basics/covariance-matrix"
@@ -4800,6 +4844,10 @@
   label: "Probability-Statistics.Probability-Basics.Geometric-Probability"
   permalink: "/topic/probability-statistics/probability-basics/geometric-probability"
   description: "Probability-Statistics / Probability-Basics / Geometric-Probability"
+"Probability-Statistics.Probability-Basics.Independence-of-Random-Variables":
+  label: "Probability-Statistics.Probability-Basics.Independence-of-Random-Variables"
+  permalink: "/topic/probability-statistics/probability-basics/independence-of-random-variables"
+  description: "Probability-Statistics / Probability-Basics / Independence-of-Random-Variables"
 "Probability-Statistics.Probability-Basics.Joint-Density-on-Triangular-Support":
   label: "Probability-Statistics.Probability-Basics.Joint-Density-on-Triangular-Support"
   permalink: "/topic/probability-statistics/probability-basics/joint-density-on-triangular-support"

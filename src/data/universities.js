@@ -1,7 +1,7 @@
 // ============================================================
 // 此文件由 scripts/generate-universities.js 自动生成
 // 请勿手动编辑！如需更新请运行：npm run generate:universities
-// 生成时间：2026-06-21T10:36:10.766Z
+// 生成时间：2026-07-28T17:32:44.272Z
 // ============================================================
 
 /**
@@ -110,6 +110,10 @@ export const universities = [
           {
             "id": "otpe",
             "name": "海洋技術環境学専攻"
+          },
+          {
+            "id": "hes",
+            "name": "人間環境学専攻"
           }
         ],
         "websiteUrl": "https://www.k.u-tokyo.ac.jp/exam/info/"
@@ -911,6 +915,24 @@ export const universities = [
     ]
   },
   {
+    "id": "hosei-university",
+    "name": "法政大学",
+    "color": "#f28c28",
+    "departments": [
+      {
+        "id": "science_and_engineering",
+        "name": "理工学研究科",
+        "programs": [
+          {
+            "id": "systems_engineering/management_systems",
+            "name": "経営システム系"
+          }
+        ],
+        "websiteUrl": "https://www.hosei.ac.jp/gs/riko/"
+      }
+    ]
+  },
+  {
     "id": "kanazawa-university",
     "name": "金沢大学",
     "color": "#7b6b8d",
@@ -925,6 +947,42 @@ export const universities = [
           }
         ],
         "websiteUrl": "https://www.kanazawa-u.ac.jp/education/admission/graduate"
+      }
+    ]
+  },
+  {
+    "id": "saitama-university",
+    "name": "埼玉大学",
+    "color": "#0068b7",
+    "departments": [
+      {
+        "id": "science_and_engineering",
+        "name": "理工学研究科",
+        "programs": [
+          {
+            "id": "mathematics_electronics_information/information_systems_engineering",
+            "name": "情報システム工学コース"
+          }
+        ],
+        "websiteUrl": "https://www.saitama-u.ac.jp/rikogaku/admission/"
+      }
+    ]
+  },
+  {
+    "id": "meiji-university",
+    "name": "明治大学",
+    "color": "#8b1e3f",
+    "departments": [
+      {
+        "id": "advanced_mathematical_sciences",
+        "name": "先端数理科学研究科",
+        "programs": [
+          {
+            "id": "mathematical_sciences",
+            "name": "現象数理学専攻"
+          }
+        ],
+        "websiteUrl": "https://www.meiji.ac.jp/ams/exam/"
       }
     ]
   }
@@ -950,5 +1008,8 @@ export const UNIV_MAP = {
   "UEC": "電気通信大学",
   "hiroshima-university": "広島大学",
   "TUAT": "東京農工大学",
+  "hosei-university": "法政大学",
   "kanazawa-university": "金沢大学",
+  "saitama-university": "埼玉大学",
+  "meiji-university": "明治大学",
 };

@@ -356,6 +356,9 @@
     "Operations-Research.Linear-Programming.Production-Planning": {
       "subsubject": "Operations-Research.Linear-Programming"
     },
+    "Operations-Research.Linear-Programming.Linear-Programming-Problem": {
+      "subsubject": "Operations-Research.Linear-Programming"
+    },
     "Operations-Research.Linear-Programming.Linear-Programming-Duality": {
       "subsubject": "Operations-Research.Linear-Programming"
     },

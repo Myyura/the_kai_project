@@ -270,6 +270,9 @@
     "Mathematics.Calculus.Definite-Integral": {
       "subsubject": "Mathematics.Calculus"
     },
+    "Mathematics.Calculus.Integration": {
+      "subsubject": "Mathematics.Calculus"
+    },
     "Mathematics.Calculus.Differentiation": {
       "subsubject": "Mathematics.Calculus"
     },
@@ -343,6 +346,9 @@
       "subsubject": "Mathematics.Calculus"
     },
     "Mathematics.Calculus.Local-Extrema": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Extrema": {
       "subsubject": "Mathematics.Calculus"
     },
     "Mathematics.Calculus.Partial-Fraction-Integration": {
@@ -691,10 +697,16 @@
         "Electrical-Electronic"
       ]
     },
+    "Mathematics.Linear-Algebra.Matrix-Operations": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
     "Mathematics.Linear-Algebra.Determinant-of-Matrix-Exponential": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.Characteristic-Polynomial-Coefficients-from-Eigenvalues": {
+      "subsubject": "Mathematics.Linear-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Characteristic-Polynomial": {
       "subsubject": "Mathematics.Linear-Algebra"
     },
     "Mathematics.Linear-Algebra.PageRank-Teleportation-Fixed-Point-and-Contraction": {
@@ -998,6 +1010,9 @@
     "Mathematics.Topology.Hausdorff-Space": {
       "subsubject": "Mathematics.Topology"
     },
+    "Mathematics.Topology.Metric-Space": {
+      "subsubject": "Mathematics.Topology"
+    },
     "Mathematics.Topology.Locally-Constant-Functions-on-Connected-Spaces": {
       "subsubject": "Mathematics.Topology"
     },
@@ -1065,6 +1080,9 @@
       ]
     },
     "Mathematics.Differential-Equations.Initial-Value-Problem": {
+      "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Differential-Equations.Boundary-Value-Problem": {
       "subsubject": "Mathematics.Differential-Equations"
     },
     "Mathematics.Differential-Equations.Dirichlet-Heat-Equation-by-Fourier-Sine-Series": {

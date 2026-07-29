@@ -15,7 +15,10 @@
     "UEC": "#3a6ea5",
     "hiroshima-university": "#c0626f",
     "TUAT": "#5b8c5a",
-    "kanazawa-university": "#7b6b8d"
+    "kanazawa-university": "#7b6b8d",
+    "hosei-university": "#f28c28",
+    "saitama-university": "#0068b7",
+    "meiji-university": "#8b1e3f"
   },
   "websiteUrls": {
     "tokyo-university/science": "https://www.s.u-tokyo.ac.jp/ja/admission/master/index.html",
@@ -68,6 +71,9 @@
     "UEC/informatics_and_engineering": "https://www.uec.ac.jp/education/graduate/admission/request.html",
     "hiroshima-university/ASE": "https://www.hiroshima-u.ac.jp/adse/admission",
     "TUAT/engineering": "https://www.tuat.ac.jp/admission/nyushi_daigakuin/",
-    "kanazawa-university/nst": "https://www.kanazawa-u.ac.jp/education/admission/graduate"
+    "kanazawa-university/nst": "https://www.kanazawa-u.ac.jp/education/admission/graduate",
+    "hosei-university/science_and_engineering": "https://www.hosei.ac.jp/gs/riko/",
+    "saitama-university/science_and_engineering": "https://www.saitama-u.ac.jp/rikogaku/admission/",
+    "meiji-university/advanced_mathematical_sciences": "https://www.meiji.ac.jp/ams/exam/"
   }
 }
