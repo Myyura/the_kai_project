@@ -3,12 +3,14 @@ import Link from '@docusaurus/Link';
 import {
   FaArrowRight,
   FaComments,
+  FaExternalLinkAlt,
   FaPaperPlane,
   FaSearch,
 } from 'react-icons/fa';
 import ContentBrowseModes from '@site/src/components/ContentBrowseModes';
 import {universities} from '@site/src/data/universities';
 import {useUiText} from '@site/src/i18n/useUiText';
+import {getUniversityCatalogTarget} from '@site/src/services/documentMetadata';
 import styles from './intro.module.css';
 
 const IMPERIAL_UNIVERSITIES = new Set([
@@ -33,10 +35,9 @@ function getUniversityGroup(id) {
 }
 
 function SchoolCard({university, groupLabel}) {
-  return (
-    <Link
-      to={`/docs/category/${university.id}`}
-      className={styles.schoolCard}>
+  const target = getUniversityCatalogTarget(university);
+  const content = (
+    <>
       <span
         className={styles.schoolColor}
         style={{backgroundColor: university.color}}
@@ -44,8 +45,38 @@ function SchoolCard({university, groupLabel}) {
       />
       <span className={styles.schoolTag}>{groupLabel}</span>
       <span className={styles.schoolName}>{university.name}</span>
-      <FaArrowRight className={styles.schoolArrow} aria-hidden="true" />
-    </Link>
+      {target?.kind === 'external'
+        ? <FaExternalLinkAlt className={styles.schoolArrow} aria-hidden="true" />
+        : target?.kind === 'docs'
+          ? <FaArrowRight className={styles.schoolArrow} aria-hidden="true" />
+          : null}
+    </>
+  );
+
+  if (target?.kind === 'docs') {
+    return (
+      <Link to={target.href} className={styles.schoolCard}>
+        {content}
+      </Link>
+    );
+  }
+  if (target?.kind === 'external') {
+    return (
+      <a
+        href={target.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.schoolCard}>
+        {content}
+      </a>
+    );
+  }
+  return (
+    <div
+      className={`${styles.schoolCard} ${styles.schoolCardUnavailable}`}
+      aria-disabled="true">
+      {content}
+    </div>
   );
 }
 

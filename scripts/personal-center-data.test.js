@@ -41,7 +41,12 @@ const repoRoot = path.resolve(__dirname, '..');
 const documentTitles = require('../src/data/documentTitles.json');
 const tagTaxonomy = require('../src/data/tagTaxonomy');
 const {buildPermalink} = require('./generate-docusaurus-tags');
-const {getDocumentTitle, resolveDocumentMetadata} = loadSourceModule(
+const {
+  getDocumentTitle,
+  getUniversityCatalogTarget,
+  hasPublishedDocumentsForUniversity,
+  resolveDocumentMetadata,
+} = loadSourceModule(
   path.join(repoRoot, 'src/services/documentMetadata.js')
 );
 const {buildPersonalCenterData, getLearningTagPermalink} = loadSourceModule(
@@ -61,6 +66,35 @@ test('canonical metadata replaces a stored file-path title', () => {
   assert.equal(metadata.permalink, `/docs/${docId}`);
   assert.notEqual(metadata.university, docId.split('/')[0]);
   assert.equal(getDocumentTitle('unknown/doc', 'Imported title'), 'Imported title');
+});
+
+test('university catalog targets avoid unpublished Docusaurus categories', () => {
+  const [docId] = Object.entries(documentTitles)
+    .find(([id]) => id.split('/')[0].endsWith('-university'));
+  const universityId = docId.split('/')[0];
+
+  assert.equal(hasPublishedDocumentsForUniversity(universityId), true);
+  assert.deepEqual(
+    getUniversityCatalogTarget({
+      id: universityId,
+      departments: [{websiteUrl: 'https://example.com/admissions'}],
+    }),
+    {kind: 'docs', href: `/docs/category/${universityId}`},
+  );
+  assert.deepEqual(
+    getUniversityCatalogTarget({
+      id: 'metadata-only-university',
+      departments: [{websiteUrl: 'https://example.com/admissions'}],
+    }),
+    {kind: 'external', href: 'https://example.com/admissions'},
+  );
+  assert.equal(
+    getUniversityCatalogTarget({
+      id: 'metadata-only-university',
+      departments: [],
+    }),
+    null,
+  );
 });
 
 test('notes and progress share one document identity and both count as activity', () => {

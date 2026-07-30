@@ -110,6 +110,17 @@
   outline-offset: 2px;
 }
 
+.schoolCardUnavailable {
+  cursor: default;
+  opacity: .68;
+}
+
+.schoolCardUnavailable:hover {
+  border-color: var(--ifm-color-emphasis-200);
+  box-shadow: none;
+  transform: none;
+}
+
 .schoolColor {
   position: absolute;
   inset: 0 auto 0 0;
