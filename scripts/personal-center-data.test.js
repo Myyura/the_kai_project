@@ -49,7 +49,8 @@ const {buildPersonalCenterData, getLearningTagPermalink} = loadSourceModule(
 );
 
 test('canonical metadata replaces a stored file-path title', () => {
-  const [docId, title] = Object.entries(documentTitles)[0];
+  const [docId, title] = Object.entries(documentTitles)
+    .find(([id]) => id.split('/')[0].endsWith('-university'));
   const metadata = resolveDocumentMetadata(docId, {
     title: docId,
     permalink: `/legacy/${docId}`,

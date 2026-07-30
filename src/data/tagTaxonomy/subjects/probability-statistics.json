@@ -229,6 +229,9 @@
     "Probability-Statistics.Probability-Basics.Marginal-Densities-and-Independence-Test": {
       "subsubject": "Probability-Statistics.Probability-Basics"
     },
+    "Probability-Statistics.Probability-Basics.Independence-of-Random-Variables": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
+    },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Levy-Distribution-from-Inverse-Chi-Square": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
@@ -333,6 +336,9 @@
       "relatedSubjects": [
         "Mathematics"
       ]
+    },
+    "Probability-Statistics.Probability-Basics.Covariance": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
     },
     "Probability-Statistics.Probability-Basics.Proportion-and-Base-Rate": {
       "subsubject": "Probability-Statistics.Probability-Basics"

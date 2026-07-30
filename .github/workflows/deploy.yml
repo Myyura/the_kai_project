@@ -40,45 +40,26 @@ jobs:
         run: yarn api:validate
       - name: 运行自动化测试
         run: yarn test
-      - name: 配置构建交换空间
-        shell: bash
+      - name: 记录构建资源
         run: |
-          set -euo pipefail
-
-          target_swap_bytes=$((8 * 1024 * 1024 * 1024))
-          existing_swap_bytes=$(sudo swapon --show=SIZE --bytes --noheadings \
-            | awk '{total += $1} END {print total + 0}')
-
-          if [ "$existing_swap_bytes" -ge "$target_swap_bytes" ]; then
-            echo "Existing swap is already at least 8 GiB; reusing it."
-          else
-            extra_swap_bytes=$((target_swap_bytes - existing_swap_bytes))
-            extra_swap_file=/kai-build.swap
-
-            echo "Existing swap: $existing_swap_bytes bytes"
-            echo "Adding swap: $extra_swap_bytes bytes at $extra_swap_file"
-            sudo fallocate -l "$extra_swap_bytes" "$extra_swap_file"
-            sudo chmod 600 "$extra_swap_file"
-            sudo mkswap "$extra_swap_file"
-            sudo swapon "$extra_swap_file"
-          fi
-
-          sudo swapon --show
           free -h
+          df -h /
+          du -sh node_modules
       - name: 构建网站
         run: /usr/bin/time -v yarn build
         env:
           DOCUSAURUS_PERF_LOGGER: 'true'
           # Build the server and client bundles sequentially, then keep SSG
-          # concurrency bounded. This trades build time for a lower peak RSS.
+          # single-threaded. This keeps the build inside the 8 GiB RAM and
+          # 14 GiB disk available to private-repository standard Linux runners.
           DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true'
           DOCUSAURUS_NO_PERSISTENT_CACHE: 'true'
           DISABLE_RSPACK_INCREMENTAL: 'true'
-          DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2'
-          DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000'
+          DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '1'
+          DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '250000000'
           RAYON_NUM_THREADS: '1'
           RSPACK_BLOCKING_THREADS: '1'
-          NODE_OPTIONS: '--max-old-space-size=4096'
+          NODE_OPTIONS: '--max-old-space-size=3072'
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
