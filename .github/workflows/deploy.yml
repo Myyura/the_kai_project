@@ -59,7 +59,7 @@ jobs:
           DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '250000000'
           RAYON_NUM_THREADS: '1'
           RSPACK_BLOCKING_THREADS: '1'
-          NODE_OPTIONS: '--max-old-space-size=3072'
+          NODE_OPTIONS: '--max-old-space-size=4096'
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
