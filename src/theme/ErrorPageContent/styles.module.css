@@ -1,0 +1,45 @@
+.page {
+  display: grid;
+  min-height: clamp(28rem, 68vh, 44rem);
+  place-items: center;
+  padding: clamp(2rem, 8vw, 5rem) 1rem;
+}
+
+.card {
+  width: min(100%, 38rem);
+  padding: clamp(1.75rem, 6vw, 3rem);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 24px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--kai-shadow-card);
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: var(--ifm-color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 9vw, 3.25rem) !important;
+  letter-spacing: -0.03em;
+}
+
+.description {
+  margin: 0 auto 1.75rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: clamp(1rem, 4vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.hint {
+  margin: 1rem 0 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.82rem;
+}

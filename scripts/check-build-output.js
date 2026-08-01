@@ -49,6 +49,7 @@ try {
 const mainBundle = files.find((filePath) => /\/assets\/js\/main\.[^/]+\.js$/.test(filePath));
 const searchIndex = files.find((filePath) => filePath.endsWith('/search-index.json'));
 const contentManifestPath = path.join(BUILD_DIR, 'api-content', 'v1', 'manifest.json');
+const homePagePath = path.join(BUILD_DIR, 'index.html');
 const contentExportPath = path.join(
   BUILD_DIR,
   'content-export',
@@ -73,6 +74,10 @@ const contentManifestBuffer = readRequiredFile(
   contentManifestPath,
   'Published document content manifest was not generated.',
 );
+const homePageHtml = readRequiredFile(
+  homePagePath,
+  'Homepage build output was not generated.',
+).toString('utf8');
 const contentExportBuffer = readRequiredFile(
   contentExportPath,
   'Kai content v1 export was not generated.',
@@ -117,6 +122,9 @@ if (unsupportedMediaRangeFiles.length > 0) {
     'Build output contains media-query range syntax that breaks responsive layouts in older Safari: '
     + unsupportedMediaRangeFiles.join(', '),
   );
+}
+if (!homePageHtml.includes('data-kai-chunk-recovery')) {
+  throw new Error('Homepage is missing the stale-chunk recovery bootstrap.');
 }
 if (contentExport.format !== 'kai-content' || contentExport.schemaVersion !== 1) {
   throw new Error('Unexpected Kai content export format or schema version.');

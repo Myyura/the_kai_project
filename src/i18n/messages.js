@@ -516,6 +516,10 @@ export const UI_MESSAGES = {
       colorModeLight: '浅色模式',
       colorModeDark: '深色模式',
       colorModeToggle: (mode) => `切换显示模式（当前为${mode}）`,
+      updateTitle: '页面刚刚更新',
+      updateDescription: '检测到浏览器仍在使用旧版页面，正在为你载入最新版本。',
+      updateAction: '重新载入',
+      updateHint: '如果页面没有自动恢复，请点击按钮。',
     },
     ja: {
       tagsTitle: 'タグ',
@@ -542,6 +546,10 @@ export const UI_MESSAGES = {
       colorModeLight: 'ライトモード',
       colorModeDark: 'ダークモード',
       colorModeToggle: (mode) => `表示モードを切り替える（現在：${mode}）`,
+      updateTitle: 'ページが更新されました',
+      updateDescription: 'ブラウザに古いページが残っています。最新版を読み込み直しています。',
+      updateAction: '再読み込み',
+      updateHint: '自動的に復旧しない場合は、ボタンを押してください。',
     },
     en: {
       tagsTitle: 'Tags',
@@ -568,6 +576,10 @@ export const UI_MESSAGES = {
       colorModeLight: 'light mode',
       colorModeDark: 'dark mode',
       colorModeToggle: (mode) => `Switch display mode (currently ${mode})`,
+      updateTitle: 'The page was updated',
+      updateDescription: 'Your browser still has an older page. We are loading the latest version now.',
+      updateAction: 'Reload now',
+      updateHint: 'If the page does not recover automatically, use the button.',
     },
   },
 

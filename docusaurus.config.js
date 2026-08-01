@@ -5,6 +5,7 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import {readFileSync} from 'node:fs';
 import remarkMath from 'remark-math';
 import rehypeKatexWithMhchem from './src/markdown/rehypeKatexWithMhchem.js';
 import rehypeAnnotationSourceLines from './src/markdown/rehypeAnnotationSourceLines.js';
@@ -13,6 +14,10 @@ import rehypeStudySections from './src/markdown/rehypeStudySections.js';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const sequentialBundles = process.env.DOCUSAURUS_SEQUENTIAL_BUNDLES === 'true';
+const chunkRecoveryBootstrap = readFileSync(
+  new URL('./src/clientModules/chunkRecoveryBootstrap.js', import.meta.url),
+  'utf8',
+);
 
 function getYearCategoryLabel(item) {
   if (item.type !== 'category') {
@@ -138,6 +143,11 @@ const config = {
   ],
 
   headTags: [
+    {
+      tagName: 'script',
+      attributes: {'data-kai-chunk-recovery': 'v1'},
+      innerHTML: chunkRecoveryBootstrap,
+    },
     // KaTeX CSS is loaded from jsDelivr for documentation pages and reused by NoteEditor.
     { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: 'anonymous' } },
   ],
