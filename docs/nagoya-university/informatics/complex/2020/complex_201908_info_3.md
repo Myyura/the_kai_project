@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2021年8月実施 情3"
+sidebar_label: "2019年8月実施 情3"
 tags:
   - Nagoya-University
   - Computer-Science.Data-Structures.Binary-Heap
@@ -7,7 +7,7 @@ tags:
   - Computer-Science.Algorithm-Design.Heap-Sort
   - Computer-Science.Algorithm-Design.Algorithm-Complexity
 ---
-# 名古屋大学 情報学研究科 複雑系科学専攻 2021年8月実施 情3
+# 名古屋大学 情報学研究科 複雑系科学専攻 2019年8月実施 情3
 
 ## **Author**
 祭音Myyura
