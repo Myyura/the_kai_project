@@ -92,6 +92,7 @@
 /* 导航栏防换行 - 中等宽度视口缩小间距 */
 .navbar__inner {
   flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .navbar__logo img {
@@ -202,6 +203,16 @@ a.button,
 
 /* 移动端隐藏顶栏登录按钮（已在侧边菜单中显示） */
 @media (max-width: 996px) {
+  .navbar__brand {
+    min-width: 0;
+    max-width: calc(100% - 4rem);
+  }
+
+  .navbar__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .navbar__items--right .navbar__link--login {
     display: none;
   }

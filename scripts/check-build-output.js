@@ -90,6 +90,11 @@ const totalBuildBytes = files.reduce(
   (total, filePath) => total + fs.statSync(filePath).size,
   0,
 );
+const unsupportedMediaRangeFiles = files.filter((filePath) => {
+  if (!filePath.endsWith('.css')) return false;
+  const css = fs.readFileSync(filePath, 'utf8');
+  return /@media[^{}]*\((?:width|height)\s*[<>]=?/.test(css);
+});
 const contentExportGzip = contentExportBuffer.length;
 let contentExport;
 try {
@@ -106,6 +111,12 @@ if (publishedContentBytes > PUBLISHED_CONTENT_BUDGET) {
 }
 if (totalBuildBytes > TOTAL_BUILD_BUDGET) {
   throw new Error(`Total build output ${formatMiB(totalBuildBytes)} exceeds ${formatMiB(TOTAL_BUILD_BUDGET)}.`);
+}
+if (unsupportedMediaRangeFiles.length > 0) {
+  throw new Error(
+    'Build output contains media-query range syntax that breaks responsive layouts in older Safari: '
+    + unsupportedMediaRangeFiles.join(', '),
+  );
 }
 if (contentExport.format !== 'kai-content' || contentExport.schemaVersion !== 1) {
   throw new Error('Unexpected Kai content export format or schema version.');
