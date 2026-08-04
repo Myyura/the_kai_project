@@ -14,7 +14,7 @@ Casablanca
 ## **Description**
 ### 日本語版
 $\boldsymbol{A}$ を $n \times n$ の正定値対称行列とする。
-さらに、関数 $f: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$, $g: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$, $h: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ を以下のように定義する。
+さらに、関数 $f: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ , $g: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ , $h: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ を以下のように定義する。
 
 $$
 \begin{aligned}
@@ -24,7 +24,7 @@ h(\boldsymbol{x}, \boldsymbol{y}) &= \boldsymbol{x}^{\top} \boldsymbol{x} + \bol
 \end{aligned}
 $$
 
-ただし、$\top$ は転置記号である。
+ただし、 $\top$ は転置記号である。
 
 $\boldsymbol{z} \in \mathbb{R}^n$ をパラメータにもつ次の非線形計画問題を考える。
 
@@ -49,15 +49,15 @@ $$
 \end{aligned}
 $$
 
-ただし、$\text{P1}(\boldsymbol{z})$ と $\text{P2}(\boldsymbol{z})$ の決定変数は $\boldsymbol{x} \in \mathbb{R}^n$ であり、$\text{P3}(\boldsymbol{z})$ の決定変数は $(\boldsymbol{x}, \boldsymbol{y}) \in \mathbb{R}^n \times \mathbb{R}^n$ である。
+ただし、 $\text{P1}(\boldsymbol{z})$ と $\text{P2}(\boldsymbol{z})$ の決定変数は $\boldsymbol{x} \in \mathbb{R}^n$ であり、 $\text{P3}(\boldsymbol{z})$ の決定変数は $(\boldsymbol{x}, \boldsymbol{y}) \in \mathbb{R}^n \times \mathbb{R}^n$ である。
 
-任意のパラメータ $\boldsymbol{z} \in \mathbb{R}^n$ に対して $\text{P1}(\boldsymbol{z})$, $\text{P2}(\boldsymbol{z})$, $\text{P3}(\boldsymbol{z})$ は唯一の最適解をもつ。
-$\text{P1}(\boldsymbol{z})$, $\text{P2}(\boldsymbol{z})$, $\text{P3}(\boldsymbol{z})$ の最適解をそれぞれ $\boldsymbol{x}^1(\boldsymbol{z})$, $\boldsymbol{x}^2(\boldsymbol{z})$, $(\boldsymbol{x}^3(\boldsymbol{z}), \boldsymbol{y}^3(\boldsymbol{z}))$ とする。
+任意のパラメータ $\boldsymbol{z} \in \mathbb{R}^n$ に対して $\text{P1}(\boldsymbol{z})$ , $\text{P2}(\boldsymbol{z})$ , $\text{P3}(\boldsymbol{z})$ は唯一の最適解をもつ。
+$\text{P1}(\boldsymbol{z})$ , $\text{P2}(\boldsymbol{z})$ , $\text{P3}(\boldsymbol{z})$ の最適解をそれぞれ $\boldsymbol{x}^1(\boldsymbol{z})$ , $\boldsymbol{x}^2(\boldsymbol{z})$ , $(\boldsymbol{x}^3(\boldsymbol{z}), \boldsymbol{y}^3(\boldsymbol{z}))$ とする。
 
 以下の問いに答えよ。
 
 (i) $\boldsymbol{z}^\top \boldsymbol{A}^{\top} \boldsymbol{A} \boldsymbol{z} \leqq 4$ とする。
-カルーシュ・キューン・タッカー (Karush-Kuhn-Tucker) 条件を用いて $\text{P1}(\boldsymbol{z})$ の最適解 $\boldsymbol{x}^1(\boldsymbol{z})$ を求めよ。($\text{P1}(\boldsymbol{z})$ が最大化問題であることに注意すること。)
+カルーシュ・キューン・タッカー (Karush-Kuhn-Tucker) 条件を用いて $\text{P1}(\boldsymbol{z})$ の最適解 $\boldsymbol{x}^1(\boldsymbol{z})$ を求めよ。( $\text{P1}(\boldsymbol{z})$ が最大化問題であることに注意すること。)
 
 (ii) カルーシュ・キューン・タッカー条件を用いて $\text{P3}(\boldsymbol{z})$ の最適解 $(\boldsymbol{x}^3(\boldsymbol{z}), \boldsymbol{y}^3(\boldsymbol{z}))$ を求めよ。
 
@@ -71,7 +71,7 @@ $\text{P1}(\boldsymbol{z})$, $\text{P2}(\boldsymbol{z})$, $\text{P3}(\boldsymbol
 
 ### 题目描述
 
-设 $\boldsymbol A$ 是 $n\times n$ 正定对称矩阵，并定义
+设 $\boldsymbol A$ 是 $n\times n$ 正定对称矩阵。定义
 
 $$
 \begin{aligned}
@@ -87,38 +87,60 @@ h(\boldsymbol x,\boldsymbol y)
 \end{aligned}
 $$
 
-其中 $\top$ 表示转置。对参数 $\boldsymbol z\in\mathbb R^n$ 考虑：
+其中上标 $\top$ 表示转置。对参数 $\boldsymbol z\in\mathbb R^n$，考虑三个优化问题：
 
 $$
 \begin{aligned}
-\mathrm{P1}(\boldsymbol z):\quad&
-\max_{\boldsymbol x}\ f(\boldsymbol x,\boldsymbol z)
-\quad\text{满足 }\boldsymbol x^\top\boldsymbol x\leqq1,\\
-\mathrm{P2}(\boldsymbol z):\quad&
-\min_{\boldsymbol x\in\mathbb R^n}\ g(\boldsymbol x,\boldsymbol z),\\
-\mathrm{P3}(\boldsymbol z):\quad&
-\min_{\boldsymbol x,\boldsymbol y}\ h(\boldsymbol x,\boldsymbol y)
-\quad\text{满足 }\boldsymbol x+\boldsymbol y=\boldsymbol z.
+\mathrm{P1}(\boldsymbol z):\quad
+\max_{\boldsymbol x\in\mathbb R^n}\quad
+&f(\boldsymbol x,\boldsymbol z)
+&&\text{s.t.}\quad \boldsymbol x^\top\boldsymbol x\leq1,\\
+\mathrm{P2}(\boldsymbol z):\quad
+\min_{\boldsymbol x\in\mathbb R^n}\quad
+&g(\boldsymbol x,\boldsymbol z),\\
+\mathrm{P3}(\boldsymbol z):\quad
+\min_{(\boldsymbol x,\boldsymbol y)\in\mathbb R^n\times\mathbb R^n}\quad
+&h(\boldsymbol x,\boldsymbol y)
+&&\text{s.t.}\quad \boldsymbol x+\boldsymbol y=\boldsymbol z.
 \end{aligned}
 $$
 
-假设三者对每个 $\boldsymbol z$ 都有唯一最优解，分别记为
-$\boldsymbol x^1(\boldsymbol z)$、$\boldsymbol x^2(\boldsymbol z)$ 和
-$(\boldsymbol x^3(\boldsymbol z),\boldsymbol y^3(\boldsymbol z))$。回答：
+已知对任意 $\boldsymbol z\in\mathbb R^n$，三个问题都各有唯一最优解，依次记为
+
+$$
+\boldsymbol x^1(\boldsymbol z),\qquad
+\boldsymbol x^2(\boldsymbol z),\qquad
+\bigl(\boldsymbol x^3(\boldsymbol z),\boldsymbol y^3(\boldsymbol z)\bigr).
+$$
+
+完成以下各问：
 
 1. 在
-   $\boldsymbol z^\top\boldsymbol A^\top\boldsymbol A\boldsymbol z\leqq4$
-   的条件下，利用 KKT 条件求 P1$(\boldsymbol z)$ 的最优解 $\boldsymbol x^1(\boldsymbol z)$；注意 P1 是最大化问题。
-2. 利用 KKT 条件求 P3$(\boldsymbol z)$ 的最优解。
-3. 对下列命题分别判定真伪；为真则证明，为假则给出反例：
-   1. $p(\boldsymbol z)=f(\boldsymbol x^1(\boldsymbol z),\boldsymbol z)$ 是凸函数；
-   2. $q(\boldsymbol z)=g(\boldsymbol x^2(\boldsymbol z),\boldsymbol z)$ 是凸函数；
-   3. $r(\boldsymbol z)=h(\boldsymbol x^3(\boldsymbol z),\boldsymbol y^3(\boldsymbol z))$ 是凸函数。
-
-#### 考点
-
-- **二次规划的 KKT 条件**：分别处理球约束最大化问题和线性等式约束最小化问题，求出参数化最优解。
-- **参数优化的值函数**：将最优解代回目标函数，判断三个最优值函数关于参数 $\boldsymbol z$ 的凸性，并以 Hessian、定义或反例论证。
+   $$
+   \boldsymbol z^\top\boldsymbol A^\top\boldsymbol A\boldsymbol z\leq4
+   $$
+   的条件下，利用 Karush–Kuhn–Tucker（KKT）条件求 $\mathrm{P1}(\boldsymbol z)$ 的最优解 $\boldsymbol x^1(\boldsymbol z)$；注意该问题是最大化问题。
+2. 利用 KKT 条件求 $\mathrm{P3}(\boldsymbol z)$ 的最优解
+   $$
+   \bigl(\boldsymbol x^3(\boldsymbol z),\boldsymbol y^3(\boldsymbol z)\bigr).
+   $$
+3. 分别判断下列命题的真伪；若为真则证明，若为假则给出反例：
+   1. 令
+      $$
+      p(\boldsymbol z)=f\bigl(\boldsymbol x^1(\boldsymbol z),\boldsymbol z\bigr),
+      $$
+      则 $p:\mathbb R^n\to\mathbb R$ 是凸函数。
+   2. 令
+      $$
+      q(\boldsymbol z)=g\bigl(\boldsymbol x^2(\boldsymbol z),\boldsymbol z\bigr),
+      $$
+      则 $q:\mathbb R^n\to\mathbb R$ 是凸函数。
+   3. 令
+      $$
+      r(\boldsymbol z)
+      =h\bigl(\boldsymbol x^3(\boldsymbol z),\boldsymbol y^3(\boldsymbol z)\bigr),
+      $$
+      则 $r:\mathbb R^n\to\mathbb R$ 是凸函数。
 
 ## **Kai**
 ### (i)
@@ -185,13 +207,13 @@ $x^* = y^* = \frac{1}{2} z , \mu = -\frac{1}{2} z$ satisfies KKT-conditions, and
 Let $n = 1$ , then easy to see that the function is not conves.
 
 #### (b)
-Easy to see $x_2(z) = -\frac{1}{2} A^\top z$. Then
+Easy to see $x_2(z) = -\frac{1}{2} A^\top z$ . Then
 
 $$
 g(x_2(z),z) = -\frac{1}{4} z^\top AA^\top z + z^\top z
 $$
 
-when $-\frac{1}{4} A^\top A + I \prec \boldsymbol{0}$, $q$ is not convex.
+when $-\frac{1}{4} A^\top A + I \prec \boldsymbol{0}$ , $q$ is not convex.
 
 #### $(c)$
-$h = \frac{1}{2} z^\top z$, obviously, it's convex
+$h = \frac{1}{2} z^\top z$ , obviously, it's convex

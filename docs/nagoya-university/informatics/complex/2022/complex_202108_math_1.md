@@ -12,79 +12,121 @@ tags:
 祭音Myyura
 
 ## **Description**
-以下の各問に答えよ。ただし，$i$は虚数単位とする。
+以下の各問に答えよ。ただし， $i$ は虚数単位とする。
 
-### \[1\] 
+###
+
+$$
+1
+$$
+
 $\omega = (-1 + \sqrt{3}i)/2$ とするとき，以下の行列のべき乗 $A^2, A^3, A^4$ を求めよ。
 
 $$
 A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & \omega & \omega^2 \\ 1 & \omega^2 & \omega \end{pmatrix}
 $$
 
-### \[2\]
+###
+
+$$
+2
+$$
+
 平面上の座標系 $(x,y)$ と $(x',y')$ の変換 $\vec{x} = A\vec{x}' + \vec{x}_0$ を考える。ただし，
 
 $$
 \vec{x} = \begin{pmatrix} x \\ y \end{pmatrix}, \quad A = \begin{pmatrix} -4 & 3 \\ 2 & 5 \end{pmatrix}, \quad \vec{x}' = \begin{pmatrix} x' \\ y' \end{pmatrix}, \quad \vec{x}_0 = \begin{pmatrix} 2 \\ -1 \end{pmatrix}
 $$
 
-とする。このとき，$(x,y)$ 平面上の直線 $x + y + 1 = 0$ の，$(x',y')$ 平面上での式を求めよ。
+とする。このとき， $(x,y)$ 平面上の直線 $x + y + 1 = 0$ の， $(x',y')$ 平面上での式を求めよ。
 
-### \[3\]
+###
+
+$$
+3
+$$
+
 $A$ を直交行列とする。
 
-1) 任意の実ベクトル $\vec{a}, \vec{b}$ に対して，$A$ による直交変換が内積 $\vec{a} \cdot \vec{b}$ を不変に保つこと，すなわち $(A\vec{a}) \cdot (A\vec{b}) = \vec{a} \cdot \vec{b}$ であることを示せ。
+1) 任意の実ベクトル $\vec{a}, \vec{b}$ に対して， $A$ による直交変換が内積 $\vec{a} \cdot \vec{b}$ を不変に保つこと，すなわち $(A\vec{a}) \cdot (A\vec{b}) = \vec{a} \cdot \vec{b}$ であることを示せ。
 2) $A$ の固有値の絶対値が1であることを示せ。
-3) 以下 $A$ は $2 \times 2$ 行列とする。$A$ の列ベクトル表示を $A = (\vec{a}_1, \vec{a}_2)$ とすると，$\vec{a}_1$ および $\vec{a}_2$ のユークリッドノルムが1になること，および $\vec{a}_1$ と $\vec{a}_2$ が直交することを示せ。
-4) 3) の結果から $\vec{a}_1 = \begin{pmatrix} \cos\theta \\ \sin\theta \end{pmatrix} (0 \le \theta < 2\pi)$ と書けることを用いて，$\det A = 1$ の場合に $\vec{a}_2$ を求めよ。
-5) $\det A = -1$ の場合には，$A$ が
+3) 以下 $A$ は $2 \times 2$ 行列とする。 $A$ の列ベクトル表示を $A = (\vec{a}_1, \vec{a}_2)$ とすると， $\vec{a}_1$ および $\vec{a}_2$ のユークリッドノルムが1になること，および $\vec{a}_1$ と $\vec{a}_2$ が直交することを示せ。
+4) 3) の結果から $\vec{a}_1 = \begin{pmatrix} \cos\theta \\ \sin\theta \end{pmatrix} (0 \le \theta < 2\pi)$ と書けることを用いて， $\det A = 1$ の場合に $\vec{a}_2$ を求めよ。
+5) $\det A = -1$ の場合には， $A$ が
 
 $$
 A = \begin{pmatrix} \cos\theta & \sin\theta \\ \sin\theta & -\cos\theta \end{pmatrix}
 $$
 
-と表される。このとき，任意の2次元実ベクトル $\vec{v}$ に対して，$A\vec{v}$ は原点を通るある直線を対称軸として線対称の関係になる。その直線の式を示せ。
+と表される。このとき，任意の2次元実ベクトル $\vec{v}$ に対して， $A\vec{v}$ は原点を通るある直線を対称軸として線対称の関係になる。その直線の式を示せ。
 
 ### 题目描述
 
-以下 $i$ 为虚数单位。
+回答下列各题，其中 $i$ 为虚数单位。
 
-**[1]** 令 $\omega=(-1+\sqrt3i)/2$，对
+**[1]** 令 $\omega=(-1+\sqrt3i)/2$，矩阵
 
 $$
 A=\begin{pmatrix}
 1&1&1\\1&\omega&\omega^2\\1&\omega^2&\omega
-\end{pmatrix},
+\end{pmatrix}.
 $$
 
 求 $A^2,A^3,A^4$。
 
-**[2]** 坐标变换为 $\boldsymbol x=A\boldsymbol x'+\boldsymbol x_0$，其中
+**[2]** 平面坐标系 $(x,y)$ 与 $(x',y')$ 之间满足
 
 $$
-A=\begin{pmatrix}-4&3\\2&5\end{pmatrix},\qquad
-\boldsymbol x_0=(2,-1)^\top.
+\boldsymbol x=A\boldsymbol x'+\boldsymbol x_0,
+\qquad
+\boldsymbol x=\begin{pmatrix}x\\y\end{pmatrix},
+\quad
+A=\begin{pmatrix}-4&3\\2&5\end{pmatrix},
+\quad
+\boldsymbol x'=\begin{pmatrix}x'\\y'\end{pmatrix},
+\quad
+\boldsymbol x_0=\begin{pmatrix}2\\-1\end{pmatrix}.
 $$
 
-求原平面直线 $x+y+1=0$ 在 $(x',y')$ 平面的方程。
+求 $(x,y)$ 平面上的直线 $x+y+1=0$ 在 $(x',y')$ 平面中的方程。
 
-**[3]** 设 $A$ 为正交矩阵：证明内积在 $A$ 下不变；证明其特征值模长为 1；对二阶 $A=(\boldsymbol a_1,\boldsymbol a_2)$，证明两列为相互正交的单位向量；写 $\boldsymbol a_1=(\cos\theta,\sin\theta)^\top$，在 $\det A=1$ 时求 $\boldsymbol a_2$；在 $\det A=-1$ 且
+**[3]** 设 $A$ 为正交矩阵。
+
+1. 对任意实向量 $\boldsymbol a,\boldsymbol b$，证明正交变换保持内积，即
+
+   $$
+   (A\boldsymbol a)\mathbin{\cdot}(A\boldsymbol b)
+   =\boldsymbol a\mathbin{\cdot}\boldsymbol b;
+   $$
+
+2. 证明 $A$ 的每个特征值的绝对值均为 $1$；
+3. 以下设 $A$ 为 $2\times2$ 矩阵，并按列写成 $A=(\boldsymbol a_1,\boldsymbol a_2)$。证明 $\|\boldsymbol a_1\|=\|\boldsymbol a_2\|=1$ 且 $\boldsymbol a_1\perp\boldsymbol a_2$；
+4. 利用
+
+   $$
+   \boldsymbol a_1=\begin{pmatrix}\cos\theta\\\sin\theta\end{pmatrix},
+   \qquad0\le\theta<2\pi,
+   $$
+
+   在 $\det A=1$ 时求 $\boldsymbol a_2$；
+5. 当 $\det A=-1$ 时，$A$ 可写成
 
 $$
-A=\begin{pmatrix}\cos\theta&\sin\theta\\
+A=\begin{pmatrix}
+\cos\theta&\sin\theta\\
 \sin\theta&-\cos\theta\end{pmatrix}
-$$
+.
+   $$
 
-时，求该镜面反射变换的过原点对称轴方程。
-
-#### 考点
-
-- **复单位根与矩阵幂**：利用 $1+\omega+\omega^2=0$ 简化 Fourier 型矩阵乘积。
-- **仿射坐标变换**：把坐标变换代入原直线方程。
-- **正交矩阵与二维正交变换**：由 $A^\top A=I$ 推导内积、范数、谱性质，并按行列式区分旋转与反射。
+   此时对任意二维实向量 $\boldsymbol v$，$\boldsymbol v$ 与 $A\boldsymbol v$ 关于某条过原点的直线对称；求该直线的方程。
 
 ## **Kai**
-### \[1\]
+###
+
+$$
+1
+$$
+
 $\omega = (-1+\sqrt{3}i)/2$ より、
 
 - $(1,1): 1\cdot1 + 1\cdot1 + 1\cdot1 = 3$
@@ -120,7 +162,12 @@ $$
   \end{aligned}
 $$
 
-### \[2\]
+###
+
+$$
+2
+$$
+
 $x+y+1=0$ に
 
 $$
@@ -146,7 +193,12 @@ $$
 
 を得る。
 
-### \[3\]
+###
+
+$$
+3
+$$
+
 行列 $X$ やベクトル $\vec{x}$ の転置をそれぞれ $X^T, \vec{x}^T$ で表す。
 内積 $\vec{x} \cdot \vec{y}$ は $\vec{x}^T \vec{y}$ とも書ける。
 また、単位行列を $I$ で表す。
@@ -180,7 +232,7 @@ $$
 \|A\vec{v}\|^2 = \|\lambda\vec{v}\|^2 = |\lambda|^2 \|\vec{v}\|^2
 $$
 
-となるので、 $|\lambda|^2 \|\vec{v}\|^2 = \|\vec{v}\|^2$ がわかる。従って、$|\lambda| = 1$。
+となるので、 $|\lambda|^2 \|\vec{v}\|^2 = \|\vec{v}\|^2$ がわかる。従って、 $|\lambda| = 1$ 。
 
 #### 3)
 
@@ -200,7 +252,7 @@ $$
 $$
 
 - $\vec{a}_1^T \vec{a}_1 = 1 \implies \|\vec{a}_1\|^2 = 1 \implies \|\vec{a}_1\| = 1$
-- $\vec{a}_2^T \vec{a}_2 = 1 \implies \|\vec{a}_2\|^2 = 1 \implies \|\vec{a}_2\| = 1$ 
+- $\vec{a}_2^T \vec{a}_2 = 1 \implies \|\vec{a}_2\|^2 = 1 \implies \|\vec{a}_2\| = 1$
 - $\vec{a}_1^T \vec{a}_2 = 0 \implies \vec{a}_1 \cdot \vec{a}_2 = 0$
 
 #### 4)

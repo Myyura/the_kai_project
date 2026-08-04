@@ -76,12 +76,6 @@ $$
 3. 假设 $\boldsymbol A\bar{\boldsymbol x}\geqq\boldsymbol b$。证明对任意满足 $\boldsymbol A\boldsymbol z\leqq\boldsymbol b$ 的 $\boldsymbol z\in\mathbb R^n$，都有
    $f(\boldsymbol z)\geqq f(\bar{\boldsymbol x})$。
 
-#### 考点
-
-- **凸函数的一阶不等式**：由梯度方向导数的符号推出函数值的全局比较。
-- **线性规划对偶**：为梯度线性化后的约束问题构造对偶，并利用原、对偶最优性支持结论。
-- **凸优化一阶最优性**：把线性化子问题的最优方向与原凸函数在可行集合上的全局最优性联系起来。
-
 ## **Kai**
 ### (i)
 Since $\nabla f(\bar{x})^\top d \geqq 0$, from first order condition we have

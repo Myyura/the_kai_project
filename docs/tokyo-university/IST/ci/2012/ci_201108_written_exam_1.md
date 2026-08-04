@@ -111,11 +111,6 @@ F(j,k)=\text{只允许从 }G_1,\ldots,G_j\text{ 中选取且重量不超过 }k\t
 | 4 |  |  |  |  |  |  |  |  |  |  |
 | 5 |  |  |  |  |  |  |  |  |  |  |
 
-#### 考点
-
-- **0-1 背包的分支定界**：用分数背包松弛值作为子问题上界，结合当前可行解价值剪枝，并按指定变量和值顺序画出深度优先搜索树。
-- **0-1 背包动态规划**：以可用商品前缀和容量为状态，在“不选第 \(j\) 件”与“选择第 \(j\) 件”之间取最大值，填表并回溯商品组合。
-
 ### English
 Goods $G_1, G_2, \cdots, G_n$ have their weights $a_i$ and value $c_i$ ($i=1,\cdots,n$), respectively. The problem of packing the maximum total value of goods into a knapsack with a weight limit $b$ is called the knapsack problem, which can be generally formulated as
 

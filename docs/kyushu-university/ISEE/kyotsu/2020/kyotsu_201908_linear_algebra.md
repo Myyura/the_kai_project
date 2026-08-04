@@ -38,42 +38,48 @@ $$
 
 (3) $T$ のすべての固有値とそれぞれに対応する固有ベクトルを求めよ．
 
-(4) ベクトル $\begin{pmatrix} 3 \\1 \\3 \end{pmatrix}$を，前問で求めた固有ベクトルの線形結合として表せ．
+(4) ベクトル $\begin{pmatrix} 3 \\1 \\3 \end{pmatrix}$ を，前問で求めた固有ベクトルの線形結合として表せ．
 
 (5) $a_n$ を求めよ．
 
 ### 题目描述
 
-数列 $a_0,a_1,a_2,\ldots$ 由
+数列 $a_0,a_1,a_2,\ldots$ 的初值为
 
 $$
 a_0=3,\qquad a_1=1,\qquad a_2=3,
 $$
 
-以及递推关系
+并对 $n=3,4,5,\ldots$ 由递推关系
 
 $$
 a_n=a_{n-1}+a_{n-2}+2a_{n-3}
-\qquad(n=3,4,5,\ldots)
 $$
 
-定义。
+定义。回答下列问题：
 
 1. 求 $a_3,a_4,a_5$。
-2. 求使下式对所有 $n=0,1,2,\ldots$ 成立的矩阵 $T$：
-   $$
-   \begin{pmatrix}a_{n+1}\\a_{n+2}\\a_{n+3}\end{pmatrix}
-   =T\begin{pmatrix}a_n\\a_{n+1}\\a_{n+2}\end{pmatrix}.
-   $$
+2. 求一个矩阵 $T$，使下式对每个 $n=0,1,2,\ldots$ 都成立：
+
+$$
+\begin{pmatrix}
+a_{n+1}\\a_{n+2}\\a_{n+3}
+\end{pmatrix}
+=T
+\begin{pmatrix}
+a_n\\a_{n+1}\\a_{n+2}
+\end{pmatrix}.
+$$
+
 3. 求 $T$ 的全部特征值及各自对应的特征向量。
-4. 将向量 $(3,1,3)^\top$ 表示为上一问所得特征向量的线性组合。
-5. 求 $a_n$ 的显式表达式。
+4. 将列向量
 
-#### 考点
+   $$
+   \begin{pmatrix}3\\1\\3\end{pmatrix}
+   $$
 
-- **线性递推关系**：把三阶递推式写成状态向量的一阶矩阵递推，并计算初始若干项。
-- **特征值与特征向量**：求转移矩阵的特征分解，并把初始状态展开到特征向量基。
-- **矩阵法求通项**：利用特征分解计算 $T^n$ 对初始向量的作用，得到数列通项。
+   表示成第 3 问所得特征向量的线性组合。
+5. 求数列的通项 $a_n$。
 
 ## **Kai**
 ### (1)
@@ -82,7 +88,7 @@ $$
 \begin{aligned}
 a_3 &= a_2 + a_1 + 2a_0 = 3 + 1 + 2 \times 3 = 10\\
 a_4 &= a_3 + a_2 + 2a_1 = 10 + 3 + 2 \times 1 = 15\\
-a_5 &= a_4 + a_3 + 2a_2 = 15 + 10 + 2 \times 3 = 31 
+a_5 &= a_4 + a_3 + 2a_2 = 15 + 10 + 2 \times 3 = 31
 \end{aligned}
 $$
 
@@ -93,7 +99,7 @@ $$
 a_{n + 1}\\
 a_{n + 2}\\
 a_{n + 3}\\
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 a_{n + 1}\\
 a_{n + 2}\\
@@ -103,7 +109,7 @@ a_{n + 2} + a_{n + 1} + 2a_{n}\\
 a_n\\
 a_{n + 1}\\
 a_{n + 2}\\
-\end{bmatrix} \Rightarrow T = 
+\end{bmatrix} \Rightarrow T =
 \begin{bmatrix}
 0 & 1 & 0 \\
 0 & 0 & 1 \\
@@ -115,7 +121,7 @@ $$
 
 $$
 \begin{aligned}
-&\because |A| = |\lambda E - T| = 
+&\because |A| = |\lambda E - T| =
 \begin{vmatrix}
 \lambda & -1 & 0 \\
 0 & \lambda & -1 \\
@@ -125,7 +131,7 @@ $$
 \end{aligned}
 $$
 
-$\lambda_1 = 2$ のとき, $A_1x_1 = 0$ であり、$x_1 = \begin{bmatrix} \alpha_1\\ \alpha_2\\ \alpha_3\\ \end{bmatrix}$ とおくと,
+$\lambda_1 = 2$ のとき, $A_1x_1 = 0$ であり、 $x_1 = \begin{bmatrix} \alpha_1\\ \alpha_2\\ \alpha_3\\ \end{bmatrix}$ とおくと,
 
 $$
 \begin{bmatrix}
@@ -137,7 +143,7 @@ $$
 \alpha_1\\
 \alpha_2\\
 \alpha_3\\
-\end{bmatrix} = 0 \Rightarrow x_1 = 
+\end{bmatrix} = 0 \Rightarrow x_1 =
 \begin{bmatrix}
 1 \\
 2 \\
@@ -145,7 +151,7 @@ $$
 \end{bmatrix}
 $$
 
-$\lambda_2 = \frac{-1 + \sqrt{3}i}{2}$ のとき, $A_2x_2 = 0$ であり、$x_2 = \begin{bmatrix} \beta_1\\ \beta_2\\ \beta_3\\ \end{bmatrix}$ とおくと,
+$\lambda_2 = \frac{-1 + \sqrt{3}i}{2}$ のとき, $A_2x_2 = 0$ であり、 $x_2 = \begin{bmatrix} \beta_1\\ \beta_2\\ \beta_3\\ \end{bmatrix}$ とおくと,
 
 $$
 \begin{bmatrix}
@@ -165,7 +171,7 @@ $$
 \end{bmatrix}
 $$
 
-$\lambda_3 = \frac{-1 - \sqrt{3}i}{2}$ のとき, $A_3x_3 = 0$ であり、$x_3 = \begin{bmatrix} \gamma_1\\ \gamma_2\\ \gamma_3\\ \end{bmatrix}$ とおくと,
+$\lambda_3 = \frac{-1 - \sqrt{3}i}{2}$ のとき, $A_3x_3 = 0$ であり、 $x_3 = \begin{bmatrix} \gamma_1\\ \gamma_2\\ \gamma_3\\ \end{bmatrix}$ とおくと,
 
 $$
 \begin{bmatrix}
@@ -177,7 +183,7 @@ $$
 \gamma_1\\
 \gamma_2\\
 \gamma_3\\
-\end{bmatrix} = 0 \Rightarrow x_3 = 
+\end{bmatrix} = 0 \Rightarrow x_3 =
 \begin{bmatrix}
 1 \\
 \frac{-1 - \sqrt{3}i}{2}\\
@@ -192,12 +198,12 @@ $$
 3 \\
 1 \\
 3 \\
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 1 \\
 2 \\
 4 \\
-\end{bmatrix} + 
+\end{bmatrix} +
 \begin{bmatrix}
 1 \\
 \frac{-1 + \sqrt{3}i}{2} \\

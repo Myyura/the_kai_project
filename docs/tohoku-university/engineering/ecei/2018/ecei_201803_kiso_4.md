@@ -84,13 +84,6 @@ Answer the folowing questions. If necessary, the following facts (A) and (B) can
       $$m(G)+n(G)-\mu_2(G)$$
       个连通分量。
 
-#### 考点
-
-- **Euler 图判定**：通过复制奇偶子图中的边使所有顶点度数变偶。
-- **游走的边重数**：由 2-回路中被走两次的边构造奇偶子图。
-- **最小奇偶子图**：用删除闭路不改变各顶点度数奇偶性证明其为森林。
-- **森林的边数与分量数**：利用 $m=n-c$ 关联最短 2-回路长度和连通分量数。
-
 ## **Kai**
 ### (1)
 #### (a) From a parity subgraph to a 2-circuit and its length

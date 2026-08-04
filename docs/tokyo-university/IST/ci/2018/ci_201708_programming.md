@@ -174,13 +174,6 @@ Moreover, write the result of the computation in your answer sheet for $m=200$, 
 6. 在第 4 问的 LRU 缓存下，编写程序对给定 \(m,n,p,s\) 计算第 5 问分块乘法读取 \(A,B\) 元素的总次数。
 7. 在第 6 问中，从 \(m,n\) 的所有公因数里找出使读取总次数最小的 \(p\)；若有多个，取最大的 \(p\)。编写程序对给定 \(m,n,s\) 求它，并在答题纸写出 \(m=200,n=150,s=600\) 时的结果。
 
-#### 考点
-
-- **矩阵乘法的访存计数**：跟踪三重循环对 \(A,B\) 元素的访问顺序与次数。
-- **LRU 缓存模拟**：维护容量为 \(s\) 的最近使用次序，区分命中与需要主存读取的失效。
-- **分块矩阵乘法**：正确补全块边界变量，并利用块复用提高缓存局部性。
-- **参数搜索**：枚举 \(m,n\) 的公因数，模拟访存并按“最少读取、平局取最大 \(p\)”选优。
-
 ## **Kai**
 Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2018-Summer) for the sample data files.
 

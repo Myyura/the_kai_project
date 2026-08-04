@@ -40,12 +40,6 @@ $$
    $$
    求定容摩尔热容 $C_{V,\mathrm m}=(\partial U_{\mathrm m}/\partial T)_V$，并分别求 $kT\gg h\nu$ 与 $kT\ll h\nu$ 下的近似式。
 
-#### 考点
-
-- **Planck 黑体辐射定律**：在指数变量很大或很小时作渐近展开，分别得到短波 Wien 近似和长波 Rayleigh–Jeans 近似。
-- **Wien 位移定律**：联系谱峰波长与绝对温度，并据给定数据估算温度。
-- **Einstein 固体热容**：对量子振子内能关于温度求导，分析高温经典极限和低温指数抑制。
-
 ## **Kai**
 ### (1)
 $hc / (\lambda kT) \gg 1$ のとき

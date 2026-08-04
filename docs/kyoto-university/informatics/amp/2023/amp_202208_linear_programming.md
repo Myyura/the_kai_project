@@ -119,12 +119,6 @@ $\boldsymbol A\boldsymbol y=\boldsymbol b$ 且每个 $y_i>0$。回答：
       $\boldsymbol c^\top\tilde{\boldsymbol x}
       <\boldsymbol c^\top\boldsymbol y$。
 
-#### 考点
-
-- **线性规划对偶间隙**：利用严格可行原点与近似对偶解，把可行对偶目标夹在最优值附近。
-- **仿射尺度方向**：在椭球信赖域与零空间约束中投影目标梯度，验证给定 $\boldsymbol d^*$ 的可行性和最优性。
-- **内点可行步**：由缩放范数上界保证 $\boldsymbol y+\boldsymbol d^*$ 保持非负，并证明目标严格下降。
-
 ## **Kai**
 ### (i)
 Lagrangian:

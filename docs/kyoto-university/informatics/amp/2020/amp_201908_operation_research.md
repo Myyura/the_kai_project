@@ -16,7 +16,7 @@ Casablanca
 以下の問 (i)、(ii) に答えよ。
 
 (i) 次の非線形計画問題を考える。
- 
+
 $$
 \begin{aligned}
 \text{(P) } &\text{Maximize } \ \theta(\boldsymbol{x}) \\
@@ -24,14 +24,14 @@ $$
 \end{aligned}
 $$
 
-ただし、(P) の決定変数は $x \in \mathbb{R}^n$ であり、$\theta : \mathbb{R}^n \rightarrow \mathbb{R}$ と $X \subseteq \mathbb{R}^n$ は以下のように定義された目的関数と実行可能領域である。
+ただし、(P) の決定変数は $x \in \mathbb{R}^n$ であり、 $\theta : \mathbb{R}^n \rightarrow \mathbb{R}$ と $X \subseteq \mathbb{R}^n$ は以下のように定義された目的関数と実行可能領域である。
 
 $$
 \theta(\boldsymbol{x}) = \left( \prod_{i=1}^{n} x_i \right)^{\frac{1}{n}}, \quad X = \left\{ \boldsymbol{x} \in \mathbb{R}^n \middle| \sum_{i=1}^{n} x_i = 1, \, x_i \geqq 0 \ (i = 1, \ldots, n) \right\}
 $$
 
-問題 (P) は唯一の最適解 $\boldsymbol{x}^*$ を持ち、関数 $\theta$ は $\mathbb{R}_{+}^n$ 上で凹関数（すなわち、$-\theta$ は凸関数）であることが知られている。
-ただし、$\mathbb{R}_{+}^n = \{ \boldsymbol{x} \in \mathbb{R}^n \mid x_i > 0 \ (i = 1, \ldots, n) \}$ である。
+問題 (P) は唯一の最適解 $\boldsymbol{x}^*$ を持ち、関数 $\theta$ は $\mathbb{R}_{+}^n$ 上で凹関数（すなわち、 $-\theta$ は凸関数）であることが知られている。
+ただし、 $\mathbb{R}_{+}^n = \{ \boldsymbol{x} \in \mathbb{R}^n \mid x_i > 0 \ (i = 1, \ldots, n) \}$ である。
 
 以下の (a), (b), $(c)$ に答えよ。
 
@@ -45,52 +45,72 @@ $$
 \frac{1}{n} \sum_{i=1}^{n} \gamma_i \geqq \left( \prod_{i=1}^{n} \gamma_i \right)^{\frac{1}{n}}
 $$
 
-(ii) 正の整数 $n$ に対して、$\mathcal{F}_n$ を $\mathbb{R}^n$ から $\mathbb{R}$ への非負の凸関数の集合とする。以下の (A), (B) に答えよ。
+(ii) 正の整数 $n$ に対して、 $\mathcal{F}_n$ を $\mathbb{R}^n$ から $\mathbb{R}$ への非負の凸関数の集合とする。以下の (A), (B) に答えよ。
 
-(A) $f \in \mathcal{F}_n$ が与えられたとき、関数 $g_f : \mathbb{R}^n \rightarrow \mathbb{R}$ を $g_f(\boldsymbol{x}) = f(\boldsymbol{x})^2 \ (\boldsymbol{x} \in \mathbb{R}^n)$ と定義する。そのとき、任意の $f \in \bigcup_{n=1}^{\infty} \mathcal{F}_n$ に対して、$g_f$ が凸関数であることを示せ。
+(A) $f \in \mathcal{F}_n$ が与えられたとき、関数 $g_f : \mathbb{R}^n \rightarrow \mathbb{R}$ を $g_f(\boldsymbol{x}) = f(\boldsymbol{x})^2 \ (\boldsymbol{x} \in \mathbb{R}^n)$ と定義する。そのとき、任意の $f \in \bigcup_{n=1}^{\infty} \mathcal{F}_n$ に対して、 $g_f$ が凸関数であることを示せ。
 
 (B) 正の数 $\alpha \in \mathbb{R}$ と $f \in \mathcal{F}_n$ が与えられたとき、関数 $h_{f,\alpha} : \mathbb{R}^n \rightarrow \mathbb{R}$ を $h_{f,\alpha}(\boldsymbol{x}) = f(\boldsymbol{x})^{\alpha} \ (\boldsymbol{x} \in \mathbb{R}^n)$ と定義する。
-そのとき、すべての $\alpha \geqq \alpha^*$ と $f \in \bigcup_{n=1}^{\infty} \mathcal{F}_n$ に対して、$h_{f,\alpha}$ が凸関数であるような最小な $\alpha^* \in \mathbb{R}$ を求めよ。その際、$\alpha^*$ が最小であることを示せ。
-
+そのとき、すべての $\alpha \geqq \alpha^*$ と $f \in \bigcup_{n=1}^{\infty} \mathcal{F}_n$ に対して、 $h_{f,\alpha}$ が凸関数であるような最小な $\alpha^* \in \mathbb{R}$ を求めよ。その際、 $\alpha^*$ が最小であることを示せ。
 
 ### English Version
 
 ### 题目描述
 
-回答下列两大题。
+回答以下两大题。
 
-1. 考虑非线性规划
-   $$
-   \begin{aligned}
-   (\mathrm P):\quad&\text{最大化}\quad
-   \theta(\boldsymbol x)=\left(\prod_{i=1}^n x_i\right)^{1/n}\\
-   &\text{满足}\quad
-   \boldsymbol x\in X=
-   \left\{\boldsymbol x\in\mathbb R^n\ \middle|\
-   \sum_{i=1}^n x_i=1,\ x_i\geqq0\right\}.
-   \end{aligned}
-   $$
-   已知 P 有唯一最优解 $\boldsymbol x^*$，且 $\theta$ 在
-   $\mathbb R_+^n=\{\boldsymbol x\mid x_i>0,\ i=1,\ldots,n\}$ 上为凹函数。回答：
-   1. 写出 P 的 KKT 条件，注意 P 是最大化问题。
-   2. 求最优解 $\boldsymbol x^*$。
-   3. 对任意 $\gamma_i\geqq0$，利用 $\boldsymbol x^*$ 证明算术—几何平均不等式
-      $$
-      \frac1n\sum_{i=1}^n\gamma_i
-      \geqq\left(\prod_{i=1}^n\gamma_i\right)^{1/n}.
-      $$
-2. 对正整数 $n$，令 $\mathcal F_n$ 为从 $\mathbb R^n$ 到 $\mathbb R$ 的非负凸函数全体。
-   1. 对 $f\in\mathcal F_n$ 定义
-      $g_f(\boldsymbol x)=f(\boldsymbol x)^2$。证明对任意
-      $f\in\bigcup_{n=1}^\infty\mathcal F_n$，$g_f$ 均为凸函数。
-   2. 对 $\alpha>0$、$f\in\mathcal F_n$ 定义
-      $h_{f,\alpha}(\boldsymbol x)=f(\boldsymbol x)^\alpha$。求最小实数 $\alpha^*$，使对所有 $\alpha\geqq\alpha^*$ 及所有
-      $f\in\bigcup_{n=1}^\infty\mathcal F_n$，$h_{f,\alpha}$ 都是凸函数；并证明该 $\alpha^*$ 的确最小。
+1. 考虑以 $\boldsymbol{x}\in\mathbb{R}^n$ 为决策变量的非线性规划
 
-#### 考点
+$$
+\begin{aligned}
+(P):\quad
+&\text{最大化}\quad
+\theta(\boldsymbol{x})
+=\left(\prod_{i=1}^n x_i\right)^{1/n}\\
+&\text{约束于}\quad
+\boldsymbol{x}\in X
+=\left\{\boldsymbol{x}\in\mathbb{R}^n\ \middle|\
+\sum_{i=1}^n x_i=1,\quad
+x_i\geqq0\ (i=1,\ldots,n)\right\}.
+\end{aligned}
+$$
 
-- **KKT 条件与几何平均最大化**：在概率单纯形上求几何平均的唯一极值，并据缩放得到 AM–GM 不等式。
-- **凸函数的幂复合**：利用非负凸函数与单调凸幂函数的复合规则证明平方情形，并精确判定对所有此类函数保持凸性的幂指数阈值。
+已知 $(P)$ 有唯一最优解 $\boldsymbol{x}^*$，且
+$\theta$ 在
+
+$$
+\mathbb{R}_+^n
+=\left\{\boldsymbol{x}\in\mathbb{R}^n\mid
+x_i>0\ (i=1,\ldots,n)\right\}
+$$
+
+上为凹函数（等价地，$-\theta$ 为凸函数）。完成下列各问：
+
+   1. 写出 $(P)$ 的 KKT 条件；注意这是最大化问题。
+   2. 求 $(P)$ 的最优解 $\boldsymbol{x}^*$。
+   3. 给定 $\gamma_i\in\mathbb{R}$ 且
+      $\gamma_i\geqq0$（$i=1,\ldots,n$），利用上述
+      $\boldsymbol{x}^*$ 证明算术—几何平均不等式
+
+$$
+\frac1n\sum_{i=1}^n\gamma_i
+\geqq
+\left(\prod_{i=1}^n\gamma_i\right)^{1/n}.
+$$
+
+2. 对每个正整数 $n$，令 $\mathcal{F}_n$ 表示所有从
+   $\mathbb{R}^n$ 到 $\mathbb{R}$ 的非负凸函数所成的集合。
+
+   1. 对 $f\in\mathcal{F}_n$ 定义
+      $g_f:\mathbb{R}^n\to\mathbb{R}$ 为
+      $g_f(\boldsymbol{x})=f(\boldsymbol{x})^2$。证明对任意
+      $f\in\bigcup_{n=1}^{\infty}\mathcal{F}_n$，函数 $g_f$ 都是凸函数。
+   2. 给定正数 $\alpha$ 和 $f\in\mathcal{F}_n$，定义
+      $h_{f,\alpha}:\mathbb{R}^n\to\mathbb{R}$ 为
+      $h_{f,\alpha}(\boldsymbol{x})=f(\boldsymbol{x})^\alpha$。
+      求最小实数 $\alpha^*$，使得对每个
+      $\alpha\geqq\alpha^*$ 以及每个
+      $f\in\bigcup_{n=1}^{\infty}\mathcal{F}_n$，
+      $h_{f,\alpha}$ 都是凸函数；还须证明所求 $\alpha^*$ 确实最小。
 
 ## **Kai**
 ### (i)
@@ -120,7 +140,7 @@ $$
 $$
 
 #### (b)
-$x^*$, $\mu ^*$ satisfied KKT-conditions if $x^* = [\frac 1n, \frac 1n, \ldots , \frac 1n]^\top$, $\mu = -\frac 1n$
+$x^*$ , $\mu ^*$ satisfied KKT-conditions if $x^* = [\frac 1n, \frac 1n, \ldots , \frac 1n]^\top$ , $\mu = -\frac 1n$
 
 #### $(c)$
 
@@ -130,7 +150,7 @@ $$
 
 ### (ii)
 #### (A)
-For any $f \in \bigcup_{n=1}^{\infty} \mathcal{F}_n$, w.l.o.g, let $f : \mathbb{R}^k \rightarrow \mathbb{R}$ be an nonnegative function.
+For any $f \in \bigcup_{n=1}^{\infty} \mathcal{F}_n$ , w.l.o.g, let $f : \mathbb{R}^k \rightarrow \mathbb{R}$ be an nonnegative function.
 Then
 
 $$
@@ -141,10 +161,12 @@ $$
 g_f(\theta x_1 + (1-\theta)x_2) = f(\theta x_1 + (1-\theta)x_2) ^ 2 \leq (\theta f( x_1) + (1-\theta) f( x_2)) ^2
 $$
 
-and consider $\phi(\theta) =g_f(\theta x_1 + (1-\theta)x_2) - \theta g_f( x_1) - (1-\theta)g_f(x_2)$,
+and consider $\phi(\theta) =g_f(\theta x_1 + (1-\theta)x_2) - \theta g_f( x_1) - (1-\theta)g_f(x_2)$ ,
 by calculating $\Delta$ , easily we see:
 
-$$g_f(\theta x_1 + (1-\theta)x_2) \leq \theta g_f( x_1) + (1-\theta)g_f(x_2) $$
+$$
+g_f(\theta x_1 + (1-\theta)x_2) \leq \theta g_f( x_1) + (1-\theta)g_f(x_2)
+$$
 
 #### (B)
 
@@ -152,12 +174,20 @@ $$
 \alpha ^* = 1
 $$
 
-for $\alpha \geq 1$:
-$$\theta f(x_1)^{\alpha} + (1-\theta)f(x_2) ^{\alpha} \geq (\theta f(x_1) + (1-\theta)f(x_2))^{\alpha}$$
-since $\theta f(x_1) + (1-\theta)f(x_2) \geq f(\theta x_1 + (1-\theta)x_2)$, and $t^{\alpha}$ increases for $t>0$
-then
-$$(\theta f(x_1) + (1-\theta)f(x_2))^{\alpha} \geq (f(\theta x_1 + (1-\theta)x_2))^{\alpha } = h(\theta x_1 + (1-\theta)x_2)$$
-thus $h$ is convex for $\alpha \geq 1$.
+for $\alpha \geq 1$ :
 
-If $\alpha < 1$, let $f(x) = x_1^{\alpha}$, easy to see $h$ is not convex.
+$$
+\theta f(x_1)^{\alpha} + (1-\theta)f(x_2) ^{\alpha} \geq (\theta f(x_1) + (1-\theta)f(x_2))^{\alpha}
+$$
+
+since $\theta f(x_1) + (1-\theta)f(x_2) \geq f(\theta x_1 + (1-\theta)x_2)$ , and $t^{\alpha}$ increases for $t>0$
+then
+
+$$
+(\theta f(x_1) + (1-\theta)f(x_2))^{\alpha} \geq (f(\theta x_1 + (1-\theta)x_2))^{\alpha } = h(\theta x_1 + (1-\theta)x_2)
+$$
+
+thus $h$ is convex for $\alpha \geq 1$ .
+
+If $\alpha < 1$ , let $f(x) = x_1^{\alpha}$ , easy to see $h$ is not convex.
 hence $\alpha^* = 1$

@@ -12,42 +12,60 @@ tags:
 Zero
 
 ## **Description**
-$1$ 次独立な $n$ 次元ベクトルの組 $\{v_1,v_2,\dots,v_k\} \subseteq R^n$ が張る部分空間 $K$ に対し，写像 $f:K \rightarrow R^k$ を次のように定義する．任意の $x = \sum_{i = 1}^k \alpha_iv_i \in K$ に対し，$f(x) = \begin{pmatrix}\alpha_1 \\ \vdots \\ \alpha_k \\ \end{pmatrix}$.
+$1$ 次独立な $n$ 次元ベクトルの組 $\{v_1,v_2,\dots,v_k\} \subseteq R^n$ が張る部分空間 $K$ に対し，写像 $f:K \rightarrow R^k$ を次のように定義する．任意の $x = \sum_{i = 1}^k \alpha_iv_i \in K$ に対し， $f(x) = \begin{pmatrix}\alpha_1 \\ \vdots \\ \alpha_k \\ \end{pmatrix}$ .
 
 以下の各問に答えよ．
 
-(1) 任意の $x,y \in K$ に対し，$f(x + y) = f(x) + f(y)$ が成り立つことを示せ．
+(1) 任意の $x,y \in K$ に対し， $f(x + y) = f(x) + f(y)$ が成り立つことを示せ．
 
-(2) 任意の $x \in K$, 任意の実数 $c$ に対し，$f(cx) = cf(x)$ が成り立つことを示せ．
+(2) 任意の $x \in K$ , 任意の実数 $c$ に対し， $f(cx) = cf(x)$ が成り立つことを示せ．
 
-(3) $\{x_1,x_2,\dots,x_l\} \subseteq K$ が $1$ 次独立のとき，$\{f(x_1),f(x_2),\dots,f(x_l)\}$ も $1$ 次独立であることを示せ．
+(3) $\{x_1,x_2,\dots,x_l\} \subseteq K$ が $1$ 次独立のとき， $\{f(x_1),f(x_2),\dots,f(x_l)\}$ も $1$ 次独立であることを示せ．
 
 ### 题目描述
 
-设 $\{v_1,v_2,\ldots,v_k\}\subseteq\mathbb R^n$ 线性无关，令 $K$ 为它们张成的子空间。对任意
+设
+
+$$
+\{v_1,v_2,\ldots,v_k\}\subseteq\mathbb R^n
+$$
+
+是一组线性无关的 $n$ 维向量，令 $K$ 为它们张成的子空间。由于线性无关，每个 $x\in K$ 都能唯一写成
 
 $$
 x=\sum_{i=1}^k\alpha_iv_i\in K,
 $$
 
-定义坐标映射
+据此定义坐标映射
 
 $$
 f:K\to\mathbb R^k,\qquad
 f(x)=\begin{pmatrix}\alpha_1\\ \vdots\\ \alpha_k\end{pmatrix}.
 $$
 
-1. 证明对任意 $x,y\in K$，有 $f(x+y)=f(x)+f(y)$。
-2. 证明对任意 $x\in K$ 及任意实数 $c$，有 $f(cx)=cf(x)$。
-3. 证明若 $\{x_1,\ldots,x_l\}\subseteq K$ 线性无关，则 $\{f(x_1),\ldots,f(x_l)\}$ 也线性无关。
+回答下列问题：
 
-#### 考点
+1. 证明对任意 $x,y\in K$，有
 
-- **线性变换**：从基展开系数的唯一性验证坐标映射的加法性和齐次性。
-- **线性无关性**：利用坐标映射的单射性，将像向量的线性关系还原为原向量的线性关系。
-- **向量空间与基坐标**：理解由一组线性无关向量张成的子空间与 $\mathbb R^k$ 之间的坐标同构。
+   $$
+   f(x+y)=f(x)+f(y).
+   $$
 
-## **Kai** 
+2. 证明对任意 $x\in K$ 和任意实数 $c$，有
+
+   $$
+   f(cx)=cf(x).
+   $$
+
+3. 证明若 $\{x_1,x_2,\ldots,x_l\}\subseteq K$ 线性无关，则
+
+   $$
+   \{f(x_1),f(x_2),\ldots,f(x_l)\}
+   $$
+
+   也线性无关。
+
+## **Kai**
 ### (1)
 $y = \sum_{i = 1}^K\beta_iv_i \in K$ とする、
 
@@ -105,8 +123,8 @@ $f(x) = 0$ となるには、
 
 $$
 f(x) = \begin{pmatrix}
-0 \\ \vdots \\0 
-\end{pmatrix} \Leftrightarrow 
+0 \\ \vdots \\0
+\end{pmatrix} \Leftrightarrow
 x\sum_{i = 0}^K 0 \cdot v_i = 0
 $$
 
@@ -122,4 +140,4 @@ $$
 c_1 = c_2 = \cdots = c_l = 0
 $$
 
-よって、$\{f(x_1),f(x_2),\dots,f(x_l)\}$ も一次独立
+よって、 $\{f(x_1),f(x_2),\dots,f(x_l)\}$ も一次独立

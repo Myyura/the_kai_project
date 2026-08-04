@@ -121,12 +121,6 @@ $$
    $\operatorname{val}(f)=\operatorname{cap}(S)$。
 4. 令 $X$ 为 $N$ 中任意一个最小容量 $(s,t)$ 割。证明在第 3 问的残量网络 $N_f$ 中，从 $s$ 无法到达 $V\setminus X$ 中的任何顶点。
 
-#### 考点
-
-- **流—割弱对偶**：由割上的净流恒等式及容量约束证明任意流值不超过任意割容量。
-- **残量网络与无增广路判据**：构造正反向残量边，并由从源点的可达集证明流值等于某个割容量。
-- **最大流—最小割定理的结构结论**：在达到最优值后比较任意最小割，证明残量可达集包含于其源侧。
-
 ## **Kai**
 ### (i)
 We can rewrite the flow conservation law for any node $u \in V \setminus \{s, t\}$ as

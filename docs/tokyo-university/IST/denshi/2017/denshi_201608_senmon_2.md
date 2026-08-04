@@ -43,12 +43,6 @@ Let us consider a falling-edge-triggered JK flip-flop as shown in Fig.1. This JK
 
 (5) 把 (2) 的电路改造成加/减计数器并画出电路图。该计数器通过控制信号 $UP/\overline{DOWN}$ 在向上计数和向下计数两种模式间切换。
 
-#### 考点
-
-- 异步与同步计数器延迟：要求根据下降沿触发和传播延迟绘制脉动计数波形，并改造为各位同时更新。
-- 同步十进制及加减计数器：要求建立模 $10$ 状态循环，并设计受方向信号控制的双向计数逻辑。
-- 卡诺图化简：要求由十进制计数器的状态转移关系化简各触发器激励逻辑。
-
 ## **Kai**
 ### (1)
 <figure style="text-align:center;">

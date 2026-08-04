@@ -167,11 +167,6 @@ $$
    \sum_{\pi\in\Pi:\,e\in E(\pi)}y(\pi)\le w(e).
    $$
 
-#### 考点
-
-- **Kruskal 最小生成树算法**：跟踪按非降权序加入安全边时森林连通分支划分的变化。
-- **划分上的对偶变量构造**：利用边何时停止跨越分支划分及权重差的望远镜求和，证明对每条边的权重约束。
-
 ## Kai
 ### (i)
 Kruskal's algorithm sorts all edges in non-decreasing order of their weights.

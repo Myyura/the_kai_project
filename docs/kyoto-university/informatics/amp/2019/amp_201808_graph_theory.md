@@ -76,12 +76,6 @@ Prove that $\text{dist}(s, v^*) = \text{dist}(s, u^*) + w(u^*, v^*)$.
    \operatorname{dist}(s,u^*)+w(u^*,v^*).
    $$
 
-#### 考点
-
-- **最短路势函数与重赋权**：沿回路累加约化边权，证明满足非负约化权时不可能存在负环。
-- **负环判定**：由违反最短路三角不等式的边构造含负权闭合游走，进而推出负环存在。
-- **Dijkstra 贪心性质**：在非负边权下证明跨割最小候选可以正确确定新顶点的最短距离。
-
 ## **Kai**
 ### (i)
 Please refer to [京都大学 情報学研究科 数理工学専攻 2023年8月実施 グラフ理論](https://runjp.com/docs/kyoto-university/informatics/amp/2024/amp_202308_graph_theory).

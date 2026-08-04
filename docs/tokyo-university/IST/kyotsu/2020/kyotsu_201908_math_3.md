@@ -78,13 +78,6 @@ $$
 $P_n(r)$ 可由 $-q\ln q$ 近似，并求使其在 $q\in(0,1]$ 上最大的
 $q$。
 
-#### 考点
-
-- **秘书问题**：把成功事件分解为最佳候选人的出现位置及此前样本最佳者的位置。
-- **随机排列与条件概率**：计算第 $k$ 位成功录用全局最佳者的概率并求和。
-- **概率递推**：比较阈值 $r$ 与 $r+1$ 的策略，建立动态关系。
-- **$1/e$ 规则**：用调和和的积分近似得到 $-q\ln q$，再求连续最优阈值比例。
-
 ## **Kai**
 ### (1)
 For the case of $n = 4$, $r = 2$, let event $A$ be the acception of the most suitable applicant, and $B_k$ be the event that the most suitable applicant appears in the $k$-th position. $k = 1, 2, 3, 4$.

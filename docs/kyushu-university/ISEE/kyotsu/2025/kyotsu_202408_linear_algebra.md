@@ -43,11 +43,6 @@ where $\det(A)$ denotes the determinant of $A$.
    \det A=\prod_{i=1}^na_{ii}.
    $$
 
-#### 考点
-
-- **行列式计算**：利用代数余子式展开、初等变换或行线性相关性计算具体矩阵的行列式。
-- **上三角矩阵行列式**：从 Leibniz 公式或归纳法证明只有主对角线乘积对行列式作非零贡献。
-
 ## Kai
 ### (1)
 First compute $\det(A)$.

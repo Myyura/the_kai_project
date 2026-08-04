@@ -20,7 +20,7 @@ $$
 \begin{aligned}
 &\frac{\text{d}x}{\text{d}t} = x - 5y\\
 &\frac{\text{d}y}{\text{d}t} = x - 3y\\
-&x(0) = 3,y(0) = 1 
+&x(0) = 3,y(0) = 1
 \end{aligned}
 \right.
 $$
@@ -34,9 +34,11 @@ $$
 
 ### 题目描述
 
-本题包括两部分。
+本题分为两部分。
 
-**微分方程**：求解满足初始条件的线性常微分方程组
+**一、微分方程**
+
+设 $x(t),y(t)$ 为关于 $t$ 的函数，求解满足初始条件的线性常微分方程组
 
 $$
 \begin{cases}
@@ -46,13 +48,21 @@ x(0)=3,\quad y(0)=1.
 \end{cases}
 $$
 
-**复函数论**：设解析函数 $f(z)=u+iv$，其中 $z=x+iy$，$x,y$ 为实数，$u,v$ 为实值函数，$i=\sqrt{-1}$。把 $x,y$ 写成极坐标
+**二、复函数论**
+
+设 $f(z)=u+iv$ 为解析函数，其中
 
 $$
-x=r\cos\theta,\qquad y=r\sin\theta,
+z=x+iy,\qquad i=\sqrt{-1},
 $$
 
-证明极坐标形式的柯西–黎曼方程为
+$x,y$ 为实变量，$u,v$ 为实值函数。将直角坐标写成极坐标
+
+$$
+x=r\cos\theta,\qquad y=r\sin\theta
+$$
+
+时，证明在 $r>0$ 处柯西–黎曼方程可写为
 
 $$
 \frac{\partial u}{\partial r}
@@ -62,13 +72,7 @@ $$
 =-\frac1r\frac{\partial u}{\partial\theta}.
 $$
 
-#### 考点
-
-- **线性常微分方程组**：结合系数矩阵的特征结构和初始条件求 $x(t),y(t)$。
-- **柯西–黎曼方程**：从直角坐标形式出发，以链式法则推导其极坐标形式。
-- **极坐标偏导变换**：正确计算 $x_r,y_r,x_\theta,y_\theta$，并消去直角坐标偏导。
-
-## **Kai** 
+## **Kai**
 ### 微分方程式
 
 $$
@@ -80,7 +84,7 @@ $$
 $$
 
 $$
-\frac{\text{d}^2x}{\text{d}t^2} + 2\frac{\text{d}x}{\text{d}t} + 2x = 0 
+\frac{\text{d}^2x}{\text{d}t^2} + 2\frac{\text{d}x}{\text{d}t} + 2x = 0
 $$
 
 $$
@@ -131,11 +135,11 @@ $x = r \cos \theta, y = r \sin \theta$ より、
 $$
   \begin{aligned}
   \frac{\partial x}{\partial r} = \cos \theta
-  , \ \ 
+  , \ \
   \frac{\partial x}{\partial \theta} = -r \sin \theta
-  , \ \ 
+  , \ \
   \frac{\partial y}{\partial r} = \sin \theta
-  , \ \ 
+  , \ \
   \frac{\partial y}{\partial \theta} = r \cos \theta
   \end{aligned}
 $$
@@ -181,7 +185,7 @@ $$
 $$
   \begin{aligned}
   \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
-  , \ \ 
+  , \ \
   \frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x}
   \end{aligned}
 $$

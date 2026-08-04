@@ -97,12 +97,6 @@ When a number sequence is stored in a file, the concatenated string of elements 
    2. `data3b.txt`：原矩阵 100 行 150 列。
    3. `data3c.txt`：原矩阵 \(10^6\) 行、\(10^6\) 列。
 
-#### 考点
-
-- **稠密与稀疏矩阵文件解析**：分别处理行优先全量数据、坐标三元组和零游程编码。
-- **稀疏矩阵行列聚合**：利用每行、每列稀疏和总非零数限制，不展开 \(10^6\times10^6\) 矩阵即可求行和。
-- **转置后的行和**：识别转置矩阵行对应原矩阵列，在解码格式 3 时直接累计原列和。
-
 ## **Kai** (By vv)
 
 ```python

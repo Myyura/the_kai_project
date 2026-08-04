@@ -38,10 +38,6 @@ Suppose that a random variable $X$ has the probability density function $f(x) = 
    1. 用 $a,b$ 表示期望 $E(X)$ 和方差 $V(X)$。
    2. 当 $E(X)=1$、$V(X)=3$ 时，求 $c$ 的值。
 
-#### 考点
-
-- 条件概率：结合事件独立性、并集概率公式和条件概率定义，反求未知概率并计算 $P(A\cup B\mid C)$。
-
 ## **Kai**
 ### 1.
 事象 $A,B,C$ が独立であることから、

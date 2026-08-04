@@ -15,19 +15,21 @@ tags:
 
 ## **Description**
 
-1. 実 $n$ 次正方行列 $A$ とベクトル $\boldsymbol a$ に対し、ある自然数 $m$ について $A^m\boldsymbol a\neq\boldsymbol0$、$A^{m+1}\boldsymbol a=\boldsymbol0$ が成り立つとする。$\boldsymbol a,A\boldsymbol a,\ldots,A^m\boldsymbol a$ が線形独立であることを示せ。
+1. 実 $n$ 次正方行列 $A$ とベクトル $\boldsymbol a$ に対し、ある自然数 $m$ について $A^m\boldsymbol a\neq\boldsymbol0$ 、 $A^{m+1}\boldsymbol a=\boldsymbol0$ が成り立つとする。 $\boldsymbol a,A\boldsymbol a,\ldots,A^m\boldsymbol a$ が線形独立であることを示せ。
 2. $z=a+bi$ に対して
 
-   $$
+$$
    A(z)=\begin{pmatrix}-a&-b\\b&-a\end{pmatrix}
-   $$
+$$
 
    とする。原題が求める積と逆行列の関係を検討せよ。
-3. $A=\begin{pmatrix}0&2&1\\2&3&2\\1&2&0\end{pmatrix}$、$\boldsymbol v_1=(1,0,-1)^{\mathsf T}/\sqrt2$ とする。$\boldsymbol v_1$ が固有ベクトルであることを示し、これと互いに直交する残り2本の単位固有ベクトルを求めよ。
+3. $A=\begin{pmatrix}0&2&1\\2&3&2\\1&2&0\end{pmatrix}$ 、 $\boldsymbol v_1=(1,0,-1)^{\mathsf T}/\sqrt2$ とする。 $\boldsymbol v_1$ が固有ベクトルであることを示し、これと互いに直交する残り2本の単位固有ベクトルを求めよ。
 
 ### 题目描述
 
-1. 设 $A$ 为实 $n$ 阶方阵，$\boldsymbol a$ 为向量，并且对某个自然数 $m$ 有
+完成下列三小题。
+
+1. 设 $A$ 为实 $n$ 阶方阵，$\boldsymbol a$ 为向量，且对某个自然数 $m$ 有
 
    $$
    A^m\boldsymbol a\ne\boldsymbol 0,\qquad
@@ -41,7 +43,7 @@ tags:
    A(z)=\begin{pmatrix}-a&-b\\b&-a\end{pmatrix}.
    $$
 
-   检验原题所要求的乘法关系与逆矩阵关系，即比较 $A(z_1z_2)$ 和 $A(z_1)A(z_2)$，并在 $z\ne0$ 时比较 $A(z^{-1})$ 和 $A(z)^{-1}$，同时判断原题关系式中的负号是否成立。
+   现有原始 Description 只要求“考察原题中的乘积与逆矩阵关系”，并未保留两条关系式全文。Kai 唯一明确讨论的是：比较 $A(z_1z_2)$ 与 $A(z_1)A(z_2)$，以及在 $z\neq0$ 时比较 $A(z^{-1})$ 与 $A(z)^{-1}$，并核验原题所印负号是否成立。除此之外不补入其他关系。
 3. 给定
 
    $$
@@ -51,13 +53,6 @@ tags:
    $$
 
    证明 $\boldsymbol v_1$ 是 $A$ 的特征向量，并求另外两个单位特征向量，使三个向量两两正交。
-
-#### 考点
-
-- **线性无关**：需要利用 $A^{m+1}\boldsymbol a=\boldsymbol0$ 与 $A^m\boldsymbol a\ne\boldsymbol0$ 排除向量列的非平凡线性关系。
-- **复数的矩阵表示**：需要直接计算复数乘积、倒数所对应的矩阵，核验乘法和求逆关系中的符号。
-- **特征值与特征向量**：需要验证已给向量的特征向量性质，并求出其余特征方向。
-- **正交分解**：需要把三个特征向量单位化，并保证所得向量组两两正交。
 
 ## **Kai**
 
@@ -69,7 +64,7 @@ $$
 c_0\boldsymbol a+c_1A\boldsymbol a+\cdots+c_mA^m\boldsymbol a=\boldsymbol0
 $$
 
-を仮定する。0でない係数があるとして、その添字の最小値を $k$ とする。両辺に $A^{m-k}$ を作用させると、$j>k$ の項は $A^{m+(j-k)}\boldsymbol a=\boldsymbol0$ となるため
+を仮定する。0でない係数があるとして、その添字の最小値を $k$ とする。両辺に $A^{m-k}$ を作用させると、 $j>k$ の項は $A^{m+(j-k)}\boldsymbol a=\boldsymbol0$ となるため
 
 $$
 c_kA^m\boldsymbol a=\boldsymbol0
@@ -99,7 +94,7 @@ A(z)^{-1}
 \begin{pmatrix}-a&b\\-b&-a\end{pmatrix}.
 $$
 
-一方、$z^{-1}=(a-bi)/(a^2+b^2)$ を代入すると
+一方、 $z^{-1}=(a-bi)/(a^2+b^2)$ を代入すると
 
 $$
 \boxed{A(z^{-1})=A(z)^{-1}}
@@ -115,7 +110,7 @@ $$
 A\boldsymbol v_1=-\boldsymbol v_1
 $$
 
-なので、$\boldsymbol v_1$ は固有値 $-1$ の単位固有ベクトルである。残りは例えば
+なので、 $\boldsymbol v_1$ は固有値 $-1$ の単位固有ベクトルである。残りは例えば
 
 $$
 \boxed{

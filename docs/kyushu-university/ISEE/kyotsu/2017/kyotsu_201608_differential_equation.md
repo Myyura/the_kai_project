@@ -14,29 +14,26 @@ Zero
 次の微分方程式の一般解を求めよ．
 
 (1) $\frac{dy}{dx} + \frac{y}{x} = \frac{1}{1 + x^2}$
- 
-(2) $(\sqrt{xy} - x) \frac{dy}{dx} = -y$
 
+(2) $(\sqrt{xy} - x) \frac{dy}{dx} = -y$
 
 ### 题目描述
 
-分别求下列一阶常微分方程的通解：
+求下列两个一阶微分方程的通解，其中 $y$ 是 $x$ 的函数：
 
 1.
-   $$
-   \frac{dy}{dx}+\frac yx=\frac1{1+x^2}.
-   $$
+
+$$
+\frac{dy}{dx}+\frac yx=\frac1{1+x^2}.
+$$
+
 2.
-   $$
-   (\sqrt{xy}-x)\frac{dy}{dx}=-y.
-   $$
 
-#### 考点
+$$
+(\sqrt{xy}-x)\frac{dy}{dx}=-y.
+$$
 
-- **一阶线性微分方程**：识别乘积导数或使用积分因子，求第一式的通解。
-- **一阶齐次微分方程**：将第二式化为关于 $y/x$ 的齐次形式，通过代换 $u=y/x$ 分离变量并积分。
-
-## **Kai** 
+## **Kai**
 ### (1)
 
 $$
@@ -60,10 +57,10 @@ $$
 ### (2)
 
 $$
-\begin{align}
+\begin{aligned}
 (\sqrt{xy} - x)\frac{dy}{dx} &= -y \notag \\
 (\sqrt{\frac{y}{x}} - 1)\frac{dy}{dx} &= -\frac{y}{x} \tag{*} \\
-\end{align}
+\end{aligned}
 $$
 
 $u = \frac{y}{x} \Leftrightarrow y = ux$ とおく
@@ -99,6 +96,6 @@ $$
 -2\sqrt{\frac{x}{y}} &= \log y + C \\
 \log y + 2\sqrt{\frac{x}{y}} &= -C \\
 \log y + \log e^{2\sqrt{\frac{x}{y}}} &= -C \\
-\log (ye^{2\sqrt{\frac{x}{y}}}) &= -C \\ 
+\log (ye^{2\sqrt{\frac{x}{y}}}) &= -C \\
 \end{aligned}
 $$

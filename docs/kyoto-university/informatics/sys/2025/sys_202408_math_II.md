@@ -14,15 +14,15 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/discovery/item/688803a6000000002203ec0d?source=webshare&xhsshare=pc_web&xsec_token=ABtHY7I1RxAUjhEZPeviabm9avt5zS3kxeB1R-bm8HRVc=)
 
 ## **Description**
-$e$ をネイピア数（自然対数の底）、$\mathbb{R}$ を実数全体からなる集合とする。また、ベクトル $\boldsymbol{x}$ の転置を $\boldsymbol{x}^\mathrm{T}$ で表す。
+$e$ をネイピア数（自然対数の底）、 $\mathbb{R}$ を実数全体からなる集合とする。また、ベクトル $\boldsymbol{x}$ の転置を $\boldsymbol{x}^\mathrm{T}$ で表す。
 
 ### 問題1
 以下の設問に答えよ。
 
 (1) 実数 $x > 0$ に対して $f(x) = x \log x$ とする。
-- (i) $y = f(x)$ のグラフの概形を、極値をとる点を含めて $xy$ 平面上に描け。また、$f(x) = y$ となる $x > 0$ が一意に定まるような実数 $y$ の範囲を求めよ。
+- (i) $y = f(x)$ のグラフの概形を、極値をとる点を含めて $xy$ 平面上に描け。また、 $f(x) = y$ となる $x > 0$ が一意に定まるような実数 $y$ の範囲を求めよ。
 - (ii) $\int f(x) \, dx$ を求めよ。
-- (iii) 設問 (i) で求めた範囲の $y$ について、$f(x) = y$ となる $x$ を $f^{-1}(y)$ で表す。$\int f^{-1}(y) \, dy$ を $y$ および関数 $f^{-1}$ を用いて表せ。
+- (iii) 設問 (i) で求めた範囲の $y$ について、 $f(x) = y$ となる $x$ を $f^{-1}(y)$ で表す。 $\int f^{-1}(y) \, dy$ を $y$ および関数 $f^{-1}$ を用いて表せ。
 
 ----------------------------
 
@@ -41,7 +41,7 @@ $$
 ### 問題2
 以下の設問に答えよ。
 
-(i) $a, b$ を $b > a > 0$ を満たす定数とし、$2$ 次元ユークリッド空間内の楕円
+(i) $a, b$ を $b > a > 0$ を満たす定数とし、 $2$ 次元ユークリッド空間内の楕円
 
 $$
 \left\{ (x, y) \in \mathbb{R}^2 \ \middle| \ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \right\}
@@ -51,7 +51,7 @@ $$
 
 -----------------------------------
 
-(ii) $\boldsymbol{c} = (c_1, \ldots, c_n)^\mathrm{T} \neq \boldsymbol{0}$ を $n$ 次元ユークリッド空間の定数ベクトル、$d$ を定数とし、
+(ii) $\boldsymbol{c} = (c_1, \ldots, c_n)^\mathrm{T} \neq \boldsymbol{0}$ を $n$ 次元ユークリッド空間の定数ベクトル、 $d$ を定数とし、
 
 $n$ 次元ユークリッド空間内の超平面
 
@@ -85,102 +85,105 @@ $$
 
 ### 题目描述
 
-以下 $e$ 表示自然对数的底，$\mathbb R$ 表示实数集，向量 $\boldsymbol x$ 的转置记作 $\boldsymbol x^{\mathrm T}$。
+下文中 $e$ 表示自然对数的底，$\mathbb{R}$ 表示实数集，
+$\boldsymbol{x}^{\mathrm T}$ 表示向量 $\boldsymbol{x}$ 的转置。回答以下两题。
 
-1. 回答下列问题。
+1. 完成下列各问。
 
-   （1）对实数 $x>0$ 定义
+   1. 对 $x>0$ 定义
 
-   $$
-   f(x)=x\log x.
-   $$
+$$
+f(x)=x\log x.
+$$
 
-   1. 在 $xy$ 平面上画出 $y=f(x)$ 的概形，并标出极值点；求使方程 $f(x)=y$ 的正实数解 $x$ 唯一确定时实数 $y$ 的范围。
-   2. 求不定积分 $\int f(x)\,dx$。
-   3. 对第 1 小问所得范围内的 $y$，把满足 $f(x)=y$ 的 $x$ 记作 $f^{-1}(y)$。用 $y$ 和函数 $f^{-1}$ 表示
+      1. 在 $xy$ 平面上画出 $y=f(x)$ 的大致图形并标明极值点；求所有使方程
+         $f(x)=y$ 的正实数解 $x$ 唯一确定的实数 $y$。
+      2. 求不定积分 $\int f(x)\,dx$。
+      3. 对上一小问所得唯一可解范围内的 $y$，把满足
+         $f(x)=y$ 的正数 $x$ 记作 $f^{-1}(y)$。仅用 $y$ 和函数
+         $f^{-1}$ 表示
 
-      $$
-      \int f^{-1}(y)\,dy.
-      $$
+$$
+\int f^{-1}(y)\,dy.
+$$
 
-   （2）设 $n$ 为正整数。对实数 $c$，数列 $a_1,a_2,\ldots$ 满足
+   2. 对实数 $c$ 定义数列
 
-   $$
-   a_1=c,\qquad
-   a_{n+1}=a_n+1-e^{a_n},
-   \qquad n=1,2,\ldots.
-   $$
+$$
+a_1=c,\qquad
+a_{n+1}=a_n+1-e^{a_n},
+\qquad n=1,2,\ldots,
+$$
 
-   1. 求 $a_2<a_1$ 时 $c$ 的充要条件。
-   2. 令 $c=\frac12$，求
+其中 $n$ 为正整数。
 
-      $$
-      \lim_{n\to\infty}a_n.
-      $$
+      1. 求 $a_2<a_1$ 成立时 $c$ 的充要条件。
+      2. 令 $c=\frac12$。求
 
-      若极限不存在，则证明其不存在。可使用 $\sqrt e=1.648\ldots$。
+$$
+\lim_{n\to\infty}a_n;
+$$
 
-2. 回答下列问题。
+若极限不存在，则证明不存在。可以使用
+$\sqrt e=1.648\ldots$。
 
-   （i）设常数 $b>a>0$，考虑二维 Euclidean 空间中的椭圆
+2. 完成下列各问。
 
-   $$
-   \left\{(x,y)\in\mathbb R^2\
-   \middle|\
-   \frac{x^2}{a^2}+\frac{y^2}{b^2}=1
-   \right\}.
-   $$
+   1. 设常数 $b>a>0$，考虑二维 Euclidean 空间中的椭圆
 
-   当点 $P$ 在该椭圆上移动时，求 $P$ 与点 $(a,0)$ 之间距离的最大值。
+$$
+\left\{
+(x,y)\in\mathbb{R}^2
+\ \middle|\
+\frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+\right\}.
+$$
 
-   （ii）在 $n$ 维 Euclidean 空间中，给定非零常向量
+当点 $P$ 在椭圆上移动时，求 $P$ 到固定点 $(a,0)$ 的最大距离。
 
-   $$
-   \boldsymbol c=(c_1,\ldots,c_n)^{\mathrm T}\ne\boldsymbol0
-   $$
+   2. 在 $n$ 维 Euclidean 空间中，给定非零常向量
 
-   和常数 $d$，考虑超平面
+$$
+\boldsymbol{c}
+=(c_1,\ldots,c_n)^{\mathrm T}
+\ne\boldsymbol{0}
+$$
 
-   $$
-   \left\{
-   \boldsymbol x=(x_1,\ldots,x_n)^{\mathrm T}\in\mathbb R^n
-   \ \middle|\
-   \boldsymbol c^{\mathrm T}\boldsymbol x=d
-   \right\},
-   $$
+和常数 $d$，考虑超平面
 
-   其中
+$$
+\left\{
+\boldsymbol{x}
+=(x_1,\ldots,x_n)^{\mathrm T}
+\in\mathbb{R}^n
+\ \middle|\
+\boldsymbol{c}^{\mathrm T}\boldsymbol{x}=d
+\right\},
+$$
 
-   $$
-   \boldsymbol0=(0,\ldots,0)^{\mathrm T}\in\mathbb R^n.
-   $$
+其中 $\boldsymbol{0}=(0,\ldots,0)^{\mathrm T}\in\mathbb{R}^n$。求原点到该超平面的距离。
 
-   求原点到该超平面的距离。
+   3. 对实数 $p,q$，计算
 
-   （iii）对实数 $p,q$，计算
+$$
+V
+=\iint_D
+\left(2-e^p x^2-e^q y^2\right)\,dx\,dy,
+$$
 
-   $$
-   V=\iint_D
-   \left(2-e^px^2-e^qy^2\right)\,dx\,dy,
-   $$
+其中现有题面把区域写为
 
-   其中
+$$
+D=
+\left\{
+(x,y)\in\mathbb{R}^2
+\ \middle|\
+e^p x^2-e^q y^2\leq2
+\right\}.
+$$
 
-   $$
-   D=
-   \left\{(x,y)\in\mathbb R^2\
-   \middle|\
-   e^px^2-e^qy^2\leq2
-   \right\}.
-   $$
-
-#### 考点
-
-- **局部极值与反函数积分**：分析 $x\log x$ 的单调区间，并利用反函数图形或分部积分求原函数。
-- **非线性递推收敛**：研究迭代映射的不动点、单调性和不变区间。
-- **椭圆上的距离优化**：把距离平方参数化或使用 Lagrange 乘数求全局最大值。
-- **点到超平面的距离**：用法向量投影求 $n$ 维公式。
-- **二重积分与无界区域**：通过尺度变换分析给定二次区域上的积分及其收敛性。
+这里区域条件确为减号，而被积函数中的两个二次项均为减号；按此文字
+$D$ 是无界区域，故 $V$ 只能按广义二重积分理解。现有 Kai 仅为外链图片，仓库内没有可用于唯一判定该处是否漏写加号的文字内容，因此不擅自改正这一符号。
 
 ## **Kai**
 ### 問題1

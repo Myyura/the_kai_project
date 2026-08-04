@@ -63,13 +63,6 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electrical_circuit_p1.png" width="600" alt=""/>
 </figure>
 
-#### 考点
-
-- **相量与复阻抗**：组合电阻、电容和电感的串并联阻抗，使用直角与极坐标形式互换。
-- **阻抗轨迹**：消去频率参数，在复平面上识别 RC 网络阻抗的圆弧/极限点。
-- **正弦稳态电压电流计算**：由总阻抗求电流及元件电压，并绘制满足 Kirchhoff 定律的相量图。
-- **RLC 谐振与同相条件**：令输入阻抗虚部为零，分析电容取值范围及电阻约束。
-
 ## **Kai**
 ### 問1
 

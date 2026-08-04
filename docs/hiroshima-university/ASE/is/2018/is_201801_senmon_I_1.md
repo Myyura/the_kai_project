@@ -42,10 +42,6 @@ An $n \times n$ real symmetric matrix $M$ is called positive definite if all its
 
    证明 $B$ 为正定矩阵的充要条件是 $a>0$ 且 $ac>b^2$。
 
-#### 考点
-
-- 特征值与特征向量：通过实对称矩阵的特征值判定正定性，并推导二阶实对称矩阵正定的充要条件。
-
 ## **Kai**
 ### (1)
 

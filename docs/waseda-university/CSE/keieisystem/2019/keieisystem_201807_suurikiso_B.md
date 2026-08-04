@@ -13,19 +13,21 @@ tags:
 
 ## **Description**
 
-1. $a>0$ とする。$\displaystyle\int_0^{a/2}\frac{dx}{\sqrt{a^2-x^2}}$ を求めよ。
+1. $a>0$ とする。 $\displaystyle\int_0^{a/2}\frac{dx}{\sqrt{a^2-x^2}}$ を求めよ。
 2. $\displaystyle\int_0^1\frac{dx}{2+e^x}$ を求めよ。
 3. $D_n=\{(x,y)\mid x^2+y^2\leq n^2\}$ とし、
 
-   $$
+$$
    S_n=\iint_{D_n}\frac{dx\,dy}{(x^2+y^2+3)^2}
-   $$
+$$
 
    を計算せよ。また $\lim_{n\to\infty}S_n$ を求めよ。
 
 ### 题目描述
 
-1. 设 $a>0$，计算定积分
+完成下列三小题。
+
+1. 设 $a>0$，计算
 
    $$
    \int_0^{a/2}\frac{dx}{\sqrt{a^2-x^2}}.
@@ -37,7 +39,7 @@ tags:
    \int_0^1\frac{dx}{2+e^x}.
    $$
 
-3. 对
+3. 令
 
    $$
    D_n=\{(x,y)\mid x^2+y^2\leq n^2\},
@@ -45,12 +47,7 @@ tags:
    S_n=\iint_{D_n}\frac{dx\,dy}{(x^2+y^2+3)^2},
    $$
 
-   先计算 $S_n$，再求极限 $\displaystyle\lim_{n\to\infty}S_n$。
-
-#### 考点
-
-- **定积分**：前两问分别要求处理根式型与含指数函数的单变量定积分。
-- **二重积分**：第三问需要利用圆盘区域及径向对称的被积函数计算 $S_n$，并进一步求其极限。
+   计算 $S_n$，并求 $\displaystyle\lim_{n\to\infty}S_n$。
 
 ## **Kai**
 
@@ -84,7 +81,7 @@ $$
 
 ### [小問 3]
 
-極座標 $x=r\cos\theta$、$y=r\sin\theta$ を用いると
+極座標 $x=r\cos\theta$ 、 $y=r\sin\theta$ を用いると
 
 $$
 \begin{aligned}

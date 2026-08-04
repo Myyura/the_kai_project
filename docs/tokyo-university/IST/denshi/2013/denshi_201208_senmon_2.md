@@ -39,12 +39,6 @@ Let us design a binary digital synchronous sequential circuit which outputs $6,1
 
 (4) 把 (3) 的模 $5$ 计数器视为黑盒，设计周期性产生 $6,1,0,2,5$ 的同步时序电路，并用 MIL 符号画出；使用卡诺图将电路尽可能化简。
 
-#### 考点
-
-- 同步模计数器：要求用触发器实现模 $8$ 与模 $5$ 状态循环，并处理同步状态转换。
-- 周期序列发生器：要求把计数器状态映射为指定的五项二进制输出序列。
-- 卡诺图化简：要求根据状态/输出真值关系化简组合逻辑并落实为限定门电路。
-
 ## **Kai**
 ### (1)
 Circuit's output determined by its input and past states.

@@ -42,10 +42,6 @@ A graph is said to be **1-planar** if it can be drawn in the Euclidean plane in 
 2. 由定义，任意平面图也是 $1$-平面图。证明任意顶点数不超过 $6$ 的图都是 $1$-平面图。
 3. 已知任意 $1$-平面图的顶点色数至多为 $6$。用颜色集合 $\{a,b,c,d,e,f\}$ 对第 1 问给出的图作顶点着色，使任意相邻顶点颜色不同。
 
-#### 考点
-
-- 平面图：通过完全图的画法与非平面性论证理解 $1$-平面性，并构造六个顶点以内图的 $1$-平面嵌入及合法顶点着色。
-
 ## **Kai**
 ### (1)
 The graph $K_5$ (complete graph of $5$ vertices) is not planar but 1-planar (Fig 1.)

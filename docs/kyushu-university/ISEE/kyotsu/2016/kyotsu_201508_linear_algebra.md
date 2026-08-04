@@ -14,11 +14,11 @@ Zero
 ## **Description**
 任意の行列 $A$ を引数に取り行列を返す関数 $f(A) = \frac{1}{\sqrt{2}}\begin{pmatrix}A & A \\ A & -A\end{pmatrix}$ について　以下の各問に答えよ。
 
-(1) $A$ が直交行列のとき、$f(A)$ も直交行列となることを示せ。
+(1) $A$ が直交行列のとき、 $f(A)$ も直交行列となることを示せ。
 
 (2) $A_0$ を $1 \times 1$ 行列 $A_0 = (1)$ とし,任意の整数 $n \ge 1$ に対し, 行列 $A_n$ を $A_n = f(A_{n-1})$ と定義する。このとき, 各成分が $1$ の $2^n$ 次元行ベクトル $\boldsymbol{1} = \{1,1,\dots,1\}$ と行列 $A_n$ の積 $\boldsymbol{1}A_n$ を求めよ。
 
-(3) $\{\boldsymbol{v}_1,\boldsymbol{v}_2,\dots,\boldsymbol{v}_d\}$を $A$ の列空間 ( $A$ の列ベクトルが張る部分空間 ) の基底とする。このとき,
+(3) $\{\boldsymbol{v}_1,\boldsymbol{v}_2,\dots,\boldsymbol{v}_d\}$ を $A$ の列空間 ( $A$ の列ベクトルが張る部分空間 ) の基底とする。このとき,
 
 $$
 \bigg\{\begin{pmatrix}\boldsymbol{v}_1\\\boldsymbol{v}_1\end{pmatrix},\dots,\begin{pmatrix}\boldsymbol{v}_d\\\boldsymbol{v}_d\end{pmatrix},\begin{pmatrix}\boldsymbol{v}_1\\-\boldsymbol{v}_1\end{pmatrix},\dots,\begin{pmatrix}\boldsymbol{v}_d\\-\boldsymbol{v}_d\end{pmatrix}\bigg\}
@@ -28,7 +28,7 @@ $$
 
 ### 题目描述
 
-对任意矩阵 $A$ 定义
+对任意矩阵 $A$ 定义分块矩阵函数
 
 $$
 f(A)=\frac1{\sqrt2}
@@ -41,25 +41,27 @@ $$
 回答下列问题：
 
 1. 证明若 $A$ 是正交矩阵，则 $f(A)$ 也是正交矩阵。
-2. 令 $A_0=(1)$，并对任意整数 $n\ge1$ 递归定义 $A_n=f(A_{n-1})$。设 $\boldsymbol1=(1,1,\ldots,1)$ 是 $2^n$ 维行向量，求 $\boldsymbol1A_n$。
-3. 若 $\{\boldsymbol v_1,\ldots,\boldsymbol v_d\}$ 是 $A$ 的列空间（由 $A$ 的列向量张成的子空间）的一组基，证明
+2. 令 $A_0$ 为 $1\times1$ 矩阵 $(1)$，并对每个整数 $n\ge1$ 递归定义
+
    $$
-   \left\{
-   \binom{\boldsymbol v_1}{\boldsymbol v_1},\ldots,
-   \binom{\boldsymbol v_d}{\boldsymbol v_d},
-   \binom{\boldsymbol v_1}{-\boldsymbol v_1},\ldots,
-   \binom{\boldsymbol v_d}{-\boldsymbol v_d}
-   \right\}
+   A_n=f(A_{n-1}).
    $$
-   是 $f(A)$ 列空间的一组基。
 
-#### 考点
+   令 $\boldsymbol1=(1,1,\ldots,1)$ 为各分量均为 $1$ 的 $2^n$ 维行向量，求乘积 $\boldsymbol1A_n$。
+3. 若 $\{\boldsymbol v_1,\boldsymbol v_2,\ldots,\boldsymbol v_d\}$ 是 $A$ 的列空间（即由 $A$ 的列向量张成的子空间）的一组基，证明下列 $2d$ 个分块列向量构成 $f(A)$ 的列空间的一组基：
 
-- **正交矩阵**：通过分块矩阵乘法验证 $f(A)^\top f(A)=I$。
-- **递归分块矩阵**：分析 Hadamard 型递归结构，求全 1 行向量与 $A_n$ 的乘积。
-- **列空间与线性无关**：描述 $f(A)$ 的列向量张成空间，并证明所给 $2d$ 个分块向量既张成该空间又线性无关。
+$$
+\left\{
+\begin{pmatrix}\boldsymbol v_1\\\boldsymbol v_1\end{pmatrix},
+\ldots,
+\begin{pmatrix}\boldsymbol v_d\\\boldsymbol v_d\end{pmatrix},
+\begin{pmatrix}\boldsymbol v_1\\-\boldsymbol v_1\end{pmatrix},
+\ldots,
+\begin{pmatrix}\boldsymbol v_d\\-\boldsymbol v_d\end{pmatrix}
+\right\}.
+$$
 
-## **Kai** 
+## **Kai**
 ### (1)
 $f(A)$ が直交行列 $\Leftrightarrow$ $(f(A))^{-1} = (f(A))^{-1}$ を示す
 
@@ -73,13 +75,13 @@ $$
 $A$ が直交行列ので, $A^{\top} = A^{-1}$
 
 $$
-\begin{align}
+\begin{aligned}
 (f(A))^{\top} = \frac{1}{\sqrt{2}}
 \begin{pmatrix}
 A^{-1} & A^{-1} \\
 A^{-1} & -A^{-1} \\
 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 $f(A)^{-1}$ を求める
@@ -91,7 +93,7 @@ $$
 \frac{A}{\sqrt{2}} & \frac{A}{\sqrt{2}} & 1 & 0 \\
 \frac{A}{\sqrt{2}} & -\frac{A}{\sqrt{2}} & 0 & 1 \\
 \end{array}
-\right) &= 
+\right) &=
 \left (
 \begin{array}{cc|cc}
 A & A & \sqrt{2} & 0 \\
@@ -121,12 +123,12 @@ A & -A & 0 & \sqrt{2} \\
 1 & 0 & \frac{1}{\sqrt{2}A} & \frac{1}{\sqrt{2}A} \\
 0 & 1 & \frac{1}{\sqrt{2}A} & -\frac{1}{\sqrt{2}A}
 \end{array}
-\right) 
+\right)
 \end{aligned}
 $$
 
 $$
-\begin{align}
+\begin{aligned}
 f(A)^{-1} &= \frac{1}{\sqrt{2}}\begin{pmatrix}
 \frac{1}{A} & \frac{1}{A} \\
 \frac{1}{A} & -\frac{1}{A} \\
@@ -136,7 +138,7 @@ f(A)^{-1} &= \frac{1}{\sqrt{2}}\begin{pmatrix}
 A^{-1} & A^{-1} \\
 A^{-1} & -A^{-1} \\
 \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 式(1)(2)より、
@@ -144,11 +146,18 @@ $$
 $(f(A))^{\top} = (f(A))^{-1}$ も直交行列
 
 ### (2)
-$$A_n = f(A_{n-1})$$
 
-$$A_0 = (1)$$
+$$
+A_n = f(A_{n-1})
+$$
 
-$$A_1 = f(A_0) = \frac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\1 & -1 \\\end{pmatrix}$$
+$$
+A_0 = (1)
+$$
+
+$$
+A_1 = f(A_0) = \frac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\1 & -1 \end{pmatrix}
+$$
 
 $$
 A_2 = f(A_1) = \frac{1}{(\sqrt{2})^2}
@@ -156,7 +165,7 @@ A_2 = f(A_1) = \frac{1}{(\sqrt{2})^2}
 \begin{array}{cc:cc}
 1 & 1 & 1 & 1 \\
 1 & -1 & 1 & -1 \\
-\hdashline 
+\hdashline
 1 & 1 & 1 & 1 \\
 1 & -1 & 1 & -1 \\
 \end{array}
@@ -179,7 +188,7 @@ A_{n-1} & -A_{n-1} \\
 \end{pmatrix}
 $$
 
-$\begin{pmatrix}A_{n-1} & A_{n-1} \\ A_{n-1} & A_{n-1}\\\end{pmatrix}$ の奇数列目は全て $\frac{1}{\sqrt{2}}$,偶数列目は $\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}$ の交互
+$\begin{pmatrix}A_{n-1} & A_{n-1} \\ A_{n-1} & A_{n-1}\end{pmatrix}$ の奇数列目は全て $\frac{1}{\sqrt{2}}$ ,偶数列目は $\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}$ の交互
 
 $$
 \begin{aligned}

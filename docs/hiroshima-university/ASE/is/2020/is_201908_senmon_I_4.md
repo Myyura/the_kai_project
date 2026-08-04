@@ -62,10 +62,6 @@ A matching $A$ is said to be maximal if any superset of $A$ is not a matching.
 
 第 1 问所用的具体图见图 1。
 
-#### 考点
-
-- 最大匹配相关组合优化：利用极大匹配中边与端点的对应关系比较两个匹配的规模，并构造达到二倍界的图例。
-
 ## **Kai**
 ### (1)
 

@@ -52,10 +52,6 @@ Let $N_v$ be a set of adjacent nodes of node $v$. The following algorithm $\text
 
 算法、图 $G_1$ 与待补全的表 1 均见题中图示。
 
-#### 考点
-
-- 最短路问题：跟踪基于贪心松弛的单源最短路算法，证明其在非负边权下的正确性，分析负边反例及堆实现的复杂度。
-
 ## **Kai**
 ### (1)
 

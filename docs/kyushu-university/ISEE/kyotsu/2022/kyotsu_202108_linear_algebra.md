@@ -45,11 +45,6 @@ $$
 2. 令 $\boldsymbol x_j=\boldsymbol p_j-\boldsymbol p_{n+1}$（$1\le j\le n$），$X=(\boldsymbol x_j)$。对第 1 问的两组点分别计算 $X^\top X$。
 3. 证明一般情况下 $G$ 半正定，即对任意 $\boldsymbol v\in\mathbb R^n$ 均有 $\boldsymbol v^\top G\boldsymbol v\ge0$。
 
-#### 考点
-
-- **距离几何与 Gram 矩阵**：由点间距离构造坐标，并把 $g_{ij}$ 与位移向量内积联系起来。
-- **半正定矩阵**：证明 $G$ 是 Gram 矩阵的常数倍，从而用平方范数说明二次型非负。
-
 ## **Kai**
 ### (1)
 #### (a)

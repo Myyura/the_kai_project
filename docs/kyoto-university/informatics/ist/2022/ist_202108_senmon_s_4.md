@@ -88,13 +88,6 @@ $C(a_i)=100$。令信源熵为 $H(S)$，平均码长为 $\bar N$。
 5. 若 $H(S)=\bar N$，且对某个 $1<k<n$，
    $p_1=\cdots=p_k>p_{k+1}=\cdots=p_n$，通过给出 Huffman 构造过程证明 $C$ 是 Huffman 码。
 
-#### 考点
-
-- **Shannon 编码**：由累积概率二进制展开和 $\lceil-\log p_i\rceil$ 构造前缀码。
-- **熵与平均码长界**：逐符号使用
-  $-\log p_i\le N(p_i)<-\log p_i+1$ 加权求和。
-- **等号条件与 Huffman 编码**：刻画概率为二进 dyadic 值时熵等于平均码长，并把特定两层概率结构对应到 Huffman 合并树。
-
 ## **Kai**
 ### 設問1
 

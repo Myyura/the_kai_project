@@ -42,17 +42,6 @@ If necessary, use examples or figures.
 7. 步进电机。
 8. 感知机。
 
-#### 考点
-
-- **信号量**：说明用原子 P/V 操作计数资源并实现互斥、同步。
-- **A* 搜索**：说明按已付代价与启发式估价之和扩展结点，以及可采纳启发式对最优性的保证。
-- **FPGA**：说明可配置逻辑块、互连和查找表如何在部署后实现定制数字电路。
-- **缓冲区溢出**：说明越界写覆盖控制数据的攻击原理及边界检查、地址随机化等防护。
-- **LR 分析**：说明从左向右读入并逆向构造最右推导的移进—归约语法分析。
-- **IPv4 与 IPv6**：比较地址长度、报头结构、配置与迁移等特征。
-- **步进电机**：说明按脉冲序列分步转动、由脉冲数与频率控制位置和速度。
-- **感知机**：说明线性阈值分类器及误分类样本驱动的权重更新。
-
 ## **Kai**
 #### Semaphore
 Semaphore is an important **synchronization primitive** to coordinate the visits of different threads to shared memory, preventing the race condition 竞态. 

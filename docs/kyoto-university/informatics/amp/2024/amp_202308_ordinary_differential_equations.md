@@ -15,9 +15,9 @@ Casablanca
 $a(t), b(t) \not\equiv 0$ を $t$ の多項式として次の微分方程式を考える．
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{d^2 x}{d t^2} + a(t) \frac{dx}{dt} + b(t)x = 0 \tag{1}
-\end{align}
+\end{aligned}
 $$
 
 $k$ をある自然数として $x = t^k$ が解であるものとする.このとき，以下の問いに答えよ.
@@ -32,42 +32,39 @@ $k$ をある自然数として $x = t^k$ が解であるものとする.この�
 Let $a(t), b(t) \not\equiv 0$ be polynomials of $t$ and consider the differential equation
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{d^2 x}{d t^2} + a(t) \frac{dx}{dt} + b(t)x = 0 \tag{1}
-\end{align}
+\end{aligned}
 $$
 
 Assume that $x = t^k$ is a solution, where $k$ is a positive integer. Answer the following
 questions.
 
-(i) Determine $k$.
+(i) Determine $k$ .
 
-(ii) Express $a(t)$ in terms of $b(t)$.
+(ii) Express $a(t)$ in terms of $b(t)$ .
 
-(iii) Show that Eq. (1) has no rational function solution that is linearly independent of $x = t^k$.
+(iii) Show that Eq. (1) has no rational function solution that is linearly independent of $x = t^k$ .
 
 ### 题目描述
 
-设 $a(t),b(t)$ 是关于 $t$ 的非零多项式，考虑
+设 $a(t)$、$b(t)$ 是关于 $t$ 的多项式，且均不恒等于零。考虑微分方程
 
 $$
-\frac{d^2x}{dt^2}+a(t)\frac{dx}{dt}+b(t)x=0. \tag{1}
+\frac{d^2x}{dt^2}
++a(t)\frac{dx}{dt}
++b(t)x=0. \tag{1}
 $$
 
-假设对某个正整数 $k$，$x=t^k$ 是方程 (1) 的解。回答：
+已知对某个正整数 $k$，$x=t^k$ 是方程 (1) 的一个解。回答下列问题：
 
 1. 确定 $k$。
 2. 用 $b(t)$ 表示 $a(t)$。
-3. 证明方程 (1) 不存在与 $t^k$ 线性无关的有理函数解。
-
-#### 考点
-
-- **二阶线性常微分方程的多项式解**：将幂函数代入并比较多项式次数与系数，确定指数及系数关系。
-- **降阶与有理解排除**：利用已知解构造第二解的表达式，并分析其形式以证明不存在另一线性无关有理函数解。
+3. 证明方程 (1) 不存在与 $x=t^k$ 线性无关的有理函数解。
 
 ## **Kai**
 ### (i)
-if $k\geq 2$, plug  $x = t^k$ in,
+if $k\geq 2$ , plug  $x = t^k$ in,
 
 $$
 k(k-1)t^{k-2} + kt^{k-1}a(t) + t^kb(t) = 0
@@ -79,15 +76,15 @@ $$
 k(k-1) + kta(t)+t^2b(t) = 0
 $$
 
-since $a(t)$, $b(t)$ are both polynomials of t, $kta(t)+t^2b(t)$ has no constant term.
-Thus $k(k-1)=0$, which is in conflict with $k \geq 2$.
+since $a(t)$ , $b(t)$ are both polynomials of t, $kta(t)+t^2b(t)$ has no constant term.
+Thus $k(k-1)=0$ , which is in conflict with $k \geq 2$ .
 Therefore $k=1$
 
 ### (ii)
 $a(t) = -tb(t)$
 
 ### (iii)
-Let $x(t) = t u(t)$, we have
+Let $x(t) = t u(t)$ , we have
 
 $$
 x'(t) = u(t) + tu'(t), x''(t) = 2u'(t) + tu''(t)
@@ -106,12 +103,11 @@ t\frac{dv(t)}{dt} + (2-t^2b(t))v(t) = 0
 $$
 
 since $x(t)$ is a rational function, we can easily see that $u(t)$ is a rational function and $v(t)$ is a rational function.
-Let $v(t) = \frac{p(t)}{q(t)}$,
+Let $v(t) = \frac{p(t)}{q(t)}$ ,
 
 $$
 t(p'(t)q(t) - p(t)q'(t)) + (2-t^2b(t))p(t)q(t) = 0
 $$
 
-if $p(t)q(t) \neq 0$, the times of $(2-t^2b(t))p(t)q(t)$ is greater than the times of $t(p'(t)q(t) - p(t)q'(t))$.
-Thus $p(t)q(t) \equiv 0$, $v(t) = 0$, $v(t) = C$, $x(t) = Ct$ is the only ration function solution.
-  
+if $p(t)q(t) \neq 0$ , the times of $(2-t^2b(t))p(t)q(t)$ is greater than the times of $t(p'(t)q(t) - p(t)q'(t))$ .
+Thus $p(t)q(t) \equiv 0$ , $v(t) = 0$ , $v(t) = C$ , $x(t) = Ct$ is the only ration function solution.

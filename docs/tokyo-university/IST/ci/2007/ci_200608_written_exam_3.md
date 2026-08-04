@@ -59,9 +59,3 @@ Figure 1 shows an arm which has three joints at O, S and E. The axis of the join
 4. 若末端 \(W\) 受到力 \(\vec F=(F_x,F_y,F_z)\)，求为了保持机械臂当前姿态，三个关节轴所需施加的关节力矩 \(\vec\tau=(\tau_0,\tau_1,\tau_2)\)。
 
 题目所用机械臂几何结构沿用原文图 1。
-
-#### 考点
-
-- **串联机械臂的正、逆运动学**：依据三关节几何关系建立关节角到末端位置的映射，并由目标位置反求可行关节角。
-- **机械臂雅可比矩阵**：对正运动学关于关节角求导，以 \(\vec V=J(\vec\theta)\vec\Omega\) 联系末端线速度与关节角速度。
-- **雅可比转置与关节力矩**：利用虚功关系 \(\vec\tau=J(\vec\theta)^\mathsf{T}\vec F\) 求维持末端受力时的关节力矩。

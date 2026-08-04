@@ -63,11 +63,6 @@ Answer the following questions.
 3. 证明若生成树 $T$ 满足条件 K，则 $T$ 是最小生成树。
 4. 判断命题“若 $G$ 有两棵最小生成树，则 $G$ 中至少有两条边权相同”的真伪；若真则证明，若假则给出反例。
 
-#### 考点
-
-- **最小生成树的基本环与基本割性质**：用替换一条树边/非树边的交换论证证明条件 C、K 与最小性的关系。
-- **最小生成树唯一性**：分析不同最小生成树的对称差及交换边权，判断多解是否必然导致重复边权。
-
 ## **Kai**
 ### (i)
 Assume that for an edge $a \in E \setminus T$ there exists an edge $b' \in C_T(a)$ such that $w(a) < w(b')$.

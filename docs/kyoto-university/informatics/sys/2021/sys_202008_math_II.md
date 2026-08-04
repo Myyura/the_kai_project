@@ -37,7 +37,7 @@ $$
 
 (ii) $g$ が奇関数であることを示せ。
 
-(iii) 任意の $t \in G$ に対して、$g(t) = g(t/2)$ が成り立つことを示せ。
+(iii) 任意の $t \in G$ に対して、 $g(t) = g(t/2)$ が成り立つことを示せ。
 
 (iv) 次式が成り立つことを示せ。
 
@@ -50,7 +50,7 @@ $$
 ### 問2
 微分可能な関数 $f : (a,b) \to (0,\infty)$ と
 $g : (a,b) \to \mathbb{R}$ が以下のいずれかを満たすと仮定する。
-ただし、$a < b$ とする。
+ただし、 $a < b$ とする。
 
 - (A) $\lim_{x \to a+0} f(x) = 1$ かつ $\lim_{x \to a+0} g(x) = \pm \infty$
 - (B) $\lim_{x \to a+0} f(x) = \infty$ かつ $\lim_{x \to a+0} g(x) = 0$
@@ -66,7 +66,7 @@ $$
 (i) 次の値を求めよ。
 
 - (a) $\lim_{x \to +0} (\sin x)^{\sqrt{x}}$
-- (b) $\lim_{x \to +0} \left(\frac{2}{\pi} \arctan \frac{1}{x} \right)^{1/x}$（$-\frac{\pi}{2} < \arctan y < \frac{\pi}{2}, \ \forall y \in \mathbb{R}$ とする）
+- (b) $\lim_{x \to +0} \left(\frac{2}{\pi} \arctan \frac{1}{x} \right)^{1/x}$ （ $-\frac{\pi}{2} < \arctan y < \frac{\pi}{2}, \ \forall y \in \mathbb{R}$ とする）
 
 (ii) 関数 $h : \mathbb{R} \to \mathbb{R}$ は $2$ 回微分可能であり、
 正の実数 $p$ に対して次式を満たすと仮定する。
@@ -81,85 +81,95 @@ $$
 
 ### 题目描述
 
-1. 连续函数 $f:[-1,1]\to\mathbb R$ 满足
+回答以下两题。
 
-   $$
-   f(2x^2-1)=2xf(x).
-   $$
+1. 连续函数 $f:[-1,1]\to\mathbb{R}$ 满足
 
-   再定义
+$$
+f(2x^2-1)=2xf(x).
+$$
 
-   $$
-   \mathbb G=\{t\in\mathbb R\mid t\ne n\pi,\ n\in\mathbb Z\},
-   $$
+定义
 
-   以及函数 $g:\mathbb G\to\mathbb R$：
+$$
+\mathbb{G}
+=\{t\in\mathbb{R}\mid
+t\ne n\pi,\ n\in\mathbb{Z}\},
+$$
 
-   $$
-   g(t)=\frac{f(\cos t)}{\sin t}.
-   $$
+以及 $g:\mathbb{G}\to\mathbb{R}$：
 
-   回答下列问题。
+$$
+g(t)=\frac{f(\cos t)}{\sin t}.
+$$
 
-   （i）求 $f(-1)$ 与 $f(1)$。
+完成下列各问：
 
-   （ii）证明 $g$ 是奇函数。
+   1. 求 $f(-1)$ 和 $f(1)$。
+   2. 证明 $g$ 是奇函数。
+   3. 证明对任意 $t\in\mathbb{G}$ 都有
+      $g(t)=g(t/2)$。
+   4. 证明对任意整数 $n,k$，
 
-   （iii）证明对任意 $t\in\mathbb G$，都有 $g(t)=g(t/2)$。
+$$
+g\!\left(1+\frac{n\pi}{2^k}\right)=g(1).
+$$
 
-   （iv）证明
+   5. 求出函数 $f$，并写明推导过程。
 
-   $$
-   g\left(1+\frac{n\pi}{2^k}\right)=g(1),
-   \qquad n,k\in\mathbb Z.
-   $$
+2. 设 $a<b$，可微函数
+   $f:(a,b)\to(0,\infty)$ 和
+   $g:(a,b)\to\mathbb{R}$ 满足以下三种条件之一：
 
-   （v）求函数 $f$，并写出推导过程。
+   - （A）
+     $\displaystyle\lim_{x\to a+0}f(x)=1$，且
+     $\displaystyle\lim_{x\to a+0}g(x)=\pm\infty$；
+   - （B）
+     $\displaystyle\lim_{x\to a+0}f(x)=\infty$，且
+     $\displaystyle\lim_{x\to a+0}g(x)=0$；
+   - （C）
+     $\displaystyle\lim_{x\to a+0}f(x)=0$，且
+     $\displaystyle\lim_{x\to a+0}g(x)=0$。
 
-2. 设可微函数 $f:(a,b)\to(0,\infty)$ 与 $g:(a,b)\to\mathbb R$ 满足以下三组条件之一，其中 $a<b$：
+题面给出在上述任一情形下成立的公式
 
-   - （A）$\displaystyle\lim_{x\to a+0}f(x)=1$，且 $\displaystyle\lim_{x\to a+0}g(x)=\pm\infty$；
-   - （B）$\displaystyle\lim_{x\to a+0}f(x)=\infty$，且 $\displaystyle\lim_{x\to a+0}g(x)=0$；
-   - （C）$\displaystyle\lim_{x\to a+0}f(x)=0$，且 $\displaystyle\lim_{x\to a+0}g(x)=0$。
+$$
+\lim_{x\to a+0}(f(x))^{g(x)}
+=
+\exp\!\left(
+-\lim_{x\to a+0}
+\frac{f'(x)(g(x))^2}{f(x)g'(x)}
+\right).
+\tag{1}
+$$
 
-   此时有
+完成：
 
-   $$
-   \lim_{x\to a+0}(f(x))^{g(x)}
-   =
-   \exp\!\left(
-   -\lim_{x\to a+0}
-   \frac{f'(x)(g(x))^2}{f(x)g'(x)}
-   \right).
-   \tag{1}
-   $$
+   1. 求
 
-   （i）求下列极限：
+$$
+\lim_{x\to+0}(\sin x)^{\sqrt{x}}
+$$
 
-   1. $\displaystyle\lim_{x\to+0}(\sin x)^{\sqrt{x}}$；
-   2. $\displaystyle\lim_{x\to+0}
-      \left(\frac2\pi\arctan\frac1x\right)^{1/x}$，
-      其中对任意 $y\in\mathbb R$，$-\frac\pi2<\arctan y<\frac\pi2$。
+和
 
-   （ii）设函数 $h:\mathbb R\to\mathbb R$ 二阶可微，并对某个正实数 $p$ 满足
+$$
+\lim_{x\to+0}
+\left(\frac{2}{\pi}\arctan\frac1x\right)^{1/x},
+$$
 
-   $$
-   h''(x)+h(x)=0,\qquad
-   \lim_{x\to+0}(h(x))^{1/x}=p,\qquad
-   \lim_{x\to+0}h(x)>0.
-   $$
+其中反正切取值满足
+$-\frac{\pi}{2}<\arctan y<\frac{\pi}{2}$（$y\in\mathbb{R}$）。
+   2. 设 $h:\mathbb{R}\to\mathbb{R}$ 二阶可微，并对某个正实数 $p$ 满足
 
-   求函数 $h$。
+$$
+h''(x)+h(x)=0,\qquad
+\lim_{x\to+0}(h(x))^{1/x}=p,\qquad
+\lim_{x\to+0}h(x)>0.
+$$
 
-   （iii）证明只要（A）、（B）、（C）之一成立，公式（1）便成立。
-
-#### 考点
-
-- **函数方程与稠密性**：利用倍角恒等式、连续性及稠密点集确定函数。
-- **不定式幂极限**：对 $f(x)^{g(x)}$ 取对数，并用 L’Hôpital 法则处理 $1^\infty$、$\infty^0$、$0^0$ 型。
-- **二阶常系数微分方程**：由通解和边界极限确定积分常数。
-- **极限公式证明**：把幂函数极限归结为 $g\log f$ 的极限并严格验证变形。
-
+求函数 $h$。
+   3. 证明只要条件（A）、（B）、（C）中任一项成立，公式 (1) 就成立。
 
 ## **Kai**
 ### 問1

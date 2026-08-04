@@ -58,17 +58,6 @@ If necessary, use examples or figures.
 7. 网络安全协议。
 8. 实时性。
 
-#### 考点
-
-- **串联机械臂正、逆运动学**：说明关节变量与末端位姿之间的正向映射和反求过程。
-- **力控制实现**：用框图说明力传感、期望力比较、控制器及执行器构成的闭环。
-- **不变图像特征**：说明对平移、旋转、尺度或光照变化保持稳定的特征及用途。
-- **反向传播**：说明用链式法则把输出误差逐层传回并计算网络权重梯度。
-- **自相关与功率谱**：说明信号时移相关性及其傅里叶变换与功率谱密度的关系。
-- **同步与异步电路**：比较有统一时钟的状态更新与由局部事件驱动的状态变化。
-- **网络安全协议**：以 TLS、IPsec 等一个实例说明其认证、机密性和完整性机制。
-- **实时系统**：说明计算正确性还取决于在截止时间内完成，以及硬、软实时的差别。
-
 ## **Kai**
 #### Synchronous circuits and asynchronous circuits
 Synchronous circuits and asynchronous circuits are both sequential circuits. In synchronous circuits, there is a unified global CLK signal, usually a DFF as the basic unit, its sequential analysis would be easy (setup time and hold time check), and it is relatively more stable.

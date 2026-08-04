@@ -84,13 +84,6 @@ $$
      <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p1.png" width="600" alt="题目时序电路"/>
    </figure>
 
-#### 考点
-
-- **布尔函数最小化**：由给定或与式求最简与或式、最简或与式，并在带无关条件的关系式中优化乘积项与文字数。
-- **NAND 通用门实现**：把最简逻辑式映射为仅三输入 NAND 门的最少门电路。
-- **时序电路分析**：从触发器与组合逻辑图推导可达状态、下一状态和输出。
-- **有限状态机最小化**：用状态等价划分判断并合并行为不可区分的状态。
-
 ## **Kai**
 ### (1)
 #### (a)

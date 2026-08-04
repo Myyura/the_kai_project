@@ -74,13 +74,6 @@ Briefly explain the meanings of the two statistical terms chosen from the follow
    - Bootstrap 方法；
    - 检验的统计功效。
 
-#### 考点
-
-- **Poisson 分布与中心极限定理**：计算尾概率阈值，并求独立时间段计数和的正态近似参数。
-- **Student $t$ 置信区间**：未知方差时以样本标准差替代总体标准差，并使用 $t_{n-1}$ 分布临界值。
-- **显著性检验常见误读**：区分“不显著”与独立、以及“一个显著一个不显著”与差异本身显著。
-- **多重校正、效应量、Bootstrap 与功效**：准确说明所选两个概念在推断中的用途。
-
 ## **Kai**
 ### Q.1
 #### (1)

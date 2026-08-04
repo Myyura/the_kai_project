@@ -15,7 +15,7 @@ tags:
 
 ## **Description**
 ### 問1
-以下の設問に答えよ。以降では、$e$ はネイピア数（自然対数の底）、$\pi$ は円周率を表す。
+以下の設問に答えよ。以降では、 $e$ はネイピア数（自然対数の底）、 $\pi$ は円周率を表す。
 
 (i) $\lim_{x \rightarrow +0} x^{-1/2} (1-e^{-x})$ を求めよ。
 
@@ -37,7 +37,7 @@ $$
 \iint_D e^{x+y} \ dxdy
 $$
 
-(iv) 実関数 $f(x)$ および $g(x)>0$ が、それぞれすべての実数 $x$ に対して定義されていて単調増加であるとする。これらが $\lim_{x \rightarrow -\infty} \frac{f(x)}{g(x)} = 1$, $\lim_{x \rightarrow +\infty} \frac{f(x)}{g(x)} = 1$ を満たすとき、
+(iv) 実関数 $f(x)$ および $g(x)>0$ が、それぞれすべての実数 $x$ に対して定義されていて単調増加であるとする。これらが $\lim_{x \rightarrow -\infty} \frac{f(x)}{g(x)} = 1$ , $\lim_{x \rightarrow +\infty} \frac{f(x)}{g(x)} = 1$ を満たすとき、
 
 $$
 \sup_{-\infty < x < \infty} \frac{f(x)}{g(x)} < \infty
@@ -46,127 +46,128 @@ $$
 が成り立つ、すなわち $\frac{f(x)}{g(x)} \le c$ がすべての実数 $x$ で成り立つような定数 $c < \infty$ が存在することを示せ。
 
 ### 問2
-直交座標系 $\text{O}-xyz$ で表される3次元空間内の楕円面 $E: f(x,y,z)=0$ を考える。ただし、 
+直交座標系 $\text{O}-xyz$ で表される3次元空間内の楕円面 $E: f(x,y,z)=0$ を考える。ただし、
 
 $$
 f(x,y,z) = \frac{x^2}{l^2} + \frac{y^2}{m^2} + \frac{z^2}{n^2} - 1
 $$
 
-とし、$l,m,n$ は正の定数とする。以下の設問に答えよ。 
+とし、 $l,m,n$ は正の定数とする。以下の設問に答えよ。
 
 (i) 関数 $g(x,y,z)=xyzf(x,y,z)$ を考える。閉領域 $D=\{(x,y,z): f(x,y,z) \le 0\}$ において、関数 $g$ の最大値と最小値を求めよ。
 
-(ii) 楕円面 $E$ の法線であって $E$ 上の点 $(x_0, y_0, z_0)$ を通るものの方程式を求めよ。 
+(ii) 楕円面 $E$ の法線であって $E$ 上の点 $(x_0, y_0, z_0)$ を通るものの方程式を求めよ。
 
-(iii) 関数 $h(x,y,z)=ax+by+cz$ を最大にする楕円面 $E$ 上の点 $(x,y,z)$ を求めよ。ただし、$(a,b,c)\neq (0, 0, 0)$ とする。
+(iii) 関数 $h(x,y,z)=ax+by+cz$ を最大にする楕円面 $E$ 上の点 $(x,y,z)$ を求めよ。ただし、 $(a,b,c)\neq (0, 0, 0)$ とする。
 
 (iv) 3点 $(p, 0,0), (0, q, 0), (0, 0, r)$ を含む平面が楕円面 $E$ と接している。この条件で $p,q,r$ を動かしたときに $p^2+q^2+r^2$ の最小値を求めよ。
 
 ### 题目描述
 
-1. 回答下列问题。以下 $e$ 表示自然对数的底，$\pi$ 表示圆周率。
+回答以下两题。下文中 $e$ 表示自然对数的底，$\pi$ 表示圆周率。
 
-   （i）求
+1. 完成下列各问：
 
-   $$
-   \lim_{x\to+0}x^{-1/2}(1-e^{-x}).
-   $$
+   1. 求
 
-   （ii）计算反常积分
+$$
+\lim_{x\to+0}x^{-1/2}(1-e^{-x}).
+$$
 
-   $$
-   \int_0^\infty x^{-3/2}(1-e^{-x})\,dx.
-   $$
+   2. 计算广义积分
 
-   题面允许使用
+$$
+\int_0^\infty x^{-3/2}(1-e^{-x})\,dx.
+$$
 
-   $$
-   \int_0^\infty e^{x^2}\,dx=\frac\pi2.
-   $$
+现有日文题面在此写明可以使用
 
-   （iii）对 $xy$ 平面上的闭区域
+$$
+\int_0^\infty e^{x^2}\,dx=\frac{\pi}{2}.
+$$
 
-   $$
-   D=\{(x,y)\mid x\geq0,\ y\geq0,\ x+y\leq1\},
-   $$
+但该式按字面发散，且常数也与标准 Gaussian 积分不符；Kai 的计算唯一对应于
+$\int_0^\infty e^{-x^2}\,dx=\sqrt{\pi}/2$，因此原题此处存在符号或常数缺失，无法由现有题面进一步确定。
 
-   计算
+   3. 对 $xy$ 平面上的闭三角区域
 
-   $$
-   \iint_D e^{x+y}\,dx\,dy.
-   $$
+$$
+D=\{(x,y)\mid x\geq0,\ y\geq0,\ x+y\leq1\},
+$$
 
-   （iv）设实函数 $f(x)$ 与 $g(x)>0$ 对所有实数 $x$ 均有定义且单调递增，并满足
+计算
 
-   $$
-   \lim_{x\to-\infty}\frac{f(x)}{g(x)}=1,\qquad
-   \lim_{x\to+\infty}\frac{f(x)}{g(x)}=1.
-   $$
+$$
+\iint_D e^{x+y}\,dx\,dy.
+$$
 
-   证明
+   4. 设实函数 $f(x)$ 和正值函数 $g(x)>0$ 对所有
+      $x\in\mathbb{R}$ 均有定义且都单调递增，并满足
 
-   $$
-   \sup_{-\infty<x<\infty}\frac{f(x)}{g(x)}<\infty,
-   $$
+$$
+\lim_{x\to-\infty}\frac{f(x)}{g(x)}=1,
+\qquad
+\lim_{x\to+\infty}\frac{f(x)}{g(x)}=1.
+$$
 
-   即存在有限常数 $c$，使对每个实数 $x$ 都有 $f(x)/g(x)\leq c$。
+证明
 
-2. 在直角坐标系 $\mathrm O\!-\!xyz$ 表示的三维空间中，考虑椭球面
+$$
+\sup_{-\infty<x<\infty}\frac{f(x)}{g(x)}<\infty;
+$$
 
-   $$
-   E:f(x,y,z)=0,
-   $$
+也就是说，证明存在有限常数 $c$，使每个实数 $x$ 都满足
+$f(x)/g(x)\leq c$。
 
-   其中
+2. 在直角坐标系 $\mathrm{O}\!-\!xyz$ 的三维空间中，考虑椭球面
 
-   $$
-   f(x,y,z)=
-   \frac{x^2}{l^2}
-   +\frac{y^2}{m^2}
-   +\frac{z^2}{n^2}-1,
-   $$
+$$
+E:\ f(x,y,z)=0,
+$$
 
-   且 $l,m,n$ 为正常数。
+其中
 
-   （i）定义
+$$
+f(x,y,z)
+=\frac{x^2}{l^2}
++\frac{y^2}{m^2}
++\frac{z^2}{n^2}-1,
+$$
 
-   $$
-   g(x,y,z)=xyz\,f(x,y,z).
-   $$
+且 $l,m,n$ 是正常数。
 
-   在闭区域
+   1. 定义
 
-   $$
-   D=\{(x,y,z)\mid f(x,y,z)\leq0\}
-   $$
+$$
+g(x,y,z)=xyz\,f(x,y,z).
+$$
 
-   上求 $g$ 的最大值与最小值。
+在闭区域
 
-   （ii）求经过椭球面 $E$ 上点 $(x_0,y_0,z_0)$ 的法线方程。
+$$
+D=\{(x,y,z)\mid f(x,y,z)\leq0\}
+$$
 
-   （iii）对 $(a,b,c)\ne(0,0,0)$，求椭球面 $E$ 上使
+上求 $g$ 的最大值和最小值。
+   2. 求椭球面 $E$ 在点
+      $(x_0,y_0,z_0)\in E$ 处、经过该点的法线方程。
+   3. 给定 $(a,b,c)\ne(0,0,0)$，求椭球面 $E$ 上使线性函数
 
-   $$
-   h(x,y,z)=ax+by+cz
-   $$
+$$
+h(x,y,z)=ax+by+cz
+$$
 
-   取得最大值的点 $(x,y,z)$。
+取得最大值的点 $(x,y,z)$。
+   4. 经过三点
 
-   （iv）经过三点
+$$
+(p,0,0),\qquad
+(0,q,0),\qquad
+(0,0,r)
+$$
 
-   $$
-   (p,0,0),\qquad(0,q,0),\qquad(0,0,r)
-   $$
-
-   的平面与椭球面 $E$ 相切。在此约束下改变 $p,q,r$，求 $p^2+q^2+r^2$ 的最小值。
-
-#### 考点
-
-- **极限与反常积分**：使用渐近展开、分部积分和变量代换判断端点收敛并求值。
-- **三角区域上的二重积分**：合理选择积分次序或以 $x+y$ 为新变量。
-- **全实轴上的有界性证明**：结合两端极限与紧区间上的单调函数界控制比值。
-- **椭球上的微分几何**：利用梯度写出法线，并求线性函数在椭球上的支撑点。
-- **多元约束优化**：用对称性或 Lagrange 乘数求闭椭球内的极值及切平面截距问题。
+的平面与椭球面 $E$ 相切。让 $p,q,r$ 在满足该条件的范围内变化，求
+$p^2+q^2+r^2$ 的最小值。
 
 ## **Kai**
 ### 問1
@@ -190,19 +191,19 @@ $$
 $$
 
 #### (iv)
-$\lim_{x \to -\infty} \frac{f(x)}{g(x)} = 1$, $\lim_{x \to \infty} \frac{f(x)}{g(x)} = 1$ より
+$\lim_{x \to -\infty} \frac{f(x)}{g(x)} = 1$ , $\lim_{x \to \infty} \frac{f(x)}{g(x)} = 1$ より
 
 $$
 \exists M > 0, \forall x \in (-\infty, -M) \cup (M, +\infty), \frac{f(x)}{g(x)} < 1 + \epsilon < 2 \ (\forall \epsilon > 0)
 $$
 
-$\forall x \in [-M, M]$, since $f(x)$ and $g(x)$ are monotonic increasing, we have
+$\forall x \in [-M, M]$ , since $f(x)$ and $g(x)$ are monotonic increasing, we have
 
 $$
 \frac{f(x)}{g(x)} \leq \frac{f(M)}{g(x)} \leq \frac{f(M)}{g(-M)}
 $$
 
-Hence let $c = \max \{\frac{f(M)}{g(-M)}, 2\}$, $\forall x \in R, \frac{f(x)}{g(x)} \leq c$.
+Hence let $c = \max \{\frac{f(M)}{g(-M)}, 2\}$ , $\forall x \in R, \frac{f(x)}{g(x)} \leq c$ .
 
 ### 問2
 #### (i)
@@ -214,7 +215,7 @@ $$
 \end{aligned}
 $$
 
-よって、最大値は $\frac{2 \sqrt{5} lmn}{125}$、最小値は $-\frac{2 \sqrt{5} lmn}{125}$ である。
+よって、最大値は $\frac{2 \sqrt{5} lmn}{125}$ 、最小値は $-\frac{2 \sqrt{5} lmn}{125}$ である。
 
 #### (ii)
 法線ベクトルは
@@ -231,7 +232,7 @@ $$
 法線の方程式は
 
 $$
-\frac{x-x_0}{x_0/l^2} = \frac{y-y_0}{y_0/m^2} = \frac{z-z_0}{z_0/n^2} 
+\frac{x-x_0}{x_0/l^2} = \frac{y-y_0}{y_0/m^2} = \frac{z-z_0}{z_0/n^2}
 $$
 
 #### (iii)
@@ -239,7 +240,7 @@ $$
 $$
 \begin{aligned}
 L( x,y,z) &= ax+by+cz+\lambda f\left( x,y,z \right)  \\
-\frac{\partial L}{\partial x} &= a+\frac{2\lambda x}{l^2}=0 \\ 
+\frac{\partial L}{\partial x} &= a+\frac{2\lambda x}{l^2}=0 \\
 \frac{\partial L}{\partial y} &= b+\frac{2\lambda y}{m^2}=0 \\
 \frac{\partial L}{\partial z} &= c+\frac{2\lambda z}{n^2}=0 \\
 \frac{x^2}{l^2}&+\frac{y^2}{m^2}+\frac{z^2}{n^2}-1=0
@@ -250,18 +251,18 @@ $$
 
 $$
 \begin{aligned}
-ax+\frac{2\lambda x^2}{l^2}&=0 \\ 
-by+\frac{2\lambda y^2}{m^2}&=0 \\ 
-cz+\frac{2\lambda z^2}{n^2}&=0 \\ 
+ax+\frac{2\lambda x^2}{l^2}&=0 \\
+by+\frac{2\lambda y^2}{m^2}&=0 \\
+cz+\frac{2\lambda z^2}{n^2}&=0 \\
 h\left( x,y,z \right) &= -2\lambda
 \end{aligned}
 $$
 
-$x=-\frac{al^2}{2\lambda},y=-\frac{bm^2}{2\lambda},z=-\frac{cn^2}{2\lambda}$ を $f(x,y,z)$ に代入して , $h=-2\lambda$, $h$ が最大になるとき, 
+$x=-\frac{al^2}{2\lambda},y=-\frac{bm^2}{2\lambda},z=-\frac{cn^2}{2\lambda}$ を $f(x,y,z)$ に代入して , $h=-2\lambda$ , $h$ が最大になるとき,
 
 $$
 \begin{aligned}
-\lambda &= -\frac{\sqrt{a^2l^2+b^2m^2+c^2z^2}}{2} \\ 
+\lambda &= -\frac{\sqrt{a^2l^2+b^2m^2+c^2z^2}}{2} \\
 x &= \frac{al^2}{\sqrt{a^2l^2+b^2m^2+c^2z^2}} \\
 y &= \frac{bm^2}{\sqrt{a^2l^2+b^2m^2+c^2z^2}} \\
 z &=\frac{cn^2}{\sqrt{a^2l^2+b^2m^2+c^2z^2}}

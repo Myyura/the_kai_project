@@ -8,17 +8,16 @@ tags:
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2020年8月実施 線形代数
 
-
 ## **Author**
 Yu
 
 ## **Description**
-$n \times m$ 実行列 $A \in \mathbb{R}^{n \times m}$ の第 $j$ 列 $(j = 1, 2, \dots , m)$ を $a_j \in \mathbb{R}^n$とする．各部分集合 $J \subseteq \{1, 2, \dots , m\}$ について，その要素数を $|J|$ で表し，$a_j (j \in J)$ を $j$ に関する昇順で左から並べて得られる $A$ の部分行列を $A[J] \in \mathbb{R}^{n \times |J|}$ で表す．このとき，以下の問いに答えよ．
+$n \times m$ 実行列 $A \in \mathbb{R}^{n \times m}$ の第 $j$ 列 $(j = 1, 2, \dots , m)$ を $a_j \in \mathbb{R}^n$ とする．各部分集合 $J \subseteq \{1, 2, \dots , m\}$ について，その要素数を $|J|$ で表し， $a_j (j \in J)$ を $j$ に関する昇順で左から並べて得られる $A$ の部分行列を $A[J] \in \mathbb{R}^{n \times |J|}$ で表す．このとき，以下の問いに答えよ．
 
-(1) 以下の行列 $A$ に対し，$\{a_j|j \in J\}$ が線形独立であるような部分集合 $J \subseteq \{1, 2, 3, 4, 5, 6\}$ をすべて求めよ．
+(1) 以下の行列 $A$ に対し， $\{a_j|j \in J\}$ が線形独立であるような部分集合 $J \subseteq \{1, 2, 3, 4, 5, 6\}$ をすべて求めよ．
 
 $$
-A = 
+A =
 \begin{pmatrix}
 1 & 0 & 0 & -2 & 0 & 0 \\
 0 & 1 & 0 & -2 & -3 & -5 \\
@@ -26,33 +25,72 @@ A =
 \end{pmatrix}
 $$
 
-(2) (1) の行列 $A$ に対し，$\text{rank}(A[J]) < |J|$ を満たす部分集合 $J \subseteq \{1, 2, 3, 4, 5, 6\}$ であって，$J$ の任意の真部分集合 $I \subsetneq J$ について $\text{rank}(A[I]) = |I|$ が成り立つものをすべて求めよ．ただし，空集合 $\emptyset$ に対しては $\text{rank}(A[\emptyset]) = 0$ と定義する．
+(2) (1) の行列 $A$ に対し， $\text{rank}(A[J]) < |J|$ を満たす部分集合 $J \subseteq \{1, 2, 3, 4, 5, 6\}$ であって， $J$ の任意の真部分集合 $I \subsetneq J$ について $\text{rank}(A[I]) = |I|$ が成り立つものをすべて求めよ．ただし，空集合 $\emptyset$ に対しては $\text{rank}(A[\emptyset]) = 0$ と定義する．
 
-(3) 一般の $A \in \mathbb{R}^{n×m}$ について，$I \subseteq J \subseteq \{1, 2, \dots , m\}$ かつ $\text{rank}(A[J]) = |J|$ のとき，$\text{rank}(A[I]) = |I|$ が成り立つことを示せ．
+(3) 一般の $A \in \mathbb{R}^{n×m}$ について， $I \subseteq J \subseteq \{1, 2, \dots , m\}$ かつ $\text{rank}(A[J]) = |J|$ のとき， $\text{rank}(A[I]) = |I|$ が成り立つことを示せ．
 
 ### 题目描述
 
-设实矩阵 $A\in\mathbb R^{n\times m}$ 的第 $j$ 列为 $a_j\in\mathbb R^n$。对每个 $J\subseteq\{1,\ldots,m\}$，以 $|J|$ 表示元素个数，并令 $A[J]\in\mathbb R^{n\times|J|}$ 为按下标递增排列所有 $a_j$（$j\in J$）所得的子矩阵。
+设实矩阵 $A\in\mathbb R^{n\times m}$ 的第 $j$ 列为
+
+$$
+a_j\in\mathbb R^n\qquad(j=1,2,\ldots,m).
+$$
+
+对每个子集 $J\subseteq\{1,2,\ldots,m\}$，以 $|J|$ 表示其元素个数；将所有 $a_j$（$j\in J$）按下标 $j$ 递增的顺序从左到右排列，所得子矩阵记为
+
+$$
+A[J]\in\mathbb R^{n\times|J|}.
+$$
+
+回答下列问题：
 
 1. 对
+
+$$
+A=\begin{pmatrix}
+1&0&0&-2&0&0\\
+0&1&0&-2&-3&-5\\
+-2&-2&0&4&6&0
+\end{pmatrix},
+$$
+
+   求全部使列集合 $\{a_j\mid j\in J\}$ 线性无关的
+
    $$
-   A=\begin{pmatrix}
-   1&0&0&-2&0&0\\
-   0&1&0&-2&-3&-5\\
-   -2&-2&0&4&6&0
-   \end{pmatrix},
+   J\subseteq\{1,2,3,4,5,6\}.
    $$
-   求全部使列集合 $\{a_j\mid j\in J\}$ 线性无关的 $J\subseteq\{1,\ldots,6\}$。
-2. 对同一矩阵，求全部满足 $\operatorname{rank}(A[J])<|J|$、但每个真子集 $I\subsetneq J$ 均满足 $\operatorname{rank}(A[I])=|I|$ 的 $J$。约定 $\operatorname{rank}(A[\varnothing])=0$。
-3. 对一般的 $A\in\mathbb R^{n\times m}$，证明若 $I\subseteq J\subseteq\{1,\ldots,m\}$ 且 $\operatorname{rank}(A[J])=|J|$，则 $\operatorname{rank}(A[I])=|I|$。
 
-#### 考点
+   现有内容在矩阵的第 $(3,6)$ 元处互相冲突：原始 Description 明确写为 $0$，即 $a_6=(0,-5,0)^T$；Kai 的行化简与所列答案改用 $-10$，即 $a_6=(0,-5,-10)^T$。两版会产生不同的独立集，现有材料无法唯一判定哪一项是原题值；本中文题面保留原始 Description 的 $0$，并明确 Kai 对应的是另一版本。
+2. 对第 1 问的同一矩阵，求全部满足
 
-- **线性无关与矩阵秩**：枚举给定矩阵中所有线性无关的列子集，并用秩刻画独立性。
-- **极小相关集**：找出自身相关而任意真子集均独立的列下标集合，即列向量拟阵中的回路。
-- **独立集的遗传性质**：证明线性无关列集的任意子集仍线性无关。
+   $$
+   \operatorname{rank}(A[J])<|J|
+   $$
 
-## **Kai** 
+   且对 $J$ 的每个真子集 $I\subsetneq J$ 都满足
+
+   $$
+   \operatorname{rank}(A[I])=|I|
+   $$
+
+   的 $J\subseteq\{1,2,3,4,5,6\}$。约定空集满足
+
+   $$
+   \operatorname{rank}(A[\varnothing])=0.
+   $$
+
+3. 对一般的 $A\in\mathbb R^{n\times m}$，证明：若
+
+   $$
+   I\subseteq J\subseteq\{1,2,\ldots,m\},
+   \qquad
+   \operatorname{rank}(A[J])=|J|,
+   $$
+
+   则 $\operatorname{rank}(A[I])=|I|$。
+
+## **Kai**
 ### (1)
 
 $$
@@ -84,8 +122,8 @@ J = \{3\} \quad J = \{2,5\} \quad J = \{1,4,6\}
 $$
 
 ### (3)
-$\text{rank}(A[J]) = |J|$ より、$\{a_j|j \in J\}$ は線型独立である.
+$\text{rank}(A[J]) = |J|$ より、 $\{a_j|j \in J\}$ は線型独立である.
 
 線型独立な集合の部分集合は線型独立である.
 
-よって, $\{a_i|i \in I\}$ は線型独立である. $\text{rank}(A[I]) = |I|$. 
+よって, $\{a_i|i \in I\}$ は線型独立である. $\text{rank}(A[I]) = |I|$ .

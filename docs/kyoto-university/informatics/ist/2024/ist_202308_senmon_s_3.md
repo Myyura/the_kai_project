@@ -67,12 +67,6 @@ $x_i=(x_{i1},x_{i2})^\top$（$i=1,\ldots,n$）：
 3. 对第 1 问的每一类，写出计算样本 $x_i$ 的 Mahalanobis 距离的公式。
 4. 说明表 1(b) 的样本更适合第 1 问中的哪一类，并明确说明讨论所需的样本分布假设。
 
-#### 考点
-
-- **最近类中心线性分类器**：展开两个到均值向量的平方距离差，得到线性判别函数。
-- **Fisher 线性判别准则**：用类间散布相对类内散布的比值比较两种标注的可分性。
-- **Mahalanobis 距离与 Gaussian 分类**：用各类协方差逆矩阵度量距离，并说明在 Gaussian 及先验/协方差假设下作分类。
-
 ## **Kai**
 ### (1)
 Let $c_1$ and $c_2$ denote the center of classes $C_1$ and $C_2$, respectively. Then we have

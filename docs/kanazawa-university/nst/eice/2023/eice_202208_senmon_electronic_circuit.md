@@ -84,13 +84,6 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electronic_circuit_p1.png" width="600" alt=""/>
 </figure>
 
-#### 考点
-
-- **理想运算放大器约束**：使用虚短、虚断和节点电流方程求输入阻抗、电流比例及闭环增益。
-- **含电容反馈网络的传递函数**：在频域以复阻抗表示 RC 支路并推导正弦稳态响应。
-- **时域积分方程**：由电容电压—电流关系与 Kirchhoff 定律建立输入和电流的积分关系。
-- **阶跃暂态响应**：结合零初始电荷求一阶电路输出的指数暂态和稳态值。
-
 ## **Kai**
 ### 問1
 #### (1)

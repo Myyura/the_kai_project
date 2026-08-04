@@ -110,13 +110,6 @@ $$
    $(\bar{\boldsymbol x},\rho)$ 都满足该问题的 KKT 条件，证明
    $f(\hat{\boldsymbol x})=f(\bar{\boldsymbol x})$。
 
-#### 考点
-
-- **等式约束二次规划的 KKT 条件**：对参数固定后的强凸二次目标写出驻点与可行性条件。
-- **参数优化值函数**：消去内层变量或利用最优值比较，分析外层函数 $f(\boldsymbol x)$。
-- **Rayleigh 商界**：用正定矩阵最小特征值给出 $\boldsymbol x^\top\boldsymbol C\boldsymbol x$ 的下界，从而控制全局最优解范数。
-- **KKT 解的目标值一致性**：在零数据和球约束的特殊情形下比较满足同一乘子的驻点。
-
 ## **Kai**
 ### (i)
 Lagrangian:

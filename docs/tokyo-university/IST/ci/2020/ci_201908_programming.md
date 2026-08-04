@@ -157,13 +157,6 @@ Decrypt `data5.txt` by using this fact. The decrypted data is UTF-8 text. Write 
    \]
    利用这些关系破解并解密 `data5.txt`；明文是 UTF-8 文本，把内容写在答题纸上。
 
-#### 考点
-
-- **六位编码与位索引**：在字符表和 6 位数值间转换，并跨分组准确抽取指定全局比特区间。
-- **最优压缩编码的动态规划**：在原样字节、零转义和受 \(p,d<256\) 限制的回溯复制之间选择，使压缩总长度最小。
-- **替换密码与词典约束搜索**：利用句子结构和完整词表反推出字符映射。
-- **模幂与公钥密码破解**：用快速模幂、\(n=pq\) 及给定的 \(ed\) 关系求解私钥并按大端 4 字节块还原 UTF-8。
-
 ## **Kai**
 Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2020-Summer) for the sample data files.
 

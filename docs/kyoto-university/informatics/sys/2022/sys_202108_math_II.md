@@ -188,15 +188,6 @@ $$
      <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_math_II_p1.png" width="300" alt=""/>
    </figure>
 
-#### 考点
-
-- **二重积分的变量代换**：求逆变换、Jacobian 和变换后区域，并整理复杂被积函数。
-- **反常积分与渐近估计**：利用 Gamma 积分计算特殊参数情形，并通过上下界证明对数渐近式。
-- **隐式曲面的切平面**：使用椭球定义函数的梯度写出切平面。
-- **极平面与椭球截面**：刻画外点所有切点所在平面，并求平面截椭球的中心。
-- **约束优化**：在椭球约束下最大化三个坐标分量的乘积。
-
-
 ## **Kai**
 ### 問1
 

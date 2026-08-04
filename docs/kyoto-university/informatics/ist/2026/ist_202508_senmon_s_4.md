@@ -150,10 +150,3 @@ Answer the following questions.
    （1）用 $\boldsymbol R,\boldsymbol p,\sigma^2,\boldsymbol h$ 表示 $J(\boldsymbol h)$。
 
    （2）推导使 $J(\boldsymbol h)$ 最小的滤波器系数向量 $\boldsymbol h$ 所满足的方程，即 Wiener–Hopf 方程。
-
-#### 考点
-
-- **双边 $z$ 变换与收敛域**：根据右边、左边序列形式确定有理变换对应的环形收敛域。
-- **移位与共轭性质**：推导时间移位、复共轭对 $z$ 变换表达式和收敛域的影响。
-- **Wiener 滤波**：展开均方误差的二次型并对系数向量求梯度。
-- **Wiener–Hopf 方程**：利用输入自相关矩阵和互相关向量刻画最小均方误差解。

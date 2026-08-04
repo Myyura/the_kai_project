@@ -115,12 +115,6 @@ $$
    $s\in A\subsetneq S$ 的集合 $A$，都有
    $\operatorname{cap}(A)>\operatorname{cap}(S)$。
 
-#### 考点
-
-- **流守恒与割上的净流量**：对割内顶点的守恒式求和，消去内部边并得到流值恒等式。
-- **残量网络与增广路**：正确处理正向剩余容量和反向撤销容量，并沿瓶颈增广得到更大流。
-- **最大流—最小割结构**：由残量可达集构造割，并利用正容量证明其在指定子集关系下的严格容量比较。
-
 ## **Kai**
 ### (i)
 We can rewrite the flow conservation law for any node $u \in V \setminus \{s, t\}$ as

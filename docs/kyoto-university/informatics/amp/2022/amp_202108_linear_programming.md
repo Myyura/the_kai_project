@@ -27,7 +27,7 @@ Q(\boldsymbol{v}): &\text{Minimize} \quad \boldsymbol{v^{\top}B^{\top}y} \\
 \end{aligned}
 $$
 
-ただし, $P(\boldsymbol{u})$の決定変数は $\boldsymbol{x} = (x_1,x_2,\dots,x_n)^{\top} \in \mathbb{R}^n$ であり, $Q(\boldsymbol{v})$ の決定変数は $\boldsymbol{y} = (y_1,y_2,\dots,y_m)^{\top} \in \mathbb{R}^m$ である。また, $\top$ は転置記号を表す。
+ただし, $P(\boldsymbol{u})$ の決定変数は $\boldsymbol{x} = (x_1,x_2,\dots,x_n)^{\top} \in \mathbb{R}^n$ であり, $Q(\boldsymbol{v})$ の決定変数は $\boldsymbol{y} = (y_1,y_2,\dots,y_m)^{\top} \in \mathbb{R}^m$ である。また, $\top$ は転置記号を表す。
 
 &emsp;&emsp;問題 $P(\boldsymbol{u})$ のすべての最適解の集合を $S_P(\boldsymbol{u})$ とし, 問題 $Q(\boldsymbol{v})$ のすべての最適解の集合を $S_Q(\boldsymbol{v})$ とする。さらに, $X = \{(\boldsymbol{x^*,y^*}) \in \mathbb{R}^n \times \mathbb{R}^m |\boldsymbol{x^*} \in S_P(\boldsymbol{y^*}),\boldsymbol{y^*} \in S_Q(\boldsymbol{x^*})\}$ とする。
 
@@ -37,7 +37,7 @@ $$
 
 (ii) $\boldsymbol{u} = (u_1,u_2,\dots,u_m)^{\top}$ を $u_i \leqq 0 (i = 1,\dots,m)$ であるベクトルとする。このとき,  $\boldsymbol{0} \in S_P(\boldsymbol{u})$ であることを示せ。
 
-(iii) $\boldsymbol{B} = -\boldsymbol{A}$とする。このとき, すべての $(\boldsymbol{x^*,y^*}) \in X$ に対して $(\boldsymbol{y^*})^{\top}\boldsymbol{Ax^*} = 0$ となることを示せ。
+(iii) $\boldsymbol{B} = -\boldsymbol{A}$ とする。このとき, すべての $(\boldsymbol{x^*,y^*}) \in X$ に対して $(\boldsymbol{y^*})^{\top}\boldsymbol{Ax^*} = 0$ となることを示せ。
 
 (iv) $\boldsymbol{u} \in \mathbb{R}^m$ を $\boldsymbol{u} \geqq 0$ かつ $\boldsymbol{u \neq 0}$ であるベクトルとする。このとき, $S_P(\boldsymbol{u})$ を求めよ。
 
@@ -45,49 +45,72 @@ $$
 
 ### English Version
 
-
 ### 题目描述
 
-设 $\boldsymbol A,\boldsymbol B$ 为 $m\times n$ 矩阵，且
-$A_{ij}=-i-j$（$i=1,\ldots,m$，$j=1,\ldots,n$）。考虑参数化线性规划
+设 $\boldsymbol{A}$、$\boldsymbol{B}$ 均为 $m\times n$ 矩阵，并规定
+
+$$
+A_{ij}=-i-j
+\qquad
+(i=1,\ldots,m,\ j=1,\ldots,n).
+$$
+
+考虑分别带参数 $\boldsymbol{u}\in\mathbb{R}^m$ 和
+$\boldsymbol{v}\in\mathbb{R}^n$ 的线性规划
 
 $$
 \begin{aligned}
-\mathrm P(\boldsymbol u):\quad
-&\text{最小化}\quad \boldsymbol u^\top\boldsymbol A\boldsymbol x\\
-&\text{满足}\quad\sum_{i=1}^n x_i\leqq1,\quad
-\boldsymbol x\geqq\boldsymbol0,
-\\[2mm]
-\mathrm Q(\boldsymbol v):\quad
-&\text{最小化}\quad \boldsymbol v^\top\boldsymbol B^\top\boldsymbol y\\
-&\text{满足}\quad\sum_{i=1}^m y_i\leqq1,\quad
-\boldsymbol y\geqq\boldsymbol0,
+P(\boldsymbol{u}):\quad
+&\text{最小化}\quad
+\boldsymbol{u}^\top\boldsymbol{A}\boldsymbol{x}\\
+&\text{满足}\quad
+\sum_{i=1}^n x_i\leqq1,\qquad
+\boldsymbol{x}\geqq\boldsymbol{0},\\[2mm]
+Q(\boldsymbol{v}):\quad
+&\text{最小化}\quad
+\boldsymbol{v}^\top\boldsymbol{B}^\top\boldsymbol{y}\\
+&\text{满足}\quad
+\sum_{i=1}^m y_i\leqq1,\qquad
+\boldsymbol{y}\geqq\boldsymbol{0}.
 \end{aligned}
 $$
 
-其中 $\boldsymbol u\in\mathbb R^m$、$\boldsymbol v\in\mathbb R^n$ 为参数，$\boldsymbol x\in\mathbb R^n$、$\boldsymbol y\in\mathbb R^m$ 分别为决策变量。令 $S_P(\boldsymbol u)$、$S_Q(\boldsymbol v)$ 分别为两个问题的全部最优解集合，并定义
+其中 $P(\boldsymbol{u})$ 的决策变量为
+$\boldsymbol{x}=(x_1,\ldots,x_n)^\top\in\mathbb{R}^n$，
+$Q(\boldsymbol{v})$ 的决策变量为
+$\boldsymbol{y}=(y_1,\ldots,y_m)^\top\in\mathbb{R}^m$，且
+$\top$ 表示转置。
+
+记 $S_P(\boldsymbol{u})$ 和 $S_Q(\boldsymbol{v})$ 分别为
+$P(\boldsymbol{u})$ 与 $Q(\boldsymbol{v})$ 的全部最优解集合，并定义
 
 $$
-X=\{(\boldsymbol x^*,\boldsymbol y^*)\in\mathbb R^n\times\mathbb R^m
-\mid \boldsymbol x^*\in S_P(\boldsymbol y^*),\
-\boldsymbol y^*\in S_Q(\boldsymbol x^*)\}.
+X=
+\left\{
+(\boldsymbol{x}^*,\boldsymbol{y}^*)\in
+\mathbb{R}^n\times\mathbb{R}^m
+\ \middle|\
+\boldsymbol{x}^*\in S_P(\boldsymbol{y}^*),\
+\boldsymbol{y}^*\in S_Q(\boldsymbol{x}^*)
+\right\}.
 $$
 
-回答：
+回答下列问题：
 
-1. 写出 P$(\boldsymbol u)$ 的对偶问题。
-2. 若 $\boldsymbol u=(u_1,\ldots,u_m)^\top$ 满足每个 $u_i\leqq0$，证明
-   $\boldsymbol0\in S_P(\boldsymbol u)$。
-3. 若 $\boldsymbol B=-\boldsymbol A$，证明对每个
-   $(\boldsymbol x^*,\boldsymbol y^*)\in X$，
-   $(\boldsymbol y^*)^\top\boldsymbol A\boldsymbol x^*=0$。
-4. 若 $\boldsymbol u\geqq\boldsymbol0$ 且 $\boldsymbol u\ne\boldsymbol0$，求 $S_P(\boldsymbol u)$。
-5. 若 $\boldsymbol B=\boldsymbol A$，求集合 $X$。
+1. 写出 $P(\boldsymbol{u})$ 的对偶问题。
+2. 若 $\boldsymbol{u}=(u_1,\ldots,u_m)^\top$ 满足
+   $u_i\leqq0$（$i=1,\ldots,m$），证明
+   $\boldsymbol{0}\in S_P(\boldsymbol{u})$。
+3. 令 $\boldsymbol{B}=-\boldsymbol{A}$。证明对任意
+   $(\boldsymbol{x}^*,\boldsymbol{y}^*)\in X$，都有
 
-#### 考点
+$$
+(\boldsymbol{y}^*)^\top\boldsymbol{A}\boldsymbol{x}^*=0.
+$$
 
-- **参数化线性规划对偶**：为单个总量约束下的线性目标构造对偶，并按参数符号刻画最优解集合。
-- **双层最优反应与平衡集合**：把 $\boldsymbol x^*$、$\boldsymbol y^*$ 互为对方参数时的最优性条件联立，分别分析 $\boldsymbol B=\pm\boldsymbol A$。
+4. 若 $\boldsymbol{u}\geqq\boldsymbol{0}$ 且
+   $\boldsymbol{u}\ne\boldsymbol{0}$，求集合 $S_P(\boldsymbol{u})$。
+5. 令 $\boldsymbol{B}=\boldsymbol{A}$，求集合 $X$。
 
 ## **Kai**
 ### (i)
@@ -103,7 +126,7 @@ $$
 g(\lambda, \nu) = \inf_{x} \{ L(x,\lambda, \nu) \} = - \boldsymbol{\lambda}
 $$
 
-Dual proble $(D)$:
+Dual proble $(D)$ :
 
 $$
 \begin{aligned}
@@ -114,20 +137,20 @@ $$
 $$
 
 ### (ii)
-from (i) we know , for $(D): -\lambda \boldsymbol{1} \preceq u^\top A$,
-obviously $u^\top A \succeq \boldsymbol{0}$, from strong duality, $\max \{- \lambda\} = 0$, $0 \in S_p(u)$
+from (i) we know , for $(D): -\lambda \boldsymbol{1} \preceq u^\top A$ ,
+obviously $u^\top A \succeq \boldsymbol{0}$ , from strong duality, $\max \{- \lambda\} = 0$ , $0 \in S_p(u)$
 
 ### (iii)
-according to the constraint, $x^* \succeq 0$, from $\boldsymbol{(ii)}, 0 \in S_Q(x^*)$.
+according to the constraint, $x^* \succeq 0$ , from $\boldsymbol{(ii)}, 0 \in S_Q(x^*)$ .
 
-If $x^* = 0$ , then $(y^*)^\top Ax^* = 0$.
+If $x^* = 0$ , then $(y^*)^\top Ax^* = 0$ .
 
-If $x^* \neq 0$, then $y^* = 0$, otherwise $-(x^*)^\top A y^* \succ 0$, which is conflict with $0 \in S_Q(x^*)$.
+If $x^* \neq 0$ , then $y^* = 0$ , otherwise $-(x^*)^\top A y^* \succ 0$ , which is conflict with $0 \in S_Q(x^*)$ .
 
 Thus $(x^*)^\top A y^* = 0$ always holds.
 
 ### (iv)
-Let $\boldsymbol{c} = u^\top A$. Then we have
+Let $\boldsymbol{c} = u^\top A$ . Then we have
 
 $$
 0 > c_1 > c_2 > \ldots > c_n
@@ -146,25 +169,25 @@ c + \lambda \boldsymbol{1} - \nu & = 0 \\
 $$
 
 And $\lambda = -c_n , \nu = \boldsymbol{c} - c_n \boldsymbol{1}, x^* = [0,0,\ldots, 1]^\top$ satisfies the KKT-conditions,
-thus $[0,0,\ldots, 1]^\top \in S_P(u)$,
+thus $[0,0,\ldots, 1]^\top \in S_P(u)$ ,
 and
 
 $$
 \forall \widetilde{x} \neq [0,0,\ldots, 1]^\top, \boldsymbol{c} \widetilde{x} > c_n = \boldsymbol{c}x^*
 $$
 
-hence $S_P(u) = \{ [0,0,\ldots, 1]^\top \}$.
+hence $S_P(u) = \{ [0,0,\ldots, 1]^\top \}$ .
 
 ### (v)
-Consider $P(y^*)$ and $Q(x^*)$.
+Consider $P(y^*)$ and $Q(x^*)$ .
 
-For $x^* = 0$, if $y* \neq 0$, then $x^* = [0,0,\ldots, 1]^\top$. Similarly, when $y^* = \boldsymbol{0}, x^* \neq \boldsymbol{0}$.
-Thus $(\boldsymbol{0}, \boldsymbol{0}) \in X$.
+For $x^* = 0$ , if $y* \neq 0$ , then $x^* = [0,0,\ldots, 1]^\top$ . Similarly, when $y^* = \boldsymbol{0}, x^* \neq \boldsymbol{0}$ .
+Thus $(\boldsymbol{0}, \boldsymbol{0}) \in X$ .
 
-Then, we consider the case when $y^* \neq \boldsymbol{0}, x^* \neq \boldsymbol{0}$.
+Then, we consider the case when $y^* \neq \boldsymbol{0}, x^* \neq \boldsymbol{0}$ .
 
 $$
 y^* \neq \boldsymbol{0} \Rightarrow x^* = [0,0,\ldots, 1]^\top \Rightarrow x^* \neq \boldsymbol{0} \Rightarrow y^* = [0,0,\ldots, 1]^\top
 $$
 
-Therefore, $X = \{ (\boldsymbol{0}, \boldsymbol{0}), ([0,0,\ldots, 1]^\top, [0,0,\ldots, 1]^\top) \}$.
+Therefore, $X = \{ (\boldsymbol{0}, \boldsymbol{0}), ([0,0,\ldots, 1]^\top, [0,0,\ldots, 1]^\top) \}$ .

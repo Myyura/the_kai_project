@@ -14,12 +14,14 @@ tags:
 
 ## **Description**
 
-1. $\boldsymbol a_1=(1,0)^{\mathsf T}$、$\boldsymbol a_2=(1,1)^{\mathsf T}$ とする。
+1. $\boldsymbol a_1=(1,0)^{\mathsf T}$ 、 $\boldsymbol a_2=(1,1)^{\mathsf T}$ とする。
    1. $\boldsymbol a_2-\boldsymbol a_1(\boldsymbol a_2\cdot\boldsymbol a_1)$ が $\boldsymbol a_1$ と直交することを示せ。
    2. 線形独立な3ベクトル $\boldsymbol b_1,\boldsymbol b_2,\boldsymbol b_3$ を直交化する方法を説明せよ。
 2. 実2次正方行列 $X$ の相異なる固有値に対応する固有ベクトルは線形独立であることを示せ。
 
 ### 题目描述
+
+完成下列两题。
 
 1. 设
 
@@ -36,14 +38,8 @@ tags:
       $$
 
       与 $\boldsymbol a_1$ 正交。
-   2. 说明如何将三个线性无关的向量 $\boldsymbol b_1,\boldsymbol b_2,\boldsymbol b_3$ 正交化。
-2. 证明：实二阶方阵 $X$ 的不同特征值所对应的特征向量线性无关。
-
-#### 考点
-
-- **正交分解**：需要验证从 $\boldsymbol a_2$ 中减去其在 $\boldsymbol a_1$ 方向上的分量后所得向量正交，并说明三个向量的格拉姆–施密特正交化步骤。
-- **线性无关**：需要用线性组合等于零的定义，证明不同特征值对应的两个非零特征向量不存在非平凡线性关系。
-- **特征值与特征向量**：需要把矩阵分别作用于两个特征向量，并利用对应特征值不相等这一条件完成线性无关性证明。
+   2. 说明对三个线性无关向量 $\boldsymbol b_1,\boldsymbol b_2,\boldsymbol b_3$ 进行正交化的方法。
+2. 证明实二阶方阵 $X$ 的不同特征值所对应的特征向量线性无关。
 
 ## **Kai**
 
@@ -83,7 +79,7 @@ $$
 \end{aligned}
 $$
 
-と定める。線形独立性から各 $\boldsymbol u_i$ は0でなく、$\boldsymbol u_1,\boldsymbol u_2,\boldsymbol u_3$ は互いに直交する。必要なら $\boldsymbol e_i=\boldsymbol u_i/\|\boldsymbol u_i\|$ として正規直交化する。
+と定める。線形独立性から各 $\boldsymbol u_i$ は0でなく、 $\boldsymbol u_1,\boldsymbol u_2,\boldsymbol u_3$ は互いに直交する。必要なら $\boldsymbol e_i=\boldsymbol u_i/\|\boldsymbol u_i\|$ として正規直交化する。
 
 ### [小問 2]
 
@@ -105,4 +101,4 @@ $$
 c_1(\lambda_1-\lambda_2)\boldsymbol v_1=\boldsymbol0.
 $$
 
-$\lambda_1\neq\lambda_2$ かつ $\boldsymbol v_1\neq\boldsymbol0$ より $c_1=0$、したがって $c_2=0$ である。よって $\boldsymbol v_1,\boldsymbol v_2$ は線形独立である。
+$\lambda_1\neq\lambda_2$ かつ $\boldsymbol v_1\neq\boldsymbol0$ より $c_1=0$ 、したがって $c_2=0$ である。よって $\boldsymbol v_1,\boldsymbol v_2$ は線形独立である。

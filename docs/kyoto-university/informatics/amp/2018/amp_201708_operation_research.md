@@ -66,72 +66,74 @@ $$
 
 &emsp;&emsp; (A) $\boldsymbol{z} \in \Omega$ かつ $\bar{\boldsymbol{x}}(\boldsymbol{z}) = \boldsymbol{z}$ であれば, $\boldsymbol{z}$ は問題 $P$ の局所的最適解である。
 
-
 ### English Version
 
 ### 题目描述
 
-令
+定义箱集
 
 $$
-\Omega=\{\boldsymbol x\in\mathbb R^n\mid
-0\leqq x_i\leqq1,\ i=1,\ldots,n\}.
+\Omega=\left\{\boldsymbol{x}\in\mathbb{R}^n\ \middle|\ 0\leqq x_i\leqq1,\ i=1,\ldots,n\right\}.
 $$
 
-设连续可微函数 $f:\mathbb R^n\to\mathbb R$ 对所有
-$\boldsymbol x,\boldsymbol y\in\mathbb R^n$ 及 $\alpha\in[0,1]$ 满足
+设 $f:\mathbb{R}^n\to\mathbb{R}$ 连续可微，并且对任意
+$\boldsymbol{x},\boldsymbol{y}\in\mathbb{R}^n$ 和 $\alpha\in[0,1]$ 都有
 
 $$
-\alpha f(\boldsymbol x)+(1-\alpha)f(\boldsymbol y)
-\geqq f(\alpha\boldsymbol x+(1-\alpha)\boldsymbol y)
-+\alpha(1-\alpha)(\boldsymbol x-\boldsymbol y)^\top
-(\boldsymbol x-\boldsymbol y),
+\alpha f(\boldsymbol{x})+(1-\alpha)f(\boldsymbol{y})
+\geqq
+f\!\left(\alpha\boldsymbol{x}+(1-\alpha)\boldsymbol{y}\right)
++\alpha(1-\alpha)(\boldsymbol{x}-\boldsymbol{y})^\top
+(\boldsymbol{x}-\boldsymbol{y}),
 $$
 
-其中 $\top$ 表示转置。考虑
-
-$$
-\mathrm P:\qquad
-\min_{\boldsymbol x\in\Omega}-f(\boldsymbol x),
-$$
-
-以及对参数 $\boldsymbol z\in\Omega$ 的凸二次规划
+其中 $\top$ 表示转置。考虑非线性规划
 
 $$
 \begin{aligned}
-Q(\boldsymbol z):\quad
-&\text{最小化}\quad
--\nabla f(\boldsymbol z)^\top\boldsymbol x+
-\frac12(\boldsymbol x-\boldsymbol z)^\top(\boldsymbol x-\boldsymbol z)\\
-&\text{满足}\quad \boldsymbol x\in\Omega.
+P:\quad &\text{最小化}\quad -f(\boldsymbol{x})\\
+&\text{约束于}\quad \boldsymbol{x}\in\Omega,
 \end{aligned}
 $$
 
-假设 $Q(\boldsymbol z)$ 对每个 $\boldsymbol z\in\Omega$ 都有唯一最优解
-$\bar{\boldsymbol x}(\boldsymbol z)$。回答：
+以及以 $\boldsymbol{z}\in\Omega$ 为参数、以
+$\boldsymbol{x}\in\mathbb{R}^n$ 为决策变量的凸二次规划
 
-1. 证明对任意 $\boldsymbol x,\boldsymbol y\in\mathbb R^n$，
-   $$
-   f(\boldsymbol x)-f(\boldsymbol y)
-   \geqq\nabla f(\boldsymbol y)^\top(\boldsymbol x-\boldsymbol y)
-   +(\boldsymbol x-\boldsymbol y)^\top(\boldsymbol x-\boldsymbol y).
-   $$
-2. 写出 $Q(\boldsymbol z)$ 的 KKT 条件。
-3. 证明对任意 $\boldsymbol z\in\Omega$，
-   $$
-   f(\boldsymbol z)-f(\bar{\boldsymbol x}(\boldsymbol z))
-   \leqq-
-   (\bar{\boldsymbol x}(\boldsymbol z)-\boldsymbol z)^\top
-   (\bar{\boldsymbol x}(\boldsymbol z)-\boldsymbol z).
-   $$
-4. 判断命题“若 $\boldsymbol z\in\Omega$ 且
-   $\bar{\boldsymbol x}(\boldsymbol z)=\boldsymbol z$，则 $\boldsymbol z$ 是 P 的局部最优解”的真伪；若真则证明，若假则给出反例。
+$$
+\begin{aligned}
+Q(\boldsymbol{z}):\quad
+&\text{最小化}\quad
+-\nabla f(\boldsymbol{z})^\top\boldsymbol{x}
++\frac12(\boldsymbol{x}-\boldsymbol{z})^\top
+(\boldsymbol{x}-\boldsymbol{z})\\
+&\text{约束于}\quad \boldsymbol{x}\in\Omega.
+\end{aligned}
+$$
 
-#### 考点
+已知对每个 $\boldsymbol{z}\in\Omega$，$Q(\boldsymbol{z})$ 都有唯一最优解，记为
+$\bar{\boldsymbol{x}}(\boldsymbol{z})$。回答下列问题：
 
-- **强凸性与一阶下界**：由题给强凸不等式取极限，推出带二次项的梯度下界。
-- **箱约束二次规划的 KKT 条件**：为各坐标上下界引入乘子并分析投影梯度子问题。
-- **投影梯度与最优性**：由子问题最优性推导函数值改进界，并判断不动点是否给出原问题的局部最优解。
+1. 证明对任意 $\boldsymbol{x},\boldsymbol{y}\in\mathbb{R}^n$，
+
+$$
+f(\boldsymbol{x})-f(\boldsymbol{y})
+\geqq
+\nabla f(\boldsymbol{y})^\top(\boldsymbol{x}-\boldsymbol{y})
++(\boldsymbol{x}-\boldsymbol{y})^\top(\boldsymbol{x}-\boldsymbol{y}).
+$$
+
+2. 写出问题 $Q(\boldsymbol{z})$ 的 Karush–Kuhn–Tucker（KKT）条件。
+3. 证明对任意 $\boldsymbol{z}\in\Omega$，
+
+$$
+f(\boldsymbol{z})-f\!\left(\bar{\boldsymbol{x}}(\boldsymbol{z})\right)
+\leqq
+-\left(\bar{\boldsymbol{x}}(\boldsymbol{z})-\boldsymbol{z}\right)^\top
+\left(\bar{\boldsymbol{x}}(\boldsymbol{z})-\boldsymbol{z}\right).
+$$
+
+4. 判断命题（A）是否成立：若 $\boldsymbol{z}\in\Omega$ 且
+   $\bar{\boldsymbol{x}}(\boldsymbol{z})=\boldsymbol{z}$，则 $\boldsymbol{z}$ 是问题 $P$ 的局部最优解。若成立，请证明；若不成立，请给出反例。
 
 ## **Kai**
 ### (i)
@@ -146,7 +148,7 @@ $$
 f(x)-f(y)\geq \frac {1}{\alpha}(f(y + \alpha(x-y)) -f(y) + \alpha(1-\alpha)(x-y)^\top(x-y))
 $$
 
-Let $\alpha \rightarrow 0$,
+Let $\alpha \rightarrow 0$ ,
 
 $$
 f(x) - f(y) \geq \nabla f(y)^\top (x - y) + (x-y)^\top(x-y)
@@ -181,7 +183,7 @@ $$
 
 ### (iii)
 #### Solution 1
-Since $\bar{x}(z)$ minimize $\text{Q}(z)$, we obtain
+Since $\bar{x}(z)$ minimize $\text{Q}(z)$ , we obtain
 
 $$
 -\nabla f(z)^\top \bar{x}(z) + \frac 12 (\bar{x}(z) - z)^\top (\bar{x}(z) - z) \leq -\nabla f(z)^\top z

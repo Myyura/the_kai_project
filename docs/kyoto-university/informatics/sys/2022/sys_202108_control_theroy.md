@@ -129,14 +129,6 @@ $$
      <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p2.png" width="450" alt=""/>
    </figure>
 
-#### 考点
-
-- **传递函数与闭环系统**：由微分方程进行 Laplace 变换，并组合对象、反馈环节与 PID 控制器。
-- **阶跃响应**：对闭环传递函数作部分分式展开并求逆 Laplace 变换。
-- **Routh–Hurwitz 稳定判据**：从闭环特征多项式推导控制器参数的稳定区域。
-- **Nyquist 判据与增益裕度**：利用矢量轨迹判断闭环稳定性、增益裕度及参数不确定下的鲁棒稳定性。
-- **Bode/Nyquist 渐近特征**：由轨迹形状反推有理传递函数的最低可能阶数和系数。
-
 ## **Kai**
 ###
 

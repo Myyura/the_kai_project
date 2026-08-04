@@ -102,11 +102,6 @@ Write a program that reads the pictographic characters stored in the file `out5.
 4. 读取第 3 问生成的 `out3.txt`，识别错开位置、不同间距的各字形并输出所表示的数字。
 5. 复制 `out3.txt` 为 `out5.txt`，手工把字形略微改形。修改后除数字 1 可为 \(5\times1\) 或 \(5\times2\) 外，各字形尺寸仍为 \(5\times4\)。编写程序读取这种含轻微变形的 `out5.txt`，识别并输出最可能的数字序列；原文给出了变形后的 `8167` 示例。
 
-#### 考点
-
-- **文本文件输入输出与二维字符画排版**：生成、保存并重新读取多行等宽字形，处理位间空格和各位不同纵向偏移。
-- **近似字形识别**：从画布中分割数字候选，与 0～9 模板比较字符差异或相似度，并为变形字形选择最可能类别。
-
 ## **Kai**
 Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2017-Summer) for the sample data files.
 

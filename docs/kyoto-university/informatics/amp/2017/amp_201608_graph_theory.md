@@ -54,12 +54,6 @@ and explain how Dijkstra’s algorithm fails.
 2. 证明以任意 $s\in V$ 为起点的 Dijkstra 算法可在 $N$ 上实现为 $O(|E|\log|V|)$ 时间。
 3. 若在 $N$ 中加入一条负权弧，Dijkstra 算法的输出可能不再是正确的最短距离。构造一个满足 $3\le |V|\le4$ 的具体例子，并说明算法如何失效。
 
-#### 考点
-
-- **Dijkstra 算法的正确性**：利用非负边权证明跨越已确定顶点集合的最小候选弧能确定新顶点的最短距离。
-- **优先队列复杂度分析**：用堆维护暂定距离，说明算法达到 $O(|E|\log|V|)$。
-- **负权边反例**：构造极小有向网络，展示顶点被永久确定后仍可能经负权弧得到更短路径。
-
 ## **Kai**
 ### (i)
 Take a shortest path from $s$ to $u^*$, and then append the arc $(u^*, v^*)$. If this walk repeats vertices, we may delete cycles. Since all edge weights are nonnegative, deleting cycles cannot increase the total weight. Hence there is a simple path from $s$ to $v^*$ of weight at most

@@ -113,9 +113,3 @@ When reporting experimental results, it is recommended to include effect sizes a
    （1）$t$ 统计量与 Cohen's $d$ 都是两组均值差的标准化度量，但二者提供的信息不同。使用“样本量”这一概念解释区别。
 
    （2）在哪些情况下报告效应量尤其重要？说明具体情形及其原因。
-
-#### 考点
-
-- **Beta–Bernoulli 共轭模型**：从 Bernoulli 似然与 Beta 先验推导后验参数更新。
-- **条件相关与选择偏差**：通过总分与分差变换求条件协方差，解释碰撞变量筛选造成的负相关。
-- **效应量与显著性检验**：区分效应大小和受样本量影响的检验统计量，并判断何时应强调实际意义。

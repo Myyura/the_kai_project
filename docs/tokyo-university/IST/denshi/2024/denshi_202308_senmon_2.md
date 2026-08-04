@@ -62,12 +62,6 @@ Answer the following questions.
 
 (7) 利用 (6) 的卡诺图尽可能化简逻辑，并用上图所示 MIL 符号画出电路。
 
-#### 考点
-
-- Mealy 序列检测器：要求根据相邻字符对决定输出，并处理初始输入尚不足两个字符时的输出约束。
-- 状态最小化与编码：要求识别等价的字符历史状态，把四状态机化简为三状态机并列出转移表。
-- 卡诺图化简：要求由现态、输入、次态及输出关系求最简逻辑并实现同步电路。
-
 ## **Kai**
 ### (1)
 Synchronous sequential circuits are digital circuits that use clock signals to determine the timing of their operations.

@@ -40,13 +40,6 @@ tags:
 2. 对 $Y\sim\operatorname{Poisson}(\lambda)$，求矩母函数 $E(e^{tY})$。
 3. 令 $Z_n\sim\operatorname{Bin}(n,\lambda/n)$，求 $E(e^{tZ_n})$ 的 $n\to\infty$ 极限，并由此说明二项分布向参数为 $\lambda$ 的 Poisson 分布收敛。
 
-#### 考点
-
-- **线性无关与行列式**：用列矩阵行列式 $\det X=-9t$ 判断三个向量何时线性无关。
-- **Gram 矩阵**：联系 $\ker(X^\top X)$ 与 $\ker X$，并用 $\det(X^\top X)=(\det X)^2$ 判断可逆性。
-- **矩母函数**：分别由二项式定理和指数级数求二项、Poisson 分布的矩母函数。
-- **二项分布的 Poisson 极限**：在 $p=\lambda/n$ 下取矩母函数极限并识别极限分布。
-
 ## **Kai**
 ### 問 1
 #### (1)

@@ -106,12 +106,6 @@ $$
    $\boldsymbol m=\mu_0(\pi\rho^2)I\boldsymbol k$
    和 $\boldsymbol r$ 表示 $\boldsymbol A(\boldsymbol r)$。
 
-#### 考点
-
-- 电偶极势：叠加两点电荷势并对小电荷间距作多极展开，保留首个非零奇次项。
-- 一致电场中的导体球：解轴对称 Laplace 方程，以球面等势和远场条件确定感应偶极项，再由法向电场跃变求面电荷。
-- 磁偶极矢势：展开圆电流回路的远场线积分，将最低非零项化为 $\boldsymbol m\times\boldsymbol r/r^3$。
-
 ## **Kai**
 
 ### I

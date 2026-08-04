@@ -52,14 +52,6 @@ Answer all the following questions.
    3. 通过 $C$ 使用 $(7,4)$ Hamming 码通信，假设所有可纠正错误都被纠正，求译码失败概率。
    4. 求交叉概率分别为 $p,q$ 的两个 BSC 串联后的信道容量。
 
-#### 考点
-
-- **通信系统基本模型**：按信源编码、信道编码、信道传输及对应逆过程正确排列模块。
-- **Huffman 编码与熵**：根据给定概率构造二元前缀码，计算平均码长与信源熵。
-- **二元对称信道容量**：从互信息最大化推导 $1-H_2(p)$，分析其随交叉概率的变化。
-- **Hamming 码译码失败概率**：利用 $(7,4)$ 码纠正一位错误的能力，计算至少两位出错的概率。
-- **串联信道**：求两个独立 BSC 的等效交叉概率，再代入容量公式。
-
 ## **Kai**
 ### (1) 
 Source $\rightarrow$ source encoder $\rightarrow$ channel encoder $\rightarrow$ Communication channel $\rightarrow$ channel decoder $\rightarrow$ source decoder $\rightarrow$ destination 

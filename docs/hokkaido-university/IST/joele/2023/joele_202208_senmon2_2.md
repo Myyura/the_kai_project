@@ -232,13 +232,6 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hokkaido_university/IST/joele/joele_202208_senmon2_2_p1.png" width="300" alt=""/>
 </figure>
 
-#### 考点
-
-- **二能级系统时间演化**：在 Hamiltonian 本征基中分别积分类 Schrödinger 方程。
-- **量子测量概率**：将含相对动力学相位的状态投影到可观测量特征态。
-- **波函数归一化**：利用 Gamma 型积分确定半直线上试探波函数的常数。
-- **能量期望值**：分别计算动能算符和线性势能的期望并求和。
-
 ## **Kai**
 ### 1.
 #### (1)

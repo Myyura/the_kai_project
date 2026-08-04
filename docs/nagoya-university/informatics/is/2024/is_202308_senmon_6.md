@@ -107,14 +107,6 @@ int fib3(int n) {
 5. 源代码 2 当前把 `memo[0]` 至 `memo[40]` 全部初始化为 `-1`。改写第 22 行，只初始化计算 `fib2(m)` 确实可能访问的元素。
 6. 填写循环函数 `fib3` 中的空格 (ア)、(イ)、(ウ)，使任意 $0\le m\le40$ 都满足 `fib3(m) == fib1(m)`，且不使用函数调用完成迭代计算。
 
-#### 考点
-
-- **斐波那契递归**：追踪递归调用树、返回值及调用计数。
-- **记忆化**：缓存已计算子问题，避免指数数量的重复计算。
-- **动态规划**：用两个连续状态迭代生成下一项，将空间压缩为常数级。
-- **复杂度比较**：比较朴素递归、记忆化递归和迭代实现的时间与空间开销。
-- **数组初始化边界**：根据目标下标限定必要的缓存初始化范围。
-
 ## **Kai**
 Note: The order of the evaluation of the arguments to any function in C is not defined by C standard (undefined behaviour),
 a compiler may choose to evaluate either from left-to-right or right-to-left,

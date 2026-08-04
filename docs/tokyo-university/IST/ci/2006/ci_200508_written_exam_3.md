@@ -48,13 +48,6 @@ x=f\frac{X}{Z},\qquad y=f\frac{Y}{Z}.
 3. 假设长方体的投影以灰度图像给出，说明如何通过图像处理从中检测长方体的棱线。
 4. 图 3 中，机器人手可按其基准坐标系定义的位置和姿态运动；通过图像处理可得到指尖 \(F1,F2\) 在成像平面上的运动轨迹。令机器人手沿三个两两正交的方向平移，以求机器人基准坐标系到相机坐标系的变换矩阵。说明除三个消失点坐标外还需要哪些信息。
 
-#### 考点
-
-- **针孔相机与消失点**：利用透视投影公式对三维直线取无穷远极限，求方向对应的图像消失点。
-- **正交消失点标定**：利用长方体三组正交方向及其消失点关系推断相机焦距或内参约束。
-- **灰度图像的边缘与直线检测**：说明从灰度变化提取边缘，再通过直线拟合或霍夫变换得到长方体棱线的处理流程。
-- **机器人—相机外参标定**：结合已知机器人运动方向、投影轨迹和必要的尺度或对应点信息，确定坐标系间的旋转与平移。
-
 ### English
 Consider a pinhole camera model as shown in Fig. 1, where the light from an object in three dimensional (3-D) space goes to the screen through a single point C (optical center). The vertical line to the screen through the optical center is called the optical axis, and the point where the optical axis crosses the screen is called the image center. Set the 3-D Camera coordinate system C-X,Y,Z at the optical center and the two dimensional (2-D) Image coordinate system I-x,y at the image center as shown in Fig. 1. When the distance from the optical center to the screen is f and the 3-D point $\mathbf{P}(X, Y, Z)$ is projected to the 2-D point $\mathbf{p}(x, y)$ on the screen, the coordinates of $\mathbf{p}(x, y)$ are described as follows:
 

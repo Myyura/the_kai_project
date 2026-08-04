@@ -50,10 +50,6 @@ Prove $C=O$ when $\text{tr}(CX) = 0$ for any $n$-dimensional square matrix $X$.
    若对每个 $n$ 阶方阵 $X$ 都有 $\operatorname{tr}(CX)=0$，证明 $C=O$。
 4. 证明不存在满足 $PQ-QP=E$ 的方阵 $P,Q$。
 
-#### 考点
-
-- 特征值与特征向量：把幂等关系 $A^2=A$ 作用于特征向量，限定 $A$ 的全部可能特征值。
-
 ## **Kai** 
 ### (1)
 

@@ -62,14 +62,6 @@ tags:
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kanazawa_university/nst/eice_202208_senmon_electromagnetism_p1.png" width="600" alt=""/>
 </figure>
 
-#### 考点
-
-- **圆环电荷的电势与轴向电场**：利用对称性积分电势，再求导并优化电场强度。
-- **旋转电荷等效电流**：由总电荷和转动周期计算稳恒环流。
-- **Biot–Savart 定律**：求圆形电流回路轴线上磁场。
-- **互感与磁通量**：在小回路均匀场近似下计算磁通和互感。
-- **Faraday 电磁感应**：把运动回路的磁通变化率转为电动势，并求其随轴向位置的极值。
-
 ## **Kai**
 
 ### 問1

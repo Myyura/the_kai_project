@@ -52,12 +52,6 @@ Prove that the class of context-free languages is not closed under difference $L
    $L_{abc}=\{a^kb^kc^k\mid k>0\}$ 不是 CFL，利用该事实证明 CFL 对补集不封闭。
 6. 证明 CFL 对差集 $L_1-L_2$ 不封闭。
 
-#### 考点
-
-- **上下文无关文法定义与构造**：填写产生式两侧集合，并为两个计数语言显式设计 CFG。
-- **CFL 封闭性质**：通过新开始符号构造串接、并集文法。
-- **不封闭性归约**：结合 CFL 对并集/交正则语言的封闭性及 $a^kb^kc^k$ 反例，证明补集和差集不封闭。
-
 ## Kai
 ### Q.1
 

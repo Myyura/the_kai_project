@@ -62,9 +62,3 @@ Explain what the variables $\alpha$ and $\beta$ become and explain why the expre
       \boldsymbol R_y(-\beta)\boldsymbol R_x(\alpha).
       \]
       求 \(\alpha,\beta\)，并解释该矩阵分解成立的原因。
-
-#### 考点
-
-- **内积与外积的矩阵表示**：把标量投影和叉乘写成外积矩阵、反对称矩阵等线性算子形式。
-- **正交投影算子**：从向量的法向分量推导投影到平面的矩阵 \(\boldsymbol I-\boldsymbol n\boldsymbol n^T\)。
-- **旋转矩阵与轴角旋转**：遵守题设旋转正方向，通过坐标轴对齐、绕 \(Z\) 轴旋转再逆变换构造任意轴旋转。

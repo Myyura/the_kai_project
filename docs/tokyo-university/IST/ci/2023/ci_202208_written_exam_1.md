@@ -105,9 +105,3 @@ holds, and draw its state diagram. $M_5$ must satisfy the following conditions.
    \mathcal V(x_{n-1}\cdots x_0)+\mathcal V(y_{n-1}\cdots y_0)\equiv0
    \]
    时接受 \(w^R\)。要求恰有 3 个状态，输入字母表为 \(\Sigma\)。
-
-#### 考点
-
-- **确定性有限自动机**：跟踪状态转移，按串长奇偶和模 3 余数设计有限状态。
-- **二进制数的模运算**：利用 \(2^{2i}\equiv1\)、\(2^{2i+1}\equiv2\pmod3\) 推导奇偶位权公式。
-- **逆序读取与两数求和**：从最低有效位开始读入时更新余数状态，并把两个比特的贡献合并到三状态 DFA。

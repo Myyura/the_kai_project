@@ -64,10 +64,6 @@ $$
 
    其中题面给定 $0\le p\le1$。
 
-#### 考点
-
-- Sigmoid 函数：由定义推导其对称恒等式、导数的自表达形式，并通过代数反解得到 logit 反函数。
-
 ## **Kai**
 Throughout, $\log$ denotes the natural logarithm.
 

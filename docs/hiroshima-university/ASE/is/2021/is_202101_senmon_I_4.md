@@ -52,10 +52,6 @@ Show how many different spanning trees are possible for Graph $G$. Also state th
 
 图的顶点、边及各边费用均见图 1。
 
-#### 考点
-
-- 最小生成树：由图的邻接与拉普拉斯矩阵统计生成树数量，并在带权图中选出总费用最小的生成树。
-
 ## **Kai**
 ### (1)
 Adjacent matrix

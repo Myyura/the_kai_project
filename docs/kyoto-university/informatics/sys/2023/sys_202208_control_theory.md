@@ -173,14 +173,6 @@ $$
      <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p2.png" width="300" alt=""/>
    </figure>
 
-#### 考点
-
-- **非线性系统线性化**：在给定平衡点作一阶 Taylor 展开并求小信号传递函数。
-- **阶跃响应与初值性质**：由传递函数求时域响应，并用终值及初始导数约束控制器参数。
-- **Routh–Hurwitz 与鲁棒稳定**：针对区间不确定参数导出统一稳定条件。
-- **相位超前补偿**：分析零极点拐点、最大相位和中心频率，并绘制 Bode 渐近图。
-- **频域补偿器设计**：依据相位交叉频率、增益裕度和目标相位/增益求补偿器参数。
-
 ## **Kai**
 ### 問題1
 

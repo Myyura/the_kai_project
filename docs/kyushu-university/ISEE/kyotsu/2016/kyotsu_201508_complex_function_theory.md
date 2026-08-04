@@ -15,7 +15,7 @@ Zero
 
 (1) $f(z)$ のすべての極における留数を求めよ。
 
-(2) 図に示す閉路 $C_N$ に沿った複素積分 $\oint_{C_N} f(z)dz$ を考える。ただし, $N$ は自然数とする。$\lim_{N \rightarrow \infty}\oint_{C_N}f(z)dz$ の値を求めよ。
+(2) 図に示す閉路 $C_N$ に沿った複素積分 $\oint_{C_N} f(z)dz$ を考える。ただし, $N$ は自然数とする。 $\lim_{N \rightarrow \infty}\oint_{C_N}f(z)dz$ の値を求めよ。
 
 (3) $\lim_{N \rightarrow \infty}\oint_{C_N}f(z)dz$ の値を用して, $\sum_{n=1}^{\infty}\frac{1}{n^2 + a^2} = \frac{\pi}{2a}\coth \pi a - \frac{1}{2a^2}$ を示せ。
 
@@ -25,13 +25,13 @@ Zero
 
 -----------------------------------------------
 
-Consider the complex function $f(z) = \frac{\pi\cot\pi z}{z^2 + a^2}$, where $a > 0$. Answer the following questions.
+Consider the complex function $f(z) = \frac{\pi\cot\pi z}{z^2 + a^2}$ , where $a > 0$ . Answer the following questions.
 
 (1) Find the residues of $f(z)$ at all its poles.
 
-(2) Consider the complex integral $\oint_{C_N} f(z)dz$, where $C_N$ is a closed path as shown in the figure and $N$ is a natural number. Find the value of $\lim_{N \rightarrow \infty}\oint_{C_N}f(z)dz$.
+(2) Consider the complex integral $\oint_{C_N} f(z)dz$ , where $C_N$ is a closed path as shown in the figure and $N$ is a natural number. Find the value of $\lim_{N \rightarrow \infty}\oint_{C_N}f(z)dz$ .
 
-(3) Using the value of $\lim_{N \rightarrow \infty}\oint_{C_N}f(z)dz$, prove that $\sum_{n=1}^{\infty}\frac{1}{n^2 + a^2} = \frac{\pi}{2a}\coth \pi a - \frac{1}{2a^2}$.
+(3) Using the value of $\lim_{N \rightarrow \infty}\oint_{C_N}f(z)dz$ , prove that $\sum_{n=1}^{\infty}\frac{1}{n^2 + a^2} = \frac{\pi}{2a}\coth \pi a - \frac{1}{2a^2}$ .
 
 ### 题目描述
 
@@ -41,23 +41,24 @@ $$
 f(z)=\frac{\pi\cot\pi z}{z^2+a^2}.
 $$
 
-1. 求 $f(z)$ 在全部极点处的留数。
-2. 对上图所示的闭合路径 $C_N$（$N$ 为自然数），计算
+回答下列问题：
+
+1. 找出 $f(z)$ 的全部极点，并求它在每一个极点处的留数。
+2. 令 $N$ 为自然数，对原图所示的闭路 $C_N$，求
+
    $$
    \lim_{N\to\infty}\oint_{C_N}f(z)\,dz.
    $$
-3. 利用该极限证明无穷级数恒等式
+
+   原题只通过外链图给出 $C_N$，没有在文字中注明其顶点、方向或是否相对整数极点作偏移；Kai 仅把四条边写成 $z=x\pm iN$ 与 $z=\pm N+iy$ 的正方形边界参数式。由于 $N$ 为整数时后两条直线会经过 $\cot(\pi z)$ 的整数极点，现有文字与 Kai 无法唯一恢复图中是否另有半整数偏移等细节，闭路的这一缺失须以原图为准。
+3. 利用第 2 问的极限证明
+
    $$
    \sum_{n=1}^{\infty}\frac1{n^2+a^2}
    =\frac{\pi}{2a}\coth(\pi a)-\frac1{2a^2}.
    $$
 
-#### 考点
-
-- **留数定理**：找出由 $\cot(\pi z)$ 及 $z^2+a^2$ 产生的全部极点，计算留数并应用闭路积分公式。
-- **利用留数求无穷级数**：估计矩形闭路积分在 $N\to\infty$ 时的极限，再把整数极点的留数和整理成给定级数恒等式。
-
-## **Kai** 
+## **Kai**
 ### (1)
 
 $$
@@ -68,7 +69,7 @@ f(z) &= \frac{\pi \cot \pi z}{z^2 + a^2} \\
 \end{aligned}
 $$
 
-$z = ai,-ai,n$ ($n$ は整数)
+$z = ai,-ai,n$ ( $n$ は整数)
 
 $\text{Res}_{z = ai}f(z)$ を求める。正則な関数 $g(z) = \frac{\pi \cos \pi z}{(z + ai)\sin \pi z}$ とする。
 
@@ -81,7 +82,7 @@ $$
 \end{aligned}
 $$
 
-次に、$\text{Res}_{z = -ai}f(z)$ を求める。$g(z) = \frac{\pi \cos\pi z}{(z - ai)\sin\pi z}$
+次に、 $\text{Res}_{z = -ai}f(z)$ を求める。 $g(z) = \frac{\pi \cos\pi z}{(z - ai)\sin\pi z}$
 
 $$
 \begin{aligned}
@@ -93,7 +94,7 @@ $$
 \end{aligned}
 $$
 
-最後に、$\text{Res}_{z = n}f(z)$ を求める。
+最後に、 $\text{Res}_{z = n}f(z)$ を求める。
 
 $$
 \begin{aligned}
@@ -140,6 +141,6 @@ $$
 \sum_{n = -\infty}^{\infty} \frac{1}{n^2 + a^2} &= \frac{\pi}{a}\coth \pi a \\
 \sum_{n = -\infty}^{-1}\frac{1}{n^2 + a^2} + \frac{1}{a^2} + \sum_{n = 1}^{\infty}\frac{1}{n^2 + a^2} &= \frac{\pi}{a} \coth\pi a \\
 2\sum_{n = 1}^{\infty}\frac{1}{n^2 + a^2} &= \frac{\pi}{a}\coth\pi a - \frac{1}{a^2} \\
-\sum_{n = 1}^{\infty}\frac{1}{n^2 + a^2} &= \frac{\pi}{2a}\coth\pi a - \frac{1}{2a^2} 
+\sum_{n = 1}^{\infty}\frac{1}{n^2 + a^2} &= \frac{\pi}{2a}\coth\pi a - \frac{1}{2a^2}
 \end{aligned}
 $$

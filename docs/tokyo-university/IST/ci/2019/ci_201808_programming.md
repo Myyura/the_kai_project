@@ -129,12 +129,6 @@ For example, when the width is $100$ pixels and the height is $50$ pixels, then 
 
    `w0...w3`、`h0...h3`、`s0...s3` 分别是宽、高、\(\text{宽}\times\text{高}\times3\) 的 4 字节大端表示。之后按从上到下逐行、每行从左到右存像素，每像素依次以 1 字节存 \(r,g,b\)。例如宽 100、高 50 时文件总长 \(104+100\times50\times3=15104\) 字节。
 
-#### 考点
-
-- **文本与二进制文件处理**：解析 RGB 文本、推断图像尺寸，并严格按大端字段与逐像素布局写出 TIFF 风格二进制文件。
-- **颜色量化**：按强度分位数初始化代表点，再用曼哈顿距离反复分簇、求离散质心代表色。
-- **排序与确定性平局规则**：同时按强度和反向编号排序，并在等距时选最大编号，保证题设结果唯一。
-
 ## **Kai**
 Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2019-Summer) for the sample data files.
 

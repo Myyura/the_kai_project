@@ -52,12 +52,6 @@ $\operatorname{dist}(u,v;G)=|V|$。以 $G-e$ 表示删去有向边 $e\in E$ 后�
    =\operatorname{dist}(t,s;G-e).
    $$
 
-#### 考点
-
-- **有向无权图的广度优先搜索**：在线性时间内计算最短距离并用前驱恢复最短路。
-- **最短路关键边判定**：通过最短路有向无环结构或最短路计数，判断是否有一条边被所有 $s$ 到 $t$ 的最短路共同使用。
-- **有向图反例构造**：设计同一条有向边同时影响两个方向的长度为 3 的最短路。
-
 ## **Kai**
 ### (i)
 We use BFS to compute shortest paths in an unweighted graph.

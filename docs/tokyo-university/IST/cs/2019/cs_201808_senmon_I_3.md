@@ -89,14 +89,6 @@ $$
 $\mathcal{L}(G)\subseteq\mathcal{L}(\mathcal A)$ 是否成立的方法。可以使用前
 三问的结论。
 
-#### 考点
-
-- **正则语言的补运算**：在转移函数完备时翻转 DFA 的接受与非接受状态。
-- **上下文无关文法空语言判定**：计算能够生成终结字符串的非终结符闭包。
-- **上下文无关语言与正则语言的交**：用带自动机起止状态的非终结符构造交语言文法并证明其语义。
-- **语言包含关系判定**：把 $L(G)\subseteq L(\mathcal A)$ 化为
-  $L(G)\cap\overline{L(\mathcal A)}=\varnothing$，同时正确处理空串。
-
 ## **Kai**
 ### (1)
 Given DFA $\mathcal{A} = (Q, \Sigma, \delta, q_0, F)$, give an automaton accepting complement of $\mathcal{L(A)}$, i.e. $\Sigma^*\setminus\mathcal{L(A)}$.

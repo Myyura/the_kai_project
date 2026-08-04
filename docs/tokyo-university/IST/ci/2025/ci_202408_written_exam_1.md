@@ -91,12 +91,6 @@ Finally, we consider the transition probability matrix $R$ and stationary distri
    \]
    迭代时，\(t\to\infty\) 都收敛到平稳分布。可假定初始向量能写成 \(R\) 的特征向量线性组合 \(\boldsymbol p^{(0)}=\sum_{i=1}^Nc_i\boldsymbol x_i\)。
 
-#### 考点
-
-- **网页随机游走的马尔可夫链**：由链接结构建立列随机转移矩阵，计算有限步分布与平稳分布。
-- **跳转机制**：把均匀随机跳转与原链接转移混合，使转移矩阵严格为正并消除陷阱、周期问题。
-- **矩阵幂极限与 Perron–Frobenius 定理**：利用唯一主特征值 1 和其余特征值模小于 1，证明任意初始分布收敛。
-
 ## **Kai**
 ### (1)
 

@@ -18,7 +18,7 @@ $a$ を正の定数とする。体積が $a$ となる3次元の直方体のう�
 
 ### [小問 A2]
 
-$f(x,y)=x^2+y^2,\ x=\cos 2t,\ y=\sin 3t$ のとき、$df/dt$ を求めよ。
+$f(x,y)=x^2+y^2,\ x=\cos 2t,\ y=\sin 3t$ のとき、 $df/dt$ を求めよ。
 
 ### [小問 A3]
 
@@ -35,32 +35,36 @@ $$
 
 ### 题目描述
 
-回答下列三个微积分小题：
+完成下列三小题。
 
-1. 设 $a$ 为正常数。在所有体积等于 $a$ 的三维长方体中，求表面积最小时长方体的长、宽、高。
+1. 设 $a$ 为正常数。在所有体积为 $a$ 的三维长方体中，求表面积取得最小值时的长、宽和高。
 2. 已知
+
    $$
-   f(x,y)=x^2+y^2,\qquad x=\cos 2t,\qquad y=\sin 3t,
-   $$
-   求 $df/dt$。
-3. 对函数 $f(x,y)=\sqrt{2x-y}$，求四个二阶偏导数
-   $$
-   \frac{\partial^2 f}{\partial y\partial x},\quad
-   \frac{\partial^2 f}{\partial x\partial y},\quad
-   \frac{\partial^2 f}{\partial x^2},\quad
-   \frac{\partial^2 f}{\partial y^2}.
+   f(x,y)=x^2+y^2,\qquad x=\cos2t,\qquad y=\sin3t,
    $$
 
-#### 考点
+   求 $\dfrac{df}{dt}$。
+3. 对函数
 
-- 约束优化：需要在长方体体积固定为 $a$ 的约束下最小化表面积，并确定达到最小值时三条边的长度。
-- 多元微分：需要运用多元复合函数的链式法则计算 $df/dt$，并分别计算根式函数的两个混合二阶偏导与两个纯二阶偏导。
+   $$
+   f(x,y)=\sqrt{2x-y},
+   $$
+
+   求
+
+   $$
+   \frac{\partial^2f}{\partial y\partial x},\qquad
+   \frac{\partial^2f}{\partial x\partial y},\qquad
+   \frac{\partial^2f}{\partial x^2},\qquad
+   \frac{\partial^2f}{\partial y^2}.
+   $$
 
 ## **Kai**
 
 ### [小問 A1]
 
-辺の長さを $x,y,z>0$ とすると、$xyz=a$、表面積は
+辺の長さを $x,y,z>0$ とすると、 $xyz=a$ 、表面積は
 
 $$
 S=2(xy+yz+zx)

@@ -67,11 +67,5 @@ Count the number of the cells that will be visited when we move from the start t
 3. `maze3.txt` 存有 \(40\times40\) 迷宫，起点 \((0,0)\)，终点 \((39,29)\)。沿最短路前进时会访问多少格？起、终点各计 1。题设保证迷宫任意两格间恰有一条路径。
 4. `maze10.txt`～`maze19.txt` 分别存有十个 \(40\times40\) 迷宫。找出满足“任意两格之间恰有一条路径”的所有迷宫，并写出相应文件名。
 
-#### 考点
-
-- **迷宫文件解析与墙坐标映射**：把成对墙编号还原为每格四面墙，并识别死路。
-- **最短路径搜索**：在格图中用 BFS 求起终点路径及其包含的格数。
-- **连通性与生成树判定**：判断迷宫格图是否连通且无环，即任意两点间唯一路径。
-
 ## **Kai**
 The sample data files are [here](https://github.com/sophytoeat/Problem/tree/main/%E9%81%8E%E5%8E%BB%E5%95%8F/%E5%89%B5%E9%80%A0%E6%83%85%E5%A0%B1%E5%AD%A6/%E4%B8%80%E8%88%AC%E6%95%99%E8%82%B2%E7%A7%91%E7%9B%AE(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)/2023%E5%B9%B4%E5%BA%A6_%E5%A4%8F_%E4%B8%80%E8%88%AC/%E9%85%8D%E5%B8%83%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF).

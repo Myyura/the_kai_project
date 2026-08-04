@@ -52,12 +52,6 @@ where $R(\theta)^T$ denotes the transpose of the matrix $R(\theta)$. Express $\c
 
    对角化，其中 $R(\theta)^T$ 表示其转置。用 $x,y,z$ 表示 $\cos2\theta$ 和 $\sin2\theta$。
 
-#### 考点
-
-- 特征值与特征向量：求具体及一般二阶实对称矩阵的谱，并由判别式证明特征值为实数。
-- 矩阵对角化：把实对称矩阵化为按 $\lambda_1\ge\lambda_2$ 排列的对角形式，并从非对角元为零推导旋转角。
-- 正交矩阵：利用 $R(\theta)^{-1}=R(\theta)^T$ 表达正交相似变换及 $\cos2\theta,\sin2\theta$。
-
 ## **Kai**
 ### (1)
 For the given matrix:

@@ -62,10 +62,6 @@ For example, a rooted tree shown in Fig. 1 (a) is represented by a binary tree o
 
 相关树结构、伪代码空白和待转换的树均见图 1、图 2。
 
-#### 考点
-
-- 树形数据结构：理解左孩子—右兄弟表示法，完成指针遍历伪代码，并按节点数分析整棵树遍历的复杂度。
-
 ## **Kai**
 ### (1)
 $n = m + 1$

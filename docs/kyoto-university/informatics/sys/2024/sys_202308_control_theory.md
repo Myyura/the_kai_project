@@ -108,15 +108,6 @@ $$
      <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p2.png" width="200" alt=""/>
    </figure>
 
-#### 考点
-
-- **方框图化简与闭环传递函数**：组合串并联及反馈环节，得到参考输入到输出的等效模型。
-- **阶跃响应、稳态误差与系统型别**：由极点和低频增益分析瞬态及斜坡跟踪误差。
-- **Routh–Hurwitz 判据**：判断参数化闭环特征多项式的稳定性及右半平面极点数。
-- **Bode 增益折线与相位裕度**：识别零极点拐点、求精确曲线交点并施加裕度约束。
-- **全通因子与同幅异相系统**：构造具有相同幅频响应的不同传递函数，并按相位要求选取因子。
-
-
 ## **Kai**
 ### 問題1
 
