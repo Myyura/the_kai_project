@@ -39,7 +39,7 @@ Select <u>four items</u> out of the following eight items concerning information
 5. 自动驾驶系统中的动态地图。
 6. 线程级推测并行执行。
 7. 程序化建模。
-8. \(k\) 近邻算法。
+8. $k$ 近邻算法。
 
 ## **Kai**
 

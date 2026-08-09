@@ -47,15 +47,17 @@ Figure 1 shows an arm which has three joints at O, S and E. The axis of the join
 
 ### 题目描述
 
-如图 1，有一条在 \(O,S,E\) 三点各设转轴的三关节机械臂。关节 \(O\) 绕图示 \(XYZ\) 坐标系的 \(Z\) 轴旋转；关节 \(S,E\) 的转轴均垂直于平面 \(OSEW\)。已知
-\[
+如图 1，有一条在 $O,S,E$ 三点各设转轴的三关节机械臂。关节 $O$ 绕图示 $XYZ$ 坐标系的 $Z$ 轴旋转；关节 $S,E$ 的转轴均垂直于平面 $OSEW$。已知
+
+$$
 \overline{OS}=l_0,\qquad \overline{SE}=l_1,\qquad \overline{EW}=l_2.
-\]
+$$
+
 回答下列问题。
 
-1. 令末端点 \(W\) 的位置向量为 \(\vec W=(w_x,w_y,w_z)\)，三个关节 \(O,S,E\) 的转角向量为 \(\vec\theta=(\theta_0,\theta_1,\theta_2)\)。求机械臂的正运动学公式 \(\vec W=f(\vec\theta)\)。
-2. 用三个关节的角速度向量 \(\vec\Omega=(\dot\theta_0,\dot\theta_1,\dot\theta_2)\) 表示点 \(W\) 的速度 \(\vec V=(\dot w_x,\dot w_y,\dot w_z)\)。
-3. 求逆运动学公式 \(\vec\theta=f^{-1}(\vec W)\)。
-4. 若末端 \(W\) 受到力 \(\vec F=(F_x,F_y,F_z)\)，求为了保持机械臂当前姿态，三个关节轴所需施加的关节力矩 \(\vec\tau=(\tau_0,\tau_1,\tau_2)\)。
+1. 令末端点 $W$ 的位置向量为 $\vec W=(w_x,w_y,w_z)$，三个关节 $O,S,E$ 的转角向量为 $\vec\theta=(\theta_0,\theta_1,\theta_2)$。求机械臂的正运动学公式 $\vec W=f(\vec\theta)$。
+2. 用三个关节的角速度向量 $\vec\Omega=(\dot\theta_0,\dot\theta_1,\dot\theta_2)$ 表示点 $W$ 的速度 $\vec V=(\dot w_x,\dot w_y,\dot w_z)$。
+3. 求逆运动学公式 $\vec\theta=f^{-1}(\vec W)$。
+4. 若末端 $W$ 受到力 $\vec F=(F_x,F_y,F_z)$，求为了保持机械臂当前姿态，三个关节轴所需施加的关节力矩 $\vec\tau=(\tau_0,\tau_1,\tau_2)$。
 
 题目所用机械臂几何结构沿用原文图 1。

@@ -31,23 +31,29 @@ Assume the distance from $C$ to $Q$ is $d$, show the vector $\mathbf{Q}_C$ from 
 
 回答以下相机投影与三维重建问题。
 
-1. 如图 1，在点 \(C\) 建立相机正交坐标系 \(\Sigma_C\)，镜头轴为 \(CZ\)，投影平面 \(S\) 与 \(CZ\) 正交且距 \(C\) 为 \(f\)。空间点 \(Q\) 投影到 \(S\) 上的点 \(P\)，其相机坐标为 \(\mathbf P_C=(P_X,P_Y,f)^t\)。在世界坐标系 \(\Sigma_W\) 中，相机三轴方向向量分别为
-   \[
+1. 如图 1，在点 $C$ 建立相机正交坐标系 $\Sigma_C$，镜头轴为 $CZ$，投影平面 $S$ 与 $CZ$ 正交且距 $C$ 为 $f$。空间点 $Q$ 投影到 $S$ 上的点 $P$，其相机坐标为 $\mathbf P_C=(P_X,P_Y,f)^t$。在世界坐标系 $\Sigma_W$ 中，相机三轴方向向量分别为
+
+   $$
    \mathbf X_W=(X_X,X_Y,X_Z)^t,\quad
    \mathbf Y_W=(Y_X,Y_Y,Y_Z)^t,\quad
    \mathbf Z_W=(Z_X,Z_Y,Z_Z)^t,
-   \]
-   光心位置为 \(\mathbf C_W=(C_X,C_Y,C_Z)^t\)，上标 \(t\) 表示转置。若 \(C\) 到 \(Q\) 的距离为 \(d\)，用 \(\mathbf P_C,d\) 表示从 \(C\) 指向 \(Q\) 的向量 \(\mathbf Q_C\)。又已知
-   \[
+   $$
+
+   光心位置为 $\mathbf C_W=(C_X,C_Y,C_Z)^t$，上标 $t$ 表示转置。若 $C$ 到 $Q$ 的距离为 $d$，用 $\mathbf P_C,d$ 表示从 $C$ 指向 $Q$ 的向量 $\mathbf Q_C$。又已知
+
+   $$
    \mathbf Q_W=R_C\mathbf Q_C+\mathbf C_W,
-   \]
-   写出旋转矩阵 \(R_C\) 的各元素。
-2. 相机位于 \(A\) 时，\(Q\) 的投影为 \(\mathbf P_A=(a_X,a_Y,f)^t\)。随后相机沿 \(X\) 轴平移距离 \(\ell\) 到 \(B\)，再绕平移后坐标系的 \(Y\) 轴旋转角 \(\alpha\)，得到坐标系 \(\Sigma_B\)，投影为 \(\mathbf P_B=(b_X,b_Y,f)^t\)。在观测到 \(\mathbf P_A=\mathbf P_B\) 时，说明如何求 \(A,Q\) 间距离 \(d_A\) 和 \(B,Q\) 间距离 \(d_B\)。假设平移、旋转无误差，且 \(\Sigma_A,\Sigma_B\) 的 \(XZ\) 平面共面。
-3. 两台相机分别位于 \(M,N\)，世界坐标位置为 \(\mathbf M_W,\mathbf N_W\)，旋转矩阵为 \(R_M,R_N\)，对 \(Q\) 的投影为 \(\mathbf P_M,\mathbf P_N\)。因为由两台相机得到的 \(Q\) 的世界坐标应相同，写出 \(\mathbf P_M,\mathbf P_N\) 必须满足的条件。
+   $$
+
+   写出旋转矩阵 $R_C$ 的各元素。
+2. 相机位于 $A$ 时，$Q$ 的投影为 $\mathbf P_A=(a_X,a_Y,f)^t$。随后相机沿 $X$ 轴平移距离 $\ell$ 到 $B$，再绕平移后坐标系的 $Y$ 轴旋转角 $\alpha$，得到坐标系 $\Sigma_B$，投影为 $\mathbf P_B=(b_X,b_Y,f)^t$。在观测到 $\mathbf P_A=\mathbf P_B$ 时，说明如何求 $A,Q$ 间距离 $d_A$ 和 $B,Q$ 间距离 $d_B$。假设平移、旋转无误差，且 $\Sigma_A,\Sigma_B$ 的 $XZ$ 平面共面。
+3. 两台相机分别位于 $M,N$，世界坐标位置为 $\mathbf M_W,\mathbf N_W$，旋转矩阵为 $R_M,R_N$，对 $Q$ 的投影为 $\mathbf P_M,\mathbf P_N$。因为由两台相机得到的 $Q$ 的世界坐标应相同，写出 $\mathbf P_M,\mathbf P_N$ 必须满足的条件。
 4. 若投影点以数组给出且不严格满足第 3 问条件，定义
-   \[
+
+   $$
    J=\left|(R_M\mathbf Q_M+\mathbf M_W)-(R_N\mathbf Q_N+\mathbf N_W)\right|^2.
-   \]
-   通过最小化 \(J\) 求 \(\mathbf Q_W\)。设最小时从 \(M,N\) 到 \(Q\) 的距离分别为 \(d_M,d_N\)，求 \(d_M,d_N\)，并说明如何由二者得到世界坐标系中的 \(\mathbf Q_W\)。
+   $$
+
+   通过最小化 $J$ 求 $\mathbf Q_W$。设最小时从 $M,N$ 到 $Q$ 的距离分别为 $d_M,d_N$，求 $d_M,d_N$，并说明如何由二者得到世界坐标系中的 $\mathbf Q_W$。
 5. 说明用第 3 问所述双目相机测量三维位置时，为减小误差应如何布置两台相机。
 

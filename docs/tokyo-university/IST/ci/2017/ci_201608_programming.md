@@ -88,7 +88,7 @@ Write a program that reads the pictographic characters stored in the file `out5.
 
 ### 题目描述
 
-用等宽字体中的 `*`、竖线 `|` 和空格，按原文给出的 \(5\times4\) 字形绘制数字 0～9。
+用等宽字体中的 `*`、竖线 `|` 和空格，按原文给出的 $5\times4$ 字形绘制数字 0～9。
 
 1. 读入一个数，在屏幕上横向排列并绘制对应数字字形，同时保存到 `out1.txt`。相邻字形之间放两个空格。例如输入 `813`，输出原文所示的五行字形。
 2. 读取第 1 问生成的 `out1.txt`，识别其中字形并输出它所表示的数字。
@@ -100,7 +100,7 @@ Write a program that reads the pictographic characters stored in the file `out5.
 
    表示数字 8 从第 0 行开始、1 从第 1 行开始、3 从第 2 行开始；8 与 1 间隔 4 个空格，1 与 3 间隔 3 个空格，输出布局见原文示例。
 4. 读取第 3 问生成的 `out3.txt`，识别错开位置、不同间距的各字形并输出所表示的数字。
-5. 复制 `out3.txt` 为 `out5.txt`，手工把字形略微改形。修改后除数字 1 可为 \(5\times1\) 或 \(5\times2\) 外，各字形尺寸仍为 \(5\times4\)。编写程序读取这种含轻微变形的 `out5.txt`，识别并输出最可能的数字序列；原文给出了变形后的 `8167` 示例。
+5. 复制 `out3.txt` 为 `out5.txt`，手工把字形略微改形。修改后除数字 1 可为 $5\times1$ 或 $5\times2$ 外，各字形尺寸仍为 $5\times4$。编写程序读取这种含轻微变形的 `out5.txt`，识别并输出最可能的数字序列；原文给出了变形后的 `8167` 示例。
 
 ## **Kai**
 Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2017-Summer) for the sample data files.

@@ -41,7 +41,7 @@ Select **four items** out of the following eight items concerning information sy
 4. 模拟退火及其应用或形式化描述（原回忆文本未确定具体要求）。
 5. 随机梯度下降。
 6. 仿射变换。
-7. PID 控制及 \(P,I,D\) 三个环节的作用。
+7. PID 控制及 $P,I,D$ 三个环节的作用。
 8. 进程间通信。
 
 ## **Kai**

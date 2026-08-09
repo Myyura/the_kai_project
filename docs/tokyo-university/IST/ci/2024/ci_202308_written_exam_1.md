@@ -54,53 +54,63 @@ We want to maximize the log-likelihood function obtained in Question (5) above. 
 
 ### 题目描述
 
-从某随机过程得到 \(N\) 个观测组成的样本 \(X=(x_1,\ldots,x_N)\)，用最大似然估计原随机源参数。若参数为 \(\theta\) 的分布密度为 \(f(x;\theta)\)，样本似然为
-\[
+从某随机过程得到 $N$ 个观测组成的样本 $X=(x_1,\ldots,x_N)$，用最大似然估计原随机源参数。若参数为 $\theta$ 的分布密度为 $f(x;\theta)$，样本似然为
+
+$$
 L(X\mid\theta)=\prod_{n=1}^Nf(x_n;\theta),
-\]
-使其最大的 \(\theta\) 称最大似然估计量。
+$$
 
-1. 以抛硬币为例，令正面概率为 \(\theta\)，抛 \(N\) 次观察到 \(r\) 次正面。按上述定义写出似然函数。
-2. 先取似然的自然对数得到对数似然，再求导找最大值，用最大似然估计 \(\theta\)。
+使其最大的 $\theta$ 称最大似然估计量。
 
-均值 \(\mu\)、方差 \(\sigma^2\) 的正态分布记为 \(\mathcal N(\mu,\sigma^2)\)，密度
-\[
+1. 以抛硬币为例，令正面概率为 $\theta$，抛 $N$ 次观察到 $r$ 次正面。按上述定义写出似然函数。
+2. 先取似然的自然对数得到对数似然，再求导找最大值，用最大似然估计 $\theta$。
+
+均值 $\mu$、方差 $\sigma^2$ 的正态分布记为 $\mathcal N(\mu,\sigma^2)$，密度
+
+$$
 f(x;\mu,\sigma^2)=\frac1{\sqrt{2\pi}\sigma}
 e^{-(x-\mu)^2/(2\sigma^2)}.
-\]
-高斯混合模型（GMM）的生成过程为：先按类别分布 \(C\) 以概率 \(\pi_k\) 选 \(k\in\{1,\ldots,K\}\)，每个 \(k\) 对应正态分布 \(\mathcal N_k(\mu_k,\sigma_k^2)\)；对每个样本位置 \(n\)，先生成类别 \(z_n\)，再由对应正态分布生成 \(x_n\)。由观测 \(X\) 最大似然估计
-\[
+$$
+
+高斯混合模型（GMM）的生成过程为：先按类别分布 $C$ 以概率 $\pi_k$ 选 $k\in\{1,\ldots,K\}$，每个 $k$ 对应正态分布 $\mathcal N_k(\mu_k,\sigma_k^2)$；对每个样本位置 $n$，先生成类别 $z_n$，再由对应正态分布生成 $x_n$。由观测 $X$ 最大似然估计
+
+$$
 \Theta=\{\mu_k,\sigma_k,\pi_k\}_{k=1}^K.
-\]
+$$
 
-先取 \(K=1\)，即单一正态分布。
+先取 $K=1$，即单一正态分布。
 
-3. 写出样本 \(X\) 的对数似然函数。
-4. 分别对 \(\mu\) 与 \(\sigma^2\) 最大化对数似然，求二者的最大似然估计量。
+3. 写出样本 $X$ 的对数似然函数。
+4. 分别对 $\mu$ 与 $\sigma^2$ 最大化对数似然，求二者的最大似然估计量。
 
-再取 \(K\ge2\)。
+再取 $K\ge2$。
 
-5. 要把对数似然写成参数 \(\Theta\) 与 \(Z=(z_1,\ldots,z_N)\) 的函数。先用 \(\pi_k\) 写 \(p(Z\mid\Theta)\)，再在给定 \(Z\) 时写 \(p(X\mid Z,\Theta)\)，最后用这两个概率写对数似然。
+5. 要把对数似然写成参数 $\Theta$ 与 $Z=(z_1,\ldots,z_N)$ 的函数。先用 $\pi_k$ 写 $p(Z\mid\Theta)$，再在给定 $Z$ 时写 $p(X\mid Z,\Theta)$，最后用这两个概率写对数似然。
 
-由于目标对数内部含求和，直接令关于 \(\Theta\) 的导数为零较困难，采用算法 A 求局部最大值。对要最大化的 \(D(\Theta)\)，取辅助函数 \(G(\Theta,\theta)\) 和辅助变量 \(\theta\)，满足
-\[
+由于目标对数内部含求和，直接令关于 $\Theta$ 的导数为零较困难，采用算法 A 求局部最大值。对要最大化的 $D(\Theta)$，取辅助函数 $G(\Theta,\theta)$ 和辅助变量 $\theta$，满足
+
+$$
 D(\Theta)=\max_\theta G(\Theta,\theta).
-\]
+$$
+
 反复执行：
-\[
+
+$$
 \text{步骤1： }\theta\leftarrow\arg\max_{\theta'}G(\Theta,\theta'),\qquad
 \text{步骤2： }\Theta\leftarrow\arg\max_{\Theta'}G(\Theta',\theta).
-\]
+$$
 
-6. 证明算法 A 每轮更新后，原目标 \(D(\Theta)\) 只会上升或保持不变。
+6. 证明算法 A 每轮更新后，原目标 $D(\Theta)$ 只会上升或保持不变。
 7. 对数函数的 Jensen 不等式为
-   \[
+
+   $$
    \log\left(\sum_i\lambda_i y_i\right)
    \ge\sum_i\lambda_i\log y_i,
-   \]
-   其中 \(y_i>0\)、\(\lambda_i\ge0\)、\(\sum_i\lambda_i=1\)。证明该不等式。
-8. 用 Jensen 不等式为第 5 问对数似然构造辅助函数，以 \(\lambda_i\) 为辅助变量。可先把求和中的各正态密度除以 \(\lambda_i\)，再在前面乘回 \(\lambda_i\)。
-9. 对第 8 问辅助函数执行算法 A：步骤 1 求使辅助函数最大的 \(\lambda_i\)；步骤 2 在辅助变量固定时求使辅助函数最大的 \(\Theta\)。
+   $$
+
+   其中 $y_i>0$、$\lambda_i\ge0$、$\sum_i\lambda_i=1$。证明该不等式。
+8. 用 Jensen 不等式为第 5 问对数似然构造辅助函数，以 $\lambda_i$ 为辅助变量。可先把求和中的各正态密度除以 $\lambda_i$，再在前面乘回 $\lambda_i$。
+9. 对第 8 问辅助函数执行算法 A：步骤 1 求使辅助函数最大的 $\lambda_i$；步骤 2 在辅助变量固定时求使辅助函数最大的 $\Theta$。
 
 ## **Kai**
 本题考察爆算expectation maximization for Gaussian mixture model (EM for GMM) 的数学推导。注意点在于 (8) 分配的辅助变量是 $\lambda_{nk}$ 而不是 $\lambda_k$ 否则无法做。
