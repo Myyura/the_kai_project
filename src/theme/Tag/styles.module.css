@@ -7,6 +7,9 @@
 
 /* Tag 标签 - 简洁现代风格 */
 .tag {
+  --tag-hover-text-color: #ffffff;
+  --ifm-link-hover-color: var(--tag-hover-text-color);
+
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -25,12 +28,14 @@
   text-decoration: none;
   background-color: var(--ifm-color-primary);
   border-color: var(--ifm-color-primary);
-  color: #ffffff;
+  color: var(--tag-hover-text-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.25);
 }
 
 [data-theme='dark'] .tag {
+  --tag-hover-text-color: var(--kai-navy-950);
+
   border-color: rgba(255, 255, 255, 0.1);
   background-color: rgba(255, 255, 255, 0.05);
 }
@@ -73,5 +78,5 @@
 .tag:hover .tagWithCount span,
 .tagWithCount:hover span {
   background-color: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  color: var(--tag-hover-text-color);
 }
