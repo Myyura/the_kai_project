@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fa';
 import { fetchSiteContributors } from '../../services/contributorService';
 import githubContributorData from '../../data/githubContributors.json';
-import styles from './ContributorAcknowledgements.module.css';
+import styles from './styles.module.css';
 
 const REPOSITORY_URL = 'https://github.com/Myyura/the_kai_project';
 

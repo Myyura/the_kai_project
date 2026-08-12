@@ -1,7 +1,7 @@
 // ============================================================
 // 此文件由 scripts/generate-universities.js 自动生成
 // 请勿手动编辑！如需更新请运行：npm run generate:universities
-// 生成时间：2026-07-28T17:32:44.272Z
+// 生成时间：2026-08-07T03:46:34.135Z
 // ============================================================
 
 /**
@@ -985,6 +985,24 @@ export const universities = [
         "websiteUrl": "https://www.meiji.ac.jp/ams/exam/"
       }
     ]
+  },
+  {
+    "id": "nagoya-institute-of-technology",
+    "name": "名古屋工業大学",
+    "color": "#005bac",
+    "departments": [
+      {
+        "id": "engineering",
+        "name": "工学研究科",
+        "programs": [
+          {
+            "id": "ie",
+            "name": "情報工学系"
+          }
+        ],
+        "websiteUrl": "https://www.nitech.ac.jp/examination/in/test.html"
+      }
+    ]
   }
 ];
 
@@ -1012,4 +1030,5 @@ export const UNIV_MAP = {
   "kanazawa-university": "金沢大学",
   "saitama-university": "埼玉大学",
   "meiji-university": "明治大学",
+  "nagoya-institute-of-technology": "名古屋工業大学",
 };

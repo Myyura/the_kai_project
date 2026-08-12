@@ -15,7 +15,6 @@ import {
   FaTasks,
 } from 'react-icons/fa';
 import { useCurrentLanguage } from '../../context/LanguageContext';
-import ContributorAcknowledgements from './ContributorAcknowledgements';
 import { getLanguageContent } from './copy';
 import styles from './styles.module.css';
 
@@ -91,7 +90,13 @@ export default function HelpAndNoticesPage() {
               <li key={step}>{step}</li>
             ))}
           </ol>
-          <ContributorAcknowledgements copy={t.acknowledgements} />
+          <Link to="/support#contributors" className={styles.contributorLink}>
+            <span>
+              <strong>{t.contributorLinkTitle}</strong>
+              <small>{t.contributorLinkText}</small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </section>
 
         <section id="legal-notices" className={styles.section}>

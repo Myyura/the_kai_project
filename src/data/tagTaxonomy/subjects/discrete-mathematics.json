@@ -212,6 +212,12 @@
         "Computer-Science"
       ]
     },
+    "Discrete-Mathematics.Graph-Algorithms.Shortest-Path-Counting": {
+      "subsubject": "Discrete-Mathematics.Graph-Algorithms",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
+    },
     "Discrete-Mathematics.Graph-Algorithms.Kruskal-Algorithm": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [

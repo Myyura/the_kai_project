@@ -2,7 +2,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq } from 'react-icons/fa';
+import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt } from 'react-icons/fa';
 import React, { useEffect, useState, useMemo, memo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import {useUiText} from '../i18n/useUiText';
@@ -10,6 +10,8 @@ import { useAllProgress } from '../hooks/useProgress';
 import { useAuth } from '../hooks/useAuth';
 import { universities } from '../data/universities';
 import siteStats from '../data/siteStats.json';
+import {getEnabledSupportEntries, getLocalizedSupportValue, supportConfig} from '../data/supportConfig';
+import {useCurrentLanguage} from '../context/LanguageContext';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -182,6 +184,58 @@ const CommunitySection = memo(({ t }) => (
     </div>
   </section>
 ));
+
+// 社区共建入口：连接社区、贡献者与长期合作伙伴
+const CommunitySupportSection = memo(({ t }) => {
+  const language = useCurrentLanguage();
+  const featuredPartner = getEnabledSupportEntries(supportConfig.strategicPartners)
+    .find((partner) => partner.featuredOnHomepage);
+  const partnerName = featuredPartner
+    ? getLocalizedSupportValue(featuredPartner.name, language)
+    : t.supportPartnerFallback;
+
+  return (
+    <section id="community-support" className={styles.communitySupportSection}>
+      <div className="container">
+        <div className={styles.communitySupportCard}>
+          <div className={styles.communitySupportIntro}>
+            <span className={styles.communitySupportEyebrow}>{t.supportEyebrow}</span>
+            <Heading as="h2" className={styles.communitySupportTitle}>
+              {t.supportTitle}
+            </Heading>
+            <p className={styles.communitySupportDescription}>{t.supportDescription}</p>
+            <Link className={styles.communitySupportCta} to="/support">
+              {t.supportCta}
+              <FaArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className={styles.communitySupportDetails}>
+            <Link className={styles.featuredPartnerTile} to="/support#partners">
+              <span className={styles.communitySupportIcon}><FaHandshake aria-hidden="true" /></span>
+              <span>
+                <small>{t.supportPartnerLabel}</small>
+                <strong>{partnerName}</strong>
+                {!featuredPartner && <em>{t.supportPartnerFallbackHint}</em>}
+              </span>
+              <FaArrowRight aria-hidden="true" />
+            </Link>
+            <Link className={styles.communitySupportTile} to="/support#contributors">
+              <span className={styles.communitySupportIcon}><FaUsers aria-hidden="true" /></span>
+              <strong>{t.supportContributors}</strong>
+              <FaArrowRight aria-hidden="true" />
+            </Link>
+            <Link className={styles.communitySupportTile} to="/support#principles">
+              <span className={styles.communitySupportIcon}><FaShieldAlt aria-hidden="true" /></span>
+              <strong>{t.supportPrinciples}</strong>
+              <FaArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+});
 
 // 大学列表区域 - 简化版
 const UniversitySection = ({ t }) => {
@@ -356,6 +410,7 @@ const Home = () => {
         <HeroSection t={t} />
         <HighlightsSection t={t} />
         <CommunitySection t={t} />
+        <CommunitySupportSection t={t} />
         <UniversitySection t={t} />
         <CtaSection t={t} />
       </main>

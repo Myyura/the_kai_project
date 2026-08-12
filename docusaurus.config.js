@@ -339,6 +339,7 @@ const config = {
             position: 'left',
             items: [
               {to: '/links', label: '参考链接'},
+              {to: '/support', label: '支持与合作'},
               {to: '/help', label: '帮助与声明'},
             ],
           },
@@ -399,6 +400,10 @@ const config = {
           {
             title: 'More',
             items: [              
+              {
+                label: '支持与合作',
+                to: '/support',
+              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/Myyura/the_kai_project',

@@ -1,7 +1,5 @@
 .acknowledgementsBlock {
-  margin-top: 1.6rem;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-  padding-top: 1.35rem;
+  min-width: 0;
 }
 
 .acknowledgementsIntro {

@@ -39,6 +39,14 @@
       "名古屋大学"
     ]
   },
+  "Nagoya-Institute-of-Technology": {
+    "universityId": "nagoya-institute-of-technology",
+    "label": "名古屋工業大学",
+    "aliases": [
+      "NITech",
+      "名古屋工業大学"
+    ]
+  },
   "Tohoku-University": {
     "universityId": "tohoku-university",
     "label": "東北大学",

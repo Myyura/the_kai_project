@@ -586,6 +586,12 @@
         "Discrete-Mathematics"
       ]
     },
+    "Computer-Science.Data-Structures.Balanced-Binary-Search-Tree": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
+    },
     "Computer-Science.Data-Structures.Minimum-Nodes-in-Height-Balanced-Binary-Tree": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
@@ -608,6 +614,9 @@
     "Computer-Science.Data-Structures.Inorder-Tree-Traversal": {
       "subsubject": "Computer-Science.Data-Structures"
     },
+    "Computer-Science.Data-Structures.Preorder-Tree-Traversal": {
+      "subsubject": "Computer-Science.Data-Structures"
+    },
     "Computer-Science.Data-Structures.Tree-Sort-Complexity": {
       "subsubject": "Computer-Science.Data-Structures"
     },
@@ -616,6 +625,9 @@
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Hash-Table"
       ]
+    },
+    "Computer-Science.Data-Structures.Linear-Probing-Hashing": {
+      "subsubject": "Computer-Science.Data-Structures"
     },
     "Computer-Science.Data-Structures.Separate-Chaining-Hashing": {
       "subsubject": "Computer-Science.Data-Structures"
