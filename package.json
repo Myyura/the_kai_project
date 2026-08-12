@@ -6,7 +6,8 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "node scripts/generate-docusaurus-tags.js && node scripts/generate-site-stats.js && docusaurus start",
-    "build": "node scripts/generate-site-stats.js && yarn content:validate && docusaurus build && yarn documents:publish && yarn content:export && yarn build:check",
+    "build": "node scripts/build-with-memory-limit.js",
+    "build:site": "node scripts/generate-site-stats.js && yarn content:validate && docusaurus build && yarn documents:publish && yarn content:export && yarn build:check",
     "build:check": "node scripts/check-build-output.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",

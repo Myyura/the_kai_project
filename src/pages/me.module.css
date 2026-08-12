@@ -260,7 +260,7 @@
   display: inline-block;
   padding: 0.6rem 1.5rem;
   border-radius: 8px;
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff !important;
   font-weight: 600;
   text-decoration: none !important;
@@ -1111,7 +1111,7 @@
   gap: 0.45rem;
   padding: 0.65rem 1.2rem;
   border-radius: 8px;
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff !important;
   font-weight: 700;
   text-decoration: none !important;
@@ -1224,7 +1224,7 @@
 
 .profileSaveButton {
   border-color: var(--ifm-color-primary);
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff;
 }
 

@@ -80,6 +80,13 @@
   background: rgba(var(--theme-accent-rgb), 0.04);
 }
 
+.contributorDisclosure > summary:focus-visible,
+.githubContributor:focus-visible,
+.contributorGroupHeading > a:focus-visible {
+  outline: 3px solid rgba(var(--theme-accent-rgb), 0.48);
+  outline-offset: -3px;
+}
+
 .contributorDisclosure > summary span,
 .contributorDisclosure > summary strong,
 .contributorDisclosure > summary small {
@@ -240,7 +247,7 @@
 .contributorIdentity small {
   margin-top: 0.1rem;
   color: var(--ifm-color-emphasis-600);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
 }
 
 .siteContributorAvatar {
@@ -263,7 +270,7 @@
   background: rgba(16, 185, 129, 0.12);
   color: #047857;
   padding: 0 0.3rem;
-  font-size: 0.66rem;
+  font-size: 0.72rem;
   font-weight: 800;
 }
 
@@ -282,7 +289,7 @@
 .contributorPrivacy {
   margin: 0.65rem 0 0;
   color: var(--ifm-color-emphasis-500);
-  font-size: 0.66rem;
+  font-size: 0.72rem;
   line-height: 1.5;
 }
 

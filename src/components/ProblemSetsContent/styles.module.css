@@ -75,7 +75,7 @@
   border-radius: .55rem;
   padding: .65rem .85rem;
   color: white;
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   cursor: pointer;
   text-decoration: none;
 }
@@ -149,4 +149,3 @@ button:disabled { opacity: .55; cursor: not-allowed; }
   .detailActions { width: 100%; }
   .detailActions > * { flex: 1; }
 }
-

@@ -261,6 +261,7 @@ const UniversitySection = ({ t }) => {
             value={selectedUniv}
             onChange={(e) => setSelectedUniv(e.target.value)}
             className={styles.filterSelect}
+            aria-label={t.universityTitle}
           >
             <option value="">{t.allUniversities}</option>
             {universities.map(univ => (

@@ -14,6 +14,10 @@
   --ifm-color-primary-lighter: #2a7bd3;
   --ifm-color-primary-lightest: #5596dd;
   --theme-accent-rgb: 11, 103, 201;
+  /* Intermediate emphasis roles used by browse/search UI. Static fallbacks keep Safari 14 valid. */
+  --ifm-color-emphasis-250: var(--ifm-color-emphasis-300);
+  --ifm-color-emphasis-550: var(--ifm-color-emphasis-600);
+  --ifm-color-emphasis-650: var(--ifm-color-emphasis-700);
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
@@ -24,6 +28,8 @@
   --kai-blue: #0b67c9;
   --kai-blue-rgb: 11, 103, 201;
   --kai-action: #0b67c9;
+  --kai-action-hover: #095db6;
+  --kai-action-foreground: #ffffff;
   --kai-cyan: #35c6d9;
   --kai-cyan-rgb: 53, 198, 217;
   --kai-gold: #f0b84a;
@@ -82,6 +88,9 @@
   --custom-text-primary: rgba(255, 255, 255, 0.96);
   --custom-text-secondary: rgba(255, 255, 255, 0.75);
   --custom-text-muted: rgba(255, 255, 255, 0.55);
+  /* Filled actions stay blue so white labels retain AA contrast; cyan is for links and accents. */
+  --kai-action: #0b67c9;
+  --kai-action-hover: #095db6;
 }
 
 /* 添加黑暗模式下 heroBanner 的样式 */
@@ -130,6 +139,11 @@ a.button,
 .button:hover {
   transform: translateY(-2px);
   box-shadow: var(--custom-box-shadow);
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid rgba(var(--theme-accent-rgb), 0.48);
+  outline-offset: 3px;
 }
 
 /* Docusaurus 通用卡片仅统一表面，不注入位移动画。 */
@@ -190,8 +204,8 @@ a.button,
 
 /* 登录按钮突出显示 */
 .navbar__link--login {
-  background: var(--ifm-color-primary);
-  color: #fff !important;
+  background: var(--kai-action);
+  color: var(--kai-action-foreground) !important;
   border-radius: var(--custom-border-radius-xs);
   padding: 0.35rem 1rem !important;
   font-weight: 600;
@@ -219,8 +233,8 @@ a.button,
 }
 
 .navbar__link--login:hover {
-  background: var(--ifm-color-primary-dark);
-  color: #fff !important;
+  background: var(--kai-action-hover);
+  color: var(--kai-action-foreground) !important;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.3);
 }
@@ -241,8 +255,8 @@ a.button,
 }
 
 .navbar__link--login-active:hover {
-  background: var(--ifm-color-primary);
-  color: #fff !important;
+  background: var(--kai-action);
+  color: var(--kai-action-foreground) !important;
 }
 
 [data-theme='dark'] .navbar__link--login {
@@ -251,7 +265,7 @@ a.button,
 }
 
 [data-theme='dark'] .navbar__link--login:hover {
-  background: #1378e4;
+  background: var(--kai-action-hover);
   box-shadow: 0 4px 16px rgba(53, 198, 217, 0.35);
 }
 
@@ -263,8 +277,8 @@ a.button,
 }
 
 [data-theme='dark'] .navbar__link--login-active:hover {
-  background: var(--ifm-color-primary);
-  color: #fff !important;
+  background: var(--kai-action);
+  color: var(--kai-action-foreground) !important;
   box-shadow: 0 4px 16px rgba(53, 198, 217, 0.35);
 }
 

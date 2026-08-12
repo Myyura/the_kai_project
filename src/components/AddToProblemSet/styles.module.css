@@ -89,7 +89,7 @@
 .saveButton,
 .cancelButton { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; border: 0; border-radius: .55rem; padding: .6rem .8rem; cursor: pointer; }
 .createRow button,
-.saveButton { color: white; background: var(--ifm-color-primary); }
+.saveButton { color: white; background: var(--kai-action); }
 .cancelButton { background: var(--ifm-color-emphasis-200); color: var(--ifm-font-color-base); }
 .dialog > footer { display: flex; justify-content: flex-end; gap: .5rem; margin-top: 1rem; }
 .message { margin: .7rem 0 0; color: var(--ifm-color-primary-darkest); }

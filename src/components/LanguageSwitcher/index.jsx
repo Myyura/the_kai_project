@@ -52,6 +52,8 @@ export default function LanguageSwitcher({
           <button
             type="button"
             onClick={() => language !== option.code && switchLanguage(option.code)}
+            aria-pressed={language === option.code}
+            aria-label={option.label}
             className={clsx(
               styles.button,
               buttonClassName,

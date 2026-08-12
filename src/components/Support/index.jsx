@@ -190,11 +190,11 @@ export default function SupportPage() {
               </a>
             </div>
           </div>
-          <div className={styles.heroValues} aria-label={t.principles.title}>
-            <span><FaHeart aria-hidden="true" />{t.hero.valueOpen}</span>
-            <span><FaShieldAlt aria-hidden="true" />{t.hero.valueIndependent}</span>
-            <span><FaUsers aria-hidden="true" />{t.hero.valueCommunity}</span>
-          </div>
+          <ul className={styles.heroValues} aria-label={t.principles.title}>
+            <li><FaHeart aria-hidden="true" />{t.hero.valueOpen}</li>
+            <li><FaShieldAlt aria-hidden="true" />{t.hero.valueIndependent}</li>
+            <li><FaUsers aria-hidden="true" />{t.hero.valueCommunity}</li>
+          </ul>
         </section>
 
         <nav className={styles.sectionNav} aria-label={t.title}>

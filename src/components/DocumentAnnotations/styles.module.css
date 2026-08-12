@@ -95,7 +95,7 @@
 .confirmButton {
   padding: .4rem .72rem;
   border: 1px solid var(--ifm-color-primary);
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff;
 }
 
@@ -129,7 +129,7 @@
 .annotationMarker:hover,
 .annotationMarkerActive {
   border-color: var(--ifm-color-primary);
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff;
 }
 

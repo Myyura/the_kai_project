@@ -87,13 +87,13 @@
 }
 
 .authTabActive {
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .authTabActive:hover {
-  background: var(--ifm-color-primary);
+  background: var(--kai-action-hover);
   color: #fff;
 }
 
@@ -185,12 +185,12 @@
 }
 
 .btnPrimary {
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff;
 }
 
 .btnPrimary:hover:not(:disabled) {
-  background: var(--ifm-color-primary-dark);
+  background: var(--kai-action-hover);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.25);
   color: #fff;

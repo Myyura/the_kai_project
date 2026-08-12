@@ -49,17 +49,8 @@ jobs:
         run: /usr/bin/time -v yarn build
         env:
           DOCUSAURUS_PERF_LOGGER: 'true'
-          # Build the server and client bundles sequentially, then keep SSG
-          # single-threaded. This keeps the build inside the 8 GiB RAM and
-          # 14 GiB disk available to private-repository standard Linux runners.
-          DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true'
-          DOCUSAURUS_NO_PERSISTENT_CACHE: 'true'
-          DISABLE_RSPACK_INCREMENTAL: 'true'
-          DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '1'
-          DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '250000000'
-          RAYON_NUM_THREADS: '1'
-          RSPACK_BLOCKING_THREADS: '1'
-          NODE_OPTIONS: '--max-old-space-size=6144'
+          # yarn build applies the shared low-memory profile used locally and
+          # in CI: sequential bundles, one SSG worker, and a 6 GiB V8 heap.
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}

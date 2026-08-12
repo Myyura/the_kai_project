@@ -124,7 +124,7 @@
 
 .heroDescription {
   font-size: 1.25rem;
-  color: #86868b;
+  color: var(--ifm-color-emphasis-700);
   max-width: 600px;
   margin: 0 auto 3rem;
   line-height: 1.5;
@@ -155,7 +155,7 @@
 }
 
 .primaryBtn {
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: white !important;
   box-shadow: 0 4px 14px rgba(var(--theme-accent-rgb), 0.4);
 }
@@ -165,6 +165,7 @@
   box-shadow: 0 6px 20px rgba(var(--theme-accent-rgb), 0.5);
   color: white !important;
   text-decoration: none;
+  background: var(--kai-action-hover);
 }
 
 .secondaryBtn {
@@ -252,7 +253,7 @@
 
 .statLabel {
   font-size: 0.95rem;
-  color: #86868b;
+  color: var(--ifm-color-emphasis-700);
   margin-top: 0.25rem;
 }
 
@@ -387,7 +388,7 @@
 .sectionSubtitle {
   text-align: center;
   font-size: 1.1rem;
-  color: #86868b;
+  color: var(--ifm-color-emphasis-700);
   max-width: 600px;
   margin: -3rem auto 4rem;
 }
@@ -460,7 +461,7 @@
 
 .highlightDescription {
   font-size: 1rem;
-  color: #86868b;
+  color: var(--ifm-color-emphasis-700);
   line-height: 1.6;
   margin: 0;
   overflow-wrap: anywhere;
@@ -552,13 +553,13 @@
 .communityDescription {
   max-width: 620px;
   margin: 0;
-  color: #68686d;
+  color: var(--ifm-color-emphasis-700);
   font-size: 1.05rem;
   line-height: 1.7;
 }
 
 [data-theme='dark'] .communityDescription {
-  color: #a1a1a6;
+  color: var(--ifm-color-emphasis-700);
 }
 
 .communityTopics {
@@ -572,7 +573,7 @@
   padding: 0.4rem 0.75rem;
   border: 1px solid rgba(var(--theme-accent-rgb), 0.13);
   border-radius: 999px;
-  color: #68686d;
+  color: var(--ifm-color-emphasis-700);
   background: rgba(255, 255, 255, 0.72);
   font-size: 0.8rem;
   font-weight: 500;
@@ -580,7 +581,7 @@
 
 [data-theme='dark'] .communityTopic {
   border-color: rgba(255, 255, 255, 0.08);
-  color: #c7c7cc;
+  color: var(--ifm-color-emphasis-800);
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -607,14 +608,14 @@
 
 .discordBtn {
   color: white !important;
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   box-shadow: 0 10px 24px rgba(var(--theme-accent-rgb), 0.28);
 }
 
 .discordBtn:hover {
   transform: translate3d(0, -3px, 0);
   color: white !important;
-  background: var(--ifm-color-primary-dark);
+  background: var(--kai-action-hover);
   box-shadow: 0 14px 30px rgba(var(--theme-accent-rgb), 0.36);
 }
 
@@ -624,7 +625,7 @@
 }
 
 [data-theme='dark'] .discordBtn:hover {
-  background: #1378e4;
+  background: var(--kai-action-hover);
   box-shadow: 0 8px 22px rgba(53, 198, 217, 0.3);
 }
 
@@ -758,7 +759,7 @@
   gap: .5rem;
   margin-top: 1.35rem;
   border-radius: 999px;
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   box-shadow: 0 8px 20px rgba(var(--theme-accent-rgb), .22);
   padding: .65rem 1rem;
   color: #fff !important;
@@ -770,6 +771,7 @@
 
 .communitySupportCta:hover {
   transform: translateY(-2px);
+  background: var(--kai-action-hover);
   box-shadow: 0 10px 24px rgba(var(--theme-accent-rgb), .3);
 }
 
@@ -1292,7 +1294,7 @@
 
 .ctaDescription {
   font-size: 1.25rem;
-  color: #86868b;
+  color: var(--ifm-color-emphasis-700);
   margin: 0 0 3rem;
   line-height: 1.5;
 }
@@ -1320,33 +1322,37 @@
 }
 
 .ctaPrimaryBtn {
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: white !important;
   box-shadow: 0 4px 14px rgba(var(--theme-accent-rgb), 0.4);
 }
 
 .ctaPrimaryBtn:hover {
   transform: scale3d(1.02, 1.02, 1);
+  background: var(--kai-action-hover);
   box-shadow: 0 6px 20px rgba(var(--theme-accent-rgb), 0.5);
 }
 
 .ctaSecondaryBtn {
-  background: #1d1d1f;
-  color: white !important;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base) !important;
 }
 
 [data-theme='dark'] .ctaSecondaryBtn {
-  background: #f5f5f7;
-  color: #1d1d1f !important;
+  border-color: rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .07);
+  color: var(--ifm-font-color-base) !important;
 }
 
 .ctaSecondaryBtn:hover {
   transform: scale3d(1.02, 1.02, 1);
-  background: #424245;
+  border-color: rgba(var(--theme-accent-rgb), .3);
+  background: rgba(var(--theme-accent-rgb), .07);
 }
 
 [data-theme='dark'] .ctaSecondaryBtn:hover {
-  background: #e8e8ed;
+  background: rgba(255, 255, 255, .11);
 }
 
 /* 进度按钮 */

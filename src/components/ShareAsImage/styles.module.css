@@ -107,12 +107,12 @@
 }
 
 .downloadBtn {
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff;
 }
 
 .downloadBtn:hover {
-  background: var(--ifm-color-primary-dark);
+  background: var(--kai-action-hover);
 }
 
 .shareBtn {

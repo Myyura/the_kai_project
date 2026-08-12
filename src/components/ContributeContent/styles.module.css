@@ -210,7 +210,7 @@
 }
 
 .editorTabs .activeTab {
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff;
 }
 
@@ -478,12 +478,12 @@
 }
 
 .primaryButton {
-  background: var(--ifm-color-primary);
+  background: var(--kai-action);
   color: #fff;
 }
 
 .primaryButton:hover:not(:disabled) {
-  background: var(--ifm-color-primary-dark);
+  background: var(--kai-action-hover);
   color: #fff;
 }
 
