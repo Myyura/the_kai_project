@@ -20,6 +20,10 @@
   label: "Nagoya-University"
   permalink: "/school/nagoya-university"
   description: "Nagoya-University (名古屋大学)"
+"Nagoya-Institute-of-Technology":
+  label: "Nagoya-Institute-of-Technology"
+  permalink: "/school/nagoya-institute-of-technology"
+  description: "Nagoya-Institute-of-Technology (名古屋工業大学)"
 "Tohoku-University":
   label: "Tohoku-University"
   permalink: "/school/tohoku-university"
@@ -852,6 +856,10 @@
   label: "Computer-Science.Data-Structures.B-Tree"
   permalink: "/topic/computer-science/data-structures/b-tree"
   description: "Computer-Science / Data-Structures / B-Tree"
+"Computer-Science.Data-Structures.Balanced-Binary-Search-Tree":
+  label: "Computer-Science.Data-Structures.Balanced-Binary-Search-Tree"
+  permalink: "/topic/computer-science/data-structures/balanced-binary-search-tree"
+  description: "Computer-Science / Data-Structures / Balanced-Binary-Search-Tree"
 "Computer-Science.Data-Structures.Balanced-Binary-Search-Tree-Height-Bounds":
   label: "Computer-Science.Data-Structures.Balanced-Binary-Search-Tree-Height-Bounds"
   permalink: "/topic/computer-science/data-structures/balanced-binary-search-tree-height-bounds"
@@ -888,6 +896,10 @@
   label: "Computer-Science.Data-Structures.Inorder-Tree-Traversal"
   permalink: "/topic/computer-science/data-structures/inorder-tree-traversal"
   description: "Computer-Science / Data-Structures / Inorder-Tree-Traversal"
+"Computer-Science.Data-Structures.Linear-Probing-Hashing":
+  label: "Computer-Science.Data-Structures.Linear-Probing-Hashing"
+  permalink: "/topic/computer-science/data-structures/linear-probing-hashing"
+  description: "Computer-Science / Data-Structures / Linear-Probing-Hashing"
 "Computer-Science.Data-Structures.Linked-List":
   label: "Computer-Science.Data-Structures.Linked-List"
   permalink: "/topic/computer-science/data-structures/linked-list"
@@ -904,6 +916,10 @@
   label: "Computer-Science.Data-Structures.Postorder-Tree-Traversal"
   permalink: "/topic/computer-science/data-structures/postorder-tree-traversal"
   description: "Computer-Science / Data-Structures / Postorder-Tree-Traversal"
+"Computer-Science.Data-Structures.Preorder-Tree-Traversal":
+  label: "Computer-Science.Data-Structures.Preorder-Tree-Traversal"
+  permalink: "/topic/computer-science/data-structures/preorder-tree-traversal"
+  description: "Computer-Science / Data-Structures / Preorder-Tree-Traversal"
 "Computer-Science.Data-Structures.Priority-Queue":
   label: "Computer-Science.Data-Structures.Priority-Queue"
   permalink: "/topic/computer-science/data-structures/priority-queue"
@@ -2036,6 +2052,10 @@
   label: "Discrete-Mathematics.Graph-Algorithms.Prim-Algorithm"
   permalink: "/topic/discrete-mathematics/graph-algorithms/prim-algorithm"
   description: "Discrete-Mathematics / Graph-Algorithms / Prim-Algorithm"
+"Discrete-Mathematics.Graph-Algorithms.Shortest-Path-Counting":
+  label: "Discrete-Mathematics.Graph-Algorithms.Shortest-Path-Counting"
+  permalink: "/topic/discrete-mathematics/graph-algorithms/shortest-path-counting"
+  description: "Discrete-Mathematics / Graph-Algorithms / Shortest-Path-Counting"
 "Discrete-Mathematics.Graph-Algorithms.Topological-Sort":
   label: "Discrete-Mathematics.Graph-Algorithms.Topological-Sort"
   permalink: "/topic/discrete-mathematics/graph-algorithms/topological-sort"
