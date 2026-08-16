@@ -11,7 +11,7 @@
   gap: 0.25rem;
   padding: 0.25rem;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-color-emphasis-100);
 }
 
@@ -22,12 +22,12 @@
   min-height: 2.4rem;
   padding: 0.4rem 0.8rem;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--custom-border-radius-xs);
   background: transparent;
   color: var(--ifm-color-emphasis-700);
   font: inherit;
   font-size: 0.92rem;
-  font-weight: 650;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
 .viewTabActive {
   background: var(--ifm-background-surface-color);
   color: var(--ifm-color-primary);
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--kai-shadow-card);
 }
 
 .viewTabCount {
@@ -106,7 +106,7 @@
   min-height: 2.55rem;
   padding: 0 0.7rem;
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 7px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-background-color);
   color: var(--ifm-color-emphasis-600);
 }
@@ -163,7 +163,7 @@
   min-height: 2.65rem;
   padding: 0.5rem 0.65rem;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--custom-border-radius-xs);
   background: transparent;
   color: var(--ifm-color-emphasis-700);
   font: inherit;
@@ -295,7 +295,7 @@
   min-width: 0;
   color: var(--ifm-heading-color);
   font-size: 0.92rem;
-  font-weight: 650;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -340,7 +340,7 @@
   width: 0.92rem;
   height: 0.92rem;
   color: var(--ifm-color-emphasis-600);
-  transition: transform 0.15s ease;
+  transition: transform 0.16s ease;
 }
 
 .subsubjectDisclosure[open] .rowChevron {
@@ -388,8 +388,8 @@
   min-width: 1.55rem;
   padding: 0.08rem 0.34rem;
   border-radius: 999px;
-  background: rgba(22, 163, 74, 0.12);
-  color: #15803d;
+  background: var(--kai-success-bg);
+  color: var(--kai-success-strong);
   font-size: 0.68rem;
   font-weight: 700;
   text-align: center;
@@ -449,13 +449,13 @@
   gap: 0.3rem;
   padding: 0.42rem 0.48rem 0.42rem 0.7rem;
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 7px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-background-color);
   color: var(--ifm-font-color-base);
   font-size: 0.88rem;
   line-height: 1.2;
   text-decoration: none;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: var(--custom-transition-fast);
 }
 
 .tagMainRow {
@@ -480,7 +480,7 @@
 .tagName {
   min-width: 0;
   overflow-wrap: anywhere;
-  font-weight: 650;
+  font-weight: 700;
 }
 
 .tagPillCount {
@@ -525,22 +525,22 @@
 }
 
 .school {
-  border-color: rgba(37, 99, 235, 0.32);
+  border-color: rgba(var(--kai-blue-rgb), 0.32);
 }
 
 .school .tagPillCount {
-  background: rgba(37, 99, 235, 0.12);
-  color: #1d4ed8;
+  background: rgba(var(--kai-blue-rgb), 0.12);
+  color: var(--kai-action-hover);
 }
 
 .pending {
   border-style: dashed;
-  border-color: rgba(217, 119, 6, 0.42);
+  border-color: rgba(var(--kai-warning-rgb), 0.42);
 }
 
 .pending .tagPillCount {
-  background: rgba(217, 119, 6, 0.13);
-  color: #b45309;
+  background: rgba(var(--kai-warning-rgb), 0.13);
+  color: var(--kai-warning);
 }
 
 [data-theme='dark'] .viewTabs,
@@ -551,14 +551,6 @@
 
 [data-theme='dark'] .school .tagPillCount {
   color: #93c5fd;
-}
-
-[data-theme='dark'] .topicCount {
-  color: #86efac;
-}
-
-[data-theme='dark'] .pending .tagPillCount {
-  color: #facc15;
 }
 
 @media (max-width: 768px) {

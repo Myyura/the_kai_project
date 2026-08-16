@@ -68,7 +68,7 @@
 }
 
 .sectionTitleIcon {
-  color: #d97706;
+  color: var(--kai-warning-solid);
   flex-shrink: 0;
 }
 
@@ -89,7 +89,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 6px;
+  border-radius: var(--custom-border-radius-xs);
   background: transparent;
   color: var(--ifm-color-emphasis-600);
   cursor: pointer;
@@ -112,7 +112,7 @@
   padding: 3px;
   margin-bottom: 1rem;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 7px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-color-emphasis-100);
 }
 
@@ -120,7 +120,7 @@
   min-width: 92px;
   padding: 0.35rem 0.75rem;
   border: 0;
-  border-radius: 5px;
+  border-radius: var(--custom-border-radius-xs);
   background: transparent;
   color: var(--ifm-color-emphasis-600);
   cursor: pointer;
@@ -130,7 +130,7 @@
 
 .periodTabActive {
   background: var(--ifm-background-surface-color);
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.1);
+  box-shadow: var(--kai-shadow-card);
   color: var(--ifm-color-primary);
 }
 
@@ -162,7 +162,7 @@
   min-height: 38px;
   padding: 0.45rem 0.65rem;
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 6px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-background-color);
   color: var(--ifm-font-color-base);
   font-size: 0.85rem;
@@ -193,7 +193,7 @@
   border-radius: 999px;
   background: var(--ifm-color-emphasis-300);
   flex-shrink: 0;
-  transition: background 0.18s;
+  transition: var(--custom-transition-fast);
 }
 
 .toggleTrack span {
@@ -205,7 +205,8 @@
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
-  transition: transform 0.18s;
+  /* 快速过渡令牌不含 transform，这里仅对齐其时长（0.16s） */
+  transition: transform 0.16s ease;
 }
 
 .privacyToggle input:checked + .toggleTrack {
@@ -244,7 +245,7 @@
 }
 
 .settingsError {
-  color: #dc2626;
+  color: var(--kai-danger);
   font-size: 0.75rem;
 }
 
@@ -255,7 +256,7 @@
   min-height: 34px;
   padding: 0.4rem 0.8rem;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--kai-action);
   color: #fff;
   cursor: pointer;
@@ -414,9 +415,9 @@
   color: #fff;
 }
 
-.rank1 { background: #d97706; }
-.rank2 { background: #64748b; }
-.rank3 { background: #a16207; }
+.rank1 { background: var(--kai-warning-solid); }
+.rank2 { background: var(--custom-text-muted); }
+.rank3 { background: var(--kai-gold-text); }
 
 .avatar {
   width: 30px;
@@ -435,7 +436,7 @@
   margin-bottom: 0.3rem;
   color: var(--ifm-heading-color);
   font-size: 0.8rem;
-  font-weight: 650;
+  font-weight: 700;
 }
 
 .learnerName > span:first-child {
@@ -469,14 +470,14 @@
 }
 
 .barFillTop {
-  background: #d97706;
+  background: var(--kai-warning-solid);
 }
 
 .count {
   color: var(--ifm-heading-color);
   text-align: right;
   font-size: 0.9rem;
-  font-weight: 750;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -520,19 +521,15 @@
   min-height: 96px;
   padding: 1.25rem 1rem;
   border: 1px dashed var(--ifm-color-emphasis-300);
-  border-radius: 7px;
+  border-radius: var(--custom-border-radius-xs);
   background: transparent;
   color: var(--ifm-color-emphasis-600);
   cursor: pointer;
   font-size: 0.82rem;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
 .spin {
-  animation: spin 1s linear infinite;
+  composes: spinner from "../../styles/kai-ui.module.css";
 }
 
 @media (max-width: 640px) {

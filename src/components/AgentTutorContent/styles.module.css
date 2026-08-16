@@ -1,7 +1,5 @@
 .shell {
-  width: min(1120px, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 2.5rem 0 4rem;
+  composes: shell from "../../styles/kai-ui.module.css";
 }
 
 .embeddedShell {
@@ -146,13 +144,13 @@
 }
 
 .messageSuccess {
-  background: rgba(34, 197, 94, 0.1);
-  color: #15803d;
+  background: var(--kai-success-bg);
+  color: var(--kai-success-strong);
 }
 
 .messageError {
-  background: rgba(239, 68, 68, 0.1);
-  color: #b91c1c;
+  background: var(--kai-danger-bg);
+  color: var(--kai-danger-strong);
 }
 
 .toggleList {
@@ -228,46 +226,17 @@
   opacity: 0.6;
 }
 
-.primaryButton,
-.secondaryButton,
-.iconButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.42rem;
-  min-height: 38px;
-  border-radius: var(--custom-border-radius-xs);
-  padding: 0.58rem 0.85rem;
-  border: 1px solid transparent;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: var(--custom-transition-fast);
-  white-space: nowrap;
-}
-
+/* 按钮：复用共享配方（kai-ui.module.css），本地仅保留 disabled 透明度差异 */
 .primaryButton {
-  background: var(--kai-action);
-  color: #fff;
+  composes: btnPrimary from "../../styles/kai-ui.module.css";
 }
 
-.primaryButton:hover:not(:disabled) {
-  background: var(--kai-action-hover);
-  color: #fff;
+.secondaryButton {
+  composes: btnSecondary from "../../styles/kai-ui.module.css";
 }
 
-.secondaryButton,
 .iconButton {
-  background: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-200);
-  color: var(--ifm-font-color-base);
-}
-
-.secondaryButton:hover:not(:disabled),
-.iconButton:hover:not(:disabled) {
-  border-color: var(--ifm-color-primary);
-  color: var(--ifm-color-primary);
+  composes: btnSecondary from "../../styles/kai-ui.module.css";
 }
 
 .primaryButton:disabled,
@@ -332,7 +301,7 @@
 
 @media (max-width: 640px) {
   .shell {
-    width: min(100% - 1rem, 1120px);
+    width: min(100% - 1rem, var(--kai-content-width));
   }
 
   .header {

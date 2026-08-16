@@ -18,7 +18,7 @@
 
 .searchField:focus-within {
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ifm-color-primary) 15%, transparent);
+  box-shadow: var(--kai-focus-ring);
 }
 
 .searchField input {
@@ -50,11 +50,11 @@
   background: var(--custom-card-bg);
   color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
-  transition: border-color .18s ease, box-shadow .18s ease;
+  transition: var(--custom-transition-fast);
 }
 
 .tagCard:hover {
-  border-color: color-mix(in srgb, var(--ifm-color-primary) 55%, var(--ifm-color-emphasis-220));
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 55%, var(--ifm-color-emphasis-300));
   background: var(--custom-card-bg-hover);
   box-shadow: var(--custom-box-shadow-hover);
 }
@@ -118,7 +118,7 @@
 .emptyState {
   padding: 2rem;
   border: 1px dashed var(--ifm-color-emphasis-300);
-  border-radius: var(--kai-radius-panel, 12px);
+  border-radius: var(--kai-radius-panel);
   color: var(--ifm-color-emphasis-650);
   text-align: center;
 }

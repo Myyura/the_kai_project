@@ -26,7 +26,7 @@
   min-height: 2.35rem;
   padding: 0.4rem 2rem 0.4rem 0.7rem;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 9px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-background-surface-color);
   color: var(--ifm-color-emphasis-800);
   cursor: pointer;
@@ -50,13 +50,13 @@
   gap: 0.5rem;
   padding: 0.55rem 1rem;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 10px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-background-surface-color);
   color: var(--ifm-color-emphasis-700);
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: border-color .2s, background-color .2s, color .2s;
+  transition: var(--custom-transition);
   letter-spacing: 0.02em;
 }
 
@@ -92,11 +92,11 @@
   gap: 0.4rem;
   padding: 0.45rem 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color .2s, border-color .2s, color .2s;
+  transition: var(--custom-transition);
 }
 
 .triggerBtn:focus-visible,
@@ -127,17 +127,13 @@
 
 /* ─── Spinner ─── */
 .spinner {
+  composes: spinner from "../../styles/kai-ui.module.css";
   display: inline-block;
   width: 14px;
   height: 14px;
   border: 2px solid var(--ifm-color-emphasis-300);
   border-top-color: var(--ifm-color-primary);
   border-radius: 50%;
-  animation: spin 0.6s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
 }
 
 /* ─── Preview overlay ─── */
@@ -147,13 +143,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: var(--kai-overlay-bg);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: var(--kai-z-overlay);
   padding: 20px;
   animation: fadeIn 0.2s ease;
 }
@@ -165,13 +161,13 @@
 
 .previewModal {
   background: var(--ifm-background-surface-color);
-  border-radius: 16px;
+  border-radius: var(--custom-border-radius-sm);
   width: min(600px, 90vw);
   height: 85vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--kai-shadow-modal);
   animation: slideUp 0.25s ease;
 }
 
@@ -205,11 +201,11 @@
   width: 30px;
   height: 30px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   background: transparent;
   color: var(--ifm-color-emphasis-500);
   cursor: pointer;
-  transition: background-color .15s, color .15s;
+  transition: var(--custom-transition-fast);
   font-size: 0.9rem;
 }
 
@@ -224,7 +220,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   padding: 1rem;
-  background: var(--ifm-color-emphasis-50, #f8f8f8);
+  background: var(--ifm-color-emphasis-50);
 }
 
 .previewImage {
@@ -251,13 +247,13 @@
   left: 50%;
   transform: translateX(-50%);
   padding: 0.6rem 1.2rem;
-  border-radius: 10px;
+  border-radius: var(--custom-border-radius-xs);
   font-size: 0.82rem;
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  z-index: 10000;
+  z-index: var(--kai-z-toast);
   animation: toastIn 0.3s ease;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
@@ -274,17 +270,17 @@
 }
 
 .toast_success {
-  background: #2e8555;
+  background: var(--kai-success-solid);
   color: #fff;
 }
 
 .toast_warn {
-  background: #e3a008;
+  background: var(--kai-warning-solid);
   color: #fff;
 }
 
 .toast_error {
-  background: #dc3545;
+  background: var(--kai-danger-solid);
   color: #fff;
 }
 

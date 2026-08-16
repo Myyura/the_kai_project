@@ -2,7 +2,7 @@
   margin: 1.25rem 0;
   overflow: hidden;
   border: 1px solid var(--custom-card-border);
-  border-radius: var(--custom-border-radius);
+  border-radius: var(--custom-border-radius-xs);
   background: var(--custom-card-bg);
 }
 
@@ -16,11 +16,9 @@
   overflow-x: auto;
 }
 
+/* 与全局 .note-smiles-structure（custom.css）完全一致，组合全局实现以消除重复 */
 .structure {
-  display: block;
-  width: min(100%, 42rem);
-  height: auto;
-  margin: auto;
+  composes: note-smiles-structure from global;
 }
 
 .status,
@@ -44,11 +42,11 @@
   display: flex;
   align-items: baseline;
   gap: 0.65rem;
-  padding: 0.55rem 0.75rem;
+  padding: 0.5rem 0.7rem;
   border-top: 1px solid var(--ifm-color-emphasis-200);
   background: var(--ifm-color-emphasis-100);
   color: var(--ifm-color-emphasis-700);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   overflow-wrap: anywhere;
 }
 

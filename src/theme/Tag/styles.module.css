@@ -14,14 +14,14 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.4rem 0.85rem;
-  border-radius: 20px;
+  border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
   border: 1px solid rgba(0, 0, 0, 0.08);
   background-color: rgba(0, 0, 0, 0.03);
   color: var(--ifm-font-color-base);
-  transition: all 0.2s ease;
+  transition: var(--custom-transition);
 }
 
 .tag:hover {
@@ -30,7 +30,7 @@
   border-color: var(--ifm-color-primary);
   color: var(--tag-hover-text-color);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.25);
+  box-shadow: var(--kai-shadow-action);
 }
 
 [data-theme='dark'] .tag {
@@ -43,7 +43,6 @@
 [data-theme='dark'] .tag:hover {
   background-color: var(--ifm-color-primary);
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 4px 12px rgba(53, 198, 217, 0.3);
 }
 
 /* 普通标签 */
@@ -67,8 +66,8 @@
   color: var(--ifm-font-color-base);
   font-size: 0.7rem;
   font-weight: 600;
-  border-radius: 12px;
-  transition: all 0.2s ease;
+  border-radius: var(--custom-border-radius-sm);
+  transition: var(--custom-transition);
 }
 
 [data-theme='dark'] .tagWithCount span {

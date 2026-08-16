@@ -3,7 +3,7 @@
   align-items: center;
   gap: .4rem;
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: .55rem;
+  border-radius: var(--custom-border-radius-xs);
   padding: .5rem .7rem;
   color: var(--ifm-color-emphasis-800);
   background: var(--ifm-background-surface-color);
@@ -21,7 +21,7 @@
   border-color: color-mix(in srgb, var(--ifm-color-primary) 35%, var(--ifm-color-emphasis-200));
   background: color-mix(in srgb, var(--ifm-color-primary) 9%, var(--ifm-background-surface-color));
   color: var(--ifm-color-primary);
-  font-weight: 650;
+  font-weight: 700;
 }
 
 .trigger:hover,
@@ -33,13 +33,13 @@
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: var(--kai-z-overlay);
   display: grid;
   place-items: center;
   padding: 1rem;
-  background: rgba(15, 23, 42, .56);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  background: var(--kai-overlay-bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .dialog {
@@ -47,18 +47,17 @@
   max-height: min(44rem, calc(100vh - 2rem));
   overflow: auto;
   border: 1px solid rgba(15, 23, 42, .16);
-  border-radius: .9rem;
+  border-radius: var(--custom-border-radius-sm);
   padding: 1rem;
   color: var(--ifm-font-color-base);
-  background-color: #fff;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, .38);
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: var(--kai-shadow-modal);
   outline: none;
   isolation: isolate;
 }
 
 [data-theme='dark'] .dialog {
-  border-color: rgba(98, 215, 229, .22);
-  background-color: #0a2345;
+  border-color: rgba(var(--kai-cyan-rgb), .22);
 }
 
 .dialog > header {
@@ -74,18 +73,16 @@
 .optionList { display: grid; gap: .45rem; margin: 1rem 0; }
 .option { display: flex; align-items: center; gap: .7rem; padding: .7rem; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); background-color: var(--custom-card-bg); cursor: pointer; }
 .option:hover { border-color: var(--ifm-color-primary); background-color: var(--custom-card-bg-hover); box-shadow: var(--custom-box-shadow-hover); }
-.option:has(input:checked) { border-color: var(--ifm-color-primary); background-color: #eef8f2; }
-[data-theme='dark'] .option:has(input:checked) { background-color: #103762; }
+.option:has(input:checked) { border-color: var(--ifm-color-primary); background-color: var(--kai-success-bg); }
 .option > span { display: grid; flex: 1; }
 .option small { color: var(--ifm-color-emphasis-600); }
 .option em { font-size: .68rem; font-style: normal; color: var(--ifm-color-primary); }
 
 .createRow { display: grid; grid-template-columns: 1fr auto; gap: .5rem; }
-.createRow input { min-width: 0; border: 1px solid var(--ifm-color-emphasis-300); border-radius: .55rem; padding: .6rem .7rem; background-color: #fff; color: var(--ifm-font-color-base); }
-[data-theme='dark'] .createRow input { background-color: #06172f; }
+.createRow input { min-width: 0; border: 1px solid var(--ifm-color-emphasis-300); border-radius: var(--custom-border-radius-xs); padding: .6rem .7rem; background-color: var(--ifm-background-color); color: var(--ifm-font-color-base); }
 .createRow button,
 .saveButton,
-.cancelButton { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; border: 0; border-radius: .55rem; padding: .6rem .8rem; cursor: pointer; }
+.cancelButton { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; border: 0; border-radius: var(--custom-border-radius-xs); padding: .6rem .8rem; cursor: pointer; }
 .createRow button,
 .saveButton { color: white; background: var(--kai-action); }
 .cancelButton { background: var(--ifm-color-emphasis-200); color: var(--ifm-font-color-base); }

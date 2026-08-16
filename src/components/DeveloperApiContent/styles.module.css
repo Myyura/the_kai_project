@@ -1,7 +1,5 @@
 .shell {
-  width: min(1120px, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 2.5rem 0 4rem;
+  composes: shell from "../../styles/kai-ui.module.css";
 }
 
 .shell.embeddedShell {
@@ -133,7 +131,7 @@
 .requestForm textarea:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.12);
+  box-shadow: var(--kai-focus-ring);
 }
 
 .requestForm {
@@ -184,60 +182,17 @@
   line-height: 1.55;
 }
 
-.primaryButton,
-.secondaryButton,
-.dangerButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.42rem;
-  min-height: 38px;
-  border-radius: var(--custom-border-radius-xs);
-  padding: 0.58rem 0.85rem;
-  border: 1px solid transparent;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: var(--custom-transition-fast);
-  white-space: nowrap;
-}
-
+/* 按钮：复用共享配方（kai-ui.module.css），disabled 透明度统一为共享版 0.6 */
 .primaryButton {
-  background: var(--kai-action);
-  color: #fff;
-}
-
-.primaryButton:hover:not(:disabled) {
-  background: var(--kai-action-hover);
-  color: #fff;
+  composes: btnPrimary from "../../styles/kai-ui.module.css";
 }
 
 .secondaryButton {
-  background: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-200);
-  color: var(--ifm-font-color-base);
-}
-
-.secondaryButton:hover:not(:disabled) {
-  background: var(--ifm-color-emphasis-200);
+  composes: btnSecondary from "../../styles/kai-ui.module.css";
 }
 
 .dangerButton {
-  background: transparent;
-  border-color: #fecaca;
-  color: #dc2626;
-}
-
-.dangerButton:hover:not(:disabled) {
-  background: #fee2e2;
-}
-
-.primaryButton:disabled,
-.secondaryButton:disabled,
-.dangerButton:disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
+  composes: btnDanger from "../../styles/kai-ui.module.css";
 }
 
 .message {
@@ -252,15 +207,15 @@
 }
 
 .messageSuccess {
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  color: #047857;
+  background: var(--kai-success-bg);
+  border: 1px solid var(--kai-success-border);
+  color: var(--kai-success-strong);
 }
 
 .messageError {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #dc2626;
+  background: var(--kai-danger-bg);
+  border: 1px solid var(--kai-danger-border);
+  color: var(--kai-danger);
 }
 
 .newKeyBox {
@@ -269,9 +224,9 @@
   gap: 0.75rem;
   align-items: center;
   margin-top: 1rem;
-  border: 1px solid #fde68a;
+  border: 1px solid var(--kai-warning-border);
   border-radius: var(--custom-border-radius-xs);
-  background: #fffbeb;
+  background: var(--kai-warning-bg);
   padding: 0.9rem;
 }
 
@@ -280,12 +235,12 @@
 }
 
 .newKeyBox strong {
-  color: #92400e;
+  color: var(--kai-warning-strong);
 }
 
 .newKeyBox p {
   margin: 0.25rem 0 0;
-  color: #92400e;
+  color: var(--kai-warning-strong);
   font-size: 0.86rem;
 }
 
@@ -358,8 +313,8 @@
 }
 
 .statusActive {
-  background: #ecfdf5;
-  color: #047857;
+  background: var(--kai-success-bg);
+  color: var(--kai-success-strong);
 }
 
 .statusRevoked {
@@ -368,8 +323,8 @@
 }
 
 .statusPending {
-  background: #fffbeb;
-  color: #92400e;
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning-strong);
 }
 
 .codeBlock {
@@ -384,17 +339,12 @@
 }
 
 .spin {
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  composes: spinner from "../../styles/kai-ui.module.css";
 }
 
 @media (max-width: 760px) {
   .shell {
-    width: min(100% - 1rem, 1120px);
+    width: min(100% - 1rem, var(--kai-content-width));
     padding-top: 1.2rem;
   }
 
@@ -430,38 +380,4 @@
 
 [data-theme='dark'] .statusPanel {
   background: rgba(255, 255, 255, 0.04);
-}
-
-[data-theme='dark'] .messageSuccess,
-[data-theme='dark'] .statusActive {
-  background: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.2);
-}
-
-[data-theme='dark'] .statusPending {
-  background: rgba(245, 158, 11, 0.13);
-  color: #fbbf24;
-}
-
-[data-theme='dark'] .messageError {
-  background: rgba(220, 38, 38, 0.1);
-  border-color: rgba(220, 38, 38, 0.25);
-}
-
-[data-theme='dark'] .newKeyBox {
-  background: rgba(146, 64, 14, 0.16);
-  border-color: rgba(245, 158, 11, 0.35);
-}
-
-[data-theme='dark'] .newKeyBox strong,
-[data-theme='dark'] .newKeyBox p {
-  color: #fbbf24;
-}
-
-[data-theme='dark'] .dangerButton {
-  border-color: rgba(220, 38, 38, 0.32);
-}
-
-[data-theme='dark'] .dangerButton:hover:not(:disabled) {
-  background: rgba(220, 38, 38, 0.15);
 }

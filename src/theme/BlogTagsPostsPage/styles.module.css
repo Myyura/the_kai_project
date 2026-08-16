@@ -74,22 +74,13 @@
   outline-offset: 2px;
 }
 
-.postList > article {
-  margin-bottom: 1rem;
-  padding: 1.35rem;
-  border: 1px solid var(--custom-card-border);
-  border-radius: var(--custom-border-radius);
-  background: var(--custom-card-bg);
-  box-shadow: none;
-}
-
-.postList > article:last-child {
-  margin-bottom: 1.5rem;
+/* 文章卡样式与 BlogListPage 完全相同，直接 composes 复用其 .postList */
+.postList {
+  composes: postList from "../BlogListPage/styles.module.css";
 }
 
 @media (max-width: 600px) {
-  .tagHeader,
-  .postList > article {
+  .tagHeader {
     padding: 1rem;
   }
 }

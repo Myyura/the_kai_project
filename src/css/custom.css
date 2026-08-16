@@ -46,6 +46,14 @@
   --kai-radius-control: 10px;
   --kai-shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04);
   --kai-shadow-elevated: 0 10px 28px rgba(15, 23, 42, 0.08);
+  /* 填充按钮的品牌色辉光（hover 反馈）与模态框 elevation */
+  --kai-shadow-action: 0 4px 12px rgba(var(--theme-accent-rgb), 0.3);
+  --kai-shadow-action-hover: 0 6px 16px rgba(var(--theme-accent-rgb), 0.35);
+  --kai-shadow-modal: 0 24px 70px rgba(0, 0, 0, 0.25);
+  /* 全屏模态遮罩与层叠尺度（overlay 压导航栏，toast 永远最顶） */
+  --kai-overlay-bg: rgba(15, 23, 42, 0.56);
+  --kai-z-overlay: 10000;
+  --kai-z-toast: 10100;
   --kai-section-space: clamp(4rem, 8vw, 7rem);
   --kai-content-width: 1120px;
   --custom-transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -66,6 +74,36 @@
   --custom-text-primary: rgba(0, 0, 0, 0.88);
   --custom-text-secondary: rgba(0, 0, 0, 0.68);
   --custom-text-muted: rgba(0, 0, 0, 0.55);
+
+  /* Kai 语义状态色：普通文本 / strong（浅色徽标底上的文本）/ rgb（派生 tint）/ bg / border */
+  --kai-success: #059669;
+  --kai-success-strong: #047857;
+  --kai-success-rgb: 16, 185, 129;
+  --kai-success-bg: rgba(var(--kai-success-rgb), 0.08);
+  --kai-success-border: rgba(var(--kai-success-rgb), 0.3);
+  --kai-warning: #b45309;
+  --kai-warning-strong: #92400e;
+  --kai-warning-rgb: 245, 158, 11;
+  --kai-warning-bg: rgba(var(--kai-warning-rgb), 0.08);
+  --kai-warning-border: rgba(var(--kai-warning-rgb), 0.32);
+  --kai-danger: #dc2626;
+  --kai-danger-strong: #b91c1c;
+  --kai-danger-rgb: 239, 68, 68;
+  --kai-danger-bg: rgba(var(--kai-danger-rgb), 0.08);
+  --kai-danger-border: rgba(var(--kai-danger-rgb), 0.3);
+  /* 填充式状态背景（toast 等白字场景；双主题通用，不随主题翻转） */
+  --kai-success-solid: #047857;
+  --kai-warning-solid: #d97706;
+  --kai-danger-solid: #dc2626;
+  /* 分类强调色（标签/笔记等分类编码） */
+  --kai-indigo: #4f46e5;
+  --kai-indigo-rgb: 79, 70, 229;
+  --kai-violet: #6d28d9;
+  --kai-violet-rgb: 139, 92, 246;
+  /* 金色文本（浅底上图标/强调；与品牌金 --kai-gold 同族） */
+  --kai-gold-text: #b87a0e;
+  /* 输入框焦点环（与全局 :focus-visible outline 互补的盒阴影形式） */
+  --kai-focus-ring: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.12);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -90,6 +128,8 @@
   /* 黑暗模式 Liquid Glass 设计系统变量 */
   --kai-shadow-card: 0 8px 28px rgba(0, 0, 0, 0.25);
   --kai-shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.34);
+  --kai-shadow-modal: 0 24px 70px rgba(0, 0, 0, 0.45);
+  --kai-overlay-bg: rgba(0, 0, 0, 0.65);
   --custom-box-shadow: var(--kai-shadow-card);
   --custom-box-shadow-hover: var(--kai-shadow-elevated);
   --custom-card-bg: rgba(10, 35, 69, 0.65);
@@ -103,6 +143,23 @@
   /* Filled actions stay blue so white labels retain AA contrast; cyan is for links and accents. */
   --kai-action: #0b67c9;
   --kai-action-hover: #095db6;
+
+  /* 暗色下的语义状态色变体（更亮以保证深底对比度） */
+  --kai-success: #34d399;
+  --kai-success-strong: #6ee7b7;
+  --kai-success-bg: rgba(var(--kai-success-rgb), 0.16);
+  --kai-success-border: rgba(var(--kai-success-rgb), 0.38);
+  --kai-warning: #fbbf24;
+  --kai-warning-strong: #fcd34d;
+  --kai-warning-bg: rgba(var(--kai-warning-rgb), 0.16);
+  --kai-warning-border: rgba(var(--kai-warning-rgb), 0.4);
+  --kai-danger: #f87171;
+  --kai-danger-strong: #fca5a5;
+  --kai-danger-bg: rgba(var(--kai-danger-rgb), 0.16);
+  --kai-danger-border: rgba(var(--kai-danger-rgb), 0.4);
+  --kai-indigo: #a5b4fc;
+  --kai-violet: #c4b5fd;
+  --kai-gold-text: #f5ce7a;
 }
 
 /* 添加黑暗模式下 heroBanner 的样式 */
@@ -171,7 +228,7 @@ a.button,
 }
 
 .button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: var(--custom-box-shadow);
 }
 
@@ -273,7 +330,7 @@ a.button,
   background: var(--kai-action-hover);
   color: var(--kai-action-foreground) !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.3);
+  box-shadow: var(--kai-shadow-action);
 }
 
 .navbar__link--login::after {
@@ -575,5 +632,17 @@ a.button,
   .note-smiles-surface {
     min-height: 7rem;
     padding: 0.65rem;
+  }
+}
+
+/* 全局减弱动效：覆盖所有组件（含 CSS Modules 内的动画/hover 位移），
+   各组件自带的 prefers-reduced-motion 块可与之共存。 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
