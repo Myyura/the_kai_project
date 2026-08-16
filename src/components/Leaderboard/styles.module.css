@@ -140,9 +140,9 @@
   gap: 1rem 1.25rem;
   padding: 1rem;
   margin-bottom: 1rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
 }
 
 .settingsField {
@@ -275,10 +275,10 @@
   gap: 0.85rem 1.25rem;
   padding: 1rem;
   margin-bottom: 1.1rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
+  border: 1px solid var(--custom-card-border);
   border-left: 3px solid var(--ifm-color-primary);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
 }
 
 .summaryIdentity {

@@ -57,7 +57,8 @@
     "remark-math": "^6.0.0",
     "smiles-drawer": "2.4.1",
     "uuid": "^11.1.0",
-    "websocket-driver": "0.7.5"
+    "websocket-driver": "0.7.5",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",

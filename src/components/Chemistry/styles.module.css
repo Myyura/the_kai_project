@@ -1,9 +1,9 @@
 .figure {
   margin: 1.25rem 0;
   overflow: hidden;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 10px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
 }
 
 .surface {

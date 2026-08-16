@@ -14,8 +14,7 @@
   border: 1px solid var(--custom-card-border);
   border-radius: var(--custom-border-radius);
   overflow: hidden;
-  background: var(--ifm-background-color);
-  box-shadow: var(--custom-box-shadow);
+  background: var(--custom-card-bg);
   backdrop-filter: var(--custom-blur-sm);
 }
 
@@ -334,11 +333,6 @@
 }
 
 /* ── Dark mode ──────────────────────────────────────────── */
-
-[data-theme='dark'] .card {
-  background: var(--custom-card-bg);
-  border-color: var(--custom-card-border);
-}
 
 [data-theme='dark'] .authToggle {
   background: rgba(255, 255, 255, 0.05);

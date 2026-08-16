@@ -258,10 +258,9 @@
 .partnerConfigurationState,
 .contributorSurface {
   overflow: hidden;
-  border: 1px solid var(--support-border);
-  border-radius: 26px;
-  background: var(--ifm-background-color);
-  box-shadow: var(--kai-shadow-card);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
 }
 
 .strategicPartnerCard {
@@ -401,12 +400,17 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: .75rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 14px;
-  background: var(--ifm-background-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
   padding: .75rem;
   color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
+}
+
+.sustainingPartnerCard:hover {
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .sustainingPartnerLogo {
@@ -713,10 +717,9 @@
   position: relative;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 20px;
-  background: var(--ifm-background-color);
-  box-shadow: var(--kai-shadow-card);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
   padding: 1.5rem;
 }
 
@@ -935,15 +938,6 @@
 [data-theme='dark'] .secondaryButton {
   border-color: rgba(255, 255, 255, .09);
   background: rgba(255, 255, 255, .06);
-}
-
-[data-theme='dark'] .strategicPartnerCard,
-[data-theme='dark'] .partnerConfigurationState,
-[data-theme='dark'] .contributorSurface,
-[data-theme='dark'] .sustainingPartnerCard,
-[data-theme='dark'] .principleCard {
-  border-color: var(--custom-card-border);
-  background: var(--custom-card-bg);
 }
 
 [data-theme='dark'] .strategicPartnerLogo,

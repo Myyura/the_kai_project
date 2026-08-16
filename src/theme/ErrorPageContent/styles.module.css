@@ -8,10 +8,10 @@
 .card {
   width: min(100%, 38rem);
   padding: clamp(1.75rem, 6vw, 3rem);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 24px;
-  background: var(--ifm-background-surface-color);
-  box-shadow: var(--kai-shadow-card);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
+  box-shadow: none;
   text-align: center;
 }
 
