@@ -5,9 +5,9 @@
 .pageHeader {
   margin-bottom: 1.5rem;
   padding: 1.25rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
 }
 
 .typeRow {
@@ -116,9 +116,9 @@
 }
 
 .docGroup {
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
   overflow: hidden;
 }
 
@@ -166,9 +166,9 @@
   justify-content: space-between;
   gap: 0.45rem;
   padding: 0.72rem 0.8rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  background: var(--ifm-background-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
   color: var(--ifm-font-color-base);
   text-decoration: none;
   transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
@@ -177,7 +177,8 @@
 .docItem:hover {
   transform: translateY(-1px);
   border-color: var(--ifm-color-primary);
-  background: var(--ifm-color-primary-contrast-background);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
   text-decoration: none;
 }
 
@@ -194,12 +195,6 @@
   font-size: 0.76rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
-}
-
-[data-theme='dark'] .pageHeader,
-[data-theme='dark'] .docGroup,
-[data-theme='dark'] .docItem {
-  border-color: var(--ifm-color-emphasis-300);
 }
 
 [data-theme='dark'] .docGroupHeader {

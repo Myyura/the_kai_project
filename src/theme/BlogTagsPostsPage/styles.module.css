@@ -1,12 +1,12 @@
 .tagHeader {
   margin-bottom: 1.5rem;
   padding: 1.35rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--kai-radius-card, 16px);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
   background:
     linear-gradient(135deg,
-      color-mix(in srgb, var(--ifm-color-primary) 9%, var(--ifm-background-surface-color)),
-      var(--ifm-background-surface-color));
+      color-mix(in srgb, var(--ifm-color-primary) 9%, var(--custom-card-bg)),
+      var(--custom-card-bg));
 }
 
 .tagIdentity {
@@ -77,10 +77,10 @@
 .postList > article {
   margin-bottom: 1rem;
   padding: 1.35rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--kai-radius-card, 16px);
-  background: var(--ifm-background-surface-color);
-  box-shadow: var(--kai-shadow-card);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
+  box-shadow: none;
 }
 
 .postList > article:last-child {

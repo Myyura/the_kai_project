@@ -45,9 +45,9 @@
   min-width: 0;
   align-items: center;
   padding: 1rem;
-  border: 1px solid var(--ifm-color-emphasis-220);
-  border-radius: var(--kai-radius-panel, 12px);
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
   color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
   transition: border-color .18s ease, box-shadow .18s ease;
@@ -55,7 +55,8 @@
 
 .tagCard:hover {
   border-color: color-mix(in srgb, var(--ifm-color-primary) 55%, var(--ifm-color-emphasis-220));
-  box-shadow: var(--kai-shadow-card);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .tagCard:focus-visible {

@@ -1,12 +1,12 @@
 .hero {
   margin-bottom: 1.25rem;
   padding: 1.5rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--kai-radius-card, 16px);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
   background:
     linear-gradient(135deg,
-      color-mix(in srgb, var(--ifm-color-primary) 10%, var(--ifm-background-surface-color)),
-      var(--ifm-background-surface-color));
+      color-mix(in srgb, var(--ifm-color-primary) 10%, var(--custom-card-bg)),
+      var(--custom-card-bg));
 }
 
 .hero > span {

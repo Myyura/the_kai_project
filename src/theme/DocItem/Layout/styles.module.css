@@ -33,9 +33,9 @@
     width: 100%;
     min-height: 96px;
     overflow-y: auto;
-    border: 1px solid var(--ifm-color-emphasis-200);
-    border-radius: 10px;
-    background: var(--ifm-background-surface-color);
+    border: 1px solid var(--custom-card-border);
+    border-radius: var(--custom-border-radius-sm);
+    background: var(--custom-card-bg);
   }
 
   .tocPane :global(.theme-doc-toc-desktop) {

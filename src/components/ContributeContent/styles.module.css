@@ -44,8 +44,8 @@
 .loadingPanel {
   border: 1px solid var(--custom-card-border);
   border-radius: var(--custom-border-radius);
-  background: var(--ifm-background-color);
-  box-shadow: var(--custom-box-shadow);
+  background: var(--custom-card-bg);
+  box-shadow: none;
 }
 
 .panel {
@@ -74,9 +74,9 @@
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0.65rem;
   align-items: start;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--custom-border-radius-xs);
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
   color: var(--ifm-font-color-base);
   padding: 0.75rem;
   margin-bottom: 1rem;
@@ -415,9 +415,9 @@
 .targetSummary {
   display: grid;
   gap: 0.25rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--custom-border-radius-xs);
-  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
   padding: 0.8rem;
 }
 
@@ -690,18 +690,9 @@
   }
 }
 
-[data-theme='dark'] .panel,
-[data-theme='dark'] .noticePanel,
-[data-theme='dark'] .loadingPanel {
-  background: var(--custom-card-bg);
-  border-color: var(--custom-card-border);
-}
-
 [data-theme='dark'] .formGrid input,
 [data-theme='dark'] .formGrid select,
 [data-theme='dark'] .formGrid textarea,
-[data-theme='dark'] .modeNotice,
-[data-theme='dark'] .targetSummary,
 [data-theme='dark'] .submissionItem,
 [data-theme='dark'] .correctionEditor,
 [data-theme='dark'] .editorToolbar,
@@ -727,8 +718,7 @@
   background: rgba(153, 27, 27, 0.35);
 }
 
-[data-theme='dark'] .checkboxLabel,
-[data-theme='dark'] .targetSummary {
+[data-theme='dark'] .checkboxLabel {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.12);
 }

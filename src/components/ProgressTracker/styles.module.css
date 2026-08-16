@@ -1,14 +1,16 @@
 .tracker {
   margin-top: 2rem;
   padding: 1rem 1.25rem;
-  border-radius: 10px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-background-surface-color);
+  border-radius: var(--custom-border-radius);
+  border: 1px solid var(--custom-card-border);
+  background: var(--custom-card-bg);
   transition: border-color 0.2s;
 }
 
 .tracker:hover {
   border-color: var(--ifm-color-primary-light);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .trackerEmbedded {

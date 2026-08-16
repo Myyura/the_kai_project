@@ -88,20 +88,21 @@
   min-width: 0;
   min-height: 4.25rem;
   align-items: center;
-  gap: .65rem;
-  padding: .9rem 1rem;
+  gap: .75rem;
+  padding: 1.05rem 1.25rem;
   overflow: hidden;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--kai-radius-panel, 12px);
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
   color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
-  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease, background-color .18s ease;
 }
 
 .schoolCard:hover {
-  border-color: color-mix(in srgb, var(--ifm-color-primary) 48%, var(--ifm-color-emphasis-200));
-  box-shadow: var(--kai-shadow-card, 0 8px 24px rgba(15, 23, 42, .08));
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 48%, transparent);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
   transform: translateY(-2px);
 }
 
@@ -116,15 +117,18 @@
 }
 
 .schoolCardUnavailable:hover {
-  border-color: var(--ifm-color-emphasis-200);
+  border-color: var(--custom-card-border);
+  background: var(--custom-card-bg);
   box-shadow: none;
   transform: none;
 }
 
+/* 左侧彩色竖条：与卡片左边框保持间距的小圆角条（同首页大学卡 .univColorBar） */
 .schoolColor {
-  position: absolute;
-  inset: 0 auto 0 0;
+  flex: 0 0 auto;
   width: 4px;
+  height: 24px;
+  border-radius: 2px;
 }
 
 .schoolTag {
@@ -172,11 +176,10 @@
 }
 
 .infoCard {
-  padding: 1.35rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--kai-radius-card, 16px);
-  background: var(--ifm-background-surface-color);
-  box-shadow: var(--kai-shadow-card, 0 8px 24px rgba(15, 23, 42, .06));
+  padding: 1.5rem;
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
 }
 
 .infoIcon {

@@ -40,9 +40,9 @@
   gap: .75rem;
   align-items: end;
   padding: 1rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: .8rem;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
 }
 
 .createPanel label { display: block; font-size: .8rem; font-weight: 700; margin-bottom: .3rem; }
@@ -85,7 +85,7 @@ button:disabled { opacity: .55; cursor: not-allowed; }
 .errorState { border: 1px solid #ef4444; color: #b91c1c; background: rgba(239, 68, 68, .08); padding: .8rem; border-radius: .65rem; cursor: pointer; }
 
 .setGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .85rem; }
-.setCard { position: relative; border: 1px solid var(--ifm-color-emphasis-200); border-radius: .85rem; background: var(--ifm-background-surface-color); overflow: hidden; }
+.setCard { position: relative; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius); background: var(--custom-card-bg); overflow: hidden; }
 .systemCard { border-top: 3px solid var(--ifm-color-primary); }
 .cardLink { display: block; padding: 1rem; color: inherit; text-decoration: none; }
 .cardHeading { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
@@ -107,7 +107,7 @@ button:disabled { opacity: .55; cursor: not-allowed; }
 .backLink { display: inline-flex; align-items: center; gap: .4rem; width: fit-content; }
 .detailTitleRow { display: flex; align-items: center; gap: .6rem; }
 .detailActions { display: flex; gap: .5rem; }
-.editSetPanel { display: grid; gap: .6rem; padding: 1rem; border-radius: .8rem; background: var(--ifm-color-emphasis-100); }
+.editSetPanel { display: grid; gap: .6rem; padding: 1rem; border-radius: var(--custom-border-radius-sm); background: var(--custom-card-bg); }
 .editSetPanel > div { display: flex; flex-wrap: wrap; gap: .5rem; }
 .dangerButton { background: #dc2626 !important; }
 
@@ -119,7 +119,7 @@ button:disabled { opacity: .55; cursor: not-allowed; }
 .bulkBar select { width: auto; min-width: 10rem; }
 
 .itemList { display: grid; gap: .65rem; }
-.itemRow { display: flex; align-items: flex-start; gap: .75rem; padding: .85rem; border: 1px solid var(--ifm-color-emphasis-200); border-radius: .75rem; background: var(--ifm-background-surface-color); }
+.itemRow { display: flex; align-items: flex-start; gap: .75rem; padding: .85rem; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); background: var(--custom-card-bg); }
 .itemRow > input { margin-top: .25rem; }
 .itemMain { min-width: 0; flex: 1; }
 .itemTop { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; }

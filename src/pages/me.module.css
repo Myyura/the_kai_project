@@ -114,9 +114,9 @@
   flex-direction: column;
   align-items: center;
   padding: 1.1rem 0.75rem;
-  border-radius: 12px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-background-surface-color);
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  background: var(--custom-card-bg);
   gap: 0.2rem;
   transition: border-color 0.2s;
 }
@@ -128,26 +128,28 @@
 
 .statCard:hover {
   border-color: var(--ifm-color-primary-light);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .statCardCompleted {
   border-color: #6ee7b7;
-  background: linear-gradient(135deg, #f0fdf4, var(--ifm-background-surface-color));
+  background: linear-gradient(135deg, #f0fdf4, var(--custom-card-bg));
 }
 
 [data-theme='dark'] .statCardCompleted {
   border-color: #059669;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), var(--ifm-background-surface-color));
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), var(--custom-card-bg));
 }
 
 .statCardReviewing {
   border-color: #fbbf24;
-  background: linear-gradient(135deg, #fffbeb, var(--ifm-background-surface-color));
+  background: linear-gradient(135deg, #fffbeb, var(--custom-card-bg));
 }
 
 [data-theme='dark'] .statCardReviewing {
   border-color: #f59e0b;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), var(--ifm-background-surface-color));
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), var(--custom-card-bg));
 }
 
 .statNumber {
@@ -227,12 +229,6 @@
   padding: 1rem;
   border: 1px solid var(--custom-card-border);
   border-radius: var(--custom-border-radius);
-  background: var(--ifm-background-color);
-  box-shadow: var(--custom-box-shadow);
-}
-
-[data-theme='dark'] .dashboardSidebar {
-  border-color: var(--custom-card-border);
   background: var(--custom-card-bg);
 }
 
@@ -370,14 +366,16 @@
 
 .univCard {
   padding: 0.9rem 1rem;
-  border-radius: 10px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-background-surface-color);
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  background: var(--custom-card-bg);
   transition: border-color 0.15s;
 }
 
 .univCard:hover {
   border-color: var(--ifm-color-primary-light);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .univName {
@@ -444,9 +442,9 @@
 }
 
 .tagCard {
-  background: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 10px;
+  background: var(--custom-card-bg);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
   padding: 0.85rem 1rem;
   display: flex;
   flex-direction: column;
@@ -459,7 +457,8 @@
 
 .tagCard:hover {
   border-color: #6366f1;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .tagName {
@@ -491,16 +490,17 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-background-surface-color);
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  background: var(--custom-card-bg);
   transition: border-color 0.15s, background 0.15s;
   flex-wrap: wrap;
 }
 
 .entryRow:hover {
   border-color: var(--ifm-color-primary-light);
-  background: var(--ifm-hover-overlay);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .entryInfo {
@@ -753,9 +753,9 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-background-surface-color);
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  background: var(--custom-card-bg);
   flex-wrap: wrap;
   transition: border-color 0.15s;
 }
@@ -1073,9 +1073,9 @@
 .centerLocked {
   text-align: center;
   padding: 3.5rem 1.5rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 12px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
 }
 
 .centerLockedIcon {
@@ -1127,9 +1127,9 @@
 .unlockCard {
   text-align: left;
   padding: 0.9rem 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-color-emphasis-50);
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  background: var(--custom-card-bg);
 }
 
 .unlockCard strong {
@@ -1163,9 +1163,9 @@
   gap: 1rem;
   margin-bottom: 1.25rem;
   padding: 1rem 1.1rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 12px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
 }
 
 .accountNickname {
@@ -1391,9 +1391,9 @@
   flex-direction: column;
   gap: 0.35rem;
   padding: 0.85rem 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-background-surface-color);
+  border-radius: var(--custom-border-radius-sm);
+  border: 1px solid var(--custom-card-border);
+  background: var(--custom-card-bg);
   color: inherit;
   text-decoration: none !important;
   transition: border-color 0.15s, box-shadow 0.15s;
@@ -1401,7 +1401,8 @@
 
 .noteRow:hover {
   border-color: #8b5cf6;
-  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.12);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .noteRowTop {

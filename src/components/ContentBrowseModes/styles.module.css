@@ -19,23 +19,25 @@
 }
 
 .modeLink {
+  position: relative;
   display: grid;
   grid-template-columns: 2.25rem minmax(0, 1fr);
-  gap: .7rem;
+  gap: .8rem;
   min-width: 0;
   align-items: center;
-  padding: .78rem .9rem;
-  border: 1px solid var(--ifm-color-emphasis-250);
-  border-radius: var(--kai-radius-panel, 12px);
-  background: var(--ifm-background-surface-color);
+  padding: 1.05rem 1.25rem;
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
   color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
   transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
 }
 
 .modeLink:hover {
-  border-color: color-mix(in srgb, var(--ifm-color-primary) 48%, var(--ifm-color-emphasis-250));
-  background: color-mix(in srgb, var(--ifm-color-primary) 5%, var(--ifm-background-surface-color));
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .modeLink:focus-visible {
@@ -44,12 +46,24 @@
 }
 
 .modeLinkActive {
-  border-color: color-mix(in srgb, var(--ifm-color-primary) 62%, var(--ifm-color-emphasis-250));
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
   background:
     linear-gradient(135deg,
-      color-mix(in srgb, var(--ifm-color-primary) 12%, var(--ifm-background-surface-color)),
-      var(--ifm-background-surface-color));
-  box-shadow: inset 3px 0 0 var(--ifm-color-primary);
+      color-mix(in srgb, var(--ifm-color-primary) 10%, var(--custom-card-bg)),
+      var(--custom-card-bg));
+}
+
+/* 左侧彩色竖条：与卡片左边框保持间距的小圆角条（同首页大学卡 .univColorBar） */
+.modeLinkActive::before {
+  content: '';
+  position: absolute;
+  left: .55rem;
+  top: 50%;
+  width: 4px;
+  height: 24px;
+  border-radius: 2px;
+  background: var(--ifm-color-primary);
+  transform: translateY(-50%);
 }
 
 .modeIcon {

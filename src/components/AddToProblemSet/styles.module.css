@@ -72,11 +72,9 @@
 .closeButton { border: 0; background: transparent; color: inherit; cursor: pointer; font-size: 1.1rem; }
 
 .optionList { display: grid; gap: .45rem; margin: 1rem 0; }
-.option { display: flex; align-items: center; gap: .7rem; padding: .7rem; border: 1px solid var(--ifm-color-emphasis-200); border-radius: .65rem; background-color: #fff; cursor: pointer; }
-.option:hover { border-color: var(--ifm-color-primary); background-color: #f5fbf7; }
+.option { display: flex; align-items: center; gap: .7rem; padding: .7rem; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); background-color: var(--custom-card-bg); cursor: pointer; }
+.option:hover { border-color: var(--ifm-color-primary); background-color: var(--custom-card-bg-hover); box-shadow: var(--custom-box-shadow-hover); }
 .option:has(input:checked) { border-color: var(--ifm-color-primary); background-color: #eef8f2; }
-[data-theme='dark'] .option { background-color: #0d2b52; }
-[data-theme='dark'] .option:hover,
 [data-theme='dark'] .option:has(input:checked) { background-color: #103762; }
 .option > span { display: grid; flex: 1; }
 .option small { color: var(--ifm-color-emphasis-600); }

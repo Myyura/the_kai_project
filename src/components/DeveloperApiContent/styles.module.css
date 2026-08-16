@@ -45,8 +45,8 @@
 .loadingPanel {
   border: 1px solid var(--custom-card-border);
   border-radius: var(--custom-border-radius);
-  background: var(--ifm-background-color);
-  box-shadow: var(--custom-box-shadow);
+  background: var(--custom-card-bg);
+  box-shadow: none;
 }
 
 .statItem {
@@ -420,14 +420,6 @@
   .dangerButton {
     width: 100%;
   }
-}
-
-[data-theme='dark'] .statItem,
-[data-theme='dark'] .panel,
-[data-theme='dark'] .noticePanel,
-[data-theme='dark'] .loadingPanel {
-  background: var(--custom-card-bg);
-  border-color: var(--custom-card-border);
 }
 
 [data-theme='dark'] .createForm input,

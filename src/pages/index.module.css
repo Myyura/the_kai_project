@@ -367,13 +367,13 @@
 /* ===== 特性高亮区域 ===== */
 .highlightsSection {
   padding: 8rem 2rem;
-  background: #f5f5f7;
+  background: #ffffff;
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
 }
 
 [data-theme='dark'] .highlightsSection {
-  background: #081d3b;
+  background: var(--kai-navy-950);
 }
 
 .sectionTitle {
@@ -403,29 +403,20 @@
 
 .highlightCard {
   min-width: 0;
-  background: white;
-  border-radius: 24px;
+  background: var(--custom-card-bg);
+  border-radius: var(--custom-border-radius);
   padding: 2.5rem;
   position: relative;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.6s ease-out backwards;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: none;
   contain: layout style;
-}
-
-[data-theme='dark'] .highlightCard {
-  background: #0b284d;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .highlightCard:hover {
   transform: translate3d(0, -8px, 0);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme='dark'] .highlightCard:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .highlightIndex {
@@ -470,13 +461,13 @@
 /* ===== 社区入口区域 ===== */
 .communitySection {
   padding: 0 2rem 8rem;
-  background: #f5f5f7;
+  background: #ffffff;
   content-visibility: auto;
   contain-intrinsic-size: auto 400px;
 }
 
 [data-theme='dark'] .communitySection {
-  background: #081d3b;
+  background: var(--kai-navy-950);
 }
 
 .communityCard {
@@ -685,14 +676,14 @@
 /* ===== 社区共建：合作伙伴、贡献者与原则 ===== */
 .communitySupportSection {
   padding: 0 2rem 8rem;
-  background: #f5f5f7;
+  background: #ffffff;
   scroll-margin-top: var(--ifm-navbar-height);
   content-visibility: auto;
   contain-intrinsic-size: auto 360px;
 }
 
 [data-theme='dark'] .communitySupportSection {
-  background: #081d3b;
+  background: var(--kai-navy-950);
 }
 
 .communitySupportCard {
@@ -788,9 +779,9 @@
   min-width: 0;
   align-items: center;
   gap: .7rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 16px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
   color: var(--ifm-font-color-base) !important;
   padding: 1rem;
   text-decoration: none !important;
@@ -935,24 +926,16 @@
 
 .universityCard {
   min-width: 0;
-  background: #f5f5f7;
-  border-radius: 16px;
+  background: var(--custom-card-bg);
+  border-radius: var(--custom-border-radius);
   overflow: hidden;
   transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   animation: scaleIn 0.4s ease-out backwards;
   contain: layout style;
 }
 
-[data-theme='dark'] .universityCard {
-  background: #0a2345;
-}
-
 .universityCard:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme='dark'] .universityCard:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .univHeader {
@@ -1174,15 +1157,10 @@
   align-items: center;
   gap: 0.25rem;
   padding: 1.25rem 1.5rem;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  background: var(--custom-card-bg);
+  border-radius: var(--custom-border-radius-sm);
+  box-shadow: none;
   min-width: 90px;
-}
-
-[data-theme='dark'] .progressMiniCard {
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .progressMiniIcon {
@@ -1210,15 +1188,10 @@
   align-items: center;
   gap: 0.3rem;
   padding: 1.25rem 1.5rem;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  background: var(--custom-card-bg);
+  border-radius: var(--custom-border-radius-sm);
+  box-shadow: none;
   min-width: 90px;
-}
-
-[data-theme='dark'] .progressMiniTotal {
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .progressMiniTotalNum {
@@ -1250,15 +1223,11 @@
   align-items: center;
   gap: 0.6rem;
   padding: 1.5rem 2rem;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  background: var(--custom-card-bg);
+  border-radius: var(--custom-border-radius-sm);
+  box-shadow: none;
   min-width: 180px;
   text-align: center;
-}
-
-[data-theme='dark'] .progressMiniEmpty {
-  background: rgba(255, 255, 255, 0.07);
 }
 
 .progressMiniEmptyIcon {
@@ -1269,14 +1238,14 @@
 /* ===== CTA 区域 ===== */
 .ctaSection {
   padding: 6.5rem 2rem;
-  background: linear-gradient(180deg, #f5f5f7 0%, white 100%);
+  background: linear-gradient(180deg, #ffffff 0%, white 100%);
   text-align: center;
   content-visibility: auto;
   contain-intrinsic-size: auto 500px;
 }
 
 [data-theme='dark'] .ctaSection {
-  background: linear-gradient(180deg, #081d3b 0%, var(--kai-navy-950) 100%);
+  background: linear-gradient(180deg, var(--kai-navy-950) 0%, var(--kai-navy-950) 100%);
 }
 
 .ctaInner {

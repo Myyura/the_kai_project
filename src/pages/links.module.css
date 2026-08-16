@@ -270,9 +270,9 @@
   min-width: 0;
   min-height: 215px;
   flex-direction: column;
-  border: 1px solid var(--links-border);
-  border-radius: 16px;
-  background: var(--links-surface);
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius);
+  background: var(--custom-card-bg);
   color: var(--ifm-font-color-base) !important;
   padding: 1rem;
   text-decoration: none !important;
@@ -282,13 +282,14 @@
 .resourceCard:hover {
   transform: translateY(-3px);
   border-color: rgba(var(--theme-accent-rgb), 0.6);
-  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .careerCard {
   background:
     linear-gradient(140deg, rgba(var(--theme-accent-rgb), 0.07), transparent 54%),
-    var(--links-surface);
+    var(--custom-card-bg);
 }
 
 .resourceCardTop {
@@ -396,10 +397,6 @@
 [data-theme='dark'] .categoryTabs .activeCategory {
   background: #0a274a;
   box-shadow: none;
-}
-
-[data-theme='dark'] .resourceCard:hover {
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 1020px) {

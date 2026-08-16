@@ -1,4 +1,4 @@
-.navigator { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1rem 0; padding: .8rem; border: 1px solid var(--ifm-color-primary-light); border-radius: .75rem; background: rgba(37, 99, 235, .06); }
+.navigator { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1rem 0; padding: .8rem; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); background: var(--custom-card-bg); }
 .context { display: flex; align-items: center; gap: .6rem; min-width: 0; }
 .context > svg { color: var(--ifm-color-primary); }
 .context > div { display: grid; min-width: 0; }
