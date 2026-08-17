@@ -121,9 +121,11 @@ const HeroSection = ({ t }) => {
 const HighlightsSection = memo(({ t }) => (
   <section className={styles.highlightsSection}>
     <div className="container">
-      <Heading as="h2" className={styles.sectionTitle}>
-        {t.highlightTitle}
-      </Heading>
+      <header className={styles.sectionHeading}>
+        <Heading as="h2" className={styles.sectionTitle}>
+          {t.highlightTitle}
+        </Heading>
+      </header>
       <div className={styles.highlightsGrid}>
         {t.highlights.map((item, index) => (
           <HighlightCard key={index} {...item} index={index} />
@@ -250,10 +252,12 @@ const UniversitySection = ({ t }) => {
   return (
     <section className={styles.universitySection}>
       <div className="container">
-        <Heading as="h2" className={styles.sectionTitle}>
-          {t.universityTitle}
-        </Heading>
-        <p className={styles.sectionSubtitle}>{t.universityDescription}</p>
+        <header className={styles.sectionHeading}>
+          <Heading as="h2" className={styles.sectionTitle}>
+            {t.universityTitle}
+          </Heading>
+          <p className={styles.sectionSubtitle}>{t.universityDescription}</p>
+        </header>
 
         {/* 筛选器 */}
         <div className={styles.filterBar}>
