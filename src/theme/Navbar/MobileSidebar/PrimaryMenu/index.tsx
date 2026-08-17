@@ -12,6 +12,7 @@ import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
 import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import NavbarLoginButton from '@site/src/components/NavbarLoginButton';
 import {useLanguage} from '@site/src/context/LanguageContext';
+import {useAuth} from '@site/src/hooks/useAuth';
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -22,10 +23,15 @@ function useNavbarItems() {
 export default function NavbarMobilePrimaryMenu(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
   const {t} = useLanguage();
+  const {isConfigured, authReady, isLoggedIn} = useAuth();
 
   // TODO how can the order be defined for mobile?
   // Should we allow providing a different list of items?
-  const items = useNavbarItems();
+  // 「个人中心」(/me) 仅对已登录用户显示（与桌面端 Navbar/Content 逻辑一致）
+  const showMe = isConfigured && authReady && isLoggedIn;
+  const items = useNavbarItems().filter(
+    (item) => showMe || (item as {to?: string}).to !== '/me',
+  );
   const translateItem = (item: NavbarItemConfig): NavbarItemConfig => {
     const nestedItems = (item as NavbarItemConfig & {items?: NavbarItemConfig[]}).items;
     return {

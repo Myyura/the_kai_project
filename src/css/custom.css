@@ -22,7 +22,8 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   /* 无衬线系统字体栈 + 中等字重标题（Soft UI 排版基调） */
-  --ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  /* 含日文字体（Yu Gothic/Meiryo/Noto Sans JP）：站点主体为日文内容，避免用中文字形渲染日文汉字 */
+  --ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans', 'Hiragino Sans GB', 'Yu Gothic', 'YuGothic', 'Meiryo', 'Microsoft YaHei', 'Noto Sans JP', sans-serif;
   --ifm-heading-font-family: var(--ifm-font-family-base);
   --ifm-heading-font-weight: 600;
 
@@ -73,7 +74,8 @@
   --custom-blur-sm: blur(10px);
   --custom-text-primary: rgba(0, 0, 0, 0.88);
   --custom-text-secondary: rgba(0, 0, 0, 0.68);
-  --custom-text-muted: rgba(0, 0, 0, 0.55);
+  /* 辅助文本：0.62 在 #f5f5f7 卡面上约 4.6:1，满足 AA 小字对比度 */
+  --custom-text-muted: rgba(0, 0, 0, 0.62);
 
   /* Kai 语义状态色：普通文本 / strong（浅色徽标底上的文本）/ rgb（派生 tint）/ bg / border */
   --kai-success: #059669;
@@ -244,6 +246,18 @@ a.button,
 .button:hover {
   transform: translateY(-1px);
   box-shadow: var(--custom-box-shadow);
+}
+
+/* 暗色下 Infima 原生填充按钮保持品牌蓝：青色主色配白字仅约 1.9:1，不达 AA（如 404 页按钮） */
+[data-theme='dark'] .button--primary {
+  --ifm-button-background-color: var(--kai-action);
+  --ifm-button-border-color: var(--kai-action);
+}
+
+[data-theme='dark'] .button--primary:hover,
+[data-theme='dark'] .button--primary:active {
+  --ifm-button-background-color: var(--kai-action-hover);
+  --ifm-button-border-color: var(--kai-action-hover);
 }
 
 :where(a, button, input, select, textarea, summary):focus-visible {
@@ -443,6 +457,13 @@ a.button,
 
 .theme-doc-markdown.markdown h3 {
   font-size: 1.25rem;
+}
+
+/* Display 公式横向滚动：长推导式在移动端不溢出视口（与 NoteEditor 预览一致） */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25em;
 }
 
 /* Footer */

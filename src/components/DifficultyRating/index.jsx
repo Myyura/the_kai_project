@@ -92,7 +92,7 @@ export default function DifficultyRating({ docId }) {
         {loading ? t.loadingSummary : getSummaryText(t, difficulty)}
       </p>
 
-      <div className={styles.segmented} aria-label={t.heading}>
+      <div className={styles.segmented} role="group" aria-label={t.heading}>
         {OPTIONS.map((option) => {
           const active = selectedKey === option.key;
           return (

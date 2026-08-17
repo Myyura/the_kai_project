@@ -251,7 +251,6 @@ const config = {
               strict: false,
               throwOnError: true,
             }],
-            rehypeAnnotationSourceLines,
             rehypeStudySections,
           ],
           sidebarPath: './sidebars.js',
@@ -367,7 +366,7 @@ const config = {
                 to: '/blog',
               },
               {
-                label: 'Tags',
+                label: '标签',
                 to: '/docs/tags',
               },
               {

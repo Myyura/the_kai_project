@@ -891,46 +891,6 @@
   background: var(--kai-navy-950);
 }
 
-/* 筛选栏 */
-.filterBar {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3rem;
-}
-
-.filterSelect {
-  width: min(100%, 24rem);
-  max-width: 100%;
-  min-width: 0;
-  padding: 0.875rem 2.5rem 0.875rem 1.25rem;
-  font-size: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  background: white;
-  color: var(--ifm-font-color-base);
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2386868b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  transition: var(--custom-transition);
-}
-
-[data-theme='dark'] .filterSelect {
-  background-color: var(--ifm-background-surface-color);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.filterSelect:hover {
-  border-color: var(--ifm-color-primary);
-}
-
-.filterSelect:focus {
-  outline: none;
-  border-color: var(--ifm-color-primary);
-  box-shadow: var(--kai-focus-ring);
-}
-
 /* 大学网格 */
 .universityGrid {
   display: grid;
@@ -988,6 +948,12 @@
   height: 24px;
   border-radius: 2px;
   margin-right: 1rem;
+  background: var(--univ-color, var(--kai-blue));
+}
+
+/* 暗色下校色普遍偏深（如东大 #1e3a5f），混入白色提亮保证可见 */
+[data-theme='dark'] .univColorBar {
+  background: color-mix(in srgb, var(--univ-color, var(--kai-cyan)) 60%, white);
 }
 
 .univName {
@@ -1248,119 +1214,6 @@
   line-height: 1;
 }
 
-/* ===== CTA 区域 ===== */
-.ctaSection {
-  padding: 6.5rem 2rem;
-  background: #ffffff;
-  text-align: center;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 500px;
-}
-
-[data-theme='dark'] .ctaSection {
-  background: var(--kai-navy-950);
-}
-
-.ctaInner {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.ctaTitle {
-  font-size: clamp(2.5rem, 6vw, 4rem) !important;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin: 0 0 1.5rem !important;
-  color: var(--ifm-font-color-base);
-  text-wrap: balance;
-}
-
-.ctaDescription {
-  width: min(100%, var(--home-copy-measure));
-  font-size: 1.25rem;
-  color: var(--ifm-color-emphasis-700);
-  margin: 0 auto 3rem !important;
-  line-height: 1.5;
-  text-wrap: balance;
-}
-
-.ctaButtons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.ctaPrimaryBtn,
-.ctaSecondaryBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  border-radius: 980px;
-  text-decoration: none !important;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* 与 .primaryBtn 完全一致：组合其实现（含 hover），消除复制 */
-.ctaPrimaryBtn {
-  composes: primaryBtn;
-}
-
-.ctaSecondaryBtn {
-  border: 1px solid var(--ifm-color-emphasis-300);
-  background: var(--ifm-background-color);
-  color: var(--ifm-font-color-base) !important;
-}
-
-[data-theme='dark'] .ctaSecondaryBtn {
-  border-color: rgba(255, 255, 255, .14);
-  background: rgba(255, 255, 255, .07);
-  color: var(--ifm-font-color-base) !important;
-}
-
-.ctaSecondaryBtn:hover {
-  transform: scale3d(1.02, 1.02, 1);
-  border-color: rgba(var(--theme-accent-rgb), .3);
-  background: rgba(var(--theme-accent-rgb), .07);
-}
-
-[data-theme='dark'] .ctaSecondaryBtn:hover {
-  background: rgba(255, 255, 255, .11);
-}
-
-/* 进度按钮 */
-.ctaProgressBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  border-radius: 980px;
-  text-decoration: none !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(var(--kai-success-rgb), 0.12);
-  color: var(--kai-success) !important;
-  border: 2px solid rgba(var(--kai-success-rgb), 0.3);
-}
-
-[data-theme='dark'] .ctaProgressBtn {
-  background: rgba(var(--kai-success-rgb), 0.12);
-  color: var(--kai-success-strong) !important;
-  border-color: rgba(var(--kai-success-rgb), 0.3);
-}
-
-.ctaProgressBtn:hover {
-  transform: scale(1.02);
-  background: rgba(var(--kai-success-rgb), 0.2);
-  border-color: var(--kai-success);
-}
-
 /* ===== 减少动画（无障碍 + 低端设备）===== */
 @media (prefers-reduced-motion: reduce) {
   .heroContent,
@@ -1384,8 +1237,6 @@
   }
 
   .primaryBtn:hover,
-  .ctaPrimaryBtn:hover,
-  .ctaSecondaryBtn:hover,
   .progressBannerBtn:hover {
     transform: none;
   }
@@ -1438,8 +1289,7 @@
   .communitySection,
   .communitySupportSection,
   .universitySection,
-  .progressBannerSection,
-  .ctaSection {
+  .progressBannerSection {
     padding: 5rem 1.5rem;
   }
 
@@ -1581,11 +1431,7 @@
   .universityGrid {
     grid-template-columns: 1fr;
   }
-  
-  .ctaSection {
-    padding: 5rem 1rem;
-  }
-  
+
   .progressBannerInner {
     padding: 2rem 1.5rem;
     gap: 2rem;
@@ -1594,16 +1440,6 @@
   .progressBannerRight {
     width: 100%;
     justify-content: flex-start;
-  }
-  
-  .ctaButtons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .ctaPrimaryBtn,
-  .ctaSecondaryBtn {
-    justify-content: center;
   }
 }
 

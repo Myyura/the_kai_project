@@ -25,8 +25,17 @@ import NavbarSearch from '@theme/Navbar/Search';
 import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import NavbarLoginButton from '@site/src/components/NavbarLoginButton';
 import {useLanguage} from '@site/src/context/LanguageContext';
+import {useAuth} from '@site/src/hooks/useAuth';
 
 import styles from './styles.module.css';
+
+// 「个人中心」(/me) 仅对已登录用户显示：未登录时与登录按钮功能重叠。
+// SSR 与首次渲染时 authReady=false（不渲染该项），认证就绪后再出现，无 hydration 不一致。
+function useVisibleNavbarItems(items: NavbarItemConfig[]): NavbarItemConfig[] {
+  const {isConfigured, authReady, isLoggedIn} = useAuth();
+  const showMe = isConfigured && authReady && isLoggedIn;
+  return items.filter((item) => showMe || (item as {to?: string}).to !== '/me');
+}
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -101,7 +110,7 @@ function NavbarContentLayout({
 export default function NavbarContent(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
 
-  const items = useNavbarItems();
+  const items = useVisibleNavbarItems(useNavbarItems());
   const [leftItems, rightItems] = splitNavbarItems(items);
 
   const searchBarItem = items.find((item) => item.type === 'search');

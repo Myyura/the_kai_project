@@ -595,9 +595,18 @@
   width: 100%;
 }
 
-@media (max-width: 480px) {
+/* 小屏不压缩格子：保持格子可读尺寸，容器横向滚动 */
+@media (max-width: 640px) {
   .heatmapWrap {
-    --hm-gap: 1.5px;
+    --hm-gap: 3px;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  /* 月份行与网格同宽，保证 calc 百分比定位对齐 */
+  .heatmapMonthRow,
+  .heatmapGrid {
+    min-width: 640px;
   }
 }
 
