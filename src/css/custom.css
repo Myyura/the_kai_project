@@ -262,14 +262,15 @@ a.button,
   box-shadow: none;
 }
 
-/* 左侧彩色竖条：与卡片边框保持间距的小圆角条（同首页大学卡 .univColorBar），
-   组件可用 --kai-card-accent 做分类色编码 */
+/* 左侧彩色竖条：与卡片边框保持间距、与标题文字行对齐的小圆角条
+   （同首页大学卡 .univColorBar），组件可用 --kai-card-accent 做分类色编码 */
 .card::before {
   content: '';
   position: absolute;
-  left: 10px;
-  top: 14px;
-  bottom: 14px;
+  left: 12px;
+  /* DocCard 上内边距 2rem（padding--lg），标题 1.2rem × 行高 ≈ 1.8rem */
+  top: 2rem;
+  height: 1.8rem;
   width: 4px;
   border-radius: 2px;
   background: var(--kai-card-accent);
