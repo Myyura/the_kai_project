@@ -39,6 +39,7 @@
 
 /* ===== 主内容容器 ===== */
 .mainContent {
+  --home-copy-measure: 38rem;
   overflow-x: hidden;
 }
 
@@ -94,7 +95,7 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.2;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem !important;
   padding-bottom: 0.05em;
   background: linear-gradient(135deg, #1d1d1f 0%, #424245 100%);
   -webkit-background-clip: text;
@@ -118,16 +119,18 @@
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 600;
   color: var(--ifm-color-primary);
-  margin: 0 0 1rem;
+  margin: 0 0 1rem !important;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .heroDescription {
+  width: min(100%, var(--home-copy-measure));
   font-size: 1.25rem;
   color: var(--ifm-color-emphasis-700);
-  max-width: 600px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 3rem !important;
   line-height: 1.5;
+  text-wrap: balance;
 }
 
 /* CTA 按钮组 */
@@ -231,14 +234,16 @@
 
 /* 统计数据行 */
 .statsRow {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
+  display: grid;
+  width: min(100%, 28rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0 auto;
 }
 
 .statCard {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   align-items: center;
   animation: fadeInUp 0.6s ease-out backwards;
@@ -255,6 +260,9 @@
   font-size: 0.95rem;
   color: var(--ifm-color-emphasis-700);
   margin-top: 0.25rem;
+  text-align: center;
+  line-height: 1.35;
+  text-wrap: balance;
 }
 
 /* 进度追踪入口 - 融入 Hero 底部 */
@@ -376,21 +384,33 @@
   background: var(--kai-navy-950);
 }
 
+.sectionHeading {
+  display: grid;
+  width: min(100%, var(--home-copy-measure));
+  justify-items: center;
+  gap: .75rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
 .sectionTitle {
   text-align: center;
   font-size: clamp(2rem, 5vw, 3rem) !important;
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin: 0 0 4rem;
+  margin: 0 !important;
   color: var(--ifm-font-color-base);
+  text-wrap: balance;
 }
 
 .sectionSubtitle {
+  width: 100%;
   text-align: center;
   font-size: 1.1rem;
   color: var(--ifm-color-emphasis-700);
-  max-width: 600px;
-  margin: -3rem auto 4rem;
+  margin: 0 !important;
+  line-height: 1.6;
+  text-wrap: balance;
 }
 
 .highlightsGrid {
@@ -437,25 +457,26 @@
 }
 
 .highlightTitle {
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
   font-weight: 700;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.5rem !important;
   color: var(--ifm-font-color-base);
+  text-wrap: balance;
 }
 
 .highlightSubtitle {
   font-size: 1rem;
   font-weight: 600;
   color: var(--ifm-color-primary);
-  margin: 0 0 1rem;
+  margin: 0 0 1rem !important;
 }
 
 .highlightDescription {
   font-size: 1rem;
   color: var(--ifm-color-emphasis-700);
   line-height: 1.6;
-  margin: 0;
-  overflow-wrap: anywhere;
+  margin: 0 !important;
+  overflow-wrap: break-word;
 }
 
 /* ===== 社区入口区域 ===== */
@@ -533,20 +554,22 @@
 }
 
 .communityTitle {
-  margin: 0 0 1rem;
+  margin: 0 0 1rem !important;
   color: var(--ifm-font-color-base);
   font-size: clamp(2rem, 3.4vw, 2.75rem) !important;
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
+  text-wrap: balance;
 }
 
 .communityDescription {
   max-width: 620px;
-  margin: 0;
+  margin: 0 !important;
   color: var(--ifm-color-emphasis-700);
   font-size: 1.05rem;
   line-height: 1.7;
+  overflow-wrap: break-word;
 }
 
 [data-theme='dark'] .communityDescription {
@@ -727,20 +750,22 @@
 }
 
 .communitySupportTitle {
-  margin: 0;
+  margin: 0 !important;
   color: var(--ifm-heading-color);
   font-size: clamp(1.75rem, 3.6vw, 2.6rem) !important;
   font-weight: 720;
   letter-spacing: -.035em;
   line-height: 1.12;
+  text-wrap: balance;
 }
 
 .communitySupportDescription {
   max-width: 620px;
-  margin: .9rem 0 0;
+  margin: .9rem 0 0 !important;
   color: var(--ifm-color-emphasis-700);
   font-size: .95rem;
   line-height: 1.7;
+  overflow-wrap: break-word;
 }
 
 .communitySupportCta {
@@ -1257,15 +1282,18 @@
   font-size: clamp(2.5rem, 6vw, 4rem) !important;
   font-weight: 700;
   letter-spacing: -0.03em;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem !important;
   color: var(--ifm-font-color-base);
+  text-wrap: balance;
 }
 
 .ctaDescription {
+  width: min(100%, var(--home-copy-measure));
   font-size: 1.25rem;
   color: var(--ifm-color-emphasis-700);
-  margin: 0 0 3rem;
+  margin: 0 auto 3rem !important;
   line-height: 1.5;
+  text-wrap: balance;
 }
 
 .ctaButtons {
@@ -1383,6 +1411,26 @@
 }
 
 /* ===== 响应式设计 ===== */
+@media screen and (max-width: 1100px) {
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .universityGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .univHeader {
+    min-height: 4.8rem;
+  }
+
+  .univName {
+    line-height: 1.4;
+  }
+}
+
 @media screen and (max-width: 996px) {
   .heroSection {
     min-height: auto;
@@ -1457,7 +1505,7 @@
   
   .heroDescription {
     font-size: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem !important;
   }
   
   .heroCta {
@@ -1492,6 +1540,10 @@
   
   .sectionTitle {
     font-size: clamp(1.75rem, 9vw, 2.25rem) !important;
+  }
+
+  .sectionHeading {
+    gap: .6rem;
     margin-bottom: 2.5rem;
   }
 
@@ -1512,7 +1564,7 @@
   }
   
   .highlightTitle {
-    font-size: 1.25rem;
+    font-size: 1.25rem !important;
   }
 
   .communitySection {
