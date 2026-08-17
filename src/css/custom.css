@@ -403,8 +403,10 @@ a.button,
   box-shadow: 0 4px 16px rgba(53, 198, 217, 0.35);
 }
 
-/* Reduce title size in blog list */
-.blog-list-page h2[class*="title"]
+/* Reduce title size in blog list (all-articles and tag-filtered lists) */
+.blog-list-page h2[class*="title"],
+.blog-tags-post-list-page h2[class*="title"],
+.blog-authors-posts-page h2[class*="title"]
 {
   font-size: 1.5rem;
 }
