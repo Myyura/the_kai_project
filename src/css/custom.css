@@ -177,17 +177,29 @@
   border-radius: 8px;
 }
 
-/* 顶部导航栏：毛玻璃效果，半透明背景 + 背景模糊 */
+/* 顶部导航栏：毛玻璃效果，半透明背景 + 背景模糊。
+   注意：半透明背景与 blur 放在 ::before 伪元素上，而不是 .navbar 本身——
+   .navbar 上的 backdrop-filter 会使其成为 fixed 定位后代
+   （.navbar-sidebar / .navbar-sidebar__backdrop）的包含块，
+   导致移动端侧边栏与遮罩相对导航栏盒（而非视口）定位、高度塌陷。 */
 .navbar {
   box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* Safari 兼容 */
+  background-color: transparent;
   border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
 
-/* Bug 修复：.navbar-sidebar 嵌套在 .navbar 内，会继承半透明/模糊效果，
-   导致侧边栏文字与下方页面内容重叠。这里恢复为实心背景。 */
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(12px); /* Safari 兼容；置前以保持构建产物中双前缀并存 */
+  backdrop-filter: blur(12px);
+}
+
+/* 双保险：.navbar-sidebar 嵌套在 .navbar 内，保持实心背景，
+   避免侧边栏文字与下方页面内容重叠。 */
 .navbar-sidebar {
   background-color: var(--ifm-navbar-background-color);
   backdrop-filter: none;
@@ -195,10 +207,12 @@
 }
 
 [data-theme='dark'] .navbar {
-  background-color: rgba(6, 23, 47, 0.7);
+  background-color: transparent;
   border-bottom: 1px solid rgba(var(--kai-cyan-rgb), 0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme='dark'] .navbar::before {
+  background-color: rgba(6, 23, 47, 0.7);
 }
 
 [data-theme='dark'] .navbar-sidebar {
@@ -239,14 +253,26 @@ a.button,
 
 /* Docusaurus 通用卡片：Soft UI 浅灰卡面 + 左侧 Accent Bar，不注入位移动画。 */
 .card {
+  position: relative;
   transition: var(--custom-transition);
   border-radius: var(--custom-border-radius);
   overflow: hidden;
   background: var(--custom-card-bg);
   border: 1px solid var(--custom-card-border);
-  /* 左侧彩色竖条作为视觉锚点，组件可用 --kai-card-accent 做分类色编码 */
-  border-left: 4px solid var(--kai-card-accent);
   box-shadow: none;
+}
+
+/* 左侧彩色竖条：与卡片边框保持间距的小圆角条（同首页大学卡 .univColorBar），
+   组件可用 --kai-card-accent 做分类色编码 */
+.card::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 14px;
+  bottom: 14px;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--kai-card-accent);
 }
 
 .card:hover {
