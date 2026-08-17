@@ -1,7 +1,6 @@
 .page {
   --support-surface: var(--ifm-background-color);
   --support-border: rgba(var(--theme-accent-rgb), .14);
-  --support-gold-text: #805300;
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
   padding: 2rem 0 5rem;
@@ -56,13 +55,11 @@
 }
 
 .eyebrow {
+  composes: eyebrow from "../../styles/kai-ui.module.css";
   display: inline-flex;
   align-items: center;
   margin-bottom: .8rem;
   color: var(--ifm-color-primary);
-  font-size: .72rem;
-  font-weight: 800;
-  letter-spacing: .1em;
   text-transform: uppercase;
 }
 
@@ -71,7 +68,7 @@
   margin: 0;
   color: var(--ifm-heading-color);
   font-size: clamp(2.7rem, 7vw, 5.3rem);
-  font-weight: 750;
+  font-weight: 700;
   letter-spacing: -.055em;
   line-height: .98;
 }
@@ -102,14 +99,14 @@
   border-radius: 999px;
   padding: .78rem 1.25rem;
   font-size: .9rem;
-  font-weight: 750;
+  font-weight: 700;
   text-decoration: none !important;
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 .primaryButton {
   background: var(--kai-action);
-  box-shadow: 0 8px 22px rgba(var(--theme-accent-rgb), .26);
+  box-shadow: var(--kai-shadow-action);
   color: #fff !important;
 }
 
@@ -128,7 +125,7 @@
 .primaryButton:hover,
 .contactButton:hover {
   background: var(--kai-action-hover);
-  box-shadow: 0 10px 26px rgba(var(--theme-accent-rgb), .32);
+  box-shadow: var(--kai-shadow-action-hover);
 }
 
 .secondaryButton:hover {
@@ -192,7 +189,7 @@
   padding: .52rem .8rem;
   color: var(--ifm-color-emphasis-700);
   font-size: .75rem;
-  font-weight: 750;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -235,7 +232,7 @@
   margin: 0;
   color: var(--ifm-heading-color);
   font-size: clamp(2rem, 4.5vw, 3.35rem);
-  font-weight: 740;
+  font-weight: 800;
   letter-spacing: -.04em;
   line-height: 1.08;
 }
@@ -276,11 +273,15 @@
   padding-bottom: .9rem;
 }
 
+/* 金色小标签：与共享 eyebrow 配方一致（.72rem/800/.1em）；
+   后代选择器无法用 composes，此处内联配方取值 */
 .partnerTopline span {
-  color: var(--support-gold-text);
-  font-size: .72rem;
-  font-weight: 850;
-  letter-spacing: .1em;
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--kai-gold-text);
   text-transform: uppercase;
 }
 
@@ -375,7 +376,7 @@
   justify-content: center;
   border-radius: 16px;
   background: rgba(var(--kai-gold-rgb), .15);
-  color: var(--support-gold-text);
+  color: var(--kai-gold-text);
   font-size: 1.35rem;
 }
 
@@ -516,7 +517,7 @@
   padding: .62rem .9rem;
   color: var(--ifm-font-color-base) !important;
   font-size: .78rem;
-  font-weight: 750;
+  font-weight: 700;
   text-decoration: none !important;
   transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
@@ -525,7 +526,7 @@
   border-color: transparent;
   background: var(--kai-action);
   color: #fff !important;
-  box-shadow: 0 6px 18px rgba(var(--theme-accent-rgb), .2);
+  box-shadow: var(--kai-shadow-action);
 }
 
 .communityActions a:hover {
@@ -537,7 +538,7 @@
 .communityActions a:first-child:hover {
   border-color: transparent;
   background: var(--kai-action-hover);
-  box-shadow: 0 8px 22px rgba(var(--theme-accent-rgb), .28);
+  box-shadow: var(--kai-shadow-action-hover);
 }
 
 .coffeePanel {
@@ -561,7 +562,7 @@
   align-items: center;
   justify-content: center;
   background: rgba(var(--kai-gold-rgb), .16);
-  color: var(--support-gold-text);
+  color: var(--kai-gold-text);
 }
 
 .coffeeIcon {
@@ -743,7 +744,7 @@
 .principleNumber {
   color: var(--ifm-color-emphasis-200);
   font-size: 2.1rem;
-  font-weight: 850;
+  font-weight: 800;
   line-height: 1;
 }
 
@@ -930,8 +931,8 @@
 
 [data-theme='dark'] .hero {
   border-color: rgba(var(--kai-cyan-rgb), .13);
-  background: linear-gradient(135deg, #071b37 0%, #0a2345 58%, #122b48 100%);
-  box-shadow: 0 20px 70px rgba(0, 0, 0, .32);
+  background: linear-gradient(135deg, var(--kai-navy-900) 0%, var(--ifm-background-surface-color) 58%, var(--kai-navy-800) 100%);
+  box-shadow: var(--kai-shadow-modal);
 }
 
 [data-theme='dark'] .heroValues li,
@@ -942,18 +943,12 @@
 
 [data-theme='dark'] .strategicPartnerLogo,
 [data-theme='dark'] .sustainingPartnerLogo {
-  background: #071b37;
-}
-
-[data-theme='dark'] .partnerTopline span,
-[data-theme='dark'] .configurationIcon {
-  color: #f5ce7a;
+  background: var(--kai-navy-900);
 }
 
 [data-theme='dark'] .page {
-  --support-surface: #0a2345;
+  --support-surface: var(--ifm-background-surface-color);
   --support-border: rgba(var(--kai-cyan-rgb), .13);
-  --support-gold-text: #f5ce7a;
 }
 
 [data-theme='dark'] .communityPanel {

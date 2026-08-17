@@ -2,8 +2,8 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaGithub, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt } from 'react-icons/fa';
-import React, { useEffect, useState, useMemo, memo } from 'react';
+import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt } from 'react-icons/fa';
+import React, { useEffect, useState, memo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import {useUiText} from '../i18n/useUiText';
 import { useAllProgress } from '../hooks/useProgress';
@@ -99,7 +99,7 @@ const HeroSection = ({ t }) => {
         <div className={styles.statsRow}>
           <StatCard number={String(siteStats.examDocuments)} label={t.statsExams} delay="0.2s" />
           <StatCard number={String(siteStats.universities)} label={t.statsUniversities} delay="0.3s" />
-          <StatCard number="🔥" label={t.statsCommunity} delay="0.4s" />
+          <StatCard number={String(siteStats.programs)} label={t.statsPrograms} delay="0.4s" />
         </div>
 
         {/* 进度追踪入口 - 融入 Hero 区底部 */}
@@ -242,12 +242,6 @@ const CommunitySupportSection = memo(({ t }) => {
 // 大学列表区域 - 简化版
 const UniversitySection = ({ t }) => {
   const [isOpen, toggle] = useToggleState();
-  const [selectedUniv, setSelectedUniv] = useState('');
-
-  const filteredUniversities = useMemo(() => 
-    selectedUniv ? universities.filter(u => u.id === selectedUniv) : universities,
-    [selectedUniv]
-  );
 
   return (
     <section className={styles.universitySection}>
@@ -259,24 +253,9 @@ const UniversitySection = ({ t }) => {
           <p className={styles.sectionSubtitle}>{t.universityDescription}</p>
         </header>
 
-        {/* 筛选器 */}
-        <div className={styles.filterBar}>
-          <select
-            value={selectedUniv}
-            onChange={(e) => setSelectedUniv(e.target.value)}
-            className={styles.filterSelect}
-            aria-label={t.universityTitle}
-          >
-            <option value="">{t.allUniversities}</option>
-            {universities.map(univ => (
-              <option key={univ.id} value={univ.id}>{univ.name}</option>
-            ))}
-          </select>
-        </div>
-
         {/* 大学网格 */}
         <div className={styles.universityGrid}>
-          {filteredUniversities.map((univ) => (
+          {universities.map((univ) => (
             <div key={univ.id} className={styles.universityCard}>
               <button
                 type="button"
@@ -285,7 +264,7 @@ const UniversitySection = ({ t }) => {
                 aria-expanded={isOpen(univ.id)}
                 aria-controls={`university-${univ.id}-departments`}
               >
-                <div className={styles.univColorBar} style={{ backgroundColor: univ.color }} />
+                <div className={styles.univColorBar} style={{ '--univ-color': univ.color }} />
                 <span className={styles.univName}>{univ.name}</span>
                 <span className={styles.univToggle}>
                   {isOpen(univ.id) ? <FaChevronUp /> : <FaChevronDown />}
@@ -351,10 +330,10 @@ const HeroProgressCalloutStats = ({ t }) => {
       <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
       {hasData && (
         <span className={styles.heroProgressStats}>
-          <span className={styles.heroProgressStatItem} style={{ color: '#10b981' }}>
+          <span className={styles.heroProgressStatItem} style={{ color: 'var(--kai-success)' }}>
             <FaCheckCircle style={{ marginRight: '0.2rem', fontSize: '0.85em' }} />{stats.completed}
           </span>
-          <span className={styles.heroProgressStatItem} style={{ color: '#f59e0b' }}>
+          <span className={styles.heroProgressStatItem} style={{ color: 'var(--kai-warning)' }}>
             <FaSyncAlt style={{ marginRight: '0.2rem', fontSize: '0.8em' }} />{stats.reviewing}
           </span>
           {stats.total > 0 && (
@@ -371,34 +350,6 @@ const HeroProgressCalloutStats = ({ t }) => {
     </Link>
   );
 };
-
-// CTA区域 - 苹果风格
-const CtaSection = memo(({ t }) => (
-  <section className={styles.ctaSection}>
-    <div className={styles.ctaInner}>
-      <Heading as="h2" className={styles.ctaTitle}>
-        {t.ctaTitle}
-      </Heading>
-      <p className={styles.ctaDescription}>{t.ctaDescription}</p>
-      
-      <div className={styles.ctaButtons}>
-        <Link className={styles.ctaPrimaryBtn} to="/docs/intro">
-          {t.viewPastExams}
-          <FaArrowRight className={styles.btnIcon} />
-        </Link>
-        <a 
-          className={styles.ctaSecondaryBtn} 
-          href="https://github.com/Myyura/the_kai_project"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithub className={styles.btnIcon} />
-          {t.ctaButtonGithub}
-        </a>
-      </div>
-    </div>
-  </section>
-));
 
 const Home = () => {
   const t = useUiText('home');
@@ -417,7 +368,6 @@ const Home = () => {
         <CommunitySection t={t} />
         <CommunitySupportSection t={t} />
         <UniversitySection t={t} />
-        <CtaSection t={t} />
       </main>
     </Layout>
   );

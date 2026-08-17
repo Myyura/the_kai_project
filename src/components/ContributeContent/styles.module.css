@@ -1,7 +1,5 @@
 .shell {
-  width: min(1240px, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 2.5rem 0 4rem;
+  composes: shell from "../../styles/kai-ui.module.css";
 }
 
 .shell.embeddedShell {
@@ -214,24 +212,26 @@
   color: #fff;
 }
 
-.sourceTextarea {
+/* 源码编辑框：用 .correctionEditor 祖先提高具体度，
+   覆盖 .formGrid textarea 的基础样式，无需 !important */
+.correctionEditor .sourceTextarea {
   display: block;
   width: 100%;
   min-height: 440px;
   box-sizing: border-box;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: var(--ifm-background-color) !important;
-  padding: 1rem !important;
+  border: 0;
+  border-radius: 0;
+  background: var(--ifm-background-color);
+  padding: 1rem;
   font-family: var(--ifm-font-family-monospace);
-  font-size: 0.84rem !important;
-  line-height: 1.65 !important;
+  font-size: 0.84rem;
+  line-height: 1.65;
   tab-size: 2;
   resize: vertical;
 }
 
-.sourceTextarea:focus {
-  box-shadow: inset 0 0 0 2px var(--ifm-color-primary) !important;
+.correctionEditor .sourceTextarea:focus {
+  box-shadow: inset 0 0 0 2px var(--ifm-color-primary);
 }
 
 .correctionEditor > .smallHint {
@@ -326,11 +326,11 @@
 }
 
 .additionText {
-  color: #15803d;
+  color: var(--kai-success-strong);
 }
 
 .deletionText {
-  color: #dc2626;
+  color: var(--kai-danger);
 }
 
 .diffCode {
@@ -360,13 +360,13 @@
 }
 
 .diffAddedLine {
-  color: #166534;
-  background: #dcfce7;
+  color: var(--kai-success-strong);
+  background: var(--kai-success-bg);
 }
 
 .diffDeletedLine {
-  color: #991b1b;
-  background: #fee2e2;
+  color: var(--kai-danger-strong);
+  background: var(--kai-danger-bg);
 }
 
 .diffContextLine {
@@ -378,7 +378,7 @@
 .formGrid textarea:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.12);
+  box-shadow: var(--kai-focus-ring);
 }
 
 .smallHint {
@@ -459,49 +459,13 @@
   align-items: center;
 }
 
-.primaryButton,
-.secondaryButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.42rem;
-  min-height: 38px;
-  border-radius: var(--custom-border-radius-xs);
-  padding: 0.58rem 0.85rem;
-  border: 1px solid transparent;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: var(--custom-transition-fast);
-  white-space: nowrap;
-}
-
+/* 按钮：复用共享配方（kai-ui.module.css），disabled 透明度统一为共享版 0.6 */
 .primaryButton {
-  background: var(--kai-action);
-  color: #fff;
-}
-
-.primaryButton:hover:not(:disabled) {
-  background: var(--kai-action-hover);
-  color: #fff;
+  composes: btnPrimary from "../../styles/kai-ui.module.css";
 }
 
 .secondaryButton {
-  background: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-200);
-  color: var(--ifm-font-color-base);
-}
-
-.secondaryButton:hover:not(:disabled) {
-  background: var(--ifm-color-emphasis-200);
-  color: var(--ifm-font-color-base);
-}
-
-.primaryButton:disabled,
-.secondaryButton:disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
+  composes: btnSecondary from "../../styles/kai-ui.module.css";
 }
 
 .message {
@@ -516,15 +480,15 @@
 }
 
 .messageSuccess {
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  color: #047857;
+  background: var(--kai-success-bg);
+  border: 1px solid var(--kai-success-border);
+  color: var(--kai-success-strong);
 }
 
 .messageError {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #dc2626;
+  background: var(--kai-danger-bg);
+  border: 1px solid var(--kai-danger-border);
+  color: var(--kai-danger);
 }
 
 .sectionHeader {
@@ -632,18 +596,18 @@
 }
 
 .statusIssue {
-  background: #ecfdf5;
-  color: #047857;
+  background: var(--kai-success-bg);
+  color: var(--kai-success-strong);
 }
 
 .statusPending {
-  background: #fffbeb;
-  color: #92400e;
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning-strong);
 }
 
 .statusFailed {
-  background: #fef2f2;
-  color: #dc2626;
+  background: var(--kai-danger-bg);
+  color: var(--kai-danger);
 }
 
 .emptyText {
@@ -652,12 +616,7 @@
 }
 
 .spin {
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  composes: spinner from "../../styles/kai-ui.module.css";
 }
 
 @media (max-width: 900px) {
@@ -673,7 +632,7 @@
 
 @media (max-width: 760px) {
   .shell {
-    width: min(100% - 1rem, 1120px);
+    width: min(100% - 1rem, var(--kai-content-width));
     padding-top: 1.2rem;
   }
 
@@ -708,34 +667,7 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
-[data-theme='dark'] .diffAddedLine {
-  color: #bbf7d0;
-  background: rgba(22, 101, 52, 0.35);
-}
-
-[data-theme='dark'] .diffDeletedLine {
-  color: #fecaca;
-  background: rgba(153, 27, 27, 0.35);
-}
-
 [data-theme='dark'] .checkboxLabel {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.12);
-}
-
-[data-theme='dark'] .messageSuccess,
-[data-theme='dark'] .statusIssue {
-  background: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.2);
-}
-
-[data-theme='dark'] .messageError,
-[data-theme='dark'] .statusFailed {
-  background: rgba(220, 38, 38, 0.1);
-  border-color: rgba(220, 38, 38, 0.25);
-}
-
-[data-theme='dark'] .statusPending {
-  background: rgba(245, 158, 11, 0.13);
-  color: #fbbf24;
 }

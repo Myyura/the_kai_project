@@ -1,6 +1,6 @@
 :root {
   --docusaurus-collapse-button-bg: transparent;
-  --docusaurus-collapse-button-bg-hover: rgb(0 0 0 / 10%);
+  --docusaurus-collapse-button-bg-hover: var(--ifm-color-emphasis-200);
 }
 
 [data-theme='dark']:root {
@@ -17,6 +17,7 @@
     border: 1px solid var(--ifm-toc-border-color);
     border-radius: 0;
     background-color: var(--docusaurus-collapse-button-bg);
+    transition: background-color var(--ifm-transition-fast) ease;
   }
 
   .collapseSidebarButtonIcon {

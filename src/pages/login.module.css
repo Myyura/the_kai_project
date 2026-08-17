@@ -1,59 +1,33 @@
 /* ── Login page ─────────────────────────────────────────── */
+/* 与 reset-password 共用的表单类全部 composes 自 ./auth-form.module.css，
+   本地只保留 login 独有的类（auth 切换、GitHub 登录、已登录态等）。 */
 
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 3rem 1rem 4rem;
-  min-height: 60vh;
+  composes: wrapper from "./auth-form.module.css";
 }
 
 .card {
-  width: 100%;
-  max-width: 420px;
-  border: 1px solid var(--custom-card-border);
-  border-radius: var(--custom-border-radius);
-  overflow: hidden;
-  background: var(--custom-card-bg);
-  backdrop-filter: var(--custom-blur-sm);
+  composes: card from "./auth-form.module.css";
 }
 
 .cardHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 2rem 1.5rem 1.2rem;
-  background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-color-primary) 100%);
-  color: #fff;
-  text-align: center;
-}
-
-[data-theme='dark'] .cardHeader {
-  background: linear-gradient(135deg, var(--kai-navy-900) 0%, var(--kai-blue) 72%, var(--kai-cyan) 100%);
+  composes: cardHeader from "./auth-form.module.css";
 }
 
 .cardIcon {
-  font-size: 2.2rem;
-  margin-bottom: 0.25rem;
-  opacity: 0.9;
+  composes: cardIcon from "./auth-form.module.css";
 }
 
 .cardTitle {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 700;
+  composes: cardTitle from "./auth-form.module.css";
 }
 
 .cardSubtitle {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  max-width: 280px;
-  line-height: 1.4;
+  composes: cardSubtitle from "./auth-form.module.css";
 }
 
 .cardBody {
-  padding: 1.5rem;
+  composes: cardBody from "./auth-form.module.css";
 }
 
 /* ── Auth toggle ────────────────────────────────────────── */
@@ -99,40 +73,19 @@
 /* ── Inputs ─────────────────────────────────────────────── */
 
 .inputGroup {
-  margin-bottom: 0.85rem;
+  composes: inputGroup from "./auth-form.module.css";
 }
 
 .inputLabel {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--ifm-color-emphasis-600);
-  margin-bottom: 0.3rem;
+  composes: inputLabel from "./auth-form.module.css";
 }
 
 .inputIcon {
-  font-size: 0.78rem;
-  color: var(--ifm-color-primary);
+  composes: inputIcon from "./auth-form.module.css";
 }
 
 .input {
-  width: 100%;
-  padding: 0.65rem 0.85rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--custom-border-radius-xs);
-  font-size: 0.9rem;
-  background: var(--ifm-background-surface-color);
-  color: var(--ifm-font-color-base);
-  transition: var(--custom-transition-fast);
-  box-sizing: border-box;
-}
-
-.input:focus {
-  outline: none;
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.12);
+  composes: input from "./auth-form.module.css";
 }
 
 .forgotButton {
@@ -162,37 +115,11 @@
 /* ── Buttons ────────────────────────────────────────────── */
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  width: 100%;
-  padding: 0.7rem 1rem;
-  border: none;
-  border-radius: var(--custom-border-radius-xs);
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--custom-transition-fast);
-  margin-top: 0.5rem;
-  text-decoration: none;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  composes: btn from "./auth-form.module.css";
 }
 
 .btnPrimary {
-  background: var(--kai-action);
-  color: #fff;
-}
-
-.btnPrimary:hover:not(:disabled) {
-  background: var(--kai-action-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(var(--theme-accent-rgb), 0.25);
-  color: #fff;
+  composes: btnPrimary from "./auth-form.module.css";
 }
 
 .btnGithub {
@@ -231,46 +158,25 @@
 /* ── Message ────────────────────────────────────────────── */
 
 .message {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 0.85rem;
-  border-radius: var(--custom-border-radius-xs);
-  font-size: 0.82rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  animation: fadeIn 0.25s ease;
+  composes: message from "./auth-form.module.css";
 }
 
 .messageSuccess {
-  background: #ecfdf5;
-  color: #059669;
-  border: 1px solid #a7f3d0;
+  composes: messageSuccess from "./auth-form.module.css";
 }
 
 .messageError {
-  background: #fef2f2;
-  color: #dc2626;
-  border: 1px solid #fecaca;
+  composes: messageError from "./auth-form.module.css";
 }
 
 .messageIcon {
-  flex-shrink: 0;
+  composes: messageIcon from "./auth-form.module.css";
 }
 
 /* ── Back link ──────────────────────────────────────────── */
 
 .backLink {
-  display: block;
-  text-align: center;
-  margin-top: 1.2rem;
-  font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-500);
-  transition: var(--custom-transition-fast);
-}
-
-.backLink:hover {
-  color: var(--ifm-color-primary);
+  composes: backLink from "./auth-form.module.css";
 }
 
 /* ── Already logged in ──────────────────────────────────── */
@@ -308,31 +214,21 @@
 
 .btnDanger {
   background: transparent;
-  color: #dc2626;
-  border: 1px solid #fecaca;
+  color: var(--kai-danger);
+  border: 1px solid var(--kai-danger-border);
 }
 
 .btnDanger:hover:not(:disabled) {
-  background: #fee2e2;
+  background: var(--kai-danger-bg);
 }
 
 /* ── Spin ───────────────────────────────────────────────── */
 
 .spin {
-  animation: spin 0.8s linear infinite;
+  composes: spin from "./auth-form.module.css";
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* ── Dark mode ──────────────────────────────────────────── */
+/* ── Dark mode（仅 login 独有类的变体）───────────────────── */
 
 [data-theme='dark'] .authToggle {
   background: rgba(255, 255, 255, 0.05);
@@ -341,24 +237,6 @@
 
 [data-theme='dark'] .authTab:hover {
   color: var(--ifm-color-primary-light);
-}
-
-[data-theme='dark'] .input {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme='dark'] .input:focus {
-  box-shadow: 0 0 0 3px rgba(53, 198, 217, 0.15);
-}
-
-[data-theme='dark'] .messageSuccess {
-  background: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.2);
-}
-
-[data-theme='dark'] .messageError {
-  background: rgba(220, 38, 38, 0.1);
-  border-color: rgba(220, 38, 38, 0.2);
 }
 
 [data-theme='dark'] .btnSecondary {
@@ -384,9 +262,9 @@
 }
 
 [data-theme='dark'] .btnDanger {
-  border-color: rgba(220, 38, 38, 0.3);
+  border-color: rgba(var(--kai-danger-rgb), 0.3);
 }
 
 [data-theme='dark'] .btnDanger:hover:not(:disabled) {
-  background: rgba(220, 38, 38, 0.15);
+  background: rgba(var(--kai-danger-rgb), 0.15);
 }

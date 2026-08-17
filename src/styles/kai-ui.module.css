@@ -1,0 +1,118 @@
+/* ── Kai 共享 UI 配方 ───────────────────────────────────────
+   各组件/页面 CSS Module 通过 `composes` 复用这里的类，
+   本地类名保持不变（JSX 无需改动）。所有取值均来自
+   src/css/custom.css 中的设计令牌，禁止在此硬编码新色值。 */
+
+/* 按钮：原 AgentTutorContent / DeveloperApiContent / ContributeContent
+   三处复制块的统一版（disabled 透明度取 0.6 折中） */
+.btnBase {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  min-height: 38px;
+  border-radius: var(--custom-border-radius-xs);
+  padding: 0.58rem 0.85rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--custom-transition-fast);
+  white-space: nowrap;
+}
+
+.btnBase:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btnPrimary {
+  composes: btnBase;
+  background: var(--kai-action);
+  color: #fff;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: var(--kai-action-hover);
+  color: #fff;
+}
+
+.btnSecondary {
+  composes: btnBase;
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+}
+
+.btnSecondary:hover:not(:disabled) {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.btnDanger {
+  composes: btnBase;
+  background: transparent;
+  border-color: var(--kai-danger-border);
+  color: var(--kai-danger);
+}
+
+.btnDanger:hover:not(:disabled) {
+  background: var(--kai-danger-bg);
+}
+
+/* Gate 按钮：原 NoteEditor / ProgressTracker 复制对（圆角吸附到控件令牌） */
+.btnGate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.38rem 0.8rem;
+  border-radius: var(--custom-border-radius-xs);
+  background: var(--kai-action);
+  color: #fff !important;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: var(--custom-transition-fast);
+}
+
+.btnGate:hover {
+  background: var(--kai-action-hover);
+  color: #fff !important;
+}
+
+/* 卡片 hover 配方：原在 8+ 处复制（边框高亮 + 卡面加深 + 浮起阴影） */
+.cardHoverable:hover {
+  border-color: var(--ifm-color-primary-light);
+  background: var(--custom-card-bg-hover);
+  box-shadow: var(--custom-box-shadow-hover);
+}
+
+/* 页面容器：原 HelpAndNotices / AgentTutorContent / DeveloperApiContent /
+   ContributeContent 四处复制（宽度吸附到 --kai-content-width 令牌） */
+.shell {
+  width: min(var(--kai-content-width), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+/* 加载指示器：原 4 处 spin 定义合一（1s/0.8s/0.6s 统一为 0.8s） */
+.spinner {
+  animation: kaiSpin 0.8s linear infinite;
+}
+
+@keyframes kaiSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 小标签（eyebrow）：原 6 种配方统一为 .72rem/800/.1em；
+   颜色与 text-transform 由使用方按上下文自行补充 */
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}

@@ -16,12 +16,8 @@
 }
 
 .eyebrow {
-  display: inline-block;
-  margin-bottom: 0.8rem;
+  composes: eyebrow from "../../styles/kai-ui.module.css";
   color: var(--ifm-color-primary);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 

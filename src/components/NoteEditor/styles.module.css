@@ -4,7 +4,7 @@
   border-radius: var(--custom-border-radius);
   border: 1px solid var(--custom-card-border);
   background: var(--custom-card-bg);
-  transition: border-color 0.2s;
+  transition: var(--custom-transition);
   overflow: hidden;
 }
 
@@ -38,7 +38,7 @@
   cursor: pointer;
   color: var(--ifm-color-emphasis-700);
   font-size: 0.85rem;
-  transition: background 0.15s;
+  transition: var(--custom-transition-fast);
 }
 
 .noteToggle:hover {
@@ -74,7 +74,7 @@
 .noteBadge {
   font-size: 0.72rem;
   padding: 0.1rem 0.45rem;
-  border-radius: 20px;
+  border-radius: 999px;
   background: var(--ifm-color-emphasis-100);
   color: var(--ifm-color-emphasis-600);
   font-weight: 500;
@@ -103,16 +103,7 @@
 }
 
 .noteGateBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.38rem 0.8rem;
-  border-radius: 7px;
-  background: var(--kai-action);
-  color: #fff !important;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-decoration: none !important;
+  composes: btnGate from "../../styles/kai-ui.module.css";
 }
 
 @keyframes noteSlideIn {
@@ -161,7 +152,7 @@
   color: var(--ifm-color-emphasis-600);
   font-size: 0.8rem;
   font-weight: 600;
-  transition: all 0.12s;
+  transition: var(--custom-transition-fast);
 }
 
 .toolbarBtn:hover:not(:disabled) {
@@ -187,12 +178,12 @@
   padding: 0.25rem 0.6rem;
   border: 1px solid transparent;
   background: transparent;
-  border-radius: 6px;
+  border-radius: var(--custom-border-radius-xs);
   cursor: pointer;
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--ifm-color-emphasis-600);
-  transition: all 0.12s;
+  transition: var(--custom-transition-fast);
 }
 
 .modeBtn:hover {

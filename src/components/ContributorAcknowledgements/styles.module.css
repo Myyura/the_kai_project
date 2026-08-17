@@ -27,12 +27,8 @@
 }
 
 .acknowledgementsEyebrow {
-  display: block;
-  margin-bottom: 0.2rem;
+  composes: eyebrow from "../../styles/kai-ui.module.css";
   color: var(--ifm-color-primary);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -109,7 +105,8 @@
   flex: 0 0 auto;
   color: var(--ifm-color-emphasis-500);
   font-size: 0.78rem;
-  transition: transform 0.18s ease;
+  /* 含 transform 的过渡不能用 --custom-transition-fast（不含 transform），用完整版令牌 */
+  transition: var(--custom-transition);
 }
 
 .contributorDisclosure[open] .disclosureChevron {
@@ -150,7 +147,7 @@
 .contributorGroupIcon {
   width: 32px;
   height: 32px;
-  border-radius: 9px;
+  border-radius: var(--custom-border-radius-xs);
 }
 
 .contributorGroupHeading h4,
@@ -202,7 +199,7 @@
 }
 
 .githubContributor {
-  transition: border-color 0.18s ease, transform 0.18s ease;
+  transition: var(--custom-transition);
 }
 
 .githubContributor:hover {
@@ -216,7 +213,7 @@
 .siteContributorAvatar {
   width: 34px;
   height: 34px;
-  border-radius: 9px;
+  border-radius: var(--custom-border-radius-xs);
 }
 
 .githubContributor img {
@@ -256,7 +253,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, var(--ifm-color-primary), #14b8a6);
+  background: linear-gradient(145deg, var(--ifm-color-primary), var(--kai-cyan));
   color: #fff;
   font-size: 0.68rem;
   font-weight: 800;
@@ -269,8 +266,8 @@
   min-width: 24px;
   height: 24px;
   border-radius: 999px;
-  background: rgba(16, 185, 129, 0.12);
-  color: #047857;
+  background: rgba(var(--kai-success-rgb), 0.12);
+  color: var(--kai-success-strong);
   padding: 0 0.3rem;
   font-size: 0.72rem;
   font-weight: 800;
@@ -323,14 +320,6 @@
   .contributorDisclosureBody {
     padding: 0.8rem;
   }
-}
-
-[data-theme='dark'] .contributorDisclosureBody {
-  background: #071b37;
-}
-
-[data-theme='dark'] .contributionCount {
-  color: #6ee7b7;
 }
 
 @media (prefers-reduced-motion: reduce) {

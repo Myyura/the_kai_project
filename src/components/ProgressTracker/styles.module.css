@@ -4,7 +4,7 @@
   border-radius: var(--custom-border-radius);
   border: 1px solid var(--custom-card-border);
   background: var(--custom-card-bg);
-  transition: border-color 0.2s;
+  transition: var(--custom-transition);
 }
 
 .tracker:hover {
@@ -42,9 +42,9 @@
 .statusBadge {
   font-size: 0.75rem;
   padding: 0.15rem 0.55rem;
-  border-radius: 20px;
+  border-radius: 999px;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: var(--custom-transition);
 }
 
 .badge_not_started {
@@ -53,23 +53,13 @@
 }
 
 .badge_completed {
-  background: #d1fae5;
-  color: #065f46;
-}
-
-[data-theme='dark'] .badge_completed {
-  background: rgba(16, 185, 129, 0.2);
-  color: #6ee7b7;
+  background: var(--kai-success-bg);
+  color: var(--kai-success-strong);
 }
 
 .badge_reviewing {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-[data-theme='dark'] .badge_reviewing {
-  background: rgba(245, 158, 11, 0.2);
-  color: #fcd34d;
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning-strong);
 }
 
 /* 按钮行 */
@@ -85,19 +75,19 @@
   align-items: center;
   gap: 0.3rem;
   padding: 0.35rem 0.85rem;
-  border-radius: 8px;
-  border: 1.5px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  border: 1px solid var(--ifm-color-emphasis-200);
   background: transparent;
   cursor: pointer;
   font-size: 0.82rem;
   font-weight: 500;
-  transition: all 0.15s ease;
+  transition: var(--custom-transition-fast);
   line-height: 1.4;
 }
 
 .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--kai-shadow-card);
 }
 
 .btn:disabled {
@@ -118,89 +108,60 @@
 
 /* 已完成 - 激活状态 */
 .btn_completed_active {
-  background: #d1fae5;
-  border-color: #6ee7b7;
-  color: #065f46;
-}
-
-[data-theme='dark'] .btn_completed_active {
-  background: rgba(16, 185, 129, 0.2);
-  border-color: #059669;
-  color: #6ee7b7;
+  background: var(--kai-success-bg);
+  border-color: var(--kai-success-border);
+  color: var(--kai-success-strong);
 }
 
 /* 待复习 - 激活状态 */
 .btn_reviewing_active {
-  background: #fef3c7;
-  border-color: #fbbf24;
-  color: #92400e;
-}
-
-[data-theme='dark'] .btn_reviewing_active {
-  background: rgba(245, 158, 11, 0.2);
-  border-color: #f59e0b;
-  color: #fcd34d;
+  background: var(--kai-warning-bg);
+  border-color: var(--kai-warning-border);
+  color: var(--kai-warning-strong);
 }
 
 /* 最终轮按钮 */
 .btnFinal {
-  color: #065f46;
-  border-color: #6ee7b7;
-  background: #d1fae5;
+  color: var(--kai-success-strong);
+  border-color: var(--kai-success-border);
+  background: var(--kai-success-bg);
 }
 
 .btnFinal:hover {
-  background: #a7f3d0;
-  border-color: #10b981;
-  color: #064e3b;
-}
-
-[data-theme='dark'] .btnFinal {
-  color: #6ee7b7;
-  border-color: #059669;
-  background: rgba(16, 185, 129, 0.15);
-}
-
-[data-theme='dark'] .btnFinal:hover {
-  background: rgba(16, 185, 129, 0.25);
-  border-color: #34d399;
+  background: var(--kai-success-border);
+  border-color: var(--kai-success);
+  color: var(--kai-success-strong);
 }
 
 /* 已复习按钮 */
 .btnRefresh {
-  color: #0369a1;
-  border-color: #7dd3fc;
-  background: #f0f9ff;
+  color: var(--kai-action);
+  border-color: rgba(var(--kai-blue-rgb), 0.35);
+  background: rgba(var(--kai-blue-rgb), 0.06);
 }
 
 .btnRefresh:hover {
-  background: #e0f2fe;
-  border-color: #38bdf8;
-  color: #0284c7;
+  background: rgba(var(--kai-blue-rgb), 0.1);
+  border-color: rgba(var(--kai-blue-rgb), 0.55);
+  color: var(--kai-action);
 }
 
 [data-theme='dark'] .btnRefresh {
-  color: #7dd3fc;
-  border-color: #0369a1;
-  background: rgba(14, 165, 233, 0.1);
+  color: var(--kai-cyan);
+  border-color: rgba(var(--kai-cyan-rgb), 0.35);
+  background: rgba(var(--kai-cyan-rgb), 0.1);
 }
 
 [data-theme='dark'] .btnRefresh:hover {
-  background: rgba(14, 165, 233, 0.2);
-  border-color: #38bdf8;
+  background: rgba(var(--kai-cyan-rgb), 0.2);
+  border-color: rgba(var(--kai-cyan-rgb), 0.55);
 }
 
 .btnRefreshed {
-  color: #059669;
-  border-color: #6ee7b7;
-  background: #d1fae5;
+  color: var(--kai-success);
+  border-color: var(--kai-success-border);
+  background: var(--kai-success-bg);
   pointer-events: none;
-}
-
-[data-theme='dark'] .btnRefreshed {
-  background: rgba(16, 185, 129, 0.2);
-  border-color: #059669;
-  color: #6ee7b7;
 }
 
 @keyframes spinOnce {
@@ -220,8 +181,8 @@
 }
 
 .btnReset:hover {
-  color: #ef4444;
-  border-color: #ef4444;
+  color: var(--kai-danger);
+  border-color: var(--kai-danger);
 }
 
 .btnIcon {
@@ -251,16 +212,7 @@
 }
 
 .trackerGateBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.38rem 0.8rem;
-  border-radius: 7px;
-  background: var(--kai-action);
-  color: #fff !important;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-decoration: none !important;
+  composes: btnGate from "../../styles/kai-ui.module.css";
 }
 
 /* 下次复习时间行 */
@@ -271,35 +223,26 @@
   align-items: center;
   gap: 0.25rem;
   padding: 0.25rem 0.6rem;
-  border-radius: 6px;
+  border-radius: 999px;
   width: fit-content;
 }
 
 .nextReviewOverdue {
-  background: #fee2e2;
-  color: #991b1b;
-}
-[data-theme='dark'] .nextReviewOverdue {
-  background: rgba(239, 68, 68, 0.15);
-  color: #fca5a5;
+  background: var(--kai-danger-bg);
+  color: var(--kai-danger-strong);
 }
 
 .nextReviewUrgent {
-  background: #fef3c7;
-  color: #92400e;
-}
-[data-theme='dark'] .nextReviewUrgent {
-  background: rgba(245, 158, 11, 0.15);
-  color: #fcd34d;
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning-strong);
 }
 
 .nextReviewSoon {
-  background: #eff6ff;
-  color: #1e40af;
+  background: rgba(var(--kai-blue-rgb), 0.08);
+  color: var(--ifm-color-primary);
 }
 [data-theme='dark'] .nextReviewSoon {
-  background: rgba(59, 130, 246, 0.12);
-  color: #93c5fd;
+  background: rgba(var(--kai-cyan-rgb), 0.12);
 }
 
 .reviewRound {
@@ -313,7 +256,7 @@
   color: var(--ifm-color-emphasis-500);
   text-decoration: none;
   border-bottom: 1px dashed var(--ifm-color-emphasis-400);
-  transition: color 0.15s;
+  transition: var(--custom-transition-fast);
 }
 
 .trackerHint a:hover {

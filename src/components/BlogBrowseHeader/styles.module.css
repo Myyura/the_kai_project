@@ -41,7 +41,7 @@
   border-radius: 999px;
   background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
   color: var(--ifm-color-primary);
-  font-weight: 650;
+  font-weight: 700;
 }
 
 @media (max-width: 600px) {
