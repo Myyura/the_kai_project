@@ -550,7 +550,7 @@
 }
 
 [data-theme='dark'] .school .tagPillCount {
-  color: #93c5fd;
+  color: var(--kai-cyan);
 }
 
 @media (max-width: 768px) {

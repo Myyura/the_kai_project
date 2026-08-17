@@ -181,8 +181,8 @@
 }
 
 .btnReset:hover {
-  color: #ef4444;
-  border-color: #ef4444;
+  color: var(--kai-danger);
+  border-color: var(--kai-danger);
 }
 
 .btnIcon {
@@ -212,16 +212,7 @@
 }
 
 .trackerGateBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.38rem 0.8rem;
-  border-radius: 7px;
-  background: var(--kai-action);
-  color: #fff !important;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-decoration: none !important;
+  composes: btnGate from "../../styles/kai-ui.module.css";
 }
 
 /* 下次复习时间行 */
@@ -232,35 +223,26 @@
   align-items: center;
   gap: 0.25rem;
   padding: 0.25rem 0.6rem;
-  border-radius: 6px;
+  border-radius: 999px;
   width: fit-content;
 }
 
 .nextReviewOverdue {
-  background: #fee2e2;
-  color: #991b1b;
-}
-[data-theme='dark'] .nextReviewOverdue {
-  background: rgba(239, 68, 68, 0.15);
-  color: #fca5a5;
+  background: var(--kai-danger-bg);
+  color: var(--kai-danger-strong);
 }
 
 .nextReviewUrgent {
-  background: #fef3c7;
-  color: #92400e;
-}
-[data-theme='dark'] .nextReviewUrgent {
-  background: rgba(245, 158, 11, 0.15);
-  color: #fcd34d;
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning-strong);
 }
 
 .nextReviewSoon {
-  background: #eff6ff;
-  color: #1e40af;
+  background: rgba(var(--kai-blue-rgb), 0.08);
+  color: var(--ifm-color-primary);
 }
 [data-theme='dark'] .nextReviewSoon {
-  background: rgba(59, 130, 246, 0.12);
-  color: #93c5fd;
+  background: rgba(var(--kai-cyan-rgb), 0.12);
 }
 
 .reviewRound {
@@ -274,7 +256,7 @@
   color: var(--ifm-color-emphasis-500);
   text-decoration: none;
   border-bottom: 1px dashed var(--ifm-color-emphasis-400);
-  transition: color 0.15s;
+  transition: var(--custom-transition-fast);
 }
 
 .trackerHint a:hover {

@@ -114,7 +114,7 @@ button.dangerButton { background: var(--kai-danger); }
 .searchBox { display: flex; align-items: center; gap: .45rem; flex: 1; padding-left: .65rem; border: 1px solid var(--ifm-color-emphasis-300); border-radius: var(--custom-border-radius-xs); }
 .searchBox input { border: 0; }
 .toolbar select { width: auto; }
-.bulkBar { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; padding: .7rem; border-radius: .65rem; background: rgba(37, 99, 235, .08); }
+.bulkBar { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; padding: .7rem; border-radius: var(--custom-border-radius-xs); background: rgba(var(--kai-blue-rgb), .08); }
 .bulkBar select { width: auto; min-width: 10rem; }
 
 .itemList { display: grid; gap: .65rem; }
@@ -126,12 +126,12 @@ button.dangerButton { background: var(--kai-danger); }
 .itemMain > small { display: block; color: var(--ifm-color-emphasis-600); margin-top: .2rem; word-break: break-all; }
 .statusBadge,
 .unavailable { font-size: .7rem; padding: .18rem .4rem; border-radius: 999px; background: var(--ifm-color-emphasis-200); }
-.status_completed { background: rgba(16, 185, 129, .15); color: #047857; }
-.status_reviewing { background: rgba(245, 158, 11, .16); color: #b45309; }
-.unavailable { background: rgba(239, 68, 68, .12); color: #b91c1c; }
+.status_completed { background: rgba(var(--kai-success-rgb), .15); color: var(--kai-success-strong); }
+.status_reviewing { background: rgba(var(--kai-warning-rgb), .16); color: var(--kai-warning); }
+.unavailable { background: rgba(var(--kai-danger-rgb), .12); color: var(--kai-danger-strong); }
 .annotationEditor { display: grid; grid-template-columns: 1fr auto; gap: .45rem; margin-top: .65rem; }
 .orderButtons { display: grid; gap: .3rem; }
-.orderButtons button { border: 1px solid var(--ifm-color-emphasis-300); background: transparent; color: var(--ifm-color-emphasis-700); border-radius: .4rem; padding: .4rem; cursor: pointer; }
+.orderButtons button { border: 1px solid var(--ifm-color-emphasis-300); background: transparent; color: var(--ifm-color-emphasis-700); border-radius: var(--custom-border-radius-xs); padding: .4rem; cursor: pointer; }
 
 .emptyState,
 .loadingState { display: grid; place-items: center; gap: .5rem; min-height: 10rem; text-align: center; color: var(--ifm-color-emphasis-700); }

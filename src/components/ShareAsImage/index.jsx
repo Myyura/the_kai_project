@@ -121,7 +121,8 @@ const SHARE_STYLE_WHITELIST = `
     margin: 0.85em 0;
     padding: 0.55em 0.9em;
     background: #f8fafc;
-    border-left: 4px solid #2e8555;
+    /* 导出图固定亮色，不随主题翻转：取值对齐 --kai-success */
+    border-left: 4px solid #059669;
     color: #334155;
   }
 
@@ -463,7 +464,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
         gap: 16px;
         margin-bottom: 24px;
         padding-bottom: 20px;
-        border-bottom: 2px solid #2e8555;
+        border-bottom: 2px solid #059669;
       `;
 
       const logoImg = document.createElement('img');
@@ -502,7 +503,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
       footer.style.cssText = `
         margin-top: 24px;
         padding: 16px 20px;
-        background: linear-gradient(135deg, #2e8555 0%, #1a6b3f 100%);
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
         border-radius: 10px;
         display: flex;
         justify-content: space-between;

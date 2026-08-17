@@ -81,13 +81,13 @@
   justify-content: center;
   gap: 0.4rem;
   min-height: 42px;
-  border-radius: 10px;
+  border-radius: var(--custom-border-radius-xs);
   padding: 0.65rem 1rem;
   font-size: 0.86rem;
   font-weight: 800;
   line-height: 1.2;
   text-decoration: none !important;
-  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  transition: var(--custom-transition-fast), transform 0.16s ease;
 }
 
 .primaryAction {
@@ -118,7 +118,7 @@
 
 .heroStats > div {
   min-width: 0;
-  border-radius: 10px;
+  border-radius: var(--custom-border-radius-xs);
   background: rgba(var(--theme-accent-rgb), 0.08);
   padding: 0.7rem 0.45rem;
   text-align: center;
@@ -192,7 +192,7 @@
   gap: 0.8rem;
   margin: 1.4rem 0 1rem;
   border: 1px solid var(--links-border);
-  border-radius: 14px;
+  border-radius: var(--custom-border-radius-sm);
   background: var(--links-surface);
   padding: 0.55rem;
 }
@@ -221,7 +221,7 @@
 
 .resourceToolbar:focus-within {
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), .12);
+  box-shadow: var(--kai-focus-ring);
 }
 
 .resourceCard:focus-visible,
@@ -236,14 +236,14 @@
   display: inline-flex;
   flex: 0 0 auto;
   gap: 0.2rem;
-  border-radius: 10px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-color-emphasis-100);
   padding: 0.22rem;
 }
 
 .categoryTabs button {
   border: 0;
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   background: transparent;
   color: var(--links-muted);
   cursor: pointer;
@@ -255,7 +255,7 @@
 
 .categoryTabs .activeCategory {
   background: var(--ifm-background-color);
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--kai-shadow-card);
   color: var(--ifm-color-primary-dark);
 }
 
@@ -276,7 +276,7 @@
   color: var(--ifm-font-color-base) !important;
   padding: 1rem;
   text-decoration: none !important;
-  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  transition: var(--custom-transition-fast), transform 0.16s ease;
 }
 
 .resourceCard:hover {
@@ -306,7 +306,7 @@
   width: 32px;
   height: 32px;
   flex: 0 0 auto;
-  border-radius: 9px;
+  border-radius: var(--custom-border-radius-xs);
   background: rgba(var(--theme-accent-rgb), 0.12);
   color: var(--ifm-color-primary-dark);
 }
@@ -371,7 +371,7 @@
   flex-direction: column;
   gap: 0.6rem;
   border: 1px dashed var(--links-border);
-  border-radius: 14px;
+  border-radius: var(--custom-border-radius-sm);
   color: var(--links-muted);
   text-align: center;
 }
@@ -387,7 +387,7 @@
 [data-theme='dark'] .linksPage {
   --links-border: rgba(255, 255, 255, 0.1);
   --links-muted: #9db0c5;
-  --links-surface: #071b37;
+  --links-surface: var(--kai-navy-900);
 }
 
 [data-theme='dark'] .heroSide {
@@ -395,7 +395,7 @@
 }
 
 [data-theme='dark'] .categoryTabs .activeCategory {
-  background: #0a274a;
+  background: var(--kai-navy-800);
   box-shadow: none;
 }
 

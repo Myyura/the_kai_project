@@ -201,7 +201,7 @@
 }
 
 [data-theme='dark'] .school {
-  color: #93c5fd;
+  color: var(--kai-cyan);
 }
 
 @media (max-width: 768px) {

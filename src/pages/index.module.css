@@ -63,10 +63,10 @@
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.15), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(78, 186, 161, 0.1), transparent),
-    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(255, 182, 185, 0.1), transparent),
-    linear-gradient(180deg, #fafafa 0%, #f5f5f7 100%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(var(--kai-blue-rgb), 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(var(--kai-cyan-rgb), 0.1), transparent),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(var(--kai-gold-rgb), 0.1), transparent),
+    linear-gradient(180deg, #fafafa 0%, var(--custom-card-bg) 100%);
 }
 
 [data-theme='dark'] .heroGradient {
@@ -96,7 +96,7 @@
   line-height: 1.2;
   margin: 0 0 1.5rem;
   padding-bottom: 0.05em;
-  background: linear-gradient(135deg, #1d1d1f 0%, #424245 100%);
+  background: linear-gradient(135deg, var(--custom-text-primary) 0%, var(--custom-text-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -198,26 +198,26 @@
   text-decoration: none;
   transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1),
               border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(16, 185, 129, 0.08);
-  color: #059669 !important;
-  border: 1.5px solid rgba(16, 185, 129, 0.25);
+  background: rgba(var(--kai-success-rgb), 0.08);
+  color: var(--kai-success) !important;
+  border: 1.5px solid rgba(var(--kai-success-rgb), 0.25);
 }
 
 [data-theme='dark'] .progressBtn {
-  background: rgba(16, 185, 129, 0.1);
-  color: #6ee7b7 !important;
-  border-color: rgba(110, 231, 183, 0.2);
+  background: rgba(var(--kai-success-rgb), 0.1);
+  color: var(--kai-success-strong) !important;
+  border-color: rgba(var(--kai-success-rgb), 0.2);
 }
 
 .progressBtn:hover {
-  background: rgba(16, 185, 129, 0.15);
-  border-color: rgba(16, 185, 129, 0.5);
+  background: rgba(var(--kai-success-rgb), 0.15);
+  border-color: rgba(var(--kai-success-rgb), 0.5);
   text-decoration: none;
 }
 
 [data-theme='dark'] .progressBtn:hover {
-  background: rgba(16, 185, 129, 0.18);
-  border-color: rgba(110, 231, 183, 0.4);
+  background: rgba(var(--kai-success-rgb), 0.18);
+  border-color: rgba(var(--kai-success-rgb), 0.4);
 }
 
 .btnIcon {
@@ -290,7 +290,7 @@
 
 .heroProgressCallout:hover {
   background: rgba(255, 255, 255, 0.8);
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(var(--kai-success-rgb), 0.3);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   transform: translate3d(0, -1px, 0);
   text-decoration: none !important;
@@ -298,13 +298,13 @@
 
 [data-theme='dark'] .heroProgressCallout:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(110, 231, 183, 0.25);
+  border-color: rgba(var(--kai-success-rgb), 0.25);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .heroProgressIcon {
   font-size: 0.9em;
-  color: #10b981;
+  color: var(--kai-success);
   flex-shrink: 0;
 }
 
@@ -347,21 +347,21 @@
 .heroProgressBarFill {
   display: block;
   height: 100%;
-  background: #10b981;
+  background: var(--kai-success);
   border-radius: 999px;
   transition: width 0.5s ease;
 }
 
 .heroProgressArrow {
   font-size: 0.75em;
-  color: #86868b;
+  color: var(--custom-text-muted);
   transition: transform 0.25s;
   flex-shrink: 0;
 }
 
 .heroProgressCallout:hover .heroProgressArrow {
   transform: translateX(3px);
-  color: #10b981;
+  color: var(--kai-success);
 }
 
 /* ===== 特性高亮区域 ===== */
@@ -483,13 +483,13 @@
   overflow: hidden;
   border: 1px solid rgba(var(--theme-accent-rgb), 0.14);
   border-radius: 28px;
-  background: linear-gradient(135deg, #ffffff 0%, #f1f8f4 100%);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(var(--kai-success-rgb), 0.05) 100%);
   box-shadow: 0 18px 60px rgba(var(--theme-accent-rgb), 0.08);
 }
 
 [data-theme='dark'] .communityCard {
-  border-color: rgba(53, 198, 217, 0.14);
-  background: #0b284d;
+  border-color: rgba(var(--kai-cyan-rgb), 0.14);
+  background: var(--kai-navy-800);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -529,7 +529,7 @@
 
 [data-theme='dark'] .communityEyebrow {
   background: rgba(var(--kai-gold-rgb), 0.14);
-  color: #f5ce7a;
+  color: var(--kai-gold-text);
 }
 
 .communityTitle {
@@ -612,12 +612,12 @@
 
 [data-theme='dark'] .discordBtn {
   background: var(--kai-action);
-  box-shadow: 0 4px 14px rgba(53, 198, 217, 0.22);
+  box-shadow: 0 4px 14px rgba(var(--kai-cyan-rgb), 0.22);
 }
 
 [data-theme='dark'] .discordBtn:hover {
   background: var(--kai-action-hover);
-  box-shadow: 0 8px 22px rgba(53, 198, 217, 0.3);
+  box-shadow: 0 8px 22px rgba(var(--kai-cyan-rgb), 0.3);
 }
 
 .qqBtn {
@@ -639,8 +639,8 @@
 }
 
 [data-theme='dark'] .qqBtn:hover {
-  border-color: rgba(53, 198, 217, 0.4);
-  box-shadow: 0 8px 22px rgba(53, 198, 217, 0.12);
+  border-color: rgba(var(--kai-cyan-rgb), 0.4);
+  box-shadow: 0 8px 22px rgba(var(--kai-cyan-rgb), 0.12);
 }
 
 .communityBtnIcon {
@@ -695,14 +695,14 @@
   margin: 0 auto;
   border: 1px solid rgba(var(--theme-accent-rgb), .13);
   border-radius: 28px;
-  background: #fff;
+  background: var(--ifm-background-color);
   box-shadow: 0 18px 50px rgba(var(--theme-accent-rgb), .07);
   padding: 1rem;
 }
 
 [data-theme='dark'] .communitySupportCard {
   border-color: rgba(var(--kai-cyan-rgb), .12);
-  background: #0b284d;
+  background: var(--kai-navy-800);
   box-shadow: 0 16px 44px rgba(0, 0, 0, .2);
 }
 
@@ -730,7 +730,7 @@
   margin: 0;
   color: var(--ifm-heading-color);
   font-size: clamp(1.75rem, 3.6vw, 2.6rem) !important;
-  font-weight: 720;
+  font-weight: 700;
   letter-spacing: -.035em;
   line-height: 1.12;
 }
@@ -755,9 +755,9 @@
   padding: .65rem 1rem;
   color: #fff !important;
   font-size: .8rem;
-  font-weight: 750;
+  font-weight: 700;
   text-decoration: none !important;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: var(--custom-transition);
 }
 
 .communitySupportCta:hover {
@@ -785,7 +785,7 @@
   color: var(--ifm-font-color-base) !important;
   padding: 1rem;
   text-decoration: none !important;
-  transition: border-color .2s ease, transform .2s ease;
+  transition: var(--custom-transition);
 }
 
 .featuredPartnerTile {
@@ -818,11 +818,7 @@
 
 .featuredPartnerTile .communitySupportIcon {
   background: rgba(var(--kai-gold-rgb), .16);
-  color: #805300;
-}
-
-[data-theme='dark'] .featuredPartnerTile .communitySupportIcon {
-  color: #f5ce7a;
+  color: var(--kai-gold-text);
 }
 
 .featuredPartnerTile small,
@@ -832,15 +828,11 @@
 }
 
 .featuredPartnerTile small {
-  color: #805300;
+  color: var(--kai-gold-text);
   font-size: .62rem;
   font-weight: 800;
   letter-spacing: .07em;
   text-transform: uppercase;
-}
-
-[data-theme='dark'] .featuredPartnerTile small {
-  color: #f5ce7a;
 }
 
 .featuredPartnerTile strong,
@@ -896,11 +888,11 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2386868b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
-  transition: all 0.2s;
+  transition: var(--custom-transition);
 }
 
 [data-theme='dark'] .filterSelect {
-  background-color: #0a2345;
+  background-color: var(--ifm-background-surface-color);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -911,7 +903,7 @@
 .filterSelect:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.1);
+  box-shadow: var(--kai-focus-ring);
 }
 
 /* 大学网格 */
@@ -984,7 +976,7 @@
 
 .univToggle {
   flex-shrink: 0;
-  color: #86868b;
+  color: var(--custom-text-muted);
   font-size: 0.75rem;
   transition: transform 0.3s;
 }
@@ -1007,7 +999,7 @@
   color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
   font-size: 0.95rem;
-  transition: all 0.2s;
+  transition: var(--custom-transition), padding-left 0.2s ease;
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 
@@ -1025,14 +1017,14 @@
 }
 
 [data-theme='dark'] .deptLink:hover {
-  background: rgba(53, 198, 217, 0.1);
+  background: rgba(var(--kai-cyan-rgb), 0.1);
 }
 
 .linkIcon {
   font-size: 0.75rem;
-  color: #86868b;
+  color: var(--custom-text-muted);
   opacity: .65;
-  transition: all 0.2s;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .deptLink:hover .linkIcon {
@@ -1059,17 +1051,17 @@
   margin: 0 auto;
   padding: 3rem 3.5rem;
   border-radius: 28px;
-  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f0f9ff 100%);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  box-shadow: 0 4px 30px rgba(16, 185, 129, 0.08);
+  background: linear-gradient(135deg, rgba(var(--kai-success-rgb), 0.05) 0%, rgba(var(--kai-success-rgb), 0.08) 50%, rgba(var(--kai-blue-rgb), 0.06) 100%);
+  border: 1px solid rgba(var(--kai-success-rgb), 0.2);
+  box-shadow: 0 4px 30px rgba(var(--kai-success-rgb), 0.08);
   animation: fadeInUp 0.6s ease-out;
   flex-wrap: wrap;
 }
 
 [data-theme='dark'] .progressBannerInner {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.06) 50%, rgba(14, 165, 233, 0.06) 100%);
-  border-color: rgba(16, 185, 129, 0.25);
-  box-shadow: 0 4px 30px rgba(16, 185, 129, 0.06);
+  background: linear-gradient(135deg, rgba(var(--kai-success-rgb), 0.08) 0%, rgba(var(--kai-success-rgb), 0.06) 50%, rgba(var(--kai-blue-rgb), 0.06) 100%);
+  border-color: rgba(var(--kai-success-rgb), 0.25);
+  box-shadow: 0 4px 30px rgba(var(--kai-success-rgb), 0.06);
 }
 
 .progressBannerLeft {
@@ -1082,16 +1074,16 @@
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #059669;
-  background: rgba(16, 185, 129, 0.12);
+  color: var(--kai-success);
+  background: rgba(var(--kai-success-rgb), 0.12);
   padding: 0.2rem 0.65rem;
   border-radius: 999px;
   margin-bottom: 0.85rem;
 }
 
 [data-theme='dark'] .progressBannerBadge {
-  color: #6ee7b7;
-  background: rgba(16, 185, 129, 0.18);
+  color: var(--kai-success-strong);
+  background: rgba(var(--kai-success-rgb), 0.18);
 }
 
 .progressBannerTitle {
@@ -1104,14 +1096,10 @@
 
 .progressBannerDesc {
   font-size: 1rem;
-  color: #6b7280;
+  color: var(--custom-text-muted);
   line-height: 1.65;
   margin: 0 0 1.5rem;
   max-width: 480px;
-}
-
-[data-theme='dark'] .progressBannerDesc {
-  color: #9ca3af;
 }
 
 .progressBannerBtn {
@@ -1119,19 +1107,19 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  background: #059669;
+  background: var(--kai-success);
   color: white !important;
   border-radius: 980px;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+  box-shadow: 0 4px 14px rgba(var(--kai-success-rgb), 0.35);
 }
 
 .progressBannerBtn:hover {
   transform: scale3d(1.03, 1.03, 1);
-  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.5);
+  box-shadow: 0 6px 20px rgba(var(--kai-success-rgb), 0.5);
 }
 
 .progressBannerBtn .btnIcon {
@@ -1177,7 +1165,7 @@
 
 .progressMiniLabel {
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: var(--custom-text-muted);
   font-weight: 500;
   text-align: center;
 }
@@ -1212,7 +1200,7 @@
 
 .progressMiniBarFill {
   height: 100%;
-  background: #10b981;
+  background: var(--kai-success);
   border-radius: 999px;
   transition: width 0.5s ease;
 }
@@ -1238,14 +1226,14 @@
 /* ===== CTA 区域 ===== */
 .ctaSection {
   padding: 6.5rem 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, white 100%);
+  background: #ffffff;
   text-align: center;
   content-visibility: auto;
   contain-intrinsic-size: auto 500px;
 }
 
 [data-theme='dark'] .ctaSection {
-  background: linear-gradient(180deg, var(--kai-navy-950) 0%, var(--kai-navy-950) 100%);
+  background: var(--kai-navy-950);
 }
 
 .ctaInner {
@@ -1290,16 +1278,9 @@
               background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* 与 .primaryBtn 完全一致：组合其实现（含 hover），消除复制 */
 .ctaPrimaryBtn {
-  background: var(--kai-action);
-  color: white !important;
-  box-shadow: 0 4px 14px rgba(var(--theme-accent-rgb), 0.4);
-}
-
-.ctaPrimaryBtn:hover {
-  transform: scale3d(1.02, 1.02, 1);
-  background: var(--kai-action-hover);
-  box-shadow: 0 6px 20px rgba(var(--theme-accent-rgb), 0.5);
+  composes: primaryBtn;
 }
 
 .ctaSecondaryBtn {
@@ -1335,21 +1316,21 @@
   border-radius: 980px;
   text-decoration: none !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(16, 185, 129, 0.12);
-  color: #059669 !important;
-  border: 2px solid rgba(16, 185, 129, 0.3);
+  background: rgba(var(--kai-success-rgb), 0.12);
+  color: var(--kai-success) !important;
+  border: 2px solid rgba(var(--kai-success-rgb), 0.3);
 }
 
 [data-theme='dark'] .ctaProgressBtn {
-  background: rgba(16, 185, 129, 0.12);
-  color: #6ee7b7 !important;
-  border-color: rgba(110, 231, 183, 0.3);
+  background: rgba(var(--kai-success-rgb), 0.12);
+  color: var(--kai-success-strong) !important;
+  border-color: rgba(var(--kai-success-rgb), 0.3);
 }
 
 .ctaProgressBtn:hover {
   transform: scale(1.02);
-  background: rgba(16, 185, 129, 0.2);
-  border-color: #059669;
+  background: rgba(var(--kai-success-rgb), 0.2);
+  border-color: var(--kai-success);
 }
 
 /* ===== 减少动画（无障碍 + 低端设备）===== */

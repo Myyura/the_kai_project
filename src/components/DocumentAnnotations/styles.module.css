@@ -379,15 +379,14 @@
 
 .deleteButton {
   padding: .35rem .55rem;
-  border: 1px solid color-mix(in srgb, #dc2626 38%, var(--ifm-color-emphasis-200));
+  border: 1px solid color-mix(in srgb, var(--kai-danger) 38%, var(--ifm-color-emphasis-200));
   background: transparent;
-  color: #dc2626;
+  color: var(--kai-danger);
 }
 
 .statusBadge,
 .statusRow {
   margin-top: .4rem;
-  border-radius: 6px;
   font-size: .66rem;
   line-height: 1.4;
 }
@@ -395,6 +394,7 @@
 .statusBadge {
   display: inline-flex;
   padding: .18rem .38rem;
+  border-radius: 999px;
 }
 
 .statusRow {
@@ -402,11 +402,12 @@
   align-items: center;
   gap: .35rem;
   padding: .35rem .45rem;
+  border-radius: var(--custom-border-radius-xs);
 }
 
 .status_ok {
-  background: rgba(34, 197, 94, .1);
-  color: #15803d;
+  background: var(--kai-success-bg);
+  color: var(--kai-success-strong);
 }
 
 .status_warning {
@@ -415,8 +416,8 @@
 }
 
 .status_danger {
-  background: rgba(239, 68, 68, .1);
-  color: #dc2626;
+  background: var(--kai-danger-bg);
+  color: var(--kai-danger);
 }
 
 .emptyPanel {
@@ -531,9 +532,9 @@
   gap: .75rem;
   padding: .65rem .8rem;
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 9px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-background-surface-color);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, .2);
+  box-shadow: var(--custom-box-shadow-hover);
   color: var(--ifm-color-emphasis-700);
   font-size: .75rem;
 }
@@ -572,7 +573,7 @@
     border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 50%, var(--ifm-color-emphasis-200));
     border-radius: 999px;
     background: var(--ifm-background-surface-color);
-    box-shadow: 0 6px 20px rgba(15, 23, 42, .18);
+    box-shadow: var(--custom-box-shadow-hover);
     color: var(--ifm-color-primary);
     cursor: pointer;
     font-size: .75rem;
@@ -585,7 +586,7 @@
     inset: 0;
     display: flex;
     align-items: flex-end;
-    background: rgba(15, 23, 42, .42);
+    background: var(--kai-overlay-bg);
   }
 
   .mobileSheet {

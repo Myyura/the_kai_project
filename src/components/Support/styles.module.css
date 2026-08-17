@@ -273,10 +273,14 @@
   padding-bottom: .9rem;
 }
 
-/* 金色小标签：复用共享 eyebrow 配方（flex 子项无外边距需求，清零） */
+/* 金色小标签：与共享 eyebrow 配方一致（.72rem/800/.1em）；
+   后代选择器无法用 composes，此处内联配方取值 */
 .partnerTopline span {
-  composes: eyebrow from "../../styles/kai-ui.module.css";
+  display: inline-block;
   margin-bottom: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   color: var(--kai-gold-text);
   text-transform: uppercase;
 }

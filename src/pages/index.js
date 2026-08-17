@@ -347,10 +347,10 @@ const HeroProgressCalloutStats = ({ t }) => {
       <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
       {hasData && (
         <span className={styles.heroProgressStats}>
-          <span className={styles.heroProgressStatItem} style={{ color: '#10b981' }}>
+          <span className={styles.heroProgressStatItem} style={{ color: 'var(--kai-success)' }}>
             <FaCheckCircle style={{ marginRight: '0.2rem', fontSize: '0.85em' }} />{stats.completed}
           </span>
-          <span className={styles.heroProgressStatItem} style={{ color: '#f59e0b' }}>
+          <span className={styles.heroProgressStatItem} style={{ color: 'var(--kai-warning)' }}>
             <FaSyncAlt style={{ marginRight: '0.2rem', fontSize: '0.8em' }} />{stats.reviewing}
           </span>
           {stats.total > 0 && (

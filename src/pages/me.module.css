@@ -46,7 +46,7 @@
   width: 100%;
   padding: 0.35rem;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 10px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-color-emphasis-100);
 }
 
@@ -58,7 +58,7 @@
   min-width: 0;
   min-height: 40px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   background: transparent;
   color: var(--ifm-color-emphasis-700);
   padding: 0.5rem 0.75rem;
@@ -67,7 +67,7 @@
   line-height: 1.2;
   text-align: center;
   text-decoration: none !important;
-  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s, color 0.18s;
+  transition: var(--custom-transition-fast);
 }
 
 .centerTab svg {
@@ -108,6 +108,7 @@
 }
 
 .statCard {
+  composes: cardHoverable from "../styles/kai-ui.module.css";
   flex: 1;
   min-width: 130px;
   display: flex;
@@ -118,7 +119,7 @@
   border: 1px solid var(--custom-card-border);
   background: var(--custom-card-bg);
   gap: 0.2rem;
-  transition: border-color 0.2s;
+  transition: var(--custom-transition-fast);
 }
 
 .statIcon {
@@ -126,30 +127,14 @@
   margin-bottom: 0.15rem;
 }
 
-.statCard:hover {
-  border-color: var(--ifm-color-primary-light);
-  background: var(--custom-card-bg-hover);
-  box-shadow: var(--custom-box-shadow-hover);
-}
-
 .statCardCompleted {
-  border-color: #6ee7b7;
-  background: linear-gradient(135deg, #f0fdf4, var(--custom-card-bg));
-}
-
-[data-theme='dark'] .statCardCompleted {
-  border-color: #059669;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), var(--custom-card-bg));
+  border-color: var(--kai-success-border);
+  background: linear-gradient(135deg, var(--kai-success-bg), var(--custom-card-bg));
 }
 
 .statCardReviewing {
-  border-color: #fbbf24;
-  background: linear-gradient(135deg, #fffbeb, var(--custom-card-bg));
-}
-
-[data-theme='dark'] .statCardReviewing {
-  border-color: #f59e0b;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), var(--custom-card-bg));
+  border-color: var(--kai-warning-border);
+  background: linear-gradient(135deg, var(--kai-warning-bg), var(--custom-card-bg));
 }
 
 .statNumber {
@@ -196,11 +181,11 @@
 }
 
 .progressFillCompleted {
-  background: #10b981;
+  background: var(--kai-success);
 }
 
 .progressFillReviewing {
-  background: #f59e0b;
+  background: var(--kai-warning);
 }
 
 .progressLabel {
@@ -236,7 +221,7 @@
 .emptyState {
   text-align: center;
   padding: 4rem 1.5rem;
-  border-radius: 16px;
+  border-radius: var(--custom-border-radius-sm);
   border: 2px dashed var(--ifm-color-emphasis-300);
 }
 
@@ -255,12 +240,12 @@
 .goBtn {
   display: inline-block;
   padding: 0.6rem 1.5rem;
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--kai-action);
   color: #fff !important;
   font-weight: 600;
   text-decoration: none !important;
-  transition: opacity 0.15s;
+  transition: opacity 0.16s ease;
 }
 
 .goBtn:hover {
@@ -296,11 +281,11 @@
 }
 
 .sectionTitleCompleted .sectionTitleIcon {
-  color: #10b981;
+  color: var(--kai-success);
 }
 
 .sectionTitleReviewing .sectionTitleIcon {
-  color: #f59e0b;
+  color: var(--kai-warning);
 }
 
 .sectionCount {
@@ -314,23 +299,13 @@
 }
 
 .sectionTitleCompleted .sectionCount {
-  background: rgba(16, 185, 129, 0.12);
-  color: #059669;
-}
-
-[data-theme='dark'] .sectionTitleCompleted .sectionCount {
-  background: rgba(16, 185, 129, 0.18);
-  color: #6ee7b7;
+  background: var(--kai-success-bg);
+  color: var(--kai-success);
 }
 
 .sectionTitleReviewing .sectionCount {
-  background: rgba(245, 158, 11, 0.12);
-  color: #d97706;
-}
-
-[data-theme='dark'] .sectionTitleReviewing .sectionCount {
-  background: rgba(245, 158, 11, 0.18);
-  color: #fcd34d;
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning);
 }
 
 .sectionHeader .sectionTitle {
@@ -341,19 +316,20 @@
 .clearBtn {
   font-size: 0.8rem;
   padding: 0.35rem 0.85rem;
-  border-radius: 7px;
-  border: 1.5px solid #ef4444;
+  border-radius: var(--custom-border-radius-xs);
+  border: 1px solid var(--kai-danger);
   background: transparent;
-  color: #ef4444;
+  color: var(--kai-danger);
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.15s;
+  transition: var(--custom-transition-fast);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .clearBtn:hover {
-  background: #ef4444;
+  background: var(--kai-danger-solid);
+  border-color: var(--kai-danger-solid);
   color: #fff;
 }
 
@@ -365,17 +341,12 @@
 }
 
 .univCard {
+  composes: cardHoverable from "../styles/kai-ui.module.css";
   padding: 0.9rem 1rem;
   border-radius: var(--custom-border-radius-sm);
   border: 1px solid var(--custom-card-border);
   background: var(--custom-card-bg);
-  transition: border-color 0.15s;
-}
-
-.univCard:hover {
-  border-color: var(--ifm-color-primary-light);
-  background: var(--custom-card-bg-hover);
-  box-shadow: var(--custom-box-shadow-hover);
+  transition: var(--custom-transition-fast);
 }
 
 .univName {
@@ -395,7 +366,7 @@
 }
 
 .univDone {
-  color: #059669;
+  color: var(--kai-success);
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -403,7 +374,7 @@
 }
 
 .univReview {
-  color: #d97706;
+  color: var(--kai-warning);
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -431,7 +402,7 @@
 }
 
 .univBarCompleted {
-  background: #10b981;
+  background: var(--kai-success);
 }
 
 /* 知识点标签网格 */
@@ -442,6 +413,7 @@
 }
 
 .tagCard {
+  composes: cardHoverable from "../styles/kai-ui.module.css";
   background: var(--custom-card-bg);
   border: 1px solid var(--custom-card-border);
   border-radius: var(--custom-border-radius-sm);
@@ -449,32 +421,26 @@
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: var(--custom-transition-fast);
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 }
 
 .tagCard:hover {
-  border-color: #6366f1;
-  background: var(--custom-card-bg-hover);
-  box-shadow: var(--custom-box-shadow-hover);
+  border-color: var(--kai-indigo);
 }
 
 .tagName {
   font-size: 0.82rem;
   font-weight: 600;
-  color: #6366f1;
+  color: var(--kai-indigo);
   word-break: break-word;
   line-height: 1.3;
 }
 
-[data-theme='dark'] .tagName {
-  color: #a5b4fc;
-}
-
 .tagBarCompleted {
-  background: #6366f1;
+  background: var(--kai-indigo);
 }
 
 /* 题目列表 */
@@ -485,6 +451,7 @@
 }
 
 .entryRow {
+  composes: cardHoverable from "../styles/kai-ui.module.css";
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -493,14 +460,8 @@
   border-radius: var(--custom-border-radius-sm);
   border: 1px solid var(--custom-card-border);
   background: var(--custom-card-bg);
-  transition: border-color 0.15s, background 0.15s;
+  transition: var(--custom-transition-fast);
   flex-wrap: wrap;
-}
-
-.entryRow:hover {
-  border-color: var(--ifm-color-primary-light);
-  background: var(--custom-card-bg-hover);
-  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .entryInfo {
@@ -564,30 +525,21 @@
 }
 
 .nextReviewOverdue {
-  background: #fee2e2;
-  color: #991b1b;
-}
-[data-theme='dark'] .nextReviewOverdue {
-  background: rgba(239, 68, 68, 0.18);
-  color: #fca5a5;
+  background: var(--kai-danger-bg);
+  color: var(--kai-danger-strong);
 }
 
 .nextReviewUrgent {
-  background: #fef3c7;
-  color: #92400e;
-}
-[data-theme='dark'] .nextReviewUrgent {
-  background: rgba(245, 158, 11, 0.18);
-  color: #fcd34d;
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning-strong);
 }
 
 .nextReviewSoon {
-  background: #eff6ff;
-  color: #1e40af;
+  background: rgba(var(--kai-blue-rgb), 0.08);
+  color: var(--ifm-color-primary);
 }
 [data-theme='dark'] .nextReviewSoon {
-  background: rgba(59, 130, 246, 0.12);
-  color: #93c5fd;
+  background: rgba(var(--kai-cyan-rgb), 0.12);
 }
 
 .reviewRound {
@@ -600,7 +552,7 @@
 .badge {
   font-size: 0.75rem;
   padding: 0.15rem 0.55rem;
-  border-radius: 20px;
+  border-radius: 999px;
   font-weight: 600;
   white-space: nowrap;
   display: inline-flex;
@@ -614,23 +566,13 @@
 }
 
 .badgeCompleted {
-  background: #d1fae5;
-  color: #065f46;
-}
-
-[data-theme='dark'] .badgeCompleted {
-  background: rgba(16, 185, 129, 0.2);
-  color: #6ee7b7;
+  background: var(--kai-success-bg);
+  color: var(--kai-success-strong);
 }
 
 .badgeReviewing {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-[data-theme='dark'] .badgeReviewing {
-  background: rgba(245, 158, 11, 0.2);
-  color: #fcd34d;
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning-strong);
 }
 
 /* ================= 学习热力图 ================= */
@@ -720,16 +662,12 @@
 
 .heatmapLfuture { background: transparent; }
 .heatmapL0 { background: var(--ifm-color-emphasis-200); }
-.heatmapL1 { background: #bbf7d0; }
-.heatmapL2 { background: #4ade80; }
-.heatmapL3 { background: #16a34a; }
-.heatmapL4 { background: #14532d; }
+.heatmapL1 { background: rgba(var(--kai-success-rgb), 0.25); }
+.heatmapL2 { background: rgba(var(--kai-success-rgb), 0.45); }
+.heatmapL3 { background: rgba(var(--kai-success-rgb), 0.7); }
+.heatmapL4 { background: rgba(var(--kai-success-rgb), 1); }
 
 [data-theme='dark'] .heatmapL0 { background: var(--ifm-color-emphasis-300); }
-[data-theme='dark'] .heatmapL1 { background: #14532d; }
-[data-theme='dark'] .heatmapL2 { background: #166534; }
-[data-theme='dark'] .heatmapL3 { background: #16a34a; }
-[data-theme='dark'] .heatmapL4 { background: #4ade80; }
 
 .heatmapLegend {
   display: flex;
@@ -757,23 +695,17 @@
   border: 1px solid var(--custom-card-border);
   background: var(--custom-card-bg);
   flex-wrap: wrap;
-  transition: border-color 0.15s;
+  transition: var(--custom-transition-fast);
 }
 
 .reminderUrgent {
-  border-color: #f59e0b;
-  background: #fffbeb;
-}
-[data-theme='dark'] .reminderUrgent {
-  background: rgba(245, 158, 11, 0.08);
+  border-color: var(--kai-warning-border);
+  background: var(--kai-warning-bg);
 }
 
 .reminderCritical {
-  border-color: #ef4444;
-  background: #fef2f2;
-}
-[data-theme='dark'] .reminderCritical {
-  background: rgba(239, 68, 68, 0.08);
+  border-color: var(--kai-danger-border);
+  background: var(--kai-danger-bg);
 }
 
 .reminderMeta {
@@ -800,39 +732,24 @@
 }
 
 .urgencyCritical {
-  background: #fee2e2;
-  color: #991b1b;
-}
-[data-theme='dark'] .urgencyCritical {
-  background: rgba(239, 68, 68, 0.2);
-  color: #fca5a5;
+  background: var(--kai-danger-bg);
+  color: var(--kai-danger-strong);
 }
 
 .urgencyUrgent {
-  background: #fef3c7;
-  color: #92400e;
-}
-[data-theme='dark'] .urgencyUrgent {
-  background: rgba(245, 158, 11, 0.2);
-  color: #fcd34d;
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning-strong);
 }
 
 .urgencyNormal {
-  background: #ede9fe;
-  color: #5b21b6;
-}
-[data-theme='dark'] .urgencyNormal {
-  background: rgba(139, 92, 246, 0.2);
-  color: #c4b5fd;
+  background: rgba(var(--kai-violet-rgb), 0.12);
+  color: var(--kai-violet);
 }
 
-.sectionCountAlert {
-  background: #fee2e2 !important;
-  color: #991b1b !important;
-}
-[data-theme='dark'] .sectionCountAlert {
-  background: rgba(239, 68, 68, 0.2) !important;
-  color: #fca5a5 !important;
+/* 与 .sectionCount 叠加使用，(0,2,0) 具体度足够，无需 !important */
+.sectionCount.sectionCountAlert {
+  background: var(--kai-danger-bg);
+  color: var(--kai-danger-strong);
 }
 
 /* ================= 平板端适配 ================= */
@@ -1083,7 +1000,7 @@
   height: 56px;
   margin: 0 auto 1rem;
   border-radius: 50%;
-  background: rgba(59, 130, 246, 0.12);
+  background: rgba(var(--theme-accent-rgb), 0.12);
   color: var(--ifm-color-primary);
   display: inline-flex;
   align-items: center;
@@ -1110,7 +1027,7 @@
   justify-content: center;
   gap: 0.45rem;
   padding: 0.65rem 1.2rem;
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--kai-action);
   color: #fff !important;
   font-weight: 700;
@@ -1147,12 +1064,7 @@
 }
 
 .spinIcon {
-  animation: spin 0.9s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  composes: spinner from "../styles/kai-ui.module.css";
 }
 
 .accountPanel {
@@ -1205,7 +1117,7 @@
 }
 
 .profileWarning {
-  color: #b45309;
+  color: var(--kai-warning);
 }
 
 .profileButton,
@@ -1215,7 +1127,7 @@
   justify-content: center;
   gap: 0.35rem;
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 0.55rem;
+  border-radius: var(--custom-border-radius-xs);
   padding: 0.5rem 0.7rem;
   background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base);
@@ -1235,7 +1147,7 @@
   gap: 0.55rem;
   margin: 0.45rem 0;
   padding: 0.75rem;
-  border-radius: 0.65rem;
+  border-radius: var(--custom-border-radius-sm);
   background: var(--ifm-color-emphasis-100);
 }
 
@@ -1248,7 +1160,7 @@
 
 .profileEditor input {
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 0.5rem;
+  border-radius: var(--custom-border-radius-xs);
   padding: 0.55rem 0.65rem;
   color: var(--ifm-font-color-base);
   background: var(--ifm-background-color);
@@ -1261,12 +1173,12 @@
 
 .profileMessage {
   margin: 0.4rem 0 0;
-  color: #047857;
+  color: var(--kai-success-strong);
   font-size: 0.82rem;
 }
 
 .profileMessageError {
-  color: #b91c1c;
+  color: var(--kai-danger-strong);
 }
 
 .accountIdentity {
@@ -1338,7 +1250,7 @@
 .accountStat {
   min-width: 70px;
   padding: 0.55rem 0.75rem;
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-color-emphasis-100);
   text-align: center;
 }
@@ -1365,7 +1277,7 @@
   gap: 0.45rem;
   min-width: 220px;
   padding: 0.4rem 0.65rem;
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   border: 1px solid var(--ifm-color-emphasis-200);
   color: var(--ifm-color-emphasis-500);
   background: var(--ifm-background-surface-color);
@@ -1387,6 +1299,7 @@
 }
 
 .noteRow {
+  composes: cardHoverable from "../styles/kai-ui.module.css";
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -1396,13 +1309,11 @@
   background: var(--custom-card-bg);
   color: inherit;
   text-decoration: none !important;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: var(--custom-transition-fast);
 }
 
 .noteRow:hover {
-  border-color: #8b5cf6;
-  background: var(--custom-card-bg-hover);
-  box-shadow: var(--custom-box-shadow-hover);
+  border-color: var(--kai-violet);
 }
 
 .noteRowTop {
@@ -1436,20 +1347,19 @@
   margin-top: 0.1rem;
   padding: 0.1rem 0.45rem;
   border-radius: 999px;
-  background: rgba(139, 92, 246, 0.12);
-  color: #6d28d9;
+  background: rgba(var(--kai-violet-rgb), 0.12);
+  color: var(--kai-violet);
   font-size: 0.72rem;
   font-weight: 600;
 }
 
 [data-theme='dark'] .noteCount {
-  color: #c4b5fd;
-  background: rgba(139, 92, 246, 0.2);
+  background: rgba(var(--kai-violet-rgb), 0.2);
 }
 
 .notesEmpty {
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: var(--custom-border-radius-xs);
   border: 1px dashed var(--ifm-color-emphasis-300);
   text-align: center;
   color: var(--ifm-color-emphasis-500);
