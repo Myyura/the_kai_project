@@ -9,6 +9,7 @@ const transformModules = require('@babel/plugin-transform-modules-commonjs');
 const transformTypescript = require('@babel/plugin-transform-typescript');
 const {
   applyLineChanges,
+  buildPullRequestBody,
   extractSubmissionFromIssueBody,
   gitBlobSha,
   stableStringify,
@@ -98,6 +99,20 @@ function withRepo(content, run) {
     fs.rmSync(repoRoot, { recursive: true, force: true });
   }
 }
+
+test('links generated pull requests with an Issue-closing keyword', () => {
+  const body = buildPullRequestBody({
+    payload: correctionPayload('first\nwrong\nlast\n'),
+    issue: {
+      number: 135,
+      html_url: 'https://github.com/Myyura/the_kai_project/issues/135',
+    },
+    relativePath: 'docs/sample/problem.md',
+  });
+
+  assert.equal(body.split('\n')[0], 'Resolves #135.');
+  assert.match(body, /- Source issue: https:\/\/github\.com\/Myyura\/the_kai_project\/issues\/135/);
+});
 
 test('applies signed line changes exactly when the base blob matches', () => {
   const original = 'first\nwrong\nlast\n';

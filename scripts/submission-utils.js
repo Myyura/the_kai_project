@@ -342,7 +342,7 @@ function writeSubmissionToRepo({ repoRoot, payload }) {
 function buildPullRequestBody({ payload, issue, relativePath }) {
   const kind = payload.submissionType === 'new_solution' ? '新增题解' : '纠错/补充';
   return [
-    `Converts #${issue.number} into a docs change.`,
+    `Resolves #${issue.number}.`,
     '',
     `- Type: ${kind}`,
     `- Source issue: ${issue.html_url}`,
