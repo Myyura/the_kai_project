@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2013年8月実施 線形計画
 
 ## **Author**
-Casablanca, 祭音Myyura, find
+Casablanca, find, Finalized by 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -55,9 +55,6 @@ $$
 
 とする。このとき, 任意の非負パラメータ $\mu$ に対して, 条件 $Q(\mu)$ を満たすベクトル $\boldsymbol{x,y,z}$ は唯一存在する。 $\boldsymbol{x}(\mu)$を求めよ。さらに, 問 (i) で与えた双対問題の最適解を求めよ。
 
-### English Version
-
-
 ### 题目描述
 
 考虑线性规划问题
@@ -100,7 +97,7 @@ $$
    时，题设的唯一性对任意 $\mu\geqq0$ 成立。求 $\boldsymbol x(\mu)$，并求第 1 问所得对偶问题的最优解。
 
 ## **Kai**
-### (i)
+### (i) (Written by Casablanca, English Version)
 Lagrangian:
 
 $$
@@ -122,7 +119,7 @@ $$
 \end{aligned}
 $$
 
-### (ii)
+### (ii) (Written by Casablanca, English Version)
 
 $$
 A^\top y(\mu) + z(\mu) = c, Ax(\mu) = b, x_iz_i = \mu
@@ -138,7 +135,7 @@ $$
 
 thus $h(\mu) = n \mu$ is linear on $[0, \infty)$.
 
-### (iii)
+### (iii) (Written by Casablanca, English Version)
 Consider $Q(0)$, get $b^\top y(0) = c^\top x(0)$.
 
 For every primal-feasible $x$ and dual-feasible $y$,
@@ -149,7 +146,7 @@ $$
 
 Since $y(0)$ is dual feasible and $b^\top y(0)=c^\top x(0)$, weak duality shows that $x(0)$ and $y(0)$ are optimal.
 
-### (iv)
+### (iv) (Written by Casablanca, English Version)
 
 $$
 \text{ Q}(\mu) \left\{
@@ -179,17 +176,14 @@ $$
 
 then we get the optimal solution $y = -1$.
 
-## **Kai**
+---
 
-Written by find
-
-### Chinese version
-
-#### (i)
+### (i) (Written by find, Chinese Version)
 
 问题 $P$ 的 Lagrange 函数为$\mathcal{L}(\boldsymbol{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})=\boldsymbol{c}^{\mathsf T}\boldsymbol{x}-\boldsymbol{\lambda}^{\mathsf T}\boldsymbol{x}+\boldsymbol{\nu}^{\mathsf T}(\boldsymbol{b}-A\boldsymbol{x})$, 其中 $\boldsymbol{\lambda}\in\mathbb{R}_+^n, \ \boldsymbol{\nu}\in\mathbb{R}^m$ 为 Lagrange 乘子.
 
 问题 $P$ 的对偶函数为
+
 $$
 g(\boldsymbol{\lambda}, \boldsymbol{\nu})=\inf_{\boldsymbol{x}\in\mathbb{R}^n}\mathcal{L}(\boldsymbol{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})
 =\boldsymbol{b}^{\mathsf T}\boldsymbol{\nu}+\inf_{\boldsymbol{x}\in\mathbb{R}^n}\{(\boldsymbol{c}-\boldsymbol{\lambda}-A^{\mathsf T}\boldsymbol{\nu})^{\mathsf T}\boldsymbol{x}\}, 
@@ -218,7 +212,9 @@ $$
 && \boldsymbol{\lambda}\succeq \boldsymbol{0}
 \end{array}
 $$
+
 等价地，
+
 $$
 \begin{array}{rll}
 \mathrm{DP^\prime:} & \text{Maximize}\qquad
@@ -231,9 +227,10 @@ $$
 \qquad \Box
 $$
 
-#### (ii)
+### (ii) (Written by find, Chinese Version)
 
 由条件 $Q(\mu)$ 的前两个等式: 
+
 $$
 \begin{aligned}
 h(\mu)
@@ -247,11 +244,14 @@ $$
 上面第四个等式利用了 $\boldsymbol{x}(\mu)^{\mathsf T}A^{\mathsf T}\boldsymbol{y}(\mu), \ \boldsymbol{y}(\mu)^{\mathsf T}A\boldsymbol{x}(\mu)\in\mathbb{R}$，从而标量转置相等.
 
 再由 $Q(\mu)$ 的第三个等式 $x_i(\mu)z_i(\mu)=\mu\ (i=1, \ldots, n)$, 有
-$$\displaystyle h(\mu)=\boldsymbol{z}(\mu)^{\mathsf T}\boldsymbol{x}(\mu)=\sum_{i=1}^n x_i(\mu)z_i(\mu)=\sum_{i=1}^n\mu=n\mu$$
+
+$$
+\displaystyle h(\mu)=\boldsymbol{z}(\mu)^{\mathsf T}\boldsymbol{x}(\mu)=\sum_{i=1}^n x_i(\mu)z_i(\mu)=\sum_{i=1}^n\mu=n\mu
+$$
 
 因此, $h(\mu)=n\mu$ 为 $[0, \infin)$ 上的线性函数.$\quad \Box$
 
-#### (iii)
+### (iii) (Written by find, Chinese Version)
 
 当 $\mu=0$ 时，由题目条件可知，满足条件 $Q(0)$ 的向量 $\boldsymbol{x}(0), \boldsymbol{y}(0), \boldsymbol{z}(0)$ 存在. 考虑 (i) 的对偶问题 $(\text{DP})$，令 $\boldsymbol{\nu}=\boldsymbol{y}(0), \ \boldsymbol{\lambda}=\boldsymbol{z}(0)$，则 $\boldsymbol{\lambda}, \boldsymbol{\nu}$ 是对偶问题 $(\text{DP})$ 的可行解；另一方面，$\boldsymbol{x}(0)$ 显然是问题 $\text P$ 的可行解.
 
@@ -265,9 +265,10 @@ $$
 
 即 $\boldsymbol{c}^{\mathsf T}\boldsymbol{x}(0) \le \boldsymbol{c}^{\mathsf T}\boldsymbol{x}$, 因此 $\boldsymbol{x}(0)$ 是问题 $P$ 的最优解. $\qquad \Box$
 
-#### (iv)
+### (iv) (Written by find, Chinese Version)
 
 通过所给的条件, 此时有
+
 $$
 Q(\mu)=
 \left\{
@@ -285,7 +286,9 @@ Q(\mu)=
 \right.
 $$
 
-由 $\text{(1)}$ 得$
+由 $\text{(1)}$ 得
+
+$$
 \left\{
 \begin{aligned}
 &y+z_1=1
@@ -293,8 +296,12 @@ $$
 &y+z_2=-1
 &&\text{(6)}
 \end{aligned}
-\right.$, 由 $\text{(2)}$ 得 $x_1+x_2=1\quad \text{(7)}$. 
-通过 $\text{(3)}, \text{(5)}, \text{(6)}, \text{(7)}$, 消去 $x_2, z_1, z_2$ 后得到 $
+\right.
+$$
+
+由 $\text{(2)}$ 得 $x_1+x_2=1\quad \text{(7)}$. 通过 $\text{(3)}, \text{(5)}, \text{(6)}, \text{(7)}$, 消去 $x_2, z_1, z_2$ 后得到 
+
+$$
 \left\{
 \begin{aligned}
 &x_1(1-y)=\mu
@@ -303,7 +310,7 @@ $$
 &&\text{(9)}
 \end{aligned}
 \right.
-$
+$$
 
 由 $\text{(8)}, \text{(9)}$, 消去 $\mu$ 后有 $\displaystyle x_1y = \frac{y+1}{2}$. 将其代回 $\text{(8)}$，得到 $y^2+2\mu y-1=0.$
 
@@ -340,9 +347,7 @@ $$
 
 由于此时 $y=-\mu-\sqrt{\mu^2+1}$, 结合 $\text{(iii)}$, $\nu^*=y(0)=-1$ 是对偶问题 $(\text DP^\prime)$ 的最优解. $\quad \Box$
 
-### Japanese version
-
-#### (i)
+### (i) (Written by find, Japanese Version)
 
 問題 $P$ の Lagrange 関数を $\mathcal{L}(\boldsymbol{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})=\boldsymbol{c}^{\mathsf T}\boldsymbol{x}-\boldsymbol{\lambda}^{\mathsf T}\boldsymbol{x}+\boldsymbol{\nu}^{\mathsf T}(\boldsymbol{b}-A\boldsymbol{x})$ とおく。ただし、$\boldsymbol{\lambda}\in\mathbb{R}_+^n, \ \boldsymbol{\nu}\in\mathbb{R}^m$ は Lagrange 乗数である。
 
@@ -381,11 +386,11 @@ $$
 \mathrm{DP^\prime:} & \text{Maximize} & \boldsymbol{b}^{\mathsf T}\boldsymbol{\nu}\\
 & \text{subject to} & \boldsymbol{c}-A^{\mathsf T}\boldsymbol{\nu}\succeq\boldsymbol{0}
 \end{array}
-
 $$
+
 と同値である。$\qquad\Box$
 
-#### (ii)
+### (ii) (Written by find, Japanese Version)
 
 条件 $Q(\mu)$ の最初の二つの等式より、
 
@@ -403,7 +408,7 @@ $$
 
 である。したがって、$h(\mu)=n\mu$ であるから、$h$ は $[0, \infty)$ 上の線形関数である。$\qquad\Box$
 
-#### (iii)
+### (iii) (Written by find, Japanese Version)
 
 $\mu=0$ とする。問題の仮定より、条件 $Q(0)$ を満たす $\boldsymbol{x}(0), \boldsymbol{y}(0), \boldsymbol{z}(0)$ が存在する。
 
@@ -425,7 +430,7 @@ $$
 
 である。よって、$\boldsymbol{x}(0)$ は問題 $P$ の最適解である。$\qquad\Box$
 
-#### (iv)
+### (iv) (Written by find, Japanese Version)
 
 与えられた $A, \boldsymbol{b}, \boldsymbol{c}$ を条件 $Q(\mu)$ に代入すると、
 
