@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目II 問題4
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Consider a connected undirected graph $G = (V, E)$ with positive edge weights. A subgraph $G' = (V, E')$ of $G$ obtained by removing some of the edges in $G$ is called a spanning tree of $G$, if $G'$ is a tree. The summation of weights of all the edges in a spanning tree is called the weight of the spanning tree. A minimum spanning tree of $G$ is a spanning tree of $G$ whose weight is minimum. You can assume appropriate data representation for graphs and trees in the questions below.
@@ -65,10 +65,10 @@ Let $C$ be an arbitrary cycle in $G$, and let $e$ be the edge in $C$ with the ma
 
 #### Proof
 
-- Step 1: Assume $T$ is an MST that contains $e$.
-- Step 2: Consider the cycle $C$ in $G$ that includes $e$. Since $T$ is a tree and contains all vertices of $G$, adding $e$ to $T$ will create a cycle.
-- Step 3: In the cycle $C$, remove the edge $e$ (which has the maximum weight in $C$) to break the cycle, forming a new tree $T'$. Since we removed the edge with the maximum weight, $T'$ has a smaller or equal total weight compared to $T$.
-- Step 4: Conclude that $T'$ is also an MST, but it does not contain $e$.
+- Step 1: Let $T$ be an MST. If $e\notin T$, the claim already holds.
+- Step 2: If $e\in T$, removing $e$ splits $T$ into two components. The path $C-e$ connects the two endpoints of $e$, so it contains an edge $f$ crossing these components.
+- Step 3: Then $T'=T-e+f$ is a spanning tree. Since $e$ has maximum weight on $C$, $w(f)\le w(e)$, hence $w(T')\le w(T)$.
+- Step 4: By minimality of $T$, equality holds. Thus $T'$ is an MST and does not contain $e$.
 
 Therefore, there exists a minimum spanning tree that does not contain the edge $e$.
 
@@ -78,9 +78,9 @@ Consider an arbitrary vertex subset $V'$ of $V$ ($V' \neq V, V' \neq \emptyset$)
 
 #### Proof
 
-- Step 1: Apply the Cut Property.** According to the Cut Property, for any cut in the graph, the minimum weight edge crossing the cut must be in the MST.
-- Step 2: Define the cut associated with $V'$ as the set of edges $(u, v)$ where $u \in V'$ and $v \in V - V'$.
-- Step 3: Since $e$ is the minimum weight edge across this cut, by the Cut Property, $e$ must be included in every MST of $G$.
+- Step 1: Let $T$ be an MST. If $e\in T$, the claim already holds.
+- Step 2: Otherwise, adding $e$ to $T$ creates a cycle. This cycle crosses the cut $(V',V-V')$ through $e$ and at least one other edge $f\in T$.
+- Step 3: Since $e$ is a minimum-weight crossing edge, $w(e)\le w(f)$. Thus $T'=T-f+e$ is a spanning tree with $w(T')\le w(T)$, so equality holds and $T'$ is an MST containing $e$.
 
 Thus, there is a minimum spanning tree that contains the edge $e$.
 
@@ -90,16 +90,16 @@ Describe an $O(|E|)$-time algorithm that finds an arbitrary path between two nod
 
 #### Algorithm
 
-1. **Initialization:** Initialize a stack (or queue) and mark all vertices as unvisited.
+1. **Initialization:** Initialize a stack (or queue), mark all vertices as unvisited, and initialize a predecessor array `parent`.
 2. **Depth-First Search (DFS):**
    - Push the starting vertex $u$ onto the stack and mark it as visited.
    - While the stack is not empty:
      - Pop a vertex $w$ from the stack.
-     - If $w = v$, return the path from $u$ to $v$.
-     - For each adjacent vertex $x$ of $w$ that is not visited, push $x$ onto the stack and mark it as visited.
+     - If $w = v$, follow `parent` pointers from $v$ to $u$ and reverse them to return the path.
+     - For each adjacent unvisited vertex $x$ of $w$, set `parent[x] = w`, push $x$, and mark it as visited.
 3. **Termination:** If the search ends without finding $v$, return "No Path".
 
-This algorithm runs in $O(|E|)$ time because in the worst case, it visits each edge once.
+DFS takes $O(|V|+|E|)=O(|E|)$ because $G$ is connected, and path reconstruction takes $O(|V|)$.
 
 ### (4)
 
@@ -120,10 +120,10 @@ Prove the correctness of the algorithm described in question (4).
 
 #### Proof
 
-- **Step 1:** Adding edge $e$ to the MST $T$ creates exactly one cycle, as $T$ was a tree.
-- **Step 2:** In the cycle, removing the maximum weight edge ensures that the resulting graph is still a tree with a total weight less than or equal to the original MST.
-- **Step 3:** If $f \neq e$, then $f$ must be removed to maintain the minimality of the spanning tree, as $e$ introduces a smaller weight.
-- **Step 4:** This process guarantees that the resulting tree is the MST of $G'$, thus proving the algorithm's correctness.
+- **Step 1:** Adding $e$ to $T$ creates the unique cycle $C$, and $T'=T+e-f$ is a spanning tree. Since $f$ is a maximum-weight edge of $C$, $w(e)\le w(f)$ and $w(T')\le w(T)$.
+- **Step 2:** Let $S$ be any spanning tree of $G'$. If $e\notin S$, then $S$ is a spanning tree of $G$, so $w(S)\ge w(T)\ge w(T')$.
+- **Step 3:** If $e\in S$, removing $e$ defines a cut. The $u$--$v$ path $C-e$ in $T$ contains an edge $g$ crossing this cut. Then $S-e+g$ is a spanning tree of $G$, and $w(g)\le w(f)$.
+- **Step 4:** Hence $w(T)\le w(S)-w(e)+w(g)\le w(S)-w(e)+w(f)$, so $w(T')=w(T)+w(e)-w(f)\le w(S)$. Thus $T'$ is an MST of $G'$.
 
 ## **Knowledge**
 

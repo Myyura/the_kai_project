@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2023年8月実施 常微分方程式
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -102,12 +102,16 @@ $$
 t\frac{dv(t)}{dt} + (2-t^2b(t))v(t) = 0
 $$
 
-since $x(t)$ is a rational function, we can easily see that $u(t)$ is a rational function and $v(t)$ is a rational function.
-Let $v(t) = \frac{p(t)}{q(t)}$ ,
+If $x$ is rational, then so are $u=x/t$ and $v=u'$. Write $v=p/q$ with polynomials $p,q$, where $q\ne0$. Then
 
 $$
 t(p'(t)q(t) - p(t)q'(t)) + (2-t^2b(t))p(t)q(t) = 0
 $$
 
-if $p(t)q(t) \neq 0$ , the times of $(2-t^2b(t))p(t)q(t)$ is greater than the times of $t(p'(t)q(t) - p(t)q'(t))$ .
-Thus $p(t)q(t) \equiv 0$ , $v(t) = 0$ , $v(t) = C$ , $x(t) = Ct$ is the only ration function solution.
+If $p\ne0$, the first term has degree at most $\deg p+\deg q$, whereas the term $-t^2b(t)p(t)q(t)$ has degree
+
+$$
+\deg p+\deg q+\deg b+2,
+$$
+
+and cannot be cancelled. Hence $p=0$, so $v=u'=0$. Therefore $u=C$ and $x=Ct$, which is not linearly independent of $t$.

@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 線形計画
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -85,7 +85,7 @@ Let $a^{(1)} = [1,1,0,1,1]^\top, a^{(2)} = [0,1,1,1,0]^\top$
 Lagrangian:
 
 $$
-L(x,\mu) = c^\top x + \mu_1 (a^{(1)\top}-3) + \mu_2(a^{(2)\top} - 3)
+L(x,\mu) = c^\top x + \mu_1 (a^{(1)\top}x-3) + \mu_2(a^{(2)\top}x - 3)
 $$
 
 Lagrange dual function:
@@ -99,12 +99,12 @@ Dual problem:
 $$
 \begin{aligned}
 (D): &\text{Maximize} &-3(\mu_1 + \mu_2) \\
-&\text{subject to:} &c + \mu_1 a^{(1)} + \mu_2a^{(2)} \succeq \boldsymbol{1} \\
+&\text{subject to:} &c + \mu_1 a^{(1)} + \mu_2a^{(2)} \succeq \boldsymbol{0},\qquad \mu_1,\mu_2\in\mathbb R \\
 \end{aligned}
 $$
 
 ### (ii)
-The extreme point is $[0,3,0,0,0]$, $[0,0,0,3,0]$, $[0,0,0,0,3]$, $[3,0,3,0,0]$, and there is no extreme direction.
+The extreme points are $[0,3,0,0,0]$, $[0,0,0,3,0]$, $[0,0,3,0,3]$, and $[3,0,3,0,0]$, and there is no extreme direction.
 Hence the domain is bounded, thus $X(c) \neq \emptyset$
 
 ### (iii)
@@ -142,4 +142,10 @@ X(c)\cap \mathbb{Z}^5 \neq \emptyset
 $$
 
 ### (iv)
-Let $c^\top = [0,0,0,-1,-1]$, then $x_5^\top = [0,0,0,1.5,1.5]$ is also a solution.
+Let $c^\top = [0,0,0,-1,-1]$. Since $x_4+x_5=3-x_1-x_2\leq3$, the vector
+
+$$
+x=[0,0,1.5,1.5,1.5]^\top
+$$
+
+is a nonintegral optimal solution. Therefore, (A) is false.

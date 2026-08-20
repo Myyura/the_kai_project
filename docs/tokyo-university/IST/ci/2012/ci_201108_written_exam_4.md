@@ -13,7 +13,7 @@ tags:
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2011年8月実施 筆記試験 第4問
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -59,6 +59,22 @@ If necessary, use examples or figures.
 ## **Kai**
 
 #### Kalman filter
-Kalman filter is an optimal recursive algorithm giving a better estimate based on noisy sensored data and uncertain predicted data. It dynamically balances the uncertainty of the model against the noise of measurements, providing the optimal estimate in real-time systems.
+Kalman filter is an optimal recursive algorithm giving a better estimate based on noisy sensor data and uncertain predicted data. It dynamically balances the uncertainty of the model against the noise of measurements, providing the minimum mean-square-error estimate for a linear system with correct covariances and zero-mean Gaussian noise.
 
-At step $t$, Kalman filter uses the physical model to predict current state by state transition and control matrix & vector, getting a predicted current state; and uses the covariance at $t-1$ step to predict the current covariance matrix. Then, it updates (posterior estimates) the state and the covariance by computed Kalman gain.
+At step $t$, Kalman filter uses the physical model to predict the current state by the state-transition and control matrices and vectors, getting a predicted current state; and uses the covariance at step $t-1$ to predict the current covariance matrix. Then it updates the state and covariance by the computed Kalman gain. Specifically, for $x_t=Fx_{t-1}+Bu_t+w_t$ and $z_t=Hx_t+v_t$, predict
+$\hat x_t^-=F\hat x_{t-1}+Bu_t$ and $P_t^-=FP_{t-1}F^T+Q$. Then compute
+$K_t=P_t^-H^T(HP_t^-H^T+R)^{-1}$ and update
+$\hat x_t=\hat x_t^-+K_t(z_t-H\hat x_t^-)$ and $P_t=(I-K_tH)P_t^-$.
+
+#### Monte Carlo method
+
+For independent samples $X_1,\ldots,X_N\sim p$, estimate $E_p[f(X)]$ by
+$\frac1N\sum_{i=1}^N f(X_i)$. The estimator converges by the law of large numbers, and its standard error is $O(N^{-1/2})$. This also estimates integrals by sampling from a suitable distribution.
+
+#### Learning method of neural networks
+
+For supervised classification, compute predictions by a forward pass, evaluate a loss such as cross-entropy, obtain all parameter gradients by backpropagation, and update the parameters by stochastic gradient descent. Repeat over training samples until a validation or convergence criterion is met.
+
+#### Pipeline hazards
+
+A data hazard occurs, for example, when `ADD R1,...` is immediately followed by an instruction reading `R1`; forwarding or a stall resolves it. A control hazard occurs after a conditional branch because the next program counter is unknown; prediction and, on a wrong prediction, pipeline flushing resolve it.

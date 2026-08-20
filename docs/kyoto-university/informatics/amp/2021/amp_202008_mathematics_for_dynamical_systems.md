@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2020年8月実施 力学系数学
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -86,94 +86,89 @@ $$
    $\lim_{t\to\pm\infty}\psi(t)=0$ 的解
    $\boldsymbol y=\psi(t)$。
 2. 假设存在 $C^1$ 函数 $u:\mathbb R^n\to\mathbb R^n$ 满足
+
    $$
    Du(\boldsymbol x)f(\boldsymbol x)
    -Df(\boldsymbol x)u(\boldsymbol x)=0.
    $$
+
    若 $f(\phi(0))$ 与 $u(\phi(0))$ 线性无关，求变分方程 (2) 的两个线性无关解。
 3. 假设存在 $n-1$ 个 $C^1$ 函数
    $v_j:\mathbb R^n\to\mathbb R^n$ 满足
+
    $$
    Dv_j(\boldsymbol x)f(\boldsymbol x)
    -Df(\boldsymbol x)v_j(\boldsymbol x)=0
    \quad(j=1,\ldots,n-1),
    $$
+
    且 $f(\phi(0)),v_1(\phi(0)),\ldots,v_{n-1}(\phi(0))$ 线性无关。求 (2) 的一般解。
 
 ## **Kai**
 ### (i)
-Since $\phi (t)$ is a solution, we have
+Since $\phi(t)$ is a solution, we have
 
 $$
-\frac{d \phi(t)}{dt} = f(\phi(t))
+\frac{d\phi(t)}{dt}=f(\phi(t)).
 $$
 
-From $\lim_{t\rightarrow +\infty}\phi(t) = a_+$ and continuity, we have
+From $\lim_{t\to+\infty}\phi(t)=a_+$ and continuity, we have
 
 $$
-\lim_{t \rightarrow +\infty} \frac{d\phi(t)}{dt} = f(a_+)
+\lim_{t\to+\infty}\frac{d\phi(t)}{dt}=f(a_+).
 $$
 
-suppose that
+If $L=f(a_+)\ne0$, put $q=L/\lVert L\rVert$. For all sufficiently large $t$,
 
 $$
-f(a_+) > 0
+q^\top\phi'(t)>\frac{\lVert L\rVert}{2}.
 $$
 
-then we have
-
-$$
-\lim_{t \rightarrow \infty} \frac{d\phi(t)}{dt} > 0 \Rightarrow \lim_{t\rightarrow \infty} \phi(t) = +\infty
-$$
-
-which is conflict with
-
-$$
-\lim_{t\rightarrow \infty} \phi(t) = a_+
-$$
-
-and therefore $f(a_+) = 0$.
-Thus $\phi(t) = a_+$ is a constant solution. Similarly, $\phi(t) = a_{-}$ is a constant solution,too.
+Integrating this inequality contradicts the convergence of $q^\top\phi(t)$. Hence $f(a_+)=0$, so $x=a_+$ is a constant solution. The same argument at $-\infty$ gives $f(a_-)=0$, so $x=a_-$ is also a constant solution.
 
 Notice that
 
 $$
-\frac{df(\phi(t))}{dt} = Df(\phi(t))\frac{d\phi(t)}{dt}, f(\phi(t)) = \frac{d\phi(t)}{dt}
+\frac{d}{dt}f(\phi(t))
+=Df(\phi(t))\frac{d\phi(t)}{dt}.
 $$
 
-hence
+Set
 
 $$
-\frac{d\frac{d\phi(t)}{dt}}{dt} = Df(\phi(t))\frac{d\phi(t)}{dt}, \psi(t) = \frac{d\phi(t)}{dt} = f(\phi(t))
+\psi(t)=\phi'(t)=f(\phi(t)).
 $$
 
-and we konw
+Then
 
 $$
-\lim_{t\rightarrow \infty} \psi(t) = f(a_+) = 0
+\psi'(t)=Df(\phi(t))\psi(t),\qquad
+\lim_{t\to\pm\infty}\psi(t)=f(a_\pm)=0.
 $$
 
-since $f \in C^1$, $\phi(t)$ is bounded, then $\psi(t)$ is bounded
+Since $\phi(\mathbb R)$ is bounded, its closure is compact; continuity of $f$ therefore implies that $\psi(t)=f(\phi(t))$ is bounded on $\mathbb R$. Since $\phi$ is nonconstant, $\psi$ is not identically zero.
 
 
 ### (ii)
-$f(\phi(t))$ is a solution, then
+The two solutions are
 
 $$
-\frac{v(\phi(t))}{dt} = Dv(\phi(t))\frac{d\phi(t)}{dt} = Dv(x)f(x) = Df(x)v(x) = Df(\phi(t))v(\phi(t))
+y_1(t)=f(\phi(t)),\qquad y_2(t)=u(\phi(t)).
 $$
 
-and we see that $v(\phi(t))$ is a solution to (2) and we have
+Indeed,
 
 $$
-v(\phi(t)) = v(\phi(0)) + \int Df(\phi(t))v(\phi(t)) dt
+y_1'=Df(\phi)y_1,\qquad
+y_2'=Du(\phi)f(\phi)=Df(\phi)u(\phi)=Df(\phi)y_2.
 $$
 
-$$
-f(\phi(t)) = f(\phi(0)) + \int Df(\phi(t))v(\phi(t)) dt
-$$
-
-thus, $v(\phi(0))$, $f(\phi(0))$ are independent $\Rightarrow$ $v(\phi(t))$, $f(\phi(t))$ are independent.
+They are linearly independent because their values at $t=0$ are linearly independent.
 
 ### (iii)
-Similar to $\boldsymbol{(\text{ii})}$, omitted
+By the same calculation, $f(\phi(t))$ and $v_j(\phi(t))$ $(j=1,\ldots,n-1)$ are solutions. Their values at $t=0$ form a basis of $\mathbb R^n$, hence the general solution is
+
+$$
+y(t)=c_0f(\phi(t))+\sum_{j=1}^{n-1}c_jv_j(\phi(t)),
+\qquad c_0,c_1,\ldots,c_{n-1}\in\mathbb R.
+$$

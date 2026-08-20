@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2015年度 専門 第5問
 
 ## **Author**
-[diohabara](https://github.com/diohabara/open_inshi)
+[diohabara](https://github.com/diohabara/open_inshi), 祭音Myyura
 
 ## **Description**
 以下のような状態遷移図で示される二元単純マルコフ情報源を考える。
@@ -78,7 +78,7 @@ $$
 $$
 
 ### (3)
-長さ $k$ のランの場合、最初の $01$ を固定してその後 $l − 1$ 個のランが連続して現れ、その後 $0$ が出る確率を考えればよい。
+長さ $k$ のランの場合、最初の $01$ を固定してその後 $k-1$ 個の $1$ が連続して現れ、その後 $0$ が出る確率を考えればよい。
 
 この確率は $0.8^{k−1} \cdot 0.2$。よって、求める確率はそれぞれ $0.2、0.16、0.2 \cdot 0.8^{k−1}$ である。
 
@@ -88,7 +88,7 @@ $$
 $$
 \begin{aligned}
 x &= 0.2\sum_{k=1}^{\infty}k \cdot 0.8^{k-1} \\
-0.8x &= 0.2\sum_{k=1}^{\infty} \cdot 0.8^k \\
+0.8x &= 0.2\sum_{k=1}^{\infty}k \cdot 0.8^k \\
 &= 0.2\sum_{l=2}^{\infty}(l - 1)\cdot 0.8^{l-1} \\
 \end{aligned}
 $$
@@ -98,7 +98,7 @@ $$
 $$
 \begin{aligned}
 0.2x &= 0.2 + 0.2\sum_{k=2}^{\infty}0.8^{k-1} \\
-&= 0.2\sum_{k=1}^{\infty}0.8^k = \frac{0.2}{1 - 0.8} = 1
+&= 0.2\sum_{k=1}^{\infty}0.8^{k-1} = \frac{0.2}{1 - 0.8} = 1
 \end{aligned}
 $$
 

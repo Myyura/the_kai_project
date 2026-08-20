@@ -9,7 +9,7 @@ tags:
 # 大阪大学 情報科学研究科 情報数理学専攻 2019年8月実施 情報数理学 数理基礎
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -19,19 +19,35 @@ tags:
 
 1. 第 1 题题干与解答均缺失。
 2. 二维随机变量 $(X,Y)$ 的联合密度在 $x>0,y>0$ 上为
-   $$f(x,y)=c\,e^{-2(x+2y)},$$
+
+   $$
+   f(x,y)=c\,e^{-2(x+2y)},
+   $$
+
    在其他区域为 $0$。
    1. 由归一化条件求 $c$；
    2. 求边缘密度 $f_X,f_Y$，并判断 $X,Y$ 是否独立；
    3. 求事件
-      $$X\ge\frac12\quad\text{或}\quad Y\ge\frac12$$
+
+      $$
+      X\ge\frac12\quad\text{或}\quad Y\ge\frac12
+      $$
+
       的概率，并给出百分比近似。
 3. 观测值满足二次回归模型
-   $$y_k=ax_k^2+bx_k+c+\varepsilon_k,\qquad k=1,\ldots,N,$$
+
+   $$
+   y_k=ax_k^2+bx_k+c+\varepsilon_k,\qquad k=1,\ldots,N,
+   $$
+
    其中误差 $\varepsilon_k$ 相互独立且服从 $N(0,\sigma^2)$。
    1. 写出给定数据时参数 $a,b,c$ 的似然函数；
    2. 令
-      $$J=\sum_{k=1}^N\left[y_k-(ax_k^2+bx_k+c)\right]^2,$$
+
+      $$
+      J=\sum_{k=1}^N\left[y_k-(ax_k^2+bx_k+c)\right]^2,
+      $$
+
       证明使 $J$ 最小的 $a,b,c$ 同时是最大似然估计。
 
 ## **Kai**
@@ -70,12 +86,12 @@ $X,Y$ のそれぞれの周辺確率密度関数を $f_X(x), f_Y(y)$ とする�
 $$
 \begin{aligned}
 f_X(x)
-&= \int_0^\infty e^{-2(x+2y)} dy
+&= \int_0^\infty 8e^{-2(x+2y)} dy
 = 2 e^{-2x}
 \ \ \ \ (x \gt 0)
 \\
 f_Y(y)
-&= \int_0^\infty e^{-2(x+2y)} dx
+&= \int_0^\infty 8e^{-2(x+2y)} dx
 = 4 e^{-4y}
 \ \ \ \ (y \gt 0)
 \end{aligned}
@@ -114,7 +130,7 @@ P \left( X \lt \frac{1}{2} \text{ and } Y \lt \frac{1}{2} \right)
 e^{-1} + e^{-2} - e^{-3}
 \\
 &\approx
-0.4534244
+0.4534277
 \end{aligned}
 $$
 

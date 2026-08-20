@@ -10,7 +10,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2016年8月実施 専門科目 確率統計
 
 ## **Author**
-[uogxtc](https://zhuanlan.zhihu.com/p/697551899)
+[uogxtc](https://zhuanlan.zhihu.com/p/697551899), 祭音Myyura
 
 ## **Description**
 ### 問題1
@@ -122,6 +122,7 @@ $AB$ 間の距離を $R$ としたとき、$R^2$ の期待値を求めよ。
 (Readers may refer to Weibull distribution.)
 
 #### (1)
+
 $$
 \begin{aligned}
 \mathbb{E}[X]&=\int_0^\infty xf(x)dx\\
@@ -151,7 +152,7 @@ $$
 The likelihood function is
 
 $$
-L(\beta)=\prod_{i=1}^n\frac{\alpha_0X_i^{\alpha_0-1}}{\beta^{\alpha_0}}e^{-\left(\frac{x}{\beta}\right)^{\alpha_0}},
+L(\beta)=\prod_{i=1}^n\frac{\alpha_0X_i^{\alpha_0-1}}{\beta^{\alpha_0}}e^{-\left(\frac{X_i}{\beta}\right)^{\alpha_0}},
 $$
 
 from which we know that the log-likelihood function is
@@ -206,37 +207,39 @@ $$
 \mathbb{E}[Z]&=\int_0^bxf_Z(x)dx\\
 &=\int_0^b\frac nbx\left(1-\frac xb\right)^{n-1}dx\\
 &(\text{let }y=1-\frac xb)\\
-&=\int_0^1\frac nb\cdot(b-by)y^{n-1}(-b)dy\\
+&=\int_1^0\frac nb\cdot(b-by)y^{n-1}(-b)dy\\
 &=\frac b{n+1}.
 \end{aligned}
 $$
 
 ### 問題3
 #### (1)
-Suppose that $A$ = $(r_A, \theta _A)$ and $B$ = $(r_B,\theta_B)$,  where $r_A,r_B \sim \text{Unif}(0,a)$ and $\theta_A,\theta_B \sim \text{Unif} ( 0, 2\pi ).$ 
-
-Then
+Let $O$ be the center of $C$. For a point uniformly distributed on the disk, the radial density is $2r/a^2$, so
 
 $$
-R^2=r_A^2+r_B^2-2r_Ar_B\cos(\theta_A-\theta_B),
+\mathbb E[|OA|^2]=\int_0^a r^2\frac{2r}{a^2}\,dr=\frac{a^2}{2},
+\qquad \mathbb E[\overrightarrow{OA}]=\boldsymbol 0.
 $$
 
+Independence gives
+
 $$
-\begin{aligned}
-\mathbb{E}[R^{2}]&=\frac{1}{2a^{2}\pi}\int_{0}^{a}\int_{0}^{a}\int_{0}^{2\pi}(r_{A}^{2}+r_{B}^{2}-2r_{A}r_{B}\cos\theta)\ d\theta \cdot r_{A}dr_{A}\cdot r_{B}dr_{B}\\
-&=a^{4}/4.
-\end{aligned}
+\mathbb E[R^2]
+=\mathbb E[|OA|^2]+\mathbb E[|OB|^2]
+-2\mathbb E[\overrightarrow{OA}]\cdot\mathbb E[\overrightarrow{OB}]
+=\boxed{a^2}.
 $$
 
 #### (2)
 The probability is
 
 $$
-\frac{1}{\pi a^2}\int_0^a2\pi r\cdot \frac{(a-r)^2}{a^2}dr.
+\frac{1}{\pi a^2}\int_0^a2\pi r\cdot \frac{(a-r)^2}{a^2}dr
+=\boxed{\frac16}.
 $$
 
 Here $\frac{2\pi r}{\pi a^2}$ is the probability that $A$ lies in a circle centered with $C$ of radius $r$.
 
-Suppose that the distance between $A$ and the center of the circle is $r$.
-Then $B$ needs to lies in a circle whose center is $A$ and radius is $(a-r)^2$.
-The probability of this event is $\frac{(a-r)^{2}}{a^{2}}$ since the $A,B$ are uniformly distributed on the circle.
+Suppose that the distance between $A$ and the center of the disk is $r$.
+Then $B$ must lie in the disk centered at $A$ with radius $a-r$.
+The conditional probability is therefore $\frac{(a-r)^{2}}{a^{2}}$.

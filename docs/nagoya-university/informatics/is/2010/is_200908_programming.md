@@ -98,7 +98,11 @@ int main() {
 - i=4, j=4, p=4
 
 ### (4)
-b\[i-1\] <= b\[i\] <= ... <= k <= ... <= b\[j\]
+With sentinels $b[-1]=-\infty$ and $b[n]=+\infty$, the loop invariant is
+
+$$
+0\le i\le j+1\le n,\qquad b[i-1]\le k<b[j+1].
+$$
 
 ### (5)
 The operation b\[j\] that accesses j-th element of array b may access out of bound memory.

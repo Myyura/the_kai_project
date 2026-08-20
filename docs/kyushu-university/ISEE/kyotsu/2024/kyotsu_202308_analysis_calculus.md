@@ -9,7 +9,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2023年8月実施 解析学・微積分
 
 ## **Author**
-Casablanca, [Miyake](https://miyake.github.io/exams/index.html)
+Casablanca, [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 (1) 積分
@@ -39,19 +39,25 @@ $$
 ### 题目描述
 
 1. 计算广义积分
+
    $$
    I=\int_0^\infty x^5e^{-x^4}\,dx.
    $$
+
    可以不加证明地使用 $\int_{-\infty}^\infty e^{-x^2}\,dx=\sqrt\pi$。
 2. 求微分方程
+
    $$
    \frac{dy}{dx}+y=x\sinh x
    $$
+
    的通解。
 3. 对复函数
+
    $$
    f(z)=\frac1{z^4+1},
    $$
+
    求全部极点；再对上图所示、半径 $R>1$ 的半圆闭路 $C$，计算 $\oint_Cf(z)\,dz$。
 
 ## **Kai** - By Casablanca
@@ -99,7 +105,7 @@ and these are the poles
 
 $$
 \begin{aligned}
-\oint_Cf(z)dz &= 2\pi i \text{Res}[f(z),\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i] + 2\pi i \text{Res}[f(z),\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i] \\
+\oint_Cf(z)dz &= 2\pi i \text{Res}[f(z),\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i] + 2\pi i \text{Res}[f(z),-\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i] \\
 &= \frac{\sqrt{2}}{2}\pi
 \end{aligned}
 $$
@@ -140,7 +146,7 @@ $$
   \left[ y \exp \left( - y^2 \right) \right]_0^\infty
   + \frac{1}{4} \int_0^\infty \exp \left( - y^2 \right) dy
   \\
-  &= \frac{\pi}{8}
+  &= \frac{\sqrt{\pi}}{8}
   .
   & ( \because \text{ 式 (A) } )
   \end{align}
@@ -229,10 +235,10 @@ $$
 $$
   \begin{align}
   z
-  &= e^{\pi/4}, e^{3\pi/4}, e^{5\pi/4}, e^{7\pi/4}
+  &= e^{i\pi/4}, e^{3i\pi/4}, e^{5i\pi/4}, e^{7i\pi/4}
   \\
-  &= \frac{1+i}{\sqrt{2}}, \frac{1-i}{\sqrt{2}},
-  \frac{-1-i}{\sqrt{2}}, \frac{-1+i}{\sqrt{2}}
+  &= \frac{1+i}{\sqrt{2}}, \frac{-1+i}{\sqrt{2}},
+  \frac{-1-i}{\sqrt{2}}, \frac{1-i}{\sqrt{2}}
   \end{align}
 $$
 
@@ -243,13 +249,13 @@ $$
 
 $$
   \begin{align}
-  z_0 &= e^{\pi/4} = \frac{1+i}{\sqrt{2}},
+  z_0 &= e^{i\pi/4} = \frac{1+i}{\sqrt{2}},
   \\
-  z_1 &= e^{3\pi/4} = \frac{-1+i}{\sqrt{2}},
+  z_1 &= e^{3i\pi/4} = \frac{-1+i}{\sqrt{2}},
   \\
-  z_2 &= e^{5\pi/4} = \frac{-1-i}{\sqrt{2}},
+  z_2 &= e^{5i\pi/4} = \frac{-1-i}{\sqrt{2}},
   \\
-  z_3 &= e^{7\pi/4} = \frac{1-i}{\sqrt{2}}
+  z_3 &= e^{7i\pi/4} = \frac{1-i}{\sqrt{2}}
   \end{align}
 $$
 

@@ -15,7 +15,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2015年8月実施 筆記試験 第4問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -63,3 +63,26 @@ If necessary, use examples or figures.
 Synchronous circuits and asynchronous circuits are both sequential circuits. In synchronous circuits, there is a unified global CLK signal, usually a DFF as the basic unit, its sequential analysis would be easy (setup time and hold time check), and it is relatively more stable.
 
 In asynchronous circuits, usually a latch works as the basic unit, and there is no global clocks, the operations are triggered by events such as input signal changes. The sequential analysis is difficult, and the circuit is relatively more unstable.
+
+#### Backpropagation (error backpropagation)
+For a differentiable feed-forward network, first compute all activations and the loss by a forward pass. Starting at the output, propagate the error backward by the chain rule:
+
+$$
+\delta^L=\nabla_{a^L}\mathcal L\odot\sigma'(z^L),\qquad
+\delta^l=(W^{l+1})^T\delta^{l+1}\odot\sigma'(z^l).
+$$
+
+Then $\partial\mathcal L/\partial W^l=\delta^l(a^{l-1})^T$ and $\partial\mathcal L/\partial b^l=\delta^l$; an optimizer updates the parameters in the negative-gradient direction.
+
+#### Autocorrelation function and power spectrum
+For a wide-sense stationary signal $x(t)$, its autocorrelation is
+$R_x(\tau)=\mathbb E[x(t)x^*(t+\tau)]$. The power spectral density is its Fourier transform,
+
+$$
+S_x(f)=\int_{-\infty}^{\infty}R_x(\tau)e^{-j2\pi f\tau}\,d\tau,
+$$
+
+by the Wiener--Khinchin theorem. Conversely, $R_x$ is the inverse Fourier transform of $S_x$, and the average power is $R_x(0)=\int S_x(f)\,df$.
+
+#### Example of a network security protocol: TLS
+In a TLS handshake, the server proves its identity with a certificate chain and a signature. An ephemeral Diffie--Hellman exchange establishes a shared secret, from which both parties derive traffic keys. Subsequent records use authenticated encryption to provide confidentiality and integrity; sequence numbers prevent reordering and replay within the connection. Client authentication is optional.

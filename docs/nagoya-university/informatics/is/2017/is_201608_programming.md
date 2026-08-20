@@ -117,7 +117,7 @@ Output:
 ```
 
 ### (5)
-Output (Line 18):
+Line 18 outputs the following values in execution order:
 
 ```text
 2, 5, 0, 0, 0, 0
@@ -127,8 +127,10 @@ Output (Line 18):
 1, 2, 3, 4, 5, 6
 ```
 
+Thus the requested first output is `2, 5, 0, 0, 0, 0`.
+
 ### (6)
-Output (Line 22)：
+Line 22 outputs the following values in execution order:
 
 ```text
 3, 2, 5, 4, 6, 1
@@ -137,3 +139,5 @@ Output (Line 22)：
 2, 3, 5, 1, 4, 6
 1, 2, 3, 4, 5, 6
 ```
+
+Thus the requested third output is `2, 3, 5, 4, 1, 6`.

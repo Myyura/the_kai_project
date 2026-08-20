@@ -10,7 +10,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 力学系数学
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -77,9 +77,11 @@ $$
 1. 求满足 $\Phi(0)=I$ 的方程 (1) 的基本矩阵 $\Phi(t)$；基本矩阵指可逆且满足
    $\dfrac d{dt}\Phi(t)=A(t)\Phi(t)$ 的二阶方阵。
 2. 当 $t\ne0$ 时，对
+
    $$
    \Psi(t)=\begin{pmatrix}F(t)&0\\G(t)&H(t)\end{pmatrix}
    $$
+
    作对角化，并求矩阵指数 $\exp\Psi(t)$。
 3. 若存在常数 $k\in\mathbb R$，使所有 $t\in\mathbb R$ 上
    $G(t)=k(F(t)-H(t))$，证明第 2 问所得 $\exp\Psi(t)$ 是方程 (1) 的基本矩阵。
@@ -98,7 +100,10 @@ x_3' & x_4'
 f(t) & 0 \\
 g(t) & h(t)
 \end{pmatrix}
-\boldsymbol{x}
+\begin{pmatrix}
+x_1 & x_2 \\
+x_3 & x_4
+\end{pmatrix}
 $$
 
 then we have
@@ -118,7 +123,7 @@ $$
 \begin{aligned}
 x_1 &= e^{F(t)} \\
 x_2 &= 0 \\
-x_3 &= e^{H(t)}\int \frac{g(t)e^{H(t)}}{e^{F(t)}}dt \\
+x_3 &= e^{H(t)}\int_0^t g(s)e^{F(s)-H(s)}\,ds \\
 x_4 &= e^{H(t)}
 \end{aligned}
 $$
@@ -149,7 +154,7 @@ $$
 e^{\Psi(t)} = P(t)e^{\Lambda(t)}P^{-1}(t) = 
 \begin{pmatrix}
 e^{F(t)} & 0 \\
-\frac{G(t)(e^{F(t)} - e^{H(t)})}{H(t)-F(t)} & e^{H(t)}
+\frac{G(t)(e^{H(t)} - e^{F(t)})}{H(t)-F(t)} & e^{H(t)}
 \end{pmatrix}
 $$
 
@@ -159,7 +164,7 @@ $$
 e^{\Psi(t)} = 
 \begin{pmatrix}
 e^{F(t)} & 0 \\
-k(e^{H(t)} - e^{F(t)}) & e^{H(t)}
+k(e^{F(t)} - e^{H(t)}) & e^{H(t)}
 \end{pmatrix}
 $$
 
@@ -167,11 +172,11 @@ $$
 \frac{de^{\Psi (t)}}{dt} = 
 \begin{pmatrix}
 f(t)e^{F(t)} & 0 \\
-k(h(t)e^{H(t)} - f(t)e^{F(t)}) & h(t)e^{H(t)}
+k(f(t)e^{F(t)} - h(t)e^{H(t)}) & h(t)e^{H(t)}
 \end{pmatrix}
 $$
 
-and
+Since $g(t)=k(f(t)-h(t))$, direct multiplication gives
 
 $$
 A(t)e^{\Psi (t)} = \frac{de^{\Psi (t)}}{dt}
@@ -184,3 +189,17 @@ thus $e^{\Psi (t)}$ is a fundamental matrix.
 $$
 f(t) = t, h(t) = t-1, g(t) = t^2
 $$
+
+Here $F(t)=t^2/2$, $H(t)=t^2/2-t$, and $G(t)=t^3/3$, so the hypothesis $F(t)\ne H(t)$ for $t\ne0$ holds. At $t=1$, the lower-left entry of $e^{\Psi(t)}$ is
+
+$$
+e^{-1/2}\frac{e-1}{3},
+$$
+
+whereas the lower-left entry of the fundamental matrix in (i) is
+
+$$
+e^{-1/2}\int_0^1 s^2e^s\,ds=e^{-1/2}(e-2).
+$$
+
+They are unequal, so $e^{\Psi(t)}$ is not a fundamental matrix of (1).

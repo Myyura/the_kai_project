@@ -9,7 +9,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2020年8月実施 複素関数論
 
 ## **Author**
-Zero
+Zero, 祭音Myyura
 
 ## **Description**
 次の各問に答えよ。
@@ -41,16 +41,14 @@ $$
 ### (1)
 $z = 0$ でローラン展開し $\rightarrow$ $(z)^k$ の級数
 
-(i) $|z| < 2$
-
-$$
-\frac{1}{z - 2} = -\frac{1}{2} \cdot \frac{1}{1 - \frac{z}{2}} = -\frac{1}{2} \cdot \sum_{k = 0}^{\infty}(\frac{z}{2})^k
-$$
+(i) $0<|z| < 2$
 
 $$
 \begin{aligned}
-(\frac{1}{z - 2})^2 &= \frac{1}{2}\sum_{k = 0}^{\infty} \cdot \frac{z^{k - 1}}{2^k} \\
-\therefore f(z) &= \frac{1}{2}\sum_{k = 1}^{\infty} k \cdot \frac{z^{k - 2}}{2^k} \\
+\frac{1}{(z-2)^2}
+&=\frac14\frac{1}{(1-z/2)^2}
+=\frac14\sum_{k=0}^{\infty}(k+1)\left(\frac z2\right)^k,\\
+f(z)&=\frac{1}{4z}\sum_{k=0}^{\infty}(k+1)\left(\frac z2\right)^k\\
 &= \frac{1}{4z} + \frac{1}{4} + \frac{3}{16}z + \cdots
 \end{aligned}
 $$
@@ -59,16 +57,11 @@ $$
 
 $$
 \begin{aligned}
-\frac{1}{z - 2} &= \frac{1}{z} \cdot \frac{1}{1 - \frac{2}{z}} \\
-&= \frac{1}{z} \sum_{k = 0}^{\infty} (\frac{2}{z})^k
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-(\frac{1}{z - 2})^2 &= \sum_{k = 0}^{\infty} - (k + 1)\frac{2^k}{z^{k + 2}} \\
-\therefore f(z) &= \sum_{k = 0}^{\infty} - (k + 1)\frac{2^k}{z^{k + 3}} \\
-&= -\frac{1}{z^3} - \frac{4}{z^4} - \frac{12}{z^5} - \cdots
+\frac{1}{(z-2)^2}
+&=\frac1{z^2}\frac{1}{(1-2/z)^2}
+=\frac1{z^2}\sum_{k=0}^{\infty}(k+1)\left(\frac2z\right)^k,\\
+f(z)&=\frac1{z^3}\sum_{k=0}^{\infty}(k+1)\left(\frac2z\right)^k\\
+&= \frac{1}{z^3} + \frac{4}{z^4} + \frac{12}{z^5} + \cdots
 \end{aligned}
 $$
 
@@ -77,18 +70,12 @@ $z = -2$ でローラン展開し $\rightarrow$ $(z + 2)^k$ の級数
 
 $$
 \begin{aligned}
-\sin\omega &= \omega - \frac{1}{3_1^{1}}\omega^3 + \frac{1}{5_1^1}\omega^5 \cdots \\
-&= \sum_{k = 0}^{\infty}\frac{(-1)^k}{(2k + 1)_1^1}\omega^{2k + 1}
+u&=z+2,\\
+g(z)&=(u-2)\sin\frac1u\\
+&=(u-2)\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k+1)!}u^{-(2k+1)}\\
+&=1-\frac2u-\frac{1}{3!u^2}+\frac{2}{3!u^3}
++\frac{1}{5!u^4}-\cdots.
 \end{aligned}
 $$
 
-$0 < |\omega| < \infty$
-
-$$
-\begin{aligned}
-\sin(\frac{1}{z + 2}) &= \sum_{k = 0}^{\infty}\frac{(-1)^k}{(2k + 1)_1^1}(\frac{1}{z + 2})^{2k + 1} \\
-&= 1 - \frac{2}{z + 2} + (-\frac{1}{3_1^1})(\frac{1}{(z + 2)_1^1}) + \frac{2}{(z + 2)^2} + (\frac{2}{3_1^1})\frac{1}{(z + 2)^3} + \cdots
-\end{aligned}
-$$
-
-留数 $\rightarrow -2$
+収束領域は $0<|z+2|<\infty$ であり、留数は $-2$ である。

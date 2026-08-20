@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 プログラミング
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/totalhuang)
+[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/totalhuang), 祭音Myyura
 
 ## **Description**
 A text file contains integers from $0$ to $255$ which are separated by a single white-space character.
@@ -191,16 +191,17 @@ from locale import atoi
 WHITE = (255,255,255)
 
 def get_image_width(pxls, width_op):
-    width = 0
-    for w in width_op:
-        b_is_width = True
-        for i in range(w-1,len(pxls),w):
-            if pxls[i] != WHITE:
-                b_is_width = False
-        if b_is_width:
-            width = w
-            break
-    return width
+    n = len(pxls)
+    for w in range(1, n + 1):
+        if n % w != 0 or pxls[w - 1] != WHITE:
+            continue
+        if not all(pxls[i] == WHITE for i in range(w - 1, n, w)):
+            continue
+        if any(all(pxls[i] == WHITE for i in range(c, n, w))
+               for c in range(w - 1)):
+            continue
+        return w
+    return 0
 
 def update_width_options(pxls, width_op):
     if pxls[-1] == WHITE:
@@ -267,11 +268,19 @@ void solve() {
         }
     for (int i = 0; i < whites.size(); i++) {
         // 枚举第一行最右边的白色格子
+        int w = whites[i] + 1;
+        if (n % w != 0) continue;
         int flag = 1;
-        for (int j = whites[i]; j < n; j += whites[i] + 1)
+        for (int j = w - 1; j < n; j += w)
             flag &= is_white[j] == 1;
+        for (int c = 0; c < w - 1; c++) {
+            int all_white = 1;
+            for (int j = c; j < n; j += w)
+                all_white &= is_white[j] == 1;
+            if (all_white) flag = 0;
+        }
         if (flag) {
-            fout << whites[i] + 1 << "\n";
+            fout << w << "\n";
             break;
         }
     }
@@ -304,7 +313,7 @@ def main():
     for l in lines:
         ns = [atoi(x) for x in l.strip().split(' ')]
         for i in range(0,len(ns),3):
-            pxls.append((ns[i],ns[i+1],ns[i+2],i//3))
+            pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
     
     pxls_sr = sorted(pxls, key=lambda x: x[3], reverse=True)
     pxls_sr = sorted(pxls_sr, key=lambda x: x[0]*x[0]+x[1]*x[1]+x[2]*x[2])
@@ -382,7 +391,7 @@ def main():
     for l in lines:
         ns = [atoi(x) for x in l.strip().split(' ')]
         for i in range(0,len(ns),3):
-            pxls.append((ns[i],ns[i+1],ns[i+2],i//3))
+            pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
             
     pxls_sr = sorted(pxls, key=lambda x: x[3], reverse=True)
     pxls_sr = sorted(pxls_sr, key=lambda x: x[0]*x[0]+x[1]*x[1]+x[2]*x[2])
@@ -461,10 +470,10 @@ C++ solution:
 这一题就明显能看出来c++的优势了, 对于这种不涉及太多计算,
 主要是按照题意模拟的题用C++ 速度快很多,大概十几秒就跑出来结果,
 
-tomfluff的py代码有比较明显的bug，每个聚类的初始元素就求错了，但是它第四问的结果是对的，而且在迭代
-过程里，题意是只在每个聚类内寻找距离重心最近的点，而他的代码是遍历所有的点，而且在求重心过程里
-他没用floor函数，这也可能导致不同。还有楼上的py代码在对每个点找归属的类时忘记判断等距离情况，
-我调了半天才发现这个bug，在修改了上述bug后，用改进的py代码跑出来的结果跟我的c++结果相同。
+tomfluff 的 Python 原版有比较明显的 bug：每个聚类的初始元素实现曾有问题，但其第四问的结果正确；在迭代
+过程中，题意要求只在每个聚类内寻找距离重心最近的点，原版却遍历了所有点，而且在求重心时
+没有使用 floor 函数。原版在为每个点选择所属聚类时也没有处理等距离时选最大编号的规则。
+下方代码已在保留原结构的基础上局部修正上述问题；改进后的 Python 代码与本 C++ 代码结果相同。
 
 image2.txt得到的结果是:
 p(i=40): (98 98 98) , index 1639792
@@ -590,7 +599,7 @@ def find_cluster_index(p, clus_arr):
         if d < best_d:
             best_d = d
             best_c = i
-        elif d == best_d and clus_arr[i][3] > clus_arr[best_c][3]:  
+        elif d == best_d and clus_arr[i][3] > clus_arr[best_c][3]:
             best_c = i
 
     return best_c
@@ -636,7 +645,7 @@ def main():
     for l in lines:
         ns = [atoi(x) for x in l.strip().split(' ')]
         for i in range(0,len(ns),3):
-            pxls.append((ns[i],ns[i+1],ns[i+2],i//3))
+            pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
 
     repr = get_inital_representatives(pxls,k)
 
@@ -644,8 +653,9 @@ def main():
         cens = [(0,0,0) for _ in repr]
         cens_i = [list() for _ in repr]
         n_check = len(pxls)
+        repr_cluster = {p[3]: j for j, p in enumerate(repr)}
         for px in pxls:
-            c_i = find_cluster_index(px,repr)
+            c_i = repr_cluster.get(px[3], find_cluster_index(px,repr))
             cens_i[c_i].append(px[3])
         for i in range(len(cens)):
             cens[i] = (0, 0, 0)
@@ -667,6 +677,7 @@ if __name__ == "__main__":
 
 ```python
 from locale import atoi
+from math import floor
 
 
 def p_distance(p1,p2):
@@ -679,6 +690,8 @@ def find_cluster_index(p, clus_arr):
         d = p_distance(p,clus_arr[i])
         if d < best_d:
             best_d = d
+            best_c = i
+        elif d == best_d and clus_arr[i][3] > clus_arr[best_c][3]:
             best_c = i
     
     return best_c
@@ -695,12 +708,12 @@ def get_inital_representatives(pxls,k):
     
     return rps
 
-def find_next_representatives(pxls, cens):
+def find_next_representatives(pxls, cens, cens_i):
     repr = []
-    for c in cens:
+    for cluster, c in enumerate(cens):
         best_d = 255*3
         best_p = -1
-        for i in range(len(pxls)):
+        for i in cens_i[cluster]:
             d = p_distance(pxls[i],c)
             if d < best_d:
                 best_d = d
@@ -719,30 +732,32 @@ def main():
     iter_lm = 10
 
     lines = []
-    with open('2019-Summer/image1.txt', 'r') as f:
+    with open('2019-Summer/image2.txt', 'r') as f:
         lines = f.readlines()
     
     for l in lines:
         ns = [atoi(x) for x in l.strip().split(' ')]
         for i in range(0,len(ns),3):
-            pxls.append((ns[i],ns[i+1],ns[i+2],i//3))
+            pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
     
     repr = get_inital_representatives(pxls,k)
 
-    for i in range(iter_lm+1):
+    for i in range(iter_lm):
         cens = [(0,0,0) for _ in repr]
         cens_i = [list() for _ in repr]
         n_check = len(pxls)
+        repr_cluster = {p[3]: j for j, p in enumerate(repr)}
         for px in pxls:
-            c_i = find_cluster_index(px,repr)
+            c_i = repr_cluster.get(px[3], find_cluster_index(px,repr))
             cens_i[c_i].append(px[3])
         for i in range(len(cens)):
             for j in cens_i[i]:
-                cens[i] = (cens[i][0]+pxls[j][0]/len(cens_i[i]), cens[i][1]+pxls[j][1]/len(cens_i[i]), cens[i][2]+pxls[j][2]/len(cens_i[i]))
+                cens[i] = (cens[i][0]+pxls[j][0], cens[i][1]+pxls[j][1], cens[i][2]+pxls[j][2])
             n_check -= len(cens_i[i])
+            cens[i] = tuple(floor(x/len(cens_i[i])) for x in cens[i])
         assert n_check == 0
         # find new reps
-        repr = find_next_representatives(pxls, cens)
+        repr = find_next_representatives(pxls, cens, cens_i)
     for i in range(len(repr)):
         if i in [40,80,120]:
             print(f"p(i={i}): {repr[i]}")
@@ -752,7 +767,7 @@ if __name__ == "__main__":
 ```
 
 ### (6)
-这里应该是tomfluff的图片有问题，推测原来的 `image2.txt` 应该是一个正方形图片
+题面称图像为正方形，但所给 `image2.txt` 实际是矩形图像。
 #### FunTotal's solution
 
 C++ solution:
@@ -763,10 +778,10 @@ C++ solution:
 同样的一张图片，并把那些替代后的像素元组写入image.tif按照题中的格式。所以第五题的代码得
 写对，然后比较考察第六题的阅读理解，看懂怎么按照格式输出才使得图片能打得开。
 
-一个比较无语的地方是，题面里说图片是squre，但是发现不是一个完全平方数，参考了tomfluff的py代码后
-发现应该意思是矩形，然后根据第二问里面的白色像素的方法来判断长宽是1600 1250，然后直接这样来
-输出一下，打开图片发现确实是这样，再去考虑用第五题的聚类算法来压缩。实际测下来发现我的代码跑
-得飞快，而且目测效果比楼上的py代码更好(因为他第五题的代码就是有bug的)
+一个比较无语的地方是，题面里说图片是 square，但是发现像素数不是一个完全平方数，参考了 tomfluff 的 Python 代码后
+发现应该意思是矩形，然后根据第二问里面的白色像素的方法来判断长宽是1600 1025，然后直接这样来
+输出一下，打开图片发现确实是这样，再去考虑用第五题的聚类算法来压缩。实际测下来 C++ 代码运行很快；
+下方 Python 版本也已局部修正第五题的聚类、并列与取整问题。
 */
 #include <bits/stdc++.h>
 #define int long long
@@ -854,7 +869,21 @@ void solve() {
                 bel[it.id] = newrepre.id;
         }
     }
-    
+    // 用 p^(10) 再分簇，得到 C^(10)。
+    for (int i = 0; i < n; i++) {
+        if (is_repre[i]) {
+            bel[i] = i;
+            continue;
+        }
+        Node now{get<0>(vec[i]), get<1>(vec[i]), get<2>(vec[i]), 0, i};
+        int i_bel = 0;
+        for (int j = 1; j < k; j++)
+            if (dis(now, repre[j]) < dis(now, repre[i_bel]) ||
+                dis(now, repre[j]) == dis(now, repre[i_bel]) &&
+                    repre[j].id > repre[i_bel].id)
+                i_bel = j;
+        bel[i] = repre[i_bel].id;
+    }
 
     // 下面处理按照对应格式输出
     // 先求出图片的长宽，利用第二问的白色来判断
@@ -900,6 +929,7 @@ signed main() {
 ```python
 import numpy as np
 from locale import atoi
+from math import floor
 
 WHITE = (255,255,255)
 
@@ -913,6 +943,8 @@ def find_cluster_index(p, clus_arr):
         d = p_distance(p,clus_arr[i])
         if d < best_d:
             best_d = d
+            best_c = i
+        elif d == best_d and clus_arr[i][3] > clus_arr[best_c][3]:
             best_c = i
     
     return best_c
@@ -929,12 +961,12 @@ def get_inital_representatives(pxls,k):
     
     return rps
 
-def find_next_representatives(pxls, cens):
+def find_next_representatives(pxls, cens, cens_i):
     repr = []
-    for c in cens:
+    for cluster, c in enumerate(cens):
         best_d = 255*3
         best_p = -1
-        for i in range(len(pxls)):
+        for i in cens_i[cluster]:
             d = p_distance(pxls[i],c)
             if d < best_d:
                 best_d = d
@@ -946,16 +978,17 @@ def find_next_representatives(pxls, cens):
     return repr
 
 def get_image_width(pxls, width_op):
-    width = 0
-    for w in width_op:
-        b_is_width = True
-        for i in range(w-1,len(pxls),w):
-            if pxls[i][0:3] != WHITE:
-                b_is_width = False
-        if b_is_width:
-            width = w
-            break
-    return width
+    n = len(pxls)
+    for w in range(1, n + 1):
+        if n % w != 0 or pxls[w - 1][0:3] != WHITE:
+            continue
+        if not all(pxls[i][0:3] == WHITE for i in range(w - 1, n, w)):
+            continue
+        if any(all(pxls[i][0:3] == WHITE for i in range(c, n, w))
+               for c in range(w - 1)):
+            continue
+        return w
+    return 0
 
 def update_width_options(px, l, width_op):
     if px == WHITE:
@@ -998,28 +1031,28 @@ def save_tif_image(fname, img, w, h):
         0,0,0,8,0,8,0,8], dtype='uint8')
     with open(fname, 'wb') as f:
         for b in hd_bytes:
-            f.write(b)
+            f.write(bytes([int(b)]))
         
         for i in range(img.shape[0]):
             for j in range(img.shape[1]):
                 for k in range(img.shape[2]):
-                    f.write(img[i,j,k])
+                    f.write(bytes([int(img[i,j,k])]))
 
 # Can make this whole faster by using numpy, should consider upgrading
 def main():
     pxls = []
-    k = 16
+    k = 32
     iter_lm = 10
     width_op = []
 
     lines = []
-    with open('2019-Summer/image3.txt', 'r') as f:
+    with open('2019-Summer/image2.txt', 'r') as f:
         lines = f.readlines()
     LOGIT("Reading file...")
     for l in lines:
         ns = [atoi(x) for x in l.strip().split(' ')]
         for i in range(0,len(ns),3):
-            pxls.append((ns[i],ns[i+1],ns[i+2],i//3))
+            pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
             update_width_options(pxls[-1][0:3],len(pxls), width_op)
     
     width = get_image_width(pxls, width_op)
@@ -1028,26 +1061,30 @@ def main():
     repr = get_inital_representatives(pxls,k)
     LOGIT(f"Searching for representations...")
 
-    for i in range(iter_lm+1):
+    for i in range(iter_lm):
         cens = [(0,0,0) for _ in repr]
         cens_i = [list() for _ in repr]
         n_check = len(pxls)
+        repr_cluster = {p[3]: j for j, p in enumerate(repr)}
         for px in pxls:
-            c_i = find_cluster_index(px,repr)
+            c_i = repr_cluster.get(px[3], find_cluster_index(px,repr))
             cens_i[c_i].append(px[3])
         for i in range(len(cens)):
             for j in cens_i[i]:
-                cens[i] = (cens[i][0]+pxls[j][0]/len(cens_i[i]), cens[i][1]+pxls[j][1]/len(cens_i[i]), cens[i][2]+pxls[j][2]/len(cens_i[i]))
+                cens[i] = (cens[i][0]+pxls[j][0], cens[i][1]+pxls[j][1], cens[i][2]+pxls[j][2])
             n_check -= len(cens_i[i])
+            cens[i] = tuple(floor(x/len(cens_i[i])) for x in cens[i])
         assert n_check == 0
         # find new reps
-        repr = find_next_representatives(pxls, cens)
+        repr = find_next_representatives(pxls, cens, cens_i)
     LOGIT(f"Calculated representation for k={k}")
 
     new_img = np.full((len(pxls)//width,width,3),dtype='uint8',fill_value=0)
+    repr_cluster = {p[3]: j for j, p in enumerate(repr)}
     for i in range(new_img.shape[0]):
         for j in range(new_img.shape[1]):
-            p_i = find_cluster_index(pxls[i*width+j],repr)
+            px = pxls[i*width+j]
+            p_i = repr_cluster.get(px[3], find_cluster_index(px,repr))
             for k in range(new_img.shape[2]):
                 new_img[i,j,k] = repr[p_i][k]
 
@@ -1059,9 +1096,9 @@ if __name__ == "__main__":
 ```
 
 ### itsuitsuki's solution
-由于我写了utils，横跨了几个题目，所以我放在这里一起展示。Python始终还是无法在这一年的题上超越C++，我使用了numpy，但是numpy笨拙在无法实现题意里的"largest index"的要求上。所以真正考试只能在这里拼运气看看是不是largest index.
+由于我写了utils，横跨了几个题目，所以我放在这里一起展示。Python始终还是无法在这一年的题上超越C++；使用 numpy 时，"largest index" 的并列规则需要显式处理。下方代码已在距离相同时按原编号最大者选择。
 
-utilsを書いていくつかの問題にも跨っているのでこちらにまとめて掲載します。あくまでPythonでは当年度の問題でC++超えられず、numpy使っていてもlargest indexの要求を満たすのは激ムズなので、個人的にはつたないです。C++できないので今年はC++使わないと行けなくなれば死にます。
+utilsを書いていくつかの問題にも跨っているのでこちらにまとめて掲載します。Pythonでは当年度の問題でC++を超えるのは難しく、numpyでも largest index の条件は明示的に処理する必要があります。下のコードでは同距離の場合に元の添字が最大のものを選びます。
 
 取り敢えず、考察されたアルゴがKMeansに使いため、この分をシェアします。
 #### (5)
@@ -1078,23 +1115,30 @@ class KMeans:
         self.pidx = np.array(self.pidx) # their indices # (128,)
         self.t = 0 # the cnt
         self.array = np.array(array) # (N,3)
-        self.categories = np.ones(len(array)) * -1 # (N,)
+        self.categories = np.full(len(array), -1, dtype=int) # (N,)
         
     def cluster(self):
         # for every pt in self.array
         # get the l1 distances of them to points
         distance = (np.expand_dims(self.array, 1) - np.expand_dims(self.p, 0)).__abs__().sum(-1) # (N, 128, 3) -> (N, 128)
         # print(distance.nbytes / 1048576, "MB")   # VERY BIG
-        self.categories = distance.argmin(1) # (N,) # FIXME: SHOULD DO SOMETHING WITH self.pidx (FIND LARGEST INDEX) TO BREAK THE TIE
+        min_distance = distance.min(1, keepdims=True)
+        # Among equally near representatives, choose the one with largest original index.
+        self.categories = np.where(distance == min_distance, self.pidx, -1).argmax(1)
+        # Each representative pixel must belong to its own cluster.
+        for i, idx in enumerate(self.pidx):
+            self.categories[idx] = i
 
     def update_p(self):
         for i in range(self.k):
-            tmp = np.array([x for j,x in enumerate(self.array) if self.categories[j]==i])
+            member_idx = np.flatnonzero(self.categories == i)
+            tmp = self.array[member_idx]
             centroid = np.floor(np.mean(tmp, 0)) # 1808 problem ask me to floor it
-            self.p[i] = tmp[
-                (tmp-centroid).__abs__().sum(-1).argmin() # (n,3) - (3,) => (n,3) => (n,) => (,)  
-                # FIXME: SHOULD DO SOMETHING WITH self.pidx (FIND LARGEST INDEX) TO BREAK THE TIE | MULTIPLE ARGMIN
-            ] 
+            distances = (tmp-centroid).__abs__().sum(-1)
+            candidates = member_idx[distances == distances.min()]
+            chosen = candidates.max()
+            self.p[i] = self.array[chosen]
+            self.pidx[i] = chosen
             
     def run(self, n_its=10):
         for _ in range(n_its):
@@ -1131,8 +1175,9 @@ image2 = []
 width = -1
 for i in range(n_triplets):
     image2.append((i2rs[3*i], i2rs[3*i+1], i2rs[3*i+2]))
-w = h = int(n_triplets**0.5)
-assert w == h
+w = 1600
+assert n_triplets % w == 0
+h = n_triplets // w
 from utils import KMeans
 kmeans = KMeans(array=image2, k=32)
 p, c = kmeans.run(10) # 32 values

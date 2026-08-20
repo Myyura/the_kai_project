@@ -41,17 +41,21 @@ $$
 ### 题目描述
 
 令 $\Sigma=\{a,b,c\}$。对语言 $L\subseteq\Sigma^*$，定义其“平方根”语言
+
 $$
 \mathcal H(L)=\{w\in\Sigma^*\mid ww\in L\}.
 $$
+
 例如
 $L_1=\{aa,abc,abab,baab,cca\}$ 时，
 $\mathcal H(L_1)=\{a,ab\}$。回答下列问题。
 
 （1）语言 $L_2$ 由正则表达式
+
 $$
 a(a+b)^*c(a+b)^*bc
 $$
+
 表示。用正则表达式表示 $\mathcal H(L_2)$。
 
 （2）$L_3$ 是题图有限自动机识别的语言，其中初始状态为 $q_0$，接受状态集为
@@ -63,7 +67,6 @@ $L$，$\mathcal H(L)$ 也为正则语言。若成立则证明；否则给出反�
 （4）判断命题 2 是否成立：对 $\Sigma$ 上每个上下文无关语言
 $L$，$\mathcal H(L)$ 也为上下文无关语言。若成立则证明；否则给出反例并简要说明。
 
-## **Kai**
 ## **Kai**
 ### (1)
 先把 $L_2$ 的形状写清楚：任意 $s\in L_2$ 都可写成
@@ -234,75 +237,89 @@ $$
 由于 $M'$ 是有限自动机（状态数有限），$\mathcal{H}(L)$ 是正则语言。命题 1 成立。
 
 ### (4) 结论：假
-给出一个上下文无关语言 $L$，使得 $\mathcal{H}(L)$ 不是上下文无关语言。
+给出一个上下文无关语言 $L$，使得 $\mathcal H(L)$ 不是上下文无关语言。
 
 取
 
 $$
-L=\underbrace{\{a^n b^n c^k \mid n,k\ge 0\}}_{L_1}\ \underbrace{\{a^i b^m c^m \mid i,m\ge 0\}}_{L_2}
+L=L_1L_2,
+\qquad
+L_1=\{a^n b^n c^k\mid n,k\ge0\},
+\qquad
+L_2=\{a^i b^m c^m\mid i,m\ge0\}.
 $$
 
 也就是
 
 $$
-L=\{a^n b^n c^k a^i b^m c^m \mid n,k,i,m\ge 0\}
+L=\{a^n b^n c^k a^i b^m c^m\mid n,k,i,m\ge0\}.
 $$
 
 说明 $L$ 是 CFL：
 
-$L_1$ 是 CFL（例如文法 $S_1\to aS_1b\mid T,\ T\to cT\mid\varepsilon$）；
+- $L_1$ 是 CFL，例如可由
+  $S_1\to aS_1b\mid T,\ T\to cT\mid\varepsilon$ 生成；
+- $L_2$ 也是 CFL，例如可由
+  $S_2\to AB,\ A\to aA\mid\varepsilon,\ B\to bBc\mid\varepsilon$ 生成。
 
-$L_2$ 也是 CFL（例如 $S_2\to A,B,\ A\to aA\mid\varepsilon,\ B\to bBc\mid\varepsilon$）；
+CFL 对连接封闭，所以 $L=L_1L_2$ 是 CFL。
 
-而 CFL 对连接封闭，所以 $L=L_1L_2$ 为 CFL。
-
-接下来证明 $\mathcal{H}(L)$ 不是 CFL。考虑正则语言
-
-$$
-R=a^*b^*c^*.
-$$
-
-若 $\mathcal{H}(L)$ 是 CFL，则由于 CFL 与正则语言交仍为 CFL，$\mathcal{H}(L)\cap R$ 也应是 CFL。
-
-我们计算 $\mathcal{H}(L)\cap R$。设 $w\in R$，则
+接下来证明 $\mathcal H(L)$ 不是 CFL。考虑正则语言
 
 $$
-w=a^p b^q c^r \quad(p,q,r\ge 0).
+R=a^+b^+c^+.
 $$
 
-那么
+若 $\mathcal H(L)$ 是 CFL，则由于 CFL 与正则语言的交仍为 CFL，
+$\mathcal H(L)\cap R$ 也应是 CFL。
+
+计算 $\mathcal H(L)\cap R$。设 $w\in R$，则
 
 $$
-ww=a^p b^q c^r a^p b^q c^r
+w=a^p b^q c^r\qquad(p,q,r\ge1),
 $$
 
-断言：对这类 $w$，有
+从而
 
 $$
-ww\in L \iff p=q=r
+ww=a^p b^q c^r a^p b^q c^r.
+$$
+
+断言
+
+$$
+ww\in L\iff p=q=r.
 $$
 
 理由如下。
 
-* 若 $ww\in L=L_1L_2$，则存在分割 $ww=xy$ 使得 $x\in L_1=a^n b^n c^*$，$y\in L_2=a^* b^m c^m$。因为 $x$ 必须先读完一段 $a^n$ 再读 $b^n$。在 $ww$ 的开头，$a$ 是一整段 $a^p$。若 $n<p$，则在读完 $a^n$ 后下一个符号仍是 $a$，不可能开始 $b^n$。所以必须 $n=p$。同理，为了让 $x$ 的 $b^n$ 紧接在这 $a^p$ 之后，必须正好消耗掉开头的全部 $b^q$，因此还要 $q=p$。否则 $q\neq p$ 会导致 $x$ 进入 $c^*$ 前还残留或不足 $b$，无法匹配。于是 $p=q$，并且此时 $x$ 只能是 $a^p b^p c^t$（$t\le r$）。若 $t<r$，则 $y$ 将以 $c$ 开头，但 $L_2$ 的串必须形如 $a^*b^m c^m$，不能以 $c$ 开头，因此必须 $t=r$。所以分割点被迫落在两个拷贝之间：$x=a^p b^p c^r$，$y=a^p b^p c^r$。现在 $y\in L_2$ 要求其后半部分 $b^p c^r$ 满足 $p=r$。结合 $p=q$，得到 $p=q=r$。
-* 反过来，若 $p=q=r$，则 $ww=a^p b^p c^p\ a^p b^p c^p$ 显然可取 $x=a^p b^p c^p\in L_1$，$y=a^p b^p c^p\in L_2$，所以 $ww\in L$。
+- 若 $ww\in L=L_1L_2$，则存在分割 $ww=xy$，使得
+  $x\in L_1\subseteq a^*b^*c^*$，$y\in L_2\subseteq a^*b^*c^*$。
+  串 $ww=a^pb^qc^ra^pb^qc^r$ 中，两个拷贝的交界处出现因子 $ca$。
+  因为 $x$ 不可能越过该因子，而 $y$ 若从该因子之前开始就会包含它，
+  分割点只能恰在两个 $w$ 之间。因此 $x=y=w$。
+  由 $x\in L_1$ 得 $p=q$，由 $y\in L_2$ 得 $q=r$，故 $p=q=r$。
+- 反过来，若 $p=q=r$，则
+  $ww=(a^p b^p c^p)(a^p b^p c^p)$。前一项属于 $L_1$，后一项属于
+  $L_2$，所以 $ww\in L$。
 
-因此对于 $w\in R$，
+因此，对于 $w\in R$，
 
 $$
 \begin{aligned}
-w\in \mathcal{H}(L) &\iff ww\in L \\
-&\iff p=q=r \\
-&\iff w\in \{a^n b^n c^n\mid n\ge 0\}
+w\in\mathcal H(L)
+&\iff ww\in L\\
+&\iff p=q=r\\
+&\iff w\in\{a^n b^n c^n\mid n\ge1\}.
 \end{aligned}
 $$
 
 也就是说
 
 $$
-\mathcal{H}(L)\cap \{a^n b^n c^n\mid n\ge 0\}
+\mathcal H(L)\cap R
+=\{a^n b^n c^n\mid n\ge1\}.
 $$
 
-而 $\{a^n b^n c^n\mid n\ge 0\}$ 是经典的“非上下文无关语言”。于是 $\mathcal{H}(L)\cap R$ 不是 CFL，矛盾。
-
-所以 $\mathcal{H}(L)$ 不可能是 CFL。命题 2 为假。
+右侧是经典的非上下文无关语言，矛盾。因此 $\mathcal H(L)$ 不是 CFL，
+命题 2 为假。

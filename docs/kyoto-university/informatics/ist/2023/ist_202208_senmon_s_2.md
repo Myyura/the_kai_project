@@ -12,7 +12,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2022年8月実施 専門科目 S-2
 
 ## **Author**
-[Isidore](https://github.com/heacsing)
+[Isidore](https://github.com/heacsing), 祭音Myyura
 
 ## **Description**
 ### 設問1
@@ -59,12 +59,14 @@ $$
 ### 题目描述
 
 1. 随机变量 $X$ 的密度为
+
    $$
    f(x)=\begin{cases}
    -\frac12x+\frac12,&|x|\le1,\\
    0,&|x|>1.
    \end{cases}
    $$
+
    求 $E[X]$ 与 $V[X]$。
 2. 独立随机变量 $X,Y$ 分别服从参数 $\lambda_1,\lambda_2$ 的 Poisson 分布。用
    $P(X=k)=\lambda^ke^{-\lambda}/k!$ 证明
@@ -131,9 +133,11 @@ $$
 \begin{align}
     S'(\hat{\beta}) &= \sum^{n}_{i=1}(-2x_i)(y_i-\hat{\beta}x_i) \\
     &= 2(\sum^{n}_{i=1}\hat{\beta}x_i^2 - \sum^{n}_{i=1}x_iy_i) \\
-    \hat{\beta} &= \frac{\sum^{n}_{i=1}x_iy_i}{\sum^{n}_{i=1}x_i^2}
+    \hat{\beta} &= \frac{\sum^{n}_{i=1}x_iy_i}{\sum^{n}_{i=1}x_i^2},\qquad \sum_{i=1}^n x_i^2>0.
 \end{align}
 $$
+
+If $x_1=\cdots=x_n=0$, every value of $\hat\beta$ minimizes $S$.
 
 #### (2)
 
@@ -141,7 +145,7 @@ By the equation ($5$) and ($6$), we immediately have
 
 $$
 \begin{align}
-    0 &= (\sum^{n}_{i=1}\hat{\beta}x_i^2 - \sum^{n}_{i=1}x_iy_i) \\
+    0 &= (\sum^{n}_{i=1}x_iy_i-\sum^{n}_{i=1}\hat{\beta}x_i^2) \\
     &= \sum^{n}_{i=1}x_i(y_i-\hat{\beta}x_i) \\
     &= \sum^{n}_{i=1}x_i\hat{\epsilon_i} 
 \end{align}

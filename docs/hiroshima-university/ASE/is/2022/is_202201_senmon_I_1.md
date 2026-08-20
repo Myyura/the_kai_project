@@ -53,54 +53,26 @@ Prove $C=O$ when $\text{tr}(CX) = 0$ for any $n$-dimensional square matrix $X$.
 ## **Kai** 
 ### (1)
 
-$$
-A = A^2
-$$
+Let $Av=\lambda v$ with $v\neq0$. Since $A^2=A$,
 
 $$
-A = E \text{ or } O
+\lambda^2v=A^2v=Av=\lambda v.
 $$
 
+Hence $\lambda(\lambda-1)=0$, so every eigenvalue satisfies
+
 $$
-\begin{aligned}
-&\begin{vmatrix}
-1-\lambda & & & \\
- & 1-\lambda & & \\
- & & \ddots & \\
- & & & 1-\lambda \\
-\end{vmatrix} = 0&,
-\begin{vmatrix}
--\lambda & & \\
- & -\lambda & \\
- & & -\lambda \\
-\end{vmatrix} = 0 \\
-&\text{all } \lambda = 1
-&\text{all } \lambda = 0
-\end{aligned}
+\boxed{\lambda=0\ \text{or}\ 1}.
 $$
 
 ### (2)
-Assume that $B$ is an invertible matrix, w.l.o.g we assume that $k = 2$, then we have
+If $B$ were invertible, multiplying $B^k=O$ by $(B^{-1})^k$ would give
 
 $$
-\left\{
-\begin{aligned}
-&BB^{-1} = E \\
-&B^2 = O
-\end{aligned}
-\right.
+E=(B^{-1})^kB^k=O,
 $$
 
-$$
-\begin{aligned}
-B \cdot B \cdot B ^{-1} &= O \cdot B^{-1} \\
-B \cdot E &= O \\
-B &= O
-\end{aligned}
-$$
-
-which is contradictory to the fact that $B \neq O$.
-Therefore, $B$ is not an invertible matirx.
+a contradiction. Therefore, $B$ is not invertible.
 
 ### (3)
 Assume that $C \neq O$, i.e., there exists an non-zero element $c_{ij}$ of $C$.

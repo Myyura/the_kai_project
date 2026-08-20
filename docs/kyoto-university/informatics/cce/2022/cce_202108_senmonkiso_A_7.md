@@ -10,7 +10,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2021年8月実施 専門基礎A \[A-7\]
 
 ## **Author**
-[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e)
+[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
 下記のすべての問に答えよ。  
@@ -117,17 +117,19 @@ $$
 ### (b) 
 Base $CPI = 1$.
 *   Penalty cycles = $1,000,000 \times 0.60 \times 1 = 600,000$
-*   Total cycles = $10,000,000 + 600,000 = 10,600,000$
+*   Total cycles = $10,000,000 + (5-1) + 600,000 = 10,600,004$
 
 $$
-\text{Time} = 10.6 \times 10^6 \times 500 \times 10^{-12}\text{ s} = \mathbf{5.3\text{ ms}}
+\text{Time} = 10{,}600{,}004 \times 500 \times 10^{-12}\text{ s}
+= \mathbf{5.300002\text{ ms}}\approx\mathbf{5.3\text{ ms}}
 $$
 
 ### (c)
 Base $CPI = 1$.
 *   Penalty cycles = $1,000,000 \times 0.60 \times 2 = 1,200,000$
-*   Total cycles = $10,000,000 + 1,200,000 = 11,200,000$
+*   Total cycles = $10,000,000 + (8-1) + 1,200,000 = 11,200,007$
 
 $$
-\text{Time} = 11.2 \times 10^6 \times 400 \times 10^{-12}\text{ s} = \mathbf{4.48\text{ ms}}
+\text{Time} = 11{,}200{,}007 \times 400 \times 10^{-12}\text{ s}
+= \mathbf{4.4800028\text{ ms}}\approx\mathbf{4.48\text{ ms}}
 $$

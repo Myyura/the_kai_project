@@ -10,7 +10,7 @@ tags:
 # 神戸大学 経済学研究科 2021年8月実施 第I期 統計学 第2問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 確率変数 $X$ の密度関数を $f(x; \theta)$ とし、パラメータ $\theta$ は $0$ か $1$ のいずれかの値しかをとらないものとする。
@@ -110,6 +110,8 @@ $$
   \end{aligned}
 $$
 
+ただし上式は $t\neq0$ に対する式であり、$M(0)=1$ である。
+
 ### (4)
 尤度
 
@@ -140,3 +142,5 @@ $$
   \end{cases}
   \end{aligned}
 $$
+
+$X_1X_2\cdots X_n=1/2^n$ のときは $l(0)=l(1)$ なので、$0,1$ のいずれも最尤推定値である。

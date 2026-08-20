@@ -57,11 +57,15 @@ $S_1,S_2$ 满足：
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202208_senmon_s_4_p1.png" width="400" alt=""/>
 </figure>
 
+After output $1$, the next output must be forced to $0$. Since $s_1$ is stochastic for $0<p<1$, this requires a distinct state, so two states are minimal.
+
 ### (2)
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202208_senmon_s_4_p2.png" width="400" alt=""/>
 </figure>
+
+After an output $1$, the diagram enters $t_3$, whose next output is forced to be $0$, so \[C1\] holds. After three consecutive outputs $0$, it enters $t_4$, whose next output is forced to be $1$, so \[C2\] holds. Moreover, $t_1,t_2$ are stochastic because $0<p,q<1$, while a forced-$0$ state and a distinct forced-$1$ state are necessary; hence at least four states are required.
 
 ### (3)
 

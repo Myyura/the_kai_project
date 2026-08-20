@@ -61,10 +61,12 @@ Answer the following questions.
 回答全部问题。上划线、$\cdot$、$+$ 分别表示逻辑非、与、或。
 
 1. 对逻辑函数
+
    $$
    f=(a+b+c+d)(\bar a+b+\bar c+d)(\bar a+b+c)
    (a+\bar b+\bar c)(a+\bar c+d)
    $$
+
    回答：
    1. 给出 $f$ 的所有最简与或式。
    2. 给出 $f$ 的所有最简或与式。
@@ -74,9 +76,11 @@ Answer the following questions.
       的 $h$ 中，求一种最简与或式，使其乘积项数最少，并在此基础上文字数最少。
 2. 用三个 D 触发器设计输入 $u$、输出 $(q_2,q_1,q_0)$ 的时序电路，三个 Q 输出即为电路输出。
    - 当 $u=1$ 时，电路为周期 8 的二进制减计数器：
+
      $$
      111\to110\to101\to\cdots\to001\to000\to111.
      $$
+
    - 当 $u=0$ 时，电路为循环移位寄存器，$q_0\to q_2$、$q_2\to q_1$、$q_1\to q_0$；例如
      $100\to010\to001\to100$。
 
@@ -93,8 +97,18 @@ Answer the following questions.
 
 | &nbsp; | &nbsp; |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p1.png" width="250"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p2.png" width="250"> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p1.png" width="250" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p2.png" width="250" /> |
 | $\bar{f} = \bar{b}\bar{d} + \bar{a}bc + a\bar{b}\bar{c}$ | $f = b\bar{c} + ab + \bar{a}\bar{b}d + \bar{b}cd$ |
+
+All minimum SOP expressions are
+
+$$
+\begin{aligned}
+f&=b\bar c+ab+\bar a\bar b d+\bar bcd,\\
+f&=b\bar c+ab+\bar a\bar b d+acd,\\
+f&=b\bar c+ab+\bar a\bar c d+\bar bcd.
+\end{aligned}
+$$
 
 #### (b)
 **Simplified POS expression for f:**
@@ -138,7 +152,7 @@ Therefore, the logic circuit is realized by **four 3-input NOR gates** only.
 
 | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p4.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p5.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p6.png" width="200"> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p4.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p5.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_B_4_p6.png" width="200" /> |
 
 **Expression for h:**
 

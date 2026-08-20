@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 プログラミング 第1問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang)
+[itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang), 祭音Myyura
 
 ## **Description**
 
@@ -74,10 +74,10 @@ with open('infections.txt') as f_infe:
     orig_infelst = tmp.split(':')
     orig_infelst = [int(s) for s in orig_infelst]
     infelst = list(set(orig_infelst))
-print(sorted(infelst, reverse=True)[2])
+print(sorted(infelst, reverse=True)[9])
 ```
 
-The third biggest number is 2268.
+The 10th biggest distinct number is 1471.
 
 #### FunTotal's solution
 ```c++
@@ -121,17 +121,18 @@ signed main() {
 ```py
 import os
 # find all files with "dataxx.txt" 
+folder = 'data'
 filelist = []
-for filename in os.listdir('.'):
+for filename in os.listdir(folder):
     if filename.startswith('data') and filename.endswith('.txt'):
-        filelist.append(filename)
+        filelist.append(os.path.join(folder, filename))
 def kth_biggest(ls, k):
     ls = list(set(ls))
     return sorted(ls, reverse=True)[k-1]
 lists = [open(tmp).readline().split(':') for tmp in filelist]
 lists = [[int(s) for s in l] for l in lists]
 nfs = [kth_biggest(l, 10) for l in lists]
-sum(nfs)
+print(sum(nfs))
 ```
 
 The sum is 8650.
@@ -168,7 +169,7 @@ int get_Nf(string path) {
 }
 namespace fs = filesystem;
 void solve() {
-    string folder_path = "E:/UTokyo_Entrance_Exam/CI/2022_summer/data_forder/";
+    string folder_path = "E:/UTokyo_Entrance_Exam/CI/2022_summer/data/";
     ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans12.txt", ios::out);
     int res = 0;
     for (const auto& entry : fs::directory_iterator(folder_path)) {
@@ -221,13 +222,15 @@ The character count is 1431.
 #define int long long
 using namespace std;
 int cal(int num) {
-    int res = 0;
+    int res = 1;
+    if (num == 0) return res;
+    res = 0;
     while (num) num /= 10, res++;
     return res;
 }
 void solve() {
-    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections1.txt", ios::in);
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans13.txt", ios::out);
+    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections.txt", ios::in);
+    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/diff.txt", ios::out);
     if (!fin.is_open())
         assert(0);
     string str;
@@ -253,7 +256,8 @@ void solve() {
         else fout << it;
         cnt += 1 + cal(abs(it));
     }
-    fout << "\n" << "the number of characters is " << cnt << "\n";
+    fout << "\n";
+    cout << "the number of characters is " << cnt << "\n";
 }
 signed main() {
     int t = 1;
@@ -274,9 +278,10 @@ tuples = []
 for i in range(len(diffs)):
     for j in range(i, len(diffs)):
         tuples.append((sum(diffs[i:j+1]), i, j))
-maximal = max(tuples, key=lambda x: x[0])
+maximal = max(t[0] for t in tuples)
+min_length = min(j-i+1 for total, i, j in tuples if total == maximal)
 for t in tuples:
-    if t[0] == maximal[0]:
+    if t[0] == maximal and t[2]-t[1]+1 == min_length:
         print(t[0], t[1]+1, t[2]+1)
 ```
 
@@ -298,8 +303,10 @@ for i, n in enumerate(diffs):
         dp += [n] # = dp[i-1] + n
         dpmemory += [i]
 maximal = max(dp)
+min_length = min(i-dd+1 for i, (d, dd) in enumerate(zip(dp, dpmemory))
+                 if d == maximal)
 for i, (d, dd) in enumerate(zip(dp, dpmemory)):
-    if d == maximal:
+    if d == maximal and i-dd+1 == min_length:
         print(maximal, dd+1, i+1)
 ```
 
@@ -325,7 +332,7 @@ int cal(int num) {
     return res;
 }
 void solve() {
-    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections2.txt", ios::in);
+    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections.txt", ios::in);
     ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans14.txt", ios::out);
     if (!fin.is_open())
         assert(0);
@@ -350,7 +357,10 @@ void solve() {
     vector<pii> res;
     res.push_back({1, 1});
     for (int i = 1; i < diff.size(); i++) {
-        nowsum += diff[i], nowlen++;
+        if (nowsum <= 0)
+            nowsum = diff[i], nowlen = 1;
+        else
+            nowsum += diff[i], nowlen++;
         if (nowsum > mxsum || nowsum == mxsum && nowlen < mnlen) { //更大或者相等且更短
             mxsum = nowsum, mnlen = nowlen;
             res.clear();
@@ -358,9 +368,6 @@ void solve() {
         }
         else if (nowsum == mxsum && nowlen == mnlen) {
             res.push_back({i + 1 - nowlen + 1, i + 1});
-        }
-        else if (nowsum <= 0) {
-            nowsum = nowlen = 0;
         }
     }
     for (auto [l, r] : res)

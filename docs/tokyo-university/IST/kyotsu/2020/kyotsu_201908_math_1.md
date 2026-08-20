@@ -12,7 +12,7 @@ tags:
 # 東京大学 情報理工学研究科 2019年8月実施 数学 第1問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 正方行列$A,B$を
@@ -63,6 +63,7 @@ $$
 ### 题目描述
 
 给定
+
 $$
 A=\begin{pmatrix}
 1&\sqrt2&0\\
@@ -76,10 +77,13 @@ B=\begin{pmatrix}
 -1/3&2/3&0
 \end{pmatrix},
 $$
+
 $I$ 为单位矩阵。对实方阵 $X$，定义
+
 $$
 e^X=\sum_{k=0}^{\infty}\frac{X^k}{k!}.
 $$
+
 回答下列问题。
 
 （1）求 $A$ 的所有特征值及对应特征向量；所选特征向量须为单位向量，且第一分量为非负实数。
@@ -89,13 +93,16 @@ $$
 （3）求 $e^A$。
 
 （4）对实数 $\alpha$，证明
+
 $$
 e^{\alpha B}
 =I+(\sin\alpha)B+(1-\cos\alpha)B^2.
 $$
+
 可以使用 Cayley–Hamilton 定理。
 
 （5）给定三维实向量 $\boldsymbol a$，对 $n\ge2$ 定义
+
 $$
 f(\boldsymbol{x})
 =\sum_{k=1}^n
@@ -103,6 +110,7 @@ f(\boldsymbol{x})
 e^{(2\pi k/n)B}\boldsymbol a-\boldsymbol{x}
 \right\|^2.
 $$
+
 证明在
 $\boldsymbol{x}=(I+B^2)\boldsymbol a$ 时 $f$ 取得最小值。
 
@@ -359,8 +367,8 @@ I + \alpha B + \frac{1}{2!} \alpha^2 B^2
 + \cdots
 \\
 &=
-I + \left( \alpha - \frac{1}{3!} \alpha^3 \cdots \right) B
-+ \left( \frac{1}{2!} \alpha^2 - \frac{1}{4!} \alpha^4 \cdots \right) B^2
+I + \left( \alpha - \frac{1}{3!} \alpha^3 + \cdots \right) B
++ \left( \frac{1}{2!} \alpha^2 - \frac{1}{4!} \alpha^4 + \cdots \right) B^2
 \\
 &=
 I + \left( \sin \alpha \right) B
@@ -420,8 +428,8 @@ $$
 
 $$
 \begin{aligned}
-(I + B^2)^T (1 + B^2) &= I + (B^2)^T + B^2 + (B^2)^T B^2 \\
-&= I + (-B)^2 + B^2 + (-B^2)^2 \\
+(I + B^2)^T (I + B^2) &= I + (B^2)^T + B^2 + (B^2)^T B^2 \\
+&= I + B^2 + B^2 + B^4 \\
 &= I + 2B^2 + B^4 \\
 &= I + 2B^2 - B^2 \\
 &= I + B^2
@@ -441,7 +449,7 @@ f(x) &= nx^Tx - 2na^T (I + B^2)^T x + na^Ta \\
 \end{aligned}
 $$
 
-である。つまり、が最小値になるのは
+である。つまり、$f(x)$ が最小値になるのは
 
 $$
 x = (I + B^2)a

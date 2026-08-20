@@ -12,7 +12,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2024年8月実施 専門科目 確率統計
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/688805310000000023004466?xsec_token=ABtHY7I1RxAUjhEZPeviabmyl25PBJsqTKCU1yTe5ns54=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/688805310000000023004466?xsec_token=ABtHY7I1RxAUjhEZPeviabmyl25PBJsqTKCU1yTe5ns54=), 祭音Myyura
 
 ## **Description**
 以下の問題において， $E(X)$ は確率変数 $X$ の期待値， $V(X)$ は分散を表す。 $N(\mu, \sigma^2)$ は期待値 $\mu$ ，分散 $\sigma^2$ の正規分布を表す。 $\log x$ は自然対数を表す。
@@ -193,3 +193,17 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_prob_stat_p2.jpg" width="700" alt=""/>
 </figure>
+
+#### 問題2 (2) の補足
+
+$Y\geq0$ であることを含めると、確率密度関数は
+
+$$
+f_Y(y)=
+\begin{cases}
+\alpha e^{-\alpha y},&y\geq0,\\
+0,&y<0
+\end{cases}
+$$
+
+である。

@@ -11,7 +11,7 @@ tags:
 # 神戸大学 工学研究科 市民工学専攻 2021年8月実施 専門科目 数学
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 ### 1.
@@ -357,3 +357,5 @@ $$
 $$
 
 であることがわかる。
+
+ただし、この導出は $x=0$ を含まない区間上で行う。

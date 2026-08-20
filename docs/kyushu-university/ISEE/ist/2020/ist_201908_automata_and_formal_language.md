@@ -9,7 +9,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻 2019年8月実施 オートマトンと言語
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 【問１】
@@ -177,7 +177,7 @@ $$
 
 $$
 \begin{aligned}
-S &\to aSa \mid bSb \mid \varepsilon \mid aTb \mid bTa \\
+S &\to aSa \mid bSb \mid aa \mid bb \mid aTb \mid bTa \\
 T &\to aTa \mid bTb \mid \varepsilon
 \end{aligned}
 $$

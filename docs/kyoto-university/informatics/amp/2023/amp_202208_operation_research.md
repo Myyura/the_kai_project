@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2022年8月実施 オペレーションズ・リサーチ
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -91,10 +91,12 @@ $$
 回答：
 
 1. 证明对任意 $\boldsymbol x,\boldsymbol y\in\mathbb R^n$，
+
    $$
    g(\boldsymbol x)\geqq g(\boldsymbol y)+
    \nabla g(\boldsymbol y)^\top(\boldsymbol x-\boldsymbol y).
    $$
+
 2. 求 P2 的一个全局最优解，并证明其全局最优性。
 3. 证明 $\boldsymbol u$ 是 P1 的全局最优解。
 
@@ -104,21 +106,21 @@ $$
 $$ 
 \begin{aligned}
 g(x) = & \frac{1}{2} x^\top Q x + \frac{1}{2} x^\top x + q^\top x \\
-& \frac{1}{2} x^\top(Q+I)x + q^\top x \\
+=& \frac{1}{2} x^\top(Q+I)x + q^\top x \\
 \end{aligned}
 $$
 
 easy to see that $g(x)$ is convex, and from first-order condition:
 
 $$
-g(x) \geq \nabla g(y)^{\top} (x-y)
+g(x) \geq g(y)+\nabla g(y)^{\top} (x-y)
 $$
 
 ### (ii)
 Lagrangian:
 
 $$
-L(x,\lambda) = \frac{1}{2} x^\top (Q+I)x + q^\top x + \lambda(x^2 - 1)
+L(x,\lambda) = \frac{1}{2} x^\top (Q+I)x + q^\top x + \lambda(x^\top x - 1)
 $$
 
 and we get:
@@ -127,13 +129,23 @@ $$
 \text{KKT-conditions } \left\{
 \begin{aligned}
 (Q+I)x^* + 2\lambda I x^* + q & = & \mathbf{0} \\
-\lambda ((x^*)^2 - 1) &=&0 \\
+\lambda ((x^*)^\top x^* - 1) &=&0 \\
 \lambda &\geq& 0\\
+(x^*)^\top x^*&\leq&1
 \end{aligned}
 \right.
 $$
 
+Condition (b) gives
+
+$$
+\nabla g(u)=(Q+I)u+q=0.
+$$
+
+Since $u^\top u=1$, the pair $(x^*,\lambda^*)=(u,0)$ satisfies the KKT conditions. By (i), $g$ is convex, so $u$ is a global optimal solution of (P2).
+
 ### (iii)
+
 $$
 f(x) = \frac{1}{2} x^\top Q x + q^\top x + \frac{1}{2} x^\top x - \frac{1}{2} x^\top x
 $$
@@ -142,8 +154,13 @@ $$
 f(u) = g(u) - \frac{1}{2} u^\top u = g(u) - \frac{1}{2}
 $$
 
+For every feasible $x$,
+
 $$
-\forall x, f(x) = g(x) - \frac{1}{2} \geq g(u) - \frac{1}{2} \geq g(u) - \frac{1}{2} = f(u)
+f(x)=g(x)-\frac12x^\top x
+\geq g(x)-\frac12
+\geq g(u)-\frac12
+=f(u).
 $$
 
 thus $u$ is a global optimal solution to (P1)

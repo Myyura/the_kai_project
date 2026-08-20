@@ -10,7 +10,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻 2021年8月実施 情報理論
 
 ## **Author**
-[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
 ### 【問 1】
@@ -103,7 +103,7 @@ $$
 ### 【問 1】
 
 $$
-C = \log_2s + \sum_{j = 1}^sp_{1j}\log_2p_{1j} = k + k \cdot \frac{1}{k}\log\frac{1}{k} = k - \log_2k
+C = \log_2s + \sum_{j = 1}^sp_{1j}\log_2p_{1j} = k + k \cdot \frac{1}{k}\log_2\frac{1}{k} = k - \log_2k
 $$
 
 ### 【問 2】
@@ -129,7 +129,7 @@ $$
 $$
 
 $$
-w\Pi=w \Rightarrow \lambda = 0.25 
+w\Pi=w \Rightarrow \gamma = 0.25
 $$
 
 #### (3)

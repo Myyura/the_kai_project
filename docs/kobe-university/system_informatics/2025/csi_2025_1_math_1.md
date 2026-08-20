@@ -119,7 +119,7 @@ $$
 したがって
 
 $$
-\boxed{a=\arctan\left(\frac{\pi}{6}\right)=\frac{1}{\sqrt{3}}, }.
+\boxed{a=\tan\left(\frac{\pi}{6}\right)=\frac{1}{\sqrt{3}} }.
 $$
 
 ### (2)

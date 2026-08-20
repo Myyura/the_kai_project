@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 2020年8月実施 数学1
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -23,19 +23,25 @@ tags:
 1. 第一部分包括三项计算：
    - 求 $y(x)=(\arccos x)^{\log x}$ 的导数；
    - 对实参数 $p$，分别在 $p=0$ 与 $p\ne0$ 时计算
+
      $$
      \int\frac{x^2+x+2}{x^3-px^2}\,\mathrm dx;
      $$
+
    - 对 $0\le\theta<\pi/2$，计算
+
      $$
      I=\int_0^{\sin\theta}
      \frac{\arctan(\arcsin x)}{\sqrt{1-x^2}}\,\mathrm dx.
      $$
-2. 第二部分涉及由复函数 $p(x),q(x)$ 构造的 $f(x),g(x)$。Kai 明确使用
+
+2. 第二部分涉及由复函数 $p(x),q(x)$ 构造的 $f(x),g(x)$。Kai 使用
+
    $$
    f' = iaf-ibg,\qquad g'=-ibf-iag
    $$
-   并要求证明 $|f(x)|^2+|g(x)|^2$ 与 $x$ 无关；但 $p,q,f,g$ 在原题中的完整定义和参数条件未保存在本地，不能进一步补写。
+
+   并要求证明 $|f(x)|^2+|g(x)|^2$ 与 $x$ 无关；最后在 $a=0.8,b=0.6,f(0)=1,g(0)=0$ 下求解该方程组。
 
 ## **Kai**
 ### I.
@@ -70,7 +76,11 @@ $$
 
 解説:
 関数 $y(x)$ は
-$$y(x)=f(x)^{g(x)}$$
+
+$$
+y(x)=f(x)^{g(x)}
+$$
+
 という形をしているので，対数微分を行うことにより導関数を求めることができます．
 
 #### 2.
@@ -95,10 +105,10 @@ $$
 &= \int \frac{x^2+x+2}{x^2(x-p)} dx
 \\
 &= \frac{1}{p^2} \int \left(
-- \frac{p+2}{x} - \frac{2p}{x^2} + \frac{p^2+p-2}{x-p} \right) dx
+- \frac{p+2}{x} - \frac{2p}{x^2} + \frac{p^2+p+2}{x-p} \right) dx
 \\
 &= \frac{1}{p^2} \left(
-- (p+2) \log |x| + \frac{2p}{x} + (p^2+p-2) \log |x-p| \right) + C
+- (p+2) \log |x| + \frac{2p}{x} + (p^2+p+2) \log |x-p| \right) + C
 \end{aligned}
 $$
 
@@ -140,7 +150,7 @@ $$
 &= iaf(x) - ibg(x)
 \\
 \frac{dg(x)}{dx}
-&= \frac{dq(x)}{dx} \exp (iax) - iaq(x) \exp (-iax)
+&= \frac{dq(x)}{dx} \exp (-iax) - iaq(x) \exp (-iax)
 \\
 &= -ibp(x) \exp (iax) - iaq(x) \exp (-iax)
 \\
@@ -178,3 +188,20 @@ $$
 がわかる。つまり、
 $\left| f(x) \right|^2 + \left| g(x) \right|^2$
 は $x$ に依存しない。
+
+#### 3.
+$\boldsymbol{u}=(f,g)^T$ とおくと
+
+$$
+\boldsymbol{u}'
+=i\begin{pmatrix}4/5&-3/5\\-3/5&-4/5\end{pmatrix}\boldsymbol{u}.
+$$
+
+右辺の実行列の二乗は単位行列なので、初期条件より
+
+$$
+\begin{aligned}
+f(x)&=\cos x+\frac{4i}{5}\sin x,\\
+g(x)&=-\frac{3i}{5}\sin x.
+\end{aligned}
+$$

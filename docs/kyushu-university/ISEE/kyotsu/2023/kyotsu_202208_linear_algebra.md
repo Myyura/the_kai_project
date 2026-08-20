@@ -9,7 +9,7 @@ tags:
 
 
 ## **Author**
-[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
 $n \times n$ 実対称行列 $A = [a_{ij}]_{n×n} \in \mathbb{R}^{n×n}$ に対して，$A$ の各要素 $a_{ij}$ が $a_{ij} \in \{0, 1\} (1 \le i, j \le n)$ かつ $a_{ii} = 0 (1 \le i \le n)$ を満たすとする．$A$ に対して，$D = [\delta_{ij}(\sum_{k = 1}^n a_{ik})]_{n \times n}$ と定義する．
@@ -44,6 +44,7 @@ $$
 其中 $\delta_{ij}$ 为 Kronecker 符号，并令 $L=D-A$。
 
 1. 对
+
    $$
    A=\begin{bmatrix}
    0&1&1&0\\
@@ -52,6 +53,7 @@ $$
    0&0&0&0
    \end{bmatrix},
    $$
+
    求 $L$。
 2. 求该 $L$ 的全部特征值。
 3. 求每个特征值对应的特征空间。
@@ -86,13 +88,13 @@ $$
 
 $$
 \begin{aligned}
-&\because|T| = |\lambda E - L| = 
-\begin{bmatrix}
+&\because\det(\lambda E - L) =
+\begin{vmatrix}
 \lambda - 2 & 1 & 1 & 0 \\
 1 & \lambda -2 & 1 & 0 \\
 1 & 1 & \lambda -2 & 0 \\
 0 & 0 & 0 & \lambda \\
-\end{bmatrix} = \lambda^2(\lambda - 3)^2 = 0\\
+\end{vmatrix} = \lambda^2(\lambda - 3)^2 = 0\\
 &\therefore\lambda_1 = 0(2重解) \quad \lambda_2 = 3(2重解)
 \end{aligned}
 $$
@@ -132,7 +134,7 @@ $$
 
 $$
 x_1 = s\begin{bmatrix} 1 \\ 1 \\ 1 \\ 0 \end{bmatrix} + t\begin{bmatrix} 0 \\ 0 \\ 0 \\ 1\end{bmatrix} \Rightarrow 
-V(0) = 
+V(0) = \operatorname{span}
 \left\{
 \begin{bmatrix} 1 \\ 1 \\ 1 \\ 0 \end{bmatrix},
 \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1\end{bmatrix}
@@ -172,7 +174,7 @@ $$
 
 $$
 x_2 = s\begin{bmatrix} -1 \\ 1 \\ 0 \\ 0 \end{bmatrix} + t\begin{bmatrix} -1 \\ 0 \\ 1 \\ 0\end{bmatrix} \Rightarrow
-V(3) = 
+V(3) = \operatorname{span}
 \left\{
 \begin{bmatrix} -1 \\ 1 \\ 0 \\ 0 \end{bmatrix},
 \begin{bmatrix} -1 \\ 0 \\ 1 \\ 0\end{bmatrix}
@@ -187,15 +189,16 @@ $$
 \begin{vmatrix}
 \sum_{k=1}^n a_{1k} - a_{11} & -a_{12} & -a_{13} & \cdots & -a_{1n} \\
 -a_{21} & \sum_{k=1}^n a_{2k} - a_{22} & -a_{23} & \cdots & -a_{2n} \\
--a_{31} & -a_{32} & \sum_{k=1}^n a_{3k} - a_{33} & \cdots & a_{1n} \\
+-a_{31} & -a_{32} & \sum_{k=1}^n a_{3k} - a_{33} & \cdots & -a_{3n} \\
 \vdots & \vdots & \cdots & \ddots & \vdots \\
 -a_{n1} & -a_{n2} & -a_{n3} & \cdots & \sum_{k=1}^n a_{nk} - a_{nn} \\
 \end{vmatrix} \\
+\text{第1列に第2列から第$n$列までを加えると、}\qquad
 |L| &= 
 \begin{vmatrix}
 0 & -a_{12} & -a_{13} & \cdots & -a_{1n} \\
 0 & \sum_{k=1}^n a_{2k} - a_{22} & -a_{23} & \cdots & -a_{2n} \\
-0 & -a_{32} & \sum_{k=1}^n a_{3k} - a_{33} & \cdots & a_{1n} \\
+0 & -a_{32} & \sum_{k=1}^n a_{3k} - a_{33} & \cdots & -a_{3n} \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
 0 & -a_{n2} & -a_{n3} & \cdots & \sum_{k=1}^n a_{nk} - a_{nn}
 \end{vmatrix} \\

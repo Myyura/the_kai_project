@@ -121,7 +121,7 @@ int main() {
     return 0;
 }
 ```
-#### <center> 図１ プログラム
+#### <center> 図１ プログラム</center>
 
 ```text
 10
@@ -136,7 +136,7 @@ int main() {
 1328    3
 89      3
 ```
-#### <center> 図２ win.txt
+#### <center> 図２ win.txt</center>
 
 ```text
 9003
@@ -155,7 +155,7 @@ int main() {
 1028
 777
 ```
-#### <center> 図３ lots.txt
+#### <center> 図３ lots.txt</center>
 
 ### 题目描述
 
@@ -178,7 +178,7 @@ Hint: funcationA is "Bubble Sort"
 空欄(A): a\[j\] > a\[j+1\]
 
 ### (2)
-The array `win` and array `grade` will be sorted in ascending order.
+The array `win` is sorted in ascending order. The same swaps are applied to `grade`, so `grade[i]` remains the grade corresponding to `win[i]`; `grade` itself need not be sorted.
 
 The inner loop is iterating $(n-1) + (n-2) + \cdots + 1 = \frac{n(n-1)}{2}$ times and,
 in every iteration of the inner loop, it takes $O(1)$ time to compare the element with adjacent element and takes $O(1)$ time to swap the elements when necessary.
@@ -188,9 +188,9 @@ Therefore, the average case time complexity is $O(n^2)$.
 ### (3)
 Hint: funcationB is "Binary Search"
 
-In every iteration, functionB compares `lot` to the middle element (the element of index $n/2$) of the array `win`.
-If the middle element is greater than `lot`, then the right sub-array of the middle element is searched.
-Otherwise, the left sub-array is searched.
+In every iteration, functionB compares `lot` with the middle element of the current search interval in `win`.
+If `lot` is smaller than the middle element, the left sub-array is searched.
+Otherwise, the right sub-array is searched.
 This process continues iteratively until the size of a sub-array reduces to zero.
 
 If we find an element of the array `win` which is equal to `lot`, then return the index of the element.

@@ -9,7 +9,7 @@ tags:
 
 
 ## **Author**
-[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766)
+[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), 祭音Myyura
 
 ## **Description**
 Let us denote the Fourier transform of the signal $f(t)$ as $F(\omega)$, where $t$ and $\omega$ represent a time variable and an angle frequency, respectively.
@@ -75,7 +75,7 @@ Fourier series can be applied to periodic signal. Fourier transform can be appli
 ### (2)
 
 $$
-|F(\omega)|^2 = F(\omega)\overline{F(\omega)} = (\text{Real}\{F(\omega)\})^2 + (\text{Image}\{F(\omega)\})^2
+|F(\omega)|^2 = F(\omega)\overline{F(\omega)} = (\operatorname{Re}F(\omega))^2 + (\operatorname{Im}F(\omega))^2
 $$
 
 Thus $|F(\omega)|^2$ represents the power of certain angle frequency $\omega$.
@@ -85,7 +85,7 @@ Thus $|F(\omega)|^2$ represents the power of certain angle frequency $\omega$.
 $$
 \begin{aligned}
 f(t) * g(t) &= \int_{-\infty}^{+\infty}f(t - \tau)g(\tau)\text{d}\tau = \int_{-\infty}^{+\infty}g(t - \tau)f(\tau)\text{d}\tau \\
-f(0) * g(0) &= \int_{-\infty}^{+\infty}f(-\tau)g(\tau)\text{d}\tau = \int_{-\infty}^{+\infty}g(- \tau)f(\tau)\text{d}\tau \\
+(f*g)(0) &= \int_{-\infty}^{+\infty}f(-\tau)g(\tau)\text{d}\tau \\
 \end{aligned}
 $$
 
@@ -95,16 +95,18 @@ $$
 \begin{aligned}
 G(\omega) &= \int_{-\infty}^{+\infty}g(t)e^{-j\omega t}\text{d}t \\
 &= \int_{-\infty}^{+\infty}\overline{f(-t)}e^{-j\omega t}\text{d}t \\
-\overline{G(\omega)} &= \int_{-\infty}^{+\infty}f(-t)e^{-j\omega t} \\
-&= \int_{-\infty}^{+\infty}f(t)e^{-j\omega t}\text{d}t = F(\omega) \qquad G(\omega) = \overline{F(\omega)}
+&= \int_{-\infty}^{+\infty}\overline{f(u)}e^{j\omega u}\text{d}u \\
+&= \overline{F(\omega)}.
 \end{aligned}
 $$
 
 So
 
 $$
-\int_{-\infty}^{\infty}|f(t)|^2 = k'\int_{-\infty}^{\infty}|F(\omega)|^2 \text{d}\omega
+\int_{-\infty}^{\infty}|f(t)|^2\text{d}t = k'\int_{-\infty}^{\infty}|F(\omega)|^2 \text{d}\omega.
 $$
+
+Thus $k=k'$. With the transform convention in (1), $k'=1/(2\pi)$.
 
 ### (4)
 The energy in time domain equals to $k'$ times energy in frequency domain.

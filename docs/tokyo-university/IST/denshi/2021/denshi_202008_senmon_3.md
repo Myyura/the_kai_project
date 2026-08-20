@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2020年8月実施 専門 第3問
 
 ## **Author**
-[adj-matrix](https://github.com/adj-matrix)
+[adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
@@ -130,7 +130,12 @@ $O(N)$
 
 ### (3)
 
-**X:** `sizes[j] += sizes[i];`
+**X:**
+
+```cpp
+if (i == j) return;
+sizes[j] += sizes[i];
+```
 
 **Y:** `return sizes[find(a)];`
 
@@ -158,12 +163,13 @@ void union(int a, int b) {
 
 ### (5)
 
-① Initialize a time array, when $union(a,b)$ occurs at time $t$, if we link $a \rightarrow b$, we store `Time[a] = t`, the union will be $union(t, a, b)$
+① Initialize a time array. When `union(t, a, b)` links root $i$ below root $j$, store `Time[i] = t` for the new edge $i\to j$.
 
 ② To find the connection time for $a$ and $b$, which is a LCA question.
 Find the paths from $a$ to the root and $b$ to the root.
+If the roots differ, they have not become equivalent.
 Identify the lowest Common Ancestor (LCA) of $a$ and $b$.
-The time they became connected is the $\max(\text{Time}[a], \text{Time}[b])$.
+The time they became connected is the maximum edge time on the two paths from $a$ and $b$ up to, but not beyond, their LCA (and is $0$ when $a=b$ initially).
 
 **Complexity:** $O(\log N)$
 

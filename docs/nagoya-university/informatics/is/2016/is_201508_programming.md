@@ -24,15 +24,17 @@ tags:
              (1)   (9)                                (5)     (18)
 ```
 
-#### <center> 図１: 2分木の例
+#### <center> 図１: 2分木の例</center>
 
 C言語プログラムでは以下に定義される構造体により２分木を表現することができる.
 
-    struct vertex {
-        int value;
-        struct vertex *left;
-        struct vertex *right;
-    };
+```c
+struct vertex {
+    int value;
+    struct vertex *left;
+    struct vertex *right;
+};
+```
 
 この構造体は１つの頂点を表現しその頂点が保持する整数を格納するメンバ value, 左の子へのポインタを格納するメンバ left, 右の子へのポインタを格納するメンバ right から機成される.
 この構造体で表現された頂点の左の子, 右の子が存在しない場合はメンバ left, right にそれぞれ値 NULL を代入する. 
@@ -73,13 +75,15 @@ display 関数は引数で与えられたポインタが指す２分木 (もし�
 
 \[7\] display 関数を実行した際に数が大きい順に出力されるようその定義を変更したい. 以下の関数定義の中の `[ 空欄 (ウ) ]` ~ `[ 空欄 (オ) ]` を埋めて変更せよ, 頂点に保持される整数を出力する場合には printf("%d,", p->value) を記述すること.
 
-    void display(struct vertex *p) {
-        if (p == NULL) return;
-        [ 空欄 (ウ) ];
-        [ 空欄 (エ) ];
-        [ 空欄 (オ) ];
-        return;
-    }
+```c
+void display(struct vertex *p) {
+    if (p == NULL) return;
+    [ 空欄 (ウ) ];
+    [ 空欄 (エ) ];
+    [ 空欄 (オ) ];
+    return;
+}
+```
 
 
 \[8\] ２分木に指定した数が存在しているかどうか探索する member 関数を以下の要件を満たすように作成したい.
@@ -89,21 +93,23 @@ display 関数は引数で与えられたポインタが指す２分木 (もし�
 
 これらの条件を満たすように以下の関数定義の中の `[ 空欄 (カ) ]` ~ `[ 空欄 (ケ) ]` を埋めて member 関数の定義を完成させよ.
 
-    int member(int x) {
-        struct vertex *p;
-        p = tree;
-        while (p != NULL) {
-            if ([ 空欄 (カ) ]) return 1;
-            if ([ 空欄 (キ) ])
-                [ 空欄 (ク) ];
-            else
-                [ 空欄 (ケ) ];
-        }
-        return 0;
+```c
+int member(int x) {
+    struct vertex *p;
+    p = tree;
+    while (p != NULL) {
+        if ([ 空欄 (カ) ]) return 1;
+        if ([ 空欄 (キ) ])
+            [ 空欄 (ク) ];
+        else
+            [ 空欄 (ケ) ];
     }
+    return 0;
+}
+```
 
 
-#### <center> ソースコード 1: 2分木を処理するC言語プログラム
+#### <center> ソースコード 1: 2分木を処理するC言語プログラム</center>
 
 ```text
 #include <stdio.h>
@@ -246,7 +252,7 @@ void display(struct vertex *p) {
 ```
 
 ### \[2\]
-- \[ 空欄 (ア) \]: eliminate(11), insert(7), eliminate(6);
+- \[ 空欄 (ア) \]: eliminate(11); insert(7); eliminate(6);
 
 ### \[3\]
 - \[ 空欄 (イ) \]: x < p->value ? p->left : p->right;
@@ -255,17 +261,22 @@ void display(struct vertex *p) {
 Insert `if (p == NULL) return;` after line 71.
 
 ### \[5\]
-Insert `free(p)` after line 86.
+解放しなければ，削除を繰り返すとメモリリークが生じる。
 
-Insert `free(q)` after line 98.
+- 86 行目の次に `free(p);` を挿入する。
+- 98 行目の次に `free(q);` を挿入する。
+
+なお，掲載コードの `tree == q;` は `tree = q;` とする。
 
 ### \[6\]
-7, 2, 5, 14, 18
+```text
+7,2,5,14,18,
+```
 
 ### \[7\]
-- \[ 空欄 (ウ) \]: display(p->left);
+- \[ 空欄 (ウ) \]: display(p->right);
 - \[ 空欄 (エ) \]: printf("%d,", p->value);
-- \[ 空欄 (オ) \]: display(p->right);
+- \[ 空欄 (オ) \]: display(p->left);
 
 ### \[8\]
 - \[ 空欄 (カ) \]: p->value == x

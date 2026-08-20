@@ -10,7 +10,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2021年8月実施 解析学・微積分
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 (1) $\mathbb{R}^m$ 上で微分可能な実数値関数 $f(x)$ $(x = (x_1, x_2, ..., x_m))$ について、$x_i = v_i(t)$ $(i = 1, 2, ..., m)$ とおく。ただし、各 $v_i$ は $\mathbb{R}$ 上で微分可能な関数とする。次の各問いに答えよ。
@@ -38,17 +38,22 @@ $$
 1. 设 $f(x)$ 是 $\mathbb R^m$ 上可微的实值函数，$x=(x_1,\ldots,x_m)$，并令 $x_i=v_i(t)$，其中每个 $v_i$ 都在 $\mathbb R$ 上可微。
    - 用 $\partial f/\partial x_i$ 与 $dv_i/dt$（$i=1,\ldots,m$）表示 $df/dt$。
    - 当 $m=2$、
+
      $$
      f(x)=x_1^2+x_1x_2+2x_2^2,\quad
      v_1(t)=\sin t,\quad v_2(t)=e^t
      $$
+
      时，求 $df/dt$。
 2. 求微分方程
+
    $$
    \frac{dy}{dx}-2xy=e^{x^2}
    $$
+
    的通解。
 3. 设 $C$ 为圆 $|z|=2$，计算
+
    $$
    \oint_C\frac{\cos z}{(2z-\pi)^3}\,dz.
    $$
@@ -150,7 +155,7 @@ $$
 
 $$
   \begin{aligned}
-  \oint_C \frac{\cos z}{(2 \pi - z)^2} = 0
+  \oint_C \frac{\cos z}{(2z-\pi)^3}\,dz = 0
   \end{aligned}
 $$
 

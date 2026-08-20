@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2020年8月実施 線形計画
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -78,17 +78,21 @@ $$
 
 3. 证明对任意 $\alpha\in[0,1]$ 及
    $\boldsymbol y,\boldsymbol z\in\mathbb R^n$，
+
    $$
    f(\alpha\boldsymbol y+(1-\alpha)\boldsymbol z)
    \leqq\alpha f(\boldsymbol y)+(1-\alpha)f(\boldsymbol z).
    $$
+
 4. 考虑以 $\boldsymbol y$ 为变量的问题
+
    $$
    \begin{aligned}
    \mathrm Q:\quad&\text{最小化}\quad f(\boldsymbol y)\\
    &\text{满足}\quad\sum_{i=1}^n\frac{y_i}{i}=1.
    \end{aligned}
    $$
+
    证明 Q 的最优值为 $\frac1n$。
 
 ## **Kai**
@@ -118,7 +122,7 @@ $$
 From (D), we have $\mu \geq \frac 1i y_i, i = 1, 2, \ldots, n$.
 Thus for any $y$, $\mu = \max \{\frac{y_i}{i} \}$.
 
-Hence (D) has an optimal solution. Hence (P) also has an optimal solution according to duality.
+Hence (D) has an optimal solution. Since P is feasible, for example at $x=(1,0,\ldots,0)^\top$, LP duality implies that P also has an optimal solution.
 
 ### (iii)
 

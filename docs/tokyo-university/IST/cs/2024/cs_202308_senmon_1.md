@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2023年8月実施 専門科目 問題1
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Given an integer $k > 0$, we define a language $L_k$ over an alphabet $\Sigma = \{a, b\}$ by:
@@ -54,11 +54,13 @@ $$
 ### 题目描述
 
 给定整数 $k>0$，在字母表 $\Sigma=\{a,b\}$ 上定义
+
 $$
 L_k
 =\{x_1\cdots x_n\in\Sigma^*
 \mid n\ge k,\ x_{n-k+1}=a\}.
 $$
+
 也就是说，$L_k$ 由倒数第 $k$ 个字符为 $a$ 的字符串构成。回答下列问题。
 
 （1）构造识别 $L_3$ 的 NFA。
@@ -67,9 +69,11 @@ $$
 $r^i$。
 
 （3）判断
+
 $$
 L'=\bigcup_{k=1}^{\infty}L_{k^2}
 $$
+
 是否为正则语言。若是，给出识别它的有限自动机；若不是，证明其非正则性。可以使用正则语言泵引理。
 
 （4）证明任何识别 $L_k$ 的 DFA 都至少具有 $2^k$ 个状态。
@@ -77,21 +81,26 @@ $$
 ## **Kai**
 ### (1)
 
-To construct an NFA that accepts $L_3$, we need to ensure that the third symbol from the end is 'a'. Here is the NFA:
+To construct an NFA accepting $L_3$, let it guess the `a` that is three symbols from the end.
 
-- **States**: $q_0, q_1, q_2, q_3$
-- **Alphabet**: $\Sigma = \{a, b\}$
-- **Transitions**:
-  - From $q_0$ (start state):
-    - On reading any symbol $a$ or $b$, move to $q_0$ (this loop represents reading any number of symbols at the start).
-    - On reading any symbol, move to $q_1$ (non-deterministically guess that we might be three symbols away from the end).
-  - From $q_1$:
-    - On reading any symbol $a$ or $b$, move to $q_2$.
-  - From $q_2$:
-    - On reading any symbol $a$ or $b$, move to $q_3$ (final state).
-- **Final State**: $q_3$
+- **States:** $q_0,q_1,q_2,q_3$.
+- **Initial state:** $q_0$.
+- **Accepting state:** $q_3$.
+- **Transitions:** from $q_0$, loop on both $a,b$, and on input $a$ also move nondeterministically to $q_1$:
 
-This NFA accepts a string if it non-deterministically guesses that it is three symbols away from the end, and then checks if the third-to-last symbol is 'a'.
+$$
+\delta(q_0,a)=\{q_0,q_1\},\qquad
+\delta(q_0,b)=\{q_0\},
+$$
+
+  From $q_1$ and $q_2$, consume exactly two further symbols:
+
+$$
+\delta(q_1,c)=\{q_2\},\qquad
+\delta(q_2,c)=\{q_3\}\qquad(c\in\{a,b\}).
+$$
+
+There are no outgoing transitions from $q_3$. Thus a run accepts exactly when the guessed `a` has two symbols after it.
 
 ### (2)
 
@@ -101,55 +110,28 @@ $$
 L_k = \Sigma^*a\Sigma^{k-1}
 $$
 
-Here, $\Sigma^{k-1}$ represents any string of length $k-1$, followed by the symbol 'a', and then followed by any string of arbitrary length. This ensures that the $k$-th symbol from the end is 'a'.
+Here $\Sigma^*$ is an arbitrary prefix, the displayed $a$ is the selected symbol, and $\Sigma^{k-1}$ is a suffix of exactly $k-1$ symbols. Thus the $k$-th symbol from the end is $a$.
 
 ### (3)
 
-**Claim**: The language $L' = \bigcup_{k=1}^{\infty} L_{k^2}$ is **not** a regular language.
-
-**Proof**:
-
-To prove that $L'$ is not a regular language, we will use the **pumping lemma**. The pumping lemma states that if a language is regular, then any sufficiently long string in the language can be "pumped" — that is, a portion of the string can be repeated multiple times, and the resulting strings will still belong to the language.
-
-#### String Selection
-
-Let's consider a string $w$ carefully crafted to belong to $L_{k^2}$ for some integer $k$. For example, consider the string:
+The language is not regular.  If it were, then
 
 $$
-w = b^{k^2-1}a b^{k^2-1}
+L'\cap ab^*=\{ab^{k^2-1}\mid k\ge1\}
 $$
 
-This string belongs to $L_{k^2}$ because the $k^2$-th symbol from the end is 'a', and all other characters are 'b'.
+would be regular.  Let $p$ be its pumping length and take
+$s=ab^{p^2-1}$.  Write $s=xyz$ with $|xy|\le p$ and
+$0<|y|\le p$.
 
-#### Pumping Lemma Application
-
-Assume that $L'$ is a regular language. Then by the pumping lemma, there exists a pumping length $p$ such that any string $w$ with length at least $p$ can be decomposed as $w = xyz$, where:
-
-- $|xy| \leq p$,
-- $|y| > 0$, and
-- $xy^iz \in L'$ for all $i \geq 0$.
-
-Given that $|xy| \leq p$, the substring $xy$ is confined to the first $k^2$ characters, which consist entirely of 'b's followed by a single 'a' and another some 'b's. Thus, the substring $y$ consists of only 'b's (say $y = b^m$ for some $m > 0$).
-
-#### Pumped String
-
-Consider the string $w' = xy^2z$. After pumping, the string becomes:
+If $y$ contains $a$, then $xz\notin ab^*$.  Otherwise $y=b^r$ for some
+$1\le r\le p$, and
 
 $$
-w' = b^{k^2-1}ab^{k^2 - 1 + m}
+xy^2z=ab^{p^2+r-1}.
 $$
 
-Here, the block of 'b's after the 'a' has increased by $m$, shifting the position of the 'a' forward by $m$ positions. The length of $w'$ is now greater than $w$ by $m$.
-
-#### Why $w'$ May not Belong to Any $L_{i^2}$
-
-- **Original Position**: In the original string $w$, the 'a' was exactly at the $k^2$-th position from the end.
-- **New Position**: After pumping, in $w'$, the 'a' is now at the $(k^2 + m)$-th position from the end.
-
-For $w'$ to belong to any $L_{i^2}$, the position of 'a' from the end should be exactly $i^2$ for some integer $i$. However:
-
-- For $\forall m \in (0, 2k+1)$,  $k^2 < k^2 + m < (k+1)^2$, meaning that $k^2 + m$ may not be a perfect square number, so $w'$ does not always belong to any $L_{i^2}$.
-- Therefore, the string $w' \notin L_{i^2}$ for any $i$.
+Since $p^2<p^2+r<(p+1)^2$, this word is not in the language.  Both cases contradict the pumping lemma.
 
 ### (4)
 
@@ -157,11 +139,12 @@ For $w'$ to belong to any $L_{i^2}$, the position of 'a' from the end should be 
 
 **Proof**:
 
-Consider the DFA accepting $L_k$. This DFA must remember the last $k$ symbols it has seen in order to determine whether the $k$-th symbol from the end is 'a'.
+The automaton must retain enough information about the last $k$ input symbols to decide which symbol will be $k$-th from the end when the input stops. Formally, all length-$k$ words must reach different states.
 
-There are $2^k$ possible sequences of $k$ symbols over the alphabet $\Sigma = \{a, b\}$, and the DFA must distinguish between each of these sequences because each sequence can determine whether the current string belongs to $L_k$. Thus, the DFA must have a unique state for each possible sequence of $k$ symbols.
-
-Therefore, the DFA must have at least $2^k$ states to correctly accept all strings in $L_k$.
+Consider two distinct words $u,v\in\Sigma^k$.  Let $i$ be a position at which they differ.  Appending $b^{i-1}$ makes their $i$-th symbols the $k$-th symbols from the end, so exactly one of
+$ub^{i-1}$ and $vb^{i-1}$ lies in $L_k$.  Thus all $2^k$ words in
+$\Sigma^k$ are pairwise Myhill--Nerode distinguishable, and every DFA for
+$L_k$ has at least $2^k$ states.
 
 ## **Knowledge**
 

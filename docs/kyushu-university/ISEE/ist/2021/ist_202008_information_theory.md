@@ -8,7 +8,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻 2020年8月実施 情報理論
 
 ## **Author**
-[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
 ### 【問 1】
@@ -90,9 +90,17 @@ C = \log_2 s + \sum_{j = 1}
 ^s p_{1j}\log_2{p_{1j}} = 2 - \mathcal{H}(0.5) = 1
 $$
 
+各入力に対する $H(Y|X=x)$ は $1$ ビットなので、
+$I(X;Y)=H(Y)-1\leq1$ であり、等号条件は出力分布が一様となることである。
+これを満たす入力分布は全て
+
 $$
-\text{入力分布は}\quad p_1 = p_2 = p_3 = p_4 = \frac{1}{4}
+(p_1,p_2,p_3,p_4)
+=\left(t,\frac12-t,t,\frac12-t\right),
+\qquad 0\leq t\leq\frac12
 $$
+
+である。
 
 ### 【問 2】
 #### (1)
@@ -124,8 +132,8 @@ $$
 $$
 \left\{
 \begin{aligned}
-&S(\mathbf{x}\log_2\alpha) + [n - S(\mathbf{x})]\log_2(1 - \alpha) \ge n(1 - \alpha)\log_2(1 - \alpha) + n\alpha\log_2\alpha - n\epsilon \\
-&S(\mathbf{x}\log_2\alpha) + [n - S(\mathbf{x})]\log_2(1 - \alpha) \leq n(1 - \alpha)\log_2(1 - \alpha) + n\alpha\log_2\alpha + n\epsilon 
+&S(\mathbf{x})\log_2\alpha + [n - S(\mathbf{x})]\log_2(1 - \alpha) \ge n(1 - \alpha)\log_2(1 - \alpha) + n\alpha\log_2\alpha - n\epsilon \\
+&S(\mathbf{x})\log_2\alpha + [n - S(\mathbf{x})]\log_2(1 - \alpha) \leq n(1 - \alpha)\log_2(1 - \alpha) + n\alpha\log_2\alpha + n\epsilon
 \end{aligned}
 \right.
 $$

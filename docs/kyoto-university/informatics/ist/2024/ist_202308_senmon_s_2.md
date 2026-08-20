@@ -66,8 +66,11 @@ $S = X + 2Y$, $T = X - 2Y$ のとき、 $S$ と $T$ の共分散を求めよ。
 ### 設問1
 
 $$
-E[\sum^{n}_{i=1}w_iX_i - \mu] = 0 \implies  \mu = \sum^n_{i=1}w_iE[X_i] = \sum^n_{i=1}w_i\mu \implies \sum^n_{i=1}w_i = 1
+E\left[\sum_{i=1}^n w_iX_i\right]
+=\mu\sum_{i=1}^n w_i.
 $$
+
+Hence this equals $\mu$ for every $\mu$ if and only if $\sum_{i=1}^n w_i=1$.
 
 ### 設問2
 #### (1)
@@ -77,7 +80,7 @@ $$
 L(\mu,\sigma^{2}) &= L(x_1,\dots,x_n;\mu,\sigma^2)
 \\ &= \sum_{i=1}^n \log\left( \frac1{\sigma\sqrt{2\pi}} e^{-(x_i-\mu)^2/2\sigma^2} \right)
 \\ &= -n \log \left( \sigma\sqrt{2\pi} \right) - \frac1{2\sigma^2}\sum_{i=1}^n {(x_i-\mu)^2}
-\\ &= -\frac{n}{2}\ln 2\pi\sigma^{2}-\frac{\sum_{i=1}^{n}(x_{i}^{2}-\mu)^{2}}{2\sigma^{2}}
+\\ &= -\frac{n}{2}\ln(2\pi\sigma^{2})-\frac{1}{2\sigma^{2}}\sum_{i=1}^{n}(x_{i}-\mu)^{2}
 \end{aligned}
 $$
 
@@ -86,22 +89,25 @@ $$
 We find the partial derivatives over $\mu$ and $\sigma^2$ of $L$ and setting them zero.
 
 $$
-0 = {\partial L\over \partial \mu} = -\frac1{\sigma^2} \sum_{i=1}^n (x_i-\mu) \implies \boxed{\hat{\mu} = \frac{1}{n}\sum_{i=1}^{n}x_{i}}
+0 = {\partial L\over \partial \mu} = \frac1{\sigma^2} \sum_{i=1}^n (x_i-\mu) \implies \boxed{\hat{\mu} = \frac{1}{n}\sum_{i=1}^{n}x_{i}}
 $$
+
 and (here we view $\sigma^2$ as a variable) 
+
 $$
-0 = {\partial L\over \partial \sigma^2} = -\frac n{2\sigma^2} + \frac{\sum_{i=1}^{n}(x_{i}^{2}-\mu)^{2}}{2\sigma^{4}}
-\implies \boxed{\hat{\sigma}^{2} = \frac{1}{n}\sum_{i=1}^{n}(x_{i}-\mu)^{2}}.
+0 = {\partial L\over \partial \sigma^2} = -\frac n{2\sigma^2} + \frac{\sum_{i=1}^{n}(x_{i}-\mu)^{2}}{2\sigma^{4}}
+\implies \boxed{\hat{\sigma}^{2} = \frac{1}{n}\sum_{i=1}^{n}(x_{i}-\hat\mu)^{2}}.
 $$
 
 ### 設問3
 
 We actually cannot know $\text{Cov}[X,Y]$, but it's offsetted.
+
 $$
 \begin{aligned}
 \text{Cov}[S,T]
 &= \text{Cov}[X+2Y,X-2Y]\\[0.7em]
-&= \text{Cov}[X,X]+2\text{Cov}[X,Y]-2\text{Cov}[X,Y]+4\text{Cov}[Y,Y]\\[0.7em]
+&= \text{Cov}[X,X]-2\text{Cov}[X,Y]+2\text{Cov}[Y,X]-4\text{Cov}[Y,Y]\\[0.7em]
 &= 2 - 8 = -6
 \end{aligned}
 $$
@@ -116,7 +122,7 @@ $$
 
 #### (2)
 
-If the 2 properties are independent, we have
+Under $H_0$ with the margins fixed, we have
 
 $$
 Pr[\text{Observing the given table} | H_0] = Pr[X=3]

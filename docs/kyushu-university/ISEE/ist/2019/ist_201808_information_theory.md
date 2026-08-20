@@ -9,7 +9,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻 2018年8月実施 情報理論
 
 ## **Author**
-[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
 ### 【問 1】
@@ -108,10 +108,19 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_information_theory_p2.png" width="600" height="350" alt=""/>
 </figure>
 
+例えば
+
+$$
+b\mapsto0,\qquad d\mapsto10,\qquad
+a\mapsto110,\qquad c\mapsto111
+$$
+
+とすればよい。
+
 #### (3)
 
 $$
-\bar{L} = \frac{1 - \alpha}{2} + \frac{1}{4} \cdot 2 + (\frac{1}{4} + \frac{\alpha}{2}) \cdot 3 = \frac{7}{4} - \frac{\alpha}{3} (\text{ビット})
+\bar{L} = \frac{1 - \alpha}{2} + \frac{1}{4} \cdot 2 + (\frac{1}{4} + \frac{\alpha}{2}) \cdot 3 = \frac{7}{4} + \alpha \quad(\text{ビット})
 $$
 
 #### (4)
@@ -120,11 +129,23 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_information_theory_p3.png" width="600" height="400" alt=""/>
 </figure>
 
+全記号の符号長を $2$ にできるので、平均符号長は $2$ ビットである。
+
 #### (5)
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_information_theory_p4.png" width="600" height="450" alt=""/>
 </figure>
+
+従って
+
+$$
+L(\alpha)=
+\begin{cases}
+\dfrac74+\alpha & (0<\alpha<\dfrac14),\\
+2 & (\dfrac14\leq\alpha\leq\dfrac12).
+\end{cases}
+$$
 
 ### 【問 2】
 #### (1)
@@ -175,14 +196,13 @@ $$
 
 #### (5)
 
+$\lambda$ を $P$ の任意の固有値とする。$P$ と $P^T$ の固有値は
+一致するので、$vP=\lambda v$ を満たす非零の左固有ベクトル $v$ が
+存在する。(4) は複素ベクトルに対しても同様に成り立つから、
+
 $$
-\begin{aligned}
-||Pv||_1 &= |p_{11}v_1 + p_{12}v_1 + p_{13}v_1| + |p_{21}v_2 + p_{22}v_2 + p_{23}v_2| + |p_{31}v_3 + p_{32}v_3 + p_{33}v_3| \\
-&\le  (|p_{11}v_1 | + |p_{12}v_1| + |p_{13}v_1|) + (|p_{21}v_2| + |p_{22}v_2| + |p_{23}v_2|) + (|p_{31}v_3| + |p_{32}v_3| + |p_{33}v_3|) \\
-&= |v_1|\sum_{j = 1}^3 p_{1j} + |v_2|\sum_{j = 1}^3 p_{2j} + |v_3|\sum_{j = 1}^3 p_{3j} \\
-&= |v_1| + |v_2| + |v_3| \\
-&= ||v||_1 \\
-Pv &= \lambda v \text{とすると,}||Pv||_1 = ||\lambda v||_1 = |\lambda v_1| + |\lambda v_2| + |\lambda v_3| = |\lambda| \cdot ||v||_1 \\
-||Pv||_1 &\le ||v||_1 \Rightarrow |\lambda| \cdot ||v||_1 \le ||v||_1 \Rightarrow |\lambda| \le 1
-\end{aligned}
+|\lambda|\,\|v\|_1=\|\lambda v\|_1=\|vP\|_1
+\leq\|v\|_1.
 $$
+
+$\|v\|_1>0$ より $|\lambda|\leq1$ である。

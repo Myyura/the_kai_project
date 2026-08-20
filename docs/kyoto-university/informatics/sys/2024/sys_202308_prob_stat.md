@@ -10,7 +10,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 専門科目 確率統計
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6886b945000000001d00cb62?xsec_token=ABXXWhvejfYWQlWP3FzACDNuYFWnkRrhjR8xpcEhZ6HU0=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6886b945000000001d00cb62?xsec_token=ABXXWhvejfYWQlWP3FzACDNuYFWnkRrhjR8xpcEhZ6HU0=), 祭音Myyura
 
 ## **Description**
 以下の問題において， $P(A)$ は事象 $A$ の確率を表し， $E(X)$ と $V(X)$ は確率変数 $X$ の期待値と分散を表す．また， $e$ はネイピア数（自然対数の底）を表す．
@@ -199,6 +199,28 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_prob_stat_p1_2.jpg" width="700" alt=""/>
 </figure>
+
+#### 問題1 (1), (3), (5), (7) の補足
+
+(1) $y_i>0$ なら $\hat\lambda_i=y_i$ である。$y_i=0$ では、パラメータ空間 $\lambda_i>0$ 上に最大点はなく、$\lambda_i\downarrow0$ で上限に近づく（$\lambda_i\geq0$ とすれば $\hat\lambda_i=0$）。
+
+(3) $\sum_i y_i>0$ なら
+
+$$
+\hat\theta=\frac{\sum_i y_i}{\sum_i x_i}.
+$$
+
+$\sum_i y_i=0$ では、$\theta>0$ 上に最大点はない（$\theta\geq0$ とすれば $\hat\theta=0$）。
+
+(5) 表示された $\hat\theta_w$ は制約なしの最小化解である。$\theta>0$ に制限し、すべての $y_i$ が $0$ の場合は最小点が存在せず、$\theta\downarrow0$ で下限に近づく。
+
+(7) 最適な重みは共通の倍率を除いて定まり、
+
+$$
+w_i=\frac{c}{x_i}\qquad(c>0)
+$$
+
+である。$c=1$ はその一例で、推定量は $\hat\theta_w=\sum_iY_i/\sum_i x_i$ となる。
 
 ### 問題2
 

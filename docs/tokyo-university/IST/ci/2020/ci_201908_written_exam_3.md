@@ -14,7 +14,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 筆記試験 第3問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki)
+[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 Select four items out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines of text.
@@ -44,9 +44,9 @@ If necessary, use examples or figures.
 
 ## **Kai**
 #### Semaphore
-Semaphore is an important **synchronization primitive** to coordinate the visits of different threads to shared memory, preventing the race condition 竞态. 
+Semaphore is an important **synchronization primitive** for coordinating access by different threads to shared resources and preventing race conditions.
 
-It is implemented as a counter with 2 atom operations: P (wait) and V (signal). It has an initial count $n$ representing how many resources we have. If a thread wants to execute P i.e. tries acquiring the resource, if the count is >0, the count decrements by 1 and the thread continues normally; otherwise (the count is zero), the thread sleeps and waits for the count to be >0; if a thread ends, it executes V to release the resource, incrementing the count by 1, and if there are threads waiting (usually in a queue), the system wakes one of them (usually the queue head).
+It is implemented as a counter with two atomic operations: P (wait) and V (signal). It has an initial count $n$ representing how many resource units are available. When a thread executes P, a positive count is decremented and the thread continues; if the count is zero, the thread blocks. A thread executes V to release a unit, incrementing the count and waking one waiting thread if necessary.
 
 Semaphores are more flexible than **Mutex** and thus can lead to less stable code, since it does not have an **ownership** mechanism like Mutex.
 
@@ -55,9 +55,9 @@ A shortest path finding algorithm from a single source to a goal, which can be s
 
 A* selects a minimum weight node from the frontier, in which the weight is $f(n)=g(n)+h(n)$ where $g(n)$ is the **known distance (shortest known path length)** from source to $n$ and $h(n)$ is the heuristic function of how much still needed to complete. Let the source be $a$ and destination be $z$, then $g(n)=d(a,n)$ and $h(n):=h(n,z)$.
 
-In A* Tree search, a heuristic function must be **admissible,** i.e. an optimistic estimate / lower bound of the actual shortest path length, such as Euclid or Manhattan distance, to find the optimal solution. $\forall u,v:h(u,v)\le d(u,v)$, where d is the shortest path length.
+In A* tree search, an **admissible** heuristic is an optimistic estimate: $0\le h(n)\le h^*(n)$, where $h^*(n)$ is the true remaining cost. It guarantees an optimal result.
 
-In A* Graph search, a heuristic function must be **consistent** to make the search optimal. **Consistency** is $\forall n,n’,\text{Cost}(n\to n’)+h(n’)\ge h(n)$ i.e. $h$ also optimistically estimates the cost by satisfying Triangle inequality.  
+For standard closed-set A* graph search without reopening nodes, **consistency** is sufficient: $h(n)\le \operatorname{Cost}(n\to n')+h(n')$ for every edge.
 
 The time complexity depends on the heuristic function. The closer $h(n)$ is to the real distance, the faster the algorithm becomes.
 
@@ -66,7 +66,7 @@ FPGA stands for field programmable gate array, it's an integrated circuit which 
 
 #### Buffer overflow
 
-Buffer overflow is a security risk that can happen. The exploit happens when data overflows from a given buffer which was set for the data and thus overrides other information on the memory. When the data is larger than the allocated memory for the buffer and no protection was implemented, a buffer overflow can occure. Buffer overflow exploit can also be used to run melicious code.
+Buffer overflow occurs when a program writes beyond an allocated buffer and overwrites adjacent memory. In unsafe native code it may corrupt control data, crash the process, or permit execution of malicious code. Bounds checking prevents the write; stack canaries, ASLR, and non-executable memory make exploitation harder.
 
 #### LR Parsing
 
@@ -74,15 +74,15 @@ Related to compiler design.
 
 #### IPv4 and IPv6
 
-IPv4 and IPv6 are network addresses. Until recent years only IPv4 was used. The IP address is the global address of a device which is connected to the internet. Addresses like that exist for any device connected to the internet such as servers, private computers etc. IPv4 is a 32 bit (4 bytes) number, giving $2^{32}$ addresses. Because of the limited number of addresses and the growing number of connected devices IPv6 has been adopted. IPv6 uses 128bit addresses, meaning $2^{128}$ total addresses.
+IPv4 and IPv6 are Internet-layer protocols and address formats. An IP address identifies a network interface for routing but need not be global: private and link-local addresses have limited scope. IPv4 uses 32-bit addresses; address scarcity motivated IPv6, which uses 128-bit addresses. The two protocols coexist through mechanisms such as dual stack and translation.
 
 #### Stepping motor
 
-Related to robotics, a stepping motor is an open loop controller. It allows to control movement and rotation. It charges different coils in the motor to make the wheel rotate, accuracy can be improved by imploementing half-stepping which is charging 2 sets of coils to create a half step.
+Related to robotics, a stepping motor advances by a fixed angular step when its windings are energized in sequence, allowing open-loop position control if no steps are missed. Half-stepping alternates one-phase and two-phase excitation; microstepping controls phase currents more finely.
 
 #### Perceptron
 
-In machine learning, a perceptron is a decision algorithm which takes several inputs and gives a single decision output. It does that by summing all inputs multiplied with the alocated weight for each and checking against a threshold.
+In machine learning, a perceptron is a linear binary classifier. It sums the inputs multiplied by their allocated weights and compares the result with a threshold.
 
 $$
 f=\begin{cases}

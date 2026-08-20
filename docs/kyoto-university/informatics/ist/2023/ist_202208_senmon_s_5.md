@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2022年8月実施 専門科目 S-5
 
 ## **Author**
-[realball](https://github.com/realballu3u)
+[realball](https://github.com/realballu3u), 祭音Myyura
 
 ## **Description**
 Suppose that the Fourier transform $\mathcal{F}[f(x)]$ of a function $f(x)$ and the Fourier integral representation of the Dirac delta function $\delta(x)$ are given by the following formulae, where $x$ and $k$ are real numbers, and $i=\sqrt{-1}$. Answer the following questions.
@@ -66,6 +66,7 @@ $$
    1. $f_1(x)=1$（$0\le x\le2$），区间外为 0；
    2. $f_2(x)=\cos^2(\omega x)$，$\omega\in\mathbb R$。
 2. 三角函数
+
    $$
    f_3(x)=
    \begin{cases}
@@ -75,13 +76,16 @@ $$
    0,&x\ge2
    \end{cases}
    $$
+
    按以下步骤求变换：
    1. 推导卷积定理
+
       $$
       \mathcal F[f*g]
       =\mathcal F\!\left[\int f(\tau)g(x-\tau)\,d\tau\right]
       =\sqrt{2\pi}\,\mathcal F[f]\mathcal F[g].
       $$
+
    2. 求 $f_4$ 使 $f_3=f_1*f_4$，并说明卷积如何得到 $f_3$。
    3. 求 $\mathcal F[f_3]$。
 
@@ -108,6 +112,8 @@ $$
 &= e^{-ik}\sqrt{\frac{2}{\pi}}\frac{\sin k}{k}
 \end{aligned}
 $$
+
+At $k=0$, the value is understood by continuity as $\sqrt{2/\pi}$.
 
 #### (2)
 
@@ -150,11 +156,8 @@ $$
 \mathcal{F}\left[f(x)\ast g(x)\right] &= \mathcal{F}\left[\int_{-\infty}^{\infty}f(\tau)g(x-\tau)d\tau\right]\\
 &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(\tau)g(x-\tau)d\tau\right)e^{-ikx}dx\\
 &= \int_{-\infty}^{\infty}f(\tau)\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}g(x-\tau)e^{-ikx}dx\right)d\tau\\
-&= \int_{-\infty}^{\infty}f(\tau)e^{-ik\tau}\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}g(x-\tau)e^{-ik(x-\tau)}dx\right)d\tau\\
-&= \int_{-\infty}^{\infty}f(\tau)\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}g(y)e^{-iky}dy\right)d\tau\\
-&= \int_{-\infty}^{\infty}f(\tau)\mathcal{F}\left[g(x)\right]d\tau\\
-&= \int_{-\infty}^{\infty}f(\tau)d\tau\cdot\mathcal{F}\left[g(x)\right]\\
-&= \sqrt{2\pi}\mathcal{F}\left[g(x)\right]\mathcal{F}\left[g(x)\right]
+&= \int_{-\infty}^{\infty}f(\tau)e^{-ik\tau}\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}g(y)e^{-iky}dy\right)d\tau\\
+&= \sqrt{2\pi}\mathcal{F}\left[f(x)\right]\mathcal{F}\left[g(x)\right].
 \end{aligned}
 $$
 
@@ -171,6 +174,8 @@ $$
 $$
 f_3(x)=f_1(x)\ast f_4(x) =\int_{0}^{2}f_4(x-\tau)d\tau
 $$
+
+Indeed, the integral is the length of $[0,2]\cap[x,x+2]$, namely $x+2$ for $-2\leq x<0$, $2-x$ for $0\leq x<2$, and $0$ otherwise.
 
 #### (3)
 

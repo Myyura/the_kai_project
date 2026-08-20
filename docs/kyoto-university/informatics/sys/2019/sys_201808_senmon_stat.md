@@ -83,7 +83,7 @@ $N, m, n$ は正の整数である。以下の設問 (3) ~ (5) に答えなさ�
 ## **Kai**
 ### 問題1
 #### (1)
-The posterior is given by
+The joint probability is given by
 
 $$
 \Pr(X_i=x,Y_i=y)=\Pr(Y_i=y\mid X_i=x)\Pr(X_i=x),
@@ -100,76 +100,66 @@ $$
 \end{aligned}
 $$
 
-which is exactly
-
-$$
-\begin{aligned}
-\Pr(X_{i}=x,Y_{i}=y)=(\beta\alpha)^{xy}\left[(1-\beta)\alpha\right]^{x(1-y)}0^{(x-1)y}(1-\alpha)^{(1-x)(1-y)}
-\end{aligned}
-$$
+Thus $Y_i\le X_i$ almost surely, and the four probabilities above give the joint pmf on $\{0,1\}^2$.
 
 #### (2)
-The likelihood is
+Put
 
 $$
-L=\prod_{i=1}^n\Pr(Z_i),
+S_X=\sum_{i=1}^nX_i,
+\qquad
+S_Y=\sum_{i=1}^nY_i.
 $$
 
-and the log-likelihood is
+For data in the support, $S_Y\le S_X$ and the likelihood is
 
 $$
-\log L=\sum_{i=1}^{n} \Big\{ X_{i}Y_{i}\log(\alpha\beta)+X_{i}(1-Y_{i})\log[(1-\beta)\alpha]
-+(X_{i}-1)Y_{i}\log0+(1-X_{i})(1-Y_{i})\log(1-\alpha) \Big\}
+L(\alpha,\beta)
+=\alpha^{S_X}(1-\alpha)^{n-S_X}
+\beta^{S_Y}(1-\beta)^{S_X-S_Y}.
 $$
 
-Let $\frac{\partial\log L}{\partial\alpha}=0$ and we get
+Therefore,
 
 $$
-(1-\alpha)\sum_{i=1}^nX_i-\alpha\sum_{i=1}^n(1-X_i)(1-Y_i)=0,
+\boxed{
+\hat\alpha_n=\frac{S_X}{n},
+\qquad
+\hat\beta_n=\frac{S_Y}{S_X}
+}.
 $$
 
-$$
-\hat{\alpha}_n=\frac{\sum_{i=1}^nX_i}{\sum_{i=1}^n(1-Y_i+X_iY_i)}.
-$$
-
-Similarly, $\frac{\partial\log L}{\partial\beta}=0$ gives
-
-$$
-(1-\beta)\sum_{i=1}^nX_iY_i-\beta\sum_{i=1}^nX_i(1-Y_i)=0,
-$$
-
-$$
-\hat{\beta}_n=\frac{\sum_{i=1}^nX_iY_i}{\sum_{i=1}^nX_i}.
-$$
+The second estimator is unique when $S_X>0$; if $S_X=0$, the likelihood does not depend on $\beta$. The displayed ratios are interior MLEs when they lie in $(0,1)$; at an endpoint, the likelihood has only a supremum in the stated open parameter space.
 
 #### (3)
-Substitute $\beta$ by $1- \alpha$ in the log-likelihood and we have
+Under $\beta=1-\alpha$, the log-likelihood, up to an additive constant, is
 
 $$
-\log L=\sum_{i=1}^{n} \Big\{ X_{i}Y_{i}\log(\alpha(1-\alpha))+X_{i}(1-Y_{i})\log(\alpha^{2})\\+(X_{i}-1)Y_{i}\log 0+(1-X_{i})(1-Y_{i})\log(1-\alpha) \Big\}.
+\log L=(2S_X-S_Y)\log\alpha+(n-S_X+S_Y)\log(1-\alpha).
 $$
 
 Let $\frac{\partial\log L}{\partial\alpha}=0$ and then we get
 
 $$
-\hat{\alpha}_n=\frac{2\sum X_i-\sum X_iY_i}{n+\sum X_i-\sum Y_i + \sum X_iY_i}.
+\hat{\alpha}_n=\frac{2S_X-S_Y}{n+S_X}.
 $$
+
+This is the interior MLE; if the displayed value is $0$ or $1$, the likelihood has only a supremum in the stated open parameter space.
 
 #### (4)
 When $n \to \infty$,
 
 $$
-\begin{aligned}
-&\sum X_{i}\to n\mathbb{E}[X_i=1]=\alpha n\\
-&\sum Y_{i}\to n\mathbb{E}[Y_i=1]=\alpha\beta n\\
-&\sum X_{i}Y_{i}\to n\mathbb{E}[X_i=1,Y_i=1]=\alpha \beta n
-\end{aligned}
+\frac{S_X}{n}\xrightarrow{p}\alpha,
+\qquad
+\frac{S_Y}{n}\xrightarrow{p}\alpha\beta.
 $$
 
-Since $\hat{\alpha}_{n}$ converges, it converges to
+Since $\beta=1-\alpha$,
 
 $$
-\lim\limits_{n\to\infty}\hat{\alpha}_n=\frac{2\alpha n-\alpha\beta n}{n+\alpha n}=\frac{2\alpha-\alpha\beta}{1+\alpha} = \alpha.
+\hat\alpha_n\xrightarrow{p}
+\frac{2\alpha-\alpha\beta}{1+\alpha}=\alpha.
 $$
 
 ### 問題2
@@ -183,7 +173,7 @@ $$
 #### (2)
 
 $$
-\mathbb{E}[X]=\sum_{i=1}^n\Pr(X=k)\cdot k
+\mathbb{E}[X]=\sum_k\Pr(X=k)\cdot k
 $$
 
 Note that
@@ -230,6 +220,8 @@ $$
 \end{aligned}
 $$
 
+This ratio is used for $N>N_{\min}:=m+n-k$; $N_{\min}$ is the smallest feasible value of $N$.
+
 #### (5)
 $L(N)$ is positive.
 
@@ -252,4 +244,10 @@ $$
 
 $L(N)$ monotonely increases.
 
-So the maximum likelihood estimate of $N$ would be $\hat{N}=\lfloor mn/k\rfloor$ , floored as $N$ is a positive integer.
+Let $c=mn/k$. If $c\notin\mathbb Z$, the unique maximum likelihood estimate is
+
+$$
+\boxed{\hat N=\lfloor c\rfloor}.
+$$
+
+If $c\in\mathbb Z$ and $c-1\ge N_{\min}$, then $L(c-1)=L(c)$ and both $c-1$ and $c$ are maximum likelihood estimates. If $c=N_{\min}$, only $c$ is feasible.

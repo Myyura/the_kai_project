@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 筆記試験 第2問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff)
+[tomfluff](https://github.com/tomfluff), 祭音Myyura
 
 ## **Description**
 Consider making a memory that can be accessed randomly, using D-FFs (Flip Flop) and 2:1 multiplexers.
@@ -85,7 +85,7 @@ Since we gradually divide all inputs into 2 as inputs to the MUX, so the first l
 
 ### (4)
 #### itsuitsuki's solution
-No need to be so complex as in tomfluff's solution.
+The multiplexer selects the feedback value $q$ when `we` is 0 and the external input `d` when `we` is 1; its output drives the D-FF input.
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_2_p5.png" width="403" height="261" alt=""/>
 </figure>
@@ -95,9 +95,7 @@ No need to be so complex as in tomfluff's solution.
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_2_p3.png" width="403" height="261" alt=""/>
 </figure>
 
-The top option is safer as uses a D-FF to assure the correctness of the output.
-
-The bottom option works as well but the initial value of output is `x` (i.e. unknown)
+Of the two circuits in this figure, only the bottom one implements the specified D-FF. The top circuit samples `d` in an extra D-FF, so a write reaches the output one clock edge late. An unspecified initial output is allowed because the problem gives no reset or initial value.
 
 ### (5)
 

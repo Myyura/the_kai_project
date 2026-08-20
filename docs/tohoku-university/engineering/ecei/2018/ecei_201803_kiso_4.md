@@ -74,14 +74,26 @@ Answer the folowing questions. If necessary, the following facts (A) and (B) can
 
 1. 设 $G$ 为连通图。
    1. 对 $G$ 的任意奇偶子图 $H$，证明 $G$ 存在满足
-      $$l(C)=m(G)+m(H)$$
+
+      $$
+      l(C)=m(G)+m(H)
+      $$
+
       的 2-回路 $C$。
    2. 对 $G$ 的任意 2-回路 $C$，证明存在奇偶子图 $H$ 满足
-      $$m(H)=l(C)-m(G).$$
+
+      $$
+      m(H)=l(C)-m(G).
+      $$
+
 2. 设 $H$ 为连通图 $G$ 的最小奇偶子图。
    1. 证明 $H$ 不含闭路；
    2. 记 $G$ 上最短 2-回路的长度为 $\mu_2(G)$，证明 $H$ 恰有
-      $$m(G)+n(G)-\mu_2(G)$$
+
+      $$
+      m(G)+n(G)-\mu_2(G)
+      $$
+
       个连通分量。
 
 ## **Kai**
@@ -95,7 +107,7 @@ $$
 \deg_{G^{+}}(x)=\deg_G(x)+\deg_H(x)\equiv 0\pmod 2,
 $$
 
-so every vertex of $G^{+}$ has even degree. By (A), $G^{+}$ has an Euler circuit $C^{+}$.
+so every vertex of $G^{+}$ has even degree. Moreover, $G^{+}$ is connected because it contains $G$. By (A), $G^{+}$ has an Euler circuit $C^{+}$.
 
 Read $C^{+}$ back in $G$ by forgetting which of two parallel copies it used.  
 Every edge of $G\setminus H$ is used once; every edge of $H$ is used twice.  
@@ -106,8 +118,7 @@ $$
 $$
 
 #### (b) From a 2-circuit to a parity subgraph and its size
-Let $C$ be any 2-circuit of $G$. Define $H\subseteq G$ to be the subgraph
-consisting of the edges that $C$ uses **twice**.
+Let $C$ be any 2-circuit of $G$. Define $H\subseteq G$ on the vertex set $V(G)$ to be the subgraph consisting of the edges that $C$ uses **twice**.
 Then
 
 $$
@@ -118,7 +129,7 @@ $$
 m(H)=\ell(C)-m(G)
 $$
 
-To see $H$ is a parity subgraph, fix a vertex $x$. In the closed walk $C$, each visit to $x$ uses two incident edge-ends (enter/leave), and a loop at $x$ contributes two ends; hence the total number of used edge-ends at $x$ is even. Modulo $2$, this implies the number of incident edges used **exactly once** at $x$ is even, i.e.
+To see $H$ is a parity subgraph, fix a vertex $x$. In the closed walk $C$, each visit to $x$ uses two incident edge-ends (enter/leave), and a loop at $x$ contributes two ends; hence the total number of used edge-ends at $x$ is even. Modulo $2$, this implies that the degree at $x$ contributed by edges used **exactly once** is even, i.e.
 
 $$
 \deg_G(x)\equiv \deg_H(x)\pmod 2.

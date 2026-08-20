@@ -11,6 +11,7 @@ tags:
 # 東京大学 工学系研究科 2016年8月実施 数学 第3問
 
 ## **Author**
+祭音Myyura
 
 ## **Description**
 次の問いに答えよ。ただし, $i$は虚数単位であり, $e$は自然対数の底, $\log$ は自然対数である。
@@ -80,17 +81,21 @@ $$
 设 $i$ 为虚数单位，$e$ 为自然对数的底，$\log$ 表示自然对数。
 
 I. 对
+
 $$
 I=\int_0^{2\pi}\frac{\cos\theta}{(2+\cos\theta)^2}\,\mathrm d\theta,
 $$
+
 作代换 $z=e^{i\theta}$，把它写成沿单位圆逆时针一周的围道积分 $\oint_{|z|=1}G(z)\,\mathrm dz$；求 $G(z)$ 的全部极点、各极点阶数和留数，并据此算出 $I$。
 
 II. 对实参数 $\alpha,\beta$，令
+
 $$
 f(\theta;\alpha,\beta)=1+e^{2i\beta}+\alpha e^{i(\theta+\beta)},\qquad
 F(\alpha,\beta)=\int_0^{2\pi}\frac{\mathrm d}{\mathrm d\theta}
 \log f(\theta;\alpha,\beta)\,\mathrm d\theta.
 $$
+
 同样把 $F$ 化为单位圆上的围道积分并求相应的 $G(z)$；找出全部极点、阶数和留数；最后根据实参数 $\alpha,\beta$ 分类计算 $F(\alpha,\beta)$。极点恰在积分路径上的情形无需讨论。
 
 ## **Kai**
@@ -110,7 +115,7 @@ $$
 $$
 \begin{aligned}
 I &= \oint_{\mid z \mid = 1} \frac{\frac{1}{2}(z+\frac{1}{z})}{\big(2 + \frac{1}{2}(z + \frac{1}{z})\big)^2} \frac{\text{d}z}{iz} \\
-G(z) &= \frac{1}{2iz^2} \frac{z^2 + 1}{\frac{1}{4}\big(4 + 4z + \frac{1}{z}\big)^2} \\
+G(z) &= \frac{1}{2iz^2} \frac{z^2 + 1}{\frac{1}{4}\big(z + 4 + \frac{1}{z}\big)^2} \\
 &= \frac{2}{i} \frac{z^2 + 1}{(z^2 + 4z + 1)^2}
 \end{aligned}
 $$
@@ -148,7 +153,7 @@ $z = 1$内の極は$z = \alpha$のみであることに注意して,　留数定
 $$
 \begin{aligned}
 I &= \oint_{\mid z \mid = 1}G(z)\text{d}z \\
-&= 2\pi i \text{Res}_{z = \beta} G(z) \\
+&= 2\pi i \text{Res}_{z = \alpha} G(z) \\
 &= 2\pi i \cdot \big(-\frac{1}{i} \frac{\sqrt{3}}{9}\big) = -\frac{2\sqrt{3}}{9} \pi
 \end{aligned}
 $$
@@ -177,7 +182,7 @@ $$
 $$
 
 #### 2.
-$\alpha = 0$のとき,　極は存在しない。
+$\alpha = 0$かつ $\cos\beta\neq0$ のとき、被積分関数は $0$ であり、極は存在しない。$\alpha=0$ かつ $\cos\beta=0$ のときは $f\equiv0$ なので $F$ は定義されない。
 
 $\alpha \neq 0$のとき,　極は$z = -\frac{2}{\alpha}\cos \beta$の1つで, 1位.
 
@@ -198,8 +203,11 @@ F(\alpha,\beta) = 2\pi i \cdot 1 =2\pi i
 $$
 
 ##### (ii)
-$\big|-\frac{2}{\alpha}\cos \beta \big| > 1$または$\alpha = 0$のとき,　$z = 1$内に極は存在しないので,　
+$\big|-\frac{2}{\alpha}\cos \beta \big| > 1$、または $\alpha = 0$ かつ $\cos\beta\neq0$ のとき,　$z = 1$内に極は存在しないので,　
 
 $$
 F(\alpha,\beta) = 0
 $$
+
+##### (iii)
+$\alpha\neq0$ かつ $\left|-2\cos\beta/\alpha\right|=1$ のときは積分路上に極があるため、$F(\alpha,\beta)$ は定義されない。

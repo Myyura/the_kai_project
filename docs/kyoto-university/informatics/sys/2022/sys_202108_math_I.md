@@ -205,7 +205,13 @@ $$
 \end{cases}
 $$
 
-即ち、$-1/2 < a \leq 1/2$。
+問題の仮定 $a\ne0$ も含めると、必要十分条件は
+
+$$
+\boxed{-\frac12<a<0\quad\text{or}\quad0<a\le\frac12}
+$$
+
+である。
 
 #### (iv)
 $a = \frac{1}{2}$ のとき、

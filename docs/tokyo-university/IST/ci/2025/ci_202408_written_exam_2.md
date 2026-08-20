@@ -11,7 +11,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2024年8月実施 筆記試験 第2問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 We transmit data via packet switching between sender S and receiver R connected as shown in Figure 1. Assume that one-way propagation delay $d_{prop}$ is 250 ms and bandwidth $B$ is 200 kbps. Ignore packet losses and assume that the packets are not fragmented during transmission. The communication is full-duplex. The prefix “k” represents $10^3$.
@@ -138,10 +138,16 @@ d_{trans} &= {P \text{ bytes}\over 200 \text{ kbps}}={P\over 25}\text{ ms},
 \end{aligned}
 $$
 
-when the line utilization is not less than 20% i.e. 0.2, we have
+The line utilization is
 
 $$
-{P\over B}\ge 0.2\implies {200P/(P+12500)\over 200}\ge 0.2\implies {P\over P+12500}\ge 0.2,
+U(P)={\text{Effective Speed}\over B}={P\over P+12500}.
+$$
+
+Thus
+
+$$
+U(P)\ge 0.2\implies {P\over P+12500}\ge 0.2,
 $$
 
 where $P\ge 3125\text{ bytes}$.
@@ -165,6 +171,16 @@ $$
 $$
 
 Since $\omega$ is an integer, $\omega_{\min}=10$.
+
+The corresponding sequence is:
+
+```text
+S:  P1 [0,60]  P2 ... P10 [540,600]  P11 ...
+R:             P1 completely received at 310; ACK1 sent
+S:                                      ACK1 received at 560
+```
+
+The ACK arrives while S is sending P10, so transmission continues without an idle gap.
 
 ### (5)
 Generally, the time of S to complete sending is ${\omega\times P\times 8\over B}$ for $P$ bytes, $\omega$ packets and bandwidth $B$ kbps.
@@ -211,7 +227,7 @@ After a propagation delay, the client receives the file.
 
 ### (7)
 Notice: the preprocessing delay changes to 15ms.
-+ Client 1 receives at $t=0+50+15+6400+50=6505\text{ ms}$;
++ Client 1 receives at $t=0+50+15+6400+50=6515\text{ ms}$;
 + Client 2 receives at $t=30+110+15+12800+110=13065\text{ ms}$;
 + Client 3 receives at $t=50+60+15+4000+60=4185\text{ ms}$.
 
@@ -223,14 +239,14 @@ d_{trans}={4\times 10^5\text{ bytes}\over 500\text{ kbps}}=6400\text{ ms}.
 $$
 
 + Client 1 to client 12: no queueing;
-  + Client 1: $t=0+50=50\text{ ms}$ arrival; server sends at $t=0+50+15+6400=6465\text{ ms}$ (next queueing request starts being preprocessed);
+  + Client 1: $t=0+50=50\text{ ms}$ arrival; server completes sending at $t=0+50+15+6400=6465\text{ ms}$ (the next queued request starts being processed);
   + ...
-  + Client 8: $t=70+50=120\text{ ms}$ arrival; server sends at $t=120+15+6400=6535\text{ ms}$;
+  + Client 8: $t=70+50=120\text{ ms}$ arrival; server completes sending at $t=120+15+6400=6535\text{ ms}$;
   + ...
   + Client 12: server completes sending at $t=110+50+15+6400=6575\text{ ms}$.
 + Client 13 to client 20: waiting the processing Client 1,2,..,8 repsectively to end;
-  + Client 13: $t=120+50=170\text{ ms}$ arrival; leaves the queue at $t=6465\text{ ms}$ when the request from 1 ends, server sends at $t=6465+15+6400=12880\text{ ms}$;
+  + Client 13: $t=120+50=170\text{ ms}$ arrival; leaves the queue at $t=6465\text{ ms}$ when the request from 1 ends, and the server completes sending at $t=6465+15+6400=12880\text{ ms}$;
   + ...
-  + Client 20: $t=190+50=240\text{ ms}$ arrival; leaves the queue at $t=6535\text{ ms}$ when the request from 8 ends, server sends at $t=6535+15+6400=12950\text{ ms}$;
+  + Client 20: $t=190+50=240\text{ ms}$ arrival; leaves the queue at $t=6535\text{ ms}$ when the request from 8 ends, and the server completes sending at $t=6535+15+6400=12950\text{ ms}$;
 
-Hence, client 20 completes receiving after a one-way propagation delay at $t=12950+50=13000\text{ ms}$.
+Hence, the server starts processing Client 20's request at $t=6535\text{ ms}$, and Client 20 completes receiving after a one-way propagation delay at $t=12950+50=13000\text{ ms}$.

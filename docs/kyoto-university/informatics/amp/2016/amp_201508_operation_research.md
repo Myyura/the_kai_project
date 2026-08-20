@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2015年8月実施 オペレーションズ・リサーチ
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -99,21 +99,28 @@ $$
 完成以下各问：
 
 1. 证明对任意非负整数 $k$，
+
    $$
    f_k(\boldsymbol x^k)\leq f(\boldsymbol x^*).
    $$
+
 2. 证明
+
    $$
    \boldsymbol a^\top\bar{\boldsymbol x}=0,
    \qquad
    \bar{\boldsymbol x}=\boldsymbol x^*.
    $$
+
 3. 写出问题 $\mathrm P(k)$ 的 Karush–Kuhn–Tucker（KKT）条件。
 4. 证明当 $k$ 充分大时，
+
    $$
    \nabla f_k(\boldsymbol x^k)=\boldsymbol0.
    $$
+
 5. 证明
+
    $$
    \nabla f(\boldsymbol x^*)+\bar\lambda\boldsymbol a=\boldsymbol0.
    $$
@@ -126,23 +133,19 @@ f_k(x^k) \leq f_k(x^*) = f(x^*) + \frac k2 (a^\top x^*)^2 = f(x^*)
 $$
 
 ### (ii)
-By (i) we have
+The assumed finite limit of $k(a^\top x^k)$ gives $a^\top x^k\to0$. Hence, by $x^k\to\bar x$,
 
 $$
-\begin{aligned}
-    \lim_{k \to \infty} f_k(x^k) &= \lim_{k\rightarrow\infty} (f(x^k) + \frac k2 (a^\top x^k)^2 + \frac12 (x^k - x^*)^\top (x^k - x^*)) \\
-    &= f(\bar{x}) + \lim_{k\rightarrow \infty} \frac{k^2}{2}(a^\top \bar{x})^2 + \frac 12 (\bar{x} - x^*)^\top (\bar{x} - x^*) \\
-    & \leq f(x^*)
-\end{aligned}
+a^\top\bar x=0.
 $$
 
-which implies that
+Moreover, (i) and the nonnegativity of the penalty term imply
 
 $$
-a^\top \bar{x} = 0
+f(x^k)+\frac12\|x^k-x^*\|^2\leq f_k(x^k)\leq f(x^*).
 $$
 
-and then we have
+Taking limits gives
 
 $$
 f(\bar{x}) + \frac 12 (\bar{x} - x^*)^\top(\bar{x} - x^*) \leq f(x^*)
@@ -164,15 +167,16 @@ $$
 Lagrangian
 
 $$
-L(x, \lambda) = f(x) + \frac k2 (a^\top x)^2 + (\frac 12 + \lambda)(x-x^*)^\top (x-x^*) - \lambda
+L(x, \lambda_k) = f(x) + \frac k2 (a^\top x)^2 + (\frac 12 + \lambda_k)(x-x^*)^\top (x-x^*) - \lambda_k
 $$
 
 $$
 \text{KKT-conditions:} \left\{
 \begin{aligned}
-\nabla f(x) + k aa^\top x + (1+2\lambda)(x-x^*)^\top (x-x^*) & = \boldsymbol{0} \\
-\lambda \succeq  \boldsymbol{0}, \lambda ((x-x^*)^\top (x-x^*) - 1) &= 0 \\
-(x-x^*)^\top (x-x^*)-1 &\leq 0
+\nabla f(x^k) + k(a^\top x^k)a + (1+2\lambda_k)(x^k-x^*) & = \boldsymbol{0}, \\
+\lambda_k &\geq 0, \\
+\|x^k-x^*\|^2-1 &\leq 0, \\
+\lambda_k(\|x^k-x^*\|^2-1)&=0.
 \end{aligned}
 \right.
 $$
@@ -180,13 +184,13 @@ $$
 ### (iv)
 
 $$
-\nabla f(x^k) + k a^\top a x^k + (x-x^k)(1+2\lambda) = 0
+\nabla f(x^k)+k(a^\top x^k)a+(1+2\lambda_k)(x^k-x^*)=0
 $$
 
 and
 
 $$
-\lambda \geq 0, \lambda ((x^k - x^*)^\top(x^k - x^*)-1) = 0
+\lambda_k \geq 0,\qquad \lambda_k(\|x^k-x^*\|^2-1) = 0.
 $$
 
 when $k$ is sufficiently large, we have
@@ -198,19 +202,13 @@ $$
 then
 
 $$
-\lambda = 0
+\lambda_k = 0
 $$
 
 thus
 
 $$
-\nabla f_k(x^k) + ka^\top a x^* + x^k - x^* = 0
-$$
-
-therefore
-
-$$
-\nabla f_k(x^k) = \nabla f(x^k) + ka^\top a x^* + x^k - x^* = 0
+\nabla f_k(x^k)=\nabla f(x^k)+k(a^\top x^k)a+x^k-x^*=0.
 $$
 
 ### (v)
@@ -219,10 +217,10 @@ $$
 \lim_{k \to \infty}x^k = x^*
 $$
 
-from KKT-conditions:
+From (iv),
 
 $$
-\nabla f(x^k) + aka^\top x^k + (1+2\lambda)(x^k - x^*) = 0
+\nabla f(x^k)+k(a^\top x^k)a+x^k-x^*=0.
 $$
 
 let $k \to \infty$ , we get

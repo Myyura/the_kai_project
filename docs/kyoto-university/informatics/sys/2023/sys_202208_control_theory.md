@@ -12,7 +12,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 専門科目 制御工学
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68844f5f0000000022032dbc?xsec_token=ABJ6e6OUxI1XWfgsOiU5PPpATJBVnNjWzgQ2c9U7EtPjg=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68844f5f0000000022032dbc?xsec_token=ABJ6e6OUxI1XWfgsOiU5PPpATJBVnNjWzgQ2c9U7EtPjg=), 祭音Myyura
 
 ## **Description**
 ### 問題1
@@ -138,13 +138,17 @@ $$
    在特定频带内提供相位超前，其中 $k,T>0$，$0<\alpha<1$。已知以下命题：
 
    > 频率响应 $C(j\omega)$ 的最大相位为
+   >
    > $$
    > \arctan\frac{1-\alpha}{2\sqrt\alpha},
    > $$
+   >
    > 且在角频率
+   >
    > $$
    > \omega_m=\frac1{\sqrt\alpha T}
    > $$
+   >
    > 处取得。
 
    （1）求 $\omega=\omega_m=\frac1{\sqrt\alpha T}$ 时 $C(j\omega)$ 的增益。
@@ -185,3 +189,18 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p2_s.jpg" width="700" alt=""/>
 </figure>
+
+#### 問題2 (3) の訂正
+
+$K(s)=1$ のとき $\omega_{pc}=3$ でのゲインは $-3\,\mathrm{dB}$ なので、補償器には $+3\,\mathrm{dB}$、すなわち $|C(j\omega_{pc})|=\sqrt2$ が必要である。位相条件より
+
+$$
+\alpha=3-2\sqrt2,\qquad \sqrt\alpha=\sqrt2-1.
+$$
+
+$|C(j\omega_m)|=k/\sqrt\alpha$ および $\omega_m=3$ より
+
+$$
+k=\sqrt{2\alpha}=2-\sqrt2,\qquad
+T=\frac{1}{3\sqrt\alpha}=\frac{\sqrt2+1}{3}.
+$$

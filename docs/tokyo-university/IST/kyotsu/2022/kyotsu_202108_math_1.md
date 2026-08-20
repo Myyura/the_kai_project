@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学研究科 2021年8月実施 数学 第1問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html), [etsurin](https://zhuanlan.zhihu.com/p/561992447)
+[Miyake](https://miyake.github.io/exams/index.html), [etsurin](https://zhuanlan.zhihu.com/p/561992447), 祭音Myyura
 
 ## **Description**
 以下の $x,y,z\in \mathbb{R}$ 関する複数の条件を考える．
@@ -36,12 +36,14 @@ $\Omega$ を上記の条件を満たす $z$ が一つでも存在するような
 ### 题目描述
 
 考虑实数 $x,y,z$ 满足
+
 $$
 \begin{cases}
 0<z-xy<1,\\
 0<z-(x+y)^2<-xy.
 \end{cases}
 $$
+
 令 $\Omega$ 为所有满足“存在至少一个 $z$ 使上述条件成立”的点
 $(x,y)$ 的集合；等价地，$\Omega$ 是相应三维点集在 $xy$ 平面上的正投影。回答下列问题。
 
@@ -103,7 +105,7 @@ $xy \lt 0$ は、xy平面の第2象限と第4象限を表す。
 
 $x^2+y^2+xy \lt 1$ は、原点を中心とし、
 直線 $y=-x$ 上に長軸があり、直線 $y=x$ 上に短軸があり、
-長径が $\sqrt{2}$ であり、短径が $\sqrt{2/3}$ であるような楕円である。
+長径が $2\sqrt{2}$ であり、短径が $2\sqrt{2/3}$ であるような楕円である。
 なぜなら、
 
 $$
@@ -157,7 +159,7 @@ $$
 
 となる。
 これは、楕円 $x^2+y^2+xy=1$ の最も曲率の高い点（の1つ）
-$(x,y)=(1/\sqrt{3}, -1/\sqrt{3})$ と
+$(x,y)=(1,-1)$ と
 単位円 $x''^2+y''^2=1$ 上の点 $(x'',y'')=(1,0)$ を対応付ける。
 よって、求める線形変換行列 $X$ は、
 

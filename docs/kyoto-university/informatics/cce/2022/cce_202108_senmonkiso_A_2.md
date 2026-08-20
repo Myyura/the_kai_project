@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2021年8月実施 専門基礎A \[A-2\]
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 (1) 関数 $f(t)$ のフーリエ余弦変換は次式で定義される。 
@@ -51,24 +51,31 @@ $$
 ### 题目描述
 
 1. 函数 $f(t)$ 的 Fourier 余弦变换及逆变换定义为
+
    $$
    F(\omega)=\int_0^\infty f(t)\cos(\omega t)\,dt,\qquad
    f(t)=\frac2\pi\int_0^\infty F(\omega)\cos(\omega t)\,d\omega.
    $$
+
    1. 对 $m>0$，求 $f(t)=e^{-mt}$ 的 Fourier 余弦变换。
    2. 利用上问证明
+
       $$
       \int_0^\infty\frac{\cos(pv)}{v^2+\beta^2}\,dv
       =\frac{\pi}{2\beta}e^{-p\beta},
       \qquad p>0,\ \beta>0.
       $$
+
 2. 求微分方程
+
    $$
    \frac{d^2y}{dx^2}-2x\frac{dy}{dx}+(x^2-5)y
    =xe^{x^2/2}
    $$
+
    的一般解。
 3. 利用留数定理求
+
    $$
    I=\int_0^{2\pi}\frac{d\theta}{a+\sin\theta},
    \qquad a>1.
@@ -141,7 +148,7 @@ y(x) &= \left( c_1 e^{2x} + c_2 e^{-2x} - \frac{1}{4} x \right) e^{x^2/2}
 $$
 
 を得る。
-ここで、 $C_1, C_2, c_1, c_2$ は任意定数である。
+ここで $c_1,c_2$ は任意定数である。
 
 ### (3)
 虚数単位を $i$ として、 $z=e^{i \theta}$ とすると、
@@ -150,7 +157,7 @@ $$
 \begin{aligned}
 dz &= i e^{i \theta} d \theta = iz d \theta
 \\
-\sin \theta &= \frac{1}{2i} \left( z + \frac{1}{z} \right)
+\sin \theta &= \frac{1}{2i} \left( z - \frac{1}{z} \right)
 \end{aligned}
 $$
 

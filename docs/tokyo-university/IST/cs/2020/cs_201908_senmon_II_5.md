@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目II 問題5
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Suppose that $f(x)$ is a real function defined on a closed interval from $a$ to $b$ $(a < b)$. Suppose that $n$ is an integer that is no less than 2, and define $h = (b - a)/n$. Then, for each integer $i = 0, 1, \ldots, n$, define $x_i = a + ih$ and $f_i = f(x_i)$, respectively. Namely, $x_0, \ldots, x_n$ are the points that divide the interval from $a$ to $b$ into $n$ equal parts, and $f_i$ is the value of the function $f(x)$ at $x = x_i$.
@@ -49,9 +49,11 @@ Answer the following questions.
 令 $h=(b-a)/n$；对 $i=0,1,\ldots,n$，定义
 $x_i=a+ih$、$f_i=f(x_i)$。于是 $x_0,\ldots,x_n$ 将区间等分为
 $n$ 份。再令
+
 $$
 J=\int_a^b f(x)\,\mathrm dx,
 $$
+
 并以 $J_n$ 表示在这些等分点上使用复合梯形公式得到的近似值。回答下列问题。
 
 （1）假设 $f$ 四阶连续可微。对整数 $0<k<n$，用
@@ -94,11 +96,19 @@ where $h = \frac{b-a}{n}$ and $f_i = f(x_i)$.
 
 When $f(x)$ is approximated by a quadratic function on each subinterval, the error $E_n = J_n - J$ can be related to the integral approximations $J_n$ and $J_{2n}$ as follows:
 
+For a quadratic function, halving the mesh size gives $E_{2n}=E_n/4$. Hence
+
 $$
-E_n = \frac{J_{2n} - J_n}{3}
+J_{2n}-J_n=E_{2n}-E_n=-\frac34E_n,
 $$
 
-This formula arises from the fact that the error in the trapezoidal rule is proportional to $h^2$, and doubling the number of intervals reduces the error by a factor of 4. By subtracting the two approximations, we can eliminate the leading order error term, leaving a smaller error proportional to $h^4$.
+so
+
+$$
+E_n=\frac43\left(J_n-J_{2n}\right).
+$$
+
+This follows from the $h^2$ error scaling of the trapezoidal rule: halving the mesh size reduces the error by a factor of four, and subtracting the two approximations eliminates the unknown exact integral $J$.
 
 ## **Knowledge**
 

@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2018年8月実施 線形計画
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -65,12 +65,14 @@ $$
 1. 写出 P 的对偶问题。
 2. 证明 P 存在最优解。
 3. 当 $m=2,n=3$ 且
+
    $$
    \boldsymbol A=
    \begin{pmatrix}1&2&0\\0&0&5\end{pmatrix},
    \qquad
    \boldsymbol b=\begin{pmatrix}2\\10\end{pmatrix}
    $$
+
    时，求 P 的最优解。
 
 ## **Kai**
@@ -79,7 +81,7 @@ Lagrangina:
 
 $$ 
 \begin{aligned}
-L(y,z, \lambda, \nu, \mu) &= \boldsymbol{1}^\top y + \mu ^\top (b - Ax) + \lambda ^\top (x - y) + \nu ^\top (-x-y) \\
+L(x,y, \lambda, \nu, \mu) &= \boldsymbol{1}^\top y + \mu ^\top (b - Ax) + \lambda ^\top (x - y) + \nu ^\top (-x-y) \\
 &= (1-\lambda -\nu )^\top y + (-\mu ^\top A + \lambda ^\top - \nu ^\top ) x + b^\top \mu 
 \end{aligned}
 $$
@@ -87,20 +89,23 @@ $$
 $$
 \begin{aligned}
 \text{(Q): } \text{Maximize} \ &b^\top \mu \\
-\text{subject to } \ &\mu + \nu = \boldsymbol{1} \\
-&\mu^\top A = (\lambda - \nu) ^\top \\
-&\lambda \succeq 0, \nu \succeq 0
+\text{subject to } \ &\lambda + \nu = \boldsymbol{1} \\
+&A^\top\mu = \lambda - \nu \\
+&\lambda \succeq 0, \nu \succeq 0,\qquad \mu\in\mathbb R^m
 \end{aligned}
 $$
 
 ### (ii)
 
+Choose $z$ with $Az=b$. Then $(x,y)=(z,|z|)$ is feasible. At every feasible point, $y_i\geq|x_i|$, so the objective is bounded below by $0$.
+
+Moreover, at an optimum one may take $y=|x|$, so P is equivalent to minimizing $\|x\|_1$ over the nonempty closed set $\{x:Ax=b\}$. Its sublevel set
+
 $$
-b^\top \mu = (Ax)^\top \mu = x^\top(\lambda ^\top - \mu ^\top), -1 \preceq \lambda - \mu \preceq 1
+\{x:Ax=b,\ \|x\|_1\leq\|z\|_1\}
 $$
 
-For a given $\widetilde{x}$, $v(p) \geq \max (\widetilde{x}^\top (\lambda - \nu))$,
-$\widetilde{x}^\top (\lambda - \nu)$ is bounded, thus (P) is bounded, and therefore has an optimal solution.
+is nonempty and compact. Hence the minimum is attained.
 
 ### (iii)
 
@@ -118,6 +123,8 @@ $$
 \min \sum_{i=1}^{n}y_i = \min(|2-2u| + |u| + 2) = 3
 $$
 
+Thus the unique minimizer is $u=1$, and
+
 $$
-y^* = (0,1,2)^\top
+x^*=y^*=(0,1,2)^\top.
 $$

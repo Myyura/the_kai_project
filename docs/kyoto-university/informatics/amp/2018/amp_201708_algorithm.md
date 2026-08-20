@@ -53,7 +53,7 @@ BFS-Tree(G, s):
 ```
 
 ### (ii)
-If there exits an edge $(u, v)$ between $V_j$ and $V_k$ such that $j+2 \leq k$, w.l.o.g assume that $u \in V_j$ and $v \in V_k$, then the distance from $s$ to $v$ is at most
+In a BFS tree, the layer index equals the shortest-path distance from $s$. If there exists an edge $(u,v)$ between $V_j$ and $V_k$ such that $j+2\leq k$, with $u\in V_j$ and $v\in V_k$, then
 
 $$
 \text{dist}(s, v) \le \text{dist}(s, u) + \text{dist}(u, v) = j + 1
@@ -66,8 +66,8 @@ Consider the following sets:
 
 $$
 \begin{aligned}
-    X &= \{v \in V_i \mid i \text{ is even}\} \\
-    Y &= \{v \in V_i \mid i \text{ is odd}\}
+    X &= \bigcup_{i\text{ even}}V_i, \\
+    Y &= \bigcup_{i\text{ odd}}V_i.
 \end{aligned}
 $$
 

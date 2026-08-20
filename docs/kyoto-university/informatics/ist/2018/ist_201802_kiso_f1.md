@@ -52,12 +52,15 @@ Assume that both algorithms are initially called with the vertex $s$ and that th
       $h(x)=x\bmod7$。按顺序插入
       $0,11,3,7,1,9$ 后，写出表中内容。
    3. 哈希函数 $h$ 将 $n$ 个不同键均匀散列到长度 $m$ 的数组 $T$。求发生碰撞的无序键对集合
+
       $$
       \{\{k,l\}\mid k\ne l,\ h(k)=h(l)\}
       $$
+
       的期望基数。
 2. BFS 与 DFS 用于遍历树或图。
    1. 顶点集为 $\{a,b,c,d,e,s\}$，按下列有向邻接表画图：
+
       $$
       \begin{aligned}
       \operatorname{adj}(s)&=[a,c,d],&
@@ -68,6 +71,7 @@ Assume that both algorithms are initially called with the vertex $s$ and that th
       \operatorname{adj}(e)&=[s].
       \end{aligned}
       $$
+
       其中 $\operatorname{adj}(i)$ 列出从 $i$ 指向的邻接顶点。
    2. 两种算法均从 $s$ 开始，并按邻接表所存顺序访问，分别写出 BFS、DFS 的顶点访问顺序。
    3. 写出图上 DFS 的递归算法。
@@ -75,15 +79,7 @@ Assume that both algorithms are initially called with the vertex $s$ and that th
 ## **Kai**
 ### Q.1
 #### (1.1)
-|**Operations**|**Array Time Complexity**|**Hash Table Time Complexity**|
-|-|-|-|
-|Index Access|$O(1)$|N/A|
-|Key Access|N/A|$O(1)$ Average, $O(n)$ Worst Case|
-|Search|$O(n)$|$O(1)$ Average, $O(n)$ Worst Case|
-|Insertion|$O(n)$|$O(1)$ Average, $O(n)$ Worst Case|
-|Deletion|$O(n)$|$O(1)$ Average, $O(n)$ Worst Case|
-
-Compared to array, hash table provides constant time for searching, insertion and deletion operations on average, offers a high-speed data retrieval and manipulation.
+A direct-address table needs one slot for every key in the universe $U$, hence $\Theta(|U|)$ space. A hash table uses $\Theta(m)$ slots, where $m$ can be chosen near the number of stored keys, while retaining expected $\Theta(1)$ time for search, insertion, and deletion under uniform hashing. Thus it saves space when the key set is sparse; the worst-case operation time is $\Theta(n)$ because of collisions.
 
 #### (1.2)
 (Note: Linear probing is a strategy for resolving collisions, by placing the new key into the closest following empty cell)
@@ -136,5 +132,6 @@ main()
     for each u ∈ G
         u.visited = false
     for each u ∈ G
-        DFS(G, u)
+        if u.visited == false
+            DFS(G, u)
 ```

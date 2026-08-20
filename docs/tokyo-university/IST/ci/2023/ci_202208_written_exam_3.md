@@ -14,7 +14,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2022年8月実施 筆記試験 第3問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 Select <u>four items</u> out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines. If necessary, use examples, figures or equations.
@@ -46,10 +46,13 @@ Select <u>four items</u> out of the following eight items concerning information
 #### Process and Thread
 A process is an activity of running of a program about a set of data, and is also a container for the OS to allocate resources and protect. It has its independent virtual memory space from other processes, and cannot visit other processes’ memory unless by inter-process communication, so it is robust.
 
-A thread is a sequential flow of instructions that performs some task. Each thread has a PC and process registers, and can access the shared memory. Each processor (core) provides a number of hardware threads to execute, but in reality there can be a large number of software threads (spawned by many programs) and the processor multiplexes (execute in turn) the software threads distributing them into hardware threads. Many threads in one process may interfere with each other which is not too stable.
+A thread is a sequential flow of instructions that performs some task. Each thread has its own PC, registers, and stack, while threads in one process share its address space and resources. The OS schedules many software threads on the available logical processors; a core may provide multiple logical processors via simultaneous multithreading. Shared-memory access requires synchronization to prevent races.
 
 #### CSMA/CD
+In classic shared Ethernet, a station first senses the carrier and transmits only when the medium is idle. While transmitting it detects collisions; after a collision it sends a jam signal, stops, and retries after a random binary-exponential-backoff interval. This limits repeated collisions. Switched full-duplex Ethernet has no shared collision domain and therefore does not use CSMA/CD.
 
+#### Hash table
+A hash table maps a key to an array index using a hash function. Collisions are resolved, for example, by separate chaining or open addressing. With a suitable hash function and bounded load factor, search, insertion, and deletion take expected $O(1)$ time, although the worst case is $O(n)$. Resizing and rehashing maintain the load factor.
 
 #### Flip-flop
-A Flip-flop is a digital circuit storing / memorizing one bit information. It is also called a register. Common types of flip-flops are SR Latch, D Flip-flops, etc. In a D Flip-flop, the output is Q (always same as the internal value), and there is a CLK signal and a D signal. When CLK jumps from 0 to 1, a DFF updates its value same as D as the input; otherwise, it holds its one bit value regardless of whether D is. Logically, the D can be computed from a combinational circuit from Q as the input, and D becomes the next state, and Q becomes the current state.
+A flip-flop is a digital circuit storing one bit; a register is commonly built from several flip-flops. Common storage elements include SR latches and edge-triggered D flip-flops. A positive-edge-triggered D flip-flop copies input $D$ to output $Q$ at the rising clock edge and otherwise holds its value. In a synchronous sequential circuit, combinational logic computes the next-state input $D$ from the current state $Q$ and external inputs.

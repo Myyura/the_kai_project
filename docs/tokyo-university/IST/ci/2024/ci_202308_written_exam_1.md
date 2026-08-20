@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2023年8月実施 筆記試験 第1問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 In the following, when a sample $X = (x_1, x_2, x_3, ..., x_N)$ consisting of $N$ observations is obtained for a stochastic process, we calculate the parameters of the original stochastic information source by using maximum likelihood estimation. Maximum likelihood estimation is a type of parameter estimation method and is described below.
@@ -22,9 +22,11 @@ Answer the following questions.
 (2) Estimate the probability $\theta$ of a coin coming up faces by using maximum likelihood estimation. First, consider the logarithmic value of the likelihood function (hereafter referred to as the *log-likelihood function* ), and then find $\theta$ that maximizes the log-likelihood function by differentiation.
 
 A normal distribution with parameters, the mean $\mu$ and the variance $\sigma^2$, is described as $\mathcal{N}(\mu, \sigma^2)$, and its probability density function is given by
+
 $$
 f(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi}\sigma} e^{-(x-\mu)^2/(2\sigma^2)}.
 $$
+
 Consider the case of observing data generated from multiple normal distributions. This is called the *Gaussian Mixture Model (GMM)*. The data generation process of the GMM is described as follows.
 1. Assume a distribution that selects the number $k \ (k = 1, ..., K)$ with probability $\pi_k$ (this is called a categorical distribution C). Also, assume $K$ normal distributions $\mathcal{N}_1(\mu_1, \sigma_1^2), ..., \mathcal{N}_K(\mu_K, \sigma_K^2)$, each of which corresponds to each number.
 2. For each element $(n = 1, ..., N)$ of sample $X$;
@@ -126,6 +128,14 @@ $$
 ### (2)
 
 $$
+\ell(\theta)=r\log\theta+(N-r)\log(1-\theta),
+\qquad
+\ell'(\theta)=\frac r\theta-\frac{N-r}{1-\theta}.
+$$
+
+Thus, including the boundary cases $r=0,N$,
+
+$$
 \hat\theta_{\text{MLE}}=\frac rN.
 $$
 
@@ -134,7 +144,7 @@ $$
 ### (3)
 
 $$
-L(X|\Theta)=\prod_{n=1}^N f(x_n;\mu,\sigma^2)=\prod_{n=1}^N \frac1{\sigma\sqrt{2\pi}}e^{-(x_n-\mu)^2/2\sigma^2},
+L(X|\Theta)=\prod_{n=1}^N f(x_n;\mu,\sigma^2)=\prod_{n=1}^N \frac1{\sigma\sqrt{2\pi}}e^{-(x_n-\mu)^2/(2\sigma^2)},
 \\
 \log L(X|\Theta)
 =N\log\frac{1}{\sigma\sqrt{2\pi}}-\sum_{n=1}^N {(x_n-\mu)^2\over 2\sigma^2}.
@@ -150,6 +160,7 @@ $$
 $$
 
 Note we see $\sigma^2$ as a single variable here.
+The variance formula is an attained MLE for $\sigma^2>0$ when the sample variance is positive. If all $x_n$ are equal, the likelihood is unbounded as $\sigma^2\downarrow0$ and no finite maximizer exists.
 
 ### (5)
 
@@ -179,7 +190,7 @@ $$
 D(\Theta_1)=G(\Theta_1,\theta_2)\ge G(\Theta_1,\theta_1)\ge D(\Theta_0)=G(\Theta_0,\theta_1),
 $$
 
-so in every iteration (and every step) the objective $D$ raises or stops.
+so after every $\Theta$ update the objective $D$ raises or stays unchanged.
 
 ### (7)
 Since the function $\log(\cdot)$ is concave, for $0<x_1<x_2<x_3$,
@@ -230,6 +241,8 @@ by the supposition. So by induction,
 $$
 \log(\sum_{i=1}^n\lambda_iy_i)\ge\sum_{i=1}^{n-1}\lambda_i\log y_i+ \lambda_n\log y_n=\sum_{i=1}^{n}\lambda_i\log y_i.\quad\square
 $$
+
+Zero-weight terms may be omitted, so the same argument covers $\lambda_i=0$.
 
 ### (8)
 
@@ -344,5 +357,5 @@ $$
 Hence
 
 $$
-\hat\pi_k=-{\sum_n\lambda_{nk}\over N}.
+\hat\pi_k={\sum_n\lambda_{nk}\over N}.
 $$

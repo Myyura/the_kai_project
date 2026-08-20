@@ -128,13 +128,16 @@ R(i, m):
 
 ## **Kai**
 ### (1)
-$\Omega(N\log N)$
+It suffices to consider inputs with $N$ distinct elements. A comparison decision tree must have at least $N!$ leaves, while each call to $P$ has two outcomes. Hence, if its height is $h$, then
+
+$$
+2^h\geq N!,\qquad h\geq \log_2(N!)=\Omega(N\log N).
+$$
 
 ### (2)
 Hint: Bubble Sort
 
-In the worst-case (elements of the array $A$ are arranged in decreasing order), the if statement is always true.
-Hence the number of calls to the procedure $P$ is
+For each $i$, the inner loop calls $P$ exactly $N-i$ times, independently of the input values. Hence the number of calls to $P$ is
 
 $$
 (N-1) + (N-2) + (N-3) + \cdots + 2 + 1 = \frac{N(N-1)}{2}
@@ -163,9 +166,12 @@ $$
 (4, 3, 2, 2, 5) \\
 (2, 3, 2, 4, 5) \\
 (3, 2, 2, 4, 5) \\
+(2, 2, 3, 4, 5) \\
 (2, 2, 3, 4, 5)
 \end{aligned}
 $$
+
+The last two displayed arrays are equal because the final call $Q(1,2)$ swaps two equal values, but the call is still executed.
 
 #### (\(c\))
 $\Theta(N \log N)$

@@ -25,7 +25,7 @@ tags:
 
 (5) ソースコード 2 の 22 行目の配列 memo の初期化は 44 行目の fib2(n) の計算において参照されることがない要素も含めて初期化している。\[ 空欄 B \] に与えた整数 $m$ について適切にフィボナッチ数を計算するために必要な要素のみを -1 で初期化するように 22 行目を変更せよ。解答では 22 行目に記述するコードを記すこと。
 
-#### <center> ソースコード１: フィボナッチ数を再帰的に計算するＣ言語プログラム
+#### <center> ソースコード１: フィボナッチ数を再帰的に計算するＣ言語プログラム</center>
 ```text
 #include <stdio.h>
 
@@ -50,7 +50,7 @@ int main() {
 }
 ```
 
-#### <center> ソースコード２: メモ化を用いてフィボナッチ数を計算するＣ言語プログラム
+#### <center> ソースコード２: メモ化を用いてフィボナッチ数を計算するＣ言語プログラム</center>
 ```text
 #include <stdio.h>
 
@@ -108,9 +108,9 @@ int fib3(int n) {
 6. 填写循环函数 `fib3` 中的空格 (ア)、(イ)、(ウ)，使任意 $0\le m\le40$ 都满足 `fib3(m) == fib1(m)`，且不使用函数调用完成迭代计算。
 
 ## **Kai**
-Note: The order of the evaluation of the arguments to any function in C is not defined by C standard (undefined behaviour),
-a compiler may choose to evaluate either from left-to-right or right-to-left,
-which means that the program provided by ソースコード1 and ソースコード2 is somehow "wrong".
+Note: C does not specify the evaluation order of function arguments.
+Here `fib1`/`fib2` modifies `cntr` while another `printf` argument reads it; these operations are unsequenced.
+Thus the behavior is undefined, and the C standard gives no unique output.
 
 In the following Kais, we assume that arguments of `printf` are evaluated from left-to-right.
 

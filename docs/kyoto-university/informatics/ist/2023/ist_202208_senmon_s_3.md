@@ -75,6 +75,8 @@ Discuss the relationship between the square root of the sum of the squared value
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202208_senmon_s_3_p1.png" width="400" alt=""/>
 </figure>
 
+In the figure, the output-layer label $d$ should read $c$.
+
 the total number of the network weights is
 
 $$
@@ -151,9 +153,11 @@ $$
 
 $$
 \begin{align}
-w_{ij} &\leftarrow w_{ij} - \eta \left(\sum_{k=1}^{n}\frac{\partial L}{\partial h_k}w_{jk}\right)\sigma^{\prime}(h_{j})g_{i}
+w_{ij} &\leftarrow w_{ij} - \eta \left(\sum_{k\in\mathcal N(j)}\frac{\partial L}{\partial h_k}w_{jk}\right)\sigma^{\prime}(h_{j})g_{i}
 \end{align}
 $$
+
+Here $\mathcal N(j)$ is the set of all nodes in the layer immediately following node $j$; its size is $c$ when $j$ is in the last intermediate layer, and $n$ otherwise.
 
 #### (7)
 Vanishing and exploding gradients.
@@ -173,13 +177,13 @@ Methods to mitigate the above issue:
 
 $$
 \begin{aligned}
-\sigma_{ij} &= \text{Cov}[X_{i},X_{j}]\\
-&= E[X_{i}X_{j}] - E[X_{i}]E[X_{j}]\\
-&= E[X_{i}X_{j}] - m_{i}m_{j}
+\sigma_{ij}
+&= \frac1n\sum_{\ell=1}^n(x_{\ell i}-m_i)(x_{\ell j}-m_j)\\
+&= \frac1n\sum_{\ell=1}^n x_{\ell i}x_{\ell j}-m_im_j.
 \end{aligned}
 $$
 
-where $X_i, X_j$ denote the $i$-th and $j$-th training sample.
+Equivalently, for the corresponding random-vector components, $\sigma_{ij}=E[X_iX_j]-m_im_j$.
 
 #### (2)
 
@@ -190,13 +194,13 @@ $$
 #### (3)
 When input $X$ is normalized, if the covariance matrix $\Sigma$ is a diagonal matrix, the Mahalanobis distance and the Euclidean distance are equivalent.
 
-Suppose that
+Let $A=\operatorname{diag}(\sqrt{\sigma_{11}},\ldots,\sqrt{\sigma_{dd}})$ and assume $\sigma_{ii}>0$. Then componentwise standardization gives
 
 $$
 Z = A^{-1}(X-M)
 $$
 
-since $Z$ is obtained by normalizing $X$, when $\Sigma$ is diagonal, the covariance matrix of $Z$ is identity matrix. Hence
+When $\Sigma$ is diagonal, $\Sigma=AA^T$ and the covariance matrix of $Z$ is the identity matrix. Hence
 
 $$
 \begin{aligned}

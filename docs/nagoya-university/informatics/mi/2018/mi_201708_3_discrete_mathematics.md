@@ -73,27 +73,50 @@ $$
 回答下列离散数学问题。
 
 1. 设 $f$ 是定义在非负整数上的函数，并对非负整数 $n$ 定义
-   $$g(n)=\sum_{k=0}^{n}\binom{n}{k}f(k).$$
+
+   $$
+   g(n)=\sum_{k=0}^{n}\binom{n}{k}f(k).
+   $$
+
    证明二项反演公式
-   $$f(n)=\sum_{k=0}^{n}\binom{n}{k}(-1)^{n-k}g(k).$$
+
+   $$
+   f(n)=\sum_{k=0}^{n}\binom{n}{k}(-1)^{n-k}g(k).
+   $$
+
 2. 设 $\mu$ 为 Möbius 函数：
-   $$\mu(n)=
+
+   $$
+   \mu(n)=
    \begin{cases}
    1,&n=1,\\
    (-1)^k,&n\text{ 是 }k\text{ 个互异素数之积},\\
    0,&\text{其他情况}.
-   \end{cases}$$
+   \end{cases}
+   $$
+
    1. 对任意正整数 $n$，证明
-      $$\sum_{d\mid n}\mu(d)=
+
+      $$
+      \sum_{d\mid n}\mu(d)=
       \begin{cases}
       1,&n=1,\\
       0,&n\ge2;
-      \end{cases}$$
+      \end{cases}
+      $$
+
       其中 $d$ 遍历 $n$ 的全部正因数。
    2. 设 $f$ 定义在正整数上，并令
-      $$g(n)=\sum_{d\mid n}f(d).$$
+
+      $$
+      g(n)=\sum_{d\mid n}f(d).
+      $$
+
       证明 Möbius 反演公式
-      $$f(n)=\sum_{d\mid n}\mu\!\left(\frac nd\right)g(d).$$
+
+      $$
+      f(n)=\sum_{d\mid n}\mu\!\left(\frac nd\right)g(d).
+      $$
 
 ## **Kai**
 ### (1)
@@ -168,5 +191,5 @@ $$
 and that $\sum_{d \mid \frac{n}{c}} \mu(d) = 0$ if otherwise. Hence by considering $n=c$ we get
 
 $$
-\sum_{c|n}f(c)\sum_{d|\frac{n}{c}}\mu(d)=\sum_{c|n}f(c)=f(n).
+\sum_{c|n}f(c)\sum_{d|\frac{n}{c}}\mu(d)=f(n).
 $$

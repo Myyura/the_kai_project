@@ -12,7 +12,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2022年8月実施 専門科目 確率統計
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68844c9f000000001d00cc46?xsec_token=ABJ6e6OUxI1XWfgsOiU5PPpD1dju1zjonhKby9ek9Hnc4=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68844c9f000000001d00cc46?xsec_token=ABJ6e6OUxI1XWfgsOiU5PPpD1dju1zjonhKby9ek9Hnc4=), 祭音Myyura
 
 ## **Description**
 以下の問題において，$\log x$ は $x$ の自然対数を表し，$P(A)$ は事象 $A$ の確率を表す。
@@ -262,3 +262,15 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_prob_stat_p2.jpg" width="700" alt=""/>
 </figure>
+
+In Problem 2(2), the inverse angular coordinate must be interpreted with the correct quadrant:
+
+$$
+X_2=\frac{1}{2\pi}\operatorname{atan2}(Y_2,Y_1)\pmod 1.
+$$
+
+With this branch choice, the absolute Jacobian gives the density shown in the image,
+
+$$
+f_{Y_1,Y_2}(y_1,y_2)=\frac{1}{2\pi}e^{-(y_1^2+y_2^2)/2}.
+$$

@@ -10,7 +10,7 @@ tags:
 # 電気通信大学 情報理工学研究科 機械知能システム学専攻 2022年8月実施 必須問題（数学）問1
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -19,22 +19,30 @@ tags:
 回答下列三个问题：
 
 1. 在极坐标中给定曲线 $r=a\theta$（$a$ 为常数），并令
+
    $$
    x=r\cos\theta,\qquad y=r\sin\theta.
    $$
+
    求该曲线在 $\theta=\pi/2$ 处切线的斜率。
 2. 对区域
+
    $$
    D=\{(x,y)\mid 0\le x\le y\le1\},
    $$
+
    计算二重积分
+
    $$
    \iint_D xe^{y^3}\,dx\,dy.
    $$
+
 3. 求二阶线性常微分方程
+
    $$
    \frac{d^2y}{dx^2}-4\frac{dy}{dx}+4y=e^{2x}
    $$
+
    的通解。
 
 ## **Kai**
@@ -65,11 +73,11 @@ $$
   \\
   \frac{dy}{d \theta} &= a
   \\
-  \frac{dy}{dx} &= \frac{\frac{dy}{d \theta}}{\frac{dy}{d \theta}} = - \frac{2}{\pi}
+  \frac{dy}{dx} &= \frac{dy/d\theta}{dx/d\theta} = - \frac{2}{\pi}
   \end{aligned}
 $$
 
-である。よって、求める接線の傾きは $-2/\pi$ である。
+である。よって、$a\ne0$ のとき接線の傾きは $-2/\pi$ である（$a=0$ では曲線が一点に退化する）。
 
 ### (2)
 

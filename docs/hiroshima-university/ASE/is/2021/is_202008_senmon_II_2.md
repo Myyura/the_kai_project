@@ -63,6 +63,8 @@ Let $N_v$ be a set of adjacent nodes of node $v$. The following algorithm $\text
 |4|0|4|5|7|14|14|$\infty$|
 |5|0|4|5|7|13|10|$\infty$|
 |6|0|4|5|7|12|10|12|
+|7|0|4|5|7|12|10|12|
+|8|0|4|5|7|12|10|12|
 
 ### (2)
 Proof by contradiction:
@@ -74,7 +76,7 @@ Let $s \rightarrow P_1 \rightarrow x \rightarrow y \rightarrow P_2 \rightarrow u
 When $x$ is extracted from $T$, since $y$ is adjacent to $x$, $d(y)$ will be updated
 
 $$
-d(y) = d(x) + l(xy) \leq \delta(x) + l(xy) + l(y \rightarrow P_2 \rightarrow u) = \delta(u) \leq d(u)
+d(y) \leq d(x) + l(xy) \leq \delta(x) + l(xy) + l(y \rightarrow P_2 \rightarrow u) = \delta(u) \leq d(u)
 $$
 
 Now both $y$ and $u$ are in $T$ when $u$ is chosen.
@@ -101,9 +103,18 @@ a contradiction.
 $\textbf{Shortest}(G, A)$ from $A$ will first develop $B$, and will later fail to find $A \rightarrow C \rightarrow B$.
 
 ### (4)
-If we stores the vertex set $T$ as a heap, and edges as an adjacent list, then finding $u$ of minimum $d(u)$ takes $O(\log |V|)$.
+If the displayed `find` operation scans $T$ directly, its total cost is $O(|V|^2)$, while all relaxations cost $O(|E|)$. Thus the displayed implementation takes
 
-Note that we need update $d(v)$ of every $v \in T \cap N_u$, which can be done by inserting a "new vertex" $v$ of updated $d(v)$ into heap $T$,
-hence the size of $T$ is at most $|E|$.
+$$
+\boxed{O(|V|^2+|E|)}=O(|V|^2)
+$$
 
-Therefore, the time complexity of $\textbf{Shortest}(G, s)$ is $O(|E|\log |V|)$.
+for a simple graph.
+
+With adjacency lists and a binary min-heap, the algorithm performs $|V|$ extract-min operations and at most $|E|$ decrease-key operations. Therefore its worst-case running time is
+
+$$
+\boxed{O((|V|+|E|)\log |V|)}.
+$$
+
+For a connected graph, this is $O(|E|\log |V|)$.

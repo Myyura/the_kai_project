@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2020年8月実施 専門科目 問題4
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Let $\mathbb{R}$ be the set of real numbers. Denote by $\mathbf{T}$ the transposition operator of a vector and a matrix. When $\mathbf{w} = (w_1, w_2, \ldots, w_d)^\mathbf{T} \in \mathbb{R}^d$ is a $d$-dimensional column vector, the norm $\|\mathbf{w}\|_2$ is defined by $\|\mathbf{w}\|_2 = \sqrt{w_1^2 + w_2^2 + \ldots + w_d^2}$. Define the inner product of two column vectors $\mathbf{x}_1, \mathbf{x}_2 \in \mathbb{R}^d$ as $\mathbf{x}_1^\mathbf{T} \mathbf{x}_2 \in \mathbb{R}$. For a $d \times d$ matrix $\mathbf{A} \in \mathbb{R}^{d \times d}$, define $\|\mathbf{w}\|_{\mathbf{A}} = \sqrt{\mathbf{w}^\mathbf{T} \mathbf{A} \mathbf{w}}$. Let $\mathbf{tr}(\mathbf{B})$ be the trace of the matrix $\mathbf{B}$.
@@ -59,18 +59,23 @@ Answer the following questions. Describe not only an answer but also the derivat
 设训练样本为
 $\{(\boldsymbol{x}_i,y_i)\}_{i=1}^n$，
 $\boldsymbol{x}_i\in\mathbb R^d$、$y_i\in\mathbb R$，数据由
+
 $$
 y_i=\boldsymbol{w}^{*\mathsf T}\boldsymbol{x}_i+\varepsilon_i
 $$
+
 生成，其中噪声 $\varepsilon_i$ 独立同分布，均值为 $0$、方差为
 $\sigma^2>0$。记
+
 $$
 X=[\boldsymbol{x}_1,\ldots,\boldsymbol{x}_n]^{\mathsf T},\quad
 Y=[y_1,\ldots,y_n]^{\mathsf T},\quad
 \boldsymbol{\varepsilon}=[\varepsilon_1,\ldots,\varepsilon_n]^{\mathsf T},
 $$
+
 并令 $\Phi=X^{\mathsf T}X/n$，先假定 $\Phi$ 可逆。采用线性预测器
 $f(\boldsymbol{x})=\widehat{\boldsymbol{w}}^{\mathsf T}\boldsymbol{x}$，通过
+
 $$
 \widehat{\boldsymbol{w}}
 =\mathop{\arg\min}_{\boldsymbol{w}\in\mathbb R^d}L(\boldsymbol{w}),
@@ -78,24 +83,29 @@ $$
 L(\boldsymbol{w})
 =\frac1{2n}\|Y-X\boldsymbol{w}\|_2^2
 $$
+
 学习。以 $\mathbb E_{\boldsymbol{\varepsilon}}$ 表示对观测噪声取期望，
 $\|w\|_A=\sqrt{w^{\mathsf T}Aw}$，$\operatorname{tr}$ 表示迹。各问除答案外还须给出推导。
 
 （1）用 $X,Y,\Phi,n$ 表示 $\widehat{\boldsymbol{w}}$。
 
 （2）将期望损失写成
+
 $$
 \mathbb E_{\boldsymbol{\varepsilon}}[L(\boldsymbol{w})]
 =\frac12\|\boldsymbol{w}-\boldsymbol{w}^*\|_A^2+b,
 $$
+
 用 $\Phi,\sigma^2$ 表示 $A\in\mathbb R^{d\times d}$ 和正数 $b$。
 
 （3）将
+
 $$
 \mathbb E_{\boldsymbol{\varepsilon}}[L(\widehat{\boldsymbol{w}})]
 -\mathbb E_{\boldsymbol{\varepsilon}}[L(\boldsymbol{w}^*)]
 =\frac{\sigma^2}{2n}\operatorname{tr}(B)
 $$
+
 中的 $B\in\mathbb R^{d\times d}$ 用 $X$ 表示。
 
 （4）说明当 $\Phi$ 不可逆时会出现什么问题，并提出一种补救方法。
@@ -157,19 +167,32 @@ Here, the matrix $\mathbf{A}$ is $\mathbf{\Phi}$ and the scalar $b$ is $\frac{\s
 
 ### (3)
 
-We have:
+Let
 
 $$
-\mathbb{E}_{\mathbf{\epsilon}}[L(\mathbf{\hat{w}})] = \frac{\sigma^2}{2n}.
+P=X(X^TX)^{-1}X^T.
 $$
 
-Thus:
+Then $X\hat w=PY$, so, using $Y=Xw^*+\epsilon$ and $PXw^*=Xw^*$,
 
 $$
-\mathbb{E}_{\mathbf{\epsilon}}[L(\hat{\mathbf{w}})] - \mathbb{E}_{\mathbf{\epsilon}}[L(\mathbf{w^*})] = \frac{1}{2} (\hat{\mathbf{w}} - \mathbf{w}^*)^\mathbf{T} \mathbf{\Phi} (\hat{\mathbf{w}} - \mathbf{w}^*) + \frac{\sigma^2}{2} - \frac{\sigma^2}{2n}.
+L(\hat w)=\frac1{2n}\|(I-P)\epsilon\|^2,\qquad
+L(w^*)=\frac1{2n}\|\epsilon\|^2.
 $$
 
-Therefore, the matrix $\mathbf{B}$ is $\mathbf{\Phi}$.
+Since $P$ is an orthogonal projection of rank $d$,
+
+$$
+\mathbb E[L(\hat w)]-\mathbb E[L(w^*)]
+=\frac{\sigma^2}{2n}\{\operatorname{tr}(I-P)-n\}
+=-\frac{\sigma^2d}{2n}.
+$$
+
+Thus one may take
+
+$$
+\boxed{B=-(X^TX)^{-1}X^TX=-I_d}.
+$$
 
 ### (4)
 

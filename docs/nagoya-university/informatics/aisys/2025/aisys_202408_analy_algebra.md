@@ -241,15 +241,13 @@ $$
 a_2 = 2(0 + i) = 2e^{i\frac{\pi}{2}}
 $$
 
-计算商：
+因此
 
 $$
-\frac{a_1}{a_2} = \frac{2e^{i\frac{\pi}{6}}}{2e^{i\frac{\pi}{2}}} = 1 \cdot e^{i(\frac{\pi}{6} - \frac{\pi}{2})} = e^{-i\frac{\pi}{3}}
+|a_1|=2,\quad \arg a_1=\frac{\pi}{6}+2k\pi;\qquad
+|a_2|=2,\quad \arg a_2=\frac{\pi}{2}+2k\pi
+\quad(k\in\mathbb Z).
 $$
-
-因此：
-- 绝对值： $\left|\frac{a_1}{a_2}\right| = 1$
-- 偏角： $\arg\left(\frac{a_1}{a_2}\right) = -\frac{\pi}{3}$
 
 #### (b)
 若 $z_1, z_2, z_3$ 构成正三角形，则向量 $z_3 - z_1$ 可由 $z_2 - z_1$ 旋转 $\pm 60^\circ$ 得到。即：

@@ -12,7 +12,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2021年8月実施 専門科目 制御工学
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6882d45e000000002001afc7?xsec_token=ABv7C785zMbXjgoCBH6HH8Ond0K0iL_I33XXSF6B6rn-A=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6882d45e000000002001afc7?xsec_token=ABv7C785zMbXjgoCBH6HH8Ond0K0iL_I33XXSF6B6rn-A=), 祭音Myyura
 
 ## **Description**
 ### 問題 1
@@ -135,6 +135,23 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_control_theory_p1_s.jpg" width="700" alt=""/>
 </figure>
+
+### 問題1 (3) の補足
+
+画像の4次式に対する条件は $a>0$ の場合である。$a=0$ では特性多項式が
+
+$$
+s^3+(K_D-5)s^2+(K_P+4)s+1
+$$
+
+となるため、安定条件は
+
+$$
+K_D>5,\qquad K_P>-4,\qquad
+(K_D-5)(K_P+4)>1
+$$
+
+である。したがって $a=0$ も除外できない。$a<0$ では安定化できない。
 
 ###
 

@@ -14,7 +14,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 筆記試験 第3問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki)
+[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 Select **four items** out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines of text. If necessary, use examples or figures.
@@ -44,7 +44,7 @@ Select **four items** out of the following eight items concerning information sy
 ## **Kai**
 **Inverse kinematics**
 
-Inverse kinematics is the usage of kinematic equasions to determine the motions of a robot in order to reach a desired position. Kinematics itself is the study of motion regardless of the cause of the motion, such as forces and torques. Use cases can include the motion of picking bins or items from the assembly line. Given a starting joint position and a desired position, inverse kinematics can determine the join movement needed to achieve that.
+Inverse kinematics uses kinematic equations to determine the joint variables of a robot that reach a desired end-effector pose. If forward kinematics is $x=f(q)$, it solves $f(q)=x_d$ subject to joint constraints. Kinematics itself studies motion independently of its causes, such as forces and torques. Applications include picking items from an assembly line. A target may have no, one, or multiple solutions, and numerical Jacobian methods must handle singularities.
 
 **Hidden Markov model**
 
@@ -65,6 +65,8 @@ Apparently, for a branching factor $b$ and maximum depth $d$, the algorithm has 
 **NP complete problem**
 
 Please refer to [CI 2013-4, (1)](https://runjp.com/docs/tokyo-university/IST/ci/2013/ci_201208_written_exam_4).
+
+A decision problem is NP-complete iff it belongs to NP and every problem in NP has a polynomial-time many-one reduction to it. Thus a polynomial-time algorithm for one NP-complete problem would imply $P=NP$.
 
 **SIMD (Single Instruction Multiple Data)**
 

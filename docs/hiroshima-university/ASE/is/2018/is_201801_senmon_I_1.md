@@ -8,7 +8,7 @@ tags:
 
 
 ## **Author**
-samparker
+samparker, 祭音Myyura
 
 ## **Description**
 $n \times n$ 次実対称行列 $M$ に対して、その全ての固有値が正であれば、$M$ は正定値行列と呼ばれる。
@@ -73,33 +73,16 @@ $$
 \end{aligned}
 $$
 
-To ensure that $\lambda_1 > 0$, we have
+The two real eigenvalues satisfy
 
 $$
-a + c + \sqrt{(a - c)^2 + 4b^2} > 0 \Leftrightarrow a + c + |a-c| > 0
+\lambda_1+\lambda_2=a+c,\qquad
+\lambda_1\lambda_2=ac-b^2.
 $$
 
-which is $a > 0$ or $a < 0, c > 0$.
+If $B$ is positive definite, then $a=(1,0)B(1,0)^T>0$ and
+$ac-b^2=\lambda_1\lambda_2>0$.
 
-To ensure that $\lambda_2 > 0$, we have
-
-$$
-a + c > \sqrt{(a - c)^2 + 4b^2} \geq 0
-$$
-
-Hence we have
-
-$$
-(a+c)^2 > (a-c)^2 + 4b^2
-$$
-
-$$
-ac > b^2
-$$
-
-Since $b^2 \geq 0$, we know that the case $a < 0, c > 0$ is invalid.
-Therefore we have
-
-$$
-a > 0 \text{ and } ac > b^2
-$$
+Conversely, suppose $a>0$ and $ac>b^2$. Then
+$c>b^2/a\geq0$, so $\lambda_1+\lambda_2=a+c>0$ and
+$\lambda_1\lambda_2=ac-b^2>0$. Hence both eigenvalues are positive.

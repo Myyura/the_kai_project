@@ -9,7 +9,7 @@ tags:
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 数学 II
 
 ## **Author**
-[金沢大学](https://www.kanazawa-u.ac.jp/)
+[金沢大学](https://www.kanazawa-u.ac.jp/), 祭音Myyura
 
 ## **Description**
 $\mathbb{R}^3$ 上のベクトル場 $A=(3xy^2,xy,y+z)$ 閉領域 $D$ を
@@ -49,6 +49,7 @@ $$
    $$
    \iint_{\partial D}A\cdot n\,dS.
    $$
+
 3. 定义曲面和平面
 
    $$
@@ -82,7 +83,7 @@ $$
 ガウスの発散定理より
 
 $$
-\iint_{\partial D}A\cdot n,dS=\iiint_D(\nabla\cdot A),dV=24\pi
+\iint_{\partial D}A\cdot n\,dS=\iiint_D(\nabla\cdot A)\,dV=24\pi
 $$
 
 ### 問3

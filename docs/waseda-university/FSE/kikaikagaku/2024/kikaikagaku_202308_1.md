@@ -9,7 +9,7 @@ tags:
 # 早稲田大学 基幹理工学研究科 機械科学・航空宇宙専攻 2023年8月実施 数学 \[1\]
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -211,7 +211,7 @@ $$
 &=
 \begin{bmatrix} 1 & 1 \\ 1 & 2 \end{bmatrix}
 \begin{bmatrix} e^{2t} & 0 \\ 0 & e^{3t} \end{bmatrix}
-\begin{bmatrix} 2 & -1 \\ -1 & 2 \end{bmatrix}
+\begin{bmatrix} 2 & -1 \\ -1 & 1 \end{bmatrix}
 \begin{bmatrix} x_{10} \\ x_{20} \end{bmatrix}
 \\
 &= \begin{bmatrix}

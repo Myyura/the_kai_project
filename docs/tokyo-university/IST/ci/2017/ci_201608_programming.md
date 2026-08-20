@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2016年8月実施 プログラミング
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff)
+[tomfluff](https://github.com/tomfluff), 祭音Myyura
 
 ## **Description**
 We draw digits from 0 to 9 by the following pictographic characters constructed by `*` and `|` (vertical line).
@@ -165,13 +165,18 @@ nine = ['****',
 txt_nums = [zero, one, two, three, four, five, six, seven, eight, nine]
 
 def main():
-    n = '012547896583214560'
-    with open('2017-Summer/out1.txt','w') as f:
+    n = input().strip()
+    if not n.isdigit():
+        raise ValueError('input must be a nonnegative integer')
+    with open('out1.txt','w') as f:
         for j in range(len(txt_nums[0])):
+            line = ''
             for s in n:
                 i = atoi(s)
-                f.write(f"{txt_nums[i][j]}  ")
-            f.writelines('\n')
+                line += f"{txt_nums[i][j]}  "
+            line = line[:-2]
+            print(line)
+            f.writelines(line + '\n')
 
 
 if __name__ == "__main__":
@@ -289,7 +294,7 @@ def get_idx_for_nums(lines):
 
 def main():
     lines = []
-    with open('2017-Summer/out1.txt','r') as f:
+    with open('out1.txt','r') as f:
         lines = f.readlines()
 
     idxs = get_idx_for_nums(lines.copy())
@@ -372,16 +377,20 @@ nine = ['****',
 txt_nums = [zero, one, two, three, four, five, six, seven, eight, nine]
 
 def main():
-    inp = '690,0,4,2,2,1'
+    inp = input().strip()
     n = inp[:inp.find(',')]
     prnt_lines = []
     defs = str.split(inp[inp.find(',')+1:],',')
-    with open('2017-Summer/out3.txt','w') as f:
+    if not n.isdigit() or len(defs) != 2 * len(n) - 1:
+        raise ValueError('invalid input')
+    with open('out3.txt','w') as f:
         indt = 0
         for i in range(len(n)):
             dg = atoi(n[i])
             tp = atoi(defs[i*2])
             sp = atoi(defs[i*2+1]) if i*2+1 < len(defs) else 0
+            if tp < 0 or (i + 1 < len(n) and sp <= 0):
+                raise ValueError('invalid position or spacing')
             for j in range(5):
                 while len(prnt_lines)-1 < tp+j:
                     prnt_lines.append('')
@@ -391,7 +400,9 @@ def main():
             indt = max(len(prnt_lines[tp]),indt)
 
         for l in prnt_lines:
-            f.write(l+'\n')
+            line = l.rstrip()
+            print(line)
+            f.write(line+'\n')
 
 if __name__ == "__main__":
     main()
@@ -518,7 +529,7 @@ def get_idx_for_nums(lines):
 
 def main():
     lines = []
-    with open('2017-Summer/out3.txt','r') as f:
+    with open('out3.txt','r') as f:
         lines = f.readlines()
 
     idxs = get_idx_for_nums([l[:-1] for l in lines])
@@ -549,11 +560,10 @@ if __name__ == "__main__":
 ### (5)
 
 思路：先从左到右while循环遍历，确定每个非空（非全空格）的块。按照块面积确定是不是1, 如果不是的话，因为永远是5*4的面积，所以和0,2~9匹配。
-匹配：可以将这9个pictograph的20个位置分别列出来，然后看差异量，选择argmin；不过这样会在例题的8167处就产生一些缺陷，比如6会识别成7. 
-暂时没有更好的方法。
+匹配：可以将这9个 pictograph 的20个位置分别列出来，然后看差异量，选择 argmin。为区分例题中的 `6` 与 `7`，涉及竖线 `|` 的差异计2，其余差异计1；例题据此识别为 `8167`。
 
 The idea: We do a while loop from left to right to traverse the columns. When we lock at a chunk not filled with all blankspaces, we first check the non-all-space area (if it is 5 rows 4 columns). 
-If it is 1 (with 5 rows, 1 or 2 columns) then we add 1 to the result and go to the next processing; otherwise we match this 5*4 block with pictographs of [0,2,3,4,5,6,7,8,9] respectively and find the `argmin`. We can do a count-of-differences (i.e. norm of the one-hot difference).
+If it is 1 (with 5 rows, 1 or 2 columns) then we add 1 to the result and go to the next processing; otherwise we match this 5*4 block with pictographs of [0,2,3,4,5,6,7,8,9] respectively and find the `argmin`. A mismatch involving `|` costs 2 and any other mismatch costs 1; this distinguishes `6` from `7` in the sample and gives `8167`.
 
 ```python
 import numpy as np
@@ -627,7 +637,7 @@ def find_correct_index(lines, s_i):
     return e_i
 
 def get_most_similar_char(char):
-    best_score = 0
+    best_score = float('inf')
     best_match = -1
     if char.shape[1] < 4:
         return 1
@@ -638,10 +648,10 @@ def get_most_similar_char(char):
         score = 0
         for i in range(np_c.shape[0]):
             for j in range(np_c.shape[1]):
-                if char[i,j] == np_c[i,j]:
-                    score += 1
+                if char[i,j] != np_c[i,j]:
+                    score += 2 if '|' in (char[i,j], np_c[i,j]) else 1
         
-        if score > best_score:
+        if score < best_score:
             best_score = score
             best_match = k
     
@@ -711,7 +721,7 @@ def get_horizontal_idxs(lines,v_idxs):
 
 def main():
     lines = []
-    with open('2017-Summer/out5.txt','r') as f:
+    with open('out5.txt','r') as f:
         lines = f.readlines()
 
     v_idxs = get_vertical_idxs([l[:-1] for l in lines])

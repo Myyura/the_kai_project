@@ -8,7 +8,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2019年8月実施 線形代数
 
 ## **Author**
-[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), [蛋黄猫物理 (xhs: 94162357270)](https://www.xiaohongshu.com/user/profile/67173192000000001e009fa7?xsec_token=YBaJbvO4qazzvNUB-8gkqSwFa4usRBcKTQe93j6tfxtPw=)
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), [蛋黄猫物理 (xhs: 94162357270)](https://www.xiaohongshu.com/user/profile/67173192000000001e009fa7?xsec_token=YBaJbvO4qazzvNUB-8gkqSwFa4usRBcKTQe93j6tfxtPw=), 祭音Myyura
 
 ## **Description**
 数列 $a_0，a_1，a_2, \cdots$ は, $a_0 = 3，a_1 = 1，a_2 = 3$ および
@@ -121,7 +121,7 @@ $$
 
 $$
 \begin{aligned}
-&\because |A| = |\lambda E - T| =
+&\because \det(\lambda E - T) =
 \begin{vmatrix}
 \lambda & -1 & 0 \\
 0 & \lambda & -1 \\
@@ -220,37 +220,21 @@ $$
 
 $$
 \begin{aligned}
-  \begin{bmatrix}
-    a_n \\ a_{n-1} \\ a_{n-2}
-  \end{bmatrix} &= T^{n-2} \cdot
-  \begin{bmatrix}
-    a_2 \\ a_1 \\ a_0
-  \end{bmatrix} = AD^{n-2} A^{-1}A \cdot \begin{bmatrix}
-    1 \\ 1 \\ 1
-  \end{bmatrix} \\
-  &= A \begin{bmatrix}
-    2^{n-2} & 0 & 0 \\
-    0 & (\frac{-1+\sqrt{3}i}{2})^{n-2} & 0 \\
-    0 & 0 & (\frac{-1-\sqrt{3}i}{2})^{n-2}
-  \end{bmatrix} \begin{bmatrix}
-    1 \\ 1 \\ 1
-  \end{bmatrix} \\
-  &= \begin{bmatrix}
-    1 & 1 & 1 \\
-    2 & \frac{-1 + \sqrt{3}i}{2} &  \frac{-1 - \sqrt{3}i}{2} \\
-    4 & \frac{-1 - \sqrt{3}i}{2} & \frac{-1 + \sqrt{3}i}{2}
-  \end{bmatrix}
-  \begin{bmatrix}
-    2^{n-1} \\ (\frac{-1+\sqrt{3}i}{2})^{n-2} \\ (\frac{-1-\sqrt{3}i}{2})^{n-2}
-  \end{bmatrix}
+\begin{bmatrix}a_n\\a_{n+1}\\a_{n+2}\end{bmatrix}
+&=T^n\begin{bmatrix}a_0\\a_1\\a_2\end{bmatrix}\\
+&=2^n x_1+\left(\frac{-1+\sqrt3 i}{2}\right)^n x_2
++\left(\frac{-1-\sqrt3 i}{2}\right)^n x_3.
 \end{aligned}
 $$
 
-従って、
+各固有ベクトルの第1成分は $1$ なので、
 
 $$
 \begin{aligned}
-a_n &= 2^{n-2} + \left(\frac{-1+\sqrt{3}i}{2}\right)^{n-2} + \left(\frac{-1-\sqrt{3}i}{2}\right)^{n-2} \\
-&= 2^{n-2} + 2\cos \left(\frac{(n-2)\pi}{3} \right)
+a_n
+&=2^n+\left(\frac{-1+\sqrt3 i}{2}\right)^n
++\left(\frac{-1-\sqrt3 i}{2}\right)^n\\
+&=\boxed{2^n+2\cos\left(\frac{2n\pi}{3}\right)}
+\qquad(n\ge0).
 \end{aligned}
 $$

@@ -57,18 +57,22 @@ void mysort(int a[], int i, int j) {
 题中 C 程序定义函数 `mysort(a,i,j)`，用于将整数数组
 `a[i]` 至 `a[j-1]` 升序排列，其中 $i<j$。函数
 `multifrac(k,l,m)` 返回
+
 $$
 \left\lceil\frac{kl}{m}\right\rceil
 =\frac{kl+(m-1)}m
 $$
+
 （按整数除法计算）；$w,x,y,z$ 是正整数常量，整数运算不会溢出。
 `compare_swap(p,q)` 在 `*p > *q` 时交换两数。`mysort` 对长度
 $k=j-i<4$ 的区间执行空白代码 $X$；否则依次递归排序：
+
 $$
 [i,\ i+\lceil kx/w\rceil),\quad
 [j-\lceil ky/w\rceil,\ j),\quad
 [i,\ i+\lceil kz/w\rceil).
 $$
+
 回答下列问题。
 
 （1）当 $(w,x,y,z)=(4,3,3,3)$ 时，写出空白 $X$ 中的适当代码；除
@@ -78,14 +82,15 @@ $$
 当 $(w,x,y,z)=(4,3,3,3)$ 时，给出 $T(n)$ 关于 $n$ 的渐近阶。
 
 （3）分别对
+
 $$
 (w,x,y,z)=(4,2,3,3),(4,3,2,3),(4,3,3,2),(4,2,3,2)
 $$
+
 判断 `mysort` 是否总能正确排序。
 
 （4）给出使 `mysort` 对所有输入均正确工作的 $w,x,y,z$ 的充要条件。
 
-## **Kai**
 ## **Kai**
 ### (1)
 
@@ -110,7 +115,7 @@ $$
 \begin{aligned}
   T(n) &= T \left(\frac{3}{4}n \right) + T \left(\frac{3}{4}n \right) + T \left(\frac{3}{4}n \right) \\
   &= 3T \left( \frac{3}{4}n \right) \\
-  &= O(n^{\log_{\frac{4}{3}} 3}) \qquad \text{(By master theorem)}
+  &= \Theta(n^{\log_{\frac{4}{3}} 3}).
 \end{aligned}
 $$
 
@@ -120,77 +125,15 @@ $$
 - (4, 2, 3, 2): not work
 
 ### (4)
-#### Key Insights
-
-To guarantee that `mysort` always works correctly, the recursive calls must ensure that all elements in the array are covered and sorted properly. This requires:
-
-1. **Coverage:** The recursive calls must cover all elements in the array.
-2. **Overlap:** There must be sufficient overlap to ensure that elements are sorted correctly and their positions are fixed in each step.
-3. **Problem Size Reduction:** Each recursive call must reduce the problem size to ensure termination.
-
-#### Critical Observation
-
-After the first two recursive calls:
-
-- The largest $\lceil \frac{x+y}{w} - 1 \rceil$ elements must be correctly positioned at the end of the array.
-
-Thus, for the third call to ensure full sorting:
-
-- The third call must cover the remaining $\lceil 1 - \left( \frac{x+y}{w} - 1 \right) \rceil$ elements.
-
-#### Necessary and Sufficient Conditions
-
-Based on our analysis of the `multfrac` function and the requirements for correct sorting, we can derive the following necessary and sufficient conditions:
-
-1. **Problem Size Reduction Condition:**
+For positive integers $w,x,y,z$, the necessary and sufficient conditions are
 
 $$
-\max\left(\frac{x}{w}, \frac{y}{w}, \frac{z}{w}\right) < \frac{3w+1}{4w}
+\boxed{4\max\{x,y,z\}\le3w,\qquad x+y+z\ge2w}.
 $$
 
-This condition, derived from the analysis of the `multfrac` function, guarantees that each recursive call reduces the problem size for any $k \geq 4$.
-
-2. **Overlap Condition for Third Call:**
-
-$$
-\frac{z}{w} \geq 2 - \frac{x+y}{w}
-$$
-
-This ensures that the third call covers all elements not fully sorted by the first two calls.
-
-2. **Integer Parameter Conditions:**
-
-$$
-0 < x, y, z < w
-$$
-
-$$
-w, x, y, z \in \mathbb{Z}^+
-$$
-
-These conditions ensure that all parameters are positive integers and that x, y, and z are strictly less than w.
-
-#### Complete Necessary and Sufficient Condition
-
-Combining all these conditions, the complete necessary and sufficient condition for `mysort` to work correctly is:
-
-$$
-\begin{cases}
-\max\left(x, y, z\right) < \frac{3w+1}{4} \\
-x + y + z \geq 2w \\
-0 < x, y, z < w \\
-w, x, y, z \in \mathbb{Z}^+
-\end{cases}
-$$
-
-#### Explanation
-
-1. The first condition ensures proper coverage of the array by the first two recursive calls.
-2. The second condition, derived from the `multfrac` function analysis, guarantees problem size reduction in each recursive call, preventing infinite recursion.
-3. The third condition ensures that the third call covers any elements not fully sorted by the first two calls.
-4. The fourth and fifth conditions ensure that all parameters are valid positive integers, with x, y, and z being strictly less than w.
-
-These conditions together guarantee that `mysort` will correctly sort the array and terminate for any input size.
+Indeed, a recursive length $\lceil k\ell/w\rceil$ is smaller than $k$ for every $k\ge4$ iff $4\ell\le3w$.  Also, sorting a prefix of length $A$, a suffix of length $B$, and a prefix of length $C$ sorts every length-$k$ sequence iff
+$A+B+C\ge2k$.  Here this holds for every $k$ when
+$x+y+z\ge2w$.  Conversely, if the latter inequality fails, choose a sufficiently large multiple of $w$; then the three ceilings sum to less than $2k$, so the routine fails on some input.
 
 ## **Knowledge**
 

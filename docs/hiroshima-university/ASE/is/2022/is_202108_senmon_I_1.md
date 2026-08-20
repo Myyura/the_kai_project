@@ -80,13 +80,11 @@ $$
 Eigenvalues
 
 $$
-\begin{bmatrix}
+\det(A-\lambda E)=\begin{vmatrix}
     -\lambda & -\alpha \\
-    \alpha & \lambda
-\end{bmatrix}
-= 0
-\Rightarrow
-\lambda^2 + \alpha^2 = 0
+    \alpha & -\lambda
+\end{vmatrix}
+=\lambda^2+\alpha^2=0
 \Rightarrow
 \begin{cases}
     \lambda_1 = i\alpha \\

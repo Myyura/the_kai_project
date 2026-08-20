@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2016年8月実施 専門科目I 問題1
 
 ## **Author**
-[kainoj](https://github.com/kainoj/utokyo-cs)
+[kainoj](https://github.com/kainoj/utokyo-cs), 祭音Myyura
 
 ## **Description**
 A language $L \subseteq \Sigma^*$ over a finite alphabet $\Sigma$ is said to be *regular* if there exists a finite automaton $\mathcal{A}$ such that $L = \mathcal{L}(\mathcal{A})$. Here
@@ -40,16 +40,20 @@ $$
 
 对有限字母表 $\Sigma$ 上的语言 $L\subseteq\Sigma^*$，若存在有限自动机
 $\mathcal{A}$ 使 $L=\mathcal{L}(\mathcal{A})$，则称 $L$ 为正则语言，其中
+
 $$
 \mathcal{L}(\mathcal{A})
 =\{w\in\Sigma^*\mid w\text{ 被 }\mathcal{A}\text{ 接受}\}.
 $$
+
 回答下列问题。
 
 （1）固定 $\Sigma=\{a,b\}$。对语言
+
 $$
 L_1=\{w\in\Sigma^*\mid w\text{ 中存在某个字符出现至少两次}\},
 $$
+
 构造一个状态数不超过 $4$ 的 NFA $\mathcal{A}_1$，满足
 $\mathcal{L}(\mathcal{A}_1)=L_1$。
 
@@ -58,6 +62,7 @@ $L=\{w_1,\ldots,w_n\}\subseteq\Sigma^*$ 都是正则语言，其中 $n$ 可以�
 
 （3）仍令 $\Sigma=\{a,b\}$。针对第（1）问的 $L_1$，构造一个状态数不超过
 $5$ 的 DFA $\mathcal{A}_2$，使
+
 $$
 \mathcal{L}(\mathcal{A}_2)=\Sigma^*\setminus L_1.
 $$
@@ -82,20 +87,11 @@ s & q_0 & q_0,q_1 & q_0,q_2 \\
 $$
 
 ### (2)
-Prove: if $\Sigma$ is finite alphabet, then any finite language $L = \{w_1,\cdots,w_n\} \subseteq \Sigma^*$ is regular, $n\in \mathbb{N}$.
+We construct a finite automaton accepting $L$. One construction is an $\epsilon$-NFA with $n$ branches, the $i$-th branch spelling exactly $w_i$; every $\epsilon$-NFA has an equivalent DFA.
 
-That is we should construct a finite automaton accepting $L$.
-We can construct a $\epsilon$-NFA containing $n$ "branches", each recognizing $w_i$.
-Now, for every $\epsilon$-NFA, there must exist equivalent DFA recognizing the same language.
+The DFA can also be constructed explicitly. Start with the path recognizing $w_1$: it has $|w_1|+1$ states, its transitions are labeled by the successive letters of $w_1$, and its last state is accepting. For each $w_i$ with $i\geq2$, follow the already constructed transitions along its longest existing prefix, then attach a new path labeled by the remaining suffix. Mark the state reached after every complete $w_i$ as accepting.
 
-We can also construct the DFA explicitly.
-Start with automaton (NFA) recognizing $w_1$: there are $|w_1|+1$ states, the last one is accepting and transitions are labeled with next letters of $w_1$.
-For $w_i$ ($i=2,\cdots,n$) try to traverse the automaton as far as you can, i.e. until transition for symbol $w_{ij}$ exist.
-If we can go no further, that is we read the longest common prefix of $w_i$ and some $w_k$, $k<i$, then we make a new branch from a current state.
-This branch consist of states and transitions labeled $w_{i,j+1}\cdots w_{i, |w_i|}$.
-
-Now we need to assure that we constructed a DFA.
-For every state missing some transitions on some letters, add those transition leading to a "dead state", i.e. nonaccepting state with a self-loop labeled $\Sigma$.
+Finally, send each missing transition to one nonaccepting dead state, which has a self-loop for every letter of $\Sigma$. The resulting finite prefix-trie DFA accepts exactly $L$. If $n=0$, the one-state nonaccepting DFA recognizes $\varnothing$.
 
 ### (3)
 Give DFA recognizing complement of $L_1$ from (Q1), i.e $L_2 = \Sigma^* \setminus L_1$.
@@ -115,16 +111,10 @@ s,* & q_1 & q_2 & q_3 \\
 $$
 
 ### (4)
-Given NFA $\mathcal{A}$, decide whether  $\mathcal{L(A)}$ is empty or not.
-% For every NFA $\mathcal{A}$, there exist equivalent DFA $\mathcal{D}$, that is, $\mathcal{L(A)} = \mathcal{L(D)}$ (subset construction).
-% Let's examine such DFA $\mathcal{D}$.
-Since language of $\mathcal{A}$ is regular, then from pumping lemma we can "pump" words longer than some $N$ – pumping lemma constant.
-That is, if $\mathcal{L(A)}$ has some word longer than $N$, then $\mathcal{L(A)}$ is infinite.
-We just need to check every possible word $w$: $N < w \leq 2N$.
-If any such word is accepted by $\mathcal{A}$, then $\mathcal{L(A)}$ is infinite.
-We don't need to check words longer of $2N$: if a word is longer than $2N$, then from PL, we can iterative reduce its length, so $w$ has length shorter than $2N$.
+View $\mathcal A$ as a directed transition graph. Its language is infinite iff some state $q$ satisfies all three conditions:
 
-How to choose $N$? We know that for every NFA $\mathcal{A}$, there exist equivalent DFA $\mathcal{D}$, that is, $\mathcal{L(A)} = \mathcal{L(D)}$ (subset construction).
-We don't need to construct such DFA.
-All we know is that, $\mathcal{D}$ might have exponentially more states than $\mathcal{A}$.
-Take $N = |\Sigma|^{|Q_D|} + 42$, where $Q_D$ is set of $\mathcal{D}$'s states.
+1. $q$ is reachable from an initial state;
+2. $q$ lies on a directed cycle;
+3. an accepting state is reachable from $q$.
+
+Indeed, such a cycle can be repeated arbitrarily often. Conversely, any accepting run of length at least the number of states repeats a state and contains such a cycle. Reachability and strongly connected components can be computed by graph search.

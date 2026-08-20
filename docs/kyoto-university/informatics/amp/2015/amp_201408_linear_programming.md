@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2014年8月実施 線形計画
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -63,6 +63,7 @@ $$
 回答下列两问。
 
 1. 考虑互为原、对偶的线性规划
+
    $$
    \begin{aligned}
    (\mathrm{P1}):\quad&\text{最小化}\quad \boldsymbol c^\top\boldsymbol x\\
@@ -70,15 +71,18 @@ $$
    \boldsymbol x\geqq\boldsymbol0,
    \end{aligned}
    $$
+
    $$
    \begin{aligned}
    (\mathrm{D1}):\quad&\text{最大化}\quad \boldsymbol b^\top\boldsymbol w\\
    &\text{满足}\quad \boldsymbol A^\top\boldsymbol w\leqq\boldsymbol c.
    \end{aligned}
    $$
+
    其中 $\boldsymbol A$ 为 $m\times n$ 常数矩阵，$\boldsymbol b,\boldsymbol c$ 分别为 $m$ 维、$n$ 维常向量，$\boldsymbol x,\boldsymbol w$ 分别为 $n$ 维、$m$ 维变量向量，$\top$ 表示转置。假设 P1、D1 分别有最优解 $\boldsymbol x^*,\boldsymbol w^*$，并令
    $\boldsymbol y^*=\boldsymbol c-\boldsymbol A^\top\boldsymbol w^*$。证明：若 $x_i^*>0$，则 $y_i^*=0$。
 2. 考虑线性规划
+
    $$
    \begin{aligned}
    (\mathrm{P2}):\quad&\text{最大化}\quad x_5\\
@@ -87,6 +91,7 @@ $$
    &\hspace{2.8em}x_5\leqq4x_4.
    \end{aligned}
    $$
+
    设其最优解为 $\boldsymbol x^*$。求 P2 的对偶问题的最优解，并证明
    $\sum_{i=1}^4x_i^*=1$。
 
@@ -95,19 +100,15 @@ $$
 
 $$
 \begin{aligned}
-    (x^*)^{\top}y* &= C^\top x^* - (Ax^*)^\top w^* \\
-    &= C^\top x^* - b^\top w^* \\
+    (x^*)^{\top}y^* &= c^\top x^* - (Ax^*)^\top w^* \\
+    &= c^\top x^* - b^\top w^* \\
     & = 0
 \end{aligned}
 $$
 
 since $x^* \succeq \boldsymbol{0}$
-and $y^* = C - A^\top w^* \succeq \boldsymbol{0}$,
-hence if $x^* \succ \boldsymbol{0}$,
-
-$$
-y^* = \boldsymbol{0}
-$$
+and $y^* = c - A^\top w^* \succeq \boldsymbol{0}$,
+hence every term $x_i^*y_i^*$ is zero. Therefore, $x_i^*>0$ implies $y_i^*=0$.
 
 ### (ii)
 Let $x = [x_1, x_2, x_3, x_4, x_5]^\top$, the problem (P2) can be written as
@@ -130,6 +131,7 @@ $$
 $$
 
 Denote as 
+
 $$
 \begin{aligned}
 &\text{Minimize} &-c^\top x \\
@@ -149,14 +151,22 @@ $$
 d(\lambda) = -b^\top \lambda
 $$
 
-An optimal solution of dual problem is $\lambda ^\top = [1,1,1,1,1]$.
-Since
+Thus the dual problem is
 
 $$
--c^\top x = -1, x_5 = 1
+\begin{aligned}
+&\text{Maximize} &&-b^\top\lambda\\
+&\text{subject to}&&A^\top\lambda=c,\qquad \lambda\succeq\boldsymbol0.
+\end{aligned}
 $$
 
-By solving $Ax = b$, we get
+Its optimal solution is $\lambda ^\top = [1,1,1,1,1]$, with value $-1$. The primal feasible point
+
+$$
+x=\left[\frac12,\frac16,\frac1{12},\frac14,1\right]^\top
+$$
+
+also has value $-1$, so both solutions are optimal. Since every component of $\lambda$ is positive, complementary slackness implies that all five primal inequalities are equalities for every optimal $x^*$. In particular,
 
 $$
 \sum_{i=1}^{4}x_i^* = 1

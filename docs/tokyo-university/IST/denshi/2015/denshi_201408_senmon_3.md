@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2014年8月実施 専門 第3問
 
 ## **Author**
-[adj-matrix](https://github.com/adj-matrix)
+[adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
@@ -135,13 +135,13 @@ Let $r_k$ be the remainder at iteration $k$.
 Since
 
 $$
-r_{k+1} = r_k - \frac{\text{LT}(r_k)}{\text{LT}(g_k)} g_k
+r_{k+1} = r_k - \frac{\text{LT}(r_k)}{\text{LT}(g)} g
 $$
 
-Let $\deg(r_k) = m, \deg(g_k) = n$, then
+Let $\deg(r_k) = m, \deg(g) = n$, then
 
 $$
-\deg(r_{k+1}) = \deg\left(r_k - \frac{\text{LT}(r_k)}{\text{LT}(g_k)} g_k\right) = \deg\left( \sum_{i=0}^m r_i x^i - \frac{r_m x^m}{g_n x^n} \sum_{i=0}^n g_i x^i \right)
+\deg(r_{k+1}) = \deg\left(r_k - \frac{\text{LT}(r_k)}{\text{LT}(g)} g\right) = \deg\left( \sum_{i=0}^m r_i x^i - \frac{r_m x^m}{g_n x^n} \sum_{i=0}^n g_i x^i \right)
 $$
 
 i.e.,
@@ -161,10 +161,10 @@ $$
 $$
 
 $$
-\deg\left( \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i \right) = m - 1 < \deg(r_k)
+\deg\left( \frac{r_m}{g_n} x^{m-n} \sum_{i=0}^{n-1} g_i x^i \right) \le m - 1 < \deg(r_k)
 $$
 
-Therefore
+Therefore, $r_{k+1}=0$ or
 
 $$
 \deg(r_{k+1}) < \deg(r_k)
@@ -196,4 +196,4 @@ To find the worst case, we need let $\deg(s_{k+1}) = \deg(s_k) - 1$.
 
 In this case, the degree of $s$ follows the sequence: $n, n-1, n-2, \dots, 1, 0$, where $n = \deg(g)$.
 
-The total number of steps is the length of this sequence plus the final step: $\deg(g) + 1$.
+The sequence has $\deg(g)+1$ terms, including the final call with constant $s$, whose remainder is zero. Hence the upper bound is $\deg(g)+1$.

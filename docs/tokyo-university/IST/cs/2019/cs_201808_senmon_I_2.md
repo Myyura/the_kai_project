@@ -11,7 +11,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2018年8月実施 専門科目I 問題2
 
 ## **Author**
-[kainoj](https://github.com/kainoj/utokyo-cs)
+[kainoj](https://github.com/kainoj/utokyo-cs), 祭音Myyura
 
 ## **Description**
 We consider a 32-bit machine with 32KB physical memory, upon which the operating system supports the paging functionality. The page size is 4KB, the virtual memory size is 4GB, and there is no cache memory. Answer the following questions. Note that 1KB is equivalent to 1024 bytes.
@@ -47,7 +47,7 @@ We consider a 32-bit machine with 32KB physical memory, upon which the operating
 
 (3) Obtain the number of page faults caused by executing each of the following two pieces of program code written in C language.
 
-#### <center> Program Code 1:
+#### <center> Program Code 1:</center>
 
 ```text
 for (j = 0; j < 1024; j++)
@@ -55,7 +55,7 @@ for (j = 0; j < 1024; j++)
         sum += A[i * 1024 + j];
 ```
 
-#### <center> Program Code 2:
+#### <center> Program Code 2:</center>
 
 ```text
 for (i = 0; i < 1024; i++)
@@ -129,24 +129,16 @@ $1024\times1024$ 个 32 位整数的一维数组，所有值均已设置；禁�
 
 ### (2)
 
-A page has $4 \text{KB} = 4 \cdot 1024 \text{B}$.
-If we were to address every word (i.e. every $32 \text{b} = 4 \text{B}$) within a page, 
-then there are $\frac{4\cdot 1024}{4}$ possible addresses.
-To address them all we need $\log_2 1024 = 10$ bits.
-
-Thus, lower $10$ bits of the virtual address make an offset within a page, and the rest of bits make index in the page table:
+A page has $4\text{ KB}=4096=2^{12}$ bytes. Because the machine is byte-addressed, the lower $12$ bits of a virtual address are the offset and the remaining bits are the virtual page number:
 
 $$
-    2A0F_{16} = 10.1010.0000.1111_2    
+    2A0F_{16}=2\cdot 1000_{16}+A0F_{16}.
 $$
 
-Offset within a page: $10.0000.1111_2$,
-Page number, PageTable[$1010_2$] = $100_2$.
-Sanity check: this page is valid, yay.
-The physical address corresponding to virtual $2A0F$ is:
+Thus the page number is $2$, the offset is $A0F_{16}$, and the valid page-table entry gives frame $110_2=6$. The physical address is
 
 $$
-    1.00\: 10.0000.1111_2 = 120F_{16}
+    6\cdot 1000_{16}+A0F_{16}=6A0F_{16}.
 $$
 
 ### (3)
@@ -154,25 +146,22 @@ We can fit $1024$ integers into one page.
 It is easier to look at $A$ as a $1024\times 1024$ 2-dimensional array, which elements are stored continuously in the memory, row-by-row.
 We can fit one whole row into a page.
 Since memory size is $32\text{KB}$ and page has $4\text{KB}$ then $8$ pages fit into the memory.
-However, one page is reserved, so we can store total of $7$ rows of $A$ in the memory.
+At least one frame is occupied by data other than $A$, so fewer than $1024$ rows of $A$ can be resident at once.
 
 *Program 2* accesses $A$ row by row.
-Thus, first $7$ rows will be accessed with no page fault (*PF*). $8$th and every following row row will cause PF.
-Hence, there will be:
+Each row occupies one initially invalid page. Its first access causes one page fault (*PF*) and its remaining $1023$ accesses hit, so there are
 
 $$
-    1024-8+1 = 1017
+    1024
 $$
 
 page faults in total.
 
 *Program 1* accesses $A$ column by column.
-Every element of a column will land in a different page, thus
-only first $7$ accesses to $A$ won't cause PF.
-We got:
+The $1024$ successive accesses in a column touch $1024$ distinct pages. Since the memory holds at most $8$ pages, every page has been evicted before the next column accesses it, and the first column also starts with all pages invalid. Hence every array access faults:
 
 $$
-    1024\cdot 1024 - 7 = 2^{20} - 7
+    1024\cdot 1024=2^{20}
 $$
 
 page faults in total.

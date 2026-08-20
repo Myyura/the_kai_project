@@ -63,14 +63,18 @@ $$
 ### 题目描述
 
 在正整数集 $\mathbb N$ 上定义关系
+
 $$
 R=\{(k,l)\mid k\ne l,\ \text{且 }k,l\text{ 有大于 1 的公因数}\}.
 $$
+
 对任意 $n\in\mathbb N$，定义无向图 $G_n=(V_n,E_n)$：
+
 $$
 V_n=\{1,\ldots,n\},\qquad
 E_n=\{\{k,l\}\mid(k,l)\in R\text{ 或 }(l,k)\in R\}.
 $$
+
 记边数为 $m(n)=|E_n|$。
 
 1. 判断关系 $R$ 是否：
@@ -80,13 +84,23 @@ $$
    1. 求 $m(6)$ 及 $G_6$ 的连通分量数；
    2. 求 $G_{10}$ 中顶点数最大的完全子图的顶点集合；
    3. 对任意 $n>1$，证明
+
       $$
       m(n)\ge\frac12\left(\frac n2-1\right)\left(\frac n2-2\right).
       $$
+
 3. 定义
-   $$\mu(n)=\frac1n\sum_{k=1}^nm(k),$$
+
+   $$
+   \mu(n)=\frac1n\sum_{k=1}^nm(k),
+   $$
+
    并假设极限
-   $$\gamma=\lim_{n\to\infty}\frac{\mu(n)}{n^2}$$
+
+   $$
+   \gamma=\lim_{n\to\infty}\frac{\mu(n)}{n^2}
+   $$
+
    存在。
    1. 证明 $\gamma\ge1/24$；
    2. 证明 $\gamma\le1/6$。
@@ -117,7 +131,8 @@ $$
 
 $$
 \begin{aligned}
-m(n) = |E_n| &\geq |E_n^{\text{even}} = \{\{k,l\} \mid k \text{ and } l \text{ are even}\}| \\
+m(n) = |E_n| &\geq |E_n^{\text{even}}|,\qquad
+E_n^{\text{even}}=\{\{k,l\}\mid k,l\text{ are even},\ k\ne l\}, \\
 &\geq \frac{1}{2} \left( \frac{n}{2} - 1 \right) \left(\frac{n}{2} - 2 \right) \\
 &(\text{there are at least } \frac{n}{2}-1 \text{ even numbers})
 \end{aligned}
@@ -130,10 +145,10 @@ $$
 $$
 \begin{aligned}
 \gamma &= \lim_{n \to \infty} \frac{\mu(n)}{n^2} \\ 
-&\geq \lim_{n \to \infty} \frac{\frac{1}{n} \sum_{k=1}^n \frac{1}{2} \left( \frac{k}{2} - 1 \right) \left(\frac{k}{2} - 2 \right)}{n^2} \\
-&= \lim_{n \to \infty} \frac{1}{n^3} \sum_{k=1}^n \left( \frac{k^2}{8} - \frac{3k}{4} + 1 \right) \\
-&= \lim_{n \to \infty} \frac{1}{n^3} \left(\frac{1}{8} \left( \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6} \right) - \frac{3n^2 + 3n}{8} + n \right) \\
-&= \lim_{n \to \infty} \left( \frac{1}{24} + \frac{1}{16n} + \frac{1}{48n^2} - \frac{3}{8n} - \frac{3}{8n^2} + \frac{1}{n^2} \right ) \\
+&\geq \lim_{n \to \infty} \frac{\frac{1}{n} \sum_{k=2}^n \frac{1}{2} \left( \frac{k}{2} - 1 \right) \left(\frac{k}{2} - 2 \right)}{n^2} \\
+&= \lim_{n \to \infty} \frac{1}{n^3} \sum_{k=2}^n \left( \frac{k^2}{8} - \frac{3k}{4} + 1 \right) \\
+&= \lim_{n \to \infty} \frac{1}{n^3} \left(\frac{1}{8} \left( \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6} \right) - \frac{3n^2 + 3n}{8} + n - \frac{3}{8}\right) \\
+&= \lim_{n \to \infty} \left( \frac{1}{24} + \frac{1}{16n} + \frac{1}{48n^2} - \frac{3}{8n} - \frac{3}{8n^2} + \frac{1}{n^2} - \frac{3}{8n^3} \right ) \\
 &= \frac{1}{24}
 \end{aligned}
 $$

@@ -10,7 +10,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2022年8月実施 解析学・微積分
 
 ## **Author**
-[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
 (1) $\mathbb{{R}}$ 上の関数 $f(x) = \cos x$ の $k$ 階導関数を $f^{(k)}(x)$ で表す。ただし, は実数全体の集合である。以下の各問いに答えよ。
@@ -48,11 +48,14 @@ $$
    - 若其在原点的泰勒级数写成 $\sum_{k=0}^\infty a_kx^k$，求所有 $k\ge0$ 的 $a_k$；
    - 证明对任意 $x\in\mathbb R$，级数 $\sum_{k=0}^\infty|a_kx^k|$ 收敛。
 2. 求四阶常微分方程
+
    $$
    y''''-2y'''-y''-4y'+12y=0
    $$
+
    的通解，其中 $y'$ 表示 $y(x)$ 对 $x$ 的一阶导数。
 3. 设 $C$ 为圆 $|z|=r$，其中 $r>0$ 且 $r\ne1$，计算
+
    $$
    \oint_C\frac1{z(z^2-1)}\,dz.
    $$
@@ -62,7 +65,7 @@ $$
 #### (a)
 
 $$
-f^{k}(0) = 
+f^{(k)}(0) =
 \left\{
 \begin{aligned}
 1 , &k \equiv 0 \quad (\text{mod} \quad 4) \\
@@ -75,7 +78,7 @@ $$
 #### (b)
 
 $$
-a_k = \frac{f^{k}(0)}{k!} = 
+a_k = \frac{f^{(k)}(0)}{k!} =
 \left\{
 \begin{aligned}
 \frac{1}{k!} , \quad &k \equiv 0 \quad (\text{mod} \quad 4) \\
@@ -92,8 +95,12 @@ $$
 $$
 
 $$
-\lim_{n \rightarrow \infty} \frac{a_{n + 1}}{a_{n}} = \lim_{n \rightarrow \infty} \frac{x^2}{(2n + 2)(2n + 1)} = 0
+\text{$b_n=\dfrac{|x|^{2n}}{(2n)!}$ とおくと、}\qquad
+\lim_{n \rightarrow \infty} \frac{b_{n + 1}}{b_{n}}
+= \lim_{n \rightarrow \infty} \frac{|x|^2}{(2n + 2)(2n + 1)} = 0.
 $$
+
+よって比の判定法により、任意の $x\in\mathbb R$ で絶対収束する。
 
 ### (2)
 

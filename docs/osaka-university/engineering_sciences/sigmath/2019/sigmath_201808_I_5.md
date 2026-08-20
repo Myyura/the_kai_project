@@ -9,19 +9,24 @@ tags:
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2018年8月実施 数理科学 I \[5\]
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
 ### 题目描述
 
 原文题干缺失。设随机变量 $X_1,\ldots,X_n$ 满足
+
 $$
 E[X_i]=\mu,\qquad V[X_i]=\sigma^2,\qquad
 \operatorname{Cov}(X_i,X_j)=\theta\quad(i\ne j).
 $$
+
 对系数向量 $\alpha=(\alpha_1,\ldots,\alpha_n)$，定义线性统计量
-$$T(\alpha)=\sum_{i=1}^n\alpha_iX_i.$$
+
+$$
+T(\alpha)=\sum_{i=1}^n\alpha_iX_i.
+$$
 
 1. 求 $E[T(\alpha)]$ 以及
    $\operatorname{Cov}(T(\alpha),T(\beta))$。
@@ -91,7 +96,7 @@ $$
 
 となる。
 
-これを最小化するために、
+$\sigma^2>\theta$ のとき、これを最小化するために、
 ラグランジュの未定乗数 $\lambda$ を導入して、
 
 $$
@@ -122,7 +127,9 @@ $$
 
 のとき、 $f(\alpha)$ したがって $V[T(\alpha)]$ が最小になる。
 
-このとき、
+$\sigma^2=\theta$ のときは、$\sum_i\alpha_i=1$ を満たすすべての $\alpha$ で分散が同じ最小値になる。
+
+いずれの場合も、最小分散は
 
 $$
   \begin{aligned}

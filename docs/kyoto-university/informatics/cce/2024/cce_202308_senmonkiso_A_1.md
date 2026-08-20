@@ -96,6 +96,7 @@ $$
 1. 设
    $z=f(x,y)$、$x=r\cos\theta$、$y=r\sin\theta$，其中 $r>0$。
    1. 证明
+
       $$
       \left(\frac{\partial z}{\partial x}\right)^2+
       \left(\frac{\partial z}{\partial y}\right)^2
@@ -103,7 +104,9 @@ $$
       \left(\frac{\partial z}{\partial r}\right)^2+
       \frac1{r^2}\left(\frac{\partial z}{\partial\theta}\right)^2.
       $$
+
    2. 证明
+
       $$
       \frac{\partial^2z}{\partial x^2}+
       \frac{\partial^2z}{\partial y^2}
@@ -112,19 +115,24 @@ $$
       +\frac1r\frac{\partial z}{\partial r}
       +\frac1{r^2}\frac{\partial^2z}{\partial\theta^2}.
       $$
+
 2. 定义 Beta 函数
+
    $$
    B(p,q)=\int_0^1x^{p-1}(1-x)^{q-1}\,dx,
    \qquad p,q>0.
    $$
+
    1. 求 $B(\frac12,1)$；
    2. 求 $B(\frac12,\frac12)$；
    3. 对 $p>0,q>1$，证明
       $pB(p,q)=(q-1)B(p+1,q-1)$。
 3. 给定
+
    $$
    A=\begin{bmatrix}1&2&2\\2&1&-2\\2&-2&1\end{bmatrix}.
    $$
+
    1. 求 $A$ 的特征方程；
    2. 求全部特征值；
    3. 求全部特征向量。
@@ -228,7 +236,7 @@ $$
 
 $$
 B\left(\frac12,\frac12\right)
-= \int_0^1 x^{-1/2}(1-x)^{-1/2},dx.
+= \int_0^1 x^{-1/2}(1-x)^{-1/2}\,dx.
 $$
 
 置換 $x=\sin^2 t$ （$0\le t\le\pi/2$）を用いると
@@ -340,19 +348,20 @@ $$
 
 をとることができる。
 
-したがって，固有値と対応する固有ベクトルは例えば
+したがって全固有ベクトルは
 
 $$
-\lambda=-3:\
-\mathbf{v} \propto
+\lambda=-3:\qquad
+\mathbf v=c
 \begin{bmatrix}-1\\1\\1\end{bmatrix},
+\quad c\ne0,
 $$
 
 $$
-\lambda=3:\
-\mathbf{v} \propto
-\begin{bmatrix}1\\1\\0\end{bmatrix},\
-\begin{bmatrix}1\\0\\1\end{bmatrix}
+\lambda=3:\qquad
+\mathbf v=c_1\begin{bmatrix}1\\1\\0\end{bmatrix}
++c_2\begin{bmatrix}1\\0\\1\end{bmatrix},
+\quad(c_1,c_2)\ne(0,0)
 $$
 
 となる。

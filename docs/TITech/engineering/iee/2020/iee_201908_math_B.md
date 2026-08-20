@@ -9,7 +9,7 @@ tags:
 
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -119,6 +119,7 @@ $$
   &=
   \frac{1}{2} P \left( \left| X - \frac{n}{2} \right|
   \geq \frac{n}{4} \right)
+  \qquad\left(\because X\sim\operatorname{Bin}(n,\tfrac12)\text{ の対称性}\right)
   \\
   &\leq
   \frac{1}{2} \frac{\frac{n}{4}}{\left( \frac{n}{4} \right)^2} 

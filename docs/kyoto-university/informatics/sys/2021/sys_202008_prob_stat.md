@@ -13,7 +13,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2020年8月実施 専門科目 確率統計
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6875d3410000000012017c0d?xsec_token=ABH-3QKy295U0QA4TRmU6eScR1Xpag2dMEXtGdrbeYRJ4=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6875d3410000000012017c0d?xsec_token=ABH-3QKy295U0QA4TRmU6eScR1Xpag2dMEXtGdrbeYRJ4=), 祭音Myyura
 
 ## **Description**
 ### 問題1
@@ -159,8 +159,29 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_prob_stat_p1_s2.jpg" width="700" alt=""/>
 </figure>
 
+#### 問題1 (3) の補足
+
+$d_i>0$ という条件の下で解が存在するのは $0<\alpha<1/2$ のときに限り、
+
+$$
+d_i=\frac{\Phi^{-1}(1-\alpha)}{\sqrt n}
+$$
+
+である。$\alpha\geq1/2$ では条件を満たす $d_i$ は存在しない。
+
 ### 問題2
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_prob_stat_p2_s.jpg" width="700" alt=""/>
 </figure>
+
+#### 問題2 (4) の補足
+
+両推定量の平均二乗誤差は
+
+$$
+\operatorname{MSE}(\hat\theta)=\frac{\theta^2}{n(n+2)},\qquad
+\operatorname{MSE}(\hat\theta^{ML})=\frac{2\theta^2}{(n+1)(n+2)}.
+$$
+
+したがって $n>1$ では前者が小さく、$n=1$ では等しい。

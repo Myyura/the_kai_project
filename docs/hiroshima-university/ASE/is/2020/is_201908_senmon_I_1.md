@@ -185,7 +185,7 @@ A^n &= \begin{bmatrix}
 \end{aligned}
 $$
 
-Then the $(1, 2)$-entry of $A_n$ is
+Then the $(1, 2)$-entry of $A^n$ is
 
 $$
 \begin{aligned}

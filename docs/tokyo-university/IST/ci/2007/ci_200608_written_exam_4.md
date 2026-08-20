@@ -13,7 +13,7 @@ tags:
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2006年8月実施 筆記試験 第4問
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -60,14 +60,32 @@ If necessary, use examples or figures.
 
 **RISC and CISC processors**
 
-RISC, i.e. reduced instruction set computer, is a type of processors keeping a minimal set of instruction. Complex operations here can be formed by smaller instructions. An example is RISC-V by UC Berkeley or ARM (Advanced RISC Machine) for Mac computers. Dominant architecture for embedded devices. 
+RISC, i.e. reduced instruction set computer, is a type of processors keeping a minimal set of instructions. Complex operations here can be formed by smaller instructions. An example is RISC-V by UC Berkeley or ARM (Advanced RISC Machine) for Mac computers. It is a dominant architecture for embedded devices.
 
-CISC, i.e. **complex** instruction set computer processor uses a complex set of instructions to cover various operations. An example is Windows x86/x64.
+CISC, i.e. **complex** instruction set computer processor, uses a complex set of instructions to cover various operations. The x86/x86-64 instruction-set architecture is an example.
 
 **Branch-and-bound algorithm**
 
 Branch-and-bound algorithm is a classic algorithm in Operation Research (Numerical Optimization), typically to solve an integer programming problem. It repeats, for example, in an integer programming problem:
 1. Solving the relaxed problem (into real-valued), e.g. relaxing an IP into an LP;
-2. Bounding: Find the lower and upper bounds of the current problem. Take a minimizing problem as an example, the lower bound is the optimal value for the relaxed problem and the upper bound can be any objective value in the original problem;
+2. Bounding: Find the lower and upper bounds of the current problem. Take a minimizing problem as an example, the lower bound is the optimal value for the relaxed problem and the upper bound is the value of the best feasible integer solution found so far (the incumbent);
 3. Branching, based on the solution, e.g. for a solution $(\tilde x_1,\tilde x_2,\dots)$ of the relaxation $\tilde A$ of $A$ with $x_1$ integer constraint, take (for example) $x_1$ as the branching variable, break the original IP $A$ into $A_1$ and $A_2$ where $A_1$ is $A$ plus a new constraint $x_1\le \lfloor \tilde x_1\rfloor$ and $A_2$ is $A$ plus $x_1\ge \lceil \tilde x_1\rceil$.
-4. Repeat solving (e.g. relaxed $\tilde A_1,\tilde A_2$), bounding and branching and end a subtree when a lower bound is also feasible for the original problem.
+4. Repeat solving, bounding and branching. Prune a node if its relaxation is infeasible or its lower bound is no better than the incumbent; if the relaxation optimum is integral, update the incumbent and prune the node.
+
+**Heap sort data structure**
+
+Heap sort uses a complete binary max-heap, stored for example as the array $[9,7,5,2,3]$:
+
+```text
+    9
+   / \
+  7   5
+ / \
+2   3
+```
+
+Each parent is at least as large as its children. Build the heap in $O(n)$ time; repeatedly exchange the root with the last unsorted element and restore the heap in $O(\log n)$ time. Thus sorting takes $O(n\log n)$ time and $O(1)$ auxiliary array space.
+
+**Features of functional programming languages**
+
+Functions are first-class values and may be passed to or returned from higher-order functions. Pure functions and immutable data give referential transparency; recursion commonly replaces mutable loops. For example, `map (lambda x: x*x) [1,2,3]` applies one function independently to every element.

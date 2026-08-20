@@ -9,7 +9,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2015年8月実施 線形代数
 
 ## **Author**
-Zero
+Zero, 祭音Myyura
 
 ## **Description**
 任意の行列 $A$ を引数に取り行列を返す関数 $f(A) = \frac{1}{\sqrt{2}}\begin{pmatrix}A & A \\ A & -A\end{pmatrix}$ について　以下の各問に答えよ。
@@ -63,184 +63,61 @@ $$
 
 ## **Kai**
 ### (1)
-$f(A)$ が直交行列 $\Leftrightarrow$ $(f(A))^{-1} = (f(A))^{-1}$ を示す
-
-$$
-(f(A))^{-1} = \frac{1}{\sqrt{2}}\begin{pmatrix}
-A^{\top} & A^{\top} \\
-A^{\top} & (-A)^{\top} \\
-\end{pmatrix}
-$$
-
-$A$ が直交行列ので, $A^{\top} = A^{-1}$
+$A^\top A=I$ より
 
 $$
 \begin{aligned}
-(f(A))^{\top} = \frac{1}{\sqrt{2}}
-\begin{pmatrix}
-A^{-1} & A^{-1} \\
-A^{-1} & -A^{-1} \\
-\end{pmatrix}
+f(A)^\top f(A)
+&=\frac12
+\begin{pmatrix}A^\top&A^\top\\A^\top&-A^\top\end{pmatrix}
+\begin{pmatrix}A&A\\A&-A\end{pmatrix}\\
+&=\begin{pmatrix}A^\top A&0\\0&A^\top A\end{pmatrix}
+=I.
 \end{aligned}
 $$
 
-$f(A)^{-1}$ を求める
-
-$$
-\begin{aligned}
-\left (
-\begin{array}{cc|cc}
-\frac{A}{\sqrt{2}} & \frac{A}{\sqrt{2}} & 1 & 0 \\
-\frac{A}{\sqrt{2}} & -\frac{A}{\sqrt{2}} & 0 & 1 \\
-\end{array}
-\right) &=
-\left (
-\begin{array}{cc|cc}
-A & A & \sqrt{2} & 0 \\
-A & -A & 0 & \sqrt{2} \\
-\end{array}
-\right) \\ &=
-\left (
-\begin{array}{cc|cc}
-1 & 1 & \frac{\sqrt{2}}{A} & 0 \\
-1 & -1 & 0 & \frac{\sqrt{2}}{A}
-\end{array}
-\right) \\ &=
-\left (
-\begin{array}{cc|cc}
-1 & 1 & \frac{\sqrt{2}}{A} & 0 \\
-0 & -2 & -\frac{\sqrt{2}}{A} & \frac{\sqrt{2}}{A} \\
-\end{array}
-\right) \\ &=
-\left (
-\begin{array}{cc|cc}
-1 & 1 & \frac{\sqrt{2}}{A} & 0 \\
-0 & 1 & \frac{1}{\sqrt{2}A} & -\frac{1}{\sqrt{2}A} \\
-\end{array}
-\right) \\ &=
-\left (
-\begin{array}{cc|cc}
-1 & 0 & \frac{1}{\sqrt{2}A} & \frac{1}{\sqrt{2}A} \\
-0 & 1 & \frac{1}{\sqrt{2}A} & -\frac{1}{\sqrt{2}A}
-\end{array}
-\right)
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-f(A)^{-1} &= \frac{1}{\sqrt{2}}\begin{pmatrix}
-\frac{1}{A} & \frac{1}{A} \\
-\frac{1}{A} & -\frac{1}{A} \\
-\end{pmatrix} \notag \\
-&= \frac{1}{\sqrt{2}}
-\begin{pmatrix}
-A^{-1} & A^{-1} \\
-A^{-1} & -A^{-1} \\
-\end{pmatrix}
-\end{aligned}
-$$
-
-式(1)(2)より、
-
-$(f(A))^{\top} = (f(A))^{-1}$ も直交行列
+したがって $f(A)$ も直交行列である。
 
 ### (2)
 
-$$
-A_n = f(A_{n-1})
-$$
+$H=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ とおくと
+$A_n=H\otimes A_{n-1}=H^{\otimes n}$ である。
+$\boldsymbol{u}_n=\boldsymbol{1}_{2^n}A_n$ とおけば
 
 $$
-A_0 = (1)
+\boldsymbol{u}_n
+=\bigl((1,1)H\bigr)\otimes\boldsymbol{u}_{n-1}
+=(\sqrt2,0)\otimes\boldsymbol{u}_{n-1},
+\qquad \boldsymbol{u}_0=(1).
 $$
 
-$$
-A_1 = f(A_0) = \frac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\1 & -1 \end{pmatrix}
-$$
+よって
 
 $$
-A_2 = f(A_1) = \frac{1}{(\sqrt{2})^2}
-\left(
-\begin{array}{cc:cc}
-1 & 1 & 1 & 1 \\
-1 & -1 & 1 & -1 \\
-\hdashline
-1 & 1 & 1 & 1 \\
-1 & -1 & 1 & -1 \\
-\end{array}
-\right)
-$$
-
-$$
-A_n = f(A_{n-1}) = \frac{1}{(\sqrt{2}^n)}
-\begin{pmatrix}
-A_{n-1} & A_{n-1} \\
-A_{n-1} & -A_{n-1} \\
-\end{pmatrix}
-$$
-
-$$
-\boldsymbol{1} A_n = \overbrace{(1,1,\dots,1)}^{2^n}\frac{1}{(\sqrt{2})^n}
-\begin{pmatrix}
-A_{n-1} & A_{n-1} \\
-A_{n-1} & -A_{n-1} \\
-\end{pmatrix}
-$$
-
-$\begin{pmatrix}A_{n-1} & A_{n-1} \\ A_{n-1} & A_{n-1}\end{pmatrix}$ の奇数列目は全て $\frac{1}{\sqrt{2}}$ ,偶数列目は $\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}$ の交互
-
-$$
-\begin{aligned}
-\boldsymbol{1}A_n &= \frac{1}{\sqrt{2}^n}(1 \times 2^n,0,1 \times 2^n,0,1 \times 2^n,0,\dots,1 \times 2^n,0) \\
-&= ((\sqrt{2})^n,0,(\sqrt{2})^n,0(\sqrt{2})^n,0,\dots,(\sqrt{2})^n,0)
-\end{aligned}
+\boxed{\boldsymbol{1}_{2^n}A_n
+=\left(2^{n/2},0,\ldots,0\right)}.
 $$
 
 ### (3)
-$A = (c_1v_1,c_2v_2,\dots,c_dv_d)$ と表せる
+$A$ の各列を $\boldsymbol{a}_j$ とすると、$f(A)$ の列は
 
 $$
-\begin{aligned}
-f(A) &= \frac{1}{\sqrt{2}}
-\begin{pmatrix}
-c_1v_1,c_2v_2,\dots,c_dv_d,c_1v_1,c_2v_2,\dots,c_dv_d \\
-c_1v_1,c_2v_2,\dots,c_dv_d,-c_1v_1,-c_2v_2,-c_dv_d
-\end{pmatrix} \\
-&= \frac{1}{\sqrt{2}}
-\bigg(c_1\begin{pmatrix}
-v_1 \\v_1
-\end{pmatrix},\dots,
-c_d\begin{pmatrix}
-v_d \\v_d
-\end{pmatrix},
-c_1\begin{pmatrix}
-v_1 \\-v_1
-\end{pmatrix},\dots
-c_d\begin{pmatrix}
-v_d \\-v_d
-\end{pmatrix}
-\bigg)
-\end{aligned}
+\frac1{\sqrt2}\begin{pmatrix}\boldsymbol{a}_j\\\boldsymbol{a}_j\end{pmatrix},
+\qquad
+\frac1{\sqrt2}\begin{pmatrix}\boldsymbol{a}_j\\-\boldsymbol{a}_j\end{pmatrix}
 $$
 
-となるので、
+である。各 $\boldsymbol{a}_j$ は $\boldsymbol{v}_1,\ldots,\boldsymbol{v}_d$ の線形結合であり、逆に各 $\boldsymbol{v}_i$ は $A$ の列の線形結合なので、問題文の $2d$ 個のベクトルは $f(A)$ の列空間を張る。
+
+さらに
 
 $$
-\bigg\{
-\begin{pmatrix}
-v_1 \\v_1
-\end{pmatrix},\dots
-\begin{pmatrix}
-v_d \\v_d
-\end{pmatrix},
-\begin{pmatrix}
-v_1 \\-v_1
-\end{pmatrix},\dots,
-\begin{pmatrix}
-v_d \\-v_d
-\end{pmatrix}
-\bigg\}
+\sum_i\alpha_i\begin{pmatrix}\boldsymbol{v}_i\\\boldsymbol{v}_i\end{pmatrix}
++\sum_i\beta_i\begin{pmatrix}\boldsymbol{v}_i\\-\boldsymbol{v}_i\end{pmatrix}
+=0
 $$
 
-は $f(A)$ の列空間の基底となる
+ならば、上下の成分から
+$\sum_i(\alpha_i+\beta_i)\boldsymbol{v}_i=0$ および
+$\sum_i(\alpha_i-\beta_i)\boldsymbol{v}_i=0$ を得る。
+$\boldsymbol{v}_i$ は一次独立なので全ての $\alpha_i,\beta_i$ は $0$ である。したがって問題文の集合は基底である。

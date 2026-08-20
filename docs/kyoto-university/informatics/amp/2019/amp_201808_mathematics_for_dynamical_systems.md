@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2018年8月実施 力学系数学
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -26,7 +26,7 @@ $$
 
 (ii) 自然数 $n > 1$ に対して、式 (1) が $n$ 次多項式解をもつための必要十分条件を $a, b, c, d, n$ を用いて表わせ。
 
-(iii) どんな自然数 $n$ に対しても式 (1) が $n$ 次多項式解をもつための必要十分条件を $a, b, c, d$ を用いて表わせ。
+(iii) どんな自然数 $n$ に対しても式 (1) が $n$ 次多項式解をもたないための必要十分条件を $a, b, c, d$ を用いて表わせ。
 
 ### English Version
 
@@ -43,32 +43,63 @@ $$
 
 1. 用 $a,b,c,d$ 表示方程 (1) 存在一次多项式解的充要条件。
 2. 对任意正整数 $n>1$，用 $a,b,c,d,n$ 表示方程 (1) 存在 $n$ 次多项式解的充要条件。
-3. 用 $a,b,c,d$ 表示如下性质成立的充要条件：方程 (1) 对每个正整数 $n$ 都存在一个 $n$ 次多项式解。
+3. 用 $a,b,c,d$ 表示如下性质成立的充要条件：对每个正整数 $n$，方程 (1) 都不存在 $n$ 次多项式解。
 
 ## **Kai**
 ### (i)
 Suppose that $x(t) = pt + q$ is a solution, $p \neq 0$, we have
 
 $$
-(p+ap)t^2 + (a1+bp - c)t + bq - d = 0
+p(1+a)t^2+(aq+bp-c)t+bq-d=0.
 $$
 
 $$
-p+ap = 0, aq+bp-c = 0, bq - d = 0 \Leftrightarrow a = -1, q = \frac db , p = \frac cb - \frac{ad}{b^2}
+p(1+a)=0,\qquad aq+bp=c,\qquad bq=d.
+$$
+
+Thus $q=d/b$, $a=-1$, and $p=(bc+d)/b^2$. Since the degree must be exactly one, the necessary and sufficient condition is
+
+$$
+a=-1,\qquad bc+d\ne0.
 $$
 
 ### (ii)
-Let $\Phi(t) \sum_{i=0}^{n}c_i t^i$ be a solution, where $c_n \neq 0$. Then we have
+Let $x(t)=\sum_{j=0}^n q_jt^j$, where $q_n\ne0$. Comparing coefficients gives
 
 $$
-(nc_n + ac_n)t^{n+1} + \sum_{i=2}^{n-1}t^i(ic_i + ac_i + bc_{i+1}) + (ac_0 + bc_1 - c)t + bc_0 - d = 0
+\begin{aligned}
+(n+a)q_n&=0,\\
+(j-1+a)q_{j-1}+bq_j&=0 &&(2\le j\le n),\\
+aq_0+bq_1&=c,\\
+bq_0&=d.
+\end{aligned}
 $$
 
-and we get a sufficient and necessary condition:
+Hence $a=-n$ and
 
 $$
-a = -n, c_0 = \frac db , c_1 = \frac{nd}{b^2} + \frac cb , c_k = \frac{b^{n-k}}{(n-k)!}c_n
+q_0=\frac db,\qquad
+q_1=\frac{bc+nd}{b^2},\qquad
+q_j=\frac{n-j+1}{b}q_{j-1}.
+$$
+
+Therefore $q_n\ne0$ exactly when $bc+nd\ne0$. The necessary and sufficient condition is
+
+$$
+a=-n,\qquad bc+nd\ne0.
 $$
 
 ### (iii)
-from (i) and (ii) we see that $a \in R/Z^-$ is sufficient and necessary.
+By (i) and (ii), an $n$th-degree polynomial solution exists exactly when
+
+$$
+a=-n\quad\text{and}\quad bc+nd\ne0.
+$$
+
+Therefore no positive degree occurs for any $n\in\mathbb N$ if and only if
+
+$$
+-a\notin\mathbb N
+\quad\text{or}\quad
+\bigl(-a\in\mathbb N\ \text{and}\ ad=bc\bigr).
+$$

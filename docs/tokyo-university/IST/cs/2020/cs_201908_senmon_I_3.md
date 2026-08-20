@@ -9,14 +9,16 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目I 問題3
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 In this problem, the length of a string $s$ is written $l(s)$, and the $i$-th character of $s$ is written $s[i]$, where the first character is $s[0]$. The string obtained by removing the first $i$ characters from $s$ is written $s + i$. We assume $0 \leq i < l(s)$ in $s[i]$ and $s + i$. For example, if $s = \text{PROBLEM}$, then $s[0] = \text{P}$ and $s + 3 = \text{BLEM}$. The set of characters consists of $N$ characters, where $N$ is an integer constant no less than 2, and for each character $c$ a distinct positive integer $\text{numval}(c) \leq N$ is defined. Suppose that the computation of $s + i$ for given $s$ and $i$, and that of $\text{numval}(c)$ for given $c$, take $O(1)$ time. Also suppose that each of integer addition, multiplication and remainder takes $O(1)$ time, and that overflow will never occur in integer operations.
 
 We consider the following problem FIND: For given strings $p$ and $s$, find the first position $i$ at which $s$ matches $p$. In other words, $i$ is the least non-negative integer that satisfies
 
-$$\forall j \in \{0, 1, \dots, l(p) - 1\}. \, s[i + j] = p[j].$$
+$$
+\forall j \in \{0, 1, \dots, l(p) - 1\}. \, s[i + j] = p[j].
+$$
 
 In case there is no such $i$, we define $i = -1$. In the following, we assume $l(s) > l(p) > 0$.
 
@@ -58,9 +60,11 @@ $c$ 对应互不相同的正整数 $\operatorname{numval}(c)\le N$。假设计�
 $s+i$、$\operatorname{numval}(c)$、整数加法、乘法和取余均为 $O(1)$，且整数运算不会溢出。
 
 问题 FIND 要求：给定字符串 $p,s$，求 $p$ 在 $s$ 中第一次匹配的起点，即满足
+
 $$
 \forall j\in\{0,\ldots,l(p)-1\},\quad s[i+j]=p[j]
 $$
+
 的最小非负整数 $i$；若不存在则返回 $-1$。以下假设
 $l(s)>l(p)>0$。函数 $\operatorname{eq}(r,p)$ 在 $r$ 的前
 $l(p)$ 个字符等于 $p$ 时返回 $1$，否则返回 $0$，耗时
@@ -69,11 +73,13 @@ $O(l(p))$。题中朴素算法 $S$ 从左到右对每个位置调用该函数。
 （1）用 $l(s),l(p)$ 表示算法 $S$ 的最坏时间复杂度。
 
 对满足 $0<m\le l(s)$ 的 $m$，定义前 $m$ 个字符的哈希：
+
 $$
 h(s,m)=
 \left(\sum_{i=0}^{m-1}
 \operatorname{numval}(s[i])d^{m-i-1}\right)\bmod q,
 $$
+
 其中 $d,q$ 为正常数。
 
 （2）设 $i<l(s)-m$，且已预计算
@@ -104,7 +110,13 @@ $$
 
 To compute $h(s + i + 1, m)$ in $O(1)$ time, we can use the rolling hash technique:
 
-$h(s + i + 1, m) = ((h' - \text{numval}(s[i]) \cdot d_m) \cdot d + \text{numval}(s[i+m])) \mod q$
+$$
+h(s+i+1,m)=
+\big((h'-\operatorname{numval}(s[i])d_m)d
++\operatorname{numval}(s[i+m])\big)\bmod q.
+$$
+
+If the programming language may return a negative remainder, add $q$ before the final remainder operation.
 
 Explanation:
 
@@ -128,6 +140,8 @@ This computation can be done in $O(1)$ time as all operations (subtraction, mult
 int H_0(string s, string p) {
   int lp = ell(p);
   int ls = ell(s);
+  int d_m = 1;
+  for (int j = 1; j < lp; j++) d_m *= d;
   int hp = h(p, lp);
   int hs = h(s, lp);
 
@@ -159,6 +173,8 @@ The algorithm $H_0$ only checks for hash matches. In the rare case where differe
 int H(string s, string p) {
   int lp = ell(p);
   int ls = ell(s);
+  int d_m = 1;
+  for (int j = 1; j < lp; j++) d_m *= d;
   int hp = h(p, lp);
   int hs = h(s, lp);
 
@@ -173,15 +189,22 @@ int H(string s, string p) {
 }
 ```
 
-**Time Complexity**:
-- **Best Case**: $O(\ell(p))$ if the first occurrence matches.
-- **Average Case**: If the number of hash matches (that require further checking with `eq`) is $O(1)$, then the average case time complexity is $O(\ell(s) + \ell(p))$.
-- **Worst Case**: The worst-case complexity can be $O(\ell(s) \cdot \ell(p))$ if there are many hash collisions, causing frequent calls to `eq`.
+**Time Complexity:**
 
-**Condition for $O(\ell(s) + \ell(p))$**:
-The time complexity will be $O(\ell(s) + \ell(p))$ if the expected number of hash collisions is $O(1)$. In other words, if the hash function has good distribution and the probability of collisions is low, the algorithm runs efficiently.
+- Computing the initial hashes costs $O(\ell(p))$, and scanning the text costs $O(\ell(s))$ apart from calls to `eq`.
+- If `eq` is called at $c$ candidate positions, those checks cost $O(c\ell(p))$ in total.
 
-**Worst-case Complexity**: The worst-case time complexity of algorithm $H$ is $O(\ell(s) \cdot \ell(p))$ when there are many hash collisions, leading to frequent evaluations of `eq`.
+Thus the running time is
+
+$$
+O(\ell(s)+\ell(p)+c\,\ell(p)).
+$$
+
+**Condition for $O(\ell(s)+\ell(p))$:** Under the stated assumption $c=O(1)$, the running time is $O(\ell(s)+\ell(p))$. In particular, if the first candidate matches, the scan can stop after $O(\ell(p))$ work.
+
+**Worst case:** If many hash collisions cause repeated calls to `eq`, then
+$c=\ell(s)-\ell(p)+1$ is possible, giving
+$\Theta(\ell(s)\ell(p))$.
 
 ## **Knowledge**
 

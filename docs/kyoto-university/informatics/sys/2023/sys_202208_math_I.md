@@ -214,9 +214,13 @@ $$
 ### 問1
 #### (i)
 
+誤差 $e_n=x-x_n$ は $e_n=(P^{-1}Q)^ne_0$ を満たす。固有値がすべて異なるので $P^{-1}Q$ は対角化可能であり、任意の $e_0$ に対して $e_n\to0$ となる必要十分条件は
+
 $$
-\rho(P^{-1}Q) \le 1
+\boxed{\rho(P^{-1}Q)<1}
 $$
+
+である。
 
 #### (ii)
 
@@ -259,7 +263,14 @@ $$
 
 $$
 \begin{aligned}
-x = \begin{bmatrix} 1 \\ 1 \\ -1 \end{bmatrix}
+A^{-1}
+&=
+\begin{bmatrix}
+\frac{8}{63}&\frac{5}{63}&-\frac{2}{21}\\
+\frac{2}{21}&\frac{13}{42}&-\frac{1}{14}\\
+-\frac{1}{21}&\frac{2}{21}&\frac{2}{7}
+\end{bmatrix},\\
+x=A^{-1}b&=\begin{bmatrix} 1 \\ 1 \\ -1 \end{bmatrix}.
 \end{aligned}
 $$
 
@@ -285,19 +296,17 @@ $$
 $$
 
 #### (iii)
-固有ベクトルを $[x_1, x_2, \ldots, x_n]^T$ とする。 任意の $x_j$ に対して、以下の式が成り立つ。
+固有ベクトルを $[x_1,x_2,\ldots,x_n]^T$ とし、$|x_m|=\max_j|x_j|$ とする。固有方程式の第 $m$ 成分より、
 
 $$
-\begin{aligned}
-\lvert \sum_{j=1}^n a_{ij} x_j \rvert = |\lambda x_j|
-\end{aligned}
+\left|\sum_{j=1}^na_{mj}x_j\right|=|\lambda x_m|.
 $$
 
 (ii) より、
 
 $$
 \begin{aligned}
-&|\sum_{j=1}^n a_{ij} x_m| = |\lambda x_m| \le |x_m| \\
+&|\lambda x_m| \le |x_m| \\
 &\therefore |\lambda| \le 1
 \end{aligned}
 $$
@@ -313,33 +322,30 @@ $$
 
 $$
 \begin{aligned}
-(A - (1 - \alpha)I) w = 0  \Rightarrow  w = [\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}]^T
+(A - (1 - 2\alpha)I) w = 0  \Rightarrow  w = [\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}]^T
 \end{aligned}
 $$
 
 #### (v)
-$\alpha \neq -1$
+
+$0<\alpha\le1$ のもとで、もう一つの固有値は $1-2\alpha$ である。従って極限が存在する必要十分条件は
 
 $$
-\begin{aligned}
-P^{-1}AP = \Lambda = \begin{bmatrix} 1 & 0 \\ 0 & 1-2 \alpha \end{bmatrix}
-\end{aligned}
+\boxed{0<\alpha<1}.
 $$
 
-$$
-\begin{aligned}
-P = [v,w] = \begin{bmatrix} \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \end{bmatrix}
-\end{aligned}
-$$
+このとき、$v=(1,1)^T/\sqrt2$, $w=(1,-1)^T/\sqrt2$ とすれば
 
 $$
-\begin{aligned}
-P^{-1} = \begin{bmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\ =\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \end{bmatrix}
-\end{aligned}
+A=[v,w]
+\begin{bmatrix}1&0\\0&1-2\alpha\end{bmatrix}
+[v,w]^T,
 $$
 
+なので
+
 $$
-\begin{aligned}
-B = \begin{bmatrix} \frac{1}{2} & -\frac{1}{2} \\ \frac{1}{2} & \frac{1}{2} \end{bmatrix}
-\end{aligned}
+B=vv^T
+=\boxed{\frac12
+\begin{bmatrix}1&1\\1&1\end{bmatrix}}.
 $$

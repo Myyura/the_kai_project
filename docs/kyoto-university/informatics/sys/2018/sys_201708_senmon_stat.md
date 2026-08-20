@@ -137,7 +137,7 @@ The likelihood function is
 $$
 \begin{aligned}
 L(\theta,\sigma^{2})&=\prod_{i=1}^nf_X(X_i)\prod_{i=1}^mf_Y(Y_i)\\
-&=\prod_{i=1}^n\frac1{\sqrt{2\pi}\sigma}e^{-\frac{(x-a\theta)^2}{2\sigma^2}}\prod_{i=1}^m\frac1{\sqrt{2\pi}\sigma}e^{-\frac{(x-b\theta)^2}{2\sigma^2}},
+&=\prod_{i=1}^n\frac1{\sqrt{2\pi}\sigma}e^{-\frac{(X_i-a\theta)^2}{2\sigma^2}}\prod_{j=1}^m\frac1{\sqrt{2\pi}\sigma}e^{-\frac{(Y_j-b\theta)^2}{2\sigma^2}},
 \end{aligned}
 $$
 
@@ -154,9 +154,9 @@ Set $\frac{\partial\log L}{\partial\sigma}=0$ , we will find
 
 $$
 \begin{aligned}
-\frac{\partial\log L}{\partial\sigma}& =-\frac{n+m}{\sigma}-\left \{ \sum_{i=1}^{n}(a\theta-X_{i})^{2} +\sum_{j=1}^m(b\theta-Y_j)^2\right\}\cdot\frac12\cdot(-2)\frac1{\sigma^3} \\
+\frac{\partial\log L}{\partial\sigma}& =-\frac{n+m}{\sigma}-\left \{ \sum_{i=1}^{n}(a\theta-X_{i})^{2} +\sum_{j=1}^m(b\theta-Y_j)^2\right\}\cdot\frac12\cdot(-2)\frac1{\sigma^3}\\
 &=0 \\
-\Rightarrow\quad\hat{\sigma}^2=& \frac{1}{n+m}\bigg\{\sum_{i=1}^{n}{(a\theta-X_{i})^{2}}+\sum_{j=1}^{m}{(b\theta-Y_{j})^{2}}\bigg\} 
+\Rightarrow\quad\hat{\sigma}^2=& \frac{1}{n+m}\bigg\{\sum_{i=1}^{n}{(a\hat\theta-X_{i})^{2}}+\sum_{j=1}^{m}{(b\hat\theta-Y_{j})^{2}}\bigg\}
 \end{aligned}
 $$
 
@@ -210,24 +210,22 @@ $$
 \beta=\frac{1-\alpha a}{b}.
 $$
 
-The variance of $\tilde{\theta}$ will be written as
+Substituting $\beta=(1-a\alpha)/b$, the variance is
 
 $$
-\begin{aligned}\mathrm{Var}(\tilde{\theta})&=\frac{\sigma^{2}}{n}\left(\alpha^{2}+\frac{1+a^{2}\alpha^{2}-2a\alpha}{b^{2}}\right)\\
-&=\frac{\sigma^{2}}{n}\bigg\{(1+\frac{a^{2}}{b^{2}})\alpha^{2}-\frac{2a}{b}\alpha+\frac{1}{b^{2}}\bigg\}.
-\end{aligned}
+\mathrm{Var}(\tilde{\theta})
+=\sigma^2\left\{\frac{\alpha^2}{n}
++\frac{(1-a\alpha)^2}{b^2m}\right\}.
 $$
 
-The minima of $\text{Var}(\tilde{\theta})$ is at
+Differentiating with respect to $\alpha$ gives the minimum at
 
 $$
-\alpha=\frac{\frac{2a}{b^2}}{2(1+\frac{a^2}{b^2})}=\frac{a}{a^2+b^2},
-$$
-
-and
-
-$$
-\beta=\frac{1-\frac{a^2}{a^2+b^2}}b=\frac b{a^2+b^2}.
+\boxed{
+\alpha=\frac{an}{a^2n+b^2m},
+\qquad
+\beta=\frac{bm}{a^2n+b^2m}
+}.
 $$
 
 
@@ -245,19 +243,19 @@ where $t_i$ is the result of the $i$-th coin toss
 #### (2)
 
 $$
-\mathbb{E}[T]=\sum_{k=1}^n(pk)q^{k-1}=\sum_{k=0}^{n-1}p(k+1)q^k, \tag{i}
+\mathbb{E}[T]=\sum_{k=1}^{\infty}(pk)q^{k-1}=\sum_{k=0}^{\infty}p(k+1)q^k, \tag{i}
 $$
 
 This is a commonly seen series. We consider
 
 $$
-q\mathbb{E}[T]=\sum_{k=1}^n(pk)q^k. \tag{ii}
+q\mathbb{E}[T]=\sum_{k=1}^{\infty}(pk)q^k. \tag{ii}
 $$
 
 Eq. (i) subtracted by Eq. (ii) is
 
 $$
-(1-q)\mathbb{E}[T]=p-pn\cdot q^n+\sum_{k=1}^{n-1}p\cdot q^k.
+(1-q)\mathbb{E}[T]=p+\sum_{k=1}^{\infty}p q^k.
 $$
 
 Then

@@ -12,7 +12,7 @@ tags:
 # 京都大学 理学研究科 数学・数理解析専攻 2023年8月実施 専門科目 \[13\]
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 以下の問に答えよ．
@@ -208,7 +208,7 @@ $$
 &= U^\dagger(t) Q P U(t)
 - U^\dagger(t) P Q U(t)
 \\
-&= U^\dagger(t) [Q,P] P U(t)
+&= U^\dagger(t) [Q,P] U(t)
 \\
 &= i
 \end{aligned}
@@ -290,7 +290,7 @@ $$
 \\
 &= - \omega(t)^2 Q(t)
 ,\\
-A_\pm(t)
+\dot{A}_\pm(t)
 &= \frac{1}{\sqrt{2}} \left\{
 \frac{\dot{Q}(t) \xi(t) - Q(t) \dot{\xi}(t)}{\xi(t)^2}
 \mp i \left( \dot{\xi}(t) P(t) + \xi(t) \dot{P}(t)

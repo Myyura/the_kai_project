@@ -65,127 +65,142 @@ $$
 给定 $s\in V$。对每个 $v\in V$，令 $d(v)$ 为所有从 $s$ 到 $v$ 且边数不超过 $n-1$ 的路的最小权重和；令 $d^*(v)$ 为从 $s$ 到 $v$ 的所有简单路的最小权重和。若回路 $C$ 满足 $\omega(C)<0$，称其为负环。回答：
 
 1. 证明 $N$ 不含负环，当且仅当
+
    $$
    d(u)+w(u,v)\ge d(v),\qquad\forall (u,v)\in E.
    $$
+
 2. 给出一个 $O(mn)$ 时间算法：判定 $N$ 是否存在负环；若不存在，则输出所有 $v\in V$ 的 $d^*(v)$。
 
 ## **Kai**
 ### (i)
+**($\Rightarrow$)** Suppose that $N$ has no negative cycle. Assume for contradiction that an arc $(u',v')$ satisfies
 
-(a) $\Rightarrow$ (If there is no negative cycle, then $d(u) + w(u, v) \ge d(v), \forall (u,v)\in E$)
+$$
+d(u')+w(u',v')<d(v').
+$$
 
-Prove by contradiction:
-Assume that there exists an edge $(u', v') \in E$ such that $d(u') + w(u', v') < d(v')$.
+Let $P_{u'}$ be a path from $s$ to $u'$ with at most $n-1$ arcs and weight $d(u')$, and append $(u',v')$ to obtain a walk $P_{u'v'}$. If $P_{u'v'}$ had at most $n-1$ arcs, then the definition of $d(v')$ would give
 
-Let $P_{u'} = (s, u_1, u_2, \ldots, u')$ denote a path from $s$ to $u'$ of weights $\omega(P_{u'}) = d(u')$ and $P_{v'} = (s, v_1, v_2, \ldots, v')$ denote a path from $s$ to $v'$ of weights $\omega(P_{v'}) = d(v')$.
+$$
+d(v')\le \omega(P_{u'v'})=d(u')+w(u',v'),
+$$
 
-Let $P_{u'v'} = (s, u_1, u_2, \ldots, u', v')$.
-Since $d(v') > d(u') + w(u', v')$, by the definition of $d(v')$ we know that $\mu(P_{u'v'}) > n - 1$, i.e., $P_{u'v'}$ is not a simple path.
+which is a contradiction. Hence $P_{u'v'}$ has a repeated vertex. Delete its repeated-vertex subcycles one at a time. Every deleted cycle has nonnegative weight, so the resulting simple $s$-$v'$ path $S$ satisfies
 
-W.l.o.g we assume that $P_{u'v'} = (s, u_1, u_2, \ldots, u_k, u_{k+1}, \ldots, u_{k+i}, u_k, \ldots, u', v')$ only contains $1$ sub-cycle $C' = (u_k, u_{k+1}, \ldots, u_{k+i}, u_k)$.
+$$
+\mu(S)\le n-1,\qquad
+\omega(S)\le d(u')+w(u',v')<d(v'),
+$$
 
-Assume that $\omega(C') \ge 0$, let $P_{v'}^{'} = (s, u_1, u_2, \ldots, u_k, \ldots, u', v')$ denote the path obtained by remove the sub-cycle $C'$ of $P_{u'v'}$, we have
+again contradicting the definition of $d(v')$. Therefore
+
+$$
+d(u)+w(u,v)\ge d(v),\qquad (u,v)\in E.
+$$
+
+**($\Leftarrow$)** Conversely, suppose these inequalities hold for every arc. If
+
+$$
+C=(u_1,u_2,\ldots,u_k,u_{k+1}=u_1)
+$$
+
+is a directed cycle, then
 
 $$
 \begin{aligned}
-\omega(P_{v'}^{'}) &= \omega(P_{u'v'}) - \omega(C') \\
-&= d(u') + w(u', v') - \omega(C') \\
-&< d(v') - \omega(C')
+d(u_1)+w(u_1,u_2)&\ge d(u_2),\\
+d(u_2)+w(u_2,u_3)&\ge d(u_3),\\
+&\ \vdots\\
+d(u_k)+w(u_k,u_1)&\ge d(u_1).
 \end{aligned}
 $$
 
-and $\mu(P_{v'}^{'}) \le n - 1$, which is contradictory to the definition of $d(v')$.
-
-Hence $\omega(C') < 0$, which is contradictory to the condition "there is no negative cycle".
-
-Therefore, if there is no negative cycle, then $d(u) + w(u, v) \ge d(v), \forall (u,v)\in E$.
-
-------------------------------------------------
-
-(b) $\Leftarrow$ (If $d(u) + w(u, v) \ge d(v), \forall (u,v)\in E$, then there is no negative cycle)
-
-Prove by contradiction:
-Assume that there exists a negative cycle
+Summing and cancelling the $d(u_i)$ terms gives
 
 $$
-C' = (u_1, u_2, \ldots, u_k, u_{k+1}=u_1), \ \ \ \omega(C') < 0.
+\omega(C)=\sum_{i=1}^{k}w(u_i,u_{i+1})\ge0.
 $$
 
-From the condition we know that $\forall (u_i, u_{i+1}) \in C', d(u_i) + w(u_i, u_{i+1}) \ge d(u_{i+1})$,
-
-Hence
-
-$$
-\begin{aligned}
-d(u_1) + w(u_1, u_2) &\ge d(u_2) \\
-d(u_2) + w(u_2, u_3) &\ge d(u_3) \\
-\cdots \\
-d(u_k) + w(u_k, u_1) &\ge d(u_1)
-\end{aligned}
-$$
-
-sum over all the equations,
-
-$$
-w(u_1, u_2) + w(u_2, u_3) + \cdots + w(u_k, u_1) \ge 0
-$$
-
-which is contradictory to the fact that 
-
-$$
-\omega(C') = w(u_1, u_2) + w(u_2, u_3) + \cdots + w(u_k, u_1) < 0.
-$$
-
-Therefore, if $d(u) + w(u, v) \ge d(v), \forall (u,v)\in E$, then there is no negative cycle.
+Thus no negative cycle exists.
 
 ### (ii)
-Bellman-Ford algorithm [(Wiki)](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)
+```text
+BellmanFord(V, E, s):
+    for each vertex v in V:
+        D[v] = infinity
+        predecessor[v] = null
+    D[s] = 0
+
+    repeat n-1 times:
+        Dnew = D
+        predecessor_new = predecessor
+        for each arc (u,v) with weight w(u,v):
+            if D[u] + w(u,v) < Dnew[v]:
+                Dnew[v] = D[u] + w(u,v)
+                predecessor_new[v] = u
+        D = Dnew
+        predecessor = predecessor_new
+
+    for each arc (u,v) with weight w(u,v):
+        if D[u] + w(u,v) < D[v]:
+            report "negative cycle"
+
+    return D, predecessor
+```
+
+After the $k$th pass, $D[v]$ is the minimum weight of an $s$-$v$ path using at most $k$ arcs; this follows by induction on $k$. Hence after $n-1$ passes, $D[v]=d(v)$.
+
+The final scan finds a relaxable arc exactly when the inequalities in (i) fail, which by (i) is equivalent to the existence of a negative cycle. If no negative cycle exists, deleting repeated-vertex cycles from any path never increases its weight. Therefore a minimum path can be chosen simple, and
+
+$$
+D[v]=d(v)=d^*(v),\qquad v\in V.
+$$
+
+Each of the $n-1$ passes scans all $m$ arcs, and the final scan takes $O(m)$ time. Thus the total running time is $O(mn)$.
+
+#### Alternative: in-place Bellman--Ford with cycle reconstruction
+
+The standard in-place relaxation also satisfies the required bound and can
+return a negative cycle when one exists.
 
 ```text
-function BellmanFord(list vertices, list edges, vertex source) is
+BellmanFordInPlace(V, E, s):
+    for each vertex v in V:
+        D[v] = infinity
+        predecessor[v] = null
+    D[s] = 0
 
-    // This implementation takes in a graph, represented as
-    // lists of vertices (represented as integers [0..n-1]) and edges,
-    // and fills two arrays (distance and predecessor) holding
-    // the shortest path from the source to each vertex
+    repeat n-1 times:
+        for each arc (u,v) with weight w(u,v):
+            if D[u] != infinity and D[u] + w(u,v) < D[v]:
+                D[v] = D[u] + w(u,v)
+                predecessor[v] = u
 
-    distance := list of size n
-    predecessor := list of size n
+    x = null
+    for each arc (u,v) with weight w(u,v):
+        if D[u] != infinity and D[u] + w(u,v) < D[v]:
+            D[v] = D[u] + w(u,v)
+            predecessor[v] = u
+            x = v
 
-    // Step 1: initialize graph
-    for each vertex v in vertices do
-        // Initialize the distance to all vertices to infinity
-        distance[v] := inf
-        // And having a null predecessor
-        predecessor[v] := null
-    
-    // The distance from the source to itself is, of course, zero
-    distance[source] := 0
+    if x = null:
+        return D, predecessor
 
-    // Step 2: relax edges repeatedly
-    repeat |V|−1 times:
-        for each edge (u, v) with weight w in edges do
-            if distance[u] + w < distance[v] then
-                distance[v] := distance[u] + w
-                predecessor[v] := u
-
-    // Step 3: check for negative-weight cycles
-    for each edge (u, v) with weight w in edges do
-        if distance[u] + w < distance[v] then
-            predecessor[v] := u
-            // A negative cycle exists; find a vertex on the cycle 
-            visited := list of size n initialized with false
-            visited[v] := true
-            while not visited[u] do
-                visited[u] := true
-                u := predecessor[u]
-            // u is a vertex in a negative cycle, find the cycle itself
-            ncycle := [u]
-            v := predecessor[u]
-            while v != u do
-                ncycle := concatenate([v], ncycle)
-                v := predecessor[v]
-            error "Graph contains a negative-weight cycle", ncycle
-    return distance, predecessor
+    repeat n times:
+        x = predecessor[x]
+    cycle = [x]
+    v = predecessor[x]
+    while v != x:
+        cycle.append(v)
+        v = predecessor[v]
+    cycle.append(x)
+    reverse(cycle)
+    report "negative cycle", cycle
 ```
+
+All vertices are reachable from $s$ because $G$ is strongly connected. Thus
+a relaxation in the extra pass occurs if and only if a negative cycle exists.
+Following $n$ predecessor edges from a relaxed vertex reaches such a cycle,
+and the subsequent loop reconstructs it. The algorithm scans all $m$ arcs in
+$n$ passes, so its running time is $O(mn)$.

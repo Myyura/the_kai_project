@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2021年8月実施 線形計画
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -123,31 +123,37 @@ $$
 Lagrange dual function:
 
 $$
-g(\lambda, \nu) = \inf_{x} \{ L(x,\lambda, \nu) \} = - \boldsymbol{\lambda}
+g(\lambda, \nu) = \inf_{x} \{ L(x,\lambda, \nu) \} = -\lambda
 $$
 
 Dual proble $(D)$ :
 
 $$
 \begin{aligned}
-(D): &\text{Maximize} \quad \lambda \\
-&\text{subject to} \quad u^\top A + \lambda \boldsymbol{1}^\top \succeq \boldsymbol{0} \\
+(D): &\text{Maximize} \quad -\lambda \\
+&\text{subject to} \quad A^\top u + \lambda \boldsymbol{1} \succeq \boldsymbol{0} \\
 &\qquad \qquad \quad \lambda \geqq 0
 \end{aligned}
 $$
 
 ### (ii)
-from (i) we know , for $(D): -\lambda \boldsymbol{1} \preceq u^\top A$ ,
-obviously $u^\top A \succeq \boldsymbol{0}$ , from strong duality, $\max \{- \lambda\} = 0$ , $0 \in S_p(u)$
+Since $u_i\leq0$ and $A_{ij}<0$, every component of $A^\top u$ is nonnegative. Thus for every feasible $x$,
+
+$$
+u^\top Ax=(A^\top u)^\top x\geq0.
+$$
+
+The feasible point $x=0$ attains $0$, so $0\in S_P(u)$.
 
 ### (iii)
-according to the constraint, $x^* \succeq 0$ , from $\boldsymbol{(ii)}, 0 \in S_Q(x^*)$ .
+Since $B=-A$ and $x^*\succeq0$, the coefficient vector of Q is
+$Bx^*=-Ax^*\succeq0$. Hence $0\in S_Q(x^*)$.
 
 If $x^* = 0$ , then $(y^*)^\top Ax^* = 0$ .
 
-If $x^* \neq 0$ , then $y^* = 0$ , otherwise $-(x^*)^\top A y^* \succ 0$ , which is conflict with $0 \in S_Q(x^*)$ .
+If $x^* \neq 0$, then every component of $-Ax^*$ is strictly positive. Thus $y^*=0$; otherwise $y^{*\top}(-Ax^*)>0$, contradicting the optimality of $y^*$ because $y=0$ has value $0$.
 
-Thus $(x^*)^\top A y^* = 0$ always holds.
+Thus $(y^*)^\top A x^* = 0$ always holds.
 
 ### (iv)
 Let $\boldsymbol{c} = u^\top A$ . Then we have
@@ -181,13 +187,18 @@ hence $S_P(u) = \{ [0,0,\ldots, 1]^\top \}$ .
 ### (v)
 Consider $P(y^*)$ and $Q(x^*)$ .
 
-For $x^* = 0$ , if $y* \neq 0$ , then $x^* = [0,0,\ldots, 1]^\top$ . Similarly, when $y^* = \boldsymbol{0}, x^* \neq \boldsymbol{0}$ .
-Thus $(\boldsymbol{0}, \boldsymbol{0}) \in X$ .
-
-Then, we consider the case when $y^* \neq \boldsymbol{0}, x^* \neq \boldsymbol{0}$ .
+Let
 
 $$
-y^* \neq \boldsymbol{0} \Rightarrow x^* = [0,0,\ldots, 1]^\top \Rightarrow x^* \neq \boldsymbol{0} \Rightarrow y^* = [0,0,\ldots, 1]^\top
+\Delta_n=\{x\in\mathbb R^n:x\succeq0,\ \boldsymbol1^\top x\leq1\},
+\qquad
+\Delta_m=\{y\in\mathbb R^m:y\succeq0,\ \boldsymbol1^\top y\leq1\}.
 $$
 
-Therefore, $X = \{ (\boldsymbol{0}, \boldsymbol{0}), ([0,0,\ldots, 1]^\top, [0,0,\ldots, 1]^\top) \}$ .
+If $y^*=0$, then $S_P(y^*)=\Delta_n$. If also $x^*\ne0$, the coefficients $Ax^*$ of Q are strictly negative and strictly decrease with the row index, so $S_Q(x^*)=\{e_m\}$; hence $y^*=0$ is impossible. Therefore this case gives only $(x^*,y^*)=(0,0)$.
+
+If $y^*\ne0$, part (iv) gives $x^*=e_n$. Since $x^*\ne0$, the same argument for Q gives $y^*=e_m$. Conversely, both pairs satisfy the defining optimality conditions. Therefore,
+
+$$
+X=\{(0,0),(e_n,e_m)\}.
+$$

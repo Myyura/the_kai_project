@@ -13,7 +13,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2022年8月実施 専門科目 問題4
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Answer the following questions on computer architecture.
@@ -142,7 +142,7 @@ In the given program, the union `my_uni` allows accessing the same memory locati
 
 **Data Hazard**:
 
-Data hazards occur when instructions that exhibit data dependencies are executed in a pipeline. There are three types of data hazards: Read After Write (RAW), Write After Read (WAR), and Write After Write (WAW). In a pipeline without forwarding, these hazards can cause stalls.
+Data hazards occur when dependent instructions overlap in a pipeline. The example below is a Read After Write (RAW) hazard, which must stall without forwarding until the producer writes `R1`. WAR and WAW hazards can also occur when reads or writes are reordered, but not in a simple in-order pipeline whose reads and writes occur in order.
 
 **Example**:
 ```assembly
@@ -159,11 +159,11 @@ Control hazards (or branch hazards) occur when the pipeline makes decisions base
 **Example**:
 ```assembly
 BEQ R1, R2, LABEL  // Branch if R1 == R2
-NOP                // This instruction may need to be flushed if the branch is taken
+ADD R6, R7, R8     // Wrong-path instruction if the branch is taken
 LABEL:
 ```
 
-If the branch is taken, the instruction after the branch (NOP in this case) needs to be flushed and the pipeline must fetch the correct instruction from the branch target.
+If the branch is taken, the instruction after the branch must be flushed and the pipeline must fetch the correct instruction from the branch target.
 
 ### (3)
 

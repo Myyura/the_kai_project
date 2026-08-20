@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 2020年度 数学 第2問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -15,7 +15,8 @@ tags:
 
 ### 题目描述
 
-原 Description 仅提供 2020 年数学原卷链接，具体题干缺失。根据本地 Kai，只能确认这是一组含实参数 $\alpha$ 的三阶实对称矩阵问题；Kai 在第三问中明确写出的矩阵为
+原 Description 仅提供 2020 年数学原卷链接。原卷の行列は
+
 $$
 A=\begin{pmatrix}
 1&-2&-1\\
@@ -23,12 +24,13 @@ A=\begin{pmatrix}
 -1&1&\alpha
 \end{pmatrix}.
 $$
-本地解答可确认：
 
-1. 第一问利用“特征值之和等于迹”确定参数，解答所得 $\alpha=5$；但原题给定的特征值和未保存在本地。
-2. 第二问利用“特征值之积等于行列式”，并在解答中使用该乘积为 $-16$，所得 $\alpha=6$。
-3. 第三问在矩阵范数为 $4$ 的条件下令 $4$ 为最大绝对值特征值，求得 $\alpha=2$，并核对此时特征值为 $-1,1,4$。
-4. 第四问第一小问的解答给出特征值 $-1,2,5$ 及一组规范正交特征向量；第二小问确认向量 $\boldsymbol y$ 位于前两个特征向量张成的平面，并求 $\boldsymbol y^TA\boldsymbol y$ 的值域为 $[-1,2]$。原题对该矩阵情形及 $\boldsymbol y$ 的完整约束均缺失，第四问第三小问在 Kai 中也是空白，无法唯一恢复。
+であり、$\alpha$ は実数である。各問の条件は次の通り：
+
+1. 固有値の和が $7$ であるときの $\alpha$。
+2. 固有値の積が $-16$ であるときの $\alpha$。
+3. $\boldsymbol x^T\boldsymbol x=1$ における $\boldsymbol x^TA\boldsymbol x$ の最大値を $\lVert A\rVert$ と定め、$\lVert A\rVert=4$ であるときの $\alpha$。
+4. $\alpha=4$ とし、固有値・規格化固有ベクトル、および指定された二つの平面上での二次形式の値域を求める。
 
 ## **Kai**
 ### I.
@@ -100,3 +102,33 @@ $\boldsymbol{y}^T A \boldsymbol{y}$ の値域は
 $-1$ 以上 $2$ 以下の実数である。
 
 #### 3.
+
+$z_3=-z_1-z_2$ とおくと、
+
+$$
+\boldsymbol z^T\boldsymbol z
+=2(z_1^2+z_1z_2+z_2^2),
+\qquad
+\boldsymbol z^TA\boldsymbol z
+=6z_1^2+10z_1z_2+7z_2^2.
+$$
+
+この平面上の固有値は
+
+$$
+\det\left(
+\begin{pmatrix}6&5\\5&7\end{pmatrix}
+-\lambda\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\right)
+=3\lambda^2-16\lambda+17=0
+$$
+
+の二根である。したがって、値域は
+
+$$
+\frac{8-\sqrt{13}}{3}
+\le \boldsymbol z^TA\boldsymbol z
+\le \frac{8+\sqrt{13}}{3}
+$$
+
+である。

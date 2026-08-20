@@ -34,7 +34,7 @@ tags:
 
 ### [小問 1]
 
-線形従属性から、すべては0でない係数 $c_1,\ldots,c_{r+1}$ が存在して
+線形従属性から、少なくとも一つは0でない係数 $c_1,\ldots,c_{r+1}$ が存在して
 
 $$
 \sum_{i=1}^rc_i\boldsymbol a_i+c_{r+1}\boldsymbol a_{r+1}=\boldsymbol0

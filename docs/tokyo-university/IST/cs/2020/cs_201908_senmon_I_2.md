@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目I 問題2
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 The following C code models the behavior of each philosopher in the dining philosophers problem.
@@ -123,10 +123,9 @@ void test(int i) {
 
 ### (3)
 
-**No, starvation cannot occur under the provided solution**. Here's why:
+**Yes, starvation can occur.** For example, let philosopher 0 be `waiting`. Philosophers 1 and 4 can alternate: whenever 1 executes `putdown`, 4 is still `eating`, so `test(0)` fails; before 4 executes `putdown`, 1 finishes thinking and starts eating again, so `test(0)` fails again. This schedule can repeat forever. Philosopher 0 remains blocked on `S[0]`, so the assumption that every enabled thread is eventually scheduled does not help.
 
-- The solution ensures that if a philosopher wants to eat and their neighbors are not eating, they will eventually be allowed to eat. The `mutex` ensures that only one philosopher can change the state at a time, preventing race conditions. Since any philosopher can only start eating if both neighbors are not eating, there will always be at least one philosopher able to eat if others are not eating.
-- Additionally, since all philosophers can continuously cycle between eating and thinking, each philosopher will eventually get a chance to eat when they are hungry. This is because once a philosopher finishes eating, they will release the forks (signal semaphores) and set their state to `thinking`, allowing the next waiting philosopher to eat.
+To ensure bounded waiting, keep requests in a FIFO queue protected by `mutex` and do not let a later request (including a neighbor reacquiring its forks) pass an older one. When the oldest request's two neighbors are no longer eating, signal its semaphore. A fair FIFO admission rule prevents starvation.
 
 ## **Knowledge**
 

@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2020年8月実施 専門科目 問題3
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Consider bit-serial communication circuits which send and receive 5-bit information bit-by-bit in a noisy environment. The 5-bit information consists of a 2-bit start-bit signal, 2-bit payload data, and a 1-bit odd-parity signal.
@@ -47,11 +47,13 @@ $B$ 的 CMOS 晶体管级电路。最多使用 $12$ 个晶体管；可用反相�
 
 #### State Transition Diagram
 
-The Mealy-type FSM has 6 states:
+The specified behavior needs the following seven distinguishable logical states. Thus, a literal six-state requirement is inconsistent with the protocol. The six active states can nevertheless be stored in six bits by using the all-zero code for the idle state (a modified one-hot encoding); strict one-hot encoding would require seven bits.
 
 - **S0**: Initial state, waiting for the first start bit. If '0' is received, return to the initial state. If the first start bit '1' is received, move to the next state.
-- **S1**: Received the second start bit '1'. Waiting for the payload data. If '0' is received, return to the initial state. If the first payload bit '1' is received, move to the next state.
-- **S2, S3, S4, S5, S6**: Received the second start bit '1' and the payload data. Waiting for the parity bit. They will transition to the initial state after the parity check. S5 & S6 stands for the parity check states to be even/odd.
+- **S1**: Received the first start bit '1'; waiting for the second start bit.
+- **S2**: Received the second start bit '1'; waiting for the first payload bit.
+- **S3, S4**: Received the first payload bit; the running parity is even/odd, respectively.
+- **S5, S6**: Received both payload bits; the running parity is even/odd, respectively. The next bit is the parity bit, after which the FSM returns to S0.
 
 State transitions and outputs B based on input A are as follows(A/B means input/output, S0 and S0' are the same as the initial state):
 
@@ -71,7 +73,7 @@ graph LR
     S6 -->|1/0, 0/1| S0'
 ```
 
-The corresponding state transition table and output table using one-hot encoding are as follows:
+The corresponding state transition and output tables are as follows:
 
 | State              | S0  | S1  | S2  | S3  | S4  | S5  | S6  |
 | ------------------ | --- | --- | --- | --- | --- | --- | --- |
@@ -82,7 +84,7 @@ The corresponding state transition table and output table using one-hot encoding
 
 ### (2)
 
-Using one-hot encoding for states:
+Using the six-bit modified one-hot encoding described above:
 
 - S0: 000000
 - S1: 100000
@@ -94,39 +96,45 @@ Using one-hot encoding for states:
 
 The output B will be '1' only in states S5 and S6. So the output B can be expressed as a Boolean function of the current state and input A:
 
-- $B = A \cdot S6 + \overline{A} \cdot S5$
+- $B = A \cdot S5 + \overline{A} \cdot S6$
 
 **Gate-Level Circuit:**
 We can construct the circuit using 2-input AND gates, OR gates, and NOT gates.
 
-- The circuit for $P$:
-  - $Q1 = A \cdot S6$
-  - $Q2 = \overline{A} \cdot S5$
-  - $P = Q1 + Q2$
+- The circuit for $B$:
+  - $Q1 = A \cdot S5$
+  - $Q2 = \overline{A} \cdot S6$
+  - $B = Q1 + Q2$
 
-The circuit for $P$ can be implemented using the following logic gates:
+The circuit for $B$ can be implemented using the following logic gates:
 
 ```plaintext
-S5 -------------\
+S6 -------------\
                AND----\
   /-----NOT-----/      \
  /                      \
-A                        OR----> P
+A                        OR----> B
  \                      /
   \-------------\      /
                AND----/
-S6 -------------/
+S5 -------------/
 ```
 
 ### (3)
 
-Based on the Boolean expression for the output B, we can make some optimizations to reduce the number of transistors in the CMOS circuit. We will make use of the De Morgan's theorem to simplify the expression and maximize the use of complementary pairs.
+The expression $B=A S5+\overline{A}S6$ is a 2-to-1 multiplexer. Generate $\overline{A}$ with one CMOS inverter and use two CMOS transmission gates:
 
-The simplified expression for the output B is:
+```plaintext
+                    n-gate=A, p-gate=A̅
+S5 ----------------------[TG]----\
+                                   +---- B
+S6 ----------------------[TG]----/
+                    n-gate=A̅, p-gate=A
 
-$$
-B = A \cdot S6 + \overline{A} \cdot S5 = \overline{\overline{A} \cdot S6} \cdot \overline{A \cdot S5} = \overline{(\overline{A} + \overline{S6})} \cdot \overline{(A + S5)}
-$$
+A -----------------------[INV]---- A̅
+```
+
+Exactly one transmission gate is on: $S5$ is passed when $A=1$, and $S6$ is passed when $A=0$. Each transmission gate uses one nMOS and one pMOS, and the inverter uses two transistors, for a total of $2+2+2=6$ transistors.
 
 ## **Knowledge**
 

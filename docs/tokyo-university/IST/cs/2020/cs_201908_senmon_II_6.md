@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目II 問題6
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 The probability density function of the normal distribution $N(\mu, \sigma^2)$ with mean $\mu \in \mathbb{R}$ and variance $\sigma^2 > 0$ is given by
@@ -44,10 +44,12 @@ where $\bar{\mu}$ and $\bar{\sigma}^2$ are the values obtained by the substituti
 
 均值为 $\mu\in\mathbb R$、方差为 $\sigma^2>0$ 的正态分布
 $N(\mu,\sigma^2)$ 的密度为
+
 $$
 f(x)=\frac1{\sqrt{2\pi\sigma^2}}
 \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right).
 $$
+
 设随机变量 $X,Z$ 相互独立，分别服从 $N(\mu,1)$ 与 $N(0,1)$，并令
 $Y=\theta X+Z$，其中 $\theta\in\mathbb R$。对整数 $n>1$，令
 $(X_i,Y_i)\ (i=1,\ldots,n)$ 独立同分布于 $(X,Y)$，记
@@ -65,12 +67,14 @@ $p_{\mu,\theta}(x^{(n)},y^{(n)})$。
 
 （4）现在 $X_n$ 缺失，仅观测到 $(X^{(n-1)},Y^{(n)})$，用 EM 算法估计
 $(\mu,\theta)$。从任意初值 $(\mu_0,\theta_0)$ 出发，更新规则为
+
 $$
 (\mu_{t+1},\theta_{t+1})
 =\mathop{\arg\max}_{(\mu,\theta)\in\mathbb R^2}
 \mathbb E_{X_n\sim N(\bar\mu,\bar\sigma^2)}
 [\log p_{\mu,\theta}(X^{(n)},Y^{(n)})],
 $$
+
 其中 $\bar\mu,\bar\sigma^2$ 分别是在第（2）问的条件均值、条件方差表达式中代入
 $(\mu,\theta,Y)=(\mu_t,\theta_t,Y_n)$ 所得；取期望时固定
 $(X^{(n-1)},Y^{(n)})$。
@@ -141,7 +145,15 @@ $$
 Simplifying further using the properties of the expectation for a normal distribution:
 
 $$
-\mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}[\log p_{\mu, \theta}(\mathbf{X}^{(n)}, \mathbf{Y}^{(n)})] = -\sum_{i=1}^{n-1} \left(\frac{(x_i - \mu)^2}{2} + \frac{(y_i - \theta x_i)^2}{2}\right) - \frac{1}{2}\left((\bar{\mu} - \mu)^2 + \bar{\sigma}^2 + \frac{(y_n - \theta \bar{\mu})^2}{\theta^2 + 1}\right)
+\begin{aligned}
+&\mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}
+[\log p_{\mu, \theta}(\mathbf{X}^{(n)}, \mathbf{Y}^{(n)})]\\
+&=-n\log(2\pi)-\frac12\Bigg[
+\sum_{i=1}^{n-1}\big((x_i-\mu)^2+(y_i-\theta x_i)^2\big)
++(\bar\mu-\mu)^2+\bar\sigma^2\\
+&\hspace{42mm}+(y_n-\theta\bar\mu)^2
++\theta^2\bar\sigma^2\Bigg].
+\end{aligned}
 $$
 
 #### (ii)
@@ -149,17 +161,23 @@ $$
 The update rule for $(\mu_{t+1}, \theta_{t+1})$ in the EM algorithm is obtained by maximizing the expression found in part (i):
 
 $$
-(\mu_{t+1}, \theta_{t+1}) = \mathop{\arg\max}\limits_{(\mu, \theta) \in \mathbb{R}^2} \left[-\sum_{i=1}^{n-1} \left(\frac{(x_i - \mu)^2}{2} + \frac{(y_i - \theta x_i)^2}{2}\right) - \frac{1}{2}\left((\bar{\mu} - \mu)^2 + \bar{\sigma}^2 + \frac{(y_n - \theta \bar{\mu})^2}{\theta^2 + 1}\right)\right]
+(\mu_{t+1},\theta_{t+1})
+=\mathop{\arg\max}_{(\mu,\theta)\in\mathbb R^2}
+-\frac12\Bigg[
+\sum_{i=1}^{n-1}\big((x_i-\mu)^2+(y_i-\theta x_i)^2\big)
++(\bar\mu-\mu)^2+\bar\sigma^2
++(y_n-\theta\bar\mu)^2+\theta^2\bar\sigma^2
+\Bigg].
 $$
 
-Solving this for $\mu$ and $\theta$, we find:
+Differentiating this objective gives
 
 $$
 \mu_{t+1} = \frac{1}{n} \left(\sum_{i=1}^{n-1} x_i + \bar{\mu}\right)
 $$
 
 $$
-\theta_{t+1} = \frac{\sum_{i=1}^{n-1} y_i x_i + y_n \bar{\mu}}{\sum_{i=1}^{n-1} x_i^2 + \bar{\mu}^2 + \frac{1}{\theta^2 + 1}}
+\theta_{t+1} = \frac{\sum_{i=1}^{n-1} y_i x_i + y_n \bar{\mu}}{\sum_{i=1}^{n-1} x_i^2 + \bar{\mu}^2 + \bar{\sigma}^2}
 $$
 
 This update rule depends on the observed data $\mathbf{X}^{(n-1)}, \mathbf{Y}^{(n)}$ and the estimates $\bar{\mu}, \bar{\sigma}^2$ obtained from the conditional expectation.

@@ -8,7 +8,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2020年8月実施 ベクトル解析
 
 ## **Author**
-Yu
+Yu, 祭音Myyura
 
 ## **Description**
 直交座標系において, $x,y,z$ 軸方向の単位ベクトルをそれぞれ $\mathbf{i},\mathbf{j},\mathbf{k}$ とする。次の各問に答えよ。
@@ -23,14 +23,19 @@ Yu
 
 1. 求由三点 $(2,-6,2)$、$(1,-10,-1)$、$(-1,2,3)$ 确定的平面与点 $(2,-2,-2)$ 之间的距离。
 2. 给定向量场
+
    $$
    \mathbf F=-\frac{xy}{4}\mathbf i+(z-x)\mathbf j+(x+y)\mathbf k,
    $$
+
    沿曲线
+
    $$
    C:\ x=\frac{y^2}{8},\qquad y=-z
    $$
+
    从 $(0,0,0)$ 到 $(9/2,6,-6)$，计算线积分
+
    $$
    \int_C\mathbf F\cdot d\mathbf r.
    $$
@@ -60,7 +65,10 @@ $$
 \mathbf{F} = \langle -\frac{y^3}{32},&-y-\frac{y^2}{8},y + \frac{y^2}{8} \rangle \\
 \mathbf{r} = \frac{y^2}{8}\mathbf{i} + y\mathbf{j} &- y\mathbf{k} \quad (0 \le y \le 6)\\
 d\mathbf{r} = &\langle \frac{y}{4},1,-1 \rangle dy\\
-\mathbf{F} \times d\mathbf{r} = \langle -\frac{y^3}{32},-y-\frac{y^2}{8},y + \frac{y^2}{8} \rangle &\times \langle \frac{y}{4},1,-1 \rangle dy = \langle 0,\frac{y^2}{4},\frac{y^2}{4} \rangle dy \\
-\int_{C}\mathbf{F} \times d\mathbf{r} = \int_0^6 &\langle 0,\frac{y^2}{4},\frac{y^2}{4} \rangle dy = \langle 0,18,18 \rangle
+\mathbf{F} \cdot d\mathbf{r}
+&=\left(-\frac{y^4}{128}-2y-\frac{y^2}{4}\right)dy,\\
+\int_C\mathbf{F}\cdot d\mathbf{r}
+&=\int_0^6\left(-\frac{y^4}{128}-2y-\frac{y^2}{4}\right)dy
+=-\frac{1323}{20}.
 \end{aligned}
 $$

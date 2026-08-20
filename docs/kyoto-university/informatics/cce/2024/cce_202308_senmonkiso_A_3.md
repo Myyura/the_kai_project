@@ -52,9 +52,11 @@ $$
    5. 求 $S_X$ 的平稳分布。
    6. 求 $S_X$ 的熵。
 2. 设 $C$ 为长度 7、生成多项式
+
    $$
    G(x)=x^4+x^3+x^2+1
    $$
+
    的二元循环码。
    1. 求 $C$ 的所有码字多项式。
    2. 求消息多项式 $x^2+1$ 的码字多项式。
@@ -64,7 +66,7 @@ $$
 ## **Kai**
 ### (1)
 #### (a)
-A compact code is a uniquely decodable and instantaneous code with the minimum average codeword length.
+A compact code is a uniquely decodable code whose expected codeword length is minimum among all uniquely decodable codes for the given source and code alphabet. A Huffman code is an instantaneous compact code.
 
 #### (b)
 
@@ -269,7 +271,7 @@ $$
 #### (c)
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_3_p1.png" width="500">
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_3_p1.png" width="500" />
 </div>
 
 The division circuit uses 4 delay elements because  $\deg G(x)=4$, and the feedback taps correspond to the nonzero coefficients of $1, x^2, x^3$.

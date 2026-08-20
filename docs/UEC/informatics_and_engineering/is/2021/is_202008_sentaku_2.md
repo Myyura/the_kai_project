@@ -12,7 +12,7 @@ tags:
 # 電気通信大学 情報理工学研究科 情報学専攻 2020年8月実施 選択問題 確率・オペレーションズリサーチ
 
 ## **Author**
-GPT-5.6 Sol
+GPT-5.6 Sol, 祭音Myyura
 
 ## **Description**
 
@@ -294,8 +294,8 @@ $$
 材料 1 kg 当たりの利益は順に
 
 $$
-\frac1{1.5}=\frac23,qquad
-\frac{1.2}{2}=0.6,qquad
+\frac1{1.5}=\frac23,\qquad
+\frac{1.2}{2}=0.6,\qquad
 \frac{1.4}{2.5}=0.56
 $$
 

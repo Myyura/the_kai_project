@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2006年8月実施 プログラミング
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -51,13 +51,13 @@ tags:
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_p_p1.png" width="600" alt=""/>
-  <br>図 1. ハフマン符号化のための順序付き 2 進木のつくりかた (例)
+  <br />図 1. ハフマン符号化のための順序付き 2 進木のつくりかた (例)
 </figure>
 
 **3-2** これまで扱ってきた `NL` (改行) を含めた 96 種類の文字に対して, 頻度を考えずに 2 進数に符号化すると, 1 文字あたり平均 6.5 ビットを要する. 上で求めたハフマン符号化の 2 進数のビット数は 1 文字当たり平均何ビットになるか, 少なくとも小数点以下 2 桁まで計算するプログラムを書きなさい. ただし, このときの平均は文字の出現頻度の重みをつけること.
 
 <figure style="text-align:center;">
-    ASCII コード表 (必要なもののみ, コードは 10 進数で表記)<br>
+    ASCII コード表 (必要なもののみ, コードは 10 進数で表記)<br />
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_p_p2.png" width="600" alt=""/>
 </figure>
 
@@ -94,13 +94,13 @@ This article is cited from: `www.cs.utexas.edu/users/EWD/transcriptions/EWD03xx/
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_p_p1.png" width="600" alt=""/>
-  <br>Figure 1. Construction of an ordered binary tree for Huffman coding (example)
+  <br />Figure 1. Construction of an ordered binary tree for Huffman coding (example)
 </figure>
 
 **3-2** You can see that we need 6.5 bits on an average for 96 characters if we do not consider their frequencies. Compute the average number of bits for binary code for 96 characters you made in the Question 3-1, at least up to 2 places of decimals. Note that the average should be weighted by each character frequency.
 
 <figure style="text-align:center;">
-   The ASCII code table (only those relevant to this examination)<br>
+   The ASCII code table (only those relevant to this examination)<br />
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200608_p_p2.png" width="600" alt=""/>
 </figure>
 
@@ -157,13 +157,11 @@ def transform(s:str, offset):
     return new
 
 with open('q1.txt') as f:
-    q1 = f.readlines()
-q1 = [qq.strip() for qq in q1]
-for qq in q1:
-    print(transform(qq, 15))
+    q1 = f.read()
+print(transform(q1, -11), end='')
 ```
 
-(By trying) The offset is 15.
+The encryption key is $11$; equivalently, decryption shifts each letter by $-11\equiv15\pmod {26}$.
 
 ### (2-1)
 ```py
@@ -198,41 +196,71 @@ def sub_cipher(s:str, cmap:dict):
 with open('q22.txt') as q22:
     q22r = q22.read()
 q22_counter = Counter(q22r.lower())
-decipher = {}
+initial_guess = {}
 for i, ch in enumerate(sorted(list(c), key=lambda x:q22_counter[x] if x in q22_counter else 0, reverse=True)):
     print(ch, q22_counter[ch] if ch in q22_counter else 0)
-    decipher[ch] = by_order[i]
+    initial_guess[ch] = by_order[i]
+
+# Correct this table by inspecting common words and repeated patterns.
+# Every ciphertext letter must occur exactly once as a key, and every
+# plaintext letter exactly once as a value.
+manual_map = {
+    # 'ciphertext letter': 'plaintext letter',
+}
+decipher = initial_guess | manual_map
+if set(decipher) != set(c) or set(decipher.values()) != set(c):
+    raise ValueError('the final substitution must be one-to-one')
 print('decipher map:', decipher)
 with open('a22.txt', 'w') as a22:
     a22.write(sub_cipher(q22r, decipher))
 ```
 
+Frequency-rank substitution alone is only an initial guess; it is not generally the decryption key. The entries in `manual_map` must be refined by the required trial and error until the output is coherent plaintext.
+
 ### (3-1)
 ```py
-import heapq
-from collections import defaultdict
+from collections import Counter
+
 with open('q21.txt') as q21:
     q21r = q21.read()
-from collections import Counter
+
+alphabet = ['\n'] + [chr(i) for i in range(32, 127)]
 q21_counter = Counter(q21r)
-heap = []
-for ch in q21_counter:
-    heapq.heappush(heap, (q21_counter[ch], ch, None, None))  # (freq, char, left, right)
-while len(heap) > 1:
-    left = heapq.heappop(heap)
-    right = heapq.heappop(heap)
-    new_node = (left[0] + right[0], None, left, right)
-    heapq.heappush(heap, new_node)
-root = heap[0]
+if set(q21_counter) != set(alphabet):
+    raise ValueError('q21.txt must contain exactly the specified 96 characters')
+
+# A node is [frequency, creation order, character, left, right].  Creating
+# leaves in reverse ASCII order makes the smaller ASCII code newer, so the
+# prescribed tie rule is uniformly "newer node goes right".
+nodes = []
+serial = 0
+for ch in sorted(alphabet, key=ord, reverse=True):
+    nodes.append([q21_counter[ch], serial, ch, None, None])
+    serial += 1
+
+def pop_for_right(nodes):
+    node = min(nodes, key=lambda x: (x[0], -x[1]))
+    nodes.remove(node)
+    return node
+
+while len(nodes) > 1:
+    right = pop_for_right(nodes)  # least; ties go right
+    left = pop_for_right(nodes)   # second least
+    nodes.append([left[0] + right[0], serial, None, left, right])
+    serial += 1
+
+root = nodes[0]
 huffman_code = {}
+
 def traverse(node, code):
-    if node[1] is not None:
-        huffman_code[node[1]] = code
+    if node[2] is not None:
+        huffman_code[node[2]] = code
         return
-    traverse(node[2], code + '0')
-    traverse(node[3], code + '1')
+    traverse(node[3], code + '0')
+    traverse(node[4], code + '1')
+
 traverse(root, '')
-for ch in sorted(huffman_code.keys()):
+for ch in sorted(huffman_code, key=ord):
     display_ch = ch
     if ch == ' ':
         display_ch = 'SP'
@@ -243,8 +271,10 @@ for ch in sorted(huffman_code.keys()):
 
 ### (3-2)
 ```py
-sum_of_freq = sum([v for k,v in q21_counter.items()])
-prob = {k:v/sum_of_freq for k,v in q21_counter.items()}
-expected_bit_length = sum([len(huffman_code[k]) * v for k,v in prob.items()])
+sum_of_freq = sum(q21_counter.values())
+expected_bit_length = sum(
+    len(huffman_code[ch]) * freq
+    for ch, freq in q21_counter.items()
+) / sum_of_freq
 print(f'Average bits per character: {expected_bit_length:.2f}')
 ```

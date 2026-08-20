@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 2021年8月実施 数学3
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -18,20 +18,26 @@ tags:
 原 Description 仅提供 2022 年“数学 3”原卷链接，具体题干缺失。根据本地 Kai，只能确认第一部分的两组积分：
 
 1. 第一小题的被积函数为
+
    $$
    f(z)=\frac{z}{(z-i)(z-1)}.
    $$
+
    积分路径分别以逆时针方向绕 $z=1$、以顺时针方向绕 $z=i$；要求计算相应闭合积分 $I_1$。原路径的具体几何形状未保存在本地。
 2. 第二小题先用 $z=e^{i\theta}$ 把
+
    $$
    I_2=\int_0^{2\pi}\frac{\mathrm d\theta}{10+8\cos\theta}
    $$
+
    化为单位圆上的围道积分，求有理函数
+
    $$
    G(z)=\frac{-i}{2(z+2)(2z+1)}
    $$
+
    的奇点、单位圆内极点的留数并计算 $I_2$。
-3. Kai 的第二部分标题下完全没有题干或解答，故本地内容无法确认其题意。
+3. 第二部分以 Beta$(a,b)$ 为缺陷率 $\phi$ 的先验分布，对 $N$ 次独立生产结果求似然、边际概率、后验分布及其众数。
 
 ## **Kai**
 ### I.
@@ -104,7 +110,7 @@ $$
 である。
 
 ##### 2.2
-$G(z)$ の特異点は $z=-1/2, 2$ である。
+$G(z)$ の特異点は $z=-1/2, -2$ である。
 
 ##### 2.3
 $G(z)$ の $z=-1/2$ における留数は $-i/6$ であるから、留数定理により、
@@ -118,3 +124,46 @@ $$
 を得る。
 
 ### II.
+
+#### 1.
+$k=N_d(\boldsymbol v)$ とおくと、独立性より
+
+$$
+Q(\boldsymbol v\mid\phi)
+=\phi^k(1-\phi)^{N-k}.
+$$
+
+#### 2.
+
+$$
+\pi(\phi\mid\boldsymbol v)
+=\frac{Q(\boldsymbol v\mid\phi)\operatorname{Beta}_{a,b}(\phi)}{Q_{a,b}(\boldsymbol v)},
+\qquad
+Q_{a,b}(\boldsymbol v)
+=\frac{B(a+k,b+N-k)}{B(a,b)}.
+$$
+
+#### 3.
+$a=2,b=50$ のとき
+
+$$
+Q_{2,50}(\boldsymbol v)
+=\frac{B(k+2,N-k+50)}{B(2,50)}
+=\frac{50\cdot51\,(k+1)!(N-k+49)!}{(N+51)!}.
+$$
+
+#### 4.
+
+$$
+\pi(\phi\mid\boldsymbol v)
+=\operatorname{Beta}_{k+2,N-k+50}(\phi),
+$$
+
+すなわち $a'=k+2, b'=N-k+50$ である。
+
+#### 5.
+$a',b'>1$ なので、事後確率を最大にする値は
+
+$$
+\boxed{\phi=\frac{a'-1}{a'+b'-2}=\frac{k+1}{N+50}}.
+$$

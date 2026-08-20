@@ -14,7 +14,7 @@ tags:
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2012年8月実施 筆記試験 第4問
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -61,12 +61,24 @@ If necessary, use examples or figures.
 
 **NP-complete**
 
-NP complete is a NP problem $Y$ that every NP problem $X$ can (Karp) reduce to, 
+NP-complete is an NP decision problem $Y$ to which every NP problem $X$ can be reduced by a polynomial-time many-one (Karp) reduction,
 
 i.e. $Y\in NP\land (\forall X\in NP,X\le_P Y)$, 
 
-where a NP (nondeterministic polynomial) problem is that can be verified in polynomial time, but not necessarily able to be solved in polynomial time.
+where an NP (nondeterministic polynomial-time) problem has, for each yes-instance, a polynomial-size certificate that can be verified in polynomial time, but is not necessarily known to be solvable in polynomial time.
 
-Note that NP-Complete problems are the intersection of NP and NP-Hard problems, which means they are the supremum of NP and the infimum of NP-Hard.
+Note that NP-complete problems are the intersection of NP and NP-hard problems: they are exactly the problems that are both in NP and NP-hard.
 
-The “first” NP-Complete problem is `Circuit-SAT` that asks if there is a way of input (with $n$ bits) to so that the output of a logic digital circuit is 1.
+The “first” NP-complete problem is `Circuit-SAT`, which asks whether there is an $n$-bit input that makes the output of a Boolean circuit 1.
+
+**Tail recursion**
+
+A function is tail-recursive when its recursive call is the final operation, so no pending computation remains. For example, factorial can carry the product in an accumulator: $f(n,a)=f(n-1,na)$ and $f(0,a)=a$. Tail-call optimization then reuses one stack frame, giving $O(1)$ stack space.
+
+**TLB (Translation Lookaside Buffer)**
+
+A TLB caches recent virtual-page to physical-frame translations and access permissions. On a hit, address translation avoids a page-table walk. On a miss, hardware or the OS walks the page table and inserts the translation; an invalid entry ultimately causes a page fault.
+
+**LL(1) parsing**
+
+An LL(1) parser reads input left to right, constructs a leftmost derivation, and uses one lookahead token. A table entry is chosen from the production's FIRST set, and for an $\varepsilon$-production from FOLLOW of its left-hand side. The grammar is LL(1) exactly when these choices create no table conflict.

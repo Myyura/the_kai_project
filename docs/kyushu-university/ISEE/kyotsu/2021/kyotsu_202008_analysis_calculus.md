@@ -10,7 +10,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2020年8月実施 解析学・微積分
 
 ## **Author**
-Yu
+Yu, 祭音Myyura
 
 ## **Description**
 ### 微分積分
@@ -154,8 +154,12 @@ $$
 $$
 
 $$
-\text{最小値: }f(-\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}) = -\sqrt{2}e^{-\frac{1}{2}}
+\text{最小値: }f(-\frac{\sqrt{2}}{2},-\frac{\sqrt{2}}{2}) = -\sqrt{2}e^{-\frac{1}{2}}
 $$
+
+実際、$s=(x+y)/\sqrt2,\ t=(x-y)/\sqrt2$ とおくと
+$f=\sqrt2s e^{-(s^2+t^2)/2}$ である。固定した $s$ に対して絶対値は $t=0$ で最大となり、
+$s e^{-s^2/2}$ の最大・最小はそれぞれ $s=1,-1$ で取られるので、上記は大域的な最大値・最小値である。
 
 ### 微分方程式
 #### (1)
@@ -177,20 +181,22 @@ $$
 $$
 
 $$
-\ln|x| + C_1 = \ln|1 + 2u^2|
+\ln|x| + C_1 = \ln(1 + 2u^2)
 $$
 
 $$
-1 + 2u^2 = e^{C_1}x
+1 + 2u^2 = C|x|\qquad(C>0)
 $$
 
 $$
-u = \pm\frac{\sqrt{2(Cx - 1)}}{2}(C = e^{C_1})
+u = \pm\sqrt{\frac{C|x|-1}{2}}
 $$
 
 $$
-y = ux = \pm\frac{2(Cx - 1)}{2}x(C = e^{C_1})
+y = \pm x\sqrt{\frac{C|x|-1}{2}}
 $$
+
+ただし、各解は $x\ne0$ かつ $C|x|>1$ の区間上で考える。
 
 #### (2)
 
@@ -211,7 +217,7 @@ $$
 $$
 
 $$
-P(x) = 1 \quad Q(x) = -e^{2x + 1}
+P(x) = -1 \quad Q(x) = -e^{2x + 1}
 $$
 
 $$
@@ -225,6 +231,8 @@ $$
 $$
 y = -\ln(e^{x}(-e^{x + 1} + C))
 $$
+
+ただし、$e^x(C-e^{x+1})>0$、すなわち $C>e^{x+1}$ の区間上で考える。
 
 ### 複素関数論
 #### (1)
@@ -246,8 +254,9 @@ $$
 
 $$
 \begin{aligned}
-f(z) &= \frac{1}{z}\bigg(\frac{1}{2 - z}\bigg)' = -\frac{1}{2z}\bigg(\frac{1}{1 - \frac{2}{z}}\bigg)' = -\frac{1}{2z}\bigg(\sum_{n = 0}^{\infty}\big(\frac{2}{z}\big)^{n}\bigg)' \\
-&= -\frac{1}{2z}\sum_{n = 1}^{\infty}\frac{-2}{z^2}n\big(\frac{2}{z}\big)^{n - 1} = \frac{1}{z^3}\sum_{m = 0}^{\infty}(m + 1)\big(\frac{2}{z}\big)^{m}
+f(z)
+&=\frac{1}{z^3}\frac{1}{\left(1-\frac{2}{z}\right)^2}
+=\frac{1}{z^3}\sum_{m = 0}^{\infty}(m + 1)\big(\frac{2}{z}\big)^{m}
 \end{aligned}
 $$
 
@@ -260,8 +269,7 @@ $$
 $$
 \begin{aligned}
 g(z) &= (u - 2)\sin\frac{1}{u} \\
-&= (u - 2)\bigg(\frac{1}{u} - \frac{1}{3
-!u^3 } + \frac{1}{5!u^5} - \cdots\bigg) \\
+&= (u - 2)\bigg(\frac{1}{u} - \frac{1}{3!u^3} + \frac{1}{5!u^5} - \cdots\bigg) \\
 &= 1 - \frac{2}{u} - \frac{1}{3!u^2} + \frac{2}{3!u^3} + \frac{1}{5!u^4} - \cdots \\
 &= 1 - \frac{2}{z + 2} - \frac{1}{3!(z + 2)^2} + \frac{2}{3!(z + 2)^3} + \frac{1}{5!(z + 2)^4} - \cdots
 \end{aligned}

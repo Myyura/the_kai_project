@@ -37,7 +37,7 @@ By letting $f$ be the number of faces (i.e., closed regions including exterior o
 
 (4) With inequality $e \leq 3(v - 2)$, prove that for any simple graph $G$ with at least 11 vertices, $G$ or $\overline{G}$ is not planar.
 
-##### <center> 図１グラフ $G_1$ Figure 1 Graph $G_1$
+##### <center> 図１グラフ $G_1$ Figure 1 Graph $G_1$</center>
 
 <figure style="text-aligned:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202008_senmon_I_4_p1.png" width="300" height="400" alt=""/>
@@ -65,6 +65,7 @@ $$
    $$
    e\le3(v-2).
    $$
+
 4. 利用该不等式证明：对任意顶点数不少于 $11$ 的简单图 $G$，$G$ 与 $\overline G$ 中至少一个不是平面图。
 
 图 $G_1$ 的具体结构见图 1。
@@ -89,7 +90,7 @@ $$
 </figure>
 
 ### (3)
-Suppose a connected graph with $v$ vertices and $e$ edges has a planar embedding with $f$ faces.
+Assume $v\geq3$. If the graph is disconnected, its components can be joined by edges while preserving planarity, so it suffices to prove the bound for a connected graph. Suppose it has a planar embedding with $f$ faces.
 Since every edge is traversed exactly twice by the face boundaries, the sum of the lengths of the face boundaries is exactly $2e$.
 Also, each face boundary is of length at least $3$, so this sum is at least $3f$.
 This implies that
@@ -105,17 +106,18 @@ $$
 $$
 
 ### (4)
-When $v \geq 11$, w.l.o.g. assume that $G$ is planar, then by (3) we have
+If $G$ is not planar, the assertion is immediate. Otherwise, by (3),
+$e\leq3(v-2)$. Let $\bar e$ be the number of edges of $\overline G$. Then
 
 $$
-e \leq 3(v - 2) = 27
+\bar e=\binom v2-e\geq\binom v2-3(v-2).
 $$
 
-Let $\bar{e}$ denote the number of edges of $\overline{G}$.
-Since the number of edges of $K_{11}$ (i.e. the complete simple graph of $11$ nodes) is $11 \times 10 \div 2 = 55$, we have
+For $v\geq11$,
 
 $$
-\bar{e} = 55 - e = 55 - 27 = 28 > 27
+\binom v2-6(v-2)
+=\frac{(v-11)(v-2)+2}{2}>0.
 $$
 
-Hence $\overline{G}$ is not planar.
+Therefore $\bar e>3(v-2)$, so $\overline G$ is not planar by (3).

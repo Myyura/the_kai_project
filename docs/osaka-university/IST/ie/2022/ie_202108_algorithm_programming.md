@@ -77,7 +77,7 @@ int main() {
     return 0;
 }
 ```
-#### <center> 図1 プログラム
+#### <center> 図1 プログラム</center>
 
 ```text
 5
@@ -87,7 +87,7 @@ int main() {
 4 70
 5 100
 ```
-#### <center> 図2 data.txt
+#### <center> 図2 data.txt</center>
 
 
 ### 题目描述
@@ -116,11 +116,11 @@ int main() {
 #### 関数 swap が呼び出される回数が最大となる data.txt の例
 ```text
 5
-50
-40
-30
-20
-10
+5 100
+2 90
+4 70
+1 60
+3 50
 ```
 
 関数 swap が呼び出される回数: 14
@@ -132,7 +132,7 @@ int main() {
 
 $$
 \begin{aligned}
-T(n) &= n - 1 + T_{n-1}\ \ \ \ \ (n \ge 2) \\
+T(n) &= n - 1 + T(n-1)\ \ \ \ \ (n \ge 2) \\
 &= n - 1 + n - 2 + \cdots + 1 \\
 &= \frac{n(n-1)}{2} \rightarrow O(n^2) \\
 \end{aligned}

@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2020年8月実施 専門科目 問題1
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 In undirected graphs, a self-loop is an edge connecting the same vertex, and multi-edges are multiple edges connecting the same pair of vertices. From now on, we consider undirected graphs without self-loops and possibly with multi-edges. We say that a graph $\mathbf{G}$ is an $\mathbf{A}$-graph if a graph consisting of a single edge can be obtained from $\mathbf{G}$ by repeatedly applying the following two operations.
@@ -53,50 +53,42 @@ $n$ 给出达到该上界的 A-图并作说明。
 ### (1)
 
 **$\mathbf{K}_3$:**
-The complete graph $\mathbf{K}_3$ consists of 3 vertices and 3 edges, forming a triangle. Since there are no multi-edges in $\mathbf{K}_3$, the $\mathbf{B}$-operation does not apply. To apply the $\mathbf{C}$-operation, we need a vertex $\mathbf{v}$ with exactly two incident edges, connecting to vertices $\mathbf{u}$ and $\mathbf{w}$. In $\mathbf{K}_3$, each vertex is connected to two others, so we can apply the $\mathbf{C}$-operation to any vertex, forming an edge between the remaining two vertices, and applying the $\mathbf{C}$-operation again will reduce the graph to a single edge. Therefore, $\mathbf{K}_3$ is an $\mathbf{A}$-graph.
+The complete graph $\mathbf{K}_3$ consists of three vertices and three edges, forming a triangle. Since there are no multi-edges, the $\mathbf{B}$-operation does not initially apply. Each vertex has degree two, so apply a $\mathbf{C}$-operation to any vertex. The two remaining vertices are then joined by two parallel edges; one $\mathbf{B}$-operation leaves a single edge. Therefore, $\mathbf{K}_3$ is an $\mathbf{A}$-graph.
 
 **$\mathbf{K}_4$:**
 The complete graph $\mathbf{K}_4$ consists of 4 vertices and 6 edges, forming a tetrahedron. Similar to $\mathbf{K}_3$, there are no multi-edges, so the $\mathbf{B}$-operation does not apply. For the $\mathbf{C}$-operation, we need a vertex with exactly two incident edges. In $\mathbf{K}_4$, each vertex is connected to three others, so we cannot directly apply the $\mathbf{C}$-operation. Hence, $\mathbf{K}_4$ is not an $\mathbf{A}$-graph.
 
 ### (2)
 
-Planar graphs are graphs that can be embedded in the plane without edge crossings.
-
-Every $\mathbf{A}$-graph is planar. This can be shown by considering the operations allowed on $\mathbf{A}$-graphs:
-
-- The $\mathbf{B}$-operation simplifies the graph by removing multi-edges, which does not affect planarity.
-- The $\mathbf{C}$-operation reduces the number of vertices while maintaining planarity because it replaces a vertex of degree 2 with a single edge, which is a planar transformation.
-
-Since a single edge is trivially planar and the operations preserve planarity, every $\mathbf{A}$-graph must be planar.
+Read a reduction sequence backwards, starting from a planar drawing of one edge.  The inverse of a B-operation adds a parallel edge, which can be drawn beside the existing edge.  The inverse of a C-operation subdivides an edge by a degree-two vertex.  Both preserve planarity, so the original A-graph is planar.
 
 ### (3)
 
-The maximum number of edges in an $\mathbf{A}$-graph with $\mathbf{n}$ vertices without multi-edges is $\mathbf{n-1}$.
+The maximum is
 
-**Proof:**
-- In an $\mathbf{A}$-graph, the $\mathbf{B}$-operation reduces multi-edges to a single edge, and there are no multi-edges in the final graph.
-- The $\mathbf{C}$-operation reduces the number of vertices by 1 while maintaining the number of edges. Therefore, the number of edges in the final graph is $\mathbf{n-1}$.
+$$
+\boxed{2n-3}\qquad(n\ge2).
+$$
+
+Starting from a simple graph, apply each necessary B-operation immediately after a C-operation.  Every C-operation decreases the vertex count by one and can create at most one parallel pair.  There are $n-2$ C-operations, hence at most $n-2$ B-operations.  If their number is $b$, edge counting gives
+
+$$
+m-(n-2)-b=1,
+$$
+
+so $m\le2n-3$.
+
+The bound is attained by taking an edge $uv$ and $n-2$ further vertices, each adjacent to both $u$ and $v$.  Suppressing each such vertex and then merging the resulting parallel edge reduces the graph to $uv$; it has $1+2(n-2)=2n-3$ edges.
 
 ### (4)
 
-To determine if a given undirected graph with $\mathbf{n}$ vertices and $\mathbf{m}$ edges is an $\mathbf{A}$-graph, we can use the following algorithm:
+1. Merge all parallel edges by $\mathbf{B}$-operations.
+2. Store the resulting graph in mutable adjacency lists. Maintain the current degree of each vertex, a queue of degree-two vertices, and a hash table keyed by unordered endpoint pairs.
 
-1. **Graph Representation:** Use an adjacency list to store the graph. This allows efficient traversal and modification.
-2. **Initialize:** Mark all vertices as unvisited.
-3. **Identify and Apply $\mathbf{B}$-operation:**
-   - For each pair of vertices, check for multi-edges.
-   - If multi-edges exist, replace them with a single edge.
-4. **Identify and Apply $\mathbf{C}$-operation:**
-   - Traverse the graph to identify vertices of degree 2.
-   - For each vertex $\mathbf{v}$ with degree 2 connecting vertices $\mathbf{u}$ and $\mathbf{w}$, remove $\mathbf{v}$ and replace edges $\mathbf{(u,v)}$ and $\mathbf{(v,w)}$ with a single edge $\mathbf{(u,w)}$.
-5. **Repeat Steps 3 and 4** until no more $\mathbf{B}$ or $\mathbf{C}$ operations can be applied.
-6. **Check Result:** If the graph reduces to a single edge, it is an $\mathbf{A}$-graph. Otherwise, it is not.
+3. While the queue is nonempty, remove a degree-two vertex $v$ with neighbors $u,w$. Delete $uv,vw$ and insert $uw$ unless the hash table already contains it; in the latter case the insertion and the following $\mathbf{B}$-operation cancel. Update the degrees of $u,w$ and enqueue either one when its degree becomes two.
+4. Accept exactly when two vertices and one edge remain.
 
-**Graph Data Structures:**
-- **Adjacency List:** Efficiently stores the graph and allows for quick traversal and edge modification.
-- **Degree List:** Maintains the degree of each vertex for quick identification of vertices suitable for the $\mathbf{C}$-operation.
-
-The algorithm runs in $\mathbf{O(m + n)}$ time since each edge and vertex is processed a constant number of times.
+Each vertex is removed once and each edge is inserted or deleted $O(1)$ times.  Hash-table lookup and update take expected $O(1)$ time, so the total time and space are $O(m+n)$.
 
 ## **Knowledge**
 

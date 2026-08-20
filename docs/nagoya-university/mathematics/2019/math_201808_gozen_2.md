@@ -10,7 +10,7 @@ tags:
 # 名古屋大学 多元数理科学研究科 2018年8月実施 午前の部 \[2\]
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 行列
@@ -52,9 +52,11 @@ $$
 1. 求酉矩阵 $U$，使 $U^{-1}TU$ 为对角矩阵。
 2. 证明所有与 $T$ 可交换的三阶复矩阵构成一个三维复向量空间。
 3. 再给定
+
    $$
    S=\begin{pmatrix}1&0&0\\0&2&0\\0&0&3\end{pmatrix},
    $$
+
    求全部同时与 $T,S$ 可交换的三阶复矩阵，并说明依据。
 
 ## **Kai**
@@ -256,7 +258,7 @@ $$
 $$
 
 である。
-よって、 $S$ と交換可能な任意の行列は適当な複素数 $a$ を使って
+よって、 $T$ および $S$ と交換可能な任意の行列は適当な複素数 $a$ を使って
 
 $$
   \begin{aligned}

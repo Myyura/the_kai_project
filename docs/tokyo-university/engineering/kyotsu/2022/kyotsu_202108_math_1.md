@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 2021年8月実施 数学1
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -19,13 +19,16 @@ tags:
 原 Description 仅提供 2022 年“数学 1”原卷链接，具体题干缺失。根据本地 Kai，能够确认两部分内容：
 
 1. 第一部分考察椭圆
+
    $$
    \frac{x^2}{a^2}+\frac{y^2}{b^2}=1.
    $$
-   先求椭圆上点 $(X,Y)$ 处的切线；再令切线与两坐标轴交于 $(p,0),(0,q)$，求线段长度 $\sqrt{p^2+q^2}$ 最小时的接点和最小长度。Kai 采用正坐标接点，得到
-   $X^2=a^3/(a+b)$、$Y^2=b^3/(a+b)$；原题对 $a,b$ 及接点象限的完整条件未保存在本地。
+
+   其中 $a>b>0$，接点 $(X,Y)$ 位于第一象限。先求切线；再令切线与两坐标轴交于 $(p,0),(0,q)$，求线段长度 $\sqrt{p^2+q^2}$ 最小时的接点和最小长度。Kai 得到
+   $X^2=a^3/(a+b)$、$Y^2=b^3/(a+b)$；最后比较由该线段形成的圆锥与同表面积最大体积圆锥的底面积。
 2. 第二部分先从定义推导 $\mathcal L[f']$ 和 $\mathcal L[f'']$；再求
    $e^{-at}\cos\omega t$ 与 $e^{-at}\sin\omega t$ 的拉普拉斯变换；最后用这些公式求初值问题
+
    $$
    f''+6f'+13f=0,\qquad f(0)=5,\quad f'(0)=-11.
    $$
@@ -161,6 +164,35 @@ $$
 $$
 
 のときであり、このとき、線分の長さは $a+b$ である。
+
+#### 3.
+円錐 $C_1$ の高さと底面半径をそれぞれ $p,q$ とすると、問 I.2 より
+
+$$
+p=\sqrt{a(a+b)},\qquad q=\sqrt{b(a+b)},\qquad \sqrt{p^2+q^2}=a+b.
+$$
+
+半径 $r$、母線 $l$ の円錐の表面積と体積は
+
+$$
+S=\pi r(r+l),\qquad V=\frac{\pi r^2\sqrt{l^2-r^2}}{3}.
+$$
+
+$s=l/r\ge1$ とおくと、$S$ を固定したとき
+
+$$
+V=\frac{S^{3/2}}{3\sqrt\pi}\frac{\sqrt{s-1}}{s+1}
+$$
+
+であり、これは $s=3$ で最大となる。したがって $C_2$ の底面積は表面積の $1/4$ なので、
+
+$$
+\boxed{
+\frac{S_2}{S_1}
+=\frac{q+(a+b)}{4q}
+=\frac14\left(1+\sqrt{\frac{a+b}{b}}\right)
+}.
+$$
 
 ### II.
 #### 1.

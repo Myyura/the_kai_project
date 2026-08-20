@@ -8,7 +8,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2019年8月実施 解析学・微積分
 
 ## **Author**
-Yu
+Yu, 祭音Myyura
 
 ## **Description**
 ### 微分方程式
@@ -115,17 +115,13 @@ $$
 u = e^{-\int P(x)\text{d}x}\big(\int Q(x)e^{\int P(x)\text{d}x}\text{d}x + C\big) = \frac{C - x}{x^4 - 1}
 $$
 
+$x^4\ne1$ かつ $x\ne C$ の区間では
+
 $$
 y = x^3 + \frac{x^4 - 1}{C - x}
 $$
 
-$$
-(x^4 - 1) = 0\text{ のとき, 上式より }, y =  x^3 =y_p,\text{ 微分方程式も満たす }
-$$
-
-$$
-\therefore y = x^3 + \frac{x^4 - 1}{C - x}
-$$
+を得る。また、特殊解 $y=x^3$ も解である。
 
 ### 複素関数論
 #### (1)
@@ -145,11 +141,11 @@ $$
 $$
 \begin{aligned}
 x = 1,y = t(0 \le t \le 1) &\text{ とおくと, } u = 2,v = t - \sqrt{3} \\
-u = 2(-\sqrt{3} &\le v \le 1 - \sqrt{3}) \\
+u = 2,\qquad -\sqrt{3} &\le v \le 1 - \sqrt{3} \\
 x = t(0 \le t \le 1),y = 1 &\text{ とおくと, }u = 1 + t ,v = 1 - \sqrt{3} \\
 v = 1 - \sqrt{3} &(1 \le u \le 2) \\
-x = t(0 \le t \le 1),y = 1 - t &\text{ とおくと, }u = 1 + t.v = 1 - t - \sqrt{3} \\
-v = -u + 2 - &\sqrt{3}(1 \le u \le 2)
+x = t(0 \le t \le 1),y = 1 - t &\text{ とおくと, }u = 1 + t,\ v = 1 - t - \sqrt{3} \\
+v = -u + 2 - &\sqrt{3}\qquad(1 \le u \le 2)
 \end{aligned}
 $$
 
@@ -172,7 +168,7 @@ x = 1,y = t(0 \le t \le 1) \text{ とおくと, }u = \sqrt{3} + 1 - t,v = \sqrt{
 $$
 
 $$
-v = 4 - \sqrt{3}u(\sqrt{3} \le u \le 1 + \sqrt{3})
+v = 4 - \sqrt{3}u,\qquad(\sqrt{3} \le u \le 1 + \sqrt{3})
 $$
 
 $$
@@ -180,7 +176,7 @@ x = t(0 \le t \le 1),y = 1 \text{ とおくと, } u = \sqrt{3}t,v = t
 $$
 
 $$
-u = \sqrt{3}v(0 \le v \le 1)
+u = \sqrt{3}v,\qquad(0 \le v \le 1)
 $$
 
 $$
@@ -188,7 +184,7 @@ x = t(0 \le t \le 1),y = 1 - t \text{ とおくと, } u = (1 + \sqrt{3})t,v = (1
 $$
 
 $$
-v = \frac{1 - \sqrt{3}}{1 + \sqrt{3}}u(0 \le u \le 1 + \sqrt{3})
+v = \frac{1 - \sqrt{3}}{1 + \sqrt{3}}u,\qquad(0 \le u \le 1 + \sqrt{3})
 $$
 
 #### (3)
@@ -198,7 +194,7 @@ $$
 </figure>
 
 $$
-w = z^2  = (x + iy)^2 = x^2 - y^2 - i \cdot 2xy
+w = z^2  = (x + iy)^2 = x^2 - y^2 + i \cdot 2xy
 $$
 
 $$
@@ -210,7 +206,7 @@ x = 1,y = t(0 \le t \le 1) \text{ とおくと, } u = 1 - t^2,v = 2t
 $$
 
 $$
-u = 1 - \frac{v^2}{4}(0 \le v \le 2)
+u = 1 - \frac{v^2}{4},\qquad(0 \le v \le 2)
 $$
 
 $$
@@ -218,7 +214,7 @@ x = t(0 \le t \le 1),y = 1 \text{ とおくと, } u = t^2 - 1,v = 2t
 $$
 
 $$
-u = \frac{v^2}{4} - 1(0 \le v \le 2)
+u = \frac{v^2}{4} - 1,\qquad(0 \le v \le 2)
 $$
 
 $$
@@ -226,5 +222,5 @@ x = t(0 \le t \le 1),y = 1 - t \text{ とおくと, } u = 2t - 1,v = 2t - 2t^2
 $$
 
 $$
-v = \frac{1}{2} - \frac{u^2}{2}(-1 \le u \le 1)
+v = \frac{1}{2} - \frac{u^2}{2},\qquad(-1 \le u \le 1)
 $$

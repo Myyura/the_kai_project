@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 2021年8月実施 数学2
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -18,13 +18,16 @@ tags:
 原 Description 仅提供 2022 年“数学 2”原卷链接，具体题干缺失。根据本地 Kai，能够确认：
 
 1. 第一部分使用实对称矩阵
+
    $$
    A=\begin{pmatrix}7&-2&1\\-2&10&-2\\1&-2&7\end{pmatrix},\qquad
    B=\begin{pmatrix}5&-1&-1\\-1&5&-1\\-1&-1&5\end{pmatrix}.
    $$
+
    先计算 $AB$；再证明若两个具有互异特征值的 $n$ 阶实对称矩阵 $C,D$ 可交换，则可由同一正交矩阵同时对角化；最后求所有单位向量 $\boldsymbol v$ 及数 $a,b$，使
    $A\boldsymbol v=a\boldsymbol v$、$B\boldsymbol v=b\boldsymbol v$。
 2. 第二部分把一个二次函数写成
+
    $$
    f(\boldsymbol x)=\boldsymbol x^TA\boldsymbol x+2\boldsymbol b^T\boldsymbol x,
    \quad
@@ -32,6 +35,7 @@ tags:
    \quad
    \boldsymbol b=\frac1{2\sqrt2}\begin{pmatrix}0\\-1\\1\end{pmatrix}.
    $$
+
    求 $A,\boldsymbol b$；正交对角化 $A=P^TDP$；在新坐标 $(X,Y,Z)^T=P(x,y,z)^T$ 下把曲面 $f(x,y,z)=0$ 化为 $4X^2+2Y^2-Z=0$；并求该曲面与平面 $y-z-\sqrt2=0$ 所围立体的体积。
 
 ## **Kai**
@@ -174,7 +178,7 @@ $$
 &= - (\mu-3)(\mu-6)^2
 \\
 \therefore \ \ 
-\lambda &= 3, 6
+\mu &= 3, 6
 \end{aligned}
 $$
 

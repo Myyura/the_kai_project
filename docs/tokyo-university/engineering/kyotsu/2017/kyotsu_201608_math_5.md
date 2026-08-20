@@ -10,6 +10,7 @@ tags:
 # 東京大学 工学系研究科 2016年8月実施 数学 第5問
 
 ## **Author**
+祭音Myyura
 
 ## **Description**
 $t \ge 0$ で定義される関数 $f(t)$ のラプラス変換 $F(s) = L[f(t)]$ は
@@ -69,9 +70,11 @@ $(a,b) = (1,1)$ および $(-1,1)$ のとき, $t$ を $0$ から無限大まで�
 ### 题目描述
 
 对定义在 $t\ge0$ 上的函数 $f(t)$，拉普拉斯变换定义为
+
 $$
 F(s)=\mathcal L[f(t)]=\int_0^\infty f(t)e^{-st}\,\mathrm dt,
 $$
+
 其中 $s$ 为复数。各问均须写出推导。
 
 1. 证明三条基本性质：对自然数 $n$，
@@ -79,16 +82,20 @@ $$
    $\mathcal L[f'(t)]=sF(s)-f(0)$；对实数 $a$，
    $\mathcal L[e^{at}f(t)]=F(s-a)$。
 2. 利用拉普拉斯变换求初值问题
+
    $$
    tf''(t)+(1+3t)f'(t)+3f(t)=0,\qquad
    f(0)=1,\quad f'(0)=-3
    $$
+
    在 $t\ge0$ 上的解；可使用
    $\mathcal L[tf(t)]=-\mathrm dF/\mathrm ds$。
 3. 点 $P(x(t),y(t))$ 满足
+
    $$
    x'=-x,\qquad y'=x-2y,\qquad (x(0),y(0))=(a,b).
    $$
+
    用拉普拉斯变换求 $t\ge0$ 的解；消去 $t$ 得到 $x,y$ 的关系；最后分别对 $(a,b)=(1,1)$ 与 $(-1,1)$，画出 $t$ 从 $0$ 连续增至无穷时 $P$ 的轨迹并标明运动方向。
 
 ## **Kai**
@@ -103,8 +110,8 @@ L[t^{n}] &= \int_0^{\infty}t^{n} \cdot e^{-st}\text{d}t \\
 &= \frac{n}{s} \cdot \frac{n - 1}{s}L[t^{n - 2}] \\
 &= \frac{n}{s} \cdot \frac{n - 1}{s} \cdot \cdots \cdot \frac{n - (n - 1)}{s}L[t^0] \\
 &= \frac{n!}{s^{n}} \int_0^{\infty} e^{-st}\text{d}t \\
-&= \frac{n!}{s}\bigg[e^{-st}\bigg]_0^{\infty} \\
-&= \frac{n!}{s} \cdot \frac{1}{s} = \frac{n!}{s^{n + 1}}
+&= -\frac{n!}{s^{n+1}}\bigg[e^{-st}\bigg]_0^{\infty} \\
+&= \frac{n!}{s^n} \cdot \frac{1}{s} = \frac{n!}{s^{n + 1}}
 \end{aligned}
 $$
 
@@ -158,7 +165,7 @@ $$
 $$
 \begin{aligned}
 L\bigg[t\frac{\text{d}f}{\text{d}t}\bigg] &= -\frac{\text{d}}{\text{d}s}L\bigg[\frac{\text{d}f}{\text{d}t}\bigg] \\
-&= \frac{\text{d}}{\text{d}s}(sF(s) - f(0)) \\
+&= -\frac{\text{d}}{\text{d}s}(sF(s) - f(0)) \\
 &= -F(s) - s\frac{\text{d}F}{\text{d}s}
 \end{aligned}
 $$
@@ -241,11 +248,13 @@ y(t) &= ae^{-t} - (a - b)e^{-2t}
 $$
 
 #### 2.
-$e^{-t} = x/a$ を $y(t)$ の式に代入して,
+$a\neq0$ のとき、$e^{-t} = x/a$ を $y(t)$ の式に代入して,
 
 $$
 y = x - \frac{a - b}{a^2}x^2
 $$
+
+$a=0$ のときは $x=0$ であり、$b>0$ なら $0<y\le b$、$b<0$ なら $b\le y<0$、$b=0$ なら原点のみである。
 
 #### 3.
 ##### (i).
@@ -255,9 +264,13 @@ $$
 y = x
 $$
 
-$t\mid 0 \rightarrow \infty$ のとき, $x\mid 1 \rightarrow 0 ,y\mid 1 \rightarrow 0$ より, 点 $P$ の軌跡は下図左のようになる。
+$t\mid 0 \rightarrow \infty$ のとき, $x\mid 1 \rightarrow 0 ,y\mid 1 \rightarrow 0$ より, 点 $P$ は線分 $y=x$ 上を $(1,1)$ から $(0,0)$ へ動く。
 
 ##### (ii).
-$(a,b) = (-1,1)$ のとき, $x\mid -1 \rightarrow 0, y\mid 1 \rightarrow 0$ より, 点 $P$ の軌跡は下図右のようになる。
+$(a,b) = (-1,1)$ のとき,
 
-TODO: picture
+$$
+y=x+2x^2,\qquad -1\le x<0.
+$$
+
+$t\mid 0 \rightarrow \infty$ のとき $x\mid -1 \rightarrow 0$ であるから、点 $P$ はこの放物線上を $(-1,1)$ から $(0,0)$ へ動く。

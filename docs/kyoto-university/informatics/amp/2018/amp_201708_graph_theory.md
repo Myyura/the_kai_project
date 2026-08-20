@@ -8,7 +8,7 @@ tags:
 
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 グラフ理論
 
-## Author
+## **Author**
 祭音Myyura
 
 ## **Description**
@@ -155,14 +155,19 @@ $$
    $e\in E(\pi_i)$，而对所有 $i>j(e)$ 有
    $e\notin E(\pi_i)$。
 3. 证明对每个 $i=1,\ldots,n-1$，
+
    $$
    w(a_i)\le w(e),\qquad \forall e\in E(\pi_{i-1}).
    $$
+
 4. 证明对每个 $i=1,\ldots,n-1$，
+
    $$
    \sum_{j=0}^{i-1}y(\pi_j)=w(a_i).
    $$
+
 5. 证明对每条 $e\in E$，
+
    $$
    \sum_{\pi\in\Pi:\,e\in E(\pi)}y(\pi)\le w(e).
    $$
@@ -219,7 +224,7 @@ $$
 is well-defined and satisfies
 
 $$
-0 \le j(e) \le n-1
+0 \le j(e) \le n-2.
 $$
 
 Then, by the monotonicity of connected components, we have

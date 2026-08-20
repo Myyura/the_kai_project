@@ -9,7 +9,7 @@ tags:
 
 
 ## **Author**
-[diohabara](https://github.com/diohabara/open_inshi)
+[diohabara](https://github.com/diohabara/open_inshi), 祭音Myyura
 
 ## **Description**
 信号 $f(t)$ が与えられたとき, $f(t)$ を時間間隔 $t_s$ で標本化することを考える。時間間隔 $t_s$ にデルタ関数 $\delta(t)$ が並ぶ信号を単位インパルス列 $\delta_s(t)$ と呼ぶ。すなわち,
@@ -112,14 +112,14 @@ $$
 $\delta_{s}(t) = \sum_{i = -\infty}^{\infty}\delta(t - it_s)$ を $1$ 周期分 $(-\frac{t_s}{2} \le t < \frac{t_s}{2})$ 切り出して、係数を求める。問題文にもあるように係数を求める式は次の通り。
 
 $$
-c_i = \frac{1}{T}\int_{-T/2}^{T/2}f(t)e^{-j\frac{2\pi it}{T}dt}
+c_i = \frac{1}{T}\int_{-T/2}^{T/2}f(t)e^{-j\frac{2\pi it}{T}}dt
 $$
 
 この場合、$T = t_s ,f(t) = \delta(t)$ なので、これを代入して
 
 $$
 \begin{aligned}
-c_i &= \frac{1}{t_s}\int_{-t_s/2}^{t_s/2}f(t)e^{-j\frac{2\pi it}{t_s}dt} \\
+c_i &= \frac{1}{t_s}\int_{-t_s/2}^{t_s/2}\delta(t)e^{-j\frac{2\pi it}{t_s}}dt \\
 &= \frac{1}{t_s} \cdot 1 = \frac{1}{t_s}
 \end{aligned}
 $$
@@ -136,8 +136,8 @@ $$
 $$
 \begin{aligned}
 \Delta_s(\omega) &= \int_{-\infty}^{\infty}\delta_s(t)e^{-j\omega t}dt \\
-&= \int_{-\infty}^{\infty}\bigg\{\sum_{i = -\infty}^{\infty}\frac{1}{t_s}e^{j\frac{2\pi it}{t_s}}\bigg\} \\
-&= \frac{1}{t_s}\sum_{\infty}^{\infty}\bigg\{\int_{-\infty}^{\infty}e^{-j(\omega - i\omega_s)t}\bigg\} \\
+&= \int_{-\infty}^{\infty}\bigg\{\sum_{i = -\infty}^{\infty}\frac{1}{t_s}e^{j\frac{2\pi it}{t_s}}\bigg\}e^{-j\omega t}dt \\
+&= \frac{1}{t_s}\sum_{i=-\infty}^{\infty}\bigg\{\int_{-\infty}^{\infty}e^{-j(\omega - i\omega_s)t}dt\bigg\} \\
 &= \frac{1}{t_s}\sum_{i = -\infty}^{\infty}2\pi\delta(\omega - i\omega_s) \\
 &= \omega_s \sum_{i = -\infty}^{\infty}\delta(\omega - i\omega_s)
 \end{aligned}
@@ -164,10 +164,10 @@ $$
 エイリアシングとは、サンプリングに従って信号の一部が本来の周波数とは異なる周波
 数の成分として混入してしまい、波形に歪みが生じることを言う。
 
-- (3) においてどのような減少となるの
+- (3) においてどのような現象となるのか
 
-サンプリング周波数 $\omega_s$ に対して周波数 $\omega,\omega \pm \omega_s ,\omega \pm 2\omega ,\dotsb$ の成分がすべて $F_s(\omega)$ 上の同じ点に重なってしまうため、サンプリング後の信号 $F_s(\omega)$ を見たときに $F(\omega)$ のど
+サンプリング周波数 $\omega_s$ に対して周波数 $\omega,\omega \pm \omega_s ,\omega \pm 2\omega_s ,\dotsb$ の成分がすべて $F_s(\omega)$ 上の同じ点に重なってしまうため、サンプリング後の信号 $F_s(\omega)$ を見たときに $F(\omega)$ のど
 この周波数由来なのか判別不可能になる。
 
 - $F(\omega)$ が満足すべき条件 
-$\omega > \frac{\omega_s}{2}$ において $F(\omega) = 0$ を満たすこと。
+$|\omega| \geq \frac{\omega_s}{2}$ において $F(\omega) = 0$ を満たすこと。

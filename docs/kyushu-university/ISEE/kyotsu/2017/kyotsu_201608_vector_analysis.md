@@ -9,7 +9,7 @@ tags:
 
 
 ## **Author**
-Zero
+Zero, 祭音Myyura
 
 ## **Description**
 次の各問に答えよ．ただし $(x, y, z)$ は三次元空間の直交座標を表す.
@@ -27,30 +27,35 @@ $$
 以下 $(x,y,z)$ 表示三维空间的直角坐标。
 
 1. 对标量场
+
    $$
    \phi=x^2yz^3+xy^2z,
    $$
+
    计算其拉普拉斯算子 $\nabla\cdot(\nabla\phi)$ 在点 $(1,3,2)$ 处的值。
 2. 对标量场 $V=xyz$，计算其在四分之一圆柱侧面
+
    $$
    S:\ x^2+y^2=4,\quad x\ge0,\quad y\ge0,\quad0\le z\le3
    $$
+
    上的面积分 $\int_S V\,dS$。
 
 ## **Kai** 
 ### (1)
-$\phi = x^2yz^3 + xy^2z$ 点 $(1,3,2)$ における $\nabla \cdot (\nabla \cdot \phi)$
+$\phi = x^2yz^3 + xy^2z$ の点 $(1,3,2)$ における $\nabla \cdot (\nabla \phi)$
 
 $$
 \begin{aligned}
-\nabla \cdot (\nabla \cdot \phi) &= \nabla \cdot (\frac{\partial \phi}{\partial x},\frac{\partial \phi}{\partial y},\frac{\partial \phi}{\partial z}) \\
+\nabla \cdot (\nabla \phi) &= \nabla \cdot (\frac{\partial \phi}{\partial x},\frac{\partial \phi}{\partial y},\frac{\partial \phi}{\partial z}) \\
 &= \frac{\partial ^2\phi}{\partial x^2} + \frac{\partial ^2\phi}{\partial y^2} + \frac{\partial ^2\phi}{\partial z^2} \\
-&= 2yz^3 + 2xz + 6x^yz \\
+&= 2yz^3 + 2xz + 6x^2yz \\
 &= 88
 \end{aligned}
 $$
 
 ### (2)
+
 $$
 0 \le \theta \le \frac{\pi}{2},0 \le z \le 3
 $$
@@ -74,7 +79,7 @@ i & j & k \\
 $$
 
 $$
-r_\theta \times r_z = 2
+\left|r_\theta \times r_z\right| = 2
 $$
 
 $$

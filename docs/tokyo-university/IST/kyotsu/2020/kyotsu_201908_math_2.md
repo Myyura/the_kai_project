@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学研究科 2019年8月実施 数学 第2問
 
 ## **Author**
-[etsurin](https://zhuanlan.zhihu.com/p/561992447)
+[etsurin](https://zhuanlan.zhihu.com/p/561992447), 祭音Myyura
 
 ## **Description**
 $xy$ 平面内の滑らかな曲線 $\boldsymbol{p} = (p(t), q(t))$ ($t \in [a, b]$) を考える。
@@ -71,16 +71,19 @@ $$
 考虑平面光滑曲线
 $\boldsymbol p(t)=(p(t),q(t))$，$t\in[a,b]$，且
 $\mathrm d\boldsymbol p/\mathrm dt\ne(0,0)$。曲线从 $a'$ 到 $b'$ 的长度为
+
 $$
 l_{a',b'}
 =\int_{a'}^{b'}
 \sqrt{\left(\frac{\mathrm dp}{\mathrm dt}\right)^2+
 \left(\frac{\mathrm dq}{\mathrm dt}\right)^2}\,\mathrm dt,
 $$
+
 全长记为 $L=l_{a,b}$。令弧长参数 $s=l_{a,t}$，从而
 $s\in[0,L]$。回答下列问题。
 
 （1）证明弧长参数下
+
 $$
 \sqrt{\left(\frac{\mathrm dp}{\mathrm ds}\right)^2+
 \left(\frac{\mathrm dq}{\mathrm ds}\right)^2}=1.
@@ -88,6 +91,7 @@ $$
 
 （2）令 $\theta(s)$ 为切向量
 $\mathrm d\boldsymbol p/\mathrm ds$ 与 $x$ 轴的夹角，证明
+
 $$
 \frac{\mathrm dp}{\mathrm ds}\frac{\mathrm d^2q}{\mathrm ds^2}
 -\frac{\mathrm dq}{\mathrm ds}\frac{\mathrm d^2p}{\mathrm ds^2}
@@ -99,11 +103,14 @@ $$
 （3）说明为何任意 $s$ 都有 $\mathrm d\theta/\mathrm ds\ge0$。
 
 （4）任一 $K$ 外点可唯一写成
+
 $$
 \boldsymbol{x}
 =\boldsymbol p(s)+r\boldsymbol u(s),
 $$
+
 其中 $r$ 是它到 $K$ 的距离，$\boldsymbol u(s)$ 是指向外部的单位法向量。证明坐标变换的 Jacobian 满足
+
 $$
 \left|
 \det\begin{pmatrix}
@@ -116,6 +123,7 @@ $$
 
 （5）对 $D\ge0$，令 $K_D$ 为距 $K$ 不超过 $D$ 的点集。若
 $K$ 面积为 $A$，证明
+
 $$
 \operatorname{area}(K_D)=A+LD+\pi D^2.
 $$
@@ -131,11 +139,15 @@ $$
 \frac{ds}{dt} = \sqrt{ \left( \frac{dp}{dt} \right)^2 + \left( \frac{dq}{dt} \right)^2 }
 $$
 
+Since $ds/dt>0$, the chain rule gives $dp/ds=(dp/dt)/(ds/dt)$ and $dq/ds=(dq/dt)/(ds/dt)$. Therefore,
+
 $$
 \sqrt{ \left( \frac{dp}{ds} \right)^2 + \left( \frac{dq}{ds} \right)^2 } = 1
 $$
 
 ### (2)
+
+On intervals where $dp/ds\ne0$, choose a continuous branch of $\theta$ and write
 
 $$
 \tan \theta = \frac{\frac{dq}{ds}}{\frac{dp}{ds}} \qquad \theta = \arctan \left( \frac{\frac{dq}{ds}}{\frac{dp}{ds}} \right)
@@ -149,7 +161,11 @@ $$
 \end{aligned}
 $$
 
+The identity extends to vertical tangents by continuity.
+
 ### (3)
+Fix $s_0$ and translate and rotate the coordinates so that $\boldsymbol p(s_0)=(0,0)$ and $\boldsymbol p'(s_0)=(1,0)$. Since the boundary is traversed counterclockwise, convexity places $K$ locally above its supporting tangent. Writing the boundary as $y=h(x)$ gives $h(0)=h'(0)=0$ and $h''(0)\geq0$. Hence, by (2), $\theta'(s_0)=q''(s_0)=h''(0)\geq0$. The following four sign cases illustrate the same fact.
+
 There are following 4 possibilities:
 
 <figure style="text-align:center;">
@@ -233,6 +249,8 @@ S &= \iint_{K, K_D} dxdy \\
 &=DL + D^2 \pi
 \end{aligned}
 $$
+
+Here $\theta(L)-\theta(0)=2\pi$ because a counterclockwise convex closed curve has turning number one.
 
 Since the area inside $K$ is $A$, we have
 

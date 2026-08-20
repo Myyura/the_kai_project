@@ -8,7 +8,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2016年8月実施 微分方程式
 
 ## **Author**
-Zero
+Zero, 祭音Myyura
 
 ## **Description**
 次の微分方程式の一般解を求めよ．
@@ -54,7 +54,11 @@ xy &= \frac{1}{2}\log(1 + x^2) + C \\
 \end{aligned}
 $$
 
+ただし、解は $x=0$ を含まない区間上で考える。
+
 ### (2)
+
+まず $x>0,\ y>0$ の解を求める。
 
 $$
 \begin{aligned}
@@ -96,6 +100,21 @@ $$
 -2\sqrt{\frac{x}{y}} &= \log y + C \\
 \log y + 2\sqrt{\frac{x}{y}} &= -C \\
 \log y + \log e^{2\sqrt{\frac{x}{y}}} &= -C \\
-\log (ye^{2\sqrt{\frac{x}{y}}}) &= -C \\
+\log (ye^{2\sqrt{\frac{x}{y}}}) &= -C
 \end{aligned}
 $$
+
+したがって、この範囲での解は
+
+$$
+\log y+2\sqrt{\frac{x}{y}}=C.
+$$
+
+また $y\equiv0$ も解である。$x<0,\ y<0$ の範囲では
+$X=-x,\ Y=-y$ とおいて同様に計算すると
+
+$$
+\log(-y)-2\sqrt{\frac{x}{y}}=C
+$$
+
+を得る。

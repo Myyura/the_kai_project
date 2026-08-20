@@ -13,7 +13,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻 2019年8月実施 計算機アーキテクチャ
 
 ## **Author**
-[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
 ### 【問 1】
@@ -112,6 +112,10 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_computer_architecture_p2.png" width="350" alt=""/>
 </figure>
 
+$$
+F=\overline b\,\overline d+ac.
+$$
+
 ### 【問 2】
 #### (1)
 1. クロックサイクル時間の短縮：パイプライン処理では、各ステージが短いクロックサイクル時間で実行できるため、全体のクロックサイクル時間が短くなります。
@@ -157,7 +161,7 @@ $512$ バイト
 利点:
 
 1. キャッシュミス率の低下: キャッシュ連想度が高いと、キャッシュ内でのデータの配置が柔軟になるため、キャッシュミスが発生しにくくなります。これにより、キャッシュミス率が低下し、AMATが短くなります。
-2. ローカリティの向上: キャッシュ連想度が高いと、データのローカリティが向上し、特定のデータに対するアクセスが高速化されます。これもAMATを短くする要因となります。
+2. 競合ミスの低下: 同じインデックスに対応する複数のブロックを同時に保持できるため、競合ミスが減少し、AMATを短縮できる。
    
 欠点：
 

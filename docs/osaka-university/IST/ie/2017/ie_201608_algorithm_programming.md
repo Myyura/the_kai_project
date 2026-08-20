@@ -110,13 +110,13 @@ int main() {
     return 0;
 }
 ```
-#### <center> 図１: 2 頂点間の最短経路長を出力するプログラム
+#### <center> 図１: 2 頂点間の最短経路長を出力するプログラム</center>
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka_university/IST/ie_2017_algorithm_programming_p1.png" width="300" height="200" alt=""/>
 </figure>
 
-#### <center> 図２: 図１で扱うグラフ
+#### <center> 図２: 図１で扱うグラフ</center>
 
 
 ### 题目描述
@@ -148,17 +148,15 @@ int main() {
 
 ### (4)
 #### (4-1)
-次のように呼び出せば良い。（$T = n$）
+無向グラフでは距離が対称なので、各頂点対の少なくとも一方を始点として選べばよい。次のように $T=n-1=3$ 回呼び出す。
 
 ```text
 compute(w, n, 0, 3);
 printf("%d %d %d\n", Len[1], Len[2], Len[3]);
 compute(w, n, 1, 3);
-printf("%d %d %d\n", Len[0], Len[2], Len[3]);
+printf("%d %d\n", Len[2], Len[3]);
 compute(w, n, 2, 3);
-printf("%d %d %d\n", Len[0], Len[1], Len[3]);
-compute(w, n, 3, 3);
-printf("%d %d %d\n", Len[0], Len[1], Len[2]);
+printf("%d\n", Len[3]);
 ```
 
 #### (4-2)

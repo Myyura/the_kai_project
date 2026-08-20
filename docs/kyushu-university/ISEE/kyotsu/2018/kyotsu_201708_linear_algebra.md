@@ -8,7 +8,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2017年8月実施 線形代数
 
 ## **Author**
-Zero
+Zero, 祭音Myyura
 
 ## **Description**
 正方行列 $A$ が交代的であるとは，$A^{\top} = -A$ を満たすことである．ここで，$A^{\top}$ は $A$ の転置を表す．以下の各問に答えよ．
@@ -32,16 +32,20 @@ $$
 称方阵 $A$ 为反对称矩阵，当且仅当 $A^\top=-A$；其中 $A^\top$ 表示转置。回答下列问题：
 
 1. 对任意 $A\in\mathbb R^{n\times n}$ 以及 $1\le i,j\le n$，证明存在 $\boldsymbol x,\boldsymbol y\in\mathbb R^n$，使
+
    $$
    \boldsymbol x^\top A\boldsymbol y=A_{ij},
    $$
+
    其中 $A_{ij}$ 是 $A$ 的第 $(i,j)$ 个元素。
 2. 证明 $A\in\mathbb R^{n\times n}$ 为反对称矩阵的充要条件是
+
    $$
    \boldsymbol y^\top A\boldsymbol x
    =-\boldsymbol x^\top A\boldsymbol y
    \qquad(\forall\,\boldsymbol x,\boldsymbol y\in\mathbb R^n).
    $$
+
 3. 证明若反对称矩阵 $A$ 具有特征值 $\lambda$，则 $-\lambda$ 也是其特征值。可使用任意方阵 $X$ 满足 $|X|=|X^\top|$。
 
 ## **Kai** 
@@ -86,7 +90,7 @@ $$
 $$
 \begin{aligned}
 \boldsymbol{x}^{\top}A\boldsymbol{y} &= \begin{pmatrix}
-x_1A_{11} + \cdots + x_nA_{n1},\cdots,x_1A_n + x_nA_{nn}
+x_1A_{11} + \cdots + x_nA_{n1},\cdots,x_1A_{1n}+\cdots+x_nA_{nn}
 \end{pmatrix}
 \begin{pmatrix}
 y_1 \\ \vdots \\y_n
@@ -99,61 +103,40 @@ $$
 $x_i = y_j = 1$ かつ $x_k = y_l = 0 \ (i \neq k, j \neq l, 1 \le k , l \le n)$ のとき、$\boldsymbol{x}^{\top}A\boldsymbol{y} = A_{ij}$ となる。
 
 ### (2)
-充分性:
+十分性を示す。仮定と、スカラーの転置を取って
+$\boldsymbol{y}^{\top}A\boldsymbol{x}
+=\boldsymbol{x}^{\top}A^\top\boldsymbol{y}$ であることから、
 
 $$
-\begin{aligned}
--\boldsymbol{x}^{\top}A\boldsymbol{y} &= \sum_{i = 1}^n \sum_{j = 1}^n x_i y_i A_{ij} \\
-\boldsymbol{y}^{\top}A\boldsymbol{x} &= \sum_{i = 1}^n \sum_{j = 1}^n y_j x_i A_{ji} 
-\end{aligned}
+\boldsymbol{x}^{\top}(A^\top+A)\boldsymbol{y}=0
+\qquad(\forall\boldsymbol{x},\boldsymbol{y}).
 $$
 
-$\boldsymbol{y}^{\top}A\boldsymbol{x} = -\boldsymbol{x}^{\top}A\boldsymbol{y}$ となると、$-A_{ij} = A_{ji}$ より、
-$A^{\top} = -A$ となり,$A \in \boldsymbol{R}^{n \times n}$ が交代的である。
+(1) の標準基底ベクトルを用いれば $A^\top+A$ の全成分が $0$ なので、
+$A^\top=-A$ である。
 
-必要性:
-
-$A \in \boldsymbol{R}^{n \times n}$ が交代的であるとき、$-A_{ij} = A_{ji}$ より、
+逆に $A^\top=-A$ ならば
 
 $$
-\begin{aligned}
-\boldsymbol{y}^{\top}A\boldsymbol{x} &= \sum_{i = 1}^n \sum_{j = 1}^n y_jx_i A_{ji} \\
-&= -\sum_{i = 1}^n \sum_{j = 1} x_iy_j A_{ij} \\
-&= -\boldsymbol{x}^{\top}A\boldsymbol{y}
-\end{aligned}
+\boldsymbol{y}^{\top}A\boldsymbol{x}
+=\boldsymbol{x}^{\top}A^\top\boldsymbol{y}
+=-\boldsymbol{x}^{\top}A\boldsymbol{y}.
 $$
 
-以上から、必要十分条件である。
+よって条件は必要十分である。
 
 ### (3)
-固有値として持つから、
+$\lambda$ が固有値ならば $\det(A-\lambda E)=0$ である。したがって
 
 $$
-A\boldsymbol{x} = \lambda \boldsymbol{x}
+\begin{aligned}
+0
+&=\det(A-\lambda E)
+=\det\bigl((A-\lambda E)^\top\bigr)\\
+&=\det(A^\top-\lambda E)
+=\det(-A-\lambda E)
+=(-1)^n\det(A+\lambda E).
+\end{aligned}
 $$
 
-$$
-|A - \lambda E| = 0
-$$
-
-$|\boldsymbol{x}| = |\boldsymbol{x}^{\top}|$ より、
-
-$$
-|(A - \lambda E)^{\top}| = 0
-$$
-
-$$
-|A^{\top} - \lambda E| = 0 \Leftrightarrow A^{\top}\boldsymbol{x} = \lambda \boldsymbol{x}
-$$
-
-$A$ は交代的であり、$A^{\top} = -A$
-
-$$
-\therefore -A\boldsymbol{x} = \lambda \boldsymbol{x}
-$$
-
-$$
-A\boldsymbol{x} = -\lambda \boldsymbol{x} 
-$$
-
-よって、$-\lambda$ も固有値として持つ。
+よって $\det(A-(-\lambda)E)=0$ であり、$-\lambda$ も固有値である。

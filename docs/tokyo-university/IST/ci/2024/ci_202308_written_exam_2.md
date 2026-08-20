@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2023年8月実施 筆記試験 第2問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 Let us consider a dataset that consists of $N$ data where each datum is represented in the form $\boldsymbol{x} = (x_1, x_2, ..., x_b) \quad (x_i \in \{0, 1\}, 1 \le i \le b)$ which is a bit string of length $b \ (b \ge 1)$. Each datum is assigned a unique data ID (identifier) which is a distinct integer. Let's build a system that searches for data close in distance to an arbitrary input datum (query datum). During a search, the system needs to enumerate the data IDs of all data that satisfy the condition. The distance between two data is defined by the Hamming distance between bit strings. The Hamming distance between two bit strings $\boldsymbol{x} = (x_1, x_2, ..., x_b)$ and $\boldsymbol{y} = (y_1, y_2, ..., y_b)$ is defined as follows.
@@ -102,7 +102,7 @@ where $I_i$ is the indicator RV that the $i$-th data is the same as the query.
 
 Hence the time complexity is $O(N\cdot 2^{-b})$ for the output list. If we count the indexing, with a $b$-bit index, the time complexity is totally $O(b+{N\over 2^b})$. Otherwise, it is $O({N\over 2^b})$.
 
-The space complexity is $O(N+2^b)$ since there are $2^b$ lists (including empty ones) or $O(2^b)$ non-empty lists, and $N$ data IDs.
+The space complexity is $O(N+2^b)$ for a direct-address table with $2^b$ list headers (including empty lists) and $N$ stored data IDs.
 
 ### (3)
 
@@ -112,11 +112,11 @@ The time complexity is $O(b+{N\over 2^{b/2}})$ or $O({N\over 2^{b/2}})$.
 
 ### (4)
 
-First we find a list $L_1$ from $T_1$ for finding a match for the first $b/2$ bits with expected $N/2^b$ length by executing (3), and verify by computing Hamming distance for every datum with $O(b)$ time. We find the sequences with Hamming distance $\le 1$ and the first-$b/2$ bits same as the query.
+First we find a list $L_1$ from $T_1$ for finding a match for the first $b/2$ bits with expected $N/2^{b/2}$ length by executing (3), and verify by computing Hamming distance for every datum with $O(b)$ time. We find the sequences with Hamming distance $\le 1$ and the first-$b/2$ bits same as the query.
 
 Then we find a list $L_2$ from $T_2$ and execute the same. We thus get all sequences with Hamming distance $\le1$.
 
-Finding 2 lists takes time $O(b+{N\over 2^{b/2}})$ and verifying takes $O(b\cdot {N\over 2^{b/2}})$. So the average time complexity is $O(b\cdot {N\over 2^{b/2}})$.
+Finding 2 lists takes time $O(b+{N\over 2^{b/2}})$ and verifying takes $O(b\cdot {N\over 2^{b/2}})$. So the average time complexity is $O(b+b\cdot {N\over 2^{b/2}})$.
 
 ### (5)
 
@@ -152,7 +152,7 @@ $$
 the higher bit $z_1$ is the carry:
 
 $$
-z_2=H_1(x_1,y_1)\land H_1(x_2,y_2)
+z_1=H_1(x_1,y_1)\land H_1(x_2,y_2)
 $$
 
 So the circuit is
@@ -184,11 +184,11 @@ $z_3$ is the sum-mod-2 from a half adder adding $A_2,B_2$.
 
 $z_2$ is the S from a half adder wrapping the carry of `HA(A2,B2)` and the S of `HA(A1,B1)`
 
-$z_1$ is the final carry of `A1+B1+HA(A2,B2)[C]`. When it is 1, the configuration is like `11,01` or `10,10`. So the C of `HA(A1,B1)` must be considered in `10,10` case; and the carry when `11+01` i.e. `HA(HA(A2,B2)[C],HA(A1,B1)[S])` is also considered (the sum of which is $z_2$).
+$z_1$ is the final carry of `A1+B1+HA(A2,B2)[C]`, namely the OR of the two carries below. For valid $H_2$ outputs, only `10+10` produces $z_1=1$; the OR wiring is the standard two-bit-adder construction.
 
-`A1,A2=H2(x1,y1,x2,y2)`
+`A1,A2=H2((x1,x2),(y1,y2))`
 
-`B1,B2=H2(x3,y3,x4,y4)`
+`B1,B2=H2((x3,x4),(y3,y4))`
 
 `z3,c3=HA(A2,B2)` (sum,carry)
 

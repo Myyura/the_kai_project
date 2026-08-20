@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2016年8月実施 力学系数学
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -87,11 +87,11 @@ $$
 then
 
 $$
-\frac{dx_1}{dt} = \frac 1t x_1 \Rightarrow x_i = kt
+\frac{dx_1}{dt} = \frac 1t x_1 \Rightarrow x_1 = kt
 $$
 
 $$
-\frac{dx_2}{dt} = x_2 + \frac{x_2}{t} \Rightarrow kt^2 + mt
+\frac{dx_2}{dt} = x_1 + \frac{x_2}{t} \Rightarrow x_2=kt^2+mt
 $$
 
 thus
@@ -103,14 +103,14 @@ $$
 ### (iii)
 
 $$
-\frac{dx}{dt} = 
+\frac{d\boldsymbol{x}}{dt} =
 \begin{bmatrix}
 \frac 1t & 0 &0 & \cdots &0 \\
 1 & \frac 1t &0 &\cdots & 0 \\
 0 & 1 & \frac 1t & \cdots &0 \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
 0 & 0 &0 & \cdots &\frac 1t
-\end{bmatrix}
+\end{bmatrix}\boldsymbol{x}
 $$
 
 $$
@@ -130,7 +130,7 @@ x_{k+1} = (\int \frac{x_k}{t} dt + C)t
 $$
 
 $$
-x_{k} = \sum_{i=1}^{k} \frac{c_i}{(i-1)!} t^i
+x_k=t\sum_{j=1}^{k}\frac{c_jt^{k-j}}{(k-j)!}
 $$
 
 Therefore

@@ -77,7 +77,7 @@ $$
 よって
 
 $$
-\boxed{f_{X\mid Y}(x\mid y)=\frac{x+y}{1/2+y}},qquad0<x<1.
+\boxed{f_{X\mid Y}(x\mid y)=\frac{x+y}{1/2+y}},\qquad0<x<1.
 $$
 
 条件付き期待値は
@@ -128,7 +128,7 @@ $$
 
 ### [小問 4]
 
-平均 $\boldsymbol\mu$、共分散行列 $\Sigma$ に対する点 $\boldsymbol x$ の Mahalanobis 距離は
+平均 $\boldsymbol\mu$、正定値共分散行列 $\Sigma$ に対する点 $\boldsymbol x$ の Mahalanobis 距離は
 
 $$
 \boxed{

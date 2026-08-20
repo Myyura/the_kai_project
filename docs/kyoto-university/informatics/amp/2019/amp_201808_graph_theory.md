@@ -60,17 +60,22 @@ Prove that $\text{dist}(s, v^*) = \text{dist}(s, u^*) + w(u^*, v^*)$.
 设 $G=(V,E)$ 为简单强连通有向图，网络 $N=[G,w]$ 由给每条有向边 $e\in E$ 赋实权 $w(e)$ 得到。用 $(u,v)$ 表示从 $u$ 到 $v$ 的边，权重记为 $w(u,v)$；$\operatorname{dist}(u,v)$ 是 $N$ 中从 $u$ 到 $v$ 的简单有向路的最小边权和。总权重为负的有向回路称为负环。回答：
 
 1. 若存在顶点实数势函数 $p(v)$ 满足
+
    $$
    w(u,v)+p(u)-p(v)\geqq0,\qquad\forall (u,v)\in E,
    $$
+
    证明 $N$ 中不存在负环。
 2. 若存在 $s\in V$ 与 $(u,v)\in E$ 满足
+
    $$
    \operatorname{dist}(s,u)+w(u,v)<\operatorname{dist}(s,v),
    $$
+
    证明 $N$ 中存在负环。
 3. 假设所有边权非负。对 $S\subseteq V$、$s\in S$，在所有从 $S$ 指向 $V\setminus S$ 的边中，令 $(u^*,v^*)$ 使
    $\operatorname{dist}(s,u)+w(u,v)$ 最小。证明
+
    $$
    \operatorname{dist}(s,v^*)=
    \operatorname{dist}(s,u^*)+w(u^*,v^*).
@@ -79,6 +84,15 @@ Prove that $\text{dist}(s, v^*) = \text{dist}(s, u^*) + w(u^*, v^*)$.
 ## **Kai**
 ### (i)
 Please refer to [京都大学 情報学研究科 数理工学専攻 2023年8月実施 グラフ理論](https://runjp.com/docs/kyoto-university/informatics/amp/2024/amp_202308_graph_theory).
+
+For any directed cycle $C$,
+
+$$
+\sum_{(u,v)\in C}w(u,v)
+=\sum_{(u,v)\in C}\bigl(w(u,v)+p(u)-p(v)\bigr)\geq0,
+$$
+
+because the potential terms telescope. Hence no directed cycle has negative weight.
 
 ### (ii)
 Let $P_{s,u}$ denote a simple path from $s$ to $u$ of distance $\text{dist}(s, u)$.
@@ -120,7 +134,7 @@ $$
 $$
 
 Any path from $s$ to $v^*$ must go through an edge from $S$ to $V \setminus S$.
-Hence, let $P_{s, v^*} = \{s, \ldots, u', v', \ldots, v^*\}$ denote a shortest simple path from $s$ to $v$.
+Hence, let $P_{s, v^*} = \{s, \ldots, u', v', \ldots, v^*\}$ denote a shortest simple path from $s$ to $v^*$.
 Let $(u',v')$ be the first edge on $P_{s,v^*}$ that crosses from $S$ to $V \setminus S$ and let $P_1 = \{s, \ldots, u'\}$ and $P_2 = \{v', \ldots, v^*\}$ denote the subpaths of $P_{s, v^*}$.
 Then,
 

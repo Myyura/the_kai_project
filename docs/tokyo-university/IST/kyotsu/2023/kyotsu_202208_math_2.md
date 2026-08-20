@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学研究科 2022年8月実施 数学 第2問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 $t$ を実数の独立変数、$x(t)$ と $y(t)$ を実数値関数として、以下の問いに答えよ。
@@ -47,24 +47,30 @@ $$
 以 $t$ 为实自变量，$x(t),y(t)$ 为实值函数。回答下列问题。
 
 （1）求常微分方程
+
 $$
 x''+2x'+x=\cos t
 $$
+
 在 $t\to-\infty$ 时有界的全部解。
 
 （2）求耦合方程组
+
 $$
 \begin{aligned}
 x''+2x'+x-y&=\cos t,\\
 y''+2y'+y-x&=0
 \end{aligned}
 $$
+
 在 $t\to-\infty$ 时有界的全部实解 $x(t),y(t)$。
 
 （3）通过适当变量代换，把
+
 $$
 e^{-t}x^2-2x'+x=0
 $$
+
 化为线性常微分方程，并求满足 $x(0)=1/2$ 的解。
 
 ## **Kai**
@@ -93,7 +99,7 @@ $$
 
 $$
 \begin{aligned}
-x = Ce^{-x} + Dxe^{-x}
+x = Ce^{-t} + Dte^{-t}
 \ \ \ \ \ \ \ \ ( C, D \text{ は積分定数 } )
 \end{aligned}
 $$
@@ -123,7 +129,7 @@ $$
 
 $$
 \begin{aligned}
-x = Ce^{-x} + Dxe^{-x} + \frac{1}{2} \sin (t)
+x = Ce^{-t} + Dte^{-t} + \frac{1}{2} \sin (t)
 \ \ \ \ \ \ \ \ ( C, D \text{ は積分定数 } )
 \end{aligned}
 $$

@@ -12,7 +12,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 筆記試験 第1問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff)
+[tomfluff](https://github.com/tomfluff), 祭音Myyura
 
 ## **Description**
 
@@ -133,7 +133,7 @@ Grayscale image, represented by $n\times n$ array of names `P` of `Pixels`. Each
 
 Given a group of points `G` and a given point `p=(i,j)` we will check on a copy of the points:
 1. If the current pixel does not exists in the remaining group we return 0.
-2. Else, we mark it as visited (change the brightness to 0 for example).
+2. Else, we mark it as visited.
 3. We will call on all neighbores we find recursively with the modified data (the visited point).
 4. we will add the number found by the recursion to 1 and continue.
 
@@ -143,92 +143,92 @@ Since it the part is strongly connected we will find all the number of pixels in
 - `pi`, `pj`: index i and j of the current pixel
 - `th`: the threshold
 ```
-function size_of_area(P, pi, pj, th):
-    if P[i,j].brightness < th:
-        return 0
-    P[i,j].brightness = 0
+function size_of_area(P, pi, pj, th, visited):
+    if pi < 0 or pi >= n or pj < 0 or pj >= n: return 0
+    if visited[pi,pj] or P[pi,pj].brightness <= th: return 0
+    visited[pi,pj] = true
     val = 1
-    i = -1
-    while i < 2
-        j = -1
-        while j < 2
-            if i == 0 and j == 0:
-                continue
-            val = val + size_of_area(P, pi+i, pj+j, th)
-            j = j + 1
-        i = i + 1
+    for di = -1 to 1:
+        for dj = -1 to 1:
+            if di != 0 or dj != 0:
+                val += size_of_area(P, pi+di, pj+dj, th, visited)
     return val
 ```
 
-Time complexity would be $O(n)$, since we go over all pixels once at most.
+Call the function with an $n\times n$ all-false `visited` array.
+
+The worst-case time and space are $O(n^2)$, since each of the $n^2$ pixels is visited at most once.
 
 ### (2)
-Using Single Source Shortest Path algorithm we will find the weight of the shortesdt path from `p1` to `p2`. Given the assumptions all weights are non-negative thus we can use the Dijkstra algorithm.
+Using a single-source shortest-path algorithm, we find the minimum-brightness path from `p1` to `p2`. All weights are nonnegative, so Dijkstra's algorithm applies.
 
 Let us define:
-- `PQ`: minimum pariority queue of `(key, value)` where key is the pixel and value is the shortest path to it. 
+- `PQ`: minimum priority queue of `(distance, pixel)` pairs.
 - `W`: weight array for all pixels.
 
 ```
 function lowest_sum_of_connection(P, p1, p2):
-    PQ = [(p1,p1.brightness)]
-    W = [inf] // array with weight infinity
-    prior = [null] // array with prior pixels of the shortest path
-
+    W[*] = infinity; prior[*] = null
+    W[p1] = p1.brightness
+    PQ = [(W[p1], p1)]
     while PQ not empty:
-        p0 = PQ.pop() // lowest value (key,value) pair
-        i = -1
-        while i < 2:
-            j = -1:
-            while j < 2:
-                if i == 0 and j == 0:
-                    continue
-                if p0.j+j < n or p0.i+i < n:
-                    continue
-                if W[p0.i+i,p0.j+j] > p0.value + P[p0.i+i,p0.j+j].brightness:
-                    PQ.insert((P[p0.i+i,p0.j+j], p0.value + P[p0.i+i,p0.j+j].brightness))
-                    prior[p0.i+i,p0.j+j] = p0
-                j = j + 1
-            i = i + 1
-
-        if p0 == p1:
-            return W[p1.i, p1.j]
+        (d, u) = PQ.pop_min()
+        if d != W[u]: continue
+        if u == p2: return path_from_prior(prior, p2)
+        for each valid eight-neighbor v of u:
+            nd = d + v.brightness
+            if nd < W[v]:
+                W[v] = nd; prior[v] = u
+                PQ.insert((nd, v))
 
 ```
 Time complexity is $O(n^2\cdot log\space n)$ since there are at most $O(n^2)$ inserts to the PQ and each insert takes $O(log\space n)$.
 
 ### (3)
-Similarly to (2) we the SSSP algorithm, but we will create an new start pixel `s` which will have brightless set to 0 and is connected with all pixels in the first row. 
+Because the path contains exactly one pixel in each row, the graph is acyclic from one row to the next and dynamic programming is more efficient than general SSSP.
 
 ```
 function best_vertical_partition(P):
-    PQ = [(s,0])]
-    W = [inf] // array with weight infinity
-    prior = [null] // array with prior pixels of the shortest path
-
-    i = 0
-    while i < n:
-        PQ.insert((P[0,i],P[0,i].brightness))
-    while PQ not empty:
-        p0 = PQ.pop() // lowest value (key,value) pair
-        i = 1
-        j = -1
-        while j < 2:
-            if p0.j+j < n or p0.i+i < n:
-                continue
-            if W[p0.i+i,p0.j+j] > p0.value + P[p0.i+i,p0.j+j].brightness:
-                PQ.insert((P[p0.i+i,p0.j+j], p0.value + P[p0.i+i,p0.j+j].brightness))
-                prior[p0.i+i,p0.j+j] = p0
-            j = j + 1
-    
-    best_p = min(P[n,j]) // for 0 <= j < n
-    return path_from_prior(prior, best_p)
+    for j = 0 to n-1: W[0,j] = P[0,j].brightness
+    for i = 1 to n-1:
+        for j = 0 to n-1:
+            q = argmin W[i-1,q] over valid q in {j-1,j,j+1}
+            W[i,j] = P[i,j].brightness + W[i-1,q]
+            prior[i,j] = q
+    j = argmin W[n-1,j]
+    return path obtained by following prior from (n-1,j)
 ```
-Time complexity is as before $O(n^2\cdot log\space n)$
+The time and path-reconstruction space are $O(n^2)$.
+
+#### Alternative: Dijkstra's algorithm with a super-source
+
+Add a vertex $s$ with an edge of weight `P[0,j].brightness` to every
+top-row pixel `(0,j)`. For each pixel `(i,j)` with $i<n-1$, add edges to
+the valid pixels `(i+1,j-1)`, `(i+1,j)`, and `(i+1,j+1)`, assigning each
+edge the brightness of its destination. A shortest path from $s$ to the
+last row is then a minimum-brightness vertical partition.
+
+```
+function best_vertical_partition_dijkstra(P):
+    W[*] = infinity; prior[*] = null
+    W[s] = 0
+    PQ = [(0, s)]
+    while PQ not empty:
+        (d, u) = PQ.pop_min()
+        if d != W[u]: continue
+        for each outgoing edge (u,v) of weight c:
+            if d + c < W[v]:
+                W[v] = d + c
+                prior[v] = u
+                PQ.insert((W[v], v))
+    j = argmin W[n-1,j]
+    return path obtained by following prior from (n-1,j), omitting s
+```
+
+The graph has $n^2+1$ vertices and $O(n^2)$ edges, so a binary-heap
+implementation takes $O(n^2\log n)$ time and $O(n^2)$ space.
 
 ### (4)
-<u>Note:</u> I truly am not sure I understood this question correctly, the definitions are not clear and something is off so I don't know how good is my solution.
-
 Assuming an image such as the internal points (blue) are all pixels in range $(i,j),\space i\in[1,n-2],\space j\in[1,n-2]$. And the external points (red) are on the edges of the pixel matrix.
 
 <figure style="text-align:center;">
@@ -236,13 +236,20 @@ Assuming an image such as the internal points (blue) are all pixels in range $(i
 </figure>
 
 We define $x'=\frac{1}{8}\mathbf{A}x+\frac{1}{8}\mathbf{B}b$ for vectors $x$ and $b$. Such that:
-- $\mathbf{A}$ is a ${0,1}$ matrix of dimension $(n-2)^2\times (n-2)^2$ which every row defines which values from $x$ will participate in the value for $x'$
-- $\mathbf{B}$ is a ${0,1}$ matrix of dimension $(n-2)^2\times 2(2n-2)$ where each row defines which elements from $b$ will participate in $x'$
+- $\mathbf{A}$ is a ${0,1}$ matrix of dimension $(n-2)^2\times (n-2)^2$, with $A_{uv}=1$ exactly when internal pixels $u,v$ are neighbors.
+- $\mathbf{B}$ is a ${0,1}$ matrix of dimension $(n-2)^2\times 2(2n-2)$, with $B_{uv}=1$ exactly when internal pixel $u$ and boundary pixel $v$ are neighbors.
 
 ### (5)
-When the method in (4) is repeated, since the values of $b$ never change or update in a case where $b$ is not all `zero` the values of $x'$ will converge to $x^{inf}$.  Since $b$ does not change, the values will propogate through all internal pixels. When $b=\mathbf{0}$ $x'$ will converge to $\mathbf{0}$
+When the method in (4) is repeated, the boundary vector $b$ remains fixed and its values propagate through the internal pixels. In particular, when $b=\mathbf 0$, the internal vector converges to $\mathbf 0$.
 
+At the fixed point,
 
-$x^{\text{inf}}=\frac{1}{8}\mathbf{A}(\frac{1}{8}\mathbf{A}(...(\frac{1}{8}\mathbf{A}x+\frac{1}{8}\mathbf{B}b)...)+\frac{1}{8}\mathbf{B}b)+\frac{1}{8}\mathbf{B}b$
+$$
+x^{\mathrm{inf}}=\frac18(Ax^{\mathrm{inf}}+Bb).
+$$
 
-$x^{\text{inf}}=\frac{1}{8^{\infty}}\mathbf{A}^{\infty}x+\sum_{i=0}^{\infty}{\frac{1}{8^{i}}\mathbf{A}^{i}}\frac{1}{8^{i}}\mathbf{B}b$
+Since $\rho(A/8)<1$ for this finite grid with a fixed boundary, $8I-A$ is invertible. Therefore
+
+$$
+\boxed{x^{\mathrm{inf}}=(8I-A)^{-1}Bb}.
+$$

@@ -13,7 +13,7 @@ tags:
 
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -93,10 +93,10 @@ $$
 &= \left( 1 - \frac{1}{x} \right) dx
 \\
 \log |y|
-&= x - \log x + C_0
+&= x - \log |x| + C_0
 \\
 \therefore \ \ 
-y &= \frac{C e^x}{x}
+y &= \frac{C e^x}{x}\qquad(x\ne0)
 \end{aligned}
 $$
 
@@ -129,11 +129,11 @@ $dxdY = r dr d \theta$ である。
 $$
 \begin{aligned}
 I
-&= 2 \pi \int_0^a \sqrt{9a^2 - r^2} r dr
+&= 4 \pi \int_0^a \sqrt{9a^2 - r^2} r dr
 \\
-&= - \frac{2 \pi}{3} \left[ \left( 9a^2 - r^2 \right)^{3/2} \right]_0^a
+&= - \frac{4 \pi}{3} \left[ \left( 9a^2 - r^2 \right)^{3/2} \right]_0^a
 \\
-&= \frac{2}{3} \left( 16 \sqrt{2} - 27 \right) \pi a^3
+&= \frac{4}{3} \left( 27-16 \sqrt{2} \right) \pi a^3
 \end{aligned}
 $$
 

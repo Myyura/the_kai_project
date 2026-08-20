@@ -65,15 +65,18 @@ $|S(s,t)|\le C$，其中常数 $C$ 与 $n$ 无关。回答：
    a_i&9&-11&31&-23&21&27&-12&-11&29&-5&3
    \end{array}
    $$
+
 2. 给定任意 $k\in\{2,\ldots,n-1\}$，给出 $O(n)$ 时间算法，求使 $S(s,t)$ 最大的
    $s\in\{1,\ldots,k-1\}$ 与
    $t\in\{k+1,\ldots,n\}$。
 3. 利用分治法及第 2 问算法，给出 $O(n\log n)$ 时间的最大连续子数组和算法。
 4. 对 $i=1,\ldots,n$，令
    $M_i=\max_{1\le s\le i}S(s,i)$。证明对 $i=1,\ldots,n-1$，
+
    $$
    M_{i+1}=\max(M_i+a_{i+1},a_{i+1}),
    $$
+
    并据此给出 $O(n)$ 时间的最大连续子数组和算法。
 
 ## **Kai**
@@ -84,98 +87,129 @@ s = 3, t = 9, S(3, 9) = 62
 $$
 
 ### (2)
-The idea is simple, find the maximum sum starting from mid point ($k$) and ending at some point on left of mid, 
-then find the maximum sum starting from mid + 1 and ending with some point on right of mid + 1.
-Finally, combine the two and return the maximum among left, right and combination of both.
+The idea is to find the maximum sum ending at $k-1$ and starting somewhere to its left, then the maximum sum starting at $k+1$ and ending somewhere to its right. Since
+
+$$
+S(s,t)=S(s,k-1)+a_k+S(k+1,t),
+$$
+
+the two endpoints can be optimized independently, and the fixed term $a_k$ is added afterward.
 
 ```python
-def max_crossing_sum(A, s, t, k):
-    # 1. mid to left
+def max_crossing_sum(A, n, k):       # A is indexed from 1
     current_sum = 0
-    max_left_sum = -10000
-    for i in range(k, s - 1, -1):  # for i = k to s:
+    max_left_sum = -float("inf")
+    for i in range(k - 1, 0, -1):
         current_sum += A[i]
         if current_sum > max_left_sum:
             max_left_sum = current_sum
-    
-    # 2. mid to right
+            s = i
+
     current_sum = 0
-    max_right_sum = -10000
-    for i in range(k, t + 1):  # for i = k to t:
-        current_sum += A[i]
+    max_right_sum = -float("inf")
+    for j in range(k + 1, n + 1):
+        current_sum += A[j]
         if current_sum > max_right_sum:
             max_right_sum = current_sum
-    
-    return max(max_left_sum + max_right_sum - A[k], max_left_sum, max_right_sum)
+            t = j
+
+    return s, t, max_left_sum + A[k] + max_right_sum
 ```
 
-Obviously, the time complexity
+Both scans are linear, so the running time is $O(n)$.
 
 ### (3)
 The algorithm can be described as follows:
 
-- Divide the given array in two halves
-- Return the maximum of following three
-    - Maximum subarray sum in left half (Make a recursive call)
-    - Maximum subarray sum in right half (Make a recursive call)
-    - Maximum subarray sum such that the subarray crosses the midpoint (Algorithm in (2))
-
-```python
-def max_subarray_sum(A, s, t):
-    if s > t:
-        return -10000
-    
-    if s == t:
-        return A[s]
-    
-    k = (s + t) // 2
-    return max(max_subarray_sum(A, s, k - 1),
-               max_subarray_sum(A, k + 1, t),
-               max_crossing_sum(A, s, t, k))
-```
-
-The time complexity $T(n)$ is
+- Divide the interval at an interior midpoint $k$.
+- Recursively find the maximum subarray wholly in $[l,k-1]$ and wholly in $[k+1,r]$.
+- Use the two scans from (2) to find a maximum suffix $S(s,k-1)$ and a maximum prefix $S(k+1,t)$.
+- Return the best of the two recursive answers and the four possibilities containing $a_k$:
 
 $$
-\begin{aligned}
-T(n) = 2T(n/2) + O(n) = O(n \log n)
-\end{aligned}
+(k,k),\quad(s,k),\quad(k,t),\quad(s,t).
+$$
+
+Here $(s,k)$ has sum $S(s,k-1)+a_k$, $(k,t)$ has sum $a_k+S(k+1,t)$, and $(s,t)$ has sum $S(s,k-1)+a_k+S(k+1,t)$. For an interval of length at most two, inspect all its subarrays directly.
+
+```python
+def max_subarray(A, l, r):
+    if r - l + 1 <= 2:
+        candidates = [(l, l, A[l])]
+        if l < r:
+            candidates += [(r, r, A[r]), (l, r, A[l] + A[r])]
+        return max(candidates, key=lambda z: z[2])
+
+    k = (l + r) // 2
+    left_answer = max_subarray(A, l, k - 1)
+    right_answer = max_subarray(A, k + 1, r)
+
+    current_sum = 0
+    left_sum = -float("inf")
+    for i in range(k - 1, l - 1, -1):
+        current_sum += A[i]
+        if current_sum > left_sum:
+            left_sum, s = current_sum, i
+
+    current_sum = 0
+    right_sum = -float("inf")
+    for j in range(k + 1, r + 1):
+        current_sum += A[j]
+        if current_sum > right_sum:
+            right_sum, t = current_sum, j
+
+    candidates = [
+        left_answer,
+        right_answer,
+        (k, k, A[k]),
+        (s, k, left_sum + A[k]),
+        (k, t, A[k] + right_sum),
+        (s, t, left_sum + A[k] + right_sum),
+    ]
+    return max(candidates, key=lambda z: z[2])
+```
+
+Thus
+
+$$
+T(n)=T(\lfloor(n-1)/2\rfloor)+T(\lceil(n-1)/2\rceil)+O(n)
+=O(n\log n).
 $$
 
 ### (4)
-$M_{i+1}$ represents the subarray with the largest sum ending at $i+1$.
+$M_{i+1}$ is the largest sum of a subarray ending at $i+1$. Its calculation has two cases.
 
-The calculation of $M_{i+1}$ can be divided into two cases.
-
-If the sum of maximum subarray ending at $i$ is negative, then it should be discarded and hence $M_{i+1} = a_{i+1}$.
-
-If the sum of maximum subarray ending at $i$ is positive, then it should be included in the maximum subarray ending at $i+i$ and hence $M_{i+1} = M_{i} + a_{i+1}$.
-
-Combining the two cases we have
+If the maximum sum $M_i$ of a subarray ending at $i$ is negative, retaining it can only decrease the sum, so the best subarray ending at $i+1$ starts at $i+1$ and has sum $a_{i+1}$. If $M_i$ is nonnegative, appending $a_{i+1}$ to a subarray attaining $M_i$ gives the maximum. Therefore
 
 $$
 M_{i+1} = \max (M_i + a_{i+1}, a_{i+1})
 $$
 
-and the maixmum subarray sum $S(s,t)$ is
-
-$$
-S(s, t) = \max_{i} M_i
-$$
-
-The algorithm is described as follows:
+Every nonempty subarray ends at some $i$, so the required maximum is $\max_i M_i$.
 
 ```python
-def max_subarray_sum(A, n):
+def max_subarray_sum(A, n):          # A is indexed from 0
     dp = [0] * n
+    start = [0] * n
     dp[0] = A[0]
-    ans = dp[0]
+    start[0] = 0
+    best_sum = dp[0]
+    best_s = best_t = 0
 
     for i in range(1, n):
-        dp[i] = max(A[i], A[i] + dp[i-1])
-        ans = max(ans, dp[i])
-    
-    return ans
+        if A[i] > dp[i - 1] + A[i]:
+            dp[i] = A[i]
+            start[i] = i
+        else:
+            dp[i] = dp[i - 1] + A[i]
+            start[i] = start[i - 1]
+
+        if dp[i] > best_sum:
+            best_sum = dp[i]
+            best_s = start[i]
+            best_t = i
+
+    return best_s, best_t, best_sum
 ```
 
-Obviously, the time complexity is $O(n)$
+The loop is executed once for each element, so the running time is $O(n)$.

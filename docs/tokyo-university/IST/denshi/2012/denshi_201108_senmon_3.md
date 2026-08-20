@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2011年8月実施 専門 第3問
 
 ## **Author**
-[adj-matrix](https://github.com/adj-matrix)
+[adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
@@ -60,7 +60,7 @@ Describe an SQL statement for enumerating the name and the phone number of users
 | | File system | Database management systems |
 | :--- | :--- | :--- |
 | Data Independence | Couple with application code | Logical and physical data independence |
-| ACID | Suffer from issues | Minimizes redundancy and enforces consistency |
+| Transactions | Atomic updates and recovery must be implemented by each application | ACID transactions provide atomicity, consistency, isolation, and durability |
 | Concurrency | Implemented by application | Concurrent access managed automatically |
 | Security | Rely on OS protections | Offers granular security and integrity constraints |
 
@@ -71,7 +71,7 @@ Declarative; Comprehensive; Set-oriented; Standardized
 ### (3)
 
 ```sql
-Select U.Name, U.Phone_Number
+Select Distinct U.Name, U.Phone_Number
     From Users U, Lending_Status L, Books B
     Where U.UserID = L.UserID
     And L.BookID = B.BookID
@@ -82,7 +82,7 @@ Select U.Name, U.Phone_Number
 ### (4)
 
 $$
-\pi_{\text{Name}, \text{Phone\_Number}} \left( \sigma_{\text{Publisher}='A' \land (\text{Date} - \text{Lent\_Date} \ge 10)} \left( \text{Users} \bowtie \text{Lending\_Status} \bowtie \text{Books} \right) \right)
+\pi_{\text{Name}, \text{Phone\_Number}} \left( \sigma_{\text{Publisher}='A' \land (\text{current\_date} - \text{Lent\_Date} \ge 10)} \left( \text{Users} \bowtie \text{Lending\_Status} \bowtie \text{Books} \right) \right)
 $$
 
 Relationship:
@@ -90,6 +90,8 @@ Relationship:
 - Optimized execution: Apply the selection operations as early as possible.
 
 ### (5)
+
+A derived relation can be added as follows:
 
 ```sql
 Create table Author_Stats AS

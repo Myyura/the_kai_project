@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2021年8月実施 専門基礎A \[A-1\]
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 (1) 次の関数 $f(x)$ について以下の問に答えよ。
@@ -40,21 +40,27 @@ $$
 ### 题目描述
 
 1. 对函数
+
    $$
    f(x)=\sqrt{1-x^2}+\arcsin x,\qquad -1\le x\le1,
    $$
+
    回答：
    1. 求导函数 $f'(x)$；
    2. 求 $f'(1)$；
    3. 画出 $f(x)$ 的大致图像。
 2. 设 $D$ 为曲线 $y=x$ 与 $y=x^2$ 围成的区域，求
+
    $$
    I=\iint_D(x^2+y^2)\,dx\,dy.
    $$
+
 3. 对实数 $x$，求矩阵
+
    $$
    A=\begin{pmatrix}e^x&e^{-x}\\e^{-x}&e^x\end{pmatrix}
    $$
+
    的特征值及相应特征向量。
 
 ## **Kai**
@@ -75,14 +81,19 @@ $$
 #### ( b )
 
 $$
-\begin{aligned}
-f'(1) = 0
-\end{aligned}
+f'(1)=\lim_{x\uparrow1}\sqrt{\frac{1-x}{1+x}}=0.
 $$
 
 #### ( c )
 
-[図](https://www.wolframalpha.com/input?i=sqrt%281-x%5E2%29+%2B+arcsin%28x%29&lang=ja)
+$f(-1)=-\pi/2$, $f(0)=1$, $f(1)=\pi/2$ である。また $-1<x<1$ で
+
+$$
+f'(x)>0,\qquad
+f''(x)=-\frac{1}{(1+x)\sqrt{1-x^2}}<0.
+$$
+
+したがってグラフは全区間で単調増加かつ上に凸であり，$x=-1$ で鉛直接線，$x=1$ で水平接線をもつ。
 
 ### (2)
 

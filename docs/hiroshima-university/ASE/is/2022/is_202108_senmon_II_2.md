@@ -96,29 +96,16 @@ $$
 $$
 
 ### (5)
-Let $T(n)$ denote the expected time complexity of `Select` for a set of $b$ elements.
-Then,
+Assume that the input order is uniformly random, so the pivot rank is uniform. A pivot whose rank lies between $n/4$ and $3n/4$ occurs with probability at least $1/2$ and leaves at most $3n/4$ elements. Thus the expected cost before such a reduction is $O(n)$, and
 
 $$
-T(n) = \frac{1}{n} \sum_{i=1}^n T(i) + O(n)
+T(n)\leq T(3n/4)+O(n).
 $$
 
-$$
-T(n-1) = \frac{1}{n} \sum_{i=1}^{n-1} T(i) + O(n-1)
-$$
+Summing the resulting geometric series gives
 
 $$
-T(n) - T(n-1) = \frac{1}{n} T(n) + O(1)
+\boxed{T(n)=O(n)}.
 $$
 
-$$
-\frac{T(n)}{n} - \frac{T(n-1)}{n-1} = O(\frac{1}{n})
-$$
-
-$$
-\frac{T(n)}{n} = O(\frac{1}{n}) + O(\frac{1}{n-2}) + \cdots + O(1) = O(\log n)
-$$
-
-$$
-\therefore T(n) = O(n \log n)
-$$
+The worst case remains $O(n^2)$, as shown in (4).

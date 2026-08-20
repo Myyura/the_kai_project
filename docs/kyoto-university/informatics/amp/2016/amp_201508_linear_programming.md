@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2015年8月実施 線形計画
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -114,19 +114,13 @@ $$
 f(z) - f(\bar{x}) \geq \nabla f(\bar{x})^\top (z- \bar{x}) \geq v(p)
 $$
 
-Since
+Since P has an optimal solution, strong duality gives an optimal dual solution $\lambda^*$ and
 
 $$
-A\bar{x} \succeq b, \lambda ^\top (A\bar{x}-b) \geq 0
+v(p)=(\lambda^*)^\top(A\bar{x}-b)\geq0,
 $$
 
-thus
-
-$$
-v(p) \geq 0
-$$
-
-therefore
+because $A\bar{x}\succeq b$ and $\lambda^*\succeq0$. Therefore,
 
 $$
 f(z) \geq f(\bar{x})

@@ -49,23 +49,31 @@ $$
 
 1. 回答积分问题：
    1. 计算
+
       $$
       I=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}
       e^{-(x^2+y^2)}\,dx\,dy.
       $$
+
    2. 利用上问结果计算 Gaussian 积分
+
       $$
       J=\int_{-\infty}^{\infty}e^{-x^2}\,dx.
       $$
+
    3. Gamma 函数定义为
+
       $$
       \Gamma(x)=\int_0^\infty e^{-t}t^{x-1}\,dt.
       $$
+
       利用第 2 小问求 $\Gamma(\frac12)$。
 2. 给定
+
    $$
    A=\begin{bmatrix}0&1&2\\-2&3&2\\-1&1&3\end{bmatrix}.
    $$
+
    1. 求 $A$ 的全部特征值及相应特征向量。
    2. 对正整数 $n$，求 $A^n$。
 
@@ -90,7 +98,7 @@ $$
 I=\int _{0}^{2\pi }\frac{1}{2}\,d\theta =\frac{1}{2}[\theta ]_{0}^{2\pi }=\frac{1}{2}(2\pi )=\pi
 $$
 
-#### (2)
+#### (b)
 The integral $J=\int _{-\infty }^{\infty }e^{-x^{2}}dx$ can be related to $I$ by noting that $I=J^{2}$.
 
 $$

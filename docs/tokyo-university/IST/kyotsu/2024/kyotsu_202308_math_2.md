@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学研究科 2023年8月実施 数学 第2問
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Consider a function $f(s)$ defined by the following integral for positive real numbers $s$.
@@ -70,9 +70,11 @@ $$
 ### 题目描述
 
 对正实数 $s$，定义
+
 $$
 f(s)=\int_0^\infty t^{s-1}e^{-t}\,\mathrm dt.
 $$
+
 无需证明积分收敛。回答下列问题。
 
 （1）求 $f(1)$。
@@ -81,38 +83,49 @@ $$
 $e^t>t^n/n!$。
 
 - （a）对 $s>0$，证明
+
   $$
   \int_0^1t^{s-1}e^{-t}\,\mathrm dt<\frac1s.
   $$
+
 - （b）当 $n>s>0$ 时，证明对任意 $c>1$，
+
   $$
   \int_1^ct^{s-1}e^{-t}\,\mathrm dt
   <\frac{n!}{n-s}.
   $$
 
 （3）若
+
 $$
 f''(s)=\int_0^\infty g(t,s)e^{-t}\,\mathrm dt,
 $$
+
 求 $g(t,s)$；无需证明可交换微分和积分。
 
 （4）求
+
 $$
 D=\int_0^\infty(\log t)^2e^{-t}\,\mathrm dt
 -\left(\int_0^\infty(\log t)e^{-t}\,\mathrm dt\right)^2.
 $$
+
 可以使用
+
 $$
 \left.\frac{\mathrm d^2}{\mathrm ds^2}\log f(s)\right|_{s=1}
 =\frac{\pi^2}{6}.
 $$
 
 （5）对 $r,\alpha>0$ 定义
+
 $$
 p(r)=\frac r\alpha
 \exp\left(-\frac{r^2}{2\alpha}\right).
 $$
+
 求
+
 $$
 S=\int_0^\infty(\log r)^2p(r)\,\mathrm dr
 -\left(\int_0^\infty(\log r)p(r)\,\mathrm dr\right)^2.
@@ -137,48 +150,14 @@ So, $f(1) = 1$.
 
 ### (2)
 
-#### Part 1: Show that $\int_0^\infty t^{s-1} \exp(-t) \,\mathrm{d}t < \frac{1}{s}$ for positive real numbers $s$
+#### Part 1: Show that $\int_0^1 t^{s-1} \exp(-t) \,\mathrm{d}t < \frac{1}{s}$ for positive real numbers $s$
 
-To show this inequality, we start by considering the definition of $f(s)$:
-
-$$
-f(s) = \int_0^\infty t^{s-1} \exp(-t) \,\mathrm{d}t.
-$$
-
-The problem gives us the inequality $\exp(t) > \frac{t^n}{n!}$ for any positive real number $t$ and non-negative integer $n$. Taking the reciprocal and considering the exponential function in the integrand:
+For $t>0$, $e^{-t}<1$. Hence, since $s>0$,
 
 $$
-\exp(-t) < \frac{n!}{t^n}.
-$$
-
-Substituting this into the integral, we obtain:
-
-$$
-f(s) = \int_0^\infty t^{s-1} \exp(-t) \,\mathrm{d}t < \int_0^\infty t^{s-1} \frac{n!}{t^n} \,\mathrm{d}t = n! \int_0^\infty t^{s-n-1} \,\mathrm{d}t.
-$$
-
-The integral $\int_0^\infty t^{s-n-1} \,\mathrm{d}t$ converges when $s-n > 0$. Evaluating this integral:
-
-$$
-\int_0^\infty t^{s-n-1} \,\mathrm{d}t = \frac{1}{s-n}.
-$$
-
-Thus, the inequality becomes:
-
-$$
-f(s) < \frac{n!}{s-n}.
-$$
-
-Now, by setting $n=1$, we obtain:
-
-$$
-f(s) < \frac{1!}{s-1} = \frac{1}{s}.
-$$
-
-Therefore, we have shown that:
-
-$$
-\int_0^\infty t^{s-1} \exp(-t) \,\mathrm{d}t < \frac{1}{s}.
+\int_0^1 t^{s-1}e^{-t}\,\mathrm{d}t
+<\int_0^1 t^{s-1}\,\mathrm{d}t
+=\frac1s.
 $$
 
 #### Part 2: Show that $\int_1^c t^{s-1} \exp(-t) \,\mathrm{d}t < \frac{n!}{n-s}$ for $n > s > 0$ and $c > 1$
@@ -430,13 +409,13 @@ $$
 so:
 
 $$
-\left(\mathbb{E}[\log r]\right)^2 = \frac{1}{4} \left[\log(2\alpha)\right]^2 - \gamma \log(2\alpha) + \frac{\gamma^2}{4}.
+\left(\mathbb{E}[\log r]\right)^2 = \frac{1}{4} \left[\log(2\alpha)\right]^2 - \frac{\gamma}{2} \log(2\alpha) + \frac{\gamma^2}{4}.
 $$
 
 Subtracting:
 
 $$
-S = \frac{1}{4} \left[\log(2\alpha)\right]^2 - \gamma \log(2\alpha) + \frac{1}{4} \left(\gamma^2 + \frac{\pi^2}{6}\right) - \left(\frac{1}{4} \left[\log(2\alpha)\right]^2 - \gamma \log(2\alpha) + \frac{\gamma^2}{4}\right).
+S = \frac{1}{4} \left[\log(2\alpha)\right]^2 - \frac{\gamma}{2} \log(2\alpha) + \frac{1}{4} \left(\gamma^2 + \frac{\pi^2}{6}\right) - \left(\frac{1}{4} \left[\log(2\alpha)\right]^2 - \frac{\gamma}{2} \log(2\alpha) + \frac{\gamma^2}{4}\right).
 $$
 
 Simplifying:

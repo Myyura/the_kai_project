@@ -46,7 +46,7 @@ A graph is said to be **1-planar** if it can be drawn in the Euclidean plane in 
 ### (1)
 The graph $K_5$ (complete graph of $5$ vertices) is not planar but 1-planar (Fig 1.)
 
-##### <center> Fig 1.
+##### <center> Fig 1.</center>
 <figure style="text-aligned:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202108_senmon_I_4_p1.png" width="450" height="423" alt=""/>
 </figure>
@@ -70,7 +70,7 @@ Edge $AF$ can be constructed by crossing $BE$, edge $DF$ can be constructed by c
 Hence the result.
 
 ### (3)
-(意味不明な設問)
+$K_5$ では任意の2頂点が隣接するため、5頂点を相異なる色で塗ればよい。
 
 - A: a
 - B: b

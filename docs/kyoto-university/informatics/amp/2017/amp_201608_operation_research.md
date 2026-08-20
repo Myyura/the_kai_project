@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2016年8月実施 オペレーションズ・リサーチ
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -116,30 +116,40 @@ $$
 完成以下各问：
 
 1. 在
+
    $$
    \boldsymbol z^\top\boldsymbol A^\top\boldsymbol A\boldsymbol z\leq4
    $$
+
    的条件下，利用 Karush–Kuhn–Tucker（KKT）条件求 $\mathrm{P1}(\boldsymbol z)$ 的最优解 $\boldsymbol x^1(\boldsymbol z)$；注意该问题是最大化问题。
 2. 利用 KKT 条件求 $\mathrm{P3}(\boldsymbol z)$ 的最优解
+
    $$
    \bigl(\boldsymbol x^3(\boldsymbol z),\boldsymbol y^3(\boldsymbol z)\bigr).
    $$
+
 3. 分别判断下列命题的真伪；若为真则证明，若为假则给出反例：
    1. 令
+
       $$
       p(\boldsymbol z)=f\bigl(\boldsymbol x^1(\boldsymbol z),\boldsymbol z\bigr),
       $$
+
       则 $p:\mathbb R^n\to\mathbb R$ 是凸函数。
    2. 令
+
       $$
       q(\boldsymbol z)=g\bigl(\boldsymbol x^2(\boldsymbol z),\boldsymbol z\bigr),
       $$
+
       则 $q:\mathbb R^n\to\mathbb R$ 是凸函数。
    3. 令
+
       $$
       r(\boldsymbol z)
       =h\bigl(\boldsymbol x^3(\boldsymbol z),\boldsymbol y^3(\boldsymbol z)\bigr),
       $$
+
       则 $r:\mathbb R^n\to\mathbb R$ 是凸函数。
 
 ## **Kai**
@@ -155,21 +165,21 @@ $$
 Lagrantian:
 
 $$
-L(x, \lambda) = x^\top x - z^\top Ax - \lambda (x^\top x  -1)
+L(x, \lambda) = x^\top x - z^\top Ax + \lambda (x^\top x  -1)
 $$
 
 $$
 \text{KKT-conditions: } \left\{
 \begin{aligned}
-(z+2\lambda)x^* -z^\top A &= 0 \\
-\lambda   \succeq \boldsymbol{0}, \nu &\succeq \boldsymbol{0} \\
- \lambda \geq 0, (x^*)^2 - 1 &\leq 0 \\
-\lambda ((x^*)^2 - 1) &= 0
+2(1+\lambda)x^* -A^\top z &= 0, \\
+\lambda &\geq 0, \\
+(x^*)^\top x^* - 1 &\leq 0, \\
+\lambda ((x^*)^\top x^* - 1) &= 0.
 \end{aligned}
 \right.
 $$
 
-easy to see $x^{*\top} = \frac{z^\top A}{2}, \lambda = 0$ satisfies KKT-conditions.
+Since $\|A^\top z\|^2=z^\top AA^\top z=z^\top A^\top Az\leq4$, $x^*=A^\top z/2$ is feasible and, with $\lambda=0$, satisfies the KKT conditions.
 
 $$
 x^1(z) = \frac{A^\top z}{2}
@@ -187,7 +197,7 @@ $$
 Lagrangian:
 
 $$
-L(x,y,\mu) = x^\top x + y^\top y + \mu (x+y - z)
+L(x,y,\mu) = x^\top x + y^\top y + \mu^\top (x+y - z)
 $$
 
 $$
@@ -200,20 +210,26 @@ x^* + y^* - z &= \boldsymbol{0} \\
 \right.
 $$
 
-$x^* = y^* = \frac{1}{2} z , \mu = -\frac{1}{2} z$ satisfies KKT-conditions, and we get minimum $\frac{1}{2} z^\top z$
+$x^* = y^* = \frac{1}{2} z , \mu = -z$ satisfies the KKT conditions, and the minimum is $\frac{1}{2} z^\top z$.
 
 ### (iii)
 #### (a)
-Let $n = 1$ , then easy to see that the function is not conves.
+The statement is true. For each feasible $x$, $-x^\top x+z^\top Ax$ is affine in $z$. Therefore,
+
+$$
+p(z)=\max_{x^\top x\leq1}\{-x^\top x+z^\top Ax\}
+$$
+
+is the pointwise supremum of affine functions and hence is convex.
 
 #### (b)
-Easy to see $x_2(z) = -\frac{1}{2} A^\top z$ . Then
+The statement is false. We have $x^2(z) = -\frac{1}{2} A^\top z$, and hence
 
 $$
-g(x_2(z),z) = -\frac{1}{4} z^\top AA^\top z + z^\top z
+q(z) = -\frac{1}{4} z^\top AA^\top z + z^\top z.
 $$
 
-when $-\frac{1}{4} A^\top A + I \prec \boldsymbol{0}$ , $q$ is not convex.
+For example, $A=3I$ is positive definite and gives $q(z)=-\frac54 z^\top z$, which is not convex.
 
 #### $(c)$
 $h = \frac{1}{2} z^\top z$ , obviously, it's convex

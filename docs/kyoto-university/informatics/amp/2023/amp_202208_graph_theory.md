@@ -109,12 +109,14 @@ $$
 回答：
 
 1. 对任意 $(s,t)$ 流 $f$ 和 $(s,t)$ 割 $X$，证明
+
    $$
    \operatorname{val}(f)=
    \sum_{e\in E(X,V\setminus X)}f(e)
    -\sum_{e\in E(V\setminus X,X)}f(e)
    \le\operatorname{cap}(X).
    $$
+
 2. 说明如何为给定流 $f$ 构造残量网络
    $N_f=[G_f=(V,E_f),c_f]$。
 3. 若 $N_f$ 不含从 $s$ 到 $t$ 的有向路，令 $S$ 为其中从 $s$ 可达的顶点集。证明
@@ -134,7 +136,7 @@ then we have
 $$
 \begin{aligned}
 \text{val}(f) &= \sum_{e\in E(\{s\}, V \setminus \{s\})} f(e) - \sum_{e\in E(V \setminus \{s\}, \{s\})} f(e) \\
-&= \sum_{v \in V} f(s, v) - \sum_{v \in V} f(v, s) + \sum_{u \in X - \{s\}} \Big(\sum_{v \in V} f(u, v) - \sum_{v \in v} f(v, u) \Big)
+&= \sum_{v \in V} f(s, v) - \sum_{v \in V} f(v, s) + \sum_{u \in X - \{s\}} \Big(\sum_{v \in V} f(u, v) - \sum_{v \in V} f(v, u) \Big)
 \end{aligned}
 $$
 
@@ -162,23 +164,16 @@ $$
 $$
 
 ### (ii)
-We define the residual capacity $c_f (u, v)$ by
+For every original edge $e=(u,v)\in E$, introduce the following labeled residual edges whenever their capacities are positive:
 
 $$
-c_f(u,v) = \left\{
-    \begin{aligned}
-    &c(u,v) - f(u, v) &\text{if } (u, v) \in E \\
-    &f(v, u)  &\text{if } (v, u) \in E \\
-    &0 &\text{otherwise.}
-    \end{aligned}
-\right.
+\begin{aligned}
+e^+=(u,v),&\qquad c_f(e^+)=c(e)-f(e),\\
+e^-=(v,u),&\qquad c_f(e^-)=f(e).
+\end{aligned}
 $$
 
-and the edge set $E_f$ by
-
-$$
-E_f = \{(u,v) \in V \times V \ \mid \  c_f(u,v) > 0\}
-$$
+The collection of these labeled residual edges is $E_f$; coincident ordered endpoints are kept as distinct residual edges.
 
 ### (iii)
 To prove $\text{val}(f) = \text{cap}(S)$, we prove the following two conditions:
@@ -206,56 +201,10 @@ $$
 $$
 
 ### (iv)
-Prove by contradiction: W.l.o.g we assume that there exists only one vertex $v^* \in S \cap (V \setminus X)$, i.e. $S \setminus X = \{v^*\}$.
-
-From the flow conservation law we have
+By (i) and (iii), $f$ is a maximum flow and
 
 $$
-\begin{aligned}
-\sum_{u \in V} f(u, v^*) &= \sum_{u \in V} f(v^*, u) \\
-\sum_{u \in S \cap X} f(u, v^*) + \sum_{u \in V \setminus S} f(u, v^*) &= \sum_{u \in S \cap X} f(v^*, u) + \sum_{u \in V \setminus S} f(v^*, u)
-\end{aligned}
+\operatorname{val}(f)=\operatorname{cap}(S)=\operatorname{cap}(X).
 $$
 
-From (iii) we know that
-
-$$
-\sum_{u \in V \setminus S} f(u, v^*) = 0
-$$
-
-and
-
-$$
-\sum_{u \in V \setminus S} f(v^*, u) = \sum_{u \in V \setminus S} c(v^*, u)
-$$
-
-Hence we have
-
-$$
-\sum_{u \in V \setminus S} c(v^*, u) = \sum_{u \in S \cap X} f(u, v^*) - \sum_{u \in S \cap X} f(v^*, u)
-$$
-
-Since $v^*$ is reachable from $s$ in $N_f$, we know that either
-
-(a) there exists an edge $u v^*, u \in S \cap X$ such that $c_f(u v^*) > 0$, i.e., $f(u, v^*) < c(u, v^*)$
-
-or
-
-(b) there exists an edge $v^* u, u \in S \cap X$ such that $c_f(v^* u) > 0$. i.e., $f(v^*, u) > 0$
-
-Both cases imply that
-
-$$
-\sum_{u \in V \setminus S} c(v^*, u) < \sum_{u \in S \cap X} c(u, v^*) 
-$$
-
-Then we consider the capacity of cut $X \cup \{v^*\}$
-
-$$
-\begin{aligned}
-\text{Cap}(X \cup \{v^*\}) &= \text{Cap} (X) + \sum_{u \in V \setminus S} c(v^*, u) - \sum_{u \in S \cap X} c(u, v^*) \\
-&< \text{Cap} (X)
-\end{aligned}
-$$
-
-which is contradictory to the fact that $X$ is a minimum cut.
+Equality in (i) for the cut $X$ implies that every original edge leaving $X$ is saturated and every original edge entering $X$ carries zero flow. Therefore, no forward or backward residual edge leaves $X$. Since $s\in X$, every vertex residual-reachable from $s$ belongs to $X$. Hence $S\subseteq X$, so no vertex in $V\setminus X$ is reachable from $s$.

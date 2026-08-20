@@ -11,7 +11,7 @@ tags:
 # 九州大学 工学府 量子物理工学専攻 2021年8月実施 数学 問題1
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -37,18 +37,25 @@ $$
 **[2] 多重积分**：
 
 1. 对单位圆盘
+
    $$
    R=\{(x,y)\mid x^2+y^2\le1\},
    $$
+
    计算
+
    $$
    \iint_R(1-x^2-y^2)\,dx\,dy.
    $$
+
 2. 对第一卦限四面体
+
    $$
    R=\{(x,y,z)\mid x,y,z\ge0,\ x+y+z\le a\},
    $$
+
    计算
+
    $$
    \iiint_R(x+y+z)\,dx\,dy\,dz.
    $$
@@ -80,7 +87,7 @@ $$
 &= -(b+1)(b-2)(b-3)
 \\
 \therefore \ \ 
-\lambda &= -1, 2, 3
+b &= -1, 2, 3
 \end{aligned}
 $$
 
@@ -174,7 +181,7 @@ $$
   \\
   &= P \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix} P^{-1}
   \\
-  &= \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ - \frac{1}{2} & 1 & 0
+  &= \begin{pmatrix} 0 & 0 & 0 \\ - \frac{1}{2} & 1 & 0 \\ 0 & 0 & 0
   \end{pmatrix}
   \end{aligned}
 $$
@@ -212,13 +219,13 @@ $$
 $$
 \begin{aligned}
 \iiint_R \left( x+y+z \right) dx dy dz
-&= \int_0^a t S(t) dt
+&= \int_0^a t \frac{S(t)}{\lvert \nabla(x+y+z)\rvert} dt
 \\
-&= \frac{\sqrt{3}}{2} \int_0^a t^3 dt
+&= \frac{1}{2} \int_0^a t^3 dt
 \\
-&= \frac{\sqrt{3}}{2} \left[ \frac{t^4}{4} \right]_0^a
+&= \frac{1}{2} \left[ \frac{t^4}{4} \right]_0^a
 \\
-&= \frac{\sqrt{3}}{8} a^4
+&= \frac{a^4}{8}
 \end{aligned}
 $$
 

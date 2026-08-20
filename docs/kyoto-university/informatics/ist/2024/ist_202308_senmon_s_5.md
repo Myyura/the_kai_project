@@ -48,17 +48,21 @@ $x_0[n]$ の４点離散フーリエ変換を計算し、周波数（Hz）に対
 ### 题目描述
 
 1. 二维信号的 Fourier 变换为
+
    $$
    F(u,v)=\iint f(x,y)e^{-j(ux+vy)}\,dx\,dy.
    $$
+
    向某轴的投影定义为沿垂直该轴的直线对 $f$ 作线积分。
    1. 令 $p(x)$ 为向 $x$ 轴的投影，用 $F(u,v)$ 表示 $p$ 的一维 Fourier 变换。
    2. 将 $x$ 轴绕原点逆时针旋转 $\theta$ 得 $s$ 轴，向其投影为 $p_\theta(s)$。用 $F(u,v)$ 表示它关于 $s$ 的一维 Fourier 变换。
 2. 长度 $N$（正偶数）的序列 $x[n]$ 的 DFT 为
+
    $$
    X[k]=\sum_{n=0}^{N-1}x[n]W_N^{kn},\qquad
    W_N=e^{-j2\pi/N}.
    $$
+
    1. $x_0=\{1,2,1,-2\}$ 由 $4000\,\mathrm{Hz}$ 等间隔采样得到。计算 4 点 DFT，并按对应 Hz 画振幅谱、相位谱。
    2. 推导如何用一次 $N$ 点 DFT 同时计算两个长度 $N$ 的实序列 $x_1,x_2$ 的 DFT。
    3. 推导如何用一次 $N$ 点 DFT 计算长度 $2N$ 的实序列的 $2N$ 点 DFT。
@@ -81,7 +85,7 @@ $$
 $$
 
 #### (2)
-Let $(s,t)$ denote the coordinates obtained by rotating $(x, y)$ counterclockwise by an angle $\theta$. Then we have
+Let $(s,t)$ be coordinates along the axis rotated counterclockwise by $\theta$ and its perpendicular axis. Then
 
 $$
 \begin{pmatrix}
@@ -90,8 +94,8 @@ t
 \end{pmatrix}
 =
 \begin{pmatrix}
-\cos\theta&-\sin\theta\\
-\sin\theta&\cos\theta
+\cos\theta&\sin\theta\\
+-\sin\theta&\cos\theta
 \end{pmatrix}
 \begin{pmatrix}
 x\\
@@ -114,14 +118,13 @@ J =
 = \cos^{2}\theta+\sin^{2}\theta = 1
 $$
 
-we know that $f(x,y)dxdy{=}f(s,t)dsdt$. Hence the 1D Fourier transform of $p_{\theta}(x)$ is
+we have $dxdy=dsdt$. Hence the 1D Fourier transform of $p_{\theta}(s)$ is
 
 $$
 \begin{aligned}
-\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(s,t)dt\right)e^{-jus}ds
-&= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(s,t)e^{-j(us+0\cdot t)}dsdt\\
-&= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)e^{-j(u\cos\theta x+(-u\sin\theta)y)}dxdy\\
-&= F(u\cos\theta, -u\sin\theta)
+\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}f(s\cos\theta-t\sin\theta,s\sin\theta+t\cos\theta)dt\right)e^{-jus}ds
+&= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)e^{-ju(x\cos\theta+y\sin\theta)}dxdy\\
+&= F(u\cos\theta, u\sin\theta).
 \end{aligned}
 $$
 
@@ -171,11 +174,21 @@ x[3]
 \end{pmatrix}
 $$
 
-##### <center> Fig. magnitude and phase spectra
+##### <center> Fig. magnitude and phase spectra</center>
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202308_senmon_s_5_p1.png" width="600" height="220" alt=""/>
 </figure>
+
+The phase labels at $1000$ Hz and $3000$ Hz in the figure are interchanged. With phases in $[0,2\pi)$, the correct spectra are
+
+$$
+\begin{array}{c|cccc}
+f\ (\mathrm{Hz})&0&1000&2000&3000\\ \hline
+|X[k]|&2&4&2&4\\
+\arg X[k]&0&3\pi/2&0&\pi/2
+\end{array}
+$$
 
 #### (2)
 
@@ -209,13 +222,13 @@ $$
 Y[k]
 &= \sum_{n=0}^{N-1}(x_{1}[n]+j x_{2}[n])W_{N}^{kn} \nonumber \\
 &= \sum_{n=0}^{N-1}x_{1}[n]W_{N}^{kn}+j\sum_{n=0}^{N-1}x_{2}[n]W_{N}^{kn} \nonumber \\
-&= X_{1}[k]+iX_{2}[k] \nonumber \\
+&= X_{1}[k]+jX_{2}[k] \nonumber \\
 &= (\text{Re } X_{1}[k]+j\text{Im } X_{1}[k])+j(\text{Re } X_{2}[k]+j \text{Im } X_{2}[k]) \nonumber \\
 &= (\text{Re } X_{1}[k]-\text{Im } X_{2}[k])+j(\text{Im } X_{1}[k]+\text{Re } X_{2}[k]) \tag{ii}
 \end{align}
 $$
 
-By (i) we know that
+By (j) we know that (with indices understood modulo $N$)
 
 $$
 \begin{align}
@@ -239,42 +252,24 @@ X_{2}[k] = \frac{\text{Im } Y[k]+\text{Im } Y[N-k]}{2}-j\frac{\text{Re } Y[k]-\t
 $$
 
 #### (3)
-By definition we know that $W_{N}^{2kn}{=}W_{N/2}^{kn}$ and $W_{N}^{kN}{=}1$, hence we have
+Separate the even and odd samples into the two real sequences
+
+$$
+a[n]=x[2n],\qquad b[n]=x[2n+1],\qquad 0\leq n<N.
+$$
+
+Use the method in (2) to obtain their $N$-point DFTs $A[k]$ and $B[k]$ from one $N$-point DFT of $a[n]+jb[n]$. Then, for $0\leq k<N$,
 
 $$
 \begin{aligned}
-X[2k]
-&= \sum_{n=0}^{N-1}x[n]W_{2N}^{2kn}+\sum_{n=N}^{2N-1}x[n]W_{2N}^{2kn}\\
-&= \sum_{n=0}^{N-1}x[n]W_{2N}^{2kn}+\sum_{n=0}^{N-1}x[n+N]W_{2N}^{2k(n+N)}\\
-&= \sum_{n=0}^{N-1}x[n]W_{N}^{kn}+\sum_{n=0}^{N-1}x[n+N]W_{N}^{k(n+N)}\\
-&= \sum_{n=0}^{N-1}x[n]W_{N}^{kn}+\sum_{n=0}^{N-1}x[n+N]W_{N}^{kn}\\
-&= \sum_{n=0}^{N-1}(x[n]+x[n+N])W_{N}^{kn}\\
+X[k]
+&=\sum_{n=0}^{N-1}a[n]W_{2N}^{2kn}
++W_{2N}^{k}\sum_{n=0}^{N-1}b[n]W_{2N}^{2kn}\\
+&=A[k]+W_{2N}^{k}B[k],\\
+X[k+N]
+&=A[k]+W_{2N}^{k+N}B[k]
+=A[k]-W_{2N}^{k}B[k].
 \end{aligned}
 $$
 
-Similarly, since $W_{2N}^{N}{=}{-}1$, we have
-
-$$
-\begin{aligned}
-X[2k+1]
-&= \sum_{n=0}^{N-1}x[n]W_{2N}^{(2k+1)n}+\sum_{n=0}^{N-1}x[n+N]W_{2N}^{(2k+1)(n+N)}\\
-&= \sum_{n=0}^{N-1}\left(x[n]+x[n+N]W_{2N}^{(2k+1)N}\right)W_{2N}^{(2k+1)n}\\
-&= \sum_{n=0}^{N-1}\left(x[n]+x[n+N]W_{2N}^{N}\right)W_{2N}^{2kn}W_{2N}^{n}\\
-&= \sum_{n=0}^{N-1}\left(x[n]-x[n+N]\right)W_{2N}^{n}W_{N}^{kn}
-\end{aligned}
-$$
-
-Therefore, let $y[n]{=}x[n]{+}x[n+N]$ and $z[n]{=}x[n]{-}x[n+N]$, we have
-
-$$
-\begin{aligned}
-\begin{cases}
-X[2k] = \sum_{n=0}^{N-1}y[n]W_{N}^{kn}\\
-X[2k] = \sum_{n=0}^{N-1}y[n]W_{2N}^{n}W_{N}^{kn}
-\end{cases}
-\end{aligned}
-$$
-
-which implies that $2N$-point discrete Fourier transforms can be obtained using two executions of the $N$-point Fourier transform.
-
-By using the result from the previous question (2), it has been demonstrated that the $N$-point discrete Fourier transforms of two different sequences can be obtained using a single execution of the $N$-point Fourier transform, thereby showing that a $2N$-point discrete Fourier transform can be obtained using a single execution of the $N$-point Fourier transform.
+Thus all $2N$ DFT values are recovered from that single $N$-point DFT.

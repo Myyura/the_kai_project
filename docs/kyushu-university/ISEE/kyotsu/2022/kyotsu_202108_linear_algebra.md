@@ -8,7 +8,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2021年8月実施 線形代数
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 $n$ 次元ユークリッド空間上の $n+1$ 個の点 $\boldsymbol{p}_1,\boldsymbol{p}_2,...,\boldsymbol{p}_{n+1} \in \mathbb{R}_n$ に対し，$2$ 点 $\boldsymbol{p}_i, \boldsymbol{p}_j$ 間のユークリッド距離を $d_{i,j} = \|\boldsymbol{p}_i - \boldsymbol{p}_j\|$ で表す．ただし，各 $\boldsymbol{p}_i$ は列ベクトルである．
@@ -112,7 +112,7 @@ $$
 $$
 \begin{aligned}
 g_{i,j}
-&= d_{i,n+1}^2 + d_{j,n+1}^2 - d_{i,j}
+&= d_{i,n+1}^2 + d_{j,n+1}^2 - d_{i,j}^2
 \\
 &= \left| \boldsymbol{p}_i - \boldsymbol{p}_{n+1} \right|^2
 + \left| \boldsymbol{p}_j - \boldsymbol{p}_{n+1} \right|^2

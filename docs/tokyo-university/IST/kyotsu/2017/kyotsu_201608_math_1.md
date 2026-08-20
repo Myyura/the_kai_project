@@ -11,7 +11,7 @@ tags:
 # 東京大学 情報理工学研究科 2016年8月実施 数学 第1問
 
 ## **Author**
-Zero, [etsurin](https://zhuanlan.zhihu.com/p/561992447)
+Zero, [etsurin](https://zhuanlan.zhihu.com/p/561992447), 祭音Myyura
 
 ## **Description**
 3次元ベクトル $\left (\begin{array}{cccc} x_{n} \\ y_{n} \\ z_{n} \\ \end{array}\right)$ は式
@@ -50,7 +50,7 @@ $$
 
 (4)、$\left (\begin{array}{cccc} x_{n} \\ y_{n} \\ z_{n} \\ \end{array}\right)$ を $x_{0},y_{0},z_{0},\alpha$ を用いて表せ．
 
-(5)、$\lim_{x \rightarrow \infty} \left (\begin{array}{cccc} x_{n} \\ y_{n} \\ z_{n} \\ \end{array}\right)$ を求めよ．
+(5)、$\lim_{n \rightarrow \infty} \left (\begin{array}{cccc} x_{n} \\ y_{n} \\ z_{n} \\ \end{array}\right)$ を求めよ．
 
 (6)、以下の式
 
@@ -75,12 +75,15 @@ $$
 ### 题目描述
 
 三维向量满足递推
+
 $$
 \begin{pmatrix}x_{n+1}\\y_{n+1}\\z_{n+1}\end{pmatrix}
 =A\begin{pmatrix}x_n\\y_n\\z_n\end{pmatrix},
 \qquad n=0,1,2,\ldots,
 $$
+
 其中 $x_0,y_0,z_0,\alpha$ 为实数，
+
 $$
 A=\begin{pmatrix}
 1-2\alpha&\alpha&\alpha\\
@@ -89,6 +92,7 @@ A=\begin{pmatrix}
 \end{pmatrix},
 \qquad0<\alpha<\frac13.
 $$
+
 回答下列问题。
 
 （1）用 $x_0,y_0,z_0$ 表示 $x_n+y_n+z_n$。
@@ -102,12 +106,14 @@ $v_1,v_2,v_3$。
 $(x_n,y_n,z_n)^{\mathsf T}$。
 
 （5）求
+
 $$
 \lim_{n\to\infty}
 \begin{pmatrix}x_n\\y_n\\z_n\end{pmatrix}.
 $$
 
 （6）在 $x_0^2+y_0^2+z_0^2\ne0$ 下，把
+
 $$
 f(x_0,y_0,z_0)=
 \frac{(x_0,y_0,z_0)
@@ -115,6 +121,7 @@ f(x_0,y_0,z_0)=
 {(x_0,y_0,z_0)
 \begin{pmatrix}x_n\\y_n\\z_n\end{pmatrix}}
 $$
+
 视为初始向量的函数，求其最大值和最小值。
 
 ## **Kai**
@@ -216,8 +223,8 @@ Which is,
 $$
 A=\left (\begin{array}{cccc}
 1 &0 & -2\\
-1 &-1 & 1\\
-1 &1  & 1\\
+1 &1 & 1\\
+1 &-1  & 1\\
 \end{array}\right)
 \left (\begin{array}{cccc}
 1 &0 & 0\\
@@ -294,7 +301,7 @@ z_{0} \\
 \end{array}\right)
 $$
 
-Since $0<\alpha<\frac{1}{3}$, $A$ is positive-definite.
+Since $A$ is symmetric and $q_1,q_2,q_3$ are orthonormal,
 
 $$
 (q_{1}\ q_{2}\ q_{3})^{-1}=
@@ -366,13 +373,13 @@ Hence we have,
 
 $$
 \begin{aligned}
-\lim_{x \rightarrow \infty}
+\lim_{n \rightarrow \infty}
 \left (\begin{array}{cccc}
 x_{n} \\
 y_{n} \\
 z_{n} \\
 \end{array}\right)&=
-(\lim_{x \rightarrow \infty}\lambda_{1}^{n}q_{1}q_{1}^{T}+\lim_{x \rightarrow \infty}\lambda_{2}^{n}q_{2}q_{2}^{T}+\lim_{x \rightarrow \infty}\lambda_{3}^{n}q_{3}q_{3}^{T})
+(\lim_{n \rightarrow \infty}\lambda_{1}^{n}q_{1}q_{1}^{T}+\lim_{n \rightarrow \infty}\lambda_{2}^{n}q_{2}q_{2}^{T}+\lim_{n \rightarrow \infty}\lambda_{3}^{n}q_{3}q_{3}^{T})
 \left (\begin{array}{cccc}
 x_{0} \\
 y_{0} \\
@@ -391,7 +398,7 @@ $$
 Therefore,
 
 $$
-\lim_{x \rightarrow \infty}
+\lim_{n \rightarrow \infty}
 \left (\begin{array}{cccc}
 x_{n} \\
 y_{n} \\
@@ -406,72 +413,25 @@ z_{n} \\
 $$
 
 ### (6)
-Note that
+Let $p_0=(x_0,y_0,z_0)^T$ and $c_i=q_i^Tp_0$. Since $p_n=A^np_0$,
 
 $$
-f(x_{0},y_{0},z_{0})=
-\frac{\begin{pmatrix} x_{n} & y_{n} & z_{n} \end{pmatrix} A
-\left (\begin{array}{cccc}
-x_{n} \\
-y_{n} \\
-z_{n} \\
-\end{array}\right)}
-{\begin{pmatrix} x_{n} & y_{n} & z_{n} \end{pmatrix}
-\left (\begin{array}{cccc}
-x_{n} \\
-y_{n} \\
-z_{n} \\
-\end{array}\right)}
+f(x_0,y_0,z_0)
+=\frac{p_0^TA^{n+1}p_0}{p_0^TA^np_0}
+=\frac{\sum_{i=1}^3\lambda_i^{n+1}c_i^2}
+{\sum_{i=1}^3\lambda_i^nc_i^2}.
 $$
 
-Let
-
-$$
-p_{n}=\left (\begin{array}{cccc}
-x_{n} \\
-y_{n} \\
-z_{n} \\
-\end{array}\right)
-$$
-
-where
-
-$$
-\begin{pmatrix} x_{n} & y_{n} & z_{n} \end{pmatrix}
-\left (\begin{array}{cccc}
-x_{n} \\
-y_{n} \\
-z_{n} \\
-\end{array}\right)=
-x_{n}^{2}+y_{n}^{2}+z_{n}^{2}=\Vert p_{n} \Vert ^{2}
-$$
-
-and
-
-$$
-\begin{pmatrix} x_{n} & y_{n} & z_{n} \end{pmatrix} A
-\left (\begin{array}{cccc}
-x_{n} \\
-y_{n} \\
-z_{n} \\
-\end{array}\right)=
-\lambda_{1}p_{n}^{T}(q_{1}q_{1}^{T}p_{n})+\lambda_{2}p_{n}^{T}(q_{2}q_{2}^{T}p_{n})+\lambda_{3}p_{n}^{T}(q_{3}q_{3}^{T}p_{n})
-$$
-
-Since A is positive-definite, $q_{1},q_{2},q_{3}$ are all orthogonal, that is:
-
-$$
-q_{1}\perp q_{2},q_{2}\perp q_{3},q_{3}\perp q_{1}
-$$
-
-if $p_{n}//q_{1}$, then $p_{n}\perp q_{2}$ and $p_{n}\perp q_{3}$, the maximum of $f(x_{0},y_{0},z_{0})$ is
+All $\lambda_i$ are positive, so the denominator is positive and this is a weighted average of $\lambda_1,\lambda_2,\lambda_3$. Therefore,
 
 $$
 \max(f(x_{0},y_{0},z_{0}))=\lambda_{1}=1
 $$
 
-if $p_{n}//q_{3}$,then $p_{n}\perp q_{1}$ and $p_{n}\perp q_{2}$, the minimum of $f(x_{0},y_{0},z_{0})$ is
+attained when $p_0$ is parallel to $q_1$, while
 
 $$
 \min(f(x_{0},y_{0},z_{0}))=\lambda_{3}=1-3\alpha
 $$
+
+is attained when $p_0$ is parallel to $q_3$.

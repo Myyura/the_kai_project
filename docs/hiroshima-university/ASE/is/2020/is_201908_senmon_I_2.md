@@ -11,7 +11,7 @@ tags:
 
 
 ## **Author**
-samparker
+samparker, 祭音Myyura
 
 ## **Description**
 $D(R) = \{(x,y) \in \mathbb{R}^2 : 1 \leq x^2 + y^2 \leq (R+1)^2, 0 \leq y \leq x\}$, $R \geq 0$ とする。
@@ -57,12 +57,14 @@ $$
    $$
    G(R)=\iint_{D(R)}x^\alpha y\,dx\,dy.
    $$
+
 2. 当 $\alpha=-3$ 时，求
 
    $$
    \lim_{R\to+0}
    \frac{G(R)-\frac R2+\frac{R^2}{4}}{R^3}.
    $$
+
 3. 确定使 $\displaystyle\lim_{R\to+\infty}G(R)$ 收敛到有限值的实数 $\alpha$ 的取值范围。
 
 ## **Kai**
@@ -95,10 +97,20 @@ $$
 \int_{0}^{\frac{\pi}{4}} \cos^{\alpha}\theta \sin \theta \ d\theta = \frac{-\cos^{\alpha+1} \theta}{\alpha + 1} \bigg |_{0}^{\frac{\pi}{4}} = \frac{1 - 2^{-\frac{\alpha+1}{2}}}{\alpha + 1}
 $$
 
-Hence
+Hence, for $\alpha\neq-3,-1$,
 
 $$
 G(R) = \frac{((R+1)^{\alpha+3}-1)(1 - 2^{-\frac{\alpha+1}{2}})}{(\alpha + 3)(\alpha + 1)}
+$$
+
+At the two exceptional values,
+
+$$
+G(R)=
+\begin{cases}
+\dfrac12\ln(R+1),&\alpha=-3,\\[4pt]
+\dfrac{\ln2}{4}\bigl((R+1)^2-1\bigr),&\alpha=-1.
+\end{cases}
 $$
 
 ### (2)
@@ -119,7 +131,11 @@ $$
 $$
 
 ### (3)
-To determine the range of $\alpha$ for which $\lim_{R \to +\infty} G(R)$ converges, observe that as $R$ becomes large, the integral primarily depends on the behavior of $(R+1)^{\alpha + 3}$.
+The angular integral is finite and positive for every real $\alpha$, since
+$\cos\theta\geq 1/\sqrt2$ on $[0,\pi/4]$. Thus the limit is finite exactly when
 
-Since $\lim_{R \to +\infty} (R+1)^{\alpha + 3}$ converges when $\alpha \leq -3$, and by (2) we know that $\lim_{R \to +\infty} G(R)$ diverges when $\alpha = -3$.
-Therefore, $\alpha < -3$.
+$$
+\int_1^\infty r^{\alpha+2}\,dr
+$$
+
+converges, namely when $\alpha<-3$.

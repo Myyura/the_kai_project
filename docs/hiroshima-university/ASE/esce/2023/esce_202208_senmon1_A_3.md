@@ -8,7 +8,7 @@ tags:
 # 広島大学 先進理工系科学研究科 電気システム制御プログラム 2022年8月実施 専門科目I A-3
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 ### 1.
@@ -114,3 +114,31 @@ $$
 $$
 
 ### 2.
+
+平方完成すると
+
+$$
+ax^2+bx+c
+=a\left(x+\frac{b}{2a}\right)^2+c-\frac{b^2}{4a}.
+$$
+
+したがって正規分布との比較から
+
+$$
+\boxed{E(X)=-\frac{b}{2a}},\qquad
+\boxed{V(X)=\frac{1}{2a}}.
+$$
+
+$E(X)=1$, $V(X)=3$ より $a=1/6$, $b=-1/3$ である。さらに
+
+$$
+1=\int_{-\infty}^{\infty}f(x)\,dx
+=e^{-c+b^2/(4a)}\sqrt{\frac{\pi}{a}}
+$$
+
+なので
+
+$$
+\boxed{c=\frac{b^2}{4a}+\frac12\log\frac{\pi}{a}
+=\frac16+\frac12\log(6\pi)}.
+$$

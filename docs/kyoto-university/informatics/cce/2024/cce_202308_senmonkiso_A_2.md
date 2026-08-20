@@ -73,21 +73,26 @@ We design a sequential circuit that decodes the variable-length codes defined in
 回答全部问题。$\overline{\phantom{x}}$、$\cdot$、$+$、$\oplus$ 分别表示逻辑非、与、或、异或。
 
 1. 对
+
    $$
    f=((\bar a+\bar b+d)(\bar b+\bar c+\bar d)(a+\bar c+d))
    \oplus(\bar c d+\bar a c\bar d)
    $$
+
    回答：
    1. 给出 $f$ 的所有最简与或式。
    2. 仅用三输入 NAND 门实现 $f$，使门数最少；可直接使用 $a,b,c,d$ 及其反变量。
    3. 设
+
       $$
       g=a\bar b d+\bar a b c\bar d,
       $$
+
       $$
       r=(\bar a+\bar b+c+d)(\bar a+b+c+\bar d)
       (\bar a+\bar b+\bar c+d).
       $$
+
       在所有满足 $f=(g+h)r$ 的 $h$ 中，求一种最简与或式，使乘积项数最少，并在此基础上文字数最少；若不存在这样的 $h$，明确说明。
 2. 设计一个可变长码译码时序电路，输入为串行 1 位 $x$，输出为并行 3 位 $(z_2,z_1,z_0)$。码字从最左位开始输入；每识别出一个可变长码就输出对应定长码，否则输出 `000`。初态为尚未输入任何位。
 
@@ -112,7 +117,7 @@ Let $f = x \oplus y$, derive the corresponding K-map for $x, y, f$.
 
 | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p1.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p2.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p3.png" width="200"> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p1.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p2.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p3.png" width="200" /> |
 
 The minimum sum-of-products expression is
 
@@ -160,7 +165,7 @@ Derive the corresponding K-map for $g, h, r$.
 
 | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p4.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p5.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p6.png" width="200"> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p4.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p5.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p6.png" width="200" /> |
 
 We seek $h$ satisfying
 
@@ -236,7 +241,7 @@ O101/101 --0--> O001/001
 O101/101 --1--> S1/000
 ```
 
-<img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p7.png" width="500">
+<img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p7.png" width="500" />
 
 #### (b) Mealy-type sequential circuit
 **State definitions**
@@ -261,7 +266,7 @@ S111 --0/100--> S0
 S111 --1/101--> S0
 ```
 
-<img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p8.png" width="500">
+<img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p8.png" width="500" />
 
 #### (c)
 Derive the corresponding state transition table:
@@ -329,19 +334,19 @@ Derive the corresponding state transition table:
 </table>
 </div>
 
-This is already the simplest state transition table. Because all states are distinguishable, meaning no two states produce the exact same output sequence for all possible input sequences
+For input $x=0$, the four states output $001,010,011,100$, respectively. Hence every pair of states is distinguishable after one input, so four states are necessary and the table is minimal.
 
 #### (d)
 Derive the corresponding K-map for $d_1, d_0, Z_2, Z_1, Z_0$:
 
 | &nbsp; | &nbsp; |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p9.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p10.png" width="200"> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p9.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p10.png" width="200" /> |
 | $d_1 = \bar{q}_1 q_0 x + q_1 \bar{q}_0 x$ | $d_0 = \bar{q}_0 x$ |
 
 | &nbsp; |
 | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p11.png" width="200"> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_2_p11.png" width="200" /> |
 | $Z_2 = q_1 q_0$ |
 
 In the same way, we have:

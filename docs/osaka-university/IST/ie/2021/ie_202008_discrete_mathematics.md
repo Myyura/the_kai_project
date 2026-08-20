@@ -63,6 +63,7 @@ $$
 ### 题目描述
 
 记非负整数集为 $\mathbb Z_0$，$\lfloor x\rfloor$ 为不超过实数 $x$ 的最大整数。对每个 $n\in\mathbb Z_0$，递归定义映射 $f_n:[0,\infty)\to[0,\infty)$：
+
 $$
 f_0(x)=1,\qquad f_{n+1}(x)=x\lfloor f_n(x)\rfloor.
 $$
@@ -71,10 +72,12 @@ $$
 2. 判断命题“存在 $n\in\mathbb Z_0$ 使 $f_n$ 为单射”的真假并说明理由。
 3. 判断命题“若 $n$ 为正偶数，则 $f_n$ 为满射”的真假并说明理由。
 4. 在 $\mathbb Z_0$ 上定义关系
+
    $$
    R=\{(k,l)\mid \exists h,n,m\in\mathbb Z_0,
    k=f_n(h/2),\ l=f_m(h/2)\}.
    $$
+
    1. 判断 $R$ 是否自反并说明理由；
    2. 判断 $R$ 是否反对称并说明理由。
 5. 考虑方程 $f_2(x)=171$：
@@ -129,23 +132,26 @@ $$
 とおくと、$k = f_1(k)$ がわかるので、$R$ が反射的 (reflexive) である。
 
 #### (4-2)
-二項関係 $R$ の定義より、$R$ は対称的であることはほぼ自明なので、反対称的ではない。
+$h=4$ とすると、$f_0(2)=1, f_1(2)=2$ なので $(1,2),(2,1)\in R$ である。$1\ne2$ より、$R$ は反対称的ではない。
 
 ### (5)
 #### (5-1)
 
+解 $x$ に対して $q=\lfloor x\rfloor$ とおく。$xq=171$ より $q>0$ かつ $x=171/q$ である。また、$q\le x<q+1$ から
+
 $$
-\begin{aligned}
-f_2(x) = x \lfloor x \rfloor &= 171 \\
-(13+\epsilon) \cdot \lfloor (13 + \epsilon) \rfloor &= 171 \\
-169 + 13 \epsilon &= 171 \\
-\epsilon &= \frac{2}{13}
-\end{aligned}
+q^2\le171<q(q+1).
 $$
+
+$12\cdot13<171<13\cdot14$ より $q=13$。したがって
+
+$$
+x=\frac{171}{13}=13+\frac{2}{13}
+$$
+
+であり、$\epsilon=2/13\in[0,1)$ とすればよい。
 
 #### (5-2)
-（意味不明な設問）
-
 (5-1) より、$x = \frac{171}{13}$ は一つの解である。
 
 ### (6)
@@ -154,9 +160,7 @@ $$
 f_3(x) = x \lfloor x \lfloor x \rfloor \rfloor \leq x^3
 $$
 
-$$
-5 < \sqrt[3]{171} <  6
-$$
+$f_3(x)=171$ より $x>5$ である。一方、$x\ge6$ ならば $f_3(x)\ge6\lfloor36\rfloor=216$ となるので、$x<6$ である。
 
 なので、$x = 5 + \epsilon, \ \epsilon \in [0, 1)$ と書くと、
 
@@ -171,4 +175,4 @@ $$
 
 よって、$\lfloor 25 + 5 \epsilon \rfloor = \lfloor 25 + 5 \times 0.85 \rfloor = 29$ を仮定し、方程式 (iv) を解くと、$\epsilon = \frac{26}{29}$ を得る。
 
-最終的に $x = \frac{171}{29}$ を方程式 (ii) に代入して検証すると、$x = \frac{171}{29}$ は方程式 (ii) の解であることがわかる。
+最終的に $x = \frac{171}{29}$ とすると、$\lfloor x\rfloor=5$ かつ $\left\lfloor5x\right\rfloor=\left\lfloor855/29\right\rfloor=29$ なので、$f_3(x)=x\cdot29=171$ である。

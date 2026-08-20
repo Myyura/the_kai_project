@@ -9,7 +9,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2023年8月実施 線形代数
 
 ## **Author**
-Casablanca, [Miyake](https://miyake.github.io/exams/index.html)
+Casablanca, [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 $m \times n$ 実行列 $A$ と $m$ 次元実ベクトル $\boldsymbol{b}$ に対して, $S = \{\boldsymbol{x} \in \mathbb{R}| A\boldsymbol{x} = \boldsymbol{b}\},f(\boldsymbol{x}) = A\boldsymbol{x}$ を定義する。このとき、以下の問いに答えよ。ただし、以下の事実は証明なしに用してよい。
@@ -41,6 +41,7 @@ $$
 可直接使用子空间判别准则：$W\subseteq V$ 是实向量空间 $V$ 的子空间，当且仅当 $0\in W$，且 $W$ 对向量加法和实数倍封闭。
 
 1. 当
+
    $$
    A=\begin{bmatrix}
    2&0&2&0\\
@@ -48,6 +49,7 @@ $$
    0&2&6&6
    \end{bmatrix}
    $$
+
    时，求 $\ker f$ 的维数及一组基。
 2. 证明一般情况下 $\ker f$ 是 $\mathbb R^n$ 的子空间。
 3. 证明若 $S$ 是 $\mathbb R^n$ 的子空间，则 $\boldsymbol b=\boldsymbol0$。
@@ -84,7 +86,7 @@ For convenience, let $\vec{x_1} = \begin{bmatrix}-1 & -3 & 1 & 0\end{bmatrix}^{\
 
 - C1: $A\vec{0} = 0$ , thus $0 \in \text{Ker}(f)$
 - C2: if $A\vec{m} = 0, A\vec{n} = 0$, then $A (\vec{m} + \vec{n}) = A\vec{m} + A\vec{n} = 0$, that is, $\vec{m},\vec{n} \in \text{Ker}(f) \Rightarrow \vec{m} + \vec{n} \in \text{Ker}(f)$
-- C3: if $A\vec{m} = 0, A(c\vec{m}) = c, A\vec{m} = 0$, that is, $\vec{m} \in \text{Ker}(f) \Rightarrow c \vec{m} \in \text{Ker}(f)$
+- C3: if $A\vec{m} = 0$, then $A(c\vec{m}) = cA\vec{m} = 0$, that is, $\vec{m} \in \text{Ker}(f) \Rightarrow c \vec{m} \in \text{Ker}(f)$
 
 C1, C2, C3 holds all, hence $\text{Ker}(f)$ is a subspace.
 
@@ -95,8 +97,7 @@ If $\vec{b} = \vec{0}$,
 - for C2, $A\vec{m} = 0, A\vec{n} = 0 \Rightarrow A(\vec{m} + \vec{n}) = 0 \Rightarrow \vec{m} + \vec{n} \in S$
 - for C3, $A\vec{m} = 0 \Rightarrow A(c\vec{m}) = 0 \Rightarrow c\vec{m} \in S$
 
-If $\vec{b} \neq \vec{0}$, then $A\vec{0} = \vec{0}$ can't hold.
-Thus $\vec{b} = \vec{0}$.
+Since $S$ is a subspace, $\vec{0}\in S$. Hence $A\vec{0}=\vec{b}$; since $A\vec{0}=\vec{0}$, we have $\vec{b}=\vec{0}$.
 
 ### (4)
 Suppose that $A$ is invertible.
@@ -207,7 +208,7 @@ $$
   \end{aligned}
 $$
 
-であり、このとき、 $c \in \mathrm{R}$ について
+であり、このとき、 $c \in \mathbb{R}$ について
 
 $$
   \begin{aligned}
@@ -237,7 +238,7 @@ $$
 
 が成り立つ。
 
-これの左辺は $\boldsymbol{0}$ であるから右辺も $\boldsymbol{0}$ もであり、
+これの左辺は $\boldsymbol{0}$ であるから右辺も $\boldsymbol{0}$ であり、
 
 $$
   \begin{aligned}

@@ -12,7 +12,7 @@ tags:
 # 北海道大学 情報科学院 情報科学専攻 生体情報工学コース 2022年8月実施 専門科目1 問1 (線形代数・ベクトル解析)
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -335,17 +335,18 @@ $V$ から $V_0$ を除いた部分を $V_1$ とする。
 
 $$
 \begin{aligned}
-\iint_S \frac{\boldsymbol{r}}{r^3} \cdot \boldsymbol{n} dS
-&= \iint_{S_0} \frac{\boldsymbol{r}}{r^3} \cdot \boldsymbol{n}_0 dS_0
-+ \left( \iint_{S_0} \frac{\boldsymbol{r}}{r^3} \cdot
-\left( - \boldsymbol{n}_0 \right) dS_0
-+ \iint_S \frac{\boldsymbol{r}}{r^3} \cdot \boldsymbol{n} dS \right)
-\\
-&= \frac{1}{\varepsilon^2} \cdot 4 \pi \varepsilon^2
-+ \iiint_{V_0} \mathrm{div} \frac{\boldsymbol{r}}{r^3} dV_0
-\\
-&= 4 \pi
+0
+&=\iiint_{V_1}\operatorname{div}\frac{\boldsymbol r}{r^3}\,dV\\
+&=\iint_S\frac{\boldsymbol r}{r^3}\cdot\boldsymbol n\,dS
+-\iint_{S_0}\frac{\boldsymbol r}{r^3}\cdot\boldsymbol n_0\,dS_0.
 \end{aligned}
+$$
+
+したがって、
+
+$$
+\iint_S\frac{\boldsymbol r}{r^3}\cdot\boldsymbol n\,dS
+=\frac1{\varepsilon^2}\,4\pi\varepsilon^2=4\pi.
 $$
 
 がわかる。

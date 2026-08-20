@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2023年8月実施 専門科目 問題4
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Let us consider the following function $f$ described in a C-like programming language with the call-by-value evaluation strategy. We assume that, unlike in the C language, there is no bound on integer data, and no overflow occurs.
@@ -83,9 +83,11 @@ int f(int x)
 ```
 
 假定整数无范围限制且不会溢出。例如
+
 $$
 f(1)\to f(f(-1))\to f(0)\to1,
 $$
+
 返回值为 $1$，求值期间共调用 $f$ 三次。回答下列问题。
 
 （1）求计算 $f(2)$ 时调用 $f$ 的次数。
@@ -120,87 +122,67 @@ Thus, the total number of calls during the evaluation of $f(2)$ is **5**.
 
 ### (2)
 
-Let's prove this statement by induction on $n$.
+Let's prove the statement by strong induction on $n$.
 
-**Base Case:**
-For $n = 0$, we have:
-
-$$
-f(0) = 0 + 1 = 1
-$$
-
-So, $f(0) = 1$.
-
-**Inductive Step:**
-Assume that $f(k) = 1$ for all $k < n$ where $n$ is some positive integer. Consider $f(n)$:
+**Base cases.** For $n=0$,
 
 $$
-f(n) \rightarrow f(f(n-2))
+f(0)=0+1=1.
 $$
 
-By the inductive hypothesis, $f(n-2) = 1$ (since $n-2 \geq 0$). Hence,
+For $n=1$,
 
 $$
-f(f(n-2)) = f(1) = 1
+f(1)=f(f(-1))=f(0)=1.
 $$
 
-Therefore, by induction, $f(n) = 1$ for all non-negative integers $n$.
+**Inductive step.** Assume $f(k)=1$ for every $0\le k<n$, where $n\ge2$. Then $n-2\ge0$, so $f(n-2)=1$ by the induction hypothesis. Hence
+
+$$
+f(n)=f(f(n-2))=f(1)=1.
+$$
+
+Therefore, $f(n)=1$ for every nonnegative integer $n$.
 
 ### (3)
 
-To determine the number of calls during $f(n)$, observe the recursive pattern:
+Let $C(n)$ be the call count under call-by-value, with $C(t)=1$ for
+$t\le0$.  Since the inner call is evaluated before the outer call,
 
 $$
-f(n) = 1 + \text{number of calls of } f(n-2)
+C(n)=1+C(n-2)+C(f(n-2)).
 $$
 
-Let $C(n)$ represent the number of calls for $f(n)$. We have:
+Thus $C(0)=1$, $C(1)=3$, and, for $n\ge2$,
 
 $$
-C(n) = 1 + C(n-2)
+C(n)=C(n-2)+4.
 $$
 
-Starting with the base cases:
+Therefore
 
 $$
-C(0) = 1, \quad C(1) = 3
-$$
-
-So for even $n = 2k$:
-
-$$
-C(2k) = 1 + C(2k-2) = 1 + (1 + C(2k-4)) = \ldots = 1 + k
-$$
-
-Thus,
-
-$$
-C(n) = 2^{(n/2+1)} - 1 \quad \text{for } n \text{ even}
-$$
-
-For odd $n$:
-
-$$
-C(2k+1) = C(2k) + C(0)
-$$
-
-So we can express it as:
-
-$$
-C(n) = 3 \cdot 2^{(n-1)/2} - 2 \quad \text{for } n \text{ odd}
+\boxed{C(n)=2n+1}\qquad(n\ge0).
 $$
 
 ### (4)
 
-When using call-by-name, the function argument is not evaluated at the moment of the function call, but instead, every occurrence of the argument in the function body is replaced by the original expression.
-
-For the function $f$, this results in exponential growth in calls because each nested call of $f$ introduces additional nested calls. Specifically:
+Let $N(n)$ be the call count under call-by-name.  Directly,
+$N(0)=1$ and $N(1)=4$.  For $n\ge2$, the unevaluated argument
+$f(n-2)$ is evaluated five times: once in the first test, and twice in each of the two evaluations forced by the final nonpositive argument.  Counting the five surrounding calls gives
 
 $$
-f(n) \rightarrow f(f(n-2)) \rightarrow f(f(f(n-4)))
+N(n)=5N(n-2)+5.
 $$
 
-Each $f(k)$ introduces an entirely new evaluation of $f(k-2)$. This results in a number of function calls that grows exponentially with $n$. This is much larger than the linear or polynomial number of calls observed with the call-by-value strategy.
+Consequently,
+
+$$
+\boxed{
+N(2k)=\frac{9\cdot5^k-5}{4},\qquad
+N(2k+1)=\frac{21\cdot5^k-5}{4}
+}\quad(k\ge0).
+$$
 
 ### (5)
 

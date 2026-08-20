@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 プログラミング
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/totalhuang), [itsuitsuki](https://github.com/itsuitsuki)
+[tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/totalhuang), [itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 Answer the following questions by writing programs if necessary. Store the programs in the USB flash drive before the examination ends.
@@ -172,68 +172,34 @@ Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/mai
 #### tomfluff's solution
 
 ```python
-# I thought that the file is in bits, but it seems like it is actually test
-# ABC... etc, based on the definition in the question.
-# So this code is not relevant to the question
+# The helper below reads packed bytes; the actual file uses the 64-character
+# text encoding, so main decodes six bits per character directly.
 class BitsRead(object):
     def __init__(self, f) -> None:
         self._file = f
     
     def read(self, n, l):
-        k = l
-        print(f"Readinng {n//8+l//8+min(l%8,1)} bytes...")
-        rd = self._file.read(n//8+l//8+min(l%8,1))
-        print(len(rd))
-        # from first byte
-        print(f"Starting with {8-n%8} bits from byte {n//8} shift {n%8}, using mask {bin(2**(8-n%8)-1)}")
-        b = rd[n//8-1] & (2**(8-n%8)-1)
-        k -= 8-n%8
-        if k < 0:
-            print(f"Need to trim result by shifting {abs(k)} bits")
-            b = b >> abs(k)
-            return b
-        # middle part
-        rs, re = n//8+1, n//8+k//8+1
-        for i in range(rs,re):
-            print(f"Adding 8 bits using byte {i}")
-            b = b << 8
-            b = b | rd[i-1]
-            k -= 8
-        # from end byte
-        if k%8 != 0:
-            print(f"Adding additional final {k%8} bits from byte {re} by shifting {8-k%8} bits")
-            b = b << k%8
-            b = b | (rd[re-1] >> (8-k%8))
-        return b
+        if n < 0 or l < 0:
+            raise ValueError("bit offset and length must be non-negative")
+        bit_offset = n % 8
+        byte_count = (bit_offset + l + 7) // 8
+        self._file.seek(n // 8)
+        raw = self._file.read(byte_count)
+        if len(raw) * 8 < bit_offset + l:
+            raise EOFError("not enough bits")
+        unused_low_bits = len(raw) * 8 - bit_offset - l
+        return (int.from_bytes(raw, 'big') >> unused_low_bits) & ((1 << l) - 1)
 
 
 
 def main():
     n = 310 # index (from)
     l = 11 # length (bits)
-    bts = []
-    with open('2020-Summer/data1.txt','rb') as f:
-        if False:
-            br = BitsRead(f)
-            rd = br.read(n,l)
-            print(bin(rd))
-        else:
-            r = f.read(1)
-            rb = 0
-            while r != b'':
-                if r >= b'A' and r <= b'z':
-                    rb = (int.from_bytes(r, 'big') - ord('A')).to_bytes(1,'big')
-                elif r >= b'0' and r <= b'9':
-                    rb = (int.from_bytes(r, 'big') - ord('0')).to_bytes(1,'big')
-                elif r == b'@':
-                    rb = (2**6-2).to_bytes(1,'big')
-                else:
-                    rb = (2**6-1).to_bytes(1,'big')
-                bts.append(rb)
-                r = f.read(1)
-        for _b in bts[n//8:n//8+l//6+min(l%6,1)+1]:
-            print(f"{int.from_bytes(_b,'big'):06b}",end='')
-        print(f"\n{' '*(n%6)}^{'-'*(l-1)}")
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#'
+    with open('2020-Summer/data1.txt') as f:
+        encoded = f.read().strip()
+    bits = ''.join(f'{alphabet.index(ch):06b}' for ch in encoded)
+    print(bits[n:n+l])
                 
 
 if __name__ == "__main__":
@@ -281,19 +247,20 @@ signed main() {
 }
 ```
 
+The requested bit sequence is `10111111110`.
+
 ### (2)
 #### tomfluff's solution
 
 ```python
-# Note: They have a mistake in the fefinitions of the question, they say repeat in decending order.
-# But based on the logic of the next question and the example they give, it's asceding order.
-# so instead of p -> ... -> p-d+1 it should be p-d -> ... -> p
+# Here p is the backward distance to the first copied byte.  The source slice
+# in ordinary zero-based indexing is restored[len(restored)-p : ... + d].
 
 bZERO = (0).to_bytes(1,'big')
 
-def main():
+def restore(input_name, output_name):
     w_buff = []
-    with open('2020-Summer/data2.bin','rb') as f:
+    with open('2020-Summer/' + input_name, 'rb') as f:
         EOF = False
         while not EOF:
             r = f.read(1)
@@ -311,13 +278,23 @@ def main():
                 if d == 0:
                     w_buff.append(bZERO)
                 else:
-                    for i in range(p-d,p):
+                    start = len(w_buff) - p
+                    for i in range(start, start + d):
                         w_buff.append(w_buff[i])
                         print(f"Writing {w_buff[i]}")
     
-    with open('2020-Summer/data2_s.txt', 'wb') as f_out:
+    with open('2020-Summer/' + output_name, 'wb') as f_out:
         for b in w_buff:
             f_out.write(b)
+    print(input_name, len(w_buff))
+
+def main():
+    for input_name, output_name in [
+        ('data2.bin', 'data2a.txt'),
+        ('data2b.bin', 'data2b.tif'),
+        ('data2c.bin', 'data2c.txt'),
+    ]:
+        restore(input_name, output_name)
 
 if __name__ == "__main__":
     main()
@@ -342,14 +319,14 @@ OUTPUT  data2.txt:
 29 2a 2b 2c 2d 2e 2f 2a 2b 2c 2d 2e 00 2e 2f 2a 2b 30
 total: 18 bytes
 */
-void solve() {
-    ifstream fin("data2.bin", ios::in | ios::binary);
-    ofstream fout("data2.txt", ios::out);
+void solve(const string& input_name, const string& output_name) {
+    ifstream fin(input_name, ios::in | ios::binary);
+    ofstream fout(output_name, ios::out | ios::binary);
     if (!fin.is_open()) assert(0);
-    vector<int> vec;
+    vector<unsigned char> vec;
     char num;
     while (fin.read((char*) &num, sizeof(char))) { // input data
-        vec.push_back(num);
+        vec.push_back(static_cast<unsigned char>(num));
     }
     vector<char> res;
     for (int i = 0; i < vec.size(); i++) {
@@ -361,13 +338,14 @@ void solve() {
         else {
             int p = vec[i + 1], d = vec[i + 2];
             i += 2;
-            if (p < d) swap(p, d);
+            if (p < d || (d > 0 && p > (int)res.size()))
+                throw runtime_error("invalid back-reference");
             // cout << "p = " << p << " " << "d = " << d << "\n";
             if (d == 0) res.push_back(0); // if d = 0, append 0
             else {
                 int sz = res.size();
                 // copy the needed range bytes from restoration part
-                for (int j = sz - 1 - p + 1; j <= sz - 1 - (p - d + 1) + 1; j++) {
+                for (int j = sz - p; j < sz - p + d; j++) {
                     res.push_back(res[j]);
                     // cout << "Writing b'" << (char)res[j] << "'\n";
                 }
@@ -377,15 +355,18 @@ void solve() {
     for (auto ch : res) {
         fout.write((char*)&ch, sizeof(ch));
     }
-    // cout << res.size() << "\n";
+    cout << input_name << ": " << res.size() << "\n";
 }
 signed main() {
-    int t = 1;
-    // cin >> t;
-    while (t--) solve();
+    solve("data2.bin", "data2a.txt");
+    solve("data2b.bin", "data2b.tif");
+    solve("data2c.bin", "data2c.txt");
     return 0;
 }
 ```
+
+For the provided `data2.bin`, the restored size is 18 bytes.
+The linked sample repository does not contain `data2b.bin` or `data2c.bin`; the other two numerical sizes require those exam files.
 
 ### (3)
 
@@ -412,12 +393,12 @@ signed main() {
     *   **情况 B ($d > 0$)**：
         *   表示**复制**操作。
         *   解压的时候从已还原数据的末尾向前数第 $p$ 个字节开始，复制长度为 $d$ 的字节序列。也就是
-        *   *限制*：$p \ge d$。这实际上意味着**源数据区间不能与当前正在写入的区间重叠**。源数据必须完全位于当前写入点之前。
+        *   *限制*：$p \ge d$。因此源数据区间完全位于当前写入点之前，不与写入区间重叠。
         *   *窗口大小*：由于 $p$ 是 8 位，$p \le 255$，所以只能引用最近 255 个字节内的数据。
         *   因为解压的时候碰到这里，向后展开 `d` 位，所以**压缩时**选择复制，就是从当前的 `data[i]` 往右在`data[:i]`(不包含`i`) 里重合过的 `d` 位数据，也就是`data[i:i+d]=data[i-p:i-p+d]` 共`d`位。接下来**压缩时**下一步直接跳到`data[i+d]`.
 
 **一个贪心的思路**
-对于每个`data[i]`，只要存在某个`p`使得存在某个`d>3, d<=p`让`data[i-p:i-p+d]`和`data[i:i+d-1]`重合就压缩。但是考虑连续10个`01`:
+如果对每个 `data[i]` 都贪心地选择当下最长的匹配，可能阻碍更优的后续选择。例如考虑连续10个 `01`：
 
 ```
 01 01 01 01 01 01 01 01 01 01
@@ -453,7 +434,7 @@ signed main() {
 
 
 
-对于`dp[i]`，如果选择复制，暴力搜索`p=0,1,...,255`中，存在的有效的`(p,d)`，也就是 `d>3` 使得`data[i-p:i-p+d]=data[i:i+d]`，更新`dp[i+d]=min(dp[i]+3,dp[i+d])`并且如果成功更新，`path[i+d]=(p,d)`.
+对于 `dp[i]`，如果选择复制，搜索 $1\le p\le255$ 及 $1\le d\le p$；当 `data[i-p:i-p+d] == data[i:i+d]` 时，用 `dp[i]+3` 更新 `dp[i+d]`。长度不超过3的匹配在含零字节时也可能更优，不能排除。
 
 如果不用复制而用字面量`data[i]`，如果`data[i]`是0，压缩中加3个字节，否则是加1个，那么`data[i+1]=min(data[i]+(3 or 1), data[i+1])`;如果成功更新那么`path[i+1]=(0,1) or (0,0) when data is 0`
 
@@ -463,29 +444,42 @@ signed main() {
 
 
 
-回溯：对于`path[i]=d`等于1说明存了一个字面量回溯到`path[i-1]`，>1说明压缩了然后在partial sequence前面加入`00 p d`，并且回溯到`path[i-d]`直到`path[0]`
+回溯时以 $p=0$ 区分字面量，以 $p>0$ 表示复制；复制长度也可能为1。逐步回到 `path[0]` 即可恢复最优编码。
+
+对每个位置和后向距离维护最长公共前缀，即可在 $O(256n)$ 时间、$O(n)$ 空间内完成动态规划。
 
 #### itsuitsuki's solution
 
 ```py
 def compress(data): # inp is list or bytes
     n = len(data)
+    best_copy = [(0, 0)] * n
+    next_lcp = [0] * 256
+    for i in range(n - 1, -1, -1):
+        current_lcp = [0] * 256
+        best_p = best_d = 0
+        for p in range(1, min(i, 255) + 1):
+            if data[i-p] == data[i]:
+                current_lcp[p] = 1 + next_lcp[p]
+            d = min(current_lcp[p], p, 255)
+            if d > best_d:
+                best_p, best_d = p, d
+        best_copy[i] = (best_p, best_d)
+        next_lcp = current_lcp
+
     dp = [0] + [float('inf')]*n
     path = [(-1,-1)] * (n+1)
-    for i in range(len(data)+1):
-        if i+1 <= n:
-            if dp[i]+1<dp[i+1]:
-                dp[i+1]=dp[i]+1 if data[i]!=0 else dp[i]+3
-                # literal
-                path[i+1]=(0,1) if data[i]!=0 else (0,0)
-        for p in range(1,min(i+1, 256)): # data[i-p:i-p+d] = data[i:i+d]
-            for d in range(3, p+1):
-                if i+d > n: 
-                    break
-                # print(data[i-p:i-p+d], data[i:i+d])
-                if data[i-p:i-p+d] == data[i:i+d] and dp[i]+3<dp[i+d]:
-                    dp[i+d]=dp[i]+3
-                    path[i+d]=(p,d)
+    for i in range(n):
+        literal_cost = 1 if data[i] != 0 else 3
+        if dp[i] + literal_cost < dp[i+1]:
+            dp[i+1] = dp[i] + literal_cost
+            # literal
+            path[i+1]=(0,1) if data[i]!=0 else (0,0)
+        p, max_d = best_copy[i]
+        for d in range(1, max_d + 1):
+            if dp[i]+3 < dp[i+d]:
+                dp[i+d]=dp[i]+3
+                path[i+d]=(p,d)
     # print(dp)
     # print(path)
     # backtrack
@@ -493,13 +487,10 @@ def compress(data): # inp is list or bytes
     ptr = n
     while ptr > 0:
         p, d = path[ptr]
-        if d == 0:
-            compressed = [0, 0, 0] + compressed
+        if p == 0:
+            compressed = ([data[ptr-1]] if d == 1 else [0, 0, 0]) + compressed
             ptr -= 1
-        elif d == 1:
-            compressed = [data[ptr-1]] + compressed
-            ptr -= 1
-        else: # d>3
+        else:
             compressed = [0, p, d] + compressed
             ptr -= d
     return compressed
@@ -507,11 +498,13 @@ def compress(data): # inp is list or bytes
 filenames = ['data3a.txt', 'data3b.png', 'data3c.txt']
 for filename in filenames:
     with open(filename, 'rb') as f:
-        to_compress = f.readline()
+        to_compress = f.read()
         print(list(to_compress))
-        print(compress(to_compress))
+        compressed = compress(to_compress)
+        print(compressed)
+        print(filename, len(compressed))
     with open(filename.split('.')[0]+'.bin','wb') as wf:
-        wf.write(bytes(compress(to_compress)))
+        wf.write(bytes(compressed))
 ```
 
 测试了一下上面下面几个样例都是对的。这道题应该用DP做，而不是下面的贪心思路。
@@ -525,61 +518,69 @@ bZERO = (0).to_bytes(1,'big')
 def get_max_match(buff, i):
     max_p = 0
     max_d = 0
-    j = 0
-    k = i
-    d = 0
-    while j < i+1:
-        if buff[j] == buff[k]:
-            j += 1
-            k += 1
+    for p in range(1, min(i, 255) + 1):
+        d = 0
+        while d < p and i + d < len(buff) and buff[i-p+d] == buff[i+d]:
             d += 1
-        else:
-            if max_d < d:
-                max_d = d
-                max_p = j
-            j = j - d + 1
-            k = i
-            d = 0
+        if d > max_d:
+            max_p, max_d = p, d
     return max_p, max_d
 
 def compress_buffer(buff):
-    comp_buff = []
-    d = p = 0
-    i = 0
-    while i < len(buff):
-        print(f"Checking for i={i} (from {len(buff)})")
-        p,d = get_max_match(buff,i)
-        if d < 4:
-            if buff[i] == bZERO:
-                comp_buff.append(bZERO)
-                comp_buff.append(bZERO)
-                comp_buff.append(bZERO)
-            else:
-                comp_buff.append(buff[i])
-            i += 1
+    data = [int.from_bytes(x, 'big') for x in buff]
+    n = len(data)
+    best_copy = [(0, 0)] * n
+    next_lcp = [0] * 256
+    for i in range(n - 1, -1, -1):
+        current_lcp = [0] * 256
+        best_p = best_d = 0
+        for p in range(1, min(i, 255) + 1):
+            if data[i-p] == data[i]:
+                current_lcp[p] = 1 + next_lcp[p]
+            d = min(current_lcp[p], p, 255)
+            if d > best_d:
+                best_p, best_d = p, d
+        best_copy[i] = (best_p, best_d)
+        next_lcp = current_lcp
+
+    dp = [0] + [float('inf')] * n
+    path = [None] * (n + 1)
+    for i in range(n):
+        cost = 1 if data[i] else 3
+        if dp[i] + cost < dp[i + 1]:
+            dp[i + 1] = dp[i] + cost
+            path[i + 1] = (0, 1 if data[i] else 0)
+        p, max_d = best_copy[i]
+        for d in range(1, max_d + 1):
+            if dp[i] + 3 < dp[i+d]:
+                dp[i+d] = dp[i] + 3
+                path[i+d] = (p, d)
+
+    encoded = []
+    i = n
+    while i:
+        p, d = path[i]
+        if p == 0:
+            encoded = ([data[i-1]] if d else [0, 0, 0]) + encoded
+            i -= 1
         else:
-            comp_buff.append(int.to_bytes(0,1,'big'))
-            comp_buff.append(int.to_bytes(p,1,'big'))
-            comp_buff.append(int.to_bytes(d,1,'big'))
-            i += d
-    return comp_buff
+            encoded = [0, p, d] + encoded
+            i -= d
+    return [x.to_bytes(1, 'big') for x in encoded]
 
 def main():
-    in_buff = []
-    with open('2020-Summer/data2_s.txt', 'rb') as f:
-        EOF = False
-        while not EOF:
-            r = f.read(1)
-            if r == b'':
-                EOF = True
-                continue
-            in_buff.append(r)
-    
-    comp_buff = compress_buffer(in_buff)
-
-    with open('2020-Summer/data3.bin', 'wb') as f_out:
-        for b in comp_buff:
-            f_out.write(b)
+    for input_name, output_name in [
+        ('data3a.txt', 'data3a.bin'),
+        ('data3b.png', 'data3b.bin'),
+        ('data3c.txt', 'data3c.bin'),
+    ]:
+        with open('2020-Summer/' + input_name, 'rb') as f:
+            in_buff = [bytes([value]) for value in f.read()]
+        comp_buff = compress_buffer(in_buff)
+        with open('2020-Summer/' + output_name, 'wb') as f_out:
+            for b in comp_buff:
+                f_out.write(b)
+        print(input_name, len(comp_buff))
 
 if __name__ == "__main__":
     main()
@@ -593,7 +594,7 @@ C++ solution:
 #include <bits/stdc++.h>
 using namespace std;
 /*
-这题楼上代码主要是对于匹配长度小等于3的时候选择不压缩，但是我感觉还得多考虑含0的情况，下面给出了hack数据data3b.txt，按楼上的py代码跑出来是下面那种，但是选择压缩得到的结果是上面更短的。
+长度不超过3的匹配在含0时也可能更优；而且最长匹配贪心不保证全局最短。下面用前缀动态规划，hack 数据说明了必须考虑短匹配。
 */
 /*
 INPUT  data2.txt:
@@ -611,54 +612,77 @@ OUPUT:
 RIGHT:   29 00 00 00 2a 00 03 03  (shorter)
 WRONG:   29 00 00 00 2a 29 00 00 00 2a
 */
-void solve() {
-    ifstream fin("data3b.txt", ios::in | ios::binary);
-    ofstream fout("data3b.bin", ios::out);
+void solve(const string& input_name, const string& output_name) {
+    ifstream fin(input_name, ios::in | ios::binary);
+    ofstream fout(output_name, ios::out | ios::binary);
     vector<int> vec, res;
     char num;
     while (fin.read((char*) &num, sizeof(num)))
-        vec.push_back(num);
-    for (int i = 0; i < vec.size(); i++) {
-        int l = 0, r = -1; // max range that matchs
-        for (int j = 0; j < i; j++) { // enumerate the begginning of match part
-            int len = 0; // max matched len
-            while (j + len < i && i + len < vec.size() && vec[j + len] == vec[i + len])
-                len++; // match and notice do not exceed the limit
-            if (len > (r - l + 1)) {
-                l = j, r = j + len - 1;
+        vec.push_back(static_cast<unsigned char>(num));
+
+    int n = vec.size();
+    const int INF = 1e9;
+    struct Prev { int p = -1, d = -1; };
+    vector<pair<int, int>> best_copy(n);
+    vector<int> next_lcp(256), current_lcp(256);
+    for (int i = n - 1; i >= 0; i--) {
+        fill(current_lcp.begin(), current_lcp.end(), 0);
+        int best_p = 0, best_d = 0;
+        for (int p = 1; p <= min(i, 255); p++) {
+            if (vec[i - p] == vec[i]) current_lcp[p] = 1 + next_lcp[p];
+            int d = min(current_lcp[p], p);
+            if (d > best_d) best_p = p, best_d = d;
+        }
+        best_copy[i] = {best_p, best_d};
+        swap(next_lcp, current_lcp);
+    }
+    vector<int> dp(n + 1, INF);
+    vector<Prev> pre(n + 1);
+    dp[0] = 0;
+    for (int i = 0; i < n; i++) {
+        int literal_cost = vec[i] == 0 ? 3 : 1;
+        if (dp[i] + literal_cost < dp[i + 1]) {
+            dp[i + 1] = dp[i] + literal_cost;
+            pre[i + 1] = {0, vec[i] == 0 ? 0 : 1};
+        }
+        auto [p, max_d] = best_copy[i];
+        for (int d = 1; d <= max_d; d++) {
+            if (dp[i] + 3 < dp[i + d]) {
+                dp[i + d] = dp[i] + 3;
+                pre[i + d] = {p, d};
             }
         }
-        int max_len = r - l + 1;
-        bool contain0 = 0;
-        for (int i = l; i <= r; i++)
-            contain0 |= vec[i] == 0;
-        if (r == -1 || (max_len <= 3 && !contain0)) { // choose not to compress
-            if (vec[i] == 0) {
-                res.push_back(0);
-                res.push_back(0);
-                res.push_back(0);
-            } else
-                res.push_back(vec[i]);
+    }
+
+    vector<vector<int>> parts;
+    for (int i = n; i > 0; ) {
+        auto [p, d] = pre[i];
+        if (p == 0) {
+            parts.push_back(d == 0 ? vector<int>{0, 0, 0} : vector<int>{vec[i - 1]});
+            i--;
         } else {
-            int p = i - l;
-            int d = max_len;
-            res.push_back(0);
-            res.push_back(p);
-            res.push_back(d);
-            i += d - 1;
+            parts.push_back({0, p, d});
+            i -= d;
         }
     }
+    reverse(parts.begin(), parts.end());
+    for (auto &part : parts)
+        res.insert(res.end(), part.begin(), part.end());
     for (auto c : res) {
         char ch = c;
         fout.write((char*) &ch, sizeof(ch));
     }
+    cout << input_name << ": " << res.size() << "\n";
 }
 signed main() {
-    int t = 1;
-    while (t--) solve();
+    solve("data3a.txt", "data3a.bin");
+    solve("data3b.png", "data3b.bin");
+    solve("data3c.txt", "data3c.bin");
     return 0;
 }
 ```
+
+The linked sample repository does not contain the three `data3*` input files, so their numerical compressed sizes cannot be reproduced from the available data.
 
 ### (4)
 
@@ -693,17 +717,24 @@ def main():
 
     sll_e.sort(key=lambda x: x[1], reverse=True)
     sll_d.sort(key=lambda x: x[1], reverse=True)
-    for i in range(len(sll_e)):
+    for i in range(min(len(sll_e), len(sll_d))):
         print(f"#{sll_e[i][1]} '{sll_e[i][0]}' , '{sll_d[i][0]}'")
-    # use the printed information to understand the encryption by hand
+    # This frequency correspondence is only a heuristic.  Verify the
+    # substitution against repeated-letter patterns and every dictionary word.
 
 if __name__ == "__main__":
     main()
 ```
 
+For the provided files, the first sentence is:
+
+```text
+i have no idea what is your problem so please help me
+```
+
 ### (5)
 
-实际上本题的样例东子都写错了，两个大数`l = [3678294059377362389066827, 3206045550022053639901108]`解密出来是`[65, 66, 67, 68, 69, 70, 71, 72]`
+题目中的两个示例密文解密为字节 `[65,66,67,68,69,70,71,72]`，即 `ABCDEFGH`，与示例明文一致。
 
 #### tomfluff's solution
 
@@ -721,11 +752,20 @@ def main():
     pq = get_decomposition(n)
     print(pq)
 
-    # Using p and q we can compute d, then decrypt the file
+    p, q = pq
+    e = 551263368336670859257571
+    d = ((p - 1) * (q - 1) + 1) // e
+    assert e * d == (p - 1) * (q - 1) + 1
+    with open('data5.txt') as f:
+        ciphertext = map(int, f.read().split())
+    plaintext = b''.join(pow(c, d, n).to_bytes(4, 'big') for c in ciphertext)
+    print(plaintext.decode('utf-8'))
 
 if __name__ == "__main__":
     main()
 ```
+
+The linked sample repository does not contain `data5.txt`; the two published example blocks were independently verified to decrypt to `ABCDEFGH`.
 
 #### FunTotal's solution
 
@@ -750,20 +790,14 @@ def main():
     p = pq[0]
     q = pq[1]
     d = ((p - 1) * (q - 1) + 1) // e
+    assert e * d == (p - 1) * (q - 1) + 1
     res = []
     with open('data5.txt', 'r') as f:
         arr = f.read().split()
     for c in arr:
         c= int(c)
         m = pow(c, d, n)
-        # m = 2 ** 24 * b0 + 2 ** 16 * b1 + 2 ** 8 * b2 + b3
-        b = [0, 0, 0, 0]
-        for i in range(0, 4):
-            b[3 - i] = m % 256
-            m -= b[3 - i]
-            m = m // 256
-        for i in range(0, 4):
-            res.append(b[i])
+        res.extend(m.to_bytes(4, 'big'))
     with open('data5ans.txt', 'wb') as f:
         for num in res:
             f.write(bytes([num]))

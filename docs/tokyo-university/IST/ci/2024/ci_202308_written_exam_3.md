@@ -14,7 +14,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2023年8月実施 筆記試験 第3問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 Select <u>four items</u> out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines. If necessary, use examples, figures or equations.
@@ -45,8 +45,16 @@ Select <u>four items</u> out of the following eight items concerning information
 
 **Dynamic Programming**
 
-An algorithm paradigm that stores the optimal solution structures of subproblems to avoid redundant computation in traversal. It consists of several factors: initial conditions, the definition of the subproblem, the state transition equation (and the order of updating).
+An algorithmic paradigm for problems with overlapping subproblems and optimal substructure. It stores each subproblem's result to avoid recomputation, using either memoized recursion or bottom-up tabulation. A solution specifies the state, base cases, transition, evaluation order, and how to recover the answer. Its complexity is usually the number of states times the transition cost.
+
+**BNF (Backus–Naur Form)**
+
+A notation for context-free grammars. A production has the form `nonterminal ::= expression`; alternatives use `|`, terminals are literal symbols, and nonterminals may be expanded recursively. For example, `<bit> ::= "0" | "1"` and `<bits> ::= <bit> | <bit><bits>` generate nonempty binary strings. BNF specifies syntax, not program meaning.
+
+**Procedural modeling**
+
+A technique that generates models from algorithms and parameters instead of storing every geometric element explicitly. Rules, grammars, noise functions, or recursive subdivision can create terrain, plants, roads, and buildings. Changing a seed or parameter efficiently produces many consistent variations. The procedure must control constraints, level of detail, and reproducibility.
 
 **k-nearest neighbor algorithm**
 
-A classification algorithm which selects a list of $k$ nearest neighboring data points from the query vector in a space (usually Euclidean) and assign the class of the query as the majority class among the list. The error of this classifier is not less than that of an optimal Bayesian classifier, but not greater than 2 times the error of that Bayesian classifier. (Also, this algorithm can be implemented by a KD-Tree or Ball Tree to efficiently search neighbors.)
+A nonparametric algorithm that selects the $k$ training points nearest to a query under a chosen distance (often Euclidean). Classification uses their majority or distance-weighted vote; regression averages their targets. Feature scaling and the choice of $k$ control bias and variance. A KD-tree or ball tree can accelerate neighbor search in suitable dimensions.

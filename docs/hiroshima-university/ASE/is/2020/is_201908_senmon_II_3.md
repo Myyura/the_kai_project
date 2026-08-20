@@ -52,7 +52,7 @@ Answer (3-1) the difference from the specificationa, (3-2) the modified source c
 
 (4) Change search1 and search2 to search1 last and search2 last that return the last position of the search character. Fill the blanks (c), (d), (e), (f) in Figure 2 and Figure 3 in the next page.
 
-##### <center> Figure 1. C source code
+##### <center> Figure 1. C source code</center>
 ```text
 #include <stdio.h>
 #include <string.h>
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-##### <center> Figure 2. search1_last
+##### <center> Figure 2. search1_last</center>
 ```text
 int search1_last(char s[], char l) {
     int i, p;
@@ -96,7 +96,7 @@ int search1_last(char s[], char l) {
 }
 ```
 
-##### <center> Figure 3. search2_last
+##### <center> Figure 3. search2_last</center>
 ```text
 int search2_last(char s[], char l, int i, int p) {
     if(s[i] == l)
@@ -139,7 +139,7 @@ search2: The first position of 'i' in 'hiroshima' is 2
 ```
 
 ### (3)
-- (3-1): If the given character is not in the string, then loop (recursion) never ends.
+- (3-1): If the character is absent, the functions read past the terminating null character, causing undefined behavior; the loop or recursion need not terminate.
 - (3-2), search1: for (i = 0; i < strlen(s); i++)
 - (3-2), search2: if (i < strlen(s) && s\[i\] != l) return search2(s, l, i+1);
 - (3-3): search1: 'z' is not included in 'hiroshima'
@@ -154,3 +154,5 @@ Note: We must first check for out-of-bounds, so the order of the two conditions 
 - (d): p = i + 1
 - (e): p = i + 1
 - (f): i < strlen(s)
+
+For the no-match case, search1_last must initialize p to 0, and search2_last must be called with its initial p equal to 0.

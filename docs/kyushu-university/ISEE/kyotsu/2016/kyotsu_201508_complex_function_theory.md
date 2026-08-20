@@ -8,7 +8,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2015年8月実施 複素関数論
 
 ## **Author**
-Zero
+Zero, 祭音Myyura
 
 ## **Description**
 複素関数 $f(z) = \frac{\pi\cot\pi z}{z^2 + a^2}$ を考える。ただし, $a > 0$ とする。次の各問に答えよ。
@@ -50,7 +50,7 @@ $$
    \lim_{N\to\infty}\oint_{C_N}f(z)\,dz.
    $$
 
-   原题只通过外链图给出 $C_N$，没有在文字中注明其顶点、方向或是否相对整数极点作偏移；Kai 仅把四条边写成 $z=x\pm iN$ 与 $z=\pm N+iy$ 的正方形边界参数式。由于 $N$ 为整数时后两条直线会经过 $\cot(\pi z)$ 的整数极点，现有文字与 Kai 无法唯一恢复图中是否另有半整数偏移等细节，闭路的这一缺失须以原图为准。
+   原图给出的 $C_N$ 是顶点为 $(N+\frac12)(\pm1\pm i)$、方向为正向的正方形边界，因而不经过 $\cot(\pi z)$ 的整数极点。
 3. 利用第 2 问的极限证明
 
    $$
@@ -109,26 +109,27 @@ $$
 
 ### (2)
 
-$$
-\begin{aligned}
-\oint_{C_N}f(x)dx &= \int_{-N}^N \frac{\pi \cot\pi(x - iN)}{(x - iN)^2 + a^2}dx \\
-&\quad + \int_{N}^{-N} \frac{\pi\cot\pi(x + iN)}{(x + iN)^2 + a^2}dx \\
-&\qquad +  \int_{-N}^N \frac{\pi\cot\pi(N + iy)}{(N + iy)^2 + a^2}dy \\
-&\qquad \quad + \int_{N}^{-N} \frac{\pi\cot\pi(-N + iy)}{(-N + iy)^2 + a^2}dy
-\end{aligned}
-$$
+図より $R_N=N+\frac12$ とおくと、$C_N$ は
+$|\operatorname{Re}z|\leq R_N,\ |\operatorname{Im}z|\leq R_N$ の正方形の正向き境界である。
+鉛直辺では
 
 $$
-\begin{aligned}
-\bigg|\int_{-N}^N\frac{\pi \cot\pi(x - iN)}{(x - iN)^2 + a^2}dx\bigg| &= \bigg|\int_{N}^{-N} \frac{\pi\cot\pi(-N + iy)}{(-N + iy)^2 + a^2}dy\bigg| \\
-\bigg|\int_{N}^{-N} \frac{\pi\cot\pi(x + iN)}{(x + iN)^2 + a^2}dx\bigg| &= \bigg|\int_{-N}^N \frac{\pi\cot\pi(N + iy)}{(N + iy)^2 + a^2}dy\bigg|
-\end{aligned}
+|\cot\pi(\pm R_N+iy)|=|\tanh\pi y|\leq1,
 $$
 
-より、
+水平辺では $|\cot\pi(x\pm iR_N)|\leq\coth(\pi R_N)$ である。また $z\in C_N$ なら
+$|z|\geq R_N$ なので、$R_N>a$ のとき
 
 $$
-\lim_{N \rightarrow \infty}\oint_{C_N}f(x)dx = 0
+|z^2+a^2|\geq |z|^2-a^2\geq R_N^2-a^2.
+$$
+
+したがって ML 評価より
+
+$$
+\left|\oint_{C_N}f(z)\,dz\right|
+\leq\frac{8\pi R_N\coth(\pi R_N)}{R_N^2-a^2}
+\longrightarrow0.
 $$
 
 ### (3)

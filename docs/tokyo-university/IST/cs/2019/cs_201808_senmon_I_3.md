@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2018年8月実施 専門科目I 問題3
 
 ## **Author**
-[kainoj](https://github.com/kainoj/utokyo-cs)
+[kainoj](https://github.com/kainoj/utokyo-cs), 祭音Myyura
 
 ## **Description**
 In the following, we represent a deterministic finite automaton as a quintuple $\mathcal{A} = (Q, \Sigma, \delta, q_0, F)$ (where $Q$ is a finite set of states, $\Sigma$ is a finite set of input symbols, $\delta \in Q \times \Sigma \to Q$ is the transition function, $q_0 \in Q$ is the initial state, and $F \subseteq Q$ is the set of final states), and a context-free grammar as a quadruple $G = (V, \Sigma, P, S)$ (where $V$ is a finite set of non-terminal symbols, $\Sigma$ is a finite set of terminal symbols, $P$ is a finite set of production rules, and $S \in V$ is the start symbol).
@@ -66,6 +66,7 @@ $\mathcal{L}(G)=\varnothing$ 是否成立的算法。
 
 （3）给定乔姆斯基范式文法 $G=(V,\Sigma,P,S)$ 和 DFA
 $\mathcal{A}=(Q,\Sigma,\delta,q_0,F)$，定义文法 $G_{\mathcal A}$：
+
 $$
 \begin{aligned}
 V_{\mathcal A}
@@ -78,7 +79,9 @@ P_{\mathcal A}
  &\quad\cup\{S'\to S_{q_0,q}\mid q\in F\}.
 \end{aligned}
 $$
+
 假设 $S'$ 不属于其他形如 $B_{q,q'}$ 的非终结符。证明
+
 $$
 \mathcal{L}(G_{\mathcal A})
 =\bigl(\mathcal{L}(G)\cap\mathcal{L}(\mathcal A)\bigr)
@@ -97,23 +100,30 @@ Let $\mathcal{A}' = (Q, \Sigma, \delta, q_0, Q\setminus F)$
 Now, $w \in \mathcal{L(A')}$ iff $\delta(w, q_0) \in (Q\setminus F$) which is occurs only when $w\notin \mathcal{L(A)}$
 
 ### (2)
-Given CFG $\mathcal{G} = (V, \Sigma, P, S)$, decide wheaterh $\mathcal{L(G)} = \varnothing$.
+Call a nonterminal $A\in V$ generating if $A\Rightarrow^*w$ for some $w\in\Sigma^*$; otherwise it is nongenerating. The language is empty exactly when the start symbol $S$ is nongenerating.
 
-We call symbol $A\in V$ \emph{generating} if $A\Rightarrow^* w$ for some string $w$ of terminals.
-If there's no such string, then $A$ is \emph{nongenerating}.
-Language of grammar $\mathcal{G}$ is empty iff start symbol $S$ is nongenerating.
-We can find set of generating symbols using the algorithm below.
-Symbols that are not marked generating, are nongenerating.
-The algorithm:
+Compute the generating symbols as follows. Initially mark every $A$ for which a production $A\to w$ has $w\in\Sigma^*$, including $w=\epsilon$. Then repeatedly mark $A$ whenever a production $A\to\alpha$ has only terminals and already marked nonterminals on its right-hand side. Stop when no new symbol can be marked.
 
-- Base. Every terminal symbol form $T$ is generating.
-- Induction. If for some production $A\rightarrow \alpha$, $\alpha$ is known to be generating, then is $A$.
+Since $V$ is finite, this process terminates. Induction on derivation height shows that exactly the generating nonterminals are marked; hence $\mathcal L(G)=\varnothing$ iff $S$ remains unmarked.
 
 
 ### (3)
-Looks pretty obvious from the construction.
-A nice induction'd make it.
+For every $B\in V$, $p,q\in Q$, and nonempty word $w$, induction on a Chomsky-normal-form derivation gives
+
+$$
+B_{p,q}\Rightarrow_{G_{\mathcal A}}^*w
+\iff B\Rightarrow_G^*w\ \text{and}\ \delta^*(p,w)=q.
+$$
+
+The terminal-rule case follows directly from the second set of rules. In the binary-rule case $B\to CD$, split $w=uv$ according to the two subderivations and use the intermediate state $r=\delta^*(p,u)$; the converse uses the same split.
+
+Therefore $S'\Rightarrow^*w$ iff $S\Rightarrow_G^*w$ and $\delta^*(q_0,w)\in F$. Since $G_{\mathcal A}$ has no rule generating $\epsilon$, its language is $(\mathcal L(G)\cap\mathcal L(\mathcal A))\setminus\{\epsilon\}$.
 
 ### (4)
-If $(\mathcal{L(G)}\cap \overline{\mathcal{L(A)}}) = \varnothing$, then $\mathcal{L(G)} \subseteq \mathcal{L(A)}$
-We can compute complement based on (Q1), intersection based on (Q3) and check for emptiness based on (Q2).
+Complement $\mathcal A$ using (1), construct the grammar for
+
+$$
+(\mathcal L(G)\cap\overline{\mathcal L(\mathcal A)})\setminus\{\epsilon\}
+$$
+
+using (3), and test it for emptiness using (2). Also test the omitted word separately: if $S\to\epsilon$ is a rule of $G$, require $q_0\in F$. The inclusion holds iff both tests pass.

@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学研究科 2018年8月実施 数学 第3問
 
 ## **Author**
-[etsurin](https://zhuanlan.zhihu.com/p/561992447)
+[etsurin](https://zhuanlan.zhihu.com/p/561992447), 祭音Myyura
 
 ## **Description**
 下図のように、平面上に三角形 $ABC$ が与えられており、各頂点の座標は $A\ (1,0)$、$B\ (0,1)$、$C\ (-1,-1)$ とする。
@@ -54,9 +54,11 @@ $$
 平面上三角形顶点为
 $A(1,0)$、$B(0,1)$、$C(-1,-1)$。令
 $\Theta$ 在 $[0,2\pi)$ 上均匀分布，并从原点发出随机射线
+
 $$
 \ell=\{(r\cos\Theta,r\sin\Theta)\mid r\ge0\}.
 $$
+
 记射线与三角形边界的交点为 $Q=(X,Y)$，其中 $X,Y$ 为随机变量。回答下列问题。
 
 （1）求 $Q$ 位于边 $AB$ 上的概率。
@@ -65,9 +67,11 @@ $$
 $\mathbb E[X\mid Q\in AB]=1/2$。可以使用三角形关于直线 $y=x$ 对称。
 
 （3）在条件 $Q\in BC$ 下，利用变量变换公式
+
 $$
 f(x)=g(h(x))\left|\frac{\mathrm dh}{\mathrm dx}(x)\right|
 $$
+
 求 $X$ 的概率密度。其中 $g$ 为 $\Theta$ 的条件密度，
 $\Theta=h(X)$。
 
@@ -95,7 +99,7 @@ $$
 f_{AB}(\Theta) = \frac{2}{\pi} \qquad 0 < \Theta < \frac{\pi}{2}
 $$
 
-$AB$ 对应边 $y = x+1$。转化为极坐标 $\rho \cos \Theta + \rho \sin \Theta = 1$。
+$AB$ 对应边 $y = 1-x$。转化为极坐标 $\rho \cos \Theta + \rho \sin \Theta = 1$。
 
 $$
 x = \rho \cos \Theta = \frac{\cos \Theta}{\cos \Theta + \sin \Theta}
@@ -104,7 +108,7 @@ $$
 $$
 \begin{aligned}
 E_{AB}(X) &= \frac{2}{\pi} \int_0^{\frac{\pi}{2}} \frac{\cos \Theta}{\cos \Theta + \sin \Theta} \text{d} \Theta \\
-&= \frac{2}{\pi} \int_0^{\frac{\pi}{4}} \frac{\cos \Theta}{\cos \Theta + \sin \Theta} \text{d} \Theta - \frac{2}{\pi} \int_0^{\frac{\pi}{4}} \frac{\sin \theta}{\cos \theta + \sin \theta} \text{d} \theta \\
+&= \frac{2}{\pi} \int_0^{\frac{\pi}{4}} \frac{\cos \Theta}{\cos \Theta + \sin \Theta} \text{d} \Theta + \frac{2}{\pi} \int_0^{\frac{\pi}{4}} \frac{\sin \theta}{\cos \theta + \sin \theta} \text{d} \theta \\
 &(\text{拆分区间，后项作变量代换 } \theta = \frac{\pi}{2} - \Theta) \\
 &= \frac{2}{\pi} \int_0^{\frac{\pi}{4}} \frac{\cos \Theta + \sin \Theta}{\cos \Theta + \sin \Theta} \text{d} \Theta \\
 &= \frac{1}{2}
@@ -136,8 +140,10 @@ $$
 f_{BC}(x) = f_{BC}(h(x))h'(x) \qquad \Theta = h(x)
 $$
 
+在 $[\pi/2,5\pi/4]$ 上连续选取反正切分支，则对 $-1\leq x<0$，
+
 $$
-\tan \Theta = 2 + \frac{1}{x} \qquad \Theta = \arctan (2 + \frac{1}{x}) = h(x)
+\tan \Theta = 2 + \frac{1}{x} \qquad \Theta = h(x)=\pi+\arctan\left(2+\frac{1}{x}\right).
 $$
 
 $$
@@ -162,7 +168,7 @@ $$
 \end{aligned}
 $$
 
-$\tan (\theta_1) = 2, \tan (\theta_2) = -3$, 则 $\tan(\theta_1 - \theta_2) = \frac{\tan \theta_1 - \tan \theta_2}{1 - \tan \theta_1 \tan \theta_2} = -1$。$\theta_1 - \theta_2 = \frac{3 \pi}{4}$。
+$\tan (\theta_1) = 2, \tan (\theta_2) = -3$, 则 $\tan(\theta_1 - \theta_2) = \frac{\tan \theta_1 - \tan \theta_2}{1 + \tan \theta_1 \tan \theta_2} = -1$。$\theta_1 - \theta_2 = \frac{3 \pi}{4}$。
 
 $$
 \alpha = -\frac{2}{5} - \frac{2}{15 \pi} \ln 2

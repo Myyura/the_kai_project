@@ -41,16 +41,18 @@ $$
 w(AB) = w(BC) = w(AC) = 1
 $$
 
-### (ii)
-Let $T^*$ denote a minimum spanning tree of $G$ s.t. $a \notin T$. Since $K$ is a cut-set contains $a$, there exists an edge $b \in K \neq a$ s.t. $b$ is an edge of $T$, otherwise $T$ is not connected.
+Take $K=\{AB,AC\}$ and $a=AB$. The minimum spanning tree $\{AC,BC\}$ does not contain $a$.
 
-Let $T' = T - \{a\} + \{b\}$. Note that $a$ is an edge of $K$ of minimum weight, i.e.
+### (ii)
+Let $T^*$ be a minimum spanning tree. If $a\in T^*$, there is nothing to prove. Otherwise, adding $a$ to $T^*$ creates a cycle. This cycle crosses the cut $K$ in another edge $b\in K\cap T^*$.
+
+Let $T' = T^* - \{b\} + \{a\}$. Since $a$ has minimum weight in $K$,
 
 $$
 w(a) \leq w(b)
 $$
 
-which implies that $w(T') \leq w(T^*)$, i.e., $T'$ is also a minimum spanning tree and $a \in T'$.
+which implies that $w(T') \leq w(T^*)$. Hence $T'$ is also a minimum spanning tree and contains $a$.
 
 Therefore, $G$ has a minimum spanning tree which contains edge $a$.
 
@@ -65,17 +67,17 @@ $$
 w(AB) = 1
 $$
 
+Here $K=\{AB\}$ and $b=AB$, so every spanning tree contains $b$.
+
 ### (iv)
 Counterexample:
 
 $$
-V = \{A, B, C, D\}, E = \{AB, AC, BC, AD, BD, CD\}
+V = \{A, B, C\},\qquad E = \{AB, AC, BC\}
 $$
 
 $$
-w(AB) = w(AC) = w(AD) = 1, w(BC) = w(BD) = w(CD) = 2
+w(AB)=1,\qquad w(AC)=w(BC)=2.
 $$
 
-$$
-C = \{BC, BD, CD\}
-$$
+Take $C=\{AB,AC,BC\}$ and $a=AB$. Every minimum spanning tree contains $AB$, so no minimum spanning tree excludes $a$.

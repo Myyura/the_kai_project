@@ -13,7 +13,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2020年8月実施 専門基礎A \[A-5\]
 
 ## **Author**
-[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e)
+[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
 Answer all the following questions.
@@ -73,9 +73,11 @@ $$
    6. 求 $S_X$ 的平稳分布。
    7. 求 $S_X$ 的熵，并向下取到一位小数。
 2. 回答信道编码问题。设 $C$ 为长度 $15$、生成多项式
+
    $$
    G(x)=x^4+x+1
    $$
+
    的二元循环码。
    1. 判断
       $x^{10}+x^7+x^4+x^3+x^2+x+1$ 是否为 $C$ 的码字多项式。
@@ -93,9 +95,11 @@ $$
 \begin{aligned}
 H(S_A) &= \sum_i p_i \log_2 \frac{1}{p_i} \\
 &= 0.7 \cdot \log_2 \frac{1}{0.7} + 0.3 \cdot \log_2 \frac{1}{0.3} \\
-&= 0.86 \text{ bits/symbol}
+&\approx 0.8813 \text{ bits/symbol}.
 \end{aligned}
 $$
+
+(Using the supplied rounded logarithms gives $0.86$.)
 
 
 #### (b)
@@ -106,6 +110,12 @@ The symbol probabilities are:
 *   $p(11) = 0.3 \times 0.3 = 0.09$
 
 **Construct Huffman Code:**
+One valid code is
+
+$$
+00\mapsto0,\qquad 01\mapsto10,\qquad
+10\mapsto110,\qquad 11\mapsto111.
+$$
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_A_5_p1.png" width="450" alt=""/>
@@ -135,14 +145,13 @@ According to **Shannon's source coding theorem**, the entropy of a source provid
 The source $S_A$ doesn't meet with dyadic distribution (powers of $1/2$), so the Huffman coding will never reach the lower bound exactly.
 
 #### (d)
-The expected code length per symbol decreases as block length $n$ increases.
-According to Shannon's source coding theorem for the $n$-th extension of a discrete memoryless source (DMS), the average codeword length per source symbol satisfies:
+It need not decrease monotonically: here $\bar L_2/2=0.905$, whereas the optimal Huffman value for $n=3$ is $\bar L_3/3=2.726/3\approx0.9087$. However, for every $n$,
 
 $$
-H(X) \le \frac{\bar{L}^n}{n} < H(X) + \frac{1}{n}
+H(S_A)\le \frac{\bar L_n}{n}<H(S_A)+\frac1n.
 $$
 
-As $n$ increases, the length per symbol will approach the entropy bound.
+Thus the redundancy per symbol tends to zero and $\bar L_n/n\to H(S_A)$.
 
 #### (e)
 
@@ -177,18 +186,23 @@ $$
 H(S_X) = \pi_a H(A) + \pi_b H(B)
 $$
 
-*   $H(A) = H(S_A) \approx 0.88 \text{ bits/symbol}$
-*   $H(B) = -0.6 \log_2 0.6 - 0.4 \log_2 0.4 \approx 0.97 \text{ bits/symbol}$
+The two conditional entropies are
 
-Substitute into $H(S_X)$:
+* $H(S_A)\approx0.8813$ bits/symbol;
+* $H(S_B)=-0.6\log_2 0.6-0.4\log_2 0.4\approx0.9710$ bits/symbol.
+
+Substituting these values and the stationary probabilities gives
 
 $$
 \begin{aligned}
-H(S_X) &= \frac{4}{7} \times 0.88 + \frac{3}{7} \times 0.97 \\
-&\approx 0.50 + 0.41 \\
-&= 0.91 \text{ bits/symbol}
+H(S_X)
+&=\frac47H(S_A)+\frac37H(S_B)\\
+&\approx\frac47(0.8813)+\frac37(0.9710)\\
+&\approx0.9197\ \text{bits/symbol}.
 \end{aligned}
 $$
+
+Rounded down to one decimal place, the answer is $\boxed{0.9}$ bits/symbol.
 
 ---
 
@@ -212,12 +226,17 @@ Given message $m(x) = x^5 + x^3 + x$. Degree of $g(x)$ is $r=4$.
 3.  **Codeword**: $c(x) = x^9 + x^7 + x^5 + x^2 + x + 1$.
 
 #### (c)
-For $(15, 11)$ cyclic code:
+For the $(15,11)$ cyclic code:
 
-*   $r = 15 - 11 = 4$.
-*   $n = 2^r - 1 = 15$, $k = 2^r - 1 - r = 11$.
-*   Since $g(x)$ is a primitive polynomial, the $(15, 11)$ cyclic code is a **Hamming code**.
-*   Minimum distance $d_{\min} = 3$.
+* $r=15-11=4$;
+* $n=2^r-1=15$ and $k=2^r-1-r=11$;
+* since $g(x)=x^4+x+1$ is primitive of degree $4$, this is the binary cyclic Hamming code.
+
+For completeness, let $\alpha$ be a root of $g(x)$. Its order is $15$. A weight-two codeword would have the form $x^j(1+x^\ell)$ with $1\le\ell\le14$, and divisibility by $g$ would imply $\alpha^\ell=1$, a contradiction. Weight one is also impossible, while $g(x)$ itself is a weight-three codeword. Hence
+
+$$
+d_{\min}=3.
+$$
 
 #### (d)
 

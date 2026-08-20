@@ -9,6 +9,7 @@ tags:
 # 東京大学 工学系研究科 2016年8月実施 数学 第4問
 
 ## **Author**
+祭音Myyura
 
 ## **Description**
 $0 \leq \theta < 2\pi ,0 \leq \alpha \leq \pi$ 範囲にある実数 $\theta$, $\alpha$ に対して, 3 次元直交座標系 $xyz$ における点 $P(\cos\theta,\sin\theta,1)$ と点 $Q(\cos(\theta + \alpha),\sin(\theta + \alpha),-1)$ の 2 点を通る直線 $L$ を考える。
@@ -47,10 +48,12 @@ $0 \leq \alpha < \pi$ を満たす $\alpha$ に対し,　曲面 $S$ の任意の
 ### 题目描述
 
 对 $0\le\theta<2\pi$、$0\le\alpha\le\pi$，在三维直角坐标系中取
+
 $$
 P=(\cos\theta,\sin\theta,1),\qquad
 Q=(\cos(\theta+\alpha),\sin(\theta+\alpha),-1),
 $$
+
 并令直线 $L$ 经过 $P,Q$。
 
 1. 用参数 $t$ 的一次式表示 $L$，要求 $t=0$ 对应 $Q$、$t=1$ 对应 $P$。
@@ -134,9 +137,9 @@ $$
 x^2 - \sin^2\frac{\alpha}{2} \cdot z^2 = \cos^2\frac{\alpha}{2}
 $$
 
-$a = 0$ のとき,　$x = \pm  1$ である。
+$\alpha = 0$ のとき,　$x = \pm  1$ である。
 
-$a \neq 0$ のとき,　この曲線は双曲線であり,　その漸近線の方程式は,　
+$\alpha \neq 0$ のとき,　この曲線は双曲線であり,　その漸近線の方程式は,　
 
 $$
 z = \pm \frac{\cos\frac{\alpha}{2}}{\sin\frac{\alpha}{2}} \cdot \frac{1}{\cos\frac{\alpha}{2}} x = \pm \frac{x}{\sin\frac{\alpha}{2}}
@@ -153,7 +156,7 @@ $$
 $$
 r(\theta ,t) =
 \begin{pmatrix}
-\cos(\theta + \alpha) + t(\cos\theta - \cos(\theta - \alpha)) \\
+\cos(\theta + \alpha) + t(\cos\theta - \cos(\theta + \alpha)) \\
 \sin(\theta + \alpha) + t(\sin\theta - \sin(\theta + \alpha)) \\
 -1 + 2t
 \end{pmatrix}
@@ -242,20 +245,10 @@ $$
 2\cos\frac{\alpha}{2}\sin\big(\theta + \frac{\alpha}{2}\big) = 0 (\because\text{和積の公式})
 $$
 
-$\cos\frac{\alpha}{2} \neq 0$より, $\sin(\theta + \frac{\alpha}{2}) = 0$
+$\cos\frac{\alpha}{2} \neq 0$ より $\sin(\theta+\frac{\alpha}{2})=0$ である。さらに $W$ は正の $x$ 軸上にあるので $\cos(\theta+\alpha/2)=1$、すなわち $\theta\equiv-\alpha/2\pmod{2\pi}$ である。したがって
 
 $$
-\therefore \theta + \frac{\alpha}{2} =n\pi \quad (n=1,\pm1,\pm2,\cdots)
-$$
-
-$0 \leq \alpha < \pi$, $0 \leq \theta < 2\pi$ より,
-
-$$
-\theta = -\frac{\alpha}{2} + \pi ,-\frac{\alpha}{2} + 2\pi
-$$
-
-$$
-\therefore \sin\theta = \pm\sin\frac{\alpha}{2} \Leftrightarrow \sin^2\theta =\sin^2\frac{\alpha}{2}
+\sin^2\theta=\sin^2\frac{\alpha}{2}.
 $$
 
 $K$ の分子は,
@@ -336,7 +329,7 @@ $$
 \end{aligned}
 $$
 
-ここで, $0 \leq \alpha  < \pi$ より, $\cos\alpha \ge 0$ であるから,
+ここで, $0 \leq \alpha < \pi$ より $1+\cos\alpha>0$ であり、第1項も $0$ 以上であるから,
 
 $$
 (r_{\theta} \cdot r_{\theta})(r_{t} \cdot r_{t}) - (r_{\theta} \cdot r_{t})^2 > 0

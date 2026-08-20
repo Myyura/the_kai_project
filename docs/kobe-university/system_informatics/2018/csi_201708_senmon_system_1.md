@@ -20,7 +20,7 @@ $A$ ~ $E$ の各地点の間に光ファイバーを設置してインターネ�
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_system_1_p1.png" width="200" alt=""/>
 </figure>
 
-#### <center> 図 (a)
+#### <center> 図 (a)</center>
 
 (1) 図 (a) に示されたグラフについて、隣接行列 (adjacency matrix) およびラプラシアン行列 (Laplacian matrix) を示せ。
 
@@ -42,7 +42,7 @@ margin: auto;
 |D |   |   |   | - | 6 |
 |E |   |   |   |   | - |
 
-#### <center> 表 (b)
+#### <center> 表 (b)</center>
 
 ### 题目描述
 
@@ -103,6 +103,8 @@ $$
 $$
 
 ### (2)
+頂点数が $5$ なので、各全域木の辺数は $5-1=4$ 本である。
+
 [行列木定理](https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem)より、$\boldsymbol{L}$ の $11$ 余因子 $\Delta_{11}$ は
 
 $$
@@ -118,7 +120,7 @@ $$
 
 ### (3)
 
-#### <center> 最小木
+#### <center> 最小木</center>
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_system_1_p2.png" width="270" alt=""/>

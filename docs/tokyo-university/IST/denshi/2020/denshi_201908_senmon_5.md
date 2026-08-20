@@ -11,7 +11,7 @@ tags:
 
 
 ## **Author**
-[diohabara](https://github.com/diohabara/open_inshi), [adj-matrix](https://github.com/adj-matrix)
+[diohabara](https://github.com/diohabara/open_inshi), [adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 離散時間信号 $x$ の出力が，図のような確率密度関数 $p(x)$ に従うとする.
@@ -95,9 +95,9 @@ $$
 $$
 \begin{aligned}
 &-(2\frac{2}{25}\log\frac{2}{25} + 2\frac{6}{25}\log\frac{6}{25} + \frac{9}{25}\log\frac{9}{25}) \\
-&= (\frac{4}{25}(\log2 - 2\log5)) + \frac{12}{25}(\log2 + \log3 - 2\log5) + \frac{9}{25}(2\log3 - 2\log5) \\
-&= (\frac{16}{25}\log2 + \frac{30}{25}\log3 - 2\log5) \\
-&= -(0.64 + 1.896 - 4.64) = 2.104
+&= -\left\{\frac{4}{25}(\log2 - 2\log5) + \frac{12}{25}(\log2 + \log3 - 2\log5) + \frac{9}{25}(2\log3 - 2\log5)\right\} \\
+&= 2\log5-\frac{16}{25}\log2-\frac{30}{25}\log3 \\
+&= 4.64-0.64-1.896 = 2.104\ \text{bit}
 \end{aligned}
 $$
 
@@ -137,7 +137,7 @@ $d_1 - d_0 = x_1(>0)$ として、$\frac{1}{2}x_1^2 = \frac{1}{5}$ となる。�
 量子化誤差は信号値と再生値の平均二乗誤差だから
 
 $$
-\int_{d_{i-1}}^{d_1}(x - x_i)^2p(x)dx
+\int_{d_{i-1}}^{d_i}(x - x_i)^2p(x)dx
 $$
 
 と書ける。これを $x_i$ に関して微分すると
@@ -146,12 +146,14 @@ $$
 -2\int_{d_{i-1}}^{d_i}xp(x)dx + 2x_i\int_{d_{i-1}}^{d_i}p(x)dx
 $$
 
-となる。量子化誤差が最小のとき、これは $0$ となるからこのときの $x_i = \widetilde{x}_1$ は以下のよう
+となる。量子化誤差が最小のとき、これは $0$ となるからこのときの $x_i = \widetilde{x}_i$ は以下のよう
 に表せる。
 
 $$
 \widetilde{x}_i = \frac{\int_{d_{i-1}}^{d_i}xp(x)dx}{\int_{d_{i-1}}^{d_i}p(x)dx}
 $$
+
+二階微分は $2\int_{d_{i-1}}^{d_i}p(x)dx>0$ なので、これは最小値である。
 
 以上より題意は示された。
 

@@ -41,6 +41,7 @@ Answer the following questions:
    $$
    \int\frac{d\theta}{\sin\theta}.
    $$
+
 2. 对 $R\ge0$，求区域
 
    $$
@@ -75,20 +76,41 @@ $$
 $$
 
 ### (2)
-Since $(x^2 + y^2) / 2 \geq \sqrt{x^2 y^2}$, we have
+In polar coordinates,
 
 $$
-x^2 + y^2 \geq 2 |xy| \geq 2
+|xy|=\frac{r^2}{2}|\sin2\theta|.
 $$
 
-Hence the region can be rewritten as $\{(x,y) \in \mathbb{R}^2 \mid 2 \leq x^2 + y^2 \leq R^2\}$, and the area of which is
+Hence $S(R)=0$ for $0\leq R\leq\sqrt2$. For $R>\sqrt2$, put
 
 $$
-S(R) = \pi R^2 - \pi \cdot2 = \pi (R^2 - 2)
+\theta_0=\frac12\arcsin\frac{2}{R^2}.
+$$
+
+Using symmetry in the four quadrants,
+
+$$
+\begin{aligned}
+S(R)
+&=4\int_{\theta_0}^{\frac{\pi}{2}-\theta_0}
+\int_{\sqrt{2/\sin2\theta}}^R r\,dr\,d\theta\\
+&=2R^2\left(\frac{\pi}{2}-2\theta_0\right)
+-4\ln(\cot\theta_0)\\
+&=\pi R^2-2R^2\arcsin\frac{2}{R^2}
+-4\ln\!\left(\cot\!\left(\frac12\arcsin\frac{2}{R^2}\right)\right).
+\end{aligned}
 $$
 
 ### (3)
 
 $$
-\lim_{R \to \infty} \frac{S(R)}{\pi R^2} = \lim_{R \to \infty} \frac{\pi (R^2 - 2)}{\pi R^2} = \lim_{R \to \infty} \left(1 - \frac{2}{R^2} \right) = 1
+\cot\theta_0
+=\frac{R^2}{2}\left(1+\sqrt{1-\frac4{R^4}}\right),
+$$
+
+so $\ln(\cot\theta_0)=O(\ln R)$. Therefore
+
+$$
+\lim_{R\to\infty}\frac{S(R)}{\pi R^2}=1.
 $$

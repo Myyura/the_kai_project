@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2021年8月実施 専門科目 問題3
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Let $\Sigma_1 = \{a, b\}$ and $\Sigma_2 = \{t, f\}$. For a word $w \in \Sigma_1^*$, we write $|w|$ for the length of $w$. We also write $\epsilon$ for the empty word (i.e., the word of length 0). For a word $w \in \Sigma_1^*$, we define the function $f_w \in \Sigma_1^{*} \to \Sigma_2^{*}$ by:
@@ -81,14 +81,18 @@ $w'$ 的每个位置 $i=1,\ldots,|w'|$，若 $w$ 从该位置开始作为
 $w'$ 的子串出现，则输出第 $i$ 位为 $t$，否则为 $f$。例如
 $f_{aa}(baaab)=fttff$，
 $f_{ab}(abbab)=ttttt$。对语言 $L\subseteq\Sigma_1^*$，进一步定义
+
 $$
 f_w^*(L)=\{f_w(w')\mid w'\in L\}.
 $$
+
 例如
+
 $$
 f_{ab}^*(\{(abb)^n\mid n\ge0\})
 =\{(tff)^n\mid n\ge0\}.
 $$
+
 回答下列问题。
 
 （1）计算 $f_{aba}(babababa)$。
@@ -123,67 +127,32 @@ $$
 
 ### (2)
 
-To construct this regular expression, we need to consider all possible ways `aba` can appear in a string:
-
-1. The string might start with `aba`: $(tf)^*$
-2. There might be any number of a's or b's before `ab`: $(f^*tf)^*$
-3. The string might end with any number of a's or b's: $f^*$
-
-Combining these, we get:
+Two occurrences of `aba` cannot start at consecutive positions, and the last two output symbols are always $f$.  Conversely, every such output word is realizable.  Hence
 
 $$
-(f^*tf)^*f^*
+f_{aba}(\Sigma_1^*)
+=\varepsilon+f+(f+tf)^*(\varepsilon+t)ff.
 $$
 
-Therefore, $f_{ab}(\Sigma_1^*) = (f^*tf)^*f^*$
+### (3)
 
-## (3)
+Put $r=|w|-1$.  Construct an $\varepsilon$-NFA whose main states are
+$(q,u)$, where $q\in Q$ and $u\in\Sigma_1^{\le r}$ is a buffer of guessed input symbols.  Its initial state is $(q_0,\varepsilon)$.
 
-Let $A = (Q, \Sigma_1, \delta, q_0, F)$ be the given DFA that accepts $L$. Let $w_n \in \Sigma_1$ be the $n$-th figure of word $w$. We can construct an NFA $A' = (Q', \Sigma_2, \delta', q_0', F')$ that accepts $f_w^*(L)$ as follows:
+For each guessed $c\in\Sigma_1$:
 
-1. $Q' = Q \times \{0, 1, …, |w|\}$
-2. $q_0' = (q_0, 0)$
-3. $F' = \{(q, i) \mid q \in F, 0 \leq i \leq |w|\}$
-4. For the transition function $\delta'$:
-   - For each $(q, i) \in Q'$ and $\lambda \in \Sigma_1$:
-     - If $i < |w|$ and $\lambda = w_{i+1}$:
-	     - Add $\epsilon$-transition from $(q, i)$ to $(\delta(q, \lambda), i+1)$
-     - If $i < |w|$ and $\lambda \neq w_{i+1}$:
-	     - Add $f$-transition from $(q, i)$ to $(\delta(q, \lambda), 0)$
-     - If $i = |w|$:
-	     - Add $t$-transition from $(q, i)$ to $(\delta(q, \lambda), 0)$
+- if $|u|<r$, take an $\varepsilon$-transition to
+  $(\delta(q,c),uc)$;
+- if $|u|=r$, consume $t$ when $uc=w$, and consume $f$ otherwise, then move to
+  $(\delta(q,c),\operatorname{suffix}_r(uc))$.
 
-This NFA simulates the DFA $A$ while keeping track of potential matches of $w$ during each of the transitions in $A$. When a complete match is found, it accepts 't', otherwise 'f'.
+From every $(q,u)$ with $q\in F$, the automaton may stop guessing and enter a finite chain that consumes $f^{|u|}$ and accepts.  Thus it guesses some $x\in L$, checks every length-$|w|$ window, and accepts exactly $f_w(x)$.  The state set is finite, so this is an NFA for $f_w^*(L)$.
 
 ### (4)
 
-This proposition is true. We can prove it by constructing a pushdown automaton (PDA) that accepts $f_w^*(L)$, using a similar approach to the NFA construction in Question 3.
+The proposition is true.  For $w\ne\varepsilon$, replace the DFA component in (3) by a PDA for $L$; the finite buffer is kept in the control state, and the PDA stack is unchanged except when simulating a guessed input symbol.  This PDA accepts exactly $f_w^*(L)$.
 
-**Proof Sketch**:
-Let $M = (Q, \Sigma_1, \Gamma, \delta, q_0, Z_0, F)$ be a PDA that accepts $L$. Let $w_n \in \Sigma_1$ be the $n$-th symbol of word $w$. We can construct a PDA $M' = (Q', \Sigma_2, \Gamma, \delta', q_0', Z_0, F')$ that accepts $f_w^*(L)$ as follows:
-
-1. $Q' = Q \times \{0, 1, …, |w|\}$
-2. $q_0' = (q_0, 0)$
-3. $F' = \{(q, i) \mid q \in F, 0 \leq i \leq |w|\}$
-4. For the transition function $\delta'$:
-   - For each $((q, i), \lambda, \gamma) \in Q' \times (\Sigma_2 \cup \{\epsilon\}) \times \Gamma$:
-     - If $i < |w|$ and $\lambda = w_{i+1}$:
-       - For each $(p, \alpha) \in \delta(q, \lambda, \gamma)$, add $((p, i+1), \alpha)$ to $\delta'((q, i), \epsilon, \gamma)$
-     - If $i < |w|$ and $\lambda \neq w_{i+1}$:
-       - For each $(p, \alpha) \in \delta(q, \lambda, \gamma)$, add $((p, 0), \alpha)$ to $\delta'((q, i), f, \gamma)$
-     - If $i = |w|$ and $a = t$:
-       - For each $\lambda \in \Sigma_1$ and $(p, \alpha) \in \delta(q, \lambda, \gamma)$, add $((p, 0), \alpha)$ to $\delta'((q, i), t, \gamma)$
-
-**Explanation**:
-
-- Similar to the NFA construction in Question 3, the state $(q, i)$ represents that we are in state $q$ of the original PDA and have matched $i$ symbols of $w$.
-- The $\epsilon$-transitions simulate the original PDA's transitions for matching the next symbol of $w$.
-- The $f$-transition occurs for positions where $w$ is not matched, resetting the match counter to 0.
-- The $t$-transition occurs when we complete a match of $w$, also resetting the match counter to 0.
-
-This PDA $M'$ simulates the computations of $M$ while keeping track of occurrences of $w$ and outputting the corresponding string in $\Sigma_2^*$. Therefore, $f_w^*(L)$ is context-free.
-
-**Note**: The key difference between this construction and the one in Question 3 is that we're now working with a PDA instead of a DFA, which allows us to handle the stack operations necessary for context-free languages. However, the core idea of tracking partial matches of $w$ remains the same.
+For $w=\varepsilon$, $f_w(x)=t^{|x|}$, which is the homomorphic image obtained by mapping both $a$ and $b$ to $t$.  Context-free languages are closed under homomorphism.
 
 ## **Knowledge**
 

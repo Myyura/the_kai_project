@@ -11,7 +11,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 筆記試験 第2問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki)
+[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -91,16 +91,18 @@ while i < n:
 return k
 ```
 
-Time complexity would be $O(n)$ in the general case since we go over every indicator once. In this case since $0<n\leq 32$ then it will be $O(1)$. Exact computation time would be $32\cdot 3=96$ units of time.
+Time complexity is $O(n)$ since every bit is examined once. Each iteration uses one AND, one addition, and one shift, so the exact computation time is $3n$ units (96 only when $n=32$).
 
 ### (2)
 We tear apart the 32 bit number into 4 chunks of 8 bits each. We then use a lookup table of size $2^{8}=256$ to find the population count of each chunk and sum them up.
 ```
-k = lookup_table[(n & 0xFF000000) >> 24] + lookup_table[(n & 0x00FF0000) >> 16] + 
-    lookup_table[(n & 0x0000FF00) >> 8] + lookup_table[n & 0x000000FF]
+k = lookup_table[(status & 0xFF000000) >> 24] + lookup_table[(status & 0x00FF0000) >> 16] +
+    lookup_table[(status & 0x0000FF00) >> 8] + lookup_table[status & 0x000000FF]
 ```
 The lookup table is pre-computed and contains 256 entries (tractable). This will cause $O(1)$ time complexity since we are only going over 4 chunks. 
 Exact computation time would be $4+4+3+3=14$ units of time (4 lookups, 4 AND operations, 3 shifts, 3 additions).
+
+Alternatively, a table indexed by the entire $n$-bit status has $2^n$ entries and answers with exactly one lookup. This is the fastest lookup solution but is the storage-heavy method against which (3) is naturally compared.
 
 ### (3)
 (Brian Kernighan's algorithm)
@@ -113,7 +115,7 @@ while status != 0:
 return k
 ```
 `status = status & (status - 1)` operation removes the lowest set bit (the rightmost 1) from `status`. Thus, the loop runs exactly `k` times where `k` is the number of set bits in `status`.
-This takes $O(k)$ time complexity i.e. $O(\log n)$ in this case since $k < \log_2 n$. Exact computation time would be maximally $3\cdot \log_2 32=15$ units of time.
+This takes exactly $3k$ units and $O(k)=O(\log n)$ time under the stated condition $k<\log_2 n$. For $n=32$, strict inequality gives $k\le4$, hence at most 12 units.
 
 ### (4)
 #### tomfluff's solution
@@ -142,12 +144,29 @@ The truth table for it would be:
 |1|1|0|0|1|
 |1|1|1|1|1|
 
+For inputs $a,b,c$, the outputs satisfy
+
+$$
+Out0=a\oplus b\oplus c,\qquad
+Out1=(a\land b)\lor(a\land c)\lor(b\land c),
+$$
+
+where $u\oplus v=(u\land\neg v)\lor(\neg u\land v)$ uses only the allowed gates.
+
 ### (5)
 For `P6` the logic will be as follows:
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201808_2_p3.png" width="433" height="186" alt=""/>
 </figure>
+
+If the two $P_3$ outputs are $(h_0,l_0)$ and $(h_1,l_1)$, let $c_0=l_0\land l_1$. The three output bits are
+
+$$
+z_0=l_0\oplus l_1,\quad
+z_1=h_0\oplus h_1\oplus c_0,\quad
+z_2=(h_0h_1)\lor(h_0c_0)\lor(h_1c_0).
+$$
 
 ### (6)
 #### itsuitsuki's solution
@@ -159,3 +178,5 @@ In ripple carry adders (sequential), the next adder must wait for the carry bit 
 <u>Note:</u> I am not sure about my answer, I think propogation delay is correct but not sure. The question itself isn't clear as well. Should I solve the latency problem or give a reason. Not clear.
 
 Since any of the $n/3$ elements could contribute to the actual sum, there would be a large number of gates which need the data from the last gates available. That is, there would be many in-line gates which would need to wait for the correct value to propogate forward.
+
+Arrange the $P_3$/carry-save compressors in a balanced tree, reducing the operands in $O(\log n)$ stages, and use a carry-lookahead or parallel-prefix adder for the final addition. This avoids a linear chain of propagation delays.

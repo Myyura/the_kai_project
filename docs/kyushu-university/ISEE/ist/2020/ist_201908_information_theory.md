@@ -11,7 +11,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻 2019年8月実施 情報理論
 
 ## **Author**
-[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
 ### 【問 1】
@@ -172,7 +172,11 @@ $$
 #### (2)
 
 $$
-\alpha = \frac{1}{2}
+\alpha =
+\begin{cases}
+\dfrac12 & (\beta\ne\dfrac12),\\
+\text{任意の }[0,1]\text{ の値} & (\beta=\dfrac12).
+\end{cases}
 $$
 
 $$
@@ -197,6 +201,18 @@ I(X;Y) &= H(Y) - H(Y|X) = h(\alpha\beta + (1 - \alpha)\gamma) - \alpha h(\beta) 
 f(\gamma) &= h(\alpha\beta + (1 - \alpha)\gamma) - (1 - \alpha)h(\gamma)\text{の最大値問題を解くことになる}
 \end{aligned}
 $$
+
+$I(X;Y)$ は通信路確率 $\gamma$ の凸関数なので、最大値は
+$\gamma=0,1$ のいずれかで達成される。また、
+
+$$
+I(0)-I(1)=h(\alpha\beta)-h(\alpha(1-\beta))>0
+$$
+
+である。実際、$\alpha\beta\leq1/2$ なら $h$ の単調性を用い、
+$\alpha\beta>1/2$ なら
+$1-\alpha\beta>\alpha(1-\beta)$ と $h(p)=h(1-p)$ を用いればよい。
+従って一意な最大点は
 
 $$
 \gamma = 0

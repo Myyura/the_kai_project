@@ -48,6 +48,7 @@ Here, $\mathbf{X}^\mathrm{T}$ and $\mathbf{x}^\mathrm{T}$ denote the transpose o
 设 $\boldsymbol n_1,\boldsymbol n_2,\boldsymbol n_3\in\mathbb R^3$
 是线性无关的单位向量，
 $\boldsymbol n_4$ 是不与前三者任一平行的单位向量。定义
+
 $$
 A=\begin{pmatrix}
 \boldsymbol n_1^{\mathsf T}-\boldsymbol n_2^{\mathsf T}\\
@@ -57,21 +58,26 @@ A=\begin{pmatrix}
 \qquad
 B=\sum_{i=1}^4\boldsymbol n_i\boldsymbol n_i^{\mathsf T}.
 $$
+
 回答下列问题。
 
 （1）求使 $\operatorname{rank}(A)=3$ 的
 $\boldsymbol n_4$ 的条件。
 
 （2）考虑四个平面
+
 $$
 \Pi_i=\{\boldsymbol x\in\mathbb R^3\mid
 \boldsymbol n_i^{\mathsf T}\boldsymbol x-d_i=0\}.
 $$
+
 假设：$\operatorname{rank}(A)=3$；半空间交
+
 $$
 \Omega=\{\boldsymbol x\mid
 \boldsymbol n_i^{\mathsf T}\boldsymbol x-d_i\ge0,\ i=1,\ldots,4\}
 $$
+
 非空；并存在包含于 $\Omega$、同时与四平面相切的球 $C$。若球心位置向量写成
 $A^{-1}\boldsymbol u$，用 $d_1,\ldots,d_4$ 表示
 $\boldsymbol u$。
@@ -86,6 +92,7 @@ $\boldsymbol n_i,d_i$ 表示 $\boldsymbol v$。
 $\boldsymbol x_i$ 的点，并平行于 $\boldsymbol n_i$。任意点
 $P$ 的位置向量为 $\boldsymbol y$，其到 $l_i$ 的正交投影
 $R_i$ 的位置向量写成
+
 $$
 \boldsymbol y-W_i(\boldsymbol y-\boldsymbol x_i).
 $$
@@ -97,11 +104,13 @@ $$
   其中 $\boldsymbol a\ne0$。在
   $\boldsymbol n_1,\boldsymbol n_2,\boldsymbol n_3$ 两两正交时，令
   $S\in\Sigma$ 为到三条直线距离平方和最小的点。其位置向量写成
+
   $$
   \left(I-\frac{\boldsymbol a\boldsymbol a^{\mathsf T}}
   {\boldsymbol a^{\mathsf T}\boldsymbol a}\right)\boldsymbol w
   +\frac{\boldsymbol a b}{\boldsymbol a^{\mathsf T}\boldsymbol a},
   $$
+
   其中 $\boldsymbol w$ 与 $\boldsymbol a,b$ 无关。用
   $W_i,\boldsymbol x_i$ 表示 $\boldsymbol w$。
 
@@ -221,29 +230,29 @@ $$
 We subtract the equations pairwise to eliminate $r$, yielding:
 
 $$
-\mathbf{n}_2^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} - \mathbf{n}_1^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} = d_2 - d_1,
+\mathbf{n}_1^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} - \mathbf{n}_2^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} = d_1 - d_2,
 $$
 
 $$
-\mathbf{n}_3^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} - \mathbf{n}_2^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} = d_3 - d_2,
+\mathbf{n}_2^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} - \mathbf{n}_3^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} = d_2 - d_3,
 $$
 
 $$
-\mathbf{n}_4^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} - \mathbf{n}_3^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} = d_4 - d_3.
+\mathbf{n}_3^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} - \mathbf{n}_4^\mathrm{T} \mathbf{A}^{-1} \mathbf{u} = d_3 - d_4.
 $$
 
 These can be rewritten as:
 
 $$
-(\mathbf{n}_2^\mathrm{T} - \mathbf{n}_1^\mathrm{T}) \mathbf{A}^{-1} \mathbf{u} = d_2 - d_1,
+(\mathbf{n}_1^\mathrm{T} - \mathbf{n}_2^\mathrm{T}) \mathbf{A}^{-1} \mathbf{u} = d_1 - d_2,
 $$
 
 $$
-(\mathbf{n}_3^\mathrm{T} - \mathbf{n}_2^\mathrm{T}) \mathbf{A}^{-1} \mathbf{u} = d_3 - d_2,
+(\mathbf{n}_2^\mathrm{T} - \mathbf{n}_3^\mathrm{T}) \mathbf{A}^{-1} \mathbf{u} = d_2 - d_3,
 $$
 
 $$
-(\mathbf{n}_4^\mathrm{T} - \mathbf{n}_3^\mathrm{T}) \mathbf{A}^{-1} \mathbf{u} = d_4 - d_3.
+(\mathbf{n}_3^\mathrm{T} - \mathbf{n}_4^\mathrm{T}) \mathbf{A}^{-1} \mathbf{u} = d_3 - d_4.
 $$
 
 #### Matrix Representation
@@ -262,9 +271,9 @@ Thus, we can write the system of equations in matrix form as:
 
 $$
 \mathbf{A} \mathbf{A}^{-1} \mathbf{u} = \begin{pmatrix}
-d_2 - d_1 \\
-d_3 - d_2 \\
-d_4 - d_3
+d_1 - d_2 \\
+d_2 - d_3 \\
+d_3 - d_4
 \end{pmatrix}.
 $$
 
@@ -272,9 +281,9 @@ Simplifying, we find:
 
 $$
 \mathbf{u} = \begin{pmatrix}
-d_2 - d_1 \\
-d_3 - d_2 \\
-d_4 - d_3
+d_1 - d_2 \\
+d_2 - d_3 \\
+d_3 - d_4
 \end{pmatrix}.
 $$
 
@@ -339,7 +348,7 @@ Hence $\mathbf{B}$ is a **positive definite symmetric matrix**.
 
 ### (4)
 
-The sum of squared distances from a point $\mathbf{P}$ to the four planes is minimized when $\mathbf{P}$ is the point of orthogonal projection of the origin onto these planes. The squared distance from a point $\mathbf{P}$ with position vector $\mathbf{x}$ to the plane $\Pi_i$ is given by:
+Let $\mathbf{x}$ be the position vector of $\mathbf{P}$. The squared distance from $\mathbf{P}$ to the plane $\Pi_i$ is given by:
 
 $$
 \text{Distance}^2 = \left(\frac{\mathbf{n}_i^\mathrm{T} \mathbf{x} - d_i}{\|\mathbf{n}_i\|}\right)^2.
@@ -393,12 +402,15 @@ Let $l_i$ be the line through $Q_i$ with direction $\mathbf{n}_i$, where the pos
 #### (a) Express $\mathbf{W}_i$ using $\mathbf{n}_i$ and $\mathbf{I}$.
 
 The orthogonal projection of $\mathbf{y}$ onto the line $l_i$ is
+
 $$
 \mathbf{R}_i
 =
 \mathbf{x}_i+\bigl(\mathbf{n}_i^{\mathrm T}(\mathbf{y}-\mathbf{x}_i)\bigr)\mathbf{n}_i.
 $$
+
 This can be rewritten as
+
 $$
 \mathbf{R}_i
 =
@@ -406,11 +418,15 @@ $$
 -
 \left(\mathbf{I}-\mathbf{n}_i\mathbf{n}_i^{\mathrm T}\right)(\mathbf{y}-\mathbf{x}_i).
 $$
+
 Comparing this with
+
 $$
 \mathbf{R}_i=\mathbf{y}-\mathbf{W}_i(\mathbf{y}-\mathbf{x}_i),
 $$
+
 we obtain
+
 $$
 \boxed{\mathbf{W}_i=\mathbf{I}-\mathbf{n}_i\mathbf{n}_i^{\mathrm T}.}
 $$
@@ -418,14 +434,19 @@ $$
 ### **(b)** Show that $\mathbf{W}_i^{\mathrm T}\mathbf{W}_i=\mathbf{W}_i$.
 
 From part (a),
+
 $$
 \mathbf{W}_i=\mathbf{I}-\mathbf{n}_i\mathbf{n}_i^{\mathrm T}.
 $$
+
 Since $\mathbf{n}_i\mathbf{n}_i^{\mathrm T}$ is symmetric, $\mathbf{W}_i$ is also symmetric:
+
 $$
 \mathbf{W}_i^{\mathrm T}=\mathbf{W}_i.
 $$
+
 Moreover, because $\mathbf{n}_i$ is a unit vector,
+
 $$
 (\mathbf{n}_i\mathbf{n}_i^{\mathrm T})^2
 =
@@ -433,7 +454,9 @@ $$
 =
 \mathbf{n}_i\mathbf{n}_i^{\mathrm T}.
 $$
+
 Hence
+
 $$
 \mathbf{W}_i^{2}
 =
@@ -446,7 +469,9 @@ $$
 =
 \mathbf{W}_i.
 $$
+
 Therefore,
+
 $$
 \boxed{\mathbf{W}_i^{\mathrm T}\mathbf{W}_i=\mathbf{W}_i.}
 $$
@@ -454,28 +479,37 @@ $$
 ### **(c)** Express $\mathbf{w}$ using $\mathbf{W}_i$ and $\mathbf{x}_i$ $(i=1,2,3)$, assuming $\mathbf{n}_1,\mathbf{n}_2,\mathbf{n}_3$ are mutually orthogonal.
 
 We want the point $\mathbf{S}\in\Sigma$, where
+
 $$
 \Sigma=\{\mathbf{x}\in\mathbb{R}^3\mid \mathbf{a}^{\mathrm T}\mathbf{x}=b\},
 $$
+
 such that the sum of squared distances from $\mathbf{S}$ to the three lines $l_1,l_2,l_3$ is minimized.
 
 For a point $\mathbf{y}\in\mathbb{R}^3$, the vector from $\mathbf{R}_i$ to $\mathbf{y}$ is
+
 $$
 \mathbf{y}-\mathbf{R}_i=\mathbf{W}_i(\mathbf{y}-\mathbf{x}_i),
 $$
+
 so the squared distance from $\mathbf{y}$ to $l_i$ is
+
 $$
 \|\mathbf{y}-\mathbf{R}_i\|^2
 =
 \|\mathbf{W}_i(\mathbf{y}-\mathbf{x}_i)\|^2.
 $$
+
 Thus the objective function is
+
 $$
 f(\mathbf{y})
 =
 \sum_{i=1}^3 \|\mathbf{W}_i(\mathbf{y}-\mathbf{x}_i)\|^2.
 $$
+
 Using part (b), this becomes
+
 $$
 f(\mathbf{y})
 =
@@ -483,6 +517,7 @@ f(\mathbf{y})
 $$
 
 Expanding,
+
 $$
 f(\mathbf{y})
 =
@@ -492,6 +527,7 @@ f(\mathbf{y})
 $$
 
 Now, since $\mathbf{n}_1,\mathbf{n}_2,\mathbf{n}_3$ are mutually orthogonal unit vectors, they form an orthonormal basis of $\mathbb{R}^3$. Therefore,
+
 $$
 \mathbf{n}_1\mathbf{n}_1^{\mathrm T}
 +\mathbf{n}_2\mathbf{n}_2^{\mathrm T}
@@ -499,7 +535,9 @@ $$
 =
 \mathbf{I}.
 $$
+
 Hence
+
 $$
 \sum_{i=1}^3 \mathbf{W}_i
 =
@@ -509,7 +547,9 @@ $$
 =
 2\mathbf{I}.
 $$
+
 So
+
 $$
 f(\mathbf{y})
 =
@@ -517,7 +557,9 @@ f(\mathbf{y})
 -2\mathbf{y}^{\mathrm T}\sum_{i=1}^3 \mathbf{W}_i\mathbf{x}_i
 +\text{constant}.
 $$
+
 Completing the square, we get
+
 $$
 f(\mathbf{y})
 =
@@ -526,7 +568,9 @@ f(\mathbf{y})
 \right\|^2
 +\text{constant}.
 $$
+
 Therefore, the unconstrained minimizer is
+
 $$
 \mathbf{w}
 =
@@ -534,12 +578,14 @@ $$
 $$
 
 Since $\mathbf{S}$ is constrained to lie on the plane $\Sigma$, it is the orthogonal projection of $\mathbf{w}$ onto $\Sigma$, which is why its position vector is written as
+
 $$
 \left(\mathbf{I}-\frac{\mathbf{a}\mathbf{a}^{\mathrm T}}{\mathbf{a}^{\mathrm T}\mathbf{a}}\right)\mathbf{w}
 +\frac{\mathbf{a}b}{\mathbf{a}^{\mathrm T}\mathbf{a}}.
 $$
 
 Thus,
+
 $$
 \boxed{
 \mathbf{w}

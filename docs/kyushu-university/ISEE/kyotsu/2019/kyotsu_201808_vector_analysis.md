@@ -9,7 +9,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2018年8月実施 ベクトル解析
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 直交座標系において, $x, y, z$ 軸方向の単位ベクトルをそれぞれ $\boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k}$ とする．次の各問に答えよ．
@@ -25,22 +25,30 @@ tags:
 在直角坐标系中，$\boldsymbol i,\boldsymbol j,\boldsymbol k$ 分别为 $x,y,z$ 轴方向的单位向量。
 
 1. 给定标量场
+
    $$
    \phi=e^{xz}\sin y+e^x\cos y
    $$
+
    和向量场
+
    $$
    \boldsymbol A=(2x-z)\boldsymbol i-2\boldsymbol j+2\boldsymbol k,
    $$
+
    求点 $(1,0,1)$ 处 $\phi$ 的梯度在 $\boldsymbol A$ 方向上的分量。
 2. 对向量场
+
    $$
    \boldsymbol A=z\boldsymbol i-3\boldsymbol j+4xy\boldsymbol k,
    $$
+
    计算其通过第一卦限平面片
+
    $$
    S:\ 6x+3y+z=3,\qquad x,y,z\ge0
    $$
+
    的曲面积分。
 
 ## **Kai**
@@ -82,6 +90,8 @@ $$
 である。
 
 ### (2)
+法線を $6\boldsymbol{i}+3\boldsymbol{j}+\boldsymbol{k}$ の向きに取る。
+
 $S$ 上の点の位置ベクトルは
 $\boldsymbol{r} = x \boldsymbol{i} + y \boldsymbol{j} + (-6x-3y+3) \boldsymbol{k}$
 と書け、このとき、
@@ -123,12 +133,14 @@ $0 \leq x \leq 1/2$ かつ $0 \leq y \leq -2x+1$ のときであるから、
 
 $$
   \begin{aligned}
-  &\int_0^\frac{1}{2} dx \int_0^{-2x+1} dy \left( 4xy-36x-18y+9 \right)
+  &\int_0^{1/2} dx \int_0^{-2x+1} dy \left( 4xy-36x-18y+9 \right)
   \\
-  &= 4 \int_0^\frac{1}{2} dx \left( 2x^3+7x^2-4x \right)
+  &= 4 \int_0^{1/2} dx \left( 2x^3+7x^2-4x \right)
   \\
   &= - \frac{17}{24}
   \end{aligned}
 $$
 
 である。
+
+逆向きの法線を取る場合、面積分の値は $17/24$ となる。

@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2017年8月実施 プログラミング
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff)
+[tomfluff](https://github.com/tomfluff), 祭音Myyura
 
 ## **Description**
 Assume that matrix elements are non-negative integers and they are stored in main memory.
@@ -277,6 +277,8 @@ if __name__ == "__main__":
 
 ```python
 def lru_insert(elm, lru, s):
+    if s == 0:
+        return
     if len(lru) >= s:
         lru.pop()
     lru.insert(0,elm)
@@ -291,9 +293,9 @@ def lru_refresh(elm,lru):
 def main():
     cache_lru = []
 
-    m = 6
-    n = 4
-    s = 2
+    m, n, s = map(int, input().split())
+    if m < 0 or n < 0 or s < 0:
+        raise ValueError('m, n, and s must be nonnegative')
 
     rds = 0 # number of readings
 
@@ -335,6 +337,8 @@ if __name__ == "__main__":
 
 ```python
 def lru_insert(elm, lru, s):
+    if s == 0:
+        return
     if len(lru) >= s:
         lru.pop()
     lru.insert(0,elm)
@@ -349,10 +353,9 @@ def lru_refresh(elm,lru):
 def main():
     cache_lru = []
 
-    m = 6
-    n = 4
-    p = 2
-    s = 8
+    m, n, p, s = map(int, input().split())
+    if p <= 0 or m % p or n % p or s < 0:
+        raise ValueError('p must divide m and n, and s must be nonnegative')
 
     rds = 0 # number of readings
 
@@ -396,6 +399,8 @@ if __name__ == "__main__":
 import math 
 
 def lru_insert(elm, lru, s):
+    if s == 0:
+        return
     if len(lru) >= s:
         lru.pop()
     lru.insert(0,elm)
@@ -408,25 +413,23 @@ def lru_refresh(elm,lru):
     lru.insert(0,elm)
 
 def get_p_options(m,n,s):
-    return [x for x in range(2,int(math.sqrt(s/2))+1) if m % x == 0 and n % x == 0]
+    return [x for x in range(1,min(m,n)+1) if m % x == 0 and n % x == 0]
 
 '''
-Technically, it is enough to return the number of reads for the largest p suggestion.
-Since if the entire sub-matrix cannot fit into s then there there will be much more reads.
-But here I am checking all posiibilities.
+All common divisors must be checked: increasing p improves reuse only while the
+working set fits the cache; a larger block may instead cause LRU thrashing.
 '''
 def main():
-    cache_lru = []
-
-    m = 200
-    n = 150
-    s = 600
+    m, n, s = map(int, input().split())
+    if m <= 0 or n <= 0 or s < 0:
+        raise ValueError('m and n must be positive, and s nonnegative')
     best_p = 1
-    min_rds = m*n*m*2
+    min_rds = float('inf')
     all_p = get_p_options(m,n,s)
     all_p.reverse()
 
     for p in all_p:
+        cache_lru = []
         rds = 0 # number of readings
         go_on = True
         u = 0
@@ -459,7 +462,7 @@ def main():
                     w += p
                 v += p
             u += p
-        if rds < min_rds and p > best_p:
+        if rds < min_rds or (rds == min_rds and p > best_p):
             best_p = p
             min_rds = rds
     
@@ -468,3 +471,8 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+For $m=200$, $n=150$, and $s=600$, the read counts for
+$p=1,2,5,10,25,50$ are respectively
+$6{,}030{,}000$, $5{,}257{,}500$, $2{,}400{,}000$, $1{,}200{,}000$,
+$6{,}240{,}000$, and $6{,}120{,}000$. Therefore the answer is $\boxed{p=10}$.

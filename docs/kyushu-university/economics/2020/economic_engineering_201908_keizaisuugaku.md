@@ -11,7 +11,7 @@ tags:
 # 九州大学 経済学府 経済工学専攻 2019年8月実施 経済数学
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -23,6 +23,7 @@ tags:
 
 1. 求三向量线性无关时 $t$ 的条件。
 2. 对 $\boldsymbol c=(a,b,c)^\top$，利用
+
    $$
    X^\top X\boldsymbol c
    =\begin{pmatrix}
@@ -31,6 +32,7 @@ tags:
    \boldsymbol x_3^\top(X\boldsymbol c)
    \end{pmatrix}
    $$
+
    说明 $X^\top X\boldsymbol c=\boldsymbol0$ 与 $X\boldsymbol c=\boldsymbol0$ 的关系。
 3. 求 Gram 矩阵 $X^\top X$ 可逆时 $t$ 的条件。
 
@@ -152,4 +154,4 @@ $$
 \end{aligned}
 $$
 
-である。
+である。右辺は $\operatorname{Poisson}(\lambda)$ の積率母関数であり、$t=0$ の近傍で一致するので、$Z_n$ は $\operatorname{Poisson}(\lambda)$ に分布収束する。

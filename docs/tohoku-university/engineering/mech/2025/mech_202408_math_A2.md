@@ -9,7 +9,7 @@ tags:
 # 東北大学 工学研究科 機械系 2024年8月実施 数学A 2
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 行列 $A$ が
@@ -28,20 +28,32 @@ $$
 
 (3) 次の $4 \times 4$ 行列のランクを求めよ。
 
+$$
+\begin{pmatrix} A^{2n} & A^{2n+1} \\ A^{2n+1} & A^{2n} \end{pmatrix}
+$$
+
 ### 题目描述
 
 给定矩阵
+
 $$
 A=\begin{pmatrix}
 a&1-a\\
 1+a&-a
 \end{pmatrix},
 $$
+
 其中 $a$ 为常数，$n$ 为正整数。
 
 1. 求 $A$ 的特征值与特征向量。
 2. 求矩阵幂 $A^n$。
-3. 求原题给定的一个 $4\times4$ 矩阵的秩；但该矩阵在当前文件中缺失，无法还原其元素。
+3. 求矩阵
+
+   $$
+   \begin{pmatrix} A^{2n} & A^{2n+1} \\ A^{2n+1} & A^{2n} \end{pmatrix}
+   $$
+
+   的秩。
 
 ## **Kai**
 ### (1)
@@ -139,10 +151,10 @@ $$
   \begin{pmatrix} A^{2n} & A^{2n+1} \\ A^{2n+1} & A^{2n} \end{pmatrix}
   &=
   \begin{pmatrix}
-    a & 1-a &   1 & 0   \\
-  1+a &  -a &   0 & 1   \\
     1 &   0 &   a & 1-a \\
-    0 &   1 & 1+a &  -a
+    0 &   1 & 1+a &  -a \\
+    a & 1-a &   1 & 0   \\
+  1+a &  -a &   0 & 1
   \end{pmatrix}
   &\left( =
   \begin{pmatrix}

@@ -139,10 +139,13 @@ int main(void)
 ## **Kai**
 ### 1
 
+通常の 32 ビット `int`・2 の補数表現を仮定すると，出力は
 
 ```text
 223d 12620 ffffecd2 485 f2f 556
 ```
+
+となる。なお，厳密には負の `int` である `x1-x2` を `%x` に渡す箇所は C 規格上未定義動作である。
 
 ### 2
 
@@ -210,7 +213,7 @@ int main(void)
 ```text
 (1) int *max, int *min
 (2) n1 <= n2
-(3) check(n1) == 'y'
+(3) n1 >= 2 && check(n1) == 'y'
 (4) n1+1, n2, max, min
 ```
 
@@ -228,7 +231,7 @@ char check(int n)
 
 int maxmin(int n1, int n2, int *max, int *min){
     if(n1 <= n2){
-        if(check(n1) == 'y'){
+        if(n1 >= 2 && check(n1) == 'y'){
             if( *min > n1 ) *min=n1;
             if( *max < n1 ) *max=n1;
         }

@@ -195,7 +195,7 @@ $$
   \\
   &= \begin{cases} 0 &(x \lt 0) \\
   \frac{3}{8} x^2 &(0 \leq x \lt 2) \\
-  0 &(2 \leq 2) \end{cases}
+  0 &(2 \leq x) \end{cases}
 \end{aligned}
 $$
 

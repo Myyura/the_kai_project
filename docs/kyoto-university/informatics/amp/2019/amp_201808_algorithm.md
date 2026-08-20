@@ -20,7 +20,7 @@ Let $G=(V,E)$ be a connected simple undirected graph with a set $V$ of $n\ge 2$ 
 Let $L$ denote the set of leaves in $T$. For each vertex $v\in V$, let $N(v)$ denote the set of neighbors of $v$ in $G$, and let $D(v)$ denote the set consisting of vertex $v$ and the descendants of $v$ in $T$. Define a function
 
 $$
-\operatorname{lowpt}: V\setminus (L\cup\{s\}) \to \{1,2,\ldots,n\}
+\operatorname{lowpt}: V\setminus \{s\} \to \{1,2,\ldots,n\}
 $$
 
 such that
@@ -32,7 +32,7 @@ $$
 \ell(y)\mid y\in \bigcup_{x\in D(v)}N(x)
 \right\},
 \ 
-v\in V\setminus (L\cup\{s\}).
+v\in V\setminus \{s\}.
 $$
 
 Answer the following questions.
@@ -54,8 +54,8 @@ $$
 1. 对每条边 $uv\in E$，$u$ 在 $T$ 中是 $v$ 的祖先或后代；
 2. 对每个非根顶点 $v$ 及其父顶点 $u$，有 $\ell(u)<\ell(v)$。
 
-令 $L$ 为 $T$ 的叶集，$N(v)$ 为 $v$ 在 $G$ 中的邻接点集合，$D(v)$ 为 $v$ 及其在 $T$ 中所有后代组成的集合。对
-$v\in V\setminus(L\cup\{s\})$ 定义
+令 $L$ 为 $T$ 的叶集，$N(v)$ 为 $v$ 在 $G$ 中的邻接点集合，$D(v)$ 为 $v$ 及其在 $T$ 中所有后代组成的集合。对每个非根顶点
+$v\in V\setminus\{s\}$ 定义
 
 $$
 \operatorname{lowpt}(v)=
@@ -84,9 +84,9 @@ Note that $T - u$ is a subgraph of $G - u$, hence $G - u$ is connected, which im
 ### (2)
 **(Necessity)** Assume that $s$ is a cut-vertex.
 
-If $s$ has only one child in $T$, i.e., $s$ is a leaf vertex of $T$, then by the same argument of (1), we know that $G - s$ is still connected.
+If $s$ has only one child, then $T-s$ is precisely the subtree rooted at that child and is connected. Hence $G-s$ is connected.
 
-This contradicts the assumption taht $s$ is a cut-vertex.
+This contradicts the assumption that $s$ is a cut-vertex.
 
 **(Sufficiency)** Assume that $s$ has at least two children in $T$. Let two of them be $v_1$ and $v_2$.
 
@@ -101,29 +101,29 @@ Hence $G - s$ is disconnected, which implies that $s$ is a cut-vertex.
 ### (3)
 **(Necessity)** Assume that $u$ is a cut-vertex.
 
-We prove that there must exist a child $v$ of $u$ such that $\text{lowpt}(v) \ge l(u)$ by contradiction.
+We prove that there must exist a child $v$ of $u$ such that $\text{lowpt}(v) \ge \ell(u)$ by contradiction.
 
-Suppose that every child $v$ of $u$ satisfies $\text{lowpt}(v) < l(u)$.
-Then for each child $v$ of $u$, there exist some vertex $x \in D(v)$ and some neighbor $y \in N(x)$ such that $l(y) < l(u)$.
+Suppose that every child $v$ of $u$ satisfies $\text{lowpt}(v) < \ell(u)$.
+Then for each child $v$ of $u$, there exist some vertex $x \in D(v)$ and some neighbor $y \in N(x)$ such that $\ell(y) < \ell(u)$.
 
-Since $x \in D(v)$, the vertex $x$ is a descendant of $u$. By condition (b), every descendant of $u$ has numbering greater than $l(u)$.
+Since $x \in D(v)$, the vertex $x$ is a descendant of $u$. By condition (b), every descendant of $u$ has numbering greater than $\ell(u)$.
 
-Therefore, the vertex $y$ of $l(y) < l(u)$ is not in $D(v)$.
+Therefore, the vertex $y$ of $\ell(y) < \ell(u)$ is not in $D(v)$.
 
-By condition (a), since $x$ is a descendant of $u$, and y has numbering smaller than $l(u)$, the vertex $y$ must be a proper ancestor of $u$.
+By condition (a), since $x$ is a descendant of $u$, and $y$ has numbering smaller than $\ell(u)$, the vertex $y$ must be a proper ancestor of $u$.
 
 Thus every child subtree $D(v)$ of $u$ has an edge to some proper ancestor of $u$, i.e., after deleting $u$, every child subtree $D(v)$ can still connect to the part above $u$ through an edge to a proper ancestor of $u$.
 
 Therefore, $G - u$ remains connected, which contradicts the assumption that $u$ is a cut-vertex.
 
-**(Sufficiency)** Assume that $u$ has a child $v$ satisfying $\text{lowpt}(v) \ge l(u)$.
+**(Sufficiency)** Assume that $u$ has a child $v$ satisfying $\text{lowpt}(v) \ge \ell(u)$.
 
 Note that $v$ is a neighbor of $u$, i.e., $uv \in E$, when computing $\text{lowpt}(v)$, the vertex $u$ can be reached from $v$ by one graph edge.
 
-Hence $\text{lowpt}(v) \le l(u)$, together with the assumption we have
+Hence $\text{lowpt}(v) \le \ell(u)$, together with the assumption we have
 
 $$
-\text{lowpt}(v) = l(u)
+\text{lowpt}(v) = \ell(u)
 $$
 
 This means that the subtree $D(v)$ cannot reach any proper ancestor of $u$ through a graph edge. The smallest numbered vertex reachable from $D(v)$ is exactly $u$.

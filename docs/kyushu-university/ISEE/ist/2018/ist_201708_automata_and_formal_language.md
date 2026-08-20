@@ -11,7 +11,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻 2017年8月実施 オートマトンと言語
 
 ## **Author**
-Zero
+Zero, 祭音Myyura
 
 ## **Description**
 ### 【問１】
@@ -99,7 +99,7 @@ $$
 ##### (a)
 真;
 
-理由：(2) より $\Sigma$ 上の文字列 $w$ は, $(a + ba)(a + ba)^*$ と表せるので、$b$ の後に連続して $b$ がくることがないから。
+理由：(2) より $w \in L$ ならば、$w$ は $(a + ba)(a + ba)^*$ と表せるので、$b$ の後に連続して $b$ がくることがないから。
 
 ##### (b)
 偽;
@@ -116,7 +116,7 @@ $$
 |$*$|$q_4$|$q_1$|$q_3$|
 ||$\emptyset$|$\emptyset$|$\emptyset$|
 
-上の表から $q_1,q_2,\{q_1,q_4\}$ が等しいことがわかる。また、$q_4$ はどの状態からも遷移先になっていないことが。
+上の表から $q_1,q_2,\{q_1,q_4\}$ が等しいことがわかる。また、$q_4$ はどの状態からも遷移先になっていないことがわかる。
 
 よって、遷移表は以下のようになる。
 
@@ -127,7 +127,7 @@ $$
 ||$q_3$|$q_1$|$\emptyset$|
 ||$\emptyset$|$\emptyset$|$\emptyset$|
 
-ゆえに、求める状態数最小の決定性有限オートマトン $a$ 遷移図は
+ゆえに、求める状態数最小の決定性有限オートマトンの遷移図は
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_automata_and_formal_language_p2.png" width="600" height="415" alt=""/>
@@ -137,7 +137,7 @@ $$
 #### (1)
 
 $$
-S \to AB \to aAbc \to aabbc
+S \to AB \to aAbB \to aAbc \to aabbc
 $$
 
 #### (2)

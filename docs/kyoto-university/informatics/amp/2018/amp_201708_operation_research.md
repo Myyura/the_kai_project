@@ -10,7 +10,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2017年8月実施 オペレーションズ・リサーチ
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -167,16 +167,16 @@ $$
 Lagrangian:
 
 $$
-L(x, \mu, \nu) = -\nabla f(z)^\top x + \frac 12 (x-z)^\top (x-z) + \lambda^\top (x-\boldsymbol{1}) + \nu^\top (-x)
+L(x, \lambda, \nu) = -\nabla f(z)^\top x + \frac 12 (x-z)^\top (x-z) + \lambda^\top (x-\boldsymbol{1}) + \nu^\top (-x)
 $$
 
 $$
 \text{ KKT-conditions} \left\lbrace
 \begin{aligned}
--\nabla f(z) + x^* - z + \lambda & = 0 \\
+-\nabla f(z) + x^* - z + \lambda-\nu & = 0 \\
 \lambda   \succeq \boldsymbol{0}, \nu &\succeq \boldsymbol{0} \\
- x \succeq \boldsymbol{0}, \lambda(x^* - \boldsymbol{1}) &= 0 \\
- x \preceq \boldsymbol{1}, \nu (-x) &= 0
+ x^* \succeq \boldsymbol{0}, \lambda_i(x_i^* - 1) &= 0\quad(i=1,\ldots,n) \\
+ x^* \preceq \boldsymbol{1}, \nu_i x_i^* &= 0\quad(i=1,\ldots,n)
 \end{aligned}
 \right.
 $$
@@ -221,8 +221,13 @@ $$
 then
 
 $$
-\nabla f(z)(\bar{x}(z) - z) = (\bar{x}(z) - z) ^\top (\bar{x}(z)-z) + \lambda (\bar{x}(z)-z) - \nu ^\top \bar{x}(z) + \nu z \geq 0
+\nabla f(z)^\top(\bar{x}(z) - z)
+= \|\bar{x}(z)-z\|^2+\lambda^\top(\bar{x}(z)-z)-\nu^\top(\bar{x}(z)-z) \geq 0,
 $$
+
+because complementary slackness gives
+$\lambda^\top(\bar x-z)=\lambda^\top(\boldsymbol1-z)\geq0$ and
+$-\nu^\top(\bar x-z)=\nu^\top z\geq0$.
 
 thus
 
@@ -231,3 +236,10 @@ f(z) - f(\bar{x}(z)) \leq 0 - (\bar{x}(z)-z)^\top(\bar{x}(z)-z)
 $$
 
 ### (iv)
+The statement is false. Let $n=1$, $\Omega=[0,1]$, and $f(x)=x^2$. The assumed inequality holds with equality. At $z=0$,
+
+$$
+Q(0):\quad \min_{0\leq x\leq1}\frac12x^2
+$$
+
+has $\bar x(0)=0$. However, $-f(x)=-x^2<-f(0)$ for every sufficiently small $x>0$, so $z=0$ is not a local minimizer of P.

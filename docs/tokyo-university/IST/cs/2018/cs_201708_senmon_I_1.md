@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2017年8月実施 専門科目I 問題1
 
 ## **Author**
-[kainoj](https://github.com/kainoj/utokyo-cs)
+[kainoj](https://github.com/kainoj/utokyo-cs), 祭音Myyura
 
 ## **Description**
 Consider the problem of finding the shortest paths in a weighted directed graph using Dijkstra’s algorithm. Denote the set of vertices as $V$, the number of vertices as $|V|$, the set of edges as $E$, and the number of edges as $|E|$.
@@ -68,19 +68,20 @@ $c$ 中各值的变化。
 ### (1)
 
 ```
-s -- 3 -- a
- \       /
-  4    -3
-   \   /
-     b
+s --3--> a
+ \       ^
+  4      | -3
+   \     |
+    -> b-+
 ```
 
-Dijkstra will find that the shortest path to $a$ is $3$, although it's $1$.
+Dijkstra settles $a$ with distance $3$ before $b$, although the path
+$s\to b\to a$ has length $4-3=1$.
 
 ### (2)
 
 ```
-if (c[v] + d(v,u) <= c[u]) {
+if (u is in Q && c[v] + d(v,u) < c[u]) {
     c[u] = c[v] + d(v,u);
 }
 ```

@@ -41,7 +41,7 @@ Answer the abnormal part in the output and the reason why the output is generate
 
 (4) Referring to the function power2 in Figure 2, define the function factorial which calculates the factorial of the positive integer value $\text{x}$ recursively.
 
-##### <center> Figure 1
+##### <center> Figure 1</center>
 ```text
 int power1(int x, int y) {
     int i, num = 1;
@@ -55,7 +55,7 @@ int power1(int x, int y) {
 }
 ```
 
-##### <center> Figure 2
+##### <center> Figure 2</center>
 ```text
 int power2(int x, int y) {
     if (y > 0) {
@@ -65,7 +65,7 @@ int power2(int x, int y) {
 }
 ```
 
-##### <center> Figure 3
+##### <center> Figure 3</center>
 ```text
 9: 1000000000
 10: 1410065408
@@ -98,7 +98,13 @@ int power2(int x, int y) {
 - \[c\]: x
 
 ### (3)
-[Integer overflow](https://en.wikipedia.org/wiki/Integer_overflow)
+The output on line 10 is abnormal, since $10^{10}=10000000000$. This value exceeds the maximum of a 32-bit signed int, $2^{31}-1$. On the assumed environment the overflowing value wraps modulo $2^{32}$:
+
+$$
+10^{10}\bmod 2^{32}=1410065408.
+$$
+
+Thus the result is caused by [integer overflow](https://en.wikipedia.org/wiki/Integer_overflow). (In ISO C, signed integer overflow is undefined behavior.)
 
 ### (4)
 ```text

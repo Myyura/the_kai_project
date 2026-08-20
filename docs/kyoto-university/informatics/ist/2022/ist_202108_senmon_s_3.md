@@ -60,13 +60,12 @@ $$
 
 ## **Kai**
 ### 設問1
-We only need to find the value of $a$ that maximizes the log-joint likelihood function $L(a)$
+Since the three data points are known to belong to class $A$, their log-likelihood is
 
 $$
 \begin{aligned}
 L(a)
-&= \ln \prod_{i=1}^{n}\left\{p_{A}f_{A}(x_{i},y_{i})+p_{B}f_{B}(x_{i},y_{i})\right\}\\
-&\propto \ln \prod_{i=1}^{n}f_{A}(x_{i},y_{i})
+&= \ln \prod_{i=1}^{n}f_{A}(x_{i},y_{i})
 = -n\ln \pi -\frac{1}{a}\sum_{i=1}^{n}x_{i}^{2}-a\sum_{i=1}^{n}y_{i}^{2}\\
 \end{aligned}
 $$
@@ -77,6 +76,8 @@ $$
 \frac{\partial L(a)}{\partial a}
 = \frac{1}{a^{2}}\sum_{i=1}^{n}x_{i}^{2}-\sum_{i=1}^{n}y_{i}^{2} = 0 \Rightarrow a = \sqrt{\frac{\sum_{i=1}^{n}x_{i}^{2}}{\sum_{i=1}^{n}y_{i}^{2}}}
 $$
+
+Since $\partial^2L/\partial a^2=-2\sum_i x_i^2/a^3<0$ for $a>0$, this stationary point is the maximum.
 
 Therefore, the maximum likelihood estimate of $a$ is
 
@@ -101,7 +102,7 @@ by comparing the posterior class probabilities we have
 
 
 $$
-f_A(x,y) p_A > f_B(x,y) p_b \Rightarrow 
+f_A(x,y) p_A > f_B(x,y) p_B \Rightarrow
 \frac{1}{\pi(1+e^{b})}e^{-\frac{x^2}{a} - ay^2} >\frac{e^{b}}{\pi(1+e^{b})}e^{-(x-2)^{2}-(y-3)^{2}}
 $$
 
@@ -114,7 +115,7 @@ $$
 which can be simplied to
 
 $$
-6y+2x+b-13 < 0
+4x+6y+b-13 < 0
 $$
 
 ### 設問3

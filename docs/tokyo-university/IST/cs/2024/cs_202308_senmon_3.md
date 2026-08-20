@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2023年8月実施 専門科目 問題3
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Let $G = (V, E)$ be an undirected graph with no self-loops (edges joining the same vertex) nor multi-edges (two or more edges joining the same two vertices), with $|V| = n$, $|E| = m$. If there is a vertex $v$ in a connected graph $G$ such that after deleting $v$, the resulting graph is not connected, we call $v$ a cut vertex of $G$.
@@ -80,25 +80,24 @@ If all vertices are visited, then the graph is connected; otherwise, it is not.
 To find a spanning tree $T$ for a connected graph $G$, you can use a Depth-First Search (DFS) or Breadth-First Search (BFS):
 
 1. Start from an arbitrary vertex $v_0$ and initialize $T$ as an empty set of edges.
-2. Perform DFS or BFS, adding each edge traversed to $T$ until all vertices are visited.
+2. Perform DFS or BFS, adding $(x,y)$ to $T$ only when it first discovers the unvisited vertex $y$ from $x$.
 3. The resulting set of edges $T$ forms a spanning tree.
 
 #### Time Complexity
 
-- The time complexity of this algorithm is $O(m)$ because each edge is considered exactly once.
+- With adjacency lists the time is $O(n+m)=O(m)$, since a connected graph has $m\ge n-1$.
 
 ### (3)
 
 #### Proof
 
-Let $T$ be a spanning tree of $G$ and $v$ be a non-leaf node in $T$. Suppose $v$ is not a cut vertex of $G$ and $e$ is an edge incident to $v$ in $T$.
+Write $e=\{v,u\}$, and let $C$ be the component of $T-e$ containing $u$.  Since $v$ is not a leaf, the other component contains a vertex different from $v$.  As $G-v$ is connected, a path in $G-v$ joins these two components.  Some edge $f$ of this path crosses the cut $(C,V\setminus C)$; moreover $f\ne e$.  Hence
 
-1. Since $v$ is not a cut vertex, removing $v$ from $G$ does not disconnect the graph. Therefore, there exists another path in $G \setminus \{v\}$ that connects the components formed by the removal of $v$.
-2. Let $f$ be an edge in $G$ that connects two components of $T \setminus \{e\}$.
-3. Adding edge $f$ to $T$ will create a cycle because $T$ is a spanning tree.
-4. Remove $e$ from the cycle, and you will obtain a new spanning tree $T'$. The edge $f$ replaces $e$, forming $T'$, which is also a spanning tree.
+$$
+(T-e)+f
+$$
 
-Thus, replacing edge $e$ with $f$ gives another spanning tree.
+is connected and has $n-1$ edges, so it is a spanning tree.
 
 ### (4)
 
@@ -109,14 +108,14 @@ To find all cut vertices of $G$ efficiently, we can use a Depth-First Search (DF
 1. Perform a DFS traversal of $G$, numbering the vertices in the order they are visited.
 2. For each vertex $v$, maintain two values:
    - **DFS number**: The order in which the vertex was visited.
-   - **Low number**: The lowest DFS number reachable from $v$ using back edges.
+   - **Low number**: The smallest DFS number reachable from the subtree of $v$ using at most one back edge.
 3. A vertex $v$ is a cut vertex if:
    - It is the root of the DFS tree and has more than one child.
-   - It is not the root, and there is a child $u$ such that no vertex in the subtree rooted at $u$ can reach a vertex higher up in the DFS tree than $v$.
+   - It is not the root, and it has a child $u$ with $\operatorname{low}(u)\ge\operatorname{dfs}(v)$.
 
 #### Time Complexity
 
-- The time complexity of Tarjan's algorithm is $O(n + m)$, which is much more efficient than $o(mn)$.
+- The time complexity is $O(n+m)$, which is $o(mn)$ for connected graphs as $n\to\infty$.
 
 ## **Knowledge**
 

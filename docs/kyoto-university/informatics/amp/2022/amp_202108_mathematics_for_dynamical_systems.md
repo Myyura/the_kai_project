@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2021年8月実施 力学系数学
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -66,30 +66,32 @@ $$
 
 ## **Kai**
 ### (i)
-If $k = 1$, then $a(t) = tb(t) = 0$.
+Substitution of $x=t^k$ gives the necessary and sufficient condition
 
-If $k \geq 2$, then $k(k-1) + kta(t) + t^2b(t) = 0$.
+$$
+k(k-1)+kt\,a(t)+t^2b(t)=0.
+$$
 
-Easy to see  $k(k-1) + kta(t) + t^2b(t) = 0$ is neccessary and sufficient.
+For $k=1$, this reduces to $a(t)+tb(t)=0$.
 
 ### (ii)
-Let $\Phi(t) = u(t)t^k, u(t) \not\equiv \text{Constant}$,
+Let $\phi(t)=u(t)t^k$, where $u$ is not constant. Then
 
 $$
-\Phi '(t) = kt^{k-1}u(t) + t^ku'(t)
+\phi'(t) = kt^{k-1}u(t) + t^ku'(t)
 $$
 
 $$
-\Phi''(t) = t^ku''(t) + 2kt^{k-1}u'(t) + k(k-1)t^{k-2}u(t)
+\phi''(t) = t^ku''(t) + 2kt^{k-1}u'(t) + k(k-1)t^{k-2}u(t)
 $$
 
 then
 
 $$
-p(t) = t^{k-1}u'(t), p'(t) = (k-1)t^{k-2}u'(t) + t^{k-1}u''(t)
+p(t)=t\phi'(t)-k\phi(t)=t^{k+1}u'(t).
 $$
 
-And we can obtain:
+Substitution gives
 
 $$
 t u''(t) + (2k + a(t)t)u'(t) = 0
@@ -98,17 +100,19 @@ $$
 Therefore
 
 $$
-a(t) = -\frac{u''(t)}{u'(t)} - \frac{2k}{t} = -\frac{(3k-1)p'(t)}{tp(t)}
+a(t)=-\frac{u''(t)}{u'(t)}-\frac{2k}{t}
+=\frac{1-k}{t}-\frac{p'(t)}{p(t)},
 $$
 
 $$
-b(t) = \frac{2k^2}{t^2} - \frac{kp'(t)}{tp(t)}
+b(t)=-\frac{k(k-1)}{t^2}-\frac{k}{t}a(t)
+=\frac{kp'(t)}{tp(t)}.
 $$
 
 ### (iii)
 
 $$
-a(t) = -\frac{1}{t}, b(t) = \frac{1}{t^2}
+a(t)=-\frac{k}{t},\qquad b(t)=\frac{k}{t^2}.
 $$
 
 ### (iv)
@@ -131,11 +135,16 @@ $$
 so we get
 
 $$
-x_1'x_2 - x_1x_2' = C e^{\int a(t)dt}
+x_1'x_2-x_1x_2'=Ce^{-\int a(t)dt},\qquad C\ne0.
 $$
 
-Let $A(t)$ denote $\int a(t)dt$.
-Since $a(t)$ is a polynomial, and $Ce^{-A(t)}$ is a  polynomial for $x_1'x_2 - x_1x_2'$ is a polynomial, we obtain $a(t) \equiv 0$.
+If $a(t)$ is a polynomial, then
+
+$$
+a(t)=-\frac{(x_1'x_2-x_1x_2')'}{x_1'x_2-x_1x_2'}
+$$
+
+is both a polynomial and the logarithmic derivative of a nonzero polynomial. Comparing degrees gives $a(t)\equiv0$.
 
 Then, consider
 
@@ -143,5 +152,4 @@ $$
 \frac{d^2x}{dt^2} + b(t)x = 0
 $$
 
-If $x_1, x_2$ are independent polynomials, and $b(t)$ is polynomials, suppose that $x(t)$ is $m$ times and $b(t)$ is $n$ times, then $b(t) \equiv 0$.
-Thus $a(t), b(t)$ can't be polynomials.
+If $b(t)$ were also a nonzero polynomial and $x$ were a nonzero polynomial solution of degree $m$, then $\deg(bx)\ge m$ while $\deg(x'')\le m-2$, which is impossible. Thus $b(t)\equiv0$. But then $x''=0$ has the constant solution $x=1$, contrary to the hypothesis. Hence $a(t)$ and $b(t)$ cannot both be polynomials.

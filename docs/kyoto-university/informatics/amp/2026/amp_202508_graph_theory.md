@@ -78,16 +78,10 @@ Let $v_i$ be the first vertex on this cycle discovered by DFS. At that moment, a
 
 ### (ii)
 #### (a)
-The condition is equivalent to the following
-
-    The remaining directed graph has no directed cycle.
-
-Indeed, if there is a directed cycle containing at least two distinct vertices, then any two vertices on the cycle are mutually reachable, contradicting the condition. Conversely, if two distinct vertices $p$ and $q$ are mutually reachable, then a path from $p$ to $q$ together with a path from $q$ to $p$ forms a directed cycle containing at least two distinct vertices.
-
-Therefore, we may apply the algorithm from part (i). If the remaining graph is acyclic, condition (a) holds; otherwise it does not. The running time is $O(n+m)$.
+Compute the strongly connected components (SCCs) by Tarjan's or Kosaraju's algorithm. Two distinct vertices are mutually reachable exactly when they belong to the same SCC. Thus (a) holds exactly when every SCC has one vertex. This also handles self-loops, which do not violate (a). The running time is $O(n+m)$.
 
 #### (b)
-[Tarjan's algorithm](https://www.geeksforgeeks.org/dsa/tarjan-algorithm-find-strongly-connected-components/)
+Using the same SCC computation, (b) holds exactly when $G$ has one SCC. The running time is $O(n+m)$.
 
 #### (c)
 Let the strongly connected components of $G$ be
@@ -116,7 +110,7 @@ Algorithm:
 
 5. If all such arcs exist, output true. Otherwise, output false.
 
-To implement step 4 in linear time, mark all arcs of $D$ in a hash set or Boolean table indexed by component numbers. Equivalently, when scanning all arcs of $G$, record the arcs between different components. Since each original arc is scanned only a constant number of times, the total running time remains $O(n+m)$.
+To implement step 4 in linear time, initialize `next[i] = false` for $i=1,\ldots,k-1$ and scan all arcs of $D$. For an arc $C_i\to C_j$ with $j=i+1$, set `next[i] = true`. Equivalently, scan the original arcs and record arcs between different components. Each original arc is scanned only a constant number of times, so the total running time remains $O(n+m)$.
 
 Now we prove correctness.
 

@@ -9,7 +9,7 @@ tags:
 
 
 ## **Author**
-[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766)
+[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), 祭音Myyura
 
 ## **Description**
 Answer the following questions about discrete signal processing.
@@ -62,7 +62,7 @@ $$
 ### (2)
 
 $$
-X(z) = \sum_{n=0}^{+\infty}p^nz^{-n} = \sum_{n=0}^{+\infty}(pz^{-1})^n = \frac{1}{1 - pz^{-1}}
+X(z) = \sum_{n=0}^{+\infty}p^nz^{-n} = \sum_{n=0}^{+\infty}(pz^{-1})^n = \frac{1}{1 - pz^{-1}},\qquad |z|>|p|.
 $$
 
 ### (3)
@@ -86,11 +86,22 @@ $$
 
 $$
 \begin{aligned}
-X(z) &= \frac{1}{1 - e^{j\omega T}z^{-1}} \qquad h[n] = ba^n + ca^{n-1} \\
+X(z) &= \frac{1}{1 - e^{j\omega T}z^{-1}}, \\
 Y(z) &= \frac{b + cz^{-1}}{(1 - az^{-1})(1 - e^{j\omega T}z^{-1})} \\
-y[n] &= \sum_{k=0}^{+\infty}e^{j\omega kT}(ba^{n-k} + ca^{n-k-1}) \\
-&= ba^{n} \sum_{k=0}^{+\infty}(e^{j\omega T}a^{-1})^k + ca^{n-1} \sum_{k=0}^{+\infty}(e^{j\omega T}a^{-1})^k \\
-&= \frac{ba^n}{1 - a^{-1}e^{j\omega T}} + \frac{ca^{n-1}}{1 - a^{-1}e^{j\omega T}} \\
-&=\frac{(ba + c)a^{n-1}}{1 - a^{-1}e^{j\omega T}}
+h[n] &= ba^n u[n]+ca^{n-1}u[n-1].
 \end{aligned}
 $$
+
+Putting $r=e^{j\omega T}$, the causal zero-state response is
+
+$$
+\begin{aligned}
+y[n]
+&=b\sum_{k=0}^{n}r^ka^{n-k}
+  +c\sum_{k=0}^{n-1}r^ka^{n-1-k} \\
+&=\frac{(ba+c)a^n-(br+c)r^n}{a-r}\,u[n]\qquad(a\ne r).
+\end{aligned}
+$$
+
+For $a=r$, $y[n]=\{b(n+1)a^n+cn a^{n-1}\}u[n]$.
+If $|a|<1$, the transient vanishes and $y[n]\to H(r)r^n=\frac{br+c}{r-a}r^n$.

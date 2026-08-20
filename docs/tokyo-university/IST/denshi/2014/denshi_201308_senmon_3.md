@@ -62,18 +62,20 @@ def Fib(n) :
         return n
     return Fib(n-1) + Fib(n-2)
 ```
-#### <center> Code 1: Calculate $f(n)$ using recursive calls
+#### <center> Code 1: Calculate $f(n)$ using recursive calls</center>
 
 ### (2)
 ```text
 def Fib(n) :
+    if n <= 1:
+        return n
     result = [0] * (n+1)
     result[1] = 1
-    for i = 2 to n+1 :
+    for i = 2 to n :
         result[i] = result[i-1] + result[i-2]
     return result[n]
 ```
-#### <center> Code 2: calculate $f(n)$ from the recurrence relation without using recursive calls
+#### <center> Code 2: calculate $f(n)$ from the recurrence relation without using recursive calls</center>
 
 ### (3)
 The time complexity of `Code 1` is $O(2^n)$ (Hint: Solve recurrence relation $T(n) = T(n-1) + T(n-2) + O(1)$).
@@ -82,6 +84,8 @@ The space complexity of `Code 1` is $O(n)$ (Hint: function calls are executed se
 
 The time complexity and space complexity of `Code 2` are both $O(n)$, which implies that `Code 2` runs much faster than `Code 1`.
 But still, `Code 2` needs $O(n)$ space.
+
+Both methods overflow a signed 64-bit integer at $f(93)$; thus they are valid only for $0\le n\le92$ without arbitrary-precision arithmetic.
 
 
 ### (4)

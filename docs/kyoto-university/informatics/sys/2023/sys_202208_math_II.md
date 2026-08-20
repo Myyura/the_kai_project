@@ -174,14 +174,21 @@ $p^2+q^2+r^2$ 的最小值。
 #### (i)
 
 $$
-\lim_{x \to +0} \frac{1-e^{-x}}{x^{-1/2}} = \lim_{x \to +0} -2e^{-x} x^{3/2} = 0
+\lim_{x\to+0}x^{-1/2}(1-e^{-x})
+=\lim_{x\to+0}\frac{1-e^{-x}}{\sqrt{x}}
+=\lim_{x\to+0}2\sqrt{x}\,e^{-x}=0.
 $$
 
 #### (ii)
-変数変換 $x = t^2$ を行うと、
+変数変換 $x=t^2$ と部分積分を用いると、
 
 $$
-\int_0^{\infty} x^{-3/2} (1-e^{-x}) \ dx=2\sqrt{\pi}
+\begin{aligned}
+\int_0^{\infty}x^{-3/2}(1-e^{-x})\,dx
+&=2\int_0^\infty\frac{1-e^{-t^2}}{t^2}\,dt\\
+&=4\int_0^\infty e^{-t^2}\,dt
+=2\sqrt\pi.
+\end{aligned}
 $$
 
 #### (iii)
@@ -191,10 +198,11 @@ $$
 $$
 
 #### (iv)
-$\lim_{x \to -\infty} \frac{f(x)}{g(x)} = 1$ , $\lim_{x \to \infty} \frac{f(x)}{g(x)} = 1$ より
+$\lim_{x \to -\infty} \frac{f(x)}{g(x)} = 1$ , $\lim_{x \to \infty} \frac{f(x)}{g(x)} = 1$ より、$f(M)>0$ となるように十分大きい $M>0$ を取れば
 
 $$
-\exists M > 0, \forall x \in (-\infty, -M) \cup (M, +\infty), \frac{f(x)}{g(x)} < 1 + \epsilon < 2 \ (\forall \epsilon > 0)
+\forall x\in(-\infty,-M)\cup(M,\infty),
+\qquad \frac{f(x)}{g(x)}<2
 $$
 
 $\forall x \in [-M, M]$ , since $f(x)$ and $g(x)$ are monotonic increasing, we have
@@ -207,6 +215,7 @@ Hence let $c = \max \{\frac{f(M)}{g(-M)}, 2\}$ , $\forall x \in R, \frac{f(x)}{g
 
 ### 問2
 #### (i)
+境界 $f=0$ および $xyz=0$ では $g=0$ である。$xyz\ne0$ の内部では
 
 $$
 \begin{aligned}
@@ -215,24 +224,26 @@ $$
 \end{aligned}
 $$
 
-よって、最大値は $\frac{2 \sqrt{5} lmn}{125}$ 、最小値は $-\frac{2 \sqrt{5} lmn}{125}$ である。
+となる。$D$ はコンパクトだから、これらと $0$ を比較し、最大値は $\frac{2 \sqrt{5} lmn}{125}$ 、最小値は $-\frac{2 \sqrt{5} lmn}{125}$ である。
 
 #### (ii)
 法線ベクトルは
 
 $$
 \begin{aligned}
-\boldsymbol{n} &= (\frac{\partial f}{\partial x}(x_0, y_0, z_0), \frac{\partial f}{\partial }(x_0, y_0, z_0), \frac{\partial f}{\partial z}(x_0, y_0, z_0)) \\
+\boldsymbol{n} &= (\frac{\partial f}{\partial x}(x_0, y_0, z_0), \frac{\partial f}{\partial y}(x_0, y_0, z_0), \frac{\partial f}{\partial z}(x_0, y_0, z_0)) \\
 &= (2x_0/l^2, 2y_0/m^2, 2z_0/n^2)
 \end{aligned}
 $$
 
 である。
 
-法線の方程式は
+従って、座標の一部が $0$ の場合も含む法線の方程式は
 
 $$
-\frac{x-x_0}{x_0/l^2} = \frac{y-y_0}{y_0/m^2} = \frac{z-z_0}{z_0/n^2}
+(x,y,z)=(x_0,y_0,z_0)
++t\left(\frac{x_0}{l^2},\frac{y_0}{m^2},\frac{z_0}{n^2}\right),
+\qquad t\in\mathbb R.
 $$
 
 #### (iii)
@@ -262,10 +273,10 @@ $x=-\frac{al^2}{2\lambda},y=-\frac{bm^2}{2\lambda},z=-\frac{cn^2}{2\lambda}$ を
 
 $$
 \begin{aligned}
-\lambda &= -\frac{\sqrt{a^2l^2+b^2m^2+c^2z^2}}{2} \\
-x &= \frac{al^2}{\sqrt{a^2l^2+b^2m^2+c^2z^2}} \\
-y &= \frac{bm^2}{\sqrt{a^2l^2+b^2m^2+c^2z^2}} \\
-z &=\frac{cn^2}{\sqrt{a^2l^2+b^2m^2+c^2z^2}}
+\lambda &= -\frac{\sqrt{a^2l^2+b^2m^2+c^2n^2}}{2} \\
+x &= \frac{al^2}{\sqrt{a^2l^2+b^2m^2+c^2n^2}} \\
+y &= \frac{bm^2}{\sqrt{a^2l^2+b^2m^2+c^2n^2}} \\
+z &=\frac{cn^2}{\sqrt{a^2l^2+b^2m^2+c^2n^2}}
 \end{aligned}
 $$
 
@@ -273,7 +284,7 @@ $$
 接平面の接点を $(x_0, y_0, z_0)$ として、接平面の方程式は
 
 $$
-\frac{xx_0}{l^2}+\frac{yy_0}{m^2}+\frac{zz_0}{r^2}=1
+\frac{xx_0}{l^2}+\frac{yy_0}{m^2}+\frac{zz_0}{n^2}=1
 $$
 
 よって、
@@ -288,13 +299,21 @@ $$
 コーシー＝シュワルツの不等式より
 
 $$
-(\frac{l^2}{p^2} + \frac{m^2}{q^2} + \frac{n^2}{r^2})(p^2+q^2+r^2) \geq (l+m+r)^2
+(\frac{l^2}{p^2} + \frac{m^2}{q^2} + \frac{n^2}{r^2})(p^2+q^2+r^2) \geq (l+m+n)^2
 $$
 
 $\frac{l^2}{p^2} + \frac{m^2}{q^2} + \frac{n^2}{r^2} = 1$ を代入すると
 
 $$
-p^2+q^2+r^2 \geq (l+m+r)^2
+p^2+q^2+r^2 \geq (l+m+n)^2
 $$
 
-を得る。
+を得る。等号は
+
+$$
+p^2=l(l+m+n),\qquad
+q^2=m(l+m+n),\qquad
+r^2=n(l+m+n)
+$$
+
+のとき達成されるので、最小値は $\boxed{(l+m+n)^2}$ である。

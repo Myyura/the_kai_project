@@ -13,7 +13,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 数学【II】
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/688564530000000023005197?xsec_token=ABj3Hdw0xF5JHzUtFSdmNnWywnPlQ2a3xSeWzad2whPyo=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/688564530000000023005197?xsec_token=ABj3Hdw0xF5JHzUtFSdmNnWywnPlQ2a3xSeWzad2whPyo=), 祭音Myyura
 
 ## **Description**
 $\mathbb{R}$ を実数全体からなる集合, $\pi$ を円周率とする。行列およびベクトルの転置を $\top$ で表す。
@@ -247,3 +247,14 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_math_II_p2.jpg" width="700" alt=""/>
 </figure>
+
+#### 問2 (ii)(3) の訂正
+
+$a_{i,j}^{(\ell)}$ の変化は直後の $x_i^{(\ell+1)}$ に作用するので、連鎖律より
+
+$$
+\frac{\partial x_k^{(L)}}{\partial a_{i,j}^{(\ell)}}
+=v_{k,i}^{(\ell+1)}
+f'\!\left(\mathbf a_i^{(\ell)}\mathbf x^{(\ell)}\right)
+x_j^{(\ell)}.
+$$

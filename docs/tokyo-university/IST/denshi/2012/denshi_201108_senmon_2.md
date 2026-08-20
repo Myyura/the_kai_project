@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2011年8月実施 専門 第2問
 
 ## **Author**
-[adj-matrix](https://github.com/adj-matrix)
+[adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
@@ -59,10 +59,10 @@ L4: add r1 = r1 + r2 ;
 ## **Kai**
 ### (1)
 
-- Flow dependency: Read after write (RAW)
-- Anti dependency: Write after read (WAR)
-- Input dependency: Read after read (RAR)
-- Output dependency: Write after write (WAW)
+- Flow dependency: Read after write (RAW); a later instruction reads a value written by an earlier instruction.
+- Anti dependency: Write after read (WAR); a later instruction writes a location read by an earlier instruction.
+- Input dependency: Read after read (RAR); both instructions read the same location.
+- Output dependency: Write after write (WAW); both instructions write the same location.
 
 ### (2)
 
@@ -91,7 +91,7 @@ L3:   sla r1 = r1 << 2 ;
 L4:   add r1 = r1 + r2 ;
 ```
 
-To solve WAR (2,3) (2,4) (3,4) and WAW (1,3) (3,4)
+To solve WAR (2,3), (2,4), (3,4) and WAW (1,3), (1,4), (3,4):
 
 First, solve WAR (2,3)
 ```text
@@ -110,3 +110,4 @@ L4:   add r4 = r3 + r2 ;
 ```
 
 Finally, all false dependencies are solved.
+Here `r4` is the renamed destination corresponding to the architectural register `r1`. After `L1`, `L2` and `L3` can execute in parallel; `L4` waits for both.

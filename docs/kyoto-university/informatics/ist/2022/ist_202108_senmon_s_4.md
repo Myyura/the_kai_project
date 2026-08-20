@@ -21,7 +21,7 @@ P_1 = 0, \quad P_i = \sum_{k=1}^{i-1} p_k \quad (i = 2, \dots, n)
 $$
 
 と定義する。
-さらに、$p_1 \geq p_2 \geq \dots \geq p_n > 0$ が成立していると仮定して、$a_i$ の記号 $0$ と $$ による符号化 $C$ を
+さらに、$p_1 \geq p_2 \geq \dots \geq p_n > 0$ が成立していると仮定して、$a_i$ の記号 $0$ と $1$ による符号化 $C$ を
 
 $$
 C(a_i): \; P_i \text{ を2進表現したときの } N(p_i) \text{ 桁目までの } 0 \text{ と } 1 \text{ の列 }
@@ -79,9 +79,11 @@ $C(a_i)=100$。令信源熵为 $H(S)$，平均码长为 $\bar N$。
 1. 当 $n=4$ 且
    $p_1=1/3,p_2=1/4,p_3=1/4,p_4=1/6$ 时，求全部 $C(a_i)$。
 2. 由编码定义证明
+
    $$
    H(S)\le\bar N<H(S)+1.
    $$
+
 3. 当 $n=6$ 时，求所有满足 $H(S)=\bar N$ 的概率序列
    $p_1,\ldots,p_6$；在这些序列中取 $p_6$ 最小者，给出全部码字。
 4. 若 $H(S)=\bar N$ 且所有 $p_i$ 相等，通过展示 Huffman 构造过程证明 $C$ 是 Huffman 码。
@@ -105,10 +107,10 @@ $$
 since $-\log_{2}p_{i}\leq N(p_{i}) < -\log_{2}p_{i}+1$, we multiply both sides of the equation by $p_i \ (p_i > 0)$,
 
 $$
--p_{i}\log_{2}p_{i}\leq p_{i}N(p_{i}) < -p_{i}\log_{2}p_{i}+1
+-p_{i}\log_{2}p_{i}\leq p_{i}N(p_{i}) < -p_{i}\log_{2}p_{i}+p_i
 $$
 
-hence
+hence, using $\sum_{i=1}^n p_i=1$,
 
 $$
 -\sum_{i=1}^{n}p_{i}\log_{2}p_{i}\leq \sum_{i=1}^{n}p_{i}N(p_{i}) < -\sum_{i=1}^{n}p_{i}\log_{2}p_{i}+1

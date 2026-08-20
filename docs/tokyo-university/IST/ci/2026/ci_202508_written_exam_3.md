@@ -14,7 +14,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2025年8月実施 筆記試験 第3問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -128,13 +128,13 @@ Adding a tiny number to a huge number may do nothing (**absorption**), e.g. $10^
 ### 8) Monte Carlo integration
 
 * Approximates an integral using random sampling—especially useful in high dimensions where grids are infeasible.
-* For (I=\int_a^b f(x),dx), sample (x_i\sim U(a,b)):
+* For $I=\int_a^b f(x)\,dx$, sample $x_i\sim U(a,b)$:
 
 $$
   \hat I=(b-a)\frac{1}{N}\sum_{i=1}^N f(x_i)
 $$
 
-* Error typically decreases like $O(1/\sqrt{N})$ regardless of dimension (slow but dimension-robust).
-* Variance matters: high-variance (f) needs many samples; use **importance sampling** to reduce variance.
+* If $f(X)$ has finite variance, the standard error decreases like $O(1/\sqrt{N})$ regardless of dimension (slow but dimension-robust).
+* Variance matters: high-variance $f$ needs many samples; use **importance sampling** to reduce variance.
 * Example: estimating area under a curve by “throwing darts” uniformly and averaging function values.
 * Widely used in graphics (path tracing), finance (option pricing), Bayesian inference.

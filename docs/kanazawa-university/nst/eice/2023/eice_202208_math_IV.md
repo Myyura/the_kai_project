@@ -9,7 +9,7 @@ tags:
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 数学 IV
 
 ## **Author**
-[金沢大学](https://www.kanazawa-u.ac.jp/)
+[金沢大学](https://www.kanazawa-u.ac.jp/), 祭音Myyura
 
 ## **Description**
 $f(x)=\pi-2x\ (0\le x\le \pi),\ g(x)=x(\pi-x)\ (0\le x\le \pi)$ とする。
@@ -50,8 +50,10 @@ $$
 （奇関数拡張・偶関数拡張）
 
 $$
-f(x)=\sum_{m=1}^\infty \frac{2}{m}\sin(2mx)
+f(x)=\sum_{m=1}^\infty \frac{2}{m}\sin(2mx)\qquad(0<x<\pi)
 $$
+
+$x=0,\pi$ では正弦級数の和は $0$ である。
 
 $$
 g(x)=\frac{\pi^2}{6}-\sum_{m=1}^\infty \frac{1}{m^2}\cos(2mx)

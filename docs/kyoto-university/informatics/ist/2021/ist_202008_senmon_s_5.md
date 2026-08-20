@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2020年8月実施 専門科目 S-5
 
 ## **Author**
-[realball](https://github.com/realballu3u)
+[realball](https://github.com/realballu3u), 祭音Myyura
 
 ## **Description**
 The Fourier spectrum of a continuous-time signal $f(t)$ is given by $F(\omega) = \int_{-\infty}^{\infty}f(t)e^{-j\omega t}dt$, 
@@ -74,11 +74,14 @@ Explain an advantage of the discrete cosine transform compared to the discrete F
 $F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-j\omega t}\,dt$。长度 $N$ 的离散信号为 $x[n]$（$n=0,\ldots,N-1$），其 DFT 记为 $X[k]$。回答各空并写出推导。
 
 1. 若 $f(t)$ 为偶函数，则
+
    $$
    F(\omega)=2\int_0^\infty f(t)\boxed{(A)}\,dt.
    $$
+
    求 $(A)$。
 2. 将 $x[n]$ 循环右移 $s$ 位：
+
    $$
    x_s[n]=
    \begin{cases}
@@ -86,8 +89,10 @@ $F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-j\omega t}\,dt$。长度 $N$ 的离散
    x[n-s],&n\ge s.
    \end{cases}
    $$
+
    其 DFT 为 $\boxed{(B)}X[k]$。求 $(B)$。
 3. 构造长度 $2N$ 的偶对称延拓
+
    $$
    y[n]=
    \begin{cases}
@@ -95,13 +100,17 @@ $F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-j\omega t}\,dt$。长度 $N$ 的离散
    x[2N-1-n],&N\le n<2N.
    \end{cases}
    $$
+
    其 DFT 写为
+
    $$
    Y[k]=2\boxed{(C)}
    \sum_{n=0}^{N-1}x[n]\cos\bigl(\boxed{(D)}\bigr).
    $$
+
    求 $(C),(D)$。
 4. 定义 DCT-II
+
    $$
    X_{\mathrm{DCT}}[k]=\alpha_k
    \sum_{n=0}^{N-1}x[n]\cos\bigl(\boxed{(D)}\bigr),
@@ -109,6 +118,7 @@ $F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-j\omega t}\,dt$。长度 $N$ 的离散
    \alpha_0=\frac1{\sqrt N},\quad
    \alpha_k=\sqrt{\frac2N}.
    $$
+
    从数据压缩角度说明 DCT 相比 DFT 的一个优势，例如其在 JPEG 中的使用。
 
 ## **Kai**
@@ -118,9 +128,10 @@ $$
 \begin{aligned}
 \mathcal{F}(\omega)
 &=\int_{-\infty}^{\infty} f(t)e^{-j\omega t}dt\\
-&= \int_{-\infty}^{\infty}f(t)\left[\cos(\omega t)-j \sin(\omega t)dt \right]\\
-&= \int_{-\infty}^{\infty}f(t)\cos(\omega t)dt - \int_{-\infty}^{\infty}f(t)j \sin(\omega t)dt\\
+&= \int_{-\infty}^{\infty}f(t)\left[\cos(\omega t)-j \sin(\omega t)\right]dt\\
+&= \int_{-\infty}^{\infty}f(t)\cos(\omega t)dt-j\int_{-\infty}^{\infty}f(t)\sin(\omega t)dt\\
 &= \int_{-\infty}^{\infty}f(t)\cos(\omega t)dt
+=2\int_0^\infty f(t)\cos(\omega t)dt
 \end{aligned}
 $$
 
@@ -131,12 +142,12 @@ Thus, blank (A) is $\cos(\omega t)$.
 $$
 \begin{aligned}
 X_s[k]&= \sum_{n=0}^{N-1}x_s[n]e^{-j\frac{2\pi}{N}kn}\\
-&=\sum_{n=0}^{S-1}x[N+n-s]e^{-j\frac{2\pi}{N}kn}+\sum_{n=s}^{N-1}x[n-s]e^{-j\frac{2\pi}{N}kn}\\
+&=\sum_{n=0}^{s-1}x[N+n-s]e^{-j\frac{2\pi}{N}kn}+\sum_{n=s}^{N-1}x[n-s]e^{-j\frac{2\pi}{N}kn}\\
 &\text{assume \textcircled{1}:} m=N+n-s;n=m+s-N\\
 &\text{assume \textcircled{2}:} m=n-s;n=m+s\\
-&=\sum_{m=N-s}^{N-1}x[m]e^{-j\frac{2\pi}{N}k(m+s-N)}+\sum_{m=0}^{N-S-1}x[m]e^{-j\frac{2\pi}{N}k(m+s)}\\
+&=\sum_{m=N-s}^{N-1}x[m]e^{-j\frac{2\pi}{N}k(m+s-N)}+\sum_{m=0}^{N-s-1}x[m]e^{-j\frac{2\pi}{N}k(m+s)}\\
 &=e^{-j\frac{2\pi}{N}ks}\sum_{m=0}^{N-1}x[m]e^{-j\frac{2\pi}{N}km}\\
-&\text{Thus: } x_s[k]=X[k]e^{-j\frac{2\pi}{N}ks}\\
+&\text{Thus: } X_s[k]=X[k]e^{-j\frac{2\pi}{N}ks}\\
 &\text{Then: } (B)=e^{-j\frac{2\pi}{N}ks}
 \end{aligned}
 $$
@@ -146,10 +157,9 @@ $$
 $$
 \begin{aligned}
 Y[k]
-&= \sum_{n=0}^{2N-1}x[n] e^{-j\frac{2\pi}{2N}kn} \\
+&= \sum_{n=0}^{2N-1}y[n] e^{-j\frac{2\pi}{2N}kn} \\
 &= \sum_{n=0}^{N-1}x[n] e^{-j\frac{\pi}{N}kn} + \sum_{n=N}^{2N-1}x[2N-1-n] e^{-j\frac{\pi}{N}kn} \\
-&= \sum_{n=0}^{N-1}x[n] e^{-j\frac{\pi}{N}kn} + \sum_{n=0}^{N-1}x[N-1-n] e^{-j\frac{\pi}{N}kn} \\
-&= \sum_{n=0}^{N-1}x[n] e^{-j\frac{\pi}{N}kn} + \sum_{m=0}^{N-1}x[m] e^{-j\frac{\pi}{N}k(N-1-m)} \\
+&= \sum_{n=0}^{N-1}x[n] e^{-j\frac{\pi}{N}kn} + \sum_{m=0}^{N-1}x[m] e^{-j\frac{\pi}{N}k(2N-1-m)} \\
 &= \sum_{n=0}^{N-1}x[n] e^{-j\frac{\pi}{N}kn} + \sum_{m=0}^{N-1}x[m] e^{j\frac{\pi}{N}k(m+1)} \\
 &= e^{j\frac{\pi}{2N}k}\left( \sum_{n=0}^{N-1}x[n] e^{-j\pi k\frac{2n+1}{2N}} + \sum_{n=0}^{N-1}x[n] e^{j\pi k\frac{2n+1}{2N}} \right) \\
 &= 2e^{j\frac{\pi}{2N}k}\left( \sum_{n=0}^{N-1}x[n] \frac{e^{-j\pi k\frac{2n+1}{2N}} + e^{j\pi k\frac{2n+1}{2N}}}{2} \right) \\
@@ -157,5 +167,7 @@ Y[k]
 \end{aligned}
 $$
 
+Thus, $(C)=e^{j\pi k/(2N)}$ and $(D)=(2n+1)\pi k/(2N)$.
+
 ### Q.4
-Better concentrate energy
+The even extension reduces the boundary discontinuity. For correlated data, the DCT therefore concentrates most energy into a few real, low-frequency coefficients, so the remaining coefficients can be coarsely quantized or discarded.

@@ -8,7 +8,7 @@ tags:
 # 大阪大学 基礎工学研究科 生体システム工学 2021年8月実施 II-1
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -19,16 +19,24 @@ tags:
 【问题 1：Fermat 原理与变分法】
 
 1. 从微小弧长
-   $$dl=\sqrt{1+y'^2}\,dx$$
+
+   $$
+   dl=\sqrt{1+y'^2}\,dx
+   $$
+
    出发，证明传播时间可写为
+
    $$
    T[y]=\int_{x_1}^{x_2}\frac{n(x,y)}c\sqrt{1+y'^2}\,dx
    =\int_{x_1}^{x_2}L(x,y,y')\,dx.
    $$
+
 2. 对端点固定的变分 $y=\bar y+\varepsilon h$，推导传播时间取驻值所满足的 Euler–Lagrange 方程
+
    $$
    \frac{\partial L}{\partial y}-\frac d{dx}\frac{\partial L}{\partial y'}=0.
    $$
+
 3. 当折射率为常数 $n_0$ 时，证明该方程化为 $y''=0$，所以光路是连接 $P_1,P_2$ 的直线。
 
 【问题 2：折射定律】
@@ -38,7 +46,10 @@ tags:
 1. 用光路线段斜率表示 $\sin\theta_1$；
 2. 将总传播时间写成光在两介质中传播时间之和；
 3. 令折射点沿界面作微小变化，利用传播时间驻值条件推导 Snell 定律
-   $$n_1\sin\theta_1=n_2\sin\theta_2.$$
+
+   $$
+   n_1\sin\theta_1=n_2\sin\theta_2.
+   $$
 
 ## **Kai**
 ### (問 1)
@@ -100,19 +111,17 @@ L \left( x, \bar{y}, \bar{y}' \right)
 \end{aligned}
 $$
 
-であるから、
-$T$ が $y=\bar{y}(x)$ で停留値をとるための条件は
+である。端点固定より $h(x_1)=h(x_2)=0$ であり、
 
 $$
 \begin{aligned}
-0
-&= \int_{x_1}^{x_2}
+&\int_{x_1}^{x_2}
 L \left( x, \bar{y}(x) + \epsilon h(x), \bar{y}'(x) + \epsilon h'(x) \right) dx
 - \int_{x_1}^{x_2} L \left( x, \bar{y}(x), \bar{y}'(x) \right) dx
 \\
-&\simeq \epsilon \int_{x_1}^{x_2}
+&= \epsilon \int_{x_1}^{x_2}
 \left\{ h(x) \frac{\partial L}{\partial y} (x,\bar{y}(x),\bar{y}'(x))
-+ h'(x) \frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right\} dx
++ h'(x) \frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right\} dx+o(\epsilon)
 \\
 &= \epsilon \left[ h(x)
 \frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right]_{x_1}^{x_2}
@@ -120,16 +129,17 @@ L \left( x, \bar{y}(x) + \epsilon h(x), \bar{y}'(x) + \epsilon h'(x) \right) dx
 \left\{ h(x) \frac{\partial L}{\partial y} (x,\bar{y}(x),\bar{y}'(x))
 - h(x) \frac{d}{dx}
 \frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right\} dx
++o(\epsilon)
 \\
 &=
 \epsilon \int_{x_1}^{x_2} h(x)
 \left\{ \frac{\partial L}{\partial y} (x,\bar{y}(x),\bar{y}'(x))
 - \frac{d}{dx}
-\frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right\} dx
+\frac{\partial L}{\partial y'} (x,\bar{y}(x),\bar{y}'(x)) \right\} dx+o(\epsilon)
 \end{aligned}
 $$
 
-であり、 (3) が成り立つことがわかる。
+である。$T$ の停留性と $h$ の任意性より、 (3) が成り立つ。
 
 #### (ウ)
 今の場合

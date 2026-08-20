@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2022年8月実施 専門科目 問題3
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 In an operating system, a page replacement algorithm should be designed to reduce the number of page faults. To evaluate the algorithm, we count the number of page faults caused by running the algorithm on a particular string of memory references, called a "reference string". Here, each memory reference is represented by a page number.
@@ -59,9 +59,11 @@ Answer the following questions.
 操作系统中的页面置换算法应尽量减少缺页。用页面号序列组成的“引用串”来评估算法，并统计运行时缺页数。回答下列问题。
 
 （1）最优页面置换算法换出未来最长时间内不会再被访问的页面。假定有三个初始为空的页框，对引用串
+
 $$
 7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1
 $$
+
 运行该算法，求缺页次数。
 
 （2）LRU 算法换出过去最长时间未被使用的页面。仍使用三个初始为空的页框和同一引用串，求缺页次数。
@@ -107,16 +109,16 @@ The **Optimal Page Replacement Algorithm** replaces the page that will not be us
    Reference: 0 → No page fault (0 is already in memory)
 
 8. **Page frames**: `[2, 0, 3]`
-   Reference: 4 → **Page fault**, replace 2 with 4 (2 is not used for the longest time) → `[4, 0, 3]`
+   Reference: 4 → **Page fault**, replace 0 with 4 (among the resident pages, 0 is used latest in the future) → `[2, 4, 3]`
 
-9. **Page frames**: `[4, 0, 3]`
-   Reference: 2 → **Page fault**, replace 4 with 2 (4 is not used for the longest time) → `[2, 0, 3]`
+9. **Page frames**: `[2, 4, 3]`
+   Reference: 2 → No page fault (2 is already in memory)
 
-10. **Page frames**: `[2, 0, 3]`
+10. **Page frames**: `[2, 4, 3]`
     Reference: 3 → No page fault (3 is already in memory)
 
-11. **Page frames**: `[2, 0, 3]`
-    Reference: 0 → No page fault (0 is already in memory)
+11. **Page frames**: `[2, 4, 3]`
+    Reference: 0 → **Page fault**, replace 4 with 0 (4 is not used again) → `[2, 0, 3]`
 
 12. **Page frames**: `[2, 0, 3]`
     Reference: 3 → No page fault (3 is already in memory)
@@ -193,24 +195,24 @@ The **Least Recently Used (LRU) Algorithm** replaces the page that has not been 
     Reference: 2 → No page fault (2 is already in memory)
 
 14. **Page frames**: [0, 3, 2]
-    Reference: 1 → **Page fault**, replace 3 (3 is least recently used) with 1 → [0, 1, 2]
+    Reference: 1 → **Page fault**, replace 0 (0 is least recently used) with 1 → [1, 3, 2]
 
-15. **Page frames**: [0, 1, 2]
+15. **Page frames**: [1, 3, 2]
     Reference: 2 → No page fault (2 is already in memory)
 
-16. **Page frames**: [0, 1, 2]
-    Reference: 0 → No page fault (0 is already in memory)
+16. **Page frames**: [1, 3, 2]
+    Reference: 0 → **Page fault**, replace 3 (3 is least recently used) with 0 → [1, 0, 2]
 
-17. **Page frames**: [0, 1, 2]
+17. **Page frames**: [1, 0, 2]
     Reference: 1 → No page fault (1 is already in memory)
 
-18. **Page frames**: [0, 1, 2]
-    Reference: 7 → **Page fault**, replace 2 (2 is least recently used) with 7 → [0, 1, 7]
+18. **Page frames**: [1, 0, 2]
+    Reference: 7 → **Page fault**, replace 2 (2 is least recently used) with 7 → [1, 0, 7]
 
-19. **Page frames**: [0, 1, 7]
+19. **Page frames**: [1, 0, 7]
     Reference: 0 → No page fault (0 is already in memory)
 
-20. **Page frames**: [0, 1, 7]
+20. **Page frames**: [1, 0, 7]
     Reference: 1 → No page fault (1 is already in memory)
 
 **Total number of page faults**: 12
@@ -240,7 +242,7 @@ An LRU-approximation algorithm can be implemented using a **reference bit** in e
 
 2. **On each memory access**, the reference bit of the accessed page is set to 1.
 
-3. **When a page needs to be replaced**, the system scans through the pages to find one with a reference bit of 0. Pages with a reference bit of 1 have their bit cleared to 0 during this scan, allowing pages that haven’t been used recently to be found in subsequent scans.
+3. **When a page needs to be replaced**, the system scans circularly from a persistent clock hand. A page whose reference bit is 1 has its bit cleared and is skipped; the first page whose bit is 0 is replaced, and the hand advances to the following frame.
 
 4. This approach, often known as the **Clock algorithm** (or Second Chance algorithm), gives a page a “second chance” before being replaced, providing a good approximation of true LRU with much lower overhead.
 

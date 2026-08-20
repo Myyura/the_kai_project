@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2017年8月実施 筆記試験 第2問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -100,7 +100,9 @@ Next, we consider to further add a force proportional to the velocity of the car
 
 > The general solution of a differential equation
 > 
-> $$ \frac{d^2x}{dt^2}+a\frac{dx}{dt}+bx=0 \text{ ($a$ and $b$ are real-valued constants)}\cdots\text{(A)} $$
+> $$
+> \frac{d^2x}{dt^2}+a\frac{dx}{dt}+bx=0 \text{ ($a$ and $b$ are real-valued constants)}\cdots\text{(A)}
+> $$
 > 
 > can be represented by the solution of the quadratic equation
 > 
@@ -190,6 +192,8 @@ The acceleration $a_1$ is:
 $$ 
  a_1 = \frac{F - Mg \sin\theta}{M} 
 $$ 
+
+For the stated uphill acceleration, $F>Mg\sin\theta$ is required.
 
 Since initial velocity $v(0)=0$ and initial position $x(0)=0$, we integrate with respect to time $t$:
 
@@ -293,7 +297,7 @@ $$
 Using relation $(*1)$ to find $t_2$:
 
 $$ 
- t_2 = \frac{2F}{F + Mg\sin\theta} \sqrt{\frac{LM(F + Mg\sin\theta)}{F(F - Mg\sin\theta)}} = \sqrt{\frac{4F^2 L M}{(F+Mg\sin\theta)(F-Mg\sin\theta)}} 
+ t_2 = \frac{2F}{F + Mg\sin\theta} \sqrt{\frac{LM(F + Mg\sin\theta)}{F(F - Mg\sin\theta)}} = \sqrt{\frac{4F L M}{(F+Mg\sin\theta)(F-Mg\sin\theta)}}
 $$ 
 
 $$ 
@@ -333,6 +337,8 @@ Given $x(0)=0$ and $v(0)=0$, the motion is a cosine wave shifted to start at zer
 $$ 
  x(t) = x_{eq} \left(1 - \cos\left(\sqrt{\frac{k_1}{M}}t\right)\right) 
 $$ 
+
+For the intended uphill motion, this description assumes $k_1L>Mg\sin\theta$, so that $x_{eq}>0$.
 
 The maximum peak is $2x_{eq}$. The graph oscillates indefinitely between $0$ and $2(L - \frac{Mg\sin\theta}{k_1})$. It does not settle at $L$.
 
@@ -393,6 +399,6 @@ The curve starts at $(0,0)$ with zero slope, rises smoothly, and flattens out to
 
 ### (8) Proportional-Integral-Derivative (PID) Control
 
-**Effect:** The addition of the integral term $k_3 \int_0^t \{L-x(\tau)\} d\tau$ eliminates the steady-state error, causing the cart to converge exactly to the target position $x = L$.
+**Effect:** Provided that the closed loop is stable, the addition of the integral term $k_3 \int_0^t \{L-x(\tau)\} d\tau$ eliminates the steady-state error, causing the cart to converge exactly to the target position $x = L$. For this third-order system, the Routh--Hurwitz condition is $k_1k_2>Mk_3$ (in addition to $k_1,k_2,k_3>0$).
 **Reason:** In the previous cases (P and PD control), the controller relied on the position error $(L-x)$ to generate force. To counteract gravity ($Mg\sin\theta$), a non-zero error was required (steady-state error).
 With the integral term, if there is any steady error $L - x \neq 0$, the integral value grows over time, increasing the applied force $f$. This accumulation continues until the force is sufficient to balance gravity exactly when the error is zero ($x=L$). In steady state, $\dot{x}=0, \ddot{x}=0$, and $x=L$, making the integral term provide the constant force $Mg\sin\theta$.

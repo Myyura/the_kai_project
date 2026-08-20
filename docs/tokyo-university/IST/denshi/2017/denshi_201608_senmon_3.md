@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2016年8月実施 専門 第3問
 
 ## **Author**
-[adj-matrix](https://github.com/adj-matrix)
+[adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
@@ -23,7 +23,9 @@ You want to find users from an access log that extremely frequently access to a 
 
 Use this algorithm to process the following sequence of user IDs from the first element, and show the values of $L$ in order after processing $A[i]$ in ii.
 
-$$11, 10, 11, 11, 7, 11, 11, 3, 8$$
+$$
+11, 10, 11, 11, 7, 11, 11, 3, 8
+$$
 
 (2) Prove that the number of varieties of user IDs in $L$ is at most one in the algorithm in (1).
 
@@ -120,5 +122,7 @@ find_majority():
         else:
             count = count - 1
 
+    if count == 0:
+        return -1
     return candidate_id
 ```

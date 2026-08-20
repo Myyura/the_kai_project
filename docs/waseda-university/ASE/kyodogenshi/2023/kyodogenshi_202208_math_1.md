@@ -7,7 +7,7 @@ tags:
 # 早稲田大学 先進理工学研究科 共同原子力専攻 2022年8月実施 数学一般 その1
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -72,3 +72,16 @@ $$
 がわかる。
 
 ### (2)
+
+右辺が同次方程式の解と共鳴するので、特殊解を
+
+$$
+y_p(t)=t(A\cos t+B\sin t)
+$$
+
+とおく。代入すると $-2A\sin t+2B\cos t=\cos t+\sin t$ より
+$A=-1/2$, $B=1/2$ である。したがって通解は
+
+$$
+\boxed{y(t)=C_1\cos t+C_2\sin t+\frac{t}{2}(\sin t-\cos t)}.
+$$

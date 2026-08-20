@@ -11,7 +11,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2021年8月実施 専門基礎A \[A-5\]
 
 ## **Author**
-[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e)
+[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
 Answer all the following questions.
@@ -70,10 +70,12 @@ in a systematic form.
    3. 求第 1 小问编码的每符号平均码长。
    4. 求 $S$ 的熵。
 2. 设 $C_1,C_2$ 为长度 $15$ 的二元循环码，生成多项式分别为
+
    $$
    G_1(x)=x^4+x+1,\qquad
    G_2(x)=(x^4+x+1)(x^4+x^3+x^2+x+1).
    $$
+
    1. 判断
       $x^{10}+x^9+x^7+x^6+x^5+x^3+x^2+1$
       是否为 $C_1$ 的码字多项式。
@@ -160,10 +162,10 @@ $$
 $C_1$ can correct up to **1 bit** error.
 
 #### (e) 
-$C_2$ has more parity bits compared to $C_1$. Therefore, $C_2$ can detect and correct more errors, but its **coding efficiency** (rate) is lower than $C_1$.
+$C_2$ is a $[15,7,5]$ binary BCH code, whereas $C_1$ is a $[15,11,3]$ Hamming code. Thus $C_2$ can correct up to two bit errors (and detect up to four), but its rate $7/15$ is lower than the rate $11/15$ of $C_1$.
 
 #### (f) 
 1. Use $G_2(x)$ to derive the corresponding parity-check matrix $H$.
-2. Calculate the syndrome $S = H R^T = H(m^T + e^T) = H e^T$.
-3. Use a pre-calculated error mapping table or a decoding algorithm (like Meggitt decoding) to find the error pattern $e$ corresponding to the syndrome $S$.
+2. For the received word $R=C+e$, calculate the syndrome $S=HR^T=He^T$.
+3. Use a syndrome table or a decoding algorithm such as Meggitt decoding to find the coset leader $e$ of weight at most two.
 4. Correct the error: $C = R + e$.

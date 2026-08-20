@@ -11,7 +11,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2022年8月実施 専門基礎A \[A-5\]
 
 ## **Author**
-[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e)
+[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
 Answer all the following questions.
@@ -45,9 +45,11 @@ Answer all the following questions.
 3. 设 $C$ 为交叉概率 $p$ 的无记忆二元对称信道（BSC）。
    1. 写出 $C$ 的信道矩阵。
    2. 证明其信道容量为
+
       $$
       1+p\log_2p+(1-p)\log_2(1-p),
       $$
+
       并画出容量关于 $p$ 的图像。
    3. 通过 $C$ 使用 $(7,4)$ Hamming 码通信，假设所有可纠正错误都被纠正，求译码失败概率。
    4. 求交叉概率分别为 $p,q$ 的两个 BSC 串联后的信道容量。
@@ -110,7 +112,7 @@ $P_{fail} = 1 - P_{success} = 1 - [(1-p)^7 + 7 \cdot p(1-p)^6]$
 #### (d)  
 
 $$
-P_{total} = \begin{bmatrix} 1-p & p \\ p & 1-p \end{bmatrix} \begin{bmatrix} 1-q & q \\ q & 1-q \end{bmatrix} = \begin{bmatrix} (1-p)(1-q)+pq & (1-p)q+p(1-q) \\ p(1-q)+q(1-p) & p(q)+q(1-p) \end{bmatrix}
+P_{total} = \begin{bmatrix} 1-p & p \\ p & 1-p \end{bmatrix} \begin{bmatrix} 1-q & q \\ q & 1-q \end{bmatrix} = \begin{bmatrix} (1-p)(1-q)+pq & (1-p)q+p(1-q) \\ p(1-q)+q(1-p) & (1-p)(1-q)+pq \end{bmatrix}
 $$
 
 This is still a BSC : $C = 1 - H(p(1-q) + q(1-p)).$

@@ -11,7 +11,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻 2022年8月実施 情報理論
 
 ## **Author**
-[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/)
+[Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
 ### 【問 1】
@@ -143,14 +143,25 @@ $$
 P(Y_t = 1) = P(X_t = 0) = 1 - P(X_t = 1) = \frac{1}{2}
 $$
 
+さらに $z^n$ を固定すると、写像 $x^n\mapsto x^n\oplus z^n$ は各成分ごとの全単射である。したがって $X_1,\ldots,X_n$ の独立性も保たれ、$Y^n$ は一様な無記憶情報源の出力である。
+
 #### (4)
 
 $$
 \begin{aligned}
-I(X;Y) &= H(Y) - H(Y | X) \\
-&= H(Y) - H(X \oplus S_E | X) \\
-&= H(Y) - H(S_E | X) \\
-&= H(Y) - H(S_E) \\
-C &= \lim_{n \rightarrow \infty} \max_{P_{X^n} \in \mathcal{P}_n} \frac{1}{n} I(X^n ;Y^n) = \mathcal{H}(\frac{1}{2}) - H(S_E) = 1 - H(S_E)
+I(X^n;Y^n)
+&=H(Y^n)-H(Y^n\mid X^n)\\
+&=H(Y^n)-H(Z^n)\\
+&\le n-H(Z^n).
+\end{aligned}
+$$
+
+独立な一様入力を選べば (3) より $Y^n$ も一様であり、$H(Y^n)=n$ なので等号が成り立つ。よって
+
+$$
+\begin{aligned}
+C
+&=\lim_{n\to\infty}\left(1-\frac1nH(Z^n)\right)\\
+&=1-H(S_E).
 \end{aligned}
 $$

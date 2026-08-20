@@ -10,7 +10,7 @@ tags:
 
 
 ## **Author**
-[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766)
+[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), 祭音Myyura
 
 ## **Description**
 離散信号処理に関する以下の問いに答えよ。なお, 離散信号 $x(n)$ は $n < 0$ でゼロであるとする。
@@ -48,14 +48,18 @@ tags:
 ## **Kai**
 ### (1)
 
+$m\geq 0$ とする。このとき
+
 $$
 \begin{aligned}
-X(z) &= \sum_{n=0}^{+\infty}x(n-m)z^{-m} \\
+\mathcal Z\{x(n-m)\} &= \sum_{n=0}^{+\infty}x(n-m)z^{-n} \\
 &= \sum_{l=-m}^{+\infty}x(l)z^{-l-m} \\
 &= z^{-m}\sum_{l=-m}^{+\infty}x(l)z^{-l} \\
-&= z^{-m}x(z)
+&= z^{-m}X(z),
 \end{aligned}
 $$
+
+ここで $x(l)=0\ (l<0)$ を用いた。
 
 ### (2)
 $x_1(n)*x_2(n) = \sum_{m=0}^{+\infty}x_1(n-m)x_2(m)$
@@ -64,10 +68,9 @@ $x_1(n)*x_2(n) = \sum_{m=0}^{+\infty}x_1(n-m)x_2(m)$
 
 $$
 \begin{aligned}
-FT \bigg(x_1(n)*x_2(n)\bigg) &= \sum_{n=0}^{+\infty}\sum_{m=0}^{+\infty}x_1(n-m)x_2(m)z^{-n} \\
-&= \sum_{m=0}^{+\infty}\sum_{n=0}^{+\infty}X_1(n-m)X_2(m)z^{-n} \\
-&= \sum_{m=0}^{+\infty}X_2(m)\sum_{n=0}^{+\infty}X_1(n-m)z^{-(n-m)}\cdot z^{-m} \\
-&= \sum_{m=0}^{+\infty}X_2(m)z^{-m}\sum_{n=0}^{+\infty}X_1(n-m)z^{-(n-m)} \\
+\mathcal Z\{x_1*x_2\} &= \sum_{n=0}^{+\infty}\sum_{m=0}^{+\infty}x_1(n-m)x_2(m)z^{-n} \\
+&= \sum_{m=0}^{+\infty}x_2(m)z^{-m}
+   \sum_{n=0}^{+\infty}x_1(n-m)z^{-(n-m)} \\
 &= X_1(z)X_2(z)
 \end{aligned}
 $$
@@ -76,9 +79,9 @@ $$
 
 $$
 \begin{aligned}
-&b[x(z) + az^{-1}y(z)] = y(z) \\
-&bx(z) = (1 - abz^{-1})y(z) \\
-&H(z) = \frac{y(z)}{x(z)} = \frac{b}{1-abz^{-1}}
+&b[X(z) + az^{-1}Y(z)] = Y(z) \\
+&bX(z) = (1 - abz^{-1})Y(z) \\
+&H(z) = \frac{Y(z)}{X(z)} = \frac{b}{1-abz^{-1}}
 \end{aligned}
 $$
 
@@ -86,7 +89,7 @@ $$
 
 $$
 \begin{aligned}
-h(n) &= b \cdot (ab)^n = a^n b^{n+1} \\
+h(n) &= b(ab)^n u(n)=a^n b^{n+1}u(n) \\
 y(n) &= x(n) * h(n) \\
 &= \sum_{k=0}^{+\infty}x(n-k)a^kb^{k+1}
 \end{aligned}

@@ -165,3 +165,12 @@ x=12の頻度は2.8e+4
 (7) i<j
 (8) !=
 ```
+
+実行結果は
+
+```text
+konniitiha
+imayuuyami
+0
+1
+```

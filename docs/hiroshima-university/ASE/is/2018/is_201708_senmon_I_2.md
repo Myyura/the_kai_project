@@ -11,7 +11,7 @@ tags:
 
 
 ## **Author**
-samparker
+samparker, 祭音Myyura
 
 ## **Description**
 (1) $\alpha > 0$ とする時、関数 $f(x) = x^{\alpha} e^{-x}$ の $[0, \infty)$ における最大値を求めよ。
@@ -112,3 +112,5 @@ $$
 $$
 \lim_{x \to +0} x \Gamma(x) = \lim_{x \to +0} \Gamma(x+1) = \Gamma(1) = 1
 $$
+
+Indeed, for $0<x\leq 1$, $t^xe^{-t}\leq (1+t)e^{-t}$. Hence the last limit follows from the dominated convergence theorem.

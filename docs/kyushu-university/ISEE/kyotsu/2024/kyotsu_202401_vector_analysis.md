@@ -45,17 +45,22 @@ $$
 证明下列两个体积分与曲面积分恒等式：
 
 1.
+
    $$
    \iiint_V\!\left(f\nabla^2g+(\nabla f)\cdot(\nabla g)\right)dV
    =\iint_S(f\nabla g)\cdot d\mathbf S.
    $$
+
 2.
+
    $$
    \iiint_V\!\left(f\nabla^2g-g\nabla^2f\right)dV
    =\iint_S(f\nabla g-g\nabla f)\cdot d\mathbf S.
    $$
 
 ## **Kai**
+Assume $f,g\in C^2(\overline V)$ and that $S=\partial V$ is piecewise smooth.
+
 ### (1)
 
 We use the divergence theorem:

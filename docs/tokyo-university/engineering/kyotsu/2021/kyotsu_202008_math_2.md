@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 2020年8月実施 数学2
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -20,22 +20,28 @@ tags:
 原 Description 仅提供 2021 年“数学 2”原卷链接，具体题干缺失。根据本地 Kai，能够确认三部分任务：
 
 1. 对
+
    $$
    A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix},
    $$
+
    求特征值；用凯莱—哈密顿定理确定满足 $A^3+aA^2+bA+cI=0$ 的系数；求 $A^{2n+1}$；并把矩阵指数写成 $\exp(tA)=pA^2+qA+rI$ 的形式，求 $p,q,r$。
 2. 对状态 $A,B$ 间以概率 $\alpha,\beta$ 转移的二状态过程，写出概率向量的转移矩阵
+
    $$
    M=\begin{pmatrix}1-\alpha&\beta\\ \alpha&1-\beta\end{pmatrix},
    $$
+
    求其特征值、特征向量和长期稳态概率；再令
    $R_A(n)=P_A(n)-P_A(\infty)$，推导 $R_A(n+1)$ 与 $R_A(n)$ 的关系。原题对 $\alpha,\beta$ 的取值条件未保存在本地。
 3. 已知 $\boldsymbol a_1,\ldots,\boldsymbol a_m$ 线性无关，判断循环相邻和
+
    $$
    \boldsymbol a_1+\boldsymbol a_2,
    \boldsymbol a_2+\boldsymbol a_3,\ldots,\
    \boldsymbol a_m+\boldsymbol a_1
    $$
+
    是否线性无关，并按 $m$ 的奇偶性给出结论。
 
 ## **Kai**
@@ -94,7 +100,7 @@ $$
 \exp (tA)
 &= \sum_{k=0}^\infty \frac{t^k}{k!} A^k
 \\
-&= I + \sum_{n=0}^\infty \frac{t^{2n+1}}{(2n+1)!} A^{2n+1} + \sum_{n=0}^\infty \frac{t^{2n+2}}{(2n+2)!} A^{2+2}
+&= I + \sum_{n=0}^\infty \frac{t^{2n+1}}{(2n+1)!} A^{2n+1} + \sum_{n=0}^\infty \frac{t^{2n+2}}{(2n+2)!} A^{2n+2}
 \\
 &= I + A \sum_{n=0}^\infty \frac{(-1)^n 5^{2n} t^{2n+1}}{(2n+1)!} + A^2 \sum_{n=0}^\infty \frac{(-1)^n 5^{2n}t^{2n+2}}{(2n+2)!}
 \\
@@ -262,4 +268,4 @@ $$
 $$
 
 は1次独立となる。
-$m$ が偶数のときはそうは言えない。
+$m$ が偶数のときは $c_1=1$ として非零解が得られるので、1次従属である。

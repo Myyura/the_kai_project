@@ -81,7 +81,7 @@ int main (void) {
     return 0;
 }
 ```
-#### <center> 図 1 プログラム 1
+#### <center> 図 1 プログラム 1</center>
 
 ```text
 5
@@ -91,7 +91,7 @@ int main (void) {
 1
 2
 ```
-#### <center> 図 2 data.txt
+#### <center> 図 2 data.txt</center>
 
 ```text
     int i, j, key, left, right, mid, target;
@@ -111,7 +111,7 @@ int main (void) {
         }
         target = 空欄[ (C) ];
 ```
-#### <center> 図 3 プログラム 2 の一部
+#### <center> 図 3 プログラム 2 の一部</center>
 
 ### 题目描述
 
@@ -230,7 +230,7 @@ $$
 c_{2^k - 1} = \sum_{j=1}^{k-1} 2^j \cdot j = 2^k k - 2^{k+1} + 2
 $$
 
-This inspires the following. Let $k$ be a positive integer such that $2^k < n < 2^{k+1}$. Then
+This inspires the following. Let $k=\lfloor\log_2 n\rfloor$, so that $2^k \le n < 2^{k+1}$. Then
 
 $$
 c_n = c_{2^k-1} + \sum\limits_{j=2^k}^n \lfloor \log_2(j) \rfloor = c_{2^k-1} + (n - 2^k + 1) \cdot k = nk - 2^{k+1} +k+2

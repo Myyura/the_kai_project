@@ -72,7 +72,7 @@ $y=0$ なら最頻値は0、$y=n$ なら1である。
 観測された具体的な列に対する尤度は
 
 $$
-\boxed{L(\theta)=\theta^y(1-\theta)^{n-y}},qquad0\leq\theta\leq1.
+\boxed{L(\theta)=\theta^y(1-\theta)^{n-y}},\qquad0\leq\theta\leq1.
 $$
 
 $2\leq y\leq n-2$ なので両端で0となり、区間内部の1点まで増加してから減少する。対数尤度を微分すると

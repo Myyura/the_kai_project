@@ -13,7 +13,7 @@ tags:
 # 京都大学 情報学研究科 知能情報学専攻 2021年8月実施 専門科目 S-2
 
 ## **Author**
-[Isidore](https://github.com/heacsing)
+[Isidore](https://github.com/heacsing), 祭音Myyura
 
 ## **Description**
 ### 設問1
@@ -67,10 +67,12 @@ $U$ と $V$ の共分散 $\text{Cov}[U, V]$ と相関係数 $r[U, V]$ を答え�
       $\Pr(X=r)=\lambda^re^{-\lambda}/r!$ 作 Poisson 近似的概率。
    3. 制造法 B 生产 100 件有 60 件不良；若 A 的不良率为 $0.5$，以 $\alpha=0.05$ 双侧检验 B 的不良率是否与 A 不同。可用 $\Pr(Z\le1.96)=0.975$。
 3. 已知
+
    $$
    E[X]=3,\ E[Y]=4,\ E[XY]=12.3,\quad
    V[X]=V[Y]=1.
    $$
+
    1. 求 $E[X^2],E[Y^2],\operatorname{Cov}(X,Y)$。
    2. 令 $U=5X-3$、$V=-3Y+2$，求
       $\operatorname{Cov}(U,V)$ 与相关系数 $r(U,V)$。
@@ -132,6 +134,7 @@ $$
 
 $$
 \Pr = \textrm{C}^0_{10000}(p)^0(1-p)^{10000}
+=\left(\frac{3999}{4000}\right)^{10000}
 $$
 
 The approximation PMF is $\Pr[X=r] = (\frac{5}{2})^r\frac{e^{-\frac{5}{2}}}{r!}$. So the answer is
@@ -145,7 +148,7 @@ $$
 Let $p_0$ denote the defective rate of $B$.
 We design a test where the null hypothesis $H_0$ is $p_0 = p$ and the alternative hypothesis $H_1$ is $p_0 \neq p$.
 
-The statistic $Z = \frac{\bar{p} - p}{\sqrt{p(1-p)/n}}$ follow the standard normal distribution. By using the significance level $\alpha = 0.05$, the rejection region is 
+The statistic $Z = \frac{\bar{p} - p}{\sqrt{p(1-p)/n}}$ approximately follows the standard normal distribution under $H_0$. By using the significance level $\alpha = 0.05$, the rejection region is
 
 $$
 Z \geq Z_{\frac{\alpha}{2}} \textrm{   or   } Z \leq -Z_{\frac{\alpha}{2}}

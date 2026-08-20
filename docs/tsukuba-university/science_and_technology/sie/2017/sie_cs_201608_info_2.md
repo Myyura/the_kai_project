@@ -361,7 +361,7 @@ void calc_dists(const int origin, int dist_vec[]) {
 #### (d)
 i=0 のとき、i/2 も 0 になるから、 putq の while 文の条件
 
-- q->a\[i/2\] = q->a\[0\] = 0 <= v
+- q->a\[i/2\] = q->a\[0\] = 0 &lt;= v
 
 は常に満たされていて、無限ループになる。
 
@@ -387,7 +387,7 @@ i=0 のとき、i/2 も 0 になるから、 putq の while 文の条件
 
 #### ($c$)
 ```text
-adj_index: 0, 3, 4, 5, 6, 8, 9, 11
+adj_index: 0, 3, 4, 5, 6, 8, 9, 11, 12
 
 adj_list: 1, 3, 5, 2, 3, 4, 5, 7, 6, 2, 7, 0
 ```

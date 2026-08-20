@@ -110,15 +110,14 @@ $$
 $$
 
 #### (b)
-表が $2$ 回以上連続して出ないのは、裏裏裏裏、表裏裏裏、裏表裏裏、裏裏表裏、裏裏裏表、表裏表裏、裏表裏表の7通りであり、これらの確率の和は
+表が $2$ 回以上連続して出ないのは、裏裏裏裏、表裏裏裏、裏表裏裏、裏裏表裏、裏裏裏表、表裏裏表、表裏表裏、裏表裏表の8通りであり、これらの確率の和は
 
 $$
   \begin{aligned}
   \left( \frac{2}{3} \right)^4
   + 4 \cdot \frac{1}{3} \cdot \left( \frac{2}{3} \right)^3
-  + 2 \cdot \left( \frac{1}{3} \right)^2 \left( \frac{2}{3} \right)^2
-  = \frac{2^4 + 2^5 + 2^3}{3^4}
-  = \frac{56}{81}
+  + 3 \cdot \left( \frac{1}{3} \right)^2 \left( \frac{2}{3} \right)^2
+  = \frac{60}{81}
   \end{aligned}
 $$
 
@@ -126,8 +125,8 @@ $$
 
 $$
   \begin{aligned}
-  1 - \frac{56}{81}
-  = \frac{25}{81}
+  1 - \frac{60}{81}
+  = \frac{7}{27}
   \end{aligned}
 $$
 

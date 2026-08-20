@@ -13,7 +13,7 @@ tags:
 # 名古屋大学 環境学研究科 地球環境科学専攻 地球惑星科学系 2022年8月実施 数学
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -59,6 +59,7 @@ $$
 
 1. 已知 $f$ 的 Fourier 变换为 $F$，分别求 $F(2\omega)$ 与 $F(\omega-1)$ 的逆 Fourier 变换。
 2. 对
+
    $$
    f(t)=
    \begin{cases}
@@ -66,6 +67,7 @@ $$
    0,&|t|>T,
    \end{cases}
    $$
+
    求 $F(\omega)$（现有解答明确处理 $\omega\ne\omega_0$ 的情形）。
 
 **问题 5**：设等待时间 $\tau$ 的密度为
@@ -142,6 +144,8 @@ $$
   \ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
   \end{aligned}
 $$
+
+ただし $t\ne0$ であり、変数分離で除外された定数解 $u\equiv0$ も解である。
 
 #### 問 2
 $v=u-t$ とすると、
@@ -255,7 +259,16 @@ F(\omega)
 \end{aligned}
 $$
 
-なので、 $\omega \ne \omega_0$ のとき
+同値な形に直すと
+
+$$
+F(\omega)=\frac1i\left[
+\frac{\sin((\omega-\omega_0)T)}{\omega-\omega_0}
+-\frac{\sin((\omega+\omega_0)T)}{\omega+\omega_0}
+\right],
+$$
+
+ただし分母が $0$ の項は極限値 $T$ と解釈する。したがって、特に $\omega\ne\pm\omega_0$ のとき
 
 $$
 \begin{aligned}

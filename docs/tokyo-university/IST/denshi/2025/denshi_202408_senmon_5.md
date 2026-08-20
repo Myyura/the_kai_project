@@ -8,7 +8,7 @@ tags:
 
 ## **Author**
 
-[adj-matrix](https://github.com/adj-matrix)
+[adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
@@ -17,7 +17,11 @@ Answer the following questions about discrete-time signal processing.
 (1) Describe briefly the functionality and role of an anti-aliasing filter.
 
 (2) For a linear time-invariant and causal discrete-time signal processing system $L$, let the transfer function be
-$$H(z) = \frac{\alpha z^2}{\alpha\beta z^2 - \alpha\beta z + \beta - \gamma},$$
+
+$$
+H(z) = \frac{\alpha z^2}{\alpha\beta z^2 - \alpha\beta z + \beta - \gamma},
+$$
+
 where $z$ is a complex variable, $\alpha, \beta, \gamma$ are real constant numbers, and $\alpha, \beta > 0$. In this case, find the difference equation for the relationship between the input $x[n]$ and the output $y[n]$ of the discrete-time signal for $L$, where $n$ is an integer.
 
 (3) In (2), find the range of $\gamma$ such that $L$ is stable when $\alpha = 4$ and $\beta = 1$.
@@ -105,11 +109,13 @@ Since $z = e^{j\Omega}$, $H(e^{j\Omega}) = \frac{2e^{j\Omega}}{e^{j\Omega} - 1} 
 
 Therefore, $|H(e^{j\Omega})| = \left| \frac{e^{j\frac{\Omega}{2}}}{j \sin\frac{\Omega}{2}} \right| = \frac{1}{|\sin\frac{\Omega}{2}|} = \begin{cases} \frac{1}{\sin\frac{\Omega}{2}} & \text{if } \sin\frac{\Omega}{2} > 0 \\ -\frac{1}{\sin\frac{\Omega}{2}} & \text{if } \sin\frac{\Omega}{2} < 0 \end{cases}$
 
-Similarly, $\angle H(e^{j\Omega}) = \begin{cases} \frac{\Omega}{2} - \frac{\pi}{2} & \text{if } \sin\frac{\Omega}{2} > 0 \\ \frac{\Omega}{2} + \frac{\pi}{2} & \text{if } \sin\frac{\Omega}{2} < 0 \end{cases}$
+Similarly, $\angle H(e^{j\Omega}) = \begin{cases} \frac{\Omega}{2} - \frac{\pi}{2} & \text{if } \sin\frac{\Omega}{2} > 0 \\ \frac{\Omega}{2} + \frac{\pi}{2} & \text{if } \sin\frac{\Omega}{2} < 0 \end{cases}\pmod{2\pi}$
 
-In summary:
+In summary (phases are modulo $2\pi$):
 - If $\sin\frac{\Omega}{2} > 0$, $|H(e^{j\Omega})| = \frac{1}{\sin\frac{\Omega}{2}}, \quad \angle H(e^{j\Omega}) = \frac{\Omega}{2} - \frac{\pi}{2}$
 - If $\sin\frac{\Omega}{2} < 0$, $|H(e^{j\Omega})| = -\frac{1}{\sin\frac{\Omega}{2}}, \quad \angle H(e^{j\Omega}) = \frac{\Omega}{2} + \frac{\pi}{2}$
+
+At $\Omega=2\pi k\ (k\in\mathbb Z)$, $H(e^{j\Omega})$ is undefined because the system has a pole on the unit circle.
 
 ### (5)
 

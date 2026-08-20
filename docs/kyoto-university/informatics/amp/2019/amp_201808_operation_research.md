@@ -10,7 +10,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2018年8月実施 オペレーションズ・リサーチ
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -34,7 +34,7 @@ $$
 
 $$
 \begin{aligned}
-(P): &\text{Minimize} \quad f(\boldsymbol{x}) \\
+(P): &\text{Maximize} \quad f(\boldsymbol{x}) \\
 &\text{subject to} \quad \boldsymbol{x} \in \Omega \\
 \end{aligned}
 $$
@@ -53,7 +53,7 @@ $$
 
 $$
 \begin{aligned}
-&\text{Minimize} \quad \sum_{i = 1}^m f(\boldsymbol{b^i})\alpha_i \\
+&\text{Maximize} \quad \sum_{i = 1}^m f(\boldsymbol{b^i})\alpha_i \\
 &\text{subject to} \quad \sum_{i = 1}^m \alpha_i = 1 \\
 &\qquad \qquad \quad \alpha_i \geqq 0 (i = 1,\dots,m)
 \end{aligned}
@@ -96,7 +96,7 @@ $$
 $$
 \begin{aligned}
 (P):\quad
-&\text{最小化}\quad f(\boldsymbol{x})\\
+&\text{最大化}\quad f(\boldsymbol{x})\\
 &\text{约束于}\quad \boldsymbol{x}\in\Omega.
 \end{aligned}
 $$
@@ -116,7 +116,7 @@ $$
 
 $$
 \begin{aligned}
-&\text{最小化}\quad
+&\text{最大化}\quad
 \sum_{i=1}^m f(\boldsymbol{b}^i)\alpha_i\\
 &\text{满足}\quad
 \sum_{i=1}^m\alpha_i=1,\qquad
@@ -130,104 +130,55 @@ $$
 
 ## **Kai**
 ### (i)
-
-use mathematical introction:
-
-when $m=1$ , since $h$ is convex, $h(\alpha_1 b^1 + \alpha_2 b^2) \leq \alpha_1 h(b^1) + \alpha_2 h(b^2)$
-
-when $m = k$ make an assumption that,
-
-$$
-h(\sum_{i=1}^{k} \alpha_i b^i) \leq \sum_{i=1}^{n}\alpha_i h(b^i)
-$$
-
-when $m = k+1$ ,
+Use induction on $m$. The case $m=1$ is equality. For the induction step, put $\beta=\sum_{i=1}^{m-1}\alpha_i$. If $\beta=0$, the result is immediate; otherwise convexity and the induction hypothesis give
 
 $$
 \begin{aligned}
-\sum_{i=1}^{k+1} \alpha_i h(b^i) &= \sum_{i=1}^{k}\alpha_i h(b^i) + \alpha_{k+1}h(b^{k+1}) \\
-&= (\sum_{i=1}^{k}\alpha_i) h(\sum_{i=1}^{k}\frac{\alpha_i}{\sum_{j = 1}^{k} \alpha_j} b^i )+ \alpha_{k+1}h(b^{k+1})\\
-& \geq h(\sum_{i=1}^{k+1} \alpha_i b^i)
+h\!\left(\sum_{i=1}^{m}\alpha_i b^i\right)
+&=h\!\left(\beta\sum_{i=1}^{m-1}\frac{\alpha_i}{\beta}b^i+\alpha_m b^m\right)\\
+&\le \beta h\!\left(\sum_{i=1}^{m-1}\frac{\alpha_i}{\beta}b^i\right)+\alpha_mh(b^m)\\
+&\le\sum_{i=1}^{m}\alpha_i h(b^i).
 \end{aligned}
-$$
-
-according to introdction principle, for any $\alpha \in \Gamma$ ,
-
-$$
-h(\sum_{i=1}^{m}\alpha_i b^i) \leq \sum_{j=1}^{m}\alpha_ih(b^i)
 $$
 
 ### (ii)
-for $g: g''(t) = ((\ln2)^2)2^t > 0$ , $g$ is convex.
-
-for $f$ :
+Since $g''(t)=(\ln2)^2 2^t>0$, $g$ is convex and increasing. For $0\le\theta\le1$,
 
 $$
 \begin{aligned}
-    f(x_1) + (1-\theta)f(x_2) &= \theta g(h(x_1)) + (1-\theta)g(h(x_2)) \\
-    &\geq g(\theta h(x_1) + (1-\theta)h(x_2)) \\
-    &\geq g(h(\theta x_1 + (1-\theta)x_2))
+\theta f(x_1)+(1-\theta)f(x_2)
+&\ge g\!\left(\theta h(x_1)+(1-\theta)h(x_2)\right)\\
+&\ge g\!\left(h(\theta x_1+(1-\theta)x_2)\right),
 \end{aligned}
 $$
+
+so $f$ is convex.
 
 ### (iii)
 Lagrangian
 
 $$
-L(\alpha , \mu) = -\sum_{i=1}^{m}f(b^i)\alpha_i + \mu(\boldsymbol{1}^\top \alpha - 1)
+L(\alpha,\lambda,\mu)
+=-\sum_{i=1}^m f(b^i)\alpha_i
++\lambda(\boldsymbol1^\top\alpha-1)-\mu^\top\alpha.
 $$
 
 $$
-\text{ KKT-conditions} \left\{
+\text{KKT conditions}\quad\left\{
 \begin{aligned}
--f(b^i) + \mu_i & = 0 \\
-\alpha  & \succeq \boldsymbol{0} \\
- \boldsymbol{1}^\top \alpha &= 1
+-f(b^i)+\lambda-\mu_i&=0 &&(i=1,\ldots,m),\\
+\boldsymbol1^\top\alpha&=1,\qquad \alpha_i\ge0,\\
+\mu_i&\ge0,\qquad \mu_i\alpha_i=0 &&(i=1,\ldots,m).
 \end{aligned}
 \right.
 $$
 
 ### (iv)
-$\Omega$ is a polyhedron with vertexes $\{ b^1, b^2, \ldots, b^m\}$
-
-$x^*$ maimiaze $f(x) \Rightarrow$ $x^*$ maximize $h(x)$
-
-conversely, we assume that
+For any $x=\sum_{i=1}^m\alpha_i b^i\in\Omega$, convexity of $f$ gives
 
 $$
-\forall \hat{x} \in X^*, x \notin \Delta
+f(x)\le\sum_{i=1}^m\alpha_i f(b^i)
+\le\max_{1\le i\le m}f(b^i).
 $$
 
-then we have
-
-$$
-h(b^i) < h(\hat{x}), i = 1, 2 \ldots, m
-$$
-
-since
-
-$$
-h(b^i) > \triangledown h(\hat{x})(b^i - \hat{x}) + h(\hat{x})
-$$
-
-then
-
-$$
-\triangledown h(\hat{x})(b^i - \hat{x}) < 0
-$$
-
-there exist  $\theta_i \in [0,1]$ , such that $\sum_{i=1}^{m}\theta_i b^i = \hat{x}$ ,
-thus
-
-$$
-\sum_{i=1}^{m}\theta_I h(\hat{x})(b^i - \hat{x}) < 0
-$$
-
-but we also get
-
-$$
-\sum_{i=1}^{m}\theta_i h(\hat{x})(b^i - \hat{x}) = h(\hat{x})\sum_{i=1}^{m}(\theta_i x_i - \theta_i \hat{x}) = 0
-$$
-
-these two are conflict with each other.
-Therefore $X^* \cap \Delta \neq \emptyset$ .
+Choose $j$ attaining the last maximum. Since $b^j\in\Omega$, it is an optimal solution of $(P)$. Hence $b^j\in X^*\cap\Delta$.

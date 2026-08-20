@@ -8,7 +8,7 @@ tags:
 # 東北大学 工学研究科 電気・情報系 2023年8月実施 基礎科目 問題4 情報基礎2
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -122,7 +122,7 @@ $$
 
 がわかる。
 
-したがって $f \circ g$ は1対1の写像である。
+したがって $g \circ f$ は1対1の写像である。
 
 #### (b)
 $g$ が上への写像であることから、任意の $c \in C$ に対して

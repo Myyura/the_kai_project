@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2024年8月実施 プログラミング
 
 ## **Author**
-vv, [itsuitsuki](https://github.com/itsuitsuki)
+vv, [itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 Answer the following questions by writing programs. The files needed for answering the questions are found in the USB flash drive. Store the programs in the USB flash drive before the examination ends.
@@ -17,7 +17,9 @@ In this problem, we represent matrices with $r$ rows and $c$ columns in various 
 
 > **Format 1** Format 1 is a number sequence that arranges the entries of a matrix in the row-major order. In the row-major order, the entries in upper rows precede those in lower rows, and entries to the left precede to the right in a row. For example, the matrix
 >
-> $$ \begin{pmatrix} 1 & -5 & 0 \\ 0 & 3 & 0 \end{pmatrix} $$
+> $$
+> \begin{pmatrix} 1 & -5 & 0 \\ 0 & 3 & 0 \end{pmatrix}
+> $$
 >
 > is represented as
 >
@@ -39,7 +41,9 @@ When a number sequence is stored in a file, the concatenated string of elements 
 
 > **Format 2** Let $x_{ij}$ be the $(i, j)$ entry of a matrix. We define Format 2 as the number sequence where the three integers $i, j,$ and $x_{ij}$ for all $(i, j)$ such that $x_{ij} \neq 0$ are arranged in the row-major order. For example, the matrix
 >
-> $$ \begin{pmatrix} 1 & -5 & 0 \\ 0 & 3 & 0 \end{pmatrix} $$
+> $$
+> \begin{pmatrix} 1 & -5 & 0 \\ 0 & 3 & 0 \end{pmatrix}
+> $$
 >
 > is represented as
 >
@@ -55,7 +59,9 @@ When a number sequence is stored in a file, the concatenated string of elements 
 
 > **Format 3** Let $n_i$ be the number of consecutive zeros immediately preceding the $i$-th element in the sequence of entries of a matrix arranged in the row-major order. Let $x_i$ be the value of the $i$-th element. We define Format 3 as the number sequence where the two integers $n_i$ and $x_i$ for all $i$ such that $x_i \neq 0$ are arranged in the ascending order of $i$. For example, the matrix
 >
-> $$ \begin{pmatrix} 1 & -5 & 0 \\ 0 & 3 & 0 \end{pmatrix} $$
+> $$
+> \begin{pmatrix} 1 & -5 & 0 \\ 0 & 3 & 0 \end{pmatrix}
+> $$
 >
 > is represented as
 >
@@ -173,22 +179,21 @@ if __name__ == "__main__":
 
 ```python
 from collections import defaultdict
+from collections.abc import Iterable, Iterator
 from pathlib import Path
 
 import utils
 
-def triple_tuple(data: list[int]) -> list[tuple[int, int, int]]:
+def triple_tuple(data: list[int]) -> Iterator[tuple[int, int, int]]:
     if len(data) % 3 != 0:
         raise ValueError("数据长度必须是 3 的倍数。")
 
-    triples: list[tuple[int, int, int]] = []
     for idx in range(0, len(data), 3):
         row, col, value = data[idx : idx + 3]
-        triples.append((row, col, value))
-    return triples
+        yield row, col, value
 
 
-def find_max_row_sum(triples: list[tuple[int, int, int]], r: int, c: int) -> tuple[int, int]:
+def find_max_row_sum(triples: Iterable[tuple[int, int, int]], r: int, c: int) -> tuple[int, int]:
     row_sums: defaultdict[int, int] = defaultdict(int)
     for row, col, value in triples:
         if not (1 <= row <= r):
@@ -208,7 +213,7 @@ def find_max_row_sum(triples: list[tuple[int, int, int]], r: int, c: int) -> tup
 
 
 def solve_case(base_dir: Path, filename: str, r: int, c: int) -> tuple[int, int]:
-    data = utils.read_from_file(str(base_dir/"data"/filename))
+    data = utils.read_from_file(str(base_dir/filename))
     triples = triple_tuple(data)
     return find_max_row_sum(triples, r, c)
 
@@ -234,35 +239,36 @@ if __name__ == "__main__":
 from pathlib import Path
 import utils
 
-def solve_format3(data: list[int], r: int, c: int) -> list[float]:
+def solve_format3(data: list[int], r: int, c: int) -> list[int]:
     if len(data) % 2 != 0:
         raise ValueError("数据长度必须是 2 的倍数。")
 
-    row_sums = [0.0 for _ in range(r)]
+    # A row of the transposed matrix is a column of the original matrix.
+    transposed_row_sums = [0 for _ in range(c)]
     total_cells = r * c
     idx = 0
 
     for i in range(0, len(data), 2):
         zero_num = int(data[i])
-        value = float(data[i + 1])
+        value = data[i + 1]
         if zero_num < 0:
             raise ValueError("零段长度不能为负数。")
         idx += zero_num
         if idx >= total_cells:
             raise ValueError("游标超出棋盘范围。")
 
-        row = idx // c
-        row_sums[row] += value
+        column = idx % c
+        transposed_row_sums[column] += value
         idx += 1
 
-    return row_sums
+    return transposed_row_sums
 
-def solve_case(base_dir: Path, filename: str, r: int, c: int) -> tuple[int, float]:
-    data = utils.read_from_file(str(base_dir/"data"/filename))
+def solve_case(base_dir: Path, filename: str, r: int, c: int) -> tuple[int, int]:
+    data = utils.read_from_file(str(base_dir/filename))
     row_sums = solve_format3(data, r, c)
     best_row = 1
     best_sum = row_sums[0]
-    for row_idx in range(1, r):
+    for row_idx in range(1, c):
         total = row_sums[row_idx]
         if total > best_sum:
             best_sum = total

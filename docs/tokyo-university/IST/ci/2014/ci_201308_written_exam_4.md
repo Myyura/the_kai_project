@@ -13,7 +13,7 @@ tags:
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2013年8月実施 筆記試験 第4問
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -58,11 +58,23 @@ If necessary, use examples or figures.
 
 ## **Kai**
 #### Shortest path problem
-For a weighted graph $G=(V,E)$ with weight $w(\cdot\to\cdot)$, the shortest path problem asks for a path $p=(v_{i_1},v_{i_2},\dots,v_{i_{-1}})$ with minimum cost where the cost is the sum of every edge composing the path. For a single source $s$, we constrain $v_{i_1}=s$. For a single destination $t$, we constrain $v_{i_{-1}}=t$. 
+For a weighted graph $G=(V,E)$ with edge weight $w(\cdot\to\cdot)$, the shortest-path problem asks for a path $p=(v_{i_1},v_{i_2},\dots,v_{i_k})$ with minimum cost, where the cost is the sum of the weights of all edges composing the path. For a single-source problem, we constrain $v_{i_1}=s$. For a single-pair problem, we also constrain $v_{i_k}=t$.
 
-Bellman-Ford, SPFA algorithm can tackle single-source shortest path to multiple destinations able to tackle negative edges and detect negative cycles; Dijkstra algorithm can do the same thing faster but unable to tackle negative edges or detect negative cycles; Floyd-Warshall algorithm computes shortest path from every vertex to every vertex in cubic time.
+Bellman--Ford (and its queue-based implementation commonly called SPFA) tackles single-source shortest paths with negative edges and can detect a reachable negative cycle; Dijkstra's algorithm does the same faster when all edge weights are nonnegative, but cannot handle negative edges or detect negative cycles; Floyd--Warshall computes shortest paths from every vertex to every vertex in cubic time, provided no negative cycle makes a distance undefined.
 
 #### Carry look-ahead
-Carry look-ahead is a method adding 2 $n$-bit binary numbers in parallel. For every bit place, the carry includes two stages: Generate and Propagate. Carry generation is $c_{i,gen}:=A_iB_i$ in the $i$-th place adding $A$ and $B$, and carry propagation occurs when input carry is rippled to become output carry: $c_{i,prop}=A_i+B_i$ absorbing the carry from the last place.
+Carry look-ahead is a method for adding two $n$-bit binary numbers in parallel. For every bit place, the carry includes two stages: Generate and Propagate. For bit $i$, define carry generation $g_i=A_iB_i$ and carry propagation $p_i=A_i+B_i$, where Boolean OR is $+$ and AND is juxtaposition. Then
 
-The $c_{i,out}$ is equal to $c_{i_gen}+c_{i-1,out}c_{i,prop}$. Carry look-ahead is to expand this recursive equation in-line directly for the final carry output. By this we can directly compute the carry output from $A$ and $B$ instead of passing it through many **full adders,** parallel to the circuit getting the sums.
+$$
+c_{i+1}=g_i+p_ic_i.
+$$
+
+The output carry is thus the generated carry or a propagated input carry. Carry look-ahead expands this recursive equation inline for each carry output. By this we can directly compute the carries from $A$, $B$, and $c_0$ instead of passing them through many **full adders**, in parallel with the circuit getting the sums.
+
+#### Closure
+
+A closure is a function together with the lexical environment containing its free variables. The captured variables remain accessible after the creating scope returns. For example, a function returning `lambda: count` can retain its own private `count` state.
+
+#### Finite automaton
+
+A DFA is a tuple $(Q,\Sigma,\delta,q_0,F)$ with finite state set $Q$, transition function $\delta:Q\times\Sigma\to Q$, initial state $q_0$, and accepting states $F$. It accepts a word exactly when the state reached after reading the whole word lies in $F$. DFAs recognize precisely the regular languages.

@@ -11,6 +11,7 @@ tags:
 # 東京大学 工学系研究科 2016年8月実施 数学 第1問
 
 ## **Author**
+祭音Myyura
 
 ## **Description**
 I、以下の定積分を求めよ。
@@ -42,20 +43,26 @@ $$
 完成以下三问：
 
 1. 计算定积分
+
    $$
    I=\int_2^4\frac{\mathrm dx}{\sqrt{(x-2)(4-x)}}.
    $$
+
 2. 求微分方程
+
    $$
    y=x\frac{\mathrm dy}{\mathrm dx}+\frac{\mathrm dy}{\mathrm dx}
    +\left(\frac{\mathrm dy}{\mathrm dx}\right)^2
    $$
+
    的一般解和奇解。
 3. 求欧拉型非齐次微分方程
+
    $$
    x^2\frac{\mathrm d^2y}{\mathrm dx^2}
    -x\frac{\mathrm dy}{\mathrm dx}-8y=x^2
    $$
+
    的一般解。
 
 ## **Kai**
@@ -63,7 +70,7 @@ $$
 
 $$
 \begin{aligned}
-I &= \int_2^4 \frac{\text{d}x}{\sqrt{(x-2)(4-2)}} \\
+I &= \int_2^4 \frac{\text{d}x}{\sqrt{(x-2)(4-x)}} \\
 &=\int_2^4 \frac{\text{d}x}{\sqrt{1-(x-3)^2}} \\
 &=\int_{-\pi /2}^{\pi /2} \frac{\cos\theta \text{d}\theta}{\sqrt{1-\sin^2 \theta}}  \qquad (\text{置換:} \quad x - 3 = \sin \theta) \\
 &=\int_{-\pi /2}^{\pi /2} \text{d}\theta = \frac{\pi}{2} - (-\frac{\pi}{2}) = \pi
@@ -144,7 +151,7 @@ $$
 x \frac{\text{d}y}{\text{d}x}&= x \frac{\text{d}y}{\text{d}t} \frac{\text{d}t}{\text{d}x} = \frac{\text{d}y}{\text{d}t} \\
 \frac{\text{d}^2y}{\text{d}x^2} &= \frac{\text{d}}{\text{d}x} (\frac{1}{x} \frac{\text{d}y}{\text{d}t}) \\
 &= - \frac{1}{x^2} \frac{\text{d}y}{\text{d}t} + \frac{1}{x} \frac{\text{d}}{\text{d}t}  \frac{\text{d}t}{\text{d}x} \frac{\text{d}y}{\text{d}t} \\
-&= -\frac{1}{x^2} \frac{\text{d}y}{text{d}t} + \frac{1}{x^2} \frac{\text{d}^2y}{\text{d}t^2} \\
+&= -\frac{1}{x^2} \frac{\text{d}y}{\text{d}t} + \frac{1}{x^2} \frac{\text{d}^2y}{\text{d}t^2} \\
 &\therefore  x^2\frac{\text{d}^2y}{\text{d}x^2} = \frac{\text{d}^2y}{\text{d}t^2} - \frac{\text{d}y}{\text{d}t} \\
 \end{aligned}
 $$
@@ -181,6 +188,6 @@ $$
 $$
 \begin{aligned}
 y &= C_{1}e^{-2t} + C_{2}e^{4t} - \frac{1}{8}e^{2t} \\
-&= C_{1}x^{-2} + C_{2}x^4 - \frac{1}{8}x \\
+&= C_{1}x^{-2} + C_{2}x^4 - \frac{1}{8}x^2 \\
 \end{aligned}
 $$

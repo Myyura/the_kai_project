@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 プログラミング 第2問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang)
+[itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang), 祭音Myyura
 
 ## **Description**
 
@@ -25,17 +25,21 @@ is stored in a file.
 ### **Problem**
 
 (1) Let $x_0,x_1,x_2,x_3,\dots,x_{n-1}$ be the numbers of new infections on every day stored in the text file `infections.txt`. We define the following function
+
 $$
 ave(i)=\frac{1}{7}\sum_{k=-3}^3 x_{i+k}
 $$
+
 where $3\le i<n-3$.
 
 Calculate the maximum and minimum values of $ave(i)$ and write them on the answer sheet. Furthermore, calculate the sum $\sum_{i=3}^{n-4}ave(i)$ and write it on the answer sheet. Round those values to 4 decimal places.
 
 (2) Let $x_0,x_1,x_2,x_3,\dots,x_{m-1}$ and $y_0,y_1,y_2,y_3,\dots,y_{n-1}$ be the numbers of new infections stored in text files $x$ and $y$, respectively ($m\ge n$). We define $s(x,y)$, the similarity score between these two files, as
+
 $$
 s(x,y)=-\min_i\sum_{k=0}^{n-1}(x_{k+i}-y_k)^2
 $$
+
 where $0\le i\le m-n$.
 
 Among arbitrary pairs of two files in the folder `data`, find the pair with the highest similarity score and write the two file names on the answer sheet. Furthermore, write the similarity score on the answer sheet. When more than one such pair is found, write all the pairs and their scores.
@@ -43,10 +47,12 @@ Among arbitrary pairs of two files in the folder `data`, find the pair with the 
 (3) Let $x_0,x_1,x_2,x_3,\dots,x_{n-1}$ be the numbers of new infections stored in the text file `infections2.txt`. These numbers are denoted by $\{x_i\}$.
 
 We find the approximate formula $ai+k$ that has a good fit to these numbers $\{x_i\}$. For example, the approximate value for $x_3$ is $3a+k$. Here, $a$ and $k$ are the constants that minimize the error $\sum_{i=0}^{n-1}(ai+k-x_i)^2$ for $\{x_i\}$. They are calculated as follows.
+
 $$
 a=\frac{n\sum ix_i-\sum i\sum x_i}{n\sum i^2-(\sum i)^2}\\
 k=\frac{\sum i^2\sum x_i-\sum ix_i\sum i}{n\sum i^2-(\sum i)^2}
 $$
+
 where $\sum$ represents $\sum_{i=0}^{n-1}$.
 
 Calculate $a$ and $k$ rounded to 4 decimal places and write them on the answer sheet.
@@ -54,9 +60,11 @@ Calculate $a$ and $k$ rounded to 4 decimal places and write them on the answer s
 (4) Let $x_0,x_1,x_2,x_3,\dots,x_{n-1}$ be the numbers of new infections stored in the text file `infections2.txt`. For a given $s$, a sub-sequence $x_s,x_{s+1},x_{s+2},\dots,x_{s+30}$ of these numbers is denoted by $\{x_{s+i}\}$. Here, $0\le s<n-30$.
 
 We find the approximate formula $ka^i$ that has a good fit to a sub-sequence $\{x_{s+i}\}$. For example, the approximate value of $x_{s+3}$ is $ka^3$. Here, $a$ and $k$ are the constants that minimize this error
+
 $$
 \sum_{i=0}^{30}(\log_e ka^i-\log_e(x_{s+i}+1))^2
 $$
+
 for $\{x_{s+i}\}$.
 
 Find $s$ such that it maximizes the value of $a$ in the approximate formula $ka^i$ for $\{x_{s+i}\}$. Write the values of $s,a,k$ for such $s$ on the answer sheet. Round $a$ and $k$ to 4 decimal places. When more than one such $s$ is found, write the values of $s,a,k$ for every $s$.
@@ -243,7 +251,7 @@ int cal(string path1, string path2) {
     return -point;
 }
 void solve() {
-    string folder_path = "E:/UTokyo_Entrance_Exam/CI/2022_summer/data_forder/";
+    string folder_path = "E:/UTokyo_Entrance_Exam/CI/2022_summer/data/";
     ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans22.txt", ios::out);
     vector<string> paths;
     for (const auto& entry : fs::directory_iterator(folder_path)) {
@@ -329,7 +337,7 @@ void solve() {
     
     int sum_ixi = 0, sum_i = 0, sum_i2 = 0, sum_xi = 0;
     int n = vec.size();
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
         sum_ixi += i * vec[i];
         sum_i += i;
         sum_xi += vec[i];
@@ -352,19 +360,22 @@ signed main() {
 #### itsuitsuki's solution
 
 By plugging in the paradigm of (3), since $\log_e ka^i=i\log_e a + \log_e k$, and here $n=31$, given some fixed $s$, let $\log_e (x_{s+i}+1):=\tilde x_i$, then
+
 $$
 \log_e a=\frac{n\sum i\tilde x_i-\sum i\sum\tilde x_i}{n\sum i^2-(\sum i)^2}\\
 \log_e k=\frac{\sum i^2\sum \tilde x_i-\sum i\tilde x_i\sum i}{n\sum i^2-(\sum i)^2}
 $$
+
 And we find the max of $a$ under different $s$.
 
 ```py
 def metric_a_k(l, s): # sublen=31
     sub = l[s:s+31]
-    X = np.arange(31)
+    window_n = len(sub)
+    X = np.arange(window_n)
     Y = np.log(sub + 1)
-    loga = ((n * X @ Y) - X.sum() * Y.sum()) / (n * (X@X) - X.sum()**2)
-    logk = ((X@X) * Y.sum() - (X@Y) * X.sum()) / (n * (X@X) - (X.sum())**2)
+    loga = ((window_n * X @ Y) - X.sum() * Y.sum()) / (window_n * (X@X) - X.sum()**2)
+    logk = ((X@X) * Y.sum() - (X@Y) * X.sum()) / (window_n * (X@X) - (X.sum())**2)
     return np.exp(loga), np.exp(logk)
 infelst2 = np.array(infelst2)
 a_s = []
@@ -379,17 +390,16 @@ for i, a in enumerate(a_s):
         print(i,a,k_s[i]) # s,a,k
 ```
 
-`(s,a,k)` is `(389, 1.4010, 1.1299)`.
+`(s,a,k)` is `(105, 1.1517, 1.6942)`.
 
 #### FunTotal's solution
 ```c++
 /*
-这题有点思维含量，要注意到合理利用第三问的公式，取对数转换为第三问的线性问题。要注意c++没有loge函数，还需要用换底公式 loge x = log2(x) / log2(e), c++中的exp(x)函数是 e ^ x, exp(1) 即为自然对数e
+这题利用第三问的公式，取自然对数后转化为线性拟合。C++ 的 `log` 即自然对数，`exp` 是其反函数。
 */
 #include <bits/stdc++.h>
 #define int long long
 #define db long double
-#define pii pair<int, int>
 using namespace std;
 vector<int> readfile(string path) {
     ifstream fin(path, ios::in);
@@ -409,10 +419,10 @@ vector<int> readfile(string path) {
     vec.push_back(num);
     return vec;
 }
-pii calak(vector<db> vec) { // 给定 x 求线性的最小拟合的 a 和 k
+pair<db, db> calak(const vector<db>& vec) { // 给定 x 求线性的最小拟合的 a 和 k
     db sum_ixi = 0, sum_i = 0, sum_i2 = 0, sum_xi = 0;
     int n = vec.size();
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
         sum_ixi += i * vec[i];
         sum_i += i;
         sum_xi += vec[i];
@@ -422,24 +432,24 @@ pii calak(vector<db> vec) { // 给定 x 求线性的最小拟合的 a 和 k
         ((db)n * sum_ixi - sum_i * sum_xi) / (n * sum_i2 - (sum_i) * (sum_i));
     db k =
         ((db)sum_i2 * sum_xi - sum_ixi * sum_i) / (n * sum_i2 - sum_i * sum_i);
-    return {exp(a) * 10000, exp(k) * 10000};
+    return {exp(a), exp(k)};
 }
 void solve() {
     ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans24.txt", ios::out);
-    vector<int> vec = readfile("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections3.txt");
-    vector<array<int, 3>> res;
-    int mxa = -1e18;
+    vector<int> vec = readfile("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections2.txt");
+    vector<tuple<int, db, db>> res;
+    db mxa = -numeric_limits<db>::infinity();
     int n = vec.size();
     for (int s = 0; s < n - 30; s++) {
         vector<db> x;
         for (int i = s; i <= s + 30; i++)    
-            x.push_back(log(vec[i] + 1) / log(exp(1)));
+            x.push_back(log(vec[i] + 1));
         auto [a, k] = calak(x);
         if (a > mxa) mxa = a, res.clear(), res.push_back({s, a, k});
         else if (a == mxa) res.push_back({s, a, k});
     }
     for (auto [s, a, k] : res) {
-        fout << fixed << setprecision(4) << "s = " << s << ", a = " << a / 1e4 << ", k = " << k / 1e4 << "\n";
+        fout << fixed << setprecision(4) << "s = " << s << ", a = " << a << ", k = " << k << "\n";
     }
 }
 signed main() {
@@ -450,6 +460,3 @@ signed main() {
     return 0;
 }
 ```
-
-
-

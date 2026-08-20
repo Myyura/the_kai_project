@@ -27,6 +27,7 @@ where $\det(A)$ denotes the determinant of $A$.
 ### 题目描述
 
 1. 分别求矩阵
+
    $$
    A=\begin{bmatrix}2&0&2\\4&0&9\\1&1&2\end{bmatrix},
    \qquad
@@ -37,8 +38,10 @@ where $\det(A)$ denotes the determinant of $A$.
    3&5&7&9
    \end{bmatrix}
    $$
+
    的行列式。
 2. 对任意 $n$ 阶上三角矩阵 $A=(a_{ij})$，证明
+
    $$
    \det A=\prod_{i=1}^na_{ii}.
    $$
@@ -137,7 +140,7 @@ $$
 \sigma(i)=i\qquad\text{for all } i.
 $$
 
-Hence, the only nonzero term in the Leibniz formula comes from the identity permutation.Therefore,
+Hence, the only term in the Leibniz formula that can be nonzero comes from the identity permutation. Therefore,
 
 $$
 \det(A)=\prod_{i=1}^{n} a_{ii}.

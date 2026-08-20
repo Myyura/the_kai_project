@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学研究科 2017年8月実施 数学 第2問
 
 ## **Author**
-[etsurin](https://zhuanlan.zhihu.com/p/561992447)
+[etsurin](https://zhuanlan.zhihu.com/p/561992447), 祭音Myyura
 
 ## **Description**
 関数 $f_1$ を $[0,1]$ 上で定義される正値の定数関数とし、$f_1(x) = c$ とおく。
@@ -48,17 +48,21 @@ $n \geq 2$ に対し $a_n \geq 1$ となることに注意して、$g_n$ があ�
 
 在 $[0,1]$ 上令正值常函数 $f_1(x)=c$。取正实数 $p,q$ 满足
 $1/p+1/q=1$，并递归定义
+
 $$
 f_{n+1}(x)=p\int_0^x(f_n(t))^{1/q}\,\mathrm dt,
 \qquad n=1,2,\ldots.
 $$
+
 回答下列问题。
 
 （1）令 $a_1=0,c_1=c$，并定义
+
 $$
 a_{n+1}=q^{-1}a_n+1,\qquad
 c_{n+1}=\frac{p(c_n)^{1/q}}{a_{n+1}}.
 $$
+
 证明 $f_n(x)=c_nx^{a_n}$。
 
 （2）对 $n\ge2$ 定义
@@ -75,6 +79,7 @@ $\lim_{t\to\infty}(1-1/t)^t=e^{-1}$。
 （5）求 $\lim_{n\to\infty}c_n$。
 
 （6）证明对任意 $x\in[0,1]$，
+
 $$
 \lim_{n\to\infty}f_n(x)=x^p.
 $$
@@ -149,19 +154,24 @@ $$
 $$
 
 ### (5)
-对 (4) 的结论取对数
+令 $\ell_n=\ln c_n$。由递推式
 
 $$
-\lim_{n \to \infty} (q^{n+1} \ln c_{n+1} - q^n \ln c_n) = q
+\ell_{n+1}=\frac{1}{q}\ell_n-\ln(1-q^{-n}).
 $$
 
-假设 $\lim_{n \to \infty} \ln c_n = A$，则有
+其中 $-\ln(1-q^{-n})\to0$。该递推式先给出 $\{\ell_n\}$ 有界；若
+$L=\limsup_{n\to\infty}|\ell_n|$，则
 
 $$
-\lim_{n \to \infty} (q^n A - q^{n-1}A) = 1 \qquad A = \lim_{n \to \infty} \frac{1}{q^{n-1}(q - 1)}
+L\leq \frac{L}{q}.
 $$
 
-$q > 1$，因此 $A = 0$，即有 $\lim_{n \to \infty} c_n = 1$。
+$q>1$，故 $L=0$，即 $\ell_n\to0$。因此
+
+$$
+\lim_{n\to\infty}c_n=1.
+$$
 
 ### (6)
 

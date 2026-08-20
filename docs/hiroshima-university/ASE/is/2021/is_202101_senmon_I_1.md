@@ -90,7 +90,7 @@ U = \frac{1}{\sqrt{2}} \begin{bmatrix}
 $$
 
 $$
-U^{-1} = (U^{*})^T = \frac{1}{\sqrt{2}} \begin{bmatrix}
+U^{-1} = U^*=\overline{U}^{\,T} = \frac{1}{\sqrt{2}} \begin{bmatrix}
     i & 1 \\ -i & 1
 \end{bmatrix}
 $$

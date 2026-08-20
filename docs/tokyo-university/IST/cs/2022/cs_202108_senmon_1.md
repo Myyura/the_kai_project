@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2021年8月実施 専門科目 問題1
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Answer the following questions on operating systems.
@@ -42,12 +42,14 @@ Answer the following questions on operating systems.
 ### 题目描述
 
 回答下列操作系统问题。调度五个进程 $P_0,\ldots,P_4$，到达时间和所需计算时间分别为
+
 $$
 \begin{aligned}
 &(A_0,A_1,A_2,A_3,A_4)=(35,25,25,25,0)\ {\rm ms},\\
 &(C_0,C_1,C_2,C_3,C_4)=(10,15,20,30,50)\ {\rm ms}.
 \end{aligned}
 $$
+
 任一时刻只运行一个进程，前三问忽略上下文切换开销。周转时间是从到达到完成的间隔，响应时间是从到达到第一次开始执行的间隔。
 
 （1）采用抢占式最短作业优先调度，求五个进程的平均周转时间和平均响应时间。
@@ -195,12 +197,12 @@ $$
 **From the Viewpoint of Memory Management:**
 
 - **Pros:**
-  - **Predictable Memory Usage:** The consistent and cyclic nature of Round Robin can make memory usage patterns more predictable, aiding in efficient memory management and planning.
+  - **Predictable Rotation:** The cyclic schedule tells the OS which process is likely to run next, which can help it retain or prefetch that process's working set. This does not reduce the processes' memory footprints.
 
 - **Cons:**
-  - **High Context Switch Cost:** Each context switch requires saving the state of the current process and loading the state of the next process. This can involve a significant amount of memory operations, especially if the processes have large memory footprints. This can lead to increased memory access times and cache invalidation, further reducing efficiency.
-  - **Increased Memory Bandwidth:** Frequent context switches can lead to increased demand on memory bandwidth as process states are repeatedly saved and restored. This can cause contention and delays in memory access for other processes or system components.
-  - **Paging Overhead:** In systems with limited physical memory, frequent context switches can lead to increased paging activity if the working sets of multiple processes cannot fit in memory simultaneously. This can cause additional overhead and degrade system performance.
+  - **High Context Switch Cost:** Besides saving and restoring registers, switching address spaces can disturb cache and TLB locality. Different or large working sets cause cold cache and TLB misses after a switch.
+  - **Increased Memory Bandwidth:** Refilling cache lines and page-table/TLB state after frequent switches increases memory traffic and may cause contention.
+  - **Paging Overhead:** If the combined working sets of the frequently rotated processes exceed physical memory, the rotation can cause repeated page faults and thrashing.
 
 ### (5)
 

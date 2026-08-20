@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学研究科 2018年8月実施 数学 第2問
 
 ## **Author**
-[etsurin](https://zhuanlan.zhihu.com/p/561992447)
+[etsurin](https://zhuanlan.zhihu.com/p/561992447), 祭音Myyura
 
 ## **Description**
 実数値関数 $u(x,t)$ が $-\infty < x < \infty$, $t \geq 0$ で定義されている。ここで、$x$ と $t$ は独立である。偏微分方程式
@@ -74,28 +74,36 @@ $$
 
 实值函数 $u(x,t)$ 定义于
 $-\infty<x<\infty,\ t\ge0$，满足波动方程
+
 $$
 \frac{\partial^2u}{\partial t^2}
 =c^2\frac{\partial^2u}{\partial x^2},
 $$
+
 以及初始条件
+
 $$
 u(x,0)=e^{-ax^2},\qquad
 \frac{\partial u}{\partial t}(x,0)=0,
 $$
+
 其中 $a,c>0$，$i$ 为虚数单位。回答下列问题。
 
 （1）用复积分计算
+
 $$
 \int_{-\infty}^{\infty}e^{-a(x+id)^2}\,\mathrm dx,
 $$
+
 其中 $d\in\mathbb R$；可使用高斯积分。
 
 （2）定义关于 $x$ 的 Fourier 变换
+
 $$
 U(k,t)=\frac1{\sqrt{2\pi}}
 \int_{-\infty}^{\infty}u(x,t)e^{-ikx}\,\mathrm dx.
 $$
+
 可交换积分与 $t$ 微分，并假定 $u$、$\partial u/\partial x$ 对每个
 $t$ 都在 $x\to\pm\infty$ 时趋于零。
 
@@ -105,14 +113,18 @@ $t$ 都在 $x\to\pm\infty$ 时趋于零。
 - （iii）再利用初始位形求 $F(k)$，从而给出 $U(k,t)$；可用第（1）问。
 
 （3）按
+
 $$
 u(x,t)=\frac1{\sqrt{2\pi}}
 \int_{-\infty}^{\infty}U(k,t)e^{ikx}\,\mathrm dk
 $$
+
 计算逆 Fourier 变换，求出 $u(x,t)$。
 
 ## **Kai**
 ### (1)
+
+$e^{-az^2}$ 是整函数。取实轴与 $\operatorname{Im}z=d$ 之间的矩形围道；当 $R\to\infty$ 时，两条竖边上的积分趋于 $0$。由 Cauchy 定理可平移积分路径，故
 
 $$
 \begin{aligned}
@@ -128,7 +140,7 @@ $$
 $$
 \begin{aligned}
 \mathcal{F} \left [ \frac{\partial u(x,t)}{\partial x} \right] &= \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-ikx} d(u(x,t)) \qquad (\text{对 } x \text{ 微分}) \\
-&= \frac{1}{\sqrt{2 \pi}} (e^{ikx} u(x,t) \bigg|_{-\infty}^{\infty} - \int_{-\infty}^{\infty} u(x,t)(-ik)e^{-ikx} dx) \\
+&= \frac{1}{\sqrt{2 \pi}} (e^{-ikx} u(x,t) \bigg|_{-\infty}^{\infty} - \int_{-\infty}^{\infty} u(x,t)(-ik)e^{-ikx} dx) \\
 &(\text{由于 } x \to \pm \infty \text{ 时 } u(x,t)=0, \text{ 左项为 } 0) \\
 &= ikU(k,t)
 \end{aligned}
@@ -157,7 +169,7 @@ $$
 U(k,t) = G(k) \sin (kct) + F(k) \cos (kct)
 $$
 
-由初值条件 $\frac{\partial u(x,0)}{\partial} = 0$
+由初值条件 $\frac{\partial u}{\partial t}(x,0) = 0$
 
 $$
 \frac{\partial U(k,t)}{\partial t} \bigg |_{t=0} = kcG(k) \cos (kct) - kcF(k) \sin(kct) \bigg|_{t=0} = 0

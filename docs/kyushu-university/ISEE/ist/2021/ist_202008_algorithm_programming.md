@@ -148,7 +148,7 @@ $O(d_1 \cdot d_2 \cdot d_3)$
 
 #### (2)
 ##### (a)
-$(100000 + 10000 + 1000) \times 2 = 240000$
+$(100000 + 10000 + 10000) \times 2 = 240000$
 
 ##### (b)
 $(1000 + 1000 + 100) \times 2 = 4200$
@@ -156,17 +156,19 @@ $(1000 + 1000 + 100) \times 2 = 4200$
 $E = (AB)(CD)$
 
 #### (3)
+Algorithm 1 performs one addition for each scalar multiplication. Therefore, minimizing the multiplication count also minimizes the total arithmetic time.
+
 **Statement A**: Suppose that an optimal parenthesization (order of multipications) of $M_i M_{i+1} \cdots M_j, (1 \le i < j \le n)$ splits the product between $M_k$ and $M_{k+1}$.
 Then the parenthesization of the "left" subchain $M_i M_{i+1} \cdots M_k$ within this optimal parenthesization of $M_i M_{i+1} \cdots M_j$ is also an optimal parenthesization of $M_i M_{i+1} \cdots M_k$.
 
 Statement A can be proved by contradicition.
 Assume that there exits a less costly way to parenthesize $M_i M_{i+1} \cdots M_k$, then, substituting that parenthesization in the optimal parenthesization of $M_i M_{i+1} \cdots M_j$ would produce another parenthesization of $M_i M_{i+1} \cdots M_j$ of a lower cost than the optimum, which is a contradiction.
 
-Similar for the "right" subchain, it is also an optimal parenthesization of $A_{k+1} A_{k+2} \cdots A_j$.
+Similar for the "right" subchain, it is also an optimal parenthesization of $M_{k+1} M_{k+2} \cdots M_j$.
 
-Therefore, let $f(i, j)$ be the minimum number of multiplications needed to compute the matrix $A_{i\ldots j} = A_i A_{i+1} \cdots A_{j}$.
-By statement A, we assume that an optimal parenthesization splits the product $A_i A_{i+1} \cdots A_{j}$ between $A_k$ and $A_{k+1}$.
-Then, $f(i, j)$ is equal to the minimum cost for computing the subproducts $A_{i\ldots k}$ and $A_{k+1\ldots j}$ plus the cost of multiplying these two matrices, i.e.,
+Therefore, let $f(i, j)$ be the minimum number of multiplications needed to compute the matrix $M_{i\ldots j} = M_i M_{i+1} \cdots M_{j}$.
+By statement A, we assume that an optimal parenthesization splits the product $M_i M_{i+1} \cdots M_{j}$ between $M_k$ and $M_{k+1}$.
+Then, $f(i, j)$ is equal to the minimum cost for computing the subproducts $M_{i\ldots k}$ and $M_{k+1\ldots j}$ plus the cost of multiplying these two matrices, i.e.,
 
 $$
 f(i, j) = f(i, k) + f(k+1, j) + d_{i} d_{k+1} d_{j+1}
@@ -176,7 +178,7 @@ Since there are only $j - i$ possible values for $k$, namely $k = i, i+1, \ldots
 Hence we have
 
 $$
-f(i, j) = \left\{ \begin{aligned} &0 &\text{if } i=j, \\ &\min_{i \le k < j} f(i, k) + f(k+1, j) + d_{i} d_{k+1} d_{j+1} &\text{if } i < j. \end{aligned} \right.
+f(i, j) = \left\{ \begin{aligned} &0 &\text{if } i=j, \\ &\min_{i \le k < j}\left\{f(i, k) + f(k+1, j) + d_{i} d_{k+1} d_{j+1}\right\} &\text{if } i < j. \end{aligned} \right.
 $$
 
 Thus the correctness of algorithm 2 is proved.
@@ -207,7 +209,7 @@ The time complexity of algorithm 2 is $O(n^3)$.
 ```
 
 #### (3)
-(Confused, since the program may never stop running when start=1 and end=2.)
+No. For example, when `start=1` and `end=2`, we have `mid=1`, so the second recursive call has the same arguments `start=1` and `end=2`. Thus the recursion does not terminate, and there is no finite number of `merge_sort` calls.
 
 #### (4)
 - line 9: if result\[start\] < result\[end\]:

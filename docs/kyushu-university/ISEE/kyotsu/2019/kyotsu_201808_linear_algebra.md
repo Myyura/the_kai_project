@@ -10,7 +10,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2018年8月実施 線形代数
 
 ## **Author**
-Yu
+Yu, 祭音Myyura
 
 ## **Description**
 行列 $A = \begin{pmatrix} -2 & -3 & -3 \\ 6 & 7 & 6 \\ -6 & -6 & -5 \end{pmatrix}$ について, 次の各問に答えよ。
@@ -104,11 +104,11 @@ $$
 - 2- \lambda & -3 & -3 \\
 6 & 7 - \lambda & 6 \\
 -6 & -6 & -5 - \lambda
-\end{vmatrix} = (\lambda - 1)^2(\lambda + 2) = 0
+\end{vmatrix} = -(\lambda - 1)^2(\lambda + 2) = 0
 $$
 
 $$
-\lambda_1 - \lambda_2 = 1 \text{ のとき, } T_1x_1 = 0,\text{ そして, } x_1 = \begin{pmatrix} \alpha_1\\\alpha_2\\\alpha_3 \end{pmatrix} \text{ とおくと,}
+\lambda_1=\lambda_2=1 \text{ のとき, } T_1x_1 = 0,\text{ そして, } x_1 = \begin{pmatrix} \alpha_1\\\alpha_2\\\alpha_3 \end{pmatrix} \text{ とおくと,}
 $$
 
 $$
@@ -205,7 +205,7 @@ $$
 \end{array}}
 \right]
 \Rightarrow
-P^{-1}
+P^{-1}=
 \begin{bmatrix}
 1 & 1 & 1\\
 2 & 3 & 2\\

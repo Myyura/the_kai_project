@@ -147,7 +147,7 @@ $$
 \log \binom{n}{k}
 $$
 
-The length $n$ should be included as part of the encoded message, hence the total encoding length is:
+Since $n$ is given, encode $k\in\{0,\ldots,n\}$ in $\log(n+1)$ bits and then encode one of the $\binom nk$ strings. Hence the total encoding length is:
 
 $$
 \log(n + 1) + \log \binom{n}{k} \text{ (bit),} \tag{1}
@@ -186,14 +186,16 @@ Therefore, when $\theta = \frac{3}{4}$ the least squares function is minimized.
 Hence $i=1$ minimizes $\Delta(i|y)$.
 
 ### (4) - By tomfluff
-<u>Note:</u> Any mistakes here are derived from the issues with `(1)` mentioned before.
+At the root, $x_1$ is selected. In the $x_1=0$ branch, $x_2$ uniquely minimizes $\Delta$. In the $x_1=1$ branch, $x_2,x_3,x_4$ tie, so the displayed choice of $x_2$ is valid (choosing $x_3$ or $x_4$ is also valid).
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201708_1_p1.png" width="281" height="222" alt=""/>
 </figure>
 
+With the displayed choice, the four leaf strings are respectively $000$, $1$, $11$, and $10$.
+
 ### (5)
-In machine learning there are the concepts of bias and variance. The bias indicates how much the generated prediction function fits the relationships between the data and the prediction. And variance indicates how much the prediction function fits "new" data (testing data). When the prediction function fits the training data too well it is called **"over fitting"** and over fitting leads to low bias but high variance. In the mentioned case, extending the tree would result in over fitting the prediction function to the data set. Meaning that on new data the variance will be large and it will not improve the overall prediction.
+In machine learning, bias is systematic error from restrictive modeling assumptions, whereas variance measures how much the fitted predictor changes with the training sample. When the prediction function fits the training data too well it is called **"over fitting"**, and overfitting leads to low bias but high variance. In the mentioned case, extending the tree can fit noise or accidental features of the training set, so its prediction error on new data may increase.
 
 ### (6) - by Gemini
 The algorithm will work as **Cost-Complexity Pruning**. Tomfluff (the previous solution provider in this problem) misrecognizes this as a Minimum Error Pruning technique which is different. Similar pruning algorithms include PEP (Pessimistic Error Pruning), etc.
@@ -202,7 +204,7 @@ The algorithm is dynamic programming:
 1. Post-order traverse every node; 
 2. For each internal node $u$, we can choose to 
    1. Prune the node into a leaf with contribution to criterion $\text{Cost}_{\text{prune}}(u) = C_L + L(\text{all data under }u)$
-   2. Keep the subtree rooted at $u$ with contribution $\text{Cost}_{\text{keep}}(u) = C_I + \sum_{v\in \text{children}(u)} \text{Cost}_{\min}(u)
+   2. Keep the subtree rooted at $u$ with contribution $\text{Cost}_{\text{keep}}(u) = C_I + \sum_{v\in \text{children}(u)} \text{Cost}_{\min}(v)$
 3. Choose a minimum-contribution action with $\text{Cost}_{\min}(u) = \min(\text{Cost}_{\text{prune}}(u), \text{Cost}_{\text{keep}}(u))$. When pruning, mark this subtree rooted at $u$ as a leaf.
 
-Since in this DP, all nodes are traversed and computed for at once, the time complexity is $O(|\mathcal T|)$.
+Route each datum through $\mathcal T$ first and store the label count at every visited node, so $L(y_u)$ is available for either choice. The postorder DP itself is $O(|\mathcal T|)$; including this routing, the time is $O(|S|h+|\mathcal T|)$ for tree height $h$. Recording the minimizing choice at every node reconstructs the optimal subtree from the root.

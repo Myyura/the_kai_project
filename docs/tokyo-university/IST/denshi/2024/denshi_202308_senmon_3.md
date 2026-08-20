@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2023年8月実施 専門 第3問
 
 ## **Author**
-[adj-matrix](https://github.com/adj-matrix)
+[adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
@@ -109,7 +109,7 @@ for i = 1 to n-1 do
 | 6 | -2 | 6 |
 | 7 | -2 | 6 |
 
-Time Complexity: $O(k(n-k))$ or $O(kn-k^2)$, which simplifies to $O(nk)$.
+Time Complexity: $O(k+(n-k)k)=O(k(n-k+1))$, hence $O(nk)$.
 
 Reason: Outerloop $n-k$, inner loop $k$
 

@@ -91,7 +91,10 @@ int main() {
 - (1-2): array\[i\]
 
 ### (2)
-descending order (降順)
+
+$$
+\{4,3,2,1\}
+$$
 
 ### (3)
 ```text
@@ -107,10 +110,10 @@ Change line 17 to `if (array[j] < x)`.
 After the change, the inner loop find a minimum `x` instead of maximum every time, resulting ascending order eventually.
 
 ### (5)
-The function `sort` actually implements so-called `select sort` algorithm.
+The function `sort` implements selection sort.
 
 ||Select Sort|Bubble Sort|
 |-|-|-|
-|time complexity|$O(n^2)$|$O(n^2)$|
-|number of comparisons|$O(n^2)$|$O(n^2)$|
-|number of swaps|$O(n)$|$O(n^2)$|
+|time complexity|$\Theta(n^2)$|$\Theta(n^2)$|
+|number of comparisons|$n(n-1)/2$|$n(n-1)/2$ in the ordinary implementation|
+|number of swaps|at most $n-1$|the number of inversions, at most $n(n-1)/2$|

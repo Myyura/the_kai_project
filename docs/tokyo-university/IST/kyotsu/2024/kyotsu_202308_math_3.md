@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学研究科 2023年8月実施 数学 第3問
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Consider a particle moving on the coordinate plane, and denote the location of the particle at time $t \in \{0, 1, 2, \dots\}$ by $(X_t, Y_t)$. The initial location of the particle is $(X_0, Y_0) = (0, 0)$. Also, if $(X_t, Y_t) = (a, b)$, then $(X_{t+1}, Y_{t+1}) = (a+1, b)$ with probability $p$, $(X_{t+1}, Y_{t+1}) = (a, b+1)$ with probability $q$, and $(X_{t+1}, Y_{t+1}) = (a, b)$ with probability $1 - p - q$. Here, it is assumed that $p, q > 0$, $p + q < 1$, and the movements of the particle at different time points are independent. Let $(X, Y)$ denote the location of the particle such that $(X_{t+1}, Y_{t+1}) = (X_t, Y_t)$ for the first time. Answer the following questions.
@@ -46,6 +46,7 @@ using $p$ and $q$, where $\mu_X = \mathbb{E}[X]$ denotes the expectation of $X$ 
 $(X,Y)$。回答下列问题。
 
 （1）证明
+
 $$
 P((X,Y)=(1,2))=3pq^2(1-p-q).
 $$
@@ -63,11 +64,13 @@ $$
 （4）用 $p,q$ 表示 $\mathbb E[X]$。
 
 （5）用 $p,q$ 表示 $X,Y$ 的相关系数
+
 $$
 \frac{\mathbb E[(X-\mu_X)(Y-\mu_Y)]}
 {\sqrt{\mathbb E[(X-\mu_X)^2]\,
 \mathbb E[(Y-\mu_Y)^2]}},
 $$
+
 其中 $\mu_X=\mathbb E[X]$、$\mu_Y=\mathbb E[Y]$。
 
 ## **Kai**
@@ -79,7 +82,7 @@ To calculate the probability that $(X, Y) = (1, 2)$, we consider the steps the p
 2. Move up, move right, then move up again.
 3. Move up twice, then move right.
 
-The probability for each of these sequences is $p \cdot q \cdot q \cdot (1 - p - q)$ because the particle has to stay at least once before completing the sequence. There are 3 such sequences, so the total probability is:
+The probability for each sequence followed immediately by the first stay is $p \cdot q \cdot q \cdot (1 - p - q)$. There are 3 such sequences, so the total probability is:
 
 $$
 P((X, Y) = (1, 2)) = 3pq^2(1 - p - q)
@@ -123,7 +126,7 @@ $$
 
 #### (b) Express the probability that $X \geq n + 1$ given the condition $X \geq n$, using $f_0$
 
-The probability that $X \geq n + 1$ given that $X \geq n$ is the probability that the particle does not stop after $n$ steps, given that it hasn't stopped at $n$ steps:
+Conditional on $X\ge n$, after the $n$-th right move the future is independent of the past. The probability of another right move before the first stay is $1-f_0$, so
 
 $$
 \frac{P(X \geq n + 1)}{P(X \geq n)} = \frac{(1 - f_0)^{n+1}}{(1 - f_0)^n} = 1 - f_0
@@ -131,13 +134,13 @@ $$
 
 #### ($c$) Show that $f_n = (1 - f_0)^n f_0$
 
-The probability that $X = n$ is the probability that the particle does not stop before $n$ steps and stops exactly at the $n$-th step. This is given by:
+The probability that $X=n$ is the probability of obtaining $n$ right moves before the first stay and then no further right move before that stay. Thus:
 
 $$
-f_n = P(\text{No stop in first } n \text{ steps}) \times P(\text{Stop at the } n+1\text{-th step})
+f_n=P(X\ge n)P(X=n\mid X\ge n).
 $$
 
-Since $f_0 = \frac{1 - p - q}{1 - q}$, the stopping probability at step $n+1$ is $f_0$ and the probability of not stopping is $(1 - f_0)^n$. Therefore:
+Since $P(X\ge n)=(1-f_0)^n$ by part (b), while $P(X=n\mid X\ge n)=f_0$, we obtain:
 
 $$
 f_n = (1 - f_0)^n f_0 = \left(1 - \frac{1 - p - q}{1 - q}\right)^n \frac{1 - p - q}{1 - q}
@@ -145,7 +148,7 @@ $$
 
 ### (4)
 
-The expectation $\mathbb{E}[X]$ is the sum of $n \cdot f_n$, where $f_n$ is the probability of stopping at exactly $n$ steps:
+The expectation $\mathbb{E}[X]$ is the sum of $n\cdot f_n$, where $f_n=P(X=n)$:
 
 $$
 \mathbb{E}[X] = \sum_{n=1}^{\infty} n f_n = \sum_{n=1}^{\infty} n \left(1 - \frac{1 - p - q}{1 - q}\right)^n \frac{1 - p - q}{1 - q}
@@ -154,7 +157,7 @@ $$
 Recognizing this as a geometric series, the expected value is:
 
 $$
-\mathbb{E}[X] = \frac{1 - f_0}{f_0} = \frac{1 - q}{1 - p - q}
+\mathbb{E}[X] = \frac{1 - f_0}{f_0} = \frac{p}{1 - p - q}
 $$
 
 ### (5)
@@ -233,16 +236,10 @@ $$
 \sigma_X^2 = \mathbb{E}[X^2] - (\mathbb{E}[X])^2
 $$
 
-For a geometric distribution:
+For these geometric distributions:
 
 $$
-\mathbb{E}[X^2] = \frac{p(1 - p)}{(1 - p - q)^2}
-$$
-
-Thus:
-
-$$
-\sigma_X^2 = \frac{p(1 - p)}{(1 - p - q)^2}, \quad \sigma_Y^2 = \frac{q(1 - q)}{(1 - p - q)^2}
+\sigma_X^2 = \frac{p(1 - q)}{(1 - p - q)^2}, \quad \sigma_Y^2 = \frac{q(1 - p)}{(1 - p - q)^2}
 $$
 
 #### 5. Calculate the correlation coefficient $\rho_{XY}$
@@ -250,7 +247,7 @@ $$
 Finally, the correlation coefficient is:
 
 $$
-\rho_{XY} = \frac{\mathrm{Cov}(X, Y)}{\sigma_X \sigma_Y} = \frac{\frac{pq}{(1 - p - q)^2}}{\sqrt{\frac{p(1 - p)}{(1 - p - q)^2}} \sqrt{\frac{q(1 - q)}{(1 - p - q)^2}}}
+\rho_{XY} = \frac{\mathrm{Cov}(X, Y)}{\sigma_X \sigma_Y} = \frac{\frac{pq}{(1 - p - q)^2}}{\sqrt{\frac{p(1 - q)}{(1 - p - q)^2}} \sqrt{\frac{q(1 - p)}{(1 - p - q)^2}}}
 $$
 
 This simplifies to:

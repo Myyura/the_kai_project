@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学研究科 2021年8月実施 数学 第1問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 $\alpha\ge 1$ と $n>0$ に対し以下の積分 $I_{n}(\alpha)$ を考える．
@@ -64,9 +64,18 @@ $$
 \begin{aligned}
 I_{n}(1) &= \int_{\frac{1}{n}}^{n} \frac{f(x)-f(x)}{x} \text{d}x=0 \\
 I_{n}(\alpha) &= \int_1^{\alpha}J_{n}(\beta)\text{d}\beta \\
-I_{n}(\alpha) &= \lim_{n \rightarrow \infty} I_{n}(\alpha) = \int_1^{\alpha}(\lim_{n \rightarrow \infty}J_{n}(\beta))\text{d} \beta
+I(\alpha) &= \lim_{n \rightarrow \infty} I_{n}(\alpha) = \int_1^{\alpha}(\lim_{n \rightarrow \infty}J_{n}(\beta))\text{d} \beta
 \end{aligned}
 $$
+
+Indeed, uniformly for $\beta\in[1,\alpha]$,
+
+$$
+\sup_\beta|f(\beta n)|\to0,\qquad
+\sup_\beta|f(\beta/n)-f(0)|\to0.
+$$
+
+Thus $J_n(\beta)$ converges uniformly to $-f(0)/\beta$, which justifies the last equality.
 
 ### (3)
 
@@ -93,27 +102,39 @@ $$
 \int_0^\infty\frac{e^{-px}\cos(px)-e^{-qx}\cos(qx)}{x}\text{d}x = \int_0^{\infty} \frac{f(\text{p}x) - f(\text{q}x)}{x} \text{d}x
 $$
 
+Putting $t=qx$, the last integral is $I(p/q)$. Hence
+
+$$
+\int_0^\infty\frac{e^{-px}\cos(px)-e^{-qx}\cos(qx)}{x}\text{d}x
+=-\ln\frac{p}{q}=\ln\frac{q}{p}.
+$$
+
 ### 题目描述
 
 对 $\alpha\ge1$、$n>0$，定义
+
 $$
 I_n(\alpha)
 =\int_{1/n}^{n}\frac{f(\alpha x)-f(x)}x\,\mathrm dx,
 $$
+
 其中实函数 $f$ 在 $x\ge0$ 上连续可微，$f'$ 连续，并满足
 $\lim_{x\to\infty}f(x)=0$。回答下列问题。
 
 （1）令 $J_n(\alpha)=\mathrm dI_n(\alpha)/\mathrm d\alpha$。证明
+
 $$
 J_n(\alpha)
 =\frac1\alpha\left(f(\alpha n)-f(\alpha/n)\right).
 $$
+
 可以交换积分与微分。
 
 （2）令
 $I(\alpha)=\lim_{n\to\infty}I_n(\alpha)$。证明对任意
 $\beta\in[1,\alpha]$，$J_n(\beta)$ 的极限存在，且该收敛在
 $[1,\alpha]$ 上一致，并证明
+
 $$
 I(\alpha)=
 \int_1^\alpha
@@ -123,6 +144,7 @@ $$
 （3）求 $I(\alpha)$。
 
 （4）对 $p>q>0$，计算
+
 $$
 \int_0^\infty
 \frac{e^{-px}\cos(px)-e^{-qx}\cos(qx)}x\,\mathrm dx.

@@ -98,7 +98,7 @@ The classifier is
 
 $$
 f((x,y))=\begin{cases}
-C_1,&8x-6y+19>0,\\C_2,&8x-6y+19<0.
+C_1,&8x-6y+19<0,\\C_2,&8x-6y+19>0.
 \end{cases}
 $$
 
@@ -167,15 +167,25 @@ $$
 
 ### (4)
 
-Assume that each sample follows a multivariate normal distribution.
-Based on the form of the probability density function of the multivariate normal distribution (assuming the samples of each class form a multivariate normal distribution respectively), it is better to classify the sample into the class with the smaller Mahalanobis distance calculated using the method in Q3.
+Assume equal class priors and class-conditional multivariate normal distributions $N(c_j,\Sigma_j)$. The negative log-likelihood, up to a common constant, is
+
+$$
+L_j^2+\log|\Sigma_j|.
+$$
 
 Following the formula given in Q3, the Mahalanobis distances $L_1$ and $L_2$ for $x_7$ are
 
 $$
 \begin{aligned}
-    L_1 = \sqrt{28\over 3}<2= L_2
+    L_1 = \sqrt{28\over 3}>2= L_2.
 \end{aligned}
+$$
+
+Moreover, $|\Sigma_1|=3$ and $|\Sigma_2|=12$, so
+
+$$
+L_1^2+\log|\Sigma_1|=\frac{28}{3}+\log3
+>4+\log12=L_2^2+\log|\Sigma_2|.
 $$
 
 Hence class $C_2$ is suitable for $x_7$.

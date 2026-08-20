@@ -11,7 +11,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2023年8月実施 専門科目 制御工学
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6886bd03000000001c037b60?xsec_token=ABXXWhvejfYWQlWP3FzACDNopVSP5JX2VOuz0nVyWitaE=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6886bd03000000001c037b60?xsec_token=ABXXWhvejfYWQlWP3FzACDNopVSP5JX2VOuz0nVyWitaE=), 祭音Myyura
 
 ## **Description**
 ### 問題1
@@ -120,3 +120,39 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p2_s.jpg" width="700" alt=""/>
 </figure>
+
+#### 問題2 (2), (3), (6) の訂正
+
+$$
+|G(j\omega)|^2=\frac{\omega^2+a^2}{\omega^2(\omega^2+1)}.
+$$
+
+(2) ゲイン交差周波数は $\omega_{gc}=\sqrt a$ であり、
+
+$$
+\angle G(j\sqrt a)=-2\arctan\sqrt a.
+$$
+
+したがって位相余裕が $2\pi/3$ 以上となる条件は
+
+$$
+\pi-2\arctan\sqrt a\geq\frac{2\pi}{3}
+\quad\Longleftrightarrow\quad
+0<a\leq\frac13.
+$$
+
+(3) 正確なゲイン線図と折れ線近似が交わる周波数は $\omega=\sqrt a$ である。
+
+(6) (5) より $a=1/7$ である。このとき
+
+$$
+\angle G(j)=\arctan 7-\frac{3\pi}{4}=-\arctan\frac43.
+$$
+
+よって、例えば
+
+$$
+H(s)=\frac{s+1/7}{s(s+1)}\frac{s-1/2}{s+1/2}
+$$
+
+とすればよい。実際、$|(j\omega-1/2)/(j\omega+1/2)|=1$ であり、$\omega=1$ でこの因子の位相は $\arctan(4/3)$ なので、$H(j)$ の位相は $0$ となる。

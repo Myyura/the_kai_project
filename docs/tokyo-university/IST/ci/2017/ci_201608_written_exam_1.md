@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2016年8月実施 筆記試験 第1問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff)
+[tomfluff](https://github.com/tomfluff), 祭音Myyura
 
 ## **Description**
 Let us consider to order a mobile robot to move from the start $S$ to the goal $G$ in the grid maze illustrated as in Fig. 1.
@@ -115,11 +115,13 @@ $$
 
 ### (3)
 tomfluff从(3)开始直接把[题意改了再重新做了一遍](https://github.com/tomfluff/utokyo-ci-masters-exam/blob/main/2017-Summer/written_exam.md)，其实是错误的。
+
 $$
 \begin{array}{|c|c|c|c|c|} \hline 2 & 0 & 0 & 0 & 0 \\ \hline 4 & 2 & \text{B} & 0 & 0 \\ \hline 6 & 4 & \text{B} & 10 & -5 \\ \hline 10 & 10 & 10 & 10 & -10 \\ \hline \end{array}
 $$
 
 ### (4)
+
 $$
 \begin{array}{|c|c|c|c|c|}
 \hline
@@ -131,22 +133,25 @@ $$
 $$
 
 ### (5)
+
 $$
 W(s) = \max_{a \in \{\text{up}, \text{right}\}} \sum_{s'} P_{ss'}^a [ R_{ss'}^a + W(s') ]
 $$
 
 ### (6)
+
 $$
 \begin{array}{|c|c|c|c|c|}
 \hline
 2.0 & 0.0 & 0.0 & 0.0 & 0.0 \\ \hline
 3.2 & 2.0 & \text{B} & -1.0 & 0.0 \\ \hline
-5.9 & 4.0 & \text{B} & 5.2 & -5.0 \\ \hline
-7.3 & 5.0 & 1.2 & 1.2 & -10.0 \\ \hline
+5.8 & 4.0 & \text{B} & 5.2 & -5.0 \\ \hline
+7.2 & 5.0 & 1.1 & 1.1 & -10.0 \\ \hline
 \end{array}
 $$
 
 ### (7)
+
 $$
 \begin{array}{|c|c|c|c|c|}
 \hline
@@ -158,7 +163,7 @@ $$
 $$
 
 ### (8)
-The difference comes from the new probability which was introduced.
-The new function $W(s)$ calculates for each cell the probability of the score of the route starting from that cell to the goal.
-The suggested route is the route with the highest score probability. Since the robot might "choose" with 20% probability a different route from the suggested one.
-The suggested route should maximize the probability for a high score, whatever the choice was by the robot.
+The difference comes from the 20% probability of taking the action opposite to the order.
+The function $W(s)$ is the maximum expected sum of rewards from that cell to the goal; it is not the probability of a high score.
+The suggested order at each cell therefore maximizes expected total reward, rather than only the reward obtained when every order is followed.
+It may sacrifice reward on its intended route when that reduces the loss caused by an unintended action.

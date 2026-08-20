@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2013年8月実施 線形計画
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -91,10 +91,12 @@ $$
    $h(\mu)=\boldsymbol c^\top\boldsymbol x(\mu)-\boldsymbol b^\top\boldsymbol y(\mu)$，证明 $h$ 在 $[0,\infty)$ 上是线性函数。
 3. 证明 $\boldsymbol x(0)$ 是 P 的最优解。
 4. 当 $n=2,m=1$ 且
+
    $$
    \boldsymbol A=(1,1),\qquad \boldsymbol b=1,\qquad
    \boldsymbol c=\begin{pmatrix}1\\-1\end{pmatrix}
    $$
+
    时，题设的唯一性对任意 $\mu\geqq0$ 成立。求 $\boldsymbol x(\mu)$，并求第 1 问所得对偶问题的最优解。
 
 ## **Kai**
@@ -102,21 +104,21 @@ $$
 Lagrangian:
 
 $$
-L(x, \mu) = c^\top x + \mu^\top (b-Ax) = (c^\top - \mu ^\top A)x + b^\top \mu
+L(x, y) = c^\top x + y^\top (b-Ax) = (c^\top - y ^\top A)x + b^\top y
 $$
 
 Lagrange dual function
 
 $$
-g(\mu) = b^\top \mu
+g(y) = b^\top y
 $$
 
 The dual problem
 
 $$
 \begin{aligned}
-    \text{(D)} \quad & \text{Maximize} \quad b^\top \mu \\
-    & \text{Subject to} \quad c^\top - \mu ^\top A \succeq 0
+    \text{(D)} \quad & \text{Maximize} \quad b^\top y \\
+    & \text{Subject to} \quad A^\top y \preceq c,\qquad y\in\mathbb R^m
 \end{aligned}
 $$
 
@@ -139,14 +141,13 @@ thus $h(\mu) = n \mu$ is linear on $[0, \infty)$.
 ### (iii)
 Consider $Q(0)$, get $b^\top y(0) = c^\top x(0)$.
 
-Since
+For every primal-feasible $x$ and dual-feasible $y$,
 
 $$
-c^\top x \leq b^\top \mu
+b^\top y \leq c^\top x.
 $$
 
-$y(0)$ satisfies the constraint of (D).
-Thus $x(0)$ is an optimal solution to P.
+Since $y(0)$ is dual feasible and $b^\top y(0)=c^\top x(0)$, weak duality shows that $x(0)$ and $y(0)$ are optimal.
 
 ### (iv)
 
@@ -164,16 +165,16 @@ $$
 and we get
 
 $$
-x = [\frac{\mu + 1 + \sqrt{\mu ^2 + 1}}{2}, \frac{1-\mu + \sqrt{\mu^2 + 1}}{2}]^\top
+x(\mu) = \left[\frac{\mu + 1 - \sqrt{\mu ^2 + 1}}{2}, \frac{1-\mu + \sqrt{\mu^2 + 1}}{2}\right]^\top
 $$
 
 for
 
 $$
 \begin{aligned}
-    &\text{Maximize} \quad \mu \\
-    &\text{Subject to} \quad [1,-1] - \mu [1,1] \succeq \boldsymbol{0}
+    &\text{Maximize} \quad y \\
+    &\text{Subject to} \quad [1,-1] - y [1,1] \succeq \boldsymbol{0}
 \end{aligned}
 $$
 
-then we get an optimal solution $\mu = -1$.
+then we get the optimal solution $y = -1$.

@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2023年8月実施 専門科目 問題2
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Consider a processor $P$ with a direct-mapped data cache that stores 256 bytes of data in total. The cache line size (block size) of the data cache is 16 bytes. Through the data cache, the processor $P$ reads data from the memory by the load-word instruction `lw` and writes data to the memory by the store-word instruction `sw`. The address and data bit-widths of the load-word/store-word instructions are 32. When the bit representation of a memory address is $a_{31}a_{30}\ldots a_0$, the index and the offset of the data cache are $a_7a_6a_5a_4$ and $a_3a_2a_1a_0$, respectively. The processor $P$ has 32 integer registers from ``x0`` to ``x31``, and ``x0`` is the zero register that always keeps the value 0.
@@ -99,6 +99,8 @@ $3$，将结果存至 `x7`；随后 `x6,x7` 各加 $4$，在
 ## **Kai**
 ### (1)
 
+The store-miss allocation policy is not specified. The calculation below assumes a write-allocate cache; without this assumption the numerical answer is not unique.
+
 **Cache Parameters:**
 - Cache size: 256 bytes
 - Block size: 16 bytes
@@ -126,20 +128,20 @@ $3$，将结果存至 `x7`；随后 `x6,x7` 各加 $4$，在
    - Write $B[0]$ (address 0x2000), Cache Line 0: Miss
 
 2. **Loop 2 (Iteration 1):**
-   - Access $A[1]$ (address 0x1004), Cache Line 0: Miss (replaced by B$0$)
+   - Access $A[1]$ (address 0x1004), Cache Line 0: Miss (replaced by $B[0]$)
    - Access $A[2]$ (address 0x1008), Cache Line 0: Hit
    - Access $A[3]$ (address 0x100C), Cache Line 0: Hit
    - Write $B[1]$ (address 0x2004), Cache Line 0: Miss
 
 3. **Loop 3 (Iteration 2):**
-   - Access $A[2]$ (address 0x1008), Cache Line 0: Miss (replaced by B$1$)
+   - Access $A[2]$ (address 0x1008), Cache Line 0: Miss (replaced by $B[1]$)
    - Access $A[3]$ (address 0x100C), Cache Line 0: Hit
    - Access $A[4]$ (address 0x1010), Cache Line 1: Miss (crosses to a new cache line)
    - Write $B[2]$ (address 0x2008), Cache Line 0: Miss
 
 4. **Loop 4 (Iteration 3):**
 
-   - Access $A[3]$ (address 0x100C), Cache Line 0: Miss (replaced by B$2$)
+   - Access $A[3]$ (address 0x100C), Cache Line 0: Miss (replaced by $B[2]$)
    - Access $A[4]$ (address 0x1010), Cache Line 1: Hit
    - Access $A[5]$ (address 0x1014), Cache Line 1: Hit
    - Write $B[3]$ (address 0x200C), Cache Line 0: Miss
@@ -157,7 +159,7 @@ $$
 
 #### Analysis of Subsequent Loops
 
-Assuming the same pattern continues, the subsequent 96 loops (24 groups of 4 loops) will follow the same pattern:
+The subsequent 396 loops form 99 groups of four and follow this pattern:
 
 1. **Loop 1 in each group**: 3 hits, 1 miss
 2. **Loop 2 in each group**: 2 hits, 2 misses
@@ -166,9 +168,9 @@ Assuming the same pattern continues, the subsequent 96 loops (24 groups of 4 loo
 
 #### Total Cache Misses and Hits for All Loops
 
-**Total Cache Misses for 96 Loops**: $99 \times (1+2+3+2) = 792$ misses
+**Total Cache Misses for 396 Loops**: $99 \times (1+2+3+2) = 792$ misses
 
-**Total Cache Hits for 96 Loops**: $99 \times (3+2+1+2) = 792$ hits
+**Total Cache Hits for 396 Loops**: $99 \times (3+2+1+2) = 792$ hits
 
 #### Final Cache Hit Rate Calculation
 
@@ -184,41 +186,23 @@ $$
 #### Conclusion
 
 - The final cache hit rate for the entire program is approximately **49.9%**.
+- With no-write-allocate stores, there would instead be 1099 hits and 501 misses, giving $1099/1600\approx0.687$.
 
 ### (2)
 
-Given the cache hit rate of approximately 49.9 %:
-
-1. **Instruction Breakdown**:
-   - `addi`: 1 cycle
-   - `lw/sw`: 1 cycle (hit) or 4 cycles (miss)
-   - `div`: 4 cycles
-   - `blt`: 1 cycle
-
-2. **Cycle Calculation per Iteration**:
-   - **Total Basic Cycles for all instructions** :$10$ cycles
-   - **Total Additional Cycles for `lw` and `sw` instruction**: $4 \times 0.499 \times 3 = 5.988$ cycles
-   - **Other Additional Cycles**: 3 cycles (for the `div` instruction)
-
-3. **Total Cycles per Iteration**:
+Under the write-allocate assumption of (1), there are $1+10\times400=4001$ executed instructions. Counting one base cycle per instruction, each of the 400 `div` instructions adds three cycles, and each of the 801 cache misses adds three cycles. Hence
 
 $$
-10 + 5.988 + 3 = 18.988 \text{ cycles per iteration}
+\text{cycles}=4001+400\times3+801\times3=7604.
 $$
 
-4. **Total Cycles for 400 Iterations**:
+Therefore,
 
 $$
-400 \times 18.988 = 7595.2 \text{ cycles}
+\text{IPC} = \frac{4001}{7604} \approx 0.526.
 $$
 
-5. **Total Instructions**:
-   - $1 + 10 × 400= 4001 instructions$
-6. **IPC**:
-
-$$
-\text{IPC} = \frac{4001}{7595.2} \approx 0.527
-$$
+With no-write-allocate stores, the corresponding value would be $4001/(4001+1200+501\times3)\approx0.597$.
 
 ### (3)
 

@@ -7,7 +7,7 @@ tags:
 # 東京大学 工学系研究科 2019年8月実施 数学 第1問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)、後生楽 広小路
+[Miyake](https://miyake.github.io/exams/index.html)、後生楽 広小路, 祭音Myyura
 
 
 ## **Description**
@@ -16,18 +16,28 @@ tags:
 
 ### 题目描述
 
-原 Description 仅提供 2020 年数学原卷链接，具体题干缺失。根据本地 Kai，能够确认的内容如下：
+原 Description 仅提供 2020 年数学原卷链接。题目は次の三問からなる：
 
 1. 第一部分研究变系数二阶齐次方程
+
    $$
    \cos x\,y''-\sin x\,y'-\frac{y}{\cos x}=0.
    $$
+
    第一小问把 $y=(\cos x)^m$ 代入并求使其成为解的 $m$；第二小问要求利用所得特解求方程的一般解，并验证两组基本解线性无关。
 2. 第二部分要求计算
+
    $$
    I=\int_1^\infty x^5e^{-x^4+2x^2-1}\,\mathrm dx.
    $$
-3. Kai 中第三部分标题下没有题干、推导或答案，因而本地内容不能确认第三部分的任何具体要求。
+
+3. 第三部分では、$x>0, y>0$ において
+
+   $$
+   (x^3y^n+x)\frac{dy}{dx}+2y=0
+   $$
+
+   を満たす曲線を $f(x,y)=C$ の形で求める（$n$ は任意の実数）。
 
 ## **Kai**
 ### I.
@@ -56,10 +66,12 @@ $$
 $$
 
 となる．これが $x$ によらず成り立つのは
+
 $$
 m+1=0 \\
 \therefore m=-1
 $$
+
 である．
 
 #### 2.
@@ -153,7 +165,7 @@ $$
 \end{aligned}
 $$
 
-となる．両辺に $\cos x \begin{pmatrix} =\exp\int\tan xdx \end{pmatrix}$ を掛けると
+となる．両辺に $\cos x \begin{pmatrix} =\exp(-\int\tan x\,dx) \end{pmatrix}$ を掛けると
 
 $$
 \begin{aligned}
@@ -215,8 +227,27 @@ $$
 
 $$
 \begin{aligned}
-I = \frac{4+3\pi}{8}
+I = \frac{4+3\sqrt{\pi}}{8}
 \end{aligned}
 $$
 
 ### III.
+
+$x$ を $y$ の関数とみなし、$v=x^{-2}$ とおくと
+
+$$
+\frac{dv}{dy}-\frac{v}{y}=y^{n-1},
+\qquad
+\frac{d}{dy}\left(\frac{v}{y}\right)=y^{n-2}.
+$$
+
+したがって、求める曲線は
+
+$$
+\begin{cases}
+\displaystyle \frac{1}{x^2y}-\frac{y^{n-1}}{n-1}=C,&n\ne1,\\[6pt]
+\displaystyle \frac{1}{x^2y}-\log y=C,&n=1
+\end{cases}
+$$
+
+である。

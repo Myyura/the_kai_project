@@ -11,7 +11,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2024年8月実施 数学【I】
 
 ## **Author**
-[AKIRA (小红书:94184092292)](http://xhslink.com/m/8bKqJGibBtz)
+[AKIRA (小红书:94184092292)](http://xhslink.com/m/8bKqJGibBtz), 祭音Myyura
 
 ## **Description**
 $\mathbb{R}$ を実数全体からなる集合とする。
@@ -150,3 +150,11 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_math_I.jpg" width="700" alt=""/>
 </figure>
+
+### 問題1 (2) の訂正
+
+$\det B=0$ より $\operatorname{rank}B\leq4$ である。一方、第 $1,2,3,4$ 行と第 $1,2,3,4$ 列からなる小行列の行列式は $3240\ne0$ なので、$\operatorname{rank}B=4$。したがって
+
+$$
+\dim\ker T=5-\operatorname{rank}B=1.
+$$

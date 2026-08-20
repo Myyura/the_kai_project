@@ -11,7 +11,7 @@ tags:
 
 
 ## **Author**
-[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766)
+[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), 祭音Myyura
 
 ## **Description**
 The source $S$ is a first-order Markov information source outputting $0$ and $1$. $0$ is followed by $0$ with a probability of $0.9$ and $1$ is followed by $1$ with a probability of $0.6$. The following may be used. $\log_23 = 1.58 , \log_25 = 2.32$. For the calculations, two significant digits are sufficient.
@@ -90,7 +90,7 @@ $$
 \begin{aligned}
 &0.9w_0 + 0.4w_1 = w_0 \\
 &0.1w_0 + 0.6w_1 = w_1 \\
-&2_0 + w_1 = 1
+&w_0 + w_1 = 1
 \end{aligned}
 \right.
 $$
@@ -116,10 +116,11 @@ $$
 
 $$
 \begin{aligned}
-H(s) &= - (0.8\log0.8 + 0.2\log0.2) \\
-&= \frac{4}{5}\log\frac{5}{4} + \frac{1}{5}\log5 \\
-&= \log5 - 1.6 \\
-&= 0.72 
+H(S) &= 0.8H_2(0.1)+0.2H_2(0.4) \\
+&=0.8(\log 10-1.8\log3)
+ +0.2(\log5-0.4-0.6\log3) \\
+&\simeq 0.57\ \text{bit/symbol}
+\quad(0.58\text{ with the supplied rounded logarithms}).
 \end{aligned}
 $$
 
@@ -174,7 +175,7 @@ $$
 
 $$
 \begin{aligned}
-\overline{L} &= \frac{0.648 \times 1 + 0.2 \times 2 + 1.52 \times 3}{2.52} \\
+\overline{L} &= \frac{0.648 \times 1 + 0.2 \times 2 + 0.152 \times 3}{2.52} \\
 &= 0.597
 \end{aligned}
 $$

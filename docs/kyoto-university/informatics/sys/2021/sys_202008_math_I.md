@@ -13,7 +13,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2020年8月実施 数学【I】
 
 ## **Author**
-[AKIRA](https://www.xiaohongshu.com/explore/6876f017000000000b02e5de?xsec_token=ABmrCiL2MzCm_HVVdiD-IywB7NzKDDRf5z4eqaPfw2Wck=)
+[AKIRA](https://www.xiaohongshu.com/explore/6876f017000000000b02e5de?xsec_token=ABmrCiL2MzCm_HVVdiD-IywB7NzKDDRf5z4eqaPfw2Wck=), 祭音Myyura
 
 ## **Description**
 行列 $A$ の転置を $A^{\mathrm{T}}$ で表す。
@@ -185,3 +185,19 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_math_I_p2_s.jpg" width="700" alt=""/>
 </figure>
+
+#### 問2 (i) の訂正
+
+最大値は $\lambda_1$ であり、これをとる非零ベクトルは
+
+$$
+x\in\operatorname{span}\{e_i\mid \lambda_i=\lambda_1\}\setminus\{0\}
+$$
+
+のすべてである。同様に、最小値 $\lambda_n$ をとるのは
+
+$$
+x\in\operatorname{span}\{e_i\mid \lambda_i=\lambda_n\}\setminus\{0\}
+$$
+
+のすべてである。

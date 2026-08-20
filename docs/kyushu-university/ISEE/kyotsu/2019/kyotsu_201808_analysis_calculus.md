@@ -9,7 +9,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2018年8月実施 解析学・微積分
 
 ## **Author**
-Yu, Miyake
+Yu, Miyake, 祭音Myyura
 
 ## **Description**
 ### 微分方程式
@@ -163,15 +163,15 @@ $$
   + r \cos \theta \frac{\partial u}{\partial y}
   , \\
   \frac{\partial v}{\partial r}
-  &= \frac{\partial x}{\partial r} \frac{\partial u}{\partial x}
-  + \frac{\partial y}{\partial r} \frac{\partial u}{\partial y}
+  &= \frac{\partial x}{\partial r} \frac{\partial v}{\partial x}
+  + \frac{\partial y}{\partial r} \frac{\partial v}{\partial y}
   \\
   &= \cos \theta \frac{\partial v}{\partial x}
   + \sin \theta \frac{\partial v}{\partial y}
   , \\
   \frac{\partial v}{\partial \theta}
-  &= \frac{\partial x}{\partial \theta} \frac{\partial u}{\partial x}
-  + \frac{\partial y}{\partial \theta} \frac{\partial u}{\partial y}
+  &= \frac{\partial x}{\partial \theta} \frac{\partial v}{\partial x}
+  + \frac{\partial y}{\partial \theta} \frac{\partial v}{\partial y}
   \\
   &= -r \sin \theta \frac{\partial v}{\partial x}
   + r \cos \theta \frac{\partial v}{\partial y}

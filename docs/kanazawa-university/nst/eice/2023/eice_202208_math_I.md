@@ -9,7 +9,7 @@ tags:
 # 金沢大学 自然科学研究科 電子情報通信学専攻 2022年8月実施 数学 I
 
 ## **Author**
-[金沢大学](https://www.kanazawa-u.ac.jp/)
+[金沢大学](https://www.kanazawa-u.ac.jp/), 祭音Myyura
 
 ## **Description**
 次の微分方程式の一般解を求めよ。（ヒント：(4) は $x^\alpha y^\beta$ の形の積分因子をもつ。）
@@ -42,16 +42,27 @@ $$
 
 求下列微分方程的通解。提示：第（4）题存在形如 $x^\alpha y^\beta$ 的积分因子。
 
-1. $$
+1.
+
+   $$
    \frac{d^2y}{dx^2}-\frac{dy}{dx}-2y=0.
    $$
-2. $$
+
+2.
+
+   $$
    \frac{d^2y}{dx^2}-\frac{dy}{dx}-2y=2x-1.
    $$
-3. $$
+
+3.
+
+   $$
    \frac{dy}{dx}-2y=y^2.
    $$
-4. $$
+
+4.
+
+   $$
    (3xy+2y^3)\,dx+(2x^2+4xy^2)\,dy=0.
    $$
 
@@ -78,6 +89,8 @@ $$
    u=\frac{C-e^{2x}}{2e^{2x}}
    \Rightarrow y=\frac{2e^{2x}}{C-e^{2x}}
 $$
+
+また、変数変換で除外された定数解 $y\equiv0$ も解である。
 
 ### (4)
 $xy$ が積分因子になることから完全微分形

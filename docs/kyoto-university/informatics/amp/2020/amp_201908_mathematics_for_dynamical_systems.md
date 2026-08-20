@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2019年8月実施 力学系数学
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -73,13 +73,16 @@ $$
 2. 求一个与 $e^t$ 线性无关的解 $x=\phi(t)$。
 3. 证明若 $x(t)$ 是解，则 $\sigma(x(t))$ 对任意 $\sigma\in G$ 也为解。
 4. 取第 2 问的 $\phi(t)$。由第 3 问，对每个 $\sigma\in G$ 存在实常数 $a_{ij}(\sigma)$ 使
+
    $$
    \begin{aligned}
    \sigma(e^t)&=a_{11}(\sigma)e^t+a_{12}(\sigma)\phi(t),\\
    \sigma(\phi(t))&=a_{21}(\sigma)e^t+a_{22}(\sigma)\phi(t).
    \end{aligned}
    $$
+
    令 $A(\sigma)$ 为以 $a_{ij}(\sigma)$ 为 $(i,j)$ 元的二阶方阵。证明对任意 $\sigma_1,\sigma_2\in G$，
+
    $$
    A(\sigma_1)A(\sigma_2)=A(\sigma_2)A(\sigma_1).
    $$
@@ -104,7 +107,7 @@ $$
 by solving this equation, we obtain:
 
 $$
-u(t) = C_1(-(t+1)e^{-t} + C_2)
+u(t) = -C_1(t+1)e^{-t} + C_2
 $$
 
 where $C_1$ and $C_2$ are constants.
@@ -112,7 +115,7 @@ where $C_1$ and $C_2$ are constants.
 By setting $C_1 = 1$, $C_2 = 0$, we have
 
 $$
-\Phi(t) = u(t)e^t = -t-1
+\phi(t) = u(t)e^t = -t-1
 $$
 
 ### (iii)
@@ -136,4 +139,21 @@ t \frac{d^2 \sigma(x(t))}{dt^2} - (t+1)\frac{d\sigma(x(t))}{dt} + \sigma(x(t)) =
 $$
 
 ### (iv)
-$A(\sigma_i) = \begin{bmatrix} 1 & 0 \\ 0 & c_i \end{bmatrix}$ is symmetric.
+Since $\phi(t)=-t-1$ is rational, (A2) gives $\sigma(\phi)=\phi$. Also (A3) gives
+
+$$
+\frac d{dt}\sigma(e^t)=\sigma(e^t).
+$$
+
+Writing $\sigma(e^t)=a_{11}e^t+a_{12}\phi$ and differentiating shows $a_{12}=0$. Bijectivity gives $a_{11}\ne0$. Thus
+
+$$
+A(\sigma)=\begin{pmatrix}c(\sigma)&0\\0&1\end{pmatrix},
+\qquad c(\sigma)\ne0.
+$$
+
+All such diagonal matrices commute, so
+
+$$
+A(\sigma_1)A(\sigma_2)=A(\sigma_2)A(\sigma_1).
+$$

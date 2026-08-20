@@ -67,6 +67,14 @@ Answer the following questions
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202201_senmon_II_2_p1.png" width="400" height="400" alt=""/>
 </figure>
 
+The edges are
+
+$$
+\{H\!-\!E(78),\ O\!-\!Tk(88),\ H\!-\!Y(94),\ Tr\!-\!O(97),\ Tr\!-\!S(108),\ S\!-\!H(131)\},
+$$
+
+and the total weight is $\boxed{596}$.
+
 ### (2)
 ([Prim's algorithm](https://en.wikipedia.org/wiki/Prim%27s_algorithm))
 

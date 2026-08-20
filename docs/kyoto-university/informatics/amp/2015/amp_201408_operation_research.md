@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2014年8月実施 オペレーションズ・リサーチ
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -88,6 +88,7 @@ $$
 1. 设 $\boldsymbol z\in S$。利用问题 $\mathrm P(\boldsymbol z)$ 的 Karush–Kuhn–Tucker（KKT）条件求出 $\bar{\boldsymbol y}(\boldsymbol z)$。
 2. 若 $\boldsymbol x\in S$ 且 $\bar{\boldsymbol y}(\boldsymbol x)=\boldsymbol x$，证明 $\boldsymbol x$ 是问题 $(\mathrm P)$ 的最优解。
 3. 若 $\boldsymbol x\in S$ 且 $\bar{\boldsymbol y}(\boldsymbol x)\neq\boldsymbol x$，证明
+
    $$
    \nabla f(\boldsymbol x)^\top
    \bigl(\bar{\boldsymbol y}(\boldsymbol x)-\boldsymbol x\bigr)<0,
@@ -95,6 +96,7 @@ $$
    \boldsymbol a^\top
    \bigl(\bar{\boldsymbol y}(\boldsymbol x)-\boldsymbol x\bigr)=0.
    $$
+
 4. 当 $\bar{\boldsymbol y}(\boldsymbol x)\neq\boldsymbol x$ 时，证明 $\boldsymbol x$ 不是问题 $(\mathrm P)$ 的最优解。
 
 ## **Kai**
@@ -110,13 +112,13 @@ $$
 Lagrangian:
 
 $$
-L(y,\mu) = \nabla f(z)^\top y + \frac 12 (y-z)^\top(y-z) + \mu (a^\top - b)
+L(y,\mu) = \nabla f(z)^\top y + \frac 12 (y-z)^\top(y-z) + \mu (a^\top y - b)
 $$
 
 $$
 \text{ KKT-conditions} \left\{
 \begin{aligned}
-\nabla f(x) + (\bar{y}(z) - z) + \mu a & = \boldsymbol{0} \\
+\nabla f(z) + (\bar{y}(z) - z) + \mu a & = \boldsymbol{0} \\
 a^\top \bar{y}(z) &= b
 \end{aligned}
 \right.
@@ -125,36 +127,25 @@ $$
 thus
 
 $$
-\mu = \frac{-b - \nabla f(z)^\top a + a^\top z}{a^\top a}, \quad \bar{y}(z) = \frac{b}{a^\top a}a
+\mu = \frac{a^\top z-a^\top\nabla f(z)-b}{a^\top a}, \qquad
+\bar{y}(z) = z-\nabla f(z)-\mu a.
 $$
 
 ### (ii)
-From (i) we know that $\frac{b}{a^\top a} a$ minimizes $P(\frac{b}{a^\top a}a)$ .
+Since $\bar y(x)=x$, the KKT conditions in (i) give a scalar $\mu$ such that
 
 $$
-S = \{x | a^\top (x - \frac{b}{a^\top a}) = 0 \} = \{\frac{b}{a^\top a} + td|a^\top d = 0, t\in R \}
+\nabla f(x)+\mu a=0.
 $$
 
-Let $g(t) = \nabla f(\frac{b}{a^\top a}a) (\frac{b}{a^\top a}a + td) + \frac 12 t^2 d^\top d$ .
-Since
+For every $y\in S$, convexity gives
 
 $$
-\text{argmin } g(t) = 0
+f(y)\geq f(x)+\nabla f(x)^\top(y-x)
+=f(x)-\mu a^\top(y-x)=f(x).
 $$
 
-then
-
-$$
-\nabla f(\frac{b}{a^\top a}a)^\top d = 0
-$$
-
-thus
-
-$$
-\forall y \in S, f(y) - f(\frac{b}{a^\top a}a) \geq \nabla f(\frac{b}{a^\top a }a)^\top (y - \frac{b}{a^\top a}a) = 0
-$$
-
-Therefore $\frac{b}{a^\top a}a$ minnimize $f(x)$ .
+Therefore, $x$ is an optimal solution of P.
 
 ### (iii)
 Since
@@ -184,22 +175,19 @@ $$
 $$
 
 ### (iv)
-Let $g(t) = f(x + t(\bar{y}(x) - x)), t \geq 0$ .
-$g'(0) = \nabla f(x)^\top (\bar{y}(x) - x)$ .
+Let $g(t) = f(x + t(\bar{y}(x) - x)), t \geq 0$.
+Then $g'(0) = \nabla f(x)^\top (\bar{y}(x) - x)<0$ by (iii).
 
-$f$ is continuously differentiable, and so is $g$ .
-
-$f(c) = g(0) + g'(\theta)c, \ \theta \in (0,c)$ ,
-thus
+Since $g'$ is continuous, there is an $\varepsilon>0$ such that $g'(t)<0$ for $0\leq t\leq\varepsilon$. For $0<c\leq\varepsilon$, the mean value theorem gives
 
 $$
-g(c) < g(0)
+g(c)=g(0)+g'(\theta)c<g(0),\qquad \theta\in(0,c).
 $$
 
-then
+Moreover, $x+c(\bar y(x)-x)\in S$. Thus
 
 $$
 f(x + c(\bar{y}(x) - x)) < f(x)
 $$
 
-thus $x$ is not an optimal solution.
+and $x$ is not an optimal solution.

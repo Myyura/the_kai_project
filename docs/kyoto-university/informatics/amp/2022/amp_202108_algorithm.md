@@ -46,6 +46,7 @@ $\operatorname{dist}(u,v;G)=|V|$。以 $G-e$ 表示删去有向边 $e\in E$ 后�
 2. 给出在 $O(|V|+|E|)$ 时间内判定是否存在边 $e\in E$ 使
    $\operatorname{dist}(s,t;G-e)>\operatorname{dist}(s,t;G)$ 的算法。
 3. 构造一个含顶点 $s,t$ 和边 $e$ 的有向图，使
+
    $$
    \operatorname{dist}(s,t;G)=\operatorname{dist}(t,s;G)=3
    <\operatorname{dist}(s,t;G-e)
@@ -76,46 +77,36 @@ BFS(s, G=(V, E)):
 ```
 
 The time complexity of BFS is $O(|V| + |E|)$ when $G$ is stored in adjacency lists.
+Starting at $t$, follow `pred` until $s$ and reverse the resulting sequence; this outputs a shortest directed path.
 
 ### (ii)
-The idea is to find "bridges" in the graph that consists of all the edges of shortest paths from $s$ to $t$.
+The idea is to find an edge used by every shortest path from $s$ to $t$. Let $E_{s,t}$ denote the set of all arcs lying on shortest $s$-$t$ paths. To find $E_{s,t}$, do the following:
 
-Let $E_{s,t}$ denote the edge set of all the edges of shortest paths from $s$ to $t$.
-To find $E_{s,t}$, we do the following steps:
+- Use BFS in $G$ to compute $\operatorname{dist}(s,u;G)$ for every $u\in V$.
+- Let $G^T$ be obtained by reversing every arc of $G$. Use BFS from $t$ in $G^T$ to compute $\operatorname{dist}(t,v;G^T)=\operatorname{dist}(v,t;G)$ for every $v\in V$.
+- Scan every arc $(u,v)$ and put it in $E_{s,t}$ exactly when
 
-- use BFS to compute $\text{dist}(s, u; G), \forall u \in V$ 
-- let $G^T$ denote the reversed graph of $G$ (i.e. the same vertex set but all of the edges reversed), use BFS to compute $\text{dist}(t, u; G^T), \forall u \in V$
-- $E_{s,t} = \{(u, v) \mid \text{dist}(s, u; G) + \text{dist}(t, v; G^T) = \text{dist}(s, t; G)\}$
+  $$
+  \operatorname{dist}(s,u;G)+1+\operatorname{dist}(t,v;G^T)
+  =\operatorname{dist}(s,t;G).
+  $$
 
-Obviously, it takes $O(|V| + |E|)$-time to find the edge set $E_{s,t}$.
+The two BFS runs and this scan take $O(|V|+|E|)$ time. For brevity, write
 
-Then, we can use [Tarjan' algorithm](https://en.wikipedia.org/wiki/Biconnected_component) to find bridges
+$$
+d_s(u)=\operatorname{dist}(s,u;G),\quad
+d_t(v)=\operatorname{dist}(v,t;G),\quad D=d_s(t).
+$$
 
-```
-GetArticulationPoints(i, d)
-    visited[i] := true
-    depth[i] := d
-    low[i] := d
-    childCount := 0
-    isArticulation := false
+If $D=|V|$ or $D=0$, return false. Otherwise initialize $c_0,\ldots,c_{D-1}$ to zero and scan every arc $(u,v)$. Whenever
 
-    for each ni in adj[i] do
-        if not visited[ni] then
-            parent[ni] := i
-            GetArticulationPoints(ni, d + 1)
-            childCount := childCount + 1
-            if low[ni] ≥ depth[i] then
-                isArticulation := true
-            low[i] := Min (low[i], low[ni])
-        else if ni ≠ parent[i] then
-            low[i] := Min (low[i], depth[ni])
-    if (parent[i] ≠ null and isArticulation) or (parent[i] = null and childCount > 1) then
-        Output i as articulation point
-```
+$$
+d_s(u)+1+d_t(v)=D,
+$$
 
-The time complexity of [Tarjan' algorithm](https://en.wikipedia.org/wiki/Biconnected_component) is also $O(|V| + |E|)$
+increment $c_{d_s(u)}$. Return true exactly when some $c_i=1$.
 
-If there exists a articulation point $a$ in graph $G_{s,t} = (V(E_{s,t}), E_{s,t})$, i.e., there exists a bridge $e$ (adjacent to $a$) in $E_{s,t}$, then the removal of $e$ disconnects $G_{s,t}$, which implies that there is no path of length $\text{dist}(s, t; G)$ in $G - e$, i.e. $\text{dist}(s, t; G − e) > \text{dist}(s, t; G)$
+Indeed, the tested arcs are precisely the arcs lying on shortest $s$-$t$ paths. Every shortest path uses exactly one such arc from layer $i$ to layer $i+1$. Hence an arc lies on every shortest path exactly when it is the unique tested arc between some consecutive layers. Deleting that arc, and only then, strictly increases the distance. The two BFS runs and the edge scan take $O(|V|+|E|)$ time.
 
 ### (iii)
 

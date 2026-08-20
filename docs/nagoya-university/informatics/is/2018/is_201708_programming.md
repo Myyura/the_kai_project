@@ -65,7 +65,7 @@ void eliminate() {
 (6) 保持するデータの個数の最大数を決められる場合には, ソースコード１のような動的にサイズが変化するデータ構造ではなく, 配列を用いても同様に処理を実現できる. 
 ソースコード１の実行結果と一致するように, ソースコード２の中の `[ 空欄 (セ) ]` ~ `[ 空欄 (タ) ]` を埋めよ. 
 
-#### <center> ソースコード１
+#### <center> ソースコード１</center>
 ```text
 #include <stdio.h>
 #include <stdlib.h>
@@ -124,7 +124,7 @@ int main() {
 }
 ```
 
-#### <center> ソースコード２
+#### <center> ソースコード２</center>
 ```text
 #include <stdio.h>
 #include <stdlib.h>
@@ -226,6 +226,6 @@ The case when `head != NULL` and `head->num` is -1.
 - insert `free(tmp);` after line 35
 
 ### (6)
-- \[ 空欄 (セ) \]: head + cnt
-- \[ 空欄 (ソ) \]: head + 1
-- \[ 空欄 (タ) \]: head + i
+- \[ 空欄 (セ) \]: (head + cnt) % MAX
+- \[ 空欄 (ソ) \]: (head + 1) % MAX
+- \[ 空欄 (タ) \]: (head + i) % MAX

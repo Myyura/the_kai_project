@@ -11,7 +11,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2022年8月実施 専門基礎A \[A-1\]
 
 ## **Author**
-[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e)
+[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
 Answer all the following questions.
@@ -52,23 +52,31 @@ $$
 回答全部问题。
 
 1. 对实数 $x,y$，求函数
+
    $$
    f(x,y)=x^3-x^2y+xy^2-x
    $$
+
    的所有局部极大值、局部极小值及其对应的 $(x,y)$。
 2. 设 $D$ 为 $x\ge0$ 时曲线 $y=\sqrt x$ 与 $y=x$ 围成的区域，计算
+
    $$
    I=\iint_D e^{-y}\,dx\,dy.
    $$
+
 3. 求曲线
+
    $$
    y=x^{3/2},\qquad 0\le x\le\frac43
    $$
+
    的弧长。
 4. 对矩阵
+
    $$
    A=\begin{pmatrix}x&a\\b&x\end{pmatrix},
    $$
+
    求其特征向量，并给出这些特征向量彼此正交的条件，其中 $x$ 为实数。
 
 ## **Kai**
@@ -160,26 +168,52 @@ L &= \int_1^4 \sqrt{u} \cdot \frac{4}{9} du = \frac{4}{9} \left[ \frac{2}{3}u^{3
 $$
 
 ### (4)
-Characteristic equation $\det(A - \lambda I) = 0$:
+The characteristic equation is
 
 $$
-\begin{vmatrix} x - \lambda & a \\ b & x - \lambda \end{vmatrix} = (x - \lambda)^2 - ab = 0 \Rightarrow \lambda = x \pm \sqrt{ab}
+\det(A-\lambda I)
+=\begin{vmatrix}x-\lambda&a\\b&x-\lambda\end{vmatrix}
+=(x-\lambda)^2-ab=0.
 $$
 
-Eigenvectors for $\lambda_1 = x + \sqrt{ab}$:
+If $ab\ne0$, put $s=\sqrt{ab}$ (over $\mathbb C$). Then
 
 $$
-\begin{bmatrix} -\sqrt{ab} & a \\ b & -\sqrt{ab} \end{bmatrix} \begin{bmatrix} v_{11} \\ v_{12} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \Rightarrow -\sqrt{ab}v_{11} + av_{12} = 0 \Rightarrow V_1 = \begin{bmatrix} \sqrt{a} \\ \sqrt{b} \end{bmatrix}
+\lambda_\pm=x\pm s.
 $$
 
-Eigenvectors for $\lambda_2 = x - \sqrt{ab}$:
+For $\lambda_+=x+s$,
 
 $$
-\begin{bmatrix} \sqrt{ab} & a \\ b & \sqrt{ab} \end{bmatrix} \begin{bmatrix} v_{21} \\ v_{22} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \Rightarrow \sqrt{ab}v_{21} + av_{22} = 0 \Rightarrow V_2 = \begin{bmatrix} \sqrt{a} \\ -\sqrt{b} \end{bmatrix}
+\begin{pmatrix}-s&a\\b&-s\end{pmatrix}
+\begin{pmatrix}v_1\\v_2\end{pmatrix}=0,
+\qquad -sv_1+av_2=0,
 $$
 
-For $V_1$ and $V_2$ to be orthogonal:
+and for $\lambda_-=x-s$,
 
 $$
-V_1 \cdot V_2 = (\sqrt{a})(\sqrt{a}) + (\sqrt{b})(-\sqrt{b}) = a - b = 0 \Rightarrow a = b
+\begin{pmatrix}s&a\\b&s\end{pmatrix}
+\begin{pmatrix}v_1\\v_2\end{pmatrix}=0,
+\qquad sv_1+av_2=0.
 $$
+
+Therefore
+
+$$
+E_{\lambda_+}=\operatorname{span}\left\{\begin{bmatrix}a\\s\end{bmatrix}\right\},
+\qquad
+E_{\lambda_-}=\operatorname{span}\left\{\begin{bmatrix}a\\-s\end{bmatrix}\right\}.
+$$
+
+If $a=b=0$, the eigenspace for $\lambda=x$ is $\mathbb R^2$. If $ab=0$ but $(a,b)\ne(0,0)$, the only eigenvalue is $x$ and its eigenspace is $\operatorname{span}\{(1,0)^T\}$ for $a\ne0$, or $\operatorname{span}\{(0,1)^T\}$ for $b\ne0$.
+
+For two real eigenvectors we need $ab>0$. Their inner product is
+
+$$
+\begin{bmatrix}a\\s\end{bmatrix}^{\!T}
+\begin{bmatrix}a\\-s\end{bmatrix}
+=a^2-ab=a(a-b),
+$$
+
+so they are orthogonal exactly when $a=b\ne0$. When $a=b=0$, any orthogonal basis is an eigenbasis. Hence $A$ has an orthogonal real eigenbasis if and only if $a=b$.

@@ -47,21 +47,29 @@ $$
 ### 题目描述
 
 1. 求极限
+
    $$
    \lim_{x\to0}\frac{\sinh x}{x}.
    $$
+
 2. 对区域
+
    $$
    D=\{(x,y)\mid0\le x+y\le1,\ 0\le x-y\le1\},
    $$
+
    计算
+
    $$
    I=\iint_D x^2\,dx\,dy.
    $$
+
 3. 给定上三角矩阵
+
    $$
    A=\begin{pmatrix}a&b\\0&d\end{pmatrix}.
    $$
+
    1. 假设 $A$ 有两个不同特征值，求特征值及相应特征向量。
    2. 利用第 1 小问的特征值、特征向量，求正整数 $n$ 时的 $A^n$。
    3. 若两个特征值相同，求正整数 $n$ 时的 $A^n$。
@@ -87,7 +95,7 @@ $$
 $$
 
 ### (2)
-We express $x$ and $y$ in terms of $u$ and $v$: $x=\frac{u+v}{2}$, $y=\frac{u-v}{2}$. The integrand $x^{2}$ becomes $(\frac{u+v}{2})^{2}$. The Jacobian of the transformation is calculated as $|J|=\frac{1}{2}$.
+Put $u=x+y$ and $v=x-y$. Then $0\le u,v\le1$, $x=\frac{u+v}{2}$, $y=\frac{u-v}{2}$, and $\left|\partial(x,y)/\partial(u,v)\right|=\frac12$.
 
 The integral in the $uv$-coordinate system is given by:
 
@@ -154,8 +162,16 @@ A^{n}=\left(\begin{matrix}a^{n}&b\frac{d^{n}-a^{n}}{d-a}\\ 0&d^{n}\end{matrix}\r
 $$
 
 ### (iii)
-If $a = d$, then $A$ is not diagonalizable, and we use the Jordan form to find $A^n$:
+If $a=d$, write
+
+$$
+A=aI+N,\qquad N=\begin{pmatrix}0&b\\0&0\end{pmatrix},\qquad N^2=0.
+$$
+
+The binomial theorem gives
 
 $$
 A^n = \begin{pmatrix} a & b \\ 0 & a \end{pmatrix}^n = \begin{pmatrix} a^n & nba^{n-1} \\ 0 & a^n \end{pmatrix}
 $$
+
+for every positive integer $n$, with the upper-right entry interpreted as $b$ when $n=1$. (When $b=0$, $A=aI$ is diagonalizable, and the same formula still applies.)

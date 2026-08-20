@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2016年8月実施 筆記試験 第2問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff)
+[tomfluff](https://github.com/tomfluff), 祭音Myyura
 
 ## **Description**
 (1) Show the truth table of a half-adder HA (Fig. 1) which outputs 1-bit sum $S$ and 1-bit carry $C$ from two 1-bit binary inputs $A$ and $B$.
@@ -81,7 +81,7 @@ tags:
 </figure>
 
 ### (5)
-A method would be to do a bitwise addition for $A=a_0a_1a_2a_3...a_n$ and $B=b_0b_1b_2b_3...b_n$ two unsigned $n$ bit integers. And the carry of each addition would be connected to the `X` input of the following FA. Thus $FA_0$ has `a0,b0,_` as inputs, $FA_1$ has `a1,b1,c0` as inputs and so on.
+A method would be to do a bitwise addition for $A=a_{n-1}\cdots a_1a_0$ and $B=b_{n-1}\cdots b_1b_0$, two unsigned $n$-bit integers. The carry of each addition is connected to the `X` input of the following FA. Thus $FA_0$ has $a_0,b_0,0$ as inputs, $FA_1$ has $a_1,b_1,c_0$ as inputs, and so on; the last carry is the $(n+1)$-st output bit.
 
 ### (6)
 A faster method would be to build a look-ahead carry adder. This adder basically computes the values with consideration to the carries without calculating the carry and waiting for the result of each pair to calculate the next result. Since each calculation can be expanded to use parameterization without the carry, it is possible to remove internal carries. 

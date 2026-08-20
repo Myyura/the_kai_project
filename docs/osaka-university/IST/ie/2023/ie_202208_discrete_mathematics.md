@@ -129,6 +129,7 @@ $a_{ij}^{(k)}$ は頂点 $v_i$ から $v_j$ の長さ $k$ の歩道の個数と�
 
 ### (3)
 #### (3-1)
+
 $$
 \frac{n(n-1)}{2}
 $$
@@ -143,7 +144,7 @@ $$
 グラフ $G$ が完全グラフ3 $(V=\{v_i, v_j, v_k\}, E=\{v_iv_j, v_iv_k, v_jv_k\})$ を含むから、各成分 $(i, j)$ について、
 
 $$
-a_{ij} = 1 \text{ かつ } b_{ij} \ge 2
+a_{ij} = 1 \text{ かつ } b_{ij} \ge 1
 $$
 
 であるかどうかをチェックすれば、グラフ $G$ が $K_3$ を含むかどうかはわかる。
@@ -152,7 +153,7 @@ $$
 (The idea is to check the value of $a_{ij}^{(k)}$ for each $k \in \{1, 2, \ldots, n-1\}$)
 
 $$
-A_G + A_G^{2} + \cdots + A_G^{n-1}
+I_n + A_G + A_G^{2} + \cdots + A_G^{n-1}
 $$
 
 or

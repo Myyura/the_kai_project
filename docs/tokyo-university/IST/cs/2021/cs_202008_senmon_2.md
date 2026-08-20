@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2020年8月実施 専門科目 問題2
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 Let $\Sigma$ be the set $\{a, b\}$ of letters. For a word $w \in \Sigma^*$ and two languages $L_a, L_b \subseteq \Sigma^*$ over $\Sigma$, we define the language $w\{a \mapsto L_a, b \mapsto L_b\} \subseteq \Sigma^*$ as follows, by induction on $w$.
@@ -42,24 +42,30 @@ Answer the following questions.
 
 令 $\Sigma=\{a,b\}$。对 $w\in\Sigma^*$ 及语言
 $L_a,L_b\subseteq\Sigma^*$，递归定义语言替换：
+
 $$
 \varepsilon\{a\mapsto L_a,b\mapsto L_b\}=\{\varepsilon\},
 $$
+
 $$
 (aw)\{a\mapsto L_a,b\mapsto L_b\}
 =\{w_1w_2\mid w_1\in L_a,\quad
 w_2\in w\{a\mapsto L_a,b\mapsto L_b\}\},
 $$
+
 $$
 (bw)\{a\mapsto L_a,b\mapsto L_b\}
 =\{w_1w_2\mid w_1\in L_b,\quad
 w_2\in w\{a\mapsto L_a,b\mapsto L_b\}\}.
 $$
+
 对语言 $L$，再定义
+
 $$
 L\{a\mapsto L_a,b\mapsto L_b\}
 =\bigcup_{w\in L}w\{a\mapsto L_a,b\mapsto L_b\}.
 $$
+
 回答下列问题。
 
 （1）令
@@ -72,6 +78,7 @@ $L\{a\mapsto L_a,b\mapsto L_b\}$。
 $L'=\{a^mb^n\mid m\ge n\ge0\}$、
 $L'_a=\{a^n\mid n\ge0\}$、
 $L'_b=\{a^mb^m\mid m\ge0\}$。用正则表达式表示
+
 $$
 \{w\in\Sigma^*\mid
 w\{a\mapsto L'_a,b\mapsto L'_b\}\subseteq L'\}.
@@ -83,10 +90,12 @@ $L_0\{a\mapsto L_1,b\mapsto L_2\}$ 的 NFA 并简要说明；允许使用
 $\varepsilon$ 转移。
 
 （4）对同一组自动机，构造识别
+
 $$
 \{w\in\Sigma^*\mid
 w\{a\mapsto L_1,b\mapsto L_2\}\subseteq L_0\}
 $$
+
 的 DFA，并简要说明。
 
 ## **Kai**
@@ -102,48 +111,57 @@ This expression represents the language where every $a$ in the original language
 
 ### (2)
 
-Given $L' = \{a^m b^n \mid m \geq n \geq 0\}$, $L_a' = \{a^n \mid n \geq 0\}$, and $L_b' = \{a^m b^m \mid m \geq 0\}$, for $w \in \Sigma^*$, suppose $w' = w\{a \mapsto L_a', b \mapsto L_b'\}$.
-
-Since $w' \subseteq L'$, we can express any element of $w'$, $w'_i$ as $a^x a^y b^y$ where $x, y \geq 0$. This implies that $w'$ contains $a^x$ followed by $a^y b^y$ for some $x, y \geq 0$.
-
-Since all of the $b$ in $w'_i$ can only come from $b$ in $w$, we can reverse the substitution process to get $w = a^x b^y$, where $y$ can only be $0$ or $1$.
-
-Therefore, the regular expression for $\{w \in \Sigma^* \mid w\{a \mapsto L_a', b \mapsto L_b'\} \subseteq L'\}$ is:
+If an $a$ occurs after a $b$, choose nonempty substitutions for both; the result contains a $b$ before an $a$ and is not in $L'$.  Two occurrences of $b$ fail in the same way.  Thus there is at most one $b$, and it must be last.  Conversely, every substitution of $a^r$ or $a^rb$ has the form $a^M b^N$ with $M\ge N$.  Hence the required expression is
 
 $$
-a^*(\epsilon + b)
+a^*(\epsilon+b).
 $$
 
 ### (3)
 
-We will construct an NFA that accepts $L_0 \{a \mapsto L_1, b \mapsto L_2\}$ using $\epsilon$-transitions. The NFA will have the same structure as $A_0$, but the transitions will be replaced based on the input letter with the transitions from $A_1$ and $A_2$, and $\epsilon$-transitions will be used to connect the states.
+We construct an NFA accepting
+$L_0\{a\mapsto L_1,b\mapsto L_2\}$ by replacing each transition of $A_0$ with an automaton for the language substituted for its label.
 
-For example, supposing the original transitions for the input letter $a$ in $A_0$ are $q_{0,0} \xrightarrow{a} q_{0,1}$, we will replace these transitions with the corresponding transitions from $A_1$:
+For every $a$-transition $q\xrightarrow{a}\delta_0(q,a)$ of $A_0$, take a private copy of $A_1$, add an $\epsilon$-transition from $q$ to its initial state, and add an $\epsilon$-transition from every accepting state of that copy to $\delta_0(q,a)$. Symbolically,
 
 $$
-q_{0,0} \xrightarrow{\epsilon} q_{1,0} \xrightarrow{} \ldots \xrightarrow{} F_{1,i} \xrightarrow{\epsilon} q_{0,1}
+q\xrightarrow{\epsilon}q_{1,0}
+\xRightarrow{L_1}F_1
+\xrightarrow{\epsilon}\delta_0(q,a).
 $$
 
-Similarly, for the input letter $b$, we will replace the transitions with the corresponding transitions from $A_2$.
+Do the same for every $b$-transition, using a private copy of $A_2$:
 
-The final states of the NFA will be those states where the original final states of $A_0$ are reached after the substitution process.
+$$
+q\xrightarrow{\epsilon}q_{2,0}
+\xRightarrow{L_2}F_2
+\xrightarrow{\epsilon}\delta_0(q,b).
+$$
 
-**Explanation:** Since the language $L_0 \{a \mapsto L_1, b \mapsto L_2\}$ is obtained by substituting the strings in $L_1$ and $L_2$ for $a$ and $b$ in the strings of $L_0$, the NFA needs to simulate this substitution process by transitioning to the corresponding states in $A_1$ and $A_2$ based on the input letter.
+The initial state is $q_{0,0}$ and the accepting states are $F_0$. A path through a copy reads one word of $L_1$ or $L_2$, so simulating a word of $L_0$ reads precisely one of its substitutions. Hence the NFA accepts exactly
+$L_0\{a\mapsto L_1,b\mapsto L_2\}$.
 
 ### (4)
 
-To construct a DFA for $\{w \in \Sigma^* \mid w\{a \mapsto L_i, b \mapsto L_j\} \subseteq L_k\}$:
+Define relations on $Q_0$ by
 
-**Explanation:**
-- We need to track the states of $A_i$, $A_j$, and $A_k$ simultaneously.
-- The DFA will have states $(q_i, q_j, q_k)$, where $q_i \in Q_i$, $q_j \in Q_j$, and $q_k \in Q_k$.
-- The initial state is $(q_{i0}, q_{j0}, q_{k0})$.
-- The transition function will be defined as:
-  - $(q_i, q_j, q_k) \xrightarrow{a} (\delta_i(q_i, a), q_j, \delta_k(q_k, w_{L_i}))$ for all $w_{L_i} \in L_i$.
-  - $(q_i, q_j, q_k) \xrightarrow{b} (q_i, \delta_j(q_j, b), \delta_k(q_k, w_{L_j}))$ for all $w_{L_j} \in L_j$.
-- The final states are those where the third component is a final state in $F_k$.
+$$
+R_a=\{(p,q)\mid\exists x\in L_1:\delta_0^*(p,x)=q\},\qquad
+R_b=\{(p,q)\mid\exists x\in L_2:\delta_0^*(p,x)=q\}.
+$$
 
-This DFA ensures that as we read $w$, we keep track of the corresponding states in $A_i$, $A_j$, and $A_k$ to ensure the substitution process results in strings that belong to $L_k$.
+Each relation is computable by a product automaton $A_0\times A_1$ or
+$A_0\times A_2$.
+
+Use the DFA with state set $2^{Q_0}$, initial state $\{q_{0,0}\}$, and transition
+
+$$
+S\xrightarrow{c}\{q\mid \exists p\in S:(p,q)\in R_c\}
+\quad(c\in\{a,b\}).
+$$
+
+Its accepting states are the subsets $S\subseteq F_0$.  After reading $w$, the current subset is exactly the set of states reachable in $A_0$ by all words in
+$w\{a\mapsto L_1,b\mapsto L_2\}$; hence the acceptance condition is precisely the required inclusion in $L_0$.
 
 ## **Knowledge**
 

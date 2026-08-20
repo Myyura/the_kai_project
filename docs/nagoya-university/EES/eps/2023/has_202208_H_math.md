@@ -10,7 +10,7 @@ tags:
 # 名古屋大学 環境学研究科 地球環境科学専攻 大気水圏科学系 2022年8月実施 数学
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 ### 問題1
@@ -41,12 +41,15 @@ $$
 **问题 1**：
 
 1. 说明计算不定积分
+
    $$
    \int xe^{-ax}\,dx
    $$
+
    的步骤。
 2. 实际计算该不定积分。
 3. 利用第 2 问的结果，在 $a>0$ 时计算广义积分
+
    $$
    \int_0^\infty xe^{-ax}\,dx.
    $$
@@ -60,7 +63,7 @@ $$
 ## **Kai**
 ### 問題1
 #### 問1
-部分積分
+$u=x,\,dv=e^{-ax}dx$ とおいて部分積分する。
 
 #### 問2
 
@@ -94,17 +97,19 @@ $$
   \end{aligned}
 $$
 
+が任意の $x,y$ とスカラー $a,b$ について成り立つことである。
+
 #### 問2
-2つの関数 $f(x), g(x)$ が直交するとは、
+区間 $I$ 上の2つの関数 $f(x), g(x)$ が直交するとは、
 
 $$
 \begin{aligned}
-\int_{- \infty}^\infty f(x) g(x) dx = 0
+\int_I f(x) \overline{g(x)} dx = 0
 \end{aligned}
 $$
 
-が成り立つことである。
+が成り立つことである（実数値関数なら複素共役は不要）。
 
 #### 問3
 関数の集合 $f_1(x), f_2(x), \cdots$ が直交関数系であるとは、
-任意の $f_i(x), f_j(x) \ (i \ne j)$ が直交することである。
+各 $f_i$ が零関数でなく、任意の $f_i(x), f_j(x) \ (i \ne j)$ が直交することである。

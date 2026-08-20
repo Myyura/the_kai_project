@@ -11,7 +11,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2022年8月実施 専門基礎A \[A-7\]
 
 ## **Author**
-[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e)
+[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
 Answer all the following questions.
@@ -80,7 +80,7 @@ Consider a processor with load/store architecture which has a 5-stage instructio
 #### (a)
 
 - (i) (+45) = (00101101) 
-- (ii) (-80) = (10100110) 
+- (ii) $(-90)=(10100110)$
 
 #### (b)
 
@@ -102,18 +102,21 @@ Consider a processor with load/store architecture which has a 5-stage instructio
 
 (i) Sign bit: 0 
   Exponent: 10000 (Real value = 16 - 15 = 1) 
-  Mantissa: 01010101 
-  => $+1.01010101 \times 2^1$ 
+  Mantissa: 0101010101
+  => $+1.0101010101 \times 2^1$
 
 (ii) Sign bit: 1 
   Exponent: All zero -> This is not a normalized number. 
-  Mantissa: Not zero 
-  => $-0.01010101 \times 2^{-14}$ 
+  Mantissa: 0101010101
+  => $-0.0101010101 \times 2^{-14}$
 
 #### (b)
-Sign bit: 1, -8.625 in scientific notation: $-1.00011 \times 2^3$ 
-  Exponent: 10010, Mantissa: 00110000 
-  => 1100 1000 1110 0000 
+Sign bit: 1, and $-9.625=-1001.101_2=-1.001101_2\times2^3$.
+The exponent is 10010 and the fraction is 0011010000, hence
+
+$$
+\boxed{1\ 10010\ 0011010000=1100\ 1000\ 1101\ 0000}.
+$$
  
 ### (3)
 ① **Immediate Addressing**: The operand is specified directly within the instruction itself.
@@ -129,7 +132,19 @@ Sign bit: 1, -8.625 in scientific notation: $-1.00011 \times 2^3$
 ### (4)
 Clock cycle $\approx 5 \times 10^{-10}$ s 
 Load-use stalls: $1 \times 10^6 \times 0.2 \times 0.4 = 0.08 \times 10^6$ clock cycles 
-Control hazard stalls: $1 \times 10^6 \times (0.2 \times 0.5 + 0.05) = 0.15 \times 10^6$ clock cycles 
- 
-Total Time = $1.23 \times 10^6 \times 5 \times 10^{-10}$ s 
-= $6.15 \times 10^{-4}$ s 
+Taken-branch stalls: $1 \times 10^6 \times 0.10 \times 0.50=0.05\times10^6$ clock cycles.
+
+Jump stalls: $1 \times 10^6 \times0.05=0.05\times10^6$ clock cycles.
+
+Including four cycles to fill and drain the 5-stage pipeline,
+
+$$
+\begin{aligned}
+\text{cycles}
+&=10^6+4+0.08\times10^6+0.05\times10^6+0.05\times10^6\\
+&=1{,}180{,}004,\\
+\text{time}
+&=1{,}180{,}004\times5\times10^{-10}\ \mathrm{s}\\
+&=5.90002\times10^{-4}\ \mathrm{s}\approx0.590\ \mathrm{ms}.
+\end{aligned}
+$$

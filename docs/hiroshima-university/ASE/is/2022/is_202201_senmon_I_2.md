@@ -83,6 +83,7 @@ defined for $(x,y) \neq (0,0)$.
    z_{xy}=\frac{\partial^2z}{\partial x\partial y},\qquad
    z_{yy}=\frac{\partial^2z}{\partial y^2}.
    $$
+
 2. 函数
 
    $$
@@ -146,14 +147,27 @@ $$
 \end{cases}
 $$
 
-we get extremum points
+Since $r>0$, the stationary points are
 
 $$
-(-\frac{1}{\sqrt{2}e}, \frac{\pi}{4} + 2k\pi), (\frac{1}{\sqrt{2}e}, \frac{\pi}{4} + 2k\pi), (\frac{1}{\sqrt{2}e}, \frac{3\pi}{4} + 2k\pi), (-\frac{1}{\sqrt{2}e}, \frac{3\pi}{4} + 2k\pi)
+\left(r,\theta\right)=
+\left(\frac{1}{\sqrt2e},\frac{\pi}{4}\right),
+\left(\frac{1}{\sqrt2e},\frac{5\pi}{4}\right),
+\left(\frac{1}{\sqrt2},\frac{3\pi}{4}\right),
+\left(\frac{1}{\sqrt2},\frac{7\pi}{4}\right)
+\pmod{2\pi}.
 $$
 
-where $k$ is an integer, and extrema are
+At the first two points, $z_{r\theta}=0$. The pairs $(z_{rr},z_{\theta\theta})$ are respectively $(4e,2/e)$ and $(-4e,-2/e)$, so they are a local minimum and a local maximum. At the last two points, the Hessian determinant is $-8<0$, so they are saddle points.
+
+Therefore all local extrema are
 
 $$
-\frac{2}{e}, -\frac{2}{e}.
+\boxed{z_{\min}=-\frac2e\quad\text{at}\quad
+(x,y)=\left(\frac1{2e},\frac1{2e}\right)},
+$$
+
+$$
+\boxed{z_{\max}=\frac2e\quad\text{at}\quad
+(x,y)=\left(-\frac1{2e},-\frac1{2e}\right)}.
 $$

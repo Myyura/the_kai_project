@@ -11,7 +11,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2020年8月実施 専門基礎B \[B-4\]
 
 ## **Author**
-[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e)
+[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
 **Answer all the following questions.**
@@ -94,6 +94,8 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202008_senmonkiso_B_4_p3.png" width="400" alt=""/>
 </figure>
+
+The circuit uses three first-level NAND gates for the three product terms in (a), followed by one NAND gate; hence it uses four 3-input NAND gates.
 
 ### (2)
 #### (a)
@@ -244,8 +246,7 @@ For the same input, the outputs in S0' and S1' are different (for example, when 
 Hence the two states are distinguishable and cannot be merged.
 Therefore, the number of states is minimal (2 states).
 
-#### (c) 
-Initial state: S0'
+For the input sequence $011101$, start in S0'.
 
 <div align="center">
 <table style="width: 70%; text-align: center;">

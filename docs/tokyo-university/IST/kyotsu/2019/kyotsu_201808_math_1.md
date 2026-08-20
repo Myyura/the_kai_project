@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学研究科 2018年8月実施 数学 第1問
 
 ## **Author**
-[etsurin](https://zhuanlan.zhihu.com/p/561992447)
+[etsurin](https://zhuanlan.zhihu.com/p/561992447), 祭音Myyura
 
 ## **Description**
 複素正方行列 $X$ は、 $XX^* = I$ を満たすとき、ユニタリ行列であるという。
@@ -73,13 +73,16 @@ $I$ 为单位矩阵，$i$ 为虚数单位。回答下列问题。
 （1）设 $A,B$ 为同阶酉矩阵，证明 $AB$ 也是酉矩阵。
 
 （2）设 $C,D$ 为 $n$ 阶实方阵，定义
+
 $$
 F=C+iD,\qquad
 G=\begin{pmatrix}C&-D\\D&C\end{pmatrix}.
 $$
+
 证明 $F$ 为酉矩阵当且仅当 $G$ 为正交矩阵。
 
 （3）求矩阵
+
 $$
 \frac12\begin{pmatrix}
 1&1&1&1\\
@@ -88,22 +91,27 @@ $$
 1&-i&-1&i
 \end{pmatrix}
 $$
+
 的特征值。
 
 （4）对正整数 $n$，定义 $n$ 阶矩阵 $Q$ 的元素
+
 $$
 q_{jk}=\frac1{\sqrt n}
 \exp\left(\frac{2\pi i(j-1)(k-1)}n\right).
 $$
+
 证明 $Q$ 是酉矩阵。
 
-（5）证明任意行列式为 $1$ 的二阶酉矩阵都可写成
+（5）证明下式给出了一族行列式为 $1$ 的二阶酉矩阵：
+
 $$
 H=\begin{pmatrix}
 e^{i\psi}\cos\theta&e^{i\psi}\sin\theta\\
 -e^{-i\psi}\sin\theta&e^{-i\psi}\cos\theta
 \end{pmatrix},
 $$
+
 其中 $\theta,\psi$ 为实数。
 
 （6）求二阶酉矩阵的一般形式。
@@ -197,24 +205,26 @@ $$
 A(A^2-I) + i(I-A^2) = (A-iI)(A+I)(A-I) = 0
 $$
 
-特征值 $\lambda_1 = i, \lambda_2 = 1, \lambda_3 = -1$。
+又 $\operatorname{tr}A=1+i$，故计入代数重数后，特征值为
+
+$$
+i,\quad -1,\quad 1,\quad 1.
+$$
 
 ### (4)
 令 $q_k = \begin{pmatrix}q_{1k} \\q_{2k} \\ \vdots \\q_{nk}\end{pmatrix}$, 则 $||q_k||^2 = n \times (\frac{1}{\sqrt{n}})^2 = 1$
 
-考虑不同的 $m,j,q_m = \begin{pmatrix}q_{1m} \\q_{2m} \\ \vdots \\q_{nm}\end{pmatrix},q_j = \begin{pmatrix}q_{1j} \\q_{2j} \\ \vdots \\q_{nj}\end{pmatrix}$
+考虑不同的 $m,j$，令 $q_m = \begin{pmatrix}q_{1m} \\q_{2m} \\ \vdots \\q_{nm}\end{pmatrix},q_j = \begin{pmatrix}q_{1j} \\q_{2j} \\ \vdots \\q_{nj}\end{pmatrix}$。
 
 $$
 \begin{aligned}
-q_{km}\overline{q_{kj}} &= \frac{1}{n}\exp\bigg(\frac{2\pi i(k - 1)(m - 1) - 2\pi i(k - 1)(j - 1)}{n}\bigg) \\
-&= \exp\bigg(\frac{2\pi i(k - 1)(m - j)}{n}\bigg) \\
-q_m\overline{q_j} &= \frac{1}{n}\sum_{k=1}^n\exp\bigg(\frac{2\pi i(k - 1)(m - j)}{n}\bigg) \\
-&= \frac{1}{n}\big(e^{-\frac{2\pi i(m - j)0}{n}} + e^{-\frac{2\pi i(m - j)1}{n}} + \cdots + e^{-\frac{2\pi i(m - j)(n - 1)}{n}}\big) \\
+q_j^*q_m &= \sum_{k=1}^n\overline{q_{kj}}q_{km} \\
+&= \frac{1}{n}\sum_{k=1}^n\exp\bigg(\frac{2\pi i(k - 1)(m - j)}{n}\bigg) \\
 &= 0 
 \end{aligned}
 $$
 
-因此 $QQ^* = I , Q$ 是酉矩阵。
+因此 $Q^*Q = I$，$Q$ 是酉矩阵。
 
 ### (5)
 
@@ -273,9 +283,19 @@ $$
 
 
 $H$ 满足式 (2)，由于行列正交等价，只需 $\cos \theta \sin \theta e^{i(\psi_1-\psi_3)} + \sin \theta \cos \theta e^{i(\psi_2 - \psi_4)}=0$。
-因
-此在式 (3) 形式的基础上，还需满足
+因此在式 (3) 形式的基础上，还需满足
 
 $$
 \psi_1 - \psi_3 = \psi_2-\psi_4 + \pi + 2k \pi \qquad k = 0, 1, 2, \ldots
+$$
+
+等价地，二阶酉矩阵的一般形为
+
+$$
+H=\begin{pmatrix}
+a&b\\
+-e^{i\phi}\overline b&e^{i\phi}\overline a
+\end{pmatrix},
+\qquad |a|^2+|b|^2=1,
+\quad \phi\in\mathbb R.
 $$

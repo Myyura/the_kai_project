@@ -71,25 +71,31 @@ $f(n)$ を求めよ。
 
 1. 二元信源 $P(a)=p$、$P(b)=1-p$。随 $p$ 变化，求熵的最大值与最小值。
 2. 字母表 $\{a_1,\ldots,a_{2m}\}$，$m$ 为正常数，
+
    $$
    P(a_i)=\begin{cases}p,&i\le m+1,\\q,&i>m+1,\end{cases}
    \qquad (m+1)p+(m-1)q=1.
    $$
+
    随 $p,q$ 变化，求熵的最大值与最小值。
 3. 三个符号等概率 $1/3$，求二元 Huffman 码平均长度。
 4. $m$ 为正整数、$n=2^m+1$，$n$ 个符号等概率，求二元 Huffman 码平均长度。
 5. 求信道矩阵
+
    $$
    \begin{bmatrix}1/2&1/4&1/4\\1/4&1/4&1/2\end{bmatrix}
    $$
+
    的容量。
 6. 对输入大小 2、输出大小 $n$ 的信道
+
    $$
    \begin{bmatrix}
    \frac12&\frac1{2(n-1)}&\cdots&\frac1{2(n-1)}\\
    \frac1{2(n-1)}&\frac1{2(n-1)}&\cdots&\frac12
    \end{bmatrix},
    $$
+
    容量写为
    $C=f(n)\log_2n+\frac12\log_2(n-1)+\frac{n}{2(n-1)}$，求 $f(n)$。
 
@@ -97,7 +103,7 @@ $f(n)$ を求めよ。
 ### 設問1
 
 $$
-H(p,1-p) = -p \log p-(1-p) \log (1-p)
+H(p,1-p) = -p \log_2 p-(1-p) \log_2 (1-p)
 $$
 
 By solving the following equation
@@ -150,7 +156,7 @@ $$
 \end{aligned}
 $$
 
-which implies $p = q$. Substituting this into the third equation, we get $2mp = 1$, hence $L$ is maximized when $p = q = \frac{1}{2m}$.
+For $m>1$, this implies $p = q$. Substituting this into the third equation, we get $2mp = 1$, hence $L$ is maximized when $p = q = \frac{1}{2m}$.
 
 $$
 \begin{aligned}
@@ -161,9 +167,9 @@ H(p,q) &= -(m+1)p\log_{2} p - (m-1)q\log_{2} q \\[0.7em]
 \end{aligned}
 $$
 
-By Q1 we know that the entropy is minimized when $p = 0$ or $p = 1$.
+Since entropy is concave and the feasible set is a line segment, its minimum is attained at an endpoint.
 
-If $m \neq 1$, then the entropy is minimized when
+If $m>1$, the two endpoints are
 
 $$
 \begin{aligned}
@@ -177,7 +183,7 @@ $$
 \end{aligned}
 $$
 
-Comparing the two boundary values:$$\begin{aligned}
+Comparing the two boundary values,
 
 $$
 \begin{aligned}
@@ -191,7 +197,7 @@ $$
 \end{aligned}
 $$
 
-If $m = 1$, then $(p,q){=}(\frac{1}{2},\frac{1}{2})$ and the minimum is $H(p,q){=}1$.
+If $m=1$, the second group has no symbols: the constraint fixes $p=1/2$, $q$ is irrelevant, and both the maximum and minimum entropy equal $1$.
 
 ### 設問3
 

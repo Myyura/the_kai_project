@@ -14,7 +14,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2021年8月実施 専門科目 確率統計
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6882d22f000000002400da08?xsec_token=ABv7C785zMbXjgoCBH6HH8OmtM8mrsP0iNYk8_4WGnhuQ=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6882d22f000000002400da08?xsec_token=ABv7C785zMbXjgoCBH6HH8OmtM8mrsP0iNYk8_4WGnhuQ=), 祭音Myyura
 
 ## **Description**
 ### 問題1
@@ -272,3 +272,19 @@ $(k = 1, \ldots, K)$ なる $K$ 個の連立方程式を $\theta_1, \theta_2, \l
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_prob_stat_p2_s2.jpg" width="700" alt=""/>
 </figure>
+
+#### 問題2 (1) の訂正
+
+$X$ を $\{-1,0,1\}$ 上の一様分布、$Y=X^2$ とすればよい。このとき
+
+$$
+E[X]=E[XY]=0
+$$
+
+より $\operatorname{Cov}(X,Y)=0$ である。一方、
+
+$$
+P(Y=0\mid X=0)=1\ne P(Y=0)=\frac13
+$$
+
+なので、$X,Y$ は独立ではない。

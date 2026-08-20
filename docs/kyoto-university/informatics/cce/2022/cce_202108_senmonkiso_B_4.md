@@ -10,7 +10,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2021年8月実施 専門基礎B \[B-4\]
 
 ## **Author**
-[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e)
+[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
 下記のすべての問に答えよ。  
@@ -61,6 +61,7 @@ $$
 回答全部问题。$\overline{\phantom{x}}$、$\cdot$、$+$、$\oplus$ 分别表示逻辑非、与、或、异或。
 
 1. 对逻辑函数
+
    $$
    \begin{aligned}
    f={}&(a+\bar b+d)(a+\bar c+\bar d)
@@ -68,6 +69,7 @@ $$
    &\cdot(\bar a+\bar c+\bar d)(\bar a+b+\bar d)
    \end{aligned}
    $$
+
    回答：
    1. 求 $f$ 的最简与或式。
    2. 求 $f$ 的最简或与式。
@@ -91,25 +93,30 @@ Derive the corresponding K-map of $\bar{f}$ and $f$
 
 | &nbsp; | &nbsp; |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p2.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p3.png" width="200"> |
-| $\bar{f} = cd + bc + \bar{a}b\bar{d} + a\bar{b}d$ | $f = \bar{b}d + ab\bar{c} + \bar{a}\bar{c}d$ |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p2.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p3.png" width="200" /> |
+| $\bar{f} = cd + bc + \bar{a}b\bar{d} + a\bar{b}d$ | $f = \bar{b}\bar d + ab\bar{c} + \bar{a}\bar{c}d$ |
 
 #### (b)
 Simplified Boolean Expression for $f$
 
 $$
-f = (\bar{c} + \bar{d})(\bar{b} + \bar{c}) + (a + \bar{b} + d)(\bar{a} + b + \bar{d})
+f=(\bar c+\bar d)(\bar b+\bar c)(a+\bar b+d)(\bar a+b+\bar d)
 $$
 
 #### (c)
 NAND/Logic Expression for $f$
 
 $$
-f = \overline{\bar{b}\bar{d} \cdot ab\bar{c} \cdot \bar{a}\bar{c}d}
+f=\overline{
+\overline{\bar b\bar d}\cdot
+\overline{ab\bar c}\cdot
+\overline{\bar a\bar c d}}
 $$
 
+The three product terms are formed by three 3-input NAND gates (duplicate one input for $\bar b\bar d$), and a fourth 3-input NAND gate combines their outputs. Hence four gates suffice.
+
 <div align="center">
-    <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p4.png" width="400">
+    <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p4.png" width="400" />
 </div>
 
 #### (d)
@@ -117,7 +124,7 @@ Derive the K-map of $g, r, h$
 
 | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p5.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p6.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p7.png" width="200"> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p5.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p6.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p7.png" width="200" /> |
 ---
 
 **Equation for $h$:**
@@ -130,15 +137,15 @@ $$
 #### (a)
 
 $$
-D_2 = a_1 a_0 + \bar{a}_2 a_0 x + a_2 \bar{a}_0 \bar{x}
+D_2 = a_1 a_0 + \bar{a}_2 a_0 x + a_2 a_0 \bar{x}
 $$
 
 $$
-D_1 = a_2 \bar{a}_0 + \bar{a}_1 \bar{a}_0 \bar{x} + \bar{a}_2 \bar{a}_1 a_0 x
+D_1 = a_2 \bar{a}_0 + a_1 \bar{a}_0 \bar{x} + \bar{a}_2 \bar{a}_1 a_0 \bar{x}
 $$
 
 $$
-D_0 = \bar{a}_0 \bar{x} + \bar{a}_2 x + \bar{a}_2 \bar{a}_1 \bar{a}_0
+D_0 = \bar{a}_0 x + \bar{a}_2 x + \bar{a}_2 \bar{a}_1 a_0
 $$
 
 $$
@@ -147,23 +154,21 @@ $$
 
 | &nbsp; | &nbsp; |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p8.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p9.png" width="200"> |
-| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p10.png" width="200"> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p11.png"  width="200"> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p8.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p9.png" width="200" /> |
+| <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p10.png" width="200" /> | <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202108_senmonkiso_B_4_p11.png"  width="200" /> |
 
 ---
 
 **State Transition Table**
 
-| Current State ($a_2 a_1 a_0$) | Input ($x$) | Next State ($D_2 D_1 D_0$) | Output ($y$) | &nbsp; | Current State ($a_2 a_1 a_0$) | Input ($x$) | Next State ($D_2 D_1 D_0$) | Output ($y$) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 0 0 0 | 0 | 0 0 0 | 1 | | 1 0 0 | 0 | 0 1 0 | 1 |
-| 0 0 0 | 1 | 0 0 1 | 0 | | 1 0 0 | 1 | 0 1 1 | 1 |
-| 0 0 1 | 0 | 0 1 1 | 0 | | 1 0 1 | 0 | 1 0 0 | 0 |
-| 0 0 1 | 1 | 1 0 1 | 0 | | 1 0 1 | 1 | 0 0 0 | 0 |
-| 0 1 0 | 0 | 0 1 0 | 0 | | 1 1 0 | 0 | 0 1 0 | 1 |
-| 0 1 0 | 1 | 0 0 1 | 0 | | 1 1 0 | 1 | 0 1 1 | 1 |
-| 0 1 1 | 0 | 1 0 0 | 0 | | 1 1 1 | 0 | 1 0 0 | 0 |
-| 0 1 1 | 1 | 1 0 1 | 0 | | 1 1 1 | 1 | 1 0 0 | 0 |
+| Current State ($a_2a_1a_0$) | $x=0$: Next/Output | $x=1$: Next/Output |
+| :---: | :---: | :---: |
+| 000 | 000 / 1 | 001 / 0 |
+| 001 | 011 / 0 | 101 / 0 |
+| 010 | 010 / 0 | 001 / 0 |
+| 011 | 100 / 0 | 101 / 0 |
+| 100 | 010 / 1 | 011 / 1 |
+| 101 | 100 / 0 | 000 / 0 |
 
 #### (b) 
-State 100 & 110 are equivalent.
+The six reachable states are pairwise distinguishable by successive partition refinement. Therefore, the state table is already minimal; there is no equivalent pair among the reachable states.

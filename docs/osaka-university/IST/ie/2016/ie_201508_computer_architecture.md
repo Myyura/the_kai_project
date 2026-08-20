@@ -13,7 +13,7 @@ tags:
 # 大阪大学 情報科学研究科 情報工学 2015年8月実施 計算機システムとシステムプログラム
 
 ## **Author**
-[KardeniaPoyu](https://github.com/KardeniaPoyu)
+[KardeniaPoyu](https://github.com/KardeniaPoyu), 祭音Myyura
 
 ## **Description**
 
@@ -107,7 +107,7 @@ tags:
 - (1-2-1) $T = \frac{mn}{f}$ [s]
 - (1-2-2) $T = \frac{n + m - 1}{f}$ [s]
 - (1-2-3) $\lim_{m \to \infty} \frac{m}{(n+m-1)/f} = f$ [instructions/s]
-- (1-2-4) **理由**：ステージ数を増やすことで、1ステージあたりの論理回路が短くなり、各ステージの処理遅延が減少する。これにより、CPU をより高いクロック周波数 $f$ で動作させることが可能になり、结果として全体的な命令スループット（単位時間あたりの命令実行数）が向上するため。
+- (1-2-4) **理由**：ステージ数を増やすことで、1ステージあたりの論理回路が短くなり、各ステージの処理遅延が減少する。これにより、CPU をより高いクロック周波数 $f$ で動作させることが可能になり、結果として全体的な命令スループット（単位時間あたりの命令実行数）が向上するため。
   (English：Increasing the number of pipeline stages ($n$) reduces the logic gate delay per stage. This reduction allows the CPU to operate at a higher clock frequency ($f$), which consequently increases the overall instruction throughput.)
 
 ### (1-3)

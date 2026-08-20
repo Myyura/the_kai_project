@@ -12,6 +12,7 @@ tags:
 # 東京大学 工学系研究科 2016年8月実施 数学 第2問
 
 ## **Author**
+祭音Myyura
 
 ## **Description**
 次の3次正方行列式$A$に関する以下の問いに答えよ。
@@ -44,6 +45,7 @@ $B^2 = A$の関係を満たす3次正方行列$B$を求めよ。ただし,　行
 ### 题目描述
 
 给定三阶方阵
+
 $$
 A=\begin{pmatrix}
 3&0&1\\
@@ -51,6 +53,7 @@ A=\begin{pmatrix}
 -2&-2&1
 \end{pmatrix},
 $$
+
 回答以下问题：
 
 1. 求 $A$ 的全部特征值。
@@ -276,7 +279,7 @@ A(Bp) &= \lambda(Bp)
 \end{aligned}
 $$
 
-となり,　これはベクトル $Bp$ が $A$ の固有値 $\lambda$ に対する固有ベクトルの1つであることを示す。ある固有値に対する固有ベクトルの集まりはすべて平行であるから,　適当な定数 $c$ により,　
+となり,　$Bp$ は $A$ の固有値 $\lambda$ の固有空間に属する（$Bp=0$ も含む）。この固有空間は1次元であるから,　適当な定数 $c$ により,　
 
 $$
 Bp = cp
@@ -368,7 +371,7 @@ B &= P
 2 - 2 \sqrt{2} & 2 - 2\sqrt{2} + 2\sqrt{3} & 1 - \sqrt{3} \\
 4 - 4\sqrt{2} & 4 - 4\sqrt{2} & 2 \\
 \end{pmatrix}\\
-&=\frac{1}{2}
+&=
 \begin{pmatrix}
 -1 + 2\sqrt{2} & -1 + 2\sqrt{2} - \sqrt{3} & (-1 + \sqrt{3})/2 \\
 1 - \sqrt{2} & 1 - \sqrt{2} + \sqrt{3} & (1 - \sqrt{3})/2 \\
@@ -410,7 +413,7 @@ x_1 & 0 & 0 \\
 0 & 2x_2 & 0 \\
 0 & 0 & 3x_3 \\
 \end{pmatrix}\\
-\text{tr}(P^{-1}(AX)P) &= x_1 + x_2 + x_3
+\text{tr}(P^{-1}(AX)P) &= x_1 + 2x_2 + 3x_3
 \end{aligned}
 $$
 
@@ -430,10 +433,10 @@ $$
 \end{aligned}
 $$
 
-ここで,　$\text{det}({P^{-1}}) = 1 / \text{det}(P), \text{det}(A) = 1 + 2 + 3 = 6$ より,
+ここで,　$\text{det}({P^{-1}}) = 1 / \text{det}(P), \text{det}(A) = 1 \cdot 2 \cdot 3 = 6$ より,
 
 $$
-\text{AX} = 6x_1x_2x_3
+\text{det}(AX) = 6x_1x_2x_3
 $$
 
 $x_1 + 2x_2 + 3x_3 = d$の関係より,
@@ -468,7 +471,7 @@ $$
 \end{aligned}
 $$
 
-となり,　$\frac{\partial ^2 f}{\partial x_2^2} \bigg|_{(\frac{d}{6},\frac{d}{9})} = -24 \cdot \frac{d}{9} < 0$であるから,　$f(d/6,d/9)$は極大値である。したがって,　求める$\text{det}(AX)$の最大値は,　
+となり,　$\frac{\partial ^2 f}{\partial x_2^2} \bigg|_{(\frac{d}{6},\frac{d}{9})} = -24 \cdot \frac{d}{9} < 0$であるから,　$f(d/6,d/9)$は極大値である。さらに、$x_1,x_2,x_3>0$ の領域の境界では積が $0$ となるので、これは大域的な最大値である。したがって,　求める$\text{det}(AX)$の最大値は,　
 
 $$
 f(d/6,d/9) = 6\big(d - \frac{d}{3} - \frac{d}{3}\big) \cdot \frac{d}{6} \cdot \frac{d}{9} = \frac{d^3}{27}

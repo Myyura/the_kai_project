@@ -163,11 +163,11 @@ $$
 $$
 \begin{aligned}
 H(X|Y)&=0.6\times H\left(\frac{3}{4},\frac{1}{4}\right)+0.4\times H\left(\frac{1}{2},\frac{1}{2}\right) \\
-&=0.88\ \text{bits/symbol}
+&=0.889\ \text{bits/symbol}
 \end{aligned}
 $$
 
-### (c)
+#### (c)
 
 $$
 \begin{aligned}
@@ -177,13 +177,13 @@ H(X,Y)&=\sum_{x,y}p(x,y)\log_2\frac{1}{p(x,y)} \\
 \end{aligned}
 $$
 
-### (d)
+#### (d)
 
 $$
 I(X;Y)=H(X)-H(X|Y)=0.0425\ \text{bits/symbol}
 $$
 
-### (e) 
+#### (e)
 **Forecast accuracy:**
 
 $$
@@ -225,6 +225,7 @@ Q & 1-Q
 $$
 
 #### (b) 
+For $P+Q>0$,
 
 $$
 \begin{cases}
@@ -239,6 +240,8 @@ $$
 \end{cases}
 $$
 
+(If $P=Q=0$, both states are absorbing and the stationary distribution is not unique.)
+
 #### (c)
 For the additive channel, the error bit is $S_E=1$. In steady state:
 
@@ -246,7 +249,7 @@ $$
 R_{\text{error}} = P(S_E=1)=\pi_1=\dfrac{P}{P+Q}
 $$
 
-### (d) 
+#### (d)
 
 $$
 C = 1 - \bar H(S_E),

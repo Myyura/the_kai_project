@@ -9,22 +9,31 @@ tags:
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2018年8月実施 数理科学 II \[7\]
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
 ### 题目描述
 
 原文题干缺失。根据现有解答，设 $X,Y$ 相互独立，且
+
 $$
 f_X(x\mid\lambda)=\lambda e^{-\lambda x},\qquad
 f_Y(y\mid\lambda)=\lambda^{-1}e^{-y/\lambda}
 $$
+
 对 $x,y\ge0$ 成立；参数满足 $\lambda\ge1$。令
-$$Z=\min(X,Y).$$
+
+$$
+Z=\min(X,Y).
+$$
 
 1. 求 $Z$ 的概率密度、期望与方差。可令
-   $$\mu=\lambda+\lambda^{-1}.$$
+
+   $$
+   \mu=\lambda+\lambda^{-1}.
+   $$
+
 2. 给定 $Z$ 的独立观测 $z_1,\ldots,z_n$，用样本均值 $\bar z$ 表示 $\mu$ 的最大似然估计。
 3. 在约束 $\lambda\ge1$ 下求 $\lambda$ 的最大似然估计，并分别讨论 $\bar z\le1/2$ 与 $\bar z>1/2$。
 
@@ -158,12 +167,11 @@ $$
   \end{aligned}
 $$
 
-であるから、
-$\mu$ の最尤推定量 $\hat{\mu}$ は、
+である。$\bar z>0$ とすると、制約を課さない最大点は $1/\bar z$ である。また、$\lambda\ge1$ より $\mu=\lambda+\lambda^{-1}\ge2$ なので、$\mu$ の最尤推定量 $\hat{\mu}$ は、
 
 $$
   \begin{aligned}
-  \hat{\mu} = \frac{1}{\bar{z}}
+  \hat{\mu} = \max\left\{2,\frac{1}{\bar{z}}\right\}
   \end{aligned}
 $$
 

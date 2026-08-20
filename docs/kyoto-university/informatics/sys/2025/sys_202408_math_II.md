@@ -11,7 +11,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2024年8月実施 数学【II】
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/discovery/item/688803a6000000002203ec0d?source=webshare&xhsshare=pc_web&xsec_token=ABtHY7I1RxAUjhEZPeviabm9avt5zS3kxeB1R-bm8HRVc=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/discovery/item/688803a6000000002203ec0d?source=webshare&xhsshare=pc_web&xsec_token=ABtHY7I1RxAUjhEZPeviabm9avt5zS3kxeB1R-bm8HRVc=), 祭音Myyura
 
 ## **Description**
 $e$ をネイピア数（自然対数の底）、 $\mathbb{R}$ を実数全体からなる集合とする。また、ベクトル $\boldsymbol{x}$ の転置を $\boldsymbol{x}^\mathrm{T}$ で表す。
@@ -197,3 +197,30 @@ $D$ 是无界区域，故 $V$ 只能按广义二重积分理解。现有 Kai 仅
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_math_II_p2.jpg" width="700" alt=""/>
 </figure>
+
+#### 問題2 (i), (iii) の訂正
+
+(i) 楕円上で $y^2=b^2(1-x^2/a^2)$ とすると、距離の2乗は
+
+$$
+d^2(x)=a^2+b^2-2ax+\left(1-\frac{b^2}{a^2}\right)x^2,\qquad -a\leq x\leq a.
+$$
+
+頂点 $x=-a^3/(b^2-a^2)$ が区間内にあるかを考えると、最大距離は
+
+$$
+d_{\max}=
+\begin{cases}
+2a,&a<b\leq\sqrt2\,a,\\[2mm]
+\dfrac{b^2}{\sqrt{b^2-a^2}},&b>\sqrt2\,a.
+\end{cases}
+$$
+
+(iii) 問題文のとおり領域条件が
+$e^p x^2-e^q y^2\leq2$ ならば $D$ は非有界である。十分大きい $|y|$ に対して $[-1,1]\times\{y\}$ は $D$ に含まれ、その上で
+
+$$
+2-e^p x^2-e^q y^2\leq 2-e^q y^2.
+$$
+
+よって負の部分の積分が発散し、有限な広義積分 $V$ は存在しない（拡張実数値では $V=-\infty$）。画像の $2\pi e^{-(p+q)/2}$ は領域条件が $e^p x^2+e^q y^2\leq2$ の場合の値である。

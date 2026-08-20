@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2022年8月実施 専門科目 問題2
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
 
 ## **Description**
 We consider a division of a set of mutually distinct $n$ positive integers $P = \{x_1, x_2, \ldots, x_n\}$ into $m$ sets $P_1, P_2, \ldots, P_m$ $(1 < m < n, P = P_1 \cup P_2 \cup \ldots \cup P_m, \forall i, j (i \neq j) P_i \cap P_j = \emptyset)$, where $\emptyset$ denotes an empty set. The set sequence $Q = [P_1, P_2, \ldots, P_m]$ is called a division of $P$. We denote by $\|\mathbf{S}\|$ the summation of all the integers in $S$ if $S$ is a set of integers or a stack consisting of integers. Note that $\|\mathbf{S}\| = 0$ in case $S$ is an empty set or an empty stack.
@@ -91,16 +91,20 @@ $P=\{x_1,\ldots,x_n\}$ 划分为 $m$ 个两两不交、并集为 $P$ 的集合
 $P_1,\ldots,P_m$，其中 $1<m<n$；记划分为
 $Q=[P_1,\ldots,P_m]$。对整数集合或整数栈 $S$，以
 $\|S\|$ 表示元素总和，空集合或空栈的和为 $0$。定义
+
 $$
 \operatorname{maxsum}(Q)=\max_i\|P_i\|,
 $$
+
 并以 $\operatorname{minmaxsum}(P,m)$ 表示所有 $m$ 划分中上述最大和的最小值。
 
 题中近似算法从任意划分开始，把每个 $P_i$ 的元素压入栈 $S_i$；循环选择总和最大的栈
 $S_j$ 和总和最小的栈 $S_k$。若
+
 $$
 \operatorname{top}(S_j)+\|S_k\|\ge\|S_j\|,
 $$
+
 则停止并返回 $\|S_j\|$；否则将 $S_j$ 的栈顶弹出并压入
 $S_k$。回答下列问题。
 
@@ -108,11 +112,13 @@ $S_k$。回答下列问题。
 $\operatorname{minmaxsum}(\{3,4,5,6\},2)$。
 
 （2）证明
+
 $$
 \operatorname{minmaxsum}(P,m)\ge\frac{\|P\|}{m}.
 $$
 
 （3）证明无论初始任意划分如何选择，算法返回值均满足
+
 $$
 \operatorname{approx\text{-}minmaxsum}(P,m)
 \le2\,\operatorname{minmaxsum}(P,m).
@@ -125,35 +131,22 @@ $$
 ## **Kai**
 ### (1)
 
-To find $\mathrm{minmaxsum}(\{3, 4, 5, 6\}, 2)$, we need to find the optimal way to divide the set $\{3, 4, 5, 6\}$ into two subsets such that the maximum subset sum is minimized.
-
-The total sum of the set $P$ is:
+To find $\mathrm{minmaxsum}(\{3,4,5,6\},2)$, divide the set into two subsets so that the larger subset sum is minimized. The total sum is
 
 $$
-\|\mathbf{P}\| = 3 + 4 + 5 + 6 = 18
+3+4+5+6=18,
 $$
 
-We need to divide this into two subsets such that the maximum sum is as small as possible. We can consider the following possible divisions:
+so every division has maximum subset sum at least $18/2=9$. The relevant divisions include:
 
-- $P_1 = \{3, 6\}, P_2 = \{4, 5\}$:
-  - $\|\mathbf{P}_1\| = 3 + 6 = 9$
-  - $\|\mathbf{P}_2\| = 4 + 5 = 9$
-  - Maximum sum = 9
+- $P_1=\{3,6\},P_2=\{4,5\}$, whose sums are $9,9$;
+- $P_1=\{3,5\},P_2=\{4,6\}$, whose sums are $8,10$;
+- $P_1=\{3,4\},P_2=\{5,6\}$, whose sums are $7,11$.
 
-- $P_1 = \{3, 5\}, P_2 = \{4, 6\}$:
-  - $\|\mathbf{P}_1\| = 3 + 5 = 8$
-  - $\|\mathbf{P}_2\| = 4 + 6 = 10$
-  - Maximum sum = 10
-
-- $P_1 = \{3, 4\}, P_2 = \{5, 6\}$:
-  - $\|\mathbf{P}_1\| = 3 + 4 = 7$
-  - $\|\mathbf{P}_2\| = 5 + 6 = 11$
-  - Maximum sum = 11
-
-The minimum maximum sum among these divisions is 9. Therefore:
+The first division attains the lower bound. Hence
 
 $$
-\mathrm{minmaxsum}(\{3, 4, 5, 6\}, 2) = 9
+\mathrm{minmaxsum}(\{3,4,5,6\},2)=9.
 $$
 
 ### (2)
@@ -192,43 +185,37 @@ $$
 
 ### (3)
 
-The algorithm attempts to balance the largest and smallest subset sums by moving the top element from the stack with the largest sum to the stack with the smallest sum until no improvement can be made.
-
-Let $M = \mathrm{minmaxsum}(P, m)$. Initially, each subset in the division $Q$ has a sum less than or equal to $M$.
-
-When the algorithm moves an element from the subset with the largest sum to the subset with the smallest sum, the maximum possible increase in the smallest sum is bounded by the value of the largest element moved. This adjustment ensures that the final maximum sum $M_f$ in the approximate solution satisfies:
+Let $A=\|S_j\|$, $B=\|S_k\|$, and $x=\operatorname{top}(S_j)$ when the algorithm stops.  Then
 
 $$
-M_f \leq M + M \leq 2M
+A\le x+B.
 $$
 
-Thus:
+For $M=\mathrm{minmaxsum}(P,m)$, every element satisfies $x\le M$, and
+$B\le\|P\|/m\le M$ by (2).  Therefore
 
 $$
-\mathrm{approx\text{-}minmaxsum}(P, m) \leq 2 \cdot \mathrm{minmaxsum}(P, m)
+\mathrm{approx\text{-}minmaxsum}(P,m)=A\le x+B\le2M.
 $$
 
 ### (4)
 
-Each iteration of the while loop in the pseudo-code moves an element from the stack $S_j$ (which has the maximum sum) to the stack $S_k$ (which has the minimum sum). Since the total number of elements in all stacks is $n$, and each move reduces the number of elements in $S_j$ by one, the maximum number of iterations cannot exceed $n$. After $n$ moves, the stacks have been exhausted of elements that can be moved:
+Suppose an element $x$ is moved from a stack of sum $A$ to a minimum stack of sum $B$.  The move condition gives
 
 $$
-\text{Number of while loop iterations } \leq n
+B+x<A,\qquad B<A-x.
 $$
+
+Hence after the move every stack sum is at least $B$; the minimum stack sum never decreases.  If $x$ ever becomes the top of its stack again, that stack has sum $B+x$, while the current minimum is at least $B$.  The stopping condition then holds, so $x$ cannot be moved again.  Each successful iteration therefore moves a distinct element, and there are at most $n$ such iterations.
 
 ### (5)
 
-To achieve an $O(n \log m)$ runtime, we can use a priority queue (or a binary heap) for efficiently finding and updating the stacks with the maximum and minimum sums. The steps are as follows:
+To achieve an $O(n\log m)$ running time, use indexed priority queues for the stack sums:
 
-1. **Initialize**: Use two priority queues, one for the stack with the maximum sum and one for the stack with the minimum sum.
-   - Insert each stack's sum along with its identifier into the respective priority queues. Both insertion and deletion in a priority queue take $O(\log m)$ time.
+1. Store each stack $S_i$ normally, and store $(\|S_i\|,i)$ in both an indexed min-heap and an indexed max-heap. The minimum-sum and maximum-sum stacks can then be found in $O(1)$ time.
+2. In each iteration, pop the top element from the maximum-sum stack and push it onto the minimum-sum stack. Only these two sums change, so update their keys in both heaps in $O(\log m)$ time. The stack operations themselves take $O(1)$ time.
 
-2. **Update**: During each iteration of the while loop:
-   - Extract the maximum from the "max" priority queue and the minimum from the "min" priority queue.
-   - Perform the pop operation from the stack with the maximum sum and push the element onto the stack with the minimum sum.
-   - Update the priority queues with the new sums. This step also takes $O(\log m)$ time.
-
-Since each operation inside the while loop is $O(\log m)$, and the loop runs at most $n$ times, the total time complexity of the algorithm is $O(n \log m)$.
+Initialization takes $O(n+m)$ time. By (4), the loop runs at most $n$ times, and each iteration costs $O(\log m)$. Since $m<n$, the total running time is $O(n\log m)$.
 
 ## **Knowledge**
 

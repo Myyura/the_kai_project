@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2019年8月実施 オペレーションズ・リサーチ
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -127,25 +127,40 @@ $$
 Lagrangian:
 
 $$
-L(x, \mu) = -\theta (x) + \mu (1^\top x - 1)
+L(x, \mu,\lambda) = -\theta (x) + \mu (\boldsymbol{1}^\top x - 1)-\lambda^\top x
 $$
+
+Since the uniform feasible point has positive objective value, every optimizer is in $\mathbb R_+^n$. The KKT conditions are therefore
 
 $$
 \text{KKT-conditions } \left\{
 \begin{aligned}
-&-\frac 1n (\Pi_{j\neq i}^{n} x_j)^{\frac 1n - 1} - \mu = 0, i = 1, 2, \ldots, n \\
-&1^\top x = 1, x\succeq 0 \\
+&-\frac{\theta(x)}{n x_i}+\mu-\lambda_i=0,\qquad i=1,\ldots,n,\\
+&\boldsymbol{1}^\top x=1,\qquad x\succeq0,\\
+&\lambda\succeq0,\qquad \lambda_i x_i=0,\quad i=1,\ldots,n.
 \end{aligned}
 \right.
 $$
 
 #### (b)
-$x^*$ , $\mu ^*$ satisfied KKT-conditions if $x^* = [\frac 1n, \frac 1n, \ldots , \frac 1n]^\top$ , $\mu = -\frac 1n$
+$x^*$, $\mu^*$ and $\lambda^*$ satisfy the KKT conditions for
+
+$$
+x^* = \left[\frac 1n, \frac 1n, \ldots , \frac 1n\right]^\top,\qquad
+\mu^*=\frac1n,\qquad \lambda^*=\boldsymbol0.
+$$
+
+Since $-\theta$ is convex, the KKT conditions are sufficient; the stated uniqueness then gives this as the unique optimal solution.
 
 #### $(c)$
 
+If $\sum_i\gamma_i=0$, the claim is immediate. Otherwise, put
+$x_i=\gamma_i/\sum_j\gamma_j$. Since $\theta(x)\leq\theta(x^*)=1/n$,
+
 $$
-(\prod_{i=1}^{n} \gamma_i )^{\frac 1n} = (\prod_{i=1}^{n} \gamma_i )^{\frac 1n} \frac{\sum \gamma_i}{\sum \gamma_i}  = (\frac{\prod_{i=1}^{n} \gamma_i}{(\sum_{i=1}^{n}\gamma_i)^n})^{\frac 1n} (\sum_{i=1}^{n} \gamma_i) \leq \frac 1n \sum_{i=1}^{n}\gamma_i
+\left(\prod_{i=1}^{n} \gamma_i\right)^{\frac 1n}
+=\left(\sum_{i=1}^{n}\gamma_i\right)\theta(x)
+\leq \frac 1n \sum_{i=1}^{n}\gamma_i.
 $$
 
 ### (ii)
@@ -161,8 +176,14 @@ $$
 g_f(\theta x_1 + (1-\theta)x_2) = f(\theta x_1 + (1-\theta)x_2) ^ 2 \leq (\theta f( x_1) + (1-\theta) f( x_2)) ^2
 $$
 
-and consider $\phi(\theta) =g_f(\theta x_1 + (1-\theta)x_2) - \theta g_f( x_1) - (1-\theta)g_f(x_2)$ ,
-by calculating $\Delta$ , easily we see:
+For $a=f(x_1)\geq0$ and $b=f(x_2)\geq0$,
+
+$$
+\theta a^2+(1-\theta)b^2-(\theta a+(1-\theta)b)^2
+=\theta(1-\theta)(a-b)^2\geq0.
+$$
+
+Therefore,
 
 $$
 g_f(\theta x_1 + (1-\theta)x_2) \leq \theta g_f( x_1) + (1-\theta)g_f(x_2)
@@ -189,5 +210,11 @@ $$
 
 thus $h$ is convex for $\alpha \geq 1$ .
 
-If $\alpha < 1$ , let $f(x) = x_1^{\alpha}$ , easy to see $h$ is not convex.
-hence $\alpha^* = 1$
+For $0<\alpha<1$, let $f(x)=|x|\in\mathcal F_1$. Then
+
+$$
+h_{f,\alpha}(1)=1>
+\frac{h_{f,\alpha}(0)+h_{f,\alpha}(2)}2=2^{\alpha-1},
+$$
+
+so $h_{f,\alpha}$ is not convex. Hence $\alpha^*=1$.

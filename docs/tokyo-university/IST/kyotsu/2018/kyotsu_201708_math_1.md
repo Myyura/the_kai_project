@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学研究科 2017年8月実施 数学 第1問
 
 ## **Author**
-Zero, [etsurin](https://zhuanlan.zhihu.com/p/561992447)
+Zero, [etsurin](https://zhuanlan.zhihu.com/p/561992447), 祭音Myyura
 
 ## **Description**
 次の連立一次方程式を解く問題を考える．
@@ -47,7 +47,7 @@ $\bar{A}=\left (\begin{array}{cccc}
 
 (2)、任意の $m,n,A,b$ 対して, $\text{rank}(\bar{A})=\text{rank}(A)$ のとき連立一次方程式の解が存在することを示せ．
 
-(3)、$\text{rank}(\bar{A})>\text{rank}(A)$ ならば解は存在しない.$m>n$, $\text{rank}(\bar{A})=n$, $\text{rank}(\bar{A})>\text{rank}(A)$ のとき, 連立一次方程式の右辺と左辺と差のノルムの２乗 $\Vert b-A_{x}\Vert ^2$ を最小にする $x$ を求めよ．
+(3)、$\text{rank}(\bar{A})>\text{rank}(A)$ ならば解は存在しない.$m>n$, $\text{rank}(A)=n$, $\text{rank}(\bar{A})>\text{rank}(A)$ のとき, 連立一次方程式の右辺と左辺と差のノルムの２乗 $\Vert b-A_{x}\Vert ^2$ を最小にする $x$ を求めよ．
 
 (4)、$m<n,\text{rank}(A)=m$ のとき，どのような $b$ に対しても連立一次方程式を満たす解が複数存在する．解のうちで $\Vert x \Vert ^2$ を最小にする $x$ を，連立一次方程式を制約条件として，ラグランジュ乗数法を用いて求めよ．
 
@@ -67,19 +67,23 @@ $$
 ### 题目描述
 
 考虑线性方程组
+
 $$
 Ax=b,
 $$
+
 其中 $A\in\mathbb R^{m\times n}$、$b\in\mathbb R^m$ 已知，
 $x\in\mathbb R^n$ 未知。把 $b$ 作为末列接在 $A$ 后得到增广矩阵
 $\bar A=(A\mid b)$。回答下列问题。
 
 （1）对
+
 $$
 A=\begin{pmatrix}1&0&-1\\1&1&0\\0&1&1\end{pmatrix},
 \qquad
 b=\begin{pmatrix}2\\4\\2\end{pmatrix},
 $$
+
 记 $\bar A$ 的列为 $a_1,a_2,a_3,a_4$。
 
 - （i）求 $a_1,a_2,a_3$ 中线性无关向量的最大个数。
@@ -92,7 +96,7 @@ $\operatorname{rank}(\bar A)=\operatorname{rank}(A)$，则方程组有解。
 
 （3）若
 $m>n$、
-$\operatorname{rank}(\bar A)=n$ 且
+$\operatorname{rank}(A)=n$ 且
 $\operatorname{rank}(\bar A)>\operatorname{rank}(A)$，方程组无精确解。求使
 $\|b-Ax\|^2$ 最小的 $x$。
 
@@ -100,11 +104,13 @@ $\|b-Ax\|^2$ 最小的 $x$。
 以 $Ax=b$ 为约束，用拉格朗日乘子法求其中使 $\|x\|^2$ 最小的解。
 
 （5）证明对任意 $m,n,A$，满足
+
 $$
 APA=A,\quad PAP=P,\quad
 (AP)^{\mathsf T}=AP,\quad
 (PA)^{\mathsf T}=PA
 $$
+
 的 $P\in\mathbb R^{n\times m}$ 唯一确定。
 
 （6）证明第（3）、（4）问所得解均可写成 $x=Pb$。
@@ -112,6 +118,7 @@ $$
 ## **Kai**
 ### (1)
 #### (i)
+
 $$
 \left (\begin{array}{cccc}
 1&0&-1\\
@@ -125,7 +132,7 @@ $$
 \end{array}\right) \rightarrow
 \left (\begin{array}{cccc}
 1&0&-1\\
-1&1&0\\
+0&1&1\\
 0&0&0\\
 \end{array}\right)
 $$
@@ -151,7 +158,7 @@ $$
 ### (2)
 Assuming that $\text{rank}(\overline{A}) = \text{rank}(A)=r$ and there is no solution with $A_{x}=b$.
 
-Hence the vector $b$ or $a_{m+1}$ cannot be represented as the linear combination of $(a_{1},a_{2},...,a_{m})$
+Hence the vector $b$, i.e. $a_{n+1}$, cannot be represented as a linear combination of $(a_{1},a_{2},\ldots,a_{n})$.
 
 Hence,
 
@@ -161,20 +168,20 @@ $$
 
 which is contradictory to the fact that $\text{rank}(\bar{A}) = \text{rank}(A)$.
 
-Therefore, for any $m,n,A,b$, when $\text{rank}(\overline{A}) = \text{rank}(A)$ the equation $Ax=b$ has nonzero solution.
+Therefore, for any $m,n,A,b$, when $\text{rank}(\overline{A}) = \text{rank}(A)$ the equation $Ax=b$ has a solution.
 
 ### (3)
 
 $$
 \begin{aligned}
-\mathcal{L} &= \| Ax - b \|^2 = (b-Ax^T)(b-Ax) \\
+\mathcal{L} &= \| Ax - b \|^2 = (b-Ax)^T(b-Ax) \\
 &= b^Tb - x^TA^Tb - b^TAx + x^T A^T A x
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-  \frac{\partial \mathcal{L}}{\partial x} &= -A^Tb - A^Tb + (A^TA + (A^TA)^T) \\
+  \frac{\partial \mathcal{L}}{\partial x} &= -A^Tb - A^Tb + (A^TA + (A^TA)^T)x \\
   &= 2A^T Ax - 2A^Tb \\
   &= 0
 \end{aligned}
@@ -187,13 +194,14 @@ x=(A^TA)^{-1}A^Tb
 $$
 
 ### (4)
+
 $$
 \mathcal{L}(x,\lambda)=x^Tx-\lambda^T(Ax-b)
 $$
 
 $$
 \begin{aligned}
-\frac{\partial L(x,\lambda)}{\partial x} &= 2x-A^T\lambda^T = 0 \\
+\frac{\partial L(x,\lambda)}{\partial x} &= 2x-A^T\lambda = 0 \\
 \end{aligned}
 $$
 
@@ -204,13 +212,13 @@ $$
 $$
 
 $$
-\therefore x = \frac{A^T \lambda^T}{2} \qquad AA^T \lambda^T = 2b
+\therefore x = \frac{A^T \lambda}{2} \qquad AA^T \lambda = 2b
 $$
 
 Hence
 
 $$
-\lambda^T = 2(AA^T)^{-1}b
+\lambda = 2(AA^T)^{-1}b
 $$
 
 Finally
@@ -220,13 +228,31 @@ x=A^T(AA^T)^{-1}b
 $$
 
 ### (5)
-Assume that there are two different solutions $P, Q \in R^{n\times m}$ satisfy the conditions, then we have
+Let $A=U\Sigma V^T$ be a singular value decomposition and define
 
 $$
-QAP=QAPAP=(QA)^T(PA)^TP=(PAQA)^TP=(PA)^TP=PAP=P
+P=V\Sigma^+U^T,
 $$
 
-Hence $Q=P$, a contradiction to the assumption that $P$ and $Q$ are different.
+where $\Sigma^+$ replaces every nonzero singular value by its reciprocal. Direct substitution gives all four equations, so such a matrix exists.
+
+For uniqueness, let both $P$ and $Q$ satisfy the equations. The matrices $AP$ and $AQ$ are symmetric idempotents, and
+
+$$
+\operatorname{range}(AP)=\operatorname{range}(AQ)=\operatorname{range}(A).
+$$
+
+Thus they are the same orthogonal projector, so $AP=AQ$. Similarly, $PA$ and $QA$ are symmetric idempotents with
+
+$$
+\ker(PA)=\ker(QA)=\ker(A),
+$$
+
+so $PA=QA$. Hence
+
+$$
+P=PAP=P(AQ)=(PA)Q=(QA)Q=QAQ=Q.
+$$
 
 Therefore, $P$ is unique.
 
@@ -237,8 +263,12 @@ $$
 P=(A^TA)^{-1}A^T
 $$
 
+which satisfies the four equations in (5).
+
 For (4), $\text{rank}(A)=m$ and we have $x=A^T(AA^T)^{-1}b$, hence
 
 $$
 P=A^T(AA^T)^{-1}
 $$
+
+which also satisfies the four equations in (5).

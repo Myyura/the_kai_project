@@ -108,7 +108,7 @@ $$
 which are real because the discriminant is non-negative:
 
 $$
-\Delta = (x+z)^2 - 4(xz - y^2) = (x - z)^2 + y^2
+\Delta = (x+z)^2 - 4(xz - y^2) = (x - z)^2 + 4y^2
 $$
 
 ### (3)
@@ -117,7 +117,7 @@ $$
 \begin{aligned}
 R^{-1} A R &= \begin{bmatrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \end{bmatrix} \begin{bmatrix} x & y \\ y & z \end{bmatrix} \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix} \\
 &= \begin{bmatrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \end{bmatrix} \begin{bmatrix} x \cos \theta + y \sin \theta & -x \sin \theta + y \cos \theta \\ y \cos \theta + z \sin \theta & -y \sin \theta + z \cos \theta \end{bmatrix}\\
-&= \begin{bmatrix} x \cos^2 \theta + 2c \cos \theta \sin \theta + z \sin^2 \theta & (z - x) \cos \theta \sin \theta + y (\cos^2 \theta - \sin^2 \theta) \\ (z - x) \cos \theta \sin \theta + y (\cos^2 \theta - \sin^2 \theta) & x \sin^2 \theta - 2c \cos \theta \sin \theta + z \cos^2 \theta \end{bmatrix} \\
+&= \begin{bmatrix} x \cos^2 \theta + 2y \cos \theta \sin \theta + z \sin^2 \theta & (z - x) \cos \theta \sin \theta + y (\cos^2 \theta - \sin^2 \theta) \\ (z - x) \cos \theta \sin \theta + y (\cos^2 \theta - \sin^2 \theta) & x \sin^2 \theta - 2y \cos \theta \sin \theta + z \cos^2 \theta \end{bmatrix} \\
 &= \begin{bmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{bmatrix}
 \end{aligned}
 $$
@@ -132,35 +132,27 @@ $$
 \end{cases}
 $$
 
-which can be simplified to
+Put
 
 $$
-\begin{cases}
-    \sqrt{(x - z)^2 +4y^2} = (x - z)\cos 2\theta + 2y \sin 2\theta \\
-    \tan 2\theta = \displaystyle \frac{2y}{x-z} \Rightarrow x-z = \frac{2y \cos 2\theta}{\sin 2\theta}
-\end{cases}
+d=\sqrt{(x-z)^2+4y^2}.
 $$
 
-Hence we have
+If $d>0$, the off-diagonal equation and the difference of the diagonal entries give
 
 $$
-(x-z)\cos 2\theta + 2y \sin 2\theta = 2y \frac{\cos^2 2\theta}{\sin 2\theta} +2y \sin 2\theta = \frac{2y}{\sin 2\theta}
+-(x-z)\sin2\theta+2y\cos2\theta=0,
+\qquad
+(x-z)\cos2\theta+2y\sin2\theta=d.
 $$
 
-Substituting this result back into
+Since $(\cos2\theta,\sin2\theta)$ is a unit vector, these equations yield
 
 $$
-\sqrt{(x - z)^2 +4y^2} = (x - z)\cos 2\theta + 2y \sin 2\theta
+\boxed{
+\cos2\theta=\frac{x-z}{d},
+\qquad
+\sin2\theta=\frac{2y}{d}}.
 $$
 
-we find:
-
-$$
-\sin 2\theta = \frac{2y}{\sqrt{(x - z)^2 +4y^2}}
-$$
-
-similarly,
-
-$$
-\cos 2\theta = \frac{x-z}{\sqrt{(x - z)^2 +4y^2}}
-$$
+If $d=0$, then $x=z$ and $y=0$, so $A=xI$ and every $\theta$ diagonalizes $A$; hence $\cos2\theta$ and $\sin2\theta$ are not uniquely determined.

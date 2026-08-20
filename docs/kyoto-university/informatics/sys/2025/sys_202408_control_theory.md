@@ -11,7 +11,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2024年8月実施 専門科目 制御工学
 
 ## **Author**
-[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/discovery/item/68880791000000002400ebc8?source=webshare&xhsshare=pc_web&xsec_token=ABtHY7I1RxAUjhEZPeviabm0pv0fqbvsAIkZhlNLqpKyQ=)
+[AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/discovery/item/68880791000000002400ebc8?source=webshare&xhsshare=pc_web&xsec_token=ABtHY7I1RxAUjhEZPeviabm0pv0fqbvsAIkZhlNLqpKyQ=), 祭音Myyura
 
 ## **Description**
 ### 問題1
@@ -131,8 +131,29 @@ PID 制御と比較して、操作量の急激な変動を抑制するために 
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_control_theory_p1_s.jpg" width="700" alt=""/>
 </figure>
 
+#### 問題1 (4) の訂正
+
+そのような $a,K$ は存在する。$K=0$ のとき
+
+$$
+G_{yr}(s)
+=\frac{a(s+4)(s-2)}{(s+4)(s-2)(s+a+1)}
+=\frac{a}{s+a+1}.
+$$
+
+例えば $a=-2,\ K=0$ とすれば $G_{yr}(s)=-2/(s-1)$ となり、唯一の極は $s=1$ で、その実部は正である。
+
 ### 問題2
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_control_theory_p2_s.jpg" width="700" alt=""/>
 </figure>
+
+#### 問題2 (2) の訂正
+
+ゲイン余裕を $10\,\mathrm{dB}$ 増やすには一巡ゲインを $10\,\mathrm{dB}$ 下げればよい。したがって
+
+$$
+20\log_{10}\frac{K_P^{\mathrm{new}}}{K_P^{\mathrm{old}}}=-10,\qquad
+\frac{K_P^{\mathrm{new}}}{K_P^{\mathrm{old}}}=10^{-1/2}=\frac1{\sqrt{10}}.
+$$

@@ -8,13 +8,15 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 筆記試験 第1問
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
 Let $n$ and $r$ be positive integers. For $i=1,2,\dots,n$, let $f_i$ be a univariate real-valued function defined in the integer domain and let $f_i(x_i)$ be $-\infty$ for negative integer $x_i$. Any non-negative integer solution $(x_1,\dots,x_n)$ that satisfies $\sum_{i=1}^n x_i=r$ is called a feasible solution. In addition, a feasible solution that maximizes the objective function $\sum_{i=1}^n f_i(x_i)$ is called an optimal solution and the objective function value at the solution is called the optimal value. This problem is expressed as follows.
 
-$$(P) \ \left| \ \begin{aligned} &\text{Maximize} && \sum_{i=1}^n f_i(x_i) \\ &\text{subject to} && \sum_{i=1}^n x_i=r \\ &&& x_i \text{ is a non-negative integer, } i=1,\dots,n \end{aligned} \right.$$
+$$
+(P) \ \left| \ \begin{aligned} &\text{Maximize} && \sum_{i=1}^n f_i(x_i) \\ &\text{subject to} && \sum_{i=1}^n x_i=r \\ &&& x_i \text{ is a non-negative integer, } i=1,\dots,n \end{aligned} \right.
+$$
 
 ### (1)
 For $i=1,2,\dots,n$ and non-negative integer $\alpha$, define the function $d_i(\alpha):=f_i(\alpha)-f_i(\alpha-1)$ and assume that $d_i(\alpha)$ is non-increasing in terms of $\alpha$. Apply the following greedy algorithm $\mathcal{A}_G$ to $(P)$.
@@ -35,7 +37,9 @@ Answer the following questions.
 
 (1-2) Let $(x_1^*,x_2^*,\dots,x_n^*)$ be a feasible solution. Show that it is an optimal solution of $(P)$ if and only if the following condition holds.
 
-$$\max_{i=1,2,\dots,n}d_i(x_i^*+1)\le\min_{i=1,2,\dots,n}d_i(x_i^*)$$
+$$
+\max_{i=1,2,\dots,n}d_i(x_i^*+1)\le\min_{i=1,2,\dots,n}d_i(x_i^*)
+$$
 
 (1-3) Show that the greedy algorithm $\mathcal{A}_G$ outputs an optimal solution of $(P)$.
 
@@ -43,7 +47,9 @@ $$\max_{i=1,2,\dots,n}d_i(x_i^*+1)\le\min_{i=1,2,\dots,n}d_i(x_i^*)$$
 
 Unless the non-increasing assumption of (1) holds, the greedy algorithm $\mathcal{A}_G$ does not always output an optimal solution of $(P)$. To apply dynamic programming, we consider the following problem $(P_N^R)$ in which $n$ and $r$ in $(P)$ are replaced with $N\in\{1,2,\dots,n\}$ and $R\in\{0,1,\dots,r\}$, respectively.
 
-$$(P_N^R) \ \left| \ \begin{aligned} &\text{Maximize} && \sum_{i=1}^N f_i(x_i) \\ &\text{subject to} && \sum_{i=1}^N x_i = R \\ &&& x_i \text{ is a non-negative integer, } i = 1, \dots, N \end{aligned} \right.$$
+$$
+(P_N^R) \ \left| \ \begin{aligned} &\text{Maximize} && \sum_{i=1}^N f_i(x_i) \\ &\text{subject to} && \sum_{i=1}^N x_i = R \\ &&& x_i \text{ is a non-negative integer, } i = 1, \dots, N \end{aligned} \right.
+$$
 
 The optimal value of the problem is denoted by $g_N(R)$. Answer the following questions.
 
@@ -119,8 +125,68 @@ $$
 
 ### (1)
 
-(1-1) $(x_1,x_2,x_3)=(2,1,2)$.
+#### (1-1)
 
+The selected indices are $2,1,3,1,3$. Therefore
 
+$$
+\boxed{(x_1,x_2,x_3)=(2,1,2)}.
+$$
+
+#### (1-2)
+
+Set $d_i(0)=+\infty$, as follows from $f_i(-1)=-\infty$.
+
+If the condition fails, choose $p,q$ such that
+$d_p(x_p^*+1)>d_q(x_q^*)$. Necessarily $x_q^*>0$. Moving one unit from $q$ to $p$ changes the objective by
+
+$$
+d_p(x_p^*+1)-d_q(x_q^*)>0,
+$$
+
+so $x^*$ is not optimal.
+
+Conversely, compare $x^*$ with any feasible $x$. Every marginal added where $x_i>x_i^*$ is at most $\max_i d_i(x_i^*+1)$, while every marginal removed where $x_i<x_i^*$ is at least $\min_i d_i(x_i^*)$. The numbers added and removed are equal. Under the stated inequality, the objective at $x$ cannot exceed that at $x^*$; hence $x^*$ is optimal.
+
+#### (1-3)
+
+Fix $j$ with final $x_j>0$ and consider the last iteration that increments $x_j$. Greedy selection gives, for every $i$, the selected marginal $d_j(x_j)$ at least the then-available marginal of $i$. Since each $d_i$ is non-increasing, the final value satisfies
+
+$$
+d_i(x_i+1)\le d_j(x_j).
+$$
+
+For $x_j=0$, $d_j(0)=+\infty$. Thus the condition in (1-2) holds, so the greedy output is optimal.
 
 ### (2)
+
+#### (2-1)
+
+Assigning $c$ units to the last variable leaves $R-c$ units for the first $N-1$ variables:
+
+$$
+\boxed{g_N(R)=\max_{0\le c\le R}\{g_{N-1}(R-c)+f_N(c)\}},
+\qquad g_1(R)=f_1(R).
+$$
+
+#### (2-2)
+
+~~~text
+for R = 0 to r:
+    g[1,R] = f_1(R)
+for N = 2 to n:
+    for R = 0 to r:
+        g[N,R] = -infinity
+        for c = 0 to R:
+            g[N,R] = max(g[N,R],
+                         g[N-1,R-c] + f_N(c))
+return g[n,r]
+~~~
+
+#### (2-3)
+
+The base row is the exact optimum for one variable. Assuming row $N-1$ is optimal, every feasible solution for $(P_N^R)$ has one value $x_N=c$ and an optimal value at most $g_{N-1}(R-c)+f_N(c)$. Conversely, combining the maximizing $c$ with an optimizer of that subproblem is feasible. Induction proves that the algorithm returns $g_n(r)$.
+
+#### (2-4)
+
+The dynamic program takes $\Theta(nr^2)$ time and $\Theta(nr)$ space, reducible to $\Theta(r)$ space with two rows. A direct implementation of the stated greedy algorithm scans $n$ marginals in each of $r$ iterations, taking $\Theta(nr)$ time and $\Theta(n)$ space.

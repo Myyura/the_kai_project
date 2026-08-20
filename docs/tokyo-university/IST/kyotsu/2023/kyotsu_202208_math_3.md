@@ -8,7 +8,7 @@ tags:
 # 東京大学 情報理工学研究科 2022年8月実施 数学 第3問
 
 ## **Author**
-[hari64boli64](https://github.com/hari64boli64/GraduateSchoolEntranceExamination)
+[hari64boli64](https://github.com/hari64boli64/GraduateSchoolEntranceExamination), 祭音Myyura
 
 ## **Description**
 丸石 $\bigcirc$ と四角い石 $\square$ をランダムに左から右に一直線上に一つずつ並べる。
@@ -57,9 +57,11 @@ $q$，其中 $0<q<1$。给定正整数 $M$，一旦出现连续 $M$ 个方石便
 在尚未停止时，若末尾恰有 $k$ 个连续方石，则称状态为
 $C_k$。从状态 $C_k$ 起再放置 $n$ 个石头时首次满足停止条件的概率记为
 $a_{kn}$，并定义概率母函数
+
 $$
 A_k(t)=\sum_{n=0}^{\infty}t^na_{kn}.
 $$
+
 回答下列问题。
 
 （1）当 $M=1$ 时，求 $L$ 的均值和方差。
@@ -95,7 +97,7 @@ $$
     \mathbb{E}[L] & = \sum_{n=0}^{\infty} na_{0n}                   \\
                   & = \sum_{n=1}^{\infty} n(1-q)^{n-1}q             \\
                   & = q\frac{\text{d}}{\text{d}t}\left(\sum_{n=1}^{\infty}{t^n}\right)_{t=1-q} \\
-                  & = q\frac{\text{d}}{\text{d}t}\left(\frac{1}{1-t}\right)_{t=1-q}            \\
+                  & = q\frac{\text{d}}{\text{d}t}\left(\frac{t}{1-t}\right)_{t=1-q}            \\
                   & = q\frac{1}{(1-(1-q))^2}                    \\
                   & = \frac{1}{q}                                   \\
 \end{aligned}

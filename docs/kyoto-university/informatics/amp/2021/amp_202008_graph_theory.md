@@ -102,11 +102,13 @@ $$
 回答：
 
 1. 对任意 $(s,t)$ 流 $f$ 和 $(s,t)$ 割 $X$，证明
+
    $$
    \operatorname{val}(f)=
    \sum_{e\in E(X,V\setminus X)}f(e)
    -\sum_{e\in E(V\setminus X,X)}f(e).
    $$
+
 2. 说明如何由给定流 $f$ 构造残量网络
    $N_f=[G_f=(V,E_f),c_f]$。
 3. 若 $N_f$ 中存在从 $s$ 到 $t$ 的有向路 $P$，令 $\Delta$ 为 $P$ 上残量容量的最小值。证明原网络中存在流值为
@@ -128,7 +130,7 @@ then we have
 $$
 \begin{aligned}
 \text{val}(f) &= \sum_{e\in E(\{s\}, V \setminus \{s\})} f(e) - \sum_{e\in E(V \setminus \{s\}, \{s\})} f(e) \\
-&= \sum_{v \in V} f(s, v) - \sum_{v \in V} f(v, s) + \sum_{u \in X - \{s\}} \Big(\sum_{v \in V} f(u, v) - \sum_{v \in v} f(v, u) \Big)
+&= \sum_{v \in V} f(s, v) - \sum_{v \in V} f(v, s) + \sum_{u \in X - \{s\}} \Big(\sum_{v \in V} f(u, v) - \sum_{v \in V} f(v, u) \Big)
 \end{aligned}
 $$
 
@@ -153,33 +155,26 @@ $$
 $$
 
 ### (ii)
-We define the residual capacity $c_f (u, v)$ by
+For every original edge $e=(u,v)\in E$, introduce the following labeled residual edges whenever their capacities are positive:
 
 $$
-c_f(u,v) = \left\{
-    \begin{aligned}
-    &c(u,v) - f(u, v) &\text{if } (u, v) \in E \\
-    &f(v, u)  &\text{if } (v, u) \in E \\
-    &0 &\text{otherwise.}
-    \end{aligned}
-\right.
+\begin{aligned}
+e^+=(u,v),&\qquad c_f(e^+)=c(e)-f(e),\\
+e^-=(v,u),&\qquad c_f(e^-)=f(e).
+\end{aligned}
 $$
 
-and the edge set $E_f$ by
-
-$$
-E_f = \{(u,v) \in V \times V \ \mid \  c_f(u,v) > 0\}
-$$
+The collection of these residual edges is $E_f$; coincident ordered endpoints are kept as distinct residual edges.
 
 ### (iii)
 Let $f': E \rightarrow \mathbb{R}_+$ be defined as follows:
 
 $$
-f'(u, v) = \left\{
+f'(e) = \left\{
     \begin{aligned}
-    &f(u, v) + \Delta &\text{ if } (u, v) \in P \text{ and } (u, v) \in E \\
-    &f(u, v) - \Delta &\text{ if } (v, u) \in P \text{ and } (u, v) \in E \\
-    &f(u, v) &\text{otherwise.}
+    &f(e) + \Delta &\text{ if } e^+ \in P,\\
+    &f(e) - \Delta &\text{ if } e^- \in P,\\
+    &f(e) &\text{otherwise.}
     \end{aligned}
  \right.
 $$
@@ -188,18 +183,18 @@ We prove that $f'$ is a flow and $\text{val}(f') = \text{val}(f) + \Delta$
 
 First we verify that $f'$ obeys that capacity constraint.
 
-For an edge $(u, v) \in P \text{ and } (u, v) \in E$, we have
+If the path uses the forward residual edge $e^+=(u,v)$, then
 
 $$
 \begin{aligned}
 f'(u, v) &= f(u, v) + \Delta \\
-&\le f(u, v) + c_f(u, v) \\
+&\le f(u, v) + c_f(e^+) \\
 &= f(u, v) + c(u, v) - f(u,v) \\
 &= c(u, v)
 \end{aligned}
 $$
 
-For an edge $(v, u) \in P \text{ and } (u, v) \in E$, we have
+If the path uses the backward residual edge $e^-=(v,u)$ of $e=(u,v)$, then
 
 $$
 f'(u, v) = f(u, v) - \Delta \le c(u, v)
@@ -208,7 +203,7 @@ $$
 $$
 \begin{aligned}
 f'(u, v) &= f(u, v) - \Delta \\
-&\ge f(u, v) - c_f(v, u) \\
+&\ge f(u, v) - c_f(e^-) \\
 &= f(u, v) - f(u, v) \\
 &= 0
 \end{aligned}
@@ -221,6 +216,7 @@ For a vertex $u \in V \setminus \{s, t\}$, obviously the flow conservation const
 Hence we focus on the case that $u \in V(P)$.
 
 For a vertex $u \in V(P) \setminus \{s, t\}$, since $P$ is a simple path, there are exactly two edges $(u_1, u)$ and $(u, u_2)$ in $P$ that adjacent to $u$.
+In the cases below, an edge notation in $E$ specifies which labeled forward or backward residual copy is used by $P$.
 
 if $(u_1, u) \in E$ and $(u, u_2) \in E$, then we have
 
@@ -269,6 +265,6 @@ $$
 Therefore, $N$ has an $(s, t)$-flow whose flow value is $\text{val}(f) + \Delta$.
 
 ### (iv)
-By [京都大学 大学院 情報学研究科 数理工学専攻 2022年実施 グラフ理論](../2023/amp_202208_graph_theory.md) (i) and (iii) we know that $S$ is actually a minimum $s,t$-cut.
+Because no residual edge leaves $S$, every original edge leaving $S$ is saturated and every original edge entering $S$ carries zero flow. Thus (i) gives $\operatorname{val}(f)=\operatorname{cap}(S)$, so $S$ is a minimum $(s,t)$-cut. Suppose that some $A\subsetneq S$ with $s\in A$ also satisfied $\operatorname{cap}(A)=\operatorname{cap}(S)=\operatorname{val}(f)$. Equality in (i) would force every edge leaving $A$ to be saturated and every edge entering $A$ to carry zero flow. Hence no residual edge could leave $A$.
 
-Hence for any any set $A \subsetneq S$ with $s \in A$, we have $\text{cap}(A) > \text{cap}(S)$.
+Every vertex of $S$ is residual-reachable from $s$, so this would imply $S\subseteq A$, a contradiction. Therefore, $\operatorname{cap}(A)>\operatorname{cap}(S)$.

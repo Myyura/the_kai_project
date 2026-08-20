@@ -63,7 +63,7 @@ tags:
 
 ```text
 KruskalMST(G=(V,E), w):
-    sort edges E by weight ascending                  # O(|E| log |E|)
+    sort edges E by (weight, fixed edge ID) ascending # O(|E| log |E|)
     UF = UnionFind(|V|)
     T = ∅ ; WT = 0
     for each (u,v) in E (in ascending weight):
@@ -79,21 +79,19 @@ Total complexity: $O(|E| \log |E|) + O(|E|) = O(|E|\log|V|)$
 
 ### (2)
 
-$$
-1 + 6 + 6 + 12 + 33 = 58
-$$
+The selected edges are $ef(1),ae(6),ed(6),ab(12),cf(33)$, and their total weight is
+$1+6+6+12+33=58$.
 
 ### (3)
-The second-best minimum spanning tree differs from the MST by exactly one edge substitution.
-This property is discussed in Introduction to Algorithms (Cormen et al.), Problem 23-1, and the proof can be found in various publicly available solution notes and online discussions of CLRS exercises.
+A lightest spanning tree distinct from a chosen MST $T$ omits at least one edge of $T$. Hence it is enough to find the best spanning tree after excluding each edge of $T$ in turn.
 
 #### Using Kruskal's algorithm
-We can use Kruskal's algorithm to find the MST first, and then just try to remove a single edge from it and replace it with another.
+We can use Kruskal's algorithm to find the MST first, then exclude each of its edges in turn and recompute a spanning tree.
 
 1. Sort all edges of the graph in non-decreasing order of their weights, which requires $O(|E| \log |E|)$.
 2. Apply Kruskal’s algorithm to the sorted edge list to obtain an initial minimum spanning tree $T$, Since edge sorting has already been performed, this step requires $O(∣E∣)$ time.
 3. For each edge $e_i \in T$ (there are $|V| - 1$ such edges), temporarily remove it from the edge set so that it cannot be selected. Using the remaining edges, apply Kruskal’s algorithm again to construct a new spanning tree $T_i$ (if possible). Each such computation can be performed in $O(|E|)$ time.
-4. Among all feasible spanning trees $\{T_i\}$ obtained above, select the one whose total weight $W_i$ satisfies $W_i > W_T$ and $W_i = \min_j (W_j)$, where $W_T$ enotes the total weight of the initial MST $T$.
+4. Among all feasible spanning trees $\{T_i\}$ obtained above, select one with minimum total weight. Every spanning tree different from $T$ omits some edge of $T$, so this minimum is the second spanning tree (and may have the same weight as $T$ when the MST is not unique).
 
 The overall time complexity will be $O(|E| \log |V| + |E| + |V| |E|) = O(|V| |E|)$.
 
@@ -102,6 +100,5 @@ Please refer to [stackoverflow, 22109647, faster-second-best-mst-algorithm](http
 
 ### (4)
 
-$$
-1 + 6 + 6 + 12 + 35 = 60
-$$
+The selected edges are $ef(1),ae(6),ed(6),ab(12),cd(35)$, and their total weight is
+$1+6+6+12+35=60$.

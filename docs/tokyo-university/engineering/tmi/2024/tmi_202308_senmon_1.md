@@ -65,24 +65,32 @@ $$
 本题含四部分。
 
 1. 依次求以下常系数二阶方程的一般解：
+
    $$
    y''-4y'+3y=0,
    $$
+
    $$
    y''-4y'+3y=\cos2x,
    $$
+
    $$
    y''-4y'+3y=\cos2x+xe^{-3x}.
    $$
+
 2. 对非负实参数 $a,b$ 及
+
    $$
    A=\begin{pmatrix}a&b&0\\0&-a&a\\a&0&b\end{pmatrix},
    $$
+
    在 $a=2,b=3$ 时求全部特征值及每个特征值对应的全部单位特征向量；再求一般 $a,b$ 下 $A$ 可对角化的充要条件。
 3. 连续随机变量的密度为
+
    $$
    P(x)=\begin{cases}\alpha xe^{-\beta x},&x\ge0,\\0,&x<0,\end{cases}
    $$
+
    其中 $\alpha,\beta>0$。用 $\beta$ 表示归一化常数 $\alpha$、期望和方差。
 4. 一分钟被离散为 60 个整秒槽；两名以上用户的独立均匀登录尝试落在同一秒即报错。分别求 2 人和 3 人登录时发生错误的概率；对 10 人情形，利用题给对数近似判断至少一次冲突的概率是否大于 $50\%$ 并说明依据。
 
@@ -194,9 +202,15 @@ $$
 
 #### 2.
 
+各固有値は単純なので、長さ $1$ の固有ベクトルはそれぞれ
+
 $$
-v_1 = (3,2,6), v_2 = (-2,2,1), v_3=(-3,2,2)
+\lambda=4:\ \pm\frac{1}{7}(3,2,6),\qquad
+\lambda=-1:\ \pm\frac{1}{3}(-2,2,1),\qquad
+\lambda=0:\ \pm\frac{1}{\sqrt{17}}(-3,2,2)
 $$
+
+である。
 
 #### 3.
 $A$ の固有値を $\lambda$ とすると、
@@ -242,7 +256,7 @@ $$
 #### 1.
 
 $$
-\int_0^\infty xe^{-\beta x}dxx = \frac{1}{\beta^2}
+\int_0^\infty xe^{-\beta x}dx = \frac{1}{\beta^2}
 $$
 
 $$
@@ -252,13 +266,14 @@ $$
 #### 2.
 
 $$
-E[X] = \int_{0}^\infty xP(x) = a\int_0^\infty x^2e^{-\beta x}dx = \beta^2 \times \frac{2}{\beta^3} = \frac{2}{\beta}
+E[X] = \int_{0}^\infty xP(x)\,dx = \alpha\int_0^\infty x^2e^{-\beta x}dx = \beta^2 \times \frac{2}{\beta^3} = \frac{2}{\beta}
 $$
 
 #### 3.
 
 $$
-\text{Var}(X) = \frac{2}{\beta^2}
+E[X^2]=\beta^2\int_0^\infty x^3e^{-\beta x}dx=\frac{6}{\beta^2},\qquad
+\text{Var}(X)=E[X^2]-E[X]^2=\frac{2}{\beta^2}
 $$
 
 ### IV.

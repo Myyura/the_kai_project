@@ -7,7 +7,7 @@ tags:
 # 東京大学 情報理工学系研究科 電子情報学専攻 2019年8月実施 専門 第3問
 
 ## **Author**
-[adj-matrix](https://github.com/adj-matrix)
+[adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
@@ -88,16 +88,16 @@ if (j - i) <= (end - start) and CONTAIN-INTEGERS(M, A, i, j) then
 $N = 4, M = 2, A = \langle 1, 1, 0, 1 \rangle$
 | i | j | $A_{start}^{end}$ | start | end |
 | :---: | :---: | :---: | :---: | :---: |
-| 0 | 1 | <1 1 0 1> | 0 | 4 |
-| 0 | 2 | <1 1 0 1> | 0 | 4 |
-| 0 | 3 | <1 1 0> | 0 | 3 |
-| 0 | 4 | <1 1 0> | 0 | 3 |
-| 1 | 2 | <1 1 0> | 0 | 3 |
-| 1 | 3 | <1 0> | 1 | 3 |
-| 1 | 4 | <1 0> | 1 | 3 |
-| 2 | 3 | <1 0> | 1 | 3 |
-| 2 | 4 | <0 1> | 2 | 4 |
-| 3 | 4 | <0 1> | 2 | 4 |
+| 0 | 1 | &lt;1 1 0 1&gt; | 0 | 4 |
+| 0 | 2 | &lt;1 1 0 1&gt; | 0 | 4 |
+| 0 | 3 | &lt;1 1 0&gt; | 0 | 3 |
+| 0 | 4 | &lt;1 1 0&gt; | 0 | 3 |
+| 1 | 2 | &lt;1 1 0&gt; | 0 | 3 |
+| 1 | 3 | &lt;1 0&gt; | 1 | 3 |
+| 1 | 4 | &lt;1 0&gt; | 1 | 3 |
+| 2 | 3 | &lt;1 0&gt; | 1 | 3 |
+| 2 | 4 | &lt;0 1&gt; | 2 | 4 |
+| 3 | 4 | &lt;0 1&gt; | 2 | 4 |
 
 ### (3)
 
@@ -106,16 +106,26 @@ FIND-SNIPPET(N, M, A):
     start = 0
     end = N
     min_len = N + 1    // or infinite
+    count[0 .. M-1] = 0
+    distinct_count = 0
     j = 0
     for i = 0 to N - 1 do
-        while (j < N and not Contain-Integers(M, A, i, j)) do:
+        while (j < N and distinct_count < M) do:
+            if 0 <= A[j] < M then:
+                if count[A[j]] == 0 then:
+                    distinct_count = distinct_count + 1
+                count[A[j]] = count[A[j]] + 1
             j = j + 1
 
-        if Contain-Integers(M, A, i, j) then:
+        if distinct_count == M then:
             if j - i <= min_len then:
                 min_len = j - i
                 start = i
                 end = j
+        if 0 <= A[i] < M then:
+            count[A[i]] = count[A[i]] - 1
+            if count[A[i]] == 0 then:
+                distinct_count = distinct_count - 1
     return A_start^end
 ```
 
@@ -123,7 +133,7 @@ FIND-SNIPPET(N, M, A):
 
 **Use distinct-count:**
 - Maintain an array `count` of size $M$ and an integer `distinct_count`.
-- When expanding right (increasing j, let `x = A[j]`), if `count[x] == 0`, increment `distinct_count`, increment `count[x]`.
-- When shrinking left (increasing i,  let `y = A[i]`), decrement `count[y]`, if `count[y] == 0`, decrement `distinct_count`.
+- When expanding the right endpoint from `j` to `j + 1`, let `x = A[j]`; if $0\le x<M$, update `count[x]`, incrementing `distinct_count` when its old count was zero.
+- Before shrinking the left endpoint from `i` to `i + 1`, let `y = A[i]`; if $0\le y<M$, decrement `count[y]`, and if it becomes zero, decrement `distinct_count`.
 
 Check `contain-integers` return `distinct_count == M`.

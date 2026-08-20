@@ -14,7 +14,7 @@ tags:
 # 京都大学 情報学研究科 システム科学専攻 2019年8月実施 専門科目 確率統計
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html), [AKIRA](https://www.xiaohongshu.com/explore/6871bb3f000000000d01afdc?xsec_token=ABzqL-a7Z1UUEuH5W1f5wAJhySZaFfcwIp-8k2CbGTzus=)
+[Miyake](https://miyake.github.io/exams/index.html), [AKIRA](https://www.xiaohongshu.com/explore/6871bb3f000000000d01afdc?xsec_token=ABzqL-a7Z1UUEuH5W1f5wAJhySZaFfcwIp-8k2CbGTzus=), 祭音Myyura
 
 ## **Description**
 ### 問題1
@@ -210,7 +210,7 @@ $$
 - \frac{1}{\mu} + \frac{x}{\mu^2}
 \\
 &=
-\frac{\mu - x}{\mu^2}
+\frac{x-\mu}{\mu^2}
 \end{aligned}
 $$
 
@@ -237,7 +237,7 @@ E(X)
 \\
 &=
 - \left[ x \exp \left( - \frac{x}{\mu} \right) \right]_0^\infty
-+ \int_0^\infty x \exp \left( - \frac{x}{\mu} \right) dx
++ \int_0^\infty \exp \left( - \frac{x}{\mu} \right) dx
 \\
 &=
 - \mu \left[ \exp \left( - \frac{x}{\mu} \right) \right]_0^\infty
@@ -279,12 +279,13 @@ $$
 
 $$
 \begin{aligned}
-P(X \leq c \mid \mu) = 1 - \alpha &\Rightarrow c = -\mu \log \alpha \\
-&\Rightarrow P(X \mid X \leq -\mu \log \alpha) = 1 - \alpha \\
-&\Rightarrow P(\mu \mid \mu \geq \frac{-X}{\log \alpha}) = 1 - \alpha \\
-&\Rightarrow L(X) = \frac{-X}{\log \alpha}
+P_\mu\!\left(\mu\geq-\frac{X}{\log\alpha}\right)
+&=P_\mu(X\leq-\mu\log\alpha)\\
+&=1-\alpha.
 \end{aligned}
 $$
+
+よって $L(x)=-x/\log\alpha$ である。
 
 #### (2)
 ##### (2-1)
@@ -309,7 +310,7 @@ $$
 
 である。
 
-$U$ の確率密度関数 $f_U(u)$ を求めるために、次のように計算する：
+$u>0$ に対して、$U$ の確率密度関数 $f_U(u)$ を求めるために、次のように計算する：
 
 $$
 \begin{aligned}
@@ -333,18 +334,14 @@ P(X_1 \leq u) P(X_2 \leq u)
 \therefore \ \ 
 f_U(u)
 &=
-\frac{d}{du} P (U \leq u)
-\\
-&=
-\frac{d}{du} \left( 1 - \exp (-2u) \right)
-\\
-&=
 2 \exp (-2u)
 \end{aligned}
 $$
 
+従って、$f_U(u)=2e^{-2u}$ ($u>0$), $f_U(u)=0$ ($u\le0$) である。
+
 ##### (2-2)
-$V$ の確率密度関数 $f_V(v)$ を求めるために、次のように計算する：
+$v>0$ に対して、$V$ の確率密度関数 $f_V(v)$ を求めるために、次のように計算する：
 
 $$
 \begin{aligned}
@@ -370,6 +367,8 @@ f_V(v)
 2 \exp (-v) \left( 1 - \exp (-v) \right)
 \end{aligned}
 $$
+
+従って、$f_V(v)=2e^{-v}(1-e^{-v})$ ($v>0$), $f_V(v)=0$ ($v\le0$) である。
 
 ##### (2-3)
 $U,V$ の同時確率密度関数 $f(u,v)$ を求めるために、次の2通りを考える。
@@ -421,17 +420,14 @@ P(X_1 \leq u) P(X_2 \leq u)
 \end{aligned}
 $$
 
+従って、同時確率密度関数は
+
 $$
-\begin{aligned}
-\therefore \ \ 
-f(u,v)
-&=
-\frac{\partial}{\partial u}
-\frac{\partial}{\partial v}
-P (U \leq u \text{ and } V \leq v)
-\\
-&=
-2 \exp(-(u+v))
-.
-\end{aligned}
+f(u,v)=
+\begin{cases}
+2e^{-(u+v)},&0<u<v,\\
+0,&\text{otherwise}
+\end{cases}
 $$
+
+である（境界 $u=v$ の値は確率に影響しない）。

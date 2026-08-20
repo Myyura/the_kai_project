@@ -14,7 +14,7 @@ tags:
 # 九州大学 工学府 土木工学専攻 2021年8月実施 数学 (ALL)
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -45,15 +45,19 @@ $$
 **问题 3**：
 
 1. 求完全微分方程
+
    $$
    (y-x^3)\,dx+(x-\sin y)\,dy=0
    $$
+
    的通解。
 2. 对一般方程 $X(x,y)\,dx+Y(x,y)\,dy=0$，在积分因子只依赖 $y$ 时推导 $Q(y)$ 的公式。
 3. 为
+
    $$
    (xy^2-y^3)\,dx+(1-xy^2)\,dy=0
    $$
+
    求仅依赖 $y$ 的积分因子，并求通解。
 
 **问题 4**：现有解答可确认 $A$ 是四阶移位型幂零矩阵，并令 $B=bE+A$；要求计算 $A^n$、$B^n$。另有一个特征值为 $-2,3$ 的二阶矩阵 $C$，要求对角化；但原文件未保存 $A,C$ 的题设矩阵，不能可靠重写其元素。
@@ -81,8 +85,8 @@ $$
 
 ### 【問題 2】
 #### (1)
-曲面 $x=f(x,y)$ 上の点
-$P(x,y,f(x,y)), Q(x+\Delta x, y, f(x+\Delta x, y, f(x+\Delta x, y)), R(x, y+\Delta y, f(x, y+\Delta y))$
+曲面 $z=f(x,y)$ 上の点
+$P=(x,y,f(x,y))$, $Q=(x+\Delta x,y,f(x+\Delta x,y))$, $R=(x,y+\Delta y,f(x,y+\Delta y))$
 を考えると、 $\Delta x, \Delta y$ の1次までで
 
 $$
@@ -212,7 +216,7 @@ Q(y) &= \exp \left( \int dy \frac{1}{X(x,y)}
 \end{aligned}
 $$
 
-を得る。
+を得る。ただし右辺の被積分関数が $y$ のみの関数となることが必要である。
 
 #### (3)
 (2) の $X(x,y),Y(x,y)$ は今の場合、
@@ -244,7 +248,7 @@ Q(y) = \frac{1}{y^2}
 \end{aligned}
 $$
 
-を考えればよい。
+を考えればよい。ただし $y\ne0$ とする。
 このとき与えられた微分方程式は、
 
 $$
@@ -262,7 +266,7 @@ f(x,y) = \frac{1}{2} x^2 - xy - \frac{1}{y} + C
 \end{aligned}
 $$
 
-を得る。
+を得る。なお、積分因子を掛ける前の方程式には特異解 $y=0$ もある。
 
 ### 【問題 4】
 #### (1)
@@ -314,9 +318,9 @@ B^3
 b^3 & 3b^2 & 3b & 1 \\ 0 & b^3 & 3b^2 & 3b \\ 0 & 0 & b^3 & 3b^2 \\ 0 & 0 & 0 & b^3 \end{pmatrix}
 \\
 B^4
-&= b^4 E + 4b^3A + 6b^2A^2 + 3bA^3 + A^4
+&= b^4 E + 4b^3A + 6b^2A^2 + 4bA^3 + A^4
 \\
-&= b^4 E + 4b^3A + 6b^2A^2 + 3bA^3
+&= b^4 E + 4b^3A + 6b^2A^2 + 4bA^3
 \\
 &= \begin{pmatrix}
 b^4 & 4b^3 & 6b^2 & 4b \\ 0 & b^4 & 4b^3 & 6b^2 \\ 0 & 0 & b^4 & 4b^3 \\ 0 & 0 & 0 & b^4
@@ -329,10 +333,11 @@ $$
 $$
 \begin{aligned}
 B^n
-&= b^n E + nb^{n-1}A + \frac{n(n-1)}{2} b^{n-2}A^2 + nbA^3
+&= b^n E + nb^{n-1}A + \frac{n(n-1)}{2} b^{n-2}A^2
++ \frac{n(n-1)(n-2)}{6}b^{n-3}A^3
 \\
 &= \begin{pmatrix}
-b^n & nb^{n-1} & \frac{n(n-1)}{2}b^{n-2} & nb^{n-3} \\
+b^n & nb^{n-1} & \frac{n(n-1)}{2}b^{n-2} & \frac{n(n-1)(n-2)}{6}b^{n-3} \\
 0 & b^n & nb^{n-1} & \frac{n(n-1)}{2}b^{n-2} \\
 0 & 0 & b^n & nb^{n-1} \\ 0 & 0 & 0 & b^n
 \end{pmatrix}

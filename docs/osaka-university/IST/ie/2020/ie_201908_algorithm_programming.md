@@ -90,7 +90,7 @@ int main() {
     return 0;
 }
 ```
-#### <center> 図１
+#### <center> 図１</center>
 
 ```text
 6
@@ -101,7 +101,7 @@ int main() {
 60
 20
 ```
-#### <center> 図２ data.txt
+#### <center> 図２ data.txt</center>
 
 ```text
                                  0(40)
@@ -110,7 +110,7 @@ int main() {
                         /      \      /
                     3(10)    4(60)  5(20)
 ```
-#### <center> 図３ 二分木の例
+#### <center> 図３ 二分木の例</center>
 
 ### 题目描述
 
@@ -139,7 +139,7 @@ Heap Sort
 ```
 
 ### (3)
-d\[current\] >= d\[2 * current + 1\], d\[current\] >= d\[2 * current + 2\]
+存在する子について、d\[current\] >= d\[2 * current + 1\], d\[current\] >= d\[2 * current + 2\] が成り立つ。
 
 ### (4)
 The number of iterations in function uph(d, k) is bounded by the height of the tree, which is $\lfloor \log_2 n \rfloor = O(\log n)$.
@@ -159,21 +159,24 @@ Therefore, the worst case time complexity of the sort is $O(n \log n)$.
 ### (5-2)
 Note that
 
-- $\frac{1}{2}n$ elements ($\text{last}$ level) are pushed down at most $0$ steps (i.e. $\frac{1}{2}n \times 0$ swaps)
-- $\frac{1}{4}n$ elements ($\text{last} - 1$ level) are pushed down at most $1$ steps (i.e. $\frac{1}{4}n \times 1$ swaps)
-- $\frac{1}{8}n$ elements ($\text{last} - 2$ level) are pushed down at most $2$ steps (i.e. $\frac{1}{8}n \times 2$ swaps)
+- At most $\left\lceil\frac{n}{2}\right\rceil$ elements are pushed down at most $0$ steps.
+- At most $\left\lceil\frac{n}{4}\right\rceil$ elements are pushed down at most $1$ step.
+- At most $\left\lceil\frac{n}{8}\right\rceil$ elements are pushed down at most $2$ steps.
 - $\cdots$
 
 Therefore,
 
 $$
 \begin{aligned}
-T(n) &= \frac{n}{2} \times 0 + \frac{n}{4} \times 1 + \frac{n}{8} \times 2 + \cdots  \\
-&= \frac{n}{2} \sum_{j=0}^{\lfloor \log_2 n \rfloor} \frac{j}{2^{j}} \\
-&= \frac{n}{2} (2 - \frac{2 + \lfloor \log_2 n \rfloor}{2 ^ {\lfloor \log_2 n \rfloor}}) \\
-&\le n = O(n) 
+T(n) &\le \sum_{j=0}^{\lfloor\log_2 n\rfloor}
+\left\lceil\frac{n}{2^{j+1}}\right\rceil j \\
+&\le \frac{n}{2}\sum_{j=0}^{\lfloor\log_2 n\rfloor}\frac{j}{2^j}
+   +\sum_{j=0}^{\lfloor\log_2 n\rfloor}j \\
+&\le n+O((\log n)^2)=O(n).
 \end{aligned}
 $$
+
+したがって、$T(n)=O(n)$ である。
 
 ### (6)
 - (ア) child + 1 < n

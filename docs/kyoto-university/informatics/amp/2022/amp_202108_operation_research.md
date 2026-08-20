@@ -10,7 +10,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2021年8月実施 オペレーションズ・リサーチ
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -94,18 +94,22 @@ $$
 3. 假设 $\boldsymbol C$ 为正定对称矩阵，考虑
    $\min_{\boldsymbol x\in\mathbb R^n}f(\boldsymbol x)$。若
    $\boldsymbol x^*$ 是其全局最优解，证明
+
    $$
    (\boldsymbol x^*)^\top\boldsymbol x^*
    \leqq\frac{\boldsymbol b^\top\boldsymbol b}
    {\lambda_{\min}(\boldsymbol C)},
    $$
+
    其中 $\lambda_{\min}(\boldsymbol C)$ 为 $\boldsymbol C$ 的最小特征值。
 4. 假设 $\boldsymbol A$、$\boldsymbol b$ 均为零，并对 $\alpha>0$ 考虑
+
    $$
    \min f(\boldsymbol x)
    \quad\text{满足}\quad
    \boldsymbol x^\top\boldsymbol x\leqq\alpha.
    $$
+
    若 $(\hat{\boldsymbol x},\rho)$ 与
    $(\bar{\boldsymbol x},\rho)$ 都满足该问题的 KKT 条件，证明
    $f(\hat{\boldsymbol x})=f(\bar{\boldsymbol x})$。
@@ -131,43 +135,33 @@ y - \sum_{i=1}^{n}x_iz^i - Ax + b &= 0\\
 $$
 
 ### (ii)
-$(z^i)^\top z^i$ is convex, $y^\top y$ is convex, then the objective function is convex.
+Each $(z^i)^\top z^i$ and $y^\top y$ is convex, while $x^\top Cx$ is constant with respect to the decision variables. Hence the objective function is convex.
 
 ### (iii)
 By (i) we have
 
 $$
-z^i = x_i y , y = \frac{Ax - b}{1 + x^\top x}
+z^i=-x_i y,\qquad y=\frac{Ax-b}{1+x^\top x},
 $$
 
 and
 
 $$
-\begin{aligned}
-\sum_{i=1}^{n} (z^i)^\top z^i + y^\top y + x^\top C x &= (1+x^\top x)\\
-y^\top y + x^\top C x &= \frac{(Ax - b)^\top (Ax - b)}{ 1 + x^\top x} + x^\top X x = f(x)
-\end{aligned}
+f(x)=\frac{(Ax-b)^\top(Ax-b)}{1+x^\top x}+x^\top Cx.
 $$
 
-$$
-f(x^*) \leq f(0)
-$$
-
-$$
-b^\top b \geq \frac{(Ax^* - b)^\top(AX^* - b)}{1+(x^*)^2}
-$$
-
-since $C$ is symmetric positive difinete, $C$ can be decomposited as $C = P^{-1} \Lambda P $, and $P^{-1} = P^\top$
+Since $x^*$ is globally optimal,
 
 $$
 \begin{aligned}
-(x^*)^\top C x^* &= (Px^*)^\top \Lambda Px^* \\
-&\geq \lambda_{min}(C)||(Px^*)^\top|| *||Px^*|| \\
-&=\lambda_{min}(C) (x^*)^\top x^*
+\lambda_{\min}(C)(x^*)^\top x^*
+&\le (x^*)^\top Cx^*\\
+&\le f(x^*)\\
+&\le f(0)=b^\top b.
 \end{aligned}
 $$
 
-Thus $(x^*)^\top x^* \leq \frac{b^\top b}{\lambda_{min}(C)}$
+Therefore $(x^*)^\top x^*\le b^\top b/\lambda_{\min}(C)$.
 
 ### (iv)
 
@@ -189,7 +183,7 @@ $$
 \begin{aligned}
 (C^\top + C)x + 2\rho x &= \mathbf{0} \\
 \rho (x^\top x - \alpha) &= 0 \\
-\rho  \geq  0, x^\top x^\top x - \alpha &\leq 0 \\
+\rho&\geq0,\qquad x^\top x-\alpha\leq0.
 \end{aligned}
 \right.
 $$
@@ -199,9 +193,14 @@ $$
 $$
 
 $$
-2 \widetilde{x}^\top C \widetilde{x} = -2\rho \widetilde{x}^\top \widetilde{x}
+2 \bar{x}^\top C \bar{x} = -2\rho \bar{x}^\top \bar{x}
 $$
 
-If $\rho \neq 0$, then $\hat{x}^2 = \widetilde{x}^2 = \alpha ,\hat{x}^\top C \hat{x} = -\rho \alpha = \widetilde{x}^\top C \widetilde{x}$.
+If $\rho\ne0$, complementarity gives $\hat{x}^\top\hat{x}=\bar{x}^\top\bar{x}=\alpha$, and hence
 
-If $\rho = 0$, then $\hat{x}^\top C \hat{x} = 0 = \widetilde{x}^\top C \widetilde{x}$.
+$$
+f(\hat{x})=\hat{x}^\top C\hat{x}=-\rho\alpha
+=\bar{x}^\top C\bar{x}=f(\bar{x}).
+$$
+
+If $\rho=0$, the two displayed stationarity identities give $f(\hat{x})=f(\bar{x})=0$.

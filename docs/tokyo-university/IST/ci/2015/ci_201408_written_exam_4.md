@@ -13,7 +13,7 @@ tags:
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2014年8月実施 筆記試験 第4問
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki)
+[itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
 
@@ -58,4 +58,16 @@ If necessary, use examples or figures.
 
 ## **Kai**
 #### Half adder
-A half adder is a combinational circuit with two bits as input and two bits as output. It takes A and B, and arithmetically compute the sum of A and B and the carry of this addition, where the sum $S=A\oplus B$ (the XOR operation) and $C=AB$ (the AND operation), i.e. it consists of a XOR gate and an AND gate. By connecting 2 half adders and an OR gate, we can build a full adder which also takes an input carry as well.
+A half adder is a combinational circuit with two bits as input and two bits as output. It takes $A$ and $B$, and arithmetically computes the sum of $A$ and $B$ and the carry of this addition, where the sum $S=A\oplus B$ (the XOR operation) and $C=AB$ (the AND operation), i.e. it consists of an XOR gate and an AND gate. By connecting two half adders and an OR gate, we can build a full adder which also takes an input carry as well.
+
+#### Superscalar
+
+A superscalar processor can issue and execute more than one instruction per clock cycle using multiple functional units. It checks data and structural dependencies, and may use register renaming and out-of-order scheduling. The achieved throughput is limited by dependencies, branches, and available units.
+
+#### Support Vector Machine
+
+For binary classification, an SVM chooses the separating hyperplane with maximum margin; only the closest training points, the support vectors, determine it. Soft-margin SVMs allow violations through slack variables. A kernel replaces inner products to obtain nonlinear decision boundaries.
+
+#### Just-in-time compiler
+
+A JIT compiler translates bytecode or an intermediate representation into native code during execution. Runtime profiles identify hot code and enable specialization and optimization; the cost is compilation delay and extra memory. Managed runtimes such as Java and .NET commonly use JIT compilation.

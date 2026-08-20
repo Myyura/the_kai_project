@@ -74,7 +74,7 @@ int main(void) {
     return 0;
 }
 ```
-#### <center> 図１ プログラム
+#### <center> 図１ プログラム</center>
 
 ```text
 10
@@ -86,14 +86,14 @@ int main(void) {
 8   4
 9   8
 ```
-#### <center> 図２ input.txt
+#### <center> 図２ input.txt</center>
 
 ```text
 9   7
 6   4
 0   2
 ```
-#### <center> 図３ pair.txt
+#### <center> 図３ pair.txt</center>
 
 ```text
                                     (0)
@@ -102,7 +102,7 @@ int main(void) {
                                  |     /   \
                                 (3)  (4)   (5)
 ```
-#### <center> 図４ 木の表記例 
+#### <center> 図４ 木の表記例</center>
 
 ### 题目描述
 
@@ -124,7 +124,7 @@ int main(void) {
 ### (1)
 #### (1-1)
 ```text
-            (0)                         (1)
+            (0)                         (1)                    (5)
              |                        /     \
             (2)                     (3)     (7)
                                   /     \
@@ -152,7 +152,7 @@ Therefore, if the average depth of node is $h$, the average time complexity of f
 
 ### (2-2-1)
 ```text
-return p[x] = find(p[x])
+return p[x] = find(p[x]);
 ```
 
 ### (2-2-2)

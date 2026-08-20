@@ -116,6 +116,16 @@ $$
 p^{(1)} = M p^{(0)}, \ p^{(2)} = M p^{(1)} = M^{2} p^{(0)}
 $$
 
+Since $p_1^{(t+1)}=\frac12p_2^{(t)}$ and $p_2^{(t+1)}=p_1^{(t)}$,
+
+$$
+p_1^{(t)}=
+\begin{cases}2^{-t/2},&t\text{ even},\\0,&t\text{ odd},\end{cases}
+\qquad
+p_2^{(t)}=
+\begin{cases}0,&t\text{ even},\\2^{-(t-1)/2},&t\text{ odd}.\end{cases}
+$$
+
 ### (3)
 The eigenvalues of $M$ are
 
@@ -147,14 +157,18 @@ $$
 ### (4)
 When $\alpha = \frac{1}{3}$,
 
-- If jump, $A = M$
-- If not, Moves to any page with equal probability $\frac{1}{3}$
+- If no jump occurs, the transition is $M$.
+- If a jump occurs, each destination has probability $1/3$.
 
 $$
 \begin{aligned}
 A &= (1-\alpha)M + \alpha \begin{bmatrix} 1/3 & 1/3 & 1/3 \\ 1/3 & 1/3 & 1/3 \\ 1/3 & 1/3 & 1/3 \end{bmatrix} \\ &= \frac{2}{3} \begin{bmatrix} 0 & 0.5 & 0 \\ 1 & 0 & 0 \\ 0 & 0.5 & 1 \end{bmatrix} + \frac{1}{3} \begin{bmatrix} 1/3 & 1/3 & 1/3 \\ 1/3 & 1/3 & 1/3 \\ 1/3 & 1/3 & 1/3 \end{bmatrix} \\ &= \begin{bmatrix} 0 & 3/9 & 0 \\ 6/9 & 0 & 0 \\ 0 & 3/9 & 6/9 \end{bmatrix} + \begin{bmatrix} 1/9 & 1/9 & 1/9 \\ 1/9 & 1/9 & 1/9 \\ 1/9 & 1/9 & 1/9 \end{bmatrix} \\ &= \frac{1}{9} \begin{bmatrix} 1 & 4 & 1 \\ 7 & 1 & 1 \\ 1 & 4 & 7 \end{bmatrix}
 \end{aligned}
 $$
+
+Thus the diagram has outgoing probabilities
+$1\to(1,2,3):(1,7,1)/9$, $2\to(1,2,3):(4,1,4)/9$, and
+$3\to(1,2,3):(1,1,7)/9$.
 
 ### (5)
 Let $p = (x, y, z)^{\top}$. Then, by solving $Ap = p$, i.e., the following equations
@@ -184,15 +198,16 @@ $$
 R^{\top} \boldsymbol{1} = 1 \cdot \boldsymbol{1}
 $$
 
-which implies that $1$ is an eigenvalue of $R$.
+which implies that $1$ is an eigenvalue of $R^{\top}$.
 
-Therefore, by the Perron Frobenius theorem, $1$ is the unique positive real eigenvalue with the largest absolute value as $R$ is a positive matrix.
+Since $R^{\top}$ is positive and $\boldsymbol 1$ is a positive eigenvector, the Perron--Frobenius eigenvalue is $1$. Therefore every other eigenvalue has absolute value less than $1$.
 
 ### (7)
-We prove it by contradiction.
+Since $R$ and $R^{\top}$ have the same eigenvalues, $R$ has eigenvalue $1$. Perron--Frobenius gives a positive eigenvector $v$; normalizing it by $p=v/(\boldsymbol1^{\top}v)$ yields a stationary distribution $Rp=p$.
 
-Assume that there exists two different stationary distributions $p$ and $q$.
-Then by (4) we have
+For uniqueness, assume that there exist two different stationary distributions $p$ and $q$.
+
+Then by definition we have
 
 $$
 Rp = 1 \cdot p, \quad Rq = 1 \cdot q

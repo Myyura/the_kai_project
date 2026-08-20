@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2023年8月実施 プログラミング
 
 ## **Author**
-[itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang)
+[itsuitsuki](https://github.com/itsuitsuki), [FunTotal](https://github.com/totalhuang), 祭音Myyura
 
 ## **Description**
 プログラミング言語 $P$ の変数の値は 0 以上 999 以下の整数とする。変数名は `x1`, `x27` のように `x` から始まり 0 以上 999 以下の整数が続く名前とする。  
@@ -228,11 +228,7 @@ We currently do not have the corresponding sample data files. If you have them a
 
 ff_list = ["./data1a.txt","./data1b.txt","./data1c.txt"]
 for ff in ff_list:
-    var_lower_b = [float("nan") for _ in range(1000)]
-    var_upper_b = [float("nan") for _ in range(1000)]
-    set_visit = set()
-    max_diff = 0
-    argmax_diff = set()
+    bounds = {}
     with open(ff, "r") as f:
         for line in f.readlines():
             digits = [int(digit) for digit in line.split(',')]
@@ -240,16 +236,11 @@ for ff in ff_list:
                 if var_idx < 0 or var_idx > 999:
                     continue
                 ii = 3*i # in orig array
-                var_lower_b[var_idx] = digits[ii+1]
-                var_upper_b[var_idx] = digits[ii+2]
-                set_visit.add(var_idx)
-                if max_diff < digits[ii+2] - digits[ii+1]:
-                    max_diff = digits[ii+2] - digits[ii+1]
-                    argmax_diff = set()
-                    argmax_diff.add(var_idx)
-                elif max_diff == digits[ii+2] - digits[ii+1]:
-                    argmax_diff.add(var_idx)
-        print(argmax_diff, ":", max_diff)
+                bounds[var_idx] = (digits[ii+1], digits[ii+2])
+    max_diff = max(upper - lower for lower, upper in bounds.values())
+    for var_idx, (lower, upper) in bounds.items():
+        if upper - lower == max_diff:
+            print(f"x{var_idx}: {lower} to {upper}")
 ```
 
 #### FunTotal's solution
@@ -260,9 +251,9 @@ for ff in ff_list:
 #define pii pair<int, int>
 #define tii tuple<int, int, int>
 using namespace std;
-void solve() {
-    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2023_summer/data1a.txt");
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2023_summer/ans1.txt");
+void solve(char suffix) {
+    ifstream fin("data1" + string(1, suffix) + ".txt");
+    ofstream fout("ans1" + string(1, suffix) + ".txt");
     string str; fin >> str;
     int num = 0;
     vector<int> vec;
@@ -273,27 +264,24 @@ void solve() {
         else num = num * 10 + str[i] - '0';
         if (i == (int)str.length() - 1) vec.push_back(num);
     }
-    int mxdiff = 0, ansmn = 0;
-    vector<int> ans;
+    int mxdiff = -1;
+    vector<tii> ans;
     for (int i = vec.size() - 3; i >= 0; i -= 3) { //从右往左，每个变量只看第一次出现
         int x = vec[i], mn = vec[i + 1], mx = vec[i + 2];
         if (mp.count(x)) continue;
         mp[x] = 1;
-        if (mx - mn == mxdiff) ans.push_back(x);
+        if (mx - mn == mxdiff) ans.push_back({x, mn, mx});
         else if (mx - mn > mxdiff) {
             ans.clear();
-            ans.push_back(x);
+            ans.push_back({x, mn, mx});
             mxdiff = mx - mn;
-            ansmn = mn;
         }
     }
-    fout << "the mininum val and the max val are:" << ansmn << ", " << ansmn + mxdiff << "\n the variables are:";
-    for (auto v : ans)
-        fout << v << ", ";
-    fout << "\n";
+    for (auto [x, mn, mx] : ans)
+        fout << "x" << x << ": " << mn << ", " << mx << "\n";
 }
 signed main() {
-    solve();
+    for (char suffix : {'a', 'b', 'c'}) solve(suffix);
     return 0;
 }
 ```
@@ -302,11 +290,10 @@ signed main() {
 #### itsuitsuki's solution
 
 ```python
-left_operand_freq = {}
 # right_operand_freq = {}
 ff_list = ["./data2a.txt","./data2b.txt","./data2c.txt"]
-ff_list = ["./data2a.txt"]
 for ff in ff_list:
+    left_operand_freq = {}
     with open(ff, "r") as f:
         for line in f.readlines():
             digits = [int(digit) for digit in line.split(',')]
@@ -316,16 +303,10 @@ for ff in ff_list:
                 else:
                     left_operand_freq[var_idx] = 1
 
-max_freq = 0
-argmax_freq = set()
-for var_idx, freq in left_operand_freq.items():
-    if max_freq < freq:
-        argmax_freq = set([var_idx])
-        max_freq = freq
-    elif max_freq == freq:
-        argmax_freq.add(var_idx)
-        
-print(argmax_freq,":",freq)
+    max_freq = max(left_operand_freq.values())
+    argmax_freq = {var_idx for var_idx, freq in left_operand_freq.items()
+                   if freq == max_freq}
+    print(ff, argmax_freq, ":", max_freq)
 ```
 
 #### FunTotal's solution
@@ -335,9 +316,9 @@ print(argmax_freq,":",freq)
 #define pii pair<int, int>
 #define tii tuple<int, int, int>
 using namespace std;
-void solve() {
-    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2023_summer/data2a.txt");
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2023_summer/ans2.txt");
+void solve(char suffix) {
+    ifstream fin("data2" + string(1, suffix) + ".txt");
+    ofstream fout("ans2" + string(1, suffix) + ".txt");
     string str; fin >> str;
     int num = 0;
     vector<int> vec;
@@ -362,9 +343,10 @@ void solve() {
     fout << "the max appear count is: " << mxcnt << "\n";
     fout << "and the variable(s): ";
     for (auto it : ans) fout << it << ", ";
+    fout << "\n";
 }
 signed main() {
-    solve();
+    for (char suffix : {'a', 'b', 'c'}) solve(suffix);
     return 0;
 }
 ```
@@ -377,10 +359,10 @@ ff_list_1 = ["./data3a1.txt","./data3b1.txt","./data3c1.txt"] # for assign
 ff_list_2 = ["./data3a2.txt","./data3b2.txt","./data3c2.txt"] # for assign
 lst = [31,41,51]
 
-for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
+for ff1, ff2 in zip(ff_list_1, ff_list_2):
     var_lower_b = [0 for _ in range(1000)] # inclusive
     var_upper_b = [100 for _ in range(1000)] # incl
-    visited = set()
+    program_appeared = set()
     with open(ff1, "r") as f1:
         lines1 = f1.readlines()
         assign_digits = []
@@ -397,19 +379,18 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
         ii = 3*i # in orig array
         var_lower_b[var_idx] = bounds_digits[ii+1]
         var_upper_b[var_idx] = bounds_digits[ii+2]
-        visited.add(var_idx)
 
     for left, right in zip(assign_digits[::2],assign_digits[1::2]):
         var_lower_b[left] = var_lower_b[right]
         var_upper_b[left] = var_upper_b[right]
-        visited.add(left)
-        visited.add(right)
+        program_appeared.add(left)
+        program_appeared.add(right)
         
-    for var_idx in list(visited):
+    for var_idx in sorted(program_appeared):
         print(var_idx,":",var_lower_b[var_idx],"to",var_upper_b[var_idx])
     print("-"*20)
     for var_idx in lst:
-        if var_idx not in visited:
+        if var_idx not in program_appeared:
             print(var_idx,": Undefined")
             continue
         print(var_idx,":",var_lower_b[var_idx],"to",var_upper_b[var_idx])
@@ -435,10 +416,10 @@ output:
         The minval and mxval of 7 are: (1, 3)
         The minval and mxval of 11 are: (5, 9)
 */
-void solve() {
-    ifstream fin1("E:/UTokyo_Entrance_Exam/CI/2023_summer/data3a1.txt");
-    ifstream fin2("E:/UTokyo_Entrance_Exam/CI/2023_summer/data3a2.txt");
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2023_summer/ans3.txt");
+void solve(char suffix) {
+    ifstream fin1("data3" + string(1, suffix) + "1.txt");
+    ifstream fin2("data3" + string(1, suffix) + "2.txt");
+    ofstream fout("ans3" + string(1, suffix) + ".txt");
     string str; fin1 >> str;
     int num = 0;
     vector<int> vec1, vec2; //vec1存赋值, vec2存变量范围
@@ -466,7 +447,10 @@ void solve() {
         range[x] = {l, r};
     }
     pii ans[3];
-    vector<int> tar = {3, 7, 11};
+    vector<int> tar = {31, 41, 51};
+    vector<bool> appeared(maxn, false);
+    for (int i = 0; i < vec1.size(); i += 2)
+        appeared[vec1[i]] = appeared[vec1[i + 1]] = true;
     {
         // 处理最小值
         vector<int> nowval(maxn);
@@ -491,7 +475,7 @@ void solve() {
                 nowval[i] = range[i].second;
         for (int i = 0; i < vec1.size(); i += 2) {
             int xl = vec1[i], xr = vec1[i + 1];
-            if (nowval[xr] == -1) nowval[xr] = 999;
+            if (nowval[xr] == -1) nowval[xr] = 100;
             nowval[xl] = nowval[xr];
         }
         int tem = 0;
@@ -499,7 +483,7 @@ void solve() {
     }
     int tem = 0;
     for (auto tarnum : tar) {
-        if (ans[tem] == pii(-1, -1)) {
+        if (!appeared[tarnum]) {
             fout << "tarnum " << tarnum << " is undefined\n";
             tem++;
             continue;
@@ -508,7 +492,7 @@ void solve() {
     }
 }
 signed main() {
-    solve();
+    for (char suffix : {'a', 'b', 'c'}) solve(suffix);
     return 0;
 }
 ```
@@ -516,15 +500,16 @@ signed main() {
 ### (4)
 #### itsuitsuki's solution
 ```python
-ff_list_1 = ["./data4a1.txt"] # for assign
-ff_list_2 = ["./data4a2.txt"] # for bound
+ff_list_1 = ["./data4a1.txt","./data4b1.txt","./data4c1.txt"] # for assign
+ff_list_2 = ["./data4a2.txt","./data4b2.txt","./data4c2.txt"] # for bound
 lst = [31,41,51]
 
-for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
+for ff1, ff2 in zip(ff_list_1, ff_list_2):
     var_lower_b = [0 for _ in range(1000)] # inclusive
     var_upper_b = [100 for _ in range(1000)] # incl
     var_lower_b_dur = {} # during execution
     var_upper_b_dur = {}
+    current = [None for _ in range(1000)]
     visited = set()
     with open(ff1, "r") as f1:
         lines1 = f1.readlines()
@@ -545,22 +530,15 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
         # visited.add(var_idx)
 
     for left, right in zip(assign_digits[::2],assign_digits[1::2]):
-        var_lower_b[left] = var_lower_b[right]
-        var_upper_b[left] = var_upper_b[right]
-        if left in var_lower_b_dur.keys():
-            var_lower_b_dur[left] = min(var_lower_b[right], var_lower_b_dur[left])
-        else:
-            var_lower_b_dur[left] = var_lower_b[right]
-        if left in var_upper_b_dur.keys():
-            # print(var_idx,var_upper_b_dur[left])
-            var_upper_b_dur[left] = max(var_upper_b[right], var_upper_b_dur[left])
-            # print(var_idx,var_upper_b_dur[left])
-        else:
-            # print(var_idx,var_upper_b_dur[left])
-            var_upper_b_dur[left] = var_upper_b[right]
-            # print(var_idx,var_upper_b_dur[left])
+        if current[right] is None:
+            current[right] = (var_lower_b[right], var_upper_b[right])
+            var_lower_b_dur[right], var_upper_b_dur[right] = current[right]
+        current[left] = current[right]
+        lower, upper = current[left]
+        var_lower_b_dur[left] = min(lower, var_lower_b_dur.get(left, lower))
+        var_upper_b_dur[left] = max(upper, var_upper_b_dur.get(left, upper))
         visited.add(left)
-        # visited.add(right)
+        visited.add(right)
         
     for var_idx in list(visited):
         print(var_idx,":",var_lower_b_dur[var_idx],"to",var_upper_b_dur[var_idx])
@@ -592,10 +570,10 @@ output:
             tarnum 114 is undefined
 
 */
-void solve() {
-    ifstream fin1("E:/UTokyo_Entrance_Exam/CI/2023_summer/data4a1.txt");
-    ifstream fin2("E:/UTokyo_Entrance_Exam/CI/2023_summer/data4a2.txt");
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2023_summer/ans4.txt");
+void solve(char suffix) {
+    ifstream fin1("data4" + string(1, suffix) + "1.txt");
+    ifstream fin2("data4" + string(1, suffix) + "2.txt");
+    ofstream fout("ans4" + string(1, suffix) + ".txt");
     string str;
     fin1 >> str;
     int num = 0;
@@ -623,8 +601,8 @@ void solve() {
         int x = vec2[i], l = vec2[i + 1], r = vec2[i + 2];
         range[x] = {l, r};
     }
-    pii ans[4] = {{1000, 0}, {1000, 0}, {1000, 0}, {1000, 0}};
-    vector<int> tar = {3, 7, 11, 114};
+    pii ans[3] = {{1000, 0}, {1000, 0}, {1000, 0}};
+    vector<int> tar = {31, 41, 51};
     {
         // 处理最小值
         vector<int> nowval(maxn);
@@ -652,7 +630,7 @@ void solve() {
             int xl = vec1[i], xr = vec1[i + 1];
             if (nowval[xr] == -1) {
                 if (range[xr] != pii{-1, -1}) nowval[xr] = range[xr].second;
-                else nowval[xr] = 1000;
+                else nowval[xr] = 100;
             }
             nowval[xl] = nowval[xr];
             int tem = 0;
@@ -675,7 +653,7 @@ void solve() {
     }
 }
 signed main() {
-    solve();
+    for (char suffix : {'a', 'b', 'c'}) solve(suffix);
     return 0;
 }
 ```
@@ -689,7 +667,7 @@ from copy import deepcopy
 ff_list_1 = ["./data5a1.txt","./data5b1.txt","./data5c1.txt"] # for assign
 ff_list_2 = ["./data5a2.txt","./data5b2.txt","./data5c2.txt"] # for bound
 
-for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
+for ff1, ff2 in zip(ff_list_1, ff_list_2):
     var_lower_b = [0 for _ in range(1000)] # inclusive
     var_upper_b = [100 for _ in range(1000)] # incl
     var_lower_b_dur = {} # during execution
@@ -742,6 +720,8 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
             if ori_l_b[var_idx] > var_lower_b_dur[var_idx] or \
                 ori_u_b[var_idx] < var_upper_b_dur[var_idx]:
                 print(var_idx,"inconsistent")
+                inconsis.add(var_idx)
+    print("Result:", sorted(inconsis) if inconsis else None)
     print("="*20)
 ```
 
@@ -760,10 +740,10 @@ data5a2.txt: 3,5,9,7,1,3,10,1,9,11,1,3
 output: None
 
 */
-void solve() {
-    ifstream fin1("E:/UTokyo_Entrance_Exam/CI/2023_summer/data5a1.txt");
-    ifstream fin2("E:/UTokyo_Entrance_Exam/CI/2023_summer/data5a2.txt");
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2023_summer/ans5.txt");
+void solve(char suffix) {
+    ifstream fin1("data5" + string(1, suffix) + "1.txt");
+    ifstream fin2("data5" + string(1, suffix) + "2.txt");
+    ofstream fout("ans5" + string(1, suffix) + ".txt");
     string str;
     fin1 >> str;
     int num = 0;
@@ -822,9 +802,8 @@ void solve() {
             int xl = vec1[i], xr = vec1[i + 1];
             if (nowval[xr] == -1) {
                 if (range[xr] != pii{-1, -1}) nowval[xr] = range[xr].second;
-                else nowval[xr] = 0;
+                else nowval[xr] = 100;
             }
-            nowval[xl] = nowval[xr];
             nowval[xl] = nowval[xr];
             ans[xl].second = max(ans[xl].second, nowval[xl]);
         }
@@ -832,6 +811,7 @@ void solve() {
     vector<int> res; // 存储越界的变量
     for (int i = 0; i < maxn; i++) {
         if (ans[i] == pii{1000, 0}) continue; //未出现的变量不算
+        if (range[i] == pii{-1, -1}) continue; //没有不等式的变量没有齟齬
         if (ans[i].first < range[i].first || ans[i].second > range[i].second)
             res.push_back(i);
     }
@@ -842,9 +822,10 @@ void solve() {
     fout << "inconsistent varibles are: ";
     for (auto it : res)
         fout << it << ", ";
+    fout << "\n";
 }
 signed main() {
-    solve();
+    for (char suffix : {'a', 'b', 'c'}) solve(suffix);
     return 0;
 }
 ```
@@ -853,14 +834,14 @@ signed main() {
 #### itsuitsuki's solution
 ```python
 from copy import deepcopy
-ff_list_1 = ["./data6a1.txt",] # for assign
-ff_list_2 = ["./data6a2.txt",] # for assign
-lst = [31,41,51]
+ff_list_1 = ["./data6a1.txt","./data6b1.txt","./data6c1.txt"] # for assign
+ff_list_2 = ["./data6a2.txt","./data6b2.txt","./data6c2.txt"] # for bound
 
-for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
+for ff1, ff2 in zip(ff_list_1, ff_list_2):
     var_lower_b = [0 for _ in range(1000)] # inclusive
     var_upper_b = [100 for _ in range(1000)] # incl
     visited = set()
+    constrained = set()
     inconsistency = set() # set of tuples
     with open(ff1, "r") as f1:
         lines1 = f1.readlines()
@@ -878,6 +859,7 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
         ii = 3*i # in orig array
         var_lower_b[var_idx] = bounds_digits[ii+1]
         var_upper_b[var_idx] = bounds_digits[ii+2]
+        constrained.add(var_idx)
     ori_l_b = deepcopy(var_lower_b)
     ori_u_b = deepcopy(var_upper_b)
     
@@ -885,7 +867,8 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
         var_lower_b[left] = var_lower_b[right]
         var_upper_b[left] = var_upper_b[right]
         visited.add(left)
-        if not (ori_l_b[left] <= ori_l_b[right] <= ori_u_b[right] <= ori_u_b[left]):
+        if left in constrained and right in constrained and not (
+                ori_l_b[left] <= ori_l_b[right] <= ori_u_b[right] <= ori_u_b[left]):
             inconsistency.add((left, right))
         
     for inc in inconsistency:
@@ -911,10 +894,10 @@ output:
         inconsistent assignments are: x11 = x10, 
 
 */
-void solve() {
-    ifstream fin1("E:/UTokyo_Entrance_Exam/CI/2023_summer/data6a1.txt");
-    ifstream fin2("E:/UTokyo_Entrance_Exam/CI/2023_summer/data6a2.txt");
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2023_summer/ans6.txt");
+void solve(char suffix) {
+    ifstream fin1("data6" + string(1, suffix) + "1.txt");
+    ifstream fin2("data6" + string(1, suffix) + "2.txt");
+    ofstream fout("ans6" + string(1, suffix) + ".txt");
     string str;
     fin1 >> str;
     int num = 0;
@@ -946,7 +929,7 @@ void solve() {
     for (int i = 0; i < vec1.size(); i += 2) {
         int xl = vec1[i], xr = vec1[i + 1];
         if (range[xl] == pii{1000, 0} || range[xr] == pii{1000, 0}) {
-            s.insert(pii{xl, xr});
+            continue;
         }
         if (range[xl].first > range[xr].first || range[xl].second < range[xr].second)
             s.insert(pii{xl, xr});
@@ -956,121 +939,67 @@ void solve() {
         fout << "inconsistent assignments are: ";
         for (auto [xn, xm] : s)
             fout << "x" << xn << " = x" << xm << ", ";
+        fout << "\n";
     }
 }
 signed main() {
-    solve();
+    for (char suffix : {'a', 'b', 'c'}) solve(suffix);
     return 0;
 }
 ```
 
 ### (7)
 #### itsuitsuki's solution
-This script should be run multiple times for achieving the final result.
+For an assignment `xL = xR`, add the containment edge `L -> R`.
 
 ```python
-from copy import deepcopy
-ff_list_1 = ["./data6a1.txt",] # for assign
-ff_list_2 = ["./data6a2.txt",] # for assign
+from collections import defaultdict, deque
 
-for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
-    var_lower_b = [0 for _ in range(1000)] # inclusive
-    var_upper_b = [100 for _ in range(1000)] # incl
-    initial = set()
-    assign_appeared = set()
-    assigns = set()
-    inconsistency = set() # set of tuples
-    proposed_ranges = {}
-    with open(ff1, "r") as f1:
-        lines1 = f1.readlines()
-        assign_digits = []
-        for line in lines1:
-            assign_digits += [int(digit) for digit in line.split(',')]
-    with open(ff2, "r") as f2:
-        lines2 = f2.readlines()
-        bounds_digits = []
-        for line in lines2:
-            bounds_digits += [int(digit) for digit in line.split(',')]
-    for i, var_idx in enumerate(bounds_digits[0::3]):
-        if var_idx < 0 or var_idx > 999:
-            continue
-        ii = 3*i # in orig array
-        var_lower_b[var_idx] = bounds_digits[ii+1]
-        var_upper_b[var_idx] = bounds_digits[ii+2]
-        initial.add(var_idx)
-    ori_l_b = deepcopy(var_lower_b)
-    ori_u_b = deepcopy(var_upper_b)
-    
-    for left, right in zip(assign_digits[::2],assign_digits[1::2]):
-        var_lower_b[left] = var_lower_b[right]
-        var_upper_b[left] = var_upper_b[right]
-        assign_appeared.add(left)
-        assign_appeared.add(right)
-        assigns.add((left, right))
+program_files = [f"./data7{s}1.txt" for s in "abc"]
+bound_files = [f"./data7{s}2.txt" for s in "abc"]
 
-    # those in assign_appeared but not in initial
-    subtracted = assign_appeared - initial
-    # print(initial, assign_appeared)
-    # print(subtracted)
-    noneflag = False
-    for n in list(subtracted):
-        min_bounds = [0,100] # range of lb initially [0,100]
-        max_bounds = [0,100] # range of ub initially [0,100]
-        # print(todo_idx)
-        # we need: 
-        
-        for ass in assigns:
-            if ass[0] == n: # n is the left, the range should be big
-                # for every assign xn = xm, forall m
-                # min_bound[n] <= min_bound[m] <= max_bound[m] <= max_bound [n]
-                min_bounds[1] = min(min_bounds[1],ori_l_b[ass[1]])
-                max_bounds[0] = max(max_bounds[0],ori_u_b[ass[1]])
-            elif ass[1] == n:
-                # for every assign xm = xn, forall m
-                # min_bound[m] <= min_bound[n] <= max_bound[n] <= max_bound[m]
-                min_bounds[0] = max(min_bounds[0],ori_l_b[ass[0]])
-                max_bounds[1] = min(max_bounds[1],ori_u_b[ass[0]])
-        proposed_ranges[n] = (min_bounds,max_bounds)
-    for n in list(subtracted):
-        min_bounds, max_bounds = proposed_ranges[n]
-        flag = (min_bounds[0] <= min_bounds[1] <= max_bounds[0] <= max_bounds[1])
-        if not flag:
-            noneflag = True
-    print("To init:",subtracted)
-    if not subtracted:
-        print("All consistent")
-    elif noneflag:
-        print(None)
+for program_file, bound_file in zip(program_files, bound_files):
+    a = [int(x) for x in open(program_file).read().split(',')]
+    b = [int(x) for x in open(bound_file).read().split(',')]
+    edges = list(zip(a[::2], a[1::2]))
+    bounds = {}
+    for x, lower, upper in zip(b[::3], b[1::3], b[2::3]):
+        bounds[x] = (lower, upper)       # the rightmost one wins
+
+    graph, reverse = defaultdict(list), defaultdict(list)
+    variables = set()
+    for left, right in edges:
+        graph[left].append(right)
+        reverse[right].append(left)
+        variables.update((left, right))
+
+    def reachable(start, graph):
+        seen, queue = {start}, deque([start])
+        while queue:
+            for nxt in graph[queue.popleft()]:
+                if nxt not in seen:
+                    seen.add(nxt)
+                    queue.append(nxt)
+        return seen
+
+    answer = dict(bounds)
+    for x in variables - bounds.keys():
+        fixed_ancestors = reachable(x, reverse) & bounds.keys()
+        lower = max((bounds[y][0] for y in fixed_ancestors), default=0)
+        upper = min((bounds[y][1] for y in fixed_ancestors), default=999)
+        answer[x] = (lower, upper)
+
+    valid = all(answer[left][0] <= answer[right][0]
+                <= answer[right][1] <= answer[left][1]
+                for left, right in edges)
+    if not valid:
+        print(program_file, None)
     else:
-        for n in list(subtracted):
-            min_bounds, max_bounds = proposed_ranges[n]
-            print(f"Min bounds of {n} is {min_bounds}")
-            print(f"Max bounds of {n} is {max_bounds}")
-    print("="*20)
-    
-    # NOTE: USE THIS BY A RECURSIVE BUILDING. 
-    # NOTE: For every non-inited pair, 
-    # you shall **ADD** a realization (e.g. extremes of the ranges of lb/ubs) of this to the script / data, 
-    # and then redo the whole program to find the pairs of the rest. and for the pairs of the rest, do again ...
+        print(program_file,
+              {x: answer[x] for x in sorted(variables - bounds.keys())})
 
-    # e.g. FOR `10,3,10,7,11,10` in data6a1 (assign), `3,5,9,7,1,3` in 6a2 (bound)
-    # first run the program:
-    """
-    To init: {10, 11}
-    Min bounds of 10 is [0, 1]
-    Max bounds of 10 is [9, 100]
-    Min bounds of 11 is [0, 0]
-    Max bounds of 11 is [100, 100]
-    """
-    # then set 6a2 as `3,5,9,7,1,3` + `10,1,9` for example
-    # run again and you get
-    """
-    To init: {11}
-    Min bounds of 11 is [0, 1]
-    Max bounds of 11 is [9, 100]
-    """
-    # and we find we can add `11,1,9`
-    
+# For edges 10->3, 10->7, 11->10 and fixed ranges x3=[5,9], x7=[1,3],
+# one answer is x10=x11=[1,9].
 ```
 
 #### FunTotal's solution
@@ -1081,15 +1010,16 @@ for ff1, ff2 in zip(ff_list_1[:1], ff_list_2[:1]):
 using namespace std;
 const int maxn = 1e3 + 1000;
 /*
-思路: 乍一看感觉很像是个拓扑排序的问题，但是仔细想了一下，感觉不太能拓扑排序，它的更新顺序其实是不好处理的，比如拓扑最大或者最小的如果是变量，那么其实并不能确定它的取值，而是依赖某一个邻近的有限制的取值。
-所以这里考虑最短路的松弛操作，对一个变量如果更新了取值，就去考虑它的相邻点是否需要更新取值。隔壁的代码似乎是贝尔曼福德，我这里就用SPFA稍微优化一点点。在更新的过程中，记得要判断是否非法，最后算出变量的取值如果左边大于右边，就说明非法了。
-具体的话可能根据数据会有很多corner case，但是没有数据，人力有点懒得造过于复杂情况，这里就简单列一列了。
+思路: 对赋值 xL=xR 建边 L->R，要求 L 的区间包含 R 的区间。对每个待定变量，
+下界取所有能到达它的已知祖先下界的最大值，上界取这些祖先上界的最小值；没有已知祖先时取 [0,999]。
+最后逐边检查包含关系，失败则输出 None。
 
 data71.txt: 10,3,10,7,11,10
 data72.txt: 3,5,9,7,1,3
 output:
-        X10 range from(1, 9)
-        X11 range from(1, 9)
+        X10 range from(0, 999)
+        X11 range from(0, 999)
+（取 X10=X11=[1,9] 也合法。）
 
 这题还有很多特殊情况，没有专门造数据会很难卡
 我这里简单举一种:
@@ -1101,20 +1031,10 @@ output:
         X5 range from(0, 999)
         X7 range from(0, 999)
 */
-pii range[maxn];  // 存储每个变量的取值范围
-vector<int> G1[maxn], G2[maxn];
-set<int> s;  // 记录一下哪些点是本身range锁死的
-bool ck(int u, int v) {
-    // 检查 Xv = Xu 是否合法
-    //有一边是需要确定的一定合法
-    if (!s.count(u) || !s.count(v)) return 1;
-    if (range[v].first > range[u].first || range[v].second < range[u].second) return 0;
-    return 1;
-}
-void solve() {
-    ifstream fin1("E:/UTokyo_Entrance_Exam/CI/2023_summer/data7a1.txt");
-    ifstream fin2("E:/UTokyo_Entrance_Exam/CI/2023_summer/data7a2.txt");
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2023_summer/ans7.txt");
+void solve(char suffix) {
+    ifstream fin1("data7" + string(1, suffix) + "1.txt");
+    ifstream fin2("data7" + string(1, suffix) + "2.txt");
+    ofstream fout("ans7" + string(1, suffix) + ".txt");
     string str;
     fin1 >> str;
     int num = 0;
@@ -1137,82 +1057,62 @@ void solve() {
         if (i == (int)str.length() - 1)
             vec2.push_back(num);
     }
-    fill(range, range + maxn, pii{1000, 0});
+    vector<pii> range(maxn, {-1, -1});
+    set<int> fixed, variables;
     for (int i = 0; i < vec2.size(); i += 3) {
         int x = vec2[i], l = vec2[i + 1], r = vec2[i + 2];
         range[x] = {l, r};
-        s.insert(x);
+        fixed.insert(x);
     }
-    int flag = 0; //记录是否有变量需要被赋值
-    queue<int> q; //存储被更新过的点
-    for (auto u : s) q.push(u);
+    vector<vector<int>> reverse_graph(maxn);
     for (int i = 0; i < vec1.size(); i += 2) {
         int xl = vec1[i], xr = vec1[i + 1];
-        if (!s.count(xl) || !s.count(xr)) flag = 1;
-        G1[xr].push_back(xl);
-        G2[xl].push_back(xr); // 存储正反向边，方便之后更新range
+        reverse_graph[xr].push_back(xl);
+        variables.insert(xl);
+        variables.insert(xr);
     }
-    while (!q.empty()) {
-        int u = q.front(); q.pop();
-        if (range[u].first > range[u].second) {
-            fout << "None\n";
-            return;
-        }
-        for (auto v : G1[u]) {
-            // 赋值语句形如  v = u
-            if (!ck(v, u)) {
-                fout << "None\n";
-                return;
+
+    for (int start : variables) {
+        if (fixed.count(start)) continue;
+        vector<bool> seen(maxn, false);
+        queue<int> q;
+        q.push(start);
+        seen[start] = true;
+        int lower = 0, upper = 999;
+        while (!q.empty()) {
+            int u = q.front(); q.pop();
+            if (fixed.count(u)) {
+                lower = max(lower, range[u].first);
+                upper = min(upper, range[u].second);
             }
-            if (!s.count(v)) { //v是需要确定的话，则尝试更新范围
-                if (range[v].first > range[u].first || range[v].second < range[u].second) {
-                    range[v].first = min(range[v].first, range[u].first);
-                    range[v].second = max(range[v].second, range[u].second);
-                    q.push(v);
-                }
+            for (int v : reverse_graph[u]) {
+                if (!seen[v]) seen[v] = true, q.push(v);
             }
         }
-        for (auto v : G2[u]) {
-            // 赋值语句形如 u = v
-            if (!ck(u, v)) {
-                fout << "None\n";
-                return;
-            }
-            if (!s.count(v)) {
-                if (range[v] == pii{1000, 0})
-                    range[v] = range[u], q.push(v);
-                else {
-                    if (range[v].first < range[u].first || range[v].second > range[u].second) {
-                        range[v].first = max(range[v].first, range[u].first);
-                        range[v].second = min(range[v].second, range[u].second);
-                        q.push(v);
-                    }
-                }
-            }
-        }
+        range[start] = {lower, upper};
     }
-    set<tii> res;
+
     for (int i = 0; i < vec1.size(); i += 2) {
         int u = vec1[i], v = vec1[i + 1];
-        // u = v
-        if (!ck(vec1[i], vec1[i + 1])) {
+        if (range[u].first > range[u].second || range[u].first > range[v].first ||
+            range[v].first > range[v].second ||
+            range[u].second < range[v].second) {
             fout << "None\n";
             return;
         }
-        if (!s.count(u)) res.insert(tii{u, range[u].first, range[u].second});
-        if (!s.count(v)) res.insert(tii{v, range[v].first, range[v].second});
     }
-    if (flag == 0) fout << "No variable needs to be decided\n";
-    else {
-        for (auto [x, l, r] : res) {
-            if (l == 1000 && r == 0) 
-                l = 0, r = 999; // 没有任何约束时候会这样
-            fout << "X" << x << " range from(" << l << ", " << r << ")\n";
-        }
+
+    bool printed = false;
+    for (int x : variables) {
+        if (fixed.count(x)) continue;
+        printed = true;
+        fout << "X" << x << " range from(" << range[x].first << ", "
+             << range[x].second << ")\n";
     }
+    if (!printed) fout << "No variable needs to be decided\n";
 }
 signed main() {
-    solve();
+    for (char suffix : {'a', 'b', 'c'}) solve(suffix);
     return 0;
 }
 ```

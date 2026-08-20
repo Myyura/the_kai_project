@@ -12,7 +12,7 @@ tags:
 # 北海道大学 理学院 物性物理学専攻・宇宙理学専攻 2020年8月実施 問題V
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
 
@@ -73,6 +73,7 @@ tags:
      a_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos nx\,dx,\qquad
      b_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin nx\,dx.
      $$
+
    - 3-2 保存的积分表明所展开函数在 $0\leq x\leq\pi$ 上为 $x$、在另一半区间贡献为零；所得级数为
 
      $$
@@ -82,6 +83,7 @@ tags:
      +\sum_{m=1}^{\infty}
      \frac{(-1)^{m+1}}m\sin mx.
      $$
+
    - 3-3 把 $x=0$ 代入上述级数，以得到奇数平方倒数级数的和；原题要求写出的目标等式未直接保存。
 
 以上只重述已保存解答中可核实的信息，不补造缺失条件。
@@ -117,7 +119,7 @@ $$
   &
   \begin{pmatrix}
   1 & 0 & 0 &  1 & -3 &  2 \\
-  0 & 1 & 0 &  2 & -1 &  4 \\
+  0 & 1 & 0 &  2 & -1 &  0 \\
   0 & 0 & 1 & -3 &  3 & -1
   \end{pmatrix}
   \end{aligned}
@@ -134,7 +136,7 @@ $$
   =
   \begin{pmatrix}
    1 & -3 &  2 \\
-   2 & -1 &  4 \\
+   2 & -1 &  0 \\
   -3 &  3 & -1
   \end{pmatrix}
   \end{aligned}
@@ -368,3 +370,7 @@ $$
 $$
 
 となるので、これを整理して題意の式を得る。
+
+$$
+\boxed{1+\frac1{3^2}+\frac1{5^2}+\cdots=\frac{\pi^2}{8}}
+$$

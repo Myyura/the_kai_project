@@ -8,7 +8,7 @@ tags:
 # 京都大学 情報学研究科 数理工学専攻 2019年8月実施 線形計画
 
 ## **Author**
-Casablanca
+Casablanca, 祭音Myyura
 
 ## **Description**
 ### 日本語版
@@ -108,22 +108,25 @@ $$
 
 ## **Kai**
 ### (i)
-Lagrangian: 
+After replacing the maximization objective by its negative, the Lagrangian is
 
 $$
 L(u,v,\lambda, \kappa) = (c^\top x^*)v - b^\top u + \lambda ^\top (A^\top u - vc - d) - \kappa v
 $$
 
-Lagrange dual function:
+The infimum is finite only if
 
 $$
-d(\lambda, \kappa) = -\lambda ^\top d
+A\lambda=b,\qquad c^\top x^*-c^\top\lambda-\kappa=0.
 $$
+
+Negating the resulting dual objective gives the following dual of Q:
 
 $$
 \begin{aligned}
-(D): \text{Minimize } \ &d^\top \lambda \\
+(Q_D): \text{Minimize } \ &d^\top \lambda \\
 \text{Subject to } \ &c^\top x^* - c^\top \lambda - \kappa = 0 \\
+&A\lambda=b\\
 &\kappa \geq 0, \lambda \succeq \boldsymbol{0}\\
 \end{aligned}
 $$
@@ -131,13 +134,23 @@ $$
 where $d = [-1,0,0,\ldots, 0]^\top$
 
 ### (ii)
-For (D), $\kappa = 0$, $\lambda = x^*$ is feasible , hence (Q) has optimal value $v(\text{Q}) \leq d^\top x^* = 0$.
+The point $(\lambda,\kappa)=(x^*,0)$ is feasible for $Q_D$. Conversely, if $(\lambda,\kappa)$ is feasible, then
 
-Hence (Q) is bounded, and therefore has an optimal value.
+$$
+A\lambda=b,\qquad \lambda\succeq0,\qquad
+c^\top\lambda=c^\top x^*-\kappa\leq c^\top x^*.
+$$
+
+Thus $\lambda$ is an optimal solution of P. By uniqueness, $\lambda=x^*$ and $\kappa=0$. Hence $Q_D$ has the finite optimum $d^\top x^*=0$, and LP duality implies that Q also has an optimal solution.
 
 ### (iii)
-For $w^*$, we have $c^\top x^* = b^\top w^*$.
-Since duality gap is zero, for $(Q)$, when $u = w^*$ and $v = 1$, $0$ is attained.
+By (ii), the dual problem $Q_D$ has optimal value
+
+$$
+d^\top x^*=-x_1^*=0.
+$$
+
+Strong duality therefore gives $v(Q)=0$.
 
 ### (iv)
 we know
@@ -155,7 +168,7 @@ $$
 since
 
 $$
-A^\top \frac{u^*}{v^*} \leq c+d \leq c,
+A^\top \frac{u^*}{v^*} \leq c+\frac{d}{v^*} \leq c,
 $$
 
 $\frac{u^*}{v^*}$ is an optimal solution to $(D)$
@@ -172,7 +185,7 @@ let $w^* = \widetilde{w} + tu^*$, $t > 0$,
 then we have
 
 $$
-Aw^* \leq c+ td, \quad (a^1)\top w^* < c_1
+A^\top w^* \leq c+ td \leq c, \qquad (a^1)^\top w^* \leq c_1-t<c_1
 $$
 
 $$

@@ -93,7 +93,7 @@ which is contradictory to the fact that $T$ is a minimum spanning tree.
 Therefore, For every edge $b \in T$, each edge $a \in K_T(b)$ satisfies $w(a) \ge w(b)$. -->
 
 Let $b \in T$ denote an edge and $a \in K_T(b)$ denote an edge of fundamental cut-set containing $b$.
-By the definition of fundamental cut-set, we know that $a \notin T$, i.e., $a \in E \setminus T$.
+If $a=b$, the conclusion is immediate. If $a\ne b$, then $a \notin T$, i.e., $a \in E \setminus T$.
 Hence we know that $b \in C_T(a)$. Since spanning tree $T$ satisfies condition (C), we have
 
 $$
@@ -105,9 +105,9 @@ Let $T$ denote a spanning tree of $G$ that satisfy condition (K). Let $T^*$ deno
 
 Suppose that $T \neq T^*$. Then there exists an edge $b \in T \setminus T^*$.
 
-Consider the fundamental cut-set $K_T(b)$, since $T^*$ is connected, there must exist an edge $a \in K_T(b) \cap T^*$ and $a \neq b$.
+Consider the fundamental cycle $C_{T^*}(b)$. Since this cycle crosses the cut $K_T(b)$, it contains an edge $a \in K_T(b) \cap T^*$ with $a \neq b$.
 
-Let $T_1 = T^* \cup \{b\} \setminus \{a\}$, by condition (C) we have
+Let $T_1 = T^* \cup \{b\} \setminus \{a\}$. By condition (K), we have
 
 $$
 w(T_1) = w(T^*) - w(a) + w(b) \le w(T^*)
