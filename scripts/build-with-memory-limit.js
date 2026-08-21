@@ -14,12 +14,15 @@ const LOW_MEMORY_ENV = Object.freeze({
   // allowance, so prefer a predictable cold build over disk pressure.
   DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
   DISABLE_RSPACK_INCREMENTAL: 'true',
+  // Keep two renderers for throughput, but recycle each worker before its
+  // retained heap pushes the 16 GiB runner into swap thrashing.
   DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
-  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '1000000000',
-  // Restore bounded parallelism without allowing both large bundles to
-  // compile at once. Four blocking threads is Rspack's documented default.
-  RAYON_NUM_THREADS: '2',
-  RSPACK_BLOCKING_THREADS: '4',
+  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
+  // Limit Rspack's native-memory peak while retaining a small amount of
+  // blocking-I/O parallelism. The two language bundles still compile in
+  // sequence, so one Rayon thread is sufficient on the hosted runner.
+  RAYON_NUM_THREADS: '1',
+  RSPACK_BLOCKING_THREADS: '2',
 });
 
 function withHeapLimit(nodeOptions = '') {
@@ -50,7 +53,9 @@ function main() {
   console.log(
     `Building with the memory-aware profile: ${MAX_OLD_SPACE_MB} MiB V8 heap, `
       + `sequential bundles, ${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} `
-      + `SSG workers, ${environment.RAYON_NUM_THREADS} Rayon threads, and `
+      + 'SSG workers recycling near '
+      + `${Math.round(Number(environment.DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY) / 1000000)} MB, `
+      + `${environment.RAYON_NUM_THREADS} Rayon threads, and `
       + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking threads.`,
   );
 

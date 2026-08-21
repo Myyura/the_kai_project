@@ -19,10 +19,10 @@ test('the balanced build profile fits the 16 GiB GitHub runner', () => {
   assert.equal(environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT, '2');
   assert.equal(
     environment.DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY,
-    '1000000000',
+    '300000000',
   );
-  assert.equal(environment.RAYON_NUM_THREADS, '2');
-  assert.equal(environment.RSPACK_BLOCKING_THREADS, '4');
+  assert.equal(environment.RAYON_NUM_THREADS, '1');
+  assert.equal(environment.RSPACK_BLOCKING_THREADS, '2');
 });
 
 test('explicit tuning overrides profile defaults but not the heap guard', () => {
