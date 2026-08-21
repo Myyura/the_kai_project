@@ -1,8 +1,8 @@
 ---
-sidebar_label: "京都大学 情報学研究科 数理工学専攻 2013年8月実施 オペレーションズ・リサーチ"
+sidebar_label: "2013年8月実施 オペレーションズ・リサーチ"
 tags:
   - Kyoto-University
-  - Operations-Research.Convex-Optimization
+  - Operations-Research.Convex-Optimization.Karush-Kuhn-Tucker-Conditions
 ---
 # 京都大学 情報学研究科 数理工学専攻 2013年8月実施 オペレーションズ・リサーチ
 

@@ -17,7 +17,7 @@
 </div>
 
 # 📖 はじめに
-The Kai Project は、日本の大学院入試過去問、公開解答、受験経験を共有するためのオープンソースプラットフォームです。ログインユーザーは、データベースに直接保存される進捗、ノート、非公開問題セットも利用できます。
+The Kai Project は、日本の大学院入試の過去問・公開解答・受験体験を共有するオープンソースプラットフォームです。ログインユーザーは、データベースに直接保存される進捗、ノート、非公開問題セットも利用できます。
 
 ```text
 "Answer to the Ultimate Question of Life, the Universe, and Everything"
@@ -29,309 +29,37 @@ The Kai Project は、日本の大学院入試過去問、公開解答、受験�
 
 The Kai Project はオープンソースプロジェクトと公開学習アーカイブを基盤としています。コミュニティによって維持される過去問インデックス、公開解答、学習資料および関連ドキュメントは、プロジェクトの中核的な公開コンテンツとして、学習者が継続的にアクセスできる形で提供されます。
 
-長期的な保守、技術サービス、コミュニティ運営を支えるため、プロジェクトは学習ツール、アカウント機能、データ API、学習支援、提携連携などに関する持続可能な運営方法を検討する場合があります。これらの補助的なサービスや連携は、中核的な公開コンテンツのオープンアクセス性を変更するものではありません。
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/sample.png" width="700" alt=""/>
-</figure>
+長期的な保守、技術サービス、コミュニティ運営を支えるため、プロジェクトは学習ツール、アカウント機能、データ API、学習支援、パートナーシップなどに関する持続可能な運営方法を検討する場合があります。これらの補助的なサービスや連携は、中核的な公開コンテンツのオープンアクセス性を変更するものではありません。
 
 # ✨ 主な機能
 - 複数大学・研究科にまたがる過去問と解答の公開データベース
 - 受験体験記や勉強メモのブログ
-- 問題ごとの進捗記録、復習リマインダー、進捗ダッシュボード
-- 各問題ページで使える Markdown / LaTeX 対応ノート
-- Supabase を使ったアカウント進捗、非公開問題セット、公開ニックネーム、ランキング
+- 問題ごとの進捗記録、復習リマインダー、学習ヒートマップ、進捗ダッシュボード
+- Markdown / LaTeX 対応ノートと、ハイライト・素早い移動・編集ができる本文注釈
+- Supabase に保存される学習進捗、非公開問題セット、公開ニックネーム、練習ランキング、コミュニティ難易度評価
+- ログイン後のサイト内フォームによる新規解答の投稿と、既存解答ページからの訂正投稿
 - ローカル検索と解答ページの画像共有（Web 文書の閲覧にはネットワーク接続が必要です）
 
-# 🛠️ ローカル開発
-## 必要環境
-- Node.js `>=20`
-- Yarn `>=1.22.0`
+# 👏 プロジェクトへの参加
+The Kai Project では、[サイト内投稿](https://runjp.com/me?tab=contribute)、GitHub の Pull Request、[メール](mailto:376672994@qq.com)、コミュニティでの議論を通じて、解答、訂正、コード、ドキュメントへの貢献を受け付けています。サイト内投稿には Git の知識は必要ありません。
 
-## ローカル起動
-依存関係をインストールして開発サーバーを起動します。
+ローカル開発環境の構築、アカウントとデータベースの設定、開発者向け API とデプロイ、投稿方法、文書形式、タグ、ファイル配置については、[開発・貢献ガイド](./CONTRIBUTING.ja.md) を参照してください。すべての貢献は、マージ前に[コントリビューターライセンス同意書 (CLA)](CLA.md)への同意が必要です。
 
-```bash
-yarn install
-yarn dev
-```
-
-その後、`http://localhost:3000` を開いてください。
-
-本番ビルドをローカルで確認する場合:
-
-```bash
-yarn build
-yarn serve
-```
-
-## 便利なスクリプト
-
-```bash
-yarn generate:universities
-yarn generate:site-stats
-yarn tags:generate
-yarn content:validate
-yarn tags:audit
-yarn documents:validate
-yarn content:export
-yarn review:format
-yarn api:validate
-```
-
-- `yarn generate:universities`: `docs/` の構成や `_category_.json` を変更したあと、`src/data/universities.js` を再生成します。
-- `yarn generate:site-stats`: JSON API と同じスキャン結果から `src/data/siteStats.json` と `src/data/documentTitles.json` を再生成します。開発サーバーと本番ビルドでは自動実行されます。
-- `yarn tags:generate`: `src/data/tagTaxonomy/` の科目別ファイルから `docs/tags.yml` を再生成します。
-- `yarn content:validate`: `src/data/` 配下の編集可能な JSON データ（リンク、入試データ、大学メタデータ、タグ分類）を検証します。
-- `yarn tags:audit`: サイト全体の大学、大科目、サブ科目、考点、未分類、廃止タグの使用状況を確認します。
-- `yarn documents:validate`: 自動導出される文書 UUID と、パス変更時だけ保存される current override / 過去 alias を検証します。
-- `yarn content:export`: 独立クライアント同期用の完全スナップショット `build/content-export/v1/kai-content-v1.json.gz` を生成します。仕様と同期ルールは [CONTENT_EXPORT.md](CONTENT_EXPORT.md) を参照してください。
-- `yarn review:format`: `docs/` 配下の解答ドキュメント形式をレビューします。
-- `yarn api:validate`: 公開 JSON API 用の構造化データを検証します。
-
-コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`universityMetadata.json`、`tagTaxonomy/` にあります。タグ定義は `tagTaxonomy/subjects/` に主科目別で保存し、全体設定と大学タグは同階層のファイルで管理します。通常の新規文書は `docId` から UUIDv5 を自動導出するため、ID マニフェストの更新は不要です。移動・改名時だけ `yarn documents:move -- <旧-doc-id> <新-doc-id>` を実行します。`siteStats.json` と `documentTitles.json` は開発・ビルド時に自動更新され、その他の生成ファイルは上記スクリプトで管理できます。
-
-## アカウントとデータベースの設定
-Supabase の環境変数がなくても公開コンテンツは閲覧できます。進捗、ノート、本文注釈、非公開問題セット、ランキングはログインユーザー専用で、データベースへ直接保存されます。匿名の学習データには対応しません。
-
-```bash
-export SUPABASE_URL="https://your-project.supabase.co"
-export SUPABASE_ANON_KEY="your-anon-key"
-export HCAPTCHA_SITE_KEY="your-hcaptcha-site-key"
-```
-
-- `SUPABASE_URL` と `SUPABASE_ANON_KEY` は認証とアカウントデータに使用されます。
-- `HCAPTCHA_SITE_KEY` は任意ですが、ログイン / 新規登録ページの不正利用対策として推奨です。
-
-アカウント機能を有効にする場合:
-1. Supabase プロジェクトを作成します。空の新規データベースでは、最初に `src/services/schema.sql` を一度だけベースラインとして適用します。既存データベースには再適用しないでください。
-2. 現在のベースラインに未適用の履歴マイグレーションはありません。今後の構造変更だけを `supabase/migrations/` に追加し、デプロイ処理で適用します。
-3. その SQL ファイルに書かれている認証レート制限、パスワードポリシー、hCaptcha などの設定を行います。
-
-## 開発者向け JSON API
-登録ユーザーは開発者センターで JSON API アクセスを申請できます。プロジェクトメンテナーの承認後、API Key を作成して過去問と解答データを取得できます。API Key の平文は作成時に一度だけ表示されます。データベースには SHA-256 hash のみ保存されます。
-
-### 登録ユーザー向けの使い方
-1. Web サイトにログインし、`/developers` から JSON API 機能に入ります。`/developers/api` を直接開くこともできます。
-2. API アクセスを申請します。利用目的は任意項目です。組織での利用、一括再利用、商業的な接続を含む場合は、申請内容にその旨を記載してください。
-3. プロジェクトメンテナーの審査を待ちます。承認後、このページで API Key を作成できます。
-4. API Key を作成し、`kai_live_...` の値をすぐに保存します。
-5. `Authorization: Bearer kai_live_...` を付けて Content API を呼び出します。Content API は匿名リクエストやログイン JWT を受け付けません。
-
-利用できるエンドポイント:
-
-- `GET /v1/catalog`: 大学、研究科、専攻、年度、ドキュメント数を返します。
-- `GET /v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content`: 条件に合う過去問を検索します。`include=content` を付けると Markdown 本文も返します。
-- `GET /v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache`: 派生した学習 taxonomy で検索します。
-- `GET /v1/exams/{doc_id}`: ドキュメント ID で 1 件取得します。
-
-過去問レスポンスにはパス変更の影響を受けない `documentUuid`、frontmatter の元の `tags`、派生フィールド `schoolTags`、`learningTags`、`subjectIds`、`subsubjectIds`、`topicIds` が含まれます。通常の新規文書 UUID は固定 namespace と `docId` から自動導出され、登録作業は不要です。パスを移動するときは `yarn documents:move -- <旧-doc-id> <新-doc-id>` を実行してください。このコマンドは `documentIdentityOverrides.json` に改名例外と旧パス alias だけを保存し、進捗、ノート、難易度投票、問題セットを同じ内容に結び付けたままにします。トピック ID は `Subject.Subsubject.Topic` 形式です。`learningTags` は各学習タグが `subsubject`、具体的な `topic`、または未分類タグのどれかを示し、topic 項目には `short_id` も含まれます。
-
-呼び出し例:
-
-```bash
-curl -H "Authorization: Bearer kai_live_..." \
-  "https://your-project.supabase.co/functions/v1/kai-api/v1/catalog"
-
-curl -H "Authorization: Bearer kai_live_..." \
-  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?university=tokyo-university&department=IST&program=cs&year=2024&include=content"
-
-curl -H "Authorization: Bearer kai_live_..." \
-  "https://your-project.supabase.co/functions/v1/kai-api/v1/exams?subject=Computer-Science&subsubject=Computer-Science.Computer-Architecture&topic=Computer-Science.Computer-Architecture.Cache"
-```
-
-レスポンスには常に `apiVersion`、`sourceUrl`、`license`、`contentNotice` が含まれます。中核的な公開コンテンツはオープンにアクセスできますが、API アクセス、一括再利用、再配布、商業的な接続、通常の閲覧や個人学習の範囲を超える利用については、プロジェクトが別途公表するコンテンツ/API 条項に従い、必要に応じて関連する権利者から適切な許諾を得る必要があります。
-
-### プロジェクトメンテナー向けのデプロイ
-このプロジェクトは既存のログインシステムを開発者 ID として再利用し、Supabase Edge Functions から過去問と解答 JSON を提供します。
-
-1. 空の新規データベースだけで [src/services/schema.sql](src/services/schema.sql) を一度実行してください。現在の完全な構造が含まれているため、既存データベースには再適用しないでください。20260718 の 3 つのマイグレーションをベースラインへ統合した既存の本番環境では、次のマイグレーションを追加する前に [ベースライン最終化 SQL](supabase/manual/20260718_finalize_consolidated_baseline.sql) を一度実行してください。
-2. [supabase/functions](supabase/functions) の Edge Functions をデプロイします。本番 GitHub Actions は `SUPABASE_ACCESS_TOKEN` と `SUPABASE_PROJECT_REF` で関数をデプロイし、新しいデータベースマイグレーションがある場合だけ `SUPABASE_DB_PASSWORD` も必要です。
-
-```bash
-npx supabase functions deploy developer-api-keys --project-ref "$SUPABASE_PROJECT_REF"
-npx supabase functions deploy kai-api --project-ref "$SUPABASE_PROJECT_REF"
-npx supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF"
-```
-
-`kai-api` と `agent-context` は `supabase/functions/_shared/published-content.ts` の静的本文ローダーを共有します。Supabase CLI と GitHub Actions が自動的にバンドルするため、ファイルの手動コピーや Dashboard での個別更新は不要です。
-
-3. Markdown 本文は PostgreSQL に複製せず、ビルド時に安定 UUID ごとの静的 JSON として `/api-content/v1/documents/` に公開します。GitHub Actions には `SUPABASE_SERVICE_ROLE_KEY` を保存しません。デプロイ成功後、メンテナーが信頼できるローカル端末で一時的にキーを設定し、文書 ID と軽量カタログだけを同期します。
-
-```bash
-printf 'Supabase service-role key: '
-IFS= read -r -s SUPABASE_SERVICE_ROLE_KEY
-printf '\n'
-export SUPABASE_SERVICE_ROLE_KEY
-SUPABASE_URL="https://your-project.supabase.co" yarn catalog:sync
-unset SUPABASE_SERVICE_ROLE_KEY
-```
-
-このコマンドは UUID、パス、タイトル、リンク、タグ、分類、コンテンツハッシュだけを upsert し、不要になった `document_catalog` 行を削除します。Markdown、ノート、進捗、問題セットなどのユーザーデータは変更しません。JSON API と Agent は、Web サイトと一緒に公開された静的 JSON から本文を取得します。
-この入力方法ではキーがシェル履歴に残りません。リポジトリや GitHub Actions には保存しないでください。
-
-文書パスを移動した後は、アクセスの少ない保守時間帯に Supabase SQL Editor で [doc_id 正規化 SQL](supabase/manual/20260719_canonicalize_document_doc_ids.sql) を手動実行できます。事前にバックアップを取得し、`yarn catalog:sync` を完了してください。この再実行可能なスクリプトは、UUID、ユーザー行、タイムスタンプ、ノート版数、すべての過去 alias を保持したまま、各アプリケーションテーブルの旧 `doc_id` を `document_registry.current_doc_id` へ更新します。最後の `stale_row_count` はすべて `0` になる必要があります。
-
-4. Supabase Function secrets に `API_LOG_SALT` が設定されていることを確認し、両方の function で JWT verification を無効にします。
-5. Supabase Dashboard で `api_access_requests` テーブルの申請を確認します。`status` を `approved` に変更すると API Key 作成を許可できます。拒否または停止する場合は `rejected` / `revoked` を使います。
-
-最初のバージョンでは、承認済みユーザーは全員同じ基本アクセス設定を使用します: `60 requests/minute`、active key は最大 `3` 個です。`api_access_requests` と `api_keys` には、将来の提携アクセス、機関利用、段階的なクォータ管理のために `plan`、`commercial_allowed` などのフィールドを予約しています。
-
-# 👏 貢献方法
-このプロジェクトは複数のチャンネルを通じてコミュニティからの貢献を奨励しています。
-- Git Pull Request: Git に慣れている方向け
-- メール投稿: メールでの送信を希望する方向け
-- コミュニティ議論: Discord または QQ グループで解答や受験経験を共有したり、GitHub issues で誤りを知らせたりできます
-
-公開過去問アーカイブおよび公開解答ライブラリにマージされた貢献は、The Kai Project の中核的な公開コンテンツの一部として、継続的にオープンアクセス可能な形で提供されることを意図しています。学習ツール、データ API、学習支援、提携連携などに関する持続可能な運営は、受け入れ済みの中核的な公開貢献のオープンアクセス性を変更するものではありません。
-
-## 📝 フォーマットガイドライン
-`docs/` 配下の解答ドキュメントは、できるだけ統一フォーマットで投稿してください。
-
-### 解答ドキュメント
-各解答 Markdown は、基本的に次のような構成を推奨します。
-
-```markdown
----
-sidebar_label: 'サイドバーに表示されるタイトル'
-tags:
-  - Tokyo-University
-  - Subsubject-Tag
-  - Topic-Tag
----
-
-# 完全なページタイトル
-
-## **Author**
-[あなたの名前](https://example.com)
-
-## **Description**
-問題文の要約、転記、または簡単な説明。
-
-## **Kai**
-解答、導出、解説、補足ノート。
-```
-
-現在のフォーマットレビュースクリプトでは、次の点をチェックしています。
-- `sidebar_label` は必須
-- `tags` は必須
-- frontmatter の直後、最初の非空行は H1 であること
-- `## **Author**` は必須
-- `## **Description**` と `## **Kai**` は個別には任意だが、少なくともどちらか一方は必要
-- 両方ある場合の順序は `Author` → `Description` → `Kai`
-
-タグのルール:
-- できるだけ[科目別のタグ定義ファイル](src/data/tagTaxonomy/subjects)の canonical サブ科目 ID と namespaced トピック ID を使ってください。大科目タグと旧い短いトピックタグは frontmatter では無効です。
-- タグ分類の関連科目は、実際の問題内容に現れる強い関連に限定し、広い理論上の重なりだけでは付けません。
-- 学校タグは互換性のため残しますが、サイトは主に `docs/学校/研究科/...` のパスから学校情報を推定します。
-- 正しい新しいサブ科目タグまたは考点タグはそのまま提出できます。`yarn review:format` では warning になり、PR はブロックされません。
-- 現在のタグ分類にないタグは新規タグとして警告され、スペル確認または管理者レビューを促します。
-- 学校タグだけで学習タグがない文書は warning になります。サブ科目タグだけの文書は、問題文から判断できる場合に具体的な考点タグの追加が推奨されます。
-
-PR を出す前に、次のコマンドを実行することをおすすめします。
-
-```bash
-yarn review:format
-yarn tags:audit
-```
-
-### ブログ記事
-ブログでは、frontmatter にインライン著者オブジェクトを書くのではなく、[blog/authors.yml](blog/authors.yml) で定義した author ID を使ってください。
-
-1. [blog/authors.yml](blog/authors.yml) に新しい著者 ID を追加するか、既存のものを使います。
-2. 記事の frontmatter でその ID を参照します。
-
-例:
-
-```markdown
----
-title: 投稿タイトル
-authors: yourAuthorId
-tags: [Tag1, Tag2]
----
-```
-
-既存の例として [blog/2025-04-02-furry.md](blog/2025-04-02-furry.md) や [blog/2025-07-10-unagoya.md](blog/2025-07-10-unagoya.md) を参照できます。
-
-### ファイル命名規則と配置
-ファイルは正しいディレクトリ構造に配置し、命名規則に従ってください。
-
-1. ベースディレクトリ: `docs/`
-2. 階層: `学校/学部/専攻/学年度/`
-3. ファイル名: 学校略称、試験年月、科目、問題番号などが分かる形
-
-```text
-docs/
-├── <大学名>/
-│   ├── <学部>/
-│   │   ├── <専攻>/
-│   │   │   ├── <学年度>/
-│   │   │   │   └── <解答ファイル>.md
-blog/
-├── <ブログ記事>.md
-```
-
-例:
-
-`docs/tokyo-university/engineering/ap/2020/ap_201908_phys_3.md`
-
-これは以下に対応します。
-- 学校: 東京大学
-- 学部: 工学系研究科
-- 専攻: 応用物理学 (`ap`)
-- 試験年月: `201908`
-- 科目: 物理
-- 問題番号: `3`
-
-## 📧 メールでの提出
-Git に不慣れな方のために、メールでの貢献も受け付けています。
-
-手順:
-1. 上記のガイドラインに従って内容を準備します。
-2. [コントリビューターライセンス同意書 (CLA)](CLA.md) を読みます。
-3. **376672994@qq.com** 宛に内容を送信します。
-4. メール本文に *「私は The Kai Project CLA を読み、これに同意します。」* を必ず記載してください。
-5. 承認された場合、メンテナが内容をリポジトリに反映します。
-
-## 📝 CLA の署名
-貢献をマージする前に、[コントリビューターライセンス同意書 (CLA)](CLA.md) への同意が必要です。
-
-**GitHub ユーザーの場合（Pull Request）:**
-CLA 署名は、現在このリポジトリ内の workflow で自動チェックされます: [.github/workflows/cla-check.yml](.github/workflows/cla-check.yml)。
-
-PR 作成後、PR 作成者本人が次のいずれかに署名文を記載してください。
-- PR の説明文
-- PR の会話コメント
-- PR の Review コメント
-
-利用できる署名文:
-
-```text
-I have read the CLA Document and I sign the CLA
-```
-
-```text
-I have read and agree to The Kai Project CLA.
-```
-
-署名文が検出されない場合、`CLA 检查` workflow は失敗し、リマインドコメントを自動投稿します。署名文を追加すると自動的に再チェックされて通過します。
-
-**GitHub 以外のユーザーの場合（メール投稿）:**
-上記のとおり、メール本文に *「私は The Kai Project CLA を読み、これに同意します。」* を含めてください。
+公開過去問アーカイブと公開解答ライブラリに受け入れられた貢献は、プロジェクトの中核的な公開コンテンツとして、引き続きオープンにアクセスできる形で提供します。
 
 # 💬 コミュニティ議論
-The Kai Project の Discord または QQ グループに参加して、試験解答や受験経験を共有し、フィードバックをお寄せください。解答に誤りがある場合は GitHub issues からも知らせてください。
+The Kai Project の Discord または QQ グループに参加して、試験解答や受験体験を共有し、フィードバックをお寄せください。解答に誤りがある場合は GitHub Issues からも知らせてください。
 
 [Discord に参加](https://discord.gg/VcUHXzB9Mk)
 
 [QQグループ：925154731](https://qm.qq.com/q/MVPd9wniQU)
 
-コミュニティ経由のフィードバックは、メンテナによってリポジトリに取り込まれたり、今後の改善方針に活用されたりします。
+コミュニティ経由のフィードバックは、メンテナーによってリポジトリに取り込まれたり、今後の改善方針に活用されたりします。
 
 # ©️ ライセンスと著作権
-The Kai Project へのすべてのコード貢献は、GNU Affero General Public License v3.0 の対象です。
+The Kai Project に提出されるコード、ドキュメント、データ、学習資料など、すべての貢献には [コントリビューターライセンス同意書 (CLA)](CLA.md) が適用されます。コード貢献は、GNU Affero General Public License v3.0 の下でも配布されます。
 
-公開解答、学習資料、関連ドキュメントの貢献には [コントリビューターライセンス同意書 (CLA)](CLA.md) が適用されます。プロジェクトは中核的な公開コンテンツをオープンソースの公開アーカイブの一部としてアクセス可能に保ちつつ、補助ツール、API、サービス支援、提携シナリオに関する長期的な運営の余地を保持します。
+CLA の公開コアコンテンツに関する約束に基づき、受け入れられた公開解答、学習資料、関連ドキュメントは、プロジェクトのオープンソース公開アーカイブの一部として引き続きアクセス可能な状態を保ちます。同時に、補助ツール、API、サービス支援、提携シナリオに関する長期的な運営の余地も保持します。
 
 また、入試問題の著作権は各学校・機関に帰属します。
 
@@ -339,6 +67,60 @@ The Kai Project へのすべてのコード貢献は、GNU Affero General Public
 
 コンテンツが権利を侵害していると思われる場合は、直ちに管理者までご連絡ください。
 
-# ⭐ スター履歴
+# ☕ プロジェクトを支援する
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Myyura/the_kai_project&type=Date)](https://www.star-history.com/#Myyura/the_kai_project&Date)
+The Kai Project が役に立ったと感じたら、コーヒー一杯分のご支援をご検討ください。いただいた支援は、次の活動に役立てます。
+
+- プロジェクト基盤の保守と改善
+- より便利な学習機能・アカウント機能の提供
+- より多くの入試問題の解答・解説、受験ガイドの作成とレビュー
+- 中核となる公開資料の無償公開とコミュニティの長期運営
+
+## 支援方法
+
+支援は任意です。追加コンテンツへのアクセス権が付与されたり、掲載・編集上の判断が左右されたりすることはありません。
+
+<p align="center">
+  <img src="./static/img/support/wechat.png" alt="The Kai Project の WeChat 支援用 QR コード" width="480">
+</p>
+
+## 商業提携
+
+教育機関、コミュニティ、関連プロジェクトとの長期的な連携を歓迎します。すべての商業提携は次の原則に従います。
+
+- 中核となる公開コンテンツは、引き続き無償で公開します。
+- 提携は透明かつ非排他的であり、コンテンツの掲載や編集上の判断に影響を与えません。
+- 利用者のアカウント情報、学習記録、ノート、投稿履歴、その他の個人データを提携先に提供しません。
+- 第三者の商用サービスに関する紹介は、サービスの品質、適合性、教育効果を保証するものではありません。
+
+提携に関するお問い合わせは [376672994@qq.com](mailto:376672994@qq.com) までご連絡ください。
+
+### 長期戦略パートナー
+
+<div align="center">
+  <a href="https://www.siqishu.com/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./static/img/support/siqishu-logo-light.svg">
+      <source media="(prefers-color-scheme: light)" srcset="./static/img/support/siqishu-logo-dark.svg">
+      <img src="./static/img/support/siqishu-logo-dark.svg" alt="思齐塾" width="260">
+    </picture>
+  </a>
+  <p>
+    <a href="https://www.siqishu.com/"><strong>思齐塾</strong></a><br>
+    日本の理工系進学をサポート · 長期戦略パートナー
+  </p>
+</div>
+
+思齐塾は、日本の理工系進学と就職支援に取り組む教育機関です。Kai の長期戦略パートナーとして、継続的な支援と協働を通じて、コンテンツ、機能、コミュニティの発展を支えています。
+
+**Kai コミュニティ向け提携特典：** Kai を通じて思齐塾を知った方は、相談時にログイン済みの Kai アカウント画面を任意で提示すると、Kai コミュニティ向けの提携特典について案内を受けられます。対象講座、特典内容、有効期間は、相談時の思齐塾の案内をご確認ください。Kai がパートナーにアカウント情報その他の個人データを提供することはありません。
+
+## コントリビューター
+
+一つひとつの解答、訂正、コード、ドキュメントの改善が、The Kai Project の成長を支えています。
+
+<p align="center">
+  <a href="https://github.com/Myyura/the_kai_project/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=Myyura/the_kai_project" alt="The Kai Project のコントリビューター">
+  </a>
+</p>

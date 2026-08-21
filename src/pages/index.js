@@ -195,6 +195,12 @@ const CommunitySupportSection = memo(({ t }) => {
   const partnerName = featuredPartner
     ? getLocalizedSupportValue(featuredPartner.name, language)
     : t.supportPartnerFallback;
+  const partnerLogoAlt = featuredPartner
+    ? getLocalizedSupportValue(featuredPartner.logo?.alt, language) || partnerName
+    : '';
+  const partnerShortDescription = featuredPartner
+    ? getLocalizedSupportValue(featuredPartner.shortDescription, language)
+    : '';
 
   return (
     <section id="community-support" className={styles.communitySupportSection}>
@@ -214,13 +220,42 @@ const CommunitySupportSection = memo(({ t }) => {
 
           <div className={styles.communitySupportDetails}>
             <Link className={styles.featuredPartnerTile} to="/support#partners">
-              <span className={styles.communitySupportIcon}><FaHandshake aria-hidden="true" /></span>
-              <span>
-                <small>{t.supportPartnerLabel}</small>
-                <strong>{partnerName}</strong>
-                {!featuredPartner && <em>{t.supportPartnerFallbackHint}</em>}
+              <span className={styles.featuredPartnerHeader}>
+                <span className={styles.communitySupportIcon}><FaHandshake aria-hidden="true" /></span>
+                <span className={styles.featuredPartnerHeading}>
+                  <small>{t.supportPartnerLabel}</small>
+                  <strong>{t.supportPartnerFallback}</strong>
+                  <em>{t.supportPartnerFallbackHint}</em>
+                </span>
+                <FaArrowRight aria-hidden="true" />
               </span>
-              <FaArrowRight aria-hidden="true" />
+              {featuredPartner ? (
+                <span className={styles.featuredPartnerIdentity}>
+                  <span className={styles.featuredPartnerLogo}>
+                    <img
+                      className={styles.partnerLogoForLightTheme}
+                      src={featuredPartner.logo?.src}
+                      alt={partnerLogoAlt}
+                      loading="lazy"
+                    />
+                    {featuredPartner.logo?.darkSrc && (
+                      <img
+                        className={styles.partnerLogoForDarkTheme}
+                        src={featuredPartner.logo.darkSrc}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                      />
+                    )}
+                  </span>
+                  <span className={styles.featuredPartnerName}>
+                    <strong>{partnerName}</strong>
+                    {partnerShortDescription && <em>{partnerShortDescription}</em>}
+                  </span>
+                </span>
+              ) : (
+                <em className={styles.featuredPartnerEmpty}>{t.supportPartnerFallbackHint}</em>
+              )}
             </Link>
             <Link className={styles.communitySupportTile} to="/support#contributors">
               <span className={styles.communitySupportIcon}><FaUsers aria-hidden="true" /></span>

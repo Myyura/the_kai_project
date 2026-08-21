@@ -318,6 +318,18 @@
   object-fit: contain;
 }
 
+.partnerLogoForDarkTheme {
+  display: none !important;
+}
+
+[data-theme='dark'] .partnerLogoForLightTheme {
+  display: none;
+}
+
+[data-theme='dark'] .partnerLogoForDarkTheme {
+  display: block !important;
+}
+
 .strategicPartnerLogo strong {
   color: var(--ifm-color-primary);
   font-size: 2rem;
@@ -336,6 +348,25 @@
   margin: .7rem 0 0;
   color: var(--ifm-color-emphasis-700);
   line-height: 1.7;
+}
+
+.strategicPartnerCopy .partnerBenefit {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  border: 1px solid rgba(var(--kai-gold-rgb), .24);
+  border-radius: 12px;
+  background: rgba(var(--kai-gold-rgb), .08);
+  padding: .7rem .8rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .79rem;
+  line-height: 1.55;
+}
+
+.partnerBenefit svg {
+  flex: 0 0 auto;
+  margin-top: .18rem;
+  color: var(--kai-gold-text);
 }
 
 .inlineAction {
@@ -590,7 +621,7 @@
 
 .supportMethods {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: .6rem;
   margin-top: 1rem;
 }
@@ -615,16 +646,21 @@
 }
 
 .qrImageWrap {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
   overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, .1);
   border-radius: 10px;
   background: #fff;
-  padding: .35rem;
+  padding: .5rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .08);
 }
 
 .qrImageWrap img {
   display: block;
   width: 100%;
-  aspect-ratio: 1;
+  height: auto;
   object-fit: contain;
 }
 

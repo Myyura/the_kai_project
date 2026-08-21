@@ -1,6 +1,10 @@
 {
   "schemaVersion": 2,
   "namespace": "ad4a6e2e-1c93-5b0c-91e4-98fb44fa87cd",
-  "current": {},
-  "aliases": {}
+  "current": {
+    "kyoto-university/informatics/amp/2014/amp_201308_operation_research": "9c71d92e-e753-527a-8702-ebe406fd7638"
+  },
+  "aliases": {
+    "kyoto-university/informatics/amp/2013/2013-8": "9c71d92e-e753-527a-8702-ebe406fd7638"
+  }
 }

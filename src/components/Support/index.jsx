@@ -15,6 +15,7 @@ import {
   FaLock,
   FaQq,
   FaShieldAlt,
+  FaTag,
   FaUsers,
 } from 'react-icons/fa';
 import {useCurrentLanguage} from '../../context/LanguageContext';
@@ -54,14 +55,25 @@ function SmartLink({to, className, children}) {
 function PartnerLogo({partner, language, className}) {
   const name = getLocalizedSupportValue(partner.name, language);
   const logoSource = partner.logo?.src;
+  const darkLogoSource = partner.logo?.darkSrc;
   if (logoSource) {
     return (
       <span className={className}>
         <img
+          className={styles.partnerLogoForLightTheme}
           src={logoSource}
           alt={getLocalizedSupportValue(partner.logo?.alt, language) || name}
           loading="lazy"
         />
+        {darkLogoSource && (
+          <img
+            className={styles.partnerLogoForDarkTheme}
+            src={darkLogoSource}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        )}
       </span>
     );
   }
@@ -75,6 +87,7 @@ function PartnerLogo({partner, language, className}) {
 function StrategicPartnerCard({partner, language, copy}) {
   const name = getLocalizedSupportValue(partner.name, language);
   const description = getLocalizedSupportValue(partner.description, language);
+  const kaiCommunityOffer = getLocalizedSupportValue(partner.kaiCommunityOffer, language);
   const primaryUrl = partner.detailsUrl || partner.website;
   const primaryLabel = partner.detailsUrl ? copy.learnMore : copy.visitWebsite;
 
@@ -93,6 +106,12 @@ function StrategicPartnerCard({partner, language, copy}) {
         <div className={styles.strategicPartnerCopy}>
           <h3>{name}</h3>
           {description && <p>{description}</p>}
+          {kaiCommunityOffer && (
+            <p className={styles.partnerBenefit}>
+              <FaTag aria-hidden="true" />
+              <span>{kaiCommunityOffer}</span>
+            </p>
+          )}
           <SmartLink to={primaryUrl} className={styles.inlineAction}>
             {primaryLabel} <FaExternalLinkAlt aria-hidden="true" />
           </SmartLink>

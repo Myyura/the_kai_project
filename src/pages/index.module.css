@@ -815,7 +815,9 @@
 
 .featuredPartnerTile {
   grid-column: 1 / -1;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
   background: linear-gradient(140deg, rgba(var(--kai-gold-rgb), .12), rgba(var(--theme-accent-rgb), .06));
 }
 
@@ -846,13 +848,22 @@
   color: var(--kai-gold-text);
 }
 
+.featuredPartnerHeader {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .7rem;
+}
+
+.featuredPartnerHeading,
+.featuredPartnerName,
 .featuredPartnerTile small,
 .featuredPartnerTile strong,
 .featuredPartnerTile em {
   display: block;
 }
 
-.featuredPartnerTile small {
+.featuredPartnerHeading small {
   color: var(--kai-gold-text);
   font-size: .62rem;
   font-weight: 800;
@@ -860,20 +871,78 @@
   text-transform: uppercase;
 }
 
-.featuredPartnerTile strong,
+.featuredPartnerHeading strong,
 .communitySupportTile strong {
   font-size: .82rem;
   line-height: 1.35;
 }
 
-.featuredPartnerTile em {
+.featuredPartnerHeading em {
+  margin-top: .1rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: .6rem;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.featuredPartnerIdentity {
+  display: grid;
+  grid-template-columns: minmax(112px, 142px) minmax(0, 1fr);
+  align-items: center;
+  gap: .9rem;
+  border-top: 1px solid rgba(var(--kai-gold-rgb), .22);
+  padding-top: .8rem;
+}
+
+.featuredPartnerLogo {
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(var(--theme-accent-rgb), .12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .82);
+  padding: .45rem .6rem;
+}
+
+.featuredPartnerLogo img {
+  display: block;
+  width: 100%;
+  max-height: 50px;
+  object-fit: contain;
+}
+
+.partnerLogoForDarkTheme {
+  display: none !important;
+}
+
+[data-theme='dark'] .featuredPartnerLogo {
+  background: var(--kai-navy-800);
+}
+
+[data-theme='dark'] .partnerLogoForLightTheme {
+  display: none;
+}
+
+[data-theme='dark'] .partnerLogoForDarkTheme {
+  display: block !important;
+}
+
+.featuredPartnerName strong {
+  font-size: 1rem;
+  letter-spacing: -.01em;
+  line-height: 1.25;
+}
+
+.featuredPartnerName em,
+.featuredPartnerEmpty {
   margin-top: .15rem;
   color: var(--ifm-color-emphasis-600);
   font-size: .65rem;
   font-style: normal;
 }
 
-.featuredPartnerTile > svg,
+.featuredPartnerHeader > svg,
 .communitySupportTile > svg {
   color: var(--ifm-color-emphasis-400);
   font-size: .65rem;
@@ -1422,6 +1491,11 @@
 
   .featuredPartnerTile {
     grid-column: auto;
+  }
+
+  .featuredPartnerIdentity {
+    grid-template-columns: minmax(96px, 112px) minmax(0, 1fr);
+    gap: .7rem;
   }
 
   .communityDescription {

@@ -22,6 +22,12 @@ function assertLocalized(value, label) {
   }
 }
 
+function assertStaticAsset(assetPath, label) {
+  assert.match(assetPath, /^\/[^/]/, `${label} must be an absolute site path`);
+  const filePath = path.resolve(__dirname, '../static', assetPath.slice(1));
+  assert.ok(fs.existsSync(filePath), `${label} must resolve to an existing file under static/`);
+}
+
 test('support configuration keeps enabled entries publishable', () => {
   const config = getConfigObject();
   assert.match(config.contactEmail, /^[^@\s]+@[^@\s]+\.[^@\s]+$/);
@@ -39,10 +45,16 @@ test('support configuration keeps enabled entries publishable', () => {
       ids.add(entry.id);
       assertLocalized(entry.name, `${label}.name`);
       if (!entry.enabled) return;
+      if (entry.shortDescription) assertLocalized(entry.shortDescription, `${label}.shortDescription`);
       assert.ok(entry.logo?.src, `${label}.logo.src is required when enabled`);
+      assertStaticAsset(entry.logo.src, `${label}.logo.src`);
+      if (entry.logo.darkSrc) assertStaticAsset(entry.logo.darkSrc, `${label}.logo.darkSrc`);
       assertLocalized(entry.logo.alt, `${label}.logo.alt`);
       if (collectionName === 'strategicPartners') {
         assertLocalized(entry.description, `${label}.description`);
+        if (entry.kaiCommunityOffer) {
+          assertLocalized(entry.kaiCommunityOffer, `${label}.kaiCommunityOffer`);
+        }
       }
       if (entry.website) assert.match(entry.website, /^https?:\/\//, `${label}.website must be an URL`);
       if (entry.detailsUrl) {
@@ -60,8 +72,10 @@ test('support configuration keeps enabled entries publishable', () => {
     assert.ok(method.id, `${label}.id is required`);
     if (!method.enabled) return;
     assert.ok(['qr', 'link'].includes(method.type), `${label}.type is invalid`);
-    if (method.type === 'qr') assert.ok(method.qrImage, `${label}.qrImage is required`);
+    if (method.type === 'qr') {
+      assert.ok(method.qrImage, `${label}.qrImage is required`);
+      assertStaticAsset(method.qrImage, `${label}.qrImage`);
+    }
     if (method.type === 'link') assert.match(method.url, /^https?:\/\//, `${label}.url must be an URL`);
   });
 });
-
