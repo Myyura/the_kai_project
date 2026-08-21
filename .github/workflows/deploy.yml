@@ -17,7 +17,8 @@ on:
 
 concurrency:
   group: pages-${{ github.ref }}
-  cancel-in-progress: false
+  # Superseded PR checks can stop, while production deployments stay serialized.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -27,13 +28,12 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 20
           cache: yarn
+          cache-dependency-path: yarn.lock
       - name: 安装依赖
         run: yarn install --frozen-lockfile
       - name: 校验 API 数据
@@ -46,11 +46,28 @@ jobs:
           df -h /
           du -sh node_modules
       - name: 构建网站
-        run: /usr/bin/time -v yarn build
+        shell: bash
+        run: |
+          set -euo pipefail
+          (
+            while sleep 60; do
+              echo "::group::构建资源 $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+              free -h
+              df -h /
+              ps -eo pid,ppid,rss,%mem,%cpu,comm --sort=-rss | awk 'NR <= 12'
+              if [ -r /sys/fs/cgroup/memory.current ]; then
+                printf 'cgroup memory.current: '
+                cat /sys/fs/cgroup/memory.current
+              fi
+              echo '::endgroup::'
+            done
+          ) &
+          monitor_pid=$!
+          trap 'kill "$monitor_pid" 2>/dev/null || true' EXIT
+          /usr/bin/time -v yarn build
         env:
           DOCUSAURUS_PERF_LOGGER: 'true'
-          # yarn build applies the shared low-memory profile used locally and
-          # in CI: sequential bundles, one SSG worker, and a 6 GiB V8 heap.
+          # yarn build applies the memory-aware profile shared with local builds.
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}
@@ -65,7 +82,7 @@ jobs:
           test ! -f build/progress.html
       - name: 上传构建制品
         if: github.event_name == 'push'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: build
 
@@ -88,7 +105,7 @@ jobs:
     steps:
       - name: 部署到 GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   backend:
     name: 迁移 Supabase 并部署 Edge Functions
@@ -99,9 +116,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v7
       - uses: supabase/setup-cli@ab058987d8d6c725971f6cf9d0b5c98467e30bd1 # v1
         with:
           version: 2.109.1
