@@ -1,0 +1,76 @@
+{
+  "id": "Sociology",
+  "subject": {
+    "labelZh": "社会学",
+    "labelJa": "社会学",
+    "labelEn": "Sociology",
+    "descriptionZh": "研究社会关系、制度、结构、不平等、共同体与文化变迁。",
+    "descriptionJa": "社会関係、制度、構造、不平等、コミュニティ、文化変動を研究する分野。",
+    "descriptionEn": "The study of social relations, institutions, structures, inequality, communities, and cultural change."
+  },
+  "subsubjects": {
+    "Sociology.Sociological-Theory": {
+      "subject": "Sociology",
+      "labelZh": "社会学理论",
+      "labelJa": "社会学理論",
+      "labelEn": "Sociological Theory",
+      "descriptionZh": "研究解释社会秩序、行动、结构与变迁的经典和当代理论。",
+      "descriptionJa": "社会秩序、行為、構造、変動を説明する古典および現代の理論を扱う。",
+      "descriptionEn": "Classical and contemporary theories explaining social order, action, structure, and change."
+    },
+    "Sociology.Social-Research": {
+      "subject": "Sociology",
+      "labelZh": "社会调查",
+      "labelJa": "社会調査",
+      "labelEn": "Social Research",
+      "descriptionZh": "研究社会调查设计、抽样、访谈、观察、问卷及定量与定性分析。",
+      "descriptionJa": "調査設計、標本抽出、面接、観察、質問紙、量的・質的分析を扱う。",
+      "descriptionEn": "Research design, sampling, interviews, observation, surveys, and quantitative and qualitative analysis."
+    },
+    "Sociology.Social-Stratification": {
+      "subject": "Sociology",
+      "labelZh": "社会阶层",
+      "labelJa": "社会階層",
+      "labelEn": "Social Stratification",
+      "descriptionZh": "研究阶级、地位、社会流动以及资源与机会的不平等分配。",
+      "descriptionJa": "階級、地位、社会移動、資源と機会の不平等な配分を扱う。",
+      "descriptionEn": "Class, status, social mobility, and unequal distributions of resources and opportunities."
+    },
+    "Sociology.Family-and-Gender": {
+      "subject": "Sociology",
+      "labelZh": "家庭与性别",
+      "labelJa": "家族・ジェンダー",
+      "labelEn": "Family & Gender",
+      "descriptionZh": "研究家庭结构、亲密关系、照护、性别规范与性别不平等。",
+      "descriptionJa": "家族構造、親密関係、ケア、ジェンダー規範、ジェンダー不平等を扱う。",
+      "descriptionEn": "Family structures, intimate relationships, care, gender norms, and gender inequality."
+    },
+    "Sociology.Urban-Sociology": {
+      "subject": "Sociology",
+      "labelZh": "都市社会学",
+      "labelJa": "都市社会学",
+      "labelEn": "Urban Sociology",
+      "descriptionZh": "研究城市空间、社区、迁移、住房、治理与都市生活。",
+      "descriptionJa": "都市空間、地域社会、移住、住宅、ガバナンス、都市生活を扱う。",
+      "descriptionEn": "Urban space, communities, migration, housing, governance, and city life."
+    },
+    "Sociology.Culture-and-Media": {
+      "subject": "Sociology",
+      "labelZh": "文化与媒体",
+      "labelJa": "文化・メディア",
+      "labelEn": "Culture & Media",
+      "descriptionZh": "研究意义、身份、文化生产、传播媒介与大众文化。",
+      "descriptionJa": "意味、アイデンティティ、文化生産、メディア、大衆文化を扱う。",
+      "descriptionEn": "Meaning, identity, cultural production, media, and popular culture."
+    }
+  },
+  "subsubjectOrder": [
+    "Sociology.Sociological-Theory",
+    "Sociology.Social-Research",
+    "Sociology.Social-Stratification",
+    "Sociology.Family-and-Gender",
+    "Sociology.Urban-Sociology",
+    "Sociology.Culture-and-Media"
+  ],
+  "topics": {}
+}

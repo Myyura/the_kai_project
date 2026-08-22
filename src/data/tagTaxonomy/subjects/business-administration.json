@@ -1,0 +1,86 @@
+{
+  "id": "Business-Administration",
+  "subject": {
+    "labelZh": "工商管理",
+    "labelJa": "経営学",
+    "labelEn": "Business Administration",
+    "descriptionZh": "研究组织的战略、结构、人才、市场、会计、金融与科学决策。",
+    "descriptionJa": "組織の戦略、構造、人材、市場、会計、ファイナンス、科学的意思決定を研究する分野。",
+    "descriptionEn": "The study of organizational strategy, structure, people, markets, accounting, finance, and scientific decision making."
+  },
+  "subsubjects": {
+    "Business-Administration.Strategy": {
+      "subject": "Business-Administration",
+      "labelZh": "战略管理",
+      "labelJa": "経営戦略",
+      "labelEn": "Strategy",
+      "descriptionZh": "研究竞争优势、企业定位、资源配置与长期发展方向。",
+      "descriptionJa": "競争優位、企業のポジショニング、資源配分、長期的な発展方向を扱う。",
+      "descriptionEn": "Competitive advantage, organizational positioning, resource allocation, and long-term direction."
+    },
+    "Business-Administration.Organization": {
+      "subject": "Business-Administration",
+      "labelZh": "组织理论",
+      "labelJa": "組織論",
+      "labelEn": "Organization",
+      "descriptionZh": "研究组织结构、制度、文化、权力与组织行为。",
+      "descriptionJa": "組織構造、制度、文化、権力、組織行動を扱う。",
+      "descriptionEn": "Organizational structure, institutions, culture, power, and behavior."
+    },
+    "Business-Administration.Human-Resource-Management": {
+      "subject": "Business-Administration",
+      "labelZh": "人力资源管理",
+      "labelJa": "人的資源管理",
+      "labelEn": "Human Resource Management",
+      "descriptionZh": "研究人员招聘、配置、培养、评价、激励与劳动关系。",
+      "descriptionJa": "採用、配置、育成、評価、動機づけ、労使関係を扱う。",
+      "descriptionEn": "Recruitment, staffing, development, evaluation, motivation, and employment relations."
+    },
+    "Business-Administration.Marketing": {
+      "subject": "Business-Administration",
+      "labelZh": "市场营销",
+      "labelJa": "マーケティング",
+      "labelEn": "Marketing",
+      "descriptionZh": "研究消费者、市场分析、产品、定价、渠道、传播与品牌。",
+      "descriptionJa": "消費者、市場分析、製品、価格、流通、コミュニケーション、ブランドを扱う。",
+      "descriptionEn": "Consumers, market analysis, products, pricing, distribution, communication, and brands."
+    },
+    "Business-Administration.Accounting": {
+      "subject": "Business-Administration",
+      "labelZh": "会计学",
+      "labelJa": "会計学",
+      "labelEn": "Accounting",
+      "descriptionZh": "研究财务报告、管理会计、审计、成本与企业绩效衡量。",
+      "descriptionJa": "財務報告、管理会計、監査、原価、企業業績の測定を扱う。",
+      "descriptionEn": "Financial reporting, management accounting, auditing, costs, and organizational performance measurement."
+    },
+    "Business-Administration.Finance": {
+      "subject": "Business-Administration",
+      "labelZh": "金融",
+      "labelJa": "ファイナンス",
+      "labelEn": "Finance",
+      "descriptionZh": "研究企业融资、投资决策、资本结构、资产定价与风险管理。",
+      "descriptionJa": "企業金融、投資意思決定、資本構成、資産価格、リスク管理を扱う。",
+      "descriptionEn": "Corporate financing, investment decisions, capital structure, asset pricing, and risk management."
+    },
+    "Business-Administration.Management-Science": {
+      "subject": "Business-Administration",
+      "labelZh": "经营科学",
+      "labelJa": "経営科学",
+      "labelEn": "Management Science",
+      "descriptionZh": "运用定量模型、优化、模拟与数据分析支持经营决策。",
+      "descriptionJa": "定量モデル、最適化、シミュレーション、データ分析によって経営意思決定を支援する。",
+      "descriptionEn": "Quantitative models, optimization, simulation, and data analysis for managerial decision making."
+    }
+  },
+  "subsubjectOrder": [
+    "Business-Administration.Strategy",
+    "Business-Administration.Organization",
+    "Business-Administration.Human-Resource-Management",
+    "Business-Administration.Marketing",
+    "Business-Administration.Accounting",
+    "Business-Administration.Finance",
+    "Business-Administration.Management-Science"
+  ],
+  "topics": {}
+}

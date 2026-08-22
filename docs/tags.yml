@@ -80,6 +80,10 @@
   label: "Meiji-University"
   permalink: "/school/meiji-university"
   description: "Meiji-University (明治大学)"
+"Yamaguchi-University":
+  label: "Yamaguchi-University"
+  permalink: "/school/yamaguchi-university"
+  description: "Yamaguchi-University (山口大学)"
 "Mathematics.Calculus":
   label: "Mathematics.Calculus"
   permalink: "/subsubject/mathematics/calculus"
@@ -376,6 +380,114 @@
   label: "Engineering.Robotics"
   permalink: "/subsubject/engineering/robotics"
   description: "Engineering / Robotics"
+"Economics.Microeconomics":
+  label: "Economics.Microeconomics"
+  permalink: "/subsubject/economics/microeconomics"
+  description: "Economics / Microeconomics"
+"Economics.Macroeconomics":
+  label: "Economics.Macroeconomics"
+  permalink: "/subsubject/economics/macroeconomics"
+  description: "Economics / Macroeconomics"
+"Economics.Econometrics":
+  label: "Economics.Econometrics"
+  permalink: "/subsubject/economics/econometrics"
+  description: "Economics / Econometrics"
+"Economics.Public-Finance":
+  label: "Economics.Public-Finance"
+  permalink: "/subsubject/economics/public-finance"
+  description: "Economics / Public-Finance"
+"Economics.International-Economics":
+  label: "Economics.International-Economics"
+  permalink: "/subsubject/economics/international-economics"
+  description: "Economics / International-Economics"
+"Economics.Economic-History":
+  label: "Economics.Economic-History"
+  permalink: "/subsubject/economics/economic-history"
+  description: "Economics / Economic-History"
+"Business-Administration.Strategy":
+  label: "Business-Administration.Strategy"
+  permalink: "/subsubject/business-administration/strategy"
+  description: "Business-Administration / Strategy"
+"Business-Administration.Organization":
+  label: "Business-Administration.Organization"
+  permalink: "/subsubject/business-administration/organization"
+  description: "Business-Administration / Organization"
+"Business-Administration.Human-Resource-Management":
+  label: "Business-Administration.Human-Resource-Management"
+  permalink: "/subsubject/business-administration/human-resource-management"
+  description: "Business-Administration / Human-Resource-Management"
+"Business-Administration.Marketing":
+  label: "Business-Administration.Marketing"
+  permalink: "/subsubject/business-administration/marketing"
+  description: "Business-Administration / Marketing"
+"Business-Administration.Accounting":
+  label: "Business-Administration.Accounting"
+  permalink: "/subsubject/business-administration/accounting"
+  description: "Business-Administration / Accounting"
+"Business-Administration.Finance":
+  label: "Business-Administration.Finance"
+  permalink: "/subsubject/business-administration/finance"
+  description: "Business-Administration / Finance"
+"Business-Administration.Management-Science":
+  label: "Business-Administration.Management-Science"
+  permalink: "/subsubject/business-administration/management-science"
+  description: "Business-Administration / Management-Science"
+"Sociology.Sociological-Theory":
+  label: "Sociology.Sociological-Theory"
+  permalink: "/subsubject/sociology/sociological-theory"
+  description: "Sociology / Sociological-Theory"
+"Sociology.Social-Research":
+  label: "Sociology.Social-Research"
+  permalink: "/subsubject/sociology/social-research"
+  description: "Sociology / Social-Research"
+"Sociology.Social-Stratification":
+  label: "Sociology.Social-Stratification"
+  permalink: "/subsubject/sociology/social-stratification"
+  description: "Sociology / Social-Stratification"
+"Sociology.Family-and-Gender":
+  label: "Sociology.Family-and-Gender"
+  permalink: "/subsubject/sociology/family-and-gender"
+  description: "Sociology / Family-and-Gender"
+"Sociology.Urban-Sociology":
+  label: "Sociology.Urban-Sociology"
+  permalink: "/subsubject/sociology/urban-sociology"
+  description: "Sociology / Urban-Sociology"
+"Sociology.Culture-and-Media":
+  label: "Sociology.Culture-and-Media"
+  permalink: "/subsubject/sociology/culture-and-media"
+  description: "Sociology / Culture-and-Media"
+"Psychology.Basic-Psychology":
+  label: "Psychology.Basic-Psychology"
+  permalink: "/subsubject/psychology/basic-psychology"
+  description: "Psychology / Basic-Psychology"
+"Psychology.Cognitive-Psychology":
+  label: "Psychology.Cognitive-Psychology"
+  permalink: "/subsubject/psychology/cognitive-psychology"
+  description: "Psychology / Cognitive-Psychology"
+"Psychology.Social-Psychology":
+  label: "Psychology.Social-Psychology"
+  permalink: "/subsubject/psychology/social-psychology"
+  description: "Psychology / Social-Psychology"
+"Psychology.Developmental-Psychology":
+  label: "Psychology.Developmental-Psychology"
+  permalink: "/subsubject/psychology/developmental-psychology"
+  description: "Psychology / Developmental-Psychology"
+"Psychology.Clinical-Psychology":
+  label: "Psychology.Clinical-Psychology"
+  permalink: "/subsubject/psychology/clinical-psychology"
+  description: "Psychology / Clinical-Psychology"
+"Psychology.Research-Methods-and-Statistics":
+  label: "Psychology.Research-Methods-and-Statistics"
+  permalink: "/subsubject/psychology/research-methods-and-statistics"
+  description: "Psychology / Research-Methods-and-Statistics"
+"Psychology.Psychological-Assessment":
+  label: "Psychology.Psychological-Assessment"
+  permalink: "/subsubject/psychology/psychological-assessment"
+  description: "Psychology / Psychological-Assessment"
+"Psychology.Ethics":
+  label: "Psychology.Ethics"
+  permalink: "/subsubject/psychology/ethics"
+  description: "Psychology / Ethics"
 "Bioinformatics.Bioinformatics.Sequence-Alignment":
   label: "Bioinformatics.Bioinformatics.Sequence-Alignment"
   permalink: "/topic/bioinformatics/bioinformatics/sequence-alignment"
@@ -5220,3 +5332,51 @@
   label: "Probability-Statistics.Stochastic-Processes.Waiting-Time-for-Runs-via-Probability-Generating-Functions"
   permalink: "/topic/probability-statistics/stochastic-processes/waiting-time-for-runs-via-probability-generating-functions"
   description: "Probability-Statistics / Stochastic-Processes / Waiting-Time-for-Runs-via-Probability-Generating-Functions"
+"Psychology.Basic-Psychology.Punishment-and-Aversive-Learning":
+  label: "Psychology.Basic-Psychology.Punishment-and-Aversive-Learning"
+  permalink: "/topic/psychology/basic-psychology/punishment-and-aversive-learning"
+  description: "Psychology / Basic-Psychology / Punishment-and-Aversive-Learning"
+"Psychology.Clinical-Psychology.Eating-Disorders":
+  label: "Psychology.Clinical-Psychology.Eating-Disorders"
+  permalink: "/topic/psychology/clinical-psychology/eating-disorders"
+  description: "Psychology / Clinical-Psychology / Eating-Disorders"
+"Psychology.Clinical-Psychology.Psychodynamic-Theory":
+  label: "Psychology.Clinical-Psychology.Psychodynamic-Theory"
+  permalink: "/topic/psychology/clinical-psychology/psychodynamic-theory"
+  description: "Psychology / Clinical-Psychology / Psychodynamic-Theory"
+"Psychology.Clinical-Psychology.Suicide-Prevention-and-Gatekeeping":
+  label: "Psychology.Clinical-Psychology.Suicide-Prevention-and-Gatekeeping"
+  permalink: "/topic/psychology/clinical-psychology/suicide-prevention-and-gatekeeping"
+  description: "Psychology / Clinical-Psychology / Suicide-Prevention-and-Gatekeeping"
+"Psychology.Cognitive-Psychology.Stroop-Effect":
+  label: "Psychology.Cognitive-Psychology.Stroop-Effect"
+  permalink: "/topic/psychology/cognitive-psychology/stroop-effect"
+  description: "Psychology / Cognitive-Psychology / Stroop-Effect"
+"Psychology.Developmental-Psychology.Successful-Aging":
+  label: "Psychology.Developmental-Psychology.Successful-Aging"
+  permalink: "/topic/psychology/developmental-psychology/successful-aging"
+  description: "Psychology / Developmental-Psychology / Successful-Aging"
+"Psychology.Ethics.Confidentiality":
+  label: "Psychology.Ethics.Confidentiality"
+  permalink: "/topic/psychology/ethics/confidentiality"
+  description: "Psychology / Ethics / Confidentiality"
+"Psychology.Ethics.Informed-Assent":
+  label: "Psychology.Ethics.Informed-Assent"
+  permalink: "/topic/psychology/ethics/informed-assent"
+  description: "Psychology / Ethics / Informed-Assent"
+"Psychology.Ethics.Multiple-Relationships":
+  label: "Psychology.Ethics.Multiple-Relationships"
+  permalink: "/topic/psychology/ethics/multiple-relationships"
+  description: "Psychology / Ethics / Multiple-Relationships"
+"Psychology.Research-Methods-and-Statistics.Measurement-Error":
+  label: "Psychology.Research-Methods-and-Statistics.Measurement-Error"
+  permalink: "/topic/psychology/research-methods-and-statistics/measurement-error"
+  description: "Psychology / Research-Methods-and-Statistics / Measurement-Error"
+"Psychology.Research-Methods-and-Statistics.Multiple-Comparisons":
+  label: "Psychology.Research-Methods-and-Statistics.Multiple-Comparisons"
+  permalink: "/topic/psychology/research-methods-and-statistics/multiple-comparisons"
+  description: "Psychology / Research-Methods-and-Statistics / Multiple-Comparisons"
+"Psychology.Social-Psychology.Ingroup-Bias-and-Social-Identity":
+  label: "Psychology.Social-Psychology.Ingroup-Bias-and-Social-Identity"
+  permalink: "/topic/psychology/social-psychology/ingroup-bias-and-social-identity"
+  description: "Psychology / Social-Psychology / Ingroup-Bias-and-Social-Identity"

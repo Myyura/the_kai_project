@@ -1,0 +1,76 @@
+{
+  "id": "Economics",
+  "subject": {
+    "labelZh": "经济学",
+    "labelJa": "経済学",
+    "labelEn": "Economics",
+    "descriptionZh": "研究资源配置、经济增长、公共政策、国际交换与经济制度演变。",
+    "descriptionJa": "資源配分、経済成長、公共政策、国際取引、経済制度の変遷を研究する分野。",
+    "descriptionEn": "The study of resource allocation, economic growth, public policy, international exchange, and the evolution of economic institutions."
+  },
+  "subsubjects": {
+    "Economics.Microeconomics": {
+      "subject": "Economics",
+      "labelZh": "微观经济学",
+      "labelJa": "ミクロ経済学",
+      "labelEn": "Microeconomics",
+      "descriptionZh": "研究个人、家庭与企业的选择，以及市场中的价格形成和资源配置。",
+      "descriptionJa": "個人、家計、企業の選択と、市場における価格形成および資源配分を扱う。",
+      "descriptionEn": "Individual, household, and firm decisions, together with price formation and resource allocation in markets."
+    },
+    "Economics.Macroeconomics": {
+      "subject": "Economics",
+      "labelZh": "宏观经济学",
+      "labelJa": "マクロ経済学",
+      "labelEn": "Macroeconomics",
+      "descriptionZh": "研究国民收入、经济增长、失业、通货膨胀及宏观经济政策。",
+      "descriptionJa": "国民所得、経済成長、失業、インフレーション、マクロ経済政策を扱う。",
+      "descriptionEn": "National income, economic growth, unemployment, inflation, and macroeconomic policy."
+    },
+    "Economics.Econometrics": {
+      "subject": "Economics",
+      "labelZh": "计量经济学",
+      "labelJa": "計量経済学",
+      "labelEn": "Econometrics",
+      "descriptionZh": "运用统计模型与数据识别、估计和检验经济关系。",
+      "descriptionJa": "統計モデルとデータを用いて経済関係を識別・推定・検定する。",
+      "descriptionEn": "Statistical models and data for identifying, estimating, and testing economic relationships."
+    },
+    "Economics.Public-Finance": {
+      "subject": "Economics",
+      "labelZh": "财政学",
+      "labelJa": "財政学",
+      "labelEn": "Public Finance",
+      "descriptionZh": "研究税收、公共支出、政府预算及公共部门的资源配置。",
+      "descriptionJa": "租税、公共支出、政府予算、公共部門の資源配分を扱う。",
+      "descriptionEn": "Taxation, public expenditure, government budgets, and resource allocation in the public sector."
+    },
+    "Economics.International-Economics": {
+      "subject": "Economics",
+      "labelZh": "国际经济学",
+      "labelJa": "国際経済学",
+      "labelEn": "International Economics",
+      "descriptionZh": "研究国际贸易、国际金融、汇率与跨境经济政策。",
+      "descriptionJa": "国際貿易、国際金融、為替レート、国境を越える経済政策を扱う。",
+      "descriptionEn": "International trade, international finance, exchange rates, and cross-border economic policy."
+    },
+    "Economics.Economic-History": {
+      "subject": "Economics",
+      "labelZh": "经济史",
+      "labelJa": "経済史",
+      "labelEn": "Economic History",
+      "descriptionZh": "从历史视角研究经济制度、产业、技术与社会经济变迁。",
+      "descriptionJa": "経済制度、産業、技術、社会経済の変化を歴史的観点から研究する。",
+      "descriptionEn": "Historical study of economic institutions, industries, technology, and socioeconomic change."
+    }
+  },
+  "subsubjectOrder": [
+    "Economics.Microeconomics",
+    "Economics.Macroeconomics",
+    "Economics.Econometrics",
+    "Economics.Public-Finance",
+    "Economics.International-Economics",
+    "Economics.Economic-History"
+  ],
+  "topics": {}
+}

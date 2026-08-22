@@ -1,0 +1,142 @@
+{
+  "id": "Psychology",
+  "subject": {
+    "labelZh": "心理学",
+    "labelJa": "心理学",
+    "labelEn": "Psychology",
+    "descriptionZh": "研究心理过程与行为，涵盖基础、认知、社会、发展、临床、研究方法、评估与伦理。",
+    "descriptionJa": "心的過程と行動を、基礎、認知、社会、発達、臨床、研究法、アセスメント、倫理の観点から研究する分野。",
+    "descriptionEn": "The study of mental processes and behavior across basic, cognitive, social, developmental, clinical, methodological, assessment, and ethical domains."
+  },
+  "subsubjects": {
+    "Psychology.Basic-Psychology": {
+      "subject": "Psychology",
+      "labelZh": "基础心理学",
+      "labelJa": "基礎心理学",
+      "labelEn": "Basic Psychology",
+      "descriptionZh": "研究学习、条件作用、动机、情绪、感觉及其他基本心理机制。",
+      "descriptionJa": "学習、条件づけ、動機づけ、感情、感覚などの基本的な心理メカニズムを扱う。",
+      "descriptionEn": "Learning, conditioning, motivation, emotion, sensation, and other fundamental psychological mechanisms."
+    },
+    "Psychology.Cognitive-Psychology": {
+      "subject": "Psychology",
+      "labelZh": "认知心理学",
+      "labelJa": "認知心理学",
+      "labelEn": "Cognitive Psychology",
+      "descriptionZh": "研究知觉、注意、记忆、语言、思维与决策等信息处理过程。",
+      "descriptionJa": "知覚、注意、記憶、言語、思考、意思決定などの情報処理過程を扱う。",
+      "descriptionEn": "Information-processing mechanisms including perception, attention, memory, language, thinking, and decision making."
+    },
+    "Psychology.Social-Psychology": {
+      "subject": "Psychology",
+      "labelZh": "社会心理学",
+      "labelJa": "社会心理学",
+      "labelEn": "Social Psychology",
+      "descriptionZh": "研究个体如何受到他人、群体、规范、身份与社会情境的影响。",
+      "descriptionJa": "他者、集団、規範、アイデンティティ、社会的状況が個人に及ぼす影響を扱う。",
+      "descriptionEn": "How individuals are influenced by other people, groups, norms, identities, and social contexts."
+    },
+    "Psychology.Developmental-Psychology": {
+      "subject": "Psychology",
+      "labelZh": "发展心理学",
+      "labelJa": "発達心理学",
+      "labelEn": "Developmental Psychology",
+      "descriptionZh": "研究从婴幼儿期到老年期的认知、情绪、社会性与人格发展。",
+      "descriptionJa": "乳幼児期から老年期までの認知、感情、社会性、人格の発達を扱う。",
+      "descriptionEn": "Cognitive, emotional, social, and personality development from infancy through old age."
+    },
+    "Psychology.Clinical-Psychology": {
+      "subject": "Psychology",
+      "labelZh": "临床心理学",
+      "labelJa": "臨床心理学",
+      "labelEn": "Clinical Psychology",
+      "descriptionZh": "研究心理健康、精神病理、预防、心理治疗及面向个人与社区的支持。",
+      "descriptionJa": "メンタルヘルス、精神病理、予防、心理療法、個人および地域への支援を扱う。",
+      "descriptionEn": "Mental health, psychopathology, prevention, psychotherapy, and support for individuals and communities."
+    },
+    "Psychology.Research-Methods-and-Statistics": {
+      "subject": "Psychology",
+      "labelZh": "研究方法与统计",
+      "labelJa": "研究法・統計",
+      "labelEn": "Research Methods & Statistics",
+      "descriptionZh": "研究实验与调查设计、测量、数据分析、推断及研究结果的解释。",
+      "descriptionJa": "実験・調査計画、測定、データ分析、推論、研究結果の解釈を扱う。",
+      "descriptionEn": "Experimental and survey design, measurement, data analysis, inference, and interpretation of research findings."
+    },
+    "Psychology.Psychological-Assessment": {
+      "subject": "Psychology",
+      "labelZh": "心理评估",
+      "labelJa": "心理アセスメント",
+      "labelEn": "Psychological Assessment",
+      "descriptionZh": "研究访谈、观察、心理测验、案例概念化及评估结果的综合解释。",
+      "descriptionJa": "面接、観察、心理検査、事例概念化、評価結果の統合的解釈を扱う。",
+      "descriptionEn": "Interviews, observation, psychological testing, case formulation, and integrated interpretation of assessment findings."
+    },
+    "Psychology.Ethics": {
+      "subject": "Psychology",
+      "labelZh": "伦理",
+      "labelJa": "倫理",
+      "labelEn": "Ethics",
+      "descriptionZh": "研究心理学研究与实践中的知情同意、保密、专业边界、责任与权益保护。",
+      "descriptionJa": "心理学の研究と実践におけるインフォームド・コンセント、守秘義務、専門的境界、責任、権利保護を扱う。",
+      "descriptionEn": "Informed consent, confidentiality, professional boundaries, responsibility, and protection of rights in psychological research and practice."
+    }
+  },
+  "subsubjectOrder": [
+    "Psychology.Basic-Psychology",
+    "Psychology.Cognitive-Psychology",
+    "Psychology.Social-Psychology",
+    "Psychology.Developmental-Psychology",
+    "Psychology.Clinical-Psychology",
+    "Psychology.Research-Methods-and-Statistics",
+    "Psychology.Psychological-Assessment",
+    "Psychology.Ethics"
+  ],
+  "topics": {
+    "Psychology.Basic-Psychology.Punishment-and-Aversive-Learning": {
+      "subsubject": "Psychology.Basic-Psychology"
+    },
+    "Psychology.Clinical-Psychology.Eating-Disorders": {
+      "subsubject": "Psychology.Clinical-Psychology"
+    },
+    "Psychology.Clinical-Psychology.Psychodynamic-Theory": {
+      "subsubject": "Psychology.Clinical-Psychology"
+    },
+    "Psychology.Clinical-Psychology.Suicide-Prevention-and-Gatekeeping": {
+      "subsubject": "Psychology.Clinical-Psychology"
+    },
+    "Psychology.Cognitive-Psychology.Stroop-Effect": {
+      "subsubject": "Psychology.Cognitive-Psychology",
+      "relatedSubjects": [
+        "Cognitive-Science-Neuroscience"
+      ]
+    },
+    "Psychology.Developmental-Psychology.Successful-Aging": {
+      "subsubject": "Psychology.Developmental-Psychology"
+    },
+    "Psychology.Ethics.Confidentiality": {
+      "subsubject": "Psychology.Ethics"
+    },
+    "Psychology.Ethics.Informed-Assent": {
+      "subsubject": "Psychology.Ethics"
+    },
+    "Psychology.Ethics.Multiple-Relationships": {
+      "subsubject": "Psychology.Ethics"
+    },
+    "Psychology.Research-Methods-and-Statistics.Measurement-Error": {
+      "subsubject": "Psychology.Research-Methods-and-Statistics",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Psychology.Research-Methods-and-Statistics.Multiple-Comparisons": {
+      "subsubject": "Psychology.Research-Methods-and-Statistics",
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
+    },
+    "Psychology.Social-Psychology.Ingroup-Bias-and-Social-Identity": {
+      "subsubject": "Psychology.Social-Psychology"
+    }
+  }
+}

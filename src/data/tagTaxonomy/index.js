@@ -1,31 +1,39 @@
 const config = require('./config.json');
 const schoolTags = require('./schoolTags.json');
 const bioinformatics = require('./subjects/bioinformatics.json');
+const businessAdministration = require('./subjects/business-administration.json');
 const chemistry = require('./subjects/chemistry.json');
 const cognitiveScienceNeuroscience = require('./subjects/cognitive-science-neuroscience.json');
 const computerScience = require('./subjects/computer-science.json');
 const dataScienceArtificialIntelligence = require('./subjects/data-science-artificial-intelligence.json');
 const discreteMathematics = require('./subjects/discrete-mathematics.json');
+const economics = require('./subjects/economics.json');
 const electricalElectronic = require('./subjects/electrical-electronic.json');
 const engineering = require('./subjects/engineering.json');
 const mathematics = require('./subjects/mathematics.json');
 const operationsResearch = require('./subjects/operations-research.json');
 const physics = require('./subjects/physics.json');
 const probabilityStatistics = require('./subjects/probability-statistics.json');
+const psychology = require('./subjects/psychology.json');
+const sociology = require('./subjects/sociology.json');
 
 const subjectFiles = [
   bioinformatics,
+  businessAdministration,
   chemistry,
   cognitiveScienceNeuroscience,
   computerScience,
   dataScienceArtificialIntelligence,
   discreteMathematics,
+  economics,
   electricalElectronic,
   engineering,
   mathematics,
   operationsResearch,
   physics,
   probabilityStatistics,
+  psychology,
+  sociology,
 ];
 
 function validateSubjectDefinition(definition) {

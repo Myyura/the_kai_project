@@ -19,7 +19,8 @@
     "kanazawa-university": "#7b6b8d",
     "hosei-university": "#f28c28",
     "saitama-university": "#0068b7",
-    "meiji-university": "#8b1e3f"
+    "meiji-university": "#8b1e3f",
+    "yamaguchi-university": "#8a6f5a"
   },
   "websiteUrls": {
     "tokyo-university/science": "https://www.s.u-tokyo.ac.jp/ja/admission/master/index.html",
@@ -76,6 +77,7 @@
     "kanazawa-university/nst": "https://www.kanazawa-u.ac.jp/education/admission/graduate",
     "hosei-university/science_and_engineering": "https://www.hosei.ac.jp/gs/riko/",
     "saitama-university/science_and_engineering": "https://www.saitama-u.ac.jp/rikogaku/admission/",
-    "meiji-university/advanced_mathematical_sciences": "https://www.meiji.ac.jp/ams/exam/"
+    "meiji-university/advanced_mathematical_sciences": "https://www.meiji.ac.jp/ams/exam/",
+    "yamaguchi-university/hes": "https://www.yamaguchi-u.ac.jp/hes/exam/past_scp/index.html"
   }
 }

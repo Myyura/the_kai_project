@@ -158,5 +158,13 @@
       "meiji-university",
       "明治大学"
     ]
+  },
+  "Yamaguchi-University": {
+    "universityId": "yamaguchi-university",
+    "label": "山口大学",
+    "aliases": [
+      "yamaguchi-university",
+      "山口大学"
+    ]
   }
 }

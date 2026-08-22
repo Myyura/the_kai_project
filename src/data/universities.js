@@ -1,7 +1,7 @@
 // ============================================================
 // 此文件由 scripts/generate-universities.js 自动生成
 // 请勿手动编辑！如需更新请运行：npm run generate:universities
-// 生成时间：2026-08-07T03:46:34.135Z
+// 生成时间：2026-08-22T17:42:15.099Z
 // ============================================================
 
 /**
@@ -1003,6 +1003,24 @@ export const universities = [
         "websiteUrl": "https://www.nitech.ac.jp/examination/in/test.html"
       }
     ]
+  },
+  {
+    "id": "yamaguchi-university",
+    "name": "山口大学",
+    "color": "#8a6f5a",
+    "departments": [
+      {
+        "id": "hes",
+        "name": "人間社会科学研究科",
+        "programs": [
+          {
+            "id": "scp",
+            "name": "臨床心理学専攻"
+          }
+        ],
+        "websiteUrl": "https://www.yamaguchi-u.ac.jp/hes/exam/past_scp/index.html"
+      }
+    ]
   }
 ];
 
@@ -1031,4 +1049,5 @@ export const UNIV_MAP = {
   "saitama-university": "埼玉大学",
   "meiji-university": "明治大学",
   "nagoya-institute-of-technology": "名古屋工業大学",
+  "yamaguchi-university": "山口大学",
 };
