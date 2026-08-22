@@ -2,7 +2,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt } from 'react-icons/fa';
+import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt, FaCoffee } from 'react-icons/fa';
 import React, { useEffect, useState, memo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import {useUiText} from '../i18n/useUiText';
@@ -92,6 +92,10 @@ const HeroSection = ({ t }) => {
           </Link>
           <Link className={styles.secondaryBtn} to="/blog">
             {t.viewExperiences}
+          </Link>
+          <Link className={styles.sponsorBtn} to="/support#sponsor">
+            <FaCoffee aria-hidden="true" />
+            {t.viewSupportMethods}
           </Link>
         </div>
 

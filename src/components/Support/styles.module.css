@@ -580,6 +580,10 @@
   color: var(--ifm-font-color-base);
 }
 
+.coffeeHeading h3[id] {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 5rem);
+}
+
 .coffeeHeading {
   display: flex;
   align-items: flex-start;

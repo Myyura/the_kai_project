@@ -290,7 +290,7 @@ export default function SupportPage() {
               <div className={styles.coffeeHeading}>
                 <span className={styles.coffeeIcon}><FaCoffee aria-hidden="true" /></span>
                 <div>
-                  <h3>{t.community.coffee}</h3>
+                  <Heading as="h3" id="sponsor">{t.community.coffee}</Heading>
                   <p>{t.community.coffeeDescription}</p>
                 </div>
               </div>

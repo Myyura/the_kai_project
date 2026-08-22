@@ -143,7 +143,8 @@
 }
 
 .primaryBtn,
-.secondaryBtn {
+.secondaryBtn,
+.sponsorBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -187,6 +188,38 @@
 
 [data-theme='dark'] .secondaryBtn:hover {
   background: rgba(255, 255, 255, 0.15);
+}
+
+.sponsorBtn {
+  border: 1px solid rgba(var(--kai-gold-rgb), 0.34);
+  background: rgba(var(--kai-gold-rgb), 0.1);
+  color: var(--kai-gold-text) !important;
+}
+
+.sponsorBtn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(var(--kai-gold-rgb), 0.55);
+  background: rgba(var(--kai-gold-rgb), 0.17);
+  color: var(--kai-gold-text) !important;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(var(--kai-gold-rgb), 0.14);
+}
+
+[data-theme='dark'] .sponsorBtn {
+  border-color: rgba(var(--kai-gold-rgb), 0.3);
+  background: rgba(var(--kai-gold-rgb), 0.1);
+}
+
+[data-theme='dark'] .sponsorBtn:hover {
+  border-color: rgba(var(--kai-gold-rgb), 0.48);
+  background: rgba(var(--kai-gold-rgb), 0.16);
+}
+
+.primaryBtn:focus-visible,
+.secondaryBtn:focus-visible,
+.sponsorBtn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ifm-color-primary) 48%, transparent);
+  outline-offset: 3px;
 }
 
 /* 进度按钮 - Hero CTA */
@@ -1306,6 +1339,7 @@
   }
 
   .primaryBtn:hover,
+  .sponsorBtn:hover,
   .progressBannerBtn:hover {
     transform: none;
   }
@@ -1415,7 +1449,8 @@
   }
   
   .primaryBtn,
-  .secondaryBtn {
+  .secondaryBtn,
+  .sponsorBtn {
     justify-content: center;
     padding: 0.875rem 1.5rem;
   }
