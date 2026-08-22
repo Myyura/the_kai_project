@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
@@ -84,7 +84,7 @@ function PartnerLogo({partner, language, className}) {
   );
 }
 
-function StrategicPartnerCard({partner, language, copy}) {
+function StrategicPartnerCard({partner, language, copy, anchorId}) {
   const name = getLocalizedSupportValue(partner.name, language);
   const description = getLocalizedSupportValue(partner.description, language);
   const kaiCommunityOffer = getLocalizedSupportValue(partner.kaiCommunityOffer, language);
@@ -104,7 +104,11 @@ function StrategicPartnerCard({partner, language, copy}) {
           className={styles.strategicPartnerLogo}
         />
         <div className={styles.strategicPartnerCopy}>
-          <h3>{name}</h3>
+          {anchorId ? (
+            <Heading as="h3" id={anchorId}>{name}</Heading>
+          ) : (
+            <h3>{name}</h3>
+          )}
           {description && <p>{description}</p>}
           {kaiCommunityOffer && (
             <p className={styles.partnerBenefit}>
@@ -190,6 +194,29 @@ export default function SupportPage() {
   const sustainingPartners = getEnabledSupportEntries(supportConfig.sustainingPartners);
   const supportMethods = getEnabledSupportEntries(supportConfig.supportMethods);
 
+  useEffect(() => {
+    if (!window.location.hash) return undefined;
+
+    let anchorId;
+    try {
+      anchorId = decodeURIComponent(window.location.hash.slice(1));
+    } catch {
+      return undefined;
+    }
+
+    let nestedFrame;
+    const frame = window.requestAnimationFrame(() => {
+      nestedFrame = window.requestAnimationFrame(() => {
+        document.getElementById(anchorId)?.scrollIntoView({block: 'start'});
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      if (nestedFrame) window.cancelAnimationFrame(nestedFrame);
+    };
+  }, []);
+
   return (
     <Layout title={t.title} description={t.subtitle}>
       <main className={styles.page}>
@@ -232,12 +259,13 @@ export default function SupportPage() {
           </div>
 
           <div className={styles.strategicPartnerGrid}>
-            {strategicPartners.length > 0 ? strategicPartners.map((partner) => (
+            {strategicPartners.length > 0 ? strategicPartners.map((partner, index) => (
               <StrategicPartnerCard
                 key={partner.id}
                 partner={partner}
                 language={language}
                 copy={t.partners}
+                anchorId={index === 0 ? 'long-term-partner' : undefined}
               />
             )) : (
               <article className={styles.partnerConfigurationState}>
@@ -267,25 +295,8 @@ export default function SupportPage() {
           )}
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.communitySupportSection}`}>
           <div className={styles.communityPanel}>
-            <div className={styles.communityMain}>
-              <span className={styles.eyebrow}>{t.community.eyebrow}</span>
-              <Heading as="h2" id="community-support">{t.community.title}</Heading>
-              <p>{t.community.description}</p>
-              <div className={styles.communityActions}>
-                <a href={COMMUNITY_LINKS.discord} target="_blank" rel="noopener noreferrer">
-                  <FaDiscord aria-hidden="true" />{t.community.joinDiscord}
-                </a>
-                <a href={COMMUNITY_LINKS.qq} target="_blank" rel="noopener noreferrer">
-                  <FaQq aria-hidden="true" />{t.community.joinQq}
-                </a>
-                <Link to="/me?tab=contribute">
-                  <FaEdit aria-hidden="true" />{t.community.contribute}
-                </Link>
-              </div>
-            </div>
-
             <aside className={styles.coffeePanel}>
               <div className={styles.coffeeHeading}>
                 <span className={styles.coffeeIcon}><FaCoffee aria-hidden="true" /></span>
@@ -308,6 +319,23 @@ export default function SupportPage() {
                 {supportMethods.length > 0 && <small>{t.community.paymentSafety}</small>}
               </div>
             </aside>
+
+            <div className={styles.communityMain}>
+              <span className={styles.eyebrow}>{t.community.eyebrow}</span>
+              <Heading as="h2" id="community-support">{t.community.title}</Heading>
+              <p>{t.community.description}</p>
+              <div className={styles.communityActions}>
+                <a href={COMMUNITY_LINKS.discord} target="_blank" rel="noopener noreferrer">
+                  <FaDiscord aria-hidden="true" />{t.community.joinDiscord}
+                </a>
+                <a href={COMMUNITY_LINKS.qq} target="_blank" rel="noopener noreferrer">
+                  <FaQq aria-hidden="true" />{t.community.joinQq}
+                </a>
+                <Link to="/me?tab=contribute">
+                  <FaEdit aria-hidden="true" />{t.community.contribute}
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 

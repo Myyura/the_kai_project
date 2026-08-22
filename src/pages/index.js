@@ -93,7 +93,7 @@ const HeroSection = ({ t }) => {
           <Link className={styles.secondaryBtn} to="/blog">
             {t.viewExperiences}
           </Link>
-          <Link className={styles.sponsorBtn} to="/support#sponsor">
+          <Link className={styles.sponsorBtn} to="/support#long-term-partner">
             <FaCoffee aria-hidden="true" />
             {t.viewSupportMethods}
           </Link>

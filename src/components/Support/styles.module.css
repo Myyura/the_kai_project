@@ -220,6 +220,10 @@
   padding-top: clamp(4.5rem, 9vw, 7.5rem);
 }
 
+.section.communitySupportSection {
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+}
+
 .sectionHeading {
   max-width: 780px;
   margin: 0 auto 2rem;
@@ -273,8 +277,7 @@
   padding-bottom: .9rem;
 }
 
-/* 金色小标签：与共享 eyebrow 配方一致（.72rem/800/.1em）；
-   后代选择器无法用 composes，此处内联配方取值 */
+/* 金色小标签：与共享 eyebrow 配方一致（.72rem/800/.1em）。 */
 .partnerTopline span {
   display: inline-block;
   margin-bottom: 0;
@@ -283,6 +286,14 @@
   letter-spacing: 0.1em;
   color: var(--kai-gold-text);
   text-transform: uppercase;
+}
+
+.strategicPartnerCopy h3[id] {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 5rem);
+}
+
+.strategicPartnerCopy :global(.hash-link) {
+  display: none;
 }
 
 .partnerTopline small {
@@ -491,6 +502,7 @@
   isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(330px, .8fr);
+  grid-template-areas: "community coffee";
   gap: 1rem;
   overflow: hidden;
   border: 1px solid var(--support-border);
@@ -511,6 +523,7 @@
 }
 
 .communityMain {
+  grid-area: community;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -573,6 +586,7 @@
 }
 
 .coffeePanel {
+  grid-area: coffee;
   border-color: rgba(var(--kai-gold-rgb), .26);
   background:
     linear-gradient(155deg, rgba(var(--kai-gold-rgb), .1), rgba(var(--theme-accent-rgb), .035)),
@@ -857,6 +871,12 @@
     align-items: start;
   }
 
+  .communityPanel {
+    grid-template-areas:
+      "coffee"
+      "community";
+  }
+
   .heroValues {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -921,6 +941,10 @@
 
   .section {
     padding-top: 4.5rem;
+  }
+
+  .strategicPartnerCopy h3[id] {
+    scroll-margin-top: calc(var(--ifm-navbar-height) + 10rem);
   }
 
   .strategicPartnerBody {
