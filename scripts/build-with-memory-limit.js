@@ -1,28 +1,29 @@
 #!/usr/bin/env node
 
-const {spawnSync} = require('node:child_process');
+const {runWithMemoryGuard} = require('./process-memory-guard');
 
 // Keep local and GitHub Pages builds on the same memory-aware profile.
 // The standard public Linux runner has 4 CPUs and 16 GB of RAM. Bundles stay
-// sequential because they have the highest RSS, while SSG uses a small worker
-// pool whose workers can be recycled between batches of pages.
+// sequential because they have the highest RSS, while SSG uses one renderer to
+// avoid retaining multiple page heaps at the same time.
 const MAX_OLD_SPACE_MB = 6144;
 
 const LOW_MEMORY_ENV = Object.freeze({
+  KAI_ENFORCED_BUILD_PROFILE: '16gb',
   DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
   // A fresh Rspack cache for this site can exceed the runner's disk/cache
   // allowance, so prefer a predictable cold build over disk pressure.
   DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
   DISABLE_RSPACK_INCREMENTAL: 'true',
-  // Keep two renderers for throughput, but recycle each worker before its
-  // retained heap pushes the 16 GiB runner into swap thrashing.
-  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
+  // One renderer is deliberately slower but prevents multiple page heaps from
+  // growing at the same time on a developer machine.
+  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '1',
   DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
   // Limit Rspack's native-memory peak while retaining a small amount of
-  // blocking-I/O parallelism. The two language bundles still compile in
+  // blocking-I/O parallelism. The client and server bundles still compile in
   // sequence, so one Rayon thread is sufficient on the hosted runner.
   RAYON_NUM_THREADS: '1',
-  RSPACK_BLOCKING_THREADS: '2',
+  RSPACK_BLOCKING_THREADS: '1',
 });
 
 function withHeapLimit(nodeOptions = '') {
@@ -31,6 +32,15 @@ function withHeapLimit(nodeOptions = '') {
       /(^|\s)--max[-_]old[-_]space[-_]size(?:=|\s+)\d+(?=\s|$)/g,
       ' ',
     )
+    .replace(
+      /(^|\s)--(?:max[-_]semi[-_]space[-_]size|initial[-_]old[-_]space[-_]size)(?:=|\s+)\d+(?=\s|$)/g,
+      ' ',
+    )
+    .replace(
+      /(^|\s)--huge[-_]max[-_]old[-_]generation[-_]size(?=\s|$)/g,
+      ' ',
+    )
+    .replace(/\s+/g, ' ')
     .trim();
 
   return [withoutExistingLimit, `--max-old-space-size=${MAX_OLD_SPACE_MB}`]
@@ -40,33 +50,37 @@ function withHeapLimit(nodeOptions = '') {
 
 function getBuildEnvironment(source = process.env) {
   return {
-    ...LOW_MEMORY_ENV,
-    // Allow deliberate local/CI experiments while keeping safe defaults.
     ...source,
+    // These values are enforced, rather than merely defaults: an inherited
+    // shell or CI variable must not silently turn a routine build into a
+    // machine-wide memory spike.
+    ...LOW_MEMORY_ENV,
     NODE_OPTIONS: withHeapLimit(source.NODE_OPTIONS),
   };
 }
 
-function main() {
+async function main() {
   const yarnCommand = process.platform === 'win32' ? 'yarn.cmd' : 'yarn';
   const environment = getBuildEnvironment();
   console.log(
     `Building with the memory-aware profile: ${MAX_OLD_SPACE_MB} MiB V8 heap, `
       + `sequential bundles, ${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} `
-      + 'SSG workers recycling near '
-      + `${Math.round(Number(environment.DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY) / 1000000)} MB, `
-      + `${environment.RAYON_NUM_THREADS} Rayon threads, and `
-      + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking threads.`,
+      + 'SSG worker, '
+      + `${environment.RAYON_NUM_THREADS} Rayon thread, and `
+      + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking thread.`,
   );
 
-  const result = spawnSync(yarnCommand, ['run', 'build:site'], {
+  const result = await runWithMemoryGuard(yarnCommand, ['run', 'build:site'], {
     env: environment,
-    stdio: 'inherit',
+    label: 'Full build',
   });
 
-  if (result.error) {
-    throw result.error;
+  if (result.watchdogAvailable) {
+    console.log(
+      `Peak sampled build RSS: ${(result.maxRssBytes / 1024 / 1024 / 1024).toFixed(2)} GiB.`,
+    );
   }
+  if (result.exceeded) process.exit(1);
   if (result.signal) {
     console.error(`Build stopped by signal ${result.signal}.`);
     process.exit(1);
@@ -75,7 +89,10 @@ function main() {
 }
 
 if (require.main === module) {
-  main();
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
 }
 
 module.exports = {

@@ -14,6 +14,11 @@ import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
 import {normalizeLanguage} from '@site/src/i18n/config';
 import {getUiMessages} from '@site/src/i18n/messages';
+import {
+  getSubsubjectShortId,
+  getTopicShortId,
+  resolveTagBrowseTarget,
+} from '@site/src/utils/tagBrowseTarget';
 import styles from './styles.module.css';
 
 interface TagType {
@@ -130,24 +135,8 @@ function getTopicSubsubjectId(tagLabel: string): string {
   return getTopicMeta(tagLabel)?.subsubject || '';
 }
 
-function getSubsubjectShortId(subsubjectId: string): string {
-  const subjectId = subsubjects[subsubjectId]?.subject;
-  const prefix = subjectId ? `${subjectId}.` : '';
-  return prefix && subsubjectId.startsWith(prefix)
-    ? subsubjectId.slice(prefix.length)
-    : subsubjectId;
-}
-
 function getSubsubjectDisplayId(subsubjectId: string): string {
   return getSubsubjectShortId(subsubjectId);
-}
-
-function getTopicShortId(topicId: string): string {
-  const topic = getTopicMeta(topicId);
-  const prefix = topic?.subsubject ? `${topic.subsubject}.` : '';
-  return prefix && topicId.startsWith(prefix)
-    ? topicId.slice(prefix.length)
-    : topicId.split('.').pop() || topicId;
 }
 
 function getTagDisplayName(tagLabel: string): string {
@@ -185,10 +174,11 @@ function TagPill({
   tone?: Tone;
 }) {
   const hasDetails = Boolean(detailLabel && detailValues?.length);
+  const browseTarget = resolveTagBrowseTarget(tag.label, tag.permalink);
 
   return (
     <Link
-      to={tag.permalink}
+      to={browseTarget.href}
       className={`${styles.tagPill} ${tone ? styles[tone] : ''} ${hasDetails ? styles.withDetails : ''}`}>
       <span className={styles.tagMainRow}>
         <span className={styles.tagName}>{displayName || getTagDisplayName(tag.label)}</span>
@@ -288,19 +278,18 @@ function textMatches(query: string, ...values: Array<string | undefined>): boole
 
 function TopicLink({
   tag,
-  subjectId,
   language,
 }: {
   tag: TagType;
-  subjectId: string;
   language: Language;
 }) {
   const t = getCopy(language);
+  const browseTarget = resolveTagBrowseTarget(tag.label, tag.permalink);
   const secondarySubjects = (getTopicMeta(tag.label)?.relatedSubjects || [])
     .map((id) => getSubjectLabel(id, language));
 
   return (
-    <Link to={tag.permalink} className={styles.topicLink}>
+    <Link to={browseTarget.href} className={styles.topicLink}>
       <span className={styles.topicName}>{getTopicShortId(tag.label)}</span>
       {secondarySubjects.length > 0 && (
         <span className={styles.topicRelated}>
@@ -357,12 +346,11 @@ function SubjectPanel({
               </span>
             </>
           );
-          const title = group.subsubjectTag ? (
-            <Link to={group.subsubjectTag.permalink} className={styles.subsubjectLink}>
+          const subsubjectTarget = resolveTagBrowseTarget(group.subsubjectId);
+          const title = (
+            <Link to={subsubjectTarget.href} className={styles.subsubjectLink}>
               {subsubjectTitle}
             </Link>
-          ) : (
-            <span className={styles.subsubjectName}>{subsubjectTitle}</span>
           );
 
           if (topicTags.length === 0) {
@@ -407,7 +395,6 @@ function SubjectPanel({
                   <TopicLink
                     key={tag.permalink}
                     tag={tag}
-                    subjectId={subjectId}
                     language={language}
                   />
                 ))}

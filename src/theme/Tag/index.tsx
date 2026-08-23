@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import type {Props} from '@theme/Tag';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
+import {resolveTagBrowseTarget} from '@site/src/utils/tagBrowseTarget';
 
 import styles from './styles.module.css';
 
@@ -52,10 +53,11 @@ export default function Tag({
   count,
   description,
 }: Props): ReactNode {
+  const browseTarget = resolveTagBrowseTarget(label, permalink);
   return (
     <Link
       rel="tag"
-      href={permalink}
+      href={browseTarget.href}
       title={description}
       className={clsx(
         styles.tag,

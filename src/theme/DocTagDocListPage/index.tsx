@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {type ReactNode} from 'react';
+import React, {useEffect, useMemo, useState, type ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {
@@ -17,12 +17,17 @@ import SearchMetadata from '@theme/SearchMetadata';
 import type {Props} from '@theme/DocTagDocListPage';
 import Unlisted from '@theme/ContentVisibility/Unlisted';
 import Heading from '@theme/Heading';
+import {FiChevronDown} from 'react-icons/fi';
 import ContentBrowseModes from '@site/src/components/ContentBrowseModes';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import {universities} from '@site/src/data/universities';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
 import {normalizeLanguage} from '@site/src/i18n/config';
 import {getUiMessages} from '@site/src/i18n/messages';
+import {
+  getTopicAnchorId,
+  getTopicDisplayName,
+} from '@site/src/utils/tagBrowseTarget';
 import styles from './styles.module.css';
 
 type DocListItem = Props['tag']['items'][number];
@@ -45,7 +50,48 @@ interface SubsubjectMeta {
   labelZh?: string;
   labelJa?: string;
   labelEn?: string;
+  descriptionZh?: string;
+  descriptionJa?: string;
+  descriptionEn?: string;
 }
+
+interface CompactBrowseDocument {
+  id: string;
+  title: string;
+  sidebarLabel?: string | null;
+  permalink: string;
+  universityId?: string | null;
+  universityName?: string | null;
+  departmentId?: string | null;
+  departmentName?: string | null;
+  programId?: string | null;
+  programName?: string | null;
+  year?: number | null;
+  topicIds?: string[];
+  subsubjectIds?: string[];
+}
+
+interface CompactBrowseTopic {
+  id: string;
+  shortId: string;
+  count: number;
+  anchor: string;
+  docIds: string[];
+}
+
+interface CompactBrowseData {
+  directDocIds: string[];
+  docIds: string[];
+  topics: CompactBrowseTopic[];
+  documents: Record<string, CompactBrowseDocument>;
+}
+
+type TagWithBrowse = Props['tag'] & {browse?: CompactBrowseData};
+
+type AggregateTopicSelection = 'all' | 'unclassified' | string;
+
+const UNCLASSIFIED_ANCHOR = 'topic-unclassified';
+const TOPIC_PREVIEW_LIMIT = 5;
 
 const subjects = tagTaxonomy.subjects as Record<string, SubjectMeta>;
 const subsubjects = tagTaxonomy.subsubjects as Record<string, SubsubjectMeta>;
@@ -67,6 +113,23 @@ function getSubsubjectLabel(subsubjectId: string, language: Language): string {
   const subsubject = subsubjects[subsubjectId];
   if (language === 'en') return subsubject?.labelEn || subsubjectId;
   return (language === 'ja' ? subsubject?.labelJa : subsubject?.labelZh) || subsubjectId;
+}
+
+function getSubsubjectDescription(
+  subsubjectId: string,
+  language: Language,
+): string | undefined {
+  const subsubject = subsubjects[subsubjectId];
+  if (language === 'en') return subsubject?.descriptionEn;
+  return language === 'ja' ? subsubject?.descriptionJa : subsubject?.descriptionZh;
+}
+
+function decodeHash(hash: string): string {
+  try {
+    return decodeURIComponent(hash.replace(/^#/, ''));
+  } catch {
+    return hash.replace(/^#/, '');
+  }
 }
 
 const schoolAliasLookup = new Map<string, string>();
@@ -234,7 +297,15 @@ function groupDocs(
 }
 
 function getPageTitle(props: Props, language: Language): string {
-  return getCopy(language).pageTitle(props.tag.count, getTagDisplayName(props.tag.label));
+  const tag = props.tag as TagWithBrowse;
+  const isAggregateSubsubject = Boolean(tag.browse && getSubsubjectId(tag.label));
+  const count = isAggregateSubsubject
+    ? new Set(tag.browse!.docIds).size
+    : tag.count;
+  const displayName = isAggregateSubsubject
+    ? getSubsubjectLabel(tag.label, language)
+    : getTagDisplayName(tag.label);
+  return getCopy(language).pageTitle(count, displayName);
 }
 
 function DocItem({
@@ -255,13 +326,519 @@ function DocItem({
   );
 }
 
+function compareBrowseDocuments(
+  left: CompactBrowseDocument,
+  right: CompactBrowseDocument,
+): number {
+  const yearDifference = (right.year || 0) - (left.year || 0);
+  if (yearDifference !== 0) return yearDifference;
+  const leftTitle = left.sidebarLabel || left.title;
+  const rightTitle = right.sidebarLabel || right.title;
+  return leftTitle.localeCompare(rightTitle, 'ja');
+}
+
+function getCompactExamDate(
+  document: CompactBrowseDocument,
+  language: Language,
+): string {
+  const source = [document.sidebarLabel, document.title, document.id]
+    .filter(Boolean)
+    .join(' ');
+  const japaneseDate = source.match(/((?:19|20)\d{2})\s*年\s*(\d{1,2})\s*月/);
+  const slugDate = source.match(/(?:^|[_/-])((?:19|20)\d{2})(0[1-9]|1[0-2])(?:[_/-]|$)/);
+  const year = japaneseDate?.[1] || slugDate?.[1] || String(document.year || '—');
+  const month = japaneseDate?.[2] || slugDate?.[2]?.replace(/^0/, '');
+
+  if (!month) return year;
+  if (language === 'en') return `${year} · ${month}`;
+  return `${year} · ${month}月`;
+}
+
+function getCompactExamTitle(document: CompactBrowseDocument): string {
+  const fallback = document.title.trim();
+  const source = document.sidebarLabel?.trim() || fallback;
+  const compact = source
+    .replace(/(?:19|20)\d{2}\s*年\s*\d{1,2}\s*月\s*(?:実施|施行)?/g, '')
+    .replace(/(?:19|20)\d{2}\s*年度?/g, '')
+    .replace(/(?:^|[_/-])(?:19|20)\d{2}(?:0[1-9]|1[0-2])(?:[_/-]|$)/g, ' ')
+    .replace(/^[\s·・:：\-–—]+|[\s·・:：\-–—]+$/g, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+  return compact || fallback;
+}
+
+function CompactExamRow({
+  document,
+  parentPermalink,
+  topicLookup,
+  directDocIds,
+  language,
+  onSelectTopic,
+}: {
+  document: CompactBrowseDocument;
+  parentPermalink: string;
+  topicLookup: Map<string, CompactBrowseTopic>;
+  directDocIds: Set<string>;
+  language: Language;
+  onSelectTopic: (topicId: AggregateTopicSelection) => void;
+}): ReactNode {
+  const copy = getCopy(language);
+  const topicEntries = Array.from(new Set(document.topicIds || []))
+    .map((topicId) => topicLookup.get(topicId))
+    .filter((topic): topic is CompactBrowseTopic => Boolean(topic));
+  const rowTopics: Array<
+    {id: AggregateTopicSelection; label: string; anchor: string; title?: string}
+  > = [
+    ...(directDocIds.has(document.id)
+      ? [{
+        id: 'unclassified' as const,
+        label: copy.unclassified,
+        anchor: UNCLASSIFIED_ANCHOR,
+        title: copy.directHint,
+      }]
+      : []),
+    ...topicEntries.map((topic) => ({
+      id: topic.id,
+      label: getTopicDisplayName(topic.id),
+      anchor: getTopicAnchorId(topic.id),
+    })),
+  ];
+  const visibleTopics = rowTopics.slice(0, 3);
+  const hiddenTopicCount = rowTopics.length - visibleTopics.length;
+  const metadata = Array.from(new Set([
+    document.departmentName,
+    document.programName,
+  ].filter((value): value is string => Boolean(value))));
+  const title = getCompactExamTitle(document);
+
+  return (
+    <li className={styles.compactDocRow}>
+      <span className={styles.compactDocYear}>
+        {getCompactExamDate(document, language)}
+      </span>
+      <div className={styles.compactDocBody}>
+        <Link to={document.permalink} className={styles.compactDocTitle}>
+          {title}
+        </Link>
+        {metadata.length > 0 && (
+          <span className={styles.compactDocMeta}>{metadata.join(' · ')}</span>
+        )}
+      </div>
+      {rowTopics.length > 0 && (
+        <div className={styles.compactDocTopics}>
+          {visibleTopics.map((topic) => (
+            <Link
+              key={`${document.id}-${topic.id}`}
+              to={`${parentPermalink}#${topic.anchor}`}
+              title={topic.title}
+              className={styles.compactDocTopic}
+              onClick={() => onSelectTopic(topic.id)}>
+              {topic.label}
+            </Link>
+          ))}
+          {hiddenTopicCount > 0 && (
+            <span
+              className={styles.compactDocTopicMore}
+              aria-label={copy.moreTopics(hiddenTopicCount)}
+              title={rowTopics.slice(3).map((topic) => topic.label).join(', ')}>
+              +{hiddenTopicCount}
+            </span>
+          )}
+        </div>
+      )}
+    </li>
+  );
+}
+
+function CompactSchoolGroup({
+  schoolId,
+  title,
+  documents,
+  parentPermalink,
+  topicLookup,
+  directDocIds,
+  language,
+  onSelectTopic,
+}: {
+  schoolId: string;
+  title: string;
+  documents: CompactBrowseDocument[];
+  parentPermalink: string;
+  topicLookup: Map<string, CompactBrowseTopic>;
+  directDocIds: Set<string>;
+  language: Language;
+  onSelectTopic: (topicId: AggregateTopicSelection) => void;
+}): ReactNode {
+  const copy = getCopy(language);
+  const [expanded, setExpanded] = useState(true);
+  const schoolColor = universityLookup.get(schoolId)?.color;
+  const topicCount = new Set(
+    documents.flatMap((document) => (
+      (document.topicIds || []).filter((topicId) => topicLookup.has(topicId))
+    )),
+  ).size;
+
+  return (
+    <section className={styles.compactSchoolGroup}>
+      <button
+        type="button"
+        className={styles.compactSchoolHeader}
+        aria-expanded={expanded}
+        aria-label={`${expanded ? copy.collapseSchool : copy.expandSchool}: ${title}`}
+        onClick={() => setExpanded((value) => !value)}>
+        <span
+          className={styles.compactSchoolColor}
+          style={schoolColor ? {backgroundColor: schoolColor} : undefined}
+          aria-hidden="true"
+        />
+        <span className={styles.compactSchoolTitle}>{title}</span>
+        <span className={styles.compactSchoolCount}>
+          {copy.schoolSummary(documents.length, topicCount)}
+        </span>
+        <FiChevronDown
+          className={`${styles.compactSchoolChevron} ${expanded ? styles.compactSchoolChevronOpen : ''}`}
+          aria-hidden="true"
+        />
+      </button>
+      {expanded && (
+        <ul className={styles.compactDocList}>
+          {documents.map((document) => (
+            <CompactExamRow
+              key={document.id}
+              document={document}
+              parentPermalink={parentPermalink}
+              topicLookup={topicLookup}
+              directDocIds={directDocIds}
+              language={language}
+              onSelectTopic={onSelectTopic}
+            />
+          ))}
+        </ul>
+      )}
+    </section>
+  );
+}
+
+function SubsubjectBrowsePage({
+  tag,
+  browse,
+  title,
+  language,
+}: {
+  tag: TagWithBrowse;
+  browse: CompactBrowseData;
+  title: string;
+  language: Language;
+}): ReactNode {
+  const t = getCopy(language);
+  const subsubjectId = tag.label;
+  const subsubject = subsubjects[subsubjectId];
+  const subjectId = subsubject?.subject || 'General';
+  const topicLookup = useMemo(
+    () => new Map(browse.topics.map((topic) => [topic.id, topic])),
+    [browse.topics],
+  );
+  const directDocIds = useMemo(
+    () => new Set(browse.directDocIds),
+    [browse.directDocIds],
+  );
+  const sortedTopics = useMemo(
+    () => [...browse.topics].sort(
+      (left, right) => right.count - left.count
+        || getTopicDisplayName(left.id).localeCompare(getTopicDisplayName(right.id), 'en'),
+    ),
+    [browse.topics],
+  );
+  const allDocuments = useMemo(() => {
+    const seen = new Set<string>();
+    return browse.docIds.flatMap((docId) => {
+      if (seen.has(docId)) return [];
+      seen.add(docId);
+      const document = browse.documents[docId];
+      return document ? [document] : [];
+    });
+  }, [browse.docIds, browse.documents]);
+  const allSchoolCount = useMemo(
+    () => new Set(allDocuments.map((document) => document.universityId || 'other')).size,
+    [allDocuments],
+  );
+  const [activeTopic, setActiveTopic] = useState<AggregateTopicSelection>('all');
+  const [selectedSchool, setSelectedSchool] = useState('all');
+  const [topicsExpanded, setTopicsExpanded] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+    const syncFromHash = () => {
+      const hash = decodeHash(window.location.hash);
+      if (hash === UNCLASSIFIED_ANCHOR && browse.directDocIds.length > 0) {
+        setActiveTopic('unclassified');
+        return;
+      }
+      const topic = browse.topics.find((item) => getTopicAnchorId(item.id) === hash);
+      setActiveTopic(topic?.id || 'all');
+      if (topic && sortedTopics.findIndex((item) => item.id === topic.id) >= TOPIC_PREVIEW_LIMIT) {
+        setTopicsExpanded(true);
+      }
+    };
+    syncFromHash();
+    window.addEventListener('hashchange', syncFromHash);
+    window.addEventListener('popstate', syncFromHash);
+    return () => {
+      window.removeEventListener('hashchange', syncFromHash);
+      window.removeEventListener('popstate', syncFromHash);
+    };
+  }, [browse.directDocIds.length, browse.topics, sortedTopics]);
+
+  useEffect(() => {
+    if (activeTopic === 'all' || typeof document === 'undefined') return;
+    const anchor = activeTopic === 'unclassified'
+      ? UNCLASSIFIED_ANCHOR
+      : getTopicAnchorId(activeTopic);
+    if (!anchor) return;
+    window.requestAnimationFrame(() => {
+      document.getElementById(anchor)?.scrollIntoView({block: 'nearest', inline: 'center'});
+    });
+  }, [activeTopic, topicLookup]);
+
+  useEffect(() => {
+    setSelectedSchool('all');
+  }, [activeTopic]);
+
+  const activeDocIds = useMemo(() => {
+    if (activeTopic === 'all') return browse.docIds;
+    if (activeTopic === 'unclassified') return browse.directDocIds;
+    return topicLookup.get(activeTopic)?.docIds || [];
+  }, [activeTopic, browse.directDocIds, browse.docIds, topicLookup]);
+
+  const activeDocuments = useMemo(() => {
+    const seen = new Set<string>();
+    return activeDocIds.flatMap((docId) => {
+      if (seen.has(docId)) return [];
+      seen.add(docId);
+      const document = browse.documents[docId];
+      return document ? [document] : [];
+    }).sort(compareBrowseDocuments);
+  }, [activeDocIds, browse.documents]);
+
+  const schoolOptions = useMemo(() => {
+    const counts = new Map<string, {label: string; count: number}>();
+    for (const document of activeDocuments) {
+      const schoolId = document.universityId || 'other';
+      const label = document.universityName
+        || getUniversityLabel(document.universityId || undefined, language);
+      const current = counts.get(schoolId);
+      counts.set(schoolId, {label, count: (current?.count || 0) + 1});
+    }
+    return Array.from(counts, ([id, value]) => ({id, ...value})).sort(
+      (left, right) => right.count - left.count || left.label.localeCompare(right.label, 'ja'),
+    );
+  }, [activeDocuments, language]);
+
+  const visibleDocuments = useMemo(
+    () => activeDocuments.filter((document) => (
+      selectedSchool === 'all' || (document.universityId || 'other') === selectedSchool
+    )),
+    [activeDocuments, selectedSchool],
+  );
+
+  const schoolGroups = useMemo(() => {
+    const groups = new Map<string, {title: string; documents: CompactBrowseDocument[]}>();
+    for (const document of visibleDocuments) {
+      const schoolId = document.universityId || 'other';
+      if (!groups.has(schoolId)) {
+        groups.set(schoolId, {
+          title: document.universityName
+            || getUniversityLabel(document.universityId || undefined, language),
+          documents: [],
+        });
+      }
+      groups.get(schoolId)!.documents.push(document);
+    }
+    return Array.from(groups, ([schoolId, group]) => ({schoolId, ...group})).sort(
+      (left, right) => right.documents.length - left.documents.length
+        || left.title.localeCompare(right.title, 'ja'),
+    );
+  }, [language, visibleDocuments]);
+
+  const onSelectTopic = (topicId: AggregateTopicSelection) => {
+    setActiveTopic(topicId);
+  };
+
+  const activeTopicTitle = activeTopic === 'all'
+    ? t.allTopics
+    : activeTopic === 'unclassified'
+      ? t.unclassified
+      : getTopicDisplayName(activeTopic);
+  const remainingTopicCount = Math.max(0, sortedTopics.length - TOPIC_PREVIEW_LIMIT);
+  const subsubjectRouteLabel = `/${getSubsubjectShortId(subsubjectId)
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/[^A-Za-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .toLowerCase()}`;
+
+  return (
+    <div className={clsx('container', styles.pageContainer, styles.aggregatePageContainer)}>
+      <div className="row">
+        <main className="col col--12">
+          {tag.unlisted && <Unlisted />}
+          <ContentBrowseModes section="exams" activeMode="tags" />
+          <header className={`${styles.pageHeader} ${styles.aggregateHeader}`}>
+            <div className={styles.aggregateBreadcrumb}>
+              <span>{getSubjectLabel(subjectId, language)}</span>
+              <span aria-hidden="true">/</span>
+              <span>{getSubsubjectLabel(subsubjectId, language)}</span>
+            </div>
+            <Heading as="h1" className={`${styles.pageTitle} ${styles.aggregateTitle}`}>
+              {getSubsubjectLabel(subsubjectId, language)}
+            </Heading>
+            {(getSubsubjectDescription(subsubjectId, language) || tag.description) && (
+              <p className={styles.pageDescription}>
+                {getSubsubjectDescription(subsubjectId, language) || tag.description}
+              </p>
+            )}
+            <div className={styles.aggregateStats}>
+              <span>{t.documentStat(allDocuments.length)}</span>
+              <span>{t.topicStat(browse.topics.length)}</span>
+              <span>{t.schoolStat(allSchoolCount)}</span>
+            </div>
+          </header>
+          <div className={styles.aggregateDivider} />
+
+          <div className={styles.aggregateWorkspace}>
+            <aside className={styles.topicSidebar}>
+              <div className={styles.topicDirectoryHeader}>
+                <Heading as="h2" className={styles.topicDirectoryHeading}>
+                  {t.topicNav}
+                </Heading>
+                <span>{t.topicNavHint}</span>
+              </div>
+              <nav className={styles.topicDirectory} aria-label={t.topicNav}>
+                <div className={styles.topicScroller}>
+                  <Link
+                    to={tag.permalink}
+                    className={`${styles.topicDirectoryLink} ${activeTopic === 'all' ? styles.topicDirectoryLinkActive : ''}`}
+                    aria-current={activeTopic === 'all' ? 'page' : undefined}
+                    onClick={() => onSelectTopic('all')}>
+                    <span>{t.allTopics}</span>
+                    <span className={styles.topicDirectoryCount}>{allDocuments.length}</span>
+                  </Link>
+                  {browse.directDocIds.length > 0 && (
+                    <Link
+                      id={UNCLASSIFIED_ANCHOR}
+                      to={`${tag.permalink}#${UNCLASSIFIED_ANCHOR}`}
+                      title={t.directHint}
+                      className={`${styles.topicDirectoryLink} ${activeTopic === 'unclassified' ? styles.topicDirectoryLinkActive : ''}`}
+                      aria-current={activeTopic === 'unclassified' ? 'location' : undefined}
+                      onClick={() => onSelectTopic('unclassified')}>
+                      <span>{t.unclassified}</span>
+                      <span className={styles.topicDirectoryCount}>
+                        {new Set(browse.directDocIds).size}
+                      </span>
+                    </Link>
+                  )}
+                  {sortedTopics.map((topic, topicIndex) => {
+                    const anchor = getTopicAnchorId(topic.id);
+                    const isCollapsed = !topicsExpanded && topicIndex >= TOPIC_PREVIEW_LIMIT;
+                    return (
+                      <Link
+                        id={anchor}
+                        key={topic.id}
+                        hidden={isCollapsed}
+                        to={`${tag.permalink}#${anchor}`}
+                        className={`${styles.topicDirectoryLink} ${activeTopic === topic.id ? styles.topicDirectoryLinkActive : ''}`}
+                        aria-current={activeTopic === topic.id ? 'location' : undefined}
+                        onClick={() => onSelectTopic(topic.id)}>
+                        <span>{getTopicDisplayName(topic.id)}</span>
+                        <span className={styles.topicDirectoryCount}>{topic.count}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+                {remainingTopicCount > 0 && (
+                  <button
+                    type="button"
+                    className={styles.topicExpansionButton}
+                    aria-expanded={topicsExpanded}
+                    onClick={() => setTopicsExpanded((value) => !value)}>
+                    <span>
+                      {topicsExpanded
+                        ? t.collapseTopics
+                        : t.expandTopics(remainingTopicCount)}
+                    </span>
+                    <FiChevronDown
+                      className={topicsExpanded ? styles.topicExpansionIconOpen : ''}
+                      aria-hidden="true"
+                    />
+                  </button>
+                )}
+              </nav>
+            </aside>
+
+            <section className={styles.aggregateResults} aria-label={title}>
+              <div className={styles.aggregateResultsHeader}>
+                <div className={styles.aggregateResultsTitleGroup}>
+                  <Heading as="h2" className={styles.aggregateResultsTitle}>
+                    {activeTopicTitle}
+                  </Heading>
+                  <p className={styles.aggregateResultsMeta} role="status" aria-live="polite">
+                    <span>{t.docCount(activeDocuments.length)}</span>
+                    <span aria-hidden="true">·</span>
+                    <span className={styles.aggregateRouteLabel}>{subsubjectRouteLabel}</span>
+                  </p>
+                </div>
+                <label className={styles.schoolFilter}>
+                  <span className={styles.schoolFilterLabel}>{t.schoolFilter}</span>
+                  <select
+                    aria-label={t.schoolFilter}
+                    value={selectedSchool}
+                    onChange={(event) => setSelectedSchool(event.target.value)}>
+                    <option value="all">{t.allSchools} ({schoolOptions.length})</option>
+                    {schoolOptions.map((school) => (
+                      <option key={school.id} value={school.id}>
+                        {school.label} ({school.count})
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+
+              <div className={styles.compactSchoolList}>
+                {schoolGroups.length > 0 ? schoolGroups.map((group) => (
+                  <CompactSchoolGroup
+                    key={group.schoolId}
+                    schoolId={group.schoolId}
+                    title={group.title}
+                    documents={group.documents}
+                    parentPermalink={tag.permalink}
+                    topicLookup={topicLookup}
+                    directDocIds={directDocIds}
+                    language={language}
+                    onSelectTopic={onSelectTopic}
+                  />
+                )) : (
+                  <p className={styles.aggregateEmpty}>{t.noResults}</p>
+                )}
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+}
+
 function DocTagDocListPageMetadata({
   title,
   tag,
-}: Props & {title: string}): ReactNode {
+  language,
+}: Props & {title: string; language: Language}): ReactNode {
+  const aggregateTag = tag as TagWithBrowse;
+  const description = aggregateTag.browse && getSubsubjectId(tag.label)
+    ? getSubsubjectDescription(tag.label, language) || tag.description
+    : tag.description;
   return (
     <>
-      <PageMetadata title={title} description={tag.description} />
+      <PageMetadata title={title} description={description} />
       <SearchMetadata tag="doc_tag_doc_list" />
     </>
   );
@@ -272,6 +849,21 @@ function DocTagDocListPageContent({
   title,
   language,
 }: Props & {title: string; language: Language}): ReactNode {
+  const aggregateTag = tag as TagWithBrowse;
+  if (aggregateTag.browse && getSubsubjectId(tag.label)) {
+    return (
+      <HtmlClassNameProvider
+        className={clsx(ThemeClassNames.page.docsTagDocListPage)}>
+        <SubsubjectBrowsePage
+          tag={aggregateTag}
+          browse={aggregateTag.browse}
+          title={title}
+          language={language}
+        />
+      </HtmlClassNameProvider>
+    );
+  }
+
   const tagKind = getTagKind(tag.label, language);
   const groupBy = getSchoolTag(tag.label) ? 'school' : 'topic';
   const groups = groupDocs(tag.items, tag.label, language);
@@ -339,7 +931,7 @@ export default function DocTagDocListPage(props: Props): ReactNode {
   const title = getPageTitle(props, language);
   return (
     <>
-      <DocTagDocListPageMetadata {...props} title={title} />
+      <DocTagDocListPageMetadata {...props} title={title} language={language} />
       <DocTagDocListPageContent {...props} title={title} language={language} />
     </>
   );

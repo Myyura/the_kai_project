@@ -14,6 +14,32 @@ import rehypeStudySections from './src/markdown/rehypeStudySections.js';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const sequentialBundles = process.env.DOCUSAURUS_SEQUENTIAL_BUNDLES === 'true';
+const docusaurusArgs = process.argv.slice(2);
+const isDirectBuild = docusaurusArgs.includes('build')
+  || (docusaurusArgs.includes('deploy') && !docusaurusArgs.includes('--skip-build'));
+const requiredBuildEnvironment = {
+  KAI_ENFORCED_BUILD_PROFILE: '16gb',
+  DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
+  DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
+  DISABLE_RSPACK_INCREMENTAL: 'true',
+  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '1',
+  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
+  RAYON_NUM_THREADS: '1',
+  RSPACK_BLOCKING_THREADS: '1',
+};
+const hasRequiredBuildEnvironment = Object.entries(requiredBuildEnvironment)
+  .every(([name, value]) => process.env[name] === value)
+  && /(?:^|\s)--max[-_]old[-_]space[-_]size=6144(?:\s|$)/.test(
+    process.env.NODE_OPTIONS || '',
+  );
+
+if (isDirectBuild && !hasRequiredBuildEnvironment) {
+  throw new Error(
+    'Unbounded Docusaurus builds are disabled. Use `yarn build` or '
+      + '`yarn docusaurus build` so the enforced 16 GiB profile is applied.',
+  );
+}
+
 const chunkRecoveryBootstrap = readFileSync(
   new URL('./src/clientModules/chunkRecoveryBootstrap.js', import.meta.url),
   'utf8',
@@ -102,6 +128,24 @@ function sequentialBundlesPlugin() {
     },
   };
 }
+
+const docsPluginOptions = {
+  remarkPlugins: [remarkMath],
+  rehypePlugins: [
+    rehypeAnnotationSourceLines,
+    [rehypeKatexWithMhchem, {
+      // Existing exam content includes CJK text inside math expressions.
+      strict: false,
+      throwOnError: true,
+    }],
+    rehypeStudySections,
+  ],
+  sidebarPath: './sidebars.js',
+  sidebarItemsGenerator: async (generatorArgs) => {
+    const sidebarItems = await generatorArgs.defaultSidebarItemsGenerator(generatorArgs);
+    return sortYearCategoriesDesc(sidebarItems);
+  },
+};
 
  /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -234,6 +278,7 @@ const config = {
   plugins: [
     safeRspackJsMinifierPlugin,
     sequentialBundlesPlugin,
+    [require.resolve('./plugins/compact-docs/index.cjs'), docsPluginOptions],
   ],
 
   presets: [
@@ -241,24 +286,7 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [
-            rehypeAnnotationSourceLines,
-            [rehypeKatexWithMhchem, {
-              // Existing exam content includes CJK text inside math expressions.
-              strict: false,
-              throwOnError: true,
-            }],
-            rehypeStudySections,
-          ],
-          sidebarPath: './sidebars.js',
-          sidebarItemsGenerator: async (generatorArgs) => {
-            const sidebarItems = await generatorArgs.defaultSidebarItemsGenerator(generatorArgs);
-            return sortYearCategoriesDesc(sidebarItems);
-          },
-        },
+        docs: false,
         blog: {
           showReadingTime: true,
           feedOptions: {

@@ -1,4 +1,5 @@
 import tagTaxonomy from '../data/tagTaxonomy';
+import {resolveTagBrowseTarget} from '../utils/tagBrowseTarget';
 import {resolveDocumentMetadata} from './documentMetadata';
 import {parseNoteDocument, stripAnnotationMetadata} from './noteAnnotations';
 
@@ -16,37 +17,9 @@ const timestamp = (value) => {
   return Number.isFinite(number) && number > 0 ? number : 0;
 };
 
-const tagSlug = (tag) => String(tag || '')
-  .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-  .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
-  .replace(/[^A-Za-z0-9]+/g, '-')
-  .toLowerCase()
-  .replace(/^-+|-+$/g, '');
-
 export const getLearningTagPermalink = (tag) => {
   const tagId = String(tag || '');
-  const subsubject = tagTaxonomy.subsubjects?.[tagId];
-  if (subsubject) {
-    const subjectId = subsubject.subject || 'General';
-    const prefix = `${subjectId}.`;
-    const shortId = tagId.startsWith(prefix) ? tagId.slice(prefix.length) : tagId;
-    return `/docs/tags/subsubject/${tagSlug(subjectId)}/${tagSlug(shortId)}`;
-  }
-
-  const topic = tagTaxonomy.topics?.[tagId];
-  if (topic) {
-    const topicSubsubject = tagTaxonomy.subsubjects?.[topic.subsubject] || {};
-    const subjectId = topicSubsubject.subject || 'General';
-    const subsubjectPrefix = `${subjectId}.`;
-    const subsubjectId = topic.subsubject?.startsWith(subsubjectPrefix)
-      ? topic.subsubject.slice(subsubjectPrefix.length)
-      : topic.subsubject;
-    const topicPrefix = `${topic.subsubject}.`;
-    const topicId = tagId.startsWith(topicPrefix) ? tagId.slice(topicPrefix.length) : tagId.split('.').pop();
-    return `/docs/tags/topic/${tagSlug(subjectId)}/${tagSlug(subsubjectId)}/${tagSlug(topicId)}`;
-  }
-
-  return `/docs/tags/${tagSlug(tagId)}`;
+  return resolveTagBrowseTarget(tagId).href;
 };
 
 const summarizeNote = (note) => {

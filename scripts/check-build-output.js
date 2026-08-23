@@ -10,6 +10,7 @@ const SEARCH_GZIP_BUDGET = 16 * 1024 * 1024;
 const PUBLISHED_CONTENT_BUDGET = 24 * 1024 * 1024;
 const CONTENT_EXPORT_GZIP_BUDGET = 20 * 1024 * 1024;
 const TOTAL_BUILD_BUDGET = 900 * 1024 * 1024;
+const DOCS_TAGS_DIR = path.join(BUILD_DIR, 'docs', 'tags');
 
 function walk(directory) {
   return fs.readdirSync(directory, {withFileTypes: true}).flatMap((entry) => {
@@ -87,6 +88,30 @@ const publishedContentFiles = files.filter((filePath) => (
   filePath.startsWith(path.join(BUILD_DIR, 'api-content', 'v1', 'documents') + path.sep)
   && filePath.endsWith('.json')
 ));
+const docsHtmlFiles = files.filter((filePath) => (
+  filePath.startsWith(path.join(BUILD_DIR, 'docs') + path.sep)
+  && filePath.endsWith('.html')
+));
+const topicTagHtmlFiles = docsHtmlFiles.filter((filePath) => (
+  filePath.startsWith(path.join(DOCS_TAGS_DIR, 'topic') + path.sep)
+));
+const subsubjectTagHtmlFiles = docsHtmlFiles.filter((filePath) => (
+  filePath.startsWith(path.join(DOCS_TAGS_DIR, 'subsubject') + path.sep)
+));
+const schoolTagHtmlFiles = docsHtmlFiles.filter((filePath) => (
+  filePath.startsWith(path.join(DOCS_TAGS_DIR, 'school') + path.sep)
+));
+const legacyTopicLinkFiles = docsHtmlFiles.filter((filePath) => {
+  const html = fs.readFileSync(filePath, 'utf8');
+  return /href=["']\/docs\/tags\/topic\//.test(html);
+});
+const apiDocuments = require('./api-data').buildApiData().documents;
+const expectedSubsubjectRoutes = new Set(
+  apiDocuments.flatMap((document) => document.subsubject_ids || []),
+).size;
+const expectedSchoolRoutes = new Set(
+  apiDocuments.flatMap((document) => document.school_tags || []),
+).size;
 const publishedContentBytes = publishedContentFiles.reduce(
   (total, filePath) => total + fs.statSync(filePath).size,
   0,
@@ -121,6 +146,24 @@ if (unsupportedMediaRangeFiles.length > 0) {
   throw new Error(
     'Build output contains media-query range syntax that breaks responsive layouts in older Safari: '
     + unsupportedMediaRangeFiles.join(', '),
+  );
+}
+if (topicTagHtmlFiles.length > 0) {
+  throw new Error(`Topic tag routes returned: ${topicTagHtmlFiles.length}.`);
+}
+if (subsubjectTagHtmlFiles.length !== expectedSubsubjectRoutes) {
+  throw new Error(
+    `Expected ${expectedSubsubjectRoutes} active subsubject routes, found ${subsubjectTagHtmlFiles.length}.`,
+  );
+}
+if (schoolTagHtmlFiles.length !== expectedSchoolRoutes) {
+  throw new Error(
+    `Expected ${expectedSchoolRoutes} school tag routes, found ${schoolTagHtmlFiles.length}.`,
+  );
+}
+if (legacyTopicLinkFiles.length > 0) {
+  throw new Error(
+    `Built docs contain legacy /docs/tags/topic/ links: ${legacyTopicLinkFiles.slice(0, 10).join(', ')}`,
   );
 }
 if (!homePageHtml.includes('data-kai-chunk-recovery')) {
@@ -161,5 +204,6 @@ console.log(
   `Build budgets passed: main ${formatMiB(mainGzip)}, search ${formatMiB(searchGzip)}, `
   + `published content ${formatMiB(publishedContentBytes)} across ${publishedContentFiles.length} files, `
   + `Kai content export ${formatMiB(contentExportGzip)} across ${contentExport.documents.length} documents `
-  + `and ${contentExport.assets.length} assets, total build ${formatMiB(totalBuildBytes)}.`,
+  + `and ${contentExport.assets.length} assets, tag routes ${subsubjectTagHtmlFiles.length} subsubjects `
+  + `and ${schoolTagHtmlFiles.length} schools, total build ${formatMiB(totalBuildBytes)}.`,
 );

@@ -130,14 +130,14 @@ test('note-only documents remain visible and malformed progress is ignored', () 
   assert.equal(result.hasAnyData, true);
 });
 
-test('namespaced learning tags link to the generated Docusaurus routes', () => {
+test('namespaced learning tags use the canonical in-site browse targets', () => {
   assert.equal(
     getLearningTagPermalink('Mathematics.Calculus'),
     '/docs/tags/subsubject/mathematics/calculus'
   );
   assert.equal(
     getLearningTagPermalink('Bioinformatics.Bioinformatics.Sequence-Alignment'),
-    '/docs/tags/topic/bioinformatics/bioinformatics/sequence-alignment'
+    '/docs/tags/subsubject/bioinformatics/bioinformatics#topic-sequence-alignment'
   );
 
   for (const tag of Object.keys(tagTaxonomy.subsubjects)) {
@@ -147,9 +147,10 @@ test('namespaced learning tags link to the generated Docusaurus routes', () => {
     );
   }
   for (const tag of Object.keys(tagTaxonomy.topics)) {
-    assert.equal(
-      getLearningTagPermalink(tag),
-      `/docs/tags${buildPermalink('topic', tag, tagTaxonomy)}`
-    );
+    const topic = tagTaxonomy.topics[tag];
+    const parentPath = `/docs/tags${buildPermalink('subsubject', topic.subsubject, tagTaxonomy)}`;
+    const target = getLearningTagPermalink(tag);
+    assert.ok(target.startsWith(`${parentPath}#topic-`), `${tag} -> ${target}`);
+    assert.equal(target.includes('/docs/tags/topic/'), false);
   }
 });
