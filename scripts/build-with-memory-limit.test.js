@@ -1,4 +1,6 @@
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 const test = require('node:test');
 
 const {
@@ -10,9 +12,9 @@ const {
 test('the balanced build profile fits the 16 GiB GitHub runner', () => {
   const environment = getBuildEnvironment({});
 
-  assert.equal(MAX_OLD_SPACE_MB, 6144);
+  assert.equal(MAX_OLD_SPACE_MB, 5120);
   assert.ok(MAX_OLD_SPACE_MB < 16 * 1024);
-  assert.equal(environment.NODE_OPTIONS, '--max-old-space-size=6144');
+  assert.equal(environment.NODE_OPTIONS, '--max-old-space-size=5120');
   assert.equal(environment.KAI_ENFORCED_BUILD_PROFILE, '16gb');
   assert.equal(environment.DOCUSAURUS_SEQUENTIAL_BUNDLES, 'true');
   assert.equal(environment.DOCUSAURUS_NO_PERSISTENT_CACHE, 'true');
@@ -33,7 +35,7 @@ test('inherited tuning cannot override the enforced profile', () => {
       + '--max-semi-space-size=16384 --initial_old_space_size 8192 '
       + '--huge-max-old-generation-size',
   );
-  assert.equal(options, '--trace-warnings --max-old-space-size=6144');
+  assert.equal(options, '--trace-warnings --max-old-space-size=5120');
 
   const source = Object.freeze({
     NODE_OPTIONS: '--max_old_space_size 24576',
@@ -46,7 +48,7 @@ test('inherited tuning cannot override the enforced profile', () => {
   });
   const environment = getBuildEnvironment(source);
 
-  assert.equal(environment.NODE_OPTIONS, '--max-old-space-size=6144');
+  assert.equal(environment.NODE_OPTIONS, '--max-old-space-size=5120');
   assert.equal(environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT, '1');
   assert.equal(environment.DOCUSAURUS_SSR_CONCURRENCY, '4');
   assert.equal(
@@ -67,4 +69,16 @@ test('inherited empty values cannot enable cache and incremental mode', () => {
 
   assert.equal(environment.DOCUSAURUS_NO_PERSISTENT_CACHE, 'true');
   assert.equal(environment.DISABLE_RSPACK_INCREMENTAL, 'true');
+});
+
+test('the low-memory client bundle disables expensive module concatenation', () => {
+  const configSource = fs.readFileSync(
+    path.resolve(__dirname, '../docusaurus.config.js'),
+    'utf8',
+  );
+
+  assert.match(
+    configSource,
+    /name: 'client',[\s\S]{0,250}dependencies: \['server'\],[\s\S]{0,250}concatenateModules: false/,
+  );
 });

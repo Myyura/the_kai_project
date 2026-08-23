@@ -30,7 +30,7 @@ const requiredBuildEnvironment = {
 };
 const hasRequiredBuildEnvironment = Object.entries(requiredBuildEnvironment)
   .every(([name, value]) => process.env[name] === value)
-  && /(?:^|\s)--max[-_]old[-_]space[-_]size=6144(?:\s|$)/.test(
+  && /(?:^|\s)--max[-_]old[-_]space[-_]size=5120(?:\s|$)/.test(
     process.env.NODE_OPTIONS || '',
   );
 
@@ -123,9 +123,18 @@ function sequentialBundlesPlugin() {
 
       // Docusaurus normally builds both configurations at once. Make the
       // larger client bundle wait for the server bundle in memory-constrained CI.
+      // Module concatenation is also deliberately disabled for the client:
+      // Docusaurus documents it as expensive for large sites, while its usual
+      // benefit is only about a 3% reduction in total JavaScript asset size.
       return isServer
         ? {name: 'server'}
-        : {name: 'client', dependencies: ['server']};
+        : {
+          name: 'client',
+          dependencies: ['server'],
+          optimization: {
+            concatenateModules: false,
+          },
+        };
     },
   };
 }

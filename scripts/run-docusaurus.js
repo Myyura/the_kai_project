@@ -8,6 +8,16 @@ const {
   runWithMemoryGuard,
 } = require('./process-memory-guard');
 
+function getCommandInvocation(args, {
+  nodePath = process.execPath,
+  cliPath = require.resolve('@docusaurus/core/bin/docusaurus.mjs'),
+  phasedBuildPath = require.resolve('./docusaurus-build-phases'),
+} = {}) {
+  return args[0] === 'build'
+    ? {command: nodePath, args: [phasedBuildPath, ...args.slice(1)]}
+    : {command: nodePath, args: [cliPath, ...args]};
+}
+
 function isMemoryIntensiveCommand(args) {
   return args[0] === 'build'
     || (args[0] === 'deploy' && !args.includes('--skip-build'));
@@ -25,23 +35,23 @@ function shouldStartMemoryGuard(args, source = process.env, guardOptions) {
 async function main() {
   const args = process.argv.slice(2);
   const environment = getCommandEnvironment(args);
-  const cliPath = require.resolve('@docusaurus/core/bin/docusaurus.mjs');
+  const invocation = getCommandInvocation(args);
   const startMemoryGuard = shouldStartMemoryGuard(args);
 
   if (isMemoryIntensiveCommand(args)) {
     console.log(
       `Enforcing the 16 GiB build profile (${MAX_OLD_SPACE_MB} MiB V8 heap, `
         + `${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} SSG worker, `
-        + 'sequential bundles).',
+        + 'isolated sequential bundles).',
     );
   }
 
   const result = startMemoryGuard
-    ? await runWithMemoryGuard(process.execPath, [cliPath, ...args], {
+    ? await runWithMemoryGuard(invocation.command, invocation.args, {
       env: environment,
       label: `Docusaurus ${args[0]}`,
     })
-    : spawnSync(process.execPath, [cliPath, ...args], {
+    : spawnSync(invocation.command, invocation.args, {
       env: environment,
       stdio: 'inherit',
     });
@@ -69,6 +79,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  getCommandInvocation,
   getCommandEnvironment,
   isMemoryIntensiveCommand,
   shouldStartMemoryGuard,

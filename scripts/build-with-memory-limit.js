@@ -6,10 +6,12 @@ const {
 } = require('./process-memory-guard');
 
 // Keep local and GitHub Pages builds on the same memory-aware profile.
-// The standard public Linux runner has 4 CPUs and 16 GB of RAM. Bundles stay
-// sequential because they have the highest RSS, while SSG uses one renderer to
-// avoid retaining multiple page heaps at the same time.
-const MAX_OLD_SPACE_MB = 6144;
+// The standard public Linux runner has 4 CPUs and 16 GB of RAM. Bundles run in
+// isolated sequential processes because they have the highest RSS, while SSG
+// uses one renderer to avoid retaining multiple page heaps at the same time.
+// Leave native headroom for Rspack: the client compiler allocates substantial
+// memory outside V8's managed heap.
+const MAX_OLD_SPACE_MB = 5120;
 
 const LOW_MEMORY_ENV = Object.freeze({
   KAI_ENFORCED_BUILD_PROFILE: '16gb',
@@ -70,7 +72,7 @@ async function main() {
   const environment = getBuildEnvironment();
   console.log(
     `Building with the memory-aware profile: ${MAX_OLD_SPACE_MB} MiB V8 heap, `
-      + `sequential bundles, ${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} `
+      + `isolated sequential bundles, ${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} `
       + `SSG worker with ${environment.DOCUSAURUS_SSR_CONCURRENCY} concurrent routes, `
       + `${environment.RAYON_NUM_THREADS} Rayon thread, and `
       + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking thread.`,
