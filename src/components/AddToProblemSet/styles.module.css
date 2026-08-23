@@ -56,7 +56,7 @@
   isolation: isolate;
 }
 
-[data-theme='dark'] .dialog {
+:is([data-theme='dark'], :global(.dark)) .dialog {
   border-color: rgba(var(--kai-cyan-rgb), .22);
 }
 

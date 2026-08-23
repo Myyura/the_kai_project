@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/rspress/Link';
 import {
   FaArrowRight,
   FaComments,

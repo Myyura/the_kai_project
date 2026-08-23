@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { buildTagsYaml } = require('./generate-docusaurus-tags');
+const { buildTagsYaml } = require('./generate-content-tags');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');
@@ -308,12 +308,12 @@ function validateGeneratedTagsFile(tagTaxonomy) {
   try {
     actual = fs.readFileSync(DOCS_TAGS_PATH, 'utf-8');
   } catch {
-    addError('docs/tags.yml', 'missing generated Docusaurus tags metadata');
+    addError('docs/tags.yml', 'missing generated content tags metadata');
     return;
   }
 
   if (actual !== expected) {
-    addError('docs/tags.yml', 'is out of date; run node scripts/generate-docusaurus-tags.js');
+    addError('docs/tags.yml', 'is out of date; run node scripts/generate-content-tags.js');
   }
 }
 

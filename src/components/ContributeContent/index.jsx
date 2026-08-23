@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/rspress/Link';
 import {
   FaCheck,
   FaClipboardList,

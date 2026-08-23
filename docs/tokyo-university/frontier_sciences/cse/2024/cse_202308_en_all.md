@@ -82,7 +82,7 @@ Answer the following questions. Let the gravitational acceleration be g > 0 exce
   - (2) Find the condition for V such that the string does not loosen even at  $\theta = 180^{\circ}$ .
 - (Q.6) As shown in the figure below, a massless straight ladder of length L stands between a frictionless vertical wall and a rough horizontal floor at an angle  $\theta$  to the horizontal direction. The static friction coefficient between the ladder and the floor is  $\mu$ . When a point mass of mass m is at a distance of x from the bottom of the ladder, find the range of x where the ladder does not slide down.
 
-![](_page_2_Picture_14.jpeg)
+![](./_page_2_Picture_14.jpeg)
 
 ## Slot 3: 3.1 Mathematical analysis (40 minutes)
 
@@ -143,7 +143,7 @@ Answer the following questions.
 
 (Q.1) Find the combined resistance between A and B for each of the circuits (1) and (2) shown below.
 
-![](_page_5_Figure_3.jpeg)
+![](./_page_5_Figure_3.jpeg)
 
 - (Q.2) Answer the following questions for a charged particle of mass m and charge q moving at a velocity  $\boldsymbol{v}$  in a uniform electric field  $\boldsymbol{E}$  and a magnetic flux density  $\boldsymbol{B}$ .
   - (1) Find the force on the charged particle.
@@ -162,4 +162,4 @@ Answer the following questions.
 - (1) Find the magnitude of the induced electromotive force produced in a closed circuit when the magnetic flux across the circuit changes from  $\phi_1$  to  $\phi_2$  during an infinitesimal time dt.
 - (2) Under a uniform magnetic flux density  $\boldsymbol{B}$ , a conducting ring of radius a and a resistor with resistance R are connected as shown in the figure below. The conducting rod is contacting the center of the ring and the ring. Find the current flowing through the resistor when the rod rotates with an angular velocity  $\omega$  about the center of the ring. Assume that the magnetic flux density  $\boldsymbol{B}$  and the surface on which the ring is placed are orthogonal.
 
-![](_page_5_Picture_14.jpeg)
+![](./_page_5_Picture_14.jpeg)

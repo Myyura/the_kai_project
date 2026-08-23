@@ -40,7 +40,7 @@ function loadSourceModule(filename) {
 const repoRoot = path.resolve(__dirname, '..');
 const documentTitles = require('../src/data/documentTitles.json');
 const tagTaxonomy = require('../src/data/tagTaxonomy');
-const {buildPermalink} = require('./generate-docusaurus-tags');
+const {buildPermalink} = require('./generate-content-tags');
 const {
   getDocumentTitle,
   getUniversityCatalogTarget,

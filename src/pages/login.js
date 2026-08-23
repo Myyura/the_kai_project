@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Layout from '@theme/Layout';
-import BrowserOnly from '@docusaurus/BrowserOnly';
-import Link from '@docusaurus/Link';
-import {useHistory} from '@docusaurus/router';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@site/src/rspress/Layout';
+import BrowserOnly from '@site/src/rspress/BrowserOnly';
+import Link from '@site/src/rspress/Link';
+import {useHistory} from '@site/src/rspress/router';
+import useSiteContext from '@site/src/rspress/useSiteContext';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import {
   FaCloud, FaEnvelope, FaLock, FaSignInAlt, FaUserPlus,
@@ -33,7 +33,7 @@ function LoginPageContent() {
   const language = useCurrentLanguage();
   const lang = normalizeLanguage(language);
   const t = useUiText('login');
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useSiteContext();
   const hcaptchaSiteKey = siteConfig?.customFields?.hcaptchaSiteKey || '';
   const history = useHistory();
 

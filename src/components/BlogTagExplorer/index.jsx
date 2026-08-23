@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/rspress/Link';
 import {FaArrowRight, FaSearch, FaTag} from 'react-icons/fa';
 import {useUiText} from '@site/src/i18n/useUiText';
 import {

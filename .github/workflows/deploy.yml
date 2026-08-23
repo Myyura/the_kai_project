@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   build:
-    name: 构建 Docusaurus
+    name: 构建 Rspress
     runs-on: ubuntu-22.04
     timeout-minutes: 45
     permissions:
@@ -74,8 +74,7 @@ jobs:
           trap 'kill "$monitor_pid" 2>/dev/null || true' EXIT
           /usr/bin/time -v yarn build:pages
         env:
-          DOCUSAURUS_PERF_LOGGER: 'true'
-          # Pages uses its last known-good build profile. The 16 GiB hard guard
+          # Pages uses its dedicated Rspress build profile. The 16 GiB hard guard
           # belongs to local builds and is deliberately not applied here.
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}

@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import {useHistory, useLocation} from '@docusaurus/router';
+import {useHistory, useLocation} from '@site/src/rspress/router';
 import {LANGUAGE_OPTIONS, useStoredLanguage} from '@site/src/context/LanguageContext';
 import styles from './styles.module.css';
 

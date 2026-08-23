@@ -1,7 +1,7 @@
 /* ── Auth 表单共享样式（login / reset-password 共用）────────
    两个页面模块通过 `composes` 复用这里的类，本地类名不变。
    语义色全部走 --kai-* 令牌：暗色主题随令牌自动翻转，
-   无需再写 [data-theme='dark'] 变体。 */
+   无需再写 :is([data-theme='dark'], :global(.dark)) 变体。 */
 
 .wrapper {
   display: flex;
@@ -32,7 +32,7 @@
   text-align: center;
 }
 
-[data-theme='dark'] .cardHeader {
+:is([data-theme='dark'], :global(.dark)) .cardHeader {
   background: linear-gradient(135deg, var(--kai-navy-900) 0%, var(--kai-blue) 72%, var(--kai-cyan) 100%);
 }
 
@@ -96,7 +96,7 @@
   box-shadow: var(--kai-focus-ring);
 }
 
-[data-theme='dark'] .input {
+:is([data-theme='dark'], :global(.dark)) .input {
   border-color: rgba(255, 255, 255, 0.1);
 }
 

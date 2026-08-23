@@ -1,0 +1,261 @@
+@import '../src/css/custom.css';
+
+:root {
+  /* One quiet scrollbar treatment for the viewport and every nested scroll
+     surface. The transparent track keeps it visually continuous with the
+     Rspress document sidebar, while the larger hit area remains usable. */
+  --kai-scrollbar-size: 8px;
+  --kai-scrollbar-track: transparent;
+  --kai-scrollbar-thumb: rgba(15, 23, 42, 0.18);
+  --kai-scrollbar-thumb-hover: rgba(15, 23, 42, 0.34);
+}
+
+:is(.rp-dark, [data-theme='dark'], .dark) {
+  --kai-scrollbar-thumb: rgba(255, 255, 255, 0.22);
+  --kai-scrollbar-thumb-hover: rgba(255, 255, 255, 0.4);
+}
+
+html {
+  /* Keep the navigation at the same horizontal position while client-side
+     routing swaps between short pages and the scrollable exam archive. */
+  scrollbar-gutter: stable;
+}
+
+/* Firefox applies these properties to each scrolling element. Repeating the
+   Rspress utility selectors overrides its hard-coded colors, including code
+   blocks that normally opt back into a platform scrollbar. */
+*,
+.rp-scrollbar,
+.rp-scrollbar--always {
+  scrollbar-color: var(--kai-scrollbar-thumb) var(--kai-scrollbar-track);
+  scrollbar-width: thin;
+}
+
+/* Rspress ships a more-specific dark utility rule with literal colors. Keep
+   its sidebar and outline on the same tokenized palette as the viewport. */
+:is(.rp-dark, [data-theme='dark'], .dark) :is(.rp-scrollbar, .rp-scrollbar--always) {
+  scrollbar-color: var(--kai-scrollbar-thumb) var(--kai-scrollbar-track);
+}
+
+/* Chromium and Safari expose scrollbar parts instead. An 8px interaction
+   strip with a transparent border produces the same slim 4px visual thumb as
+   the past-paper sidebar without shrinking its pointer target to 4px. */
+*::-webkit-scrollbar,
+.rp-scrollbar::-webkit-scrollbar,
+.rp-scrollbar--always::-webkit-scrollbar {
+  width: var(--kai-scrollbar-size);
+  height: var(--kai-scrollbar-size);
+}
+
+*::-webkit-scrollbar-track,
+.rp-scrollbar::-webkit-scrollbar-track,
+.rp-scrollbar--always::-webkit-scrollbar-track {
+  background: var(--kai-scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb,
+.rp-scrollbar::-webkit-scrollbar-thumb,
+.rp-scrollbar--always::-webkit-scrollbar-thumb {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-color: var(--kai-scrollbar-thumb);
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover,
+.rp-scrollbar::-webkit-scrollbar-thumb:hover,
+.rp-scrollbar--always::-webkit-scrollbar-thumb:hover {
+  background-color: var(--kai-scrollbar-thumb-hover);
+}
+
+:is(.rp-dark, [data-theme='dark'], .dark) :is(.rp-scrollbar, .rp-scrollbar--always)::-webkit-scrollbar-thumb {
+  background-color: var(--kai-scrollbar-thumb);
+}
+
+:is(.rp-dark, [data-theme='dark'], .dark) :is(.rp-scrollbar, .rp-scrollbar--always)::-webkit-scrollbar-thumb:hover {
+  background-color: var(--kai-scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-corner,
+.rp-scrollbar::-webkit-scrollbar-corner,
+.rp-scrollbar--always::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@supports not (scrollbar-gutter: stable) {
+  html {
+    /* Safari versions predating scrollbar-gutter still need a permanently
+       reserved classic scrollbar track to avoid the same route-change jump. */
+    overflow-y: scroll;
+  }
+}
+
+/* Let the operating system restore its high-contrast scrollbar palette and
+   default target size when forced colors are active. */
+@media (forced-colors: active) {
+  *,
+  .rp-scrollbar,
+  .rp-scrollbar--always,
+  :is(.rp-dark, [data-theme='dark'], .dark) :is(.rp-scrollbar, .rp-scrollbar--always) {
+    scrollbar-color: auto;
+    scrollbar-width: auto;
+  }
+
+  *::-webkit-scrollbar,
+  .rp-scrollbar::-webkit-scrollbar,
+  .rp-scrollbar--always::-webkit-scrollbar {
+    width: auto;
+    height: auto;
+  }
+
+  *::-webkit-scrollbar-track,
+  .rp-scrollbar::-webkit-scrollbar-track,
+  .rp-scrollbar--always::-webkit-scrollbar-track {
+    background: Canvas;
+  }
+
+  *::-webkit-scrollbar-thumb,
+  .rp-scrollbar::-webkit-scrollbar-thumb,
+  .rp-scrollbar--always::-webkit-scrollbar-thumb,
+  :is(.rp-dark, [data-theme='dark'], .dark) :is(.rp-scrollbar, .rp-scrollbar--always)::-webkit-scrollbar-thumb {
+    border: 0;
+    background-color: ButtonText;
+  }
+}
+
+:root {
+  --rp-c-brand: var(--ifm-color-primary);
+  --rp-c-brand-dark: var(--ifm-color-primary-dark);
+  --rp-c-brand-light: var(--ifm-color-primary-light);
+  --rp-c-link: var(--ifm-color-primary);
+  --rp-font-family-base: var(--ifm-font-family-base);
+
+  /* Variables retained for the existing application components while they
+     live inside Rspress' theme. */
+  --ifm-background-color: var(--rp-c-bg);
+  --ifm-background-surface-color: var(--rp-c-bg-soft);
+  --ifm-code-background: var(--rp-c-text-code-bg);
+  --ifm-color-danger-dark: #b91c1c;
+  --ifm-color-warning-dark: #b45309;
+  --ifm-color-warning-contrast-background: #fff7ed;
+  --ifm-color-primary-contrast-background: #ffffff;
+  --ifm-color-emphasis-50: var(--rp-c-bg);
+  --ifm-color-emphasis-100: var(--rp-c-bg-soft);
+  --ifm-color-emphasis-200: var(--rp-c-divider-light);
+  --ifm-color-emphasis-300: var(--rp-c-divider);
+  --ifm-color-emphasis-400: var(--rp-c-gray-light-3);
+  --ifm-color-emphasis-500: var(--rp-c-gray-light-1);
+  --ifm-color-emphasis-600: var(--rp-c-gray);
+  --ifm-color-emphasis-700: var(--rp-c-text-2);
+  --ifm-color-emphasis-800: var(--rp-c-text-1);
+  --ifm-color-emphasis-900: var(--rp-c-text);
+  --ifm-font-color-base: var(--rp-c-text);
+  --ifm-font-color-secondary: var(--rp-c-text-2);
+  --ifm-font-family-monospace: var(--rp-font-family-mono);
+  --ifm-font-weight-semibold: 600;
+  --ifm-global-shadow-md: var(--rp-shadow-2);
+  --ifm-global-spacing: 1rem;
+  --ifm-heading-color: var(--rp-c-text);
+  --ifm-link-color: var(--rp-c-link);
+  --ifm-navbar-background-color: var(--rp-c-bg);
+  --ifm-navbar-height: var(--rp-nav-height);
+  --ifm-navbar-link-color: var(--rp-c-text-1);
+  --ifm-navbar-link-hover-color: var(--rp-c-brand);
+  --ifm-toc-border-color: var(--rp-c-divider);
+  --ifm-transition-fast: 160ms ease;
+  --ifm-z-index-fixed: var(--rp-z-index-nav);
+}
+
+.kai-rspress-nav-actions {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.kai-rspress-nav-actions .navbar__link--login {
+  align-items: center;
+  display: inline-flex;
+  min-height: 2rem;
+}
+
+.rp-doc a.rp-link {
+  color: var(--rp-c-link);
+}
+
+/* The navbar and `/search` route both open Rspress' native local-search
+   panel. Keep its single container-level focus treatment: the project's
+   global input focus ring otherwise draws a second outline inside the native
+   branded border as soon as the user starts typing. */
+.rp-search-panel__input:focus,
+.rp-search-panel__input:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+
+.rp-search-panel__input-form:focus-within {
+  border-color: var(--rp-c-brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rp-c-brand) 18%, transparent);
+}
+
+@supports not (color: color-mix(in srgb, black, white)) {
+  .rp-search-panel__input-form:focus-within {
+    box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.18);
+  }
+}
+
+@media (max-width: 639px) {
+  .rp-search-panel__input-form {
+    min-width: 0;
+  }
+
+  .rp-search-panel__cancel {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+.kai-search-page {
+  margin: 0 auto;
+  max-width: 48rem;
+  padding: 4rem 1.5rem;
+}
+
+.kai-search-page button {
+  background: var(--kai-action);
+  border: 0;
+  border-radius: var(--kai-radius-control);
+  color: var(--kai-action-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  margin-top: 1rem;
+  padding: 0.7rem 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .kai-rspress-nav-actions {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Leave enough room for the three-language switcher and the two Rspress
+     mobile controls. The logo still identifies the site at this width. */
+  .rp-nav__title__link > span {
+    display: none;
+  }
+
+  .kai-rspress-nav-actions {
+    gap: 0.35rem;
+    margin-left: 0.25rem;
+    white-space: nowrap;
+  }
+
+  .kai-rspress-nav-actions button {
+    white-space: nowrap;
+  }
+}

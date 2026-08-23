@@ -103,7 +103,7 @@ export function markdownToHtml(text) {
   const mathBlocks = [];
   let src = text;
 
-  // 1. 保护 Docusaurus 文档常用的 \[...\] 块级公式
+  // 1. 保护文档中常用的 \[...\] 块级公式
   src = src.replace(/\\\[([\s\S]*?)\\\]/g, (_, math) => {
     const idx = mathBlocks.length;
     mathBlocks.push(`<div class="note-math-display" data-math="${encodeURIComponent(math.trim())}"></div>`);

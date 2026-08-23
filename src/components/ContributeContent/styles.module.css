@@ -649,25 +649,25 @@
   }
 }
 
-[data-theme='dark'] .formGrid input,
-[data-theme='dark'] .formGrid select,
-[data-theme='dark'] .formGrid textarea,
-[data-theme='dark'] .submissionItem,
-[data-theme='dark'] .correctionEditor,
-[data-theme='dark'] .editorToolbar,
-[data-theme='dark'] .editorTabs,
-[data-theme='dark'] .editorTabs button,
-[data-theme='dark'] .correctionEditor > .smallHint,
-[data-theme='dark'] .diffStats {
+:is([data-theme='dark'], :global(.dark)) .formGrid input,
+:is([data-theme='dark'], :global(.dark)) .formGrid select,
+:is([data-theme='dark'], :global(.dark)) .formGrid textarea,
+:is([data-theme='dark'], :global(.dark)) .submissionItem,
+:is([data-theme='dark'], :global(.dark)) .correctionEditor,
+:is([data-theme='dark'], :global(.dark)) .editorToolbar,
+:is([data-theme='dark'], :global(.dark)) .editorTabs,
+:is([data-theme='dark'], :global(.dark)) .editorTabs button,
+:is([data-theme='dark'], :global(.dark)) .correctionEditor > .smallHint,
+:is([data-theme='dark'], :global(.dark)) .diffStats {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-[data-theme='dark'] .solutionPreview :global(.note-code-block),
-[data-theme='dark'] .solutionPreview :global(.note-inline-code) {
+:is([data-theme='dark'], :global(.dark)) .solutionPreview :global(.note-code-block),
+:is([data-theme='dark'], :global(.dark)) .solutionPreview :global(.note-inline-code) {
   background: rgba(255, 255, 255, 0.06);
 }
 
-[data-theme='dark'] .checkboxLabel {
+:is([data-theme='dark'], :global(.dark)) .checkboxLabel {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.12);
 }

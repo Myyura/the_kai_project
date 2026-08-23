@@ -88,7 +88,10 @@ export async function drawSmiles(svg, value, theme = 'light', options = {}) {
 
 export function getDocumentColorMode() {
   if (typeof document === 'undefined') return 'light';
-  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  const root = document.documentElement;
+  return root.classList.contains('dark') || root.dataset.theme === 'dark'
+    ? 'dark'
+    : 'light';
 }
 
 export {MAX_SMILES_LENGTH};

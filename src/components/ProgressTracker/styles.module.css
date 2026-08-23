@@ -146,13 +146,13 @@
   color: var(--kai-action);
 }
 
-[data-theme='dark'] .btnRefresh {
+:is([data-theme='dark'], :global(.dark)) .btnRefresh {
   color: var(--kai-cyan);
   border-color: rgba(var(--kai-cyan-rgb), 0.35);
   background: rgba(var(--kai-cyan-rgb), 0.1);
 }
 
-[data-theme='dark'] .btnRefresh:hover {
+:is([data-theme='dark'], :global(.dark)) .btnRefresh:hover {
   background: rgba(var(--kai-cyan-rgb), 0.2);
   border-color: rgba(var(--kai-cyan-rgb), 0.55);
 }
@@ -241,7 +241,7 @@
   background: rgba(var(--kai-blue-rgb), 0.08);
   color: var(--ifm-color-primary);
 }
-[data-theme='dark'] .nextReviewSoon {
+:is([data-theme='dark'], :global(.dark)) .nextReviewSoon {
   background: rgba(var(--kai-cyan-rgb), 0.12);
 }
 

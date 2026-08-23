@@ -242,18 +242,19 @@ function computeWatermarkLayoutFallback({
 
 /** Get the document title from the article header */
 function getDocTitle() {
-  const article = document.querySelector('article .theme-doc-markdown');
+  const article = document.querySelector('.rspress-doc');
   if (!article) return '';
   const header = article.querySelector('header h1') || article.querySelector('h1');
   return header?.textContent?.trim() || document.title;
 }
 
-/** Get the document tags from breadcrumbs */
+/** Build a compact location label when the theme does not render breadcrumbs. */
 function getDocBreadcrumbs() {
-  const breadcrumbs = document.querySelector('.theme-doc-breadcrumbs');
-  if (!breadcrumbs) return '';
-  const items = breadcrumbs.querySelectorAll('.breadcrumbs__link');
-  return Array.from(items).map(a => a.textContent.trim()).join(' > ');
+  return window.location.pathname
+    .split('/')
+    .filter(Boolean)
+    .map((segment) => decodeURIComponent(segment))
+    .join(' > ');
 }
 
 /** Clone the selected problem-document content for image export. */
@@ -430,7 +431,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
     let container = null;
 
     try {
-      const article = document.querySelector('article .theme-doc-markdown');
+      const article = document.querySelector('.rspress-doc');
       const contentClone = cloneArticleContent(article, shareScope);
       if (!contentClone) {
         showToast(L.shareFail, 'error');

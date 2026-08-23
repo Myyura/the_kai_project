@@ -19,10 +19,10 @@ import React, {
 } from 'react';
 import {createPortal} from 'react-dom';
 import clsx from 'clsx';
-import Head from '@docusaurus/Head';
-import {useDoc} from '@docusaurus/plugin-content-docs/client';
-import BrowserOnly from '@docusaurus/BrowserOnly';
-import Link from '@docusaurus/Link';
+import Head from '@site/src/rspress/Head';
+import {useDoc} from '@site/src/rspress/useDoc';
+import BrowserOnly from '@site/src/rspress/BrowserOnly';
+import Link from '@site/src/rspress/Link';
 import {
   FaBookOpen,
   FaEdit,
@@ -369,8 +369,8 @@ export default function DocItemFooter(): ReactNode {
   );
 
   useEffect(() => {
-    const article = layoutAnchorRef.current?.closest('article');
-    const root = article?.querySelector<HTMLElement>(':scope > .theme-doc-markdown');
+    const layout = layoutAnchorRef.current?.closest('.rp-doc-layout__doc-container');
+    const root = layout?.querySelector<HTMLElement>('.rspress-doc');
     if (!root) return undefined;
 
     const studyDom = makeStudyDom(root, ids, {

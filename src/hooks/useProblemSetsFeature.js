@@ -1,6 +1,6 @@
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useSiteContext from '@site/src/rspress/useSiteContext';
 
 export function useProblemSetsFeature() {
-  const {siteConfig} = useDocusaurusContext();
+  const {siteConfig} = useSiteContext();
   return siteConfig?.customFields?.problemSetsEnabled === true;
 }

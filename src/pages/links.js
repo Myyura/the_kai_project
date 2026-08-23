@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import Layout from '@theme/Layout';
+import Layout from '@site/src/rspress/Layout';
 import clsx from 'clsx';
 import {
   FaBookOpen,

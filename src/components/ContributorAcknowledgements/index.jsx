@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/rspress/Link';
 import {
   FaChevronDown,
   FaCodeBranch,

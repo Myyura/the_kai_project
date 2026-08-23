@@ -1,11 +1,11 @@
 import React, {createContext, useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useSiteContext from '@site/src/rspress/useSiteContext';
 import {AUTH_STORAGE_KEY, initSiteConfig, isSupabaseConfigured} from '../services/runtimeConfig';
 
 export const AuthContext = createContext(null);
 
 function useAuthState() {
-  const {siteConfig} = useDocusaurusContext();
+  const {siteConfig} = useSiteContext();
   initSiteConfig(siteConfig);
   const isConfigured = isSupabaseConfigured();
   const [user, setUser] = useState(null);

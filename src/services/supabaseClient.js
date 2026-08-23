@@ -17,7 +17,7 @@ import {
 
 // ── 构建时注入的凭据 ─────────────────────────────────────────
 
-// Docusaurus 在构建时会把 customFields 内联到 JS bundle 中，
+// Rspress 在构建时会把公开环境配置内联到 JS bundle 中，
 // 这里用一个懒加载方式获取以兼容 SSR（Node 环境无 siteConfig）。
 const getCredentials = getSupabaseCredentials;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Head from '@docusaurus/Head';
+import Head from '@site/src/rspress/Head';
 
 export default function NoIndex() {
   return (

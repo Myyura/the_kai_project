@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/rspress/Link';
 import {
   FaPen, FaEye, FaChevronDown, FaChevronUp,
   FaBold, FaItalic, FaHeading, FaCode, FaListUl, FaQuoteLeft,

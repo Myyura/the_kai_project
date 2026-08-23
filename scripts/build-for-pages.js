@@ -2,28 +2,23 @@
 
 const {spawnSync} = require('node:child_process');
 
-// This is the exact resource profile used by the last successful Pages build
-// at eb8673cd. It is intentionally separate from the guarded local profile.
-const PAGES_BUILD_PROFILE = 'github-pages-eb8673';
+// Pages gets its own predictable profile, separate from the guarded local
+// entry point, while using the same Rspress/Rspack resource controls.
+const PAGES_BUILD_PROFILE = 'github-pages-rspress';
 const PAGES_MAX_OLD_SPACE_MB = 6144;
 const PAGES_BUILD_ENV = Object.freeze({
   KAI_BUILD_PROFILE: PAGES_BUILD_PROFILE,
-  DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
-  DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
+  RSPRESS_PERSISTENT_CACHE: 'false',
   DISABLE_RSPACK_INCREMENTAL: 'true',
-  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
-  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
+  RSPRESS_SSG_WORKER_THREAD_COUNT: '2',
+  RSPRESS_SSG_CONCURRENCY: '4',
+  RSPRESS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
   RAYON_NUM_THREADS: '1',
   RSPACK_BLOCKING_THREADS: '2',
 });
 const LOCAL_ONLY_ENVIRONMENT_NAMES = Object.freeze([
   'KAI_ENFORCED_BUILD_PROFILE',
   'KAI_INTERNAL_MEMORY_GUARD_ACTIVE',
-  'DOCUSAURUS_SSR_CONCURRENCY',
-  'DOCUSAURUS_SKIP_BUNDLING',
-  'DOCUSAURUS_EXIT_AFTER_LOADING',
-  'DOCUSAURUS_EXIT_AFTER_BUNDLING',
-  'DOCUSAURUS_KEEP_SERVER_BUNDLE',
 ]);
 
 function withPagesHeapLimit(nodeOptions = '') {
@@ -66,15 +61,16 @@ function main() {
   const yarnCommand = process.platform === 'win32' ? 'yarn.cmd' : 'yarn';
   const environment = getPagesBuildEnvironment();
   console.log(
-    `Building GitHub Pages with the known-good ${PAGES_BUILD_PROFILE} profile: `
-      + `${PAGES_MAX_OLD_SPACE_MB} MiB V8 heap, sequential bundles, `
-      + `${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} SSG workers, `
+    `Building GitHub Pages with the dedicated ${PAGES_BUILD_PROFILE} profile: `
+      + `${PAGES_MAX_OLD_SPACE_MB} MiB V8 heap, `
+      + `${environment.RSPRESS_SSG_WORKER_THREAD_COUNT} SSG workers with `
+      + `${environment.RSPRESS_SSG_CONCURRENCY} concurrent routes each, `
       + `${environment.RAYON_NUM_THREADS} Rayon thread, and `
       + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking threads.`,
   );
 
-  // Do not call `yarn build` or `yarn docusaurus build` here: both are local
-  // entry points and intentionally carry the 14 GiB guard/phase adapter.
+  // Do not call `yarn build` here: it is the local entry point and intentionally
+  // carries the memory watchdog.
   const result = spawnSync(yarnCommand, ['run', 'build:pages:site'], {
     env: environment,
     stdio: 'inherit',

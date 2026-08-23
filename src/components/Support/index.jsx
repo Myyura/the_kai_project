@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import Link from '@docusaurus/Link';
-import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
+import Link from '@site/src/rspress/Link';
+import Layout from '@site/src/rspress/Layout';
+import Heading from '@site/src/rspress/Heading';
 import {
   FaArrowRight,
   FaBalanceScale,

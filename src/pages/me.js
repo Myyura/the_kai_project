@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '@theme/Layout';
-import BrowserOnly from '@docusaurus/BrowserOnly';
-import Link from '@docusaurus/Link';
+import Layout from '@site/src/rspress/Layout';
+import BrowserOnly from '@site/src/rspress/BrowserOnly';
+import Link from '@site/src/rspress/Link';
 import {
   FaCheckCircle, FaRedo, FaClipboardList, FaTrashAlt,
   FaFileAlt, FaArrowRight, FaBuilding, FaTag,

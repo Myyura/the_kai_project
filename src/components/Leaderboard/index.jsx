@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/rspress/Link';
 import {FaSyncAlt, FaTrophy, FaUser} from 'react-icons/fa';
 import {useAuth} from '@site/src/hooks/useAuth';
 import {usePublicProfile} from '@site/src/hooks/usePublicProfile';

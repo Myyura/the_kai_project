@@ -6,27 +6,24 @@ const {
 } = require('./process-memory-guard');
 
 // Keep routine local builds inside a predictable 16 GiB machine profile.
-// Bundles run in isolated sequential processes because they have the highest
-// RSS, while SSG uses one renderer to avoid retaining multiple page heaps at
-// the same time. GitHub Pages has a separate known-good build entry point.
-// Leave native headroom for Rspack: the client compiler allocates substantial
-// memory outside V8's managed heap.
+// Rspress uses Rspack for the browser/server bundles and can render routes in
+// parallel. Keep native headroom for Rspack and bound the SSG fan-out; GitHub
+// Pages has a separate build profile below.
 const MAX_OLD_SPACE_MB = 6144;
 
 const LOW_MEMORY_ENV = Object.freeze({
   KAI_ENFORCED_BUILD_PROFILE: '16gb',
-  DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
   // A fresh Rspack cache for this site can exceed the runner's disk/cache
   // allowance, so prefer a predictable cold build over disk pressure.
-  DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
+  RSPRESS_PERSISTENT_CACHE: 'false',
   DISABLE_RSPACK_INCREMENTAL: 'true',
   // One renderer is deliberately slower but prevents multiple page heaps from
   // growing at the same time on a developer machine.
-  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '1',
+  RSPRESS_SSG_WORKER_THREAD_COUNT: '1',
   // A single renderer still processes 32 routes concurrently by default.
   // Bound the in-thread fan-out as well as the worker count.
-  DOCUSAURUS_SSR_CONCURRENCY: '4',
-  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
+  RSPRESS_SSG_CONCURRENCY: '4',
+  RSPRESS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
   // Limit Rspack's native-memory peak while retaining a small amount of
   // blocking-I/O parallelism. The client and server bundles still compile in
   // sequence, so one Rayon thread is sufficient on the hosted runner.
@@ -72,8 +69,8 @@ async function main() {
   const environment = getBuildEnvironment();
   console.log(
     `Building with the memory-aware profile: ${MAX_OLD_SPACE_MB} MiB V8 heap, `
-      + `isolated sequential bundles, ${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} `
-      + `SSG worker with ${environment.DOCUSAURUS_SSR_CONCURRENCY} concurrent routes, `
+      + `${environment.RSPRESS_SSG_WORKER_THREAD_COUNT} SSG worker with `
+      + `${environment.RSPRESS_SSG_CONCURRENCY} concurrent routes, `
       + `${environment.RAYON_NUM_THREADS} Rayon thread, and `
       + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking thread.`,
   );

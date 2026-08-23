@@ -333,11 +333,11 @@
   display: none !important;
 }
 
-[data-theme='dark'] .partnerLogoForLightTheme {
+:is([data-theme='dark'], :global(.dark)) .partnerLogoForLightTheme {
   display: none;
 }
 
-[data-theme='dark'] .partnerLogoForDarkTheme {
+:is([data-theme='dark'], :global(.dark)) .partnerLogoForDarkTheme {
   display: block !important;
 }
 
@@ -993,41 +993,41 @@
   }
 }
 
-[data-theme='dark'] .hero {
+:is([data-theme='dark'], :global(.dark)) .hero {
   border-color: rgba(var(--kai-cyan-rgb), .13);
   background: linear-gradient(135deg, var(--kai-navy-900) 0%, var(--ifm-background-surface-color) 58%, var(--kai-navy-800) 100%);
   box-shadow: var(--kai-shadow-modal);
 }
 
-[data-theme='dark'] .heroValues li,
-[data-theme='dark'] .secondaryButton {
+:is([data-theme='dark'], :global(.dark)) .heroValues li,
+:is([data-theme='dark'], :global(.dark)) .secondaryButton {
   border-color: rgba(255, 255, 255, .09);
   background: rgba(255, 255, 255, .06);
 }
 
-[data-theme='dark'] .strategicPartnerLogo,
-[data-theme='dark'] .sustainingPartnerLogo {
+:is([data-theme='dark'], :global(.dark)) .strategicPartnerLogo,
+:is([data-theme='dark'], :global(.dark)) .sustainingPartnerLogo {
   background: var(--kai-navy-900);
 }
 
-[data-theme='dark'] .page {
+:is([data-theme='dark'], :global(.dark)) .page {
   --support-surface: var(--ifm-background-surface-color);
   --support-border: rgba(var(--kai-cyan-rgb), .13);
 }
 
-[data-theme='dark'] .communityPanel {
+:is([data-theme='dark'], :global(.dark)) .communityPanel {
   background:
     radial-gradient(circle at 2% 6%, rgba(var(--kai-cyan-rgb), .11), transparent 42%),
     linear-gradient(145deg, rgba(var(--kai-cyan-rgb), .025), rgba(var(--kai-gold-rgb), .04)),
     var(--support-surface);
 }
 
-[data-theme='dark'] .communityMain,
-[data-theme='dark'] .coffeePanel {
+:is([data-theme='dark'], :global(.dark)) .communityMain,
+:is([data-theme='dark'], :global(.dark)) .coffeePanel {
   border-color: rgba(255, 255, 255, .09);
 }
 
-[data-theme='dark'] .coffeePanel {
+:is([data-theme='dark'], :global(.dark)) .coffeePanel {
   border-color: rgba(var(--kai-gold-rgb), .2);
 }
 

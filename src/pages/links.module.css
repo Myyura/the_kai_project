@@ -384,17 +384,17 @@
   font-weight: 700;
 }
 
-[data-theme='dark'] .linksPage {
+:is([data-theme='dark'], :global(.dark)) .linksPage {
   --links-border: rgba(255, 255, 255, 0.1);
   --links-muted: #9db0c5;
   --links-surface: var(--kai-navy-900);
 }
 
-[data-theme='dark'] .heroSide {
+:is([data-theme='dark'], :global(.dark)) .heroSide {
   background: rgba(3, 17, 38, 0.72);
 }
 
-[data-theme='dark'] .categoryTabs .activeCategory {
+:is([data-theme='dark'], :global(.dark)) .categoryTabs .activeCategory {
   background: var(--kai-navy-800);
   box-shadow: none;
 }

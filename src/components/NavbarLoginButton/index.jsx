@@ -3,12 +3,12 @@
  *
  * - 未登录 → 绿色按钮 "登录" / "ログイン"，点击跳转 /login
  * - 已登录 → 显示全站统一昵称，点击跳转 /me（个人中心）
- * - SSR 时不渲染（BrowserOnly）
+ * - SSR 时由客户端边界提供稳定占位
  */
 
 import React from 'react';
-import BrowserOnly from '@docusaurus/BrowserOnly';
-import Link from '@docusaurus/Link';
+import BrowserOnly from '@site/src/rspress/BrowserOnly';
+import Link from '@site/src/rspress/Link';
 import { useAuth } from '@site/src/hooks/useAuth';
 import {useUiText} from '@site/src/i18n/useUiText';
 

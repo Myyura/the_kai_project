@@ -1,12 +1,10 @@
 const assert = require('node:assert/strict');
-const {spawnSync} = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 const packageJson = require('../package.json');
 const {
   LOW_MEMORY_ENV,
-  getBuildEnvironment,
 } = require('./build-with-memory-limit');
 const {
   LOCAL_ONLY_ENVIRONMENT_NAMES,
@@ -17,56 +15,25 @@ const {
   withPagesHeapLimit,
 } = require('./build-for-pages');
 
-const repoRoot = path.resolve(__dirname, '..');
-const loadBuildConfigScript = `
-  process.argv = [process.execPath, 'config-profile-test', 'build'];
-  const {loadSiteConfig} = require('@docusaurus/core/lib/server/config');
-  loadSiteConfig({siteDir: process.cwd()})
-    .then(() => {})
-    .catch((error) => {
-      console.error(error.message);
-      process.exitCode = 1;
-    });
-`;
-
-function withoutBuildProfile(source = process.env) {
-  const environment = {...source, NODE_OPTIONS: ''};
-  const controlledNames = new Set([
-    ...Object.keys(LOW_MEMORY_ENV),
-    ...Object.keys(PAGES_BUILD_ENV),
-    ...LOCAL_ONLY_ENVIRONMENT_NAMES,
-  ]);
-  for (const name of controlledNames) delete environment[name];
-  return environment;
-}
-
-function loadBuildConfig(environment) {
-  return spawnSync(process.execPath, ['-e', loadBuildConfigScript], {
-    cwd: repoRoot,
-    env: environment,
-    encoding: 'utf8',
-  });
-}
-
-test('Pages restores the last successful resource profile', () => {
+test('Pages applies the dedicated Rspress resource profile', () => {
   const environment = getPagesBuildEnvironment({
     NODE_OPTIONS: '--trace-warnings --max-old-space-size=5120',
     KAI_ENFORCED_BUILD_PROFILE: '16gb',
     KAI_INTERNAL_MEMORY_GUARD_ACTIVE: 'guard:42',
-    DOCUSAURUS_SSR_CONCURRENCY: '4',
+    RSPRESS_SSG_CONCURRENCY: '4',
     RSPACK_BLOCKING_THREADS: '1',
   });
 
-  assert.equal(PAGES_BUILD_PROFILE, 'github-pages-eb8673');
+  assert.equal(PAGES_BUILD_PROFILE, 'github-pages-rspress');
   assert.equal(PAGES_MAX_OLD_SPACE_MB, 6144);
   assert.equal(environment.NODE_OPTIONS, '--trace-warnings --max-old-space-size=6144');
   assert.equal(environment.KAI_BUILD_PROFILE, PAGES_BUILD_PROFILE);
-  assert.equal(environment.DOCUSAURUS_SEQUENTIAL_BUNDLES, 'true');
-  assert.equal(environment.DOCUSAURUS_NO_PERSISTENT_CACHE, 'true');
+  assert.equal(environment.RSPRESS_PERSISTENT_CACHE, 'false');
   assert.equal(environment.DISABLE_RSPACK_INCREMENTAL, 'true');
-  assert.equal(environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT, '2');
+  assert.equal(environment.RSPRESS_SSG_WORKER_THREAD_COUNT, '2');
+  assert.equal(environment.RSPRESS_SSG_CONCURRENCY, '4');
   assert.equal(
-    environment.DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY,
+    environment.RSPRESS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY,
     '300000000',
   );
   assert.equal(environment.RAYON_NUM_THREADS, '1');
@@ -75,12 +42,12 @@ test('Pages restores the last successful resource profile', () => {
     assert.equal(environment[name], undefined, `${name} must not leak into Pages`);
   }
   assert.deepEqual(PAGES_BUILD_ENV, {
-    KAI_BUILD_PROFILE: 'github-pages-eb8673',
-    DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
-    DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
+    KAI_BUILD_PROFILE: 'github-pages-rspress',
+    RSPRESS_PERSISTENT_CACHE: 'false',
     DISABLE_RSPACK_INCREMENTAL: 'true',
-    DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
-    DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
+    RSPRESS_SSG_WORKER_THREAD_COUNT: '2',
+    RSPRESS_SSG_CONCURRENCY: '4',
+    RSPRESS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
     RAYON_NUM_THREADS: '1',
     RSPACK_BLOCKING_THREADS: '2',
   });
@@ -96,16 +63,19 @@ test('Pages heap options cannot inherit a larger or conflicting V8 heap', () => 
   );
 });
 
-test('Pages bypasses every guarded local build entry point', () => {
+test('Pages uses the split Rspress runner without entering the local watchdog', () => {
   assert.equal(packageJson.scripts['build:pages'], 'node scripts/build-for-pages.js');
-  assert.match(packageJson.scripts['build:pages:site'], /(?:^|&&\s*)docusaurus build/);
-  assert.doesNotMatch(
+  assert.match(
     packageJson.scripts['build:pages:site'],
-    /yarn docusaurus build|yarn build(?:\s|$)/,
+    /(?:^|&&\s*)node scripts\/run-rspress-build\.mjs/,
   );
   assert.doesNotMatch(
     packageJson.scripts['build:pages:site'],
-    /build-with-memory-limit|run-docusaurus|docusaurus-build-phases/,
+    /yarn rspress build|yarn build(?:\s|$)/,
+  );
+  assert.doesNotMatch(
+    packageJson.scripts['build:pages:site'],
+    /build-with-memory-limit|rspress-build-phases/,
   );
 
   const workflow = fs.readFileSync(
@@ -116,27 +86,14 @@ test('Pages bypasses every guarded local build entry point', () => {
   assert.doesNotMatch(workflow, /\/usr\/bin\/time -v yarn build\s*(?:\n|$)/);
 });
 
-test('Docusaurus keeps client module concatenation changes local-only', () => {
-  const configSource = fs.readFileSync(
-    path.resolve(__dirname, '../docusaurus.config.js'),
-    'utf8',
+test('build profiles only expose Rspress controls', () => {
+  const controlledNames = [
+    ...Object.keys(LOW_MEMORY_ENV),
+    ...Object.keys(PAGES_BUILD_ENV),
+    ...LOCAL_ONLY_ENVIRONMENT_NAMES,
+  ];
+  assert.deepEqual(
+    controlledNames.filter((name) => name.startsWith('DOCUSAURUS_')),
+    [],
   );
-  assert.match(configSource, /KAI_BUILD_PROFILE: pagesBuildProfile/);
-  assert.match(
-    configSource,
-    /\.\.\.\(localMemoryProfile && \{[\s\S]{0,150}concatenateModules: false/,
-  );
-});
-
-test('Docusaurus accepts the explicit local and Pages profiles only', () => {
-  const unprofiled = withoutBuildProfile();
-  const rejected = loadBuildConfig(unprofiled);
-  assert.notEqual(rejected.status, 0);
-  assert.match(rejected.stderr, /Unknown Docusaurus build profile/);
-
-  const local = loadBuildConfig(getBuildEnvironment(unprofiled));
-  assert.equal(local.status, 0, local.stderr);
-
-  const pages = loadBuildConfig(getPagesBuildEnvironment(unprofiled));
-  assert.equal(pages.status, 0, pages.stderr);
 });

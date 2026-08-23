@@ -1,10 +1,4 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
+/* Global Kai design tokens. Rspress mappings live in theme/index.css. */
 :root {
   --ifm-color-primary: #0b67c9;
   --ifm-color-primary-dark: #095db6;
@@ -18,8 +12,8 @@
   --ifm-color-emphasis-250: var(--ifm-color-emphasis-300);
   --ifm-color-emphasis-550: var(--ifm-color-emphasis-600);
   --ifm-color-emphasis-650: var(--ifm-color-emphasis-700);
+  --ifm-color-emphasis-750: var(--ifm-color-emphasis-800);
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   /* 无衬线系统字体栈 + 中等字重标题（Soft UI 排版基调） */
   /* 含日文字体（Yu Gothic/Meiryo/Noto Sans JP）：站点主体为日文内容，避免用中文字形渲染日文汉字 */
@@ -109,7 +103,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+:is([data-theme='dark'], .dark) {
   --ifm-color-primary: #35c6d9;
   --ifm-color-primary-dark: #26b7ca;
   --ifm-color-primary-darker: #24adbf;
@@ -125,7 +119,6 @@
   --ifm-navbar-background-color: rgba(6, 23, 47, 0.9);
   --ifm-font-color-base: #dcecff;
   --ifm-color-primary-contrast-foreground: #ffffff;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
   /* 黑暗模式 Liquid Glass 设计系统变量 */
   --kai-shadow-card: 0 8px 28px rgba(0, 0, 0, 0.25);
@@ -165,7 +158,7 @@
 }
 
 /* 添加黑暗模式下 heroBanner 的样式 */
-[data-theme='dark'] .hero--primary {
+:is([data-theme='dark'], .dark) .hero--primary {
   background-image: linear-gradient(135deg, var(--kai-navy-900) 0%, var(--kai-blue) 62%, var(--kai-cyan) 100%);
 }
 
@@ -208,16 +201,16 @@
   -webkit-backdrop-filter: none;
 }
 
-[data-theme='dark'] .navbar {
+:is([data-theme='dark'], .dark) .navbar {
   background-color: transparent;
   border-bottom: 1px solid rgba(var(--kai-cyan-rgb), 0.12);
 }
 
-[data-theme='dark'] .navbar::before {
+:is([data-theme='dark'], .dark) .navbar::before {
   background-color: rgba(6, 23, 47, 0.7);
 }
 
-[data-theme='dark'] .navbar-sidebar {
+:is([data-theme='dark'], .dark) .navbar-sidebar {
   background-color: var(--kai-navy-900);
 }
 
@@ -248,14 +241,14 @@ a.button,
   box-shadow: var(--custom-box-shadow);
 }
 
-/* 暗色下 Infima 原生填充按钮保持品牌蓝：青色主色配白字仅约 1.9:1，不达 AA（如 404 页按钮） */
-[data-theme='dark'] .button--primary {
+/* 暗色下填充按钮保持品牌蓝：青色主色配白字仅约 1.9:1，不达 AA。 */
+:is([data-theme='dark'], .dark) .button--primary {
   --ifm-button-background-color: var(--kai-action);
   --ifm-button-border-color: var(--kai-action);
 }
 
-[data-theme='dark'] .button--primary:hover,
-[data-theme='dark'] .button--primary:active {
+:is([data-theme='dark'], .dark) .button--primary:hover,
+:is([data-theme='dark'], .dark) .button--primary:active {
   --ifm-button-background-color: var(--kai-action-hover);
   --ifm-button-border-color: var(--kai-action-hover);
 }
@@ -265,7 +258,7 @@ a.button,
   outline-offset: 3px;
 }
 
-/* Docusaurus 通用卡片：Soft UI 浅灰卡面 + 左侧 Accent Bar，不注入位移动画。 */
+/* 通用卡片：Soft UI 浅灰卡面 + 左侧 Accent Bar，不注入位移动画。 */
 .card {
   position: relative;
   transition: var(--custom-transition);
@@ -324,7 +317,7 @@ a.button,
   display: none !important;
 }
 
-[data-theme='dark'] .header-github-link::before {
+:is([data-theme='dark'], .dark) .header-github-link::before {
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E") no-repeat;
 }
 
@@ -394,24 +387,24 @@ a.button,
   color: var(--kai-action-foreground) !important;
 }
 
-[data-theme='dark'] .navbar__link--login {
+:is([data-theme='dark'], .dark) .navbar__link--login {
   background: var(--kai-action);
   box-shadow: 0 0 8px rgba(53, 198, 217, 0.2);
 }
 
-[data-theme='dark'] .navbar__link--login:hover {
+:is([data-theme='dark'], .dark) .navbar__link--login:hover {
   background: var(--kai-action-hover);
   box-shadow: 0 4px 16px rgba(53, 198, 217, 0.35);
 }
 
-[data-theme='dark'] .navbar__link--login-active {
+:is([data-theme='dark'], .dark) .navbar__link--login-active {
   background: transparent;
   color: var(--ifm-color-primary) !important;
   border-color: var(--ifm-color-primary);
   box-shadow: none;
 }
 
-[data-theme='dark'] .navbar__link--login-active:hover {
+:is([data-theme='dark'], .dark) .navbar__link--login-active:hover {
   background: var(--kai-action);
   color: var(--kai-action-foreground) !important;
   box-shadow: 0 4px 16px rgba(53, 198, 217, 0.35);
@@ -447,15 +440,15 @@ a.button,
 }
 
 /* Reduce h1 size in markdown content */
-.theme-doc-markdown.markdown h1 {
+.rspress-doc h1 {
   font-size: clamp(2rem, 4vw, 2.5rem);
 }
 
-.theme-doc-markdown.markdown h2 {
+.rspress-doc h2 {
   font-size: clamp(1.45rem, 3vw, 1.7rem);
 }
 
-.theme-doc-markdown.markdown h3 {
+.rspress-doc h3 {
   font-size: 1.25rem;
 }
 
@@ -496,7 +489,7 @@ a.button,
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-[data-theme='dark'] .footer--dark {
+:is([data-theme='dark'], .dark) .footer--dark {
   --ifm-footer-background-color: var(--kai-navy-950);
   border-top-color: rgba(var(--kai-cyan-rgb), 0.16);
 }

@@ -4,27 +4,23 @@
   "description": "Open-source Japanese graduate school entrance exam archive and study platform.",
   "private": true,
   "scripts": {
-    "docusaurus": "node scripts/run-docusaurus.js",
-    "start": "node scripts/generate-docusaurus-tags.js && node scripts/generate-site-stats.js && docusaurus start",
+    "rspress": "rspress",
+    "start": "node scripts/generate-content-tags.js && node scripts/generate-site-stats.js && rspress dev",
     "build": "node scripts/build-with-memory-limit.js",
-    "build:site": "node scripts/generate-site-stats.js && yarn content:validate && yarn docusaurus build && yarn documents:publish && yarn content:export && yarn build:check",
+    "build:site": "node scripts/generate-site-stats.js && yarn content:validate && node scripts/run-rspress-build.mjs && yarn documents:publish && yarn content:export && yarn build:check",
     "build:pages": "node scripts/build-for-pages.js",
-    "build:pages:site": "node scripts/generate-site-stats.js && yarn content:validate && docusaurus build && yarn documents:publish && yarn content:export && yarn build:check",
+    "build:pages:site": "node scripts/generate-site-stats.js && yarn content:validate && node scripts/run-rspress-build.mjs && yarn documents:publish && yarn content:export && yarn build:check",
     "build:check": "node scripts/check-build-output.js",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "yarn docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
+    "eject": "rspress eject",
+    "serve": "rspress preview",
     "dev": "yarn start",
     "test": "node --test scripts/*.test.js",
     "generate:universities": "node scripts/generate-universities.js",
     "generate:site-stats": "node scripts/generate-site-stats.js",
     "generate:contributors": "node scripts/generate-github-contributors.js",
-    "tags:generate": "node scripts/generate-docusaurus-tags.js",
+    "tags:generate": "node scripts/generate-content-tags.js",
     "tags:migrate": "node scripts/migrate-namespaced-tags.js",
-    "content:validate": "node scripts/generate-document-identities.js --check && node scripts/generate-docusaurus-tags.js --check && node scripts/normalize-description-sections.js --check && node scripts/validate-content-data.js",
+    "content:validate": "node scripts/generate-document-identities.js --check && node scripts/generate-content-tags.js --check && node scripts/normalize-description-sections.js --check && node scripts/validate-content-data.js",
     "content:normalize-descriptions": "node scripts/normalize-description-sections.js",
     "tags:audit": "node scripts/audit-tags.js",
     "documents:validate": "node scripts/generate-document-identities.js --check",
@@ -38,11 +34,6 @@
     "catalog:sync": "node scripts/sync-document-catalog.js"
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.2",
-    "@docusaurus/faster": "3.9.2",
-    "@docusaurus/preset-classic": "3.9.2",
-    "@docusaurus/theme-mermaid": "3.9.2",
-    "@easyops-cn/docusaurus-search-local": "^0.55.1",
     "@hcaptcha/react-hcaptcha": "^2.0.2",
     "@mdx-js/react": "^3.1.1",
     "@supabase/supabase-js": "^2.98.0",
@@ -51,10 +42,10 @@
     "html-to-image": "^1.11.13",
     "katex": "0.16.25",
     "markdown-it": "^14.1.1",
-    "prism-react-renderer": "^2.4.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
+    "react-router-dom": "^7.8.2",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "smiles-drawer": "2.4.1",
@@ -63,10 +54,18 @@
     "yarn": "^1.22.22"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/types": "3.9.2",
+    "@babel/core": "^7.29.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.28.6",
+    "@babel/plugin-transform-typescript": "^7.28.6",
+    "@rspress/core": "2.0.19",
+    "@rspress/plugin-rss": "2.0.19",
+    "@rspress/plugin-sitemap": "2.0.19",
     "@types/react": "^19.2.7",
-    "baseline-browser-mapping": "^2.10.13"
+    "baseline-browser-mapping": "^2.10.13",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5",
+    "rspress-plugin-mermaid": "1.0.1"
   },
   "resolutions": {
     "@babel/plugin-transform-modules-systemjs": "7.29.4",
@@ -103,7 +102,7 @@
     ]
   },
   "engines": {
-    "node": ">=20",
+    "node": "^20.19.0 || >=22.12.0",
     "yarn": ">=1.22.0"
   }
 }

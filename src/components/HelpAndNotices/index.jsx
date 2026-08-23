@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
+import Layout from '@site/src/rspress/Layout';
+import Link from '@site/src/rspress/Link';
 import {
   FaBookOpen,
   FaCamera,

@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
-const { buildTagsYaml } = require('./generate-docusaurus-tags');
+const { buildTagsYaml } = require('./generate-content-tags');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');

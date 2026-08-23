@@ -44,7 +44,7 @@
   color: var(--kai-action);
 }
 
-[data-theme='dark'] .statusStable {
+:is([data-theme='dark'], :global(.dark)) .statusStable {
   background: rgba(var(--kai-cyan-rgb), 0.18);
   color: var(--kai-cyan);
 }

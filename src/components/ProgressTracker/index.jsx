@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/rspress/Link';
 import { FaCheckCircle, FaRedo, FaTimes, FaSyncAlt } from 'react-icons/fa';
 import { useDocProgress, STATUS, getReviewInfo } from '@site/src/hooks/useProgress';
 import { useAuth } from '@site/src/hooks/useAuth';

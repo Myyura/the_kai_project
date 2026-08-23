@@ -96,7 +96,7 @@ Assume the tension F on rod 2 is the same as (Q.1)(4) to lowest order in  $\thet
 
 (5) Let  $l_1 = 2a/3$ ,  $l_2 = a/2$  and  $m_1 = m_2$ . Obtain the two positive characteristic angular frequencies of the system, and the corresponding characteristic vector  $(\theta_1, \theta_2)$ . It is not necessary to normalize the characteristic vectors.
 
-![](_page_2_Figure_15.jpeg)
+![](./_page_2_Figure_15.jpeg)
 
 ## Slot 3: 3.1 Mathematical analysis (40 minutes)
 
@@ -156,7 +156,7 @@ Answer the following questions. In all the problems, assume a vacuum environment
 
 $$\boldsymbol{H}(\boldsymbol{r}) = \frac{1}{4\pi} \left\{ \frac{3(\boldsymbol{m} \cdot \boldsymbol{r})\boldsymbol{r}}{|\boldsymbol{r}|^5} - \frac{\boldsymbol{m}}{|\boldsymbol{r}|^3} \right\}.$$
 
-![](_page_5_Picture_4.jpeg)
+![](./_page_5_Picture_4.jpeg)
 
 Figure 1
 
@@ -172,7 +172,7 @@ $$d\boldsymbol{H} = \frac{1}{4\pi} \frac{Id\boldsymbol{s} \times \boldsymbol{r}}
 - (2) Find the magnetic field created by a circular current I of radius a at a point of height z on the central axis. Also, find the magnetic field at z=0.
 - (3) Find the magnitude of the magnetic flux density on the axis when  $z \gg a$ . If this value is equal to the magnitude of the magnetic flux density obtained in (Q.1)(3), express the magnitude of the magnetic moment  $\boldsymbol{m}$  using a and I.
 
-![](_page_5_Picture_15.jpeg)
+![](./_page_5_Picture_15.jpeg)
 
 Figure 2
 

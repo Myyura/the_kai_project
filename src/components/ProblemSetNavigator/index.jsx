@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/rspress/Link';
 import {FaArrowLeft, FaArrowRight, FaLayerGroup} from 'react-icons/fa';
 import {useAuth} from '@site/src/hooks/useAuth';
 import {useProblemSet} from '@site/src/hooks/useProblemSets';

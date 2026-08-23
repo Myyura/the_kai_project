@@ -86,7 +86,7 @@
 }
 
 .studyContentHidden {
-  /* Infima's explicit table display rule can override the browser's [hidden]. */
+  /* Explicit table display rules can override the browser's [hidden]. */
   display: none !important;
 }
 

@@ -230,41 +230,41 @@
 
 /* ── Dark mode（仅 login 独有类的变体）───────────────────── */
 
-[data-theme='dark'] .authToggle {
+:is([data-theme='dark'], :global(.dark)) .authToggle {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-[data-theme='dark'] .authTab:hover {
+:is([data-theme='dark'], :global(.dark)) .authTab:hover {
   color: var(--ifm-color-primary-light);
 }
 
-[data-theme='dark'] .btnSecondary {
+:is([data-theme='dark'], :global(.dark)) .btnSecondary {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-[data-theme='dark'] .btnSecondary:hover:not(:disabled) {
+:is([data-theme='dark'], :global(.dark)) .btnSecondary:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.1);
 }
 
-[data-theme='dark'] .btnGithub {
+:is([data-theme='dark'], :global(.dark)) .btnGithub {
   background: #0f172a;
 }
 
-[data-theme='dark'] .btnGithub:hover:not(:disabled) {
+:is([data-theme='dark'], :global(.dark)) .btnGithub:hover:not(:disabled) {
   background: #111827;
 }
 
-[data-theme='dark'] .oauthDivider::before,
-[data-theme='dark'] .oauthDivider::after {
+:is([data-theme='dark'], :global(.dark)) .oauthDivider::before,
+:is([data-theme='dark'], :global(.dark)) .oauthDivider::after {
   border-top-color: rgba(255, 255, 255, 0.14);
 }
 
-[data-theme='dark'] .btnDanger {
+:is([data-theme='dark'], :global(.dark)) .btnDanger {
   border-color: rgba(var(--kai-danger-rgb), 0.3);
 }
 
-[data-theme='dark'] .btnDanger:hover:not(:disabled) {
+:is([data-theme='dark'], :global(.dark)) .btnDanger:hover:not(:disabled) {
   background: rgba(var(--kai-danger-rgb), 0.15);
 }

@@ -27,7 +27,7 @@
       var assetUrl = new URL(target.src, window.location.href);
       var pageUrl = new URL(window.location.href);
       return assetUrl.origin === pageUrl.origin
-        && /^\/assets\/js\/.+\.js$/i.test(assetUrl.pathname);
+        && /^\/(?:assets|static)\/js\/.+\.js$/i.test(assetUrl.pathname);
     } catch (_error) {
       return false;
     }

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Layout from '@theme/Layout';
-import BrowserOnly from '@docusaurus/BrowserOnly';
-import Link from '@docusaurus/Link';
-import {useHistory} from '@docusaurus/router';
+import Layout from '@site/src/rspress/Layout';
+import BrowserOnly from '@site/src/rspress/BrowserOnly';
+import Link from '@site/src/rspress/Link';
+import {useHistory} from '@site/src/rspress/router';
 import { FaCheck, FaExclamationTriangle, FaKey, FaLock, FaSyncAlt } from 'react-icons/fa';
 import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';

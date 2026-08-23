@@ -1,7 +1,0 @@
-.stableSlot {
-  /*
-   * Keep the wrapper in the DOM for React reconciliation without introducing
-   * another visual box or changing the Markdown document's spacing.
-   */
-  display: contents;
-}

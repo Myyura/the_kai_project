@@ -1,10 +1,10 @@
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
+import Link from '@site/src/rspress/Link';
+import useSiteContext from '@site/src/rspress/useSiteContext';
+import Layout from '@site/src/rspress/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
 import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt, FaCoffee } from 'react-icons/fa';
 import React, { useEffect, useState, memo } from 'react';
-import BrowserOnly from '@docusaurus/BrowserOnly';
+import BrowserOnly from '@site/src/rspress/BrowserOnly';
 import {useUiText} from '../i18n/useUiText';
 import { useAllProgress } from '../hooks/useProgress';
 import { useAuth } from '../hooks/useAuth';
@@ -13,7 +13,7 @@ import siteStats from '../data/siteStats.json';
 import {getEnabledSupportEntries, getLocalizedSupportValue, supportConfig} from '../data/supportConfig';
 import {useCurrentLanguage} from '../context/LanguageContext';
 
-import Heading from '@theme/Heading';
+import Heading from '@site/src/rspress/Heading';
 import styles from './index.module.css';
 
 const useToggleState = (initialState = {}) => {
@@ -66,7 +66,7 @@ const HighlightCard = memo(({ title, subtitle, description, index }) => (
 
 // Hero区域 - 苹果风格大标题
 const HeroSection = ({ t }) => {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useSiteContext();
 
   return (
     <section className={styles.heroSection}>
@@ -392,7 +392,7 @@ const HeroProgressCalloutStats = ({ t }) => {
 
 const Home = () => {
   const t = useUiText('home');
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useSiteContext();
 
   return (
     <Layout

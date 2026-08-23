@@ -1,9 +1,8 @@
 const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const path = require('node:path');
 const test = require('node:test');
 
 const {
+  LOW_MEMORY_ENV,
   MAX_OLD_SPACE_MB,
   getBuildEnvironment,
   withHeapLimit,
@@ -16,13 +15,12 @@ test('the default local build profile fits a 16 GiB machine', () => {
   assert.ok(MAX_OLD_SPACE_MB < 16 * 1024);
   assert.equal(environment.NODE_OPTIONS, '--max-old-space-size=6144');
   assert.equal(environment.KAI_ENFORCED_BUILD_PROFILE, '16gb');
-  assert.equal(environment.DOCUSAURUS_SEQUENTIAL_BUNDLES, 'true');
-  assert.equal(environment.DOCUSAURUS_NO_PERSISTENT_CACHE, 'true');
+  assert.equal(environment.RSPRESS_PERSISTENT_CACHE, 'false');
   assert.equal(environment.DISABLE_RSPACK_INCREMENTAL, 'true');
-  assert.equal(environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT, '1');
-  assert.equal(environment.DOCUSAURUS_SSR_CONCURRENCY, '4');
+  assert.equal(environment.RSPRESS_SSG_WORKER_THREAD_COUNT, '1');
+  assert.equal(environment.RSPRESS_SSG_CONCURRENCY, '4');
   assert.equal(
-    environment.DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY,
+    environment.RSPRESS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY,
     '300000000',
   );
   assert.equal(environment.RAYON_NUM_THREADS, '1');
@@ -39,9 +37,10 @@ test('inherited tuning cannot override the enforced profile', () => {
 
   const source = Object.freeze({
     NODE_OPTIONS: '--max_old_space_size 24576',
-    DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '3',
-    DOCUSAURUS_SSR_CONCURRENCY: '32',
-    DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '750000000',
+    RSPRESS_PERSISTENT_CACHE: 'true',
+    RSPRESS_SSG_WORKER_THREAD_COUNT: '3',
+    RSPRESS_SSG_CONCURRENCY: '32',
+    RSPRESS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '750000000',
     RAYON_NUM_THREADS: '3',
     RSPACK_BLOCKING_THREADS: '2',
     CUSTOM_VALUE: 'preserved',
@@ -49,10 +48,11 @@ test('inherited tuning cannot override the enforced profile', () => {
   const environment = getBuildEnvironment(source);
 
   assert.equal(environment.NODE_OPTIONS, '--max-old-space-size=6144');
-  assert.equal(environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT, '1');
-  assert.equal(environment.DOCUSAURUS_SSR_CONCURRENCY, '4');
+  assert.equal(environment.RSPRESS_PERSISTENT_CACHE, 'false');
+  assert.equal(environment.RSPRESS_SSG_WORKER_THREAD_COUNT, '1');
+  assert.equal(environment.RSPRESS_SSG_CONCURRENCY, '4');
   assert.equal(
-    environment.DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY,
+    environment.RSPRESS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY,
     '300000000',
   );
   assert.equal(environment.RAYON_NUM_THREADS, '1');
@@ -63,22 +63,17 @@ test('inherited tuning cannot override the enforced profile', () => {
 
 test('inherited empty values cannot enable cache and incremental mode', () => {
   const environment = getBuildEnvironment({
-    DOCUSAURUS_NO_PERSISTENT_CACHE: '',
+    RSPRESS_PERSISTENT_CACHE: '',
     DISABLE_RSPACK_INCREMENTAL: '',
   });
 
-  assert.equal(environment.DOCUSAURUS_NO_PERSISTENT_CACHE, 'true');
+  assert.equal(environment.RSPRESS_PERSISTENT_CACHE, 'false');
   assert.equal(environment.DISABLE_RSPACK_INCREMENTAL, 'true');
 });
 
-test('the low-memory client bundle disables expensive module concatenation', () => {
-  const configSource = fs.readFileSync(
-    path.resolve(__dirname, '../docusaurus.config.js'),
-    'utf8',
-  );
-
-  assert.match(
-    configSource,
-    /name: 'client',[\s\S]{0,250}dependencies: \['server'\],[\s\S]{0,250}concatenateModules: false/,
+test('the low-memory profile no longer exposes Docusaurus controls', () => {
+  assert.deepEqual(
+    Object.keys(LOW_MEMORY_ENV).filter((name) => name.startsWith('DOCUSAURUS_')),
+    [],
   );
 });

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Link from '@site/src/rspress/Link';
+import useSiteContext from '@site/src/rspress/useSiteContext';
 import {
   FaArrowRight,
   FaCheck,
@@ -39,7 +39,7 @@ function formatDate(value, language, fallback) {
 export function DeveloperApiContent({ embedded = false } = {}) {
   const language = useCurrentLanguage();
   const t = useUiText('developers');
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useSiteContext();
   const supabaseUrl = siteConfig?.customFields?.supabaseUrl || '';
   const apiBaseUrl = supabaseUrl ? `${supabaseUrl}/functions/v1/kai-api` : '';
   const { isConfigured, user, isLoggedIn, authReady } = useAuth();

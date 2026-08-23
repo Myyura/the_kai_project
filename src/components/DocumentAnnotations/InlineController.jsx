@@ -132,7 +132,7 @@ export default function InlineAnnotationController() {
   const [markers, setMarkers] = useState([]);
 
   useEffect(() => {
-    const next = document.querySelector('.theme-doc-markdown');
+    const next = document.querySelector('.rspress-doc');
     setContainer(next || null);
   }, []);
 

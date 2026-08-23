@@ -129,7 +129,7 @@
   gap: 0.25rem;
 }
 
-[data-theme='dark'] .noteToolbar {
+:is([data-theme='dark'], :global(.dark)) .noteToolbar {
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -225,7 +225,7 @@
   background: var(--ifm-color-emphasis-50);
 }
 
-[data-theme='dark'] .noteTextarea:focus {
+:is([data-theme='dark'], :global(.dark)) .noteTextarea:focus {
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -276,7 +276,7 @@
   color: var(--ifm-color-emphasis-700);
 }
 
-[data-theme='dark'] .notePreview blockquote {
+:is([data-theme='dark'], :global(.dark)) .notePreview blockquote {
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -317,7 +317,7 @@
   line-height: 1.5;
 }
 
-[data-theme='dark'] .notePreview :global(.note-code-block) {
+:is([data-theme='dark'], :global(.dark)) .notePreview :global(.note-code-block) {
   background: rgba(255, 255, 255, 0.06);
 }
 
@@ -335,7 +335,7 @@
   font-size: 0.9em;
 }
 
-[data-theme='dark'] .notePreview :global(.note-inline-code) {
+:is([data-theme='dark'], :global(.dark)) .notePreview :global(.note-inline-code) {
   background: rgba(255, 255, 255, 0.08);
 }
 

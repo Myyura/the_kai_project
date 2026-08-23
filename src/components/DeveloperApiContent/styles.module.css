@@ -372,12 +372,12 @@
   }
 }
 
-[data-theme='dark'] .createForm input,
-[data-theme='dark'] .requestForm input,
-[data-theme='dark'] .requestForm textarea {
+:is([data-theme='dark'], :global(.dark)) .createForm input,
+:is([data-theme='dark'], :global(.dark)) .requestForm input,
+:is([data-theme='dark'], :global(.dark)) .requestForm textarea {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-[data-theme='dark'] .statusPanel {
+:is([data-theme='dark'], :global(.dark)) .statusPanel {
   background: rgba(255, 255, 255, 0.04);
 }
