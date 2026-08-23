@@ -14,6 +14,8 @@ import rehypeStudySections from './src/markdown/rehypeStudySections.js';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const sequentialBundles = process.env.DOCUSAURUS_SEQUENTIAL_BUNDLES === 'true';
+const localMemoryProfile = process.env.KAI_ENFORCED_BUILD_PROFILE === '16gb';
+const pagesBuildProfile = 'github-pages-eb8673';
 const docusaurusArgs = process.argv.slice(2);
 const isDirectBuild = docusaurusArgs.includes('build')
   || (docusaurusArgs.includes('deploy') && !docusaurusArgs.includes('--skip-build'));
@@ -30,14 +32,35 @@ const requiredBuildEnvironment = {
 };
 const hasRequiredBuildEnvironment = Object.entries(requiredBuildEnvironment)
   .every(([name, value]) => process.env[name] === value)
-  && /(?:^|\s)--max[-_]old[-_]space[-_]size=5120(?:\s|$)/.test(
+  && /(?:^|\s)--max[-_]old[-_]space[-_]size=6144(?:\s|$)/.test(
+    process.env.NODE_OPTIONS || '',
+  );
+const requiredPagesBuildEnvironment = {
+  KAI_BUILD_PROFILE: pagesBuildProfile,
+  DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
+  DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
+  DISABLE_RSPACK_INCREMENTAL: 'true',
+  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
+  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
+  RAYON_NUM_THREADS: '1',
+  RSPACK_BLOCKING_THREADS: '2',
+};
+const hasRequiredPagesBuildEnvironment = Object.entries(requiredPagesBuildEnvironment)
+  .every(([name, value]) => process.env[name] === value)
+  && process.env.KAI_ENFORCED_BUILD_PROFILE === undefined
+  && process.env.DOCUSAURUS_SSR_CONCURRENCY === undefined
+  && /(?:^|\s)--max[-_]old[-_]space[-_]size=6144(?:\s|$)/.test(
     process.env.NODE_OPTIONS || '',
   );
 
-if (isDirectBuild && !hasRequiredBuildEnvironment) {
+if (
+  isDirectBuild
+  && !hasRequiredBuildEnvironment
+  && !hasRequiredPagesBuildEnvironment
+) {
   throw new Error(
-    'Unbounded Docusaurus builds are disabled. Use `yarn build` or '
-      + '`yarn docusaurus build` so the enforced 16 GiB profile is applied.',
+    'Unknown Docusaurus build profile. Use `yarn build` for the protected '
+      + 'local build or `yarn build:pages` for the GitHub Pages build.',
   );
 }
 
@@ -122,19 +145,23 @@ function sequentialBundlesPlugin() {
       }
 
       // Docusaurus normally builds both configurations at once. Make the
-      // larger client bundle wait for the server bundle in memory-constrained CI.
-      // Module concatenation is also deliberately disabled for the client:
+      // larger client bundle wait for the server bundle. Module concatenation
+      // is deliberately disabled only for the protected local build:
       // Docusaurus documents it as expensive for large sites, while its usual
       // benefit is only about a 3% reduction in total JavaScript asset size.
-      return isServer
-        ? {name: 'server'}
-        : {
-          name: 'client',
-          dependencies: ['server'],
+      if (isServer) {
+        return {name: 'server'};
+      }
+
+      return {
+        name: 'client',
+        dependencies: ['server'],
+        ...(localMemoryProfile && {
           optimization: {
             concatenateModules: false,
           },
-        };
+        }),
+      };
     },
   };
 }

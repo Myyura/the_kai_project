@@ -17,7 +17,7 @@ test('the repository docusaurus command enforces the build profile', () => {
   const environment = getCommandEnvironment(['build'], source);
 
   assert.equal(isMemoryIntensiveCommand(['build']), true);
-  assert.equal(environment.NODE_OPTIONS, '--max-old-space-size=5120');
+  assert.equal(environment.NODE_OPTIONS, '--max-old-space-size=6144');
   assert.equal(environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT, '1');
   assert.equal(environment.DOCUSAURUS_SSR_CONCURRENCY, '4');
   assert.equal(environment.KAI_ENFORCED_BUILD_PROFILE, '16gb');

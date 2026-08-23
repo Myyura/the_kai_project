@@ -5,13 +5,13 @@ const {
   runWithMemoryGuard,
 } = require('./process-memory-guard');
 
-// Keep local and GitHub Pages builds on the same memory-aware profile.
-// The standard public Linux runner has 4 CPUs and 16 GB of RAM. Bundles run in
-// isolated sequential processes because they have the highest RSS, while SSG
-// uses one renderer to avoid retaining multiple page heaps at the same time.
+// Keep routine local builds inside a predictable 16 GiB machine profile.
+// Bundles run in isolated sequential processes because they have the highest
+// RSS, while SSG uses one renderer to avoid retaining multiple page heaps at
+// the same time. GitHub Pages has a separate known-good build entry point.
 // Leave native headroom for Rspack: the client compiler allocates substantial
 // memory outside V8's managed heap.
-const MAX_OLD_SPACE_MB = 5120;
+const MAX_OLD_SPACE_MB = 6144;
 
 const LOW_MEMORY_ENV = Object.freeze({
   KAI_ENFORCED_BUILD_PROFILE: '16gb',
