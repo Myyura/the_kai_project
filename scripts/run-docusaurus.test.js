@@ -4,7 +4,9 @@ const packageJson = require('../package.json');
 const {
   getCommandEnvironment,
   isMemoryIntensiveCommand,
+  shouldStartMemoryGuard,
 } = require('./run-docusaurus');
+const {MEMORY_GUARD_ACTIVE_ENV} = require('./process-memory-guard');
 
 test('the repository docusaurus command enforces the build profile', () => {
   const source = {
@@ -26,6 +28,25 @@ test('deploy builds are guarded unless Docusaurus is told to skip them', () => {
     getCommandEnvironment(['deploy'], {}).KAI_ENFORCED_BUILD_PROFILE,
     '16gb',
   );
+});
+
+test('an active parent guard prevents a nested build watchdog', () => {
+  assert.equal(shouldStartMemoryGuard(['build'], {}), true);
+  assert.equal(shouldStartMemoryGuard(['deploy'], {}), true);
+  assert.equal(shouldStartMemoryGuard(['deploy', '--skip-build'], {}), false);
+  assert.equal(shouldStartMemoryGuard(['build'], {
+    [MEMORY_GUARD_ACTIVE_ENV]: 'guard:10',
+  }, {
+    currentPid: 30,
+    processTableSampler: () => ({
+      available: true,
+      rows: [
+        {pid: 10, ppid: 1, rssBytes: 1},
+        {pid: 20, ppid: 10, rssBytes: 1},
+        {pid: 30, ppid: 20, rssBytes: 1},
+      ],
+    }),
+  }), false);
 });
 
 test('non-build docusaurus commands preserve their environment', () => {

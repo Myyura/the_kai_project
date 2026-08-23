@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-const {runWithMemoryGuard} = require('./process-memory-guard');
+const {
+  describeMeasurementSource,
+  runWithMemoryGuard,
+} = require('./process-memory-guard');
 
 // Keep local and GitHub Pages builds on the same memory-aware profile.
 // The standard public Linux runner has 4 CPUs and 16 GB of RAM. Bundles stay
@@ -77,7 +80,8 @@ async function main() {
 
   if (result.watchdogAvailable) {
     console.log(
-      `Peak sampled build RSS: ${(result.maxRssBytes / 1024 / 1024 / 1024).toFixed(2)} GiB.`,
+      `Peak sampled build memory (${describeMeasurementSource(result.measurementSource)}): `
+        + `${(result.maxUsageBytes / 1024 / 1024 / 1024).toFixed(2)} GiB.`,
     );
   }
   if (result.exceeded) process.exit(1);
