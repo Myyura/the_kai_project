@@ -134,6 +134,13 @@ function getCgroupMemoryCurrentPath({
   }
 }
 
+function parseCgroupInactiveFileBytes(output) {
+  const match = String(output || '').match(/^inactive_file\s+(\d+)$/m);
+  if (!match) return null;
+  const inactiveFileBytes = Number(match[1]);
+  return Number.isSafeInteger(inactiveFileBytes) ? inactiveFileBytes : null;
+}
+
 function sampleCgroupMemoryCurrent(memoryCurrentPath, readFileSync = fs.readFileSync) {
   if (!memoryCurrentPath) return {available: false, usageBytes: 0, source: null};
   try {
@@ -141,11 +148,38 @@ function sampleCgroupMemoryCurrent(memoryCurrentPath, readFileSync = fs.readFile
     if (!/^\d+$/.test(rawValue)) {
       return {available: false, usageBytes: 0, source: null};
     }
-    const usageBytes = Number(rawValue);
-    if (!Number.isSafeInteger(usageBytes)) {
+    const currentBytes = Number(rawValue);
+    if (!Number.isSafeInteger(currentBytes)) {
       return {available: false, usageBytes: 0, source: null};
     }
-    return {available: true, usageBytes, source: 'cgroup-v2'};
+
+    // memory.current includes reclaimable filesystem cache. Treating all of it
+    // as build working memory stopped healthy CI runs even while Linux still
+    // reported ample available RAM. The established cgroup working-set metric
+    // subtracts inactive_file while retaining anonymous, kernel, and active
+    // file-backed memory. If memory.stat is unavailable, keep the conservative
+    // total rather than disabling the watchdog.
+    let inactiveFileBytes = null;
+    try {
+      const memoryStatPath = path.posix.join(
+        path.posix.dirname(memoryCurrentPath),
+        'memory.stat',
+      );
+      inactiveFileBytes = parseCgroupInactiveFileBytes(
+        readFileSync(memoryStatPath, 'utf8'),
+      );
+    } catch (_error) {
+      // Use total cgroup usage below.
+    }
+
+    if (inactiveFileBytes === null || inactiveFileBytes > currentBytes) {
+      return {available: true, usageBytes: currentBytes, source: 'cgroup-v2-total'};
+    }
+    return {
+      available: true,
+      usageBytes: currentBytes - inactiveFileBytes,
+      source: 'cgroup-v2-working-set',
+    };
   } catch (_error) {
     return {available: false, usageBytes: 0, source: null};
   }
@@ -168,7 +202,9 @@ function sampleMemoryUsage(rootPid, {
 }
 
 function describeMeasurementSource(source) {
-  return source === 'cgroup-v2' ? 'cgroup memory usage' : 'process tree RSS';
+  if (source === 'cgroup-v2-working-set') return 'cgroup working set';
+  if (source === 'cgroup-v2-total') return 'cgroup total memory usage';
+  return 'process tree RSS';
 }
 
 function getGuardedEnvironment(env = process.env, guardPid = process.pid) {
@@ -307,7 +343,7 @@ async function runWithMemoryGuard(command, args, {
     exceeded,
     maxUsageBytes,
     // Backward-compatible alias. New callers should use maxUsageBytes because
-    // cgroup memory.current is broader than RSS.
+    // the selected measurement may be a cgroup working set rather than RSS.
     maxRssBytes: maxUsageBytes,
     measurementSource,
     watchdogAvailable: Boolean(watchdogAvailable),
@@ -328,6 +364,7 @@ module.exports = {
   isProcessAncestor,
   isProcessRunning,
   parseCgroup2Mounts,
+  parseCgroupInactiveFileBytes,
   parseCgroupV2Path,
   parseProcessTable,
   resolveCgroupMemoryCurrentPath,

@@ -9,6 +9,7 @@ const {
   hasActiveParentMemoryGuard,
   isProcessAncestor,
   parseCgroup2Mounts,
+  parseCgroupInactiveFileBytes,
   parseCgroupV2Path,
   parseProcessTable,
   resolveCgroupMemoryCurrentPath,
@@ -17,7 +18,7 @@ const {
   sampleMemoryUsage,
 } = require('./process-memory-guard');
 
-test('the process-tree cutoff leaves headroom below 16 GiB', () => {
+test('the memory cutoff leaves headroom below 16 GiB', () => {
   assert.equal(HARD_MEMORY_LIMIT_BYTES, 14 * 1024 * 1024 * 1024);
   assert.equal(HARD_RSS_LIMIT_BYTES, 14 * 1024 * 1024 * 1024);
   assert.ok(HARD_RSS_LIMIT_BYTES < 16 * 1024 * 1024 * 1024);
@@ -67,28 +68,69 @@ test('cgroup v2 resolves a mount whose root is the current cgroup', () => {
   );
 });
 
-test('cgroup memory is preferred and invalid values fall back to process RSS', () => {
+test('cgroup working set excludes reclaimable inactive file cache', () => {
   const cgroupSample = sampleCgroupMemoryCurrent(
     '/cgroup/memory.current',
-    () => '123456\n',
+    (filePath) => (
+      filePath.endsWith('memory.current')
+        ? '123456\n'
+        : 'anon 70000\nfile 53456\ninactive_file 50000\n'
+    ),
   );
   assert.deepEqual(cgroupSample, {
     available: true,
-    usageBytes: 123456,
-    source: 'cgroup-v2',
+    usageBytes: 73456,
+    source: 'cgroup-v2-working-set',
   });
+  assert.equal(
+    parseCgroupInactiveFileBytes('anon 1\ninactive_file 50000\nfile 2\n'),
+    50000,
+  );
+});
+
+test('cgroup total remains a safe fallback when memory.stat is unavailable', () => {
+  assert.deepEqual(sampleCgroupMemoryCurrent(
+    '/cgroup/memory.current',
+    (filePath) => {
+      if (filePath.endsWith('memory.current')) return '123456\n';
+      throw new Error('memory.stat unavailable');
+    },
+  ), {
+    available: true,
+    usageBytes: 123456,
+    source: 'cgroup-v2-total',
+  });
+  assert.deepEqual(sampleCgroupMemoryCurrent(
+    '/cgroup/memory.current',
+    (filePath) => (
+      filePath.endsWith('memory.current')
+        ? '100\n'
+        : 'inactive_file 120\n'
+    ),
+  ), {
+    available: true,
+    usageBytes: 100,
+    source: 'cgroup-v2-total',
+  });
+});
+
+test('cgroup memory is preferred and invalid values fall back to process RSS', () => {
 
   let processSamples = 0;
   assert.deepEqual(sampleMemoryUsage(10, {
     memoryCurrentPath: '/cgroup/memory.current',
-    readFileSync: () => '654321\n',
+    readFileSync: (filePath) => (
+      filePath.endsWith('memory.current')
+        ? '654321\n'
+        : 'inactive_file 123456\n'
+    ),
     processTreeSampler: () => {
       throw new Error('process RSS should not be sampled');
     },
   }), {
     available: true,
-    usageBytes: 654321,
-    source: 'cgroup-v2',
+    usageBytes: 530865,
+    source: 'cgroup-v2-working-set',
   });
 
   assert.deepEqual(sampleMemoryUsage(10, {

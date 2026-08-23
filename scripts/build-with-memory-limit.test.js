@@ -18,6 +18,7 @@ test('the balanced build profile fits the 16 GiB GitHub runner', () => {
   assert.equal(environment.DOCUSAURUS_NO_PERSISTENT_CACHE, 'true');
   assert.equal(environment.DISABLE_RSPACK_INCREMENTAL, 'true');
   assert.equal(environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT, '1');
+  assert.equal(environment.DOCUSAURUS_SSR_CONCURRENCY, '4');
   assert.equal(
     environment.DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY,
     '300000000',
@@ -37,6 +38,7 @@ test('inherited tuning cannot override the enforced profile', () => {
   const source = Object.freeze({
     NODE_OPTIONS: '--max_old_space_size 24576',
     DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '3',
+    DOCUSAURUS_SSR_CONCURRENCY: '32',
     DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '750000000',
     RAYON_NUM_THREADS: '3',
     RSPACK_BLOCKING_THREADS: '2',
@@ -46,6 +48,7 @@ test('inherited tuning cannot override the enforced profile', () => {
 
   assert.equal(environment.NODE_OPTIONS, '--max-old-space-size=6144');
   assert.equal(environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT, '1');
+  assert.equal(environment.DOCUSAURUS_SSR_CONCURRENCY, '4');
   assert.equal(
     environment.DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY,
     '300000000',

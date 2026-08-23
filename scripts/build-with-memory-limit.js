@@ -21,6 +21,9 @@ const LOW_MEMORY_ENV = Object.freeze({
   // One renderer is deliberately slower but prevents multiple page heaps from
   // growing at the same time on a developer machine.
   DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '1',
+  // A single renderer still processes 32 routes concurrently by default.
+  // Bound the in-thread fan-out as well as the worker count.
+  DOCUSAURUS_SSR_CONCURRENCY: '4',
   DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
   // Limit Rspack's native-memory peak while retaining a small amount of
   // blocking-I/O parallelism. The client and server bundles still compile in
@@ -68,7 +71,7 @@ async function main() {
   console.log(
     `Building with the memory-aware profile: ${MAX_OLD_SPACE_MB} MiB V8 heap, `
       + `sequential bundles, ${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} `
-      + 'SSG worker, '
+      + `SSG worker with ${environment.DOCUSAURUS_SSR_CONCURRENCY} concurrent routes, `
       + `${environment.RAYON_NUM_THREADS} Rayon thread, and `
       + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking thread.`,
   );

@@ -58,6 +58,14 @@ jobs:
               if [ -r /sys/fs/cgroup/memory.current ]; then
                 printf 'cgroup memory.current: '
                 cat /sys/fs/cgroup/memory.current
+                if [ -r /sys/fs/cgroup/memory.stat ]; then
+                  cgroup_current=$(< /sys/fs/cgroup/memory.current)
+                  cgroup_inactive=$(awk '$1 == "inactive_file" { print $2 }' /sys/fs/cgroup/memory.stat)
+                  if [[ "$cgroup_current" =~ ^[0-9]+$ && "$cgroup_inactive" =~ ^[0-9]+$ ]] \
+                    && ((cgroup_inactive <= cgroup_current)); then
+                    printf 'cgroup working set: %s\n' "$((cgroup_current - cgroup_inactive))"
+                  fi
+                fi
               fi
               echo '::endgroup::'
             done
