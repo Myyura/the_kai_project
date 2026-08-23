@@ -403,7 +403,7 @@ function CompactExamRow({
       anchor: getTopicAnchorId(topic.id),
     })),
   ];
-  const visibleTopics = rowTopics.slice(0, 3);
+  const visibleTopics = rowTopics.slice(0, 2);
   const hiddenTopicCount = rowTopics.length - visibleTopics.length;
   const metadata = Array.from(new Set([
     document.departmentName,
@@ -430,9 +430,12 @@ function CompactExamRow({
             <Link
               key={`${document.id}-${topic.id}`}
               to={`${parentPermalink}#${topic.anchor}`}
-              title={topic.title}
+              title={topic.title || topic.label}
               className={styles.compactDocTopic}
-              onClick={() => onSelectTopic(topic.id)}>
+              onClick={(event) => {
+                event.preventDefault();
+                onSelectTopic(topic.id);
+              }}>
               {topic.label}
             </Link>
           ))}
@@ -440,7 +443,7 @@ function CompactExamRow({
             <span
               className={styles.compactDocTopicMore}
               aria-label={copy.moreTopics(hiddenTopicCount)}
-              title={rowTopics.slice(3).map((topic) => topic.label).join(', ')}>
+              title={rowTopics.slice(2).map((topic) => topic.label).join(', ')}>
               +{hiddenTopicCount}
             </span>
           )}
@@ -459,6 +462,7 @@ function CompactSchoolGroup({
   directDocIds,
   language,
   onSelectTopic,
+  initiallyExpanded,
 }: {
   schoolId: string;
   title: string;
@@ -468,15 +472,20 @@ function CompactSchoolGroup({
   directDocIds: Set<string>;
   language: Language;
   onSelectTopic: (topicId: AggregateTopicSelection) => void;
+  initiallyExpanded: boolean;
 }): ReactNode {
   const copy = getCopy(language);
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(initiallyExpanded);
   const schoolColor = universityLookup.get(schoolId)?.color;
   const topicCount = new Set(
     documents.flatMap((document) => (
       (document.topicIds || []).filter((topicId) => topicLookup.has(topicId))
     )),
   ).size;
+
+  useEffect(() => {
+    if (initiallyExpanded) setExpanded(true);
+  }, [initiallyExpanded]);
 
   return (
     <section className={styles.compactSchoolGroup}>
@@ -590,17 +599,6 @@ function SubsubjectBrowsePage({
   }, [browse.directDocIds.length, browse.topics, sortedTopics]);
 
   useEffect(() => {
-    if (activeTopic === 'all' || typeof document === 'undefined') return;
-    const anchor = activeTopic === 'unclassified'
-      ? UNCLASSIFIED_ANCHOR
-      : getTopicAnchorId(activeTopic);
-    if (!anchor) return;
-    window.requestAnimationFrame(() => {
-      document.getElementById(anchor)?.scrollIntoView({block: 'nearest', inline: 'center'});
-    });
-  }, [activeTopic, topicLookup]);
-
-  useEffect(() => {
     setSelectedSchool('all');
   }, [activeTopic]);
 
@@ -662,6 +660,19 @@ function SubsubjectBrowsePage({
 
   const onSelectTopic = (topicId: AggregateTopicSelection) => {
     setActiveTopic(topicId);
+    if (typeof window === 'undefined') return;
+    const anchor = topicId === 'all'
+      ? ''
+      : topicId === 'unclassified'
+        ? UNCLASSIFIED_ANCHOR
+        : getTopicAnchorId(topicId);
+    const nextUrl = new URL(
+      anchor ? `${tag.permalink}#${anchor}` : tag.permalink,
+      window.location.href,
+    );
+    if (nextUrl.href !== window.location.href) {
+      window.history.pushState(null, '', nextUrl);
+    }
   };
 
   const activeTopicTitle = activeTopic === 'all'
@@ -670,23 +681,20 @@ function SubsubjectBrowsePage({
       ? t.unclassified
       : getTopicDisplayName(activeTopic);
   const remainingTopicCount = Math.max(0, sortedTopics.length - TOPIC_PREVIEW_LIMIT);
-  const subsubjectRouteLabel = `/${getSubsubjectShortId(subsubjectId)
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-    .replace(/[^A-Za-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .toLowerCase()}`;
 
   return (
     <div className={clsx('container', styles.pageContainer, styles.aggregatePageContainer)}>
       <div className="row">
-        <main className="col col--12">
+        <main className="col col--10 col--offset-1">
           {tag.unlisted && <Unlisted />}
           <ContentBrowseModes section="exams" activeMode="tags" />
           <header className={`${styles.pageHeader} ${styles.aggregateHeader}`}>
             <div className={styles.aggregateBreadcrumb}>
+              <Link to={tag.allTagsPath}>{t.tagIndex}</Link>
+              <span aria-hidden="true">/</span>
               <span>{getSubjectLabel(subjectId, language)}</span>
               <span aria-hidden="true">/</span>
-              <span>{getSubsubjectLabel(subsubjectId, language)}</span>
+              <span aria-current="page">{getSubsubjectLabel(subsubjectId, language)}</span>
             </div>
             <Heading as="h1" className={`${styles.pageTitle} ${styles.aggregateTitle}`}>
               {getSubsubjectLabel(subsubjectId, language)}
@@ -702,7 +710,6 @@ function SubsubjectBrowsePage({
               <span>{t.schoolStat(allSchoolCount)}</span>
             </div>
           </header>
-          <div className={styles.aggregateDivider} />
 
           <div className={styles.aggregateWorkspace}>
             <aside className={styles.topicSidebar}>
@@ -718,7 +725,10 @@ function SubsubjectBrowsePage({
                     to={tag.permalink}
                     className={`${styles.topicDirectoryLink} ${activeTopic === 'all' ? styles.topicDirectoryLinkActive : ''}`}
                     aria-current={activeTopic === 'all' ? 'page' : undefined}
-                    onClick={() => onSelectTopic('all')}>
+                    onClick={(event) => {
+                      event.preventDefault();
+                      onSelectTopic('all');
+                    }}>
                     <span>{t.allTopics}</span>
                     <span className={styles.topicDirectoryCount}>{allDocuments.length}</span>
                   </Link>
@@ -729,7 +739,10 @@ function SubsubjectBrowsePage({
                       title={t.directHint}
                       className={`${styles.topicDirectoryLink} ${activeTopic === 'unclassified' ? styles.topicDirectoryLinkActive : ''}`}
                       aria-current={activeTopic === 'unclassified' ? 'location' : undefined}
-                      onClick={() => onSelectTopic('unclassified')}>
+                      onClick={(event) => {
+                        event.preventDefault();
+                        onSelectTopic('unclassified');
+                      }}>
                       <span>{t.unclassified}</span>
                       <span className={styles.topicDirectoryCount}>
                         {new Set(browse.directDocIds).size}
@@ -747,7 +760,10 @@ function SubsubjectBrowsePage({
                         to={`${tag.permalink}#${anchor}`}
                         className={`${styles.topicDirectoryLink} ${activeTopic === topic.id ? styles.topicDirectoryLinkActive : ''}`}
                         aria-current={activeTopic === topic.id ? 'location' : undefined}
-                        onClick={() => onSelectTopic(topic.id)}>
+                        onClick={(event) => {
+                          event.preventDefault();
+                          onSelectTopic(topic.id);
+                        }}>
                         <span>{getTopicDisplayName(topic.id)}</span>
                         <span className={styles.topicDirectoryCount}>{topic.count}</span>
                       </Link>
@@ -783,7 +799,7 @@ function SubsubjectBrowsePage({
                   <p className={styles.aggregateResultsMeta} role="status" aria-live="polite">
                     <span>{t.docCount(activeDocuments.length)}</span>
                     <span aria-hidden="true">·</span>
-                    <span className={styles.aggregateRouteLabel}>{subsubjectRouteLabel}</span>
+                    <span>{t.schoolStat(schoolOptions.length)}</span>
                   </p>
                 </div>
                 <label className={styles.schoolFilter}>
@@ -803,7 +819,7 @@ function SubsubjectBrowsePage({
               </div>
 
               <div className={styles.compactSchoolList}>
-                {schoolGroups.length > 0 ? schoolGroups.map((group) => (
+                {schoolGroups.length > 0 ? schoolGroups.map((group, groupIndex) => (
                   <CompactSchoolGroup
                     key={group.schoolId}
                     schoolId={group.schoolId}
@@ -814,6 +830,7 @@ function SubsubjectBrowsePage({
                     directDocIds={directDocIds}
                     language={language}
                     onSelectTopic={onSelectTopic}
+                    initiallyExpanded={selectedSchool !== 'all' || groupIndex < 2}
                   />
                 )) : (
                   <p className={styles.aggregateEmpty}>{t.noResults}</p>
