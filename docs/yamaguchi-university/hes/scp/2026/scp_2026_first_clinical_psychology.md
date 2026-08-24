@@ -13,7 +13,7 @@ tags:
 # 山口大学 人間社会科学研究科 臨床心理学専攻 令和8年度第1回 専門科目（臨床心理学）
 
 ## **Author**
-祭音Myyura (co-authored by GPT-5.6 Sol)
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 
