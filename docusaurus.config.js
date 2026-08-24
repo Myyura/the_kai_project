@@ -287,9 +287,10 @@ const config = {
   // 添加本地搜索功能
   themes: /** @type {import('@docusaurus/types').PluginConfig[]} */ ([
     [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      require.resolve('./plugins/memory-safe-search-local/index.cjs'),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions & {boundedScanConcurrency: number}} */
       ({
+        boundedScanConcurrency: 4,
         hashed: true,
         language: ["zh", "en", "ja"],
         indexDocs: true,
