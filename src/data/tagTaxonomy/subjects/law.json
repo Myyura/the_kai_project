@@ -1,0 +1,43 @@
+{
+  "id": "Law",
+  "subject": {
+    "labelZh": "法学",
+    "labelJa": "法学",
+    "labelEn": "Law",
+    "descriptionZh": "研究法律规范、权利义务、公共权力及法律制度的解释与适用。",
+    "descriptionJa": "法規範、権利義務、公権力、法制度の解釈と適用を研究する分野。",
+    "descriptionEn": "The study of legal norms, rights and duties, public authority, and the interpretation and application of legal institutions."
+  },
+  "subsubjects": {
+    "Law.Civil-Law": {
+      "subject": "Law",
+      "labelZh": "民法",
+      "labelJa": "民法",
+      "labelEn": "Civil Law",
+      "descriptionZh": "研究私人之间的财产关系、债权债务、合同、侵权及相关救济。",
+      "descriptionJa": "私人間の財産関係、債権債務、契約、不法行為および救済を扱う。",
+      "descriptionEn": "Private-law relationships involving property, obligations, contracts, torts, and remedies."
+    },
+    "Law.Administrative-Law": {
+      "subject": "Law",
+      "labelZh": "行政法",
+      "labelJa": "行政法",
+      "labelEn": "Administrative Law",
+      "descriptionZh": "研究行政权的法律依据、行政活动、程序、救济与司法控制。",
+      "descriptionJa": "行政権の法的根拠、行政活動、手続、救済、司法的統制を扱う。",
+      "descriptionEn": "The legal basis of administrative power, administrative action, procedure, remedies, and judicial control."
+    }
+  },
+  "subsubjectOrder": [
+    "Law.Civil-Law",
+    "Law.Administrative-Law"
+  ],
+  "topics": {
+    "Law.Administrative-Law.Principle-of-Statutory-Reservation": {
+      "subsubject": "Law.Administrative-Law"
+    },
+    "Law.Civil-Law.Creditors-Subrogation-Right": {
+      "subsubject": "Law.Civil-Law"
+    }
+  }
+}

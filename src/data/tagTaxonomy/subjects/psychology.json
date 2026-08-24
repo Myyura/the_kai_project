@@ -135,8 +135,23 @@
         "Probability-Statistics"
       ]
     },
+    "Psychology.Research-Methods-and-Statistics.Nonverbal-Behavioral-Measurement": {
+      "subsubject": "Psychology.Research-Methods-and-Statistics"
+    },
+    "Psychology.Social-Psychology.Cultural-Individualism-and-Collectivism": {
+      "subsubject": "Psychology.Social-Psychology",
+      "relatedSubjects": [
+        "Sociology"
+      ]
+    },
     "Psychology.Social-Psychology.Ingroup-Bias-and-Social-Identity": {
       "subsubject": "Psychology.Social-Psychology"
+    },
+    "Psychology.Social-Psychology.Self-Esteem-and-Culture": {
+      "subsubject": "Psychology.Social-Psychology",
+      "relatedSubjects": [
+        "Sociology"
+      ]
     }
   }
 }

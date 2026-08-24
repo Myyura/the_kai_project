@@ -488,10 +488,30 @@
   label: "Psychology.Ethics"
   permalink: "/subsubject/psychology/ethics"
   description: "Psychology / Ethics"
+"Law.Civil-Law":
+  label: "Law.Civil-Law"
+  permalink: "/subsubject/law/civil-law"
+  description: "Law / Civil-Law"
+"Law.Administrative-Law":
+  label: "Law.Administrative-Law"
+  permalink: "/subsubject/law/administrative-law"
+  description: "Law / Administrative-Law"
 "Bioinformatics.Bioinformatics.Sequence-Alignment":
   label: "Bioinformatics.Bioinformatics.Sequence-Alignment"
   permalink: "/topic/bioinformatics/bioinformatics/sequence-alignment"
   description: "Bioinformatics / Bioinformatics / Sequence-Alignment"
+"Business-Administration.Finance.Efficient-Market-Hypothesis":
+  label: "Business-Administration.Finance.Efficient-Market-Hypothesis"
+  permalink: "/topic/business-administration/finance/efficient-market-hypothesis"
+  description: "Business-Administration / Finance / Efficient-Market-Hypothesis"
+"Business-Administration.Human-Resource-Management.Nursing-Workforce":
+  label: "Business-Administration.Human-Resource-Management.Nursing-Workforce"
+  permalink: "/topic/business-administration/human-resource-management/nursing-workforce"
+  description: "Business-Administration / Human-Resource-Management / Nursing-Workforce"
+"Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management":
+  label: "Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management"
+  permalink: "/topic/business-administration/marketing/tourism-marketing-and-destination-management"
+  description: "Business-Administration / Marketing / Tourism-Marketing-and-Destination-Management"
 "Chemistry.Inorganic-Chemistry.Coordination-Compound-Composition":
   label: "Chemistry.Inorganic-Chemistry.Coordination-Compound-Composition"
   permalink: "/topic/chemistry/inorganic-chemistry/coordination-compound-composition"
@@ -2296,6 +2316,22 @@
   label: "Discrete-Mathematics.Set-Theory.Image-of-Intersection"
   permalink: "/topic/discrete-mathematics/set-theory/image-of-intersection"
   description: "Discrete-Mathematics / Set-Theory / Image-of-Intersection"
+"Economics.Microeconomics.Adverse-Selection-and-Lemons-Market":
+  label: "Economics.Microeconomics.Adverse-Selection-and-Lemons-Market"
+  permalink: "/topic/economics/microeconomics/adverse-selection-and-lemons-market"
+  description: "Economics / Microeconomics / Adverse-Selection-and-Lemons-Market"
+"Economics.Microeconomics.Consumer-and-Producer-Surplus":
+  label: "Economics.Microeconomics.Consumer-and-Producer-Surplus"
+  permalink: "/topic/economics/microeconomics/consumer-and-producer-surplus"
+  description: "Economics / Microeconomics / Consumer-and-Producer-Surplus"
+"Economics.Microeconomics.Gender-and-Labor-Economics":
+  label: "Economics.Microeconomics.Gender-and-Labor-Economics"
+  permalink: "/topic/economics/microeconomics/gender-and-labor-economics"
+  description: "Economics / Microeconomics / Gender-and-Labor-Economics"
+"Economics.Public-Finance.Health-Economics-and-Nursing-Services":
+  label: "Economics.Public-Finance.Health-Economics-and-Nursing-Services"
+  permalink: "/topic/economics/public-finance/health-economics-and-nursing-services"
+  description: "Economics / Public-Finance / Health-Economics-and-Nursing-Services"
 "Electrical-Electronic.Circuits.Active-Filter":
   label: "Electrical-Electronic.Circuits.Active-Filter"
   permalink: "/topic/electrical-electronic/circuits/active-filter"
@@ -2804,6 +2840,14 @@
   label: "Engineering.Robotics.Zero-Moment-Point"
   permalink: "/topic/engineering/robotics/zero-moment-point"
   description: "Engineering / Robotics / Zero-Moment-Point"
+"Law.Administrative-Law.Principle-of-Statutory-Reservation":
+  label: "Law.Administrative-Law.Principle-of-Statutory-Reservation"
+  permalink: "/topic/law/administrative-law/principle-of-statutory-reservation"
+  description: "Law / Administrative-Law / Principle-of-Statutory-Reservation"
+"Law.Civil-Law.Creditors-Subrogation-Right":
+  label: "Law.Civil-Law.Creditors-Subrogation-Right"
+  permalink: "/topic/law/civil-law/creditors-subrogation-right"
+  description: "Law / Civil-Law / Creditors-Subrogation-Right"
 "Mathematics.Abstract-Algebra.Burnside-Lemma-and-Derangement-Proportion":
   label: "Mathematics.Abstract-Algebra.Burnside-Lemma-and-Derangement-Proportion"
   permalink: "/topic/mathematics/abstract-algebra/burnside-lemma-and-derangement-proportion"
@@ -5376,7 +5420,31 @@
   label: "Psychology.Research-Methods-and-Statistics.Multiple-Comparisons"
   permalink: "/topic/psychology/research-methods-and-statistics/multiple-comparisons"
   description: "Psychology / Research-Methods-and-Statistics / Multiple-Comparisons"
+"Psychology.Research-Methods-and-Statistics.Nonverbal-Behavioral-Measurement":
+  label: "Psychology.Research-Methods-and-Statistics.Nonverbal-Behavioral-Measurement"
+  permalink: "/topic/psychology/research-methods-and-statistics/nonverbal-behavioral-measurement"
+  description: "Psychology / Research-Methods-and-Statistics / Nonverbal-Behavioral-Measurement"
+"Psychology.Social-Psychology.Cultural-Individualism-and-Collectivism":
+  label: "Psychology.Social-Psychology.Cultural-Individualism-and-Collectivism"
+  permalink: "/topic/psychology/social-psychology/cultural-individualism-and-collectivism"
+  description: "Psychology / Social-Psychology / Cultural-Individualism-and-Collectivism"
 "Psychology.Social-Psychology.Ingroup-Bias-and-Social-Identity":
   label: "Psychology.Social-Psychology.Ingroup-Bias-and-Social-Identity"
   permalink: "/topic/psychology/social-psychology/ingroup-bias-and-social-identity"
   description: "Psychology / Social-Psychology / Ingroup-Bias-and-Social-Identity"
+"Psychology.Social-Psychology.Self-Esteem-and-Culture":
+  label: "Psychology.Social-Psychology.Self-Esteem-and-Culture"
+  permalink: "/topic/psychology/social-psychology/self-esteem-and-culture"
+  description: "Psychology / Social-Psychology / Self-Esteem-and-Culture"
+"Sociology.Culture-and-Media.Individualism-and-Collectivism":
+  label: "Sociology.Culture-and-Media.Individualism-and-Collectivism"
+  permalink: "/topic/sociology/culture-and-media/individualism-and-collectivism"
+  description: "Sociology / Culture-and-Media / Individualism-and-Collectivism"
+"Sociology.Family-and-Gender.Gendered-Division-of-Labor":
+  label: "Sociology.Family-and-Gender.Gendered-Division-of-Labor"
+  permalink: "/topic/sociology/family-and-gender/gendered-division-of-labor"
+  description: "Sociology / Family-and-Gender / Gendered-Division-of-Labor"
+"Sociology.Urban-Sociology.Overtourism-and-Regional-Dispersion":
+  label: "Sociology.Urban-Sociology.Overtourism-and-Regional-Dispersion"
+  permalink: "/topic/sociology/urban-sociology/overtourism-and-regional-dispersion"
+  description: "Sociology / Urban-Sociology / Overtourism-and-Regional-Dispersion"

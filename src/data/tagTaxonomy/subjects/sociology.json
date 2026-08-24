@@ -72,5 +72,26 @@
     "Sociology.Urban-Sociology",
     "Sociology.Culture-and-Media"
   ],
-  "topics": {}
+  "topics": {
+    "Sociology.Culture-and-Media.Individualism-and-Collectivism": {
+      "subsubject": "Sociology.Culture-and-Media",
+      "relatedSubjects": [
+        "Psychology"
+      ]
+    },
+    "Sociology.Family-and-Gender.Gendered-Division-of-Labor": {
+      "subsubject": "Sociology.Family-and-Gender",
+      "relatedSubjects": [
+        "Business-Administration",
+        "Economics"
+      ]
+    },
+    "Sociology.Urban-Sociology.Overtourism-and-Regional-Dispersion": {
+      "subsubject": "Sociology.Urban-Sociology",
+      "relatedSubjects": [
+        "Business-Administration",
+        "Economics"
+      ]
+    }
+  }
 }

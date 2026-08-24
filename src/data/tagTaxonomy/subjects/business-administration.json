@@ -82,5 +82,25 @@
     "Business-Administration.Finance",
     "Business-Administration.Management-Science"
   ],
-  "topics": {}
+  "topics": {
+    "Business-Administration.Finance.Efficient-Market-Hypothesis": {
+      "subsubject": "Business-Administration.Finance",
+      "relatedSubjects": [
+        "Economics"
+      ]
+    },
+    "Business-Administration.Human-Resource-Management.Nursing-Workforce": {
+      "subsubject": "Business-Administration.Human-Resource-Management",
+      "relatedSubjects": [
+        "Economics"
+      ]
+    },
+    "Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management": {
+      "subsubject": "Business-Administration.Marketing",
+      "relatedSubjects": [
+        "Economics",
+        "Sociology"
+      ]
+    }
+  }
 }

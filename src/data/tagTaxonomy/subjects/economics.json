@@ -72,5 +72,25 @@
     "Economics.International-Economics",
     "Economics.Economic-History"
   ],
-  "topics": {}
+  "topics": {
+    "Economics.Microeconomics.Adverse-Selection-and-Lemons-Market": {
+      "subsubject": "Economics.Microeconomics"
+    },
+    "Economics.Microeconomics.Consumer-and-Producer-Surplus": {
+      "subsubject": "Economics.Microeconomics"
+    },
+    "Economics.Microeconomics.Gender-and-Labor-Economics": {
+      "subsubject": "Economics.Microeconomics",
+      "relatedSubjects": [
+        "Business-Administration",
+        "Sociology"
+      ]
+    },
+    "Economics.Public-Finance.Health-Economics-and-Nursing-Services": {
+      "subsubject": "Economics.Public-Finance",
+      "relatedSubjects": [
+        "Business-Administration"
+      ]
+    }
+  }
 }

@@ -1,7 +1,7 @@
 // ============================================================
 // 此文件由 scripts/generate-universities.js 自动生成
 // 请勿手动编辑！如需更新请运行：npm run generate:universities
-// 生成时间：2026-08-22T17:42:15.099Z
+// 生成时间：2026-08-24T03:16:48.171Z
 // ============================================================
 
 /**
@@ -1016,9 +1016,13 @@ export const universities = [
           {
             "id": "scp",
             "name": "臨床心理学専攻"
+          },
+          {
+            "id": "economics",
+            "name": "経済学・経営学専攻"
           }
         ],
-        "websiteUrl": "https://www.yamaguchi-u.ac.jp/hes/exam/past_scp/index.html"
+        "websiteUrl": "https://www.yamaguchi-u.ac.jp/hes/exam/index.html"
       }
     ]
   }

@@ -1356,6 +1356,7 @@
   "UEC/informatics_and_engineering/is/2021/is_202008_sentaku_4_1": "電気通信大学 情報理工学研究科 情報学専攻 2020年8月実施 選択問題 計算機工学 4-1 形式言語理論",
   "UEC/informatics_and_engineering/is/2021/is_202008_sentaku_4_2": "電気通信大学 情報理工学研究科 情報学専攻 2020年8月実施 選択問題 計算機工学 4-2 計算機アーキテクチャ",
   "UEC/informatics_and_engineering/is/2024/is_202308_sentaku_1": "電気通信大学 情報理工学研究科 情報学専攻 2023年8月実施 選択問題 アルゴリズムとデータ構造",
+  "UEC/informatics_and_engineering/is/2025/is_202408_sentaku_1": "電気通信大学 情報理工学研究科 情報学専攻 2024年8月実施 選択問題 アルゴリズムとデータ構造",
   "UEC/informatics_and_engineering/mise/2023/mise_202208_hissu_1": "電気通信大学 情報理工学研究科 機械知能システム学専攻 2022年8月実施 必須問題（数学）問1",
   "waseda-university/ASE/butsuri/2023/butsuri_202208_1": "早稲田大学 先進理工学研究科 物理学及応用物理学専攻 2022年8月実施 数学一般 問題1",
   "waseda-university/ASE/butsuri/2023/butsuri_202208_3": "早稲田大学 先進理工学研究科 物理学及応用物理学専攻 2022年8月実施 力学および電磁力学 問題3",
@@ -1499,6 +1500,15 @@
   "waseda-university/FSE/kikaikagaku/2024/kikaikagaku_202308_2": "早稲田大学 基幹理工学研究科 機械科学・航空宇宙専攻 2023年8月実施 力学 \\[1\\]",
   "waseda-university/FSE/sugaku/2024/sugaku_202308_linear_algebra_2": "早稲田大学 基幹理工学研究科 数学応用数理専攻 2023年8月実施 線形代数 \\[2\\]",
   "waseda-university/FSE/zairyokagaku/2024/zairyokagaku_202308_2": "早稲田大学 基幹理工学研究科 材料科学専攻 2023年8月実施 物理 \\[2\\]",
+  "yamaguchi-university/hes/economics/2026/economics_2026_first_international_civil_law": "山口大学 人間社会科学研究科 経済学・経営学専攻 経済学プログラム（経済社会政策コース）令和8年度第1回 外国人留学生選抜 専門科目（民法）",
+  "yamaguchi-university/hes/economics/2026/economics_2026_first_international_culture": "山口大学 人間社会科学研究科 経済学・経営学専攻 経済学プログラム（経済社会政策コース）令和8年度第1回 外国人留学生選抜 専門科目（文化論）",
+  "yamaguchi-university/hes/economics/2026/economics_2026_first_international_health_economics": "山口大学 人間社会科学研究科 経済学・経営学専攻 経営学プログラム（医療・福祉経営コース）令和8年度第1回 外国人留学生入試 医療経済学",
+  "yamaguchi-university/hes/economics/2026/economics_2026_first_international_tourism": "山口大学 人間社会科学研究科 経済学・経営学専攻 経済学プログラム（経済社会政策コース）令和8年度第1回 外国人留学生選抜 専門科目（観光論）",
+  "yamaguchi-university/hes/economics/2026/economics_2026_second_general_administrative_law": "山口大学 人間社会科学研究科 経済学・経営学専攻 経済学プログラム（経済社会政策コース）令和8年度第2回 一般選抜 論文（行政法）",
+  "yamaguchi-university/hes/economics/2026/economics_2026_second_general_economics": "山口大学 人間社会科学研究科 経済学・経営学専攻 経済学プログラム（経済社会政策コース）令和8年度第2回 一般入試 経済学",
+  "yamaguchi-university/hes/economics/2026/economics_2026_second_general_labor_economics": "山口大学 人間社会科学研究科 経済学・経営学専攻 経済学プログラム（経済社会政策コース）令和8年度第2回 一般入試 労働経済論・社会政策論",
+  "yamaguchi-university/hes/economics/2026/economics_2026_second_international_cultural_psychology": "山口大学 人間社会科学研究科 経済学・経営学専攻 経済学プログラム（経済社会政策コース）令和8年度第2回 外国人留学生選抜 専門科目（文化心理学）",
+  "yamaguchi-university/hes/economics/2026/economics_2026_second_international_tourism": "山口大学 人間社会科学研究科 経済学・経営学専攻 経済学プログラム（経済社会政策コース）令和8年度第2回 外国人留学生選抜 専門科目（観光論）",
   "yamaguchi-university/hes/scp/2026/scp_2026_first_clinical_psychology": "山口大学 人間社会科学研究科 臨床心理学専攻 令和8年度第1回 専門科目（臨床心理学）",
   "yamaguchi-university/hes/scp/2026/scp_2026_first_psychology": "山口大学 人間社会科学研究科 臨床心理学専攻 令和8年度第1回 専門科目（心理学）"
 }
