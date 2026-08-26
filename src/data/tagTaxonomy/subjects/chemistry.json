@@ -55,6 +55,18 @@
         "Physics"
       ]
     },
+    "Chemistry.Physical-Chemistry.Gibbs-Free-Energy-and-Non-PV-Work": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Chemistry.Physical-Chemistry.Electrochemical-Cell-Potential-from-Gibbs-Free-Energy": {
+      "subsubject": "Chemistry.Physical-Chemistry",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
     "Chemistry.Physical-Chemistry.Ideal-Gas-Thermodynamics": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [

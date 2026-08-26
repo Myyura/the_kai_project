@@ -89,6 +89,26 @@
         "Economics"
       ]
     },
+    "Business-Administration.Finance.One-Period-Binomial-Model-and-State-Prices": {
+      "subsubject": "Business-Administration.Finance",
+      "relatedSubjects": [
+        "Economics",
+        "Probability-Statistics"
+      ]
+    },
+    "Business-Administration.Finance.Put-Call-Parity": {
+      "subsubject": "Business-Administration.Finance",
+      "relatedSubjects": [
+        "Economics"
+      ]
+    },
+    "Business-Administration.Finance.Market-Price-of-Risk": {
+      "subsubject": "Business-Administration.Finance",
+      "relatedSubjects": [
+        "Economics",
+        "Probability-Statistics"
+      ]
+    },
     "Business-Administration.Human-Resource-Management.Nursing-Workforce": {
       "subsubject": "Business-Administration.Human-Resource-Management",
       "relatedSubjects": [

@@ -166,5 +166,53 @@
       "yamaguchi-university",
       "山口大学"
     ]
+  },
+  "Niigata-University": {
+    "universityId": "niigata-university",
+    "label": "新潟大学",
+    "aliases": [
+      "niigata-university",
+      "新潟大学"
+    ]
+  },
+  "Hitotsubashi-University": {
+    "universityId": "hitotsubashi-university",
+    "label": "一橋大学",
+    "aliases": [
+      "hitotsubashi-university",
+      "一橋大学"
+    ]
+  },
+  "Future-University-Hakodate": {
+    "universityId": "future-university-hakodate",
+    "label": "公立はこだて未来大学",
+    "aliases": [
+      "future-university-hakodate",
+      "公立はこだて未来大学"
+    ]
+  },
+  "Osaka-Metropolitan-University": {
+    "universityId": "osaka-metropolitan-university",
+    "label": "大阪公立大学",
+    "aliases": [
+      "osaka-metropolitan-university",
+      "大阪公立大学"
+    ]
+  },
+  "Ehime-University": {
+    "universityId": "ehime-university",
+    "label": "愛媛大学",
+    "aliases": [
+      "ehime-university",
+      "愛媛大学"
+    ]
+  },
+  "Ryukyu-University": {
+    "universityId": "ryukyu-university",
+    "label": "琉球大学",
+    "aliases": [
+      "ryukyu-university",
+      "琉球大学"
+    ]
   }
 }

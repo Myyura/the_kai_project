@@ -10,7 +10,8 @@ tags:
 # 広島大学 先進理工系科学研究科 物理学プログラム 2022年8月実施 専門科目 \[1\] 力学
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 ### 1.
@@ -22,7 +23,7 @@ tags:
 
 (2) $c^2 < 4mk$ のとき、運動方程式の一般解を求め、どのような運動をするのか図を用いて説明せよ。
 
-(2) $c^2 > 4mk$ のとき、運動方程式の一般解を求め、どのような運動をするのか図を用いて説明せよ。
+(3) $c^2 > 4mk$ のとき、運動方程式の一般解を求め、どのような運動をするのか図を用いて説明せよ。
 
 ### 2.
 図 1 のように３つの質点と３つのばねと1つの棒が組み合わされて構成され、壁に取り付けられて水平な台に置かれた系を考える。
@@ -78,7 +79,18 @@ tags:
 4. 求该系统除 $\omega_1$ 外的另外两个固有角频率。
 5. 系统共有三种固有振动模式，分别用图说明。
 
-装置的连接方式及几何关系以图 1 为准。
+装置的关键连接关系为
+
+```text
+墙 ─ 弹簧 ─ m₁(x₁)
+             │
+             ├ ─ 弹簧 ─ m₃(x₃)
+             │
+墙 ─ 弹簧 ─ m₂(x₂)
+       （竖直刚杆长为 2a）
+```
+
+刚杆中点位移为 $(x_1+x_2)/2$。
 
 ## **Kai**
 時刻を $t$ で表し、時間微分を $d/dt$ や $\dot{}$ で表す。
@@ -117,13 +129,20 @@ $$
   \begin{aligned}
   x(t)
   &= \left(
-  A \sin \left( \frac{\sqrt{4mk - c^2}}{2m} t \right)
+  A \cos \left( \frac{\sqrt{4mk - c^2}}{2m} t \right)
   + B \sin \left( \frac{\sqrt{4mk - c^2}}{2m} t \right)
   \right) \exp \left( - \frac{c}{2m} t \right)
   \end{aligned}
 $$
 
-である。
+である。したがって、振幅が包絡線 $\exp(-ct/2m)$ に沿って減少する振動となる。
+
+```text
+x
+│＼   ／＼
+│  ＼／   ＼＿
+└──────── t
+```
 
 #### (3)
 $c^2 \gt 4mk$ のときの一般解は、任意定数を $A,B$ として、
@@ -136,7 +155,14 @@ $$
   \end{aligned}
 $$
 
-である。
+である。二つの指数はいずれも負なので、振動せずに平衡点へ近づく。
+
+```text
+x
+│＼
+│  ＼＿＿
+└──────── t
+```
 
 ### 2.
 #### (1)
@@ -194,7 +220,27 @@ $$
 $$
 
 #### (3)
-(2) で求めた運動方程式は、次のように書ける：
+棒の微小回転角を $\theta$ とすると、
+
+$$
+x_1=a\theta,\qquad x_2=-a\theta.
+$$
+
+中点まわりの慣性モーメントは $I=2ma^2$、両端のばねによる復元トルクは $-2ka^2\theta$ である。よって、
+
+$$
+2ma^2\ddot\theta=-2ka^2\theta,
+\qquad
+\ddot\theta+\frac{k}{m}\theta=0.
+$$
+
+したがって、
+
+$$
+\omega_1=\sqrt{\frac{k}{m}}.
+$$
+
+また、(2) の運動方程式は
 
 $$
   \begin{align}
@@ -202,37 +248,10 @@ $$
   =
   - \frac{\omega_1^2}{4}
   \begin{pmatrix} 5 & 1 & -2 \\ 1 & 5 & -2 \\ -2 & -2 & 4 \end{pmatrix}
-  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}.
   \tag{a}
-  .
   \end{align}
 $$
-
-棒の中点が静止した状態で棒の両端が逆位相で振動する運動は
-
-$$
-  \begin{aligned}
-  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
-  =
-  \begin{pmatrix} \xi \\ - \xi \\ 0 \end{pmatrix}
-  \end{aligned}
-$$
-
-と書けるから、これを運動方程式 (a) に代入すると、
-
-$$
-  \begin{aligned}
-  \frac{d^2}{dt^2} \begin{pmatrix} \xi \\ - \xi \\ 0 \end{pmatrix}
-  &= - \frac{\omega_1^2}{4}
-  \begin{pmatrix} 5 & 1 & -2 \\ 1 & 5 & -2 \\ -2 & -2 & 4 \end{pmatrix}
-  \begin{pmatrix} \xi \\ - \xi \\ 0 \end{pmatrix}
-  \\
-  &= - \omega_1^2
-  \begin{pmatrix} \xi \\ - \xi \\ 0 \end{pmatrix}
-  \end{aligned}
-$$
-
-となり、角振動数 $\omega_1$ の固有振動モードであることがわかる。
 
 #### (4)
 (3) で現れた行列
@@ -309,7 +328,7 @@ $$
   \end{aligned}
 $$
 
-であるので、固有角振動数 $\omega_1 / \sqrt{2}, \omega_1, 2 \omega_1$ の固有振動モードはそれぞれ
+であるので、固有角振動数 $\omega_1 / \sqrt{2}, \omega_1, \sqrt{2}\omega_1$ の固有振動モードはそれぞれ
 
 $$
   \begin{aligned}
@@ -321,9 +340,17 @@ $$
   B \sin \left( \omega_1 t + \beta \right)
   \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}
   ,
-  C \sin \left( 2 \omega_1 t + \gamma \right)
+  C \sin \left( \sqrt{2}\omega_1 t + \gamma \right)
   \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}
   \end{aligned}
 $$
 
 と書ける。（ $A,B,C,\alpha,\beta,\gamma$ は初期条件から決まる定数である。）
+
+位相と振幅比を図示すると、
+
+```text
+ω₁/√2 :  m₁ →    m₂ →    m₃ ⇒
+ω₁    :  m₁ →    m₂ ←    m₃ ・
+√2ω₁ :  m₁ →    m₂ →    m₃ ←
+```

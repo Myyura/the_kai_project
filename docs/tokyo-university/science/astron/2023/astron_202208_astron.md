@@ -12,7 +12,8 @@ tags:
 # 東京大学 理学系研究科 天文学専攻 2022年8月実施 天文学
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
+
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 ### 問 1.
@@ -231,7 +232,11 @@ T
 \end{aligned}
 $$
 
-を得る。 $1987+34.65=2021.65$ であるから、求める $Y$ は $2021$ であろう。（1987年1月1日から2021年12月31年までの35年間を考えれば、確率 0.5 を超える。）
+よって
+
+$$
+Y=1987+34.65=2021.65\simeq\boxed{2022}.
+$$
 
 ### 問 3.
 #### (a)

@@ -9,28 +9,30 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2023年8月実施 解析学・微積分
 
 ## **Author**
-Casablanca, [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
+
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+
 (1) 積分
 
 $$
-I = \int_{0}^{\infty}x^5\exp(-x^4)dx
+I=\int_0^\infty x^5\exp(-x^4)\,dx
 $$
 
-を計算せよ。ただし, $\int_{-\infty}^{\infty}\exp(-x^2)dx = \sqrt{\pi}$ を証明なしに用してよい。
+を計算せよ。ただし、$\int_{-\infty}^{\infty}\exp(-x^2)\,dx=\sqrt\pi$ を証明なしに用いてよい。
 
 (2) 次の微分方程式の一般解を求めよ。
 
 $$
-\frac{dy}{dx} + y = x\sinh x
+\frac{dy}{dx}+y=x\sinh x.
 $$
 
-(3) 複素関数 $f(z) = \frac{1}{z^4 + 1}$ を考える。次の各問いに答えよ。
+(3) 複素関数 $f(z)=1/(z^4+1)$ を考える。
 
-- (a) $f(z)$ の極をすべて求めよ。
+(a) $f(z)$ の極をすべて求めよ。
 
-- (b) 下図に示す半円 $C$ に沿った複素積分 $\oint_{C}f(z)dz$ を求めよ。ただし, $R > 1$ とする。
+(b) 下図の半円閉路 $C$ に沿う複素積分 $\oint_Cf(z)\,dz$ を求めよ。ただし $R>1$ とする。
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu_2024_analysis_calculus_p1.png" width="555" height="395" alt=""/>
@@ -38,285 +40,77 @@ $$
 
 ### 题目描述
 
-1. 计算广义积分
+1. 计算 $I=\int_0^\infty x^5e^{-x^4}\,dx$，可直接使用高斯积分。
+2. 求 $y'+y=x\sinh x$ 的通解。
+3. 对 $f(z)=1/(z^4+1)$，求全部极点，并计算图示半圆闭路上的 $\oint_Cf(z)\,dz$，其中 $R>1$。
 
-   $$
-   I=\int_0^\infty x^5e^{-x^4}\,dx.
-   $$
+## **Kai**
 
-   可以不加证明地使用 $\int_{-\infty}^\infty e^{-x^2}\,dx=\sqrt\pi$。
-2. 求微分方程
-
-   $$
-   \frac{dy}{dx}+y=x\sinh x
-   $$
-
-   的通解。
-3. 对复函数
-
-   $$
-   f(z)=\frac1{z^4+1},
-   $$
-
-   求全部极点；再对上图所示、半径 $R>1$ 的半圆闭路 $C$，计算 $\oint_Cf(z)\,dz$。
-
-## **Kai** - By Casablanca
 ### (1)
 
+$u=x^2$ とくと、
+
 $$
-\begin{aligned}
-% (\int_{-\infty}^{\infty}e^{-x^2}dx)^2 &= \int e^{-x^2}dx \int e^{-y^2}dy = \int e^{-(x^2+y^2)dxdy} = \pi \\
-\left(\int_{-\infty}^{\infty}e^{-x^2}dx \right)^2 &= \pi \\
-\int x^5 e^{-x^4}dx &= \int-\frac{x^2}{4}de^{-x^4} = -\frac{1}{4}x^2e^{-x^4} + \frac{1}{4}\int e^{-x^4}dx^2 \\
-\int_0^{\infty}x^5 e^{-x^4}dx &= \frac{1}{4}\int_0^{\infty}e^{-t^2}dt = \sqrt{\pi}/8
-\end{aligned}
+I=\frac12\int_0^\infty u^2e^{-u^2}\,du.
+$$
+
+部分積分により
+
+$$
+I
+=\frac14\int_0^\infty e^{-u^2}\,du
+=\boxed{\frac{\sqrt\pi}{8}}.
 $$
 
 ### (2)
 
-$$
-\begin{aligned}
-\frac{dy}{dx} + y &= x(e^x - e^{-x})/2 \\
-e^x(y' + y) &= \frac{1}{2}x(e^{2x} - 1) \\
-(e^x y)' &= \frac{1}{2}xe^{2x} - \frac{1}{2}x \\
-\int (\frac{1}{2}xe^{2x} - \frac{1}{2}x)dx &= \frac{1}{4}xe^{2x} - \frac{1}{8}e^{2x} - \frac{x^2}{4} + C,
-\end{aligned}
-$$
+積分因子 $e^x$ をかけると
 
 $$
-y = \frac{1}{4}xe^x - \frac{1}{8}e^x - \frac{1}{4}x^2e^{-x} + Ce^{-x}
+(e^xy)'=\frac{x}{2}(e^{2x}-1).
 $$
 
-where $C$ is a constant.
+したがって
+
+$$
+e^xy=\frac14xe^{2x}-\frac18e^{2x}-\frac14x^2+C,
+$$
+
+よって
+
+$$
+\boxed{y=\frac14xe^x-\frac18e^x-\frac14x^2e^{-x}+Ce^{-x}}.
+$$
 
 ### (3)
+
 #### (a)
-Consider $z^4 = -1$,
 
-we get
+$z^4=-1=e^{i(\pi+2k\pi)}$ より、極は
 
 $$
-z_1 = \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i , z_2 = \frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2}i , z_3 = -\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i , z_4 = -\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2}i
+\boxed{z=e^{i(\pi/4+k\pi/2)}\quad(k=0,1,2,3)}.
 $$
-
-and these are the poles
 
 #### (b)
 
-$$
-\begin{aligned}
-\oint_Cf(z)dz &= 2\pi i \text{Res}[f(z),\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i] + 2\pi i \text{Res}[f(z),-\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i] \\
-&= \frac{\sqrt{2}}{2}\pi
-\end{aligned}
-$$
-
-## **Kai** - By Miyake
-### (1)
-$\exp(-x^2)$ は偶関数であるから、
+$C$ の内部の極は
 
 $$
-  \begin{align}
-  \int_{- \infty}^\infty \exp \left( -x^2 \right) dx = \sqrt{\pi}
-  \end{align}
+z_0=e^{i\pi/4},\qquad z_1=e^{3i\pi/4}
 $$
 
-より、
+である。各極の留数は $1/(4z_j^3)$ なので、
 
 $$
-  \begin{align}
-  \int_0^\infty \exp \left( -x^2 \right) dx = \frac{\sqrt{\pi}}{2}
-  \tag{A}
-  \end{align}
+\operatorname{Res}(f;z_0)+\operatorname{Res}(f;z_1)
+=-\frac{i}{2\sqrt2}.
 $$
 
-がわかる。
-
-$y=x^2$ とおくと、 $dy=2xdx$ であり、次のように計算できる：
+よって留数定理より
 
 $$
-  \begin{align}
-  I
-  &= \frac{1}{2} \int_0^\infty y^2 \exp \left( - y^2 \right) dy
-  \\
-  &= \frac{1}{2} \int_0^\infty y
-  \left( - \frac{1}{2} \exp \left( - y^2 \right) \right)' dy
-  & \left( \ ' \text{ は } y { による微分 } \right)
-  \\
-  &= - \frac{1}{4}
-  \left[ y \exp \left( - y^2 \right) \right]_0^\infty
-  + \frac{1}{4} \int_0^\infty \exp \left( - y^2 \right) dy
-  \\
-  &= \frac{\sqrt{\pi}}{8}
-  .
-  & ( \because \text{ 式 (A) } )
-  \end{align}
+\boxed{\oint_Cf(z)\,dz
+=2\pi i\left(-\frac{i}{2\sqrt2}\right)
+=\frac{\pi}{\sqrt2}}.
 $$
-
-### (2)
-
-$$
-  \begin{align}
-  \frac{dy}{dx} + y = 0
-  \end{align}
-$$
-
-の一般解は
-
-$$
-  \begin{align}
-  y &= Ce^{-x}
-  & ( C \text{ は積分定数 } )
-  \end{align}
-$$
-
-である。このことを考慮して、与えられた微分方程式
-
-$$
-  \begin{align}
-  \frac{dy}{dx} + y = x \sinh x
-  \end{align}
-$$
-
-に $y=ze^{-x}$ ( $z$ は $x$ の関数 ) を代入すると、
-
-$$
-  \begin{align}
-  \frac{dz}{dx} e^{-x} - z e^{-x} + z e^{-x} &= x \sinh x
-  \\
-  \frac{dz}{dx} e^{-x} &= x \frac{e^x - e^{-x}}{2}
-  \\
-  \frac{dz}{dx} &= \frac{1}{2} \left( x e^{2x} - x \right)
-  \\
-  \therefore \ \ 
-  z
-  &= \frac{1}{2} \int \left( x e^{2x} - x \right) dx
-  \\
-  &= \frac{1}{2}
-  \left( \frac{1}{2} x e^{2x} - \frac{1}{4} e^{2x} - \frac{x^2}{2} \right)
-  + C
-  & ( C \text{ は積分定数 } )
-  \end{align}
-$$
-
-を得るので、求める一般解は
-
-$$
-  \begin{align}
-  y &=
-  \frac{1}{4} x e^x - \frac{1}{8} e^x - \frac{1}{4} x^2 e^{-x} + C e^{-x}
-  & ( C \text{ は積分定数 } )
-  \end{align}
-$$
-
-であることがわかる。
-
-### (3)
-#### (a)
-$z^4+1=0$ に $z= r e^{i \theta}$ ( $r \gt 0, \theta$ は実数) を代入すると
-
-$$
-  \begin{align}
-  r^4 e^{4i \theta} = -1
-  \end{align}
-$$
-
-であり、
-
-$$
-  \begin{align}
-  r = 1
-  , \ \ 
-  4 \theta = \pi + 2 \pi \cdot \text{ 整数 }
-  \end{align}
-$$
-
-となる。よって、 $f(z)$ は
-
-$$
-  \begin{align}
-  z
-  &= e^{i\pi/4}, e^{3i\pi/4}, e^{5i\pi/4}, e^{7i\pi/4}
-  \\
-  &= \frac{1+i}{\sqrt{2}}, \frac{-1+i}{\sqrt{2}},
-  \frac{-1-i}{\sqrt{2}}, \frac{1-i}{\sqrt{2}}
-  \end{align}
-$$
-
-に1位の極をもつ。
-
-#### (b)
-(a) で求めた4つの極は
-
-$$
-  \begin{align}
-  z_0 &= e^{i\pi/4} = \frac{1+i}{\sqrt{2}},
-  \\
-  z_1 &= e^{3i\pi/4} = \frac{-1+i}{\sqrt{2}},
-  \\
-  z_2 &= e^{5i\pi/4} = \frac{-1-i}{\sqrt{2}},
-  \\
-  z_3 &= e^{7i\pi/4} = \frac{1-i}{\sqrt{2}}
-  \end{align}
-$$
-
-であるが、このうち $C$ の内側にあるのは $z_0, z_1$ である。
-
-$$
-  \begin{align}
-  z_0 - z_1 &= \frac{2}{\sqrt{2}} = \sqrt{2}
-  ,\\
-  z_0 - z_2 &= \frac{2+2i}{\sqrt{2}} = \sqrt{2} (1+i)
-  ,\\
-  z_0 - z_3 &= \frac{2i}{\sqrt{2}} = \sqrt{2} i
-  ,\\
-  z_1 - z_0 &= \frac{-2}{\sqrt{2}} = - \sqrt{2}
-  ,\\
-  z_1 - z_2 &= \frac{2i}{\sqrt{2}} = \sqrt{2} i
-  ,\\
-  z_1 - z_3 &= \frac{-2+2i}{\sqrt{2}} = \sqrt{2} (-1+i)
-  \end{align}
-$$
-
-なので、 $z_0$ における留数は
-
-$$
-  \begin{align}
-  \lim_{z \to z_0} (z-z_0) f(z)
-  &=
-  \frac{1}{(z_0-z_1)(z_0-z_2)(z_0-z_3)}
-  \\
-  &=
-  \frac{1}{2 \sqrt{2} (-1+i)}
-  \\
-  &= - \frac{1}{4 \sqrt{2}} (1+i)
-  \end{align}
-$$
-
-であり、 $z_1$ における留数は
-
-$$
-  \begin{align}
-  \lim_{z \to z_1} (z-z_1) f(z)
-  &=
-  \frac{1}{(z_1-z_0)(z_1-z_2)(z_1-z_3)}
-  \\
-  &=
-  \frac{1}{2 \sqrt{2} (1-i)}
-  \\
-  &= \frac{1}{4 \sqrt{2}} (1-i)
-  \end{align}
-$$
-
-である。よって、留数定理より
-
-$$
-  \begin{align}
-  \oint_C f(z) dz
-  &= 2 \pi i
-  \left( - \frac{1}{4 \sqrt{2}} (1+i) + \frac{1}{4 \sqrt{2}} (1-i) \right)
-  \\
-  &= \frac{\pi}{\sqrt{2}}
-  \end{align}
-$$
-
-がわかる。

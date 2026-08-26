@@ -10,13 +10,35 @@ tags:
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2019年8月実施 専門科目 第2問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 
 ### 题目描述
 
-原文的 Description 章节为空，未提供随机变量、参数、样本或各小问的作答要求，因此无法仅依据题面还原具体问题。
+设参数 $\gamma>0$，随机变量 $X_1,\ldots,X_n$ 独立同分布，其密度为
+
+$$
+f(x;\gamma)=
+\begin{cases}
+\dfrac1\gamma e^{-x/\gamma},&x>0,\\
+0,&\text{其他}.
+\end{cases}
+$$
+
+把样本按升序记为 $X_{(1)},\ldots,X_{(n)}$。
+
+1. 求 $E[X_1]$。
+2. 求 $X_{(1)}$ 的密度与期望。
+3. 分别求 $X_1$ 与 $X_{(1)}$ 的偏度；随机变量 $Y$ 的偏度定义为 $E[(Y-\mu_Y)^3]/\sigma_Y^3$。
+4. 令
+
+   $$
+   T_n=\frac1{n-1}\sum_{i=2}^nX_{(i)}.
+   $$
+
+   把 $T_n$ 作为 $\gamma$ 的估计量，求其偏差 $E[T_n]-\gamma$。
 
 ## **Kai**
 ### (2-1)
@@ -75,9 +97,11 @@ $$
 $$
 \begin{aligned}
 f_{(1)}(x; \gamma)
-&= \frac{d}{dx} \left( 1 - e^{ - nx / \gamma } \right)
-\\
-&= \frac{n}{\gamma} e^{ - nx / \gamma }
+&=
+\begin{cases}
+\dfrac{n}{\gamma}e^{-nx/\gamma},&x>0,\\
+0,&x\leq 0,
+\end{cases}
 \\
 E[X_{(1)}]
 &= \frac{\gamma}{n}
@@ -85,6 +109,31 @@ E[X_{(1)}]
 $$
 
 ### (2-3)
+
+指数分布のモーメントより
+
+$$
+E[X_1^k]=k!\gamma^k.
+$$
+
+したがって、
+
+$$
+\begin{aligned}
+\operatorname{Var}(X_1)&=2\gamma^2-\gamma^2=\gamma^2,\\
+E[(X_1-\gamma)^3]
+&=6\gamma^3-3\gamma\cdot2\gamma^2+2\gamma^3
+=2\gamma^3.
+\end{aligned}
+$$
+
+よって $X_1$ の歪度は
+
+$$
+\frac{2\gamma^3}{(\gamma^2)^{3/2}}=2.
+$$
+
+また、$X_{(1)}$ は尺度母数 $\gamma/n$ の指数分布に従うので、その歪度も $2$ である。
 
 ### (2-4)
 

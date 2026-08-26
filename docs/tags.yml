@@ -84,6 +84,30 @@
   label: "Yamaguchi-University"
   permalink: "/school/yamaguchi-university"
   description: "Yamaguchi-University (山口大学)"
+"Niigata-University":
+  label: "Niigata-University"
+  permalink: "/school/niigata-university"
+  description: "Niigata-University (新潟大学)"
+"Hitotsubashi-University":
+  label: "Hitotsubashi-University"
+  permalink: "/school/hitotsubashi-university"
+  description: "Hitotsubashi-University (一橋大学)"
+"Future-University-Hakodate":
+  label: "Future-University-Hakodate"
+  permalink: "/school/future-university-hakodate"
+  description: "Future-University-Hakodate (公立はこだて未来大学)"
+"Osaka-Metropolitan-University":
+  label: "Osaka-Metropolitan-University"
+  permalink: "/school/osaka-metropolitan-university"
+  description: "Osaka-Metropolitan-University (大阪公立大学)"
+"Ehime-University":
+  label: "Ehime-University"
+  permalink: "/school/ehime-university"
+  description: "Ehime-University (愛媛大学)"
+"Ryukyu-University":
+  label: "Ryukyu-University"
+  permalink: "/school/ryukyu-university"
+  description: "Ryukyu-University (琉球大学)"
 "Mathematics.Calculus":
   label: "Mathematics.Calculus"
   permalink: "/subsubject/mathematics/calculus"
@@ -356,6 +380,22 @@
   label: "Chemistry.Organic-Chemistry"
   permalink: "/subsubject/chemistry/organic-chemistry"
   description: "Chemistry / Organic-Chemistry"
+"Earth-Science.Geochronology":
+  label: "Earth-Science.Geochronology"
+  permalink: "/subsubject/earth-science/geochronology"
+  description: "Earth-Science / Geochronology"
+"Earth-Science.Periglacial-Geomorphology":
+  label: "Earth-Science.Periglacial-Geomorphology"
+  permalink: "/subsubject/earth-science/periglacial-geomorphology"
+  description: "Earth-Science / Periglacial-Geomorphology"
+"Earth-Science.Fluvial-Geomorphology":
+  label: "Earth-Science.Fluvial-Geomorphology"
+  permalink: "/subsubject/earth-science/fluvial-geomorphology"
+  description: "Earth-Science / Fluvial-Geomorphology"
+"Earth-Science.Structural-Geology":
+  label: "Earth-Science.Structural-Geology"
+  permalink: "/subsubject/earth-science/structural-geology"
+  description: "Earth-Science / Structural-Geology"
 "Bioinformatics.Bioinformatics":
   label: "Bioinformatics.Bioinformatics"
   permalink: "/subsubject/bioinformatics/bioinformatics"
@@ -504,6 +544,18 @@
   label: "Business-Administration.Finance.Efficient-Market-Hypothesis"
   permalink: "/topic/business-administration/finance/efficient-market-hypothesis"
   description: "Business-Administration / Finance / Efficient-Market-Hypothesis"
+"Business-Administration.Finance.Market-Price-of-Risk":
+  label: "Business-Administration.Finance.Market-Price-of-Risk"
+  permalink: "/topic/business-administration/finance/market-price-of-risk"
+  description: "Business-Administration / Finance / Market-Price-of-Risk"
+"Business-Administration.Finance.One-Period-Binomial-Model-and-State-Prices":
+  label: "Business-Administration.Finance.One-Period-Binomial-Model-and-State-Prices"
+  permalink: "/topic/business-administration/finance/one-period-binomial-model-and-state-prices"
+  description: "Business-Administration / Finance / One-Period-Binomial-Model-and-State-Prices"
+"Business-Administration.Finance.Put-Call-Parity":
+  label: "Business-Administration.Finance.Put-Call-Parity"
+  permalink: "/topic/business-administration/finance/put-call-parity"
+  description: "Business-Administration / Finance / Put-Call-Parity"
 "Business-Administration.Human-Resource-Management.Nursing-Workforce":
   label: "Business-Administration.Human-Resource-Management.Nursing-Workforce"
   permalink: "/topic/business-administration/human-resource-management/nursing-workforce"
@@ -560,6 +612,10 @@
   label: "Chemistry.Physical-Chemistry.Einstein-Solid-Heat-Capacity"
   permalink: "/topic/chemistry/physical-chemistry/einstein-solid-heat-capacity"
   description: "Chemistry / Physical-Chemistry / Einstein-Solid-Heat-Capacity"
+"Chemistry.Physical-Chemistry.Electrochemical-Cell-Potential-from-Gibbs-Free-Energy":
+  label: "Chemistry.Physical-Chemistry.Electrochemical-Cell-Potential-from-Gibbs-Free-Energy"
+  permalink: "/topic/chemistry/physical-chemistry/electrochemical-cell-potential-from-gibbs-free-energy"
+  description: "Chemistry / Physical-Chemistry / Electrochemical-Cell-Potential-from-Gibbs-Free-Energy"
 "Chemistry.Physical-Chemistry.Entropy-Change":
   label: "Chemistry.Physical-Chemistry.Entropy-Change"
   permalink: "/topic/chemistry/physical-chemistry/entropy-change"
@@ -568,6 +624,10 @@
   label: "Chemistry.Physical-Chemistry.Enzyme-Inhibition-and-Lineweaver-Burk-Plot"
   permalink: "/topic/chemistry/physical-chemistry/enzyme-inhibition-and-lineweaver-burk-plot"
   description: "Chemistry / Physical-Chemistry / Enzyme-Inhibition-and-Lineweaver-Burk-Plot"
+"Chemistry.Physical-Chemistry.Gibbs-Free-Energy-and-Non-PV-Work":
+  label: "Chemistry.Physical-Chemistry.Gibbs-Free-Energy-and-Non-PV-Work"
+  permalink: "/topic/chemistry/physical-chemistry/gibbs-free-energy-and-non-pv-work"
+  description: "Chemistry / Physical-Chemistry / Gibbs-Free-Energy-and-Non-PV-Work"
 "Chemistry.Physical-Chemistry.Ideal-Gas-Thermodynamics":
   label: "Chemistry.Physical-Chemistry.Ideal-Gas-Thermodynamics"
   permalink: "/topic/chemistry/physical-chemistry/ideal-gas-thermodynamics"
@@ -2316,6 +2376,22 @@
   label: "Discrete-Mathematics.Set-Theory.Image-of-Intersection"
   permalink: "/topic/discrete-mathematics/set-theory/image-of-intersection"
   description: "Discrete-Mathematics / Set-Theory / Image-of-Intersection"
+"Earth-Science.Fluvial-Geomorphology.Fluvial-Terraces-and-River-Incision":
+  label: "Earth-Science.Fluvial-Geomorphology.Fluvial-Terraces-and-River-Incision"
+  permalink: "/topic/earth-science/fluvial-geomorphology/fluvial-terraces-and-river-incision"
+  description: "Earth-Science / Fluvial-Geomorphology / Fluvial-Terraces-and-River-Incision"
+"Earth-Science.Geochronology.Radiocarbon-Decay-and-Dating-Limit":
+  label: "Earth-Science.Geochronology.Radiocarbon-Decay-and-Dating-Limit"
+  permalink: "/topic/earth-science/geochronology/radiocarbon-decay-and-dating-limit"
+  description: "Earth-Science / Geochronology / Radiocarbon-Decay-and-Dating-Limit"
+"Earth-Science.Periglacial-Geomorphology.Active-Layer-Permafrost-and-Pingo":
+  label: "Earth-Science.Periglacial-Geomorphology.Active-Layer-Permafrost-and-Pingo"
+  permalink: "/topic/earth-science/periglacial-geomorphology/active-layer-permafrost-and-pingo"
+  description: "Earth-Science / Periglacial-Geomorphology / Active-Layer-Permafrost-and-Pingo"
+"Earth-Science.Structural-Geology.Active-Fault-Geomorphology":
+  label: "Earth-Science.Structural-Geology.Active-Fault-Geomorphology"
+  permalink: "/topic/earth-science/structural-geology/active-fault-geomorphology"
+  description: "Earth-Science / Structural-Geology / Active-Fault-Geomorphology"
 "Economics.Microeconomics.Adverse-Selection-and-Lemons-Market":
   label: "Economics.Microeconomics.Adverse-Selection-and-Lemons-Market"
   permalink: "/topic/economics/microeconomics/adverse-selection-and-lemons-market"
@@ -2788,6 +2864,10 @@
   label: "Engineering.Fluid-Mechanics.Logarithmic-Wind-Profile-and-Wind-Power-Scaling"
   permalink: "/topic/engineering/fluid-mechanics/logarithmic-wind-profile-and-wind-power-scaling"
   description: "Engineering / Fluid-Mechanics / Logarithmic-Wind-Profile-and-Wind-Power-Scaling"
+"Engineering.Materials-Science.Piezoelectric-Effect-and-Element":
+  label: "Engineering.Materials-Science.Piezoelectric-Effect-and-Element"
+  permalink: "/topic/engineering/materials-science/piezoelectric-effect-and-element"
+  description: "Engineering / Materials-Science / Piezoelectric-Effect-and-Element"
 "Engineering.Mechanics-of-Materials.Beam-Deflection":
   label: "Engineering.Mechanics-of-Materials.Beam-Deflection"
   permalink: "/topic/engineering/mechanics-of-materials/beam-deflection"
@@ -4404,6 +4484,10 @@
   label: "Physics.Electromagnetism.Fields-on-Axis-of-Charged-Rotating-Ring"
   permalink: "/topic/physics/electromagnetism/fields-on-axis-of-charged-rotating-ring"
   description: "Physics / Electromagnetism / Fields-on-Axis-of-Charged-Rotating-Ring"
+"Physics.Electromagnetism.Gauge-Transformation-and-Gauge-Invariance":
+  label: "Physics.Electromagnetism.Gauge-Transformation-and-Gauge-Invariance"
+  permalink: "/topic/physics/electromagnetism/gauge-transformation-and-gauge-invariance"
+  description: "Physics / Electromagnetism / Gauge-Transformation-and-Gauge-Invariance"
 "Physics.Electromagnetism.Gauss-Law":
   label: "Physics.Electromagnetism.Gauss-Law"
   permalink: "/topic/physics/electromagnetism/gauss-law"
@@ -4612,6 +4696,10 @@
   label: "Physics.Quantum-Mechanics.Identical-Fermions-Spin-and-Spatial-Symmetry"
   permalink: "/topic/physics/quantum-mechanics/identical-fermions-spin-and-spatial-symmetry"
   description: "Physics / Quantum-Mechanics / Identical-Fermions-Spin-and-Spatial-Symmetry"
+"Physics.Quantum-Mechanics.Landau-Levels-in-Uniform-Magnetic-Field":
+  label: "Physics.Quantum-Mechanics.Landau-Levels-in-Uniform-Magnetic-Field"
+  permalink: "/topic/physics/quantum-mechanics/landau-levels-in-uniform-magnetic-field"
+  description: "Physics / Quantum-Mechanics / Landau-Levels-in-Uniform-Magnetic-Field"
 "Physics.Quantum-Mechanics.Lewis-Riesenfeld-Invariant":
   label: "Physics.Quantum-Mechanics.Lewis-Riesenfeld-Invariant"
   permalink: "/topic/physics/quantum-mechanics/lewis-riesenfeld-invariant"
@@ -4740,6 +4828,10 @@
   label: "Physics.Thermodynamics.Maxwell-Relations"
   permalink: "/topic/physics/thermodynamics/maxwell-relations"
   description: "Physics / Thermodynamics / Maxwell-Relations"
+"Physics.Thermodynamics.Mean-Field-Ising-Model-and-Phase-Transition":
+  label: "Physics.Thermodynamics.Mean-Field-Ising-Model-and-Phase-Transition"
+  permalink: "/topic/physics/thermodynamics/mean-field-ising-model-and-phase-transition"
+  description: "Physics / Thermodynamics / Mean-Field-Ising-Model-and-Phase-Transition"
 "Physics.Thermodynamics.Photon-Gas-and-Stefan-Boltzmann-Law":
   label: "Physics.Thermodynamics.Photon-Gas-and-Stefan-Boltzmann-Law"
   permalink: "/topic/physics/thermodynamics/photon-gas-and-stefan-boltzmann-law"

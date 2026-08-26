@@ -10,13 +10,30 @@ tags:
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2017年8月実施 専門科目 第2問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 
 ### 题目描述
 
-原文的 Description 章节为空，未提供题干、联合密度函数、变量取值范围或各小问的作答要求，因此无法仅依据题面还原具体问题。
+随机变量 $X,Y$ 的联合密度为
+
+$$
+f_{X,Y}(x,y)=
+\begin{cases}
+cxy,&0<x<y<2,\\
+0,&\text{其他},
+\end{cases}
+$$
+
+其中 $c$ 为常数。
+
+1. 求 $c$。
+2. 求条件概率 $P(0<X<1/4\mid Y=1/2)$。
+3. 判断 $X,Y$ 是否独立，并说明理由。
+4. 求相关系数 $r_{XY}$。
+5. 令 $U=aX+b,\ V=cY+d$。求 $r_{UV}$ 与 $r_{XY}$ 符号相反时，实数 $a,b,c,d$ 应满足的条件。
 
 ## **Kai**
 ### (2-1)
@@ -40,10 +57,12 @@ c &= \frac{1}{2}
 $$
 
 ### (2-2)
+条件付き密度を用いると，
 
 $$
 \begin{aligned}
-\int_0^{1/2} f_{X,Y} \left(x, \frac{1}{2} \right) dx
+f_Y\left(\frac12\right)
+&=\int_0^{1/2} f_{X,Y} \left(x, \frac{1}{2} \right) dx
 &= \frac{1}{4} \int_0^{1/2} x dx
 = \frac{1}{4} \left[ \frac{x^2}{2} \right]_0^{1/2}
 = \frac{1}{2^5}
@@ -118,13 +137,32 @@ E(XY)
 = \frac{1}{6} \left[ \frac{y^6}{6} \right]_0^2
 = \frac{16}{9}
 \\
-\therefore \ \ \ \ 
-r_{XY}
+\operatorname{Cov}(X,Y)
 &= E(XY) - E(X) E(Y)
 = \frac{16}{9} - \frac{16}{15} \cdot \frac{8}{5}
 = \frac{16}{225}
+\\
+E(X^2)
+&=\int_0^2x^2f_X(x)\,dx=\frac43,
+\qquad
+E(Y^2)=\int_0^2y^2f_Y(y)\,dy=\frac83
+\\
+V(X)&=\frac{44}{225},
+\qquad
+V(Y)=\frac{8}{75}
+\\
+\therefore\quad
+r_{XY}
+&=\frac{\operatorname{Cov}(X,Y)}{\sqrt{V(X)V(Y)}}
+=\frac{4}{\sqrt{66}}
 \end{aligned}
 $$
 
 ### (2-5)
-$r_{UV} = ac r_{XY}$ であるから、$ac \lt 0$ のとき正負が逆になる。
+$a,c\neq0$ のとき，
+
+$$
+r_{UV}=\frac{ac}{|a||c|}r_{XY}=\operatorname{sgn}(ac)r_{XY}.
+$$
+
+したがって，正負が逆になる条件は $ac<0$ である。

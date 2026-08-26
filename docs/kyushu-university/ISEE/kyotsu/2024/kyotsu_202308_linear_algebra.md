@@ -9,24 +9,34 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2023年8月実施 線形代数
 
 ## **Author**
-Casablanca, [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
+
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
-$m \times n$ 実行列 $A$ と $m$ 次元実ベクトル $\boldsymbol{b}$ に対して, $S = \{\boldsymbol{x} \in \mathbb{R}| A\boldsymbol{x} = \boldsymbol{b}\},f(\boldsymbol{x}) = A\boldsymbol{x}$ を定義する。このとき、以下の問いに答えよ。ただし、以下の事実は証明なしに用してよい。
+$m \times n$ 実行列 $A$ と $m$ 次元実ベクトル $\boldsymbol{b}$ に対して、
 
-事実。 $\mathbb{R}$ 上のベクトル空間 (線形空間) $V$ の部分集合 $W$ が　の部分空間である必要十分条件は以下の条件が満たされることである。
+$$
+S=\{\boldsymbol{x}\in\mathbb R^n\mid A\boldsymbol{x}=\boldsymbol b\},
+\qquad f(\boldsymbol{x})=A\boldsymbol{x}
+$$
 
-- C1: $0 \in W$.
-- C2: $u,v \in W$ ならば $\boldsymbol{u} + \boldsymbol{v} \in W$.
-- C3: $u \in W$, $c \in \mathbb{R}$ ならば $c\boldsymbol{u} \in W$.
+とする。部分空間の判定条件 C1～C3 は証明なしに用いてよい。
 
-(1) $A = \begin{bmatrix} 2 & 0 & 2 & 0 \\ 0 & 8 & 24 & 24 \\ 0 & 2 & 6 & 6 \end{bmatrix}$ であるとき, $f$ の核 $\text{Ker}(f)$ の次元と基底を一組求めよ。
+(1) 次の $A$ に対し、$\ker f$ の次元と基底を1組求めよ。
 
-(2) 一般に $\text{Ker}(f)$ が $\mathbb{R}^n$ の部分空間であることを示せ。
+$$
+A=\begin{pmatrix}
+2&0&2&0\\
+0&8&24&24\\
+0&2&6&6
+\end{pmatrix}.
+$$
 
-(3) $S$ が $\mathbb{R}^n$ の部分空間であるとき, $\boldsymbol{b} = \boldsymbol{0}$ であることを示せ。
+(2) 一般に $\ker f$ が $\mathbb R^n$ の部分空間であることを示せ。
 
-(4) $S$ が $\mathbb{R}^n$ の部分空間, $A$ が正方行列であるとする。このとき, $A$ が正則行列であるならば, $S = \{\boldsymbol{0}\}$ であることを示せ。
+(3) $S$ が $\mathbb R^n$ の部分空間であるならば $\boldsymbol b=\boldsymbol0$ であることを示せ。
+
+(4) $S$ が $\mathbb R^n$ の部分空間、$A$ が正方行列であるとする。$A$ が正則ならば $S=\{\boldsymbol0\}$ であることを示せ。
 
 ### 题目描述
 
@@ -34,250 +44,71 @@ $m \times n$ 実行列 $A$ と $m$ 次元実ベクトル $\boldsymbol{b}$ に対
 
 $$
 S=\{\boldsymbol x\in\mathbb R^n\mid A\boldsymbol x=\boldsymbol b\},
-\qquad
-f(\boldsymbol x)=A\boldsymbol x.
+\qquad f(\boldsymbol x)=A\boldsymbol x.
 $$
 
-可直接使用子空间判别准则：$W\subseteq V$ 是实向量空间 $V$ 的子空间，当且仅当 $0\in W$，且 $W$ 对向量加法和实数倍封闭。
-
-1. 当
-
-   $$
-   A=\begin{bmatrix}
-   2&0&2&0\\
-   0&8&24&24\\
-   0&2&6&6
-   \end{bmatrix}
-   $$
-
-   时，求 $\ker f$ 的维数及一组基。
-2. 证明一般情况下 $\ker f$ 是 $\mathbb R^n$ 的子空间。
+1. 对上述给定的 $A$，求 $\ker f$ 的维数及一组基。
+2. 证明 $\ker f$ 是 $\mathbb R^n$ 的子空间。
 3. 证明若 $S$ 是 $\mathbb R^n$ 的子空间，则 $\boldsymbol b=\boldsymbol0$。
-4. 再设 $A$ 为方阵且 $S$ 是 $\mathbb R^n$ 的子空间，证明若 $A$ 可逆，则 $S=\{\boldsymbol0\}$。
+4. 再设 $A$ 为方阵且可逆，证明 $S=\{\boldsymbol0\}$。
 
-## **Kai** - By Casablanca
+## **Kai**
+
 ### (1)
-Consider $A\vec{x} = 0$
+
+$\boldsymbol{x}=(p,q,r,s)^{\mathsf T}$ とくと、$A\boldsymbol{x}=\boldsymbol0$ より
 
 $$
-\begin{bmatrix}
-2 & 0 & 2 & 0 \\
-0 & 8 & 24 & 24 \\
-0 & 2 & 6 & 6 \\
-\end{bmatrix} \vec{x} = 0 
-\qquad 
-\vec{x} = \begin{bmatrix}
--u \\ -3u - 3v \\ u \\ v \\
-\end{bmatrix}
-= u
-\begin{bmatrix}
--1 \\ -3 \\ 1 \\ 0 \\
-\end{bmatrix} 
-+ v
-\begin{bmatrix}
-0 \\ -3 \\ 0 \\ 1
-\end{bmatrix}
+p=-r,\qquad q=-3r-3s.
 $$
 
-thus dimention of the kernel is $2$, $a$ basis is $\begin{bmatrix}-1 \\ -3 \\ 1 \\ 0 \\\end{bmatrix}$, $\begin{bmatrix}0 \\ -3 \\ 0 \\ 1 \\\end{bmatrix}$
+したがって
+
+$$
+\ker f
+=\left\{
+r\begin{pmatrix}-1\\-3\\1\\0\end{pmatrix}
++s\begin{pmatrix}0\\-3\\0\\1\end{pmatrix}
+\middle|r,s\in\mathbb R
+\right\}.
+$$
+
+よって $\dim\ker f=2$ であり、例えば
+
+$$
+\begin{pmatrix}-1\\-3\\1\\0\end{pmatrix},
+\quad
+\begin{pmatrix}0\\-3\\0\\1\end{pmatrix}
+$$
+
+が基底である。
 
 ### (2)
-For convenience, let $\vec{x_1} = \begin{bmatrix}-1 & -3 & 1 & 0\end{bmatrix}^{\top} ,\vec{x_2} = \begin{bmatrix}0 & -3 & 0 & 1\end{bmatrix}^{\top}$
 
-- C1: $A\vec{0} = 0$ , thus $0 \in \text{Ker}(f)$
-- C2: if $A\vec{m} = 0, A\vec{n} = 0$, then $A (\vec{m} + \vec{n}) = A\vec{m} + A\vec{n} = 0$, that is, $\vec{m},\vec{n} \in \text{Ker}(f) \Rightarrow \vec{m} + \vec{n} \in \text{Ker}(f)$
-- C3: if $A\vec{m} = 0$, then $A(c\vec{m}) = cA\vec{m} = 0$, that is, $\vec{m} \in \text{Ker}(f) \Rightarrow c \vec{m} \in \text{Ker}(f)$
+$A\boldsymbol0=\boldsymbol0$ より $\boldsymbol0\in\ker f$。また $\boldsymbol u,\boldsymbol v\in\ker f$ と $c\in\mathbb R$ に対し、
 
-C1, C2, C3 holds all, hence $\text{Ker}(f)$ is a subspace.
+$$
+A(\boldsymbol u+\boldsymbol v)=A\boldsymbol u+A\boldsymbol v=\boldsymbol0,
+\qquad
+A(c\boldsymbol u)=cA\boldsymbol u=\boldsymbol0.
+$$
+
+よって C1～C3 が成り立ち、$\ker f$ は $\mathbb R^n$ の部分空間である。
 
 ### (3)
-If $\vec{b} = \vec{0}$,
 
-- for C1, $A\vec{0} = \vec{0},\vec{0} \in S$
-- for C2, $A\vec{m} = 0, A\vec{n} = 0 \Rightarrow A(\vec{m} + \vec{n}) = 0 \Rightarrow \vec{m} + \vec{n} \in S$
-- for C3, $A\vec{m} = 0 \Rightarrow A(c\vec{m}) = 0 \Rightarrow c\vec{m} \in S$
+$S$ が部分空間ならば $\boldsymbol0\in S$ であるから、
 
-Since $S$ is a subspace, $\vec{0}\in S$. Hence $A\vec{0}=\vec{b}$; since $A\vec{0}=\vec{0}$, we have $\vec{b}=\vec{0}$.
+$$
+\boldsymbol b=A\boldsymbol0=\boldsymbol0.
+$$
 
 ### (4)
-Suppose that $A$ is invertible.
 
-(i) It's trivial that $\vec{0} \in S$.
-
-(ii) Assume that $\vec{v} \neq 0,\vec{v} \in S$, then $A\vec{v} = 0$.
-We have
+(3) より $\boldsymbol b=\boldsymbol0$。$\boldsymbol x\in S$ ならば $A\boldsymbol x=\boldsymbol0$ である。$A$ は正則なので
 
 $$
-A^{-1} (A\vec{v}) = A^{-1}0 = 0 \Rightarrow \vec{v} = 0
+\boldsymbol x=A^{-1}\boldsymbol0=\boldsymbol0.
 $$
 
-a contradiction.
-
-Hence $S = \{\vec{0}\}$.
-
-## **Kai** - By Miyake
-### (1)
-$p,q,r,s \in \mathbb{R}$ について
-
-$$
-  \begin{aligned}
-  A \begin{pmatrix} p \\ q \\ r \\ s \end{pmatrix}
-  = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
-  \end{aligned}
-$$
-
-が成り立つとすると
-
-$$
-  \begin{aligned}
-  p+r=0, \ \ q+3r+3s=0
-  \end{aligned}
-$$
-
-となるので、
-
-$$
-  \begin{aligned}
-  \mathrm{Ker}(f)
-  = \left\{ 
-  \begin{pmatrix} -r \\ -3r-3s \\ r \\ s \end{pmatrix}
-  \middle| r, s \in \mathbb{R}
-  \right\}
-  \end{aligned}
-$$
-
-がわかる。よって、 $\mathrm{Ker}(f)$ の次元は $2$ であり、例えば
-
-$$
-  \begin{aligned}
-  \begin{pmatrix} -1 \\ -3 \\ 1 \\ 0 \end{pmatrix}
-  , \ \ 
-  \begin{pmatrix} 0 \\ -3 \\ 0 \\ 1 \end{pmatrix}
-  \end{aligned}
-$$
-
-は基底となる。
-
-### (2)
-$\mathrm{Ker}(f)$ が与えられた条件 C1, C2, C3 を満たすことを確認すればよい。
-
-(C1 の確認)
-
-$$
-  \begin{aligned}
-  A \boldsymbol{0} = \boldsymbol{0}
-  \end{aligned}
-$$
-
-なので $\boldsymbol{0} \in \mathrm{Ker}(f)$ がわかる。
-
-(C2 の確認)
-
-$\boldsymbol{u}, \boldsymbol{v} \in \mathrm{Ker}(f)$ とすると
-
-$$
-  \begin{aligned}
-  A \boldsymbol{u} = A \boldsymbol{v} = \boldsymbol{0}
-  \end{aligned}
-$$
-
-であり、このとき
-
-$$
-  \begin{aligned}
-  f( \boldsymbol{u} + \boldsymbol{v} )
-  &= A( \boldsymbol{u} + \boldsymbol{v} )
-  \\
-  &= A \boldsymbol{u} + A \boldsymbol{v}
-  \\
-  &= \boldsymbol{0} + \boldsymbol{0}
-  \\
-  &= \boldsymbol{0}
-  \end{aligned}
-$$
-
-となるので、$\boldsymbol{u} + \boldsymbol{v} \in \mathrm{Ker}(f)$ がわかる。
-
-(C3 の確認)
-
-$\boldsymbol{u} \in \mathrm{Ker}(f)$ とすると
-
-$$
-  \begin{aligned}
-  A \boldsymbol{u} = \boldsymbol{0}
-  \end{aligned}
-$$
-
-であり、このとき、 $c \in \mathbb{R}$ について
-
-$$
-  \begin{aligned}
-  f( c \boldsymbol{u} )
-  &= A c \boldsymbol{u}
-  \\
-  &= c A \boldsymbol{u}
-  \\
-  &= c \boldsymbol{0}
-  \\
-  &= \boldsymbol{0}
-  \end{aligned}
-$$
-
-となるので、
-
-$c \boldsymbol{u} \in \mathrm{Ker}(f)$ がわかる。
-
-### (3)
-$S$ が $\mathbb{R}^n$ の部分空間であるとき、$\boldsymbol{0} \in S$ であるから
-
-$$
-  \begin{aligned}
-  A \boldsymbol{0} = \boldsymbol{b}
-  \end{aligned}
-$$
-
-が成り立つ。
-
-これの左辺は $\boldsymbol{0}$ であるから右辺も $\boldsymbol{0}$ であり、
-
-$$
-  \begin{aligned}
-  \boldsymbol{b} = \boldsymbol{0}
-  \end{aligned}
-$$
-
-がわかる。
-
-### (4)
-$S$ が $\mathbb{R}^n$ の部分空間であるとき、C1 から $\boldsymbol{0} \in S$ であり、(3) から $\boldsymbol{b} = \boldsymbol{0}$ である。
-
-よって、 $\boldsymbol{x} \in S$ とすると、
-
-$$
-  \begin{aligned}
-  A \boldsymbol{x} = \boldsymbol{0}
-  \end{aligned}
-$$
-
-であるが、 $A$ が正則行列のとき逆行列 $A^{-1}$ が存在し、
-
-$$
-  \begin{aligned}
-  A^{-1} A \boldsymbol{x} &= A^{-1} \boldsymbol{0}
-  \\
-  \therefore \ \ 
-  \boldsymbol{x} &= \boldsymbol{0}
-  \end{aligned}
-$$
-
-が得られる。
-
-$\boldsymbol{x} \in S$ から $\boldsymbol{x} = \boldsymbol{0}$ が得られたので
-
-$$
-  \begin{aligned}
-  S = \left\{ \boldsymbol{0} \right\}
-  \end{aligned}
-$$
-
-である。
+また $\boldsymbol0\in S$ であるから、$S=\{\boldsymbol0\}$ である。

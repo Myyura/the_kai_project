@@ -20,7 +20,13 @@
     "hosei-university": "#f28c28",
     "saitama-university": "#0068b7",
     "meiji-university": "#8b1e3f",
-    "yamaguchi-university": "#8a6f5a"
+    "yamaguchi-university": "#8a6f5a",
+    "niigata-university": "#005e4f",
+    "hitotsubashi-university": "#8b1c40",
+    "future-university-hakodate": "#1976a3",
+    "osaka-metropolitan-university": "#0078a6",
+    "ehime-university": "#e87521",
+    "ryukyu-university": "#2c8b57"
   },
   "websiteUrls": {
     "tokyo-university/science": "https://www.s.u-tokyo.ac.jp/ja/admission/master/index.html",
@@ -53,6 +59,7 @@
     "TITech/MCS": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide",
     "TITech/MCT": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide",
     "TITech/science": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide",
+    "TITech/life_science_and_technology": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide",
     "hokkaido-university/fisheries_sciences": "https://www2.fish.hokudai.ac.jp/admission/mcdc.html",
     "hokkaido-university/IST": "https://www.ist.hokudai.ac.jp/examinfo/",
     "hokkaido-university/public_policy": "https://www.hops.hokudai.ac.jp/admission/",
@@ -74,10 +81,17 @@
     "UEC/informatics_and_engineering": "https://www.uec.ac.jp/education/graduate/admission/request.html",
     "hiroshima-university/ASE": "https://www.hiroshima-u.ac.jp/adse/admission",
     "TUAT/engineering": "https://www.tuat.ac.jp/admission/nyushi_daigakuin/",
+    "TUAT/BASE": "https://www.tuat.ac.jp/admission/nyushi_daigakuin/",
     "kanazawa-university/nst": "https://www.kanazawa-u.ac.jp/education/admission/graduate",
     "hosei-university/science_and_engineering": "https://www.hosei.ac.jp/gs/riko/",
     "saitama-university/science_and_engineering": "https://www.saitama-u.ac.jp/rikogaku/admission/",
     "meiji-university/advanced_mathematical_sciences": "https://www.meiji.ac.jp/ams/exam/",
-    "yamaguchi-university/hes": "https://www.yamaguchi-u.ac.jp/hes/exam/index.html"
+    "yamaguchi-university/hes": "https://www.yamaguchi-u.ac.jp/hes/exam/index.html",
+    "niigata-university/natural_sciences": "https://www.gs.niigata-u.ac.jp/~gsweb/admission/r4_pq.html",
+    "hitotsubashi-university/economics": "https://www.econ.hit-u.ac.jp/jpn/page/examinee/graduate_admissions/past_exam.html",
+    "future-university-hakodate/system_information_science": "https://www.fun.ac.jp/past-graduate-school-exam",
+    "osaka-metropolitan-university/science": "https://www.omu.ac.jp/sci/admission/",
+    "ehime-university/science_and_engineering": "http://earth.sci.ehime-u.ac.jp/gradexam.html",
+    "ryukyu-university/science_and_engineering": "http://www.phys.u-ryukyu.ac.jp/gakunai/inshi.html"
   }
 }

@@ -9,13 +9,31 @@ tags:
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2018年8月実施 専門科目 第2問
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 
 ### 题目描述
 
-原文的 Description 章节为空，未提供拉普拉斯分布的参数化形式、样本、假设或各小问要求，因此无法仅依据题面还原具体问题。
+已知 $\lambda>0$，未知参数 $\mu\geq0$。随机变量 $X$ 的密度为
+
+$$
+f(x)=\frac{\lambda}{2}\exp(-\lambda|x-\mu|),
+\qquad x\in\mathbb R.
+$$
+
+1. 求 $X$ 的期望与方差。
+2. 求累积分布函数 $F(x)$。
+3. 求该分布的上侧 $100\alpha\%$ 分位点，其中 $0<\alpha\leq0.1$。
+4. 对
+
+   $$
+   H_0:\mu=0\qquad\text{vs.}\qquad H_1:\mu>0
+   $$
+
+   以 $X$ 为检验统计量，在显著性水平 $\alpha$ 下构造使第二类错误概率最小的拒绝域。
+5. 求第 4 问检验的功效函数 $\beta_\lambda(\mu)$。
 
 ## **Kai**
 ### (2-1)
@@ -45,14 +63,10 @@ E(X^2)
 &= \lambda \int_0^\infty y^2 e^{- \lambda y } dy + \mu^2
 \\
 \int_0^\infty y^2 e^{- \lambda y } dy
-&= - \frac{1}{\lambda} \int_0^\infty y^2 \left( e^{- \lambda y } \right)' dy
-= - \frac{2}{\lambda} \int_0^\infty y e^{- \lambda y } dy
+&= \frac{1}{\lambda^3}\int_0^\infty u^2e^{-u}\,du
+\qquad (u=\lambda y)
 \\
-&= \frac{2}{\lambda^2} \int_0^\infty y \left( e^{- \lambda y } \right)' dy
-= \frac{2}{\lambda^2} \int_0^\infty e^{- \lambda y } dy
-\\
-&= - \frac{2}{\lambda^3} \left[ e^{- \lambda y } \right]_0^\infty
-= \frac{2}{\lambda^3}
+&= \frac{2}{\lambda^3}
 \\
 E(X^2)
 &= \lambda \cdot \frac{2}{\lambda^3} + \mu^2

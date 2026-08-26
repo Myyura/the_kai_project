@@ -1,128 +1,48 @@
 ---
-sidebar_label: "情報理工学位プログラム 問題例"
+sidebar_label: "情報理工学位プログラム 問題例 プログラミング基礎"
 tags:
   - Tsukuba-University
-  - Mathematics.Calculus.LHopital-Rule
-  - Mathematics.Calculus.Improper-Integral
-  - Mathematics.Calculus.Integration-by-Substitution
-  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
-  - Mathematics.Linear-Algebra.Orthogonal-Diagonalization-of-Symmetric-Matrices
   - Computer-Science.Algorithm-Design.Selection-Sort
 ---
-# 筑波大学 理工情報生命学術院 システム情報工学研究群 情報理工学位プログラム 問題例
+# 筑波大学 理工情報生命学術院 システム情報工学研究群 情報理工学位プログラム 問題例 プログラミング基礎
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 
+以下の Python 言語で書かれた関数は、長さ $n$ の整数のリスト `a[0]`～`a[n-1]` を小さい順（昇順）に整列するプログラムである。
+
+```python
+def selection_sort(n, a):
+    for i in range(0, n-1):
+        for t in range(0, n):
+            print(" %d " % a[t], end='')
+        print()
+        m = a[i]; k = i;
+        for j in range(i+1, n):
+            if a[j] < m:
+                m = a[j]; k = j;
+        a[k] = a[i]; a[i] = m;
+```
+
+長さ 5 の整数のリスト `a` に対して `selection_sort(5, a)` を呼び出したとき、出力は次のようになった。黒塗りの部分は隠されている。(a)～(d) に入る値を求めよ。
+
+| | 1 | 2 | 3 | 4 | 5 |
+|---|---:|---:|---:|---:|---:|
+| 1 | 3 | 5 | 2 | 1 | 4 |
+| 2 | (a) | (b) | 2 | ■ | 4 |
+| 3 | ■ | ■ | ■ | (c) | 4 |
+| 4 | ■ | ■ | ■ | (d) | ■ |
+
 ### 题目描述
 
-当前文件的原始题目描述为空，无法从现有内容中完整复原题目例题的具体条件与设问。根据文件标签及下方解答可以确认，这组信息理工学位项目的例题包含以下内容：使用洛必达法则计算极限，计算广义积分并进行积分换元；求矩阵的特征值与特征向量，并对实对称矩阵作正交对角化；以及分析或补全选择排序算法。作答时应以原例题中给出的函数、积分区间、矩阵、数组和程序框架为准，逐问写出计算过程或程序逻辑。
+上述函数用选择排序将长度为 $n$ 的整数列表升序排列。对某长度为 5 的列表调用 `selection_sort(5, a)` 后得到上表输出，求 (a)～(d)。
 
 ## **Kai**
-### 解析学
-#### 問 1
 
-$$
-  \begin{align}
-  \lim_{x \to 0} \frac{x^3}{x - \sin x}
-  &= \lim_{x \to 0} \frac{3x^2}{1 - \cos x}
-  \\
-  &= \lim_{x \to 0} \frac{6x}{\sin x}
-  \\
-  &= \lim_{x \to 0} \frac{6}{\cos x}
-  \\
-  &= 6
-  \end{align}
-$$
-
-#### 問 2
-
-$$
-  \begin{align}
-  \int_0^\infty \frac{dx}{1+x^2}
-  &= \int_0^\frac{\pi}{2} \frac{1}{1 + \tan^2 \theta}
-  \frac{d \theta}{\cos^2 \theta}
-  \ \ \ \ \ \ \ \ ( x = \tan \theta )
-  \\
-  &= \int_0^\frac{\pi}{2} d \theta
-  \\
-  &= \frac{\pi}{2}
-  \\
-  \therefore \ \ 
-  \int_0^\infty \int_0^\infty \frac{dx dy}{(1+x^2)(1+y^2)}
-  &= \frac{\pi^2}{4}
-  \end{align}
-$$
-
-### 線形代数
-#### 問 1
-$A$ の固有値を $\lambda$ とすると、
-
-$$
-  \begin{align}
-  0
-  &= \det \begin{pmatrix} 1 - \lambda & 2 \\ 2 & 1 - \lambda \end{pmatrix}
-  \\
-  &= (\lambda-3)(\lambda+1)
-  \end{align}
-$$
-
-なので、
-
-$$
-  \begin{align}
-  \lambda_1 = 3
-  , \ \ 
-  \lambda_2 = -1
-  \end{align}
-$$
-
-である。
-
-#### 問 2
-固有値 $\lambda_1=3$ に属する固有ベクトルを求めるため
-
-$$
-  \begin{align}
-  \begin{pmatrix} -2 & 2 \\ 2 & -2 \end{pmatrix}
-  \begin{pmatrix} x \\ y \end{pmatrix}
-  =
-  \begin{pmatrix} 0 \\ 0 \end{pmatrix}
-  \end{align}
-$$
-
-とおくと $x=y$ を得る。
-
-固有値 $\lambda_2=-1$ に属する固有ベクトルを求めるため
-
-$$
-  \begin{align}
-  \begin{pmatrix} 2 & 2 \\ 2 & 2 \end{pmatrix}
-  \begin{pmatrix} x \\ y \end{pmatrix}
-  =
-  \begin{pmatrix} 0 \\ 0 \end{pmatrix}
-  \end{align}
-$$
-
-とおくと $x+y=0$ を得る。
-
-よって、
-
-$$
-  \begin{align}
-  X = \frac{1}{\sqrt{2}}
-  \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
-  \end{align}
-$$
-
-である。
-
-### 離散数学と論理
-
-### プログラミング基礎
-与えられた関数 selection_sort を selection_sort(5, \[3,5,2,1,4\]) のように呼び出すと、結果は
+各轮开始时输出列表，再将未排序部分的最小值与第 $i$ 个元素交换。因而输出为
 
 ```text
 3 5 2 1 4
@@ -131,4 +51,12 @@ $$
 1 2 3 5 4
 ```
 
-となる。
+したがって、
+
+$$
+\boxed{(a)=1,\quad (b)=5,\quad (c)=3,\quad (d)=5}.
+$$
+
+## **Reference**
+
+[筑波大学 情報理工学位プログラム 入試問題例](https://www.cs.tsukuba.ac.jp/admission/problem.pdf)

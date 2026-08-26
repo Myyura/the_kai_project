@@ -3,6 +3,7 @@ const schoolTags = require('./schoolTags.json');
 const bioinformatics = require('./subjects/bioinformatics.json');
 const businessAdministration = require('./subjects/business-administration.json');
 const chemistry = require('./subjects/chemistry.json');
+const earthScience = require('./subjects/earth-science.json');
 const cognitiveScienceNeuroscience = require('./subjects/cognitive-science-neuroscience.json');
 const computerScience = require('./subjects/computer-science.json');
 const dataScienceArtificialIntelligence = require('./subjects/data-science-artificial-intelligence.json');
@@ -22,6 +23,7 @@ const subjectFiles = [
   bioinformatics,
   businessAdministration,
   chemistry,
+  earthScience,
   cognitiveScienceNeuroscience,
   computerScience,
   dataScienceArtificialIntelligence,

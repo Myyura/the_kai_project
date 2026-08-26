@@ -1,0 +1,76 @@
+{
+  "id": "Earth-Science",
+  "subject": {
+    "labelZh": "地球科学",
+    "labelJa": "地球科学",
+    "labelEn": "Earth Science",
+    "descriptionZh": "地质年代、地貌、构造地质及地球表层过程。",
+    "descriptionJa": "地質年代、地形、構造地質、地球表層過程。",
+    "descriptionEn": "Geochronology, geomorphology, structural geology, and Earth-surface processes."
+  },
+  "subsubjects": {
+    "Earth-Science.Geochronology": {
+      "subject": "Earth-Science",
+      "labelZh": "地球年代学",
+      "labelJa": "地球年代学",
+      "labelEn": "Geochronology",
+      "descriptionZh": "利用放射性核素等方法测定地质事件与地貌的年代。",
+      "descriptionJa": "放射性核種などを用いて地質現象や地形の年代を求める分野。",
+      "descriptionEn": "Dating geological events and landforms, including radiometric methods."
+    },
+    "Earth-Science.Periglacial-Geomorphology": {
+      "subject": "Earth-Science",
+      "labelZh": "冰缘地貌学",
+      "labelJa": "周氷河地形学",
+      "labelEn": "Periglacial Geomorphology",
+      "descriptionZh": "永久冻土、冻融作用及其形成的地貌。",
+      "descriptionJa": "永久凍土、凍結融解作用、それらがつくる地形。",
+      "descriptionEn": "Permafrost, freeze-thaw processes, and associated landforms."
+    },
+    "Earth-Science.Fluvial-Geomorphology": {
+      "subject": "Earth-Science",
+      "labelZh": "河流地貌学",
+      "labelJa": "河川地形学",
+      "labelEn": "Fluvial Geomorphology",
+      "descriptionZh": "河流侵蚀、堆积、下切与阶地形成。",
+      "descriptionJa": "河川の侵食、堆積、下刻、段丘形成。",
+      "descriptionEn": "River erosion, deposition, incision, and terrace formation."
+    },
+    "Earth-Science.Structural-Geology": {
+      "subject": "Earth-Science",
+      "labelZh": "构造地质学",
+      "labelJa": "構造地質学",
+      "labelEn": "Structural Geology",
+      "descriptionZh": "断层、褶皱、地壳变形及其地貌证据。",
+      "descriptionJa": "断層、褶曲、地殻変形とその地形的証拠。",
+      "descriptionEn": "Faults, folds, crustal deformation, and their geomorphic evidence."
+    }
+  },
+  "subsubjectOrder": [
+    "Earth-Science.Geochronology",
+    "Earth-Science.Periglacial-Geomorphology",
+    "Earth-Science.Fluvial-Geomorphology",
+    "Earth-Science.Structural-Geology"
+  ],
+  "topics": {
+    "Earth-Science.Geochronology.Radiocarbon-Decay-and-Dating-Limit": {
+      "subsubject": "Earth-Science.Geochronology",
+      "relatedSubjects": [
+        "Mathematics",
+        "Physics"
+      ]
+    },
+    "Earth-Science.Periglacial-Geomorphology.Active-Layer-Permafrost-and-Pingo": {
+      "subsubject": "Earth-Science.Periglacial-Geomorphology",
+      "relatedSubjects": [
+        "Physics"
+      ]
+    },
+    "Earth-Science.Fluvial-Geomorphology.Fluvial-Terraces-and-River-Incision": {
+      "subsubject": "Earth-Science.Fluvial-Geomorphology"
+    },
+    "Earth-Science.Structural-Geology.Active-Fault-Geomorphology": {
+      "subsubject": "Earth-Science.Structural-Geology"
+    }
+  }
+}

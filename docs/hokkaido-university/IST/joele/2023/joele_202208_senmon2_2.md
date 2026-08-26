@@ -9,7 +9,8 @@ tags:
 # 北海道大学 情報科学院 情報科学専攻 情報エレクトロニクスコース 2022年8月実施 専門科目2 \[2\] 量子力学
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 以下の各問において $i$ を虚数単位とする。また、$\hbar$ はプランク定数 $h$ を $2\pi$ で割った定数とする。
@@ -345,31 +346,20 @@ $$
 $$
 
 がわかる。
-よって、
+よって、$\lambda_1$ が得られる確率は
 
 $$
 \begin{aligned}
-\langle \lambda_1 | \hat{\sigma} | \varphi(t) \rangle
-&= \langle \lambda_1 | \varphi(t) \rangle
-\\
-&= \cos^2 \theta \exp \left( -i \frac{\varepsilon_1 t}{\hbar} \right)
-+ \sin^2 \theta \exp \left( -i \frac{\varepsilon_2 t}{\hbar} \right)
-\end{aligned}
-$$
-
-となり、求める確率は、
-
-$$
-\begin{aligned}
-\left| \langle \lambda_1 | \hat{\sigma} | \varphi(t) \rangle \right|^2
+P_{\lambda_1}(t)
+&=\left| \langle \lambda_1|\varphi(t)\rangle \right|^2\\
 &= \cos^4 \theta + \sin^4 \theta
 + \cos^2 \theta \sin^2 \theta \left(
 \exp \left( i \frac{(\varepsilon_1-\varepsilon_2) t}{\hbar} \right)
 + \exp \left( -i \frac{(\varepsilon_1-\varepsilon_2) t}{\hbar} \right)
 \right)
 \\
-&= 1 + \frac{1}{2} \sin^2 2 \theta \left(
-\cos \left( \frac{(\varepsilon_1-\varepsilon_2)t}{\hbar} - 1 \right) \right)
+&=1-\sin^2(2\theta)
+\sin^2 \left(\frac{(\varepsilon_1-\varepsilon_2)t}{2\hbar}\right)
 \end{aligned}
 $$
 
@@ -384,9 +374,9 @@ $$
 1
 &= \int_{-\infty}^\infty \left| \psi(x) \right|^2 dx
 \\
-&= |C|^2 \int_0^\infty x^2 e^{-ax} dx
+&= |C|^2 \int_0^\infty x^2 e^{-2\alpha x} dx
 \\
-&= |C|^2 \frac{2}{a^3}
+&= \frac{|C|^2}{4\alpha^3}
 \end{aligned}
 $$
 
@@ -394,7 +384,7 @@ $$
 
 $$
 \begin{aligned}
-C &= \sqrt{\frac{a^3}{2}}
+C &= 2\alpha^{3/2}
 \end{aligned}
 $$
 
@@ -406,11 +396,9 @@ $$
 $$
 \begin{aligned}
 \int_{-\infty}^\infty \psi(x)^* V(x) \psi(x) dx
-&= |C|^2 v_0 \int_0^\infty x^3 e^{-ax} dx
+&= 4\alpha^3v_0 \int_0^\infty x^3 e^{-2\alpha x} dx
 \\
-&= \frac{a^3}{2} v_0 \frac{3!}{a^4}
-\\
-&= \frac{3v_0}{a}
+&= \frac{3v_0}{2\alpha}
 \end{aligned}
 $$
 
@@ -418,18 +406,11 @@ $$
 
 $$
 \begin{aligned}
-\int_{-\infty}^\infty \psi(x)^*
-\left( - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} \right) \psi(x) dx
-&= - \frac{\hbar^2}{2m} |C|^2 \int_0^\infty xe^{-\frac{ax}{2}}
-\left( -a + \frac{a^2}{4} x \right) e^{-\frac{ax}{2}} dx
-\\
-&= - \frac{\hbar^2 a}{2m} \frac{a^3}{2} \int_0^\infty
-\left( -x + \frac{a}{4} x^2 \right) e^{-ax} dx
-\\
-&= - \frac{\hbar^2 a^4}{4m}
-\left( - \frac{1!}{a^2} + \frac{a}{4} \frac{2!}{a^3} \right)
-\\
-&= \frac{\hbar^2 a^2}{8m}
+\left\langle T\right\rangle
+&=\frac{\hbar^2}{2m}\int_0^\infty |\psi'(x)|^2\,dx\\
+&=\frac{\hbar^2}{2m}\,4\alpha^3
+\int_0^\infty(1-\alpha x)^2e^{-2\alpha x}\,dx\\
+&=\frac{\hbar^2\alpha^2}{2m}
 \end{aligned}
 $$
 
@@ -437,7 +418,8 @@ $$
 
 $$
 \begin{aligned}
-\frac{3v_0}{a} + \frac{\hbar^2 a^2}{8m}
+\boxed{\langle H\rangle
+=\frac{\hbar^2\alpha^2}{2m}+\frac{3v_0}{2\alpha}}
 \end{aligned}
 $$
 

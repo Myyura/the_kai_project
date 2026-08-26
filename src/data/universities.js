@@ -1,7 +1,7 @@
 // ============================================================
 // 此文件由 scripts/generate-universities.js 自动生成
 // 请勿手动编辑！如需更新请运行：npm run generate:universities
-// 生成时间：2026-08-24T03:16:48.171Z
+// 生成时间：2026-08-26T03:54:34.390Z
 // ============================================================
 
 /**
@@ -33,6 +33,10 @@ export const universities = [
           {
             "id": "phys",
             "name": "物理学専攻"
+          },
+          {
+            "id": "bio",
+            "name": "生物科学専攻"
           }
         ],
         "websiteUrl": "https://www.s.u-tokyo.ac.jp/ja/admission/master/index.html"
@@ -60,6 +64,10 @@ export const universities = [
           {
             "id": "mech",
             "name": "機械工学専攻"
+          },
+          {
+            "id": "urban",
+            "name": "都市工学専攻"
           }
         ],
         "websiteUrl": "https://www.t.u-tokyo.ac.jp/soe/admission/general"
@@ -87,6 +95,10 @@ export const universities = [
           {
             "id": "suuri",
             "name": "数理情報学"
+          },
+          {
+            "id": "imi",
+            "name": "知能機械情報学専攻"
           }
         ],
         "websiteUrl": "https://www.i.u-tokyo.ac.jp/edu/entra/"
@@ -136,6 +148,10 @@ export const universities = [
           {
             "id": "biostat_bioinfo",
             "name": "学際情報学専攻 生物統計情報学コース"
+          },
+          {
+            "id": "applied_computer_science",
+            "name": "学際情報学専攻 総合分析情報学コース"
           }
         ],
         "websiteUrl": "https://www.iii.u-tokyo.ac.jp/admissions"
@@ -209,6 +225,10 @@ export const universities = [
           {
             "id": "phys",
             "name": "物理学・宇宙物理学専攻"
+          },
+          {
+            "id": "bio",
+            "name": "生物科学専攻"
           }
         ],
         "websiteUrl": "https://sci.kyoto-u.ac.jp/ja/admissions/ms"
@@ -305,6 +325,14 @@ export const universities = [
           {
             "id": "phys",
             "name": "物理学専攻"
+          },
+          {
+            "id": "earth",
+            "name": "地学専攻"
+          },
+          {
+            "id": "astron",
+            "name": "天文学専攻"
           }
         ],
         "websiteUrl": "https://www.sci.tohoku.ac.jp/juken/graduate-admission.html"
@@ -460,6 +488,10 @@ export const universities = [
           {
             "id": "chem",
             "name": "化学講座 (理学専攻 物質・生命化学領域)"
+          },
+          {
+            "id": "bio",
+            "name": "生命理学領域"
           }
         ],
         "websiteUrl": "https://www.sci.nagoya-u.ac.jp/graduate/index.html"
@@ -554,6 +586,17 @@ export const universities = [
           {
             "id": "phys",
             "name": "物理学系"
+          }
+        ],
+        "websiteUrl": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide"
+      },
+      {
+        "id": "life_science_and_technology",
+        "name": "生命理工学院",
+        "programs": [
+          {
+            "id": "lst",
+            "name": "生命理工学系"
           }
         ],
         "websiteUrl": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide"
@@ -911,6 +954,11 @@ export const universities = [
           }
         ],
         "websiteUrl": "https://www.tuat.ac.jp/admission/nyushi_daigakuin/"
+      },
+      {
+        "id": "BASE",
+        "name": "生物システム応用科学府",
+        "websiteUrl": "https://www.tuat.ac.jp/admission/nyushi_daigakuin/"
       }
     ]
   },
@@ -1025,6 +1073,116 @@ export const universities = [
         "websiteUrl": "https://www.yamaguchi-u.ac.jp/hes/exam/index.html"
       }
     ]
+  },
+  {
+    "id": "niigata-university",
+    "name": "新潟大学",
+    "color": "#005e4f",
+    "departments": [
+      {
+        "id": "natural_sciences",
+        "name": "自然科学研究科",
+        "programs": [
+          {
+            "id": "information_engineering",
+            "name": "電気情報工学専攻 情報工学コース"
+          },
+          {
+            "id": "mathematical_sciences",
+            "name": "数理物質科学専攻 数理科学コース"
+          }
+        ],
+        "websiteUrl": "https://www.gs.niigata-u.ac.jp/~gsweb/admission/r4_pq.html"
+      }
+    ]
+  },
+  {
+    "id": "hitotsubashi-university",
+    "name": "一橋大学",
+    "color": "#8b1c40",
+    "departments": [
+      {
+        "id": "economics",
+        "name": "経済学研究科",
+        "websiteUrl": "https://www.econ.hit-u.ac.jp/jpn/page/examinee/graduate_admissions/past_exam.html"
+      }
+    ]
+  },
+  {
+    "id": "future-university-hakodate",
+    "name": "公立はこだて未来大学",
+    "color": "#1976a3",
+    "departments": [
+      {
+        "id": "system_information_science",
+        "name": "システム情報科学研究科",
+        "programs": [
+          {
+            "id": "basic_mathematics",
+            "name": "基礎数学"
+          }
+        ],
+        "websiteUrl": "https://www.fun.ac.jp/past-graduate-school-exam"
+      }
+    ]
+  },
+  {
+    "id": "osaka-metropolitan-university",
+    "name": "大阪公立大学",
+    "color": "#0078a6",
+    "departments": [
+      {
+        "id": "science",
+        "name": "理学研究科",
+        "programs": [
+          {
+            "id": "mathematics",
+            "name": "数学専攻"
+          },
+          {
+            "id": "physics",
+            "name": "物理学専攻"
+          }
+        ],
+        "websiteUrl": "https://www.omu.ac.jp/sci/admission/"
+      }
+    ]
+  },
+  {
+    "id": "ehime-university",
+    "name": "愛媛大学",
+    "color": "#e87521",
+    "departments": [
+      {
+        "id": "science_and_engineering",
+        "name": "理工学研究科",
+        "programs": [
+          {
+            "id": "natural_science_foundation_earth_science",
+            "name": "理工学専攻 自然科学基盤プログラム 地球科学分野"
+          }
+        ],
+        "websiteUrl": "http://earth.sci.ehime-u.ac.jp/gradexam.html"
+      }
+    ]
+  },
+  {
+    "id": "ryukyu-university",
+    "name": "琉球大学",
+    "color": "#2c8b57",
+    "departments": [
+      {
+        "id": "science_and_engineering",
+        "name": "理工学研究科",
+        "programs": [
+          {
+            "id": "material_earth_sciences_physics",
+            "name": "物質地球科学専攻 物理系"
+          }
+        ],
+        "websiteUrl": "http://www.phys.u-ryukyu.ac.jp/gakunai/inshi.html"
+      }
+    ]
   }
 ];
 
@@ -1054,4 +1212,10 @@ export const UNIV_MAP = {
   "meiji-university": "明治大学",
   "nagoya-institute-of-technology": "名古屋工業大学",
   "yamaguchi-university": "山口大学",
+  "niigata-university": "新潟大学",
+  "hitotsubashi-university": "一橋大学",
+  "future-university-hakodate": "公立はこだて未来大学",
+  "osaka-metropolitan-university": "大阪公立大学",
+  "ehime-university": "愛媛大学",
+  "ryukyu-university": "琉球大学",
 };
