@@ -88,58 +88,84 @@ function createMemorySafePostBuild({
 }) {
   return async function postBuild(buildData) {
     const versionDataList = processDocInfos(buildData, config);
-    const idState = {next: 0};
-
-    for (const versionData of versionDataList) {
-      const total = versionData.paths.length;
-      logger(
-        `[search-index] Parsing ${total} HTML files with concurrency ${concurrency} `
-          + `(${memoryLabel()})`,
-      );
-      let lastReported = 0;
-      const allDocuments = await scanDocumentsBounded(versionData.paths, config, {
-        concurrency,
-        idState,
-        ...(readFile && {readFile}),
-        ...(parse && {parse}),
-        onProgress({completed}) {
-          if (completed === total || completed - lastReported >= 100) {
-            lastReported = completed;
-            logger(
-              `[search-index] Parsed ${completed}/${total} HTML files `
-                + `(${memoryLabel()})`,
-            );
-          }
-        },
-      });
-
-      const docsByDirMap = partitionDocumentsByContext(
-        allDocuments,
-        buildData,
-        config,
-      );
-      for (const [contextPath, contextDocuments] of Array.from(
-        docsByDirMap.entries(),
-      ).sort(([a], [b]) => a.localeCompare(b))) {
-        logger(
-          `[search-index] Building index for /${contextPath} (${memoryLabel()})`,
-        );
-        const searchIndex = buildIndex(contextDocuments, config);
-        const suffix = contextPath === ''
-          ? ''
-          : `-${contextPath.replace(/\//g, '-')}`;
-        const outputPath = path.join(
-          versionData.outDir,
-          searchIndexFilename.replace('{dir}', suffix),
-        );
-        await writeFile(outputPath, JSON.stringify(searchIndex), {encoding: 'utf8'});
-        logger(`[search-index] Wrote ${outputPath} (${memoryLabel()})`);
-      }
-    }
+    await buildSearchIndexes({
+      baseUrl: buildData.baseUrl,
+      versionDataList,
+    }, {
+      buildIndex,
+      concurrency,
+      config,
+      logger,
+      parse,
+      readFile,
+      searchIndexFilename,
+      writeFile,
+    });
   };
 }
 
+async function buildSearchIndexes({baseUrl, versionDataList}, {
+  config,
+  searchIndexFilename = getSearchIndexFilename(config),
+  concurrency,
+  logger = console.log,
+  readFile,
+  writeFile = fs.promises.writeFile,
+  parse,
+  buildIndex = upstreamBuildIndex,
+}) {
+  const idState = {next: 0};
+
+  for (const versionData of versionDataList) {
+    const total = versionData.paths.length;
+    logger(
+      `[search-index] Parsing ${total} HTML files with concurrency ${concurrency} `
+        + `(${memoryLabel()})`,
+    );
+    let lastReported = 0;
+    const allDocuments = await scanDocumentsBounded(versionData.paths, config, {
+      concurrency,
+      idState,
+      ...(readFile && {readFile}),
+      ...(parse && {parse}),
+      onProgress({completed}) {
+        if (completed === total || completed - lastReported >= 100) {
+          lastReported = completed;
+          logger(
+            `[search-index] Parsed ${completed}/${total} HTML files `
+              + `(${memoryLabel()})`,
+          );
+        }
+      },
+    });
+
+    const docsByDirMap = partitionDocumentsByContext(
+      allDocuments,
+      {baseUrl},
+      config,
+    );
+    for (const [contextPath, contextDocuments] of Array.from(
+      docsByDirMap.entries(),
+    ).sort(([a], [b]) => a.localeCompare(b))) {
+      logger(
+        `[search-index] Building index for /${contextPath} (${memoryLabel()})`,
+      );
+      const searchIndex = buildIndex(contextDocuments, config);
+      const suffix = contextPath === ''
+        ? ''
+        : `-${contextPath.replace(/\//g, '-')}`;
+      const outputPath = path.join(
+        versionData.outDir,
+        searchIndexFilename.replace('{dir}', suffix),
+      );
+      await writeFile(outputPath, JSON.stringify(searchIndex), {encoding: 'utf8'});
+      logger(`[search-index] Wrote ${outputPath} (${memoryLabel()})`);
+    }
+  }
+}
+
 module.exports = {
+  buildSearchIndexes,
   createMemorySafePostBuild,
   getSearchIndexFilename,
   partitionDocumentsByContext,

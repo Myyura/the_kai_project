@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const {spawnSync} = require('node:child_process');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
@@ -9,9 +10,21 @@ const {
   validateScanConcurrency,
 } = require('../plugins/memory-safe-search-local/boundedScanDocuments.cjs');
 const {
+  buildSearchIndexes,
   getSearchIndexFilename,
   partitionDocumentsByContext,
 } = require('../plugins/memory-safe-search-local/postBuild.cjs');
+const {
+  DEFERRED_INDEX_MANIFEST_FILENAME,
+  createDeferredIndexManifest,
+  createDeferredSearchIndexPostBuild,
+  getDeferredIndexManifestPath,
+  runDeferredSearchIndex,
+  validateDeferredIndexManifest,
+} = require('../plugins/memory-safe-search-local/deferredIndex.cjs');
+const {
+  validateDeferSearchIndex,
+} = require('../plugins/memory-safe-search-local/index.cjs');
 const {
   SUPPORTED_SEARCH_LOCAL_VERSION,
 } = require('../plugins/memory-safe-search-local/upstream.cjs');
@@ -196,7 +209,6 @@ test('bounded scanning matches the upstream scanner and index byte-for-byte', as
     removeDefaultStemmer: false,
     removeDefaultStopWordFilter: [],
   };
-
   try {
     fs.writeFileSync(paths[0].filePath, `<!doctype html>
       <html><head>
@@ -316,6 +328,222 @@ test('context partitioning preserves root and nested search indexes', () => {
   assert.deepEqual(partitioned.get('')[0], [{i: 2, t: 'B', u: '/blog/b'}]);
   assert.equal(partitioned.get('docs').length, 5);
   assert.equal(partitioned.get('').length, 5);
+});
+
+test('Pages postBuild writes a portable manifest instead of indexing in-process', async () => {
+  const config = {
+    docsDir: ['/repo/docs'],
+    forceIgnoreNoIndex: false,
+    hideSearchBarWithNoSearchContext: false,
+    ignoreCssSelectors: ['nav'],
+    ignoreFiles: [/draft/],
+    language: ['zh', 'en', 'ja'],
+    removeDefaultStemmer: false,
+    removeDefaultStopWordFilter: [],
+    searchContextByPaths: ['docs'],
+    useAllContextsWithNoSearchContext: false,
+  };
+  const versionDataList = [{
+    outDir: '/repo/build',
+    paths: [{
+      filePath: '/repo/build/docs/1/index.html',
+      type: 'docs',
+      url: '/docs/1',
+    }],
+  }];
+  let written;
+  const postBuild = createDeferredSearchIndexPostBuild({
+    concurrency: 2,
+    config,
+    searchIndexFilename: 'search-index{dir}-abc123.json',
+    logger() {},
+    processDocInfos(buildData, receivedConfig) {
+      assert.equal(buildData.baseUrl, '/kai/');
+      assert.equal(receivedConfig, config);
+      return versionDataList;
+    },
+    async writeFile(filePath, content, options) {
+      written = {content, filePath, options};
+    },
+  });
+
+  await postBuild({baseUrl: '/kai/', outDir: '/repo/build'});
+
+  assert.equal(
+    written.filePath,
+    path.join('/repo/build', DEFERRED_INDEX_MANIFEST_FILENAME),
+  );
+  assert.deepEqual(written.options, {encoding: 'utf8'});
+  const manifest = validateDeferredIndexManifest(JSON.parse(written.content));
+  assert.equal(manifest.baseUrl, '/kai/');
+  assert.equal(manifest.concurrency, 2);
+  assert.equal(manifest.searchIndexFilename, 'search-index{dir}-abc123.json');
+  assert.deepEqual(manifest.versionDataList, [{
+    outDir: '.',
+    paths: [{
+      filePath: 'docs/1/index.html',
+      type: 'docs',
+      url: '/docs/1',
+    }],
+  }]);
+  assert.deepEqual(manifest.config, {
+    forceIgnoreNoIndex: false,
+    hideSearchBarWithNoSearchContext: false,
+    ignoreCssSelectors: ['nav'],
+    language: ['zh', 'en', 'ja'],
+    removeDefaultStemmer: false,
+    removeDefaultStopWordFilter: [],
+    searchContextByPaths: ['docs'],
+    useAllContextsWithNoSearchContext: false,
+  });
+  assert.equal(manifest.config.docsDir, undefined);
+  assert.equal(manifest.config.ignoreFiles, undefined);
+});
+
+test('a fresh process can build the deferred index and removes its manifest', async () => {
+  const fixtureDir = fs.mkdtempSync(path.join(os.tmpdir(), 'kai-search-deferred-'));
+  const buildDir = path.join(fixtureDir, 'build');
+  const documentDir = path.join(buildDir, 'docs', 'alpha');
+  const documentPath = path.join(documentDir, 'index.html');
+  const manifestPath = getDeferredIndexManifestPath(buildDir);
+  const config = {
+    forceIgnoreNoIndex: false,
+    ignoreCssSelectors: [],
+    language: ['en'],
+    removeDefaultStemmer: false,
+    removeDefaultStopWordFilter: [],
+  };
+  const versionDataList = [{
+    outDir: buildDir,
+    paths: [{filePath: documentPath, type: 'docs', url: '/docs/alpha'}],
+  }];
+  const searchIndexPath = path.join(buildDir, 'search-index.json');
+
+  try {
+    fs.mkdirSync(documentDir, {recursive: true});
+    fs.writeFileSync(documentPath, `<!doctype html><html><head>
+      <meta name="description" content="Alpha description">
+      </head><body><article>
+      <h1>Alpha<a class="hash-link" href="#alpha"></a></h1>
+      <p>Searchable body</p>
+      </article></body></html>`);
+    await buildSearchIndexes({baseUrl: '/', versionDataList}, {
+      concurrency: 1,
+      config,
+      logger() {},
+      searchIndexFilename: 'search-index{dir}.json',
+    });
+    const inlineIndex = fs.readFileSync(searchIndexPath);
+    fs.rmSync(searchIndexPath);
+    fs.writeFileSync(manifestPath, JSON.stringify(createDeferredIndexManifest({
+      baseUrl: '/',
+      buildRoot: buildDir,
+      concurrency: 1,
+      config,
+      searchIndexFilename: 'search-index{dir}.json',
+      versionDataList,
+    })));
+
+    const result = spawnSync(
+      process.execPath,
+      [path.resolve(__dirname, 'build-search-index.js'), manifestPath],
+      {encoding: 'utf8'},
+    );
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(fs.existsSync(manifestPath), false);
+    assert.deepEqual(fs.readFileSync(searchIndexPath), inlineIndex);
+    const searchIndex = JSON.parse(
+      fs.readFileSync(searchIndexPath, 'utf8'),
+    );
+    assert.equal(searchIndex[0].documents[0].t, 'Alpha');
+    assert.equal(searchIndex[0].documents[0].u, '/docs/alpha');
+    assert.equal(searchIndex[2].documents[0].t, 'Alpha description');
+    assert.equal(searchIndex[4].documents[0].t, 'Searchable body');
+  } finally {
+    fs.rmSync(fixtureDir, {force: true, recursive: true});
+  }
+});
+
+test('deferred indexing preserves the manifest and original error on failure', async () => {
+  const sentinel = new Error('index fixture failed');
+  const manifest = createDeferredIndexManifest({
+    baseUrl: '/',
+    buildRoot: '/fixture/build',
+    concurrency: 1,
+    config: {},
+    searchIndexFilename: 'search-index{dir}.json',
+    versionDataList: [],
+  });
+  let unlinked = false;
+
+  await assert.rejects(
+    runDeferredSearchIndex('/fixture/manifest.json', {
+      async buildIndexes() {
+        throw sentinel;
+      },
+      logger() {},
+      async readFile() {
+        return JSON.stringify(manifest);
+      },
+      async unlink() {
+        unlinked = true;
+      },
+    }),
+    (error) => error === sentinel,
+  );
+  assert.equal(unlinked, false);
+});
+
+test('deferred search settings and manifest versions fail fast', () => {
+  assert.equal(validateDeferSearchIndex(), false);
+  assert.equal(validateDeferSearchIndex(true), true);
+  assert.throws(() => validateDeferSearchIndex('true'), TypeError);
+  assert.throws(
+    () => validateDeferredIndexManifest({version: 999}),
+    /Unsupported deferred search index manifest version/,
+  );
+
+  const validManifest = createDeferredIndexManifest({
+    baseUrl: '/',
+    buildRoot: '/fixture/build',
+    concurrency: 1,
+    config: {},
+    searchIndexFilename: 'search-index{dir}.json',
+    versionDataList: [{
+      outDir: '/fixture/build',
+      paths: [{
+        filePath: '/fixture/build/docs/a/index.html',
+        type: 'docs',
+        url: '/docs/a',
+      }],
+    }],
+  });
+  for (const filePath of [
+    '../outside.html',
+    '/tmp/outside.html',
+    'C:/outside.html',
+    'C:../outside.html',
+    'docs\\outside.html',
+  ]) {
+    const malformed = structuredClone(validManifest);
+    malformed.versionDataList[0].paths[0].filePath = filePath;
+    assert.throws(
+      () => validateDeferredIndexManifest(malformed),
+      /Invalid deferred search index relative path/,
+    );
+  }
+  assert.throws(
+    () => createDeferredIndexManifest({
+      baseUrl: '/',
+      buildRoot: '/fixture/build',
+      concurrency: 1,
+      config: {},
+      searchIndexFilename: 'search-index{dir}.json',
+      versionDataList: [{outDir: '/fixture/outside', paths: []}],
+    }),
+    /escapes the build directory/,
+  );
 });
 
 test('the private upstream adapter is pinned to the reviewed package version', () => {

@@ -116,6 +116,41 @@ test('Pages bypasses every guarded local build entry point', () => {
   assert.doesNotMatch(workflow, /\/usr\/bin\/time -v yarn build\s*(?:\n|$)/);
 });
 
+test('Pages resumes search indexing only after Docusaurus exits', () => {
+  const pagesScript = packageJson.scripts['build:pages:site'];
+  const docusaurusIndex = pagesScript.indexOf('docusaurus build');
+  const searchIndex = pagesScript.indexOf('node scripts/build-search-index.js');
+  const publishIndex = pagesScript.indexOf('yarn documents:publish');
+  const exportIndex = pagesScript.indexOf('yarn content:export');
+  const checkIndex = pagesScript.indexOf('yarn build:check');
+
+  assert.ok(docusaurusIndex >= 0);
+  assert.ok(searchIndex > docusaurusIndex);
+  assert.ok(publishIndex > searchIndex);
+  assert.ok(exportIndex > publishIndex);
+  assert.ok(checkIndex > exportIndex);
+  assert.doesNotMatch(
+    packageJson.scripts['build:site'],
+    /build-search-index/,
+    'local builds must keep their in-process search index lifecycle',
+  );
+
+  const configSource = fs.readFileSync(
+    path.resolve(__dirname, '../docusaurus.config.js'),
+    'utf8',
+  );
+  assert.match(
+    configSource,
+    /deferSearchIndex:\s*hasRequiredPagesBuildEnvironment/,
+  );
+
+  const outputCheckSource = fs.readFileSync(
+    path.resolve(__dirname, './check-build-output.js'),
+    'utf8',
+  );
+  assert.match(outputCheckSource, /\.kai-search-index-manifest\.json/);
+});
+
 test('Docusaurus keeps client module concatenation changes local-only', () => {
   const configSource = fs.readFileSync(
     path.resolve(__dirname, '../docusaurus.config.js'),

@@ -288,9 +288,12 @@ const config = {
   themes: /** @type {import('@docusaurus/types').PluginConfig[]} */ ([
     [
       require.resolve('./plugins/memory-safe-search-local/index.cjs'),
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions & {boundedScanConcurrency: number}} */
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions & {boundedScanConcurrency: number, deferSearchIndex: boolean}} */
       ({
         boundedScanConcurrency: 4,
+        // Pages resumes this work in a fresh Node process after Docusaurus exits,
+        // so Rspack's retained native memory cannot crowd out search indexing.
+        deferSearchIndex: hasRequiredPagesBuildEnvironment,
         hashed: true,
         language: ["zh", "en", "ja"],
         indexDocs: true,

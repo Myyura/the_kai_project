@@ -59,6 +59,9 @@ const contentExportPath = path.join(
 );
 if (!mainBundle) throw new Error('Main JavaScript bundle was not generated.');
 if (!searchIndex) throw new Error('Search index was not generated.');
+if (fs.existsSync(path.join(BUILD_DIR, '.kai-search-index-manifest.json'))) {
+  throw new Error('Deferred search index manifest was not removed.');
+}
 
 const forbiddenArtifacts = [
   path.join(BUILD_DIR, 'sw.js'),
