@@ -28,11 +28,11 @@ tags:
 
 (3) Fig. 4(b) に示す整列アルゴリズム A1g2 について、手続き又の総呼び出し回数が $N- 1$ 回以下となるように，(A), (B)，(C) に入る適切な疑似コードを示せ.ただし、疑似コードは Fig.4(a) に示す疑似コードの表記に従うものとする.
 
-(4) Fig. 4(\(c\)) に示す整列アルゴリズム A1g3 の疑似コードを考える.ただし、Fig. 4(\(c\)) 中に示す手続き $R$ が利用できる.
+(4) Fig. 4($c$) に示す整列アルゴリズム A1g3 の疑似コードを考える.ただし、Fig. 4($c$) 中に示す手続き $R$ が利用できる.
 
 - (a) **Alg3** の基本戦略と処理の概要を言葉で簡潔に説明せよ.
 - (b) 配列 $A$ の初期値を $(2 , 5 , 4 , 3 , 2 )$ とする. **Alg3** の 6 行目および 19 行目にある手続き又の実行直後に毎回配列 $A$ の値を表示することを考える.配列 $A$ の値を表示される順番に全て示せ.
-- (\(c\)) **Alg3** の計算量を $\Theta$ 記法を用いて示せ.
+- ($c$) **Alg3** の計算量を $\Theta$ 記法を用いて示せ.
 
 ### English Version
 Every element in an array $A=(A[1],\ldots, A[N])$ of length $N \ge 2$ contains a real number. We define procedures $P$ and $Q$, which take two element indices of the array $A$ as their arguments, as follows:
@@ -50,11 +50,11 @@ Answer the following questions.
 
 (3) Following the notation of the pseudocode shown in Fig. 4(a), give an appropriate pseudocode by filling ( A ) , ( B ) , and ( C ) of the sorting algorithm **Alg2** shown in Fig. 4(b) so that the total number of calls to the procedure $Q$ is $N- 1$ or less.
 
-(4) Consider the pseudocode for the sorting algorithm **Alg3** shown in Fig. 4(\(c\)), where a procedure $R$, also shown in Fig. 4(\(c\)), is available.
+(4) Consider the pseudocode for the sorting algorithm **Alg3** shown in Fig. 4($c$), where a procedure $R$, also shown in Fig. 4($c$), is available.
 
 - (a) Succinctly describe the fundamental strategy and an outline of the process of **Alg3** in words.
 - (b) Suppose that the initial values of the array $A$ are $(2, 5, 4, 3, 2)$. We consider displaying the values of the array $A$ every time right after the procedure $Q$ at line 6 and line 19 in **Alg3** is performed. Show all the values of the array $A$ in the order in which they are displayed.
-- (\(c\)) Give the computational complexity of **Alg3** in big $\Theta$ notation.
+- ($c$) Give the computational complexity of **Alg3** in big $\Theta$ notation.
 
 #### Figs
 ##### fig. 4(a)
@@ -83,7 +83,7 @@ Alg2 (N):
     endfor
 ```
 
-##### fig. 4(\(c\))
+##### fig. 4($c$)
 ```text
 Alg3 (N):
     for i := 1 to N do
@@ -173,5 +173,5 @@ $$
 
 The last two displayed arrays are equal because the final call $Q(1,2)$ swaps two equal values, but the call is still executed.
 
-#### (\(c\))
+#### ($c$)
 $\Theta(N \log N)$

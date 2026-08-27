@@ -2320,6 +2320,10 @@
   label: "Discrete-Mathematics.Graph-Theory.Graph-Basics"
   permalink: "/topic/discrete-mathematics/graph-theory/graph-basics"
   description: "Discrete-Mathematics / Graph-Theory / Graph-Basics"
+"Discrete-Mathematics.Graph-Theory.Graph-Coloring-and-Chromatic-Polynomial":
+  label: "Discrete-Mathematics.Graph-Theory.Graph-Coloring-and-Chromatic-Polynomial"
+  permalink: "/topic/discrete-mathematics/graph-theory/graph-coloring-and-chromatic-polynomial"
+  description: "Discrete-Mathematics / Graph-Theory / Graph-Coloring-and-Chromatic-Polynomial"
 "Discrete-Mathematics.Graph-Theory.Graph-Diameter":
   label: "Discrete-Mathematics.Graph-Theory.Graph-Diameter"
   permalink: "/topic/discrete-mathematics/graph-theory/graph-diameter"
@@ -2392,6 +2396,10 @@
   label: "Discrete-Mathematics.Set-Theory.Image-of-Intersection"
   permalink: "/topic/discrete-mathematics/set-theory/image-of-intersection"
   description: "Discrete-Mathematics / Set-Theory / Image-of-Intersection"
+"Discrete-Mathematics.Set-Theory.Partially-Ordered-Sets-and-Chains":
+  label: "Discrete-Mathematics.Set-Theory.Partially-Ordered-Sets-and-Chains"
+  permalink: "/topic/discrete-mathematics/set-theory/partially-ordered-sets-and-chains"
+  description: "Discrete-Mathematics / Set-Theory / Partially-Ordered-Sets-and-Chains"
 "Earth-Science.Fluvial-Geomorphology.Fluvial-Terraces-and-River-Incision":
   label: "Earth-Science.Fluvial-Geomorphology.Fluvial-Terraces-and-River-Incision"
   permalink: "/topic/earth-science/fluvial-geomorphology/fluvial-terraces-and-river-incision"

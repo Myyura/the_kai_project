@@ -84,7 +84,7 @@ int main() {
 ### (1)
 - \[ 空欄 (a) \]: int
 - \[ 空欄 (b) \]: int b\[\]
-- \[ 空欄 (\(c\)) \]: int
+- \[ 空欄 ($c$) \]: int
 - \[ 空欄 (d) \]: 0
 - \[ 空欄 (e) \]: n - 1
 - \[ 空欄 (f) \]: b\[j\] == k, (Hint: consider the following example, find 14 in array \[3, 6, 7, 10, 13, 14, 19\])

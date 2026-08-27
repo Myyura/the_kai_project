@@ -131,6 +131,9 @@
     "Discrete-Mathematics.Set-Theory.Binary-Relations": {
       "subsubject": "Discrete-Mathematics.Set-Theory"
     },
+    "Discrete-Mathematics.Set-Theory.Partially-Ordered-Sets-and-Chains": {
+      "subsubject": "Discrete-Mathematics.Set-Theory"
+    },
     "Discrete-Mathematics.Mathematical-Logic.Predicate-Logic": {
       "subsubject": "Discrete-Mathematics.Mathematical-Logic"
     },
@@ -251,6 +254,12 @@
     },
     "Discrete-Mathematics.Graph-Theory.Bipartite-Graph": {
       "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Graph-Coloring-and-Chromatic-Polynomial": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
     },
     "Discrete-Mathematics.Graph-Theory.Bipartite-Matching": {
       "subsubject": "Discrete-Mathematics.Graph-Theory"

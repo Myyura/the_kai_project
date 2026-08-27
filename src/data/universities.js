@@ -903,9 +903,13 @@ export const universities = [
           {
             "id": "mise",
             "name": "機械知能システム学専攻"
+          },
+          {
+            "id": "fse",
+            "name": "基盤理工学専攻"
           }
         ],
-        "websiteUrl": "https://www.uec.ac.jp/education/graduate/admission/request.html"
+        "websiteUrl": "https://www.uec.ac.jp/education/graduate/admission/kakomon.html"
       }
     ]
   },

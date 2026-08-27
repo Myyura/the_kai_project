@@ -86,7 +86,7 @@ $X \boldsymbol{c}$ が $\boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_3$
 したがって、 $X^T X \boldsymbol{c} = \boldsymbol{0}_3$ ならば、
 $X \boldsymbol{c} = \boldsymbol{0}_3$ である。
 
-##### (\(c\))
+##### ($c$)
 
 $$
   \begin{aligned}
@@ -135,7 +135,7 @@ $$
   \end{aligned}
 $$
 
-##### (\(c\))
+##### ($c$)
 (a) より、
 
 $$

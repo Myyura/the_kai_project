@@ -10,189 +10,111 @@ tags:
 # 電気通信大学 情報理工学研究科 情報・ネットワーク工学専攻 2022年8月実施 必須問題 線形代数
 
 ## **Author**
-[Miyake](https://miyake.github.io/exams/index.html)
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
-実数 $a$ に対して、$A = \begin{bmatrix} -1 & 1+a & -2 \\ 0 & 1 & 0 \\ 4 & 1-a & 5 \end{bmatrix}$ を考える、$E = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$ とする。
 
-(1) $A$ の固有値をすべて求めよ。
-
-(2) $A$ の最大の固有値を $\lambda_1$ とする. $\lambda_1$ に対する $A$ の固有空間の基底を求めよ。
-
-(3) $A$ の最小の固有値を $\lambda_2$ とする. 線形変換 $f : \mathbb{R}^3 \to \mathbb{R}^3$ を
+実数 $a$ に対して
 
 $$
-f(x) = (\lambda_2 E - A)^2x \ \ (x \in \mathbb{R}^3)
-$$
-
-で定義する。$f$ の核 $\text{Ker} f$ の次元、および $f$ の像 $\text{Im} f$ の次元を求めよ。
-
-(4) $A$ が対角化可能であるための $a$ の条件を求めよ。
-
-(5) $a$ が (4) で求めた条件をみたすとき、$A^n$ を求めよ、ただし、$n$ は自然数とする。
-
-### 题目描述
-
-设实数参数 $a$ 对应的矩阵为
-
-$$
-A=\begin{bmatrix}
+A=\begin{pmatrix}
 -1&1+a&-2\\
 0&1&0\\
 4&1-a&5
-\end{bmatrix},
-\qquad
-E=\begin{bmatrix}
-1&0&0\\
-0&1&0\\
-0&0&1
-\end{bmatrix}.
+\end{pmatrix}
 $$
 
-回答下列问题：
+とし、$E$ を 3 次単位行列とする。固有値と固有空間、$(E-A)^2$ が定める線形変換の核・像の次元を求め、$A$ が対角化可能となる条件およびその場合の $A^n$ を求めよ。
 
-1. 求 $A$ 的全部特征值。
-2. 记 $A$ 的最大特征值为 $\lambda_1$，求其对应特征空间的一组基。
-3. 记 $A$ 的最小特征值为 $\lambda_2$，定义线性变换
-   $$
-   f:\mathbb R^3\to\mathbb R^3,\qquad
-   f(x)=(\lambda_2E-A)^2x.
-   $$
-   求 $\ker f$ 与 $\operatorname{Im}f$ 的维数。
-4. 求使 $A$ 可对角化的参数 $a$ 的条件。
-5. 当 $a$ 满足第 4 问的条件时，求自然数 $n$ 对应的 $A^n$。
+### 题目描述
+
+给定含实参数 $a$ 的三阶矩阵，求其特征值与特征空间、由最小特征值定义的线性变换的核与像的维数，并判断可对角化条件及计算矩阵幂。
 
 ## **Kai**
+
 ### (1)
-$A$ の固有値を $\lambda$ とすると、
 
 $$
-  \begin{aligned}
-  0
-  &= \det \begin{pmatrix}
-  -1-\lambda & 1+a & -2 \\ 0 & 1-\lambda & 0 \\ 4 & 1-a & 5-\lambda \end{pmatrix}
-  \\
-  &= (1-\lambda) \det \begin{pmatrix} -1-\lambda & -2 \\ 4 & 5-\lambda \end{pmatrix}
-  \\
-  &= (1-\lambda) (\lambda^2 - 4 \lambda + 3)
-  \\
-  &= -(\lambda-1)^2 (\lambda-3)
-  \\
-  \therefore \ \ 
-  \lambda &= 1, 3
-  \end{aligned}
+\begin{aligned}
+\det(\lambda E-A)
+&=(\lambda-1)
+\det\begin{pmatrix}\lambda+1&2\\-4&\lambda-5\end{pmatrix}\\
+&=(\lambda-1)^2(\lambda-3).
+\end{aligned}
 $$
 
-を得る。
+したがって固有値は
+
+$$
+\boxed{1\text{（重複度 2）},\qquad 3\text{（重複度 1）}}.
+$$
 
 ### (2)
-$A$ の最大の固有値 $\lambda_1 = 3$ に対する固有ベクトルを求めるため、
+
+最大固有値は $\lambda_1=3$ である。$(A-3E)x=0$ より
 
 $$
-  \begin{aligned}
-  \begin{pmatrix} -4 & 1+a & -2 \\ 0 & -2 & 0 \\ 4 & 1-a & 2 \end{pmatrix}
-  \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-  = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
-  \end{aligned}
+y=0,\qquad 2x+z=0.
 $$
 
-とおくと、 $y=0, 2x+z=0$ を得る。
-したがって、 $\lambda_1=3$ に対する $A$ の固有空間は1次元であり、その基底は、例えば、
+よって固有空間の基底は
 
 $$
-  \begin{aligned}
-  \begin{pmatrix} 1 \\ 0 \\ -2 \end{pmatrix}
-  \end{aligned}
+\boxed{\left\{\begin{pmatrix}1\\0\\-2\end{pmatrix}\right\}}.
 $$
-
-である。
 
 ### (3)
-$\lambda_2 = 1$ であり、
+
+最小固有値は $\lambda_2=1$ であり、直接計算すると
 
 $$
-  \begin{aligned}
-  (\lambda_2 E - A)^2
-  &= 4 \begin{pmatrix} -1 & -1 & -1 \\ 0 & 0 & 0 \\ 2 & 2 & 2 \end{pmatrix}
-  \end{aligned}
+(E-A)^2
+=4\begin{pmatrix}
+-1&-1&-1\\
+0&0&0\\
+2&2&2
+\end{pmatrix}.
+$$
+
+この行列の階数は $1$ である。階数・退化次数定理より、
+
+$$
+\boxed{\dim\operatorname{Ker}f=2,\qquad
+\dim\operatorname{Im}f=1}.
+$$
+
+### (4)
+
+固有値 $1$ の固有空間について、$(A-E)x=0$ は
+
+$$
+-2x+(1+a)y-2z=0,\qquad
+4x+(1-a)y+4z=0
+$$
+
+であり、両式から $(a+3)y=0$ を得る。$a\ne-3$ では固有空間は 1 次元、$a=-3$ では式が 1 本だけとなり 2 次元である。したがって、
+
+$$
+\boxed{A\text{ が対角化可能}\iff a=-3}.
+$$
+
+### (5)
+
+$a=-3$ とし、$P=(A-E)/2$ とおくと $P^2=P$、$A=E+2P$ である。よって
+
+$$
+A^n=(E-P)+3^nP=E+(3^n-1)P.
+$$
+
+したがって、
+
+$$
+\boxed{
+A^n=\begin{pmatrix}
+2-3^n&1-3^n&1-3^n\\
+0&1&0\\
+2\cdot3^n-2&2\cdot3^n-2&2\cdot3^n-1
+\end{pmatrix}}
 $$
 
 である。
-この行列のランクは $1$ なので、
-$f$ の核の次元は $2$ であり、 $f$ の像の次元は $1$ であることがわかる。
-
-### (4)
-$A$ が対角化可能であるための条件は、固有値 $\lambda_2=1$ の固有空間が2次元であることである。
-固有値 $\lambda_2 = 1$ に対する固有ベクトルを求めるため、
-
-$$
-  \begin{aligned}
-  \begin{pmatrix} -2 & 1+a & -2 \\ 0 & 0 & 0 \\ 4 & 1-a & 4 \end{pmatrix}
-  \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-  = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
-  \end{aligned}
-$$
-
-とおくと、
-
-$$
-  \begin{align}
-  -2x+(1+a)y-2z = 0 \tag{a}
-  \\
-  4x+(1-a)y+4z = 0 \tag{b}
-  \end{align}
-$$
-
-を得る。
-($a$) $\times 2$ と ($b$) の両辺を足すと、
-
-$$
-  \begin{align}
-  (a+3)y = 0 \tag{c}
-  \end{align}
-$$
-
-を得る。
-
-(i) $a \ne -3$ のとき、 ($a$), ($b$), ($c$) より $y=0, x+z=0$ となるので、
-固有値 $\lambda_2=1$ に対する固有空間は1次元であり、 $A$ は対角化可能でない。
-
-(ii) $a = -3$ のとき、 ($a$), ($b$), ($c$) より $x+y+z=0$ となるので、
-固有値 $\lambda_2=1$ に対する固有空間は2次元であり、 $A$ は対角化可能である。
-
-(i), (ii) より、 $A$ が対角化可能であるための条件は $a=-3$ である。
-
-### (5)
-$a=-3$ のとき、
-
-$$
-  \begin{aligned}
-  P &= \begin{pmatrix} 1 & 1 & 1 \\ -1 & 0 & 0 \\ 0 & -1 & -2 \end{pmatrix}
-  \end{aligned}
-$$
-
-とおくと、
-
-$$
-  \begin{aligned}
-  P^{-1} &= \begin{pmatrix} 0 & -1 & 0 \\ 2 & 2 & 1 \\ -1 & -1 & -1 \end{pmatrix}
-  \\
-  P^{-1} A P &= \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 3 \end{pmatrix}
-  \end{aligned}
-$$
-
-であり、
-
-$$
-  \begin{aligned}
-  A^n
-  &= P \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 3 \end{pmatrix}^n P^{-1}
-  \\
-  &= P \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 3^n \end{pmatrix} P^{-1}
-  \\
-  &= \begin{pmatrix} 2-3^n & 1-3^n & 1-3^n \\ 0 & 1 & 0 \\
-  2 \cdot 3^n - 2 & 2 \cdot 3^n - 2 & 2 \cdot 3^n - 1 \end{pmatrix}
-  \end{aligned}
-$$
-
-を得る。

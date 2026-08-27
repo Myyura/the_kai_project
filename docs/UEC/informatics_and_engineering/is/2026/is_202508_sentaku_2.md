@@ -1,0 +1,232 @@
+---
+sidebar_label: 2025年8月実施 選択問題 確率・オペレーションズリサーチ
+tags:
+  - University-of-Electro-Communications
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Central-Limit-Theorem
+  - Probability-Statistics.Probability-Basics.Zero-Covariance-does-not-Imply-Independence
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function
+  - Operations-Research.Linear-Programming.Production-Planning
+---
+# 電気通信大学 情報理工学研究科 情報学専攻 2025年8月実施 選択問題 確率・オペレーションズリサーチ
+
+## **Author**
+祭音Myyura (co-authored with GPT 5.6 SOL)
+
+## **Description**
+
+この科目では問1に必ず解答し、問2または問3の一方を選択する。ここでは全問を扱う。
+
+### 問1
+
+$X_1,X_2,\ldots$ は互いに独立で、確率 $0.5$ で $1$、確率 $0.5$ で $-1$ をとる。
+$Y_n=\sum_{i=1}^nX_i$ とする。
+
+1. $X_1$ の期待値と標準偏差を求めよ。
+2. $Y_n$ の期待値と標準偏差を求めよ。
+3. 中心極限定理を用いて $P(Y_{10000}>300)$ を近似せよ。
+4. $Z_1=X_1$, $Z_2=\frac12Z_1+aX_2$ $(a>0)$ とする。
+   $Z_2$ と $Z_1-Z_2$ の相関係数が 0 となる $a$ を求めよ。
+5. (4) の場合、$Z_2$ と $Z_1-Z_2$ は独立か。
+
+### 問2
+
+製品の故障までの時間 $X$ の確率密度関数が
+
+$$
+f(x)=\begin{cases}
+\lambda e^{-\lambda x},&x>0,\\
+0,&x\le0
+\end{cases}
+\qquad(\lambda>0)
+$$
+
+である。
+
+1. 分布名を答えよ。
+2. $E[X]$ と $V[X]$ を求めよ。
+3. モーメント母関数 $M_X(t)$ を求めよ。ただし $t<\lambda$ とする。
+4. $0<a<b$ に対して $P(a<X\le b)$ を求めよ。
+5. $P_1=P(X\le b\mid X>a)$、$P_2=P(0<X\le b-a)$ とし、大小を比較せよ。
+
+### 問3
+
+$10$ 万 $\mathrm{m}^2$ の土地でナス、トマト、ピーマンを栽培する。
+
+| 作物 | 栽培費用 [万円/$10^4\mathrm{m}^2$] | 売値 [万円/トン] | 収穫高 [トン/$10^4\mathrm{m}^2$] | 販売上限 [トン] |
+|:---|---:|---:|---:|---:|
+| ナス | 400 | 40 | 25 | 90 |
+| トマト | 900 | 35 | 40 | 140 |
+| ピーマン | 800 | 60 | 30 | 120 |
+
+作付面積をそれぞれ $x_1,x_2,x_3$ [$10^4\mathrm{m}^2$] とする。
+
+1. 総利益を最大化する問題を線形計画問題として定式化せよ。
+2. スラック変数 $x_4,x_5,x_6,x_7$ を用いて等式制約に直せ。
+3. シンプレックス法で最適作付面積と最大総利益を求めよ。
+
+### 题目描述
+
+第 1 题研究独立的对称 $\pm1$ 随机变量之和，用中心极限定理近似尾概率，
+并判断两个不相关随机变量是否独立。第 2 题求指数分布的矩、矩母函数、区间概率和无记忆性。
+第 3 题把三种作物的种植规划写成线性规划，并用单纯形法求最优方案。
+
+## **Kai**
+
+### 問1
+
+#### (1)
+
+$$
+E[X_1]=0,\qquad V[X_1]=1.
+$$
+
+よって
+
+$$
+\boxed{\text{期待値 }0,\quad\text{標準偏差 }1}.
+$$
+
+#### (2)
+
+独立性より
+
+$$
+E[Y_n]=0,\qquad V[Y_n]=n.
+$$
+
+したがって
+
+$$
+\boxed{\text{期待値 }0,\quad\text{標準偏差 }\sqrt n}.
+$$
+
+#### (3)
+
+中心極限定理より $Y_{10000}/100\simeq N(0,1)$ なので、
+
+$$
+P(Y_{10000}>300)\simeq P(N(0,1)>3)
+=1-\Phi(3)=\boxed{0.00135}.
+$$
+
+#### (4)
+
+$$
+Z_2=\frac12X_1+aX_2,\qquad
+Z_1-Z_2=\frac12X_1-aX_2.
+$$
+
+$X_1,X_2$ は独立で分散が 1 だから、
+
+$$
+\operatorname{Cov}(Z_2,Z_1-Z_2)=\frac14-a^2.
+$$
+
+$a>0$ より
+
+$$
+\boxed{a=\frac12}.
+$$
+
+#### (5)
+
+独立ではない。$a=1/2$ のとき、$Z_2=1$ なら
+$X_1=X_2=1$ なので必ず $Z_1-Z_2=0$ である。
+一方、$Z_2=0$ なら $X_1=-X_2$ なので $Z_1-Z_2=\pm1$ となる。
+したがって条件付き分布が異なる。
+
+### 問2
+
+#### (1)
+
+$$
+\boxed{\text{指数分布}}
+$$
+
+#### (2)
+
+$$
+\boxed{E[X]=\frac1\lambda,\qquad V[X]=\frac1{\lambda^2}}.
+$$
+
+#### (3)
+
+$$
+M_X(t)=\int_0^\infty e^{tx}\lambda e^{-\lambda x}\,dx
+=\boxed{\frac{\lambda}{\lambda-t}}\qquad(t<\lambda).
+$$
+
+#### (4)
+
+$$
+\boxed{P(a<X\le b)=e^{-\lambda a}-e^{-\lambda b}}.
+$$
+
+#### (5)
+
+$$
+P_1=\frac{e^{-\lambda a}-e^{-\lambda b}}{e^{-\lambda a}}
+=1-e^{-\lambda(b-a)}=P_2.
+$$
+
+よって
+
+$$
+\boxed{P_1=P_2}.
+$$
+
+### 問3
+
+#### (1)
+
+1 単位面積当たりの利益はそれぞれ
+$25\cdot40-400=600$、$40\cdot35-900=500$、
+$30\cdot60-800=1000$ 万円である。したがって
+
+$$
+\begin{aligned}
+\text{maximize}\quad &z=600x_1+500x_2+1000x_3,\\
+\text{subject to}\quad
+&x_1+x_2+x_3\le10,\\
+&25x_1\le90,\quad40x_2\le140,\quad30x_3\le120,\\
+&x_1,x_2,x_3\ge0.
+\end{aligned}
+$$
+
+#### (2)
+
+$$
+\begin{cases}
+x_1+x_2+x_3+x_4=10,\\
+25x_1+x_5=90,\\
+40x_2+x_6=140,\\
+30x_3+x_7=120,\\
+x_i\ge0\quad(i=1,\ldots,7).
+\end{cases}
+$$
+
+#### (3)
+
+シンプレックス法では順に
+
+$$
+x_3\leftrightarrow x_7,\qquad
+x_1\leftrightarrow x_5,\qquad
+x_2\leftrightarrow x_4
+$$
+
+と基底を交換すると最適表を得る。よって
+
+$$
+\boxed{(x_1^*,x_2^*,x_3^*)=\left(\frac{18}{5},\frac{12}{5},4\right)}
+$$
+
+であり、最大総利益は
+
+$$
+\boxed{z^*=600\cdot\frac{18}{5}+500\cdot\frac{12}{5}+1000\cdot4
+=7360\text{ 万円}}
+$$
+
+である。
