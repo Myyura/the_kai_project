@@ -26,6 +26,14 @@ The Kai Project is an open-source platform for Japanese graduate school entrance
 
 Project website: [Japanese graduate school entrance exam answers](https://runjp.com/)
 
+<p align="center">
+  <a href="https://runjp.com/docs/tokyo-university/mathematical_sciences/ms/2024/ms_202308_A_4#kai">
+    <img src="./static/img/solution-page.jpg" alt="A solution page in The Kai Project" width="1200">
+  </a>
+</p>
+
+<p align="center"><em>A structured solution page with university navigation, multilingual content, and KaTeX-rendered derivations.</em></p>
+
 ## Open Source and Sustainable Operation
 
 The Kai Project is built around an open-source project and a public study archive. Community-maintained exam indexes, public solutions, study materials, and related documentation form the project's core public content and are intended to remain openly accessible to learners.

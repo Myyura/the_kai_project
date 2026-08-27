@@ -25,6 +25,14 @@ The Kai Project 是一个面向日本大学院入试过去问、公开题解与�
 
 项目网站：[日本大学院入学考试答案](https://runjp.com/)
 
+<p align="center">
+  <a href="https://runjp.com/docs/tokyo-university/mathematical_sciences/ms/2024/ms_202308_A_4#kai">
+    <img src="./static/img/solution-page.jpg" alt="The Kai Project 题解页面" width="1200">
+  </a>
+</p>
+
+<p align="center"><em>集学校目录、多语言内容与 KaTeX 公式推导于一体的题解页面。</em></p>
+
 ## 开源项目与可持续运营
 
 The Kai Project 以开源项目和公开资料库为基础。由社区共同维护的题库索引、公开题解、备考资料及相关说明，作为项目的核心公开内容，将持续面向公众提供开放访问。
