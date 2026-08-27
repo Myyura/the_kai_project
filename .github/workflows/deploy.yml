@@ -75,8 +75,8 @@ jobs:
           /usr/bin/time -v yarn build:pages
         env:
           DOCUSAURUS_PERF_LOGGER: 'true'
-          # Pages uses its last known-good build profile. The 16 GiB hard guard
-          # belongs to local builds and is deliberately not applied here.
+          # Pages uses a phased 8 GiB V8 profile on the public 16 GiB runner.
+          # The local parent-process guard is deliberately not applied here.
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           HCAPTCHA_SITE_KEY: ${{ secrets.HCAPTCHA_SITE_KEY }}

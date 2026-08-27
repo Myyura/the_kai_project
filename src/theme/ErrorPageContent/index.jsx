@@ -7,6 +7,7 @@ import {
 import Heading from '@theme/Heading';
 import {useUiText} from '@site/src/i18n/useUiText';
 
+import {requestFreshAssetReload} from './requestFreshAssetReload.mjs';
 import styles from './styles.module.css';
 
 const CHUNK_ERROR_PATTERN = /ChunkLoadError|Loading chunk \d+ failed|Failed to fetch dynamically imported module|Importing a module script failed/i;
@@ -19,15 +20,7 @@ function isChunkLoadError(error) {
 
 function reloadWithFreshAssets(force = false) {
   if (typeof window === 'undefined') return;
-
-  if (window.__kaiChunkRecovery?.reloadWithFreshAssets?.(force)) return;
-
-  const url = new URL(window.location.href);
-  url.searchParams.set('__kai_reload', String(Date.now()));
-  if (url.protocol === 'http:' && (url.hostname === 'runjp.com' || url.hostname === 'www.runjp.com')) {
-    url.protocol = 'https:';
-  }
-  window.location.replace(url.toString());
+  requestFreshAssetReload(window, force);
 }
 
 export default function ErrorPageContent({error, tryAgain}) {

@@ -38,7 +38,7 @@ test('inherited tuning cannot override the enforced profile', () => {
   assert.equal(options, '--trace-warnings --max-old-space-size=6144');
 
   const source = Object.freeze({
-    KAI_BUILD_PROFILE: 'github-pages-eb8673',
+    KAI_BUILD_PROFILE: 'github-pages-phased-8gb-v1',
     NODE_OPTIONS: '--max_old_space_size 24576',
     DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '3',
     DOCUSAURUS_SSR_CONCURRENCY: '32',

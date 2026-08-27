@@ -63,13 +63,21 @@ if (fs.existsSync(path.join(BUILD_DIR, '.kai-search-index-manifest.json'))) {
   throw new Error('Deferred search index manifest was not removed.');
 }
 
-const forbiddenArtifacts = [
-  path.join(BUILD_DIR, 'sw.js'),
+const forbiddenRetiredPwaArtifacts = [
   path.join(BUILD_DIR, 'manifest.json'),
   path.join(BUILD_DIR, 'browserconfig.xml'),
 ].filter((filePath) => fs.existsSync(filePath));
-if (forbiddenArtifacts.length > 0) {
-  throw new Error(`Retired PWA artifacts returned: ${forbiddenArtifacts.join(', ')}`);
+if (forbiddenRetiredPwaArtifacts.length > 0) {
+  throw new Error(`Retired PWA artifacts returned: ${forbiddenRetiredPwaArtifacts.join(', ')}`);
+}
+
+const retiredPwaTombstone = readRequiredFile(
+  path.join(BUILD_DIR, 'sw.js'),
+  'Retired PWA cleanup worker was not generated.',
+).toString('utf8');
+if (!retiredPwaTombstone.includes('kai-retired-pwa-tombstone')
+  || !retiredPwaTombstone.includes('self.registration.unregister()')) {
+  throw new Error('Retired PWA cleanup worker is not the expected self-unregistering tombstone.');
 }
 
 const mainGzip = gzipSize(mainBundle);

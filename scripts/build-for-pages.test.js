@@ -49,7 +49,7 @@ function loadBuildConfig(environment) {
   });
 }
 
-test('Pages restores the last successful resource profile', () => {
+test('Pages enforces the phased 8 GiB resource profile', () => {
   const environment = getPagesBuildEnvironment({
     NODE_OPTIONS: '--trace-warnings --max-old-space-size=5120',
     KAI_ENFORCED_BUILD_PROFILE: '16gb',
@@ -58,9 +58,10 @@ test('Pages restores the last successful resource profile', () => {
     RSPACK_BLOCKING_THREADS: '1',
   });
 
-  assert.equal(PAGES_BUILD_PROFILE, 'github-pages-eb8673');
-  assert.equal(PAGES_MAX_OLD_SPACE_MB, 6144);
-  assert.equal(environment.NODE_OPTIONS, '--trace-warnings --max-old-space-size=6144');
+  assert.equal(PAGES_BUILD_PROFILE, 'github-pages-phased-8gb-v1');
+  assert.equal(PAGES_MAX_OLD_SPACE_MB, 8192);
+  assert.ok(PAGES_MAX_OLD_SPACE_MB > 6144);
+  assert.equal(environment.NODE_OPTIONS, '--trace-warnings --max-old-space-size=8192');
   assert.equal(environment.KAI_BUILD_PROFILE, PAGES_BUILD_PROFILE);
   assert.equal(environment.DOCUSAURUS_SEQUENTIAL_BUNDLES, 'true');
   assert.equal(environment.DOCUSAURUS_NO_PERSISTENT_CACHE, 'true');
@@ -71,19 +72,19 @@ test('Pages restores the last successful resource profile', () => {
     '300000000',
   );
   assert.equal(environment.RAYON_NUM_THREADS, '1');
-  assert.equal(environment.RSPACK_BLOCKING_THREADS, '2');
+  assert.equal(environment.RSPACK_BLOCKING_THREADS, '1');
   for (const name of LOCAL_ONLY_ENVIRONMENT_NAMES) {
     assert.equal(environment[name], undefined, `${name} must not leak into Pages`);
   }
   assert.deepEqual(PAGES_BUILD_ENV, {
-    KAI_BUILD_PROFILE: 'github-pages-eb8673',
+    KAI_BUILD_PROFILE: 'github-pages-phased-8gb-v1',
     DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
     DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
     DISABLE_RSPACK_INCREMENTAL: 'true',
     DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
     DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
     RAYON_NUM_THREADS: '1',
-    RSPACK_BLOCKING_THREADS: '2',
+    RSPACK_BLOCKING_THREADS: '1',
   });
   assert.doesNotThrow(() => assertPagesBuildEnvironment(environment));
 });
@@ -93,9 +94,9 @@ test('Pages rejects profile drift and local guard leakage before building', () =
   assert.throws(
     () => assertPagesBuildEnvironment({
       ...environment,
-      RSPACK_BLOCKING_THREADS: '1',
+      RSPACK_BLOCKING_THREADS: '2',
     }),
-    /RSPACK_BLOCKING_THREADS=2/,
+    /RSPACK_BLOCKING_THREADS=1/,
   );
   assert.throws(
     () => assertPagesBuildEnvironment({
@@ -107,9 +108,9 @@ test('Pages rejects profile drift and local guard leakage before building', () =
   assert.throws(
     () => assertPagesBuildEnvironment({
       ...environment,
-      NODE_OPTIONS: '--max-old-space-size=8192',
+      NODE_OPTIONS: '--max-old-space-size=6144',
     }),
-    /NODE_OPTIONS must enforce --max-old-space-size=6144/,
+    /NODE_OPTIONS must enforce --max-old-space-size=8192/,
   );
 });
 
@@ -119,7 +120,7 @@ test('Pages heap options cannot inherit a larger or conflicting V8 heap', () => 
       '--max_old_space_size=65536 --max-semi-space-size=8192 '
         + '--initial_old_space_size 32768 --huge-max-old-generation-size',
     ),
-    '--max-old-space-size=6144',
+    '--max-old-space-size=8192',
   );
 });
 
@@ -183,7 +184,7 @@ test('Pages resumes search indexing only after Docusaurus exits', () => {
   assert.match(outputCheckSource, /\.kai-search-index-manifest\.json/);
 });
 
-test('Docusaurus keeps client module concatenation changes local-only', () => {
+test('Docusaurus disables client module concatenation for both memory profiles', () => {
   const configSource = fs.readFileSync(
     path.resolve(__dirname, '../docusaurus.config.js'),
     'utf8',
@@ -191,7 +192,7 @@ test('Docusaurus keeps client module concatenation changes local-only', () => {
   assert.match(configSource, /KAI_BUILD_PROFILE: pagesBuildProfile/);
   assert.match(
     configSource,
-    /\.\.\.\(localMemoryProfile && \{[\s\S]{0,150}concatenateModules: false/,
+    /\.\.\.\(memoryConstrainedBuildProfile && \{[\s\S]{0,150}concatenateModules: false/,
   );
 });
 
@@ -200,6 +201,21 @@ test('Docusaurus accepts the explicit local and Pages profiles only', () => {
   const rejected = loadBuildConfig(unprofiled);
   assert.notEqual(rejected.status, 0);
   assert.match(rejected.stderr, /Unknown Docusaurus build profile/);
+
+  const retiredPagesProfile = loadBuildConfig({
+    ...unprofiled,
+    KAI_BUILD_PROFILE: 'github-pages-eb8673',
+    DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
+    DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
+    DISABLE_RSPACK_INCREMENTAL: 'true',
+    DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
+    DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
+    RAYON_NUM_THREADS: '1',
+    RSPACK_BLOCKING_THREADS: '2',
+    NODE_OPTIONS: '--max-old-space-size=6144',
+  });
+  assert.notEqual(retiredPagesProfile.status, 0);
+  assert.match(retiredPagesProfile.stderr, /Unknown Docusaurus build profile/);
 
   const local = loadBuildConfig(getBuildEnvironment(unprofiled));
   assert.equal(local.status, 0, local.stderr);

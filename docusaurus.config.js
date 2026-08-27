@@ -15,7 +15,9 @@ import rehypeStudySections from './src/markdown/rehypeStudySections.js';
 
 const sequentialBundles = process.env.DOCUSAURUS_SEQUENTIAL_BUNDLES === 'true';
 const localMemoryProfile = process.env.KAI_ENFORCED_BUILD_PROFILE === '16gb';
-const pagesBuildProfile = 'github-pages-eb8673';
+const pagesBuildProfile = 'github-pages-phased-8gb-v1';
+const pagesMemoryProfile = process.env.KAI_BUILD_PROFILE === pagesBuildProfile;
+const memoryConstrainedBuildProfile = localMemoryProfile || pagesMemoryProfile;
 const docusaurusArgs = process.argv.slice(2);
 const isDirectBuild = docusaurusArgs.includes('build')
   || (docusaurusArgs.includes('deploy') && !docusaurusArgs.includes('--skip-build'));
@@ -43,13 +45,13 @@ const requiredPagesBuildEnvironment = {
   DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
   DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
   RAYON_NUM_THREADS: '1',
-  RSPACK_BLOCKING_THREADS: '2',
+  RSPACK_BLOCKING_THREADS: '1',
 };
 const hasRequiredPagesBuildEnvironment = Object.entries(requiredPagesBuildEnvironment)
   .every(([name, value]) => process.env[name] === value)
   && process.env.KAI_ENFORCED_BUILD_PROFILE === undefined
   && process.env.DOCUSAURUS_SSR_CONCURRENCY === undefined
-  && /(?:^|\s)--max[-_]old[-_]space[-_]size=6144(?:\s|$)/.test(
+  && /(?:^|\s)--max[-_]old[-_]space[-_]size=8192(?:\s|$)/.test(
     process.env.NODE_OPTIONS || '',
   );
 
@@ -146,7 +148,7 @@ function sequentialBundlesPlugin() {
 
       // Docusaurus normally builds both configurations at once. Make the
       // larger client bundle wait for the server bundle. Module concatenation
-      // is deliberately disabled only for the protected local build:
+      // is disabled for both memory-constrained production profiles:
       // Docusaurus documents it as expensive for large sites, while its usual
       // benefit is only about a 3% reduction in total JavaScript asset size.
       if (isServer) {
@@ -156,7 +158,7 @@ function sequentialBundlesPlugin() {
       return {
         name: 'client',
         dependencies: ['server'],
-        ...(localMemoryProfile && {
+        ...(memoryConstrainedBuildProfile && {
           optimization: {
             concatenateModules: false,
           },

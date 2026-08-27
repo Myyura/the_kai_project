@@ -2,10 +2,11 @@
 
 const {spawnSync} = require('node:child_process');
 
-// This is the exact resource profile used by the last successful Pages build
-// at eb8673cd. It is intentionally separate from the guarded local profile.
-const PAGES_BUILD_PROFILE = 'github-pages-eb8673';
-const PAGES_MAX_OLD_SPACE_MB = 6144;
+// GitHub's standard Linux runner for this public repository has 16 GiB of RAM.
+// Keep the Pages build in isolated phases, but give the growing server module
+// graph enough V8 headroom beyond the former 6 GiB ceiling.
+const PAGES_BUILD_PROFILE = 'github-pages-phased-8gb-v1';
+const PAGES_MAX_OLD_SPACE_MB = 8192;
 const PAGES_BUILD_ENV = Object.freeze({
   KAI_BUILD_PROFILE: PAGES_BUILD_PROFILE,
   DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
@@ -14,7 +15,7 @@ const PAGES_BUILD_ENV = Object.freeze({
   DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
   DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
   RAYON_NUM_THREADS: '1',
-  RSPACK_BLOCKING_THREADS: '2',
+  RSPACK_BLOCKING_THREADS: '1',
 });
 const LOCAL_ONLY_ENVIRONMENT_NAMES = Object.freeze([
   'KAI_ENFORCED_BUILD_PROFILE',
@@ -92,11 +93,11 @@ function main() {
   const yarnCommand = process.platform === 'win32' ? 'yarn.cmd' : 'yarn';
   const environment = getPagesBuildEnvironment();
   console.log(
-    `Building GitHub Pages with the known-good ${PAGES_BUILD_PROFILE} profile: `
+    `Building GitHub Pages with the memory-aware ${PAGES_BUILD_PROFILE} profile: `
       + `${PAGES_MAX_OLD_SPACE_MB} MiB V8 heap, sequential bundles, `
       + `${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} SSG workers, `
       + `${environment.RAYON_NUM_THREADS} Rayon thread, and `
-      + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking threads.`,
+      + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking thread.`,
   );
 
   // Do not call `yarn build` or `yarn docusaurus build` here: both are local

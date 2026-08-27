@@ -69,7 +69,8 @@ test('Pages phases preserve the exact Pages profile and isolate SSG bundling', (
     for (const [name, value] of Object.entries(PAGES_BUILD_ENV)) {
       assert.equal(command.env[name], value, `${command.id} must preserve ${name}`);
     }
-    assert.equal(command.env.NODE_OPTIONS, '--max-old-space-size=6144');
+    assert.equal(command.env.NODE_OPTIONS, '--max-old-space-size=8192');
+    assert.equal(command.env.RSPACK_BLOCKING_THREADS, '1');
     assert.equal(command.env.CUSTOM_VALUE, 'preserved');
   }
   assert.equal(commands[0].env.DOCUSAURUS_SKIP_BUNDLING, undefined);
@@ -189,13 +190,13 @@ test('the phased profile dispatcher rejects Pages drift before spawning', () => 
 
   let spawnCalls = 0;
   assert.throws(() => runPhasedBuild({
-    sourceEnvironment: {...pages, RSPACK_BLOCKING_THREADS: '1'},
+    sourceEnvironment: {...pages, RSPACK_BLOCKING_THREADS: '2'},
     logger: {log() {}},
     spawnSyncImpl() {
       spawnCalls += 1;
       return {status: 0};
     },
-  }), /RSPACK_BLOCKING_THREADS=2/);
+  }), /RSPACK_BLOCKING_THREADS=1/);
   assert.equal(spawnCalls, 0);
 });
 
