@@ -6,8 +6,7 @@ const {
   BUILD_LOCALE,
   BUNDLING_CONTROL_ENV,
   SITE_DIR,
-  assertActiveMemoryGuard,
-  assertMemoryProfile,
+  assertPhasedBuildProfile,
   assertSupportedDocusaurusVersion,
 } = require('./docusaurus-build-phases');
 
@@ -141,8 +140,7 @@ async function runBundleTarget(target, {
   siteDir = SITE_DIR,
 } = {}) {
   prepareProcessEnvironment(target);
-  assertMemoryProfile();
-  assertActiveMemoryGuard();
+  assertPhasedBuildProfile();
   assertSupportedDocusaurusVersion();
 
   const site = await internals.loadSite({

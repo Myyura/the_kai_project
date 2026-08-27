@@ -57,8 +57,13 @@ function withHeapLimit(nodeOptions = '') {
 }
 
 function getBuildEnvironment(source = process.env) {
+  const environment = {...source};
+  // A shell left over from `yarn build:pages` must not make a guarded local
+  // build look like the Pages profile at the phase dispatcher.
+  delete environment.KAI_BUILD_PROFILE;
+
   return {
-    ...source,
+    ...environment,
     // These values are enforced, rather than merely defaults: an inherited
     // shell or CI variable must not silently turn a routine build into a
     // machine-wide memory spike.

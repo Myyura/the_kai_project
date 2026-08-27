@@ -8,6 +8,10 @@ const {
   MAX_OLD_SPACE_MB,
   withHeapLimit,
 } = require('./build-with-memory-limit');
+const {
+  PAGES_BUILD_PROFILE,
+  assertPagesBuildEnvironment,
+} = require('./build-for-pages');
 const {hasActiveParentMemoryGuard} = require('./process-memory-guard');
 
 const SITE_DIR = path.resolve(__dirname, '..');
@@ -43,6 +47,10 @@ function assertMemoryProfile(source = process.env) {
     .filter(([name, value]) => source[name] !== value)
     .map(([name, value]) => `${name}=${value}`);
 
+  if (source.KAI_BUILD_PROFILE !== undefined) {
+    mismatches.push('KAI_BUILD_PROFILE must be unset');
+  }
+
   const expectedNodeOptions = withHeapLimit(source.NODE_OPTIONS);
   if (source.NODE_OPTIONS !== expectedNodeOptions) {
     mismatches.push(`NODE_OPTIONS must enforce --max-old-space-size=${MAX_OLD_SPACE_MB}`);
@@ -67,6 +75,19 @@ function assertActiveMemoryGuard(
         + '`yarn docusaurus build`.',
     );
   }
+}
+
+function assertPhasedBuildProfile(source = process.env, {
+  assertGuard = assertActiveMemoryGuard,
+} = {}) {
+  if (source.KAI_BUILD_PROFILE === PAGES_BUILD_PROFILE) {
+    assertPagesBuildEnvironment(source);
+    return 'pages';
+  }
+
+  assertMemoryProfile(source);
+  assertGuard(source);
+  return 'local';
 }
 
 function getPhaseEnvironment(source, phase) {
@@ -171,8 +192,7 @@ function runPhasedBuild({
   phaseCommands = createPhaseCommands({sourceEnvironment}),
   assertGuard = assertActiveMemoryGuard,
 } = {}) {
-  assertMemoryProfile(sourceEnvironment);
-  assertGuard(sourceEnvironment);
+  assertPhasedBuildProfile(sourceEnvironment, {assertGuard});
   assertSupportedDocusaurusVersion();
 
   for (const phase of phaseCommands) {
@@ -224,6 +244,7 @@ module.exports = {
   assertActiveMemoryGuard,
   assertMemoryProfile,
   assertNonEmptyFile,
+  assertPhasedBuildProfile,
   assertSupportedDocusaurusVersion,
   assertValidJsonFile,
   createPhaseCommands,

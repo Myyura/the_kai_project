@@ -62,6 +62,32 @@ function getPagesBuildEnvironment(source = process.env) {
   };
 }
 
+function assertPagesBuildEnvironment(source = process.env) {
+  const mismatches = Object.entries(PAGES_BUILD_ENV)
+    .filter(([name, value]) => source[name] !== value)
+    .map(([name, value]) => `${name}=${value}`);
+
+  const expectedNodeOptions = withPagesHeapLimit(source.NODE_OPTIONS);
+  if (source.NODE_OPTIONS !== expectedNodeOptions) {
+    mismatches.push(
+      `NODE_OPTIONS must enforce --max-old-space-size=${PAGES_MAX_OLD_SPACE_MB}`,
+    );
+  }
+
+  for (const name of LOCAL_ONLY_ENVIRONMENT_NAMES) {
+    if (source[name] !== undefined) {
+      mismatches.push(`${name} must be unset`);
+    }
+  }
+
+  if (mismatches.length > 0) {
+    throw new Error(
+      `The phased GitHub Pages build requires the exact ${PAGES_BUILD_PROFILE} `
+        + `profile. Missing or overridden settings: ${[...new Set(mismatches)].join(', ')}.`,
+    );
+  }
+}
+
 function main() {
   const yarnCommand = process.platform === 'win32' ? 'yarn.cmd' : 'yarn';
   const environment = getPagesBuildEnvironment();
@@ -74,7 +100,8 @@ function main() {
   );
 
   // Do not call `yarn build` or `yarn docusaurus build` here: both are local
-  // entry points and intentionally carry the 14 GiB guard/phase adapter.
+  // entry points and intentionally carry the 14 GiB guard. The Pages site
+  // script invokes the phase adapter directly with this separate profile.
   const result = spawnSync(yarnCommand, ['run', 'build:pages:site'], {
     env: environment,
     stdio: 'inherit',
@@ -102,6 +129,7 @@ module.exports = {
   PAGES_BUILD_ENV,
   PAGES_BUILD_PROFILE,
   PAGES_MAX_OLD_SPACE_MB,
+  assertPagesBuildEnvironment,
   getPagesBuildEnvironment,
   withPagesHeapLimit,
 };

@@ -1201,7 +1201,13 @@
     "Computer-Science.Networks.Autonomous-System-Numbers": {
       "subsubject": "Computer-Science.Networks"
     },
+    "Computer-Science.Networks.Distance-Vector-and-Link-State-Routing": {
+      "subsubject": "Computer-Science.Networks"
+    },
     "Computer-Science.Networks.Domain-Name-System": {
+      "subsubject": "Computer-Science.Networks"
+    },
+    "Computer-Science.Networks.Hypertext-Transfer-Protocol": {
       "subsubject": "Computer-Science.Networks"
     },
     "Computer-Science.Networks.Internet-Protocol-Version-4-and-Version-6": {
@@ -1216,6 +1222,9 @@
         "Computer-Science.Networks.CSMA-CD"
       ]
     },
+    "Computer-Science.Networks.Hidden-Terminal-Problem-and-Request-to-Send-Clear-to-Send": {
+      "subsubject": "Computer-Science.Networks"
+    },
     "Computer-Science.Networks.Transparent-Web-Cache-in-Wide-Area-Networks": {
       "subsubject": "Computer-Science.Networks"
     },
@@ -1227,6 +1236,9 @@
       "aliases": [
         "Computer-Science.Networks.TCP-and-UDP-Transport-Protocols"
       ]
+    },
+    "Computer-Science.Networks.Transmission-Control-Protocol-Congestion-Control": {
+      "subsubject": "Computer-Science.Networks"
     },
     "Computer-Science.Networks.Bandwidth-Delay-Product": {
       "subsubject": "Computer-Science.Networks",

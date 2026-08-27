@@ -13,6 +13,7 @@ const {
   PAGES_BUILD_ENV,
   PAGES_BUILD_PROFILE,
   PAGES_MAX_OLD_SPACE_MB,
+  assertPagesBuildEnvironment,
   getPagesBuildEnvironment,
   withPagesHeapLimit,
 } = require('./build-for-pages');
@@ -84,6 +85,32 @@ test('Pages restores the last successful resource profile', () => {
     RAYON_NUM_THREADS: '1',
     RSPACK_BLOCKING_THREADS: '2',
   });
+  assert.doesNotThrow(() => assertPagesBuildEnvironment(environment));
+});
+
+test('Pages rejects profile drift and local guard leakage before building', () => {
+  const environment = getPagesBuildEnvironment({});
+  assert.throws(
+    () => assertPagesBuildEnvironment({
+      ...environment,
+      RSPACK_BLOCKING_THREADS: '1',
+    }),
+    /RSPACK_BLOCKING_THREADS=2/,
+  );
+  assert.throws(
+    () => assertPagesBuildEnvironment({
+      ...environment,
+      KAI_INTERNAL_MEMORY_GUARD_ACTIVE: 'guard:42',
+    }),
+    /KAI_INTERNAL_MEMORY_GUARD_ACTIVE must be unset/,
+  );
+  assert.throws(
+    () => assertPagesBuildEnvironment({
+      ...environment,
+      NODE_OPTIONS: '--max-old-space-size=8192',
+    }),
+    /NODE_OPTIONS must enforce --max-old-space-size=6144/,
+  );
 });
 
 test('Pages heap options cannot inherit a larger or conflicting V8 heap', () => {
@@ -96,16 +123,19 @@ test('Pages heap options cannot inherit a larger or conflicting V8 heap', () => 
   );
 });
 
-test('Pages bypasses every guarded local build entry point', () => {
+test('Pages invokes the phase adapter directly without the local guard wrapper', () => {
   assert.equal(packageJson.scripts['build:pages'], 'node scripts/build-for-pages.js');
-  assert.match(packageJson.scripts['build:pages:site'], /(?:^|&&\s*)docusaurus build/);
-  assert.doesNotMatch(
+  assert.match(
     packageJson.scripts['build:pages:site'],
-    /yarn docusaurus build|yarn build(?:\s|$)/,
+    /(?:^|&&\s*)node scripts\/docusaurus-build-phases\.js/,
   );
   assert.doesNotMatch(
     packageJson.scripts['build:pages:site'],
-    /build-with-memory-limit|run-docusaurus|docusaurus-build-phases/,
+    /(?:^|&&\s*)docusaurus build|yarn docusaurus build|yarn build(?:\s|$)/,
+  );
+  assert.doesNotMatch(
+    packageJson.scripts['build:pages:site'],
+    /build-with-memory-limit|run-docusaurus/,
   );
 
   const workflow = fs.readFileSync(
@@ -118,14 +148,16 @@ test('Pages bypasses every guarded local build entry point', () => {
 
 test('Pages resumes search indexing only after Docusaurus exits', () => {
   const pagesScript = packageJson.scripts['build:pages:site'];
-  const docusaurusIndex = pagesScript.indexOf('docusaurus build');
+  const phasedBuildIndex = pagesScript.indexOf(
+    'node scripts/docusaurus-build-phases.js',
+  );
   const searchIndex = pagesScript.indexOf('node scripts/build-search-index.js');
   const publishIndex = pagesScript.indexOf('yarn documents:publish');
   const exportIndex = pagesScript.indexOf('yarn content:export');
   const checkIndex = pagesScript.indexOf('yarn build:check');
 
-  assert.ok(docusaurusIndex >= 0);
-  assert.ok(searchIndex > docusaurusIndex);
+  assert.ok(phasedBuildIndex >= 0);
+  assert.ok(searchIndex > phasedBuildIndex);
   assert.ok(publishIndex > searchIndex);
   assert.ok(exportIndex > publishIndex);
   assert.ok(checkIndex > exportIndex);
@@ -174,4 +206,13 @@ test('Docusaurus accepts the explicit local and Pages profiles only', () => {
 
   const pages = loadBuildConfig(getPagesBuildEnvironment(unprofiled));
   assert.equal(pages.status, 0, pages.stderr);
+
+  const pagesSsg = loadBuildConfig({
+    ...getPagesBuildEnvironment(unprofiled),
+    BABEL_ENV: 'production',
+    DOCUSAURUS_CURRENT_LOCALE: 'zh-Hans',
+    DOCUSAURUS_SKIP_BUNDLING: 'true',
+    NODE_ENV: 'production',
+  });
+  assert.equal(pagesSsg.status, 0, pagesSsg.stderr);
 });
