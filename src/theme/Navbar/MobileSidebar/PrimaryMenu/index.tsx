@@ -6,6 +6,7 @@
  */
 
 import React, {type ReactNode} from 'react';
+import Link from '@docusaurus/Link';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import {useNavbarMobileSidebar} from '@docusaurus/theme-common/internal';
 import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
@@ -13,6 +14,7 @@ import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import NavbarLoginButton from '@site/src/components/NavbarLoginButton';
 import {useLanguage} from '@site/src/context/LanguageContext';
 import {useAuth} from '@site/src/hooks/useAuth';
+import {useUiText} from '@site/src/i18n/useUiText';
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -23,6 +25,7 @@ function useNavbarItems() {
 export default function NavbarMobilePrimaryMenu(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
   const {t} = useLanguage();
+  const framework = useUiText('framework');
   const {isConfigured, authReady, isLoggedIn} = useAuth();
 
   // TODO how can the order be defined for mobile?
@@ -57,6 +60,11 @@ export default function NavbarMobilePrimaryMenu(): ReactNode {
           />
         );
       })}
+      <li className="menu__list-item">
+        <Link className="menu__link" to="/search" onClick={() => mobileSidebar.toggle()}>
+          {framework.searchLabel}
+        </Link>
+      </li>
       <li className="menu__list-item" style={{padding: '0.5rem 0.75rem'}}>
         <LanguageSwitcher />
       </li>

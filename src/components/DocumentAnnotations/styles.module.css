@@ -149,9 +149,11 @@
   box-sizing: border-box;
   width: 100%;
   overflow: hidden;
-  border: 1px solid var(--custom-card-border);
-  border-radius: var(--custom-border-radius);
-  background: var(--custom-card-bg);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-color: color-mix(in srgb, var(--ifm-color-emphasis-300) 70%, transparent);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--kai-shadow-card);
 }
 
 .panel_sidebar {
@@ -163,11 +165,12 @@
 
 .panelHeader {
   display: flex;
+  min-height: 46px;
   align-items: center;
   justify-content: space-between;
-  padding: .7rem .75rem;
+  padding: .68rem .78rem;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  background: color-mix(in srgb, var(--ifm-color-primary) 4%, var(--ifm-background-surface-color));
+  background: transparent;
 }
 
 .panelHeader > div,
@@ -209,6 +212,17 @@
   cursor: pointer;
 }
 
+.iconButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+}
+
+.iconButton:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+}
+
 .annotationSearch {
   display: flex;
   align-items: center;
@@ -230,18 +244,29 @@
   font-size: .75rem;
 }
 
+.annotationSearch:focus-within {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--kai-focus-ring);
+}
+
 .annotationList {
   min-height: 0;
-  padding: .45rem;
+  padding: .42rem;
   overflow-y: auto;
 }
 
 .annotationCard {
   min-width: 0;
-  padding: .45rem .52rem;
-  border: 1px solid var(--custom-card-border);
-  border-radius: var(--custom-border-radius-sm);
-  background: var(--custom-card-bg);
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  outline: 0;
+  background: var(--ifm-background-surface-color);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  appearance: none;
   cursor: pointer;
   transition: var(--custom-transition-fast);
 }
@@ -252,14 +277,60 @@
 
 .annotationCard:hover,
 .annotationCardActive {
-  border-color: color-mix(in srgb, var(--ifm-color-primary) 58%, var(--ifm-color-emphasis-200));
-  background: var(--custom-card-bg-hover);
-  box-shadow: var(--custom-box-shadow-hover);
+  border-color: var(--ifm-color-primary-lightest);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 34%, var(--ifm-color-emphasis-200));
+  background: var(--ifm-background-surface-color);
+  background: color-mix(in srgb, var(--ifm-color-primary) 3%, var(--ifm-background-surface-color));
 }
 
 .annotationCardActive {
-  padding: .62rem;
   cursor: default;
+}
+
+.annotationCard:focus-visible {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--kai-focus-ring);
+}
+
+.cardEditor {
+  padding: .62rem .68rem .66rem;
+}
+
+.panel_sidebar .annotationList,
+.panel_mobile .annotationList {
+  padding: .2rem .62rem .28rem;
+}
+
+.surface_sidebar,
+.surface_mobile {
+  border: 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0;
+  background: transparent;
+}
+
+.surface_sidebar + .surface_sidebar,
+.surface_mobile + .surface_mobile {
+  margin-top: 0;
+}
+
+.surface_sidebar:last-child,
+.surface_mobile:last-child {
+  border-bottom: 0;
+}
+
+.surface_sidebar:hover,
+.surface_mobile:hover,
+.surface_sidebar.annotationCardActive,
+.surface_mobile.annotationCardActive {
+  border-color: var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+  background: color-mix(in srgb, var(--ifm-color-primary) 5%, transparent);
+}
+
+.surface_sidebar.annotationCardActive,
+.surface_mobile.annotationCardActive {
+  box-shadow: inset 3px 0 0 var(--ifm-color-primary);
 }
 
 .cardEditorHeader {
@@ -272,39 +343,53 @@
 .cardCompact {
   display: grid;
   min-width: 0;
-  grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto auto;
+  padding: .52rem .58rem;
+  grid-template-areas:
+    'title status line'
+    'summary summary summary';
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
-  gap: .38rem;
+  gap: .16rem .38rem;
 }
 
 .cardCompact strong {
-  max-width: 7.5rem;
+  grid-area: title;
   min-width: 0;
   overflow: hidden;
   color: var(--ifm-color-emphasis-800);
-  font-size: .74rem;
+  font-size: .75rem;
+  line-height: 1.4;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .cardSummary {
+  grid-area: summary;
   min-width: 0;
   overflow: hidden;
-  color: var(--ifm-color-emphasis-600);
-  font-size: .69rem;
+  color: var(--custom-text-muted);
+  font-size: .67rem;
+  line-height: 1.45;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .compactLine,
 .lineLabel {
-  color: var(--ifm-color-emphasis-500);
+  color: var(--custom-text-muted);
   font-size: .65rem;
   white-space: nowrap;
 }
 
+.compactLine {
+  grid-area: line;
+}
+
 .compactStatus {
-  font-size: .68rem;
+  display: inline-flex;
+  grid-area: status;
+  align-items: center;
+  font-size: .64rem;
 }
 
 .statusText_ok {
@@ -312,7 +397,7 @@
 }
 
 .statusText_warning {
-  color: var(--ifm-color-primary);
+  color: var(--kai-warning-strong);
 }
 
 .statusText_danger {
@@ -322,26 +407,50 @@
 .titleInput {
   min-width: 0;
   width: 100%;
-  padding: .3rem .4rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 6px;
+  padding: .16rem 0 .26rem;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
   outline: 0;
-  background: var(--ifm-background-surface-color);
+  background: transparent;
   color: var(--ifm-font-color-base);
-  font-size: .8rem;
+  font-size: .79rem;
   font-weight: 700;
 }
 
-.cardEditor blockquote {
+.titleInput:focus {
+  border-bottom-color: var(--ifm-color-primary);
+  box-shadow: none;
+}
+
+.sourceQuote {
+  margin: .52rem 0;
+}
+
+.sourceQuote > span {
+  display: block;
+  margin: 0 0 .22rem .12rem;
+  color: var(--custom-text-muted);
+  font-size: .61rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.sourceQuote blockquote {
   max-height: 4.2rem;
-  margin: .48rem 0;
-  padding: .38rem .5rem;
+  margin: 0;
+  padding: .42rem .55rem .44rem .62rem;
   overflow: auto;
-  border-left: 2px solid var(--ifm-color-primary);
-  background: color-mix(in srgb, var(--ifm-color-primary) 6%, transparent);
-  color: var(--ifm-color-emphasis-600);
-  font-size: .7rem;
-  line-height: 1.45;
+  border: 0;
+  border-left: 3px solid var(--ifm-color-primary-lightest);
+  border-left-color: color-mix(in srgb, var(--ifm-color-primary) 58%, var(--ifm-color-emphasis-300));
+  border-radius: 0 8px 8px 0;
+  background: var(--ifm-color-emphasis-100);
+  background: color-mix(in srgb, var(--ifm-color-primary) 5%, var(--ifm-color-emphasis-100));
+  color: var(--custom-text-secondary);
+  font-size: .68rem;
+  font-style: normal;
+  line-height: 1.5;
 }
 
 .cardEditorMeta {
@@ -361,7 +470,7 @@
   border: 0;
   border-radius: 5px;
   background: transparent;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--custom-text-muted);
   cursor: pointer;
   font-size: .68rem;
 }
@@ -372,50 +481,79 @@
 }
 
 .cardEditor textarea {
-  min-height: 90px;
-  padding: .5rem .55rem;
+  min-height: 78px;
+  padding: .52rem .58rem;
+  border-color: var(--ifm-color-emphasis-250);
+  border-radius: 9px;
+  background: var(--ifm-background-surface-color);
+  background: color-mix(in srgb, var(--ifm-background-surface-color) 78%, var(--ifm-color-emphasis-100));
   font-size: .75rem;
 }
 
+.cardEditor .cardActions {
+  flex-wrap: wrap;
+  margin-top: .5rem;
+  padding-top: .46rem;
+  border-top: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.cardEditor .confirmButton {
+  min-height: 30px;
+  padding: .32rem .54rem;
+  font-size: .7rem;
+}
+
 .deleteButton {
-  padding: .35rem .55rem;
-  border: 1px solid color-mix(in srgb, var(--kai-danger) 38%, var(--ifm-color-emphasis-200));
+  min-height: 30px;
+  padding: .32rem .5rem;
+  border: 0;
   background: transparent;
   color: var(--kai-danger);
 }
 
-.statusRow {
-  margin-top: .4rem;
-  font-size: .66rem;
-  line-height: 1.4;
+.deleteButton:hover {
+  background: var(--kai-danger-bg);
 }
 
 .statusRow {
-  display: flex;
+  display: inline-flex;
+  max-width: 100%;
   align-items: center;
   gap: .35rem;
-  padding: .35rem .45rem;
-  border-radius: var(--custom-border-radius-xs);
+  margin-top: .42rem;
+  padding: .24rem .42rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: .64rem;
+  line-height: 1.35;
+}
+
+.statusIcon {
+  flex: 0 0 auto;
+  font-size: .62rem;
 }
 
 .status_ok {
+  border-color: var(--kai-success-border);
   background: var(--kai-success-bg);
   color: var(--kai-success-strong);
 }
 
 .status_warning {
-  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
-  color: var(--ifm-color-primary);
+  border-color: var(--kai-warning-border);
+  background: var(--kai-warning-bg);
+  color: var(--kai-warning-strong);
 }
 
 .status_danger {
+  border-color: var(--kai-danger-border);
   background: var(--kai-danger-bg);
   color: var(--kai-danger);
 }
 
 .emptyPanel {
   padding: .75rem .5rem;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--custom-text-muted);
   font-size: .72rem;
   line-height: 1.55;
   text-align: center;
@@ -444,6 +582,7 @@
 .panel_footer {
   border: 0;
   background: transparent;
+  box-shadow: none;
 }
 
 .panel_footer .annotationList {
@@ -560,6 +699,7 @@
     right: .85rem;
     bottom: 1rem;
     display: inline-flex;
+    min-height: 44px;
     align-items: center;
     gap: .38rem;
     padding: .58rem .72rem;
@@ -584,13 +724,16 @@
 
   .mobileSheet {
     position: relative;
+    display: flex;
     width: 100%;
     max-height: min(76vh, 720px);
+    max-height: min(76dvh, 720px);
     padding: .85rem .75rem max(.75rem, env(safe-area-inset-bottom));
+    flex-direction: column;
     border-radius: 16px 16px 0 0;
-    background: var(--ifm-background-color);
+    background: var(--ifm-background-surface-color);
     box-shadow: 0 -12px 36px rgba(15, 23, 42, .2);
-    overflow: auto;
+    overflow: hidden;
   }
 
   .sheetHandle {
@@ -605,17 +748,29 @@
     position: absolute;
     top: .72rem;
     right: .8rem;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
   }
 
   .panel_mobile {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
     border: 0;
     background: transparent;
+    box-shadow: none;
+  }
+
+  .panel_mobile .panelHeader {
+    flex: 0 0 auto;
+    padding-right: 2.8rem;
   }
 
   .panel_mobile .annotationList {
-    max-height: 58vh;
+    flex: 1;
+    max-height: none;
+    overscroll-behavior: contain;
   }
 
   .selectionComposer {
@@ -627,8 +782,15 @@
   .selectionAction {
     top: auto !important;
     right: .75rem;
-    bottom: max(.8rem, env(safe-area-inset-bottom));
+    bottom: calc(max(.8rem, env(safe-area-inset-bottom)) + 3.3rem);
     left: auto !important;
+  }
+
+  .undoToast {
+    right: .75rem;
+    bottom: calc(max(.8rem, env(safe-area-inset-bottom)) + 3.4rem);
+    left: .75rem;
+    justify-content: space-between;
   }
 
   .changeNotice {
@@ -638,6 +800,25 @@
 
   .changeNotice button {
     margin-left: 1.55rem;
+  }
+}
+
+@media (max-width: 996px) and (pointer: coarse) {
+  .annotationMarker {
+    min-width: 38px;
+    height: 38px;
+  }
+
+  .detailClose,
+  .iconButton,
+  .sheetClose {
+    width: 44px;
+    height: 44px;
+  }
+
+  .cardEditor .confirmButton,
+  .deleteButton {
+    min-height: 40px;
   }
 }
 

@@ -44,6 +44,11 @@ export function AnnotationCard({
   const dirtyRef = useRef(false);
   const saveTimerRef = useRef(null);
   const draftRef = useRef({title: annotation.title, body: annotation.bodyMarkdown});
+  const compactButtonRef = useRef(null);
+  const titleInputRef = useRef(null);
+  const previousDetailOpenRef = useRef(detailOpen);
+  const requestEditorFocusRef = useRef(false);
+  const restoreCompactFocusRef = useRef(false);
   const resolution = resolutions[annotation.id];
   const stale = Boolean(documentHash && annotation.documentHash && annotation.documentHash !== documentHash);
 
@@ -53,6 +58,25 @@ export function AnnotationCard({
     setBody(annotation.bodyMarkdown);
     draftRef.current = {title: annotation.title, body: annotation.bodyMarkdown};
   }, [annotation.bodyMarkdown, annotation.title]);
+
+  useEffect(() => {
+    const wasOpen = previousDetailOpenRef.current;
+    previousDetailOpenRef.current = detailOpen;
+    if (wasOpen === detailOpen) return undefined;
+
+    const focusFrame = window.requestAnimationFrame(() => {
+      if (detailOpen) {
+        if (requestEditorFocusRef.current) {
+          requestEditorFocusRef.current = false;
+          titleInputRef.current?.focus();
+        }
+      } else if (restoreCompactFocusRef.current) {
+        restoreCompactFocusRef.current = false;
+        compactButtonRef.current?.focus();
+      }
+    });
+    return () => window.cancelAnimationFrame(focusFrame);
+  }, [detailOpen]);
 
   const flush = useCallback(() => {
     if (!dirtyRef.current) return;
@@ -92,25 +116,40 @@ export function AnnotationCard({
     : null;
   const compactSummary = excerpt(annotation.bodyMarkdown || annotation.exact, 120) || t.emptyAnnotation;
 
+  const openDetails = () => {
+    if (detailOpen) return;
+    requestEditorFocusRef.current = true;
+    focusAnnotation(annotation.id, {openMobile: surface === 'mobile'});
+    onExpand?.();
+  };
+
+  const renderStatusIcon = (className) => status?.tone === 'ok' ? (
+    <FaCheck className={className} aria-hidden="true" />
+  ) : (
+    <FaExclamationTriangle className={className} aria-hidden="true" />
+  );
+
   const closeDetails = (event) => {
     event.stopPropagation();
     flush();
+    restoreCompactFocusRef.current = true;
     setActiveId(null);
     onCollapse?.();
   };
 
+  const CardRoot = detailOpen ? 'article' : 'button';
+
   return (
-    <article
+    <CardRoot
+      ref={detailOpen ? undefined : compactButtonRef}
+      type={detailOpen ? undefined : 'button'}
       className={`${styles.annotationCard} ${selected || detailOpen ? styles.annotationCardActive : ''} ${styles[`surface_${surface}`] || ''}`}
-      onClick={() => {
-        if (detailOpen) return;
-        focusAnnotation(annotation.id, {openMobile: surface === 'mobile'});
-        onExpand?.();
-      }}>
+      onClick={openDetails}>
       {detailOpen ? (
         <div className={styles.cardEditor} onClick={(event) => event.stopPropagation()}>
           <div className={styles.cardEditorHeader}>
             <input
+              ref={titleInputRef}
               className={styles.titleInput}
               value={title}
               onChange={markDirty('title', setTitle)}
@@ -124,17 +163,21 @@ export function AnnotationCard({
               </button>
             </div>
           </div>
-          <blockquote>{annotation.exact}</blockquote>
+          <div className={styles.sourceQuote}>
+            <span>{t.sourceText}</span>
+            <blockquote>{annotation.exact}</blockquote>
+          </div>
           <textarea
             value={body}
             onChange={markDirty('body', setBody)}
             onBlur={flush}
             placeholder={t.annotationPlaceholder}
-            rows={surface === 'sidebar' ? 5 : 4}
+            rows={4}
+            aria-label={t.annotationPlaceholder}
           />
           {status && (
             <div className={`${styles.statusRow} ${styles[`status_${status.tone}`]}`}>
-              <FaExclamationTriangle aria-hidden="true" />
+              {renderStatusIcon(styles.statusIcon)}
               <span>{status.label}</span>
             </div>
           )}
@@ -156,16 +199,18 @@ export function AnnotationCard({
           <strong>{annotation.title}</strong>
           <span className={styles.cardSummary}>{compactSummary}</span>
           {status && (
-            <FaExclamationTriangle
+            <span
               className={`${styles.compactStatus} ${styles[`statusText_${status.tone}`]}`}
+              role="img"
               aria-label={status.label}
-              title={status.label}
-            />
+              title={status.label}>
+              {renderStatusIcon()}
+            </span>
           )}
           <span className={styles.compactLine}>{t.line(annotation.line)}</span>
         </div>
       )}
-    </article>
+    </CardRoot>
   );
 }
 
@@ -216,6 +261,7 @@ function AnnotationList({surface = 'sidebar', showHeader = true}) {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={t.searchPlaceholder}
+            aria-label={t.searchPlaceholder}
           />
         </label>
       )}
@@ -271,19 +317,99 @@ export function FooterAnnotationSection() {
 export function MobileAnnotationAccess() {
   const {enabled, annotations, mobileOpen, setMobileOpen} = useDocumentAnnotations();
   const t = useUiText('annotations');
-  if (!enabled || annotations.length === 0) return null;
+  const accessButtonRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const sheetRef = useRef(null);
+  const available = enabled && annotations.length > 0;
+
+  useEffect(() => {
+    if (!mobileOpen || !available) {
+      if (mobileOpen && !available) setMobileOpen(false);
+      return undefined;
+    }
+
+    const mobileMedia = window.matchMedia('(max-width: 996px)');
+    if (!mobileMedia.matches) {
+      setMobileOpen(false);
+      return undefined;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+    const closeAboveMobile = (event) => {
+      if (!event.matches) setMobileOpen(false);
+    };
+    const handleDialogKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMobileOpen(false);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const focusable = Array.from(sheetRef.current?.querySelectorAll(
+        'button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
+      ) || []).filter((element) => element.offsetWidth > 0 || element.offsetHeight > 0);
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (event.shiftKey && (active === first || !sheetRef.current?.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleDialogKeyDown);
+    if (mobileMedia.addEventListener) mobileMedia.addEventListener('change', closeAboveMobile);
+    else mobileMedia.addListener(closeAboveMobile);
+
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleDialogKeyDown);
+      if (mobileMedia.removeEventListener) mobileMedia.removeEventListener('change', closeAboveMobile);
+      else mobileMedia.removeListener(closeAboveMobile);
+      accessButtonRef.current?.focus();
+    };
+  }, [available, mobileOpen, setMobileOpen]);
+
+  if (!available) return null;
 
   return (
     <>
-      <button type="button" className={styles.mobileAccessButton} onClick={() => setMobileOpen(true)}>
+      <button
+        ref={accessButtonRef}
+        type="button"
+        className={styles.mobileAccessButton}
+        onClick={() => setMobileOpen(true)}
+        aria-haspopup="dialog"
+        aria-expanded={mobileOpen}
+        tabIndex={mobileOpen ? -1 : undefined}
+        aria-controls="kai-annotation-mobile-sheet">
         <FaStickyNote aria-hidden="true" />
         {t.mobileButton(annotations.length)}
       </button>
       {mobileOpen && (
         <div className={styles.mobileBackdrop} onMouseDown={() => setMobileOpen(false)}>
-          <div className={styles.mobileSheet} role="dialog" aria-label={t.panelTitle} onMouseDown={(event) => event.stopPropagation()}>
+          <div
+            ref={sheetRef}
+            id="kai-annotation-mobile-sheet"
+            className={styles.mobileSheet}
+            role="dialog"
+            aria-modal="true"
+            aria-label={t.panelTitle}
+            onMouseDown={(event) => event.stopPropagation()}>
             <div className={styles.sheetHandle} />
-            <button type="button" className={styles.sheetClose} onClick={() => setMobileOpen(false)} aria-label={t.close}>
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className={styles.sheetClose}
+              onClick={() => setMobileOpen(false)}
+              aria-label={t.close}>
               <FaTimes aria-hidden="true" />
             </button>
             <AnnotationList surface="mobile" />

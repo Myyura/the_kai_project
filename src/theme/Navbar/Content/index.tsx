@@ -11,6 +11,7 @@ import {
   useThemeConfig,
   ErrorCauseBoundary,
   ThemeClassNames,
+  useWindowSize,
 } from '@docusaurus/theme-common';
 import {
   splitNavbarItems,
@@ -109,6 +110,7 @@ function NavbarContentLayout({
 
 export default function NavbarContent(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
+  const windowSize = useWindowSize();
 
   const items = useVisibleNavbarItems(useNavbarItems());
   const [leftItems, rightItems] = splitNavbarItems(items);
@@ -137,8 +139,8 @@ export default function NavbarContent(): ReactNode {
             dividerClassName={styles.languageDivider}
           />
           <NavbarColorModeToggle className={styles.colorModeToggle} />
-          {!searchBarItem && (
-            <NavbarSearch>
+          {!searchBarItem && windowSize !== 'mobile' && (
+            <NavbarSearch className={styles.desktopSearch}>
               <SearchBar />
             </NavbarSearch>
           )}

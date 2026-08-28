@@ -5,19 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
-Hide color mode toggle in small viewports
- */
-@media (max-width: 996px) {
-  .colorModeToggle {
-    display: none;
-  }
-
-  .languageSwitcher {
-    display: none;
-  }
-}
-
 .languageSwitcher {
   align-items: center;
   display: inline-flex;
@@ -47,6 +34,30 @@ Hide color mode toggle in small viewports
 .languageDivider {
   color: var(--ifm-color-emphasis-500);
   font-size: 0.85rem;
+}
+
+/*
+ * 手机顶栏优先保留语言切换；全站搜索移到汉堡菜单，主题切换保留在侧栏头部。
+ */
+@media (max-width: 996px) {
+  .colorModeToggle,
+  .desktopSearch {
+    display: none;
+  }
+
+  .languageSwitcher {
+    gap: 0.1rem;
+    padding: 0 0.15rem;
+  }
+
+  .languageButton {
+    padding-inline: 0.08rem;
+    font-size: 0.78rem;
+  }
+
+  .languageDivider {
+    font-size: 0.75rem;
+  }
 }
 
 /*
