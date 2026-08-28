@@ -5,8 +5,8 @@
 
   var RETRY_PARAM = '__kai_reload';
   var RETRY_STORAGE_KEY = 'kai_chunk_reload_at_v1';
-  var RETRY_COOLDOWN_MS = 30000;
   var reloadStarted = false;
+  var startupSucceeded = false;
 
   function getErrorText(value) {
     if (!value) return '';
@@ -33,11 +33,11 @@
     }
   }
 
-  function getLastRetryAt() {
+  function hasStoredRetry() {
     try {
-      return Number(window.sessionStorage.getItem(RETRY_STORAGE_KEY)) || 0;
+      return window.sessionStorage.getItem(RETRY_STORAGE_KEY) !== null;
     } catch (_error) {
-      return 0;
+      return false;
     }
   }
 
@@ -49,15 +49,37 @@
     }
   }
 
+  function clearRetry() {
+    try {
+      window.sessionStorage.removeItem(RETRY_STORAGE_KEY);
+    } catch (_error) {
+      // The URL marker is cleared separately when browser storage is restricted.
+    }
+  }
+
+  function markStartupSuccessful() {
+    if (reloadStarted) return;
+    startupSucceeded = true;
+    clearRetry();
+
+    try {
+      var url = new URL(window.location.href);
+      if (!url.searchParams.has(RETRY_PARAM)) return;
+      url.searchParams.delete(RETRY_PARAM);
+      window.history.replaceState(window.history.state, '', url.toString());
+    } catch (_error) {
+      // Keeping a stale URL marker is harmless for this successfully started page.
+    }
+  }
+
   function reloadWithFreshAssets(force) {
     if (reloadStarted) return false;
 
     var now = Date.now();
     var url = new URL(window.location.href);
-    var urlRetryAt = Number(url.searchParams.get(RETRY_PARAM)) || 0;
-    var lastRetryAt = Math.max(urlRetryAt, getLastRetryAt());
+    var automaticRetryAlreadyAttempted = url.searchParams.has(RETRY_PARAM) || hasStoredRetry();
 
-    if (!force && lastRetryAt > 0 && now - lastRetryAt < RETRY_COOLDOWN_MS) {
+    if (!force && !startupSucceeded && automaticRetryAlreadyAttempted) {
       return false;
     }
 
@@ -90,6 +112,7 @@
 
   window.__kaiChunkRecovery = {
     isChunkLoadError: isChunkMessage,
+    markStartupSuccessful: markStartupSuccessful,
     reloadWithFreshAssets: reloadWithFreshAssets,
   };
 

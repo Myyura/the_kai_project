@@ -5,7 +5,7 @@ const {spawnSync} = require('node:child_process');
 // GitHub's standard Linux runner for this public repository has 16 GiB of RAM.
 // Keep the Pages build in isolated phases, but give the growing server module
 // graph enough V8 headroom beyond the former 6 GiB ceiling.
-const PAGES_BUILD_PROFILE = 'github-pages-phased-8gb-v1';
+const PAGES_BUILD_PROFILE = 'github-pages-school-shards-8gb-v1';
 const PAGES_MAX_OLD_SPACE_MB = 8192;
 const PAGES_BUILD_ENV = Object.freeze({
   KAI_BUILD_PROFILE: PAGES_BUILD_PROFILE,
@@ -16,6 +16,7 @@ const PAGES_BUILD_ENV = Object.freeze({
   DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
   RAYON_NUM_THREADS: '1',
   RSPACK_BLOCKING_THREADS: '1',
+  KAI_DOCS_SCHOOL_SHARD_COUNT: 'auto',
 });
 const LOCAL_ONLY_ENVIRONMENT_NAMES = Object.freeze([
   'KAI_ENFORCED_BUILD_PROFILE',
@@ -25,6 +26,11 @@ const LOCAL_ONLY_ENVIRONMENT_NAMES = Object.freeze([
   'DOCUSAURUS_EXIT_AFTER_LOADING',
   'DOCUSAURUS_EXIT_AFTER_BUNDLING',
   'DOCUSAURUS_KEEP_SERVER_BUNDLE',
+]);
+const TRANSIENT_SCHOOL_SHARD_ENVIRONMENT_NAMES = Object.freeze([
+  'KAI_DOCS_BUILD_SHARD_ID',
+  'KAI_DOCS_BUILD_SHARD_SCHOOLS',
+  'KAI_DOCS_BUILD_SHARD_SHARED',
 ]);
 
 function withPagesHeapLimit(nodeOptions = '') {
@@ -53,6 +59,9 @@ function withPagesHeapLimit(nodeOptions = '') {
 function getPagesBuildEnvironment(source = process.env) {
   const environment = {...source};
   for (const name of LOCAL_ONLY_ENVIRONMENT_NAMES) {
+    delete environment[name];
+  }
+  for (const name of TRANSIENT_SCHOOL_SHARD_ENVIRONMENT_NAMES) {
     delete environment[name];
   }
 
@@ -96,6 +105,7 @@ function main() {
     `Building GitHub Pages with the memory-aware ${PAGES_BUILD_PROFILE} profile: `
       + `${PAGES_MAX_OLD_SPACE_MB} MiB V8 heap, sequential bundles, `
       + `${environment.DOCUSAURUS_SSG_WORKER_THREAD_COUNT} SSG workers, `
+      + `${environment.KAI_DOCS_SCHOOL_SHARD_COUNT} school shard planning, `
       + `${environment.RAYON_NUM_THREADS} Rayon thread, and `
       + `${environment.RSPACK_BLOCKING_THREADS} Rspack blocking thread.`,
   );
@@ -130,6 +140,7 @@ module.exports = {
   PAGES_BUILD_ENV,
   PAGES_BUILD_PROFILE,
   PAGES_MAX_OLD_SPACE_MB,
+  TRANSIENT_SCHOOL_SHARD_ENVIRONMENT_NAMES,
   assertPagesBuildEnvironment,
   getPagesBuildEnvironment,
   withPagesHeapLimit,

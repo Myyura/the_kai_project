@@ -384,17 +384,10 @@
   color: var(--kai-danger);
 }
 
-.statusBadge,
 .statusRow {
   margin-top: .4rem;
   font-size: .66rem;
   line-height: 1.4;
-}
-
-.statusBadge {
-  display: inline-flex;
-  padding: .18rem .38rem;
-  border-radius: 999px;
 }
 
 .statusRow {

@@ -13,6 +13,7 @@ const {
   PAGES_BUILD_ENV,
   PAGES_BUILD_PROFILE,
   PAGES_MAX_OLD_SPACE_MB,
+  TRANSIENT_SCHOOL_SHARD_ENVIRONMENT_NAMES,
   assertPagesBuildEnvironment,
   getPagesBuildEnvironment,
   withPagesHeapLimit,
@@ -36,6 +37,7 @@ function withoutBuildProfile(source = process.env) {
     ...Object.keys(LOW_MEMORY_ENV),
     ...Object.keys(PAGES_BUILD_ENV),
     ...LOCAL_ONLY_ENVIRONMENT_NAMES,
+    ...TRANSIENT_SCHOOL_SHARD_ENVIRONMENT_NAMES,
   ]);
   for (const name of controlledNames) delete environment[name];
   return environment;
@@ -49,16 +51,19 @@ function loadBuildConfig(environment) {
   });
 }
 
-test('Pages enforces the phased 8 GiB resource profile', () => {
+test('Pages enforces the school-sharded 8 GiB resource profile', () => {
   const environment = getPagesBuildEnvironment({
     NODE_OPTIONS: '--trace-warnings --max-old-space-size=5120',
     KAI_ENFORCED_BUILD_PROFILE: '16gb',
     KAI_INTERNAL_MEMORY_GUARD_ACTIVE: 'guard:42',
     DOCUSAURUS_SSR_CONCURRENCY: '4',
     RSPACK_BLOCKING_THREADS: '1',
+    KAI_DOCS_BUILD_SHARD_ID: 'stale-group',
+    KAI_DOCS_BUILD_SHARD_SCHOOLS: 'stale-school',
+    KAI_DOCS_BUILD_SHARD_SHARED: 'true',
   });
 
-  assert.equal(PAGES_BUILD_PROFILE, 'github-pages-phased-8gb-v1');
+  assert.equal(PAGES_BUILD_PROFILE, 'github-pages-school-shards-8gb-v1');
   assert.equal(PAGES_MAX_OLD_SPACE_MB, 8192);
   assert.ok(PAGES_MAX_OLD_SPACE_MB > 6144);
   assert.equal(environment.NODE_OPTIONS, '--trace-warnings --max-old-space-size=8192');
@@ -73,11 +78,15 @@ test('Pages enforces the phased 8 GiB resource profile', () => {
   );
   assert.equal(environment.RAYON_NUM_THREADS, '1');
   assert.equal(environment.RSPACK_BLOCKING_THREADS, '1');
+  assert.equal(environment.KAI_DOCS_SCHOOL_SHARD_COUNT, 'auto');
   for (const name of LOCAL_ONLY_ENVIRONMENT_NAMES) {
     assert.equal(environment[name], undefined, `${name} must not leak into Pages`);
   }
+  for (const name of TRANSIENT_SCHOOL_SHARD_ENVIRONMENT_NAMES) {
+    assert.equal(environment[name], undefined, `${name} must not leak into Pages`);
+  }
   assert.deepEqual(PAGES_BUILD_ENV, {
-    KAI_BUILD_PROFILE: 'github-pages-phased-8gb-v1',
+    KAI_BUILD_PROFILE: 'github-pages-school-shards-8gb-v1',
     DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
     DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
     DISABLE_RSPACK_INCREMENTAL: 'true',
@@ -85,6 +94,7 @@ test('Pages enforces the phased 8 GiB resource profile', () => {
     DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
     RAYON_NUM_THREADS: '1',
     RSPACK_BLOCKING_THREADS: '1',
+    KAI_DOCS_SCHOOL_SHARD_COUNT: 'auto',
   });
   assert.doesNotThrow(() => assertPagesBuildEnvironment(environment));
 });
@@ -124,11 +134,11 @@ test('Pages heap options cannot inherit a larger or conflicting V8 heap', () => 
   );
 });
 
-test('Pages invokes the phase adapter directly without the local guard wrapper', () => {
+test('Pages invokes the school shard adapter directly without the local guard wrapper', () => {
   assert.equal(packageJson.scripts['build:pages'], 'node scripts/build-for-pages.js');
   assert.match(
     packageJson.scripts['build:pages:site'],
-    /(?:^|&&\s*)node scripts\/docusaurus-build-phases\.js/,
+    /(?:^|&&\s*)node scripts\/docusaurus-school-build\.js/,
   );
   assert.doesNotMatch(
     packageJson.scripts['build:pages:site'],
@@ -150,7 +160,7 @@ test('Pages invokes the phase adapter directly without the local guard wrapper',
 test('Pages resumes search indexing only after Docusaurus exits', () => {
   const pagesScript = packageJson.scripts['build:pages:site'];
   const phasedBuildIndex = pagesScript.indexOf(
-    'node scripts/docusaurus-build-phases.js',
+    'node scripts/docusaurus-school-build.js',
   );
   const searchIndex = pagesScript.indexOf('node scripts/build-search-index.js');
   const publishIndex = pagesScript.indexOf('yarn documents:publish');
@@ -222,13 +232,4 @@ test('Docusaurus accepts the explicit local and Pages profiles only', () => {
 
   const pages = loadBuildConfig(getPagesBuildEnvironment(unprofiled));
   assert.equal(pages.status, 0, pages.stderr);
-
-  const pagesSsg = loadBuildConfig({
-    ...getPagesBuildEnvironment(unprofiled),
-    BABEL_ENV: 'production',
-    DOCUSAURUS_CURRENT_LOCALE: 'zh-Hans',
-    DOCUSAURUS_SKIP_BUNDLING: 'true',
-    NODE_ENV: 'production',
-  });
-  assert.equal(pagesSsg.status, 0, pagesSsg.stderr);
 });

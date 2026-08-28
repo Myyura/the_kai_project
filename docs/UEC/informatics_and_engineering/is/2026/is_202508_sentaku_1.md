@@ -184,8 +184,8 @@ max_h: 4, 3, 2, 1
 小さい方の $M+1$ 個を最大値ヒープに、大きい方の $M$ 個を最小値ヒープに保持するので、
 
 $$
-\boxed{\lvert\texttt{min_h}\rvert=M,\qquad
-\lvert\texttt{max_h}\rvert=M+1}.
+\boxed{\lvert\texttt{min\_h}\rvert=M,\qquad
+\lvert\texttt{max\_h}\rvert=M+1}.
 $$
 
 ### (9)

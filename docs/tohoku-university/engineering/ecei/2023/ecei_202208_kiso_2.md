@@ -38,8 +38,10 @@ tags:
 2. 图 2(b) 为两个互感线圈连接负载 $R$ 的电路，自感为 $L_1,L_2$，互感为 $M$，一次、二次侧电压电流为 $V_1,I_1$ 与 $V_2,I_2$。
    1. 用 $L_1,L_2,R,M,\omega$ 表示从 a–b 看入的输入阻抗 $Z_{ab}$；
    2. 当耦合系数为 1，且
-      $$V_1=100\,\mathrm V,\quad\omega=10^6\,\mathrm{rad/s},\quad
-      R=10\,\Omega,\quad L_1=10\,\mu\mathrm H,\quad L_2=20\,\mu\mathrm H,$$
+      $$
+      V_1=100\,\mathrm V,\quad\omega=10^6\,\mathrm{rad/s},\quad
+      R=10\,\Omega,\quad L_1=10\,\mu\mathrm H,\quad L_2=20\,\mu\mathrm H,
+      $$
       求二次侧消耗的功率。
 
 ## **Kai** 

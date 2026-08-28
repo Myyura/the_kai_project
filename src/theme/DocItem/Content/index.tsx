@@ -13,6 +13,7 @@ import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import Heading from '@theme/Heading';
 import MDXComponents, {type MDXComponentsObject} from '@theme/MDXComponents';
 import TagsListInline from '@theme/TagsListInline';
+import KaiMath from '@site/src/components/KaiMath';
 import type {Props} from '@theme/DocItem/Content';
 
 /**
@@ -60,6 +61,7 @@ function DocTitleHeader(props: ComponentProps<'header'>): ReactNode {
 
 const DocMDXComponents: MDXComponentsObject = {
   ...MDXComponents,
+  KaiMath,
   header: (props: ComponentProps<'header'>) => <DocTitleHeader {...props} />,
 };
 

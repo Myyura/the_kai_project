@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 const path = require('node:path');
 const {pathToFileURL} = require('node:url');
 const test = require('node:test');
@@ -7,117 +8,258 @@ const recoveryModuleUrl = pathToFileURL(path.resolve(
   __dirname,
   '..',
   'src',
-  'theme',
-  'ErrorPageContent',
-  'requestFreshAssetReload.mjs',
+  'clientModules',
+  'freshAssetRecovery.mjs',
+)).href;
+const recoveryReadyModuleUrl = pathToFileURL(path.resolve(
+  __dirname,
+  '..',
+  'src',
+  'clientModules',
+  'routeRecoveryReady.mjs',
 )).href;
 
-function createWindow(href, recovery, storedRetryAt = null) {
-  const replacements = [];
+function createWindow(href, recovery) {
   const storage = new Map();
-  if (storedRetryAt !== null) storage.set('kai_chunk_reload_at_v1', String(storedRetryAt));
+  const historyReplacements = [];
+  const timers = new Map();
+  let nextTimerId = 1;
+  const browserWindow = {
+    __kaiChunkRecovery: recovery,
+    location: {href},
+    history: {
+      state: null,
+      replaceState(_state, _title, url) {
+        historyReplacements.push(String(url));
+        browserWindow.location.href = String(url);
+      },
+    },
+    sessionStorage: {
+      getItem(key) {
+        return storage.get(key) || null;
+      },
+      setItem(key, value) {
+        storage.set(key, value);
+      },
+      removeItem(key) {
+        storage.delete(key);
+      },
+    },
+    setTimeout(callback, delay) {
+      const timerId = nextTimerId;
+      nextTimerId += 1;
+      timers.set(timerId, {callback, delay});
+      return timerId;
+    },
+    clearTimeout(timerId) {
+      timers.delete(timerId);
+    },
+  };
   return {
-    replacements,
+    browserWindow,
+    historyReplacements,
     storage,
-    window: {
-      __kaiChunkRecovery: recovery,
-      location: {
-        href,
-        replace(url) {
-          replacements.push(url);
-        },
-      },
-      sessionStorage: {
-        getItem(key) {
-          return storage.get(key) || null;
-        },
-        setItem(key, value) {
-          storage.set(key, value);
-        },
-      },
+    timers,
+    runTimers() {
+      const pending = [...timers.values()];
+      timers.clear();
+      pending.forEach(({callback}) => callback());
     },
   };
 }
 
-test('does not bypass the bootstrap when a guarded reload is suppressed', async () => {
+test('fresh-asset UI delegates automatic and manual retries to the bootstrap', async () => {
   const {requestFreshAssetReload} = await import(recoveryModuleUrl);
   const calls = [];
-  const runtime = createWindow('https://runjp.com/?__kai_reload=1722509999000', {
+  const recovery = {
     reloadWithFreshAssets(force) {
       calls.push(force);
-      return false;
+      return force;
+    },
+  };
+
+  assert.equal(requestFreshAssetReload({__kaiChunkRecovery: recovery}), false);
+  assert.equal(requestFreshAssetReload({__kaiChunkRecovery: recovery}, true), true);
+  assert.deepEqual(calls, [false, true]);
+});
+
+test('fresh-asset UI never starts an unguarded fallback state machine', async () => {
+  const {
+    markFreshAssetStartupSuccessful,
+    requestFreshAssetReload,
+  } = await import(recoveryModuleUrl);
+
+  assert.equal(requestFreshAssetReload(undefined), false);
+  assert.equal(requestFreshAssetReload({}), false);
+  assert.equal(markFreshAssetStartupSuccessful(undefined), false);
+  assert.equal(markFreshAssetStartupSuccessful({}), false);
+});
+
+test('successful route completion delegates fresh-asset cleanup', async () => {
+  const {markFreshAssetStartupSuccessful} = await import(recoveryModuleUrl);
+  const calls = [];
+  const handled = markFreshAssetStartupSuccessful({
+    __kaiChunkRecovery: {
+      markStartupSuccessful() {
+        calls.push('ready');
+      },
     },
   });
 
-  requestFreshAssetReload(runtime.window, false, 1722510000000);
-
-  assert.deepEqual(calls, [false]);
-  assert.deepEqual(runtime.replacements, []);
+  assert.equal(handled, true);
+  assert.deepEqual(calls, ['ready']);
 });
 
-test('fallback also honors the session guard when a redirect removed the URL marker', async () => {
-  const {requestFreshAssetReload} = await import(recoveryModuleUrl);
-  const runtime = createWindow('https://runjp.com/docs/intro', undefined, 1722509999000);
+test('recovery pages do not clear either retry guard', async () => {
+  const {markRouteRecoveryReady} = await import(recoveryReadyModuleUrl);
 
-  requestFreshAssetReload(runtime.window, false, 1722510000000);
+  for (const marker of ['error', 'school-shard']) {
+    const calls = [];
+    const runtime = createWindow(
+      'https://runjp.com/docs/intro?__kai_shard_reload=1722510000000',
+      {markStartupSuccessful() { calls.push('chunk-ready'); }},
+    );
+    runtime.storage.set('kai_school_shard_reload_v1', '{}');
 
-  assert.deepEqual(runtime.replacements, []);
+    const ready = markRouteRecoveryReady(runtime.browserWindow, {
+      querySelector(selector) {
+        assert.match(selector, /data-kai-error-page/);
+        assert.match(selector, /data-kai-school-shard-reload/);
+        return {dataset: {marker}};
+      },
+    });
+
+    assert.equal(ready, false);
+    assert.deepEqual(calls, []);
+    assert.equal(runtime.storage.has('kai_school_shard_reload_v1'), true);
+    assert.equal(runtime.historyReplacements.length, 0);
+  }
 });
 
-test('fallback suppresses a second automatic reload during the cooldown', async () => {
-  const {requestFreshAssetReload} = await import(recoveryModuleUrl);
-  const runtime = createWindow('https://runjp.com/docs/intro?__kai_reload=1722509999000');
-
-  requestFreshAssetReload(runtime.window, false, 1722510000000);
-
-  assert.deepEqual(runtime.replacements, []);
-});
-
-test('fallback adds a cache-busting marker when the bootstrap is unavailable', async () => {
-  const {requestFreshAssetReload} = await import(recoveryModuleUrl);
-  const runtime = createWindow('http://runjp.com/docs/intro?lang=zh#overview');
-
-  requestFreshAssetReload(runtime.window, false, 1722510000000);
-
-  assert.equal(runtime.replacements.length, 1);
-  const replacement = new URL(runtime.replacements[0]);
-  assert.equal(replacement.protocol, 'https:');
-  assert.equal(replacement.pathname, '/docs/intro');
-  assert.equal(replacement.searchParams.get('lang'), 'zh');
-  assert.equal(replacement.searchParams.get('__kai_reload'), '1722510000000');
-  assert.equal(replacement.hash, '#overview');
-  assert.equal(runtime.storage.get('kai_chunk_reload_at_v1'), '1722510000000');
-});
-
-test('manual retry delegates with force even while an automatic retry is guarded', async () => {
-  const {requestFreshAssetReload} = await import(recoveryModuleUrl);
+test('a rendered route clears chunk and school-shard recovery state together', async () => {
+  const {markRouteRecoveryReady} = await import(recoveryReadyModuleUrl);
   const calls = [];
-  const runtime = createWindow('https://runjp.com/?__kai_reload=1722509999000', {
-    reloadWithFreshAssets(force) {
-      calls.push(force);
-      return false;
-    },
-  });
-
-  requestFreshAssetReload(runtime.window, true, 1722510000000);
-
-  assert.deepEqual(calls, [true]);
-  assert.deepEqual(runtime.replacements, []);
-});
-
-test('manual retry bypasses fallback guards when the bootstrap is unavailable', async () => {
-  const {requestFreshAssetReload} = await import(recoveryModuleUrl);
   const runtime = createWindow(
-    'https://runjp.com/?__kai_reload=1722509999000',
-    undefined,
-    1722509999000,
+    'https://runjp.com/docs/intro?lang=zh&__kai_shard_reload=1722510000000#answer',
+    {markStartupSuccessful() { calls.push('chunk-ready'); }},
+  );
+  runtime.storage.set('kai_school_shard_reload_v1', '{}');
+
+  const ready = markRouteRecoveryReady(runtime.browserWindow, {
+    querySelector() {
+      return null;
+    },
+  });
+
+  assert.equal(ready, true);
+  assert.deepEqual(calls, ['chunk-ready']);
+  assert.equal(runtime.storage.has('kai_school_shard_reload_v1'), false);
+  assert.equal(runtime.historyReplacements.length, 1);
+  const cleanedUrl = new URL(runtime.browserWindow.location.href);
+  assert.equal(cleanedUrl.searchParams.has('__kai_shard_reload'), false);
+  assert.equal(cleanedUrl.searchParams.get('lang'), 'zh');
+  assert.equal(cleanedUrl.hash, '#answer');
+});
+
+test('route completion waits for a lazy-child stability window', async () => {
+  const {
+    ROUTE_RECOVERY_STABILITY_DELAY_MS,
+    scheduleRouteRecoveryReady,
+  } = await import(recoveryReadyModuleUrl);
+  const calls = [];
+  const runtime = createWindow(
+    'https://runjp.com/docs/intro?__kai_shard_reload=1722510000000',
+    {markStartupSuccessful() { calls.push('chunk-ready'); }},
+  );
+  runtime.storage.set('kai_school_shard_reload_v1', '{}');
+  const browserDocument = {querySelector() { return null; }};
+
+  assert.equal(scheduleRouteRecoveryReady(
+    runtime.browserWindow,
+    browserDocument,
+  ), true);
+  assert.deepEqual(calls, []);
+  assert.equal(runtime.timers.size, 1);
+  assert.equal(
+    [...runtime.timers.values()][0].delay,
+    ROUTE_RECOVERY_STABILITY_DELAY_MS,
   );
 
-  requestFreshAssetReload(runtime.window, true, 1722510000000);
+  runtime.runTimers();
+  assert.deepEqual(calls, ['chunk-ready']);
+  assert.equal(runtime.storage.has('kai_school_shard_reload_v1'), false);
+});
 
-  assert.equal(runtime.replacements.length, 1);
-  assert.equal(
-    new URL(runtime.replacements[0]).searchParams.get('__kai_reload'),
-    '1722510000000',
+test('navigation start cancels the previous route stability check', async () => {
+  const {
+    onRouteUpdate,
+    scheduleRouteRecoveryReady,
+  } = await import(recoveryReadyModuleUrl);
+  const calls = [];
+  const runtime = createWindow(
+    'https://runjp.com/docs/intro?__kai_shard_reload=1722510000000',
+    {markStartupSuccessful() { calls.push('chunk-ready'); }},
+  );
+  runtime.storage.set('kai_school_shard_reload_v1', '{}');
+  const browserDocument = {querySelector() { return null; }};
+
+  scheduleRouteRecoveryReady(runtime.browserWindow, browserDocument);
+  const previousWindow = global.window;
+  global.window = runtime.browserWindow;
+  try {
+    onRouteUpdate();
+  } finally {
+    if (previousWindow === undefined) delete global.window;
+    else global.window = previousWindow;
+  }
+  runtime.runTimers();
+
+  assert.deepEqual(calls, []);
+  assert.equal(runtime.storage.has('kai_school_shard_reload_v1'), true);
+
+  scheduleRouteRecoveryReady(runtime.browserWindow, browserDocument, 0);
+  runtime.runTimers();
+  assert.deepEqual(calls, ['chunk-ready']);
+  assert.equal(runtime.storage.has('kai_school_shard_reload_v1'), false);
+});
+
+test('a successful ordinary-error retry starts a fresh stability check', async () => {
+  const {scheduleRouteRecoveryReady} = await import(recoveryReadyModuleUrl);
+  const calls = [];
+  const runtime = createWindow(
+    'https://runjp.com/docs/intro?__kai_reload=1722510000000',
+    {markStartupSuccessful() { calls.push('chunk-ready'); }},
+  );
+  let showingError = true;
+  const browserDocument = {
+    querySelector() {
+      return showingError ? {dataset: {marker: 'error'}} : null;
+    },
+  };
+
+  scheduleRouteRecoveryReady(runtime.browserWindow, browserDocument, 0);
+  runtime.runTimers();
+  assert.deepEqual(calls, []);
+
+  showingError = false;
+  scheduleRouteRecoveryReady(runtime.browserWindow, browserDocument, 0);
+  runtime.runTimers();
+  assert.deepEqual(calls, ['chunk-ready']);
+
+  const errorPageSource = fs.readFileSync(path.resolve(
+    __dirname,
+    '..',
+    'src',
+    'theme',
+    'ErrorPageContent',
+    'index.jsx',
+  ), 'utf8');
+  assert.match(
+    errorPageSource,
+    /tryAgain\(\);\s*scheduleRouteRecoveryReady\(/,
+  );
+  assert.match(
+    errorPageSource,
+    /onClick=\{tryAgainAfterRecoveryWindow\}/,
   );
 });

@@ -9,6 +9,12 @@ const {
   assertPhasedBuildProfile,
   assertSupportedDocusaurusVersion,
 } = require('./docusaurus-build-phases');
+const {
+  applySchoolShardToSite,
+  discoverSchoolIds,
+  parseSchoolShardEnvironment,
+} = require('./docusaurus-school-shards');
+const {buildRouteOwnership} = require('./docusaurus-school-route-ownership');
 
 const BUILD_TARGETS = Object.freeze(['server', 'client']);
 
@@ -140,14 +146,27 @@ async function runBundleTarget(target, {
   siteDir = SITE_DIR,
 } = {}) {
   prepareProcessEnvironment(target);
-  assertPhasedBuildProfile();
+  const buildProfile = assertPhasedBuildProfile();
   assertSupportedDocusaurusVersion();
+  const shard = parseSchoolShardEnvironment();
+  if (buildProfile === 'pages' && !shard) {
+    throw new Error('Every GitHub Pages bundle target must select a school shard.');
+  }
+  if (buildProfile !== 'pages' && shard) {
+    throw new Error('School-sharded bundle targets are reserved for GitHub Pages.');
+  }
 
-  const site = await internals.loadSite({
+  let site = await internals.loadSite({
     siteDir,
     locale: BUILD_LOCALE,
     automaticBaseUrlLocalizationDisabled: true,
   });
+  if (shard) {
+    const allSchoolIds = discoverSchoolIds(siteDir);
+    site = await applySchoolShardToSite(site, shard, allSchoolIds, {
+      createRouteOwnership: buildRouteOwnership,
+    });
+  }
   const {props} = site;
   assertSingleLocale(props.i18n);
   if (props.siteConfig.future.experimental_router === 'hash') {
@@ -160,10 +179,17 @@ async function runBundleTarget(target, {
     internals,
   );
   if (target === 'server') {
-    // Only the first target clears the output. The client process must preserve
-    // the server bundle for the later SSG-only process.
-    assertSafeOutputDirectory(props.outDir, siteDir);
-    await removeOutput(props.outDir, {recursive: true, force: true});
+    if (shard) {
+      // Each shard has already written client assets and earlier shards may
+      // have written HTML. Only replace the ephemeral server hand-off.
+      const serverDirectory = path.dirname(outputPath);
+      assertSafeOutputDirectory(serverDirectory, siteDir);
+      await removeOutput(serverDirectory, {recursive: true, force: true});
+    } else {
+      // The local non-sharded adapter still starts with the server phase.
+      assertSafeOutputDirectory(props.outDir, siteDir);
+      await removeOutput(props.outDir, {recursive: true, force: true});
+    }
   } else {
     // Do not let a manifest left by an interrupted earlier build satisfy the
     // coordinator's hand-off check.
@@ -189,7 +215,11 @@ async function main(args = process.argv.slice(2)) {
   if (extraArgs.length > 0) {
     throw new Error(`Unexpected bundle target arguments: ${extraArgs.join(' ')}`);
   }
-  console.log(`[phased build] Loading and compiling the ${target} bundle...`);
+  const shard = parseSchoolShardEnvironment();
+  console.log(
+    `[phased build] Loading and compiling the ${target} bundle`
+      + `${shard ? ` for ${shard.id}` : ''}...`,
+  );
   const outputPath = await runBundleTarget(target);
   console.log(`[phased build] ${target} bundle output: ${outputPath}`);
 }

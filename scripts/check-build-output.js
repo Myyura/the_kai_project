@@ -47,17 +47,19 @@ try {
   }
   throw error;
 }
-const mainBundle = files.find((filePath) => /\/assets\/js\/main\.[^/]+\.js$/.test(filePath));
+const mainBundles = files.filter((filePath) => (
+  /\/assets\/js\/main\.[^/]+\.js$/.test(filePath)
+));
+const htmlFiles = files.filter((filePath) => filePath.endsWith('.html'));
 const searchIndex = files.find((filePath) => filePath.endsWith('/search-index.json'));
 const contentManifestPath = path.join(BUILD_DIR, 'api-content', 'v1', 'manifest.json');
-const homePagePath = path.join(BUILD_DIR, 'index.html');
 const contentExportPath = path.join(
   BUILD_DIR,
   'content-export',
   'v1',
   'kai-content-v1.json.gz',
 );
-if (!mainBundle) throw new Error('Main JavaScript bundle was not generated.');
+if (mainBundles.length === 0) throw new Error('Main JavaScript bundle was not generated.');
 if (!searchIndex) throw new Error('Search index was not generated.');
 if (fs.existsSync(path.join(BUILD_DIR, '.kai-search-index-manifest.json'))) {
   throw new Error('Deferred search index manifest was not removed.');
@@ -80,16 +82,17 @@ if (!retiredPwaTombstone.includes('kai-retired-pwa-tombstone')
   throw new Error('Retired PWA cleanup worker is not the expected self-unregistering tombstone.');
 }
 
-const mainGzip = gzipSize(mainBundle);
+const mainGzipSizes = mainBundles.map(gzipSize);
+const mainGzip = Math.max(...mainGzipSizes);
 const searchGzip = gzipSize(searchIndex);
 const contentManifestBuffer = readRequiredFile(
   contentManifestPath,
   'Published document content manifest was not generated.',
 );
-const homePageHtml = readRequiredFile(
-  homePagePath,
+readRequiredFile(
+  path.join(BUILD_DIR, 'index.html'),
   'Homepage build output was not generated.',
-).toString('utf8');
+);
 const contentExportBuffer = readRequiredFile(
   contentExportPath,
   'Kai content v1 export was not generated.',
@@ -103,6 +106,32 @@ const docsHtmlFiles = files.filter((filePath) => (
   filePath.startsWith(path.join(BUILD_DIR, 'docs') + path.sep)
   && filePath.endsWith('.html')
 ));
+const missingHtmlAssetReferences = [];
+const invalidRecoveryBootstrapFiles = [];
+const referencedMainBundles = new Set();
+for (const htmlFile of htmlFiles) {
+  const html = fs.readFileSync(htmlFile, 'utf8');
+  const recoveryBootstrapIndex = html.indexOf('data-kai-chunk-recovery');
+  const firstApplicationScriptIndex = html.search(
+    /<script[^>]+src=["']?\/assets\/js\/(?:runtime~main|main)\.[^>]+>/,
+  );
+  if (
+    recoveryBootstrapIndex < 0
+    || (firstApplicationScriptIndex >= 0
+      && recoveryBootstrapIndex > firstApplicationScriptIndex)
+  ) {
+    invalidRecoveryBootstrapFiles.push(htmlFile);
+  }
+  for (const match of html.matchAll(/(?:src|href)=["'](\/assets\/[^"'#?]+)["']/g)) {
+    const assetPath = path.join(BUILD_DIR, match[1].slice(1));
+    if (!fs.existsSync(assetPath)) {
+      missingHtmlAssetReferences.push({htmlFile, asset: match[1]});
+    }
+  }
+  for (const match of html.matchAll(/\/assets\/js\/main\.[^"']+?\.js/g)) {
+    referencedMainBundles.add(path.join(BUILD_DIR, match[0].slice(1)));
+  }
+}
 const topicTagHtmlFiles = docsHtmlFiles.filter((filePath) => (
   filePath.startsWith(path.join(DOCS_TAGS_DIR, 'topic') + path.sep)
 ));
@@ -159,6 +188,34 @@ if (unsupportedMediaRangeFiles.length > 0) {
     + unsupportedMediaRangeFiles.join(', '),
   );
 }
+if (missingHtmlAssetReferences.length > 0) {
+  throw new Error(
+    'Built HTML references missing sharded assets: '
+      + missingHtmlAssetReferences.slice(0, 10)
+        .map(({htmlFile, asset}) => `${path.relative(BUILD_DIR, htmlFile)} -> ${asset}`)
+        .join(', '),
+  );
+}
+if (invalidRecoveryBootstrapFiles.length > 0) {
+  throw new Error(
+    'Built HTML is missing the stale-chunk recovery bootstrap before application scripts: '
+      + invalidRecoveryBootstrapFiles.slice(0, 10)
+        .map((filePath) => path.relative(BUILD_DIR, filePath))
+        .join(', '),
+  );
+}
+const unreferencedMainBundles = mainBundles.filter(
+  (filePath) => !referencedMainBundles.has(filePath),
+);
+if (
+  referencedMainBundles.size !== mainBundles.length
+  || unreferencedMainBundles.length > 0
+) {
+  throw new Error(
+    `Sharded HTML references ${referencedMainBundles.size} main bundles, but `
+      + `${mainBundles.length} were generated.`,
+  );
+}
 if (topicTagHtmlFiles.length > 0) {
   throw new Error(`Topic tag routes returned: ${topicTagHtmlFiles.length}.`);
 }
@@ -176,9 +233,6 @@ if (legacyTopicLinkFiles.length > 0) {
   throw new Error(
     `Built docs contain legacy /docs/tags/topic/ links: ${legacyTopicLinkFiles.slice(0, 10).join(', ')}`,
   );
-}
-if (!homePageHtml.includes('data-kai-chunk-recovery')) {
-  throw new Error('Homepage is missing the stale-chunk recovery bootstrap.');
 }
 if (contentExport.format !== 'kai-content' || contentExport.schemaVersion !== 1) {
   throw new Error('Unexpected Kai content export format or schema version.');
@@ -205,14 +259,19 @@ if (contentExportGzip > CONTENT_EXPORT_GZIP_BUDGET) {
   throw new Error(`Kai content export ${formatMiB(contentExportGzip)} exceeds ${formatMiB(CONTENT_EXPORT_GZIP_BUDGET)}.`);
 }
 if (mainGzip > MAIN_GZIP_BUDGET) {
-  throw new Error(`Main bundle ${formatMiB(mainGzip)} exceeds ${formatMiB(MAIN_GZIP_BUDGET)}.`);
+  throw new Error(
+    `Largest of ${mainBundles.length} main bundles ${formatMiB(mainGzip)} exceeds `
+      + `${formatMiB(MAIN_GZIP_BUDGET)}.`,
+  );
 }
 if (searchGzip > SEARCH_GZIP_BUDGET) {
   throw new Error(`Search index ${formatMiB(searchGzip)} exceeds ${formatMiB(SEARCH_GZIP_BUDGET)}.`);
 }
 
 console.log(
-  `Build budgets passed: main ${formatMiB(mainGzip)}, search ${formatMiB(searchGzip)}, `
+  `Build budgets passed: ${htmlFiles.length} HTML files reference `
+  + `${mainBundles.length} complete main bundles (largest ${formatMiB(mainGzip)}), `
+  + `search ${formatMiB(searchGzip)}, `
   + `published content ${formatMiB(publishedContentBytes)} across ${publishedContentFiles.length} files, `
   + `Kai content export ${formatMiB(contentExportGzip)} across ${contentExport.documents.length} documents `
   + `and ${contentExport.assets.length} assets, tag routes ${subsubjectTagHtmlFiles.length} subsubjects `

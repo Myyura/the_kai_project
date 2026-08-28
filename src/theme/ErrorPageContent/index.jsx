@@ -7,7 +7,8 @@ import {
 import Heading from '@theme/Heading';
 import {useUiText} from '@site/src/i18n/useUiText';
 
-import {requestFreshAssetReload} from './requestFreshAssetReload.mjs';
+import {requestFreshAssetReload} from '@site/src/clientModules/freshAssetRecovery.mjs';
+import {scheduleRouteRecoveryReady} from '@site/src/clientModules/routeRecoveryReady.mjs';
 import styles from './styles.module.css';
 
 const CHUNK_ERROR_PATTERN = /ChunkLoadError|Loading chunk \d+ failed|Failed to fetch dynamically imported module|Importing a module script failed/i;
@@ -27,13 +28,21 @@ export default function ErrorPageContent({error, tryAgain}) {
   const t = useUiText('framework');
   const chunkLoadFailed = isChunkLoadError(error);
 
+  const tryAgainAfterRecoveryWindow = () => {
+    tryAgain();
+    scheduleRouteRecoveryReady(
+      typeof window === 'undefined' ? null : window,
+      typeof document === 'undefined' ? null : document,
+    );
+  };
+
   useEffect(() => {
     if (chunkLoadFailed) reloadWithFreshAssets(false);
   }, [chunkLoadFailed]);
 
   if (chunkLoadFailed) {
     return (
-      <main className={styles.page}>
+      <main className={styles.page} data-kai-error-page="">
         <section className={styles.card} aria-live="polite">
           <span className={styles.eyebrow}>Kai Project</span>
           <Heading as="h1" className={styles.title}>{t.updateTitle}</Heading>
@@ -52,7 +61,7 @@ export default function ErrorPageContent({error, tryAgain}) {
   }
 
   return (
-    <main className="container margin-vert--xl">
+    <main className="container margin-vert--xl" data-kai-error-page="">
       <div className="row">
         <div className="col col--6 col--offset-3">
           <Heading as="h1" className="hero__title">
@@ -65,7 +74,7 @@ export default function ErrorPageContent({error, tryAgain}) {
           </Heading>
           <div className="margin-vert--lg">
             <ErrorBoundaryTryAgainButton
-              onClick={tryAgain}
+              onClick={tryAgainAfterRecoveryWindow}
               className="button button--primary shadow--lw"
             />
           </div>

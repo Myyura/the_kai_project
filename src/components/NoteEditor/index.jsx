@@ -15,6 +15,7 @@ import {
   stripAnnotationMetadata,
   updateFreeNoteContent,
 } from '@site/src/services/noteAnnotations';
+import {createDraftSaveScheduler} from './draftSaveScheduler.mjs';
 import styles from './styles.module.css';
 
 // ─── 时间格式化 ──────────────────────────────────────────────
@@ -79,18 +80,41 @@ function NoteEditorContent({ docId, embedded = false }) {
 
   const textareaRef = useRef(null);
   const previewRef = useRef(null);
-  const saveTimerRef = useRef(null);
-  const textRef = useRef(text);
-  textRef.current = text;
+  const saveSchedulerRef = useRef(null);
+  const saveFreeContentRef = useRef(null);
+  const saveFlashTimerRef = useRef(null);
 
   // 外部数据同步（其他标签页修改等）
   useEffect(() => {
+    if (saveSchedulerRef.current?.hasPending()) return;
     setText(parseNoteDocument(content).freeContent);
   }, [content]);
 
   const saveFreeContent = useCallback((nextFreeContent) => {
     patchNote((latestContent) => updateFreeNoteContent(latestContent, nextFreeContent));
   }, [patchNote]);
+  saveFreeContentRef.current = saveFreeContent;
+
+  const showSaveFlash = useCallback(() => {
+    setSaveFlash(true);
+    if (saveFlashTimerRef.current) clearTimeout(saveFlashTimerRef.current);
+    saveFlashTimerRef.current = setTimeout(() => {
+      saveFlashTimerRef.current = null;
+      setSaveFlash(false);
+    }, 1500);
+  }, []);
+
+  if (!saveSchedulerRef.current) {
+    saveSchedulerRef.current = createDraftSaveScheduler({
+      save: (nextFreeContent) => saveFreeContentRef.current(nextFreeContent),
+      onFlushed: showSaveFlash,
+    });
+  }
+
+  const updateTextAndScheduleSave = useCallback((nextText) => {
+    setText(nextText);
+    saveSchedulerRef.current.schedule(nextText);
+  }, []);
 
   // 有内容时自动展开
   useEffect(() => {
@@ -100,26 +124,18 @@ function NoteEditorContent({ docId, embedded = false }) {
   // 卸载时刷新未保存的内容
   useEffect(() => {
     return () => {
-      if (saveTimerRef.current) {
-        clearTimeout(saveTimerRef.current);
-        saveFreeContent(textRef.current);
-      }
+      saveSchedulerRef.current?.flush({notify: false});
+      if (saveFlashTimerRef.current) clearTimeout(saveFlashTimerRef.current);
     };
-  }, [saveFreeContent]);
+  }, []);
 
   // ─── 防抖保存 ────────────────────────────────────────────
   const handleChange = useCallback(
     (e) => {
       const val = e.target.value;
-      setText(val);
-      if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
-      saveTimerRef.current = setTimeout(() => {
-        saveFreeContent(val);
-        setSaveFlash(true);
-        setTimeout(() => setSaveFlash(false), 1500);
-      }, 600);
+      updateTextAndScheduleSave(val);
     },
-    [saveFreeContent]
+    [updateTextAndScheduleSave]
   );
 
   // ─── 预览渲染 ────────────────────────────────────────────
@@ -165,20 +181,14 @@ function NoteEditorContent({ docId, embedded = false }) {
         cursorEnd = cursorStart + replacement.length;
       }
 
-      setText(newValue);
-      if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
-      saveTimerRef.current = setTimeout(() => {
-        saveFreeContent(newValue);
-        setSaveFlash(true);
-        setTimeout(() => setSaveFlash(false), 1500);
-      }, 600);
+      updateTextAndScheduleSave(newValue);
 
       requestAnimationFrame(() => {
         textarea.focus();
         textarea.setSelectionRange(cursorStart, cursorEnd);
       });
     },
-    [saveFreeContent]
+    [updateTextAndScheduleSave]
   );
 
   // ─── Tab 缩进支持 ────────────────────────────────────────
@@ -191,13 +201,13 @@ function NoteEditorContent({ docId, embedded = false }) {
         const { selectionStart, selectionEnd, value } = textarea;
         const newValue =
           value.substring(0, selectionStart) + '  ' + value.substring(selectionEnd);
-        setText(newValue);
+        updateTextAndScheduleSave(newValue);
         requestAnimationFrame(() => {
           textarea.selectionStart = textarea.selectionEnd = selectionStart + 2;
         });
       }
     },
-    []
+    [updateTextAndScheduleSave]
   );
 
   const hasContent = text.trim().length > 0;

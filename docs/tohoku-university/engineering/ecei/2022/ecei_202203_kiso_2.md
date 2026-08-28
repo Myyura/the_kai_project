@@ -36,8 +36,10 @@ $Z_{ab}$ を $\omega_0,L_1,M,R_1,R_2$ で表わせ。ならびに、$I_1$ と $I
 1. 画出该耦合电路的 T 形等效电路。
 2. 将二次侧 c–d 短路，用 $\omega,L_2,M,R_2$ 表示电流幅值比 $|I_2|/|I_1|$，并求 $\omega=0$ 时的值。
 3. 移除 $Z$ 并将 c–d 开路。当
-   $$R_1=10\,\Omega,\ R_2=5\,\Omega,\ L_1=10\,\mathrm{mH},\
-   L_2=M=5\,\mathrm{mH},\ \omega=1000\,\mathrm{rad/s}$$
+   $$
+   R_1=10\,\Omega,\ R_2=5\,\Omega,\ L_1=10\,\mathrm{mH},\
+   L_2=M=5\,\mathrm{mH},\ \omega=1000\,\mathrm{rad/s}
+   $$
    时，求开路电压比 $|V_2|/|E|$。
 4. 用 $\omega,L_1,L_2,M,R_1,R_2,Z$ 表示从 a–b 看入的阻抗
    $$Z_{ab}=E/I_1.$$

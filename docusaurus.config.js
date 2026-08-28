@@ -7,15 +7,15 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import {readFileSync} from 'node:fs';
 import remarkMath from 'remark-math';
-import rehypeKatexWithMhchem from './src/markdown/rehypeKatexWithMhchem.js';
 import rehypeAnnotationSourceLines from './src/markdown/rehypeAnnotationSourceLines.js';
+import rehypeRuntimeKatex from './src/markdown/rehypeRuntimeKatex.js';
 import rehypeStudySections from './src/markdown/rehypeStudySections.js';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const sequentialBundles = process.env.DOCUSAURUS_SEQUENTIAL_BUNDLES === 'true';
 const localMemoryProfile = process.env.KAI_ENFORCED_BUILD_PROFILE === '16gb';
-const pagesBuildProfile = 'github-pages-phased-8gb-v1';
+const pagesBuildProfile = 'github-pages-school-shards-8gb-v1';
 const pagesMemoryProfile = process.env.KAI_BUILD_PROFILE === pagesBuildProfile;
 const memoryConstrainedBuildProfile = localMemoryProfile || pagesMemoryProfile;
 const docusaurusArgs = process.argv.slice(2);
@@ -46,6 +46,7 @@ const requiredPagesBuildEnvironment = {
   DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
   RAYON_NUM_THREADS: '1',
   RSPACK_BLOCKING_THREADS: '1',
+  KAI_DOCS_SCHOOL_SHARD_COUNT: 'auto',
 };
 const hasRequiredPagesBuildEnvironment = Object.entries(requiredPagesBuildEnvironment)
   .every(([name, value]) => process.env[name] === value)
@@ -172,11 +173,7 @@ const docsPluginOptions = {
   remarkPlugins: [remarkMath],
   rehypePlugins: [
     rehypeAnnotationSourceLines,
-    [rehypeKatexWithMhchem, {
-      // Existing exam content includes CJK text inside math expressions.
-      strict: false,
-      throwOnError: true,
-    }],
+    rehypeRuntimeKatex,
     rehypeStudySections,
   ],
   sidebarPath: './sidebars.js',
@@ -268,6 +265,7 @@ const config = {
   // 客户端模块 - 在页面加载时立即执行
   clientModules: [
     require.resolve('./src/clientModules/languageInit.js'),
+    require.resolve('./src/clientModules/routeRecoveryReady.mjs'),
     // One-release cleanup for service workers installed by the retired web PWA.
     require.resolve('./src/clientModules/removeLegacyPwa.js'),
   ],

@@ -4,10 +4,7 @@ const os = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
 const {getBuildEnvironment} = require('./build-with-memory-limit');
-const {
-  PAGES_BUILD_ENV,
-  getPagesBuildEnvironment,
-} = require('./build-for-pages');
+const {getPagesBuildEnvironment} = require('./build-for-pages');
 const {
   BUILD_LOCALE,
   BUNDLING_CONTROL_ENV,
@@ -54,28 +51,6 @@ test('build commands use three independent Node processes', () => {
   for (const command of commands) {
     assert.equal(command.env[MEMORY_GUARD_ACTIVE_ENV], 'guard:42');
   }
-});
-
-test('Pages phases preserve the exact Pages profile and isolate SSG bundling', () => {
-  const environment = getPagesBuildEnvironment({CUSTOM_VALUE: 'preserved'});
-  const commands = createPhaseCommands({
-    sourceEnvironment: environment,
-    nodePath: '/node',
-    bundleTargetPath: '/bundle-target.js',
-    docusaurusCliPath: '/docusaurus.mjs',
-  });
-
-  for (const command of commands) {
-    for (const [name, value] of Object.entries(PAGES_BUILD_ENV)) {
-      assert.equal(command.env[name], value, `${command.id} must preserve ${name}`);
-    }
-    assert.equal(command.env.NODE_OPTIONS, '--max-old-space-size=8192');
-    assert.equal(command.env.RSPACK_BLOCKING_THREADS, '1');
-    assert.equal(command.env.CUSTOM_VALUE, 'preserved');
-  }
-  assert.equal(commands[0].env.DOCUSAURUS_SKIP_BUNDLING, undefined);
-  assert.equal(commands[1].env.DOCUSAURUS_SKIP_BUNDLING, undefined);
-  assert.equal(commands[2].env.DOCUSAURUS_SKIP_BUNDLING, 'true');
 });
 
 test('phase environments cannot inherit a Docusaurus early-exit mode', () => {
@@ -142,30 +117,7 @@ test('all successful phases are verified in order', () => {
   assert.deepEqual(verified, ['server', 'client', 'ssg']);
 });
 
-test('Pages runs every phase without invoking the local memory guard', () => {
-  const environment = getPagesBuildEnvironment({});
-  let guardCalls = 0;
-  const verified = [];
-
-  runPhasedBuild({
-    sourceEnvironment: environment,
-    assertGuard() {
-      guardCalls += 1;
-    },
-    logger: {log() {}},
-    spawnSyncImpl() {
-      return {status: 0};
-    },
-    verifyArtifacts(phase) {
-      verified.push(phase);
-    },
-  });
-
-  assert.equal(guardCalls, 0);
-  assert.deepEqual(verified, ['server', 'client', 'ssg']);
-});
-
-test('the phased profile dispatcher rejects Pages drift before spawning', () => {
+test('the bundle target profile dispatcher rejects Pages drift', () => {
   const pages = getPagesBuildEnvironment({});
   assert.equal(assertPhasedBuildProfile(pages), 'pages');
   assert.throws(
@@ -187,16 +139,19 @@ test('the phased profile dispatcher rejects Pages drift before spawning', () => 
     },
   }), 'local');
   assert.equal(localGuardCalls, 1);
+});
 
+test('the local phased coordinator rejects Pages before spawning', () => {
+  const pages = getPagesBuildEnvironment({});
   let spawnCalls = 0;
   assert.throws(() => runPhasedBuild({
-    sourceEnvironment: {...pages, RSPACK_BLOCKING_THREADS: '2'},
+    sourceEnvironment: pages,
     logger: {log() {}},
     spawnSyncImpl() {
       spawnCalls += 1;
       return {status: 0};
     },
-  }), /RSPACK_BLOCKING_THREADS=1/);
+  }), /legacy phased build coordinator is local-only/);
   assert.equal(spawnCalls, 0);
 });
 
