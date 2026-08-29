@@ -52,6 +52,7 @@ const CHART = {
 };
 
 const AGGREGATE_COLOR_COUNT = 8;
+const BENCHMARK_RATIO = 1.5;
 
 function toFiniteNumber(value) {
   if (value === null || value === undefined || value === '') return null;
@@ -248,6 +249,28 @@ function formatCount(value) {
   return Number.isInteger(value)
     ? String(value)
     : Number(value).toFixed(1).replace(/\.0$/, '');
+}
+
+function tooltipRatioCounts(point) {
+  const counts = point?.counts || {};
+  const ratioKind = String(point?.ratioKind || '').toLowerCase();
+  if (
+    (ratioKind.includes('examine') || ratioKind.includes('受验'))
+    && counts.examinees !== null
+    && counts.admitted !== null
+  ) {
+    return `受验数/合格数 ${formatCount(counts.examinees)}/${formatCount(counts.admitted)}`;
+  }
+  if (counts.applicants !== null && counts.admitted !== null) {
+    return `志愿数/合格数 ${formatCount(counts.applicants)}/${formatCount(counts.admitted)}`;
+  }
+  if (counts.examinees !== null && counts.admitted !== null) {
+    return `受验数/合格数 ${formatCount(counts.examinees)}/${formatCount(counts.admitted)}`;
+  }
+  if (counts.applicants !== null && counts.capacity !== null) {
+    return `志愿数/招生数 ${formatCount(counts.applicants)}/${formatCount(counts.capacity)}`;
+  }
+  return '人数未公开';
 }
 
 function formatTick(value) {
@@ -541,9 +564,15 @@ export default function AdmissionTrendCard({slug}) {
   const yForRatio = (ratio) => (
     CHART.top + plotHeight - (ratio / upperBound) * plotHeight
   );
-  const yTicks = Array.from({length: 5}, (_, index) => (
+  const baseYTicks = Array.from({length: 5}, (_, index) => (
     (upperBound / 4) * index
   ));
+  const yTicks = (
+    upperBound >= BENCHMARK_RATIO
+    && !baseYTicks.some((tick) => Math.abs(tick - BENCHMARK_RATIO) < 0.001)
+      ? [...baseYTicks, BENCHMARK_RATIO]
+      : baseYTicks
+  ).sort((left, right) => left - right);
 
   const latestEntries = trendSeries.map((series) => {
     const point = [...series.points]
@@ -691,16 +720,21 @@ export default function AdmissionTrendCard({slug}) {
 
             {yTicks.map((tick) => {
               const y = yForRatio(tick);
+              const isBenchmark = Math.abs(tick - BENCHMARK_RATIO) < 0.001;
               return (
                 <g key={tick}>
                   <line
-                    className={styles.gridLine}
+                    className={`${styles.gridLine} ${isBenchmark ? styles.benchmarkGridLine : ''}`}
                     x1={CHART.left}
                     x2={CHART.width - CHART.right}
                     y1={y}
                     y2={y}
                   />
-                  <text className={styles.axisLabel} x={CHART.left - 10} y={y + 4} textAnchor="end">
+                  <text
+                    className={`${styles.axisLabel} ${isBenchmark ? styles.benchmarkAxisLabel : ''}`}
+                    x={CHART.left - 10}
+                    y={y + 4}
+                    textAnchor="end">
                     {formatTick(tick)}×
                   </text>
                 </g>
@@ -799,17 +833,9 @@ export default function AdmissionTrendCard({slug}) {
                 plotBottom - tooltipHeight - 4,
                 Math.max(CHART.top + 4, hoveredPoint.y - tooltipHeight / 2),
               );
-              const compactCounts = COUNT_FIELDS
-                .filter(([field]) => ['applicants', 'examinees', 'admitted'].includes(field))
-                .filter(([field]) => hoveredPoint.point.counts[field] !== null)
-                .map(([field, label]) => `${label} ${formatCount(hoveredPoint.point.counts[field])}`)
-                .join(' · ');
               const tooltipLabel = hoveredPoint.series.originLabel
                 || hoveredPoint.series.label;
-              const tooltipDetail = [
-                ratioKindLabel(hoveredPoint.point.ratioKind),
-                compactCounts,
-              ].filter(Boolean).join(' · ');
+              const tooltipDetail = tooltipRatioCounts(hoveredPoint.point);
               return (
                 <g
                   className={styles.tooltip}
@@ -833,7 +859,7 @@ export default function AdmissionTrendCard({slug}) {
                     {hoveredPoint.point.admissionYear}年度 · {formatRatio(hoveredPoint.point.primaryRatio)}× · {trendPointSourceType(hoveredPoint.series, hoveredPoint.point) === 'community' ? '民间' : '官方'}
                   </text>
                   <text className={styles.tooltipMuted} x={tooltipX + 12} y={tooltipY + 49}>
-                    {shortLabel(tooltipDetail, 19)}
+                    {tooltipDetail}
                   </text>
                 </g>
               );
