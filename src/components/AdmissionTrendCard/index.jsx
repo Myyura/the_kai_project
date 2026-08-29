@@ -52,7 +52,6 @@ const CHART = {
 };
 
 const AGGREGATE_COLOR_COUNT = 8;
-const BENCHMARK_RATIO = 1.5;
 
 function toFiniteNumber(value) {
   if (value === null || value === undefined || value === '') return null;
@@ -564,15 +563,9 @@ export default function AdmissionTrendCard({slug}) {
   const yForRatio = (ratio) => (
     CHART.top + plotHeight - (ratio / upperBound) * plotHeight
   );
-  const baseYTicks = Array.from({length: 5}, (_, index) => (
+  const yTicks = Array.from({length: 5}, (_, index) => (
     (upperBound / 4) * index
   ));
-  const yTicks = (
-    upperBound >= BENCHMARK_RATIO
-    && !baseYTicks.some((tick) => Math.abs(tick - BENCHMARK_RATIO) < 0.001)
-      ? [...baseYTicks, BENCHMARK_RATIO]
-      : baseYTicks
-  ).sort((left, right) => left - right);
 
   const latestEntries = trendSeries.map((series) => {
     const point = [...series.points]
@@ -720,21 +713,16 @@ export default function AdmissionTrendCard({slug}) {
 
             {yTicks.map((tick) => {
               const y = yForRatio(tick);
-              const isBenchmark = Math.abs(tick - BENCHMARK_RATIO) < 0.001;
               return (
                 <g key={tick}>
                   <line
-                    className={`${styles.gridLine} ${isBenchmark ? styles.benchmarkGridLine : ''}`}
+                    className={styles.gridLine}
                     x1={CHART.left}
                     x2={CHART.width - CHART.right}
                     y1={y}
                     y2={y}
                   />
-                  <text
-                    className={`${styles.axisLabel} ${isBenchmark ? styles.benchmarkAxisLabel : ''}`}
-                    x={CHART.left - 10}
-                    y={y + 4}
-                    textAnchor="end">
+                  <text className={styles.axisLabel} x={CHART.left - 10} y={y + 4} textAnchor="end">
                     {formatTick(tick)}×
                   </text>
                 </g>

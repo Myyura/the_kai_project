@@ -362,14 +362,9 @@
 }
 
 .gridLine {
-  stroke: var(--ifm-color-emphasis-200);
-  stroke-width: 1;
+  stroke: var(--ifm-color-emphasis-300);
+  stroke-width: 1.1;
   vector-effect: non-scaling-stroke;
-}
-
-.benchmarkGridLine {
-  stroke: var(--ifm-color-emphasis-400);
-  stroke-width: 1.4;
 }
 
 .tickLine {
@@ -382,11 +377,6 @@
   fill: var(--ifm-color-emphasis-550, var(--ifm-color-emphasis-600));
   font-size: 11px;
   font-variant-numeric: tabular-nums;
-}
-
-.benchmarkAxisLabel {
-  fill: var(--ifm-color-emphasis-700);
-  font-weight: 700;
 }
 
 .seriesLine {
