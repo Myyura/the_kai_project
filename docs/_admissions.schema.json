@@ -207,6 +207,11 @@
           "type": "string",
           "minLength": 1
         },
+        "comparisonKey": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional explicit equivalence key used to let official ratios supersede community ratios for the same year and scope."
+        },
         "sourceIds": {
           "type": "array",
           "uniqueItems": true,

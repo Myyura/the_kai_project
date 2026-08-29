@@ -5,6 +5,12 @@ import admissionStats from '@site/src/data/admissionStats.generated.json';
 import {useAuth} from '@site/src/hooks/useAuth';
 import {saveAuthReturnIntent} from '@site/src/services/authReturn';
 
+import {
+  applyOfficialRatioPrecedence,
+  buildAggregateTrendSeries,
+  trendPointSourceType,
+  trendSegmentSourceType,
+} from './seriesPrecedence';
 import styles from './styles.module.css';
 
 const COUNT_FIELDS = [
@@ -254,15 +260,24 @@ function sourceTypeLabel(sourceType) {
 }
 
 function seriesDisplayLabel(series) {
-  return series.originLabel
-    ? `${series.originLabel} · ${series.label}`
-    : series.label;
+  if (!series.originLabel) return series.label;
+  return String(series.label).startsWith(series.originLabel)
+    ? series.label
+    : `${series.originLabel} · ${series.label}`;
 }
 
 function aggregateSeriesStyle(series, isAggregate) {
   if (!isAggregate || !Number.isInteger(series.aggregateColorIndex)) return undefined;
   return {
     '--admission-series-color': `var(--admission-entity-${series.aggregateColorIndex + 1})`,
+  };
+}
+
+function tooltipSeriesStyle(series, isAggregate, point) {
+  return aggregateSeriesStyle(series, isAggregate) || {
+    '--admission-series-color': trendPointSourceType(series, point) === 'community'
+      ? 'var(--admission-community)'
+      : 'var(--admission-official)',
   };
 }
 
@@ -297,6 +312,10 @@ function notesText(...values) {
   return [...new Set(notes)].join('；');
 }
 
+function pointNotesText(series, point) {
+  return notesText(point?.trendSourceSeriesNotes ?? series?.notes, point?.notes);
+}
+
 function pointDescription(series, point) {
   const countText = COUNT_FIELDS
     .filter(([field]) => point.counts[field] !== null)
@@ -307,8 +326,8 @@ function pointDescription(series, point) {
   const ratioText = point.primaryRatio === null
     ? (zeroAdmissionDenominator ? '合格者为 0，倍率不适用' : '倍率未公开')
     : `${ratioKindLabel(point.ratioKind)} ${formatRatio(point.primaryRatio)}倍`;
-  const notes = notesText(series.notes, point.notes);
-  return `${seriesDisplayLabel(series)}、${sourceTypeLabel(series.sourceType)}、${point.admissionYear}年度、${ratioText}${countText ? `、${countText}` : ''}${notes ? `、注记：${notes}` : ''}`;
+  const notes = pointNotesText(series, point);
+  return `${seriesDisplayLabel(series)}、${sourceTypeLabel(trendPointSourceType(series, point))}、${point.admissionYear}年度、${ratioText}${countText ? `、${countText}` : ''}${notes ? `、注记：${notes}` : ''}`;
 }
 
 function buildSegments(series, visibleYears, xForYear, yForRatio) {
@@ -340,6 +359,38 @@ function buildSegments(series, visibleYears, xForYear, yForRatio) {
   });
   if (current.length) segments.push(current);
   return segments;
+}
+
+function buildLineRuns(series, segments) {
+  return segments.flatMap((segment) => {
+    if (segment.length < 2) return [];
+
+    const runs = [];
+    let sourceType = trendSegmentSourceType(
+      series,
+      segment[0].point,
+      segment[1].point,
+    );
+    let points = [segment[0], segment[1]];
+
+    for (let index = 1; index < segment.length - 1; index += 1) {
+      const nextSourceType = trendSegmentSourceType(
+        series,
+        segment[index].point,
+        segment[index + 1].point,
+      );
+      if (nextSourceType === sourceType) {
+        points.push(segment[index + 1]);
+      } else {
+        runs.push({points, sourceType});
+        sourceType = nextSourceType;
+        points = [segment[index], segment[index + 1]];
+      }
+    }
+
+    runs.push({points, sourceType});
+    return runs;
+  });
 }
 
 function SourceList({sourceIds, sourcesById}) {
@@ -399,14 +450,22 @@ export default function AdmissionTrendCard({slug}) {
     [entity],
   );
   const displayedSeries = useMemo(
-    () => normalizedSeries.filter((series) => (
-      series.period !== 'winter'
-      && (!isAggregate || series.points.some((point) => point.primaryRatio !== null))
+    () => applyOfficialRatioPrecedence(
+      normalizedSeries.filter((series) => series.period !== 'winter'),
+      {defaultEntityId: entityId},
+    ).filter((series) => (
+      !isAggregate || series.points.some((point) => point.primaryRatio !== null)
     )),
-    [isAggregate, normalizedSeries],
+    [entityId, isAggregate, normalizedSeries],
+  );
+  const trendSeries = useMemo(
+    () => (isAggregate
+      ? buildAggregateTrendSeries(displayedSeries, {defaultEntityId: entityId})
+      : displayedSeries),
+    [displayedSeries, entityId, isAggregate],
   );
   const [activeSeriesKeys, setActiveSeriesKeys] = useState(
-    () => displayedSeries.map((series) => series.key),
+    () => trendSeries.map((series) => series.key),
   );
   const [hoveredPoint, setHoveredPoint] = useState(null);
   const chartScrollerRef = useRef(null);
@@ -417,9 +476,9 @@ export default function AdmissionTrendCard({slug}) {
     : null;
 
   useEffect(() => {
-    setActiveSeriesKeys(displayedSeries.map((series) => series.key));
+    setActiveSeriesKeys(trendSeries.map((series) => series.key));
     setHoveredPoint(null);
-  }, [displayedSeries]);
+  }, [trendSeries]);
 
   useEffect(() => {
     const scroller = chartScrollerRef.current;
@@ -427,16 +486,16 @@ export default function AdmissionTrendCard({slug}) {
     scroller.scrollLeft = scroller.scrollWidth - scroller.clientWidth;
   }, [entityId]);
 
-  if (!context || !entityId || !entity || displayedSeries.length === 0) return null;
+  if (!context || !entityId || !entity || trendSeries.length === 0) return null;
 
   const allYears = [...new Set(
-    displayedSeries.flatMap((series) => (
+    trendSeries.flatMap((series) => (
       series.points.map((point) => point.admissionYear)
     )),
   )].sort((a, b) => a - b);
   const visibleYears = allYears.slice(-10);
   const visibleYearSet = new Set(visibleYears);
-  const chartSeries = displayedSeries.filter((series) => (
+  const chartSeries = trendSeries.filter((series) => (
     series.points.some((point) => (
       visibleYearSet.has(point.admissionYear) && point.primaryRatio !== null
     ))
@@ -486,7 +545,7 @@ export default function AdmissionTrendCard({slug}) {
     (upperBound / 4) * index
   ));
 
-  const latestEntries = displayedSeries.map((series) => {
+  const latestEntries = trendSeries.map((series) => {
     const point = [...series.points]
       .reverse()
       .find((candidate) => visibleYearSet.has(candidate.admissionYear));
@@ -494,7 +553,7 @@ export default function AdmissionTrendCard({slug}) {
   }).filter(Boolean);
 
   const visibleSourceIds = [...new Set(
-    displayedSeries.flatMap((series) => (
+    trendSeries.flatMap((series) => (
       series.points
         .filter((point) => visibleYearSet.has(point.admissionYear))
         .flatMap((point) => point.sourceIds)
@@ -583,7 +642,7 @@ export default function AdmissionTrendCard({slug}) {
                 className={`${styles.legendButton} ${!active ? styles.legendButtonInactive : ''}`}
                 style={aggregateSeriesStyle(group, true)}
                 aria-pressed={active}
-                title={`${group.originLabel}（${group.series.length} 个数据系列）`}
+                title={group.originLabel}
                 onClick={() => toggleAggregateGroup(group)}>
                 <span className={styles.colorSwatch} aria-hidden="true" />
                 <span>{group.originLabel}</span>
@@ -626,7 +685,7 @@ export default function AdmissionTrendCard({slug}) {
             </title>
             <desc id={descriptionId}>
               {isAggregate
-                ? '不同颜色表示不同专攻，实线表示官方数据，虚线表示民间数据。可使用图例切换系列，并聚焦数据点查看明细。'
+                ? '每个专攻只有一条走势，不同颜色表示不同专攻；官方区间为实线，民间补充区间为虚线。可使用图例切换专攻，并聚焦数据点查看明细。'
                 : '蓝色实线表示官方数据，橙色虚线表示民间数据。可使用图例切换系列，并聚焦数据点查看明细。'}
             </desc>
 
@@ -669,35 +728,40 @@ export default function AdmissionTrendCard({slug}) {
 
             {activeSeries.map((series) => {
               const segments = buildSegments(series, visibleYears, xForYear, yForRatio);
+              const lineRuns = buildLineRuns(series, segments);
               return (
                 <g
                   className={styles[series.sourceType]}
                   style={aggregateSeriesStyle(series, isAggregate)}
                   key={series.key}>
-                  {segments.map((segment, segmentIndex) => {
-                    const path = segment.map(({x, y}, pointIndex) => (
+                  {lineRuns.map((run, runIndex) => {
+                    const path = run.points.map(({x, y}, pointIndex) => (
                       `${pointIndex === 0 ? 'M' : 'L'} ${x} ${y}`
                     )).join(' ');
                     return (
                       <path
-                        className={styles.seriesLine}
+                        className={`${styles.seriesLine} ${run.sourceType === 'community' ? styles.communitySegment : ''}`}
                         d={path}
-                        key={`${series.key}-line-${segmentIndex}`}
+                        key={`${series.key}-line-${runIndex}`}
                       />
                     );
                   })}
                   {segments.flat().map(({point, x, y}) => {
+                    const pointSourceType = trendPointSourceType(series, point);
                     const description = pointDescription(series, point);
                     const sharedProps = {
-                      className: styles.dataPoint,
+                      className: `${styles.dataPoint} ${pointSourceType === 'community' ? styles.communityPoint : ''}`,
                       tabIndex: 0,
                       'aria-label': description,
-                      onMouseEnter: () => setHoveredPoint({series, point, x, y}),
-                      onMouseLeave: () => setHoveredPoint(null),
+                      onPointerEnter: () => setHoveredPoint({series, point, x, y}),
+                      onPointerLeave: () => setHoveredPoint(null),
                       onFocus: () => setHoveredPoint({series, point, x, y}),
                       onBlur: () => setHoveredPoint(null),
+                      onKeyDown: (event) => {
+                        if (event.key === 'Escape') setHoveredPoint(null);
+                      },
                     };
-                    return series.sourceType === 'community' ? (
+                    return pointSourceType === 'community' ? (
                       <rect
                         {...sharedProps}
                         key={`${series.key}-${point.admissionYear}`}
@@ -706,18 +770,16 @@ export default function AdmissionTrendCard({slug}) {
                         width="9"
                         height="9"
                         rx="1"
-                        transform={`rotate(45 ${x} ${y})`}>
-                        <title>{description}</title>
-                      </rect>
+                        transform={`rotate(45 ${x} ${y})`}
+                      />
                     ) : (
                       <circle
                         {...sharedProps}
                         key={`${series.key}-${point.admissionYear}`}
                         cx={x}
                         cy={y}
-                        r="4.5">
-                        <title>{description}</title>
-                      </circle>
+                        r="4.5"
+                      />
                     );
                   })}
                 </g>
@@ -725,38 +787,53 @@ export default function AdmissionTrendCard({slug}) {
             })}
 
             {hoveredPoint && (() => {
-              const tooltipWidth = 232;
-              const tooltipHeight = 80;
-              const tooltipX = Math.min(
-                CHART.width - CHART.right - tooltipWidth,
-                Math.max(CHART.left, hoveredPoint.x - tooltipWidth / 2),
+              const tooltipWidth = 172;
+              const tooltipHeight = 56;
+              const tooltipGap = 12;
+              const plotRight = CHART.width - CHART.right;
+              const plotBottom = CHART.height - CHART.bottom;
+              const tooltipX = hoveredPoint.x > CHART.left + plotWidth / 2
+                ? Math.max(CHART.left, hoveredPoint.x - tooltipWidth - tooltipGap)
+                : Math.min(plotRight - tooltipWidth, hoveredPoint.x + tooltipGap);
+              const tooltipY = Math.min(
+                plotBottom - tooltipHeight - 4,
+                Math.max(CHART.top + 4, hoveredPoint.y - tooltipHeight / 2),
               );
-              const tooltipY = hoveredPoint.y < CHART.top + 90
-                ? hoveredPoint.y + 14
-                : hoveredPoint.y - tooltipHeight - 14;
               const compactCounts = COUNT_FIELDS
+                .filter(([field]) => ['applicants', 'examinees', 'admitted'].includes(field))
                 .filter(([field]) => hoveredPoint.point.counts[field] !== null)
-                .slice(0, 3)
                 .map(([field, label]) => `${label} ${formatCount(hoveredPoint.point.counts[field])}`)
                 .join(' · ');
-              const note = notesText(
-                hoveredPoint.series.notes,
-                hoveredPoint.point.notes,
-              );
+              const tooltipLabel = hoveredPoint.series.originLabel
+                || hoveredPoint.series.label;
+              const tooltipDetail = [
+                ratioKindLabel(hoveredPoint.point.ratioKind),
+                compactCounts,
+              ].filter(Boolean).join(' · ');
               return (
-                <g className={styles.tooltip} aria-hidden="true">
+                <g
+                  className={styles.tooltip}
+                  style={tooltipSeriesStyle(
+                    hoveredPoint.series,
+                    isAggregate,
+                    hoveredPoint.point,
+                  )}
+                  aria-hidden="true">
                   <rect x={tooltipX} y={tooltipY} width={tooltipWidth} height={tooltipHeight} rx="8" />
-                  <text x={tooltipX + 12} y={tooltipY + 19}>
-                    {shortLabel(seriesDisplayLabel(hoveredPoint.series))}
+                  <circle
+                    className={styles.tooltipAccent}
+                    cx={tooltipX + 13}
+                    cy={tooltipY + 15}
+                    r="3.5"
+                  />
+                  <text className={styles.tooltipTitle} x={tooltipX + 23} y={tooltipY + 18}>
+                    {shortLabel(tooltipLabel, 15)}
                   </text>
-                  <text x={tooltipX + 12} y={tooltipY + 38}>
-                    {hoveredPoint.point.admissionYear}年度 · {formatRatio(hoveredPoint.point.primaryRatio)}×
+                  <text x={tooltipX + 12} y={tooltipY + 34}>
+                    {hoveredPoint.point.admissionYear}年度 · {formatRatio(hoveredPoint.point.primaryRatio)}× · {trendPointSourceType(hoveredPoint.series, hoveredPoint.point) === 'community' ? '民间' : '官方'}
                   </text>
-                  <text className={styles.tooltipMuted} x={tooltipX + 12} y={tooltipY + 55}>
-                    {shortLabel(compactCounts || ratioKindLabel(hoveredPoint.point.ratioKind), 38)}
-                  </text>
-                  <text className={styles.tooltipMuted} x={tooltipX + 12} y={tooltipY + 70}>
-                    {shortLabel(`${sourceTypeLabel(hoveredPoint.series.sourceType)}${note ? ` · ${note}` : ''}`, 38)}
+                  <text className={styles.tooltipMuted} x={tooltipX + 12} y={tooltipY + 49}>
+                    {shortLabel(tooltipDetail, 19)}
                   </text>
                 </g>
               );
@@ -776,7 +853,7 @@ export default function AdmissionTrendCard({slug}) {
       <details className={styles.dataDetails}>
         <summary>
           <span>查看最新数据与人数明细</span>
-          <small>{latestEntries.length} 个系列</small>
+          <small>{latestEntries.length} {isAggregate ? '个专攻' : '个系列'}</small>
         </summary>
         {latestEntries.length > 0 ? (
           <div className={styles.summaryGrid}>
@@ -786,8 +863,8 @@ export default function AdmissionTrendCard({slug}) {
                   <strong title={seriesDisplayLabel(series)}>
                     {seriesDisplayLabel(series)}
                   </strong>
-                  <span className={`${styles.sourceBadge} ${styles[series.sourceType]}`}>
-                    {sourceTypeLabel(series.sourceType)}
+                  <span className={`${styles.sourceBadge} ${styles[trendPointSourceType(series, point)]}`}>
+                    {sourceTypeLabel(trendPointSourceType(series, point))}
                   </span>
                 </div>
                 <div className={styles.ratioRow}>
@@ -799,11 +876,11 @@ export default function AdmissionTrendCard({slug}) {
                     {point.admissionYear}年度 · {ratioKindLabel(point.ratioKind)}
                   </span>
                 </div>
-                {notesText(series.notes, point.notes) && (
+                {pointNotesText(series, point) && (
                   <p
                     className={styles.dataNote}
-                    title={notesText(series.notes, point.notes)}>
-                    {notesText(series.notes, point.notes)}
+                    title={pointNotesText(series, point)}>
+                    {pointNotesText(series, point)}
                   </p>
                 )}
                 <dl className={styles.counts}>
@@ -839,12 +916,12 @@ export default function AdmissionTrendCard({slug}) {
             </tr>
           </thead>
           <tbody>
-            {displayedSeries.flatMap((series) => series.points
+            {trendSeries.flatMap((series) => series.points
               .filter((point) => visibleYearSet.has(point.admissionYear))
               .map((point) => (
                 <tr key={`${series.key}-table-${point.admissionYear}`}>
                   <td>{seriesDisplayLabel(series)}</td>
-                  <td>{sourceTypeLabel(series.sourceType)}</td>
+                  <td>{sourceTypeLabel(trendPointSourceType(series, point))}</td>
                   <td>{point.admissionYear}</td>
                   <td>{ratioKindLabel(point.ratioKind)}</td>
                   <td>{formatPointRatio(point)}</td>

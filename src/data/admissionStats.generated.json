@@ -11290,6 +11290,7 @@
           "degree": "master",
           "period": "annual",
           "selection": "全类别合计",
+          "comparisonKey": "master-overall-final-admission",
           "sourceIds": [],
           "notes": [],
           "points": [
@@ -11388,6 +11389,7 @@
           "degree": "master",
           "period": "summer",
           "selection": "作者估算的夏季入试整体倍率",
+          "comparisonKey": "master-overall-final-admission",
           "sourceIds": [],
           "notes": [],
           "points": [
@@ -11426,6 +11428,7 @@
           "degree": "master",
           "period": "summer",
           "selection": "书类审查通过阶段",
+          "comparisonKey": "master-document-screening-pass",
           "sourceIds": [],
           "notes": [],
           "points": [
@@ -11456,6 +11459,7 @@
           "degree": "master",
           "period": "annual",
           "selection": "全类别合计",
+          "comparisonKey": "master-overall-final-admission",
           "sourceIds": [],
           "notes": [],
           "points": [

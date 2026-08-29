@@ -390,7 +390,12 @@
 
 .community .seriesLine {
   stroke: var(--admission-community);
-  stroke-dasharray: 7 5;
+  stroke-dasharray: 6 4;
+}
+
+.seriesLine.communitySegment {
+  stroke: var(--admission-community);
+  stroke-dasharray: 6 4;
 }
 
 .dataPoint {
@@ -406,6 +411,10 @@
   stroke: var(--admission-community);
 }
 
+.dataPoint.communityPoint {
+  stroke: var(--admission-community);
+}
+
 .dataPoint:hover,
 .dataPoint:focus-visible {
   fill: var(--admission-official);
@@ -414,6 +423,11 @@
 
 .community .dataPoint:hover,
 .community .dataPoint:focus-visible {
+  fill: var(--admission-community);
+}
+
+.dataPoint.communityPoint:hover,
+.dataPoint.communityPoint:focus-visible {
   fill: var(--admission-community);
 }
 
@@ -447,21 +461,37 @@
   pointer-events: none;
 }
 
-.tooltip rect {
-  fill: var(--ifm-color-emphasis-900);
-  opacity: 0.96;
+.tooltip > rect {
+  fill: var(--ifm-background-surface-color);
+  stroke: var(--admission-series-color, var(--ifm-color-emphasis-300));
+  stroke-width: 1.25;
+  opacity: 0.98;
+  filter: drop-shadow(0 4px 8px rgba(15, 23, 42, 0.16));
 }
 
 .tooltip text {
-  fill: var(--ifm-background-color);
-  font-size: 11px;
-  font-weight: 650;
+  fill: var(--ifm-font-color-base);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.tooltip .tooltipTitle {
+  font-size: 9.5px;
+  font-weight: 750;
+}
+
+.tooltipAccent {
+  fill: var(--admission-series-color, var(--ifm-color-primary));
 }
 
 .tooltip .tooltipMuted {
-  opacity: 0.74;
-  font-size: 9.5px;
+  fill: var(--ifm-color-emphasis-600);
+  font-size: 8px;
   font-weight: 500;
+}
+
+:global([data-theme='dark']) .tooltip > rect {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.34));
 }
 
 .emptyNotice {

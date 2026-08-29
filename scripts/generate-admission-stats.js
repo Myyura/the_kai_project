@@ -314,6 +314,9 @@ function normalizeSeries(rawSeries, options) {
   const degree = requireString(rawSeries.degree, issues, file, `${location}.degree`);
   const period = requireString(rawSeries.period, issues, file, `${location}.period`);
   const selection = requireString(rawSeries.selection, issues, file, `${location}.selection`);
+  const comparisonKey = rawSeries.comparisonKey === undefined
+    ? null
+    : requireString(rawSeries.comparisonKey, issues, file, `${location}.comparisonKey`);
   const seriesSourceIds = normalizeSourceIds(rawSeries.sourceIds, {
     issues,
     file,
@@ -335,6 +338,7 @@ function normalizeSeries(rawSeries, options) {
       degree,
       period,
       selection,
+      ...(comparisonKey ? {comparisonKey} : {}),
       sourceIds: seriesSourceIds,
       notes,
       points: [],
@@ -403,6 +407,7 @@ function normalizeSeries(rawSeries, options) {
     degree,
     period,
     selection,
+    ...(comparisonKey ? {comparisonKey} : {}),
     sourceIds: seriesSourceIds,
     notes,
     points,

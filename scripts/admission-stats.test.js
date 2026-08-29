@@ -119,6 +119,7 @@ test('generates stable, namespaced page data and applies the ratio priority', (t
         },
         baseSeries({
           id: 'a-official',
+          comparisonKey: 'master-overall-final-admission',
           sourceIds: ['official-2026'],
           points: [
             {
@@ -159,6 +160,7 @@ test('generates stable, namespaced page data and applies the ratio priority', (t
   assert.equal(entity.label, 'Computer Science');
   assert.equal(entity.scope, 'program');
   assert.deepEqual(entity.series.map((series) => series.id), ['a-official', 'z-community']);
+  assert.equal(entity.series[0].comparisonKey, 'master-overall-final-admission');
   assert.deepEqual(entity.series[0].points.map((point) => point.admissionYear), [2024, 2026]);
   assert.equal(entity.series[0].points[0].primaryRatio, 2);
   assert.equal(entity.series[0].points[0].primaryRatioBasis, 'examinees/admitted');

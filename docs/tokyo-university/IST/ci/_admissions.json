@@ -26,6 +26,7 @@
       "degree": "master",
       "period": "annual",
       "selection": "全类别合计",
+      "comparisonKey": "master-overall-final-admission",
       "points": [
         {
           "admissionYear": 2022,
@@ -102,6 +103,7 @@
       "degree": "master",
       "period": "summer",
       "selection": "作者估算的夏季入试整体倍率",
+      "comparisonKey": "master-overall-final-admission",
       "points": [
         {
           "admissionYear": 2026,
