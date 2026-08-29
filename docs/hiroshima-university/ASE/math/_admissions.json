@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-fb8fefa05b": {
+      "title": "先進理工系科学研究科 研究科パンフレット2026",
+      "url": "https://archive2.hiroshima-u.ac.jp/adse/brochure2026/index_h5.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-c2313b6cb355",
+      "label": "数学プログラム · 10月入学 · 全選抜区分合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "october_admission",
+      "selection": "全選抜区分合計",
+      "points": [
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": null,
+          "admitted": 1,
+          "enrolled": 1,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-fb8fefa05b"
+          ],
+          "notes": "学位プログラム別の公式値。入学定員は専攻全体483人（うち13人は別研究院活用）としてのみ掲載されるため capacity=null。；出願者数・合格者数・入学者数。受験者数は掲載なし。；原始考试期：10月入学；证据定位：電子版 p.32「入学試験実施状況」博士課程前期・数学プログラム行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 2,
+          "examinees": null,
+          "admitted": 0,
+          "enrolled": 0,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-fb8fefa05b"
+          ],
+          "notes": "学位プログラム別の公式値。入学定員は専攻全体483人（うち13人は別研究院活用）としてのみ掲載されるため capacity=null。；出願者数・合格者数・入学者数。受験者数は掲載なし。；原始考试期：10月入学；证据定位：電子版 p.32「入学試験実施状況」博士課程前期・数学プログラム行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 0,
+          "examinees": null,
+          "admitted": 0,
+          "enrolled": 0,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-fb8fefa05b"
+          ],
+          "notes": "学位プログラム別の公式値。入学定員は専攻全体483人（うち13人は別研究院活用）としてのみ掲載されるため capacity=null。；出願者数・合格者数・入学者数。受験者数は掲載なし。；原始考试期：10月入学；证据定位：電子版 p.32「入学試験実施状況」博士課程前期・数学プログラム行"
+        }
+      ]
+    },
+    {
+      "id": "series-c6e9aaf26eec",
+      "label": "数学プログラム · 4月入学 · 全選抜区分合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "april_admission",
+      "selection": "全選抜区分合計",
+      "points": [
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 19,
+          "examinees": null,
+          "admitted": 17,
+          "enrolled": 12,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-fb8fefa05b"
+          ],
+          "notes": "学位プログラム別の公式値。入学定員は専攻全体483人（うち13人は別研究院活用）としてのみ掲載されるため capacity=null。；出願者数・合格者数・入学者数。受験者数は掲載なし。；原始考试期：4月入学；证据定位：電子版 p.32「入学試験実施状況」博士課程前期・数学プログラム行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 29,
+          "examinees": null,
+          "admitted": 22,
+          "enrolled": 21,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-fb8fefa05b"
+          ],
+          "notes": "学位プログラム別の公式値。入学定員は専攻全体483人（うち13人は別研究院活用）としてのみ掲載されるため capacity=null。；出願者数・合格者数・入学者数。受験者数は掲載なし。；原始考试期：4月入学；证据定位：電子版 p.32「入学試験実施状況」博士課程前期・数学プログラム行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 22,
+          "examinees": null,
+          "admitted": 20,
+          "enrolled": 19,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-fb8fefa05b"
+          ],
+          "notes": "学位プログラム別の公式値。入学定員は専攻全体483人（うち13人は別研究院活用）としてのみ掲載されるため capacity=null。；出願者数・合格者数・入学者数。受験者数は掲載なし。；原始考试期：4月入学；证据定位：電子版 p.32「入学試験実施状況」博士課程前期・数学プログラム行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 28,
+          "examinees": null,
+          "admitted": 22,
+          "enrolled": 21,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-fb8fefa05b"
+          ],
+          "notes": "学位プログラム別の公式値。入学定員は専攻全体483人（うち13人は別研究院活用）としてのみ掲載されるため capacity=null。；出願者数・合格者数・入学者数。受験者数は掲載なし。；原始考试期：4月入学；证据定位：電子版 p.32「入学試験実施状況」博士課程前期・数学プログラム行"
+        }
+      ]
+    }
+  ]
+}

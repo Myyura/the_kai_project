@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-4b35efaf26": {
+      "title": "IST PLAZA 第20号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No20.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-504524dfc7": {
+      "title": "IST PLAZA 第21号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No21.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-9aa3b79035": {
+      "title": "IST PLAZA 第19号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No19.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-aa09c0be6a": {
+      "title": "IST PLAZA 第18号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No18.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-67a1a2a02312",
+      "label": "情報基礎数学専攻 · 全年合計 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全类别合计",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 12,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 12,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-aa09c0be6a"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：PDF 73頁前後「入学・修了者数（令和4年度）」博士前期課程"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 12,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 9,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9aa3b79035"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：PDF 73頁前後「入学・修了者数（令和5年度）」博士前期課程"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 12,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 14,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4b35efaf26"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：PDF 73頁前後「入学・修了者数（令和6年度）」博士前期課程"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 12,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 12,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-504524dfc7"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：PDF 73頁前後「入学・修了者数（令和7年度）」博士前期課程"
+        }
+      ]
+    }
+  ]
+}

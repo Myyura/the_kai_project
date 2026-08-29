@@ -1,0 +1,20 @@
+[
+  {
+    "kind": "community_metric",
+    "index": 8,
+    "reason": "Program is not present in the project inventory",
+    "record": {
+      "university": "京都大学",
+      "graduate_school": "情報学研究科",
+      "program": "社会情報学コース",
+      "admission_year": 2026,
+      "item": "报名人数与募集人数",
+      "reported_value": "志愿93/募集43≈2.2倍",
+      "source_type": "民间",
+      "credibility": "中",
+      "source_title": "note：京都大学情報学研究科社会情報学コース 受験編",
+      "source_url": "https://note.com/takeru__m/n/n6e1666a183a5",
+      "caveat": "作者写作口径为2025年度考试、2026年度入学；项目当前清单未列社会信息学，仅作旁证。"
+    }
+  }
+]

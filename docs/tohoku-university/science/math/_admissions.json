@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-81de10506b": {
+      "title": "東北大学大学院理学研究科・理学部 概要2022",
+      "url": "https://www.sci.tohoku.ac.jp/about/pdf/sci-gaiyo2022.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-8ae36f95b7": {
+      "title": "東北大学大学院理学研究科・理学部 概要2025",
+      "url": "https://www.sci.tohoku.ac.jp/about/pdf/sci-gaiyo2025.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-c4222a8cd2": {
+      "title": "東北大学大学院理学研究科・理学部 概要2024",
+      "url": "https://www.sci.tohoku.ac.jp/about/pdf/sci-gaiyo2024.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-f00b5097ef": {
+      "title": "東北大学大学院理学研究科・理学部 概要2023",
+      "url": "https://www.sci.tohoku.ac.jp/about/pdf/sci-gaiyo2023.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-5b44cab6ac5c",
+      "label": "数学専攻 · 全年合計 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全类别合计",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 38,
+          "applicants": 44,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 36,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-81de10506b"
+          ],
+          "notes": "専攻単位の年度合計。；合格者数・受験者数は概要表に掲載なし。；原始考试期：全年合计；证据定位：PDF 5頁「入学者状況／大学院［博士課程前期2年の課程］」"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 38,
+          "applicants": 46,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 33,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f00b5097ef"
+          ],
+          "notes": "専攻単位の年度合計。；合格者数・受験者数は概要表に掲載なし。；原始考试期：全年合计；证据定位：PDF 5頁「入学者状況／大学院［博士課程前期2年の課程］」"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 38,
+          "applicants": 54,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 37,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-c4222a8cd2"
+          ],
+          "notes": "専攻単位の年度合計。；合格者数・受験者数は概要表に掲載なし。；原始考试期：全年合计；证据定位：PDF 5頁「入学者状況／大学院［博士課程前期2年の課程］」"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 38,
+          "applicants": 65,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 42,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-8ae36f95b7"
+          ],
+          "notes": "専攻単位の年度合計。；合格者数・受験者数は概要表に掲載なし。；原始考试期：全年合计；证据定位：PDF 5頁「入学者状況／大学院［博士課程前期2年の課程］」"
+        }
+      ]
+    }
+  ]
+}

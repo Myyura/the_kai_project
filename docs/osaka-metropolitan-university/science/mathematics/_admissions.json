@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-043662813e": {
+      "title": "大阪公立大学 2024年度 博士前期課程入試状況",
+      "url": "https://www.omu.ac.jp/admissions/assets/2024M.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-522152a13c": {
+      "title": "大阪公立大学 2025年度 博士前期課程入試状況",
+      "url": "https://www.omu.ac.jp/admissions/assets/01%E3%80%80in_2025M_nyushijoukyou.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-95e13cccd9": {
+      "title": "大阪公立大学 2023年度 博士前期課程入試状況",
+      "url": "https://www.omu.ac.jp/admissions/assets/2023M.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-c8b4531ade": {
+      "title": "大阪公立大学 2026年度 博士前期課程入試状況",
+      "url": "https://www.omu.ac.jp/admissions/assets/01%E3%80%80in_2026M_nyushijoukyou.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-4c63d340d71d",
+      "label": "数学専攻 · 全年合計 · 全部",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全部",
+      "points": [
+        {
+          "admissionYear": 2023,
+          "capacity": 21,
+          "applicants": 29,
+          "examinees": 23,
+          "admitted": 22,
+          "enrolled": 21,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-95e13cccd9"
+          ],
+          "notes": "专攻精确；第1次与第2次合计；原始考试期：全年合计（第1次+第2次）；证据定位：理学研究科／数学専攻"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 21,
+          "applicants": 37,
+          "examinees": 36,
+          "admitted": 27,
+          "enrolled": 25,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-043662813e"
+          ],
+          "notes": "专攻精确；第1次与第2次合计；原始考试期：全年合计（第1次+第2次）；证据定位：理学研究科／数学専攻"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 21,
+          "applicants": 35,
+          "examinees": 33,
+          "admitted": 28,
+          "enrolled": 26,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-522152a13c"
+          ],
+          "notes": "专攻精确；第1次与第2次合计；原始考试期：全年合计（第1次+第2次）；证据定位：理学研究科／数学専攻"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 21,
+          "applicants": 36,
+          "examinees": 33,
+          "admitted": 27,
+          "enrolled": 23,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-c8b4531ade"
+          ],
+          "notes": "专攻精确；第1次与第2次合计；原始考试期：全年合计（第1次+第2次）；证据定位：理学研究科／数学専攻"
+        }
+      ]
+    }
+  ]
+}

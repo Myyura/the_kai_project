@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-68ef51d69a": {
+      "title": "大学院学生数・入学状況・就職状況 | 九州大学 理学研究院 理学府 理学部",
+      "url": "https://www.sci.kyushu-u.ac.jp/about/data/graduate.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-5caad21a163c",
+      "label": "物理学専攻 · 4月入学 · 全選抜区分合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "april_admission",
+      "selection": "全選抜区分合計",
+      "points": [
+        {
+          "admissionYear": 2026,
+          "capacity": 41,
+          "applicants": 75,
+          "examinees": null,
+          "admitted": 52,
+          "enrolled": 51,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-68ef51d69a"
+          ],
+          "notes": "専攻単位の精确値。；受験者数は非掲載。；原始考试期：春期入学；证据定位：「入学状況（春期入学）」表／修士課程・物理学専攻行"
+        }
+      ]
+    }
+  ]
+}

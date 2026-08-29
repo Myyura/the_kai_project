@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-d0a18cb580": {
+      "title": "入試実施状況について＜修士課程＞",
+      "url": "https://www.k.u-tokyo.ac.jp/assets/files/2026result_mc.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-012d796c8ffe",
+      "label": "複雑理工学専攻 · 全年合計 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全类别合计",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 25,
+          "applicants": 103,
+          "examinees": null,
+          "admitted": 41,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-d0a18cb580"
+          ],
+          "notes": "専攻単位。メディカル情報生命専攻のみ、同一募集人員53の下にある3群の出願者・合格者を合算。；括弧内外国人数は内数。；原始考试期：全年合计（入試日程Bの翌10月入学希望者を含む）；证据定位：PDF 1頁、令和4～7年度の該当専攻行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 25,
+          "applicants": 83,
+          "examinees": null,
+          "admitted": 39,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-d0a18cb580"
+          ],
+          "notes": "専攻単位。メディカル情報生命専攻のみ、同一募集人員53の下にある3群の出願者・合格者を合算。；括弧内外国人数は内数。；原始考试期：全年合计（入試日程Bの翌10月入学希望者を含む）；证据定位：PDF 1頁、令和4～7年度の該当専攻行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 25,
+          "applicants": 78,
+          "examinees": null,
+          "admitted": 37,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-d0a18cb580"
+          ],
+          "notes": "専攻単位。メディカル情報生命専攻のみ、同一募集人員53の下にある3群の出願者・合格者を合算。；括弧内外国人数は内数。；原始考试期：全年合计（入試日程Bの翌10月入学希望者を含む）；证据定位：PDF 1頁、令和4～7年度の該当専攻行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 25,
+          "applicants": 140,
+          "examinees": null,
+          "admitted": 45,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-d0a18cb580"
+          ],
+          "notes": "専攻単位。メディカル情報生命専攻のみ、同一募集人員53の下にある3群の出願者・合格者を合算。；括弧内外国人数は内数。；原始考试期：全年合计（入試日程Bの翌10月入学希望者を含む）；证据定位：PDF 1頁、令和4～7年度の該当専攻行"
+        }
+      ]
+    }
+  ]
+}

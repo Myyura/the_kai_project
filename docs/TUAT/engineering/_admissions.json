@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "scope": "graduate_school_total",
+  "sources": {
+    "source-cc11844395": {
+      "title": "学生の確保の見通し等を記載した書類",
+      "url": "https://www.tuat.ac.jp/documents/tuat/outline/jyouhoukoukai/houjin/gakubu/senshin_m_2407_gakusei.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-e44a69dad19a",
+      "label": "工学府 · 全年合計 · 全選抜区分合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master_or_professional",
+      "period": "annual",
+      "selection": "全選抜区分合計",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 380,
+          "applicants": 577,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 411,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-cc11844395"
+          ],
+          "notes": "工学府の博士前期課程と専門職学位課程を合算した研究科級統計。共通数学の受験者だけには分解できない。；志願者数・入学者数のみ。；原始考试期：全年合計；证据定位：p.3 表1 工学府・令和4年度列"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 397,
+          "applicants": 629,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 445,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-cc11844395"
+          ],
+          "notes": "工学府の博士前期課程と専門職学位課程を合算した研究科級統計。共通数学の受験者だけには分解できない。；志願者数・入学者数のみ。；原始考试期：全年合計；证据定位：p.3 表1 工学府・令和5年度列"
+        }
+      ]
+    }
+  ]
+}

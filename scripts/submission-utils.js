@@ -109,11 +109,58 @@ function rejectDangerousMdx(markdown, fieldName) {
 
 function validateSubmissionPayload(payload) {
   if (!payload || payload.version !== 3) throw new Error('Unsupported submission payload version.');
-  if (payload.submissionType !== 'new_solution' && payload.submissionType !== 'correction') {
+  if (
+    payload.submissionType !== 'new_solution'
+    && payload.submissionType !== 'correction'
+    && payload.submissionType !== 'admission_data'
+  ) {
     throw new Error('Unsupported submission type.');
   }
   if (!payload.submissionId || !payload.publicAuthor || !payload.cla?.acceptedAt) {
     throw new Error('Submission payload is missing author, id, or CLA data.');
+  }
+
+  if (payload.submissionType === 'admission_data') {
+    const admission = payload.admissionData;
+    const expectedPath = admission?.entityId
+      ? `docs/${admission.entityId}/_admissions.json`
+      : '';
+    if (
+      !admission
+      || !admission.entityId
+      || admission.sourcePath !== expectedPath
+      || !Number.isInteger(admission.admissionYear)
+      || admission.admissionYear < 1900
+      || admission.admissionYear > 2200
+      || !admission.series?.label
+      || !admission.series?.degree
+      || !admission.series?.period
+      || !admission.series?.selection
+      || !['official', 'community'].includes(admission.source?.type)
+      || !/^https?:\/\//.test(admission.source?.url || '')
+      || !admission.source?.title
+      || !admission.source?.evidenceLocator
+    ) {
+      throw new Error('Admission-data payload is missing a valid target, scope, or source.');
+    }
+    const countFields = ['capacity', 'applicants', 'examinees', 'admitted', 'enrolled'];
+    for (const field of countFields) {
+      const value = admission.values?.[field];
+      if (value !== null && (!Number.isSafeInteger(value) || value < 0)) {
+        throw new Error(`Admission-data payload contains an invalid ${field} value.`);
+      }
+    }
+    const ratio = admission.values?.reportedRatio;
+    if (ratio !== null && (!Number.isFinite(ratio) || ratio < 0)) {
+      throw new Error('Admission-data payload contains an invalid reported ratio.');
+    }
+    if (ratio !== null && !admission.values?.reportedRatioBasis) {
+      throw new Error('Admission-data payload is missing the reported ratio basis.');
+    }
+    if (!countFields.some((field) => admission.values?.[field] !== null) && ratio === null) {
+      throw new Error('Admission-data payload contains no exact values.');
+    }
+    return;
   }
 
   rejectDangerousMdx(payload.content?.descriptionMarkdown, 'Description');
@@ -291,6 +338,16 @@ function ensureWithinRepo(repoRoot, relativePath) {
 function writeSubmissionToRepo({ repoRoot, payload }) {
   validateSubmissionPayload(payload);
 
+  if (payload.submissionType === 'admission_data') {
+    return {
+      relativePath: payload.admissionData.sourcePath,
+      action: 'skip',
+      skip: true,
+      skipReason: 'admission_data_requires_manual_review',
+      conflict: false,
+    };
+  }
+
   if (payload.submissionType === 'new_solution') {
     const relativePath = buildNewSolutionPath(payload);
     const absolutePath = ensureWithinRepo(repoRoot, relativePath);
@@ -340,6 +397,9 @@ function writeSubmissionToRepo({ repoRoot, payload }) {
 }
 
 function buildPullRequestBody({ payload, issue, relativePath }) {
+  if (payload.submissionType === 'admission_data') {
+    throw new Error('Admission-data submissions require manual review and cannot be converted automatically.');
+  }
   const kind = payload.submissionType === 'new_solution' ? '新增题解' : '纠错/补充';
   return [
     `Resolves #${issue.number}.`,

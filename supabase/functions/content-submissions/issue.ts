@@ -1,7 +1,9 @@
+import type { AdmissionDataSubmission } from './admission.ts';
+
 type IssueSubmissionPayload = {
   version: number;
   submissionId: string;
-  submissionType: 'new_solution' | 'correction';
+  submissionType: 'new_solution' | 'correction' | 'admission_data';
   createdAt: string;
   publicAuthor: string;
   cla: {
@@ -30,6 +32,7 @@ type IssueSubmissionPayload = {
     changes: unknown[];
     conflict: boolean;
   };
+  admissionData: AdmissionDataSubmission | null;
 };
 
 function base64Url(input: string) {
@@ -75,6 +78,91 @@ ${fence}
 <!-- kai-submission-${name}:end -->`;
 }
 
+function inlineMarkdown(value: unknown, fallback = '未提供') {
+  const text = String(value ?? '').trim();
+  if (!text) return fallback;
+  return text.replace(/\r?\n/g, ' ').replace(/\|/g, '\\|');
+}
+
+function admissionValue(value: number | null, suffix = '') {
+  return value === null ? '未提供' : `${value}${suffix}`;
+}
+
+function admissionIssueBody(
+  payload: IssueSubmissionPayload,
+  signedMarkers: string,
+) {
+  const admission = payload.admissionData;
+  if (!admission) throw new Error('Admission-data payload is missing structured data.');
+  const existingSourceType = admission.existingSeries.sourceType || '未提供';
+  const mismatchNotice = admission.sourceTypeMismatch
+    ? `
+> [!WARNING]
+> 本次来源类型（${inlineMarkdown(admission.source.type)}）与所选现有系列（${inlineMarkdown(existingSourceType)}）不同。请人工确认应合并到原系列、拆分系列，还是仅替换单年数据；本投稿不会自动修改 JSON。
+`
+    : '';
+  const notesFence = markdownFenceFor(admission.notes || '未提供');
+
+  return `${signedMarkers}
+
+## 投稿类型
+招生数据补充 / 修正（仅人工审核，不自动转换为 PR）
+
+## 目标
+- 数据实体：\`${inlineMarkdown(admission.entityId)}\`
+- 维护文件：\`${inlineMarkdown(admission.sourcePath)}\`
+- 页面标题：${inlineMarkdown(admission.targetTitle)}
+- 投稿意图：${admission.intent === 'correction' ? '修正已有数据' : '补充新数据'}
+
+## 公开署名
+${inlineMarkdown(payload.publicAuthor)}
+
+## 数据口径
+- 入学年度：${admission.admissionYear}年度
+- 学位阶段：${inlineMarkdown(admission.series.degree)}
+- 入试时期：${inlineMarkdown(admission.series.period)}
+- 选拔类别：${inlineMarkdown(admission.series.selection)}
+- 系列名称：${inlineMarkdown(admission.series.label)}
+- 对应现有系列 ID：${inlineMarkdown(admission.existingSeries.id)}
+- 对应现有系列名称：${inlineMarkdown(admission.existingSeries.label)}
+- 对应现有系列来源类型：${inlineMarkdown(existingSourceType)}
+${mismatchNotice}
+## 精确数据
+
+| 字段 | 数值 |
+| --- | ---: |
+| 招生名额 | ${admissionValue(admission.values.capacity, ' 人')} |
+| 出愿人数 | ${admissionValue(admission.values.applicants, ' 人')} |
+| 受验人数 | ${admissionValue(admission.values.examinees, ' 人')} |
+| 合格人数 | ${admissionValue(admission.values.admitted, ' 人')} |
+| 入学人数 | ${admissionValue(admission.values.enrolled, ' 人')} |
+| 来源直接记载的倍率 | ${admissionValue(admission.values.reportedRatio, ' 倍')} |
+| 倍率口径 | ${inlineMarkdown(admission.values.reportedRatioBasis)} |
+
+> 空缺字段表示来源未公开。维护时不得按图表或其他字段反推估算。
+
+## 来源与证据
+- 来源类型：${inlineMarkdown(admission.source.type)}
+- 来源标题：${inlineMarkdown(admission.source.title)}
+- 来源 URL：<${admission.source.url}>
+- 证据位置：${inlineMarkdown(admission.source.evidenceLocator)}
+
+## 补充说明
+
+${notesFence}text
+${admission.notes || '未提供'}
+${notesFence}
+
+## CLA
+投稿者已在站内确认：I have read and agree to The Kai Project CLA.
+
+确认时间：${payload.cla.acceptedAt}
+
+---
+此 Issue 由站内已登录用户提交。招生数据必须由维护者核对来源后手工更新，自动投稿转换器会跳过此类型。
+`;
+}
+
 function payloadForIssue(payload: IssueSubmissionPayload) {
   if (payload.submissionType !== 'new_solution') return payload;
   return {
@@ -103,6 +191,10 @@ export function buildIssueBody(
   const encodedPayload = base64Url(stableStringify(payloadForIssue(payload)));
   const signedMarkers = `<!-- kai-submission-payload:${encodedPayload} -->
 <!-- kai-submission-signature:${signature} -->`;
+
+  if (payload.submissionType === 'admission_data') {
+    return admissionIssueBody(payload, signedMarkers);
+  }
 
   if (payload.submissionType === 'correction') {
     const correction = payload.correction;

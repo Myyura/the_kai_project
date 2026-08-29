@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-1c0e80e88f": {
+      "title": "note：大阪大学大学院 情報数理学専攻 合格体験記",
+      "url": "https://note.com/keen_myrtle9941/n/ned95797b18d4",
+      "type": "community",
+      "confidence": "medium",
+      "checkedAt": "2026-08-28"
+    },
+    "source-4b35efaf26": {
+      "title": "IST PLAZA 第20号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No20.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-504524dfc7": {
+      "title": "IST PLAZA 第21号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No21.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-9aa3b79035": {
+      "title": "IST PLAZA 第19号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No19.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-aa09c0be6a": {
+      "title": "IST PLAZA 第18号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No18.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-b4bedee2c303",
+      "label": "情報数理学 · 全年合計 · 作者观察的全年报考口径",
+      "sourceType": "community",
+      "confidence": "medium",
+      "degree": "master",
+      "period": "annual",
+      "selection": "作者观察的全年报考口径",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": 20,
+          "applicants": 50,
+          "examinees": 40,
+          "admitted": 27,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1c0e80e88f"
+          ],
+          "notes": "原文数值：志愿者约50/募集20≈2.5倍；受验40/合格27≈1.5倍；个人体验与会场观察；人数含/不含何种选拔类别可能不同。"
+        }
+      ]
+    },
+    {
+      "id": "series-8e15f9ab832e",
+      "label": "情報数理学専攻 · 全年合計 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全类别合计",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 20,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 18,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-aa09c0be6a"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：PDF 73頁前後「入学・修了者数（令和4年度）」博士前期課程"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 20,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 21,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9aa3b79035"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：PDF 73頁前後「入学・修了者数（令和5年度）」博士前期課程"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 20,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 16,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4b35efaf26"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：PDF 73頁前後「入学・修了者数（令和6年度）」博士前期課程"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 20,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 18,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-504524dfc7"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：PDF 73頁前後「入学・修了者数（令和7年度）」博士前期課程"
+        }
+      ]
+    }
+  ]
+}

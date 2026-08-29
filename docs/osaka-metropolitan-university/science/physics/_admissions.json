@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-043662813e": {
+      "title": "大阪公立大学 2024年度 博士前期課程入試状況",
+      "url": "https://www.omu.ac.jp/admissions/assets/2024M.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-522152a13c": {
+      "title": "大阪公立大学 2025年度 博士前期課程入試状況",
+      "url": "https://www.omu.ac.jp/admissions/assets/01%E3%80%80in_2025M_nyushijoukyou.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-95e13cccd9": {
+      "title": "大阪公立大学 2023年度 博士前期課程入試状況",
+      "url": "https://www.omu.ac.jp/admissions/assets/2023M.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-c8b4531ade": {
+      "title": "大阪公立大学 2026年度 博士前期課程入試状況",
+      "url": "https://www.omu.ac.jp/admissions/assets/01%E3%80%80in_2026M_nyushijoukyou.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-d9c4871cbb54",
+      "label": "物理学専攻 · 全年合計 · 全部",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全部",
+      "points": [
+        {
+          "admissionYear": 2023,
+          "capacity": 55,
+          "applicants": 68,
+          "examinees": 62,
+          "admitted": 55,
+          "enrolled": 52,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-95e13cccd9"
+          ],
+          "notes": "专攻精确；第1次与第2次合计；原始考试期：全年合计（第1次+第2次）；证据定位：理学研究科／物理学専攻"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 55,
+          "applicants": 73,
+          "examinees": 70,
+          "admitted": 59,
+          "enrolled": 54,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-043662813e"
+          ],
+          "notes": "专攻精确；第1次与第2次合计；原始考试期：全年合计（第1次+第2次）；证据定位：理学研究科／物理学専攻"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 55,
+          "applicants": 74,
+          "examinees": 71,
+          "admitted": 61,
+          "enrolled": 55,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-522152a13c"
+          ],
+          "notes": "专攻精确；第1次与第2次合计；原始考试期：全年合计（第1次+第2次）；证据定位：理学研究科／物理学専攻"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 55,
+          "applicants": 106,
+          "examinees": 99,
+          "admitted": 79,
+          "enrolled": 70,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-c8b4531ade"
+          ],
+          "notes": "专攻精确；第1次与第2次合计；原始考试期：全年合计（第1次+第2次）；证据定位：理学研究科／物理学専攻"
+        }
+      ]
+    }
+  ]
+}

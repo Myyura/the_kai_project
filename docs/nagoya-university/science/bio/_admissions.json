@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "scope": "course",
+  "sources": {
+    "source-efe3c923a6": {
+      "title": "大学院入学・進学試験実施状況 | 名古屋大学大学院理学研究科",
+      "url": "https://www.sci.nagoya-u.ac.jp/admission/past-entry/",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-ed07c9ca6fba",
+      "label": "理学専攻 生命理学領域 · 全年合計 · 領域別公表合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "領域別公表合計",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 44,
+          "applicants": 54,
+          "examinees": null,
+          "admitted": 48,
+          "enrolled": 47,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。项目所列生命理学領域。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2022年度「博士前期課程」表／生命理学領域行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 44,
+          "applicants": 51,
+          "examinees": null,
+          "admitted": 43,
+          "enrolled": 41,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。项目所列生命理学領域。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2023年度「博士前期課程」表／生命理学領域行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 44,
+          "applicants": 63,
+          "examinees": null,
+          "admitted": 50,
+          "enrolled": 46,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。项目所列生命理学領域。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2024年度「博士前期課程」表／生命理学領域行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 44,
+          "applicants": 56,
+          "examinees": null,
+          "admitted": 48,
+          "enrolled": 42,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。项目所列生命理学領域。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2025年度「博士前期課程」表／生命理学領域行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 44,
+          "applicants": 54,
+          "examinees": null,
+          "admitted": 46,
+          "enrolled": 40,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。项目所列生命理学領域。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2026年度「博士前期課程」表／生命理学領域行"
+        }
+      ]
+    }
+  ]
+}

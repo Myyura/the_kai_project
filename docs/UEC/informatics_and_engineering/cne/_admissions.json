@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-28d6c019fc": {
+      "title": "2022年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2022.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-3e503a9408": {
+      "title": "2025年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2025.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-77d4203a69": {
+      "title": "2026年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2026.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-e3197fba31": {
+      "title": "2024年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2024.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-ec02aec5c0": {
+      "title": "2023年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2023.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-1552f77c6573",
+      "label": "情報・ネットワーク工学専攻 · 全年合計 · 一般入試",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "一般入試",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 90,
+          "applicants": 120,
+          "examinees": 115,
+          "admitted": 101,
+          "enrolled": 89,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-28d6c019fc"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 90,
+          "applicants": 140,
+          "examinees": 134,
+          "admitted": 111,
+          "enrolled": 97,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ec02aec5c0"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 90,
+          "applicants": 161,
+          "examinees": 150,
+          "admitted": 105,
+          "enrolled": 101,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e3197fba31"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 90,
+          "applicants": 174,
+          "examinees": 166,
+          "admitted": 100,
+          "enrolled": 87,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3e503a9408"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 90,
+          "applicants": 185,
+          "examinees": 175,
+          "admitted": 105,
+          "enrolled": 90,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-77d4203a69"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・情報・ネットワーク工学専攻行"
+        }
+      ]
+    },
+    {
+      "id": "series-3a29067521ff",
+      "label": "情報・ネットワーク工学専攻 · 全年合計 · 推薦入試",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "推薦入試",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 60,
+          "applicants": 81,
+          "examinees": 81,
+          "admitted": 78,
+          "enrolled": 75,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-28d6c019fc"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 60,
+          "applicants": 76,
+          "examinees": 76,
+          "admitted": 76,
+          "enrolled": 74,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ec02aec5c0"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 60,
+          "applicants": 83,
+          "examinees": 83,
+          "admitted": 77,
+          "enrolled": 76,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e3197fba31"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 60,
+          "applicants": 80,
+          "examinees": 80,
+          "admitted": 78,
+          "enrolled": 75,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3e503a9408"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 60,
+          "applicants": 76,
+          "examinees": 75,
+          "admitted": 74,
+          "enrolled": 74,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-77d4203a69"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・情報・ネットワーク工学専攻行"
+        }
+      ]
+    },
+    {
+      "id": "series-f49adbcf904b",
+      "label": "情報・ネットワーク工学専攻 · 全年合計 · 社会人入試",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "社会人入試",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 2,
+          "examinees": 2,
+          "admitted": 2,
+          "enrolled": 2,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-28d6c019fc"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 1,
+          "enrolled": 1,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ec02aec5c0"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 2,
+          "examinees": 2,
+          "admitted": 1,
+          "enrolled": 1,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e3197fba31"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 2,
+          "examinees": 2,
+          "admitted": 2,
+          "enrolled": 2,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3e503a9408"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・情報・ネットワーク工学専攻行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 2,
+          "examinees": 2,
+          "admitted": 2,
+          "enrolled": 2,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-77d4203a69"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・情報・ネットワーク工学専攻行"
+        }
+      ]
+    }
+  ]
+}

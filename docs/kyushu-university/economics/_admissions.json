@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-a85f21f01a": {
+      "title": "2022年度九州大学大学院経済学府修士課程 入学試験合格者",
+      "url": "https://www.econ.kyushu-u.ac.jp/wp-content/uploads/2021/10/955be57cfd6609b1ebecbef99b04d371.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-9af2eaa32f57",
+      "label": "経済工学専攻 · 2021年10月発表分 · 一般選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "other-2021-10",
+      "selection": "一般選抜",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 12,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-a85f21f01a"
+          ],
+          "notes": "经济工学专攻的类别别合格者数。；官方合格发表未记载志愿者、受验者、入学者；是否涵盖该年度全部批次需谨慎。；原始考试期：2021年10月発表分；证据定位：PDF p.1／経済工学専攻・一般選抜・合格者数"
+        }
+      ]
+    },
+    {
+      "id": "series-3f1ed050a524",
+      "label": "経済工学専攻 · 2021年10月発表分 · 外国人留学生特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "other-2021-10",
+      "selection": "外国人留学生特別選抜",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 1,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-a85f21f01a"
+          ],
+          "notes": "经济工学专攻的类别别合格者数。；官方合格发表未记载志愿者、受验者、入学者；是否涵盖该年度全部批次需谨慎。；原始考试期：2021年10月発表分；证据定位：PDF p.1／経済工学専攻・外国人留学生特別選抜・合格者数"
+        }
+      ]
+    },
+    {
+      "id": "series-268f068101e7",
+      "label": "経済工学専攻 · 2021年10月発表分 · 社会人特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "other-2021-10",
+      "selection": "社会人特別選抜",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 0,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-a85f21f01a"
+          ],
+          "notes": "经济工学专攻的类别别合格者数。；官方合格发表未记载志愿者、受验者、入学者；是否涵盖该年度全部批次需谨慎。；原始考试期：2021年10月発表分；证据定位：PDF p.1／経済工学専攻・社会人特別選抜・合格者数"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-628f206f1c": {
+      "title": "2023年度実施大学院入試 博士前期課程 2024年4月入学試験（2023年8月・2024年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2018/05/da881abcfca5e794e2fcc279de2acd16.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-9b9b43238c": {
+      "title": "2025年度実施大学院入試 博士前期課程 2026年4月入学試験（2025年8月・2026年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2018/05/8b04b626656e26978db091d8329a9e1e.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-c4fdcb7eaf": {
+      "title": "2024年度実施大学院入試 博士前期課程 2025年4月入学試験（2024年8月・2025年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2018/05/05a0dfb6802945e0bf3e85afa4e246ba.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-5d2f402e4971",
+      "label": "複雑系科学専攻 · 全年合計 · 年度合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "年度合計",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": 36,
+          "applicants": 106,
+          "examinees": 96,
+          "admitted": 50,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-628f206f1c"
+          ],
+          "notes": "専攻単位の精确値。；原表未掲載入学者数；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／複雑系科学専攻行・合計欄"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 44,
+          "applicants": 96,
+          "examinees": 89,
+          "admitted": 64,
+          "enrolled": 58,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-c4fdcb7eaf"
+          ],
+          "notes": "専攻単位の精确値。；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／複雑系科学専攻行・合計欄"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 44,
+          "applicants": 114,
+          "examinees": 108,
+          "admitted": 69,
+          "enrolled": 55,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9b9b43238c"
+          ],
+          "notes": "専攻単位の精确値。；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／複雑系科学専攻行・合計欄"
+        }
+      ]
+    },
+    {
+      "id": "series-fb029984c3b0",
+      "label": "複雑系科学専攻 · 冬季・第2次 · 公表された第2次募集合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "winter",
+      "selection": "公表された第2次募集合計",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 25,
+          "examinees": 21,
+          "admitted": 13,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-628f206f1c"
+          ],
+          "notes": "専攻単位の精确値。；年度定員と入学者数は年度合計行にのみ記録。；原始考试期：第2次（2月実施）；证据定位：PDF p.1／複雑系科学専攻行・第2次欄"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 19,
+          "examinees": 15,
+          "admitted": 13,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-c4fdcb7eaf"
+          ],
+          "notes": "専攻単位の精确値。；年度定員と入学者数は年度合計行にのみ記録。；原始考试期：第2次（2月実施）；证据定位：PDF p.1／複雑系科学専攻行・第2次欄"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 34,
+          "examinees": 33,
+          "admitted": 18,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9b9b43238c"
+          ],
+          "notes": "専攻単位の精确値。；年度定員と入学者数は年度合計行にのみ記録。；原始考试期：第2次（2月実施）；证据定位：PDF p.1／複雑系科学専攻行・第2次欄"
+        }
+      ]
+    },
+    {
+      "id": "series-b768a1bc1976",
+      "label": "複雑系科学専攻 · 夏季・第1次 · 公表された第1次募集合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "公表された第1次募集合計",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 81,
+          "examinees": 75,
+          "admitted": 37,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-628f206f1c"
+          ],
+          "notes": "専攻単位の精确値。；年度定員と入学者数は年度合計行にのみ記録。；原始考试期：第1次（8月実施）；证据定位：PDF p.1／複雑系科学専攻行・第1次欄"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 77,
+          "examinees": 74,
+          "admitted": 51,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-c4fdcb7eaf"
+          ],
+          "notes": "専攻単位の精确値。；年度定員と入学者数は年度合計行にのみ記録。；原始考试期：第1次（8月実施）；证据定位：PDF p.1／複雑系科学専攻行・第1次欄"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 80,
+          "examinees": 75,
+          "admitted": 51,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9b9b43238c"
+          ],
+          "notes": "専攻単位の精确値。；年度定員と入学者数は年度合計行にのみ記録。；原始考试期：第1次（8月実施）；证据定位：PDF p.1／複雑系科学専攻行・第1次欄"
+        }
+      ]
+    }
+  ]
+}

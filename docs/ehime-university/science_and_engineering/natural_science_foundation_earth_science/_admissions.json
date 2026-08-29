@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-6679c24ed9": {
+      "title": "令和7年度 愛媛大学大学院入学試験実施状況",
+      "url": "https://www.ehime-u.ac.jp/wp-content/uploads/2025/05/R7-3_jitsushijoukyou_daigakuin.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-57014d7cb617",
+      "label": "理工学専攻 自然科学基盤プログラム 地球科学分野 · 全年合計 · 一般+自己推薦等 合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "一般+自己推薦等 合计",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": 12,
+          "applicants": 15,
+          "examinees": 14,
+          "admitted": 14,
+          "enrolled": 14,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-6679c24ed9"
+          ],
+          "notes": "项目精确；各选拔类别汇总；一般12/12/12/12；自己推薦3/2/2/2；其他为0；原始考试期：全年合计；证据定位：理工学研究科／理工学専攻／自然科学基盤プログラム／地球科学分野"
+        }
+      ]
+    }
+  ]
+}

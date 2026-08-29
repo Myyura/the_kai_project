@@ -28,6 +28,7 @@ import {
 } from '@site/src/components/NoteEditor/markdownRenderer';
 import { universities } from '@site/src/data/universities';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
+import AdmissionDataContribution from '@site/src/components/AdmissionDataContribution';
 import styles from './styles.module.css';
 
 const CUSTOM_OPTION = '__custom__';
@@ -88,7 +89,7 @@ function formatDate(value, language) {
 }
 
 function statusClass(status) {
-  if (status === 'issue_created' || status === 'converted') return styles.statusIssue;
+  if (status === 'issue_created' || status === 'review_created' || status === 'converted') return styles.statusIssue;
   if (status === 'failed') return styles.statusFailed;
   return styles.statusPending;
 }
@@ -118,6 +119,12 @@ export function ContributeContent({ embedded = false } = {}) {
   const [correctionView, setCorrectionView] = useState('edit');
   const [newSolutionView, setNewSolutionView] = useState('edit');
   const newSolutionPreviewRef = useRef(null);
+  const admissionDataEntityId = useMemo(() => {
+    if (typeof window === 'undefined') return null;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('type') !== 'admission_data') return null;
+    return String(params.get('entityId') || '').trim();
+  }, []);
   const isCorrectionMode = form.submissionType === 'correction';
   const newSolutionMarkdownLength = normalizedMarkdownLength(form.descriptionMarkdown)
     + normalizedMarkdownLength(form.kaiMarkdown);
@@ -459,6 +466,16 @@ export function ContributeContent({ embedded = false } = {}) {
           </Link>
         </section>
       </div>
+    );
+  }
+
+  if (admissionDataEntityId !== null) {
+    return (
+      <AdmissionDataContribution
+        embedded={embedded}
+        entityId={admissionDataEntityId}
+        profile={profile}
+      />
     );
   }
 
@@ -843,7 +860,13 @@ export function ContributeContent({ embedded = false } = {}) {
                     {item.correctionConflict && (
                       <span className={`${styles.statusBadge} ${styles.statusFailed}`}>{t.conflictBadge}</span>
                     )}
-                    <span>{item.submissionType === 'new_solution' ? t.modeNew : t.modeCorrection}</span>
+                    <span>
+                      {item.submissionType === 'new_solution'
+                        ? t.modeNew
+                        : item.submissionType === 'admission_data'
+                          ? t.modeAdmission
+                          : t.modeCorrection}
+                    </span>
                     <span>{formatDate(item.createdAt, language)}</span>
                   </div>
                   <div className={styles.submissionLinks}>

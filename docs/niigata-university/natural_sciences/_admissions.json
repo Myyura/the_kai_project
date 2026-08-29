@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "scope": "graduate_school_total",
+  "sources": {
+    "source-16ebd6df8b": {
+      "title": "新潟大学概要リーフレット 2025",
+      "url": "https://www.niigata-u.ac.jp/wp-content/uploads/2025/09/leaflet2025_sep.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-2e35badd77": {
+      "title": "新潟大学概要リーフレット 2024",
+      "url": "https://www.niigata-u.ac.jp/wp-content/uploads/2024/07/leaflet2024.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-3e9c2c103b07",
+      "label": "自然科学研究科 · 全年合計 · 公开选拔合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "公开选拔合计",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": 487,
+          "applicants": 611,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 535,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2e35badd77"
+          ],
+          "notes": "研究科合计，未拆分电气信息工学、数理物质科学各课程；官方注：仅公开选拔结果；不含非公开DDP及国费留学生；原始考试期：全年合计；证据定位：大学院入学者／自然科学研究科"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 502,
+          "applicants": 626,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 568,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-16ebd6df8b"
+          ],
+          "notes": "研究科合计，未拆分电气信息工学、数理物质科学各课程；官方注：仅公开选拔结果；2026年度改组为综合学术研究科；原始考试期：全年合计；证据定位：大学院入学者／自然科学研究科"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-0efbf65306": {
+      "title": "歴史と実績 | KBS 慶應義塾大学大学院経営管理研究科",
+      "url": "https://www.kbs.keio.ac.jp/about/history.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-7b345c4f8f2a",
+      "label": "MBAプログラム · 全年合計 · MBAプログラム全選抜合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "professional",
+      "period": "annual",
+      "selection": "MBAプログラム全選抜合計",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 69,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0efbf65306"
+          ],
+          "notes": "MBA项目精确值；不含EMBA项目。；2022–2023は入学者数のみ掲載；出愿数・合格者数的现行表只覆盖2024–2026。；原始考试期：年度合計；证据定位：「統計」／MBAプログラム：入学者数表"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 76,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0efbf65306"
+          ],
+          "notes": "MBA项目精确值；不含EMBA项目。；2022–2023は入学者数のみ掲載；出愿数・合格者数的现行表只覆盖2024–2026。；原始考试期：年度合計；证据定位：「統計」／MBAプログラム：入学者数表"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 279,
+          "examinees": null,
+          "admitted": 75,
+          "enrolled": 66,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0efbf65306"
+          ],
+          "notes": "MBA项目精确值；不含EMBA项目。；受験者数・募集人員は非掲載。；原始考试期：年度合計；证据定位：「統計」／MBAプログラム：入学者数表及び過去3年間の出願数・合格者数表"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 182,
+          "examinees": null,
+          "admitted": 73,
+          "enrolled": 63,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0efbf65306"
+          ],
+          "notes": "MBA项目精确值；不含EMBA项目。；受験者数・募集人員は非掲載。；原始考试期：年度合計；证据定位：「統計」／MBAプログラム：入学者数表及び過去3年間の出願数・合格者数表"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 193,
+          "examinees": null,
+          "admitted": 73,
+          "enrolled": 60,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0efbf65306"
+          ],
+          "notes": "MBA项目精确值；不含EMBA项目。；受験者数・募集人員は非掲載。；原始考试期：年度合計；证据定位：「統計」／MBAプログラム：入学者数表及び過去3年間の出願数・合格者数表"
+        }
+      ]
+    }
+  ]
+}

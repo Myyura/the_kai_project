@@ -1644,6 +1644,7 @@ create table if not exists content_submissions (
   correction_base_sha   text not null default '',
   correction_patch      jsonb not null default '[]'::jsonb,
   correction_conflict   boolean not null default false,
+  admission_data        jsonb not null default '{}'::jsonb,
   cla_accepted_at       timestamptz not null,
   payload_hash          text,
   payload_signature     text,
@@ -1656,15 +1657,24 @@ create table if not exists content_submissions (
   created_at            timestamptz not null default now(),
 
   constraint content_submissions_type_check
-    check (submission_type in ('new_solution', 'correction')),
+    check (submission_type in ('new_solution', 'correction', 'admission_data')),
   constraint content_submissions_status_check
-    check (status in ('pending_issue', 'issue_created', 'failed', 'converted', 'closed')),
+    check (status in ('pending_issue', 'issue_created', 'review_created', 'failed', 'converted', 'closed')),
   constraint content_submissions_year_check
-    check (year is null or (year >= 1900 and year <= 2100)),
+    check (year is null or (year >= 1900 and year <= 2200)),
   constraint content_submissions_tags_is_array
     check (jsonb_typeof(tags) = 'array'),
   constraint content_submissions_patch_is_array
     check (jsonb_typeof(correction_patch) = 'array'),
+  constraint content_submissions_admission_data_is_object
+    check (jsonb_typeof(admission_data) = 'object'),
+  constraint content_submissions_admission_data_presence
+    check (
+      (submission_type = 'admission_data' and admission_data <> '{}'::jsonb)
+      or (submission_type <> 'admission_data' and admission_data = '{}'::jsonb)
+    ),
+  constraint content_submissions_admission_not_converted
+    check (submission_type <> 'admission_data' or status <> 'converted'),
   constraint content_submissions_correction_sha
     check (
       submission_type <> 'correction'

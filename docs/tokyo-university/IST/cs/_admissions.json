@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-5dbd2a59ff": {
+      "title": "note：東京大学情報理工 コンピュータ科学専攻 院試体験記",
+      "url": "https://note.com/warabi1729/n/n5122997ce916",
+      "type": "community",
+      "confidence": "medium",
+      "checkedAt": "2026-08-28"
+    },
+    "source-f899d679da": {
+      "title": "情報理工学系研究科 志願者・合格者・入学者数",
+      "url": "https://www.i.u-tokyo.ac.jp/edu/entra/ay2026data_j.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-6cd94e1698f2",
+      "label": "コンピュータ科学専攻 · 全年合計 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全类别合计",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 42,
+          "applicants": 122,
+          "examinees": null,
+          "admitted": 49,
+          "enrolled": 47,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 42,
+          "applicants": 96,
+          "examinees": null,
+          "admitted": 39,
+          "enrolled": 39,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 42,
+          "applicants": 79,
+          "examinees": null,
+          "admitted": 42,
+          "enrolled": 40,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 44,
+          "applicants": 110,
+          "examinees": null,
+          "admitted": 47,
+          "enrolled": 44,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 44,
+          "applicants": 91,
+          "examinees": null,
+          "admitted": 45,
+          "enrolled": 44,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        }
+      ]
+    },
+    {
+      "id": "series-6612309a9ff4",
+      "label": "コンピュータ科学専攻 · 夏季・第1次 · 书类审查通过阶段",
+      "sourceType": "community",
+      "confidence": "medium",
+      "degree": "master",
+      "period": "summer",
+      "selection": "书类审查通过阶段",
+      "points": [
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": null,
+          "reportedRatio": 1.7,
+          "sourceIds": [
+            "source-5dbd2a59ff"
+          ],
+          "notes": "原文数值：约1.7倍；作者按合格编号估算；不是官方志愿者/最终合格者统计。"
+        }
+      ]
+    }
+  ]
+}

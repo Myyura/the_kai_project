@@ -908,6 +908,7 @@ export const UI_MESSAGES = {
       viewIssue: '查看 Issue',
       modeNew: '新增题解',
       modeCorrection: '纠错/补充',
+      modeAdmission: '招生数据',
       modeNewHint: '如果只是修正某篇现有题解，请回到该题解页底部点击「纠错/补充」。',
       modeCorrectionHint: '目标文档由系统读取；Issue 会记录精准 diff，维护者确认后自动生成 Draft PR。',
       enterFromDocPage: '请从具体题解页底部的「纠错/补充」进入，系统会自动带入目标题解。',
@@ -988,6 +989,7 @@ export const UI_MESSAGES = {
       statusLabels: {
         pending_issue: '创建 Issue 中',
         issue_created: 'Issue 已创建',
+        review_created: '等待数据审核',
         failed: '创建失败',
         converted: '已转为 PR',
         closed: '已关闭',
@@ -1009,6 +1011,7 @@ export const UI_MESSAGES = {
       viewIssue: 'Issue を見る',
       modeNew: '新規解答',
       modeCorrection: '訂正・補足',
+      modeAdmission: '入試データ',
       modeNewHint: '既存の解答を修正したい場合は、その問題ページ下部の「訂正・補足」から開始してください。',
       modeCorrectionHint: '対象文書は自動取得されます。Issue に正確な diff を記録し、確認後に Draft PR を自動生成します。',
       enterFromDocPage: '具体的な問題ページ下部の「訂正・補足」から入ってください。対象文書は自動入力されます。',
@@ -1089,6 +1092,7 @@ export const UI_MESSAGES = {
       statusLabels: {
         pending_issue: 'Issue 作成中',
         issue_created: 'Issue 作成済み',
+        review_created: 'データ確認待ち',
         failed: '作成失敗',
         converted: 'PR 変換済み',
         closed: 'クローズ済み',
@@ -1110,6 +1114,7 @@ export const UI_MESSAGES = {
       viewIssue: 'View Issue',
       modeNew: 'New solution',
       modeCorrection: 'Correction / supplement',
+      modeAdmission: 'Admission data',
       modeNewHint: 'To fix an existing solution, go back to that solution page and use “Correction / supplement” at the bottom.',
       modeCorrectionHint: 'The source is loaded automatically. The Issue records an exact diff and becomes a Draft PR after review.',
       enterFromDocPage: 'Please start from “Correction / supplement” at the bottom of a specific solution page so the target document is filled automatically.',
@@ -1190,6 +1195,7 @@ export const UI_MESSAGES = {
       statusLabels: {
         pending_issue: 'Creating Issue',
         issue_created: 'Issue created',
+        review_created: 'Awaiting data review',
         failed: 'Creation failed',
         converted: 'Converted to PR',
         closed: 'Closed',

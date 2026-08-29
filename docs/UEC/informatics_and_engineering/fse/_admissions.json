@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-28d6c019fc": {
+      "title": "2022年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2022.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-3e503a9408": {
+      "title": "2025年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2025.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-77d4203a69": {
+      "title": "2026年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2026.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-e3197fba31": {
+      "title": "2024年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2024.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-ec02aec5c0": {
+      "title": "2023年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
+      "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2023.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-fbc3814a30f7",
+      "label": "基盤理工学専攻 · 全年合計 · 一般入試",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "一般入試",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 81,
+          "applicants": 96,
+          "examinees": 96,
+          "admitted": 90,
+          "enrolled": 75,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-28d6c019fc"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 81,
+          "applicants": 92,
+          "examinees": 90,
+          "admitted": 87,
+          "enrolled": 74,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ec02aec5c0"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 81,
+          "applicants": 100,
+          "examinees": 98,
+          "admitted": 92,
+          "enrolled": 86,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e3197fba31"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 81,
+          "applicants": 98,
+          "examinees": 97,
+          "admitted": 88,
+          "enrolled": 77,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3e503a9408"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 81,
+          "applicants": 97,
+          "examinees": 95,
+          "admitted": 90,
+          "enrolled": 76,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-77d4203a69"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》一般入試・基盤理工学専攻行"
+        }
+      ]
+    },
+    {
+      "id": "series-037db838d275",
+      "label": "基盤理工学専攻 · 全年合計 · 推薦入試",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "推薦入試",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 54,
+          "applicants": 43,
+          "examinees": 43,
+          "admitted": 43,
+          "enrolled": 40,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-28d6c019fc"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 54,
+          "applicants": 50,
+          "examinees": 50,
+          "admitted": 50,
+          "enrolled": 50,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ec02aec5c0"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 54,
+          "applicants": 56,
+          "examinees": 56,
+          "admitted": 55,
+          "enrolled": 55,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e3197fba31"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 54,
+          "applicants": 51,
+          "examinees": 51,
+          "admitted": 51,
+          "enrolled": 50,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3e503a9408"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 54,
+          "applicants": 52,
+          "examinees": 52,
+          "admitted": 52,
+          "enrolled": 52,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-77d4203a69"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》推薦入試・基盤理工学専攻行"
+        }
+      ]
+    },
+    {
+      "id": "series-db32ac1e65a0",
+      "label": "基盤理工学専攻 · 全年合計 · 社会人入試",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "社会人入試",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 1,
+          "enrolled": 1,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-28d6c019fc"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 0,
+          "examinees": 0,
+          "admitted": 0,
+          "enrolled": 0,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ec02aec5c0"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 1,
+          "enrolled": 1,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e3197fba31"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 0,
+          "examinees": 0,
+          "admitted": 0,
+          "enrolled": 0,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3e503a9408"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・基盤理工学専攻行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 1,
+          "enrolled": 1,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-77d4203a69"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・基盤理工学専攻行"
+        }
+      ]
+    }
+  ]
+}

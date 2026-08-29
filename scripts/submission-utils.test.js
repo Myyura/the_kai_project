@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const childProcess = require('node:child_process');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const os = require('node:os');
@@ -62,6 +63,7 @@ function correctionPayload(content, overrides = {}) {
       conflict: false,
       ...overrides,
     },
+    admissionData: null,
   };
 }
 
@@ -85,6 +87,56 @@ function newSolutionPayload(content = {}) {
     kaiMarkdown: content.kaiMarkdown ?? 'Solution text',
   };
   payload.correction = null;
+  return payload;
+}
+
+function admissionDataPayload(overrides = {}) {
+  const payload = correctionPayload('unused');
+  payload.submissionType = 'admission_data';
+  payload.document = {
+    ...payload.document,
+    year: 2026,
+    targetDocId: 'kyoto-university/informatics/ist',
+    targetTitle: '知能情報学専攻',
+  };
+  payload.content = {descriptionMarkdown: '', kaiMarkdown: ''};
+  payload.correction = null;
+  payload.admissionData = {
+    entityId: 'kyoto-university/informatics/ist',
+    targetTitle: '知能情報学専攻',
+    sourcePath: 'docs/kyoto-university/informatics/ist/_admissions.json',
+    intent: 'correction',
+    existingSeries: {
+      id: 'master-summer-general',
+      label: '修士課程 · 夏季 · 一般选拔',
+      sourceType: 'official',
+    },
+    series: {
+      label: '修士課程 · 夏季 · 一般选拔',
+      degree: 'master',
+      period: 'summer',
+      selection: '一般选拔',
+    },
+    admissionYear: 2026,
+    values: {
+      capacity: 40,
+      applicants: 82,
+      examinees: 76,
+      admitted: 38,
+      enrolled: null,
+      reportedRatio: 2.16,
+      reportedRatioBasis: '出愿人数 ÷ 合格人数',
+    },
+    source: {
+      type: 'community',
+      title: '2026年度 入试结果',
+      url: 'https://example.ac.jp/results.pdf',
+      evidenceLocator: 'PDF 第 2 页“修士课程”表',
+    },
+    sourceTypeMismatch: true,
+    notes: '2025 年夏季实施。',
+    ...overrides,
+  };
   return payload;
 }
 
@@ -192,6 +244,90 @@ test('extracts and verifies a v3 signed correction Issue payload', () => {
   const extracted = extractSubmissionFromIssueBody(issueBody);
   assert.doesNotThrow(() => verifySubmissionSignature(extracted, secret));
   assert.deepEqual(extracted.payload, payload);
+});
+
+test('builds and verifies a signed admission-data review Issue', () => {
+  const payload = admissionDataPayload();
+  const secret = 'test-secret';
+  const canonical = stableStringify(payload);
+  const signature = crypto.createHmac('sha256', secret).update(canonical).digest('hex');
+  const issueBody = buildIssueBody(payload, signature);
+
+  assert.match(issueBody, /招生数据补充 \/ 修正（仅人工审核，不自动转换为 PR）/);
+  assert.match(issueBody, /\| 出愿人数 \| 82 人 \|/);
+  assert.match(issueBody, /\| 倍率口径 \| 出愿人数 ÷ 合格人数 \|/);
+  assert.match(issueBody, /https:\/\/example\.ac\.jp\/results\.pdf/);
+  assert.match(issueBody, /本次来源类型（community）与所选现有系列（official）不同/);
+
+  const extracted = extractSubmissionFromIssueBody(issueBody);
+  assert.doesNotThrow(() => verifySubmissionSignature(extracted, secret));
+  assert.deepEqual(extracted.payload, payload);
+});
+
+test('admission-data conversion is an explicit no-write manual-review skip', () => {
+  const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kai-admission-submission-'));
+  const payload = admissionDataPayload();
+  try {
+    const result = writeSubmissionToRepo({repoRoot, payload});
+    assert.deepEqual(result, {
+      relativePath: 'docs/kyoto-university/informatics/ist/_admissions.json',
+      action: 'skip',
+      skip: true,
+      skipReason: 'admission_data_requires_manual_review',
+      conflict: false,
+    });
+    assert.equal(fs.existsSync(path.join(repoRoot, 'docs')), false);
+    assert.throws(
+      () => buildPullRequestBody({
+        payload,
+        issue: {number: 1, html_url: 'https://example.test/issues/1'},
+        relativePath: result.relativePath,
+      }),
+      /require manual review and cannot be converted automatically/,
+    );
+  } finally {
+    fs.rmSync(repoRoot, {recursive: true, force: true});
+  }
+});
+
+test('conversion command exits cleanly and emits a skip result for admission data', () => {
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kai-admission-converter-'));
+  const payload = admissionDataPayload();
+  const secret = 'test-secret';
+  const canonical = stableStringify(payload);
+  const signature = crypto.createHmac('sha256', secret).update(canonical).digest('hex');
+  const issueBody = buildIssueBody(payload, signature);
+  const eventPath = path.join(tempRoot, 'event.json');
+  const resultPath = path.join(tempRoot, 'result.json');
+  const prBodyPath = path.join(tempRoot, 'pr-body.md');
+  fs.writeFileSync(eventPath, JSON.stringify({
+    issue: {
+      number: 246,
+      html_url: 'https://github.com/Myyura/the_kai_project/issues/246',
+      body: issueBody,
+    },
+  }));
+
+  try {
+    const command = childProcess.spawnSync(process.execPath, [
+      path.resolve(__dirname, 'convert-submission-issue.js'),
+      '--event', eventPath,
+      '--result', resultPath,
+      '--pr-body', prBodyPath,
+    ], {
+      cwd: path.resolve(__dirname, '..'),
+      encoding: 'utf8',
+      env: {...process.env, CLA_ATTESTATION_SECRET: secret},
+    });
+    assert.equal(command.status, 0, command.stderr || command.stdout);
+    const result = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
+    assert.equal(result.action, 'skip');
+    assert.equal(result.skip, true);
+    assert.equal(result.skipReason, 'admission_data_requires_manual_review');
+    assert.equal(fs.existsSync(prBodyPath), false);
+  } finally {
+    fs.rmSync(tempRoot, {recursive: true, force: true});
+  }
 });
 
 test('stores new-solution Markdown once and reconstructs it before signature verification', () => {

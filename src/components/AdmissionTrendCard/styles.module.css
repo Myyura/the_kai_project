@@ -1,0 +1,475 @@
+.card {
+  --admission-official: #2563eb;
+  --admission-official-soft: rgba(37, 99, 235, 0.11);
+  --admission-community: #d97706;
+  --admission-community-soft: rgba(217, 119, 6, 0.12);
+  margin-top: 1.5rem;
+  padding: 1rem 1.1rem;
+  overflow: hidden;
+  border: 1px solid var(--custom-card-border, var(--ifm-color-emphasis-200));
+  border-radius: var(--custom-border-radius, 12px);
+  background: var(--custom-card-bg, var(--ifm-background-surface-color));
+  box-shadow: var(--kai-shadow-card, 0 4px 18px rgba(15, 23, 42, 0.05));
+}
+
+:global([data-theme='dark']) .card {
+  --admission-official: #60a5fa;
+  --admission-official-soft: rgba(96, 165, 250, 0.15);
+  --admission-community: #fbbf24;
+  --admission-community-soft: rgba(251, 191, 36, 0.14);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.headerTitle,
+.headerMeta {
+  display: flex;
+  align-items: center;
+}
+
+.headerTitle {
+  gap: 0.65rem;
+}
+
+.headerMeta {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.contributionButton {
+  composes: btnSecondary from "../../styles/kai-ui.module.css";
+  min-height: 30px;
+  padding: 0.3rem 0.55rem;
+  font-size: 0.7rem;
+}
+
+.contributionButton svg {
+  font-size: 0.82em;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--ifm-color-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.35;
+}
+
+.scopeBadge,
+.sourceBadge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.scopeBadge {
+  flex: 0 0 auto;
+  padding: 0.28rem 0.65rem;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.72rem;
+}
+
+.yearRange {
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.sourceBadge {
+  padding: 0.15rem 0.5rem;
+  font-size: 0.65rem;
+}
+
+.sourceBadge.official {
+  background: var(--admission-official-soft);
+  color: var(--admission-official);
+}
+
+.sourceBadge.community {
+  background: var(--admission-community-soft);
+  color: var(--admission-community);
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 0.65rem;
+  margin-top: 0.7rem;
+}
+
+.summaryItem {
+  min-width: 0;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  background: var(--ifm-background-color);
+}
+
+.summaryItemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+}
+
+.summaryItemHeader strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.76rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ratioRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+}
+
+.ratioRow > span:last-child {
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.68rem;
+}
+
+.ratioValue {
+  color: var(--ifm-color-emphasis-900);
+  font-size: 1.4rem;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.ratioValue small {
+  margin-left: 0.08em;
+  font-size: 0.65em;
+  font-weight: 650;
+}
+
+.dataNote {
+  margin: 0.5rem 0 0;
+  padding-left: 0.45rem;
+  overflow: hidden;
+  border-left: 2px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.66rem;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin: 0.65rem 0 0;
+}
+
+.counts > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.counts dt {
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.64rem;
+}
+
+.counts dd {
+  margin: 0;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+  margin: 0 0 0.25rem;
+  padding-bottom: 0.25rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.legendButton {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 0.4rem;
+  max-width: min(24rem, 80vw);
+  min-height: 1.75rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-750, var(--ifm-color-emphasis-700));
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  transition: border-color 120ms ease, opacity 120ms ease, background 120ms ease;
+}
+
+.legendButton > span:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.legendButton:hover,
+.legendButton:focus-visible {
+  border-color: var(--ifm-color-primary-light);
+  outline: none;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.legendButton small {
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.62rem;
+}
+
+.legendButtonInactive {
+  opacity: 0.45;
+}
+
+.lineSample {
+  display: block;
+  width: 1.3rem;
+  flex: 0 0 auto;
+  border-top: 2px solid var(--admission-official);
+}
+
+.lineSample.community {
+  border-top-color: var(--admission-community);
+  border-top-style: dashed;
+}
+
+.chartScroller {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.dataDetails {
+  margin-top: 0.55rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-650, var(--ifm-color-emphasis-600));
+  font-size: 0.72rem;
+}
+
+.dataDetails > summary {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.dataDetails > summary small {
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+.chart {
+  display: block;
+  width: 100%;
+  min-width: 620px;
+  height: auto;
+  overflow: visible;
+}
+
+.gridLine {
+  stroke: var(--ifm-color-emphasis-200);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.tickLine {
+  stroke: var(--ifm-color-emphasis-400);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.axisLabel {
+  fill: var(--ifm-color-emphasis-550, var(--ifm-color-emphasis-600));
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.seriesLine {
+  fill: none;
+  stroke: var(--admission-official);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.community .seriesLine {
+  stroke: var(--admission-community);
+  stroke-dasharray: 7 5;
+}
+
+.dataPoint {
+  fill: var(--ifm-background-surface-color);
+  stroke: var(--admission-official);
+  stroke-width: 2.5;
+  cursor: help;
+  outline: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.community .dataPoint {
+  stroke: var(--admission-community);
+}
+
+.dataPoint:hover,
+.dataPoint:focus-visible {
+  fill: var(--admission-official);
+  stroke-width: 3.5;
+}
+
+.community .dataPoint:hover,
+.community .dataPoint:focus-visible {
+  fill: var(--admission-community);
+}
+
+.tooltip {
+  pointer-events: none;
+}
+
+.tooltip rect {
+  fill: var(--ifm-color-emphasis-900);
+  opacity: 0.96;
+}
+
+.tooltip text {
+  fill: var(--ifm-background-color);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.tooltip .tooltipMuted {
+  opacity: 0.74;
+  font-size: 9.5px;
+  font-weight: 500;
+}
+
+.emptyNotice {
+  margin: 0.8rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.78rem;
+}
+
+.sources {
+  margin-top: 0.55rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 0.7rem;
+  color: var(--ifm-color-emphasis-650, var(--ifm-color-emphasis-600));
+  font-size: 0.72rem;
+}
+
+.sources summary {
+  width: fit-content;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.sources ul {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0.6rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.sources li {
+  padding-left: 0.15rem;
+}
+
+.sourceTitleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.sources .sourceBadge {
+  flex: 0 0 auto;
+  margin-right: 0;
+}
+
+.sourceMeta,
+.sourceEvidence {
+  margin-top: 0.15rem;
+  color: var(--ifm-color-emphasis-550, var(--ifm-color-emphasis-600));
+  font-size: 0.66rem;
+  line-height: 1.5;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .card {
+    margin-inline: -0.5rem;
+    padding: 1rem;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .headerMeta {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .legendButton {
+    max-width: 82vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .legendButton {
+    transition: none;
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "scope": "course",
+  "sources": {
+    "source-07b706d5c2": {
+      "title": "2026年度4月期入学 修士課程学生募集要項",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/application/master-2026-4.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-bc301a5703": {
+      "title": "Academaid：京大情報学研究科各コースの倍率変化",
+      "url": "https://academ-aid.com/ist/comp-rate",
+      "type": "community",
+      "confidence": "medium",
+      "checkedAt": "2026-08-29",
+      "evidenceLocator": "页面内嵌 Chart.js 脚本的 labels、rawData 与 calculateCompRate",
+      "notes": "页面发布于2022-06-14，更新于2026-07-16；横轴为考试实施年，项目中换算为下一年度4月入学。"
+    },
+    "source-cc41aa143b": {
+      "title": "2025年度4月期入学 修士課程冬期入学試験 合格者発表",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20250214_winter_m_ja_3kFs.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-e49da6474f": {
+      "title": "2025年度4月期入学 修士課程夏期入学試験 合格者発表",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20240816_summer_m_ja_f9K7.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-e5ed3b11a9": {
+      "title": "研究科データ",
+      "url": "https://www.i.kyoto-u.ac.jp/admission/data/",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-f2eab7f489": {
+      "title": "2026年度4月期入学 修士課程夏期入学試験 合格者発表",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20250815-summer-m-ja-cFN4.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-05e8849aebe6",
+      "label": "夏季出願者 ÷ 年度募集人員（民间整理）",
+      "sourceType": "community",
+      "confidence": "medium",
+      "degree": "master",
+      "period": "summer",
+      "selection": "夏季出願者 ÷ 年度募集人員（民间整理）",
+      "points": [
+        {"admissionYear": 2010, "capacity": 31, "applicants": 35, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 1.1, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2009年，换算为2010年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2011, "capacity": 31, "applicants": 63, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 2.0, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2010年，换算为2011年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2012, "capacity": 31, "applicants": 49, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 1.6, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2011年，换算为2012年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2013, "capacity": 31, "applicants": 58, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 1.9, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2012年，换算为2013年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2014, "capacity": 31, "applicants": 49, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 1.6, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2013年，换算为2014年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2015, "capacity": 31, "applicants": 50, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 1.6, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2014年，换算为2015年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2016, "capacity": 31, "applicants": 42, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 1.4, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2015年，换算为2016年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2017, "capacity": 31, "applicants": 56, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 1.8, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2016年，换算为2017年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2018, "capacity": 31, "applicants": 33, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 1.1, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2017年，换算为2018年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2019, "capacity": 31, "applicants": 63, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 2.0, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2018年，换算为2019年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2020, "capacity": 29, "applicants": 62, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 2.1, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2019年，换算为2020年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2021, "capacity": 29, "applicants": 69, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 2.4, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2020年，换算为2021年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2022, "capacity": 29, "applicants": 44, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 1.5, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2021年，换算为2022年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2023, "capacity": 29, "applicants": 61, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 2.1, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2022年，换算为2023年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2024, "capacity": 28, "applicants": 61, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 2.2, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2023年，换算为2024年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2025, "capacity": 28, "applicants": 84, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 3.0, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2024年，换算为2025年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2026, "capacity": 28, "applicants": 100, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 3.6, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2025年，换算为2026年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"},
+        {"admissionYear": 2027, "capacity": 28, "applicants": 85, "examinees": null, "admitted": null, "enrolled": null, "reportedRatio": 3.0, "sourceIds": ["source-bc301a5703"], "notes": "原页面横轴为考试实施年2026年，换算为2027年度4月入学；倍率为応募人数÷年度募集人数，并非志愿者÷合格者的实际合格率，且夏季出願者与年度募集人員的统计范围可能不同。"}
+      ]
+    },
+    {
+      "id": "series-4cfaca085632",
+      "label": "システム科学コース · 4月入学 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "april_admission",
+      "selection": "全类别合计",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 29,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e5ed3b11a9"
+          ],
+          "notes": "コース単位の当該年度入学者総数。出身大学区分の列を合計した公式掲載値。；志願者・受験者・合格者はこの表に掲載なし。；原始考试期：4月入学；证据定位：Webページ「出身大学」表、修士課程・令和4/5年度の各コース計"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 33,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e5ed3b11a9"
+          ],
+          "notes": "コース単位の当該年度入学者総数。出身大学区分の列を合計した公式掲載値。；志願者・受験者・合格者はこの表に掲載なし。；原始考试期：4月入学；证据定位：Webページ「出身大学」表、修士課程・令和4/5年度の各コース計"
+        }
+      ]
+    },
+    {
+      "id": "series-3da47e7f72d7",
+      "label": "システム科学コース · 4月入学 · 募集要項記載のコース定員",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "april_admission",
+      "selection": "募集要項記載のコース定員",
+      "points": [
+        {
+          "admissionYear": 2026,
+          "capacity": 28,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-07b706d5c2"
+          ],
+          "notes": "コース単位の募集人員。夏期・冬期を通じた定員で、各日程への配分は非掲載。；志願者・合格者等とは別表のため、定員のみの行。；原始考试期：4月期入学（全日程）；证据定位：PDF 1頁「募集人員」表"
+        }
+      ]
+    },
+    {
+      "id": "series-2faec30d6fa2",
+      "label": "システム科学コース · 冬季・第2次 · 一般選抜（合格発表掲載範囲）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "winter",
+      "selection": "一般選抜（合格発表掲載範囲）",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-cc41aa143b"
+          ],
+          "notes": "コース単位・当該日程のみ。別日程と合算していない。；公式PDFは合格者受験番号のみで、志願者・受験者数は非掲載。；原始考试期：冬期入試；证据定位：PDFのコース別合格者受験番号一覧（掲載番号を件数化）"
+        }
+      ]
+    },
+    {
+      "id": "series-3c8670a320ea",
+      "label": "システム科学コース · 夏季・第1次 · 一般選抜（合格発表掲載範囲）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "一般選抜（合格発表掲載範囲）",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 27,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e49da6474f"
+          ],
+          "notes": "コース単位・当該日程のみ。別日程と合算していない。；公式PDFは合格者受験番号のみで、志願者・受験者数は非掲載。；原始考试期：夏期入試；证据定位：PDFのコース別合格者受験番号一覧（掲載番号を件数化）"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 29,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f2eab7f489"
+          ],
+          "notes": "コース単位・当該日程のみ。別日程と合算していない。；公式PDFは合格者受験番号のみで、志願者・受験者数は非掲載。；原始考试期：夏期入試；证据定位：PDFのコース別合格者受験番号一覧（掲載番号を件数化）"
+        }
+      ]
+    }
+  ]
+}

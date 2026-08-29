@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-1e75bdbf3e": {
+      "title": "令和8年度 九州大学大学院工学府修士課程学生募集要項",
+      "url": "https://www.eng.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/0c45fa993084b534141aee65b294cac2.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-44ba622086": {
+      "title": "令和6年度 九州大学大学院工学府修士課程学生募集要項",
+      "url": "https://www.eng.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/d9042c2b2f4cd4d219c45a82fda65286.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-d00020aaf045",
+      "label": "機械工学専攻 · 全年合計 · 公表合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "公表合計",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 73,
+          "applicants": 158,
+          "examinees": null,
+          "admitted": 91,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-44ba622086"
+          ],
+          "notes": "项目旧称/统合前「機械系専攻」对应现行机械工学专攻；按官网现行表记记录。；原表注记的志愿者口径含第1志愿・第2志愿；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／機械工学専攻行・2022年度"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 73,
+          "applicants": 150,
+          "examinees": null,
+          "admitted": 86,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1e75bdbf3e"
+          ],
+          "notes": "项目旧称/统合前「機械系専攻」对应现行机械工学专攻；按官网现行表记记录。；原表注记的志愿者口径含第1志愿・第2志愿；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／機械工学専攻行・2023年度"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 73,
+          "applicants": 140,
+          "examinees": null,
+          "admitted": 91,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1e75bdbf3e"
+          ],
+          "notes": "项目旧称/统合前「機械系専攻」对应现行机械工学专攻；按官网现行表记记录。；原表注记的志愿者口径含第1志愿・第2志愿；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／機械工学専攻行・2024年度"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 73,
+          "applicants": 159,
+          "examinees": null,
+          "admitted": 90,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1e75bdbf3e"
+          ],
+          "notes": "项目旧称/统合前「機械系専攻」对应现行机械工学专攻；按官网现行表记记录。；原表注记的志愿者口径含第1志愿・第2志愿；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／機械工学専攻行・2025年度"
+        }
+      ]
+    }
+  ]
+}

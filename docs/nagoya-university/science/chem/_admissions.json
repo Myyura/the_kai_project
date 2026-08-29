@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "scope": "course",
+  "sources": {
+    "source-efe3c923a6": {
+      "title": "大学院入学・進学試験実施状況 | 名古屋大学大学院理学研究科",
+      "url": "https://www.sci.nagoya-u.ac.jp/admission/past-entry/",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-7285c9712806",
+      "label": "理学専攻 物質・生命化学領域 · 全年合計 · 領域別公表合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "領域別公表合計",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 48,
+          "applicants": 52,
+          "examinees": null,
+          "admitted": 48,
+          "enrolled": 47,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。化学系に対応（現行組織名）。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2022年度「博士前期課程」表／物質・生命化学領域行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 48,
+          "applicants": 60,
+          "examinees": null,
+          "admitted": 50,
+          "enrolled": 47,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。化学系に対応（現行組織名）。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2023年度「博士前期課程」表／物質・生命化学領域行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 48,
+          "applicants": 64,
+          "examinees": null,
+          "admitted": 51,
+          "enrolled": 50,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。化学系に対応（現行組織名）。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2024年度「博士前期課程」表／物質・生命化学領域行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 48,
+          "applicants": 54,
+          "examinees": null,
+          "admitted": 44,
+          "enrolled": 42,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。化学系に対応（現行組織名）。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2025年度「博士前期課程」表／物質・生命化学領域行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 48,
+          "applicants": 63,
+          "examinees": null,
+          "admitted": 51,
+          "enrolled": 48,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-efe3c923a6"
+          ],
+          "notes": "理学専攻内の領域単位。化学系に対応（現行組織名）。；受験者数は非掲載。；原始考试期：春期入学・年度合計；证据定位：2026年度「博士前期課程」表／物質・生命化学領域行"
+        }
+      ]
+    }
+  ]
+}

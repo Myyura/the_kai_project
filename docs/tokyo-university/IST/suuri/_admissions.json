@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-f899d679da": {
+      "title": "情報理工学系研究科 志願者・合格者・入学者数",
+      "url": "https://www.i.u-tokyo.ac.jp/edu/entra/ay2026data_j.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-eca42a97ed74",
+      "label": "数理情報学専攻 · 全年合計 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全类别合计",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 32,
+          "applicants": 75,
+          "examinees": null,
+          "admitted": 38,
+          "enrolled": 31,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 32,
+          "applicants": 61,
+          "examinees": null,
+          "admitted": 39,
+          "enrolled": 36,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 32,
+          "applicants": 50,
+          "examinees": null,
+          "admitted": 37,
+          "enrolled": 32,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 40,
+          "applicants": 74,
+          "examinees": null,
+          "admitted": 44,
+          "enrolled": 40,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 40,
+          "applicants": 72,
+          "examinees": null,
+          "admitted": 50,
+          "enrolled": 47,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f899d679da"
+          ],
+          "notes": "専攻単位。各年度は前年10月入学者と当年4月入学者の合計。；受験者数は表に掲載なし。；原始考试期：全年合计（10月及次年4月入学）；证据定位：PDF 1頁「修士課程」各専攻行、2022～2026年度列"
+        }
+      ]
+    }
+  ]
+}

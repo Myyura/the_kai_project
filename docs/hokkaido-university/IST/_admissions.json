@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "scope": "aggregate",
+  "sources": {
+    "source-9d39bd84d6": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.ist.hokudai.ac.jp/news/n2503.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-b307c4725e": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.ist.hokudai.ac.jp/news/n2603.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-bae047569a": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.ist.hokudai.ac.jp/news/n2402.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-c6d8836d55": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.ist.hokudai.ac.jp/news/n2509.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-d737335384": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.ist.hokudai.ac.jp/news/n2408.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-61015ce8939e",
+      "label": "情報科学専攻（5コース合計） · 冬季・第2次 · 入学試験実施結果",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "winter",
+      "selection": "入学試験実施結果",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": 196,
+          "applicants": 25,
+          "examinees": null,
+          "admitted": 16,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-bae047569a"
+          ],
+          "notes": "情報科学専攻全体。项目所列5课程未单独公布。；定员196人为专攻年度定员，并非该期单独名额；受験者数・入学者数は非掲載。括号内等的内数不另行展开。；原始考试期：第2次（2024年2月実施）；证据定位：本文「令和年度4月入学者 合格者数」／修士課程・情報科学行；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 196,
+          "applicants": 13,
+          "examinees": null,
+          "admitted": 10,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9d39bd84d6"
+          ],
+          "notes": "情報科学専攻全体。项目所列5课程未单独公布。；定员196人为专攻年度定员，并非该期单独名额；受験者数・入学者数は非掲載。括号内等的内数不另行展开。；原始考试期：第2次（2025年2月実施）；证据定位：本文「令和年度4月入学者 合格者数」／修士課程・情報科学行；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 196,
+          "applicants": 30,
+          "examinees": null,
+          "admitted": 19,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b307c4725e"
+          ],
+          "notes": "情報科学専攻全体。项目所列5课程未单独公布。；定员196人为专攻年度定员，并非该期单独名额；受験者数・入学者数は非掲載。括号内等的内数不另行展开。；原始考试期：第2次（2026年2月実施）；证据定位：本文「令和年度4月入学者 合格者数」／修士課程・情報科学行；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        }
+      ]
+    },
+    {
+      "id": "series-3c4a0d6ff49e",
+      "label": "情報科学専攻（5コース合計） · 夏季・第1次 · 入学試験実施結果",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "入学試験実施結果",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": 196,
+          "applicants": 233,
+          "examinees": null,
+          "admitted": 210,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-d737335384"
+          ],
+          "notes": "情報科学専攻全体。项目所列5课程未单独公布。；定员196人为专攻年度定员，并非该期单独名额；受験者数・入学者数は非掲載。括号内等的内数不另行展开。；原始考试期：第1次（2024年8月実施）；证据定位：本文「令和年度4月入学者 合格者数」／修士課程・情報科学行；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 196,
+          "applicants": 226,
+          "examinees": null,
+          "admitted": 194,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-c6d8836d55"
+          ],
+          "notes": "情報科学専攻全体。项目所列5课程未单独公布。；定员196人为专攻年度定员，并非该期单独名额；受験者数・入学者数は非掲載。括号内等的内数不另行展开。；原始考试期：第1次（2025年8月実施）；证据定位：本文「令和年度4月入学者 合格者数」／修士課程・情報科学行；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        }
+      ]
+    }
+  ]
+}

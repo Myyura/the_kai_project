@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "scope": "course",
+  "sources": {
+    "source-4f8ecce473": {
+      "title": "入学希望の方へ｜東北大学大学院 環境科学研究科",
+      "url": "https://www.kankyo.tohoku.ac.jp/newstudent/senkouj.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-c65e31d2b047",
+      "label": "エネルギー環境群 · 推薦入学（4月入学） · 推薦入学特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "recommendation_april_entry",
+      "selection": "推薦入学特別選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 3,
+          "examinees": 3,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4f8ecce473"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：推薦入学特別選抜（2025年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        }
+      ]
+    },
+    {
+      "id": "series-c42fbbf51b30",
+      "label": "エネルギー環境群 · 春季入試（4月入学） · 一般選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "spring_exam_april_entry",
+      "selection": "一般選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 4,
+          "examinees": 4,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4f8ecce473"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：春季入試（2025年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        }
+      ]
+    },
+    {
+      "id": "series-ac860513e41b",
+      "label": "エネルギー環境群 · 秋季入試（10月入学） · 一般選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "autumn_exam_october_entry",
+      "selection": "一般選抜",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 1,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4f8ecce473"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：秋季入試（2024年10月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        }
+      ]
+    },
+    {
+      "id": "series-09f5ea344b59",
+      "label": "エネルギー環境群 · 秋季入試（10月入学） · 外国人留学生等特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "autumn_exam_october_entry",
+      "selection": "外国人留学生等特別選抜",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 2,
+          "examinees": 2,
+          "admitted": 2,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4f8ecce473"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：秋季入試（2024年10月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        }
+      ]
+    },
+    {
+      "id": "series-a70ff8ca3e4d",
+      "label": "エネルギー環境群 · 秋季入試（4月入学） · 一般選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "autumn_exam_april_entry",
+      "selection": "一般選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 26,
+          "examinees": 25,
+          "admitted": 24,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4f8ecce473"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：秋季入試（2025年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        }
+      ]
+    }
+  ]
+}

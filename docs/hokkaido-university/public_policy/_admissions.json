@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "scope": "graduate_school_total",
+  "sources": {
+    "source-be4ddca7fd": {
+      "title": "過去の入試結果 | 北海道大学公共政策大学院",
+      "url": "https://www.hops.hokudai.ac.jp/admission/past-result/",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-d69f3e12aaf0",
+      "label": "公共政策学専攻（大学院全体） · 全年合計 · 一般選考",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "professional",
+      "period": "annual",
+      "selection": "一般選考",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 18,
+          "examinees": null,
+          "admitted": 16,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和4（2022）年度表／一般選考"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 17,
+          "examinees": null,
+          "admitted": 9,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和5（2023）年度表／一般選考"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 31,
+          "examinees": null,
+          "admitted": 8,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和6（2024）年度表／一般選考"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 34,
+          "examinees": null,
+          "admitted": 17,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和7（2025）年度表／一般選考"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 17,
+          "examinees": null,
+          "admitted": 9,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和8（2026）年度表／一般選考"
+        }
+      ]
+    },
+    {
+      "id": "series-b37cd0368544",
+      "label": "公共政策学専攻（大学院全体） · 全年合計 · 基準特別選考",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "professional",
+      "period": "annual",
+      "selection": "基準特別選考",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 4,
+          "examinees": null,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和4（2022）年度表／基準特別選考"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 10,
+          "examinees": null,
+          "admitted": 8,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和5（2023）年度表／基準特別選考"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 12,
+          "examinees": null,
+          "admitted": 9,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和6（2024）年度表／基準特別選考"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 5,
+          "examinees": null,
+          "admitted": 5,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和7（2025）年度表／基準特別選考"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 9,
+          "examinees": null,
+          "admitted": 9,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和8（2026）年度表／基準特別選考"
+        }
+      ]
+    },
+    {
+      "id": "series-0818eec532bc",
+      "label": "公共政策学専攻（大学院全体） · 全年合計 · 外国人留学生特別選考",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "professional",
+      "period": "annual",
+      "selection": "外国人留学生特別選考",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 19,
+          "examinees": null,
+          "admitted": 8,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和4（2022）年度表／外国人留学生特別選考"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 20,
+          "examinees": null,
+          "admitted": 13,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和5（2023）年度表／外国人留学生特別選考"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 20,
+          "examinees": null,
+          "admitted": 5,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和6（2024）年度表／外国人留学生特別選考"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 19,
+          "examinees": null,
+          "admitted": 8,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和7（2025）年度表／外国人留学生特別選考"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 23,
+          "examinees": null,
+          "admitted": 4,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和8（2026）年度表／外国人留学生特別選考"
+        }
+      ]
+    },
+    {
+      "id": "series-8d201cddfcd1",
+      "label": "公共政策学専攻（大学院全体） · 全年合計 · 社会人特別選考",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "professional",
+      "period": "annual",
+      "selection": "社会人特別選考",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 16,
+          "examinees": null,
+          "admitted": 10,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和4（2022）年度表／社会人特別選考"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 11,
+          "examinees": null,
+          "admitted": 9,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和5（2023）年度表／社会人特別選考"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 17,
+          "examinees": null,
+          "admitted": 17,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和6（2024）年度表／社会人特別選考"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 19,
+          "examinees": null,
+          "admitted": 14,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和7（2025）年度表／社会人特別選考"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 19,
+          "examinees": null,
+          "admitted": 12,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-be4ddca7fd"
+          ],
+          "notes": "公共政策大学院全体の選考区分別公表値。；募集人員、受験者数、入学者数は非掲載。；原始考试期：年度合計；证据定位：令和8（2026）年度表／社会人特別選考"
+        }
+      ]
+    }
+  ]
+}

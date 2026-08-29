@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "scope": "graduate_school_total",
+  "sources": {
+    "source-cc11844395": {
+      "title": "学生の確保の見通し等を記載した書類",
+      "url": "https://www.tuat.ac.jp/documents/tuat/outline/jyouhoukoukai/houjin/gakubu/senshin_m_2407_gakusei.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-6c29b439e9ab",
+      "label": "生物システム応用科学府 · 全年合計 · 全選抜区分合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全選抜区分合計",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 59,
+          "applicants": 95,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 68,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-cc11844395"
+          ],
+          "notes": "学府博士前期課程の公式合計。；志願者数・入学者数のみ。2025年度から修士課程は先進学際科学府へ改組。；原始考试期：全年合計；证据定位：p.3 表1 生物システム応用科学府・令和4年度列"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 59,
+          "applicants": 89,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 64,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-cc11844395"
+          ],
+          "notes": "学府博士前期課程の公式合計。；志願者数・入学者数のみ。2025年度から修士課程は先進学際科学府へ改組。；原始考试期：全年合計；证据定位：p.3 表1 生物システム応用科学府・令和5年度列"
+        }
+      ]
+    }
+  ]
+}

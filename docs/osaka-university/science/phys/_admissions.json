@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-2d48cecde8": {
+      "title": "入学者状況｜大阪大学大学院理学研究科",
+      "url": "https://www.sci.osaka-u.ac.jp/ja/outline/basicdata/tbl-new_students/",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-96b767b47cd0",
+      "label": "物理学専攻 · 4月入学 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "april_admission",
+      "selection": "全类别合计",
+      "points": [
+        {
+          "admissionYear": 2026,
+          "capacity": 68,
+          "applicants": 145,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 74,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d48cecde8"
+          ],
+          "notes": "専攻単位。Web表の入学定員・志願者・入学者。；受験者・合格者は表に掲載なし。；原始考试期：4月入学；证据定位：Web表「2026年度（2026年4月入学）」物理学専攻・博士前期課程"
+        }
+      ]
+    }
+  ]
+}

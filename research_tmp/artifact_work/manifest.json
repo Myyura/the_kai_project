@@ -1,0 +1,21 @@
+{
+  "outputFile": "/Users/zhangzhe/Documents/WorkWork/the_kai_project/outputs/admission_ratio_20260828/日本大学院报录比_2022-2026.xlsx",
+  "projectUniversities": 27,
+  "graduateSchoolLayers": 64,
+  "projectPrograms": 140,
+  "inventoryRows": 151,
+  "officialMetricRows": 503,
+  "coverage": {
+    "exact": 84,
+    "aggregateOnly": 31,
+    "notFound": 36
+  },
+  "sources": 123,
+  "unofficialSupplements": 10,
+  "partFiles": [
+    "part_core_central.json",
+    "part_core_east.json",
+    "part_mid_group.json",
+    "part_root.json"
+  ]
+}

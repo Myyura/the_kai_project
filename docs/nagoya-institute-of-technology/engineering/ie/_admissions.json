@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-46f3ad8ce8": {
+      "title": "令和7年度 名古屋工業大学大学院工学研究科入学者選抜状況",
+      "url": "https://www.nitech.ac.jp/examination/mt_files/R7_in_zenki_senbatsu_0508.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-bbab021d8e": {
+      "title": "令和8年度 名古屋工業大学大学院工学研究科入学者選抜状況",
+      "url": "https://www.nitech.ac.jp/examination/mt_files/R8_in_zenki_senbatsu.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-b6b812c4897a",
+      "label": "情報工学系 · 全年合計 · 推荐+一般+留学生等 合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "推荐+一般+留学生等 合计",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": 132,
+          "applicants": 163,
+          "examinees": 157,
+          "admitted": 140,
+          "enrolled": 134,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-46f3ad8ce8"
+          ],
+          "notes": "系精确；各选拔类别汇总；推荐29/29/29/29；一般117/111/101/95；私费14/14/7/7；其余3/3/3/3；原始考试期：全年合计；证据定位：博士前期課程／情報工学系，各选拔类别本表汇总"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 132,
+          "applicants": 154,
+          "examinees": 149,
+          "admitted": 135,
+          "enrolled": 127,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-bbab021d8e"
+          ],
+          "notes": "系精确；各选拔类别汇总；推荐40/40/40/39；一般94/91/85/80；私费17/15/7/5；Aichi1/1/1/1；JICA2/2/2/2；原始考试期：全年合计；证据定位：博士前期課程／情報工学系，各选拔类别本表汇总"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scope": "graduate_school_total",
+  "sources": {
+    "source-8b2b7b1468": {
+      "title": "2024年度 大学院入学状況（2024年4月入学）",
+      "url": "https://www.osaka-u.ac.jp/++api++/ja/admissions/files/202404_daigakuin.pdf/@@download/file?expand=translations",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-8e129e589758",
+      "label": "工学研究科 · 4月入学 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "april_admission",
+      "selection": "全类别合计",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": 811,
+          "applicants": 982,
+          "examinees": 950,
+          "admitted": 858,
+          "enrolled": 813,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-8b2b7b1468"
+          ],
+          "notes": "研究科合計。個別専攻・講座・入試区分には配分不可。；プロジェクト内の専攻級データがない場合の難易度背景としてのみ使用。；原始考试期：4月入学；证据定位：PDF「大学院入学状況」該当研究科行"
+        }
+      ]
+    }
+  ]
+}

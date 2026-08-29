@@ -38,9 +38,28 @@ function main() {
 
   const { payload } = submission;
   const writeResult = writeSubmissionToRepo({ repoRoot: REPO_ROOT, payload });
+  const branchName = `codex/submission-${issue.number}`;
+  if (writeResult.skip) {
+    writeJson(resultPath, {
+      action: writeResult.action,
+      branchName,
+      filePath: writeResult.relativePath,
+      prTitle: '',
+      prBodyPath: '',
+      submissionId: payload.submissionId,
+      submissionType: payload.submissionType,
+      skip: true,
+      skipReason: writeResult.skipReason || 'manual_review_required',
+      conflict: false,
+      conflictKind: null,
+      expectedBlobSha: null,
+      currentBlobSha: null,
+    });
+    console.log(`Skipped automatic conversion for ${payload.submissionType} issue #${issue.number}.`);
+    return;
+  }
   const titlePrefix = payload.submissionType === 'new_solution' ? 'Add submission' : 'Update submission';
   const prTitle = `${titlePrefix} from issue #${issue.number}`;
-  const branchName = `codex/submission-${issue.number}`;
   if (!writeResult.conflict) {
     const prBody = buildPullRequestBody({
       payload,
@@ -57,6 +76,8 @@ function main() {
     prBodyPath,
     submissionId: payload.submissionId,
     submissionType: payload.submissionType,
+    skip: false,
+    skipReason: null,
     conflict: Boolean(writeResult.conflict),
     conflictKind: writeResult.conflictKind || null,
     expectedBlobSha: writeResult.expectedBlobSha || null,

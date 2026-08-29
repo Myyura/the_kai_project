@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "scope": "graduate_school_total",
+  "sources": {
+    "source-30658d06c8": {
+      "title": "5 大学院入学状況（神戸大学データ資料集・Power BI）",
+      "url": "https://www.kobe-u.ac.jp/ja/about/datashiryoushuu/5_2025/",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-bea99f81431e",
+      "label": "システム情報学研究科 · 4月入学 · 入学者数（選抜区分未分割）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "april_admission",
+      "selection": "入学者数（選抜区分未分割）",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 87,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-30658d06c8"
+          ],
+          "notes": "研究科合計。Power BIの専攻ディメンションは当該集計値を専攻名ごとに反復表示するため、専攻値としては採用していない。；公式ダッシュボードで確認できるのは入学者数。志願者・受験者・合格者は未掲載。；原始考试期：4月入学；证据定位：Power BI「大学院入学状況」年度=2022、部局=システム情報学研究科、課程=博士課程(前期)、入学時期=春"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 84,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-30658d06c8"
+          ],
+          "notes": "研究科合計。Power BIの専攻ディメンションは当該集計値を専攻名ごとに反復表示するため、専攻値としては採用していない。；公式ダッシュボードで確認できるのは入学者数。志願者・受験者・合格者は未掲載。；原始考试期：4月入学；证据定位：Power BI「大学院入学状況」年度=2023、部局=システム情報学研究科、課程=博士課程(前期)、入学時期=春"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 97,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-30658d06c8"
+          ],
+          "notes": "研究科合計。Power BIの専攻ディメンションは当該集計値を専攻名ごとに反復表示するため、専攻値としては採用していない。；公式ダッシュボードで確認できるのは入学者数。志願者・受験者・合格者は未掲載。；原始考试期：4月入学；证据定位：Power BI「大学院入学状況」年度=2024、部局=システム情報学研究科、課程=博士課程(前期)、入学時期=春"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 98,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-30658d06c8"
+          ],
+          "notes": "研究科合計。Power BIの専攻ディメンションは当該集計値を専攻名ごとに反復表示するため、専攻値としては採用していない。；公式ダッシュボードで確認できるのは入学者数。志願者・受験者・合格者は未掲載。；原始考试期：4月入学；证据定位：Power BI「大学院入学状況」年度=2025、部局=システム情報学研究科、課程=博士課程(前期)、入学時期=春"
+        }
+      ]
+    }
+  ]
+}

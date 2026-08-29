@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scope": "graduate_school_total",
+  "sources": {
+    "source-f3efbca53f": {
+      "title": "入学志願者・入学状況（Academic Year 2025）",
+      "url": "https://www.yamaguchi-u.ac.jp/wp-content/uploads/2025/09/25092215.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-9da4c7e4124a",
+      "label": "人間社会科学研究科 · 全年合計 · 全部",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全部",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": 41,
+          "applicants": 53,
+          "examinees": null,
+          "admitted": 30,
+          "enrolled": 26,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f3efbca53f"
+          ],
+          "notes": "研究科合计，未按临床心理学专攻、经济学・经营学专攻拆分；该研究科于2025年度起设；原始考试期：全年合计；证据定位：大学院／人間社会科学研究科"
+        }
+      ]
+    }
+  ]
+}

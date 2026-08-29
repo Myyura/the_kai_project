@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "scope": "graduate_school_total",
+  "sources": {
+    "source-e20f544fdc": {
+      "title": "公立はこだて未来大学 過去の大学院入試データ",
+      "url": "https://www.fun.ac.jp/admission/admission-graduate-school/result-gsexam-graduate/",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-f5206b465879",
+      "label": "システム情報科学研究科 · 冬季・第2次 · 一般+特別 合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "winter",
+      "selection": "一般+特別 合计",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 4,
+          "examinees": 4,
+          "admitted": 3,
+          "enrolled": 3,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；募集人数为若干名；原始考试期：冬季（2月）；证据定位：2022年度4月入学／2022年2月実施"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 10,
+          "examinees": 10,
+          "admitted": 7,
+          "enrolled": 7,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；募集人数为若干名；原始考试期：冬季（2月）；证据定位：2023年度4月入学／2023年2月実施"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 6,
+          "examinees": 6,
+          "admitted": 5,
+          "enrolled": 5,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；募集人数为若干名；原始考试期：冬季（2月）；证据定位：2024年度4月入学／2024年2月实施"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 7,
+          "examinees": 7,
+          "admitted": 7,
+          "enrolled": 7,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；募集人数为若干名；原始考试期：冬季（2月）；证据定位：2025年度4月入学／2025年2月实施"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 12,
+          "examinees": 12,
+          "admitted": 7,
+          "enrolled": 7,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；募集人数为若干名；原始考试期：冬季（2月）；证据定位：2026年度4月入学／2026年2月实施"
+        }
+      ]
+    },
+    {
+      "id": "series-f8aa50e81cb9",
+      "label": "システム情報科学研究科 · 夏季・第1次 · 一般+特別 合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "一般+特別 合计",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 50,
+          "applicants": 86,
+          "examinees": 85,
+          "admitted": 77,
+          "enrolled": 75,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；原始考试期：夏季（8月）；证据定位：2022年度4月入学／2021年8月実施"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 50,
+          "applicants": 73,
+          "examinees": 70,
+          "admitted": 61,
+          "enrolled": 59,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；原始考试期：夏季（8月）；证据定位：2023年度4月入学／2022年8月実施"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 50,
+          "applicants": 66,
+          "examinees": 66,
+          "admitted": 51,
+          "enrolled": 50,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；原始考试期：夏季（8月）；证据定位：2024年度4月入学／2023年8月实施"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 50,
+          "applicants": 83,
+          "examinees": 80,
+          "admitted": 77,
+          "enrolled": 75,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；原始考试期：夏季（8月）；证据定位：2025年度4月入学／2024年8月实施"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 50,
+          "applicants": 73,
+          "examinees": 73,
+          "admitted": 67,
+          "enrolled": 66,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；原始考试期：夏季（8月）；证据定位：2026年度4月入学／2025年8月实施"
+        }
+      ]
+    }
+  ]
+}

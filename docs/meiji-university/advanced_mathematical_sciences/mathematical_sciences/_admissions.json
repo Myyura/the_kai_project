@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-3412f76d7e": {
+      "title": "明治大学大学院ガイドブック 入試状況（2025年3月31日現在）",
+      "url": "https://www.meiji.ac.jp/dai_in/guidebook/6t5h7p00003fm092-att/6t5h7p00003fm0k9.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-d6bb76fd98": {
+      "title": "明治大学データ集（学生の受け入れ・表3）",
+      "url": "https://www.meiji.ac.jp/koho/about/hyouka/self/2023/mkmht00000273v1a-att/2023data.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-59a19b3fa84c",
+      "label": "現象数理学専攻 · 全年合計 · 全部",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全部",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 20,
+          "applicants": 30,
+          "examinees": null,
+          "admitted": 23,
+          "enrolled": 19,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-d6bb76fd98"
+          ],
+          "notes": "专攻精确；年度合计；原始考试期：全年合计；证据定位：学生の受け入れ（表3）／先端数理科学研究科・現象数理学専攻"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 20,
+          "applicants": 26,
+          "examinees": null,
+          "admitted": 22,
+          "enrolled": 21,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-d6bb76fd98"
+          ],
+          "notes": "专攻精确；年度合计；原始考试期：全年合计；证据定位：学生の受け入れ（表3）／先端数理科学研究科・現象数理学専攻"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 20,
+          "applicants": 26,
+          "examinees": null,
+          "admitted": 17,
+          "enrolled": 13,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-d6bb76fd98"
+          ],
+          "notes": "专攻精确；年度合计；原始考试期：全年合计；证据定位：学生の受け入れ（表3）／先端数理科学研究科・現象数理学専攻"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 20,
+          "applicants": 50,
+          "examinees": null,
+          "admitted": 26,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3412f76d7e"
+          ],
+          "notes": "专攻精确；年度合计；官方指南只列志愿者、合格者；原始考试期：全年合计；证据定位：先端数理科学研究科／現象数理学専攻"
+        }
+      ]
+    }
+  ]
+}

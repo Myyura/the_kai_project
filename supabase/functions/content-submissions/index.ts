@@ -16,6 +16,10 @@ import {
   normalizeMarkdown,
   type CorrectionChange,
 } from './diff.ts';
+import {
+  normalizeAdmissionDataRequest,
+  type AdmissionDataSubmission,
+} from './admission.ts';
 import { buildIssueBody, stableStringify } from './issue.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
@@ -33,6 +37,7 @@ const MAX_ISSUE_BODY_LENGTH = 62000;
 const SUBMISSION_LABELS = [
   { name: 'submission:new-solution', color: '2e8555', description: '站内投稿：新增题解' },
   { name: 'submission:correction', color: 'd97706', description: '站内投稿：纠错或补充' },
+  { name: 'submission:admission-data', color: '7c3aed', description: '站内投稿：招生数据补充或修正' },
   { name: 'submission:needs-info', color: 'facc15', description: '投稿需要补充信息' },
   { name: 'submission:ready-for-pr', color: '2563eb', description: '投稿已确认，可以生成 PR' },
   { name: 'submission:converted', color: '6b7280', description: '投稿已转换为 PR' },
@@ -64,7 +69,7 @@ function getApiPath(req: Request) {
   return path || '/';
 }
 
-type SubmissionType = 'new_solution' | 'correction';
+type SubmissionType = 'new_solution' | 'correction' | 'admission_data';
 
 type SubmissionPayload = {
   version: 3;
@@ -98,6 +103,7 @@ type SubmissionPayload = {
     changes: CorrectionChange[];
     conflict: boolean;
   };
+  admissionData: AdmissionDataSubmission | null;
 };
 
 function cleanText(value: unknown, maxLength = MAX_TEXT_LENGTH) {
@@ -257,10 +263,15 @@ function normalizeTags(value: unknown) {
 function submissionTitle(payload: SubmissionPayload) {
   const prefix = payload.submissionType === 'new_solution'
     ? '新增题解投稿'
-    : '题解纠错投稿';
+    : payload.submissionType === 'correction'
+      ? '题解纠错投稿'
+      : '招生数据投稿';
   const title = payload.submissionType === 'new_solution'
     ? payload.document.title
     : (payload.document.targetTitle || payload.document.targetDocId);
+  if (payload.submissionType === 'admission_data') {
+    return `[${prefix}] ${title} · ${payload.admissionData?.admissionYear || '-'}年度`.slice(0, 240);
+  }
   return `[${prefix}] ${title}`.slice(0, 240);
 }
 
@@ -344,8 +355,18 @@ async function requireUser(req: Request) {
 
 function validateSubmission(body: Record<string, unknown>, publicAuthor: string) {
   const submissionType = cleanText(body.submissionType, 40) as SubmissionType;
-  if (submissionType !== 'new_solution' && submissionType !== 'correction') {
-    return { error: errorResponse(400, 'invalid_type', 'Submission type must be new_solution or correction.') };
+  if (
+    submissionType !== 'new_solution'
+    && submissionType !== 'correction'
+    && submissionType !== 'admission_data'
+  ) {
+    return {
+      error: errorResponse(
+        400,
+        'invalid_type',
+        'Submission type must be new_solution, correction, or admission_data.',
+      ),
+    };
   }
 
   if (!body.claAccepted) {
@@ -354,16 +375,42 @@ function validateSubmission(body: Record<string, unknown>, publicAuthor: string)
 
   const now = new Date().toISOString();
   const isNewSolution = submissionType === 'new_solution';
+  const isAdmissionData = submissionType === 'admission_data';
+  const admissionValidation = isAdmissionData ? normalizeAdmissionDataRequest(body) : null;
+  if (admissionValidation && 'error' in admissionValidation) {
+    return {
+      error: errorResponse(
+        400,
+        admissionValidation.error.code,
+        admissionValidation.error.message,
+      ),
+    };
+  }
+  const admissionData = admissionValidation && 'data' in admissionValidation
+    ? admissionValidation.data
+    : null;
   const title = isNewSolution ? cleanText(body.title, 180) : '';
   const sidebarLabel = isNewSolution ? (cleanText(body.sidebarLabel, 120) || title) : '';
   const universityId = isNewSolution ? cleanText(body.universityId, 120) : '';
   const departmentId = isNewSolution ? cleanText(body.departmentId, 120) : '';
   const programId = isNewSolution ? cleanText(body.programId, 160) : '';
   const rawYear = isNewSolution ? Number(body.year) : NaN;
-  const year = Number.isInteger(rawYear) && rawYear >= 1900 && rawYear <= 2100 ? rawYear : null;
+  const year = isAdmissionData
+    ? admissionData?.admissionYear || null
+    : Number.isInteger(rawYear) && rawYear >= 1900 && rawYear <= 2100
+      ? rawYear
+      : null;
   const fileSlug = isNewSolution ? cleanSlug(body.fileSlug) : '';
-  const targetDocId = isNewSolution ? '' : normalizeDocId(body.targetDocId);
-  const targetTitle = isNewSolution ? '' : cleanText(body.targetTitle, 180);
+  const targetDocId = isNewSolution
+    ? ''
+    : isAdmissionData
+      ? admissionData?.entityId || ''
+      : normalizeDocId(body.targetDocId);
+  const targetTitle = isNewSolution
+    ? ''
+    : isAdmissionData
+      ? admissionData?.targetTitle || ''
+      : cleanText(body.targetTitle, 180);
   const tags = isNewSolution ? normalizeTags(body.tags) : [];
   const descriptionMarkdown = isNewSolution ? newSolutionMarkdownFrom(body.descriptionMarkdown) : '';
   const kaiMarkdown = isNewSolution ? newSolutionMarkdownFrom(body.kaiMarkdown) : '';
@@ -427,6 +474,7 @@ function validateSubmission(body: Record<string, unknown>, publicAuthor: string)
       kaiMarkdown,
     },
     correction: null,
+    admissionData,
   };
 
   return { payload };
@@ -525,17 +573,19 @@ async function createGitHubIssue(payload: SubmissionPayload, signature: string, 
   }
 
   await ensureLabels();
-  const labels = [
-    payload.submissionType === 'new_solution'
-      ? 'submission:new-solution'
-      : 'submission:correction',
-  ];
+  const labels = [payload.submissionType === 'new_solution'
+    ? 'submission:new-solution'
+    : payload.submissionType === 'correction'
+      ? 'submission:correction'
+      : 'submission:admission-data'];
   if (payload.correction?.conflict) labels.push('submission:conflict');
   const issueBody = buildIssueBody(payload, signature, correctionDiff);
   if (issueBody.length > MAX_ISSUE_BODY_LENGTH) {
     const message = payload.submissionType === 'new_solution'
       ? 'The submitted Markdown is too large for a GitHub Issue.'
-      : 'The correction diff is too large for a GitHub Issue.';
+      : payload.submissionType === 'correction'
+        ? 'The correction diff is too large for a GitHub Issue.'
+        : 'The admission-data evidence is too large for a GitHub Issue.';
     return {
       response: errorResponse(413, 'issue_payload_too_large', message),
     };
@@ -602,7 +652,7 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
     return errorResponse(
       409,
       'nickname_confirmation_required',
-      '请先在个人中心确认公开昵称，再提交题解或纠错。',
+      '请先在个人中心确认公开昵称，再提交内容。',
     );
   }
   const publicAuthor = `${profile.nickname} #${String(profile.discriminator).padStart(5, '0')}`;
@@ -636,6 +686,7 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
     correction_base_sha: payload.correction?.baseBlobSha || '',
     correction_patch: payload.correction?.changes || [],
     correction_conflict: payload.correction?.conflict || false,
+    admission_data: payload.admissionData || {},
     cla_accepted_at: payload.cla.acceptedAt,
   };
 
@@ -668,7 +719,7 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
   const { data: updated, error: updateError } = await supabase
     .from('content_submissions')
     .update({
-      status: 'issue_created',
+      status: payload.submissionType === 'admission_data' ? 'review_created' : 'issue_created',
       issue_number: issueResult.issue.number,
       issue_url: issueResult.issue.url,
       payload_hash: payloadHash,
@@ -680,11 +731,13 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
 
   if (updateError) return submissionDatabaseErrorResponse(updateError, 'submission_update_failed');
 
-  const { error: reputationError } = await supabase.rpc('refresh_user_reputation', {
-    p_user_id: userId,
-  });
-  if (reputationError) {
-    console.error('reputation_refresh_failed', reputationError);
+  if (payload.submissionType !== 'admission_data') {
+    const { error: reputationError } = await supabase.rpc('refresh_user_reputation', {
+      p_user_id: userId,
+    });
+    if (reputationError) {
+      console.error('reputation_refresh_failed', reputationError);
+    }
   }
 
   return jsonResponse({
@@ -732,6 +785,7 @@ async function markSubmissionConverted(body: Record<string, unknown>) {
     })
     .eq('id', submissionId)
     .eq('issue_number', issueNumber)
+    .in('submission_type', ['new_solution', 'correction'])
     .select('id,user_id,submission_type,status,title,target_doc_id,issue_number,issue_url,pr_number,pr_url,failure_reason,correction_conflict,updated_at,created_at')
     .maybeSingle();
 

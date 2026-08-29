@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "scope": "graduate_school_total",
+  "sources": {
+    "source-dd802bf081": {
+      "title": "一橋大学大学院経済学研究科 入試結果 2022–2024",
+      "url": "https://www.econ.hit-u.ac.jp/jpn/download/examinee/graduate_admissions/nyushikekka2022-2024.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-72722ae2e219",
+      "label": "経済学研究科 · 全年合計 · 一般・外国人留学生",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "一般・外国人留学生",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 82,
+          "applicants": 259,
+          "examinees": null,
+          "admitted": 107,
+          "enrolled": 79,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd802bf081"
+          ],
+          "notes": "研究科合计；无项目内更细专攻；全年合计由官方分期数据相加；原始考试期：全年合计；证据定位：2022年度 秋季+春季合计（本表汇总）"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 82,
+          "applicants": 255,
+          "examinees": null,
+          "admitted": 110,
+          "enrolled": 74,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd802bf081"
+          ],
+          "notes": "研究科合计；无项目内更细专攻；全年合计由官方分期数据相加；原始考试期：全年合计；证据定位：2023年度 秋季+春季合计（本表汇总）"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 82,
+          "applicants": 352,
+          "examinees": null,
+          "admitted": 125,
+          "enrolled": 87,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd802bf081"
+          ],
+          "notes": "研究科合计；无项目内更细专攻；全年合计由官方分期数据相加；原始考试期：全年合计；证据定位：2024年度 秋季+春季合计（本表汇总）"
+        }
+      ]
+    },
+    {
+      "id": "series-fb8c2a56d006",
+      "label": "経済学研究科 · 春季 · 一般・外国人留学生",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "other-58ecc8701f",
+      "selection": "一般・外国人留学生",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 59,
+          "examinees": null,
+          "admitted": 32,
+          "enrolled": 31,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd802bf081"
+          ],
+          "notes": "研究科合计；无项目内更细专攻；一次合格者59人；不等同受验者；原始考试期：春季；证据定位：2022年度 春季入試"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 63,
+          "examinees": null,
+          "admitted": 32,
+          "enrolled": 26,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd802bf081"
+          ],
+          "notes": "研究科合计；无项目内更细专攻；一次合格者60人；不等同受验者；原始考试期：春季；证据定位：2023年度 春季入試"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 113,
+          "examinees": null,
+          "admitted": 32,
+          "enrolled": 30,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd802bf081"
+          ],
+          "notes": "研究科合计；无项目内更细专攻；一次合格者78人；不等同受验者；原始考试期：春季；证据定位：2024年度 春季入試"
+        }
+      ]
+    },
+    {
+      "id": "series-fec877f8fad7",
+      "label": "経済学研究科 · 秋季 · 一般・外国人留学生",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "other-ce4e99b183",
+      "selection": "一般・外国人留学生",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 200,
+          "examinees": null,
+          "admitted": 75,
+          "enrolled": 48,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd802bf081"
+          ],
+          "notes": "研究科合计；无项目内更细专攻；一次合格者96人；不等同受验者；原始考试期：秋季；证据定位：2022年度 秋季入試"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 192,
+          "examinees": null,
+          "admitted": 78,
+          "enrolled": 48,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd802bf081"
+          ],
+          "notes": "研究科合计；无项目内更细专攻；一次合格者108人；不等同受验者；原始考试期：秋季；证据定位：2023年度 秋季入試"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 239,
+          "examinees": null,
+          "admitted": 93,
+          "enrolled": 57,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd802bf081"
+          ],
+          "notes": "研究科合计；无项目内更细专攻；一次合格者122人；不等同受验者；原始考试期：秋季；证据定位：2024年度 秋季入試"
+        }
+      ]
+    }
+  ]
+}

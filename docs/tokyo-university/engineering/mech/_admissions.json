@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-2241e55087": {
+      "title": "2024年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/2024_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-3b2d94eb7b": {
+      "title": "2026年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/admission/2026/2026_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-8cac2bceda": {
+      "title": "2025年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/graduate/2025/2025_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-dbd1c5c3f8": {
+      "title": "2023年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/2023_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-f57f164f19": {
+      "title": "2022年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/graduate/2022/0407/001/2022_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-f3340b771d6f",
+      "label": "機械工学専攻 · 全年合計 · 全类别合计（外国人等特別選考を含む）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全类别合计（外国人等特別選考を含む）",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 52,
+          "applicants": 144,
+          "examinees": null,
+          "admitted": 93,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f57f164f19"
+          ],
+          "notes": "専攻単位。括弧内の外国人等内数は合計に含まれる。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 52,
+          "applicants": 124,
+          "examinees": null,
+          "admitted": 89,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dbd1c5c3f8"
+          ],
+          "notes": "専攻単位。括弧内の外国人等内数は合計に含まれる。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 52,
+          "applicants": 130,
+          "examinees": null,
+          "admitted": 87,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2241e55087"
+          ],
+          "notes": "専攻単位。括弧内の外国人等内数は合計に含まれる。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 52,
+          "applicants": 146,
+          "examinees": null,
+          "admitted": 96,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-8cac2bceda"
+          ],
+          "notes": "専攻単位。括弧内の外国人等内数は合計に含まれる。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 52,
+          "applicants": 161,
+          "examinees": null,
+          "admitted": 95,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3b2d94eb7b"
+          ],
+          "notes": "専攻単位。括弧内の外国人等内数は合計に含まれる。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        }
+      ]
+    }
+  ]
+}

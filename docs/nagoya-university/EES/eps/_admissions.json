@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-60349b5c3d": {
+      "title": "2026年度入学試験実施状況（第Ⅰ期・第Ⅱ期）、2025年度秋入学試験実施状況",
+      "url": "https://www.env.nagoya-u.ac.jp/admission/file/status_2025-2026.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-b675bab1ec": {
+      "title": "2025年度入学試験実施状況（第Ⅰ期・第Ⅱ期）",
+      "url": "https://www.env.nagoya-u.ac.jp/admission/file/status_2024-2025.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-cf361d4432a5",
+      "label": "地球環境科学専攻 · 全年合計 · 全選抜区分合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全選抜区分合計",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": 53,
+          "applicants": 53,
+          "examinees": 47,
+          "admitted": 42,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b675bab1ec"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；由同一官方表中非空区分求和；与期别/类别行重复，汇总时不可重复相加。入学者数未掲載。；原始考试期：第Ⅰ期・第Ⅱ期合計；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻行（各区分求和）"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 53,
+          "applicants": 72,
+          "examinees": 67,
+          "admitted": 65,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-60349b5c3d"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；由同一官方表中非空区分求和；与期别/类别行重复，汇总时不可重复相加。入学者数未掲載。；原始考试期：第Ⅰ期・第Ⅱ期合計；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻行（各区分求和）"
+        }
+      ]
+    },
+    {
+      "id": "series-126e6d31476c",
+      "label": "地球環境科学専攻 · 冬季・第2次 · 一般選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "winter",
+      "selection": "一般選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 4,
+          "examinees": 3,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b675bab1ec"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅱ期（2025年2月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅱ期（2025年2月）・一般選抜"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 6,
+          "examinees": 6,
+          "admitted": 6,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-60349b5c3d"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅱ期（2026年2月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅱ期（2026年2月）・一般選抜"
+        }
+      ]
+    },
+    {
+      "id": "series-1fd5f2d6ccc0",
+      "label": "地球環境科学専攻 · 冬季・第2次 · 留学生特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "winter",
+      "selection": "留学生特別選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 4,
+          "examinees": 3,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b675bab1ec"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅱ期（2025年2月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅱ期（2025年2月）・留学生特別選抜"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 2,
+          "examinees": 2,
+          "admitted": 2,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-60349b5c3d"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅱ期（2026年2月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅱ期（2026年2月）・留学生特別選抜"
+        }
+      ]
+    },
+    {
+      "id": "series-eb10e70dcb7e",
+      "label": "地球環境科学専攻 · 冬季・第2次 · 社会人特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "winter",
+      "selection": "社会人特別選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 0,
+          "examinees": 0,
+          "admitted": 0,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b675bab1ec"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅱ期（2025年2月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅱ期（2025年2月）・社会人特別選抜"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-60349b5c3d"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；原表空栏，未将空栏解释为0；年度定员在年度合计行。；原始考试期：第Ⅱ期（2026年2月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅱ期（2026年2月）・社会人特別選抜"
+        }
+      ]
+    },
+    {
+      "id": "series-c77d16d27177",
+      "label": "地球環境科学専攻 · 夏季・第1次 · 一般選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "一般選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 44,
+          "examinees": 40,
+          "admitted": 35,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b675bab1ec"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅰ期（2024年8月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅰ期（2024年8月）・一般選抜"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 56,
+          "examinees": 53,
+          "admitted": 51,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-60349b5c3d"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅰ期（2025年8月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅰ期（2025年8月）・一般選抜"
+        }
+      ]
+    },
+    {
+      "id": "series-625edc7557d3",
+      "label": "地球環境科学専攻 · 夏季・第1次 · 留学生特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "留学生特別選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 1,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b675bab1ec"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅰ期（2024年8月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅰ期（2024年8月）・留学生特別選抜"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 0,
+          "examinees": 0,
+          "admitted": 0,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-60349b5c3d"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅰ期（2025年8月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅰ期（2025年8月）・留学生特別選抜"
+        }
+      ]
+    },
+    {
+      "id": "series-c2999f4b69bb",
+      "label": "地球環境科学専攻 · 夏季・第1次 · 社会人特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "社会人特別選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b675bab1ec"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；原表空栏，未将空栏解释为0；年度定员在年度合计行。；原始考试期：第Ⅰ期（2024年8月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅰ期（2024年8月）・社会人特別選抜"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 8,
+          "examinees": 6,
+          "admitted": 6,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-60349b5c3d"
+          ],
+          "notes": "地球環境科学専攻合计；官网未拆分地球惑星科学系与大气水圈科学系。；年度定员在年度合计行。；原始考试期：第Ⅰ期（2025年8月）；证据定位：PDF p.1「博士前期課程」／地球環境科学専攻・第Ⅰ期（2025年8月）・社会人特別選抜"
+        }
+      ]
+    }
+  ]
+}

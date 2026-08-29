@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "scope": "aggregate",
+  "sources": {
+    "source-2da9e08f45": {
+      "title": "琉球大学 大学院（令和6年度）入試統計",
+      "url": "https://www.u-ryukyu.ac.jp/wp-content/uploads/2024/10/R6_nyuugakusyasu_daigakuin-241008.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-3165c5fb2b": {
+      "title": "琉球大学 大学院（令和5年度）入試統計",
+      "url": "https://www.u-ryukyu.ac.jp/wp-content/uploads/2023/05/R5_nyuugakusyasu_daigakuin.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-4cb6f9871d": {
+      "title": "琉球大学 大学院（令和8年度）入試統計",
+      "url": "https://www.u-ryukyu.ac.jp/wp-content/uploads/2026/05/R8_nyushitoukei_daigakuin.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-79636d5904": {
+      "title": "琉球大学 大学院（令和4年度）入試統計",
+      "url": "https://www.u-ryukyu.ac.jp/wp-content/uploads/2023/02/R04-daigakuinn-akinyuugaku-221003.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-957b99adb8": {
+      "title": "琉球大学 大学院（令和7年度）入試統計",
+      "url": "https://www.u-ryukyu.ac.jp/wp-content/uploads/2025/12/R7_nyushi_tokei_daigakuin_202511.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-9241e2c7960a",
+      "label": "物質地球科学専攻 · 全年合計 · 全部",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全部",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": 16,
+          "applicants": 18,
+          "examinees": 17,
+          "admitted": 12,
+          "enrolled": 11,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-79636d5904"
+          ],
+          "notes": "专攻合计；物理系与地球环境系未拆分；原始考试期：全年合计（4月+10月入学）；证据定位：理工学研究科／物質地球科学専攻；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 16,
+          "applicants": 11,
+          "examinees": 11,
+          "admitted": 7,
+          "enrolled": 7,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3165c5fb2b"
+          ],
+          "notes": "专攻合计；物理系与地球环境系未拆分；原始考试期：全年合计（4月+10月入学）；证据定位：理工学研究科／物質地球科学専攻；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 16,
+          "applicants": 9,
+          "examinees": 8,
+          "admitted": 6,
+          "enrolled": 5,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2da9e08f45"
+          ],
+          "notes": "专攻合计；物理系与地球环境系未拆分；原始考试期：全年合计（4月+10月入学）；证据定位：理工学研究科／物質地球科学専攻；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 16,
+          "applicants": 13,
+          "examinees": 12,
+          "admitted": 11,
+          "enrolled": 9,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-957b99adb8"
+          ],
+          "notes": "专攻合计；物理系与地球环境系未拆分；原始考试期：全年合计（4月+10月入学）；证据定位：理工学研究科／物質地球科学専攻；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 16,
+          "applicants": 22,
+          "examinees": 21,
+          "admitted": 15,
+          "enrolled": 15,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4cb6f9871d"
+          ],
+          "notes": "专攻合计；物理系与地球环境系未拆分；原始考试期：全年合计（4月+10月入学）；证据定位：理工学研究科／物質地球科学専攻；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        }
+      ]
+    }
+  ]
+}

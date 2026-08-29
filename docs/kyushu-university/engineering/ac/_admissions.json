@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "scope": "course",
+  "sources": {
+    "source-1e75bdbf3e": {
+      "title": "令和8年度 九州大学大学院工学府修士課程学生募集要項",
+      "url": "https://www.eng.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/0c45fa993084b534141aee65b294cac2.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-44ba622086": {
+      "title": "令和6年度 九州大学大学院工学府修士課程学生募集要項",
+      "url": "https://www.eng.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/d9042c2b2f4cd4d219c45a82fda65286.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-492db4ab1e9d",
+      "label": "応用化学専攻（機能物質化学系科目） · 全年合計 · 公表合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "公表合計",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 38,
+          "examinees": null,
+          "admitted": 37,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-44ba622086"
+          ],
+          "notes": "定员68人为应用化学专攻两个系科目合计，原表未给功能物质化学系科目单独定员。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／応用化学専攻行・2022年度"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 41,
+          "examinees": null,
+          "admitted": 34,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1e75bdbf3e"
+          ],
+          "notes": "定员68人为应用化学专攻两个系科目合计，原表未给功能物质化学系科目单独定员。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／応用化学専攻行・2023年度"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 39,
+          "examinees": null,
+          "admitted": 38,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1e75bdbf3e"
+          ],
+          "notes": "定员68人为应用化学专攻两个系科目合计，原表未给功能物质化学系科目单独定员。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／応用化学専攻行・2024年度"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 35,
+          "examinees": null,
+          "admitted": 33,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1e75bdbf3e"
+          ],
+          "notes": "定员68人为应用化学专攻两个系科目合计，原表未给功能物质化学系科目单独定员。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／応用化学専攻行・2025年度"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "scope": "program",
+  "sources": {
+    "source-2713a63dec": {
+      "title": "2025年4月入学及び2024年9月入学 東京科学大学大学院修士課程・専門職学位課程入学試験結果",
+      "url": "https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=2025_record_master&key=ba0f61bd956e12e9d0a3006c2c3231b3.pdf&pageId=3284&prevId=&type=1",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-43740d031d": {
+      "title": "2023年4月入学及び2022年9月入学 東京工業大学大学院修士課程・専門職学位課程入学試験結果",
+      "url": "https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=2023-record-master&key=c8b346e6ebcd7e97a3ed00de3bfcbb7b.pdf&pageId=3284&prevId=&type=1",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-62f790b045": {
+      "title": "2022年4月入学及び2021年9月入学 東京工業大学大学院修士課程・専門職学位課程入学試験結果",
+      "url": "https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=2022-record-master&key=43bb683af1f294642c21703b15823643.pdf&pageId=3284&prevId=&type=1",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-7411ae1941": {
+      "title": "2026年4月入学及び2025年9月入学 東京科学大学大学院修士課程・専門職学位課程入学試験結果",
+      "url": "https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=2026_record_master&key=88014858637abe4c910ab16731dd187d.pdf&pageId=3284&prevId=&type=1",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    },
+    "source-f616c57cc1": {
+      "title": "2024年4月入学及び2023年9月入学 東京工業大学大学院修士課程・専門職学位課程入学試験結果",
+      "url": "https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=2024_record_master&key=8d378f7061bc18ecfeb418efcbf2c515.pdf&pageId=3284&prevId=&type=1",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-d9fc8cd51603",
+      "label": "電気電子系 · 全年合計 · 系別公表値（特別選考等の除外あり）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "系別公表値（特別選考等の除外あり）",
+      "points": [
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 252,
+          "examinees": null,
+          "admitted": 175,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-62f790b045"
+          ],
+          "notes": "学院合計ではなく、当該「系」の行。；PDF注記により、清華大学大学院合同プログラム、国際大学院プログラム、外国人留学生特別選考、技術経営専門職学位課程とのデュアルディグリープログラム等は含まない。受験者数・入学者数・系別定員は非掲載。；原始考试期：2022年4月・2021年9月入学合計；证据定位：PDF p.1「系別」表／電気電子系行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 283,
+          "examinees": null,
+          "admitted": 175,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-43740d031d"
+          ],
+          "notes": "学院合計ではなく、当該「系」の行。；PDF注記により、清華大学大学院合同プログラム、国際大学院プログラム、外国人留学生特別選考、技術経営専門職学位課程とのデュアルディグリープログラム等は含まない。受験者数・入学者数・系別定員は非掲載。；原始考试期：2023年4月・2022年9月入学合計；证据定位：PDF p.1「系別」表／電気電子系行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 355,
+          "examinees": null,
+          "admitted": 171,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f616c57cc1"
+          ],
+          "notes": "学院合計ではなく、当該「系」の行。；PDF注記により、清華大学大学院合同プログラム、国際大学院プログラム、外国人留学生特別選考、技術経営専門職学位課程とのデュアルディグリープログラム等は含まない。受験者数・入学者数・系別定員は非掲載。；原始考试期：2024年4月・2023年9月入学合計；证据定位：PDF p.1「系別」表／電気電子系行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 356,
+          "examinees": null,
+          "admitted": 175,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2713a63dec"
+          ],
+          "notes": "学院合計ではなく、当該「系」の行。；PDF注記により、清華大学大学院合同プログラム、国際大学院プログラム、外国人留学生特別選考、技術経営専門職学位課程とのデュアルディグリープログラム等は含まない。受験者数・入学者数・系別定員は非掲載。；原始考试期：2025年4月・2024年9月入学合計；证据定位：PDF p.1「系別」表／電気電子系行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 392,
+          "examinees": null,
+          "admitted": 177,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-7411ae1941"
+          ],
+          "notes": "学院合計ではなく、当該「系」の行。；PDF注記により、清華大学大学院合同プログラム、国際大学院プログラム、外国人留学生特別選考、技術経営専門職学位課程とのデュアルディグリープログラム等は含まない。受験者数・入学者数・系別定員は非掲載。；原始考试期：2026年4月・2025年9月入学合計；证据定位：PDF p.1「系別」表／電気電子系行"
+        }
+      ]
+    }
+  ]
+}

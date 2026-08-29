@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scope": "course",
+  "sources": {
+    "source-601027b9e0": {
+      "title": "令和8年度 九州大学大学院数理学府修士課程 入学試験 合格者一覧",
+      "url": "https://www.math.kyushu-u.ac.jp/wp-content/uploads/2025/08/2025master.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-08-28"
+    }
+  },
+  "series": [
+    {
+      "id": "series-562b415b070c",
+      "label": "数理学コース · 一般選抜 · 一般選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "general_exam",
+      "selection": "一般選抜",
+      "points": [
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 47,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-601027b9e0"
+          ],
+          "notes": "课程别合格者数。；该合格发表未记载志愿者、受验者、入学者；不能单独计算报录比。；原始考试期：一般選抜；证据定位：PDF p.1／数理学コース（47名）"
+        }
+      ]
+    }
+  ]
+}
