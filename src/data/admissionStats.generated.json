@@ -99,6 +99,317 @@
     "/category/UEC-informatics_and_engineering-mise": "UEC/informatics_and_engineering/mise",
     "/category/yamaguchi-university-hes": "yamaguchi-university/hes"
   },
+  "aggregatePagesBySlug": {
+    "/category/ehime-university-science-and-engineering": {
+      "entityId": "ehime-university/science_and_engineering",
+      "label": "理工学研究科",
+      "childEntityIds": [
+        "ehime-university/science_and_engineering/natural_science_foundation_earth_science"
+      ]
+    },
+    "/category/future-university-hakodate": {
+      "entityId": "future-university-hakodate",
+      "label": "公立はこだて未来大学",
+      "childEntityIds": [
+        "future-university-hakodate/system_information_science"
+      ]
+    },
+    "/category/hiroshima-university-ASE": {
+      "entityId": "hiroshima-university/ASE",
+      "label": "先進理工系科学研究科",
+      "childEntityIds": [
+        "hiroshima-university/ASE/esce",
+        "hiroshima-university/ASE/is",
+        "hiroshima-university/ASE/math",
+        "hiroshima-university/ASE/phys"
+      ]
+    },
+    "/category/hitotsubashi-university": {
+      "entityId": "hitotsubashi-university",
+      "label": "一橋大学",
+      "childEntityIds": [
+        "hitotsubashi-university/economics"
+      ]
+    },
+    "/category/hokkaido-university": {
+      "entityId": "hokkaido-university",
+      "label": "北海道大学",
+      "childEntityIds": [
+        "hokkaido-university/fisheries_sciences",
+        "hokkaido-university/IST",
+        "hokkaido-university/public_policy"
+      ]
+    },
+    "/category/keio-university": {
+      "entityId": "keio-university",
+      "label": "慶應義塾大学",
+      "childEntityIds": [
+        "keio-university/business"
+      ]
+    },
+    "/category/kobe-university": {
+      "entityId": "kobe-university",
+      "label": "神戸大学",
+      "childEntityIds": [
+        "kobe-university/economics",
+        "kobe-university/engineering",
+        "kobe-university/science",
+        "kobe-university/system_informatics"
+      ]
+    },
+    "/category/kyoto-university-informatics": {
+      "entityId": "kyoto-university/informatics",
+      "label": "情報学研究科",
+      "childEntityIds": [
+        "kyoto-university/informatics/amp",
+        "kyoto-university/informatics/ams",
+        "kyoto-university/informatics/cce",
+        "kyoto-university/informatics/ist",
+        "kyoto-university/informatics/sys"
+      ]
+    },
+    "/category/kyushu-university": {
+      "entityId": "kyushu-university",
+      "label": "九州大学",
+      "childEntityIds": [
+        "kyushu-university/economics"
+      ]
+    },
+    "/category/kyushu-university-engineering": {
+      "entityId": "kyushu-university/engineering",
+      "label": "工学府",
+      "childEntityIds": [
+        "kyushu-university/engineering/ac",
+        "kyushu-university/engineering/civil",
+        "kyushu-university/engineering/mech",
+        "kyushu-university/engineering/nams",
+        "kyushu-university/engineering/qpn"
+      ]
+    },
+    "/category/kyushu-university-mathematics": {
+      "entityId": "kyushu-university/mathematics",
+      "label": "数理学府",
+      "childEntityIds": [
+        "kyushu-university/mathematics/mma",
+        "kyushu-university/mathematics/suuri"
+      ]
+    },
+    "/category/kyushu-university-science": {
+      "entityId": "kyushu-university/science",
+      "label": "理学府",
+      "childEntityIds": [
+        "kyushu-university/science/geo",
+        "kyushu-university/science/phys"
+      ]
+    },
+    "/category/meiji-university-advanced_mathematical_sciences": {
+      "entityId": "meiji-university/advanced_mathematical_sciences",
+      "label": "先端数理科学研究科",
+      "childEntityIds": [
+        "meiji-university/advanced_mathematical_sciences/mathematical_sciences"
+      ]
+    },
+    "/category/nagoya-institute-of-technology-engineering": {
+      "entityId": "nagoya-institute-of-technology/engineering",
+      "label": "工学研究科",
+      "childEntityIds": [
+        "nagoya-institute-of-technology/engineering/ie"
+      ]
+    },
+    "/category/nagoya-university-EES": {
+      "entityId": "nagoya-university/EES",
+      "label": "環境学研究科",
+      "childEntityIds": [
+        "nagoya-university/EES/eps"
+      ]
+    },
+    "/category/nagoya-university-informatics": {
+      "entityId": "nagoya-university/informatics",
+      "label": "情報学研究科",
+      "childEntityIds": [
+        "nagoya-university/informatics/aisys",
+        "nagoya-university/informatics/complex",
+        "nagoya-university/informatics/is",
+        "nagoya-university/informatics/mi"
+      ]
+    },
+    "/category/nagoya-university-science": {
+      "entityId": "nagoya-university/science",
+      "label": "理学研究科",
+      "childEntityIds": [
+        "nagoya-university/science/bio",
+        "nagoya-university/science/chem",
+        "nagoya-university/science/phys"
+      ]
+    },
+    "/category/niigata-university": {
+      "entityId": "niigata-university",
+      "label": "新潟大学",
+      "childEntityIds": [
+        "niigata-university/natural_sciences"
+      ]
+    },
+    "/category/osaka-metropolitan-university-science": {
+      "entityId": "osaka-metropolitan-university/science",
+      "label": "理学研究科",
+      "childEntityIds": [
+        "osaka-metropolitan-university/science/mathematics",
+        "osaka-metropolitan-university/science/physics"
+      ]
+    },
+    "/category/osaka-university": {
+      "entityId": "osaka-university",
+      "label": "大阪大学",
+      "childEntityIds": [
+        "osaka-university/engineering",
+        "osaka-university/engineering_sciences",
+        "osaka-university/IST",
+        "osaka-university/science"
+      ]
+    },
+    "/category/ryukyu-university": {
+      "entityId": "ryukyu-university",
+      "label": "琉球大学",
+      "childEntityIds": [
+        "ryukyu-university/science_and_engineering"
+      ]
+    },
+    "/category/TITech-engineering": {
+      "entityId": "TITech/engineering",
+      "label": "工学院",
+      "childEntityIds": [
+        "TITech/engineering/ee",
+        "TITech/engineering/ict",
+        "TITech/engineering/iee",
+        "TITech/engineering/mech",
+        "TITech/engineering/sc"
+      ]
+    },
+    "/category/TITech-environment_and_society": {
+      "entityId": "TITech/environment_and_society",
+      "label": "環境・社会理工学院",
+      "childEntityIds": [
+        "TITech/environment_and_society/cv",
+        "TITech/environment_and_society/tse"
+      ]
+    },
+    "/category/TITech-life_science_and_technology": {
+      "entityId": "TITech/life_science_and_technology",
+      "label": "生命理工学院",
+      "childEntityIds": [
+        "TITech/life_science_and_technology/lst"
+      ]
+    },
+    "/category/TITech-MCS": {
+      "entityId": "TITech/MCS",
+      "label": "情報理工学院",
+      "childEntityIds": [
+        "TITech/MCS/cs",
+        "TITech/MCS/is"
+      ]
+    },
+    "/category/TITech-MCT": {
+      "entityId": "TITech/MCT",
+      "label": "物質理工学院",
+      "childEntityIds": [
+        "TITech/MCT/mat"
+      ]
+    },
+    "/category/TITech-science": {
+      "entityId": "TITech/science",
+      "label": "理学院",
+      "childEntityIds": [
+        "TITech/science/earth",
+        "TITech/science/math",
+        "TITech/science/phys"
+      ]
+    },
+    "/category/tohoku-university-environmental_studies": {
+      "entityId": "tohoku-university/environmental_studies",
+      "label": "環境科学研究科",
+      "childEntityIds": [
+        "tohoku-university/environmental_studies/ee"
+      ]
+    },
+    "/category/tohoku-university-science": {
+      "entityId": "tohoku-university/science",
+      "label": "理学研究科",
+      "childEntityIds": [
+        "tohoku-university/science/astron",
+        "tohoku-university/science/chem",
+        "tohoku-university/science/earth",
+        "tohoku-university/science/gp",
+        "tohoku-university/science/math",
+        "tohoku-university/science/phys"
+      ]
+    },
+    "/category/tokyo-university-engineering": {
+      "entityId": "tokyo-university/engineering",
+      "label": "工学系研究科",
+      "childEntityIds": [
+        "tokyo-university/engineering/ap",
+        "tokyo-university/engineering/eeis",
+        "tokyo-university/engineering/mech",
+        "tokyo-university/engineering/tmi",
+        "tokyo-university/engineering/urban"
+      ]
+    },
+    "/category/tokyo-university-frontier_sciences": {
+      "entityId": "tokyo-university/frontier_sciences",
+      "label": "新領域創成科学研究科",
+      "childEntityIds": [
+        "tokyo-university/frontier_sciences/cbms",
+        "tokyo-university/frontier_sciences/cse",
+        "tokyo-university/frontier_sciences/hes",
+        "tokyo-university/frontier_sciences/materials",
+        "tokyo-university/frontier_sciences/otpe"
+      ]
+    },
+    "/category/tokyo-university-IST": {
+      "entityId": "tokyo-university/IST",
+      "label": "情報理工学系研究科",
+      "childEntityIds": [
+        "tokyo-university/IST/ci",
+        "tokyo-university/IST/cs",
+        "tokyo-university/IST/denshi",
+        "tokyo-university/IST/imi",
+        "tokyo-university/IST/suuri"
+      ]
+    },
+    "/category/tsukuba-university-science_and_technology": {
+      "entityId": "tsukuba-university/science_and_technology",
+      "label": "理工情報生命学術院",
+      "childEntityIds": [
+        "tsukuba-university/science_and_technology/pas",
+        "tsukuba-university/science_and_technology/sie"
+      ]
+    },
+    "/category/TUAT": {
+      "entityId": "TUAT",
+      "label": "東京農工大学",
+      "childEntityIds": [
+        "TUAT/BASE",
+        "TUAT/engineering"
+      ]
+    },
+    "/category/UEC-informatics_and_engineering": {
+      "entityId": "UEC/informatics_and_engineering",
+      "label": "情報理工学研究科",
+      "childEntityIds": [
+        "UEC/informatics_and_engineering/cne",
+        "UEC/informatics_and_engineering/fse",
+        "UEC/informatics_and_engineering/is",
+        "UEC/informatics_and_engineering/mise"
+      ]
+    },
+    "/category/yamaguchi-university": {
+      "entityId": "yamaguchi-university",
+      "label": "山口大学",
+      "childEntityIds": [
+        "yamaguchi-university/hes"
+      ]
+    }
+  },
   "statsByEntity": {
     "ehime-university/science_and_engineering/natural_science_foundation_earth_science": {
       "entityId": "ehime-university/science_and_engineering/natural_science_foundation_earth_science",

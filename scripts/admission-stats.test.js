@@ -35,6 +35,14 @@ function writeEntity(docsDir, entityId, admissions, options = {}) {
   writeJson(path.join(directory, '_admissions.json'), admissions);
 }
 
+function writeCategory(docsDir, entityId, options = {}) {
+  const directory = path.join(docsDir, ...entityId.split('/'));
+  writeJson(path.join(directory, '_category_.json'), {
+    label: options.label || entityId,
+    link: {type: 'generated-index', slug: options.slug || `/category/${entityId.replaceAll('/', '-')}`},
+  });
+}
+
 function source(id, overrides = {}) {
   return {
     id,
@@ -270,6 +278,67 @@ test('preserves zero admissions while leaving its ratio uncomputed', (t) => {
   assert.equal(point.admitted, 0);
   assert.equal(point.primaryRatio, null);
   assert.equal(point.primaryRatioBasis, null);
+});
+
+test('builds a parent aggregate from direct child entities only when the parent has no data', (t) => {
+  const {docsDir} = makeWorkspace(t);
+  writeCategory(docsDir, 'university/engineering', {
+    label: 'Engineering Graduate School',
+    slug: '/category/university-engineering',
+  });
+  writeEntity(docsDir, 'university/engineering/cs', {
+    schemaVersion: 1,
+    scope: 'program',
+    sources: {'official-2026': source('unused-id', {id: undefined})},
+    series: [baseSeries()],
+  });
+  writeEntity(docsDir, 'university/engineering/ee', {
+    schemaVersion: 1,
+    scope: 'program',
+    sources: {'official-2026': source('unused-id', {id: undefined})},
+    series: [baseSeries()],
+  });
+  writeCategory(docsDir, 'university', {
+    label: 'University',
+    slug: '/category/university',
+  });
+  writeJson(path.join(docsDir, 'university', 'sidebar-only', '_category_.json'), {
+    label: 'Sidebar only',
+  });
+  writeEntity(docsDir, 'university/sidebar-only/program', {
+    schemaVersion: 1,
+    scope: 'program',
+    sources: {'official-2026': source('unused-id', {id: undefined})},
+    series: [baseSeries()],
+  });
+
+  const generated = generateAdmissionStats({docsDir});
+  assert.deepEqual(generated.aggregatePagesBySlug, {
+    '/category/university-engineering': {
+      entityId: 'university/engineering',
+      label: 'Engineering Graduate School',
+      childEntityIds: [
+        'university/engineering/cs',
+        'university/engineering/ee',
+      ],
+    },
+  });
+  assert.equal(generated.aggregatePagesBySlug['/category/university'], undefined);
+
+  writeEntity(docsDir, 'university/engineering', {
+    schemaVersion: 1,
+    scope: 'graduate_school_total',
+    sources: {'official-2026': source('unused-id', {id: undefined})},
+    series: [baseSeries()],
+  }, {
+    label: 'Engineering Graduate School',
+    slug: '/category/university-engineering',
+  });
+  const withParentData = generateAdmissionStats({docsDir});
+  assert.equal(
+    withParentData.aggregatePagesBySlug['/category/university-engineering'],
+    undefined,
+  );
 });
 
 test('--check compares without writing and normal generation creates parent directories', (t) => {

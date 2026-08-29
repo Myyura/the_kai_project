@@ -3,6 +3,14 @@
   --admission-official-soft: rgba(37, 99, 235, 0.11);
   --admission-community: #d97706;
   --admission-community-soft: rgba(217, 119, 6, 0.12);
+  --admission-entity-1: #006daa;
+  --admission-entity-2: #c84c09;
+  --admission-entity-3: #007a5e;
+  --admission-entity-4: #a33a8c;
+  --admission-entity-5: #6541b4;
+  --admission-entity-6: #8a6500;
+  --admission-entity-7: #b42318;
+  --admission-entity-8: #0e7490;
   margin-top: 1.5rem;
   padding: 1rem 1.1rem;
   overflow: hidden;
@@ -17,6 +25,14 @@
   --admission-official-soft: rgba(96, 165, 250, 0.15);
   --admission-community: #fbbf24;
   --admission-community-soft: rgba(251, 191, 36, 0.14);
+  --admission-entity-1: #65b8e8;
+  --admission-entity-2: #ff9a66;
+  --admission-entity-3: #56d7a5;
+  --admission-entity-4: #e58acb;
+  --admission-entity-5: #b6a0ff;
+  --admission-entity-6: #e5c45a;
+  --admission-entity-7: #ff8a80;
+  --admission-entity-8: #67e8f9;
 }
 
 .header {
@@ -212,6 +228,19 @@
   scrollbar-width: thin;
 }
 
+.legendRegion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.65rem;
+}
+
+.legendRegion .legend {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .legendButton {
   display: inline-flex;
   align-items: center;
@@ -252,6 +281,15 @@
   opacity: 0.45;
 }
 
+.colorSwatch {
+  width: 0.65rem;
+  height: 0.65rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--admission-series-color);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--admission-series-color), transparent 35%);
+}
+
 .lineSample {
   display: block;
   width: 1.3rem;
@@ -262,6 +300,28 @@
 .lineSample.community {
   border-top-color: var(--admission-community);
   border-top-style: dashed;
+}
+
+.sourceKey {
+  --admission-series-color: currentColor;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 0.65rem;
+  padding-bottom: 0.25rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+.sourceKey > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.sourceKey .lineSample {
+  width: 1.1rem;
 }
 
 .chartScroller {
@@ -355,6 +415,32 @@
 .community .dataPoint:hover,
 .community .dataPoint:focus-visible {
   fill: var(--admission-community);
+}
+
+.aggregateCard .lineSample {
+  border-top-color: var(--admission-series-color);
+}
+
+.aggregateCard .seriesLine,
+.aggregateCard .community .seriesLine {
+  stroke: var(--admission-series-color);
+}
+
+.aggregateCard .dataPoint,
+.aggregateCard .community .dataPoint {
+  stroke: var(--admission-series-color);
+}
+
+.aggregateCard .dataPoint:hover,
+.aggregateCard .dataPoint:focus-visible,
+.aggregateCard .community .dataPoint:hover,
+.aggregateCard .community .dataPoint:focus-visible {
+  fill: var(--admission-series-color);
+}
+
+.aggregateCard .sourceBadge {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-650, var(--ifm-color-emphasis-700));
 }
 
 .tooltip {
@@ -457,6 +543,16 @@
   .headerMeta {
     justify-content: flex-start;
     width: 100%;
+  }
+
+  .legendRegion {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .sourceKey {
+    padding-bottom: 0.15rem;
   }
 
   .summaryGrid {

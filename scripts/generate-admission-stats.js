@@ -567,6 +567,75 @@ function sortObject(entries) {
   return Object.fromEntries([...entries].sort(([left], [right]) => compareStrings(left, right)));
 }
 
+function buildAggregatePages(normalizedFiles, docsDir, slugOwners, issues) {
+  const directEntityIds = new Set(normalizedFiles.map((item) => item.entityId));
+  const childrenByParent = new Map();
+
+  normalizedFiles.forEach((item) => {
+    const parentEntityId = path.posix.dirname(item.entityId);
+    if (
+      !parentEntityId
+      || parentEntityId === '.'
+      || directEntityIds.has(parentEntityId)
+    ) {
+      return;
+    }
+    const children = childrenByParent.get(parentEntityId) || [];
+    children.push(item.entityId);
+    childrenByParent.set(parentEntityId, children);
+  });
+
+  const aggregateEntries = [];
+  const aggregateSlugOwners = new Map();
+  [...childrenByParent.entries()]
+    .sort(([left], [right]) => compareStrings(left, right))
+    .forEach(([parentEntityId, childEntityIds]) => {
+      const categoryPath = path.join(
+        docsDir,
+        ...parentEntityId.split('/'),
+        '_category_.json',
+      );
+      if (!fs.existsSync(categoryPath)) return;
+
+      const categoryFile = toPosixPath(path.relative(docsDir, categoryPath));
+      const category = readJson(categoryPath, docsDir, issues);
+      if (!isRecord(category)) return;
+      if (
+        category?.link?.type !== 'generated-index'
+        || typeof category.link.slug !== 'string'
+        || !category.link.slug.trim()
+      ) {
+        return;
+      }
+      const slug = category.link.slug.trim();
+      if (!slug.startsWith('/')) {
+        addIssue(issues, categoryFile, 'link.slug', 'must start with "/"');
+        return;
+      }
+      const conflictingOwner = slugOwners.get(slug) || aggregateSlugOwners.get(slug);
+      if (conflictingOwner) {
+        addIssue(
+          issues,
+          categoryFile,
+          'link.slug',
+          `aggregate slug "${slug}" conflicts with ${conflictingOwner}`,
+        );
+        return;
+      }
+      aggregateSlugOwners.set(slug, categoryFile);
+      aggregateEntries.push([
+        slug,
+        {
+          entityId: parentEntityId,
+          label: typeof category.label === 'string' ? category.label : parentEntityId,
+          childEntityIds: [...new Set(childEntityIds)].sort(compareStrings),
+        },
+      ]);
+    });
+
+  return aggregateEntries;
+}
+
 function generateAdmissionStats(options = {}) {
   const docsDir = path.resolve(options.docsDir || DEFAULT_DOCS_DIR);
   const issues = [];
@@ -599,6 +668,13 @@ function generateAdmissionStats(options = {}) {
       slugOwners.set(item.slug, item.file);
     }
   }
+
+  const aggregatePagesBySlugEntries = buildAggregatePages(
+    normalizedFiles,
+    docsDir,
+    slugOwners,
+    issues,
+  );
 
   if (issues.length > 0) throw new AdmissionStatsValidationError(issues);
 
@@ -639,6 +715,7 @@ function generateAdmissionStats(options = {}) {
     schemaVersion: 1,
     generatedAt: options.generatedAt || normalizeGeneratedAt(allSources),
     pagesBySlug: sortObject(pagesBySlugEntries),
+    aggregatePagesBySlug: sortObject(aggregatePagesBySlugEntries),
     statsByEntity: sortObject(statsByEntityEntries),
     sourcesById: sortObject(sourcesByIdEntries),
   };
