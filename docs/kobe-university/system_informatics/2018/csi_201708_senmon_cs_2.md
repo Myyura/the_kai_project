@@ -1,5 +1,5 @@
 ---
-sidebar_label: '2017年8月実施 専門科目 計算機科学 [2]'
+sidebar_label: "2017年8月実施 専門科目 計算機科学 [2]"
 tags:
   - Kobe-University
   - Discrete-Mathematics.Graph-Algorithms.Depth-First-Search
@@ -7,115 +7,10 @@ tags:
 # 神戸大学 システム情報学研究科 2017年8月実施 専門科目 計算機科学 \[2\]
 
 ## **Author**
-祭音Myyura
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
-グラフ (graph) の探索 (search) においては、同一ノード (頂点，node, vertex) を何度も探索しないように注意が必要である。
-下図 (a) は、有向グラフ (directed graph) を対象に探索をおこなう C 言語のプログラムの例である。
-struct node はグラフのノードを表す。
-フィールド s，t がノードへの参照を値として持つことは、そのノードから参照先ノードへのエッジ (edge) が存在することを示す (NULL 値の場合は対応エッジはない)。
-id はノードの識別子であり、visited はノードの訪問回数を示す。
-関数　dfs(node) は、node を起点にエッジにそってグラフの探索をおこなう再帰関数である。
-
-(b) の test0, 1, 2, 3 関数は、グラフを生成した上で、 dfs 関数を実行するテストプログラム群である。
-例として、test0 関数が生成するグラフ (ノード: 0,1) と、関数を実行した際の標準出力結果を ($c$) 実行例に示す。
-図の (s, t) は、それぞれのエッジが、エッジの起点ノードから s もしくは t の参照先ノードへのエッジであることを示す。
-
-以下の各間に答えよ、回答順は出題と異なっても構わない、また、標準出力結果中の改行については、追加・削除していても構わないものとする。
-
-(1) test1 関数が生成するグラフ（ノード：0 ~ 3）と、関数を実行した際の標準出力結果を、($c$) にならって示せ。
-
-(2) test2 関数が生成するグラフ（ノード：0 ~ 11）と、関数を実行した際の標準出力結果を、($c$) にならって示せ。
-
-(3) test3 関数が生成するグラフ（ノード：0 ~ 11）を示せ。加えて、仮に (a) 18 行目 (if 文) を完全に取り除いた場合に、test3 関数を実行した際の nodes\[10\] の訪問回数が最終的に何回になるか、簡単な理由とともに答えよ。
-
-```text
-#include <stdio.h>
-#define BUFSIZE 20
-typedef struct node {
-    struct node *s;
-    struct node *t;
-    int id; int visited;
-} *node_tp;
-struct node nodes[BUFSIZE];
-
-void printNode(node_tp node) {
-    printf("(%d, %d)\n", node->id, node->visited);
-}
-void dfs(node_tp node) {
-    node_tp s = node->s;
-    node_tp t = node->t;
-    node->visited++;
-    printNode(node);
-    if (node->visited > 1) return;
-    if (s != NULL) dfs(s);
-    if (t != NULL) dfs(t);
-}
-void initNodes(int n) {
-    int i;
-    for (i = 0; i < n; i++) {
-        nodes[i].id = i; nodes[i].visited = 0;
-        nodes[i].s = nodes[i].t = NULL;
-    }
-}
-void link(node_tp node, node_tp s, node_tp t) {
-    node->s = s; node->t = t;
-}
-```
-#### <center> (a)  プログラム (主要部)
-
-```text
-void test0(void) {
-    initNodes(2);
-    link(&nodes[0], &nodes[1], NULL);
-    link(&nodes[1], NULL, &nodes[0]);
-    dfs(&nodes[0]); /* ノード 0 から探索 */ 
-}
-
-void test1(void) {
-    initNodes(4);
-    link(&nodes[0], &nodes[3], &nodes[1]);
-    link(&nodes[1], &nodes[3], &nodes[2]);
-    link(&nodes[2], &nodes[3], NULL);
-    link(&nodes[3], NULL, &nodes[0]);
-    dfs(&nodes[1]); /* ノード 1 から探索 */ 
-}
-
-void test2(void) {
-    int i;
-    initNodes(12);
-    for (i = 0; i < 5; i++) {
-        link(&nodes[i], &nodes[2*i+1], &nodes[2*i+2]);
-    }
-    dfs(&nodes[1]); /* ノード 1 から探索 */ 
-    printf("---\n");
-    dfs(&nodes[0]); /* ノード 0 から探索 */ 
-}
-
-void test3(void) {
-    int i;
-    initNodes(12);
-    for (i = 0; i < 10; i++) {
-        link(&nodes[i], &nodes[i+1], &nodes[i+2]);
-    }
-    dfs(&nodes[0]); /* ノード 0 から探索 */ 
-}
-```
-#### <center> (b) テストプログラム群
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p1.png" width="330" alt=""/>
-</figure>
-
-
-### 题目描述
-
-图搜索需要避免反复搜索同一结点。下方程序（a）以 C 语言表示对有向图的搜索：
-
-- `struct node` 表示图结点；
-- 字段 `s`、`t` 若保存另一个结点的引用，表示存在从当前结点到该引用结点的边；值为 `NULL` 时相应边不存在；
-- `id` 是结点标识符，`visited` 是访问次数；
-- 递归函数 `dfs(node)` 从 `node` 出发沿边搜索。
+グラフの探索では、同一ノードを何度も探索しないよう注意が必要である。次の C プログラムにおいて、`struct node` は有向グラフのノードを表す。フィールド `s`,`t` がノードへの参照をもつとき、そのノードへの辺が存在する。`id` は識別子、`visited` は訪問回数である。`dfs(node)` は `node` を起点として、`s`、`t` の順に再帰的な探索を行う。
 
 ```c
 #include <stdio.h>
@@ -151,14 +46,14 @@ void link(node_tp node, node_tp s, node_tp t) {
 }
 ```
 
-程序（b）中的 `test0`、`test1`、`test2`、`test3` 分别生成图并调用 `dfs`：
+テストプログラムは次のとおりである。
 
 ```c
 void test0(void) {
     initNodes(2);
     link(&nodes[0], &nodes[1], NULL);
     link(&nodes[1], NULL, &nodes[0]);
-    dfs(&nodes[0]); /* 从结点 0 开始搜索 */
+    dfs(&nodes[0]);
 }
 
 void test1(void) {
@@ -167,7 +62,7 @@ void test1(void) {
     link(&nodes[1], &nodes[3], &nodes[2]);
     link(&nodes[2], &nodes[3], NULL);
     link(&nodes[3], NULL, &nodes[0]);
-    dfs(&nodes[1]); /* 从结点 1 开始搜索 */
+    dfs(&nodes[1]);
 }
 
 void test2(void) {
@@ -176,9 +71,9 @@ void test2(void) {
     for (i = 0; i < 5; i++) {
         link(&nodes[i], &nodes[2*i+1], &nodes[2*i+2]);
     }
-    dfs(&nodes[1]); /* 从结点 1 开始搜索 */
+    dfs(&nodes[1]);
     printf("---\n");
-    dfs(&nodes[0]); /* 从结点 0 开始搜索 */
+    dfs(&nodes[0]);
 }
 
 void test3(void) {
@@ -187,30 +82,66 @@ void test3(void) {
     for (i = 0; i < 10; i++) {
         link(&nodes[i], &nodes[i+1], &nodes[i+2]);
     }
-    dfs(&nodes[0]); /* 从结点 0 开始搜索 */
+    dfs(&nodes[0]);
 }
 ```
 
-图（c）给出 `test0` 生成的结点 0、1 的图及标准输出示例；图中标记 `(s,t)` 表示该边来自起点结点的 `s` 或 `t` 引用。
+例として、`test0` のグラフと標準出力は次のとおりである。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p1.png" width="330" alt=""/>
-</figure>
+```mermaid
+flowchart LR
+    e0((0)) -->|s| e1((1))
+    e1 -->|t| e0
+```
 
-回答下列问题；作答顺序可以不同，标准输出中的换行也允许增删。
+```text
+(0, 1)
+(1, 1)
+(0, 2)
+```
 
-1. 仿照图（c），画出 `test1` 生成的结点 0 至 3 的图，并写出执行后的标准输出。
-2. 仿照图（c），画出 `test2` 生成的结点 0 至 11 的图，并写出执行后的标准输出。
-3. 画出 `test3` 生成的结点 0 至 11 的图。再假设把程序（a）第 18 行的
+以下の各問に答えよ。図の辺には、その参照が `s`,`t` のいずれであるかを示すこと。
+
+1. `test1` が生成するグラフ（ノード 0〜3）と標準出力を示せ。
+2. `test2` が生成するグラフ（ノード 0〜11）と標準出力を示せ。
+3. `test3` が生成するグラフ（ノード 0〜11）を示せ。さらに、`dfs` 中の
 
    ```c
    if (node->visited > 1) return;
    ```
 
-   完全删除，求执行 `test3` 后 `nodes[10]` 最终被访问的次数，并简要说明原因。
+   を完全に取り除いた場合、`test3` の終了時に `nodes[10]` の訪問回数はいくつになるか。簡単な理由も述べよ。
+
+### 题目描述
+
+上述 C 程序用 `s`、`t` 两个指针表示有向边；`dfs` 先把当前结点的 `visited` 加一并输出，再在首次访问时依次沿 `s`、`t` 递归搜索。
+
+1. 画出 `test1` 生成的结点 0 至 3 的图，并写出标准输出。
+2. 画出 `test2` 生成的结点 0 至 11 的图，并写出标准输出。
+3. 画出 `test3` 生成的结点 0 至 11 的图。若完全删除 `dfs` 中的
+
+   ```c
+   if (node->visited > 1) return;
+   ```
+
+   求程序结束时 `nodes[10]` 的访问次数，并简述理由。
 
 ## **Kai**
+
 ### (1)
+
+```mermaid
+flowchart LR
+    n0((0)) -->|s| n3((3))
+    n0 -->|t| n1((1))
+    n1 -->|s| n3
+    n1 -->|t| n2((2))
+    n2 -->|s| n3
+    n3 -->|t| n0
+```
+
+`dfs` は `s`、`t` の順に呼び出され、2 回目以降の訪問では直ちに戻る。したがって標準出力は
+
 ```text
 (1, 1)
 (3, 1)
@@ -221,11 +152,27 @@ void test3(void) {
 (3, 3)
 ```
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p2.png" width="330" alt=""/>
-</figure>
+である。
 
 ### (2)
+
+```mermaid
+flowchart TB
+    n0((0)) -->|s| n1((1))
+    n0 -->|t| n2((2))
+    n1 -->|s| n3((3))
+    n1 -->|t| n4((4))
+    n2 -->|s| n5((5))
+    n2 -->|t| n6((6))
+    n3 -->|s| n7((7))
+    n3 -->|t| n8((8))
+    n4 -->|s| n9((9))
+    n4 -->|t| n10((10))
+    n11((11))
+```
+
+最初の探索でノード $1$ の部分木を訪問し、その訪問情報を保ったままノード $0$ から再び探索する。標準出力は
+
 ```text
 (1, 1)
 (3, 1)
@@ -242,32 +189,46 @@ void test3(void) {
 (6, 1)
 ```
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p3.png" width="450" height="450" alt=""/>
-</figure>
+である。
 
 ### (3)
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe_university/system_informatics/csi_201708_senmon_cs_2_p4.png" width="450" height="450" alt=""/>
-</figure>
 
-$F(n)$ をノード $n$ から探索する場合、nodes\[10\] の訪問回数と定める。このとき、
+```mermaid
+flowchart LR
+    n0((0)) -->|s| n1((1))
+    n0 -->|t| n2((2))
+    n1 -->|s| n2
+    n1 -->|t| n3((3))
+    n2 -->|s| n3
+    n2 -->|t| n4((4))
+    n3 -->|s| n4
+    n3 -->|t| n5((5))
+    n4 -->|s| n5
+    n4 -->|t| n6((6))
+    n5 -->|s| n6
+    n5 -->|t| n7((7))
+    n6 -->|s| n7
+    n6 -->|t| n8((8))
+    n7 -->|s| n8
+    n7 -->|t| n9((9))
+    n8 -->|s| n9
+    n8 -->|t| n10((10))
+    n9 -->|s| n10
+    n9 -->|t| n11((11))
+```
+
+条件文を削除すると、ノード $10$ はノード $0$ から $10$ へ至る各経路につき 1 回訪問される。その経路数を $p_k$ とすれば
 
 $$
-\begin{aligned}
-F(9) &= 1 \\
-F(8) &= 1 + F(9) \\
-F(7) &= F(8) + F(9) \\
-F(6) &= F(7) + F(8) \\
-&\cdots \\
-F(0) &= F(1) + F(2)
-\end{aligned}
+p_0=1,\qquad p_1=1,\qquad
+p_k=p_{k-1}+p_{k-2}\quad(k\ge2).
 $$
 
-と計算できるので、
+よって
 
 $$
-F(0) = 89
+(p_0,p_1,\ldots,p_{10})
+=(1,1,2,3,5,8,13,21,34,55,\boxed{89}).
 $$
 
-である。
+したがって `nodes[10].visited` の最終値は $\boxed{89}$ である。
