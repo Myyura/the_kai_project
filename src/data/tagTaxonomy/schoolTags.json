@@ -79,6 +79,15 @@
       "神戸大学"
     ]
   },
+  "Ochanomizu-University": {
+    "universityId": "ochanomizu-university",
+    "label": "お茶の水女子大学",
+    "aliases": [
+      "ochanomizu-university",
+      "お茶の水女子大学",
+      "御茶水女子大学"
+    ]
+  },
   "Waseda-University": {
     "universityId": "waseda-university",
     "label": "早稲田大学",

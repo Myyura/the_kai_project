@@ -40,6 +40,10 @@
   label: "Kobe-University"
   permalink: "/school/kobe-university"
   description: "Kobe-University (神戸大学)"
+"Ochanomizu-University":
+  label: "Ochanomizu-University"
+  permalink: "/school/ochanomizu-university"
+  description: "Ochanomizu-University (お茶の水女子大学)"
 "Waseda-University":
   label: "Waseda-University"
   permalink: "/school/waseda-university"
