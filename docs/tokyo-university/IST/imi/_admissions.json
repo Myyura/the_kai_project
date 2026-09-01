@@ -2,6 +2,24 @@
   "schemaVersion": 1,
   "scope": "program",
   "sources": {
+    "source-2d94c63077": {
+      "title": "情報理工学系研究科　志願者・合格者・入学者数",
+      "url": "https://www.i.u-tokyo.ac.jp/edu/entra/pdf/18applicant.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／平成24～29年度実施列、知能機械情報学専攻行",
+      "notes": "表头为考试实施年度；项目按照官网现行的「入学年度（实施年度）」表示法，将 admissionYear 映射为实施年度+1。"
+    },
+    "source-b8f326169a": {
+      "title": "情報理工学系研究科　志願者・合格者・入学者数",
+      "url": "https://www.i.u-tokyo.ac.jp/edu/entra/24_s_j_applicantdata.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／2018年9月及び2019年4月～2020年9月及び2021年4月入学者列、知能機械情報学専攻行",
+      "notes": "2019年度起采用研究科后续发布、按入学期回顾汇总的表；与早期初报存在差异时，以此表为准。"
+    },
     "source-f899d679da": {
       "title": "情報理工学系研究科 志願者・合格者・入学者数",
       "url": "https://www.i.u-tokyo.ac.jp/edu/entra/ay2026data_j.pdf",
@@ -20,6 +38,123 @@
       "period": "annual",
       "selection": "全类别合计",
       "points": [
+        {
+          "admissionYear": 2013,
+          "capacity": 41,
+          "applicants": 73,
+          "examinees": null,
+          "admitted": 52,
+          "enrolled": 48,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成24年度実施；证据定位：PDF 1頁「修士課程」知能機械情報学専攻行、平成24年度実施列"
+        },
+        {
+          "admissionYear": 2014,
+          "capacity": 41,
+          "applicants": 63,
+          "examinees": null,
+          "admitted": 50,
+          "enrolled": 47,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成25年度実施；证据定位：PDF 1頁「修士課程」知能機械情報学専攻行、平成25年度実施列"
+        },
+        {
+          "admissionYear": 2015,
+          "capacity": 41,
+          "applicants": 66,
+          "examinees": null,
+          "admitted": 49,
+          "enrolled": 48,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成26年度実施；证据定位：PDF 1頁「修士課程」知能機械情報学専攻行、平成26年度実施列"
+        },
+        {
+          "admissionYear": 2016,
+          "capacity": 41,
+          "applicants": 75,
+          "examinees": null,
+          "admitted": 47,
+          "enrolled": 40,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成27年度実施；证据定位：PDF 1頁「修士課程」知能機械情報学専攻行、平成27年度実施列"
+        },
+        {
+          "admissionYear": 2017,
+          "capacity": 41,
+          "applicants": 78,
+          "examinees": null,
+          "admitted": 52,
+          "enrolled": 48,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成28年度実施；证据定位：PDF 1頁「修士課程」知能機械情報学専攻行、平成28年度実施列"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": 41,
+          "applicants": 81,
+          "examinees": null,
+          "admitted": 51,
+          "enrolled": 48,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成29年度実施；证据定位：PDF 1頁「修士課程」知能機械情報学専攻行、平成29年度実施列"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 24,
+          "applicants": 91,
+          "examinees": null,
+          "admitted": 53,
+          "enrolled": 51,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b8f326169a"
+          ],
+          "notes": "専攻単位。该列为9月及翌年4月入学者合计。；受験者数は表に掲載なし。；原始考试期：2018年9月及び2019年4月入学者；证据定位：PDF 1頁「修士課程」知能機械情報学専攻行、2018年9月及び2019年4月入学者列"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 24,
+          "applicants": 92,
+          "examinees": null,
+          "admitted": 60,
+          "enrolled": 55,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b8f326169a"
+          ],
+          "notes": "専攻単位。该列为9月及翌年4月入学者合计。；受験者数は表に掲載なし。；原始考试期：2019年9月及び2020年4月入学者；证据定位：PDF 1頁「修士課程」知能機械情報学専攻行、2019年9月及び2020年4月入学者列"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 48,
+          "applicants": 92,
+          "examinees": null,
+          "admitted": 56,
+          "enrolled": 54,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b8f326169a"
+          ],
+          "notes": "専攻単位。该列为9月及翌年4月入学者合计。；受験者数は表に掲載なし。；原始考试期：2020年9月及び2021年4月入学者；证据定位：PDF 1頁「修士課程」知能機械情報学専攻行、2020年9月及び2021年4月入学者列"
+        },
         {
           "admissionYear": 2022,
           "capacity": 48,

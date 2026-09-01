@@ -2,12 +2,164 @@
   "schemaVersion": 1,
   "scope": "graduate_school_total",
   "sources": {
+    "source-066e99078c": {
+      "title": "2023年度4月 大学院入学状況",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202304_daigakuin.pdf/@@download/file",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF「大学院入学状況」情報科学研究科行"
+    },
+    "source-3678e0bbe4": {
+      "title": "2022年度10月 大学院入学状況",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202210_daigakuin.pdf/@@download/file",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF「大学院入学状況」情報科学研究科行"
+    },
+    "source-4b7e15d8c8": {
+      "title": "2018年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2018nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
+    "source-4c158e2a78": {
+      "title": "2023年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2023nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
+    "source-57ed27b527": {
+      "title": "IST PLAZA 第14号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No14.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 56頁前後「入学・修了者数」博士前期課程／研究科合計"
+    },
+    "source-611f27961c": {
+      "title": "2023年度10月 大学院入学状況",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202310_daigakuin.pdf/@@download/file",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF「大学院入学状況」情報科学研究科行"
+    },
+    "source-6c211e374c": {
+      "title": "IST PLAZA 第16号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No16.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 57頁前後「入学・修了者数」博士前期課程／研究科合計"
+    },
+    "source-6dc47120fc": {
+      "title": "IST PLAZA 第17号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No17.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 84頁前後「入学・修了者数」博士前期課程／研究科合計"
+    },
+    "source-7da8ccf995": {
+      "title": "情報科学研究科 外部評価報告書 2023",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/evaluation/evaluation_2023_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF索引141頁（印刷136頁）付録2.3／2017～2021年度の年度合計"
+    },
+    "source-8236ae5bb3": {
+      "title": "2022年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2022nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
     "source-8b2b7b1468": {
       "title": "2024年度 大学院入学状況（2024年4月入学）",
       "url": "https://www.osaka-u.ac.jp/++api++/ja/admissions/files/202404_daigakuin.pdf/@@download/file?expand=translations",
       "type": "official",
       "confidence": "high",
       "checkedAt": "2026-08-28"
+    },
+    "source-924a1db906": {
+      "title": "IST PLAZA 第15号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No15.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 55頁前後「入学・修了者数」博士前期課程／研究科合計"
+    },
+    "source-9498bb1380": {
+      "title": "IST PLAZA 第13号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No13.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 62頁前後「入学・修了者数」博士前期課程／研究科合計"
+    },
+    "source-9aa3b79035": {
+      "title": "IST PLAZA 第19号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No19.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF「入学・修了者数（令和5年度）」博士前期課程／研究科合計"
+    },
+    "source-aa09c0be6a": {
+      "title": "IST PLAZA 第18号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No18.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 72頁前後「入学・修了者数」博士前期課程／研究科合計"
+    },
+    "source-b0a79f9487": {
+      "title": "2019年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2019nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
+    "source-b88eab457e": {
+      "title": "2017年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2017nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
+    "source-bc4f887052": {
+      "title": "2020年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2020nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
+    "source-e58b90023a": {
+      "title": "2022年度4月 大学院入学状況",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202204_daigakuin.pdf/@@download/file",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF「大学院入学状況」情報科学研究科行"
+    },
+    "source-fefe8f04b6": {
+      "title": "2021年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2021nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
     }
   },
   "series": [
@@ -32,6 +184,221 @@
             "source-8b2b7b1468"
           ],
           "notes": "研究科合計。個別専攻・講座・入試区分には配分不可。；プロジェクト内の専攻級データがない場合の難易度背景としてのみ使用。；原始考试期：4月入学；证据定位：PDF「大学院入学状況」該当研究科行"
+        }
+      ]
+    },
+    {
+      "id": "series-538bd24ffe83",
+      "label": "情報科学研究科 · 夏季・主募集 · 一般選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "一般選抜（主募集）",
+      "notes": "2017～2020は従来定員、2021年度から定员増。7専攻结构と名称はこの期间不变。",
+      "points": [
+        {
+          "admissionYear": 2017,
+          "capacity": 123,
+          "applicants": 158,
+          "examinees": 154,
+          "admitted": 133,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b88eab457e"
+          ],
+          "notes": "情報科学研究科7専攻合计。专攻间第二・第三志愿调剂不会影响研究科合计。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」研究科合計行。"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": 123,
+          "applicants": 178,
+          "examinees": 175,
+          "admitted": 146,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4b7e15d8c8"
+          ],
+          "notes": "情報科学研究科7専攻合计。专攻间第二・第三志愿调剂不会影响研究科合计。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」研究科合計行。"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 123,
+          "applicants": 170,
+          "examinees": 163,
+          "admitted": 138,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b0a79f9487"
+          ],
+          "notes": "情報科学研究科7専攻合计。专攻间第二・第三志愿调剂不会影响研究科合计。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」研究科合計行。"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 123,
+          "applicants": 202,
+          "examinees": 192,
+          "admitted": 152,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-bc4f887052"
+          ],
+          "notes": "情報科学研究科7専攻合计。专攻间第二・第三志愿调剂不会影响研究科合计。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」研究科合計行。"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 160,
+          "applicants": 220,
+          "examinees": 197,
+          "admitted": 169,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-fefe8f04b6"
+          ],
+          "notes": "情報科学研究科7専攻合计。专攻间第二・第三志愿调剂不会影响研究科合计。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；2021年度は定員増の実施年で、組織改组ではない。；证据定位：PDF 1頁「(1) 一般選抜」研究科合計行。"
+        },
+        {
+          "admissionYear": 2022,
+          "capacity": 160,
+          "applicants": 248,
+          "examinees": 218,
+          "admitted": 173,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-8236ae5bb3"
+          ],
+          "notes": "情報科学研究科7専攻合计。专攻间第二・第三志愿调剂不会影响研究科合计。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」研究科合計行。"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 160,
+          "applicants": 265,
+          "examinees": 239,
+          "admitted": 174,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4c158e2a78"
+          ],
+          "notes": "情報科学研究科7専攻合计。专攻间第二・第三志愿调剂不会影响研究科合计。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」研究科合計行。"
+        }
+      ]
+    },
+    {
+      "id": "series-387e7179c20f",
+      "label": "情報科学研究科 · 全年合計 · 全类别合计",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全类别合计",
+      "notes": "4月・10月入学および全選抜区分の研究科合计。夏季一般選抜とは统计范围が异なるため、夏季主线には結合しない。",
+      "points": [
+        {
+          "admissionYear": 2017,
+          "capacity": 123,
+          "applicants": 197,
+          "examinees": 192,
+          "admitted": 160,
+          "enrolled": 151,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-7da8ccf995",
+            "source-9498bb1380"
+          ],
+          "notes": "情報科学研究科全体・4月/10月入学・全選抜区分合计。夏季单场とは別口径。"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": 123,
+          "applicants": 209,
+          "examinees": 205,
+          "admitted": 171,
+          "enrolled": 158,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-7da8ccf995",
+            "source-57ed27b527"
+          ],
+          "notes": "情報科学研究科全体・4月/10月入学・全選抜区分合计。夏季单场とは別口径。"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 123,
+          "applicants": 209,
+          "examinees": 201,
+          "admitted": 167,
+          "enrolled": 153,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-7da8ccf995",
+            "source-924a1db906"
+          ],
+          "notes": "情報科学研究科全体・4月/10月入学・全選抜区分合计。夏季单场とは別口径。"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 123,
+          "applicants": 221,
+          "examinees": 210,
+          "admitted": 165,
+          "enrolled": 152,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-7da8ccf995",
+            "source-6c211e374c"
+          ],
+          "notes": "情報科学研究科全体・4月/10月入学・全選抜区分合计。夏季单场とは別口径。"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 160,
+          "applicants": 235,
+          "examinees": 209,
+          "admitted": 181,
+          "enrolled": 167,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-7da8ccf995",
+            "source-6dc47120fc"
+          ],
+          "notes": "情報科学研究科全体・4月/10月入学・全選抜区分合计。夏季单场とは別口径。；2021年度は定員増の実施年。"
+        },
+        {
+          "admissionYear": 2022,
+          "capacity": 160,
+          "applicants": 277,
+          "examinees": 240,
+          "admitted": 187,
+          "enrolled": 172,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e58b90023a",
+            "source-3678e0bbe4",
+            "source-aa09c0be6a"
+          ],
+          "notes": "情報科学研究科全体・4月/10月入学・全選抜区分合计。夏季单场とは別口径。；项目根据官方4月表与10月表机械相加；未按专攻分摊。"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 160,
+          "applicants": 309,
+          "examinees": 277,
+          "admitted": 200,
+          "enrolled": 173,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-066e99078c",
+            "source-611f27961c",
+            "source-9aa3b79035"
+          ],
+          "notes": "情報科学研究科全体・4月/10月入学・全選抜区分合计。夏季单场とは別口径。；项目根据官方4月表与10月表机械相加；未按专攻分摊。"
         }
       ]
     }

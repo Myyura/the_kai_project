@@ -2,12 +2,52 @@
   "schemaVersion": 1,
   "scope": "program",
   "sources": {
+    "source-08abb6aa3c": {
+      "title": "2020年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/2020_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-202d3996aa": {
+      "title": "2011年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/kekka2011.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
     "source-2241e55087": {
       "title": "2024年度入学試験結果",
       "url": "https://www.t.u-tokyo.ac.jp/hubfs/2024_kekka_J.pdf",
       "type": "official",
       "confidence": "high",
       "checkedAt": "2026-08-28"
+    },
+    "source-26cc681928": {
+      "title": "2014年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/2014_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-290cd248ca": {
+      "title": "2012年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/kekka2012.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-3b0aedbf9f": {
+      "title": "2017年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/2017_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
     },
     "source-3b2d94eb7b": {
       "title": "2026年度入学試験結果",
@@ -16,6 +56,30 @@
       "confidence": "high",
       "checkedAt": "2026-08-28"
     },
+    "source-3c5b38f391": {
+      "title": "2008年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/kekka2008.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-41208f008d": {
+      "title": "2015年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/2015_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-61a8121975": {
+      "title": "2010年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/kekka2010.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
     "source-8cac2bceda": {
       "title": "2025年度入学試験結果",
       "url": "https://www.t.u-tokyo.ac.jp/hubfs/graduate/2025/2025_kekka_J.pdf",
@@ -23,12 +87,76 @@
       "confidence": "high",
       "checkedAt": "2026-08-28"
     },
+    "source-b920d5e11c": {
+      "title": "2009年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/kekka2009.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-bdfcc20d23": {
+      "title": "2018年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/2018_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-c49a7233e5": {
+      "title": "2019年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/2019_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-d2ed47f487": {
+      "title": "2021年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/2021_kekka_J.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-db5fcbcccd": {
+      "title": "2013年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/kekka2013.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
     "source-dbd1c5c3f8": {
       "title": "2023年度入学試験結果",
       "url": "https://www.t.u-tokyo.ac.jp/hubfs/2023_kekka_J.pdf",
       "type": "official",
       "confidence": "high",
       "checkedAt": "2026-08-28"
+    },
+    "source-e04da772d6": {
+      "title": "2007年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/kekka2007.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-e7c88b20c5": {
+      "title": "2006年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/kekka2006.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
+    },
+    "source-ee8138fe8d": {
+      "title": "2016年度入学試験結果",
+      "url": "https://www.t.u-tokyo.ac.jp/hubfs/pdf/kekka2016.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／都市工学専攻行／志願者・合格者の合計欄"
     },
     "source-f57f164f19": {
       "title": "2022年度入学試験結果",
@@ -48,6 +176,214 @@
       "period": "annual",
       "selection": "全类别合计（外国人等特別選考を含む）",
       "points": [
+        {
+          "admissionYear": 2006,
+          "capacity": 25,
+          "applicants": 95,
+          "examinees": null,
+          "admitted": 48,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e7c88b20c5"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2007,
+          "capacity": 25,
+          "applicants": 80,
+          "examinees": null,
+          "admitted": 43,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e04da772d6"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2008,
+          "capacity": 25,
+          "applicants": 81,
+          "examinees": null,
+          "admitted": 49,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3c5b38f391"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2009,
+          "capacity": 25,
+          "applicants": 93,
+          "examinees": null,
+          "admitted": 46,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b920d5e11c"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2010,
+          "capacity": 25,
+          "applicants": 87,
+          "examinees": null,
+          "admitted": 44,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-61a8121975"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2011,
+          "capacity": 25,
+          "applicants": 109,
+          "examinees": null,
+          "admitted": 44,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-202d3996aa"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2012,
+          "capacity": 25,
+          "applicants": 82,
+          "examinees": null,
+          "admitted": 41,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-290cd248ca"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2013,
+          "capacity": 25,
+          "applicants": 62,
+          "examinees": null,
+          "admitted": 40,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-db5fcbcccd"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2014,
+          "capacity": 25,
+          "applicants": 74,
+          "examinees": null,
+          "admitted": 41,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-26cc681928"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2015,
+          "capacity": 25,
+          "applicants": 84,
+          "examinees": null,
+          "admitted": 41,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-41208f008d"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2016,
+          "capacity": 25,
+          "applicants": 71,
+          "examinees": null,
+          "admitted": 40,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ee8138fe8d"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合计。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年10月・当年4月入学）。；证据定位：PDF 1頁「修士課程」都市工学専攻行。"
+        },
+        {
+          "admissionYear": 2017,
+          "capacity": 25,
+          "applicants": 71,
+          "examinees": null,
+          "admitted": 38,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3b0aedbf9f"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合計。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年9月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": 25,
+          "applicants": 86,
+          "examinees": null,
+          "admitted": 43,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-bdfcc20d23"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合計。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年9月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 25,
+          "applicants": 88,
+          "examinees": null,
+          "admitted": 42,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-c49a7233e5"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合計。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年9月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 25,
+          "applicants": 78,
+          "examinees": null,
+          "admitted": 42,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-08abb6aa3c"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合計。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年9月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 25,
+          "applicants": 87,
+          "examinees": null,
+          "admitted": 42,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-d2ed47f487"
+          ],
+          "notes": "専攻単位。括弧内の外国人学生は内数で、外国人留学生特別選考を含む公式合計。；受験者数・入学者数は表に掲載なし。；原始考试期：全年合计（前年9月・当年4月入学）；证据定位：PDF 1頁「修士課程」該当専攻行"
+        },
         {
           "admissionYear": 2022,
           "capacity": 25,

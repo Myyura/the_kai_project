@@ -2,6 +2,96 @@
   "schemaVersion": 1,
   "scope": "aggregate",
   "sources": {
+    "source-25695684e5": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2019_001",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「2020年4月入学者 合格者数」／「修士課程」表／「情報科学」行",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2019年8月22～23日実施。"
+    },
+    "source-2c1dcbaf4d": {
+      "title": "大学院情報科学研究科入学試験実施",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2016_001",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「修士課程」表／「合計」行（旧情報科学研究科5専攻合計）",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2016年8月18～19日実施。"
+    },
+    "source-2e1074a6c8": {
+      "title": "2020年度 大学院情報系入学試験（第2次）実施結果",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2019_002",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「修士課程」表／「情報科学」行",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2020年2月19～20日実施。"
+    },
+    "source-777e68ca58": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2020_001",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「令和3年4月入学者 合格者数」／「修士課程」表／「情報科学」行",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2020年8月20～21日実施。"
+    },
+    "source-78c172338d": {
+      "title": "大学院情報科学研究科入学試験実施",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2018_001",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「修士課程」表／「情報科学」行；pn2018_002本文が本試験を「第1次」と明記",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2018年11月10～11日実施。"
+    },
+    "source-82567e4f33": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2022_001",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「令和5年4月入学者 合格者数」／「修士課程」表／「情報科学」行",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2022年8月18～19日実施。"
+    },
+    "source-94ebf351aa": {
+      "title": "2019年度 大学院情報系入学試験（第2次）実施結果",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2018_002",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「修士課程」表／「情報科学」行",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2019年2月20～21日実施。"
+    },
+    "source-96534fa1eb": {
+      "title": "2021年度 大学院情報系入学試験（第2次）実施結果",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2020_002",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「修士課程」表／「情報科学」行",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2021年2月17～18日実施。"
+    },
+    "source-96a6e00375": {
+      "title": "大学院情報科学研究科入学試験実施",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2017_001",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「修士課程」表／「合計」行（旧情報科学研究科5専攻合計）",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2017年8月24～25日実施。"
+    },
+    "source-98345c09fe": {
+      "title": "2023年度 大学院情報系入学試験（第2次）実施結果",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2022_002",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「修士課程」表／「情報科学」行",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2023年2月15～16日実施。"
+    },
     "source-9d39bd84d6": {
       "title": "大学院情報科学院入学試験実施",
       "url": "https://www.ist.hokudai.ac.jp/news/n2503.html",
@@ -36,6 +126,41 @@
       "type": "official",
       "confidence": "high",
       "checkedAt": "2026-08-28"
+    },
+    "source-e3380b6adc": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.ist.hokudai.ac.jp/news/n2311.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「令和6年4月入学者 合格者数」／修士課程・情報科学行"
+    },
+    "source-ec2703bdff": {
+      "title": "2022年度 大学院情報系入学試験（第2次）実施結果",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2021_002",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「修士課程」表／「情報科学」行；脚注「定員はR4年4月からの予定」",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2022年2月16～17日実施。"
+    },
+    "source-f2f3e2ee22": {
+      "title": "2017年度 大学院情報系入学試験（第2次）実施結果",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2016_002",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「修士課程」表／「合計」行（旧情報科学研究科5専攻合計）",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2017年2月16～17日実施。"
+    },
+    "source-f5ff997e6b": {
+      "title": "大学院情報科学院入学試験実施",
+      "url": "https://www.eng.hokudai.ac.jp/news/publication/news/?file=pn2021_001",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "本文「令和4年4月入学者 合格者数」／「修士課程」表／「情報科学」行",
+      "notes": "北海道大学工学院「広報・刊行物」に保存された情報系公式ニュース。2021年8月19～20日実施。"
     }
   },
   "series": [
@@ -48,6 +173,84 @@
       "period": "winter",
       "selection": "入学試験実施結果",
       "points": [
+        {
+          "admissionYear": 2017,
+          "capacity": 177,
+          "applicants": 10,
+          "examinees": null,
+          "admitted": 10,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f2f3e2ee22"
+          ],
+          "notes": "旧情報科学研究科5専攻合计。2019年度の学院・専攻改组前の組織口径。；第2次募集（2017年2月16～17日実施）。；证据定位：本文「修士課程」表／「合計」行（旧情報科学研究科5専攻合計）"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 179,
+          "applicants": 21,
+          "examinees": null,
+          "admitted": 14,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-94ebf351aa"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第2次募集（2019年2月20～21日実施）。；证据定位：本文「修士課程」表／「情報科学」行"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 179,
+          "applicants": 26,
+          "examinees": null,
+          "admitted": 18,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2e1074a6c8"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第2次募集（2020年2月19～20日実施）。；证据定位：本文「修士課程」表／「情報科学」行"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 179,
+          "applicants": 18,
+          "examinees": null,
+          "admitted": 15,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-96534fa1eb"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第2次募集（2021年2月17～18日実施）。；证据定位：本文「修士課程」表／「情報科学」行"
+        },
+        {
+          "admissionYear": 2022,
+          "capacity": 196,
+          "applicants": 21,
+          "examinees": null,
+          "admitted": 15,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ec2703bdff"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第2次募集（2022年2月16～17日実施）。；定員196人は页面脚注所载的2022年4月起予定定員。；证据定位：本文「修士課程」表／「情報科学」行；脚注「定員はR4年4月からの予定」"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 196,
+          "applicants": 18,
+          "examinees": null,
+          "admitted": 15,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-98345c09fe"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第2次募集（2023年2月15～16日実施）。；证据定位：本文「修士課程」表／「情報科学」行"
+        },
         {
           "admissionYear": 2024,
           "capacity": 196,
@@ -91,13 +294,117 @@
     },
     {
       "id": "series-3c4a0d6ff49e",
-      "label": "情報科学専攻（5コース合計） · 夏季・第1次 · 入学試験実施結果",
+      "label": "情報系／情報科学専攻 · 第1次・主募集 · 入学試験実施結果",
       "sourceType": "official",
       "confidence": "high",
       "degree": "master",
-      "period": "summer",
+      "period": "general_exam",
       "selection": "入学試験実施結果",
       "points": [
+        {
+          "admissionYear": 2017,
+          "capacity": 177,
+          "applicants": 206,
+          "examinees": null,
+          "admitted": 186,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2c1dcbaf4d"
+          ],
+          "notes": "旧情報科学研究科5専攻合计。2019年度の学院・専攻改组前の組織口径。；第1次・主募集（2016年8月18～19日実施）。；证据定位：本文「修士課程」表／「合計」行（旧情報科学研究科5専攻合計）"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": 177,
+          "applicants": 240,
+          "examinees": null,
+          "admitted": 206,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-96a6e00375"
+          ],
+          "notes": "旧情報科学研究科5専攻合计。2019年度の学院・専攻改组前の組織口径。；第1次・主募集（2017年8月24～25日実施）。；证据定位：本文「修士課程」表／「合計」行（旧情報科学研究科5専攻合計）"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 179,
+          "applicants": 226,
+          "examinees": null,
+          "admitted": 195,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-78c172338d"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第1次募集だが、改组初年度のため2018年11月実施。图表上は第1次・主募集系列に収録。；证据定位：本文「修士課程」表／「情報科学」行；pn2018_002本文が本試験を「第1次」と明記"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 179,
+          "applicants": 209,
+          "examinees": null,
+          "admitted": 182,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-25695684e5"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第1次・主募集（2019年8月22～23日実施）。；证据定位：本文「2020年4月入学者 合格者数」／「修士課程」表／「情報科学」行"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 179,
+          "applicants": 206,
+          "examinees": null,
+          "admitted": 183,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-777e68ca58"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第1次・主募集（2020年8月20～21日実施）。；证据定位：本文「令和3年4月入学者 合格者数」／「修士課程」表／「情報科学」行"
+        },
+        {
+          "admissionYear": 2022,
+          "capacity": 179,
+          "applicants": 219,
+          "examinees": null,
+          "admitted": 193,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-f5ff997e6b"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第1次・主募集（2021年8月19～20日実施）。；第1次原表の定員179人を忠实记录；第2次页面注记2022年4月起定员预定扩至196人。；证据定位：本文「令和4年4月入学者 合格者数」／「修士課程」表／「情報科学」行"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 196,
+          "applicants": 214,
+          "examinees": null,
+          "admitted": 194,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-82567e4f33"
+          ],
+          "notes": "情報科学院・情報科学専攻全体（5コース合计）。；第1次・主募集（2022年8月18～19日実施）。；证据定位：本文「令和5年4月入学者 合格者数」／「修士課程」表／「情報科学」行"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 196,
+          "applicants": 220,
+          "examinees": null,
+          "admitted": 182,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e3380b6adc"
+          ],
+          "notes": "情報科学専攻全体。项目所列5课程未单独公布。；定员196人为专攻年度定员，并非该期单独名额；受験者数・入学者数は非掲載。括号内等的内数不另行展开。；原始考试期：第1次（2023年8月実施）；证据定位：本文「令和6年4月入学者 合格者数」／修士課程・情報科学行；仅在研究科页展示，不能代表每个下属专攻/コース。"
+        },
         {
           "admissionYear": 2025,
           "capacity": 196,
@@ -124,7 +431,8 @@
           ],
           "notes": "情報科学専攻全体。项目所列5课程未单独公布。；定员196人为专攻年度定员，并非该期单独名额；受験者数・入学者数は非掲載。括号内等的内数不另行展开。；原始考试期：第1次（2025年8月実施）；证据定位：本文「令和年度4月入学者 合格者数」／修士課程・情報科学行；仅在研究科页展示，不能代表每个下属专攻/コース。"
         }
-      ]
+      ],
+      "notes": "第1次・主募集系列。2019年度因研究科改组，实际于2018年11月实施；其余历史点为8月实施。2017～2018为旧情報科学研究科5専攻合计，2019起为単一の情報科学専攻。"
     }
   ]
 }

@@ -2,12 +2,30 @@
   "schemaVersion": 1,
   "scope": "program",
   "sources": {
+    "source-2d94c63077": {
+      "title": "情報理工学系研究科　志願者・合格者・入学者数",
+      "url": "https://www.i.u-tokyo.ac.jp/edu/entra/pdf/18applicant.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／平成24～29年度実施列、創造情報学専攻行",
+      "notes": "表头为考试实施年度；项目按照官网现行的「入学年度（实施年度）」表示法，将 admissionYear 映射为实施年度+1。"
+    },
     "source-9c7aee21fb": {
       "title": "note：2026年度 創造情報学専攻 院試体験記",
       "url": "https://note.com/loyal_aster5354/n/ned7252e83af9",
       "type": "community",
       "confidence": "medium",
       "checkedAt": "2026-08-28"
+    },
+    "source-b8f326169a": {
+      "title": "情報理工学系研究科　志願者・合格者・入学者数",
+      "url": "https://www.i.u-tokyo.ac.jp/edu/entra/24_s_j_applicantdata.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「修士課程」表／2018年9月及び2019年4月～2020年9月及び2021年4月入学者列、創造情報学専攻行",
+      "notes": "2019年度起采用研究科后续发布、按入学期回顾汇总的表；与早期初报存在差异时，以此表为准。"
     },
     "source-f899d679da": {
       "title": "情報理工学系研究科 志願者・合格者・入学者数",
@@ -28,6 +46,123 @@
       "selection": "全类别合计",
       "comparisonKey": "master-overall-final-admission",
       "points": [
+        {
+          "admissionYear": 2013,
+          "capacity": 29,
+          "applicants": 44,
+          "examinees": null,
+          "admitted": 27,
+          "enrolled": 27,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成24年度実施；证据定位：PDF 1頁「修士課程」創造情報学専攻行、平成24年度実施列"
+        },
+        {
+          "admissionYear": 2014,
+          "capacity": 29,
+          "applicants": 61,
+          "examinees": null,
+          "admitted": 31,
+          "enrolled": 27,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成25年度実施；证据定位：PDF 1頁「修士課程」創造情報学専攻行、平成25年度実施列"
+        },
+        {
+          "admissionYear": 2015,
+          "capacity": 29,
+          "applicants": 69,
+          "examinees": null,
+          "admitted": 36,
+          "enrolled": 32,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成26年度実施；证据定位：PDF 1頁「修士課程」創造情報学専攻行、平成26年度実施列"
+        },
+        {
+          "admissionYear": 2016,
+          "capacity": 29,
+          "applicants": 83,
+          "examinees": null,
+          "admitted": 39,
+          "enrolled": 33,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成27年度実施；证据定位：PDF 1頁「修士課程」創造情報学専攻行、平成27年度実施列"
+        },
+        {
+          "admissionYear": 2017,
+          "capacity": 29,
+          "applicants": 123,
+          "examinees": null,
+          "admitted": 37,
+          "enrolled": 32,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成28年度実施；证据定位：PDF 1頁「修士課程」創造情報学専攻行、平成28年度実施列"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": 29,
+          "applicants": 141,
+          "examinees": null,
+          "admitted": 36,
+          "enrolled": 35,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-2d94c63077"
+          ],
+          "notes": "専攻単位。表头为考试实施年度，按官网现行的入学年度表示法映射为实施年度+1。；受験者数は表に掲載なし。；原始考试期：平成29年度実施；证据定位：PDF 1頁「修士課程」創造情報学専攻行、平成29年度実施列"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 29,
+          "applicants": 151,
+          "examinees": null,
+          "admitted": 45,
+          "enrolled": 44,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b8f326169a"
+          ],
+          "notes": "専攻単位。该列为9月及翌年4月入学者合计。；受験者数は表に掲載なし。；原始考试期：2018年9月及び2019年4月入学者；证据定位：PDF 1頁「修士課程」創造情報学専攻行、2018年9月及び2019年4月入学者列"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 29,
+          "applicants": 165,
+          "examinees": null,
+          "admitted": 46,
+          "enrolled": 42,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b8f326169a"
+          ],
+          "notes": "専攻単位。该列为9月及翌年4月入学者合计。；受験者数は表に掲載なし。；原始考试期：2019年9月及び2020年4月入学者；证据定位：PDF 1頁「修士課程」創造情報学専攻行、2019年9月及び2020年4月入学者列"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 33,
+          "applicants": 136,
+          "examinees": null,
+          "admitted": 45,
+          "enrolled": 42,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b8f326169a"
+          ],
+          "notes": "専攻単位。该列为9月及翌年4月入学者合计。；受験者数は表に掲載なし。；原始考试期：2020年9月及び2021年4月入学者；证据定位：PDF 1頁「修士課程」創造情報学専攻行、2020年9月及び2021年4月入学者列"
+        },
         {
           "admissionYear": 2022,
           "capacity": 33,

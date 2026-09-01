@@ -16,12 +16,39 @@
       "confidence": "high",
       "checkedAt": "2026-08-28"
     },
+    "source-55e47b71fc": {
+      "title": "2021年4月入学 大学院情報理工学研究科（IE）入学者選抜状況（WARP保存）",
+      "url": "https://warp.ndl.go.jp/web/20211115000000/https://www.uec.ac.jp/education/graduate/admission/pdf/ie2021.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁《博士前期課程》／一般入試・推薦入試・社会人入試／機械知能システム学専攻行",
+      "notes": "国立国会図書館WARPが保存した電気通信大学公式PDF。原始URL https://www.uec.ac.jp/education/graduate/admission/pdf/ie2021.pdf は現在404。Memento-Datetime=2021-11-15。"
+    },
     "source-77d4203a69": {
       "title": "2026年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
       "url": "https://www.uec.ac.jp/education/graduate/admission/pdf/ie2026.pdf",
       "type": "official",
       "confidence": "high",
       "checkedAt": "2026-08-28"
+    },
+    "source-9cc22f7c0f": {
+      "title": "平成29年度 設置に係る設置計画履行状況報告書",
+      "url": "https://www.uec.ac.jp/about/publicinfo/pdf/ac_kenkyuka_29.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 70頁「（5）－② 調査対象研究科等の入学者の状況」／平成29年度・春季入学",
+      "notes": "组织单位的全选拔合计，不按入试区分。括号内社会人、方括号内留学生均为内数，不重复相加。"
+    },
+    "source-af73fcd619": {
+      "title": "2020年4月入学 大学院情報理工学研究科（IE）入学者選抜状況（WARP保存）",
+      "url": "https://warp.ndl.go.jp/web/20201121000000/https://www.uec.ac.jp/education/graduate/admission/pdf/ie2020.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁《博士前期課程》／一般入試・推薦入試・社会人入試／機械知能システム学専攻行",
+      "notes": "国立国会図書館WARPが保存した電気通信大学公式PDF。原始URL https://www.uec.ac.jp/education/graduate/admission/pdf/ie2020.pdf は現在404。Memento-Datetime=2020-11-21。"
     },
     "source-e3197fba31": {
       "title": "2024年4月入学 大学院情報理工学研究科（IE）入学者選抜状況",
@@ -48,6 +75,32 @@
       "period": "annual",
       "selection": "一般入試",
       "points": [
+        {
+          "admissionYear": 2020,
+          "capacity": 63,
+          "applicants": 113,
+          "examinees": 102,
+          "admitted": 69,
+          "enrolled": 64,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-af73fcd619"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：4月入学；证据定位：PDF 1頁《博士前期課程》一般入試・機械知能システム学専攻行"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 63,
+          "applicants": 129,
+          "examinees": 121,
+          "admitted": 65,
+          "enrolled": 61,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-55e47b71fc"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：4月入学；证据定位：PDF 1頁《博士前期課程》一般入試・機械知能システム学専攻行"
+        },
         {
           "admissionYear": 2022,
           "capacity": 63,
@@ -125,6 +178,32 @@
       "selection": "推薦入試",
       "points": [
         {
+          "admissionYear": 2020,
+          "capacity": 42,
+          "applicants": 55,
+          "examinees": 55,
+          "admitted": 55,
+          "enrolled": 55,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-af73fcd619"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：4月入学；证据定位：PDF 1頁《博士前期課程》推薦入試・機械知能システム学専攻行"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 42,
+          "applicants": 66,
+          "examinees": 66,
+          "admitted": 58,
+          "enrolled": 54,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-55e47b71fc"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：4月入学；证据定位：PDF 1頁《博士前期課程》推薦入試・機械知能システム学専攻行"
+        },
+        {
           "admissionYear": 2022,
           "capacity": 42,
           "applicants": 61,
@@ -201,6 +280,32 @@
       "selection": "社会人入試",
       "points": [
         {
+          "admissionYear": 2020,
+          "capacity": null,
+          "applicants": 0,
+          "examinees": 0,
+          "admitted": 0,
+          "enrolled": 0,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-af73fcd619"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：4月入学；证据定位：PDF 1頁《博士前期課程》社会人入試・機械知能システム学専攻行"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": null,
+          "applicants": 0,
+          "examinees": 0,
+          "admitted": 0,
+          "enrolled": 0,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-55e47b71fc"
+          ],
+          "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：4月入学；证据定位：PDF 1頁《博士前期課程》社会人入試・機械知能システム学専攻行"
+        },
+        {
           "admissionYear": 2022,
           "capacity": null,
           "applicants": 0,
@@ -264,6 +369,31 @@
             "source-77d4203a69"
           ],
           "notes": "専攻別の公式値。社会人入試の募集人員は「若干名」のため capacity=null。；PDFの「志願者数・受験者数・合格者数・入学者数」を転記。；原始考试期：全年合計；证据定位：p.1《博士前期課程》社会人入試・機械知能システム学専攻行"
+        }
+      ]
+    },
+    {
+      "id": "series-e9db6c158fa3",
+      "label": "機械知能システム学専攻 · 2017年度 · 全選抜合計",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "全選抜合計",
+      "notes": "設置計画履行状況報告書の組織単位・春季入学全選抜合计。一般入試系列には結合しない。2018・2019は同口径の志願者/合格者を確認できず空置。",
+      "points": [
+        {
+          "admissionYear": 2017,
+          "capacity": 105,
+          "applicants": 165,
+          "examinees": 155,
+          "admitted": 126,
+          "enrolled": 112,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9cc22f7c0f"
+          ],
+          "notes": "現行専攻名称での春季入学・全選抜合计。报告明确不是按入试区分，不能作为一般入试点。；数字截至2017年5月1日。"
         }
       ]
     }

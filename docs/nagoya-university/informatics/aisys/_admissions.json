@@ -2,6 +2,42 @@
   "schemaVersion": 1,
   "scope": "program",
   "sources": {
+    "source-0944a60d22": {
+      "title": "博士前期課程　2021年度入学試験（2020年9月・2021年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2021/06/bb905ec895cca9ac1f9688adb4cae49d.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF p.1「博士前期課程」表／知能システム学専攻行",
+      "notes": "当前官网索引已不再列出此年度，但原始 PDF 仍由名古屋大学官方域名提供。"
+    },
+    "source-0c18497b9f": {
+      "title": "博士前期課程　2023年度入学試験（2022年8月・2023年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2023/05/57e3c7e97f22179133cec88b993d988a.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF p.1「博士前期課程」表／知能システム学専攻行",
+      "notes": "当前官网索引已不再列出此年度，但原始 PDF 仍由名古屋大学官方域名提供。"
+    },
+    "source-1d873adf59": {
+      "title": "博士前期課程　2018年度入学試験（2017年8月・2018年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2018/05/11ff4487ac970c3275ab5a26f256d8a3.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF p.1「博士前期課程」表／知能システム学専攻行",
+      "notes": "当前官网索引已不再列出此年度，但原始 PDF 仍由名古屋大学官方域名提供。"
+    },
+    "source-619532e220": {
+      "title": "博士前期課程　2019年度入学試験（2018年8月・2019年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2021/06/a1cd9545e7c714b7915b92c391f75609.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF p.1「博士前期課程」表／知能システム学専攻行",
+      "notes": "当前官网索引已不再列出此年度，但原始 PDF 仍由名古屋大学官方域名提供。"
+    },
     "source-628f206f1c": {
       "title": "2023年度実施大学院入試 博士前期課程 2024年4月入学試験（2023年8月・2024年2月実施）",
       "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2018/05/da881abcfca5e794e2fcc279de2acd16.pdf",
@@ -16,12 +52,39 @@
       "confidence": "medium",
       "checkedAt": "2026-08-28"
     },
+    "source-707364a2ee": {
+      "title": "博士前期課程　2020年度入学試験（2019年8月・2020年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2021/06/bb3d5d683f2abb4bad4a91581f8523e1.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF p.1「博士前期課程」表／知能システム学専攻行",
+      "notes": "当前官网索引已不再列出此年度，但原始 PDF 仍由名古屋大学官方域名提供。"
+    },
+    "source-9a7f076543": {
+      "title": "博士前期課程　2022年度入学試験（2021年8月・2022年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/05/8f25a3157abe5ae53bb54e35553d12a5.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF p.1「博士前期課程」表／知能システム学専攻行",
+      "notes": "当前官网索引已不再列出此年度，但原始 PDF 仍由名古屋大学官方域名提供。"
+    },
     "source-9b9b43238c": {
       "title": "2025年度実施大学院入試 博士前期課程 2026年4月入学試験（2025年8月・2026年2月実施）",
       "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2018/05/8b04b626656e26978db091d8329a9e1e.pdf",
       "type": "official",
       "confidence": "high",
       "checkedAt": "2026-08-28"
+    },
+    "source-ad0f8a5d5d": {
+      "title": "博士前期課程　2017年度入学試験（2016年8月・2017年2月実施）",
+      "url": "https://www.i.nagoya-u.ac.jp/wp-content/uploads/2018/05/58c05742b18efcbeb39da19ec4895adb.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF p.1「博士前期課程」表／知能システム学専攻行",
+      "notes": "当前官网索引已不再列出此年度，但原始 PDF 仍由名古屋大学官方域名提供。"
     },
     "source-c4fdcb7eaf": {
       "title": "2024年度実施大学院入試 博士前期課程 2025年4月入学試験（2024年8月・2025年2月実施）",
@@ -90,6 +153,97 @@
       "selection": "年度合計",
       "points": [
         {
+          "admissionYear": 2017,
+          "capacity": 29,
+          "applicants": 56,
+          "examinees": 54,
+          "admitted": 37,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ad0f8a5d5d"
+          ],
+          "notes": "専攻単位。同一官方表中的第1次与第2次募集人数相加；原表未掲載入学者数。括号内的学外者人数为内数，本项目取总人数。；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／知能システム学専攻行・第1次及第2次欄（本项目相加）"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": 29,
+          "applicants": 56,
+          "examinees": 55,
+          "admitted": 40,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1d873adf59"
+          ],
+          "notes": "専攻単位。同一官方表中的第1次与第2次募集人数相加；原表未掲載入学者数。括号内的学外者人数为内数，本项目取总人数。；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／知能システム学専攻行・第1次及第2次欄（本项目相加）"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 29,
+          "applicants": 93,
+          "examinees": 91,
+          "admitted": 41,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-619532e220"
+          ],
+          "notes": "専攻単位。同一官方表中的第1次与第2次募集人数相加；原表未掲載入学者数。括号内的学外者人数为内数，本项目取总人数。；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／知能システム学専攻行・第1次及第2次欄（本项目相加）"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 29,
+          "applicants": 92,
+          "examinees": 87,
+          "admitted": 44,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-707364a2ee"
+          ],
+          "notes": "専攻単位。同一官方表中的第1次与第2次募集人数相加；原表未掲載入学者数。括号内的学外者人数为内数，本项目取总人数。；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／知能システム学専攻行・第1次及第2次欄（本项目相加）"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 29,
+          "applicants": 102,
+          "examinees": 94,
+          "admitted": 53,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0944a60d22"
+          ],
+          "notes": "専攻単位。同一官方表中的第1次与第2次募集人数相加；原表未掲載入学者数。括号内的学外者人数为内数，本项目取总人数。；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／知能システム学専攻行・第1次及第2次欄（本项目相加）"
+        },
+        {
+          "admissionYear": 2022,
+          "capacity": 29,
+          "applicants": 204,
+          "examinees": 175,
+          "admitted": 46,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9a7f076543"
+          ],
+          "notes": "専攻単位。同一官方表中的第1次与第2次募集人数相加；原表未掲載入学者数。括号内的学外者人数为内数，本项目取总人数。；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／知能システム学専攻行・第1次及第2次欄（本项目相加）"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 29,
+          "applicants": 157,
+          "examinees": 136,
+          "admitted": 45,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0c18497b9f"
+          ],
+          "notes": "専攻単位。同一官方表中的第1次与第2次募集人数相加；原表未掲載入学者数。括号内的学外者人数为内数，本项目取总人数。；本行与期别行重复，汇总时不可重复相加。；原始考试期：第1次・第2次合計；证据定位：PDF p.1／知能システム学専攻行・第1次及第2次欄（本项目相加）"
+        },
+        {
           "admissionYear": 2024,
           "capacity": 29,
           "applicants": 173,
@@ -140,6 +294,97 @@
       "selection": "公表された第2次募集合計",
       "points": [
         {
+          "admissionYear": 2017,
+          "capacity": null,
+          "applicants": 10,
+          "examinees": 10,
+          "admitted": 8,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ad0f8a5d5d"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第2次（2017年2月実施）；证据定位：PDF p.1／知能システム学専攻行・第2次欄"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": null,
+          "applicants": 10,
+          "examinees": 10,
+          "admitted": 6,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1d873adf59"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第2次（2018年2月実施）；证据定位：PDF p.1／知能システム学専攻行・第2次欄"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": null,
+          "applicants": 21,
+          "examinees": 21,
+          "admitted": 6,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-619532e220"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第2次（2019年2月実施）；证据定位：PDF p.1／知能システム学専攻行・第2次欄"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": null,
+          "applicants": 29,
+          "examinees": 25,
+          "admitted": 7,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-707364a2ee"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第2次（2020年2月実施）；证据定位：PDF p.1／知能システム学専攻行・第2次欄"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": null,
+          "applicants": 20,
+          "examinees": 20,
+          "admitted": 4,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0944a60d22"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第2次（2021年2月実施）；证据定位：PDF p.1／知能システム学専攻行・第2次欄"
+        },
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 43,
+          "examinees": 36,
+          "admitted": 6,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9a7f076543"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第2次（2022年2月実施）；证据定位：PDF p.1／知能システム学専攻行・第2次欄"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 52,
+          "examinees": 42,
+          "admitted": 5,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0c18497b9f"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第2次（2023年2月実施）；证据定位：PDF p.1／知能システム学専攻行・第2次欄"
+        },
+        {
           "admissionYear": 2024,
           "capacity": null,
           "applicants": 36,
@@ -189,6 +434,97 @@
       "period": "summer",
       "selection": "公表された第1次募集合計",
       "points": [
+        {
+          "admissionYear": 2017,
+          "capacity": null,
+          "applicants": 46,
+          "examinees": 44,
+          "admitted": 29,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-ad0f8a5d5d"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第1次（2016年8月実施）；证据定位：PDF p.1／知能システム学専攻行・第1次欄"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": null,
+          "applicants": 46,
+          "examinees": 45,
+          "admitted": 34,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-1d873adf59"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第1次（2017年8月実施）；证据定位：PDF p.1／知能システム学専攻行・第1次欄"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": null,
+          "applicants": 72,
+          "examinees": 70,
+          "admitted": 35,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-619532e220"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第1次（2018年8月実施）；证据定位：PDF p.1／知能システム学専攻行・第1次欄"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": null,
+          "applicants": 63,
+          "examinees": 62,
+          "admitted": 37,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-707364a2ee"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第1次（2019年8月実施）；证据定位：PDF p.1／知能システム学専攻行・第1次欄"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": null,
+          "applicants": 82,
+          "examinees": 74,
+          "admitted": 49,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0944a60d22"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第1次（2020年9月実施）；证据定位：PDF p.1／知能システム学専攻行・第1次欄"
+        },
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": 161,
+          "examinees": 139,
+          "admitted": 40,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9a7f076543"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第1次（2021年8月実施）；证据定位：PDF p.1／知能システム学専攻行・第1次欄"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 105,
+          "examinees": 94,
+          "admitted": 40,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-0c18497b9f"
+          ],
+          "notes": "専攻単位の精确値。括号内的学外者人数为内数，本项目取总人数；入学者数は表に掲載なし。；原始考试期：第1次（2022年8月実施）；证据定位：PDF p.1／知能システム学専攻行・第1次欄"
+        },
         {
           "admissionYear": 2024,
           "capacity": null,

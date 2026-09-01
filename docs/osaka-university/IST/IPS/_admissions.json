@@ -16,6 +16,22 @@
       "confidence": "high",
       "checkedAt": "2026-08-28"
     },
+    "source-4b7e15d8c8": {
+      "title": "2018年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2018nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／情報数理学専攻行／出願者・受験者・合格者"
+    },
+    "source-4c158e2a78": {
+      "title": "2023年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2023nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／情報数理学専攻行／出願者・受験者・合格者"
+    },
     "source-504524dfc7": {
       "title": "IST PLAZA 第21号",
       "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No21.pdf",
@@ -23,19 +39,101 @@
       "confidence": "high",
       "checkedAt": "2026-08-28"
     },
+    "source-57ed27b527": {
+      "title": "IST PLAZA 第14号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No14.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 56頁前後「入学・修了者数」博士前期課程／情報数理学専攻行"
+    },
+    "source-6c211e374c": {
+      "title": "IST PLAZA 第16号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No16.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 57頁前後「入学・修了者数」博士前期課程／情報数理学専攻行"
+    },
+    "source-6dc47120fc": {
+      "title": "IST PLAZA 第17号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No17.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 84頁前後「入学・修了者数」博士前期課程／情報数理学専攻行"
+    },
+    "source-8236ae5bb3": {
+      "title": "2022年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2022nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／情報数理学専攻行／出願者・受験者・合格者"
+    },
+    "source-924a1db906": {
+      "title": "IST PLAZA 第15号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No15.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 55頁前後「入学・修了者数」博士前期課程／情報数理学専攻行"
+    },
+    "source-9498bb1380": {
+      "title": "IST PLAZA 第13号",
+      "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No13.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 62頁前後「入学・修了者数」博士前期課程／情報数理学専攻行"
+    },
     "source-9aa3b79035": {
       "title": "IST PLAZA 第19号",
       "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No19.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF「入学・修了者数（令和5年度）」博士前期課程／情報数理学専攻行"
     },
     "source-aa09c0be6a": {
       "title": "IST PLAZA 第18号",
       "url": "https://www.ist.osaka-u.ac.jp/files/overview/publication/publicationIstPlaza_No18.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 72頁前後「入学・修了者数」博士前期課程／情報数理学専攻行"
+    },
+    "source-b0a79f9487": {
+      "title": "2019年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2019nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／情報数理学専攻行／出願者・受験者・合格者"
+    },
+    "source-b88eab457e": {
+      "title": "2017年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2017nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／情報数理学専攻行／出願者・受験者・合格者"
+    },
+    "source-bc4f887052": {
+      "title": "2020年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2020nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／情報数理学専攻行／出願者・受験者・合格者"
+    },
+    "source-fefe8f04b6": {
+      "title": "2021年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2021nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-09-01",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／情報数理学専攻行／出願者・受験者・合格者"
     }
   },
   "series": [
@@ -72,6 +170,71 @@
       "period": "annual",
       "selection": "全类别合计",
       "points": [
+        {
+          "admissionYear": 2017,
+          "capacity": 14,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 15,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-9498bb1380"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：IST PLAZA「入学・修了者数」博士前期課程"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": 14,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 18,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-57ed27b527"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：IST PLAZA「入学・修了者数」博士前期課程"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 14,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 14,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-924a1db906"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：IST PLAZA「入学・修了者数」博士前期課程"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 14,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 17,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-6c211e374c"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：IST PLAZA「入学・修了者数」博士前期課程"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 20,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 13,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-6dc47120fc"
+          ],
+          "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：IST PLAZA「入学・修了者数」博士前期課程"
+        },
         {
           "admissionYear": 2022,
           "capacity": 20,
@@ -123,6 +286,109 @@
             "source-504524dfc7"
           ],
           "notes": "専攻単位。定員と年度中の入学者数。；志願者・受験者・合格者は年報表に掲載なし。10月入学英語コースを含む。；原始考试期：全年合计（4月1日・10月1日入学）；证据定位：PDF 73頁前後「入学・修了者数（令和7年度）」博士前期課程"
+        }
+      ]
+    },
+    {
+      "id": "series-9118222d3d14",
+      "label": "情報数理学専攻 · 夏季・主募集 · 一般選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "一般選抜（主募集）",
+      "notes": "2017～2020は従来定員、2021年度から定员増。7専攻结构と名称はこの期间不变。",
+      "points": [
+        {
+          "admissionYear": 2017,
+          "capacity": 14,
+          "applicants": 19,
+          "examinees": 18,
+          "admitted": 15,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b88eab457e"
+          ],
+          "notes": "専攻行の出願者・受験者は第1志望専攻で集计；合格者は第2・第3志望からの调剂合格を含むため、分母と分子が完全な同一人群ではない。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」情報数理学専攻行。"
+        },
+        {
+          "admissionYear": 2018,
+          "capacity": 14,
+          "applicants": 22,
+          "examinees": 22,
+          "admitted": 18,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4b7e15d8c8"
+          ],
+          "notes": "専攻行の出願者・受験者は第1志望専攻で集计；合格者は第2・第3志望からの调剂合格を含むため、分母と分子が完全な同一人群ではない。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」情報数理学専攻行。"
+        },
+        {
+          "admissionYear": 2019,
+          "capacity": 14,
+          "applicants": 12,
+          "examinees": 12,
+          "admitted": 11,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-b0a79f9487"
+          ],
+          "notes": "専攻行の出願者・受験者は第1志望専攻で集计；合格者は第2・第3志望からの调剂合格を含むため、分母と分子が完全な同一人群ではない。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」情報数理学専攻行。"
+        },
+        {
+          "admissionYear": 2020,
+          "capacity": 14,
+          "applicants": 30,
+          "examinees": 28,
+          "admitted": 17,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-bc4f887052"
+          ],
+          "notes": "専攻行の出願者・受験者は第1志望専攻で集计；合格者は第2・第3志望からの调剂合格を含むため、分母と分子が完全な同一人群ではない。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」情報数理学専攻行。"
+        },
+        {
+          "admissionYear": 2021,
+          "capacity": 20,
+          "applicants": 21,
+          "examinees": 18,
+          "admitted": 15,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-fefe8f04b6"
+          ],
+          "notes": "専攻行の出願者・受験者は第1志望専攻で集计；合格者は第2・第3志望からの调剂合格を含むため、分母と分子が完全な同一人群ではない。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；2021年度は定員増の実施年で、組織改组ではない。；证据定位：PDF 1頁「(1) 一般選抜」情報数理学専攻行。"
+        },
+        {
+          "admissionYear": 2022,
+          "capacity": 20,
+          "applicants": 22,
+          "examinees": 17,
+          "admitted": 16,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-8236ae5bb3"
+          ],
+          "notes": "専攻行の出願者・受験者は第1志望専攻で集计；合格者は第2・第3志望からの调剂合格を含むため、分母と分子が完全な同一人群ではない。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」情報数理学専攻行。"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": 20,
+          "applicants": 31,
+          "examinees": 25,
+          "admitted": 20,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-4c158e2a78"
+          ],
+          "notes": "専攻行の出願者・受験者は第1志望専攻で集计；合格者は第2・第3志望からの调剂合格を含むため、分母と分子が完全な同一人群ではない。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」情報数理学専攻行。"
         }
       ]
     }
