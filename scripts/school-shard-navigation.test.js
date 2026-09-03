@@ -68,7 +68,7 @@ function createWindow(href, storedAttempt = null, storageBlocked = false) {
 test('cross-shard navigation performs one cache-busted document replacement', async () => {
   const {requestSchoolShardNavigation} = await import(moduleUrl);
   const runtime = createWindow(
-    'https://runjp.com/docs/TITech/exam?lang=zh#answer',
+    'https://runjp.com/docs/InstituteOfScienceTokyo/exam?lang=zh#answer',
   );
 
   const result = requestSchoolShardNavigation(runtime.window, 1722510000000);
@@ -76,7 +76,7 @@ test('cross-shard navigation performs one cache-busted document replacement', as
   assert.equal(result.started, true);
   assert.equal(runtime.replacements.length, 1);
   const replacement = new URL(runtime.replacements[0]);
-  assert.equal(replacement.pathname, '/docs/TITech/exam');
+  assert.equal(replacement.pathname, '/docs/InstituteOfScienceTokyo/exam');
   assert.equal(replacement.searchParams.get('lang'), 'zh');
   assert.equal(
     replacement.searchParams.get('__kai_shard_reload'),
@@ -88,7 +88,7 @@ test('cross-shard navigation performs one cache-busted document replacement', as
 test('a returned wrong shard stops after the URL-marked attempt', async () => {
   const {requestSchoolShardNavigation} = await import(moduleUrl);
   const runtime = createWindow(
-    'https://runjp.com/docs/TITech/exam?__kai_shard_reload=1722510000000',
+    'https://runjp.com/docs/InstituteOfScienceTokyo/exam?__kai_shard_reload=1722510000000',
   );
 
   const result = requestSchoolShardNavigation(runtime.window, 1722510001000);
@@ -104,8 +104,8 @@ test('a returned wrong shard stops after the URL-marked attempt', async () => {
 test('session state still prevents a loop when a redirect strips the marker', async () => {
   const {requestSchoolShardNavigation} = await import(moduleUrl);
   const runtime = createWindow(
-    'https://runjp.com/docs/TITech/exam',
-    {target: '/docs/TITech/exam', at: 1722510000000},
+    'https://runjp.com/docs/InstituteOfScienceTokyo/exam',
+    {target: '/docs/InstituteOfScienceTokyo/exam', at: 1722510000000},
   );
 
   const result = requestSchoolShardNavigation(runtime.window, 1722510001000);
@@ -120,9 +120,9 @@ test('the session cooldown expires and does not block a different target', async
     requestSchoolShardNavigation,
   } = await import(moduleUrl);
   const expired = createWindow(
-    'https://runjp.com/docs/TITech/exam',
+    'https://runjp.com/docs/InstituteOfScienceTokyo/exam',
     {
-      target: '/docs/TITech/exam',
+      target: '/docs/InstituteOfScienceTokyo/exam',
       at: 1722510000000 - SCHOOL_SHARD_RETRY_COOLDOWN_MS,
     },
   );
@@ -137,7 +137,7 @@ test('the session cooldown expires and does not block a different target', async
 
   const differentTarget = createWindow(
     'https://runjp.com/docs/TUAT/exam',
-    {target: '/docs/TITech/exam', at: 1722509999000},
+    {target: '/docs/InstituteOfScienceTokyo/exam', at: 1722509999000},
   );
 
   const differentResult = requestSchoolShardNavigation(
@@ -152,7 +152,7 @@ test('the session cooldown expires and does not block a different target', async
 test('the URL marker guards retries even when browser storage is blocked', async () => {
   const {requestSchoolShardNavigation} = await import(moduleUrl);
   const runtime = createWindow(
-    'https://runjp.com/docs/TITech/exam?__kai_shard_reload=1',
+    'https://runjp.com/docs/InstituteOfScienceTokyo/exam?__kai_shard_reload=1',
     null,
     true,
   );
@@ -166,8 +166,8 @@ test('the URL marker guards retries even when browser storage is blocked', async
 test('a successfully rendered destination clears the shard retry state', async () => {
   const {markSchoolShardNavigationSuccessful} = await import(moduleUrl);
   const runtime = createWindow(
-    'https://runjp.com/docs/TITech/exam?lang=zh&__kai_shard_reload=1#answer',
-    {target: '/docs/TITech/exam?lang=zh', at: 1722510000000},
+    'https://runjp.com/docs/InstituteOfScienceTokyo/exam?lang=zh&__kai_shard_reload=1#answer',
+    {target: '/docs/InstituteOfScienceTokyo/exam?lang=zh', at: 1722510000000},
   );
 
   assert.equal(markSchoolShardNavigationSuccessful(runtime.window), true);
@@ -182,7 +182,7 @@ test('a successfully rendered destination clears the shard retry state', async (
 test('successful shard cleanup tolerates restricted browser storage', async () => {
   const {markSchoolShardNavigationSuccessful} = await import(moduleUrl);
   const runtime = createWindow(
-    'https://runjp.com/docs/TITech/exam?__kai_shard_reload=1',
+    'https://runjp.com/docs/InstituteOfScienceTokyo/exam?__kai_shard_reload=1',
     null,
     true,
   );

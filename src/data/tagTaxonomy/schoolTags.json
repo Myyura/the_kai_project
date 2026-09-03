@@ -23,12 +23,15 @@
       "九州大学"
     ]
   },
-  "TITech": {
-    "universityId": "TITech",
-    "label": "東京科學大學 旧・東京工業大学",
+  "InstituteOfScienceTokyo": {
+    "universityId": "InstituteOfScienceTokyo",
+    "label": "東京科学大学",
     "aliases": [
-      "Tokyo-Institute-of-Technology",
-      "東京科學大學 旧・東京工業大学"
+      "東京科学大学",
+      "东京科学大学",
+      "Science Tokyo",
+      "ScienceTokyo",
+      "Institute of Science Tokyo"
     ]
   },
   "Nagoya-University": {

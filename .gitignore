@@ -6,6 +6,8 @@
 /tmp
 /audits
 /scripts
+__pycache__/
+*.py[cod]
 
 # Generated files
 .docusaurus

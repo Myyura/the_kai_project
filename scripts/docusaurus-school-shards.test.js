@@ -76,12 +76,12 @@ test('school shard environments are isolated and reject partial state', () => {
 
   const environment = createSchoolShardEnvironment(source, {
     id: 'school-group-01',
-    schools: ['TITech', 'tokyo-university'],
+    schools: ['InstituteOfScienceTokyo', 'tokyo-university'],
     includeShared: false,
   });
   assert.deepEqual(parseSchoolShardEnvironment(environment), {
     id: 'school-group-01',
-    schools: ['TITech', 'tokyo-university'],
+    schools: ['InstituteOfScienceTokyo', 'tokyo-university'],
     includeShared: false,
   });
   assert.throws(

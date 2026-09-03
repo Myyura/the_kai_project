@@ -8,7 +8,7 @@ const {
 
 const schools = new Set([
   'kanazawa-university',
-  'TITech',
+  'InstituteOfScienceTokyo',
   'TUAT',
   'UEC',
 ]);
@@ -31,10 +31,10 @@ function createSyntheticSiteProps() {
       '/docs/tags/school/kanazawa-university',
     ),
     createDoc(
-      'titech/doc',
-      'TITech',
-      '/docs/titech-custom',
-      '/docs/tags/school/ti-tech',
+      'institute-of-science-tokyo/doc',
+      'InstituteOfScienceTokyo',
+      '/docs/institute-of-science-tokyo-custom',
+      '/docs/tags/school/institute-of-science-tokyo',
     ),
     createDoc(
       'tuat/doc',
@@ -112,7 +112,7 @@ test('route ownership follows sources, sidebar descendants, and school tag metad
     ownership.get('/docs/category/keio-university-nst-historical-name'),
     'kanazawa-university',
   );
-  assert.equal(ownership.get('/docs/tags/school/ti-tech'), 'TITech');
+  assert.equal(ownership.get('/docs/tags/school/institute-of-science-tokyo'), 'InstituteOfScienceTokyo');
   assert.equal(
     ownership.get('/docs/tags/school/tokyo-university-of-agriculture-and-technology'),
     'TUAT',
@@ -131,4 +131,3 @@ test('unknown docs directories fail instead of silently entering shared output',
     /unknown school/,
   );
 });
-

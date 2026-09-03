@@ -71,12 +71,12 @@ test('subsubject and school targets keep their canonical routes', () => {
     '/docs/tags/subsubject/mathematics/linear-algebra',
   );
   assert.equal(
-    resolveTagBrowseTarget('TITech').href,
-    '/docs/tags/school/ti-tech',
+    resolveTagBrowseTarget('InstituteOfScienceTokyo').href,
+    '/docs/tags/school/institute-of-science-tokyo',
   );
   assert.equal(
-    resolveTagBrowseTarget('Tokyo-Institute-of-Technology').href,
-    '/docs/tags/school/ti-tech',
+    resolveTagBrowseTarget('Institute of Science Tokyo').href,
+    '/docs/tags/school/institute-of-science-tokyo',
   );
 });
 

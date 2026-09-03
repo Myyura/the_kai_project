@@ -1,7 +1,7 @@
 // ============================================================
 // 此文件由 scripts/generate-universities.js 自动生成
 // 请勿手动编辑！如需更新请运行：npm run generate:universities
-// 生成时间：2026-08-26T03:54:34.390Z
+// 生成时间：2026-09-03T16:45:45.429Z
 // ============================================================
 
 /**
@@ -499,8 +499,8 @@ export const universities = [
     ]
   },
   {
-    "id": "TITech",
-    "name": "東京科學大學 旧・東京工業大学",
+    "id": "InstituteOfScienceTokyo",
+    "name": "東京科学大学",
     "color": "#1a7f8e",
     "departments": [
       {
@@ -528,7 +528,7 @@ export const universities = [
             "name": "システム制御系"
           }
         ],
-        "websiteUrl": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide"
+        "websiteUrl": "https://admissions.isct.ac.jp/ja/013/graduate/guideline"
       },
       {
         "id": "environment_and_society",
@@ -543,7 +543,7 @@ export const universities = [
             "name": "融合理工学系"
           }
         ],
-        "websiteUrl": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide"
+        "websiteUrl": "https://admissions.isct.ac.jp/ja/013/graduate/guideline"
       },
       {
         "id": "MCS",
@@ -558,7 +558,7 @@ export const universities = [
             "name": "数理・計算科学系"
           }
         ],
-        "websiteUrl": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide"
+        "websiteUrl": "https://admissions.isct.ac.jp/ja/013/graduate/guideline"
       },
       {
         "id": "MCT",
@@ -569,7 +569,7 @@ export const universities = [
             "name": "材料系"
           }
         ],
-        "websiteUrl": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide"
+        "websiteUrl": "https://admissions.isct.ac.jp/ja/013/graduate/guideline"
       },
       {
         "id": "science",
@@ -588,7 +588,7 @@ export const universities = [
             "name": "物理学系"
           }
         ],
-        "websiteUrl": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide"
+        "websiteUrl": "https://admissions.isct.ac.jp/ja/013/graduate/guideline"
       },
       {
         "id": "life_science_and_technology",
@@ -599,7 +599,7 @@ export const universities = [
             "name": "生命理工学系"
           }
         ],
-        "websiteUrl": "https://www.titech.ac.jp/admissions/prospective-students/admissions/guide"
+        "websiteUrl": "https://admissions.isct.ac.jp/ja/013/graduate/guideline"
       }
     ]
   },
@@ -1187,6 +1187,28 @@ export const universities = [
         "websiteUrl": "http://www.phys.u-ryukyu.ac.jp/gakunai/inshi.html"
       }
     ]
+  },
+  {
+    "id": "ochanomizu-university",
+    "name": "お茶の水女子大学",
+    "color": "#8b4f77",
+    "departments": [
+      {
+        "id": "humanities_and_sciences",
+        "name": "人間文化創成科学研究科",
+        "programs": [
+          {
+            "id": "science/mathematics",
+            "name": "数学コース"
+          },
+          {
+            "id": "science/information_science",
+            "name": "情報科学コース"
+          }
+        ],
+        "websiteUrl": "https://www.dc.ocha.ac.jp/archive/sci/m_e_examination.html"
+      }
+    ]
   }
 ];
 
@@ -1200,7 +1222,7 @@ export const UNIV_MAP = {
   "tohoku-university": "東北大学",
   "osaka-university": "大阪大学",
   "nagoya-university": "名古屋大学",
-  "TITech": "東京科學大學 旧・東京工業大学",
+  "InstituteOfScienceTokyo": "東京科学大学",
   "hokkaido-university": "北海道大学",
   "kyushu-university": "九州大学",
   "waseda-university": "早稲田大学",
@@ -1222,4 +1244,5 @@ export const UNIV_MAP = {
   "osaka-metropolitan-university": "大阪公立大学",
   "ehime-university": "愛媛大学",
   "ryukyu-university": "琉球大学",
+  "ochanomizu-university": "お茶の水女子大学",
 };
