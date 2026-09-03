@@ -8,7 +8,7 @@ const {
 
 const schools = new Set([
   'kanazawa-university',
-  'InstituteOfScienceTokyo',
+  'institute-of-science-tokyo',
   'TUAT',
   'UEC',
 ]);
@@ -32,7 +32,7 @@ function createSyntheticSiteProps() {
     ),
     createDoc(
       'institute-of-science-tokyo/doc',
-      'InstituteOfScienceTokyo',
+      'institute-of-science-tokyo',
       '/docs/institute-of-science-tokyo-custom',
       '/docs/tags/school/institute-of-science-tokyo',
     ),
@@ -112,7 +112,7 @@ test('route ownership follows sources, sidebar descendants, and school tag metad
     ownership.get('/docs/category/keio-university-nst-historical-name'),
     'kanazawa-university',
   );
-  assert.equal(ownership.get('/docs/tags/school/institute-of-science-tokyo'), 'InstituteOfScienceTokyo');
+  assert.equal(ownership.get('/docs/tags/school/institute-of-science-tokyo'), 'institute-of-science-tokyo');
   assert.equal(
     ownership.get('/docs/tags/school/tokyo-university-of-agriculture-and-technology'),
     'TUAT',

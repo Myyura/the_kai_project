@@ -71,7 +71,7 @@ test('subsubject and school targets keep their canonical routes', () => {
     '/docs/tags/subsubject/mathematics/linear-algebra',
   );
   assert.equal(
-    resolveTagBrowseTarget('InstituteOfScienceTokyo').href,
+    resolveTagBrowseTarget('institute-of-science-tokyo').href,
     '/docs/tags/school/institute-of-science-tokyo',
   );
   assert.equal(

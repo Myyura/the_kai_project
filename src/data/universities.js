@@ -1,7 +1,7 @@
 // ============================================================
 // 此文件由 scripts/generate-universities.js 自动生成
 // 请勿手动编辑！如需更新请运行：npm run generate:universities
-// 生成时间：2026-09-03T16:45:45.429Z
+// 生成时间：2026-09-03T17:35:37.706Z
 // ============================================================
 
 /**
@@ -499,7 +499,7 @@ export const universities = [
     ]
   },
   {
-    "id": "InstituteOfScienceTokyo",
+    "id": "institute-of-science-tokyo",
     "name": "東京科学大学",
     "color": "#1a7f8e",
     "departments": [
@@ -1222,7 +1222,7 @@ export const UNIV_MAP = {
   "tohoku-university": "東北大学",
   "osaka-university": "大阪大学",
   "nagoya-university": "名古屋大学",
-  "InstituteOfScienceTokyo": "東京科学大学",
+  "institute-of-science-tokyo": "東京科学大学",
   "hokkaido-university": "北海道大学",
   "kyushu-university": "九州大学",
   "waseda-university": "早稲田大学",

@@ -12,10 +12,10 @@
   label: "Kyushu-University"
   permalink: "/school/kyushu-university"
   description: "Kyushu-University (九州大学)"
-"InstituteOfScienceTokyo":
-  label: "InstituteOfScienceTokyo"
+"institute-of-science-tokyo":
+  label: "institute-of-science-tokyo"
   permalink: "/school/institute-of-science-tokyo"
-  description: "InstituteOfScienceTokyo (東京科学大学)"
+  description: "institute-of-science-tokyo (東京科学大学)"
 "Nagoya-University":
   label: "Nagoya-University"
   permalink: "/school/nagoya-university"
