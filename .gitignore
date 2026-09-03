@@ -4,6 +4,8 @@
 # Production
 /build
 /tmp
+/audits
+/scripts
 
 # Generated files
 .docusaurus

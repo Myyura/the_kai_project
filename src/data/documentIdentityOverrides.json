@@ -2,9 +2,45 @@
   "schemaVersion": 2,
   "namespace": "ad4a6e2e-1c93-5b0c-91e4-98fb44fa87cd",
   "current": {
-    "kyoto-university/informatics/amp/2014/amp_201308_operation_research": "9c71d92e-e753-527a-8702-ebe406fd7638"
+    "kyoto-university/informatics/amp/2014/amp_201308_operation_research": "9c71d92e-e753-527a-8702-ebe406fd7638",
+    "TITech/engineering/ict/2017/ict_201608_H1": "8bcece9a-d2dc-5fb2-a22b-7cef8b7dfe07",
+    "TITech/engineering/ict/2017/ict_201608_H2_1": "a4f57ef5-933e-5d3b-9894-c7cd248ab502",
+    "TITech/engineering/ict/2017/ict_201608_H2_2": "da03e558-983a-58cc-8963-9b49cfbcd555",
+    "TITech/engineering/ict/2017/ict_201608_S1_1": "9d92ba83-f791-52b1-ba81-16306e21f536",
+    "TITech/engineering/ict/2017/ict_201608_S1_2": "37929490-0238-57b9-995b-974390f9681b",
+    "TITech/engineering/ict/2018/ict_201708_H1": "b5f2143f-43fd-568b-a674-6ad763d824c3",
+    "TITech/engineering/ict/2018/ict_201708_H2": "0ec560ff-c8db-561d-b916-5e8cba6cf6fb",
+    "TITech/engineering/ict/2018/ict_201708_S1": "4fdedf0e-38f4-54d2-966c-641585255a7e",
+    "TITech/engineering/ict/2018/ict_201708_S2": "1757cda2-213b-5bb3-a00b-01781a1eedc7",
+    "TITech/engineering/ict/2019/ict_201808_H1": "d8d89ef2-f585-5414-bacb-efcb0d2ec375",
+    "TITech/engineering/ict/2019/ict_201808_H2": "f71c41df-769f-5d90-b908-a41699945e3f",
+    "TITech/engineering/ict/2019/ict_201808_S1": "4089a58b-d9a9-55a8-a442-033378f23c52"
   },
   "aliases": {
-    "kyoto-university/informatics/amp/2013/2013-8": "9c71d92e-e753-527a-8702-ebe406fd7638"
+    "kyoto-university/informatics/amp/2013/2013-8": "9c71d92e-e753-527a-8702-ebe406fd7638",
+    "TITech/engineering/ict/2017/ict_201608_tiku_1125": "8bcece9a-d2dc-5fb2-a22b-7cef8b7dfe07",
+    "TITech/engineering/ict/2017/ict_201608_tiku_1126": "a4f57ef5-933e-5d3b-9894-c7cd248ab502",
+    "TITech/engineering/ict/2017/ict_201608_tiku_1128": "da03e558-983a-58cc-8963-9b49cfbcd555",
+    "TITech/engineering/ict/2017/ict_201608_tiku_1129": "9d92ba83-f791-52b1-ba81-16306e21f536",
+    "TITech/engineering/ict/2017/ict_201608_tiku_1130": "37929490-0238-57b9-995b-974390f9681b",
+    "TITech/engineering/ict/2018/ict_201708_tiku_1125": "8bcece9a-d2dc-5fb2-a22b-7cef8b7dfe07",
+    "TITech/engineering/ict/2018/ict_201708_tiku_1126": "a4f57ef5-933e-5d3b-9894-c7cd248ab502",
+    "TITech/engineering/ict/2018/ict_201708_tiku_1128": "da03e558-983a-58cc-8963-9b49cfbcd555",
+    "TITech/engineering/ict/2018/ict_201708_tiku_1129": "9d92ba83-f791-52b1-ba81-16306e21f536",
+    "TITech/engineering/ict/2018/ict_201708_tiku_1130": "37929490-0238-57b9-995b-974390f9681b",
+    "TITech/engineering/ict/2018/ict_201708_tiku_1133": "b5f2143f-43fd-568b-a674-6ad763d824c3",
+    "TITech/engineering/ict/2018/ict_201708_tiku_1134": "0ec560ff-c8db-561d-b916-5e8cba6cf6fb",
+    "TITech/engineering/ict/2018/ict_201708_tiku_1135": "4fdedf0e-38f4-54d2-966c-641585255a7e",
+    "TITech/engineering/ict/2018/ict_201708_tiku_1136": "1757cda2-213b-5bb3-a00b-01781a1eedc7",
+    "TITech/engineering/ict/2019/ict_201808_tiku_1133": "b5f2143f-43fd-568b-a674-6ad763d824c3",
+    "TITech/engineering/ict/2019/ict_201808_tiku_1134": "0ec560ff-c8db-561d-b916-5e8cba6cf6fb",
+    "TITech/engineering/ict/2019/ict_201808_tiku_1135": "4fdedf0e-38f4-54d2-966c-641585255a7e",
+    "TITech/engineering/ict/2019/ict_201808_tiku_1136": "1757cda2-213b-5bb3-a00b-01781a1eedc7",
+    "TITech/engineering/ict/2019/ict_201808_tiku_1137": "d8d89ef2-f585-5414-bacb-efcb0d2ec375",
+    "TITech/engineering/ict/2019/ict_201808_tiku_1138": "f71c41df-769f-5d90-b908-a41699945e3f",
+    "TITech/engineering/ict/2019/ict_201808_tiku_1139": "4089a58b-d9a9-55a8-a442-033378f23c52",
+    "TITech/engineering/ict/2020/ict_201908_tiku_1137": "d8d89ef2-f585-5414-bacb-efcb0d2ec375",
+    "TITech/engineering/ict/2020/ict_201908_tiku_1138": "f71c41df-769f-5d90-b908-a41699945e3f",
+    "TITech/engineering/ict/2020/ict_201908_tiku_1139": "4089a58b-d9a9-55a8-a442-033378f23c52"
   }
 }
