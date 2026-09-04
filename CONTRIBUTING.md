@@ -38,6 +38,7 @@ yarn serve
 Useful repository scripts:
 
 ```bash
+yarn test
 yarn generate:universities
 yarn generate:site-stats
 yarn generate:contributors
@@ -50,6 +51,7 @@ yarn review:format
 yarn api:validate
 ```
 
+- `yarn test`: run the automated tests under the repository-root `tests/` directory locally.
 - `yarn generate:universities`: regenerate `src/data/universities.js` after changing the `docs/` directory structure or `_category_.json` labels.
 - `yarn generate:site-stats`: regenerate `src/data/siteStats.json` and `src/data/documentTitles.json` from the same local content scan used by API generation; development and production builds run it automatically.
 - `yarn generate:contributors`: refresh `src/data/githubContributors.json` from GitHub while retaining the existing cache if the network request fails.
@@ -61,7 +63,7 @@ yarn api:validate
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
 - `yarn api:validate`: validate the structured data used by the public JSON API.
 
-Test files under `scripts/*.test.js` and audit reports under `audits/` are kept locally and are not tracked in Git. CI does not run `yarn test`; maintainers who retain local test files can still use this command locally.
+Automated test files under the repository-root `tests/` directory are tracked in Git. Contributors must run `yarn test` locally and fix any failures before committing changes or opening a PR; CI does not run these tests. Audit reports under `audits/` remain local-only, ignored by Git, and are not tracked.
 
 Contributor-editable content data lives under `src/data/`: `links.json`, `universityMetadata.json`, and the `tagTaxonomy/` directory. Tag definitions are split by primary subject under `tagTaxonomy/subjects/`; global policy and school tags live alongside them. Ordinary new documents derive UUIDv5 directly from `docId` and require no identity-manifest update. Only a move or rename requires `yarn documents:move -- <old-doc-id> <new-doc-id>`. Development and production builds refresh `siteStats.json` and `documentTitles.json` automatically; the other generated files can be maintained with the scripts above.
 
@@ -229,6 +231,7 @@ Tag rules:
 Before opening a PR, please run:
 
 ```bash
+yarn test
 yarn review:format
 yarn tags:audit
 ```

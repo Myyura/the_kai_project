@@ -33,6 +33,7 @@ yarn serve
 ### 便利なスクリプト
 
 ```bash
+yarn test
 yarn generate:universities
 yarn generate:site-stats
 yarn generate:contributors
@@ -45,6 +46,7 @@ yarn review:format
 yarn api:validate
 ```
 
+- `yarn test`：リポジトリ直下の `tests/` ディレクトリにある自動テストをローカルで実行します。
 - `yarn generate:universities`：`docs/` の構成や `_category_.json` を変更したあと、`src/data/universities.js` を再生成します。
 - `yarn generate:site-stats`：API データ生成と同じローカルコンテンツスキャンから `src/data/siteStats.json` と `src/data/documentTitles.json` を再生成します。開発サーバーと本番ビルドでは自動実行されます。
 - `yarn generate:contributors`：GitHub から `src/data/githubContributors.json` を更新します。ネットワーク取得に失敗した場合は既存キャッシュを保持します。
@@ -56,7 +58,7 @@ yarn api:validate
 - `yarn review:format`：`docs/` 配下の解答ドキュメント形式をレビューします。
 - `yarn api:validate`：公開 JSON API 用の構造化データを検証します。
 
-`scripts/*.test.js` のテストファイルと `audits/` 配下の監査レポートはローカルにのみ保持し、Git では追跡しません。CI では `yarn test` を実行しませんが、テストファイルをローカルに保持しているメンテナーは引き続きこのコマンドでテストを実行できます。
+リポジトリ直下の `tests/` ディレクトリにある自動テストファイルは Git でバージョン管理します。コントリビューターは、コミットまたは PR の提出前に必ずローカルで `yarn test` を実行し、すべての失敗を修正してください。CI ではこれらのテストを実行しません。`audits/` 配下の監査レポートは引き続きローカルにのみ保持し、Git の追跡対象外として無視します。
 
 コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`universityMetadata.json`、`tagTaxonomy/` にあります。タグ定義は `tagTaxonomy/subjects/` に主科目別で保存し、全体設定と大学タグは同階層のファイルで管理します。通常の新規文書は `docId` から UUIDv5 を自動導出するため、ID マニフェストの更新は不要です。移動・改名時だけ `yarn documents:move -- <旧-doc-id> <新-doc-id>` を実行します。`siteStats.json` と `documentTitles.json` は開発・ビルド時に自動更新され、その他の生成ファイルは上記スクリプトで管理できます。
 
@@ -212,6 +214,7 @@ tags:
 PR を出す前に、次のコマンドを実行することをおすすめします。
 
 ```bash
+yarn test
 yarn review:format
 yarn tags:audit
 ```

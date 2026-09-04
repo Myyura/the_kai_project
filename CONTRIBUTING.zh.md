@@ -33,6 +33,7 @@ yarn serve
 ### 常用脚本
 
 ```bash
+yarn test
 yarn generate:universities
 yarn generate:site-stats
 yarn generate:contributors
@@ -45,6 +46,7 @@ yarn review:format
 yarn api:validate
 ```
 
+- `yarn test`：在本地运行仓库根目录 `tests/` 下的自动化测试。
 - `yarn generate:universities`：当你修改 `docs/` 目录结构或 `_category_.json` 标签后，重新生成 `src/data/universities.js`。
 - `yarn generate:site-stats`：使用 API 数据生成所采用的同一套本地内容扫描逻辑，重新生成 `src/data/siteStats.json` 和 `src/data/documentTitles.json`；开发服务器和生产构建会自动执行。
 - `yarn generate:contributors`：从 GitHub 刷新 `src/data/githubContributors.json`；网络请求失败时保留已有缓存。
@@ -56,7 +58,7 @@ yarn api:validate
 - `yarn review:format`：在提交 PR 前检查 `docs/` 下题解文档的格式。
 - `yarn api:validate`：检查 JSON API 使用的结构化题库数据。
 
-`scripts/*.test.js` 测试文件和 `audits/` 下的审计报告仅保留在本地，不纳入 Git 跟踪。CI 不运行 `yarn test`；本地保留了测试文件的维护者仍可使用此命令执行测试。
+仓库根目录 `tests/` 下的自动化测试文件纳入 Git 版本管理。贡献者必须在提交 commit 或发起 PR 前，在本地运行 `yarn test` 并修复所有失败项；CI 不运行这些测试。`audits/` 下的审计报告仍仅保留在本地，由 Git 忽略，不纳入版本管理。
 
 贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`universityMetadata.json` 和 `tagTaxonomy/` 目录。tag 定义按主科目存放在 `tagTaxonomy/subjects/`，全局策略和学校 tag 则存放在同级文件中。普通新增文档会按 `docId` 自动推导 UUIDv5，不需要修改身份清单；只有移动或重命名文档时才需要执行 `yarn documents:move -- <旧-doc-id> <新-doc-id>`。`siteStats.json` 和 `documentTitles.json` 会在开发及构建时自动刷新，其余生成文件可用上面的脚本维护。
 
@@ -212,6 +214,7 @@ tag 规则：
 提交 PR 前建议先运行：
 
 ```bash
+yarn test
 yarn review:format
 yarn tags:audit
 ```

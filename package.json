@@ -19,7 +19,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "dev": "yarn start",
-    "test": "node --test scripts/*.test.js",
+    "test": "node --test tests/*.test.js",
     "generate:universities": "node scripts/generate-universities.js",
     "generate:site-stats": "node scripts/generate-site-stats.js",
     "generate:admissions": "node scripts/generate-admission-stats.js",
