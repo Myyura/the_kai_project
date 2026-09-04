@@ -6,40 +6,40 @@ tags:
   - Electrical-Electronic.Signal-Processing.Bilinear-Transform-for-Analog-to-Digital-Filter
   - Electrical-Electronic.Signal-Processing.Discrete-Time-Filter-Realization
 ---
-# 東京大学 情報理工学系研究科 電子情報学専攻 2017年8月実施 専門 第5問 
 
+# 東京大学 情報理工学系研究科 電子情報学専攻 2017年8月実施 専門 第5問
 
 ## **Author**
-[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), 祭音Myyura
+
+[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), 祭音Myyura, OpenAI
 
 ## **Description**
-Answer the following questions about discrete signal processing. Here, $T$ is the sampling interval.
 
-(1) Show the definition of the $Z$-transform $X(z)$ for the discrete signal series $x_n(n = 0,1,2,\cdots)$, which is defined for $n \ge 0$. Here, $z$ is a complex variable.
+離散信号処理に関する以下の問いに答えよ。ただし、信号のサンプリング周期を $T$ とする。
 
-(2) Derive the transfer function $H(s)$ in the $s$-domain(the Laplace transform domain) of the circuit in Fig.1.
+(1) $n\ge0$ で定義された離散信号系列 $x_n$（$n=0,1,2,\ldots$）の $Z$ 変換の定義 $X(z)$ を示せ。ここで、$z$ は複素変数とする。
 
-(3) The relationship between the Laplace transform and the $Z$-transform is described as $z = e^{sT}$. Derive the following approximation.
+(2) 図 $1$ に示した回路の $s$ 領域（ラプラス変換領域）伝達関数 $H(s)$ を求めよ。
 
-$$
-s \simeq \frac{2}{T}\frac{1 - z^{-1}}{1 + z^{-1}}.
-$$
-
-You can use the following equation if necessary.
+(3) ラプラス変換と $Z$ 変換の関係は $z=e^{sT}$ で与えられる。近似式
 
 $$
-e^{x} \simeq 1 + x.
+s\simeq\frac2T\frac{1-z^{-1}}{1+z^{-1}}
 $$
 
-(4) Convert $H(s)$ to the transfer function $H(z)$ in the $z$-domain by using the approximation derived in (3). Here, we assume $T = 1$.
+を導出せよ。ただし、必要に応じて下記の式を用いてよい。
 
-(5) Show a schematic of a discrete signal circuit that corresponds to $H(z)$ in (4).
+$$
+e^x\simeq1+x
+$$
 
-(6) By taking the same procedure, show a schematic of a discrete signal circuit for the circuit shown in Fig.2.
+(4) (3) の近似式を用いて $H(s)$ を $z$ 領域伝達関数 $H(z)$ に変換せよ。ただし、$T=1$ とする。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2018_5_p1.png" width="400" height="400" alt=""/>
-</figure>
+(5) (4) で求めた $H(z)$ を実現する離散時間回路の構成を示せ。
+
+(6) 同様の手順で図 $2$ に示した回路を離散時間回路で実現し構成を示せ。
+
+![図1：抵抗を直列、コンデンサを並列に接続した回路。図2：コンデンサを直列、抵抗を並列に接続した回路。いずれも R=C=1。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-university/IST/denshi/q5_2018_circuits.svg)
 
 ### 题目描述
 
@@ -64,78 +64,90 @@ $$
 (6) 按相同过程，画出与图 2 电路对应的离散信号处理电路。
 
 ## **Kai**
+
 ### (1)
 
 $$
-X(z) = \sum_{n = 0}^{\infty}x(n)z^{-n}
+\boxed{X(z)=\sum_{n=0}^{\infty}x_nz^{-n}}.
 $$
 
 ### (2)
 
+初期状態を零とすると、コンデンサのインピーダンスは $1/(sC)$ である。分圧則と $R=C=1$ より
+
 $$
-H(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{\frac{1}{sC}}{R + \frac{1}{sC}} = \frac{1}{1 + s}
+\boxed{H(s)=\frac{1/(sC)}{R+1/(sC)}=\frac1{1+s}}.
 $$
 
 ### (3)
 
 $$
-z^{-1} = e^{-sT} = \frac{e^{-\frac{1}{2}sT}}{e^{\frac{1}{2}sT}} \simeq \frac{1 - \frac{1}{2}sT}{1 + \frac{1}{2}sT}
+z^{-1}=e^{-sT}=\frac{e^{-sT/2}}{e^{sT/2}}
+\simeq\frac{1-sT/2}{1+sT/2}.
 $$
 
+したがって、$(1+z^{-1})sT/2\simeq1-z^{-1}$ より
+
 $$
-\begin{aligned}
-z^{-1}(1 + \frac{1}{2}sT) &= 1 - \frac{1}{2}sT \\
-z^{-1} &= 1 - \frac{1}{2}sT(1 + z^{-1}) \\
-1 - z^{-1} &= \frac{1}{2}sT(1 + z^{-1}) \\
-s &= \frac{2}{T} \cdot \frac{1 - z^{-1}}{1 + z^{-1}}
-\end{aligned}
+\boxed{s\simeq\frac2T\frac{1-z^{-1}}{1+z^{-1}}}.
 $$
 
 ### (4)
 
+$T=1$ として代入すると、
+
 $$
-\begin{aligned}
-H(s) &= \frac{1}{1 + s} = \frac{1}{1 + 2 \cdot \frac{1 - z^{-1}}{1 + z^{-1}}} = \frac{1 + z^{-1}}{3 - z^{-1}} \\
-&= \frac{\frac{1}{3}}{1 - \frac{1}{3}z^{-1}} + \frac{\frac{1}{3}z^{-1}}{1 - \frac{1}{3}z^{-1}} 
-\end{aligned}
+\boxed{H(z)=\frac1{1+2(1-z^{-1})/(1+z^{-1})}
+=\frac{1+z^{-1}}{3-z^{-1}}}.
 $$
 
 ### (5)
 
-$$
-H(z) = \frac{Y(z)}{X(z)} = \frac{1 + z^{-1}}{3 - z^{-1}}
-$$
+$H(z)=Y(z)/X(z)$ より
 
 $$
-(3 - z^{-1})Y(z) = (1 + z^{-1})X(z)
+\boxed{y_n=\frac13x_n+\frac13x_{n-1}+\frac13y_{n-1}}.
 $$
 
-$$
-Y(z) = \frac{1}{3}[X(z) + z^{-1}(X(z) + Y(z))]
-$$
+以下で $z^{-1}$ は $1$ サンプル遅延を表す。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2018_5_p2.png" width="700" height="140" alt=""/>
-</figure>
+```mermaid
+flowchart LR
+    X["xₙ"] --> B0["× 1/3"]
+    B0 --> S(("＋"))
+    X --> DX["z⁻¹"]
+    DX --> B1["× 1/3"]
+    B1 --> S
+    S --> Y["yₙ"]
+    Y --> DY["z⁻¹"]
+    DY --> A1["× 1/3"]
+    A1 --> S
+```
 
 ### (6)
 
-$$
-H(s) = \frac{s}{1 + s}
-$$
+図 $2$ は抵抗の両端を出力とするので、
 
 $$
-H(z) = \frac{2 \cdot \frac{1 - z^{-1}}{1 + z^{-1}}}{1 + 2 \cdot \frac{1 - z^{-1}}{1 + z^{-1}}} = \frac{2 - 2z^{-1}}{3 - z^{-1}}
+H(s)=\frac R{R+1/(sC)}=\frac s{1+s},\qquad
+\boxed{H(z)=\frac{2(1-z^{-1})}{3-z^{-1}}}.
 $$
 
-$$
-\frac{Y(z)}{X(z)} = \frac{2 - 2z^{-1}}{3 - z^{-1}}
-$$
+よって、
 
 $$
-Y(z) = \frac{1}{3}[2X(z) + z^{-1}(Y(z) - 2X(z))]
+\boxed{y_n=\frac23x_n-\frac23x_{n-1}+\frac13y_{n-1}}.
 $$
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2018_5_p3.png" width="700" height="220" alt=""/>
-</figure>
+```mermaid
+flowchart LR
+    X["xₙ"] --> B0["× 2/3"]
+    B0 --> S(("＋"))
+    X --> DX["z⁻¹"]
+    DX --> B1["× −2/3"]
+    B1 --> S
+    S --> Y["yₙ"]
+    Y --> DY["z⁻¹"]
+    DY --> A1["× 1/3"]
+    A1 --> S
+```

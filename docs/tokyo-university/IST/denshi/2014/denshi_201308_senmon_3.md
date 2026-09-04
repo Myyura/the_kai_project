@@ -1,34 +1,35 @@
 ---
-sidebar_label: "2013年8月実施 専門 第3問"
+sidebar_label: 2013年8月実施 専門 第3問
 tags:
   - Tokyo-University
-  - Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence
   - Computer-Science.Programming.Recursion
   - Computer-Science.Programming.Fibonacci-Numbers
   - Computer-Science.Programming.Integer-Overflow
   - Computer-Science.Computer-Architecture.Floating-Point-Rounding-Error
 ---
-# 東京大学 情報理工学系研究科 電子情報学専攻 2013年8月実施 専門 第3問 
+
+# 東京大学 情報理工学系研究科 電子情報学専攻 2013年8月実施 専門 第3問
 
 ## **Author**
-[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), 祭音Myyura
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
-The sequence that is defined by $f(0)=0$, $f(1)=1$, and the recurrence relation $f(n) = f(n-1) + f(n-2) \ (n > 1)$ is called the Fibonacci sequence. Answer the following questions on this sequence.
 
-(1) Give a pseudo-code program to calculate $f(n)$ using recursive calls according to the recurrence relation.
+$f(0)=0$, $f(1)=1$ および漸化式 $f(n)=f(n-1)+f(n-2)$ $(n>1)$ で表される数列はフィボナッチ数列と呼ばれる。これについて以下の問いに答えよ。
 
-(2) Give another pscudo-code program to calculate $f(n)$ from the recurrence relation without using recursive calls.
+(1) 漸化式に従い、再帰呼び出しを使って $f(n)$ を計算するプログラムを擬似コードにより記述せよ。
 
-(3) Assume that 64-bit integers are used. Explain the drawbacks of each of the methods described in Questions (1) and (2).
+(2) 漸化式に従い、再帰呼び出しを使わずに $f(n)$ を計算するプログラムを擬似コードにより記述せよ。
 
-(4) The closed-form solution of the Fibonacci sequence is 
+(3) 64ビット整数を用いて計算する場合、(1) および (2) それぞれの方法の問題点を述べよ。
+
+(4) フィボナッチ数列の一般項は
 
 $$
-f(n) = \frac{1}{\sqrt{5}}\Bigg(\bigg(\frac{1+\sqrt{5}}{2}\bigg)^n - \bigg(\frac{1-\sqrt{5}}{2}\bigg)^n\Bigg).
+f(n)=\frac1{\sqrt5}\left[\left(\frac{1+\sqrt5}2\right)^n-\left(\frac{1-\sqrt5}2\right)^n\right]
 $$
 
-Explain the merits and drawbacks of the calculation using this form with floating point numbers, as compared to the method described in Question (2).
+となることが分かっている。この式に従って浮動小数点数を用いて計算する場合、(2) の方法と比較し利害得失を述べよ。
 
 ### 题目描述
 
@@ -55,39 +56,46 @@ $$
 与 (2) 的方法相比，说明使用浮点数按该闭式计算的优点与缺点。
 
 ## **Kai**
+
 ### (1)
+
 ```text
-def Fib(n) :
+Fib(n):
     if n <= 1:
         return n
-    return Fib(n-1) + Fib(n-2)
+    return Fib(n - 1) + Fib(n - 2)
 ```
-#### <center> Code 1: Calculate $f(n)$ using recursive calls</center>
 
 ### (2)
+
 ```text
-def Fib(n) :
+Fib(n):
     if n <= 1:
         return n
-    result = [0] * (n+1)
-    result[1] = 1
-    for i = 2 to n :
-        result[i] = result[i-1] + result[i-2]
-    return result[n]
+    a = 0
+    b = 1
+    for i = 2 to n:
+        c = a + b
+        a = b
+        b = c
+    return b
 ```
-#### <center> Code 2: calculate $f(n)$ from the recurrence relation without using recursive calls</center>
 
 ### (3)
-The time complexity of `Code 1` is $O(2^n)$ (Hint: Solve recurrence relation $T(n) = T(n-1) + T(n-2) + O(1)$).
 
-The space complexity of `Code 1` is $O(n)$ (Hint: function calls are executed sequentially. Sequential execution guarantees that the stack size will never exceed the depth of the calls' tree, which is $O(n)$).
+(1) は同じ値を繰り返し計算し、$\varphi=(1+\sqrt5)/2$ とすると時間は $\Theta(\varphi^n)$、再帰スタックの空間は $O(n)$ となる。(2) は時間 $O(n)$、追加空間 $O(1)$ だが、計算時間は $n$ に比例して増える。
 
-The time complexity and space complexity of `Code 2` are both $O(n)$, which implies that `Code 2` runs much faster than `Code 1`.
-But still, `Code 2` needs $O(n)$ space.
+両者とも64ビット整数の範囲を超えると正しい値を表せない。符号付き整数では
 
-Both methods overflow a signed 64-bit integer at $f(93)$; thus they are valid only for $0\le n\le92$ without arbitrary-precision arithmetic.
+$$
+f(92)=7540113804746346429\le2^{63}-1
+<f(93)=12200160415121876738
+$$
 
+より、$n\ge93$ でオーバーフローする。符号なし整数でも $f(94)>2^{64}-1$ となる。
 
 ### (4)
-By using [Exponentiation by squaring](https://en.wikipedia.org/wiki/Exponentiation_by_squaring), $f(n)$ can be calculated in $O(\log n)$, which is faster than `Code 2`.
-But due to the inaccuracy of float point numbers, it is hard to calculate the accurate answer of $f(n)$ in terms of the closed-form formula of Fibonacci sequence.
+
+一般項では過去の全項を順に求める必要がなく、累乗を二乗法で計算すれば浮動小数点演算の回数は $O(\log n)$ となる。また、通常の浮動小数点形式では64ビット整数より大きい値を近似的に扱える。
+
+一方、$\sqrt5$ や累乗の丸め誤差が蓄積・増幅し、整数値が厳密に得られる保証はない。最寄りの整数に丸めても、誤差が $1/2$ 以上なら誤答となる。十分大きい $n$ では浮動小数点数もオーバーフローする。(2) は整数の表現範囲内なら厳密である。

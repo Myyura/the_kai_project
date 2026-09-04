@@ -4,31 +4,30 @@ tags:
   - Tokyo-University
   - Computer-Science.Data-Structures.Union-Find-Data-Structure
 ---
+
 # 東京大学 情報理工学系研究科 電子情報学専攻 2020年8月実施 専門 第3問
 
 ## **Author**
+
 [adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
-There are $N$ objects moving on a field. When two objects $a$ and $b$ come into contact with each other at a time $t$, a triplet $(t, a, b)$ is recorded. Once two objects have been in contact they participate in an equivalence relation and belong to the same equivalence class. At the beginning each equivalence class includes a single object. When its object is in contact with an object in another class, these classes merge into one equivalence class.
-Answer the following questions.
+$N$ 個の物体があるフィールド上を移動している。時刻 $t$ において2つの物体 $a,b$ が接触すると $(t,a,b)$ の三つ組みが記録されるものとする。2つの物体は一度接触すると同値関係となり、同じ同値類に所属する。各同値類は最初に単独の物体を含んでいるものとする。同値類に含まれる物体が他の同値類に含まれる物体と接触すると、それらの同値類は1つの同値類に併合する。以下の問いに答えよ。
 
-(1) The pseudo code in the next page shows an union-find algorithm that keeps track of the equivalent class of each object. The function `init` initializes the array `parant` that records the equivalence classes (ignore the array `sizes` in this question). Every time the above mentioned triplet is recorded, the function `union` is executed and it updates the array `parent`. When $N$ equals 6, show the content of the array `parent` after the following triplets have been recorded.
+(1) 次の疑似コードは、各物体の同値類を記録する union-find アルゴリズムを示している。`init` 関数は、同値類を記録する配列 `parent` の初期化を行う（配列 `sizes` はこの問いでは無視せよ）。上記の三つ組みが記録される度に `union` 関数が実行されて `parent` を更新する。$N=6$ であるとき、以下の三つ組みが記録された後の配列 `parent` の内容を示せ。
 
 $$
-(1, 0, 3), (2, 4, 2), (3, 1, 5), (4, 0, 1)
+(1,0,3),(2,4,2),(3,1,5),(4,0,1)
 $$
 
-(2) Describe the order of the worst-case time complexity of the function `find` and `union` with reasons.
+(2) `find` 関数および `union` 関数について最悪時間計算量のオーダを理由と共に記せ。
 
-(3) Consider recording the number of objects in each equivalence class using the array `sizes`. Fill in (X) and (Y) in the pseudo code so that the function `size` returns the number of objects in the equivalence class including the designated object $a$. You can write multiple lines in (X) and (Y).
+(3) 配列 `sizes` を用いて、各同値類に含まれる物体の数を記録することを考える。疑似コード中の (X) と (Y) を埋めて、関数 `size` が指定された物体 $a$ を含む同値類中の物体の数を返すようにせよ。(X)、(Y) には複数行を記してもよい。
 
-(4) The time complexity of the function `find` and `union` can be improved by modifying the function `union` using the array `sizes`. Modify and show the code (X) in the pseudo code. Describe the order of the worst-case time complexity of the improved `union` function with reasons.
+(4) 配列 `sizes` を用いて `union` 関数を変更することで、`union` および `find` 関数の時間計算量を改善することが可能になる。疑似コード中の (X) を変更して示せ。また、改善された `union` 関数の最悪時間計算量のオーダを理由と共に示せ。
 
-(5) Consider finding the time when the designated objects $a$ and $b$ became equivalent. Describe how to modify the algorithm and explain the procedure of the function that finds the time. Describe the order of the worst-case time complexity of the function with reasons.
-
-Union-find algorithm:
+(5) 指定された物体 $a$ と $b$ が同値となった時刻を求めることを考える。アルゴリズムの変更の方法を述べ、この時刻を求める関数の手続きを説明せよ。また、その関数の最悪時間計算量のオーダを理由と共に示せ。
 
 ```c
 int parent[N];
@@ -113,64 +112,64 @@ int size(int a) {
 ```
 
 ## **Kai**
+
 ### (1)
 
-| Time \ Node | 0 | 1 | 2 | 3 | 4 | 5 |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **0** | 0 | 1 | 2 | 3 | 4 | 5 |
-| **1** | 3 | 1 | 2 | 3 | 4 | 5 |
-| **2** | 3 | 1 | 2 | 3 | 2 | 5 |
-| **3** | 3 | 5 | 2 | 3 | 2 | 5 |
-| **4** | 3 | 5 | 2 | 5 | 2 | 5 |
+| 時刻 | `parent[0]` | `parent[1]` | `parent[2]` | `parent[3]` | `parent[4]` | `parent[5]` |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| 初期 | 0 | 1 | 2 | 3 | 4 | 5 |
+| 1 | 3 | 1 | 2 | 3 | 4 | 5 |
+| 2 | 3 | 1 | 2 | 3 | 2 | 5 |
+| 3 | 3 | 5 | 2 | 3 | 2 | 5 |
+| 4 | 3 | 5 | 2 | 5 | 2 | 5 |
 
 ### (2)
-$O(N)$
 
-**Reason:** Union and find operation must traverse a chain in the worst case when tree is a list.
+どちらも最悪 $\boxed{O(N)}$。木が長さ $N-1$ の鎖になる場合、`find` は根まで $N-1$ 本の親ポインタをたどる。`union` は `find` を2回呼び、その後の処理は定数時間である。
 
 ### (3)
 
-**X:**
+(X)：
 
-```cpp
-if (i == j) return;
-sizes[j] += sizes[i];
-```
-
-**Y:** `return sizes[find(a)];`
-
-### (4)
-
-```cpp
-void union(int a, int b) {
-    int i = find(a);
-    int j = find(b);
-    if (i == j) {
-        return;
-    } else if (sizes[i] > sizes[j]) {
-        parent[j] = i;
-        sizes[i] += sizes[j];
-    } else {
-        parent[i] = j;
-        sizes[j] += sizes[i];
-    }
+```c
+if (i != j) {
+    sizes[j] += sizes[i];
 }
 ```
 
-**Complexity:** $O(\log N)$
+(Y)：
 
-**Reason:** By always attaching the smaller tree to the root of the larger tree, the depth of any node only increases when it is merged into a tree of equal or larger size, which guarantees the tree height is at most logarithmic with respect to $N$.
+```c
+return sizes[find(a)];
+```
+
+既に同じ同値類なら大きさを加算しない。
+
+### (4)
+
+(X) を次のようにする。
+
+```c
+if (i == j) return;
+if (sizes[i] > sizes[j]) {
+    parent[i] = i;
+    parent[j] = i;
+    sizes[i] += sizes[j];
+} else {
+    sizes[j] += sizes[i];
+}
+```
+
+小さい木を大きい木の根に接続する。`sizes[i] > sizes[j]` の場合は、空欄の直前で行われた `parent[i] = j` を `parent[i] = i` で戻してから、$j$ を $i$ の子にする。
+
+頂点の深さが1増すたびに、その頂点を含む木の大きさは少なくとも2倍になる。従って深さは高々 $\lfloor\log_2N\rfloor$ であり、`find`、`union` とも最悪 $\boxed{O(\log N)}$ となる。
 
 ### (5)
 
-① Initialize a time array. When `union(t, a, b)` links root $i$ below root $j$, store `Time[i] = t` for the new edge $i\to j$.
+三つ組みを時刻順に処理し、(4) の併合を用いる。根 $x$ を別の根の子にしたとき、その親辺の作成時刻を `time[x] = t` と記録する。同じ同値類内の接触では変更しない。履歴を保つため経路圧縮は行わない。
 
-② To find the connection time for $a$ and $b$, which is a LCA question.
-Find the paths from $a$ to the root and $b$ to the root.
-If the roots differ, they have not become equivalent.
-Identify the lowest Common Ancestor (LCA) of $a$ and $b$.
-The time they became connected is the maximum edge time on the two paths from $a$ and $b$ up to, but not beyond, their LCA (and is $0$ when $a=b$ initially).
+問い合わせでは $a,b$ からそれぞれ根までの経路を求める。根が異なるなら未接続である。同じ根なら、両経路を根側から比較して最深共通祖先 $c$ を求め、$a\leadsto c$ と $b\leadsto c$ 上の全親辺の時刻の最大値を返す。
 
-**Complexity:** $O(\log N)$
+2頂点はこの道上の全ての併合が完了した時点で初めて接続されるので、この最大値が求める時刻となる。$a=b$ なら初期時刻を返す。
 
-**Reason:** Since union by size is used, the depth of the tree is $O(\log N)$. Finding the root and traversing paths take logarithmic time.
+木の高さは $O(\log N)$ であり、2本の経路の取得・比較・最大値の計算はいずれもその長さに比例する。従って最悪時間は $\boxed{O(\log N)}$ である。

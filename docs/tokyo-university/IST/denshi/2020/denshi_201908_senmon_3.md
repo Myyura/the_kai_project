@@ -4,16 +4,18 @@ tags:
   - Tokyo-University
   - Computer-Science.String-Algorithms.Minimum-Window-Substring
 ---
+
 # 東京大学 情報理工学系研究科 電子情報学専攻 2019年8月実施 専門 第3問
 
 ## **Author**
+
 [adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
 
-Let $A$ be an $N$-element array that contains each of the non-negative integers less than $M$ ($M \ge 2$) at least once. Among the subarrays of $A$, $A_i^j := A[i \dots j-1]$ ($0 \le i < j \le N$), that contain each of the non-negative integers less than $M$ at least once, you want to find the shortest one. If there are more than one such subarrays, you obtain the one with the largest start position. For example, given $N = 4$, $M = 2$, and $A = \langle 1, 1, 0, 1 \rangle$, you obtain $A_2^4 = \langle 0, 1 \rangle$. Answer the following questions.
+$M\ (\ge2)$ 未満の全ての非負整数を最低1回ずつ含む要素数 $N$ の配列 $A$ がある。$A$ の部分配列 $A_i^j:=A[i\ldots j-1]$ $(0\le i<j\le N)$ で $M$ 未満の全ての非負整数を最低1回ずつ含むもののうち、長さが最も短いものを見つけたい。ただし、そのような部分配列が複数あるときには、開始位置が最大のものを求める。例えば $N=4$, $M=2$, $A=\langle1,1,0,1\rangle$ に対しては $A_2^4=\langle0,1\rangle$ を求める。以下の問いに答えよ。
 
-(1) Consider an algorithm, FIND-SNIPPET, that checks for each subarray of $A$ whether it contains each of the non-negative integer less than $M$ at least once, and then returns the shortest subarray with the largest start position that satisfies the condition.
+(1) $A$ の各部分配列に対し $M$ 未満の非負整数を最低1回ずつ含むか確認し、条件を満たすもので長さが最も短く開始位置が最大の部分配列を返すアルゴリズム FIND-SNIPPET を考える。
 
 ```text
 FIND-SNIPPET(N, M, A):
@@ -21,23 +23,21 @@ FIND-SNIPPET(N, M, A):
     end = N
     for i = 0 to N - 1 do
         for j = i + 1 to N do
-            +-------------------+
-            |                   |
-            |        (P)        |
-            |                   |
-            +-------------------+   
+            (P)
+        end
+    end
     return A_start^end
 ```
 
-Fill in `(P)` to complete this pseudocode. Here, you must not exit from `for` loops using `break` statements. You can use a function `CONTAIN-INTEGERS(M, A, i, j)` that checks whether a subarray $A_i^j$ ($0 \le i < j \le N$) contains each of the non-negative integers less than $M$ at least once, and then returns the result as a truth value.
+この擬似コードを (P) を埋めて完成させよ。ただし、`break` 文を用いて `for` ループから抜けてはならない。なお、部分配列 $A_i^j$ $(0\le i<j\le N)$ 中に $M$ 未満の全ての非負整数が最低1回ずつ含まれるかを確認し、結果を真偽値として返す関数 `CONTAIN-INTEGERS(M, A, i, j)` を用いてよい。
 
-(2) Show the transition of values of `i`, `j`, $A_{start}^{end}$, `start`, and `end` when the algorithm in (1) is applied to $N = 4$, $M = 2$, and $A = \langle 1, 1, 0, 1 \rangle$.
+(2) $N=4$, $M=2$, $A=\langle1,1,0,1\rangle$ に対して (1) のアルゴリズムを適用したときの $i,j,A_{start}^{end},start,end$ の値の推移を示せ。
 
-Since FIND-SNIPPET considers all the subarrays of $A$, it requires the time complexity of $O(N^2)$ and becomes inefficient for large $N$.
+FIND-SNIPPET は $A$ の全ての部分配列を考慮するため、$O(N^2)$ の時間計算量を必要とし、$N$ が大きくなると効率が悪くなる。
 
-(3) Improve FIND-SNIPPET so that it runs in $O(N)$ and show its pseudocode. Here, you can use CONTAIN-INTEGERS with the assumption that it runs in $O(1)$.
+(3) FIND-SNIPPET を $O(N)$ で実行できるように改善し、その擬似コードを示せ。(1) の CONTAIN-INTEGERS は $O(1)$ で動作すると仮定して用いてよい。
 
-(4) Explain how to realize CONTAIN-INTEGERS that runs in $O(1)$ for the algorithm in (3).
+(4) (3) のアルゴリズムにおいて、$O(1)$ で動作する CONTAIN-INTEGERS の実現方法を述べよ。
 
 ### 题目描述
 
@@ -74,66 +74,79 @@ FIND-SNIPPET(N, M, A):
 (4) 说明如何为 (3) 的算法实现一个每次调用耗时 $O(1)$ 的 `CONTAIN-INTEGERS`。
 
 ## **Kai**
+
 ### (1)
 
-**(P):**
 ```text
-if (j - i) <= (end - start) and CONTAIN-INTEGERS(M, A, i, j) then
+if CONTAIN-INTEGERS(M, A, i, j) and j - i <= end - start:
     start = i
     end = j
 ```
 
+$i$ は昇順に走査されるため、等長の場合も更新すれば最大の開始位置を選べる。
+
 ### (2)
 
-$N = 4, M = 2, A = \langle 1, 1, 0, 1 \rangle$
-| i | j | $A_{start}^{end}$ | start | end |
-| :---: | :---: | :---: | :---: | :---: |
-| 0 | 1 | &lt;1 1 0 1&gt; | 0 | 4 |
-| 0 | 2 | &lt;1 1 0 1&gt; | 0 | 4 |
-| 0 | 3 | &lt;1 1 0&gt; | 0 | 3 |
-| 0 | 4 | &lt;1 1 0&gt; | 0 | 3 |
-| 1 | 2 | &lt;1 1 0&gt; | 0 | 3 |
-| 1 | 3 | &lt;1 0&gt; | 1 | 3 |
-| 1 | 4 | &lt;1 0&gt; | 1 | 3 |
-| 2 | 3 | &lt;1 0&gt; | 1 | 3 |
-| 2 | 4 | &lt;0 1&gt; | 2 | 4 |
-| 3 | 4 | &lt;0 1&gt; | 2 | 4 |
+各反復の (P) 実行後の値を示す。
+
+| $i$ | $j$ | $A_{start}^{end}$ | $start$ | $end$ |
+| :--: | :--: | :--: | :--: | :--: |
+| 0 | 1 | $\langle1,1,0,1\rangle$ | 0 | 4 |
+| 0 | 2 | $\langle1,1,0,1\rangle$ | 0 | 4 |
+| 0 | 3 | $\langle1,1,0\rangle$ | 0 | 3 |
+| 0 | 4 | $\langle1,1,0\rangle$ | 0 | 3 |
+| 1 | 2 | $\langle1,1,0\rangle$ | 0 | 3 |
+| 1 | 3 | $\langle1,0\rangle$ | 1 | 3 |
+| 1 | 4 | $\langle1,0\rangle$ | 1 | 3 |
+| 2 | 3 | $\langle1,0\rangle$ | 1 | 3 |
+| 2 | 4 | $\langle0,1\rangle$ | 2 | 4 |
+| 3 | 4 | $\langle0,1\rangle$ | 2 | 4 |
 
 ### (3)
+
+左右の端を戻さずに動かす。`ADD` と `REMOVE` は (4) の計数状態を更新する操作である。
 
 ```text
 FIND-SNIPPET(N, M, A):
     start = 0
     end = N
-    min_len = N + 1    // or infinite
     count[0 .. M-1] = 0
-    distinct_count = 0
-    j = 0
-    for i = 0 to N - 1 do
-        while (j < N and distinct_count < M) do:
-            if 0 <= A[j] < M then:
-                if count[A[j]] == 0 then:
-                    distinct_count = distinct_count + 1
-                count[A[j]] = count[A[j]] + 1
+    distinct = 0
+    ADD(A[0])
+    j = 1
+    for i = 0 to N - 1:
+        while j < N and not CONTAIN-INTEGERS(M, A, i, j):
+            ADD(A[j])
             j = j + 1
-
-        if distinct_count == M then:
-            if j - i <= min_len then:
-                min_len = j - i
+        if CONTAIN-INTEGERS(M, A, i, j):
+            if j - i <= end - start:
                 start = i
                 end = j
-        if 0 <= A[i] < M then:
-            count[A[i]] = count[A[i]] - 1
-            if count[A[i]] == 0 then:
-                distinct_count = distinct_count - 1
+        REMOVE(A[i])
     return A_start^end
 ```
 
+各 $i$ で条件を満たす最小の $j$ を選び、$i,j$ は各高々 $N$ 回増えるので、時間は $O(N)$。初期化も $M\le N$ より $O(N)$ である。
+
 ### (4)
 
-**Use distinct-count:**
-- Maintain an array `count` of size $M$ and an integer `distinct_count`.
-- When expanding the right endpoint from `j` to `j + 1`, let `x = A[j]`; if $0\le x<M$, update `count[x]`, incrementing `distinct_count` when its old count was zero.
-- Before shrinking the left endpoint from `i` to `i + 1`, let `y = A[i]`; if $0\le y<M$, decrement `count[y]`, and if it becomes zero, decrement `distinct_count`.
+現在の区間における各整数の出現回数 `count[x]` と、出現回数が正の整数の種類数 `distinct` を保持する。
 
-Check `contain-integers` return `distinct_count == M`.
+```text
+ADD(x):
+    if 0 <= x < M:
+        if count[x] == 0:
+            distinct = distinct + 1
+        count[x] = count[x] + 1
+
+REMOVE(x):
+    if 0 <= x < M:
+        count[x] = count[x] - 1
+        if count[x] == 0:
+            distinct = distinct - 1
+
+CONTAIN-INTEGERS(M, A, i, j):
+    return distinct == M
+```
+
+区間端を1要素動かす際の更新も判定も $O(1)$、追加空間は $O(M)$ となる。

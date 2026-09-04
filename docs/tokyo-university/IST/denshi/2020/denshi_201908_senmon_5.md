@@ -7,43 +7,43 @@ tags:
   - Computer-Science.Information-Theory.Huffman-Coding
   - Electrical-Electronic.Signal-Processing.Maximum-Entropy-Quantizer-Boundaries
 ---
+
 # 東京大学 情報理工学系研究科 電子情報学専攻 2019年8月実施 専門 第5問
 
-
 ## **Author**
+
 [diohabara](https://github.com/diohabara/open_inshi), [adj-matrix](https://github.com/adj-matrix), 祭音Myyura
 
 ## **Description**
-離散時間信号 $x$ の出力が，図のような確率密度関数 $p(x)$ に従うとする.
-以下の問いに答えよ．$\log_23 = 1.58, \log_25 = 2.32$ とする．
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_5_p1.png" width="500" alt=""/>
-</figure>
+離散時間信号 $x$ の出力が、図のような確率密度関数 $p(x)$ に従うとする。以下の問いに答えよ。$\log_2 3=1.58,\ \log_2 5=2.32$ とする。
 
-(1) 量子化器 $Q_0$ は，信号 $x$ の出力のレンジ $[-1,1]$ を均等に $5$ 分割して; $5$ レベルの量子化を行う．その量子化出力を入力信号値の小さい方から $q_1,q_2,q_3,q_4,q_5$ とする．それぞれの出現確率を求めよ．
+![確率密度 p(x) は区間 [-1,1] で p(x)=1-|x|、それ以外では 0。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo-university/IST/denshi/q5_2020_density.svg)
 
-(2) $Q_0$ の量子化出力のエントロピーを求めよ．
+(1) 量子化器 $Q_0$ は、信号 $x$ の出力のレンジ $[-1,1]$ を均等に $5$ 分割して、$5$ レベルの量子化を行う。その量子化出力を入力信号値の小さい方から $q_1,q_2,q_3,q_4,q_5$ とする。それぞれの出現確率を求めよ。
 
-(3) $Q_0$ の量子化出力を最も効率よく表現する $2$ 元符号 $C_0$ を $1$ つ求めよ．
+(2) $Q_0$ の量子化出力のエントロピーを求めよ。
 
-(4) $C_0$ の平均符号長を求めよ．
+(3) $Q_0$ の量子化出力を最も効率よく表現する $2$ 元符号 $C_0$ を $1$ つ求めよ。
 
-(5) 出力のエントロピーを最大とする $5$ レベル量子化器 $Q_1$ の量子化の境界 $d_i(i = 1,2,3,4)$ を求めよ．量子化の境界を $d_{i-1},d_i$ とした時，量子化操作 $Q()$ は下式で与えられる．
+(4) $C_0$ の平均符号長を求めよ。
+
+(5) 出力のエントロピーを最大とする $5$ レベル量子化器 $Q_1$ の量子化の境界 $d_i$（$i=1,2,3,4$）を求めよ。量子化の境界を $d_{i-1},d_i$ とした時、量子化操作 $Q()$ は下式で与えられる。
 
 $$
-Q(d_{i-1} \le x < d_i) = q_i
+Q(d_{i-1}\le x<d_i)=q_i.
 $$
 
-ただし，$d_0 = -1 ,d_5 = 1$ である．
+ただし、$d_0=-1,\ d_5=1$ である。
 
-(6) 信号の再生には,各量子化出力 $q_i$ に対して，対応する量子化区間内の一つの値を量子化代表値として割り当てる．信号値と再生値の平均 $2$ 乗誤差により，量子化誤差を定義する．量子化器出力 $q_i$ に対して，量子化誤差を最小化する量子化代表値 $\widetilde{x}_i$ は下式で与えられることを示せ．
+(6) 信号の再生には、各量子化出力 $q_i$ に対して、対応する量子化区間内の一つの値を量子化代表値として割り当てる。信号値と再生値の平均 $2$ 乗誤差により、量子化誤差を定義する。量子化器出力 $q_i$ に対して、量子化誤差を最小化する量子化代表値 $\widetilde{x}_i$ は下式で与えられることを示せ。
 
 $$
-\widetilde{x}_i = \frac{\int_{d_{i-1}}^{d_i}xp(x)dx}{\int_{d_{i-1}}^{d_i}p(x)dx}
+\widetilde{x}_i=\frac{\displaystyle\int_{d_{i-1}}^{d_i}xp(x)\,dx}
+{\displaystyle\int_{d_{i-1}}^{d_i}p(x)\,dx}.
 $$
 
-(7) 量子化器 $Q_1$ の $\widetilde{x}_i(i=1,2,3,4,5)$ を求めよ．
+(7) 量子化器 $Q_1$ の $\widetilde{x}_i$（$i=1,2,3,4,5$）を求めよ。
 
 ### 题目描述
 
@@ -76,96 +76,100 @@ $$
 (7) 求量化器 $Q_1$ 的全部代表值 $\widetilde{x}_i$（$i=1,2,3,4,5$）。
 
 ## **Kai**
-### (1)
-範囲 $[−1, 1]$ を均等に $5$ 分割しているので、$q_1, q_2, q_3, q_4, q_5$ の領域はそれぞれ $[−1, −0.6]、[−0.6, −0.2]、[−0.2, 0.2]、[0.2, 0.6]、[0.6, 1]$ である。
 
-よって、それぞれの領域の図形の面積を計算して
+### (1)
+
+$p(x)=1-|x|$（$|x|\le1$）を、幅 $2/5$ の各区間で積分する。対称性より
 
 $$
 \begin{aligned}
-q_1 &= q_5 = \frac{1}{2} \cdot 0.4^2 = \frac{2}{25} \\
-q_2 &= q_4 = \frac{1}{2} \cdot 0.8^2 - q_1 = \frac{6}{25} \\
-q_3 &= 1 - (q_1 + q_2 + q_4 + q_5) = \frac{9}{25} 
+P(q_1)=P(q_5)&=\frac12\left(\frac25\right)^2=\frac2{25},\\
+P(q_2)=P(q_4)&=\frac12\left(\frac45\right)^2-\frac2{25}=\frac6{25},\\
+P(q_3)&=1-2\left(\frac2{25}+\frac6{25}\right)=\frac9{25}.
 \end{aligned}
 $$
 
 ### (2)
-エントロピーは $-\sum_{A \in \Omega}P(A)\log P(A)$ と表せ、問題部により $\log3 = 1.58, \log5 = 2.32$ だから求めるエントロピーは
+
+指定の対数近似を用いると、
 
 $$
 \begin{aligned}
-&-(2\frac{2}{25}\log\frac{2}{25} + 2\frac{6}{25}\log\frac{6}{25} + \frac{9}{25}\log\frac{9}{25}) \\
-&= -\left\{\frac{4}{25}(\log2 - 2\log5) + \frac{12}{25}(\log2 + \log3 - 2\log5) + \frac{9}{25}(2\log3 - 2\log5)\right\} \\
-&= 2\log5-\frac{16}{25}\log2-\frac{30}{25}\log3 \\
-&= 4.64-0.64-1.896 = 2.104\ \text{bit}
+H(Q_0)&=-2\frac2{25}\log_2\frac2{25}
+-2\frac6{25}\log_2\frac6{25}
+-\frac9{25}\log_2\frac9{25}\\
+&=2\log_2 5-\frac{16}{25}-\frac65\log_2 3\\
+&\simeq\boxed{2.104\ \text{bit}}.
 \end{aligned}
 $$
 
 ### (3)
-ハフマン符号によって符号化する。$q_1$ から $q_5$ までをノードとして、最も確率の低いノードを合併し、それらのノードの確率の和を確率とするノードを作る。これをノードが最後の $1$ つになるまで続ける。そして、最後に残ったノードからたどって、左端のノードに戻る際に通ったエッジから符号を決める。上部のエッジを $1$ 、下部のエッジを $0$ とする。これを図にすると以下のようになる。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_5_p2.png" width="505" height="276" alt=""/>
-</figure>
+ハフマン法で重み $2,2,6,6,9$ を順次 $4,10,15,25$ に併合すると、次の符号を得る。
 
-よって、$2$ 元符号 $C_0$ は以下のように表せる。
-
-|$q_1$|000|
-|-|-|
-|$q_2$|01|
-|$q_3$|10|
-|$q_4$|11|
-|$q_5$|001|
+| 出力 | $q_1$ | $q_2$ | $q_3$ | $q_4$ | $q_5$ |
+| --- | --- | --- | --- | --- | --- |
+| 符号 $C_0$ | `000` | `01` | `10` | `11` | `001` |
 
 ### (4)
-(3) で求めた符号から求める符号長は
 
 $$
-2 \cdot 3\frac{2}{25} + 2 \cdot 2\frac{6}{25} + 2\frac{9}{25} = 2.16
+\boxed{\overline L=3\frac4{25}+2\frac{21}{25}=\frac{54}{25}=2.16\ \text{bit}}.
 $$
 
 ### (5)
-エントロピーが最大となるとき、それぞれの信号値は等確率 $\frac{1}{5}$ となる。
 
-よって、それぞれの信号値が $\frac{1}{5}$ となるように $d_i$ を求める。
+$5$ 個の出力のエントロピーは、すべての出力確率が $1/5$ のとき最大値 $\log_2 5$ をとる。$-1\le d\le0$ に対して
 
-$d_1 - d_0 = x_1(>0)$ として、$\frac{1}{2}x_1^2 = \frac{1}{5}$ となる。これを解いて $x_1 = \sqrt{\frac{2}{5}}$ となる。よって、$d_1 = -1 + \sqrt{\frac{2}{5}}$ となり、対称性から $d_4 = 1 - \sqrt{\frac{2}{5}}$
+$$
+P(x<d)=\int_{-1}^d(1+x)\,dx=\frac{(d+1)^2}{2}
+$$
 
-同様に考えて、$d_2 = -1 + \frac{2}{\sqrt{5}},d_3 = 1 - \frac{2}{\sqrt{5}}$
+なので、$P(x<d_i)=i/5$ と対称性から
+
+$$
+\boxed{
+\begin{aligned}
+d_1&=-1+\sqrt{\frac25},&d_2&=-1+\frac2{\sqrt5},\\
+d_3&=1-\frac2{\sqrt5},&d_4&=1-\sqrt{\frac25}.
+\end{aligned}}
+$$
 
 ### (6)
-量子化誤差は信号値と再生値の平均二乗誤差だから
+
+区間 $i$ の代表値を $c$ とすると、全平均二乗誤差への寄与は
 
 $$
-\int_{d_{i-1}}^{d_i}(x - x_i)^2p(x)dx
+D_i(c)=\int_{d_{i-1}}^{d_i}(x-c)^2p(x)\,dx.
 $$
 
-と書ける。これを $x_i$ に関して微分すると
+したがって、
 
 $$
--2\int_{d_{i-1}}^{d_i}xp(x)dx + 2x_i\int_{d_{i-1}}^{d_i}p(x)dx
+D_i'(c)=2c\int_{d_{i-1}}^{d_i}p(x)\,dx
+-2\int_{d_{i-1}}^{d_i}xp(x)\,dx.
 $$
 
-となる。量子化誤差が最小のとき、これは $0$ となるからこのときの $x_i = \widetilde{x}_i$ は以下のよう
-に表せる。
+$D_i'(c)=0$ より
 
 $$
-\widetilde{x}_i = \frac{\int_{d_{i-1}}^{d_i}xp(x)dx}{\int_{d_{i-1}}^{d_i}p(x)dx}
+\boxed{c=\widetilde{x}_i=
+\frac{\int_{d_{i-1}}^{d_i}xp(x)\,dx}{\int_{d_{i-1}}^{d_i}p(x)\,dx}}.
 $$
 
-二階微分は $2\int_{d_{i-1}}^{d_i}p(x)dx>0$ なので、これは最小値である。
-
-以上より題意は示された。
+また、$D_i''(c)=2P(q_i)>0$ なので、これが唯一の最小点である。
 
 ### (7)
-(6) の式を使って求めると、それぞれ
+
+$Q_1$ の各区間の確率は $1/5$ なので、$\widetilde{x}_i=5\int_{d_{i-1}}^{d_i}xp(x)\,dx$ である。左半分では原始関数 $x^2/2+x^3/3$ を用い、右半分は対称性から求めると、
 
 $$
+\boxed{
 \begin{aligned}
-\widetilde{x}_1 &= -1 + \frac{2\sqrt{10}}{15} \\
-\widetilde{x}_2 &= -1 + \frac{8\sqrt{5}-2\sqrt{10}}{15} \\
-\widetilde{x}_3 &= 0 \\
-\widetilde{x}_4 &= 1 - \frac{8\sqrt{5}-2\sqrt{10}}{15} \\
-\widetilde{x}_5 &= 1 - \frac{2\sqrt{10}}{15}
-\end{aligned}
+\widetilde{x}_1&=-1+\frac{2\sqrt{10}}{15},\\
+\widetilde{x}_2&=-1+\frac{8\sqrt5-2\sqrt{10}}{15},\\
+\widetilde{x}_3&=0,\\
+\widetilde{x}_4&=1-\frac{8\sqrt5-2\sqrt{10}}{15},\\
+\widetilde{x}_5&=1-\frac{2\sqrt{10}}{15}.
+\end{aligned}}
 $$
