@@ -9,7 +9,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目I 問題3
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 In this problem, the length of a string $s$ is written $l(s)$, and the $i$-th character of $s$ is written $s[i]$, where the first character is $s[0]$. The string obtained by removing the first $i$ characters from $s$ is written $s + i$. We assume $0 \leq i < l(s)$ in $s[i]$ and $s + i$. For example, if $s = \text{PROBLEM}$, then $s[0] = \text{P}$ and $s + 3 = \text{BLEM}$. The set of characters consists of $N$ characters, where $N$ is an integer constant no less than 2, and for each character $c$ a distinct positive integer $\text{numval}(c) \leq N$ is defined. Suppose that the computation of $s + i$ for given $s$ and $i$, and that of $\text{numval}(c)$ for given $c$, take $O(1)$ time. Also suppose that each of integer addition, multiplication and remainder takes $O(1)$ time, and that overflow will never occur in integer operations.
@@ -96,143 +96,63 @@ $O(1)$，则总耗时为 $O(l(s)+l(p))$。此外说明何种条件会使其耗�
 $l(s),l(p)$ 给出最坏时间复杂度。
 
 ## **Kai**
+
+记 $n=l(s),m=l(p)$。
+
 ### (1)
 
-Algorithm $S$ iterates over all possible starting positions in the string $s$ to check if the substring of $s$ starting at position $i$ matches the pattern $p$. For each starting position, the function `eq(s + i, p)` is called, which has a time complexity of $O(\ell(p))$.
-
-Thus, the total time complexity of Algorithm $S$ is:
+共有 $n-m+1$ 个起点，每次比较至多 $m$ 个字符，故最坏时间为
 
 $$
-O((\ell(s) - \ell(p) + 1) \cdot \ell(p)) = O(\ell(s) \cdot \ell(p))
+O((n-m+1)m)\subseteq O(nm).
 $$
+
+若 `eq` 采用逐字符比较，取 $s=a^n,p=a^{m-1}b$ 可达到 $\Theta((n-m+1)m)$。
 
 ### (2)
 
-To compute $h(s + i + 1, m)$ in $O(1)$ time, we can use the rolling hash technique:
+令 $\operatorname{mod}_q(x)$ 为 $0,\ldots,q-1$ 中的标准余数，则
 
 $$
-h(s+i+1,m)=
-\big((h'-\operatorname{numval}(s[i])d_m)d
-+\operatorname{numval}(s[i+m])\big)\bmod q.
+\boxed{h(s+i+1,m)=\operatorname{mod}_q
+\left(d(h'-\operatorname{numval}(s[i])d_m)+\operatorname{numval}(s[i+m])\right).}
 $$
 
-If the programming language may return a negative remainder, add $q$ before the final remainder operation.
-
-Explanation:
-
-- We remove the contribution of $s[i]$ from $h'$.
-- We multiply the result by $d$ to shift all values left.
-- We add the contribution of the new character $s[i+m]$.
-- We take the modulo $q$ to keep the hash value in the correct range.
-
-This computation can be done in $O(1)$ time as all operations (subtraction, multiplication, addition, and modulo) are assumed to take constant time.
+此式删除最左字符的贡献、将其余项乘 $d$，再加上新字符，耗时 $O(1)$。若语言的 `%` 会返回负数，使用 `((x % q) + q) % q` 实现标准余数。
 
 ### (3)
 
-**Algorithm $H_0$**:
-1. Precompute $h(p, \ell(p))$.
-2. Precompute $h(s, \ell(p))$ and check if it matches $h(p, \ell(p))$. If it matches, return 0.
-3. For $i = 1$ to $\ell(s) - \ell(p)$:
-   - Compute $h(s + i, \ell(p))$ from $h(s + i - 1, \ell(p))$ using the formula derived in Q2.
-   - If $h(s + i, \ell(p))$ matches $h(p, \ell(p))$, return $i$.
+用 Horner 递推 `v = mod_q(v*d + numval(c))` 求两个初始哈希，并用 $m-1$ 次乘法求 $d_m$。
 
-```c
-int H_0(string s, string p) {
-  int lp = ell(p);
-  int ls = ell(s);
-  int d_m = 1;
-  for (int j = 1; j < lp; j++) d_m *= d;
-  int hp = h(p, lp);
-  int hs = h(s, lp);
-
-  if (hp == hs) return 0;
-
-  for (int i = 1; i <= ls - lp; i++) {
-    hs = (d * (hs - numval(s[i - 1]) * d_m) + numval(s[i + lp - 1])) % q;
-    if (hp == hs) return i;
-  }
-
-  return -1;
-}
+```text
+hp = h(p,m); hs = h(s,m)
+for i = 0,...,n-m:
+    if hs == hp: return i
+    if i < n-m:
+        hs = mod_q(d*(hs-numval(s[i])*d_m)+numval(s[i+m]))
+return -1
 ```
 
-The time complexity of $H_0$ is $O(\ell(s) + \ell(p))$ since we are computing the hash values in constant time for each position and there are $O(\ell(s))$ positions.
+初始化为 $O(m)$，每次滚动为 $O(1)$，故共 $O(n+m)$。
 
-**Condition when $H_0$ does not give the correct solution**:
-The algorithm $H_0$ only checks for hash matches. In the rare case where different strings have the same hash value (hash collision), the algorithm might mistakenly report a false match.
+$H_0$ 错误当且仅当它找到的**第一个哈希相等窗口并不等于 $p$**。若没有哈希相等窗口，则必无真正匹配，返回 $-1$ 正确。
 
 ### (4)
 
-**Algorithm $H$**:
-1. Precompute $h(p, \ell(p))$.
-2. For $i = 0$ to $\ell(s) - \ell(p)$:
-   - Compute $h(s + i, \ell(p))$.
-   - If $h(s + i, \ell(p)) = h(p, \ell(p))$, then check `eq(s + i, p)`. If `eq(s + i, p) == 1`, return $i$.
+将上面算法的返回条件改成
 
-```c
-int H(string s, string p) {
-  int lp = ell(p);
-  int ls = ell(s);
-  int d_m = 1;
-  for (int j = 1; j < lp; j++) d_m *= d;
-  int hp = h(p, lp);
-  int hs = h(s, lp);
-
-  if (hp == hs && eq(s, p) == 1) return 0;
-
-  for (int i = 1; i <= ls - lp; i++) {
-    hs = (d * (hs - numval(s[i - 1]) * d_m) + numval(s[i + lp - 1])) % q;
-    if (hp == hs && eq(s + i, p) == 1) return i;
-  }
-
-  return -1;
-}
+```text
+if hs == hp and eq(s+i,p) == 1: return i
 ```
 
-**Time Complexity:**
+便得到 $H$。真正相等的串哈希一定相等，且扫描按起点递增进行，因此总能返回首个真正匹配。
 
-- Computing the initial hashes costs $O(\ell(p))$, and scanning the text costs $O(\ell(s))$ apart from calls to `eq`.
-- If `eq` is called at $c$ candidate positions, those checks cost $O(c\ell(p))$ in total.
-
-Thus the running time is
+设返回前实际检查了 $c$ 个候选窗口，总时间为
 
 $$
-O(\ell(s)+\ell(p)+c\,\ell(p)).
+O(n+m+cm).
 $$
 
-**Condition for $O(\ell(s)+\ell(p))$:** Under the stated assumption $c=O(1)$, the running time is $O(\ell(s)+\ell(p))$. In particular, if the first candidate matches, the scan can stop after $O(\ell(p))$ work.
+若 $c=O(1)$，即为 $O(n+m)$。当大量碰撞引发长字符比较，使比较总耗时超过线性界时，算法退化。例如允许的常数 $q=1$ 使所有窗口碰撞，取 $s=a^n,p=a^{m-1}b$，逐字符 `eq` 每次都比较 $m$ 个字符。
 
-**Worst case:** If many hash collisions cause repeated calls to `eq`, then
-$c=\ell(s)-\ell(p)+1$ is possible, giving
-$\Theta(\ell(s)\ell(p))$.
-
-## **Knowledge**
-
-字符串匹配 哈希算法 Rabin-Karp算法 复杂度分析
-
-### 难点思路
-
-此题的难点在于如何高效地计算字符串的哈希值，并利用哈希值进行匹配。在应对哈希碰撞时，我们需要进行字符串的实际比较，保证算法的正确性。
-
-### 解题技巧和信息
-
-1. **哈希算法**: 使用适当的哈希函数和模数 $q$ 来降低哈希碰撞的概率。
-2. **滚动哈希**: 是一种高效的技术,可以在 O(1) 时间内更新哈希值。
-3. **字符串比较**: 当哈希值匹配时，需要使用实际的字符串比较来确认结果。
-4. **复杂度分析**: 分析算法的平均情况和最坏情况的复杂度，以便选择合适的解决方案。
-
-### 重点词汇
-
-1. **Hash Function (哈希函数)**: A function that maps data of arbitrary size to fixed-size values.
-2. **Collision (碰撞)**: When two different inputs produce the same hash output.
-3. **Rabin-Karp Algorithm (Rabin-Karp 算法)**: A string matching algorithm that uses hash values for efficient searching.
-
-- string matching 字符串匹配
-- rolling hash 滚动哈希
-- time complexity 时间复杂度
-- worst-case scenario 最坏情况
-- hash collision 哈希冲突
-
-### 参考资料
-
-1. T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein, *Introduction to Algorithms*, 3rd Edition, Chapter 32: "String Matching".
+因此最坏上界为 $O((n-m+1)m)$，逐字符比较下上述例子达到该界；常见宽松写法为 $O(nm)$。仅有许多哈希相等位置并不足以断言退化，因为算法可能很早就返回。

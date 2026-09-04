@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目I 問題2
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 The following C code models the behavior of each philosopher in the dining philosophers problem.
@@ -90,83 +90,41 @@ $1$ 的二值信号量实现这两个函数；P、V 操作分别写作 `wait(X)`
 （3）对第（2）问的代码，假设任何已可运行的线程最终都会获得调度，判断某线程是否仍可能饥饿。若可能，描述饥饿发生的过程并简述如何修改代码以避免；若不可能，说明理由。
 
 ## **Kai**
+
 ### (1)
 
-In the given `pickup` and `putdown` functions, a deadlock may occur due to the circular wait condition. Here's the explanation:
+让五个线程都先完成 `wait(R[i])`，再各自执行第二个 `wait`。此时线程 $i$ 持有 $R[i]$，等待线程 $(i+1)\bmod5$ 持有的资源，形成环形等待，全部无法进入 `putdown`，故死锁。
 
-1. **Circular Wait Condition**:
-    - Each philosopher tries to pick up their left fork first by executing `wait(R[i])`.
-    - After picking up the left fork, each philosopher tries to pick up the right fork with `wait(R[(i + 1) % 5])`.
-2. **Deadlock Scenario**:
-    - Suppose all philosophers pick up their left forks simultaneously, i.e., Philosopher 0 picks up fork 0, Philosopher 1 picks up fork 1, and so on.
-    - Then, each philosopher tries to pick up their right fork, which is already held by the next philosopher. For example, Philosopher 0 waits for fork 1 (held by Philosopher 1), Philosopher 1 waits for fork 2 (held by Philosopher 2), and so on.
-    - As a result, all philosophers are stuck waiting for a fork that will never become available, causing a deadlock.
+```mermaid
+flowchart LR
+ P0["0 持有 R0"] -->|等待 R1| P1["1 持有 R1"]
+ P1 -->|等待 R2| P2["2 持有 R2"]
+ P2 -->|等待 R3| P3["3 持有 R3"]
+ P3 -->|等待 R4| P4["4 持有 R4"]
+ P4 -->|等待 R0| P0
+```
 
 ### (2)
 
-To avoid deadlock, we redefine the `pickup` and `putdown` functions using a different synchronization mechanism. The `test` function is called to check if a philosopher can start eating.
+用于许可进餐的信号量必须在启动线程前置为 $S[i]=0$，而 `mutex=1`。若所有信号量已按题面初始化为 $1$，可在启动前对每个 $S[i]$ 执行一次 `wait(S[i])`。
 
 ```c
 void test(int i) {
-  if (state[i] == waiting &&
-      state[(i + 4) % 5] != eating &&
-      state[(i + 1) % 5] != eating) {
-    state[i] = eating;
-    signal(S[i]);
-  }
+    if (state[i] == waiting &&
+        state[(i + 4) % 5] != eating &&
+        state[(i + 1) % 5] != eating) {
+        state[i] = eating;
+        signal(S[i]);
+    }
 }
 ```
 
-**Explanation**:
-- The `test` function checks if the philosopher `i` is in the `waiting` state and both neighbors are not `eating`.
-- If both conditions are met, the philosopher can proceed to eat by setting `state[i]` to `eating` and signaling the semaphore `S[i]` so that the philosopher can continue past `wait(S[i])` in the `pickup` function.
+`test` 在 `mutex` 保护下执行，只有两侧均未进餐时才发放许可，因此相邻线程不会同时进餐。若有人等待且无人进餐，检查等待者就会发放许可；正在进餐者放下餐具时也会检查两侧，故不会全体死锁。
+
+若严格保持原题 $S[i]=1$ 且不增加初始化操作，仅补上述 `test` 不能满足互斥要求：邻居已进餐时，新线程虽未获许可，仍会通过第一次 `wait(S[i])`。
 
 ### (3)
 
-**Yes, starvation can occur.** For example, let philosopher 0 be `waiting`. Philosophers 1 and 4 can alternate: whenever 1 executes `putdown`, 4 is still `eating`, so `test(0)` fails; before 4 executes `putdown`, 1 finishes thinking and starts eating again, so `test(0)` fails again. This schedule can repeat forever. Philosopher 0 remains blocked on `S[0]`, so the assumption that every enabled thread is eventually scheduled does not help.
+可能饥饿。在线程 $0$ 等待期间，让互不相邻的线程 $1,4$ 交替进餐，并使每次其中一人结束时另一人仍在进餐。于是两者每次调用 `test(0)` 都失败。线程 $0$ 一直阻塞，故“可运行线程最终获得调度”不能排除此情形。
 
-To ensure bounded waiting, keep requests in a FIFO queue protected by `mutex` and do not let a later request (including a neighbor reacquiring its forks) pass an older one. When the oldest request's two neighbors are no longer eating, signal its semaphore. A fair FIFO admission rule prevents starvation.
-
-## **Knowledge**
-
-并发控制 死锁 信号量 哲学家进餐问题 操作系统
-
-### 难点思路
-
-死锁的分析和避免是本题的难点之一。在分析死锁时，要考虑资源的分配和等待的顺序，并且必须设计机制来打破循环等待条件。
-
-**Note**: 为什么 (2) 的 `pickup` 中会出现先 `V(S[i])` 再 `P(S[i])` 的情况？
-
-1. 快速通过的情况：
-   - 如果哲学家进入 `pickup` 函数时，恰好他的两个邻居都没有在吃饭，那么 `test(i)` 函数会立即调用 `signal(S[i])`。
-   - 这样，当执行到 `wait(S[i])` 时，它会立即通过，哲学家可以开始吃饭。
-   - 这种情况下，哲学家几乎没有等待就获得了开始吃饭的许可。
-
-2. 等待的情况：
-   - 如果有邻居正在吃饭，`test(i)` 函数不会调用 `signal(S[i])`。
-   - 这时，哲学家会在 `wait(S[i])` 处阻塞。
-   - 当邻居吃完饭执行 `putdown` 时，会调用 `test` 函数检查等待的哲学家。
-   - 如果条件满足（比如这个等待的哲学家的另一个邻居也没在吃饭），then `signal(S[i])` 会被调用，唤醒等待的哲学家。
-
-这个机制的巧妙之处在于：
-
-1. 它允许哲学家在条件满足时快速获取资源（叉子）。
-2. 当条件不满足时，它能让哲学家有效地等待，而不会占用 `mutex` 锁。
-3. 它保证了系统的活性（liveness），因为每次有哲学家放下叉子时，都会检查是否可以唤醒等待的邻居。
-
-这种设计体现了并发编程中的一个重要原则：尽可能减少持有锁的时间，以提高并发性。通过将 " 等待条件满足 " 的操作（`wait(S[i])`）放在释放 `mutex` 之后，系统允许其他哲学家在这期间改变他们的状态。
-
-### 解题技巧和信息
-
-1. **避免死锁**: 要避免死锁，可以打破循环等待、占有且等待、不可剥夺条件中的至少一个。通过规定一个哲学家先尝试获取编号小的叉子，再获取编号大的叉子，或者使用信号量控制最多只有四个哲学家可以同时拿起叉子来避免死锁。
-2. **信号量使用**: 使用二元信号量来保证临界区的互斥访问，以及实现条件同步。
-
-### 重点词汇
-
-1. **Semaphore (信号量)**: A synchronization primitive used to control access to a common resource.
-2. **Deadlock (死锁)**: A situation where a set of processes are blocked because each process is holding a resource and waiting for another resource.
-3. **Starvation (饥饿)**: A situation where a process is perpetually denied necessary resources to proceed.
-
-### 参考资料
-
-1. A. Silberschatz, P. B. Galvin, and G. Gagne, *Operating System Concepts*, 9th Edition, Chapter 7: "Deadlocks".
+可在 `mutex` 下维护请求的 FIFO 队列，只允许队首在两侧空闲时取得许可，较晚请求不得越过队首；释放餐具时重新检查队首。在进餐会结束、锁获取也公平的条件下，队首最终获得餐具；每个请求前面只有有限个请求，故不会饥饿。

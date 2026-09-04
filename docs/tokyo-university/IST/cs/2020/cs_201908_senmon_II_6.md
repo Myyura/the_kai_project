@@ -10,7 +10,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2019年8月実施 専門科目II 問題6
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 The probability density function of the normal distribution $N(\mu, \sigma^2)$ with mean $\mu \in \mathbb{R}$ and variance $\sigma^2 > 0$ is given by
@@ -85,125 +85,73 @@ $(X^{(n-1)},Y^{(n)})$。
   表示更新后的 $(\mu_{t+1},\theta_{t+1})$。
 
 ## **Kai**
+
 ### (1)
 
-The random variable $Y$ is defined as $Y = \theta X + Z$, where $X \sim N(\mu, 1)$ and $Z \sim N(0, 1)$. Since $X$ and $Z$ are independent, we can calculate the expectation and variance of $Y$ as follows:
-
-1. **Expectation of $Y$**:
+由 $X,Z$ 独立，
 
 $$
-\mathbb{E}[Y] = \mathbb{E}[\theta X + Z] = \theta \mathbb{E}[X] + \mathbb{E}[Z] = \theta \mu + 0 = \theta \mu
-$$
-
-2. **Variance of $Y$**:
-
-$$
-\mathbb{V}[Y] = \mathbb{V}[\theta X + Z] = \theta^2 \mathbb{V}[X] + \mathbb{V}[Z] = \theta^2 \cdot 1 + 1 =\theta^2 + 1
+\boxed{\mathbb E[Y]=\theta\mu,\qquad\mathbb V[Y]=1+\theta^2.}
 $$
 
 ### (2)
 
-To find the conditional distribution of $X$ given $Y$, note that $Y = \theta X + Z$, where $X \sim N(\mu, 1)$ and $Z \sim N(0, 1)$. The joint distribution of $(X, Y)$ is bivariate normal, which implies that the conditional distribution $X|Y$ is also normal.
-
-1. **Expectation of $X|Y$**:
+固定 $Y=y$，联合密度中与 $x$ 有关的指数为
 
 $$
-\mathbb{E}[X|Y] = \mu + \frac{\theta}{\theta^2 + 1} (Y - \theta\mu)
+-\frac12\big[(x-\mu)^2+(y-\theta x)^2\big]
+=-\frac{1+\theta^2}{2}
+\left(x-\frac{\mu+\theta y}{1+\theta^2}\right)^2+C(y).
 $$
 
-2. **Variance of $X|Y$**:
+归一化后可知
 
 $$
-\mathbb{V}[X|Y] = \frac{1}{\theta^2 + 1}
+\boxed{X\mid Y=y\sim N\left(\frac{\mu+\theta y}{1+\theta^2},\frac1{1+\theta^2}\right).}
 $$
 
-This can be derived using the properties of conditional distributions for bivariate normal distributions.
+因此条件均值为 $(\mu+\theta Y)/(1+\theta^2)$，条件方差为 $1/(1+\theta^2)$。
 
 ### (3)
 
-The joint probability density function $p_{\mu, \theta}(\mathbf{x}^{(n)}, \mathbf{y}^{(n)})$ for the random variables $\mathbf{X}^{(n)} = (X_1, X_2, \ldots, X_n)$ and $\mathbf{Y}^{(n)} = (Y_1, Y_2, \ldots, Y_n)$ can be expressed as the product of the marginal distributions of $X_i$ and the conditional distributions of $Y_i$ given $X_i$:
+$X_i\sim N(\mu,1)$，且 $Y_i\mid X_i=x_i\sim N(\theta x_i,1)$。各样本独立，故
 
 $$
-p_{\mu, \theta}(\mathbf{x}^{(n)}, \mathbf{y}^{(n)}) = \prod_{i=1}^{n} \left( \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{(x_i - \mu)^2}{2}\right) \cdot \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{(y_i - \theta x_i)^2}{2}\right) \right)
-$$
-
-Expanding this, we get:
-
-$$
-p_{\mu, \theta}(\mathbf{x}^{(n)}, \mathbf{y}^{(n)}) = \frac{1}{(2\pi)^{n}} \exp\left(-\sum_{i=1}^{n} \left[\frac{(x_i - \mu)^2}{2} + \frac{(y_i - \theta x_i)^2}{2}\right]\right)
+\boxed{p_{\mu,\theta}(x^{(n)},y^{(n)})
+=(2\pi)^{-n}\exp\left\{-\frac12\sum_{i=1}^n
+\big[(x_i-\mu)^2+(y_i-\theta x_i)^2\big]\right\}.}
 $$
 
 ### (4)
-#### (i)
 
-The expectation $\mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}[\log p_{\mu, \theta}(\mathbf{X}^{(n)}, \mathbf{Y}^{(n)})]$ is given by:
+令
 
 $$
-\mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}[\log p_{\mu, \theta}(\mathbf{X}^{(n)}, \mathbf{Y}^{(n)})] = \mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}\left[-\sum_{i=1}^{n-1} \left(\frac{(x_i - \mu)^2}{2} + \frac{(y_i - \theta x_i)^2}{2}\right) - \left(\frac{(X_n - \mu)^2}{2} + \frac{(y_n - \theta X_n)^2}{2}\right)\right]
+\bar\mu=\frac{\mu_t+\theta_tY_n}{1+\theta_t^2},\qquad
+\bar\sigma^2=\frac1{1+\theta_t^2}.
 $$
 
-Simplifying further using the properties of the expectation for a normal distribution:
+**(i)** 利用 $\mathbb E[X_n]=\bar\mu$、$\mathbb E[X_n^2]=\bar\mu^2+\bar\sigma^2$，有
 
 $$
 \begin{aligned}
-&\mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}
-[\log p_{\mu, \theta}(\mathbf{X}^{(n)}, \mathbf{Y}^{(n)})]\\
-&=-n\log(2\pi)-\frac12\Bigg[
-\sum_{i=1}^{n-1}\big((x_i-\mu)^2+(y_i-\theta x_i)^2\big)
-+(\bar\mu-\mu)^2+\bar\sigma^2\\
-&\hspace{42mm}+(y_n-\theta\bar\mu)^2
-+\theta^2\bar\sigma^2\Bigg].
+Q(\mu,\theta)
+={}&-n\log(2\pi)\\
+&-\frac12\left\{
+\sum_{i=1}^{n-1}\big[(X_i-\mu)^2+(Y_i-\theta X_i)^2\big]
++(\bar\mu-\mu)^2+\bar\sigma^2
++(Y_n-\theta\bar\mu)^2+\theta^2\bar\sigma^2
+\right\}.
 \end{aligned}
 $$
 
-#### (ii)
-
-The update rule for $(\mu_{t+1}, \theta_{t+1})$ in the EM algorithm is obtained by maximizing the expression found in part (i):
+**(ii)** 分别令对 $\mu,\theta$ 的偏导为零，得
 
 $$
-(\mu_{t+1},\theta_{t+1})
-=\mathop{\arg\max}_{(\mu,\theta)\in\mathbb R^2}
--\frac12\Bigg[
-\sum_{i=1}^{n-1}\big((x_i-\mu)^2+(y_i-\theta x_i)^2\big)
-+(\bar\mu-\mu)^2+\bar\sigma^2
-+(y_n-\theta\bar\mu)^2+\theta^2\bar\sigma^2
-\Bigg].
+\boxed{\mu_{t+1}=\frac{\sum_{i=1}^{n-1}X_i+\bar\mu}{n},\qquad
+\theta_{t+1}=\frac{\sum_{i=1}^{n-1}X_iY_i+\bar\mu Y_n}
+{\sum_{i=1}^{n-1}X_i^2+\bar\mu^2+\bar\sigma^2}.}
 $$
 
-Differentiating this objective gives
-
-$$
-\mu_{t+1} = \frac{1}{n} \left(\sum_{i=1}^{n-1} x_i + \bar{\mu}\right)
-$$
-
-$$
-\theta_{t+1} = \frac{\sum_{i=1}^{n-1} y_i x_i + y_n \bar{\mu}}{\sum_{i=1}^{n-1} x_i^2 + \bar{\mu}^2 + \bar{\sigma}^2}
-$$
-
-This update rule depends on the observed data $\mathbf{X}^{(n-1)}, \mathbf{Y}^{(n)}$ and the estimates $\bar{\mu}, \bar{\sigma}^2$ obtained from the conditional expectation.
-
-## **Knowledge**
-
-正态分布 条件分布 数值期望 EM算法 最大似然估计
-
-### 难点思路
-
-推导条件分布涉及到二元正态分布的性质，尤其是推导条件期望和方差时，需要对协方差矩阵有深刻理解。EM 算法的难点在于构建对数似然函数的期望，并通过优化找到参数的更新规则。
-
-### 解题技巧和信息
-
-1. **条件分布**：对于二元正态分布，条件分布仍然是正态分布，且其参数可以通过边际分布的参数计算得到。
-2. **EM 算法**：EM 算法通过最大化对数似然函数的期望来迭代更新参数，对于缺失数据的问题尤为有效。
-3. **最大似然估计**：通常情况下，EM 算法能够保证参数的渐进一致性，即经过多次迭代，参数估计会收敛到真值。
-
-### 重点词汇
-
-- **Expectation-Maximization (EM) Algorithm**: 期望最大化算法
-- **Conditional distribution**: 条件分布
-- **Maximum likelihood estimation**: 最大似然估计
-- **Normal distribution**: 正态分布
-
-### 参考资料
-
-1. Bishop, C. M. (2006). *Pattern Recognition and Machine Learning*. Springer. Chapter 9: Mixture Models and EM.
-2. Casella, G., & Berger, R. L. (2001). *Statistical Inference* (2nd ed.). Duxbury. Chapter 7: Estimation.
+$Q$ 的 Hessian 为对角矩阵，对角元分别为 $-n$ 和
+$-(\sum_{i=1}^{n-1}X_i^2+\bar\mu^2+\bar\sigma^2)$，均严格为负，因此以上是唯一最大值点。
