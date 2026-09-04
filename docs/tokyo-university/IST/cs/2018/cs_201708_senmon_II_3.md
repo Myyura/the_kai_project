@@ -14,6 +14,30 @@ tags:
 
 ## **Description**
 
+Let $L(v)$ denote the set of leaves in the descendants of node $v$ in a tree, and $p(v,w)$ denote the number of edges of the simple path from node $v$ to node $w$. For a non-leaf node $v$, $\max_{w\in L(v)}p(v,w)$ is called the height of $v$. Let the height of a leaf be $0$. The height of the root of a tree is called the height of the tree.
+
+Here, we have a binary tree $T_n$ with height $n\ge0$, in which each node $v$ must have one of the following properties.
+
+- $v$ is a leaf.
+- $v$ has only one child, and the height of $v$ is $1$.
+- $v$ has two children, and the heights of the two children of $v$ differ by $1$.
+
+Let $N_n$ denote the number of nodes in $T_n$ for $n\ge0$. Let $r=(1+\sqrt5)/2$.
+
+Answer the following questions.
+
+(1) Calculate $N_5$.
+
+(2) Express $N_n$ in terms of $N_{n-1}$ and $N_{n-2}$ for $n\ge2$.
+
+(3) Prove that $N_n\ge r^n$ for every $n\ge0$.
+
+(4) Prove that $N_n\le r^{n+2}$ for every $n\ge0$.
+
+(5) Consider the problem of assigning each of given $N_n$ integers to a distinct node of $T_n$. The integer assigned to each node $v$ must be no smaller than any of the integers assigned to $v$'s children. Show an $O(r^n)$ algorithm that computes such an assignment, with a proof that the algorithm runs indeed in $O(r^n)$ time. Note that the $N_n$ integers may not be sorted in the input.
+
+### 题目描述
+
 树中结点 $v$ 的高度为它到后代叶结点的最大距离，叶结点高度为 $0$。给定高度为
 $n\ge0$ 的二叉树 $T_n$，每个结点满足以下一种情形：
 

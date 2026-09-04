@@ -12,6 +12,80 @@ tags:
 
 ## **Description**
 
+Denote the set of real numbers with $\mathbb R$ and the absolute value of a real value $w$ with $|w|$. For a $d$-dimensional real column vector $\boldsymbol w$, we write its $i$-th element as $w_i$, and define $\|\boldsymbol w\|_1=|w_1|+|w_2|+\cdots+|w_d|$ and $\|\boldsymbol w\|_2=\sqrt{w_1^2+w_2^2+\cdots+w_d^2}$. The transpose of $\boldsymbol w$ is written as $\boldsymbol w^\top$.
+
+A vector $\boldsymbol g\in\mathbb R^d$ is a subgradient of a convex function $f$ at $\boldsymbol x\in\mathbb R^d$ if
+
+$$
+\forall\boldsymbol z\in\mathbb R^d,\quad
+f(\boldsymbol z)\ge f(\boldsymbol x)+\boldsymbol g^\top(\boldsymbol z-\boldsymbol x)
+$$
+
+holds. The set of subgradients of a convex function $f$ at $\boldsymbol x$, $\{\boldsymbol g\in\mathbb R^d\mid\forall\boldsymbol z\in\mathbb R^d,\ f(\boldsymbol z)\ge f(\boldsymbol x)+\boldsymbol g^\top(\boldsymbol z-\boldsymbol x)\}$, is called the subdifferential of $f$ at $\boldsymbol x$, and is denoted by $\partial f(\boldsymbol x)$. You may use the following facts (i), (ii) and (iii).
+
+(i) A differentiable convex function $f(\boldsymbol x)$ satisfies
+
+$$
+\partial f(\boldsymbol x)=\{\nabla f(\boldsymbol x)\},\qquad
+\nabla f(\boldsymbol x)=
+\begin{pmatrix}
+\partial f(\boldsymbol x)/\partial x_1\\
+\vdots\\
+\partial f(\boldsymbol x)/\partial x_d
+\end{pmatrix}.
+$$
+
+(ii) For convex functions $f_1$ and $f_2$, it holds that $\partial(f_1+f_2)(\boldsymbol x)=\{\boldsymbol g_1+\boldsymbol g_2\mid \boldsymbol g_1\in\partial f_1(\boldsymbol x),\ \boldsymbol g_2\in\partial f_2(\boldsymbol x)\}$. (iii) $0\in\partial f(\boldsymbol w^*)$ is a necessary and sufficient condition that a convex function $f(\boldsymbol w)$ is minimized by $\boldsymbol w=\boldsymbol w^*$.
+
+Answer the following questions.
+
+(1) (a) For $f(w)=|w|$ ($w\in\mathbb R$), obtain $\partial f(w)$. (b) For $f(\boldsymbol w)=\|\boldsymbol w\|_1$ ($\boldsymbol w\in\mathbb R^d$), obtain $\partial f(\boldsymbol w)$.
+
+(2) For $f(w)=\frac12(w-z)^2+\beta|w|$ ($w,z\in\mathbb R$, $0<\beta\in\mathbb R$), obtain $\partial f(w)$. Also obtain $w^*\in\mathbb R$ that minimizes $f(w)$.
+
+(3) For $f(\boldsymbol w)=\frac12\|\boldsymbol w-\boldsymbol z\|_2^2+\beta\|\boldsymbol w\|_1$ ($\boldsymbol w,\boldsymbol z\in\mathbb R^d$, $0<\beta\in\mathbb R$), obtain $\partial f(\boldsymbol w)$. Also, assuming that $\boldsymbol w=\boldsymbol w^*\in\mathbb R^d$ minimizes $f(\boldsymbol w)$, and letting $j$ be an integer satisfying $1\le j\le d$, obtain a necessary and sufficient condition for $w_j^*=0$.
+
+Consider the problem of predicting one dimensional real-valued label $y\in\mathbb R$ from a $d$-dimensional real vector $\boldsymbol x\in\mathbb R^d$. Suppose that a set of $n$ training samples
+
+$$
+\{(\boldsymbol x_i,y_i)\mid\boldsymbol x_i\in\mathbb R^d,\ y_i\in\mathbb R,\ i=1,2,\ldots,n\}
+$$
+
+is given where $(\boldsymbol x_i,y_i)$ means that $y_i$ is the real-valued label of $\boldsymbol x_i$.
+
+By using a $d$-dimensional parameter $\boldsymbol w\in\mathbb R^d$, define a loss function as
+
+$$
+L(\boldsymbol w)=\frac1{2n}\sum_{i=1}^n(y_i-\boldsymbol w^\top\boldsymbol x_i)^2.
+$$
+
+We formulate the training of a predictor as the following optimization problem with a positive real value $\lambda$:
+
+$$
+\boldsymbol w^*=\underset{\boldsymbol w\in\mathbb R^d}{\operatorname{argmin}}
+\{L(\boldsymbol w)+\lambda\|\boldsymbol w\|_1\}.
+$$
+
+The following algorithm is known for obtaining the optimal solution $\boldsymbol w^*$. It iteratively solves the optimization problem ($\dagger$) from an initial value $\boldsymbol w^{(0)}\in\mathbb R^d$ and using the step size $\eta_t>0$:
+
+$$
+\boldsymbol w^{(t+1)}
+=\underset{\boldsymbol w\in\mathbb R^d}{\operatorname{argmin}}
+\left\{
+\nabla L(\boldsymbol w^{(t)})^\top(\boldsymbol w-\boldsymbol w^{(t)})
++\lambda\|\boldsymbol w\|_1
++\frac1{2\eta_t}\|\boldsymbol w-\boldsymbol w^{(t)}\|_2^2
+\right\},
+\qquad t=0,1,2,\ldots
+\tag{†}
+$$
+
+Answer the following question.
+
+(4) Express $a\in\mathbb R$ using $\eta_t$ and $\lambda$ such that $w_j^{(t)}-\eta_t\frac{\partial L}{\partial w_j}(\boldsymbol w^{(t)})\in[-a,a]$ is a necessary and sufficient condition for $w_j^{(t+1)}=0$, where $j$ is an integer satisfying $1\le j\le d$.
+
+### 题目描述
+
 对 $\boldsymbol w\in\mathbb R^d$，定义
 $\|\boldsymbol w\|_1=\sum_i|w_i|$、$\|\boldsymbol w\|_2=(\sum_iw_i^2)^{1/2}$。若对所有 $\boldsymbol z$ 都有
 

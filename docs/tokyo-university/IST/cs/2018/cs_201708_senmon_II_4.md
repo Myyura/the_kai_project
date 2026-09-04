@@ -12,6 +12,19 @@ tags:
 
 ## **Description**
 
+Answer the following questions regarding cache memory of a microprocessor with 32-bit memory-addressing.
+
+(1) Consider cache memory with a capacity of $2^{15}$ bytes and a block size of 64 bytes. The cache memory uses a full associative scheme, a two-way set-associative scheme, or a direct mapping scheme. For each of those schemes, obtain the bit length for each of a tag, an index, and an offset.
+
+(2) Consider cache memory with a capacity of 64 bytes and a block size of 8 bytes. Obtain the number of cache hits, when the hexadecimal memory addresses below are accessed by 4-byte read operations in this order, in case that the cache memory uses a full associative scheme, a two-way set-associative scheme, and a direct mapping scheme, respectively. Assume that the cache memory is empty at the beginning, and the cache block is replaced based on the LRU (Least Recently Used) algorithm.
+
+```text
+0x20, 0x48, 0x40, 0x4C, 0x58, 0x80, 0xB8, 0xC8, 0x40,
+0x44, 0x48, 0x4C, 0x50, 0x54, 0x58, 0x30, 0x28
+```
+
+### 题目描述
+
 考虑内存地址宽度为 $32$ bit 的微处理器缓存。
 
 （1）缓存数据容量为 $2^{15}$ bytes，块大小为 $64$ bytes。对全相联、2 路组相联和直接映射三种方式，分别求地址中 tag、index、offset 的位数。

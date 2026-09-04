@@ -12,6 +12,45 @@ tags:
 
 ## **Description**
 
+Consider the problem of obtaining a sequence of part-of-speech (POS) tags $\mathbf t=(t_1,\ldots,t_\ell)$ for a given natural language sentence (word sequence) $\mathbf w=(w_1,\ldots,w_\ell)$. For example, for the following four-word sentence
+
+$$
+(w_1,w_2,w_3,w_4)=(\text{John},\text{wrote},\text{a},\text{book}),
+$$
+
+our goal is to output the following POS tag sequence.
+
+$$
+(t_1,t_2,t_3,t_4)=(\text{NOUN},\text{VERB},\text{DET},\text{NOUN})
+$$
+
+In this example, NOUN, VERB, and DET are POS tags, denoting noun, verb, and determiner, respectively. $W$ is a finite set of all words, and $T$ is a finite set of all POS tags. Suppose that a POS-tagged corpus $D=\{(\mathbf w^{(k)},\mathbf t^{(k)})\mid k\in\{1,\ldots,N\}\}$ ($\mathbf w^{(k)}$ is a $k$-th sentence in $D$, $\mathbf t^{(k)}$ is its POS tag sequence, and $N>0$ is the number of elements in $D$) is given as training data. In the following, for a word sequence $\mathbf w=(w_1,\ldots,w_\ell)$, its length $\ell$ is represented as $|\mathbf w|$.
+
+Answer the following questions.
+
+(1) Consider the probability $p_u(t\mid w)$ for assigning a POS tag $t\in T$ to a word $w\in W$, and define the probability function $p_u(\mathbf t\mid\mathbf w)$ for assigning a POS tag sequence $\mathbf t$ to a word sequence $\mathbf w$ as follows.
+
+$$
+p_u(\mathbf t\mid\mathbf w)\equiv\prod_{i=1}^{|\mathbf w|}p_u(t_i\mid w_i)
+$$
+
+Supposing each element of training data $D$ is independently distributed following $p_u(\mathbf t\mid\mathbf w)$, answer a method for computing the maximum likelihood estimate of $p_u(t\mid w)$.
+
+(2) Assume that $p_u(t\mid w)$ is given for each $w\in W,t\in T$. Describe an algorithm to obtain a POS tag sequence $\mathbf t$ that maximizes $p_u(\mathbf t\mid\mathbf w)$ for an input sentence $\mathbf w$.
+
+(3) Consider the probability $p_b(t\mid v,w)$ for assigning a POS tag $t\in T$ to a word $w\in W$ when a word $v\in W$ immediately precedes $w$ in a sentence. Note that $v$ is considered as a special word `<s>` when $w$ is the first word of the sentence. The probability function $p_b(\mathbf t\mid\mathbf w)$ is defined as follows.
+
+$$
+p_b(\mathbf t\mid\mathbf w)\equiv
+p_b(t_1\mid\text{<s>},w_1)\prod_{i=2}^{|\mathbf w|}p_b(t_i\mid w_{i-1},w_i)
+$$
+
+Supposing each element of training data $D$ is independently distributed following $p_b(\mathbf t\mid\mathbf w)$, answer a method for computing the maximum likelihood estimate of $p_b(t\mid v,w)$.
+
+Also, assuming that $p_b(t\mid v,w)$ is given for each $v\in W\cup\{\text{<s>}\},w\in W,t\in T$, describe an algorithm to obtain a POS tag sequence $\mathbf t$ that maximizes $p_b(\mathbf t\mid\mathbf w)$ for an input sentence $\mathbf w$.
+
+(4) Explain why POS tagging using hidden Markov models is expected to attain higher accuracy than the methods described in questions (1) to (3). You must describe the definition of hidden Markov models and the POS tagging algorithm using hidden Markov models, and provide an explanation including an example where the methods described in questions (1) to (3) output a wrong POS tag but the POS tagging using hidden Markov models outputs a correct POS tag.
+
 ### 题目描述
 
 对句子（单词序列）$\mathbf w=(w_1,\ldots,w_\ell)$，输出词性序列 $\mathbf t=(t_1,\ldots,t_\ell)$。例如 `(John, wrote, a, book)` 对应 `(NOUN, VERB, DET, NOUN)`。$W,T$ 分别是有限的单词集、词性集。训练数据为已标注语料

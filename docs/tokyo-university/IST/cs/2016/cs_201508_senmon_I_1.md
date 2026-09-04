@@ -11,6 +11,33 @@ tags:
 
 ## **Description**
 
+Given two $n$-dimensional integer vectors $x$ and $y$, let us write $x\doteq y$ if we have $x_i\equiv y_i\pmod 2$ for each $i\in[1,n]$. Here $x_i$ and $y_i$ denote the $i$-th elements of the vectors $x$ and $y$, respectively.
+Likewise, given two $n\times n$ integer matrices $A$ and $B$, we write $A\doteq B$ if we have $a_{ij}\equiv b_{ij}\pmod 2$ for each $i,j\in[1,n]$. Here $a_{ij}$ and $b_{ij}$ denote the elements in the $i$-th row and the $j$-th column of the matrices $A$ and $B$, respectively.
+
+In what follows, a vector all of whose elements are either $0$ or $1$ is referred to as a “0-1 vector”. A vector each of whose elements is chosen from $0$ and $1$, with equal probabilities and independently from the other elements, is referred to as a “random 0-1 vector”. The zero vector (i.e., the vector all of whose elements are $0$) is denoted by $o$; and the zero matrix (i.e., the matrix all of whose elements are $0$) is denoted by $O$.
+
+Answer the following questions.
+
+(1) Let $x\in\{0,1\}^3$ be a random 0-1 vector. Derive the probability with which
+
+$$
+\begin{pmatrix}
+0&1&1\\
+1&0&1\\
+1&1&0
+\end{pmatrix}\cdot x\doteq o
+$$
+
+holds.
+
+(2) Let $A$ be an $n\times n$ integer matrix that does not satisfy $A\doteq O$, and $x\in\{0,1\}^n$ be a random 0-1 vector. Prove that the probability with which $A\cdot x\doteq o$ holds is no greater than $1/2$.
+
+(3) Let $A$, $B$ and $C$ be $n\times n$ matrices that do not satisfy $A\cdot B\doteq C$, and $x\in\{0,1\}^n$ be a random 0-1 vector. Prove that the probability with which $A\cdot B\cdot x\doteq C\cdot x$ holds is no greater than $1/2$.
+
+(4) Show an $O(n^2)$ algorithm that: takes three $n\times n$ integer matrices $A$, $B$ and $C$; always answers “SATISFIED” if the condition $A\cdot B\doteq C$ is satisfied; and answers “NOT SATISFIED”, with a probability greater than $9/10$, if the condition $A\cdot B\doteq C$ is not satisfied.
+
+### 题目描述
+
 向量、矩阵之间的等号均按元素模 $2$ 理解。随机 $0$-$1$ 向量是指各分量独立且等概率取 $0,1$ 的向量，零向量和零矩阵分别记为 $o,O$。回答下列问题。
 
 （1）对随机向量 $x\in\{0,1\}^3$，求

@@ -12,6 +12,18 @@ tags:
 
 ## **Description**
 
+In this problem, we construct SRAM with 2-bit address width and 4-bit data width. All symbols for inputs and outputs represent 1-bit signals taking values of 0 or 1. We use memory cells with the following specifications. A memory cell has inputs $I$, $W$, and $S$ and an output $O$, and stores a 1-bit value. At a falling edge of $W$, the value of $I$ is stored in the memory cell. While $S$ is 1, the stored value is output to $O$, and otherwise 0 is output to $O$. In your circuit designs, you can use AND, OR, NOT and XOR gates in addition to the specified ones.
+
+Answer the following questions.
+
+(1) Design a 2-bit decoder. It should have inputs $A_0$ and $A_1$, and outputs $B_0$, $B_1$, $B_2$, and $B_3$. $B_i$ ($i=0,1,2,3$) outputs 1 if $i=A_0+2A_1$, and outputs 0 otherwise.
+
+(2) Let $V_{ij}$ be the memory cell for the $j$-th bit of data stored in address $i$ ($i,j=0,1,2,3$). Design a circuit to read the stored data, assuming that values are already stored in the memory cells. The circuit has inputs $A_0$ and $A_1$, and outputs $V_0$, $V_1$, $V_2$, and $V_3$. If $A_0+2A_1=i$, then the value stored at $V_{ij}$ is output as $V_j$ ($j=0,1,2,3$). You can use the decoder designed in question (1).
+
+(3) Add the functionality of storing data to the circuit designed in question (2). Inputs $W_M$, $U_0$, $U_1$, $U_2$ and $U_3$ should be added. At a falling edge of $W_M$, the value of $U_j$ is stored in the memory cell $V_{ij}$ ($j=0,1,2,3$) for $A_0+2A_1=i$. In this case, the other memory cells keep the stored values. Assume that the values of $A_0$ and $A_1$ are kept unchanged while $W_M$ is 1. You may answer only the differences from your answer to question (2).
+
+### 题目描述
+
 设计地址宽度为 $2$ bit、数据宽度为 $4$ bit 的 SRAM。所有输入输出均为取值
 $0$ 或 $1$ 的单比特信号。存储单元具有输入 $I,W,S$ 和输出 $O$：$W$ 的下降沿把
 $I$ 写入单元；$S=1$ 时从 $O$ 输出所存位，否则输出 $0$。除存储单元外可用

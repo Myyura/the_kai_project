@@ -11,6 +11,28 @@ tags:
 
 ## **Description**
 
+Consider a system in which processes $p_1,p_2,\ldots,p_M$ operate using some of resources $r_1,r_2,\ldots,r_N$.
+We assume the following.
+
+- Each process $p_i$ needs to simultaneously use $n_i$ resources in order to complete its task.
+- Resources get occupied but they do not get consumed. That is, even if a process $p_i$ operates using a resource $r_j$, another process $p_k$ can use the same resource $r_j$ after $p_i$ completes its task.
+- Resources $r_1,r_2,\ldots,r_N$ are all of the same kind. That is, only the number of resources matters to each process.
+- It is prohibited that two processes use the same resource at the same time.
+
+Answer the following questions.
+
+(1) Let $M=N=2$ and $n_1=n_2=2$. Describe an example of deadlock that may occur in this system. Describe, in particular, what timing of assignment and release of resources leads to deadlock.
+
+(2) Describe an example of a technique that prevents deadlock in the system in Question (1).
+Discuss restrictions and disadvantages of the technique, if any.
+
+(3) Let $M=3$, $N=4$ and $n_1=n_2=n_3=2$. Answer whether this system exhibits deadlock.
+Explain why.
+
+(4) Let $M,N$ be arbitrary integers that are no less than $1$; and assume that $1\le n_i\le N$ holds for each $i\in[1,M]$. Let us define $n=n_1+n_2+\cdots+n_M$. Give, in terms of $M,N$, the maximum value of $n$ for which the system is guaranteed not to exhibit deadlock for each choice of $n_1,\ldots,n_M$. Explain why.
+
+### 题目描述
+
 系统有进程 $p_1,\ldots,p_M$ 和同类资源 $r_1,\ldots,r_N$。进程 $p_i$ 必须同时占有 $n_i$ 个资源才能完成；资源只被占用而不被消耗，进程完成后会释放；同一资源不能同时分配给多个进程。
 
 （1）当 $M=N=2$ 且 $n_1=n_2=2$ 时，举例说明死锁发生的资源分配与释放时序。

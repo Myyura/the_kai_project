@@ -10,6 +10,24 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+Answer the following questions.
+
+(1) Express each of $\cos(\alpha+\beta)$ and $\sin(\alpha+\beta)$ with $\cos(\alpha)$, $\sin(\alpha)$, $\cos(\beta)$, and $\sin(\beta)$.
+
+(2) Suppose $0\le\alpha<\pi/2$. Express each of $\cos(\alpha/2)$ and $\sin(\alpha/2)$ with $\cos(\alpha)$ and $\sin(\alpha)$.
+
+(3) Suppose $0\le\alpha<\pi/2$. Consider computing each of $\cos(\alpha/2)$ and $\sin(\alpha/2)$ using $\cos(\alpha)$ and $\sin(\alpha)$ with finite precision, by the expressions obtained in Question (2). Is there a risk of losing significant digits when $\alpha$ is close to zero? If there is, improve the expressions to avoid this loss.
+
+(4) Suppose that $\alpha$ is expressed as $\frac{\pi}{2}\sum_{i=1}^{N}b_i2^{-i}$, where $N$ is a natural number and $b_i$ $(i=1,2,\ldots,N)$ is either 0 or 1.
+
+(a) For $n=1,2,\ldots,N$, we define $\alpha_n=\frac{\pi}{2}\sum_{i=1}^{n}b_i2^{-i}$. Give expressions to compute $\cos(\alpha_{n+1})$ and $\sin(\alpha_{n+1})$ using $\cos(\alpha_n)$ and $\sin(\alpha_n)$, for $n=1,2,\ldots,N-1$.
+
+(b) Give an algorithm to compute $\cos(\alpha)$ and $\sin(\alpha)$ using only the four arithmetic operations $(+,-,\times,/)$ and the extraction of square root $(\sqrt{\ })$.
+
+(5) We define $\cosh(\alpha)=\frac{e^\alpha+e^{-\alpha}}{2}$ and $\sinh(\alpha)=\frac{e^\alpha-e^{-\alpha}}{2}$. Suppose that $0\le x<1$ and $x$ is expressed in a binary representation with finite precision. Design an algorithm to compute $\cosh(x\log_e2)$ and $\sinh(x\log_e2)$ using only the four arithmetic operations $(+,-,\times,/)$ and the extraction of square root $(\sqrt{\ })$, and describe an outline of the algorithm.
+
+### 题目描述
+
 回答下列问题。
 
 （1）用 $\cos\alpha,\sin\alpha,\cos\beta,\sin\beta$ 表示 $\cos(\alpha+\beta)$ 和 $\sin(\alpha+\beta)$。

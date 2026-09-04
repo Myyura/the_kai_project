@@ -10,6 +10,32 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+Given a sequence $A:a_1,a_2,\ldots,a_n$ of pairwise distinct numbers, a sequence $a_{c_1},a_{c_2},\ldots,a_{c_k}$ with $1\le c_1<c_2<\cdots<c_k\le n$ is called a *subsequence* of $A$. A subsequence $a_{c_1},a_{c_2},\ldots,a_{c_k}$ is called an *increasing subsequence* if $a_{c_i}<a_{c_j}$ holds for all $i,j$ such that $i<j$. Similarly, it is called a *decreasing subsequence* if $a_{c_i}>a_{c_j}$ holds for all $i,j$ such that $i<j$.
+
+Answer the following question.
+
+(1) For the sequence
+
+$$
+A_0:\ 5,2,3,9,6,8
+$$
+
+show its longest increasing subsequence.
+
+Given a sequence $A:a_1,a_2,\ldots,a_n$ of pairwise distinct numbers and an integer $i$ such that $1\le i\le n$, consider the set $S_i$ of increasing subsequences of $A$ whose last element is $a_i$, and let $\ell_i$ denote the length of a longest element of $S_i$. For example, for the sequence $A_0$ in Question (1) we have $S_4=\{(9),(5,9),(2,9),(3,9),(2,3,9)\}$ and $\ell_4=3$.
+
+Answer the following questions.
+
+(2) For the sequence $A_0$ in Question (1), compute $\ell_1,\ell_2,\ell_3$ and $\ell_5,\ell_6$.
+
+(3) Given a sequence $A:a_1,a_2,\ldots,a_n$ of pairwise distinct numbers, let $\ell$ denote the length of a longest increasing subsequence. Using $\ell_i$ that is defined above, we let $d_m$ denote the number of $i$'s such that $\ell_i=m$. Show that there exists $m$ such that $d_m\ge n/\ell$.
+
+(4) In the setting of Question (3), the length of a longest decreasing subsequence of $A$ is not smaller than $n/\ell$. Show this fact.
+
+(5) Every sequence of pairwise distinct numbers of length $n$ has, either: an increasing subsequence of length not smaller than $\sqrt n$; or a decreasing subsequence of length not smaller than $\sqrt n$. Show this fact.
+
+### 题目描述
+
 给定两两不同的数列 $A=(a_1,\ldots,a_n)$。保持下标递增而抽取的序列称为子列；其值严格递增或严格递减时，分别称为递增子列或递减子列。
 
 （1）求 $A_0=(5,2,3,9,6,8)$ 的一个最长递增子列。

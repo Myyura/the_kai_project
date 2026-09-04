@@ -11,6 +11,32 @@ tags:
 
 ## **Description**
 
+Let $A$ be a propositional variable, and $L_i$ be a literal (i.e., a propositional variable or negation of a propositional variable). In this problem, a propositional formula of the following form is called a clause.
+
+$$
+L_1\land\cdots\land L_n\supset A
+$$
+
+If $n=1$, it is of the form $L_1\supset A$, and if $n=0$, it is of the form $A$. Hereinafter, $\Pi$ is a set of clauses, and $M$ is a set of propositional variables. If all clauses in $\Pi$ are true under the interpretation in which all propositional variables in $M$ are true and the other variables are false, then $M$ is called a model of $\Pi$. The inclusion relation between sets is naturally defined between models.
+
+Answer the following questions.
+
+(1) Let $\Pi_0=\{P,P\supset Q,Q\land\neg R\supset S,P\land\neg S\land\neg T\supset T\}$. Enumerate all the subsets of $\{P,Q,R,S,T\}$ that are models of $\Pi_0$.
+
+We write $\Pi_M$ for the set of clauses obtained from $\Pi$ by (i) removing all the clauses that contain negation of a propositional variable in $M$ in the left hand side of $\supset$, and then (ii) deleting all the negated literals (negation of propositional variables) from the remaining clauses.
+
+(2) For $\Pi_0$ in question (1), if $M_0=\{P,Q,S\}$, what is $(\Pi_0)_{M_0}$?
+
+(3) Show that if a model $M'$ of $\Pi_M$ satisfies $M\subseteq M'$, then $M'$ is a model of $\Pi$.
+
+(4) Show that if a model $M'$ of $\Pi$ satisfies $M'\subseteq M$, then $M'$ is a model of $\Pi_M$.
+
+(5) For $\Pi_0$ and $M_0$ in question (2), obtain the minimum model of $(\Pi_0)_{M_0}$. Here, a model $M'$ of $\Pi_M$ is called a minimum model of $\Pi_M$ if $M'\subseteq M''$ holds for every model $M''$ of $\Pi_M$.
+
+(6) Show that if the minimum model of $\Pi_M$ coincides with $M$, then $M$ is a minimal model of $\Pi$. Here, a model $M'$ of $\Pi$ is called a minimal model of $\Pi$ if there does not exist any model $M''$ of $\Pi$ such that $M''\subsetneq M'$.
+
+(7) Is a minimal model $M$ of $\Pi$ always a minimum model of $\Pi_M$? If so, prove the fact. Otherwise, give a counterexample.
+
 ### 题目描述
 
 设 $A$ 为命题变量，$L_i$ 为文字（命题变量或其否定）。本题称

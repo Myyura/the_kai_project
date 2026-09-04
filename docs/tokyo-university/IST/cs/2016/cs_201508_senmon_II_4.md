@@ -12,6 +12,41 @@ tags:
 
 ## **Description**
 
+Consider the following situation on cache. The cache has fixed-length block size of $L$ bytes, and is $W$-way set-associative or direct-mapped (i.e. $W=1$). Assume write-back cache with the LRU replacement policy.
+
+We consider multiplication of two $N\times N$ matrices in this problem. The matrices are declared in C language as follows.
+
+```c
+float A[N][N], B[N][N], C[N][N];
+```
+
+Here the size of float is $4$ bytes, the matrices A, B, and C are allocated to contiguous areas of memory, and the format is row-major order (that is, the element that follows A[0][0] is A[0][1]). Assume that the address of the first element of A is aligned to the block size $L$. The computation (called “matrix multiplication” hereafter) is the following.
+
+```c
+for (i=0; i< N; i++)
+  for (k=0; k< N; k++) {
+    float a_ik = A[i][k];
+    for (j=0; j< N; j++) {
+      float b_kj = B[k][j];
+      C[i][j] += a_ik * b_kj;
+    }
+  }
+```
+
+In calculating cache hit ratios, only the data access to the arrays A, B and C should be taken into account. Disregard access to the other data and instruction fetch.
+
+Answer the following questions.
+
+(1) Describe briefly why cache can accelerate computation in general.
+
+(2) Assume that the cache capacity is $8192$ bytes, $L=64$ and $W=4$. Calculate the cache hit ratio (approximately) in matrix multiplication with $N=512$.
+
+(3) Next, assume that the cache capacity is $2048$ bytes, $L=64$ and $W=1$. Calculate the cache hit ratio (approximately) in matrix multiplication with $N=512$.
+
+(4) Assume the same conditions as Question (3). Describe one programming technique that speeds up the matrix multiplication, and explain the speed-up effect quantitatively, for example by calculating the cache hit ratio. (You can introduce your own assumptions, if you want, for example on the latencies and the bandwidths of the main memory and the cache.)
+
+### 题目描述
+
 缓存块大小为 $L$ 字节，采用 $W$ 路组相联（$W=1$ 为直接映射）、LRU 替换和写回。三个 $N\times N$ 的 `float` 矩阵 $A,B,C$ 在内存中依次相邻地连续排列，各矩阵内部按行优先，`float` 为 $4$ 字节，且 $A[0][0]$ 按 $L$ 对齐。矩阵乘法代码为
 
 ```c

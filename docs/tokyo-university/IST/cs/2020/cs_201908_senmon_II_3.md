@@ -12,6 +12,37 @@ tags:
 
 ## **Description**
 
+Let us consider representing an orientation of an object in a three-dimensional space as a rotation from a canonical orientation. In the following, we consider the orientation of the object consisting of four cubes as shown in Figures 1 and 2 (note that each pair of cubes placed side by side shares a surface). We also define the canonical orientation as the one illustrated in Figure 1. Note that the center of the cube at the lower left in Figure 1 is placed at the origin, and the center of each cube lies on the $x$, $y$, or $z$ axis. Figure 2 shows another orientation of this object, in which the center of the cube at the lower right is placed at the origin, and the center of each cube lies on the $x$, $y$, or $z$ axis. When you draw another orientation of this object, you need to draw it with the $x,y,z$ axes from the same point of view as Figures 1 and 2. Angles must be represented in radian.
+
+Answer the following questions.
+
+Figures 1 and 2 are specified geometrically below, with the cube side length taken as one unit.
+
+| Figure | Centers of the four cubes |
+|---|---|
+| Figure 1 | $(0,0,0),(0,1,0),(0,2,0),(0,0,1)$ |
+| Figure 2 | $(0,0,0),(0,-1,0),(0,-2,0),(0,0,1)$ |
+
+Let us represent an orientation of the object using a triplet $(\theta_x,\theta_y,\theta_z)$ (called, Euler angles) of the angles of rotations from the canonical orientation given in Figure 1. Namely, the object is rotated around the $x$ axis by the angle $\theta_x$, around the $y$ axis by the angle $\theta_y$, and around the $z$ axis by the angle $\theta_z$ in this order, and the angle of a rotation around each axis is positive if the rotation is in the clockwise direction when viewed from the negative-to-positive direction of the axis.
+
+(1) Draw the object with the orientation represented by Euler angles $(\pi,\pi,0)$.
+
+(2) Answer Euler angles given as the elementwise arithmetic mean of the two triplets of Euler angles, $(0,0,0)$ (corresponding to the canonical orientation) and $(\pi,\pi,0)$. Also, draw the object with the orientation represented by the mean Euler angles.
+
+Let us represent an orientation of the object using a $3\times3$ transformation matrix that corresponds to a rotation from the canonical orientation given in Figure 1. Note that a point on the object at a three-dimensional coordinate $v$ moves to another three-dimensional coordinate $Rv$ through the rotation by a transformation matrix $R$.
+
+(3) Answer the transformation matrix that represents the orientation shown in Figure 2.
+
+(4) Answer the transformation matrix given as the elementwise arithmetic mean of the two transformation matrices corresponding to the orientations shown in Figures 1 and 2. Also, draw and describe the shape of the object obtained by applying the mean transformation matrix to the object shown in Figure 1.
+
+Let us represent an orientation of the object using a quaternion that expresses a rotation from the canonical orientation given in Figure 1. A quaternion is a four-dimensional unit vector, and a quaternion that expresses the three-dimensional rotation centered at the origin around a three-dimensional unit vector $v=(v_x,v_y,v_z)$ with an angle $\theta$ is represented as $(v_x\sin\frac\theta2,v_y\sin\frac\theta2,v_z\sin\frac\theta2,\cos\frac\theta2)$.
+
+Note that the angle of a rotation around the three-dimensional unit vector is positive if the rotation is in the clockwise direction when the unit vector is viewed from its start point.
+
+(5) Answer the quaternion that corresponds to the orientation shown in Figure 2. There are two answers for this question; give both of the two answers.
+
+(6) Answer the quaternion given as the spherical linear average of the two quaternions corresponding to the orientations shown in Figures 1 and 2. There are two answers for this question; give both of the two answers. Also, draw the object with the orientation represented by the averaged quaternions. Note that the spherical linear average of two quaternions $q_1$ and $q_2$ is given as $\frac{\sin0.5\varphi}{\sin\varphi}q_1+\frac{\sin0.5\varphi}{\sin\varphi}q_2$ where $\varphi=\cos^{-1}(q_1\cdot q_2)$ $(0\le\varphi\le\pi)$; the spherical linear average is undefined when $\sin\varphi=0$.
+
 ### 题目描述
 
 物体由四个相邻处共面的同样大小的立方体组成，姿态视作从标准姿态绕原点旋转所得。为描述图形，取立方体边长为单位长度。图1的四个立方体中心为

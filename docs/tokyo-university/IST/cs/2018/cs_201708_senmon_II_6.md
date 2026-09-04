@@ -13,6 +13,36 @@ tags:
 
 ## **Description**
 
+Consider the decomposition time of an RNA molecule. Assume that the probability density function of the decomposition time $T$ is
+
+$$
+f_T(t)=\lambda e^{-\lambda t},\qquad t\ge0,
+$$
+
+where $\lambda$ is a positive real constant.
+
+Answer the following questions.
+
+(1) Calculate the cumulative distribution function
+
+$$
+F_T(t)=\int_0^t f_T(x)\,dx.
+$$
+
+Also compute the median of $T$.
+
+(2) We measured the decomposition times $T_i$ ($i=1,\ldots,n$) of $n$ RNA molecules. Assume that the decomposition time of each RNA molecule follows the probability density function $f_T(t)$ independently and identically. Calculate the expected value and the variance of
+
+$$
+\mu_T=\frac{\sum_{i=1}^nT_i}{n}.
+$$
+
+(3) Let $T_{\max}=\max\{T_1,\ldots,T_n\}$, which is the maximum of the measured times $T_i$ in question (2). Let $\operatorname{Prob}(T_{\max}>t)$ denote the probability that $T_{\max}>t$. Give an expression for $\operatorname{Prob}(T_{\max}>t)$ in terms of $F_T(t)$.
+
+(4) Calculate the probability density function $f_{T_{\max}}(t)$ of $T_{\max}$, and the expected value of $T_{\max}$.
+
+### 题目描述
+
 RNA 分子的分解时间 $T$ 的概率密度为
 
 $$

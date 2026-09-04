@@ -12,6 +12,44 @@ tags:
 
 ## **Description**
 
+Consider the pattern recognition problem of classifying a $d$-dimensional real vectorial pattern $x\in\mathbb R^d$ into one of the two classes $y=+1,-1$. For training a classifier, suppose that $n$ training samples
+
+$$
+\{(x_i,y_i)\mid x_i\in\mathbb R^d,\ y_i\in\{+1,-1\},\ i=1,\ldots,n\}
+$$
+
+are provided, where $(x_i,y_i)$ means that the pattern $x_i$ belongs to the class $y_i$.
+
+Answer the following questions.
+
+(1) Among the $n$ training samples, let $n_+$ and $n_-$ be the numbers of patterns in the classes $+1$ and $-1$, respectively. Find the mean vector $c_+$ of the $n_+$ patterns in the class $+1$, and the mean vector $c_-$ of the $n_-$ patterns in the class $-1$.
+
+(2) Consider the classifier that assigns a sample $x$ to the class $+1$ if $\|x-c_+\|\lt\|x-c_-\|$, and to the class $-1$ if $\|x-c_+\|>\|x-c_-\|$. Here $\|\cdot\|$ denotes the Euclidean norm. Give an equation for the boundary between: the region to which the patterns classified into the class $+1$ belong; and the region to which the patterns classified into the class $-1$ belong.
+
+For a parameter $w\in\mathbb R^d$, consider the linear classifier that assigns a sample $x$ to the class $+1$ if $w^\mathsf Tx>0$, and to the class $-1$ if $w^\mathsf Tx\lt0$. Here $(\cdot)^\mathsf T$ denotes the transpose. Let us call the value $y_iw^\mathsf Tx_i$ the margin for the $i$-th training sample $(x_i,y_i)$. Then the condition for this linear classifier to correctly classify the pattern $x_i$ into the class $y_i$ can be expressed, in terms of the margin, as $y_iw^\mathsf Tx_i>0$.
+
+Answer the following questions.
+
+(3) When the linear classifier shown above does not correctly classify the pattern $x_i$ into the class $y_i$, let us update the parameter $w$ by
+
+$$
+w_{\mathrm{new}}=w+y_ix_i.
+$$
+
+Prove that this parameter update does not decrease the margin for the $i$-th training sample $(x_i,y_i)$.
+
+(5) When the linear classifier shown above does not correctly classify the pattern $x_i$ into the class $y_i$, let us update the parameter $w$ by
+
+$$
+w_{\mathrm{new}}
+=\mathop{\arg\min}_{w'}
+\left[\|w'-w\|^2+(1-y_iw'^\mathsf Tx_i)^2\right].
+$$
+
+Solve this optimization problem and obtain $w_{\mathrm{new}}$ explicitly.
+
+### 题目描述
+
 考虑把 $d$ 维实向量 $x\in\mathbb R^d$ 分为 $y=+1,-1$ 两类的模式识别问题。给定训练样本
 
 $$

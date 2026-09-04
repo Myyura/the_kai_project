@@ -11,6 +11,38 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+Answer the following questions regarding sequential logic circuits. Assume that the clock is an ideal rectangular wave without skew, and that the gate delay is short enough compared with the clock cycle.
+
+(1) Choose one from D flip-flop, JK flip-flop and T flip-flop, and explain how its output is determined by the clock, the inputs and the internal state.
+
+(2) Design and depict a circuit ALT, whose output toggles between 0 and 1 every clock cycle as illustrated below. You can use the flip-flop you have chosen in Question (1), and the AND, OR and NOT gates.
+
+| Edge | Before first rising edge | First rising | First falling | Second rising | Second falling | Third rising | Third falling | Fourth rising | Fourth falling | Fifth rising |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Clock | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 |
+| Output of ALT | 0 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 1 |
+
+(3) Design and depict a circuit that sorts 8 integers, each of which being a 4-bit unsigned integer, by the bubble sort algorithm. The inputs and the outputs of the sorting circuit are as follows:
+
+- (i) Inputs $I_0,I_1,\ldots,I_7$. Each of them is a 4-bit unsigned integer.
+- (ii) 1-bit input $L$.
+- (iii) Outputs $O_0,O_1,\ldots,O_7$. Each of them is a 4-bit unsigned integer.
+- (iv) 1-bit output $V$.
+
+The sorting circuit should work as follows.
+
+(a) When $L$ is 1, the inputs $I_0,I_1,\ldots,I_7$ are stored using 32 flip-flops. Those stored data are regarded as eight 4-bit unsigned integers, and called $v_0,v_1,\ldots,v_7$ in the following.
+
+(b) After $L$ becomes 0, in the first clock cycle, the circuit compares $v_0$ and $v_1$, and if $v_0>v_1$, then it swaps them, and otherwise it keeps them. The same operations are applied to the three pairs $(v_2,v_3)$, $(v_4,v_5)$ and $(v_6,v_7)$. The new values of $v_0,v_1,\ldots,v_7$ are output to $O_0,O_1,\ldots,O_7$.
+
+(c) In the second clock cycle after $L$ becomes 0, the circuit compares $v_1$ and $v_2$, and if $v_1>v_2$, then it swaps them, and otherwise it keeps them. The same operations are applied to the two pairs $(v_3,v_4)$ and $(v_5,v_6)$. The new values of $v_0,v_1,\ldots,v_7$ are output to $O_0,O_1,\ldots,O_7$.
+
+(d) The circuit repeats steps (b) and (c) while $L$ is 0. If no swap of values happens for two consecutive clock cycles that execute (b) or (c), $V$ is set to 1, and otherwise $V$ is set to 0.
+
+You can use the following circuits in your design: the flip-flop you have chosen in Question (1), the ALT circuit you have designed in Question (2), 4-bit comparator CMP, 4-bit 2-to-1 multiplexer MUX, and the AND, OR and NOT gates.
+
+### 题目描述
+
 回答有关时序逻辑电路的问题。设时钟为无偏斜的理想矩形波，门延迟相对时钟周期足够短。
 
 （1）从 D、JK、T 触发器中任选一种，说明时钟、输入和内部状态如何决定其输出。

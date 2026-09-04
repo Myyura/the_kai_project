@@ -11,6 +11,48 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+On generation and activation of protein $Y$ we consider the following three models. In what follows we designate the name of protein and its concentration by the same symbol.
+
+In the first model, protein $Y$ is produced at a constant speed $\beta$ and its degradation rate $\alpha$ is also constant (here $\alpha,\beta$ are nonnegative real values). That is, we describe the change of the concentration of protein $Y$ by
+
+$$
+\frac{dY}{dt}=\beta-\alpha Y.
+$$
+
+Answer the following questions.
+
+(1) Find the steady-state concentration of protein $Y$.
+
+(2) We set the concentration of protein $Y$ at time $t=0$ to 0. Under this setting, express the concentration of protein $Y$ as a function over time $t$ (here $t\ge0$).
+
+In the second model we suppose that $m$ types of transcription factors control the concentration of protein $Y$. Let $X_1,\ldots,X_m$ be the concentrations of $m$ transcription factors. We then describe the change of the concentration of protein $Y$ by
+
+$$
+\frac{dY}{dt}=\prod_{j=1}^{m}X_j^{\gamma_j}-\alpha Y,
+$$
+
+where $\alpha,\gamma_1,\ldots,\gamma_m$ are unknown parameters.
+
+Answer the following questions.
+
+(3) Consider a steady state. Express the value of $\log Y$ in terms of $X_1,\ldots,X_m$ and $\alpha,\gamma_1,\ldots,\gamma_m$.
+
+(4) Consider the following experiment: we measure the steady-state concentration of $Y$ for fixed values of $X_1,\ldots,X_m$. Using different values of $X_1,\ldots,X_m$, we repeat this experiment $n$ times. Let $(Y_i,X_{i,1},\ldots,X_{i,m})$ be the $i$-th experimental data (where $i=1,\ldots,n$). Give an experimental condition for this series of experiments to uniquely determine the parameters $\alpha,\gamma_1,\ldots,\gamma_m$.
+
+As the third model we consider the following. Proteins $X_1$ and $X_2$ are activated by phosphorylation; and activated $X_1$ and $X_2$ phosphorylate protein $Y$. We describe this model by
+
+$$
+\frac{dY_p}{dt}=3X_{p,1}Y_0+2X_{p,2}Y_0-Y_p,
+$$
+
+where: $X_{p,1}$ and $X_{p,2}$ are the concentrations of phosphorylated $X_1$ and phosphorylated $X_2$, respectively; and $Y_0$ and $Y_p$ are the concentrations of non-phosphorylated $Y$ and phosphorylated $Y$, respectively. Here we assume that $X_{p,1}$ and $X_{p,2}$ are constant over time, and that $Y_0+Y_p=C$ ($C$ is a constant).
+
+Answer the following question.
+
+(5) Find a condition on $X_{p,1}$ and $X_{p,2}$ so that, in a steady state, $Y_p/C$ is greater than 0.5.
+
+### 题目描述
+
 考虑蛋白质 $Y$ 的生成与活化模型。
 
 第一模型为

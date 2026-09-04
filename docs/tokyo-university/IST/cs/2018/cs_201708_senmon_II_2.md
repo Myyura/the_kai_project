@@ -11,6 +11,46 @@ tags:
 
 ## **Description**
 
+Let $V$ be a finite set of symbols denoting variables, $F_0$ a finite set of constant symbols, $F_2$ a finite set of binary function symbols, and $T$ the set of terms constructed from symbols in $V$, $F_0$ and $F_2$. Let $G$ be a finite set of rewrite rules of the form $x\to c$ or of the form $x\to f(y,z)$, where $x,y,z\in V$, $c\in F_0$ and $f\in F_2$, and each $x\in V$ appears in the left-hand side of exactly one rewrite rule in $G$. For $\alpha,\beta\in T$, the relation $\alpha\Rightarrow\beta$ is defined as follows:
+
+> $\beta$ is obtained by applying a rule $x\to\gamma$ ($\gamma$ is $c$ or $f(y,z)$) in $G$ to one occurrence of $x\in V$ in $\alpha$ and replacing the occurrence with $\gamma$.
+
+The relation $\Rightarrow^*$ is defined as the reflexive and transitive closure of $\Rightarrow$, and the relation $\Leftrightarrow^*$ is defined as the reflexive, transitive and symmetric closure of $\Rightarrow$.
+
+Answer the following questions.
+
+(1) Show that if $\alpha,\beta\in T$ and $\alpha\Leftrightarrow^*\beta$, then there exists $\delta\in T$ such that $\alpha\Rightarrow^*\delta$ and $\beta\Rightarrow^*\delta$.
+
+(2) Give an algorithm that judges $\alpha\Leftrightarrow^*\beta$ for $\alpha,\beta\in T$, and explain its correctness.
+
+For $\alpha\in T$ and $w\in\{L,R\}^*$, the operation $\alpha.w\in T$ that extracts a subterm of $\alpha$ is inductively defined as follows:
+
+$$
+\begin{aligned}
+\alpha.\epsilon&=\alpha,\\
+\alpha.Lw&=
+\begin{cases}
+\alpha_1.w&\text{if }\alpha=f(\alpha_1,\alpha_2),\\
+\text{undefined}&\text{otherwise},
+\end{cases}\\
+\alpha.Rw&=
+\begin{cases}
+\alpha_2.w&\text{if }\alpha=f(\alpha_1,\alpha_2),\\
+\text{undefined}&\text{otherwise}.
+\end{cases}
+\end{aligned}
+$$
+
+Here $\epsilon$ is an empty word. For $\alpha,\beta\in T$, the relation $\alpha\approx\beta$ is then defined as follows:
+
+> for any $\alpha',\beta'\in T$ and $w\in\{L,R\}^*$, if $\alpha\Leftrightarrow^*\alpha'$ and $\beta\Leftrightarrow^*\beta'$, and $\alpha'.w$ and $\beta'.w$ are both defined and their first symbols belong to $F_0\cup F_2$, then those symbols are identical.
+
+Answer the following question.
+
+(3) Give an algorithm that judges $\alpha\approx\beta$ for $\alpha,\beta\in T$, and explain its correctness.
+
+### 题目描述
+
 设 $V$ 是有限变量符号集，$F_0$ 是有限常量符号集，$F_2$ 是有限二元函数符号集，$T$ 是由它们构成的项集。有限重写规则集 $G$ 中每条规则形如
 
 $$

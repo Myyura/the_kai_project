@@ -11,6 +11,48 @@ tags:
 
 ## **Description**
 
+Consider the problem of finding the shortest paths in a weighted directed graph using Dijkstra's algorithm. Denote the set of vertices as $V$, the number of vertices as $|V|$, the set of edges as $E$, and the number of edges as $|E|$.
+
+Answer the following questions.
+
+(1) Depict an example input data (with $|V|=3$) for which Dijkstra's algorithm does not correctly find the shortest paths.
+
+(2) Below is a pseudo-code of the algorithm that computes the length $c[v]$ of the shortest path from the start node $s$ to each node $v$. Answer code to fill in the blank $\boxed{a}$.
+
+```text
+Dijkstra(graph G = (V, E), start node s, length d(u,v) of each edge (u,v)) {
+    c = an empty array; Q = an empty set;
+    for (v in V)
+        c[v] = ∞;
+    c[s] = 0;
+    for (v in V)
+        add v to Q;
+    while (Q ≠ ∅) {
+        v = a vertex v in Q that minimizes c[v];       // (i)
+        remove v from Q;                               // (i)
+        for (u in {destinations of edges outgoing from v})
+            [  a  ]                                    // (ii)
+    }
+}
+```
+
+(3) Consider the following graph with $S$ as the start node. Show how the values stored in the array $c$ change at each iteration of the while statement when the above algorithm is applied to the graph.
+
+```mermaid
+flowchart LR
+    S((S)) -->|3| B((B))
+    S -->|9| E((E))
+    S -->|6| A((A))
+    B -->|2| A
+    A -->|2| E
+```
+
+(4) For each of the code fragments (i) and (ii) in the above pseudo-code, answer the total time spent in the code fragment during the whole run of the algorithm, using big $O$ notation. Here assume that it takes $O(|V|)$ time to execute code fragment (i) once.
+
+(5) One can reduce the computational complexity of the algorithm by using a priority queue (binary heap) as $Q$. In that case, for each of the code fragments (i) and (ii) in the above pseudo-code, answer the total time spent in the code fragment during the whole run of the refined algorithm, using big $O$ notation.
+
+### 题目描述
+
 在带权有向图 $G=(V,E)$ 上用 Dijkstra 算法求从起点 $s$ 出发的最短路，边 $(u,v)$ 的长度为 $d(u,v)$。
 
 （1）给出一个 $|V|=3$、Dijkstra 算法不能正确求出最短路的输入。

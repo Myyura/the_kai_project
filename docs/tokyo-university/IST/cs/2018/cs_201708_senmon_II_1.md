@@ -12,6 +12,55 @@ tags:
 
 ## **Description**
 
+Consider solving numerically a system of first-order linear ordinary differential equations
+
+$$
+\frac{dx_i}{dt}(t)=\sum_{j=1}^n a_{i,j}(t)x_j(t),\qquad t\ge0
+\tag{†}
+$$
+
+on a set of $n$ real functions of a real independent variable $t$,
+
+$$
+x_i(t),\qquad i=1,2,\cdots,n,
+$$
+
+where $a_{i,j}(t)$ is the $i,j$ component of an $n\times n$ coefficient matrix $A(t)$. Let $h>0$ be the step size used in the numerical methods. Suppose that the numerical solution is computed from initial values
+
+$$
+x_i(0)\in\mathbb R,\qquad i=1,2,\cdots,n.
+$$
+
+Assume that matrix $A(t)$ has $n$ distinct eigenvalues for any $t$.
+
+Answer the following questions.
+
+(1) Suppose that $A(t)$ is a constant matrix $A_0$, which is independent of $t$. Answer a necessary and sufficient condition for the eigenvalues of $A_0$ to satisfy
+
+$$
+\forall i=1,2,\cdots,n,\qquad \lim_{t\to\infty}x_i(t)=0,
+$$
+
+for any initial value.
+
+(2) Answer a recurrence formula to solve Eq. ($\dagger$) by the forward Euler method. In addition, express the order of the local truncation error by big $O$ notation of the step size $h$.
+
+(3) Suppose that Eq. ($\dagger$) is solved by the forward Euler method. The obtained approximation of $x_i(kh)$ is expressed as $X_i(k)$, where $k$ is a non-negative integer to express the step number of the method.
+
+Suppose that $A(t)$ is a constant matrix $A_0$, which is independent of $t$. Answer a necessary and sufficient condition for the eigenvalues of $A_0$ to satisfy
+
+$$
+\forall i=1,2,\cdots,n,\qquad \lim_{k\to\infty}X_i(k)=0,
+$$
+
+for any initial value.
+
+(4) Give an advantage of the backward Euler method compared to the forward Euler method with a brief explanation.
+
+(5) Compare the computational complexity of one step to solve Eq. ($\dagger$) by the forward Euler method with that by the backward Euler method, by using big $O$ notation of $n$. Assume that the computational complexity to read each $a_{i,j}(t)$ is $O(1)$.
+
+### 题目描述
+
 数值求解一阶线性常微分方程组
 
 $$

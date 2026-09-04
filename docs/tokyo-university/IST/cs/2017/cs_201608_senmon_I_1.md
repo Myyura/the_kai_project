@@ -13,6 +13,31 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+A language $L\subseteq\Sigma^*$ over a finite alphabet $\Sigma$ is said to be *regular* if there exists a finite automaton $\mathcal A$ such that $L=\mathcal L(\mathcal A)$. Here
+
+$$
+\mathcal L(\mathcal A)=\{w\in\Sigma^*\mid w\text{ is accepted by }\mathcal A\}.
+$$
+
+Answer the following questions.
+
+(1) We fix an alphabet $\Sigma$ by $\Sigma=\{a,b\}$. For the language $L_1$ below, present a *nondeterministic finite automaton* (NFA) $\mathcal A_1$ such that: $\mathcal L(\mathcal A_1)=L_1$, and the number of states of $\mathcal A_1$ is not greater than $4$.
+
+$$
+L_1=\{w\in\Sigma^*\mid\text{there is a character }l\in\Sigma\text{ that occurs more than once in }w\}.
+$$
+
+(2) Assume that $\Sigma$ is a finite alphabet. Prove the following: any finite language $L=\{w_1,\ldots,w_n\}\subseteq\Sigma^*$ is regular. Here $n$ is a nonnegative integer.
+
+(3) We fix an alphabet $\Sigma$ by $\Sigma=\{a,b\}$. For the language $L_1$ in Question (1), present a *deterministic finite automaton* (DFA) $\mathcal A_2$ such that: $\mathcal L(\mathcal A_2)=\Sigma^*\setminus L_1$, and the number of states of $\mathcal A_2$ is not greater than $5$. Here $\Sigma^*\setminus L_1$ denotes the complement of $L_1\subseteq\Sigma^*$.
+
+(4) Give a decision procedure for the following problem, and explain it briefly.
+
+- **Input** nondeterministic finite automaton $\mathcal A$.
+- **Output** whether the language $\mathcal L(\mathcal A)$ is an infinite set or not.
+
+### 题目描述
+
 有限字母表 $\Sigma$ 上的语言 $L\subseteq\Sigma^*$ 称为正则语言，是指存在有限自动机 $\mathcal A$ 使
 
 $$

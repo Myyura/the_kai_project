@@ -11,6 +11,48 @@ tags:
 
 ## **Description**
 
+Let $\mathbb N$ be the set of all nonnegative integers. Let $Q$ be a set of states defined by $Q=\mathbb N\times\mathbb N\times\mathbb N$, and let a transition relation $\longrightarrow$ on $Q$ be defined as follows.
+
+$$
+\begin{aligned}
+(a,b,c)&\longrightarrow(a-1,b-1,c+2)
+&&\text{(if }a>0\text{ and }b>0\text{)},\\
+(a,b,c)&\longrightarrow(a+2,b-1,c-1)
+&&\text{(if }b>0\text{ and }c>0\text{)},\\
+(a,b,c)&\longrightarrow(a-1,b+2,c-1)
+&&\text{(if }c>0\text{ and }a>0\text{)}.
+\end{aligned}
+\qquad(\dagger)
+$$
+
+Let $\longrightarrow^*$ denote the reflexive transitive closure of $\longrightarrow$.
+
+Answer the following questions.
+
+(1) Enumerate all states $q\in Q$ such that $(1,2,3)\longrightarrow^*q$, and draw a state transition graph.
+
+(2) A state $(a,b,c)$ is called a deadlock state if there exists no state $q$ such that $(a,b,c)\longrightarrow q$.
+Give a necessary and sufficient condition for a state $(a,b,c)$ to be a deadlock state.
+
+(3) Give a necessary and sufficient condition for a state $(a,b,c)$ to have a deadlock state $q$ such that $(a,b,c)\longrightarrow^*q$.
+
+(4) Assume that, at each state $(a,b,c)$, one out of the three transitions defined in the above $(\dagger)$ is chosen to take place, with the following probabilities.
+
+$$
+\begin{aligned}
+(a,b,c)&\longrightarrow(a-1,b-1,c+2)
+&&\text{with probability }ab/(ab+bc+ca),\\
+(a,b,c)&\longrightarrow(a+2,b-1,c-1)
+&&\text{with probability }bc/(ab+bc+ca),\\
+(a,b,c)&\longrightarrow(a-1,b+2,c-1)
+&&\text{with probability }ca/(ab+bc+ca).
+\end{aligned}
+$$
+
+Now let an initial state be $(1,2,3)$, and consider repeating the above probabilistic transitions for sufficiently many times. Compute the probability with which, after such transitions, the current state is either $(1,2,3)$, $(3,1,2)$ or $(2,3,1)$.
+
+### 题目描述
+
 令 $\mathbb N$ 为非负整数集，状态空间 $Q=\mathbb N^3$。定义转移
 
 $$
@@ -23,7 +65,7 @@ $$
 
 以 $\to^*$ 表示自反传递闭包。
 
-（1）列出所有满足 $(1,2,3)\to q$ 的状态 $q$，并画出状态转移图。
+（1）列出所有满足 $(1,2,3)\to^*q$ 的状态 $q$，并画出状态转移图。
 
 （2）若不存在 $(a,b,c)\to q$，称 $(a,b,c)$ 为死锁状态。给出死锁的充要条件。
 
@@ -42,17 +84,35 @@ $$
 
 ### (1)
 
-三个转移均可执行，故后继为
+全部可达状态（含初态自身）为
 
 $$
-\boxed{(0,1,5),\quad(3,1,2),\quad(0,4,2).}
+\begin{aligned}
+\{&(1,2,3),(3,1,2),(2,3,1),\\
+&(0,4,2),(4,2,0),(2,0,4),\\
+&(0,1,5),(1,5,0),(5,0,1)\}.
+\end{aligned}
 $$
+
+下图的边标 $1,2,3$ 对应题中的三种转移。图中九态均从初态可达，且对所有可行转移封闭，故没有其他可达状态。
 
 ```mermaid
 flowchart LR
-    S["(1,2,3)"] -->|第1种| A["(0,1,5)"]
-    S -->|第2种| B["(3,1,2)"]
-    S -->|第3种| C["(0,4,2)"]
+    A0["(1,2,3)"] -->|2| A1["(3,1,2)"]
+    A1 -->|3| A2["(2,3,1)"]
+    A2 -->|1| A0
+    A0 -->|1| C0["(0,1,5)"]
+    C0 -->|2| B2["(2,0,4)"]
+    B2 -->|3| A0
+    A0 -->|3| B0["(0,4,2)"]
+    B0 -->|2| A2
+    A1 -->|1| B2
+    A1 -->|2| C2["(5,0,1)"]
+    C2 -->|3| B1["(4,2,0)"]
+    B1 -->|1| A1
+    A2 -->|2| B1
+    A2 -->|3| C1["(1,5,0)"]
+    C1 -->|1| B0
 ```
 
 ### (2)

@@ -11,6 +11,86 @@ tags:
 
 ## **Description**
 
+Let $\mathbb N=\{0,1,2,\ldots\}$ denote the set of all nonnegative integers.
+Let $\mathcal A=(Q,\Sigma,\delta,q_0,F)$ be a deterministic finite automaton (DFA). Here $Q$ is a finite set of states; $\Sigma$ is a finite alphabet; $\delta:Q\times\Sigma\to Q$ is a transition function; $q_0\in Q$ is an initial state; and $F\subseteq Q$ is the set of accepting states. In what follows we let $\Sigma^*$ denote the set of finite words over $\Sigma$ (that is, $\Sigma^*=\bigcup_{n\in\mathbb N}\Sigma^n$), and $\varepsilon$ denote the empty word.
+
+Let us consider the following construction that minimizes DFAs. We define a sequence $R_0,R_1,R_2,\ldots$ of binary relations over $Q$ (hence $R_n\subseteq Q\times Q$ for each $n\in\mathbb N$), in the following inductive way.
+
+$$
+R_0=Q\times Q,\qquad R_{n+1}=\Phi(R_n).
+\qquad(\dagger)
+$$
+
+Here $\Phi$ is the function that, given $R\subseteq Q\times Q$, returns the following binary relation $\Phi(R)\subseteq Q\times Q$.
+
+$$
+(q,q')\in\Phi(R)
+\iff
+\left(
+\begin{array}{l}
+q\in F\iff q'\in F;\\
+\text{and for each }a\in\Sigma,\quad
+(\delta(q,a),\delta(q',a))\in R.
+\end{array}
+\right)
+$$
+
+Answer the following questions.
+
+(1) Let a DFA $\mathcal A$ be the one depicted below. Describe the binary relation $R_n$ for each $n\in\mathbb N$.
+Here $\Sigma=\{0,1\}$, and a double circle ◎ designates an accepting state.
+
+```mermaid
+flowchart LR
+    start[ ] --> q0(((q0)))
+    q0 -->|0| q0
+    q0 -->|1| q1((q1))
+    q1 -->|0| q1
+    q1 -->|1| q2(((q2)))
+    q2 -->|0| q2
+    q2 -->|1| q1
+    style start fill:none,stroke:none
+```
+
+(2) It is straightforward to see that the function $\Phi$ is monotone, that is, $R\subseteq R'$ implies $\Phi(R)\subseteq\Phi(R')$. Use this fact, and the fact that $R_0$ is the greatest binary relation over $Q$, in showing the following: the sequence $R_0,R_1,R_2,\ldots$ defined in $(\dagger)$ satisfies
+
+$$
+R_0\supseteq R_1\supseteq R_2\supseteq\cdots.
+\qquad(\ddagger)
+$$
+
+(3) Let $R_\omega$ be the limit $\bigcap_{n\in\mathbb N}R_n$ of the descending chain $(\ddagger)$. Answer whether the chain $(\ddagger)$ reaches its limit within finitely many steps, that is, whether there is a nonnegative integer $n\in\mathbb N$ such that $R_n=R_{n+1}=R_{n+2}=\cdots=R_\omega$. Give a proof or a counterexample, too.
+
+(4) We extend the transition function $\delta$ to finite words and define the function $\delta^*:Q\times\Sigma^*\to Q$ by: for $q\in Q$, $a\in\Sigma$ and $w\in\Sigma^*$,
+
+$$
+\delta^*(q,\varepsilon)=q,\qquad
+\delta^*(q,aw)=\delta^*(\delta(q,a),w).
+$$
+
+Prove, by induction, that the following holds for each integer $n$ such that $n\ge1$.
+
+If two states $q,q'\in Q$ satisfy $(q,q')\in R_n$, then for any word $w\in\Sigma^{n-1}$ of length $n-1$ we have
+
+$$
+\delta^*(q,w)\in F\iff\delta^*(q',w)\in F.
+$$
+
+(5) Let $\approx$ be the binary relation between states that they “accept the same language.” That is,
+
+$$
+(q,q')\in\approx
+\iff
+\left(\text{for each word }w\in\Sigma^*,\
+\delta^*(q,w)\in F\iff\delta^*(q',w)\in F\right).
+$$
+
+Prove that, between the two binary relations $R_\omega$ and $\approx$, we have inclusion $R_\omega\subseteq\approx$.
+
+(6) Prove that the converse holds, that is, $\approx\subseteq R_\omega$. Here you can use that $\Phi$ is monotonic. You can also use the following fact (that is easily verified): between the two binary relations $\approx$ and $\Phi(\approx)$, we have inclusion $\approx\subseteq\Phi(\approx)$.
+
+### 题目描述
+
 设 $\mathcal A=(Q,\Sigma,\delta,q_0,F)$ 为 DFA。对 $Q$ 上的二元关系定义
 
 $$

@@ -10,6 +10,34 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+Suppose that we are given an undirected graph $G$ where each edge is associated with a cost. A *minimum spanning tree* is a subgraph of the graph such that: it connects all the vertices; it is a tree; and it takes a minimum total cost. The following pseudo code (Algorithm A) shows an algorithm to compute a minimum spanning tree. We let the numbers of vertices and edges of $G$ be denoted by $V$ and $E$, respectively.
+
+**Step 1.** Choose an arbitrary vertex and let $G'$ be the subtree of $G$ consisting of only that vertex.
+
+**Step 2.** Choose an edge with a minimum cost, out of $\boxed{(a)}$, and add the edge and its end vertices to $G'$.
+
+**Step 3.** Repeat Step 2 until $G'$ contains all the vertices of $G$.
+
+Answer the following question.
+
+(1) Answer an appropriate phrase that fills $\boxed{(a)}$ above.
+
+There are multiple ways to implement Algorithm A. Specifically, computation time differs depending on how to find an edge with a minimum cost in Step 2.
+
+Answer the following questions.
+
+(2) Suppose that $G$ is dense ($V^2\approx E$) and given as an adjacency matrix. Explain a time-efficient implementation of Algorithm A in this case.
+
+Answer also the time complexity of the implementation, and explain why.
+
+(3) Suppose that $G$ is sparse ($V\approx E$) and given as adjacency lists. Explain a time-efficient implementation of Algorithm A in this case.
+
+Answer also the time complexity of the implementation, and explain why.
+
+(4) Show that the graph $G'$ obtained using Algorithm A is a minimum spanning tree of the graph $G$.
+
+### 题目描述
+
 给定带权无向图 $G$。最小生成树是连接全部顶点、无环且总权值最小的子图。记顶点数、边数分别为 $V,E$。算法 A 如下：
 
 1. 任取一个顶点，以该点为唯一顶点的子树记为 $G'$；

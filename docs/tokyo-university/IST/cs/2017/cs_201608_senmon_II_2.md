@@ -10,6 +10,34 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+We say that a binary relation $\mathcal R\subseteq S\times S$ on a set $S$ satisfies the *diamond property* if the following condition holds:
+
+$$
+\forall x,y,z\in S.\ (x\mathcal Ry\land x\mathcal Rz\land y\ne z
+\Rightarrow\exists w\in S.\ (y\mathcal Rw\land z\mathcal Rw)).
+$$
+
+A binary relation $\mathcal R$ on $S$ is said to satisfy *confluence* if the reflexive and transitive closure $\mathcal R^*$ of the binary relation $\mathcal R$ (i.e., $\mathcal R^*$ is the least relation such that (i) $\mathcal R\subseteq\mathcal R^*$, (ii) $\forall x\in S.\ (x\mathcal R^*x)$, (iii) $\forall x,y,z\in S.\ (x\mathcal R^*y\land y\mathcal R^*z\Rightarrow x\mathcal R^*z)$) satisfies the diamond property.
+
+A binary relation $\mathcal R$ on $S$ is said to satisfy *weak confluence* if the following condition holds:
+
+$$
+\forall x,y,z\in S.\ (x\mathcal Ry\land x\mathcal Rz
+\Rightarrow\exists w\in S.\ (y\mathcal R^*w\land z\mathcal R^*w)).
+$$
+
+For example, $\mathcal R_1=\{(a,b),(a,c),(b,d),(c,e),(d,e)\}$ satisfies confluence and weak confluence, but does not satisfy the diamond property. Answer the following questions.
+
+(1) Give an example of a binary relation on the set $\{a,b,c,d\}$ that satisfies weak confluence but not confluence.
+
+(2) Prove that, for every set $S$ and every binary relation $\mathcal R$ on $S$, if $\mathcal R$ satisfies the diamond property, then $\mathcal R$ also satisfies confluence.
+
+(3) Prove that, for every set $S$ and every binary relation $\mathcal R$ on $S$, if $\mathcal R$ satisfies weak confluence and also if there is no infinite sequence $x_0\mathcal Rx_1\mathcal Rx_2\mathcal R\cdots$, then $\mathcal R$ satisfies confluence.
+
+(4) Prove that, for every binary relation $\mathcal R$ on the set $\{a,b,c\}$, if $\mathcal R$ satisfies weak confluence, $\mathcal R$ also satisfies confluence.
+
+### 题目描述
+
 设 $R\subseteq S\times S$ 为二元关系，$R^*$ 为其自反传递闭包。
 
 - 若 $xRy,xRz,y\ne z$ 时总存在 $w$ 使 $yRw,zRw$，则称 $R$ 有**菱形性质**；

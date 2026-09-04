@@ -13,6 +13,30 @@ tags:
 
 ## **Description**
 
+Let $\Sigma$ be a finite set of characters. Let $S=\{w_1,w_2,\ldots,w_n\}$ be a set of strings over $\Sigma$; we consider representing $S$ on a computer and solving its membership problem. That is, given an input string $w$, we would like to answer “yes” if $w\in S$, and “no” if $w\notin S$. Here let $m$ be the number of characters (i.e. the size of $\Sigma$); and $\ell$ be the average length of the strings $w_1,w_2,\ldots,w_n$. We assume that the average length of an input string $w$ is $\ell$, too. Recall that $n$ is the number of strings in the set $S$.
+
+In case you need other parameters answering the questions below, introduce suitable variables for those parameters and use them in your answers. In illustration of your answers, use the following set $S_0$ as an example: $S_0=\{\mathrm{CAT,CAP,CAPE,REASON,RAINBOW}\}$.
+
+Answer the following questions.
+
+(1) A naive approach is to represent the set $S$ as a linked list of basic string objects (i.e. arrays of characters). Answer the amount of memory needed, and the average complexity of the membership problem, in this setting. Give a brief explanation of your answer.
+
+(2) Let us now consider representing the set $S$ using hashing (with open addressing). Answer the amount of memory needed, and the average complexity of the membership problem. Give a brief explanation of your answer; you can choose and fix further details, like the definition of a hash function.
+
+(3) Let us consider representing the set $S$ using a binary search tree. Here each node of the tree stores a string; and strings are compared with respect to the lexicographic order. Answer the amount of memory needed, and the average complexity of the membership problem. Give a brief explanation of your answer.
+
+Illustrate the data structure that represents the above example $S_0$. Assume here that the tree is constructed by inserting each element of $S_0$ in the order shown above.
+
+(4) A trie is a tree structure that is often used to represent a set of strings. In a trie, one path from the root to a leaf corresponds to one string; and each internal node has an array, of size $m$ (the number of characters), that stores pointers to its children nodes.
+
+Answer the amount of memory needed, and the average complexity of the membership problem, in this setting. Give a brief explanation of your answer. Illustrate the data structure that represents the above example $S_0$.
+
+(5) One potential disadvantage of using a trie is that, in case $\ell\gg n$, memory usage can be excessive. Describe a countermeasure, and explain how it works with an example.
+
+(6) Another potential disadvantage of using a trie is that, in case $m$ is large, memory usage can be excessive. Describe a countermeasure, and explain how it works with an example.
+
+### 题目描述
+
 设字符集 $\Sigma$ 的大小为 $m$，字符串集合 $S=\{w_1,\ldots,w_n\}$ 中字符串的平均长度为 $\ell$；输入查询串 $w$ 的平均长度也为 $\ell$。需要判断 $w\in S$。必要时可自行引入参数。以下用
 
 $$

@@ -12,6 +12,45 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+Consider the problem of scheduling the five processes shown in Table 1. Assume that only one process is allowed to be executed at any instant, and the overhead of process context switches can be ignored. The execution time of each process is also known a priori. Table 2 summarizes the technical terms used in this problem.
+
+**Table 1: Arrival time and execution time of the five processes**
+
+| Process | A | B | C | D | E |
+|---|---:|---:|---:|---:|---:|
+| Arrival time | 0 ms | 30 ms | 40 ms | 40 ms | 80 ms |
+| Execution time | 90 ms | 10 ms | 50 ms | 30 ms | 20 ms |
+
+**Table 2: Technical terms used in this problem**
+
+| Term | Definition |
+|---|---|
+| Turnaround time | Time interval from the arrival of the process to the completion of its execution (including the waiting time) |
+| Waiting time | Total amount of time for which the process is waiting in the ready queue |
+| Response time | Time interval from the arrival of the process to the beginning of its execution |
+
+Answer the following questions.
+
+(1) Answer the average turnaround time, average waiting time, and average response time when the processes are scheduled according to the First Come First Serve policy.
+
+(2) Answer the average turnaround time, average waiting time, and average response time when the processes are scheduled according to the non-preemptive Shortest Job First policy.
+
+(3) Answer the average turnaround time, average waiting time, and average response time when the processes are scheduled according to the preemptive Shortest Job First policy.
+
+(4) Answer the average turnaround time, average waiting time, and average response time when the processes are scheduled according to the Round Robin policy where the time slice is 20 ms. Note that time slices are switched in the order of A, B, C, D, E, and that the next time slice starts immediately when the current process does not exhaust its time slice.
+
+(5) Consider the scenario that the five processes shown in Table 1 arrive periodically. The arrival time of the first instance of each process is the arrival time shown in Table 1, and its following instances arrive repeatedly at the constant interval shown in Table 3. If these five processes are scheduled according to the preemptive Rate Monotonic policy, deadline misses occur. Answer when (at what time) the first deadline miss occurs, and to which process it occurs.
+
+Here the Rate Monotonic policy is a scheduling policy that assigns higher priorities to processes with shorter periods; in case the periods are the same, higher priorities are given to processes that arrive earlier. A deadline miss is an event that a periodic process fails to complete its execution before the arrival of its next instance.
+
+**Table 3: Inter-arrival time (period) of the five processes**
+
+| Process | A | B | C | D | E |
+|---|---:|---:|---:|---:|---:|
+| Inter-arrival time (period) | 200 ms | 100 ms | 400 ms | 100 ms | 100 ms |
+
+### 题目描述
+
 单处理器调度如下五个进程，忽略上下文切换开销，执行时间均预先已知。
 
 | 进程 | A | B | C | D | E |

@@ -11,6 +11,43 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+Consider the probability density function of the one-dimensional normal distribution with mean $\mu$ and variance $\sigma_0^2$:
+
+$$
+\mathcal N(x\mid\mu,\sigma_0^2)
+=\frac{1}{\sqrt{2\pi\sigma_0^2}}\exp\left(-\frac{1}{2\sigma_0^2}(x-\mu)^2\right).
+$$
+
+Let us also consider $n$ real-valued observations; they are denoted by $x_{1:n}=(x_1,x_2,\ldots,x_n)$. We further suppose the following.
+
+- Each observation $x_i$ (where $i=1,2,\ldots,n$) is independently distributed, following the one-dimensional normal distribution with mean $\mu$ and variance $\sigma_0^2$.
+- Variance $\sigma_0^2$ is known.
+- The prior distribution of $\mu$ is the one-dimensional normal distribution with mean $m_0$ and variance $\rho_0^2$.
+
+Answer the following questions.
+
+(1) Given an observation $x_1$, let $p(\mu\mid x_1,\sigma_0^2,m_0,\rho_0^2)$ denote the probability density function of the Bayes posterior distribution of the random variable $\mu$. This distribution is a one-dimensional normal distribution, and its probability density function is given by $\mathcal N(\mu\mid m_1,\rho_1^2)$. Express mean $m_1$ and variance $\rho_1^2$, using $x_1,\sigma_0^2,m_0$ and $\rho_0^2$.
+
+You can use the following equality:
+
+$$
+p(\mu\mid x_1,\sigma_0^2,m_0,\rho_0^2)
+=\frac{\mathcal N(x_1\mid\mu,\sigma_0^2)\mathcal N(\mu\mid m_0,\rho_0^2)}
+{\int\mathcal N(x_1\mid\mu,\sigma_0^2)\mathcal N(\mu\mid m_0,\rho_0^2)\,d\mu}.
+$$
+
+(2) Let $n\ge2$. Given observations $x_{1:n}=(x_1,x_2,\ldots,x_n)$, let $p(\mu\mid x_{1:n},\sigma_0^2,m_0,\rho_0^2)$ denote the probability density function of the Bayes posterior distribution of the random variable $\mu$. This distribution is a one-dimensional normal distribution, and its probability density function is given by $\mathcal N(\mu\mid m_n,\rho_n^2)$. Express mean $m_n$ and variance $\rho_n^2$, using $n,x_{1:n},\sigma_0^2,m_0$ and $\rho_0^2$.
+
+(3) For the Bayes posterior distribution $p(\mu\mid x_{1:n},\sigma_0^2,m_0,\rho_0^2)$ of Question (2), show that the following equality holds:
+
+$$
+p(\mu\mid x_{1:n},\sigma_0^2,m_0,\rho_0^2)
+=\frac{\mathcal N(x_n\mid\mu,\sigma_0^2)\mathcal N(\mu\mid m_{n-1},\rho_{n-1}^2)}
+{\int\mathcal N(x_n\mid\mu,\sigma_0^2)\mathcal N(\mu\mid m_{n-1},\rho_{n-1}^2)\,d\mu}.
+$$
+
+### 题目描述
+
 一维正态分布密度为
 
 $$
