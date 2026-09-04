@@ -4,181 +4,99 @@ tags:
   - Tohoku-University
   - Discrete-Mathematics.Graph-Theory.Euler-Circuit
 ---
+
 # 東北大学 工学研究科 電気・情報系 2018年3月実施 基礎科目 問題4 情報基礎2
 
 ## **Author**
+
 祭音Myyura (assisted by GPT-5)
 
+校对与中文整理：祭音Myyura (co-authored with GPT 5.6 SOL)
+
 ## **Description**
+
 ### 日本語版
-本間では、グラフとは有限無向グラフであり、自己ループ辺および多重辺が存在することは許すものとする。また、次の用語と記号を定義する。
+
+本問では、グラフとは有限無向グラフであり、自己ループ辺および多重辺が存在することは許すものとする。また、次の用語と記号を定義する。
 
 - 任意のグラフ $G$ について、$G$ の点の数を $n(G)$、辺の数を $m(G)$ でそれぞれ表す。
-- 任意のグラフ $G$ とその点がについて、$G$ における $x$ の次数を $\text{deg}(G, x)$ で表す。
-- グラフ $G$ 上の任意の歩道 $C$ について、$C$ の長さ $l(C)$ は $C$ が通る辺の延べ総数である。
-- $C$ をグラフ $G$ 上の閉じた歩道とするとき、$C$ が $1$-回路(またはオイラー回路)であるとは、$C$ が $G$ の各々の辺をちょうど $1$ 回ずつ通ることを言い、$C$ が $2$ 回路であるとは、$C$ が $G$ の各々の辺 を $1$ 回または $2$ 回通ることを言う。
-- グラフ $G$ の部分グラフ $H$ がパリティ部分グラフであるとは、$H$ が $G$ の全ての点を含み、かつ $G$ 上の任意の点 $x$ について、$\text{deg}(G,x)$ と $\text{deg}(H,x)$ の偶奇が一致することを言う。$G$ のパリティ部分グラフ $H$ で辺の数 $m(H)$ が最も少ないものを最小パリティ部分グラフと言う。
+- 任意のグラフ $G$ とその点 $x$ について、$G$ における $x$ の次数を $\deg(G,x)$ で表す。
+- グラフ $G$ 上の任意の歩道 $C$ について、$C$ の長さ $\ell(C)$ は $C$ が通る辺の延べ総数である。
+- $C$ をグラフ $G$ 上の閉じた歩道とするとき、$C$ が $1$-回路（またはオイラー回路）であるとは、$C$ が $G$ の各々の辺をちょうど $1$ 回ずつ通ることを言い、$C$ が $2$-回路であるとは、$C$ が $G$ の各々の辺を $1$ 回または $2$ 回通ることを言う。
+- グラフ $G$ の部分グラフ $H$ がパリティ部分グラフであるとは、$H$ が $G$ の全ての点を含み、かつ $G$ 上の任意の点 $x$ について、$\deg(G,x)$ と $\deg(H,x)$ の偶奇が一致することを言う。$G$ のパリティ部分グラフ $H$ で辺の数 $m(H)$ が最も少ないものを最小パリティ部分グラフと言う。
 
-このとき、次の問に答えよ、ただし、必要ならば次の事実 (A)，(B) を証明なしに用いてもよい。
+このとき、次の問に答えよ。ただし、必要ならば次の事実 (A)、(B) を証明なしに用いてもよい。
 
-- (A) 連結グラフ $G$ が $1$-回路を持つためには、 $G$ の全ての点の次数が偶数であることが必要十分である.
-- (B) 任意の自然数 $n$ について、$n$ 個の点から成る木は $n-1$ 本の辺を持つ。
+(A) 連結グラフ $G$ が $1$-回路を持つためには、$G$ の全ての点の次数が偶数であることが必要十分である。
+
+(B) 任意の自然数 $n$ について、$n$ 個の点から成る木は $n-1$ 本の辺を持つ。
 
 (1) $G$ を連結グラフとする。
 
-- (a) $H$ を $G$ の任意のパリティ部分グラフとするとき、$G$ は $l(C)=m(G)+m(H)$ となる $2$-回路 $C$ を持つことを示せ。
-- (b) $C$ を $G$ 上の任意の $2$-回路とするとき，$G$ は $m(H)= l(C) - m(G)$ となるパリティ部分グラフ$H$ を持つことを示せ。
+(a) $H$ を $G$ の任意のパリティ部分グラフとするとき、$G$ は $\ell(C)=m(G)+m(H)$ となる $2$-回路 $C$ を持つことを示せ。
+
+(b) $C$ を $G$ 上の任意の $2$-回路とするとき、$G$ は $m(H)=\ell(C)-m(G)$ となるパリティ部分グラフ $H$ を持つことを示せ。
 
 (2) $G$ を連結グラフ、$H$ をその最小パリティ部分グラフとする。
 
-- (a) $H$ は閉路を持たないことを示せ。
-- (b) $G$ 上の最も短い $2$-回路の長さを $\mu_2(G)$ とするとき、$H$ は $m(G)+n(G)-\mu_2(G)$ 個の連結成分から成ることを示せ。
+(a) $H$ は閉路を持たないことを示せ。
 
-### English Version
-In this question, any graph is a finite undirected graph which may have self-loops and multiple edges. Define the folowing terms and symbols:
-
-- For any graph $G$, let $n(G)$ and $m(G)$ denote the number of vertices and edges in $G$, respectively.
-- For any graph $G$ and any vertex $x$ in $G$, $\text{deg}(G, x)$ denotes the degree of $x$ in $G$.
-- For any graph $G$ and any walk $C$ on $G$, the length $l(C)$ of $C$ is the total number of edges that $C$ passes.
-- For a graph $G$ and a closed walk $C$ on $G$, $C$ is a 1-circuit (or an Euler circuit) if $C$ passes each edge of $G$ exactly once, and $C$ is a 2-circuit if $C$ passes each edge of $G$ once or twice.
-- A subgraph $H$ of a graph $G$ is a parity subgraph if $H$ contains all vertices of $G$ and for any vertex $x$ in $G$, $\text{deg}(G, x)$ and $\text{deg}(H, x)$ have the same odd-even parity. A parity subgraph $H$ of $G$ is a minimum parity subgraph if the number $m(H)$ of edges in $H$ is minimum among all parity subgraphs of $G$.
-
-Answer the folowing questions. If necessary, the following facts (A) and (B) can be applied without proof.
-
-- (A) A connected graph $G$ has a 1-circuit if and only if every vertex of $G$ is of even degree.
-- (B) For any natural number $n$, any tree of $n$ vertices has $n-1$ edges.
-
-(1) Let $G$ be any connected graph.
-
-- (a) Prove that for any parity subgraph $H$ of $G$, $G$ has a 2-circuit $C$ such that $l(C) = m(G) + m(H)$.
-- (b) Prove that for any 2-circuit $C$ in $G$, $G$ has a parity subgraph $H$ such that $m(H) = l(C) - m(G)$.
-
-(2) Let $G$ be any connected graph and $H$ be any minimum parity subgraph of $G$.
-
-- (a) Prove that $H$ contains no cycle.
-- (b) Let $\mu_2(G)$ denote the length of a shortest 2-circuit in $G$. Prove that $H$ consists of $m(G) +n(G) - \mu_2(G)$ connected components.
+(b) $G$ 上の最も短い $2$-回路の長さを $\mu_2(G)$ とするとき、$H$ は $m(G)+n(G)-\mu_2(G)$ 個の連結成分から成ることを示せ。
 
 ### 题目描述
 
-本题中的图均为有限无向图，允许自环和重边。记图 $G$ 的顶点数、边数分别为 $n(G),m(G)$，顶点 $x$ 的度为 $\deg(G,x)$，游走 $C$ 的长度 $l(C)$ 为经过边的总次数。
+本题中的图均为有限无向图，允许自环和重边。记图 $G$ 的顶点数、边数为 $n(G),m(G)$，顶点 $x$ 的度为 $\deg(G,x)$，游走 $C$ 的长度 $l(C)$ 为经过边的总次数。
 
-- 闭游走 $C$ 若恰好一次经过每条边，称为 1-回路（Euler 回路）；若每条边经过一次或两次，称为 2-回路。
-- $G$ 的生成子图 $H$ 若包含 $G$ 的全部顶点，且每个顶点在 $G,H$ 中的度数奇偶性相同，则称为奇偶子图。边数最少的奇偶子图称为最小奇偶子图。
+- 闭游走若恰好一次经过每条边，称为 1-回路（Euler 回路）；若每条边经过一次或两次，称为 2-回路。
+- $G$ 的生成子图 $H$ 若每个顶点在 $G,H$ 中的度数奇偶性相同，称为奇偶子图；其中边数最少者称为最小奇偶子图。
 
-可不加证明地使用：
+可以使用：连通图存在 Euler 回路当且仅当所有顶点度数为偶数；$n$ 个顶点的树有 $n-1$ 条边。
 
-- 连通图存在 Euler 回路，当且仅当所有顶点度数均为偶数；
-- 含 $n$ 个顶点的树有 $n-1$ 条边。
-
-回答下列问题。
-
-1. 设 $G$ 为连通图。
-   1. 对 $G$ 的任意奇偶子图 $H$，证明 $G$ 存在满足
-
-      $$
-      l(C)=m(G)+m(H)
-      $$
-
-      的 2-回路 $C$。
-   2. 对 $G$ 的任意 2-回路 $C$，证明存在奇偶子图 $H$ 满足
-
-      $$
-      m(H)=l(C)-m(G).
-      $$
-
+1. 设 $G$ 连通。
+   - (a) 对任意奇偶子图 $H$，证明 $G$ 存在满足 $l(C)=m(G)+m(H)$ 的 2-回路。
+   - (b) 对任意 2-回路 $C$，证明存在满足 $m(H)=l(C)-m(G)$ 的奇偶子图。
 2. 设 $H$ 为连通图 $G$ 的最小奇偶子图。
-   1. 证明 $H$ 不含闭路；
-   2. 记 $G$ 上最短 2-回路的长度为 $\mu_2(G)$，证明 $H$ 恰有
-
-      $$
-      m(G)+n(G)-\mu_2(G)
-      $$
-
-      个连通分量。
+   - (a) 证明 $H$ 不含闭路。
+   - (b) 记最短 2-回路的长度为 $\mu_2(G)$，证明 $H$ 恰有 $m(G)+n(G)-\mu_2(G)$ 个连通分量。
 
 ## **Kai**
+
 ### (1)
-#### (a) From a parity subgraph to a 2-circuit and its length
 
-Let $H\subseteq G$ be a parity subgraph. Form a multigraph $G^{+}$ by **adding one parallel copy of every edge of $H$** to $G$.
-Then for each vertex $x$,
+**(a)** 将 $H$ 的每条边复制一份，加入 $G$ 得多重图 $G^+$。它仍连通，且
 
 $$
-\deg_{G^{+}}(x)=\deg_G(x)+\deg_H(x)\equiv 0\pmod 2,
+\deg(G^+,x)=\deg(G,x)+\deg(H,x)\equiv0\pmod2.
 $$
 
-so every vertex of $G^{+}$ has even degree. Moreover, $G^{+}$ is connected because it contains $G$. By (A), $G^{+}$ has an Euler circuit $C^{+}$.
+故 $G^+$ 存在 Euler 回路。将复制边视为原边，即得到 $G$ 的 2-回路，长度为 $\boxed{m(G)+m(H)}$。
 
-Read $C^{+}$ back in $G$ by forgetting which of two parallel copies it used.  
-Every edge of $G\setminus H$ is used once; every edge of $H$ is used twice.  
-Thus we obtain a 2-circuit $C$ in $G$ with
+**(b)** 取 $H$ 为由 $C$ 中经过两次的边构成的生成子图。显然
 
 $$
-\ell(C)=m(G\setminus H)+2m(H)=m(G)+m(H).
+m(H)=l(C)-m(G).
 $$
 
-#### (b) From a 2-circuit to a parity subgraph and its size
-Let $C$ be any 2-circuit of $G$. Define $H\subseteq G$ on the vertex set $V(G)$ to be the subgraph consisting of the edges that $C$ uses **twice**.
-Then
+闭游走在每个顶点使用的边端数为偶数（自环计两个边端），因此
 
 $$
-\ell(C)=\underbrace{m(G)}_{\text{every edge at least once}}+\underbrace{m(H)}_{\text{edges used twice}}
+\deg(G,x)+\deg(H,x)\equiv0\pmod2.
 $$
 
-$$
-m(H)=\ell(C)-m(G)
-$$
+故 $H$ 是奇偶子图。
 
-To see $H$ is a parity subgraph, fix a vertex $x$. In the closed walk $C$, each visit to $x$ uses two incident edge-ends (enter/leave), and a loop at $x$ contributes two ends; hence the total number of used edge-ends at $x$ is even. Modulo $2$, this implies that the degree at $x$ contributed by edges used **exactly once** is even, i.e.
+### (2)
 
-$$
-\deg_G(x)\equiv \deg_H(x)\pmod 2.
-$$
+**(a)** 若 $H$ 含闭路，删除该闭路的全部边后，各有关顶点的度减少 $2$，奇偶性不变，却减少边数，与最小性矛盾。该论证同样适用于自环和两条重边构成的闭路。所以 $H$ 是森林。
 
-Thus $H$ is a parity subgraph and $m(H)=\ell(C)-m(G)$.
-
-### (2) Structure of a minimum parity subgraph
-
-Let $H\subseteq G$ be a **minimum** parity subgraph (minimum number of edges).
-Let $\mu_2(G)$ be the length of a shortest 2-circuit in $G$.
-
-#### (a) $H$ has no cycle
-If $H$ contained a cycle $Z$ (a loop counts as a 1-cycle), removing all edges of $Z$ would decrease the degree of each vertex on $Z$ by $2$, preserving parity at every vertex. The resulting subgraph would be a parity subgraph with fewer edges, contradicting the minimality of $H$. Hence $H$ is acyclic.
-
-#### (b) Number of components of $H$
-From (1a): for any parity subgraph $F$ there exists a 2-circuit $C$ with
+**(b)** 由 (1) 的双向构造，最短 2-回路与最小奇偶子图满足
 
 $$
-\ell(C)=m(G)+m(F)\quad\Rightarrow\quad \mu_2(G)\le m(G)+m(F).
+\mu_2(G)=m(G)+m(H).
 $$
 
-From (1b): for any 2-circuit $C$ there exists a parity subgraph $F$ with
+若森林 $H$ 有 $c$ 个连通分量，逐分量使用树的边数公式得 $m(H)=n(G)-c$。因此
 
 $$
-m(F)=\ell(C)-m(G)\quad\Rightarrow\quad \min_F m(F)\le \mu_2(G)-m(G).
+\boxed{c=n(G)-m(H)=m(G)+n(G)-\mu_2(G)}.
 $$
-
-Together,
-
-$$
-\min_{F\text{ parity}} m(F)=\mu_2(G)-m(G).
-$$
-
-Since $H$ is minimum, $m(H)=\mu_2(G)-m(G)$.
-
-Because $H$ is a forest on $n(G)$ vertices and $m(H)$ edges, its number of components is
-
-$$
-\#\text{components}(H)=n(G)-m(H)\quad\text{(by (B))}.
-$$
-
-Therefore
-
-$$
-\#\text{components}(H)
-= n(G)-\bigl(\mu_2(G)-m(G)\bigr)
-= m(G)+n(G)-\mu_2(G).
-$$
-
-## **Knowledge**
-The Chinese Postman Problem (CPP) and T-joins could be very useful references.

@@ -26,12 +26,12 @@ tags:
 
 (2) Fig. 4(a) に示す整列アルゴリズム **Alg1** の疑似コードを考える.手続き $P$ の呼び出し回数を $N$ を用いて示せ、また、答の求め方も説明せよ.
 
-(3) Fig. 4(b) に示す整列アルゴリズム A1g2 について、手続き又の総呼び出し回数が $N- 1$ 回以下となるように，(A), (B)，(C) に入る適切な疑似コードを示せ.ただし、疑似コードは Fig.4(a) に示す疑似コードの表記に従うものとする.
+(3) Fig. 4(b) に示す整列アルゴリズム A1g2 について、手続き $Q$の総呼び出し回数が $N- 1$ 回以下となるように，(A), (B)，(C) に入る適切な疑似コードを示せ.ただし、疑似コードは Fig.4(a) に示す疑似コードの表記に従うものとする.
 
 (4) Fig. 4($c$) に示す整列アルゴリズム A1g3 の疑似コードを考える.ただし、Fig. 4($c$) 中に示す手続き $R$ が利用できる.
 
 - (a) **Alg3** の基本戦略と処理の概要を言葉で簡潔に説明せよ.
-- (b) 配列 $A$ の初期値を $(2 , 5 , 4 , 3 , 2 )$ とする. **Alg3** の 6 行目および 19 行目にある手続き又の実行直後に毎回配列 $A$ の値を表示することを考える.配列 $A$ の値を表示される順番に全て示せ.
+- (b) 配列 $A$ の初期値を $(2 , 5 , 4 , 3 , 2 )$ とする. **Alg3** の 6 行目および 19 行目にある手続き $Q$の実行直後に毎回配列 $A$ の値を表示することを考える.配列 $A$ の値を表示される順番に全て示せ.
 - ($c$) **Alg3** の計算量を $\Theta$ 記法を用いて示せ.
 
 ### English Version
@@ -135,7 +135,6 @@ $$
 $$
 
 ### (2)
-Hint: Bubble Sort
 
 For each $i$, the inner loop calls $P$ exactly $N-i$ times, independently of the input values. Hence the number of calls to $P$ is
 
@@ -144,14 +143,12 @@ $$
 $$
 
 ### (3)
-Hint: Selection Sort
 
-- ( A ): P(j, k)
-- ( B ): k = j
-- ( C ): Q(i, k)
+- ( A ): `P(j, k) = 1`
+- ( B ): `k := j`
+- ( C ): `Q(i, k)`
 
 ### (4)
-Hint: Heap Sort
 
 #### (a)
 **Alg3** first convert the array $A$ into heap data structure using procedure $R$ (often called heapify), then one by one delete the root node of the Max-heap and replace it with the last node in the heap and then heapify the root of the heap. Repeat this process until the heap contains only one element.
@@ -174,4 +171,9 @@ $$
 The last two displayed arrays are equal because the final call $Q(1,2)$ swaps two equal values, but the call is still executed.
 
 #### ($c$)
-$\Theta(N \log N)$
+
+$$
+\boxed{\Theta(N\log N)}.
+$$
+
+建堆部分为 $O(N)$；随后每次 `R(1,m)` 都沿较大子结点一直下行，即使未交换也不提前退出，比较次数为 $\Theta(\log m)$。因此总次数为 $\Theta(\sum_{m=2}^{N-1}\log m)=\Theta(N\log N)$。
