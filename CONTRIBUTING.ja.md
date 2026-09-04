@@ -37,7 +37,6 @@ yarn generate:universities
 yarn generate:site-stats
 yarn generate:contributors
 yarn tags:generate
-yarn test
 yarn content:validate
 yarn tags:audit
 yarn documents:validate
@@ -50,13 +49,14 @@ yarn api:validate
 - `yarn generate:site-stats`：API データ生成と同じローカルコンテンツスキャンから `src/data/siteStats.json` と `src/data/documentTitles.json` を再生成します。開発サーバーと本番ビルドでは自動実行されます。
 - `yarn generate:contributors`：GitHub から `src/data/githubContributors.json` を更新します。ネットワーク取得に失敗した場合は既存キャッシュを保持します。
 - `yarn tags:generate`：`src/data/tagTaxonomy/` の科目別ファイルから `docs/tags.yml` を再生成します。
-- `yarn test`：リポジトリの自動テストを実行します。
 - `yarn content:validate`：文書 ID、生成タグ、Description セクションの正規化状態、および `src/data/` 配下の構造化データ（リンク、大学メタデータ、サイト統計、文書タイトル、タグ分類）を検証します。
 - `yarn tags:audit`：サイト全体の大学、大科目、サブ科目、トピック、未分類、廃止タグの使用状況を確認します。
 - `yarn documents:validate`：自動導出される文書 UUID と、パス変更時だけ保存される current override と過去の alias を検証します。
 - `yarn content:export`：独立クライアント同期用の完全スナップショット `build/content-export/v1/kai-content-v1.json.gz` を生成します。仕様と同期ルールは [CONTENT_EXPORT.md](CONTENT_EXPORT.md) を参照してください。
 - `yarn review:format`：`docs/` 配下の解答ドキュメント形式をレビューします。
 - `yarn api:validate`：公開 JSON API 用の構造化データを検証します。
+
+`scripts/*.test.js` のテストファイルと `audits/` 配下の監査レポートはローカルにのみ保持し、Git では追跡しません。CI では `yarn test` を実行しませんが、テストファイルをローカルに保持しているメンテナーは引き続きこのコマンドでテストを実行できます。
 
 コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`universityMetadata.json`、`tagTaxonomy/` にあります。タグ定義は `tagTaxonomy/subjects/` に主科目別で保存し、全体設定と大学タグは同階層のファイルで管理します。通常の新規文書は `docId` から UUIDv5 を自動導出するため、ID マニフェストの更新は不要です。移動・改名時だけ `yarn documents:move -- <旧-doc-id> <新-doc-id>` を実行します。`siteStats.json` と `documentTitles.json` は開発・ビルド時に自動更新され、その他の生成ファイルは上記スクリプトで管理できます。
 

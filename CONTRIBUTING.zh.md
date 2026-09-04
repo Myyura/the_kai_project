@@ -37,7 +37,6 @@ yarn generate:universities
 yarn generate:site-stats
 yarn generate:contributors
 yarn tags:generate
-yarn test
 yarn content:validate
 yarn tags:audit
 yarn documents:validate
@@ -50,13 +49,14 @@ yarn api:validate
 - `yarn generate:site-stats`：使用 API 数据生成所采用的同一套本地内容扫描逻辑，重新生成 `src/data/siteStats.json` 和 `src/data/documentTitles.json`；开发服务器和生产构建会自动执行。
 - `yarn generate:contributors`：从 GitHub 刷新 `src/data/githubContributors.json`；网络请求失败时保留已有缓存。
 - `yarn tags:generate`：根据 `src/data/tagTaxonomy/` 下按科目拆分的文件重新生成 `docs/tags.yml`。
-- `yarn test`：运行仓库的自动化测试。
 - `yarn content:validate`：校验文档身份、tag 生成结果、Description 章节规范化状态，以及 `src/data/` 下的结构化数据，包括参考链接、大学元数据、站点统计、文档标题和 tag taxonomy。
 - `yarn tags:audit`：统计全站学校、学科、子科目、考点、待归类和废弃 tag 的使用情况。
 - `yarn documents:validate`：校验自动推导的文档 UUID，以及仅在路径重命名时保存的 current override 与历史 alias。
 - `yarn content:export`：生成供独立客户端同步的完整内容快照 `build/content-export/v1/kai-content-v1.json.gz`；字段与同步规则参见 [CONTENT_EXPORT.md](CONTENT_EXPORT.md)。
 - `yarn review:format`：在提交 PR 前检查 `docs/` 下题解文档的格式。
 - `yarn api:validate`：检查 JSON API 使用的结构化题库数据。
+
+`scripts/*.test.js` 测试文件和 `audits/` 下的审计报告仅保留在本地，不纳入 Git 跟踪。CI 不运行 `yarn test`；本地保留了测试文件的维护者仍可使用此命令执行测试。
 
 贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`universityMetadata.json` 和 `tagTaxonomy/` 目录。tag 定义按主科目存放在 `tagTaxonomy/subjects/`，全局策略和学校 tag 则存放在同级文件中。普通新增文档会按 `docId` 自动推导 UUIDv5，不需要修改身份清单；只有移动或重命名文档时才需要执行 `yarn documents:move -- <旧-doc-id> <新-doc-id>`。`siteStats.json` 和 `documentTitles.json` 会在开发及构建时自动刷新，其余生成文件可用上面的脚本维护。
 

@@ -38,8 +38,6 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: 校验 API 数据
         run: yarn api:validate
-      - name: 运行自动化测试
-        run: yarn test
       - name: 记录构建资源
         run: |
           free -h
