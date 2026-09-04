@@ -11,7 +11,7 @@ tags:
 
 ## **Author**
 
-[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), 祭音Myyura, OpenAI
+[Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 
