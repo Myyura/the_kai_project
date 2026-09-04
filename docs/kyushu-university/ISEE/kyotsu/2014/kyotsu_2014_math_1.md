@@ -1,0 +1,92 @@
+---
+sidebar_label: "2014年度入学 数学 問1（線形代数）"
+tags:
+  - Kyushu-University
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+---
+# 九州大学 システム情報科学府 情報学専攻・情報知能工学専攻・電気電子工学専攻 共通 2014年度入学 数学 問1（線形代数）
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+以下では、 $n \times n$ の実行列についてのみ考える。行列 $A$ の対角成分の和を $A$ のトレースと呼び、 $\text{Tr}(A)$ と表す。以下の各問に答えよ。
+
+(1) 任意の行列 $A$ と $B$ に対し、 $\text{Tr}(AB) = \text{Tr}(BA)$ が成り立つことを示せ。
+
+(2) 任意の行列 $A$ と任意の正則行列 $B$ に対し、 $\text{Tr}(B^{-1}AB) = \text{Tr}(A)$ が成り立つことを示せ。
+
+(3) 固有値がすべて非負の対称行列 $A$ に対し、 $\text{Tr}(A^2) \leq \text{Tr}(A)^2$ が成り立つことを示せ。
+
+(4) 任意の2つの対称行列 $A$ と $B$ に対し、 $\text{Tr}(AB)^2 \leq \text{Tr}(A^2)\text{Tr}(B^2)$ が成り立つことを示せ。
+
+### 题目描述
+
+以下只讨论 $n\times n$ 实矩阵。矩阵 $A$ 的所有对角元之和称为 $A$ 的迹，记作 $\operatorname{Tr}(A)$。证明下列结论：
+
+1. 对任意矩阵 $A,B$，
+
+   $$
+   \operatorname{Tr}(AB)=\operatorname{Tr}(BA).
+   $$
+
+2. 对任意矩阵 $A$ 和任意可逆矩阵 $B$，
+
+   $$
+   \operatorname{Tr}(B^{-1}AB)=\operatorname{Tr}(A).
+   $$
+
+3. 若对称矩阵 $A$ 的全部特征值均非负，则
+
+   $$
+   \operatorname{Tr}(A^2)\le\operatorname{Tr}(A)^2.
+   $$
+
+4. 对任意两个对称矩阵 $A,B$，
+
+   $$
+   \operatorname{Tr}(AB)^2
+   \le\operatorname{Tr}(A^2)\operatorname{Tr}(B^2).
+   $$
+
+## **Kai**
+
+(1) $\text{Tr}(AB) = \sum_{i=1}^n (AB)_{ii} = \sum_{i=1}^n \sum_{k=1}^n A_{ik}B_{ki} = \sum_{k=1}^n \sum_{i=1}^n B_{ki}A_{ik} = \sum_{k=1}^n (BA)_{kk} = \text{Tr}(BA)$
+
+(2) $\text{Tr}(B^{-1}AB) = \text{Tr}(A B B^{-1}) = \text{Tr}(A I) = \text{Tr}(A)$ (Using the property that Tr(XY) = Tr(YX))
+
+(3) Since A is a symmetric matrix, it can be diagonalized by an orthogonal matrix P.  Let $A = PDP^{-1}$ , where D is a diagonal matrix with the eigenvalues $\lambda_i$ of A on the diagonal.  Then, $\text{Tr}(A) = \sum_{i=1}^n \lambda_i$ . Also, $A^2 = PD^2P^{-1}$ , so $\text{Tr}(A^2) = \text{Tr}(D^2) = \sum_{i=1}^n \lambda_i^2$ . We want to show that $\sum_{i=1}^n \lambda_i^2 \leq (\sum_{i=1}^n \lambda_i)^2$ . Since all eigenvalues are non-negative, this is equivalent to $\sum_{i=1}^n \lambda_i^2 \leq \sum_{i=1}^n \lambda_i^2 + 2\sum_{i<j} \lambda_i \lambda_j$ . This is equivalent to $0 \leq 2\sum_{i<j} \lambda_i \lambda_j$ , which is true since all eigenvalues are non-negative.
+
+(4) Since $A$ and $B$ are symmetric,
+
+$$
+\operatorname{Tr}(AB)=\sum_{i,j}a_{ij}b_{ji}
+=\sum_{i,j}a_{ij}b_{ij}.
+$$
+
+Therefore, applying the ordinary Cauchy--Schwarz inequality to the $n^2$ entries gives
+
+$$
+\operatorname{Tr}(AB)^2
+\leq \left(\sum_{i,j}a_{ij}^2\right)
+      \left(\sum_{i,j}b_{ij}^2\right).
+$$
+
+Moreover, symmetry implies
+
+$$
+\sum_{i,j}a_{ij}^2=\sum_{i,j}a_{ij}a_{ji}
+=\operatorname{Tr}(A^2),
+\qquad
+\sum_{i,j}b_{ij}^2=\operatorname{Tr}(B^2).
+$$
+
+Hence
+
+$$
+\operatorname{Tr}(AB)^2\leq
+\operatorname{Tr}(A^2)\operatorname{Tr}(B^2)
+$$
+
+.

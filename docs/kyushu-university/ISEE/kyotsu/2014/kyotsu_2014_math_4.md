@@ -1,0 +1,122 @@
+---
+sidebar_label: "2014年度入学 数学 問4（複素関数論）"
+tags:
+  - Kyushu-University
+  - Mathematics.Complex-Analysis.Cauchy-Riemann-Equations
+  - Mathematics.Complex-Analysis.Complex-Numbers
+---
+# 九州大学 システム情報科学府 情報学専攻・情報知能工学専攻・電気電子工学専攻 共通 2014年度入学 数学 問4（複素関数論）
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+正則関数 $f(z)$ を考える。ただし $z$ は複素数, $i = \sqrt{-1}$ とする。次の各問に答えよ。
+
+(1) $Re(f(z))$ は, $f(z)$ の実部である。 $Re(f(z)) = \sin x \cosh y$ で表されるとき, $f(z)$ を求めよ。ただし, $z = x + iy$ , $x$ と $y$ は実数である。
+
+(2) 問(1) で求めた $f(z)$ について考える。方程式 $f(z) = 0$ を解け。
+
+### 题目描述
+
+设 $f(z)$ 为解析函数，$z=x+iy$，其中 $x,y$ 为实数且 $i=\sqrt{-1}$。回答下列问题：
+
+1. 已知 $f(z)$ 的实部为
+
+   $$
+   \operatorname{Re}f(z)=\sin x\cosh y,
+   $$
+
+   求 $f(z)$。应保留由实部无法确定的纯虚常数。
+2. 对第 1 问所得的一般形式的 $f(z)$，求方程
+
+   $$
+   f(z)=0
+   $$
+
+   的全部复数解；解集应体现上述实常数参数。
+
+## **Kai**
+
+(1) $Re(f(z)) = u(x,y) = \sin x \cosh y$
+
+Cauchy-Riemann の方程式より、
+
+$$
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+$$
+
+$$
+\frac{\partial u}{\partial x} = \cos x \cosh y = \frac{\partial v}{\partial y}
+$$
+
+$$
+v(x, y) = \int \cos x \cosh y dy = \cos x \sinh y + h(x)
+$$
+
+$$
+\frac{\partial u}{\partial y} = \sin x \sinh y = -\frac{\partial v}{\partial x} = -(-\sin x \sinh y + h'(x))
+$$
+
+$$
+\sin x \sinh y = \sin x \sinh y - h'(x)
+$$
+
+$$
+h'(x) = 0
+$$
+
+$$
+h(x) = C \quad (C\in\mathbb R)
+$$
+
+$$
+v(x, y) = \cos x \sinh y + C
+$$
+
+$$
+f(z) = u(x, y) + iv(x, y) = \sin x \cosh y + i(\cos x \sinh y + C) = \sin x \cosh y + i\cos x \sinh y + iC
+$$
+
+$$
+f(z) = \sin(x + iy) + iC = \sin z + iC
+$$
+
+$f(z) = \sin z + iC$
+
+(2) $f(z) = 0$ を解く。
+
+$$
+\sin z + iC = 0
+$$
+
+$$
+\sin z = -iC
+$$
+
+$z=x+iy$ とおくと、
+
+$$
+\sin z=\sin x\cosh y+i\cos x\sinh y
+$$
+
+である。実部が $0$ なので $\sin x=0$ 、すなわち $x=k\pi$ （ $k\in\mathbb Z$ ）である。虚部を比較すると
+
+$$
+(-1)^k\sinh y=-C
+$$
+
+より
+
+$$
+y=(-1)^{k+1}\operatorname{arsinh}C.
+$$
+
+したがって、すべての解は
+
+$$
+\boxed{z=k\pi+i(-1)^{k+1}\operatorname{arsinh}C\qquad(k\in\mathbb Z)}
+$$
+
+である。

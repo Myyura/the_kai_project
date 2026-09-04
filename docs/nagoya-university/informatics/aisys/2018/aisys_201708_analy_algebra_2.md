@@ -1,0 +1,60 @@
+---
+sidebar_label: "2017年8月実施 解析・線形代数 [2]"
+tags:
+  - Nagoya-University
+  - Mathematics.Complex-Analysis.Complex-Numbers
+---
+# 名古屋大学 情報学研究科 知能システム学専攻 2017年8月実施 解析・線形代数 [2]
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+以下の問いに答えよ。ただし、 $\text{Im}(z)$ は複素数 $z$ の虚部を表す。
+
+(a) $z$ 平面上の直線 $\text{Im}(z) = \frac{1}{2}$ が複素関数 $w = \frac{1}{z}$ によって写される $w$ 平面上の図形を求め、図示せよ。
+
+(b) $z$ 平面上の領域 $\text{Im}(z) > 0$ が $1$ 次分数変換 $w = \frac{\alpha z + \beta}{z + \gamma}$ によって $w$ 平面上の領域 $|w| < 1$ に写されるとき、複素数 $\alpha, \beta, \gamma$ を求めよ。
+
+### 题目描述
+
+回答下列问题，其中 $\operatorname{Im}(z)$ 表示复数 $z$ 的虚部。
+
+1. 在复函数
+
+   $$
+   w=\frac1z
+   $$
+
+   下，求 $z$ 平面中的直线
+
+   $$
+   \operatorname{Im}(z)=\frac12
+   $$
+
+   在 $w$ 平面上的像，并画出该图形；
+2. 一次分式变换
+
+   $$
+   w=\frac{\alpha z+\beta}{z+\gamma}
+   $$
+
+   将 $z$ 平面中的上半平面 $\operatorname{Im}(z)>0$ 映为 $w$ 平面中的单位圆盘 $|w|<1$。求复数 $\alpha,\beta,\gamma$。
+
+## **Kai**
+
+(a) $w = \frac{1}{z}$ より、 $z = \frac{1}{w}$ 。
+$z = x + iy$ , $w = u + iv$ とおくと、 $x + iy = \frac{1}{u + iv} = \frac{u - iv}{u^2 + v^2}$ 。
+したがって、 $x = \frac{u}{u^2 + v^2}$ , $y = \frac{-v}{u^2 + v^2}$ 。
+$\text{Im}(z) = y = \frac{1}{2}$ より、 $\frac{-v}{u^2 + v^2} = \frac{1}{2}$ 。
+これを整理すると、 $u^2 + v^2 + 2v = 0$ , つまり $u^2 + (v+1)^2 = 1$ 。
+これは中心 $0-i$ , 半径1の円を表す。
+ただし、 $z = \frac{1}{w}$ より、 $z = x$ のとき $w = \frac{1}{x}$ は原点を通る。 $z$ 平面において $\text{Im}(z) = \frac{1}{2}$ であるから、 $z$ は実軸上には存在しない。従って $w \neq 0$ 。
+したがって、 $w$ 平面上の図形は、中心 $0 - i$ , 半径1の円から原点を除いたものである。
+
+(b) $\text{Im}(z) > 0$ を $|w| < 1$ に写す一次分数変換は、 $\{z: \text{Im}(z) > 0\}$ の境界である実軸 $\mathbb{R}$ を $|w| = 1$ に写す必要がある。
+従って、実数 $z$ を代入すると $|w| = 1$ となる。また、 $\text{Im}(z) > 0$ の点が $|w| < 1$ に写される必要がある。
+$\alpha = 1, \beta = -i, \gamma = i$ のとき、 $w = \frac{z - i}{z + i}$ は条件を満たす。
+実際、 $|w|^2 = \frac{(z - i)(\overline{z} + i)}{(z + i)(\overline{z} - i)} = \frac{|z|^2 + i(z - \overline{z}) + 1}{|z|^2 - i(z - \overline{z}) + 1} = \frac{|z|^2 - 2 \text{Im}(z) + 1}{|z|^2 + 2 \text{Im}(z) + 1}$
+$\text{Im}(z) > 0$ より $|w| < 1$ 。また、実数 $z$ に対して $|w| = 1$ 。従って、 $\alpha = 1, \beta = -i, \gamma = i$ は条件を満たす。

@@ -1,0 +1,217 @@
+---
+sidebar_label: "社会工学学位プログラム 2022年8月実施 数学 I"
+tags:
+  - Tsukuba-University
+  - Mathematics.Calculus.Gamma-Function
+  - Mathematics.Calculus.Integration-by-Parts
+  - Mathematics.Calculus.Multivariable-Differentiation
+  - Mathematics.Calculus.Differentiation
+---
+# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム・サービス工学学位プログラム 共通 2022年8月実施 数学 I
+
+## **Author**
+[Miyake](https://miyake.github.io/exams/index.html), [思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+数学
+
+問題IとIIの両方に答えよ。問題ごとに別々の解答用紙を使用せよ。
+以下では、実数全体の集合を $\mathbb{R}$ とする。
+
+I. 以下の問 [1] 及び [2] に答えよ。
+
+[1] 平面 $\mathbb{R}^2$ 上で定義された次の関数 $f(x,y)$ について、以下の問 (1.1)-(1.4) に答えよ。
+
+$$
+f(x,y) = \begin{cases} \frac{xy^3}{x^2+y^4} & ((x,y) \neq (0,0) のとき), \\ 0 & ((x,y) = (0,0) のとき). \end{cases}
+$$
+
+(1.1) 関数 $f(x,y)$ は連続であることを示せ。
+
+(1.2) 関数 $f(x,y)$ は原点 $(0,0)$ で、両変数に関して偏微分可能であることを示せ。
+
+(1.3) $(x,y) \neq (0,0)$ のとき、関数 $f(x,y)$ の偏導関数 $f_x(x,y), f_y(x,y)$ を求めよ。
+
+(1.4) 偏導関数 $f_x(x,y), f_y(x,y)$ はともに原点 $(0,0)$ において連続でないことを示せ。
+
+[2] ガンマ関数
+
+$$
+\Gamma(s) = \int_0^{\infty} x^{s-1}e^{-x} dx, \quad s>0
+$$
+
+について、以下の問 (2.1)-(2.3) に答えよ。
+
+(2.1) 公式 $\int_0^{\infty} e^{-t^2} dt = \frac{\sqrt{\pi}}{2}$ を利用して、 $\Gamma(\frac{1}{2})$ を求めよ。
+
+(2.2) $s > 0$ のとき、部分積分法を用いることにより、 $\Gamma(s+1) = s\Gamma(s)$ を示せ。
+
+(2.3) 各自然数 $n$ に対して、 $\Gamma(n+\frac{1}{2})$ を求めよ。
+
+### 题目描述
+
+回答以下两组问题。
+
+**[1] 二元函数**
+
+在平面 $\mathbb R^2$ 上定义
+
+$$
+f(x,y)=
+\begin{cases}
+\dfrac{xy^3}{x^2+y^4},&(x,y)\neq(0,0),\\[5pt]
+0,&(x,y)=(0,0).
+\end{cases}
+$$
+
+1. 证明 $f(x,y)$ 在 $\mathbb R^2$ 上连续。
+2. 证明 $f$ 在原点 $(0,0)$ 关于两个变量的偏导数都存在。
+3. 当 $(x,y)\neq(0,0)$ 时，求偏导函数 $f_x(x,y)$ 与 $f_y(x,y)$。
+4. 证明 $f_x$ 和 $f_y$ 在原点 $(0,0)$ 都不连续。
+
+**[2] Gamma 函数**
+
+对 $s>0$，定义
+
+$$
+\Gamma(s)=\int_0^\infty x^{s-1}e^{-x}\,dx.
+$$
+
+1. 使用已知公式
+
+   $$
+   \int_0^\infty e^{-t^2}\,dt=\frac{\sqrt\pi}{2}
+   $$
+
+   求 $\Gamma\!\left(\frac12\right)$。
+2. 对 $s>0$，使用分部积分证明递推公式
+
+   $$
+   \Gamma(s+1)=s\Gamma(s).
+   $$
+
+3. 对每个自然数 $n$，求
+
+   $$
+   \Gamma\!\left(n+\frac12\right).
+   $$
+
+## **Kai**
+
+解答:
+
+[1] (1.1) 連続性:
+$(x,y)\neq(0,0)$ では分母が正なので， $f$ は連続である．
+また， $2|x|y^2\leq x^2+y^4$ より，
+
+$$
+|f(x,y)|
+=|y|\frac{|x|y^2}{x^2+y^4}
+\leq\frac{|y|}{2}
+$$
+
+が成り立つ． $(x,y)\to(0,0)$ なら $|y|/2\to0$ であるから，
+はさみうちの原理により $f(x,y)\to0=f(0,0)$ となる．
+したがって， $f$ は原点でも連続であり，平面全体で連続である．
+
+(1.2) 偏微分可能性:
+
+$$
+f_x(0,0) = \lim_{h\to 0} \frac{f(h,0) - f(0,0)}{h} = \lim_{h\to 0} \frac{0 - 0}{h} = 0
+$$
+
+$$
+f_y(0,0) = \lim_{k\to 0} \frac{f(0,k) - f(0,0)}{k} = \lim_{k\to 0} \frac{0 - 0}{k} = 0
+$$
+
+したがって、 $f(x,y)$ は原点 $(0,0)$ で偏微分可能です。
+
+(1.3) 偏導関数の計算:
+$(x,y) \neq (0,0)$ のとき
+
+$$
+f_x(x,y) = \frac{\partial}{\partial x} \frac{xy^3}{x^2+y^4} = \frac{y^3(x^2+y^4) - xy^3(2x)}{(x^2+y^4)^2} = \frac{y^3(y^4-x^2)}{(x^2+y^4)^2}
+$$
+
+$$
+f_y(x,y) = \frac{\partial}{\partial y} \frac{xy^3}{x^2+y^4} = \frac{x(3y^2(x^2+y^4) - y^3(4y^3))}{(x^2+y^4)^2} = \frac{x(3x^2y^2 - y^6)}{(x^2+y^4)^2}
+$$
+
+(1.4) 偏導関数の連続性:
+
+$$
+f_x(0,0) = 0
+$$
+
+$$
+f_x(x,y) = \frac{y^3(y^4-x^2)}{(x^2+y^4)^2}
+$$
+
+$x = y^2$ に沿って原点に近づくと
+
+$$
+\lim_{y\to 0} f_x(y^2, y) = \lim_{y\to 0} \frac{y^3(y^4 - y^4)}{(y^4 + y^4)^2} = 0
+$$
+
+$x = 0$ に沿って原点に近づくと
+
+$$
+\lim_{y\to 0} f_x(0,y) = \lim_{y\to 0} \frac{y^7}{y^8} = \lim_{y\to 0} \frac{1}{y}
+$$
+
+これは存在しないので、 $f_x$ は原点で連続ではありません。
+また， $x=y^2$ に沿って原点に近づくと
+
+$$
+f_y(y^2,y)
+=\frac{y^2(3y^6-y^6)}{(y^4+y^4)^2}
+=\frac12
+$$
+
+となる一方， $f_y(0,0)=0$ である．したがって，
+$f_y$ も原点で連続ではない．
+
+[2] (2.1) $\Gamma(\frac{1}{2})$ の計算:
+
+$$
+\Gamma(\frac{1}{2}) = \int_0^{\infty} x^{\frac{1}{2}-1}e^{-x} dx = \int_0^{\infty} x^{-\frac{1}{2}}e^{-x} dx
+$$
+
+$x = t^2$ を代入すると、 $dx = 2t dt$
+
+$$
+\Gamma(\frac{1}{2}) = \int_0^{\infty} (t^2)^{-\frac{1}{2}}e^{-t^2} 2t dt = 2\int_0^{\infty} t^{-1}e^{-t^2} t dt = 2\int_0^{\infty} e^{-t^2} dt = 2 \cdot \frac{\sqrt{\pi}}{2} = \sqrt{\pi}
+$$
+
+(2.2) $\Gamma(s+1) = s\Gamma(s)$ の証明:
+部分積分法を使う:
+
+$$
+\Gamma(s+1) = \int_0^{\infty} x^{(s+1)-1}e^{-x} dx = \int_0^{\infty} x^{s}e^{-x} dx
+$$
+
+$u = x^s, dv = e^{-x} dx$ とすると， $du = sx^{s-1} dx, v = -e^{-x}$
+
+$$
+\Gamma(s+1) = [-x^se^{-x}]_0^{\infty} + \int_0^{\infty} e^{-x} sx^{s-1} dx
+$$
+
+$$
+\lim_{x\to \infty} x^s e^{-x} = 0
+$$
+
+$$
+\Gamma(s+1) = 0 + s\int_0^{\infty} x^{s-1} e^{-x} dx = s\Gamma(s)
+$$
+
+(2.3) $\Gamma(n+\frac{1}{2})$ の計算:
+$\Gamma(\frac{1}{2}) = \sqrt{\pi}$ を使用し， $\Gamma(s+1) = s\Gamma(s)$ を繰り返し適用する。
+
+$$
+\Gamma(n+\frac{1}{2}) = (n-\frac{1}{2})\Gamma(n-\frac{1}{2}) = (n-\frac{1}{2})(n-\frac{3}{2})\Gamma(n-\frac{3}{2}) = \cdots = (n-\frac{1}{2})(n-\frac{3}{2})\cdots(\frac{1}{2})\Gamma(\frac{1}{2})
+$$
+
+$$
+\Gamma(n+\frac{1}{2}) = \frac{(2n-1)(2n-3)\cdots 1}{2^n} \sqrt{\pi} = \frac{(2n)!}{2^n(2n)(2n-2)\cdots 2} \sqrt{\pi} = \frac{(2n)!}{2^n 2^n n!} \sqrt{\pi} = \frac{(2n)!}{4^n n!} \sqrt{\pi}
+$$

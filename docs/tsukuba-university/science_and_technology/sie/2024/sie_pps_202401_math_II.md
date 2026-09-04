@@ -1,0 +1,385 @@
+---
+sidebar_label: "社会工学学位プログラム 2024年1月実施 数学 II"
+tags:
+  - Tsukuba-University
+  - Mathematics.Calculus.Limit
+  - Mathematics.Calculus.Differentiation
+  - Mathematics.Calculus.Integration
+---
+# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム・サービス工学学位プログラム 共通 2024年1月実施 数学 II
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+以下の問 (1) 及び (2) に答えよ.
+
+(1) 実数関数 $f(x) = \exp(x^2/2) (x \in \mathbb{R})$ とする. $f^{(n)}(x) (n = 1,2,...)$ は $f(x)$ の $n$ 階導関数である. ただし, $f^{(0)}(x) = f(x)$ とする. 以下の問いに答えよ.
+
+(a) 次式を示せ.
+
+i) $f^{(1)}(x) = xf(x)$ ,
+
+ii) $f^{(2)}(x) = x f^{(1)}(x) + f(x)$ .
+
+(b) 任意の自然数 $n$ について、次式を示せ.
+
+$$
+f^{(n+1)}(x) = x f^{(n)}(x) + n f^{(n-1)}(x).
+$$
+
+(c) 次の値を求めよ.
+
+i) $f^{(2023)}(0)$ ,
+
+ii) $f^{(2024)}(0)$ .
+
+(d) 次の極限を求めよ.
+
+i) $\lim_{x \to 0} \frac{f(x) - 1 - x^2/2}{x^4}$ ,
+
+ii) $\lim_{x \to 0} \frac{f(x) - 1 - x^2/2 - x^4/8}{x^6}$ .
+
+(2) 実数関数 $g(x)$ は以下のように定義される.
+
+$$
+g(x) = \begin{cases} \frac{1}{\sqrt{2\pi}x} \exp(-\frac{1}{2} (\ln x)^2) & (x > 0), \\ 0 & (x \leq 0). \end{cases}
+$$
+
+以下の問いに答えよ. ただし、 $\int_{-\infty}^{\infty} \exp(-x^2/2) dx = \sqrt{2\pi}$ を証明なしで使ってもよい.
+
+(a) $\int_{-\infty}^{\infty} g(x) dx$ を求めよ.
+
+(b) $\int_{-\infty}^{\infty} x g(x) dx$ を求めよ.
+
+(c) $\int_{-\infty}^{\infty} x^n g(x) dx$ を求めよ. ただし、 $n$ は自然数である.
+
+### 题目描述
+
+完成以下两题。
+
+1. 定义
+
+   $$
+   f(x)=e^{x^2/2}\qquad(x\in\mathbb R),
+   $$
+
+   以 $f^{(n)}(x)$ 表示 $n$ 阶导数，其中 $n=1,2,\ldots$，并约定 $f^{(0)}(x)=f(x)$。
+
+   1. 证明
+
+      $$
+      \text{(i)}\ f^{(1)}(x)=xf(x),\qquad
+      \text{(ii)}\ f^{(2)}(x)=xf^{(1)}(x)+f(x).
+      $$
+
+   2. 对任意自然数 $n$，证明递推式
+
+      $$
+      f^{(n+1)}(x)
+      =xf^{(n)}(x)+nf^{(n-1)}(x).
+      $$
+
+   3. 分别求
+
+      $$
+      \text{(i)}\ f^{(2023)}(0),\qquad
+      \text{(ii)}\ f^{(2024)}(0).
+      $$
+
+   4. 分别求极限
+
+      $$
+      \text{(i)}\quad
+      \lim_{x\to0}
+      \frac{f(x)-1-x^2/2}{x^4},
+      $$
+
+      $$
+      \text{(ii)}\quad
+      \lim_{x\to0}
+      \frac{f(x)-1-x^2/2-x^4/8}{x^6}.
+      $$
+
+2. 定义实函数
+
+   $$
+   g(x)=
+   \begin{cases}
+   \dfrac{1}{\sqrt{2\pi}\,x}
+   \exp\!\left(-\dfrac12(\ln x)^2\right),&x>0,\\[6pt]
+   0,&x\leq0.
+   \end{cases}
+   $$
+
+   可以不加证明地使用
+
+   $$
+   \int_{-\infty}^{+\infty}e^{-x^2/2}\,dx=\sqrt{2\pi}.
+   $$
+
+   计算：
+
+   1. $\displaystyle\int_{-\infty}^{+\infty}g(x)\,dx$；
+   2. $\displaystyle\int_{-\infty}^{+\infty}xg(x)\,dx$；
+   3. 对自然数 $n$，求 $\displaystyle\int_{-\infty}^{+\infty}x^ng(x)\,dx$。
+
+## **Kai**
+
+(1)
+(a)
+i)
+$f(x)=e^{\frac{x^2}{2}}$ とする。
+このとき
+
+$$
+f'(x)
+=e^{\frac{x^2}{2}}\cdot x
+=xf(x)
+$$
+
+ii)
+
+$$
+f''(x)
+=(xf(x))'
+=f(x)+x f'(x)
+=f(x)+x(xf(x))
+$$
+
+(b)
+次を示す：
+
+$$
+f^{(n+1)}(x)
+= x f^{(n)}(x) + n f^{(n-1)}(x)
+$$
+
+（数学的帰納法による証明）
+
+基底：
+$n=1$ のとき，
+
+$$
+f^{(2)}(x)
+= x f'(x) + f(x)
+$$
+
+であり，(a)ii) より成り立つ。
+
+帰納法の仮定として，
+
+$$
+f^{(k+1)}(x)
+= x f^{(k)}(x) + k f^{(k-1)}(x)
+$$
+
+が成り立つと仮定する。
+
+このとき
+
+$$
+\begin{aligned}
+f^{(k+2)}(x)
+&= (f^{(k+1)}(x))' \\
+&= (x f^{(k)}(x) + k f^{(k-1)}(x))' \\
+&= f^{(k)}(x)
++ x f^{(k+1)}(x)
++ k f^{(k)}(x) \\
+&= x f^{(k+1)}(x)
++ (k+1) f^{(k)}(x)
+\end{aligned}
+$$
+
+となり，帰納法が完了する。
+
+(c)
+i) $f^{(2023)}(0)$ ，
+ii) $f^{(2024)}(0)$ を求める。
+
+漸化式
+
+$$
+f^{(n+1)}(x)
+= x f^{(n)}(x) + n f^{(n-1)}(x)
+$$
+
+より，
+
+$$
+f^{(n+1)}(0)
+= n f^{(n-1)}(0)
+$$
+
+が成り立つ。
+
+これより，
+$n$ が奇数のとき $f^{(n)}(0)=0$ ，
+$n$ が偶数のとき $f^{(n)}(0)\neq 0$ である。
+
+実際，
+
+$$
+f'(0)=0,\quad
+f''(0)=1,\quad
+f'''(0)=0,\quad
+f^{(4)}(0)=3
+$$
+
+であり，
+一般に
+
+$$
+f^{(n)}(0)
+=
+\begin{cases}
+0 & (n\text{ が奇数}) \\
+(n-1)!! & (n\text{ が偶数})
+\end{cases}
+$$
+
+したがって
+
+$$
+f^{(2023)}(0)=0,\qquad
+f^{(2024)}(0)=2023!!
+$$
+
+(d)
+指数関数の展開
+
+$$
+e^x
+=1+x+\frac{x^2}{2!}
++\frac{x^3}{3!}+\cdots
+$$
+
+より
+
+$$
+e^{\frac{x^2}{2}}
+=1+\frac{x^2}{2}
++\frac{x^4}{8}
++\frac{x^6}{48}+\cdots
+$$
+
+i)
+
+$$
+\begin{aligned}
+\lim_{x\to 0}
+\frac{f(x)-1-\frac{x^2}{2}}{x^4}
+&=
+\lim_{x\to 0}
+\frac{\frac{x^4}{8}
++\frac{x^6}{48}+\cdots}{x^4} \\
+&=\frac18
+\end{aligned}
+$$
+
+ii)
+
+$$
+\begin{aligned}
+\lim_{x\to 0}
+\frac{f(x)-1-\frac{x^2}{2}-\frac{x^4}{8}}{x^6}
+&=
+\lim_{x\to 0}
+\frac{\frac{x^6}{48}+\cdots}{x^6} \\
+&=\frac{1}{48}
+\end{aligned}
+$$
+
+(2)
+実数関数 $g(x)$ を
+
+$$
+g(x)=
+\begin{cases}
+\dfrac{1}{\sqrt{2\pi}x}
+\exp\!\left(-\dfrac12(\ln x)^2\right)
+& (x>0),\\
+0 & (x\le 0)
+\end{cases}
+$$
+
+で定義する。
+
+(a)
+
+$$
+\int_{-\infty}^{\infty} g(x)\,dx
+=
+\int_{0}^{\infty}
+\dfrac{1}{\sqrt{2\pi}x}
+\exp\!\left(-\dfrac12(\ln x)^2\right)\,dx
+$$
+
+$u=\ln x$ とおくと $dx=e^u du$ であるから，
+
+$$
+=
+\int_{-\infty}^{\infty}
+\dfrac{1}{\sqrt{2\pi}}
+e^{-\frac12 u^2}\,du
+=1
+$$
+
+(b)
+
+$$
+\begin{aligned}
+\int_{-\infty}^{\infty} x g(x)\,dx
+&=
+\int_{0}^{\infty}
+\dfrac{1}{\sqrt{2\pi}}
+\exp\!\left(-\dfrac12(\ln x)^2\right)\,dx \\
+&=
+\int_{-\infty}^{\infty}
+\dfrac{1}{\sqrt{2\pi}}
+e^{-\frac12 u^2}e^u\,du
+\end{aligned}
+$$
+
+平方完成より
+
+$$
+= e^{\frac12}
+\int_{-\infty}^{\infty}
+\dfrac{1}{\sqrt{2\pi}}
+e^{-\frac12 (u-1)^2}\,du
+= \sqrt{e}
+$$
+
+(c)
+
+$$
+\begin{aligned}
+\int_{-\infty}^{\infty} x^n g(x)\,dx
+&=
+\int_{0}^{\infty}
+x^{n-1}
+\dfrac{1}{\sqrt{2\pi}}
+\exp\!\left(-\dfrac12(\ln x)^2\right)\,dx \\
+&=
+\int_{-\infty}^{\infty}
+\dfrac{1}{\sqrt{2\pi}}
+e^{nu}
+e^{-\frac12 u^2}\,du
+\end{aligned}
+$$
+
+平方完成により
+
+$$
+=
+e^{\frac{n^2}{2}}
+\int_{-\infty}^{\infty}
+\dfrac{1}{\sqrt{2\pi}}
+e^{-\frac12 (u-n)^2}\,du
+=
+e^{\frac{n^2}{2}}
+$$
+
+となる。

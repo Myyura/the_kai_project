@@ -1,0 +1,109 @@
+---
+sidebar_label: "2013年度入学 数学 問1（線形代数）"
+tags:
+  - Kyushu-University
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Basis-and-Dimension
+---
+# 九州大学 システム情報科学府 情報学専攻・情報知能工学専攻・電気電子工学専攻 共通 2013年度入学 数学 問1（線形代数）
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+行列
+
+$$
+X = \begin{pmatrix} 1 & 0 & 1 & 0  \\ 0 & 1 & 0 & 1  \\ 0 & -1 & 1 & 0 \end{pmatrix}
+$$
+
+に対し, $A = XX^T$ とする. ただし, $X^T$ は $X$ の転置行列を表す. また, ベクトル $u$ に対し, $||u|| = \sqrt{u^T u}$ とする. 以下の各問に答えよ.
+
+(1) $A$ の固有値と対応する固有ベクトル $\phi_1, \phi_2, \phi_3$ をすべて求めよ. ただし, 各 $i$ ( $i = 1, 2, 3$ ) に対し, $|\phi_i| = 1$ とせよ.
+
+(2) 問(1) で求めた固有ベクトルを列に持つ正方行列を $\Phi$ とする. すなわち, $\Phi = (\phi_1 \ \phi_2 \ \phi_3)$ . 任意の3次元ベクトル $v \in \mathbb{R}^3$ に対し, $|\Phi v| = |v|$ が成り立つことを示せ.
+
+(3) $\max_{v} \frac{v^T A v}{||v||^2}$ を求めよ.
+
+### 题目描述
+
+给定矩阵
+
+$$
+X=\begin{pmatrix}
+1&0&1&0\\
+0&1&0&1\\
+0&-1&1&0
+\end{pmatrix},
+$$
+
+令 $A=XX^T$，其中 $X^T$ 表示 $X$ 的转置。对向量 $u$ 定义
+
+$$
+\lVert u\rVert=\sqrt{u^Tu}.
+$$
+
+回答下列问题：
+
+1. 求 $A$ 的全部特征值及相应的特征向量 $\phi_1,\phi_2,\phi_3$，并将每个特征向量单位化，即对 $i=1,2,3$ 均有 $\lVert\phi_i\rVert=1$。
+2. 令以上三个特征向量作为列组成方阵
+
+   $$
+   \Phi=(\phi_1\ \phi_2\ \phi_3).
+   $$
+
+   证明对任意 $v\in\mathbb R^3$，都有 $\lVert\Phi v\rVert=\lVert v\rVert$。
+3. 求瑞利商
+
+   $$
+   \max_{v\ne0}\frac{v^TAv}{\lVert v\rVert^2}.
+   $$
+
+## **Kai**
+
+(1) 首先计算 $A = XX^T$ ：
+
+$$
+A = \begin{pmatrix} 1 & 0 & 1 & 0  \\ 0 & 1 & 0 & 1  \\ 0 & -1 & 1 & 0 \end{pmatrix} \begin{pmatrix} 1 & 0 & 0  \\ 0 & 1 & -1  \\ 1 & 0 & 1  \\ 0 & 1 & 0 \end{pmatrix} = \begin{pmatrix} 2 & 0 & 1  \\ 0 & 2 & -1  \\ 1 & -1 & 2 \end{pmatrix}
+$$
+
+特征方程为 $|A - \lambda I| = 0$ :
+
+$$
+\begin{vmatrix} 2-\lambda & 0 & 1  \\ 0 & 2-\lambda & -1  \\ 1 & -1 & 2-\lambda \end{vmatrix} = (2-\lambda)((2-\lambda)^2 - 1) + 1(0 - (2-\lambda)) = (2-\lambda)((2-\lambda)^2 - 1 - 1) = (2-\lambda)((2-\lambda)^2 - 2) = 0
+$$
+
+因此, 特征值为 $\lambda_1 = 2, \lambda_2 = 2+\sqrt{2}, \lambda_3 = 2-\sqrt{2}$ .
+
+对于 $\lambda_1 = 2$ :
+
+$$
+(A - 2I)v = 0 \implies \begin{pmatrix} 0 & 0 & 1  \\ 0 & 0 & -1  \\ 1 & -1 & 0 \end{pmatrix} \begin{pmatrix} x \\ y  \\ z \end{pmatrix} = 0
+$$
+
+$z = 0, x = y$ .  设 $x=1$ , 则 $y=1, z=0$ . 归一化后得到 $\phi_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}$ .
+
+对于 $\lambda_2 = 2+\sqrt{2}$ :
+
+$$
+(A - (2+\sqrt{2})I)v = 0 \implies \begin{pmatrix} -\sqrt{2} & 0 & 1  \\ 0 & -\sqrt{2} & -1  \\ 1 & -1 & -\sqrt{2} \end{pmatrix} \begin{pmatrix} x  \\ y  \\ z \end{pmatrix} = 0
+$$
+
+$-\sqrt{2}x + z = 0 \implies z = \sqrt{2}x$
+$-\sqrt{2}y - z = 0 \implies -\sqrt{2}y - \sqrt{2}x = 0 \implies y = -x$
+设 $x=1$ , 则 $y=-1, z=\sqrt{2}$ . 归一化后得到 $\phi_2 = \frac{1}{2} \begin{pmatrix} 1 \\ -1 \\ \sqrt{2} \end{pmatrix}$ .
+
+对于 $\lambda_3 = 2-\sqrt{2}$ :
+
+$$
+(A - (2-\sqrt{2})I)v = 0 \implies \begin{pmatrix} \sqrt{2} & 0 & 1  \\ 0 & \sqrt{2} & -1  \\ 1 & -1 & \sqrt{2} \end{pmatrix} \begin{pmatrix} x  \\ y  \\ z \end{pmatrix} = 0
+$$
+
+$\sqrt{2}x + z = 0 \implies z = -\sqrt{2}x$
+$\sqrt{2}y - z = 0 \implies \sqrt{2}y + \sqrt{2}x = 0 \implies y = -x$
+设 $x=1$ , 则 $y=-1, z=-\sqrt{2}$ . 归一化后得到 $\phi_3 = \frac{1}{2} \begin{pmatrix} 1 \\ -1 \\ -\sqrt{2} \end{pmatrix}$ .
+
+(2) $\Phi = (\phi_1 \ \phi_2 \ \phi_3)$ ，因为 $\phi_1, \phi_2, \phi_3$ 是正交归一向量，因此 $\Phi$ 是正交矩阵, 即 $\Phi^T \Phi = I$ 。故 $|\Phi v|^2 = (\Phi v)^T (\Phi v) = v^T \Phi^T \Phi v = v^T I v = v^T v = |v|^2$ , 所以 $|\Phi v| = |v|$ .
+
+(3) 根据瑞利商的性质, $\max_{v} \frac{v^T A v}{||v||^2}$ 等于 $A$ 的最大特征值, 即 $2 + \sqrt{2}$ .

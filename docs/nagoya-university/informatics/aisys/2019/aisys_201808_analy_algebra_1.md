@@ -1,0 +1,103 @@
+---
+sidebar_label: "2018年8月実施 解析・線形代数 [1]"
+tags:
+  - Nagoya-University
+  - Mathematics.Calculus.Extrema
+  - Mathematics.Calculus.Differentiation
+---
+# 名古屋大学 情報学研究科 知能システム学専攻 2018年8月実施 解析・線形代数 [1]
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+$a_i$ ( $i = 1, 2, ..., N$ ) を定数とするとき、次の関数 $f(x)$ の値が最大になるときの $x$ の値を求めよ。
+
+$$
+f(x) = \prod_{i=1}^{N} e^{\frac{-(x-a_i)^2}{2}}
+$$
+
+### 题目描述
+
+设 $a_i$（$i=1,2,\ldots,N$）为常数。求使函数
+
+$$
+f(x)=\prod_{i=1}^{N}
+\exp\left(-\frac{(x-a_i)^2}{2}\right)
+$$
+
+取得最大值的 $x$。
+
+## **Kai**
+
+関数
+
+$$
+f(x)=\prod_{i=1}^{N} e^{-\frac{(x-a_i)^2}{2}}
+$$
+
+の最大値を与える $x$ を求める．
+
+$\log$ は単調増加関数であるから， $f(x)$ を最大化することは
+$\log f(x)$ を最大化することと同値である．
+
+$$
+\begin{aligned}
+\log f(x)
+&=\log\left(\prod_{i=1}^{N} e^{-\frac{(x-a_i)^2}{2}}\right) \\
+&=\sum_{i=1}^{N} \log\left(e^{-\frac{(x-a_i)^2}{2}}\right) \\
+&=-\frac12\sum_{i=1}^{N}(x-a_i)^2
+\end{aligned}
+$$
+
+したがって， $\log f(x)$ を最大化するためには，
+
+$$
+\sum_{i=1}^{N}(x-a_i)^2
+$$
+
+を最小化すればよい．そこで
+
+$$
+g(x)=\sum_{i=1}^{N}(x-a_i)^2
+$$
+
+とおく．
+
+$g(x)$ を微分すると，
+
+$$
+g'(x)=\sum_{i=1}^{N}2(x-a_i)
+=2\left(Nx-\sum_{i=1}^{N}a_i\right)
+$$
+
+である． $g'(x)=0$ より，
+
+$$
+Nx=\sum_{i=1}^{N}a_i
+$$
+
+すなわち，
+
+$$
+x=\frac{1}{N}\sum_{i=1}^{N}a_i
+$$
+
+を得る．
+
+さらに，
+
+$$
+g''(x)=2N>0
+$$
+
+であるから，この点で $g(x)$ は最小値をとる．
+
+以上より，
+
+$$
+x=\frac{1}{N}\sum_{i=1}^{N}a_i
+$$
+
+のとき $\log f(x)$ ，ひいては $f(x)$ は最大となる．

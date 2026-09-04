@@ -1,0 +1,86 @@
+---
+sidebar_label: "2016年8月実施 解析・線形代数 [2]"
+tags:
+  - Nagoya-University
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+---
+# 名古屋大学 情報科学研究科 情報システム学専攻 2016年8月実施 解析・線形代数 [2]
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+漸化式 $a_n = 4a_{n-1} - 3a_{n-2}$ により定義された数列 $\{a_n\}$ について考える。
+
+(a) $\begin{pmatrix} a_n \\ a_{n-1} \end{pmatrix} = A \begin{pmatrix} a_{n-1} \\ a_{n-2} \end{pmatrix}$ を満たす $2 \times 2$ 行列 $A$ を求めよ。
+
+(b) 行列 $A$ の全ての固有値と、その各々に属する固有ベクトルのうち大きさが1のものを求めよ。
+
+(c) 行列 $A$ は、ある行列 $P$ によって、 $D = P^{-1}AP$ の形で対角化できる。このような行列 $P$ 及び対角行列 $D$ を求めよ。
+
+(d) 行列 $A^n$ を求めよ。
+
+(e) 数列 $\{a_n\}$ の一般項 $a_n$ を、 $a_1$ と $a_2$ を用いて表せ。
+
+### 题目描述
+
+数列 $\{a_n\}$ 由递推关系
+
+$$
+a_n=4a_{n-1}-3a_{n-2}
+$$
+
+定义。
+
+1. 求满足
+
+   $$
+   \begin{pmatrix}a_n\\a_{n-1}\end{pmatrix}
+   =
+   A\begin{pmatrix}a_{n-1}\\a_{n-2}\end{pmatrix}
+   $$
+
+   的 $2\times2$ 矩阵 $A$；
+2. 求 $A$ 的全部特征值，并对每个特征值求模长为 $1$ 的对应特征向量；
+3. 求矩阵 $P$ 与对角矩阵 $D$，使
+
+   $$
+   D=P^{-1}AP;
+   $$
+
+4. 求 $A^n$；
+5. 用 $a_1,a_2$ 表示数列的通项 $a_n$。
+
+## **Kai**
+
+(a)  $\begin{pmatrix} a_n \\ a_{n-1} \end{pmatrix} = \begin{pmatrix} 4a_{n-1} - 3a_{n-2} \\ a_{n-1} \end{pmatrix} = \begin{pmatrix} 4 & -3 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} a_{n-1} \\ a_{n-2} \end{pmatrix}$
+ よって、 $A = \begin{pmatrix} 4 & -3 \\ 1 & 0 \end{pmatrix}$ 。
+
+(b) $A$ の固有方程式は $|A - \lambda I| = 0$ 。つまり、
+$\begin{vmatrix} 4 - \lambda & -3 \\ 1 & -\lambda \end{vmatrix} = (4 - \lambda)(-\lambda) - (-3)(1) = \lambda^2 - 4\lambda + 3 = (\lambda - 1)(\lambda - 3) = 0$ 。よって、固有値は $\lambda_1 = 1, \lambda_2 = 3$ 。
+
+$\lambda_1 = 1$ のとき、 $\begin{pmatrix} 3 & -3 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ 。つまり、 $x = y$ 。よって、固有ベクトルは $c_1 \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ 。大きさが1の固有ベクトルは $\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ 。
+
+$\lambda_2 = 3$ のとき、 $\begin{pmatrix} 1 & -3 \\ 1 & -3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ 。つまり、 $x = 3y$ 。よって、固有ベクトルは $c_2 \begin{pmatrix} 3 \\ 1 \end{pmatrix}$ 。大きさが1の固有ベクトルは $\frac{1}{\sqrt{10}} \begin{pmatrix} 3 \\ 1 \end{pmatrix}$ 。
+
+(c) $P = \begin{pmatrix} 1 & 3 \\ 1 & 1 \end{pmatrix}$ , $D = \begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix}$ 。
+
+(d) $A^n = PD^nP^{-1}$ 。まず、 $P^{-1} = \frac{1}{1-3} \begin{pmatrix} 1 & -3 \\ -1 & 1 \end{pmatrix} = -\frac{1}{2} \begin{pmatrix} 1 & -3 \\ -1 & 1 \end{pmatrix}$ 。
+$A^n = \begin{pmatrix} 1 & 3 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 1^n & 0 \\ 0 & 3^n \end{pmatrix} \left( -\frac{1}{2} \begin{pmatrix} 1 & -3 \\ -1 & 1 \end{pmatrix} \right) = -\frac{1}{2} \begin{pmatrix} 1 & 3 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & 3^n \end{pmatrix} \begin{pmatrix} 1 & -3 \\ -1 & 1 \end{pmatrix} = -\frac{1}{2} \begin{pmatrix} 1 & 3^{n+1} \\ 1 & 3^n \end{pmatrix} \begin{pmatrix} 1 & -3 \\ -1 & 1 \end{pmatrix} = -\frac{1}{2} \begin{pmatrix} 1 - 3^{n+1} & -3 + 3^{n+1} \\ 1 - 3^n & -3 + 3^n \end{pmatrix} = \frac{1}{2} \begin{pmatrix} 3^{n+1} - 1 & 3 - 3^{n+1} \\ 3^n - 1 & 3 - 3^n \end{pmatrix}$ 。
+
+(e) $\begin{pmatrix} a_n \\ a_{n-1} \end{pmatrix} = A^{n-1} \begin{pmatrix} a_1 \\ a_0 \end{pmatrix}$ 。 $a_2 = 4a_1 - 3a_0$ より、 $a_0 = \frac{4a_1 - a_2}{3}$ 。よって、
+$\begin{pmatrix} a_n \\ a_{n-1} \end{pmatrix} = \frac{1}{2} \begin{pmatrix} 3^n - 1 & 3 - 3^n \\ 3^{n-1} - 1 & 3 - 3^{n-1} \end{pmatrix} \begin{pmatrix} a_1 \\ \frac{4a_1 - a_2}{3} \end{pmatrix} = \frac{1}{2} \begin{pmatrix} (3^n - 1)a_1 + (3 - 3^n) \frac{4a_1 - a_2}{3} \\ (3^{n-1} - 1)a_1 + (3 - 3^{n-1}) \frac{4a_1 - a_2}{3} \end{pmatrix}$
+整理すると
+
+$$
+\boxed{
+a_n=
+\frac{3a_1-a_2}{2}
++\frac{a_2-a_1}{2}\,3^{n-1}
+}.
+$$
+
+実際， $n=1,2$ を代入するとそれぞれ $a_1,a_2$ となり，
+特性根 $1,3$ に対応する形になっている。

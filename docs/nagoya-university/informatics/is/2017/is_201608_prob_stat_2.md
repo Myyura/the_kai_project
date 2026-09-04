@@ -1,0 +1,136 @@
+---
+sidebar_label: "2016年8月実施 確率・統計 [2]"
+tags:
+  - Nagoya-University
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
+---
+# 名古屋大学 情報科学研究科 情報システム学専攻 2016年8月実施 確率・統計 [2]
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+次の確率密度関数で表される確率変数 $X$ について、以下の問いに答えなさい。
+
+$$
+f_X(x) = \begin{cases} 2\alpha e^{-\lambda x} & (x \geq 0) \\ 0 & (x < 0) \end{cases}
+$$
+
+ただし、 $\alpha$ と $\lambda$ は定数で、 $\alpha > 0$ , $\lambda > 0$ とする。
+
+(1) $\alpha$ を $\lambda$ で表しなさい。
+
+(2) $X$ の期待値 $E(X)$ を $\lambda$ で表しなさい。
+
+(3) $X$ の分散 $V(X)$ を $\lambda$ で表しなさい。
+
+### 题目描述
+
+随机变量 $X$ 的概率密度函数为
+
+$$
+f_X(x)=
+\begin{cases}
+2\alpha e^{-\lambda x},&x\ge0,\\
+0,&x<0,
+\end{cases}
+$$
+
+其中 $\alpha,\lambda$ 为常数，且 $\alpha>0,\lambda>0$。
+
+1. 用 $\lambda$ 表示 $\alpha$；
+2. 用 $\lambda$ 表示期望 $E(X)$；
+3. 用 $\lambda$ 表示方差 $V(X)$。
+
+## **Kai**
+
+(1) 確率密度関数の定義より、全区間で積分すると1になる。
+
+$$
+\int_{-\infty}^{\infty} f_X(x) dx = 1
+$$
+
+$$
+\int_0^{\infty} 2\alpha e^{-\lambda x} dx = 1
+$$
+
+$$
+2\alpha \int_0^{\infty} e^{-\lambda x} dx = 1
+$$
+
+$$
+2\alpha \left[ -\frac{1}{\lambda} e^{-\lambda x} \right]_0^{\infty} = 1
+$$
+
+$$
+2\alpha \left( 0 - \left( -\frac{1}{\lambda} \right) \right) = 1
+$$
+
+$$
+\frac{2\alpha}{\lambda} = 1
+$$
+
+$$
+\alpha = \frac{\lambda}{2}
+$$
+
+(2) $X$ の期待値 $E(X)$ は次のように計算できる。
+
+$$
+E(X) = \int_{-\infty}^{\infty} x f_X(x) dx = \int_0^{\infty} x (2\alpha e^{-\lambda x}) dx
+$$
+
+$\alpha = \frac{\lambda}{2}$ を代入して、
+
+$$
+E(X) = \int_0^{\infty} x (2 \cdot \frac{\lambda}{2} e^{-\lambda x}) dx = \lambda \int_0^{\infty} x e^{-\lambda x} dx
+$$
+
+部分積分を行う。 $u = x$ , $dv = e^{-\lambda x} dx$ とすると、 $du = dx$ , $v = -\frac{1}{\lambda} e^{-\lambda x}$ となる。
+
+$$
+E(X) = \lambda \left[ -\frac{x}{\lambda} e^{-\lambda x} \right]_0^{\infty} - \lambda \int_0^{\infty} -\frac{1}{\lambda} e^{-\lambda x} dx
+$$
+
+$$
+E(X) = \lambda \left[ 0 \right] + \int_0^{\infty} e^{-\lambda x} dx
+$$
+
+$$
+E(X) = \left[ -\frac{1}{\lambda} e^{-\lambda x} \right]_0^{\infty} = 0 - \left( -\frac{1}{\lambda} \right) = \frac{1}{\lambda}
+$$
+
+(3) $X$ の分散 $V(X)$ は $V(X) = E(X^2) - (E(X))^2$ で計算できる。
+まず、 $E(X^2)$ を計算する。
+
+$$
+E(X^2) = \int_{-\infty}^{\infty} x^2 f_X(x) dx = \int_0^{\infty} x^2 (2\alpha e^{-\lambda x}) dx
+$$
+
+$\alpha = \frac{\lambda}{2}$ を代入して、
+
+$$
+E(X^2) = \lambda \int_0^{\infty} x^2 e^{-\lambda x} dx
+$$
+
+部分積分を2回行う。 $u = x^2$ , $dv = e^{-\lambda x} dx$ とすると、 $du = 2x dx$ , $v = -\frac{1}{\lambda} e^{-\lambda x}$ となる。
+
+$$
+E(X^2) = \lambda \left[ -\frac{x^2}{\lambda} e^{-\lambda x} \right]_0^{\infty} - \lambda \int_0^{\infty} -\frac{2x}{\lambda} e^{-\lambda x} dx
+$$
+
+$$
+E(X^2) = \lambda \left[ 0 \right] + 2 \int_0^{\infty} x e^{-\lambda x} dx
+$$
+
+$$
+E(X^2) = 2 \cdot \frac{1}{\lambda^2} = \frac{2}{\lambda^2}
+$$
+
+したがって、
+
+$$
+V(X) = E(X^2) - (E(X))^2 = \frac{2}{\lambda^2} - \left( \frac{1}{\lambda} \right)^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}
+$$

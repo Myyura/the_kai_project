@@ -1,0 +1,145 @@
+---
+sidebar_label: "2023年8月実施 解析・線形代数 [3]"
+tags:
+  - Nagoya-University
+  - Mathematics.Linear-Algebra.Linear-Transformation
+---
+# 名古屋大学 情報学研究科 知能システム学専攻 2023年8月実施 解析・線形代数 [3]
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+以下の図に示す線形写像 $f: \mathbb{R}^3 \to \mathbb{R}^3$ について考える。 $A', B', C', D', P'$ はそれぞれ点 $A, B, C, D, P$ を写像 $f$ で移した点である。点 $P'$ の座標を求めよ。
+
+> 图像边界：原始 JSON 引用了 `question_images/名古屋大学_智能系统情报_2024_20251206_165045_890447.png`，但该文件没有随 JSON 一并提供。本文只保留能够由文字和公式确认的内容。
+
+### 题目描述
+
+原题要求根据图示的线性映射
+
+$$
+f:\mathbb R^3\to\mathbb R^3
+$$
+
+求点 $P$ 的像 $P'$；图中的 $A',B',C',D',P'$ 分别是 $A,B,C,D,P$ 在 $f$ 下的像。原始数据引用了图片 `question_images/名古屋大学_智能系统情报_2024_20251206_165045_890447.png`，但该图片未随数据提供，因此无法恢复图中所有点和连线。
+
+由 Kai 只能唯一确认以下坐标：
+
+$$
+\begin{aligned}
+A&=(4,2,2),&A'&=(1,1,1),\\
+D&=(5,3,0),&D'&=(2,1,1),\\
+P&=(10,6,0).
+\end{aligned}
+$$
+
+在这一可确认范围内，利用 $f$ 的线性性求点 $P'$ 的坐标；图中 $B,C$ 及其像的具体数据无法从现有材料恢复，且不参与 Kai 所示的求解。
+
+## **Kai**
+
+線形写像 $f:\mathbb{R}^3\to\mathbb{R}^3$ により，点 $P$ の像 $P'$ の座標を求める．
+各点を原点からの位置ベクトルで表し，
+
+$$
+\mathbf{a}=
+\begin{pmatrix}
+4\\2\\2
+\end{pmatrix},
+\quad
+\mathbf{b},\quad
+\mathbf{c},\quad
+\mathbf{d}=
+\begin{pmatrix}
+5\\3\\0
+\end{pmatrix},
+\quad
+\mathbf{p}=
+\begin{pmatrix}
+10\\6\\0
+\end{pmatrix}
+$$
+
+とする．また，
+
+$$
+f(\mathbf{a})=\mathbf{a'}=
+\begin{pmatrix}
+1\\1\\1
+\end{pmatrix},
+\qquad
+f(\mathbf{d})=\mathbf{d'}=
+\begin{pmatrix}
+2\\1\\1
+\end{pmatrix}
+$$
+
+が与えられているものとする．
+
+点 $P$ と点 $D$ の座標を比較すると，
+
+$$
+\mathbf{p}
+=
+\begin{pmatrix}
+10\\6\\0
+\end{pmatrix}
+=
+2
+\begin{pmatrix}
+5\\3\\0
+\end{pmatrix}
+=2\mathbf{d}
+$$
+
+が成り立つ．すなわち，
+
+$$
+\mathbf{p}=2\mathbf{d}
+$$
+
+である．
+
+$f$ は線形写像であるから，
+
+$$
+f(c\mathbf{v})=c f(\mathbf{v})
+$$
+
+が任意のスカラー $c$ とベクトル $\mathbf{v}$ に対して成り立つ．よって，
+
+$$
+\mathbf{p'}
+=f(\mathbf{p})
+=f(2\mathbf{d})
+=2f(\mathbf{d})
+=2\mathbf{d'}
+$$
+
+となる．
+
+$\mathbf{d'}$ の値を代入すると，
+
+$$
+\mathbf{p'}
+=
+2
+\begin{pmatrix}
+2\\1\\1
+\end{pmatrix}
+=
+\begin{pmatrix}
+4\\2\\2
+\end{pmatrix}
+$$
+
+を得る．
+
+したがって，点 $P'$ の座標は
+
+$$
+(4,\,2,\,2)
+$$
+
+である．

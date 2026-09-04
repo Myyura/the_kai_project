@@ -1,0 +1,367 @@
+---
+sidebar_label: "社会工学学位プログラム 2023年8月実施 数学 II"
+tags:
+  - Tsukuba-University
+  - Mathematics.Calculus.Taylor-Series
+  - Mathematics.Calculus.Gamma-Function
+  - Mathematics.Calculus.Integration-by-Parts
+  - Mathematics.Calculus.Limit
+---
+# 筑波大学 理工情報生命学術院 システム情報工学研究群 社会工学学位プログラム・サービス工学学位プログラム 共通 2023年8月実施 数学 II
+
+## **Author**
+[思齐塾](https://www.siqishu.com/), 祭音Myyura
+
+## **Description**
+
+以下の問 (1) 及び (2) に答えよ。
+
+(1) 実数関数 $f(x) = \frac{1}{\sqrt{1+x}} (x > -1)$ とする。 $f^{(n)}(x) (n = 1, 2, ...)$ は $f(x)$ の $n$ 階導関数である。以下の問に答えよ。
+
+(a) 次の値をそれぞれ求めよ。
+
+i) $f^{(1)}(0)$
+
+ii) $f^{(2)}(0)$
+
+iii) $f^{(3)}(0)$
+
+(b) 次の極限を求めよ。
+
+i) $\lim_{x \to 0} \frac{f(x^{1/3}) - 1 + \frac{1}{2}x^{1/3}}{x^{2/3}}$
+
+ii) $\lim_{x \to 0} \frac{1 - \frac{1}{2}x^{1/3} + \frac{3}{8}x^{2/3} - f(x^{1/3})}{x}$
+
+(2) 実数関数 $g(x)$ は以下のように定義される。
+
+$$
+g(x) = \begin{cases} xe^{-x^2/2} & x \geq 0 \\ 0 & x < 0 \end{cases}
+$$
+
+以下の問に答えよ。ただし、 $\int_{-\infty}^{\infty} e^{-x^2/2} dx = \sqrt{2\pi}$ を証明なしで使ってもよい。
+
+(a) $\int_{-\infty}^{\infty} g(x) dx$ を求めよ。
+
+(b) $\int_{-\infty}^{\infty} xg(x) dx$ を求めよ。
+
+(c) $\int_{-\infty}^{\infty} x^2g(x) dx$ を求めよ。
+
+(d) 自然数 $n \geq 1$ に対して、 $\mu_n = \int_{-\infty}^{\infty} x^n g(x) dx$ とする。次の値を求めよ。
+
+i) $\mu_{2n}$
+
+ii) $\mu_{2n+1}$
+
+### 题目描述
+
+完成以下两题。
+
+1. 对 $x>-1$，定义
+
+   $$
+   f(x)=\frac{1}{\sqrt{1+x}},
+   $$
+
+   并以 $f^{(n)}(x)$ 表示其 $n$ 阶导数，其中 $n=1,2,\ldots$。
+
+   1. 分别求
+
+      $$
+      \text{(i)}\ f^{(1)}(0),\qquad
+      \text{(ii)}\ f^{(2)}(0),\qquad
+      \text{(iii)}\ f^{(3)}(0).
+      $$
+
+   2. 分别求
+
+      $$
+      \text{(i)}\quad
+      \lim_{x\to0}
+      \frac{f(x^{1/3})-1+\frac12x^{1/3}}{x^{2/3}},
+      $$
+
+      $$
+      \text{(ii)}\quad
+      \lim_{x\to0}
+      \frac{
+      1-\frac12x^{1/3}+\frac38x^{2/3}-f(x^{1/3})
+      }{x}.
+      $$
+
+2. 定义实函数
+
+   $$
+   g(x)=
+   \begin{cases}
+   xe^{-x^2/2},&x\geq0,\\
+   0,&x<0.
+   \end{cases}
+   $$
+
+   可以不加证明地使用
+
+   $$
+   \int_{-\infty}^{+\infty}e^{-x^2/2}\,dx=\sqrt{2\pi}.
+   $$
+
+   回答：
+
+   1. 求 $\displaystyle\int_{-\infty}^{+\infty}g(x)\,dx$；
+   2. 求 $\displaystyle\int_{-\infty}^{+\infty}xg(x)\,dx$；
+   3. 求 $\displaystyle\int_{-\infty}^{+\infty}x^2g(x)\,dx$；
+   4. 对自然数 $n\geq1$，定义
+
+      $$
+      \mu_n=\int_{-\infty}^{+\infty}x^ng(x)\,dx.
+      $$
+
+      分别求
+
+      $$
+      \text{(i)}\ \mu_{2n},\qquad
+      \text{(ii)}\ \mu_{2n+1}.
+      $$
+
+## **Kai**
+
+(1)
+(a)
+i)
+$f(x)=(1+x)^{-1/2}$ とすると，
+
+$$
+f'(x)
+=-\frac12(1+x)^{-3/2},
+\qquad
+f'(0)=-\frac12
+$$
+
+ii)
+
+$$
+f''(x)
+=\frac34(1+x)^{-5/2},
+\qquad
+f''(0)=\frac34
+$$
+
+iii)
+
+$$
+f'''(x)
+=-\frac{15}{8}(1+x)^{-7/2},
+\qquad
+f'''(0)=-\frac{15}{8}
+$$
+
+(b)
+i)
+$f(x)=(1+x)^{-1/2}$ のテイラー展開より
+
+$$
+f(x)
+=1-\frac12 x+\frac38 x^2+O(x^3)
+$$
+
+が成り立つ。
+したがって
+
+$$
+f(x^{1/3})
+=1-\frac12 x^{1/3}
++\frac38 x^{2/3}
++O(x)
+$$
+
+である。
+
+よって
+
+$$
+\begin{aligned}
+\lim_{x\to 0}
+\frac{
+f(x^{1/3})-1+\frac12 x^{1/3}
+}{x^{2/3}}
+&=
+\lim_{x\to 0}
+\frac{
+\frac38 x^{2/3}+O(x)
+}{x^{2/3}}
+\\
+&=\frac38
+\end{aligned}
+$$
+
+ii)
+再びテイラー展開を用いると
+
+$$
+f(x^{1/3})
+=
+1-\frac12 x^{1/3}
++\frac38 x^{2/3}
+-\frac{5}{16}x
++O(x^{4/3})
+$$
+
+である。
+
+したがって
+
+$$
+\begin{aligned}
+\lim_{x\to 0}
+\frac{
+1-\frac12 x^{1/3}
++\frac38 x^{2/3}
+-f(x^{1/3})
+}{x}
+&=
+\lim_{x\to 0}
+\frac{
+\frac{5}{16}x+O(x^{4/3})
+}{x}
+\\
+&=\frac{5}{16}
+\end{aligned}
+$$
+
+(2)
+(a)
+
+$$
+\int_{-\infty}^{\infty} g(x)\,dx
+=
+\int_{-\infty}^{0}0\,dx
++\int_{0}^{\infty} x e^{-x^2/2}\,dx
+=
+\int_{0}^{\infty} x e^{-x^2/2}\,dx
+$$
+
+ここで
+$u=\frac{x^2}{2}$ とおくと
+$du=x\,dx$ であるから，
+
+$$
+\int_{0}^{\infty} x e^{-x^2/2}\,dx
+=
+\int_{0}^{\infty} e^{-u}\,du
+=
+[-e^{-u}]_{0}^{\infty}
+=1
+$$
+
+(b)
+
+$$
+\int_{-\infty}^{\infty} xg(x)\,dx
+=
+\int_{0}^{\infty} x^2 e^{-x^2/2}\,dx
+$$
+
+とおく。
+$I=\int_{0}^{\infty} x^2 e^{-x^2/2}\,dx$ として部分積分を行う。
+
+$u=x,\ dv=xe^{-x^2/2}dx$ とすると，
+$du=dx,\ v=-e^{-x^2/2}$ である。
+
+よって
+
+$$
+\begin{aligned}
+I
+&=
+[-x e^{-x^2/2}]_{0}^{\infty}
++\int_{0}^{\infty} e^{-x^2/2}\,dx
+\\
+&=
+\frac12
+\int_{-\infty}^{\infty} e^{-x^2/2}\,dx
+=
+\frac12\sqrt{2\pi}
+=
+\sqrt{\frac{\pi}{2}}
+\end{aligned}
+$$
+
+(c)
+
+$$
+\int_{-\infty}^{\infty} x^2 g(x)\,dx
+=
+\int_{0}^{\infty} x^3 e^{-x^2/2}\,dx
+$$
+
+$u=\frac{x^2}{2}$ とおくと，
+$x^2=2u,\ du=x\,dx$ であるから
+
+$$
+\int_{0}^{\infty} x^3 e^{-x^2/2}\,dx
+=
+\int_{0}^{\infty} 2u e^{-u}\,du
+=
+2\Gamma(2)
+=2
+$$
+
+(d)
+i)
+
+$$
+\mu_{2n}
+=
+\int_{-\infty}^{\infty} x^{2n} g(x)\,dx
+=
+\int_{0}^{\infty} x^{2n+1} e^{-x^2/2}\,dx
+$$
+
+$u=\frac{x^2}{2}$ とすると
+$x^{2n}=(2u)^n$ であるから
+
+$$
+\mu_{2n}
+=
+2^n
+\int_{0}^{\infty} u^n e^{-u}\,du
+=
+2^n \Gamma(n+1)
+=
+2^n n!
+$$
+
+ii)
+
+$$
+\mu_{2n+1}
+=
+\int_{-\infty}^{\infty} x^{2n+1} g(x)\,dx
+=
+\int_{0}^{\infty} x^{2n+2} e^{-x^2/2}\,dx
+$$
+
+$I=\int_{0}^{\infty} x^{2n+2} e^{-x^2/2}\,dx$ とし，
+$u=x^{2n+1},\ dv=xe^{-x^2/2}dx$ として部分積分を行う。
+
+すると
+
+$$
+I
+=
+(2n+1)
+\int_{0}^{\infty} x^{2n} e^{-x^2/2}\,dx
+$$
+
+この操作を繰り返すことで
+
+$$
+\mu_{2n+1}
+=
+(2n+1)(2n-1)\cdots 3\cdot 1
+\sqrt{\frac{\pi}{2}}
+=
+\frac{(2n+1)!}{2^n n!}
+\sqrt{\frac{\pi}{2}}
+$$
+
+を得る。
