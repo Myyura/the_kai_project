@@ -109,11 +109,19 @@ $$
 
 ### (3)
 
-**(a)** 令 $u=t-a$，利用 $f(u)=0$（$u<0$），得
+**(a)** 对单边 Laplace 变换，原式在延迟 $a\ge0$ 时成立。令 $u=t-a$，利用 $f(u)=0$（$u<0$），得
 
 $$
 \int_0^\infty e^{-st}f(t-a)\,dt=e^{-as}\int_{-a}^\infty e^{-su}f(u)\,du=e^{-as}F(s).
 $$
+
+若 $a<0$，则一般应为
+
+$$
+\mathcal L[f(t-a)](s)=e^{-as}\left(F(s)-\int_0^{-a}e^{-su}f(u)\,du\right),
+$$
+
+不能省去后面的积分项。
 
 **(b)** 用阶跃函数 $u$ 写成
 

@@ -23,7 +23,7 @@ tags:
 2. 8 ビット符号付き整数の二の補数表現の範囲を求めよ。
 3. 2100 個の漢字を固定長で一意に符号化する最小ビット数を求めよ。
 4. $x(y+z)(\bar x+\bar z)$ を簡単化せよ。
-5. $f(x_1,x_2,x_3,x_4)=x_1x_2+x_3\bar x_4$ を 2 入力 NAND ゲートだけで構成せよ。
+5. $f(x_1,x_2,x_3,x_4)=x_1x_2+x_3\bar x_4$ を 2 入力 NAND ゲートだけで構成し、回路図を描け。
 
 ### 問2 計算機性能
 
@@ -92,6 +92,19 @@ n_3&=\operatorname{NAND}(x_3,n_2)=\overline{x_3\bar x_4},\\
 f&=\operatorname{NAND}(n_1,n_3)=x_1x_2+x_3\bar x_4.
 \end{aligned}
 $$
+
+```mermaid
+flowchart LR
+  x1[x1] --> N1[NAND]
+  x2[x2] --> N1
+  x4[x4] -->|入力1| N2[NAND]
+  x4 -->|入力2| N2
+  x3[x3] --> N3[NAND]
+  N2 -->|n2| N3
+  N1 -->|n1| N4[NAND]
+  N3 -->|n3| N4
+  N4 --> f[f]
+```
 
 ### 問2
 

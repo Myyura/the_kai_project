@@ -28,7 +28,7 @@ Fig. 1 のようなフィードバック制御系がある。$r(t)$ は目標値
 (2) $G_c(s)=K/(s+3)$ とする。$K=19.2$ のとき，次の問に答えよ。
 
 - (a) このフィードバック制御系の開ループ周波数伝達関数 $G(j\omega)$ のゲイン $|G(j\omega)|$ と，位相 $\angle G(j\omega)$ を求めよ。
-- (b) このフィードバック制御系のナイキスト線図の概形を描け。また，位相交差周波数 $\omega_c$ を求めよ。
+- (b) このフィードバック制御系のナイキスト線図の概形を描け。また，位相交差周波数 $\omega_{\pi}$ を求めよ。
 - (c) このフィードバック制御系のゲイン余裕 GM を求めよ。
 
 ### 题目描述
@@ -84,5 +84,5 @@ $$
 ![奈奎斯特曲线](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_201603_senmon_1_nyquist.svg)
 
 $$
-\boxed{\omega_{pc}=\sqrt{23},\qquad GM=\frac1{0.1}=10\quad(20\ \mathrm{dB}).}
+\boxed{\omega_{\pi}=\sqrt{23},\qquad GM=\frac1{0.1}=10\quad(20\ \mathrm{dB}).}
 $$

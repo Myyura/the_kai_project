@@ -38,7 +38,7 @@ $$
 A=\begin{pmatrix}1&0&-1\\0&1&-1\\-1&-1&0\end{pmatrix}
 $$
 
-を直交行列で対角化せよ。
+について、$P^{\mathsf T}AP=\operatorname{diag}(a,b,c)$、$a>b>c$ を満たす $a,b,c$ と直交行列 $P$ を求めよ。
 
 ### 题目描述
 

@@ -22,6 +22,47 @@ tags:
 $\mathrm{rot1},\ldots,\mathrm{rot4}$、および平衡を保つ挿入関数
 $\mathrm{insertB}$ を考える。
 
+各ノードは値 `d`、左の子 `l`、右の子 `r` をもつ。`insertA(x,p)` は空の木なら新しいノードを作り、`x < p->d` なら左、`x > p->d` なら右へ再帰的に挿入する。根のみの木の高さを $0$ とする。
+
+~~~c
+Node *rot1(Node *p) {
+    Node *tmp = p->l;
+    p->l = tmp->r; tmp->r = p;
+    return tmp;
+}
+Node *rot3(Node *p) {
+    Node *tmp = p->r;
+    p->r = tmp->l; tmp->l = p;
+    return tmp;
+}
+Node *rot2(Node *p) {
+    p->l = rot3(p->l);
+    return rot1(p);
+}
+Node *rot4(Node *p) {
+    p->r = rot1(p->r);
+    return rot3(p);
+}
+Node *insertB(int x, Node *p) {
+    int b;
+    if (p == NULL) return NewNode(x);
+    if (x < p->d) p->l = insertB(x, p->l);
+    else if (x > p->d) p->r = insertB(x, p->r);
+    else return p;
+    b = diff(p);
+    if (b > 1) {
+        if (diff(p->r) >= 0) p = /* (A) */;
+        else p = /* (B) */;
+    } else if (b < -1) {
+        if (diff(p->l) <= 0) p = /* (C) */;
+        else p = /* (D) */;
+    }
+    return p;
+}
+~~~
+
+`NewNode(x)` は左右の子を `NULL` とする新しいノードを返す。`diff(p)` は右部分木の高さから左部分木の高さを引いた値である。
+
 1. 配列
    $$
    C_1=(4,6,2,3,5,1,7),\qquad
@@ -31,7 +72,7 @@ $\mathrm{insertB}$ を考える。
 2. 各木の前順・中順走査の出力を示せ。
 3. $1,2,3,4$ の全順列について、高さ $2$ と高さ $3$ の木になる順列数を求めよ。
 4. $N$ 要素からなる二分探索木の最良・最悪の高さのオーダを答えよ。
-5. 指定された二本の木に単回転・二重回転を施した結果を示せ。
+5. $D_1=(4,3,2,1)$、$D_2=(4,1,3,2)$ をそれぞれ `insertA` で順に挿入した木の根を $r_1,r_2$ とする。`rot1(r1)`、`rot2(r2)` の結果を図示せよ。
 6. $\mathrm{insertB}$ の四つの空欄を回転関数で埋めよ。
 
 ### 题目描述

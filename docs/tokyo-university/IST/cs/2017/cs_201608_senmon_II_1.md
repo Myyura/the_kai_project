@@ -34,7 +34,7 @@ Answer the following questions.
 
 （2）设 $0\le\alpha<\pi/2$，用 $\cos\alpha,\sin\alpha$ 表示 $\cos(\alpha/2)$ 和 $\sin(\alpha/2)$。
 
-（3）有限精度下，直接使用第（2）问公式在 $\alpha$ 接近 $0$ 时是否会丢失有效数字？若会，改写公式以避免该问题。
+（3）设 $0\le\alpha<\pi/2$。有限精度下，直接使用第（2）问公式在 $\alpha$ 接近 $0$ 时是否会丢失有效数字？若会，改写公式以避免该问题。
 
 （4）设
 
@@ -42,12 +42,12 @@ $$
 \alpha=\frac\pi2\sum_{i=1}^{N}b_i2^{-i},\qquad b_i\in\{0,1\},
 $$
 
-并定义 $\alpha_n=\frac\pi2\sum_{i=1}^{n}b_i2^{-i}$。
+其中 $N$ 为自然数，$i=1,\ldots,N$。对 $n=1,\ldots,N$，定义 $\alpha_n=\frac\pi2\sum_{i=1}^{n}b_i2^{-i}$。
 
-1. 用 $\cos\alpha_n,\sin\alpha_n$ 表示 $\cos\alpha_{n+1},\sin\alpha_{n+1}$；
+1. 对 $n=1,\ldots,N-1$，用 $\cos\alpha_n,\sin\alpha_n$ 表示 $\cos\alpha_{n+1},\sin\alpha_{n+1}$；
 2. 设计只使用四则运算和开平方计算 $\cos\alpha,\sin\alpha$ 的算法。
 
-（5）定义 $\cosh a=(e^a+e^{-a})/2$、$\sinh a=(e^a-e^{-a})/2$。设 $0\le x<1$ 有有限位二进制表示，设计只使用四则运算和开平方计算 $\cosh(x\log_e2)$、$\sinh(x\log_e2)$ 的算法。
+（5）定义 $\cosh a=(e^a+e^{-a})/2$、$\sinh a=(e^a-e^{-a})/2$。设 $0\le x<1$ 有有限位二进制表示，设计只使用四则运算和开平方计算 $\cosh(x\log_e2)$、$\sinh(x\log_e2)$ 的算法，并简述其过程。
 
 ## **Kai**
 ### (1)

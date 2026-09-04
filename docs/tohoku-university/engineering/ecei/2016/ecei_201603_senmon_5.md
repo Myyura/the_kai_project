@@ -137,4 +137,18 @@ BRANCHZ
 
 存在。令 $b=(\operatorname{ifz}\ 0\ \operatorname{then}\ 0\ \operatorname{else}\ 0)$，$e_0=0$，$e_{k+1}=b-e_k$。原式语法树大小为 $\Theta(k)$。
 
-$\operatorname{compile}(b)$ 有两个 `END`。将 $\operatorname{compile}(e_k)\triangleleft(\mathrm{SUB;END})$ 接入时，必须在两分支各复制一次。因此编译树大小满足 $C_{k+1}\ge2C_k$，且 $C_{k+1}=2C_k+O(1)$，故为 $\boxed{\Theta(2^k)}$。
+$\operatorname{compile}(b)$ 有两个 `END`，因此 $\operatorname{compile}(e_k)$ 有 $2^k$ 个 `END`。续接 `SUB; END` 会在每个末端增加一条 `SUB`，随后两分支各复制一次整个续接结果。
+
+若每条指令与 `END` 各计一个节点，则
+
+$$
+C_0=2,\qquad C_{k+1}=2C_k+2^{k+1}+4,
+$$
+
+从而
+
+$$
+\boxed{C_k=(k+6)2^k-4=\Theta(k2^k).}
+$$
+
+相对于原式的 $\Theta(k)$ 个节点，编译结果确实呈指数增长。

@@ -25,7 +25,7 @@ $$
 
 について考える。以下の問に答えよ。
 
-(1) $A$ の固有値 $\lambda_1,\lambda_2,\lambda_3$（$\lambda_1<\lambda_2<\lambda_3$）に対応する正規化された固有ベクトル $\boldsymbol\alpha_1,\boldsymbol\alpha_2,\boldsymbol\alpha_3$，および $B$ の固有値 $\mu_1,\mu_2,\mu_3$（$\mu_1<\mu_2<\mu_3$）に対応する正規化された固有ベクトル $\boldsymbol\beta_1,\boldsymbol\beta_2,\boldsymbol\beta_3$ を求めよ。
+(1) $A$ の固有値 $\lambda_1,\lambda_2,\lambda_3$（$\lambda_1<\lambda_2<\lambda_3$）と対応する正規化された固有ベクトル $\boldsymbol\alpha_1,\boldsymbol\alpha_2,\boldsymbol\alpha_3$，および $B$ の固有値 $\mu_1,\mu_2,\mu_3$（$\mu_1<\mu_2<\mu_3$）と対応する正規化された固有ベクトル $\boldsymbol\beta_1,\boldsymbol\beta_2,\boldsymbol\beta_3$ を求めよ。
 
 (2) $(A^3-\frac{13}3A^2+\frac{13}3A)(B^3-\frac72B^2-\frac12B-E)$ を求めよ。ただし $E$ は単位行列である。
 

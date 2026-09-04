@@ -158,7 +158,7 @@ $q_0,q_2,q_4$ は $a$ が偶数個、$q_1,q_3,q_5$ は $a$ が奇数個の状態
 ```mermaid
 flowchart LR
   start["start"] --> q0((q0))
-  q0 -->|a| q1((q1))
+  q0 -->|a| q1(((q1)))
   q1 -->|a| q0
   q0 -->|b| q2((q2))
   q2 -->|b| q4((q4))
@@ -170,8 +170,6 @@ flowchart LR
   q3 -->|a| q2
   q4 -->|a| q5
   q5 -->|a| q4
-  classDef accepting stroke-width:4px
-  class q1 accepting
 ```
 
 #### (3)

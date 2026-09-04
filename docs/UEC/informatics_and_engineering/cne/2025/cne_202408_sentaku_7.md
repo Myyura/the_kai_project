@@ -118,7 +118,7 @@ $$
 
 ### 4.
 
-$\lVert y^{(k)}\rVert_\infty=\lVert v_1\rVert_\infty=1$ である。(1) の不等式を $a=y^{(k)}$, $b=c_1^{(k)}v_1$ に適用すると、
+$\lVert y^{(k)}\rVert_\infty=\lVert v_1\rVert_\infty=1$ である。逆三角不等式を $a=y^{(k)}$, $b=c_1^{(k)}v_1$ に適用すると、
 
 $$
 1-\left\lVert y^{(k)}-c_1^{(k)}v_1\right\rVert_\infty

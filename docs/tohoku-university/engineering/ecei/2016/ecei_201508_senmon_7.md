@@ -26,7 +26,7 @@ F(\omega)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)\exp(-i\omega x)\,dx
 $$
 を考える。ここで，$i$ は虚数単位，$\alpha$ は正の実数である。以下の問に答えよ。
 
-必要に応じて $\int_{-\infty}^{\infty}\exp(-ax^2)dx=\sqrt{\pi/a}$ を用いよ。ここで，$a$ は正の実数である。
+必要に応じて $\int_{-\infty}^{\infty}\exp(-ax^2)=\sqrt{\pi/a}$ を用いよ。ここで，$a$ は正の実数である。
 
 (1) $xf(x)$ と $x^2f(x)$ が，それぞれ，区間 $-\infty<x<+\infty$ で絶対積分可能であることを示せ。
 

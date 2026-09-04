@@ -113,7 +113,7 @@ $$
 \sum_{i=1}^nX_i^2+\text{const.}
 $$
 
-である。$\ell'(\sigma)=0$ より、
+である。$\sum_iX_i^2>0$ のとき、$\ell'(\sigma)=0$ より、
 
 $$
 \boxed{
@@ -121,6 +121,8 @@ $$
 =\sqrt{\frac1n\sum_{i=1}^nX_i^2}
 }.
 $$
+
+すべての $X_i$ が $0$ なら、$\sigma\downarrow0$ で尤度は発散するため、$\sigma>0$ の範囲に最尤推定値は存在しない。
 
 ### (7)
 

@@ -17,13 +17,13 @@ tags:
 
 変調信号 $s(t)$ および搬送波 $\cos(2\pi f_ct)$ を用いた振幅変調を考える。これらにより生成される振幅変調波を $g_{\mathrm{AM}}(t)=\{1+m\cdot s(t)\}\cos(2\pi f_ct)$ とする。Fig. 2 はこの変調波 $g_{\mathrm{AM}}(t)$ を復調する整流検波器である。ただし LPF は低域通過フィルタを表し，$0<m\le1$ であるとする。このとき，以下の問に答えよ。
 
-(2) Fig. 2 の節点 X における波形 $\dot g_{\mathrm{AM}}(t)$ は次式で与えられる。
+(2) Fig. 2 の節点 X における波形 $\hat g_{\mathrm{AM}}(t)$ は次式で与えられる。
 $$
-\dot g_{\mathrm{AM}}(t)=\{1+m\cdot s(t)\}q(t),\qquad
+\hat g_{\mathrm{AM}}(t)=\{1+m\cdot s(t)\}q(t),\qquad
 q(t)=\begin{cases}\cos(2\pi f_ct)&(n-1/4)/f_c\le t\le(n+1/4)/f_c\text{ のとき}\\0&\text{その他}\end{cases}
 $$
 
-- (a) $s(t)=\cos(2\pi f_mt)$（$0<f_m\ll f_c$）であるとき，$\dot g_{\mathrm{AM}}(t)$ の概形を図示せよ。
+- (a) $s(t)=\cos(2\pi f_mt)$（$0<f_m\ll f_c$）であるとき，$\hat g_{\mathrm{AM}}(t)$ の概形を図示せよ。
 - (b) $q(t)$ をフーリエ級数に展開し，$q(t)=\frac1\pi-\frac2\pi\sum_{n=1}^{\infty}\frac{(-1)^n}{4n^2-1}\cos(4\pi nf_ct)$ となることを示せ。
 
 (3) 変調信号 $s(t)$ が周波数帯域 $[-f_m,f_m]$ に帯域制限されており，LPF の帯域幅が $B$（$f_m\ll B\ll f_c$）であるとき，LPF の出力 $\bar g_{\mathrm{AM}}(t)$ を求めよ。

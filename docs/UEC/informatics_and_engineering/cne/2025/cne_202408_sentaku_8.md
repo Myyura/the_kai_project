@@ -16,7 +16,7 @@ tags:
 
 ## **Description**
 
-命題論理・述語論理の同値式を求めよ。次に、$A=\{1,2,3\}$ とし、$A^2$ 上の関係
+命題 $\alpha,\beta$ について $\alpha\land\beta$, $\alpha\lor\beta$, $\alpha\to\beta$, $\alpha\leftrightarrow\beta$ の真理値表を作れ。さらに (i) $\alpha\to\beta$、(ii) $\neg(\alpha\land\beta)$、(iii) $\forall x\neg P(x)$ と同値な式を求めよ。次に、$A=\{1,2,3\}$ とし、$A^2$ 上の関係
 
 $$
 ((a,b),(c,d))\in R_1\iff a+b=c+d,
@@ -72,6 +72,8 @@ $$
 \text{(ii) (b)},\qquad
 \text{(iii) (c)}}.
 $$
+
+対応する同値式は順に $\neg\beta\to\neg\alpha$、$\neg\alpha\lor\neg\beta$、$\neg(\exists xP(x))$ である。
 
 ### 2.
 

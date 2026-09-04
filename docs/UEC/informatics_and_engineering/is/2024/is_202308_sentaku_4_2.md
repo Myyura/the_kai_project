@@ -26,7 +26,7 @@ tags:
 5. 次の論理式を簡単化せよ。
 
 $$
-\overline{\,\overline{A+B\bar C}+\overline{A\bar B}\,}.
+\overline{\,\overline{A+BC}+\overline{A\bar B}\,}.
 $$
 
 ### 問2
@@ -97,8 +97,8 @@ De Morgan の法則より
 
 $$
 \begin{aligned}
-\overline{\,\overline{A+B\bar C}+\overline{A\bar B}\,}
-&=(A+B\bar C)(A\bar B)\\
+\overline{\,\overline{A+BC}+\overline{A\bar B}\,}
+&=(A+BC)(A\bar B)\\
 &=\boxed{A\bar B}.
 \end{aligned}
 $$

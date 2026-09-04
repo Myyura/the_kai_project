@@ -125,10 +125,10 @@ $$
 #### (ii)
 
 $$
-\det(\lambda I-M)=(\lambda-1)^2(\lambda-5).
+\chi_T(\lambda)=\det(\lambda I-M)=(\lambda-1)^2(\lambda-5).
 $$
 
-$\lambda=1$ の固有空間は $\langle1\rangle$、$\lambda=5$ の固有空間は $\langle8x^2-4x+1\rangle$ である。したがって
+$\lambda=1$ の固有空間は $\langle1\rangle$、$\lambda=5$ の固有空間は $\langle8x^2-4x+1\rangle$ である。固有値と、それに対応する固有ベクトルとなる多項式の例は
 
 $$
 \boxed{
@@ -137,7 +137,7 @@ $$
 }
 $$
 
-であり、それぞれの非零定数倍も固有多項式である。
+であり、それぞれの非零定数倍も固有ベクトルである。
 
 #### (iii)
 

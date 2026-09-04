@@ -130,4 +130,8 @@ $$
 h\ge\frac{2\operatorname{Re}\lambda}{|\lambda|^2}
 $$
 
-で $|\gamma|\le1$ となるが、厳密解自体は増大するため、これは元の方程式の増大を再現しない数値的減衰である。
+で $|\gamma|\le1$ となるが、厳密解自体は増大するため、これは元の方程式の増大を再現しない数値的な非増大である（等号なら振幅一定、真の不等号なら減衰）。
+
+両手法の安定領域を次に示す。着色部分と円周を含む。
+
+![陽的 Euler 法と陰的 Euler 法の安定領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/UEC/informatics_and_engineering/cne/2022/euler-stability.svg)

@@ -19,7 +19,42 @@ tags:
 
 ## **Description**
 
-与えられた $4$ 次行列と三つのベクトルについて、行列式、固有ベクトル、一次関係、部分空間の元および行列のべき乗を求めよ。さらに長方形上の線積分・重積分と、単位球に関する発散・流束積分を計算せよ。
+### (1)
+
+$$
+A=\begin{pmatrix}-4&2&-1&-7\\0&5&-3&0\\0&4&-3&0\\3&-2&1&6\end{pmatrix},\qquad
+P_1=\begin{pmatrix}1\\0\\0\\-1\end{pmatrix},\quad
+P_2=\begin{pmatrix}7\\1\\2\\-3\end{pmatrix},\quad
+P_3=\begin{pmatrix}9\\2\\4\\-1\end{pmatrix}.
+$$
+
+(a) $\det A$ を求めよ。
+
+(b) $AP_i=\alpha_iP_i$ を満たす実数 $\alpha_i$ の存在を判定し、存在する場合はその値を求めよ。
+
+(c) 三つのベクトル間の関係 $P_i=a_jP_j+a_kP_k$ を整数係数で表せ。
+
+(d) $P_4=(x,y,2,1)^{\mathsf T}\in\operatorname{span}\{P_1,P_2\}$ のとき、$P_4$ を求めよ。
+
+(e) 自然数 $n$ に対し $A^nP_1,A^nP_2,A^nP_3$ を求めよ。
+
+### (2)
+
+$f(x,y)=x^2+y^2$、$g(x,y)=3xy+y^2$ とし、長方形 $D=[-4,2]\times[-1,2]$ の境界を反時計回りに一周する経路を $C$ とする。
+
+(a) $\oint_C(f\,dx+g\,dy)$ を求めよ。
+
+(b) $G=f_x$、$F=g_y$ とするとき、$\iint_D(G-F)\,dx\,dy$ を求めよ。
+
+### (3)
+
+単位球の内部を $V$、表面を $S$ とする。
+
+(a) $S$ 上の点 $(x,y,z)$ における法線ベクトル $\boldsymbol n$ を求めよ。
+
+(b) $\boldsymbol M=(2x,3y,-4z)^{\mathsf T}$ に対して $\iiint_V\operatorname{div}\boldsymbol M\,dV$ を求めよ。
+
+(c) $\boldsymbol Q=(x,y,z)^{\mathsf T}$ に対して $\iint_S\boldsymbol Q\cdot\boldsymbol n\,dS$ を求めよ。
 
 ### 题目描述
 

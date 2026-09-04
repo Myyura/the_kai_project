@@ -1,18 +1,18 @@
 ---
-sidebar_label: 2017年8月実施 アルゴリズムとプログラミング
+sidebar_label: 2017年7月実施 アルゴリズムとプログラミング
 tags:
   - Osaka-University
   - Computer-Science.Data-Structures.Union-Find-Data-Structure
   - Computer-Science.Programming
 ---
-# 大阪大学 情報科学研究科 情報工学 2017年8月実施 アルゴリズムとプログラミング
+# 大阪大学 情報科学研究科 情報工学 2017年7月実施 アルゴリズムとプログラミング
 
 ## **Author**
 祭音Myyura
 
 ## **Description**
 図1に示す ANSI-C 準拠である C 言語のプログラム (program) は任意の 2 人が同じ組織 (organization) に所属するか判定し, その結果を出力 (output) するものである.
-人(構成員(member)と呼ぶ)は $N$ 人 ($N$ は正の整数 (positive niteger)) 存在し, 各構成員には直属の上司 (direct supervisor) である構成員が 1 人以下 (1 or less) 存在する.
+人(構成員(member)と呼ぶ)は $N$ 人 ($N$ は正の整数 (positive integer)) 存在し, 各構成員には直属の上司 (direct supervisor) である構成員が 1 人以下 (1 or less) 存在する.
 組織は一つ以上存在し, 各組織は, 各構成員を点 (ノード (node)), その直属の上司を親 (parent) とする木 (tree) で表される.
 同じ組織に所属する構成員は, その組織の最上位の上司を根 (root) とする一つの木を構成する.
 
@@ -20,13 +20,13 @@ tags:
 配列 (array) p は構成員番号 i である構成員の直属の上司の構成員番号を要素 (element) として p\[i\] に格納し, 直属の上司が存在しない場合は自身の構成員番号を格納する.
 このデータ構造を用い, 関数 same は 2 人の構成員番号を引数とし, 同じ組織に所属するかどうかを標準出力に出力する.
 input.txt, pair.txt という図 2 および図3にそれぞれ示すようなフォーマットのファイルが存在するものとし, 図 1 のプログラムでそれらを読み込み実行する.
-input.txt の 1 行目には構成員の総数 $N$ ($N$ は N_MAX 以下の正の整数), 2 行目以降の各行には, 構成員とその直属の上司の構成員番号のペア (pair) がこの順でかれている.
+input.txt の 1 行目には構成員の総数 $N$ ($N$ は N_MAX 以下の正の整数), 2 行目以降の各行には, 構成員とその直属の上司の構成員番号のペア (pair) がこの順で書かれている.
 pair.txt の各行には, 同じ組織に所属するか判定したい構成員のペアの構成員番号が書かれている.
 以下の各問に答えよ.
 
 (1) 図1のプログラムは, 図2の input.txt と図 3 の pair.txt を読み込み実行する. 以下の各小問に答えよ.
 
-- (1-1) 21 ~ 29 行目で読み込まれる全ての木を示せ, ただし図 4 にならい, 丸でノードを, 丸の中の数字で機成員番号を, 線で枝 (edge)を表すこと.
+- (1-1) 21 ~ 29 行目で読み込まれる全ての木を示せ, ただし図 4 にならい, 丸でノードを, 丸の中の数字で構成員番号を, 線で枝 (edge)を表すこと.
 - (1-2) find(x) が意味する内容を, xを用いて説明せよ.
 - (1-3) 14 行目の空欄 A に当てはまる式を, 15 行目の空欄 B に当てはまる条件式をそれぞれ書け.
 
@@ -53,9 +53,9 @@ void same(int x, int y) {
     n = find(x);
     m = [   空欄 A   ];
     if ([   空欄 B   ])  /* 同じ組織に所属する */
-        printf("%d & %d are in the same organization. \n", x, y);
+        printf("%d & %d are in the same organization.\n", x, y);
     else
-        printf("%d & %d are in different organization. \n", x, y);
+        printf("%d & %d are in different organizations.\n", x, y);
 }
 int main(void) {
     FILE *fp;
@@ -74,7 +74,7 @@ int main(void) {
     return 0;
 }
 ```
-#### <center> 図１ プログラム</center>
+### <center> 図１ プログラム</center>
 
 ```text
 10
@@ -86,76 +86,56 @@ int main(void) {
 8   4
 9   8
 ```
-#### <center> 図２ input.txt</center>
+### <center> 図２ input.txt</center>
 
 ```text
 9   7
 6   4
 0   2
 ```
-#### <center> 図３ pair.txt</center>
+### <center> 図３ pair.txt</center>
 
-```text
-                                    (0)
-                                  /     \
-                                (1)     (2)
-                                 |     /   \
-                                (3)  (4)   (5)
+```mermaid
+flowchart TD
+    N0((0)) --- N1((1))
+    N0 --- N2((2))
+    N1 --- N3((3))
+    N2 --- N4((4))
+    N2 --- N5((5))
 ```
-#### <center> 図４ 木の表記例</center>
+### <center> 図４ 木の表記例</center>
 
-### 题目描述
-
-图 1 的 ANSI C 程序判断任意两名成员是否属于同一组织。每名成员至多有一名直属上司；每个组织构成一棵以最高上司为根的树。成员编号为 $0$ 至 $N-1$，数组 `p[i]` 保存成员 `i` 的直属上司编号；根节点保存自身编号。`find(x)` 沿父指针查找根，`same(x,y)` 比较两人的根。
-
-程序从 `input.txt` 读取成员总数与“成员—上司”对，再从 `pair.txt` 读取待判断成员对。示例文件、程序和树形记法见上文。
-
-1. 对给定输入：
-   1. 画出程序读取到的所有组织树；
-   2. 用 $x$ 说明 `find(x)` 的返回值含义；
-   3. 填写 `same` 中空格 A 的函数调用和空格 B 的判断条件。
-2. 对成员数量极大、随机查询对很多的情形：
-   1. 若节点平均深度为 $h$，给出每次 `same` 的平均时间复杂度并说明理由；
-   2. 把 `find` 改为路径压缩，使沿途 `p` 直接指向最高上司：
-      - 写出修改后的递归返回语句；
-      - 当 `same` 执行足够多次后，给出每次查询趋近的平均时间复杂度并说明原因。
 
 ## **Kai**
+
 ### (1)
-#### (1-1)
-```text
-            (0)                         (1)                    (5)
-             |                        /     \
-            (2)                     (3)     (7)
-                                  /     \
-                                (4)     (6)
-                                 |
-                                (8)
-                                 |
-                                (9)  
+
+(1-1)
+
+```mermaid
+flowchart TD
+    N0((0)) --- N2((2))
+    N1((1)) --- N3((3))
+    N1 --- N7((7))
+    N3 --- N4((4))
+    N3 --- N6((6))
+    N4 --- N8((8))
+    N8 --- N9((9))
+    N5((5))
 ```
 
-#### (1-2)
-Function `find(x)` recursively find x's parent until p\[x\] = x, which finally find the root of inital input x.
+(1-2) `find(x)` は、構成員 $x$ の属する組織の根、すなわち最上位の上司の構成員番号を返す。
 
-#### (1-3)
-
-- 空欄 A: find(y)
-- 空欄 B: n == m
+(1-3) $\boxed{A:\texttt{find(y)},\quad B:\texttt{n == m}}$。
 
 ### (2)
-### (2-1)
-Let $x$ be a node of a tree $T$. 
-Since the length of path from $x$ to the root of $T$ is exactly the depth of $x$ in $T$, we know that for a node in $T$ of depth $k$, function `find` takes $O(k)$ to find the root.
 
-Therefore, if the average depth of node is $h$, the average time complexity of function `same` is $O(h)$.
+(2-1) 根まで親をたどる回数は深さに等しく、2回の `find` を行うので $\boxed{O(h+1)}$（通常は $O(h)$ と表記）。
 
-### (2-2-1)
-```text
+(2-2-1)
+
+```c
 return p[x] = find(p[x]);
 ```
 
-### (2-2-2)
-$O(1)$
-
-After calling function `same` a sufficiently large number of times, almost all the parent of nodes will be modified to root, i.e. the average depth of nodes converges to $1$.
+(2-2-2) $\boxed{O(1)}$。組織を変更せず多数の無作為な検索を繰り返すと、各非根ノードの親は経路圧縮によって根へ更新され、平均探索長は定数へ近づく。

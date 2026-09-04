@@ -36,7 +36,7 @@ $$
 2. 式 (2) の右辺の誤差を ε とすると，
 
 $$
-\varepsilon = \left| \frac{1}{M} \left\{ \sum_{i=1}^{M} f(x_i) - \langle f(x) \rangle \right\} \right|
+\varepsilon = \left| \frac{1}{M} \left\{ \sum_{i=1}^{M} f(x_i) \right\} - \langle f(x) \rangle \right|
 $$
 
 (3)
@@ -79,14 +79,14 @@ $$
 
 1. 若由样本构造的参数估计量之期望等于参数真值，则称其为无偏估计量。证明式 (2) 右端是 $\langle f(x)\rangle$ 的无偏估计量。
 
-2. 现有题面把式 (2) 右端的误差 $\varepsilon$ 写成
+2. 将式 (2) 右端的误差记作 $\varepsilon$，则
 
    $$
    \varepsilon
    =\left|
    \frac1M\left\{
-   \sum_{i=1}^{M}f(x_i)-\langle f(x)\rangle
-   \right\}
+   \sum_{i=1}^{M}f(x_i)
+   \right\}-\langle f(x)\rangle
    \right|. \tag{3}
    $$
 
@@ -110,17 +110,6 @@ $$
    $$
 
 6. 参考第 4 问，用流程图或分点步骤说明一个使用 $[0,1]$ 上均匀随机数近似计算式 (4) 的算法。
-
-> 题面一致性边界：现有式 (3) 在样本和中减去的是 $\mu_f$，而标准的样本均值误差应减去 $M\mu_f$；此外，带绝对值的 $\varepsilon\geq0$ 不可能服从均值为零的正态分布。Kai 能唯一确认的预期结论是针对符号误差
->
-> $$
-> \delta_M=\frac{\sum_{i=1}^{M}f(x_i)-M\mu_f}{M},
-> \qquad
-> \delta_M\ \mathop{\sim}_{M\to\infty}\
-> N\!\left(0,\frac{\sigma_f^2}{M}\right),
-> $$
->
-> 而真正的绝对误差 $|\delta_M|$ 渐近服从半正态分布。这里保留现有题面的式 (3) 和原要求，并明确这一无法从缺失原稿进一步消解的冲突。
 
 ## **Kai**
 
@@ -149,17 +138,7 @@ $$
 
 ## 2.
 
-問題文の式 (3) とその直後の結論には、次の二つの数式上の不整合がある。
-
-1. 標本平均の誤差は
-
-$$
-   \left|\frac1M\sum_{i=1}^M f(X_i)-\mu_f\right|
-   =\frac1M\left|\sum_{i=1}^M f(X_i)-M\mu_f\right|
-$$
-
-   であり、中括弧内で引くべき量は $\mu_f$ ではなく $M\mu_f$ である。
-2. 絶対誤差 $\varepsilon\ge0$ が「平均 0 の正規分布」に従うことはあり得ない。
+式 (3) の $\varepsilon$ は非負なので、非退化な平均 $0$ の正規分布には従わない。正規近似が成り立つ符号付き誤差を以下で求める。
 
 意図された **符号付き誤差** を
 

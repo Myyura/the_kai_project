@@ -35,7 +35,7 @@ $$
 (3) $g(x_1,x_2,\ldots,x_n)=\overline{g(\bar x_1,\bar x_2,\ldots,\bar x_n)}$ であるとき，論理関数 $g$ は自己双対関数であるという。
 
 $$
-g(x_1,x_2,\ldots,x_9)=f\bigl(f(x_1,x_2,x_3),\overline{f(\bar x_4,\bar x_5,\bar x_6)},\overline{f(x_7,x_8,x_9)}\bigr)
+g(x_1,x_2,\ldots,x_9)=f\bigl(f(x_1,x_2,x_3),f(\bar x_4,\bar x_5,\bar x_6),\overline{f(x_7,x_8,x_9)}\bigr)
 $$
 
 であるとき，$g(x_1,x_2,\ldots,x_9)$ が自己双対関数であるか否かを判定し，その根拠を示せ。
@@ -53,7 +53,7 @@ $$
 3. 若 $g(\boldsymbol{x})=\overline{g(\bar{\boldsymbol{x}})}$，称 $g$ 自对偶。判断
 
 $$
-g=f\bigl(f(x_1,x_2,x_3),\overline{f(\bar x_4,\bar x_5,\bar x_6)},\overline{f(x_7,x_8,x_9)}\bigr)
+g=f\bigl(f(x_1,x_2,x_3),f(\bar x_4,\bar x_5,\bar x_6),\overline{f(x_7,x_8,x_9)}\bigr)
 $$
 
 是否自对偶，并说明理由。

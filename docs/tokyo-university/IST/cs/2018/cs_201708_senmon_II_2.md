@@ -57,14 +57,14 @@ $$
 x\to c\quad\text{或}\quad x\to f(y,z),
 $$
 
-且每个 $x\in V$ 恰在一条规则的左侧出现。若在项 $\alpha$ 的某个 $x$ 处应用其规则得到 $\beta$，记 $\alpha\Rightarrow\beta$；其自反传递闭包记为 $\Rightarrow^*$，其自反、对称、传递闭包记为 $\Leftrightarrow^*$。
+其中 $x,y,z\in V$、$c\in F_0$、$f\in F_2$，且每个 $x\in V$ 恰在一条规则的左侧出现。若在项 $\alpha$ 的某个 $x$ 处应用其规则得到 $\beta$，记 $\alpha\Rightarrow\beta$；其自反传递闭包记为 $\Rightarrow^*$，其自反、对称、传递闭包记为 $\Leftrightarrow^*$。
 
 （1）证明：若 $\alpha\Leftrightarrow^*\beta$，则存在 $\delta\in T$，使
 $\alpha\Rightarrow^*\delta$ 且 $\beta\Rightarrow^*\delta$。
 
 （2）给出判定 $\alpha\Leftrightarrow^*\beta$ 的算法并说明正确性。
 
-对 $w\in\{L,R\}^*$，以 $\alpha.w$ 表示沿 $w$ 指定的左右孩子路径取得的子项。定义 $\alpha\approx\beta$：对任意 $\alpha\Leftrightarrow^*\alpha'$、$\beta\Leftrightarrow^*\beta'$ 及任意路径 $w$，只要 $\alpha'.w,\beta'.w$ 均存在且其根符号属于 $F_0\cup F_2$，两个根符号就相同。
+对 $w\in\{L,R\}^*$，以 $\alpha.w$ 表示沿 $w$ 指定的左右孩子路径取得的子项。具体地，$\alpha.\varepsilon=\alpha$；若 $\alpha=f(\alpha_1,\alpha_2)$，则 $\alpha.Lw=\alpha_1.w$、$\alpha.Rw=\alpha_2.w$，否则这两种操作未定义。这里 $\varepsilon$ 是空串。定义 $\alpha\approx\beta$：对任意 $\alpha\Leftrightarrow^*\alpha'$、$\beta\Leftrightarrow^*\beta'$ 及任意路径 $w$，只要 $\alpha'.w,\beta'.w$ 均存在且其根符号属于 $F_0\cup F_2$，两个根符号就相同。
 
 （3）给出判定 $\alpha\approx\beta$ 的算法并说明正确性。
 
@@ -102,6 +102,6 @@ $\Leftrightarrow^*$ 正是包含各等式“$x=$ 规则右端”的最小合同�
 - 若同一等价类中出现不同常量、不同函数符号，或一个常量与一个函数符号，则报告冲突；
 - 若同类中有 $f(s_1,s_2)$ 与 $f(t_1,t_2)$，则继续合并 $s_1,t_1$ 以及 $s_2,t_2$。
 
-队列稳定且没有冲突时回答“是”，否则回答“否”。允许循环而不作 occurs-check 是必要的，例如规则 $x\to f(x,c)$ 本身是合法的。
+队列稳定且没有冲突时回答“是”，否则回答“否”。允许循环而不作 occurs-check 是必要的，例如规则 $x\to f(x,y)$、$y\to c$（$x,y\in V$、$c\in F_0$）是合法的，并给出 $x\Rightarrow f(x,y)\Rightarrow f(x,c)$。
 
 沿路径分解同根函数，恰好把 $\alpha$ 与 $\beta$ 在该路径上能够暴露的构造符号放入同一类。因此出现冲突当且仅当题目定义中的某条路径能观察到两个不同的 $F_0\cup F_2$ 符号。有限图上的每次操作只合并等价类，故算法终止并且判定恰为 $\alpha\approx\beta$。

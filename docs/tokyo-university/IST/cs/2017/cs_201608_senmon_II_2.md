@@ -38,11 +38,13 @@ For example, $\mathcal R_1=\{(a,b),(a,c),(b,d),(c,e),(d,e)\}$ satisfies confluen
 
 ### 题目描述
 
-设 $R\subseteq S\times S$ 为二元关系，$R^*$ 为其自反传递闭包。
+设 $R\subseteq S\times S$ 为二元关系，$R^*$ 为其自反传递闭包，即满足 $R\subseteq R^*$、对所有 $x\in S$ 有 $xR^*x$，且对所有 $x,y,z\in S$ 有 $xR^*y\land yR^*z\Rightarrow xR^*z$ 的最小关系。
 
 - 若 $xRy,xRz,y\ne z$ 时总存在 $w$ 使 $yRw,zRw$，则称 $R$ 有**菱形性质**；
 - 若 $R^*$ 有菱形性质，则称 $R$ 有**汇合性**；
 - 若 $xRy,xRz$ 时总存在 $w$ 使 $yR^*w,zR^*w$，则称 $R$ 有**弱汇合性**。
+
+例如，$R_1=\{(a,b),(a,c),(b,d),(c,e),(d,e)\}$ 满足汇合性和弱汇合性，但不满足菱形性质。
 
 （1）在 $S=\{a,b,c,d\}$ 上给出一个弱汇合但不汇合的关系。
 

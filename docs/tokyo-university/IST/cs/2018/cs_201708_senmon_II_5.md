@@ -86,8 +86,8 @@ Answer the following question.
 
 ### 题目描述
 
-对 $\boldsymbol w\in\mathbb R^d$，定义
-$\|\boldsymbol w\|_1=\sum_i|w_i|$、$\|\boldsymbol w\|_2=(\sum_iw_i^2)^{1/2}$。若对所有 $\boldsymbol z$ 都有
+以 $\mathbb R$ 表示实数集，$|w|$ 表示实数 $w$ 的绝对值。对实列向量 $\boldsymbol w\in\mathbb R^d$，以 $w_i$ 表示第 $i$ 个分量，$\boldsymbol w^{\mathsf T}$ 表示转置，定义
+$\|\boldsymbol w\|_1=\sum_{i=1}^d|w_i|$、$\|\boldsymbol w\|_2=(\sum_{i=1}^dw_i^2)^{1/2}$。若 $\boldsymbol g,\boldsymbol x\in\mathbb R^d$，且对所有 $\boldsymbol z\in\mathbb R^d$ 都有
 
 $$
 f(\boldsymbol z)\ge f(\boldsymbol x)+\boldsymbol g^{\mathsf T}(\boldsymbol z-\boldsymbol x),
@@ -97,38 +97,38 @@ $$
 $\partial f(\boldsymbol x)$。可以使用以下事实：可微凸函数的次梯度唯一且等于梯度；
 $\partial(f_1+f_2)$ 是两个次梯度集合的 Minkowski 和；$0\in\partial f(\boldsymbol w^*)$ 是 $\boldsymbol w^*$ 最小化 $f$ 的充要条件。
 
-（1）求（a）$f(w)=|w|$ 的 $\partial f(w)$；（b）$f(\boldsymbol w)=\|\boldsymbol w\|_1$ 的 $\partial f(\boldsymbol w)$。
+（1）求（a）$f(w)=|w|$（$w\in\mathbb R$）的 $\partial f(w)$；（b）$f(\boldsymbol w)=\|\boldsymbol w\|_1$（$\boldsymbol w\in\mathbb R^d$）的 $\partial f(\boldsymbol w)$。
 
-（2）对 $f(w)=\frac12(w-z)^2+\beta|w|$（$z\in\mathbb R,\beta>0$），求
-$\partial f(w)$ 及最小点 $w^*$。
+（2）对 $f(w)=\frac12(w-z)^2+\beta|w|$（$w,z\in\mathbb R,\beta>0$），求
+$\partial f(w)$ 及最小点 $w^*\in\mathbb R$。
 
 （3）对 $f(\boldsymbol w)=\frac12\|\boldsymbol w-\boldsymbol z\|_2^2+
-\beta\|\boldsymbol w\|_1$，求 $\partial f(\boldsymbol w)$；若 $\boldsymbol w^*$ 为最小点，给出 $w_j^*=0$ 的充要条件。
+\beta\|\boldsymbol w\|_1$（$\boldsymbol w,\boldsymbol z\in\mathbb R^d,\beta>0$），求 $\partial f(\boldsymbol w)$；若 $\boldsymbol w^*\in\mathbb R^d$ 为最小点，且 $j$ 为满足 $1\le j\le d$ 的整数，给出 $w_j^*=0$ 的充要条件。
 
-现用带 $\ell_1$ 正则的最小二乘训练线性模型，其中 $\lambda>0$：
+现由 $\boldsymbol x\in\mathbb R^d$ 预测实值标签 $y\in\mathbb R$，给定 $n$ 个训练样本 $\{(\boldsymbol x_i,y_i)\mid\boldsymbol x_i\in\mathbb R^d,\ y_i\in\mathbb R,\ i=1,\ldots,n\}$，其中 $y_i$ 是 $\boldsymbol x_i$ 的标签。用参数 $\boldsymbol w\in\mathbb R^d$ 定义损失并以带 $\ell_1$ 正则的最小二乘训练线性模型，其中 $\lambda>0$：
 
 $$
 L(\boldsymbol w)=\frac1{2n}\sum_{i=1}^n(y_i-\boldsymbol w^{\mathsf T}\boldsymbol x_i)^2,
 \qquad
-\boldsymbol w^*=\arg\min_{\boldsymbol w}\{L(\boldsymbol w)+\lambda\|\boldsymbol w\|_1\}.
+\boldsymbol w^*=\arg\min_{\boldsymbol w\in\mathbb R^d}\{L(\boldsymbol w)+\lambda\|\boldsymbol w\|_1\}.
 $$
 
-从 $\boldsymbol w^{(0)}$ 出发，取步长 $\eta_t>0$，迭代算法为
+从 $\boldsymbol w^{(0)}\in\mathbb R^d$ 出发，取步长 $\eta_t>0$，迭代算法为
 
 $$
-\boldsymbol w^{(t+1)}=\arg\min_{\boldsymbol w}
+\boldsymbol w^{(t+1)}=\arg\min_{\boldsymbol w\in\mathbb R^d}
 \left\{
 \nabla L(\boldsymbol w^{(t)})^{\mathsf T}(\boldsymbol w-\boldsymbol w^{(t)})
 +\lambda\|\boldsymbol w\|_1
 +\frac1{2\eta_t}\|\boldsymbol w-\boldsymbol w^{(t)}\|_2^2
-\right\}.
+\right\},\qquad t=0,1,2,\ldots.
 $$
 
-（4）求 $\alpha$，使
+（4）设 $j$ 为满足 $1\le j\le d$ 的整数，用 $\eta_t$ 和 $\lambda$ 表示 $a\in\mathbb R$，使
 
 $$
 w_j^{(t)}-\eta_t\frac{\partial L}{\partial w_j}(\boldsymbol w^{(t)})
-\in[-\alpha,\alpha]
+\in[-a,a]
 $$
 
 成为 $w_j^{(t+1)}=0$ 的充要条件。
@@ -199,4 +199,4 @@ w_j^{(t+1)}=0
 \Longleftrightarrow |q_j|\le\eta_t\lambda.
 $$
 
-因此 $\boxed{\alpha=\eta_t\lambda}$。
+因此 $\boxed{a=\eta_t\lambda}$。

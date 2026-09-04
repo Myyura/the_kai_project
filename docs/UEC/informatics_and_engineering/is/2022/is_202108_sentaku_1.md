@@ -15,7 +15,45 @@ tags:
 
 ## **Description**
 
-配列で表した最大ヒープに対する下向き調整関数 `algo`、ヒープソート `algo1`、ボトムアップ構築 `algo2` を追跡せよ。また、先頭 $k$ 要素を用いて第 $k$ 小要素を求める `algo3` の空欄を補え。使用する配列は
+完全二分木の最大ヒープを、根から幅優先順に配列へ格納する。添字は $0$ から始まり、以下の `n` は末尾の添字、`swap` は二要素の交換を表す。
+
+~~~c
+void algo(int a[], int parent, int n) {
+    int child = parent * 2 + 1;
+    if (child <= n) {
+        int r_child = child + 1;
+        if (r_child <= n && a[r_child] > a[child]) child = r_child;
+        if (a[parent] < a[child]) {
+            swap(&a[parent], &a[child]); /* (S) */
+            algo(a, child, n);
+        }
+    }
+}
+void algo1(int a[], int n) {
+    while (n > 0) {
+        swap(&a[0], &a[n]);
+        n--;
+        algo(a, 0, n);
+    }
+}
+void algo2(int b[], int p, int n) {
+    if (p >= 0) {
+        algo(b, p, n);
+        p--;
+        algo2(b, p, n);
+    }
+}
+void algo3(int a[], int k, int n) {
+    int c;
+    for (c = k; c <= n; c++)
+        if (a[0] /* (1) */ a[c]) {
+            swap(&a[0], &a[c]);
+            algo(/* (2) */);
+        }
+}
+~~~
+
+使用する配列は
 
 $$
 \begin{aligned}
@@ -26,6 +64,12 @@ X&=(35,15,40,20,55,5,65,25,45,70,30,45,50,10,60)
 $$
 
 である。
+
+1. $A[6]$ の左の子、$A[10]$ の親の値、および葉の個数を答えよ。
+2. $A[0]=10$ として `algo(A,0,14)` を実行した後の配列と (S) の実行回数を答えよ。
+3. `algo1(B,6)` において、$n=5,4,\ldots,0$ の各回の `algo` 実行後の配列と、その回の (S) の実行回数を答えよ。
+4. `algo2(X,6,14)` の実行後の配列とヒープ構成法を説明せよ。
+5. ヒープ配列の先頭 $k$ 要素を用い、第 $k$ 小要素を根へ格納する `algo3` の空欄を埋めよ。$1\le k\le n+1$ とし、配列に重複要素はない。
 
 ### 题目描述
 

@@ -13,12 +13,12 @@ tags:
 
 ## **Description**
 図 1 に示す ANSI-C 準拠である C 言語のプログラム (program) は所有している複数のくじ (lottery) のそれぞれが当選 (win) しているかを調べて、当選しているくじ番号 (lottery number) と等級 (grade) をもれなく出力 (output) するものである.
-くじ番号は 1000 未満の自然数 (natural number) で定められており, いずれのくじ番号のくじもたかだか一つしか存在しない.
+くじ番号は 10000 未満の自然数 (natural number) で定められており, いずれのくじ番号のくじもたかだか一つしか存在しない.
 所有しているくじ番号が、当選番号 (winning number) と一致した場合に、その当選番号に対応する等級に当選したとする.
 当選番号は 10000 未満の自然数から重複なく選ばれた $N$ 個 ($N$ は $3 \le N \le 100$ の自然数) の数字で, 等級は 1 等から 3 等まであり、1 等が 1 本、 2 等が 1 本、 3 等が $N - 2$ 本である.
 
-当選番号と等級は図 2 に示すような形式 (format) のファイル win.txt で与えられ、1 行目に当選番号の総数 $N$、2 行目以降の $N$ 行は全ての当選番号とその等級 $r$ ($r$ は $1 le r \le 3$ の自然数) が書かれている. また、所有しているくじ番号は図 3 に示すような形式のファイル lots.txt で与えられ、所有しているくじ番号が 1 行目から各行に一つずつ書かれている.
-以下の各間に答えよ.
+当選番号と等級は図 2 に示すような形式 (format) のファイル win.txt で与えられ、1 行目に当選番号の総数 $N$、2 行目以降の $N$ 行は全ての当選番号とその等級 $r$ ($r$ は $1 \le r \le 3$ の自然数) が書かれている. また、所有しているくじ番号は図 3 に示すような形式のファイル lots.txt で与えられ、所有しているくじ番号が 1 行目から各行に一つずつ書かれている.
+以下の各問に答えよ.
 
 (1) 図 2 の win.txt、図 3 の lots.txt を与えてプログラムを実行することを考える.
 プログラムの 36 行目で関数 functionA が呼び出されたときに、プログラム 6~13 行目の for 文処理において、i=1 および i=3 の時に、j に関する for 文が終了した時点で a\[0\] ~ a\[9\] および b\[0\] ~ b\[9\] の値が以下のようになった.
@@ -97,7 +97,7 @@ int functionB(int a[], int x, int n) {
         m = (t + w) / 2;
         if (x < a[m]) w = m - 1;
         else t = m + 1;
-    } while (t <= m);
+    } while (t <= w);
     if (w >= 0 && x == a[w]) return w;
     else return -1;
 }
@@ -121,7 +121,7 @@ int main() {
     return 0;
 }
 ```
-#### <center> 図１ プログラム</center>
+### <center> 図１ プログラム</center>
 
 ```text
 10
@@ -136,7 +136,7 @@ int main() {
 1328    3
 89      3
 ```
-#### <center> 図２ win.txt</center>
+### <center> 図２ win.txt</center>
 
 ```text
 9003
@@ -155,124 +155,40 @@ int main() {
 1028
 777
 ```
-#### <center> 図３ lots.txt</center>
+### <center> 図３ lots.txt</center>
 
-### 题目描述
-
-图 1 的 ANSI C 程序读取中奖号码文件 `win.txt` 和持有彩票文件 `lots.txt`，输出所有中奖的彩票号码及等级。中奖号码共 $N$ 个（$3\le N\le100$），互不重复；一等奖、二等奖各一个，三等奖 $N-2$ 个。数组 `win` 保存号码，`grade` 保存与其配对的等级。
-
-1. 原版 `functionA` 同步交换 `win` 与 `grade` 中的对应元素。根据题目给出的第 1、3 趟中间数组状态，填写比较条件 A。
-2. 说明执行原版 `functionA(win,grade,0,n-1)` 后两个数组的状态与对应关系；在输入号码随机排列的假设下，给出其平均时间复杂度并说明原因。
-3. 说明 `functionB(win,lot,n)` 对有序数组执行的查找过程及返回值含义。
-4. 将 `functionA` 改为题中给出的双向划分快速排序版本：
-   1. 从四组选项中选择递归调用边界 (あ) 至 (え)；
-   2. 给出随机输入下修改后算法的平均时间复杂度。
-5. 只允许修改 `main` 中 `functionA` 的实参和 `if` 条件，使程序仅在持有一等奖彩票时输出其号码和等级，并让每张彩票的判定平均为 $O(1)$。写出下划线 (ア)、(イ) 的修改内容。
-
-完整程序、两个输入文件及中间数组表见上文。
 
 ## **Kai**
-### (1)
-Hint: funcationA is "Bubble Sort"
 
-空欄(A): a\[j\] > a\[j+1\]
+### (1)
+
+バブルソートなので、空欄は `a[j] > a[j+1]`。
 
 ### (2)
-The array `win` is sorted in ascending order. The same swaps are applied to `grade`, so `grade[i]` remains the grade corresponding to `win[i]`; `grade` itself need not be sorted.
 
-The inner loop is iterating $(n-1) + (n-2) + \cdots + 1 = \frac{n(n-1)}{2}$ times and,
-in every iteration of the inner loop, it takes $O(1)$ time to compare the element with adjacent element and takes $O(1)$ time to swap the elements when necessary.
+`win` が昇順に整列し、`grade` も同じ交換を行うため、`grade[i]` は常に `win[i]` の等級を保持する。比較回数は
 
-Therefore, the average case time complexity is $O(n^2)$.
+$$
+\sum_{i=1}^{n-1}(n-i)=\frac{n(n-1)}2
+$$
+
+なので、平均時間計算量は $\boxed{O(n^2)}$。
 
 ### (3)
-Hint: funcationB is "Binary Search"
 
-In every iteration, functionB compares `lot` with the middle element of the current search interval in `win`.
-If `lot` is smaller than the middle element, the left sub-array is searched.
-Otherwise, the right sub-array is searched.
-This process continues iteratively until the size of a sub-array reduces to zero.
-
-If we find an element of the array `win` which is equal to `lot`, then return the index of the element.
-Otherwise, $-1$ is returned.
+昇順の `win[0]`～`win[n-1]` に対して `lot` を二分探索する。等しい要素があればその添字を返し、なければ $-1$ を返す。
 
 ### (4)
-Hint: functionA is "Quick Sort"
 
-#### (4-1)
-(iii)
+(4-1) $\boxed{\text{(iii)}}$、すなわち `(t, i-1)` と `(j+1, w)`。
 
-#### (4-2)
-The answer is $O(n \log n)$.
-
-
-Let $T(n)$ denote the average-case time complexity of Quicksort for an array of $n$ elements. 
-Let $c > 0$ be a constant. 
-The recurrence relation is given by:
-
-$$
-\begin{align}
-T(n) &= \frac{1}{n} \sum_{i=0}^{n-1} \Big( T(i) + T(n-i-1) \Big) + cn \nonumber \\ 
-T(n) &= \frac{2}{n} \sum_{i=0}^{n-1} T(i) + cn \nonumber \\
-nT(n) &= 2 \sum_{i=0}^{n-1} T(i) + cn^2 \tag{1}
-\end{align}
-$$
-
-For $n-1$, the equation becomes:
-
-$$
-\begin{align} (n-1)T(n-1) = 2 \sum_{i=0}^{n-2} T(i) + c(n-1)^2 \tag{2}
-\end{align}
-$$
-
-Subtracting equation $(2)$ from $(1)$ yields:
-
-$$
-nT(n) - (n-1)T(n-1) = 2T(n-1) + cn^2 - c(n-1)^2
-$$
-
-$$
-nT(n) = (n+1)T(n-1) + c(2n - 1)
-$$
-
-Dividing both sides by $n(n+1)$ to normalize the terms, we get:
-
-$$
-\frac{T(n)}{n+1} = \frac{T(n-1)}{n} + c \frac{2n - 1}{n(n+1)}
-$$
-
-Using partial fraction decomposition, we can rewrite the non-recursive term:
-
-$$
-\frac{T(n)}{n+1} - \frac{T(n-1)}{n} = c \left(\frac{3}{n+1} - \frac{1}{n}\right)
-$$
-
-By expanding and summing this telescoping series for $n, n-1, \dots, 1$, we obtain:
-
-$$
-\begin{aligned}
-\frac{T(n)}{n+1} - \frac{T(n-1)}{n} &= c \left(\frac{3}{n+1} - \frac{1}{n}\right) \\
-\frac{T(n-1)}{n} - \frac{T(n-2)}{n-1} &= c \left(\frac{3}{n} - \frac{1}{n-1}\right) \\
-&\vdots \\
-\frac{T(1)}{2} - \frac{T(0)}{1} &= c \left(\frac{3}{2} - \frac{1}{1}\right)
-\end{aligned}
-$$
-
-Summing both sides of the equations above, the intermediate terms on the left cancel out:
-
-$$
-\frac{T(n)}{n+1} - T(0) = c \sum_{i=1}^{n} \left(\frac{3}{i+1} - \frac{1}{i}\right)
-$$
-
-Since the sum evaluates to a form of the harmonic series, which satisfies $\sum_{i=1}^{n} \frac{1}{i} = O(\log n)$, it follows that:
-
-$$
-\begin{aligned}
-\frac{T(n)}{n+1} &= O(\log n) \\ T(n) &= O(n \log n)
-\end{aligned}
-$$
+(4-2) ランダムな入力順のクイックソートなので平均時間計算量は $\boxed{O(n\log n)}$。1回の分割は線形時間で、平均的な分割の深さが $O(\log n)$ となる。
 
 ### (5)
-下線 (ア): (grade, win, 0, n-1)
 
-下線 (イ): lot == win\[0\]
+```c
+/* (ア) */ (grade, win, 0, n-1)
+/* (イ) */ lot == win[k = 0]
+```
+
+等級で昇順に整列すれば、唯一の1等が先頭になる。`k=0` も設定することで、後続の `grade[k]` が正しく1を出力する。判定は $O(1)$。

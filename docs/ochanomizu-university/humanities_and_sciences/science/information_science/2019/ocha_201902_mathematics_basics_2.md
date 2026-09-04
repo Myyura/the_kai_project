@@ -25,7 +25,10 @@ A=\begin{pmatrix}
 \end{pmatrix}
 $$
 
-について、核 $\operatorname{Ker}(A)$ と像 $\operatorname{Im}(A)$ を求めよ。
+について、次の問いに答えよ。
+
+1. 核 $\operatorname{Ker}(A)=\{x\in\mathbb R^4\mid Ax=0\}$ を求めよ。
+2. 像 $\operatorname{Im}(A)=\{y\in\mathbb R^3\mid\exists x\in\mathbb R^4,\ y=Ax\}$ を求めよ。
 
 ### [2]
 
@@ -142,4 +145,3 @@ $\lambda=2$ の固有空間は $1$ 次元である。したがって、一次独
 $$
 \boxed{B\text{ は対角化できない。}}
 $$
-

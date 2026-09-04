@@ -20,6 +20,15 @@ tags:
 
 前提が偽のときの含意 $p\Rightarrow q$ について、二つの誤った真理値表を論理式で表し、空欄 1〜9 を選択肢から埋めよ。
 
+| $p$ | $q$ | A さんの表 | B さんの表 |
+|:---:|:---:|:---:|:---:|
+| T | T | T | T |
+| T | F | F | F |
+| F | T | F | F |
+| F | F | F | T |
+
+A さんの表は $p\,[1]\,[2]$、B さんの表は $(p\,[3]\,[4])\land(\neg p\,[5]\,[6])$ と表される。これらは $p,q$ に関して [7] であり、[8] 命題がその [9] と同値になるという問題がある。選択肢は $0:\lor$、$1:\land$、$2:q$、$3:\neg q$、$4:$逆、$5:$裏、$6:$対偶、$7:$対称、$8:$任意の、$9:$ある、である。
+
 ### 問2
 
 正の整数上の述語 $p(x)$ を「$x$ は偶数」とし、
@@ -29,7 +38,18 @@ $$
 \Rightarrow\exists x\,(p(x)\land q(x))
 $$
 
-の真偽を、$q(x)$ が奇数、素数、4 の倍数、$x<1$ を表す各場合に答えよ。さらに四つの量化論理式を、恒真・恒偽・いずれにもなる、のいずれかに分類せよ。
+の真偽を、$q(x)$ が奇数、素数、4 の倍数、$x<1$ を表す各場合に答えよ。さらに次の四式を、恒真・恒偽・いずれにもなる、のいずれかに分類せよ。
+
+$$
+\begin{aligned}
+(2)\quad &\forall x\,(p(x)\lor q(x))\Rightarrow
+(\forall x\,p(x)\lor\forall x\,q(x)),\\
+(3)\quad &\exists x\forall y\,p(x,y)\Rightarrow\forall y\exists x\,p(x,y),\\
+(4)\quad &\exists x\,\neg p(x)\Longleftrightarrow\forall x\,p(x),\\
+(5)\quad &\neg\forall x\,(p(x)\Rightarrow q(x))
+\Longleftrightarrow\exists x\,(p(x)\land\neg q(x)).
+\end{aligned}
+$$
 
 ### 問3
 
@@ -212,6 +232,8 @@ $$
 
 #### (1)
 
+$0\le k<n$ では
+
 $$
 \begin{aligned}
 {n\choose k+1}+{n\choose k}
@@ -221,6 +243,8 @@ $$
 ={n+1\choose k+1}.
 \end{aligned}
 $$
+
+$k=n$ では ${n\choose n+1}=0$ として、両辺とも $1$ である。
 
 #### (2)
 

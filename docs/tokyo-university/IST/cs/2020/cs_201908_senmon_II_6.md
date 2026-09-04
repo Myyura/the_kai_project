@@ -37,7 +37,7 @@ $$
 
 where $\bar{\mu}$ and $\bar{\sigma}^2$ are the values obtained by the substitution $(\mu, \theta, Y) := (\mu_t, \theta_t, Y_n)$ in the expressions of $\mathbb{E}[X|Y]$ and $\mathbb{V}[X|Y]$ obtained in question (2), respectively, and $\mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}$ denotes the expectation when $X_n$ follows $N(\bar{\mu}, \bar{\sigma}^2)$ and $(X^{(n-1)},Y^{(n)})$ is fixed.
 
-- (i) Express $\mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}[\log p_{\mu, \theta}(X^{(n)},Y^{(n)})]$ using $\mu, \theta, \bar{\mu}, \bar{\sigma}^2, X^{(n-1)}$ and $Y^{(n)}$.
+- (i) Express $\mathbb{E}_{X_n \sim N(\bar{\mu}, \bar{\sigma}^2)}[\log p_{\mu, \theta}(X^{(n)},Y^{(n)})]$ using $n, \mu, \theta, \bar{\mu}, \bar{\sigma}^2, X^{(n-1)}$ and $Y^{(n)}$.
 - (ii) Express $(\mu_{t+1}, \theta_{t+1})$ using $n, \bar{\mu}, \bar{\sigma}^2, X^{(n-1)}$ and $Y^{(n)}$.
 
 ### 题目描述
@@ -65,21 +65,21 @@ $(X^{(n)},Y^{(n)})$ 的一个实现。用
 $\mu,\theta,x^{(n)},y^{(n)}$ 写出其联合密度
 $p_{\mu,\theta}(x^{(n)},y^{(n)})$。
 
-（4）现在 $X_n$ 缺失，仅观测到 $(X^{(n-1)},Y^{(n)})$，用 EM 算法估计
-$(\mu,\theta)$。从任意初值 $(\mu_0,\theta_0)$ 出发，更新规则为
+（4）现在 $X_n$ 缺失，仅观测到 $(X^{(n-1)},Y^{(n)})$，用 EM 算法进行
+$(\mu,\theta)$ 的最大似然估计。从任意初值 $(\mu_0,\theta_0)\in\mathbb R^2$ 出发，更新规则为
 
 $$
 (\mu_{t+1},\theta_{t+1})
 =\mathop{\arg\max}_{(\mu,\theta)\in\mathbb R^2}
 \mathbb E_{X_n\sim N(\bar\mu,\bar\sigma^2)}
-[\log p_{\mu,\theta}(X^{(n)},Y^{(n)})],
+[\log p_{\mu,\theta}(X^{(n)},Y^{(n)})],\qquad t=0,1,\ldots,
 $$
 
 其中 $\bar\mu,\bar\sigma^2$ 分别是在第（2）问的条件均值、条件方差表达式中代入
 $(\mu,\theta,Y)=(\mu_t,\theta_t,Y_n)$ 所得；取期望时固定
 $(X^{(n-1)},Y^{(n)})$。
 
-- （i）用 $\mu,\theta,\bar\mu,\bar\sigma^2,X^{(n-1)},Y^{(n)}$
+- （i）用 $n,\mu,\theta,\bar\mu,\bar\sigma^2,X^{(n-1)},Y^{(n)}$
   表示上述期望对数似然。
 - （ii）用 $n,\bar\mu,\bar\sigma^2,X^{(n-1)},Y^{(n)}$
   表示更新后的 $(\mu_{t+1},\theta_{t+1})$。

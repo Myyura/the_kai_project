@@ -92,6 +92,8 @@ $$
 
 $a=T/T_c$ とすれば $ax=\tanh x$ である。$y=\tanh x$ は原点で傾き $1$ の奇関数なので、グラフの交点は
 
+![高温では原点のみ、低温では原点と正負の二点で交わる y=tanh x と y=(T/Tc)x](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka_metropolitan_university/science/physics/2025/physics_II_2_intersections.svg)
+
 $$
 \begin{array}{c|c}
 T>T_c\ (a>1)&x=0\\

@@ -48,9 +48,7 @@ tags:
 
 (5) この系の固有振動モードは3種類ある。それぞれを図を用いて説明せよ。
 
-<figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/phys_202208_1_p1.png" width="500" height="500" alt=""/>
-</figure>
+![図1：上端の質点の座標が x2、下端が x1、棒の中点につながる質点が x3。すべてのばね定数は k、質量は m](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/phys/2023/phys_202208_1_apparatus.svg)
 
 
 ### 题目描述
@@ -82,11 +80,11 @@ tags:
 装置的关键连接关系为
 
 ```text
-墙 ─ 弹簧 ─ m₁(x₁)
+墙 ─ 弹簧 ─ m₂(x₂)
              │
              ├ ─ 弹簧 ─ m₃(x₃)
              │
-墙 ─ 弹簧 ─ m₂(x₂)
+墙 ─ 弹簧 ─ m₁(x₁)
        （竖直刚杆长为 2a）
 ```
 
@@ -135,14 +133,9 @@ $$
   \end{aligned}
 $$
 
-である。したがって、振幅が包絡線 $\exp(-ct/2m)$ に沿って減少する振動となる。
+である。したがって、包絡線 $x=\pm\sqrt{A^2+B^2}\exp(-ct/2m)$ の内側で平衡点を繰り返し通過する減衰振動となる。
 
-```text
-x
-│＼   ／＼
-│  ＼／   ＼＿
-└──────── t
-```
+![指数関数的に減少する上下の包絡線と、平衡点を繰り返し横切る減衰振動](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/phys/2023/phys_202208_1_underdamped.svg)
 
 #### (3)
 $c^2 \gt 4mk$ のときの一般解は、任意定数を $A,B$ として、
@@ -155,14 +148,9 @@ $$
   \end{aligned}
 $$
 
-である。二つの指数はいずれも負なので、振動せずに平衡点へ近づく。
+である。二つの指数はいずれも負なので、振動せずに平衡点へ近づく。下図は $x(0)>0,\ \dot x(0)=0$ の場合である。
 
-```text
-x
-│＼
-│  ＼＿＿
-└──────── t
-```
+![正の初期変位から静かに放した過減衰振子が振動せず平衡点に近づく例](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/phys/2023/phys_202208_1_overdamped.svg)
 
 ### 2.
 #### (1)
@@ -347,10 +335,14 @@ $$
 
 と書ける。（ $A,B,C,\alpha,\beta,\gamma$ は初期条件から決まる定数である。）
 
-位相と振幅比を図示すると、
+位相と振幅比を図示すると、次のようになる（矢印は同時刻の変位の向き、$\Rightarrow$ は $\to$ の2倍の振幅、・は静止を表す）。
 
 ```text
 ω₁/√2 :  m₁ →    m₂ →    m₃ ⇒
 ω₁    :  m₁ →    m₂ ←    m₃ ・
 √2ω₁ :  m₁ →    m₂ →    m₃ ←
 ```
+
+## **Reference**
+
+- [広島大学 2022年度実施 物理学プログラム 専門科目（公式PDF）](https://www.hiroshima-u.ac.jp/system/files/192233/%E7%89%A9%E7%90%86P_R4%E4%B8%80%E8%88%ACA%E3%83%BB%E5%B0%82%E9%96%80%E7%A7%91%E7%9B%AE.pdf)

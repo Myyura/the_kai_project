@@ -66,7 +66,7 @@ $$
 \langle n|\hat x|n'\rangle=\sqrt{\frac{\hbar}{2m\omega}}\left(\sqrt{n'}\delta_{n,n'-1}+\sqrt n\delta_{n',n-1}\right).\tag{6H}
 $$
 
-ただし、$n,n',\delta_{n,n'}$ はそれぞれ非負の整数、クロネッカーのデルタである。
+ただし、$n',\delta_{n,n'}$ はそれぞれ非負の整数、クロネッカーのデルタである。
 
 (4) $-eF\hat x$ を摂動ハミルトニアンとして、$|n\rangle$ に対する $1$ 次の摂動エネルギー $E_1$ を求めよ。
 

@@ -24,7 +24,15 @@ u=\begin{pmatrix}4\\-1\\-5\\2\end{pmatrix},\quad
 v=\begin{pmatrix}11\\-5\\1\\k\end{pmatrix}
 $$
 
-とする。$Au$、$A$ の固有値、3 次元固有空間 $V$ の指定基底、$Av\in V$ となる $k$、および $f(x)=Ax$ の基底 $(u,v)$ と指定基底に関する表現行列を求めよ。
+とする。$Au$ と $A$ の固有値を求めよ。3 次元固有空間を $V$ とし、
+
+$$
+p_1=(\alpha,1,0,0)^{\mathsf T},\quad
+p_2=(\beta,0,1,0)^{\mathsf T},\quad
+p_3=(\gamma,0,0,1)^{\mathsf T}
+$$
+
+が $V$ の基底 $\mathcal A=(p_1,p_2,p_3)$ となる $\alpha,\beta,\gamma$ と、$Av\in V$ となる $k$ を求めよ。その値を用い、$W=\operatorname{span}\{u,v\}$ 上の写像 $f:W\to V$, $f(x)=Ax$ の基底 $(u,v)$ と $\mathcal A$ に関する表現行列を求めよ。
 
 ### 题目描述
 

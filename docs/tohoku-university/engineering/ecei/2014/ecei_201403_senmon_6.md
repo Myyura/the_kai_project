@@ -20,13 +20,13 @@ tags:
 
 (1) $\langle g\mid f\rangle=\langle f\mid g\rangle^*$ を示せ。
 
-(2) 演算子 $\hat A$ に対し，$\langle\hat Af\mid g\rangle=\langle f\mid\hat A^\dagger g\rangle$ を満たすような演算子 $\hat A^\dagger$ を，$\hat A$ のエルミート共役演算子という。$(i\hat A)^\dagger=-i\hat A^\dagger$ を示せ。ここで $i$ は虚数単位である。
+(2) 演算子 $\hat A$ に対し，$\langle\hat Af\mid g\rangle=\langle f\mid\hat A^+ g\rangle$ を満たすような演算子 $\hat A^+$ を，$\hat A$ のエルミート共役演算子という。$(i\hat A)^+=-i\hat A^+$ を示せ。ここで $i$ は虚数単位である。
 
-(3) 与えられた任意の演算子 $\hat A$ および $\hat B$ に対し，それらの積の演算子 $\hat A\hat B$ のエルミート共役演算子が $\hat B^\dagger\hat A^\dagger$ となることを示せ。
+(3) 与えられた任意の演算子 $\hat A$ および $\hat B$ に対し，それらの積の演算子 $\hat A\hat B$ のエルミート共役演算子が $\hat B^+\hat A^+$ となることを示せ。
 
-(4) $\hat A^\dagger=\hat A$ となる演算子 $\hat A$ をエルミート演算子という。エルミート演算子の固有値は実数となることを示せ。
+(4) $\hat A^+=\hat A$ となる演算子 $\hat A$ をエルミート演算子という。エルミート演算子の固有値は実数となることを示せ。
 
-(5) 任意の演算子 $\hat A$ に対し，$\hat A+\hat A^\dagger$ および $i(\hat A-\hat A^\dagger)$ がエルミート演算子となることを示せ。
+(5) 任意の演算子 $\hat A$ に対し，$\hat A+\hat A^+$ および $i(\hat A-\hat A^+)$ がエルミート演算子となることを示せ。
 
 (6) エルミート演算子 $\hat A$ に対する二つの固有値 $\lambda_1,\lambda_2$（$\lambda_1\ne\lambda_2$）とそれぞれに対する固有関数 $\psi_1,\psi_2$ を考える。$\psi_1$ と $\psi_2$ が直交することを示せ。
 

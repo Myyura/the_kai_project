@@ -42,7 +42,7 @@ $$
 
 で表される曲面を $S$、$S$ と $xy$ 平面との交線を、$z>0$ 側から見て反時計回りに向き付けた曲線を $C$ とする。
 
-1. $S,C$ の形を示せ。
+1. $S$ の特徴がわかるように図示し、その図に $C$ を描け。
 2. $S$ と $z=0$ で囲まれる体積を求めよ。
 3. $\boldsymbol A=(x^2+y-4)\boldsymbol i+3xy^2\boldsymbol j+(2xz+z^2)\boldsymbol k$ に対し、$\nabla\times\boldsymbol A$ と $\iint_S(\nabla\times\boldsymbol A)\cdot\boldsymbol n\,dS$ を求めよ。$\boldsymbol n$ は外向き単位法線である。
 4. $\displaystyle\oint_C\boldsymbol A\cdot d\boldsymbol r$ を求めよ。
@@ -105,6 +105,8 @@ $$
 
 なる円で、$z>0$ 側から見て反時計回りである。
 
+![回転放物面 S と境界円 C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/UEC/informatics_and_engineering/fse/2025/fse_202408_paraboloid.svg)
+
 #### (b)
 
 円柱座標を用いると
@@ -160,7 +162,7 @@ b_n&=\frac1\pi\int_{-\pi}^{\pi}x(\pi-x)\sin nx\,dx
 \end{aligned}
 $$
 
-したがって、
+したがって、$-\pi<x<\pi$ で
 
 $$
 \boxed{
@@ -172,4 +174,4 @@ f(x)=-\frac{\pi^2}{3}
 \right\}}
 $$
 
-である。
+である。端点 $x=\pm\pi$ では級数は左右極限の平均 $-\pi^2$ に収束する。

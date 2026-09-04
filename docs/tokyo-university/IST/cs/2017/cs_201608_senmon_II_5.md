@@ -61,6 +61,14 @@ $\mu\sim\mathcal N(m_0,\rho_0^2)$。
 
 （1）仅有观测 $x_1$ 时，后验为 $\mathcal N(m_1,\rho_1^2)$。求 $m_1,\rho_1^2$。
 
+可使用等式
+
+$$
+p(\mu\mid x_1,\sigma_0^2,m_0,\rho_0^2)
+=\frac{\mathcal N(x_1\mid\mu,\sigma_0^2)\mathcal N(\mu\mid m_0,\rho_0^2)}
+{\int\mathcal N(x_1\mid\mu,\sigma_0^2)\mathcal N(\mu\mid m_0,\rho_0^2)\,d\mu}.
+$$
+
 （2）给定 $n\ge2$ 个观测时，后验为 $\mathcal N(m_n,\rho_n^2)$。求 $m_n,\rho_n^2$。
 
 （3）证明后验可递推写为

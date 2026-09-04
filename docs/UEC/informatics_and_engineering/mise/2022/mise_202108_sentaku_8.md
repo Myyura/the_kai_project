@@ -20,14 +20,14 @@ tags:
    I(a,b)=\frac1{2\pi i}\int_{-\infty}^{\infty}
    \frac{e^{iax}}{x-ib}\,dx
    $$
-   を $a>0,a=0,a<0$ に分けて求め、$\theta(a)=\lim_{b\to0+}I(a,b)$ とその導関数を考察せよ。
-2. $z=e^{i\theta}$ を用い、
+   を $a>0,a=0,a<0$ に分けて求めよ。ただし $a=0$ の積分は $\lim_{R\to\infty}\int_{-R}^R$ で定義する。$\theta(a)=\lim_{b\to0+}I(a,b)$ のグラフを示し、その導関数を考察せよ。
+2. $z=e^{i\theta}$ $(0\le\theta<2\pi)$ に対して $\sin\theta=(z-\bar z)/(2i)$ を示せ。さらに、実数 $\alpha$ に対し
    $$
    \exp\left\{\frac{\alpha}{2}\left(z-\frac1z\right)\right\}
    =\sum_{n=-\infty}^{\infty}J_n(\alpha)z^n
    $$
    から $J_n(\alpha)$ の実積分表示を導け。
-3. Joukowski 変換 $w=z+a^2/z$ が円を楕円へ、原点を端点とする半直線を双曲線へ写すことを示せ。
+3. Joukowski 変換 $w=z+a^2/z$ $(a>0)$ が、原点中心・半径 $c>a$ の円を楕円へ、原点を端点とする半直線 $z=re^{i\theta_0}$ $(r>0,\ 0\le\theta_0<2\pi)$ を双曲線へ写すことを示せ。
 
 ### 题目描述
 
@@ -79,7 +79,11 @@ $$
 \end{cases}}
 $$
 
-であり、Heaviside の階段関数である。通常の意味では $a=0$ で微分不可能であり、超関数の意味では
+であり、グラフは次のとおりである。
+
+![Heaviside の階段関数のグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/UEC/informatics_and_engineering/mise/2022/mise_202108_heaviside.svg)
+
+これは Heaviside の階段関数である。通常の意味では $a=0$ で微分不可能であり、超関数の意味では
 
 $$
 \boxed{\theta'(a)=\delta(a)}
@@ -158,4 +162,4 @@ $$
 -\frac{v^2}{\sin^2\theta_0}=4a^2},
 $$
 
-すなわち双曲線を得る。$\sin\theta_0=0$ または $\cos\theta_0=0$ では、それぞれ実軸または虚軸上の退化した場合となる。
+すなわち $u$ の符号が $\cos\theta_0$ と一致する双曲線の一枝を得る。$\sin\theta_0=0$ では実軸上の半直線 $u\ge2a$ または $u\le-2a$、$\cos\theta_0=0$ では虚軸全体に退化する。

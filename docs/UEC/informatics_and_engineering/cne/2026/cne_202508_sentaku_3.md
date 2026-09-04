@@ -14,7 +14,7 @@ tags:
 
 ## **Description**
 
-$X\sim\operatorname{Bin}(m_1,q)$、$Y\sim\operatorname{Bin}(m_2,q)$ を独立とする。$X$ の積率母関数、期待値・分散、$q$ の最尤推定量を求めよ。さらに $Q\sim\operatorname{Beta}(\alpha,\beta)$ の下で、$X=x$ の観測後分布と $Y$ の予測分布、および $S=X+Y$ の条件付き分布を求めよ。
+$X\sim\operatorname{Bin}(m_1,q)$、$Y\sim\operatorname{Bin}(m_2,q)$ を独立とする。ただし $m_1,m_2$ は既知の正整数、$0<q<1$ とする。$X$ の積率母関数、期待値・分散、観測値 $X=x$ に基づく $q$ の最尤推定量を求めよ。さらに $Q\sim\operatorname{Beta}(\alpha,\beta)$（$\alpha,\beta>0$）とし、$Q$ を条件として $X,Y$ は独立に上記の二項分布に従うとする。$X=x$ の観測後分布と $Y$ の予測分布、および $S=X+Y$ の $Q=q$ の下での分布を求めよ。
 
 ### 题目描述
 
@@ -47,7 +47,7 @@ $$
 L(q)=\binom{m_1}{x}q^x(1-q)^{m_1-x}
 $$
 
-とすると、
+とすると、$0<x<m_1$ では
 
 $$
 \frac{d}{dq}\log L(q)=\frac{x}{q}-\frac{m_1-x}{1-q}=0.
@@ -58,6 +58,8 @@ $$
 $$
 \boxed{\widehat q=\frac{x}{m_1}}.
 $$
+
+$x=0$ では $q\downarrow0$、$x=m_1$ では $q\uparrow1$ に従い尤度が増加するため、題設の開区間 $0<q<1$ 内に最尤推定値は存在しない。パラメータ空間を $[0,1]$ とすれば、端点でも $\widehat q=x/m_1$ である。
 
 ### (4)
 

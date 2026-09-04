@@ -14,7 +14,22 @@ tags:
 
 ## **Description**
 
-$f(x,y)=e^{2y}\sin(x^2+3y)$ の Maclaurin 展開の 2 次までの係数を求め、$g(x,y)=(x^2+xy)e^y$ の極値を調べよ。また、円板・線形変換領域・単位正方形上の 3 つの重積分を計算せよ。
+$f(x,y)=e^{2y}\sin(x^2+3y)$ の Maclaurin 展開
+
+$$
+f(x,y)=c_0+c_1x+c_2y+c_3x^2+c_4xy+c_5y^2+\cdots
+$$
+
+の係数 $c_0,\ldots,c_5$ を求め、$g(x,y)=(x^2+xy)e^y$ の極値を調べよ。また、次の重積分を計算せよ。
+
+$$
+\begin{aligned}
+I_1&=\iint_{x^2+y^2\le\pi^2}\sin\sqrt{x^2+y^2}\,dx\,dy,\\
+I_2&=\iint_D(x+y)\tan(x-y)\,dx\,dy,\\
+D&=\{(x,y)\mid0\le x+y\le4,\ \pi/6\le x-y\le\pi/3\},\\
+I_3&=\int_0^1\int_0^1|y-x^2|\,dy\,dx.
+\end{aligned}
+$$
 
 ### 题目描述
 

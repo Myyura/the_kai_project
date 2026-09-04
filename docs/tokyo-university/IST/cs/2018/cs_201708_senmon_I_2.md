@@ -59,11 +59,11 @@ $$
 S\to AA,\qquad A\to c,\qquad A\to aAb.
 $$
 
-画出串 $aacbbc$ 的语法树。
+其中 $S$ 为开始符号，串 $acbc$ 的推导语法树如上图所示。画出串 $aacbbc$ 的语法树。
 
 （2）对串 $acbc$，给出 $u,v,w,x,y\in\{a,b,c\}^*$，使得
 $uvwxy=acbc$、$uv^nwx^ny\in L(G_0)$ 对所有 $n\ge0$ 成立，并且
-$|vx|>0$。
+$|vx|>0$。其中 $u,v,w,x,y$ 中的部分串可以为空串 $\varepsilon$。
 
 （3）证明上下文无关语言的泵引理：对任意 CFG $G$，存在整数 $N$，使每个
 $z\in L(G)$、$|z|>N$ 均可写为 $z=uvwxy$，满足
@@ -73,7 +73,7 @@ uv^nwx^ny\in L(G)\ (n\ge0),\qquad |vx|>0,\qquad |vwx|\le N.
 $$
 
 可以假设 $G$ 为 Chomsky 范式，即产生式形如 $A\to BC$、$A\to a$ 或
-$S\to\varepsilon$。
+$S\to\varepsilon$，其中 $A$ 为非终结符，$B,C$ 为不同于开始符号 $S$ 的非终结符，$a$ 为终结符。
 
 （4）利用（3）证明复制语言 $\{ww\mid w\in\{a,b\}^*\}$ 不是上下文无关语言。
 

@@ -61,7 +61,7 @@ for any initial value.
 
 ### 题目描述
 
-数值求解一阶线性常微分方程组
+设 $x_i(t)$（$i=1,\ldots,n$）是实变量 $t$ 的实值函数。从初值 $x_i(0)\in\mathbb R$（$i=1,\ldots,n$）出发，数值求解一阶线性常微分方程组
 
 $$
 \frac{dx_i(t)}{dt}=\sum_{j=1}^n a_{ij}(t)x_j(t),\qquad t\ge0,
@@ -74,7 +74,7 @@ $\lim_{t\to\infty}x_i(t)=0$（全部 $i$）的特征值充要条件。
 
 （2）写出前向 Euler 法的递推式，并用 $h$ 的大 $O$ 记号给出局部截断误差。
 
-（3）仍设 $A(t)=A_0$。以前向 Euler 法得到第 $k$ 步近似 $X_i(k)$。给出对任意初值都有 $\lim_{k\to\infty}X_i(k)=0$ 的特征值充要条件。
+（3）仍设 $A(t)=A_0$。以前向 Euler 法得到第 $k$ 步的 $x_i(kh)$ 的近似值 $X_i(k)$，其中 $k$ 为非负整数。给出对任意初值、全部 $i=1,\ldots,n$ 都有 $\lim_{k\to\infty}X_i(k)=0$ 的特征值充要条件。
 
 （4）简述后向 Euler 法相对于前向 Euler 法的一个优点。
 

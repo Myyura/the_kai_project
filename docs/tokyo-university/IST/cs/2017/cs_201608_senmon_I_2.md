@@ -38,7 +38,7 @@ Answer also the time complexity of the implementation, and explain why.
 
 ### 题目描述
 
-给定带权无向图 $G$。最小生成树是连接全部顶点、无环且总权值最小的子图。记顶点数、边数分别为 $V,E$。算法 A 如下：
+给定带权连通无向图 $G$。最小生成树是连接全部顶点、无环且总权值最小的子图。记顶点数、边数分别为 $V,E$。算法 A 如下：
 
 1. 任取一个顶点，以该点为唯一顶点的子树记为 $G'$；
 2. 从空格（a）所指定的边中选择权值最小者，将该边及其端点加入 $G'$；
@@ -46,7 +46,7 @@ Answer also the time complexity of the implementation, and explain why.
 
 （1）填写（a）。
 
-（2）若 $G$ 为稠密图（$V^2\approx E$），且以邻接矩阵给出，说明算法 A 的高效实现及其时间复杂度。
+（2）若 $G$ 为稠密图（$V^2\approx E$），且以邻接矩阵给出，说明算法 A 的高效实现及其时间复杂度，并说明理由。
 
 （3）若 $G$ 为稀疏图（$V\approx E$），且以邻接表给出，回答同一问题。
 

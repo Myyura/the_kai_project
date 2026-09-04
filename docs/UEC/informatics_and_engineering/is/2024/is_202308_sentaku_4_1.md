@@ -17,8 +17,8 @@ tags:
 ### 問1 有限オートマトン
 
 1. 語 `babba` の接頭辞をすべて書け。
-2. $\Sigma=\{a,b\}$ 上の言語 $L=\{a,bb,bab\}$ を受理する有限オートマトンを構成せよ。
-3. $L$ の各語の全接頭辞からなる言語 $K$ を受理する有限オートマトンを構成せよ。
+2. $\Sigma=\{a,b\}$ 上の言語 $L=\{a,bb,bab\}$ を受理する有限オートマトンの状態遷移図を描け。
+3. $L$ の各語の全接頭辞からなる言語 $K$ を受理する有限オートマトンの状態遷移図を描け。
 4. $K$ のオートマトンを変形して $L$ のオートマトンを構成する方法を述べよ。
 5. $\Sigma^*$ の任意の有限部分集合が正則言語であることを証明せよ。
 
@@ -48,6 +48,21 @@ $$
 
 開始状態を $q_\varepsilon$、死状態を $q_d$ とする。受理状態は $q_a,q_{bb},q_{bab}$ であり、遷移は次のとおりである。
 
+```mermaid
+flowchart LR
+  start["start"] --> qe(("qε"))
+  qe -->|a| qa(((qa)))
+  qe -->|b| qb((qb))
+  qb -->|a| qba((qba))
+  qb -->|b| qbb(((qbb)))
+  qba -->|b| qbab(((qbab)))
+  qba -->|a| qd((qd))
+  qa -->|a,b| qd
+  qbb -->|a,b| qd
+  qbab -->|a,b| qd
+  qd -->|a,b| qd
+```
+
 | 状態 | $a$ | $b$ | 受理 |
 |---|---|---|:---:|
 | $q_\varepsilon$ | $q_a$ | $q_b$ | |
@@ -72,6 +87,21 @@ $$
 
 とすればよい。
 
+```mermaid
+flowchart LR
+  start["start"] --> qe((("qε")))
+  qe -->|a| qa(((qa)))
+  qe -->|b| qb(((qb)))
+  qb -->|a| qba(((qba)))
+  qb -->|b| qbb(((qbb)))
+  qba -->|b| qbab(((qbab)))
+  qba -->|a| qd((qd))
+  qa -->|a,b| qd
+  qbb -->|a,b| qd
+  qbab -->|a,b| qd
+  qd -->|a,b| qd
+```
+
 #### (4)
 
 接頭辞木型のオートマトンで、$L$ の語そのものに対応する状態
@@ -84,7 +114,8 @@ $$
 
 #### (5)
 
-有限言語 $L$ の全接頭辞の集合を $K$ とする。$K$ は有限である。状態集合を $K\cup\{q_d\}$ とし、
+$L=\varnothing$ は非受理状態一つの DFA で受理できる。以下 $L\ne\varnothing$ とする。
+有限言語 $L$ の全接頭辞の集合を $K$ とすると、$K$ は有限で $\varepsilon\in K$ である。状態集合を $K\cup\{q_d\}$、開始状態を $\varepsilon$ とし、
 
 $$
 \delta(u,c)=

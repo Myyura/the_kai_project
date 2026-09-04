@@ -54,11 +54,11 @@ $$
 
 ```mermaid
 flowchart LR
-    S["sin(2π f_m t)"] --> M["增益 m"] --> A(("+"))
-    C["常量 1"] --> A
-    A --> P(("×"))
+    S["sin(2π f_m t)"] --> M["增益 m"] --> P(("×"))
     O["A_c cos(2π f_c t)"] --> P
-    P --> Y["g_AM(t)"]
+    O --> A(("+"))
+    P --> A
+    A --> Y["g_AM(t)"]
 ```
 
 $$

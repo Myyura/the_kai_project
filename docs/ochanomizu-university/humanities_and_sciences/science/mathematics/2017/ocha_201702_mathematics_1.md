@@ -64,7 +64,7 @@ $$
 
 1. 证明 $s\,\partial g/\partial s=-L_xg$。
 2. 将 $g$ 按 $s$ 展开为 $\sum_{k\geq0}s^kH_k(x)/k!$，比较系数证明 $-L_xH_k=kH_k$。
-3. 再次比较系数，证明 $H_k=xH_{k-1}-(k-1)H_{k-2}$。
+3. 再次比较系数，证明对 $k\geq2$，有 $H_k=xH_{k-1}-(k-1)H_{k-2}$。
 
 ## **Kai**
 

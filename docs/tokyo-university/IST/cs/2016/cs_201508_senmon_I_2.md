@@ -91,7 +91,7 @@ Prove that, between the two binary relations $R_\omega$ and $\approx$, we have i
 
 ### 题目描述
 
-设 $\mathcal A=(Q,\Sigma,\delta,q_0,F)$ 为 DFA。对 $Q$ 上的二元关系定义
+令 $\mathbb N=\{0,1,2,\ldots\}$。设 $\mathcal A=(Q,\Sigma,\delta,q_0,F)$ 为 DFA，其中 $Q$ 是有限状态集，$\Sigma$ 是有限字母表，$\delta:Q\times\Sigma\to Q$ 是转移函数，$q_0\in Q$ 是初态，$F\subseteq Q$ 是接受态集。以 $\Sigma^*=\bigcup_{n\in\mathbb N}\Sigma^n$ 表示有限词的集合，$\varepsilon$ 表示空词。考虑如下 DFA 最小化过程，对 $Q$ 上的二元关系定义
 
 $$
 R_0=Q\times Q,\qquad R_{n+1}=\Phi(R_n),
@@ -116,11 +116,18 @@ $$
 | $q_1$ | $q_1$ | $q_2$ |
 | $q_2$ | $q_2$ | $q_1$ |
 
-（2）利用 $\Phi$ 的单调性证明 $R_0\supseteq R_1\supseteq R_2\supseteq\cdots$。
+（2）$\Phi$ 具有单调性，即 $R\subseteq R'$ 蕴含 $\Phi(R)\subseteq\Phi(R')$。利用这一事实及 $R_0$ 是 $Q$ 上最大二元关系这一事实，证明 $R_0\supseteq R_1\supseteq R_2\supseteq\cdots$。
 
 （3）令 $R_\omega=\bigcap_{n\in\mathbb N}R_n$。判断该下降链是否必在有限步内稳定，并证明结论。
 
-（4）将 $\delta$ 扩张为 $\delta^*:Q\times\Sigma^*\to Q$。证明：若 $(q,q')\in R_n$ 且 $n\ge1$，则对任意长度为 $n-1$ 的词 $w$，
+（4）将 $\delta$ 扩张为 $\delta^*:Q\times\Sigma^*\to Q$：对 $q\in Q,a\in\Sigma,w\in\Sigma^*$，定义
+
+$$
+\delta^*(q,\varepsilon)=q,\qquad
+\delta^*(q,aw)=\delta^*(\delta(q,a),w).
+$$
+
+用归纳法证明：若 $(q,q')\in R_n$ 且 $n\ge1$，则对任意长度为 $n-1$ 的词 $w$，
 
 $$
 \delta^*(q,w)\in F\iff\delta^*(q',w)\in F.
@@ -128,7 +135,7 @@ $$
 
 （5）令 $q\approx q'$ 表示从两状态出发接受相同语言。证明 $R_\omega\subseteq\approx$。
 
-（6）证明反向包含关系 $\approx\subseteq R_\omega$。
+（6）证明反向包含关系 $\approx\subseteq R_\omega$。可以使用 $\Phi$ 的单调性以及事实 $\approx\subseteq\Phi(\approx)$。
 
 ## **Kai**
 

@@ -17,7 +17,18 @@ tags:
 
 ## **Description**
 
-一次関数 $f(z)=\alpha z+\beta$ に対する Cauchy の積分公式を用い、二つの周回積分から $\alpha,\beta$ を決定し、指定曲線上で $f$ を積分せよ。さらに正則写像の Jacobian を示し、
+問1. $f(z)=\alpha z+\beta$ $(\alpha,\beta\in\mathbb R)$ とする。
+
+1. $z_0$ を中心とする半径 $r>0$ の円周 $C_0$ を正方向に一周するとき、$I_0=\oint_{C_0}(z-z_0)^{-1}\,dz$ を求めよ。
+2. 原点中心・半径 $2$ の円周 $C_2$ を正方向に一周するとき、
+   $$
+   \frac1{2\pi i}\oint_{C_2}\frac{f(z)}z\,dz=1,\qquad
+   \frac1{2\pi i}\oint_{C_2}\frac{f(z)}{z-1}\,dz=3
+   $$
+   を満たす $\alpha,\beta$ を求めよ。
+3. $a\in\mathbb C$ に対し、$C_a:z(t)=t+ia\sin(\pi t)$ $(0\le t\le1)$ に沿う $I(a)=\int_{C_a}f(z)\,dz$ を求めよ。
+
+問2. $z=x+iy$ とする。正則関数 $f(z)=u(x,y)+iv(x,y)$ の Jacobian が $|f'(z)|^2$ であることを示せ。さらに、
 
 $$
 w=i\frac{1-z}{1+z}

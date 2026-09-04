@@ -44,7 +44,7 @@ $$
 
 #### B
 
-$X\sim\operatorname{Poisson}(8)$ とし、$Y\mid X=x$ は平均 $x/4$ の指数分布に従う。$V[Y\mid X=2]$ と $\operatorname{Cov}(X,Y)$ を求めよ。
+$X\sim\operatorname{Poisson}(8)$ とし、$Y\mid X=x$ は平均 $1/4^x$ の指数分布に従う。$V[Y\mid X=2]$ と $\operatorname{Cov}(X,Y)$ を求めよ。
 
 ### 問3
 
@@ -148,25 +148,30 @@ $$
 
 #### B：2-4
 
-指数分布では分散は平均の二乗である。$X=2$ のとき平均は $1/2$ なので
+指数分布では分散は平均の二乗である。$X=2$ のとき平均は $1/16$ なので
 
 $$
-\boxed{V[Y\mid X=2]=\frac14}.
+\boxed{V[Y\mid X=2]=\frac1{256}}.
 $$
 
 #### B：2-5
 
 $$
-E[Y\mid X]=\frac X4
+E[Y\mid X]=4^{-X}
 $$
 
-より
+である。Poisson 分布の確率母関数 $G(s)=E[s^X]=e^{8(s-1)}$ より
 
 $$
-\operatorname{Cov}(X,Y)
-=\operatorname{Cov}\!\left(X,E[Y\mid X]\right)
-=\frac14V[X]
-=\boxed{2}.
+E[Y]=G(1/4)=e^{-6},\qquad
+E[XY]=\left.sG'(s)\right|_{s=1/4}=2e^{-6}.
+$$
+
+したがって
+
+$$
+\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]
+=2e^{-6}-8e^{-6}=\boxed{-6e^{-6}}.
 $$
 
 ### 問3

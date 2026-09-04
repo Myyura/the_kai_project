@@ -20,7 +20,7 @@ $$
 f(x)=\frac1\beta e^{-x/\beta}\quad(x\geq0,\ \beta>0)
 $$
 
-とする。積率母関数、上側確率、打切り変数 $Z$ の期待値、および $Y=\sqrt X$ の期待値と分散を求めよ。また、独立同分布な標本から $\beta$ を最尤推定し、標本最大値 $W$ の条件付き密度を求めよ。
+とする。積率母関数、$\beta_0>0$ に対する $P(X>\beta_0)$、$Z=X\mathbf1_{\{X\ge\beta_0\}}$ の期待値、および $Y=\sqrt X$ の期待値と分散を求めよ。また、独立同分布な標本 $x_1,\ldots,x_n$ から $\beta$ を最尤推定し、$W=\max(X_1,\ldots,X_n)$ の $W>\beta_0$ の下での条件付き密度を求めよ。
 
 ### 题目描述
 
@@ -80,11 +80,13 @@ L(\beta)=\beta^{-n}
 \exp\left(-\frac1\beta\sum_{i=1}^n x_i\right).
 $$
 
-$\partial\log L/\partial\beta=0$ より、
+$\sum_i x_i>0$ のとき、$\partial\log L/\partial\beta=0$ より、
 
 $$
 \boxed{\widehat\beta=\frac1n\sum_{i=1}^n x_i}.
 $$
+
+すべての $x_i$ が $0$ なら、$\beta\downarrow0$ で尤度は発散するため、$\beta>0$ の範囲に最尤推定値は存在しない。
 
 ### (6)
 
