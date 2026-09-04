@@ -13,29 +13,29 @@ tags:
 
 以下の図に示す線形写像 $f: \mathbb{R}^3 \to \mathbb{R}^3$ について考える。 $A', B', C', D', P'$ はそれぞれ点 $A, B, C, D, P$ を写像 $f$ で移した点である。点 $P'$ の座標を求めよ。
 
-> 图像边界：原始 JSON 引用了 `question_images/名古屋大学_智能系统情报_2024_20251206_165045_890447.png`，但该文件没有随 JSON 一并提供。本文只保留能够由文字和公式确认的内容。
+![線形写像による点 A、B、C、D、P とその像の対応](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya-university/informatics/aisys/2024/aisys_202308_analy_algebra_3_linear_map.svg)
 
 ### 题目描述
 
-原题要求根据图示的线性映射
+考察上图所示的线性映射
 
 $$
 f:\mathbb R^3\to\mathbb R^3
 $$
 
-求点 $P$ 的像 $P'$；图中的 $A',B',C',D',P'$ 分别是 $A,B,C,D,P$ 在 $f$ 下的像。原始数据引用了图片 `question_images/名古屋大学_智能系统情报_2024_20251206_165045_890447.png`，但该图片未随数据提供，因此无法恢复图中所有点和连线。
+图中的 $A',B',C',D',P'$ 分别是 $A,B,C,D,P$ 在 $f$ 下的像。求点 $P'$ 的坐标。
 
-由 Kai 只能唯一确认以下坐标：
+图中已知点的坐标为：
 
 $$
 \begin{aligned}
 A&=(4,2,2),&A'&=(1,1,1),\\
+B&=(5,6,5),&B'&=(1,2,1),\\
+C&=(6,7,3),&C'&=(2,2,1),\\
 D&=(5,3,0),&D'&=(2,1,1),\\
 P&=(10,6,0).
 \end{aligned}
 $$
-
-在这一可确认范围内，利用 $f$ 的线性性求点 $P'$ 的坐标；图中 $B,C$ 及其像的具体数据无法从现有材料恢复，且不参与 Kai 所示的求解。
 
 ## **Kai**
 

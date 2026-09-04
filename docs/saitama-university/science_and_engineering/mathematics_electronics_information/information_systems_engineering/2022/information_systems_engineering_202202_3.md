@@ -20,7 +20,7 @@ tags:
 
 (1) $I$ と $J$ が $k$ 以下である確率 $\Pr(I \leq k, J \leq k)$ を求めよ ( $k = 1,..., 6$ ). [Find the probability $\Pr(I \leq k, J \leq k)$ that $I$ and $J$ are less than or equal to $k$ where $k = 1,..., 6$ .]
 
-(2) 確率 $\Pr(X = k) = \Pr(I \leq k, J \leq k) - \Pr(I \leq k - 1, J \leq k - 1)$ を求めよ ( $k=2,..., 6$ ). [Find the probability $\Pr(X = k) = \Pr(I\leq k, J\leq k) - \Pr(I < k-1, J < k-1)$ where $k = 2,..., 6$ .]
+(2) 確率 $\Pr(X = k) = \Pr(I \leq k, J \leq k) - \Pr(I \leq k - 1, J \leq k - 1)$ を求めよ ( $k=2,..., 6$ ). [Find the probability $\Pr(X = k) = \Pr(I\leq k, J\leq k) - \Pr(I \leq k-1, J \leq k-1)$ where $k = 2,..., 6$ .]
 
 (3) 確率 $\Pr(Y = k) = \Pr(I \geq k, J \geq k) - \Pr(I \geq k+1, J \geq k+1)$ を求めよ ( $k=1,...,5$ ). [Find the probability $\Pr(Y= k) = \Pr(I\geq k, J\geq k) - \Pr(I \geq k+1, J\geq k+1)$ where $k = 1,..., 5$ .]
 
@@ -119,7 +119,6 @@ E[Y]
 $$
 
 (5) $X$ and $Y$ are not independent, because $\Pr(X = k, Y = k) \neq \Pr(X = k) \Pr(Y = k)$ . For example, $\Pr(X = 1, Y = 1) = 1/36$ , but $\Pr(X = 1) = 1/36$ and $\Pr(Y = 1) = 11/36$ so $\Pr(X=1,Y=1) \neq \Pr(X=1)\Pr(Y=1)$ .
-If the dice show the same number, X and Y are not independent because the random variables X and Y are dependent.
 
 (6) $\text{Cov}[I,J] = E[IJ] - E[I]E[J]$ .
 $E[I] = E[J] = (1+2+3+4+5+6)/6 = 3.5$ .  $E[IJ] = \sum_{i=1}^6 \sum_{j=1}^6 ij P(I=i, J=j) = \sum_{i=1}^6 \sum_{j=1}^6 ij (1/36) = (1/36) \sum_{i=1}^6 i \sum_{j=1}^6 j = (1/36) (21)(21) = 441/36 = 12.25$ .  $\text{Cov}[I,J] = 441/36 - (7/2)(7/2) = 0$ .

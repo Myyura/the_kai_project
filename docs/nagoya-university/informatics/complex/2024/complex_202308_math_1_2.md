@@ -37,6 +37,8 @@ $$
 
 と定義する。このとき $\tilde{A} = V^{-1}AV$ を求めよ。
 
+4) $A^{2023}$ を求めよ。表記の簡単化のため必要なら $2^{2023}\equiv P$, $3^{2023}\equiv Q$ とおきかえてよい。
+
 ### 题目描述
 
 考察 $3\times3$ 矩阵
@@ -78,6 +80,8 @@ $$
 
    求 $\widetilde A=V^{-1}AV$。
 
+4. 求 $A^{2023}$。为简化记号，必要时可记 $2^{2023}\equiv P$、$3^{2023}\equiv Q$。
+
 ## **Kai**
 
 1) Characteristic polynomial: $|A - \lambda I| = \begin{vmatrix} -\lambda & -1 & 0 \\ 2 & -3-\lambda & 0 \\ -2 & -1 & 2-\lambda \end{vmatrix} = (2-\lambda)[(-\lambda)(-3-\lambda) - (-1)(2)] = (2-\lambda)(\lambda^2 + 3\lambda + 2) = (2-\lambda)(\lambda+1)(\lambda+2)$ . Therefore, the eigenvalues are $\lambda_1 = 2, \lambda_2 = -1, \lambda_3 = -2$ .
@@ -99,4 +103,27 @@ $V$ の各列は順に固有値 $2,-1,-2$ に対応する固有ベクトルな�
 $$
 \tilde{A}=V^{-1}AV
 =\begin{pmatrix} 2&0&0\\0&-1&0\\0&0&-2\end{pmatrix}.
+$$
+
+4) (3) より $A=V\tilde{A}V^{-1}$ である。したがって、$P=2^{2023}$ とおくと、2023 は奇数なので
+
+$$
+A^{2023}
+=V\tilde{A}^{2023}V^{-1}
+=\begin{pmatrix}0&1&1\\0&1&2\\1&1&1\end{pmatrix}
+\begin{pmatrix}P&0&0\\0&-1&0\\0&0&-P\end{pmatrix}
+\begin{pmatrix}-1&0&1\\2&-1&0\\-1&1&0\end{pmatrix}.
+$$
+
+積を計算すると、
+
+$$
+\boxed{
+A^{2023}
+=\begin{pmatrix}
+P-2&1-P&0\\
+2P-2&1-2P&0\\
+-2&1-P&P
+\end{pmatrix},\qquad P=2^{2023}.
+}
 $$
