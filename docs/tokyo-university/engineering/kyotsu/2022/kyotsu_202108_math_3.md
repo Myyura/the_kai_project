@@ -11,11 +11,29 @@ tags:
 
 ## **Description**
 
-[2022年度大学院入学試験問題数学 3 ](https://github.com/Myyura/the_kai_project_assets/blob/2672b44819e556e6b7835902e6d69059ff935039/kakomonn/tokyo_university/engineering/Description/2022_M_3.pdf)
+[公式原題](https://www.t.u-tokyo.ac.jp/hubfs/graduate/2022/kakomon/2022_M_3.pdf)
+
+### I.
+1. $f(z)=z/[(z-i)(z-1)]$ を、$1$ の周囲を反時計回りに一周し、$i$ の周囲を時計回りに一周する図の閉路 $C$ で積分する。
+
+![Equivalent contour with the original winding directions](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/tokyo-kyotsu-202108-contour.svg)
+
+図は原図と同じ巻き数をもつ模式図である。
+
+2. $I_2=\int_0^{2\pi}d\theta/(10+8\cos\theta)$ について、(2.1) 単位円の反時計回り積分 $\oint G(z)dz$ に直して $G$ を求め、(2.2) 全特異点を求め、(2.3) 留数定理で $I_2$ を計算する。
+
+### II.
+$N\ge1$ 個の製品を順に観測する。各製品は互いに独立に確率 $\phi\in[0,1]$ で欠陥品となる。欠陥なら $v_i=1$、そうでなければ $v_i=0$ とし、$\boldsymbol v=(v_1,\ldots,v_N)$ の1の個数を $N_d(\boldsymbol v)$ と書く。
+
+1. $\phi$ のもとで、この特定の列 $\boldsymbol v$ が生じる確率を求める。
+2. $\phi$ の事前分布を $\operatorname{Beta}_{a,b}$（$a,b>1$）とし、列の条件付き確率を $Q(\boldsymbol v\mid\phi)$、周辺確率を $Q_{a,b}(\boldsymbol v)$ とする。観測後の $\phi$ の密度を表す。
+3. 1.の尤度と $a=2,b=50$ を使い、$Q_{2,50}(\boldsymbol v)$ を求める。
+4. その事後分布がベータ分布となることを示し、パラメータ $a',b'$ を求める。
+5. 事後密度を最大にする $\phi$ を求める。
+
+ここで $\operatorname{Beta}_{a,b}(x)=x^{a-1}(1-x)^{b-1}/B(a,b)$（$0\le x\le1$）、$B(a,b)=\int_0^1t^{a-1}(1-t)^{b-1}dt$。ベイズの公式 $\pi(\phi\mid\boldsymbol v)=\pi(\phi)Q(\boldsymbol v\mid\phi)/Q_{a,b}(\boldsymbol v)$ を利用する。
 
 ### 题目描述
-
-原 Description 仅提供 2022 年“数学 3”原卷链接，具体题干缺失。根据本地 Kai，只能确认第一部分的两组积分：
 
 1. 第一小题的被积函数为
 
@@ -23,7 +41,7 @@ tags:
    f(z)=\frac{z}{(z-i)(z-1)}.
    $$
 
-   积分路径分别以逆时针方向绕 $z=1$、以顺时针方向绕 $z=i$；要求计算相应闭合积分 $I_1$。原路径的具体几何形状未保存在本地。
+   积分路径分别以逆时针方向绕 $z=1$、以顺时针方向绕 $z=i$；要求计算相应闭合积分 $I_1$。闭路绕行方向见上图。
 2. 第二小题先用 $z=e^{i\theta}$ 把
 
    $$
@@ -37,7 +55,14 @@ tags:
    $$
 
    的奇点、单位圆内极点的留数并计算 $I_2$。
-3. 第二部分以 Beta$(a,b)$ 为缺陷率 $\phi$ 的先验分布，对 $N$ 次独立生产结果求似然、边际概率、后验分布及其众数。
+3. 第二部分依次观察 $N\ge1$ 个产品，各产品独立以概率 $\phi\in[0,1]$ 为次品。次品记 $v_i=1$，否则为0，$N_d(\boldsymbol v)$ 为指定序列 $\boldsymbol v=(v_1,\ldots,v_N)$ 中1的个数。
+   1. 求这一特定序列在给定 $\phi$ 时的概率。
+   2. 先验为 $\operatorname{Beta}(a,b)$、$a,b>1$，利用 Bayes 公式表示后验密度。
+   3. 取 $a=2,b=50$，求该序列的边缘概率。
+   4. 证明后验仍为 Beta 分布，求两个参数。
+   5. 求使后验密度最大的 $\phi$。
+
+   这里 $\operatorname{Beta}_{a,b}(x)=x^{a-1}(1-x)^{b-1}/B(a,b)$，$B(a,b)=\int_0^1t^{a-1}(1-t)^{b-1}\,dt$。
 
 ## **Kai**
 ### I.

@@ -12,6 +12,8 @@ tags:
 Casablanca, find, Finalized by 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h26_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 次の線形計画問題 $P$ を考える。
 
@@ -107,7 +109,11 @@ $$
 Lagrange dual function
 
 $$
-g(y) = b^\top y
+g(y)=\inf_{x\ge0}L(x,y)=
+\begin{cases}
+b^\top y,&A^\top y\preceq c,\\
+-\infty,&\text{otherwise}.
+\end{cases}
 $$
 
 The dual problem

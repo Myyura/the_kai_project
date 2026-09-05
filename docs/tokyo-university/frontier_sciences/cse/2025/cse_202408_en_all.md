@@ -74,7 +74,7 @@ $$P^{\top}AP = \begin{pmatrix} \lambda_1 & 0 & 0 \\ 0 & \lambda_2 & 0 \\ 0 & 0 &
 $$B\boldsymbol{u}_i = \lambda_i \boldsymbol{u}_i,$$
 $$B^{\top} \boldsymbol{v}_i = \lambda_i \boldsymbol{v}_i$$
 
-hold true. Show that  $\boldsymbol{v}_i^{\top} \boldsymbol{u}_i = 0$  for  $\lambda_i \neq \lambda_j$ .
+hold true. Show that  $\boldsymbol{v}_j^{\top} \boldsymbol{u}_i = 0$  for  $\lambda_i \neq \lambda_j$ .
 
 ## Problem No. 2.2 (Probability and Statistics)
 
@@ -112,11 +112,11 @@ which is assumed to be minimum at  $A_0 = a_0$  and  $A_1 = a_1$ . Express  $a_0
 
 ### Problem No. 2.3 (Mechanics)
 
-Answer the following questions. Let the gravitational acceleration be q > 0, constant). Write only the answers.
+Answer the following questions. Let the gravitational acceleration be $g>0$ (constant). Write only the answers.
 
-- (Q.1) A liner molecule ABA is composed of Atoms A and B. Atom B is located between two Atoms A. Consider Molecule ABA as a system composed of three point masses connected by two massless springs of spring constant k. The masses of Atoms A and B are m and M, respectively. The atoms move along a common line. Ignore the gravity.
+- (Q.1) A linear molecule ABA is composed of Atoms A and B. Atom B is located between two Atoms A. Consider Molecule ABA as a system composed of three point masses connected by two massless springs of spring constant k. The masses of Atoms A and B are m and M, respectively. The atoms move along a common line. Ignore the gravity.
   - (1) Write the equations of motion for the three atoms. The displacements of Atoms A, B, A from the natural lengths are defined as x, y, and z, respectively, with the positive direction from one Atom A to the other Atom A.
-  - (2) Introduce  $Q_1 = x + z$  and  $Q_2 = x z$ . Answer the angular frequencies  $\omega_1$  and  $\omega_2$  of their oscillation. Let the center of the gravity of Molecule ABA do not move.
+  - (2) Introduce  $Q_1 = x + z$  and  $Q_2 = x-z$ . Answer the angular frequencies  $\omega_1$  and  $\omega_2$  of their oscillation. Let the center of the gravity of Molecule ABA do not move.
 - (Q.2) Consider a point mass thrown at an elevation angle  $\theta$  with initial velocity  $v \neq 0$ . x axis is taken in the positive direction of the horizontal component of the initial velocity. y axis is taken in the
 
 vertical upward direction. The origin is the initial position of the point mass.
@@ -125,7 +125,7 @@ vertical upward direction. The origin is the initial position of the point mass.
 - (2) Answer the range of the vertical position y where the point mass cannot reach at x = X (> 0) for any angles  $\theta$ , using X, g, and v.
 - (Q.3) A uniform-density rigid sphere of mass m and radius r is at rest on a frictionless horizonal plate. We want to roll the sphere without slipping by hitting horizontally with a stick as shown in the figure below. Answer the vertical distance h from the center of the sphere to hit using m, r, and the moment of inertia I of the rigid sphere.
 
-![](_page_3_Picture_10.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-ball.svg)
 
 (Q.4) Suppose the Earth is a rigid sphere that rotates eastward around the axis passing through the south pole and the north pole at a constant angular velocity  $\omega$ . Let (x, y, z) be the coordinate system fixed to the Earth's surface with the origin at Point P on the northern hemisphere at latitude  $\theta$  ( $0 < \theta < \frac{\pi}{2}$ ). Positive direction of z axis is defined in the direction from the Earth's center to Point P, and positive directions of x axis and y axis are defined towards the south and east, respectively, on the tangential plane at Point P. A point mass of mass m is thrown from Point P to the positive direction of z axis at initial velocity v.
 
@@ -148,11 +148,9 @@ Answer the following questions, assuming vacuum environment. Except for Q.5(2), 
 - (Q.2) Answer the questions on the electric circuit shown in Figure 1. The  $R_1$ ,  $R_2$ , and  $R_3$  represent electric resistors, whose resistance values are  $r_1$ ,  $r_2$ , and  $r_3$ , respectively.
   - (1) Write the combined resistance value between A and B, using  $r_1, r_2, r_3$ .
   - (2) A constant voltage V is applied between A and B. Write the current flowing in  $R_3$ , and write the electric power consumed in  $R_2$ . The answers should use V,  $r_1$ ,  $r_2$ ,  $r_3$ .
-- (Q.3) Answer the questions on the electric circuit shown in Figure 2. An AC voltage is applied with an amplitude  $\tilde{V}$  and an angular frequency
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-circuits.svg)
 
-![](_page_5_Picture_9.jpeg)
-
-- $\omega$ . Here, L is the inductance of the coil, C is the capacitance of the capacitor, R is the resistance value of the resistor. Use j as the imaginary unit.
+- (Q.3) Answer the questions on the electric circuit shown in Figure 2. An AC voltage is applied with an amplitude  $\tilde{V}$  and an angular frequency $\omega$. Here, L is the inductance of the coil, C is the capacitance of the capacitor, R is the resistance value of the resistor. Use j as the imaginary unit.
 - (1) Write the combined impedance between A and B, using  $\omega$ , L, C, R.
 - (2) Write the ratio  $\tilde{I}_C/\tilde{I}_R$ , where  $\tilde{I}_C$  is the amplitude of the current flowing in the capacitor and  $\tilde{I}_R$  is the amplitude of the current flowing in the resistor.
 - (3) We remove the capacitor from the circuit, namely we handle a circuit without the capacitor. We express the voltage variation between A and B as  $V = \tilde{V}e^{j\omega t}$ . Write the current flowing in the coil, using  $\omega$ , L, R, V. Write also the effective electric power consumed in the resistor, using  $\omega$ , L, R,  $\tilde{V}$ . (The effective electric power is the time-averaged electric power.)
@@ -164,7 +162,7 @@ $$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$$
 
 from Maxwell's equations, derive the expression on a voltage V in the circuit induced by the magnetic field crossing the circuit (Note: write only the expression on V). Here,  $\boldsymbol{B}$  is a magnetic field externally given, and  $\boldsymbol{E}$  is an electric field induced by the magnetic field. The magnetic field is uniform in space. The circuit is placed on a flat surface whose normal unit vector is expressed by  $\boldsymbol{n}$ . Ignore the thickness of the conducting wire.
 
-![](_page_6_Picture_3.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-flux.svg)
 
 Figure 3
 
@@ -175,8 +173,8 @@ Ignore the self-inductance of the circuit and the thickness of the conducting wi
 - (1) Write the electric voltage V induced in the circuit by using the variables used in the above.
 - (2) Describe the force on the wire, using V, R, L in about 5 lines.
 
-![](_page_6_Figure_9.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-square.svg)
 
-![](_page_6_Figure_10.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2025/tokyo-cse-202408-field.svg)
 
 Figure 4

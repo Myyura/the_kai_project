@@ -75,6 +75,36 @@ When a number sequence is stored in a file, the concatenated string of elements 
 (b) The matrix with 100 rows and 150 columns stored in `data3b.txt`.
 (c) The matrix with $10^6$ rows and $10^6$ columns stored in `data3c.txt`.
 
+### Questions (4)–(5): independent summary
+
+[Official examination paper](https://www.i.u-tokyo.ac.jp/edu/course/ci/2025/2024-8-prog.pdf)
+
+For $X\in\mathbb Z^{l\times m}$ and $Y\in\mathbb Z^{m\times n}$, define
+
+$$
+(X\star Y)_{ij}=\max_{1\le k\le m}(X_{ik}Y_{kj})+\min_{1\le k\le m}(X_{ik}Y_{kj}).
+$$
+
+(4) All inputs use Format 3. For each product below, report a row with maximum sum and that sum; any tied row is acceptable.
+
+| Case | Left matrix | Right matrix | Dimensions $(l,m,n)$ | Additional condition |
+| :--- | :--- | :--- | :--- | :--- |
+| (a) $A\star B$ | `data4a.txt` | `data4b.txt` | $(2,4,3)$ | — |
+| (b) $C\star D$ | `data4c.txt` | `data4d.txt` | $(10^6,10^6,10^6)$ | Each input has at most 1000 nonzeros. |
+| (c) $E\star F$ | `data4e.txt` | `data4f.txt` | $(10^6,10^6,10^6)$ | — |
+
+(5) Count the axis-aligned $R\times C$ contiguous submatrices whose entries sum to zero. There are $(r-R+1)(c-C+1)$ possible positions. Inputs use Format 3.
+
+| Case | File | $(r,c)$ | $(R,C)$ |
+| :--- | :--- | :--- | :--- |
+| (a) | `data5a.txt` | $(8,6)$ | $(2,3)$ |
+| (b) | `data5b.txt` | $(10^6,10^6)$ | $(10,10)$ |
+| (c) | `data5c.txt` | $(10^6,10^6)$ | $(100,100)$ |
+
+The illustrative matrix $\begin{pmatrix}0&-1&1&0&0&0\\0&0&0&0&0&0\\-4&8&2&0&0&0\end{pmatrix}$ has four zero-sum $2\times3$ regions, with top-left coordinates $(1,1),(1,2),(1,4),(2,4)$.
+
+
+
 ### 题目描述
 
 编程回答并在考试结束前把程序保存到 U 盘。本题以不同格式表示 $r$ 行 $c$ 列矩阵，左上角为 $(1,1)$，行号 $1\le i\le r$，列号 $1\le j\le c$。所有矩阵元素均为 $[-9,9]$ 内整数；每行、每列的非零元素均不超过 10 个，总非零元素不超过 $10^6$。文件中的数列都以逗号连接，无额外格式，例如 $2,5,-3,0$ 存为 `2,5,-3,0`。
@@ -106,6 +136,8 @@ $$
    3. `data3c.txt`：原矩阵 $10^6$ 行、$10^6$ 列。
 
 ## **Kai** (By vv)
+
+Save the following helper module as `utils.py`, and save each question’s program in the same directory as its input files.
 
 ```python
 # the utils
@@ -143,7 +175,7 @@ from pathlib import Path
 import utils
 
 def main():
-    # 确立相对路径的base path，需要背
+    # Input files are beside this script.
     base_dir = Path(__file__).resolve().parent
 
     data = utils.read_from_file(str(base_dir / 'data1a.txt'))
@@ -287,4 +319,140 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
+### (4)
+
+Decode Format 3 into the nonzero triples $(i,k,X_{ik})$ and $(k,j,Y_{kj})$. For a fixed row $i$, enumerate only products where both factors are nonzero, using the nonzero entries in row $k$ of $Y$ as an index. For each reached column $j$, keep the minimum, maximum, and number $q_{ij}$ of these products.
+
+If $q_{ij}<m$, at least one of the $m$ products is zero, so zero must also participate in both extrema. If $q_{ij}=m$, use only the recorded extrema. Unreached columns contribute zero to the row sum. Sum these contributions and compare all rows, including empty rows whose sum is zero. The nonzero products suffice because every omitted product has a zero factor.
+
+With at most $d=10$ nonzeros per row, each nonzero in $X$ generates at most $d$ products, so the running time is $O(l+\mathrm{nnz}(Y)+d\,\mathrm{nnz}(X))$. No dense product matrix is stored.
+
+```python
+from collections import defaultdict
+from itertools import groupby
+from pathlib import Path
+import utils
+
+
+def format3_entries(data, r, c):
+    if len(data) % 2:
+        raise ValueError("Format 3 requires pairs")
+    position = 0
+    for offset in range(0, len(data), 2):
+        zeros, value = data[offset:offset + 2]
+        if zeros < 0 or value == 0:
+            raise ValueError("Invalid run or nonzero value")
+        position += zeros
+        if position >= r * c:
+            raise ValueError("Matrix index out of range")
+        yield position // c + 1, position % c + 1, value
+        position += 1
+
+
+def star_max_row(x_data, y_data, l, m, n):
+    y_rows = defaultdict(list)
+    for k, j, value in format3_entries(y_data, m, n):
+        y_rows[k].append((j, value))
+    groups = iter(groupby(format3_entries(x_data, l, m), key=lambda e: e[0]))
+    next_group = next(groups, None)
+    best_row, best_sum = 1, None
+    for i in range(1, l + 1):
+        extrema = {}
+        if next_group is not None and next_group[0] == i:
+            for _, k, x in next_group[1]:
+                for j, y in y_rows.get(k, ()):
+                    product = x * y
+                    if j not in extrema:
+                        extrema[j] = [product, product, 1]
+                    else:
+                        state = extrema[j]
+                        state[0] = min(state[0], product)
+                        state[1] = max(state[1], product)
+                        state[2] += 1
+            next_group = next(groups, None)
+        total = 0
+        for low, high, count in extrema.values():
+            if count < m:
+                low, high = min(low, 0), max(high, 0)
+            total += low + high
+        if best_sum is None or total > best_sum:
+            best_row, best_sum = i, total
+    return best_row, best_sum
+
+
+if __name__ == "__main__":
+    base = Path(__file__).resolve().parent
+    cases = [
+        ("data4a.txt", "data4b.txt", 2, 4, 3),
+        ("data4c.txt", "data4d.txt", 10**6, 10**6, 10**6),
+        ("data4e.txt", "data4f.txt", 10**6, 10**6, 10**6),
+    ]
+    for x_file, y_file, l, m, n in cases:
+        print(star_max_row(utils.read_from_file(base / x_file),
+                           utils.read_from_file(base / y_file), l, m, n))
+```
+
+### (5)
+
+Fix the top row $a$ of a rectangle, and let $s_b$ be the sum in the $R\times C$ rectangle whose left column is $b$. There are $W=c-C+1$ such sums. A nonzero entry $(i,j,v)$ contributes to $s_b$ exactly when
+
+$$
+a\le i<a+R,\qquad \max(1,j-C+1)\le b\le\min(j,W).
+$$
+
+Keep the array of these $W$ sums and the number of its zero entries. Sweep the top row downwards: remove the nonzeros in the departing row and add those in the entering row. Each changed matrix entry affects at most $C$ sums. Before and after each update, adjust the zero counter, then add that counter to the answer once all updates for the current top row are complete. This also counts rectangles containing nonzero entries that cancel, as well as completely empty rectangles.
+
+Initially all window sums are zero; adding the first $R$ rows establishes the invariant. Removing and adding the boundary rows preserves it at each step, so the accumulated count includes every rectangle exactly once. The running time is $O(r+c+C\,\mathrm{nnz})$, with $C\le100$ in the given cases. The stored window sums require $O(c)$ space; the active strip has at most $10R$ nonzeros. The input list itself uses $O(\mathrm{nnz})$ space. Counts and flattened matrix indices must support values up to $10^{12}$; Python integers do so.
+
+Save the code from (4) as `part4.py` to reuse its decoder.
+
+```python
+from collections import deque
+from pathlib import Path
+from part4 import format3_entries
+import utils
+
+
+def count_zero_rectangles(data, r, c, R, C):
+    if not (1 <= R <= r and 1 <= C <= c):
+        raise ValueError("Invalid rectangle size")
+    width = c - C + 1
+    sums = [0] * (width + 1)  # Index 0 is unused.
+    zero_count = width
+
+    def update(column, value):
+        nonlocal zero_count
+        left = max(1, column - C + 1)
+        right = min(column, width)
+        for b in range(left, right + 1):
+            old = sums[b]
+            new = old + value
+            zero_count += (new == 0) - (old == 0)
+            sums[b] = new
+
+    entries = iter(format3_entries(data, r, c))
+    current = next(entries, None)
+    active = deque()
+    answer = 0
+    for top in range(1, r - R + 2):
+        while active and active[0][0] < top:
+            _, column, value = active.popleft()
+            update(column, -value)
+        while current is not None and current[0] < top + R:
+            active.append(current)
+            _, column, value = current
+            update(column, value)
+            current = next(entries, None)
+        answer += zero_count
+    return answer
+
+
+if __name__ == "__main__":
+    base = Path(__file__).resolve().parent
+    cases = [("data5a.txt", 8, 6, 2, 3),
+             ("data5b.txt", 10**6, 10**6, 10, 10),
+             ("data5c.txt", 10**6, 10**6, 100, 100)]
+    for filename, r, c, R, C in cases:
+        print(count_zero_rectangles(utils.read_from_file(base / filename), r, c, R, C))
 ```

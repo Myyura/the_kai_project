@@ -14,6 +14,8 @@ tags:
 [AKIRA (小红书:94184092292)](http://xhslink.com/m/8bKqJGibBtz), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_sys.pdf)
 $\mathbb{R}$ を実数全体からなる集合とする。
 
 ### 問題1
@@ -70,7 +72,7 @@ C = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-$n$ 次の実正方行列 $D$ の $(i,j)$ 成分 $a_{ij}$ が、すべての $i,j$ について、 $a_{ij} + a_{ji} = 0$ を満たしている。 $n$ が奇数のとき、 $D$ の行列式を求めよ。導出過程を示せ。
+(2) $n$ 次の実正方行列 $D$ の $(i,j)$ 成分 $a_{ij}$ が、すべての $i,j$ について、 $a_{ij} + a_{ji} = 0$ を満たしている。 $n$ が奇数のとき、 $D$ の行列式を求めよ。導出過程を示せ。
 
 ### 题目描述
 
@@ -146,15 +148,58 @@ $$
 当 $n$ 为奇数时，求 $\det D$，并写出推导过程。
 
 ## **Kai**
+### 問題1
+#### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_math_I.jpg" width="700" alt=""/>
-</figure>
-
-### 問題1 (2) の訂正
-
-$\det B=0$ より $\operatorname{rank}B\leq4$ である。一方、第 $1,2,3,4$ 行と第 $1,2,3,4$ 列からなる小行列の行列式は $3240\ne0$ なので、$\operatorname{rank}B=4$。したがって
+$A=\begin{pmatrix}A_{11}&0\\A_{21}&A_{22}\end{pmatrix}$ と分割すると、
 
 $$
-\dim\ker T=5-\operatorname{rank}B=1.
+A_{11}=\begin{pmatrix}7&1\\x&-7\end{pmatrix},\qquad
+A_{22}=\begin{pmatrix}0&2&3\\10&0&5\\-15&5&0\end{pmatrix}.
 $$
+
+$A_{11}^2=(49+x)I_2$ だから、$A^5=0$ なら $x=-49$ が必要である。この値を取れば $A_{11}^2=0$ となる。また、直接計算によって $A_{22}^3=0$ である。$A^5$ の左下ブロックは
+
+$$
+\sum_{k=0}^4 A_{22}^{4-k}A_{21}A_{11}^k
+$$
+
+であり、各項は $k\ge2$ または $4-k\ge3$ によって零になる。対角ブロックも零だから $A^5=0$ である。従って $\boxed{x=-49}$ が答えとなる。
+
+#### (2)
+
+$B$ の右下 $3\times3$ ブロックの行列式は $0$ なので $\det B=0$、従って $\operatorname{rank}B\le4$ である。一方、最初の4行・4列からなる小行列の行列式は $3240\ne0$ だから、$\operatorname{rank}B=4$ である。階数・退化次数定理より
+
+$$
+\boxed{\dim\ker T=5-4=1}.
+$$
+
+#### (3)
+
+部分空間は零ベクトルを含むため、$c=0$ が必要である。逆に $c=0$ なら零ベクトルを含み、$u,v\in W(0)$ と実数 $\alpha,\beta$ に対して
+
+$$
+\sum_{i=1}^{10}(\alpha u_i+\beta v_i)
+=\alpha\sum_i u_i+\beta\sum_i v_i=0.
+$$
+
+従って線形結合で閉じており、$W(0)$ は部分空間である。答えは $\boxed{c=0}$ のみである。
+
+### 問題2
+#### (1)
+
+行列式を展開すると
+
+$$
+\boxed{\det C=(af-be+cd)^2\ge0}.
+$$
+
+#### (2)
+
+$D^{\mathrm T}=-D$ だから、奇数 $n$ について
+
+$$
+\det D=\det D^{\mathrm T}=\det(-D)=(-1)^n\det D=-\det D.
+$$
+
+従って $\boxed{\det D=0}$ である。

@@ -16,77 +16,76 @@ tags:
 
 ## **Description**
 
+題意の要約。出典：[大学公開原卷の保存版（PDF 9–10ページ）](https://web.archive.org/web/20241125120543id_/https://phys.sci.hokudai.ac.jp/cond-mat/files/masterR3_pm.pdf)。各問では結論と導出過程を示す。
+
+### 問1
+1-1. 行列 $\begin{pmatrix}1&3&2\\2&5&4\\3&6&5\end{pmatrix}$ の逆行列を計算する。
+
+1-2. $y''-3y=-4\sin x$ の一般解を求める。
+
+1-3. 広義積分 $\int_0^\infty(\sin x)/x\,dx$ を計算する。
+
+### 問2
+座標軸方向の単位ベクトルを $\boldsymbol i,\boldsymbol j,\boldsymbol k$、位置ベクトルを $\boldsymbol r=x\boldsymbol i+y\boldsymbol j+z\boldsymbol k$、その長さを $r$ とする。微分可能なスカラー関数 $f(r)$ について、次の恒等式を証明する。
+
+2-1. $\nabla\cdot(f(r)\boldsymbol r)=rf'(r)+3f(r)$。
+
+2-2. $\nabla\times(f(r)\boldsymbol r)=\boldsymbol0$。
+
+### 問3
+区分的に滑らかな関数の Fourier 級数を
+
+$$
+f(x)=\frac{a_0}{2}+\sum_{m=1}^\infty(a_m\cos mx+b_m\sin mx)
+$$
+
+とし、係数を
+
+$$
+a_m=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos mx\,dx\quad(m\ge0),\qquad
+b_m=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin mx\,dx\quad(m\ge1)
+$$
+
+とする。
+
+3-1. 三角関数の加法定理を使って、上記二つの係数公式を導く。
+
+3-2. $f(x)=0$（$-\pi<x\le0$）、$f(x)=x$（$0\le x<\pi$）を Fourier 級数に展開する。
+
+3-3. 3-2 の結果から $\sum_{k=0}^\infty(2k+1)^{-2}=\pi^2/8$ を導く。
+
 ### 题目描述
 
-原 `Description` 未保存题干，无法唯一恢复原题的完整方程、函数定义和证明要求。根据现有 `Kai`，只能确认以下内容：
+各问均需说明计算或证明过程。
 
-1. 第 1 题包含三个小问。
+**第 1 题**：
 
-   - 1-1 要求用 Gauss–Jordan 消元求矩阵
+1. 求矩阵 $\begin{pmatrix}1&3&2\\2&5&4\\3&6&5\end{pmatrix}$ 的逆矩阵。
+2. 求微分方程 $y''-3y=-4\sin x$ 的通解。
+3. 计算广义积分 $\int_0^\infty(\sin x)/x\,dx$。
 
-     $$
-     \begin{pmatrix}
-     1&3&2\\
-     2&5&4\\
-     3&6&5
-     \end{pmatrix}
-     $$
+**第 2 题**：令位置向量为 $\boldsymbol r=(x,y,z)$，长度为 $r$。对于只依赖 $r$ 的可微函数 $f(r)$，证明
 
-     的逆矩阵。
-   - 1-2 是一个二阶常系数非齐次微分方程。保存的解答确认其齐次特征根为 $\lambda=\pm\sqrt3$，并确认 $y=\sin x$ 是一个特解，因此通解为
+$$
+\nabla\cdot(f(r)\boldsymbol r)=rf'(r)+3f(r),\qquad
+\nabla\times(f(r)\boldsymbol r)=\boldsymbol0.
+$$
 
-     $$
-     y=Ae^{\sqrt3x}+Be^{-\sqrt3x}+\sin x.
-     $$
+**第 3 题**：对分段光滑函数的 Fourier 级数
 
-     原微分方程本身未保存在文件中。
-   - 1-3 只保存了参考文献，具体题目与解答均无法确认。
+$$
+f(x)=\frac{a_0}{2}+\sum_{m=1}^\infty(a_m\cos mx+b_m\sin mx),
+$$
 
-2. 第 2 题令
+1. 利用三角函数加法公式推导系数公式
 
-   $$
-   r^2=x^2+y^2+z^2
-   $$
+$$
+a_m=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos mx\,dx\quad(m\ge0),\qquad
+b_m=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin mx\,dx\quad(m\ge1).
+$$
 
-   并讨论只依赖 $r$ 的函数 $f(r)$。保存的推导使用
-
-   $$
-   \frac{\partial f}{\partial x}
-   =\frac xr\frac{df}{dr},\qquad
-   \frac{\partial f}{\partial y}
-   =\frac yr\frac{df}{dr},\qquad
-   \frac{\partial f}{\partial z}
-   =\frac zr\frac{df}{dr},
-   $$
-
-   来验证涉及向量场 $f(r)(x,y,z)$ 的散度和旋度公式；原题中要求证明的公式未完整保存。
-
-3. 第 3 题涉及 Fourier 级数。
-
-   - 3-1 从三角函数正交关系推导 $[-\pi,\pi]$ 上 Fourier 系数公式
-
-     $$
-     a_0=\frac1\pi\int_{-\pi}^{\pi}f(x)\,dx,
-     $$
-
-     $$
-     a_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos nx\,dx,\qquad
-     b_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin nx\,dx.
-     $$
-
-   - 3-2 保存的积分表明所展开函数在 $0\leq x\leq\pi$ 上为 $x$、在另一半区间贡献为零；所得级数为
-
-     $$
-     f(x)=\frac\pi4
-     -\frac2\pi\sum_{k=0}^{\infty}
-     \frac{\cos((2k+1)x)}{(2k+1)^2}
-     +\sum_{m=1}^{\infty}
-     \frac{(-1)^{m+1}}m\sin mx.
-     $$
-
-   - 3-3 把 $x=0$ 代入上述级数，以得到奇数平方倒数级数的和；原题要求写出的目标等式未直接保存。
-
-以上只重述已保存解答中可核实的信息，不补造缺失条件。
+2. 将 $f(x)=0$（$-\pi<x\le0$）、$f(x)=x$（$0\le x<\pi$）展开成 Fourier 级数。
+3. 利用第 2 问的结果证明 $\sum_{k=0}^\infty(2k+1)^{-2}=\pi^2/8$。
 
 ## **Kai**
 ### 問1
@@ -177,6 +176,19 @@ $$
 
 #### 1-3.
 
+$\varepsilon>0$ に対し $I(\varepsilon)=\int_0^\infty e^{-\varepsilon x}\sin x/x\,dx$ とおく。積分内で微分すると、
+
+$$
+I'(\varepsilon)=-\int_0^\infty e^{-\varepsilon x}\sin x\,dx=-\frac1{1+\varepsilon^2}.
+$$
+
+$I(\varepsilon)\to0$（$\varepsilon\to\infty$）より $I(\varepsilon)=\arctan(1/\varepsilon)$。Dirichlet の判定法で元の広義積分は収束する。また、部分積分によって $\left|\int_R^\infty e^{-\varepsilon x}\sin x/x\,dx\right|\le2/R$ が $\varepsilon\ge0$ で成り立つため、減衰因子を外す極限と広義積分を交換できる。したがって、
+
+$$
+\boxed{\int_0^\infty\frac{\sin x}{x}\,dx=\lim_{\varepsilon\downarrow0}I(\varepsilon)=\frac\pi2}.
+$$
+
+
 <ul>
   <li>
   <a href="https://www.amazon.co.jp/dp/490381419X/ref=nosim?tag=msscee0a-22">
@@ -196,6 +208,8 @@ $$
 </ul>
 
 ### 問2
+以下の計算は $r>0$ で行う。原点に式を拡張するには、そこでのベクトル場の微分可能性を確認する。
+
 まず、 $r^2 = x^2 + y^2 + z^2$ より、
 
 $$
@@ -374,3 +388,6 @@ $$
 $$
 \boxed{1+\frac1{3^2}+\frac1{5^2}+\cdots=\frac{\pi^2}{8}}
 $$
+
+
+Fourier 級数と元の関数の等号は $-\pi<x<\pi$ で成立する。周期延長した関数は $x=\pm\pi$ で跳ぶため、これらの点での級数の和は左右極限の平均 $\pi/2$ になる。

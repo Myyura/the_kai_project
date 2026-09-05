@@ -17,6 +17,8 @@ $a \in \mathbb{R}$ とし $A = \begin{pmatrix} a & a & 1 \\ a & 1 & a \\ 1 & a &
 
 (2) Aの固有値が $3, −3, −3$ となるような $a$ を選ぶ．このとき，直交行列を用いて $A$ を対角化せよ．
 
+出典：[九州大学 2024年度 基礎科目](https://web.archive.org/web/20231014014610/https://www.math.kyushu-u.ac.jp/wp-content/uploads/2023/08/Kiso2023-1.pdf#page=2)。
+
 ### 题目描述
 
 设 $a\in\mathbb R$，并令

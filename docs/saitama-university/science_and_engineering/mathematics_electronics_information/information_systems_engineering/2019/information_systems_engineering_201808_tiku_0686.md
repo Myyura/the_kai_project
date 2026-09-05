@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年8月実施 概率统计"
+sidebar_label: "2018年8月実施 確率統計"
 tags:
   - Saitama-University
   - Probability-Statistics.Probability-Basics.Covariance
@@ -7,7 +7,7 @@ tags:
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
 ---
-# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2018年8月実施 概率统计
+# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2018年8月実施 確率統計
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
@@ -99,7 +99,7 @@ $$
 F(0)-F(0-)=C_1+C_2=1-8C_1
 $$
 
-なので、これも非負でなければならない。したがって、問題文の条件だけでは定数は一意に定まらず、
+なので、これも非負でなければならない。したがって、
 
 $$
 0\leq C_1\leq\frac18,\qquad C_2=1-9C_1
@@ -107,7 +107,7 @@ $$
 
 のすべてが累積分布関数を与える。
 
-問題が $F$ の連続性（または $X$ が確率密度関数を持つこと）を意図しているならば、さらに $F(0)=F(0-)=0$ であるから、
+ $F$ が連続である場合は、さらに $F(0)=F(0-)=0$ であるから、
 
 $$
 C_1+C_2=0,\qquad 9C_1+C_2=1
@@ -119,7 +119,7 @@ $$
 C_1=\frac18,\qquad C_2=-\frac18
 $$
 
-を得る。以下ではこの意図された追加条件の下で答える。
+を得る。以下、連続な場合を考える。
 
 (2)
 
@@ -130,15 +130,15 @@ f(x)=\begin{cases}
 \end{cases}
 $$
 
-なお、追加条件を置かない一般の場合は、 $x=0$ に確率質量 $1-8C_1$ があり、連続部分の密度は $2C_1(x+1)$ $(0<x<2)$ である。
+なお、一般の $C_1$ に対しては、 $x=0$ に確率質量 $1-8C_1$ があり、連続部分の密度は $2C_1(x+1)$ $(0<x<2)$ である。
 
-(3) 意図された追加条件の下では、
+(3) $F$ が連続ならば、
 
 $$
 \Pr(0\leq X\leq1)=F(1)=\frac38.
 $$
 
-追加条件を置かない一般の場合は $\Pr(0\leq X\leq1)=F(1)=1-5C_1$ である。
+一般の $C_1$ に対しては $\Pr(0\leq X\leq1)=F(1)=1-5C_1$ である。
 
 (b) (1) $Cov(X, Y) = E[(X - E[X])(Y - E[Y])]$
 $= E[XY - XE[Y] - YE[X] + E[X]E[Y]]$
@@ -146,7 +146,16 @@ $= E[XY] - E[XE[Y]] - E[YE[X]] + E[E[X]E[Y]]$
 $= E[XY] - E[X]E[Y] - E[Y]E[X] + E[X]E[Y]$
 $= E[XY] - E[X]E[Y]$
 
-(2) $E[X] = \sum_y E[X|Y=y]P(Y=y) = E[E[X|Y]]$
+(2) $E[|X|]<\infty$ とする。$p(x,y)=P(X=x,Y=y)$ とおけば、
+
+$$
+\begin{aligned}
+E[E[X\mid Y]]
+&=\sum_{y:P(Y=y)>0}\left(\sum_x x\frac{p(x,y)}{P(Y=y)}\right)P(Y=y)\\
+&=\sum_x x\sum_y p(x,y)
+=\sum_x xP(X=x)=E[X].
+\end{aligned}
+$$
 
 (c) 帰無仮説: コインは公正である ( $p=0.5$ )
 対立仮説: コインは公正でない ( $p \neq 0.5$ )

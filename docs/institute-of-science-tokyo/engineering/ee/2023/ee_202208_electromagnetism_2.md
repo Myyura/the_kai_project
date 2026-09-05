@@ -112,6 +112,8 @@ $$
 
 ## **Kai**
 ### (1)
+図では $x$ 軸の正方向が紙面の左向きであることに注意する。
+
 #### ①
 磁場: $f = qv_0B,x$ 軸正方向
 
@@ -126,7 +128,7 @@ $$
 
 #### ③
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electromagnetism_2_p3.png" width="350" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee/2023/science-tokyo-ee-202208-trajectory.svg" width="350" alt=""/>
 </figure>
 
 $$
@@ -134,13 +136,13 @@ m\frac{v_0^2}{r} = qv_0B \Rightarrow r = \frac{mv_0}{qB}
 $$
 
 #### ④
-$(-\frac{mv_0}{qB},y_1)$ を中心とした、半径 $\frac{mv_0}{qB}$ の等速円運動を行うので、
+$(\frac{mv_0}{qB},y_1)$ を中心とした、半径 $\frac{mv_0}{qB}$ の等速円運動を行うので、
 
 $$
 y_{\max} = y_1 + \frac{mv_0}{qB}
 $$
 
-また、円運動の中心方向に外力がカロれるので、進行方向との内積は $0$ より、外力の仕事は $0$。
+また、円運動の中心方向に外力が加わるので、進行方向との内積は $0$ より、外力の仕事は $0$。
 
 ### (2)
 #### ①
@@ -181,7 +183,7 @@ $$
 (2) 式の特性方程式は、
 
 $$
-\lambda^2 + \omega^2 = 0,\lambda = \pm \lambda \omega
+\lambda^2 + \omega^2 = 0,\lambda = \pm j\omega
 $$
 
 $$

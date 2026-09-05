@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/82069e4a1dd507dc8d81ea5777054d68.pdf)
+
 周期 $2\pi$ の偶関数 $f(x)$ のフーリエ級数は以下のように定義される。
 
 $$

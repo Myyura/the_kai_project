@@ -16,62 +16,46 @@ tags:
 
 ## **Description**
 
+題意の要約。出典：[大学公開原卷の保存版（PDF 2ページ）](https://web.archive.org/web/20230627090739id_/https://www.ist.hokudai.ac.jp/examinfo/files/seitai01.pdf)。
+
+### 1. 二次曲線
+$C:3x^2+2xy+3y^2=1$ を考える。
+
+(1) 左辺を実対称行列による二次形式で表す。
+
+(2) 原点を中心とする座標軸の回転によって $C$ を $XY$ 座標で標準形に直す。二通りの標準形と、それぞれの $(x,y)$ から $(X,Y)$ への一次変換を求める。
+
+### 2. 実対称行列
+実対称行列の固有値が実数であることを証明する。
+
+### 3. ベクトル解析
+$\boldsymbol r=(x,y,z)$、$r=|\boldsymbol r|$ とする。
+
+(1) $r\ne0$ において $\operatorname{div}(\boldsymbol r/r^3)=0$ を証明する。
+
+(2) 原点が面上にない閉曲面 $S$ と外向き単位法線 $\boldsymbol n$ に対し、原点が $S$ の外部にある場合と内部にある場合について、それぞれ次の積分を求める。
+
+$$
+\iint_S\frac{\boldsymbol r}{r^3}\cdot\boldsymbol n\,dS.
+$$
+
 ### 题目描述
 
-原 `Description` 未保存题干，无法唯一恢复原题的完整措辞和全部条件。现有 `Kai` 只能确认以下任务与数据：
+**1. 二次曲线**：考虑 $3x^2+2xy+3y^2=1$。
 
-1. 已保存解答处理二次曲线
+1. 将左侧写成实对称矩阵对应的二次型。
+2. 通过绕原点的坐标轴旋转化为标准形，给出两种标准形以及各自从 $(x,y)$ 到 $(X,Y)$ 的线性变换。两种形式为 $2X^2+4Y^2=1$ 和 $4X^2+2Y^2=1$；相应坐标变换必须是旋转。
 
-   $$
-   \begin{pmatrix}x&y\end{pmatrix}
-   \begin{pmatrix}3&1\\1&3\end{pmatrix}
-   \begin{pmatrix}x\\y\end{pmatrix}=1.
-   $$
+**2. 实对称矩阵**：证明实对称矩阵的全部特征值都是实数。
 
-   其中矩阵
+**3. 向量分析**：令 $\boldsymbol r=(x,y,z)$、$r=\sqrt{x^2+y^2+z^2}$。
 
-   $$
-   A=\begin{pmatrix}3&1\\1&3\end{pmatrix}
-   $$
+1. 证明在 $r\ne0$ 时，$\operatorname{div}(\boldsymbol r/r^3)=0$。
+2. 对原点不在其上的闭曲面 $S$，取外向单位法向量 $\boldsymbol n$，分别在原点位于曲面外部、内部时计算
 
-   的特征值为 2、4；解答通过标准正交特征向量作坐标旋转，把曲线化为
-
-   $$
-   2X^2+4Y^2=1
-   $$
-
-   或交换坐标后的等价形式
-
-   $$
-   4X^2+2Y^2=1.
-   $$
-
-2. 已保存解答证明：实对称矩阵 $B$ 的任意特征值均为实数。
-
-3. 令
-
-   $$
-   \boldsymbol r=(x,y,z),\qquad
-   r=\sqrt{x^2+y^2+z^2}.
-   $$
-
-   已保存解答确认：
-
-   - 当 $r\ne0$ 时，
-
-     $$
-     \operatorname{div}\frac{\boldsymbol r}{r^3}=0;
-     $$
-
-   - 对带外向单位法向量 $\boldsymbol n$ 的闭曲面 $S$，通量
-
-     $$
-     \iint_S\frac{\boldsymbol r}{r^3}\cdot\boldsymbol n\,dS
-     $$
-
-     在所围区域不含原点时为 0，在包含原点时为 $4\pi$。
-
-以上仅整理 `Kai` 中能唯一确认的数学对象和结论，不补造缺失的小问措辞。
+$$
+\iint_S\frac{\boldsymbol r}{r^3}\cdot\boldsymbol n\,dS.
+$$
 
 ## **Kai**
 ### 1.
@@ -139,11 +123,11 @@ $$
 \begin{aligned}
 P = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}
 , \ \ 
-Q = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
+Q = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}
 \end{aligned}
 $$
 
-によって $xy$ 平面を $xy$ 平面に変換することで、 $C$ の標準形が得られる。
+は $P^TP=Q^TQ=I$ および $\det P=\det Q=1$ を満たす回転行列である。それぞれの逆行列で座標を変換すると、$C$ の標準形が得られる。
 
 (i) $C$ は
 
@@ -193,7 +177,7 @@ $$
 \begin{aligned}
 \begin{pmatrix} X \\ Y \end{pmatrix}
 &= Q^{-1} \begin{pmatrix} x \\ y \end{pmatrix}
-= \frac{1}{\sqrt{2}} \begin{pmatrix} x+y \\ x-y \end{pmatrix}
+= \frac{1}{\sqrt{2}} \begin{pmatrix} x+y \\ -x+y \end{pmatrix}
 \end{aligned}
 $$
 

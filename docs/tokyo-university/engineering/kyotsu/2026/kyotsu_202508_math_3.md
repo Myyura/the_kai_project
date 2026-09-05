@@ -143,17 +143,7 @@ $$
 
 を得る。すなわち、$w$ の範囲は中心 $1+i$、半径 $1$ の円の内部である。境界は含まない。
 
-```text
-             Im w
-               ^
-          (1,2) *
-              .' '.
-       (0,1) *  C  * (2,1)      C = 1+i
-              '. .'
-          (1,0) *
----------------+--------------------> Re w
-               1
-```
+![Mobius 像領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/tokyo-kyotsu-202508-mobius.svg)
 
 ### III.1
 

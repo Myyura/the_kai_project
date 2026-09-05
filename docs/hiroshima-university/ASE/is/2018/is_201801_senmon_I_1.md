@@ -15,7 +15,7 @@ $n \times n$ 次実対称行列 $M$ に対して、その全ての固有値が�
 
 (1) $A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}$ とするとき、$A$ は正定値行列であるか？
 
-(2) $B = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ とするとき、$B$ が正定値行列であるための必要十分条件は $a > 0$ かつ $ac > b^2$ であることを示せ。
+(2) $B = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$ とするとき、$B$ が正定値行列であるための必要十分条件は $a > 0$ かつ $ac > b^2$ であることを示せ。
 
 An $n \times n$ real symmetric matrix $M$ is called positive definite if all its eigenvalues are positive.
 

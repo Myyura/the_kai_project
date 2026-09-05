@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2017年3月実施 専門科目 問題1 電気工学（問2・3）
+sidebar_label: 2017年3月実施 専門科目 問題1 電気工学
 tags:
   - Tohoku-University
   - Electrical-Electronic.Control-Theory.Transfer-Function
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Differential-Equations.Laplace-Transform
 ---
 
-# 東北大学 工学研究科 電気・情報系 2017年3月実施 専門科目 問題1 電気工学（問2・3）
+# 東北大学 工学研究科 電気・情報系 2017年3月実施 専門科目 問題1 電気工学
 
 ## **Author**
 
@@ -27,6 +27,10 @@ Fig. 1(a) に示すリニアモータの電気機械系を考える。このリ�
 
 (b) $G_4(s)$ が問 (2) で求めた閉ループ伝達関数 $G_3(s)$ のとき、この制御系が安定になるための $A$ の範囲を求めよ。
 
+#### 題意の要約
+
+(1) 線形モータについて、巻線回路と可動部の運動方程式から、$E-E_m$ を入力、$I$ を出力とする $G_1$、および推力 $F$ を入力、速度 $V$ を出力とする $G_2$ を求める。図と原文は[大学公開の原題、1–3 ページ](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/201703senmon.pdf#page=1)を参照。
+
 ### 题目描述
 
 (2) 给定负反馈系统，前向传递函数为 $1/(s+1)^2$，反馈增益为 $2$。求闭环传递函数 $G_3(s)$，并求输入为单位冲激时的输出 $v(t)$。
@@ -44,6 +48,23 @@ flowchart LR
 ```
 
 ## **Kai**
+
+### (1)
+
+零初始条件下，电气和机械方程分别为
+
+$$
+e=Ri+L\dot i+e_m,\qquad M\dot v=f-\gamma v.
+$$
+
+因此
+
+$$
+\boxed{G_1(s)=\frac{I(s)}{E(s)-E_m(s)}=\frac1{Ls+R}},\qquad
+\boxed{G_2(s)=\frac{V(s)}{F(s)}=\frac1{Ms+\gamma}}.
+$$
+
+前向通路为 $G_1K_fG_2$，负反馈增益为 $K_e$，故一般参数下 $V/E=K_f/[(Ls+R)(Ms+\gamma)+K_eK_f]$。
 
 ### (2)
 

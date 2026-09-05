@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h26_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
+
 以下の問いに答えよ。
 
 (i) 不等式

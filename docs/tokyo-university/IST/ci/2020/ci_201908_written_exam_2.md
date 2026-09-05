@@ -7,9 +7,11 @@ tags:
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 筆記試験 第2問
 
 ## **Author**
-[tomfluff](https://github.com/tomfluff), 祭音Myyura
+[tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
+
+[原題](https://www.i.u-tokyo.ac.jp/edu/course/ci/2019-8-exam.pdf)
 Consider making a memory that can be accessed randomly, using D-FFs (Flip Flop) and 2:1 multiplexers.
 Assume that the D-FF is a circuit that stores 1 bit as shown in Fig. 1. A 1-bit signal given to `d` is written to this circuit at the rise of the clock signal `clk`, and this circuit continues to output the written signal to `q`.
 As shown in Fig. 2, the 2:1 multiplexer is a circuit that selects one of the two input signals `a` and `b` according to the selection signal `s` and outputs it to `c`.
@@ -70,9 +72,9 @@ Give a circuit diagram of this D-FF in Fig. 3 using only the D-FF in Fig. 1 and 
 
 ### (2)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_2_p2.png" width="370" height="260" alt=""/>
-</figure>
+![Four D flip-flops at addresses 00, 01, 10, 11, selected by a tree of three multiplexers.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2020/tokyo-ci-2019-memory-read.svg)
+
+The two first-stage selectors use `addr_low`, and the final selector uses `addr_high`. The `d` and `clk` terminals remain unconnected.
 
 ### (3)
 Given the circumstances, we would need:
@@ -84,21 +86,24 @@ $$
 Since we gradually divide all inputs into 2 as inputs to the MUX, so the first layer would be $2^{n-1}$ the second $2^{n-2}$ and so on, until we have $2^{n-n}$ as the final MUX which would give the correct output.
 
 ### (4)
-#### itsuitsuki's solution
-The multiplexer selects the feedback value $q$ when `we` is 0 and the external input `d` when `we` is 1; its output drives the D-FF input.
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_2_p5.png" width="403" height="261" alt=""/>
-</figure>
 
-#### tomfluff's solution
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_2_p3.png" width="403" height="261" alt=""/>
-</figure>
+Connect the D-FF output `q` to multiplexer input `a`, the external input `d` to input `b`, and `we` to the selector. The multiplexer output feeds the D-FF data input; the external clock feeds its clock input.
 
-Of the two circuits in this figure, only the bottom one implements the specified D-FF. The top circuit samples `d` in an extra D-FF, so a write reaches the output one clock edge late. An unspecified initial output is allowed because the problem gives no reset or initial value.
+![Synchronous write enable: the multiplexer chooses current q or external d before the D flip-flop.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2020/tokyo-ci-2019-write-enable.svg)
+
+At a rising clock edge, $q^+=\overline{we}\,q+we\,d$; between edges, $q$ remains unchanged.
 
 ### (5)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201908_2_p4.png" width="535" height="201" alt=""/>
-</figure>
+Let $H=addr\_high$ and $L=addr\_low$. Use two NOT gates to share $\overline H,\overline L$, then four AND gates to generate
+
+$$
+we_{00}=\overline H\,\overline L,\quad
+we_{01}=\overline H L,\quad
+we_{10}=H\overline L,\quad
+we_{11}=HL.
+$$
+
+All four `d` inputs receive `input`; only the selected D-FF has write enable 1. Identically named wires in the diagram are the same signal. The `clk` and `q` terminals remain unconnected as requested.
+
+![Four write-enabled D flip-flops selected by a two-to-four decoder using four AND and two NOT gates.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2020/tokyo-ci-2019-memory-write.svg)

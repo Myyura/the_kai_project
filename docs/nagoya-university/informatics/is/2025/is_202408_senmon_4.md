@@ -11,6 +11,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+出典：[名古屋大学公表問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/9452bf5c52a4e504caf5a437910d3930.pdf)。
+
 頂点の集合が $V$、辺の集合が $E$ の無向グラフを $G =(V, E)$ と表記する。
 頂点 $v_1, v_2$ を端点とする辺は $\{v_1, v_2\} \in E$として表す。
 この問題では，ループや多重辺を持たない単純グラフのみを考え，グラフに関する用語を以下のように定義する。
@@ -28,18 +31,13 @@ tags:
 
 (4) 図 2 の $a$ から $d$ に示す 4 つのグラフのそれぞれについて，図 1 のグラフと同型であるかどうかを答え，同型の場合は頂点間の全単射を示し，同型でない場合は，同型でないと判断する理由を述べよ。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is_202408_senmon_4_p1.png" width="160" alt=""/>
-</figure>
+![図1：グラフG](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2025/nagoya-is2025-graph1.svg)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is_202408_senmon_4_p2.png" width="600" alt=""/>
-</figure>
+![図2：グラフ(a)〜(d)](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2025/nagoya-is2025-graph2.svg)
 
-(5) グラフ $G = (V, E)$ が与えられ、頂点数が $n$ です。ここで、グラフ $G$ の補グラフが $G$ 自身と同型である場合、$G$ の頂点数 $n$ は $n = 4k$ または $n = 4k + 1$ の形で表されることを示す。ここで、$k$ は非負整数です。
+(5) $G$ が補グラフと同型であるとする。非負整数 $k$ を用いて、頂点数が $n=4k$ または $n=4k+1$ と表されることを示せ。
 
-(6) 問題 (5) を踏まえて、グラフ $G$ が正則グラフ（すべての頂点の次数が同じ）であれば、頂点数 $n$ は必ず $n = 4k + 1$ の形で表される。
-
+(6) (5) の条件に加えて $G$ が正則ならば、$n=4k+1$ となることを示せ。
 
 ### 题目描述
 
@@ -105,6 +103,8 @@ $$
 
 となる。
 
+![補グラフ：v4は孤立頂点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2025/nagoya-is2025-complement.svg)
+
 ### (4)
 まず，図 1 のグラフ $G$ の各頂点の次数を調べる：
 
@@ -131,17 +131,6 @@ f(v_4)=u_5,\quad
 f(v_5)=u_3.
 $$
 
-<!-- 図 1 の各辺が $(a)$の辺に移るか確認すると，
-
-- $\{v_1,v_2\} \mapsto \{u_2,u_1\}$（辺あり）
-- $\{v_1,v_4\} \mapsto \{u_2,u_5\}$（辺あり）
-- $\{v_2,v_3\} \mapsto \{u_1,u_4\}$（辺あり）
-- $\{v_2,v_4\} \mapsto \{u_1,u_5\}$（辺あり）
-- $\{v_3,v_4\} \mapsto \{u_4,u_5\}$（辺あり）
-- $\{v_4,v_5\} \mapsto \{u_5,u_3\}$（辺あり）
-
-となり，逆に $(a)$ 側の辺もすべて図 1 の辺から来ているので，
-$a$ のグラフは図 1 のグラフと同型である。 -->
 
 図 2 (b) についての次数を調べると，
 
@@ -196,10 +185,13 @@ $$
 $|E|$ は整数でなければならないため、$n$ は $n = 4k$ または $n = 4k + 1$ として表されることがわかる。
 
 ### (6)
-グラフ $G$ が正則で、グラフ $G'$ も正則グラフである。グラフ $G$ のすべての頂点の次数が $d$ とおくと、
+
+頂点を少なくとも 1 個持つ場合を考える。グラフ $G$ が正則で、グラフ $G' も正則グラフである。グラフ $G$ のすべての頂点の次数が $d$ とおくと、
 
 $$
 d = n-1-d \Rightarrow d = \frac{n-1}{2}
 $$
 
 が得られる。$d$ は整数でなければならないため、$n$ は $n = 2k + 1$ （奇数）として表される。(5) の結論により、$n$ は $n = 4k + 1$ として表されることがわかる。
+
+頂点を持たない空グラフも正則と定義する場合、$n=0$ は例外となる。

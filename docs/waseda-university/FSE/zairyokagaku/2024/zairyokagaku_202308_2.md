@@ -13,21 +13,37 @@ tags:
 
 ## **Description**
 
+問題の要約 — [大学公表問題](https://www.waseda.jp/inst/admission/assets/uploads/2023/11/51_M_zairyokagaku_2023_September2024_April_ippan_senmon.pdf)
+
+
+### 問1
+
+$x$ 軸を中心軸とする半径 $\alpha$ の半円筒面の内側で、質量 $m$ の質点が動く。重力は $-z$ 向きで、摩擦と空気抵抗は無視する。軸から質点への線分と鉛直下向きとの角を $\theta$ とする。
+
+1. 位置 $(x,y,z)$ を $x,\theta$ で表す。
+2. ラグランジアンを求める。
+3. ラグランジュ方程式を書く。
+
+$y=\alpha\sin\theta,\ z=-\alpha\cos\theta$ が角度の向きの規約を定める。
+
+### 問2（一般の曲線に対する題意）
+
+質点は $xy$ 平面内の指定された曲線上のみを動き、重力は $-y$ 向きとする。(1) $x$ を一般化座標にしたラグランジアン、(2) 共役運動量とハミルトニアン、(3) 正準方程式を求め、(4) ラグランジュ方程式との同値性を示す。
+
+
 ### 题目描述
 
-> 缺失边界：原 `Description` 及本地 Git 历史均未保存题干和配图。`Kai` 只含问 1 的 (1)—(3)，问 2 只有空标题；原系统的几何名称以及问 2 的条件和设问均无法恢复。以下仅整理问 1 中由公式唯一确认的内容。
+【问题 1】
 
-以 $t$ 表示时间，并以点号 $\dot{\ }$ 表示 $d/dt$。质量为 $m$ 的质点以 $x,\theta$ 为广义坐标，其笛卡尔坐标满足
+质量为 $m$ 的质点在以 $x$ 轴为轴线、半径为 $\alpha$ 的半圆柱面内侧运动。重力指向 $-z$，忽略摩擦和空气阻力。以轴到质点的连线相对竖直向下方向的夹角 $\theta$ 为广义坐标之一，方向约定为 $y=\alpha\sin\theta,\ z=-\alpha\cos\theta$。
 
-$$
-x=x,\qquad y=\alpha\sin\theta,\qquad z=-\alpha\cos\theta,
-$$
+1. 用 $x,\theta$ 写出质点的笛卡尔坐标。
+2. 求 $L(x,\theta,\dot x,\dot\theta)$。
+3. 对 $x,\theta$ 写出 Lagrange 方程与运动方程。
 
-其中 $\alpha$ 为给定长度参数，重力加速度为 $g$。回答问 1：
+【问题 2】
 
-1. 写出质点的笛卡尔坐标 $x,y,z$。
-2. 求拉格朗日量 $L(x,\theta,\dot x,\dot\theta)$。
-3. 分别对广义坐标 $x$ 与 $\theta$ 写出拉格朗日方程和运动方程。
+质点被约束在 $xy$ 平面内的一条指定曲线上，重力指向 $-y$。以 $x$ 为广义坐标，求 Lagrangian、共轭动量和 Hamiltonian，写出 Hamilton 正则方程，并证明它们与 Lagrange 方程等价。
 
 ## **Kai**
 時刻を $t$ で表し、微分 $d/dt$ をドット $\dot{}$ で表す。
@@ -38,9 +54,9 @@ $$
 $$
   \begin{align}
   x = x
-  , \ \ 
+  , \ \
   y = \alpha \sin \theta
-  , \ \ 
+  , \ \
   z = - \alpha \cos \theta
   \end{align}
 $$
@@ -50,7 +66,7 @@ $$
 $$
   \begin{align}
   \dot{y} = \alpha \dot{\theta} \cos \theta
-  , \ \ 
+  , \ \
   \dot{z} = \alpha \dot{\theta} \sin \theta
   \end{align}
 $$
@@ -94,7 +110,7 @@ $$
 $$
   \begin{align}
   \ddot{x} = 0
-  , \ \ 
+  , \ \
   \alpha \ddot{\theta} = - g \sin \theta
   \end{align}
 $$
@@ -102,3 +118,36 @@ $$
 となる。
 
 ### 問 2
+
+
+曲線を $y=h(x)$ と書ける範囲で、$h$ が2回微分可能であると仮定する。
+
+#### (1)
+
+$$
+L=\frac m2\{1+h'(x)^2\}\dot x^2-mgh(x).
+$$
+
+#### (2)
+
+$$
+p=m\{1+h'(x)^2\}\dot x,\qquad
+H=\frac{p^2}{2m\{1+h'(x)^2\}}+mgh(x).
+$$
+
+#### (3)
+
+$$
+\dot x=\frac{p}{m(1+h'^2)},\qquad
+\dot p=\frac{p^2h'h''}{m(1+h'^2)^2}-mgh'.
+$$
+
+#### (4)
+
+ラグランジュ方程式は
+
+$$
+m(1+h'^2)\ddot x+mh'h''\dot x^2+mgh'=0.
+$$
+
+一方、$p=m(1+h'^2)\dot x$ を微分し、正準方程式に代入しても同じ式を得る。

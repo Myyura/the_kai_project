@@ -2,7 +2,7 @@
 sidebar_label: "2022年度 数学 問題5"
 tags:
   - Niigata-University
-  - Mathematics.Geometry.Arc-Length-Parameter-and-Planar-Curvature
+  - Mathematics.Geometry.Arc-Length-Parameter-and-Curvature
 ---
 # 新潟大学 自然科学研究科 数理物質科学専攻 数理科学コース 2022年度 数学 問題5
 
@@ -11,6 +11,8 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+
+題意の要約。
 曲線 $C\subset\mathbb R^3$ を
 
 $$

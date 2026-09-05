@@ -11,6 +11,8 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H28infait.pdf)。
 複素関数 $f(z) = \frac{\pi\cot\pi z}{z^2 + a^2}$ を考える。ただし, $a > 0$ とする。次の各問に答えよ。
 
 (1) $f(z)$ のすべての極における留数を求めよ。

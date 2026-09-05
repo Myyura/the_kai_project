@@ -24,6 +24,9 @@ tags:
 
 (e) 数列 $\{a_n\}$ の一般項 $a_n$ を、 $a_1$ と $a_2$ を用いて表せ。
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20171031151037id_/http://www.is.nagoya-u.ac.jp/exam-old/d21608.pdf)
+
 ### 题目描述
 
 数列 $\{a_n\}$ 由递推关系
@@ -61,9 +64,9 @@ $$
 (b) $A$ の固有方程式は $|A - \lambda I| = 0$ 。つまり、
 $\begin{vmatrix} 4 - \lambda & -3 \\ 1 & -\lambda \end{vmatrix} = (4 - \lambda)(-\lambda) - (-3)(1) = \lambda^2 - 4\lambda + 3 = (\lambda - 1)(\lambda - 3) = 0$ 。よって、固有値は $\lambda_1 = 1, \lambda_2 = 3$ 。
 
-$\lambda_1 = 1$ のとき、 $\begin{pmatrix} 3 & -3 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ 。つまり、 $x = y$ 。よって、固有ベクトルは $c_1 \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ 。大きさが1の固有ベクトルは $\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ 。
+$\lambda_1 = 1$ のとき、 $\begin{pmatrix} 3 & -3 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ 。つまり、 $x = y$ 。よって、固有ベクトルは $c_1 \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ 。大きさが1の実固有ベクトルは $\pm\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ 。
 
-$\lambda_2 = 3$ のとき、 $\begin{pmatrix} 1 & -3 \\ 1 & -3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ 。つまり、 $x = 3y$ 。よって、固有ベクトルは $c_2 \begin{pmatrix} 3 \\ 1 \end{pmatrix}$ 。大きさが1の固有ベクトルは $\frac{1}{\sqrt{10}} \begin{pmatrix} 3 \\ 1 \end{pmatrix}$ 。
+$\lambda_2 = 3$ のとき、 $\begin{pmatrix} 1 & -3 \\ 1 & -3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ 。つまり、 $x = 3y$ 。よって、固有ベクトルは $c_2 \begin{pmatrix} 3 \\ 1 \end{pmatrix}$ 。大きさが1の実固有ベクトルは $\pm\frac{1}{\sqrt{10}} \begin{pmatrix} 3 \\ 1 \end{pmatrix}$ 。
 
 (c) $P = \begin{pmatrix} 1 & 3 \\ 1 & 1 \end{pmatrix}$ , $D = \begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix}$ 。
 

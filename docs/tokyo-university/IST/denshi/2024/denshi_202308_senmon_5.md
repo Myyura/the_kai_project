@@ -150,35 +150,77 @@ $$
 
 ### (6)
 
+For a phrase that starts at a fixed time in the stationary source, the probabilities are
+
 $$
-\begin{aligned}
-P(000) &= 0.8 \times 0.9 \times 0.9 = 0.648 \\
-P(001) &= 0.8 \times 0.9 \times 0.1 = 0.072 \\
-P(01) &= 0.8 \times 0.1 = 0.08 \\
-P(1) &= 0.2 \\
-\end{aligned}
+(P(000),P(001),P(01),P(1))=(0.648,0.072,0.08,0.2).
+$$
+
+For continuous, non-overlapping parsing into these phrases, the phrase boundaries have a different stationary distribution. Let $q$ be the probability that the symbol immediately before a phrase is $0$. A phrase ends in $0$ exactly when it is $000$, so
+
+$$
+q=0.9^3q+0.4(0.9)^2(1-q),\qquad q=\frac{324}{595}.
+$$
+
+The probability that the next phrase begins in $0$ is then
+
+$$
+a=0.9q+0.4(1-q)=\frac{80}{119}.
+$$
+
+Consequently the long-run phrase probabilities for continuous compression are
+
+$$
+\boxed{(p_{000},p_{001},p_{01},p_1)
+=\frac1{595}(324,36,40,195)}.
 $$
 
 ### (7)
 
+Under continuous parsing, the mean number of source symbols in a phrase is
+
 $$
-\begin{aligned}
-\overline{L} &= \frac{2}{0.72 \times 3 + 0.08 \times 2 + 0.2 \times 1} \\
-&= \frac{2}{2.52} \approx 0.794
-\end{aligned}
+\mathbb E[\ell]=\frac{3(324+36)+2(40)+195}{595}
+=\frac{271}{119}.
 $$
+
+Case c uses two bits per phrase, giving
+
+$$
+\boxed{\overline L_c=\frac{2}{\mathbb E[\ell]}
+=\frac{238}{271}\simeq0.88\ \mathrm{bit/symbol}}.
+$$
+
+If each phrase is instead independently started with the source's stationary symbol distribution, the probabilities in the first line of (6) give $2/2.52\simeq0.79$ bit/symbol for that model.
 
 ### (8)
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_5_p3.png" width="680" height="250" alt=""/>
-</figure>
+
+The Huffman merges for continuous parsing have weights
+$36+40=76$, $76+195=271$, and $271+324=595$. One code is
+
+| Phrase | Probability | Code |
+|---|---|---|
+| $000$ | $324/595$ | $0$ |
+| $1$ | $195/595$ | $10$ |
+| $01$ | $40/595$ | $110$ |
+| $001$ | $36/595$ | $111$ |
+
+Thus
 
 $$
-\begin{aligned}
-\overline{L} &= \frac{0.648 \times 1 + 0.2 \times 2 + 0.152 \times 3}{2.52} \\
-&= 0.597
-\end{aligned}
+\boxed{\overline L_d
+=\frac{324+2(195)+3(40+36)}{3(324+36)+2(40)+195}
+=\frac{942}{1355}\simeq0.70\ \mathrm{bit/symbol}}.
 $$
+
+For the independently restarted phrase model, the same code gives
+$(0.648+2(0.2)+3(0.152))/2.52\simeq0.60$ bit/symbol.
 
 ### (9)
-d,b,c,a
+
+For continuous parsing, the lengths are approximately
+$d=0.70$, $b=0.72$, $c=0.88$, and $a=1$ bit/symbol. Therefore
+
+$$\boxed{d<b<c<a}.$$
+
+The ordering is the same under the independently restarted phrase model.

@@ -11,6 +11,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.ist.i.kyoto-u.ac.jp/content/files/admission/ist-exam-2020Aug-specialized.pdf)
 記号の集合 $\{a,b,c,d\}$ をアルファベットとする記憶のない定常情報源 $A$ を考える。
 $A$ における各記号の生起確率 $p$ は
 
@@ -38,6 +40,8 @@ $$
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202008_senmon_s_4_p1.png" width="200" alt=""/>
 </figure>
+
+通信路の条件（要約）：$P(Y=0\mid X=0)=8/9$、$P(Y=1\mid X=0)=1/9$、$P(Y=0\mid X=1)=0$、$P(Y=1\mid X=1)=1$。
 
 **設問5** 情報源 $A$ から得られる記号を下表の符号 $C_2$ で２元符号化し、**設問4**の通信路で伝送して $C_2$ で復号することを考える。復号された記号を事象 $B$ とするとき、相互情報量 $I(A;B)$ を求めよ。
 
@@ -88,6 +92,7 @@ $$
 6. 讨论在通过第 4 问信道传输信源 $A$ 的 2 bit 固定长二元码中，$C_2$ 是否最优。
 
 ## **Kai**
+以下の対数は底を $2$ とし、情報量の単位は bit とする。通信路は各ビットに独立に作用するとする。
 ### 設問1
 
 $$

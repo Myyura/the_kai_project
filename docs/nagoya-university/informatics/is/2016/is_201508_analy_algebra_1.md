@@ -20,6 +20,9 @@ $$
 (a) 曲線の概形を図示せよ。
 (b) 曲線の長さを求めよ。
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20210425093032id_/http://www.is.nagoya-u.ac.jp/exam-old/d21508.pdf)
+
 ### 题目描述
 
 极坐标曲线由
@@ -43,6 +46,8 @@ r=1+\cos\theta
 $$
 
 で表される曲線はカージオイド（心臓形曲線）である．
+
+![カージオイド r=1+cos θ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2016/nagoya-is2016-cardioid.svg)
 
 ( b )
 極方程式 $r=f(\theta)$ により表される曲線の弧長は，

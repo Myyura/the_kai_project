@@ -14,16 +14,51 @@ tags:
 
 ## **Description**
 
-### 题目描述
+題意の要約。出典：[名古屋大学・令和2年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/a1edf5b3be858fab9a477015f01cb618.pdf)、解析・線形代数。導出過程も示す。
 
-原始 Description 未提供题面；以下内容仅恢复 Kai 中可以唯一确定的条件与设问。Kai 的第 2 题同样为空，无法确定其题面或作答要求。
+### 1
+
+$n$ を実数、$i$ を虚数単位とし、$z=(1+i)^n=u+vi$ と表す。
+
+(a) $n=8$ の場合の $u,v$ を求める。
+
+(b) $|z|=8$ の場合の $u,v$ を求める。
+
+### 2
+
+次の二つの行列を考える。
+
+$$
+P=\frac15\begin{pmatrix}7&4\\4&13\end{pmatrix},\qquad
+Q=\begin{pmatrix}2&0\\0&2\end{pmatrix}.
+$$
+
+(a) $P$ の固有値と、それぞれに対応する単位固有ベクトルを求める。
+
+(b) $\boldsymbol q=(x,y)^T$ として、$\boldsymbol q^TP\boldsymbol q<1<\boldsymbol q^TQ\boldsymbol q$ を満たす $(x,y)$ の領域を図示する。$T$ は転置を表す。
+
+### 3
+
+時刻 $t$ における動点 $P$ の座標を $x=\sin^3t,\ y=\cos^3t$ とする。
+
+(a) $0\le t\le2\pi$ の間に描く軌跡の長さを求める。
+
+(b) $0<t<\pi/2$ の範囲で、速さが最大になるときの $P$ の座標を求める。
+
+### 题目描述
 
 **[1]** 回答下列复数问题。
 
 1. 将 $z=(1+i)^8$ 写成 $u+iv$ 的形式，并求实数 $u,v$。
-2. 设 $z=(1+i)^n=u+iv$，且 $|z|=8$，求 $n,u,v$。
+2. 设 $n$ 为实数，$z=(1+i)^n=u+iv$，且 $|z|=8$，求 $n,u,v$。
 
-**[2]** 原题面与 Kai 均缺失，现有材料不足以恢复本题。
+**[2]** 给定
+$$
+P=\frac15\begin{pmatrix}7&4\\4&13\end{pmatrix},\qquad Q=\begin{pmatrix}2&0\\0&2\end{pmatrix}.
+$$
+
+1. 求 $P$ 的特征值及各自的单位特征向量。
+2. 令 $\boldsymbol q=(x,y)^T$，画出满足 $\boldsymbol q^TP\boldsymbol q<1<\boldsymbol q^TQ\boldsymbol q$ 的区域。
 
 **[3]** 点 $P=(x,y)$ 按参数方程
 
@@ -37,11 +72,7 @@ $$
 2. 在 $0<t<\pi/2$ 内，点 $P$ 的速度大小取得最大值时的 $t$，以及此时 $P$ 的坐标。
 
 ## **Kai**
-###
-
-$$
-1
-$$
+### 1
 
 #### (a)
 
@@ -88,17 +119,48 @@ $$
 
 である。
 
-###
+### 2
+
+#### (a)
 
 $$
-2
+\det(\lambda I-P)=\lambda^2-4\lambda+3=(\lambda-1)(\lambda-3).
 $$
 
-###
+固有値と対応する単位固有ベクトルは
 
 $$
-3
+\lambda_1=1,\qquad \boldsymbol v_1=\pm\frac1{\sqrt5}(2,-1)^T,
 $$
+
+$$
+\lambda_2=3,\qquad \boldsymbol v_2=\pm\frac1{\sqrt5}(1,2)^T
+$$
+
+である。
+
+#### (b)
+
+直交行列 $S=\frac1{\sqrt5}\begin{pmatrix}2&1\\-1&2\end{pmatrix}$ により
+
+$$
+\begin{pmatrix}x\\y\end{pmatrix}
+=S\begin{pmatrix}u\\v\end{pmatrix}
+$$
+
+と変換すると、$S^TPS=\operatorname{diag}(1,3)$、$S^TQS=2I$ である。したがって、求める領域は
+
+$$
+\boxed{u^2+3v^2<1,\qquad u^2+v^2>\frac12}
+$$
+
+となる。すなわち、長軸が $(2,-1)^T$ 方向、半軸が $1,1/\sqrt3$ の楕円の内側で、半径 $1/\sqrt2$ の円の外側にある二つの領域である。両方の境界は含まない。
+
+円と楕円の交点は $(u,v)=(\pm1/2,\pm1/2)$（符号は独立）である。
+
+![楕円の内部と円の外部が重なる二つの領域。破線の境界は含まない。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2020/nagoya-aisys2020-region.svg)
+
+### 3
 
 #### (a)
 時刻 $t$ における P の速度の大きさを $v(t)$ とすると、

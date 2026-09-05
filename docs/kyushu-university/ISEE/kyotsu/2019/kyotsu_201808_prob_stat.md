@@ -11,6 +11,8 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://web.archive.org/web/20190715211433id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H31infait.pdf#page=7)。
 $\Omega = \{(x, y) \in \mathbb{R}^2 \mid 0 \le x \le 1, 0 \le y \le 1 \}$ とする. 連続確率変数の対 $(X, Y)$ の同時密度関数は
 
 $$

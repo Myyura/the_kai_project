@@ -11,6 +11,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/ae71f02839037f5b598d671555ed309b.pdf)
+
 以下のC言語の問いに答えよ。
 
 ### \[1\]

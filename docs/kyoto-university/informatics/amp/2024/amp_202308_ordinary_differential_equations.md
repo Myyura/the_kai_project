@@ -11,6 +11,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_amp.pdf)
 ### 日本語版
 $a(t), b(t) \not\equiv 0$ を $t$ の多項式として次の微分方程式を考える．
 

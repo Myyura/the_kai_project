@@ -109,6 +109,8 @@ To find all cut vertices of $G$ efficiently, we can use a Depth-First Search (DF
 2. For each vertex $v$, maintain two values:
    - **DFS number**: The order in which the vertex was visited.
    - **Low number**: The smallest DFS number reachable from the subtree of $v$ using at most one back edge.
+   Initialize $\operatorname{low}(v)=\operatorname{dfs}(v)$. For each DFS child $u$, update it with $\operatorname{low}(u)$ after returning from the child. For each back edge from $v$ to an ancestor $w$ other than its parent, update it with $\operatorname{dfs}(w)$; the tree edge to the parent is excluded.
+
 3. A vertex $v$ is a cut vertex if:
    - It is the root of the DFS tree and has more than one child.
    - It is not the root, and it has a child $u$ with $\operatorname{low}(u)\ge\operatorname{dfs}(v)$.

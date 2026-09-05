@@ -10,6 +10,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_amp.pdf)
 ### 日本語版
 非負実数全体の集合を $\mathbb{R}_+$ で表す．$N=[G, c]$ を点集合 $V$ 枝集合 $E$ をもつ単純有向グラフ $G=(V, E)$ および容量関数 $c: E \rightarrow \mathbb{R}_+$ からなるネットワークとする．
 点の部分集合 $X, Y \subseteq V$ に対し，$X$ 内の点から $Y$ 内の点へ向かう枝の集合を $E(X, Y)$ と記す．

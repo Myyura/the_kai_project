@@ -15,6 +15,8 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.math.kyoto-u.ac.jp/sites/default/files/2023-08/2024math_senmon.pdf)
 以下の問に答えよ．
 
 (i) 時間 $t \in \mathbb{R}$に依存する角振動数$\omega(t)>0$ を持つ単位質量の一次元調和振動子を考える．
@@ -34,13 +36,13 @@ $$
 は保存量，即ち $\dot{\mathcal{I}}(t) = 0$  であることを示せ．
 
 (ii) これより前問の量子力学版を考えることにする．
-$h=1, i=\sqrt{-1}$ とすれば，運動量演算子 $P$ および位置演算子 $Q$ は正準交換関係 $|Q, P|=i$ を満たす．ハミルトニアンは $H(t) = \frac{1}{2} (P^2 + \omega(t)^2 Q^2)$ と表せる．時間発展を記述するユニタリー演算子 $U(t)$ は
+$\hbar=1, i=\sqrt{-1}$ とすれば，運動量演算子 $P$ および位置演算子 $Q$ は正準交換関係 $[Q, P]=i$ を満たす．ハミルトニアンは $H(t) = \frac{1}{2} (P^2 + \omega(t)^2 Q^2)$ と表せる．時間発展を記述するユニタリー演算子 $U(t)$ は
 
 $$
 \dot{U}(t) = -i H(t) U(t), \ \ U(0) = 1
 $$
 
-を満たす．そこでで $P(t) = U(t)^{\dagger}P(0)U(t), Q(t) = U(t)^{\dagger}Q(0)U(t), P(0) =P, Q(0) = Q$ とし，
+を満たす．そこで $P(t) = U(t)^{\dagger}P(0)U(t), Q(t) = U(t)^{\dagger}Q(0)U(t), P(0) =P, Q(0) = Q$ とし，
 前問の $\mathcal{I}(t)$ において $p(t)$ および $q(t)$ を各々 $P(t)$ および $Q(t)$ で置き換えて得られる演算子を $I(t)$ とする．今
 
 $$
@@ -89,7 +91,7 @@ $$
 
    是守恒量，即 $\dot{\mathcal I}(t)=0$。
 
-2. 考虑上一问的量子力学版本。取 $h=1$、$i=\sqrt{-1}$，动量算符 $P$ 与位置算符 $Q$ 满足正则对易关系
+2. 考虑上一问的量子力学版本。取 $\hbar=1$、$i=\sqrt{-1}$，动量算符 $P$ 与位置算符 $Q$ 满足正则对易关系
 
    $$
    [Q,P]=i.
@@ -227,8 +229,8 @@ A_\pm(t) A_\mp(t)
 \\
 &= \frac{1}{2} \left\{
 \frac{Q(t)^2}{\xi(t)^2} + \left( \xi(t)P(t) - \dot{\xi}(t)Q(t) \right)^2
-\pm i \left( \xi(t)Q(t)P(t) - \dot{\xi}(t)Q(t)^2 \right)
-\mp i \left( \xi(t)P(t)Q(t) - \dot{\xi}(t)Q(t)^2 \right)
+\pm \frac{i}{\xi(t)} \left( \xi(t)Q(t)P(t) - \dot{\xi}(t)Q(t)^2 \right)
+\mp \frac{i}{\xi(t)} \left( \xi(t)P(t)Q(t) - \dot{\xi}(t)Q(t)^2 \right)
 \right\}
 \\
 &= I(t) \mp \frac{1}{2}

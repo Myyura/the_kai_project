@@ -13,7 +13,10 @@ tags:
 Zero
 
 ## **Description**
-図 $1.1$ に示す回路について以下の問に答えよ。電源電圧 $V_S$ は角周波数 $\omega$ の正弦波交流の複素電圧であり，抵抗 $R_S$ を介して負荷に接続されている。負荷にかかる複素電圧を $V_{LD}$, 負荷に流れる複素電流を $V_{LD}$ とする。負荷に含まれるインダクタンス，キャパシタンス，および抵抗値を，それぞれ $L,C$, および $R$ とする。また，虚数単位を $j$ とする。
+
+[公式問題・9ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_ee_20238&key=3461b477e949262187dc4964e80871b3.pdf&pageId=3186&prevId=&type=1)
+
+図 $1.1$ に示す回路について以下の問に答えよ。電源電圧 $V_S$ は角周波数 $\omega$ の正弦波交流の複素電圧であり，抵抗 $R_S$ を介して負荷に接続されている。負荷にかかる複素電圧を $V_{LD}$, 負荷に流れる複素電流を $I_{LD}$ とする。負荷に含まれるインダクタンス，キャパシタンス，および抵抗値を，それぞれ $L,C$, および $R$ とする。また，虚数単位を $j$ とする。
 
 (1) 図 $1.1$ の負荷部分を図 $1.2$ のように表した場合の，負荷の合成アドミタンス $Y$ を求めよ。
 
@@ -33,7 +36,7 @@ Zero
 
 ### 题目描述
 
-对原 Description 图 1.1 所示交流电路回答下列问题。电源复电压 $V_S$ 为角频率 $\omega$ 的正弦量，经电阻 $R_S$ 接到负载；负载复电压为 $V_{LD}$。原 Description 在定义负载复电流处重复写成了 $V_{LD}$，但第 4 问明确使用 $I_{LD}$，以下据此把负载复电流记为 $I_{LD}$。负载含电感 $L$、电容 $C$ 和电阻 $R$，$j$ 为虚数单位；具体连接见图 1.1、1.2。
+对原 Description 图 1.1 所示交流电路回答下列问题。电源复电压 $V_S$ 为角频率 $\omega$ 的正弦量，经电阻 $R_S$ 接到负载；负载复电压为 $V_{LD}$。负载复电流为 $I_{LD}$；负载含电感 $L$、电容 $C$ 和电阻 $R$，$j$ 为虚数单位；具体连接见图 1.1、1.2。
 
 1. 把图 1.1 的负载部分按图 1.2 表示，求其总导纳 $Y$。
 2. 用 $V_S,Y,R_S$ 表示负载电压 $V_{LD}$。
@@ -53,11 +56,13 @@ $$
 
 $$
 \begin{aligned}
-V_{LD} = \frac{Z}{R_S + Z}V_Ss = \frac{\frac{1}{Y}}{R_S + \frac{1}{Y}}V_S = \frac{1}{1 + YR_S}V_S
+V_{LD} = \frac{Z}{R_S + Z}V_S = \frac{\frac{1}{Y}}{R_S + \frac{1}{Y}}V_S = \frac{1}{1 + YR_S}V_S
 \end{aligned}
 $$
 
 ### (3)
+
+以下は実効値フェーザを使い、複素電力を $P_C=V_{LD}^*I_{LD}$（進み無効電力を正）と定義する場合である。
 
 $$
 \begin{aligned}
@@ -65,13 +70,15 @@ P_C = V_{LD}^* I_{LD} = V_{LD}^* Y V_{LD} = Y|V_{LD}|^2
 \end{aligned}
 $$
 
+遅れ無効電力を正とする定義 $P_C=V_{LD}I_{LD}^*$ では、答は $Y^*|V_{LD}|^2$ となる。いずれも有効電力は $\operatorname{Re}(Y)|V_{LD}|^2$ で同じである。
+
 ### (4)
 
 $$
 \begin{aligned}
 I_{LD} &= YV_{LD} \\
-Y &= \frac{R - j\omega L}{R + (\omega L)^2} + \frac{j\omega C}{1 + j\omega CR} \\
-&= \frac{R - j\omega L}{R + (\omega L)^2} + \frac{j\omega C (1 - j\omega CR)}{1 + (\omega CR)^2} \\
+Y &= \frac{R - j\omega L}{R^2 + (\omega L)^2} + \frac{j\omega C}{1 + j\omega CR} \\
+&= \frac{R - j\omega L}{R^2 + (\omega L)^2} + \frac{j\omega C (1 - j\omega CR)}{1 + (\omega CR)^2} \\
 &= \bigg[\frac{R}{R^2 + (\omega L)^2} + \frac{\omega^2C^2R}{1 + (\omega CR)^2}\bigg] + j\bigg[\frac{-\omega L}{R^2 + (\omega L)^2} + \frac{\omega C}{1 + (\omega CR)^2}\bigg]
 \end{aligned}
 $$
@@ -80,7 +87,7 @@ $$
 
 $$
 \begin{aligned}
-\frac{\omega L}{R^2 + (\omega L)^2} &= \frac{C}{1 + (\omega CR)^2} \\
+\frac{L}{R^2 + (\omega L)^2} &= \frac{C}{1 + (\omega CR)^2} \\
 L[1 + (\omega CR)^2] &= C[R^2 + (\omega L)^2] \\
 L + L(\omega CR)^2 &= CR^2 + CL^2 \omega^2 \\
 \end{aligned}
@@ -90,10 +97,10 @@ $$
 \omega^2[L(CR)^2 - CL^2] + L - CR^2 = 0
 $$
 
-$\omega$ によらば $0$ をなるのは、
+$\omega$ によらず成り立つには、定数項と $\omega^2$ の係数がともに $0$ である必要がある。すなわち、
 
 $$
-L(CR)^2 - CL^2 = 0
+L(CR)^2 - CL^2 = 0,\qquad L-CR^2=0
 $$
 
 従って、

@@ -14,6 +14,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_amp.pdf)
+
 以下の問いに答えよ。
 
 (i) 関数 $f: \mathbb{R} \to \mathbb{R}$ を,

@@ -19,6 +19,9 @@ tags:
 
 (2) $X, Y$ がともに区間 $[1, 2]$ における連続一様分布に従うとき, 確率変数 $Z = \max\{X, Y\}$ の確率密度関数 $f_Z(z)$ を求めよ.
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20210425093032id_/http://www.is.nagoya-u.ac.jp/exam-old/d21508.pdf)
+
 ### 题目描述
 
 设随机变量 $X,Y$ 相互独立。

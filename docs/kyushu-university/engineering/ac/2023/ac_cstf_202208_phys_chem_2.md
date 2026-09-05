@@ -13,32 +13,51 @@ tags:
 
 ## **Description**
 
+題意の要約。
+
+プランクの分布関数
+
+$$
+\rho(\lambda,T)=\frac{8\pi hc}{\lambda^5\{\exp(hc/(\lambda kT))-1\}}
+$$
+
+について、$\lambda$ は波長、$T$ は温度、$c$ は光速、$k$ はボルツマン定数、$h$ はプランク定数とする。
+
+1. 短波長での近似式を求める。
+2. 長波長での近似式を求める。
+3. 温度による変化を示すグラフを描く。
+4. 最大放射波長 $\lambda_{\max}$ に対する関係 $hc/(\lambda_{\max}kT)=5$ から、$T$ と $\lambda_{\max}$ の反比例関係の名称を答える。
+5. (4) を用い、太陽の $\lambda_{\max}=490\,\mathrm{nm}$ から温度を求める。$h=6.63\times10^{-34}\,\mathrm{J\,s}$、$k=1.38\times10^{-23}\,\mathrm{J\,K^{-1}}$、$c=3.00\times10^8\,\mathrm{m\,s^{-1}}$ とする。
+6. アインシュタイン模型のモル振動エネルギー
+   $$
+   U_{\mathrm m}=\frac{3N_Ah\nu}{e^{h\nu/(kT)}-1}
+   $$
+   から $C_{V,\mathrm m}=(\partial U_{\mathrm m}/\partial T)_V$ を導く。$kT\gg h\nu$ と $kT\ll h\nu$ の近似式も求める。$\nu$ は振動数、$N_A$ はアボガドロ定数である。
+
+出典：[九州大学 令和5年度 機能物質化学系科目試験 物理化学2](https://www.cstf.kyushu-u.ac.jp/burger_editor/burger_editor/dl/2__5Luk5ZKM77yV5bm05bqm5L_u5aOr5YWl5a2m6Kmm6aiT5ZWP6aGM.pdf)。
+
 ### 题目描述
 
-本文件原 Description 为空；现有解答未保存第 (3)—(5) 问的完整文字，其中 (3)、(4) 仅留下外部参考链接。由现有内容可确认题目围绕 Planck 黑体辐射定律
+考虑 Planck 黑体辐射分布
 
 $$
-\rho(\lambda,T)
-=\frac{8\pi hc}{\lambda^5}
-\frac1{\exp\!\left(\frac{hc}{\lambda kT}\right)-1}
+\rho(\lambda,T)=\frac{8\pi hc}{\lambda^5\{\exp(hc/(\lambda kT))-1\}},
 $$
 
-以及 Einstein 固体模型展开：
+其中 $\lambda,T,c,k,h$ 分别表示波长、温度、光速、Boltzmann 常数和 Planck 常数。
 
-1. 在 $hc/(\lambda kT)\gg1$ 时求 $\rho(\lambda,T)$ 的短波近似。
-2. 在 $hc/(\lambda kT)\ll1$ 时求 $\rho(\lambda,T)$ 的长波近似。
-3. 第 (3) 问原解答仅引用了 [Planck 定律资料](https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%A9%E3%83%B3%E3%82%AF%E3%81%AE%E6%B3%95%E5%89%87)，具体问法未保存在仓库中。
-4. 第 (4) 问原解答仅引用了 [Wien 位移定律资料](https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A3%E3%83%BC%E3%83%B3%E3%81%AE%E5%A4%89%E4%BD%8D%E5%89%87)，具体问法未保存在仓库中。
-5. 利用 Wien 型关系
-   $$
-   T=\frac{hc}{5\lambda_{\max}k}
-   $$
-   计算给定峰值波长所对应的温度；现有解答结果为 $5.88\times10^3\,\mathrm K$，但原题给出的 $\lambda_{\max}$ 数值已缺失。
-6. 对 Einstein 固体的摩尔内能
-   $$
-   U_{\mathrm m}=\frac{3N_Ah\nu}{e^{h\nu/(kT)}-1},
-   $$
-   求定容摩尔热容 $C_{V,\mathrm m}=(\partial U_{\mathrm m}/\partial T)_V$，并分别求 $kT\gg h\nu$ 与 $kT\ll h\nu$ 下的近似式。
+1. 在 $hc/(\lambda kT)\gg1$ 时求短波近似。
+2. 在 $hc/(\lambda kT)\ll1$ 时求长波近似。
+3. 画图说明分布随温度的变化。
+4. 根据题设关系 $hc/(\lambda_{\max}kT)=5$，说出温度与峰值波长成反比所对应的定律名称。
+5. 采用第 4 问关系及太阳的峰值波长 $\lambda_{\max}=490\,\mathrm{nm}$ 估算温度。取 $h=6.63\times10^{-34}\,\mathrm{J\,s}$、$k=1.38\times10^{-23}\,\mathrm{J\,K^{-1}}$、$c=3.00\times10^8\,\mathrm{m\,s^{-1}}$。
+6. 对 Einstein 固体模型的摩尔振动能
+
+$$
+U_{\mathrm m}=\frac{3N_Ah\nu}{e^{h\nu/(kT)}-1},
+$$
+
+求定容摩尔热容 $C_{V,\mathrm m}=(\partial U_{\mathrm m}/\partial T)_V$，并求 $kT\gg h\nu$、$kT\ll h\nu$ 时的近似式。$\nu$ 为振动频率，$N_A$ 为 Avogadro 常数。
 
 ## **Kai**
 ### (1)
@@ -85,19 +104,25 @@ $$
 
 ### (3)
 
-<p>
-<a href="https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%A9%E3%83%B3%E3%82%AF%E3%81%AE%E6%B3%95%E5%89%87">
-こちら
-</a>
-</p>
+$\lambda\to0+$ と $\lambda\to\infty$ で $\rho\to0$ となり、その間に最大点を持つ。温度を高くすると、任意の固定波長で $\rho$ が増加し、ピークは短波長側へ移動する。
+
+![プランク分布の温度依存性](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/engineering/ac/2023/kyushu-ac-2022-planck.svg)
 
 ### (4)
 
-<p>
-<a href="https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A3%E3%83%BC%E3%83%B3%E3%81%AE%E5%A4%89%E4%BD%8D%E5%89%87">
-Wien の変位則
-</a>
-</p>
+**Wien の変位則**であり、$\lambda_{\max}T$ が一定となる。設問の関係を用いると
+
+$$
+\lambda_{\max}T\simeq\frac{hc}{5k}.
+$$
+
+これは短波長近似の分布を最大化した式である。プランク分布そのものでは $u=hc/(\lambda_{\max}kT)$ が
+
+$$
+u=5(1-e^{-u}),\qquad u>0
+$$
+
+を満たし、$u\simeq4.965114$ となる。
 
 ### (5)
 
@@ -129,27 +154,13 @@ $$
 
 である。
 
-(i) $kT \gg h \nu$ のとき、
+(i) $kT\gg h\nu$ のとき、$\xi=h\nu/(kT)\to0$ とおくと
 
 $$
-  \begin{aligned}
-  e^\frac{h \nu}{kT} \simeq 1 + \frac{h \nu}{kT}
-  \end{aligned}
+C_{V,\mathrm m}=3N_Ak\frac{\xi^2e^\xi}{(e^\xi-1)^2}
+=3N_Ak\left(1-\frac{\xi^2}{12}+O(\xi^4)\right)
+\simeq3N_Ak=3R.
 $$
-
-であるから、
-
-$$
-  \begin{aligned}
-  C_{V, \mathrm{m}}
-  &\simeq \frac{3N_A h^2 \nu^2}{kT^2}
-  \frac{e^\frac{h \nu}{kT}}{\left( \frac{h \nu}{kT} \right)^2}
-  \\
-  &= 3N_Ak e^\frac{h \nu}{kT}
-  \end{aligned}
-$$
-
-と近似できる。
 
 (ii) $kT \ll h \nu$ のとき、
 

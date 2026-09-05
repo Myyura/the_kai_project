@@ -93,7 +93,7 @@ $$
 
 $$
 \begin{align*}
-\int_{S_1} \nabla \times \mathbf{F} \cdot \mathrm{d} \mathbf{S} & = \oint_{\partial S} \mathbf{F} \cdot \mathrm{d} \mathbf{r} 
+\int_{S_1} \nabla \times \mathbf{F} \cdot \mathrm{d} \mathbf{S} & = \oint_{\partial S_1} \mathbf{F} \cdot \mathrm{d} \mathbf{r}
 \\ & = \int_0^{2\pi} \mathbf{F}(\mathbf{r}(t))\cdot \mathrm{d} \mathbf{r}(t) 
 \\ & = \int_0^{2\pi} (2\sin t, -2\cos t, 0)\cdot (-2\sin t, 2\cos t, 0)\mathrm{d} t
 \\ & = -4\int_{0}^{2\pi} \mathrm{d} t 

@@ -15,6 +15,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/17b639d81a91ac5dca245f353c6a2378.pdf)
 以下は Python プログラムに関する問題である。
 
 --------------------
@@ -22,7 +24,7 @@ tags:
 \[1\] 以下の各プログラムの出力結果 (output) を答えよ。
 
 (1)
-```text
+```text showLineNumbers
 import numpy as np
 
 a = np.array([1, 2, 3, 4, 5])
@@ -30,7 +32,7 @@ print(a + 2)
 ```
 
 (2)
-```text
+```text showLineNumbers
 import numpy as np
 
 a = np.array([1, 2, 3])
@@ -39,7 +41,7 @@ print(a.dot(b))
 ```
 
 (3)
-```text
+```text showLineNumbers
 import numpy as np
 
 a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
@@ -47,7 +49,7 @@ print(a[1:, 1:])
 ```
 
 (4)
-```text
+```text showLineNumbers
 import numpy as np
 
 a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
@@ -56,7 +58,7 @@ print(sum[1])
 ```
 
 (5)
-```text
+```text showLineNumbers
 import numpy as np
 
 a = np.arange(6).reshape(2, 3)
@@ -69,7 +71,7 @@ print(a)
 
 (1) 下記のプログラムにおいて関数 (function) func() を実行した場合、なぜ a\[0\] の値は 3 になり、b の値は 3 にならないのか説明せよ。
 
-```text
+```text showLineNumbers
 def func(m, n):
     m[0] = m[0] * 3
     n = n * 3
@@ -82,7 +84,7 @@ print("a =", a[0], " b =", b)
 
 (2) 下記のプログラムを実行した場合、無限ループ (infinite loop) が発生して停止しないことがある。なぜ無限ループが発生するのか説明せよ。
 
-```text
+```text showLineNumbers
 sum = 0.0
 while True:
     if sum == 10:
@@ -94,7 +96,7 @@ while True:
 (3) 下記のプログラムを実行した場合、エラーが発生するか否か答えよ。
 また、エラーが発生しない場合はその理由を、エラーが発生する場合はその解決策を答えよ.
 
-```text
+```text showLineNumbers
 a = "Hello"
 a[0] = 'h'
 ```
@@ -102,7 +104,7 @@ a[0] = 'h'
 (4) 下記のプログラムを実行した場合、エラーが発生するか否か答えよ。
 また、エラーが発生しない場合はその理由を、エラーが発生する場合はその解決策を答えよ.
 
-```text
+```text showLineNumbers
 x = 10
 
 def func():
@@ -115,7 +117,7 @@ func()
 (5) 下記のプログラムを実行した場合、エラーが発生するか否か答えよ。
 また、エラーが発生しない場合はその理由を、エラーが発生する場合はその解決策を答えよ.
 
-```text
+```text showLineNumbers
 for i in range(10):
     print(i)
     i = "Hello"
@@ -123,9 +125,9 @@ for i in range(10):
 
 --------------------
 
-\[3\] 下記のブログラムは、与えられた数までのすべての素数 (prime number) をリストとして出力する。以下の設問に答えよ。
+\[3\] 下記のプログラムは、与えられた数までのすべての素数 (prime number) をリストとして出力する。以下の設問に答えよ。
 
-```text
+```text showLineNumbers
 def prime_numbers(n):
     primes = []
     for num in range(n, 1, -1):
@@ -147,7 +149,7 @@ def prime_numbers(n):
 
 \[4\] 下記のプログラムを読んで、以下の設問に答えよ。
 
-```text
+```text showLineNumbers
 import numpy as np
 
 def func(x, y, a, b):
@@ -184,7 +186,9 @@ print(func(x1, y2, 0, 1))
 
 (3) 8 行目から 14 行目を以下の 1 行の形で表したい。等価な処理となるよう空欄を埋めよ。
 
-- if \[                  空欄                  \]
+```text
+if [ 空欄 ]:
+```
 
 (4) グレースケール画像 (grayscale image) は一般に行列 (matrix) として表現できる。
 関数 func() の第 1 引数に画像の行列を与えると、返り値 (return value) としてどのような画像が得られるか説明せよ。
@@ -242,10 +246,10 @@ print(func(x1, y2, 0, 1))
 
 #### (2)
 10進数の「0.1」を2進数に変換すると「0.0001100110011…」となり、「0011」の部分が永遠に循環します。
-このような値はどこかの桁数で丸めを行う必要があるため、誤差が生じます。
+このような値は有限桁に丸められるため、誤差が生じる。通常の倍精度浮動小数点では、100 回加算した値は `9.99999999999998` となり、次の加算では 10 を超える。その後も値は減少せず、`sum == 10` が成立しないため停止しない。
 
 #### (3)
-エラーが発生します。次のように変更すれば良いです。
+文字列は変更できないため、要素への代入は `TypeError` となる。新しい文字列を作り、`a` に代入すればよい。
 
 ```text
 a = "Hello"
@@ -253,7 +257,7 @@ a = "h" + a[1:]
 ```
 
 #### (4)
-エラーが発生します。次のように変更すれば良いです。
+`x += 1` があるため `x` は関数内の局所変数と解釈されるが、代入前にその値を読むので `UnboundLocalError` となる。大域変数を更新するなら `global x` を宣言する。
 
 ```text
 x = 10
@@ -312,7 +316,9 @@ func()
 ```
 
 #### (3)
-- if np.sum(np.abs(x[i:i+p, j:j+q] - y) > a) == 0:
+```python
+if np.sum(np.abs(x[i:i+p, j:j+q] - y) > a) == 0:
+```
 
 #### (4)
-関数 `func()` は，画像中からテンプレート `y` と近似的に一致する部分を探索し，その部分の画素値を `b` に置き換える。つまり，近似マッチした領域をマスクする処理である。
+関数 `func()` は，画像中からテンプレート `y` と近似的に一致する部分を探索し，その部分の画素値を `b` に置き換える。各対応画素の差の絶対値がすべて `a` 以下であれば一致と判定する。走査は上の行から順に、各行では左から右へ進み、一致した窓はその場で書き換えられる。この変更は入力配列 `x` 自体に反映され、後続の窓の判定にも影響する。

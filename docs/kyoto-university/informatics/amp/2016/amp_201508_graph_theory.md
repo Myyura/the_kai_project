@@ -10,6 +10,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h28_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 $G = (V, E)$ を節点集合 $V$，枝集合 $E$ から成る連結な単純無向グラフとし，各枝 $e \in E$ に実数値の重み $w(e)$ を与える．枝の部分集合 $F \subseteq E$ は，グラフ $(V, E - F)$ が非連結であり，この性質の下で極小であるとき $G$ のカットセットと呼ばれる．以下の (i)-(iv) の各命題について，真であれば証明を，偽であれば反例を与えよ．
 
 (i) $K$ を $G$ の一つのカットセットとし，$a$ を $K$ の中で枝重みが最小である枝とする．このとき，$G$ の任意の最小木は枝 $a$ を含む．

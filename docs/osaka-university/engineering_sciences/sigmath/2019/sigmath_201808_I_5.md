@@ -13,9 +13,30 @@ tags:
 
 ## **Description**
 
+### 参考問題
+
+確率変数 $X_1,\ldots,X_n$ が
+
+$$
+E[X_i]=\mu,\qquad V[X_i]=\sigma^2,\qquad
+\operatorname{Cov}(X_i,X_j)=\theta\quad(i\ne j)
+$$
+
+を満たす場合を考える。係数ベクトル $\alpha=(\alpha_1,\ldots,\alpha_n)$ に対して
+
+$$
+T(\alpha)=\sum_{i=1}^n\alpha_iX_i
+$$
+
+と定義する。
+
+1. $E[T(\alpha)]$ と $\operatorname{Cov}(T(\alpha),T(\beta))$ を求める。
+2. $V[T(\alpha)]$ を求める。
+3. $T(\alpha)$ が $\mu$ の不偏推定量となる制約の下で、分散を最小にする $\alpha$ と最小分散を求める。
+
 ### 题目描述
 
-原文题干缺失。设随机变量 $X_1,\ldots,X_n$ 满足
+设随机变量 $X_1,\ldots,X_n$ 满足
 
 $$
 E[X_i]=\mu,\qquad V[X_i]=\sigma^2,\qquad
@@ -120,7 +141,7 @@ $$
 $$
   \begin{aligned}
   \alpha_1 = \alpha_2 = \cdots = \alpha_n = \frac{1}{n}
-  , \ \ 
+  , \ \
   \lambda = \frac{2}{n}
   \end{aligned}
 $$

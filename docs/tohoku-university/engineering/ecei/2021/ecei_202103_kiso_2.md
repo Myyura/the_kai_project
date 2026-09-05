@@ -56,46 +56,57 @@ $$
    \int_0^\infty e^{-at}t^{n-1}\,dt=\frac{(n-1)!}{a^n}.
    $$
 
-## **Kai** 
-### (1) - (3)
-略
+## **Kai**
+### (1)
+
+图示电流从电容正极板流出，因此 $i=-q'$。由 Kirchhoff 电压定律，
+
+$$
+\boxed{Lq''+Rq'+\frac qC=0,\qquad q(0)=CE_0,\quad q'(0)=0}.
+$$
+
+### (2)
+
+代入 $q_s=e^{st}$，得到
+
+$$
+\boxed{Ls^2+Rs+\frac1C=0,\qquad s_\pm=\frac{-R\pm\sqrt{R^2-4L/C}}{2L}}.
+$$
+
+### (3)
+
+令 $\alpha=R/(2L)>0$。对给定电荷求导，并利用 $R^2=4L/C$：
+
+$$
+\boxed{i(t)=-q'(t)=CE_0\alpha^2te^{-\alpha t}=\frac{E_0}{L}te^{-\alpha t}}.
+$$
+
+$$
+i'(t)=\frac{E_0}{L}e^{-\alpha t}(1-\alpha t).
+$$
+
+电流从零增大，在
+
+$$
+\boxed{t_{\max}=\frac{2L}{R},\qquad i_{\max}=\frac{2E_0}{eR}}
+$$
+
+处达到唯一最大值，再单调衰减至零。
+
+![临界阻尼放电电流](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2021/ecei_202103_current.svg)
 
 ### (4)
-S域解答一步到位：
 
-$$
-I = \frac{\frac{E_0}{s}}{sL + R + \frac{1}{sC}} = \frac{E_0}{L} \cdot \frac{1}{s^2 + \frac{R}{L}s + \frac{1}{LC}}
-$$
-
-$$
-\Delta = \frac{R^2}{L^2} - \frac{4}{LC} = 0
-$$
-
-$$
-s_0 = \frac{-R}{2L}
-$$
-
-$$
-I = \frac{E_0}{L} \cdot \frac{1}{(s - s_0)^2}
-$$
-
-$$
-I(t) = \frac{E_0}{L} \cdot te^{s_0 t}
-$$
+电阻耗能为
 
 $$
 \begin{aligned}
-W &= \int_0^{\infty} I^2R \cdot dt = \frac{E_0^2R}{L^2} \cdot \int_0^{\infty} t^2 e^{-(-2s_0)t}dt = \frac{E_0^2R}{L^2} \cdot L(t^2)\bigg|_{s \rightarrow 2s_0} = \frac{E_0^2R}{L^2} \cdot \frac{2}{(-2s_0)^3} \\
-&= \frac{E_0^2R}{L^2} \cdot \frac{2}{(-2s_0)^3} = \frac{E_0^2R}{4L^2} \cdot \bigg(\frac{2L}{R}\bigg)^3 = \frac{2E_0^2L}{R^2}
+W&=R\int_0^\infty i(t)^2\,dt
+=\frac{RE_0^2}{L^2}\int_0^\infty t^2e^{-(R/L)t}\,dt\\
+&=\frac{RE_0^2}{L^2}\frac{2}{(R/L)^3}
+=\frac{2LE_0^2}{R^2}
+=\boxed{\frac12CE_0^2}.
 \end{aligned}
 $$
 
-代入：
-
-$$
-R^2 = \frac{4L}{C}
-$$
-
-$$
-W = \frac{1}{2}CE_0^2
-$$
+这等于电容的初始储能；最后电容电压和电感电流均趋于零。

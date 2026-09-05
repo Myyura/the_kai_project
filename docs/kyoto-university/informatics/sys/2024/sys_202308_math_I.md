@@ -17,6 +17,8 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68856211000000002201c8dd?xsec_token=ABj3Hdw0xF5JHzUtFSdmNnW7Q_3ETrH59pYtdEZQZu2FI=)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_sys.pdf)
 ### 問1
 以下の設問に答えよ．
 

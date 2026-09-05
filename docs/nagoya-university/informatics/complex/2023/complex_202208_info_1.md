@@ -11,6 +11,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/153686fd38b76aec8fe63b4c47663818.pdf)
+
 以下の問に答えよ。
 
 ### \[1\]
@@ -103,6 +106,8 @@ int main(void)
 ```text
  10e1 66001 4320 10e
 ```
+
+末尾には半角空白が1個ある。
 
 ### \[2\]
 

@@ -57,6 +57,8 @@ $$
 
 つまり、中心が原点、半径が $\sqrt{3}$ の円の第一象限の部分である。
 
+![積分領域の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hosei_university/science_and_engineering/systems_engineering/management_systems/2025/hosei-2024-quarter-disk.svg)
+
 (2) 極座標変換 $x = r\cos\theta, y = r\sin\theta$ を行うと、 $x^2 + y^2 = r^2$ となり、積分領域は $0 \leq r \leq \sqrt{3}, 0 \leq \theta \leq \frac{\pi}{2}$ となる。
 
 したがって、ヤコビアンは $r$ であるから、

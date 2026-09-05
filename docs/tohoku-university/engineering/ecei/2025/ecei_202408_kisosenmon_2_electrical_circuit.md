@@ -83,54 +83,50 @@ V_C = I \cdot \frac{1}{j \omega
  C} = \frac{V}{R} \cdot \frac{1}{j\omega C}
 $$
 
-取电源电压的初始相位为参考值的情况下，可以写出电感电容上面电压的时域表达：
+在 $\omega=\omega_0$ 时，直接用题目要求的参数写成相量：
 
 $$
-V_L(t) = \frac{\omega VL}{R} \cdot \sin(\omega t + 90^\circ)
+\boxed{V_L=j\frac VR\sqrt{\frac LC},\qquad V_C=-j\frac VR\sqrt{\frac LC}}.
 $$
 
-$$
-V_C(t) = \frac{V}{R\omega C} \cdot \sin(\omega t - 90^\circ)
-$$
+两者幅值相同、相位相反。若 $V$ 为有效值，相应时域电压的峰值还须乘 $\sqrt2$。
 
 #### (c)
 
+令二次电流 $I_2$ 流入线圈同名端，二次侧外接阻抗为 $Z_L=R+j\omega L+1/(j\omega C)$。耦合线圈方程为
+
 $$
-Z = j\omega M \mathbin{//} \big(R + j\omega(L + L_2) + \frac{1}{j\omega C}\big)
+V=j\omega L_1I_1+j\omega MI_2,\qquad
+0=j\omega MI_1+(j\omega L_2+Z_L)I_2.
+$$
+
+消去 $I_2$，得到
+
+$$
+Z_{\rm in}=j\omega L_1+\frac{\omega^2M^2}{R+j\omega(L+L_2)+1/(j\omega C)}.
+$$
+
+图 2(c) 已将 $L_1$ 单独串联，故所求方框阻抗为
+
+$$
+\boxed{Z=\frac{\omega^2M^2}{R+j\omega(L+L_2)+1/(j\omega C)}}.
 $$
 
 #### (d)
 
-$$
-Z_{in} = j\omega L_1 + j\omega M \mathbin{//} \big(R + j\omega(L + L_2) + \frac{1}{j\omega C}\big)
-$$
-
-代入一些化简得条件：
+当 $R=0$、$\omega=\omega_0=1/\sqrt{LC}$ 时，二次侧外接 $L,C$ 的电抗抵消，故
 
 $$
-Z_{in} = j\omega_0 L_1 + j\omega_0 M \mathbin{//} j\omega_0 L_2
+Z_{\rm in}=j\omega_0\left(L_1-\frac{M^2}{L_2}\right).
 $$
 
-$$
-Z_{in} = j\omega_0 L_1 + \frac{j\omega_0 M L_2}{(M + L_2)} = 0
-$$
+因此零输入阻抗要求 $M^2=L_1L_2$，即
 
 $$
-L_1 = \frac{-ML_2}{M + L_2}
+\boxed{k=\frac{M}{\sqrt{L_1L_2}}=1}.
 $$
 
-可以解出互感系数：
-
-$$
-M = - \frac{L_1L_2}{L_1 + L_2}
-$$
-
-耦合系数：
-
-$$
-k = \frac{M}{\sqrt{L_1L_2}} = -\frac{\sqrt{
-L_1L_2}}{L_1 + L_2}
-$$
+这是完全耦合条件。这里计算的是输入阻抗；理想电压源驱动零阻抗时，有限电流的正弦稳态并不存在。
 
 ### (2)
 #### (a)
@@ -181,7 +177,7 @@ $$
 电压：
 
 $$
-V - \frac{Q}{C} = \frac{E}{\omega^2 CL} \cdot (1 - \cos \omega t) = E \cdot (1 - \cos \omega t)
+V_C(t)=\frac{Q(t)}{C} = \frac{E}{\omega^2 CL} \cdot (1 - \cos \omega t) = E \cdot (1 - \cos \omega t)
 $$
 
 $$

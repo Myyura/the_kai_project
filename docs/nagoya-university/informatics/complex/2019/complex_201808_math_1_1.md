@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/65eea0cc0623fd6a765dbc02dc3d5ff4.pdf)
+
 2次方程式
 
 $$
@@ -156,6 +158,8 @@ $$
 $$
 
 因此图形是以原点为中心的椭圆。短半轴长为 $1/\sqrt5$ ，方向为 $x_1=x_2$ ；长半轴长为 $1$ ，方向为 $x_1=-x_2$ 。也就是说，该椭圆由标准轴方向旋转 $45^\circ$ 得到。
+
+![椭圆 3x₁²+4x₁x₂+3x₂²=1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2019/nagoya-complex2019-ellipse.svg)
 
 ### 4. $f(x)$ 的最大值与最小值
 

@@ -138,6 +138,8 @@ $$
 
 ## 2.
 
+[公式問題PDF、15ページ](https://www.titech.ac.jp/admissions/pdf/82-cv-r1.pdf#page=15)。
+
 式 (3) の $\varepsilon$ は非負なので、非退化な平均 $0$ の正規分布には従わない。正規近似が成り立つ符号付き誤差を以下で求める。
 
 意図された **符号付き誤差** を
@@ -147,17 +149,15 @@ $$
 =\frac{\sum_{i=1}^M f(X_i)-M\mu_f}{M}
 $$
 
-と定義する。中心極限定理により
+と定義する。$0<\sigma_f^2<\infty$ の場合、中心極限定理を標準化した形で書くと
 
 $$
-\sum_{i=1}^M f(X_i)\ \mathop{\sim}_{M\to\infty}\ N(M\mu_f,M\sigma_f^2)
+\frac{\sqrt M\,\delta_M}{\sigma_f}
+=\frac{\sum_{i=1}^M f(X_i)-M\mu_f}{\sigma_f\sqrt M}
+\xrightarrow{d}N(0,1).
 $$
 
-なので、線形変換によって
-
-$$
-\boxed{\delta_M\ \mathop{\sim}_{M\to\infty}\ N\left(0,\frac{\sigma_f^2}{M}\right)}.
-$$
+したがって大きな $M$ では $\delta_M$ を $N(0,\sigma_f^2/M)$ で近似できる。有限の $M$ で必ず正規分布になるという意味ではない。$\sigma_f^2=0$ なら誤差はほとんど確実に0である。
 
 一方、真の絶対誤差 $\varepsilon=|\delta_M|$ は漸近的に半正規分布に従い、
 

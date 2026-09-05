@@ -26,6 +26,9 @@ $$
 
 (3) 条件付き確率密度関数 $f_{X|Y}(x | y)$ を求めよ.
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20210425112646id_/http://www.is.nagoya-u.ac.jp/exam-old/d21408.pdf)
+
 ### 题目描述
 
 随机变量 $X,Y$ 的联合概率密度函数为
@@ -113,5 +116,7 @@ $$
 よって,
 
 $$
-f_{X|Y}(x | y) = \begin{cases} \frac{2(y - x)}{2y - 1} & (0 \leq x \leq 1, 1 \leq y \leq 3) \\ 0 & (その他) \end{cases}
+f_{X|Y}(x | y) = \begin{cases} \frac{2(y - x)}{2y - 1} & (0 \leq x \leq 1) \\ 0 & (x<0\text{ または }x>1) \end{cases}\qquad(1\le y\le3).
 $$
+
+$y\notin[1,3]$ では $f_Y(y)=0$ なので、この密度の比から条件付き密度は定まらない。

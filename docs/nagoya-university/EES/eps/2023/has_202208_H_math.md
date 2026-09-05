@@ -13,6 +13,9 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
+
+出典：[名古屋大学・2023年度大気水圏科学系口頭試問出題例](https://web.archive.org/web/20230407235537/http://ees.env.nagoya-u.ac.jp/pdf/has/exam_2022-23.pdf)、数学。
+
 ### 問題1
 次の問１～３に答えなさい。 
 
@@ -67,6 +70,8 @@ $u=x,\,dv=e^{-ax}dx$ とおいて部分積分する。
 
 #### 問2
 
+$a\ne0$ のとき、
+
 $$
   \begin{aligned}
   \int x e^{-ax} dx
@@ -76,6 +81,8 @@ $$
   \ \ \ \ \ \ \ \ ( C \text{ は積分定数 } )
   \end{aligned}
 $$
+
+$a=0$ のときは $\int x\,dx=x^2/2+C$ となる。
 
 #### 問3
 
@@ -100,7 +107,7 @@ $$
 が任意の $x,y$ とスカラー $a,b$ について成り立つことである。
 
 #### 問2
-区間 $I$ 上の2つの関数 $f(x), g(x)$ が直交するとは、
+区間 $I$ 上の平方可積分関数 $f(x), g(x)\in L^2(I)$ が直交するとは、
 
 $$
 \begin{aligned}
@@ -112,4 +119,4 @@ $$
 
 #### 問3
 関数の集合 $f_1(x), f_2(x), \cdots$ が直交関数系であるとは、
-各 $f_i$ が零関数でなく、任意の $f_i(x), f_j(x) \ (i \ne j)$ が直交することである。
+各 $f_i$ が $L^2(I)$ の非零元（$\int_I|f_i(x)|^2dx>0$）であり、任意の $f_i(x), f_j(x) \ (i \ne j)$ が直交することである。

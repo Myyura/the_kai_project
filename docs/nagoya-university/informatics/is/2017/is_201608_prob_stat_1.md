@@ -27,6 +27,9 @@ $$
 
 (2) $X$ と $Y$ が互いに独立であるとき, $a, b, c$ の値を求めなさい。
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20171031151037id_/http://www.is.nagoya-u.ac.jp/exam-old/d21608.pdf)
+
 ### 题目描述
 
 随机变量 $X,Y$ 的二维联合概率分布表如下：

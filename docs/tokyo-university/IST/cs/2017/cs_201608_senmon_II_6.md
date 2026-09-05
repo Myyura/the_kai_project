@@ -147,7 +147,7 @@ $$
 满足 $\operatorname{rank}M=m+1$。这正是唯一确定 $\boldsymbol\theta$，进而唯一确定 $\alpha,\gamma_1,\ldots,\gamma_m$ 的充要条件。
 
 ### (5)
-令 $k=3X_{p,1}+2X_{p,2}$。稳态时
+设总浓度 $C>0$，使比例 $Y_p/C$ 有定义。令 $k=3X_{p,1}+2X_{p,2}$。稳态时
 
 $$
 0=k(C-Y_p)-Y_p,

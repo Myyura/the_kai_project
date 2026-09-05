@@ -40,7 +40,7 @@ Show how many different spanning trees are possible for Graph $G$. Also state th
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202101_senmon_I_4_p1.png" width="380" height="286" alt=""/>
 </figure>
 
-##### <center> 図 1 Figure 1
+##### 図 1 / Figure 1
 
 ### 题目描述
 

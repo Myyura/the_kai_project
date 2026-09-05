@@ -348,7 +348,7 @@ $$
 \frac{|z+1|}{2}.
 $$
 
-For convergence, we need
+The root test proves absolute convergence when
 
 $$
 \frac{|z+1|}{2}<1.
@@ -365,3 +365,6 @@ Therefore, the radius of convergence is
 $$
 \boxed{2}.
 $$
+
+On $|z+1|=2$, the absolute value of the $n$-th term is
+$1/[2(n+1)^3]$, so the series also converges absolutely on the boundary.

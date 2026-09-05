@@ -114,6 +114,8 @@ $$
 
 のみであり、 $y$ 軸全体は境界ではない（円と $y$ 軸が接するのは原点だけである）。
 
+![積分領域の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hosei_university/science_and_engineering/systems_engineering/management_systems/2022/hosei-2021-open-disk.svg)
+
 (3) 重積分を計算する。
 領域 $E$ を極座標で表すと、 $0 < r < \cos\theta, -\frac{\pi}{2} < \theta < \frac{\pi}{2}$ である。
 

@@ -13,6 +13,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+出典：[公式2017年度数学試験](https://www.t.u-tokyo.ac.jp/hubfs/pdf/H29_suugaku_J.pdf)、第5問。
+
 $t \ge 0$ で定義される関数 $f(t)$ のラプラス変換 $F(s) = L[f(t)]$ は
 
 $$
@@ -33,7 +36,7 @@ $n$ が自然数のとき, $L[t^{n}] = \frac{n!}{s^{n+1}}$
 $f(t)$ が微分可能であるとき,　$L[\frac{\text{d}f(t)}{\text{d}t}] = sF(s) - f(0)$
 
 #### 3.
-$a$ が実数のとき, $L[e^{at}f(t) = F(s - a)]$
+$a$ が実数のとき, $L[e^{at}f(t)] = F(s-a)$
 
 ### II.
 ラプラス変換を用いて, $t \ge 0$ における以下の微分方程式の解を求めよ。
@@ -100,6 +103,9 @@ $$
 
 ## **Kai**
 ### I.
+
+各等式はラプラス積分が収束し、部分積分の無限遠境界項が消える半平面で成り立つ。特に1.では $\operatorname{Re}s>0$ とする。
+
 #### 1.
 
 $$
@@ -274,3 +280,7 @@ y=x+2x^2,\qquad -1\le x<0.
 $$
 
 $t\mid 0 \rightarrow \infty$ のとき $x\mid -1 \rightarrow 0$ であるから、点 $P$ はこの放物線上を $(-1,1)$ から $(0,0)$ へ動く。
+
+![Trajectories and increasing-time directions](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/tokyo-kyotsu-201608-trajectories.svg)
+
+原点は $t\to\infty$ で近づく極限点であり、有限時刻には到達しない。

@@ -14,6 +14,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h29_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
+
 Mat(n)をn次複素正方行列全体の集合とする. $A \in Mat(n)$ に対して線形写像
 
 $$

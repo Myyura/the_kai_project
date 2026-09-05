@@ -40,7 +40,7 @@ Here, $\mathbf{X}^\mathrm{T}$ and $\mathbf{x}^\mathrm{T}$ denote the transpose o
 
 - (a) Express $\mathbf{W}_i$ using $\mathbf{n}_i$ and $\mathbf{I}$.
 - (b) Show that $\mathbf{W}_i^\mathrm{T} \mathbf{W}_i = \mathbf{W}_i$.
-- ($c$) Consider a plane $\Sigma = \{\mathbf{x} \in \mathbb{R}^3 \mid \mathbf{a}^\mathrm{T} \mathbf{x} = b\}$ $(\mathbf{a} \in \mathbb{R}^3$ is a non-zero vector, and $b$ is a real number). Let $\mathbf{S} \in \Sigma$ be the point from which the sum of squared distances to $l_1$, $l_2$, and $l_3$ is minimized. When $\mathbf{n}_1$, $\mathbf{n}_2$, and $\mathbf{n}_3$ are orthogonal to each other, the position vector of $\mathbf{S}$ is represented by $\left( \mathbf{I} - \frac{\mathbf{a}\mathbf{a}^\mathrm{T}}{\mathbf{a}^\mathrm{T}\mathbf{a}} \right) \mathbf{w} + \frac{\mathbf{a}b}{\mathbf{a}^\mathrm{T}\mathbf{a}}$. using a vector $\mathbf{w} \in \mathbb{R}^3$ which is independent of $\mathbf{a}$ and $b$. Express $\mathbf{w}$ using $\mathbf{W}_i$ and $\mathbf{x}_i \, (i = 1, 2, 3)$.
+- ($c$) Consider a plane $\Sigma = \{\mathbf{x} \in \mathbb{R}^3 \mid \mathbf{a}^\mathrm{T} \mathbf{x} = b\}$ $(\mathbf{a} \in \mathbb{R}^3$ is a non-zero vector, and $b$ is a real number). Let $\mathbf{S} \in \Sigma$ be the point from which the sum of squared distances to $l_1$, $l_2$, and $l_3$ is minimized. When $\mathbf{n}_1$, $\mathbf{n}_2$, and $\mathbf{n}_3$ are orthogonal to each other, the position vector of $\mathbf{S}$ is represented by $\left( \mathbf{I} - \frac{\mathbf{a}\mathbf{a}^\mathrm{T}}{\mathbf{a}^\mathrm{T}\mathbf{a}} \right) \mathbf{w} + \frac{\mathbf{a}b}{\mathbf{a}^\mathrm{T}\mathbf{a}}$ using a vector $\mathbf{w} \in \mathbb{R}^3$ which is independent of $\mathbf{a}$ and $b$. Express $\mathbf{w}$ using $\mathbf{W}_i$ and $\mathbf{x}_i \, (i = 1, 2, 3)$.
 
 
 ### 题目描述
@@ -129,6 +129,8 @@ $$
 
 we need to determine the conditions on $\mathbf{n}_4$ that ensure $\mathbf{A}$ has a rank of three.
 
+The first two rows are linearly independent: if $\alpha(\mathbf n_1-\mathbf n_2)+\beta(\mathbf n_2-\mathbf n_3)=0$, independence of the three normals gives $\alpha=\beta=0$.
+
 Let's assume that the third row of matrix $\mathbf{A}$ can be written as a linear combination of the first two rows. Thus, we assume:
 
 $$
@@ -153,7 +155,7 @@ $$
 (1 - c_3 + \beta) \mathbf{n}_3^\mathrm{T} - c_1 \mathbf{n}_1^\mathrm{T} - c_2 \mathbf{n}_2^\mathrm{T} = \alpha \mathbf{n}_1^\mathrm{T} + (\beta - \alpha) \mathbf{n}_2^\mathrm{T}.
 $$
 
-For this equation to hold for arbitrary vectors $\mathbf{n}_1$, $\mathbf{n}_2$, and $\mathbf{n}_3$, the coefficients of each vector must match:
+Because the three given vectors are linearly independent, for this equation to hold for $\mathbf{n}_1$, $\mathbf{n}_2$, and $\mathbf{n}_3$, the coefficients of each vector must match:
 
 1. **For $\mathbf{n}_1$**:
 
@@ -366,7 +368,7 @@ $$
 S(\mathbf{x}) = \sum_{i=1}^{4} (\mathbf{n}_i^\mathrm{T} \mathbf{x} - d_i)^2.
 $$
 
-To minimize $S(\mathbf{x})$, we take the gradient with respect to $\mathbf{x}$ and set it equal to zero:
+Since its Hessian is $2\mathbf B$, which is positive definite by (3), $S$ has a unique global minimizer. To find it, we take the gradient with respect to $\mathbf{x}$ and set it equal to zero:
 
 $$
 \nabla S(\mathbf{x}) = 2 \sum_{i=1}^{4} (\mathbf{n}_i^\mathrm{T} \mathbf{x} - d_i) \mathbf{n}_i = 0.

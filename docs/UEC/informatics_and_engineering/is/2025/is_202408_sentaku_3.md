@@ -81,6 +81,15 @@ $$
 を数学的帰納法で証明せよ。まず $n=2$ を要素関係と二つの包含関係から示し、
 次に $n=k$ から $n=k+1$ を導け。
 
+### 穴埋め形式（独立要約）
+
+[公式 PDF 9–12 ページ](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_2_j_choice202408.pdf#page=9) に基づく独立要約（逐語転載ではない）。
+
+- 問1(2)：$(R\Rightarrow S)\land\neg S\equiv[6]\land[7]$、前件は $\neg([8]\lor[9]\lor[10]\lor[11])$、全体は $[8]\lor[9]\lor[10]\lor[11]\lor[12]$ と変形し、$[13]$ で推論の正誤を答える。候補番号は $0:P$, $1:\neg P$, $2:Q$, $3:\neg Q$, $4:R$, $5:\neg R$, $6:S$, $7:\neg S$, $8:$ 正しい推論、$9:$ 誤った推論。
+- 問1(3)：式全体を $[14]\lor[15]\lor[16]\lor[17]\lor[18]$ に変形する。式の候補は上記 $0$–$7$ と $8:T$, $9:\neg T$。$[19]$ は $0:$ 正しい推論、$1:$ 誤った推論から選ぶ。
+- 問2：各小問の答えが順に $[20]$、$[21],[22]$、$[23],[24]$、$[25],[26]$ に対応する。(4) では (1) の条件だけを前提とし、(2) の条件は追加しない。$[20]$–$[23]$ の候補は $0:x\in A$, $1:x\notin A$, $2:x\in C$, $3:x\notin C$, $4:x\in D$, $5:x\notin D$, $6:x\in C\cup D$, $7:x\notin C\cup D$, $8:x\in A\cap B$, $9:x\notin A\cup D$。$[24]$–$[26]$ の候補は $0:B\subseteq D$, $1:B\subseteq C$, $2:C\subseteq B$, $3:A\subseteq C\cap D$, $4:A\subseteq B\cap C$, $5:A\cap C=\varnothing$, $6:A\cap D=\varnothing$, $7:B\cap C\ne\varnothing$, $8:C\cap D=\varnothing$。
+- 問3(2)：$S=[1]$ と定義し、$n\in S$ なら $f(n)=[2]$、従って $f(g(y))=[2]$ を示す。$y\ne y'$ の場合は $[3]$ を示すため、$T=[4]$ とおき、$S\cap T=[5]$ を用いる。
+
 ### 题目描述
 
 第 1 题用真值表和等价变形判断三段推理是否有效；第 2 题填写集合元素关系和包含关系；

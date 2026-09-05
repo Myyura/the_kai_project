@@ -77,3 +77,92 @@ IPv4 地址是标识互联网位置的 32 位（4 字节）数，每 8 位用十
 8. 若每台路由器都以概率 $s$ 丢弃分组，求图 3 中源端发出的所有分组（包括未到终点者）的平均跳数。向下一节点交付一次称一跳；成功到达终点需 3 跳。
 9. 信道比特错误率为 $\alpha$（$0\le\alpha<1$）。为降低错误，每位重复发送三次：0 发 `000`，1 发 `111`；接收端多数表决恢复。写出恢复后的比特错误率公式。
 10. TCP/IP 假设目标节点同时运行多个进程，用目标端口号标识接收进程。说明为何采用独立于操作系统进程 ID 的抽象端口号，给出两个好处。
+
+## **Kai**
+
+### (1)
+
+The number of distinct 32-bit values is
+
+$$
+\boxed{2^{32}=4294967296}.
+$$
+
+This counts the address space, including reserved values.
+
+### (2)
+
+Splitting into four bytes gives C0, A8, 64, C8, or 192, 168, 100, 200. Thus the address is $\boxed{192.168.100.200}$.
+
+### (3)
+
+There are $32-20=12$ interface bits. Excluding the all-zero and all-one interface IDs leaves
+
+$$
+\boxed{2^{12}-2=4094}.
+$$
+
+### (4)
+
+Use the range-exclusion rule stated in the question. One assignment is:
+
+| Subnet | Network prefix | Addresses assigned to interfaces | Count |
+| --- | --- | --- | ---: |
+| N1 | 192.168.254.0/24 | 192.168.254.1 – 192.168.254.250 | 250 |
+| N2 | 192.168.255.0/25 | 192.168.255.1 – 192.168.255.120 | 120 |
+| N3 | 192.168.255.128/25 | 192.168.255.129 – 192.168.255.238 | 110 |
+| N4 | 192.168.255.240/30 | 192.168.255.241 – 192.168.255.242 | 2 |
+| N5 | 192.168.255.244/30 | 192.168.255.245 – 192.168.255.246 | 2 |
+| N6 | 192.168.255.248/30 | 192.168.255.249 – 192.168.255.250 | 2 |
+
+N4–N6 each connect two routers. Their prefixes lie inside N3's /25, but N3's assigned range excludes them. All assigned interface addresses are distinct, increase from N1 to N6, lie inside the original /23, and avoid the all-zero and all-one interface IDs of their own subnet. Six entirely disjoint CIDR blocks would need $256+128+128+3\cdot4=524$ addresses, exceeding the /23's 512; the stated exclusion rule makes the allocation possible.
+
+### (5)
+
+The source accumulates $8P$ bits at $128000$ bit/s, so
+
+$$
+T_{\mathrm{pack}}=\frac{8P}{128000}\ \text{s}.
+$$
+
+For $P=1000$, this is $\boxed{62.5\ \text{ms}}$.
+
+### (6)
+
+Requiring $8P/128000<0.020$ gives $P<320$ bytes. With integral byte counts, use at most $\boxed{319\text{ payload bytes}}$, or $\boxed{419\text{ bytes per packet}}$ including the 100-byte header. A 320-byte payload gives exactly 20 ms if equality is allowed.
+
+### (7)
+
+At the bottleneck, the useful fraction of the transmitted bits is $P/(P+100)$. Thus
+
+$$
+\boxed{R_{\mathrm{eff}}(P)=6\times10^6\frac{P}{P+100}\ \text{bit/s}}.
+$$
+
+For $P=100$, this gives $\boxed{3\ \text{Mbit/s}}$; for $P=1000$, it gives $\boxed{60/11\approx5.45\ \text{Mbit/s}}$.
+
+### (8)
+
+Every packet completes the first hop to Router 1. It completes the second hop with probability $1-s$, and the third with probability $(1-s)^2$, assuming independent discards, or conditional discard probability $s$ at each router. Therefore
+
+$$
+\boxed{\mathbb E[H]=1+(1-s)+(1-s)^2=3-3s+s^2}.
+$$
+
+Equivalently, $\Pr(H=1)=s$, $\Pr(H=2)=(1-s)s$, and $\Pr(H=3)=(1-s)^2$.
+
+### (9)
+
+Assume independent bit errors. Majority decoding fails when exactly two or all three copies are wrong:
+
+$$
+\boxed{\alpha'=\binom32\alpha^2(1-\alpha)+\alpha^3
+=3\alpha^2-2\alpha^3}.
+$$
+
+For $0<\alpha<1/2$ this improves on $\alpha$; for $\alpha>1/2$ it increases the error rate. The values agree at $\alpha=0$ and $\alpha=1/2$.
+
+### (10)
+
+1. **Stable service naming.** A client can contact a known service port without knowing a remote process ID. The service can restart or be replaced, receiving a different process ID while retaining the same port. Port conventions also work across operating systems with different process-ID schemes.
+2. **Flexible endpoints.** A single process can provide several services or maintain several sockets on different ports. A listening service can also create workers that share an established endpoint or inherit connections. The transport endpoint therefore need not have a permanent one-to-one correspondence with an OS process.

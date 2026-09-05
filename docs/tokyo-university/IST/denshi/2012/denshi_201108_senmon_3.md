@@ -91,13 +91,22 @@ Relationship:
 
 ### (5)
 
-A derived relation can be added as follows:
+Retain every lending event, including returned books, in a history relation:
+
+```text
+Lending_History(LoanID, UserID, BookID, Lent_Date, Return_Date)
+```
+
+`LoanID` is the primary key; `UserID` and `BookID` refer to `Users` and `Books`. `Return_Date` is null while the book is on loan. On return, update `Return_Date` and retain the row. The current `Lending_Status` can be a view selecting the rows with null `Return_Date`.
+
+The popularity query counts all lending events, including multiple loans of the same book:
 
 ```sql
-Create table Author_Stats AS
-    Select B.Author, Count(*) as Lending_Count
-    From Books B, Lending_Status L
-    Where B.BookID = L.BookID
-    Group by B.Author
-    Order by Lending_Count Desc;
+SELECT B.Author, COUNT(H.LoanID) AS Lending_Count
+FROM Books B
+LEFT JOIN Lending_History H ON H.BookID = B.BookID
+GROUP BY B.Author
+ORDER BY Lending_Count DESC, B.Author;
 ```
+
+The left join also includes authors whose books have never been lent, with count zero.

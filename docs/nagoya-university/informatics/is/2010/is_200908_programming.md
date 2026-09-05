@@ -5,7 +5,7 @@ tags:
   - Computer-Science.Algorithm-Design.Binary-Search
   - Computer-Science.Programming
 ---
-# 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2009年8月実施 プログラミング
+# 名古屋大学 情報科学研究科 情報システム学専攻 2009年8月実施 プログラミング
 
 ## **Author**
 祭音Myyura
@@ -17,13 +17,13 @@ $N \le k \le M$ を満たす整数 $k$ がこの配列の中に存在するか�
 また, そのテストのための main 関数を以下のように書いた. 
 なお左端の番号は行番号を示すものでプログラムの一部ではない. 
 
-```text
+```c showLineNumbers
 #include <stdio.h>
 
 int search([ 空欄 (a) ] n, [ 空欄 (b) ], [ 空欄 (c) ] k) {
     int i, j, p;
     i = [ 空欄 (d) ];
-    j = [ 空欄 (b) ];
+    j = [ 空欄 (e) ];
     while (i <= j) {
         p = (i + j) / 2;
         if (b[p] <= k) {
@@ -65,6 +65,9 @@ int main() {
 (6) この探索法の計算量のオーダーを示せ. 
 
 (7) 高速な探索法としてハッシュ探索がある. これはどのようなものか 300 文字以内 (or in 100 English words) で説明せよ. 
+
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20130614044056id_/http://www.is.nagoya-u.ac.jp/exam-old/d20908.pdf)
 
 ### 题目描述
 
@@ -113,5 +116,4 @@ The operation b\[j\] that accesses j-th element of array b may access out of bou
 $O(\log n)$
 
 ### (7)
-A hash map uses a hash function to compute an index, also called a hash code, into an array of buckets or slots, from which the desired value can be found.
-During lookup, the key is hashed and the resulting hash indicates where the corresponding value is stored.
+A hash table maps each key to a bucket using a hash function. Lookup hashes the requested key and compares it with stored keys in that bucket. Collisions are resolved by chaining or open addressing. With a suitable hash function and controlled load factor, lookup takes expected constant time, although its worst case is linear.

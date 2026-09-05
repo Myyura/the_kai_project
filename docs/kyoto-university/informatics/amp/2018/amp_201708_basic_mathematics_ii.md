@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h30_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
+
 複素数を成分とする $n \times n$ 行列 $A = (a_{i,j})_{1\leq i,j \leq n}$ と $B = (b_{i,j})_{1\leq i,j \leq n}$ は、それぞれ、非対角成分が全て非零の三重対角行列と対角行列である。すなわち、行列成分 $a_{i,j}, b_{i,j} \in \mathbb{C}$ は
 
 $a_{i,j} = 0 ( |i-j| > 1 ), \quad a_{i,j} \neq 0 ( |i-j| = 1 ), \quad b_{i,j} = 0 ( |i-j| \geq 1 )$
@@ -175,6 +177,8 @@ $$
 題設の相似変換により $A$ は対角化可能なので、各固有値の代数的重複度と幾何学的重複度は等しい。したがって各固有値の代数的重複度も $1$ であり、 $A$ は相異なる $n$ 個の固有値をもつ。
 
 ### (iii) スペクトル射影
+
+固有値の番号は、題設の $P^{-1}AP$ の対角成分の順に取る。最後の隣接関係はこの順序についての主張であり、任意の並べ替えで保たれるものではない。
 
 題設の正則行列 $P$ によって
 

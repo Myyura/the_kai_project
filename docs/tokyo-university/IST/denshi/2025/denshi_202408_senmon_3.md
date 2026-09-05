@@ -75,7 +75,7 @@ KruskalMST(G=(V,E), w):
     return T, WT
 ```
 
-Total complexity: $O(|E| \log |E|) + O(|E|) = O(|E|\log|V|)$
+For a connected simple graph, $|E|\le |V|(|V|-1)/2$. Total complexity: $O(|E| \log |E|) + O(|E|) = O(|E|\log|V|)$
 
 ### (2)
 
@@ -95,8 +95,44 @@ We can use Kruskal's algorithm to find the MST first, then exclude each of its e
 
 The overall time complexity will be $O(|E| \log |V| + |E| + |V| |E|) = O(|V| |E|)$.
 
-#### Based on Lowest Common Ancestor (LCA) problem
-Please refer to [stackoverflow, 22109647, faster-second-best-mst-algorithm](https://stackoverflow.com/questions/22109647/faster-second-best-mst-algorithm), the time complexity is $O(|E| \log |V|)$.
+A complete implementation, retaining the initial edge order, is:
+
+```text
+SecondTree(V, sortedEdges):
+    (T, W) = KruskalUsingSortedEdges(V, sortedEdges)
+    if |T| != |V|-1: return NONE
+    bestTree = NONE; bestWeight = infinity
+    for excludedEdge in T:
+        UF = UnionFind(|V|)
+        candidate = ∅; weight = 0
+        for (u, v, w, id) in sortedEdges:
+            if id == excludedEdge.id: continue
+            if UF.find(u) != UF.find(v):
+                UF.union(u, v)
+                candidate.add(id)
+                weight += w
+        if |candidate| == |V|-1 and weight < bestWeight:
+            bestTree = candidate; bestWeight = weight
+    return bestTree, bestWeight
+```
+
+If “second” requires a strictly larger total weight, equal-weight MSTs must be skipped. In that convention, examine every exchange of a non-tree edge with an edge on its fundamental cycle:
+
+```text
+StrictSecondTree(G):
+    (T, W) = KruskalMST(G)
+    bestTree = NONE; bestWeight = infinity
+    for edge e=(u,v) in E minus T:
+        P = the unique u-to-v path in T       # DFS, O(|V|)
+        for edge f in P:
+            delta = w(e) - w(f)
+            if 0 < delta and W+delta < bestWeight:
+                bestTree = T minus {f} plus {e}
+                bestWeight = W+delta
+    return bestTree, bestWeight
+```
+
+The minimum positive exchange produces a tree with the next distinct weight. To see this, compare $T$ with a tree of that weight and pair their differing edges by the spanning-tree exchange property. Each admissible exchange from an MST has nonnegative cost; at least one is positive, and its cost is at most the total weight difference. Minimality of the next distinct weight then forces equality. The path searches and scans take $O(|E||V|)$ time.
 
 ### (4)
 

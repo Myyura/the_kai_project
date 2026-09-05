@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+> 出典：九州大学[公式問題](https://web.archive.org/web/20211018003806id_/https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H29infait.pdf#page=6)。
+
 複素関数 $w(z) = \frac{z-1}{z+1}$ を考える. ただし, $z=x+iy$ , $i = \sqrt{-1}$ , $x$ と $y$ は実数である.
 次の各問に答えよ.
 
@@ -56,7 +58,7 @@ $$
 従って, $u(x,y) = \frac{x^2 + y^2 - 1}{(x+1)^2 + y^2}$ , $v(x,y) = \frac{2y}{(x+1)^2 + y^2}$ .
 
 (2)
-(a) $A = \{z \in \mathbb{C} | x = 0\}$ , $z = iy$ . Therefore $w(z) = w(iy) = \frac{i^2y^2 - 1}{(0+1)^2 + y^2} + i\frac{2y}{(0+1)^2 + y^2} = \frac{y^2-1}{1+y^2} + i\frac{2y}{1+y^2}$ . Let $w = u + iv$ , then $u = \frac{y^2-1}{1+y^2}$ , $v = \frac{2y}{1+y^2}$ .
+(a) $A = \{z \in \mathbb{C} | x = 0\}$ , $z = iy$ . Therefore $w(z) = w(iy) = \frac{y^2 - 1}{(0+1)^2 + y^2} + i\frac{2y}{(0+1)^2 + y^2} = \frac{y^2-1}{1+y^2} + i\frac{2y}{1+y^2}$ . Let $w = u + iv$ , then $u = \frac{y^2-1}{1+y^2}$ , $v = \frac{2y}{1+y^2}$ .
 $u^2 + v^2 = (\frac{y^2-1}{y^2+1})^2 + (\frac{2y}{y^2+1})^2 = \frac{(y^2-1)^2 + 4y^2}{(y^2+1)^2} = \frac{y^4 -2y^2 + 1 + 4y^2}{(y^2+1)^2} = \frac{y^4 + 2y^2 + 1}{(y^2+1)^2} = \frac{(y^2+1)^2}{(y^2+1)^2} = 1$ . Thus, $w(A)$ is the unit circle centered at the origin, except for $w = 1$ .  $w(A) = \{w \in \mathbb{C} | |w|=1, w \neq 1\}$ .
 
 (b) $A = \{z \in \mathbb{C} | x = 1\}$ , $z = 1+iy$ とする。このとき
@@ -88,3 +90,7 @@ $$
 これは中心 $1/2$ 、半径 $1/2$ の円から点 $w=1$ を除いたものである。
 
 (c) $A = \{z \in \mathbb{C} | y = 0, x \geq 0\}$ , $z = x$ . Then $w(z) = \frac{x-1}{x+1}$ . Since $x \geq 0$ , then $-1 \leq \frac{x-1}{x+1} < 1$ . Hence, $w(A) = \{w \in \mathbb{R} | -1 \leq w < 1 \}$ .
+
+以下の図では、白丸は除外する点、黒丸は含む点を表す。
+
+![三つの集合の像と端点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu/2017/kyushu-2017-mobius-images.svg)

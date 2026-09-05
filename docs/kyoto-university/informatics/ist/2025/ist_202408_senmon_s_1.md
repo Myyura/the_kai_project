@@ -17,6 +17,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_ist.pdf)
+
 ### Q.1
 Suppose the probability density function $f(x)$ of a random variable $X$ is as follows.
 
@@ -104,3 +106,102 @@ Consider a linear regression model $Y_i = \alpha + \beta x_i + \epsilon_i \ (i =
    $$
 
    其中 $\epsilon_{17}$ 与前 16 个误差项独立且同样服从 $\mathrm{N}(0,\sigma^2)$。使用 $\hat{\alpha},\hat{\beta},\sigma$ 以及 $x_1,\ldots,x_{17}$ 写出 $Y_{17}$ 的 $95\%$ 预测区间。自由度为 14 的 $t$ 分布上侧 $2.5\%$ 分位点可取 2.145。
+
+## **Kai**
+### Q.1
+#### (1)
+Normalization gives
+
+$$
+1=c\int_0^3x(3-x)\,dx=\frac92c,
+\qquad c=\frac29.
+$$
+
+#### (2)
+
+$$
+E[X]=\frac29\int_0^3x^2(3-x)\,dx=\frac32,
+\qquad
+E[X^2]=\frac29\int_0^3x^3(3-x)\,dx=\frac{27}{10}.
+$$
+
+Hence $\operatorname{Var}(X)=27/10-9/4=9/20$.
+
+### Q.2
+Independence gives the probability-generating function
+
+$$
+E[t^{X+Y}]=E[t^X]E[t^Y]
+=(1-p+pt)^m(1-p+pt)^n=(1-p+pt)^{m+n}.
+$$
+
+Consequently $Z\sim\mathrm B(m+n,p)$, including $p=0,1$.
+
+### Q.3
+#### (1)
+Let $d_i=x_i-y_i$. Then
+
+$$
+\bar d=\bar x-\bar y,\qquad s_d^2=s_x^2+s_y^2-2s_{xy}.
+$$
+
+For independent, normally distributed pair differences with positive variance, the Student pivot has $17$ degrees of freedom. The interval is
+
+$$
+\boxed{\bar x-\bar y\ \pm\ 2.110\sqrt{\frac{s_x^2+s_y^2-2s_{xy}}{18}}}.
+$$
+
+Joint normality of each pair suffices for normality of the differences. Normal marginal distributions alone do not imply this condition; without it the displayed Student interval is an approximation rather than an exact finite-sample interval.
+
+#### (2)
+For independent unpaired samples, the pooled estimator is
+
+$$
+s_p^2=\frac{17s_x^2+17s_y^2}{34}=\frac{s_x^2+s_y^2}{2}.
+$$
+
+The Student pivot has $34$ degrees of freedom, giving
+
+$$
+\boxed{\bar x-\bar y\ \pm\ 2.032\sqrt{\frac{s_x^2+s_y^2}{18}}}.
+$$
+
+### Q.4
+Write $\bar x=\sum_{i=1}^{16}x_i/16$ and $S_{xx}=\sum_{i=1}^{16}(x_i-\bar x)^2>0$.
+
+#### (1)
+Since
+
+$$
+\hat\beta-\beta=\frac{\sum_i(x_i-\bar x)\epsilon_i}{S_{xx}},
+$$
+
+independence yields $\operatorname{Var}(\hat\beta)=\sigma^2/S_{xx}$, so its standard deviation is $\sigma/\sqrt{S_{xx}}$.
+
+#### (2)
+The fitted value is $\hat Y_{17}=\hat\alpha+\hat\beta x_{17}$. Using $\operatorname{Cov}(\bar\epsilon,\hat\beta)=0$ and independence of the new error,
+
+$$
+\operatorname{Var}(Y_{17}-\hat Y_{17})
+=\sigma^2\left(1+\frac1{16}+\frac{(x_{17}-\bar x)^2}{S_{xx}}\right).
+$$
+
+With the population standard deviation $\sigma$ specified, the prediction interval is
+
+$$
+\boxed{\hat\alpha+\hat\beta x_{17}\ \pm\ 1.960\,\sigma
+\sqrt{1+\frac1{16}+\frac{(x_{17}-\bar x)^2}{S_{xx}}}}.
+$$
+
+If $\sigma$ is instead estimated from residuals, set
+
+$$
+s^2=\frac1{14}\sum_{i=1}^{16}(Y_i-\hat\alpha-\hat\beta x_i)^2.
+$$
+
+The independent residual variance estimate gives the Student version
+
+$$
+\hat\alpha+\hat\beta x_{17}\ \pm\ 2.145\,s
+\sqrt{1+\frac1{16}+\frac{(x_{17}-\bar x)^2}{S_{xx}}}.
+$$

@@ -96,5 +96,5 @@ $$
 よって
 
 $$
-\int_C A\cdot dr=\int_0^1 A(t)\cdot r'(t),dt=\frac{15}{4}
+\int_C A\cdot dr=\int_0^1 A(t)\cdot r'(t)\,dt=\frac{15}{4}
 $$

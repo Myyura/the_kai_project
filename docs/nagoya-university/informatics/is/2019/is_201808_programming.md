@@ -8,7 +8,7 @@ tags:
   - Computer-Science.Programming.Dynamic-Memory-Allocation
   - Computer-Science.Programming.Bitwise-Operation
 ---
-# 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2018年8月実施 プログラミング
+# 名古屋大学 情報学研究科 情報システム学専攻 2018年8月実施 プログラミング
 
 ## **Author**
 祭音Myyura
@@ -48,7 +48,7 @@ tags:
 
 
 #### プログラム P
-```text
+```c showLineNumbers
 #include <stdlib.h>
 
 char* index(char* string, int p) {
@@ -132,6 +132,9 @@ void main() {
 }
 ```
 
+
+[出典：名古屋大学 入学試験問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/180c8bb1241500018a144ec27b6a07b5.pdf)
+
 ### 题目描述
 
 程序 P 用 C 语言处理由一字节字符和三字节字符组成的字符串。单字节字符首位为 `0`；三字节字符第一字节的最高位为 `1`，一个字符由该字节及后续两个字节共同表示。字符串存放在 8 位 `char` 数组中并以 `'\0'` 结尾。
@@ -185,9 +188,13 @@ tmp2: 0xE3, 0x81, 0x82, 0x41, 0xE3, 0x81, 0x86, '\0'
 | 値 | 0xE3 | 0x81 | 0x82 | 0x41 | 0xE3 | 0x81 | 0x86 | '\0' |
 
 ### (6)
-length_b(string1) - length_b(l) + 1
+`length_b(string1) - length_b(l) + 1`
+
+`l` は `string1` 内の切断位置（終端を含む）を指すので、差はコピーする前置部分のバイト数であり、最後の `+ 1` は終端用である。
 
 ### (7)
+置き換える $p$ 番目の文字が存在する場合、次のようにその文字の1バイトまたは3バイトを飛ばす。
+
 - \[ 空欄 (F) \]: (*tmp1 & 0x80)
 - \[ 空欄 (G) \]: tmp1++
 - \[ 空欄 (H) \]: tmp1 += 3

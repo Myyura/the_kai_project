@@ -12,6 +12,9 @@ tags:
 
 ## **Description**
 
+出典：[名古屋大学・令和5年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/0c8cfd0a7f9c85180fb8c16d9c008ae0.pdf)。
+
+
 確率変数 $X$ の確率密度関数 $f(x)$ に関して、以下の問いに答えよ。
 
 (1) $f(x)$ が満たすべき性質を2つ答えよ。

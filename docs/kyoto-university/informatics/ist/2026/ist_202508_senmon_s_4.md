@@ -12,6 +12,8 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2025_ist.pdf)
 In the questions below, $(\cdot)^*$, $(\cdot)^{\mathrm{T}}$, and $E[\cdot]$ denote the complex conjugate, the transpose, and the expectation, respectively. $\mathbb{R}$ and $\mathbb{Z}$ denote the set of all real numbers and the set of all integers, respectively.
 
 ### Q.1
@@ -150,3 +152,53 @@ Answer the following questions.
    （1）用 $\boldsymbol R,\boldsymbol p,\sigma^2,\boldsymbol h$ 表示 $J(\boldsymbol h)$。
 
    （2）推导使 $J(\boldsymbol h)$ 最小的滤波器系数向量 $\boldsymbol h$ 所满足的方程，即 Wiener–Hopf 方程。
+
+## **Kai**
+
+### Q.1
+
+(1) 对 $a\ne0$，几何级数给出
+
+$$X_1(z)=\sum_{n=0}^{\infty}(a/z)^n=\frac1{1-az^{-1}},\qquad |z|>|a|.$$
+
+当 $a=0$ 时，$x_1(n)=\delta[n]$，变换为常数 $1$。它在所有非零复数处收敛，并可延拓至 $z=0$；若定义允许有限 Laurent 多项式在零点取值，则此时零点也属于收敛域。
+
+(2) 部分分式分解为
+
+$$X_2(z)=-\frac1{1-\frac14z^{-1}}+\frac2{1-\frac12z^{-1}}.$$
+
+第一项须取右边序列，第二项须取左边序列，因为
+
+$$\frac1{1-az^{-1}}=-\sum_{m=1}^{\infty}(z/a)^m\quad(|z|<|a|).$$
+
+因此
+
+$$\boxed{x_2(n)=-\left(\frac14\right)^n u[n]-2\left(\frac12\right)^n u[-n-1]},$$
+
+其中 $u[n]=1$ 当 $n\geq0$，否则为 $0$。两个收敛域相交正是 $1/4<|z|<1/2$。
+
+(3) 换元 $m=n-k$，得
+
+$$\sum_n x_3^*(n-k)z^{-n}=z^{-k}\left[X_3(z^*)\right]^*.$$
+
+对任何 $0<|z|<\infty$，
+
+$$\sum_n|x_3^*(n-k)z^{-n}|=|z|^{-k}\sum_m|x_3(m)||z|^{-m}.$$
+
+故非零有限复数处的收敛性完全相同，收敛环及其边界圆上的收敛性均不变。若收敛域包括 $0$（或扩充复平面中的 $\infty$），移位可能改变这些点的归属。例如 $\delta[n]$ 的变换是 $1$，而延迟后的 $\delta[n-1]$ 的变换是 $z^{-1}$，在零点有极点。
+
+### Q.2
+
+(1) 展开平方并取期望，得
+
+$$\boxed{J(\boldsymbol h)=\sigma^2-2\boldsymbol p^{\mathrm T}\boldsymbol h+\boldsymbol h^{\mathrm T}\boldsymbol R\boldsymbol h}.$$
+
+(2) $\boldsymbol R$ 对称且半正定，故
+
+$$\nabla J=2\boldsymbol R\boldsymbol h-2\boldsymbol p=0,$$
+
+给出 Wiener–Hopf 方程
+
+$$\boxed{\boldsymbol R\boldsymbol h=\boldsymbol p}.$$
+
+若 $\boldsymbol R$ 可逆，唯一解为 $\boldsymbol h=\boldsymbol R^{-1}\boldsymbol p$。若 $\boldsymbol R$ 奇异，方程仍有解：$\boldsymbol v\in\ker\boldsymbol R$ 意味着 $E[(\boldsymbol v^{\mathrm T}\boldsymbol x)^2]=0$，故 $\boldsymbol v^{\mathrm T}\boldsymbol p=0$，即 $\boldsymbol p\in\operatorname{im}\boldsymbol R$。所有解均为全局最小点，可写作 $\boldsymbol R^+\boldsymbol p+\ker\boldsymbol R$。

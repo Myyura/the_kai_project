@@ -18,6 +18,9 @@ tags:
 
 (b) 領域 $K$ の中で平面 $L$ と $xy$ 平面に挟まれた領域の体積 $V$ を求めよ.
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20171031151037id_/http://www.is.nagoya-u.ac.jp/exam-old/d21608.pdf)
+
 ### 题目描述
 
 在三维空间中定义
@@ -47,9 +50,9 @@ $$
 
 ## **Kai**
 
-(a) $x^2 + y^2 = 1$ より、 $y = \sqrt{1-x^2}$ 。ただし、 $x \geq 0, y \geq 0$ であるので、 $y = \sqrt{1-x^2}$ は条件を満たす。
+(a) $x^2 + y^2 = 1$ より、 $y = \sqrt{1-x^2}$ 。ただし、 $0\le x\le1, y \geq 0$ であるので、 $y = \sqrt{1-x^2}$ は条件を満たす。
 
-(b) 領域 $K$ は、 $x^2 + y^2 \leq 1, x \geq 0, y \geq 0, 0 \leq z \leq \sqrt{2}$ であり、平面 $L$ は $z = x+y$ である。したがって、求める体積 $V$ は、
+(b) 領域 $K$ は、 $x^2 + y^2 \leq 1, x \geq 0, y \geq 0, 0 \leq z \leq \sqrt{2}$ であり、平面 $L$ は $z = x+y$ である。$x+y\le\sqrt{2(x^2+y^2)}\le\sqrt2$ なので、平面までの高さは $K$ の上限を超えない。したがって、求める体積 $V$ は、
 
 $$
 V = \int_0^1 \int_0^{\sqrt{1-x^2}} (x+y) dy dx = \int_0^1 \left[ xy + \frac{1}{2}y^2 \right]_0^{\sqrt{1-x^2}} dx

@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_ist.pdf)
+
 Consider deterministic finite state automata $(Q, \Sigma, \delta, q_0, F)$, where $Q$ is a finite set of states, $\Sigma$ is a finite set of characters, $\delta : Q \times \Sigma \to Q$ is a transition function, $q_0 \in Q$ is a start state, and $F \subseteq Q$ is a set of accept states. Also, $\epsilon \in \Sigma^*$ denotes the empty string.
 Let $\Sigma = \{0, 1, 2, \dots, 9\}$. For $w \in \Sigma^*$, $n(w)$ returns an integer number represented by $w$. For example, $n(52) = 52$ and $n(068) = 68$. For $\epsilon$, we define $n(\epsilon) = 0$.
 
@@ -58,3 +60,48 @@ Let $\Sigma = \{0, 1, 2, \dots, 9\}$. For $w \in \Sigma^*$, $n(w)$ returns an in
    $$
 
    其中 $h(w)$ 返回字符串 $w$ 的首字符。对任意 $k\geq2$，给出接受 $L_3\cap L_4$ 的确定性有限自动机的 $Q,\delta,F$；描述 $\delta$ 时可以使用取模运算。
+
+## **Kai**
+### (1)
+Use states $r_0,r_1$ for the remainder modulo $2$. The start state $r_0$ is accepting, including the empty string. Reading an even digit leads to $r_0$ from either state; reading an odd digit leads to $r_1$.
+
+![DFA for divisibility by 2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2025/kyoto-ist-2024-dfa-mod2.svg)
+
+### (2)
+Use states $r_0,r_1,r_2$ for the remainder modulo $3$, starting and accepting at $r_0$. Since $10\equiv1\pmod3$, a digit with remainder $d$ changes state $r_i$ to $r_{(i+d)\bmod3}$.
+
+![DFA for divisibility by 3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2025/kyoto-ist-2024-dfa-mod3.svg)
+
+The edge labels are $A=\{0,3,6,9\}$, $B=\{1,4,7\}$, and $C=\{2,5,8\}$.
+
+### (3)
+Let
+
+$$
+Q=\{r_0,\ldots,r_{k-1}\},\quad q_0=r_0,\quad F=\{r_0\},
+\qquad\delta(r_i,d)=r_{(10i+d)\bmod k}.
+$$
+
+Induction on the number of read digits shows that the current index is $n(w)\bmod k$, proving the recognized language is $L_3$.
+
+### (4)
+Add three states $s,z,\bot$ distinct from all remainder states:
+
+$$
+Q=\{s,z,\bot\}\cup\{r_0,\ldots,r_{k-1}\},
+\qquad q_0=s,\qquad F=\{z,r_0\}.
+$$
+
+Here $s$ is the initial state, $z$ means the complete prefix is the single character `0`, and $\bot$ is a rejecting sink. Define
+
+$$
+\begin{aligned}
+\delta(s,0)&=z,\\
+\delta(s,d)&=r_{d\bmod k} &&(d=1,\ldots,9),\\
+\delta(z,d)&=\bot &&(d=0,\ldots,9),\\
+\delta(\bot,d)&=\bot &&(d=0,\ldots,9),\\
+\delta(r_i,d)&=r_{(10i+d)\bmod k} &&(d=0,\ldots,9).
+\end{aligned}
+$$
+
+The empty word ends at rejecting $s$, the single zero ends at accepting $z$, and any longer word starting with zero reaches $\bot$. A word starting with a nonzero digit is accepted precisely when its value is divisible by $k$. Hence the language is $L_3\cap L_4$.

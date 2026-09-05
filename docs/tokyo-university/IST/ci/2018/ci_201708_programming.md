@@ -11,6 +11,8 @@ tags:
 [tomfluff](https://github.com/tomfluff), 祭音Myyura
 
 ## **Description**
+
+[原題（日本語）](https://www.i.u-tokyo.ac.jp/edu/course/ci/pdf/2017-8-program.pdf)
 Assume that matrix elements are non-negative integers and they are stored in main memory.
 
 (1) When the algorithm below is used to multiply an $m \times n$ matrix $A$ and an $n \times m$ matrix $B$, how many times are these matrix elements in $A$ and $B$ read from the main memory? 
@@ -180,299 +182,139 @@ Moreover, write the result of the computation in your answer sheet for $m=200$, 
 Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2018-Summer) for the sample data files.
 
 ### (1)
-Read access to the elements in $A$ and $B$ is:
-- $A$ Elements: $m\cdot n \cdot m$ reads
-- $B$ Elements: $m\cdot n \cdot m$ reads
-
-Therefore, in total there are $2(m\cdot n \cdot m)$ read operations.
+There are $m^2n$ executions of the innermost multiplication, each reading one element from each matrix. The total is $\boxed{2m^2n}$.
 
 ### (2)
-
-```python
-# Here I assume that file can be weirdly formatted and matrix isn't defined in a single line.
-def main():
-    lines = []
-    with open('2018-Summer/mat1.txt','r') as f:
-        lines = f.readlines()
-
-    rows = 0
-    cols = 0
-
-    cols_check = True
-    rows_check = True
-    for l in lines:
-        sep_cnt = l.count(',')
-        end_cnt = l.count('.')
-        if sep_cnt > 0:
-            rows += sep_cnt
-            if cols_check:
-                if l.find(',') > 0:
-                    cols += len(l[:l.find(',')].strip().split(' '))
-                cols_check = False
-        else:
-            if cols_check:
-                cols += len(l.strip().split(' '))
-        if end_cnt > 0:
-            rows += 1
-            break
-        
-    
-    print(f"{rows} x {cols}")
-
-
-if __name__ == "__main__":
-    main()
-```
+Keep only the text before the first period, split it at commas into rows, then split each row at whitespace. The row count and the common row length give $m,n$. For the linked sample `mat1.txt`, the answer is $3\times4$.
 
 ### (3)
+Only the diagonal of $AB$ is needed:
 
-```python
-# Here I assume matrix defined in a single line, so one line per matrix
-from locale import atoi
-import numpy as np
+$$
+\operatorname{tr}(AB)=\sum_{i=0}^{m-1}\sum_{k=0}^{n-1}a_{ik}b_{ki}.
+$$
 
-def get_mat_from_file(filename):
-    mats = []
-    lines = []
-    with open(filename, 'r') as f:
-        lines = f.readlines()
-    
-    for l in lines:
-        rows =  l.strip()[:-1].split(',')
-        _r = len(rows)
-        _c = len(rows[0].split(' '))
-        mats.append(np.full((_r,_c),0))
-        i = 0
-        for ro in rows:
-            j = 0
-            for itm in ro.split(' '):
-                mats[-1][i,j] = atoi(itm)
-                j += 1
-            i += 1
-        
-        return mats
-
-def get_mul_mat_a_b(mat_a, mat_b):
-    mat_c = np.matmul(mat_a,mat_b)
-    return mat_c
-
-def get_trace_for_mat(mat):
-    return np.trace(mat)
-
-def main():
-    # According to the instructions there is no issues with using numpy
-    mat_a = get_mat_from_file('2018-Summer/mat1.txt')[0]
-    mat_b = get_mat_from_file('2018-Summer/mat2.txt')[0]
-    mat_c = get_mul_mat_a_b(mat_a,mat_b)
-    trc = get_trace_for_mat(mat_c)
-
-    print(trc)
-    
-
-if __name__ == "__main__":
-    main()
-```
+This takes $O(mn)$ arithmetic operations and avoids storing $C$. Integer arithmetic preserves exactness. For the linked sample matrices, the three diagonal entries are $3,18,18$, hence the trace is $39$.
 
 ### (4)
-
-```python
-def lru_insert(elm, lru, s):
-    if s == 0:
-        return
-    if len(lru) >= s:
-        lru.pop()
-    lru.insert(0,elm)
-
-def lru_is_in(elm, lru):
-    return elm in lru
-
-def lru_refresh(elm,lru):
-    lru.remove(elm)
-    lru.insert(0,elm)
-
-def main():
-    cache_lru = []
-
-    m, n, s = map(int, input().split())
-    if m < 0 or n < 0 or s < 0:
-        raise ValueError('m, n, and s must be nonnegative')
-
-    rds = 0 # number of readings
-
-    i = 0
-    while i < m:
-        j = 0
-        while j < m:
-            k = 0
-            while k < n:
-                if not lru_is_in((i+1)*n+k, cache_lru):
-                    rds += 1
-                    lru_insert((i+1)*n+k, cache_lru,s)
-                else:
-                    lru_refresh((i+1)*n+k, cache_lru)
-                if not lru_is_in(-(k+1)*m-j, cache_lru):
-                    rds += 1
-                    lru_insert(-(k+1)*m-j, cache_lru,s)
-                else:
-                    lru_refresh(-(k+1)*m-j, cache_lru)
-                k += 1
-            j += 1
-        i += 1
-    print(rds)
-
-if __name__ == "__main__":
-    main()
-```
+Use disjoint addresses $in+k$ for $a_{ik}$ and $mn+km+j$ for $b_{kj}$. Traverse in the specified $i,j,k$ order, accessing $A$ before $B$. Maintain an ordered dictionary from least to most recently used address. On a hit, move the address to the end; on a miss, increment the read count, evict the first address if full, and insert the new address at the end. Initially the cache is empty. With $s=0$, all $2m^2n$ accesses miss.
 
 ### (5)
-
-- `[blank 1]` - u
-- `[blank 2]` - p
-- `[blank 3]` - v
-- `[blank 4]` - p
-- `[blank 5]` - w
-- `[blank 6]` - p
+The six entries are $\boxed{u,p,v,p,w,p}$, respectively. The three inner index ranges cover a $p\times p$ block multiplication. Initialize all entries of $C$ to zero before accumulating the block contributions.
 
 ### (6)
-
-```python
-def lru_insert(elm, lru, s):
-    if s == 0:
-        return
-    if len(lru) >= s:
-        lru.pop()
-    lru.insert(0,elm)
-
-def lru_is_in(elm, lru):
-    return elm in lru
-
-def lru_refresh(elm,lru):
-    lru.remove(elm)
-    lru.insert(0,elm)
-
-def main():
-    cache_lru = []
-
-    m, n, p, s = map(int, input().split())
-    if p <= 0 or m % p or n % p or s < 0:
-        raise ValueError('p must divide m and n, and s must be nonnegative')
-
-    rds = 0 # number of readings
-
-    u = 0
-    while u < m:
-        v = 0
-        while v < m:
-            w = 0
-            while w < n:
-                i = u
-                while i < u+p:
-                    j = v
-                    while j < v+p:
-                        k = w
-                        while k < w+p:
-                            if not lru_is_in((i+1)*n+k, cache_lru):
-                                rds += 1
-                                lru_insert((i+1)*n+k, cache_lru,s)
-                            else:
-                                lru_refresh((i+1)*n+k, cache_lru)
-                            if not lru_is_in(-(k+1)*m-j, cache_lru):
-                                rds += 1
-                                lru_insert(-(k+1)*m-j, cache_lru,s)
-                            else:
-                                lru_refresh(-(k+1)*m-j, cache_lru)
-                            k += 1
-                        j += 1
-                    i += 1
-                w += p
-            v += p
-        u += p
-    print(rds)
-
-if __name__ == "__main__":
-    main()
-```
+Generate addresses in the exact order $u,v,w,i,j,k$ given by the blocked pseudocode and apply the same LRU procedure. Each common divisor $p$ visits every required triple $(i,j,k)$ once. The simulation takes expected $O(m^2n)$ time and $O(\min(s,2mn))$ cache space.
 
 ### (7)
+Enumerate every positive divisor of $\gcd(m,n)$ and simulate its read count; minimize the pair `(count, -p)` to select the largest $p$ among ties. A larger block is not always better because its working set can exceed the cache capacity.
+
+For $m=200$, $n=150$, and $s=600$:
+
+| $p$ | Main-memory reads |
+|---:|---:|
+| 1 | 6,030,000 |
+| 2 | 5,257,500 |
+| 5 | 2,400,000 |
+| 10 | 1,200,000 |
+| 25 | 6,240,000 |
+| 50 | 6,120,000 |
+
+Thus $\boxed{p=10}$. If there are $d$ common divisors, the exhaustive search takes expected $O(d\,m^2n)$ time.
+
+### Program
+
+Save as `matrix.py`. Example commands are `python matrix.py 2 mat1.txt`, `python matrix.py 3 mat1.txt mat2.txt`, `python matrix.py 4 200 150 600`, `python matrix.py 6 200 150 10 600`, and `python matrix.py 7 200 150 600`.
 
 ```python
-import math 
+from collections import OrderedDict
+from math import gcd
+from pathlib import Path
+import sys
 
-def lru_insert(elm, lru, s):
-    if s == 0:
-        return
-    if len(lru) >= s:
-        lru.pop()
-    lru.insert(0,elm)
 
-def lru_is_in(elm, lru):
-    return elm in lru
+def read_matrix(path):
+    data = Path(path).read_text(encoding='utf-8').split('.', 1)[0]
+    rows = [[int(value) for value in row.split()] for row in data.split(',')]
+    if not rows or not rows[0] or any(len(row) != len(rows[0]) for row in rows):
+        raise ValueError('a nonempty rectangular matrix is required')
+    if any(value < 0 for row in rows for value in row):
+        raise ValueError('matrix entries must be nonnegative')
+    return rows
 
-def lru_refresh(elm,lru):
-    lru.remove(elm)
-    lru.insert(0,elm)
 
-def get_p_options(m,n,s):
-    return [x for x in range(1,min(m,n)+1) if m % x == 0 and n % x == 0]
+def product_trace(a, b):
+    m, n = len(a), len(a[0])
+    if len(b) != n or any(len(row) != m for row in b):
+        raise ValueError('A must be m by n, B must be n by m')
+    return sum(a[i][k] * b[k][i] for i in range(m) for k in range(n))
 
-'''
-All common divisors must be checked: increasing p improves reuse only while the
-working set fits the cache; a larger block may instead cause LRU thrashing.
-'''
+
+def addresses(m, n, p=None):
+    if p is None:
+        for i in range(m):
+            for j in range(m):
+                for k in range(n):
+                    yield i * n + k
+                    yield m * n + k * m + j
+    else:
+        for u in range(0, m, p):
+            for v in range(0, m, p):
+                for w in range(0, n, p):
+                    for i in range(u, u + p):
+                        for j in range(v, v + p):
+                            for k in range(w, w + p):
+                                yield i * n + k
+                                yield m * n + k * m + j
+
+
+def read_count(m, n, capacity, p=None):
+    if m <= 0 or n <= 0 or capacity < 0:
+        raise ValueError('m,n must be positive and capacity nonnegative')
+    if p is not None and (p <= 0 or m % p or n % p):
+        raise ValueError('p must be a positive common divisor')
+    if capacity == 0:
+        return 2 * m * m * n
+    cache = OrderedDict()
+    misses = 0
+    for address in addresses(m, n, p):
+        if address in cache:
+            cache.move_to_end(address)
+        else:
+            misses += 1
+            if len(cache) == capacity:
+                cache.popitem(last=False)
+            cache[address] = None
+    return misses
+
+
+def best_block(m, n, capacity):
+    common = gcd(m, n)
+    candidates = [p for p in range(1, common + 1) if common % p == 0]
+    counts = [(read_count(m, n, capacity, p), -p) for p in candidates]
+    count, negative_p = min(counts)
+    return -negative_p, count
+
+
 def main():
-    m, n, s = map(int, input().split())
-    if m <= 0 or n <= 0 or s < 0:
-        raise ValueError('m and n must be positive, and s nonnegative')
-    best_p = 1
-    min_rds = float('inf')
-    all_p = get_p_options(m,n,s)
-    all_p.reverse()
+    part = int(sys.argv[1])
+    if part == 2:
+        a = read_matrix(sys.argv[2])
+        print(len(a), len(a[0]))
+    elif part == 3:
+        print(product_trace(read_matrix(sys.argv[2]), read_matrix(sys.argv[3])))
+    elif part == 4:
+        m, n, capacity = map(int, sys.argv[2:])
+        print(read_count(m, n, capacity))
+    elif part == 6:
+        m, n, p, capacity = map(int, sys.argv[2:])
+        print(read_count(m, n, capacity, p))
+    elif part == 7:
+        m, n, capacity = map(int, sys.argv[2:])
+        print(*best_block(m, n, capacity))
+    else:
+        raise ValueError('choose part 2,3,4,6,7')
 
-    for p in all_p:
-        cache_lru = []
-        rds = 0 # number of readings
-        go_on = True
-        u = 0
-        while u < m and go_on:
-            v = 0
-            while v < m and go_on:
-                w = 0
-                while w < n and go_on:
-                    i = u
-                    while i < u+p and go_on:
-                        j = v
-                        while j < v+p and go_on:
-                            k = w
-                            while k < w+p and go_on:
-                                if not lru_is_in((i+1)*n+k, cache_lru):
-                                    rds += 1
-                                    lru_insert((i+1)*n+k, cache_lru,s)
-                                else:
-                                    lru_refresh((i+1)*n+k, cache_lru)
-                                if not lru_is_in(-(k+1)*m-j, cache_lru):
-                                    rds += 1
-                                    lru_insert(-(k+1)*m-j, cache_lru,s)
-                                else:
-                                    lru_refresh(-(k+1)*m-j, cache_lru)
-                                if rds > min_rds:
-                                    go_on = False
-                                k += 1
-                            j += 1
-                        i += 1
-                    w += p
-                v += p
-            u += p
-        if rds < min_rds or (rds == min_rds and p > best_p):
-            best_p = p
-            min_rds = rds
-    
-    print(f"best p={best_p} : {min_rds} readings")
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 ```
-
-For $m=200$, $n=150$, and $s=600$, the read counts for
-$p=1,2,5,10,25,50$ are respectively
-$6{,}030{,}000$, $5{,}257{,}500$, $2{,}400{,}000$, $1{,}200{,}000$,
-$6{,}240{,}000$, and $6{,}120{,}000$. Therefore the answer is $\boxed{p=10}$.

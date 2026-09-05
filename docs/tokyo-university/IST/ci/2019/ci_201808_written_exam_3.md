@@ -17,6 +17,8 @@ tags:
 [tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
+
+[原題（日本語）](https://www.i.u-tokyo.ac.jp/edu/course/ci/2018-8-exam.pdf)
 Select **four items** out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines of text. If necessary, use examples or figures.
 
 1. **Inverse kinematics**
@@ -52,15 +54,7 @@ A Hidden Markov Model (HMM) is a statistical model where the system being modele
 
 **MinMax algorithm**
 
-Minimax algorithm is a recursive algorithm in game theory or artificial intelligence, at a configuration of two agents in a zero-sum game, called MIN and MAX respectively wanting to minimize and maximize the utilities (values at leaves). 
-
-In detail, it is implemented by DFS to
-
-1. builds a game tree alternating the decisions of MAX and MIN: if the parent node is MAX, then it will choose the maximum of child MIN nodes; vice versa.
-2. lays out utilities into every leaf;
-3. backpropagates to internal nodes by maximizing and minimizing, finally a utility value will pass to the root as the returned result.
-
-Apparently, for a branching factor $b$ and maximum depth $d$, the algorithm has exponential time $O(b^d)$ and polynomial space $O(bd)$. To alleviate the time complexity burden, Alpha-Beta pruning is used.
+For a deterministic, alternating-turn, perfect-information, two-player zero-sum game, minimax assigns each terminal position its utility for MAX. Recursively, a MAX node takes the maximum of its children's values and a MIN node takes their minimum. The resulting root value is the best utility MAX can guarantee against optimal opposition; the maximizing root move is selected. With branching factor $b$ and depth $d$, exhaustive search takes $O(b^d)$ time. Generating successors as needed in depth-first order uses $O(bd)$ space, whereas storing the entire game tree would require exponential space. Alpha-beta pruning can skip branches that cannot change the result.
 
 **NP complete problem**
 
@@ -68,6 +62,18 @@ Please refer to [CI 2013-4, (1)](https://runjp.com/docs/tokyo-university/IST/ci/
 
 A decision problem is NP-complete iff it belongs to NP and every problem in NP has a polynomial-time many-one reduction to it. Thus a polynomial-time algorithm for one NP-complete problem would imply $P=NP$.
 
+**Ray tracing**
+
+Ray tracing computes visibility and image appearance by intersecting rays with scene geometry. A camera ray through a pixel finds the nearest visible surface, where the material and lighting determine its contribution. Shadow rays test visibility of lights, and secondary rays can model reflection and refraction. Acceleration structures such as bounding-volume hierarchies reduce intersection work. More general path tracing samples sequences of scattering events to estimate global illumination.
+
 **SIMD (Single Instruction Multiple Data)**
 
-SIMD is a technology for a processor to execute the same operation for multiple pieces of data via very wide vector registers (such as 128,256,512 bit registers) in a single thread. For example, SIMD can add 8 groups of float point numbers for two 256-bit vector registers together simultaneously. There are Intel’s SSE for 128-bit XMM registers, AVX and AVX-512 for 256/512-bit YMM/ZMM registers. In C or C++ we use intrinsics to call these instructions.
+SIMD applies one instruction to several data elements in parallel. Vector-register instructions are a common implementation: for example, one 256-bit vector addition can add eight pairs of 32-bit floating-point values. SSE, AVX, and AVX-512 provide examples of vector instruction sets. SIMD benefits regular data-parallel work such as image processing; dependent operations and irregular control flow limit the useful parallelism.
+
+**Call by value and call by reference**
+
+Call by value initializes a local parameter from the argument's value, so assigning to that parameter does not assign to the caller's variable. Call by reference makes the parameter an alias for the caller's object, so an assignment through a non-const reference changes that object. For example, in C++, `void f(int x) { ++x; }` leaves its argument unchanged, whereas `void g(int& x) { ++x; }` increments it. A pointer passed by value is still a copied pointer: modifying the pointed-to object is possible, but replacing the local pointer does not replace the caller's pointer.
+
+**Public-key cryptography**
+
+Public-key cryptography uses a mathematically related public/private key pair. In an encryption scheme, anyone with the recipient's public key can encrypt a message, while the private key permits decryption. In a signature scheme, the private key signs and the public key verifies authenticity and integrity; a signature does not itself hide the message. Security relies on the difficulty of recovering secrets or forging valid outputs. Certificates can bind public keys to identities, and hybrid encryption uses public-key techniques to establish a symmetric session key.

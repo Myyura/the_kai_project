@@ -51,7 +51,7 @@ Suppose the total cost is given by $Cost = C_s + L \times C_d$, where $C_s$ is t
 
 ### 题目描述
 
-本页原文标为“英文回忆版”。考虑一次只能处理一个请求的服务器：请求以到达率 $\lambda$ 连续到来，服务率为 $\mu$。在很小时间 $\Delta t$ 内，新到达概率为 $\lambda\Delta t$，当前服务完成概率为 $\mu\Delta t$，两个以上事件（如两次到达，或到达与离开同时发生）的概率可忽略，记为 $o(\Delta t)$。令 $P_n(t)$ 为时刻 $t$ 系统中（等待加服务中）共有 $n$ 个请求的概率。空系统边界式为
+考虑一次只能处理一个请求的服务器：请求以到达率 $\lambda$ 连续到来，服务率为 $\mu$。在很小时间 $\Delta t$ 内，新到达概率为 $\lambda\Delta t$，当前服务完成概率为 $\mu\Delta t$，两个以上事件（如两次到达，或到达与离开同时发生）的概率可忽略，记为 $o(\Delta t)$。令 $P_n(t)$ 为时刻 $t$ 系统中（等待加服务中）共有 $n$ 个请求的概率。空系统边界式为
 
 $$
 P_0(t+\Delta t)=P_0(t)(1-\lambda\Delta t)+P_1(t)\mu\Delta t.
@@ -94,7 +94,7 @@ To have $n$ requests at time $t+\Delta t$ (where $n \ge 1$), one of three mutual
 Combining these gives:
 
 $$
-P_n(t+\Delta t) = P_n(t)(1 - \lambda \Delta t - \mu \Delta t) + P_{n-1}(t)\lambda \Delta t + P_{n+1}(t)\mu \Delta t
+P_n(t+\Delta t) = P_n(t)(1 - \lambda \Delta t - \mu \Delta t) + P_{n-1}(t)\lambda \Delta t + P_{n+1}(t)\mu \Delta t + o(\Delta t)
 $$
 
 ### 2. Recurrence Relation
@@ -102,7 +102,7 @@ $$
 Rearrange the equation from Q1 and divide by $\Delta t$:
 
 $$
-\frac{P_n(t+\Delta t) - P_n(t)}{\Delta t} = -(\lambda + \mu)P_n(t) + \lambda P_{n-1}(t) + \mu P_{n+1}(t)
+\frac{P_n(t+\Delta t) - P_n(t)}{\Delta t} = -(\lambda + \mu)P_n(t) + \lambda P_{n-1}(t) + \mu P_{n+1}(t) + o(1)
 $$
 
 Take the limit as $\Delta t \to 0$. The left side becomes the derivative $\frac{dP_n(t)}{dt}$.
@@ -116,7 +116,7 @@ $$
 (\lambda + \mu)P_n = \lambda P_{n-1} + \mu P_{n+1}
 $$
 
-This represents the global balance equations. It implies that the rate of entering state $n$ equals the rate of leaving state $n$. It simplifies to the local balance equation (Rate Up = Rate Down):
+This represents the global balance equations. It implies that the rate of entering state $n$ equals the rate of leaving state $n$. The boundary equation gives $\lambda P_0=\mu P_1$. For $n\ge1$, the global balance equation says $\lambda P_n-\mu P_{n+1}=\lambda P_{n-1}-\mu P_n$. Thus this probability flux equals its boundary value zero, yielding local balance:
 
 $$
 \lambda P_n = \mu P_{n+1}
@@ -149,8 +149,10 @@ $$
 Substituting back:
 
 $$
-P_n = (1 - \rho)\rho^n
+P_n = (1 - \rho)\rho^n,\qquad 0\le\rho<1.
 $$
+
+For $\rho\ge1$, the sequence cannot be normalized, so no stationary probability distribution exists.
 
 ### 4. Average Number of Requests ($L$)
 
@@ -172,7 +174,7 @@ $$
 L = \frac{\rho}{1 - \rho}
 $$
 
-### 5. Average Waiting Time ($W$)
+### 5. Average Time in the System ($W$)
 
 Using **Little's Law**: $L = \lambda W$.
 
@@ -192,7 +194,7 @@ $$
 
 ### 6. Behavior when $\rho \to 1$
 
-As $\rho \to 1$ (which means $\lambda \to \mu$):
+Hold $\mu>0$ fixed and let $\rho\to1^-$, equivalently $\lambda\to\mu^-$:
 
 $$
 W = \frac{1}{\mu(1-\rho)}

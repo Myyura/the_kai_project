@@ -135,6 +135,8 @@ $S\to aSa\mid bSb\mid a\mid b\mid\varepsilon$
 4. 给出生成 $L_4$ 的产生式，非终结符为 $S,T,X$，开始符号为 $S$。
 
 ## **Kai**
+
+[公式原題（18–19頁）](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/R02infait.pdf#page=18)でも問 1 の添字範囲は $i=1,2,3,4$ となっている。一方、状態集合は $\{p_0,p_1,p_2,p_3\}$ なので、このままでは $p_0$ の遷移が未定義で $p_4$ は存在しない。以下は添字範囲を $i=0,1,2,3$ と解釈した解答である。
 ### 【問１】
 #### (1)
 <figure style="text-align:center;">
@@ -153,9 +155,27 @@ $$
 Y(u) \text{ mod } 6 \equiv 0, Y(u) \neq 0
 $$
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_automata_and_formal_language_p2.png" width="600" height="600" alt=""/>
-</figure>
+```mermaid
+stateDiagram-v2
+    [*] --> q1
+    state "q6（受理）" as q6
+    q0 --> q0: 0,1,2,3
+    q1 --> q0: 0
+    q1 --> q1: 1
+    q1 --> q2: 2
+    q1 --> q3: 3
+    q2 --> q0: 0
+    q2 --> q2: 1,2
+    q2 --> q6: 3
+    q3 --> q0: 0
+    q3 --> q3: 1,3
+    q3 --> q6: 2
+    q6 --> q0: 0
+    q6 --> q6: 1,2,3
+```
+
+非零で $6$ の倍数になった積に $1,2,3$ を掛けても、非零の $6$ の倍数のままである。したがって $q_6$ から $q_1,q_2,q_3$ へ戻る遷移はない。
+
 
 ### 【問２】
 #### (1)

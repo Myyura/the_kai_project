@@ -94,6 +94,8 @@ I6: ST   [ δ ] 0(r5)
 
 $\alpha :$ `r1` $\qquad$ $\beta :$ `-1` $\qquad$ $\gamma :$ `r1` $\qquad$ $\delta :$ `r4`
 
+The summation assumes $r_4=0$ initially and a positive array length; an empty array must bypass the loop.
+
 ### (2)
 
 (i) a $\qquad$ (ii) b
@@ -108,32 +110,21 @@ Therefore, Frequency $f = \frac{1}{300\text{ps}} = \frac{1}{300 \times 10^{-12}}
 
 ### (4)
 
-The process could be:
-```text
-      1    2     3     4     5     6     7     8     9     10    11
-I1    IF → ID →  Reg → Exe → Mem → WB
-...        Stall                 ↘
-I2               IF  → ID  → Reg → Exe → Mem → WB
-I3                     IF  → ID  → Reg → Exe → Mem → WB
-I4                           IF  → ID  → Reg → Exe → Mem → WB
-I5                                 IF  → ID  → Reg → Exe → Mem → WB
-...                                      Stall           \
-...                                            Stall      \
-...                                                  Stall ↓
-I1 or I6                                                   IF→ ...
-```
-From the process, we could clearly get:
-**Data (Load-use) Hazard** ($I_1 \rightarrow I_2$)
-**Control Hazard** ($I_5 \rightarrow I_1 \text{ or } I_6$)
+The two sources of bubbles are:
+
+- **Data (load-use) hazard:** $I_1\to I_2$. If $I_1$ starts fetching in cycle 1, its memory access is in cycle 5. The loaded value is available for forwarding to $I_2$'s execution stage in cycle 6, so $I_2$ needs one stall cycle.
+- **Control hazard:** $I_5$. Without prediction, fetching the next instruction waits for the branch result. In (5), the specified penalty is three cycles.
+
+The result of $I_4$ can be forwarded from its execution stage to $I_5$, so that dependence adds no stall. The WAR dependence $I_1\to I_3$ adds no stall on this in-order pipeline. Separate instruction and data accesses are assumed to be available without a structural conflict.
 
 ### (5)
 
-According to (4), it is obvious to get every 5 instruction, need 9 total cycles.
+Each loop iteration executes five instructions and incurs one load-use stall and three branch stalls, giving $5+1+3=9$ cycles in steady state.
 i.e. $\text{CPI} = \frac{9}{5} = 1.8$
 
 ### (6)
 
-Since predictor is used, the process in (4) will be revised to step into next IF in cycle 7.
+After the one-bit predictor learns that the loop branch is taken, only a bounded number of mispredictions occur at entry/exit. Their cost vanishes per iteration as the array grows. The one load-use stall remains.
 i.e. every 5 instruction need 6 total cycles. i.e. $\text{CPI} = \frac{6}{5} = 1.2$
 
 Since $\text{IPS} = \frac{\text{Instructions}}{\text{Time}} = \frac{1}{\text{CPI} \cdot \text{Cycle Time}} = \frac{1}{1.2 \cdot 300 \times 10^{-12}} = \frac{1}{3.6 \times 10^{-10}} = \frac{50}{18} \times 10^9$

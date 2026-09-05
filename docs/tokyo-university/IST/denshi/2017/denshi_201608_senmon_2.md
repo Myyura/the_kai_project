@@ -49,6 +49,8 @@ Let us consider a falling-edge-triggered JK flip-flop as shown in Fig.1. This JK
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p2.png" width="700" height="350" alt=""/>
 </figure>
 
+Let $t_n$ be the time of the $n$-th falling input edge after reset. For $i=0,1,2,3$, $Q_i$ toggles precisely when $n$ is a multiple of $2^i$, at time $t_n+(i+1)\tau$. The clock period is assumed long enough for the ripple to settle.
+
 ### (2)
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p3.png" width="700" height="225" alt=""/>
@@ -72,11 +74,9 @@ Let us consider a falling-edge-triggered JK flip-flop as shown in Fig.1. This JK
 |1|0|0|0|1|0|0|1|
 |1|0|0|1|0|0|0|0|
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p5.png" width="700" height="666" alt=""/>
-</figure>
+The unused states 1010–1111 are don’t-cares. Rows and columns are in Gray-code order.
 
-<!-- $Q_0'$
+$Q_0'$
 |$Q_3Q_2$\\$Q_1Q_0$|00|01|11|10|
 |-|-|-|-|-|
 |00|1|0|0|1|
@@ -94,7 +94,7 @@ $Q_1'$
 |11|x|x|x|x|
 |10|0|0|x|x|
 
-$Q_1' = Q_1\overline{Q_0} + \overline{Q_3Q_1}Q_0$
+$Q_1' = Q_1\overline{Q_0} + \overline{Q_3}\,\overline{Q_1}Q_0$
 
 $Q_2'$
 |$Q_3Q_2$\\$Q_1Q_0$|00|01|11|10|
@@ -114,14 +114,35 @@ $Q_3'$
 |11|x|x|x|x|
 |10|1|0|x|x|
 
-$Q_3' = Q_3\overline{Q_0} + Q_2Q_1Q_0$ -->
+$Q_3' = Q_3\overline{Q_0} + Q_2Q_1Q_0$
 
 ### (4)
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p6.png" width="700" height="300" alt=""/>
-</figure>
+Use the common falling-edge clock and reset of (2). The required JK inputs are
+
+$$
+\begin{aligned}
+J_0&=K_0=1,\\
+J_1&=Q_0\overline{Q_3},&K_1&=Q_0,\\
+J_2&=K_2=Q_0Q_1,\\
+J_3&=Q_0Q_1Q_2,&K_3&=Q_0.
+\end{aligned}
+$$
+
+With $Q_i^+=J_i\overline{Q_i}+\overline{K_i}Q_i$, these connections produce the ten transitions in (3).
+
+![Synchronous decimal JK counter](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2017/tokyo-denshi-2016-mod10.svg)
 
 ### (5)
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2017_2_p7.png" width="700" height="325" alt=""/>
 </figure>
+
+Writing $U=UP/\overline{DOWN}$, the toggle inputs in (5) are
+
+$$
+J_0=K_0=1,\qquad
+J_i=K_i=U\prod_{j=0}^{i-1}Q_j+\overline U\prod_{j=0}^{i-1}\overline{Q_j}
+\quad(i=1,2,3).
+$$
+
+Thus $U=1$ counts up modulo 16, while $U=0$ counts down modulo 16.

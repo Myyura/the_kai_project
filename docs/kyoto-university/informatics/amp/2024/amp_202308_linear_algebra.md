@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_amp.pdf)
+
 次で与えられる3次正方行列 $A$ について考える.
 
 $$

@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[原題](https://www.i.u-tokyo.ac.jp/edu/course/ci/2019-8-exam.pdf)
+
 ### 日本語
 
 点列 $v_0, v_1, \dots, v_{n-1}, v_0$ をこの順に結んでできる凸 $n$ 角形が与えられたとき、その凸 $n$ 角形の三角形分割とは、その内部を重なりなく三角形に分割する方法のことである。
@@ -144,11 +146,11 @@ C[i] = C[i] + C[j+2]*C[i-j-1]
 ```
 This will allow the sum to equal the equation found in (2).
 
-The time complexity is $\Theta(n^2)$, and the space complexity is $\Theta(n)$.
+The algorithm performs $\Theta(n^2)$ arithmetic operations and stores $\Theta(n)$ integers. These bounds use unit-cost arithmetic; Catalan numbers grow with $n$, so arbitrary-precision bit costs are larger.
 
 
 ### (4)
-The vertex indices in the definition are cyclic, so they are interpreted modulo $n$. For the non-wrapping notation below we write $v_i,\ldots,v_{i+m-1}$ with $i+m-1\le n-1$; a wrapping subproblem uses the same formula after reducing every vertex index modulo $n$. This is a choice of representation, not an additional assumption on the polygon.
+The vertex indices in the definition are cyclic, so they are interpreted modulo $n$. For the non-wrapping notation below we write $v_i,\ldots,v_{i+m-1}$ with $i+m-1\le n-1$; a wrapping subproblem uses the same formula after reducing every vertex index modulo $n$.
 
 In the figure given (a sub-polygon also a clockwisely arranged point sequence), any triangulation has a triangle including $(v_i, v_{i+m-1})$. This triangle has another node $v_k, ~k=i+1,i+2,\dots,i+m-2$. So we can traverse $v_k$.
 在题目给的图（顺时针 sub-polygon）中，任意一种三角剖分必定有一个三角形包含 $(v_i, v_{i+m-1})$，这个三角形另有一个节点 $v_k, ~k=i+1,i+2,\dots,i+m-2$. 所以我们可以遍历 $v_k$.
@@ -162,6 +164,10 @@ So
 $$
 E[i,m]=\min_{k=i+1,\dots,i+m-2} \{E[i,k-i+1]+E[k,i+m-k]+D[i,k]+D[k,i+m-1]+D[i,i+m-1]\}.
 $$
+
+![The triangle at the base edge divides the polygon into left and right subproblems.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2020/tokyo-ci-2019-triangulation.svg)
+
+The triangle contributes all three edge costs. An internal diagonal occurs in two adjacent triangles and is therefore counted twice, exactly as required by the definition of cost.
 
 ### (5)
 

@@ -15,6 +15,8 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68844f5f0000000022032dbc?xsec_token=ABJ6e6OUxI1XWfgsOiU5PPpATJBVnNjWzgQ2c9U7EtPjg=), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_sys.pdf)
 ### 問題1
 以下の設問に答えよ。
 
@@ -185,22 +187,56 @@ $$
 </figure>
 
 ### 問題2
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_control_theory_p2_s.jpg" width="700" alt=""/>
-</figure>
-
-#### 問題2 (3) の訂正
-
-$K(s)=1$ のとき $\omega_{pc}=3$ でのゲインは $-3\,\mathrm{dB}$ なので、補償器には $+3\,\mathrm{dB}$、すなわち $|C(j\omega_{pc})|=\sqrt2$ が必要である。位相条件より
+#### (1)
 
 $$
-\alpha=3-2\sqrt2,\qquad \sqrt\alpha=\sqrt2-1.
+|C(j\omega_m)|
+=k\sqrt{\frac{1+1/\alpha}{1+\alpha}}
+=\boxed{\frac{k}{\sqrt\alpha}}.
 $$
 
-$|C(j\omega_m)|=k/\sqrt\alpha$ および $\omega_m=3$ より
+#### (2)
+
+$C(s)=(2s+1)/(0.2s+1)$ だから、折点は $\omega=0.5,5$ である。ゲインの折線近似は
 
 $$
-k=\sqrt{2\alpha}=2-\sqrt2,\qquad
-T=\frac{1}{3\sqrt\alpha}=\frac{\sqrt2+1}{3}.
+20\log_{10}|C(j\omega)|\simeq
+\begin{cases}
+0,&\omega\le0.5,\\
+20\log_{10}(2\omega),&0.5<\omega<5,\\
+20,&\omega\ge5.
+\end{cases}
 $$
+
+位相は $\arctan(2\omega)-\arctan(0.2\omega)$ であり、$\omega\to0,\infty$ で $0^\circ$ に近づく。最大値は $\omega_m=\sqrt{10}/2$ における約 $55^\circ$ である。
+
+![位相進み補償器のボード線図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys/2023/kyoto-sys-2022-bode.svg)
+
+#### (3)
+
+$\omega_{pc}=3$ では $P(j\omega_{pc})$ の位相が $-180^\circ$、ゲインが $-3\,\mathrm{dB}$ である。従って補償器に必要な位相進みは $45^\circ$ であり、
+
+$$
+\frac{1-\alpha}{2\sqrt\alpha}=1,
+\qquad
+\alpha=3-2\sqrt2,\quad \sqrt\alpha=\sqrt2-1.
+$$
+
+必要な補償器のゲインは $+3\,\mathrm{dB}$ である。指定された近似 $2\simeq6\,\mathrm{dB}$ を用いると、$k/\sqrt\alpha=\sqrt2$ となる。よって
+
+$$
+\boxed{k=2-\sqrt2,\qquad T=\frac{\sqrt2+1}{3},\qquad\alpha=3-2\sqrt2}.
+$$
+
+#### (4)
+
+$0<\alpha<1$、$\omega>0$ だから、位相 $\phi(\omega)=\arctan(T\omega)-\arctan(\alpha T\omega)$ は $(0,\pi/2)$ に属する。また、
+
+$$
+\tan\phi(\omega)
+=\frac{(1-\alpha)T\omega}{1+\alpha T^2\omega^2}
+=\frac{1-\alpha}{1/(T\omega)+\alpha T\omega}
+\le\frac{1-\alpha}{2\sqrt\alpha}.
+$$
+
+相加相乗平均の等号条件は $1/(T\omega)=\alpha T\omega$、すなわち $\omega=1/(\sqrt\alpha T)$ である。$\arctan$ の単調性から命題1が従う。

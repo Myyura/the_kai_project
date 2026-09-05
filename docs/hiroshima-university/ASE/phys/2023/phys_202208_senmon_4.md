@@ -34,7 +34,7 @@ $$
    \left( \frac{\partial H}{\partial p} \right)_T = -T \left( \frac{\partial V}{\partial T} \right)_p + V
 $$
 
-(4) エンタルピーが保存される場合について、$\left( \frac{\partial H}{\partial p} \right)_T$ を $T, V, C_p$, $\left( \frac{\partial V}{\partial T} \right)_p$ で表せ。
+(4) エンタルピーが保存される場合について、$\left( \frac{\partial T}{\partial p} \right)_H$ を $T, V, C_p$, $\left( \frac{\partial V}{\partial T} \right)_p$ で表せ。
 
 ---------
 
@@ -93,7 +93,7 @@ $$
    \left(\frac{\partial T}{\partial p}\right)_H.
    $$
 
-   原 Description 在此处写作 $\left(\frac{\partial H}{\partial p}\right)_T$，但 Kai 的推导对象为上述等焓偏导数，且这与“焓保持不变”及所列变量一致。
+
 
 接着考虑图 1、图 2 所示的节流实验：绝热圆筒中央固定一个由棉等材料制成的多孔塞，用绝热活塞 I、II 将气体从左侧缓慢推到右侧。初态如图 1，活塞 I 把体积 $V_1$ 的气体封闭在多孔塞左侧，活塞 II 紧贴多孔塞右侧；保持两个活塞所受压强 $p_1,p_2$ 恒定且 $p_1>p_2$，缓慢移动二者，直至终态如图 2，活塞 I 紧贴多孔塞，气体在右侧占据体积 $V_2$。忽略多孔塞体积。
 
@@ -248,3 +248,7 @@ $$
 $$
 
 が成り立ち、気体の温度が変化しないことがわかる。
+
+## **Reference**
+
+- [広島大学 2022年8月実施 物理学プログラム 専門科目（公式PDF、第5頁）](https://www.hiroshima-u.ac.jp/system/files/192233/%E7%89%A9%E7%90%86P_R4%E4%B8%80%E8%88%ACA%E3%83%BB%E5%B0%82%E9%96%80%E7%A7%91%E7%9B%AE.pdf)

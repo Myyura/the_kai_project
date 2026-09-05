@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2018年2月実施 线性代数"
+sidebar_label: "2018年2月実施 線形代数"
 tags:
   - Saitama-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Linear-Algebra.Quadratic-Form
   - Mathematics.Linear-Algebra.Orthogonal-Matrix
 ---
-# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2018年2月実施 线性代数
+# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2018年2月実施 線形代数
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

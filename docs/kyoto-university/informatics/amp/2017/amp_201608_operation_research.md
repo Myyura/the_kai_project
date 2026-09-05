@@ -12,6 +12,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h29_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 $\boldsymbol{A}$ を $n \times n$ の正定値対称行列とする。
 さらに、関数 $f: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ , $g: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ , $h: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ を以下のように定義する。

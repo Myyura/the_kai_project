@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_amp.pdf)
+
 以下の各命題について，正しければ証明し，正しくなければ理由とともに反例をあげよ.
 
 (i) 数列 $\{a_n\}$ について， $\sum_{n=1}^{\infty} a_n$ が収束すれば $\lim_{n \to \infty} a_n = 0$ が成り立つ．

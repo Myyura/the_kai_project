@@ -11,6 +11,9 @@ tags:
 
 ## **Description**
 
+出典：[名古屋大学・2019年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/e71e2adef95ac6ee904f160a89c4888f.pdf)、解析・線形代数。導出過程も示す。
+
+
 複素数 $z$ について、以下の問いに答えよ。ただし、 $i$ は虚数単位を表す。
 
 (a) $z = e^{\frac{\pi}{3}i}$ とし、 $n = 0, 1, 2, ..., 5$ とするとき、複素平面上での $z^n$ の座標をすべて求めよ。
@@ -63,3 +66,11 @@ When $y = \frac{\pi}{4}$ , $1 \leq x \leq 2$ , $w = e^x(\cos(\frac{\pi}{4}) + i\
 When $x = 2$ , $0 \leq y \leq \frac{\pi}{4}$ , $w = e^2(\cos y + i\sin y)$ . This traces an arc of radius $e^2$ from $(e^2, 0)$ to $(\frac{e^2}{\sqrt{2}}, \frac{e^2}{\sqrt{2}})$ .
 
 When $y = 0$ , $1 \leq x \leq 2$ , $w = e^x$ .  This traces a line segment from $e$ to $e^2$ on the real axis.
+
+Thus the image is the boundary of the annular sector
+
+$$
+e\le |w|\le e^2,\qquad 0\le\arg w\le\frac\pi4.
+$$
+
+![長方形の境界と指数写像による扇形環の境界への対応](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2019/nagoya-aisys2019-exponential.svg)

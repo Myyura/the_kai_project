@@ -20,7 +20,7 @@ tags:
    $$
    P(x,y,z)=\neg\{x\Rightarrow(y\land\neg z)\}
    $$
-   の連言標準形、選言標準形、真理値表を求めよ。
+   の連言標準形、選言標準形、真理値表を求めよ。解答で用いる原卷の選択肢番号は $0:x$, $1:y$, $2:z$, $3:\neg x$, $4:\neg y$, $5:\neg z$, $6:\forall x$, $7:\exists x$, $8:\mathrm T$, $9:\mathrm F$ である（[公式 PDF 9 ページ](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_j_choice202208.pdf#page=9)）。
 2. $C(x,y)$ の $x$ を行、$y$ を列（ともに $1,2,3,4$）とする次の格子について、下記の選択肢のうち真となる二命題をそれぞれ選べ。
    $$
    \text{図2}:\begin{pmatrix}0&0&1&0\\0&1&0&0\\0&0&0&1\\1&0&0&0\end{pmatrix},\quad
@@ -29,6 +29,12 @@ tags:
    $$
    選択肢は $0:\forall x\forall y\,C(x,y)=1$、$1:\forall x\exists y\,C(x,y)=1$、$2:\forall y\exists x\,C(x,y)=1$、$3:\exists x\forall y\,C(x,y)=1$、$4:\exists y\forall x\,C(x,y)=1$ である。
 3. $|X\cap Y|=|X\cup Y|$ と $X=Y$ の関係について、証明の空欄を埋めよ。
+
+   > [公式原卷 PDF 11 ページ](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_j_choice202208.pdf#page=11) に基づき、有限集合の場合の穴埋め手順を独立に要約する（逐語転載ではない）。
+
+   $X=Y$ は基数の等式の $[21]$ 条件である。逆向きの $[22]$ 条件を示すため、$[23]\subseteq X\subseteq[24]$ と仮定から $|X|=[25]$ を得る。互いに素な分解 $X=[23]\cup[26]$ により $|X|=[27]+[28]$ なので、$[28]=0$ となる。従って $X\,[29]\,Y$、対称な議論で $X\,[30]\,Y$ を得る。
+
+   この問の選択肢番号は、$0:$ 必要、$1:$ 十分、$2:X\cap Y$、$3:|X\cap Y|$、$4:X\cup Y$、$5:|X\cup Y|$、$6:X\setminus Y$、$7:|X\setminus Y|$、$8:\subseteq$、$9:\supseteq$ である。
 4. 写像 $f:X\to X$ の像・逆像に関する包含関係を答え、
    $f^{-1}\circ f=f\circ f^{-1}$ が一般に成り立つか調べよ。
 5. $L_0=2,L_1=1,L_{n+1}=L_n+L_{n-1}$ に対し、
@@ -116,7 +122,7 @@ $$
 
 ### 問3
 
-以下、試験の意図どおり $X,Y$ は有限集合とする。$X=Y$ は基数の等式の十分条件であり、逆向きでは必要条件である。
+この同値性は有限集合について成立する。無限集合では、例えば $X=\mathbb N$, $Y=\mathbb N\setminus\{1\}$ は $|X\cap Y|=|X\cup Y|=\aleph_0$ を満たすが $X\ne Y$ である。以下の証明では $X,Y$ の有限性を追加条件とする。$X=Y$ は基数の等式の十分条件であり、逆向きでは必要条件である。
 
 $$
 X\cap Y\subseteq X\subseteq X\cup Y.

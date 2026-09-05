@@ -53,7 +53,17 @@ $$
 Y(\omega)=\frac1{2\pi}\int X(\alpha)X(\omega-\alpha)\,d\alpha.
 $$
 
-被積分関数が非零となるには、$|\alpha|\le\Omega$ と $|\omega-\alpha|\le\Omega$ が同時に成立する必要がある。三角不等式より $|\omega|\le2\Omega$ だから、帯域端は $\Omega$ から $2\Omega$ へ広がる。すなわち、周波数成分の和により最大周波数が $2$ 倍になる。
+被積分関数が非零となるには、$|\alpha|\le\Omega$ と $|\omega-\alpha|\le\Omega$ が同時に成立する必要がある。三角不等式より $|\omega|\le2\Omega$ が必要だから、$Y(\omega)=0$ for $|\omega|>2\Omega$ である。
+
+$\Omega$ を非零実信号の実際の帯域端とする。コンパクトな台をもつスペクトルに対する畳み込みの端点加法則（Titchmarsh の定理）より
+
+$$
+\sup\operatorname{supp}(X*X)=2\sup\operatorname{supp}X=2\Omega,
+\qquad
+\inf\operatorname{supp}(X*X)=-2\Omega.
+$$
+
+従って帯域幅は実際に $2$ 倍となる。単に $[-\Omega,\Omega]$ がスペクトルを含む区間として与えられた場合には、上の積分から直接いえるのは帯域端が $2\Omega$ 以下ということである。
 
 ### (3)
 

@@ -14,6 +14,8 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6886bd03000000001c037b60?xsec_token=ABXXWhvejfYWQlWP3FzACDNopVSP5JX2VOuz0nVyWitaE=), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_sys.pdf)
 ### 問題1
 図1のブロック線図と図2のフィードバック制御系に関する以下の設問に答えよ．ただし，$a, b, K$ は定数パラメータとする．
 
@@ -116,43 +118,76 @@ $$
 </figure>
 
 ### 問題2
+#### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_control_theory_p2_s.jpg" width="700" alt=""/>
-</figure>
-
-#### 問題2 (2), (3), (6) の訂正
+$G(s)=a(1+s/a)/(s(1+s))$ より、ゲインの折線近似は
 
 $$
-|G(j\omega)|^2=\frac{\omega^2+a^2}{\omega^2(\omega^2+1)}.
+20\log_{10}|G(j\omega)|\simeq
+\begin{cases}
+20\log_{10}(a/\omega),&0<\omega<a,\\
+0,&a\le\omega\le1,\\
+-20\log_{10}\omega,&\omega>1.
+\end{cases}
 $$
 
-(2) ゲイン交差周波数は $\omega_{gc}=\sqrt a$ であり、
+![ゲイン線図の折線近似](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys/2024/kyoto-sys-2023-gain.svg)
+
+#### (2)
 
 $$
-\angle G(j\sqrt a)=-2\arctan\sqrt a.
+|G(j\omega)|^2=\frac{\omega^2+a^2}{\omega^2(\omega^2+1)}=1
+\iff\omega=\sqrt a.
 $$
 
-したがって位相余裕が $2\pi/3$ 以上となる条件は
+従ってゲイン交差周波数は $\omega_{gc}=\sqrt a$ であり、
 
 $$
-\pi-2\arctan\sqrt a\geq\frac{2\pi}{3}
-\quad\Longleftrightarrow\quad
-0<a\leq\frac13.
+\angle G(j\sqrt a)
+=\arctan\frac1{\sqrt a}-\frac\pi2-\arctan\sqrt a
+=-2\arctan\sqrt a.
 $$
 
-(3) 正確なゲイン線図と折れ線近似が交わる周波数は $\omega=\sqrt a$ である。
-
-(6) (5) より $a=1/7$ である。このとき
+位相余裕の条件は
 
 $$
-\angle G(j)=\arctan 7-\frac{3\pi}{4}=-\arctan\frac43.
+\pi-2\arctan\sqrt a\ge\frac{2\pi}3
+\iff\boxed{0<a\le\frac13}.
 $$
 
-よって、例えば
+#### (3)
+
+$0<\omega<a$ で折線近似の振幅は $a/\omega$ であり、正確な振幅との比の二乗は $(\omega^2+a^2)/(a^2(\omega^2+1))>1$ となる。$\omega>1$ では折線近似の振幅が $1/\omega$、比の二乗が $(\omega^2+a^2)/(\omega^2+1)<1$ となる。中間区間の近似振幅は $1$ なので、交点は
 
 $$
-H(s)=\frac{s+1/7}{s(s+1)}\frac{s-1/2}{s+1/2}
+\boxed{\omega=\sqrt a}
 $$
 
-とすればよい。実際、$|(j\omega-1/2)/(j\omega+1/2)|=1$ であり、$\omega=1$ でこの因子の位相は $\arctan(4/3)$ なので、$H(j)$ の位相は $0$ となる。
+だけである。
+
+#### (4)
+
+例えば
+
+$$
+H(s)=G(s)\frac{s-1}{s+1}
+$$
+
+とすれば、実数 $\omega\ne0$ に対して $|(j\omega-1)/(j\omega+1)|=1$ なのでゲインが等しい。
+
+#### (5)
+
+$$
+|H(j)|^2=|G(j)|^2=\frac{1+a^2}{2}=\frac{25}{49}
+\iff\boxed{a=\frac17}.
+$$
+
+#### (6)
+
+$a=1/7$ のとき $G(j)=(3-4j)/7$ である。そこで
+
+$$
+\boxed{H(s)=\frac{s+1/7}{s(s+1)}\frac{s-1/2}{s+1/2}}
+$$
+
+とおけば、追加因子のゲインは $1$ であり、$\omega=1$ では $(j-1/2)/(j+1/2)=(3+4j)/5$ となる。従って $H(j)=5/7>0$ で、正弦波成分は入力と同位相になる。

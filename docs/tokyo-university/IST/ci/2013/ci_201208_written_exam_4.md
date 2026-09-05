@@ -18,6 +18,8 @@ tags:
 
 ## **Description**
 
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20151118065535id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2012-8-exam.pdf).
+
 ### 日本語
 
 以下に示す情報システムに関する8項目から<u>4項目</u>を選択し、各項目を4～8行程度で説明せよ。必要に応じて例や図を用いてよい。
@@ -59,26 +61,43 @@ If necessary, use examples or figures.
 
 ## **Kai**
 
-**NP-complete**
+All eight items are explained for reference; the examination asks for any four.
 
-NP-complete is an NP decision problem $Y$ to which every NP problem $X$ can be reduced by a polynomial-time many-one (Karp) reduction,
+### (1) NP-completeness
 
-i.e. $Y\in NP\land (\forall X\in NP,X\le_P Y)$, 
+A decision problem $Y$ is NP-complete if $Y\in\mathrm{NP}$ and every problem $X\in\mathrm{NP}$ admits a polynomial-time many-one reduction $X\le_PY$. Membership in NP means that each yes-instance has a polynomial-size certificate verifiable in polynomial time. NP-complete problems are thus exactly the problems that are both in NP and NP-hard. If any NP-complete problem has a polynomial-time algorithm, then $\mathrm P=\mathrm{NP}$; a proof that all require super-polynomial time is not known. Boolean satisfiability (SAT) is the classic Cook–Levin theorem example; Circuit-SAT is also NP-complete. See [Cook's 1971 paper](https://doi.org/10.1145/800157.805047).
 
-where an NP (nondeterministic polynomial-time) problem has, for each yes-instance, a polynomial-size certificate that can be verified in polynomial time, but is not necessarily known to be solvable in polynomial time.
+### (2) Tail recursion
 
-Note that NP-complete problems are the intersection of NP and NP-hard problems: they are exactly the problems that are both in NP and NP-hard.
+A recursive call is in tail position when its result is returned directly, with no pending computation after the call. For example, factorial can carry its product in an accumulator: $f(0,a)=a$ and $f(n,a)=f(n-1,na)$ for integer $n>0$, with initial call $f(n,1)$. If the language implementation performs tail-call optimization, one stack frame can be reused, giving $O(1)$ call-stack space; tail recursion alone does not guarantee that an implementation applies this optimization. Arbitrary-precision products still require space for the growing integer. The ordinary expression $n f(n-1)$ is not tail-recursive because multiplication remains after the call.
 
-The “first” NP-complete problem is `Circuit-SAT`, which asks whether there is an $n$-bit input that makes the output of a Boolean circuit 1.
+### (3) Step response and transfer function
 
-**Tail recursion**
+For a continuous-time linear time-invariant system with zero initial conditions, the transfer function is $G(s)=Y(s)/U(s)$ in the Laplace domain. A unit step has transform $1/s$, so its response satisfies $Y_{\mathrm{step}}(s)=G(s)/s$ and is obtained by inverse Laplace transformation. For example, $G(s)=K/(\tau s+1)$ with $\tau>0$ gives $y_{\mathrm{step}}(t)=K(1-e^{-t/\tau})$ for $t\ge0$. Conversely, $G(s)=sY_{\mathrm{step}}(s)$ under the same zero-state assumptions. The transient describes rise time, overshoot and settling behavior; final-value arguments require their stability/pole conditions and cannot be applied to every transfer function indiscriminately.
 
-A function is tail-recursive when its recursive call is the final operation, so no pending computation remains. For example, factorial can carry the product in an accumulator: $f(n,a)=f(n-1,na)$ and $f(0,a)=a$. Tail-call optimization then reuses one stack frame, giving $O(1)$ stack space.
+### (4) Discrete cosine transform
 
-**TLB (Translation Lookaside Buffer)**
+A DCT represents a real finite sequence as coefficients of real cosine basis functions. One common convention is the orthonormal DCT-II:
 
-A TLB caches recent virtual-page to physical-frame translations and access permissions. On a hit, address translation avoids a page-table walk. On a miss, hardware or the OS walks the page table and inserts the translation; an invalid entry ultimately causes a page fault.
+$$
+X_k=\alpha_k\sum_{j=0}^{N-1}x_j\cos\!\left[\frac\pi N(j+\tfrac12)k\right],\quad
+\alpha_0=\frac1{\sqrt N},\quad\alpha_k=\sqrt{\frac2N}\ (k>0).
+$$
 
-**LL(1) parsing**
+The basis is orthonormal, so the inverse is its transpose and the full transform preserves squared energy. Smooth, correlated data often concentrates energy in low-frequency coefficients; image codecs can quantize high-frequency coefficients more coarsely. The transform alone is invertible and does not itself discard information—the subsequent quantization or coefficient removal is lossy. Several DCT types and normalizations exist; the convention must be specified, as in the [SciPy DCT documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.fft.dct.html).
 
-An LL(1) parser reads input left to right, constructs a leftmost derivation, and uses one lookahead token. A table entry is chosen from the production's FIRST set, and for an $\varepsilon$-production from FOLLOW of its left-hand side. The grammar is LL(1) exactly when these choices create no table conflict.
+### (5) Public-key cryptosystem
+
+An asymmetric cryptosystem uses a public key that may be distributed and a related private key that must remain secret. For public-key encryption, a sender encrypts for the receiver using the receiver's public key, and the receiver decrypts using the private key. Digital signatures instead use a signing key and a corresponding public verification key to authenticate messages; signing is not generically “encrypting with the private key.” Schemes rely on stated computational assumptions and correct parameter, padding and protocol choices. In practice a public-key mechanism commonly establishes a symmetric session key for bulk encryption, and the public key must be authenticated to prevent key substitution. RSA encryption and signatures, for example, are specified as distinct schemes in [RFC 8017](https://www.rfc-editor.org/rfc/rfc8017.html).
+
+### (6) DNS
+
+DNS is the **Domain Name System**; the question's expansion “Domain Name Service” refers to the service it provides. It is a hierarchical, distributed database of resource records, including A/AAAA addresses, MX mail routing, NS delegation and CNAME aliases. A resolver obtains answers from authoritative servers, often through a recursive resolver that follows delegations from cached or root information. Caches retain records according to their TTLs, reducing latency and query load while allowing temporarily stale answers after updates. DNS is more than a one-to-one mapping between names and IP addresses, and ordinary DNS does not itself provide confidentiality or authenticated answers. Its core architecture is described in [RFC 1034](https://www.rfc-editor.org/rfc/rfc1034.html).
+
+### (7) TLB
+
+A translation lookaside buffer caches virtual-page to physical-frame translations together with relevant address-space tags and permissions. On a hit, the processor can translate an address without walking the page table. A miss triggers a hardware walk or a software-managed refill; if a valid, permitted mapping is found, the access continues without a page fault. A missing page-table mapping or a permissions violation causes an appropriate exception instead. In particular, an invalid **TLB entry** merely fails to supply a hit and is not itself evidence of an invalid virtual page. Context changes and page-table updates require appropriate tags or invalidation so stale translations are not reused.
+
+### (8) LL(1) parsing
+
+An LL(1) parser reads input left to right, constructs a leftmost derivation, and chooses a production using one lookahead token. For each production $A\to\alpha$, enter it under terminals in $\mathrm{FIRST}(\alpha)\setminus\{\varepsilon\}$; if $\alpha\Rightarrow^*\varepsilon$, also enter it under terminals in $\mathrm{FOLLOW}(A)$, including the end marker where applicable. A grammar is LL(1) precisely when no table cell receives different productions. The FOLLOW rule applies to any nullable right-hand side, not only to a literal $A\to\varepsilon$ production. For example, $S\to aS\mid\varepsilon$ chooses the first production on `a` and the second on end of input. Left recursion or conflicting common prefixes can prevent one-token predictive parsing.

@@ -13,6 +13,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h31_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 関数 $h:\mathbb{R}^n \rightarrow \mathbb{R}$ を凸関数とする。さらに, 関数 $g:\mathbb{R} \rightarrow \mathbb{R}$ と $f:\mathbb{R}^n \rightarrow \mathbb{R}$ を以下のように定義する。
 

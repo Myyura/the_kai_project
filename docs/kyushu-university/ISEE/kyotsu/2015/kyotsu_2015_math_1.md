@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H27infait.pdf)。
+
 実ベクトル空間 $\mathbb{R}^N$ にベクトル $x_1, x_2, ..., x_k$ が与えられているとする。 $A = \sum_{i=1}^k x_i x_i^T \in \mathbb{R}^{N \times N}$ とおく。ただし、 $x_i^T$ は $x_i$ の転置を表す。また、実ベクトル $u \in \mathbb{R}^N$ に対し、
 
 $$

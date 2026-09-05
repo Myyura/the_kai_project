@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h22/h22_kiso6.pdf)
+
 $M(n, \mathbb{R})$ で $n \times n$ 実行列の全体を表し， $I \in M(n, \mathbb{R})$ で単位行列を表す。以下の問いに答えよ。
 
 (i) $I + X$ が可逆であるとして， $Y = (I - X)(I + X)^{-1}$ とおく。このとき， $I + Y$ もまた可逆で， $X = (I - Y)(I + Y)^{-1}$ が成り立つことを示せ。

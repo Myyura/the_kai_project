@@ -60,6 +60,10 @@ $$
 2. $g(x)=\cos(x/2)$ の係数を求めよ。
 3. $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{2n-1}$ の収束値を求めよ。
 
+係数の定義は
+$$a_0=\frac1\pi\int_{-\pi}^{\pi}g(x)\,dx,\quad a_n=\frac1\pi\int_{-\pi}^{\pi}g(x)\cos nx\,dx,\quad b_n=\frac1\pi\int_{-\pi}^{\pi}g(x)\sin nx\,dx$$
+である。II.2 の $\cos(x/2)$ は $-\pi\le x<\pi$ 上で定義して周期的に拡張する。また、$\int_{-\infty}^{\infty}e^{-y^2}\,dy=\sqrt\pi$ を用いてよい。
+
 ### 题目描述
 
 I. 采用

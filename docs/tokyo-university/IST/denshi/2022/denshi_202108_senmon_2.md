@@ -70,14 +70,16 @@ Therefore $\text{CPI} = 1.5 + 1\% \cdot 100 + 4\% \cdot 60\% \cdot 100 = 1.5 + 1
 Similar to (2),
 $\text{CPI} = 1.5 + (1\% \cdot 10 + 0.5\% \cdot 100) + 60\% \cdot (4\% \cdot 10 + 0.5\% \cdot 100) = 2.64$
 
+The clock period and instruction count are unchanged, so the requested speedup is
+
+$$
+\boxed{\frac{4.9}{2.64}=\frac{245}{132}\simeq1.86}.
+$$
+
 ### (4)
-Write-back: A scheme that handles writes by updating values only to the block in the cache, then writing the modified block to the lower level of the hierarchy when the block is replaced.
+Write-back keeps a modified page in main memory and writes it to its backing storage when necessary, for example during reclamation or a background flush. Repeated writes to the same page can be combined into one storage operation, reducing slow I/O and execution stalls.
 
-**Adequacy:** Since writing to auxiliary memory is extremely slow. Using a write-through policy would force the processor to wait for the disk write to complete on every memory write, causing unacceptable performance degradation.
-
-**Speed:** Therefore, we use write-back policy. The data is written to the auxiliary memory only when the page is evicted. This decouples the CPU speed from the slow disk speed.
-
-**Persistence:** Write-back risks data loss if power fails before eviction. However, for execution speed, it is the only viable option. Persistence is managed via explicit sync calls or OS flushes.
+For anonymous virtual-memory pages, swap preserves their contents across eviction so the running process can use them again; it does not by itself make process memory durable across a crash. For file-backed data that must persist, dirty pages must be written and the storage device's buffers flushed before durability can be relied on. Explicit synchronization and operating-system writeback provide this mechanism, while unflushed changes can be lost on failure.
 
 ### (5)
 Virtual Address Space: $32 \text{ bits}$
@@ -88,13 +90,11 @@ Therefore VPN (Virtual Page Number) : $32 - 12 = 20$
 
 The entries of Page Table : $2^{20}$.
 
-Entry length: $4 \text{ B}$. Therefore size of one page table $= 2^{20} \times 4 \text{ B} = 4 \text{ MB}$
+Entry length: $4 \text{ B}$. Therefore size of one page table $= 2^{20} \times 4 \text{ B} = 4 \text{ MiB}$
 
-Therefore, total size for 100 concurrent processes $= 100 \times 4 \text{ MB} = 400 \text{ MB}$
+Therefore, total size for 100 concurrent processes $= 100 \times 4 \text{ MiB} = 400 \text{ MiB}$
 
 ### (6)
-① Use multi-level page table. For example, 2-level for (5), if use $\text{1-VPN} = 10$, $\text{2-VPN} = 10$
-The minimal size: $(2^{10} + 2^{10}) \cdot 4\text{B} = 2^{13}\text{B} = 8\text{KB} \ll 4\text{MB} \text{ (in 5)}$
 
-② Use huge page. For example, page size be $16\text{KB} = 2^{14}\text{B}$, VPN will be $18$
-The minimal size: $(2^{18}) \cdot 4\text{B} = 2^{20}\text{B} = 1\text{MB} \ll 4\text{MB} \text{ (in 5)}$
+1. Use a multilevel page table and allocate lower-level tables only for mapped parts of the address space. With a $10+10$ VPN split, one root table and one allocated leaf table require $(2^{10}+2^{10})\times4=8\ \mathrm{KiB}$. This saving assumes a sparse address space; a fully populated two-level table occupies $4\ \mathrm{MiB}+4\ \mathrm{KiB}$.
+2. Increase the page size. For example, if the hardware supports $16\ \mathrm{KiB}$ pages, a flat table contains $2^{32-14}$ entries and occupies $1\ \mathrm{MiB}$ per process. The tradeoff is coarser allocation and potentially greater internal fragmentation.

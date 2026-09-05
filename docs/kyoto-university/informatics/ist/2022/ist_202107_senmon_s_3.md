@@ -1,0 +1,198 @@
+---
+sidebar_label: "2021年7月実施 専門科目 S-3"
+tags:
+  - Kyoto-University
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Mixture-Model
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Generative-Classifier
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Bayesian-Decision-Boundary
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+---
+# 京都大学 情報学研究科 知能情報学専攻 2021年7月実施 専門科目 S-3
+
+## **Author**
+祭音Myyura
+
+## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2021_ist.pdf)
+2次元実数空間におけるデータ点 $(x, y)$ が、確率密度関数 $f(x, y)$ をもつ確率分布に従うとする。
+この確率分布は、クラス $A$ と $B$ に対応する2つの確率分布の混合分布であり、それぞれが以下の確率密度関数をもつ：
+
+$$
+f_A(x, y) = \frac{1}{\pi} \exp\left(-\frac{x^2}{a} - ay^2\right), \ f_B(x, y) = \frac{1}{\pi} \exp\left(-(x-2)^2 - (y-3)^2\right).
+$$
+
+また、クラス $A$, $B$ の事前確率（混合重み） $p_A, p_B$ は、それぞれ
+
+$$
+p_A = \frac{1}{1 + \exp(b)}, \quad p_B = 1 - p_A
+$$
+
+とする。なお、$a$ は正の実数定数、$b$ は実数定数とする。
+
+設問1 クラス $A$ に属することが予め分かっている3つのデータ点 $(1,1), (2,2), (0,1)$ が与えられたときの、$a$ の最尤推定値を求めよ。
+
+設問2 $a = 1$ とする。あるデータ点 $(x, y)$ がクラス $A$ と $B$ のいずれに属するかを、クラスの事後確率の大小を比較することで判定する。データ点 $(x, y)$ がクラス $A$ に属すると判定する条件を与えよ。
+
+設問3 データ点 $(1,1)$ がクラス $A$ に属する事後確率が、クラス $A$ の事前確率と一致する時の $a$ の値を求めよ。
+
+設問4 $a = 0.5$ とする。2つのデータ点 $(0,0), (1,2)$ が観測されたときの、$b$ の最尤推定値を求めよ。なお、$\exp(-10) \approx 0$ としてよい。
+
+### 题目描述
+
+二维数据 $(x,y)$ 来自类 A、B 的混合分布：
+
+$$
+f_A(x,y)=\frac1\pi e^{-x^2/a-ay^2},\qquad
+f_B(x,y)=\frac1\pi e^{-(x-2)^2-(y-3)^2},
+$$
+
+先验概率
+
+$$
+p_A=\frac1{1+e^b},\qquad p_B=1-p_A,
+$$
+
+其中 $a>0$、$b\in\mathbb R$。
+
+1. 已知 $(1,1),(2,2),(0,1)$ 均属于 A，求 $a$ 的最大似然估计。
+2. 令 $a=1$。按 A、B 后验概率大小分类，给出 $(x,y)$ 被判为 A 的条件。
+3. 当点 $(1,1)$ 属于 A 的后验概率恰等于 A 的先验概率时，求 $a$。
+4. 令 $a=0.5$。观察到两个未标注点 $(0,0),(1,2)$，求 $b$ 的最大似然估计；可取 $e^{-10}\approx0$。
+
+## **Kai**
+### 設問1
+Since the three data points are known to belong to class $A$, their log-likelihood is
+
+$$
+\begin{aligned}
+L(a)
+&= \ln \prod_{i=1}^{n}f_{A}(x_{i},y_{i})
+= -n\ln \pi -\frac{1}{a}\sum_{i=1}^{n}x_{i}^{2}-a\sum_{i=1}^{n}y_{i}^{2}\\
+\end{aligned}
+$$
+
+Then,
+
+$$
+\frac{\partial L(a)}{\partial a}
+= \frac{1}{a^{2}}\sum_{i=1}^{n}x_{i}^{2}-\sum_{i=1}^{n}y_{i}^{2} = 0 \Rightarrow a = \sqrt{\frac{\sum_{i=1}^{n}x_{i}^{2}}{\sum_{i=1}^{n}y_{i}^{2}}}
+$$
+
+Since $\partial^2L/\partial a^2=-2\sum_i x_i^2/a^3<0$ for $a>0$, this stationary point is the maximum.
+
+Therefore, the maximum likelihood estimate of $a$ is
+
+$$
+a = \sqrt{\frac{1^{2}+2^{2}+0^{2}}{1^{2}+2^{2}+1^{2}}}  = \frac{\sqrt{30}}{6}
+$$
+
+### 設問2
+Let $f'_A(x,y)$ and $f'_B(x,y)$ denote the posterior class probabilities of a data point $(x,y)$ belongs to $A$ and $B$, resp.
+Let $P(x,y)$ denote the joint probability density function of $x$ and $y$.
+From the Bayes' theorem, we have
+
+$$
+\begin{aligned}
+f'_A(x,y) &= \frac{f_A(x,y)p_A}{P(x,y)}\\
+f'_B(x,y) &= \frac{f_B(x,y)p_B}{P(x,y)}
+\end{aligned}
+$$
+
+by comparing the posterior class probabilities we have
+
+
+
+$$
+f_A(x,y) p_A > f_B(x,y) p_B \Rightarrow
+\frac{1}{\pi(1+e^{b})}e^{-\frac{x^2}{a} - ay^2} >\frac{e^{b}}{\pi(1+e^{b})}e^{-(x-2)^{2}-(y-3)^{2}}
+$$
+
+by set $a = 1$ we have
+
+$$
+\frac{1}{\pi(1+e^{b})}e^{-x^{2}-y^{2}} >\frac{e^{b}}{\pi(1+e^{b})}e^{-(x-2)^{2}-(y-3)^{2}}
+$$
+
+which can be simplied to
+
+$$
+4x+6y+b-13 < 0
+$$
+
+On the boundary $4x+6y+b-13=0$, the posterior probabilities tie.
+
+### 設問3
+Since the prior probability and posterior probability is equal, we have
+
+$$
+f'_A(x,y) = \frac{f_A(x,y)p_A}{P(x,y)} = p_A
+$$
+
+which implies that
+
+$$
+f_A(x,y) = P(x, y).
+$$
+
+Note that $P(x,y) = p_{A}f_{A}(x,y)+p_{B}f_{B}(x,y)$, hence
+
+$$
+(1-p_{A})f_{A}(x,y) = (1-p_{A})f_{B}(x,y)
+$$
+
+i.e., $f_A(x,y) = f_B(x,y)$, which implies that
+
+$$
+\begin{align}
+-\frac{x^{2}}{a}-ay^{2} = -(x-2)^{2}-(y-3)^{2} \tag{i}
+\end{align}
+$$
+
+solving (i) by substituting $(x,y) = (1,1)$, we have
+
+$$
+a= \frac{5\pm \sqrt{21}}{2}
+$$
+
+### 設問4
+The objective is
+
+$$
+\begin{aligned}
+T(b) &= \ln \prod_{i=1}^{n}f(x_{i},y_{i})\\
+&=  \ln \prod_{i=1}^{n}\left(p_{A}f_{A}(x_{i},y_{i})+p_{B}f_{B}(x_{i},y_{i})\right)\\
+&= \sum_{i=1}^{n} \ln \left(p_{A}f_{A}(x_{i},y_{i})+p_{B}f_{B}(x_{i},y_{i})\right)\\
+\end{aligned}
+$$
+
+by solving the following equations (note that when $a = 0.5$, we have $f_{A}(0,0)=1/\pi$, $f_{A}(1,2)=e^{-4}/\pi$, $f_{B}(0,0)=e^{-13}/\pi\approx 0$, $f_{B}(1,2)=e^{-2}/\pi$.)
+
+$$
+\begin{aligned}
+\frac{\partial T(b)}{\partial b}
+&= \frac{e^{b}}{1+e^{b}}\sum_{i=1}^{n}\frac{-f_{A}(x_{i},y_{i})+f_{B}(x_{i},y_{i})}{f_{A}(x_{i},y_{i})+e^{b}f_{B}(x_{i},y_{i})} = 0
+\end{aligned}
+$$
+
+Using the stated approximation, we obtain
+
+$$
+\frac{-e^{-4}+e^{-2}}{e^{-4}+e^{b-2}} = 1 \Rightarrow \hat b \simeq \ln(e^{2}-2)-2
+$$
+
+To verify that this is the maximum, put $q=p_A\in(0,1)$. Apart from the positive factor $\pi^{-2}$, the approximate likelihood is
+
+$$
+q\bigl(qe^{-4}+(1-q)e^{-2}\bigr),
+$$
+
+a strictly concave quadratic. Its maximizer is
+$q=1/[2(1-e^{-2})]\in(0,1)$, giving the value above.
+With the small term retained, the exact maximizer is
+
+$$
+\hat q=
+\frac{1-e^{-13}(2-e^{-2})}{2(1-e^{-13})(1-e^{-2})},
+\qquad \hat b=\log\frac{1-\hat q}{\hat q}.
+$$

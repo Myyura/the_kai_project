@@ -83,27 +83,20 @@ E = \frac{q}{2\pi\varepsilon_0d}
 $$
 
 #### (b)
+外側の円筒は接地されているので、その電位を $0$ とする。
 
 $$
-\begin{aligned}
-V &= -\int_a^b \frac{q}{2\pi\varepsilon_0r}dr \\
-&= \frac{q}{2\pi\varepsilon_0}\big[\log r\big]_d^a \\
-&= \frac{q}{2\pi\varepsilon_0}\log \frac{a}{b}
-\end{aligned}
+V=\int_a^b\frac{q}{2\pi\varepsilon_0r}\,dr
+ =\frac{q}{2\pi\varepsilon_0}\log\frac{b}{a},\qquad
+q=\frac{2\pi\varepsilon_0V}{\log(b/a)}.
 $$
 
-$$
-q = \frac{2\pi\varepsilon_0}{\log\frac{a}{b}}V
-$$
-
-従って、
+従って、点 $P$ の電位は
 
 $$
-\begin{aligned}
-V_d &= -\int_b^d \frac{1}{2\pi\varepsilon_0 r} \cdot \frac{2\pi\varepsilon_0 V}{\log \frac{a}{b}}dr \\
-&= \frac{V}{\log\frac{a}{b}}\big[\log r\big]_d^b \\
-&= \frac{\log\frac{b}{d}}{\log \frac{a}{b}}V
-\end{aligned}
+V_d=-\int_b^d\frac{q}{2\pi\varepsilon_0r}\,dr
+ =\frac{q}{2\pi\varepsilon_0}\log\frac{b}{d}
+ =V\frac{\log(b/d)}{\log(b/a)}.
 $$
 
 #### (c)
@@ -113,7 +106,7 @@ c = \frac{q}{V} = \frac{2\pi\varepsilon_0}{\log\frac{b}{a}}
 $$
 
 #### (d)
-$E = \frac{q}{2\pi\varepsilon_0 d} = c\quad(c = \text{const})$ より、$\varepsilon = \frac{q}{2\pi cd} = \frac{c'}{d} \quad (c' = \text{const})$。誘電率は、$d$ に反比例する。
+$E = \frac{q}{2\pi\varepsilon(d) d} = c\quad(c = \text{const})$ より、$\varepsilon = \frac{q}{2\pi cd} = \frac{c'}{d} \quad (c' = \text{const})$。誘電率は、$d$ に反比例する。
 
 ### (2)
 #### (e)
@@ -128,7 +121,7 @@ $E = \frac{q}{2\pi\varepsilon_0 d} = c\quad(c = \text{const})$ より、$\vareps
 $$
 \begin{aligned}
 E_2 = \frac{Q_2}{2\pi \varepsilon_0 r},V &= -\int_c^b \frac{Q_2}{2\pi\varepsilon_0 r}dr \\
-&= \frac{Q_2}{2\pi \varepsilon_0}\big[\log r\big]_b^r \\
+&= \frac{Q_2}{2\pi \varepsilon_0}\big[\log r\big]_b^c \\
 &= \frac{Q_2}{2\pi\varepsilon_0}\log\frac{c}{b}
 \end{aligned}
 $$

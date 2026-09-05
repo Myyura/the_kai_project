@@ -12,9 +12,31 @@ tags:
 
 ## **Description**
 
+### 原題に基づく要約（日本語）
+
+[公式原題](https://www.me.es.osaka-u.ac.jp/msb/pdf/bio/r4_2.pdf)
+
+平面内の光路を $y=y(x)$ とし、屈折率を $n(x,y)$、真空中の光速を $c$ とする。光は $P_1=(x_1,y_1)$ から $P_2=(x_2,y_2)$ へ進む。
+
+### 問1
+
+1. 微小弧長 $dl=\sqrt{1+y'^2}\,dx$ を用い、伝播時間が
+   $$T[y]=\int_{x_1}^{x_2}\frac{n(x,y)}c\sqrt{1+y'^2}\,dx=\int_{x_1}^{x_2}L(x,y,y')\,dx$$
+   と書けることを示す。
+2. 端点固定の変分 $y=\bar y+\varepsilon h$ から、停留条件 $\partial L/\partial y-d(\partial L/\partial y')/dx=0$ を導く。
+3. $n=n_0$ が定数ならば、この式が $y''=0$ となり、光路が両端点を結ぶ直線となることを示す。
+
+### 問2
+
+$x=x_0$ を境界とする屈折率 $n_1,n_2$ の一様媒質を考える。光は $P_1$ から $(x_0,0)$ を経て $P_2$ へ進み、$x_1<x_0<x_2,\ y_1>0>y_2$ とする。入射角 $\theta_1$ と屈折角 $\theta_2$ は水平方向の法線から測る。
+
+1. 光路の傾きを用いて $\sin\theta_1$ を表す。
+2. 全伝播時間を各媒質での時間の和で表す。
+3. Euler–Lagrange 方程式と界面での変分条件から $n_1\sin\theta_1=n_2\sin\theta_2$ を導く。
+
 ### 题目描述
 
-原文题干缺失，以下依据现有解答整理。设平面内光路写作 $y=y(x)$，介质折射率为 $n(x,y)$，真空光速为 $c$，光从 $P_1=(x_1,y_1)$ 传播到 $P_2=(x_2,y_2)$。
+设平面内光路写作 $y=y(x)$，介质折射率为 $n(x,y)$，真空光速为 $c$，光从 $P_1=(x_1,y_1)$ 传播到 $P_2=(x_2,y_2)$。
 
 【问题 1：Fermat 原理与变分法】
 
@@ -41,11 +63,11 @@ tags:
 
 【问题 2：折射定律】
 
-两均匀介质折射率分别为 $n_1,n_2$，光线在界面处折射，入射角与折射角为 $\theta_1,\theta_2$。
+两均匀介质折射率分别为 $n_1,n_2$，界面为 $x=x_0$。光从 $P_1$ 经 $(x_0,0)$ 到达 $P_2$，且 $x_1<x_0<x_2,\ y_1>0>y_2$。入射角与折射角 $\theta_1,\theta_2$ 从水平方向的法线量起。
 
 1. 用光路线段斜率表示 $\sin\theta_1$；
 2. 将总传播时间写成光在两介质中传播时间之和；
-3. 令折射点沿界面作微小变化，利用传播时间驻值条件推导 Snell 定律
+3. 利用 Euler–Lagrange 方程及界面处的变分条件推导 Snell 定律
 
    $$
    n_1\sin\theta_1=n_2\sin\theta_2.
@@ -139,7 +161,7 @@ L \left( x, \bar{y}(x) + \epsilon h(x), \bar{y}'(x) + \epsilon h'(x) \right) dx
 \end{aligned}
 $$
 
-である。$T$ の停留性と $h$ の任意性より、 (3) が成り立つ。
+である。$T$ の停留性と $h$ の任意性より、Euler–Lagrange 方程式が成り立つ。
 
 #### (ウ)
 今の場合
@@ -164,7 +186,7 @@ $$
 \end{aligned}
 $$
 
-であるから、 (4) は
+であるから、Euler–Lagrange 方程式は
 
 $$
 \begin{aligned}
@@ -211,54 +233,20 @@ T
 $$
 
 #### (ウ)
-問題文の意図通りでないかもしれないが、次のようにして導くことができる。
+各媒質内では Euler–Lagrange 方程式が成り立つ。界面で連続な変分 $h$ を取り、端点を固定すると、部分積分で残る界面項は
 
-屈折する点を $(x_0,y_0) \ (y_2 \lt y_0 \lt y_1)$ とする。
-媒質 1 を通る時間 $T_1$ と媒質 2 を通る時間 $T_2$ は
+$$\delta T=\left[\left.\frac{\partial L_1}{\partial y'}\right|_{x_0^-}-\left.\frac{\partial L_2}{\partial y'}\right|_{x_0^+}\right]h(x_0).$$
 
-$$
-\begin{aligned}
-T_1
-&= \frac{n_1}{c} \sqrt{ (x_0-x_1)^2 + (y_0-y_1)^2 }
-, \\
-T_2
-&= \frac{n_2}{c} \sqrt{ (x_2-x_0)^2 + (y_2-y_0)^2 }
-\end{aligned}
-$$
+$h(x_0)$ は任意なので、停留性は $\partial L_1/\partial y'=\partial L_2/\partial y'$ を要求する。ここで
 
-であるから、
+$$\frac{\partial L_i}{\partial y'}=\frac{n_i}{c}\frac{y'}{\sqrt{1+y'^2}}=-\frac{n_i}{c}\sin\theta_i.$$
 
-$$
-\begin{aligned}
-T
-&= T_1 + T_2
-\\
-&= \frac{n_1}{c} \sqrt{ (x_0-x_1)^2 + (y_0-y_1)^2 }
-+ \frac{n_2}{c} \sqrt{ (x_2-x_0)^2 + (y_2-y_0)^2 }
-\end{aligned}
-$$
+よって
 
-である。
-停留性の条件
+$$\boxed{n_1\sin\theta_1=n_2\sin\theta_2}.$$
 
-$$
-\begin{aligned}
-0
-&= \frac{dT}{dy_0}
-\\
-&= \frac{n_1}{c} \frac{y_0-y_1}{\sqrt{ (x_0-x_1)^2 + (y_0-y_1)^2 }}
-+ \frac{n_2}{c} \frac{y_0-y_2}{\sqrt{ (x_2-x_0)^2 + (y_2-y_0)^2 }}
-\\
-&= \frac{1}{c} \left( - n_1 \sin \theta_1 + n_2 \sin \theta_2 \right)
-\end{aligned}
-$$
+これで、設問の指定どおり Euler–Lagrange の変分計算から屈折則が得られる。
 
-から、スネルの法則
+## **Reference**
 
-$$
-\begin{aligned}
-n_1 \sin \theta_1 &= n_2 \sin \theta_2
-\end{aligned}
-$$
-
-が導かれる。
+- [大阪大学 基礎工学研究科 2022年度 生体システム工学II](https://www.me.es.osaka-u.ac.jp/msb/pdf/bio/r4_2.pdf)

@@ -12,6 +12,8 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://web.archive.org/web/20190715211433id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H31infait.pdf#page=5)。
 直交座標系において, $x, y, z$ 軸方向の単位ベクトルをそれぞれ $\boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k}$ とする．次の各問に答えよ．
 
 (1) スカラー場 $\phi$ を $\phi = e^{xz} \sin y + e^{x} \cos y$. ベクトル場 $\boldsymbol{A}$ を $\boldsymbol{A} = (2x - z) \boldsymbol{i} - 2 \boldsymbol{j} + 2\boldsymbol{k}$ で定める．点 $(1, 0, 1)$ における $\phi$ の勾配の $\boldsymbol{A}$ 方向成分を求めよ．

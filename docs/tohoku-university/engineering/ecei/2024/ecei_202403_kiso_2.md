@@ -35,7 +35,7 @@ tags:
    1. 当 $C=1/100\,\mathrm F$、$L=1/100\,\mathrm H$ 时，求 $I_1,I_2,I_3,V_1,V_2,E$ 的相量关系以及功率因数 $\cos\theta$；
    2. 当 $C=1/25\,\mathrm F$ 时，求使整个电路呈感性的 $L$ 取值范围。
 2. 图 2(b) 为自感 $L_1,L_2$、互感 $M$ 的耦合线圈，满足 $M^2<L_1L_2$，电源角频率为 $\omega$，一次、二次电流为 $I_1,I_2$。
-   1. 证明图 2(b) 与图 2(c) 的 T 形电路等效；
+   1. 证明图 2(b) 与图 2(c) 的耦合线圈电路等效；
    2. 将 c–d 短路时，用 $\omega,L_1,L_2,M$ 表示从 a–b 看入的阻抗
       $$Z_{ab}=E/I_1.$$
 
@@ -112,11 +112,11 @@ I_1 = 1 - j
 $$
 
 $$
-P_e = jP_r = E^* \cdot I_1 = j \cdot (1 - j) = 1+ j
+S=P_e+jP_r=E I_1^*=(-j)(1+j)=1-j
 $$
 
 $$
-P_e = P_r = 1
+P_e=1\ \mathrm W,\qquad P_r=-1\ \mathrm{var}
 $$
 
 $$
@@ -138,24 +138,43 @@ $$
 $$
 
 $$
-L_{1,2} = \frac{400 \pm \sqrt{160000 - 40000}}{20000} = \frac{1}{50} \pm \frac{\sqrt{3}}{100}
+\boxed{\frac{2-\sqrt3}{100}<L<\frac{2+\sqrt3}{100}\quad\mathrm H}
 $$
 
 ### (2)
 #### (a)
-可以把两个电路都转成T型等效
 
-T型阻抗解耦合是万能的，可以推出变压器，同异名串并联等5种连接的等效阻抗形式，其他不常见的任意组合一般也能等效成T型阻抗。
+图 2(c) 是两个耦合线圈的等效表示。图 2(b) 中流入下线圈同名端的电流为 $I_1-I_2$，流入上线圈同名端的电流为 $-I_2$，因此
 
-#### (b)
-在T型等效电路下求解:
+$$
+E=j\omega L_1(I_1-I_2)-j\omega MI_2
+=j\omega L_1I_1-j\omega(L_1+M)I_2.
+$$
+
+输出端电压为两段线圈电压之和：
 
 $$
 \begin{aligned}
-Z_{ab} &= -j\omega M + \frac{j \omega(L_1 + M) \cdot j\omega(L_2 + M)}{j\omega(L_2 + M + L_2 + M)} \\
-&= j\omega \cdot \bigg(\frac{L_1L_2 + M^2 + (L_1 + L_2)M - M \cdot (L_1 + L_2 + 2M)}{L_1 + L_2 + 2M}\bigg) \\
-&= j\omega \cdot \frac{L_1L_2 - M^2}{L_1 + L_2 + 2M}
+V_2&=j\omega(L_1+M)(I_1-I_2)-j\omega(L_2+M)I_2\\
+&=j\omega(L_1+M)I_1-j\omega(L_1+L_2+2M)I_2.
 \end{aligned}
 $$
 
-这正是异名并联的阻抗。
+这恰是图 2(c) 中一次自感 $L_1$、二次自感 $L_1+L_2+2M$、互感 $L_1+M$ 的电压方程，故两者等效。
+
+#### (b)
+
+短路时 $V_2=0$，所以
+
+$$
+I_2=\frac{L_1+M}{L_1+L_2+2M}I_1.
+$$
+
+代回一次电压：
+
+$$
+\boxed{Z_{ab}=j\omega\left[L_1-\frac{(L_1+M)^2}{L_1+L_2+2M}\right]
+=j\omega\frac{L_1L_2-M^2}{L_1+L_2+2M}}.
+$$
+
+分子因题设 $M^2<L_1L_2$ 为正。

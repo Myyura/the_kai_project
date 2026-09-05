@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/65eea0cc0623fd6a765dbc02dc3d5ff4.pdf)
+
 実数値関数 $u(x,t)$ の偏導関数を $u_t = \frac{\partial u}{\partial t}, u_x = \frac{\partial u}{\partial x}, u_{xx} = \frac{\partial^2 u}{\partial x^2}$ と書く。変数 $x$ は $0 \leq x \leq L$ の範囲の値をとる。 $u(x,t)$ は境界条件付きの偏微分方程式
 
 $$
@@ -105,6 +107,8 @@ $$
 6. 从 $u_t=u_{xx}$ 导出 $v_n(t)$ 应满足的微分方程，并求该方程的通解。
 
 ## **Kai**
+
+以下では必要な微分・積分の交換ができる滑らかな解を考える。
 
 1) 関数 $Q(t)$ を $t$ で微分します。積分の下の微分（ライプニッツの法則）を用いると、
 
@@ -210,7 +214,9 @@ $$
 
 以上より、与式が成立することが証明されました。
 
-4) $u(x,t)$ を $x$ で項別微分します（級数の一様収束を仮定）。
+4) 項別微分と境界での極限交換ができることを仮定する。例えば、固定した $t$ ごとに $\sum_{n\ge1}n|v_n(t)|<\infty$ なら、導関数の級数が $[0,L]$ 上一様収束し、以下の計算が正当化される。元の級数の一様収束だけでは項別微分は保証されない。
+
+この条件の下で $u(x,t)$ を $x$ で微分すると、
 
 $$
 u_x(x,t) = \frac{\partial}{\partial x} \sum_{n=0}^{\infty} v_n(t) \cos\left(\frac{n\pi x}{L}\right) = \sum_{n=0}^{\infty} v_n(t) \left( -\frac{n\pi}{L} \sin\left(\frac{n\pi x}{L}\right) \right)
@@ -296,3 +302,6 @@ $$
 $$
 v_n(t) = A_n e^{-\left(\frac{n\pi}{L}\right)^2 t}
 $$
+
+
+$A_n=0$ の零解も含まれる。特に $n=0$ では $v_0(t)=A_0$ が一定となり、1) の積分量保存に対応する。

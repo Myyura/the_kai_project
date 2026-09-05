@@ -11,6 +11,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h30_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 $\boldsymbol{c} = (c_1, c_2, c_3, c_4, c_5)^{\top} \in \mathbb{R}^5$ をパラメータにもつ次の線形計画問題 $\text{P}(\boldsymbol{c})$ を考える。
 
@@ -91,7 +93,11 @@ $$
 Lagrange dual function:
 
 $$
-g(\mu) = -3(\mu_1 + \mu_2)
+g(\mu)=\inf_{x\ge0}L(x,\mu)=
+\begin{cases}
+-3(\mu_1+\mu_2),&c+\mu_1a^{(1)}+\mu_2a^{(2)}\succeq0,\\
+-\infty,&\text{otherwise}.
+\end{cases}
 $$
 
 Dual problem:
@@ -104,6 +110,8 @@ $$
 $$
 
 ### (ii)
+Every feasible coordinate satisfies $0\le x_i\le3$, and $[3,0,3,0,0]^\top$ is feasible. Thus the feasible set is nonempty and compact, so every linear objective attains its minimum.
+
 The extreme points are $[0,3,0,0,0]$, $[0,0,0,3,0]$, $[0,0,3,0,3]$, and $[3,0,3,0,0]$, and there is no extreme direction.
 Hence the domain is bounded, thus $X(c) \neq \emptyset$
 

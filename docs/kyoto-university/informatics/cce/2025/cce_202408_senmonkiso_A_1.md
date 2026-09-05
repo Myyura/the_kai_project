@@ -13,6 +13,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_cce.pdf)
 ### (1)
 (a) Evaluate the following integral:
 
@@ -78,6 +80,9 @@ $$
    2. 对正整数 $n$，求 $A^n$。
 
 ## **Kai**
+
+The integral defining $\Gamma(x)$ converges for $x>0$, which includes $x=1/2$.
+
 ### (1)
 #### (a)
 The integral $I=\int _{-\infty }^{\infty }\int _{-\infty }^{\infty }e^{-(x^{2}+y^{2})}dxdy$ can be solved using polar coordinates, where $x^{2}+y^{2}=r^{2}$ and $dx\,dy=r\,dr\,d\theta $. The integral becomes:

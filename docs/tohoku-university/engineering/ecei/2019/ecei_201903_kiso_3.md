@@ -33,7 +33,7 @@ $$
 
 (6) Fig. 3(c) に示す DFA の受理する $\Sigma_4$ 上の言語を $L_c$ とする。等式 $\phi_2(L)=\phi_4(L_c)$ を満たす言語 $L\subseteq\Sigma_2^*$ を受理する最簡形 DFA を描け。
 
-Fig. 3(a)–(c) の再描画（状態名は転記上の識別子）：
+Fig. 3(a)–(c)：
 
 ```mermaid
 flowchart LR

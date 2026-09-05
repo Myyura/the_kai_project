@@ -49,9 +49,19 @@ Circuit's output determined by its input and past states.
 </figure>
 
 ### (3)
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2013_2_p3.png" width="700" height="450" alt=""/>
-</figure>
+Use the same three JK flip-flops and common clock as in (2), with initial state $Q_2Q_1Q_0=000$.
+Connect their inputs as follows:
+
+$$
+J_0=K_0=\overline{Q_2},\qquad
+J_1=K_1=Q_0,\qquad
+J_2=Q_0Q_1,\quad K_2=1.
+$$
+
+The transition sequence is $000\to001\to010\to011\to100\to000$.
+Only one NOT gate and one AND gate are needed in addition to the flip-flops.
+
+![Synchronous modulo-5 JK counter](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2013/tokyo-denshi-2012-mod5.svg)
 
 ### (4)
 |$S_2$|$S_1$|$S_0$|$S_2'$|$S_1'$|$S_0'$|

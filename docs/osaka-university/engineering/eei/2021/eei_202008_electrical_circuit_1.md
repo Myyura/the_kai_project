@@ -88,7 +88,7 @@ $$
 よって、
 
 $$
-i(t) = (2e^{-\frac{1}{6}} + 3e^{-t})u(t)
+i(t) = (2e^{-\frac{t}{6}} + 3e^{-t})u(t)
 $$
 
 ### (5)
@@ -96,6 +96,6 @@ $$
 $$
 \begin{aligned}
     W &= \int_0^{+\infty} i^2(t) R_1 dt = 3\int_0^{+\infty} (4e^{-\frac{1}{3}t} + 9e^{-2t} + 12e^{-\frac{7}{6}t}) dt \\
-    &= 3 \cdot (12 + \frac{9}{2} + \frac{72}{7}) = \frac{1125}{14}
+    &= 3 \cdot (12 + \frac{9}{2} + \frac{72}{7}) = \frac{1125}{14}\ \mathrm J
 \end{aligned}
 $$

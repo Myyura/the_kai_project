@@ -9,6 +9,8 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20151118065535id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2012-8-exam.pdf).
 An English conversation school plans to make pairs of students and teachers for private lessons. Given a set $S = \{s_1, s_2, \dots, s_n\}$ of students and a set $T = \{t_1, t_2, \dots, t_n\}$ of teachers, we make disjoint $n$ pairs of a student and a teacher, which we call a $p$-match. Answer the following questions:
 
 (1) How many $p$-matches exist?
@@ -111,3 +113,98 @@ Table 3: Rank of students by teachers
 
 6. 对一般 $n$，给出求 $s$-匹配的算法及其复杂度。
 7. 若要真正开发英语会话学校的一对一课程软件系统，列出可能需要研究或实现的项目（例如 Web 预约），每项用两行说明。
+
+
+## **Kai**
+
+### (1) Number of complete pairings
+
+Choose a distinct teacher for each student in order: there are $n(n-1)\cdots1=\boxed{n!}$ possible $p$-matches. The empty instance has $0!=1$ pairing.
+
+### (2) Maximum number of fulfilled students
+
+The following bipartite graph contains exactly the preferred pairs in Table 1; its edges do not include the nonpreferred pairs that can still be used to complete a $p$-match.
+
+```mermaid
+graph LR
+  s1 --- t1
+  s1 --- t3
+  s2 --- t2
+  s2 --- t4
+  s2 --- t5
+  s3 --- t1
+  s3 --- t3
+  s4 --- t3
+  s4 --- t5
+  s5 --- t1
+  s5 --- t3
+```
+
+The three students $s_1,s_3,s_5$ collectively prefer only $t_1,t_3$. At least one of these students must therefore receive a nonpreferred teacher, so at most four students can be fulfilled. The complete pairing
+
+$$
+\boxed{\{(s_1,t_1),(s_2,t_2),(s_3,t_3),(s_4,t_5),(s_5,t_4)\}}
+$$
+
+fulfills the first four students and attains that upper bound.
+
+### (3) Algorithm and complexity
+
+Find a maximum-cardinality matching $M$ in the bipartite preference graph. Start with no matched edges; repeatedly search for a path that alternates unmatched and matched edges, beginning at an unmatched student and ending at an unmatched teacher. Reverse the membership of every edge on that augmenting path, increasing $|M|$ by one. When no augmenting path exists, the matching is maximum: otherwise the symmetric difference with a larger matching would contain an augmenting path.
+
+There are at most $n$ augmentations. A straightforward search scans $O(n+m)$ vertices and edges each time, giving $O(n(n+m))$ time and $O(n+m)$ space; with isolated vertices handled separately, the common edge-based implementation takes $O(nm+n)$ time. Hopcroft–Karp improves this to $O((n+m)\sqrt n)$.
+
+Finally pair the remaining unmatched students and teachers arbitrarily to obtain a complete $p$-match. This preserves all $|M|$ preferred pairs. A preferred edge between any two unmatched vertices would augment $M$, so no extra fulfilled pair has been missed. Conversely, the fulfilled pairs of any complete pairing form a matching in the preference graph and cannot exceed $|M|$.
+
+### (4) Minimum total rank
+
+One optimal complete pairing, listed in student order, is
+
+$$
+\boxed{(t_1,t_2,t_5,t_4,t_7,t_3,t_6)}.
+$$
+
+Its ranks are $(2,3,2,2,1,1,4)$, with sum $\boxed{15}$.
+
+To prove optimality, minimize each teacher's assigned rank independently. For teachers $t_1,\ldots,t_7$, these column minima are $(1,3,1,2,2,4,1)$, summing to 14. However, the minimum for both $t_1$ and $t_4$ is attained only by $s_4$. A complete pairing cannot use $s_4$ twice, so at least one of these ranks must exceed its column minimum by at least one. Thus every $p$-match has total rank at least 15, attained above. A Hungarian or min-cost-flow algorithm can solve the general minimum-rank assignment problem.
+
+### (5) A stable matching
+
+Student-proposing deferred acceptance gives
+
+$$
+\boxed{\{(s_1,t_1),(s_2,t_2),(s_3,t_7),(s_4,t_4),
+(s_5,t_3),(s_6,t_5),(s_7,t_6)\}}.
+$$
+
+For example, choosing free students in queue order, the proposals made by each student are:
+
+| Student | Teachers proposed to, in order | Final teacher |
+| --- | --- | --- |
+| $s_1$ | $t_7,t_1$ | $t_1$ |
+| $s_2$ | $t_7,t_1,t_2$ | $t_2$ |
+| $s_3$ | $t_7$ | $t_7$ |
+| $s_4$ | $t_1,t_4$ | $t_4$ |
+| $s_5$ | $t_7,t_3$ | $t_3$ |
+| $s_6$ | $t_3,t_7,t_2,t_1,t_5$ | $t_5$ |
+| $s_7$ | $t_7,t_3,t_2,t_6$ | $t_6$ |
+
+Every teacher to whom a student would prefer to move has already rejected that student or subsequently replaced them with a preferred student. Teachers only improve their held partner. Therefore no student-teacher pair blocks this matching. For instance $s_6$ prefers $t_3,t_7,t_2,t_1$ to $t_5$, but these teachers prefer their current partners $s_5,s_3,s_2,s_1$, respectively, to $s_6$. Stability is a different objective from the total-rank minimum in (4).
+
+### (6) Deferred acceptance
+
+Initially everyone is free. While a student is free, they propose to their most preferred teacher not yet proposed to. A free teacher holds the proposal; an already engaged teacher keeps the more preferred of the current and new students and rejects the other. Engagements are provisional until no student remains free.
+
+There are at most $n^2$ distinct proposals. Precompute each teacher's inverse ranking table for constant-time comparisons; total time and input/ranking storage are $O(n^2)$. The working queue, next-proposal indices and partners use $O(n)$ additional space. Because the preference lists are complete and both sides have size $n$, the algorithm ends with all students paired. If a student preferred some teacher to their final partner, that teacher rejected them and ends with a partner preferred to that student, proving stability.
+
+### (7) Software design items
+
+| Item | Main consideration |
+| --- | --- |
+| Web reservation | Show available time slots and allow booking, cancellation and rescheduling; commit a booking atomically to prevent double booking. |
+| Scheduling constraints | Match teacher availability, student availability, classroom capacity and lesson duration before optimizing preferences. |
+| Preference management | Collect ranked choices and distinguish mandatory constraints from preferences; explain whether the chosen objective is satisfaction, total rank or stability. |
+| Accounts and permissions | Authenticate students, teachers and administrators and restrict which schedules and personal records each role can access. |
+| Payments and cancellation rules | Record fees, refunds and deadlines consistently with booking changes; make retries idempotent so payments are not duplicated. |
+| Notifications | Send confirmations and reminders with the correct time zone, and track failed delivery without treating it as a cancelled reservation. |
+| Operations and recovery | Keep audit records and backups, monitor service failures, and support recovery of bookings without losing their transaction history. |

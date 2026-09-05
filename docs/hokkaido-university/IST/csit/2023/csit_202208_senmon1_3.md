@@ -200,7 +200,9 @@ $$
 $$
 
 #### (4)
-omitted
+$0\leq x<2$ では下に凸の放物線 $f(x)=3x^2/8$、それ以外では $f(x)=0$ となる。$x=2$ の左極限は $3/2$ であり、(3) の定義では $f(2)=0$ とする。
+
+![確率密度関数の概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hokkaido_university/IST/csit/2023/hokkaido-csit-202208-density.svg)
 
 #### (5)
 
@@ -233,6 +235,8 @@ $$
 $$
 
 ### \[2\]
+ここでは $n\geq2$ とし、(5) の正規分布は $\sigma^2>0$ とする。
+
 $X_1,X_2,\ldots,X_n$ は、母平均 $\mu$、母分散 $\sigma^2$ の母集団からの大きさ $n$ の無作為標本である。  
 したがって、
 

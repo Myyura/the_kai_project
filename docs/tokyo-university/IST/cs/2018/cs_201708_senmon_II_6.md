@@ -71,6 +71,8 @@ $$
 F_T(t)=\int_0^t\lambda e^{-\lambda x}\,dx=1-e^{-\lambda t}.
 $$
 
+当 $t<0$ 时，$F_T(t)=0$。
+
 令 $F_T(m)=1/2$，得中位数
 
 $$

@@ -130,7 +130,7 @@ The final bound is an equality exactly for the uniform distribution on all of $\
 
 ### Q.4
 
-For one source symbol, the expected number of encoded `1` bits is
+For independent source symbols, interpret the random bit as one selected uniformly from a long finite prefix, followed by the limit as the prefix grows. For one source symbol, the expected number of encoded `1` bits is
 
 $$
 \mathbb E[N_1]

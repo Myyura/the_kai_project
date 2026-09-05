@@ -22,7 +22,7 @@ In the initial state, the receiver circuit waits for '1' corresponding to the fi
 
 Answer the following questions.
 
-(1) Give the state transition diagram of a Mealy-type finite state machine (FSM), consisting of 6 states, for the parity check circuit with the input A and the output B in the receiver circuit. Based on the state transition diagram, give also a corresponding state transition table and an output table by using the one-hot encoding. One-hot encoding is a method for encoding each state as a bit sequence where only one bit is '1' and the other bits are '0'.
+(1) Give the state transition diagram of a Mealy-type finite state machine (FSM), consisting of 7 states, for the parity check circuit with the input A and the output B in the receiver circuit. Based on the state transition diagram, give also a corresponding state transition table and an output table by using the one-hot encoding. One-hot encoding is a method for encoding each state as a bit sequence where only one bit is '1' and the other bits are '0'.
 
 (2) Based on the state transition table and the output table in question (1), express the output B as a Boolean expression in terms of the input A and the one-hot encoding representation of the current state of the FSM. Based on the Boolean expression, give also a corresponding gate-level circuit of the parity check circuit that outputs B, given A and the one-hot encoding representation of the current state of the FSM as inputs. You are allowed to use only 2-input AND gates, 2-input OR-gates, and NOT-gates. There is no limitation on the number of gates. You need not describe unused input signals.
 
@@ -34,7 +34,7 @@ Answer the following questions.
 
 接收器有来自发送器的一位输入 $A$、表示校验结果的一位输出 $B$ 和两位载荷输出。初始时等待起始信号的第一个 `1`；下一拍若第二个起始位为 `0`，则把首个 `1` 视为噪声并回到初始状态，否则在随后两拍存储载荷，再下一拍接收校验位并检查五位中 `1` 的个数是否为奇数：奇数时令 $B=1$，否则为 $0$。除接收校验位的时钟周期外 $B$ 始终为 $0$；校验后无论结果如何均回到初始状态。
 
-（1）给出具有 $6$ 个状态、输入为 $A$、输出为 $B$ 的 Mealy 型奇校验 FSM 状态转移图；再采用 one-hot 编码给出相应状态转移表和输出表。one-hot 编码中每个状态由仅一位为 `1` 的位串表示。
+（1）给出具有 $7$ 个状态、输入为 $A$、输出为 $B$ 的 Mealy 型奇校验 FSM 状态转移图；再采用 one-hot 编码给出相应状态转移表和输出表。one-hot 编码中每个状态由仅一位为 `1` 的位串表示。
 
 （2）根据第（1）问的表，用输入 $A$ 和当前状态的 one-hot 表示写出输出
 $B$ 的布尔表达式，并画出相应门级电路。只允许二输入与门、二输入或门和非门，门数不限，未使用的输入信号无需描述。
@@ -47,7 +47,7 @@ $B$ 的 CMOS 晶体管级电路。最多使用 $12$ 个晶体管；可用反相�
 
 #### State Transition Diagram
 
-The specified behavior needs the following seven distinguishable logical states. Thus, a literal six-state requirement is inconsistent with the protocol. The six active states can nevertheless be stored in six bits by using the all-zero code for the idle state (a modified one-hot encoding); strict one-hot encoding would require seven bits.
+Use the following seven states.
 
 - **S0**: Initial state, waiting for the first start bit. If '0' is received, return to the initial state. If the first start bit '1' is received, move to the next state.
 - **S1**: Received the first start bit '1'; waiting for the second start bit.
@@ -55,7 +55,7 @@ The specified behavior needs the following seven distinguishable logical states.
 - **S3, S4**: Received the first payload bit; the running parity is even/odd, respectively.
 - **S5, S6**: Received both payload bits; the running parity is even/odd, respectively. The next bit is the parity bit, after which the FSM returns to S0.
 
-State transitions and outputs B based on input A are as follows(A/B means input/output, S0 and S0' are the same as the initial state):
+State transitions and outputs B based on input A are as follows (A/B means input/output):
 
 ```mermaid
 graph LR
@@ -69,8 +69,8 @@ graph LR
     S3 -->|1/0| S6
     S4 -->|0/0| S6
     S4 -->|1/0| S5
-    S5 -->|0/0, 1/1| S0' 
-    S6 -->|1/0, 0/1| S0'
+    S5 -->|0/0, 1/1| S0
+    S6 -->|1/0, 0/1| S0
 ```
 
 The corresponding state transition and output tables are as follows:
@@ -84,15 +84,15 @@ The corresponding state transition and output tables are as follows:
 
 ### (2)
 
-Using the six-bit modified one-hot encoding described above:
+Use the following seven-bit one-hot encoding:
 
-- S0: 000000
-- S1: 100000
-- S2: 010000
-- S3: 001000
-- S4: 000100
-- S5: 000010
-- S6: 000001
+- S0: 1000000
+- S1: 0100000
+- S2: 0010000
+- S3: 0001000
+- S4: 0000100
+- S5: 0000010
+- S6: 0000001
 
 The output B will be '1' only in states S5 and S6. So the output B can be expressed as a Boolean function of the current state and input A:
 
@@ -124,15 +124,7 @@ S5 -------------/
 
 The expression $B=A S5+\overline{A}S6$ is a 2-to-1 multiplexer. Generate $\overline{A}$ with one CMOS inverter and use two CMOS transmission gates:
 
-```plaintext
-                    n-gate=A, p-gate=A̅
-S5 ----------------------[TG]----\
-                                   +---- B
-S6 ----------------------[TG]----/
-                    n-gate=A̅, p-gate=A
-
-A -----------------------[INV]---- A̅
-```
+![CMOS transmission-gate multiplexer](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/cs/2021/tokyo-cs-2020-parity-cmos.svg)
 
 Exactly one transmission gate is on: $S5$ is passed when $A=1$, and $S6$ is passed when $A=0$. Each transmission gate uses one nMOS and one pMOS, and the inverter uses two transistors, for a total of $2+2+2=6$ transistors.
 

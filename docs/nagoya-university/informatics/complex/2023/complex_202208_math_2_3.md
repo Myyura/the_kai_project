@@ -12,6 +12,9 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/153686fd38b76aec8fe63b4c47663818.pdf)
+
+
 以下の2次元非線形力学系について考える。
 
 (a) $\frac{dx}{dt} = x - y - x(x^2 + y^2)$
@@ -129,3 +132,10 @@ $$
 $$
 
 であり、これは安定な極限周期軌道（リミットサイクル）と呼ばれる。周期は $2\pi$ である。
+
+
+![原点近傍の外向き螺旋と指定された八つの軌道](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2023/nagoya-complex2023-limit-cycle.svg)
+
+左図は原点近傍の拡大図，右図の青線は $r_0=1/2$，橙線は $r_0=2$ の軌道である。
+点は初期位置，矢印は時間が増える方向を表す。$r_0=0$ では偏角は定義されず，
+直交座標での解は $(x,y)=(0,0)$ である。

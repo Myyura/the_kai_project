@@ -44,7 +44,7 @@ $$
 \sigma(e^t) = a_{11} (\sigma) e^t + a_{12} (\sigma) \phi(t), \quad \sigma(\phi(t)) = a_{21} (\sigma) e^t + a_{22} (\sigma) \phi(t)
 $$
 
-が成立する．各 $i, j = 1, 2$ に対して $(i, j)$ 成分が $a_ij (\sigma)$ の 2 次正方行列を $A(\sigma)$ と表す．
+が成立する．各 $i, j = 1, 2$ に対して $(i, j)$ 成分が $a_{ij}(\sigma)$ の 2 次正方行列を $A(\sigma)$ と表す．
 このとき，任意の $\sigma_1, \sigma_2 \in G$ に対して $A(\sigma_1) A(\sigma_2) = A(\sigma_2) A(\sigma_1)$ が成立することを示せ．
 
 ### English Version
@@ -121,7 +121,7 @@ $$
 ### (iii)
 
 $$
-\frac{d^2 \sigma(x(t))}{dt^2} = \frac{d\frac{ \sigma(x(t))}{dt}}{dt} = \sigma(\frac{d^2 x(t)}{dt^2})
+\frac{d^2 \sigma(x(t))}{dt^2} = \frac{d}{dt}\left(\frac{d\sigma(x(t))}{dt}\right) = \sigma(\frac{d^2 x(t)}{dt^2})
 $$
 
 $$

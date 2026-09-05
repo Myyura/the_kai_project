@@ -113,7 +113,7 @@ $$
 (3) If $\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} = 0$ , then $f''(r) + \frac{2}{r} f'(r) = 0$ . Let $g(r) = f'(r)$ . Then $g'(r) + \frac{2}{r} g(r) = 0$ .
 
 $$
-\frac{g'(r)}{g(r)} = -\frac{2}{r} \Rightarrow \ln |g(r)| = -2 \ln |r| + C = \ln \frac{1}{r^2} + C \Rightarrow g(r) = f'(r) = \frac{C_1}{r^2}
+(r^2g(r))'=r^2\left(g'(r)+\frac{2}{r}g(r)\right)=0\quad\Rightarrow\quad g(r)=\frac{C_1}{r^2}
 $$
 
 Thus, $f(r) = \int \frac{C_1}{r^2} dr = -\frac{C_1}{r} + C_2$ . Therefore, $u(x, y, z) = -\frac{C_1}{\sqrt{x^2 + y^2 + z^2}} + C_2 = \frac{C_1'}{\sqrt{x^2 + y^2 + z^2}} + C_2$ for some constant $C_1' = -C_1$ .

@@ -93,7 +93,7 @@ v_1=(1-3i,1+3i,4), v_2=(1+3i,1-3i,4), v_3=(-2,-2,1)
 $$
 
 ### (4)
-Let $\lambda$ be an eigenvalue of $A$ and let $\mathbf{x}$ be an eigenvector corresponding to the eigenvalue $\lambda$. That is, we have
+Let $A$ be an arbitrary real skew-symmetric matrix. Let $\lambda$ be an eigenvalue of $A$ and let $\mathbf{x}$ be an eigenvector corresponding to the eigenvalue $\lambda$. That is, we have
 
 
 $$
@@ -108,7 +108,7 @@ $$
 \end{align}
 $$
 
-Note that the left hand side $\bar{\mathbf{x}}^{T}A\mathbf{x}$ is the dot (inner) product of $\bar{\mathbf{x}}$ and $A\mathbf{x}$. Since the dot product is commutative, we have
+The left hand side $\bar{\mathbf{x}}^{T}A\mathbf{x}$ is a scalar, so taking its transpose leaves it unchanged:
 
 $$
 \begin{aligned}

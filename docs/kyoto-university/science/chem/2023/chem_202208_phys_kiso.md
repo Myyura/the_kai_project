@@ -15,52 +15,49 @@ tags:
 
 ## **Description**
 
+### 問題要約
+
+[大学公表の原題](https://www.kuchem.kyoto-u.ac.jp/master_past_issues/r5_butsuri_kiso.pdf)
+
+間隔 $d$ の無限平行平板に電位差 $V>0$ を与える。陰極を $x=0$、陽極を $x=d$ とし、$y$ 軸を板に平行に取る。磁場は $\boldsymbol B=(0,0,B)$（$B>0$）で、$xy$ 図では紙面の奥向きである。質量 $m$、電荷 $-e$（$e>0$）の電子を、時刻 $t=0$ に陰極の原点から初速度ゼロで放出する。電子間の相互作用を無視し、
+
+$$
+A=\frac{V}{Bd},\qquad \omega=\frac{eB}{m}
+$$
+
+と置く。速度成分を $v_x,v_y,v_z$ とする。
+
+- **問 A**：電場 $\boldsymbol E=(E_x,0,0)$ の $E_x$ を求める。
+- **問 B**：ローレンツ力から $\dot v_x,\dot v_y$ を $\omega,A,v_x,v_y$ で表す。
+- **問 C**：初期条件を用いて次の速度を導く。
+
+  $$
+  v_x=A\sin\omega t,\tag{6}
+  $$
+
+  $$
+  v_y=A(1-\cos\omega t).\tag{7}
+  $$
+
+- **問 D**：$x(t)$ を求める。その結果を式 (8) とする。もう一方の座標は $y(t)=A(\omega t-\sin\omega t)/\omega$ である。
+- **問 E**：$B$ が十分大きい場合の電子軌道を、次の候補から選ぶ。上向きが $x$、右向きが $y$ の正方向である。
+
+![電子軌道の六つの候補を示す模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/science/chem/2023/kyoto-chem-2022-trajectories.svg)
+
+- **問 F(a)**：軌道の $x$ 座標の最大値が $d$ を下回ると電極間の電流は急減する。その境界となる磁場 $B_c$ を $d,V,m,e$ で表す。
+- **問 F(b)**：$B>B_c$ で、問 B の二式にそれぞれ減衰項 $-v_x/\tau,-v_y/\tau$ を加えた式を (10) とする。$t\gg\tau$ の定常速度を求め、速度と $x$ 軸との角が $45^\circ$ になる $\tau$ を $\omega$ で表す。
+
 ### 题目描述
 
-原 `Description` 未保存题干，无法唯一恢复各问的具体设问、图示、符号定义与全部条件。现有 `Kai` 只能确认以下信息：
+间距为 $d$ 的无限大平行板间电势差为 $V>0$，阴极位于 $x=0$、阳极位于 $x=d$，$y$ 轴平行于板。磁场为 $\boldsymbol B=(0,0,B)$，$B>0$，在题图中指向纸面内。质量为 $m$、电荷为 $-e$（$e>0$）的电子在 $t=0$ 从阴极原点由静止释放，忽略电子间相互作用。令 $A=V/(Bd)$、$\omega=eB/m$。
 
-- 问 A 的已保存结果为 $-V/d$。
-- 问 B 涉及带电粒子在电磁场中的运动，已保存关系为
-
-  $$
-  \vec v\times\vec B=(v_yB,-v_xB,0),
-  $$
-
-  以及速度分量方程
-
-  $$
-  \frac{d v_x}{dt}=\omega A-\omega v_y,
-  \qquad
-  \frac{d v_y}{dt}=\omega v_x.
-  $$
-
-- 问 C 在初始条件 $t=0$ 时 $v_x=v_y=0$ 下，得到
-
-  $$
-  v_x=A\sin\omega t,\qquad
-  v_y=A(1-\cos\omega t).
-  $$
-
-- 问 D 在 $t=0$ 时 $x=0$ 的条件下，得到
-
-  $$
-  x=\frac A\omega(1-\cos\omega t).
-  $$
-
-- 问 E 的已保存选择结果为“（あ）”，但选项与题干均未保存。
-- 问 F(a) 的已保存临界磁场结果为
-
-  $$
-  B_c=\frac1d\sqrt{\frac{2mV}{e}}.
-  $$
-
-  问 F(b) 涉及含弛豫时间 $\tau$ 的稳态运动；已保存结论是在速度方向与 $x$ 轴成 $45^\circ$、即 $v_x=v_y$ 时，
-
-  $$
-  \tau=\frac1\omega.
-  $$
-
-由于缺少原始题面，以上内容仅整理已保存解答中明确出现的关系，不补造无法确认的设问。
+- 问 A：求电场 $\boldsymbol E=(E_x,0,0)$ 的 $E_x$。
+- 问 B：由 Lorentz 力，用 $\omega,A,v_x,v_y$ 表示 $\dot v_x,\dot v_y$。
+- 问 C：用初始条件导出 $v_x=A\sin\omega t$、$v_y=A(1-\cos\omega t)$。
+- 问 D：求 $x(t)$。另一坐标为 $y(t)=A(\omega t-\sin\omega t)/\omega$。
+- 问 E：当 $B$ 足够大时，从上图六个选项中选出电子轨道；图中向上为 $+x$、向右为 $+y$。
+- 问 F(a)：轨道最大 $x$ 坐标低于 $d$ 时，板间电流急剧下降。求临界磁场 $B_c$。
+- 问 F(b)：在 $B>B_c$ 时，分别在两条速度方程中加入 $-v_x/\tau,-v_y/\tau$。求 $t\gg\tau$ 的稳态速度，并求使速度与 $x$ 轴成 $45^\circ$ 的 $\tau$。
 
 ## **Kai**
 ### 問 A
@@ -121,10 +118,10 @@ $$
 \begin{aligned}
 \xi &= -iA e^{i \omega t}
 \\
-\therefore \ \ 
+\therefore \ \
 v_x + iv_y - iA &= -iA \left( \cos \omega t + i \sin \omega t \right)
 \\
-\therefore \ \ 
+\therefore \ \
 v_x + iv_y &= A \sin \omega t + iA \left( 1 - \cos \omega t \right)
 \end{aligned}
 $$
@@ -152,7 +149,8 @@ $$
 を得る。
 
 ### 問 E
-（あ）
+（い）。$v_y=A(1-\cos\omega t)\ge0$ なので $y$ は単調非減少であり、軌道にループはない。
+また $0\le x\le2A/\omega$ で、$t=2\pi n/\omega$ では $x=0$ と $v_x=v_y=0$ が同時に成立する。したがって、$y$ の正方向に進むサイクロイドである。
 
 ### 問 F
 #### (a)
@@ -183,6 +181,13 @@ $$
 \\
 0 &= \omega v_x - \frac{1}{\tau} v_y
 \end{aligned}
+$$
+
+連立方程式を解くと、
+
+$$
+v_x=\frac{\omega A\tau}{1+\omega^2\tau^2},\qquad
+v_y=\frac{\omega^2 A\tau^2}{1+\omega^2\tau^2}.
 $$
 
 電子の速度方向とx軸とのなす角が45°になるということは $v_x=v_y$ ということであり、

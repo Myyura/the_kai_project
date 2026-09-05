@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h22/h22_senmon3.pdf)
+
 以下の問 (i), (ii) に答えよ。
 
 (i) $A$ を $n \times n$ の実対称行列とし, $g: \mathbb{R}^n \to \mathbb{R}$ を

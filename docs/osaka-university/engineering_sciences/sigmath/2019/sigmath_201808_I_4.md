@@ -13,9 +13,31 @@ tags:
 
 ## **Description**
 
+### 参考問題
+
+$t>0$ で実関数 $x(t),y(t)$ が
+
+$$
+x''(t)=-2y(t),\qquad y''(t)=2x(t)-2
+$$
+
+を満たし、境界条件が
+
+$$
+\lim_{t\downarrow0}x(t)=0,\quad\lim_{t\to\infty}x(t)=1,\quad
+\lim_{t\downarrow0}y(t)=0,\quad\lim_{t\to\infty}y(t)=0
+$$
+
+である場合を考える。
+
+1. $y''(t)$ の $t\downarrow0$ と $t\to\infty$ における極限を求める。
+2. $x$ を消去して $y^{(4)}+4y=0$ を導く。
+3. この四階方程式の特性根を求める。
+4. 境界条件を満たす実数値の解 $x(t),y(t)$ を求める。
+
 ### 题目描述
 
-原文题干缺失。根据现有解答，实函数 $x(t),y(t)$（$t>0$）满足
+实函数 $x(t),y(t)$（$t>0$）满足
 $$
 x''(t)=-2y(t),\qquad y''(t)=2x(t)-2,
 $$
@@ -57,7 +79,7 @@ $$
   \begin{aligned}
   \frac{d^4 y(t)}{dt^4} - 2 \cdot \left( - 2 y(t) \right) &= 0
   \\
-  \therefore \ \ 
+  \therefore \ \
   \frac{d^4 y(t)}{dt^4} + 4 y(t) &= 0
   \end{aligned}
 $$

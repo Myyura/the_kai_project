@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/82069e4a1dd507dc8d81ea5777054d68.pdf)
+
 非線形常微分方程式
 
 $$
@@ -105,3 +107,8 @@ y=-\sqrt{\frac gc}\,t+h+\frac{\log2}{c}
 $$
 
 その傾きは $-\sqrt{g/c}$ 、切片は $h+(\log2)/c$ である。
+
+
+下図は $\tau=\sqrt{cg}\,t$、$Y=c(y-h)$ による表示である。横軸を $1/\sqrt{cg}$ 倍し、縦軸を $1/c$ 倍して $h$ だけ上へ移すと、$t$–$y$ 平面のグラフを得る。
+
+![解 Y=-log cosh τ と漸近線 Y=-τ+log 2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2018/nagoya-complex2018-falling.svg)

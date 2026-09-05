@@ -11,6 +11,7 @@ tags:
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
 
+
 ## **Description**
 
 行列 $A$ を次で定める。

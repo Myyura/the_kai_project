@@ -11,18 +11,21 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+
+以下は[公式問題の12ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_bio_20238&key=684a39c36a0644cea000cc3c0fdeb42b.pdf&pageId=3186&prevId=&type=1)をもとにした独立要約である。
+
 逐次一次反応
 
 $$
 A\xrightarrow{k_a}B\xrightarrow{k_b}C
 $$
 
-を考える。初期条件を $[A](0)=[A]_0,[B](0)=[C](0)=0$ とし、逆反応と副反応は無視する。
+を考える。初期条件を $[A](0)=[A]_0,[B](0)=[C](0)=0$ とし、逆反応と副反応は無視し、温度と圧力は一定とする。
 
 1. 物質収支を示せ。
 2. $[A]$ の速度式を示せ。
 3. $[B]$ の速度式を示せ。
-4. $[C]$ の式中の空欄を求めよ。
+4. $[C]=\{1+\boxed{\text{ア}}/(k_b-k_a)\}[A]_0$ の空欄アを、$k_ae^{-k_bt}$ と $k_be^{-k_at}$ を用いて表せ。
 5. $[B]$ が最大となる時刻 $t_{\max}$ を求めよ。
 
 ## **Kai**
@@ -46,6 +49,8 @@ $$
 $$
 
 ### 4)
+以下では$k_a,k_b>0$、$k_a\ne k_b$ とする。
+
 積分因子 $e^{k_bt}$ を用いると
 
 $$
@@ -76,6 +81,8 @@ $$
 $$
 \boxed{t_{\max}=\frac{\log(k_b/k_a)}{k_b-k_a}}.
 $$
+
+$k_a=k_b=k>0$ の場合は、上の式の極限または速度式を直接解くことで $[B]=k[A]_0te^{-kt}$、$[C]=[A]_0\{1-(1+kt)e^{-kt}\}$、$t_{\max}=1/k$ となる。
 
 ## **Reference**
 

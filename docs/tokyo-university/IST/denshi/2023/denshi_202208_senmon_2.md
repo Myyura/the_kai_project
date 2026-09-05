@@ -27,7 +27,7 @@ Also, show the input/output signal lines. You can use supply voltage V$_{\text{D
 (4) Let us add an overflow detection function to the circuit in (3).
 The additional circuit takes a 1-bit signal $D$ as output, with $D = 1$ when an overflow occurs and $D = 0$ otherwise.
 Show the truth table of the circuit to output $D$ by using necessary signals.
-Also, show the circuit that generates $D$ by combining necessary signals and gates from $A_{3:0}, B_{2:0}, C_{3:0}$, AND, OR, and NOT shown on the right side of the figure below.
+Also, show the circuit that generates $D$ by combining necessary signals and gates from $A_{3:0}, B_{2:0}, Y_{3:0}$, AND, OR, and NOT shown on the right side of the figure below.
 The number of gates and inputs can be increased, but the circuit should be simple.
 
 (5) Let us design a circuit to compute $Y = A - B$ instead of adding $A$ and $B$.
@@ -54,7 +54,7 @@ Also, show the circuit that genrates $D$ by combining necessary signals and gate
 
 (3) 组合 (2) 的全加器符号，画出计算 $Y=A+B$ 的电路，并标明输入、输出信号线；必要时可使用电源 $V_{\mathrm{DD}}$ 和地 GND。
 
-(4) 为 (3) 增加溢出检测功能，输出一位信号 $D$：溢出时 $D=1$，否则 $D=0$。使用必要信号写出 $D$ 的真值表；再利用 $A_{3:0},B_{2:0},C_{3:0}$ 中所需信号以及上图右侧所示的 AND、OR、NOT 门画出生成 $D$ 的电路。门和门输入数可以增加，但电路应尽量简单。
+(4) 为 (3) 增加溢出检测功能，输出一位信号 $D$：溢出时 $D=1$，否则 $D=0$。使用必要信号写出 $D$ 的真值表；再利用 $A_{3:0},B_{2:0},Y_{3:0}$ 中所需信号以及上图右侧所示的 AND、OR、NOT 门画出生成 $D$ 的电路。门和门输入数可以增加，但电路应尽量简单。
 
 (5) 改为设计计算 $Y=A-B$ 的电路，组合全加器以及 AND、OR、NOT 门，并像 (3) 一样标明输入、输出信号线；必要时可使用 $V_{\mathrm{DD}}$ 和 GND。
 
@@ -78,7 +78,7 @@ $A:[-8,7],\quad B:[-4,3]$
 
 ### (3)
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2023_2_p2.png" width="480" height="700" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2023/tokyo-denshi-2022-add.svg" width="1180" alt=""/>
 </figure>
 
 ### (4)
@@ -104,7 +104,7 @@ $$
 ### (5)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2023_2_p4.png" width="450" height="700" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2023/tokyo-denshi-2022-subtract.svg" width="1180" alt=""/>
 </figure>
 
 ### (6)

@@ -14,6 +14,18 @@ tags:
 
 ## **Description**
 
+### 題意の要約
+
+[公式問題 PDF](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2019/06/f774c2437f9325b07575786cce17f10a.pdf)
+
+既知の $\lambda>0$ と未知の $\mu\ge0$ に対し $f_\mu(x)=\frac\lambda2e^{-\lambda|x-\mu|}$（$x\in\mathbb R$）。
+
+1. 平均と分散。
+2. 累積分布関数。
+3. 上側 $100\alpha\%$ 点（$0<\alpha\le.1$）。
+4. $H_0:\mu=0$ 対 $H_1:\mu>0$ について、水準 $\alpha$ で第二種過誤を最小にする棄却域。
+5. その検出力関数 $\beta_\lambda(\mu)$（$\mu\ge0$）。
+
 ### 题目描述
 
 已知 $\lambda>0$，未知参数 $\mu\geq0$。随机变量 $X$ 的密度为
@@ -134,6 +146,19 @@ x \gt - \frac{\log 2 \alpha}{\lambda}
 \end{aligned}
 $$
 
+任意の $\mu>0$ について尤度比は
+
+$$
+\frac{f_\mu(x)}{f_0(x)}=
+\begin{cases}
+e^{-\lambda\mu},&x\le0,\\
+e^{\lambda(2x-\mu)},&0<x<\mu,\\
+e^{\lambda\mu},&x\ge\mu.
+\end{cases}
+$$
+
+これは $x$ の非減少関数である。上記棄却域は $H_0$ の下で確率 $\alpha$ を持ち、尤度比の大きい側から選ぶ領域なので Neyman–Pearson の補題により各 $\mu>0$ に対して最強力である（尤度比一定の部分では同順位の一部を選べる）。したがって一様最強力である。
+
 ### (2-5)
 次のようにおく：
 
@@ -172,7 +197,7 @@ $$
 \end{aligned}
 $$
 
-(ii) $0 \lt \mu \leq x_1$ のとき、
+(ii) $0 \leq \mu \leq x_1$ のとき、
 
 $$
 \begin{aligned}
@@ -186,3 +211,5 @@ $$
 &= \alpha e^{\lambda \mu}
 \end{aligned}
 $$
+
+特に $\beta_\lambda(0)=\alpha$ であり、二つの式は $\mu=x_1$ でともに $1/2$ となる。

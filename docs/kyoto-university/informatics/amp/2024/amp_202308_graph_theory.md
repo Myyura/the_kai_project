@@ -11,6 +11,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_amp.pdf)
 ### 日本語版
 $G=(V, E)$ を節点集合 $V$、 枝集合 $E$ から成る単純強連結有向グラフとし、$V$ に属する節点の個数を $n$、$E$に属する枝の本数を $m$ とする。
 $G$ の各枝 $e \in E$ に実数値重み $w(e)$ を与えて得られるネッタワークを $N=[G, w]$ とする。
@@ -133,8 +135,8 @@ BellmanFord(V, E, s):
     D[s] = 0
 
     repeat n-1 times:
-        Dnew = D
-        predecessor_new = predecessor
+        Dnew = copy(D)
+        predecessor_new = copy(predecessor)
         for each arc (u,v) with weight w(u,v):
             if D[u] + w(u,v) < Dnew[v]:
                 Dnew[v] = D[u] + w(u,v)
@@ -145,6 +147,7 @@ BellmanFord(V, E, s):
     for each arc (u,v) with weight w(u,v):
         if D[u] + w(u,v) < D[v]:
             report "negative cycle"
+            return
 
     return D, predecessor
 ```

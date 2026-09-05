@@ -107,8 +107,8 @@ $r < a$ の場合、
 
 $$
 \begin{aligned}
-V &= \frac{\rho^2a^3}{3\varepsilon_0a} - \int_a^r \frac{\rho r}{3\varepsilon_0}dr \\
-&= \frac{\rho^2a^2}{3\varepsilon_0} - \frac{\rho}{3\varepsilon_0}\int_a^r rdr \\
+V &= \frac{\rho a^3}{3\varepsilon_0a} - \int_a^r \frac{\rho r}{3\varepsilon_0}dr \\
+&= \frac{\rho a^2}{3\varepsilon_0} - \frac{\rho}{3\varepsilon_0}\int_a^r rdr \\
 &= \frac{\rho a^2}{3\varepsilon_0} - \frac{\rho}{3\varepsilon_0}\bigg[\frac{1}{2}r^2\bigg]_a^r \\
 &= \frac{\rho}{6\varepsilon_0} \cdot 2a^2 - \frac{\rho}{6\varepsilon_0}(r^2 - a^2) \\
 &= \frac{\rho}{6\varepsilon_0}(3a^2 - r^2)

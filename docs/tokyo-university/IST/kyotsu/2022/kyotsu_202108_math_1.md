@@ -135,6 +135,8 @@ x 軸上にあるのは $(-1,0)$ と $(1,0)$ を結ぶ線分であり、
 
 y 軸上にあるのは $(0,-1)$ と $(0,1)$ を結ぶ線分である。
 
+![集合 Ω：第2・第4象限内の楕円の内部。破線の境界は含まない。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu/2022/tokyo-kyotsu-2021-region.svg)
+
 ### (3)
 (2) で考えた $(x,y)$ と $(x',y')$ の対応に加えて、
 

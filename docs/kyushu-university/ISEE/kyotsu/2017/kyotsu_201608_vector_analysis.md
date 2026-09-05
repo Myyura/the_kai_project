@@ -12,9 +12,11 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://web.archive.org/web/20211018003806id_/https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H29infait.pdf#page=5)。
 次の各問に答えよ．ただし $(x, y, z)$ は三次元空間の直交座標を表す.
 
-(1) スカラー場 $\phi = x^2yz^3 + xy^2z$ について，点 $(1,3,2)$ における $\nabla \cdot (\nabla \cdot \phi)$ を計算せよ．
+(1) スカラー場 $\phi = x^2yz^3 + xy^2z$ について，点 $(1,3,2)$ における $\nabla \cdot (\nabla \phi)$ を計算せよ．
 
 (2) スカラー場 $V = xyz$ について，次の面 $S$ に対する $V$ の面積分を計算せよ．
 

@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20170611141448id_/http://www.i.u-tokyo.ac.jp/edu/course/ci/pdf/2015-8-exam.pdf).
+
 ### 日本語
 
 点(ノード)と線(エッジ)から構成される小包の配送ネットワークにおける小包の配送経路を、以下のアルゴリズムに従って計算するシステムを考える。
@@ -109,3 +111,71 @@ $$
 3. 把 8 兆比特文件分成 1000 个等长的 8 千比特分组。结点 6 发送第 $i$ 个分组 $S_i$ 后，必须等结点 2 收到它并返回确认分组 $R_i$，且结点 6 收到 $R_i$ 后才发送 $S_{i+1}$（$1\le i\le1000$）。求从结点 6 开始发送到结点 2 收完文件的时间 $T$。忽略各结点从收完到开始转发的处理延迟，以及目的标签等文件以外数据的传输时间；传输中无丢失或丢弃。
 4. 修改第 3 问的分组传输方式以减小 $T$，给出具体方法。
 5. 也可修改算法 P，例如改变结点交换的行向量字段或路由计算准则。提出两种减小结点 6 到结点 2 文件传输时间 $T$ 的具体修改，并分别说明分组转发路径如何改变。
+
+
+## **Kai**
+
+### (1) Routing-table convergence
+
+Use synchronous notification rounds, with the initial tables at time 0 and the first exchange at 1 minute. After $t$ rounds, each node knows shortest paths of at most $t$ hops. The graph has diameter 3, so the complete tables converge after **3 minutes**.
+
+For node 6, each cell below is `(hops, next hop)`; a dash means no route is known yet.
+
+| Destination | 0 min | 1 min | 2 min | 3 min |
+|---|---|---|---|---|
+| 1 | — | — | — | (3, 5) |
+| 2 | — | — | (2, 5) | (2, 5) |
+| 3 | — | — | (2, 5) | (2, 5) |
+| 4 | — | (1, 4) | (1, 4) | (1, 4) |
+| 5 | — | (1, 5) | (1, 5) | (1, 5) |
+| 6 | (0, —) | (0, —) | (0, —) | (0, —) |
+
+In particular, destinations 2 and 3 have equal-hop alternatives through 4 and 5, so the larger next hop 5 is selected. At node 5, the route to 1 similarly selects next hop 3 instead of 2.
+
+### (2) Forwarding tree
+
+```mermaid
+flowchart TD
+    N6["6"] --> N4["4"]
+    N6 --> N5["5"]
+    N5 --> N2["2"]
+    N5 --> N3["3"]
+    N3 --> N1["1"]
+```
+
+These are forwarding paths under each intermediate node's table: for example, $6\to5\to3\to1$.
+
+### (3) Stop-and-wait transfer time
+
+The data route is $6\to5\to2$, using local link L10 and satellite link L5. The ACK returns through $2\to5\to6$ under the same hop-count rule. Use decimal kilo/mega/giga units. The one-way propagation time and one-packet serialization time are
+
+$$
+P=0.001+0.500=0.501\ \mathrm{s},\qquad
+S=\frac{8000}{10^9}+\frac{8000}{10^6}=0.008008\ \mathrm{s}.
+$$
+
+Store-and-forward delivery takes $P+S$ for one data packet. ACK serialization is negligible, but ACK propagation still takes $P$. There are 1000 data deliveries and only 999 ACK waits before the receiver finishes the file. Therefore
+
+$$\boxed{T=1000(P+S)+999P=1009.507\ \mathrm{s}.}$$
+
+### (4) Pipeline several packets
+
+Allow multiple packets to be outstanding, using sequence numbers and a sliding window. Pace packets to the satellite bottleneck's 8 ms serialization time, so new data can cross it while ACKs are still in flight. A window of at least
+
+$$\left\lceil\frac{2P+S}{0.008}\right\rceil=127$$
+
+packets supports this pacing. The first packet still takes $P+S$, and the remaining 999 arrive at 8 ms intervals, giving
+
+$$\boxed{T_{\rm pipeline}=P+S+999(0.008)=8.501008\ \mathrm{s}.}$$
+
+The per-packet ACK no longer stops every subsequent transmission. This calculation assumes sufficient buffering and no additional traffic or processing delay, as in the model.
+
+### (5) Two changes to the routing metric
+
+**Minimize propagation delay.** Replace hop count in the advertisements by the cumulative propagation delay, and add the current link's delay during relaxation. Alternatively, flood the link delays and run Dijkstra's algorithm. The minimum-delay path is $6\to4\to2$ over L9 and L4, whose propagation delay is 51 ms, replacing the 501 ms path through L5.
+
+**Minimize packet serialization time.** Advertise the cumulative cost $\sum_{e\in\text{path}}\ell/B_e$ for packet size $\ell$, and use this additive cost for route calculation. This chooses $6\to4\to2$ too: its cost for 8000 bits is $0.000008+0.000080=0.000088$ seconds, compared with $0.008008$ seconds through L5. These are two different metrics; both select the same improved path in this particular graph.
+
+For comparison, path $6\to5\to3\to2$ has delay 52 ms and serialization time 0.096 ms, so it is inferior under either metric. Using the improved path while retaining (3)'s stop-and-wait rule gives
+
+$$T=1999(0.051)+1000(0.000088)=\boxed{102.037\ \mathrm{s}}.$$

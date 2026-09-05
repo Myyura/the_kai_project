@@ -13,6 +13,9 @@ tags:
 
 ## **Description**
 
+出典：[名古屋大学・2019年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/e71e2adef95ac6ee904f160a89c4888f.pdf)、解析・線形代数。導出過程も示す。
+
+
 次の行列 $P$ について、以下の問いに答えよ。
 
 $$
@@ -98,3 +101,5 @@ $$
 $1/\sqrt6$ の楕円である。長軸方向は
 $\frac1{\sqrt5}(1,-2)^T$ ，短軸方向は
 $\frac1{\sqrt5}(2,1)^T$ である。
+
+![二次曲線 5x² + 4xy + 2y² = 1 の回転楕円](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2019/nagoya-aisys2019-ellipse.svg)

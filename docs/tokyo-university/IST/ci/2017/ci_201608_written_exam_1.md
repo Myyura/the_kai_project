@@ -10,6 +10,8 @@ tags:
 [tomfluff](https://github.com/tomfluff), 祭音Myyura
 
 ## **Description**
+
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20200229153159id_/https://www.i.u-tokyo.ac.jp/edu/course/ci/pdf/2016-8-exam.pdf).
 Let us consider to order a mobile robot to move from the start $S$ to the goal $G$ in the grid maze illustrated as in Fig. 1.
 We can order the robot either of two actions at each cell (state), **up**; move one cell upward, or **right**; move one cell to the right.
 When the robot moves into a cell, the robot gets the score written in that cell as the reward.
@@ -93,6 +95,8 @@ $$
 ## **Kai**
 ### (1)
 
+The bottom row is $V(S)=3$, 2 and 0. For example, the bottom-middle cell can move right to earn $2+0=2$, or up to earn $1+0=1$, so its value is 2.
+
 $$
 \begin{array}{|c|c|c|}
 \hline
@@ -114,7 +118,7 @@ $$
 $$
 
 ### (3)
-tomfluff从(3)开始直接把[题意改了再重新做了一遍](https://github.com/tomfluff/utokyo-ci-masters-exam/blob/main/2017-Summer/written_exam.md)，其实是错误的。
+The reward is earned on entering the next cell. Thus $V(s)$ does not include the reward written in the current cell $s$. Work from the upper-right goal backward; both possible successors are already solved.
 
 $$
 \begin{array}{|c|c|c|c|c|} \hline 2 & 0 & 0 & 0 & 0 \\ \hline 4 & 2 & \text{B} & 0 & 0 \\ \hline 6 & 4 & \text{B} & 10 & -5 \\ \hline 10 & 10 & 10 & 10 & -10 \\ \hline \end{array}
@@ -122,13 +126,15 @@ $$
 
 ### (4)
 
+One optimal route follows the bottom row rightward to column 4, then moves up three times and right to the goal. Its reward is 10.
+
 $$
 \begin{array}{|c|c|c|c|c|}
 \hline
-\rightarrow & \rightarrow & \rightarrow & \rightarrow & G \\ \hline
-\uparrow & \uparrow & \text{B} & \uparrow & \uparrow \\ \hline
-\uparrow & \uparrow & \text{B} & \uparrow & \uparrow \\ \hline
-\rightarrow & \rightarrow & \rightarrow & \uparrow & \uparrow \\ \hline
+ & & & \rightarrow & G \\ \hline
+ & & \text{B} & \uparrow & \\ \hline
+ & & \text{B} & \uparrow & \\ \hline
+\rightarrow & \rightarrow & \rightarrow & \uparrow & \\ \hline
 \end{array}
 $$
 
@@ -139,6 +145,10 @@ W(s) = \max_{a \in \{\text{up}, \text{right}\}} \sum_{s'} P_{ss'}^a [ R_{ss'}^a 
 $$
 
 ### (6)
+
+Keep exact values during backward evaluation, then truncate the displayed values to one decimal place. If both actions are possible and their successor reward-plus-value quantities are $q_u,q_r$, the two command values are $0.8q_u+0.2q_r$ and $0.2q_u+0.8q_r$. With only one legal action, use its successor with probability 1.
+
+For example, at row 3, column 4, the up-command value is $0.8(10-1)+0.2(-5-5)=5.2$. At the bottom row, column 4 the value is $0.8(0+5.2)+0.2(-5-10)=1.16$. The exact values at the bottom-left two cells are 7.2784 and 5.032.
 
 $$
 \begin{array}{|c|c|c|c|c|}

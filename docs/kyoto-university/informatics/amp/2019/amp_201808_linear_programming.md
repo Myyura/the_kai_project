@@ -11,6 +11,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h31_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 $\boldsymbol{A}$ を $m \times n$ 行列、$\boldsymbol{b}$ を $m$ 次元ベクトルとする。
 $\boldsymbol{A}\boldsymbol{z} = \boldsymbol{b}$ を満たす $n$ 次元ベクトル $\boldsymbol{z}$ が存在するとする。

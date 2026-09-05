@@ -13,9 +13,18 @@ tags:
 
 ## **Description**
 
+題意の要約（暫定）。
+
+$\theta>0$ とし、$X_1,\ldots,X_n$ は独立で、すべて $[0,\theta]$ 上の一様分布に従う。$\bar X=n^{-1}\sum_iX_i$、$Z_n=\max(X_1,\ldots,X_n)$ とする。
+
+1. $2\bar X$ が $\theta$ の不偏推定量であることを示す。
+2. $Z_2$ の確率密度を求める。
+3. $Z_n$ の確率密度を求める。
+4. $Z_n$ を用いて $\theta$ の不偏推定量を構成する。
+
 ### 题目描述
 
-原 Description 未录入文字；由现有解答可确认：$X_1,\ldots,X_n$ 相互独立且均服从区间 $[0,\theta]$ 上的均匀分布，并令
+$X_1,\ldots,X_n$ 相互独立，$\theta>0$，且均服从区间 $[0,\theta]$ 上的均匀分布，并令
 
 $$
 \bar X=\frac1n\sum_{i=1}^nX_i,

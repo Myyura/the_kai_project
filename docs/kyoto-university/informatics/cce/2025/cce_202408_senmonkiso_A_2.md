@@ -11,6 +11,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_cce.pdf)
 Answer all the following questions. Note that operators $\overline{\phantom{x}}$, $\cdot$, $+$, and $\oplus$ denote logical negation, logical and, logical or, and exclusive or, respectively.
 
 ### (1)
@@ -137,6 +139,8 @@ $$
 
 So the minimum number of 3-input NAND gates is **4**.
 
+The 1-inputs $0000,1001,1010$ cannot be covered pairwise by one implicant, so at least three product terms are required. To justify minimality, note that no literal is true on every 1-input and no entire literal half-space has output 1. The last NAND therefore cannot receive a primary literal. With at most three gates, its inputs must come from the preceding one or two gates. Parallel preceding gates give at most two product terms. If the first gate is $\overline T$ and the second is $\overline{\overline T P}$, feeding both into the last gate gives $T+P$, again at most two terms. Feeding only the second gives $\overline T P$: nonconstant $P$ forces a common literal on all 1-inputs, while constant $P$ gives the complement of one product, contrary to the half-space property. Thus three gates cannot suffice.
+
 #### (c)
 To obtain the minimum product-of-sums form, group the 0-cells of the Karnaugh map:
 
@@ -194,12 +198,10 @@ This expression has the minimum number of product terms, and among them, the min
 ### (2)
 #### (a)
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202408_senmonkiso_A_2_p1.png"width="400">
-</div>
+<img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce/2025/kyoto-cce-2024-moore.svg" width="520" alt="Four-state Moore machine, with previous input and current output as state bits" />
 
 #### (b)
-The minimized Moore machine has the following four states:
+Assign $q_1$ to the previous input and $q_0$ to the current output $z$. The initial state is $00$. The minimized Moore machine has the following four states:
 
 - $S_{00}$: $(q_1q_0)=(00)$
 - $S_{01}$: $(q_1q_0)=(01)$

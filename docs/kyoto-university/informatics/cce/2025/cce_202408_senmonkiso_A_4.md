@@ -12,8 +12,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
-# English text in the image
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_cce.pdf)
 Answer all the following questions.
 
 ### (1)
@@ -54,6 +54,15 @@ for(i=0; i<N; i++){          /* L1 */
 (a) Consider executing the Code segment shown in Fig. 1 on a processor that adopts a dynamic branch predictor that predicts “whether a branch will be taken is the same as the result when the branch was last executed (it predicts not taken when the branch is executed for the first time)”. The branch histories of L1, L2, L3, and L4 are managed individually. Assuming that N is sufficiently large and can be considered infinite, calculate the branch prediction accuracy of L3 and L4, respectively.
 
 (b) Consider executing the Code segment shown in Fig. 1 on a processor that adopts a 2-bit branch predictor. The 2-bit branch predictor uses a counter that follows the state transition diagram shown in Fig. 2 based on the branch result, remembers the branch history, and predicts “not taken” for states `00` and `01`, and “taken” for states `10` and `11`. Counters for managing the branch histories of L1, L2, L3, and L4 are prepared individually and the branch histories are managed individually. Also, the initial state of the 2-bit branch predictor is all `00`. Assuming that N is sufficiently large and can be considered infinite, calculate the branch prediction accuracy of L3 and L4, respectively.
+
+State transitions (a summary of Fig. 2):
+
+| Present state | Not taken | Taken | Prediction |
+|---|---|---|---|
+| 00 | 00 | 01 | Not taken |
+| 01 | 00 | 10 | Not taken |
+| 10 | 01 | 11 | Taken |
+| 11 | 10 | 11 | Taken |
 
 (c) In the case of previous question (b), if the branch histories of L2, L3, and L4 are managed with one counter without distinction (for example, when predicting the branch of L3 at i=M, the branch history of L2 at i=M and L4 at i=M-1 is used), calculate the branch prediction accuracy of L2, L3, and L4, respectively. Note that the initial state of the 2-bit branch predictor is `00`.
 

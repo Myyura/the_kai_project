@@ -13,6 +13,8 @@ tags:
 [Isidore](https://github.com/heacsing), 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_ist.pdf)
 ### 設問1
 $X_1, X_2, \cdots, X_n$ を平均 $\mu$ の母集団からの大きさ $n$ の無作為標本とする。
 $X_i$ の加重和 $\sum_{i=1}^n w_i X_i$ が $\mu$ の不偏推定量であるための必要十分条件を示せ。
@@ -99,6 +101,8 @@ $$
 \implies \boxed{\hat{\sigma}^{2} = \frac{1}{n}\sum_{i=1}^{n}(x_{i}-\hat\mu)^{2}}.
 $$
 
+When $\sum_i(x_i-\hat\mu)^2>0$, profiling over $\mu$ shows that this is the global maximum. If all observations coincide (including $n=1$), the likelihood is unbounded as $\sigma^2\downarrow0$ at that common mean, so no maximum exists in the normal model with $\sigma^2>0$.
+
 ### 設問3
 
 We actually cannot know $\text{Cov}[X,Y]$, but it's offsetted.
@@ -131,7 +135,7 @@ $$
 in which $X$ follows hypergeometric distribution with $N, K, n = (9, 5, 4)$. Calculate it and we have
 
 $$
-Pr[X=3] = \frac{C_K^XC_{N-K}^{n-X}}{C_N^K} = \frac{C_5^3C_4^1}{C_9^5} = \frac{10×4}{126} = \frac{40}{126}
+Pr[X=3] = \frac{C_K^XC_{N-K}^{n-X}}{C_N^n} = \frac{C_5^3C_4^1}{C_9^5} = \frac{10×4}{126} = \frac{40}{126}
 $$
 
 By the definition of Fisher's exact test, we sequentially calculate other probabilities of observed tables. As $X \in \{0, 1, 2, 3, 4\}$
@@ -162,4 +166,4 @@ $$
 p = \frac{1+20+40+5}{126} = {11\over21} \approx 0.5238
 $$
 
-Note that the statistical significance is concluded when $p < 0.05$.
+At significance level $0.05$, this result does not reject the null hypothesis.

@@ -11,6 +11,8 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H30infait.pdf#page=3)。
 正方行列 $A$ が交代的であるとは，$A^{\top} = -A$ を満たすことである．ここで，$A^{\top}$ は $A$ の転置を表す．以下の各問に答えよ．
 
 (1) 任意の $n$ 次正方行列 $A \in \boldsymbol{R}^{n \times n}$ と整数 $i,j(1 \le i,j \le n)$

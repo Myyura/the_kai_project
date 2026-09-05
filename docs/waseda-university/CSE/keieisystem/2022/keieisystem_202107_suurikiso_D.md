@@ -105,6 +105,8 @@ Since the row reduced echelon form of $A$ has rank 3, which is the number of col
 
 ### 小問D2
 
+Here the polynomial has degree at most two: $a_2$ may be zero. If the three points are collinear, the unique interpolant is a line, so a polynomial of degree exactly two need not exist.
+
 Let the three points be $(x_1, y_1), (x_2, y_2), (x_3, y_3)$ . Since $x_1, x_2, x_3$ are all distinct, we want to show that there exists a unique set of constants $a_0, a_1, a_2$ such that the quadratic curve $y = a_0 + a_1x + a_2x^2$ passes through these three points.  This means we have the following system of equations:
 
 $$

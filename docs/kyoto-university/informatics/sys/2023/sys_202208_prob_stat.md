@@ -15,6 +15,8 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/68844c9f000000001d00cc46?xsec_token=ABJ6e6OUxI1XWfgsOiU5PPpD1dju1zjonhKby9ek9Hnc4=), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_sys.pdf)
 以下の問題において，$\log x$ は $x$ の自然対数を表し，$P(A)$ は事象 $A$ の確率を表す。
 また，$N(\mu,\sigma^2)$ は平均 $\mu$、分散 $\sigma^2$ の正規分布を表し，$X \sim N(0,1)$ の累積分布関数 $P(X \le x)$ を $\Phi(x)$ で表す。
 正規分布に関する次の性質を解答に用いてよい。
@@ -53,7 +55,7 @@ $$
 (2) $X_1$ と $X_2$ を $(0,1)$ 上の一様分布にしたがう独立な確率変数とする。
 
 $$
-Y_1 = \sqrt{-2 \log X1} \cos(2\pi X_2), \quad Y_2 = \sqrt{-2 \log X_1} \sin (2\pi X_2)
+Y_1 = \sqrt{-2 \log X_1} \cos(2\pi X_2), \quad Y_2 = \sqrt{-2 \log X_1} \sin (2\pi X_2)
 $$
 
 によって定義される確率変数 $Y_1, Y_2$ の確率密度関数 $f_{Y_1,Y_2}(y_1,y_2)$ を求めよ。
@@ -258,19 +260,67 @@ $$
 
 
 ### 問題2
+#### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202208_prob_stat_p2.jpg" width="700" alt=""/>
-</figure>
+左辺は包除原理によって $P(x_1<X\le x_2,\ y_1<Y\le y_2)$ に等しく、非負である。
 
-In Problem 2(2), the inverse angular coordinate must be interpreted with the correct quadrant:
+#### (2)
 
-$$
-X_2=\frac{1}{2\pi}\operatorname{atan2}(Y_2,Y_1)\pmod 1.
-$$
-
-With this branch choice, the absolute Jacobian gives the density shown in the image,
+極座標 $R=\sqrt{-2\log X_1}$、$\Theta=2\pi X_2$ を用いる。$R,\Theta$ は独立であり、
 
 $$
-f_{Y_1,Y_2}(y_1,y_2)=\frac{1}{2\pi}e^{-(y_1^2+y_2^2)/2}.
+f_R(r)=r e^{-r^2/2}\quad(r>0),\qquad
+f_\Theta(\theta)=\frac1{2\pi}\quad(0<\theta<2\pi).
 $$
+
+変換 $(r,\theta)\mapsto(y_1,y_2)=(r\cos\theta,r\sin\theta)$ のヤコビアンの絶対値は $r$ である。従って、平面上のほとんどすべての点で
+
+$$
+\boxed{f_{Y_1,Y_2}(y_1,y_2)
+=\frac1{2\pi}e^{-(y_1^2+y_2^2)/2}}.
+$$
+
+#### (3-1)
+
+$\phi(x)=(2\pi)^{-1/2}e^{-x^2/2}$ とおくと、
+
+$$
+f_{X\mid Y}(x\mid y)=\phi(x-(1-y)\mu),\qquad
+f_X(x)=\frac{\phi(x)+\phi(x-\mu)}2.
+$$
+
+#### (3-2)
+
+対数尤度と、各観測値が平均 $\mu$ の成分から生じた条件付き確率を
+
+$$
+\ell(\mu)=\sum_{i=1}^n\log\frac{\phi(X_i)+\phi(X_i-\mu)}2,
+\qquad
+r_i(\mu)=\frac{\phi(X_i-\mu)}{\phi(X_i)+\phi(X_i-\mu)}
+$$
+
+とおく。微分すると
+
+$$
+\ell'(\mu)=\sum_{i=1}^n r_i(\mu)(X_i-\mu).
+$$
+
+従って最尤推定量は
+
+$$
+\boxed{p_i(\hat\mu,\mathbf X)=
+\frac{r_i(\hat\mu)}{\sum_{j=1}^nr_j(\hat\mu)}}
+$$
+
+を用いた所定の方程式を満たす。各重みは正で、総和は $1$ である。停留点が複数ある場合は、そのうち尤度を最大にするものを選ぶ。
+
+#### (3-3)
+
+$n=1$ では $\phi(X_1)+\phi(X_1-\mu)$ は $\mu=X_1$ のとき最大になるから、$\hat\mu=X_1$ である。一方、
+
+$$
+E[\hat\mu]=E[X_1]=\tfrac12\cdot0+\tfrac12\mu=\frac\mu2\ne\mu
+\qquad(\mu\ne0).
+$$
+
+従って不偏推定量ではない。

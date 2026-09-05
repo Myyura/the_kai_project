@@ -154,9 +154,9 @@ We want to maximize this expression subject to $0 \le r \le 1$ , $0 \le \theta \
 Since $r \le 1$ , $r^6$ is maximized when $r = 1$ .
 $\sin^4 \theta \cos^2 \theta$ is maximized when $\theta$ is between 0 and $\pi$ .
 $\frac{d}{d\theta} (\sin^4 \theta \cos^2 \theta) = 4\sin^3 \theta \cos^3 \theta - 2\sin^5 \theta \cos \theta = 2 \sin^3 \theta \cos \theta (2 \cos^2 \theta - \sin^2 \theta) = 0$ .
-So either $\sin \theta = 0$ , $\cos \theta = 0$ , or $2 \cos^2 \theta = \sin^2 \theta$ . Since $2 \cos^2 \theta = \sin^2 \theta$ , $2 \cos^2 \theta = 1 - \cos^2 \theta$ , so $3 \cos^2 \theta = 1$ , and $\cos \theta = \pm \frac{1}{\sqrt{3}}$ . Then $\sin \theta = \pm \sqrt{\frac{2}{3}}$ . Thus, the maximum occurs when $\theta = \arccos (\frac{1}{\sqrt{3}})$ and $\sin \theta = \sqrt{\frac{2}{3}}$ .
+So either $\sin \theta = 0$ , $\cos \theta = 0$ , or $2 \cos^2 \theta = \sin^2 \theta$ . Since $2 \cos^2 \theta = \sin^2 \theta$ , $2 \cos^2 \theta = 1 - \cos^2 \theta$ , so $3 \cos^2 \theta = 1$ , and $\cos \theta = \pm \frac{1}{\sqrt{3}}$ . Then $\sin\theta=\sqrt{2/3}$ because $0\leq\theta\leq\pi$. The two maximizing polar angles are $\theta=\arccos(1/\sqrt3)$ and $\theta=\pi-\arccos(1/\sqrt3)$.
 Thus, the maximum value of $\sin^4 \theta \cos^2 \theta$ is $(\frac{2}{3})^2 \frac{1}{3} = \frac{4}{27}$ .
-$\frac{1}{4} \sin^2 2\phi$ is maximized when $\sin 2\phi = \pm 1$ , which means $2\phi = \frac{\pi}{2}, \frac{3\pi}{2}$ . So $\phi = \frac{\pi}{4}, \frac{3\pi}{4}$ .
+$\frac{1}{4} \sin^2 2\phi$ is maximized when $\sin 2\phi = \pm 1$ , which gives $\phi=\pi/4,\ 3\pi/4,\ 5\pi/4,\ 7\pi/4$ on $[0,2\pi]$.
 The maximum value of $\frac{1}{4} \sin^2 2\phi$ is $\frac{1}{4}$ .
 Therefore, the maximum value of $g(x,y,z)$ is $1^6 \cdot \frac{4}{27} \cdot \frac{1}{4} = \frac{1}{27}$ .
 

@@ -116,26 +116,26 @@ The sample data files are [here](https://github.com/sophytoeat/Problem/tree/main
 #### itsuitsuki's solution
 ```py
 import numpy as np
+from pathlib import Path
 
+orig_infelst = [int(v) for v in Path("infections.txt").read_text().strip().split(":")]
 conv_result = np.convolve(orig_infelst, np.array([1,1,1,1,1,1,1])/7, 'valid')
-print(conv_result.max(), conv_result.min(), conv_result.sum())
+print(*(f"{value:.4f}" for value in
+        (conv_result.max(), conv_result.min(), conv_result.sum())))
 ```
 
 The maximum is 1924.4286 and minimum 3.5714. The sum is 165579.5714.
 
 #### FunTotal's solution
 ```c++
-/*
-按照题意模拟，c++要注意精度问题，由于没有数据文件，不知道题目的精度要求怎么样，保险起见用long long和long double尽量保持精度，除法也是最后再除
-*/
 #include <bits/stdc++.h>
 #define int long long
 #define db long double
 using namespace std;
 void solve() {
-    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections.txt",
+    ifstream fin("infections.txt",
                  ios::in);
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans21.txt", ios::out);
+    ofstream fout("ans21.txt", ios::out);
     if (!fin.is_open())
         assert(0);
     string str;
@@ -193,6 +193,7 @@ def similarity_between_lists(l1, l2):
 ```
 
 ```py
+filelist = sorted(str(p) for p in Path("data").glob("*.txt") if p.is_file())
 all_pairs = []
 lists = [open(tmp).readline().split(':') for tmp in filelist]
 lists = [[int(s) for s in l] for l in lists]
@@ -251,11 +252,11 @@ int cal(string path1, string path2) {
     return -point;
 }
 void solve() {
-    string folder_path = "E:/UTokyo_Entrance_Exam/CI/2022_summer/data/";
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans22.txt", ios::out);
+    string folder_path = "data/";
+    ofstream fout("ans22.txt", ios::out);
     vector<string> paths;
     for (const auto& entry : fs::directory_iterator(folder_path)) {
-        if (entry.is_regular_file()) {
+        if (entry.is_regular_file() && entry.path().extension() == ".txt") {
             string file_path = entry.path().string();
             try {
                 paths.push_back(file_path);
@@ -298,10 +299,10 @@ n = len(infelst2)
 X = np.arange(n)
 all_1 = np.ones(n)
 a = ((n * X @ Y) - X.sum() * Y.sum()) / (n * (X@X) - X.sum()**2)
-print(float(a))
+print(f"{a:.4f}")
 
 k = ((X@X) * Y.sum() - (X@Y) * X.sum()) / (n * (X@X) - (X.sum())**2)
-print(float(k))
+print(f"{k:.4f}")
 
 ```
 
@@ -317,9 +318,9 @@ $a=1.4125,k=-100.4380$.
 #define db long double
 using namespace std;
 void solve() {
-    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections2.txt",
+    ifstream fin("infections2.txt",
                  ios::in);
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans23.txt", ios::out);
+    ofstream fout("ans23.txt", ios::out);
     if (!fin.is_open())
         assert(0);
     string str;
@@ -366,9 +367,25 @@ $$
 \log_e k=\frac{\sum i^2\sum \tilde x_i-\sum i\tilde x_i\sum i}{n\sum i^2-(\sum i)^2}
 $$
 
-And we find the max of $a$ under different $s$.
+For each window, $\sum i=465$ and $\sum(i-15)^2=2480$, so
+
+$$
+\log a_s=\frac1{2480}\log\left(
+\frac{\prod_{i=16}^{30}(x_{s+i}+1)^{i-15}}
+{\prod_{i=0}^{14}(x_{s+i}+1)^{15-i}}\right).
+$$
+
+Thus compare the positive rational products exactly to select every maximizer, including ties, and evaluate logarithms only to obtain the displayed $a,k$.
 
 ```py
+from fractions import Fraction
+from math import prod
+
+def growth_score(l, s):
+    numerator = prod(int(l[s+i]+1)**(i-15) for i in range(16,31))
+    denominator = prod(int(l[s+i]+1)**(15-i) for i in range(15))
+    return Fraction(numerator, denominator)
+
 def metric_a_k(l, s): # sublen=31
     sub = l[s:s+31]
     window_n = len(sub)
@@ -378,85 +395,81 @@ def metric_a_k(l, s): # sublen=31
     logk = ((X@X) * Y.sum() - (X@Y) * X.sum()) / (window_n * (X@X) - (X.sum())**2)
     return np.exp(loga), np.exp(logk)
 infelst2 = np.array(infelst2)
-a_s = []
-k_s = []
-for s in range(len(infelst2) - 30):
-    a, k = metric_a_k(infelst2, s)
-    a_s += [a]
-    k_s += [k]
-max_a = max(a_s)
-for i, a in enumerate(a_s):
-    if a == max_a:
-        print(i,a,k_s[i]) # s,a,k
+scores = [growth_score(infelst2, s) for s in range(len(infelst2)-30)]
+maximum = max(scores)
+for s, score in enumerate(scores):
+    if score == maximum:
+        a, k = metric_a_k(infelst2, s)
+        print(s, f"{a:.4f}", f"{k:.4f}")
 ```
 
 `(s,a,k)` is `(105, 1.1517, 1.6942)`.
 
 #### FunTotal's solution
 ```c++
-/*
-这题利用第三问的公式，取自然对数后转化为线性拟合。C++ 的 `log` 即自然对数，`exp` 是其反函数。
-*/
 #include <bits/stdc++.h>
-#define int long long
-#define db long double
 using namespace std;
-vector<int> readfile(string path) {
-    ifstream fin(path, ios::in);
-    if (!fin.is_open())
-        assert(0);
-    string str;
-    fin >> str;
-    vector<int> vec;  // 先处理文件输入读到vec里面
-    int num = 0;
-    for (auto ch : str) {  // 直接暴力逐字符读取, 可能有直接用库以冒号切割的方法
-        if (ch == ':') {
-            vec.push_back(num);
-            num = 0;
-        } else
-            num = num * 10 + ch - '0';
-    }
-    vec.push_back(num);
-    return vec;
+using Big = vector<int>; // base 10000, least significant digit first
+const int BASE = 10000;
+Big integer(unsigned long long x) {
+    Big a;
+    do { a.push_back(x % BASE); x /= BASE; } while (x);
+    return a;
 }
-pair<db, db> calak(const vector<db>& vec) { // 给定 x 求线性的最小拟合的 a 和 k
-    db sum_ixi = 0, sum_i = 0, sum_i2 = 0, sum_xi = 0;
-    int n = vec.size();
-    for (int i = 0; i < n; i++) {
-        sum_ixi += i * vec[i];
-        sum_i += i;
-        sum_xi += vec[i];
-        sum_i2 += i * i;
+Big multiply(const Big& a, const Big& b) {
+    Big result(a.size() + b.size(), 0);
+    for (size_t i = 0; i < a.size(); ++i) {
+        long long carry = 0;
+        for (size_t j = 0; j < b.size() || carry; ++j) {
+            long long value = result[i+j] + carry;
+            if (j < b.size()) value += 1LL * a[i] * b[j];
+            result[i+j] = value % BASE;
+            carry = value / BASE;
+        }
     }
-    db a =
-        ((db)n * sum_ixi - sum_i * sum_xi) / (n * sum_i2 - (sum_i) * (sum_i));
-    db k =
-        ((db)sum_i2 * sum_xi - sum_ixi * sum_i) / (n * sum_i2 - sum_i * sum_i);
-    return {exp(a), exp(k)};
+    while (result.size() > 1 && result.back() == 0) result.pop_back();
+    return result;
 }
-void solve() {
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans24.txt", ios::out);
-    vector<int> vec = readfile("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections2.txt");
-    vector<tuple<int, db, db>> res;
-    db mxa = -numeric_limits<db>::infinity();
-    int n = vec.size();
-    for (int s = 0; s < n - 30; s++) {
-        vector<db> x;
-        for (int i = s; i <= s + 30; i++)    
-            x.push_back(log(vec[i] + 1));
-        auto [a, k] = calak(x);
-        if (a > mxa) mxa = a, res.clear(), res.push_back({s, a, k});
-        else if (a == mxa) res.push_back({s, a, k});
-    }
-    for (auto [s, a, k] : res) {
-        fout << fixed << setprecision(4) << "s = " << s << ", a = " << a << ", k = " << k << "\n";
-    }
-}
-signed main() {
-    int t = 1;
-    // cin >> t;
-    while (t--)
-        solve();
+int compare(const Big& a, const Big& b) {
+    if (a.size() != b.size()) return a.size() > b.size() ? 1 : -1;
+    for (size_t i = a.size(); i-- > 0; )
+        if (a[i] != b[i]) return a[i] > b[i] ? 1 : -1;
     return 0;
 }
+int main() {
+    ifstream input("infections2.txt");
+    ofstream output("ans24.txt");
+    vector<unsigned long long> values;
+    string token;
+    while (getline(input, token, ':')) values.push_back(stoull(token));
+    if (values.size() < 31) throw runtime_error("31 values required");
+    Big best_n, best_d;
+    vector<tuple<size_t, long double, long double>> answers;
+    for (size_t start = 0; start + 30 < values.size(); ++start) {
+        Big numerator = integer(1), denominator = integer(1);
+        long double log_sum = 0, weighted_log_sum = 0;
+        for (int i = 0; i < 31; ++i) {
+            Big factor = integer(values[start+i] + 1);
+            for (int j = 0; j < abs(i-15); ++j) {
+                if (i > 15) numerator = multiply(numerator, factor);
+                else denominator = multiply(denominator, factor);
+            }
+            long double y = logl(static_cast<long double>(values[start+i]) + 1);
+            log_sum += y;
+            weighted_log_sum += (i-15) * y;
+        }
+        long double log_a = weighted_log_sum / 2480;
+        long double log_k = log_sum / 31 - 15 * log_a;
+        int ordering = answers.empty() ? 1 :
+            compare(multiply(numerator, best_d), multiply(best_n, denominator));
+        if (ordering > 0) {
+            answers.clear(); best_n = numerator; best_d = denominator;
+        }
+        if (ordering >= 0) answers.emplace_back(start, expl(log_a), expl(log_k));
+    }
+    for (auto [start, a, k] : answers)
+        output << fixed << setprecision(4)
+               << "s = " << start << ", a = " << a << ", k = " << k << "\n";
+}
+
 ```

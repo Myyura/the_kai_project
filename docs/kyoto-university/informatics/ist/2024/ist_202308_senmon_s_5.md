@@ -14,6 +14,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_ist.pdf)
 ### 設問1
 2次元信号 $f(x, y)$ の2次元フーリエ変換を
 
@@ -69,6 +71,8 @@ $x_0[n]$ の４点離散フーリエ変換を計算し、周波数（Hz）に対
 
 ## **Kai**
 ### 設問1
+Assume $f\in L^1(\mathbb R^2)$ so that the integrals may be interchanged.
+
 #### (1)
 By the definition of projection, we have
 
@@ -174,13 +178,9 @@ x[3]
 \end{pmatrix}
 $$
 
-##### <center> Fig. magnitude and phase spectra</center>
+![DFT magnitude and phase spectra](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2024/kyoto-ist-2023-dft-spectra.svg)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202308_senmon_s_5_p1.png" width="600" height="220" alt=""/>
-</figure>
-
-The phase labels at $1000$ Hz and $3000$ Hz in the figure are interchanged. With phases in $[0,2\pi)$, the correct spectra are
+With phases in $[0,2\pi)$, the spectra are
 
 $$
 \begin{array}{c|cccc}
@@ -191,6 +191,7 @@ f\ (\mathrm{Hz})&0&1000&2000&3000\\ \hline
 $$
 
 #### (2)
+For a real sequence $x[n]$, conjugate symmetry gives (indices modulo $N$):
 
 $$
 \begin{aligned}

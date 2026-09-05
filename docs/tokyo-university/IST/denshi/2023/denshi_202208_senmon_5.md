@@ -88,7 +88,7 @@ $$
 \begin{aligned}
 X(z) &= \frac{1}{1 - e^{j\omega T}z^{-1}}, \\
 Y(z) &= \frac{b + cz^{-1}}{(1 - az^{-1})(1 - e^{j\omega T}z^{-1})} \\
-h[n] &= ba^n u[n]+ca^{n-1}u[n-1].
+h[0]&=b,\qquad h[n]=(ba+c)a^{n-1}\quad(n\ge1).
 \end{aligned}
 $$
 
@@ -104,4 +104,4 @@ y[n]
 $$
 
 For $a=r$, $y[n]=\{b(n+1)a^n+cn a^{n-1}\}u[n]$.
-If $|a|<1$, the transient vanishes and $y[n]\to H(r)r^n=\frac{br+c}{r-a}r^n$.
+If $|a|<1$, the transient vanishes and $y[n]-H(r)r^n\to0$, where $H(r)r^n=\frac{br+c}{r-a}r^n$.

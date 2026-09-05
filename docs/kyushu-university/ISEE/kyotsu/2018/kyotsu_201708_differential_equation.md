@@ -11,6 +11,8 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H30infait.pdf#page=4)。
 次の微分方程式の一般解を求めよ．なお， $y'$ は関数 $y(x)$ の $x$ に関する $1$ 階導関数を表している．
 
 (1) $y' = \frac{9(y^2 + 1)}{x^3 - 3x + 2}$
@@ -79,7 +81,7 @@ $$
 y = \tan\bigg[-\frac{3}{x - 1} + \log\bigg|\frac{x + 2}{x - 1}\bigg| + C\bigg]
 $$
 
-ただし、解は $x=-2,1$ を含まない区間上で考える。
+ただし、解は $x=-2,1$ を含まず、さらに上の $\tan$ の偏角が $\pi/2+k\pi$（$k\in\mathbb Z$）とならない区間上で考える。
 
 ### (2)
 

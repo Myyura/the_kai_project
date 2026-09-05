@@ -3528,10 +3528,10 @@
   label: "Mathematics.Functional-Analysis.Uniform-Convergence-of-Iterated-Sine-and-LogSumExp"
   permalink: "/topic/mathematics/functional-analysis/uniform-convergence-of-iterated-sine-and-log-sum-exp"
   description: "Mathematics / Functional-Analysis / Uniform-Convergence-of-Iterated-Sine-and-LogSumExp"
-"Mathematics.Geometry.Arc-Length-Parameter-and-Planar-Curvature":
-  label: "Mathematics.Geometry.Arc-Length-Parameter-and-Planar-Curvature"
-  permalink: "/topic/mathematics/geometry/arc-length-parameter-and-planar-curvature"
-  description: "Mathematics / Geometry / Arc-Length-Parameter-and-Planar-Curvature"
+"Mathematics.Geometry.Arc-Length-Parameter-and-Curvature":
+  label: "Mathematics.Geometry.Arc-Length-Parameter-and-Curvature"
+  permalink: "/topic/mathematics/geometry/arc-length-parameter-and-curvature"
+  description: "Mathematics / Geometry / Arc-Length-Parameter-and-Curvature"
 "Mathematics.Geometry.Astroid":
   label: "Mathematics.Geometry.Astroid"
   permalink: "/topic/mathematics/geometry/astroid"

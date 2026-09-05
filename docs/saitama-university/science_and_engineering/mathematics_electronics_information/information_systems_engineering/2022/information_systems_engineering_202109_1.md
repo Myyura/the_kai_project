@@ -74,7 +74,7 @@ So, $\det(A) = 8$ .
 First, find the matrix of cofactors:
 
 $$
-C = \begin{pmatrix} \begin{vmatrix} -2 & 2 \\ 3 & -1 \end{vmatrix} & -\begin{vmatrix} 2 & 2 \\ 1 & -1 \end{vmatrix} & \begin{vmatrix} 2 & -2 \\ 1 & 3 \end{vmatrix} \\\ -\begin{vmatrix} 1 & 1 \\ 3 & -1 \end{vmatrix} & \begin{vmatrix} 1 & 1 \\ 1 & -1 \end{vmatrix} & -\begin{vmatrix} 1 & 1 \\ 1 & 3 \end{vmatrix} \\\ \begin{vmatrix} 1 & 1 \\ -2 & 2 \end{vmatrix} & -\begin{vmatrix} 1 & 1 \\ 2 & 2 \end{vmatrix} & \begin{vmatrix} 1 & 1 \\ 2 & -2 \end{vmatrix} \end{pmatrix} = \begin{pmatrix} -4 & 4 & 8 \\ 4 & -2 & -2 \\ 4 & 0 & -4 \end{pmatrix}
+C = \begin{pmatrix} \begin{vmatrix} -2 & 2 \\ 3 & -1 \end{vmatrix} & -\begin{vmatrix} 2 & 2 \\ 1 & -1 \end{vmatrix} & \begin{vmatrix} 2 & -2 \\ 1 & 3 \end{vmatrix} \\ -\begin{vmatrix} 1 & 1 \\ 3 & -1 \end{vmatrix} & \begin{vmatrix} 1 & 1 \\ 1 & -1 \end{vmatrix} & -\begin{vmatrix} 1 & 1 \\ 1 & 3 \end{vmatrix} \\ \begin{vmatrix} 1 & 1 \\ -2 & 2 \end{vmatrix} & -\begin{vmatrix} 1 & 1 \\ 2 & 2 \end{vmatrix} & \begin{vmatrix} 1 & 1 \\ 2 & -2 \end{vmatrix} \end{pmatrix} = \begin{pmatrix} -4 & 4 & 8 \\ 4 & -2 & -2 \\ 4 & 0 & -4 \end{pmatrix}
 $$
 
 Then, find the adjugate matrix:
@@ -86,7 +86,7 @@ $$
 Finally, find the inverse matrix:
 
 $$
-A^{-1} = \frac{1}{\det(A)} adj(A) = \frac{1}{8} \begin{pmatrix} -4 & 4 & 4 \\ 4 & -2 & 0 \\ 8 & -2 & -4 \end{pmatrix} = \begin{pmatrix} -\frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\\ \frac{1}{2} & -\frac{1}{4} & 0 \\\ 1 & -\frac{1}{4} & -\frac{1}{2} \end{pmatrix}
+A^{-1} = \frac{1}{\det(A)} adj(A) = \frac{1}{8} \begin{pmatrix} -4 & 4 & 4 \\ 4 & -2 & 0 \\ 8 & -2 & -4 \end{pmatrix} = \begin{pmatrix} -\frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\ \frac{1}{2} & -\frac{1}{4} & 0 \\ 1 & -\frac{1}{4} & -\frac{1}{2} \end{pmatrix}
 $$
 
 (c) Find the eigenvalues of matrix A.
@@ -94,7 +94,7 @@ To find eigenvalues, solve $\det(A - \lambda I) = 0$ .
 
 $$
 \begin{aligned}
-A - \lambda I &= \begin{pmatrix} 1-\lambda & 1 & 1 \\\ 2 & -2-\lambda & 2 \\\ 1 & 3 & -1-\lambda \end{pmatrix} \\
+A - \lambda I &= \begin{pmatrix} 1-\lambda & 1 & 1 \\ 2 & -2-\lambda & 2 \\ 1 & 3 & -1-\lambda \end{pmatrix} \\
 \det(A - \lambda I) &= (1-\lambda)((-2-\lambda)(-1-\lambda) - 6) - 1(2(-1-\lambda) - 2) + 1(6 - (-2-\lambda)) \\
 &= (1-\lambda)(2 + 2\lambda + \lambda + \lambda^2 - 6) - (-2 - 2\lambda - 2) + (6 + 2 + \lambda) \\
 &= (1-\lambda)(\lambda^2 + 3\lambda - 4) + 4 + 2\lambda + 8 + \lambda \\

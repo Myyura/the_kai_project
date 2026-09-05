@@ -43,11 +43,13 @@ b> a)$ の完全導体球殻 $2$ からなる同心球コンデンサがある.
 
 ## **Kai**
 ### (1)
+以下先以 $E_r$ 表示电场沿径向向外的有符号分量；题目所求的电场大小为 $E(r)=|E_r(r)|$。因此真空两区域的大小分别为 $|Q_1|/(4\pi\varepsilon_0r^2)$ 和 $|Q_1+Q_2|/(4\pi\varepsilon_0r^2)$，导体内部为零。电势积分使用有符号分量 $E_r$。
+
 $r \lt a$ では、導体の内部であるから、
 
 $$
 \begin{aligned}
-E(r) = 0
+E_r(r) = 0
 \end{aligned}
 $$
 
@@ -56,10 +58,10 @@ $a \lt r \lt b$ では、ガウスの法則より、
 
 $$
 \begin{aligned}
-4 \pi r^2 E(r) &= \frac{Q_1}{\varepsilon_0}
+4 \pi r^2 E_r(r) &= \frac{Q_1}{\varepsilon_0}
 \\
 \therefore \ \ 
-E(r) &= \frac{Q_1}{4 \pi \varepsilon_0 r^2}
+E_r(r) &= \frac{Q_1}{4 \pi \varepsilon_0 r^2}
 \end{aligned}
 $$
 
@@ -68,7 +70,7 @@ $b \lt r \lt c$ では、導体の内部であるから、
 
 $$
 \begin{aligned}
-E(r) = 0
+E_r(r) = 0
 \end{aligned}
 $$
 
@@ -77,10 +79,10 @@ $c \lt r$ では、ガウスの法則より、
 
 $$
 \begin{aligned}
-4 \pi r^2 E(r) &= \frac{Q_1+Q_2}{\varepsilon_0}
+4 \pi r^2 E_r(r) &= \frac{Q_1+Q_2}{\varepsilon_0}
 \\
 \therefore \ \ 
-E(r) &= \frac{Q_1+Q_2}{4 \pi \varepsilon_0 r^2}
+E_r(r) &= \frac{Q_1+Q_2}{4 \pi \varepsilon_0 r^2}
 \end{aligned}
 $$
 
@@ -91,7 +93,7 @@ $$
 $$
 \begin{aligned}
 V_c
-&= - \int_\infty^c E(r) dr
+&= - \int_\infty^c E_r(r) dr
 \\
 &= - \frac{Q_1+Q_2}{4 \pi \varepsilon_0} \int_\infty^c \frac{dr}{r^2}
 \\
@@ -100,7 +102,7 @@ V_c
 &= \frac{Q_1+Q_2}{4 \pi \varepsilon_0 c}
 ,\\
 V_a
-&= V_c - \int_\infty^c E(r) dr
+&= V_c - \int_c^a E_r(r)\,dr
 \\
 &= V_c - \frac{Q_1}{4 \pi \varepsilon_0} \int_b^a \frac{dr}{r^2}
 \\
@@ -113,7 +115,7 @@ $$
 
 ### (3)
 $V_c=0$ であるから、導体球殻2の内側に $-Q_1$ の電荷が分布する。
-$a \lt r \lt b$ における $E(r)$ に変化はないから、
+$a \lt r \lt b$ における $E_r(r)$ に変化はないから、
 
 $$
 \begin{aligned}

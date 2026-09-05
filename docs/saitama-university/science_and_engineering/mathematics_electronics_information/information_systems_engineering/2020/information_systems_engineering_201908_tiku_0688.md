@@ -1,11 +1,11 @@
 ---
-sidebar_label: "2019年8月実施 概率统计"
+sidebar_label: "2019年8月実施 確率統計"
 tags:
   - Saitama-University
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function
 ---
-# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2019年8月実施 概率统计
+# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2019年8月実施 確率統計
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

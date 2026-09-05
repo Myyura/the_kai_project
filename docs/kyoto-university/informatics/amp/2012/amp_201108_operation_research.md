@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h24/h24_senmon3.pdf)
+
 つぎの凸2次計画問題を考える。
 
 P: $\text{Minimize } \frac{1}{2}x^T A x$

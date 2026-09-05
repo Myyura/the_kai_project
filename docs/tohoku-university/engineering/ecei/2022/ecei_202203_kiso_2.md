@@ -22,7 +22,7 @@ Fig.2 に示す回路について、以下の問に答えよ。交流電源の�
 
 (4) 端子 a-b 間から見た入力インピーダンス $Z_{ab} = E/I_1$ を $\omega,L_1,L_2,M,R_1,R_2,Z$ で表わせ。
 
-(5) $2$ 次回路側の $Z$ が理想的なキャパシタ $C$ \[F\] であり, $1$ 次回路側の交流電源の角周波数が $\omega_0 - 1\sqrt{L_2C}$ \[rad/s\] であるとき、
+(5) $2$ 次回路側の $Z$ が理想的なキャパシタ $C$ \[F\] であり, $1$ 次回路側の交流電源の角周波数が $\omega_0 = 1/\sqrt{L_2C}$ \[rad/s\] であるとき、
 $Z_{ab}$ を $\omega_0,L_1,M,R_1,R_2$ で表わせ。ならびに、$I_1$ と $I_2$ の位相差が $\pi/2$ \[rad/s\] であることを導け。
 
 <figure style="text-align:center;">
@@ -49,7 +49,25 @@ $Z_{ab}$ を $\omega_0,L_1,M,R_1,R_2$ で表わせ。ならびに、$I_1$ と $I
 
 ## **Kai** 
 ### (1)
-略
+
+以两侧电流均流入同名端为参考，线圈的阻抗关系为
+
+$$
+\binom{V_{L1}}{V_{L2}}=j\omega
+\begin{pmatrix}L_1&M\\M&L_2\end{pmatrix}\binom{I_1}{I_2}.
+$$
+
+对应 T 形等效电路如下，两侧下端接公共参考点：
+
+```mermaid
+flowchart LR
+ a[a] --- R1["R₁"] --- L1["jω(L₁−M)"] --- o((" "))
+ o --- L2["jω(L₂−M)"] --- R2["R₂"] --- c[c]
+ o --- M["jωM"] --- g["b=d：公共参考点"]
+ c --- Z["Z"] --- g
+```
+
+中间支路电流为 $I_1+I_2$，故左端电压为 $j\omega(L_1-M)I_1+j\omega M(I_1+I_2)$，右端同理，恰与上述阻抗矩阵一致。
 
 ### (2)
 并联分流：
@@ -97,7 +115,7 @@ $$
 代入：$\omega = \frac{1}{\sqrt{L_2C}}$
 
 $$
-Z_{ab} = \frac{\omega^2(M^2 - L_1L_2) + R_1R_2 + \frac{L_1}{C} + j\omega R_2L_1}{R_2}
+\boxed{Z_{ab}=R_1+\frac{\omega_0^2M^2}{R_2}+j\omega_0L_1}
 $$
 
 $$
@@ -105,7 +123,7 @@ I_2 = -I_1 \cdot \frac{j\omega M}{j\omega L_2 + R_2 + \frac{1}{j\omega C}} = -j\
 $$
 
 $$
-\arg3({\frac{I_2}{I_1}}) = \arg(-j) = -\frac{\pi}{2}
+\arg\left(\frac{I_2}{I_1}\right) = \arg(-j) = -\frac{\pi}{2}
 $$
 
 得证

@@ -113,3 +113,88 @@ holds, and draw its state diagram. $M_5$ must satisfy the following conditions.
    $$
 
    时接受 $w^R$。要求恰有 3 个状态，输入字母表为 $\Sigma$。
+
+## **Kai**
+
+### (1-1)
+
+A 0 leaves the state unchanged, and a 1 advances $q_0\to q_1\to q_2\to q_0$. The input `0101110` contains four 1s, so the final state is $\boxed{q_1}$.
+
+### (1-2)
+
+From $q_1$, two additional 1s are necessary and sufficient to reach $q_0$. Thus the shortest accepted extension is
+
+$$
+\boxed{010111011}.
+$$
+
+### (1-3)
+
+Let $E$ and $O$ mean that an even or odd number of symbols has been read. The start state $E$ is the only final state, and either input switches between $E$ and $O$.
+
+![Two-state DFA for even length](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-dfa-m2.svg)
+
+### (2)
+
+Since $2^2\equiv1\pmod3$, $2^{2i}\equiv1$ and $2^{2i+1}\equiv2$. Therefore
+
+$$
+\mathcal V(x_{2n-1}\cdots x_0)
+=\sum_{i=0}^{n-1}\left(2^{2i+1}x_{2i+1}+2^{2i}x_{2i}\right)
+\equiv2\sum_{i=0}^{n-1}x_{2i+1}+\sum_{i=0}^{n-1}x_{2i}.
+$$
+
+### (3)
+
+For any input $z=b_0b_1\cdots b_{k-1}$ read so far, use the remainder $r=\mathcal V(z)\bmod3$. Appending a bit $b$ updates it to $(2r+b)\bmod3$. Reversal preserves divisibility by three: for $k\ge1$,
+
+$$
+\mathcal V(z)=\sum_{j=0}^{k-1}b_j2^{k-1-j}
+\equiv2^{k-1}\sum_{j=0}^{k-1}b_j2^j
+=2^{k-1}\mathcal V(z^R),
+$$
+
+because $2^{2j}\equiv1$. The factor $2^{k-1}$ is nonzero modulo three, so either value has remainder zero exactly when the other does. The empty string also has value zero.
+
+Combine this remainder with length parity. The six states are $E_0,E_1,E_2,O_0,O_1,O_2$, with transitions
+
+$$
+\delta(E_r,b)=O_{(2r+b)\bmod3},\qquad
+\delta(O_r,b)=E_{(2r+b)\bmod3}.
+$$
+
+Start in $E_0$ and accept only $E_0$. Each double-headed edge below represents the two directed transitions with the same label.
+
+![Six-state DFA for even length and divisibility by three](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-dfa-m3.svg)
+
+### (4)
+
+Remove the parity component and retain only $r\in\{0,1,2\}$, with $\delta(r,b)=(2r+b)\bmod3$. Start in state 0 and accept only state 0. The reversal identity in (3) proves the required condition for every length, including zero.
+
+| State | Input 0 | Input 1 |
+| --- | --- | --- |
+| 0 | 0 | 1 |
+| 1 | 2 | 0 |
+| 2 | 1 | 2 |
+
+![Three-state DFA for divisibility by three](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-dfa-m4.svg)
+
+### (5)
+
+After reading a prefix of the paired-bit input, let $r$ be the sum of the two prefix values modulo three. Appending $\binom ab$ replaces this by
+
+$$
+\boxed{\delta\left(r,\binom ab\right)=(2r+a+b)\bmod3}.
+$$
+
+The two components have the same length, so the reversal identity multiplies their sum by the same nonzero factor $2^{k-1}$. Hence the sum before reversal is divisible by three exactly when the sum after reversal is. Use three states 0, 1, 2, with 0 the start and sole final state.
+
+| State | $\binom00$ | $\binom01,\binom10$ | $\binom11$ |
+| --- | --- | --- | --- |
+| 0 | 0 | 1 | 2 |
+| 1 | 2 | 0 | 1 |
+| 2 | 1 | 2 | 0 |
+
+In the diagram, `ab` denotes the column $\binom ab$.
+
+![Three-state DFA for the sum of two binary numbers](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-dfa-m5.svg)

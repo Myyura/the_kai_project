@@ -11,6 +11,8 @@ tags:
 [tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/totalhuang), [itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
+
+[原題](https://www.i.u-tokyo.ac.jp/edu/course/ci/2019-8-programming.pdf)
 Answer the following questions by writing programs if necessary. Store the programs in the USB flash drive before the examination ends.
 
 (1) We store binary data in a text file. We split binary data to 6-bit chunks and store them in the file after replacing every 6-bit number, `000000` to `111111`, with a character A, B, ..., Z, a, b, ..., z, 0, 1, ..., 9, @, or #, respectively, in ascending order.
@@ -45,7 +47,7 @@ in the hexadecimal form, the restored file stores the following bytes:
 ```
 
 Write the program that restores a compressed binary file by the method shown above, and prints the size (bytes) of the file after the restoration.
-Restore the compressed binary files `data2.bin`, `data2b.bin`, and `data2c.bin` by that program, and write their sizes (bytes) after the restoration down on the answer sheet.
+Restore the compressed binary files `data2a.bin`, `data2b.bin`, and `data2c.bin` by that program, and write their sizes (bytes) after the restoration down on the answer sheet.
 After the restoration, name the files `data2a.txt`, `data2b.tif`, and `data2c.txt`, respectively. Store them in the USB flash drive.
 
 (3) Write the program that compresses the given binary file and prints the size (bytes) of the file after the compression.
@@ -127,7 +129,7 @@ Decrypt `data5.txt` by using this fact. The decrypted data is UTF-8 text. Write 
    ```text
    41 42 43 44 45 46 47 42 43 44 45 46 48
    ```
-   程序还须输出还原后字节数。分别还原 `data2.bin`、`data2b.bin`、`data2c.bin`，把大小写在答题纸上，并把输出依次命名为 `data2a.txt`、`data2b.tif`、`data2c.txt` 保存到 U 盘。
+   程序还须输出还原后字节数。分别还原 `data2a.bin`、`data2b.bin`、`data2c.bin`，把大小写在答题纸上，并把输出依次命名为 `data2a.txt`、`data2b.tif`、`data2c.txt` 保存到 U 盘。
 3. 编写与第 2 问解压器兼容的压缩程序，并输出压缩后大小；要求生成尽可能小的压缩文件。分别压缩 `data3a.txt`、`data3b.png`、`data3c.txt`，把大小写在答题纸上，输出依次命名为 `data3a.bin`、`data3b.bin`、`data3c.bin` 并保存到 U 盘。
 4. 用简单替换密码加密英文文本。文本只含小写 `a`～`z`、句点和空白，句点结束一句；每种字符都被替换为某个固定的小写字母、句点或空白，也允许映射为自身。`data4.txt` 是密文，`data4dict.txt` 以空白分隔列出了明文中的全部单词。参考词典解密，并把明文第一句写在答题纸上。
 5. 加密二进制文件。文件大小是 4 的倍数；每 4 字节按顺序读为 8 位无符号数 $b_0,b_1,b_2,b_3$，组成
@@ -269,19 +271,20 @@ def restore(input_name, output_name):
                 continue
 
             if r != bZERO:
-                print(f"Writing {r}")
                 w_buff.append(r)
             else:
-                p = int.from_bytes(f.read(1),'big')
-                d = int.from_bytes(f.read(1),'big')
-                print(f"Zero detected, p={p}, d={d}")
+                pair = f.read(2)
+                if len(pair) != 2:
+                    raise ValueError('truncated escape')
+                p, d = pair
+                if p < d or (d > 0 and p > len(w_buff)):
+                    raise ValueError('invalid back-reference')
                 if d == 0:
                     w_buff.append(bZERO)
                 else:
                     start = len(w_buff) - p
                     for i in range(start, start + d):
                         w_buff.append(w_buff[i])
-                        print(f"Writing {w_buff[i]}")
     
     with open('2020-Summer/' + output_name, 'wb') as f_out:
         for b in w_buff:
@@ -290,7 +293,7 @@ def restore(input_name, output_name):
 
 def main():
     for input_name, output_name in [
-        ('data2.bin', 'data2a.txt'),
+        ('data2a.bin', 'data2a.txt'),
         ('data2b.bin', 'data2b.tif'),
         ('data2c.bin', 'data2c.txt'),
     ]:
@@ -307,10 +310,7 @@ C++ solution:
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
-/*
-NOTE:
-楼上怀疑题目表述错误，但是结合了LZ77压缩思想，我觉得题目表述没有问题，p表示的就是从右往左的距离，只是复制的时候还是从左往右, 按这样的话楼上的py代码复制部分就有问题。
-*/
+
 /*
 INPUT  data2.bin:
 29 2a 2b 2c 2d 2e 2f 00	06 05 00 00 00 00 08 04 30
@@ -336,6 +336,7 @@ void solve(const string& input_name, const string& output_name) {
             // cout << "Writing b'" << (char)vec[i] << "'\n";
         }
         else {
+            if (i + 2 >= vec.size()) throw runtime_error("truncated escape");
             int p = vec[i + 1], d = vec[i + 2];
             i += 2;
             if (p < d || (d > 0 && p > (int)res.size()))
@@ -358,7 +359,7 @@ void solve(const string& input_name, const string& output_name) {
     cout << input_name << ": " << res.size() << "\n";
 }
 signed main() {
-    solve("data2.bin", "data2a.txt");
+    solve("data2a.bin", "data2a.txt");
     solve("data2b.bin", "data2b.tif");
     solve("data2c.bin", "data2c.txt");
     return 0;
@@ -366,7 +367,7 @@ signed main() {
 ```
 
 For the provided `data2.bin`, the restored size is 18 bytes.
-The linked sample repository does not contain `data2b.bin` or `data2c.bin`; the other two numerical sizes require those exam files.
+
 
 ### (3)
 
@@ -420,7 +421,7 @@ The linked sample repository does not contain `data2b.bin` or `data2c.bin`; the 
 
 长度为8
 
-另外，是否存在一种情况，较短的匹配允许更优的后续？这个没有验证过不知道。
+所有可用匹配都可作为转移，不需预先断定哪个局部选择最优。
 
 因此我们考虑dp:
 
@@ -436,7 +437,7 @@ The linked sample repository does not contain `data2b.bin` or `data2c.bin`; the 
 
 对于 `dp[i]`，如果选择复制，搜索 $1\le p\le255$ 及 $1\le d\le p$；当 `data[i-p:i-p+d] == data[i:i+d]` 时，用 `dp[i]+3` 更新 `dp[i+d]`。长度不超过3的匹配在含零字节时也可能更优，不能排除。
 
-如果不用复制而用字面量`data[i]`，如果`data[i]`是0，压缩中加3个字节，否则是加1个，那么`data[i+1]=min(data[i]+(3 or 1), data[i+1])`;如果成功更新那么`path[i+1]=(0,1) or (0,0) when data is 0`
+如果不用复制而用字面量`data[i]`，如果`data[i]`是0，压缩中加3个字节，否则是加1个，那么`dp[i+1]=min(dp[i]+(3 or 1), dp[i+1])`;如果成功更新那么`path[i+1]=(0,1) or (0,0) when data is 0`
 
 
 
@@ -483,31 +484,29 @@ def compress(data): # inp is list or bytes
     # print(dp)
     # print(path)
     # backtrack
-    compressed = []
+    parts = []
     ptr = n
     while ptr > 0:
         p, d = path[ptr]
         if p == 0:
-            compressed = ([data[ptr-1]] if d == 1 else [0, 0, 0]) + compressed
+            parts.append([data[ptr-1]] if d == 1 else [0, 0, 0])
             ptr -= 1
         else:
-            compressed = [0, p, d] + compressed
+            parts.append([0, p, d])
             ptr -= d
-    return compressed
+    return [byte for part in reversed(parts) for byte in part]
 
 filenames = ['data3a.txt', 'data3b.png', 'data3c.txt']
 for filename in filenames:
     with open(filename, 'rb') as f:
         to_compress = f.read()
-        print(list(to_compress))
         compressed = compress(to_compress)
-        print(compressed)
         print(filename, len(compressed))
     with open(filename.split('.')[0]+'.bin','wb') as wf:
         wf.write(bytes(compressed))
 ```
 
-测试了一下上面下面几个样例都是对的。这道题应该用DP做，而不是下面的贪心思路。
+
 
 
 #### tomfluff's solution
@@ -556,17 +555,17 @@ def compress_buffer(buff):
                 dp[i+d] = dp[i] + 3
                 path[i+d] = (p, d)
 
-    encoded = []
+    parts = []
     i = n
     while i:
         p, d = path[i]
         if p == 0:
-            encoded = ([data[i-1]] if d else [0, 0, 0]) + encoded
+            parts.append([data[i-1]] if d else [0, 0, 0])
             i -= 1
         else:
-            encoded = [0, p, d] + encoded
+            parts.append([0, p, d])
             i -= d
-    return [x.to_bytes(1, 'big') for x in encoded]
+    return [x.to_bytes(1, 'big') for part in reversed(parts) for x in part]
 
 def main():
     for input_name, output_name in [
@@ -682,51 +681,92 @@ signed main() {
 }
 ```
 
-The linked sample repository does not contain the three `data3*` input files, so their numerical compressed sizes cannot be reproduced from the available data.
+
 
 ### (4)
 
-#### tomfluff's solution
+Under the usual one-to-one substitution rule, equal ciphertext symbols must decode to equal plaintext symbols, and different symbols must decode to different symbols. Enumerate the ciphertext symbols for the space and period (allowing either to be absent), split into encrypted words, and match each word against dictionary words with the same repeated-letter pattern. A backtracking search chooses the word with the fewest consistent candidates and maintains both directions of the character mapping. Finally, verify every decoded word and that the dictionary's word set is exactly the set used in the plaintext. Return all compatible plaintexts if there is more than one.
+
+The program preserves ciphertext whitespace, because a space can encode an ordinary letter. Run `python substitution.py data4.txt data4dict.txt`.
 
 ```python
-def get_letters_by_usage_from_file(f):
-    lls = dict()
-    for l in f.readlines():
-        for w in l.lower():
-            for c in w:
-                if c in lls:
-                    lls[c] += 1
-                else:
-                    lls[c] = 1
-    return lls
+from pathlib import Path
+import re
+import sys
 
-def main():
-    en_w = de_w = dict()
 
-    with open('2020-Summer/data4.txt', 'r') as f:
-        en_w = get_letters_by_usage_from_file(f)
-    with open('2020-Summer/data4dict.txt', 'r') as f:
-        de_w = get_letters_by_usage_from_file(f)
+def pattern(word):
+    numbers = {}
+    return tuple(numbers.setdefault(ch, len(numbers)) for ch in word)
 
-    sll_e = []
-    for k in en_w:
-        sll_e.append((k,en_w[k]))
-    sll_d = []
-    for k in de_w:
-        sll_d.append((k,de_w[k]))
 
-    sll_e.sort(key=lambda x: x[1], reverse=True)
-    sll_d.sort(key=lambda x: x[1], reverse=True)
-    for i in range(min(len(sll_e), len(sll_d))):
-        print(f"#{sll_e[i][1]} '{sll_e[i][0]}' , '{sll_d[i][0]}'")
-    # This frequency correspondence is only a heuristic.  Verify the
-    # substitution against repeated-letter patterns and every dictionary word.
+def decrypt_with_dictionary(ciphertext, dictionary):
+    words = set(dictionary)
+    by_pattern = {}
+    for word in words:
+        by_pattern.setdefault(pattern(word), []).append(word)
+    answers = set()
+    symbols = sorted(set(ciphertext))
 
-if __name__ == "__main__":
-    main()
+    def extend(mapping, inverse, encoded, plain):
+        new_mapping, new_inverse = mapping.copy(), inverse.copy()
+        for a, b in zip(encoded, plain):
+            if a in new_mapping and new_mapping[a] != b:
+                return None
+            if b in new_inverse and new_inverse[b] != a:
+                return None
+            new_mapping[a], new_inverse[b] = b, a
+        return new_mapping, new_inverse
+
+    for space_symbol in [None] + symbols:
+        for period_symbol in [None] + symbols:
+            if period_symbol is not None and period_symbol == space_symbol:
+                continue
+            mapping = {} if space_symbol is None else {space_symbol: ' '}
+            if period_symbol is not None:
+                mapping[period_symbol] = '.'
+            inverse = {v: k for k, v in mapping.items()}
+            separators = (space_symbol or '') + (period_symbol or '')
+            parts = re.split('[' + re.escape(separators) + ']', ciphertext) if separators else [ciphertext]
+            encoded_words = set(filter(None, parts))
+            candidates = {w: by_pattern.get(pattern(w), [])
+                          for w in encoded_words}
+            if any(not values for values in candidates.values()):
+                continue
+
+            def search(remaining, forward, backward):
+                if not remaining:
+                    plain = ''.join(forward[ch] for ch in ciphertext)
+                    if set(plain.replace('.', ' ').split()) == words:
+                        answers.add(plain)
+                    return
+                choices = []
+                for word in remaining:
+                    valid = []
+                    for candidate in candidates[word]:
+                        result = extend(forward, backward, word, candidate)
+                        if result is not None:
+                            valid.append(result)
+                    if not valid:
+                        return
+                    choices.append((len(valid), word, valid))
+                _, word, valid = min(choices, key=lambda item: item[0])
+                for next_forward, next_backward in valid:
+                    search(remaining - {word}, next_forward, next_backward)
+
+            search(encoded_words, mapping, inverse)
+    return sorted(answers)
+
+
+if __name__ == '__main__':
+    cipher = Path(sys.argv[1]).read_text(encoding='utf-8')
+    dictionary = Path(sys.argv[2]).read_text(encoding='utf-8').split()
+    for answer in decrypt_with_dictionary(cipher, dictionary):
+        first = answer.split('.', 1)[0]
+        print(first + ('.' if '.' in answer else ''))
 ```
 
-For the provided files, the first sentence is:
+For the linked sample files, one compatible plaintext is:
 
 ```text
 i have no idea what is your problem so please help me
@@ -734,74 +774,55 @@ i have no idea what is your problem so please help me
 
 ### (5)
 
-题目中的两个示例密文解密为字节 `[65,66,67,68,69,70,71,72]`，即 `ABCDEFGH`，与示例明文一致。
+Since $ed=(p-1)(q-1)+1=n-p-q+2<n$, we have
 
-#### tomfluff's solution
+$$
+1\le d\le\left\lfloor\frac{n-1}{e}\right\rfloor=7.
+$$
+
+For each candidate, compute $S=n-ed+2=p+q$. The discriminant $S^2-4n$ must be a nonnegative perfect square, giving $p,q=(S\pm\sqrt{S^2-4n})/2$. Only $d=7$ passes, with
+
+$$
+p=2087560548023,\qquad q=1848494206319.
+$$
+
+The two example blocks decrypt to the bytes `41 42 43 44 45 46 47 48`, or `ABCDEFGH`. The following complete program recovers the parameters and decrypts the given file using modular exponentiation. Fixed four-byte output per block preserves leading zero bytes.
+
+#### tomfluff / FunTotal
 
 ```python
-# Can also use 'factor' linux command
+from math import isqrt
+from pathlib import Path
+import sys
 
-import primefac
 
-def get_decomposition(n):
-    return list(primefac.primefac(n))
+def recover_parameters(n, e):
+    for d in range(1, (n - 1) // e + 1):
+        total = n - e * d + 2
+        discriminant = total * total - 4 * n
+        if discriminant < 0:
+            continue
+        root = isqrt(discriminant)
+        if root * root != discriminant or (total + root) % 2:
+            continue
+        p, q = (total + root) // 2, (total - root) // 2
+        if p > 1 and q > 1 and p * q == n:
+            return p, q, d
+    raise ValueError('no candidate satisfies the stated relation')
 
-def main():
+
+def decrypt_blocks(ciphertext, n, d):
+    return b''.join(pow(c, d, n).to_bytes(4, 'big') for c in ciphertext)
+
+
+if __name__ == '__main__':
     n = 3858843578360632069557337
-    print(type(n))
-    pq = get_decomposition(n)
-    print(pq)
-
-    p, q = pq
     e = 551263368336670859257571
-    d = ((p - 1) * (q - 1) + 1) // e
+    p, q, d = recover_parameters(n, e)
     assert e * d == (p - 1) * (q - 1) + 1
-    with open('data5.txt') as f:
-        ciphertext = map(int, f.read().split())
-    plaintext = b''.join(pow(c, d, n).to_bytes(4, 'big') for c in ciphertext)
+    filename = sys.argv[1] if len(sys.argv) > 1 else 'data5.txt'
+    ciphertext = map(int, Path(filename).read_text().split())
+    plaintext = decrypt_blocks(ciphertext, n, d)
+    Path('data5ans.txt').write_bytes(plaintext)
     print(plaintext.decode('utf-8'))
-
-if __name__ == "__main__":
-    main()
-```
-
-The linked sample repository does not contain `data5.txt`; the two published example blocks were independently verified to decrypt to `ABCDEFGH`.
-
-#### FunTotal's solution
-
-completed code:
-```python
-# 这题基于楼上代码，把得到p, q后具体如何解密的代码补充完整，该小题介绍的算法为RSA思想的加密算法，
-# 由于题中数据过大，如使用C++需要用支持int128的Pollard Rho算法来质因数分解，
-# 实在是不如python，故没有写C++版本
-import primefac
-
-def get_decomposition(n):
-    return list(primefac.primefac(n))
-
-
-def main():
-    n = 3858843578360632069557337
-    e = 551263368336670859257571
-    pq = get_decomposition(n)
-    # print(pq)
-
-    # Using p and q we can compute d, then decrypt the file
-    p = pq[0]
-    q = pq[1]
-    d = ((p - 1) * (q - 1) + 1) // e
-    assert e * d == (p - 1) * (q - 1) + 1
-    res = []
-    with open('data5.txt', 'r') as f:
-        arr = f.read().split()
-    for c in arr:
-        c= int(c)
-        m = pow(c, d, n)
-        res.extend(m.to_bytes(4, 'big'))
-    with open('data5ans.txt', 'wb') as f:
-        for num in res:
-            f.write(bytes([num]))
-
-if __name__ == "__main__":
-    main()
 ```

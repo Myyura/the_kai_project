@@ -15,6 +15,17 @@ tags:
 
 ## **Description**
 
+### 題意の要約
+
+[公式問題 PDF](https://www.iii.u-tokyo.ac.jp/manage/wp-content/uploads/2020/05/33d0876fac7c7139408cdba66732a39b-1.pdf)
+
+独立同分布の $X_1,\ldots,X_n$ は密度 $f(x;\gamma)=\gamma^{-1}e^{-x/\gamma}$（$x>0,\gamma>0$）を持つ。$X_{(i)}$ は昇順の順序統計量。
+
+1. $E[X_1]$。
+2. $X_{(1)}$ の密度と平均。
+3. $X_1,X_{(1)}$ の歪度 $E[(Y-EY)^3]/\operatorname{SD}(Y)^3$。
+4. $n\ge2$ とし、$T_n=\sum_{i=2}^nX_{(i)}/(n-1)$ のバイアス $E[T_n]-\gamma$。
+
 ### 题目描述
 
 设参数 $\gamma>0$，随机变量 $X_1,\ldots,X_n$ 独立同分布，其密度为

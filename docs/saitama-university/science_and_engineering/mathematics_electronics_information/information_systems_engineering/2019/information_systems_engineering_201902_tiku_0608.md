@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年2月実施 微积分"
+sidebar_label: "2019年2月実施 微分積分"
 tags:
   - Saitama-University
   - Mathematics.Calculus.Taylor-Series
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Definite-Integral
   - Mathematics.Calculus.Limit
 ---
-# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2019年2月実施 微积分
+# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2019年2月実施 微分積分
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura

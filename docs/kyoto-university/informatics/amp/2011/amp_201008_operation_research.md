@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h23/h23_senmon3.pdf)
+
 $$
 \mathbb{R}^n_{+}  = \{ x \in \mathbb{R}^n \mid x_i \ge 0 \ (i=1,\ldots,n) \}, \quad
 \mathbb{R}^n_{++} = \{ x \in \mathbb{R}^n \mid x_i > 0 \ (i=1,\ldots,n) \}.
@@ -145,7 +147,9 @@ $$
 
 この証明は、一般の $x,y\in\mathbb R_{++}^n$ に対して成り立ち、成分和が1であることを仮定しない。
 
-(ii) Lagrangian:
+(ii) 問題文で最適解の全成分が正であると与えられているので、その内点での微分を用いる。等式制約の乗数 $\lambda$ は符号自由である。
+
+Lagrangian:
 
 $$
 L(x, \lambda, \mu) = tc^Tx + \psi(x) - \psi(y) - \nabla \psi(y)^T(x - y) - \lambda(\sum_{i=1}^n x_i - 1) - \sum_{i=1}^n \mu_i x_i

@@ -53,8 +53,10 @@ CSMAでは伝搬遅延時間が長くなると、単位時間当たりに衝突�
 
 $$
 \boxed{(A)=(\text{エ})},\qquad
-\boxed{(B)=(\text{ア})}.
+\boxed{(B)=(\text{イ})}.
 $$
+
+[公式問題（9ページ）](https://www.ist.osaka-u.ac.jp/files/examinees/admission/past-exam/5_Information%20engineering_2024_JA.pdf)の「ビジーなら待った後に再度キャリアセンスする」という記述に対応して、（B）は「しばらく待って」とする。媒体が空くまで検知を続け、空いた時点で即座に送信する1-persistent方式とは区別する。
 
 （X）は次の通りである。
 

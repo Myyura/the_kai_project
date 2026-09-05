@@ -12,6 +12,8 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H30infait.pdf#page=6)。
 図に示す曲線 $C$ に沿った複素積分 $\oint_C\frac{(\ln z)^2}{z^2 + 1}dz$ を考える．ただし， $R > 1,\varepsilon < 1$ とする．次
 の各問に答えよ．
 
@@ -25,7 +27,7 @@ Zero, 祭音Myyura
 
 ### 题目描述
 
-设外半径 $R>1$，内半径 $\varepsilon$ 满足 $0<\varepsilon<1$。原图中的闭路 $C$ 是上半平面半环域的正向边界；Kai 中各段的参数式唯一确定其走向为：
+设外半径 $R>1$，内半径 $\varepsilon$ 满足 $0<\varepsilon<1$。原图中的闭路 $C$ 是上半平面半环域的正向边界；其走向为：
 
 $$
 \begin{aligned}

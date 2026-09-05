@@ -116,7 +116,7 @@ $R=2\,\Omega$、$C=\frac16\,\mathrm F$、$L=3\,\mathrm H$。回答：
 
 $$
 \begin{aligned}
-Z &= \frac{1}{j\omega C_1} + R_1 // R_2 + \frac{1}{j\omega C_2} \\
+Z &= \frac{1}{j\omega C_1} + R_1 // \left(R_2 + \frac{1}{j\omega C_2}\right) \\
 &= \frac{1}{j\omega C_1} + \frac{R_1(1 + j\omega C_2R_2)}{1 + j\omega C_2R_2 + j\omega C_2R_1} \\
 &= \frac{1}{j\omega C_1} + \frac{R_1(1 + j\omega C_2R_2)}{1 + j\omega C_2(R_1 + R_2)} \\
 &= \frac{1 + j\omega C_2(R_1 + R_2) + j\omega C_1R_1(1 + j\omega C_2R_2)}{j\omega C_1[1 + j\omega C_2(R_1 + R_2)]}
@@ -137,31 +137,24 @@ I &= \frac{R_1}{R_1 + (R_2 + \frac{1}{j\omega C_2})} \cdot I_0 \\
 $$
 
 #### (3)
-(2) より、
+(2) の逆数を取ると、
 
 $$
-\begin{align}
-\frac{I}{E} &= \frac{\omega^2C_1C_2R_1}{\omega^2C_1C_2R_1R_2 - 1 - j\omega(C_1R_1 + C_2R_1 + C_2R_2)} \notag \\
-&= \frac{\omega C_1C_2R_1R_2 - 1}{\omega^2 C_1C_2R_1} - j\frac{C_1R_1 + C_2R_1 + C_2R_2}{\omega C_1C_2R_1} \tag{*}
-\end{align}
+\frac{E}{I}=\frac{\omega^2 C_1C_2R_1R_2-1}{\omega^2 C_1C_2R_1}
+-j\frac{C_1R_1+C_2R_1+C_2R_2}{\omega C_1C_2R_1}.
 $$
 
-$\arg(\frac{E}{I}) = -\frac{\pi}{2}$ のとき、$\arg(\frac{I}{E}) = \frac{\pi}{2}$ となるから、$(*)$ の実部が $0$ となれば、$\arg(\frac{I}{E}) = \frac{\pi}{2}$ 成立よって、
+素子値と $\omega$ は正なので、虚部は負である。したがって実部が零であれば $\arg(E/I)=-\pi/2$、すなわち $\arg(I/E)=\pi/2$ となる。求める条件は
 
 $$
-\begin{aligned}
-\omega C_1C_2R_1R_2 - 1 &= 0 \\
-\omega^2 &= \frac{1}{C_1C_2R_1R_2} \\
-\omega &= (C_1C_2R_1R_2)^{-\frac{1}{2}}
-\end{aligned}
+\omega^2C_1C_2R_1R_2=1,
+\qquad \omega=\frac{1}{\sqrt{C_1C_2R_1R_2}}.
 $$
 
 ### 【問 2】
 #### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2018_circuit_theory_p5.png" width="700" height="272" alt=""/>
-</figure>
+図 2(a) の $N$ に流れ込む入力電流を $I_1$、出力電流を $I_2$ とし、対応する端子電圧を $V_1,V_2$ とする。図 2(b) のテブナン等価回路は、開放電圧 $E_0$ と直列インピーダンス $Z_0$ からなる。
 
 $$
 \begin{pmatrix}
@@ -185,7 +178,7 @@ V_2 &= Z_{21}I_1 + Z_{22}I_2 \\
 \right.
 $$
 
-$E_0$ は $(a)$ の回路の端子 $1-1'$ 間の開放電圧で($I_2 = 0$ のときの、$V_2$)
+$E_0$ は $(a)$ の回路の出力端子対の開放電圧で($I_2 = 0$ のときの、$V_2$)
 
 $$
 E_0 = Z_{21}I_1
@@ -352,7 +345,7 @@ E_0 = \frac{Z_{21}}{Z_G + Z_{11}} E = \frac{Z_b}{Z_G + Z_a + Z_b}E
 $$
 
 $$
-Z_0 = Z_{22} = \frac{Z_{12}Z_{21}}{Z_G + Z_{11}} = Z_b + Z_c - \frac{Z_b^2}{Z_G + Z_a + Z_b}
+Z_0 = Z_{22} - \frac{Z_{12}Z_{21}}{Z_G + Z_{11}} = Z_b + Z_c - \frac{Z_b^2}{Z_G + Z_a + Z_b}
 $$
 
 ### 【問 3】
@@ -364,11 +357,11 @@ $$
 
 $$
 \begin{aligned}
-R_0J &= [R_0 + jX_1 // jX_2 + R_L]I_0 \\
+R_0J &= [R_0 + jX_1 // (jX_2 + R_L)]I_0 \\
 R_0J &= [R_0 + \frac{jX_1(R_L + jX_2)}{R_L + j(X_1 + X_2)}]I_0 \\
 I &= \frac{jX_1}{jX_1 + R_L + jX_2}I_0 \\
 I &= \frac{jX_1}{R_L + j(X_1 + X_2)} \times \frac{R_L + j(X_1 + X_2)}{R_0R_L + jR_0(X_1 + X_2) + jR_LX_1 - X_1X_2}R_0J \\
-I &= \frac{jX_1R_0}{R_0R_L - X_1X_2 + j[R_0 + (X_1 + X_2) + R_LX_1]}J \\
+I &= \frac{jX_1R_0}{R_0R_L - X_1X_2 + j[R_0(X_1 + X_2) + R_LX_1]}J \\
 \end{aligned}
 $$
 
@@ -440,14 +433,14 @@ $$
 $$
 \begin{aligned}
 X_1(X_1X_2 - R_0R_L) + R_0^2(X_1 + X_2) + R_0R_LX_1 &= 0 \\
-X_1^2X_2 + R_0^2X_1 R_0^2X_2 &= 0 \\
+X_1^2X_2 + R_0^2X_1 + R_0^2X_2 &= 0 \\
 X_2(X_1^2 + R_0^2) &= -R_0^2X_1 \\
 X_2 &= -\frac{R_0^2}{X_1^2 + R_0^2}X_1
 \end{aligned}
 $$
 
 $$
-\frac{\partial}{\partial X_2^2} \cdot f(X_2) = 2X_1^2 + 2R_0^2 > 0
+\frac{\partial^2}{\partial X_2^2} \cdot f(X_2) = 2X_1^2 + 2R_0^2 > 0
 $$
 
 よって、
@@ -456,8 +449,31 @@ $$
 X_2 = - \frac{R_0^2}{X_1^2 + R_0^2}X_1
 $$
 
+なお、$X_1=0$ なら負荷は短絡されて $P=0$ となり、どの $X_2$ でも同じ値である。
+
 ##### (c)
-$P(X_1)$ について、$\frac{\partial}{\partial X_1} \cdot P(X_1) = 0,\frac{\partial^2}{\partial X_1^2} \cdot P(X_1) > 0$ を満たす条件を見つける
+$X_1\ne0$ とし、(1) の分母・分子を $X_1^2$ で割ると
+
+$$
+P=\frac{R_0^2R_L|J|^2}
+{X_2^2+(R_0+R_L)^2+\dfrac{2R_0^2X_2}{X_1}
++\dfrac{R_0^2(R_L^2+X_2^2)}{X_1^2}}.
+$$
+
+$u=1/X_1$ とすると分母は $u$ の下に凸な二次式であり、
+
+$$
+u=-\frac{X_2}{R_L^2+X_2^2}
+$$
+
+で最小となる。したがって $X_2\ne0$ の場合、求める条件は
+
+$$
+\boxed{X_1=-\frac{R_L^2+X_2^2}{X_2}}.
+$$
+
+$X_2=0$ では有限の $X_1$ で最大値を取らず、$|X_1|\to\infty$ において
+$P\to R_0^2R_L|J|^2/(R_0+R_L)^2$ となる。
 
 ### 【問 4】
 #### (1)
@@ -467,25 +483,25 @@ $$
 \begin{align}
 E = Ri_0(t) + L\frac{di(t)}{dt} \tag{\textcircled{1}} \\
 i_0(t) = i(t) + \frac{dq(t)}{dt} \tag{\textcircled{2}} \\
-\frac{q(t)}{C} = L\frac{di(t)}{dt} \Leftrightarrow q(t) = CL\frac{di(t)}{dt} \Leftrightarrow \frac{dq(t)}{dt} = CL\frac{di(t)^2}{dt^2} \tag{\textcircled{3}}
+\frac{q(t)}{C} = L\frac{di(t)}{dt} \Leftrightarrow q(t) = CL\frac{di(t)}{dt} \Leftrightarrow \frac{dq(t)}{dt} = CL\frac{d^2i(t)}{dt^2} \tag{\textcircled{3}}
 \end{align}
 $$
 
 ② を ① に代入 ( $i_0(t)$を消去 )
 
-$E = R[i(t) + \frac{dq{t}}{dt}] + L\frac{di(t)}{dt}$
+$E = R[i(t) + \frac{dq(t)}{dt}] + L\frac{di(t)}{dt}$
 
-$\frac{E}{R_C L} = \frac{d^2i(t)}{dt^2} + \frac{1}{R_C} \cdot \frac{di(t)}{dt} + \frac{1}{CL}i(t)$
+$\frac{E}{RC L} = \frac{d^2i(t)}{dt^2} + \frac{1}{RC} \cdot \frac{di(t)}{dt} + \frac{1}{CL}i(t)$
 
 $i(t) = i_s + i_c$
 
-$\frac{E}{R_C L} = \frac{1}{CL}i_s \Leftrightarrow i_s = \frac{E}{R}$
+$\frac{E}{RC L} = \frac{1}{CL}i_s \Leftrightarrow i_s = \frac{E}{R}$
 
-$0 = \frac{d^2i(t)}{dt^2} + \frac{1}{R_C}\frac{di(t)}{dt} + \frac{1}{CL}i(t)$
+$0 = \frac{d^2i(t)}{dt^2} + \frac{1}{RC}\frac{di(t)}{dt} + \frac{1}{CL}i(t)$
 
 $i_c(t) = Ae^{\lambda t}$
 
-$0 = \lambda^2 + \frac{1}{R_C}\lambda + \frac{1}{CL}$
+$0 = \lambda^2 + \frac{1}{RC}\lambda + \frac{1}{CL}$
 
 $R = 2,C = \frac{1}{6},L = 3$ に代入
 
@@ -520,22 +536,27 @@ $C_1 = -2 .C_2 = 1$
 よって、$i(t) = 1 - 2e^{-t} + e^{-2t}[A]$
 
 #### (2)
-$i(t) = \frac{1}{2}E + C_1e^{-t} + C_2e^{-2t}$
+切替前の直流定常状態では、コイルは短絡、コンデンサは開放として扱える。したがって
 
-$E = 8$ より、
+$$
+i(0^-)=\frac{4}{2}=2\,\mathrm A,\qquad q(0^-)=0.
+$$
 
-$i(t) = 4 + C_1e^{-t} + C_2e^{-2t}$
+コイル電流とコンデンサ電圧の連続性から、$i(0^+)=2$、$q(0^+)=0$ であり、
+$i'(0^+)=q(0^+)/(CL)=0$ となる。切替後の一般解
 
-$t = 0$ のとき、$i(0) = 0$
+$$
+i(t)=4+C_1e^{-t}+C_2e^{-2t}
+$$
 
-$0 = 4 + C_1 + C_2$
+にこれらを代入すると、
 
-$\frac{di(t)}{dt} = -C_1e^{-t} - 2C_2e^{-2t}$
+$$
+C_1+C_2=-2,\qquad -C_1-2C_2=0.
+$$
 
-$\frac{di(0)}{dt} = 2q(0) = 2 \times 4 \times \frac{1}{6} = \frac{4}{3}$
+よって $C_1=-4$、$C_2=2$ なので、
 
-$\frac{4}{3} = -C_1 - 2C_2$
-
-$C_1 = -\frac{20}{3},C_2 = \frac{8}{3}$
-
-$i(t) = 4 - \frac{20}{3}e^{-t} + \frac{8}{3}e^{-2t}[A]$
+$$
+\boxed{i(t)=4-4e^{-t}+2e^{-2t}\ \mathrm A\qquad(t>0)}.
+$$

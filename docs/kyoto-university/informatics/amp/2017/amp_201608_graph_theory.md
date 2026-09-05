@@ -12,6 +12,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h29_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 Let $G=(V,E)$ be a simple strongly connected directed graph. Let $N=[G,w]$ be a network obtained by assigning a nonnegative real weight $w(e)$ to each arc $e \in E$. An arc from vertex u to vertex v is denoted by $(u,v)$, and its weight is also denoted by $w(u,v)$. Define $\text{dist}(u,v)$ as the minimum total weight of a simple directed path from $u$ to $v$ in $N$.
 
 Answer the following questions.
@@ -70,7 +72,7 @@ $$
 
 Now we prove the reverse inequality.
 
-Let $$P$ be a shortest simple path from $s$ to $v^*$. Since $s \in S$ and $v^* \in V - S$, the path $P$ must cross from $S$ to $V−S$ at least once.
+Let $P$ be a shortest simple path from $s$ to $v^*$. Since $s \in S$ and $v^* \in V - S$, the path $P$ must cross from $S$ to $V−S$ at least once.
 
 Let $(x,y)$ be the first arc of $P$ that goes from $S$ to $V−S$. Thus $x \in S$ and $y \in V−S$. The part of $P$ from $s$ to $x$ has weight at least $\text{dist}(s,x)$. Also, all edge weights after $y$ are nonnegative. Hence
 

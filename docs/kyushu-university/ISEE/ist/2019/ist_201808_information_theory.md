@@ -134,7 +134,7 @@ $$
 #### (5)
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_information_theory_p4.png" width="600" height="450" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist/2019/kyushu-201808-huffman-length.svg" width="600" height="450" alt=""/>
 </figure>
 
 従って
@@ -169,7 +169,7 @@ $$
 $$
 
 #### (2)
- $v$ はマルコフ情報源の定常分布
+$v$ はマルコフ情報源の定常分布である。この行列では正規化した左固有ベクトルは $v=(8,15,20)/43$ であり、$vP=v$ を満たす。初期分布が $v$ なら、すべての時刻で同じ分布が保たれる。
 
 #### (3)
 

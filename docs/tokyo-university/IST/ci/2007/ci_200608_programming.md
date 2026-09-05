@@ -85,11 +85,11 @@ This article is cited from: `www.cs.utexas.edu/users/EWD/transcriptions/EWD03xx/
 
 **3-1** Compute the frequencies of all 96 characters in `q21.txt` and program the Huffman coding in which more frequent characters have shorter binary codes, as shown below. Output the encoding table in which each character is paired with the corresponding binary code, namely, sequence of 0 and 1. You can choose your convenient output format, but space character and newline character should be denoted `SP` and `NL`, respectively.
 
-**Code assignment:** First, you have to make an ordered binary tree as shown in Figure 1(4), each of whose leaves represents a character. To assign a code to a character, start from the root toward the corresponding leaf. In the course, you get 1 if you choose the left branch, and 0 if the right branch. The 0-1 sequence from the root up to the leaf is the code for the character. For example, the Huffman code for the character B in Figure 1(4) is 100.
+**Code assignment:** First, you have to make an ordered binary tree as shown in Figure 1(4), each of whose leaves represents a character. To assign a code to a character, start from the root toward the corresponding leaf. In the course, you get 0 if you choose the left branch, and 1 if the right branch. The 0-1 sequence from the root up to the leaf is the code for the character. For example, the Huffman code for the character B in Figure 1(4) is 100.
 
 **Construction of an ordered binary tree for Huffman code:** Make a tree in a bottom-up manner as described below.
 + Create a node for each character in the frequency table, and give the frequency as its value. Note that there is no character of zero occurrence in this problem.
-+ Until a complete binary tree is constructed, create a parent node of the two nodes that have not yet a parent, each of which is one that has the least value, and the other that has the second least value. The node of the least value will be the left child of the new node, and the node with the second least value will be the right child. If the least value equals to the second least value, newer node will be the right child, and character node with smaller ASCII code will be the right child if both are character nodes. Figure 1 illustrates the tree construction, where five characters A, B, C, D, and E have frequencies 50, 20, 33, 15, and 40, respectively.
++ Until a complete binary tree is constructed, create a parent node of the two nodes that have not yet a parent, each of which is one that has the least value, and the other that has the second least value. The node of the least value will be the right child of the new node, and the node with the second least value will be the left child. If the least value equals to the second least value, newer node will be the right child, and character node with smaller ASCII code will be the right child if both are character nodes. Figure 1 illustrates the tree construction, where five characters A, B, C, D, and E have frequencies 50, 20, 33, 15, and 40, respectively.
 
 
 <figure style="text-align:center;">
@@ -218,6 +218,9 @@ with open('a22.txt', 'w') as a22:
 Frequency-rank substitution alone is only an initial guess; it is not generally the decryption key. The entries in `manual_map` must be refined by the required trial and error until the output is coherent plaintext.
 
 ### (3-1)
+
+**Convention.** Use left = `0`, right = `1`, and place the smaller weight on the right; the example has `B = 100`. The numerical frequency table, substitution key and final average length require the contents of `q21.txt` and `q22.txt`.
+
 ```py
 from collections import Counter
 
@@ -278,3 +281,10 @@ expected_bit_length = sum(
 ) / sum_of_freq
 print(f'Average bits per character: {expected_bit_length:.2f}')
 ```
+
+
+The quantity computed is
+
+$$\bar L=\frac{\sum_c f_c\ell_c}{\sum_c f_c},$$
+
+where $f_c$ is the occurrence count and $\ell_c$ is the Huffman code length. The statement's introductory “6.5 bits” is not the fixed-length cost for 96 symbols: a fixed-length binary code needs $\lceil\log_2 96\rceil=7$ bits. For 96 equally likely symbols, the optimal binary prefix code has 32 codewords of length 6 and 64 of length 7, giving $20/3$ bits on average. The entropy is $\log_2 96\approx6.585$, which also rules out 6.5 as an average uniquely decodable code length for that uniform distribution. This discrepancy does not affect the frequency-weighted calculation requested in (3-2).

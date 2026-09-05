@@ -245,7 +245,7 @@ $$
 Setting $s = 1$:
 
 $$
-\frac{\mathrm{d}^2 f(1)}{\mathrm{d}s^2} = \int_0^\infty t^{1-1} \log^2(t) \exp(-t) \,\mathrm{d}t = \int_0^\infty \log^2(t) \exp(-t) \,\mathrm{d}t.
+f''(1) = \int_0^\infty t^{1-1} \log^2(t) \exp(-t) \,\mathrm{d}t = \int_0^\infty \log^2(t) \exp(-t) \,\mathrm{d}t.
 $$
 
 This integral represents the first term in $D$, which is:
@@ -257,7 +257,7 @@ $$
 Thus, we have:
 
 $$
-\int_0^\infty (\log t)^2 \exp(-t) \,\mathrm{d}t = \frac{\mathrm{d}^2 f(1)}{\mathrm{d}s^2}.
+\int_0^\infty (\log t)^2 \exp(-t) \,\mathrm{d}t = f''(1).
 $$
 
 #### Step 2: Calculating the First Integral
@@ -279,7 +279,7 @@ At $s = 1$, $f(1) = 1$, $f'(1)$ is the first moment (which is $\int_0^\infty \lo
 We can express:
 
 $$
-\frac{\mathrm{d}^2 \log f(1)}{\mathrm{d}s^2} = f''(1) - \left(f'(1)\right)^2.
+\left.\frac{\mathrm{d}^2\log f(s)}{\mathrm{d}s^2}\right|_{s=1} = f''(1) - \left(f'(1)\right)^2.
 $$
 
 Given:
@@ -308,6 +308,8 @@ $$
 p(r) = \frac{r}{\alpha} \exp\left(-\frac{r^2}{2\alpha}\right).
 $$
 
+The substitution $u=r^2/(2\alpha)$ gives $p(r)\,\mathrm dr=e^{-u}\,\mathrm du$ and $\log r=\tfrac12\log u+\tfrac12\log(2\alpha)$. Adding a constant does not change variance, so (4) directly gives $S=D/4=\pi^2/24$.
+
 #### Step 1: Identify the form of $p(r)$
 
 The function $p(r)$ is a probability density function corresponding to a Rayleigh distribution, with the parameter $\alpha$. The Rayleigh distribution has the form:
@@ -316,7 +318,7 @@ $$
 p(r) = \frac{r}{\alpha} \exp\left(-\frac{r^2}{2\alpha}\right),
 $$
 
-which is commonly used to describe the distribution of the magnitude of a two-dimensional vector with independent and identically distributed normal components.
+which is commonly used to describe the distribution of the magnitude of a two-dimensional vector with independent zero-mean normal components, each with variance $\alpha$.
 
 #### Step 2: Calculation of the first moment $\mathbb{E}[\log r]$
 

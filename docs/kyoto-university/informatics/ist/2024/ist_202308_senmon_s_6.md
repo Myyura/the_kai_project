@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_ist.pdf)
+
 We consider a grammar $G = (\Sigma, N, P, S)$, where $\Sigma, N, P$, and $S$ are a finite set of terminal symbols, a finite set of nonterminal symbols, a finite set of production rules, and the start symbol, respectively.
 
 ### Q.1

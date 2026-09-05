@@ -196,7 +196,7 @@ int first(int x, int y)
 
 int inf(int x)
 {
-	return inf(x+1)
+	return inf(x+1);
 }
 ```
 
@@ -214,7 +214,7 @@ Here, `inf(x)` has an infinite depth of recursion. the program will not terminat
 
 ### 难点思路
 
-在解决这道题目时，主要的难点在于理解不同调用策略如何影响递归函数的计算次数和返回值。尤其是对于 call-by-name 策略，理解参数传递的延迟计算（lazy evaluation）如何导致不同的函数行为。
+在解决这道题目时，主要的难点在于理解不同调用策略如何影响递归函数的计算次数和返回值。尤其是对于 call-by-name 策略，理解参数在每次使用时重新求值（不记忆之前的求值结果）如何导致不同的函数行为。
 
 ### 解题技巧和信息
 

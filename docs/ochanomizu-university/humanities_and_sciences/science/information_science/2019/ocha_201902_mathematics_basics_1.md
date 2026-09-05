@@ -100,19 +100,7 @@ $$
 
 である。概形は次のようになる（$x=0$ は定義域外）。
 
-```text
-y
-^                                              /
-|                                            _/
-|       ● 極大                             _/
-|     _/ \__                            __/
-|   _/      ● 変曲                   __/
-| _/         \____               ___/
-|/                \____     ____/
-|                      \   /
-○------------------------●----------------------> x
-x→0+                  極小 (1,0)
-```
+![Function graph with stationary and inflection points](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/ochanomizu_university/humanities_and_sciences/science/information_science/2019/ocha-201902-log-square.svg)
 
 ### [2]
 

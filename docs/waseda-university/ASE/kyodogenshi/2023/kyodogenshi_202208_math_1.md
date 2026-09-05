@@ -11,6 +11,15 @@ tags:
 
 ## **Description**
 
+### 問題の要旨（日本語）
+
+問題の要約
+
+1. $f(x,y)=x^3+xy-y^3-1=0$ が $(1,1)$ 付近で定める陰関数 $y=g(x)$ について、$g(x)=a_0+a_1(x-1)+a_2(x-1)^2+\cdots$ の最初の3係数を求める。
+2. $y''+y=\cos t+\sin t$ の一般解を求める。
+
+[公式の試験問題](https://www.waseda.jp/inst/admission/assets/uploads/2022/09/53_M_kyodogenshi_2022_September2023_April_ippan_senmon.pdf)
+
 ### 题目描述
 
 1. 对函数

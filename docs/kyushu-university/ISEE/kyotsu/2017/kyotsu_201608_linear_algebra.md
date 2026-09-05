@@ -12,6 +12,8 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://web.archive.org/web/20211018003806id_/https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H29infait.pdf#page=3)。
 $1$ 次独立な $n$ 次元ベクトルの組 $\{v_1,v_2,\dots,v_k\} \subseteq R^n$ が張る部分空間 $K$ に対し，写像 $f:K \rightarrow R^k$ を次のように定義する．任意の $x = \sum_{i = 1}^k \alpha_iv_i \in K$ に対し， $f(x) = \begin{pmatrix}\alpha_1 \\ \vdots \\ \alpha_k \\ \end{pmatrix}$ .
 
 以下の各問に答えよ．

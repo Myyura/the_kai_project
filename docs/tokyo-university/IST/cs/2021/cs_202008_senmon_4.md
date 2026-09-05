@@ -196,7 +196,7 @@ $$
 
 ### (4)
 
-When $\mathbf{\Phi}$ is not a regular matrix, it is singular and cannot be inverted. This usually happens when the features are linearly dependent, leading to multicollinearity. This makes the computation of $\mathbf{\hat{w}}$ unstable or impossible.
+When $\mathbf{\Phi}$ is not a regular matrix, it is singular and cannot be inverted. This usually happens when the features are linearly dependent, leading to multicollinearity. The normal equations still have solutions, but the coefficient vector is not unique: adding any vector in the nullspace of $\mathbf X$ leaves the fitted values unchanged. The inverse formula in (1) is unavailable; a Moore–Penrose pseudoinverse selects the minimum-norm solution.
 
 A common remedy is to add a regularization term to the loss function, which is known as **Ridge Regression**. The modified loss function becomes:
 
@@ -221,7 +221,7 @@ $$
 ### 重点词汇
 
 - **trace** (迹) - 矩阵对角线元素之和
-- **regular matrix** (正规矩阵) - 具有满秩的矩阵，即矩阵的行列式非零
+- **regular matrix** (非奇异矩阵) - 具有满秩的矩阵，即矩阵的行列式非零
 - **regularization** (正则化) - 添加到损失函数的额外项，以约束模型复杂度并提高泛化能力
 
 ### 参考资料

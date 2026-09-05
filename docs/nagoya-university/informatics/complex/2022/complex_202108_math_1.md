@@ -13,6 +13,9 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2021/11/340fb55945f15626c7a3a89358d8992d.pdf)
+
 以下の各問に答えよ。ただし， $i$ は虚数単位とする。
 
 ### 1
@@ -180,7 +183,7 @@ $$
 内積 $\vec{x} \cdot \vec{y}$ は $\vec{x}^T \vec{y}$ とも書ける。
 また、単位行列を $I$ で表す。
 
-さらに、行列 $X$ やベクトル $\vec{x}$ の複素転置（エルミート共役）をそれぞれ
+さらに、行列 $X$ やベクトル $\vec{x}$ の共役転置（エルミート共役）をそれぞれ
 $X^\dagger, \vec{x}^\dagger$ で表す。
 $X$ が実行列の場合は、 $X^\dagger = X^T$ である。
 
@@ -273,3 +276,9 @@ $$
 $$
 
 である。
+
+
+実際に，$v=(\cos(\theta/2),\sin(\theta/2))^T$，
+$w=(-\sin(\theta/2),\cos(\theta/2))^T$ とおくと，
+$Av=v$，$Aw=-w$ である。この正規直交基底では $A$ は
+$v$ 方向の成分を保ち，それに垂直な成分の符号を反転するため，上の直線を軸とする鏡映である。

@@ -11,13 +11,24 @@ tags:
 
 ## **Description**
 
-2021年度大学院入学試験問題
-[数学2(主に線形代数)](https://github.com/Myyura/the_kai_project_assets/blob/d6bcfb7f9c3ba8257a9649b816e8903f4a4bf22f/kakomonn/tokyo_university/engineering/Description/2021_M_2.pdf)
+[公式原題](https://www.t.u-tokyo.ac.jp/hubfs/pdf/2021_M_2.pdf)
 
+### I.
+$$A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix}$$
+について、(1) 全固有値、(2) $A^3+aA^2+bA+cI=O$ の係数、(3) $A^{2n+1}$（$n\ge0$ は整数）、(4) $\exp(tA)=pA^2+qA+rI$ の実数表示の係数を求める。$t\in\mathbb R$。
+
+### II.
+二状態 A、B の離散時間系で、AからBへの遷移確率を $\alpha$、BからAを $\beta$ とし、$0<\alpha<1$、$0<\beta<1$ とする。
+
+1. $\boldsymbol P(n)=(P_A(n),P_B(n))^T$ に対し $\boldsymbol P(n+1)=M\boldsymbol P(n)$ の $M$ を求める。
+2. $M$ の全固有値と対応する固有ベクトルを求める。
+3. $n\to\infty$ の各状態の確率を求める。
+4. $R_A(n)=P_A(n)-\lim_{k\to\infty}P_A(k)$ とおき、$R_A(n+1)$ を $R_A(n)$ で表す。
+
+### III.
+$m\ge3$ とし、$\boldsymbol a_1,\ldots,\boldsymbol a_m$ は一次独立とする。循環的な和 $\boldsymbol a_1+\boldsymbol a_2,\ldots,\boldsymbol a_m+\boldsymbol a_1$ が一次独立となる $m$ の条件を求める。
 
 ### 题目描述
-
-原 Description 仅提供 2021 年“数学 2”原卷链接，具体题干缺失。根据本地 Kai，能够确认三部分任务：
 
 1. 对
 
@@ -25,7 +36,7 @@ tags:
    A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix},
    $$
 
-   求特征值；用凯莱—哈密顿定理确定满足 $A^3+aA^2+bA+cI=0$ 的系数；求 $A^{2n+1}$；并把矩阵指数写成 $\exp(tA)=pA^2+qA+rI$ 的形式，求 $p,q,r$。
+   求特征值；用凯莱—哈密顿定理确定满足 $A^3+aA^2+bA+cI=0$ 的系数；对整数 $n\ge0$ 求 $A^{2n+1}$；并把矩阵指数写成 $\exp(tA)=pA^2+qA+rI$ 的形式，求 $p,q,r$。
 2. 对状态 $A,B$ 间以概率 $\alpha,\beta$ 转移的二状态过程，写出概率向量的转移矩阵
 
    $$
@@ -33,8 +44,8 @@ tags:
    $$
 
    求其特征值、特征向量和长期稳态概率；再令
-   $R_A(n)=P_A(n)-P_A(\infty)$，推导 $R_A(n+1)$ 与 $R_A(n)$ 的关系。原题对 $\alpha,\beta$ 的取值条件未保存在本地。
-3. 已知 $\boldsymbol a_1,\ldots,\boldsymbol a_m$ 线性无关，判断循环相邻和
+   $R_A(n)=P_A(n)-P_A(\infty)$，推导 $R_A(n+1)$ 与 $R_A(n)$ 的关系。参数满足 $0<\alpha<1,0<\beta<1$。
+3. 设 $m\ge3$，已知 $\boldsymbol a_1,\ldots,\boldsymbol a_m$ 线性无关，判断循环相邻和
 
    $$
    \boldsymbol a_1+\boldsymbol a_2,
@@ -160,7 +171,7 @@ $$
 である。
 
 #### 3.
-A,Bである確率が一定値に収束するとすると、それは $M$ の固有ベクトルであり、確率は負にならないことを考慮して、
+題意の $0<\alpha,\beta<1$ より $|1-\alpha-\beta|<1$ である。したがって固有値 $1$ 以外の成分は減衰して、A,Bである確率は一定値に収束する。それは $M$ の固有ベクトルであり、確率は負にならないことを考慮して、
 
 $$
 \begin{aligned}

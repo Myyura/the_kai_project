@@ -81,6 +81,8 @@ $$
 と書き換えられる．したがって $D_1$ は直線 $y=0$ , $y=2x$ , $x=1$ で囲まれる三角形領域
 （頂点 $(0,0),(1,0),(1,2)$ ）である．
 
+![積分領域の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hosei_university/science_and_engineering/systems_engineering/management_systems/2025/hosei-2024-triangle.svg)
+
 (b) 二重積分
 
 $$

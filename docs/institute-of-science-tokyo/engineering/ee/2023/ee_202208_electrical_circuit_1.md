@@ -19,6 +19,10 @@ Zero
 
 (3) (1)の条件を満たすとき，MOSFET が飽和領域で動作するために必要な $V_{DD}$ の条件を $I_{D0}$ を用いた式で示せ。なお答の式からは，$V_{OUT}$ は消去すること。
 
+図 1.2 のモデル：ゲートの小信号電流は零とし、ドレインからソースへ $g_m v_{gs}$ の制御電流源を置く。$v_{gs}$ はゲート・ソース間小信号電圧、$g_m$ は相互コンダクタンスである。
+
+[公式問題・8ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_ee_20228&key=abfd9c7a6fd609823935c85161ab2abd.pdf&pageId=3186&prevId=&type=1)
+
 (4) (2)で求めた式を用いて，飽和領域での $g_m$ を $I_{D0}$ を用いて示せ。
 
 (5) 図 $1.1$ の回路の小信号等価回路を描け。
@@ -48,41 +52,36 @@ $$
 
 ## **Kai**
 ### (1)
-ドレイン電流が流れるのは、$V_{GS} > V_T$ のときであるので、$V_{IN} > V_{GS}$ より、
+ソースは接地されているため、$V_{GS}=V_{IN}$。従って必要な条件は
 
 $$
-V_{GS} > V_T
+V_{IN}>V_T.
 $$
 
 ### (2)
-$V_{GS} - V_T = 1$ のとき、$I_{D0} = \frac{1}{2}\mu C_ox\frac{W}{L}$ として、
+$V_u=1\,\mathrm V$ とおくと、飽和領域の二乗則より
 
 $$
-I_D = I_{D0}(V_{GS} - V_T)^2
+I_D=I_{D0}\left(\frac{V_{GS}-V_T}{V_u}\right)^2
+   =I_{D0}\left(\frac{V_{IN}-V_T}{V_u}\right)^2.
 $$
+
+電圧を V 単位の数値で表す場合は、通常 $I_D=I_{D0}(V_{IN}-V_T)^2$ と書く。
 
 ### (3)
+$V_{DS}=V_{OUT}=V_{DD}-RI_D$ であり、飽和領域の条件（境界を含む）は
+$V_{DS}\ge V_{GS}-V_T$ である。従って
 
 $$
-\begin{aligned}
-V_{D0} &= RI_D + V_{DS} \\
-&= RI_{D0}(V_{GS} - V_T)^2 + V_{DS} \\
-\end{aligned}
-$$
-
-飽和領域は、$V_{DS} > V_{GS} - V_T$ より、
-
-$$
-\begin{aligned}
-V_{DD} &> RI_{D0}(V_{GS} - V_T)^2 + (V_{GS} - V_T) \\
-&= (V_{GS} - V_T)[RI_{D0}(V_{GS} - V_T) + 1]
-\end{aligned}
+V_{DD}\ge RI_{D0}\left(\frac{V_{IN}-V_T}{V_u}\right)^2+V_{IN}-V_T.
 $$
 
 ### (4)
 
 $$
-g_m = \frac{\partial I_D}{\partial V_{GS}} = 2I_{D0}(V_{GS} - V_T)
+g_m=\frac{\partial I_D}{\partial V_{GS}}
+   =\frac{2I_{D0}(V_{GS}-V_T)}{V_u^2}
+   =\frac{2I_{D0}(V_{IN}-V_T)}{V_u^2}.
 $$
 
 ### (5)

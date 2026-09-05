@@ -15,6 +15,8 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+
+出典：[東京大学大学院理学系研究科物理学専攻](https://www.phys.s.u-tokyo.ac.jp/)の大学院入試問題（一部表記・構成を改変）。
 ### 第2問
 
 体積 $V$、粒子数 $N$ の系が温度 $T$ の熱浴と接触している状況を考える。粒子の質量を $m$ とし、粒子間の相互作用は考えない。必要であれば、熱力学の関係式
@@ -174,6 +176,8 @@ $$
    $C_V=\gamma T$。结合该事实和第 8 问，在同一图中定性画出费米气体熵随温度的变化，并用虚线加入第 3 问经典熵的温度依赖以作比较。
 
 ## **Kai**
+
+以下は著者による解答例であり、大学が公表した解答ではない。
 ### 1.
 
 $$
@@ -204,7 +208,7 @@ F(T,V,N)
 &= - k_B T \left( N \ln V - \ln N!
 + N \ln \frac{(2 \pi m k_B T)^{3/2}}{h^3} \right)
 \\
-&\approx - k_B T \left( N \ln V - N - N \ln N
+&\approx - k_B T \left( N \ln V + N - N \ln N
 + N \ln \frac{(2 \pi m k_B T)^{3/2}}{h^3} \right)
 \\
 &= - k_B T N \left( \frac{3}{2} \ln T +  \ln \frac{V}{N}
@@ -212,7 +216,7 @@ F(T,V,N)
 \end{aligned}
 $$
 
-そこで、 $dF = -S dT - P dV + \mu N$ を考慮して、
+そこで、 $dF = -S dT - P dV + \mu dN$ を考慮して、
 圧力 $P(T,V,N)$ は次のように求められる：
 
 $$
@@ -362,5 +366,36 @@ e^{\beta \mu}
 $$
 
 ### 8.
+熱的ド・ブロイ波長を $\lambda_T=h/\sqrt{2\pi m k_BT}$ とおくと、設問7より
+
+$$
+\frac{\mu}{k_BT}=\ln\left(\frac{N\lambda_T^3}{V}\right).
+$$
+
+設問3の古典極限のエントロピーは
+
+$$
+S\simeq Nk_B\left[\frac52-\ln\left(\frac{N\lambda_T^3}{V}\right)\right]
+=\frac52Nk_B-\frac{\mu N}{T}.
+$$
+
+$-\mu/(k_BT)\gg1$ では定数項 $5Nk_B/2$ が相対的に小さいので、
+
+$$
+\boxed{S\simeq-\frac{\mu N}{T}}.
+$$
 
 ### 9.
+低温では $dS/dT=C_V/T=\gamma$ である。基底状態のエントロピーを $S(0)=0$ とすれば、
+
+$$
+S(T)\simeq\gamma T\qquad(T\ll T_F).
+$$
+
+したがってフェルミ気体の曲線は原点から正の傾きで増加する。高温では設問3の古典曲線に近づき、$S\sim(3/2)Nk_B\ln T+\text{定数}$ となる。古典式を低温まで延長した点線は $T\to0$ で $-\infty$ に発散する。
+
+![固定した粒子数・体積におけるフェルミ気体と古典気体のエントロピー](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/science/phys/2020/tokyo-phys-201908-entropy.svg)
+
+## **Reference**
+
+- [東京大学 物理学専攻 令和2年度 公式問題](https://www.phys.s.u-tokyo.ac.jp/wp-content/uploads/2020/04/R2masterphysics.pdf)

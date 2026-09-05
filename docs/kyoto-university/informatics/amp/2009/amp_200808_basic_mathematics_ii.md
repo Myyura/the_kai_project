@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h21/h21_kiso6.pdf)
+
 3次実正方行列 $X$ と実パラメータ $\lambda$ に対して、
 
 $$

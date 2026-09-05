@@ -28,6 +28,9 @@ $$
 
 (d) $Q(x, y) = 2$ の概形を図示せよ。
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20210425093032id_/http://www.is.nagoya-u.ac.jp/exam-old/d21508.pdf)
+
 ### 题目描述
 
 给定二次型
@@ -253,3 +256,13 @@ $$
 $$
 
 と書ける．これは双曲線を表す．
+
+元の $xy$ 座標では、頂点は $\pm(-\sqrt3/2,1/2)$ であり、漸近線は
+
+$$
+y=(-\sqrt3+2)x,\qquad y=(-\sqrt3-2)x
+$$
+
+である。
+
+![元のxy座標における双曲線と漸近線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2016/nagoya-is2016-hyperbola.svg)

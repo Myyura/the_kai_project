@@ -118,7 +118,7 @@ $$
 
 #### (a) Find $f_0$
 
-To find $f_0$, we need to calculate the probability that the particle never moves to the right, i.e., $X = 0$. This occurs if the particle only moves up or stays in place until it reaches a position where it never moves again. Therefore, $f_0$ is the sum of the probabilities of all possible scenarios where the particle stays in place or moves up any number of times and then stops:
+To find $f_0$, we need to calculate the probability that the particle never moves to the right, i.e., $X = 0$. This occurs if the particle makes zero or more upward moves followed by the first stay. Therefore, $f_0$ is the sum of the probabilities of all possible scenarios where the particle stays in place or moves up any number of times and then stops:
 
 $$
 f_0 = \sum_{k=0}^{\infty} q^k(1 - p - q) = \frac{1 - p - q}{1 - q}

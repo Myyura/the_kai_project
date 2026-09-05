@@ -12,6 +12,9 @@ tags:
 
 ## **Description**
 
+出典：[名古屋大学・令和5年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/0c8cfd0a7f9c85180fb8c16d9c008ae0.pdf)。
+
+
 行列 $M = \begin{bmatrix} 8 & 1 & -6 \\ 1 & 8 & -6 \\ 3 & 3 & -3 \end{bmatrix}$ について、次の問いに答えよ.
 
 (a) $M$ の固有値をすべて求めよ。また、各固有値に対応する単位固有ベクトルをそれぞれ求めよ.

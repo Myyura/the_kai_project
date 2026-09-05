@@ -53,7 +53,7 @@ Finally, we consider the transition probability matrix $R$ and stationary distri
 
 (7) Show that a stationary distribution exists uniquely. Here, you can assume the following fact as given; In general, a square matrix and its transpose have the same set of eigenvalues.
 
-(8) Show that, by iteratively computing $\boldsymbol{p}^{(t)}$ following the equation $\boldsymbol{p}^{(t+1)} = R\boldsymbol{p}^{(t)}$, regardless of the initial probability distribution $\boldsymbol{p}^{(0)}$, $\boldsymbol{p}^{(t)}$ converges to the stationary distribution when $t \to \infty$. You can assume that $\boldsymbol{p}^{(0)}$ can be represented as a linear combination of eigenvectors, $\boldsymbol{p}^{(0)} = \sum_{i=1}^N c_i \boldsymbol{x}_i$. Here, $\boldsymbol{x}_i$ denotes the $i$-th eigenvalue of $R$ while $c_i$ is its coefficient.
+(8) Show that, by iteratively computing $\boldsymbol{p}^{(t)}$ following the equation $\boldsymbol{p}^{(t+1)} = R\boldsymbol{p}^{(t)}$, regardless of the initial probability distribution $\boldsymbol{p}^{(0)}$, $\boldsymbol{p}^{(t)}$ converges to the stationary distribution when $t \to \infty$. You can assume that $\boldsymbol{p}^{(0)}$ can be represented as a linear combination of eigenvectors, $\boldsymbol{p}^{(0)} = \sum_{i=1}^N c_i \boldsymbol{x}_i$. Here, $\boldsymbol{x}_i$ denotes the $i$-th eigenvector of $R$ while $c_i$ is its coefficient.
 
 ### 题目描述
 
@@ -169,6 +169,8 @@ $$
 Thus the diagram has outgoing probabilities
 $1\to(1,2,3):(1,7,1)/9$, $2\to(1,2,3):(4,1,4)/9$, and
 $3\to(1,2,3):(1,1,7)/9$.
+
+![State transitions with jump probability 1/3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2025/tokyo-ci-2024-pagerank.svg)
 
 ### (5)
 Let $p = (x, y, z)^{\top}$. Then, by solving $Ap = p$, i.e., the following equations

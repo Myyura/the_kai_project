@@ -14,12 +14,14 @@ tags:
 Zero
 
 ## **Description**
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/R04ist.pdf)。
+
 ### 【問 1】
 図 $1$ に示す回路において, 電流 $I_1$ と電圧 $E$ の位相差が $\arg(\frac{E}{I_1}) = \frac{\pi}{6},\big|\frac{E}{I_1}\big| = 2$ である。以下の問いに答えよ。なお, コイルの相互インダクタンスは無視する。
 
 (1) $R_1$ および $X_1$ を求めよ。
 
-(2) $\big|\frac{V}{E} = 1\big|$となるときの $\arg(\frac{V}{E})$ を求めよ。
+(2) $\big|\frac{V}{E}\big| = 1$となるときの $\arg(\frac{V}{E})$ を求めよ。
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p1.png" width="250" height="350" alt=""/>
@@ -111,8 +113,8 @@ $$
 \begin{align}
 e^{j\frac{\pi}{6}} &= \cos\frac{\pi}{6} + j\sin\frac{\pi}{6} \notag\\
 &= \frac{1}{2}(\sqrt{3} + j) \notag\\
-\Leftrightarrow &\text{Re}(\frac{E}{I_1}):I_{\omega}(\frac{E}{I_1}) = \sqrt{3}:1 \notag\\
-&\sqrt{3}I_{\omega}(\frac{E}{I_1}) = \text{Re}(\frac{E}{I_1}) \tag{A}
+\Leftrightarrow &\text{Re}(\frac{E}{I_1}):\operatorname{Im}(\frac{E}{I_1}) = \sqrt{3}:1 \notag\\
+&\sqrt{3}\operatorname{Im}(\frac{E}{I_1}) = \text{Re}(\frac{E}{I_1}) \tag{A}
 \end{align}
 $$
 
@@ -165,7 +167,7 @@ $$
 \end{align}
 $$
 
-$\frac{V}{E} = 1$ より、
+$\left|\frac{V}{E}\right| = 1$ より、
 
 $$
 \frac{\sqrt{3}R_2 + X_2}{4(R_2^2 + X_2^2)}\sqrt{(\sqrt{3}R_2 - X_2)^2 + (R_2 + \sqrt{3}X_2)^2} = 1
@@ -179,15 +181,14 @@ R_2 & = \sqrt{3}X_2
 \end{aligned}
 $$
 
-③ に代入すると、
+③ に $R_2=\sqrt3X_2$ を代入すると、
 
 $$
-\begin{aligned}
-\arg(\frac{V}{E}) &= \tan^{-1}(\frac{2\sqrt{3}X_2}{2X_2}) \\
-&= \tan^{-1}(\sqrt{3}) \\
-&= \frac{\pi}{3}
-\end{aligned}
+\frac VE=\frac{4X_2}{2X_2+j2\sqrt3X_2}
+=\frac12-j\frac{\sqrt3}{2}=e^{-j\pi/3}.
 $$
+
+したがって $\arg(V/E)=-\pi/3$ である。
 
 ### 【問 2】
 #### (1)
@@ -208,59 +209,45 @@ $$
 \begin{aligned}
 Y_1 = \frac{1}{Z_1} &= \frac{2}{5 - j2} \\
 &= 2 \cdot \frac{5 + j2}{29} \\
-&= \frac{2}{29}(5 + j2S)
+&= \frac{2}{29}(5 + j2)\,\mathrm{S}
 \end{aligned}
 $$
 
 #### (2)
+電流源を開放したときの出力インピーダンスは
 
 $$
-\begin{align}
-Y_2 = G + jB,Z_2 &= \frac{1}{G + jB} \notag \\
-&= \frac{G - jB}{G^2 + B^2} \tag{\textcircled{2}}
-\end{align}
+Z_{\rm th}=\frac{5-j2}{2},\qquad
+Y_1=\frac{10+j4}{29}.
 $$
 
-インピーダンス整合条件より、
+負荷を外し、電流源下端を基準電位とする。電流源の電流は等しいインピーダンス $5-j2$ の二枝に $J/2$ ずつ分かれる。
+端子 $1$ の電位は $5J/2$、端子 $1'$ の電位は $-jJ$ なので、
 
 $$
-\text{Re}(Z_1) = \text{Re}(Z_2),I_{\omega}(Z_1) = -I_{\omega}(Z_2)
+V_{\rm th}=\frac{5+j2}{2}J.
 $$
 
-のとき、$P$ は最大となり, ①、② より、
+したがって Norton 電流は
+$J_{\rm N}=V_{\rm th}/Z_{\rm th}=(5+j2)J/(5-j2)$ であり、$|J_{\rm N}|=|J|$ である。
+負荷電圧とその平均消費電力は、実効値フェーザを用いて
 
 $$
-\left \{
-\begin{align}
-\frac{5}{2} &= \frac{G}{G^2 + B^2} &\tag{\textcircled{3}} \\
-1 &= \frac{B}{G^2 + B^2} &\tag{\textcircled{4}}
-\end{align}
-\right.
+V=\frac{J_{\rm N}}{Y_1+G+jB},\qquad
+P=\frac{G|J|^2}{(G+10/29)^2+(B+4/29)^2}.
 $$
 
-$$
-\frac{\textcircled{3}}{\textcircled{4}} \Leftrightarrow \frac{5}{2} = \frac{G}{B} \Leftrightarrow G = \frac{5}{2}B
-$$
+まず $B=-4/29$ により分母の虚部を打ち消す。その後
+$(G+10/29)^2\ge4G(10/29)$ より、等号条件は $G=10/29$ である。
+よって
 
 $$
-\therefore G = \frac{10}{29},B = \frac{4}{29}
+\boxed{G=\frac{10}{29}\,\mathrm S,\qquad B=-\frac4{29}\,\mathrm S},
+\qquad
+\boxed{P_{\max}=\frac{29}{40}|J|^2\,\mathrm W}.
 $$
 
-$$
-Z_2 = \frac{2}{29}(5 - j2)
-$$
-
-$$
-Z_1 + Z_2 = \frac{20}{29} = R
-$$
-
-$$
-r = R|J|^2 = \frac{20}{29}|J|^2
-$$
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p7.png" width="370" height="300" alt=""/>
-</figure>
+これは $Y_2=Y_1^*$、すなわち $Z_2=Z_{\rm th}^*=(5+j2)/2$ とする共役整合に一致する。
 
 ### 【問 3】
 #### (1)
@@ -300,54 +287,36 @@ I_1 \\ I_2
 \end{pmatrix}
 $$
 
+各行列成分を比較する。$Z_i$ はインダクタンスではなくインピーダンスなので、$j\omega$ を含めて
+
 $$
-\left \{
-\begin{aligned}
-&Z_2 = -M \\
-&Z_1 + Z_2 = L_1 \\
-&Z_2 + Z_3 = L_2 \\
-\end{aligned}
-\right.
-\Leftrightarrow Z_1 = L_1 + M，Z_2 = -M,Z_3 = L_2 + M
+\boxed{Z_1=j\omega(L_1+M),\quad Z_2=-j\omega M,\quad Z_3=j\omega(L_2+M)}.
 $$
 
 #### (2)
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p8.png" width="500" height="190" alt=""/>
-</figure>
-
-$Z_4$ を接続すると、
+負荷では $V_2=-Z_4I_2$ であるから、
 
 $$
-\left \{
-\begin{align}
-&V_2 = -I_2Z_4 \tag{\textcircled{1}} \\
-&V_2 = Z_2I_1 + (Z_2 + Z_3)I_2 \tag{\textcircled{2}}
-\end{align}
-\right.
+-Z_4I_2=-j\omega MI_1+j\omega L_2I_2,
+\qquad
+I_2=\frac{j\omega M}{Z_4+j\omega L_2}I_1.
 $$
 
-①、② より、
+従って、図3(a)の入力インピーダンスは
 
 $$
-\begin{aligned}
-\Leftrightarrow -I_2Z_4 &= Z_2I_1 + (Z_2 + Z_3)I_2 \\
-I_2 &= \frac{-Z_2}{Z_2 + Z_3 + Z_4}I_1
-\end{aligned}
+\boxed{
+Z=\frac{V_1}{I_1}
+=j\omega L_1+\frac{\omega^2M^2}{Z_4+j\omega L_2}
+}.
 $$
 
-$$
-\begin{aligned}
-Z = \frac{V_1}{I_1} &= Z_1 + Z_2 + Z_2 \cdot \frac{I_2}{I_1} \\
-&= Z_1 + Z_2 + Z_2 \cdot \frac{-Z_2}{Z_2 + Z_3 + Z_4} \\
-&= (L_1 + M) - M + (-M) \cdot \frac{-(-M)}{L_2 + Z_4} \\
-&= L_1 - \frac{M^2}{L_2 + Z_4} \\
-&= \frac{L_1(L_2 + Z_4) - M^2}{L_2 + Z_4}
-\end{aligned}
-$$
+同じ結果は T 形等価回路から
+$Z=Z_1+Z_2-Z_2^2/(Z_2+Z_3+Z_4)$ としても得られる。
 
 ### 【問 4】
+切替直前に回路は定常状態にあり、電流の連続性から $i(0)=i(0^-)=i(0^+)$ である。
+
 #### (1)
 
 <figure style="text-align:center;">
@@ -363,54 +332,25 @@ $$
 $$
 
 #### (2)
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2022_circuit_theory_p10.png" width="205" height="155" alt=""/>
-</figure>
+スイッチ切替後、電流 $i$ はコンデンサの正極から抵抗・コイルへ流れる。
+したがって、$C=1$ より $i=-v'$ である。Kirchhoff の電圧則は
 
 $$
-\begin{aligned}
-&\frac{q(t)}{C} = R_2i(t) + L\frac{di(t)}{dt} \\
-\Leftrightarrow &q = i + i' \\
-\Leftrightarrow &q'' + q' - q = 0 \\
-&\lambda^2 + \lambda - \lambda = 0\\
-&\lambda = \frac{-1 \pm \sqrt{1 - 4 \cdot 1 \cdot (-1)}}{2} = \frac{-1 \pm \sqrt{5}}{2}\\
-\end{aligned}
+v=R_2i+Li'=i+i'.
 $$
 
-$\alpha = \frac{-1 -\sqrt{5}}{2},\beta = \frac{-1 + \sqrt{5}}{2}$ とすると、
+両式から、受動 RLC 回路の自然応答は
 
 $$
-q(t) = C_1e^{\alpha t} + C_2 e^{\beta t} \quad  (C_1,C_2 \text{は定数})
+v''+v'+v=0,\qquad v(0)=1,\quad v'(0)=-i(0)=-1.
 $$
 
-$$
-i(t) = q'(t) = \alpha C_1e^{\alpha t} + \beta C_2 e^{\beta t}
-$$
+特性根は $(-1\pm j\sqrt3)/2$ であり、初期条件を代入すると
 
 $$
-\left \{
-\begin{aligned}
-&i(0) = 1 \\
-&q(0) = 1 \\
-\end{aligned}
-\right. \Leftrightarrow
-\left \{
-\begin{aligned}
-&\alpha C_1 + \beta C_2 = 1 \\
-&C_1 + C_2 = 1
-\end{aligned}
-\right.
+\boxed{v(t)=e^{-t/2}\left(\cos\frac{\sqrt3t}{2}
+-\frac1{\sqrt3}\sin\frac{\sqrt3t}{2}\right)\,\mathrm V,\quad t\ge0}.
 $$
 
-$$
-\therefore C_1 = \frac{\beta - 1}{\beta - \alpha},C_2 = \frac{1 - \alpha}{\beta - \alpha}
-$$
-
-$$
-\therefore C_1 = \frac{\sqrt{5} - 3}{2\sqrt{5}},C_2 = \frac{\sqrt{5} + 3}{2\sqrt{5}}
-$$
-
-$$
-v(t) = \frac{\sqrt{5} - 3}{2\sqrt{5}}\exp(\frac{-1 - \sqrt{5}}{2})t + \frac{\sqrt{5} + 3}{2\sqrt{5}}\exp(\frac{-1 + \sqrt{5}}{2})t
-$$
+確認として $i(t)=-v'(t)=e^{-t/2}(\cos(\sqrt3t/2)+\sin(\sqrt3t/2)/\sqrt3)$ であり、
+$i(0)=1$ を満たす。蓄積エネルギー $\tfrac12v^2+\tfrac12i^2$ の時間微分は $-i^2\le0$ となる。

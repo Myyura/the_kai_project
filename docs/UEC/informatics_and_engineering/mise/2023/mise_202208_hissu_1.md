@@ -14,6 +14,14 @@ tags:
 
 ## **Description**
 
+### 問題の要約（日本語）
+
+[公式問題（PDF第3頁）](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_m_mandatory202208.pdf)（題意の要約）。
+
+1. 極座標で $r=a\theta$（$a>0,\theta\ge0$）と表される曲線について、$\theta=\pi/2$ での接線の傾きを求める。
+2. 領域 $0\le x\le y\le1$ 上の $\iint xe^{y^3}\,dx\,dy$ を求める。
+3. $y''-4y'+4y=e^{2x}$ の一般解を求める。
+
 ### 题目描述
 
 回答下列三个问题：

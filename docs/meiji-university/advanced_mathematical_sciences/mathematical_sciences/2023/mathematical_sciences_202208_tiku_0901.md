@@ -178,6 +178,8 @@ $g(t)$ 在区间 $[\frac{\pi}{3}, \frac{5\pi}{3}]$ 上单调递减。
 极大值为 $\frac{3\sqrt{3}}{2}$ (当 $t = \frac{\pi}{3}$ 时)。
 极小值为 $-\frac{3\sqrt{3}}{2}$ (当 $t = \frac{5\pi}{3}$ 时)。
 
+![関数 g の概形](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/meiji_university/advanced_mathematical_sciences/mathematical_sciences/2023/meiji-2022-trigonometric-graph.svg)
+
 (2)  $\frac{\partial f}{\partial x} = \cos x + \cos(x+y)$ ,  $\frac{\partial f}{\partial y} = \cos y + \cos(x+y)$ .
 
 (3) 求 $f(x, y)$ 的最大值和最小值。

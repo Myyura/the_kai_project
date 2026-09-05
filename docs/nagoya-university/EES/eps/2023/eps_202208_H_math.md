@@ -17,9 +17,73 @@ tags:
 
 ## **Description**
 
-### 题目描述
+題意の要約。出典：[名古屋大学・令和5年度地球惑星科学系入試問題](https://ees.env.nagoya-u.ac.jp/pdf/eps/exam_2022-23.pdf)、H（数学）。全問について計算過程も示す。
 
-原 Description 未录入文字；以下由现有解答可确认。
+### 問題1
+
+次の同次連立方程式が零解以外の解をもつような $a$ を求める。
+
+$$
+\begin{cases}
+(1+a)x+ay-z=0,\\
+(a-1)x+(a+1)z=0,\\
+2ax+ay+(2a+1)z=0.
+\end{cases}
+$$
+
+### 問題2
+
+次の二つの定積分を計算する。
+
+$$
+\int_0^1x\log_e x\,dx,\qquad
+\int_0^1\frac{x^2}{\sqrt{1-x^2}}\,dx.
+$$
+
+### 問題3
+
+$u,t$ を実数として、それぞれの常微分方程式の一般解を求める。
+
+$$
+\frac{du}{dt}=\frac{u^2}{t},\qquad
+\frac{d^2u}{dt^2}+u=t.
+$$
+
+### 問題4
+
+実数の周波数 $\omega$ に対して、フーリエ変換を
+
+$$
+F(\omega)=\int_{-\infty}^{\infty}f(t)\exp(-i\omega t)\,dt
+$$
+
+で定める。$i$ は虚数単位である。
+
+1. $F$ の逆変換が $f$ であるとき、$F(2\omega)$ と $F(\omega-1)$ の逆変換をそれぞれ求める。
+2. $\omega_0,T>0$ として、次の関数のフーリエ変換を計算する。
+
+   $$
+   f(t)=\begin{cases}
+   \sin(\omega_0t),&-T\le t\le T,\\
+   0,&t<-T\ \text{または}\ t>T.
+   \end{cases}
+   $$
+
+### 問題5
+
+平均発生間隔が $\mu>0$ のランダムな現象について、発生間隔 $\tau\ge0$ の確率密度を
+
+$$
+\phi(\tau)=\frac1\mu\exp(-\tau/\mu)
+$$
+
+とする。
+
+1. 全発生間隔にわたる密度の積分が $1$ であることを示す。
+2. $\tau$ の期待値が $\mu$ であることを示す。
+3. 地震の平均発生間隔が2週間で、この密度に従うとする。ある地震から1週間以内に次の地震が生じる確率を求める。
+
+### 题目描述
 
 **问题 1**：含参数 $a$ 的齐次线性方程组的系数矩阵为
 
@@ -68,15 +132,15 @@ $$
    \end{cases}
    $$
 
-   求 $F(\omega)$（现有解答明确处理 $\omega\ne\omega_0$ 的情形）。
+   求 $F(\omega)$，其中 $\omega_0,T>0$，$\omega$ 为任意实频率。
 
-**问题 5**：设等待时间 $\tau$ 的密度为
+**问题 5**：设随机事件的平均发生间隔为 $\mu>0$，等待时间 $\tau$ 的密度为
 
 $$
 \phi(\tau)=\frac1\mu e^{-\tau/\mu},\qquad\tau\ge0.
 $$
 
-证明其归一化，求期望；当 $\mu=2$ 时求 $P(0\le\tau\le1)$。
+证明其归一化，求期望；若地震平均间隔为2周，求一次地震后1周内再次发生地震的概率 $P(0\le\tau\le1)$。
 
 ## **Kai**
 ### 問題 1
@@ -145,7 +209,7 @@ $$
   \end{aligned}
 $$
 
-ただし $t\ne0$ であり、変数分離で除外された定数解 $u\equiv0$ も解である。
+非零解は $t\ne0$ かつ $\log|t|+C\ne0$ を満たす区間で定義する。変数分離で除外された定数解 $u\equiv0$ も解である。
 
 #### 問 2
 $v=u-t$ とすると、
@@ -224,42 +288,18 @@ $$
 
 #### 問 2
 
+オイラーの公式を用いると
+
 $$
 \begin{aligned}
 F(\omega)
-&= \int_{-T}^T \sin (\omega_0 t) \exp(-i \omega t) dt
-\\
-&= - \frac{1}{i \omega}
-\left[ \sin (\omega_0 t) \exp(-i \omega t) \right]_{-T}^T
-+ \frac{\omega_0}{i \omega} \int_{-T}^T \cos (\omega_0 t) \exp(-i \omega t) dt
-\\
-&= - \frac{1}{i \omega}
-\sin (\omega_0 T) \left( \exp(-i \omega T) + \exp(i \omega T) \right)
-+ \frac{\omega_0}{i \omega} \int_{-T}^T \cos (\omega_0 t) \exp(-i \omega t) dt
-\\
-&= \frac{2i}{\omega} \sin (\omega_0 T) \cos (\omega T)
-+ \frac{\omega_0}{\omega^2}
-\left[ \cos (\omega_0 t) \exp(-i \omega t) \right]_{-T}^T
-+ \frac{\omega_0^2}{\omega^2}
-\int_{-T}^T \sin (\omega_0 t) \exp(-i \omega t) dt
-\\
-&= \frac{2i}{\omega} \sin (\omega_0 T) \cos (\omega T)
-+ \frac{\omega_0}{\omega^2} \cos (\omega_0 T)
-\left( \exp(-i \omega T) - \exp(i \omega T) \right)
-+ \frac{\omega_0^2}{\omega^2} F(\omega)
-\\
-&= \frac{2i}{\omega} \sin (\omega_0 T) \cos (\omega T)
-- \frac{2i \omega_0}{\omega^2} \cos (\omega_0 T) \sin (\omega T)
-+ \frac{\omega_0^2}{\omega^2} F(\omega)
-\\
-\therefore \ \ 
-\left( \omega^2 - \omega_0^2 \right) F(\omega)
-&= 2i \left( \omega \sin (\omega_0 T) \cos (\omega T)
-- \omega_0 \cos (\omega_0 T) \sin (\omega T) \right)
+&=\int_{-T}^T\sin(\omega_0t)e^{-i\omega t}\,dt\\
+&=\frac{1}{2i}\int_{-T}^T
+\left(e^{-i(\omega-\omega_0)t}-e^{-i(\omega+\omega_0)t}\right)dt.
 \end{aligned}
 $$
 
-同値な形に直すと
+これを積分すると
 
 $$
 F(\omega)=\frac1i\left[

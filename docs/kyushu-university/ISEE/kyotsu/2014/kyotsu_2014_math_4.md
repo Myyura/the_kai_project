@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+> 出典：九州大学[公式問題（保存版）](https://web.archive.org/web/20180413174546id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H26infait.pdf)。
+
 正則関数 $f(z)$ を考える。ただし $z$ は複素数, $i = \sqrt{-1}$ とする。次の各問に答えよ。
 
 (1) $Re(f(z))$ は, $f(z)$ の実部である。 $Re(f(z)) = \sin x \cosh y$ で表されるとき, $f(z)$ を求めよ。ただし, $z = x + iy$ , $x$ と $y$ は実数である。

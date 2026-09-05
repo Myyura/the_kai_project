@@ -81,16 +81,12 @@ The 10th biggest distinct number is 1471.
 
 #### FunTotal's solution
 ```c++
-/*
-前言:这次的卷子也不是很难，除了最后一题(@ Problem 2)有点考察数学那边最小二乘法有点思维的转换，其他的基本都是
-按照题意模拟即可，不过这里考察了一个遍历文件夹，也是需要准备一下相关的库函数的使用。
-*/
 #include <bits/stdc++.h>
 #define int long long
 using namespace std;
 void solve() {
-    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections.txt", ios::in);
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans11.txt", ios::out);
+    ifstream fin("infections.txt", ios::in);
+    ofstream fout("ans11.txt", ios::out);
     if (!fin.is_open()) assert(0);
     string str; fin >> str;
     vector<int> vec; //先处理文件输入读到vec里面
@@ -120,11 +116,11 @@ signed main() {
 #### itsuitsuki's solution
 ```py
 import os
-# find all files with "dataxx.txt" 
+# find all files with "dataxx.txt"
 folder = 'data'
 filelist = []
 for filename in os.listdir(folder):
-    if filename.startswith('data') and filename.endswith('.txt'):
+    if filename.endswith('.txt') and os.path.isfile(os.path.join(folder, filename)):
         filelist.append(os.path.join(folder, filename))
 def kth_biggest(ls, k):
     ls = list(set(ls))
@@ -139,9 +135,6 @@ The sum is 8650.
 
 #### FunTotal's solution
 ```c++
-/*
-本题主要难在要提前准备好遍历文件夹的方式
-*/
 #include <bits/stdc++.h>
 #define int long long
 using namespace std;
@@ -169,11 +162,11 @@ int get_Nf(string path) {
 }
 namespace fs = filesystem;
 void solve() {
-    string folder_path = "E:/UTokyo_Entrance_Exam/CI/2022_summer/data/";
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans12.txt", ios::out);
+    string folder_path = "data/";
+    ofstream fout("ans12.txt", ios::out);
     int res = 0;
     for (const auto& entry : fs::directory_iterator(folder_path)) {
-        if (entry.is_regular_file()) { 
+        if (entry.is_regular_file() && entry.path().extension() == ".txt") {
             string file_path = entry.path().string();
             try {
                 int nf = get_Nf(file_path);
@@ -229,8 +222,8 @@ int cal(int num) {
     return res;
 }
 void solve() {
-    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections.txt", ios::in);
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/diff.txt", ios::out);
+    ifstream fin("infections.txt", ios::in);
+    ofstream fout("diff.txt", ios::out);
     if (!fin.is_open())
         assert(0);
     string str;
@@ -332,8 +325,8 @@ int cal(int num) {
     return res;
 }
 void solve() {
-    ifstream fin("E:/UTokyo_Entrance_Exam/CI/2022_summer/infections.txt", ios::in);
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2022_summer/ans14.txt", ios::out);
+    ifstream fin("infections.txt", ios::in);
+    ofstream fout("ans14.txt", ios::out);
     if (!fin.is_open())
         assert(0);
     string str;

@@ -53,6 +53,8 @@ Answer also the time complexity of the implementation, and explain why.
 （4）证明算法 A 得到的 $G'$ 是 $G$ 的最小生成树。
 
 ## **Kai**
+
+以下假设 $G$ 连通。若 $G$ 不连通，则不存在覆盖全部顶点的生成树，算法会在跨割边集合为空时停止。
 ### (1)
 （a）应填：**恰有一个端点属于当前 $G'$ 的边**，即割
 

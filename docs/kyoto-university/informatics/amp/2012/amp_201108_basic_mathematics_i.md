@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h24/h24_kiso1.pdf)
+
 $n$ がすべての自然数 $\mathbb{N}$ の上を動くとき， $\frac{1}{n}$ の和 $\sum_{n \in \mathbb{N}} \frac{1}{n}$ は $+\infty$ に発散し， $\frac{1}{n^2}$ の和 $\sum_{n \in \mathbb{N}} \frac{1}{n^2}$ はある正の値に収束する。 $p$ がすべての素数 $\mathbb{P}$ の上を動くとき， $\frac{1}{p}$ の和と $1 + \frac{1}{p}$ の積を，それぞれ，
 
 $$

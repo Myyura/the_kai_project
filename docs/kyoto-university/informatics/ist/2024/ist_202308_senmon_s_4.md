@@ -10,6 +10,8 @@ tags:
 [Isidore](https://github.com/heacsing), 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki), [sure](https://github.com/Myyura/the_kai_project/issues/121)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_ist.pdf)
 以下ではすべて記憶のない定常情報源を考える。なお、解答には理由も明確に示すこと。
 
 ### 設問1
@@ -124,6 +126,8 @@ $$
 Thus the maximum of $H$ is $H(0.5, 0.5) = 1$, the minimum of $H$ is $H(0, 1) = 0$.
 
 ### 設問2
+The alphabet and group sizes require an integer $m\ge1$. We use $0\log_2 0=0$.
+
 By using the method of Lagrange multiplier, we have the Lagrangian for the entropy function:
 
 $$
@@ -156,7 +160,7 @@ $$
 \end{aligned}
 $$
 
-For $m>1$, this implies $p = q$. Substituting this into the third equation, we get $2mp = 1$, hence $L$ is maximized when $p = q = \frac{1}{2m}$.
+For $m>1$, this implies $p = q$. Substituting this into the third equation, we get $2mp = 1$, hence the entropy is maximized when $p = q = \frac{1}{2m}$.
 
 $$
 \begin{aligned}
@@ -301,7 +305,7 @@ $$
 u'={\frac12u+\frac1{2(n-1)}(1-u)\over \frac12+\frac1{2(n-1)}}={u+\frac{1-u}{n-1}\over 1+\frac1{n-1}}
 $$
 
-and when $u'=\frac12$ i.e. $u=\frac12$, the inequality reaches the equality i.e. $H(Y)$ finds the maximum value as
+and when $u'=\frac12$ (achieved by $u=\frac12$ for every $n\ge2$), the inequality reaches the equality i.e. $H(Y)$ finds the maximum value as
 
 $$
 \begin{aligned}
@@ -324,3 +328,5 @@ C&=\left({n\over 2(n-1)}+\log_2 (n-1)-\frac n{2(n-1)}\log_2 n + 1\right)-\left(1
 $$
 
 where $f(n)=-{n\over 2(n-1)}$.
+
+For $n=2$, the two rows are identical, so every input distribution achieves $C=0$, consistently with the formula.

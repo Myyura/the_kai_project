@@ -98,10 +98,10 @@ $$
 ### (2)
 
 $$
-|H(\omega) = \frac{R}{\sqrt{R^2 + (\omega L - \frac{1}{\omega C})^2}}|
+|H(\omega)| = \frac{R}{\sqrt{R^2 + (\omega L - \frac{1}{\omega C})^2}}
 $$
 
-$R > 0,(\omega L - \frac{1}{\omega C}) \ge 0$ より、$|H(\omega)|$ は、$\omega_0L - \frac{1}{\omega_0 C} = 0$ で最大値をより、
+$R > 0,(\omega L - \frac{1}{\omega C})^2 \ge 0$ より、$|H(\omega)|$ は、$\omega_0L - \frac{1}{\omega_0 C} = 0$ で最大値をとり、
 
 $$
 \omega_0 L = \frac{1}{\omega_0 C}
@@ -151,7 +151,7 @@ s^2 + \frac{R}{L}s + \frac{1}{LC} = 0
 $$
 
 $$
-s = \frac{-\frac{R}{L} + \sqrt{(\frac{R}{L})^2 - \frac{4}{LC}}}{2}
+s = \frac{-\frac{R}{L} \pm \sqrt{(\frac{R}{L})^2 - \frac{4}{LC}}}{2}
 $$
 
 
@@ -160,8 +160,8 @@ $$
 $$
 \left \{
 \begin{aligned}
-\alpha_1 &= \frac{\frac{R}{L} - \sqrt{(\frac{R}{L})^2 - \frac{4}{LC}}}{2} \\
-\alpha_2 &= \frac{\frac{R}{L} + \sqrt{(\frac{R}{L})^2 - \frac{4}{LC}}}{2} \\
+\alpha_1 &= \frac{\frac{R}{L} + \sqrt{(\frac{R}{L})^2 - \frac{4}{LC}}}{2} \\
+\alpha_2 &= \frac{\frac{R}{L} - \sqrt{(\frac{R}{L})^2 - \frac{4}{LC}}}{2} \\
 \end{aligned}
 \right.
 $$

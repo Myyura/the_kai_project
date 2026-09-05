@@ -11,6 +11,9 @@ tags:
 
 ## **Description**
 
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20151118065550id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2011-8-exam.pdf).
+
+
 ### 日本語
 
 品物 $G_1, G_2, \dots, G_n$ はそれぞれ重量 $a_i$ で価値 $c_i$ (ここで $i=1, \dots, n$) を持つ。最大重量限界 $b$ のナップサックに出来るだけ合計価値が大きくなるように品物を詰める問題をナップサック問題といい、一般的に次のように定式化することができる。
@@ -43,7 +46,7 @@ $x_1, \dots, x_5 \in \{1, 0\}$
 同じナップサック問題の解を動的計画法によって求めることを考える。なお、ここでは一般性を失うことなく、一般化した [問題 A0] における $a_i, b, c_i$ は正の整数とする。そして次の関数 $F(j, k)$ を定める (ここで $j, k$ は整数で $0 \le j \le n, 0 \le k \le b$)。
 $F(j, k)$ : 重量制限 $k$ 以下のなかに詰める品物の候補を $G_1, \dots, G_j$ に限定した時に得られる最大の合計価値
 
-明らかに $F(0, k)$ は $0$ であり、[問題 A1] に対して $F(1, 0) = F(1, 1) = 0, F(1, 2) = F(1, 3) = \dots = F(1, 9) = 14$ となる。そして、[問題 A1] の最終的な最大合計価値は $F(5, 9)$ として求められ、[問題 A0] の最終的な最大合計価値は $F(n, k)$ として求められることになる。
+明らかに $F(0, k)$ は $0$ であり、[問題 A1] に対して $F(1, 0) = F(1, 1) = 0, F(1, 2) = F(1, 3) = \dots = F(1, 9) = 14$ となる。そして、[問題 A1] の最終的な最大合計価値は $F(5, 9)$ として求められ、[問題 A0] の最終的な最大合計価値は $F(n, b)$ として求められることになる。
 
 (2-1) この $F(0, k)$ あるいは $F(1, k)$ から出発し、一般的な問題である [問題 A0] において $j$ を順次増やしながら最終的に $F(n, b)$ を計算する方法を得たい。$F(j-1, k)$ (ここで $0 \le k \le b$) が求められている場合、この $F(j-1, k)$ を用いて $F(j, k)$ を求める方法を式として示せ。但し $k$ が負の整数の時は便宜的に $F(j, k) = -\infty$ として式を得ることを可とする。
 
@@ -147,7 +150,7 @@ We consider here to solve the same knapsack problem by employing dynamic program
 
 $F(j,k)$: The maximum total value when limiting the candidates of the goods to $G_1, \cdots, G_j$ which can be packed into the knapsack under the maximum weight constraint $k$.
 
-Apparently, $F(0,k)$ is 0, and in [Problem A1], $F(1,0) = F(1,1) = 0$ and $F(1,2) = F(1,3) = \cdots\cdots = F(1,9) = 14$. Eventually, the final answer of the maximum total value for [Problem A1] can be obtained as $F(5,9)$, and the final answer for [Problem A0] can be obtained as $F(n,k)$.
+Apparently, $F(0,k)$ is 0, and in [Problem A1], $F(1,0) = F(1,1) = 0$ and $F(1,2) = F(1,3) = \cdots\cdots = F(1,9) = 14$. Eventually, the final answer of the maximum total value for [Problem A1] can be obtained as $F(5,9)$, and the final answer for [Problem A0] can be obtained as $F(n,b)$.
 
 (2-1) Starting from these $F(0,k)$ or $F(1,k)$, we want to get a method of eventually calculating $F(n,b)$ for the general problem of [Problem A0] by incrementing $j$ in sequence. When $F(j-1,k)$ where $0 \le k \le b$ are calculated, show a method of calculating $F(j,k)$ as an equation using these $F(j-1,k)$. Here, you can show the equation for convenience by letting $F(j,k) = -\infty$ when $k$ is a negative integer.
 
@@ -162,3 +165,71 @@ Table of $F(j, k)$ for [Problem A1]
 | 3 | | | | | | | | | | |
 | 4 | | | | | | | | | | |
 | 5 | | | | | | | | | | |
+
+
+## **Kai**
+
+### (1-1) Branch and bound
+
+Keep an incumbent value $L$ from a feasible solution (initially the empty knapsack, $L=0$). A branching operation fixes the next binary variable to 1 or 0, producing two child sub-problems whose feasible sets partition the parent's feasible set. A relaxation gives an upper bound $U$ for each sub-problem. The bounding operation discards an infeasible sub-problem, or one with $U\le L$, since it cannot improve the incumbent. At a feasible leaf, update $L$ and store its solution if its value is larger. When no unexplored sub-problems remain, the stored feasible solution is optimal.
+
+### (1-2) Depth-first search
+
+The value-to-weight ratios are $7,5.5,5,4.5,4$. At a node, keep all fixed choices and fill its remaining capacity fractionally with the remaining goods in this order. This produces the indicated upper bound $U$.
+
+The following tree uses binary prefixes to denote fixed choices $(x_1,\ldots,x_j)$. Visit the 1-child before the 0-child. Here the incumbent is updated at feasible leaves; no additional heuristic solution is used. A node marked “bound” is pruned using the incumbent at the time of its visit.
+
+```text
+root U=51, L=0
+├─ 1 U=51
+│  ├─ 11 U=51
+│  │  ├─ 111: infeasible (weight 12)
+│  │  └─ 110 U=49
+│  │     ├─ 1101 U=49
+│  │     │  ├─ 11011: infeasible (weight 11)
+│  │     │  └─ 11010: value 45, update L=45
+│  │     └─ 1100 U=48
+│  │        ├─ 11001: value 48, update L=48
+│  │        └─ 11000 U=36: bound
+│  └─ 10 U=48.5
+│     ├─ 101 U=48.5
+│     │  ├─ 1011: infeasible (weight 10)
+│     │  └─ 1010 U=48: bound
+│     └─ 100 U=35: bound
+└─ 0 U=47: bound
+```
+
+For example, at prefix $110$, one has weight 6 and value 36; adding $G_4$ and one third of $G_5$ gives $U=36+9+4=49$. At prefix $10$, adding $G_3$ and half of $G_4$ gives $U=14+30+4.5=48.5$.
+
+Thus the optimal choice is
+
+$$
+(x_1,x_2,x_3,x_4,x_5)=(1,1,0,0,1),\qquad
+\{G_1,G_2,G_5\},\qquad
+\text{weight}=9,\quad\boxed{\text{value}=48}.
+$$
+
+Because all objective values are integers, replacing $U$ by $\lfloor U\rfloor$ is an optional stronger bound: then prefix $10$ can already be pruned at $L=48$. The tree above uses the stated fractional bound directly.
+
+### (2-1) Recurrence
+
+A feasible choice either excludes $G_j$, giving $F(j-1,k)$, or includes it, giving $c_j+F(j-1,k-a_j)$. Therefore
+
+$$
+\boxed{F(j,k)=\max\{F(j-1,k),\ c_j+F(j-1,k-a_j)\}},
+$$
+
+with $F(0,k)=0$ for $k\ge0$ and $F(j,k)=-\infty$ for $k<0$. Compute rows in increasing $j$ and retain the choice attaining each maximum to reconstruct the selected goods. Time is $O(nb)$, with $O(nb)$ storage including a simple traceback table; values alone need $O(b)$ storage. This is pseudo-polynomial in the binary input size because it depends on the numerical value of $b$.
+
+### (2-2) Completed table
+
+| $j\backslash k$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1 | 0 | 0 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 |
+| 2 | 0 | 0 | 14 | 14 | 22 | 22 | 36 | 36 | 36 | 36 |
+| 3 | 0 | 0 | 14 | 14 | 22 | 22 | 36 | 36 | 44 | 44 |
+| 4 | 0 | 0 | 14 | 14 | 23 | 23 | 36 | 36 | 45 | 45 |
+| 5 | 0 | 0 | 14 | 14 | 23 | 26 | 36 | 36 | 45 | 48 |
+
+Trace back from $F(5,9)=48=12+F(4,6)$: take $G_5$, skip $G_4,G_3$, take $G_2$ from $F(2,6)=22+F(1,2)$, and take $G_1$. This gives the same unique optimal choice and total value 48 as above.

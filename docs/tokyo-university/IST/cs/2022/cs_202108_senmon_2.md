@@ -11,7 +11,7 @@ tags:
 
 ## **Description**
 C言語で書かれた以下のプログラムは整数配列 a の a\[i\] から a\[j-1\] までを昇順に整列する関数 mysort(a, i, j) を定義している (i < j)。
-プログラム中の関数 multifrac(k, l, m) は k, l, m が正の整数であるときに $k \times \frac{1}{m}$ 以上の最小の整数を求める関数であり、w, x, y, z は正の整数定数とする。
+プログラム中の関数 multifrac(k, l, m) は k, l, m が正の整数であるときに $k \times \frac{l}{m}$ 以上の最小の整数を求める関数であり、w, x, y, z は正の整数定数とする。
 整数の演算はオーバーフローしないものとする。
 
 ```text
@@ -109,14 +109,16 @@ if (k == 3) {
 ### (2)
 When $(w, x, y, z) = (4, 3, 3, 3)$, we have $\text{multifrac}(n, x, w) = \lceil \frac{3n}{4} \rceil$, $\text{multifrac}(n, y, w) = \lceil \frac{3n}{4} \rceil$ and $\text{multifrac}(n, z, w) = \lceil \frac{3n}{4} \rceil$.
 
-Hence,
+The exact recurrence is
 
 $$
-\begin{aligned}
-  T(n) &= T \left(\frac{3}{4}n \right) + T \left(\frac{3}{4}n \right) + T \left(\frac{3}{4}n \right) \\
-  &= 3T \left( \frac{3}{4}n \right) \\
-  &= \Theta(n^{\log_{\frac{4}{3}} 3}).
-\end{aligned}
+T(n)=\begin{cases}1,&1\le n<4,\\3T(\lceil3n/4\rceil),&n\ge4.\end{cases}
+$$
+
+The recursion depth is $\log_{4/3}n+O(1)$: the rounding error in each step is less than one, and the accumulated error under repeated multiplication by $3/4$ stays bounded. All three children have the same length. Therefore
+
+$$
+T(n)=\Theta\left(n^{\log_{4/3}3}\right).
 $$
 
 ### (3)
@@ -135,13 +137,23 @@ Indeed, a recursive length $\lceil k\ell/w\rceil$ is smaller than $k$ for every 
 $A+B+C\ge2k$.  Here this holds for every $k$ when
 $x+y+z\ge2w$.  Conversely, if the latter inequality fails, choose a sufficiently large multiple of $w$; then the three ceilings sum to less than $2k$, so the routine fails on some input.
 
+To justify the three-sort criterion, it suffices to consider zero-one inputs, since thresholding commutes with sorting. Put $u=k-B$, and suppose the first prefix of length $A$ initially contains $z_A$ zeros, while the whole array contains $z$ zeros. If $A+B+C\ge2k$, then $A>u$ and $C>u$.
+
+After the first two sorts, the first $u$ entries and the last $B$ entries are each sorted. If $z_A\ge u$, the first $u$ entries are all zero and the whole array is already sorted. Otherwise, the last zero in the suffix is at position $u+z-z_A$ (using positions $1,\ldots,k$), and
+
+$$
+u+z-z_A\le k-B+k-A\le C.
+$$
+
+The final prefix sort therefore places all zeros before all ones. Conversely, take $A$ ones followed by $k-A$ zeros. After the first two sorts, an inversion survives the final sort whenever $C<2k-A-B$. This proves the criterion and, by induction on the recursive length, the stated condition.
+
 ## **Knowledge**
 
 递归 分治算法 排序算法
 
 ### 解题技巧和信息
 
-1. 递归调用的正确性依赖于覆盖和重叠。每个递归调用必须覆盖整个数组段，确保所有元素最终被排序。
+1. 递归调用的正确性依赖于覆盖和重叠。递归调用分别排序子区间；这些子区间的覆盖和重叠必须足以保证整个数组有序。
 2. [[时间复杂度#递归算法的时间复杂度 / Time Complexity of Recursive Algorithms|主定理（Master Theorem）]] 是解决递归关系的有力工具，特别是在分析算法复杂度时。
 3. 对于分治算法，理解各个部分的覆盖范围和重叠部分对于正确性和效率的保证非常重要。
 

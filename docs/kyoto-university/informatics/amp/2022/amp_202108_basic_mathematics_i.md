@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2021_amp.pdf)
+
 開区間 $(-\frac{\pi}{2}, \frac{\pi}{2})$ 上の関数 $y = \tan x$ の逆関数を $y = \arctan x$ と書く. $f(x) = \arctan x$ は $\mathbb{R}$ 上の実解析的関数である. 以下の問いに答えよ.
 
 (i) 自然数 $n \geq 1$ に対して,
@@ -97,7 +99,7 @@ $$
 f^{(n+2)}(0)=-n(n+1)f^{(n)}(0).
 $$
 
-$f(0)=0$ および $f'(0)=1$ から、帰納法により
+$f(0)=0$、$f'(0)=1$ および $f''(0)=0$（$f''(x)=-2x/(1+x^2)^2$）から、帰納法により
 
 $$
 \begin{aligned}

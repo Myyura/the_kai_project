@@ -11,6 +11,9 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/153686fd38b76aec8fe63b4c47663818.pdf)
+
+
 以下の微分方程式の一般解を求めよ。
 
 1) $y'' + 4y' + 4y = 0$

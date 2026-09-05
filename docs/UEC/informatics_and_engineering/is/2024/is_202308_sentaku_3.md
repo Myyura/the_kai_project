@@ -59,11 +59,23 @@ $$
 f(A-P)\mathrel{?}f(A)-f(P)
 $$
 
-の包含関係を選び、その証明の空欄を埋めよ。さらに $A=B=\mathbb R$、$P=[-1,1]$ とし、$f(x)=x^3-x^2,2^x,\sin x$ の各場合に等号が成り立つか答え、等号を保証する $f$ の性質を選べ。
+の包含関係を選び、その証明の空欄を埋めよ。[原卷 PDF 9 ページ](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_j_choice202308.pdf#page=9) の証明手順を、次の数式で要約する（原文の逐語転載ではない）。$b\in B$ に対し、
+
+$$
+\begin{aligned}
+b\in f(A)-f(P)
+&\Longleftrightarrow b\in f(A)\land b\notin f(P)\\
+&\ [19]\quad\exists a\in A:\ f(a)=b\land a\notin P\\
+&\ [20]\quad\exists a\in A-P:\ f(a)=b\\
+&\ [21]\quad b\in f(A-P).
+\end{aligned}
+$$
+
+$[18]$ の候補は $0:\subseteq$, $1:\supseteq$、$[19]$–$[21]$ の候補は $0:\Longleftrightarrow$, $1:\Longleftarrow$, $2:\Longrightarrow$ である。両向きが成り立つ箇所では同値記号を選ぶ。さらに $A=B=\mathbb R$、$P=[-1,1]$ とし、$f(x)=x^3-x^2,2^x,\sin x$ の各場合に等号が成り立つか答え、等号を保証する $f$ の性質を選べ。
 
 ### 問4
 
-$|A|=m,|B|=n$ とする。$m,n$ の大小関係ごとに写像 $A\to B$ に可能な単射・全射の性質を選べ。また、写像、全射、単射の総数を求め、$S(u,v)$ を $u$ 元集合から $v$ 元集合への全射数とするとき
+$|A|=m,|B|=n$ とする。$m,n$ の大小関係ごとに写像 $A\to B$ に可能な単射・全射の性質を選べ。また、写像、全単射、単射の総数を求め（[公式 PDF 11 ページ](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_j_choice202308.pdf#page=11) で「全単射」を確認）、$S(u,v)$ を $u$ 元集合から $v$ 元集合への全射数とするとき
 
 $$
 n^m=\sum_{k=1}^n{n\choose k}S(m,k)\qquad(m\ge n\ge1)
@@ -191,6 +203,8 @@ $$
 | (b) $m>n$ | $\boxed{1,2}$ |
 | (c) $m\le n$ | $\boxed{0,1,3}$ |
 
+上表は、各大小関係を満たす $m,n$ 全体について「ありうる性質」を列挙している。固定した小さな集合では選択肢が減る。例えば $m=n=1$ では全単射のみ、$m>n=1$ では全射だが単射でないもののみである。空集合を許す場合も、$m=n=0$ は唯一の全単射、$m=0<n$ は唯一の単射、$n=0<m$ は写像そのものが存在しない。
+
 #### (2)
 
 写像の総数は
@@ -199,14 +213,13 @@ $$
 \boxed{n^m}.
 $$
 
-全射の総数は
+全単射は $m=n$ の場合に限り存在し、その総数は
 
 $$
 \boxed{
-S(m,n)=
 \begin{cases}
-\displaystyle\sum_{j=0}^n(-1)^j{n\choose j}(n-j)^m,&m\ge n,\\
-0,&m<n.
+n!,&m=n,\\
+0,&m\ne n.
 \end{cases}}
 $$
 

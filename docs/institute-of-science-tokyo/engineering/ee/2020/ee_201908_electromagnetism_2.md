@@ -18,7 +18,7 @@ Zero
 
 (1) $x-y$ 平面上で，原点 O を中心とする半径 $a$ の円周を直流電流 $I$ が流れている。 この時，$z$ 軸上の点 $P(0,0,z_1)$ における磁束密度 $\boldsymbol{B}_1$ を求めたい。その導出に関する以下の文章の空欄① $\sim$ ⑥を，適切な式または言葉で埋めよ（同一の番号には同一の式または言葉が入る）。なお，真空の透磁率を $\mu_0$ とする。本問では，ベクトルはボールド体で表記するものとする。
 
-「図 2.1 のように円電流の微小線素ベクトル $d\boldsymbol{s}$ が，$P$ の位置に作る磁束密度を $d\boldsymbol{B}$ とし，これを $d\boldsymbol{B}_z$ とそれに垂直な成分 $d\boldsymbol{B}_{\perp}$ に分け，$dB_z = |d\boldsymbol{B}_z|$ とする。$d\boldsymbol{B}_{\perp}$ については円電流全体からの寄与を合計すると消しあうので，積分すると $|\boldsymbol{B}_{\perp}| = (\textcircled{1})$ となる。次に $dB_z$ を求める。微小線素 $d\boldsymbol{s}$ から点 $P$ に向かうベクトルを $\boldsymbol{R}$ とし，その大きさ $R$ を $R = |\boldsymbol{R}|$ と定義すると，$(\textcircled{2})$ の法則により，外積を $\times$ で表すものとして $d\boldsymbol{B} = \frac{\mu_0}{4\pi}I\frac{d\boldsymbol{s} \leftrightarrow \boldsymbol{R}}{R^3}$ である。$d\boldsymbol{s}$ と $\boldsymbol{R}$ は直交しているので，$d\boldsymbol{B}$ の大きさ $dB = |d\boldsymbol{B}|$ を $\mu_0,I,a,z_1$ および $ds = |d\boldsymbol{s}|$ を用いて表すと $dB = (\textcircled{3})$ となる。一方，$d\boldsymbol{B}$ と $z$ 軸のなす角 $\varphi$ につき，$a$ および $z_1$ を用いると，$\cos\varphi = (\textcircled{4})$ となる。そこで $\mu_0,I,a,z_1$ および $ds$ を用いて $dB_z = (\textcircled{5})$ を得る。⑤ を円電流全体について積分することにより，$\mu_0,I,a,z_1$ を用いて $\boldsymbol{B}_1$ の $z$ 成分 $B_z$ を $B_z = (\textcircled{6})$ と表すことができる。よって，直交座標成分で書くと $\boldsymbol{B}_1 = (\textcircled{1}, \textcircled{1}, \textcircled{6})$ と，$\boldsymbol{B}_1$ が求められた。」
+「図 2.1 のように円電流の微小線素ベクトル $d\boldsymbol{s}$ が，$P$ の位置に作る磁束密度を $d\boldsymbol{B}$ とし，これを $d\boldsymbol{B}_z$ とそれに垂直な成分 $d\boldsymbol{B}_{\perp}$ に分け，$dB_z = |d\boldsymbol{B}_z|$ とする。$d\boldsymbol{B}_{\perp}$ については円電流全体からの寄与を合計すると消しあうので，積分すると $|\boldsymbol{B}_{\perp}| = (\textcircled{1})$ となる。次に $dB_z$ を求める。微小線素 $d\boldsymbol{s}$ から点 $P$ に向かうベクトルを $\boldsymbol{R}$ とし，その大きさ $R$ を $R = |\boldsymbol{R}|$ と定義すると，$(\textcircled{2})$ の法則により，外積を $\times$ で表すものとして $d\boldsymbol{B} = \frac{\mu_0}{4\pi}I\frac{d\boldsymbol{s} \times \boldsymbol{R}}{R^3}$ である。$d\boldsymbol{s}$ と $\boldsymbol{R}$ は直交しているので，$d\boldsymbol{B}$ の大きさ $dB = |d\boldsymbol{B}|$ を $\mu_0,I,a,z_1$ および $ds = |d\boldsymbol{s}|$ を用いて表すと $dB = (\textcircled{3})$ となる。一方，$d\boldsymbol{B}$ と $z$ 軸のなす角 $\varphi$ につき，$a$ および $z_1$ を用いると，$\cos\varphi = (\textcircled{4})$ となる。そこで $\mu_0,I,a,z_1$ および $ds$ を用いて $dB_z = (\textcircled{5})$ を得る。⑤ を円電流全体について積分することにより，$\mu_0,I,a,z_1$ を用いて $\boldsymbol{B}_1$ の $z$ 成分 $B_z$ を $B_z = (\textcircled{6})$ と表すことができる。よって，直交座標成分で書くと $\boldsymbol{B}_1 = (\textcircled{1}, \textcircled{1}, \textcircled{6})$ と，$\boldsymbol{B}_1$ が求められた。」
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electromagnetism_2_p1.png" width="300" alt=""/>
@@ -179,33 +179,26 @@ $$
 
 
 #### (b)
-積分路 $C_1$ でアンペールの法則を用いると、
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_201908_electromagnetism_2_p3.png" width="500" alt=""/>
-</figure>
+十分密な巻線を連続した理想的な環状巻線として扱う。この対称性では磁界は円周方向であり、$H_\theta$ は同じ $(r,z)$ をもつ円周上で一定である。軸を中心とする半径 $r$ の円をアンペールの積分路に取ると、
 
 $$
-H_3 l - H_4 l = 0 \Rightarrow H_3 = H_4
+2\pi rH_\theta=I_{\mathrm{enc}}.
 $$
 
-積分路 $C_2$ でも同様にして
+コアの穴の中では鎖交電流はゼロである。コアより外側では、巻線が積分面を通る往路と復路の電流が打ち消し合うため、やはり $I_{\mathrm{enc}}=0$ である。上下の外部でも鎖交電流はゼロである。従ってコア外では
 
 $$
-H_1 l - H_2 l = NJl \Rightarrow H_1 - H_2 = NJ
+\boxed{\boldsymbol H=\boldsymbol0,\qquad\boldsymbol B=\boldsymbol0}.
 $$
 
-$H_4$ は無限遠で $0$ より、$H_3 = 0S$
-
-よって、$H_2 = 0$ より、$H_1 = NJ$ となり。
-
-コアの外側では，磁界がゼロとなる。
+これは理想的な密巻き近似での結論であり、巻線の離散性や引出線による漏れ磁界はこのモデルでは無視する。
 
 #### (c)
 
 $$
 \begin{aligned}
-\Phi &= BS \\
+\Phi &= \int B_\theta\,dS \\
 &= h\int_a^b \frac{\mu NJ}{2\pi r}dr \\
 &= \frac{\mu NhJ}{2\pi} \int_a^b \frac{1}{r}dr \\
 &= \frac{\mu NhJ}{2\pi} \log \frac{b}{a}

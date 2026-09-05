@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h31_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
+
 $n \times n$ 行列 $A$ を用い, 線形写像 $f$ を
 
 $$
@@ -120,19 +122,16 @@ $$
 
 ### (i) 像と核の次元
 
-線形写像 $f:\mathbb R^n\to\mathbb R^n$ に次元定理を適用すると、
+$N$ の基底を $u_1,\ldots,u_k$ とし、これを $\mathbb R^n$ の基底
+$u_1,\ldots,u_k,v_1,\ldots,v_{n-k}$ に延長する。
+任意のベクトルをこの基底で展開して $f$ を作用させると、$f(u_i)=0$ なので
+$f(v_1),\ldots,f(v_{n-k})$ は $V$ を張る。
+また、$\sum_jc_jf(v_j)=0$ なら $\sum_jc_jv_j\in N$ であり、元の基底の一次独立性よりすべての $c_j$ が $0$ となる。
+したがってこれらは $V$ の基底であり、
 
 $$
-\dim\operatorname{Im}f+\dim\ker f=n.
+\dim V=n-k=n-\dim N.
 $$
-
-$V=\operatorname{Im}f$ 、 $N=\ker f$ だから、
-
-$$
-\dim V=n-\dim N
-$$
-
-である。
 
 ### (ii) 列の一次従属から核ベクトルを作る
 
@@ -157,6 +156,8 @@ $$
 $$
 
 ### (iii) 必要十分条件
+
+$d=1$ のときは、非零ベクトルの非零成分数は少なくとも $1$、空の列集合は一次独立なので両条件は成立する。以下では $d\ge2$ とする。
 
 まず、すべての $x\in N\setminus\{0\}$ が $\sigma(x)\geq d$ を満たすとする。もしある $d-1$ 本の列が一次従属なら、(ii) により $\sigma(x)<d$ となる $x\in N\setminus\{0\}$ が存在して矛盾する。したがって任意の $d-1$ 本の列は一次独立である。
 

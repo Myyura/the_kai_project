@@ -13,6 +13,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.ist.i.kyoto-u.ac.jp/content/files/admission/ist-exam-2020Aug-specialized.pdf)
 予測問題を考える。
 入力 $x_i \in \mathbb{R}$、それに対応する出力を $y_i \in \mathbb{R}$ とし、学習データセット $\mathcal{D} = \{(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)\}$ が与えられている。
 なお、学習データセットは同時確率密度関数 $p(x,y)$ の分布から独立に生成されているとする。
@@ -86,78 +88,47 @@ $$
 ## **Kai**
 ### 設問1
 
-$$
-\overline{x} = \frac{1}{n} \sum_{i=1}^n x_i,\quad
-\overline{y} = \frac{1}{n} \sum_{i=1}^n y_i,\quad
-\overline{xy} = \frac{1}{n} \sum_{i=1}^n x_iy_i
-$$
-
-とおくと、
+$\overline x=n^{-1}\sum_i x_i$、$\overline y=n^{-1}\sum_i y_i$ とする。目的関数の偏微分を零とおくと、正規方程式
 
 $$
-\begin{align}
-\frac{\partial \hat{J}(a, b)}{\partial a}
-&= -\frac{2}{n} \sum_{i=1}^{n} (y_i - ax_i - b) x_i
-= -2(\overline{xy} - a \overline{x^2} -b\overline{x})
-= 0 \tag{i} \\
-\frac{\partial \hat{J}(a, b)}{\partial b}
-&= -\frac{2}{n} \sum_{i=1}^{n} (y_i - ax_i - b)
-= -2(\overline{y} - a \overline{x} -b)
-= 0 \tag{ii}
-\end{align}
+\sum_i x_i(y_i-ax_i-b)=0,\qquad
+\sum_i(y_i-ax_i-b)=0
 $$
 
-により
+を得る。したがって $b=\overline y-a\overline x$ であり、$\sum_i(x_i-\overline x)^2>0$ の場合、
 
 $$
-b = \overline{y} - a\overline{x}
+\boxed{\hat a=
+\frac{\sum_i(x_i-\overline x)(y_i-\overline y)}{\sum_i(x_i-\overline x)^2}
+=\frac{n\sum_i x_i y_i-(\sum_i x_i)(\sum_i y_i)}
+{n\sum_i x_i^2-(\sum_i x_i)^2},\qquad
+\hat b=\overline y-\hat a\overline x.}
 $$
 
-を得る。式 (i) に代入すると、
+二乗和は凸関数なので、この解は大域的最小値を与える。
+$\sigma_x^2=n^{-1}\sum_i(x_i-\overline x)^2$、
+$\sigma_{xy}=n^{-1}\sum_i(x_i-\overline x)(y_i-\overline y)$ とおけば
+$\hat a=\sigma_{xy}/\sigma_x^2$ である。
 
-$$
-\begin{aligned}
-&\overline{xy} - a \overline{x^2}-(\overline{y} - a\overline{x})\overline{x} = 0 \\
-&\Rightarrow \hat{a} = \frac{\overline{xy} - \overline{x}\cdot\overline{y}}{\overline{x^2}- \overline{x}^{2}} = \frac{\sum_i x_iy_i - n(\sum_i x_i)(\sum_i y_i)}{\sum_i x_i^2 - n(\sum_i x_i)^2}
-\end{aligned}
-$$
-
-がわかる。
-
-ここで、$x$ の分散を $\sigma_x^2$ とおく、$x$ と $y$ の共分散を $\sigma_{xy}$ とおくと、
-
-$$
-\begin{aligned}
-n \sigma_{xy} &= \sum_{i=1}^n (x_i - \overline{x})(y_i - \overline{y}) = \overline{xy} - \overline{x}\cdot\overline{y} - \overline{x}\cdot\overline{y}+ \overline{x}\cdot\overline{y} = \overline{xy} - \overline{x}\cdot\overline{y} \\
-n\sigma_x^2 &= n \left( \overline{x^2}- \overline{x}^2\right) = \sum_i x_i^2 - n(\sum_i x_i)^2
-\end{aligned}
-$$
-
-が分かり、$\hat{a}$ は以下のように表すことができる。
-
-$$
-\hat{a} = \frac{\sigma_{xy}}{\sigma_x^2}
-$$
+すべての $x_i$ が同じ値 $x_0$ の場合、最小化解は
+$ax_0+b=\overline y$ を満たすすべての $(a,b)$ となる。
 
 ### 設問2
 
 $$
-\begin{aligned}
-\sigma_x^2 &= \frac{1}{5}\sum_{i=1}^5 x_i^2 -\left( \frac{1}{5}\sum_{i=1}^5 x_i \right)^{2} 
-= 2 \\[0.7em]
-\sigma_{xy}^2 &= \frac{\sum_{i=1}^5(x_i - \overline{x}) \sum_{i=1}^5(y_i - \overline{y})}{n}
-= \frac{8}{5}
-\end{aligned}
+\overline x=\overline y=3,\qquad
+\sigma_x^2=\frac{10}{5}=2,\qquad
+\sigma_{xy}=\frac{8}{5}.
 $$
 
 よって、
 
 $$
-\hat{a} = \frac{\sigma_{xy}}{\sigma_x^2} = \frac{4}{5}, \quad \hat{b} = \overline{y} - a\overline{x} = \frac{3}{5}
+\boxed{\hat a=\frac45,\qquad \hat b=\frac35.}
 $$
 
 ### 設問3
-ベイズの定理により、
+重み付けには $p'(x)>0$ となる領域で $p(x)>0$ が必要である。この条件のもとで、条件付き密度の分解により、
 
 $$
 p^{\prime}(x, y) = p^{\prime}(y|x)p^{\prime}(x) = p(y|x)p^{\prime}(x) = \frac{p(x, y)}{p(x)} p^{\prime}(x)
@@ -173,7 +144,7 @@ $$
 ### 設問4
 
 $$
-\hat{J}'(a, b) = \frac{1}{n} \sum_{i=1}^n (y_i - f(x_i; a, b))\cdot \frac{p^{\prime}(x_i)}{p(x_i)}
+\hat{J}'(a, b) = \frac{1}{n} \sum_{i=1}^n (y_i - f(x_i; a, b))^2\cdot \frac{p^{\prime}(x_i)}{p(x_i)}
 $$
 
 ### 設問5
@@ -212,3 +183,6 @@ $$
 $$
 \hat{b} = \frac{\overline{yq} - \hat{a}\overline{xq}}{\overline{q}}
 $$
+
+$W=\sum_i q_i>0$ とし、$\overline x_q=\sum_iq_ix_i/W$、$\overline y_q=\sum_iq_iy_i/W$ とおく。上の解が一意となる条件は
+$\sum_iq_i(x_i-\overline x_q)^2>0$ である。重みが正の点の $x_i$ がすべて $x_0$ なら、最小化解は $ax_0+b=\overline y_q$ を満たすすべての組である。$W=0$ なら目的関数は恒等的に零となり、すべての $(a,b)$ が最小化解である。

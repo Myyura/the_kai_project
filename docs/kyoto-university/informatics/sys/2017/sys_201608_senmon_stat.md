@@ -238,7 +238,7 @@ $$
 =\boxed{\frac16}.
 $$
 
-Here $\frac{2\pi r}{\pi a^2}$ is the probability that $A$ lies in a circle centered with $C$ of radius $r$.
+Here $\frac{2\pi r}{\pi a^2}$ is the probability density of the distance from $A$ to the center of $C$.
 
 Suppose that the distance between $A$ and the center of the disk is $r$.
 Then $B$ must lie in the disk centered at $A$ with radius $a-r$.

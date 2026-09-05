@@ -11,13 +11,26 @@ tags:
 
 ## **Description**
 
-2021年度大学院入学試験問題
-[数学 3 (主に複素関数論)](https://github.com/Myyura/the_kai_project_assets/blob/7d274740e9aacde6948ee5ca73a336a00fe76d04/kakomonn/tokyo_university/engineering/Description/2021_M_3.pdf)
+[公式原題](https://www.t.u-tokyo.ac.jp/hubfs/pdf/2021_M_3.pdf)
 
+### I.
+$|m|=1,m\ne1$ とし、$M(z)=mz/(mz-z+1)$ を考える。(1) 全不動点、(2) $M'(0)$、(3) 円 $|z-(1-i)/2|=1/\sqrt2$ が実軸に写るための $m$ を求める。
+
+### II.
+$0<\alpha<\pi/2$ とする。$J(z)=e^{-i\alpha}z+e^{i\alpha}z^{-1}$ の虚部が正になる $z\ne0$ の条件を求め、その領域を図示する。
+
+### III.
+$0<\beta<1$、$f(z)=z^\beta/(z^2+1)^2$ とする。$0<r<1<R$ に対し、閉路を $r\to R$ の線分 $C_1$、上半円 $R\to-R$ の $C_R$、線分 $-R\to-r$ の $C_2$、上半円 $-r\to r$ の $C_r$ と定める。
+
+1. 留数から $\oint_C f(z)dz$ を求める。
+2. $C_1,C_2$ の積分和を $\int_r^R x^\beta/(x^2+1)^2dx$ で表す。
+3. $C_R$ の積分の $R\to\infty$ の極限を求める。
+4. $C_r$ の積分の $r\to0$ の極限を求める。
+5. 上の結果から $\int_0^\infty x^\beta/(x^2+1)^2dx$ を計算する。
+
+![Contour and positive-imaginary region](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2021/tokyo-kyotsu-202008-complex.svg)
 
 ### 题目描述
-
-原 Description 仅提供 2021 年“数学 3”原卷链接，具体题干缺失。根据本地 Kai，可以确认：
 
 1. 第一部分考察一次分式变换
 
@@ -32,20 +45,22 @@ tags:
    J(z)=e^{-i\alpha}z+e^{i\alpha}z^{-1}.
    $$
 
-   本地解答把它写成
+   将其写成
 
    $$
    \left(r+\frac1r\right)\cos(\theta-\alpha)
    +i\left(r-\frac1r\right)\sin(\theta-\alpha)
    $$
 
-   并按 $r>1$ 与 $r<1$ 判断 $\operatorname{Im}J(z)>0$ 的区域；原题对 $\alpha,\theta$ 的完整范围未保存在本地。
+   并按 $r>1$ 与 $r<1$ 判断 $\operatorname{Im}J(z)>0$ 的区域；其中 $0<\alpha<\pi/2$、$0\le\theta<2\pi$，并画出所求区域。
 3. 第三部分用上半平面的钥匙孔围道计算
 
    $$
    \int_0^\infty\frac{x^\beta}{(x^2+1)^2}\,dx,
    \qquad 0<\beta<1.
    $$
+
+   第三部分的闭路依次为正实轴上从 $r$ 到 $R$ 的线段、半径 $R$ 的上半圆、负实轴上从 $-R$ 到 $-r$ 的线段、半径 $r$ 的上半圆，其中 $0<r<1<R$。分别求闭路留数积分、两段实轴积分之和，并证明 $R\to\infty$ 与 $r\to0$ 时两段圆弧积分消失，最后得到实积分。
 
 ## **Kai**
 ### I.
@@ -127,7 +142,7 @@ $$
 $$
 
 が正となるのは、「 $r \gt 1$ かつ $\alpha \lt \theta \lt \alpha + \pi$」
-または「$r \lt 1$ かつ $0 \lt \theta \lt \alpha, \alpha + \pi \lt \theta \lt 2 \pi$ 」
+または「$r \lt 1$ かつ、$\theta$ が $[0,\alpha)$ または $(\alpha+\pi,2\pi)$ に属する」
 のときである。
 
 ### III.

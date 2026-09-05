@@ -46,6 +46,14 @@ $$
 
 が正則か否かを判定せよ。
 
+[公式問題（PDF第12頁）](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_4_i_choice202408.pdf)の 1.(2) では、同値な式を次の (a)～(d) から選ぶ。
+
+| 問 | (a) | (b) | (c) | (d) |
+|---|---|---|---|---|
+|(i)|$\beta\to\alpha$|$\beta\to\neg\alpha$|$\neg\beta\to\alpha$|$\neg\beta\to\neg\alpha$|
+|(ii)|$\neg\alpha\land\neg\beta$|$\neg\alpha\lor\neg\beta$|$\neg(\neg\alpha\land\neg\beta)$|$\neg(\neg\alpha\lor\neg\beta)$|
+|(iii)|$\neg(\forall xP(x))$|$\neg(\forall x\neg P(x))$|$\neg(\exists xP(x))$|$\neg(\exists x\neg P(x))$|
+
 ### 题目描述
 
 求命题逻辑与谓词逻辑的等价式；列出给定等价关系的所有等价类并绘制偏序的 Hasse 图；最后判断九个由字符计数、奇偶性及固定上界定义的语言是否为正则语言。

@@ -52,27 +52,21 @@ The table containing the virtual to physical address translations in a virtual m
 
 **Translation-Lookaside Buffer (TLB):** A cache that keeps track of recently used address mappings to try to avoid an access to the page table.
 
-A TLB miss occurs when no entry in the TLB matches a virtual address. A TLB miss can indicate one of two possibilities:
-1. The page is present in memory i.e. Page Table, and we need only create the missing TLB entry.
-2. The page is not present in memory i.e. Page Table, and we need to transfer control to the operating system to deal with a page fault.
+A TLB miss means that the required translation is not cached in the TLB. The page table is then consulted, by a hardware page walker or a software handler. If it contains a valid resident mapping with suitable permissions, that mapping can fill the TLB. If the mapping is nonresident, invalid, or disallows the access, the processor raises the corresponding exception; a TLB miss alone does not imply a page fault.
 
 ### (4)
 
-**Page fault:** An event that occurs when an accessed page is not present in main memory.
+For a valid but nonresident page, the sequence is:
 
-**Process:**
-*   **Exception:** Address translation fails $\rightarrow$ Hardware triggers a Page Fault Exception.
-*   **Trap:** Trap to OS Kernel $\rightarrow$ Save current process state $\rightarrow$ Block the current process.
-*   **Eviction:** Check if physical memory is full ($\rightarrow$ if full, select a victim page using specific policy $\rightarrow$ Evict the victim page to disk (write back if dirty)).
-*   **Disk I/O:** Locate the missing page on Secondary Storage $\rightarrow$ Initiate DMA transfer to load page into physical memory.
-*   **Context Switch:** While waiting for Disk I/O, OS schedules another process to run.
-*   **Update:** Disk interrupt signals completion $\rightarrow$ OS updates Page Table and TLB.
-*   **Restart:** Restore process state $\rightarrow$ Restart the instruction that caused the fault.
+1. The load computes its effective virtual address from its operands. The MMU separates the virtual page number and page offset and checks the TLB.
+2. On a TLB miss, the page-table lookup finds that the page is not resident. The processor saves the faulting address and instruction state and traps to the operating system.
+3. The operating system checks that the address and access are legal, then obtains a free physical frame. If necessary, it selects a victim, writes it back if dirty, and invalidates the old mapping and any stale TLB entries.
+4. The page is read from its backing file or swap storage. While I/O is pending, the process can block and another process can run. A demand-zero page can instead be initialized without disk I/O.
+5. When the page is ready, the operating system installs the resident page-table entry and performs the required translation-cache synchronization. The TLB is either filled explicitly or refilled on the next access.
+6. The faulting instruction is restarted. Its address now translates to the new frame plus the original page offset, and the load completes.
+
+An illegal address or access is reported to the process rather than being repaired and restarted. Page faults are not limited to disk-backed nonresident pages; permission checks and lazy memory allocation can also cause them.
 
 ### (5)
 
-| TLB miss by hardware | Page fault by both hardware & software |
-| :--- | :--- |
-| ① A frequent event which need high speed. | ① Involves disk I/O, leading the overhead of software to be negligible compared to the disk latency. |
-| ② Will lead to find in memory which can be easy to implement by hardware. | ② Will lead to alarm the OS kernel and need complex controlling rather than hardware. |
-| ③ Evicting policy is simple which is just the mapping implemented by gates. | ③ Have more complex evicting policy like LRU. |
+A hardware TLB miss handler performs a regular, architecture-defined page-table walk and fills a small cache, so it can be implemented efficiently in hardware. Page-fault handling requires operating-system policy and state: checking mappings and permissions, allocating physical frames, reclaiming pages, consulting files or swap, performing I/O, and scheduling processes. These decisions depend on the operating system and workload. Hardware detects the fault; software supplies this flexible policy. When storage I/O is needed, its latency also dominates the software handler's overhead.

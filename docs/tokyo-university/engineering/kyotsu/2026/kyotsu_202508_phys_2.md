@@ -41,6 +41,10 @@ $$
 
 となることを示せ。
 
+必要に応じ、$\theta$ を $\boldsymbol a,\boldsymbol b$ のなす角として
+$$|\boldsymbol a-\boldsymbol b|^{-1}=|\boldsymbol a|^{-1}\left(1-2\frac{|\boldsymbol b|}{|\boldsymbol a|}\cos\theta+\frac{|\boldsymbol b|^2}{|\boldsymbol a|^2}\right)^{-1/2}$$
+を用いてよい。
+
 <figure style={{ textAlign: "center" }}>
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_2_p1.png" width="200" alt=""/>
 </figure>
@@ -53,7 +57,7 @@ $$
 \boldsymbol{E}_0=(0,0,E_{0z})
 $$
 
-を加えたところ、球殻表面に電荷分布が誘起された。
+を加えたところ、球殻表面に電荷分布が誘起された。その誘起電荷による球殻外の電場は、原点に置いた電気双極子で等価的に表される。
 
 1. 外部電場と誘起電荷の両方を考慮し、球殻外部の静電ポテンシャルを求めよ。基準は任意に選んでよい。
 2. 球殻上の任意の点の位置ベクトルを $\boldsymbol{s}\ (|\boldsymbol{s}|=R)$ とする。球殻上の面電荷密度 $\sigma(\boldsymbol{s})$ を求めよ。
@@ -171,7 +175,7 @@ $$
 
 ### II
 
-極軸を $z$ 軸に取り、$\theta$ を $\boldsymbol{r}$ と $+z$ 軸のなす角とする。軸対称なラプラス方程式の解のうち、遠方で一様電場のポテンシャル $-E_{0z}r\cos\theta$ に一致するものは
+誘起電荷の外部電場が双極子だけで表されるため、球殻の全電荷は零である。極軸を $z$ 軸に取り、$\theta$ を $\boldsymbol{r}$ と $+z$ 軸のなす角とする。軸対称なラプラス方程式の解のうち、遠方で一様電場のポテンシャル $-E_{0z}r\cos\theta$ に一致するものは
 
 $$
 U_{\mathrm{out}}(r,\theta)

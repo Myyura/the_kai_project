@@ -13,6 +13,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h30_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 $\Omega = \{\boldsymbol{x} \in \mathbb{R}^n| 0 \leqq x_i \leqq 1(i=1,\dots,n)\}$ とする。さらに, 関数 $f:\mathbb{R}^n \rightarrow \mathbb{R}$ は次の不等式を満たす連続的微分可能な関数とする。
 

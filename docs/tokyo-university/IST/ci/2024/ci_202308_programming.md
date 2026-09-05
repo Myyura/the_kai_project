@@ -217,7 +217,16 @@ x10=x3; x10=x7; x11=x10
 7. 对约束文件中未声明、但程序中出现的每个变量 `xN`，为其选择 $0\le S_N\le T_N\le999$ 的区间，使程序所有赋值的区间均一致。对 `data7a1/7a2` 写出所有需补充变量的一组可行区间；多解任选一组，若无论如何选择都至少有一条赋值不一致，则写 *None*。对 `data7b1/7b2`、`data7c1/7c2` 同样处理。
 
 ## **Kai**
-We currently do not have the corresponding sample data files. If you have them and are willing to share, please submit a PR.
+
+
+The Python solutions below use this common input helper. An empty bounds file represents no declared inequalities.
+
+```python
+def read_numbers(filename):
+    with open(filename) as stream:
+        text = stream.read().strip()
+    return [] if not text else [int(token) for token in text.split(',')]
+```
 
 ### (1)
 #### itsuitsuki's solution
@@ -229,14 +238,9 @@ We currently do not have the corresponding sample data files. If you have them a
 ff_list = ["./data1a.txt","./data1b.txt","./data1c.txt"]
 for ff in ff_list:
     bounds = {}
-    with open(ff, "r") as f:
-        for line in f.readlines():
-            digits = [int(digit) for digit in line.split(',')]
-            for i, var_idx in enumerate(digits[0::3]):
-                if var_idx < 0 or var_idx > 999:
-                    continue
-                ii = 3*i # in orig array
-                bounds[var_idx] = (digits[ii+1], digits[ii+2])
+    digits = read_numbers(ff)
+    for i in range(0, len(digits), 3):
+        bounds[digits[i]] = (digits[i+1], digits[i+2])
     max_diff = max(upper - lower for lower, upper in bounds.values())
     for var_idx, (lower, upper) in bounds.items():
         if upper - lower == max_diff:
@@ -251,19 +255,22 @@ for ff in ff_list:
 #define pii pair<int, int>
 #define tii tuple<int, int, int>
 using namespace std;
+vector<int> read_numbers(istream& input) {
+    vector<int> result;
+    int value;
+    while (input >> value) {
+        result.push_back(value);
+        input >> ws;
+        if (input.peek() == ',') input.get();
+        else if (!input.eof()) throw runtime_error("comma expected");
+    }
+    return result;
+}
 void solve(char suffix) {
     ifstream fin("data1" + string(1, suffix) + ".txt");
     ofstream fout("ans1" + string(1, suffix) + ".txt");
-    string str; fin >> str;
-    int num = 0;
-    vector<int> vec;
-    map<int, int> mp; //记录最右边出现的变量，左边再遇到忽略
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec.push_back(num), num = 0;
-        else num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1) vec.push_back(num);
-    }
+    vector<int> vec = read_numbers(fin);
+    map<int,int> mp;
     int mxdiff = -1;
     vector<tii> ans;
     for (int i = vec.size() - 3; i >= 0; i -= 3) { //从右往左，每个变量只看第一次出现
@@ -294,19 +301,14 @@ signed main() {
 ff_list = ["./data2a.txt","./data2b.txt","./data2c.txt"]
 for ff in ff_list:
     left_operand_freq = {}
-    with open(ff, "r") as f:
-        for line in f.readlines():
-            digits = [int(digit) for digit in line.split(',')]
-            for var_idx in digits[::2]:
-                if var_idx in left_operand_freq: # .keys()
-                    left_operand_freq[var_idx] += 1
-                else:
-                    left_operand_freq[var_idx] = 1
+    digits = read_numbers(ff)
+    for var_idx in digits[::2]:
+        left_operand_freq[var_idx] = left_operand_freq.get(var_idx, 0) + 1
 
     max_freq = max(left_operand_freq.values())
     argmax_freq = {var_idx for var_idx, freq in left_operand_freq.items()
                    if freq == max_freq}
-    print(ff, argmax_freq, ":", max_freq)
+    print(ff, [f"x{i}" for i in sorted(argmax_freq)], ":", max_freq)
 ```
 
 #### FunTotal's solution
@@ -316,20 +318,21 @@ for ff in ff_list:
 #define pii pair<int, int>
 #define tii tuple<int, int, int>
 using namespace std;
+vector<int> read_numbers(istream& input) {
+    vector<int> result;
+    int value;
+    while (input >> value) {
+        result.push_back(value);
+        input >> ws;
+        if (input.peek() == ',') input.get();
+        else if (!input.eof()) throw runtime_error("comma expected");
+    }
+    return result;
+}
 void solve(char suffix) {
     ifstream fin("data2" + string(1, suffix) + ".txt");
     ofstream fout("ans2" + string(1, suffix) + ".txt");
-    string str; fin >> str;
-    int num = 0;
-    vector<int> vec;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec.push_back(num);
-    }
+    vector<int> vec = read_numbers(fin);
     vector<int> ans;
     int mxcnt = 0;
     map<int, int> mp; //记录每个变量在赋值左边出现的次数
@@ -342,7 +345,7 @@ void solve(char suffix) {
     }
     fout << "the max appear count is: " << mxcnt << "\n";
     fout << "and the variable(s): ";
-    for (auto it : ans) fout << it << ", ";
+    for (auto it : ans) fout << "x" << it << ", ";
     fout << "\n";
 }
 signed main() {
@@ -352,6 +355,9 @@ signed main() {
 ```
 
 ### (3)
+
+At the first read of an uninitialized right-hand variable, use its declared interval or $[0,100]$. Each assignment copies the current interval from right to left; a declaration does not constrain later assignments. Every runtime value is a copy of one initial value, so propagating lower and upper endpoints gives the exact attainable extrema. A variable absent from all statements remains Undefined.
+
 #### itsuitsuki's solution
 
 ```python
@@ -363,16 +369,8 @@ for ff1, ff2 in zip(ff_list_1, ff_list_2):
     var_lower_b = [0 for _ in range(1000)] # inclusive
     var_upper_b = [100 for _ in range(1000)] # incl
     program_appeared = set()
-    with open(ff1, "r") as f1:
-        lines1 = f1.readlines()
-        assign_digits = []
-        for line in lines1:
-            assign_digits += [int(digit) for digit in line.split(',')]
-    with open(ff2, "r") as f2:
-        lines2 = f2.readlines()
-        bounds_digits = []
-        for line in lines2:
-            bounds_digits += [int(digit) for digit in line.split(',')]
+    assign_digits = read_numbers(ff1)
+    bounds_digits = read_numbers(ff2)
     for i, var_idx in enumerate(bounds_digits[0::3]):
         if var_idx < 0 or var_idx > 999:
             continue
@@ -403,44 +401,24 @@ for ff1, ff2 in zip(ff_list_1, ff_list_2):
 #define pii pair<int, int>
 #define tii tuple<int, int, int>
 using namespace std;
+vector<int> read_numbers(istream& input) {
+    vector<int> result;
+    int value;
+    while (input >> value) {
+        result.push_back(value);
+        input >> ws;
+        if (input.peek() == ',') input.get();
+        else if (!input.eof()) throw runtime_error("comma expected");
+    }
+    return result;
+}
 const int maxn = 1e3 + 100;
 pii range[maxn]; // 存储每个变量的取值范围
-/*
-这题开始有点上难度了，主要是题面有的时候不是特别清楚
-这一题的话主要是记得变量未出现在赋值语句里的输出undefined
-然后因为没有原数据，所以下面题目里有的求31，41的我都简化到题目给的样例里面的小数据了
-data3a1.txt: 7,2,11,7,7,3
-data3a2.txt: 2,5,9,3,1,3,11,8,10
-output:
-        The minval and mxval of 3 are: (1, 3)
-        The minval and mxval of 7 are: (1, 3)
-        The minval and mxval of 11 are: (5, 9)
-*/
 void solve(char suffix) {
     ifstream fin1("data3" + string(1, suffix) + "1.txt");
     ifstream fin2("data3" + string(1, suffix) + "2.txt");
     ofstream fout("ans3" + string(1, suffix) + ".txt");
-    string str; fin1 >> str;
-    int num = 0;
-    vector<int> vec1, vec2; //vec1存赋值, vec2存变量范围
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec1.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec1.push_back(num);
-    }
-    fin2 >> str;
-    num = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec2.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec2.push_back(num);
-    }
+    vector<int> vec1 = read_numbers(fin1), vec2 = read_numbers(fin2);
     fill(range, range + maxn, pii{-1, -1});
     for (int i = 0; i < vec2.size(); i += 3) {
         int x = vec2[i], l = vec2[i + 1], r = vec2[i + 2];
@@ -498,6 +476,9 @@ signed main() {
 ```
 
 ### (4)
+
+Record a right-hand variable's initial interval at its first read, then record the left-hand variable's interval after every assignment. For each variable, take the minimum of all recorded lower endpoints and maximum of all recorded upper endpoints. Do not include its declaration before it has been initialized. These are extrema over all execution times and all permitted initial values; intermediate gaps in the value set do not affect either extremum.
+
 #### itsuitsuki's solution
 ```python
 ff_list_1 = ["./data4a1.txt","./data4b1.txt","./data4c1.txt"] # for assign
@@ -511,16 +492,8 @@ for ff1, ff2 in zip(ff_list_1, ff_list_2):
     var_upper_b_dur = {}
     current = [None for _ in range(1000)]
     visited = set()
-    with open(ff1, "r") as f1:
-        lines1 = f1.readlines()
-        assign_digits = []
-        for line in lines1:
-            assign_digits += [int(digit) for digit in line.split(',')]
-    with open(ff2, "r") as f2:
-        lines2 = f2.readlines()
-        bounds_digits = []
-        for line in lines2:
-            bounds_digits += [int(digit) for digit in line.split(',')]
+    assign_digits = read_numbers(ff1)
+    bounds_digits = read_numbers(ff2)
     for i, var_idx in enumerate(bounds_digits[0::3]):
         if var_idx < 0 or var_idx > 999:
             continue
@@ -556,6 +529,17 @@ for ff1, ff2 in zip(ff_list_1, ff_list_2):
 #define pii pair<int, int>
 #define tii tuple<int, int, int>
 using namespace std;
+vector<int> read_numbers(istream& input) {
+    vector<int> result;
+    int value;
+    while (input >> value) {
+        result.push_back(value);
+        input >> ws;
+        if (input.peek() == ',') input.get();
+        else if (!input.eof()) throw runtime_error("comma expected");
+    }
+    return result;
+}
 const int maxn = 1e3 + 100;
 pii range[maxn];  // 存储每个变量的取值范围
 /*
@@ -574,28 +558,7 @@ void solve(char suffix) {
     ifstream fin1("data4" + string(1, suffix) + "1.txt");
     ifstream fin2("data4" + string(1, suffix) + "2.txt");
     ofstream fout("ans4" + string(1, suffix) + ".txt");
-    string str;
-    fin1 >> str;
-    int num = 0;
-    vector<int> vec1, vec2;  // vec1存赋值, vec2存变量范围
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec1.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec1.push_back(num);
-    }
-    fin2 >> str;
-    num = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec2.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec2.push_back(num);
-    }
+    vector<int> vec1 = read_numbers(fin1), vec2 = read_numbers(fin2);
     fill(range, range + maxn, pii{-1, -1});
     for (int i = 0; i < vec2.size(); i += 3) {
         int x = vec2[i], l = vec2[i + 1], r = vec2[i + 2];
@@ -659,6 +622,9 @@ signed main() {
 ```
 
 ### (5)
+
+A newly initialized input variable starts within its own declared interval, so a variable can first become inconsistent only after an assignment to it. Propagate the intervals as in (3), collect extrema over all left-hand writes, and compare them with the final declaration from the bounds file. Variables without a declaration cannot be inconsistent under this definition.
+
 #### itsuitsuki's solution
 ```python
 from copy import deepcopy
@@ -675,16 +641,8 @@ for ff1, ff2 in zip(ff_list_1, ff_list_2):
     initial = set()
     reassigned = set() # may be inconsistent
     inconsis = set()
-    with open(ff1, "r") as f1:
-        lines1 = f1.readlines()
-        assign_digits = []
-        for line in lines1:
-            assign_digits += [int(digit) for digit in line.split(',')]
-    with open(ff2, "r") as f2:
-        lines2 = f2.readlines()
-        bounds_digits = []
-        for line in lines2:
-            bounds_digits += [int(digit) for digit in line.split(',')]
+    assign_digits = read_numbers(ff1)
+    bounds_digits = read_numbers(ff2)
     for i, var_idx in enumerate(bounds_digits[0::3]):
         if var_idx < 0 or var_idx > 999:
             continue
@@ -731,6 +689,17 @@ for ff1, ff2 in zip(ff_list_1, ff_list_2):
 #define pii pair<int, int>
 #define tii tuple<int, int, int>
 using namespace std;
+vector<int> read_numbers(istream& input) {
+    vector<int> result;
+    int value;
+    while (input >> value) {
+        result.push_back(value);
+        input >> ws;
+        if (input.peek() == ',') input.get();
+        else if (!input.eof()) throw runtime_error("comma expected");
+    }
+    return result;
+}
 const int maxn = 1e3 + 100;
 pii range[maxn];  // 存储每个变量的取值范围
 /*
@@ -744,28 +713,7 @@ void solve(char suffix) {
     ifstream fin1("data5" + string(1, suffix) + "1.txt");
     ifstream fin2("data5" + string(1, suffix) + "2.txt");
     ofstream fout("ans5" + string(1, suffix) + ".txt");
-    string str;
-    fin1 >> str;
-    int num = 0;
-    vector<int> vec1, vec2;  // vec1存赋值, vec2存变量范围
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec1.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec1.push_back(num);
-    }
-    num = 0;
-    fin2 >> str;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec2.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec2.push_back(num);
-    }
+    vector<int> vec1 = read_numbers(fin1), vec2 = read_numbers(fin2);
     fill(range, range + maxn, pii{-1, -1});
     for (int i = 0; i < vec2.size(); i += 3) {
         int x = vec2[i], l = vec2[i + 1], r = vec2[i + 2];
@@ -821,7 +769,7 @@ void solve(char suffix) {
     }
     fout << "inconsistent varibles are: ";
     for (auto it : res)
-        fout << it << ", ";
+        fout << "x" << it << ", ";
     fout << "\n";
 }
 signed main() {
@@ -831,6 +779,9 @@ signed main() {
 ```
 
 ### (6)
+
+Compare the declared intervals, without replacing them by runtime intervals: an assignment is inconsistent exactly when both declarations exist and the right interval is not contained in the left interval. Store the ordered pair of variable IDs in a set so a repeated statement is reported only once.
+
 #### itsuitsuki's solution
 ```python
 from copy import deepcopy
@@ -843,16 +794,8 @@ for ff1, ff2 in zip(ff_list_1, ff_list_2):
     visited = set()
     constrained = set()
     inconsistency = set() # set of tuples
-    with open(ff1, "r") as f1:
-        lines1 = f1.readlines()
-        assign_digits = []
-        for line in lines1:
-            assign_digits += [int(digit) for digit in line.split(',')]
-    with open(ff2, "r") as f2:
-        lines2 = f2.readlines()
-        bounds_digits = []
-        for line in lines2:
-            bounds_digits += [int(digit) for digit in line.split(',')]
+    assign_digits = read_numbers(ff1)
+    bounds_digits = read_numbers(ff2)
     for i, var_idx in enumerate(bounds_digits[0::3]):
         if var_idx < 0 or var_idx > 999:
             continue
@@ -884,42 +827,24 @@ for ff1, ff2 in zip(ff_list_1, ff_list_2):
 #define pii pair<int, int>
 #define tii tuple<int, int, int>
 using namespace std;
+vector<int> read_numbers(istream& input) {
+    vector<int> result;
+    int value;
+    while (input >> value) {
+        result.push_back(value);
+        input >> ws;
+        if (input.peek() == ',') input.get();
+        else if (!input.eof()) throw runtime_error("comma expected");
+    }
+    return result;
+}
 const int maxn = 1e3 + 100;
 pii range[maxn];  // 存储每个变量的取值范围
-/*
-这里主要注意题意，好像对于赋值语句的判断，只考虑前后变量的不等式约束，我原本觉得随着前面的赋值，可能导致每个变量的实际取值范围会变小，但是从题意看好像不需要考虑这么复杂
-data6a1.txt: 10,3,10,7,11,10
-data6a2.txt: 3,5,9,7,1,3,10,1,9,11,1,3
-output:
-        inconsistent assignments are: x11 = x10, 
-
-*/
 void solve(char suffix) {
     ifstream fin1("data6" + string(1, suffix) + "1.txt");
     ifstream fin2("data6" + string(1, suffix) + "2.txt");
     ofstream fout("ans6" + string(1, suffix) + ".txt");
-    string str;
-    fin1 >> str;
-    int num = 0;
-    vector<int> vec1, vec2;  // vec1存赋值, vec2存变量范围
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec1.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec1.push_back(num);
-    }
-    fin2 >> str;
-    num = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec2.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec2.push_back(num);
-    }
+    vector<int> vec1 = read_numbers(fin1), vec2 = read_numbers(fin2);
     fill(range, range + maxn, pii{1000, 0});
     for (int i = 0; i < vec2.size(); i += 3) {
         int x = vec2[i], l = vec2[i + 1], r = vec2[i + 2];
@@ -950,7 +875,15 @@ signed main() {
 
 ### (7)
 #### itsuitsuki's solution
-For an assignment `xL = xR`, add the containment edge `L -> R`.
+For an assignment `xL = xR`, add the containment edge `L -> R`, requiring $I_L\supseteq I_R$. For each undeclared variable $v$, let $F(v)$ be the declared vertices from which $v$ is reachable, and choose
+
+$$
+I_v=\bigcap_{u\in F(v)} I_u,
+$$
+
+using $[0,999]$ when $F(v)$ is empty. Compute the intersection by taking the maximum lower endpoint and minimum upper endpoint. Keep every declared interval fixed, then test all edges and ensure every assigned interval is nonempty.
+
+To prove completeness, an undeclared variable must lie within every declared ancestor's interval, so the chosen intersection is the largest interval it can have. Along an undeclared-to-undeclared edge $L\to R$, $F(L)\subseteq F(R)$, hence $I_L\supseteq I_R$. A declared-to-undeclared edge also holds by construction. If an undeclared-to-declared or declared-to-declared edge fails, the required containment between declared ancestor and descendant intervals is impossible for any assignment. An empty intersection is likewise impossible. Thus the final test returns None exactly when there is no solution. Graph searches from each missing variable take $O(V(V+E))$ time.
 
 ```python
 from collections import defaultdict, deque
@@ -959,8 +892,8 @@ program_files = [f"./data7{s}1.txt" for s in "abc"]
 bound_files = [f"./data7{s}2.txt" for s in "abc"]
 
 for program_file, bound_file in zip(program_files, bound_files):
-    a = [int(x) for x in open(program_file).read().split(',')]
-    b = [int(x) for x in open(bound_file).read().split(',')]
+    a = read_numbers(program_file)
+    b = read_numbers(bound_file)
     edges = list(zip(a[::2], a[1::2]))
     bounds = {}
     for x, lower, upper in zip(b[::3], b[1::3], b[2::3]):
@@ -1008,55 +941,23 @@ for program_file, bound_file in zip(program_files, bound_files):
 #define pii pair<int, int>
 #define tii tuple<int, int, int>
 using namespace std;
+vector<int> read_numbers(istream& input) {
+    vector<int> result;
+    int value;
+    while (input >> value) {
+        result.push_back(value);
+        input >> ws;
+        if (input.peek() == ',') input.get();
+        else if (!input.eof()) throw runtime_error("comma expected");
+    }
+    return result;
+}
 const int maxn = 1e3 + 1000;
-/*
-思路: 对赋值 xL=xR 建边 L->R，要求 L 的区间包含 R 的区间。对每个待定变量，
-下界取所有能到达它的已知祖先下界的最大值，上界取这些祖先上界的最小值；没有已知祖先时取 [0,999]。
-最后逐边检查包含关系，失败则输出 None。
-
-data71.txt: 10,3,10,7,11,10
-data72.txt: 3,5,9,7,1,3
-output:
-        X10 range from(0, 999)
-        X11 range from(0, 999)
-（取 X10=X11=[1,9] 也合法。）
-
-这题还有很多特殊情况，没有专门造数据会很难卡
-我这里简单举一种:
-data71.txt: 7,3,3,5,5,7
-data72.txt: 10,10,10
-赋值里面全都是需要决定的变量，且构成环，而不等式里存在未出现在赋值的变量
-output:
-        X3 range from(0, 999)
-        X5 range from(0, 999)
-        X7 range from(0, 999)
-*/
 void solve(char suffix) {
     ifstream fin1("data7" + string(1, suffix) + "1.txt");
     ifstream fin2("data7" + string(1, suffix) + "2.txt");
     ofstream fout("ans7" + string(1, suffix) + ".txt");
-    string str;
-    fin1 >> str;
-    int num = 0;
-    vector<int> vec1, vec2;  // vec1存赋值, vec2存变量范围
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec1.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec1.push_back(num);
-    }
-    num = 0;
-    fin2 >> str;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ',')
-            vec2.push_back(num), num = 0;
-        else
-            num = num * 10 + str[i] - '0';
-        if (i == (int)str.length() - 1)
-            vec2.push_back(num);
-    }
+    vector<int> vec1 = read_numbers(fin1), vec2 = read_numbers(fin2);
     vector<pii> range(maxn, {-1, -1});
     set<int> fixed, variables;
     for (int i = 0; i < vec2.size(); i += 3) {

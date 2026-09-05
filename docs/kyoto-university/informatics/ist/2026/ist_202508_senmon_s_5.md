@@ -10,6 +10,8 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2025_ist.pdf)
 文法 $G = (\Sigma, N, P, S)$ を考える。ここで、 $\Sigma, N, P, S$ はそれぞれ終端記号の有限集合、非終端記号の有限集合、生成規則の有限集合、開始記号である。 $\epsilon$ は空文字列を表す。
 以下の設問では $\Sigma = \{a, b\}$ とする。
 
@@ -54,3 +56,46 @@ tags:
    $$
 
    的补集是上下文无关语言。
+
+## **Kai**
+
+### 設問 1
+
+$$
+P=\{S\to aSa\mid bSb\mid a\mid b\mid\epsilon\}.
+$$
+
+每次在两端添相同字符，故生成串均为回文。反之，对任意长度至少为 $2$ 的回文，去掉相同的首尾字符后仍是回文；对长度归纳即可证明所有回文均可生成。
+
+### 設問 2
+
+终结前的每个句型均为 $a^iSb^j$，其中 $i,j\geq0$。用最后一步 $S\to a$ 或 $S\to b$ 后，所得串必为 $a^mb^n$ 且 $m+n\geq1$。这种串中不会有某个 $b$ 后面再出现 $a$，因此不含 $ba$，无论把部分列理解为连续子串还是一般子序列。
+
+### 設問 3
+
+(1) 取 $N=\{S,E\}$，产生式为
+
+$$
+S\to EaE\mid EaS,\qquad E\to aEbE\mid bEaE\mid\epsilon.
+$$
+
+(2) $E$ 生成的每个串中 $a,b$ 数量相等。$S\to EaE$ 的两者数量差为 $1$，$S\to EaS$ 则在其后一个正差值上再加 $1$，所以 $S$ 生成的串均满足 $\#a>\#b$。
+
+(3) 先证明 $E$ 生成所有数量相等的串。对非空平衡串 $w$，若首字符为 $a$，取其前缀中 $a,b$ 数量差首次回到 $0$ 的位置，可分解为 $w=aubv$，其中 $u,v$ 均平衡。若首字符为 $b$，同理分解为 $buav$。对子串长度归纳，分别用 $E\to aEbE$ 或 $E\to bEaE$ 即可；空串由 $E\to\epsilon$ 生成。
+
+再对正差值 $h=\#a-\#b$ 归纳。取 $w$ 的前缀差值首次达到 $1$ 的位置，可以写作 $w=uav$，其中 $u$ 平衡，$v$ 的差值为 $h-1$。当 $h=1$ 时，$u,v$ 都能由 $E$ 生成，故用 $S\to EaE$；当 $h>1$ 时，$v$ 按归纳假设能由 $S$ 生成，故用 $S\to EaS$。这证明了完全性。
+
+### 設問 4
+
+不属于 $\{a^nb^n:n\geq0\}$ 的串恰好分为三类：含有 $ba$；形如 $a^ib^j$ 且 $i>j$；形如 $a^ib^j$ 且 $i<j$。取开始符号 $S$ 并给出文法
+
+$$
+\begin{aligned}
+S&\to R\mid A\mid B,\\
+R&\to aR\mid bR\mid baT,&T&\to aT\mid bT\mid\epsilon,\\
+A&\to aAb\mid C,&C&\to aC\mid a,\\
+B&\to aBb\mid D,&D&\to bD\mid b.
+\end{aligned}
+$$
+
+$R,A,B$ 恰好分别生成上述三类串。若一个串不含 $ba$，它必有形式 $a^ib^j$；若又不属于原语言，则 $i\ne j$，所以三类已穷尽补集。该文法是上下文无关文法，故补集是上下文无关语言。

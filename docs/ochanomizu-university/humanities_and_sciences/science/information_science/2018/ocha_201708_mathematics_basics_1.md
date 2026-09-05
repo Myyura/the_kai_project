@@ -87,19 +87,7 @@ $$
 
 をとる。
 
-```text
-             y
-             ↑╲                        ╱
-             │ ╲                    ╱
-             │  ╲                ╱
-             │   ╲____●________╱
-             │        (1,e)
-─────────────○─────────────────────────→ x
-         __╱ 0（(0,0) は非定義）
-       ╱
-    ╱
-  y=x+1（x→±∞ で漸近）
-```
+![exp-curve](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/ochanomizu_university/humanities_and_sciences/science/information_science/2018/ocha-201708-exp-curve.svg)
 
 ### [2]
 
@@ -153,15 +141,7 @@ $$
 
 $\theta=0$ で $(r,\theta)=(1,0)$ から出発し、反時計回りに無限回転しながら原点へ近づく対数螺旋である。
 
-```text
-                 y
-                 ↑
-          ╭────────╮
-       ╭──╯   ╭─╮  ╰──● (1,0)
-       ╰──────╯ ↘
-                 O────────→ x
-             （原点へ収束）
-```
+![spiral](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/ochanomizu_university/humanities_and_sciences/science/information_science/2018/ocha-201708-spiral.svg)
 
 $dr/d\theta=-r/\pi$ であるから、全長は
 

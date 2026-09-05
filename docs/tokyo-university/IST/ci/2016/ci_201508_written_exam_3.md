@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20170611141448id_/http://www.i.u-tokyo.ac.jp/edu/course/ci/pdf/2015-8-exam.pdf).
+
 ### 日本語
 
 写実的な画像をコンピュータグラフィックスで生成する場合、輝度の計算を幾何光学に基づいた積分で行なうことが多い。今、ある平面上の点において角度 $(\theta, \phi)$ から（図 1 を参照）入射する光の放射輝度を $L(\theta, \phi)$ とするとき、その点における放射照度 $I$ は、
@@ -146,3 +148,75 @@ $$
    推导用蒙特卡洛积分近似 $I$ 的求和式。
 4. 设 $L(\phi)>0$。分别说明在何种 $L(\phi)$ 情况下，矩形近似的误差与蒙特卡洛积分误差的期望为零，并依据第 2、3 问解释。矩形近似中排除 $L$ 恰好为图 2 那类阶梯函数的平凡情况。
 5. 用 32 位浮点数实现矩形近似或蒙特卡洛积分时，发现 $N$ 超过某个很大的数后结果开始趋近于零。假设 $N$ 始终被精确计数，说明一种可能原因。
+
+
+## **Kai**
+
+### (1)
+
+Since $L$ is independent of $\theta$,
+
+$$
+I=\int_0^{2\pi}L(\phi)\,d\phi
+       \int_0^{\pi/2}\cos\theta\sin\theta\,d\theta
+ =\frac12\int_0^{2\pi}L(\phi)\,d\phi,
+$$
+
+because $[\sin^2\theta/2]_0^{\pi/2}=1/2$.
+
+### (2)
+
+There are $N$ intervals of width $\Delta\phi=2\pi/N$. Using each left endpoint gives
+
+$$
+\boxed{I_N^{\rm rect}=\frac12\sum_{i=0}^{N-1}L(\phi_i)\Delta\phi
+ =\frac\pi N\sum_{i=0}^{N-1}L(2\pi i/N).}
+$$
+
+The endpoint $\phi_N=2\pi$ does not start another interval and is not included in the sum.
+
+### (3)
+
+Choose $f(\phi)=L(\phi)/(2p(\phi))$. Then $E[f(\phi)]=I$, so
+
+$$\boxed{I_N^{\rm MC}=\frac1{2N}\sum_{i=1}^N\frac{L(\phi_i)}{p(\phi_i)}.}$$
+
+For uniform sampling, $p=1/(2\pi)$ and the estimator becomes $(\pi/N)\sum_iL(\phi_i)$. Positivity of $p$ permits the division throughout the domain.
+
+### (4)
+
+For the rectangle rule, the exact necessary and sufficient condition at the given $N$ is
+
+$$
+\sum_{i=0}^{N-1}\int_{\phi_i}^{\phi_{i+1}}
+  [L(\phi)-L(\phi_i)]\,d\phi=0.
+$$
+
+The individual interval errors may cancel. A nonconstant, non-step example is $L(\phi)=A+B\sin\phi$, with $A>|B|>0$. Its integral is $2\pi A$, while the equally spaced sample values have average $A$, since their sine values sum to zero. Thus $I_N^{\rm rect}=\pi A=I$. Constancy on every interval is sufficient but is not necessary.
+
+For the Monte Carlo estimator, the **expected signed error** is zero for every integrable $L$:
+
+$$
+E[I_N^{\rm MC}-I]=\frac1{2N}\sum_{i=1}^N
+ \int_0^{2\pi}\frac{L(\phi)}{p(\phi)}p(\phi)\,d\phi-I=0.
+$$
+
+This is unbiasedness; an individual realization can still have nonzero error. For independent samples with finite second moment,
+
+$$
+E[(I_N^{\rm MC}-I)^2]
+=\frac1{4N}\left[\int_0^{2\pi}\frac{L(\phi)^2}{p(\phi)}\,d\phi
+ -\left(\int_0^{2\pi}L(\phi)\,d\phi\right)^2\right].
+$$
+
+The **mean squared error, or expected absolute error**, is zero precisely when $L(\phi)/p(\phi)$ is constant almost everywhere. Since $L>0$, this is the importance-sampling choice
+
+$$\boxed{p(\phi)=\frac{L(\phi)}{\int_0^{2\pi}L(u)\,du}.}$$
+
+Every sample then contributes the same exact value. Under uniform sampling, this stronger zero-error condition requires $L$ to be constant almost everywhere. See [importance sampling](https://pbr-book.org/4ed/Monte_Carlo_Integration/Improving_Efficiency).
+
+### (5)
+
+A single-precision running sum can stop increasing even while the integer sample count continues to increase. For example, take $L=1$ with uniform sampling and compute $I_N=\pi S_N/N$ by summing $N$ copies of 1 into an IEEE 754 binary32 variable $S_N$. Binary32 has 24 significant binary digits. At $S_N=2^{24}$, the next representable larger number is $2^{24}+2$; rounding $2^{24}+1$ to nearest with ties to even leaves the sum at $2^{24}$. Every subsequent addition of 1 is lost too.
+
+Consequently, for larger exactly counted $N$, the computed result is approximately $\pi\,2^{24}/N$ and decreases toward zero. Pairwise or compensated summation, or a higher-precision accumulator, delays this loss of small increments.

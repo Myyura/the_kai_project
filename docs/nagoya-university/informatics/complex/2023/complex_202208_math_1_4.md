@@ -11,6 +11,14 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/153686fd38b76aec8fe63b4c47663818.pdf)
+
+相似変換の定義（題意の要約）：$Q^TQ=I$ を満たす実 $2\times2$ 行列 $Q$，
+$\lambda>0$，$h\in\mathbb R^2$ による $r'=\lambda Qr+h$ を考える。
+$\lambda=1$ のときは合同変換である。
+
+
+
 次の方程式 (c) で表される図形 $F_c$ を方程式 (d) で表される図形 $F_d$ に移す相似変換があれば、そのすべてを成分表示で示せ。そのような相似変換がなければ、「ない」と答えて、ないことを証明せよ。
 
 (c) $y = x^2$ ,

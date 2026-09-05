@@ -66,6 +66,8 @@ $$
 
 ## **Kai**
 
+In (1) and (2), the exponential formulas below apply to $s\ge0$ and $t\ge0$, respectively. For $s<0$ or $t<0$, the corresponding survival probability is $1$, since $S,T\ge0$.
+
 (1) Since $S = \min(X,Y)$ , and $X,Y$ are independent exponential random variables with parameters $\lambda_x$ and $\lambda_y$ respectively, $S$ is an exponential random variable with parameter $\lambda_x + \lambda_y$ .  Therefore, $Pr\{S > s\} = e^{-(\lambda_x + \lambda_y)s}$ .
 
 (2) $T = \max(S, Z)$ .  Therefore, $Pr\{T > t\} = Pr\{\max(S, Z) > t\} = 1 - Pr\{\max(S, Z) \le t\} = 1 - Pr\{S \le t, Z \le t\}$ .  Since $S$ and $Z$ are independent, $Pr\{T > t\} = 1 - Pr\{S \le t\}Pr\{Z \le t\} = 1 - (1 - e^{-(\lambda_x + \lambda_y)t})(1 - e^{-\lambda_z t}) = e^{-(\lambda_x + \lambda_y)t} + e^{-\lambda_z t} - e^{-(\lambda_x + \lambda_y + \lambda_z)t}$ .

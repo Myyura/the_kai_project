@@ -98,8 +98,10 @@ $$
 #### (c)
 
 $$
-\varepsilon_0E = \sigma \Rightarrow E = \frac{\sigma}{\varepsilon_0}
+\varepsilon_0E = \frac{\sigma}{a} \Rightarrow E = \frac{\sigma}{\varepsilon_0a}
 $$
+
+電界は上の導体から下の導体へ向かうので、$z$ 軸負方向である。
 
 #### (d)
 
@@ -119,36 +121,25 @@ B(x,t) = \frac{\mu_0}{a}I_0\cos(\omega t - kx)
 $$
 
 #### (f)
+$\sigma$ は単位長さあたりの電荷密度である。上の導体の電流を
+$I(x,t)=I_0\cos(\omega t-kx)$ とすると、電流連続の式は
 
 $$
-\overline{y} = \frac{I_0}{a}\cos(\omega t - kx)\hat{x}
+\frac{\partial\sigma}{\partial t}+\frac{\partial I}{\partial x}=0,
+\qquad
+\frac{\partial\sigma}{\partial t}=-kI_0\sin(\omega t-kx).
 $$
 
-$$
-\text{div}\ \overline{y} = \frac{dI}{dx} = \frac{I_0k}{a}\sin(\omega t - kx)
-$$
-
-電流連続の式より、
+直流成分のない定常交流を考えて積分すると、
 
 $$
-\text{div}\ \overline{y} = -\frac{\partial \sigma}{\partial t}
-$$
-
-$$
-\frac{I_0k}{a}\sin(\omega t - kx) = -\frac{\partial \sigma}{\partial t}
-$$
-
-$$
-\begin{aligned}
-\sigma &= -\frac{kI_0}{a}\int \sin(\omega t - kx)dt \\
-&= \frac{kI_0}{\omega a} \cos(\omega t - kx)
-\end{aligned}
+\sigma(x,t)=\frac{kI_0}{\omega}\cos(\omega t-kx).
 $$
 
 #### (g)
 
 $$
-E(x,t) = \frac{\sigma}{\varepsilon_0} = \frac{kI_0}{\varepsilon_0a\omega} \cos(\omega t - kx)
+E(x,t) = \frac{\sigma}{\varepsilon_0a} = \frac{kI_0}{\varepsilon_0a\omega} \cos(\omega t - kx)
 $$
 
 #### (h)
@@ -164,7 +155,7 @@ E(x,t) &= -\frac{kI_0}{a\varepsilon_0\omega}\cos(\omega t - kx)\hat{z} \\
 $$
 
 $$
-\frac{I_0k^2}{a\varepsilon_0\omega}\sin(\omega t - kx)\hat{y} = \frac{\mu_0I\omega}{a}\sin(\omega t - kx)\hat{y}
+\frac{I_0k^2}{a\varepsilon_0\omega}\sin(\omega t - kx)\hat{y} = \frac{\mu_0I_0\omega}{a}\sin(\omega t - kx)\hat{y}
 $$
 
 従って、

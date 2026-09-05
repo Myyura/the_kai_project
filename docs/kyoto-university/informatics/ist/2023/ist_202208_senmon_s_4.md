@@ -11,6 +11,8 @@ tags:
 [Isidore](https://github.com/heacsing), Passed, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_ist.pdf)
 Let $\Sigma = \{ 0, 1 \}$ be an alphabet for information sources. Assume that **irreducible and aperiodic** Markov information sources $S_1$ and $S_2$ consisting of finite numbers of states satisfy:
 
 - \[C1\] neither $S_1$ nor $S_2$ outputs any sequence including $11$, and  
@@ -53,19 +55,17 @@ $S_1,S_2$ 满足：
 ## **Kai**
 ### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202208_senmon_s_4_p1.png" width="400" alt=""/>
-</figure>
+![markov-s1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2023/kyoto-ist-2022-markov-s1.svg)
 
 After output $1$, the next output must be forced to $0$. Since $s_1$ is stochastic for $0<p<1$, this requires a distinct state, so two states are minimal.
 
 ### (2)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202208_senmon_s_4_p2.png" width="400" alt=""/>
-</figure>
+![markov-s2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2023/kyoto-ist-2022-markov-s2.svg)
 
 After an output $1$, the diagram enters $t_3$, whose next output is forced to be $0$, so \[C1\] holds. After three consecutive outputs $0$, it enters $t_4$, whose next output is forced to be $1$, so \[C2\] holds. Moreover, $t_1,t_2$ are stochastic because $0<p,q<1$, while a forced-$0$ state and a distinct forced-$1$ state are necessary; hence at least four states are required.
+
+All four states communicate for $0<p,q<1$. The return cycles $t_3\to t_1\to t_3$ and $t_3\to t_1\to t_2\to t_3$ have lengths $2$ and $3$, so the chain is aperiodic.
 
 ### (3)
 

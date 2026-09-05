@@ -14,6 +14,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h23/h23_kiso6.pdf)
+
 $\mathbb{R}^N$ の $n (< N)$ 次元線形部分空間を $V_n$ とし, $V_n$ 上の一次独立なベクトルを $v_1, v_2,..., v_n$ とする. さらに, $x$ を $\mathbb{R}^N$ 上の点とし, $x$ と $V_n$ との距離を
 
 $$

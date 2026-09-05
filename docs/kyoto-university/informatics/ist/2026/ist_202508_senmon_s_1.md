@@ -14,6 +14,8 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2025_ist.pdf)
 ### Q.1
 Let $\theta$ be the probability of getting heads in a coin toss. Assuming that $\theta$ is a random variable, we want to estimate the probability distribution of $\theta$ from observed data $D$ of independent coin tosses (Bernoulli trials). Here, we introduce a prior distribution of $\theta$ ($p(\theta)$) that follows a beta distribution $\text{Beta}(\theta; \alpha, \beta)$, where $\alpha$ and $\beta$ are the parameters. The probability density function of the beta distribution is given by
 
@@ -113,3 +115,51 @@ When reporting experimental results, it is recommended to include effect sizes a
    （1）$t$ 统计量与 Cohen's $d$ 都是两组均值差的标准化度量，但二者提供的信息不同。使用“样本量”这一概念解释区别。
 
    （2）在哪些情况下报告效应量尤其重要？说明具体情形及其原因。
+
+## **Kai**
+
+### Q.1
+
+(1) $B(1,1)=1$，故密度在 $[0,1]$ 上恒为 $1$，即均匀分布。
+
+(2) 若数据为正面次数 $K=k$，则
+
+$$p(D\mid\theta)=\binom nk\theta^k(1-\theta)^{n-k}.$$
+
+若记录的是一次确定的、有顺序的试验序列，则没有组合系数；两种似然关于 $\theta$ 的比例相同。
+
+(3) 将先验乘以似然后归一化，得
+
+$$p(\theta\mid D)=\frac{\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1}}{B(\alpha+k,\beta+n-k)},$$
+
+即 $\operatorname{Beta}(\alpha+k,\beta+n-k)$。
+
+### Q.2
+
+(1) 独立性给出
+
+$$\operatorname{Var}(S)=\operatorname{Var}(D)=100+100=200.$$
+
+(2) $\operatorname{Cov}(S,D)=\operatorname{Var}(M)-\operatorname{Var}(W)=0$。$(S,D)$ 是联合正态向量，所以二者独立。
+
+(3) 由 $M=(S+D)/2$、$W=(S-D)/2$，且给定 $S=s$ 不改变 $D$ 的分布，
+
+$$\operatorname{Cov}(M,W\mid S=s)=-\frac14\operatorname{Var}(D)=-50.$$
+
+(4) 两个条件方差均为 $200/4=50$，所以 $\rho=-1$。固定总分时，$W=s-M$ 是完全负线性关系。
+
+(5) 只保留 $S>c$ 时，分差 $D$ 仍与被截断的总分独立。因此
+
+$$\operatorname{Cov}(M,W\mid S>c)=\frac{\operatorname{Var}(S\mid S>c)-200}{4}<0.$$
+
+具体地，记 $z=(c-100)/\sqrt{200}$、$\lambda=\phi(z)/(1-\Phi(z))$，则截断正态方差为 $200(1+z\lambda-\lambda^2)<200$；因为 $\lambda=E[Z\mid Z>z]>z$ 且 $\lambda>0$。选择高总分者后，较低的一科成绩需要较高的另一科成绩来补偿。阈值筛选的相关系数通常介于 $-1$ 和 $0$ 之间，并不等于固定总分时的 $-1$。
+
+### Q.3
+
+(1) Cohen's $d=(\bar X_1-\bar X_2)/s_p$ 描述均值差相对于组内离散程度的大小。在独立两样本、共同方差的 $t$ 检验中，
+
+$$t=\frac{\bar X_1-\bar X_2}{s_p\sqrt{1/n_1+1/n_2}}=d\sqrt{\frac{n_1n_2}{n_1+n_2}}.$$
+
+同样的效应大小在样本量大时可以产生更大的 $|t|$ 和更小的 $p$ 值。$d$ 的定义不以样本量直接放大均值差，但估计 $d$ 的不确定性仍取决于样本量。
+
+(2) 大样本下很小、实际意义有限的差异也可能显著；小样本下有实际意义的差异则可能不显著。此时应同时报告效应量及其置信区间，区分效果大小与证据强弱。比较不同样本量的研究、进行荟萃分析、评价实际用途或规划检验功效时，效应量也比仅报告显著与否更有信息。

@@ -20,7 +20,11 @@ S=\{\boldsymbol{x}\in\mathbb R^n\mid A\boldsymbol{x}=\boldsymbol b\},
 \qquad f(\boldsymbol{x})=A\boldsymbol{x}
 $$
 
-とする。部分空間の判定条件 C1～C3 は証明なしに用いてよい。
+とする。実ベクトル空間 $V$ の部分集合 $W$ が部分空間となるための必要十分条件は、以下の C1～C3 である。この事実は証明なしに用いてよい。
+
+- C1. $\boldsymbol0\in W$。
+- C2. $\boldsymbol u,\boldsymbol v\in W$ ならば $\boldsymbol u+\boldsymbol v\in W$。
+- C3. $\boldsymbol u\in W,\ c\in\mathbb R$ ならば $c\boldsymbol u\in W$。
 
 (1) 次の $A$ に対し、$\ker f$ の次元と基底を1組求めよ。
 

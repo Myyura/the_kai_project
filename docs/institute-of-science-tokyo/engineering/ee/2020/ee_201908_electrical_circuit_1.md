@@ -106,9 +106,9 @@ SV_c(S) + \frac{1}{RC}V_c(S) &= \frac{V}{RC}(\frac{2}{S} - \frac{1}{S}e^{-aS}) \
 V_c(S) \frac{RCS + 1}{RC} &= \frac{V}{RCS}(2 - e^{-aS}) \\
 V_c(S) &= \frac{RC}{RCS + 1} \cdot \frac{V}{RCS}(2 - e^{-aS}) \\
 V_c(S) &= \frac{V}{S(SCR + 1)}(2 - e^{-aS}) \\
-&= \frac{V}{RC} \cdot \frac{1}{S(SCR + 1)}(2 - e^{-aS}) \\
+&= \frac{V}{RC} \cdot \frac{1}{S(S + \frac{1}{RC})}(2 - e^{-aS}) \\
 &= V(\frac{1}{S} - \frac{1}{S + \frac{1}{RC}})(2 - e^{-aS}) \\
-&= 2V(\frac{1}{S} - \frac{1}{S + \frac{1}{SC}}) - V(\frac{1}{S} - \frac{1}{S + \frac{1}{RC}})e^{-aS}
+&= 2V(\frac{1}{S} - \frac{1}{S + \frac{1}{RC}}) - V(\frac{1}{S} - \frac{1}{S + \frac{1}{RC}})e^{-aS}
 \end{aligned}
 $$
 
@@ -120,33 +120,23 @@ $$
 
 ### (5)
 
-$$
-v_c(a) = v(a)
-$$
+$t=a$ で電源電圧は $V$ へ下がる。キャパシタ電圧は連続なので、以後に放電する条件は $v_c(a)>V$ である。
 
 $$
-V = 2V(1 - e^{-\frac{a}{RC}})
+\begin{aligned}
+2V(1-e^{-a/(RC)})&>V\\
+e^{-a/(RC)}&<\frac12\\
+\frac{a}{RC}&>\log2.
+\end{aligned}
 $$
 
-$$
-1 < 2 - 2e^{-\frac{a}{RC}} 
-$$
+従って、
 
 $$
-e^{-\frac{a}{RC}} < \frac{1}{2}
+\boxed{a>RC\log2}.
 $$
 
-$$
--\frac{a}{RC} < \log\frac{1}{2}
-$$
-
-$$
-\frac{a}{RC} < \log2
-$$
-
-$$
-a < RC\log2
-$$
+等号の場合は $t\ge a$ で電流がゼロとなり、$a<RC\log2$ なら充電が続く。
 
 ### (6)
 

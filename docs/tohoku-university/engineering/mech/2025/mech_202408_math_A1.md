@@ -99,3 +99,7 @@ $$
 と書ける。
 
 よって、 $f=x-2y$ の極小値は $- \sqrt{3}$ で極大値は $\sqrt{3}$ である。
+
+## **Reference**
+
+- [東北大学 機械系 2024年度実施試験（数学A）](https://www.mech.tohoku.ac.jp/wp/wp-content/uploads/2026/02/Problem_2024_j.pdf)

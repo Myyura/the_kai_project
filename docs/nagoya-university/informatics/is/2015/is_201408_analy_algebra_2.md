@@ -30,6 +30,9 @@ $$
 
 で与えられているとき、 $\{x_n\}, \{y_n\}$ の一般項を求めよ。
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20210425112646id_/http://www.is.nagoya-u.ac.jp/exam-old/d21408.pdf)
+
 ### 题目描述
 
 对矩阵

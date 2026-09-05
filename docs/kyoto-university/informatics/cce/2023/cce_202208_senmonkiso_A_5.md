@@ -14,6 +14,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_cce.pdf)
 Answer all the following questions.
 
 (1) Consider a general communication system model, which consists of a source, destination, channel encoder, channel decoder, source encoder, source decoder, and communication channel. Draw this model as a block diagram.
@@ -56,15 +58,26 @@ Answer all the following questions.
 
 ## **Kai**
 ### (1) 
+
+![Communication system block diagram](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce/2023/kyoto-cce-2022-communication-model.svg)
 Source $\rightarrow$ source encoder $\rightarrow$ channel encoder $\rightarrow$ Communication channel $\rightarrow$ channel decoder $\rightarrow$ source decoder $\rightarrow$ destination 
 
 ### (2)
 #### (a)  
-"Memoryless" means the current output is not related to previous ones.  
-"stationary" means the output behaviour keeps the same over time. 
+"Memoryless" means that outputs at different times are independent.
+"Stationary" means that their probability distribution does not change with time.
 
 #### (b)
-construct the Huffman code:
+One Huffman code is
+
+$$
+A\mapsto0,\quad B\mapsto10,\quad C\mapsto110,\quad
+D\mapsto1110,\quad E\mapsto1111.
+$$
+
+Its merge weights are $0.04+0.08=0.12$, $0.12+0.12=0.24$, $0.16+0.24=0.40$, and $0.40+0.60=1$.
+
+The corresponding tree:
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_A_5_p1.png" width="500" alt=""/>
@@ -83,8 +96,10 @@ H(S) = \sum P_i \log_2 \frac{1}{P_i} = \frac{15}{25} \log_2 \frac{25}{15} + \fra
 $$
 
 $$
-= 1.668 \text{ bits/symbol}
+\approx 1.668 \text{ bits/symbol (using the supplied rounded logarithms)}
 $$
+
+Using accurate logarithms gives $H(S)\approx1.7095$ bits/symbol.
 
 ### (3)
 #### (a) 
@@ -96,13 +111,13 @@ $$
 #### (b)  
 $C = \max I(x; y) = \max H(y) - H(y|x)$  
 $H(y|x) = H(1-p, p) = -[p \log_2 p + (1-p) \log_2 (1-p)]$  
-$\max H(y)$ will be achieved when the output probability is uniform.  
+A uniform input makes the output uniform for every $p\in[0,1]$, so the upper bound $H(y)\leq1$ is attainable.
 $\max H(y) = H(\frac{1}{2}) = 1$. So that $C = 1 + p \log_2 p + (1-p) \log_2 (1-p).$ 
 
 The graph: 
 
 <figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202208_senmonkiso_A_5_p2.png" width="500" alt=""/>
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce/2023/kyoto-cce-2022-bsc-capacity.svg" width="500" alt=""/>
 </figure>
 
 #### (c)  

@@ -13,6 +13,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2021_amp.pdf)
 ### 日本語版
 $\boldsymbol{A} \in \mathbb{R}^{m \times n}, \boldsymbol{b} \in \mathbb{R}^m, \boldsymbol{C} \in \mathbb{R}^{n \times n}$ とする。
 パラメータ $\boldsymbol{x} = (x_1, \ldots, x_n)^\top \in \mathbb{R}^n$ をもつ次の非線形計画問題を考える。

@@ -23,7 +23,9 @@ $C_1, C_2, C_3$ はそれぞれ $z = x$ ( $0 \leq x \leq R$ ), $z = Re^{i\theta}
 
 (4) $\int_0^\infty \cos x^2 dx = \int_0^\infty \sin x^2 dx = \frac{\sqrt{\pi}}{2\sqrt{2}}$ が成り立つことを示せ.
 
-> 图像边界：原始 JSON 引用了 `question_images/九州大学_情报理工_2012_20251128_174927_210270.png`，但该文件没有随 JSON 一并提供。本文只保留能够由文字和公式确认的内容。
+> 出典：九州大学[平成25年度公式問題（保存版、PDF 6ページ）](https://web.archive.org/web/20180413175215id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H25infait.pdf#page=6)。
+
+![積分路 C1、C2、C3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/kyotsu/2013/kyushu-2013-fresnel-contour.svg)
 
 ### 题目描述
 
@@ -43,7 +45,7 @@ C_3&:\ z=re^{i\pi/4},\quad r\ \text{从 }R\text{ 减小到 }0.
 \end{aligned}
 $$
 
-也就是说，$C_1$ 是从原点沿正实轴到 $R$ 的线段，$C_2$ 是半径为 $R$、圆心角为 $\pi/4$ 的圆弧，$C_3$ 沿辐角 $\pi/4$ 的射线返回原点。原题引用的示意图文件缺失，但上述参数式已唯一确定积分路径。围绕积分
+也就是说，$C_1$ 是从原点沿正实轴到 $R$ 的线段，$C_2$ 是半径为 $R$、圆心角为 $\pi/4$ 的圆弧，$C_3$ 沿辐角 $\pi/4$ 的射线返回原点。围绕积分
 
 $$
 \oint_C e^{iz^2}\,dz

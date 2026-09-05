@@ -11,6 +11,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/e430ba234e241d162a59ab76f6efe083.pdf)
+
 以下の C 言語の問に答えよ。
 
 ### \[1\]
@@ -19,7 +22,7 @@ tags:
 ```c
 #include <stdio.h>
 int main(void){
-    int x1 = 0xaca, x2 = 1010;
+    int x1 = 0xacac, x2 = 1010;
     printf(" %4x %d %d %x \n", x2, x1+x2, x1|x2, x1>>3);
     return 0;
 }
@@ -107,8 +110,10 @@ int main(void){
 ### \[1\]
 
 ```text
-  3f2 3772 3066 159 
+  3f2 45214 45054 1595
 ```
+
+末尾には半角空白が1個ある。
 
 ### \[2\]
 

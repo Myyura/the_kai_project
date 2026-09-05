@@ -11,6 +11,9 @@ tags:
 
 ## **Description**
 
+出典：[名古屋大学・令和5年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/0c8cfd0a7f9c85180fb8c16d9c008ae0.pdf)。
+
+
 複素数 $z = e^{i(a + \frac{b}{10}i)x}$ について,次の問いに答えよ。ただし、 $i$ は虚数単位である。
 
 (a) $z$ の実部 $\text{Re}(z)$ と虚部 $\text{Im}(z)$ をそれぞれ示せ。

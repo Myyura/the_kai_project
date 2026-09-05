@@ -14,6 +14,8 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/17b639d81a91ac5dca245f353c6a2378.pdf)
+
 確率変数 $X, Y$ の同時確率密度関数 $f_{X,Y}(x, y)$ が次式で与えられるとき、以下の問いに答えよ。
 
 $$

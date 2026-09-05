@@ -11,29 +11,34 @@ tags:
 
 ## **Description**
 
-[2023年度大学院入学試験問題 数学](https://github.com/Myyura/the_kai_project_assets/blob/2672b44819e556e6b7835902e6d69059ff935039/kakomonn/tokyo_university/engineering/Description/M_J_E_2023.pdf)
+### 題意の要約
+
+[公式問題 PDF・5ページ](https://www.t.u-tokyo.ac.jp/hubfs/M_J_E_2023.pdf#page=5)
+
+実数 $a$ に対し
+$$A=\begin{pmatrix}2&1&0\\1&3&a\\0&a&2\end{pmatrix}$$
+とする。対角行列 $D$ と正則行列 $P$ による $A=PDP^{-1}$ を考える。
+
+I. $a=1$ の場合の $D$ を求める。
+
+II. $a=1$ のとき、任意の非零実ベクトル $\boldsymbol x\in\mathbb R^3$ に対して $\boldsymbol x^TA\boldsymbol x>0$ を示す。
+
+III. この不等式が任意の非零実ベクトルに対して成り立つための $a$ の条件を求める。
+
+IV. III の条件のもとで、$\boldsymbol b=(a,0,-1)^T$ に対する $f(\boldsymbol x)=\boldsymbol x^TA\boldsymbol x-\boldsymbol b^T\boldsymbol x$ の最小値を $a$ で表す。
 
 ### 题目描述
 
-原 Description 仅提供 2023 年数学原卷链接，具体题干缺失。根据本地 Kai，能够确认题目围绕实对称矩阵
+给定实参数 $a$ 和矩阵
 $$
-A(a)=\begin{pmatrix}
-2&1&0\\
-1&3&a\\
-0&a&2
-\end{pmatrix}
+A=\begin{pmatrix}2&1&0\\1&3&a\\0&a&2\end{pmatrix},
 $$
-展开：
+考虑对角矩阵 $D$ 和可逆矩阵 $P$ 使 $A=PDP^{-1}$。
 
-1. 当 $a=1$ 时求 $A$ 的特征值，并写出相似对角形 $D$。
-2. 利用实对称矩阵可正交对角化，证明当 $a=1$ 时对任意非零实向量 $\boldsymbol x$ 都有 $\boldsymbol x^TA\boldsymbol x>0$。
-3. 对一般实参数 $a$，求使 $A(a)$ 正定的范围。
-4. 在上述正定范围内，令
-   $$
-   f(\boldsymbol x)=\boldsymbol x^TA(a)\boldsymbol x-
-   \begin{pmatrix}a&0&-1\end{pmatrix}\boldsymbol x,
-   $$
-   求使 $f$ 最小的 $\boldsymbol x=(x_1,x_2,x_3)^T$ 及最小值。
+1. 当 $a=1$ 时求 $D$。
+2. 当 $a=1$ 时，证明任意非零实向量 $\boldsymbol x\in\mathbb R^3$ 都满足 $\boldsymbol x^TA\boldsymbol x>0$。
+3. 求使这一不等式对任意非零实向量均成立的 $a$ 的范围。
+4. 在上述范围内，令 $\boldsymbol b=(a,0,-1)^T$，求 $f(\boldsymbol x)=\boldsymbol x^TA\boldsymbol x-\boldsymbol b^T\boldsymbol x$ 的最小值关于 $a$ 的表达式。
 
 ## **Kai**
 ### I.
@@ -193,7 +198,7 @@ $$
 \end{aligned}
 $$
 
-である。よって、 $f(\boldsymbol{x})$ が最小になるのは、$x_1, x_2, x_3$ が
+である。Hessian は $2A$ で正定値なので、停留点は一意な大域的最小点である。よって、 $f(\boldsymbol{x})$ が最小になるのは、$x_1, x_2, x_3$ が
 
 $$
 \begin{aligned}

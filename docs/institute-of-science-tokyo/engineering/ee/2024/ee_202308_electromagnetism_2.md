@@ -88,7 +88,7 @@ $$
 $$
 \begin{aligned}
 V &= - N\frac{d\Phi}{dt} \\
-&= -\pi a^2 NB \frac{d\Phi}{dt} \big(\cos(\omega t)\big) \\
+&= -\pi a^2 NB \frac{d}{dt} \big(\cos(\omega t)\big) \\
 &= -\pi a^2 NB \omega \big(-\sin(\omega t)\big) \\
 &= \pi a^2 NB \omega \sin(\omega t)
 \end{aligned}
@@ -136,23 +136,20 @@ $$
 よって、電荷量 $Q$ は、$\omega$ に依存しない。
 
 #### ③
-相互インダクタンスは、
+電流の右ねじ方向を向く単位法線を $\hat{\boldsymbol n}$ とすると、磁気モーメントとトルクは
 
 $$
-N\Phi = MI \Rightarrow M = \frac{N}{I}\pi a^2 B\cos\theta 
+\boldsymbol m=NI\pi a^2\hat{\boldsymbol n},\qquad
+\boldsymbol T=\boldsymbol m\times\boldsymbol B.
 $$
 
-エネルギー $U$ は
+従ってトルクの大きさは $NI\pi a^2B|\sin\theta|$ であり、磁気モーメントを磁場と平行にする向きに働く。$\theta$ を増す向きを正とした成分は
 
 $$
-U = MI^2 = \pi a^2 NIB \cos\theta
+T_\theta=-NI\pi a^2B\sin\theta.
 $$
 
-よって、トルク $T$ は
-
-$$
-T = \bigg|\frac{dU}{d\theta}\bigg| = \pi a^2 NIB \sin\theta
-$$
+これは磁気双極子のポテンシャルエネルギー $U=-\boldsymbol m\cdot\boldsymbol B=-NI\pi a^2B\cos\theta$ から $T_\theta=-\partial U/\partial\theta$ としても求まる。
 
 ### (3)
 #### ①
@@ -180,4 +177,4 @@ B &= 2 \cdot \frac{\mu_0 NI a^2}{2(a^2 + \frac{a^2}{4})^{\frac{3}{2}}} = \frac{\
 \end{aligned}
 $$
 
-コイル間中心軸よで、一定、一様の磁束密度が表れる。
+この配置はヘルムホルツコイルである。中点において軸方向磁束密度の一次・二次微分がともに $0$ となるため、中点付近には近似的に一様な磁場ができる。コイル間の全域で厳密に一定になるわけではない。

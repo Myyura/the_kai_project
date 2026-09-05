@@ -139,6 +139,15 @@ $$
 
 #### (2)
 
+単位円を $x=\cos\theta,\ y=\sin\theta$ とおくと、
+
+$$
+\frac{d}{d\theta}g(\cos\theta,\sin\theta)
+=-\cos2\theta\,e^{-\sin2\theta/2}.
+$$
+
+したがって停留点は $\cos2\theta=0$、すなわち $x=\pm y$ に限られる。
+
 $g=e^{-xy}$ は $xy$ の狭義単調減少関数なので、単位円上で $xy$ が極値を取る点を調べればよい。
 
 $$

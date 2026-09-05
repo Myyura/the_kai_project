@@ -147,7 +147,7 @@ MSS3 (A, n, k):
   return maxV
 ```
 
-Instead of using arrays B and C, I implemented an optimized algorithm using sliding window and dynamic programming with O(1) space complexity.
+Here scalar `B` is the sum of the last $k$ elements. A best admissible subarray ending at $i$ either extends the best one ending at $i-1$, or starts at $i-k+1$. Thus the recurrence takes $O(n)$ time and $O(1)$ additional space.
 
 Subarray: `< 2, -3, 3, -2, 5, 3 >`
 
@@ -155,3 +155,5 @@ Subarray: `< 2, -3, 3, -2, 5, 3 >`
 replace `B = B + A[j]` (line 3) with `B = B + A[j] - L`
 and replace `sumV = max(sumV + A[i], B)` (line 8) with `sumV = max(sumV + A[i] - L, B)`
 and replace `return maxV` (line 10) with `return maxV >= 0`
+
+For a segment of length $m$, $\sum(A_i-L)\ge0$ is equivalent to $\frac{1}{m}\sum A_i\ge L$. The sliding-window update is unchanged because the two $L$ terms cancel. Hence these changes apply MSS3 to the transformed elements and test the required condition in $O(n)$ time.

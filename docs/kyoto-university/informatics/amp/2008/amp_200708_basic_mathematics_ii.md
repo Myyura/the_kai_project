@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h20/h20_kiso6.pdf)
+
 nを2以上の自然数とし, Vandermonde行列 $V_n$ および Hankel行列 $H_n$ を
 
 $$
@@ -124,7 +126,11 @@ $$
 
 ### (i) Vandermonde 行列式
 
-通常の Vandermonde 行列式の公式から、
+$D_n=\det V_n$ を $x_n$ の多項式とみると次数は高々 $n-1$ である。$x_n=x_i$（$i<n$）では第 $i$ 列と第 $n$ 列が一致するので $D_n=0$ となり、$x_n^{n-1}$ の係数は最終列による展開から $D_{n-1}$ である。従って多項式の恒等式として
+
+$$D_n=D_{n-1}\prod_{i=1}^{n-1}(x_n-x_i)$$
+
+が成り立つ。$D_1=1$ から帰納的に、
 
 $$
 \det V_n=\prod_{1\leq i<j\leq n}(x_j-x_i)

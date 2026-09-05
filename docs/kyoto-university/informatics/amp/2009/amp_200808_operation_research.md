@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h21/h21_senmon3.pdf)
+
 次の凸計画問題を考える。
 
 P : minimize $\quad - \sum_{i=1}^n \ln(x_i + c_i)$

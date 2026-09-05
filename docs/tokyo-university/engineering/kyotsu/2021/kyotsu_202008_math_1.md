@@ -11,31 +11,42 @@ tags:
 
 ## **Description**
 
-2021年度大学院入学試験問題
-[数学 1 ( 主に微分積分・微分方程式)](https://github.com/Myyura/the_kai_project_assets/blob/d6bcfb7f9c3ba8257a9649b816e8903f4a4bf22f/kakomonn/tokyo_university/engineering/Description/2021_M_1.pdf)
+[公式原題](https://www.t.u-tokyo.ac.jp/hubfs/pdf/2021_M_1.pdf)
 
+### I.
+1. $0<x<1$、$0<\arccos x<\pi/2$ における $y=(\arccos x)^{\log x}$ の導関数を求める。
+2. 実定数 $p$ に対し $\int (x^2+x+2)/(x^3-px^2)\,dx$ を計算する。
+3. $0<\theta<\pi/2$ に対し
+$$\int_0^{\sin\theta}\frac{\arctan(\arcsin x)}{\sqrt{1-x^2}}\,dx$$
+を求める。
 
+### II.
+実定数 $a,b$ と複素数値関数 $p,q$ が
+$$p'=-ibq\,e^{-2iax},\qquad q'=-ibp\,e^{2iax}$$
+を満たす。
+
+1. $f=pe^{iax}$、$g=qe^{-iax}$ と変換して $f,g$ の連立微分方程式を導く。
+2. $|f|^2+|g|^2$ が $x$ に依存しないことを示す。
+3. $a=0.8,b=0.6,f(0)=1,g(0)=0$ の場合の $f,g$ を求める。
 
 ### 题目描述
 
-原 Description 仅提供 2021 年“数学 1”原卷链接，具体题干缺失。根据本地 Kai，能够唯一确认以下内容：
-
 1. 第一部分包括三项计算：
-   - 求 $y(x)=(\arccos x)^{\log x}$ 的导数；
+   - 在 $0<x<1$、$0<\arccos x<\pi/2$ 内求 $y(x)=(\arccos x)^{\log x}$ 的导数；
    - 对实参数 $p$，分别在 $p=0$ 与 $p\ne0$ 时计算
 
      $$
      \int\frac{x^2+x+2}{x^3-px^2}\,\mathrm dx;
      $$
 
-   - 对 $0\le\theta<\pi/2$，计算
+   - 对 $0<\theta<\pi/2$，计算
 
      $$
      I=\int_0^{\sin\theta}
      \frac{\arctan(\arcsin x)}{\sqrt{1-x^2}}\,\mathrm dx.
      $$
 
-2. 第二部分涉及由复函数 $p(x),q(x)$ 构造的 $f(x),g(x)$。Kai 使用
+2. 第二部分设 $a,b$ 为实常数，复函数满足 $p\prime=-ibq e^{-2iax}$、$q\prime=-ibp e^{2iax}$。令 $f=pe^{iax}$、$g=qe^{-iax}$，先导出
 
    $$
    f' = iaf-ibg,\qquad g'=-ibf-iag

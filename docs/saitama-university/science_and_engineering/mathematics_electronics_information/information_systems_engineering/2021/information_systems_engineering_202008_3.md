@@ -122,29 +122,27 @@ $$
 (a)
 (1) Since X follows a Poisson distribution with parameter $\lambda_1$ , the expectation is $E[X] = \lambda_1$ .
 
-(2) Since X and Y are independent Poisson random variables with parameters $\lambda_1$ and $\lambda_2$ respectively, Z = X + Y follows a Poisson distribution with parameter $\lambda_1 + \lambda_2$ .
+(2) Put $z=x+y$ and $p=\lambda_1/(\lambda_1+\lambda_2)$. Independence gives
 
 $$
-P(Z=z) = \frac{e^{-(\lambda_1+\lambda_2)} (\lambda_1+\lambda_2)^z}{z!} , z = 0,1,2,...
+\begin{aligned}
+P(X=x,Y=y)
+&=e^{-(\lambda_1+\lambda_2)}\frac{\lambda_1^x\lambda_2^y}{x!y!}\\
+&=\frac{e^{-(\lambda_1+\lambda_2)}(\lambda_1+\lambda_2)^z}{z!}
+\binom zx p^x(1-p)^{z-x}.
+\end{aligned}
 $$
 
-Then, conditional distribution of X given Z = z is
+This is the required product of a Poisson mass at $z$ and a binomial mass at $x$.
+
+(3) Sum the identity in (2) over $x=0,\ldots,z$. The binomial masses sum to $1$, so
 
 $$
-P(X=x|Z=z) = \frac{P(X=x, Z=z)}{P(Z=z)} = \frac{P(X=x, Y=z-x)}{P(Z=z)} = \frac{P(X=x)P(Y=z-x)}{P(Z=z)}
+P(Z=z)=\frac{e^{-(\lambda_1+\lambda_2)}(\lambda_1+\lambda_2)^z}{z!},
+\qquad z=0,1,2,\ldots.
 $$
 
-$$
-= \frac{\frac{e^{-\lambda_1}\lambda_1^x}{x!} \frac{e^{-\lambda_2}\lambda_2^{z-x}}{(z-x)!}}{\frac{e^{-(\lambda_1+\lambda_2)} (\lambda_1+\lambda_2)^z}{z!}} = \frac{z!}{x!(z-x)!} \frac{\lambda_1^x \lambda_2^{z-x}}{(\lambda_1+\lambda_2)^z} = \binom{z}{x} (\frac{\lambda_1}{\lambda_1+\lambda_2})^x (\frac{\lambda_2}{\lambda_1+\lambda_2})^{z-x}
-$$
-
-Therefore, X given Z=z follows a binomial distribution Bin( $z, \frac{\lambda_1}{\lambda_1+\lambda_2}$ ). The joint distribution of X and Y is written as the product of a Poisson distribution with a parameter $\lambda_1 + \lambda_2$ and a binomial distribution Bin( $x+y, \frac{\lambda_1}{\lambda_1 + \lambda_2}$ ).
-
-(3) From (2), Z = X + Y follows a Poisson distribution with parameter $\lambda_1 + \lambda_2$ .
-
-$$
-P(Z=z) = \frac{e^{-(\lambda_1+\lambda_2)} (\lambda_1+\lambda_2)^z}{z!} , z = 0,1,2,...
-$$
+Thus $Z\sim\operatorname{Poisson}(\lambda_1+\lambda_2)$.
 
 (4) Since Z follows a Poisson distribution with parameter $\lambda_1 + \lambda_2$ , the expectation is $E[Z] = \lambda_1 + \lambda_2$ .
 

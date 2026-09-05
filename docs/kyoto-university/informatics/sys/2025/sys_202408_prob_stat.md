@@ -15,6 +15,8 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/688805310000000023004466?xsec_token=ABtHY7I1RxAUjhEZPeviabmyl25PBJsqTKCU1yTe5ns54=), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_sys.pdf)
 以下の問題において， $E(X)$ は確率変数 $X$ の期待値， $V(X)$ は分散を表す。 $N(\mu, \sigma^2)$ は期待値 $\mu$ ，分散 $\sigma^2$ の正規分布を表す。 $\log x$ は自然対数を表す。
 
 ### 問題1
@@ -188,22 +190,61 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_prob_stat_p1.jpg" width="700" alt=""/>
 </figure>
 
+問題1 (3) の分散は正定値二次形式であり、不偏性の制約は線形である。従って求めた停留点は一意な大域的最小点となる。
+
 ### 問題2
+#### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_prob_stat_p2.jpg" width="700" alt=""/>
-</figure>
-
-#### 問題2 (2) の補足
-
-$Y\geq0$ であることを含めると、確率密度関数は
+$\alpha>1$ より積分が収束し、
 
 $$
-f_Y(y)=
-\begin{cases}
-\alpha e^{-\alpha y},&y\geq0,\\
-0,&y<0
-\end{cases}
+E[X]=\alpha b^\alpha\int_b^\infty x^{-\alpha}\,dx
+=\boxed{\frac{\alpha b}{\alpha-1}}.
 $$
 
-である。
+#### (2)
+
+$X\ge b$ なので $Y\ge0$ である。$y\ge0$ に対して
+
+$$
+P(Y\le y)=P(X\le be^y)=1-e^{-\alpha y}.
+$$
+
+従って
+
+$$
+\boxed{f_Y(y)=\begin{cases}
+\alpha e^{-\alpha y},&y\ge0,\\
+0,&y<0.
+\end{cases}}
+$$
+
+#### (3)
+
+所定の関係から $g(x)=c\,x^{-1-1/\alpha}$（$x\ge b$）と書ける。正規化条件によって
+
+$$
+1=c\int_b^\infty x^{-1-1/\alpha}\,dx
+=c\alpha b^{-1/\alpha}.
+$$
+
+従って
+
+$$
+\boxed{g(x)=\frac{b^{1/\alpha}}{\alpha}x^{-1-1/\alpha}},\qquad x\ge b.
+$$
+
+#### (4)
+
+$Z=\int_b^\infty g(s)^\alpha\,ds$ とおく。$\log f=\alpha\log g-\log Z$ だから、
+
+$$
+\int f\log g=\frac1\alpha\left(-H+\log Z\right).
+$$
+
+$\log Z=(1-\alpha)R$ を用いると、
+
+$$
+D[f\|g]=-H+\frac H\alpha-\frac{(1-\alpha)R}{\alpha}
+=\boxed{\frac{\alpha-1}{\alpha}(R-H)}.
+$$

@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+> 出典：九州大学[公式問題（保存版）](https://web.archive.org/web/20180413175215id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H25infait.pdf)。
+
 次の微分方程式の一般解を求めよ.なお、 $y'$ は関数 $y(x)$ の $x$ に関する1階導関数を表している。
 
 (1) $y' = \frac{3x + y - 5}{x - 3y - 5}$
@@ -82,6 +84,14 @@ $\frac{1}{3} \arctan(\frac{Y}{X}) - \frac{1}{2} \ln(X^2 + Y^2) + \ln|X| = \ln|X|
 $\frac{1}{3} \arctan(\frac{Y}{X}) - \frac{1}{2} \ln(X^2 + Y^2) = C_1$
 
 $\frac{1}{3} \arctan(\frac{y+1}{x-2}) - \frac{1}{2} \ln((x-2)^2 + (y+1)^2) = C_1$
+
+This arctangent expression is local to intervals with $x\ne2$. More generally, choose a continuous argument $\theta=\operatorname{Arg}((x-2)+i(y+1))$ along the solution and write
+
+$$
+\frac{\theta}{3}-\frac12\log\bigl((x-2)^2+(y+1)^2\bigr)=C_1.
+$$
+
+This also describes regular solutions crossing $x=2$ with $y\ne-1$. The original differential equation requires $x-3y-5\ne0$; the point $(2,-1)$ is excluded.
 
 ### (2) $y'' - 2y' - 3y = e^x + e^{3x} + \cos x$
 

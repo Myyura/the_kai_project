@@ -54,7 +54,7 @@ $$
 ### [小問 1]
 
 $$
-\int\frac{dx}{\sqrt{a^2-x^2}}=\arcsin\frac xa
+\int\frac{dx}{\sqrt{a^2-x^2}}=\arcsin\frac xa+C
 $$
 
 なので

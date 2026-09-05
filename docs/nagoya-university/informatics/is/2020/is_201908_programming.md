@@ -5,7 +5,7 @@ tags:
   - Computer-Science.Data-Structures.Hash-Table
   - Computer-Science.Programming
 ---
-# 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2019年8月実施 プログラミング
+# 名古屋大学 情報学研究科 情報システム学専攻 2019年8月実施 プログラミング
 
 ## **Author**
 祭音Myyura
@@ -35,8 +35,8 @@ outputarrays 関数は、hfirst 配列、element 配列、next 配列をそれ�
 
 (5) プログラム A を実行した際に、78 行目の outputarrays 関数の呼び出しにより標準出力に出力される文字列を書け。ただし、プログラム A は (2) の置き換えを行っていないものとする。
 
-#### <center> プログラム A
-```text
+#### プログラム A
+```c showLineNumbers
 #include <stdio.h>
 #define MAXSIZE     1000
 #define P           17
@@ -119,6 +119,9 @@ int main() {
 }
 ```
 
+
+[出典：名古屋大学 入学試験問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/a97337f43bb3cfc53628b0e17cd88019.pdf)
+
 ### 题目描述
 
 程序 A 使用哈希表管理正整数集合。各哈希值对应的链式列表由三个数组实现：`element` 保存整数，`next` 保存同一链中下一元素在 `element` 中的下标，`hfirst[h]` 保存哈希值为 $h$ 的链首下标；值 `-1` 表示链为空。哈希函数为 `data % 17`。`search`、`insert`、`delete` 分别完成查找、插入、删除，`avail` 管理可复用槽位，`outputarrays` 输出三个数组。完整程序见上文。
@@ -147,7 +150,7 @@ int main() {
 ```
 
 ### (3)
-When hash value of all elements in array "data" are same, the time complexity of function "search" is linear to the size of array "data".
+Search becomes slower when many integers have the same remainder modulo 17, because they occupy one long chain. If all $n$ elements collide, an unsuccessful search in that bucket, or a successful search near its end, takes $\Theta(n)$ time.
 
 ### (4)
 - \[ 空欄 (ア) \]: next[u]

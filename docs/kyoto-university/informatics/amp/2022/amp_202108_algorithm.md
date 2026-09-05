@@ -11,6 +11,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2021_amp.pdf)
 ### 日本語版
 $G=(V,E)$ を点集合 $V$ ，枝集合 $E$ から成る単純有向グラフとする．
 $R(u; G)$ を $G$ において点 $u$ から有向路で到達できる点の集合と定め，$\text{dist}(u, v,; G)$ を点 $u$ から点 $v$ へ至る $G$ の有向路の最短の長さとする．

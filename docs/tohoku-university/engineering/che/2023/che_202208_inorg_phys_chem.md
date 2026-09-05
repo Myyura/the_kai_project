@@ -6,19 +6,31 @@ tags:
   - Chemistry.Physical-Chemistry.Entropy-Change
   - Chemistry.Inorganic-Chemistry
 ---
-# 東北大学 工学研究科 化学・バイオ系 2022年8月実施 基礎科目 無機・物理化学 
+# 東北大学 工学研究科 化学・バイオ系 2022年8月実施 基礎科目 無機・物理化学
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
 
+### 題意の要約（暫定）
+
+【問2】物質量 $n$ の単原子理想気体を考える。そのモル内部エネルギーは
+
+$$U_{\mathrm m}(T)=\frac32RT.$$
+
+である。
+
+1. 定積モル熱容量 $C_{V,\mathrm m}$ を求めよ。
+2. 温度が $T_{\mathrm i}$ から $T_{\mathrm f}$ に変化する定積可逆過程のエントロピー変化を求めよ。
+3. 体積が $V_{\mathrm i}$ から $V_{\mathrm f}$ に変化する等温可逆過程のエントロピー変化を求めよ。
+4. 気体 A の初期状態は $300\,\mathrm K$、$1.00\,\mathrm{bar}$、$1.00\,\mathrm{dm^3}$、最終状態は $600\,\mathrm K$、$2.00\,\mathrm{dm^3}$ である。単原子理想気体と仮定し、エントロピーが状態関数であることを用いて全エントロピー変化を求めよ。
+
 ### 题目描述
 
-原文的题目描述缺失。第 1 题的题干与解答均未保留；第 2 题可依据现有解答整理如下。
 
-1. 【问题 1】现有资料不足以还原。
-2. 【问题 2】考虑物质的量为 $n$ 的单原子理想气体，其摩尔内能为
+
+【问题 2】考虑物质的量为 $n$ 的单原子理想气体，其摩尔内能为
    $$U_{\mathrm m}(T)=\frac32RT.$$
    1. 求定容摩尔热容 $C_{V,\mathrm m}$；
    2. 求气体从温度 $T_{\mathrm i}$ 变到 $T_{\mathrm f}$ 的定容可逆过程熵变；
@@ -60,7 +72,7 @@ $$
 \\
 &= nR \int_{V_\mathrm{i}}^{V_\mathrm{f}} \frac{dV}{V}
 \\
-&= nR \ln \frac{V_\mathrm{i}}{V_\mathrm{f}}
+&= nR \ln \frac{V_\mathrm{f}}{V_\mathrm{i}}
 \end{aligned}
 $$
 
@@ -81,7 +93,7 @@ $$
 エントロピーは状態量であるから、次のように考えることができる。
 $300 \ \mathrm{K}, 1.00 \ \mathrm{bar}, 1.00 \ \mathrm{dm^3}$
 から定容で準静的に $600 \ \mathrm{K}$ に加熱したときのエントロピー変化は、
-1) より
+問 (2) より
 
 $$
 \begin{aligned}
@@ -91,7 +103,7 @@ $$
 
 であり、 $600 \ \mathrm{K}, 1.00 \ \mathrm{dm^3}$ から
 等温で準静的に $2.00 \ \mathrm{dm^3}$ に膨張したときのエントロピー変化は、
-1) より
+問 (3) より
 
 $$
 \begin{aligned}
@@ -103,7 +115,7 @@ $$
 
 $$
 \begin{aligned}
-\Delta S_1 + \Delta S_2 &= \frac{5}{6} \ln 2
+\Delta S_1 + \Delta S_2 &= \frac{5}{6} \ln 2\ \mathrm{J\,K^{-1}}
 \end{aligned}
 $$
 

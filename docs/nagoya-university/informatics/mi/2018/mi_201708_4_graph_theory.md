@@ -10,6 +10,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+出典：[名古屋大学公表問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/efb35e441baccf128184e9f443886749.pdf)。
+
 頂点 (vertex) 集合 $V$、辺 (edge) 集合 $E$ をもつ無向グラフ (undirected graph) $G = (V, E)$ を考える。
 
 - $G$ を平面上に辺が交差することなく描画できるとき (non-crossing drawing exists)、そのように描画したものを平面グラフ (plane graph) と呼び、辺によって分割された領域のそれぞれを面 (face) と呼ぶ。平面グラフの外側の領域も面の一つである (外面 (outer face))。例えば図１は平面グラフであり $f_1$ から $f_5$ までの面がある。
@@ -29,17 +32,11 @@ tags:
 
 (5) (3) で取り上げたオイラーの公式 $|V| - |E| + f = 2$ を証明せよ。必要ならば、木においては $|E| = |V| - 1$ が成立することを用いて良い。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/mi_201708_4_graph_theory_p1.png" width="344" height="215" alt=""/>
-</figure>
+![図1](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/mi/2018/nagoya-mi2018-graph1.svg)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/mi_201708_4_graph_theory_p2.png" width="190" height="215" alt=""/>
-</figure>
+![図2](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/mi/2018/nagoya-mi2018-graph2.svg)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/mi_201708_4_graph_theory_p3.png" width="128" height="176" alt=""/>
-</figure>
+![図3](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/mi/2018/nagoya-mi2018-graph3.svg)
 
 ### 题目描述
 
@@ -66,6 +63,9 @@ tags:
 5. 证明 Euler 公式 $|V|-|E|+f=2$；必要时可使用树满足 $|E|=|V|-1$。
 
 ## **Kai**
+
+以下ではループや多重辺のない単純グラフを扱い、閉路は始点と終点以外で頂点を繰り返さない長さ 3 以上のものとする。
+
 ### (1)
 - 図１: 頂点数 $8$, 辺数 $11$, 面数 $5$
 - 図２: 頂点数 $7$, 辺数 $6$, 面数 $1$
@@ -87,8 +87,7 @@ tags:
 
 以下 $|V|\geq 3$ とする。連結でない場合は、異なる連結成分を適当な面内の辺で結んで連結化できるので、連結な場合を示せば十分である。
 
-外部領域も含め全ての領域が３本以上の辺に囲まれている。
-そして、各辺は２つの領域を分けているから、各領域を囲む辺を全て数え上げると各辺を２度数えることになるので
+連結な単純平面グラフで $|V|\ge3$ なら、各面の境界の長さは 3 以上である。各辺には二つの側があり、橋ではその両側が同じ面に接する。橋をその面の境界で 2 回数えると、全ての面の境界長の和は $2|E|$ となるので
 
 $$
 \begin{align}
@@ -109,7 +108,7 @@ $$
 $$
 
 ### (4)
-$K_3$ と $K_4$ は平面グラフ。（証明は略）
+$K_3$ は三角形として描ける。$K_4$ は三角形の内部に第 4 頂点を置き、これを外側の 3 頂点に結べば、6 本の辺を交差なしで描ける。
 
 $K_5$ は平面グラフではない。$K_5$ は $|E|=10$、$|V|=5$ なので、もし平面グラフの形に書けたとすると、(3) により
 
@@ -133,7 +132,7 @@ $$
 G' = G - e
 $$
 
-を考えます。$G'$ は $G$ の部分グラフゆえ平面グラフで、そのパラメータを $|V'|$, $|E'|$, $f'$ とおくと
+を考えます。$e$ は閉路上にあるので、除去しても $G'$ は連結である。また、$G$ の部分グラフなので平面グラフで、そのパラメータを $|V'|$, $|E'|$, $f'$ とおくと
 
 - 頂点は消していないので $|V'|=|V|$
 - 辺は 1 本除去したので $|E'|=|E|-1$

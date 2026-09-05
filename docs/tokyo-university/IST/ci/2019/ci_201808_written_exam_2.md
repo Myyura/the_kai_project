@@ -15,6 +15,8 @@ tags:
 
 ## **Description**
 
+[原題（日本語）](https://www.i.u-tokyo.ac.jp/edu/course/ci/2018-8-exam.pdf)
+
 ### 日本語
 
 太陽光発電システムについて考えよう。ソーラーパネルの維持管理のため、以下のような運用規則が定められているとする。  
@@ -94,15 +96,16 @@ return k
 Time complexity is $O(n)$ since every bit is examined once. Each iteration uses one AND, one addition, and one shift, so the exact computation time is $3n$ units (96 only when $n=32$).
 
 ### (2)
-We tear apart the 32 bit number into 4 chunks of 8 bits each. We then use a lookup table of size $2^{8}=256$ to find the population count of each chunk and sum them up.
-```
-k = lookup_table[(status & 0xFF000000) >> 24] + lookup_table[(status & 0x00FF0000) >> 16] +
-    lookup_table[(status & 0x0000FF00) >> 8] + lookup_table[status & 0x000000FF]
-```
-The lookup table is pre-computed and contains 256 entries (tractable). This will cause $O(1)$ time complexity since we are only going over 4 chunks. 
-Exact computation time would be $4+4+3+3=14$ units of time (4 lookups, 4 AND operations, 3 shifts, 3 additions).
+Precompute $T[s]$, the number of set bits, for every possible $n$-bit word $s$. Then `return T[status]` costs exactly **one table lookup**, using $2^n$ table entries. Precomputation is performed before the query.
 
-Alternatively, a table indexed by the entire $n$-bit status has $2^n$ entries and answers with exactly one lookup. This is the fastest lookup solution but is the storage-heavy method against which (3) is naturally compared.
+A smaller table of 256 entries can instead count each byte of a zero-extended 32-bit word:
+
+```
+k = table[(status & 0xFF000000) >> 24] + table[(status & 0x00FF0000) >> 16] +
+    table[(status & 0x0000FF00) >> 8] + table[status & 0x000000FF]
+```
+
+This expression takes 14 units: four lookups, four ANDs, three shifts, and three additions. It improves on $3n$ for $n\ge5$; for smaller $n$, the whole-word lookup above is faster. Bits above the specified $n$ bits are zero.
 
 ### (3)
 (Brian Kernighan's algorithm)
@@ -172,10 +175,10 @@ $$
 #### itsuitsuki's solution
 The latency problem comes from ripple carry adders used in $P_n$ circuit. To solve this, we can use carry look-ahead adders for $n$ bits instead of ripple carry adders. 
 
-In ripple carry adders (sequential), the next adder must wait for the carry bit from the previous adder, which causes propagation delay. In carry look-ahead adders (parallel), carry bits are calculated in advance using generate and propagate functions, allowing the final carry, and all the sum bits to be added simultaneously, significantly reducing latency.
+In ripple carry adders (sequential), the next adder must wait for the carry bit from the previous adder, which causes propagation delay. In carry look-ahead adders (parallel), carry bits are calculated in advance using generate and propagate functions, allowing carries to be combined in a parallel-prefix tree. With bounded-fan-in gates this requires logarithmic, rather than linear, carry depth.
 
 #### tomfluff's solution
-<u>Note:</u> I am not sure about my answer, I think propogation delay is correct but not sure. The question itself isn't clear as well. Should I solve the latency problem or give a reason. Not clear.
+
 
 Since any of the $n/3$ elements could contribute to the actual sum, there would be a large number of gates which need the data from the last gates available. That is, there would be many in-line gates which would need to wait for the correct value to propogate forward.
 

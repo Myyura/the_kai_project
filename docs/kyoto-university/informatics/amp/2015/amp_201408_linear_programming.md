@@ -148,7 +148,11 @@ $$
 Lagrange dual function:
 
 $$
-d(\lambda) = -b^\top \lambda
+d(\lambda)=\inf_{x\in\mathbb R^5}L(x,\lambda)=
+\begin{cases}
+-b^\top\lambda,&A^\top\lambda=c,\\
+-\infty,&\text{otherwise}.
+\end{cases}
 $$
 
 Thus the dual problem is

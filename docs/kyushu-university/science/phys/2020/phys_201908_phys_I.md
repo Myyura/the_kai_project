@@ -13,38 +13,82 @@ tags:
 
 ## **Description**
 
+題意の要約。
+
+### [A-I]
+
+一次元一質点系のラグランジアン $L(q,\dot q)$ は時刻に陽に依存しない。$t_1<t_2$ とし、$S[q]=\int_{t_1}^{t_2}L(q,\dot q)\,dt$、$\delta\dot q=d(\delta q)/dt$ とおく。$q(t_1),q(t_2)$ を固定して作用を停留させる。
+
+1. 端点での $\delta q$ の条件を求める。
+2. $L(q+\delta q,\dot q+\delta\dot q)$ を変分の一次まで展開する。
+3. $\delta S=S[q+\delta q]-S[q]$ を $\delta\dot q$ を含まない形で表し、Euler–Lagrange 方程式を導く。
+
+### [A-II]
+
+一端を壁に固定したばね（ばね定数 $k$）の他端に質量 $m$ の質点をつなぐ。運動方向にはばねの力だけが働き、自然長からの伸びを $q$ とする。
+
+1. ラグランジアンを求める。
+2. Euler–Lagrange 方程式を求める。
+3. $E(t)=(\partial L/\partial\dot q)\dot q-L$ を求め、その保存を示す。
+4. $q(t)$ の一般解を求める。
+
+### [B]
+
+質量 $M$、軸の長さ $\ell$、軸まわりの慣性モーメント $I$ の軸対称なコマを考える。軸の下端を固定点 $O$ とし、静止直交座標系の原点とする。
+
+最初は軸が $+z$ 方向で、上端から見て反時計回りに角速度 $\omega_1$ で高速回転している。
+
+1. 角運動量ベクトルを求める。
+2. 軸の上端に $+x$ 方向の撃力を加えるとき、$O$ まわりの力のモーメントの向きを答える。
+3. 撃力の時間平均を $F$、作用時間を微小な $\Delta t$ とし、直後の角運動量を求める。
+4. 直後に軸が $z$ 軸となす角を $\theta$ として、$\theta$ と $\omega_1$ の関係を求める。
+
+次に、軸と $+z$ 軸の角度 $\alpha$ を一定に保ち、軸の上端から見て反時計回りに $\omega_2$ で高速自転しながら歳差運動をする。重心 $(X,Y,Z)$ は軸上で $O$ から距離 $R$ にあり、重力加速度は $-g\boldsymbol e_z$ である。
+
+5. 重力の $O$ まわりのモーメントを求める。
+6. 角運動量の大きさを $I\omega_2$、向きを $O$ から重心への向きとし、回転の運動方程式を立てる。
+7. $t=0$ で重心が $xz$ 平面内の $x>0$ にあるとき、$(X,Y,Z)$ を求める。
+8. 重心の回転角速度 $\Omega$ を求める。
+
+出典：[九州大学 令和2年度 物理学I](https://pr.phys.kyushu-u.ac.jp/graduate/pdf/R2_inshi.pdf#page=2)。
+
+![ばね振動子とコマの配置](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/science/phys/2020/kyushu-phys-2019-mechanics.svg)
+
 ### 题目描述
 
-原 Description 未录入文字；以下按现有解答可确认的分问整理。
-
-**A-I（Hamilton 原理）**：对作用量
+**A-I（Hamilton 原理）**：一维单质点系统的 Lagrangian 为 $L(q,\dot q)$，不显含时间。对作用量
 
 $$
 S[q]=\int_{t_1}^{t_2}L(q,\dot q)\,dt
 $$
 
-及固定端点的变分 $q\mapsto q+\delta q$：
+作固定端点的变分，其中 $\delta\dot q=d(\delta q)/dt$。
 
-1. 写出端点处 $\delta q$ 满足的条件。
+1. 写出端点处 $\delta q$ 的条件。
 2. 将 $L(q+\delta q,\dot q+\delta\dot q)$ 展开到变分的一阶。
-3. 由 $\delta S=0$ 推导 Euler–Lagrange 方程。
+3. 将 $\delta S$ 改写成不含 $\delta\dot q$ 的形式，由驻值条件推导 Euler–Lagrange 方程。
 
-**A-II（简谐振子）**：质量为 $m$、弹性系数为 $k$ 的一维简谐振子，广义坐标为 $q$。
+**A-II（简谐振子）**：质量为 $m$ 的质点连接到弹性系数为 $k$、另一端固定的弹簧，运动方向上只受弹力。以相对自然长度的伸长量为 $q$。
 
 1. 写出 Lagrangian。
-2. 由 Euler–Lagrange 方程推导运动方程。
-3. 写出能量 $E(t)$ 并证明其守恒。
+2. 写出 Euler–Lagrange 运动方程。
+3. 求 $E(t)=(\partial L/\partial\dot q)\dot q-L$ 并证明能量守恒。
 4. 求 $q(t)$ 的通解。
 
-**B（陀螺进动）**：取 $\boldsymbol i,\boldsymbol j,\boldsymbol k$ 为 $x,y,z$ 正方向单位向量。现有解答所对应的装置为：刚体转动惯量 $I$，质心到固定点 O 的距离 $R$，质量 $m$，重力沿 $-\boldsymbol k$；质心位置为 $X\boldsymbol i+Y\boldsymbol j+Z\boldsymbol k$。先分析角速度为 $\omega_1$ 时，作用点臂长 $l$ 的力 $F$ 在短时间 $\Delta t$ 内造成的角动量改变及偏转角；再对自转角速度 $\omega_2$、轴与竖直方向夹角 $\alpha$ 的重陀螺：
+**B（陀螺进动）**：轴对称陀螺质量为 $M$，轴长为 $\ell$，绕轴转动惯量为 $I$，轴下端固定于坐标原点 $O$。
 
-1. 写出初始角动量；
-2. 判断外力矩方向；
-3. 写出冲量作用后的角动量；
-4. 求新角动量与 $z$ 轴夹角；
-5. 求重力矩；
-6. 建立 $X,Y,Z$ 的运动方程；
-7. 在 $t=0$ 时轴投影方位角为零的条件下求 $X(t),Y(t),Z(t)$；
+开始时轴沿 $+z$ 方向，从轴上端看以角速度 $\omega_1$ 逆时针高速自转。
+
+1. 求初始角动量向量。
+2. 轴上端受到沿 $+x$ 方向的冲击力，判断相对于 $O$ 的力矩方向。
+3. 设作用时间为微小的 $\Delta t$，平均力为 $F$，求作用后的角动量。
+4. 求作用后陀螺轴与 $z$ 轴夹角 $\theta$ 和 $\omega_1$ 的关系。
+
+再考虑陀螺轴与 $+z$ 轴保持夹角 $\alpha$，从轴上端看以 $\omega_2$ 逆时针高速自转，同时发生进动。重心 $(X,Y,Z)$ 位于轴上，距 $O$ 为 $R$，重力加速度为 $-g\boldsymbol e_z$。
+
+5. 求重力相对于 $O$ 的力矩。
+6. 将角动量大小取为 $I\omega_2$、方向取为从 $O$ 指向重心，建立转动方程。
+7. 已知 $t=0$ 时重心在 $xz$ 平面内且 $X>0$，求 $X(t),Y(t),Z(t)$。
 8. 求进动角速度 $\Omega$。
 
 ## **Kai**
@@ -130,7 +174,7 @@ $$
   \begin{aligned}
   \frac{\partial L}{\partial q} &= -kq
   \\
-  \frac{d}{dt} \frac{\partial L}{\partial q}
+  \frac{d}{dt} \frac{\partial L}{\partial \dot q}
   &= \frac{d}{dt} m \dot{q}
   = m \ddot{q}
   \end{aligned}
@@ -187,7 +231,7 @@ $\boldsymbol{k} \times \boldsymbol{i} = \boldsymbol{j}$
 なので、y 軸の正の方向である。
 
 #### (3)
-$I \omega_1 \boldsymbol{k} + lF \Delta t \boldsymbol{j}$
+$I \omega_1 \boldsymbol{k} + \ell F \Delta t \boldsymbol{j}$
 
 #### (4)
 
@@ -195,11 +239,11 @@ $$
   \begin{aligned}
   \cos \theta
   &= \frac{ \boldsymbol{k} \cdot
-  \left( I \omega_1 \boldsymbol{k} + lF \Delta t \boldsymbol{j} \right)}
+  \left( I \omega_1 \boldsymbol{k} + \ell F \Delta t \boldsymbol{j} \right)}
   {
-  \left| I \omega_1 \boldsymbol{k} + lF \Delta t \boldsymbol{j} \right|}
+  \left| I \omega_1 \boldsymbol{k} + \ell F \Delta t \boldsymbol{j} \right|}
   \\
-  &= \frac{I \omega_1}{\sqrt{I^2 \omega_1^2 + l^2 F^2 \Delta t^2}}
+  &= \frac{I \omega_1}{\sqrt{I^2 \omega_1^2 + \ell^2 F^2 \Delta t^2}}
   \end{aligned}
 $$
 
@@ -208,8 +252,8 @@ $$
 $$
   \begin{aligned}
   \left( X \boldsymbol{i} + Y \boldsymbol{j} + Z \boldsymbol{k} \right)
-  \times \left( - mg \boldsymbol{k} \right)
-  = mg \left( - Y \boldsymbol{i} + X \boldsymbol{j} \right)
+  \times \left( - Mg \boldsymbol{k} \right)
+  = Mg \left( - Y \boldsymbol{i} + X \boldsymbol{j} \right)
   \end{aligned}
 $$
 
@@ -228,7 +272,7 @@ $$
   \begin{aligned}
   \frac{I \omega_2}{R}
   \left( \dot{X} \boldsymbol{i} + \dot{Y} \boldsymbol{j} + \dot{Z} \boldsymbol{k} \right)
-  = mg \left( - Y \boldsymbol{i} + X \boldsymbol{j} \right)
+  = Mg \left( - Y \boldsymbol{i} + X \boldsymbol{j} \right)
   \end{aligned}
 $$
 
@@ -236,9 +280,9 @@ $$
 
 $$
   \begin{aligned}
-  \dot{X} &= - \frac{mgR}{I \omega_2} Y
+  \dot{X} &= - \frac{MgR}{I \omega_2} Y
   \\
-  \dot{Y} &= \frac{mgR}{I \omega_2} X
+  \dot{Y} &= \frac{MgR}{I \omega_2} X
   \\
   \dot{Z} &= 0
   \end{aligned}
@@ -263,7 +307,7 @@ $$
 
 $$
   \begin{aligned}
-  \dot{\varphi} = \frac{mg}{I \omega_2}
+  \dot{\varphi} = \frac{MgR}{I \omega_2}
   \end{aligned}
 $$
 
@@ -271,7 +315,7 @@ $t=0$ のとき $\varphi = 0$ であるから、次がわかる：
 
 $$
   \begin{aligned}
-  \varphi = \frac{mgt}{I \omega_2}
+  \varphi = \frac{MgRt}{I \omega_2}
   \end{aligned}
 $$
 
@@ -279,9 +323,9 @@ $$
 
 $$
   \begin{aligned}
-  X &= R \sin \alpha \cos \frac{mgt}{I \omega_2}
+  X &= R \sin \alpha \cos \frac{MgRt}{I \omega_2}
   \\
-  Y &= R \sin \alpha \sin \frac{mgt}{I \omega_2}
+  Y &= R \sin \alpha \sin \frac{MgRt}{I \omega_2}
   \\
   Z &= R \cos \alpha
   \end{aligned}
@@ -297,6 +341,6 @@ $$
 \Omega
 &= \dot{\varphi}
 \\
-&= \frac{mg}{I \omega_2}
+&= \frac{MgR}{I \omega_2}
 \end{aligned}
 $$

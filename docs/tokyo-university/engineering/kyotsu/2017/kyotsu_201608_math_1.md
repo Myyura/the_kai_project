@@ -14,6 +14,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+出典：[公式2017年度数学試験](https://www.t.u-tokyo.ac.jp/hubfs/pdf/H29_suugaku_J.pdf)、第1問。
+
 I、以下の定積分を求めよ。
 
 $$
@@ -191,3 +194,5 @@ y &= C_{1}e^{-2t} + C_{2}e^{4t} - \frac{1}{8}e^{2t} \\
 &= C_{1}x^{-2} + C_{2}x^4 - \frac{1}{8}x^2 \\
 \end{aligned}
 $$
+
+この一般解は $x\ne0$ の各区間で成り立つ。$x<0$ では $t=\log|x|$ とすれば同じ変換が使える。

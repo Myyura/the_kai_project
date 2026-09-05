@@ -11,6 +11,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2021_amp.pdf)
 ### 日本語版
 $\boldsymbol{A}$ と $\boldsymbol{B}$ を $m \times n$ 行列とする。さらに $\boldsymbol{A}$ の第 $(i,j)$ 成分を $A_{i,j} = -i-j(i = 1,\dots,m,j = 1,\dots,n)$ とする。
 
@@ -123,7 +125,11 @@ $$
 Lagrange dual function:
 
 $$
-g(\lambda, \nu) = \inf_{x} \{ L(x,\lambda, \nu) \} = -\lambda
+g(\lambda,\nu)=\inf_x L(x,\lambda,\nu)=
+\begin{cases}
+-\lambda,&A^\top u+\lambda\boldsymbol1-\nu=0,\\
+-\infty,&\text{otherwise}.
+\end{cases}
 $$
 
 Dual proble $(D)$ :
@@ -156,7 +162,7 @@ If $x^* \neq 0$, then every component of $-Ax^*$ is strictly positive. Thus $y^*
 Thus $(y^*)^\top A x^* = 0$ always holds.
 
 ### (iv)
-Let $\boldsymbol{c} = u^\top A$ . Then we have
+Let $\boldsymbol{c} = A^\top u$ . Then we have
 
 $$
 0 > c_1 > c_2 > \ldots > c_n
@@ -179,7 +185,7 @@ thus $[0,0,\ldots, 1]^\top \in S_P(u)$ ,
 and
 
 $$
-\forall \widetilde{x} \neq [0,0,\ldots, 1]^\top, \boldsymbol{c} \widetilde{x} > c_n = \boldsymbol{c}x^*
+\forall\text{ feasible }\widetilde{x} \neq [0,0,\ldots, 1]^\top, \boldsymbol{c}^\top \widetilde{x} > c_n = \boldsymbol{c}^\top x^*
 $$
 
 hence $S_P(u) = \{ [0,0,\ldots, 1]^\top \}$ .

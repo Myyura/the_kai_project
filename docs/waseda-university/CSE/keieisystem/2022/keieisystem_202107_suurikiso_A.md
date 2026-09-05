@@ -73,7 +73,7 @@ $$
 +\frac{\partial^2z}{\partial y^2}=0
 $$
 
-成立的函数 $f(r)$。原题未说明区域是否包含 $r=0$，也未给出原点处的光滑性要求；因此应先求 $r>0$ 上的径向通解，并另行说明若要求 $z$ 在原点也为 $C^2$ 调和函数时所受的限制。
+成立的函数 $f(r)$。先求 $r>0$ 上的径向通解，并另行讨论若要求 $z$ 在原点也为 $C^2$ 调和函数时所受的限制。
 
 ## **Kai**
 
@@ -140,15 +140,13 @@ $f''(r) + \frac{f'(r)}{r} = 0$
 
 Let $g(r) = f'(r)$ . Then $g'(r) = f''(r)$ , so we have:
 
-$g'(r) + \frac{g(r)}{r} = 0$
-$\frac{dg}{dr} = -\frac{g}{r}$
-$\frac{dg}{g} = -\frac{dr}{r}$
+For $r>0$, multiply the equation by $r$:
 
-Integrating both sides, we get:
+$$
+r g'(r)+g(r)=\frac{d}{dr}(rg(r))=0.
+$$
 
-$\int \frac{dg}{g} = -\int \frac{dr}{r}$
-$\ln|g| = -\ln|r| + C_1$
-$g(r) = e^{-\ln|r| + C_1} = e^{C_1} e^{-\ln|r|} = \frac{C}{r}$
+Hence $rg(r)=C$, where $C$ is any real constant, including zero. Thus $g(r)=C/r$; this method retains the constant solutions without dividing by $g$.
 
 So $f'(r) = \frac{C}{r}$ . Integrating again, we get:
 

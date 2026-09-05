@@ -124,7 +124,8 @@ $$
 ## **Kai**
 ### (1)
 
-$e^{-az^2}$ 是整函数。取实轴与 $\operatorname{Im}z=d$ 之间的矩形围道；当 $R\to\infty$ 时，两条竖边上的积分趋于 $0$。由 Cauchy 定理可平移积分路径，故
+$e^{-az^2}$ 是整函数。取实轴与 $\operatorname{Im}z=d$ 之间的矩形围道；每条竖边上有 $z=\pm R+iy$、$|y|\le |d|$，故其积分绝对值至多为
+$|d|e^{-aR^2+ad^2}$，当 $R\to\infty$ 时趋于 $0$。由 Cauchy 定理可平移积分路径，故
 
 $$
 \begin{aligned}
@@ -163,7 +164,7 @@ $$
 $$
 
 #### (ii)
-$U(k,t)$ 有形式
+当 $k\ne0$ 时，$U(k,t)$ 有形式
 
 $$
 U(k,t) = G(k) \sin (kct) + F(k) \cos (kct)
@@ -175,7 +176,7 @@ $$
 \frac{\partial U(k,t)}{\partial t} \bigg |_{t=0} = kcG(k) \cos (kct) - kcF(k) \sin(kct) \bigg|_{t=0} = 0
 $$
 
-得到 $G(k) = 0$, 因此
+得到 $G(k) = 0$。当 $k=0$ 时，方程为 $U_{tt}(0,t)=0$，通解为 $At+B$；零初始速度给出 $A=0$。因此对所有 $k$ 均有
 
 $$
 U(k,t) = F(k) \cos(kct)

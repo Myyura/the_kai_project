@@ -174,12 +174,48 @@ $$
 ## **Kai**
 ### 問1
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_math_II_p1_s.jpg" width="700" alt=""/>
-</figure>
+(i) $x=1$ を代入すると $f(1)=2f(1)$ より $f(1)=0$。$x=0$ より $f(-1)=0$。
+
+(ii) $\cos(-t)=\cos t$、$\sin(-t)=-\sin t$ より $g(-t)=-g(t)$。
+
+(iii) $t\in\mathbb G$ なら $\sin(t/2)$、$\cos(t/2)$ はともに $0$ でない。二倍角公式と関数方程式により
+
+$$g(t)=\frac{f(2\cos^2(t/2)-1)}{2\sin(t/2)\cos(t/2)}=\frac{f(\cos(t/2))}{\sin(t/2)}=g(t/2).$$
+
+(iv) $g$ は定義から $2\pi$ 周期である。$k\geq0$ のとき、(iii) を $k+1$ 回用いると
+
+$$g\left(1+\frac{n\pi}{2^k}\right)=g(2^{k+1}+2n\pi)=g(2^{k+1})=g(1).$$
+
+ここで関係する点はすべて $\mathbb G$ 内にある。$k<0$ のときは $n\pi/2^k$ が $2\pi$ の整数倍なので周期性から従う。
+
+(v) 集合 $\{1+n\pi/2^k:n,k\in\mathbb Z\}$ は実数全体で稠密である。$g$ は $\mathbb G$ 上連続なので、(iv) より $g(t)=g(1)$ がすべての $t\in\mathbb G$ で成立する。(ii) の奇関数性から、この定数は $0$。任意の $x\in(-1,1)$ を $x=\cos t$ と書けば $f(x)=0$ であり、端点も (i) より $0$。従って $\boxed{f\equiv0}$。
 
 ### 問2
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_math_II_p2_s.jpg" width="700" alt=""/>
-</figure>
+(i-a) $\sin x/x\to1$ を用いると
+
+$$\sqrt x\log\sin x=\sqrt x\log x+\sqrt x\log\frac{\sin x}{x}\longrightarrow0,$$
+
+従って極限は $\boxed1$。
+
+(i-b) $x>0$ で $\arctan(1/x)=\pi/2-\arctan x$ なので
+
+$$\frac1x\log\left(\frac2\pi\arctan\frac1x\right)=\frac1x\log\left(1-\frac2\pi\arctan x\right)\longrightarrow-\frac2\pi.$$
+
+従って極限は $\boxed{e^{-2/\pi}}$。
+
+(ii) 微分方程式の一般解は $h(x)=A\cos x+B\sin x$。$h(0)=A>0$ であり、$h(x)^{1/x}$ が正の有限値に収束するには $A=1$ が必要である。このとき
+
+$$\lim_{x\to0+}\frac{\log h(x)}x=h'(0)=B=\log p.$$
+
+従って $\boxed{h(x)=\cos x+(\log p)\sin x}$。
+
+(iii) $g,g'$ が $a$ の十分近くで $0$ でなく、右辺の導関数比の極限が拡張実数として存在するとする。このロピタルの定理の適用条件の下で、
+
+$$g(x)\log f(x)=\frac{\log f(x)}{1/g(x)}$$
+
+は (A) では $0/0$ 型、(B),(C) では $\infty/\infty$ 型となる。従って
+
+$$\lim_{x\to a+}g(x)\log f(x)=\lim_{x\to a+}\frac{f'(x)/f(x)}{-g'(x)/g(x)^2}=-\lim_{x\to a+}\frac{f'(x)g(x)^2}{f(x)g'(x)}.$$
+
+指数関数をとれば式 (1) を得る。条件 (A)～(C) だけでは極限の存在は保証されない。例えば $a=0$、$f(x)=e^{x(2+\sin(1/x))}$、$g(x)=1/x$ は (A) を満たすが、$f(x)^{g(x)}=e^{2+\sin(1/x)}$ は収束しない。

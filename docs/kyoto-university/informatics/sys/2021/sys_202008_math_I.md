@@ -176,28 +176,54 @@ $$
 ## **Kai**
 ### 問1
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_math_I_p1_s.jpg" width="700" alt=""/>
-</figure>
+(i) $v=(1,1,1)^{\mathrm T}$ とおくと、射影行列と像は
+
+$$P=\frac{vv^{\mathrm T}}{v^{\mathrm T}v}=\frac13\begin{bmatrix}1&1&1\\1&1&1\\1&1&1\end{bmatrix},\qquad P\begin{bmatrix}x\\y\\z\end{bmatrix}=\frac{x+y+z}{3}\begin{bmatrix}1\\1\\1\end{bmatrix}.$$
+
+$V^\perp=\{(x,y,z):x+y+z=0\}$ の正規直交基底として
+
+$$\frac1{\sqrt2}\begin{bmatrix}-1\\0\\1\end{bmatrix},\qquad \frac1{\sqrt6}\begin{bmatrix}-1\\2\\-1\end{bmatrix}$$
+
+をとれる。いずれも $v$ と直交し、長さ $1$ で、相互にも直交する。
+
+(ii) $\det A=16\ne0$ より階数は $3$。掃き出し法により
+
+$$A^{-1}=\begin{bmatrix}-1/4&1/4&1/4\\1/4&-1/2&1/4\\1/4&1/4&-1/4\end{bmatrix}.$$
+
+(iii) 次の分解を用いる。
+
+$$B=\begin{bmatrix}X&0\\0&I_m\end{bmatrix}\begin{bmatrix}I_n&X^{-1}Y\\0&Z\end{bmatrix}.$$
+
+後者の最初の $n$ 列に沿って行列式を展開すると $\det Z$ となるため、$\boxed{\det B=\det X\det Z}$。
 
 ### 問2
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_math_I_p2_s.jpg" width="700" alt=""/>
-</figure>
+(i-1) 固有ベクトルの正規直交性より
 
-#### 問2 (i) の訂正
+$$R(x)=\frac{\sum_{i=1}^n\lambda_i a_i^2}{\sum_{i=1}^n a_i^2}.$$
 
-最大値は $\lambda_1$ であり、これをとる非零ベクトルは
+(i-2) これは固有値の重み付き平均なので最大値は $\lambda_1$。等号成立は $\lambda_i<\lambda_1$ に対応する $a_i$ がすべて $0$ のとき、すなわち
 
-$$
-x\in\operatorname{span}\{e_i\mid \lambda_i=\lambda_1\}\setminus\{0\}
-$$
+$$x\in\operatorname{span}\{e_i:\lambda_i=\lambda_1\}\setminus\{0\}$$
 
-のすべてである。同様に、最小値 $\lambda_n$ をとるのは
+のときに限る。
 
-$$
-x\in\operatorname{span}\{e_i\mid \lambda_i=\lambda_n\}\setminus\{0\}
-$$
+(i-3) 同様に最小値は $\lambda_n$ であり、これを与えるのは
+
+$$x\in\operatorname{span}\{e_i:\lambda_i=\lambda_n\}\setminus\{0\}$$
 
 のすべてである。
+
+(ii) $J$ の行列は
+
+$$C=\begin{bmatrix}4&2&-1\\2&1&2\\-1&2&4\end{bmatrix},\qquad \det(\lambda I-C)=(\lambda-5)^2(\lambda+1).$$
+
+固有値 $5$ の固有空間の正規直交基底は
+
+$$u=\frac1{\sqrt2}(-1,0,1)^{\mathrm T},\qquad v=\frac1{\sqrt3}(1,1,1)^{\mathrm T},$$
+
+固有値 $-1$ の単位固有ベクトルは $w=(1,-2,1)^{\mathrm T}/\sqrt6$ である。したがって
+
+$$J_{\max}=5,\quad (x,y,z)^{\mathrm T}=c_1u+c_2v,\quad c_1^2+c_2^2=1,$$
+
+$$J_{\min}=-1,\quad (x,y,z)=\pm\frac1{\sqrt6}(1,-2,1).$$

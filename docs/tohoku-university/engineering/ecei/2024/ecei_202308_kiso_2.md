@@ -17,7 +17,7 @@ tags:
 
 (2) Fig.2(b) の回路において, 交流電流源の電流は $J$[A], 端子 a-b 間の電圧は $V$[V], 抵抗は $R[\Omega]$, インダクタンスは $L$[H], キャパシタンスは $C$[F], 交流電流源の角周波数は $\omega$ [rad/s] である。以下の問に答えよ。
 
-- (a) 端子 a-b 間を短絡すると, 電圧 $V$ の位相が電流 $J$ の位相より $\pi/4$ rad 進む。$\omega$ を $R,L,C$ を用いて表せ。ただし, $\omega > 0$ である。
+- (a) 端子 c-d 間を短絡すると, 電圧 $V$ の位相が電流 $J$ の位相より $\pi/4$ rad 進む。$\omega$ を $R,L,C$ を用いて表せ。ただし, $\omega > 0$ である。
 
 - (b) 端子 c-d 間に抵抗 $R_S[\Omega]$ の抵抗器をつなぐと, 電圧 $V$ と電流 $J$ の位相差が $0$ になる。$R_S$ を $\omega,L,C$ を用いて表せ。ただし, $0 < \omega < 1/\sqrt{LC}$ である。
  
@@ -37,7 +37,7 @@ tags:
    $$Z_1=2\,\Omega,\qquad Z_2=j2\,\Omega.$$
    $J$ 分为 $I_1,I_2$，且 $|J|=2\,\mathrm A$。以 $J$ 为相位基准，画出 $I_1,I_2$ 的相量图，并求 $V$ 的有效值和相位。
 2. 对图 2(b) 中含 $R,L,C$ 的网络，电流源角频率为 $\omega$。
-   1. 将 a–b 短路时，电压 $V$ 比电流 $J$ 超前 $\pi/4$；用 $R,L,C$ 表示正角频率 $\omega$；
+   1. 将 c–d 短路时，电压 $V$ 比电流 $J$ 超前 $\pi/4$；用 $R,L,C$ 表示正角频率 $\omega$；
    2. 在 c–d 接入电阻 $R_S$ 后，$V,J$ 同相。已知 $0<\omega<1/\sqrt{LC}$，用 $\omega,L,C$ 表示 $R_S$。
 3. 图 2(c) 中含电阻 $R$、耦合电感 $L_1,L_2,M$ 和电容 $C$。源电流 $J$ 分为 $I_1,I_2,I_3$，且
    $$I_2=2I_1\ne0,\qquad0<M<2L_2-L_1.$$
@@ -68,6 +68,8 @@ V &= 2\sqrt{2}\angle\frac{\pi}{4}
 \end{aligned}
 $$
 
+![以 J 为基准的支路电流相量图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2024/ecei_202308_phasors.svg)
+
 ### (2)
 #### (a)
 
@@ -76,13 +78,13 @@ J = V \cdot \bigg(\frac{1}{R}+ j\omega C + \frac{1}{j\omega L}\bigg)
 $$
 
 $$
-\arg(\frac{1}{V}) = \frac{\pi}{4} = \arctan\bigg(\omega RC - \frac{R}{\omega L}\bigg) = \arctan(1)
+\arg\left(\frac JV\right)=-\frac\pi4=\arctan\left(\omega RC-\frac{R}{\omega L}\right),\qquad \omega RC-\frac{R}{\omega L}=-1
 $$
 
 只取正根
 
 $$
-\omega = \frac{1 + \sqrt{1 + 4\frac{R^2C}{L}}}{2RC} = \frac{1}{2RC} + \sqrt{\frac{1}{4R^2C^2} + \frac{1}{LC}}
+\boxed{\omega=\frac{-1+\sqrt{1+4R^2C/L}}{2RC}=\sqrt{\frac1{4R^2C^2}+\frac1{LC}}-\frac1{2RC}}
 $$
 
 #### (b)
@@ -105,7 +107,7 @@ $$
 R_S = \sqrt{\frac{L}{C} - \omega^2L^2}
 $$
 
-这个题似乎用分母实数化的一般做法更简单，化成单项式的好处是更容易得到一个与频率无关的导纳（并不需要代入所求的关系式）：
+在满足 $R_S^2+\omega^2L^2=L/C$ 的这一频率处，导纳可化简为以下实数；由于匹配所需的 $R_S$ 随频率变化，这不表示固定电路在所有频率下导纳都不变：
 
 $$
 Y = \frac{1}{R} + \frac{R_SC}{L}
@@ -149,8 +151,19 @@ $$
 这个题用T型等效更快捷（只把两个电感T等效，再去整理四个端口对外的连接），但是要注意怎么处理T的方向（此时把上面当作T的公共端，下面当作T的顶端，注意分流体现再两个底端）
 
 #### (b)
-如果T等效出发：
+
+利用给定条件 $I_2=2I_1$，第一线圈的端电压为
 
 $$
-Y = \frac{1}{R} + \frac{1}{j\omega M + \frac{[j\omega(L_2 - M) + \frac{1}{j\omega C}] \cdot j\omega (L_1 - M)}{j\omega(L_1 + L_2 - 2M) + \frac{1}{j\omega C}}} = \frac{1}{R} + \frac{j\omega (L_1 + L_2 - 2M) + \frac{1}{j\omega C}}{\omega^2(M^2 - L_1L_2) + L_1/C}
+V=j\omega L_1I_1+j\omega MI_2=j\omega(L_1+2M)I_1.
 $$
+
+而 $J=I_1+I_2+V/R$，所以
+
+$$
+\boxed{Y=\frac JV=\frac1R+\frac{3}{j\omega(L_1+2M)}}.
+$$
+
+此式只含题目要求的参数，且无需除以可能为零的 $L_1-M$。
+
+[学校原题第 4 页](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/202308kiso.pdf#page=4)

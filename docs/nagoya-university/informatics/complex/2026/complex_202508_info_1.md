@@ -11,6 +11,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/cc0e6a3a28ca8247510db5f73065762a.pdf)
+
 ### \[1\]
 次のプログラム実行時の標準出力への出力結果を示せ。
 
@@ -19,7 +22,7 @@ tags:
 int main(void)
 {
     int x1=0x0f0f, x2=8765, x3=07456;
-    printf("%x %d %x %d %x %d\n", x2, x1+x2, x1-x2, x3>>3, x1|x3, x2&x3);
+    printf("%x %d %x %d %x %d\n", x2, x1+x2, x1^x2, x3>>3, x1|x3, x2&x3);
     return 0;
 }
 ```
@@ -111,7 +114,7 @@ int main(void)
     max=n1;
     min=n2;
     maxmin(n1, n2, &max, &min);
-    printf("%d\n %d\n", max, min);
+    printf(" %d\n %d\n", max, min);
     return 0;
 }
 ```
@@ -121,7 +124,7 @@ int main(void)
 ```text
 4
 10
-7
+ 7
  5
 ```
 
@@ -130,8 +133,8 @@ int main(void)
 回答下列 C 语言程序设计问题。
 
 1. 已知 `int x1 = 0x0f0f, x2 = 8765, x3 = 07456;`，求语句
-   `printf("%x %d %x %d %x %d\n", x2, x1+x2, x1-x2, x3>>3, x1|x3, x2&x3);`
-   的标准输出。需要处理十六进制、十进制和八进制常量，以及加减、右移、按位或和按位与运算。
+   `printf("%x %d %x %d %x %d\n", x2, x1+x2, x1^x2, x3>>3, x1|x3, x2&x3);`
+   的标准输出。需要处理十六进制、十进制和八进制常量，以及加法、按位异或、右移、按位或和按位与运算。
 2. 补全原题中的 `count` 函数，统计字符串 `"Graduate School of Informatics"` 中字符 `'a'` 出现的次数；程序应输出 `3`。完整代码见上文。
 3. 补全判定素数的程序。输入整数 $n\ge 2$，若 $n$ 为素数则输出 `y`，否则输出 `n`；示例输入 `9` 时输出 `n`。完整代码见上文。
 4. 补全递归函数，在给定的两个整数 $n_1,n_2$ 之间（含端点）寻找最大素数和最小素数。保证区间内至少存在一个素数；示例输入 `4`、`10` 时，应输出最大值 `7` 和最小值 `5`。完整代码与输入输出格式见上文。
@@ -139,13 +142,13 @@ int main(void)
 ## **Kai**
 ### 1
 
-通常の 32 ビット `int`・2 の補数表現を仮定すると，出力は
+出力は
 
 ```text
-223d 12620 ffffecd2 485 f2f 556
+223d 12620 2d32 485 f2f 556
 ```
 
-となる。なお，厳密には負の `int` である `x1-x2` を `%x` に渡す箇所は C 規格上未定義動作である。
+となる。`^` はビットごとの排他的論理和である。
 
 ### 2
 
@@ -214,7 +217,7 @@ int main(void)
 (1) int *max, int *min
 (2) n1 <= n2
 (3) n1 >= 2 && check(n1) == 'y'
-(4) n1+1, n2, max, min
+(4) n1 < n2 ? n1+1 : n1, n1 < n2 ? n2 : n2-1, max, min
 ```
 
 ```c
@@ -235,7 +238,8 @@ int maxmin(int n1, int n2, int *max, int *min){
             if( *min > n1 ) *min=n1;
             if( *max < n1 ) *max=n1;
         }
-        return maxmin(n1+1, n2, max, min);
+        return maxmin(n1 < n2 ? n1+1 : n1,
+                      n1 < n2 ? n2 : n2-1, max, min);
     }else{
         return 0;
     }
@@ -249,7 +253,10 @@ int main(void)
     max=n1;
     min=n2;
     maxmin(n1, n2, &max, &min);
-    printf("%d\n %d\n", max, min);
+    printf(" %d\n %d\n", max, min);
     return 0;
 }
 ```
+
+
+問4では $n_1<n_2$ の間は下端を1ずつ進める。$n_1=n_2$ の値を調べた後は，次の呼出しを $(n_1,n_2-1)$ にして空区間で終了する。これにより終端で `n1+1` を評価せずに済む。

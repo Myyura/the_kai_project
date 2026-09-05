@@ -15,26 +15,33 @@ tags:
 
 ## **Description**
 
-### 题目描述
+### 原題に基づく要約（日本語）
 
-原文的题目描述缺失，以下依据现有解答整理；其中矩阵和向量场的具体定义未保留。
+[公式原題](https://www.material.tohoku.ac.jp/media/files/admission/daigakuin_r5.pdf)
+
+### 数学1
+
+1. $A=\begin{pmatrix}2&4&3\\1&5&1\\3&4&5\end{pmatrix}$ の逆行列を求める。
+2. $\boldsymbol f=(x^2,2xz,z^2)$ とする。平面 $x=0,y=0,z=0,y=1,z=3-x$ に囲まれた領域 $V$ 上で $\iiint_V\operatorname{div}\boldsymbol f\,dV$ を計算する。
+
+### 数学2
+
+1. $\sqrt3/4-i/4$ の4乗根をすべて求め、複素平面に図示する。
+2. $f(z)=1/(z+1)$ を $z=1$ のまわりで Taylor 展開し、収束半径を求める。
+3. 任意の単一閉曲線 $C$ に沿う $\displaystyle\oint_C(4-3z)/(z^2-z)\,dz$ を求める。曲線が囲む特異点により場合分けする。
+
+### 题目描述
 
 【数学 1】
 
-1. 对原题给定的三阶矩阵 $A$，求行列式 $|A|$ 与逆矩阵 $A^{-1}$。矩阵 $A$ 本身未保留在当前文件中。
-2. 对原题给定的向量场 $\boldsymbol f$，使用 Gauss 散度定理计算其通过区域 $V$ 边界的通量。解答显示
-   $$\operatorname{div}\boldsymbol f=2x+2z,$$
-   且区域为
-   $$0\le y\le1,\qquad0\le z\le3,\qquad0\le x\le3-z.$$
+1. 求矩阵 $A=\begin{pmatrix}2&4&3\\1&5&1\\3&4&5\end{pmatrix}$ 的逆矩阵。
+2. 向量场为 $\boldsymbol f=(x^2,2xz,z^2)$，区域 $V$ 由平面 $x=0,y=0,z=0,y=1,z=3-x$ 围成，计算 $\iiint_V\operatorname{div}\boldsymbol f\,dV$。
 
 【数学 2】
 
-1. 求复数
-   $$\frac{\sqrt3}{4}-\frac14i$$
-   的全部四次方根。
-2. 将
-   $$f(z)=\frac1{z+1}$$
-   在 $z=1$ 处展开为 Taylor 级数，并求收敛半径。
+1. 求 $\sqrt3/4-i/4$ 的全部四次方根，并在复平面上表示。
+2. 将 $f(z)=1/(z+1)$ 在 $z=1$ 处展开为 Taylor 级数，求收敛半径。
+3. 对简单闭曲线 $C$，按其围住的奇点分类，求 $\oint_C(4-3z)/(z^2-z)\,dz$。
 
 ## **Kai**
 ### 【数学-1】
@@ -99,6 +106,8 @@ $$
 
 がわかる。
 
+![四つの四乗根。半径2^(-1/4)の円周上にπ/2ずつ離れて並ぶ。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/material/2023/tohoku-material-2023-roots.svg)
+
 #### 問 2
 
 $$
@@ -124,3 +133,24 @@ f(z)
 $$
 
 であり、収束半径は $2$ である。
+
+### 【数学-2】問 3
+
+$$\frac{4-3z}{z^2-z}=-\frac4z+\frac1{z-1}.$$
+
+したがって、留数は $z=0$ で $-4$、$z=1$ で $1$ である。正向き（反時計回り）の単純閉曲線では
+
+$$
+I=\begin{cases}
+0,&0,1\text{ のいずれも外部},\\
+-8\pi i,&0\text{ のみ内部},\\
+2\pi i,&1\text{ のみ内部},\\
+-6\pi i,&0,1\text{ とも内部}.
+\end{cases}
+$$
+
+時計回りなら符号が逆になる。一般には巻き数 $\operatorname{Ind}_C$ を用いて $I=2\pi i[-4\operatorname{Ind}_C(0)+\operatorname{Ind}_C(1)]$ と書ける。$C$ が $0$ または $1$ を通る場合、通常の意味の積分は定義されない。
+
+## **Reference**
+
+- [東北大学 マテリアル・開発系 令和5年度入学試験（2022年度実施）](https://www.material.tohoku.ac.jp/media/files/admission/daigakuin_r5.pdf)

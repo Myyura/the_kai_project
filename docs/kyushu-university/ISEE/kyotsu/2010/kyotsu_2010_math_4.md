@@ -42,10 +42,10 @@ $$
 \int_{R}^{-R} \frac{e^{m(x+i\frac{2\pi}{n})}}{1+e^{n(x+i\frac{2\pi}{n})}}dx = -\int_{-R}^{R} \frac{e^{mx} e^{i\frac{2\pi m}{n}}}{1+e^{nx} e^{i2\pi}}dx = -e^{i\frac{2\pi m}{n}} \int_{-R}^{R} \frac{e^{mx}}{1+e^{nx}}dx
 $$
 
-Thus,
+Taking $R\to\infty$,
 
 $$
-\oint_{C_R} \frac{e^{mz}}{1+e^{nz}}dz = (1 - e^{i\frac{2\pi m}{n}}) \int_{-\infty}^{\infty} \frac{e^{mx}}{1+e^{nx}}dx
+\lim_{R\to\infty}\oint_{C_R} \frac{e^{mz}}{1+e^{nz}}dz = (1 - e^{i\frac{2\pi m}{n}}) \int_{-\infty}^{\infty} \frac{e^{mx}}{1+e^{nx}}dx
 $$
 
 The pole of $f(z)$ inside the contour is at $z = i\frac{\pi}{n}$ .  The residue at this pole is given by

@@ -81,7 +81,7 @@ $$
    f(0)=C_1,\qquad g(0)=C_2.
    $$
 
-   当前题面没有给出 $x<0$ 时的函数定义；Kai 也只使用上述 $x\geq0$ 部分，因此不能唯一补写负半轴上的取值。以下问题均只涉及从右侧趋近 $0$：
+   以下问题均在 $x\geq0$ 的定义域内讨论，只涉及从右侧趋近 $0$：
 
    1. 分别求 $\displaystyle\lim_{x\to0^+}f(x)$ 与 $\displaystyle\lim_{x\to0^+}g(x)$；
    2. 求使 $f,g$ 在 $x=0$ 处右连续的 $C_1,C_2$。
@@ -192,7 +192,7 @@ $$
 である．
 
 (ii)
-$f(x)$ および $g(x)$ が $x=0$ において連続となるためには，
+$f(x)$ および $g(x)$ が $x=0$ において右連続となるためには，
 
 $$
 f(0)=\lim_{x\to 0^+} f(x),\qquad
@@ -317,6 +317,8 @@ $$
 である．以上より， $f(x)$ は
 $x=0$ から $x=1$ まで増加し，
 その後 $x\to\infty$ で $0$ に収束する．
+
+![Graph of f](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tsukuba_university/science_and_technology/sie/2020/tsukuba-202001-exp-linear.svg)
 
 (ii)
 

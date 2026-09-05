@@ -86,7 +86,7 @@ $$
 
 $$
 \int e^{-x}\sin x\,dx
-=-\frac12e^{-x}(\sin x+\cos x)
+=-\frac12e^{-x}(\sin x+\cos x)+C
 $$
 
 である。よって

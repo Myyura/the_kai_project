@@ -17,9 +17,9 @@ Zero
 ### 【問 1】
 図 $1$ の回路において，電源電圧 $E$ と電流 $I$ の位相差は $\arg(\frac{E}{I}) = 0$ であり，かつ $X_1 \neq X_2$ である．以下の問いに答えよ．
 
-(1) $R_1,X_1,X_2$ の間の関係を示せ．
+(1) $R,X_1,X_2$ の間の関係を示せ．
 
-(2) $|E| = 8\text{V},|I| = 2\text{A},\frac{|I_1|}{I_2} = 2$ のとき，$R, X_1, X_2$ の値を求めよ．
+(2) $|E| = 8\text{V},|I| = 2\text{A},\frac{|I_1|}{|I_2|} = 2$ のとき，$R, X_1, X_2$ の値を求めよ．
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p1.png" width="280" alt=""/>
@@ -64,8 +64,8 @@ Zero
 【问题 1】对[图 1 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p1.png)，电源电压 $E$ 与电流 $I$ 同相，即
 $\arg(E/I)=0$，且 $X_1\ne X_2$。回答：
 
-1. 写出 $R_1,X_1,X_2$ 之间的关系。
-2. 当 $|E|=8\,\mathrm V$、$|I|=2\,\mathrm A$、$\frac{|I_1|}{I_2}=2$ 时，求 $R,X_1,X_2$ 的值。
+1. 写出 $R,X_1,X_2$ 之间的关系。
+2. 当 $|E|=8\,\mathrm V$、$|I|=2\,\mathrm A$、$\frac{|I_1|}{|I_2|}=2$ 时，求 $R,X_1,X_2$ 的值。
 
 【问题 2】对[图 2 二端口电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2017_circuit_theory_p2.png)，回答：
 
@@ -100,6 +100,8 @@ $$
 
 ## **Kai** 
 ### 【問 1】
+図の受動素子に従い、$R>0$、$X_1>0$、$X_2>0$ とする。
+
 #### (1)
 
 $$
@@ -107,7 +109,7 @@ $$
 E &= \frac{(jX_1 + R)(-jX_2 + R)}{(jX_1 + R) + (-jX_2 + R)}I \\
 \frac{E}{I} &= \frac{(R + jX_1)(R - jX_2)}{2R + j(X_1 - X_2)} \\
 &= \frac{(R + jX_1)(R - jX_2)[2R - j(X_1 - X_2)]}{4R^2 + (X_1 - X_2)^2} \\
-&= \frac{(R^2 - RjX_2 + jX_1R _+ X_1X_2)(2R - j(X_1 - X_2))}{4R^2 + (X_1 - X_2)^2}
+&= \frac{(R^2 - RjX_2 + jX_1R + X_1X_2)(2R - j(X_1 - X_2))}{4R^2 + (X_1 - X_2)^2}
 \end{aligned}
 $$
 
@@ -146,7 +148,7 @@ $$
 $$
 \begin{aligned}
 \frac{E}{I} &= \frac{R^2 + X_1X_2 + jR(X_1 - X_2)}{2R + j(X_1 - X_2)} \\
-\bigg|\frac{E}{I}\bigg|^2 &= \bigg|\frac{R^2 + X_1X_2 + jR(X_1 - X_2)}{2R + j(X_1 - X_2)}\bigg| \\
+\bigg|\frac{E}{I}\bigg|^2 &= \bigg|\frac{R^2 + X_1X_2 + jR(X_1 - X_2)}{2R + j(X_1 - X_2)}\bigg|^2 \\
 16 &= \frac{(R^2 + X_1X_2)^2 + R^2(X_1 - X_2)^2}{4R^2 + (X_1 - X_2)^2} \\
 16 &= \frac{4X_1^2X_2^2 + X_1X_2(X_1 - X_2)^2}{(X_1 + X_2)^2} \\
 16 &= \frac{X_1X_2(X_1 + X_2)^2}{(X_1 + X_2)^2} \\
@@ -194,9 +196,7 @@ $$
 X_1^2 = -6 \pm 10
 $$
 
-$$
-X_1^2 > 0 より、
-$$
+$X_1^2>0$ より、
 
 $$
 X_1^2 = 4
@@ -232,7 +232,7 @@ $$
 \begin{align}
 a &= \frac{V_1}{V_2},c = \frac{I_1}{V_2} \notag \\
 V_2 &= \frac{1}{2}I_1Z' - \frac{1}{2}I_1Z \notag \\
-V_2 &= \frac{1}{2}(Z'- Z) \notag \\
+V_2 &= \frac{1}{2}(Z'- Z)I_1 \notag \\
 I_1 &= \frac{2V_2}{Z' - Z} \Leftrightarrow c = \frac{I_1}{V_2} = \frac{2}{Z' - Z} = \frac{2Y}{1 - YZ} \notag \\
 V_1 &= \frac{Z + Z'}{2}I_1 \Leftrightarrow I_1 = \frac{2}{Z + Z'}V_1 \tag{1}
 \end{align}
@@ -241,7 +241,7 @@ $$
 $\frac{I_1}{V_2} = \frac{2}{Z' - Z}$ に (1) を代入
 
 $$
-\frac{2}{Z + Z'}\frac{V_1}{V_2} = \frac{2}{z' - z} \Leftrightarrow a = \frac{V_1}{V_2} = \frac{Z' + Z}{Z' - Z} = \frac{1 + YZ}{1 - YZ}
+\frac{2}{Z + Z'}\frac{V_1}{V_2} = \frac{2}{Z' - Z} \Leftrightarrow a = \frac{V_1}{V_2} = \frac{Z' + Z}{Z' - Z} = \frac{1 + YZ}{1 - YZ}
 $$
 
 $V_2 = 0$ のとき、つまり端子対  $2-2’$ 間が $\text{short}$ のときを考える
@@ -257,7 +257,7 @@ $$
 I_3Z' &= I_4Z \notag \\
 I_3 &= \frac{Z}{Z'}I_4 \tag{1} \\
 \frac{Z'}{Z + Z'}I_1 &= I_2 + I_3 \tag{2} \\
-\frac{Z'}{Z + Z'}I_1 + I_2 &= I_4 \tag{3} \\
+\frac{Z}{Z + Z'}I_1 + I_2 &= I_4 \tag{3} \\
 V_1 &= 2 \times \frac{ZZ'}{Z + Z'}I_1 \tag{4} \\
 I_1 &= \frac{Z + Z'}{2ZZ'}V_1 \tag{4'}
 \end{align}
@@ -295,6 +295,8 @@ $$
 \end{pmatrix}
 $$
 
+ここでは $YZ\ne1$ を仮定する。$YZ=1$ では両端子対が平衡し、有限の伝送行列では表せない。
+
 #### (2)
 
 $$
@@ -311,6 +313,8 @@ $$
 $$
 Z_K^2 = \frac{b}{c} = \frac{Z}{Y} \Rightarrow Z_K = \sqrt{\frac{Z}{Y}}
 $$
+
+代数的には $Z_K=\pm\sqrt{Z/Y}$ であり、受動的な終端に適合する枝を選ぶ。特に $Z,Y$ が正の実数なら正の平方根を取る。
 
 ### 【問 3】
 #### (1)
@@ -360,7 +364,7 @@ $$
 $$
 
 $$
-\omega C_4R_2R_4 - \frac{1}{\omega C_3} = 0
+\omega C_4R_3R_4 - \frac{1}{\omega C_3} = 0
 $$
 
 $$
@@ -371,7 +375,7 @@ $$
 #### (1)
 
 $$
-e_1(T) = R_1\frac{dq(t)}{dt} + L\frac{dq^2(t)}{dt^2} + \frac{1}{C}q(t) 
+e_1(t) = R_1\frac{dq(t)}{dt} + L\frac{d^2q(t)}{dt^2} + \frac{1}{C}q(t)
 $$
 
 $$
@@ -396,7 +400,7 @@ $$
 
 $$
 \begin{aligned}
-4\sin2t &= -4A\cos2t - 4B\sin2t + 2(2B\cos2t - 2A\sin t) + 8(A\cos2t + B\sin2t) \\
+4\sin2t &= -4A\cos2t - 4B\sin2t + 2(2B\cos2t - 2A\sin2t) + 8(A\cos2t + B\sin2t) \\
 4\sin2t &= (4A + 4B)\cos2t + (-4A + 4B)\sin2t 
 \end{aligned}
 $$

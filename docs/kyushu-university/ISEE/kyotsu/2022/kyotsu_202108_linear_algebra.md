@@ -11,7 +11,7 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
 
 ## **Description**
-$n$ 次元ユークリッド空間上の $n+1$ 個の点 $\boldsymbol{p}_1,\boldsymbol{p}_2,...,\boldsymbol{p}_{n+1} \in \mathbb{R}_n$ に対し，$2$ 点 $\boldsymbol{p}_i, \boldsymbol{p}_j$ 間のユークリッド距離を $d_{i,j} = \|\boldsymbol{p}_i - \boldsymbol{p}_j\|$ で表す．ただし，各 $\boldsymbol{p}_i$ は列ベクトルである．
+$n$ 次元ユークリッド空間上の $n+1$ 個の点 $\boldsymbol{p}_1,\boldsymbol{p}_2,...,\boldsymbol{p}_{n+1} \in \mathbb{R}^n$ に対し，$2$ 点 $\boldsymbol{p}_i, \boldsymbol{p}_j$ 間のユークリッド距離を $d_{i,j} = \|\boldsymbol{p}_i - \boldsymbol{p}_j\|$ で表す．ただし，各 $\boldsymbol{p}_i$ は列ベクトルである．
 また，$g_{i,j} = d^2_{i, n+1} + d^2_{j, n+1} - d^2_{i,j} \ (1 \leq i,j \leq n)$ を添字順に並べて得られる行列を $G = (g_{i,j}) \in \mathbb{R}^{n \times n}$ とする．このとき以下の各問いに答えよ．
 
 (1)  n = 2とする．以下の2つの場合に対して，等式条件を満たす3個の点 $\boldsymbol{p}_1,\boldsymbol{p}_2,\boldsymbol{p}_3 \in \mathbb{R}^2$ の組をそれぞれ1つ求めよ．

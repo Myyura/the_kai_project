@@ -14,9 +14,29 @@ tags:
 
 ## **Description**
 
+### 原題に基づく要約（日本語）
+
+[公式原題](https://www.mech.tohoku.ac.jp/wp/wp-content/themes/tumech/img/examination/past-collection/Problem_2022_j.pdf)
+
+図の頂点間の接続を隣接行列で表す。3頂点の道と3頂点の完全グラフに対応する行列を
+
+$$B=\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\qquad C=\begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix}$$
+
+とする。
+
+1. $B,C$ の固有値を求める。
+2. $\operatorname{tr}(C^3)$ を求める。
+3. 原図3は6頂点すべての組を結んだ完全グラフであり、隣接行列 $D$ は対角成分が0、他の成分が1の $6\times6$ 行列である。$D$ の固有値と $\operatorname{tr}(D^3)$ を求める。
+
 ### 题目描述
 
-原文的题目描述及解答均缺失，当前文件无法还原具体题目。
+用邻接矩阵表示图中顶点的连接。三顶点路径图和三顶点完全图的邻接矩阵分别为
+
+$$B=\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\qquad C=\begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix}.$$
+
+1. 求 $B,C$ 的全部特征值。
+2. 计算 $\operatorname{tr}(C^3)$。
+3. 六顶点完全图的邻接矩阵 $D$ 是对角元为 0、其余元素为 1 的 $6\times6$ 矩阵。求 $D$ 的特征值和 $\operatorname{tr}(D^3)$。
 
 ## **Kai**
 ### (1)
@@ -31,7 +51,7 @@ $$
 \\
 &= -b (b^2 - 2)
 \\
-\therefore \ \ 
+\therefore \ \
 b &= 0, \pm \sqrt{2}
 \end{aligned}
 $$
@@ -49,7 +69,7 @@ $$
 \\
 &= - (c+1)^2(c-2)
 \\
-\therefore \ \ 
+\therefore \ \
 c &= -1, 2
 \end{aligned}
 $$
@@ -62,7 +82,7 @@ $C$ は実対称行列なので、適当な直交行列 $P$ とその逆行列 $
 $$
 \begin{aligned}
 C = P \tilde{C} P^{-1}
-, \ \ \ \ 
+, \ \ \ \
 \tilde{C}
 = \begin{pmatrix} -1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 2 \end{pmatrix}
 \end{aligned}
@@ -172,7 +192,7 @@ $$
 \\
 &= (d+1)^5 (d-5)
 \\
-\therefore \ \ 
+\therefore \ \
 d &= -1, 5
 \end{aligned}
 $$
@@ -215,3 +235,7 @@ $$
 $$
 
 がわかる。
+
+## **Reference**
+
+- [東北大学 機械系 2022年度実施試験（数学A）](https://www.mech.tohoku.ac.jp/wp/wp-content/themes/tumech/img/examination/past-collection/Problem_2022_j.pdf)

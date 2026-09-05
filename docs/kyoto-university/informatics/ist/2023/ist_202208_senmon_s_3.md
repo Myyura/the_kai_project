@@ -17,6 +17,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_ist.pdf)
 ### 設問1
 Let us consider a fully-connected feed-forward neural network that has an input of $d$ dimensions, an output of $c$ classes, and $m$ intermediate layers, each having $n$ nodes.
 A sigmoid function is used in all nodes including output nodes.
@@ -71,13 +73,9 @@ Discuss the relationship between the square root of the sum of the squared value
 ### 設問1
 #### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202208_senmon_s_3_p1.png" width="400" alt=""/>
-</figure>
+![network](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist/2023/kyoto-ist-2022-network.svg)
 
-In the figure, the output-layer label $d$ should read $c$.
-
-the total number of the network weights is
+For $m\ge1$, the total number of network weights is
 
 $$
 dn+(m-1)n^{2}+nc
@@ -104,7 +102,7 @@ L_k = -t_{k}\log g_{k}-(1-t_{k})\log (1-g_{k})
 $$
 
 #### (5)
-Let $h_{j} = \sum_{i=1}^{n}w_{ij}g_{i}$. The loss function $L$ is defined as follows:
+Let $h_k=\sum_{j=1}^n w_{jk}g_j$ for an output node. More generally, each node sums over all nodes in the immediately preceding layer. The logarithms are natural, and the loss is
 
 $$
 L = \sum_{k=1}^{c}L_{k} = \sum_{k=1}^{c}\left(-t_{k}\log g_{k}-(1-t_{k})\log (1-g_{k})\right)
@@ -160,17 +158,9 @@ $$
 Here $\mathcal N(j)$ is the set of all nodes in the layer immediately following node $j$; its size is $c$ when $j$ is in the last intermediate layer, and $n$ otherwise.
 
 #### (7)
-Vanishing and exploding gradients.
+Backpropagation multiplies layer Jacobians. The sigmoid derivative satisfies $0<\sigma'(h)\le1/4$ and becomes very small for saturated units, so gradients often vanish across many layers. Large weight-matrix norms can instead make them explode.
 
-Methods to mitigate the above issue:
-- Weight Initialization
-  - Xavier Initialization
-  - He Initialization
-- Activation Functions
-  - ReLU (Rectified Linear Unit)
-- Batch Normalization
-- Gradient Clipping
-
+Xavier initialization and input normalization help keep sigmoid units away from saturation. Replacing hidden sigmoids by ReLU with He initialization, or introducing residual connections, can improve gradient flow. Gradient clipping limits exploding gradients; it does not restore vanished gradients.
 
 ### 設問2
 #### (1)
@@ -183,9 +173,10 @@ $$
 \end{aligned}
 $$
 
-Equivalently, for the corresponding random-vector components, $\sigma_{ij}=E[X_iX_j]-m_im_j$.
+This uses the empirical covariance with denominator $n$. For the unbiased sample-covariance estimate with $n>1$, replace it by $n-1$. Equivalently, for the corresponding random-vector components, $\sigma_{ij}=E[X_iX_j]-m_im_j$.
 
 #### (2)
+Assume $\Sigma$ is positive definite, so that its inverse exists.
 
 $$
 \sqrt{(X-M)^{T}\Sigma^{-1}(X-M)}
@@ -221,3 +212,5 @@ $$
 &= \sqrt{Z^{T}Z} = \|Z\|
 \end{aligned}
 $$
+
+In general let $R=A^{-1}\Sigma A^{-1}$ be the correlation matrix. Then the Mahalanobis distance is $\sqrt{Z^TR^{-1}Z}$, whereas componentwise standardization only gives $\|Z\|_2=\sqrt{Z^TZ}$. They agree for every input exactly when $R=I$, or equivalently when $\Sigma$ is diagonal. Correlated coordinates are not whitened by separate variance scaling.

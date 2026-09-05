@@ -18,7 +18,7 @@ tags:
 確率変数 $X$ の確率密度関数 $f(x)$ が次式で与えられているとき，以下の問に答えなさい. ただし，$k$ は定数とする．
 
 $$
-f(x) = \left\{ \begin{aligned} &kx(5-x) &(0 \leq x \leq 5) \\ &0 &(0 < x, 5 < x) \end{aligned} \right.
+f(x) = \left\{ \begin{aligned} &kx(5-x) &(0 \leq x \leq 5) \\ &0 &(x < 0\ \text{または}\ x > 5) \end{aligned} \right.
 $$
 
 (1) $k$ の値を求めなさい．

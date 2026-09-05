@@ -135,3 +135,25 @@ $$
 \cosh(x\log_e2)=\frac{q+q^{-1}}2,\qquad
 \sinh(x\log_e2)=\frac{q-q^{-1}}2.
 $$
+
+若还要避免 $x$ 很小时计算 $q-q^{-1}$ 的相消，可直接递推双曲函数。置
+
+$$
+c_0=\cosh(\log 2)=\frac54,\qquad
+s_0=\sinh(\log 2)=\frac34,
+$$
+
+并用
+
+$$
+c_i=\sqrt{\frac{c_{i-1}+1}{2}},\qquad
+s_i=\frac{s_{i-1}}{2c_i}
+$$
+
+得到 $c_i=\cosh(2^{-i}\log 2)$、$s_i=\sinh(2^{-i}\log 2)$。从 $(C,S)=(1,0)$ 出发，在 $b_i=1$ 时同步更新
+
+$$
+(C,S)\leftarrow(Cc_i+Ss_i,\ Sc_i+Cs_i).
+$$
+
+最终即得所求的双曲余弦和双曲正弦。该算法仍只用四则运算与开平方，且各步不需要相近数相减。

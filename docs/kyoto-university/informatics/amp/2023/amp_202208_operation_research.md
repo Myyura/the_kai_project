@@ -12,6 +12,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_amp.pdf)
 ### 日本語版
 $\boldsymbol{Q} \in \mathbb{R}^{n \times n}$, $\boldsymbol{q} \in \mathbb{R}^n$, $\boldsymbol{u} \in \mathbb{R}^n$ とする．
 $\boldsymbol{Q}, \boldsymbol{q}, \boldsymbol{u}$ は次の条件 (a)-$(c)$ を満たすとする．ただし，$\boldsymbol{I}$ は $n \times n$ の単位行列であり，$\top$ は転置を表す．

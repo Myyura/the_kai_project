@@ -5,7 +5,7 @@ tags:
   - Computer-Science.Data-Structures.Queue
   - Computer-Science.Programming
 ---
-# 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2017年8月実施 プログラミング
+# 名古屋大学 情報学研究科 情報システム学専攻 2017年8月実施 プログラミング
 
 ## **Author**
 祭音Myyura
@@ -66,7 +66,7 @@ void eliminate() {
 ソースコード１の実行結果と一致するように, ソースコード２の中の `[ 空欄 (セ) ]` ~ `[ 空欄 (タ) ]` を埋めよ. 
 
 #### <center> ソースコード１</center>
-```text
+```c showLineNumbers
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -125,7 +125,7 @@ int main() {
 ```
 
 #### <center> ソースコード２</center>
-```text
+```c showLineNumbers
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -178,6 +178,9 @@ int main() {
     return 0;
 }
 ```
+
+
+[出典：名古屋大学 入学試験問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/e9164ea5d375e4176f1a5300f9ee458d.pdf)
 
 ### 题目描述
 

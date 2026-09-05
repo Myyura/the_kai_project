@@ -14,6 +14,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_cce.pdf)
 Answer all the following questions. An overbar, `·`, and `+` denote logical negation, logical and, and logical or, respectively.
 
 ### (1)
@@ -146,6 +148,8 @@ $$
 
 Therefore, the logic circuit is realized by **four 3-input NOR gates** only.
 
+For the lower bound, apply De Morgan duality: $F(a,b,c,d)=\overline{f(\bar a,\bar b,\bar c,\bar d)}$ turns every NOR into a NAND with the same gate count. Its 1-inputs $1111,1001,0110$ cannot be covered pairwise by one implicant, so $F$ requires at least three product terms. To justify minimality, note that no literal is true on every 1-input and no entire literal half-space has output 1. The last NAND for $F$ therefore cannot receive a primary literal. With at most three gates, its inputs must come from the preceding one or two gates. Parallel preceding gates give at most two product terms. If the first gate is $\overline T$ and the second is $\overline{\overline T P}$, feeding both into the last gate gives $T+P$, again at most two terms. Feeding only the second gives $\overline T P$: nonconstant $P$ forces a common literal on all 1-inputs, while constant $P$ gives the complement of one product, contrary to the half-space property. Thus three gates cannot suffice.
+
 
 #### (d)
 **Derive the corresponding K-map:**
@@ -167,7 +171,7 @@ $$
 d_2=q_2^{+},\qquad d_1=q_1^{+},\qquad d_0=q_0^{+}
 $$
 
-We use the corrected state behavior:
+The state behavior is:
 
 * When (u=1): 3-bit **binary down counter**
 * When (u=0): **circular shift register**

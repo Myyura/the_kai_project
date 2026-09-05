@@ -309,7 +309,14 @@ f_n(x)
 = \frac{\lambda^n x^{n-1} e^{-\lambda x}}{(n-1)!}
 $$
 
-が成り立つ．
+が成り立つ。実際、$n=1$ では定義と一致し、$n\geq2$ で $f_{n-1}$ にこの形を仮定すると、
+
+$$
+f_n(x)=\frac{\lambda^ne^{-\lambda x}}{(n-2)!}\int_0^x(x-y)^{n-2}\,dy
+=\frac{\lambda^nx^{n-1}e^{-\lambda x}}{(n-1)!}
+$$
+
+となるので、帰納法により示される。
 
 (e)
 正規化を確認するため，

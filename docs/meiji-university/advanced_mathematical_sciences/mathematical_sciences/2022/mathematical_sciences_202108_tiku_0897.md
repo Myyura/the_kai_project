@@ -84,6 +84,8 @@ $$
 
 (2) 集合 D は双曲線 $x^2 - y^2 = 1$ と $x^2 - y^2 = 2$ , および直線 $y = \frac{x}{\sqrt{3}}$ と $y = -\frac{x}{\sqrt{3}}$ で囲まれた領域のうち、 $x > 0$ の部分.
 
+![領域 D の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/meiji_university/advanced_mathematical_sciences/mathematical_sciences/2022/meiji-2021-region-d.svg)
+
 (3) $\frac{\partial u}{\partial x} = 2x, \frac{\partial u}{\partial y} = -2y, \frac{\partial v}{\partial x} = -\frac{y}{x^2}, \frac{\partial v}{\partial y} = \frac{1}{x}$
 
 $\frac{\partial u}{\partial x} \frac{\partial v}{\partial y} - \frac{\partial u}{\partial y} \frac{\partial v}{\partial x} = 2x \cdot \frac{1}{x} - (-2y) \cdot (-\frac{y}{x^2}) = 2 - \frac{2y^2}{x^2} = 2(1 - \frac{y^2}{x^2}) = 2(1 - v^2)$

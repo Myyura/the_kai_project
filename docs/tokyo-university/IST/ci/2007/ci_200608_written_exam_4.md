@@ -17,6 +17,8 @@ tags:
 
 ## **Description**
 
+出典：[大学公式問題冊子の保存版](https://web.archive.org/web/20151118065647id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2006_8_ci_istmajor_all.pdf)。
+
 ### 日本語
 
 以下に示す情報システムに関する8項目から<u>4項目</u>を選択し、各項目を5～10行程度で説明せよ。必要に応じて例や図を用いてよい。
@@ -60,7 +62,7 @@ If necessary, use examples or figures.
 
 **RISC and CISC processors**
 
-RISC, i.e. reduced instruction set computer, is a type of processors keeping a minimal set of instructions. Complex operations here can be formed by smaller instructions. An example is RISC-V by UC Berkeley or ARM (Advanced RISC Machine) for Mac computers. It is a dominant architecture for embedded devices.
+RISC (reduced instruction set computer) conventionally emphasizes simple instruction formats and a load/store organization: arithmetic mainly operates on registers, while separate instructions access memory. Complex operations may be expressed as sequences of simpler instructions. RISC-V and Arm are examples. The distinction concerns instruction-set design; it does not imply that every modern RISC ISA contains only a few instructions or that every instruction takes one clock cycle.
 
 CISC, i.e. **complex** instruction set computer processor, uses a complex set of instructions to cover various operations. The x86/x86-64 instruction-set architecture is an example.
 
@@ -69,8 +71,10 @@ CISC, i.e. **complex** instruction set computer processor, uses a complex set of
 Branch-and-bound algorithm is a classic algorithm in Operation Research (Numerical Optimization), typically to solve an integer programming problem. It repeats, for example, in an integer programming problem:
 1. Solving the relaxed problem (into real-valued), e.g. relaxing an IP into an LP;
 2. Bounding: Find the lower and upper bounds of the current problem. Take a minimizing problem as an example, the lower bound is the optimal value for the relaxed problem and the upper bound is the value of the best feasible integer solution found so far (the incumbent);
-3. Branching, based on the solution, e.g. for a solution $(\tilde x_1,\tilde x_2,\dots)$ of the relaxation $\tilde A$ of $A$ with $x_1$ integer constraint, take (for example) $x_1$ as the branching variable, break the original IP $A$ into $A_1$ and $A_2$ where $A_1$ is $A$ plus a new constraint $x_1\le \lfloor \tilde x_1\rfloor$ and $A_2$ is $A$ plus $x_1\ge \lceil \tilde x_1\rceil$.
+3. Branching, based on the solution, e.g. for a solution $(\tilde x_1,\tilde x_2,\dots)$ of the relaxation $\tilde A$ of $A$ with a nonintegral value $\tilde x_1$ for an integer-constrained variable, take $x_1$ as the branching variable, break the original IP $A$ into $A_1$ and $A_2$ where $A_1$ is $A$ plus a new constraint $x_1\le \lfloor \tilde x_1\rfloor$ and $A_2$ is $A$ plus $x_1\ge \lceil \tilde x_1\rceil$.
 4. Repeat solving, bounding and branching. Prune a node if its relaxation is infeasible or its lower bound is no better than the incumbent; if the relaxation optimum is integral, update the incumbent and prune the node.
+
+For example, minimize $x$ subject to $2x\ge3$ and $x\in\mathbb Z_{\ge0}$. The LP relaxation has optimum $x=1.5$, a lower bound of $1.5$. Branching gives $x\le1$, which is infeasible, and $x\ge2$, whose relaxation optimum $x=2$ is integral. Thus the incumbent becomes $2$, all nodes are closed, and the integer optimum is proved to be $2$.
 
 **Heap sort data structure**
 
@@ -88,4 +92,33 @@ Each parent is at least as large as its children. Build the heap in $O(n)$ time;
 
 **Features of functional programming languages**
 
-Functions are first-class values and may be passed to or returned from higher-order functions. Pure functions and immutable data give referential transparency; recursion commonly replaces mutable loops. For example, `map (lambda x: x*x) [1,2,3]` applies one function independently to every element.
+Functions are first-class values and may be passed to or returned from higher-order functions. Pure functions and immutable data give referential transparency; recursion commonly replaces mutable loops. For example, the Python expression `list(map(lambda x: x*x, [1,2,3]))` applies one function independently to every element, producing `[1,4,9]`. Functional languages differ in whether they enforce purity; first-class functions alone do not exclude side effects.
+
+
+**The sampling theorem**
+
+If a continuous signal is bandlimited to $|f|\le B$, uniform samples at $f_s>2B$ determine it uniquely under the ideal sampling model. Writing $T_s=1/f_s$ and $\operatorname{sinc}u=\sin(\pi u)/(\pi u)$, reconstruction is
+
+$$x(t)=\sum_{n\in\mathbb Z}x(nT_s)\operatorname{sinc}\!\left(\frac{t-nT_s}{T_s}\right).$$
+
+Sampling replicates the spectrum at multiples of $f_s$; the inequality prevents overlap. Otherwise distinct frequencies can have the same samples, which is aliasing. For example, a $900$ Hz cosine sampled at $1000$ Hz has the same samples as a $100$ Hz cosine. An analog low-pass filter before sampling limits out-of-band components. The strict inequality avoids endpoint counterexamples such as a sine exactly at $f_s/2$ whose samples all vanish.
+
+**TCP and UDP**
+
+Both protocols use port numbers to distinguish application endpoints above IP. TCP establishes a connection and supplies a reliable, ordered byte stream through sequence numbers, acknowledgments and retransmission; it also supports flow and congestion control. TCP preserves byte order rather than application message boundaries, so an application must frame its own messages. UDP supplies individual datagrams and preserves their boundaries, but does not by itself ensure delivery, order or duplicate suppression. It has no connection establishment handshake and lets applications decide how to handle loss and timing. For example, a file-transfer application may use TCP, whereas a real-time media application may use UDP with its own recovery or loss-tolerance scheme. These services are specified by [RFC 9293](https://www.rfc-editor.org/rfc/rfc9293.html) and [RFC 768](https://www.rfc-editor.org/rfc/rfc768.html).
+
+**Morpheme in natural languages**
+
+A morpheme is a minimal unit carrying a lexical meaning or grammatical function. The English word `cats`, for example, contains the lexical morpheme `cat` and the plural morpheme `-s`. Likewise, `unhelpful` can be analyzed as `un-`, `help` and `-ful`. A morpheme that can occur alone is free, whereas an affix that must attach to another form is bound. A morpheme need not coincide with a syllable or a written character. Morphological analysis segments a sentence into such units and determines information such as part of speech and inflection, with context often needed to resolve ambiguity.
+
+**Homogeneous coordinates**
+
+A point $(x,y,z)$ in three-dimensional Euclidean space is represented by $(x,y,z,1)^{\mathsf T}$, or any nonzero scalar multiple of that vector. More generally, $(X,Y,Z,W)^{\mathsf T}$ with $W\ne0$ represents $(X/W,Y/W,Z/W)$. Translation and a linear transformation can then be combined into a single matrix:
+
+$$
+\begin{pmatrix}R&t\\0&1\end{pmatrix}
+\begin{pmatrix}x\\y\\z\\1\end{pmatrix}
+=\begin{pmatrix}R(x,y,z)^{\mathsf T}+t\\1\end{pmatrix}.
+$$
+
+Successive affine transformations are composed by matrix multiplication. Nonzero homogeneous vectors with $W=0$ represent points at infinity, which encode directions in projective space. Perspective projection is also represented by a homogeneous matrix, followed by division by the final coordinate. The all-zero vector represents no projective point.

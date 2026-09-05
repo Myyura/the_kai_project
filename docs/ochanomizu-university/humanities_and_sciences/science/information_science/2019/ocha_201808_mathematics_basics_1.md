@@ -94,19 +94,7 @@ $$
 
 である。また、$(0,e^{-2})$ と $(1,\infty)$ では $f''>0$、$(e^{-2},1)$ では $f''<0$ である。
 
-```text
-y
-^                                               /
-|                                             _/
-|                                           _/
-○-----------------------------------------●----------> x
- \                                       (1,0)
-  \                                    __/
-   \__                              ___/
-      ●________○___________________/
-   極小          変曲
- (e^-3,-27e^-3) (e^-2,-8e^-2)
-```
+![Function graph with stationary and inflection points](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/ochanomizu_university/humanities_and_sciences/science/information_science/2019/ocha-201808-log-cube.svg)
 
 ### [2]
 

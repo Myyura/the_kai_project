@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H28infait.pdf)。
+
 $x>0$ で定義された関数 $y(x)$ に関する以下の微分方程式において,変数変換 $x = e^t$ を用いて一般解を求めよ.なお, $y'$ は関数 $y(x)$ の $x$ に関する1階導関数を表している.
 
 (1) $x^2y'' - xy' - x - 3y = 0$

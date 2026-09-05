@@ -12,6 +12,7 @@ tags:
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
 
+
 ## **Description**
 
 [2] 独立でない二つの事象 $A, B$ に対し、

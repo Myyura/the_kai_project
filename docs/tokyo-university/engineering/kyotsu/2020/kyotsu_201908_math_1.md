@@ -12,7 +12,21 @@ tags:
 
 ## **Description**
 
-[2020年度入試問題 Exam paper 数学](https://github.com/Myyura/the_kai_project_assets/blob/7d274740e9aacde6948ee5ca73a336a00fe76d04/kakomonn/tokyo_university/engineering/Description/%E6%95%B0%E5%AD%A62020.pdf)
+[公式原題](https://www.t.u-tokyo.ac.jp/hubfs/pdf/%E6%95%B0%E5%AD%A62020.pdf)
+
+### I.
+$-\pi/2<x<\pi/2$ で
+$$\cos x\,y''-\sin x\,y'-\frac{y}{\cos x}=0$$
+を考える。(1) 特解 $y=(\cos x)^m$ に対応する定数 $m$ を決定し、(2) その結果を利用して一般解を求める。
+
+### II.
+$$I=\int_1^\infty x^5e^{-x^4+2x^2-1}\,dx$$
+を計算する。$a>0$ に対する $\int_0^\infty e^{-ax^2}dx=\frac12\sqrt{\pi/a}$ を用いてよい。
+
+### III.
+実数 $n$、$x>0,y>0$ に対し、
+$$(x^3y^n+x)y'+2y=0$$
+の一般解を $f(x,y)=C$ の形で表す。
 
 ### 题目描述
 
@@ -180,7 +194,7 @@ $$
 
 **解説:**
 変数係数2階線形斉次常微分方程式です．
-問I.1では基本解の一つを求めるための誘導がされています． $y=(\cos{x})^{m}x$ ではなく $y=(\cos{x})^{m}$ と書かれているのは，答である $m=-1$ のときに $y=(\cos{x})^{-1}x$書かれると逆余弦関数 $\arccos {x}$ と紛らわしいからでしょう．
+問I.1では基本解の一つを求めるための誘導がされています． $y=\cos^m x$ ではなく $y=(\cos{x})^{m}$ と書かれているのは，答である $m=-1$ のときに $y=\cos^{-1}x$ と書かれると逆余弦関数 $\arccos {x}$ と紛らわしいからでしょう．
 問I.2では，問I.1の結果を用いてもう一つの基本解を求めます．
 
 [変数係数2階線形微分方程式の解法](https://physnotes.jp/diffeq/2nd-lde/#%E5%A4%89%E6%95%B0%E4%BF%82%E6%95%B02%E9%9A%8E%E7%B7%9A%E5%BD%A2%E5%90%8C%E6%AC%A1%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%BC%8F)

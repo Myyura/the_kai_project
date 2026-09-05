@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H27infait.pdf)。
+
 次の微分方程式を解け.
 
 (1) $(2xy^3 - e^x \cos y)dx + (3x^2y^2 + e^x \sin y)dy = 0$

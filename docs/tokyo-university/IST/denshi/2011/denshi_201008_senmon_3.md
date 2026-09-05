@@ -75,7 +75,7 @@ count_frequency(File sorted_words_file) {
 
 *   Error 2: The counter `num` is not reset after outputting.
 
-    Correction: Set `num = 0` after the output block.
+    Correction: Set `num = 0` inside the `if` block, immediately after outputting the previous word.
 
 *   Error 3: The last group of words is not outputted after while loop finishes.
 
@@ -107,18 +107,21 @@ merge (list A, list B) {
         result.append(pb);
         pb = pb.next;
     }
+    return result;
 }
 ```
 
 ### (3)
 
-Using a Min-Heap of size $N$ to perform a multi-way merge.
+Initialize a min-heap with the first pair of each nonempty list, storing its source-list index. Each input list is sorted and has at most one pair for each word. The heap contains at most $N$ pairs.
 
 - ① Extract the minimum element from the heap.
 - ② Check the new minimum. If it has the same word, extract it and add its frequency.
 - ③ Repeat ② until output the merged.
 - ④ Insert the next elements from the lists that provided the extracted words into the heap.
 - ⑤ Repeat until empty.
+
+If the input lists contain $K$ pairs in total, this takes $O(K\log N)$ time for $N\ge2$ and $O(N)$ extra space; $N=1$ needs only a scan.
 
 ### (4)
 
@@ -132,10 +135,20 @@ Example: `machine_id = hash(word) MOD N`.
 
 Use Range Partitioning based on Sampling.
 
-Select $N-1$ pivot words ($P_1, P_2, \dots, P_{N-1}$) such that the total frequency in each range is approximately equal.
+Select $N-1$ pivot words ($P_1, P_2, \dots, P_{N-1}$) using estimated word frequencies so that the total frequency in each range is as equal as possible.
 
 Then Mapping Function:
 
 $$
 f(word) = i \quad \text{where} \quad P_i \le word < P_{i+1} \quad (P_0 = -\infty, P_N = +\infty)
 $$
+
+A mapping depending only on the word cannot split one very frequent word: if a word occurs $F$ times, one machine must receive at least $F$ occurrences. Thus exact balance is impossible when a single word exceeds the target load.
+
+For such a word, attach a unique occurrence index $j$ and use
+
+$$
+f(word,j)=(h(word)+j)\bmod N.
+$$
+
+Each machine computes partial counts. Sum these partial counts by word in a second aggregation stage. Local combination reduces a frequent word to at most one count per machine, while round-robin occurrence indices distribute its occurrences with loads differing by at most one. Sampling and range partitioning suffice when no individual word dominates the load.

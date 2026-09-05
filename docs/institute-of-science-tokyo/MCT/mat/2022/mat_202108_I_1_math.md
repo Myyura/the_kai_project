@@ -17,11 +17,27 @@ tags:
 
 ## **Description**
 
+[公式問題・2ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_mat_20218&key=ba979309a987aabd5e1287d642ef411d.pdf&pageId=3186&prevId=&type=1)
+
+各問は導出過程を含めて解答する。
+
+
+1. $x>0$ で定義された $y(x)$ について、$x\,dy/dx=(x-1)y$ の一般解と、$y(1)=1$ を満たす解を求める。
+2. $a>0$ として、領域 $x^2+y^2/4\le a^2$ 上の積分
+   $$
+   I=\iint\sqrt{9a^2-x^2-y^2/4}\,dx\,dy
+   $$
+   を計算する。
+3. 正則行列
+   $$
+   A=\begin{pmatrix}a&-2\\-2&3\end{pmatrix},\qquad
+   B=\begin{pmatrix}1&b\\b&-2\end{pmatrix}
+   $$
+   について、① $\det(AB)$、② $A$ の固有値が $-1,4$ かつ $AB=BA$ の場合の $a,b$、③ $B$ の固有ベクトルが $(2,4)^{\mathsf T},(2,-1)^{\mathsf T}$ の場合の $B^n$（正整数 $n$）を求める。
+
 ### 题目描述
 
-> **题面缺失边界：** 当前 Description 与全部本地 Git 历史版本均为空。以下只重建 Kai 能唯一确认的公式与分问；第 1 问原边界条件的具体给法没有留存，但其确定的积分常数和特解仍可确认。
-
-1. Kai 可确认给定的是可分离变量方程，其分离形式为
+1. 设 $x>0$，函数 $y(x)$ 满足可分离变量方程，其分离形式为
 
    $$
    \frac{\mathrm dy}{y}
@@ -35,13 +51,13 @@ tags:
    =\frac{x-1}{x}y.
    $$
 
-   求通解，并使用题中边界条件求特解。边界条件本身无法恢复；Kai 唯一保留它给出的常数 $C=1/e$，因此目标特解为
+   求通解，并用初值 $y(1)=1$ 求特解。此时积分常数为 $C=1/e$，特解为
 
    $$
    y=\frac{e^{x-1}}x.
    $$
 
-2. Kai 可唯一确认本问要求计算二重积分
+2. 计算二重积分
 
    $$
    I=
@@ -51,7 +67,7 @@ tags:
    $$
 
    其中 $a>0$。可先令 $Y=y/2$，再在 $xY$ 平面使用极坐标。
-3. 给定
+3. 给定非奇异矩阵
 
    $$
    A=
@@ -67,14 +83,14 @@ tags:
    \end{pmatrix}.
    $$
 
-   Kai 可确认三小问为：
+   回答以下三小问：
 
    1. 用 $a,b$ 表示 $\det(AB)$。
    2. 已知 $A$ 的特征值为 $-1,4$，且 $AB=BA$，求 $a,b$。
    3. 已知
 
       $$
-      \begin{pmatrix}1\\2\end{pmatrix},
+      \begin{pmatrix}2\\4\end{pmatrix},
       \qquad
       \begin{pmatrix}2\\-1\end{pmatrix}
       $$
@@ -102,7 +118,7 @@ $$
 
 ここで、 $C_0, C$ は積分定数である。
 
-また、与えられた境界条件から $C=1/e$ となるので、
+零解も含め $C$ は任意定数である。また、$y(1)=1$ より $Ce=1$、すなわち $C=1/e$ となるので、
 
 $$
 \begin{aligned}

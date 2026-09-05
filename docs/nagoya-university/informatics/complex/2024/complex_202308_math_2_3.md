@@ -11,6 +11,9 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/e430ba234e241d162a59ab76f6efe083.pdf)
+
+
 被食者と捕食者の個体数をそれぞれ $x$ , $y$ として、これらの時間変化をモデル化した、次の2次元非線形力学系について考えよう。ただし、 $a, b, c, d > 0$ とし、 $x, y > 0$ の解を考えることとする。
 
 $$
@@ -122,3 +125,8 @@ V(x,y)=V\left(x_0,\frac{y_0}{j}\right),
 $$
 
 という3本の閉曲線である。いずれも点 $(x_0,y_0/j)$ では右向きに出発し、 $j$ が大きいほど保存量が小さいため外側の大きな閉軌道となる。
+
+
+![指定された三初期値からの閉軌道と進行方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2024/nagoya-complex2024-predator-prey.svg)
+
+図は $a=c$ の代表例で，横軸を $X=x/x_0$，縦軸を $Y=y/y_0$ とした。一般の $a,c>0$ でも，軌道の入れ子構造と進行方向は同じである。

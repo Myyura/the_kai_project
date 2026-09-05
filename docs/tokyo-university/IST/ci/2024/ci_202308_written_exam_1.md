@@ -115,9 +115,7 @@ $$
 9. 对第 8 问辅助函数执行算法 A：步骤 1 求使辅助函数最大的 $\lambda_i$；步骤 2 在辅助变量固定时求使辅助函数最大的 $\Theta$。
 
 ## **Kai**
-本题考察爆算expectation maximization for Gaussian mixture model (EM for GMM) 的数学推导。注意点在于 (8) 分配的辅助变量是 $\lambda_{nk}$ 而不是 $\lambda_k$ 否则无法做。
-
-本题涉及的EM for GMM可以在Berkeley CS 188里发现。
+For every observation $n$, use its own auxiliary probability vector $(\lambda_{n1},\ldots,\lambda_{nK})$.
 
 ### (1)
 
@@ -155,7 +153,7 @@ $$
 $$
 \begin{cases}
 {\partial \log L(X|\Theta)\over \partial \mu}=0\implies \hat\mu_{\text{MLE}}=\frac1N\sum_{n}x_n\\
-{\partial \log L(X|\Theta)\over \partial \sigma^2}=0\implies \hat{\sigma^2}_{\text{MLE}}=\frac1N\sum_n(x_n-\mu)^2=\frac1N\sum_n (x_n-\hat\mu_{\text{MLE}})^2.
+{\partial \log L(X|\Theta)\over \partial \sigma^2}=0\implies \hat{\sigma^2}_{\text{MLE}}=\frac1N\sum_n (x_n-\hat\mu_{\text{MLE}})^2.
 \end{cases}
 $$
 
@@ -166,7 +164,7 @@ The variance formula is an attained MLE for $\sigma^2>0$ when the sample varianc
 
 $$
 \begin{aligned}
-p(Z|\Theta)=\prod_n \pi_{z_n};\\p(X|Z,\Theta)=\prod_n \frac1{\sigma_{z_n}\sqrt{2\pi}}e^{-(x_n-\mu_{z_n})^2/2\sigma_{z_n}^2}.\\
+p(Z|\Theta)=\prod_n \pi_{z_n};\\p(X|Z,\Theta)=\prod_n \frac1{\sigma_{z_n}\sqrt{2\pi}}e^{-(x_n-\mu_{z_n})^2/(2\sigma_{z_n}^2)}.\\
 \log L(X|\Theta)=\log \sum_Zp(Z|\Theta)p(X|Z,\Theta).
 \end{aligned}
 $$
@@ -193,7 +191,7 @@ $$
 so after every $\Theta$ update the objective $D$ raises or stays unchanged.
 
 ### (7)
-Since the function $\log(\cdot)$ is concave, for $0<x_1<x_2<x_3$,
+Since $(\log x)^{\prime\prime}=-1/x^2<0$ for $x>0$, the logarithm is concave; for $0<x_1<x_2<x_3$,
 
 $$
 {\log x_2-\log x_1\over x_2-x_1}\ge {\log x_3-\log x_1\over x_3-x_1}.
@@ -276,16 +274,16 @@ $$
 $$
 \begin{aligned}
 A(\Theta,\Lambda)&=\sum_n \sum_k\lambda_{nk}\log p(x_n,k;\Theta)-\sum_n\sum_k\lambda_{nk}\log \lambda_{nk}
-\\&\propto -\sum_n D(\Lambda_n||Q_n)
+\\&=\log L(X\mid\Theta)-\sum_n D_{\mathrm{KL}}(\Lambda_n\|Q_n)
 \end{aligned}
 $$
 
-which is the sum of negative KL divergences of
+where the KL divergences compare the probability vectors
 
 $$
 \begin{aligned}
 \Lambda_n&=(\lambda_{n1},\lambda_{n2},\dots,\lambda_{nK}),\\
-Q_n &\propto(\pi_1 f(x_n;\mu_1,\sigma_1^2),\dots,\pi_K f(x_n;\mu_K,\sigma_K^2)).
+Q_n &=\frac{(\pi_1 f(x_n;\mu_1,\sigma_1^2),\dots,\pi_K f(x_n;\mu_K,\sigma_K^2))}{\sum_j\pi_j f(x_n;\mu_j,\sigma_j^2)}.
 \end{aligned}
 $$
 
@@ -307,7 +305,7 @@ Since
 
 $$
 \begin{aligned}
-A(\Theta,\Lambda)=\sum_n\sum_k\lambda_{nk}\log(\pi_k\cdot{1\over\sigma_{k}\sqrt{2\pi}}\cdot e^{-(x_n-\mu_k)^2/2\sigma_k^2})-\sum_n\sum_k\lambda_{nk}\log\lambda_{nk},
+A(\Theta,\Lambda)=\sum_n\sum_k\lambda_{nk}\log(\pi_k\cdot{1\over\sigma_{k}\sqrt{2\pi}}\cdot e^{-(x_n-\mu_k)^2/(2\sigma_k^2)})-\sum_n\sum_k\lambda_{nk}\log\lambda_{nk},
 \end{aligned}
 $$
 
@@ -324,7 +322,7 @@ $$
 \\
 &\implies \sum_n{\lambda_{nk}\over \sigma_k^2}=\sum_n{\lambda_{nk}(x_n-\mu_k)^2\over \sigma_k^4}
 \\
-&\implies\hat\sigma_k^2={\sum_n\lambda_{nk}(x_n-\mu_k)^2\over \sum_n\lambda_{nk}}
+&\implies\hat\sigma_k^2={\sum_n\lambda_{nk}(x_n-\hat\mu_k)^2\over \sum_n\lambda_{nk}}
 \end{aligned}
 $$
 
@@ -359,3 +357,5 @@ Hence
 $$
 \hat\pi_k={\sum_n\lambda_{nk}\over N}.
 $$
+
+These mean and variance updates assume $N_k=\sum_n\lambda_{nk}>0$ and a positive weighted sample variance. If $N_k=0$, choose $\hat\pi_k=0$; that component's mean and positive variance do not affect the auxiliary objective. If $N_k>0$ but its weighted sample variance is zero, the auxiliary objective has an unbounded limit as $\sigma_k^2\downarrow0$ instead of a finite maximum over positive variances. For zero mixing weights, interpret the auxiliary objective by continuity, with positive $\lambda_{nk}$ forbidden wherever $\pi_k=0$.

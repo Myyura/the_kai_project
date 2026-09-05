@@ -15,30 +15,133 @@ tags:
 [瑞穂](https://github.com/LiRunyi2001)
 
 ## **Description**
-(1) Calculate entropy of a system $S$ with $p(0)=0.9$ and $p(1)=0.1$, and its second-level entropy $H(S^2)$. Also give a Huffman coding for this system, and calculate the average code length. 
 
-(2) Given system transation diagram, calculate stable probability. 
+*Recalled statement.*
+(1) For a binary source $S$ with $p(0)=0.9$ and $p(1)=0.1$, find $H(S)$ and the entropy of its second extension $H(S^2)$. Give a Huffman code and its mean length.
 
-(3) Calculate the capacity of channel, where $(a)$ not stable $S$, and $(b)$ stable $S$. 
+(2) Find the stationary probabilities of the source shown in a transition diagram.
 
-(4) Give the transation matrix of $S$ with error probability $p$ and error code average length $l$. 
+(3) Find the channel capacity in the two cases recalled as “not stable $S$” and “stable $S$”.
 
-(5) What is CRC code, and give the capacity of CRC with $G(x)=x^{16}+x^{12}+x^{5}+1$. 
+(4) Give a transition matrix involving error probability $p$ and mean error length $l$.
+
+(5) Explain CRC and its “capacity” for
+
+$$
+G(x)=x^{16}+x^{12}+x^5+1.
+$$
 
 ### 题目描述
 
-(1) 对满足 $p(0)=0.9$、$p(1)=0.1$ 的系统 $S$，计算其熵及二阶扩展熵 $H(S^2)$；再给出该系统的一种霍夫曼编码并计算平均码长。原 Description 没有明确霍夫曼编码的对象是单符号信源 $S$ 还是二阶扩展 $S^2$，此处不替其选择。
+对二元信源求熵、二阶扩展熵与霍夫曼码；对给定转移图求平稳概率；求两种信道的容量及涉及错误概率 $p$、平均错误长度 $l$ 的转移矩阵；说明生成多项式为 $x^{16}+x^{12}+x^5+1$ 的 CRC。
 
-(2) 对“给定的系统状态转移图”计算平稳概率。当前 Description 中没有该状态转移图，也没有列出任何转移概率，因此具体系统边界缺失。
+## **Kai**
 
-(3) 计算信道容量，分别讨论“(a) 非平稳 $S$”与“(b) 平稳 $S$”。原 Description 未定义“非平稳/平稳 $S$”所对应的信道，也没有给出输入、输出字母表或转移概率，因而不能补出具体信道模型。
+### (1)
 
-(4) 对错误概率为 $p$、错误码平均长度为 $l$ 的 $S$，写出其转移矩阵。原 Description 未说明错误机制、矩阵所对应的状态或符号，也未定义“错误码平均长度 $l$”如何参与转移概率，故保留这些缺失条件。
-
-(5) 说明什么是 CRC 码，并对生成多项式
+All logarithms below are base $2$. The single-symbol entropy is
 
 $$
-G(x)=x^{16}+x^{12}+x^5+1
+H(S)=-0.9\log_2 0.9-0.1\log_2 0.1\simeq0.468996\ \mathrm{bit}.
 $$
 
-给出 CRC 的“capacity”。原 Description 未定义这里的 capacity 是码率、冗余长度还是检错能力，也未给出消息/码字长度，因此不将其擅自解释成某一项。
+A Huffman code for the two single symbols is $0\mapsto0$, $1\mapsto1$, with mean length $1$ bit per source symbol.
+
+If $S$ is memoryless, the second-extension probabilities are $0.81,0.09,0.09,0.01$ for $00,01,10,11$, respectively. Independence gives
+
+$$
+H(S^2)=2H(S)\simeq0.937991\ \mathrm{bit/pair}.
+$$
+
+The Huffman merges have weights $0.01+0.09=0.10$, $0.10+0.09=0.19$, and $0.19+0.81=1$. One code is:
+
+| Pair | Probability | Code |
+|---|---|---|
+| $00$ | $0.81$ | $0$ |
+| $01$ | $0.09$ | $10$ |
+| $10$ | $0.09$ | $110$ |
+| $11$ | $0.01$ | $111$ |
+
+Thus the mean length is $0.81+2(0.09)+3(0.10)=1.29$ bit/pair, or $0.645$ bit/source symbol. If the source has memory, the two marginal probabilities alone do not determine $H(S^2)$: one needs the joint probabilities, or equivalently $H(X_2\mid X_1)$.
+
+### (2)
+
+Without the diagram, numerical stationary probabilities cannot be determined. For a two-state Markov source with
+
+$$
+P=\begin{pmatrix}1-a&a\\b&1-b\end{pmatrix},\qquad a+b>0,
+$$
+
+the equations $\pi P=\pi$ and $\pi_0+\pi_1=1$ yield
+
+$$
+\boxed{\pi_0=\frac b{a+b},\qquad \pi_1=\frac a{a+b}}.
+$$
+
+If $a=b=0$, every initial distribution is stationary.
+
+### (3)
+
+A channel capacity cannot be inferred from source probabilities alone. For a memoryless binary symmetric channel with crossover probability $p$, the answer is
+
+$$
+C=1-H_2(p).
+$$
+
+Indeed, $I(X;Y)=H(Y)-H(Y\mid X)\le1-H_2(p)$, and an equiprobable input attains equality.
+
+For an additive binary channel $Y_i=X_i\oplus E_i$ with stationary, ergodic noise independent of the input, the capacity per use is instead
+
+$$
+C=1-\overline H(E),\qquad
+\overline H(E)=\lim_{n\to\infty}\frac1nH(E_1,\ldots,E_n).
+$$
+
+To see the bound, $I(X^n;Y^n)=H(Y^n)-H(E^n)\le n-H(E^n)$; independent uniform input makes $Y^n$ uniform and attains it.
+
+### (4)
+
+If the intended model is a two-state Markov error indicator $E_i\in\{0,1\}$, with stationary error fraction $p\in(0,1)$ and mean length $l$ of a run of $1$'s, write
+
+$$
+a=P(E_{i+1}=1\mid E_i=0),\qquad
+b=P(E_{i+1}=0\mid E_i=1).
+$$
+
+A run of errors has geometric length, so $l=1/b$. Stationary flow gives $(1-p)a=pb$. Hence
+
+$$
+\boxed{P=\begin{pmatrix}
+1-\dfrac{p}{l(1-p)}&\dfrac{p}{l(1-p)}\\[4pt]
+\dfrac1l&1-\dfrac1l
+\end{pmatrix}}.
+$$
+
+The parameters must satisfy $l\ge1$ and $p\le l/(l+1)$ so all entries are probabilities. In the stationary ergodic case, this model has entropy rate
+
+$$
+\overline H(E)=(1-p)H_2\!\left(\frac{p}{l(1-p)}\right)
++pH_2\!\left(\frac1l\right).
+$$
+
+Other meanings of $l$, or a hidden-state error model, require a different matrix.
+
+### (5)
+
+A cyclic redundancy check appends a polynomial remainder over $\mathrm{GF}(2)$. For a $k$-bit message polynomial $M(x)$, let
+
+$$
+R(x)=x^{16}M(x)\bmod G(x),\qquad
+T(x)=x^{16}M(x)+R(x).
+$$
+
+Then $G$ divides $T$. The receiver divides the received polynomial by $G$ and reports an error when the remainder is nonzero. An error polynomial $E(x)$ is undetected exactly when $G\mid E$.
+
+For the given generator:
+
+- There are $16$ redundancy bits; for a $k$-bit payload the code rate is $k/(k+16)$.
+- Every nonzero burst of length at most $16$ is detected. After removing its leading power of $x$, its degree is below $16$, so it cannot be divisible by $G$; $G(0)=1$ permits removing that power.
+- Every odd-weight error is detected. Over $\mathrm{GF}(2)$, $G(1)=0$, so $x+1$ divides $G$, whereas an odd-weight error has $E(1)=1$.
+- Every two-bit error is detected for total codeword length at most $32767$. In fact, the multiplicative order of $x$ modulo $G$ is $32767$, so $G$ cannot divide $1+x^d$ for $1\le d<32767$.
+
+These properties describe redundancy and error-detection capability. The polynomial alone does not specify a Shannon channel capacity. Source: the CRC-16/CCITT entry in [Koopman's polynomial table](https://users.ece.cmu.edu/~koopman/crc/crc16.html).

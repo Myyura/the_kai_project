@@ -7,7 +7,7 @@ tags:
 # 東京大学 新領域創成科学研究科 複雑理工学専攻 2022年8月実施 専門基礎科目
 ## Slot 1: 1.1 Calculus (40 minutes)
 
-Answer the following questions. All constants and variables are real numbers. All funcions are real functions. Omit the derivations and write only the answers.
+Answer the following questions. All constants and variables are real numbers. All functions are real functions. Omit the derivations and write only the answers.
 
 (Q.1) Let functions A(t), B(t), and C(t) satisfy the following differential equations.
 
@@ -96,20 +96,20 @@ Assume the tension F on rod 2 is the same as (Q.1)(4) to lowest order in  $\thet
 
 (5) Let  $l_1 = 2a/3$ ,  $l_2 = a/2$  and  $m_1 = m_2$ . Obtain the two positive characteristic angular frequencies of the system, and the corresponding characteristic vector  $(\theta_1, \theta_2)$ . It is not necessary to normalize the characteristic vectors.
 
-![](_page_2_Figure_15.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2023/tokyo-cse-202208-pendulum.svg)
 
 ## Slot 3: 3.1 Mathematical analysis (40 minutes)
 
 Let x, t, and  $\theta$  be real numbers and z be a complex number. Answer the following questions.
 
-(Q.1) Let  $m, n \ge 1$  be integers and L be a real number. Calculate
+(Q.1) Let  $m, n \ge 1$  be integers and L be a nonzero real number. Calculate
 
 $$\int_{-L}^{L} \sin\left(\frac{m\pi}{L}x\right) \sin\left(\frac{n\pi}{L}x\right) dx.$$
 
 Omit the derivations and write only the answer.
 
 - (Q.2) Consider the function  $f(x) = \sum_{n=1}^{\infty} a_n \sin\left(\frac{n\pi}{L}x\right)$ . Suppose that  $a_n$  is expressed as  $a_n = \int_0^L f(x)g_n(x) dx$ . Obtain  $g_n(x)$ . Omit the derivations and write only the answer.
-- (Q.3) Suppose  $0 \le x \le 1$ . Consider the partial differential equation  $\frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2}$  for the two-variable function u(x,t) under the initial condition  $u(x,0) = x x^2$ ,  $\frac{\partial u(x,0)}{\partial t} = 0$  and the boundary condition u(0,t) = u(1,t) = 0. Suppose the solution of the partial differential equation is given by  $u(x,t) = \sum_{n=1}^{\infty} b_n X_n(x) T_n(t)$ . Obtain the coefficient  $b_n$ , and the functions  $X_n(x)$ , and  $T_n(t)$ . Omit the derivations and write only the answer.
+- (Q.3) Suppose  $0 \le x \le 1$ . Consider the partial differential equation  $\frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2}$  for the two-variable function u(x,t) under the initial condition  $u(x,0) = x-x^2$ ,  $\frac{\partial u(x,0)}{\partial t} = 0$  and the boundary condition u(0,t) = u(1,t) = 0. Suppose the solution of the partial differential equation is given by  $u(x,t) = \sum_{n=1}^{\infty} b_n X_n(x) T_n(t)$ . Obtain the coefficient  $b_n$ , and the functions  $X_n(x)$ , and  $T_n(t)$ . Omit the derivations and write only the answer.
 
 (Q.4) Let k be an integer. Consider the Laurent expansion  $h(z,x) = \sum_{k=-\infty}^{\infty} J_k(x) z^k \text{ of the function}$ 
 
@@ -122,7 +122,7 @@ J_k(x) = \frac{1}{\pi} \int_0^{\pi} \cos(x \sin \theta - k\theta) d\theta \tag{1
 $$
 
 - (ii) Let a be a real constant. Obtain  $\frac{d}{d\theta}\sin(a\sin\theta)$ . Omit the derivations and write only the answer.
-- (iii) Suppose  $x \neq 0$ . Express  $J_{k-1}(x) J_{k+1}(x)$  and  $J_{k-1}(x) + J_{k+1}(x)$  in terms of  $J_k(x)$  and  $\frac{\mathrm{d}J_k(x)}{\mathrm{d}x}$ . You may use equation (1). Omit the derivations and write only the answer.
+- (iii) Suppose  $x \neq 0$ . Express  $J_{k-1}(x)-J_{k+1}(x)$  and  $J_{k-1}(x) + J_{k+1}(x)$  in terms of  $J_k(x)$  and  $\frac{\mathrm{d}J_k(x)}{\mathrm{d}x}$ . You may use equation (1). Omit the derivations and write only the answer.
 
 ## Slot 3: 3.2 Probability and Statistics (40 minutes)
 
@@ -156,7 +156,7 @@ Answer the following questions. In all the problems, assume a vacuum environment
 
 $$\boldsymbol{H}(\boldsymbol{r}) = \frac{1}{4\pi} \left\{ \frac{3(\boldsymbol{m} \cdot \boldsymbol{r})\boldsymbol{r}}{|\boldsymbol{r}|^5} - \frac{\boldsymbol{m}}{|\boldsymbol{r}|^3} \right\}.$$
 
-![](_page_5_Picture_4.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2023/tokyo-cse-202208-dipole.svg)
 
 Figure 1
 
@@ -172,7 +172,7 @@ $$d\boldsymbol{H} = \frac{1}{4\pi} \frac{Id\boldsymbol{s} \times \boldsymbol{r}}
 - (2) Find the magnetic field created by a circular current I of radius a at a point of height z on the central axis. Also, find the magnetic field at z=0.
 - (3) Find the magnitude of the magnetic flux density on the axis when  $z \gg a$ . If this value is equal to the magnitude of the magnetic flux density obtained in (Q.1)(3), express the magnitude of the magnetic moment  $\boldsymbol{m}$  using a and I.
 
-![](_page_5_Picture_15.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2023/tokyo-cse-202208-loop.svg)
 
 Figure 2
 

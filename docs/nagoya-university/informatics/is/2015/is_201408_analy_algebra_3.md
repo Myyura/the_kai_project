@@ -23,6 +23,9 @@ $$
 
 (c) (1) により、 $z$ 平面上の点 $1, i, 1+i$ を頂点とする三角形の周を $w$ 平面上に写してできる図形を求め、その概形を図示せよ。
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20210425112646id_/http://www.is.nagoya-u.ac.jp/exam-old/d21408.pdf)
+
 ### 题目描述
 
 考察复变换
@@ -204,3 +207,13 @@ v^2=4(1-u)
 $$
 
 を得る．
+
+各弧の範囲を含めると、像は次の3本の放物線弧の合併である。
+
+$$
+v=\frac{1-u^2}{2}\quad(-1\le u\le1),\qquad
+u=\frac{v^2}{4}-1\quad(0\le v\le2),\qquad
+u=1-\frac{v^2}{4}\quad(0\le v\le2).
+$$
+
+![(b) 直線の像と (c) 三角形の周の像](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2015/nagoya-is2015-square-map.svg)

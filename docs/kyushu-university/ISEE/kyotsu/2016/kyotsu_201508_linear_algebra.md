@@ -12,6 +12,8 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H28infait.pdf)。
 任意の行列 $A$ を引数に取り行列を返す関数 $f(A) = \frac{1}{\sqrt{2}}\begin{pmatrix}A & A \\ A & -A\end{pmatrix}$ について　以下の各問に答えよ。
 
 (1) $A$ が直交行列のとき、 $f(A)$ も直交行列となることを示せ。

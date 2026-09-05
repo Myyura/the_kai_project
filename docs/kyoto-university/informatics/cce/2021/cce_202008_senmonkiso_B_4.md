@@ -97,6 +97,11 @@ $$
 
 The circuit uses three first-level NAND gates for the three product terms in (a), followed by one NAND gate; hence it uses four 3-input NAND gates.
 
+The three 1-inputs $(a_1,a_0,b_1,b_0)=0100,1001,1110$ cannot be covered in pairs by a single implicant, so at least three product terms are necessary.
+
+To justify minimality, observe that the function has no literal that is always true on all of its 1-inputs, and no entire literal half-space on which it is 1. Consequently, the final NAND cannot take a primary literal directly. With at most three gates, it must use only the outputs of the preceding one or two NAND gates. If those preceding gates are parallel, or both their outputs enter the final gate, De Morgan's law reduces the result to at most two product terms. In the remaining chain case the output has the form $P\overline{T}$, where $P,T$ are products of literals. A nonconstant $P$ would force a literal on every 1-input; a constant $P$ would make the output the complement of a single product, which also does not equal this function. Thus none of these cases realizes a function requiring three product terms, and four gates are minimal.
+
+
 ### (2)
 #### (a)
 State definition:

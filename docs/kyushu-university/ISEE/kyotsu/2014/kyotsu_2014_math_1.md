@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+> 出典：九州大学[公式問題（保存版）](https://web.archive.org/web/20180413174546id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H26infait.pdf)。
+
 以下では、 $n \times n$ の実行列についてのみ考える。行列 $A$ の対角成分の和を $A$ のトレースと呼び、 $\text{Tr}(A)$ と表す。以下の各問に答えよ。
 
 (1) 任意の行列 $A$ と $B$ に対し、 $\text{Tr}(AB) = \text{Tr}(BA)$ が成り立つことを示せ。

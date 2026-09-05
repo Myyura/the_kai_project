@@ -12,7 +12,7 @@ Answer the following questions. All constants and variables are real numbers. Al
 Omit the derivations and write only the answers.
 
 - (Q.1) Obtain the solutions of the following differential equations of a function f(x) under given initial conditions.
-  - (1) f''(x) 8f'(x) + 16f(x) = 0, f(0) = 1, f'(0) = 3.
+  - (1) f''(x)-8f'(x) + 16f(x) = 0, f(0) = 1, f'(0) = 3.
   - (2) f''(x) + 4f'(x) + 13f(x) = 0, f(0) = 1, f'(0) = 0.
   - (3)  $f''(x) + 4f'(x) + 13f(x) = 40\sin x, f(0) = 0, f'(0) = 4.$
 - (Q.2) A curved surface C is defined as  $z = xe^{-x^2-y^2}$  in an xyz Cartesian coordinate system. Answer the following questions.
@@ -31,7 +31,7 @@ Omit the derivations and write only the answers.
 - (1) Express  $H_1(x)$  as a polynomial of x.
 - (2) By differentiating  $H_n(x)$  with respect to x, express  $H_{n+1}(x)$  in terms of x,  $H_n(x)$ , and  $H'_n(x)$ .
 - (3) Express  $H'_n(x)$  in terms of n and  $H_{n-1}(x)$  for  $n \ge 1$ .
-- (4) Express  $H_{n+1}(x)$  in terms of x, n,  $H_n(x)$ , and  $H_{n-1}(x)$  for n > 1.
+- (4) Express  $H_{n+1}(x)$  in terms of x, n,  $H_n(x)$ , and  $H_{n-1}(x)$  for $n \ge 1$.
 - (5) Calculate  $\int_{-\infty}^{\infty} x H_m(x) H_n(x) e^{-x^2} dx$  for  $n \ge 1$ .
 
 #### Slot 2: 2.1 Linear algebra (40 minutes)
@@ -40,7 +40,7 @@ For a real column vector  $\boldsymbol{a}$ , let  $\|\boldsymbol{a}\| = \sqrt{\b
 
 - (Q.1) Assume that the column vectors of an  $m \times n$  real matrix A are linearly independent.  $\boldsymbol{b}$  is an m-dimensional real column vector, and  $\boldsymbol{x}$  is an n-dimensional real column vector. Answer the following questions. Omit the derivations and write only the answers.
   - (1) Express the relationship between m and n using an inequality.
-  - (2) Let  $\hat{\boldsymbol{x}}$  be  $\boldsymbol{x}$  that minimizes  $||A\boldsymbol{x} \boldsymbol{b}||^2$  for given A and  $\boldsymbol{b}$ . Express  $\hat{\boldsymbol{x}}$  in terms of A and  $\boldsymbol{b}$ .
+  - (2) Let  $\hat{\boldsymbol{x}}$  be  $\boldsymbol{x}$  that minimizes  $||A\boldsymbol{x}-\boldsymbol{b}||^2$  for given A and  $\boldsymbol{b}$ . Express  $\hat{\boldsymbol{x}}$  in terms of A and  $\boldsymbol{b}$ .
   - (3) A can be decomposed as A = QR, where Q is an  $m \times n$  real matrix that satisfies  $Q^{T}Q = I$ , and R is an  $n \times n$  upper triangular matrix. Obtain one Q for A given by
 
 $$A = \begin{pmatrix} 1 & 0 & -1 \\ \sqrt{2} & \sqrt{2} & \sqrt{2} \\ 0 & 0 & 1 \\ -1 & 0 & 1 \end{pmatrix}.$$
@@ -82,7 +82,7 @@ Answer the following questions. Let the gravitational acceleration be g > 0 exce
   - (2) Find the condition for V such that the string does not loosen even at  $\theta = 180^{\circ}$ .
 - (Q.6) As shown in the figure below, a massless straight ladder of length L stands between a frictionless vertical wall and a rough horizontal floor at an angle  $\theta$  to the horizontal direction. The static friction coefficient between the ladder and the floor is  $\mu$ . When a point mass of mass m is at a distance of x from the bottom of the ladder, find the range of x where the ladder does not slide down.
 
-![](_page_2_Picture_14.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2024/tokyo-cse-202308-ladder.svg)
 
 ## Slot 3: 3.1 Mathematical analysis (40 minutes)
 
@@ -143,7 +143,7 @@ Answer the following questions.
 
 (Q.1) Find the combined resistance between A and B for each of the circuits (1) and (2) shown below.
 
-![](_page_5_Figure_3.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2024/tokyo-cse-202308-resistors.svg)
 
 - (Q.2) Answer the following questions for a charged particle of mass m and charge q moving at a velocity  $\boldsymbol{v}$  in a uniform electric field  $\boldsymbol{E}$  and a magnetic flux density  $\boldsymbol{B}$ .
   - (1) Find the force on the charged particle.
@@ -162,4 +162,4 @@ Answer the following questions.
 - (1) Find the magnitude of the induced electromotive force produced in a closed circuit when the magnetic flux across the circuit changes from  $\phi_1$  to  $\phi_2$  during an infinitesimal time dt.
 - (2) Under a uniform magnetic flux density  $\boldsymbol{B}$ , a conducting ring of radius a and a resistor with resistance R are connected as shown in the figure below. The conducting rod is contacting the center of the ring and the ring. Find the current flowing through the resistor when the rod rotates with an angular velocity  $\omega$  about the center of the ring. Assume that the magnetic flux density  $\boldsymbol{B}$  and the surface on which the ring is placed are orthogonal.
 
-![](_page_5_Picture_14.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2024/tokyo-cse-202308-ring.svg)

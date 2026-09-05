@@ -11,6 +11,8 @@ tags:
 [realball](https://github.com/realballu3u), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.ist.i.kyoto-u.ac.jp/content/files/admission/ist-exam-2020Aug-specialized.pdf)
 The Fourier spectrum of a continuous-time signal $f(t)$ is given by $F(\omega) = \int_{-\infty}^{\infty}f(t)e^{-j\omega t}dt$, 
 where $j$ denotes the imaginary unit.
 Let $X[k]$ denote discrete Fourier transform of a finite-length discrete signal of length $N$, $x[n] \ (n = 0, \ldots, N-1)$.

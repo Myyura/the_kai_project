@@ -64,95 +64,94 @@ Answer the following questions.
 
 ## **Kai**
 ### (1)
-Synchronous sequential circuits are digital circuits that use clock signals to determine the timing of their operations.
+A synchronous sequential circuit stores a state that changes at specified clock edges. Its next state depends on the present state and inputs; its outputs depend on the state and, for a Mealy circuit, the current inputs.
 
 ### (2)
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p2.png" width="600" height="525" alt=""/>
-</figure>
+```mermaid
+stateDiagram-v2
+    [*] --> B
+    A --> A: A/1
+    A --> B: B/0
+    A --> C: C/1
+    A --> D: D/0
+    B --> A: A/0
+    B --> B: B/0
+    B --> C: C/0
+    B --> D: D/0
+    C --> A: A/0
+    C --> B: B/1
+    C --> C: C/0
+    C --> D: D/1
+    D --> A: A/1
+    D --> B: B/0
+    D --> C: C/1
+    D --> D: D/0
+```
 
 ### (3)
 State $B$ should be the initial state. Since any two consecutive input $BX$ only inputs $0$.
 
 ### (4)
-<!-- |$S_1$|$S_0$|$I_1$|$I_0$|$Z$|
-|-|-|-|-|-|
-|0|0|0|0|1|
-|0|0|0|1|0|
-|0|0|1|0|1|
-|0|0|1|1|0|
-|0|1|0|0|0|
-|0|1|0|1|0|
-|0|1|1|0|0|
-|0|1|1|1|0|
-|1|0|0|0|0|
-|1|0|0|1|1|
-|1|0|1|0|0|
-|1|0|1|1|1|
-|1|1|0|0|1|
-|1|1|0|1|0|
-|1|1|1|0|1|
-|1|1|1|1|0| -->
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p3.png" width="400" height="800" alt=""/>
 </figure>
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p4.png" width="600" height="540" alt=""/>
-</figure>
+States $A$ and $D$ are equivalent: their outputs agree for every input, and their next states are identical. Encode $AD=00$, $B=01$, $C=10$.
+
+```mermaid
+stateDiagram-v2
+    [*] --> B
+    AD --> AD: A/1, D/0
+    AD --> B: B/0
+    AD --> C: C/1
+    B --> AD: A/0, D/0
+    B --> B: B/0
+    B --> C: C/0
+    C --> AD: A/0, D/1
+    C --> B: B/1
+    C --> C: C/0
+```
 
 ### (5)
-<!-- |$S_1$|$S_0$|$I_1$|$I_0$|Z|$S_1'$|$S_0'$|
-|-|-|-|-|-|-|-|
-|0|0|0|0|1|0|0|
-|0|0|0|1|0|0|1|
-|0|0|1|0|1|1|0|
-|0|0|1|1|0|0|0|
-|0|1|0|0|0|0|0|
-|0|1|0|1|0|0|1|
-|0|1|1|0|0|1|0|
-|0|1|1|1|0|0|0|
-|1|0|0|0|0|0|0|
-|1|0|0|1|1|0|1|
-|1|0|1|0|0|1|0|
-|1|0|1|1|1|0|0| -->
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p5.png" width="500" height="700" alt=""/>
 </figure>
 
 ### (6)
-<!-- $S_1'$
-|$S_1S_0$\\$I_1I_0$|00|01|11|10|
-|-|-|-|-|-|
+$S_1^+$
+
+|$S_1S_0$ / $I_1I_0$|00|01|11|10|
+|---|---|---|---|---|
 |00|0|0|0|1|
 |01|0|0|0|1|
 |11|d|d|d|d|
 |10|0|0|0|1|
 
-$S_1' = I_1\overline{I_0}$
+$$S_1^+=I_1\overline{I_0}$$
 
-$S_0'$
-|$S_1S_0$\\$I_1I_0$|00|01|11|10|
-|-|-|-|-|-|
+$S_0^+$
+
+|$S_1S_0$ / $I_1I_0$|00|01|11|10|
+|---|---|---|---|---|
 |00|0|1|0|0|
 |01|0|1|0|0|
 |11|d|d|d|d|
 |10|0|1|0|0|
 
-$S_0' = \overline{I_1}I_0$
+$$S_0^+=\overline{I_1}I_0$$
 
 $Z$
-|$S_1S_0$\\$I_1I_0$|00|01|11|10|
-|-|-|-|-|-|
+
+|$S_1S_0$ / $I_1I_0$|00|01|11|10|
+|---|---|---|---|---|
 |00|1|0|0|1|
 |01|0|0|0|0|
 |11|d|d|d|d|
 |10|0|1|1|0|
 
-$Z = \overline{S_1S_0I_0} + S_1I_0$ -->
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2024_2_p6.png" width="322" height="909" alt=""/>
-</figure>
+$$Z=\overline{S_1}\,\overline{S_0}\,\overline{I_0}+S_1I_0$$
+
+Here $I_1=X_1$, $I_0=X_0$, and $d$ denotes the unused state. Initialize $(S_1,S_0)=(0,1)$.
 
 ### (7)
 <figure style="text-align:center;">

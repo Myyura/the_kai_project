@@ -15,11 +15,51 @@ tags:
 
 ## **Description**
 
+### 問題の要約
+
+[公式問題・第3問](https://www.k.u-tokyo.ac.jp/materials/wp-content/uploads/2024/10/R2-mondai.pdf)の独立した要約。
+
+質量 $m$、角振動数 $\omega$ の一次元調和振動子について、
+
+$$
+H=\frac{p^2}{2m}+\frac12m\omega^2x^2,\qquad
+[x,p]=i\hbar,\qquad H\varphi_n=E_n\varphi_n
+$$
+
+とする。$\varphi_n$ は規格化され、$n=0,1,\ldots$、$\varphi_0$ は基底状態である。演算子と状態の関係は
+
+$$
+A=\sqrt{\frac{m\omega}{2\hbar}}\left(x+\frac{ip}{m\omega}\right),\qquad
+A^\dagger=\sqrt{\frac{m\omega}{2\hbar}}\left(x-\frac{ip}{m\omega}\right),
+$$
+
+$$
+\varphi_{n+1}=\frac{A^\dagger\varphi_n}{\sqrt{n+1}},\qquad
+\varphi_n=\frac{A\varphi_{n+1}}{\sqrt{n+1}},\qquad A\varphi_0=0
+$$
+
+で与えられる。
+
+1. $A^\dagger A$ から $H$ を $A,A^\dagger$ で表す。
+2. $E_0$ を求める。
+3. $[A,A^\dagger]$ を計算し、$E_1$ を求める。
+4. 各状態の位置期待値 $\langle\varphi_n|x|\varphi_n\rangle$ を求める。
+
+$t<0$ では基底状態にあり、$t\ge0$ で $V(x)=Fx$（$F>0$）を加える。$F$ は十分小さく、一次摂動で
+
+$$
+\psi=e^{-iE_0t/\hbar}\varphi_0+c_1(t)e^{-iE_1t/\hbar}\varphi_1,\qquad
+c_1(t)=\frac1{i\hbar}\int_0^t\langle\varphi_1|V|\varphi_0\rangle e^{i\omega t'}dt'
+$$
+
+とする。
+
+5. $c_1(t)$ と、時刻 $t\ge0$ に状態 $\varphi_1$ を観測する確率を $m,\omega,\hbar,F$ で表す。
+6. 位置期待値を $m,\omega,F$ で表し、$0\le t\le2\pi/\omega$ のグラフを描く。
+
 ### 题目描述
 
-原 Description 为空。以下六项只能依据现有 Kai 的编号、公式与计算目标恢复；原题对算符的完整定义、态的递推归一化、扰动开启方式及近似阶数没有留存。
-
-1. Kai 使用正则对易关系 $[x,p]=i\hbar$ 以及
+1. 使用正则对易关系 $[x,p]=i\hbar$ 以及
    $$
    A=\sqrt{\frac{m\omega}{2\hbar}}
    \left(x+\frac{ip}{m\omega}\right),\qquad
@@ -32,12 +72,12 @@ tags:
    =\hbar\omega\left(A^\dagger A+\frac12\right).
    $$
 2. 对满足 $A\varphi_0=0$ 的基态，求其能量 $E_0$。
-3. 证明 $[A,A^\dagger]=1$，并对 Kai 定义的第一激发态
+3. 证明 $[A,A^\dagger]=1$，并对 第一激发态
    $$
    \varphi_1=A^\dagger\varphi_0
    $$
    求能量 $E_1$。
-4. Kai 以归纳法证明对 $n=0,1,2,\ldots$，
+4. 用归纳法证明对 $n=0,1,2,\ldots$，
    $$
    \langle\varphi_n|A|\varphi_n\rangle
    =\langle\varphi_n|A^\dagger|\varphi_n\rangle=0,
@@ -46,24 +86,22 @@ tags:
    $$
    x=\sqrt{\frac{\hbar}{2m\omega}}(A+A^\dagger)
    $$
-   求各能量本征态中的位置期望。Kai 计算中使用了
-   $\varphi_{n+1}=(n+1)^{-1/2}A^\dagger\varphi_n$，但原题是否显式给出该定义无法确认。
-5. Kai 对位置型扰动 $V=Fx$，从基态出发计算到第一激发态的一阶振幅
+   求各能量本征态中的位置期望。归一化态满足
+   $\varphi_{n+1}=(n+1)^{-1/2}A^\dagger\varphi_n$。
+5. 在 $t<0$ 时处于基态，$t\ge0$ 时加上位置型扰动 $V=Fx$（$F>0$ 且充分小），按一阶微扰计算到第一激发态的一阶振幅
    $$
    c_1(t)=\frac{F}{\sqrt{2\hbar\omega^3m}}
    (1-e^{i\omega t}),
    $$
-   并进一步计算时刻 $t$ 在 $\varphi_1$ 中被发现的归一化概率。原题中扰动的时间开关函数及近似态的完整定义未保留。
-6. 对 Kai 使用的两态近似波函数 $\psi$，结合
+   并进一步计算时刻 $t$ 在 $\varphi_1$ 中被发现的概率的最低非零阶。一阶近似态为 $\psi=e^{-iE_0t/\hbar}\varphi_0+c_1(t)e^{-iE_1t/\hbar}\varphi_1$。
+6. 对 使用的两态近似波函数 $\psi$，结合
    $$
    \langle\varphi_0|x|\varphi_1\rangle
    =\langle\varphi_1|x|\varphi_0\rangle
    =\sqrt{\frac{\hbar}{2m\omega}},
    $$
-   计算位置期望 $\langle\psi|x|\psi\rangle$；Kai 得到与
-   $F(\cos\omega t-1)/(m\omega^2)$ 相同的表达式。
-
-无法仅由 Kai 判断第 5、6 问原题是否要求保留归一化分母、只取一阶项，或采用其他扰动论记号，故不补造这些条件。
+   计算位置期望 $\langle\psi|x|\psi\rangle$；其结果为
+   $F(\cos\omega t-1)/(m\omega^2)$ ，并画出 $0\le t\le2\pi/\omega$ 内的图像。
 
 ## **Kai**
 ### (1)
@@ -284,16 +322,14 @@ $$
 \end{aligned}
 $$
 
-であるから、時刻 $t$ において状態 $\varphi_1$ に見いだされる確率は、
+であるから、一次摂動で求めた振幅に対応する遷移確率は
 
 $$
-\begin{aligned}
-\frac{\frac{F^2}{\hbar \omega^3 m} \left( 1 - \cos \omega t \right)}
-{ 1 + \frac{F^2}{\hbar \omega^3 m} \left( 1 - \cos \omega t \right)}
-\end{aligned}
+P_{0\to1}(t)\simeq |c_1(t)|^2
+=\frac{F^2}{\hbar\omega^3m}(1-\cos\omega t)
 $$
 
-である。
+である。ここでは確率について $F^2$ の項までを採用する。
 
 ### (6)
 (3), (5) より
@@ -345,3 +381,8 @@ e^{- i \omega t}
 $$
 
 を得る。
+
+
+$t=0,2\pi/\omega$ で期待値は $0$、$t=\pi/\omega$ で最小値 $-2F/(m\omega^2)$ をとる。
+
+![Position expectation over one oscillation period](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/materials/2020/tokyo-materials-201908-position.svg)

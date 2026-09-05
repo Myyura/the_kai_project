@@ -120,3 +120,7 @@ $$
 &= \frac{\pi (\pi - 2)}{2}
 \end{aligned}
 $$
+
+## **Reference**
+
+- [東北大学 機械系 2022年度実施試験（数学A）](https://www.mech.tohoku.ac.jp/wp/wp-content/themes/tumech/img/examination/past-collection/Problem_2022_j.pdf)

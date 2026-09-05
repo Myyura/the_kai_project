@@ -97,7 +97,7 @@ $\mathcal{L}(G)\subseteq\mathcal{L}(\mathcal A)$ 是否成立的方法。可以�
 Given DFA $\mathcal{A} = (Q, \Sigma, \delta, q_0, F)$, give an automaton accepting complement of $\mathcal{L(A)}$, i.e. $\Sigma^*\setminus\mathcal{L(A)}$.
 
 Let $\mathcal{A}' = (Q, \Sigma, \delta, q_0, Q\setminus F)$
-Now, $w \in \mathcal{L(A')}$ iff $\delta(w, q_0) \in (Q\setminus F$) which is occurs only when $w\notin \mathcal{L(A)}$
+Now $w\in\mathcal L(\mathcal A')$ iff $\delta^*(q_0,w)\in Q\setminus F$, which holds exactly when $w\notin\mathcal L(\mathcal A)$.
 
 ### (2)
 Call a nonterminal $A\in V$ generating if $A\Rightarrow^*w$ for some $w\in\Sigma^*$; otherwise it is nongenerating. The language is empty exactly when the start symbol $S$ is nongenerating.

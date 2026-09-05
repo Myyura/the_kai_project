@@ -11,40 +11,47 @@ tags:
 
 ## **Description**
 
+問題の要約 — [大学公表問題](https://www.waseda.jp/inst/admission/assets/uploads/2023/11/51_M_denshibutsuri_2023_September2024_April_ippan_senmon.pdf)
+
+
+### 問1
+
+質量を無視できる半径 $a$ の円環に質量 $m$ の質点を固定し、円環を直線 $y=-a$ に沿って滑らずに転がす。初めの中心は原点、質点は $(0,-a)$ にある。下図では右向きの転がり角を $\theta$ とする。重力による位置エネルギーを $mgy$ とし、摩擦による散逸は考えない。
+
+1. 質点の位置を $\theta$ で表す。
+2. $\theta$ を一般化座標とするラグランジアンを求める。
+3. 共役運動量とハミルトニアンを求める。
+4. 正準方程式を書く。
+
+### 問2
+
+長さ $a$ の質量のない棒の上端から $2a/3$ の位置に質量 $m$ の質点を固定する。棒の両端はそれぞれ壁と床に接したまま滑り、鉛直な壁との角を $\varphi$ とする。重力は下向き、摩擦は無視する。
+
+1. 質点の位置を $\varphi(t)$ で表す。
+2. ラグランジアンを求める。
+3. $\varphi$ の運動方程式を導く。
+
+![円環と壁に沿って滑る棒の座標を示す独自の模式図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/waseda_university/FSE/denshibutsuri/2024/waseda-2023-denshi-mechanics.svg)
+
+
 ### 题目描述
 
-> 缺失边界：原 `Description` 及本地 Git 历史均未保存题干和配图。`Kai` 含问 1 的 (1)—(4) 与问 2 的 (1)—(3)，但没有给出角度方向等完整图示说明，也没有说明问 2 中所跟踪质点在杆上的物理身份。以下只整理 `Kai` 中由公式和小问结构能够唯一确认的内容。
+【问题 1】
 
-1. 问 1 涉及半径参数为 $a$ 的圆环与质量为 $m$ 的质点。以 $\theta$ 为广义坐标时，圆环中心的横坐标 $X$ 与质点坐标满足
+在半径为 $a$、质量可忽略的圆环上固定质量为 $m$ 的质点，使圆环沿直线 $y=-a$ 无滑动滚动。初始圆心为原点、质点位于 $(0,-a)$，向右滚动角为 $\theta$，重力势能为 $mgy$，忽略摩擦耗散。
 
-   $$
-   X=a\theta,\qquad
-   x=a\theta-a\sin\theta,\qquad
-   y=-a\cos\theta.
-   $$
+1. 用 $\theta$ 写出质点坐标，几何关系为 $X=a\theta$、$x=a\theta-a\sin\theta$、$y=-a\cos\theta$。
+2. 求 Lagrangian $L(\theta,\dot\theta)$。
+3. 求共轭动量 $p_\theta$ 和 Hamiltonian $H(\theta,p_\theta)$。
+4. 写出 Hamilton 正则方程。
 
-   在重力加速度为 $g$ 的条件下：
-   1. 写出质点坐标 $x,y$。
-   2. 求拉格朗日量 $L(\theta,\dot\theta)$。
-   3. 求共轭动量 $p_\theta$ 以及哈密顿量 $H(\theta,p_\theta)$。
-   4. 写出关于 $\theta,p_\theta$ 的哈密顿正则方程。
-2. 问 2 涉及长度参数为 $a$、两端分别接触地面和墙面的杆。以 $\varphi(t)$ 表示其姿态，两个接触点的坐标满足
+【问题 2】
 
-   $$
-   X(t)=a\sin\varphi(t),\qquad
-   Y(t)=a\cos\varphi(t).
-   $$
+长度为 $a$ 的无质量杆上，距上端 $2a/3$ 处固定质量为 $m$ 的质点。杆的两端分别贴着竖直墙面与水平地面无摩擦滑动，杆与竖直墙面的夹角为 $\varphi$，重力向下。接触点坐标满足 $X=a\sin\varphi$、$Y=a\cos\varphi$，质点坐标为 $x=2X/3$、$y=Y/3$。
 
-   `Kai` 中参与动能和重力势能计算的质量为 $m$ 的点满足
-
-   $$
-   x(t)=\frac23X(t),\qquad y(t)=\frac13Y(t).
-   $$
-
-   对该系统：
-   1. 用 $\varphi(t)$ 表示 $x(t),y(t)$。
-   2. 求拉格朗日量 $L(\varphi,\dot\varphi)$。
-   3. 由欧拉—拉格朗日方程求 $\varphi$ 的运动方程。
+1. 用 $\varphi(t)$ 表示质点坐标。
+2. 求 $L(\varphi,\dot\varphi)$。
+3. 用 Euler–Lagrange 方程导出 $\varphi$ 的运动方程。
 
 ## **Kai**
 ### 問 1
@@ -97,6 +104,8 @@ $$
 
 #### (3)
 
+以下のルジャンドル変換と正準方程式は $1-\cos\theta>0$ の範囲で成り立つ。$\theta=2k\pi$ では速度の係数が零になり、この座標による変換は特異になる。
+
 $$
   \begin{aligned}
   p_\theta
@@ -138,7 +147,7 @@ $$
 $$
   \begin{aligned}
   X(t) = a \sin \varphi (t)
-  , \ \ 
+  , \ \
   Y(t) = a \cos \varphi (t)
   \end{aligned}
 $$
@@ -216,7 +225,7 @@ $$
 
 $$
   \begin{aligned}
-  \therefore \ \ 
+  \therefore \ \
   \ddot{\varphi} \left( 3 \cos^2 \varphi + 1 \right)
   - 3 \dot{\varphi}^2 \cos \varphi \sin \varphi
   - 3 \frac{g}{a} \sin \varphi

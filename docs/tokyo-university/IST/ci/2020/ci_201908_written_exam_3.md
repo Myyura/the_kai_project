@@ -17,6 +17,8 @@ tags:
 [tomfluff](https://github.com/tomfluff), [itsuitsuki](https://github.com/itsuitsuki), 祭音Myyura
 
 ## **Description**
+
+[原題](https://www.i.u-tokyo.ac.jp/edu/course/ci/2019-8-exam.pdf)
 Select four items out of the following eight items concerning information systems, and explain each item in approximately from four to eight lines of text.
 If necessary, use examples or figures.
 
@@ -48,18 +50,10 @@ Semaphore is an important **synchronization primitive** for coordinating access 
 
 It is implemented as a counter with two atomic operations: P (wait) and V (signal). It has an initial count $n$ representing how many resource units are available. When a thread executes P, a positive count is decremented and the thread continues; if the count is zero, the thread blocks. A thread executes V to release a unit, incrementing the count and waking one waiting thread if necessary.
 
-Semaphores are more flexible than **Mutex** and thus can lead to less stable code, since it does not have an **ownership** mechanism like Mutex.
+Unlike a mutex, a semaphore need not have an owner: one thread may signal a unit awaited by another. A count initialized to one can provide mutual exclusion when its wait/signal protocol is followed.
 
 #### A* search algorithm
-A shortest path finding algorithm from a single source to a goal, which can be seen as an extension of Dijkstra algorithm. 
-
-A* selects a minimum weight node from the frontier, in which the weight is $f(n)=g(n)+h(n)$ where $g(n)$ is the **known distance (shortest known path length)** from source to $n$ and $h(n)$ is the heuristic function of how much still needed to complete. Let the source be $a$ and destination be $z$, then $g(n)=d(a,n)$ and $h(n):=h(n,z)$.
-
-In A* tree search, an **admissible** heuristic is an optimistic estimate: $0\le h(n)\le h^*(n)$, where $h^*(n)$ is the true remaining cost. It guarantees an optimal result.
-
-For standard closed-set A* graph search without reopening nodes, **consistency** is sufficient: $h(n)\le \operatorname{Cost}(n\to n')+h(n')$ for every edge.
-
-The time complexity depends on the heuristic function. The closer $h(n)$ is to the real distance, the faster the algorithm becomes.
+A* searches for a least-cost path using $f(u)=g(u)+h(u)$: $g(u)$ is the cost of the best path to $u$ found so far, and $h(u)$ estimates the remaining cost. Thus $g(u)$ need not yet equal the true shortest distance. A minimum-$f$ frontier state is expanded and its outgoing edges are relaxed. On a finite graph with nonnegative edge costs, an admissible heuristic $0\le h(u)\le h^*(u)$ gives an optimal path when the goal is removed from the priority queue, provided improved paths can reopen states. If $h(u)\le c(u,v)+h(v)$ on each edge, the heuristic is consistent and reopening is unnecessary. With $h=0$, A* becomes Dijkstra's algorithm; informative heuristics can reduce expansions, while evaluation costs and tie-breaking also affect runtime.
 
 #### FPGA
 FPGA stands for field programmable gate array, it's an integrated circuit which allow to design custom digital logic. The FPGA is built from logic cells which are like lego bricks, it also gives access to RAM and clock signals. Cells are often grouped to blocks. Using an FPGA it is possible to develop a processor using the cells, which can be used for any specific task.
@@ -70,7 +64,7 @@ Buffer overflow occurs when a program writes beyond an allocated buffer and over
 
 #### LR Parsing
 
-Related to compiler design.
+LR parsing reads input from left to right and constructs a rightmost derivation in reverse. It is a bottom-up shift/reduce method: a stack holds grammar symbols and parser states, an ACTION table chooses shift, reduce, accept, or error, and a GOTO table determines the state after a reduction. Reducing $A\to\beta$ replaces the recognized right-hand side with $A$. LR($k$) uses $k$ lookahead tokens; canonical LR(1), SLR, and LALR differ in their state construction and conflict handling. For a fixed conflict-free LR grammar, parsing takes linear time in the input length.
 
 #### IPv4 and IPv6
 

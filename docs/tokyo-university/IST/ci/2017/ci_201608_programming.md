@@ -11,6 +11,8 @@ tags:
 [tomfluff](https://github.com/tomfluff), 祭音Myyura
 
 ## **Description**
+
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20250118205005id_/https://www.i.u-tokyo.ac.jp/edu/course/ci/pdf/2016-8-program.pdf).
 We draw digits from 0 to 9 by the following pictographic characters constructed by `*` and `|` (vertical line).
 `*`, `|`, and a whitespace character are rendered with a fixed-width font.
 
@@ -88,7 +90,7 @@ Write a program that reads the pictographic characters stored in the file `out5.
 
 ### 题目描述
 
-用等宽字体中的 `*`、竖线 `|` 和空格，按原文给出的 $5\times4$ 字形绘制数字 0～9。
+用等宽字体中的 `*`、竖线 `|` 和空格，按原文给出的字形绘制数字 0～9；数字 1 的标准字形为 $5\times1$，其余为 $5\times4$。
 
 1. 读入一个数，在屏幕上横向排列并绘制对应数字字形，同时保存到 `out1.txt`。相邻字形之间放两个空格。例如输入 `813`，输出原文所示的五行字形。
 2. 读取第 1 问生成的 `out1.txt`，识别其中字形并输出它所表示的数字。
@@ -103,645 +105,186 @@ Write a program that reads the pictographic characters stored in the file `out5.
 5. 复制 `out3.txt` 为 `out5.txt`，手工把字形略微改形。修改后除数字 1 可为 $5\times1$ 或 $5\times2$ 外，各字形尺寸仍为 $5\times4$。编写程序读取这种含轻微变形的 `out5.txt`，识别并输出最可能的数字序列；原文给出了变形后的 `8167` 示例。
 
 ## **Kai**
-Please click [here](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2017-Summer) for the sample data files.
 
-### (1)
+[Sample data](https://github.com/tomfluff/UTokyo_CI_Entrance_Exam/tree/main/2017-Summer).
 
-```python
-from locale import atoi
+### (1) Draw the digits
 
+Store the five rows of each digit as a template. For each output row, place the corresponding template rows horizontally, separating consecutive glyphs by two spaces. Digit 1 has width 1; the others have width 4. Printing and saving the same string gives identical screen and file output.
 
-zero = ['****',
-        '|  |',
-        '*  *',
-        '|  |',
-        '****']
-one = ['*',
-        '|',
-        '*',
-        '|',
-        '*']
-two = ['****',
-        '   |',
-        '****',
-        '|   ',
-        '****']
-three = ['****',
-        '   |',
-        '****',
-        '   |',
-        '****']
-four = ['*  *',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
-five = ['****',
-        '|   ',
-        '****',
-        '   |',
-        '****']
-six = ['*   ',
-        '|   ',
-        '****',
-        '|  |',
-        '****']
-seven = ['****',
-        '   |',
-        '   *',
-        '   |',
-        '   *']
-eight = ['****',
-        '|  |',
-        '****',
-        '|  |',
-        '****']
-nine = ['****',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
+### (2) Recognize aligned digits
 
-txt_nums = [zero, one, two, three, four, five, six, seven, eight, nine]
+Pad the input rows with spaces to a common width, preserving leading spaces. Columns containing no ink separate glyphs. A standard glyph has width 1 or 4 and height 5; compare each candidate block with the ten templates. Concatenate the recognized digit characters directly. This preserves arbitrarily long digit sequences without evaluating floating-point powers of 10.
 
-def main():
-    n = input().strip()
-    if not n.isdigit():
-        raise ValueError('input must be a nonnegative integer')
-    with open('out1.txt','w') as f:
-        for j in range(len(txt_nums[0])):
-            line = ''
-            for s in n:
-                i = atoi(s)
-                line += f"{txt_nums[i][j]}  "
-            line = line[:-2]
-            print(line)
-            f.writelines(line + '\n')
+### (3) Draw different vertical positions and gaps
 
+Maintain a horizontal coordinate $x$, initially 0. Place digit $i$ at $(x,y_i)$, then advance $x$ by that digit's width plus the specified following gap. Allocate $5+\max_i y_i$ rows. Thus a vertical offset changes the starting row, while horizontal advance depends only on the glyph width and the gap.
 
-if __name__ == "__main__":
-    main()
-```
+The program accepts `python glyph.py 3 813,0,4,1,3,2` and writes `out3.txt`. Blank leading rows and trailing spaces within the canvas are handled without shifting a glyph.
 
-### (2)
+### (4) Recognize independently shifted digits
+
+Use the occupied columns to locate the horizontal candidates, then find the first and last occupied row within each candidate. The resulting vertical bounding box must have height 5. Extract all five rows, including an entirely blank internal row if present, and compare with the templates. The same recognition routine therefore handles both (2) and (4).
+
+### (5) Recognize distorted digits
+
+Copy the chosen `out3.txt` to `out5.txt` and edit its glyphs while retaining the given size conditions. Use an explicit similarity model: a mismatched position involving `|` costs 2; any other mismatched position costs 1. A width-1 or width-2 glyph is compared with digit 1, allowing its single mark to occupy either column in each row for width 2. A width-4 glyph is compared with the other nine digits.
+
+Use dynamic programming over horizontal positions to minimize the sum of these costs, considering widths 1, 2 and 4 and requiring a blank separator between glyphs. This also permits an empty internal column to remain inside a width-4 glyph. The cost of a complete interpretation can be converted to a model probability proportional to $e^{-\text{cost}}$; the program selects the minimum-cost interpretation, breaking ties by digit-string order. This is a specified recognition model, and heavily distorted shapes may remain ambiguous.
+
+For the `out5.txt` example in the question, the minimum-cost recognition is **8167**. Exact standard glyphs have cost zero. A shape outside the stated size and separation model is rejected.
+
+### Complete program
+
+Run parts 1 or 3 with the input as an argument, or enter it at the prompt. Parts 2, 4 and 5 read `out1.txt`, `out3.txt` and `out5.txt`, respectively. For example, `python glyph.py 1 813` creates the aligned file and `python glyph.py 2` recognizes it.
 
 ```python
-import numpy as np
-import math
+from pathlib import Path
+import sys
 
-zero = ['****',
-        '|  |',
-        '*  *',
-        '|  |',
-        '****']
-one = ['*',
-        '|',
-        '*',
-        '|',
-        '*']
-two = ['****',
-        '   |',
-        '****',
-        '|   ',
-        '****']
-three = ['****',
-        '   |',
-        '****',
-        '   |',
-        '****']
-four = ['*  *',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
-five = ['****',
-        '|   ',
-        '****',
-        '   |',
-        '****']
-six = ['*   ',
-        '|   ',
-        '****',
-        '|  |',
-        '****']
-seven = ['****',
-        '   |',
-        '   *',
-        '   |',
-        '   *']
-eight = ['****',
-        '|  |',
-        '****',
-        '|  |',
-        '****']
-nine = ['****',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
-
-txt_nums = [zero, one, two, three, four, five, six, seven, eight, nine]
+GLYPHS = [
+    ['****', '|  |', '*  *', '|  |', '****'],
+    ['*', '|', '*', '|', '*'],
+    ['****', '   |', '****', '|   ', '****'],
+    ['****', '   |', '****', '   |', '****'],
+    ['*  *', '|  |', '****', '   |', '   *'],
+    ['****', '|   ', '****', '   |', '****'],
+    ['*   ', '|   ', '****', '|  |', '****'],
+    ['****', '   |', '   *', '   |', '   *'],
+    ['****', '|  |', '****', '|  |', '****'],
+    ['****', '|  |', '****', '   |', '   *'],
+]
 
 
-def find_correct_index(lines, s_i):
-    e_i = 0
-    for i in range(len(lines)):
-        l = lines[i].strip()
-        if l == '':
-            continue
-        n_e_i = str.find(l,' ',s_i)
-        if n_e_i == -1:
-            n_e_i = len(l)
-        if n_e_i >= e_i:
-            e_i = n_e_i
-    return e_i
+def validate_digits(digits):
+    if not digits or any(char not in '0123456789' for char in digits):
+        raise ValueError('expected a nonnegative decimal integer')
 
-def get_int_from_repr_array(arr):
-    if np.array_equal(arr, zero):
+
+def render(digits, offsets=None, gaps=None):
+    validate_digits(digits)
+    offsets = [0] * len(digits) if offsets is None else offsets
+    gaps = [2] * (len(digits)-1) if gaps is None else gaps
+    if (len(offsets) != len(digits) or len(gaps) != len(digits)-1
+            or any(y < 0 for y in offsets) or any(g <= 0 for g in gaps)):
+        raise ValueError('invalid offsets or gaps')
+    height = max(offsets) + 5
+    rows = [[] for _ in range(height)]
+    x = 0
+    for index, char in enumerate(digits):
+        glyph = GLYPHS[ord(char)-ord('0')]
+        width = len(glyph[0])
+        for row in rows:
+            row.extend(' ' for _ in range(x+width-len(row)))
+        for dy, line in enumerate(glyph):
+            rows[offsets[index]+dy][x:x+width] = line
+        x += width + (gaps[index] if index < len(gaps) else 0)
+    return [''.join(row).rstrip() for row in rows]
+
+
+def write_picture(filename, rows):
+    text = '\n'.join(rows) + '\n'
+    print(text, end='')
+    Path(filename).write_text(text, encoding='utf-8')
+
+
+def read_picture(filename):
+    # splitlines preserves leading spaces and handles a missing final newline.
+    rows = Path(filename).read_text(encoding='utf-8').splitlines()
+    if any(char not in '*| ' for row in rows for char in row):
+        raise ValueError('unexpected picture character')
+    return rows
+
+
+def mismatch(first, second):
+    if first == second:
         return 0
-    if np.array_equal(arr, one):
-        return 1
-    if np.array_equal(arr, two):
-        return 2
-    if np.array_equal(arr, three):
-        return 3
-    if np.array_equal(arr, four):
-        return 4
-    if np.array_equal(arr, five):
-        return 5
-    if np.array_equal(arr, six):
-        return 6
-    if np.array_equal(arr, seven):
-        return 7
-    if np.array_equal(arr, eight):
-        return 8
-    if np.array_equal(arr, nine):
-        return 9
-
-def get_idx_for_nums(lines):
-    idxs = []
-    s_i = 0
-    should_run = True
-    while should_run:
-        e_i = find_correct_index(lines, s_i)
-        idxs.append((s_i,e_i))
-
-        s_i = e_i + 2
-        if s_i >= len(lines[0].strip()):
-            should_run = False
-    return idxs
+    return 2 if '|' in (first, second) else 1
 
 
-def main():
-    lines = []
-    with open('out1.txt','r') as f:
-        lines = f.readlines()
+def recognize(rows, approximate=False):
+    if not rows:
+        raise ValueError('empty picture')
+    width = max(map(len, rows))
+    rows = [row.ljust(width) for row in rows]
+    occupied = [any(row[x] != ' ' for row in rows) for x in range(width)]
 
-    idxs = get_idx_for_nums(lines.copy())
-    nums = np.full((len(idxs),5), fill_value="****", dtype='object')
-    for j in range(len(lines)):
-        i = 0
-        for s,e in idxs:
-            nums[i,j] = lines[j][s:e]
-            i += 1
+    def skip_space(x):
+        while x < width and not occupied[x]:
+            x += 1
+        return x
 
-    num = 0
-    i = len(idxs)
-    for el in nums:
-        num += int(math.pow(10,i-1)) * get_int_from_repr_array(el)
-        i -= 1
-    
-    print(num)
+    def candidates(left, glyph_width):
+        right = left + glyph_width
+        if right > width or not occupied[right-1]:
+            return []
+        # The next glyph must have at least one entirely blank separating column.
+        if right < width and occupied[right]:
+            return []
+        ink_rows = [i for i, row in enumerate(rows)
+                    if any(char != ' ' for char in row[left:right])]
+        if not ink_rows or ink_rows[-1]-ink_rows[0]+1 != 5:
+            return []
+        block = [rows[y][left:right] for y in range(ink_rows[0], ink_rows[0]+5)]
+        if not approximate:
+            return [(0, str(digit)) for digit, glyph in enumerate(GLYPHS)
+                    if block == glyph]
+        if glyph_width in (1, 2):
+            # A bent 1 has one mark in each row, at either column if width is 2.
+            score = 0
+            for y, row in enumerate(block):
+                mark = '*' if y % 2 == 0 else '|'
+                score += min(sum(mismatch(char, mark if x == position else ' ')
+                                 for x, char in enumerate(row))
+                             for position in range(glyph_width))
+            return [(score, '1')]
+        return [(sum(mismatch(block[y][x], glyph[y][x])
+                     for y in range(5) for x in range(4)), str(digit))
+                for digit, glyph in enumerate(GLYPHS) if digit != 1]
 
-
-if __name__ == "__main__":
-    main()
-```
-
-### (3)
-
-```python
-from locale import atoi
-
-zero = ['****',
-        '|  |',
-        '*  *',
-        '|  |',
-        '****']
-one = ['*',
-        '|',
-        '*',
-        '|',
-        '*']
-two = ['****',
-        '   |',
-        '****',
-        '|   ',
-        '****']
-three = ['****',
-        '   |',
-        '****',
-        '   |',
-        '****']
-four = ['*  *',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
-five = ['****',
-        '|   ',
-        '****',
-        '   |',
-        '****']
-six = ['*   ',
-        '|   ',
-        '****',
-        '|  |',
-        '****']
-seven = ['****',
-        '   |',
-        '   *',
-        '   |',
-        '   *']
-eight = ['****',
-        '|  |',
-        '****',
-        '|  |',
-        '****']
-nine = ['****',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
-
-txt_nums = [zero, one, two, three, four, five, six, seven, eight, nine]
-
-def main():
-    inp = input().strip()
-    n = inp[:inp.find(',')]
-    prnt_lines = []
-    defs = str.split(inp[inp.find(',')+1:],',')
-    if not n.isdigit() or len(defs) != 2 * len(n) - 1:
-        raise ValueError('invalid input')
-    with open('out3.txt','w') as f:
-        indt = 0
-        for i in range(len(n)):
-            dg = atoi(n[i])
-            tp = atoi(defs[i*2])
-            sp = atoi(defs[i*2+1]) if i*2+1 < len(defs) else 0
-            if tp < 0 or (i + 1 < len(n) and sp <= 0):
-                raise ValueError('invalid position or spacing')
-            for j in range(5):
-                while len(prnt_lines)-1 < tp+j:
-                    prnt_lines.append('')
-                if len(prnt_lines[tp+j]) < indt:
-                    prnt_lines[tp+j] += ' ' * (indt-len(prnt_lines[tp+j]))
-                prnt_lines[tp+j] += txt_nums[dg][j] + ' ' * sp
-            indt = max(len(prnt_lines[tp]),indt)
-
-        for l in prnt_lines:
-            line = l.rstrip()
-            print(line)
-            f.write(line+'\n')
-
-if __name__ == "__main__":
-    main()
-```
-
-### (4)
-
-```python
-import numpy as np
-import math
-
-zero = ['****',
-        '|  |',
-        '*  *',
-        '|  |',
-        '****']
-one = ['*',
-        '|',
-        '*',
-        '|',
-        '*']
-two = ['****',
-        '   |',
-        '****',
-        '|   ',
-        '****']
-three = ['****',
-        '   |',
-        '****',
-        '   |',
-        '****']
-four = ['*  *',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
-five = ['****',
-        '|   ',
-        '****',
-        '   |',
-        '****']
-six = ['*   ',
-        '|   ',
-        '****',
-        '|  |',
-        '****']
-seven = ['****',
-        '   |',
-        '   *',
-        '   |',
-        '   *']
-eight = ['****',
-        '|  |',
-        '****',
-        '|  |',
-        '****']
-nine = ['****',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
-
-txt_nums = [zero, one, two, three, four, five, six, seven, eight, nine]
-
-
-def find_correct_index(lines, s_i):
-    e_i = 0
-    for i in range(len(lines)):
-        l = lines[i]
-        if l == '':
+    # Each suffix is solved once, from right to left. Cost ties use digit-string order.
+    best = {width: (0, '')}
+    for left in range(width-1, -1, -1):
+        if not occupied[left]:
+            best[left] = best.get(left+1)
             continue
-        n_e_i = str.find(l,' ',s_i)
-        if n_e_i == -1:
-            n_e_i = len(l)
-        if n_e_i >= e_i:
-            e_i = n_e_i
-    return e_i
-
-def get_int_from_repr_array(arr):
-    if np.array_equal(arr, zero):
-        return 0
-    if np.array_equal(arr, one):
-        return 1
-    if np.array_equal(arr, two):
-        return 2
-    if np.array_equal(arr, three):
-        return 3
-    if np.array_equal(arr, four):
-        return 4
-    if np.array_equal(arr, five):
-        return 5
-    if np.array_equal(arr, six):
-        return 6
-    if np.array_equal(arr, seven):
-        return 7
-    if np.array_equal(arr, eight):
-        return 8
-    if np.array_equal(arr, nine):
-        return 9
-
-def get_idx_for_nums(lines):
-    idxs = []
-    s_i = 0
-    final_si = max([len(l) for l in lines])
-
-    while s_i < final_si:
-        e_i = find_correct_index(lines, s_i)
-        idxs.append((s_i,e_i))
-
-        s_i = e_i
-        n_s_i = s_i
-        is_found = False
-        while n_s_i < final_si and is_found == False:
-            for l in lines:
-                if n_s_i >= len(l):
-                    continue
-                if l[n_s_i] not in [' ','\n']:
-                    is_found = True
-                    s_i = n_s_i
-            n_s_i += 1
-
-    return idxs
-
-
-def main():
-    lines = []
-    with open('out3.txt','r') as f:
-        lines = f.readlines()
-
-    idxs = get_idx_for_nums([l[:-1] for l in lines])
-    nums = np.full((len(idxs),5), fill_value="****", dtype='object')
-    i = 0
-    for s,e in idxs:
-        j = 0
-        for l in lines:
-            if len(l) < s or l[s:e].strip() == '':
+        answer = None
+        for glyph_width in ((1, 2, 4) if approximate else (1, 4)):
+            right = left + glyph_width
+            if right > width:
                 continue
-            nums[i,j] = l[s:e]
-            j += 1
-        i += 1
-
-    num = 0
-    i = len(idxs)
-    for el in nums:
-        num += int(math.pow(10,i-1)) * get_int_from_repr_array(el)
-        i -= 1
-    
-    print(num)
-
-
-if __name__ == "__main__":
-    main()
-```
-
-### (5)
-
-思路：先从左到右while循环遍历，确定每个非空（非全空格）的块。按照块面积确定是不是1, 如果不是的话，因为永远是5*4的面积，所以和0,2~9匹配。
-匹配：可以将这9个 pictograph 的20个位置分别列出来，然后看差异量，选择 argmin。为区分例题中的 `6` 与 `7`，涉及竖线 `|` 的差异计2，其余差异计1；例题据此识别为 `8167`。
-
-The idea: We do a while loop from left to right to traverse the columns. When we lock at a chunk not filled with all blankspaces, we first check the non-all-space area (if it is 5 rows 4 columns). 
-If it is 1 (with 5 rows, 1 or 2 columns) then we add 1 to the result and go to the next processing; otherwise we match this 5*4 block with pictographs of [0,2,3,4,5,6,7,8,9] respectively and find the `argmin`. A mismatch involving `|` costs 2 and any other mismatch costs 1; this distinguishes `6` from `7` in the sample and gives `8167`.
-
-```python
-import numpy as np
-import math
-
-zero = ['****',
-        '|  |',
-        '*  *',
-        '|  |',
-        '****']
-one = ['*',
-        '|',
-        '*',
-        '|',
-        '*']
-two = ['****',
-        '   |',
-        '****',
-        '|   ',
-        '****']
-three = ['****',
-        '   |',
-        '****',
-        '   |',
-        '****']
-four = ['*  *',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
-five = ['****',
-        '|   ',
-        '****',
-        '   |',
-        '****']
-six = ['*   ',
-        '|   ',
-        '****',
-        '|  |',
-        '****']
-seven = ['****',
-        '   |',
-        '   *',
-        '   |',
-        '   *']
-eight = ['****',
-        '|  |',
-        '****',
-        '|  |',
-        '****']
-nine = ['****',
-        '|  |',
-        '****',
-        '   |',
-        '   *']
-
-txt_nums = [zero, one, two, three, four, five, six, seven, eight, nine]
-
-
-def find_correct_index(lines, s_i):
-    e_i = 0
-    for i in range(len(lines)):
-        l = lines[i]
-        if l == '':
-            continue
-        n_e_i = str.find(l,' ',s_i)
-        if n_e_i == -1:
-            n_e_i = len(l)
-        if n_e_i >= e_i:
-            e_i = n_e_i
-    return e_i
-
-def get_most_similar_char(char):
-    best_score = float('inf')
-    best_match = -1
-    if char.shape[1] < 4:
-        return 1
-    for k in range(len(txt_nums)):
-        if k == 1:
-            continue
-        np_c = np.array([list(l) for l in txt_nums[k]], dtype='str')
-        score = 0
-        for i in range(np_c.shape[0]):
-            for j in range(np_c.shape[1]):
-                if char[i,j] != np_c[i,j]:
-                    score += 2 if '|' in (char[i,j], np_c[i,j]) else 1
-        
-        if score < best_score:
-            best_score = score
-            best_match = k
-    
-    return best_match
-
-
-
-def get_idx_for_nums(lines):
-    idxs = []
-    s_i = 0
-    final_si = max([len(l) for l in lines])
-
-    while s_i < final_si:
-        e_i = find_correct_index(lines, s_i)
-        idxs.append((s_i,e_i))
-
-        s_i = e_i
-        n_s_i = s_i
-        is_found = False
-        while n_s_i < final_si and is_found == False:
-            for l in lines:
-                if n_s_i >= len(l):
-                    continue
-                if l[n_s_i] not in [' ','\n']:
-                    is_found = True
-                    s_i = n_s_i
-            n_s_i += 1
-
-    return idxs
-
-
-def get_vertical_idxs(lines):
-    e_i = s_i = 0
-    fn_v_i = max([len(l) for l in lines])
-    v_idxs = []
-
-    while s_i < fn_v_i:
-        is_found = False
-        for l in lines:
-            if len(l)-1 < e_i:
+            suffix = best.get(skip_space(right))
+            if suffix is None:
                 continue
-            if l[e_i] not in [' ']:
-                is_found = True
-        if is_found:
-            e_i += 1
+            for cost, digit in candidates(left, glyph_width):
+                candidate = (cost + suffix[0], digit + suffix[1])
+                if answer is None or candidate < answer:
+                    answer = candidate
+        best[left] = answer
+    result = best.get(skip_space(0))
+    if result is None or not result[1]:
+        raise ValueError('picture cannot be segmented under the selected model')
+    return result[1], result[0]
+
+
+if __name__ == '__main__':
+    part = sys.argv[1]
+    if part in ('1', '3'):
+        text = sys.argv[2] if len(sys.argv) > 2 else input().strip()
+        if part == '1':
+            write_picture('out1.txt', render(text))
         else:
-            if s_i < e_i:
-                v_idxs.append((s_i,e_i))
-            s_i = e_i + 1
-            e_i = s_i
-    
-    return v_idxs
-
-def get_horizontal_idxs(lines,v_idxs):
-    h_idxs = []
-    for s,e in v_idxs:
-        s_i = e_i = 0
-        for l in lines:
-            if l[s:e].strip() != '':
-                e_i += 1
-            if l[s:e].strip() == '' or e_i == len(lines):
-                if s_i < e_i:
-                    h_idxs.append((s_i,e_i))
-                s_i = e_i + 1
-                e_i = s_i
-    return h_idxs
-
-def main():
-    lines = []
-    with open('out5.txt','r') as f:
-        lines = f.readlines()
-
-    v_idxs = get_vertical_idxs([l[:-1] for l in lines])
-    h_idxs = get_horizontal_idxs([l[:-1] for l in lines], v_idxs)
-    
-    max_l = max([len(l) for l in lines])
-    nums = np.array([list(l[:-1].ljust(max_l)) for l in lines], dtype='str')
-    res = 0
-
-    for i in range(len(v_idxs)):
-        v_s,v_e = v_idxs[i]
-        h_s,h_e = h_idxs[i]
-
-        char = nums[h_s:h_e,v_s:v_e]
-        n = get_most_similar_char(char)
-        res += int(math.pow(10,len(v_idxs) - 1 - i)) * n
-    
-    print(res)
-
-
-if __name__ == "__main__":
-    main()
+            fields = text.split(',')
+            digits = fields[0]
+            validate_digits(digits)
+            if len(fields) != 2*len(digits):
+                raise ValueError('wrong number of positions and gaps')
+            positions = [int(field) for field in fields[1:]]
+            write_picture('out3.txt', render(digits, positions[::2], positions[1::2]))
+    elif part in ('2', '4', '5'):
+        filename = {'2': 'out1.txt', '4': 'out3.txt', '5': 'out5.txt'}[part]
+        digits, score = recognize(read_picture(filename), approximate=(part == '5'))
+        print(digits.lstrip('0') or '0')
+    else:
+        raise SystemExit('part must be from 1 to 5')
 ```

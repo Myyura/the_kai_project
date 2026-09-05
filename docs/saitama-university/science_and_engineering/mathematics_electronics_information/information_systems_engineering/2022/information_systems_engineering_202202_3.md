@@ -148,8 +148,22 @@ $$
 \frac{0.01}{\sqrt{0.25/n}}=0.02\sqrt n\geq1.96.
 $$
 
-Thus $\sqrt n\geq98$ , or $n\geq9604$ . Therefore, under the requested normal approximation, the smallest integer is
+Thus $\sqrt n\geq98$ , or $n\geq9604$ . Therefore, under the normal approximation, the smallest integer is
 
 $$
 n=9604.
+$$
+
+For the exact binomial model, the condition is
+
+$$
+2^{-n}\sum_{k=\lceil49n/100\rceil}^{\lfloor51n/100\rfloor}\binom nk\geq0.95.
+$$
+
+The smallest integer satisfying this inequality is $n=9551$, for which
+
+$$
+\Pr(0.49\leq\hat p\leq0.51)
+=2^{-9551}\sum_{k=4680}^{4871}\binom{9551}{k}
+\approx0.9505465.
 $$

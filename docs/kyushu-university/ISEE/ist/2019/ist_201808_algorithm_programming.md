@@ -13,6 +13,10 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+出典：[公式問題（保存版、29–30頁）](https://web.archive.org/web/20190715211433id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H31infait.pdf#page=29)。
+以下では `largest` の初期値を `i` とする。
+
 ### 【問 1】
 与えられた数列 $a_1, a_2, \ldots, a_n$ のうち, $i<j$ かつ $a_i>a_j \ (1 \le i,j \le n)$ であるとき, $(a_i, a_j)$ を反転と呼ぶ.    
 
@@ -136,7 +140,6 @@ def merge_count(a):
     count = 0
     b = a[:n//2]
     c = a[n//2:]
-    print(b, c)
     count += merge_count(b)
     count += merge_count(c)
     

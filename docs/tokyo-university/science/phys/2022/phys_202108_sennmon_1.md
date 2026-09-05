@@ -11,6 +11,8 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html)
 
 ## **Description**
+
+出典：[東京大学大学院理学系研究科物理学専攻](https://www.phys.s.u-tokyo.ac.jp/)の大学院入試問題（一部表記・構成を改変）。
 ### 【問 1】
 量子力学において不確定性関係式は重要な役割を果たす。与えられた量子状態に対する、位置演算子 $\hat{x}$ と運動量演算子 $\hat{p}$ の標準偏差を
 
@@ -121,6 +123,8 @@ $t$ 的条件，并证明零特征值对应的状态使不确定关系取等号�
 
 ## **Kai**
 
+以下は著者による解答例であり、大学が公表した解答ではない。
+
 ### Video
 
 [東大理学系研究科 物理学専攻 令和4年度 専門科目 第1問](https://www.youtube.com/watch?v=OVkkC-FlVIw)
@@ -177,8 +181,8 @@ $$
 \right\rangle
 + \left\langle \left( \Delta \hat{p} \right)^2 \right\rangle \\
 &= t^2 \left( \Delta x \right)^2 + \hbar t + \left( \Delta p \right)^2 \\
-&= \left( \Delta x \right)^2 \left( t + \frac{\hbar}{2 \left( \Delta x \right)^2} \right)
-- \frac{\hbar^2}{2 \left( \Delta x \right)^2} + \left( \Delta p \right)^2
+&= \left( \Delta x \right)^2 \left( t + \frac{\hbar}{2 \left( \Delta x \right)^2} \right)^2
+- \frac{\hbar^2}{4 \left( \Delta x \right)^2} + \left( \Delta p \right)^2
 \end{aligned}
 $$
 
@@ -188,7 +192,7 @@ $$
 
 $$
 \begin{aligned}
-- \frac{\hbar^2}{2 \left( \Delta x \right)^2} + \left( \Delta p \right)^2 &\geq 0 \\
+- \frac{\hbar^2}{4 \left( \Delta x \right)^2} + \left( \Delta p \right)^2 &\geq 0 \\
 \therefore \ \ \Delta x \Delta p &\geq \frac{\hbar}{2}
 \end{aligned}
 $$
@@ -198,7 +202,7 @@ $$
 ### 4.
 $\hat{O}$ が固有値 $0$ をもつということは、それに属する固有関数について
 $\langle \hat{O}^\dagger \hat{O} \rangle = 0$
-が成り立つということである。3. より、その条件は
+が成り立つということである。正規化可能な零固有状態が存在するための条件は $t<0$ であり、その状態では3.より
    
 $$
 \begin{aligned}
@@ -208,7 +212,14 @@ t = - \frac{\hbar}{2 ( \Delta x )^2}
 \end{aligned}
 $$
 
-である。
+である。逆に $t<0$ なら、零固有状態は
+
+$$
+\psi(x)=C\exp\left[\frac{t(x-\bar{x})^2}{2\hbar}
++\frac{i\bar{p}x}{\hbar}\right]
+$$
+
+と書け、正規化できる。$t\ge0$ では非零の正規化可能な解は存在しない。
 
 ### 5.
 次のように書くことにする：
@@ -253,7 +264,7 @@ u(x) &= C \exp \left( - \frac{ (x - \bar{x})^2 }{4 s^2}
 \end{aligned}
 $$
 
-ここで $C$ は積分定数であり、規格化条件から $C = 1/(2 \pi s^2)^{1/4}$ がわかるので、結局、
+ここで $C$ は積分定数であり、全体位相を選べば、規格化条件から $C = 1/(2 \pi s^2)^{1/4}$ がわかるので、結局、
 
 $$
 \begin{aligned}
@@ -264,3 +275,7 @@ u(x) = \left( \frac{1}{2 \pi s^2} \right)^\frac{1}{4}
 $$
 
 を得る。
+
+## **Reference**
+
+- [東京大学 物理学専攻 令和4年度 公式問題](https://www.phys.s.u-tokyo.ac.jp/wp-content/uploads/2022/04/R4master.pdf)

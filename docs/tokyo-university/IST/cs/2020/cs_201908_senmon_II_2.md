@@ -155,6 +155,6 @@ flowchart LR
 
 例如在 `They can fish` 中，`fish` 可为名词或动词。若局部模型将 `fish` 及词对 `(can, fish)` 均偏向名词，就会误标。HMM 能利用 `can` 的情态动词词性以及“情态动词后接动词”的高概率选择动词。
 
-具体地，若对前缀的最优路径已以 `MODAL` 结束，且
+具体地，设前缀得分 $D_2(\mathrm{MODAL})=d>0$，其余状态的前缀得分均不超过 $d/10$，且
 $a(\mathrm{MODAL},\mathrm{VERB})=0.9$、$a(\mathrm{MODAL},\mathrm{NOUN})=0.1$，又有
-$b_{\mathrm{VERB}}(\text{fish})=0.4$、$b_{\mathrm{NOUN}}(\text{fish})=0.6$，则后续得分分别为 $0.36$ 与 $0.06$，HMM 选择正确的动词。HMM 利用词性间的联系和全句信息；准确率的提高取决于数据与参数，并非对每个句子都有保证。
+$b_{\mathrm{VERB}}(\text{fish})=0.4$、$b_{\mathrm{NOUN}}(\text{fish})=0.6$，则从 `MODAL` 出发的后续得分分别为 $0.36d$ 与 $0.06d$；从其他状态出发的得分至多为 $0.1d$。因此 HMM 选择正确的动词。HMM 利用词性间的联系和全句信息；准确率的提高取决于数据与参数，并非对每个句子都有保证。

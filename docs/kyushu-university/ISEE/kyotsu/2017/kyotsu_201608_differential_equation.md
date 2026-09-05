@@ -11,6 +11,8 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://web.archive.org/web/20211018003806id_/https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H29infait.pdf#page=4)。
 次の微分方程式の一般解を求めよ．
 
 (1) $\frac{dy}{dx} + \frac{y}{x} = \frac{1}{1 + x^2}$
@@ -118,3 +120,5 @@ $$
 $$
 
 を得る。
+
+正の象限では $y=x$ で元の方程式が $0=-y$ となるため、その点を解に含めない。以上の非零解は各象限内の区間で考える。$x=0$ を含む解を考える場合は、元の方程式から $y(0)=0$ が必要であり、接続点での微分可能性も別途確認する。

@@ -15,7 +15,7 @@ Zero, [etsurin](https://zhuanlan.zhihu.com/p/561992447), 祭音Myyura
 次の連立一次方程式を解く問題を考える．
 
 $$
-A_{x}=b
+Ax=b
 $$
 
 ここで, $A\in R^{m\times n},b\in R^m$ は与えられた定数の行列とべクトルであり, $x\in R^n$ は未知ベクトルである．以下の問いに答えよ．
@@ -47,7 +47,7 @@ $\bar{A}=\left (\begin{array}{cccc}
 
 (2)、任意の $m,n,A,b$ 対して, $\text{rank}(\bar{A})=\text{rank}(A)$ のとき連立一次方程式の解が存在することを示せ．
 
-(3)、$\text{rank}(\bar{A})>\text{rank}(A)$ ならば解は存在しない.$m>n$, $\text{rank}(A)=n$, $\text{rank}(\bar{A})>\text{rank}(A)$ のとき, 連立一次方程式の右辺と左辺と差のノルムの２乗 $\Vert b-A_{x}\Vert ^2$ を最小にする $x$ を求めよ．
+(3)、$\text{rank}(\bar{A})>\text{rank}(A)$ ならば解は存在しない.$m>n$, $\text{rank}(A)=n$, $\text{rank}(\bar{A})>\text{rank}(A)$ のとき, 連立一次方程式の右辺と左辺と差のノルムの２乗 $\Vert b-Ax\Vert ^2$ を最小にする $x$ を求めよ．
 
 (4)、$m<n,\text{rank}(A)=m$ のとき，どのような $b$ に対しても連立一次方程式を満たす解が複数存在する．解のうちで $\Vert x \Vert ^2$ を最小にする $x$ を，連立一次方程式を制約条件として，ラグランジュ乗数法を用いて求めよ．
 
@@ -156,7 +156,7 @@ a_4 = 2a_1 + 2a_2, \ \text{rank}(\overline{A}) = 2
 $$
 
 ### (2)
-Assuming that $\text{rank}(\overline{A}) = \text{rank}(A)=r$ and there is no solution with $A_{x}=b$.
+Assuming that $\text{rank}(\overline{A}) = \text{rank}(A)=r$ and there is no solution with $Ax=b$.
 
 Hence the vector $b$, i.e. $a_{n+1}$, cannot be represented as a linear combination of $(a_{1},a_{2},\ldots,a_{n})$.
 
@@ -190,8 +190,10 @@ $$
 Therefore,
 
 $$
-x=(A^TA)^{-1}A^Tb
+x=(A^TA)^{-1}A^Tb.
 $$
+
+Since $A$ has full column rank, $A^TA$ is positive definite. The objective has positive-definite Hessian $2A^TA$, so this stationary point is the unique global minimum.
 
 ### (4)
 
@@ -207,7 +209,7 @@ $$
 
 $$
 \begin{aligned}
-\frac{\partial L(x,\lambda)}{\partial \lambda} &= Ax-b =0
+\frac{\partial L(x,\lambda)}{\partial \lambda} &= -(Ax-b) =0
 \end{aligned}
 $$
 
@@ -224,8 +226,10 @@ $$
 Finally
 
 $$
-x=A^T(AA^T)^{-1}b
+x=A^T(AA^T)^{-1}b.
 $$
+
+The matrix $AA^T$ is positive definite because $A$ has full row rank. Every other solution is $x+z$ with $Az=0$. As $x$ lies in the range of $A^T$, $x^Tz=0$, and $\|x+z\|^2=\|x\|^2+\|z\|^2$. Thus this is the unique minimum-norm solution.
 
 ### (5)
 Let $A=U\Sigma V^T$ be a singular value decomposition and define
@@ -234,7 +238,7 @@ $$
 P=V\Sigma^+U^T,
 $$
 
-where $\Sigma^+$ replaces every nonzero singular value by its reciprocal. Direct substitution gives all four equations, so such a matrix exists.
+where $\Sigma^+\in\mathbb R^{n\times m}$ is the transposed rectangular diagonal matrix with every nonzero singular value replaced by its reciprocal and all other entries zero. Direct substitution gives all four equations, so such a matrix exists.
 
 For uniqueness, let both $P$ and $Q$ satisfy the equations. The matrices $AP$ and $AQ$ are symmetric idempotents, and
 

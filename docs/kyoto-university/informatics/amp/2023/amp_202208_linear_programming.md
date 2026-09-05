@@ -12,6 +12,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_amp.pdf)
 ### 日本語版
 $\boldsymbol{A} \in \mathbb{R}^{m \times n},\boldsymbol{b} \in \mathbb{R}^m,\boldsymbol{c} \in \mathbb{R}^n$ とする。次の線形計画問題を考える。
 
@@ -140,6 +142,8 @@ g(\mu)=& \inf_{x\succeq0} \{ (c^\top - \mu^\top A )x + \mu^\top b \} \\
 \end{aligned}
 $$
 
+If any component of $c-A^\top\mu$ is negative, then $g(\mu)=-\infty$.
+
 dual problem
 
 $$
@@ -158,7 +162,7 @@ $$
 since
 
 $$
-c^\top y \leq  b^\top r + \epsilon
+c^\top y < b^\top r + \epsilon
 $$
 
 and from duality we know

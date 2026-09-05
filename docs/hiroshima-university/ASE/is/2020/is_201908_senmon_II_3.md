@@ -145,9 +145,7 @@ search2: The first position of 'i' in 'hiroshima' is 2
 - (3-3): search1: 'z' is not included in 'hiroshima'
 - (3-3): search2: 'z' is not included in 'hiroshima'
 
-Note: 我们必须先判断是否越界, 因此 (3-2), search2 中 if 条件语句两个条件的顺序不能调换。
-
-Note: We must first check for out-of-bounds, so the order of the two conditions in the if statement cannot be swapped.
+The length check prevents recursion past the terminating null character. Starting at $i=0$, this repaired function only reaches indices $0\leq i\leq\operatorname{strlen}(s)$. Reading `s[strlen(s)]` is valid: it reads the terminator. Thus either order of these two conditions is valid here, although checking the bound first makes the stopping condition explicit.
 
 ### (4)
 - ($c$): i < strlen(s)
@@ -155,4 +153,4 @@ Note: We must first check for out-of-bounds, so the order of the two conditions 
 - (e): p = i + 1
 - (f): i < strlen(s)
 
-For the no-match case, search1_last must initialize p to 0, and search2_last must be called with its initial p equal to 0.
+For a non-null search character, these blanks return the last matching position. To also handle the no-match case, Figure 2 needs the additional initialization `int i, p = 0;`, and Figure 3 must be called as `search2_last(s, l, 0, 0)`. A return value of $0$ then means no match; the caller must test for that value. Filling the displayed blanks alone does not initialize Figure 2's `p`.

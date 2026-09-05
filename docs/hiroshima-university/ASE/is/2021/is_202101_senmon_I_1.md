@@ -83,6 +83,8 @@ $$
 
 ### (2)
 
+When $\sin\theta\neq0$, the two eigenspaces are the complex spans of $v_1$ and $v_2$, respectively. When $\theta=k\pi$, the eigenvalue is $(-1)^k$ with multiplicity two and every nonzero vector in $\mathbb C^2$ is an eigenvector. The following $U$ still diagonalizes the matrix in that case.
+
 $$
 U = \frac{1}{\sqrt{2}} \begin{bmatrix}
     -i & i \\ 1 & 1

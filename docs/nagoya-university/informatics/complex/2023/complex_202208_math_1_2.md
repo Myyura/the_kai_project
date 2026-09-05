@@ -11,7 +11,15 @@ tags:
 
 ## **Description**
 
-以下のような6つのベクトルが与えられたとき、 $\mathbf{r}_i$ を $\mathbf{r}'_i$ に $(i = 0, 1, 2)$ 移す相似変換の成分表示を求めよ。また、その相似変換の式の中の係数 $\lambda$ の値を求めせ。
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/153686fd38b76aec8fe63b4c47663818.pdf)
+
+相似変換の定義（題意の要約）：$Q^TQ=I$ を満たす実 $2\times2$ 行列 $Q$，
+$\lambda>0$，$h\in\mathbb R^2$ による $r'=\lambda Qr+h$ を考える。
+$\lambda=1$ のときは合同変換である。
+
+
+
+以下のような6つのベクトルが与えられたとき、 $\mathbf{r}_i$ を $\mathbf{r}'_i$ に $(i = 0, 1, 2)$ 移す相似変換の成分表示を求めよ。また、その相似変換の式の中の係数 $\lambda$ の値を示せ。
 
 $$
 \mathbf{r}_0 = \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \mathbf{r}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \mathbf{r}_2 = \begin{pmatrix} 1 \\ 2 \end{pmatrix}, \mathbf{r}'_0 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \mathbf{r}'_1 = \begin{pmatrix} 5 \\ 2 \end{pmatrix}, \mathbf{r}'_2 = \begin{pmatrix} 3 \\ 8 \end{pmatrix}

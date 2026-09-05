@@ -14,6 +14,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_cce.pdf)
 Answer all the following questions.
 
 ### (1)

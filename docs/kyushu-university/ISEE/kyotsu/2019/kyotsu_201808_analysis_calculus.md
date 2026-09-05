@@ -12,6 +12,8 @@ tags:
 Yu, Miyake, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://web.archive.org/web/20190715211433id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H31infait.pdf#page=4)。
 ### 微分方程式
 $2$ つの関数 $x(t),y(t)$ について, 次の連立微分方程式を解け。
 

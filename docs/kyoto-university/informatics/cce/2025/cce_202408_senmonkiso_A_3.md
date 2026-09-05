@@ -14,6 +14,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_cce.pdf)
 Answer all the following questions.
 
 ### (1)
@@ -110,6 +112,8 @@ The state transition diagram corresponds to:
 
 ## **Kai**
 ### (1) 
+
+The following numerical entropy values use the rounded logarithms in Table 2 and are therefore approximate.
 
 Given the joint distribution:
 
@@ -243,11 +247,13 @@ $$
 (If $P=Q=0$, both states are absorbing and the stationary distribution is not unique.)
 
 #### (c)
-For the additive channel, the error bit is $S_E=1$. In steady state:
+For $P+Q>0$, the error bit is $S_E=1$. In steady state:
 
 $$
 R_{\text{error}} = P(S_E=1)=\pi_1=\dfrac{P}{P+Q}
 $$
+
+If $P=Q=0$, write the stationary distribution as $(1-\alpha,\alpha)$, where $0\leq\alpha\leq1$. The bit error rate is then $\alpha$.
 
 #### (d)
 
@@ -268,3 +274,15 @@ so
 $$
 C = 1-\left(\frac{Q}{P+Q}H(P)+\frac{P}{P+Q}H(Q)\right),
 $$
+
+
+Here $H(0)=H(1)=0$. For an input-independent additive noise sequence,
+$Y^n=X^n\oplus E^n$, so
+
+$$
+I(X^n;Y^n)=H(Y^n)-H(E^n)\leq n-H(E^n).
+$$
+
+Independent fair input bits make $Y^n$ uniform and attain this upper bound. Dividing by $n$ and taking the limit gives the stated capacity.
+
+If $P=Q=0$, the noise is a single random bit repeated forever, hence $H(E^n)=H(\alpha)\leq1$. Its entropy rate is zero and $C=1$, for every stationary distribution. The fractions involving $P+Q$ above apply only when $P+Q>0$.

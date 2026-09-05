@@ -189,4 +189,4 @@ The base row is the exact optimum for one variable. Assuming row $N-1$ is optima
 
 #### (2-4)
 
-The dynamic program takes $\Theta(nr^2)$ time and $\Theta(nr)$ space, reducible to $\Theta(r)$ space with two rows. A direct implementation of the stated greedy algorithm scans $n$ marginals in each of $r$ iterations, taking $\Theta(nr)$ time and $\Theta(n)$ space.
+The dynamic program takes $\Theta(r+(n-1)r^2)$ time, or $\Theta(nr^2)$ for $n\ge2$, and $\Theta(nr)$ space, reducible to $\Theta(r)$ space with two rows. A direct implementation of the stated greedy algorithm scans $n$ marginals in each of $r$ iterations, taking $\Theta(nr)$ time and $\Theta(n)$ space.

@@ -54,6 +54,19 @@ Assume that the element $x$ of each node is a unique integer. Answer the followi
 
 1. 图 4 表示从空树开始依次插入若干整数所得的二叉搜索树 $T$，求图中 (a)、(b)、(c)、(d) 的值。日文题干给出的序列为
    `10, 12, 11, 5, 8, 6, 2, 15`。
+[大学公開の原題、6 ページ](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/201508kiso.pdf#page=6)
+
+```mermaid
+flowchart TD
+ root[10] --> l[5]
+ root --> r[12]
+ l --> a["(a)"]
+ l --> b["(b)"]
+ b --> six[6]
+ r --> c["(c)"]
+ r --> d["(d)"]
+```
+
 2. 从图 4 的 $T$ 中删除键为 `10` 的节点，画出所得二叉搜索树。
 3. 给出从任意二叉搜索树中删除节点 $p$ 的算法，覆盖无孩子、一个孩子和两个孩子的情况。
 4. 给出一种高效算法，按升序枚举二叉搜索树中的全部元素。

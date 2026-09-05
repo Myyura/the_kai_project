@@ -11,27 +11,26 @@ tags:
 
 ## **Description**
 
-[2023年度大学院入学試験問題 数学](https://github.com/Myyura/the_kai_project_assets/blob/2672b44819e556e6b7835902e6d69059ff935039/kakomonn/tokyo_university/engineering/Description/M_J_E_2023.pdf)
+### 題意の要約
+
+[公式問題 PDF・3ページ](https://www.t.u-tokyo.ac.jp/hubfs/M_J_E_2023.pdf#page=3)
+
+I. $a,b,c>0$ として、$\displaystyle\lim_{x\to0}\frac{b^x-c^x}{ax}$ を求める。
+
+II. 次の微分方程式の一般解を求める。
+
+1. $\displaystyle \frac{dy}{dx}-\frac yx=\log x\quad(x>0).$ （2）
+2. $\displaystyle \frac{d^2y}{dx^2}-\frac{dy}{dx}-2y=2x^2+2x.$ （3）
+
+III. 正の整数 $n$ に対し $\displaystyle a_n=\frac{n!}{n^{n+1/2}e^{-n}}$ とおく。$\displaystyle\lim_{n\to\infty}\frac{a_n}{a_{n+1}}$ を求める。$e$ は自然対数の底である。$x>0$ で $y=x^{-1}$ が下に凸であることを利用してよい。
 
 ### 题目描述
 
-原 Description 仅提供 2023 年数学原卷链接，具体题干缺失。根据本地 Kai，可以确认：
-
-1. 第一部分要求计算极限
-   $$
-   \lim_{x\to0}\frac{b^x-c^x}{ax},
-   $$
-   其中 Kai 使用对数和洛必达法则；原题对参数 $a,b,c$ 的取值条件未保存在本地。
-2. 第二部分含两个微分方程：
-   - 第一小问令 $y=x f(x)$ 后得到 $x f'(x)=\log x$，并要求一般解；Kai 得到
-     $y=\tfrac12x(\log x)^2+Cx$。原方程 (2) 的完整书写形式缺失。
-   - 第二小问的齐次算子为 $y''-y'-2y$，并以二次多项式作待定特解；Kai 给出非齐次方程 (3) 的一般解
-     $y=Ae^{2x}+Be^{-x}-x^2-1$。原方程右端未直接保存在本地，故不补写。
-3. 第三部分研究数列
-   $$
-   a_n=\frac{n!}{n^{\,n+1/2}e^{-n}},
-   $$
-   本地解答计算 $a_n/a_{n+1}$ 并证明其极限为 $1$；Kai 未保存原题是否还有进一步要求。
+1. 给定 $a,b,c>0$，求极限 $\lim_{x\to0}(b^x-c^x)/(ax)$。
+2. 求两个微分方程的通解：
+   1. $y'-y/x=\log x$，$x>0$；
+   2. $y''-y'-2y=2x^2+2x$。
+3. 对正整数 $n$，定义 $a_n=n!/(n^{n+1/2}e^{-n})$。求 $\lim_{n\to\infty}a_n/a_{n+1}$，其中 $e$ 是自然对数的底。可利用 $y=x^{-1}$ 在 $x>0$ 上向上凸。
 
 ## **Kai**
 ### I.

@@ -11,12 +11,23 @@ tags:
 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_ist.pdf)
 Suppose that samples are given in a 2-dimensional feature space as shown in Table 1.
 The samples are denoted by $x_i = (x_{i1}, x_{i2})^T$, $(i = 1, \ldots, n)$, where $T$ represents the transpose of a vector or a matrix. Answer the following questions.
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202308_senmon_s_3_p1.png" width="280" height="150" alt=""/>
-</figure>
+Table 1 — sample coordinates:
+
+| Sample | $x_{i1}$ | $x_{i2}$ |
+|---|---:|---:|
+| $x_1$ | -1 | 4 |
+| $x_2$ | 1 | 1 |
+| $x_3$ | 0 | 8 |
+| $x_4$ | 4 | 2 |
+| $x_5$ | -2 | 6 |
+| $x_6$ | 4 | 6 |
+| $x_7$ (new sample) | 0 | 2 |
+
 
 (1) Suppose that a classification of the samples in Table 1 (a) is given by  
 
@@ -54,9 +65,7 @@ The assumption on the sample distribution required for the discussion must be cl
 题图表 1 给出二维样本
 $x_i=(x_{i1},x_{i2})^\top$（$i=1,\ldots,n$）：
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202308_senmon_s_3_p1.png" width="280" height="150" alt="二维样本表"/>
-</figure>
+样本坐标见上方 Table 1。
 
 1. 对表 1(a) 的分类
    $C_1=\{x_1,x_3,x_5\}$、
@@ -102,6 +111,8 @@ C_1,&8x-6y+19<0,\\C_2,&8x-6y+19>0.
 \end{cases}
 $$
 
+On the boundary $8x-6y+19=0$, the two distances tie; either class may be selected by a fixed tie rule.
+
 ### (2)
 
 Let $\bar{c}$ denote the mean of all the data
@@ -124,7 +135,7 @@ $$
 r_2 = \frac{173/18}{116/3} \approx 0.248
 $$
 
-Since $r_1 > r_2$, the classifier in Q1 is better than Q2.
+Both classes have three samples, so weighting the numerator by class sizes multiplies both ratios by the same factor $3$. Since $r_1>r_2$, the grouping in Q1 has greater separability under this criterion.
 
 ### (3)
 For $j=1,2$, let $\Sigma_j$ denote the covariance matrix of $C_j$. Then, the Mahalanobis distance for $x_i$ corresponding to $C_j$ is
@@ -133,7 +144,7 @@ $$
 L_{j} = \sqrt{(x_{i}-c_{j})^{T}\Sigma_{j}^{-1}(x_{i}-c_{j})}
 $$
 
-where
+Using the unbiased sample covariance (denominator $3-1=2$), we obtain
 
 $$
 \Sigma_{1} =

@@ -58,3 +58,20 @@ A technique that generates models from algorithms and parameters instead of stor
 **k-nearest neighbor algorithm**
 
 A nonparametric algorithm that selects the $k$ training points nearest to a query under a chosen distance (often Euclidean). Classification uses their majority or distance-weighted vote; regression averages their targets. Feature scaling and the choice of $k$ control bias and variance. A KD-tree or ball tree can accelerate neighbor search in suitable dimensions.
+
+
+**Zero Moment Point (ZMP)**
+
+The zero moment point is a point on the support plane at which the horizontal components of the resultant ground-contact moment vanish; the moment about the vertical axis need not be zero. With coplanar unilateral contacts, the ZMP lies within the support polygon when the required contact wrench can be supplied without tipping. A walking controller plans motion to keep this condition satisfied, while also respecting friction and other dynamic constraints. For a constant-height linear inverted-pendulum model with height $h$, $x_{\mathrm{ZMP}}=x_{\mathrm{COM}}-(h/g)\ddot x_{\mathrm{COM}}$ and similarly in the other horizontal direction.
+
+**Transparent cache in wide area networks**
+
+A transparent cache serves repeated requests from an intermediate cache without requiring users to configure a proxy explicitly. Traffic is redirected through it or intercepted on its route, and a valid cached response can be returned closer to the requester. This can reduce wide-area traffic, response time, and load on origin servers. Correct operation must respect cache freshness, validation, and directives controlling shared storage. End-to-end encrypted HTTPS responses cannot generally be read and cached by an ordinary intermediate device without endpoint cooperation or authorized TLS termination.
+
+**Dynamic map in a self-driving car system**
+
+A dynamic map combines a precise road map with information that changes over time in a shared geographic reference frame. Static information includes lane geometry and road infrastructure; semi-static information can include planned construction, semi-dynamic information current traffic restrictions, and dynamic information vehicle positions or traffic-signal states. Different layers are updated at rates appropriate to their changes. Vehicles combine map data, onboard observations, and communicated information for localization, prediction, and route or motion planning. Timestamps, consistency, and localization accuracy are necessary to use changing data correctly. See the [SIP-adus dynamic-map concept](https://en.sip-adus.go.jp/evt/theme/dynamic_map.html).
+
+**Thread-level parallel speculative execution**
+
+Thread-level speculation runs parts of a sequential program, such as different loop iterations, in parallel before their independence is fully known. The system tracks memory accesses and buffers or versions speculative writes to detect violations of the original sequential dependences. Results become visible only when the relevant ordering constraints have been validated, often by committing threads in program order. If an earlier thread writes a value that a later thread has already read incorrectly, affected speculative work is discarded and re-executed. Speedup depends on sufficiently rare conflicts and on gains exceeding tracking, communication, and rollback costs.

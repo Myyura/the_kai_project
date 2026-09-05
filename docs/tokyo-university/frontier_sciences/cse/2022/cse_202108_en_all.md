@@ -26,7 +26,7 @@ $$\frac{\mathrm{d}y}{\mathrm{d}x} = \frac{x+y-1}{x+y+1}.$$
 
 (Q.3) Calculate the following indefinite integral and write down the expression that fills the blank space. a is a non-zero constant.
 
-$$\int e^x \sin ax \, dx = \boxed{ (\sin ax - a \cos ax)}.$$
+$$\int e^x \sin ax \, dx = \boxed{\phantom{expression}}(\sin ax-a\cos ax).$$
 
 (Q.4) Consider an ellipse on a xy Cartesian coordinate system:
 
@@ -89,8 +89,8 @@ where e is the base of the natural logarithm,  $k! = k \cdot (k - 1) \cdots 2 \c
 
 Consider four point masses with mass m which move along a straight line. As shown in Fig. 1, these masses are connected by massless springs with a natural length of l and a spring constant of k. Object A denotes the system composed of the two point masses and the spring on the left side, and Object B denotes the system composed of the two point masses and the spring on the right side.  $x_1, x_2, x_3$  and  $x_4$  denote the coordinates of each point mass, and  $v_1, v_2, v_3$  and  $v_4$  denote the velocities of each point mass. Suppose that  $x_1 < x_2, x_3 < x_4$  are satisfied at any time, and the coefficient of restitution is 1 (i.e., perfectly elastic collision) for the collisions between the masses, and friction can be neglected. Answer the following questions. You should write only the solutions on your answer sheet.
 
-- (Q.1) At time t = 0,  $x_2 < x_3$ ,  $x_2 x_1 = x_4 x_3 = l$  are satisfied, and  $v_1 = V_{10} (> 0)$ ,  $v_2 = v_3 = v_4 = 0$ .
-  - (1) Let us express the expansion and contraction of the spring by  $\Delta x \equiv x_2 x_1 l$ . Obtain the equation of motion for  $\Delta x$ , and find the characteristic frequency.
+- (Q.1) At time t = 0,  $x_2 < x_3$ ,  $x_2-x_1 = x_4-x_3 = l$  are satisfied, and  $v_1 = V_{10} (> 0)$ ,  $v_2 = v_3 = v_4 = 0$ .
+  - (1) Let us express the expansion and contraction of the spring by  $\Delta x \equiv x_2-x_1-l$ . Obtain the equation of motion for  $\Delta x$ , and find the characteristic frequency.
   - (2) The energy of Object A can be divided into the following three energies:  $C_A$ : the kinetic energy of the center of mass,  $R_A$ : the energy of the relative motion of the two point masses and  $S_A$ : the energy stored in the spring.  $C_A + R_A$  represents the total kinetic energy. Express  $C_A + R_A$  using m,  $v_1$  and  $v_2$ .
   - (3) Express  $C_A$ ,  $R_A$  using m,  $v_1$  and  $v_2$ , and express  $S_A$  using  $x_1$ ,  $x_2$ , l and k.
 
@@ -102,7 +102,7 @@ Consider four point masses with mass m which move along a straight line. As show
   - (4) Express  $R_A$  just before the collision using m,  $V_{10}$  and  $V_2$ .
   - (5) Express the ratio  $C_{\rm A}/(R_{\rm A}+S_{\rm A})$  just after the collision using  $V_{10}$  and  $V_2$ .
 
-![](_page_2_Figure_13.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2022/tokyo-cse-202108-springs.svg)
 
 ## Slot 3: 3.1 Mathematical analysis (40 minutes)
 
@@ -134,7 +134,7 @@ by applying the residue theorem to Eq. (1). You may use the fact that the contri
 
 (Q.4) Obtain the inverse Fourier transform  $\mathcal{F}^{-1}[H(\omega)]$  of  $H(\omega)$  obtained in (Q.2), and sketch its graph as a function of t.
 
-![](_page_3_Figure_15.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2022/tokyo-cse-202108-contour.svg)
 
 Figure 1: Integral path.
 
@@ -170,7 +170,7 @@ Answer the following questions. Use the vacuum permittivity  $\varepsilon_0$  an
   - (3) Self-inductance L of a long solenoid with cross-sectional area S, length l and number of turns per unit length n.
 - (Q.2) When an AC voltage (angular frequency  $\omega$ ) is applied to both ends of the circuit shown in Fig.1, express the total impedance using R, L and C.
 
-![](_page_5_Picture_7.jpeg)
+![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2022/tokyo-cse-202108-rlc.svg)
 
 (Q.3) Faraday's law and Ampere's law in vacuum with charge and
 
@@ -191,7 +191,7 @@ $$B(x,t) = e_2 B_0 \sin(k \cdot x - \omega t).$$
 In addition, find the phase velocity  $v_p$  of this wave. Note that k is a real wavenumber vector, x is a coordinate vector,  $\omega$  is a frequency (real number) and  $e_1$  and  $e_2$  are unit vectors. Here, k,  $e_1$  and  $e_2$  are perpendicular to each other.
 
 - (Q.5) Find the relationship between  $E_0$ ,  $B_0$ , and the phase velocity  $v_p$  obtained in the previous question.
-- (Q.6) When the energy u of the electromagnetic field per unit volume can be expressed as follows, find the energy and the pointing vector averaged over a cycle.
+- (Q.6) When the energy u of the electromagnetic field per unit volume can be expressed as follows, find the energy and the Poynting vector averaged over a cycle.
 
 $$u = \varepsilon_0 |\mathbf{E}|^2 / 2 + |\mathbf{B}|^2 / 2\mu_0.$$
 

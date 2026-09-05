@@ -15,9 +15,18 @@ tags:
 
 ## **Description**
 
-### 题目描述
+問題の要約 — [大学公表問題](https://www.waseda.jp/inst/admission/assets/uploads/2023/11/51_M_sugaku_2023_September2024_April_ippan_senmon.pdf)
 
-> 缺失边界：原 `Description` 及本地 Git 历史均未保存题干。以下各项均由现有 `Kai` 的定义、矩阵和小问结构唯一恢复；除此之外没有补充原题未保存的条件。
+
+1. $\mathbb R^n$ の部分空間 $W$ の正規直交基底を $\boldsymbol w_1,\ldots,\boldsymbol w_k$ とする。$P=\sum_{j=1}^k\boldsymbol w_j\boldsymbol w_j^T$ が $W$ への正射影を与えることを示す。
+2. 次の実対称行列について、(1) 対角化する直交行列、(2) 各固有空間への正射影行列 $P_j$、(3) 固有値 $\lambda_j$ と $P_j$ による $A$ の表示を求める。
+
+$$
+A=\begin{pmatrix}0&1&0&-1\\1&0&1&0\\0&1&0&1\\-1&0&1&0\end{pmatrix}.
+$$
+
+
+### 题目描述
 
 1. 设 $W$ 是 $\mathbb{R}^n$ 的 $k$ 维子空间，$\boldsymbol{w}_1,\ldots,\boldsymbol{w}_k$ 是 $W$ 的一组标准正交基。定义
 
@@ -103,7 +112,7 @@ $$
 &= \left( \lambda + \sqrt{2} \right)^2
 \left( \lambda - \sqrt{2} \right)^2
 \\
-\therefore \ \ 
+\therefore \ \
 \lambda &= \pm \sqrt{2}
 \end{aligned}
 $$
@@ -133,7 +142,7 @@ $$
 \begin{aligned}
 \boldsymbol{u}_{11}
 = \begin{pmatrix} 1 \\ - \sqrt{2} \\ 1 \\ 0 \end{pmatrix}
-, \ \ 
+, \ \
 \boldsymbol{u}_{12}
 = \begin{pmatrix} \sqrt{2} \\ -1 \\ 0 \\ 1 \end{pmatrix}
 \end{aligned}
@@ -188,7 +197,7 @@ $$
 \begin{aligned}
 \boldsymbol{u}_{21}
 = \begin{pmatrix} 1 \\ \sqrt{2} \\ 1 \\ 0 \end{pmatrix}
-, \ \ 
+, \ \
 \boldsymbol{u}_{22}
 = \begin{pmatrix} - \sqrt{2} \\ -1 \\ 0 \\ 1 \end{pmatrix}
 \end{aligned}

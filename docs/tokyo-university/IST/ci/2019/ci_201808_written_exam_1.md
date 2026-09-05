@@ -16,6 +16,8 @@ tags:
 
 ## **Description**
 
+[原題（日本語）](https://www.i.u-tokyo.ac.jp/edu/course/ci/2018-8-exam.pdf)
+
 ### 日本語
 
 $n \times n$ 点（ピクセル）からなる $2$ 次元 $256$ 階調グレースケール画像について考える。
@@ -137,7 +139,7 @@ Given a group of points `G` and a given point `p=(i,j)` we will check on a copy 
 3. We will call on all neighbores we find recursively with the modified data (the visited point).
 4. we will add the number found by the recursion to 1 and continue.
 
-Since it the part is strongly connected we will find all the number of pixels in the group.
+The recursive search reaches exactly the connected component containing the starting pixel.
 
 - `P`: a copy of the array, by reference
 - `pi`, `pj`: index i and j of the current pixel
@@ -248,7 +250,7 @@ $$
 x^{\mathrm{inf}}=\frac18(Ax^{\mathrm{inf}}+Bb).
 $$
 
-Since $\rho(A/8)<1$ for this finite grid with a fixed boundary, $8I-A$ is invertible. Therefore
+For $n\ge3$, every internal pixel can reach the fixed boundary in at most $n$ neighbor steps. The averaging matrix $Q=A/8$ is substochastic, and every row sum of $Q^n$ is at most $1-8^{-n}<1$, because at least one such path leaves the interior. Hence $\rho(Q)<1$, so $8I-A$ is invertible. The averages here are real-valued; no intermediate rounding is applied. Therefore
 
 $$
 \boxed{x^{\mathrm{inf}}=(8I-A)^{-1}Bb}.

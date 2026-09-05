@@ -16,7 +16,7 @@ samparker, 祭音Myyura
 
 (1) 図 1 に示すグラフ $G_1$ の平面描画を示し、その描画がオイラーの公式を満たしていることを説明せよ。
 
-(2) 単純グラフ $G = (V, E)$ の補グラフ $\overline{G}$ は、$G$ と同じ頂点集合をもち、辺集合 $\overline{E} = \{(u, v) \in V \times V : (u, v) \notin E\}$ を持つグラフである。グラフ $G_1$ の補グラフの平面描画を示せ。
+(2) 単純グラフ $G = (V, E)$ の補グラフ $\overline{G}$ は、$G$ と同じ頂点集合をもち、辺集合 $\overline{E} = \{(u, v) \in V \times V : u\neq v,\ (u, v) \notin E\}$ を持つグラフである。グラフ $G_1$ の補グラフの平面描画を示せ。
 
 (3) 平面性を維持したままでグラフに追加できる辺の数には限界がある。
 オイラーの公式を利用して、頂点数 $v$ 、辺数 $e$ の単純グラフ $G$ が平面的であるための必要条件が $e \leq 3(v - 2)$ となることを示せ。
@@ -31,7 +31,7 @@ By letting $f$ be the number of faces (i.e., closed regions including exterior o
 
 (1) Give a planar drawing of graph $G_1$ shown in Figure 1, and show that the drawing fulfills the Euler's formula.
 
-(2) Complement of simple graph $G = (V, E)$, denoted as $\overline{G}$, is a graph with vertex set $V$ and edge set $\overline{E} = \{(u, v) \in V \times V : (u, v) \notin E\}$. Give a planar drawing of the complement of graph $G_1$.
+(2) Complement of simple graph $G = (V, E)$, denoted as $\overline{G}$, is a graph with vertex set $V$ and edge set $\overline{E} = \{(u, v) \in V \times V : u\neq v,\ (u, v) \notin E\}$. Give a planar drawing of the complement of graph $G_1$.
 
 (3) There is an upper limit on the number of edges so that a simple graph is planar. Prove that any simple planar graph with $v$ vertices and $e$ edges satisfies $e \leq 3(v - 2)$.
 
@@ -56,7 +56,7 @@ $$
 2. 简单图 $G=(V,E)$ 的补图 $\overline G$ 与 $G$ 有相同顶点集，边集为
 
    $$
-   \overline E=\{(u,v)\in V\times V:(u,v)\notin E\}.
+   \overline E=\{(u,v)\in V\times V:u\neq v,\ (u,v)\notin E\}.
    $$
 
    给出 $G_1$ 的补图的平面画法。
@@ -71,6 +71,9 @@ $$
 图 $G_1$ 的具体结构见图 1。
 
 ## **Kai**
+
+Editorial clarification: the complement of a simple graph has no loops, so $u\neq v$ is included in the definitions above. The bound in (3) requires $v\geq3$; for example, a graph with two vertices and one edge is planar but does not satisfy $e\leq3(v-2)$.
+
 ### (1)
 
 <figure style="text-aligned:center;">

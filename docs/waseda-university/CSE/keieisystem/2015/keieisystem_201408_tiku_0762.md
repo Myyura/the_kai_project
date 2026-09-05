@@ -197,3 +197,6 @@ $$
 $$
 
 .
+
+
+For each eigenvalue, all eigenvectors are the nonzero scalar multiples of its displayed vector.

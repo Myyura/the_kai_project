@@ -10,6 +10,8 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20151118065610id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2013-8-exam.pdf).
 We consider a weather prediction system in which a single senior predictor predicts a weather probability distribution on the basis of $N$ predictors' prediction results. Below the system is described in details.
 There are $N$ weather predictors, each of whom outputs a weather probability distribution once a day. Here the weather is a binary random variable taking a value 1 or 0 only (1 means "fine" while 0 means "not fine"). It is assumed that the weather is independent of a day.
 Let the probability distribution that the $i$-th predictor outputs on the $t$-th day be $P_i^{(t)}(X)$ ($X \in \{1, 0\}$) where we let $0 < P_i^{(t)}(X) < 1$ ($X \in \{1, 0\}$). There is a senior predictor who aggregates the outputs of the $N$ predictors. On the $t$-th day, the senior predictor takes a weighted average over the probability distributions output by the $N$ predictors to output a weather probability distribution $\hat{P}^{(t)}(X)$ ($X \in \{1, 0\}$). Here the weight on the $i$-th predictor on the $t$-th day is denoted as $v_i^{(t)}$ ($\sum_{i=1}^N v_i^{(t)} = 1, v_i(t) > 0$ ($i = 1, \dots, N$)). That is, on the $t$-th day, $\hat{P}^{(t)}(X)$ is given by $\sum_{i=1}^N v_i^{(t)} P_i^{(t)}(X)$ (see Figure 1).
@@ -82,3 +84,86 @@ $$
    $$
 
    证明高级预测者的累计损失至多比所有单个预测者中最小的累计损失多 $\log N$。
+
+
+## **Kai**
+
+### (1) Likelihood and weight updates
+
+The empty-product likelihood is $w_i^{(0)}=1$. Multiplying by the newly observed outcome probability gives
+
+$$
+\boxed{w_i^{(t)}=w_i^{(t-1)}P_i^{(t)}(x_t).}
+$$
+
+Weights proportional to the likelihoods must be normalized to sum to one. Thus
+
+$$
+\boxed{v_i^{(t+1)}=
+\frac{w_i^{(t-1)}P_i^{(t)}(x_t)}
+{\sum_{j=1}^Nw_j^{(t-1)}P_j^{(t)}(x_t)}
+=\frac{v_i^{(t)}P_i^{(t)}(x_t)}{\hat P^{(t)}(x_t)}.}
+$$
+
+All denominators are positive by the stipulated strictly positive probabilities.
+
+### (2) Sequential algorithm
+
+Use the uniform weights for the first day's prediction. The statement calls the initial vector $v^{(0)}$; in the day-based notation of part (1), this is $v^{(1)}$, since it precedes any observation. It is the same uniform initialization, not an extra update using future data.
+
+```text
+v[i] = 1/N for i = 1,...,N
+for t = 1,...,T:
+    obtain today's N predictive distributions P[i]
+    prediction[0] = sum(v[i] * P[i][0] for i = 1,...,N)
+    prediction[1] = sum(v[i] * P[i][1] for i = 1,...,N)
+    output prediction
+    observe the actual outcome x[t]
+    z = prediction[x[t]]
+    for i = 1,...,N:
+        v[i] = v[i] * P[i][x[t]] / z
+```
+
+The senior predictor takes $\boxed{O(NT)}$ arithmetic operations and $O(N)$ working storage, excluding the predictors' own computation and stored output history. It outputs before observing that day's outcome. For long sequences, store log-likelihoods and normalize using log-sum-exp to avoid numerical underflow from products of many small probabilities; this retains the same asymptotic arithmetic count.
+
+### (3) Cumulative loss
+
+Write $W_t=\sum_i w_i^{(t)}$, so $W_0=N$. Then
+
+$$
+\hat P^{(t)}(x_t)=
+\frac{\sum_iw_i^{(t-1)}P_i^{(t)}(x_t)}{W_{t-1}}
+=\frac{W_t}{W_{t-1}}.
+$$
+
+Multiplying over days telescopes:
+
+$$
+\prod_{t=1}^T\hat P^{(t)}(x_t)=\frac{W_T}{W_0}
+=\frac1N\sum_{i=1}^N\prod_{t=1}^TP_i^{(t)}(x_t).
+$$
+
+Consequently
+
+$$
+\boxed{Loss(x^T)=-\log\left(\frac1N\sum_{i=1}^N
+\prod_{t=1}^TP_i^{(t)}(x_t)\right).}
+$$
+
+The uniform average is outside the products: this mixture selects one expert for the whole sequence in its likelihood representation, rather than selecting a fresh uniform expert each day.
+
+### (4) Bound relative to the best expert
+
+Let $L_i=-\sum_t\log P_i^{(t)}(x_t)$ and choose $i_*\in\arg\min_iL_i$. Since each likelihood is nonnegative,
+
+$$
+\frac1N\sum_i e^{-L_i}\ge\frac1N e^{-L_{i_*}}.
+$$
+
+Applying the decreasing function $-\log$ gives
+
+$$
+\boxed{Loss(x^T)\le L_{i_*}+\log N=\min_i L_i+\log N.}
+$$
+
+This is a bound for every realized sequence, not merely for an expected loss. Indeed the algebraic proof itself does not require stochastic independence of the daily outcomes. At $N=1$ the two losses coincide; for $N>1$ and finite $T$, strict positivity makes the displayed upper bound strict, although it can be approached arbitrarily closely.

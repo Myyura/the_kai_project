@@ -13,9 +13,24 @@ tags:
 
 ## **Description**
 
+### 参考問題
+
+独立な確率変数 $X,Y$ が $x,y\ge0$ において密度
+
+$$
+f_X(x\mid\lambda)=\lambda e^{-\lambda x},\qquad
+f_Y(y\mid\lambda)=\lambda^{-1}e^{-y/\lambda}
+$$
+
+を持つ場合を考える。$\lambda\ge1$ とし、$Z=\min(X,Y)$、$\mu=\lambda+\lambda^{-1}$ と置く。
+
+1. $Z$ の密度、期待値、分散を求める。
+2. $Z$ の独立な観測値 $z_1,\ldots,z_n$ とその平均 $\bar z$ から、$\mu$ の最尤推定量を求める。
+3. $\lambda\ge1$ の下での $\lambda$ の最尤推定量を求め、$\bar z\le1/2$ と $\bar z>1/2$ に分けて考える。
+
 ### 题目描述
 
-原文题干缺失。根据现有解答，设 $X,Y$ 相互独立，且
+设 $X,Y$ 相互独立，且
 
 $$
 f_X(x\mid\lambda)=\lambda e^{-\lambda x},\qquad
@@ -160,7 +175,7 @@ $$
   &=
   n \log \mu - \mu n \bar{z}
   \\
-  \therefore \ \ 
+  \therefore \ \
   \frac{dl}{d \mu}
   &=
   \frac{n}{\mu} - n \bar{z}
@@ -210,7 +225,7 @@ $$
 
 を得る。
 
-ただし、これは $\bar{z} \leq 1/2$ のときであり、
+ただし、これは $0<\bar{z} \leq 1/2$ のときであり、
 $\bar{z} \gt 1/2$ のときは、
 
 $$
@@ -220,3 +235,5 @@ $$
 $$
 
 である。
+
+なお、$\bar z=0$（観測値がすべて $0$）の場合は、尤度が $\mu^n$ となり、$\mu\to\infty$ で際限なく増加する。そのため有限の $\hat\mu,\hat\lambda$ は存在しない。この例外は、ここでの連続分布の下では確率 $0$ である。

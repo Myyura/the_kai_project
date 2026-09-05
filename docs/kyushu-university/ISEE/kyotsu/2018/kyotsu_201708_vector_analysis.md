@@ -12,7 +12,9 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
-直交座標系において，$x, y, z$ 軸方向の単位ベクトルをそれぞれ $\boldsymbol{i, j, k}$ とする．$S$ を以下の面とし，$C$ をその外周とするとき，ベクトル場 $\boldsymbol{A} = y\boldsymbol{i} − 2x\boldsymbol{j} + xz\boldsymbol{k}$ に対し，線積分 $\oint_C \boldsymbol{A} \cdot d\boldsymbol{r}$，および面積分 $\int_S(\Delta \times \boldsymbol{A}) \cdot d\boldsymbol{S}$ をそれぞれ計算せよ. なお，線積分は $z$ 軸正方向からみて反時計回りに沿って行うものとし，$S$ の法線ベクトルの $z$ 成分は非負とする．
+
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H30infait.pdf#page=5)。
+直交座標系において，$x, y, z$ 軸方向の単位ベクトルをそれぞれ $\boldsymbol{i, j, k}$ とする．$S$ を以下の面とし，$C$ をその外周とするとき，ベクトル場 $\boldsymbol{A} = y\boldsymbol{i} − 2x\boldsymbol{j} + xz\boldsymbol{k}$ に対し，線積分 $\oint_C \boldsymbol{A} \cdot d\boldsymbol{r}$，および面積分 $\int_S(\nabla \times \boldsymbol{A}) \cdot d\boldsymbol{S}$ をそれぞれ計算せよ. なお，線積分は $z$ 軸正方向からみて反時計回りに沿って行うものとし，$S$ の法線ベクトルの $z$ 成分は非負とする．
 
 $$
 S : x^2 + y^2 + z^2 = 1(z \ge 0)

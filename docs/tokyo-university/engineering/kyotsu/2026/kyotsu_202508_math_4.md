@@ -46,6 +46,12 @@ $$
    における接平面を求めよ。
 4. 点 $P$ における曲面 $S$ の Gaussian curvature を求めよ。
 
+必要に応じ、滑らかな正則曲面 $\boldsymbol R(\xi,\eta)$ の単位法線 $\boldsymbol n$ に対して次の式を用いてよい。
+
+$$
+K=\frac{(\boldsymbol R_{\xi\xi}\cdot\boldsymbol n)(\boldsymbol R_{\eta\eta}\cdot\boldsymbol n)-(\boldsymbol R_{\xi\eta}\cdot\boldsymbol n)^2}{(\boldsymbol R_\xi\cdot\boldsymbol R_\xi)(\boldsymbol R_\eta\cdot\boldsymbol R_\eta)-(\boldsymbol R_\xi\cdot\boldsymbol R_\eta)^2},\qquad \boldsymbol R_\xi\times\boldsymbol R_\eta\ne0.
+$$
+
 ### 题目描述
 
 在三维直角坐标系中给定参数曲线

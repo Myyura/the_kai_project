@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/17b639d81a91ac5dca245f353c6a2378.pdf)
+
 $xy$ 平面上の閉曲線 $C$ が次の式で与えられているとき、以下の問いに答えよ。
 
 $$
@@ -69,6 +71,10 @@ $$
 $$
 
 であるから，曲線は閉曲線である．
+
+各花弁の先端は、原点からの距離が $1$、偏角が $\pi/10+2k\pi/5$ ($k=0,1,2,3,4$) の点である。
+
+![極曲線 r=sin(5θ) の5枚の花弁](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2024/nagoya-aisys2024-rose.svg)
 
 (b)
 媒介表示された平面曲線が囲む面積は

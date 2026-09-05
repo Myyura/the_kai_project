@@ -11,6 +11,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/2fd1753de9bba56721a8f96da3e2ad71.pdf)
+
 整数を要素とする 2 次元配列を扱う Python プログラムについて考える。2 ページ目以降に掲載のプログラムは、7～42 行目の関数 proc を呼び出して配列に対して処理を行う。プログラム中の変数 A は 2 次元配列を扱う変数である。プログラム中の変数 T は整数がキーで 1 次元配列を値にとる辞書型の変数である。35 行目の関数呼び出しが初めて実行された際に標準出力に表示される内容は以下のようであった。以下の問い（問 1～5）に答えよ。ただし，A と T の内容を答える際は以下の標準出力例にならって答えること。
 
 ```text
@@ -43,84 +46,84 @@ pv ←  T[u][0]    if T[u][0] - T[v][0] >= 0
 ```
 
 ### 問2
-35 行目の関数呼び出しが 2 度目に実行された時，標準出力に表示される A と T の内容を答えよ。
+行目の関数呼び出しが 2 度目に実行された時，標準出力に表示される A と T の内容を答えよ。
 
 ### 問3
-42 行目の関数呼び出しが実行された時，標準出力に表示される A と T の内容を答えよ。
+行目の関数呼び出しが実行された時，標準出力に表示される A と T の内容を答えよ。
 
 ### 問4
-37 行目に指定されている条件の False を True に変更してプログラムを実行する。42 行目の関数呼び出しが実行された時，標準出力に表示される A の内容を答えよ。
+行目に指定されている条件の False を True に変更してプログラムを実行する。42 行目の関数呼び出しが実行された時，標準出力に表示される A の内容を答えよ。
 
 ### 問5
 問 4 の変更に加え，24～29 行目をコメントアウトしてプログラムを実行する。42 行目の関数呼び出しが実行された時，標準出力に表示される A と T の内容を答えよ。
 
 ### プログラム
 
-```python
- 1  def display(A, T):
- 2      print("A=")
- 3      for j in range(len(A)):
- 4          print(A[j])
- 5      print("T={}".format(T))
- 6
- 7  def proc(A, T):
- 8      m = 1
- 9      J = len(A)
-10      I = len(A[0])
-11      for j in range(J):
-12          for i in range(I):
-13              a1 = A[j][i-1] if i > 0 else 0
-14              a2 = A[j-1][i-1] if j > 0 and i > 0 else 0
-15              a3 = A[j-1][i] if j > 0 else 0
-16              a4 = A[j-1][i+1] if j > 0 and i < I - 1 else 0
-17              if A[j][i] != 0:
-18                  if a3 != 0:
-19                      A[j][i] = a3
-20                  elif a1 != 0:
-21                      A[j][i] = a1
-22                      if a4 != 0:
-23                          update(T, a1, a4)
-24                  elif a2 != 0:
-25                      A[j][i] = a2
-26                      if a4 != 0:
-27                          update(T, a2, a4)
-28                  elif a4 != 0:
-29                      A[j][i] = a4
-30                  else:
-31                      A[j][i] = m
-32                      T[m] = [m, -1, m]
-33                      m = m + 1
-34
-35          display(A, T)
-36
-37      if False:
-38          for j in range(J):
-39              for i in range(I):
-40                  A[j][i] = T[A[j][i]][0]
-41
-42      display(A, T)
-43
-44  def update(T, u, v):
-45      if T[u][0] != T[v][0]:
-46          if ア:
-47              イ = ウ
-48          else:
-49              エ = オ
-50
-51          T[T[pu][2]][1] = pv
-52          T[pu][2] = T[pv][2]
-53          while pv != -1:
-54              T[pv][0] = T[pu][0]
-55              pv = T[pv][1]
-56
-57  A = [[3, 0, 1, 0],
-58       [2, 5, 1, 0],
-59       [0, 0, 0, 9],
-60       [2, 0, 4, 0],
-61       [6, 1, 8, 3]]
-62  T = {0: [0, -1, 0]}
-63
-64  proc(A, T)
+```text showLineNumbers
+def display(A, T):
+    print("A=")
+    for j in range(len(A)):
+        print(A[j])
+    print("T={}".format(T))
+
+def proc(A, T):
+    m = 1
+    J = len(A)
+    I = len(A[0])
+    for j in range(J):
+        for i in range(I):
+            a1 = A[j][i-1] if i > 0 else 0
+            a2 = A[j-1][i-1] if j > 0 and i > 0 else 0
+            a3 = A[j-1][i] if j > 0 else 0
+            a4 = A[j-1][i+1] if j > 0 and i < I - 1 else 0
+            if A[j][i] != 0:
+                if a3 != 0:
+                    A[j][i] = a3
+                elif a1 != 0:
+                    A[j][i] = a1
+                    if a4 != 0:
+                        update(T, a1, a4)
+                elif a2 != 0:
+                    A[j][i] = a2
+                    if a4 != 0:
+                        update(T, a2, a4)
+                elif a4 != 0:
+                    A[j][i] = a4
+                else:
+                    A[j][i] = m
+                    T[m] = [m, -1, m]
+                    m = m + 1
+
+        display(A, T)
+
+    if False:
+        for j in range(J):
+            for i in range(I):
+                A[j][i] = T[A[j][i]][0]
+
+    display(A, T)
+
+def update(T, u, v):
+    if T[u][0] != T[v][0]:
+        if ア:
+            イ = ウ
+        else:
+            エ = オ
+
+        T[T[pu][2]][1] = pv
+        T[pu][2] = T[pv][2]
+        while pv != -1:
+            T[pv][0] = T[pu][0]
+            pv = T[pv][1]
+
+A = [[3, 0, 1, 0],
+     [2, 5, 1, 0],
+     [0, 0, 0, 9],
+     [2, 0, 4, 0],
+     [6, 1, 8, 3]]
+T = {0: [0, -1, 0]}
+
+proc(A, T)
 ```
 
 ### 题目描述

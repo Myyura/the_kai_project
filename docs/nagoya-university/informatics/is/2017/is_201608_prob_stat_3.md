@@ -31,6 +31,9 @@ $$
 
 (2) 上記の $\overline{X}$ , $U^2$ はそれぞれ $\mu$ , $\sigma^2$ の不偏推定量であることを示しなさい。
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20171031151037id_/http://www.is.nagoya-u.ac.jp/exam-old/d21608.pdf)
+
 ### 题目描述
 
 设 $(X_1,X_2,\ldots,X_n)$ 是从总体均值为 $\mu$、总体方差为 $\sigma^2$ 的总体中取得的容量为 $n$ 的样本变量，并定义
@@ -64,6 +67,7 @@ E[\hat{\theta}] = \theta
 $$
 
 (2)
+$X_1,\ldots,X_n$ は独立同分布の無作為標本とし、$n\ge2$ とする。
 まず、 $\overline{X}$ が $\mu$ の不偏推定量であることを示す。
 
 $$

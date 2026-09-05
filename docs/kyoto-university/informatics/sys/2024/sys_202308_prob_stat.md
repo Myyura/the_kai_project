@@ -13,6 +13,8 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/6886b945000000001d00cb62?xsec_token=ABXXWhvejfYWQlWP3FzACDNuYFWnkRrhjR8xpcEhZ6HU0=), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_sys.pdf)
 以下の問題において， $P(A)$ は事象 $A$ の確率を表し， $E(X)$ と $V(X)$ は確率変数 $X$ の期待値と分散を表す．また， $e$ はネイピア数（自然対数の底）を表す．
 
 ### 問題1
@@ -191,39 +193,105 @@ $$
 
 ## **Kai**
 ### 問題1
+#### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_prob_stat_p1_1.jpg" width="700" alt=""/>
-</figure>
+定数項を除く対数尤度は $\ell=\sum_i(Y_i\log\lambda_i-\lambda_i)$ である。$Y_i>0$ なら、各項の微分は $Y_i/\lambda_i-1$ で符号が正から負に変わるので $\hat\lambda_i=Y_i$ となる。$Y_i=0$ なら $\lambda_i>0$ 上に最大点はなく、$\lambda_i\downarrow0$ で上限に近づく。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_prob_stat_p1_2.jpg" width="700" alt=""/>
-</figure>
+#### (2)
 
-#### 問題1 (1), (3), (5), (7) の補足
-
-(1) $y_i>0$ なら $\hat\lambda_i=y_i$ である。$y_i=0$ では、パラメータ空間 $\lambda_i>0$ 上に最大点はなく、$\lambda_i\downarrow0$ で上限に近づく（$\lambda_i\geq0$ とすれば $\hat\lambda_i=0$）。
-
-(3) $\sum_i y_i>0$ なら
+確率母関数は $E[z^Y]=e^{\lambda(z-1)}$ である。$z=1$ での1階、2階微分から
 
 $$
-\hat\theta=\frac{\sum_i y_i}{\sum_i x_i}.
+E[Y]=\lambda,\quad E[Y(Y-1)]=\lambda^2,
+\qquad \boxed{V[Y]=\lambda}.
 $$
 
-$\sum_i y_i=0$ では、$\theta>0$ 上に最大点はない（$\theta\geq0$ とすれば $\hat\theta=0$）。
+#### (3)
 
-(5) 表示された $\hat\theta_w$ は制約なしの最小化解である。$\theta>0$ に制限し、すべての $y_i$ が $0$ の場合は最小点が存在せず、$\theta\downarrow0$ で下限に近づく。
-
-(7) 最適な重みは共通の倍率を除いて定まり、
+$S=\sum_iY_i$、$X=\sum_i x_i$ とおく。対数尤度の微分は $S/\theta-X$ だから、$S>0$ なら $\hat\theta=S/X$ である。$S=0$ なら $\theta>0$ 上に最大点はない。パラメータ空間を閉包 $\theta\ge0$ に拡張すれば、すべての標本について
 
 $$
-w_i=\frac{c}{x_i}\qquad(c>0)
+\boxed{\hat\theta=\frac{\sum_iY_i}{\sum_i x_i}}
 $$
 
-である。$c=1$ はその一例で、推定量は $\hat\theta_w=\sum_iY_i/\sum_i x_i$ となる。
+と定義できる。
+
+#### (4)
+
+(3) の式を $S=0$ で $0$ と定めた推定量について、独立性から
+
+$$
+E[\hat\theta]=\frac{\sum_i\theta x_i}{X}=\theta,
+\qquad
+V[\hat\theta]=\frac{\sum_i\theta x_i}{X^2}
+=\boxed{\frac\theta X}.
+$$
+
+#### (5)
+
+目的関数を微分すると $-2\sum_iw_ix_i(Y_i-\theta x_i)$ となる。2階微分は $2\sum_iw_ix_i^2>0$ なので、制約なしの一意な最小化解は
+
+$$
+\boxed{\hat\theta_w=\frac{\sum_iw_ix_iY_i}{\sum_iw_ix_i^2}}.
+$$
+
+$\theta>0$ に制限した場合、全観測値が $0$ なら最小点は存在せず、$\theta\downarrow0$ で下限に近づく。以下ではこの場合の推定量を $0$ と定める。
+
+#### (6)
+
+$$
+E[\hat\theta_w]=\theta,
+\qquad
+\boxed{V[\hat\theta_w]=
+\theta\frac{\sum_iw_i^2x_i^3}{(\sum_iw_ix_i^2)^2}}.
+$$
+
+#### (7)
+
+不偏性から均方誤差は分散に等しい。Cauchy–Schwarz の不等式より
+
+$$
+\left(\sum_iw_ix_i^2\right)^2
+\le\left(\sum_iw_i^2x_i^3\right)\left(\sum_i x_i\right).
+$$
+
+従って均方誤差の最小値は $\theta/\sum_i x_i$ であり、等号条件は
+
+$$
+\boxed{w_i=\frac{c}{x_i}\quad(c>0)}.
+$$
+
+このとき $\hat\theta_w=\sum_iY_i/\sum_i x_i$ となる。
 
 ### 問題2
+#### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_prob_stat_p2.jpg" width="700" alt=""/>
-</figure>
+密度の存在により $F_X$ は連続であり、仮定により厳密に増加する。$0<u<1$ に対して、
+
+$$
+P(U\le u)=P(X\le F_X^{-1}(u))=F_X(F_X^{-1}(u))=u.
+$$
+
+端点でも $P(U\le0)=0$、$P(U\le1)=1$ だから、$U$ は一様分布に従う。
+
+#### (2)
+
+連鎖律により、
+
+$$
+\boxed{f(x,y)=c(F_X(x),F_Y(y))f_X(x)f_Y(y)}.
+$$
+
+#### (3)
+
+一方の変数を $+\infty$ にすると、$F_X(x)=1/(1+e^{-x})$、$F_Y(y)=1/(1+e^{-y})$ である。従って $e^{-x}=(1-u)/u$、$e^{-y}=(1-v)/v$ を代入し、
+
+$$
+C(u,v)=\frac{uv}{u+v-uv}.
+$$
+
+$u,v$ でそれぞれ微分すると
+
+$$
+\boxed{c(u,v)=\frac{2uv}{(u+v-uv)^3}},\qquad 0<u,v<1.
+$$

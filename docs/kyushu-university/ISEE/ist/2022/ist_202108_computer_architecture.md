@@ -15,6 +15,8 @@ tags:
 [Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/R04ist.pdf)。
+
 ### 【問 1】
 下図の論理回路の出力 $X, Y$ および内部回路 $G_1, G_2$ の論理関数が以下の様な真理値表で表されるとき、部分回路 $F$ の論理関数 $F(a, b, c, d)$ の最簡積和形を示せ。
 ただし、論理関数の最簡積和形とは、その論理関数を表す積和形論理式のうち、積項数が最小のものを指す。

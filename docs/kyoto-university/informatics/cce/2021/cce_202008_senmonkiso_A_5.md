@@ -204,6 +204,8 @@ $$
 
 Rounded down to one decimal place, the answer is $\boxed{0.9}$ bits/symbol.
 
+Using only the supplied coarse logarithm approximations instead gives $H(S_A)=0.86$, $H(S_B)=0.94$ and the approximate rate $6.26/7\approx0.8943$, whose downward rounding is $0.8$. This discrepancy is caused by those approximations; $0.9$ is the downward rounding of the entropy computed with accurate logarithms.
+
 ---
 
 ### (2)

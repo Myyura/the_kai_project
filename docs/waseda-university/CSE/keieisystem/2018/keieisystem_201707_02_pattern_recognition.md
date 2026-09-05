@@ -97,6 +97,8 @@ $$
 
 $x_1<4x_2$ の側を $C_1$、$x_1>4x_2$ の側を $C_2$ と判定する。この直線は原点を通り、2つの平均を結ぶ線分のマハラノビス計量における垂直二等分線である。
 
+![等密度線とベイズ識別境界](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/waseda_university/CSE/keieisystem/2018/waseda-2017-bayes-boundary.svg)
+
 ### [小問 3]
 
 | 手法 | 方法と特徴 | 代表的な応用 |

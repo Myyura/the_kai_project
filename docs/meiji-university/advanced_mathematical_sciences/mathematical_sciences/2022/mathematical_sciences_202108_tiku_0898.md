@@ -91,17 +91,17 @@ $$
 特征值为 $\lambda_1 = 1$ , $\lambda_2 = 4$ .
 
 (2) 对于特征值 $\lambda_1 = 1$ :
-$(A - I)v = 0 \Rightarrow \begin{pmatrix} 1 & 1 & 1  \\ 1 & 1 & 1  \\ 1 & 1 & 1 \end{pmatrix} v = 0$ .  解得特征向量为 $v_1 = \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}$ , $v_2 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$ .
+$(A - I)v = 0 \Rightarrow \begin{pmatrix} 1 & 1 & 1  \\ 1 & 1 & 1  \\ 1 & 1 & 1 \end{pmatrix} v = 0$ .  解得特征向量为 $w_1 = \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}$ , $w_2 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$ .
 
 对于特征值 $\lambda_2 = 4$ :
-$(A - 4I)v = 0 \Rightarrow \begin{pmatrix} -2 & 1 & 1  \\ 1 & -2 & 1  \\ 1 & 1 & -2 \end{pmatrix} v = 0$ . 解得特征向量为 $v_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}$ .
+$(A - 4I)v = 0 \Rightarrow \begin{pmatrix} -2 & 1 & 1  \\ 1 & -2 & 1  \\ 1 & 1 & -2 \end{pmatrix} v = 0$ . 解得特征向量为 $w_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}$ .
 
 故可取 $P = \begin{pmatrix} 1 & 1 & 1  \\ -1 & 0 & 1  \\ 0 & -1 & 1 \end{pmatrix}$ .
 
 (3) 由 $v_{n+1} = \frac{1}{4} A v_n$ , 有 $v_n = (\frac{1}{4}A)^{n-1}v_1$ .
 将 $v_1$ 表示为特征向量的线性组合:
-$v_1 = c_1 v_1 + c_2 v_2 + c_3 v_3$ 即 $\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} + c_2 \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix} + c_3 \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}$ .
+$v_1 = c_1 w_1 + c_2 w_2 + c_3 w_3$ 即 $\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} + c_2 \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix} + c_3 \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}$ .
 解得 $c_1=c_2=c_3=\frac13$ .
 所以
-$v_n = (\frac{1}{4}A)^{n-1} (\frac{1}{3} v_1 + \frac{1}{3} v_2 + \frac{1}{3} v_3) = \frac{1}{3} (\frac{1}{4})^{n-1} v_1 + \frac{1}{3} (\frac{1}{4})^{n-1} v_2 + \frac{1}{3} (\frac{4}{4})^{n-1} v_3$ .
-$\lim_{n \to \infty} v_n = \frac{1}{3} v_3 = \frac{1}{3} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 1/3 \\ 1/3 \\ 1/3 \end{pmatrix}$ .
+$v_n = (\frac{1}{4}A)^{n-1} (\frac{1}{3} w_1 + \frac{1}{3} w_2 + \frac{1}{3} w_3) = \frac{1}{3} (\frac{1}{4})^{n-1} w_1 + \frac{1}{3} (\frac{1}{4})^{n-1} w_2 + \frac{1}{3} (\frac{4}{4})^{n-1} w_3$ .
+$\lim_{n \to \infty} v_n = \frac{1}{3} w_3 = \frac{1}{3} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 1/3 \\ 1/3 \\ 1/3 \end{pmatrix}$ .

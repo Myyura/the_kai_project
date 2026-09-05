@@ -242,3 +242,7 @@ y=\frac{1}{\sqrt2}
 $$
 
 で最大となる。
+
+## **Reference**
+
+- [東京大学 公式過去問](https://tmi.t.u-tokyo.ac.jp/wp-content/uploads/2022/04/TMI202108_%E8%A9%A6%E9%A8%93%E5%95%8F%E9%A1%8C.pdf)

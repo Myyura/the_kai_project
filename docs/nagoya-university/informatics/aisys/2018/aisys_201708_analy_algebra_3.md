@@ -14,6 +14,9 @@ tags:
 
 ## **Description**
 
+出典：[名古屋大学・2018年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/0418e4d9b838956c155278f11a9e0bbf.pdf)、解析・線形代数。導出過程も示す。
+
+
 次の対称行列 $A$ について、以下の問いに答えよ。
 
 $$
@@ -78,9 +81,9 @@ $$
 
 固有値は $\lambda_1 = 2, \lambda_2 = 8$ である。
 
-$\lambda_1 = 2$ のとき、 $\begin{pmatrix} 3 & -3 \\  -3 & 3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ より、 $x = y$ 。単位固有ベクトルは $\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ 。
+$\lambda_1 = 2$ のとき、 $\begin{pmatrix} 3 & -3 \\  -3 & 3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ より、 $x = y$ 。単位固有ベクトルは $\pm\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ 。
 
-$\lambda_2 = 8$ のとき、 $\begin{pmatrix} -3 & -3 \\ -3 & -3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ より、 $x = -y$ 。単位固有ベクトルは $\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$ 。
+$\lambda_2 = 8$ のとき、 $\begin{pmatrix} -3 & -3 \\ -3 & -3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$ より、 $x = -y$ 。単位固有ベクトルは $\pm\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$ 。
 
 (b) 固有値 $2,8$ に対応する単位固有ベクトルの符号を選び，
 
@@ -111,3 +114,7 @@ $\begin{pmatrix} x \\ y \end{pmatrix} = U \begin{pmatrix} x' \\ y' \end{pmatrix}
 
 (d) $5x^2 - 6xy + 5y^2 = 8$ は、回転楕円である。
 $\frac{(x')^2}{4} + \frac{(y')^2}{1} = 1$ であり、これは楕円を表す。
+
+長軸は $y=x$ 方向で半径 $2$、短軸は $y=-x$ 方向で半径 $1$ である。長軸の端点は $(\sqrt2,\sqrt2)$ と $(-\sqrt2,-\sqrt2)$ である。
+
+![二次曲線 5x² − 6xy + 5y² = 8 の回転楕円](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/aisys/2018/nagoya-aisys2018-ellipse.svg)

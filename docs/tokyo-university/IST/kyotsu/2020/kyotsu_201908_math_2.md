@@ -2,7 +2,7 @@
 sidebar_label: "2019年8月実施 数学 第2問"
 tags:
   - Tokyo-University
-  - Mathematics.Geometry.Arc-Length-Parameter-and-Planar-Curvature
+  - Mathematics.Geometry.Arc-Length-Parameter-and-Curvature
   - Mathematics.Geometry.Steiner-Formula-for-Convex-Parallel-Body
   - Mathematics.Calculus.Change-of-Variables-and-Jacobian
 ---
@@ -147,21 +147,17 @@ $$
 
 ### (2)
 
-On intervals where $dp/ds\ne0$, choose a continuous branch of $\theta$ and write
+Choose a continuous angle $\theta(s)$ along the curve. Since the tangent has unit norm,
 
 $$
-\tan \theta = \frac{\frac{dq}{ds}}{\frac{dp}{ds}} \qquad \theta = \arctan \left( \frac{\frac{dq}{ds}}{\frac{dp}{ds}} \right)
+p'(s)=\cos\theta(s),\qquad q'(s)=\sin\theta(s).
 $$
 
-$$
-\begin{aligned}
-\frac{d\theta}{ds} &= \frac{\frac{d^2q}{ds^2} \frac{dp}{ds} - \frac{d^2p}{ds^2} \frac{dq}{ds}}{\left( \frac{dp}{ds} \right)^2} \frac{1}{1 + \frac{\left( \frac{dq}{ds} \right )^2}{ \left( \frac{dp}{ds} \right)^2}} \\
-&=\frac{\frac{d^2q}{ds^2} \frac{dp}{ds} - \frac{d^2p}{ds^2} \frac{dq}{ds}}{\left( \frac{dp}{ds} \right)^2} \frac{\left( \frac{dp}{ds} \right)^2}{\left( \frac{dp}{ds} \right)^2 + \left( \frac{dq}{ds} \right)^2} \\
-&= \frac{d^2q}{ds^2} \frac{dp}{ds} - \frac{d^2p}{ds^2} \frac{dq}{ds}
-\end{aligned}
-$$
+Differentiating gives $p''=-\theta'\sin\theta$ and $q''=\theta'\cos\theta$, hence
 
-The identity extends to vertical tangents by continuity.
+$$
+p'q''-q'p''=\theta'(\cos^2\theta+\sin^2\theta)=\theta'.
+$$
 
 ### (3)
 Fix $s_0$ and translate and rotate the coordinates so that $\boldsymbol p(s_0)=(0,0)$ and $\boldsymbol p'(s_0)=(1,0)$. Since the boundary is traversed counterclockwise, convexity places $K$ locally above its supporting tangent. Writing the boundary as $y=h(x)$ gives $h(0)=h'(0)=0$ and $h''(0)\geq0$. Hence, by (2), $\theta'(s_0)=q''(s_0)=h''(0)\geq0$. The following four sign cases illustrate the same fact.

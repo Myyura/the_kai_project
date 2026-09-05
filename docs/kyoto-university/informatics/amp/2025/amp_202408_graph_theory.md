@@ -11,6 +11,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_amp.pdf)
 有限集合 $A$ に属する要素の個数を $|A|$ と書く。
 節点集合 $V$ および枝集合 $E$ からなる単純連結無向グラフ $G = (V, E)$ が与えられたものとする。
 ただし $|V| \geq 3$ とする。

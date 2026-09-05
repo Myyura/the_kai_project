@@ -10,6 +10,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h31_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 $G = (V, E)$ を節点集合 $V$、枝集合 $E$ から成る単純強連結有向グラフ、$N = [G, w]$ を $G$ の各枝 $e \in E$ に実数値の重み $w(e)$ を与えて得られるネットワークとする。
 節点 $u$ から節点 $v$ への有向枝は $(u, v)$ と書き、その枝重みは $w(u,v)$ とも書く。

@@ -11,6 +11,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h31_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 Let $G=(V,E)$ be a connected simple undirected graph with a set $V$ of $n\ge 2$ vertices and a set $E$ of edges, let $T=(V,F)$ be a spanning tree of $G$ rooted at a vertex $s\in V$, and let $\ell:V\to \{1,2,\ldots,n\}$ be a numbering on $V$, where we assume that the following conditions (a) and (b) hold.
 
 (a) For each edge $uv\in E$, vertex $u$ is either an ancestor or a descendant of $v$ in $T$.
@@ -20,7 +22,7 @@ Let $G=(V,E)$ be a connected simple undirected graph with a set $V$ of $n\ge 2$ 
 Let $L$ denote the set of leaves in $T$. For each vertex $v\in V$, let $N(v)$ denote the set of neighbors of $v$ in $G$, and let $D(v)$ denote the set consisting of vertex $v$ and the descendants of $v$ in $T$. Define a function
 
 $$
-\operatorname{lowpt}: V\setminus \{s\} \to \{1,2,\ldots,n\}
+\operatorname{lowpt}: V\setminus (L\cup\{s\}) \to \{1,2,\ldots,n\}
 $$
 
 such that
@@ -32,7 +34,7 @@ $$
 \ell(y)\mid y\in \bigcup_{x\in D(v)}N(x)
 \right\},
 \ 
-v\in V\setminus \{s\}.
+v\in V\setminus (L\cup\{s\}).
 $$
 
 Answer the following questions.
@@ -55,7 +57,7 @@ $$
 2. 对每个非根顶点 $v$ 及其父顶点 $u$，有 $\ell(u)<\ell(v)$。
 
 令 $L$ 为 $T$ 的叶集，$N(v)$ 为 $v$ 在 $G$ 中的邻接点集合，$D(v)$ 为 $v$ 及其在 $T$ 中所有后代组成的集合。对每个非根顶点
-$v\in V\setminus\{s\}$ 定义
+$v\in V\setminus(L\cup\{s\})$ 定义
 
 $$
 \operatorname{lowpt}(v)=
@@ -72,6 +74,8 @@ $$
    $\operatorname{lowpt}(v)\ge\ell(u)$。
 
 ## **Kai**
+
+以下では lowpt を同じ式で全ての非根頂点に定義する。葉 $v$ でも親が隣接するので最小値は存在します。
 ### (1)
 Let $u \in L$, i.e., $u$ is a leaf of $T$.
 

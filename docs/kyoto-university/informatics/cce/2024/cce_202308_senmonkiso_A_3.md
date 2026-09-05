@@ -13,6 +13,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_cce.pdf)
 **Answer all the following questions.**
 
 ### (1)
@@ -74,7 +76,7 @@ $$
 \begin{aligned}
 H(S_A)&=\sum_i p_i\log_2\frac{1}{p_i} \\
       &=\frac{2}{3}\log_2\frac{3}{2}+\frac{1}{3} \log_2 3 \\
-      &=0.93\ \text{bits/symbol}.
+      &\approx0.93\ \text{bits/symbol (using the supplied logarithm)}.
 \end{aligned}
 $$
 
@@ -271,10 +273,19 @@ $$
 #### (c)
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce_202308_senmonkiso_A_3_p1.png" width="500" />
+  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/cce/2024/kyoto-cce-2023-polynomial-divider.svg" width="500" />
 </div>
 
 The division circuit uses 4 delay elements because  $\deg G(x)=4$, and the feedback taps correspond to the nonzero coefficients of $1, x^2, x^3$.
+
+For each incoming coefficient $b$ (highest power first), the register update is
+
+$$
+q_0^+=b\oplus q_3,\quad q_1^+=q_0,\quad
+q_2^+=q_1\oplus q_3,\quad q_3^+=q_2\oplus q_3.
+$$
+
+Starting at zero, this implements $R^+(x)=(xR(x)+b)\bmod G(x)$. Thus no extra zero bits are needed when computing the remainder of the given polynomial.
 
 #### (d)
 Explain how to detect errors by $C$:

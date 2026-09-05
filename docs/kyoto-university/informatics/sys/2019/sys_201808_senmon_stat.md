@@ -171,6 +171,8 @@ $$
 $$
 
 #### (2)
+For $m=0$, $X=0$ almost surely, so the expectation is $0$. Below assume $m\geq1$.
+
 
 $$
 \mathbb{E}[X]=\sum_k\Pr(X=k)\cdot k

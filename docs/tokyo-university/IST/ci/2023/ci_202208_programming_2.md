@@ -115,3 +115,217 @@ At first, the upper wall of the start cell is on the left-hand side in the direc
 
 ## **Kai**
 The sample data files are [here](https://github.com/sophytoeat/Problem/tree/main/%E9%81%8E%E5%8E%BB%E5%95%8F/%E5%89%B5%E9%80%A0%E6%83%85%E5%A0%B1%E5%AD%A6/%E4%B8%80%E8%88%AC%E6%95%99%E8%82%B2%E7%A7%91%E7%9B%AE(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)/2023%E5%B9%B4%E5%BA%A6_%E5%A4%8F_%E4%B8%80%E8%88%AC/%E9%85%8D%E5%B8%83%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF).
+
+
+### (1)
+
+Split the file at commas and convert the tokens to integers. Indexing begins at zero, so use `sequence[216]`. The answers are
+
+$$
+\boxed{s_{216}=46},\qquad \boxed{\max_k s_k=97}.
+$$
+
+### (2-a)
+
+Store each wall once using the wall-coordinate representation of Programming 1. The four candidate coordinates for the instruction at $(i,j)$ are
+
+$$
+(2i,2j+1),\quad(2i+1,2j),\quad
+(2i,2j-1),\quad(2i-1,2j),
+$$
+
+for $p_{40i+j}=0,1,2,3$, respectively. First insert the outer boundary walls, then apply all $39^2$ instructions using a set so duplicate walls have no additional effect.
+
+Here 1 denotes an existing wall and 0 denotes no wall:
+
+| Cell | Upper | Lower | Left | Right |
+| --- | ---: | ---: | ---: | ---: |
+| $(5,25)$ | 1 | 1 | 0 | 0 |
+| $(20,20)$ | 1 | 1 | 0 | 1 |
+| $(30,33)$ | 1 | 1 | 0 | 1 |
+
+### (2-b)
+
+A corner must have exactly two walls, excluding the upper–lower and left–right opposite pairs. Testing this condition for all cells gives
+
+$$
+\boxed{398}.
+$$
+
+### (3-a)
+
+Start with every wall present. At each current cell $(i,j)$, inspect `neighbor[i+j+h]` in increasing $h$, choosing the first direction leading to an in-bounds closed cell. Removing the shared wall changes both cells' wall counts. If this scan fails, inspect candidate pairs starting at `cell[2*(i+j+h)]` in increasing $h$, and move to the first nonclosed cell with a closed neighbor. Restart the indices from the new current cell each time.
+
+The resulting walls are:
+
+| Cell | Upper | Lower | Left | Right |
+| --- | ---: | ---: | ---: | ---: |
+| $(5,25)$ | 0 | 1 | 1 | 1 |
+| $(20,20)$ | 0 | 1 | 0 | 1 |
+| $(30,33)$ | 0 | 0 | 1 | 0 |
+
+### (3-b)
+
+Apply the same corner test as in (2-b):
+
+$$
+\boxed{855}.
+$$
+
+### (3-c)
+
+Scan each row into maximal runs joined by open left–right passages and each column into maximal runs joined by open upper–lower passages. A side branch does not interrupt a straight passage. Measure a run by its number of cells, and count every run whose length equals the maximum. The result is
+
+$$
+\boxed{\text{maximum length}=12,\qquad \text{number of such passages}=1}.
+$$
+
+### (3-d)
+
+The initial direction is east, placing the north wall to the left. At each step try left, forward, right, and backward in that order, and take the first direction with no wall. Keep a set of cells visited and stop upon first reaching $(39,27)$. Counting each cell only once gives
+
+$$
+\boxed{1243\text{ distinct cells}}.
+$$
+
+### Complete program
+
+Save the following as `maze_construction.py` and run `python maze_construction.py DATA_FOLDER`. Wall tuples uniquely identify shared walls; the sequence scans follow the indices specified in the question, without a persistent global sequence cursor.
+
+```python
+from pathlib import Path
+import sys
+
+
+def read_numbers(filename):
+    return [int(x) for x in Path(filename).read_text().strip().split(',')]
+
+
+def walls_of(i, j):
+    # Upper, lower, left, right.
+    return [(2*i,2*j+1), (2*i+2,2*j+1), (2*i+1,2*j), (2*i+1,2*j+2)]
+
+
+def adjacent(m, cell):
+    i,j = cell
+    for (di,dj), wall in zip([(-1,0),(1,0),(0,-1),(0,1)],walls_of(i,j)):
+        nxt=(i+di,j+dj)
+        if 0<=nxt[0]<m and 0<=nxt[1]<m:
+            yield nxt,wall
+
+
+def make_question2(m, p):
+    walls = set()
+    for i in range(m):
+        walls.update([(0,2*i+1),(2*m,2*i+1),(2*i+1,0),(2*i+1,2*m)])
+    for i in range(1,m):
+        for j in range(1,m):
+            choices=[(2*i,2*j+1),(2*i+1,2*j),
+                     (2*i,2*j-1),(2*i-1,2*j)]
+            walls.add(choices[p[i*m+j]])
+    return walls
+
+
+def make_question3(m, neighbor, cells):
+    walls={wall for i in range(m) for j in range(m) for wall in walls_of(i,j)}
+    current=(0,0)
+    directions=[(-1,0),(0,-1),(1,0),(0,1)]
+    seen=set()
+    def closed(cell):
+        return all(w in walls for w in walls_of(*cell))
+    while True:
+        state=(current,len(walls))
+        if state in seen:
+            raise ValueError('the instruction sequences repeat without removing a wall')
+        seen.add(state)
+        i,j=current
+        selected=None
+        for index in range(i+j,len(neighbor)):
+            di,dj=directions[neighbor[index]]
+            nxt=(i+di,j+dj)
+            if 0<=nxt[0]<m and 0<=nxt[1]<m and closed(nxt):
+                selected=nxt
+                break
+        if selected is not None:
+            shared=(i+selected[0]+1,j+selected[1]+1)
+            walls.remove(shared)
+            current=selected
+            continue
+        replacement=None
+        for index in range(2*(i+j),len(cells)-1,2):
+            candidate=(cells[index],cells[index+1])
+            if not closed(candidate) and any(closed(nxt) for nxt,_ in adjacent(m,candidate)):
+                replacement=candidate
+                break
+        if replacement is None:
+            return walls
+        current=replacement
+
+
+def corner_count(m, walls):
+    result=0
+    for i in range(m):
+        for j in range(m):
+            upper,lower,left,right=[w in walls for w in walls_of(i,j)]
+            result += sum([upper,lower,left,right])==2 and not(upper and lower) and not(left and right)
+    return result
+
+
+def longest_passages(m, walls):
+    runs=set()
+    for i in range(m):
+        start=0
+        for j in range(m):
+            if j==m-1 or (2*i+1,2*j+2) in walls:
+                runs.add(tuple((i,k) for k in range(start,j+1)))
+                start=j+1
+    for j in range(m):
+        start=0
+        for i in range(m):
+            if i==m-1 or (2*i+2,2*j+1) in walls:
+                runs.add(tuple((k,j) for k in range(start,i+1)))
+                start=i+1
+    length=max(map(len,runs))
+    return length,sum(len(run)==length for run in runs)
+
+
+def left_hand_count(m, walls, goal):
+    # Clockwise direction order; initially east, so the upper wall is on the left.
+    directions=[(-1,0),(0,1),(1,0),(0,-1)]
+    current=(0,0); facing=1; visited={current}; states=set()
+    while current!=goal:
+        state=(current,facing)
+        if state in states:
+            raise ValueError('the left-hand walk does not reach the goal')
+        states.add(state)
+        i,j=current
+        for direction in[(facing-1)%4,facing,(facing+1)%4,(facing+2)%4]:
+            di,dj=directions[direction];nxt=(i+di,j+dj)
+            wall=(i+nxt[0]+1,j+nxt[1]+1)
+            if 0<=nxt[0]<m and 0<=nxt[1]<m and wall not in walls:
+                current=nxt;facing=direction;visited.add(current)
+                break
+        else:
+            raise ValueError('the current cell has no exit')
+    return len(visited)
+
+
+def main(folder):
+    sequence=read_numbers(folder/'sequence.txt')
+    print('Sequence:',sequence[216],max(sequence))
+    for question,walls in[
+        (2,make_question2(40,read_numbers(folder/'p.txt'))),
+        (3,make_question3(40,read_numbers(folder/'neighbor.txt'),read_numbers(folder/'cell.txt')))
+    ]:
+        print('Question',question)
+        for cell in[(5,25),(20,20),(30,33)]:
+            print(cell,tuple(int(w in walls) for w in walls_of(*cell)))
+        print('L corners:',corner_count(40,walls))
+        if question==3:
+            print('Longest passages:',longest_passages(40,walls))
+            print('Distinct cells on left-hand walk:',left_hand_count(40,walls,(39,27)))
+
+
+if __name__=='__main__':
+    main(Path(sys.argv[1]) if len(sys.argv)>1 else Path('.'))
+```

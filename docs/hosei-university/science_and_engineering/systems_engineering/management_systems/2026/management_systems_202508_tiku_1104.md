@@ -10,6 +10,7 @@ tags:
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
 
+
 ## **Description**
 
 (1) $xy$ 平面上の閉領域 $D$ を, $D = \{(x,y) | y \geq 0, x^2 + y^2 \leq 2x\}$ とする。
@@ -44,6 +45,8 @@ $$
 ## **Kai**
 
 解 (1) 領域 $D$ は $y \geq 0$ かつ $x^2 + y^2 \leq 2x$ , すなわち $(x-1)^2 + y^2 \leq 1$ を満たす領域である。よって， $D$ は中心 $(1, 0)$ , 半径 $1$ の円の下半分を除いた領域である。
+
+![積分領域の図](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hosei_university/science_and_engineering/systems_engineering/management_systems/2026/hosei-2025-upper-disk.svg)
 
 (2) $x = r\cos\theta + 1$ , $y = r\sin\theta$ とおく。ただし、 $0 \leq r \leq 1$ かつ $0 \leq \theta \leq \pi$ 。 ヤコビアンは $r$ である。したがって、
 

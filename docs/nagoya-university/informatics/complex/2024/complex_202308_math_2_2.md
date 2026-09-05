@@ -11,6 +11,9 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/e430ba234e241d162a59ab76f6efe083.pdf)
+
+
 $\theta$ によりパラメータ表示された、次の曲線について考えよう。ただし、 $a, b > 0$ とする。
 
 $$
@@ -63,13 +66,26 @@ $$
 
 1) 軌跡は原点に向かって渦巻くような形になる。 $a, b > 0$ なので、 $\theta$ が大きくなるにつれて、 $e^{-b\theta}$ の値は小さくなる。
 
+![0から4πまでの対数螺旋](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2024/nagoya-complex2024-log-spiral.svg)
+
+図は $b=0.13$ の代表例で，座標を $a$ で割って表示している。矢印は $\theta$ が増える向きを示す。
+
 2) $r = \sqrt{x^2 + y^2} = \sqrt{(ae^{-b\theta}\cos\theta)^2 + (ae^{-b\theta}\sin\theta)^2} = \sqrt{a^2e^{-2b\theta}(\cos^2\theta + \sin^2\theta)} = ae^{-b\theta}$ 。したがって、 $r = ae^{-b\theta}$ 。
 
-3) 扇形の面積は $\frac{1}{2}r^2 d\theta$ で近似できる。 $S_{\theta, \theta + d\theta} \approx \frac{1}{2}r^2 d\theta$ 。
+3) 微小区間 $[\theta,\theta+\Delta\theta]$ では，極座標の面積要素が $u\,du\,d\phi$ なので，
+
+$$
+S_{\theta,\theta+\Delta\theta}
+=\int_\theta^{\theta+\Delta\theta}\int_0^{r(\phi)}u\,du\,d\phi
+=\frac12\int_\theta^{\theta+\Delta\theta}r(\phi)^2\,d\phi
+=\frac12r(\theta)^2\Delta\theta+O((\Delta\theta)^2).
+$$
+
+したがって面積の微分は $dS=\frac12r^2\,d\theta$ である。
 
 4) $S_{0, \pi} = \int_{0}^{\pi} \frac{1}{2}r^2 d\theta = \frac{1}{2} \int_{0}^{\pi} (ae^{-b\theta})^2 d\theta = \frac{a^2}{2} \int_{0}^{\pi} e^{-2b\theta} d\theta = \frac{a^2}{2} \left[ \frac{e^{-2b\theta}}{-2b} \right]_0^{\pi} = \frac{a^2}{2} \left( \frac{e^{-2b\pi}}{-2b} - \frac{1}{-2b} \right) = \frac{a^2}{4b}(1 - e^{-2b\pi})$
 
-5) 弧長は $L_{\theta, \theta+d\theta} = \sqrt{(dx)^2 + (dy)^2}$ で近似できる。
+5) 弧長の微分は $dL=\sqrt{(dx)^2+(dy)^2}$ である。
 $\frac{dx}{d\theta} = -bae^{-b\theta}\cos\theta - ae^{-b\theta}\sin\theta = -ae^{-b\theta}(b\cos\theta + \sin\theta)$ 。
 $\frac{dy}{d\theta} = -bae^{-b\theta}\sin\theta + ae^{-b\theta}\cos\theta = ae^{-b\theta}(\cos\theta - b\sin\theta)$ 。
 $(\frac{dx}{d\theta})^2 + (\frac{dy}{d\theta})^2 = a^2e^{-2b\theta}(b^2\cos^2\theta + 2b\cos\theta\sin\theta + \sin^2\theta + \cos^2\theta - 2b\sin\theta\cos\theta + b^2\sin^2\theta) = a^2e^{-2b\theta}(b^2 + 1)$ 。

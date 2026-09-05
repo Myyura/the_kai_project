@@ -13,13 +13,13 @@ tags:
 [Josuke](https://www.xiaohongshu.com/user/profile/6136a1b40000000002025c4f?xhsshare=QQ&appuid=5de61ebb0000000001004b64&apptime=1718276766), [diohabara](https://github.com/diohabara/open_inshi)
 
 ## **Description**
-Let us design a circuit that obtains a 4-bit signed integer $Y_{3..0}$ by calculating 4-bit additon/subtraction of a 4-bit signed integer $A_{3..0}$ and a 2-bit signed integer $B_{1,0}$. The integers $A,B$ and $Y$ are expressed in two's complement. The types of logic gates that you can use arc NOT, AND , OR ,and , XOR , cach of which is equipped with as many inputs as the design requires. Answer the following questions.
+Let us design a circuit that obtains a 4-bit signed integer $Y_{3..0}$ by calculating 4-bit addition/subtraction of a 4-bit signed integer $A_{3..0}$ and a 2-bit signed integer $B_{1,0}$. The integers $A,B$ and $Y$ are expressed in two's complement. The types of logic gates that you can use are NOT, AND , OR, and XOR, each of which is equipped with as many inputs as the design requires. Answer the following questions.
 
 (1) Show the maximum and minimum values of $A$ and $B$ in decimal form.
 
 (2) Show a circuit that calculates $A + B$ to obtain $Y$ by combining logic gates. Organize the adder as a ripple carry adder. You can use signals from $A_{3..0},B_{1,0}$, supply voltage $V_{DD}$, and grounding voltage GND as inputs, The output should be $Y_{3..0}$. To simplify the diagram, use the "half-adder" blocks and the "full-adder" blocks after showing gate-level designs of both blocks.
 
-(3) Consider adding an overflow detection mechanism to the circuit designed in (2). Show the overflow detection circuit by combining the logic gates. You can use signals from $A_{3..0},B_{1,0}$ and $Y_{3..0}$ as inputs. The output should be a 1-bit signal named $D$; it should be '1' when the overflow occured, or '0' otherwise.
+(3) Consider adding an overflow detection mechanism to the circuit designed in (2). Show the overflow detection circuit by combining the logic gates. You can use signals from $A_{3..0},B_{1,0}$ and $Y_{3..0}$ as inputs. The output should be a 1-bit signal named $D$; it should be '1' when the overflow occurred, or '0' otherwise.
 
 (4) Show a circuit that calculates $A - B$ to obtain $Y$ by combining logic gates. Organize the adder as a ripple carry adder. You can use signals from $A_{3..0},B_{1,0},V_{DD}$ and GND as inputs. The output should be $Y_{3..0}$. Use the "half-adder" blocks and the "full-adder" blocks in (2).
 
@@ -43,13 +43,10 @@ Let us design a circuit that obtains a 4-bit signed integer $Y_{3..0}$ by calcul
 ### (1)
 
 $$
-\begin{aligned}
-A_{\text{max}} &= 0111_{(2)} = 7 \\
-A_{\text{min}} &= 1000_{(2)} = -(1000 \oplus 1111 + 1)_{(2)} = -8 \\
-B_{\text{min}} &= 01_{(2)} = 1 \\
-B_{\text{max}} &= 10_{(2)} = -(10 \oplus 11 + 1)_{(2)} = -2
-\end{aligned}
+\boxed{-8\le A\le7,\qquad -2\le B\le1}.
 $$
+
+最大値のビット表現は $A=0111,B=01$、最小値は $A=1000,B=10$ である。
 
 ### (2)
 
@@ -61,76 +58,49 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_2_p2.png" width="700" height="400" alt=""/>
 </figure>
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_2_p3.png" width="460" height="600" alt=""/>
-</figure>
+半加器は $S=a\oplus b,\ C=ab$、全加器は $S=a\oplus b\oplus c,\ C=ab+c(a\oplus b)$ を実現する。
+
+$B$ を4ビットに符号拡張して $B_{3..0}^{\mathrm{ext}}=(B_1,B_1,B_1,B_0)$ とする。下図の $U$ を GND（$0$）に接続すれば、4段の全加器で $A+B$ が得られる。最下位段は $C_0=0$ なので半加器に置き換えてもよい。
+
+![Signed four-bit ripple-carry addition and subtraction](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2020/tokyo-denshi-2019-signed-adder.svg)
 
 ### (3)
-(2) で設計した回路がオーバーフローするとき、$A_3C_2=1$ となる。
-また、(2) の回路は以下の論理式を満たす。
+
+加算の符号付きオーバーフローは、二つの入力の符号が同じで、結果の符号がその符号と異なるときに発生する。$B$ の符号ビットは $B_1$ なので
 
 $$
-\begin{aligned}
-  C_2 &= A_2C_1 \\
-  C_1 &= A_1C_0 + A_1B_1 + B_1C_0 = C_0(A_1 + B_1) + A_1B_1 \\
-  C_0 &= A_0B_0
-\end{aligned}
+\boxed{D=\overline{A_3\oplus B_1}\,(A_3\oplus Y_3)}.
 $$
 
-これらの式を代入して
-
-$$
-\begin{aligned}
-  &A_3A_2C_1 = 1 \\
-  &A_2A_3(C_0(A_1 + B_1) + A_1B_1) = 1 \\
-  &A_2A_3(A_0B_0(A_1 + B_1) + A_1B_1) = 1
-\end{aligned}
-$$
-
-よって求めるオーバーフロー検知機構の回路は次の通り。
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_2_overflow_detector.png" width="700" height="358" alt=""/>
-</figure>
+```mermaid
+flowchart LR
+    A["A₃"] --> X1["XOR"]
+    B["B₁"] --> X1
+    X1 --> N["NOT"]
+    A --> X2["XOR"]
+    Y["Y₃"] --> X2
+    N --> G["AND"]
+    X2 --> G
+    G --> D["D"]
+```
 
 ### (4)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2020_2_p5.png" width="429" height="583" alt=""/>
-</figure>
+$$
+A-B=A+\overline{B^{\mathrm{ext}}}+1\pmod{16}.
+$$
+
+(2) の回路で $U$ を $V_{DD}$（$1$）に接続する。二つの XOR ゲートにより $B_0,B_1$ を反転し、$\overline{B_1}$ を上位2段にも入力する。最下位のキャリー入力は $C_0=1$ とする。4段の全加器から $Y_{3..0}$ が得られる。
 
 ### (5)
-1ビットの信号 $D$ でオーバフローかどうかを出力し、オーバフロー発生時に $1$、そうでないときに $0$ を出力するとする。  
-(3) と同じように考え、$D = 1$ となるのは以下の論理式を満たす場合である。
 
-$$
-\begin{aligned}
-A_3 C_2 &= 1 \\
-C_2 &= A_2 C_1 \\
-C_1 &= C_0 (A_1 + \overline{B_1}) + A_1 \overline{B_1} \\
-C_0 &= A_0 + \overline{B_0}
-\end{aligned}
-$$
+$A-B>7$ または $A-B<-8$ となる組を列挙すればよい。全入力パターンは次の4通りである。
 
-これを解いて
+| $A$ | $A_{3..0}$ | $B$ | $B_{1..0}$ | 真の $A-B$ |
+|---|---|---|---|---|
+| $6$ | `0110` | $-2$ | `10` | $8$ |
+| $7$ | `0111` | $-2$ | `10` | $9$ |
+| $7$ | `0111` | $-1$ | `11` | $8$ |
+| $-8$ | `1000` | $1$ | `01` | $-9$ |
 
-$$
-\begin{aligned}
-&A_3 C_2 = 1 \\
-&A_3 A_2 C_1 = 1 \\
-&A_2 A_3 (C_0 (A_1 + \overline{B_1}) + A_1 \overline{B_1}) = 1 \\
-&A_2 A_3 ((A_0 + \overline{B_0})(A_1 + \overline{B_1}) + A_1 \overline{B_1}) = 1 \\
-&A_2 A_3 (A_0 A_1 + A_0 \overline{B_1} + A_1 \overline{B_0} + \overline{B_0} \overline{B_1}) = 1 \\
-&A_0 A_1 A_2 A_3 + A_0 A_2 A_3 \overline{B_1} + A_1 A_2 A_3 \overline{B_0} + A_2 A_3 \overline{B_0} \overline{B_1} = 1
-\end{aligned}
-$$
-
-以上からオーバフローが発生する入力パターンは以下の通り。ただし、 $*$ は $0$ でも $1$ でも良い。
-
-|$A_0$|$A_1$|$A_2$|$A_3$|$B_0$|$B_1$|
-|-|-|-|-|-|-|
-|1|1|1|1|*|*|
-|1|*|1|1|*|0|
-|*|1|1|1|0|*|
-|0|0|1|1|0|0|
-|*|1|1|1|*|0|
+減算時の検出式は $D=(A_3\oplus B_1)(A_3\oplus Y_3)$ である。

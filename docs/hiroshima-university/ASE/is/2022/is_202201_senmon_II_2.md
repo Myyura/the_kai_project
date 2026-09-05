@@ -98,7 +98,7 @@ It is trivial that the subgraph obtained by Prim's algorithm is a tree. Let $T$ 
 Let $T^*$ denote a minimum spanning tree of graph $G$. If $T^* = T$, then $T$ is a minimum spanning tree.
 Otherwise, let $e$ be the first edge added during the construction of tree $T$ that is not in tree $T^*$, and $V'$ be the set of vertices connected by the edges added before edge $e$.
 Then one endpoint of $e$ is in set $V'$ and the other is not.
-Since $T^*$ is connected, there exists an edge $f \neq e \in T^*$ such that one endpoint of $f$ is in set $V'$ and the other is not.
+Adding $e$ to $T^*$ creates a unique cycle. The path in $T^*$ between the endpoints of $e$ must cross the cut $(V',V\setminus V')$, so choose an edge $f\in T^*$ on that path which crosses this cut. In particular, $f\neq e$, and removing $f$ from this cycle leaves a spanning tree.
 Hence at the iteration when edge $e$ was added to $T$, edge $f$ is also one of alternatives.
 Since edge $f$ was not chosen, we know that
 
@@ -111,7 +111,7 @@ Since $w(T_1) = w(T^*) - w(f) + w(e) \leq w(T^*)$, $T_1$ is also a minimum spann
 Repeat the steps above and we will eventually obtain a minimum spanning tree of graph $G$ that is identical to tree $T$, which shows that $T$ is a minimum spanning tree.
 
 ### (4)
-If we use an adjacent list graph representation and a binary heap to find an edge of minimum weight, then the worst-case time complexity is $O(|E| \log |E|) = O(|E| \log |V|)$
+With adjacency lists and a binary heap of candidate edges, each edge is inserted and removed at most once. Each heap operation costs $O(\log |E|)$, giving $O(|E|\log |E|)=O(|E|\log |V|)$ for a connected simple graph. Edges whose endpoints have both entered the tree are discarded when removed from the heap.
 
 ### (5)
 Assume the contrary, that there are two different MSTs $A$ and $B$.

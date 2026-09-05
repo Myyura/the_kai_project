@@ -12,6 +12,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_cce.pdf)
 **Answer all the following questions.** Note that operators $\overline{\phantom{x}}$, $\cdot$, $+$, and $\oplus$ denote logical negation, logical and, logical or, and exclusive or, respectively.
 
 ### (1)
@@ -158,6 +160,8 @@ f=\operatorname{NAND}(N_1,N_2,N_3)
 $$
 
 Therefore, the minimum number of 3-input NAND gates is $\boxed{4}$
+
+The 1-inputs $0011,0100,1000$ cannot be covered pairwise by one implicant, so at least three product terms are required. To justify minimality, note that no literal is true on every 1-input and no entire literal half-space has output 1. The last NAND therefore cannot receive a primary literal. With at most three gates, its inputs must come from the preceding one or two gates. Parallel preceding gates give at most two product terms. If the first gate is $\overline T$ and the second is $\overline{\overline T P}$, feeding both into the last gate gives $T+P$, again at most two terms. Feeding only the second gives $\overline T P$: nonconstant $P$ forces a common literal on all 1-inputs, while constant $P$ gives the complement of one product, contrary to the half-space property. Thus three gates cannot suffice.
 
 #### (c) Minimum SOP expression of $h$
 

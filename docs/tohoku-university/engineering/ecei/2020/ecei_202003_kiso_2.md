@@ -63,106 +63,77 @@ $$
    2. 求 $t\ge t_1$ 时的 $v_L(t)$；
    3. 当 $t_1=10L/R$ 时，画出 $0<t<2t_1$ 内 $v_L(t)$ 的大致波形。
 
-## **Kai** 
+## **Kai**
 ### (1)
 #### (a)
 
 $$
-\Gamma = \frac{Z - Z_0}{Z + Z_0}
+\boxed{\Gamma=\frac{Z-Z_0}{Z+Z_0}}.
 $$
 
 #### (b)
 
 $$
-Z_{in} = Z_0 \cdot \frac{Z_r + jZ
-_0 \tan\beta l}{Z_0 + jZ_r\tan\beta l} = Z_0 \cdot \frac{aZ_0 + jZ_0\tan\beta l}{Z_0 + ajZ_0\tan\beta l}
+\boxed{Z_{\rm in}=Z_0\frac{a+j\tan(\beta l)}{1+ja\tan(\beta l)}}.
 $$
 
-$a \neq 1$ 排除了实部和虚部对应成比例的可能，必须让虚部为 $0$ 或者无穷
+当 $\tan(\beta l)$ 有限时，虚部为
 
 $$
-\beta l = 0 + k\pi 
+\operatorname{Im}Z_{\rm in}
+=Z_0\frac{(1-a^2)\tan(\beta l)}{1+a^2\tan^2(\beta l)}.
 $$
 
-or 
+因 $a>0,a\ne1$，实输入阻抗出现在 $\tan(\beta l)=0$ 或其极限为无穷时，即
 
 $$
-\beta l = \frac{\pi}{2} + k\pi
+\boxed{\beta l=\frac{k\pi}{2},\qquad l=\frac{k\pi}{2\beta}\quad(k=0,1,2,\ldots)}.
 $$
+
+偶数 $k$ 时 $Z_{\rm in}=aZ_0$，奇数 $k$ 时 $Z_{\rm in}=Z_0/a$；若要求线长严格为正，则取 $k\ge1$。
 
 #### (c)
-终端没有反射，电压全部吸收：
+
+按有效值相量计算。负载匹配且线路无损，因此输入、输出电压的幅值相等，负载电流幅值为
 
 $$
-\frac{V^2}{Z} = 0.5
+|I|=\sqrt{\frac{0.5}{50}}=0.1\ \mathrm A.
 $$
 
-$$
-V = 5
-$$
-
-输入端的输入阻抗为:
+源端为 $R_0$ 与输入阻抗 $50\,\Omega$ 串联，故
 
 $$
-Z_{in} = Z_0 = 50
-$$
-
-那么透过的波比例为：
-
-$$
-t = 1 + r = 1 + \frac{50 - 10}{50 + 10} = \frac{5}{3}
-$$
-
-$$
-E = 3V
+\boxed{|E|=(R_0+Z_0)|I|=60\times0.1=6\ \mathrm V}.
 $$
 
 ### (2)
-#### (a) - (b)
+#### (a)、(b)
+
+令 $\tau=L/R$。由 $Li'(t)+Ri(t)=e(t)$ 和 $i(0)=0$，或用 Laplace 变换，得到
 
 $$
-e(t) = E_0 \cdot [u(t) - u(t - t_1)]
+V_L(s)=\frac{E_0(1-e^{-t_1s})}{s+R/L}.
 $$
 
-$$
-E(s) = \frac{E_0}{s} \cdot (1 - e^{-t_1s})
-$$
+因此
 
 $$
-V_L = \frac{E(s)}{R + sL} \cdot sL = \frac{E_0(1 - e^{-t_1s})}{(S + \frac{R}{L})}
+\boxed{v_L(t)=E_0e^{-t/\tau}u(t)-E_0e^{-(t-t_1)/\tau}u(t-t_1)}.
 $$
 
-$$
-V_L(t) = E_0 \cdot e^{\frac{R}{L}t} \cdot u(t) - E_0 \cdot e^{\frac{R}{L}(t - t_1)} \cdot u(t - t_1)
-$$
-
-翻译成不含有开关函数的形式：
+按开关时刻后的值分段写为
 
 $$
-V_L = E_0 \cdot e^{\frac{R}{L}t},0 < t < t_1
+\boxed{v_L(t)=\begin{cases}
+E_0e^{-t/\tau},&0\le t<t_1,\\
+-E_0(1-e^{-t_1/\tau})e^{-(t-t_1)/\tau},&t\ge t_1.
+\end{cases}}
 $$
 
-$$
-V_L = E_0 \cdot e^{\frac{R}{L}t} - E_0 \cdot e^{\frac{R}{L}(t - t_1)},t > t_1
-$$
-
-第二种还有进一步写法可以看出更明显的物理意义，本质上写出带开关的表达本题就完全解决了：
-
-$$
-V_L= E_0 \cdot e^{\frac{R}{L}t} - E_0 \cdot e^{\frac{R}{L}(t - t_1)} = E_0 \cdot (1 - e^{\frac{R}{L}t_1}) \cdot E^{\frac{R}{L}t},t > t_1
-$$
-
-就是电感有初始值的放电，但是电感的电压是会突变的，因此看起来有些奇怪如果考察电流就一目了然了。
+断电时电流连续，电感电压下降 $E_0$；之后电流衰减，电感向电阻释放储能。
 
 #### (c)
-$t_1 = 10\pi$ , 可以认为充放电足够完成，
 
-$$
-e^{10} \gg 1
-$$ 
+$t_1=10\tau=10L/R$，所以 $e^{-10}\ll1$。电压从 $v_L(0^+)=E_0$ 衰减至 $v_L(t_1^-)=E_0e^{-10}\simeq0$，在 $t_1$ 跳至 $-E_0(1-e^{-10})\simeq-E_0$，再从负侧趋近零。
 
-所以反向过充电压约等于 $-E_0$ 图如下：
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202003_kiso_2_electrical_circuit_p2.png" width="400"/>
-</figure>
+![RL 脉冲响应，横轴为 t/τ、纵轴为 v_L/E_0](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2020/ecei_202003_rl.svg)

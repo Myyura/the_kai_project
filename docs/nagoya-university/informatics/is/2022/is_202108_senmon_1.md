@@ -13,12 +13,10 @@ tags:
 頂点と辺からなり、各辺に距離が与えられている無向グラフに対して、頂点間の最短経路を求めるプログラムを考える。
 
 プログラム 1 は、下図に示すグラフの始点から終点までの最短経路とその距離を出力する C 言語プログラムである。
-グラフの構造は、配列 graph.data に格納されている。
+グラフの構造は、配列 graph_data に格納されている。
 配列の各要素が各辺に対応しており、要素を構成する3つの数値は、辺の両端の頂点と距離を表している。なお、プログラムの行頭の数字は行番号を表す。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is_202108_senmon_1_p1.png" width="600" height="300" alt=""/>
-</figure>
+![6頂点9辺の無向グラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2022/nagoya-is2022-shortest-path.svg)
 
 このプログラムを実行すると、次のような出力が得られる。
 
@@ -39,10 +37,10 @@ shortest path: 0 -> 2 -> 4 -> 5
 - (a) 16行目の { 0, 2, 4 } を、{ 0, 2, 6 } に変更した場合
 - (b) 20行目の { 2, 4, 2 } を、{ 2, 4, 5 } に変更した場合
 
-(4) このプログラムが "error!" を出力するのは、与えるグラフ(graph.dataの値)がどのような構造になっている場合か答えよ。
+(4) このプログラムが "error!" を出力するのは、与えるグラフ(graph_dataの値)がどのような構造になっている場合か答えよ。
 
 
-```text
+```c showLineNumbers
 #include <stdio.h>
 
 typedef struct {
@@ -82,7 +80,7 @@ void print_path(int node)
 {
     if (node != START_NODE) {
         [ 空欄 A ];
-        printf(" -> %d ", node);
+        printf(" -> %d", node);
     }
     else {
         printf("shortest path: %d", node);
@@ -145,6 +143,9 @@ int main()
 ```
 
 
+
+[出典：名古屋大学 入学試験問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2021/11/69a578144b87a3810226b785c22e0a85.pdf)
+
 ### 题目描述
 
 考虑边带有距离的无向图。程序 1 使用数组 `graph_data` 存储图：每个元素包含一条边的两个端点及其距离。程序从起点 `0` 开始，逐步选择当前已知区域通向未知顶点的最短边，记录各顶点的累计距离与前驱，最后输出到终点 `5` 的路径和距离。题图、完整 C 程序及示例输出见上文。
@@ -175,14 +176,16 @@ int main()
 #### (a)
 ```text
 total distance: 11
-shortest path: 0 -> 3  -> 2  -> 4  -> 5 
+shortest path: 0 -> 3 -> 2 -> 4 -> 5
 ```
 
 #### (b)
 ```text
 total distance: 12
-shortest path: 0 -> 3  -> 4  -> 5 
+shortest path: 0 -> 3 -> 4 -> 5
 ```
 
 ### (4)
-始点から終点までの経路が存在しない場合。
+各辺の距離が非負で、到達可能な最短距離が `LARGE_DISTANCE` より小さい範囲では、始点と終点が別の連結成分に属し、両者を結ぶ経路が存在しない場合である。
+
+この実装では暫定距離が10000以上の頂点も確定しないため、経路が存在しても最短距離が10000以上なら `error!` となる。

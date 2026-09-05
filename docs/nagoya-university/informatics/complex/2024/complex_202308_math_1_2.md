@@ -11,6 +11,20 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/e430ba234e241d162a59ab76f6efe083.pdf)
+
+共通の定義（題意の要約）：$N\times N$ 行列 $X$ の $i$ 行 $j$ 列成分を $X_j^i$ と書き，
+
+$$
+\det X=\sum_{j_1=1}^N\cdots\sum_{j_N=1}^N
+\epsilon_{j_1,\ldots,j_N}X_{j_1}^1\cdots X_{j_N}^N
+$$
+
+とする。$\epsilon$ は $(j_1,\ldots,j_N)$ が $(1,\ldots,N)$ の偶置換なら $1$，
+奇置換なら $-1$，重複がある場合は $0$ である。
+
+
+
 3×3行列
 
 $$

@@ -9,6 +9,7 @@ tags:
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
 
+
 ## **Description**
 
 確率変数Xに対し、 $E[X^k] \equiv \mu_k < \infty (k = 1,2,\cdots)$ という条件の下で $E[(X-c)^2]$ を考える。このとき、以下の問いに答えよ。

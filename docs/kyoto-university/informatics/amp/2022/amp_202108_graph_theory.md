@@ -11,6 +11,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2021_amp.pdf)
 ### 日本語版
 $G$ を点集合 $V$，枝集合 $E$ から成る単純連結無向グラフとし，各枝 $e\in E$ には実数値の重み $w(e)$ が付与されている．
 点の部分集合 $X \subseteq V$ に対し $X$ と $V \setminus X$ の間の枝の集合を $E(X)$ と記す．

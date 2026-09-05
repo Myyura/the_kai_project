@@ -445,19 +445,7 @@ $$
 
 阻害の有無で $y$ 切片 $1/V_{\max}$ は同じであり、阻害時には傾きが増す。
 
-```text
-1/v
- ^
- |               /  式 (12) あり
- |              /
- |             /
- |            /  阻害なし
- |           /
- |          *
- |          |
- +----------+------------------> 1/[S]
-            0
-```
+
 
 #### III.2 式 (13) の阻害
 
@@ -497,17 +485,9 @@ $$
 
 傾きは阻害なしの場合と同じで、$y$ 切片だけが $\alpha'/V_{\max}$ に増加するため、2 本の直線は平行になる。
 
-```text
-1/v
- ^
- |            /  式 (13) あり
- |           /
- |          /
- |         /    阻害なし
- |        /
- |       /
- +--------------------------------> 1/[S]
-```
+
+
+![Lineweaver–Burk プロット](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/tokyo-kyotsu-202508-inhibition.svg)
 
 ## **Reference**
 

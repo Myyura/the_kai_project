@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h20/h20_senmon3.pdf)
+
 以下の問(i), (ii)に答えよ。
 
 (i) $f: \mathbb{R}^n \to \mathbb{R}$ を $f(0) = 0$ である凸関数とする。以下の(a), (b)に答えよ。

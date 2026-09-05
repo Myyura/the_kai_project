@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+> 出典：九州大学[公式問題（保存版）](https://web.archive.org/web/20180413175215id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H25infait.pdf)。
+
 行列
 
 $$

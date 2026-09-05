@@ -120,7 +120,7 @@ $$
 The effective speed is
 
 $$
-\text{Effective Speed}={1500\text{ bytes}\over 560\text{ ms}}={150\over 7}\text{ kbps}\approx 21.5 \text{ kbps}.
+\text{Effective Speed}={1500\text{ bytes}\over 560\text{ ms}}={150\over 7}\text{ kbps}\approx 21.4 \text{ kbps}.
 $$
 
 ### (3)
@@ -172,13 +172,9 @@ $$
 
 Since $\omega$ is an integer, $\omega_{\min}=10$.
 
-The corresponding sequence is:
+The sequence diagram uses milliseconds on both vertical time axes. The shaded strips represent packet transmission, including its first and last bits.
 
-```text
-S:  P1 [0,60]  P2 ... P10 [540,600]  P11 ...
-R:             P1 completely received at 310; ACK1 sent
-S:                                      ACK1 received at 560
-```
+![Continuous sending with window size 10](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2025/tokyo-ci-2024-window.svg)
 
 The ACK arrives while S is sending P10, so transmission continues without an idle gap.
 

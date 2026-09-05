@@ -85,10 +85,10 @@ The bound is attained by taking an edge $uv$ and $n-2$ further vertices, each ad
 1. Merge all parallel edges by $\mathbf{B}$-operations.
 2. Store the resulting graph in mutable adjacency lists. Maintain the current degree of each vertex, a queue of degree-two vertices, and a hash table keyed by unordered endpoint pairs.
 
-3. While the queue is nonempty, remove a degree-two vertex $v$ with neighbors $u,w$. Delete $uv,vw$ and insert $uw$ unless the hash table already contains it; in the latter case the insertion and the following $\mathbf{B}$-operation cancel. Update the degrees of $u,w$ and enqueue either one when its degree becomes two.
+3. While the queue is nonempty, pop a vertex and skip it if it has already been deleted or its current degree is not two. Otherwise, remove that degree-two vertex $v$ with neighbors $u,w$. Delete $uv,vw$ and insert $uw$ unless the hash table already contains it; in the latter case the insertion and the following $\mathbf{B}$-operation cancel. Update the degrees of $u,w$ and enqueue either one when its degree becomes two.
 4. Accept exactly when two vertices and one edge remain.
 
-Each vertex is removed once and each edge is inserted or deleted $O(1)$ times.  Hash-table lookup and update take expected $O(1)$ time, so the total time and space are $O(m+n)$.
+Each vertex is removed once and each edge is inserted or deleted $O(1)$ times.  Hash-table lookup and update take expected $O(1)$ time, so the total **expected** time is $O(m+n)$, and the space is $O(m+n)$.
 
 ## **Knowledge**
 

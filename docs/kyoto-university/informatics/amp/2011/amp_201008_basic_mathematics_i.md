@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h23/h23_kiso1.pdf)
+
 変数の関数 $f(x) = \tan^{-1}x, (f(0) = 0)$ の $n$ 次導関数を $f^{(n)}(x)$ とかく. 以下の問いに答えよ.
 
 (i) 任意の自然数 $n$ について

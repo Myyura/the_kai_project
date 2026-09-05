@@ -12,6 +12,8 @@ tags:
 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_cce.pdf)
 下記のすべての問に答えよ。
 
 ### (1)

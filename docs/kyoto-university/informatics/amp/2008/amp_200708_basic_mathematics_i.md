@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h20/h20_kiso1.pdf)
+
 $a_k \ge 0, k = 0, 1, \dots, n$ とし，多項式 $P(z)$ を
 
 $$

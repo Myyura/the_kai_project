@@ -45,11 +45,32 @@ tags:
 
 ## **Kai**
 ### (1)
-求める最も状態数の少ない状態遷移図は次の通り。
+異なる剰余は異なる出力を持つので、少なくとも4状態が必要である。状態 $S_r$ の出力を $r$、初期状態を $S_0$ とすれば、4状態で実現できる。矢印のラベルは入力値を表す。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2018_2_p3.png" width="500" height="540" alt=""/>
-</figure>
+```mermaid
+stateDiagram-v2
+    [*] --> S0
+    S0: S0 / output 00
+    S1: S1 / output 01
+    S2: S2 / output 10
+    S3: S3 / output 11
+    S0 --> S0: 00
+    S0 --> S1: 01
+    S0 --> S2: 10
+    S0 --> S3: 11
+    S1 --> S1: 00
+    S1 --> S2: 01
+    S1 --> S3: 10
+    S1 --> S0: 11
+    S2 --> S2: 00
+    S2 --> S3: 01
+    S2 --> S0: 10
+    S2 --> S1: 11
+    S3 --> S3: 00
+    S3 --> S0: 01
+    S3 --> S1: 10
+    S3 --> S2: 11
+```
 
 ### (2)
 |$I_1$|$I_0$|$S_1$|$S_0$|$S_1'$|$S_0'$|
@@ -72,20 +93,46 @@ tags:
 |1|0|0|0|1|0|
 
 ### (3)
-カルノー図は次の通り。
+行を $I_1I_0$、列を $S_1S_0$ とし、ともに $00,01,11,10$ の順とする。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi_2018_2_p4.png" width="700" height="330" alt=""/>
-</figure>
+$S_1'$
 
-よって加法標準形は
+|$I_1I_0$ / $S_1S_0$|00|01|11|10|
+|---|---|---|---|---|
+|00|0|0|1|1|
+|01|0|1|0|1|
+|11|1|0|1|0|
+|10|1|1|0|0|
+
+$S_0'$
+
+|$I_1I_0$ / $S_1S_0$|00|01|11|10|
+|---|---|---|---|---|
+|00|0|1|1|0|
+|01|1|0|0|1|
+|11|1|0|0|1|
+|10|0|1|1|0|
+
+加法標準形は
 
 $$
 \begin{aligned}
-S_1' &= I_1\overline{S_1S_0} + I_1\overline{I_0S_1} + \overline{I_1I_0}S_1 + \overline{I_1}S_0\overline{S_0} + \overline{I_1}I_0\overline{S_1}S_0 + I_1I_0S_1S_0 \\
-S_0' &= \overline{I_0}S_0 + I_0\overline{S_0}
+S_1'={}&I_1\overline{S_1}\,\overline{S_0}
++I_1\overline{I_0}\,\overline{S_1}
++\overline{I_1}\,\overline{I_0}S_1
++\overline{I_1}S_1\overline{S_0}\\
+&+\overline{I_1}I_0\overline{S_1}S_0
++I_1I_0S_1S_0,\\
+S_0'={}&\overline{I_0}S_0+I_0\overline{S_0}.
 \end{aligned}
 $$
 
+$S_1'$ のカルノー図では、孤立した $1$ が2個あり、残る6個の $1$ は3個ずつの二つの組に分かれる。各組を覆うには2項が必要で、計6項が最小である。$S_0'$ は二つの4セルのグループで覆えるため、2項が最小である。
+
 ### (4)
-TODO
+
+(3) の $S_1'$ の6積項をそれぞれ AND ゲートで作り、OR ゲートでまとめて状態 $S_1$ の D 入力に接続する。同様に $S_0'$ の2積項を AND–OR 回路で作って $S_0$ の D 入力に接続する。反転入力は NOT ゲートで生成できる。状態の出力はそのまま $O_1=S_1,\ O_0=S_0$ とする。
+
+![Modulo-4 accumulator using AND, OR, NOT and D flip-flops](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/denshi/2018/tokyo-denshi-2017-mod4.svg)
+
+同じ信号名は接続されているものとし、図では NOT をゲート入力の小円で表す。入力レジスタも含め、D フリップ・フロップは同じクロックを用い、状態レジスタの初期値を $S_1S_0=00$ とする。

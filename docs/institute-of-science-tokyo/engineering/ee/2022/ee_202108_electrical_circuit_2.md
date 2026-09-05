@@ -51,8 +51,8 @@ $$
 
 $$
 \begin{aligned}
-e_2(t) &= 100\sqrt{2}\sin(500t + \frac{2\pi}{3}) + \frac{100\sqrt{2}}{3}\sin(100t) \\
-e_3(t) &= 100\sqrt{2}\sin(500t + \frac{4\pi}{3}) + \frac{100\sqrt{2}}{3}\sin(100t) \\
+e_2(t) &= 100\sqrt{2}\sin(500t + \frac{2\pi}{3}) + \frac{100\sqrt{2}}{3}\sin(1500t) \\
+e_3(t) &= 100\sqrt{2}\sin(500t + \frac{4\pi}{3}) + \frac{100\sqrt{2}}{3}\sin(1500t) \\
 \end{aligned}
 $$
 
@@ -63,6 +63,8 @@ $$
 (7) $500$ rad/s 成分の線間電圧の実効値を求めよ。
 
 (8) 電線 $U$ に流れる電流の実効値を求めよ。 
+
+[公式問題 PDF・8ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_ee_20218&key=cd5c2ecd3d4dc49c5c29e8de8374f19b.pdf&pageId=3186&prevId=&type=1)
 
 ### 题目描述
 
@@ -113,10 +115,10 @@ $$
 \begin{aligned}
 e_2(t)
 &=100\sqrt2\sin\left(500t+\frac{2\pi}{3}\right)
-+\frac{100\sqrt2}{3}\sin(100t),\\
++\frac{100\sqrt2}{3}\sin(1500t),\\
 e_3(t)
 &=100\sqrt2\sin\left(500t+\frac{4\pi}{3}\right)
-+\frac{100\sqrt2}{3}\sin(100t),
++\frac{100\sqrt2}{3}\sin(1500t),
 \end{aligned}
 $$
 
@@ -129,7 +131,7 @@ $$
 ### (1)
 
 $$
-I_1 = \bigg|\frac{100}{j500 \times 10 \times 10^{-3}}\bigg| = 20[\text{A}]
+I_L = \bigg|\frac{100}{j500 \times 10 \times 10^{-3}}\bigg| = 20[\text{A}]
 $$
 
 ### (2)
@@ -173,7 +175,7 @@ $$
 $$
 \begin{aligned}
 \frac{\omega}{2\pi}\int_0^{\frac{2\pi}{\omega}}\bigg[\sqrt{2}\big(I_1\sin(\omega t) + I_3\sin(3\omega t)\big)\bigg]^2dt
-= \frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}} I_1^2 \sin^2\omega t dt + \frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}}I_3^2\sin^23\omega tdt + \frac{2\omega}{\pi}I_1I_2 \int_0^{\frac{2\pi}{\omega}}\sin\omega t \sin(3\omega t)dt 
+= \frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}} I_1^2 \sin^2\omega t dt + \frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}}I_3^2\sin^23\omega tdt + \frac{2\omega}{\pi}I_1I_3 \int_0^{\frac{2\pi}{\omega}}\sin\omega t \sin(3\omega t)dt
 \end{aligned}
 $$
 
@@ -189,15 +191,15 @@ $$
 \begin{aligned}
 \frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}}I_3^2\sin^23\omega tdt &= \frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}}I_3^2\sin^2(3\omega t)dt \\
 &= \frac{\omega I_3^2}{2\pi}\int_0^{\frac{2\pi}{\omega}}\bigg(1 - \cos(6\omega t)\bigg)dt \\
-&= \frac{\omega I_3^2}{2\pi}\bigg[t + \frac{1}{6\omega}\sin(6\omega t)\bigg]_0^{\frac{2\pi}{\omega}} \\
+&= \frac{\omega I_3^2}{2\pi}\bigg[t - \frac{1}{6\omega}\sin(6\omega t)\bigg]_0^{\frac{2\pi}{\omega}} \\
 &= \frac{\omega I_3^2}{2\pi} \cdot \frac{2\pi}{\omega} = I_3^2
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\frac{2\omega}{\pi}I_1I_2 \int_0^{\frac{2\pi}{\omega}}\sin\omega t \sin(3\omega t)dt &= \frac{2\omega I_1I_2}{\pi}\int_0^{\frac{2\pi}{\omega}}\frac{1}{2}(\cos 2\omega t - \cos 4\omega t)dt \\
-&= \frac{\omega I_1I_2}{\pi
+\frac{2\omega}{\pi}I_1I_3 \int_0^{\frac{2\pi}{\omega}}\sin\omega t \sin(3\omega t)dt &= \frac{2\omega I_1I_3}{\pi}\int_0^{\frac{2\pi}{\omega}}\frac{1}{2}(\cos 2\omega t - \cos 4\omega t)dt \\
+&= \frac{\omega I_1I_3}{\pi
 }\bigg[\frac{1}{2\omega} \sin 2\omega t - \frac{1}{4\omega}\sin 4\omega t\bigg]_0^{\frac{2\pi}{\omega}} \\
 &= 0
 \end{aligned}
@@ -212,7 +214,7 @@ $$
 ### (6)
 
 $$
-I = \sqrt{25 + 169} \approx 14[\text{A}]
+I = \sqrt{5^2 + (115/9)^2} \approx 14[\text{A}]
 $$
 
 ### (7)
@@ -223,7 +225,7 @@ $$
 $$
 
 ### (8)
-$500$ rad/s の成分のみを考慮して、
+$1500$ rad/s の電源成分は三相で同相であり、中性線のない対称な Y 負荷では共通モードとして相殺される。従って線電流には $500$ rad/s の成分だけが流れ、
 
 $$
 I_0 = 5[\text{A}]

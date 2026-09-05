@@ -13,6 +13,9 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2021/11/340fb55945f15626c7a3a89358d8992d.pdf)
+
+
 関数 $f(x)$ は連続として、関数 $g(x)$ を
 
 $$
@@ -37,6 +40,8 @@ $$
 2. 证明 $g(x)$ 的 $n+1$ 阶导数可以只用 $f(x)$ 表示。
 
 ## **Kai**
+
+$n$ を非負整数として解く。
 
 1) $n\ge1$ とする。部分積分で $u=(x-t)^n,\ dv=f(t)\,dt$ とおくと、 $du=-n(x-t)^{n-1}dt,\ v=f_1(t)$ であるから、
 
@@ -66,9 +71,19 @@ $$
 g'(x) = \frac{d}{dx} \int_0^x f(t)(x-t)^n dt = f(x)(x-x)^n + \int_0^x f(t) n(x-t)^{n-1} dt = n \int_0^x f(t)(x-t)^{n-1} dt
 $$
 
+$n\ge2$ なら，さらに
+
 $$
 g''(x) = n(n-1) \int_0^x f(t)(x-t)^{n-2} dt
 $$
+
+となる。一般に $0\le j\le n$ について
+
+$$
+g^{(j)}(x)=\frac{n!}{(n-j)!}\int_0^x f(t)(x-t)^{n-j}\,dt
+$$
+
+が成り立つ。
 
 Continuing this until the $n$ th derivative:
 

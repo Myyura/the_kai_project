@@ -19,7 +19,7 @@ The following program $S$ applies the average filter with size 3 to the one-dime
 
 ```
 Instruction  0)    addi x2, x0, 3      # x2 <- x0 + 3
-Instruction  1)    Loop: lw x3, 0(x6)  # x3 <- memory[x6 + 0]
+Instruction  1)    Loop: lw x8, 0(x6)  # x8 <- memory[x6 + 0]
 Instruction  2)    lw x9, 4(x6)        # x9 <- memory[x6 + 4]
 Instruction  3)    add x8, x8, x9      # x8 <- x8 + x9
 Instruction  4)    lw x9, 8(x6)        # x9 <- memory[x6 + 8]
@@ -49,7 +49,7 @@ Answer the following questions:
 
 ```
 指令  0)    addi x2, x0, 3     # x2 <- x0 + 3
-指令  1)    Loop: lw x3, 0(x6)  # x3 <- memory[x6 + 0]
+指令  1)    Loop: lw x8, 0(x6)  # x8 <- memory[x6 + 0]
 指令  2)    lw x9, 4(x6)        # x9 <- memory[x6 + 4]
 指令  3)    add x8, x8, x9      # x8 <- x8 + x9
 指令  4)    lw x9, 8(x6)        # x9 <- memory[x6 + 8]

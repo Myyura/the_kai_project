@@ -68,3 +68,67 @@ Why do such possibilities arise? Explain what type of knowledge manipulation is 
    3. 从知识或程序的描述与管理角度，说明这种功能的优点。
 3. 要高效回答“谁是照料 Yuki 且拥有混合动力汽车的人？”这一查询，说明可采用何种推理方法，并给出查询答案。
 4. 再加入知识“企鹅不会飞”。此时可能出现三种处理结果：a. 同时推出“Yuki 会飞”和“Yuki 不会飞”；b. 两者均不能推出；c. 只推出“Yuki 不会飞”。说明为何会有这些可能性，以及要得到结果 c 需要怎样的知识处理。
+
+
+## **Kai**
+
+### Q1
+
+クラス間の `subclass` と個体からクラスへの `instance` を区別する。`UenoPenguin` は「上野動物園のペンギン」というクラスであり、`cares-for-all` はそのクラスに属する各個体を世話するという意味のリンクとする。太郎と健太の車は別個体 `carT`, `carK` として表し、`carT != carK` を明記する。
+
+```mermaid
+flowchart LR
+    T[Taro] -->|instance| H[Human]
+    T -->|works-at| U[Ueno Zoo]
+    T -->|cares-for-all| UP[UenoPenguin]
+    Y[Yuki] -->|instance| UP
+    Y -->|lives-in| U
+    UP -->|subclass| P[Penguin]
+    P -->|subclass| B[Bird]
+    B -->|can| F[Fly]
+    T -->|owns| CT[carT]
+    K[Kenta] -->|instance| H
+    K -->|owns| CK[carK]
+    CT -->|instance| PR[Prius]
+    CK -->|instance| PR
+    CT ---|different-from| CK
+    PR -->|subclass| HC[HybridCar]
+```
+
+`cares-for-all(Taro,UenoPenguin)` の展開規則は
+
+$$
+\operatorname{instance}(x,\mathrm{UenoPenguin})\Longrightarrow
+\operatorname{caresFor}(\mathrm{Taro},x)
+$$
+
+である。クラスそのものを世話するという曖昧な読み方を避け、知識2の対象を明確にする。
+
+### Q2
+
+**(2-1)** `Yuki instance UenoPenguin subclass Penguin subclass Bird` をたどると、Yukiは鳥の個体と判定される。上位クラスの属性を個体へ継承する規則を用いれば、鳥の `can Fly` を継承して「Yukiは飛べる」と推論する。これは与えられた知識と推論規則による結果であり、実際のペンギンの性質を保証しているわけではない。
+
+**(2-2)** Java、C++、Pythonなどのオブジェクト指向言語のクラス継承が類似している。例えば `Penguin` を `Bird` の派生クラスとし、`Bird` に定義したメソッドをそのまま利用できる。ただしプログラムの実装継承と自然言語の分類関係は同一ではなく、鳥一般の操作を全ての派生型へ適用してよいかは別途設計する必要がある。
+
+**(2-3)** 共通の属性や処理を上位クラスに一度だけ記述でき、重複を減らして更新箇所を集中できる。下位の概念・クラスには固有の差分だけを記述すればよい。これにより再利用性と保守性が高まるが、例外の扱いと上位クラス変更の影響を管理する必要がある。
+
+### Q3
+
+問い合わせを次の連言に分解し、候補の少ない条件から後向き推論を行う。
+
+$$
+\operatorname{Human}(x)\land\operatorname{caresFor}(x,\mathrm{Yuki})
+\land\exists c\,[\operatorname{owns}(x,c)\land\operatorname{HybridCar}(c)].
+$$
+
+Yukiの所属クラスから `cares-for-all` を逆にたどると、まず候補として太郎を得る。太郎はHumanの個体であり、所有する `carT` はPriusの個体、PriusはHybridCarの下位クラスなので、残る条件も満たす。従って導かれる答えは $\boxed{\mathrm{Taro}}$ である。型リンクや関係の逆向き索引、継承結果の再利用によって全ノードの総当たりを避けられる。健太がYukiを世話する知識は与えられておらず、健太を答えとして導くことはできない。
+
+### Q4
+
+どの推論を許すかは、ネットワークの形だけでなく継承・例外処理の意味論によって変わる。
+
+- **a)** 鳥の「飛べる」とペンギンの「飛べない」を両方とも無条件に継承すれば、正負の結論が衝突する。古典論理で両方を厳密な普遍規則とすれば不整合であり、爆発原理まで認める体系では無関係な結論も導けてしまう。
+- **b)** 衝突を検出した対象の属性を未確定とし、優先順位のない対立する結論を両方保留する保守的な方式なら、どちらも採用しない。これは両方が偽と確定したという意味ではない。
+- **c)** 「鳥は通常飛べる」を例外を許すデフォルト規則とし、より具体的なクラスPenguinの「飛べない」を優先させれば、Yukiについて後者だけを採用する。
+
+c)を得るには、クラスの特殊化関係に基づく優先順位と例外による継承の遮断が必要である。既に保存した「Yukiは飛べる」という結論があれば、その根拠を管理して取り消す真理維持も必要になる。知識を追加した結果、以前の結論が撤回されるため、これは非単調推論である。元の「全ての鳥は例外なく飛べる」を厳密な規則のまま保持して、単に新しい否定規則を追加するだけではc)にはならない。

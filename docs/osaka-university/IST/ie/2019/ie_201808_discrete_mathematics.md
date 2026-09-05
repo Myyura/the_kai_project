@@ -51,7 +51,23 @@ $$
 
 (1-1-1) 公理A4で $t=x$ とすれば $\forall xP(x)\to P(x)$。仮定 $\forall xP(x)$ と modus ponens により $P(x)$ を得る。
 
-(1-1-2) $C=\forall x(p(x)\to q(x))\land\exists x\,p(x)$ を仮定する。T1,T4から $p(x)\to q(x)$、T3から $\exists x\,p(x)\to\exists x\,q(x)$ を得る。一方T2から $\exists x\,p(x)$。modus ponens で $\exists x\,q(x)$ を得る。$C$ は閉論理式なので演繹定理により $\vdash E$。
+(1-1-2) 現在の題干に記載されたT3
+
+$$
+(P(x)\to Q(x))\to(\exists xP(x)\to\exists xQ(x))
+$$
+
+は、自由変数 $x$ を含む任意の $P,Q$ に対しては妥当でない。例えば領域 $\{0,1\}$ で $P(0)$ のみ真、$Q$ は常に偽、自由変数を $x=1$ とすれば反例になる。
+
+ここでは正しい形の量化則
+
+$$
+\forall x(P(x)\to Q(x))\to(\exists xP(x)\to\exists xQ(x))
+$$
+
+を用いて $E$ の証明を示す。$C=\forall x(p(x)\to q(x))\land\exists x\,p(x)$ を仮定する。T1から $\forall x(p(x)\to q(x))$、上の量化則と modus ponens から $\exists x\,p(x)\to\exists x\,q(x)$ を得る。一方T2から $\exists x\,p(x)$ なので、再び modus ponens により $\exists x\,q(x)$。$C$ は閉論理式だから演繹定理により $\vdash E$。
+
+意味論的にも、$p$ を満たす元を一つ取れば全称前提によりその元は $q$ を満たす。したがって結論自体は妥当である。
 
 (1-2-1) 束縛変数を区別すると
 

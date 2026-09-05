@@ -137,7 +137,7 @@ $$
 and accepting states $\{(q,R)\mid q\in R\}$.  After reading $v$, its second component is
 
 $$
-\{q\in Q\mid \exists w\in\Sigma^{|v|}:\delta(q,w)\in F\}.
+\{q\in Q\mid \exists w\in\Sigma^{|v|}:\delta^*(q,w)\in F\}.
 $$
 
 It therefore accepts exactly when some such $w$ satisfies $vw\in L_{\mathcal M}$.

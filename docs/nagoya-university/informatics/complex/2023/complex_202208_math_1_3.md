@@ -12,11 +12,19 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/153686fd38b76aec8fe63b4c47663818.pdf)
+
+相似変換の定義（題意の要約）：$Q^TQ=I$ を満たす実 $2\times2$ 行列 $Q$，
+$\lambda>0$，$h\in\mathbb R^2$ による $r'=\lambda Qr+h$ を考える。
+$\lambda=1$ のときは合同変換である。
+
+
+
 $l, m, l', m'$ は正の実数とする。次の方程式 (a), (b) で表される平面上の図形をそれぞれ $F_a, F_b$ と呼ぶことにする。以下の問に答えよ。
 
 (a) $\frac{x^2}{l^2} + \frac{y^2}{m^2} = 1$ ,
 
-(b) $\frac{x^2}{l'^2} + \frac{y^2}{m'^2} = 1$
+(b) $\frac{x'^2}{l'^2} + \frac{y'^2}{m'^2} = 1$
 
 1) $(x, y)$ を直交座標とする平面に図形 $F_a$ を描け。
 
@@ -51,6 +59,8 @@ $$
 ## **Kai**
 
 1) 図形 $F_a$ は楕円である。 $l > m$ の場合、x軸方向に $l$ 、y軸方向に $m$ だけ伸びた楕円。 $l = m$ の場合、円。 $l < m$ の場合、y軸方向に $m$ 、x軸方向に $l$ だけ伸びた楕円。
+
+![半軸 l, m の三つの場合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2023/nagoya-complex2023-ellipses.svg)
 
 2) 相似変換はすべての長さを同じ比で変えるので，二つの半軸の
 長さの比は，順序を除いて保存される。したがって必要十分条件は

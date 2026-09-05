@@ -10,6 +10,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2025_amp.pdf)
 頂点集合 $V$,枝集合Aを持つ有向グラフ $G=(V,A)$ が与えられたものとする．$V$ に属する頂点の個数を $n$, $A$ に属する枝の本数を $m$ とする．
 任意の2頂点 $p,q \in V$ について，$p$から $q$ への有向路が存在するとき，$p \leadsto q$ とする．以下の問いに答えよ．
 
@@ -46,6 +48,7 @@ Each vertex is colored as follows:
 The algorithm is as follows.
 
 ```text
+cycle_found = false
 for each vertex v in V:
     color[v] = white
 
@@ -53,11 +56,13 @@ for each vertex v in V:
     if color[v] = white:
         DFS(v)
 
+report cycle_found
+
 DFS(u):
     color[u] = gray
     for each arc u -> v:
         if color[v] = gray:
-            report "there is a directed cycle"
+            cycle_found = true
         if color[v] = white:
             DFS(v)
     color[u] = black
@@ -81,7 +86,7 @@ Let $v_i$ be the first vertex on this cycle discovered by DFS. At that moment, a
 Compute the strongly connected components (SCCs) by Tarjan's or Kosaraju's algorithm. Two distinct vertices are mutually reachable exactly when they belong to the same SCC. Thus (a) holds exactly when every SCC has one vertex. This also handles self-loops, which do not violate (a). The running time is $O(n+m)$.
 
 #### (b)
-Using the same SCC computation, (b) holds exactly when $G$ has one SCC. The running time is $O(n+m)$.
+If $V$ is empty, (b) holds vacuously. Otherwise, using the same SCC computation, (b) holds exactly when $G$ has one SCC. The running time is $O(n+m)$.
 
 #### (c)
 Let the strongly connected components of $G$ be

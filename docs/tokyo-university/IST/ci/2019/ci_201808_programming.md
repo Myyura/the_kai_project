@@ -13,6 +13,8 @@ tags:
 [tomfluff](https://github.com/tomfluff), [FunTotal](https://github.com/totalhuang), 祭音Myyura
 
 ## **Description**
+
+[原題（日本語）](https://www.i.u-tokyo.ac.jp/edu/course/ci/2018-8-programming.pdf)
 A text file contains integers from $0$ to $255$ which are separated by a single white-space character.
 Assume that the number of these integers is a multiple of three.
 Group every three numbers into a triplet. Each triplet represents the intensities of red, green, and blue of a pixel. For example,
@@ -35,9 +37,9 @@ All the rightmost pixels of the image are white, that is, the triplet $(255, 255
 The image includes no other white vertical line from the top to the bottom than the rightmost one. Write the width of the image on the answer sheet.
 
 (3) Write a program that prints the $\frac{n}{2}$-th triplet (or pixel) and its index when sorting the pixels stored in the file `image1.txt` in the ascending order of intensities.
-Write down the printed triplet and index on the answer sheet, too. 
-Here, $n$ is the number of the pixels and it is an even number. 
-The first pixel is the zeroth triplet. The intensity of a pixel is $r^2 + g^2 + b^2$ when the triplet $(r, g, b)$ denotes the pixel. 
+Write down the printed triplet and index on the answer sheet, too.
+Here, $n$ is the number of the pixels and it is an even number.
+The first pixel is the zeroth triplet. The intensity of a pixel is $r^2 + g^2 + b^2$ when the triplet $(r, g, b)$ denotes the pixel.
 If there are two pixels with the same intensity, the pixel with a larger index has a lower intensity.
 
 (4) Write a program that selects $k$ pixels $e_i$, where $0 \leq i < k$, from the pixels stored in the file `image2.txt`.
@@ -142,13 +144,13 @@ def main():
     lines = []
     pxls = []
     with open('2019-Summer/image1.txt', 'r') as f:
-        lines = f.readlines()
-    
+        lines = [f.read()]
+
     for l in lines:
-        ns = l.strip().split(' ')
+        ns = l.split()
         for i in range(0,len(ns),3):
             pxls.append((ns[i],ns[i+1],ns[i+2]))
-    
+
     print(f"No. of pixels: {len(pxls)}")
 
 if __name__ == "__main__":
@@ -218,15 +220,15 @@ def main():
     pxls = []
     width_op = []
     with open('2019-Summer/image1.txt', 'r') as f:
-        lines = f.readlines()
-    
+        lines = [f.read()]
+
     for l in lines:
-        ns = [atoi(x) for x in l.strip().split(' ')]
+        ns = [atoi(x) for x in l.split()]
         for i in range(0,len(ns),3):
             pxls.append((ns[i],ns[i+1],ns[i+2]))
             update_width_options(pxls, width_op)
     width = get_image_width(pxls, width_op)
-    
+
     print(f"Width of image: {width}")
 
 if __name__ == "__main__":
@@ -307,17 +309,17 @@ def main():
     pxls = []
     width = 0
     with open('2019-Summer/image1.txt', 'r') as f:
-        lines = f.readlines()
-    
+        lines = [f.read()]
+
     # Assume file is a one-line file
     for l in lines:
-        ns = [atoi(x) for x in l.strip().split(' ')]
+        ns = [atoi(x) for x in l.split()]
         for i in range(0,len(ns),3):
             pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
-    
+
     pxls_sr = sorted(pxls, key=lambda x: x[3], reverse=True)
     pxls_sr = sorted(pxls_sr, key=lambda x: x[0]*x[0]+x[1]*x[1]+x[2]*x[2])
-    
+
     print(f"N/2th pixel: {pxls_sr[len(pxls_sr)//2][0:3]}, index {pxls_sr[len(pxls_sr)//2][3]}")
 
 if __name__ == "__main__":
@@ -385,20 +387,20 @@ def main():
     pxls = []
     k = 4
     with open('2019-Summer/image2.txt', 'r') as f:
-        lines = f.readlines()
-    
+        lines = [f.read()]
+
     # Assume file is a one-line file
     for l in lines:
-        ns = [atoi(x) for x in l.strip().split(' ')]
+        ns = [atoi(x) for x in l.split()]
         for i in range(0,len(ns),3):
             pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
-            
+
     pxls_sr = sorted(pxls, key=lambda x: x[3], reverse=True)
     pxls_sr = sorted(pxls_sr, key=lambda x: x[0]*x[0]+x[1]*x[1]+x[2]*x[2])
 
     p = len(pxls_sr)//k
     for i in range(k):
-        print(f"e({i}) pixel: {pxls_sr[p*i][0:3]}, index {pxls_sr[p*i][3]}")    
+        print(f"e({i}) pixel: {pxls_sr[(len(pxls_sr)*i)//k][0:3]}, index {pxls_sr[(len(pxls_sr)*i)//k][3]}")
 
 if __name__ == "__main__":
     main()
@@ -467,14 +469,6 @@ C++ solution:
 
 ```c++
 /*
-这一题就明显能看出来c++的优势了, 对于这种不涉及太多计算,
-主要是按照题意模拟的题用C++ 速度快很多,大概十几秒就跑出来结果,
-
-tomfluff 的 Python 原版有比较明显的 bug：每个聚类的初始元素实现曾有问题，但其第四问的结果正确；在迭代
-过程中，题意要求只在每个聚类内寻找距离重心最近的点，原版却遍历了所有点，而且在求重心时
-没有使用 floor 函数。原版在为每个点选择所属聚类时也没有处理等距离时选最大编号的规则。
-下方代码已在保留原结构的基础上局部修正上述问题；改进后的 Python 代码与本 C++ 代码结果相同。
-
 image2.txt得到的结果是:
 p(i=40): (98 98 98) , index 1639792
 p(i=80): (137 137 137) , index 1639595
@@ -536,7 +530,7 @@ void solve() {
             if (is_repre[now.id]) continue; // 去掉代表元素
             int i_bel = 0; // 当前元素属于的聚类编号
             for (int j = 1; j < k; j++) {
-                if (dis(now, repre[j]) < dis(now, repre[i_bel]) 
+                if (dis(now, repre[j]) < dis(now, repre[i_bel])
                 || dis(now, repre[j]) == dis(now, repre[i_bel]) && repre[j].id > repre[i_bel].id) {
                     // 距离更近或者距离相同编号更大
                     i_bel = j;
@@ -583,7 +577,6 @@ signed main() {
 Python solution:
 
 ```python
-# 基于tomfluff的py代码改进后的代码，image3.txt的结果跟我的c++代码相同, image2.txt跑不出来, python速度还是比不了c++的，估计结果也是一样
 from locale import atoi
 from math import floor
 
@@ -611,7 +604,7 @@ def get_inital_representatives(pxls,k):
     p = len(pxls_sr)//k
     rps = []
     for i in range(k):
-        rps.append(pxls_sr[p*i])
+        rps.append(pxls_sr[(len(pxls_sr)*i)//k])
 
     return rps
 
@@ -632,7 +625,6 @@ def find_next_representatives(pxls, cens, cens_i):
     return repr
 
 
-# Can make this whole faster by using numpy, should consider upgrading
 def main():
     pxls = []
     k = 8
@@ -640,10 +632,10 @@ def main():
 
     lines = []
     with open('./CI/2019_summer/image3.txt', 'r') as f:
-        lines = f.readlines()
+        lines = [f.read()]
 
     for l in lines:
-        ns = [atoi(x) for x in l.strip().split(' ')]
+        ns = [atoi(x) for x in l.split()]
         for i in range(0,len(ns),3):
             pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
 
@@ -662,7 +654,7 @@ def main():
             for j in cens_i[i]:
                 cens[i] = (cens[i][0]+pxls[j][0], cens[i][1]+pxls[j][1], cens[i][2]+pxls[j][2])
             n_check -= len(cens_i[i])
-            cens[i] = (floor(cens[i][0]/len(cens_i[i])), floor(cens[i][1]/len(cens_i[i])), floor(cens[i][2]/len(cens_i[i])))
+            cens[i] = (cens[i][0]//len(cens_i[i]), cens[i][1]//len(cens_i[i]), cens[i][2]//len(cens_i[i]))
         assert n_check == 0
         repr = find_next_representatives(pxls, cens, cens_i)
     for i in range(len(repr)):
@@ -693,7 +685,7 @@ def find_cluster_index(p, clus_arr):
             best_c = i
         elif d == best_d and clus_arr[i][3] > clus_arr[best_c][3]:
             best_c = i
-    
+
     return best_c
 
 def get_inital_representatives(pxls,k):
@@ -704,8 +696,8 @@ def get_inital_representatives(pxls,k):
     p = len(pxls_sr)//k
     rps = []
     for i in range(k):
-        rps.append(pxls_sr[p*i])
-    
+        rps.append(pxls_sr[(len(pxls_sr)*i)//k])
+
     return rps
 
 def find_next_representatives(pxls, cens, cens_i):
@@ -725,7 +717,6 @@ def find_next_representatives(pxls, cens, cens_i):
     return repr
 
 
-# Can make this whole faster by using numpy, should consider upgrading
 def main():
     pxls = []
     k = 128
@@ -733,13 +724,13 @@ def main():
 
     lines = []
     with open('2019-Summer/image2.txt', 'r') as f:
-        lines = f.readlines()
-    
+        lines = [f.read()]
+
     for l in lines:
-        ns = [atoi(x) for x in l.strip().split(' ')]
+        ns = [atoi(x) for x in l.split()]
         for i in range(0,len(ns),3):
             pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
-    
+
     repr = get_inital_representatives(pxls,k)
 
     for i in range(iter_lm):
@@ -754,7 +745,7 @@ def main():
             for j in cens_i[i]:
                 cens[i] = (cens[i][0]+pxls[j][0], cens[i][1]+pxls[j][1], cens[i][2]+pxls[j][2])
             n_check -= len(cens_i[i])
-            cens[i] = tuple(floor(x/len(cens_i[i])) for x in cens[i])
+            cens[i] = tuple(x//len(cens_i[i]) for x in cens[i])
         assert n_check == 0
         # find new reps
         repr = find_next_representatives(pxls, cens, cens_i)
@@ -767,7 +758,7 @@ if __name__ == "__main__":
 ```
 
 ### (6)
-题面称图像为正方形，但所给 `image2.txt` 实际是矩形图像。
+For a square input, set $W=H=\sqrt n$ and require an integer side length. For rectangular input, supply its width explicitly and set $H=n/W$. The linked `image2.txt` example below uses $W=1600,H=1025$.
 #### FunTotal's solution
 
 C++ solution:
@@ -778,10 +769,6 @@ C++ solution:
 同样的一张图片，并把那些替代后的像素元组写入image.tif按照题中的格式。所以第五题的代码得
 写对，然后比较考察第六题的阅读理解，看懂怎么按照格式输出才使得图片能打得开。
 
-一个比较无语的地方是，题面里说图片是 square，但是发现像素数不是一个完全平方数，参考了 tomfluff 的 Python 代码后
-发现应该意思是矩形，然后根据第二问里面的白色像素的方法来判断长宽是1600 1025，然后直接这样来
-输出一下，打开图片发现确实是这样，再去考虑用第五题的聚类算法来压缩。实际测下来 C++ 代码运行很快；
-下方 Python 版本也已局部修正第五题的聚类、并列与取整问题。
 */
 #include <bits/stdc++.h>
 #define int long long
@@ -804,7 +791,7 @@ int dis(Node a, Node b) {
 }
 void solve() {
     ifstream fin("E:/UTokyo_Entrance_Exam/CI/2019_summer/image2.txt", ios::in);
-    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2019_summer/image2.tif", ios::out | ios::binary);
+    ofstream fout("E:/UTokyo_Entrance_Exam/CI/2019_summer/image.tif", ios::out | ios::binary);
     vector<tii> vec;
     int num1, num2, num3;
     vector<Node> vec2;
@@ -946,7 +933,7 @@ def find_cluster_index(p, clus_arr):
             best_c = i
         elif d == best_d and clus_arr[i][3] > clus_arr[best_c][3]:
             best_c = i
-    
+
     return best_c
 
 def get_inital_representatives(pxls,k):
@@ -957,8 +944,8 @@ def get_inital_representatives(pxls,k):
     p = len(pxls_sr)//k
     rps = []
     for i in range(k):
-        rps.append(pxls_sr[p*i])
-    
+        rps.append(pxls_sr[(len(pxls_sr)*i)//k])
+
     return rps
 
 def find_next_representatives(pxls, cens, cens_i):
@@ -1020,7 +1007,7 @@ def save_tif_image(fname, img, w, h):
     s2 = (s&(2**16 -1))>>8
     s1 = (s&(2**24 -1))>>16
     s0 = (s)>>24
-    
+
     hd_bytes = np.array([
         77,77,0,42,0,0,0,8,0,7,1,0,0,4,0,0,
         0,1,w0,w1,w2,w3,1,1,0,4,0,0,0,1,h0,h1,
@@ -1032,13 +1019,12 @@ def save_tif_image(fname, img, w, h):
     with open(fname, 'wb') as f:
         for b in hd_bytes:
             f.write(bytes([int(b)]))
-        
+
         for i in range(img.shape[0]):
             for j in range(img.shape[1]):
                 for k in range(img.shape[2]):
                     f.write(bytes([int(img[i,j,k])]))
 
-# Can make this whole faster by using numpy, should consider upgrading
 def main():
     pxls = []
     k = 32
@@ -1047,17 +1033,17 @@ def main():
 
     lines = []
     with open('2019-Summer/image2.txt', 'r') as f:
-        lines = f.readlines()
+        lines = [f.read()]
     LOGIT("Reading file...")
     for l in lines:
-        ns = [atoi(x) for x in l.strip().split(' ')]
+        ns = [atoi(x) for x in l.split()]
         for i in range(0,len(ns),3):
             pxls.append((ns[i],ns[i+1],ns[i+2],len(pxls)))
             update_width_options(pxls[-1][0:3],len(pxls), width_op)
-    
+
     width = get_image_width(pxls, width_op)
     LOGIT(f"Image width: {width}")
-    
+
     repr = get_inital_representatives(pxls,k)
     LOGIT(f"Searching for representations...")
 
@@ -1073,7 +1059,7 @@ def main():
             for j in cens_i[i]:
                 cens[i] = (cens[i][0]+pxls[j][0], cens[i][1]+pxls[j][1], cens[i][2]+pxls[j][2])
             n_check -= len(cens_i[i])
-            cens[i] = tuple(floor(x/len(cens_i[i])) for x in cens[i])
+            cens[i] = tuple(x//len(cens_i[i]) for x in cens[i])
         assert n_check == 0
         # find new reps
         repr = find_next_representatives(pxls, cens, cens_i)
@@ -1088,7 +1074,7 @@ def main():
             for k in range(new_img.shape[2]):
                 new_img[i,j,k] = repr[p_i][k]
 
-    save_tif_image('2019-Summer/image_.tif', new_img, new_img.shape[1], new_img.shape[0])
+    save_tif_image('2019-Summer/image.tif', new_img, new_img.shape[1], new_img.shape[0])
 
 
 if __name__ == "__main__":
@@ -1096,54 +1082,85 @@ if __name__ == "__main__":
 ```
 
 ### itsuitsuki's solution
-由于我写了utils，横跨了几个题目，所以我放在这里一起展示。Python始终还是无法在这一年的题上超越C++；使用 numpy 时，"largest index" 的并列规则需要显式处理。下方代码已在距离相同时按原编号最大者选择。
 
-utilsを書いていくつかの問題にも跨っているのでこちらにまとめて掲載します。Pythonでは当年度の問題でC++を超えるのは難しく、numpyでも largest index の条件は明示的に処理する必要があります。下のコードでは同距離の場合に元の添字が最大のものを選びます。
-
-取り敢えず、考察されたアルゴがKMeansに使いため、この分をシェアします。
 #### (5)
+
+Save this shared implementation as `utils.py`. If $n$ is not divisible by $k$, the implementation extends the initial sampling rule to $\lfloor ni/k\rfloor$; otherwise this is exactly the position specified in (4). Equal colors share a nearest-representative computation, processed in batches. Representative pixels are then assigned to their own clusters. The centroid uses exact integer division, and both distance ties select the largest original pixel index.
+
 ```python
+import numpy as np
+
+
+def distance_l1(a, b):
+    return np.abs(a - b).sum(axis=-1)
+
+
+def select_k_pixels_sort(array, k):
+    array = np.asarray(array, dtype=np.int64)
+    n = len(array)
+    if not 0 < k <= n:
+        raise ValueError('k must lie between 1 and the pixel count')
+    indices = np.arange(n)
+    order = np.lexsort((-indices, (array * array).sum(axis=1)))
+    chosen = order[(np.arange(k) * n) // k]
+    return array[chosen].copy(), chosen.copy()
+
+
 class KMeans:
-    def __init__(self, array, k=10, initial_k_pts=None, distance_func=distance_l1):
+    def __init__(self, array, k=10, initial_k_pts=None,
+                 distance_func=distance_l1):
+        self.array = np.asarray(array, dtype=np.int64)
+        if self.array.ndim != 2 or self.array.shape[1] != 3:
+            raise ValueError('expected RGB triplets')
+        if np.any(self.array < 0) or np.any(self.array > 255):
+            raise ValueError('RGB values must be in 0..255')
         self.k = k
-        if initial_k_pts == None:
-            self.p, self.pidx = select_k_pixels_sort(array, k)
+        if initial_k_pts is None:
+            self.p, self.pidx = select_k_pixels_sort(self.array, k)
         else:
-            self.p, self.pidx = initial_k_pts
+            _, indices = initial_k_pts
+            self.pidx = np.asarray(indices, dtype=np.int64).copy()
+            if len(self.pidx) != k or len(set(self.pidx)) != k:
+                raise ValueError('representatives must have distinct indices')
+            if np.any(self.pidx < 0) or np.any(self.pidx >= len(self.array)):
+                raise ValueError('representative index out of bounds')
+            self.p = self.array[self.pidx].copy()
         self.distance_func = distance_func
-        self.p = np.array(self.p) # representative points # (128,3)
-        self.pidx = np.array(self.pidx) # their indices # (128,)
-        self.t = 0 # the cnt
-        self.array = np.array(array) # (N,3)
-        self.categories = np.full(len(array), -1, dtype=int) # (N,)
-        
+        self.colors, self.color_index = np.unique(
+            self.array, axis=0, return_inverse=True)
+        self.categories = np.empty(len(self.array), dtype=np.int64)
+
     def cluster(self):
-        # for every pt in self.array
-        # get the l1 distances of them to points
-        distance = (np.expand_dims(self.array, 1) - np.expand_dims(self.p, 0)).__abs__().sum(-1) # (N, 128, 3) -> (N, 128)
-        # print(distance.nbytes / 1048576, "MB")   # VERY BIG
-        min_distance = distance.min(1, keepdims=True)
-        # Among equally near representatives, choose the one with largest original index.
-        self.categories = np.where(distance == min_distance, self.pidx, -1).argmax(1)
-        # Each representative pixel must belong to its own cluster.
-        for i, idx in enumerate(self.pidx):
-            self.categories[idx] = i
+        order = np.argsort(-self.pidx)
+        color_cluster = np.empty(len(self.colors), dtype=np.int64)
+        for start in range(0, len(self.colors), 4096):
+            end = min(start + 4096, len(self.colors))
+            distances = self.distance_func(
+                self.colors[start:end, None, :], self.p[order][None, :, :])
+            color_cluster[start:end] = order[distances.argmin(axis=1)]
+        self.categories = color_cluster[self.color_index]
+        self.categories[self.pidx] = np.arange(self.k)
 
     def update_p(self):
-        for i in range(self.k):
-            member_idx = np.flatnonzero(self.categories == i)
-            tmp = self.array[member_idx]
-            centroid = np.floor(np.mean(tmp, 0)) # 1808 problem ask me to floor it
-            distances = (tmp-centroid).__abs__().sum(-1)
-            candidates = member_idx[distances == distances.min()]
-            chosen = candidates.max()
-            self.p[i] = self.array[chosen]
-            self.pidx[i] = chosen
-            
+        counts = np.bincount(self.categories, minlength=self.k)
+        sums = np.zeros((self.k, 3), dtype=np.int64)
+        np.add.at(sums, self.categories, self.array)
+        centroids = sums // counts[:, None]
+        distances = self.distance_func(
+            self.array, centroids[self.categories])
+        best_distance = np.full(self.k, np.inf)
+        np.minimum.at(best_distance, self.categories, distances)
+        eligible = distances == best_distance[self.categories]
+        chosen = np.full(self.k, -1, dtype=np.int64)
+        indices = np.arange(len(self.array))
+        np.maximum.at(chosen, self.categories, np.where(eligible, indices, -1))
+        self.pidx = chosen
+        self.p = self.array[chosen].copy()
+
     def run(self, n_its=10):
         for _ in range(n_its):
-            self.cluster() # p_i^0 -> C_i^0
-            self.update_p() # C_i^0 -> p_i^1
+            self.cluster()
+            self.update_p()
         self.cluster()
         return self.p, self.categories
 ```
@@ -1158,7 +1175,7 @@ image2 = []
 width = -1
 for i in range(n_triplets):
     image2.append((i2rs[3*i], i2rs[3*i+1], i2rs[3*i+2]))
-    
+
 from utils import KMeans
 kmeans = KMeans(array=image2, k=8)
 p, c = kmeans.run(10)
@@ -1175,9 +1192,12 @@ image2 = []
 width = -1
 for i in range(n_triplets):
     image2.append((i2rs[3*i], i2rs[3*i+1], i2rs[3*i+2]))
-w = 1600
-assert n_triplets % w == 0
+from math import isqrt
+width = 1600  # use None for a square input
+w = isqrt(n_triplets) if width is None else width
+assert w > 0 and n_triplets % w == 0
 h = n_triplets // w
+assert width is not None or w == h
 from utils import KMeans
 kmeans = KMeans(array=image2, k=32)
 p, c = kmeans.run(10) # 32 values

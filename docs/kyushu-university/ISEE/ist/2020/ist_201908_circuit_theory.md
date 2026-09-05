@@ -38,7 +38,7 @@ Zero
 </figure>
 
 ### 【問 3】
-図 $3$ の回路について, 以下の問いに答えよ。ただし, 電流電流 $E$ の角周波数を $\omega$ とする。
+図 $3$ の回路について, 以下の問いに答えよ。ただし, 電源電圧 $E$ の角周波数を $\omega$ とする。
 
 (1) 閉路電流 $I_1,I_2,I_3$ を変数に用いて閉路方程式を立てよ。
 
@@ -146,10 +146,10 @@ $$
 \begin{aligned}
 8X_2^2(1 + X_1^2) &= 9X_1^2(1 + X_2^2) \\
 8X_2^2\bigg[1 + (\frac{X_2 + 1}{X_2 - 1})^2\bigg] &= 9\bigg(\frac{X_2 + 1}{X_2 - 1}\bigg)^2(1 + X_2^2) \\
-8X_2^2\bigg[\frac{(X_2^2 - 1)^2 + (X_2 + 1)^2}{(X_2 - 1)^2}\bigg] &= 9\bigg[\frac{(X_2 + 1)^2}{(X_2 - 1)^2}\bigg](1 + X_2^2) \\
+8X_2^2\bigg[\frac{(X_2 - 1)^2 + (X_2 + 1)^2}{(X_2 - 1)^2}\bigg] &= 9\bigg[\frac{(X_2 + 1)^2}{(X_2 - 1)^2}\bigg](1 + X_2^2) \\
 8X_2^2(X_2^2 - 2X_2 + 1 + X_2^2 + 2X_2 + 1) &= 9(X_2 + 1)^2(1 + X_2^2) \\
 8X_2^2(2X_2^2 + 2) &= 9(X_2^2 + 2X_2 + 1)(1 + X_2^2) \\
-16X_2^2(X_2^2 + 1) &= 9(X_2^2 + 2X^2 + 1)(1 + X_2^2) \\
+16X_2^2(X_2^2 + 1) &= 9(X_2^2 + 2X_2 + 1)(1 + X_2^2) \\
 7X_2^2 - 18X_2 - 9 &= 0
 \end{aligned}
 $$
@@ -251,7 +251,7 @@ $$
 $I_3$ に関して
 
 $$
-0 = j\omega L_2I_2 + j\omega MI_2  + I_3R \tag{\textcircled{3}}
+0 = j\omega L_2I_3 + j\omega MI_2  + I_3R \tag{\textcircled{3}}
 $$
 
 #### (2)
@@ -416,81 +416,40 @@ i_2(t) = 1 - e^{-t}
 $$
 
 #### (2)
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2020_circuit_theory_p8.png" width="256" height="240" alt=""/>
-</figure>
+スイッチを開く直前の定常状態は $q(0^-)=CE=1$、$i_2(0^-)=E/R_2=1$ である。コンデンサ電圧とコイル電流の連続性により、$q(0^+)=1$、$i_2(0^+)=1$。
+
+スイッチを開いた後は上側の節点で $i_1+i_2=0$ なので、
 
 $$
-i_1(t) = \frac{dq(t)}{dt}
+q'(0^+)=i_1(0^+)=-1.
 $$
 
-$$
-\frac{1}{C}q(t) = -R_1i_1(t) - R_2i_1(t) - L\frac{di_1(t)}{dt}
-$$
+コイル電流は連続するが、抵抗・コンデンサ側の電流 $i_1$ は $0$ から $-1$ に変化する。回路方程式は
 
 $$
-\frac{1}{C}q(t) + R_1\frac{dq(t)}{dt} + R_1\frac{dq(t)}{dt} + R_2\frac{dq(t)}{dt} + L\frac{d^2q(t)}{dt^2} = 0
+Lq''+(R_1+R_2)q'+q/C=0,
+\qquad q''+2q'+q=0.
 $$
 
-$$
-\frac{d^2q(t)}{dt^2} + 2\frac{dq(t)}{dt} + q(t) = 0
-$$
-
-特性方程式より、
+一般解 $q(t)=(A+Bt)e^{-t}$ に $q(0)=1$、$q'(0)=-1$ を代入すると、$A=1$、$B=0$。したがって
 
 $$
-\lambda^2 + 2\lambda + 1 = 0 \Rightarrow \lambda = -1
-$$
-
-$$
-q(t) = C_1e^{-t} + C_2te^{-t}
-$$
-
-$$
-q(-0) = CE = 1,q(+0) = 1
-$$
-
-$$
-i(0) = 0, 1 = C_1
-$$
-
-$$
-i(t) = -C_1e^{-t} + C_2(e^{-t} - te^{-t})
-$$
-
-$$
-0 = -C_1 + C_2
-$$
-
-$$
-0 = -1 + C_2 \Rightarrow C_2 = 1
-$$
-
-$$
-i_1(t) = -e^{-t} + e^{-t} - te^{-t}
-$$
-
-$$
-i_1(t) = -te^{-t}
+\boxed{i_1(t)=-e^{-t}\quad(t>0)}.
 $$
 
 #### (3)
+$i_2=-i_1=e^{-t}$ より、
 
 $$
-W = \int_0^{\infty}|i_1(t)|^2R_1dt + \int_0^{\infty}|i_2(t)|^2R_2dt
+W=\int_0^\infty\left(R_1i_1^2+R_2i_2^2\right)\,dt
+=2\int_0^\infty e^{-2t}\,dt
+=\boxed{1\,\mathrm J}.
 $$
 
-(2) より、
+初期の蓄積エネルギーも
 
 $$
-i_1(t) = -te^{-t},i_2(t) = -te^{-t}
+\frac{q(0)^2}{2C}+\frac12 L i_2(0)^2=\frac12+\frac12=1\,\mathrm J
 $$
 
-$$
-\begin{aligned}
-W &= \int_0^{\infty}t^2e^{-2t}dt + \int_0^{\infty}t^2e^{-2t}dt \\
-&= \bigg[-\frac{1}{2}t^2e^{-2t} - \frac{1}{2}te^{-2t} - \frac{1}{4}e^{-2t}\bigg]_0^{\infty} + \bigg[-\frac{1}{2}t^2e^{-2t} - \frac{1}{2}te^{-2t} - \frac{1}{4}e^{-2t}\bigg]_0^{\infty} \\
-&= \frac{1}{4} + \frac{1}{4} \\
-&= \frac{1}{2}
-\end{aligned}
-$$
+であり、外部電源から切り離された後にすべて抵抗で消費されることと一致する。

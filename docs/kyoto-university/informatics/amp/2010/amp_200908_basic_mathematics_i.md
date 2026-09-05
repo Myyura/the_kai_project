@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h22/h22_kiso1.pdf)
+
 実数列 $a_j (j = 1, 2, ...)$ と漸化式
 
 $$

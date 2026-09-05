@@ -14,6 +14,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+出典：[公式2017年度数学試験](https://www.t.u-tokyo.ac.jp/hubfs/pdf/H29_suugaku_J.pdf)、第3問。
+
 次の問いに答えよ。ただし, $i$は虚数単位であり, $e$は自然対数の底, $\log$ は自然対数である。
 
 ### (I)
@@ -105,7 +108,7 @@ $z = e^{i\theta}$とおく。
 
 $$
 \begin{aligned}
-dz &= ie^{i \theta} \Leftrightarrow \text{d} \theta = \frac{\text{d}z}{iz} \\
+dz &= ie^{i \theta}\,d\theta \Leftrightarrow \text{d} \theta = \frac{\text{d}z}{iz} \\
 \cos\theta &= \frac{e^{i\theta} + e^{-i\theta}}{2} = \frac{1}{2}\big(z + \frac{1}{z}\big)
 \end{aligned}
 $$
@@ -148,7 +151,7 @@ $$
 $$
 
 #### 3.
-$z = 1$内の極は$z = \alpha$のみであることに注意して,　留数定理より,　
+$|z|<1$の極は$z = \alpha$のみであることに注意して,　留数定理より,　
 
 $$
 \begin{aligned}
@@ -159,7 +162,12 @@ I &= \oint_{\mid z \mid = 1}G(z)\text{d}z \\
 $$
 
 ### (II)
+
+複素対数の微分は $f
+e0$ の範囲で $f'/f$ と解釈する。偏角を連続的に追うため、積分後の対数を単一の主値に戻して差をゼロとしてはいけない。
+
 #### 1.
+$\alpha\ne0$ の場合、
 
 $$
 \begin{aligned}
@@ -193,17 +201,17 @@ $$
 $$
 
 #### 3.
-$\alpha,\beta$は実数だから, 極$z = -\frac{2}{\alpha}\cos \beta$は実軸上に存在する。この極が, $z = 1$の内部にあるときと,　外部にある時で場合分けすれば良い。
+$\alpha,\beta$は実数だから, 極$z = -\frac{2}{\alpha}\cos \beta$は実軸上に存在する。この極が, $|z|=1$の内部にあるときと,　外部にある時で場合分けすれば良い。
 
 ##### (i)
-$\big|-\frac{2}{\alpha}\cos \beta \big| < 1$かつ$\alpha \neq 0$のとき,　極は$z = 1$内に存在し,　留数定理より,　
+$\big|-\frac{2}{\alpha}\cos \beta \big| < 1$かつ$\alpha \neq 0$のとき,　極は$|z|<1$に存在し,　留数定理より,　
 
 $$
 F(\alpha,\beta) = 2\pi i \cdot 1 =2\pi i
 $$
 
 ##### (ii)
-$\big|-\frac{2}{\alpha}\cos \beta \big| > 1$、または $\alpha = 0$ かつ $\cos\beta\neq0$ のとき,　$z = 1$内に極は存在しないので,　
+$\big|-\frac{2}{\alpha}\cos \beta \big| > 1$、または $\alpha = 0$ かつ $\cos\beta\neq0$ のとき,　$|z|<1$に極は存在しないので,　
 
 $$
 F(\alpha,\beta) = 0

@@ -14,6 +14,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_cce.pdf)
 Answer all the following questions.
 
 ### (1)
@@ -217,3 +219,13 @@ $$
 $$
 
 so they are orthogonal exactly when $a=b\ne0$. When $a=b=0$, any orthogonal basis is an eigenbasis. Hence $A$ has an orthogonal real eigenbasis if and only if $a=b$.
+
+If orthogonality is taken over $\mathbb C$ with the Hermitian inner product, the condition is instead $|a|=|b|$. Indeed, for $ab\ne0$ the displayed eigenvectors satisfy
+
+$$
+\begin{bmatrix}a\\s\end{bmatrix}^{\!*}
+\begin{bmatrix}a\\-s\end{bmatrix}
+=|a|^2-|s|^2=|a|^2-|ab|,
+$$
+
+which vanishes exactly when $|a|=|b|$. This also includes the scalar case $a=b=0$; if exactly one is zero, there is no eigenbasis. In particular, for real $a,b$ with $a=-b\ne0$, the eigenvalues are nonreal but their eigenvectors are Hermitian-orthogonal. The condition $a=b$ above is specifically for a real orthogonal eigenbasis.

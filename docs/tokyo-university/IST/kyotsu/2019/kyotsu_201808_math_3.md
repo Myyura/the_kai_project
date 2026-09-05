@@ -133,11 +133,11 @@ x = \rho \cos \Theta = \frac{\cos \Theta}{\sin \Theta - 2 \cos \Theta} = \frac{1
 $$
 
 $$
-f_{BC}(\Theta) \text{d}\Theta = f_{BC}(x) \text{d}x
+f_{BC}(\Theta) |\text{d}\Theta| = f_{BC}(x) |\text{d}x|
 $$
 
 $$
-f_{BC}(x) = f_{BC}(h(x))h'(x) \qquad \Theta = h(x)
+f_{BC}(x) = f_{BC}(h(x))|h'(x)| \qquad \Theta = h(x)
 $$
 
 在 $[\pi/2,5\pi/4]$ 上连续选取反正切分支，则对 $-1\leq x<0$，
@@ -151,20 +151,19 @@ $$
 $$
 
 $$
-f_{BC}(x) = \frac{4}{3 \pi} \frac{1}{5x^2+4x+1} \qquad x \in (-1, 0]
+f_{BC}(x) = \begin{cases}
+\displaystyle\frac{4}{3\pi(5x^2+4x+1)},&-1<x<0,\\
+0,&\text{其他}.
+\end{cases}
 $$
 
 ### (4)
 
 $$
 \begin{aligned}
-\alpha &= \int_{-1}^0 \frac{4}{3 \pi} \frac{x}{5x^2+4x+1} \text{d} x \\
-&= \frac{4}{3 \pi} \int_{-1}^0 \frac{x}{5(x+\frac{2}{5})^2 + \frac{1}{5}} \text{d}x \\
-&= \frac{4}{3 \pi} \int_{-\frac{3}{5}}^{\frac{2}{5}} \frac{x - \frac{2}{5}}{5x^2 + \frac{1}{5}} \text{d}x \\
-&= \frac{4}{3 \pi} \int_{-\frac{3}{5}}^{\frac{2}{5}} \frac{x}{5x^2 + \frac{1}{5}} \text{d}x - \frac{8}{15 \pi} \int_{-\frac{3}{5}}^{\frac{2}{5}} \frac{1}{5x^2 + \frac{1}{5}} \text{d}x \\
-&= \frac{10}{3 \pi} \int_{-\frac{3}{5}}^{-\frac{2}{5}} \frac{1}{25 x^2 + 1} \text{d}(x^2) - \frac{8}{3\pi} \int_{-\frac{3}{5}}^{\frac{2}{5}} \frac{1}{25x^2 + 1} \text{d}x \\
-&= \frac{2}{15 \pi} \ln (25x^2 + 1) \bigg|_{\frac{9}{25}}^{\frac{4}{25}} - \frac{8}{15 \pi} \arctan (5x) \bigg|_{-\frac{3}{5}}^{\frac{2}{5}} \\
-&= -\frac{2}{15 \pi} \ln 2 - \frac{8}{15 \pi} (\arctan(2) - \arctan(-3))
+\alpha &= \frac{4}{3\pi}\int_{-1}^0\frac{x}{5x^2+4x+1}\,\mathrm dx\\
+&=\frac{4}{3\pi}\left[\frac1{10}\ln(5x^2+4x+1)-\frac25\arctan(5x+2)\right]_{-1}^0\\
+&=-\frac{2}{15\pi}\ln2-\frac{8}{15\pi}\bigl(\arctan2-\arctan(-3)\bigr)
 \end{aligned}
 $$
 

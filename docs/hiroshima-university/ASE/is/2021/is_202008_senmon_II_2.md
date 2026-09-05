@@ -67,40 +67,26 @@ Let $N_v$ be a set of adjacent nodes of node $v$. The following algorithm $\text
 |8|0|4|5|7|12|10|12|
 
 ### (2)
-Proof by contradiction:
+Let $\delta(v)$ be the shortest distance from $s$ to $v$, with $\delta(v)=\infty$ for an unreachable vertex. Every finite label is the length of an actual path, so $d(v)\geq\delta(v)$.
 
-Let $\delta(v)$ denote the length of a shortest path from $s$ to $v$.
-Suppose that $u$ is the first vertex extracted from $T$ for which $d(u) \neq \delta(u)$.
+We prove by induction that a vertex has its correct distance when it is extracted from $T$. The first vertex is $s$, with distance $0$. Suppose the assertion holds for all previously extracted vertices, and let $u$ be the next one.
 
-Let $s \rightarrow P_1 \rightarrow x \rightarrow y \rightarrow P_2 \rightarrow u$ be a shortest path from $s$ to $u$, where $x$ satifies $d(x) = \delta(x)$ but $y$ does not.
-When $x$ is extracted from $T$, since $y$ is adjacent to $x$, $d(y)$ will be updated
+If $u$ is reachable, choose a shortest path from $s$ to $u$. Let $y$ be its first vertex still in $T$ and $x$ its predecessor. Then $x$ has already been extracted with $d(x)=\delta(x)$, and its relaxation gives $d(y)\leq\delta(x)+l(xy)=\delta(y)$. Nonnegative edge lengths imply $\delta(y)\leq\delta(u)$, while the choice of $u$ gives $d(u)\leq d(y)$. Hence
 
 $$
-d(y) \leq d(x) + l(xy) \leq \delta(x) + l(xy) + l(y \rightarrow P_2 \rightarrow u) = \delta(u) \leq d(u)
+\delta(u)\leq d(u)\leq d(y)\leq\delta(y)\leq\delta(u),
 $$
 
-Now both $y$ and $u$ are in $T$ when $u$ is chosen.
-Note that by assumption $u$ is the first vertex extracted from $T$ for which $d(u) \neq \delta(u)$, hence either $d(y) = \delta(y)$ or $y$ is chosen after $u$, which means that $d(u) \leq d(y)$.
-But by assumption we have $d(y) \neq \delta(y)$, hence we have
-
-$$
-d(u) \leq d(y)
-$$
-
-Thus the two inequalities must be equalities,
-
-$$
-d(y) = \delta(u) = d(u)
-$$
-
-a contradiction.
+so $d(u)=\delta(u)$. If $u$ is unreachable, no relaxation can give it a finite label, and $d(u)=\delta(u)=\infty$. This completes the induction.
 
 ### (3)
-<figure style="text-aligned:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/hiroshima_university/ASE/is_202008_senmon_II_2_p2.png" width="300" height="300" alt=""/>
-</figure>
+Take the directed graph with exactly three edges:
 
-$\textbf{Shortest}(G, A)$ from $A$ will first develop $B$, and will later fail to find $A \rightarrow C \rightarrow B$.
+$$
+A\xrightarrow{1}B,\qquad A\xrightarrow{2}C,\qquad C\xrightarrow{-5}B.
+$$
+
+Starting from $A$, the algorithm extracts $B$ with label $1$ before $C$ with label $2$. When $C$ is extracted, $B$ is no longer in $T$, so the displayed algorithm does not relax $C\to B$. It returns $d(B)=1$, although the shortest path $A\to C\to B$ has length $2-5=-3$.
 
 ### (4)
 If the displayed `find` operation scans $T$ directly, its total cost is $O(|V|^2)$, while all relaxations cost $O(|E|)$. Thus the displayed implementation takes

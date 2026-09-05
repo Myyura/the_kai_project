@@ -1,5 +1,5 @@
 ---
-sidebar_label: "2019年8月実施 微积分"
+sidebar_label: "2019年8月実施 微分積分"
 tags:
   - Saitama-University
   - Mathematics.Calculus.Taylor-Series
@@ -7,7 +7,7 @@ tags:
   - Mathematics.Calculus.Definite-Integral
   - Mathematics.Calculus.Limit
 ---
-# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2019年8月実施 微积分
+# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2019年8月実施 微分積分
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
@@ -126,7 +126,7 @@ $$
 
 ### (d)
 
-積分領域が長方形なので積分は積に分離できる。
+ $a,b\geq0$ のとき、積分領域が長方形なので積分は積に分離できる。
 
 $$
 \iint_Dx^2y\,dx\,dy
@@ -134,3 +134,5 @@ $$
 =\frac{a^3}{3}\frac{b^2}{2}
 =\boxed{\frac{a^3b^2}{6}}.
 $$
+
+$a<0$ または $b<0$ のときは $D=\varnothing$ なので、積分値は $0$ である。

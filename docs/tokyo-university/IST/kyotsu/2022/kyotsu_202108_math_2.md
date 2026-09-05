@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2021年8月実施 数学 第1問"
+sidebar_label: "2021年8月実施 数学 第2問"
 tags:
   - Tokyo-University
   - Mathematics.Real-Analysis.Frullani-Integral-by-Parameter-Differentiation
   - Mathematics.Real-Analysis.Interchange-of-Limit-Derivative-and-Integral
   - Mathematics.Functional-Analysis.Uniform-Convergence
 ---
-# 東京大学 情報理工学研究科 2021年8月実施 数学 第1問
+# 東京大学 情報理工学研究科 2021年8月実施 数学 第2問
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura

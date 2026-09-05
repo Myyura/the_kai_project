@@ -93,4 +93,14 @@ $$
 Z_2 + Z_3 = (1 - j)Z_1 = 25 - 25j
 $$
 
-两个电阻一个电感，其中一个支路是纯电阻，一个支路是电感和电阻的串联。
+需要两个电阻和一个电容：第一支路为 $R_1=25\,\Omega$；第二支路为 $R_2=25\,\Omega$ 与容抗 $Z_C=-j25\,\Omega$ 串联，即 $C=1/(25\omega)$。电容使第二支路电流超前电压。
+
+```mermaid
+flowchart LR
+ p["电源正端：V=100 V"] --- R1["R₁=25 Ω；I₁=4 A"] --- n["电源负端"]
+ p --- R2["R₂=25 Ω；I₂=2+2j A"] --- C["Z_C=−j25 Ω"] --- n
+```
+
+相量为 $I_1=4\angle0^\circ$、$I_2=2\sqrt2\angle45^\circ$，总电流 $I=2\sqrt{10}\angle\arctan(1/3)$，单位均为 A。
+
+![两支路电流相量相加](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2023/ecei_202303_phasors.svg)

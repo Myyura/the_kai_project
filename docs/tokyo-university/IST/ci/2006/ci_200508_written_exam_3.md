@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+出典：[大学公式問題冊子の保存版](https://web.archive.org/web/20151118065613id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2005_8_ci_istmajor_all.pdf)（日本語版の設問・図を確認）。
+
 ### 日本語
 
 図1に示すように，三次元空間中の物体の光が一点C(光学中心)を通って撮像面に投影されるピンホールカメラを考える．光学中心から撮像面へ垂直に引いた直線は光軸と呼ばれ，撮像面と光軸の交点は画像中心と呼ばれる．図1に示すように，光学中心に三次元のカメラ座標系 C-X,Y,Z をとり，画像中心に二次元の画像座標系 I-x,y をとる．光学中心から撮像面までの距離をfとした場合に，三次元空間の点 $\mathbf{P}(X,Y,Z)$ の投影面上の点 $\mathbf{p}(x,y)$ の座標は次のように表される．
@@ -66,3 +68,81 @@ Answer the questions below.
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_200508_3_p1.png" width="600" alt=""/>
 </figure>
+
+## **Kai**
+
+### (1)
+
+直線のパラメータを $t$ とすると、
+
+$$
+\boxed{\mathbf P(t)=\mathbf P_0+t\mathbf m}
+$$
+
+である。投影座標は
+
+$$
+x(t)=f\frac{X_0+tm_1}{Z_0+tm_3},\qquad
+ y(t)=f\frac{Y_0+tm_2}{Z_0+tm_3}.
+$$
+
+$m_3\ne0$ の場合、$|t|\to\infty$ として
+
+$$
+\boxed{(x_\infty,y_\infty)=\left(f\frac{m_1}{m_3},f\frac{m_2}{m_3}\right)}.
+$$
+
+これは $\mathbf P_0$ に依存しないため、同じ方向の平行線は同じ消失点をもつ。$m_3=0$ の方向では有限の消失点はなく、同次画像座標で $[fm_1:fm_2:0]$ という無限遠点になる。
+
+### (2)
+
+消失点 $\mathbf a$ に対応する空間方向は $(a_x,a_y,f)^{\mathsf T}$ に平行である。同様に $\mathbf b,\mathbf c$ の方向も表せる。直方体の三つの辺方向は互いに直交するので、
+
+$$
+\boxed{
+\begin{aligned}
+a_xb_x+a_yb_y+f^2&=0,\\
+b_xc_x+b_yc_y+f^2&=0,\\
+c_xa_x+c_ya_y+f^2&=0.
+\end{aligned}}
+$$
+
+従って $\mathbf a\cdot\mathbf b=\mathbf b\cdot\mathbf c=\mathbf c\cdot\mathbf a=-f^2$ である。ここで画像座標の原点は題文どおり画像中心とする。例えば最初の二つの式の差から $(\mathbf a-\mathbf c)\cdot\mathbf b=0$ となるため、画像中心は三消失点の作る三角形の垂心にもなる。
+
+### (3)
+
+まず Gaussian フィルタなどで雑音を抑え、画像の勾配から Canny 法などでエッジ画素を検出する。次に各エッジ画素 $(x,y)$ について
+
+$$
+\rho=x\cos\theta+y\sin\theta
+$$
+
+を満たす直線パラメータへ投票する Hough 変換を行う。投票のピークを直線候補とし、支持する画素の連続範囲から線分の端点を求める。候補を三つの消失点に向かう辺群に分類し、接続関係や直方体の形状条件を使って背景のエッジを除く。陰影や模様の境界もエッジになるため、エッジ検出だけで全稜線が確定するわけではない。[OpenCV のエッジ検出と Hough 直線検出](https://docs.opencv.org/4.x/d9/db0/tutorial_hough_lines.html)
+
+### (4)
+
+求める剛体変換を
+
+$$
+\mathbf P_C=R\mathbf P_R+\mathbf t,\qquad
+T=\begin{pmatrix}R&\mathbf t\\0&1\end{pmatrix}
+$$
+
+とする。消失点は方向にしか依存しないので、三消失点から並進 $\mathbf t$ は得られない。[カメラの内部・外部パラメータ（OpenCV）](https://docs.opencv.org/4.10.0/dc/dbb/tutorial_py_calibration.html)
+
+画像中心と画像座標の尺度、焦点距離 $f$ が分かれば、三つの消失点から方向ベクトルを正規化して $R$ を構成できる。題文の理想モデルで画像中心が既知なら、(2) の直交条件から $f>0$ を求めることもできる。ただし、どの軌跡がロボットのどの軸に対応するか、その軸の正方向はどちらかという情報が必要である。消失点単独では方向ベクトルの符号が分からないため、既知の動作と正の奥行き条件を用いて整合する向きを選ぶ。
+
+並進と距離の尺度を決めるには、**ロボット座標系で既知の実寸をもつ点と、その画像上の対応点**が必要となる。例えばハンド形状と指定姿勢から求めた指先 $F_1,F_2$ の三次元座標と、それらの画像座標を用いる。$R$ が決まった後、既知点 $\mathbf P_{R,i}$ と画像点から得る視線 $\mathbf d_i=(x_i/f,y_i/f,1)^{\mathsf T}$ に対して
+
+$$
+\lambda_i\mathbf d_i=R\mathbf P_{R,i}+\mathbf t
+$$
+
+が成り立つ。二点について差を取ると
+
+$$
+\lambda_1\mathbf d_1-\lambda_2\mathbf d_2
+=R(\mathbf P_{R,1}-\mathbf P_{R,2})
+$$
+
+となる。視線が平行でない配置なら、右辺の既知の実寸から奥行き $\lambda_1,\lambda_2$ を定め、$\mathbf t=\lambda_1\mathbf d_1-R\mathbf P_{R,1}$ を得られる。実際には複数姿勢で対応点を取得し、誤差を最小化して推定する。単に軌跡の直線方向を得ただけでは、この実寸・位置情報が欠ける。

@@ -283,11 +283,13 @@ $$
 
 
 $H$ 满足式 (2)，由于行列正交等价，只需 $\cos \theta \sin \theta e^{i(\psi_1-\psi_3)} + \sin \theta \cos \theta e^{i(\psi_2 - \psi_4)}=0$。
-因此在式 (3) 形式的基础上，还需满足
+当 $\cos\theta\sin\theta\ne0$ 时，还需满足
 
 $$
-\psi_1 - \psi_3 = \psi_2-\psi_4 + \pi + 2k \pi \qquad k = 0, 1, 2, \ldots
+\psi_1 - \psi_3 = \psi_2-\psi_4 + \pi + 2k \pi \qquad k \in \mathbb Z
 $$
+
+当 $\cos\theta\sin\theta=0$ 时，行间内积自动为零，式 (2) 不再限制这些相位。
 
 等价地，二阶酉矩阵的一般形为
 
@@ -299,3 +301,7 @@ a&b\\
 \qquad |a|^2+|b|^2=1,
 \quad \phi\in\mathbb R.
 $$
+
+
+这是因为第一行 $(a,b)$ 的单位正交补必为
+$e^{i\phi}(-\overline b,\overline a)$；反过来，这样的两行范数都是 $1$ 且相互正交，故所得矩阵一定为酉矩阵。

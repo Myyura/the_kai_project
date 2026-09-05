@@ -44,7 +44,7 @@ We define functions as follows:
 
 ### 题目描述
 
-本页原文标为“英文回忆版”。考虑 8 位二进制数（如 `0b10110111`，可任意加入下划线作分隔，不影响数值）：高 4 位 `[7:4]` 表示指数 $E$，低 4 位 `[3:0]` 表示尾数 $M$。其浮点值定义为
+考虑 8 位二进制数（如 `0b10110111`，可任意加入下划线作分隔，不影响数值）：高 4 位 `[7:4]` 表示指数 $E$，低 4 位 `[3:0]` 表示尾数 $M$。其浮点值定义为
 
 $$
 \left(1+\frac M{16}\right)2^{E-7},
@@ -72,3 +72,103 @@ $$
    $$
 
 8. $e,h$ 均可由 EM 精确表示，且 $e\le15$。令 $L(e)$ 为 $e$ 十进制值的整数部分。求一个 $h$（给十进制值），使对每个这样的 $e$，$I(e+h)$ 的低 4 位尾数字段 `[3:0]` 所表示的值都等于 $L(e)$。
+
+## **Kai**
+
+### (1)
+
+Taking $E=7$ and $M=0$ gives $(1+0/16)2^0=1$. Therefore the representation is `0b0111_0000`.
+
+### (2)
+
+Here $E=8$ and $M=8$, so the value is
+
+$$
+\left(1+\frac8{16}\right)2^{8-7}=3.
+$$
+
+### (3)
+
+The largest exponent is $15$. Taking mantissas $15$ and $14$ gives, respectively,
+
+$$
+\frac{31}{16}2^8=496,\qquad \frac{30}{16}2^8=480.
+$$
+
+Their representations are `0b1111_1111` and `0b1111_1110`.
+
+### (4)
+
+Write an unsigned encoding as $X=16E+M$. At fixed $E$, increasing $M$ by one increases the value by $2^{E-11}>0$. Across an exponent boundary,
+
+$$
+F(16(E+1))-F(16E+15)
+=2^{E-6}-\frac{31}{16}2^{E-7}
+=2^{E-11}>0.
+$$
+
+Thus every adjacent pair of encodings has strictly increasing values. Applying this repeatedly proves $X_1>X_2\implies F(X_1)>F(X_2)$.
+
+### (5)
+
+Each encoding determines exactly one pair $(E,M)$ and hence one value. Conversely, (4) proves that distinct encodings give distinct values. Therefore every representable value has exactly one encoding.
+
+### (6)
+
+Near $1$, the spacing is $1/16$. Since
+
+$$
+\frac{17}{16}<\frac{11}{10}<\frac{18}{16},
+$$
+
+we obtain $R(1.1)=17/16$. The requested ordinary sum is
+
+$$
+R(1.1)+R(1.1)=\frac{17}{8}=2.125.
+$$
+
+### (7)
+
+$$
+F(\texttt{0b0111\_1000})=\frac32,\qquad
+F(\texttt{0b0001\_1000})=\frac3{128}.
+$$
+
+Their sum is $195/128$, which lies strictly between $3/2=192/128$ and the next representable value $25/16=200/128$. Hence the answer is $3/2=1.5$.
+
+### (8)
+
+Under the stated **strictly less than** definition of $I$, no representable $h$ satisfies the condition.
+
+There are only 256 candidates. Exact evaluation for $e=1$ and $e=2$ leaves just $h=17$. But for the representable value $e=1/128$, we have
+
+$$
+17<17+\frac1{128}<18,
+$$
+
+so $I(17+1/128)$ encodes $17$, with mantissa $1$, whereas $L(1/128)=0$. This eliminates the last candidate.
+
+The following finite check uses exact rational arithmetic and includes every encoding. The predecessor of an exactly representable input is selected with `bisect_left`, as required by the strict inequality.
+
+```python
+from fractions import Fraction
+from bisect import bisect_left
+
+values = [Fraction(16 + (code & 15), 16) * Fraction(2) ** ((code >> 4) - 7)
+          for code in range(256)]
+
+def mantissa_below(z):
+    code = bisect_left(values, z) - 1
+    if code < 0:
+        raise ValueError("No representable value is strictly below z")
+    return code & 15
+
+candidates = [h for h in values
+              if all(mantissa_below(e + h) == int(e)
+                     for e in [Fraction(1), Fraction(2)])]
+assert candidates == [Fraction(17)]
+assert mantissa_below(Fraction(17) + Fraction(1, 128)) == 1
+assert [h for h in values
+        if all(mantissa_below(e + h) == int(e)
+               for e in values if e <= 15)] == []
+```

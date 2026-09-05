@@ -61,7 +61,7 @@ $$
 
 ### (2)
 
-領域は
+[公式問題（PDF第3頁）](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_5_m_mandatory202408.pdf)には象限の指定はない。ここでは $x=0$ によって分かれる二つの有界部分のうち $x\ge0$ 側を考える。その領域は
 
 $$
 0\leq x\leq1,\qquad
@@ -78,6 +78,8 @@ V&=\int_0^1\int_0^{(1-x^2)/2}(1-x^2-2y)\,dy\,dx\\
 =\boxed{\frac{2}{15}}.
 \end{aligned}
 $$
+
+負の $x$ 側も対称性により体積は $2/15$ である。もし両側の部分の体積を合計する解釈ならば、合計は $4/15$ となる。
 
 ### (3)
 

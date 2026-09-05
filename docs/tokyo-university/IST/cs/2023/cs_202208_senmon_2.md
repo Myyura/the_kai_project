@@ -206,7 +206,7 @@ $$
 B+x<A,\qquad B<A-x.
 $$
 
-Hence after the move every stack sum is at least $B$; the minimum stack sum never decreases.  If $x$ ever becomes the top of its stack again, that stack has sum $B+x$, while the current minimum is at least $B$.  The stopping condition then holds, so $x$ cannot be moved again.  Each successful iteration therefore moves a distinct element, and there are at most $n$ such iterations.
+Hence after the move every stack sum is at least $B$; the minimum stack sum never decreases.  If $x$ ever becomes the top of its stack again, that stack has sum $B+x$, while the current minimum is at least $B$.  The stopping condition then holds, so $x$ cannot be moved again.  Each successful iteration therefore moves a distinct element. Moreover, the bottom element of any initially nonempty stack can never move: such a move would empty its source, contradicting $A-x>B\ge0$. Thus at least one element remains unmoved, there are at most $n-1$ successful iterations, and including the final iteration that executes `break`, the loop runs at most $n$ times.
 
 ### (5)
 

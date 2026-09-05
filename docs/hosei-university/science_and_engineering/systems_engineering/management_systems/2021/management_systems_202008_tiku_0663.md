@@ -51,13 +51,13 @@ $$
 
 ## **Kai**
 
-【1】Jensenの不等式より、 $\phi(x) = \sqrt{x}$ は凹関数であるから、
+【1】$E[X^2]<\infty$ とする。非負確率変数 $Y$ に対し、 $\phi(y)=\sqrt{y}$ は $[0,\infty)$ 上の凹関数なので、Jensenの不等式より
 
 $$
-E[\phi(X)] \leq \phi(E[X])
+E[\phi(Y)] \leq \phi(E[Y])
 $$
 
-が成り立つ。ここで、 $X$ を $X^2$ に置き換えると、
+が成り立つ。ここで、 $Y=X^2$ とすると、
 
 $$
 E[\sqrt{X^2}] \leq \sqrt{E[X^2]}

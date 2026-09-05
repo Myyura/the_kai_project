@@ -10,6 +10,7 @@ tags:
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
 
+
 ## **Description**
 
 確率変数 $X, Y, Z$ について、 $0 < Var[X] < \infty$ , $0 < Var[Y] < \infty$ , $0 < Var[Z] < \infty$ である.

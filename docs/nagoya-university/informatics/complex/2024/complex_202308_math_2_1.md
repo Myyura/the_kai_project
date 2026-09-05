@@ -12,6 +12,9 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/e430ba234e241d162a59ab76f6efe083.pdf)
+
+
 次の微分方程式について考えよう。
 
 $$
@@ -58,7 +61,7 @@ $$
 左辺を部分分数分解すると、
 
 $$
-\frac{1}{y} + \frac{1}{1-y} dy = dx
+\left(\frac{1}{y} + \frac{1}{1-y}\right)dy = dx
 $$
 
 両辺を積分すると、
@@ -117,7 +120,7 @@ $$
 y(x) = \frac{1}{1 + Be^{-x}}
 $$
 
-である。さらに、変数分離の際に除いた平衡解
+であり，分母が $0$ にならない連結な区間で定義される。さらに、変数分離の際に除いた平衡解
 
 $$
 y(x)\equiv0,\qquad y(x)\equiv1
@@ -150,3 +153,8 @@ $$
 $$
 
 この区間で $y'=y(1-y)<0$ なので、解は $+\infty$ から $1$ へ単調減少する。
+
+
+![二つの初期値の場合のロジスティック曲線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2024/nagoya-complex2024-logistic.svg)
+
+図はそれぞれ $B=3$ と $B=-1/2$ の代表例である。点は $x=0$ の値を示す。

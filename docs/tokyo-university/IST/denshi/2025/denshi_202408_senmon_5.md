@@ -115,7 +115,7 @@ In summary (phases are modulo $2\pi$):
 - If $\sin\frac{\Omega}{2} > 0$, $|H(e^{j\Omega})| = \frac{1}{\sin\frac{\Omega}{2}}, \quad \angle H(e^{j\Omega}) = \frac{\Omega}{2} - \frac{\pi}{2}$
 - If $\sin\frac{\Omega}{2} < 0$, $|H(e^{j\Omega})| = -\frac{1}{\sin\frac{\Omega}{2}}, \quad \angle H(e^{j\Omega}) = \frac{\Omega}{2} + \frac{\pi}{2}$
 
-At $\Omega=2\pi k\ (k\in\mathbb Z)$, $H(e^{j\Omega})$ is undefined because the system has a pole on the unit circle.
+At $\Omega=2\pi k\ (k\in\mathbb Z)$, the rational expression is undefined. The causal system has $h[n]=2u[n]$ and ROC $|z|>1$, so its ordinary impulse-response DTFT does not converge on the unit circle. The formulas above describe the algebraic evaluation of $H(z)$ away from the pole; a switched-on sinusoid also retains an undamped constant transient.
 
 ### (5)
 

@@ -13,6 +13,9 @@ tags:
 Zero
 
 ## **Description**
+
+出典：[公式問題（保存版、10–11頁）](https://web.archive.org/web/20190715211433id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H31infait.pdf#page=10)。
+
 ### 【問 1】
 図 $1$ の回路について, 以下の問いに答えよ。ただし, 電源電圧 $E$ と電流 $I_2$ の位相差は $\arg(E/I_2) = 0$ である。
 
@@ -40,7 +43,7 @@ Zero
 
 (1) 抵抗 $r$ の電流 $I$ を求めよ。
 
-(2) $z_0 = R,z_1 = jX_1,z_2 = -jX_2$ のとき, $E$ と $I$ の位相差が $\arg(E/I_2) = 0$ となる条件を求めよ。
+(2) $z_0 = R,z_1 = jX_1,z_2 = -jX_2$ のとき, $E$ と $I$ の位相差が $\arg(E/I) = 0$ となる条件を求めよ。
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p3.png" width="386" height="355" alt=""/>
@@ -78,8 +81,8 @@ $\arg(E/I_2)=0$。回答：
 【问题 3】对[图 3 电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p3.png)，电源电压 $E$ 的角频率为 $\omega$。回答：
 
 1. 求电阻 $r$ 中的电流 $I$。
-2. 当 $z_0=R$、$z_1=jX_1$、$z_2=-jX_2$ 时，求使题面所给相位条件
-   $\arg(E/I_2)=0$ 成立的条件。
+2. 当 $z_0=R$、$z_1=jX_1$、$z_2=-jX_2$ 时，求使电源电压与电流的同相条件
+   $\arg(E/I)=0$ 成立的条件。
 
 【问题 4】对[图 4 开关电路](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p4.png)，已知
 
@@ -235,7 +238,7 @@ $$
 
 ### 【問 2】
 #### (1)
-図のように、$I_1,V_1,I_2,V_2$ を定義する。
+各巻線のドット側に流れ込む電流を $I_1,I_2$ とし、ドット側を正とする端子電圧を $V_1,V_2$ とする。図の負荷電流は $I=-I_2$ である。
 
 $$
 \begin{align}
@@ -300,20 +303,20 @@ $$
 R_1 + j\omega L_1 & j\omega M \\
 j \omega M & R_L + j(X + \omega L_2) \\
 \end{vmatrix} \\
-&= (R_1 + j\omega L_1)(R_L + j(X + \omega L_2)) - \omega^2 M^2
+&= (R_1 + j\omega L_1)(R_L + j(X + \omega L_2)) + \omega^2 M^2
 \end{aligned}
 $$
 
 $I = -I_2$ より、
 
 $$
-I = \frac{j \omega ME}{R_1R_L - \omega XL_1 - \omega^2L_1L_2 - \omega^2M^2 + j(XR_1 + \omega L_2R_1 + \omega L_1R_L)}
+I = \frac{j \omega ME}{R_1R_L - \omega XL_1 - \omega^2L_1L_2 + \omega^2M^2 + j(XR_1 + \omega L_2R_1 + \omega L_1R_L)}
 $$
 
 $P = |I|^2R_L$ より、
 
 $$
-P = \frac{\omega^2 M^2R_L}{(R_1R_L-\omega XL_1-\omega^2L_1L_2 - \omega^2M^2)^2 + (XR_1 + \omega L_2R_1 + \omega L_1R_1)^2}|E|^2
+P = \frac{\omega^2 M^2R_L}{(R_1R_L-\omega XL_1-\omega^2L_1L_2 + \omega^2M^2)^2 + (XR_1 + \omega L_2R_1 + \omega L_1R_L)^2}|E|^2
 $$
 
 #### (2)
@@ -324,11 +327,11 @@ P = \frac{\omega^2 M^2R_L}{\{\omega(R_1L_2 + R_LL_1) + R_1X\}^2 + \{R_1R_L + \om
 $$
 
 $$
-f(X) = \{\omega(R_1L_2 + R_LL_1) + R_1X\}^2 + \{R_1R_2 + \omega^2(M^2 - L_1L_2) - \omega L_1X\}^2
+f(X) = \{\omega(R_1L_2 + R_LL_1) + R_1X\}^2 + \{R_1R_L + \omega^2(M^2 - L_1L_2) - \omega L_1X\}^2
 $$
 
 $$
-\frac{\partial f(X)}{\partial X} = 2\{\omega(R_1L_2 + R_LL_1) + R_1X\} \cdot R_1 + 2\{R_1R_2 + \omega^2(M^2 - L_1L_2) - \omega L_1X\} \cdot (-\omega L_1)
+\frac{\partial f(X)}{\partial X} = 2\{\omega(R_1L_2 + R_LL_1) + R_1X\} \cdot R_1 + 2\{R_1R_L + \omega^2(M^2 - L_1L_2) - \omega L_1X\} \cdot (-\omega L_1)
 $$
 
 $\frac{\partial f(X)}{\partial X} = 0$ になる $X$ を求める。
@@ -337,12 +340,15 @@ $$
 \begin{aligned}
 \{\omega(R_1L_2 + R_LL_1) + R_1X\}R_1 &= \omega L_1\{R_1R_L + \omega^2(M^2 - L_1L_2) - \omega L_1X\} \\
 \omega R_1(R_1L_2 + R_LL_1) + R_1^2X &= R_1R_L\omega L_1 + \omega^3 L_1(M^2 - L_1L_2) - \omega^2 L_1^2X \\
-(R_1^2 + \omega^2L_1^2)X &= \omega^3L_1M^2 - \omega^3L_1^2L_2 - \omega R_L^2L_2 \\
+(R_1^2 + \omega^2L_1^2)X &= \omega^3L_1M^2 - \omega^3L_1^2L_2 - \omega R_1^2L_2 \\
 (R_1^2 + \omega^2L_1^2)X &= \omega^3L_1M^2 - \omega L_2(\omega^2L_1^2 + R_1^2) \\
 X &= \frac{\omega^3L_1M^2}{R_1^2 + \omega^2 L_1^2} - \omega L_2 \\
 &= \omega\bigg\{\frac{\omega^2L_1M^2}{R_1^2 + \omega^2L_1^2} - L_2\bigg\}
 \end{aligned}
 $$
+
+
+$f^{\prime\prime}(X)=2(R_1^2+\omega^2L_1^2)>0$ なので、$M E\ne0$ のときこの点が唯一の最大電力条件である。
 
 ### 【問 3】
 <figure style="text-align:center;">
@@ -350,148 +356,47 @@ $$
 </figure>
 
 #### (1)
-図のように節点番号と電流を $I_0 \sim I_5$ と定義文字が7つあるので、7つの方程式を立てる
+電源の下側を基準電位 $0$、上側を $E$ とし、図 3 の右上、右下、中央の電位をそれぞれ $V_a,V_b,V_c$ とする。$I$ は $r$ を上から下に流れるので、$V_a-V_b=rI$ である。
+
+右上と右下の節点にキルヒホッフの電流則を適用すると、
 
 $$
-\begin{align}
-&I_0 + I_1 = I_3 + I_5 \tag{\textcircled{1}} \\
-&I_1 = I + I_2 \tag{\textcircled{2}} \\
-&I_2 = I_3 + I_4 \tag{\textcircled{3}} \\
-&I_5 = I_4 + I \tag{\textcircled{4}} \\
-&E = Z_0(I_0 + I_3) \tag{\textcircled{5}} \\
-&rI = Z_1I_2 + Z_2I_4 \tag{\textcircled{6}} \\
-&E = Z_1I_1 + rI + Z_2I_5 \tag{\textcircled{7}} \\
-\end{align}
+\frac{E-V_a}{z_1}+\frac{V_c-V_a}{z_1}=I,
+\qquad
+\frac{V_b}{z_2}+\frac{V_b-V_c}{z_2}=I.
 $$
 
-② を用いて、$I_1$ を消去
-
-① より、
+したがって
 
 $$
-\begin{align}
-I_0 + I + I_2 = I_3 + I_5 \tag{\textcircled{1}'}
-\end{align}
+2V_a=E+V_c-z_1I,\qquad 2V_b=V_c+z_2I.
 $$
 
-⑦ より、
+差を取れば中央電位が消去でき、
 
 $$
-\begin{align}
-E &= Z_1(I_1 + I_2) + rI + Z_2I_5 \notag \\
-E &= (Z_1 + r)I + Z_1I_2 + Z_2I_5 \tag{\textcircled{7}'}
-\end{align}
+2rI=E-(z_1+z_2)I.
 $$
 
-③ を用いて、$I_2$ を消去
-
-①' に代入すると、
+よって
 
 $$
-\begin{align}
-I_0 + I + I_3 + I_4 &= I_3 + I_5 \notag \\
-I_0 + I + I_4 &= I_5 \tag{\textcircled{8}}
-\end{align}
+\boxed{I=\frac{E}{z_1+z_2+2r}}.
 $$
 
-⑥ に代入
-
-$$
-\begin{align}
-rI &= Z_1(I_3 + I_4) + Z_2I_4 \notag \\
-r_I &= Z_1I_3 + (Z_1 + Z_2)I_4 \tag{\textcircled{6}'}
-\end{align}
-$$
-
-⑦' に代入
-
-$$
-\begin{align}
-E = (Z_1 + r)I + Z_1(I_3 + I_4) + Z_2I_5 \tag{\textcircled{7}''}
-\end{align}
-$$
-
-④ を用いて、$I_3$ を消去
-
-⑧ に代入
-
-$$
-\begin{align}
-I_0 + I + I_4 = I_4 + I \Leftrightarrow I_0 = 0 \tag{\textcircled{9}}
-\end{align}
-$$
-
-⑦'' に代入
-
-$$
-\begin{align}
-E &= (Z_1 + r)I + Z_1(I_3 + I_4) + Z_2(I_4 + I) \notag \\
-E &= (Z_1 + Z_2 + r)I + Z_1I_3 + (Z_1 + Z_2)I_4 \tag{\textcircled{7}'''}
-\end{align}
-$$
-
-⑨ を用いて、$I_0$ を消去
-
-⑤ より、
-
-$$
-\begin{align}
-E = Z_0I_3 \notag \\
-\therefore \ I_3 = \frac{E}{Z_0} \tag{\textcircled{10}}
-\end{align}
-$$
-
-⑩ を用いて、$I_3$ を消去
-
-⑥' より、
-
-$$
-rI = Z_1 \cdot \frac{E}{Z_0} + (Z_1 + Z_2)I_4 \tag{\textcircled{6}''}
-$$
-
-⑦'' より、
-
-$$
-\begin{align}
-E = (Z_1 + Z_2 + r)I + \frac{Z_1}{Z_0}E + (Z_1 + Z_2)I_4 \notag \\
-\frac{Z_0 - Z_1}{Z_0}E - (Z_1 + Z_2 + r)I = (Z_1 + Z_2)I_4 \tag{\textcircled{11}}
-\end{align}
-$$
-
-⑪ を ⑥'' に代入 $(Z_1 + Z_2)I_4$ を消去
-
-$$
-\begin{aligned}
-rI &= \frac{Z_1}{Z_0}E + E - \frac{Z_1}{Z_0}E - (Z_1 + Z_2 + r)I \\
-rI &= E - (Z_1 + Z_2 + r)I \\
-&\therefore I = \frac{E}{Z_1 + Z_2 + 2r}
-\end{aligned}
-$$
+この結果は $z_0$ に依存しないが、$z_0$ を流れる電流が零という意味ではない。
 
 #### (2)
-(1) の結果から、
+図の負荷電流 $I$ と電源電圧 $E$ が同相となる条件 $\arg(E/I)=0$ を求める。
 
 $$
-I = \frac{E}{Z_1 + Z_2 + 2r}
+\frac{E}{I}=2r+j(X_1-X_2).
 $$
 
-$$
-Z_1 + Z_2 + 2r = \frac{E}{I} \Leftrightarrow \arg(\frac{E}{2}) = \arg(Z_1 + Z_2 + 2r)
-$$
-
-両辺の $\arg$ をとる
+$r>0$ なので、同相となる条件は
 
 $$
-\arg(Z_1 + Z_2 + 2r) = 0 \Leftrightarrow \arg(jX_1 - jX_2 + 2r) = 0
-$$
-
-虚部が $0$ であればよい。
-
-$$
-\begin{aligned}
-X_1 - X_2 & = 0 \\
-X_1 &= X_2
-\end{aligned}
+\boxed{X_1=X_2}.
 $$
 
 ### 【問 4】
@@ -528,8 +433,8 @@ $$
 \begin{aligned}
 \frac{1}{2}CE &= CE + A \\
 A &= -\frac{1}{2}CE \\
-q(T) &= CE - \frac{1}{2}CE e^{-\frac{t}{CR_1}} \\
-&= CE (1 - \frac{1}{2}CE e^{-\frac{t}{CR_1}})
+q(t) &= CE - \frac{1}{2}CE e^{-\frac{t}{CR_1}} \\
+&= CE (1 - \frac{1}{2}e^{-\frac{t}{CR_1}})
 \end{aligned}
 $$
 
@@ -540,136 +445,43 @@ q(t) = 2\sqrt{3}(1 - \frac{1}{2}e^{-\frac{t}{8}})\ (t > 0)
 $$
 
 #### (2)
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/ISEE/ist_2019_circuit_theory_p7.png" width="387" height="223" alt=""/>
-</figure>
-
-$q(-0) = 2\sqrt{3},i(0) = 0$
-
-電荷量保存則より、
+切替前は $q(0^-)=CE=2\sqrt3$、コイル電流は零である。コンデンサ電圧とコイル電流の連続性から、$q(0^+)=2\sqrt3$、$i(0^+)=0$ となる。図の電流の向きでは $i=q'$ なので、
 
 $$
-\begin{aligned}
-q(0) &= 2\sqrt{3},i(0) = 0 \\
-\frac{1}{C}q(t) &= -R_2i(t) - L\frac{di(t)}{dt} \\
-\end{aligned}
+Lq''+R_2q'+\frac{q}{C}=0,
+\qquad q''+2q'+\frac14q=0.
 $$
 
-$i(t) = \frac{dq(t)}{dt}$ より、
+特性根は $\lambda_\pm=-1\pm\sqrt3/2$ である。初期条件を用いると
 
 $$
-\frac{1}{C}q(t) + R_2i(t) + L\frac{di(t)}{dt} = 0
+q(t)=(\sqrt3+2)e^{\lambda_+t}+(\sqrt3-2)e^{\lambda_-t}.
 $$
 
-$$
-L \frac{d^2q(t)}{dt^2} + R_2\frac{dq(t)}{dt} + \frac{1}{C}q(t) = 0
-$$
-
-$L = 1,R_2 = 2$ を代入すると、
+したがって
 
 $$
-\frac{d^2q(t)}{dt^2} + 2\frac{dq(t)}{dt} + \frac{1}{C}q(t) = 0
+\boxed{i(t)=\frac12\left(e^{(-1-\sqrt3/2)t}-e^{(-1+\sqrt3/2)t}\right)\quad(t>0)}.
 $$
-
-特性方程式を解いて、
-
-$$
-\lambda^2 + 2\lambda + \frac{1}{4} = 0
-$$
-
-$$
-\lambda = -1 \pm \frac{\sqrt{3}}{2}
-$$
-
-$$
-\lambda_1 = -1 + \frac{\sqrt{3}}{2},\lambda_2 = -1 - \frac{\sqrt{3}}{2}
-$$
-
-$$
-\begin{aligned}
-q(t) &= A\exp(-1 + \frac{\sqrt{3}}{2})t + B\exp(-1 - \frac{\sqrt{3}}{2})t \\
-i(t) &= A(-1 + \frac{\sqrt{3}}{2})\exp(-1 + \frac{\sqrt{3}}{2})t + B(-1 - \frac{\sqrt{3}}{2})\exp(-1 - \frac{\sqrt{3}}{2})t
-\end{aligned}
-$$
-
-$q(0) = 2\sqrt{3},i(0) = 0$ より、
-
-$$
-\left \{
-\begin{aligned}
-&2\sqrt{3} = A + B \\
-&0 = A (-1 + \frac{\sqrt{3}}{2}) + B(-1 - \frac{\sqrt{3}}{2})
-\end{aligned}
-\right.
-$$
-
-$$
-A = \sqrt{3} + 2,B = \sqrt{3} - 2
-$$
-
-よって、$i(t) = \frac{1}{2}\exp(-1 - \frac{\sqrt{3}}{2})t - \frac{1}{2}\exp(-1 + \frac{\sqrt{3}}{2})t \quad (t > 0)$
 
 #### (3)
-絶対値をとる(大きさなので)
+$t>0$ では $i(t)<0$ なので
 
 $$
-i(t) = \frac{1}{2}[\exp\{(-1 - \frac{\sqrt{3}}{2})t\} - \exp\{(-1 + \frac{\sqrt{3}}{2})t\}]
+|i(t)|=\frac12\left(e^{\lambda_+t}-e^{\lambda_-t}\right).
 $$
 
-$t > 0$ における、$|i(t)|$ が最大となるのは、
-
-$\frac{d}{dt}\bigg|i(t)\bigg| = 0$ かつ、$\frac{d^2}{dt^2}\bigg|i(t)\bigg| < 0$ をみたす $t$ のとき  
+微分が零となる条件は
 
 $$
-\begin{aligned}
-\frac{d}{dt}\bigg|i(t)\bigg| &= \frac{1}{2}
-\bigg[(-1 + \frac{\sqrt{3}}{2})\exp\{(-1 + \frac{\sqrt{3}}{2})t\} + (1 + \frac{\sqrt{3}}{2})\exp\{(-1 - \frac{\sqrt{3}}{2})t\}\bigg] \\
-\frac{d^2}{d^2t^2}\bigg|i(t)\bigg| &= \frac{1}{2}\bigg[(-1 + \frac{\sqrt{3}}{2})^2\exp\{(-1 + \frac{\sqrt{3}}{2})t\} - (1 + \frac{\sqrt{3}}{2})^2\exp\{(-1 - \frac{\sqrt{3}}{2})t\}\bigg] 
-\end{aligned}
+\lambda_+e^{\lambda_+t}=\lambda_-e^{\lambda_-t},
+\qquad e^{\sqrt3t}=\frac{2+\sqrt3}{2-\sqrt3}=(2+\sqrt3)^2.
 $$
 
-$$
-A = \frac{1}{2}(-1 + \frac{\sqrt{3}}{2})^2\exp\{(-1 + \frac{\sqrt{3}}{2})t\}\quad,
-B = (1 + \frac{\sqrt{3}}{2})^2\exp\{(-1 - \frac{\sqrt{3}}{2})t\}
-$$
-
-$\frac{d}{dt}\bigg|i(t)\bigg| = 0$ から、
+したがって
 
 $$
-(-2 + \sqrt{3})\exp\{(-1 + \frac{\sqrt{3}}{2})t\}\exp\{(1 + \frac{\sqrt{3}}{2})t\} + 2 + \sqrt{3} = 0
+\boxed{t=\frac{2}{\sqrt3}\log(2+\sqrt3)}.
 $$
 
-$$
-\exp(\sqrt{3}t) = \frac{2 + \sqrt{3}}{2 - \sqrt{3}} = (2 + \sqrt{3})^2
-$$
-
-両辺の $\log$ をとる。
-
-$$
-\begin{aligned}
-\sqrt{3}t &= 2\log(2 + \sqrt{3}) \\
-t &= \frac{2}{\sqrt{3}}\log(2 + \sqrt{3})
-\end{aligned}
-$$
-
-$t = \frac{2}{\sqrt{3}}\log(2 + \sqrt{3})$ のとき、 $\frac{A}{B}$ を考える。
-
-$$
-\begin{aligned}
-\frac{A}{B} &= \bigg(\frac{-1 + \frac{\sqrt{3}}{2}}{1 + \frac{\sqrt{3}}{2}}\bigg)^2\exp\sqrt{3} t \\
-&= \bigg(\frac{-2 + \sqrt{3}}{2 + \sqrt{3}}\bigg)^2 \exp(2\log(2 + \sqrt{3})) \\
-&= \{-(2 - \sqrt{3})^2\}^2 (2 + \sqrt{3})^2 \\
-&= (2 - \sqrt{3})^4 (2 + \sqrt{3})^2 \\
-&= (2 - \sqrt{3})^2 < 1 \Rightarrow \frac{A}{B} < 1 
-\end{aligned}
-$$
-
-$$
-\frac{A}{B} < 1 \Leftrightarrow A < B \Leftrightarrow A - B < 0
-$$
-
-以上から、求める時刻 $t$ は,
-
-$$
-t > \frac{2}{\sqrt{3}}\log(2 + \sqrt{3})
-$$
+この時刻は唯一の正の停留点である。$|i(0)|=0$、$\lim_{t\to\infty}|i(t)|=0$ かつ $t>0$ で $|i(t)|>0$ なので、ここで大域的な最大値を取る。

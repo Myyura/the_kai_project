@@ -123,18 +123,20 @@ flowchart LR
     b3 -->|"同じ周期を反復"| b4["40, 60, ..."]
 ```
 
-$u=t\bmod20$ とすると、バス到着時刻そのものを除いて
+$u=t\bmod20$ とする。時刻0をバス到着の直後とし、各到着直後の値を採る右連続の表示を用いる。
 
 $$
 W(t)=
 \begin{cases}
-x-u,&0<u<x,\\
-x+y-u,&x<u<x+y,\\
-20-u,&x+y<u<20.
+x-u,&0\leq u<x,\\
+x+y-u,&x\leq u<x+y,\\
+20-u,&x+y\leq u<20.
 \end{cases}
 $$
 
-各到着時刻では $W(t)=0$ とする。グラフは各区間の長さを高さとして始まり、傾き $-1$ で0まで下がる3つの鋸歯を1周期とし、$0\leq t\leq60$ ではこれを3回繰り返す。
+したがって $W(0)=W(20)=W(40)=W(60)=x$ である。ちょうど到着したバスに乗れるという別の約束ならその瞬間の待ち時間を0とするが、有限個の点の値は時間平均に影響しない。グラフは各区間の長さを高さとして始まり、傾き $-1$ で0まで下がる3つの鋸歯を1周期とし、$0\leq t\leq60$ ではこれを3回繰り返す。
+
+![待ち時間の鋸歯状グラフ（x=4, y=6 の例）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/waseda_university/CSE/keieisystem/2020/waseda-2019-bus-wait.svg)
 
 ### [小問 2-2]
 

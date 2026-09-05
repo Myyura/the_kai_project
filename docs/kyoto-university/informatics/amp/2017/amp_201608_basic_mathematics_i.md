@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h29_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
+
 $a > 0$を実数として、半無限区間 $[0, \infty)$ 上で定義された関数 $f(x) = e^x - ax^2$ を考える。 $f(x)$ が狭義単調増加であるとき、以下の問いに答えよ。
 
 (i) $f(x)$ は狭義単調増加である。定数 $a$ が取り得る値の範囲を求めよ。

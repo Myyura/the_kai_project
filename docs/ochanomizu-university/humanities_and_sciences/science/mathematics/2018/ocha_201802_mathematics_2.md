@@ -53,7 +53,7 @@ $$
 
 $$
 f\begin{pmatrix}x\\y\\z\end{pmatrix}
-=\begin{pmatrix}x+2y+3\\x^2+xy\end{pmatrix}
+=\begin{pmatrix}x+2y+3\\x^2-xy\end{pmatrix}
 $$
 
 #### (ii)

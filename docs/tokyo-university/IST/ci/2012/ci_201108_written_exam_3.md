@@ -11,6 +11,8 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20151118065550id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2011-8-exam.pdf).
 As shown in Figure 1, there is a robot arm which has rotational joints at three points $O$, $E$ and $W$, and a two-fingered hand at the end $H$ on an $X$-$Y$ two-dimensional plane. The position of the hand $H$ is $(h_x, h_y)$ and the orientation of the hand $H$ is $h_\theta$, the joint angles are $\theta_1, \theta_2$ and $\theta_3$, and the lengths of the links are $\mathrm{OE}=l_1, \mathrm{EW}=l_2$ and $\mathrm{WH}=l_3$. Answer the following questions:
 
 <figure style="text-align:center;">
@@ -50,3 +52,107 @@ $$
 4. 用 $\theta_1,\theta_2,\theta_3$ 写出手爪 $H$ 的位置 $(h_x,h_y)$ 与朝向 $h_\theta$。
 5. 说明如何由给定的 $(h_x,h_y)$ 和 $-\pi<h_\theta\le\pi$ 求三关节角 $\theta_1,\theta_2,\theta_3$，每个角均限制在 $(-\pi,\pi]$。
 6. 如图 3，手爪起始位于 $P$，目标物体位于 $Q$，障碍物位于 $R$。说明如何生成机械臂的关节角轨迹，使其不与 $R$ 碰撞并最终抓取 $Q$。
+
+
+## **Kai**
+
+The three joint angles in Figure 1 are relative, counterclockwise angles. Assume $l_1,l_2,l_3>0$. Write $\operatorname{wrap}(\alpha)$ for the unique representative of $\alpha$ modulo $2\pi$ in $(-\pi,\pi]$; in particular $-\pi$ is represented by $\pi$.
+
+### (1) Position of $W$
+
+The absolute directions of the first and second links are $\theta_1$ and $\theta_1+\theta_2$, respectively. Therefore
+
+$$
+\boxed{w_x=l_1\cos\theta_1+l_2\cos(\theta_1+\theta_2),\qquad
+w_y=l_1\sin\theta_1+l_2\sin(\theta_1+\theta_2).}
+$$
+
+### (2) Two-argument arctangent
+
+For $(x,y)\ne(0,0)$, define
+
+$$
+\boxed{\operatorname{atan}(y,x)=
+\begin{cases}
+\tan^{-1}(y/x),&x>0,\\
+\tan^{-1}(y/x)+\pi,&x<0,\ y\ge0,\\
+\tan^{-1}(y/x)-\pi,&x<0,\ y<0,\\
+\pi/2,&x=0,\ y>0,\\
+-\pi/2,&x=0,\ y<0.
+\end{cases}}
+$$
+
+In particular the negative $X$ axis has angle $\pi$, and no division by zero is used on the $Y$ axis. The function is undefined at the origin.
+
+### (3) Inverse kinematics of the first two links
+
+Let $r^2=w_x^2+w_y^2$. By taking the squared norm in (1),
+
+$$
+r^2=l_1^2+l_2^2+2l_1l_2\cos\theta_2.
+$$
+
+A solution exists exactly when
+
+$$
+|l_1-l_2|\le r\le l_1+l_2.
+$$
+
+For a reachable point with $r>0$, compute
+
+$$
+c=\frac{r^2-l_1^2-l_2^2}{2l_1l_2},\qquad
+s=\pm\sqrt{1-c^2}.
+$$
+
+For each sign, set
+
+$$
+\boxed{\begin{aligned}
+\theta_2&=\operatorname{atan}(s,c),\\
+\theta_1&=\operatorname{wrap}\!\left[
+\operatorname{atan}(w_y,w_x)-\operatorname{atan}(l_2s,l_1+l_2c)
+\right].
+\end{aligned}}
+$$
+
+These follow from $w_x+iw_y=e^{i\theta_1}(l_1+l_2e^{i\theta_2})$. Normally the two signs give the two elbow configurations. At $c=1$ or $c=-1$, the branches coincide modulo $2\pi$, so retain just one distinct solution; use $\theta_2=\pi$ when $c=-1$.
+
+The excluded exceptional case $r=0$ is reachable only when $l_1=l_2$. Then $\theta_2=\pi$ and **every** $\theta_1\in(-\pi,\pi]$ is a solution. One must handle this separately instead of calling $\operatorname{atan}(0,0)$. Unreachable targets yield no solution. In floating-point implementation, clamp $c$ to $[-1,1]$ only for a small roundoff error after the reachability check, not for a genuinely unreachable target.
+
+### (4) Hand pose
+
+Let $\alpha=\theta_1+\theta_2+\theta_3$. The final link points along the hand's orientation, so
+
+$$
+\boxed{\begin{aligned}
+h_x&=l_1\cos\theta_1+l_2\cos(\theta_1+\theta_2)+l_3\cos\alpha,\\
+h_y&=l_1\sin\theta_1+l_2\sin(\theta_1+\theta_2)+l_3\sin\alpha,\\
+h_\theta&=\operatorname{wrap}(\alpha).
+\end{aligned}}
+$$
+
+### (5) Inverse kinematics of the full hand pose
+
+First subtract the final link, whose absolute orientation is specified:
+
+$$
+w_x=h_x-l_3\cos h_\theta,\qquad
+w_y=h_y-l_3\sin h_\theta.
+$$
+
+Apply all reachability, branch and degenerate-case rules from (3) to obtain $(\theta_1,\theta_2)$. For each resulting pair choose
+
+$$
+\boxed{\theta_3=\operatorname{wrap}(h_\theta-\theta_1-\theta_2).}
+$$
+
+With no further mechanical joint limits stated, this gives every solution in the required principal-angle intervals. When $l_1=l_2$ and $W=O$, there is a one-parameter family: arbitrary $\theta_1$, $\theta_2=\pi$, and $\theta_3$ as above. If the wrist point is unreachable, the requested pose is unreachable even when the hand position alone might be reachable with another orientation.
+
+### (6) Collision-free joint trajectory
+
+Work in configuration space $q=(\theta_1,\theta_2,\theta_3)$, with periodic angular coordinates. For each configuration compute all link segments and the two-finger geometry from forward kinematics. A configuration is forbidden if **any** link or part of the hand intersects $R$, or if self-collision or an actual joint limit occurs. Include a clearance margin for the arm's finite thickness and uncertainty. Checking only the hand position would allow an intermediate link to strike $R$.
+
+Choose a grasp pose at $Q$ with an appropriate approach orientation and finger opening. Solve (5) to obtain all possible goal configurations; choose an accessible branch, not merely the one closest in end-effector position. Model contact with $Q$ separately: it is allowed at the intended grasp surfaces during the final approach, while unintended contact earlier in the motion remains forbidden.
+
+Construct a collision-free configuration-space path from the given initial configuration at $P$ to one of these goals, for example using a discretized search, a probabilistic roadmap or an RRT. Test the entire interpolating segment for each proposed edge, with continuous collision checking or conservative subdivision; collision-free endpoints alone do not suffice. Then shorten or smooth the path only while preserving clearance, and time-parameterize it to satisfy velocity and acceleration limits. Use continuous, unwrapped angle values during motion so that crossing the $\pi/-\pi$ representation boundary does not introduce a spurious $2\pi$ jump. Follow the path, approach $Q$, and close the fingers. A failed finite-resolution or finite-sample search is not itself proof that no feasible path exists.

@@ -1,10 +1,10 @@
 ---
-sidebar_label: "2024年度 数学 問4"
+sidebar_label: "2023年8月実施 数学 問4"
 tags:
   - Kyushu-University
   - Mathematics.Linear-Algebra.Least-Squares-and-Minimum-Norm-Solutions
 ---
-# 九州大学 工学府 機械系専攻 2024年度 数学 問4
+# 九州大学 工学府 機械系専攻 2023年8月実施 数学 問4
 
 ## **Author**
 
@@ -45,7 +45,7 @@ $$
    M=\begin{pmatrix}4&2&6\\2&6&8\\6&8&18\end{pmatrix}
    $$
 
-   である。$M=LL^{\mathsf T}$ となる下三角行列 $L$ を求めよ。
+   である。$M=LL^{\mathsf T}$ となる、全成分が非負の下三角行列 $L$ を求めよ。
 2. 4 点を近似する二次多項式を求めよ。
 
 ## **Kai**

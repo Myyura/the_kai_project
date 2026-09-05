@@ -13,7 +13,7 @@ tags:
 
 ## **Description**
 
-`data.txt` の第1行に整数 $n,s_1,s_2$（$n\ge1, s_1<s_2$）、第2行以降に $n$ 組の整数 `ID score` が記録される。次の主要部分を持つANSI Cプログラムを考える。
+`data.txt` の第1行に整数 $n,s_1,s_2$（$n\ge1, s_1<s_2$）、第2行以降に $n$ 組の整数 `ID score` が記録される。次の主要部分を持つANSI Cプログラムを考える。`student_type` は整数メンバ `id, score` を持つ構造体である。`main` は入力を読み終えた後、`funcA(students,n)`、`funcC(students,n,s1,s2)` の順に呼ぶ。これは[公式問題（2ページ）](https://www.ist.osaka-u.ac.jp/files/examinees/admission/past-exam/5_Information%20engineering_2026_JA.pdf)の省略部分を要約したものである。
 
 ```text
  9  void funcA(student_type students[], int n)

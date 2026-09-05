@@ -14,6 +14,8 @@ tags:
 [机智的若叶](https://zhuanlan.zhihu.com/p/678084976), 祭音Myyura, [setsu (小红书:6106647283)](https://www.xiaohongshu.com/explore/67834463000000000900f23c?xsec_token=ABGo3l42GPr_Kc5QE3V2QszJeqd6eVuy2Z7437pXsQYI8=)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_sys.pdf)
 ### 問1
 以下の設問に答えよ。以降では、 $e$ はネイピア数（自然対数の底）、 $\pi$ は円周率を表す。
 
@@ -28,7 +30,7 @@ $$
 ただし、以下が成り立つことを用いてよい。
 
 $$
-\int_0^{\infty} e^{x^2} \ dx = \frac{\pi}{2}
+\int_0^{\infty} e^{-x^2} \ dx = \frac{\sqrt{\pi}}{2}
 $$
 
 (iii) $xy$ 平面上の閉領域 $D=\{(x,y): x \ge 0, y \ge 0, x+y \le 1\}$ に対して以下の積分を求めよ。
@@ -80,14 +82,11 @@ $$
 \int_0^\infty x^{-3/2}(1-e^{-x})\,dx.
 $$
 
-现有日文题面在此写明可以使用
+可以使用
 
 $$
-\int_0^\infty e^{x^2}\,dx=\frac{\pi}{2}.
+\int_0^\infty e^{-x^2}\,dx=\frac{\sqrt\pi}{2}.
 $$
-
-但该式按字面发散，且常数也与标准 Gaussian 积分不符；Kai 的计算唯一对应于
-$\int_0^\infty e^{-x^2}\,dx=\sqrt{\pi}/2$，因此原题此处存在符号或常数缺失，无法由现有题面进一步确定。
 
    3. 对 $xy$ 平面上的闭三角区域
 

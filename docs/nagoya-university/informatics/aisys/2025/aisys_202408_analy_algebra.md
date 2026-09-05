@@ -17,11 +17,10 @@ tags:
 祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
-###
 
-$$
-1
-$$
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/22603be6c5f792ba497a10d9f551bd22.pdf)
+
+### [1]
 
 次の微分方程式 (1) に対して、以下の問いに答えよ。
 
@@ -31,21 +30,17 @@ $$
 \end{aligned}
 $$
 
-(a) $\bm{u}^\top = \left(x, \frac{dx}{dt}, \frac{d^2x}{dt^2}\right)$ とすると、式(1) は $A\bm{u} = \frac{d\bm{u}}{dt}$ と表せる。このとき、行列 $A$ を求めよ。
+(a) $\bm{u}^\top = \left(x, \frac{dx}{dt}, \frac{d^2x}{dt^2}\right)$ とすると、式(1) は $A\bm{u} = \frac{d\bm{u}}{dt}$ と表せる。このとき、行列 $A$ を求めよ。ただし、$\bm{u}^{\top}$ は $\bm{u}$ の転置を表す。
 
 (b) 行列 $A$ の固有値を求めよ。
 
 (c) 微分方程式 (1) を解け。
 
-###
-
-$$
-2
-$$
+### [2]
 
 複素数について、以下の問いに答えよ。
 
-(a) 複素数 $a_1 = \sqrt{3} + i, a_2 = 2i$ に対して、絶対値と偏角を示せ。
+(a) 複素数 $a_1 = \sqrt{3} + i, a_2 = 2i$ に対して、$a_1/a_2$ の絶対値と偏角を示せ。ただし、$i$ は虚数単位を表す。
 
 (b) 3つの複素数 $z_1, z_2, z_3$ を複素平面上の点にそれぞれ対応させる。これらの点が正三角形をなすとき、次の式 (2) が成り立つことを示せ。
 
@@ -55,16 +50,12 @@ $$
 \end{aligned}
 $$
 
-###
-
-$$
-3
-$$
+### [3]
 
 次の立体について、以下の問いに答えよ。
 
 $$
-V = \{(x,y,z) \in \mathbb{R}^3 \mid x^{\frac{2}{3}} + y^{\frac{2}{3}} + z^{\frac{2}{3}} \le 1, x \ge 0, y \ge 0, z \ge 0\}
+V = \{(x,y,z) \in \mathbb{R}^3 \mid x^{\frac{2}{3}} + y^{\frac{2}{3}} + z^{\frac{2}{3}} \le 1, x > 0, y > 0, z > 0\}
 $$
 
 なお、
@@ -72,7 +63,7 @@ $$
 $$
 \int_0^{\pi/2} \sin^n x dx = \int_0^{\pi/2} \cos^n x dx = \begin{cases}
     \displaystyle \frac{(n-1)(n-3)\cdots 3\cdot 1}{n(n-2) \cdots 4 \cdot 2} \cdot \frac{\pi}{2} &(n \geq 2 \text{ and } n \text{ is even}) \\
-    \displaystyle \frac{(n-1)(n-3)\cdots 4\cdot 2}{n(n-2) \cdots 5 \cdot 3} \cdot \frac{\pi}{2} &(n \geq 3 \text{ and } n \text{ is odd}) \\
+    \displaystyle \frac{(n-1)(n-3)\cdots 4\cdot 2}{n(n-2) \cdots 5 \cdot 3} &(n \geq 3 \text{ and } n \text{ is odd}) \\
 \end{cases}
 $$
 
@@ -82,7 +73,7 @@ $$
 
 (b) $S$ の面積を求めよ。
 
-(c) $V$ 体積を求めよ。
+(c) $V$ の体積を求めよ。
 
 ### 题目描述
 
@@ -225,23 +216,13 @@ $$
 ### [2]
 
 #### (a)
-将 $a_1, a_2$ 转换为极坐标形式：
+复数之商为
 
 $$
-a_1 = 2\left(\frac{\sqrt{3}}{2} + \frac{1}{2}i\right) = 2e^{i\frac{\pi}{6}}
+\frac{a_1}{a_2}=\frac{\sqrt3+i}{2i}=\frac12-\frac{\sqrt3}{2}i=e^{-i\pi/3}.
 $$
 
-$$
-a_2 = 2(0 + i) = 2e^{i\frac{\pi}{2}}
-$$
-
-因此
-
-$$
-|a_1|=2,\quad \arg a_1=\frac{\pi}{6}+2k\pi;\qquad
-|a_2|=2,\quad \arg a_2=\frac{\pi}{2}+2k\pi
-\quad(k\in\mathbb Z).
-$$
+因此 $|a_1/a_2|=1$，$\arg(a_1/a_2)=-\pi/3+2k\pi$ ($k\in\mathbb Z$)。
 
 #### (b)
 若 $z_1, z_2, z_3$ 构成正三角形，则向量 $z_3 - z_1$ 可由 $z_2 - z_1$ 旋转 $\pm 60^\circ$ 得到。即：
@@ -291,7 +272,7 @@ $$
 截面 $S$ 满足 $z=k$ ，代入不等式得：
 
 $$
-x^{\frac{2}{3}} + y^{\frac{2}{3}} \le 1 - k^{\frac{2}{3}} \quad (0 \le k \le 1)
+x^{\frac{2}{3}} + y^{\frac{2}{3}} \le 1 - k^{\frac{2}{3}} \quad (0 < k < 1)
 $$
 
 代入变换 $x = r \cos^3 t, y = r \sin^3 t$ ：
@@ -301,12 +282,14 @@ $$
 $$
 
 于是有 $r^{\frac{2}{3}} \le 1 - k^{\frac{2}{3}} \implies r \le (1 - k^{\frac{2}{3}})^{\frac{3}{2}}$ 。
-又因为 $x, y \ge 0$ ，所以 $\cos^3 t \ge 0, \sin^3 t \ge 0$ ，故 $t$ 在第一象限。
+又因为 $x,y>0$，可取 $r>0$、$0<t<\pi/2$。
 范围为：
 
 $$
-0 \le r \le \left(1 - k^{\frac{2}{3}}\right)^{\frac{3}{2}}, \quad 0 \le t \le \frac{\pi}{2}
+0 < r \le \left(1 - k^{\frac{2}{3}}\right)^{\frac{3}{2}}, \quad 0 < t < \frac{\pi}{2}
 $$
+
+当 $k\notin(0,1)$ 时，截面为空。
 
 #### (b)
 计算坐标变换的雅可比行列式 $J$ ：
@@ -319,7 +302,7 @@ J = \det \frac{\partial(x, y)}{\partial(r, t)} &= \begin{vmatrix} \cos^3 t & -3r
 \end{aligned}
 $$
 
-面积积分 $S(k)$ ：
+坐标轴边界的面积为零，因此可使用包含端点的积分区间。面积积分 $S(k)$：
 
 $$
 S(k) = \int_0^{\frac{\pi}{2}} \int_0^{(1 - k^{\frac{2}{3}})^{\frac{3}{2}}} 3r \sin^2 t \cos^2 t \, dr \, dt

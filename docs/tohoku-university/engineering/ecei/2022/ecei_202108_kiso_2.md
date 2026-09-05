@@ -81,15 +81,15 @@ $$
 导纳为实数来推导：
 
 $$
-Y = \frac{1}{8 + 8j} + j\omega C = \frac{8 - 8j}{128} + j\omega C
+Y = \frac{1}{8 + 8j} + j\omega C_S = \frac{8 - 8j}{128} + j\omega C_S
 $$
 
 $$
-\omega C = \frac{8}{128} = \frac{1}{16}
+\omega C_S = \frac{8}{128} = \frac{1}{16}
 $$
 
 $$
-C = \frac{1}{1600\pi}
+C_S = \frac{1}{1600\pi}\ \mathrm F
 $$
 
 #### (d)
@@ -101,6 +101,12 @@ $$
 $$
 I_S = V \cdot Y = \frac{25}{4}
 $$
+
+并联的理想电容不消耗有功功率，也不改变原串联支路的电压，所以补偿后电阻耗能仍为 $\boxed{625\,\mathrm W}$。
+
+以 $E=100\angle0^\circ\,\mathrm V$ 为基准，$I=6.25-j6.25\,\mathrm A$（$|I|=25\sqrt2/4\,\mathrm A,\theta=-\pi/4$），补偿电容电流为 $I_C=j6.25\,\mathrm A$，故 $I_S=I+I_C=6.25\angle0^\circ\,\mathrm A$。
+
+![功率因数补偿相量图；电压与电流分别标注尺度](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei/2022/ecei_202108_phasors.svg)
 
 ### (2)
 用T型等效的电桥平衡：

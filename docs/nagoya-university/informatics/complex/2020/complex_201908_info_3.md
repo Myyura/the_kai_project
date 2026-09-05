@@ -13,6 +13,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/c8ec0bee415406f264381871ecdf4add.pdf)
 ヒープは木構造の1つで、完全2分木により表現される。木の根である節の番号を1とし、節の数が増えるに応じて、2、3、…と順に節に番号を割り振る。各節は値を持つ。ここでは、親の節の値が子の節の値以下となっているヒープ（最小ヒープ）を考える。
 
 \[1\] 以下の配列をヒープの木構造として図示する場合、アからエに対応する節番号を示せ。
@@ -232,6 +234,10 @@ $$
 $$
 
 である。
+
+各取り出し直後と交換後の木を順に並べると、次のとおりである。パネルは左から右、上から下へ読む。
+
+![最小ヒープから各要素を取り出す際の全12状態](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2020/nagoya-complex2020-heapsort.svg)
 
 ### \[6\]
 

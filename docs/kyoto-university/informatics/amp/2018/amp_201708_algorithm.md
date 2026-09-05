@@ -11,6 +11,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h30_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 連結単純無向グラフ $G=(V,E)$ と節点 $s \in V$ が与えられたとき、$s$ を始点とする幅優先探索により得られる $G$ の全域木を $T$ とし、$T$ 上で $s$ からの距離 $i$ である節点の集合を $V_i$ と記す。
 以下の問いに答えよ。
 

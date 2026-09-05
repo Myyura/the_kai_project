@@ -26,6 +26,9 @@ $$
 
 (3) $X$ の分散 $V(X)$ を $\lambda$ で表しなさい。
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20171031151037id_/http://www.is.nagoya-u.ac.jp/exam-old/d21608.pdf)
+
 ### 题目描述
 
 随机变量 $X$ 的概率密度函数为

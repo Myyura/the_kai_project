@@ -5,13 +5,13 @@ tags:
   - Computer-Science.Algorithm-Design.Merge-Sort
   - Computer-Science.Programming
 ---
-# 名古屋大学 情報学研究科 情報システム学専攻・知能システム学専攻 2016年8月実施 プログラミング
+# 名古屋大学 情報科学研究科 情報システム学専攻 2016年8月実施 プログラミング
 
 ## **Author**
 祭音Myyura
 
 ## **Description**
-プログラム P は, 与えられた整数の配列 $\text{numbers}$ ($s$ 個の要素を持つ) を $\text{numbers}[0] \le \text{numbers}[1] \le \cdots \le \text{numbers}[s-1]$ となるようなソートするC言語プログラムである. 
+プログラム P は, 与えられた整数の配列 $\text{numbers}$ ($s$ 個の要素を持つ) を $\text{numbers}[0] \le \text{numbers}[1] \le \cdots \le \text{numbers}[s-1]$ となるようソートするC言語プログラムである.
 プログラム P に対して以下の問いに答えよ. 
 
 (1) 11, 14 行目の空欄 A, B, C, D にあてはまる式を答えよ.
@@ -28,7 +28,7 @@ tags:
 
 プログラム P (行頭の数字は行番号を表す)
 
-```text
+```c showLineNumbers
 #include <stdio.h>
 #define N 10
 void func1(int* numbers, int start, int size) {
@@ -46,11 +46,11 @@ void func1(int* numbers, int start, int size) {
             j++;
         }
     }
-    /* printf("%d, %d, %d, %d, %d, %d\n", tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5]); */
+    /* printf("%d,%d,%d,%d,%d,%d\n", tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5]); */
     for (k = 0; k < size; k++) {
         numbers[start + k] = tmp[k];
     }
-    /* printf("%d, %d, %d, %d, %d, %d\n", numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]); */
+    /* printf("%d,%d,%d,%d,%d,%d\n", numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]); */
 }
 void func2(int* numbers, int start, int size) {
     int h;
@@ -69,6 +69,9 @@ void main(int argc, char** argv) {
     func2(numbers, 0, 6);
 }
 ```
+
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20171031151037id_/http://www.is.nagoya-u.ac.jp/exam-old/d21608.pdf)
 
 ### 题目描述
 
@@ -97,7 +100,9 @@ $numbers[0]\le numbers[1]\le\cdots\le numbers[s-1]$。程序由负责合并两�
 - \[ 空欄 G \]: size - h
 
 ### (3)
-m
+配列全体の $m$ 要素を整列するとき、合併用の作業領域には $N\ge m$ が必要であり、必要な要素数は $m$ である。
+
+4 行目の10個の初期化子をそのまま用いる場合は、Cの配列初期化の制約から $N\ge10$ も必要となり、$N\ge\max\{m,10\}$ とする。初期化を `tmp[N] = {0}` とすれば、この追加制約はなくなる。
 
 ### (4)
 Output:
@@ -120,24 +125,24 @@ Output:
 Line 18 outputs the following values in execution order:
 
 ```text
-2, 5, 0, 0, 0, 0
-2, 3, 5, 0, 0, 0
-1, 6, 0, 0, 0, 0
-1, 4, 6, 0, 0, 0
-1, 2, 3, 4, 5, 6
+2,5,0,0,0,0
+2,3,5,0,0,0
+1,6,0,0,0,0
+1,4,6,0,0,0
+1,2,3,4,5,6
 ```
 
-Thus the requested first output is `2, 5, 0, 0, 0, 0`.
+Thus the requested first output is `2,5,0,0,0,0`.
 
 ### (6)
 Line 22 outputs the following values in execution order:
 
 ```text
-3, 2, 5, 4, 6, 1
-2, 3, 5, 4, 6, 1
-2, 3, 5, 4, 1, 6
-2, 3, 5, 1, 4, 6
-1, 2, 3, 4, 5, 6
+3,2,5,4,6,1
+2,3,5,4,6,1
+2,3,5,4,1,6
+2,3,5,1,4,6
+1,2,3,4,5,6
 ```
 
-Thus the requested third output is `2, 3, 5, 4, 1, 6`.
+Thus the requested third output is `2,3,5,4,1,6`.

@@ -14,6 +14,8 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/discovery/item/688803a6000000002203ec0d?source=webshare&xhsshare=pc_web&xsec_token=ABtHY7I1RxAUjhEZPeviabm9avt5zS3kxeB1R-bm8HRVc=), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_sys.pdf)
 $e$ をネイピア数（自然対数の底）、 $\mathbb{R}$ を実数全体からなる集合とする。また、ベクトル $\boldsymbol{x}$ の転置を $\boldsymbol{x}^\mathrm{T}$ で表す。
 
 ### 問題1
@@ -78,7 +80,7 @@ $$
 を求めよ。ただし，
 
 $$
-D = \left\{ (x, y) \in \mathbb{R}^2 \ \middle| \ e^{p} x^2 - e^{q} y^2 \leq 2 \right\}
+D = \left\{ (x, y) \in \mathbb{R}^2 \ \middle| \ e^{p} x^2 + e^{q} y^2 \leq 2 \right\}
 $$
 
 とする。
@@ -171,56 +173,100 @@ V
 \left(2-e^p x^2-e^q y^2\right)\,dx\,dy,
 $$
 
-其中现有题面把区域写为
+其中区域为
 
 $$
 D=
 \left\{
 (x,y)\in\mathbb{R}^2
 \ \middle|\
-e^p x^2-e^q y^2\leq2
+e^p x^2+e^q y^2\leq2
 \right\}.
 $$
 
-这里区域条件确为减号，而被积函数中的两个二次项均为减号；按此文字
-$D$ 是无界区域，故 $V$ 只能按广义二重积分理解。现有 Kai 仅为外链图片，仓库内没有可用于唯一判定该处是否漏写加号的文字内容，因此不擅自改正这一符号。
-
 ## **Kai**
 ### 問題1
+#### (1)(i)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_math_II_p1.jpg" width="700" alt=""/>
-</figure>
+$f'(x)=\log x+1$、$f''(x)=1/x>0$ である。従って $f$ は $(0,e^{-1})$ で減少、$(e^{-1},\infty)$ で増加し、最小値 $-e^{-1}$ を $x=e^{-1}$ で取る。また、$\lim_{x\downarrow0}f(x)=0$、$f(1)=0$、$\lim_{x\to\infty}f(x)=\infty$ である。
+
+![関数 y = x log x のグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys/2025/kyoto-sys-2024-xlogx.svg)
+
+$-e^{-1}<y<0$ には解が2個、$y<-e^{-1}$ には解が存在しない。従って正の解が一意になる範囲は
+
+$$
+\boxed{\{ -e^{-1}\}\cup[0,\infty)}.
+$$
+
+#### (1)(ii)
+
+部分積分より
+
+$$
+\boxed{\int x\log x\,dx
+=\frac{x^2}2\log x-\frac{x^2}4+C}.
+$$
+
+#### (1)(iii)
+
+$y\ge0$ の区間上で $x=f^{-1}(y)$ とおけば、$y=x\log x$、$dy=(1+\log x)dx$ である。よって
+
+$$
+\int f^{-1}(y)\,dy
+=\int x(1+\log x)\,dx
+=\frac{x^2}2\log x+\frac{x^2}4+C.
+$$
+
+従って
+
+$$
+\boxed{\int f^{-1}(y)\,dy
+=\frac y2 f^{-1}(y)+\frac14\bigl(f^{-1}(y)\bigr)^2+C}.
+$$
+
+一意可解範囲の孤立点 $y=-e^{-1}$ だけでは、通常の不定積分を定義する区間にはならない。
+
+#### (2)(i)
+
+$a_2-a_1=1-e^c$ だから、条件は $\boxed{c>0}$ である。
+
+#### (2)(ii)
+
+$e^x\ge1+x$ より $x+1-e^x\le0$ である。従って $a_2=3/2-\sqrt e<0$ であり、$n\ge2$ では $a_n\le0$ かつ $a_{n+1}-a_n=1-e^{a_n}\ge0$ となる。上に有界な単調増加列だから有限な極限 $L$ が存在し、漸化式に極限を取ると $e^L=1$ である。よって $\boxed{L=0}$。
 
 ### 問題2
+#### (i)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_math_II_p2.jpg" width="700" alt=""/>
-</figure>
-
-#### 問題2 (i), (iii) の訂正
-
-(i) 楕円上で $y^2=b^2(1-x^2/a^2)$ とすると、距離の2乗は
+楕円上では $y^2=b^2(1-x^2/a^2)$ なので、距離の二乗は
 
 $$
-d^2(x)=a^2+b^2-2ax+\left(1-\frac{b^2}{a^2}\right)x^2,\qquad -a\leq x\leq a.
+d^2(x)=a^2+b^2-2ax+\left(1-\frac{b^2}{a^2}\right)x^2,
+\qquad -a\le x\le a.
 $$
 
-頂点 $x=-a^3/(b^2-a^2)$ が区間内にあるかを考えると、最大距離は
+これは上に凸な二次関数で、頂点は $x_*=-a^3/(b^2-a^2)$ である。$b^2\le2a^2$ なら $x_*\le-a$ なので最大は $x=-a$、$b^2>2a^2$ なら頂点で最大となる。従って
 
 $$
-d_{\max}=
-\begin{cases}
-2a,&a<b\leq\sqrt2\,a,\\[2mm]
+\boxed{d_{\max}=\begin{cases}
+2a,&a<b\le\sqrt2\,a,\\
 \dfrac{b^2}{\sqrt{b^2-a^2}},&b>\sqrt2\,a.
-\end{cases}
+\end{cases}}
 $$
 
-(iii) 問題文のとおり領域条件が
-$e^p x^2-e^q y^2\leq2$ ならば $D$ は非有界である。十分大きい $|y|$ に対して $[-1,1]\times\{y\}$ は $D$ に含まれ、その上で
+#### (ii)
+
+Cauchy–Schwarz より $|d|=|\boldsymbol c^{\mathrm T}\boldsymbol x|\le\|\boldsymbol c\|\|\boldsymbol x\|$ である。等号は $\boldsymbol x=d\boldsymbol c/\|\boldsymbol c\|^2$ で達成される。従って距離は
 
 $$
-2-e^p x^2-e^q y^2\leq 2-e^q y^2.
+\boxed{\frac{|d|}{\sqrt{\boldsymbol c^{\mathrm T}\boldsymbol c}}}.
 $$
 
-よって負の部分の積分が発散し、有限な広義積分 $V$ は存在しない（拡張実数値では $V=-\infty$）。画像の $2\pi e^{-(p+q)/2}$ は領域条件が $e^p x^2+e^q y^2\leq2$ の場合の値である。
+#### (iii)
+
+$x=\sqrt2e^{-p/2}r\cos\theta$、$y=\sqrt2e^{-q/2}r\sin\theta$ と置くと、領域は $0\le r\le1$、$0\le\theta<2\pi$ となり、ヤコビアンの絶対値は $2e^{-(p+q)/2}r$ である。従って
+
+$$
+V=\int_0^{2\pi}\int_0^1
+(2-2r^2)\,2e^{-(p+q)/2}r\,dr\,d\theta
+=\boxed{2\pi e^{-(p+q)/2}}.
+$$

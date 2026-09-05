@@ -11,6 +11,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h28_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 関数 $f : \mathbb{R}^n \rightarrow \mathbb{R}$ は2回連続的微分可能な関数とし、 $\boldsymbol{a}$ は $\boldsymbol{0}$ でない $n$ 次元ベクトルとする。
 

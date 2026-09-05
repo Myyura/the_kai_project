@@ -11,6 +11,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h29_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 $n$ を自然数、$ij$ 成分が
 
@@ -109,7 +111,7 @@ $$
 1 & \frac 1t &0 &\cdots & 0 \\
 0 & 1 & \frac 1t & \cdots &0 \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & 0 &0 & \cdots &\frac 1t
+0 & 0 &\cdots &1 &\frac 1t
 \end{bmatrix}\boldsymbol{x}
 $$
 

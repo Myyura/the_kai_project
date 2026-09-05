@@ -12,6 +12,8 @@ tags:
 [realball](https://github.com/realballu3u), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_ist.pdf)
 Suppose that the Fourier transform $\mathcal{F}[f(x)]$ of a function $f(x)$ and the Fourier integral representation of the Dirac delta function $\delta(x)$ are given by the following formulae, where $x$ and $k$ are real numbers, and $i=\sqrt{-1}$. Answer the following questions.
 
 $$
@@ -116,6 +118,7 @@ $$
 At $k=0$, the value is understood by continuity as $\sqrt{2/\pi}$.
 
 #### (2)
+The Fourier transform here is interpreted in the sense of tempered distributions.
 
 $$
 \begin{aligned}
@@ -150,6 +153,7 @@ $$
 
 ### Q.2
 #### (1)
+For integrable $f,g$, Fubini's theorem justifies exchanging the integrals below.
 
 $$
 \begin{aligned}
@@ -191,3 +195,5 @@ $$
 &= 2\sqrt{\frac{2}{\pi}}\left( \frac{\sin k}{k} \right)^{2}
 \end{aligned}
 $$
+
+At $k=0$, the last expression has the continuous value $2\sqrt{2/\pi}$, consistent with the area $\int f_3(x)\,dx=4$ and the Fourier normalization.

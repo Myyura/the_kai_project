@@ -12,6 +12,8 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h30_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### English Version
 Let $\mathbb{R}_+$ be the set of non-negative reals, and let $N=[G,w]$ be a network that consists of a simple connected graph $G=(V,E)$ and an edge weight function
 

@@ -11,7 +11,23 @@ tags:
 
 ## **Description**
 
-[2020年度入試問題 Exam paper 数学](https://github.com/Myyura/the_kai_project_assets/blob/7d274740e9aacde6948ee5ca73a336a00fe76d04/kakomonn/tokyo_university/engineering/Description/%E6%95%B0%E5%AD%A62020.pdf)
+[公式原題](https://www.t.u-tokyo.ac.jp/hubfs/pdf/%E6%95%B0%E5%AD%A62020.pdf)
+
+実数 $\alpha$ に対し
+$$A=\begin{pmatrix}1&-2&-1\\-2&1&1\\-1&1&\alpha\end{pmatrix}$$
+を考える。
+
+I. 固有値の和が $7$ となる $\alpha$ を求める。
+
+II. 固有値の積が $-16$ となる $\alpha$ を求める。
+
+III. $\|A\|=\max_{\boldsymbol x^T\boldsymbol x=1}\boldsymbol x^TA\boldsymbol x$ と定義する。$\|A\|=4$ となる $\alpha$ を求める。
+
+IV. 以降は $\alpha=4$ とする。
+
+1. 全固有値と規格化した固有ベクトルを求める。
+2. $\boldsymbol y^T\boldsymbol y=1$、$y_1-y_2-2y_3=0$ のもとで $\boldsymbol y^TA\boldsymbol y$ の値域を求める。
+3. $\boldsymbol z^T\boldsymbol z=1$、$z_1+z_2+z_3=0$ のもとで $\boldsymbol z^TA\boldsymbol z$ の値域を求める。
 
 ### 题目描述
 
@@ -110,14 +126,14 @@ $$
 =2(z_1^2+z_1z_2+z_2^2),
 \qquad
 \boldsymbol z^TA\boldsymbol z
-=6z_1^2+10z_1z_2+7z_2^2.
+=7z_1^2+4z_1z_2+3z_2^2.
 $$
 
 この平面上の固有値は
 
 $$
 \det\left(
-\begin{pmatrix}6&5\\5&7\end{pmatrix}
+\begin{pmatrix}7&2\\2&3\end{pmatrix}
 -\lambda\begin{pmatrix}2&1\\1&2\end{pmatrix}
 \right)
 =3\lambda^2-16\lambda+17=0

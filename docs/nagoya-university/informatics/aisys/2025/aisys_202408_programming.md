@@ -12,6 +12,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/22603be6c5f792ba497a10d9f551bd22.pdf)
+
 整数を要素とする行列を扱う Python プログラムについて考える。
 2 ページ以降に掲載のプログラムは，20～48 行目の関数 proc を再帰的に呼び出しながら処理を行う。
 プログラム中の変数 $A$ は行列を扱う変数であり，以降の設問では行列 A と記載する。
@@ -64,7 +67,7 @@ if 【サ】:
 
 ### プログラム
 
-```python
+```text showLineNumbers
 import numpy as np
 
 def search(A, s):
@@ -85,14 +88,14 @@ def check(A, s):
     return (-1, 0, 0)
 
 def proc(A, s):
-    print(A)    # 21
+    print(A)
 
     i, j = search(A, s)
     if i < 0:
         return A
 
-    A[  ア  ] = A[  イ  ]   # 27
-    A[  ウ  ] = A[  エ  ]   # 28
+    A[  ア  ] = A[  イ  ]
+    A[  ウ  ] = A[  エ  ]
 
     for r in range(s+1, A.shape[0]):
         k = 【オ】
@@ -145,6 +148,9 @@ A = proc(A, 0)
    补全一行 NumPy 条件 `if [サ]:`，并写出修改后程序依次打印的全部 $A$。
 
 ## **Kai**
+
+以下では列基本変形 $A_{m,c}\leftarrow A_{m,c}-A_{m,s}k$ を実装する場合を解く。設問 5 の $A_{s,c}$ をそのまま用いる場合、空欄コは `A[s, c] * k` となり、列の全要素から同じ値を引くため、以下の出力とは異なる。
+
 ### 1.
 
 ```text

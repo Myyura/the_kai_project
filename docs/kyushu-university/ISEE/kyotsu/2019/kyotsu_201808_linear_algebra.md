@@ -13,13 +13,15 @@ tags:
 Yu, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://web.archive.org/web/20190715211433id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H31infait.pdf#page=3)。
 行列 $A = \begin{pmatrix} -2 & -3 & -3 \\ 6 & 7 & 6 \\ -6 & -6 & -5 \end{pmatrix}$ について, 次の各問に答えよ。
 
 (1) $Ax = -2x$ なる零でないベクトル $x = \begin{pmatrix} x_1\\x_2\\x_3 \end{pmatrix}$ を $1$ つ求めよ。
 
 (2) $Ay = dy$ なる数 $d \neq -2$ と零でないベクトル $y = \begin{pmatrix} y_1\\y_2\\y_3 \end{pmatrix}$ を $1$ つ求めよ。
 
-(3) $AP = PD$ を満たす正則行列 $P$ と対角行列 $D = \begin{pmatrix} d_1 & 0 & 0\\0 & d_2 & 0\\0 & 0 & x_3 \end{pmatrix}$ を $1$ つ求めよ。
+(3) $AP = PD$ を満たす正則行列 $P$ と対角行列 $D = \begin{pmatrix} d_1 & 0 & 0\\0 & d_2 & 0\\0 & 0 & d_3 \end{pmatrix}$ を $1$ つ求めよ。
 
 (4) $P$ の逆行列 $P^{-1}$ を求めよ。
 
@@ -59,11 +61,11 @@ $$
 \quad D=\begin{pmatrix}
 d_1&0&0\\
 0&d_2&0\\
-0&0&x_3
+0&0&d_3
 \end{pmatrix}
 $$
 
-   使 $AP=PD$。原始题面把 $D$ 的第三个对角元印作 $x_3$，与第 1 问向量 $x$ 的第三个分量同名；Kai 实际把三个对角元取为 $-2,1,1$。现有内容不能唯一判断原题是否本应写作 $d_3$，故此处保留原记号并明确该歧义。
+   使 $AP=PD$。
 4. 求第 3 问所取矩阵 $P$ 的逆矩阵 $P^{-1}$。
 5. 求 $A^{10}$。
 

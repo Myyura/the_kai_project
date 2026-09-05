@@ -118,7 +118,7 @@ If at least one input is ≤ 0:
 
 If b == 0, it returns a immediately (which might be ≤ 0).
 
-If b < 0, the condition r >= b is always true and r = r - b increases r, so the loop does not terminate (infinite loop).
+If b < 0 and a >= b, the loop starts and r = r - b increases r, so it never terminates. If a < b < 0, the first loop is skipped and the recursive call is something(b, a); its first argument is now greater than its negative second argument, so that call loops forever. Thus every input with b < 0 is non-terminating (with unbounded integer arithmetic).
 
 If a ≤ 0 and b > 0, the first call reduces to something(b, a); then a becomes non-positive as the second parameter, leading to the b == 0 base case (if a==0) or the non-terminating b < 0 case (if a<0).
 

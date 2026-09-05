@@ -26,6 +26,9 @@ $$
 
 (3) $X$ と $Y$ が独立であるか否かを、理由とともに答えよ。
 
+
+[出典：名古屋大学 入学試験問題](https://web.archive.org/web/20210425093032id_/http://www.is.nagoya-u.ac.jp/exam-old/d21508.pdf)
+
 ### 题目描述
 
 随机变量 $X,Y$ 的联合概率密度函数为

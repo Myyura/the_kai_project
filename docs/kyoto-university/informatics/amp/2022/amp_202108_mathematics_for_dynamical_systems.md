@@ -12,6 +12,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2021_amp.pdf)
 ### 日本語版
 $a(t), b(t)$ を $t$ のある有理式として次の実微分方程式を考える．
 
@@ -116,40 +118,22 @@ a(t)=-\frac{k}{t},\qquad b(t)=\frac{k}{t^2}.
 $$
 
 ### (iv)
-Let $x_1$, $x_2$ be 2 independent particular solutions, then
+
+The original wording says that every solution is a nonconstant polynomial. A homogeneous equation always has the zero solution, so we interpret this as saying that every **nonzero** solution is a nonconstant polynomial. Under this interpretation, both $a$ and $b$ are individually nonpolynomial; merely showing that they cannot both be polynomials would be weaker.
+
+By the hypothesis, $\phi$ is a polynomial. Thus $p=t\phi'-k\phi$ is a polynomial, and it is nonzero because $\phi$ and $t^k$ are independent. Write $d=\deg p\ge0$. From (ii), as $t\to\infty$,
 
 $$
-x_1'' = -a(t)x_1' - b(t)x_1 , x_2'' = -a(t)x_2' - b(t)x_2
+a(t)=\frac{1-k-d}{t}+O(t^{-2}),
+\qquad b(t)=\frac{kd}{t^2}+O(t^{-3}).
 $$
 
-and we have
+If $b$ were a polynomial, its limit $0$ would force $b\equiv0$. Then $x=1$ would be a nonzero constant solution, contrary to the hypothesis. Therefore $b$ is not a polynomial.
+
+If $a$ were a polynomial, the same argument would force $a\equiv0$. Equation (ii) would then give
 
 $$
-\begin{aligned}
-    (x_1'x_2 - x_1 x_2')' &= x_1''x_2 - x_1 x_2''\\
-&= -a(t)x_1'x_2 + a(t)x_1x_2'\\
-&= -a(t)(x_1'x_2 - x_1 x_2')
-\end{aligned}
+tp'(t)=(1-k)p(t).
 $$
 
-so we get
-
-$$
-x_1'x_2-x_1x_2'=Ce^{-\int a(t)dt},\qquad C\ne0.
-$$
-
-If $a(t)$ is a polynomial, then
-
-$$
-a(t)=-\frac{(x_1'x_2-x_1x_2')'}{x_1'x_2-x_1x_2'}
-$$
-
-is both a polynomial and the logarithmic derivative of a nonzero polynomial. Comparing degrees gives $a(t)\equiv0$.
-
-Then, consider
-
-$$
-\frac{d^2x}{dt^2} + b(t)x = 0
-$$
-
-If $b(t)$ were also a nonzero polynomial and $x$ were a nonzero polynomial solution of degree $m$, then $\deg(bx)\ge m$ while $\deg(x'')\le m-2$, which is impossible. Thus $b(t)\equiv0$. But then $x''=0$ has the constant solution $x=1$, contrary to the hypothesis. Hence $a(t)$ and $b(t)$ cannot both be polynomials.
+Comparing leading coefficients gives $d=1-k$. Since $d\ge0$ and $k\ge1$, this implies $k=1$ and $d=0$, hence $p'=0$ and $b\equiv0$, the same contradiction. Thus $a$ is not a polynomial either.

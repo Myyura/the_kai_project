@@ -14,6 +14,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_amp.pdf)
+
 以下の問いに答えよ。
 
 (i) $n$ 次正方行列 $A$ は $n$ 個の線形独立な固有ベクトルの組 $x_1, x_2, ..., x_n$ を持つとする。このとき、行列 $A$ は対角化可能であることを示せ。

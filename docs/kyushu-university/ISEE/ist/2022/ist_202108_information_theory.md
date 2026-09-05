@@ -13,8 +13,10 @@ tags:
 [Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/R04ist.pdf)。
+
 ### 【問 1】
-$k$ を正の整数とする。入力アルファベットが $\mathcal{X} = \{0,1\}^k$ , 出力アルファベットふぁ $\mathcal{Y} = \{0,1\}^k$ の無記憶な通信路 $W(Y|X)$ を
+$k$ を正の整数とする。入力アルファベットが $\mathcal{X} = \{0,1\}^k$ , 出力アルファベットが $\mathcal{Y} = \{0,1\}^k$ の無記憶な通信路 $W(Y|X)$ を
 
 $$
 W(Y|X) = 
@@ -27,7 +29,7 @@ W(Y|X) =
 \right.
 $$
 
-で定める。ただし, $d(X,Y)$は, $X = (X_1,X_2,\cdots,X_k)$ と $Y = (Y_1,Y_2,\cdots,Y_k)$ の問のハミング距離
+で定める。ただし, $d(X,Y)$は, $X = (X_1,X_2,\cdots,X_k)$ と $Y = (Y_1,Y_2,\cdots,Y_k)$ の間のハミング距離
 
 $$
 d(X,Y) = \sum_{i = 1}^k |X_i - Y_i|
@@ -105,6 +107,9 @@ $$
 $$
 C = \log_2s + \sum_{j = 1}^sp_{1j}\log_2p_{1j} = k + k \cdot \frac{1}{k}\log_2\frac{1}{k} = k - \log_2k
 $$
+
+各行には確率 $1/k$ が $k$ 個あるため $H(Y\mid X)=\log_2 k$ である。
+一方 $H(Y)\le k$。入力を $2^k$ 語の一様分布にすれば、各出力も $k$ 個の入力から同じ確率で生じるため出力は一様となり、上界を達成する。
 
 ### 【問 2】
 #### (1)

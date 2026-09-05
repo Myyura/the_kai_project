@@ -11,6 +11,9 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/ae71f02839037f5b598d671555ed309b.pdf)
+
+
 $p(t)$ を時刻 $t$ における血液中のある薬の量であるとし、 $p(t)$ は、比例定数を $k(>0)$ として
 
 $$
@@ -122,3 +125,8 @@ $$
 の間を周期的に変化する。
 
 4) 各区間 $nT\leq t<(n+1)T$ では $p(t)=p(nT)e^{-k(t-nT)}$ と指数減衰し、 $t=(n+1)T$ で $p_0$ だけ上向きに跳ぶ。 $0\leq t\leq5T$ ではこの鋸歯状の指数曲線を5回描き、各投与直後の頂点は単調に $p_+$ へ、各投与直前の谷は単調に $p_-$ へ近づく。
+
+
+![投与直後と直前の値および漸近的な上下端](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2025/nagoya-complex2025-repeated-dose.svg)
+
+図は $kT=1$ の代表例で，横軸を $t/T$，縦軸を $p/p_0$ としている。黒点は投与直後の値，白点は投与直前の左極限を示す。

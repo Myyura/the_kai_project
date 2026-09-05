@@ -15,6 +15,8 @@ tags:
 
 ### (1)
 
+以下は[公式問題（1～3ページ）](https://www.ist.osaka-u.ac.jp/files/examinees/admission/past-exam/5_Information%20engineering_2025_JA.pdf)に基づく要約である。
+
 二分ヒープを、各子の値が親の値以上となる完全二分木とする。根の節点番号を1、節点 $i$ の左の子を $2i$、右の子を $2i+1$ とする。
 
 - 高さ $h$ の二分ヒープが持つ節点数の最小値 $(\alpha)$ と最大値 $(\beta)$ を求めよ。
@@ -27,11 +29,13 @@ tags:
 (k) 特性1（ヒープ順序）  (l) 特性2（木の形状）
 ```
 
+空欄の位置は次の通りである（説明文の要約）。形状を保つ追加位置を決めるStep 1は特性(A)、上方への交換を行うStep 2・3は特性(B)を満たす。子が一つだけの節点があればその(C)側へ追加し、なければ葉のうち節点番号が(D)ものの(E)側へ追加する。新しい値を(F)の値と比べ、前者が(G)とき(H)と交換する。(I)に達したら終了する。結果として根には常に(J)値がある。
+
 - 節点数 $n-1$ のヒープへ値を追加するときの交換回数を $S(n)$ とする。その最大値のオーダ $O((\gamma))$ を求めよ。
 
 ### (2)
 
-配列 `data` の `data[0]` に節点数、`data[1]` 以降に1始まりの最小ヒープを格納する。`add` は末尾へ値を追加して `up` を行い、`del` は根を末尾と交換して節点数を減らした後に `down` を行う。`build_heap` は次の入力を先頭から順に `add` する。
+配列 `data` の `data[0]` に節点数、`data[1]` 以降に1始まりの最小ヒープを格納する。`add` は末尾へ値を追加して `up` を行い、`del` は根を末尾と交換して節点数を減らした後に `down` を行う。`build_heap` は次の10行を先頭から順に `add` する。先頭行の `9` も挿入する値であり、要素数を表す行ではない。
 
 ```text
 9
@@ -73,6 +77,20 @@ void down(int *data, int x) {
 (d) index / 2  (e) 2 * index  (f) 2 * index + 1
 (g) up(data, index)  (h) down(data, index)
 (i) add(data, e)  (j) del(data)  (k) replace(data, index, e)
+```
+
+空欄(G)～(K)の位置は次の通りである。
+
+```c
+void replace(int *data, int index, int e) {
+    if ((index > (G)) || (index <= (H))) return;
+    data[index] = e;
+    if ((index != 1) && (data[index] < data[(I)])) {
+        (J);
+    } else {
+        (K);
+    }
+}
 ```
 
 ### 题目描述

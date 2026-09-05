@@ -12,12 +12,12 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_ist.pdf)
+
 ### Q.1
 A discrete memoryless channel C consists of two discrete memoryless channels D and E, which are connected serially as shown in the following figure.
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202408_senmon_s_3_p1.png" width="500" alt=""/>
-</figure>
+$$X\xrightarrow{D}Y\xrightarrow{E}Z$$
 
 The input alphabet of D is $\Sigma_a = \{a_1, a_2, a_3, a_4\}$. Both of the output alphabet of D and the input alphabet of E are $\Sigma_b = \{b_1, b_2, b_3, b_4\}$. The output alphabet of E is $\Sigma_c = \{c_1, c_2\}$. Let random variables $X, Y$, and $Z$ be respectively on $\Sigma_a, \Sigma_b$, and $\Sigma_c$. The channel transition matrix $p(Y|X)$ for D and the channel transition matrix $q(Z|Y)$ for E are given as
 
@@ -58,7 +58,7 @@ $$
 
 1. 考虑图示的串联系统，其中离散无记忆信道 D 的输入、输出字母表均为四元集合，信道 E 把四元输入映射为二元输出：
 
-   ![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_202408_senmon_s_3_p1.png)
+   $X\xrightarrow{D}Y\xrightarrow{E}Z$
 
    D 与 E 的转移概率矩阵分别为
 
@@ -111,3 +111,83 @@ $$
    $$
 
    时，求一个 $n\times n$ 矩阵 $F$，使 $G'=GF$ 生成系统码；再利用 $F$ 与 $G'$ 计算原码 $C(G)$ 的校验矩阵 $H$。
+
+## **Kai**
+All logarithms in Q.1 have base $2$, and all matrix operations in Q.2 are over $\mathbb F_2$.
+
+### Q.1
+#### (1)
+Every row of $p(Y\mid X)$ has entropy $1$, so $H(Y\mid X)=1$ for any input distribution. Since $Y$ has four possible values, $H(Y)\le2$. Uniform input makes the output uniform because each column sums to one, attaining the bound. Therefore
+
+$$
+C_D=\max I(X;Y)=2-1=1\text{ bit}.
+$$
+
+#### (2)
+Multiplying the two channel matrices gives
+
+$$
+p(Z\mid X)=
+\begin{pmatrix}1&0\\1/2&1/2\\0&1\\1/2&1/2\end{pmatrix}.
+$$
+
+Only $a_1,a_3$ occur. Their outputs are deterministically $c_1,c_2$, respectively, each with probability $1/2$. Thus $H(Z)=1$, $H(Z\mid X)=0$, and $I(X;Z)=1$ bit.
+
+### Q.2
+#### (1)
+Write $\boldsymbol x=\boldsymbol uG$ and $\boldsymbol y=\boldsymbol vG$. Distributivity over $\mathbb F_2$ gives
+
+$$
+\boldsymbol x\oplus\boldsymbol y=(\boldsymbol u\oplus\boldsymbol v)G\in C(G).
+$$
+
+#### (2)
+For distinct codewords, $\boldsymbol x\oplus\boldsymbol y$ is a nonzero codeword and
+
+$$
+d(\boldsymbol x,\boldsymbol y)
+=d(\boldsymbol x\oplus\boldsymbol y,\boldsymbol0).
+$$
+
+Conversely, every nonzero codeword occurs in the pair $(\boldsymbol x,\boldsymbol0)$. The two sets of distances therefore coincide and have equal minima. This statement assumes $C(G)\ne\{\boldsymbol0\}$; for the zero code both sets are empty (or both minima are $+\infty$ under that convention).
+
+#### (3)
+Partition $G=[A\ B]$, where $A$ consists of the first four columns. It is invertible over $\mathbb F_2$. Choose
+
+$$
+F=\operatorname{diag}(A^{-1},I_3)=
+\begin{pmatrix}
+0&1&1&1&0&0&0\\
+1&1&1&0&0&0&0\\
+1&1&0&0&0&0&0\\
+1&0&0&0&0&0&0\\
+0&0&0&0&1&0&0\\
+0&0&0&0&0&1&0\\
+0&0&0&0&0&0&1
+\end{pmatrix}.
+$$
+
+Then
+
+$$
+G'=GF=[I_4\ B]=
+\begin{pmatrix}
+1&0&0&0&1&0&1\\
+0&1&0&0&0&1&0\\
+0&0&1&0&1&0&0\\
+0&0&0&1&0&0&0
+\end{pmatrix}.
+$$
+
+A parity-check matrix for $C(G')$ is $H'=[B^T\ I_3]$. Since a row codeword transforms as $\boldsymbol x'=\boldsymbol xF$, the original code has parity-check matrix $H=H'F^T$:
+
+$$
+\boxed{H=
+\begin{pmatrix}
+1&0&1&1&1&0&0\\
+1&1&1&0&0&1&0\\
+0&1&1&1&0&0&1
+\end{pmatrix}}.
+$$
+
+Indeed $GH^T=0$ and $\operatorname{rank}H=3$, so the kernel consists of exactly the $2^4$ original codewords.

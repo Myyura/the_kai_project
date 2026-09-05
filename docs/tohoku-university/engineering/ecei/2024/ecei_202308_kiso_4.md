@@ -12,9 +12,17 @@ tags:
 
 ## **Description**
 
+### 題意の要約
+
+[大学公開の原題、8 ページ](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/202308kiso.pdf#page=8)
+
+1. 写像 $f:A\to B$ と集合 $S\subseteq A$ に対し、$f(S)=\{f(x):x\in S\}$ とする。(a) $f(A_1\cap A_2)\subseteq f(A_1)\cap f(A_2)$ を証明する。(b) この包含が等号にならない具体例を与える。
+2. $f:A\to B$、$g:B\to C$ について、(a) 両方が単射ならば $g\circ f$ も単射、(b) 両方が全射ならば $g\circ f$ も全射であることを証明する。単射は異なる元の像が異なること、全射は終域の各元が像として現れることを意味する。
+
 ### 题目描述
 
-原文的题目描述及解答均缺失，当前文件无法还原具体题目。
+1. 对映射 $f:A\to B$ 和子集 $S\subseteq A$，定义像集 $f(S)=\{f(x):x\in S\}$。证明 $f(A_1\cap A_2)\subseteq f(A_1)\cap f(A_2)$，并举出包含关系严格成立的例子。
+2. 对 $f:A\to B$、$g:B\to C$，分别证明：两个映射都是单射时，复合映射 $g\circ f$ 也是单射；两个映射都是满射时，复合映射也是满射。
 
 ## **Kai**
 ### (1)
@@ -54,7 +62,7 @@ $$
 $$
 \begin{align}
 A_1 = \left\{ -1 \right\}
-,\ \ 
+,\ \
 A_2 = \left\{ 1 \right\}
 \end{align}
 $$
@@ -65,7 +73,7 @@ $$
 \begin{align}
 A_1 \cap A_2 &= \emptyset
 \\
-\therefore \ \ 
+\therefore \ \
 f(A_1 \cap A_2) &= \emptyset
 \end{align}
 $$
@@ -75,10 +83,10 @@ $$
 $$
 \begin{align}
 &f(A_1) = \left\{ 1 \right\}
-, \ \ 
+, \ \
 f(A_2) = \left\{ 1 \right\}
 \\
-\therefore \ \ 
+\therefore \ \
 &f(A_1) \cap f(A_2) = \left\{ 1 \right\}
 \end{align}
 $$

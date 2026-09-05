@@ -68,3 +68,90 @@ Next, we would like to simultaneously deliver the same $500\text{ Mbyte}$ video 
 6. 当 $D_2>D_{2\max}$ 时，提出两种仍可正常播放的方案。不得改变各链路 $B_i,D_i$ 以及包大小 $m_1,m_2$。
 
 ## **Kai**
+
+Use store-and-forward routers, full-duplex links, independent packet errors, and negligible processing time. Write $D=D_1+D_2+D_3$ and $S=B_1^{-1}+B_2^{-1}+B_3^{-1}$. From the figure, $D_1=D_3=10^{-4}$ s and $B_1=B_3=10^9$ bit/s. Take $1\text{ Kbyte}=1024$ bytes.
+
+### (1)
+
+Each forward link takes $D_i+m_1/B_i$ and each return link takes $D_i+m_2/B_i$. Thus one attempt lasts
+
+$$
+\boxed{T=2D+(m_1+m_2)S}.
+$$
+
+Success on precisely the $n$-th attempt requires $n-1$ errors followed by one success:
+
+$$
+\boxed{\Pr(K=n)=\alpha^{n-1}(1-\alpha)}.
+$$
+
+### (2)
+
+Since $\mathbb E[K]=1/(1-\alpha)$, delivering $m_1$ useful bits takes mean time $T/(1-\alpha)$. The average useful rate is
+
+$$
+\boxed{R_1=\frac{m_1(1-\alpha)}{2D+(m_1+m_2)S}}.
+$$
+
+The maximum occurs at $\alpha=0$. Substitution of $m_1=m_2=100$ gives:
+
+| $D_2,B_2$ | $T$ (s) | Maximum useful rate |
+| --- | ---: | ---: |
+| $0.1$ ms, $1$ Gbit/s | $0.0006006$ | $1.67\times10^5$ bit/s |
+| $500$ ms, $10$ Mbit/s | $1.0004204$ | $1.00\times10^2$ bit/s |
+
+### (3)
+
+Let $W=64\times1024\times8=524288$ bits. The window admits $q=\lfloor W/m_1\rfloor$ complete packets. With no errors, the maximum steady-state rate is
+
+$$
+\boxed{R_2=\min\left\{B_1,B_2,B_3,
+\frac{m_1}{m_2}B_1,\frac{m_1}{m_2}B_2,
+\frac{m_1}{m_2}B_3,\frac{q m_1}{T}\right\}}.
+$$
+
+The first three bounds are the data-path capacities; the next three ensure enough capacity to return one ACK per packet. The last bound allows at most $q$ packets per round-trip time. Using $W/T$ instead of $qm_1/T$ is the continuous-window approximation and gives the same three-significant-digit answers here:
+
+$$
+\boxed{8.73\times10^8\ \text{bit/s}},\qquad
+\boxed{5.24\times10^5\ \text{bit/s}},
+$$
+
+respectively. Both cases are limited by the window.
+
+### (4)
+
+Replace one-at-a-time probing by sending pairs or short trains of packets back-to-back, and timestamp the ACKs returned for them. With no competing traffic, a bottleneck of rate $B$ spaces equal $m_1$-bit data packets by approximately $m_1/B$, so their ACK spacing $\Delta$ estimates $B\simeq m_1/\Delta$ when the return path does not introduce a larger spacing. The minimum observed send-to-ACK time estimates the unloaded round-trip time; subtract $(m_1+m_2)S$ if the propagation component alone is wanted.
+
+To estimate available bandwidth with competing traffic, repeat trains at increasing offered rates. The point where arrival spacing persistently exceeds sending spacing, or round-trip delay begins to grow, estimates the rate that can be sustained. Multiple measurements are needed because cross traffic and ACK compression can distort individual samples; a single packet pair primarily estimates bottleneck capacity.
+
+### (5)
+
+Let the required per-client rate be $R=8\times10^6$ bit/s. With equal sharing, the forward capacity per client is bounded by
+
+$$
+C_N=\min\{B_1,B_2/N,B_3/N\}.
+$$
+
+For $m_1=m_2=100$, the ACK path imposes the same bounds. A feasible delay exists only if $C_N\ge R$. In particular, the shared middle link must satisfy $B_2\ge 8N\times10^6$ bit/s; $N\le100$ ensures the $1$ Gbit/s server link is sufficient.
+
+Assuming these capacity conditions and an error-free path, $qm_1/T\ge R$ gives
+
+$$
+\boxed{D_{2\max}
+=\frac{qm_1}{2R}-D_1-D_3
+-\frac{m_1+m_2}{2}\left(\frac1{B_1}+\frac1{B_2}+\frac1{B_3}\right)}.
+$$
+
+With $q=5242$, this is $(0.0325623-100/B_2)$ seconds. For either $B_2=1$ Gbit/s or $B_2=10$ Mbit/s, subject to the capacity condition above,
+
+$$
+\boxed{D_{2\max}=32.6\ \text{ms}}
+$$
+
+to three significant digits. For other bandwidths, use the formula; for example, $B_2=8$ Mbit/s and $N=1$ give $32.5$ ms when the window holds only complete packets. The continuous-window approximation replaces $qm_1$ by $W$, giving $(0.0325678-100/B_2)$ seconds and $32.6$ ms for all $B_2\ge8$ Mbit/s. If $C_N<R$, no choice of $D_2$ can provide the required sustained per-client rate under Method 2.
+
+### (6)
+
+1. **Increase the effective window.** Use a larger TCP receive window, with window scaling, so that the allowed outstanding data is at least $RT$ bits per client (rounding up to complete packets). Alternatively, distribute each client's data among enough parallel connections that their total window reaches this value. This removes the delay-induced window restriction when the capacity conditions in (5) hold.
+2. **Buffer before starting playback.** The file is finite, so download it in advance, entirely if necessary. More generally, for a constant delivered rate $0<C<R$ and a file of $L$ bits, preload at least $L(1-C/R)$ bits. Playback lasts $L/R$ seconds, and the remaining $CL/R$ bits then arrive during playback without an interruption. This allows a later playback start while keeping all link parameters and packet sizes unchanged.

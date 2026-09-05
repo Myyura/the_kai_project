@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/82069e4a1dd507dc8d81ea5777054d68.pdf)
+
 次の小問に答えよ。
 
 1) 行列
@@ -76,7 +78,7 @@ $$
 $$
 
 $-x + z = 0$ より、 $z = x$ 。 $y$ は任意。
-固有ベクトルは $v_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$ と $v_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$ で張られる。
+固有空間は $v_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$ と $v_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$ で張られ、その零ベクトル以外が固有ベクトルである。
 
 $\lambda = -1$ のとき、
 
@@ -85,7 +87,7 @@ $$
 $$
 
 $x + z = 0$ より、 $z = -x$ 。 $2y = 0$ より、 $y = 0$ 。
-固有ベクトルは $v_3 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$ である。
+固有ベクトルは $v_3 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$ の非零定数倍である。
 
 2) $A$ を対角化する直交行列 $U$ は、固有ベクトルを正規直交化したものを並べた行列である。
 $v_1' = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$ , $v_2' = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$ , $v_3' = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$ である。
@@ -97,4 +99,4 @@ $u_3 = v_3' = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$
 
 3) $B$ の固有値が $\lambda_1, \lambda_2, ..., \lambda_n$ であるとき、Schur分解により、ユニタリ行列 $P$ が存在して、 $P^{-1}BP$ が上三角行列となる。対角成分は固有値 $\lambda_1, \lambda_2, ..., \lambda_n$ である。 $B^2 = B \cdot B$ であるから、 $P^{-1}B^2P = P^{-1}BPP^{-1}BP = (P^{-1}BP)(P^{-1}BP)$ となり、 $P^{-1}B^2P$ も上三角行列となる。対角成分は $\lambda_1^2, \lambda_2^2, ..., \lambda_n^2$ となる。従って、 $B^2$ の固有値は $\lambda_1^2, \lambda_2^2, ..., \lambda_n^2$ である。
 
-4) 3) より、 $P^{-1}BP$ が上三角行列で、対角成分が $\lambda_1, \lambda_2, ..., \lambda_n$ である。 $f(x)$ は任意の多項式なので、 $f(B) = a_n B^n + a_{n-1} B^{n-1} + ... + a_1 B + a_0 I$ と書ける。このとき、 $P^{-1} f(B) P = a_n P^{-1}B^n P + a_{n-1} P^{-1}B^{n-1} P + ... + a_1 P^{-1}BP + a_0 P^{-1}IP = a_n (P^{-1}BP)^n + a_{n-1} (P^{-1}BP)^{n-1} + ... + a_1 (P^{-1}BP) + a_0 I$ となり、 $P^{-1}f(B)P$ も上三角行列となり、対角成分は $f(\lambda_1), f(\lambda_2), ..., f(\lambda_n)$ となる。従って、 $f(B)$ の固有値は $f(\lambda_1), f(\lambda_2), ..., f(\lambda_n)$ である。
+4) 3) より、 $P^{-1}BP$ が上三角行列で、対角成分が $\lambda_1, \lambda_2, ..., \lambda_n$ である。 $f(x)$ は任意の多項式なので、 $f(B) = a_m B^m + a_{m-1} B^{m-1} + ... + a_1 B + a_0 I$ と書ける。このとき、 $P^{-1} f(B) P = a_m P^{-1}B^m P + a_{m-1} P^{-1}B^{m-1} P + ... + a_1 P^{-1}BP + a_0 P^{-1}IP = a_m (P^{-1}BP)^m + a_{m-1} (P^{-1}BP)^{m-1} + ... + a_1 (P^{-1}BP) + a_0 I$ となり、 $P^{-1}f(B)P$ も上三角行列となり、対角成分は $f(\lambda_1), f(\lambda_2), ..., f(\lambda_n)$ となる。従って、 $f(B)$ の固有値は $f(\lambda_1), f(\lambda_2), ..., f(\lambda_n)$ である。

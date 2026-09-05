@@ -151,37 +151,44 @@ $$
 ## **Kai**
 ### 問題1
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_prob_stat_p1_s1.jpg" width="700" alt=""/>
-</figure>
+(1) 対数尤度は定数を除いて $-\frac12\sum_j(X_{ij}-\mu_i)^2$。微分して $\boxed{\hat\mu_i=\bar X_i=n^{-1}\sum_jX_{ij}}$ を得る。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_prob_stat_p1_s2.jpg" width="700" alt=""/>
-</figure>
+(2) $E[\bar X_i]=n^{-1}\sum_j\mu_i=\mu_i$ より不偏である。また $\sqrt n(\hat\mu_i-\mu_i)\sim N(0,1)$。
 
-#### 問題1 (3) の補足
+(3) 帰無仮説の下で $P(\hat\mu_i>d_i)=1-\Phi(\sqrt n d_i)$ なので
 
-$d_i>0$ という条件の下で解が存在するのは $0<\alpha<1/2$ のときに限り、
+$$d_i=\frac{\Phi^{-1}(1-\alpha)}{\sqrt n}.$$
 
-$$
-d_i=\frac{\Phi^{-1}(1-\alpha)}{\sqrt n}
-$$
+$d_i>0$ を満たす解が存在するのは $0<\alpha<1/2$ のときに限る。
 
-である。$\alpha\geq1/2$ では条件を満たす $d_i$ は存在しない。
+(4) $P(\mu_i\in S_i)=2\Phi(\sqrt n c_i)-1$ より
+
+$$c_i=\frac{\Phi^{-1}(1-\alpha/2)}{\sqrt n}.$$
+
+(5) 各標本平均は独立なので、同時被覆確率は $[2\Phi(\sqrt n c)-1]^m$。これを $1-\alpha$ とおけば
+
+$$\boxed{c=\frac1{\sqrt n}\Phi^{-1}\left(\frac{1+(1-\alpha)^{1/m}}2\right)}.$$
 
 ### 問題2
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202008_prob_stat_p2_s.jpg" width="700" alt=""/>
-</figure>
+(1) 独立性より $F_Y(y)=F_X(y)^n$、微分して $f_Y(y)=nF_X(y)^{n-1}f_X(y)$。
 
-#### 問題2 (4) の補足
+(2) 一様分布の場合、$f_Y(y)=ny^{n-1}/\theta^n$ ($0<y<\theta$)。従って
 
-両推定量の平均二乗誤差は
+$$E[Y]=\frac n{n+1}\theta,\qquad a=\frac{n+1}{n}.$$
 
-$$
-\operatorname{MSE}(\hat\theta)=\frac{\theta^2}{n(n+2)},\qquad
-\operatorname{MSE}(\hat\theta^{ML})=\frac{2\theta^2}{(n+1)(n+2)}.
-$$
+(3) 尤度は $\theta\geq Y$ で $\theta^{-n}$、それ以外で $0$。従って $\boxed{\hat\theta^{ML}=Y}$。
 
-したがって $n>1$ では前者が小さく、$n=1$ では等しい。
+(4) $E[Y^2]=n\theta^2/(n+2)$ より
+
+$$\operatorname{MSE}(\hat\theta)=\operatorname{Var}\left(\frac{n+1}nY\right)=\frac{\theta^2}{n(n+2)},$$
+
+$$\operatorname{MSE}(\hat\theta^{ML})=E[(Y-\theta)^2]=\frac{2\theta^2}{(n+1)(n+2)}.$$
+
+両者の差（後者から前者を引いた値）は $\theta^2(n-1)/[n(n+1)(n+2)]$。従って $n>1$ では不偏推定量のほうが小さく、$n=1$ では等しい。
+
+(5) $Y\leq\theta$ は確率 $1$ で成り立ち、
+
+$$P(Y\leq\theta\leq bY)=P(Y\geq\theta/b)=1-b^{-n}.$$
+
+従って $\boxed{b=\alpha^{-1/n}}$。

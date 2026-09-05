@@ -14,6 +14,8 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/discovery/item/68880791000000002400ebc8?source=webshare&xhsshare=pc_web&xsec_token=ABtHY7I1RxAUjhEZPeviabm0pv0fqbvsAIkZhlNLqpKyQ=), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_sys.pdf)
 ### 問題1
 図1のフィードバック制御系に関する以下の設問に答えよ。ただし，
 
@@ -126,34 +128,93 @@ PID 制御と比較して、操作量の急激な変動を抑制するために 
 
 ## **Kai**
 ### 問題1
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_control_theory_p1_s.jpg" width="700" alt=""/>
-</figure>
-
-#### 問題1 (4) の訂正
-
-そのような $a,K$ は存在する。$K=0$ のとき
+#### (1)
 
 $$
-G_{yr}(s)
-=\frac{a(s+4)(s-2)}{(s+4)(s-2)(s+a+1)}
-=\frac{a}{s+a+1}.
+\frac{P(s)}s=\frac1{s(s+4)(s-2)}
+=-\frac1{8s}+\frac1{24(s+4)}+\frac1{12(s-2)}.
 $$
 
-例えば $a=-2,\ K=0$ とすれば $G_{yr}(s)=-2/(s-1)$ となり、唯一の極は $s=1$ で、その実部は正である。
+従ってステップ応答は
+
+$$
+\boxed{y(t)=-\frac18+\frac1{24}e^{-4t}+\frac1{12}e^{2t}},\qquad t\ge0.
+$$
+
+#### (2)
+
+ブロック線図より $y=(F+KP)(r-y)+d$ となる。従って
+
+$$
+\boxed{G_{yr}(s)=\frac{F(s)+KP(s)}{1+F(s)+KP(s)},\qquad
+G_{yd}(s)=\frac1{1+F(s)+KP(s)}}.
+$$
+
+$\Delta(s)=(s+1)(s^2+2s-8)+a(s^2+2s-8)+K(s+1)$ とおけば、
+
+$$
+G_{yr}(s)=\frac{a(s^2+2s-8)+K(s+1)}{\Delta(s)},\qquad
+G_{yd}(s)=\frac{(s+1)(s^2+2s-8)}{\Delta(s)}.
+$$
+
+#### (3)
+
+$L_0=F(0)+KP(0)=a-K/8$ とおく。安定性から最終値定理を適用すると
+
+$$
+2=G_{yr}(0)+cG_{yd}(0)=\frac{L_0+c}{1+L_0}.
+$$
+
+よって
+
+$$
+\boxed{c=2+a-\frac K8}.
+$$
+
+#### (4)
+
+例えば $a=-2,K=0$ とすれば、
+
+$$
+G_{yr}(s)=\frac{F(s)}{1+F(s)}=-\frac2{s-1}.
+$$
+
+唯一の極は $s=1$ であり、その実部は正である。従って、そのような $a,K$ は存在する。
 
 ### 問題2
+#### (1)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_control_theory_p2_s.jpg" width="700" alt=""/>
-</figure>
-
-#### 問題2 (2) の訂正
-
-ゲイン余裕を $10\,\mathrm{dB}$ 増やすには一巡ゲインを $10\,\mathrm{dB}$ 下げればよい。したがって
+位相交差周波数でのゲインは約 $-7\,\mathrm{dB}$、ゲイン交差周波数での位相は約 $-135^\circ$ と読み取れる。従って
 
 $$
-20\log_{10}\frac{K_P^{\mathrm{new}}}{K_P^{\mathrm{old}}}=-10,\qquad
-\frac{K_P^{\mathrm{new}}}{K_P^{\mathrm{old}}}=10^{-1/2}=\frac1{\sqrt{10}}.
+\boxed{GM\simeq7\,\mathrm{dB},\qquad PM\simeq45^\circ}.
 $$
+
+#### (2)
+
+$K_P$ を $k>0$ 倍すると、位相線図は変わらず、ゲイン線図が $20\log_{10}k$ だけ上下する。ゲイン余裕を $10\,\mathrm{dB}$ 増やす条件は
+
+$$
+20\log_{10}k=-10,
+\qquad\boxed{k=\frac1{\sqrt{10}}}.
+$$
+
+#### (3)
+
+PID 制御では $u=K_P(r-y)+(K_P/T_I)\int(r-y)\,dt+K_PT_D(\dot r-\dot y)$ となり、設定値のステップ変化が比例項の跳躍と微分項のインパルスを直接生じさせる。I-PD 制御では
+
+$$
+u=\frac{K_P}{T_I}\int(r-y)\,dt-K_Py-K_PT_D\dot y
+$$
+
+となり、設定値 $r$ は積分項だけに入る。従って設定値の変化による比例キックと微分キックを抑制できる。
+
+#### (4)
+
+$r=0$ とすると、I-PD 制御でも $u=-C(s)y$ となる。$y=P(s)u+d$ より
+
+$$
+\boxed{G_{yd}(s)=\frac1{1+C(s)P(s)}}.
+$$
+
+PID 制御も $r=0$ で同じ関係を満たすため、同一パラメータのとき外乱から制御量への閉ループ伝達関数は等しい。

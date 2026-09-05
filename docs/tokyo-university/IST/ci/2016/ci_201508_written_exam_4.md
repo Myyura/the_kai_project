@@ -19,6 +19,8 @@ tags:
 
 ## **Description**
 
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20170611141448id_/http://www.i.u-tokyo.ac.jp/edu/course/ci/pdf/2015-8-exam.pdf).
+
 ### 日本語
 
 以下に示す情報システムに関する8項目から<u>4項目</u>を選択し、各項目を4～8行程度で説明せよ。必要に応じて例や図を用いてよい。
@@ -60,9 +62,8 @@ If necessary, use examples or figures.
 
 ## **Kai**
 #### Synchronous circuits and asynchronous circuits
-Synchronous circuits and asynchronous circuits are both sequential circuits. In synchronous circuits, there is a unified global CLK signal, usually a DFF as the basic unit, its sequential analysis would be easy (setup time and hold time check), and it is relatively more stable.
 
-In asynchronous circuits, usually a latch works as the basic unit, and there is no global clocks, the operations are triggered by events such as input signal changes. The sequential analysis is difficult, and the circuit is relatively more unstable.
+A synchronous sequential circuit updates its state at specified edges of a shared clock. Flip-flops hold the state, and combinational paths must satisfy setup and hold timing constraints. An asynchronous sequential circuit has no common global clock; state changes are coordinated by input events or local request/acknowledge handshakes. Both can operate reliably when their timing and protocol assumptions hold. Asynchronous design must account for hazards, completion detection and arbitration, while synchronous design must also handle clock skew and crossings between clock domains.
 
 #### Backpropagation (error backpropagation)
 For a differentiable feed-forward network, first compute all activations and the loss by a forward pass. Starting at the output, propagate the error backward by the chain rule:
@@ -76,7 +77,7 @@ Then $\partial\mathcal L/\partial W^l=\delta^l(a^{l-1})^T$ and $\partial\mathcal
 
 #### Autocorrelation function and power spectrum
 For a wide-sense stationary signal $x(t)$, its autocorrelation is
-$R_x(\tau)=\mathbb E[x(t)x^*(t+\tau)]$. The power spectral density is its Fourier transform,
+$R_x(\tau)=\mathbb E[x(t+\tau)x^*(t)]$. The power spectral density is its Fourier transform,
 
 $$
 S_x(f)=\int_{-\infty}^{\infty}R_x(\tau)e^{-j2\pi f\tau}\,d\tau,
@@ -85,4 +86,29 @@ $$
 by the Wiener--Khinchin theorem. Conversely, $R_x$ is the inverse Fourier transform of $S_x$, and the average power is $R_x(0)=\int S_x(f)\,df$.
 
 #### Example of a network security protocol: TLS
-In a TLS handshake, the server proves its identity with a certificate chain and a signature. An ephemeral Diffie--Hellman exchange establishes a shared secret, from which both parties derive traffic keys. Subsequent records use authenticated encryption to provide confidentiality and integrity; sequence numbers prevent reordering and replay within the connection. Client authentication is optional.
+
+For example, TLS 1.2 with a certificate-authenticated ephemeral Diffie–Hellman and AES-GCM cipher suite protects application data over a reliable transport. The client validates the server's certificate and its signature on the ephemeral key-exchange parameters. Both sides derive traffic keys from the shared secret, and Finished messages authenticate the handshake transcript. AES-GCM provides confidentiality and integrity for records; authenticated sequence numbers bind records to their order within the connection. Client-certificate authentication is optional. See [TLS 1.2](https://www.rfc-editor.org/rfc/rfc5246) and [AES-GCM cipher suites](https://www.rfc-editor.org/rfc/rfc5288).
+
+#### Kinematics and inverse kinematics
+
+Forward kinematics maps joint variables $q$ to end-effector pose $x=f(q)$ using the mechanism's geometry. Inverse kinematics solves $f(q)=x_d$ for a desired pose; solutions may be multiple, absent or continuous at a singular configuration. For a planar two-link arm, $x=l_1\cos q_1+l_2\cos(q_1+q_2)$ and $y=l_1\sin q_1+l_2\sin(q_1+q_2)$. Inverse kinematics starts from $\cos q_2=(x^2+y^2-l_1^2-l_2^2)/(2l_1l_2)$ and chooses the feasible elbow branch, subject to joint limits. The Jacobian $J=\partial f/\partial q$ relates joint velocities to end-effector velocity.
+
+#### Concrete implementation of force control
+
+For contact along one axis, measure the contact force $F_m$ and set the commanded position velocity to $\dot x_c=K(F_d-F_m)$, with $K>0$. Integrate this command and track $x_c$ with an inner position servo:
+
+```text
+Fd --> (+ sum -) --> K --> integrator --> position servo --> robot/contact --> F
+           ^                                                               |
+           +---------------------- force sensor <---------------------------+
+```
+
+Choose the positive axis into the contact. With an ideal inner servo and spring contact $F=k_e(x_c-x_e)$, $k_e>0$, the force follows $\dot F=k_eK(F_d-F)$, so a constant desired force is approached exponentially. In practice, gain selection includes the servo dynamics, sensor noise, delay and actuator limits.
+
+#### Invariant features
+
+An invariant feature takes the same value after a specified transformation, helping recognition despite nuisance changes in viewpoint or object placement. For planar translation, central image moments remove the centroid; normalization by $\mu_{00}^{1+(p+q)/2}$ removes uniform geometric scale. With $\eta_{pq}=\mu_{pq}/\mu_{00}^{1+(p+q)/2}$, the combination $\eta_{20}+\eta_{02}$ is also invariant to in-plane rotation. Such invariance concerns these specified transformations; it does not guarantee invariance to perspective deformation or illumination changes. Descriptors should retain enough information to distinguish the target classes.
+
+#### Real-time capability
+
+A real-time system's correctness depends on both its output and when that output becomes available. A hard real-time task must meet its deadline under the stated workload and execution assumptions; a soft real-time task can tolerate some misses with degraded quality. For example, periodic motor control needs bounded response time, while video playback may occasionally drop a frame. Design uses worst-case execution times, scheduling and bounded blocking to establish response-time guarantees. A low average runtime alone does not establish a deadline guarantee.

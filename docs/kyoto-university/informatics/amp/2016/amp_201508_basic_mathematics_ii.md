@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h28_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
+
 $A = (a_{ij})$ を $n \times n$ 実対称行列とし，任意の非零な $n$ 次元実ベクトル $\mathbf{x} (\neq \mathbf{0})$ とその転置 $\mathbf{x}^T$ によって定まる 2 次形式 $\mathbf{x}^T A \mathbf{x}$ は正であるとする。以下の問いに答えよ。
 
 (i) 行列 $A$ の対角成分 $a_{ii} (i = 1, \dots, n)$ は全て正であることを示せ。

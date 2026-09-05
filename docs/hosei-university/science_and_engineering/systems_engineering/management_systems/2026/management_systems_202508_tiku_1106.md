@@ -10,6 +10,7 @@ tags:
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
 
+
 ## **Description**
 
 連続型確率変数 $X$ の確率密度関数 $f_X(x)$ が

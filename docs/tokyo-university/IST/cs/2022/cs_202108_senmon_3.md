@@ -21,7 +21,7 @@ f & \text{otherwise}
 \end{cases} \text{ for each } i \in \{1, \ldots, |w'|\} \}.
 $$
 
-In other words, $f_w(w')$ is the word obtained from $w'$ by replacing the start position of each subword that matches $w$ with $t$ and any other position with $f$. For example, $f_{aa}(baaab) = fttff$ and $f_{ab}(abbab) = ttttt$. Furthermore, we extend the function $f_w$ to the function $f_w^*$ that maps a language over $\Sigma_1$ to a language over $\Sigma_2$ by the following definition:
+In other words, $f_w(w')$ is the word obtained from $w'$ by replacing the start position of each subword that matches $w$ with $t$ and any other position with $f$. For example, $f_{aa}(baaab) = fttff$ and $f_{\epsilon}(abbab) = ttttt$. Furthermore, we extend the function $f_w$ to the function $f_w^*$ that maps a language over $\Sigma_1$ to a language over $\Sigma_2$ by the following definition:
 
 $$
 f_w^*(L) = \{f_w(w') \mid w' \in L \}.
@@ -52,7 +52,7 @@ f & \text{otherwise}
 \end{cases} \text{ for each } i \in \{1, \ldots, |w'|\} \}.
 $$
 
-换句话说，$f_w(w')$ 是从 $w'$ 获得的单词，通过用 $t$ 替换每个匹配 $w$ 的子单词的起始位置，并用 $f$ 替换其他任何位置。例如，$f_{aa}(baaab) = fttff$ 和 $f_{ab}(abbab) = ttttt$。此外，我们将函数 $f_w$ 扩展为函数 $f_w^*$，该函数将 $\Sigma_1$ 上的语言映射到 $\Sigma_2$ 上的语言，定义如下：
+换句话说，$f_w(w')$ 是从 $w'$ 获得的单词，通过用 $t$ 替换每个匹配 $w$ 的子单词的起始位置，并用 $f$ 替换其他任何位置。例如，$f_{aa}(baaab) = fttff$ 和 $f_{\epsilon}(abbab) = ttttt$。此外，我们将函数 $f_w$ 扩展为函数 $f_w^*$，该函数将 $\Sigma_1$ 上的语言映射到 $\Sigma_2$ 上的语言，定义如下：
 
 $$
 f_w^*(L) = \{f_w(w') \mid w' \in L \}.
@@ -80,7 +80,7 @@ $f_w:\Sigma_1^*\to\Sigma_2^*$：对输入
 $w'$ 的每个位置 $i=1,\ldots,|w'|$，若 $w$ 从该位置开始作为
 $w'$ 的子串出现，则输出第 $i$ 位为 $t$，否则为 $f$。例如
 $f_{aa}(baaab)=fttff$，
-$f_{ab}(abbab)=ttttt$。对语言 $L\subseteq\Sigma_1^*$，进一步定义
+$f_{\varepsilon}(abbab)=ttttt$。对语言 $L\subseteq\Sigma_1^*$，进一步定义
 
 $$
 f_w^*(L)=\{f_w(w')\mid w'\in L\}.
@@ -127,7 +127,7 @@ $$
 
 ### (2)
 
-Two occurrences of `aba` cannot start at consecutive positions, and the last two output symbols are always $f$.  Conversely, every such output word is realizable.  Hence
+Two occurrences of `aba` cannot start at consecutive positions, and the last two output symbols are always $f$.  Conversely, for any such output word of length at least two, start with an all-$a$ input of the same length, and place a $b$ exactly one position after every desired $t$. The absence of adjacent $t$ symbols ensures that each such $b$ has $a$ on both sides; these are exactly the occurrences of `aba`. Every such output word is therefore realizable.  Hence
 
 $$
 f_{aba}(\Sigma_1^*)
@@ -150,7 +150,7 @@ From every $(q,u)$ with $q\in F$, the automaton may stop guessing and enter a fi
 
 ### (4)
 
-The proposition is true.  For $w\ne\varepsilon$, replace the DFA component in (3) by a PDA for $L$; the finite buffer is kept in the control state, and the PDA stack is unchanged except when simulating a guessed input symbol.  This PDA accepts exactly $f_w^*(L)$.
+The proposition is true.  For $w\ne\varepsilon$, replace the DFA component in (3) by a PDA for $L$; the finite buffer is kept in the control state, and simulate its input-consuming moves on the guessed symbols and its $\varepsilon$-moves without consuming an output symbol or changing the finite buffer. Keep exactly the stack actions of the simulated PDA.  This PDA accepts exactly $f_w^*(L)$.
 
 For $w=\varepsilon$, $f_w(x)=t^{|x|}$, which is the homomorphic image obtained by mapping both $a$ and $b$ to $t$.  Context-free languages are closed under homomorphism.
 

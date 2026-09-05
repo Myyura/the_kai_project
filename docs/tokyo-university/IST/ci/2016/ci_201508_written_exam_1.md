@@ -11,6 +11,8 @@ tags:
 
 ## **Description**
 
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20170611141448id_/http://www.i.u-tokyo.ac.jp/edu/course/ci/pdf/2015-8-exam.pdf).
+
 ### 日本語
 
 電子部品を使い、$k$進1桁のカウンタを作ろう。ここで$k$は2以上の整数とする。このカウンタはクロック信号 (CLK信号) とイネーブル信号 (EN信号) を入力とし、カウンタ値$c$を出力する (図1)。CLK信号およびEN信号はHとLの2値をとる。CLK信号は図2に示すような周期的信号であり、LからHへの変化をCLK信号の立ち上がりと呼ぶ。カウンタ値は$0 \le c \le k-1$で、起動時に$c=0$に初期化される。
@@ -186,3 +188,150 @@ $$
 3. 用 2 位表示 $c$，组合上述部件画出第 1 问三进制一位计数器的电路；也可采用常规逻辑电路符号。
 4. 同样用 2 位表示 $c$，画出第 2 问三进制一位升降计数器电路。
 5. 如图 6，把三个三进制一位计数器组合成三进制三位计数器。为第 3 问的一位计数器增加一个新的输出信号，使其可作为级联部件，并画出扩展后的一位计数器电路。
+
+
+## **Kai**
+
+Use $H=1$, $L=0$, and encode the states $S_0,S_1,S_2$ by $(q_1q_0)=00,01,10$. Both flip-flops start at 0 and use the same rising-edge clock.
+
+### (1) Enabled ternary counter
+
+| State | $c$ | EN = 0: next state | EN = 1: next state |
+|---|---:|---|---|
+| $S_0$ | 0 | $S_0$ | $S_1$ |
+| $S_1$ | 1 | $S_1$ | $S_2$ |
+| $S_2$ | 2 | $S_2$ | $S_0$ |
+
+```mermaid
+stateDiagram-v2
+    [*] --> S0
+    S0 --> S0: EN=0
+    S1 --> S1: EN=0
+    S2 --> S2: EN=0
+    S0 --> S1: EN=1
+    S1 --> S2: EN=1
+    S2 --> S0: EN=1
+```
+
+### (2) Up/down ternary counter
+
+| State | UD = 0: next state | UD = 1: next state |
+|---|---|---|
+| $S_0$ | $S_2$ | $S_1$ |
+| $S_1$ | $S_0$ | $S_2$ |
+| $S_2$ | $S_1$ | $S_0$ |
+
+```mermaid
+stateDiagram-v2
+    [*] --> S0
+    S0 --> S1: UD=1
+    S1 --> S2: UD=1
+    S2 --> S0: UD=1
+    S0 --> S2: UD=0
+    S2 --> S1: UD=0
+    S1 --> S0: UD=0
+```
+
+### (3) Circuit with enable
+
+First decode the current state using NOT and AND gates:
+
+$$
+s_0=\overline q_1\overline q_0,\qquad
+s_1=\overline q_1q_0,\qquad
+s_2=q_1\overline q_0.
+$$
+
+Writing $e=\mathrm{EN}$, the two D inputs are
+
+$$
+\boxed{D_0=\overline e\,s_1+e\,s_0,\qquad
+D_1=\overline e\,s_2+e\,s_1.}
+$$
+
+Here juxtaposition is AND and $+$ is OR. These equations hold the state for $e=0$ and implement $00\to01\to10\to00$ for $e=1$. The unused encoding 11 gives $s_0=s_1=s_2=0$ and returns to 00 at the next clock edge.
+
+```mermaid
+flowchart LR
+    Q["q1,q0"] --> DEC["NOT + AND: s0,s1,s2"]
+    E["EN"] --> N["NOT: not e"]
+    DEC --> A0["AND: not e · s1"]
+    N --> A0
+    DEC --> B0["AND: e · s0"]
+    E --> B0
+    A0 --> O0["OR"]
+    B0 --> O0
+    O0 --> F0["D-FF: q0"]
+    DEC --> A1["AND: not e · s2"]
+    N --> A1
+    DEC --> B1["AND: e · s1"]
+    E --> B1
+    A1 --> O1["OR"]
+    B1 --> O1
+    O1 --> F1["D-FF: q1"]
+    CLK["CLK"] --> F0
+    CLK --> F1
+    F0 --> Q
+    F1 --> Q
+```
+
+### (4) Circuit with up/down input
+
+Use the same decoder and two flip-flops. With $u=\mathrm{UD}$, set
+
+$$
+\boxed{D_0=u\,s_0+\overline u\,s_2,\qquad
+D_1=u\,s_1+\overline u\,s_0.}
+$$
+
+The truth table in (2) gives these minterms directly. Encoding 11 again returns to 00.
+
+```mermaid
+flowchart LR
+    Q["q1,q0"] --> DEC["NOT + AND: s0,s1,s2"]
+    U["UD"] --> N["NOT: not u"]
+    DEC --> A0["AND: u · s0"]
+    U --> A0
+    DEC --> B0["AND: not u · s2"]
+    N --> B0
+    A0 --> O0["OR"]
+    B0 --> O0
+    O0 --> F0["D-FF: q0"]
+    DEC --> A1["AND: u · s1"]
+    U --> A1
+    DEC --> B1["AND: not u · s0"]
+    N --> B1
+    A1 --> O1["OR"]
+    B1 --> O1
+    O1 --> F1["D-FF: q1"]
+    CLK["CLK"] --> F0
+    CLK --> F1
+    F0 --> Q
+    F1 --> Q
+```
+
+### (5) Synchronous carry between digits
+
+Add a combinational carry-enable output to the circuit in (3):
+
+$$
+\boxed{\mathrm{CO}=\mathrm{EN}\,s_2
+       =\mathrm{EN}\,q_1\overline q_0.}
+$$
+
+It is high just before the active edge exactly when this digit is enabled and will wrap from 2 to 0. Connect it to the next digit's EN, while keeping all clocks connected to the common CLK:
+
+```mermaid
+flowchart LR
+    EN["EN"] --> C0["counter 0: D equations of (3)"]
+    C0 -->|"CO0 = EN · s2,0"| C1["counter 1: D equations of (3)"]
+    C1 -->|"CO1 = CO0 · s2,1"| C2["counter 2: D equations of (3)"]
+    CLK["common CLK"] --> C0
+    CLK --> C1
+    CLK --> C2
+    C0 --> V0["c0"]
+    C1 --> V1["c1"]
+    C2 --> V2["c2"]
+```
+
+Each added CO is an AND gate driven by EN and the existing $s_2$ decoder output. The represented value $c_0+3c_1+9c_2$ advances by 1 modulo 27 when EN is high, and otherwise holds. All enables are evaluated from the state before the same clock edge; the carry signals do not replace the clock.

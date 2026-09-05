@@ -169,6 +169,8 @@ $$
 \end{aligned}
 $$
 
+These likelihood maximizers exist with $\hat\sigma^2>0$ when the residual sum of squares is positive, an event of probability one. If all observations fit $X_i=a\hat\theta$, $Y_j=b\hat\theta$ exactly, the likelihood is unbounded as $\sigma^2\downarrow0$ and has no maximizer in the positive-variance parameter space.
+
 #### (2)
 
 $$

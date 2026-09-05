@@ -81,7 +81,7 @@ $\log(1+3x) = 3x - \frac{(3x)^2}{2} + \frac{(3x)^3}{3} + O(x^4) = 3x - \frac{9x^
 $\cos x = 1 - \frac{x^2}{2} + O(x^4)$
 $3x\cos x = 3x(1-\frac{x^2}{2} + O(x^4)) = 3x - \frac{3}{2}x^3 + O(x^5)$
 $3x\cos x - \log(1+3x) = 3x - \frac{3}{2}x^3 - (3x - \frac{9x^2}{2} + 9x^3) + O(x^4) = \frac{9}{2}x^2 - \frac{21}{2}x^3 + O(x^4)$
-$3x\cos x \log(1+3x) = (3x - \frac{3}{2}x^3)(3x - \frac{9}{2}x^2 + 9x^3) + O(x^5) = 9x^2 - \frac{27}{2}x^3 + 27x^4 - \frac{27}{2}x^4 + O(x^5) = 9x^2 - \frac{27}{2}x^3 + \frac{27}{2}x^4 + O(x^5)$
+$3x\cos x \log(1+3x) = (3x - \frac{3}{2}x^3)(3x - \frac{9}{2}x^2 + 9x^3) + O(x^5) = 9x^2 - \frac{27}{2}x^3 + 27x^4 - \frac{9}{2}x^4 + O(x^5) = 9x^2 - \frac{27}{2}x^3 + \frac{45}{2}x^4 + O(x^5)$
 $\lim_{x \to 0} \frac{\frac{9}{2}x^2 - \frac{21}{2}x^3}{9x^2 - \frac{27}{2}x^3} = \lim_{x \to 0} \frac{\frac{9}{2} - \frac{21}{2}x}{9 - \frac{27}{2}x} = \frac{\frac{9}{2}}{9} = \frac{1}{2}$
 
 (3)

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 2018年3月実施 専門科目 問題1 電気工学（問1d・2）
+sidebar_label: 2018年3月実施 専門科目 問題1 電気工学
 tags:
   - Tohoku-University
   - Mathematics.Differential-Equations.Laplace-Transform
@@ -7,7 +7,7 @@ tags:
   - Electrical-Electronic.Control-Theory.Steady-State-Error
 ---
 
-# 東北大学 工学研究科 電気・情報系 2018年3月実施 専門科目 問題1 電気工学（問1d・2）
+# 東北大学 工学研究科 電気・情報系 2018年3月実施 専門科目 問題1 電気工学
 
 ## **Author**
 
@@ -43,6 +43,10 @@ $$
 
 (d) 目標値 $r(t)=0$、外乱 $d(t)=\sin t$ とする。周期的な振動成分の大きさが (2)(c) で求めた $p(t)$ の大きさの $1/2$ となる $K$ に関する条件を求めよ。
 
+#### 題意の要約
+
+(1)(a)–(c) 直流モータの電機子回路は $R_a,L_a$ と逆起電力 $K_V\dot\theta$ の直列回路であり、機械系は $K_Ti_a=J\ddot\theta+D\dot\theta$ に従う。(a) 電気回路の方程式、(b) 初期値を含む各方程式のラプラス変換、(c) $G(s)=\Theta(s)/V_a(s)$ を求める。図と原文は[大学公開の原題、1–3 ページ](https://www.ecei.tohoku.ac.jp/ecei_web/files/admission/201803senmon.pdf#page=1)を参照。
+
 ### 题目描述
 
 (1)(d) 给定传递函数 $G(s)=1/[s(s+2)(s+3)]$，求单位冲激响应 $g(t)$。
@@ -62,6 +66,34 @@ flowchart LR
 ```
 
 ## **Kai**
+
+### (1)(a)–(c)
+
+**(a)** Kirchhoff 电压定律给出
+
+$$
+\boxed{v_a=R_ai_a+L_a\dot i_a+K_V\dot\theta}.
+$$
+
+**(b)** 单边拉普拉斯变换为
+
+$$
+V_a=(R_a+L_as)I_a-L_ai_a(0)+K_V[s\Theta-\theta(0)],
+$$
+
+$$
+K_TI_a=J[s^2\Theta-s\theta(0)-\dot\theta(0)]+D[s\Theta-\theta(0)].
+$$
+
+机械方程含二阶导数，一般必须保留初始角速度 $\dot\theta(0)$；若电动机初始静止，该项才为零。
+
+**(c)** 传递函数取所有初始状态为零，消去 $I_a$，得到
+
+$$
+\boxed{G(s)=\frac{K_T}{s[(L_as+R_a)(Js+D)+K_VK_T]}}.
+$$
+
+代入 (d) 的参数，确有 $G(s)=1/[s(s+2)(s+3)]$。
 
 ### (1)(d)
 

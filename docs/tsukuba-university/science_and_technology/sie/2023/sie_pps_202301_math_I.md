@@ -98,19 +98,9 @@ $$
 $$
 \begin{aligned}
 \det(A-\lambda I)
-&=
-\begin{vmatrix}
-2-\lambda & -1        & -1        \\
--1        & 2-\lambda & -1        \\
--1        & -1        & 2-\lambda
-\end{vmatrix}                                                \\[4pt]
-&= (2-\lambda)\bigl[(2-\lambda)^2-1\bigr]
-   -(-1)\bigl[(-1)(2-\lambda)-1\bigr]
-   +(-1)\bigl[(-1)(-1)-(2-\lambda)\bigr]                     \\[4pt]
-&= (2-\lambda)(\lambda^2-4\lambda+3)
-   +(2-\lambda)(\lambda-1)
-   +(\lambda-3)                                              \\[4pt]
-&= -\lambda(\lambda-3)^2 .
+&=\begin{vmatrix}2-\lambda&-1&-1\\-1&2-\lambda&-1\\-1&-1&2-\lambda\end{vmatrix}\\
+&=(2-\lambda)\bigl((2-\lambda)^2-1\bigr)-2(3-\lambda)\\
+&=-\lambda(\lambda-3)^2.
 \end{aligned}
 $$
 

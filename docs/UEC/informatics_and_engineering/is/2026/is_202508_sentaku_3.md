@@ -36,6 +36,8 @@ $\operatorname{Odd}(a)$ を「$a$ は奇数」を表す述語とする。
 2. 素数は無限に存在する。
 3. 7 より大きい奇数は 3 個の素数の和で表せる。
 
+[公式 PDF 10 ページ](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_2_j_choice202508.pdf#page=10) に基づく独立要約（逐語転載ではない）。(1) は否定直後の量化部分 $[5]$ と三条件間の結合子 $[6],[7]$、(2) は先頭の量化部分 $[8]$ と $b>a$、$\operatorname{Prime}(b)$ 間の結合子 $[9]$、(3) は先頭の量化子 $[10]$ と仮定・結論間の結合子 $[11]$ を埋める。候補番号は $0:\exists a$, $1:\forall a$, $2:\exists a\exists b$, $3:\exists a\forall b$, $4:\forall a\exists b$, $5:\forall a\forall b$, $6:\land$, $7:\lor$, $8:\Rightarrow$ である。
+
 ### 問3
 
 1. $|X|=n$ のとき、写像 $f:X\to X$ のうち、全射でも単射でもないものの数を求めよ。

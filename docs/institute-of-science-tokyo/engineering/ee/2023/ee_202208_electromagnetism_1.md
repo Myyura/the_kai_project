@@ -37,7 +37,7 @@ Zero
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/institute-of-science-tokyo/engineering/ee_202208_electromagnetism_1_p3.png" width="500" alt=""/>
 </figure>
 
-① 図 $1.3$ に示す領域 I と領域 II の部分の静電容量 $C_1$  および $C_{11}$ を，それぞれ $a,d,x,l,\varepsilon_0,\varepsilon$ のうち必要なものを用いて表せ。 
+① 図 $1.3$ に示す領域 I と領域 II の部分の静電容量 $C_I$ および $C_{II}$ を，それぞれ $a,d,x,l,\varepsilon_0,\varepsilon$ のうち必要なものを用いて表せ。
 
 ② 誘電体板に働く静電気力の大きさ 
 $F_3$ を $a,d,x,l,V,\varepsilon
@@ -61,7 +61,7 @@ _0,\varepsilon$ のうち必要なものを用いて表せ。また，その静�
 
    同时给电容器施加电位差 $V$。
 
-   1. 对图 1.3 标出的区域 I、区域 II，分别用 $a,d,x,l,\varepsilon_0,\varepsilon$ 中必要的量表示其部分电容 $C_1,C_{11}$。
+   1. 对图 1.3 标出的区域 I、区域 II，分别用 $a,d,x,l,\varepsilon_0,\varepsilon$ 中必要的量表示其部分电容 $C_I,C_{II}$。
    2. 用 $a,d,x,l,V,\varepsilon_0,\varepsilon$ 中必要的量表示介质板所受静电力大小 $F_3$，并按图 1.3 回答其方向向右还是向左。
 
 区域划分、介质板与极板的相对位置及方向均以原 Description 的三幅图为准。
@@ -96,7 +96,7 @@ U_1 = \frac{1}{2}C_1V^2 = \frac{1}{2} \cdot \frac{\varepsilon_0ab}{x}V^2
 $$
 
 $$
-F_1 = \frac{\partial U_1}{\partial x} = -\frac{\varepsilon_0ab}{2x^2}V^2
+F_x=\left.\frac{\partial U_1}{\partial x}\right|_V=-\frac{\varepsilon_0ab}{2x^2}V^2,\qquad F_1=|F_x|=\frac{\varepsilon_0ab}{2x^2}V^2
 $$
 
 静電気力の向きは導体板が引き合う方向である。
@@ -112,7 +112,7 @@ U_2 = \frac{1}{2} \cdot \frac{Q^2}{C_1} = \frac{1}{2} \cdot \frac{x}{\varepsilon
 $$
 
 $$
-F_2 = -\frac{\partial U_2}{\partial x} = -\frac{Q^2}{2\varepsilon_0ab}
+F_x=-\left.\frac{\partial U_2}{\partial x}\right|_Q=-\frac{Q^2}{2\varepsilon_0ab},\qquad F_2=|F_x|=\frac{Q^2}{2\varepsilon_0ab}
 $$
 
 静電気力の向きは導体板が引き合う方向である。
@@ -126,7 +126,7 @@ $$
 $$
 \begin{aligned}
 \varepsilon_0E_1 &= \frac{Q_1}{a(a - l)} \\
-E_1 &= \frac{Q}{\varepsilon_0a(a - l)} \\
+E_1 &= \frac{Q_1}{\varepsilon_0a(a - l)} \\
 V &= xE_1 \\
 &= \frac{x}{\varepsilon_0a(a - l)}Q_1
 \end{aligned}
@@ -182,7 +182,7 @@ $$
 
 $$
 \begin{aligned}
-V_3 &= \frac{1}{2}CV^2 = \frac{1}{2} \bigg[\frac{\varepsilon_0a(a - l)}{x} + \frac{al}{\frac{x-d}{\varepsilon_0} + \frac{d}{\varepsilon}}\bigg]V^2
+U_3 &= \frac{1}{2}CV^2 = \frac{1}{2} \bigg[\frac{\varepsilon_0a(a - l)}{x} + \frac{al}{\frac{x-d}{\varepsilon_0} + \frac{d}{\varepsilon}}\bigg]V^2
 \end{aligned}
 $$
 

@@ -1,12 +1,12 @@
 ---
-sidebar_label: "2019年2月実施 线性代数"
+sidebar_label: "2019年2月実施 線形代数"
 tags:
   - Saitama-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Matrix-Inverse
   - Mathematics.Linear-Algebra.Matrix-Determinant
 ---
-# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2019年2月実施 线性代数
+# 埼玉大学 理工学研究科 数理電子情報系専攻 情報システム工学コース 2019年2月実施 線形代数
 
 ## **Author**
 [思齐塾](https://www.siqishu.com/), 祭音Myyura
@@ -95,7 +95,7 @@ $$
 \begin{pmatrix} -6 & 6 \\ -4 & 4 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
 $$
 
-$-6x + 6y = 0$ より、 $x = y$ 。よって、固有ベクトルは $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ の定数倍。
+$-6x + 6y = 0$ より、 $x = y$ 。よって、固有ベクトルは $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ の非零定数倍。
 
 $\lambda = -1$ のとき、 $(A + I)v = 0$ より
 
@@ -103,7 +103,7 @@ $$
 \begin{pmatrix} -4 & 6 \\ -4 & 6 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
 $$
 
-$-4x + 6y = 0$ より、 $2x = 3y$ 。よって、固有ベクトルは $v_2 = \begin{pmatrix} 3 \\ 2 \end{pmatrix}$ の定数倍。
+$-4x + 6y = 0$ より、 $2x = 3y$ 。よって、固有ベクトルは $v_2 = \begin{pmatrix} 3 \\ 2 \end{pmatrix}$ の非零定数倍。
 
 (a)(2) $P^{-1}AP = D$ となるPは、固有ベクトルを並べた行列。
 
@@ -125,7 +125,9 @@ $$
 Bは、 $b_{ij} = c$ (for $i \neq j$ ) および $b_{ii} = 1$ という成分を持つ行列です。これは、各成分がcである行列から対角成分を(c-1)減算した行列と言えます。つまり、 $B = c J + (1-c)I$ 。ここでJは全ての成分が1のm x m行列、Iはm x m単位行列。
 この行列の行列式は、 $\det(B) = (1+(m-1)c)(1-c)^{m-1}$ 。
 
-(b)(2) Bの全ての固有値と対応する固有ベクトルを求める。
+(b)(2) $m=1$ では $B=(1)$ であり、固有値は $1$ のみである。以下 $m\geq2$ とする。
 固有値は $\lambda_1 = 1 + (m-1)c$ (重複度1) と $\lambda_2 = 1-c$ (重複度 m-1)。
 固有ベクトルは、 $\lambda_1$ に対応する固有ベクトルは、全ての成分が等しいベクトル、 $v_1 = (1, 1, ..., 1)^T$ 。
 $\lambda_2$ に対応する固有ベクトルは、成分の和が0となるm-1個の線形独立なベクトル。
+
+$\lambda_2$ の固有空間の基底は $e_1-e_m,\ldots,e_{m-1}-e_m$ であり、対応する固有ベクトルはこの空間の非零ベクトル全体である。

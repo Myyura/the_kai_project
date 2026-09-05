@@ -10,6 +10,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+出典：[名古屋大学公表問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/ebaa513ac4d89108fe34bc3220cd6ad3.pdf)。
+
 ソースコード 1, 2 はどちらもフィボナッチ数を計算するC言語プログラムである。
 ソースコード 1 の fib1 はフィボナッチ数を再帰的に計算し、ソースコード 2 の fib2 にはメモ化が導入されている。
 本問では 32 ビットの符号付き整数でオーバーフローが発生しない範囲として、40 番目までのフィボナッチ数のみを扱うこととする。
@@ -19,14 +22,14 @@ tags:
 
 (2) ソースコード 2 の \[ 空欄 B \] に 10 を埋めて main 関数を実行したときに標準出力に印字される実行結果を書け。
 
-(3) ソースコード 2 の \[ 空欄 B \] に整数 $m$ ($1 < m \le 40$) を埋めて main 関数を実行したときに 23 行目の printf 文を実行する時に cntr が保持する値を $m$ の式で表せ。
+(3) ソースコード 2 の \[ 空欄 B \] に整数 $m$ ($1 < m \le 40$) を埋めて main 関数を実行したときに 44 行目の printf 文を実行する時に cntr が保持する値を $m$ の式で表せ。
 
 (4) ソースコード 1 の \[ 空欄 A \] とソースコード 2 の \[ 空欄 B \] に同じ整数を埋めたとき、一般にソースコード 2 の main 関数の実行はソースコード 1 の main 関数の実行よりも効率的である。その理由を150字以内（英語の場合、100 words以内）で説明せよ。
 
-(5) ソースコード 2 の 22 行目の配列 memo の初期化は 44 行目の fib2(n) の計算において参照されることがない要素も含めて初期化している。\[ 空欄 B \] に与えた整数 $m$ について適切にフィボナッチ数を計算するために必要な要素のみを -1 で初期化するように 22 行目を変更せよ。解答では 22 行目に記述するコードを記すこと。
+(5) ソースコード 2 の 43 行目の配列 memo の初期化は 44 行目の fib2(n) の計算において参照されることがない要素も含めて初期化している。\[ 空欄 B \] に与えた整数 $m$ について適切にフィボナッチ数を計算するために必要な要素のみを -1 で初期化するように 43 行目を変更せよ。解答では 43 行目に記述するコードを記すこと。
 
-#### <center> ソースコード１: フィボナッチ数を再帰的に計算するＣ言語プログラム</center>
-```text
+#### ソースコード１: フィボナッチ数を再帰的に計算するＣ言語プログラム
+```c showLineNumbers
 #include <stdio.h>
 
 int cntr=0;
@@ -50,8 +53,8 @@ int main() {
 }
 ```
 
-#### <center> ソースコード２: メモ化を用いてフィボナッチ数を計算するＣ言語プログラム</center>
-```text
+#### ソースコード２: メモ化を用いてフィボナッチ数を計算するＣ言語プログラム
+```c showLineNumbers=22
 #include <stdio.h>
 
 int cntr=0;
@@ -82,7 +85,7 @@ int main() {
 (6) 関数呼び出しを用いずにフィボナッチ数を計算する関数 fib3 を, 下記の関数定義の中の [ 空欄 (ア) ], [ 空欄 (イ) ], [ 空欄 (ウ) ] を埋めて完成せよ.
 ただし, 任意の整数 $m\ (0 \le m \le 40)$ について, fib3(m) の返り値が fib1(m) の帰り値と一致すること。
 
-```text
+```c
 int fib3(int n) {
     int i, p=0, q=1, tmp;
     for(i=0; i<n; i++) {
@@ -108,35 +111,59 @@ int fib3(int n) {
 6. 填写循环函数 `fib3` 中的空格 (ア)、(イ)、(ウ)，使任意 $0\le m\le40$ 都满足 `fib3(m) == fib1(m)`，且不使用函数调用完成迭代计算。
 
 ## **Kai**
-Note: C does not specify the evaluation order of function arguments.
-Here `fib1`/`fib2` modifies `cntr` while another `printf` argument reads it; these operations are unsequenced.
-Thus the behavior is undefined, and the C standard gives no unique output.
-
-In the following Kais, we assume that arguments of `printf` are evaluated from left-to-right.
 
 ### (1)
-13, 41
+
+C11 では、`fib1(n)` の実行と、別の実引数である `cntr` の読取りの先後は未規定である。従って、出力は `13,41` または `13,0` となる。`fib1(7)` の終了後には `cntr == 41` であり、`cntr` をその後に読み取る場合の出力は次のとおりである。
+
+```text
+13,41
+```
+
+呼出し回数 $C_n$ は $C_0=C_1=1$、$C_n=1+C_{n-1}+C_{n-2}$ を満たすので、$C_7=41$ である。
 
 ### (2)
-55, 11
+
+同じ理由で、出力は `55,11` または `55,0` となる。`fib2(10)` の終了後に `cntr` を読み取る場合は、次の出力になる。
+
+```text
+55,11
+```
+
+初めて計算する引数は $0,1,\ldots,10$ の 11 個で、それぞれ一度だけ `cntr++` を実行する。
 
 ### (3)
-cntr = m + 1
+
+`printf` の関数本体が実行される時点では、実引数中の `fib2(m)` は計算済みであり、変数そのものの値は
+
+$$
+\mathrm{cntr}=m+1
+$$
+
+である。ただし、`printf` に渡される第 3 引数は、先に読み取られた `0` である可能性もある。関数本体の実行と呼出し側での値の読取りは、不定順序で順序付けられる（indeterminately sequenced）。[C11 草案 §6.5.2.2 第 10 段落](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf)
 
 ### (4)
-再帰的にフィボナッチ数を計算する場合、同じフィボナッチ数を何度も計算する必要があります。
-たとえば、fib1(5) を計算する際には、fib1(4) と fib1(3) を計算し、さらにfib1(4) を計算するために fib1(3) と fib1(2) を計算します。
-メモ化を用いる場合、一度計算したフィボナッチ数を保存しておき、再度同じ値を計算する必要がなくなります。
 
-In the recursive calculation, a large number of overlapping subproblems are computed multiple times, resulting in an exponential time complexity of $O(2^n)$.
-In contrast, memoization eliminates the redundant calculations by storing the results of subproblems, reducing the time complexity to $O(n)$. 
+単純再帰では同じ引数の値を繰り返し計算する。メモ化では計算結果を保存して再利用するため、各引数を一度だけ計算すればよく、計算量が指数時間から線形時間に減る。
 
 ### (5)
-```text
-for(i=0; i<n+1; i++) memo[i]=-1;
+
+$m>1$ では `memo[0]` から `memo[n]` までを初期化する。
+
+```c
+for(i=0; i<=n; i++) memo[i]=-1;
+```
+
+$m=0,1$ も含め、実際に参照する要素だけを初期化するなら、次の 1 行でよい。
+
+```c
+for(i=(n<=1 ? n : 0); i<=n; i++) memo[i]=-1;
 ```
 
 ### (6)
-- \[ 空欄 (ア) \]: p+q
-- \[ 空欄 (イ) \]: q
-- \[ 空欄 (ウ) \]: tmp
+
+- \[ 空欄 (ア) \]: `p+q`
+- \[ 空欄 (イ) \]: `q`
+- \[ 空欄 (ウ) \]: `tmp`
+
+$i$ 回の反復後に $p=F_i$、$q=F_{i+1}$ が成り立つので、終了時の返り値は $F_n$ となる。

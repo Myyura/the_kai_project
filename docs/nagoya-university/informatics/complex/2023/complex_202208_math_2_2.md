@@ -11,6 +11,9 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/153686fd38b76aec8fe63b4c47663818.pdf)
+
+
 以下の各問に答えよ。
 
 1) $y' = f(y/x)$ の形の微分方程式は、 $v = y/x$ と変数変換することにより、変数分離形に帰着できることを示せ。
@@ -36,7 +39,7 @@ tags:
 
 ## **Kai**
 
-1)  Let $y = vx$ . Then $y' = v + xv'$ .  Substituting into the given differential equation, we have
+1) On an interval with $x\ne0$, let $y = vx$ . Then $y' = v + xv'$ .  Substituting into the given differential equation, we have
 
 $$
 v + xv' = f(v)
@@ -119,3 +122,8 @@ y=(-1\pm\sqrt2)x
 $$
 
 である。これらは上の陰関数表示で $C=0$ としたときの二つの枝に対応する。
+
+
+解は $x+y\ne0$ を満たす連結な枝に制限する。この条件の下では
+陰関数の微分から $y'=(x-y)/(x+y)$ が得られるため，陰関数表示は
+$x=0$ を通る枝にも適用できる。ただし $(0,0)$ は元の方程式の定義域外である。

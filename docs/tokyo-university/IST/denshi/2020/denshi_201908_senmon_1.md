@@ -15,7 +15,7 @@ tags:
 
 (1) $t=0$ から $T_0$ の時間，スイッチを短絡させる． $0 \le t < T_0$ について, $i(t)$ を求めよ．
 
-(2) $t=T_0$ に，スイッチを開放する．スイッチを開放してから $i(t)$ が $0$ に戻るまでの時間を $T_1$ とする．$T_0 \le t < T_0$ における $i(t)$ を求め, $T_1$ も求めよ．
+(2) $t=T_0$ に，スイッチを開放する．スイッチを開放してから $i(t)$ が $0$ に戻るまでの時間を $T_1$ とする．$T_0 \le t < T_0+T_1$ における $i(t)$ を求め, $T_1$ も求めよ．
 
 $t=0$ から，上述の操作 ($T_0$ 時間短絡し，$T_1$ 時間開放させる) を $n$ 回繰り返す．$T_0$ および $T_1$ は定数，$n$ は $1$ 以上の整数とする．
 
@@ -37,7 +37,7 @@ $$
 
 (1) 从 $t=0$ 起将开关短路 $T_0$ 时间，求 $0\le t<T_0$ 时的 $i(t)$。
 
-(2) 在 $t=T_0$ 时断开开关。把断开后直至 $i(t)$ 恢复为 $0$ 的时间记为 $T_1$，求断开期间的 $i(t)$，并求 $T_1$。原 Description 对所求区间逐字写作 $T_0\le t<T_0$，因此该处没有给出有效的右端点；这里不据解答补写缺失边界。
+(2) 在 $t=T_0$ 时断开开关。把断开后直至 $i(t)$ 恢复为 $0$ 的时间记为 $T_1$，求 $T_0\le t<T_0+T_1$ 时的 $i(t)$，并求 $T_1$。
 
 从 $t=0$ 起，把上述“短路 $T_0$ 时间、断开 $T_1$ 时间”的操作重复 $n$ 次，其中 $T_0,T_1$ 为常数，$n$ 为不小于 $1$ 的整数。
 
@@ -54,144 +54,83 @@ v\bigl(n(T_0+T_1)\bigr).
 $$
 
 ## **Kai**
+
 ### (1)
-スイッチを短絡させると、以下の回路方程式が成り立つ。
+
+スイッチを短絡するとダイオードは逆バイアスとなり、電源とコイルに対して
 
 $$
-L\frac{di(\tau)}{d\tau} = v(t)
+L\frac{di}{dt}=E
 $$
 
-電源は定電圧電源なので $v(t) = v(0) = E$ であり、$\tau = [0,t]$ 上で $\tau$ に関して積分して整理すると
+が成り立つ。$i(0)=0$ より
 
 $$
-i(t) - i(0) = \frac{E}{L}t
+\boxed{i(t)=\frac ELt\qquad(0\le t<T_0)}.
 $$
 
-問題文より $t = 0$ で $i(0) = 0$ だから
-
-$$
-i(t) = \frac{E}{L}t
-$$
+この間、負荷のないコンデンサの電圧は $v(t)=E$ に保たれる。
 
 ### (2)
-スイッチを開放すると、$t = [T_0, T_0 + T_1)$ において以下の回路方程式が成り立つ。
+
+$u=t-T_0$、$\omega_0=1/\sqrt{LC}$、$I_0=ET_0/L$ とおく。ダイオードが導通している間の回路方程式は
 
 $$
-L\frac{di(t)}{dt} + \frac{1}{C}\int_{T_0}^t i(\tau)d\tau = E
+L\frac{di}{du}+v=E,\qquad C\frac{dv}{du}=i,
+\qquad i(0)=I_0,\quad v(0)=E.
 $$
 
-両辺を微分して整理すると
+従って $i''+\omega_0^2i=0$、$i'(0)=0$ なので
 
 $$
-\begin{aligned}
-0 &= L\frac{d^2i(t)}{dt^2} + \frac{1}{C}i(t) \\
-\frac{d^2i(t)}{dt^2} &= - \frac{1}{LC}i(t)
-\end{aligned}
+\boxed{i(t)=I_0\cos\bigl(\omega_0(t-T_0)\bigr)},\qquad
+v(t)=E+I_0\sqrt{\frac LC}\sin\bigl(\omega_0(t-T_0)\bigr).
 $$
 
-よって、$i(t)$ の一般解は
+最初に電流が0となるのは $\omega_0u=\pi/2$ の時であり、
 
 $$
-i(t) = A\sin\frac{1}{\sqrt{LC}}t + B\cos\frac{1}{\sqrt{LC}}t
-$$
-
-と書ける.
-
-(1) より $i(T_0) = \frac{E}{L}T_0$ であり $\frac{di(t)}{dt}\bigg|_{t = T_0} = 0$
-
-$\frac{di(t)}{dt} = \frac{A}{\sqrt{LC}}\cos\frac{t}{\sqrt{LC}} - \frac{B}{\sqrt{LC}}\sin\frac{t}{\sqrt{LC}}$ より
-
-$$
-\frac{di(t)}{dt}\bigg|_{t = T_0} = \frac{A}{\sqrt{LC}}\cos\frac{T_0}{\sqrt{LC}} - \frac{B}{\sqrt{LC}}\sin\frac{T_0}{\sqrt{LC}} = 0
-$$
-
-よって
-
-$$
-A = B\tan\frac{T_0}{\sqrt{LC}}
-$$
-
-また
-
-$$
-\begin{aligned}
-i(T_0) &= \frac{A}{\sqrt{LC}}\cos\frac{T_0}{\sqrt{LC}} - \frac{B}{\sqrt{LC}}\sin\frac{T_0}{\sqrt{LC}} \\
-&= B\bigg(\sin\frac{T_0}{\sqrt{LC}}\tan\frac{T_0}{\sqrt{LC}} + \cos\frac{T_0}{\sqrt{LC}}\bigg) \\
-&= B\frac{\sin^2\frac{T_0}{\sqrt{LC}} + \cos^2\frac{T_0}{\sqrt{LC}}}{\cos\frac{T_0}{\sqrt{LC}}} \\
-&= \frac{B}{\cos\frac{T_0}{\sqrt{LC}}}
-\end{aligned}
-$$
-
-よって、$i(T_0) = \frac{E}{L}T_0$ より
-
-$$
-\begin{aligned}
-B &= \frac{E}{L}T_0\cos\frac{T_0}{\sqrt{LC}} \\
-A &= B\tan\frac{T_0}{\sqrt{LC}} = \frac{E}{L}T_0\sin\frac{T_0}{\sqrt{LC}}
-\end{aligned}
-$$
-
-よって
-
-$$
-\begin{aligned}
-i(t) &= \frac{E}{L}T_0\sin\frac{T_0}{\sqrt{LC}}\sin\frac{t}{LC} + \frac{E}{L}T_0\cos\frac{T_0}{\sqrt{LC}}\cos\frac{t}{LC} \\
-&= \frac{E}{L}T_0\cos\frac{1}{\sqrt{LC}}(t - T_0)
-\end{aligned}
-$$
-
-これが $t \le T_0$ で最初に $0$ となるのは、$\frac{1}{\sqrt{LC}}(t - T_0) = \frac{\pi}{2}$ のときなので
-
-$$
-\frac{1}{\sqrt{LC}}((T_0 + T_1) - T_0) = \frac{\pi}{2}
-$$
-
-$$
-\therefore T_1 = \frac{\pi\sqrt{LC}}{2}
+\boxed{T_1=\frac{\pi\sqrt{LC}}2}.
 $$
 
 ### (3)
-ダイオードがあるため、コンデンサにかかる電圧 $v(t)$ は常に単調増加する。したがって、スイッチを開放しているときにコイルに流れる電流の時間変化
+
+各周期の開始時の電流を0、電圧を $v_k\ge E$ とする。短絡区間の終了時には、毎回同じ電流 $I_0=ET_0/L$ が得られる。続く開放区間で、導通中の電流は
 
 $$
-\frac{di(t)}{dt} = \frac{E - v(t)}{L}
+i_k(u)=I_0\cos(\omega_0u)
+-(v_k-E)\sqrt{\frac CL}\sin(\omega_0u).
 $$
 
-は単調減少する。これはつまり、回数を重ねるごとにスイッチ解放後に電流が減少するスピードが早くなるということ。だから、$i = 0$ となるまでにかかる時間は $T_1$ からどんどん短くなっていく。
+$v_k>E$ なら第2項が負なので、最初の零点は $0<u<T_1$ にある。電流が0になるとダイオードが遮断し、残りの開放時間は $i=0$ に保たれる。コンデンサは導通中だけ充電されるので $v_{k+1}\ge v_k\ge E$ である。
 
-よって、各操作でスイッチを開放した後 $T_1$ 時間後までに必ず $i = 0$ となっているはずな
-ので、$i(n(T_1 + T_0)) = 0$ と言える。
+初期値 $i(0)=0,v_0=E$ から帰納的に、
+
+$$
+\boxed{i\bigl(n(T_0+T_1)\bigr)=0}
+$$
+
+がすべての $n\ge1$ で成り立つ。
 
 ### (4)
-簡単のため、$v_k = v(k(T_0 + T_1))$ とおく。
 
-$k(T_0 + T_1) \le k(T_0 + T_1) + T_0$ のとき、回路に流れる電流は (1) と同様にして
-
-$$
-\begin{align}
-E &= L\frac{di(t)}{dt} ,i(k(T_0 + T_1)) = 0 \\
-\therefore i(t) &= \frac{E}{L}(t - k(T_0 + T_1)) \tag{1}
-\end{align}
-$$
-
-よって、$t = k(T_0 + T_1) + T_0$ のとき $i(t) = \frac{E}{L}T_0$ である。
-
-$k(T_0 + T_1) + T_0 \le t < (k + 1)(T_0 + T_1)$ の間について、電源がした仕事とコイル･コンデンサのエネルギーの変化分は等しいので
+開放区間で電源がした仕事は $E\int i\,dt=EC(v_{k+1}-v_k)$ であり、これが蓄積エネルギーの増加分に等しい。したがって
 
 $$
-E \cdot C (v_{k+1} - v_k) = \big(\frac{1}{2}L \cdot 0^2 + \frac{1}{2}Cv_{k+1}^2\big) + \big(\frac{1}{2}L(\frac{E}{L}T_0)^2 + \frac{1}{2}Cv_k^2\big)
+EC(v_{k+1}-v_k)
+=\frac C2(v_{k+1}^2-v_k^2)-\frac L2 I_0^2.
 $$
 
-$$
-(v_{k+1} + E)^2 = (v_k - E)^2 + \frac{E^2}{LC}T_0^2
-$$
-
-$v_0 = v(0) = E$ に注意してこれを解くと
+整理すると
 
 $$
-(v_n - E)^2 = n \cdot \frac{E^2}{LC}T_0^2
+(v_{k+1}-E)^2=(v_k-E)^2+\frac LC I_0^2
+=(v_k-E)^2+\frac{E^2T_0^2}{LC}.
 $$
 
+$v_0=E$ と $v_n\ge E$ より
+
 $$
-\therefore v_n = E\big(1 + T_0\sqrt{\frac{n}{LC}}\big)
+\boxed{v\bigl(n(T_0+T_1)\bigr)
+=E\left(1+T_0\sqrt{\frac n{LC}}\right)}.
 $$

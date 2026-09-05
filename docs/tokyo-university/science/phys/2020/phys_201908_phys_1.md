@@ -14,6 +14,8 @@ tags:
 
 ## **Description**
 
+出典：[東京大学大学院理学系研究科物理学専攻](https://www.phys.s.u-tokyo.ac.jp/)の大学院入試問題（一部表記・構成を改変）。
+
 ### 第1問
 
 量子力学的二状態系を考えよう。この場合、観測量は $2 \times 2$ のエルミート行列で表される演算子に対応する。以下では次の行列表示をもつ観測量
@@ -77,7 +79,7 @@ _________________
 
 6.&nbsp;毎回、部分系 $A$ で $\sigma^A(\theta)$、部分系 $B$ で $\sigma^B(\theta)$ を測定する。この場合、測定結果の組 $(s^A_\theta, s^B_\theta)$ は $s^A_\theta = -s^B_\theta = \pm 1$ を満たすことを示せ。
 
-7.&nbsp;毎回、部分系 $A$ で $\sigma^A(\theta)$、部分系 $B$ で $\sigma^B(\varphi)$ を測定する。取りうる測定結果の組 $(s^A_0, s^B_\varphi)$ を述べよ。また、積 $s^A_0 s^B_\varphi$ の期待値を求めよ。
+7.&nbsp;毎回、部分系 $A$ で $\sigma^A(\theta)$、部分系 $B$ で $\sigma^B(\varphi)$ を測定する。取りうる測定結果の組 $(s^A_\theta, s^B_\varphi)$ を述べよ。また、積 $s^A_\theta s^B_\varphi$ の期待値を求めよ。
 
 8.&nbsp;各回、部分系 $A$ で測定する観測量 $\sigma^A(\theta)$ を $\sigma^A(0^\circ)、\sigma^A(120^\circ)、\sigma^A(240^\circ)$ からそれぞれ 1/3 の確率で測定者が選択することにし、また、部分系 $B$ でも、測定する観測量 $\sigma^B(\varphi)$ を $\sigma^B(0^\circ)、\sigma^B(120^\circ)、\sigma^B(240^\circ)$ からそれぞれ 1/3 の確率で測定者が選択することにする。測定結果の組 $(s^A, s^B)$ の取りうる値を述べよ。また、積 $s^A s^B$ の期待値を求め、それが 0 になることを示せ。
 
@@ -188,6 +190,8 @@ $$
 由此比较第 8 问量子力学给出的零相关与确定论假设必然给出的负相关。
 
 ## **Kai**
+
+以下は著者による解答例であり、大学が公表した解答ではない。
 ### 1. 
 
 $\sigma_z \left| \uparrow \right\rangle = \left| \uparrow \right\rangle$ であるから、$\left| \uparrow \right\rangle$ は $\sigma_z$ の固有値 $1$ に属する固有ベクトルであり、
@@ -272,7 +276,7 @@ $$
 $$
 
 が成り立つから、 $s_\theta = \pm 1$ である。
-（ただし、$\theta = 0$ のときは $s_\theta = 1$ 、$\theta = \pi$ のときは $s_\theta = -1$である。）
+（ただし、$\theta \equiv 0\pmod{2\pi}$ のときは $s_\theta = 1$ 、$\theta \equiv \pi\pmod{2\pi}$ のときは $s_\theta = -1$である。）
 
 また、期待値は、$\left\langle \uparrow \right| \sigma(\theta) \left| \uparrow \right\rangle = \cos \theta$ である。
 
@@ -444,10 +448,10 @@ $$
 
 となる。
 
-よって、$\varphi - \theta = 0$ のときは
+よって、$\varphi - \theta \equiv 0\pmod{2\pi}$ のときは
 $\left( s_\theta^A, s_\varphi^B \right) = (1, -1), (-1, 1)$
 、
-$\varphi - \theta = \pm \pi$ のときは
+$\varphi - \theta \equiv \pi\pmod{2\pi}$ のときは
 $\left( s_\theta^A, s_\varphi^B \right) = (1, 1), (-1, -1)$
 、
 それ以外のときは
@@ -498,11 +502,11 @@ $$
 \frac{\sqrt{3}}{2}
 \left| \theta \downarrow \right\rangle_A
 \left| \varphi \downarrow \right\rangle_B
--
++
 \frac{1}{2}
 \left| \theta \uparrow \right\rangle_A
 \left| \varphi \downarrow \right\rangle_B
-+
+-
 \frac{1}{2}
 \left| \theta \downarrow \right\rangle_A
 \left| \varphi \uparrow \right\rangle_B
@@ -521,7 +525,7 @@ $$
 $$
 
 である。また、 $(s^A, s^B)$ がとりうる値は、
-$(s^A, s^B) = (1, 1), (1, -1), (1, -1), (-1, 1)$
+$(s^A, s^B) = (1, 1), (-1, -1), (1, -1), (-1, 1)$
 である。
 
 $\varphi - \theta = -120^\circ, 120^\circ, 240^\circ$ のときも同様である。
@@ -547,7 +551,7 @@ $s^A s^B$ のとりうる値は $-1$ のみである。
 
 以上より、
 $(s^A, s^B)$ がとりうる値は、
-$(s^A, s^B) = (1, 1), (1, -1), (1, -1), (-1, 1)$
+$(s^A, s^B) = (1, 1), (-1, -1), (1, -1), (-1, 1)$
 であり、
 $s^A s^B$ の期待値は、
 
@@ -569,40 +573,29 @@ $\left( s_{0^\circ}^B, s_{120^\circ}^B, s_{240^\circ}^B \right) = (-1,-1,-1)$
 であるから、 $s^A s^B$ は必ず $-1$ であり、期待値も $-1$ である。
 
 #### (ii)
-このとき、$\left( s_{0^\circ}^B, s_{120^\circ}^B, s_{240^\circ}^B \right) = (-1,-1,+1)$
-であるから、 $s^A s^B$ が
-$1$ になるのは $2 \times 2 + 1 \times 1 = 5$ 通り、
-$-1$ になるのは $2 \times 1 + 1 \times 2 = 4$ 通りである。
-これらは等確率であるから、 $s^A s^B$ の期待値は、
+このとき、$B$ の結果は $(-1,-1,+1)$ である。積が $+1$ となる設定対は $2\times1+1\times2=4$ 通り、$-1$ となる設定対は $2\times2+1\times1=5$ 通りなので、
 
 $$
-\begin{aligned}
-\frac{5}{9} \cdot 1 + \frac{4}{9} \cdot (-1) = \frac{1}{9}
-\end{aligned}
+\mathbb E[s^As^B]=\frac49-\frac59=-\frac19.
 $$
-
-である。
 
 #### (iii)
-
-$\left( s_{0^\circ}^A, s_{120^\circ}^A, s_{240^\circ}^A \right) = (+1,+1,+1), (-1,-1,-1)$
-のとき、(i) より、 $s^A s^B$ の期待値は $-1$ である。
+$A$ の3つの事前に定まった値を $a_1,a_2,a_3\in\{-1,1\}$ とすると、$B$ の値は $-a_1,-a_2,-a_3$ である。測定設定をこの事前の値とは独立に、両側で独立・一様に選ぶので、
 
 $$
-\begin{aligned}
-\left( s_{0^\circ}^A, s_{120^\circ}^A, s_{240^\circ}^A \right) = (+1,+1,-1), (+1,-1,+1), (-1,+1,+1), (+1,-1,-1), (-1,+1,-1), (-1,-1,+1)
-\end{aligned}
+\mathbb E[s^As^B\mid a_1,a_2,a_3]
+=-\frac19\left(a_1+a_2+a_3\right)^2
+\in\left\{-1,-\frac19\right\}.
 $$
 
-のとき、(ii) より、 $s^A s^B$ の期待値は $1/9$ である。
-
-よって、 $s^A s^B$ の期待値は
+事前の値の8通りがどのような確率分布に従っても、その平均は
 
 $$
-\begin{aligned}
-\frac{2}{8} \cdot (-1) + \frac{6}{8} \cdot \frac{1}{9}
-= - \frac{1}{6}
-\end{aligned}
+-1\le\mathbb E[s^As^B]\le-\frac19<0
 $$
 
-である。
+となる。
+
+## **Reference**
+
+- [東京大学 物理学専攻 令和2年度 公式問題](https://www.phys.s.u-tokyo.ac.jp/wp-content/uploads/2020/04/R2masterphysics.pdf)

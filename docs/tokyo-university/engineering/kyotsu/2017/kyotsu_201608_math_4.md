@@ -12,6 +12,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+出典：[公式2017年度数学試験](https://www.t.u-tokyo.ac.jp/hubfs/pdf/H29_suugaku_J.pdf)、第4問。
+
 $0 \leq \theta < 2\pi ,0 \leq \alpha \leq \pi$ 範囲にある実数 $\theta$, $\alpha$ に対して, 3 次元直交座標系 $xyz$ における点 $P(\cos\theta,\sin\theta,1)$ と点 $Q(\cos(\theta + \alpha),\sin(\theta + \alpha),-1)$ の 2 点を通る直線 $L$ を考える。
 
 ### I.
@@ -139,13 +142,13 @@ $$
 
 $\alpha = 0$ のとき,　$x = \pm  1$ である。
 
-$\alpha \neq 0$ のとき,　この曲線は双曲線であり,　その漸近線の方程式は,　
+$0<\alpha<\pi$ のとき,　この曲線は双曲線であり,　その漸近線の方程式は,　
 
 $$
 z = \pm \frac{\cos\frac{\alpha}{2}}{\sin\frac{\alpha}{2}} \cdot \frac{1}{\cos\frac{\alpha}{2}} x = \pm \frac{x}{\sin\frac{\alpha}{2}}
 $$
 
-である。概形は次のようになる。
+である。$\alpha=\pi$ のときは $x^2-z^2=0$、すなわち $z=\pm x$ の二直線となる。以下の既存図は $0<\alpha<\pi$ の場合を示す。
 
 <figure style={{ textAlign: "center" }}>
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_2017_math_4_p1.png" width="500" height="500" alt=""/>
@@ -206,6 +209,8 @@ r_{\theta t} &=
 $$
 
 計算の都合上, 設問 IV から先に解答する。
+
+![Sections at alpha zero and pi](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/tokyo-kyotsu-201608-degenerate-sections.svg)
 
 ### III.
 設問 II の図を利用して, 点 $W$ における曲面 $S$ の法線ベクトル $n$ を求める。

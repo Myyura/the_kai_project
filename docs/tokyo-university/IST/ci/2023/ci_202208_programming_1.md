@@ -71,3 +71,127 @@ $$
 
 ## **Kai**
 The sample data files are [here](https://github.com/sophytoeat/Problem/tree/main/%E9%81%8E%E5%8E%BB%E5%95%8F/%E5%89%B5%E9%80%A0%E6%83%85%E5%A0%B1%E5%AD%A6/%E4%B8%80%E8%88%AC%E6%95%99%E8%82%B2%E7%A7%91%E7%9B%AE(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)/2023%E5%B9%B4%E5%BA%A6_%E5%A4%8F_%E4%B8%80%E8%88%AC/%E9%85%8D%E5%B8%83%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF).
+
+
+### (1)
+
+Read consecutive pairs of integers as wall coordinates and draw each corresponding unit segment. The maze in the linked `maze1.txt` is:
+
+![Maze defined by maze1.txt](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2023/tokyo-ci-2022-maze1.svg)
+
+### (2)
+
+For each cell $(i,j)$, test membership of its four wall coordinates in a set. Count the cell exactly when three of these four coordinates are present. A shared wall is stored only once, but is included when examining either adjacent cell. The result is
+
+$$
+\boxed{174\text{ dead-end cells}}.
+$$
+
+### (3)
+
+Make an unweighted graph with one vertex per cell and an edge between adjacent cells exactly when their shared wall is absent. Breadth-first search from $(0,0)$ gives distance 120 edges to $(39,29)$. Including both endpoints, the answer is
+
+$$
+\boxed{121\text{ cells}}.
+$$
+
+### (4)
+
+An undirected graph has exactly one simple path between every two vertices if and only if it is a tree. Check both connectivity and an edge count of $40^2-1=1599$. Each open internal passage is counted once; alternatively, sum all vertex degrees and divide by two. The qualifying files are
+
+```text
+maze10.txt
+maze11.txt
+maze14.txt
+maze15.txt
+maze17.txt
+maze19.txt
+```
+
+### Complete program
+
+Save the following as `maze_answers.py` and run `python maze_answers.py DATA_FOLDER`. It writes the drawing to `maze1.svg` and prints the remaining answers. Graph construction, BFS, and the tree test each take $O(m^2)$ time and space for one maze.
+
+```python
+from collections import deque
+from pathlib import Path
+import sys
+
+
+def read_walls(filename):
+    numbers = [int(x) for x in Path(filename).read_text().strip().split(',')]
+    if len(numbers) % 2:
+        raise ValueError('wall coordinates must occur in pairs')
+    return set(zip(numbers[::2], numbers[1::2]))
+
+
+def walls_of(i, j):
+    # Upper, lower, left, right.
+    return [(2*i, 2*j+1), (2*i+2, 2*j+1),
+            (2*i+1, 2*j), (2*i+1, 2*j+2)]
+
+
+def neighbors(m, walls, cell):
+    i, j = cell
+    for (di, dj), wall in zip([(-1,0), (1,0), (0,-1), (0,1)], walls_of(i,j)):
+        next_cell = (i+di, j+dj)
+        if 0 <= next_cell[0] < m and 0 <= next_cell[1] < m and wall not in walls:
+            yield next_cell
+
+
+def distances(m, walls, start=(0,0)):
+    distance = {start: 0}
+    queue = deque([start])
+    while queue:
+        cell = queue.popleft()
+        for nxt in neighbors(m, walls, cell):
+            if nxt not in distance:
+                distance[nxt] = distance[cell] + 1
+                queue.append(nxt)
+    return distance
+
+
+def is_tree(m, walls):
+    vertices = m*m
+    edges = sum(sum(1 for _ in neighbors(m,walls,(i,j)))
+                for i in range(m) for j in range(m)) // 2
+    return edges == vertices-1 and len(distances(m,walls)) == vertices
+
+
+def draw_maze(m, walls, filename):
+    scale, margin = 80, 45
+    size = m*scale + 2*margin
+    elements = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}">',
+                '<rect width="100%" height="100%" fill="white"/>']
+    for i in range(m):
+        for j in range(m):
+            x, y = margin+(j+.5)*scale, margin+(i+.5)*scale
+            elements.append(f'<text x="{x}" y="{y+6}" text-anchor="middle" '
+                            f'font-family="sans-serif" font-size="16" fill="#526477">({i},{j})</text>')
+    for r, c in sorted(walls):
+        if r % 2 == 0:
+            x1,x2 = margin+(c-1)*scale/2, margin+(c+1)*scale/2
+            y1=y2=margin+r*scale/2
+        else:
+            x1=x2=margin+c*scale/2
+            y1,y2=margin+(r-1)*scale/2, margin+(r+1)*scale/2
+        elements.append(f'<path d="M{x1},{y1} L{x2},{y2}" stroke="#182e42" '
+                        'stroke-width="4" stroke-linecap="square" fill="none"/>')
+    Path(filename).write_text(''.join(elements)+'</svg>')
+
+
+def main(folder):
+    draw_maze(3, read_walls(folder/'maze1.txt'), 'maze1.svg')
+    walls = read_walls(folder/'maze2.txt')
+    dead_ends = sum(sum(w in walls for w in walls_of(i,j)) == 3
+                    for i in range(40) for j in range(40))
+    print('Dead ends:', dead_ends)
+    distance = distances(40, read_walls(folder/'maze3.txt'))
+    print('Shortest-path cells:', distance[(39,29)]+1)
+    print('Trees:', ', '.join(f'maze{k}.txt' for k in range(10,20)
+                            if is_tree(40,read_walls(folder/f'maze{k}.txt'))))
+
+
+if __name__ == '__main__':
+    main(Path(sys.argv[1]) if len(sys.argv)>1 else Path('.'))
+```

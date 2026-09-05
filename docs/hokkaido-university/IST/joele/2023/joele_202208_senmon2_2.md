@@ -119,11 +119,11 @@ $$
 =
 \begin{cases}
 0, & -\infty<x<0, \\
-Cxe^{-\alpha x}, & 0\leq x<\infty
+Cxe^{-ax/2}, & 0\leq x<\infty
 \end{cases}
 $$
 
-としたとき、規格化定数 $C$ を定めよ。ただし、$\alpha>0$ であるとする。
+としたとき、規格化定数 $C$ を定めよ。ただし、$a>0$ であるとする。
 
 (2) (1) の波動関数で表される状態のエネルギーの期待値を求めよ。
 
@@ -220,9 +220,9 @@ $$
    \psi(x)=
    \begin{cases}
    0&(-\infty<x<0),\\
-   Cxe^{-\alpha x}&(0\leq x<\infty),
+   Cxe^{-ax/2}&(0\leq x<\infty),
    \end{cases}
-   \qquad\alpha>0,
+   \qquad a>0,
    $$
 
    求归一化常数 $C$。
@@ -366,6 +366,8 @@ $$
 である。
 
 ### 2.
+原問題の減衰係数を $a$ とし、以下では $\alpha=a/2$ とおく。
+
 #### (1)
 波動関数の規格化条件より、
 
@@ -388,7 +390,7 @@ C &= 2\alpha^{3/2}
 \end{aligned}
 $$
 
-とすればよい。
+とすればよい。原題の記号では $C=a^{3/2}/\sqrt2$ である（全体位相は任意）。
 
 #### (2)
 ポテンシャルエネルギーの期待値は
@@ -424,3 +426,11 @@ $$
 $$
 
 である。
+
+原題の記号で表すと、
+
+$$
+\boxed{\langle H\rangle=\frac{\hbar^2a^2}{8m}+\frac{3v_0}{a}}.
+$$
+
+[原問題の保存版（PDF 3ページ）](https://web.archive.org/web/20230627090819id_/https://www.ist.hokudai.ac.jp/examinfo/files/joele02.pdf)にある指数は $-ax/2$ であり、上記はこの記号に合わせた結果である。

@@ -10,6 +10,9 @@ tags:
 [井盖（xhs: 94364626233）](https://www.xiaohongshu.com/user/profile/68b9ab53000000001a020887?xsec_token=YBV6i8PU8veqPxaihC5Kib-qfq-CRRWgL-pXNq_zSff9c%3D), 祭音Myyura
 
 ## **Description**
+
+出典：[名古屋大学公表問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/9452bf5c52a4e504caf5a437910d3930.pdf)。
+
 プログラム１は，配列 `a` に格納された `32` ビット符号付き整数を昇順に並べる C 言語プログラムである。以下の全ての問いに答えよ。
 
 (1) プログラム１の \[  A  \] と \[  B  \] に単一の式を埋めよ。
@@ -26,7 +29,7 @@ tags:
 
 ### プログラム１
 
-```text
+```c showLineNumbers
 #include <stdio.h>
 #define max 9
 
@@ -66,7 +69,7 @@ int main() {
 
 ### プログラム２
 
-```text
+```c showLineNumbers
 void sort(int low, int high) {
     int size, low2, mid, high2;
 
@@ -76,7 +79,7 @@ void sort(int low, int high) {
             else mid = high;
             if ((low2 + 2 * size - 1) < high) high2 = low2 + 2 * size - 1;
             else high2 = high;
-            printf("(%d,%d,%d)", low2, mid, high2);        // 10 行目
+            printf("(%d,%d,%d)", low2, mid, high2);
             merge(low2, mid, high2);
         }
     }
@@ -85,7 +88,7 @@ void sort(int low, int high) {
 
 ### プログラム３
 
-```text
+```c showLineNumbers
 void merge(int low, int mid, int high) {
     int i, tmp, low1 = low, low2 = mid + 1, mid1 = mid;
     if ([  C  ]) return;
@@ -128,6 +131,8 @@ a[i] = b[i];
 
 ### (2)
 
+プログラム 1 の 10 行目を次のように変更する。
+
 ```text
 // origin
 if (a[low1] <= a[low2]) b[i++] = a[low1++];
@@ -145,7 +150,7 @@ if (a[low1] >= a[low2]) b[i++] = a[low1++];
 ### (4)
 上の出力を見ると，たとえば `(8,9,9)` という組が複数回出ている。
 このときの意味は，左の区間：`[low2, mid] = [8, 9]`，右の区間：`[mid+1, high2] = [10, 9]`（空区間）となり，右側の部分列が空で，すでに一方だけが整列済みである。
-この状態で `merge(8,9,9)` を呼び出しても実質何もせず，無駄な関数呼び出しになっている。
+この状態で `merge(8,9,9)` を呼び出しても同じ整列済み区間を補助配列へコピーして戻すだけなので、この呼出しは省ける。
 
 #### **改善方法の例**
 右側の部分列が空のときは `merge` を呼ばないようにすればよい。例えば：
@@ -161,13 +166,13 @@ if (mid < high2) {
 ### (5)
 ```text
 // [ C ]
-a[mid] <= a[mid + 1]
+mid >= high || a[mid] <= a[mid + 1]
 
 // [ D ]
 a[low1] = tmp;
 ```
 
-（`[ C ]` に `low >= high` を入れるのはダメではないけれど，`merge` が呼ばれるときは必ず `low < high` であるから（再帰版 `sort` を見ればわかる）、この問題の意図からすると不適切だと思う。 By 祭音Myyura）
+`mid >= high` なら右区間が空であり、それ以外では境界の 2 要素を比較する。左区間の最大値が右区間の最小値以下なら、区間全体がすでに昇順である。短絡評価により、右区間が空のときに `a[mid+1]` を参照しない。
 
 ### (6)
 **利点**
@@ -185,3 +190,5 @@ for (i = low2; low1 < i; i--) a[i] = a[i-1];
 のようなシフト処理を行うため，最悪の場合，$1$ 回のマージで $O(n^2)$ の時間がかかる。
 
 その結果，元の「補助配列ありのマージソート」（常に $O(n \log n)$）と比べて，計算時間が大きく増加し，性能が悪化する。
+
+全体の最悪時間も $\Theta(n^2)$ となる。例えば降順の入力では最上位のマージだけで $\Theta(n^2)$ 回のシフトが必要であり、各段の上界を合計しても $O(n^2)$ である。

@@ -15,6 +15,8 @@ tags:
 [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2025_ist.pdf)
 Let us consider a binary classification problem in which a real-valued vector $\mathbf{X}$ in a $d$-dimensional space is classified into a class $y \in \{0, 1\}$. The boundary between class 0 and class 1 in this space defined by a classification method is referred to as the decision boundary.
 
 ### Q.1
@@ -50,3 +52,67 @@ Briefly describe a method to extend the method of Q.5 to a multi-layer feed-forw
 5. 说明如何把第 3、4 问的方法扩展到多分类问题。具体给出类别 $i$ 的后验概率函数、损失函数，以及损失对权重参数的梯度；本问无需写推导过程。
 
 6. 简要说明如何把第 5 问的方法扩展为多层前馈神经网络。具体给出各层使用的激活函数和损失函数，并说明计算各权重参数梯度的方法。
+
+## **Kai**
+
+### Q.1
+
+边界满足 $\|\mathbf X-\mathbf P_0\|^2=\|\mathbf X-\mathbf P_1\|^2$。展开并消去 $\mathbf X^{\mathrm T}\mathbf X$，得到
+
+$$2(\mathbf P_1-\mathbf P_0)^{\mathrm T}\mathbf X=\|\mathbf P_1\|^2-\|\mathbf P_0\|^2.$$
+
+因 $\mathbf P_0\ne\mathbf P_1$，这是一个仿射超平面，故为线性决策边界。
+
+### Q.2
+
+两个高斯密度的行列式因子相同，故比较似然等价于比较 Mahalanobis 距离。令两似然相等，得到
+
+$$(\mathbf X-\mathbf M_0)^{\mathrm T}\Sigma^{-1}(\mathbf X-\mathbf M_0)=(\mathbf X-\mathbf M_1)^{\mathrm T}\Sigma^{-1}(\mathbf X-\mathbf M_1).$$
+
+展开后为
+
+$$2(\mathbf M_1-\mathbf M_0)^{\mathrm T}\Sigma^{-1}\mathbf X=\mathbf M_1^{\mathrm T}\Sigma^{-1}\mathbf M_1-\mathbf M_0^{\mathrm T}\Sigma^{-1}\mathbf M_0.$$
+
+可逆协方差矩阵为正定矩阵，且两个均值不同，因此该边界也是仿射超平面。
+
+### Q.3
+
+记 $z=\mathbf W\cdot\mathbf X$、$p=\sigma(z)=1/(1+e^{-z})$。则
+
+$$\log\frac{p(y=0\mid\mathbf X)}{p(y=1\mid\mathbf X)}=\log\frac{1-p}{p}=-z=-\mathbf W\cdot\mathbf X,$$
+
+是 $\mathbf X$ 的线性函数。
+
+### Q.4
+
+单个样本标签为 $y\in\{0,1\}$ 时，二元交叉熵为
+
+$$\ell=-y\log p-(1-y)\log(1-p).$$
+
+利用 $\sigma'(z)=p(1-p)$，
+
+$$\frac{\partial\ell}{\partial z}=\left(-\frac yp+\frac{1-y}{1-p}\right)p(1-p)=p-y,$$
+
+所以 $\nabla_{\mathbf W}\ell=(p-y)\mathbf X$。多个样本的平均损失取上述梯度的样本平均。
+
+### Q.5
+
+设有 $K$ 类，$y_i$ 是 one-hot 标签，使用 softmax：
+
+$$p_i=\frac{e^{\mathbf W_i\cdot\mathbf X}}{\sum_{j=1}^K e^{\mathbf W_j\cdot\mathbf X}},\qquad \ell=-\sum_{i=1}^K y_i\log p_i.$$
+
+其梯度为 $\nabla_{\mathbf W_i}\ell=(p_i-y_i)\mathbf X$。
+
+### Q.6
+
+令 $\mathbf h^{(0)}=\mathbf X$，隐藏层取
+
+$$\mathbf z^{(l)}=W^{(l)}\mathbf h^{(l-1)}+\mathbf b^{(l)},\qquad \mathbf h^{(l)}=\operatorname{ReLU}(\mathbf z^{(l)}),$$
+
+其中 $\operatorname{ReLU}(z)=\max(0,z)$ 按元素作用。输出层对 logits $\mathbf z^{(L)}$ 使用 softmax，损失仍取多类交叉熵。反向传播按链式法则计算
+
+$$\boldsymbol\delta^{(L)}=\mathbf p-\mathbf y,\qquad \boldsymbol\delta^{(l)}=\bigl((W^{(l+1)})^{\mathrm T}\boldsymbol\delta^{(l+1)}\bigr)\odot\operatorname{ReLU}'(\mathbf z^{(l)}),$$
+
+$$\frac{\partial\ell}{\partial W^{(l)}}=\boldsymbol\delta^{(l)}(\mathbf h^{(l-1)})^{\mathrm T},\qquad \frac{\partial\ell}{\partial\mathbf b^{(l)}}=\boldsymbol\delta^{(l)}.$$
+
+在 ReLU 的零点可约定使用次梯度 $0$。随后以梯度下降等方法更新参数。

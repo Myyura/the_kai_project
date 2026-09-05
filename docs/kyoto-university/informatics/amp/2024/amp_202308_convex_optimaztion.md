@@ -11,10 +11,12 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_amp.pdf)
 ### 日本語版
 
 ### English Version
-Let $c=(c_1,c_2, \ldots , c_n)$ , where the superscript $\top$ denotes transposition.
+Let $c=(c_1,c_2, \ldots , c_n)^\top\in\mathbb R^n$ , where the superscript $\top$ denotes transposition.
 Consider the following linear programming problem P:
 
 $$
@@ -25,7 +27,7 @@ $$
 \end{aligned}
 $$
 
-where the decision variable of problem P is the vector $\boldsymbol{y} = (y_1, y_2, \ldots y_n)^\top \in \mathbb{R}^\top$.
+where the decision variable of problem P is the vector $\boldsymbol{y} = (y_1, y_2, \ldots y_n)^\top \in \mathbb{R}^n$.
 
 Answer the following questions (i) and (ii)
 
@@ -44,7 +46,7 @@ Consider the following optimization problem Q:
 
 $$
 \begin{aligned}
-\text{Q} : &\text{Minimize} &\frac{1}{2} {\boldsymbol{x}^{\top} \boldsymbol{x} - \boldsymbol{c}^{\top} \boldsymbol{x}}\\
+\text{Q} : &\text{Minimize} &\frac{1}{2}\boldsymbol{x}^{\top} \boldsymbol{x} - \boldsymbol{c}^{\top} \boldsymbol{x}\\
 &\text{subject to} &\boldsymbol{x} \in Y
 \end{aligned}
 $$
@@ -81,8 +83,8 @@ $$
    \begin{aligned}
    \mathrm Q:\quad
    &\text{最小化}\quad
-   \frac12\bigl(\boldsymbol x^\top\boldsymbol x-
-   \boldsymbol c^\top\boldsymbol x\bigr)\\
+   \frac12\boldsymbol x^\top\boldsymbol x-
+   \boldsymbol c^\top\boldsymbol x\\
    &\text{满足}\quad\boldsymbol x\in Y,
    \end{aligned}
    $$
@@ -93,7 +95,15 @@ $$
 ### (i)
 We have Lagrangian: $L(y,\lambda,\nu) = c^\top y + \lambda (\mathbf{1}^\top y - 1 ) - \nu^\top y$.
 
-Obtain Lagrange dual function: $d(\lambda, \nu) = \inf_{y} ((c^\top + \lambda \mathbf{1}^\top - \nu^\top)y - \lambda) = - \lambda$.
+The Lagrange dual function is
+
+$$
+d(\lambda,\nu)=
+\begin{cases}
+-\lambda,&c+\lambda\boldsymbol1-\nu=0,\\
+-\infty,&\text{otherwise}.
+\end{cases}
+$$
 
 Then we write the  dual problem D:
 
@@ -143,7 +153,7 @@ Since $c_1 = c_2 = \ldots c_n < 0$, $Y = \{ y | y \succeq \mathbf{0}, \mathbf{1}
 
 $$
 \begin{aligned}
-Q:&\text{Minimize} &\frac{1}{2}(x^\top x-c^\top x) \\
+Q:&\text{Minimize} &\frac{1}{2}x^\top x-c^\top x \\
 &\text{subject to} &x \succeq \mathbf{0}, \mathbf{1}^\top x = 1 \\
 \end{aligned}
 $$
@@ -151,7 +161,7 @@ $$
 Thus, consistently with the stated objective, the Lagrangian is
 
 $$
-L(x,\lambda,\mu)=\frac12(x^\top x-c^\top x)-\lambda^\top x+\mu(1-\boldsymbol1^\top x).
+L(x,\lambda,\mu)=\frac12x^\top x-c^\top x-\lambda^\top x+\mu(1-\boldsymbol1^\top x).
 $$
 
 Then the KKT-condition:
@@ -159,7 +169,7 @@ Then the KKT-condition:
 $$
 \text{KKT-conditions: } \left\{
 \begin{aligned}
-x - \frac12c - \lambda - \mu \mathbf{1} &= 0 \\
+x - c - \lambda - \mu \mathbf{1} &= 0 \\
 \lambda  \succeq  0, -\lambda^\top x &=0 \\
 x &\succeq 0\\
 \mathbf{1}^\top x &= 1
@@ -172,7 +182,7 @@ it is obviously that
 $$
 x^* = \left[\frac{1}{n} , \frac{1}{n}, \ldots , \frac{1}{n}\right]^\top,\qquad
 \lambda^* = \mathbf{0},\qquad
-\mu^* = \frac{1}{n}-\frac{c_1}{2}
+\mu^* = \frac{1}{n}-c_1
 $$
 
 satisfy the KKT conditions. Since Q is convex, $x^*$ is its optimal solution.

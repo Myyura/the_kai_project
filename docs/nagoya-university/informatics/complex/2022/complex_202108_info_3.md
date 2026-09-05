@@ -12,6 +12,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2021/11/340fb55945f15626c7a3a89358d8992d.pdf)
+
 ### \[1\]
 
 Napier 数（自然対数の底，$2.718281828\cdots$）$e$ の $x$ 乗 $\exp(x)$ を考える。

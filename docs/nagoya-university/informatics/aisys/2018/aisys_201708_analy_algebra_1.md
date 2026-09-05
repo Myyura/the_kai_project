@@ -14,6 +14,9 @@ tags:
 
 ## **Description**
 
+出典：[名古屋大学・2018年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/0418e4d9b838956c155278f11a9e0bbf.pdf)、解析・線形代数。導出過程も示す。
+
+
 次の関数 $f$ について、以下の問いに答えよ。
 
 $$

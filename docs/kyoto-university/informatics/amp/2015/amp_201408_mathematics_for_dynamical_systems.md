@@ -69,6 +69,8 @@ $$
 a(t) = \frac{2}{t^2 + 1}
 $$
 
+At $t=\sqrt3$, direct substitution gives $0=0$ and does not determine $a(t)$ at that point alone. The formula above holds for $t\ne\sqrt3$; continuity on $[1,\infty)$ gives $a(\sqrt3)=1/2$ as well.
+
 ### (ii)
 for solution $x_1, x_2$
 

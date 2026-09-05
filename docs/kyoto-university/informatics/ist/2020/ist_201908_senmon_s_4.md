@@ -11,11 +11,15 @@ tags:
 [realball](https://github.com/realballu3u)
 
 ## **Description**
+
+[大学公表の原題](https://www.ist.i.kyoto-u.ac.jp/content/files/admission/ist-exam-2019Aug-specialized.pdf)
 設問 以下の状態遷移図で示される単純マルコフ情報源から出力される系列 $X_1,X_2,\dots,X_t,\dots$ がある。ここで $X_t \in \{A,B\}$ である。
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/ist_201908_senmon_s_4_p1.png" width="350" alt=""/>
 </figure>
+
+状態遷移（要約）：$P(A\mid A)=3/4,\ P(B\mid A)=1/4,\ P(A\mid B)=P(B\mid B)=1/2$。
 
 $X_t$ は以下の通信路行列によって与えられる通信路を介して送信され、$Y_t \in \{\alpha,\beta,\gamma\}$ が受信されるとする。
 
@@ -65,6 +69,7 @@ $Y_t\in\{\alpha,\beta,\gamma\}$：
    $H(Y_{t+1}\mid Y_t=\alpha,Y_{t+2}=\gamma)$。
 
 ## **Kai**
+All logarithms below have base 2; entropies and capacity are measured in bits.
 ### (1)
 
 $$
@@ -99,7 +104,7 @@ Hence we have
 $$
 \begin{aligned}
 C &= \max \left\{ H(Y) - H(Y|X) \right\}\\
-&= \max \left\{ \sum_{y = \alpha, \beta, \gamma}P(Y=y)\ln\frac{1}{P(Y=y)} - \left( \sum_{x=A,B}P(X=x) H(Y|X=x)\right) \right\} \\
+&= \max \left\{ \sum_{y = \alpha, \beta, \gamma}P(Y=y)\log_2\frac{1}{P(Y=y)} - \left( \sum_{x=A,B}P(X=x) H(Y|X=x)\right) \right\} \\
 &= \left( 3\cdot \frac{1}{3}\log3 - \frac{1}{2}\left( \frac{2}{3}\log \frac{3}{2} + \frac{1}{3}\log 3\right)\cdot 2 \right) \\
 &= \frac{2}{3}
 \end{aligned}
@@ -150,7 +155,7 @@ $$
 The order in decreasing order is $\alpha, \beta, \gamma$.
 
 ### (3)
-When $t=\infty$, the stationary is reached due to the nature of Markov sources.
+This transition matrix is irreducible and aperiodic, so the state distribution converges to its unique stationary distribution.
 
 $$
 \begin{aligned}
@@ -180,7 +185,7 @@ P(x_{t+1}=B|x_{t}=A)=\frac{1}{4}
 $$
 
 $$
-\begin{bmatrix}\frac{3}{4}&\frac{1}{4}\end{bmatrix}\begin{bmatrix}\frac{2}{3}&\frac{1}{3}&0\\0&\frac{1}{3}&2\\0&\frac{1}{3}&3\end{bmatrix}=\begin{bmatrix}\frac{1}{2},\frac{1}{3},\frac{1}{6}\end{bmatrix}
+\begin{bmatrix}\frac{3}{4}&\frac{1}{4}\end{bmatrix}\begin{bmatrix}\frac{2}{3}&\frac{1}{3}&0\\0&\frac{1}{3}&\frac{2}{3}\end{bmatrix}=\begin{bmatrix}\frac{1}{2},\frac{1}{3},\frac{1}{6}\end{bmatrix}
 $$
 
 $$
@@ -191,7 +196,7 @@ H(Y_{t+1}|Y_{t}=\alpha)&=\frac{1}{2}\log2+\frac{1}{3}\log3+\frac{1}{6}(\log2+\lo
 $$
 
 ### (5)
-By the stationarity, we have
+Conditioning on $Y_t=\alpha$ and $Y_{t+2}=\gamma$ fixes $X_t=A$ and $X_{t+2}=B$. Time homogeneity and the Markov property therefore give
 
 $$
 H(Y_{t+1}|Y_{t}{=}\alpha, Y_{t+2}=\gamma){=}H(Y_{2}|Y_{1}=\alpha, Y_{3}=\gamma)
@@ -201,9 +206,9 @@ and
 
 $$
 \begin{aligned}
-H(Y_2|Y_1=\alpha, Y_3=\gamma) &= -p(Y_2=\alpha|Y_1=\alpha, Y_3=\gamma) \ln p(Y_2=\alpha|Y_1=\alpha, Y_3=\gamma)\notag \\
-&\quad-p(Y_2=\beta|Y_1=\alpha, Y_3=\gamma) \ln p(Y_2=\beta|Y_1=\alpha, Y_3=\gamma)\notag \\
-&\quad-p(Y_2=\gamma|Y_1=\alpha, Y_3=\gamma) \ln p(Y_2=\gamma|Y_1=\alpha, Y_3=\gamma)
+H(Y_2|Y_1=\alpha, Y_3=\gamma) &= -p(Y_2=\alpha|Y_1=\alpha, Y_3=\gamma) \log_2 p(Y_2=\alpha|Y_1=\alpha, Y_3=\gamma)\notag \\
+&\quad-p(Y_2=\beta|Y_1=\alpha, Y_3=\gamma) \log_2 p(Y_2=\beta|Y_1=\alpha, Y_3=\gamma)\notag \\
+&\quad-p(Y_2=\gamma|Y_1=\alpha, Y_3=\gamma) \log_2 p(Y_2=\gamma|Y_1=\alpha, Y_3=\gamma)
 \end{aligned}
 $$
 

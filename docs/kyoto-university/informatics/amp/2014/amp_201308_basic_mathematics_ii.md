@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h26_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
+
 n次ベクトル $x = (x_1, x_2, ..., x_n)^T$ および n次正方行列 $A = (a_{ij})$ に対して、実数 $||x||_{\infty}$ および $||A||_{\infty}$ をそれぞれ $||x||_{\infty} = \max_{1 \leq i \leq n} |x_i|$ および $||A||_{\infty} = \max_{x \neq 0} \frac{||Ax||_{\infty}}{||x||_{\infty}}$ と定義する。ここで、記号 $^T$ は転置を表す。また、行列Aの固有値を $\lambda_1, \lambda_2, ..., \lambda_n$ とするとき、 $\rho(A) = \max_{1 \leq i \leq n} |\lambda_i|$ とおく。このとき、以下の問いに答えよ。
 
 (i) $\rho(A) \leq ||A||_{\infty}$ が成り立つことを示せ。
@@ -178,7 +180,7 @@ $$
 A=PJP^{-1}
 $$
 
-とする。固有値 $\lambda$ をもつ Jordan ブロック $J_\lambda=\lambda I+N$ に対して、
+とする。$\lambda=0$ のブロックは冪零なので、その大きさを $s$ とすると $J_0^k=0$（$k\ge s$）である。以下は $\lambda\ne0$ の Jordan ブロック $J_\lambda=\lambda I+N$ を考える。
 
 $$
 J_\lambda^k

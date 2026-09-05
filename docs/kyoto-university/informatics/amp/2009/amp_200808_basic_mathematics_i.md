@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/innshi/kakomon/h21/h21_kiso1.pdf)
+
 実数 $c_n$ , $n = 0, 1, ...,$ に対し、 $x = 0$ を中心とするベキ級数
 
 $$

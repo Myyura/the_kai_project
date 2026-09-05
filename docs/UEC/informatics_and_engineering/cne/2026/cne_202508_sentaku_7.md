@@ -110,7 +110,7 @@ $$
 E(h)=\frac h2|f''(\alpha)|+\frac{2|f(\alpha)|u}{h}
 $$
 
-とおく。相加相乗平均または $E'(h)=0$ より、
+とおく。$|f(\alpha)|>0$ かつ $|f''(\alpha)|>0$ のとき、相加相乗平均または $E'(h)=0$ より、
 
 $$
 \boxed{h=2\sqrt{\frac{|f(\alpha)|u}{|f''(\alpha)|}}}.
@@ -121,3 +121,6 @@ $$
 $$
 \boxed{E_{\min}=2\sqrt{|f(\alpha)|\,|f''(\alpha)|\,u}}.
 $$
+
+
+[公式問題（PDF第13頁）](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_4_i_choice202508.pdf)には $f(\alpha),f''(\alpha)$ が非零という条件はないため、退化した場合を区別する。$f(\alpha)=0$、$f''(\alpha)\ne0$ ならこの誤差モデルは $h\downarrow0$ で下限0となり、正の有限 $h$ で最小値を取らない。$f''(\alpha)=0$、$f(\alpha)\ne0$ なら表示したモデルは形式的には $h\to\infty$ で下限0となるが、小さい $h$ に対する打切り近似なので、実際の最適刻み幅には次の非零の高階項を含める必要がある。両者が0ならこのモデルは恒等的に0で、高階項による評価が必要となる。

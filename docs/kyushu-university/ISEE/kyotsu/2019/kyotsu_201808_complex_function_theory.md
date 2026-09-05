@@ -10,6 +10,8 @@ tags:
 Zero, 祭音Myyura
 
 ## **Description**
+
+> 出典：九州大学[公式問題](https://web.archive.org/web/20190715211433id_/http://www.isee.kyushu-u.ac.jp:80/script/wordpress/wp-content/uploads/H31infait.pdf#page=6)。
 解析関数 $f(z) = u + iv$ を考える．ただし， $z = x + iy$ は複素数， $x$ と $y$ は実数， $u$ と $v$ は実数値関数， $i = \sqrt{-1}$ である．x と y が極形式 $x = r\cos\theta$ と $y = r\sin\theta$ で表されるとき，極形
 式のコーシー・リーマンの方程式は以下の式で書けることを示せ．
 

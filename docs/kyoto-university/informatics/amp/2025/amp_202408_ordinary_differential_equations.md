@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2024_amp.pdf)
+
 r(t) を $t$ のある関数として次の微分方程式を考える.
 
 $$
@@ -87,7 +89,13 @@ $\phi''(t) = \omega'(t) \phi(t) + \omega(t) \phi'(t) = \omega'(t) \phi(t) + \ome
 
 したがって、 $\omega'(t) + \omega(t)^2 = r(t)$ が成り立つ。
 
-(ii) $\phi(t)$ が $t$ の有理関数であるとする。このとき、 $\phi(t) = \exp\left(\int \omega(t) dt\right)$ より、 $\ln(\phi(t)) = \int \omega(t) dt$ が成り立つ。 $\phi(t)$ が有理関数であるから、 $\ln(\phi(t))$ の微分も有理関数である。したがって、 $\omega(t) = \frac{d}{dt} \ln(\phi(t)) = \frac{\phi'(t)}{\phi(t)}$ は $t$ の有理関数である。
+(ii) $\phi'=\omega\phi$ より、$\phi$ が零でない点では
+
+$$
+\omega=\frac{\phi'}{\phi}.
+$$
+
+有理関数の微分と商は有理関数なので、$\omega$ も有理関数である。この議論には複素平面全体での対数の分枝を選ぶ必要はない。
 
 $\omega'(t) = r(t) - \omega(t)^2$ より、 $r(t) = \omega'(t) + \omega(t)^2$ である。 $\omega(t)$ が有理関数であるから、 $\omega'(t)$ も有理関数であり、 $\omega(t)^2$ も有理関数である。したがって、 $r(t)$ も $t$ の有理関数である。
 

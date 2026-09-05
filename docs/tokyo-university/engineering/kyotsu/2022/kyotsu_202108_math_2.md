@@ -11,11 +11,28 @@ tags:
 
 ## **Description**
 
-[2022年度大学院入学試験問題数学 2 ](https://github.com/Myyura/the_kai_project_assets/blob/2672b44819e556e6b7835902e6d69059ff935039/kakomonn/tokyo_university/engineering/Description/2022_M_2.pdf)
+[公式原題](https://www.t.u-tokyo.ac.jp/hubfs/graduate/2022/kakomon/2022_M_2.pdf)
+
+### I.
+$$
+A=\begin{pmatrix}7&-2&1\\-2&10&-2\\1&-2&7\end{pmatrix},\qquad
+B=\begin{pmatrix}5&-1&-1\\-1&5&-1\\-1&-1&5\end{pmatrix}.
+$$
+
+1. $AB$ を計算する。
+2. 互いに可換な実対称行列が同時対角化できることを、各行列の固有値がすべて異なる場合について証明する。
+3. $\|\boldsymbol v\|=1$、$A\boldsymbol v=a\boldsymbol v$、$B\boldsymbol v=b\boldsymbol v$ を満たす実ベクトルと固有値の組 $(\boldsymbol v,a,b)$ をすべて求める。
+
+### II.
+$$f(x,y,z)=2(x^2+y^2+z^2)+4yz+\frac{z-y}{\sqrt2}$$
+とする。
+
+1. $f=\boldsymbol x^TA\boldsymbol x+2\boldsymbol b^T\boldsymbol x$ の実対称行列 $A$ と $\boldsymbol b$ を求める。
+2. $A=P^TDP$、$P$ は直交行列、$D=\operatorname{diag}(d_1,d_2,d_3)$、$d_1\ge d_2\ge d_3$ とする一組を求める。
+3. $(X,Y,Z)^T=P(x,y,z)^T$ を使って $f$ を表す。
+4. $f=0$ と平面 $y-z-\sqrt2=0$ が囲む領域を図示し、体積を求める。
 
 ### 题目描述
-
-原 Description 仅提供 2022 年“数学 2”原卷链接，具体题干缺失。根据本地 Kai，能够确认：
 
 1. 第一部分使用实对称矩阵
 
@@ -26,7 +43,7 @@ tags:
 
    先计算 $AB$；再证明若两个具有互异特征值的 $n$ 阶实对称矩阵 $C,D$ 可交换，则可由同一正交矩阵同时对角化；最后求所有单位向量 $\boldsymbol v$ 及数 $a,b$，使
    $A\boldsymbol v=a\boldsymbol v$、$B\boldsymbol v=b\boldsymbol v$。
-2. 第二部分把一个二次函数写成
+2. 第二部分给定 $f(x,y,z)=2(x^2+y^2+z^2)+4yz+(z-y)/\sqrt2$，将其写成
 
    $$
    f(\boldsymbol x)=\boldsymbol x^TA\boldsymbol x+2\boldsymbol b^T\boldsymbol x,
@@ -36,7 +53,7 @@ tags:
    \boldsymbol b=\frac1{2\sqrt2}\begin{pmatrix}0\\-1\\1\end{pmatrix}.
    $$
 
-   求 $A,\boldsymbol b$；正交对角化 $A=P^TDP$；在新坐标 $(X,Y,Z)^T=P(x,y,z)^T$ 下把曲面 $f(x,y,z)=0$ 化为 $4X^2+2Y^2-Z=0$；并求该曲面与平面 $y-z-\sqrt2=0$ 所围立体的体积。
+   求 $A,\boldsymbol b$；正交对角化 $A=P^TDP$，并将 $D$ 的对角元按从大到小排列；在新坐标 $(X,Y,Z)^T=P(x,y,z)^T$ 下把曲面 $f(x,y,z)=0$ 化为 $4X^2+2Y^2-Z=0$；画出并求该曲面与平面 $y-z-\sqrt2=0$ 所围立体的体积。
 
 ## **Kai**
 ### I.
@@ -70,7 +87,7 @@ CD \boldsymbol{w}
 \end{aligned}
 $$
 
-であり、 $D \boldsymbol{w}$ も $C$ の固有値 $c$ に属する固有ベクトルであることがわかる。
+であり、 $D \boldsymbol{w}$ は $C$ の固有値 $c$ に属する固有空間に入る（零ベクトルの場合も含む）。
 $C$ の $c$ に属する固有空間は1次元なので、
 
 $$
@@ -419,3 +436,7 @@ $$
 $$
 
 である。
+
+![Bounded elliptic-paraboloid volume in orthogonal coordinates](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/tokyo-kyotsu-202108-paraboloid.svg)
+
+図は直交変換後の $4X^2+2Y^2\le Z\le1$ を表す。直交変換は体積を保存する。

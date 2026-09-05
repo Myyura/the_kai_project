@@ -231,7 +231,7 @@ $$
 \int_{-\infty}^{\infty} a \exp \left\{-\frac{u^2}{50}\right\} du = 1
 $$
 
-ここで、ガウス積分の公式 $\int_{-\infty}^{\infty} e^{-ax^2} dx = \sqrt{\frac{\pi}{a}}$ を利用します。この場合、 $a = \frac{1}{50}$ です。
+ここで、ガウス積分の公式 $\int_{-\infty}^{\infty} e^{-kx^2} dx = \sqrt{\frac{\pi}{k}}$（$k>0$）を利用します。この場合、指数の係数は $k=\frac{1}{50}$ であり、求める規格化定数 $a$ とは別です。
 
 $$
 \int_{-\infty}^{\infty} \exp \left\{-\frac{u^2}{50}\right\} du = \sqrt{\frac{\pi}{\frac{1}{50}}} = \sqrt{50\pi} = 5\sqrt{2\pi}

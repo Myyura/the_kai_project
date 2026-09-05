@@ -100,7 +100,7 @@ $$
 
 where $I_i$ is the indicator RV that the $i$-th data is the same as the query.
 
-Hence the time complexity is $O(N\cdot 2^{-b})$ for the output list. If we count the indexing, with a $b$-bit index, the time complexity is totally $O(b+{N\over 2^b})$. Otherwise, it is $O({N\over 2^b})$.
+Enumerating the output costs its list length. Including the table access, the expected search time is $\Theta(1+N/2^b)$ when an index and a data ID each fit in a constant-time machine word. If reading or assembling the query index requires processing all $b$ bits, the bound is $\Theta(b+N/2^b)$.
 
 The space complexity is $O(N+2^b)$ for a direct-address table with $2^b$ list headers (including empty lists) and $N$ stored data IDs.
 
@@ -108,13 +108,13 @@ The space complexity is $O(N+2^b)$ for a direct-address table with $2^b$ list he
 
 The space complexity becomes $O(2N+2\cdot 2^{b/2})=O(N+2^{b/2})$ since there are 2 tables, each with $2^{b/2}$ indices and $N$ IDs.
 
-The time complexity is $O(b+{N\over 2^{b/2}})$ or $O({N\over 2^{b/2}})$.
+Store each list sorted by data ID when building the tables. Retrieve the two matching lists and intersect them using two advancing pointers. Their expected total length is $2N/2^{b/2}$, so the expected search time is $O(1+N/2^{b/2})$ with machine-word indexing, or $O(b+N/2^{b/2})$ including the bitwise query-index construction.
 
 ### (4)
 
 First we find a list $L_1$ from $T_1$ for finding a match for the first $b/2$ bits with expected $N/2^{b/2}$ length by executing (3), and verify by computing Hamming distance for every datum with $O(b)$ time. We find the sequences with Hamming distance $\le 1$ and the first-$b/2$ bits same as the query.
 
-Then we find a list $L_2$ from $T_2$ and execute the same. We thus get all sequences with Hamming distance $\le1$.
+Then retrieve $L_2$ from $T_2$. At most one bit mismatch leaves at least one half unchanged, so every valid datum lies in $L_1\cup L_2$. Merge the two sorted ID lists as a union before verification, emitting an ID present in both only once. Compute the full $b$-bit Hamming distance for each candidate and retain those with distance at most 1.
 
 Finding 2 lists takes time $O(b+{N\over 2^{b/2}})$ and verifying takes $O(b\cdot {N\over 2^{b/2}})$. So the average time complexity is $O(b+b\cdot {N\over 2^{b/2}})$.
 
@@ -132,6 +132,8 @@ Finding 2 lists takes time $O(b+{N\over 2^{b/2}})$ and verifying takes $O(b\cdot
 $z=(\lnot x\land y)\lor(x\land\lnot y)$
 
 `z=OR(AND(NOT(x), y), AND(x, NOT(y)))`
+
+![H1 using only NOT, AND and OR gates](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2024/tokyo-ci-2023-hamming-h1.svg)
 
 ### (6)
 
@@ -160,6 +162,8 @@ So the circuit is
 `z2=H1(H1(x1,y1),H1(x2,y2))`
 
 `z1=AND(H1(x1,y1),H1(x2,y2))`
+
+![H2 using H1 and an AND gate](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2024/tokyo-ci-2023-hamming-h2.svg)
 
 ### (7)
 
@@ -197,3 +201,8 @@ $z_1$ is the final carry of `A1+B1+HA(A2,B2)[C]`, namely the OR of the two carri
 `z2,c1=HA(c3,s2)`
 
 `z1=OR(c1,c2)`
+
+
+![H4 using two H2 blocks, three half adders and an OR gate](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2024/tokyo-ci-2023-hamming-h4.svg)
+
+In these diagrams, identically named wires are connected. A half adder outputs `S` (sum) and `C` (carry); the final output bits are ordered from most significant to least significant.

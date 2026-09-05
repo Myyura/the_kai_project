@@ -160,14 +160,21 @@ printf("%d\n", Len[3]);
 ```
 
 #### (4-2)
-次のように呼び出せば良い。（$T = n(n-1) / 2$）
+変更後は終点 `d` が確定した時点で停止するため、他の未確定頂点の `Len` は最短距離とは限らない。無向グラフの各非順序頂点対について1回ずつ、$T=\binom42=6$ 回呼び出せばよい。許されている変更は `compute` と `printf` の呼び出しだけなので、$n=4$ では次のように展開する。
 
-```text
-int i, j;
-for (i = 0; i < n; i++) {
-    for (j = i + 1; j < n; j++) {
-        compute(w, n, i, j);
-        printf("%d\n", Len[j]);
-    }
-}
+```c
+compute(w, n, 0, 1);
+printf("%d\n", Len[1]);
+compute(w, n, 0, 2);
+printf("%d\n", Len[2]);
+compute(w, n, 0, 3);
+printf("%d\n", Len[3]);
+compute(w, n, 1, 2);
+printf("%d\n", Len[2]);
+compute(w, n, 1, 3);
+printf("%d\n", Len[3]);
+compute(w, n, 2, 3);
+printf("%d\n", Len[3]);
 ```
+
+グラフに依存しない固定の呼び出しと出力だけでは、途中で確定した別の頂点を判定して利用できない。各対を終点・始点として明示的に指定するこの6回が必要である。対角の距離は0、逆方向の距離は対称性で決まる。

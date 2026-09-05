@@ -100,7 +100,7 @@ int main() {
     printf("c_count2: %d\n", c_count2(c_source, c_target));
     printf("c_count3: %d\n", c_count3(c_source, c_target));
 
-    scanf("%s %c", n_source, &n_target);
+    scanf("%d %d", &n_source, &n_target);
     printf("n_count1: %d\n", n_count1(n_source, n_target));
     printf("n_count2: %d\n", n_count2(n_source, n_target));
     printf("n_count3: %d\n", n_count3(n_source, n_target));
@@ -125,6 +125,10 @@ int main() {
 所有函数、递归调用和空白位置均以图 1 的完整代码为准，运行输出参照图 2。
 
 ## **Kai**
+Read the two integer inputs with `scanf("%d %d", &n_source, &n_target);`. Each `%d` conversion stores an integer at the address supplied by its argument.
+
+The following integer-counting answers assume `source > 0` and `target >= 0`. For an initial `source == 0`, they return $0$; they do not count the single digit in the usual decimal representation `"0"`. Negative inputs also require a separate convention. The original input example is needed to confirm the intended domain.
+
 ### (1)
 - <1-1>: !=
 - <1-2>: source\[i\] == target

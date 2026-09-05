@@ -14,6 +14,8 @@ tags:
 [Yu](https://blog.loveyou.moe/KU/%E4%B9%9D%E5%A4%A7%E6%83%85%E5%A0%B1%E7%90%86%E5%B7%A5%E5%AD%A6%E9%81%8E%E5%8E%BB%E5%95%8F%E3%81%AE%E8%A7%A3%E7%AD%94/), 祭音Myyura
 
 ## **Description**
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/R05ist.pdf)。
+
 ### 【問 1】
 以下の各問いに答えよ．
 
@@ -38,7 +40,7 @@ $$
 C = \lim_{n \rightarrow \infty} \max_{P_{X^n} \in \mathcal{P}_n} \frac{1}{n}I(X^n;Y^n)
 $$
 
-ただし，$I(X^n;Y^n)$ は $X^n$ と $Y^n$ の間の相互情報量を，$P_{Xn}$ は入力 $X^n$ の確率分布を，
+ただし，$I(X^n;Y^n)$ は $X^n$ と $Y^n$ の間の相互情報量を，$P_{X^n}$ は入力 $X^n$ の確率分布を，
 $\mathcal{P}_n$は$\{0, 1\}^n$ 上の確率分布全てからなる集合を表す．このとき，$C = 1 − H(S_E)$ と
 なることを示せ．
 
@@ -86,6 +88,8 @@ $$
 
 ## **Kai**
 ### 【問 1】
+以下の対数は底 $2$、エントロピーの単位は bit とする。
+
 #### (1)
 
 $$
@@ -156,7 +160,7 @@ I(X^n;Y^n)
 \end{aligned}
 $$
 
-独立な一様入力を選べば (3) より $Y^n$ も一様であり、$H(Y^n)=n$ なので等号が成り立つ。よって
+独立な一様入力を選べば、全ての $z^n,y^n$ について (3) より $P(Y^n=y^n\mid Z^n=z^n)=2^{-n}$ である。これを $Z^n$ について平均しても $P(Y^n=y^n)=2^{-n}$ なので、$Y^n$ も一様であり、$H(Y^n)=n$ なので等号が成り立つ。よって
 
 $$
 \begin{aligned}

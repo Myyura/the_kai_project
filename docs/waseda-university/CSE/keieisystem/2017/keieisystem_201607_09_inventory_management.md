@@ -113,13 +113,7 @@ C(Q)=
 \end{cases}
 $$
 
-```mermaid
-xychart-beta
-    title "Total cost with quantity discount"
-    x-axis "Order quantity Q" [100, 200, 300, 400, 499, 500, 600, 800]
-    y-axis "Cost per unit time" 2300 --> 2700
-    line [2500, 2400, 2433.33, 2500, 2579.16, 2380, 2466.67, 2650]
-```
+![数量割引による費用関数の不連続点と最小点](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/waseda_university/CSE/keieisystem/2017/waseda-2016-discount-cost.svg)
 
 $Q<500$ の範囲では $Q=200$ が最小で、
 

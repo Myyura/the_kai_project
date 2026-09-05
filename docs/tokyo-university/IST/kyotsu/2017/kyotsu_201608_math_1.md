@@ -55,13 +55,13 @@ $$
 (6)、以下の式
 
 $$
-f(x_{0},y_{0},z_{0})=\frac{(x_{0},y_{0},z_{0})
+f(x_{0},y_{0},z_{0})=\frac{(x_{n},y_{n},z_{n})
 \left (\begin{array}{cccc}
 x_{n+1} \\
 y_{n+1} \\
 z_{n+1} \\
 \end{array}\right)}
-{(x_{0},y_{0},z_{0})
+{(x_{n},y_{n},z_{n})
 \left (\begin{array}{cccc}
 x_{n} \\
 y_{n} \\
@@ -116,9 +116,9 @@ $$
 
 $$
 f(x_0,y_0,z_0)=
-\frac{(x_0,y_0,z_0)
+\frac{(x_n,y_n,z_n)
 \begin{pmatrix}x_{n+1}\\y_{n+1}\\z_{n+1}\end{pmatrix}}
-{(x_0,y_0,z_0)
+{(x_n,y_n,z_n)
 \begin{pmatrix}x_n\\y_n\\z_n\end{pmatrix}}
 $$
 
@@ -233,8 +233,8 @@ A=\left (\begin{array}{cccc}
 \end{array}\right)
 \left (\begin{array}{cccc}
 1 &0 & -2\\
-1 &-1 & 1\\
-1 &1  & 1\\
+1 &1 & 1\\
+1 &-1  & 1\\
 \end{array}\right)^{-1}
 $$
 
@@ -417,9 +417,10 @@ Let $p_0=(x_0,y_0,z_0)^T$ and $c_i=q_i^Tp_0$. Since $p_n=A^np_0$,
 
 $$
 f(x_0,y_0,z_0)
-=\frac{p_0^TA^{n+1}p_0}{p_0^TA^np_0}
-=\frac{\sum_{i=1}^3\lambda_i^{n+1}c_i^2}
-{\sum_{i=1}^3\lambda_i^nc_i^2}.
+=\frac{p_n^TAp_n}{p_n^Tp_n}
+=\frac{p_0^TA^{2n+1}p_0}{p_0^TA^{2n}p_0}
+=\frac{\sum_{i=1}^3\lambda_i^{2n+1}c_i^2}
+{\sum_{i=1}^3\lambda_i^{2n}c_i^2}.
 $$
 
 All $\lambda_i$ are positive, so the denominator is positive and this is a weighted average of $\lambda_1,\lambda_2,\lambda_3$. Therefore,

@@ -16,6 +16,8 @@ tags:
 [AKIRA (小红书:94184092292)](https://www.xiaohongshu.com/explore/688564530000000023005197?xsec_token=ABj3Hdw0xF5JHzUtFSdmNnWywnPlQ2a3xSeWzad2whPyo=), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_sys.pdf)
 $\mathbb{R}$ を実数全体からなる集合, $\pi$ を円周率とする。行列およびベクトルの転置を $\top$ で表す。
 
 ### 問1
@@ -242,19 +244,71 @@ $$
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_math_II_p1.jpg" width="700" alt=""/>
 </figure>
 
+問1 (ii) の最大性は、$-x\log x$ の厳密な凹性からも分かる。Jensen の不等式より $-\sum_i x_i\log x_i\le\log N$ であり、等号はすべての $x_i=1/N$ のとき成立する。
+
 ### 問2
-
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_math_II_p2.jpg" width="700" alt=""/>
-</figure>
-
-#### 問2 (ii)(3) の訂正
-
-$a_{i,j}^{(\ell)}$ の変化は直後の $x_i^{(\ell+1)}$ に作用するので、連鎖律より
+#### (i)(1)
 
 $$
-\frac{\partial x_k^{(L)}}{\partial a_{i,j}^{(\ell)}}
+\frac1x\log(1+2x+3^x)
+=\log3+\frac1x\log\left(1+\frac{1+2x}{3^x}\right)
+\longrightarrow\log3.
+$$
+
+従って極限は $\boxed3$ である。
+
+#### (i)(2)
+
+$0\le1-\cos x\le x^2/2$ より、
+
+$$
+\left|\frac{(1-\cos x)\sin(1/x)}x\right|
+\le\frac{|x|}2\longrightarrow0.
+$$
+
+従って極限は $\boxed0$ である。
+
+#### (ii)(1)
+
+$x_i^{(\ell+1)}=f(\sum_j a_{i,j}^{(\ell)}x_j^{(\ell)})$ を微分すると、
+
+$$
+u_{i,j}^{(\ell)}
+=f'\!\left(\mathbf a_i^{(\ell)}\mathbf x^{(\ell)}\right)a_{i,j}^{(\ell)}.
+$$
+
+従って
+
+$$
+\boxed{U^{(\ell)}=
+\operatorname{diag}\!\left(f'(A^{(\ell)}\mathbf x^{(\ell)})\right)A^{(\ell)}}.
+$$
+
+#### (ii)(2)
+
+連鎖律より
+
+$$
+v_{i,j}^{(\ell)}
+=\sum_{r=1}^2 v_{i,r}^{(\ell+1)}u_{r,j}^{(\ell)},
+\qquad
+\boxed{V^{(\ell)}=V^{(\ell+1)}U^{(\ell)}}.
+$$
+
+#### (ii)(3)
+
+$a_{i,j}^{(\ell)}$ は直後の層の第 $i$ 成分だけに直接作用する。従って
+
+$$
+\frac{\partial x_r^{(\ell+1)}}{\partial a_{i,j}^{(\ell)}}
+=\delta_{ri} f'\!\left(\mathbf a_i^{(\ell)}\mathbf x^{(\ell)}\right)x_j^{(\ell)}.
+$$
+
+これを連鎖律に代入して、
+
+$$
+\boxed{\frac{\partial x_k^{(L)}}{\partial a_{i,j}^{(\ell)}}
 =v_{k,i}^{(\ell+1)}
 f'\!\left(\mathbf a_i^{(\ell)}\mathbf x^{(\ell)}\right)
-x_j^{(\ell)}.
+x_j^{(\ell)}}.
 $$

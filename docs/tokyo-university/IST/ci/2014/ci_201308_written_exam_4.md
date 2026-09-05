@@ -17,6 +17,8 @@ tags:
 
 ## **Description**
 
+[Official examination, archived Japanese PDF](https://web.archive.org/web/20151118065610id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2013-8-exam.pdf).
+
 ### 日本語
 
 以下に示す情報システムに関する8項目から<u>4項目</u>を選択し、各項目を4～8行程度で説明せよ。必要に応じて例や図を用いてよい。
@@ -57,24 +59,53 @@ If necessary, use examples or figures.
 8. 有限自动机。
 
 ## **Kai**
-#### Shortest path problem
-For a weighted graph $G=(V,E)$ with edge weight $w(\cdot\to\cdot)$, the shortest-path problem asks for a path $p=(v_{i_1},v_{i_2},\dots,v_{i_k})$ with minimum cost, where the cost is the sum of the weights of all edges composing the path. For a single-source problem, we constrain $v_{i_1}=s$. For a single-pair problem, we also constrain $v_{i_k}=t$.
 
-Bellman--Ford (and its queue-based implementation commonly called SPFA) tackles single-source shortest paths with negative edges and can detect a reachable negative cycle; Dijkstra's algorithm does the same faster when all edge weights are nonnegative, but cannot handle negative edges or detect negative cycles; Floyd--Warshall computes shortest paths from every vertex to every vertex in cubic time, provided no negative cycle makes a distance undefined.
+### (1) tf-idf
 
-#### Carry look-ahead
-Carry look-ahead is a method for adding two $n$-bit binary numbers in parallel. For every bit place, the carry includes two stages: Generate and Propagate. For bit $i$, define carry generation $g_i=A_iB_i$ and carry propagation $p_i=A_i+B_i$, where Boolean OR is $+$ and AND is juxtaposition. Then
+Term frequency–inverse document frequency weights a term by how common it is in one document and how distinctive it is across a collection. One convention is $\mathrm{tfidf}(w,d)=\mathrm{tf}(w,d)\log(N/\mathrm{df}(w))$, where $N$ is the number of documents and $\mathrm{df}(w)$ counts documents containing the term, not its total occurrences. A term frequent in one document but rare in the corpus receives a large weight, while one appearing in every document has zero unsmoothed idf. Document vectors can be normalized and compared with cosine similarity for retrieval. Count scaling, smoothing and normalization vary by implementation; the weights do not capture meaning or word order by themselves.
+
+### (2) ZMP
+
+The zero moment point is a point on a chosen support plane where the resultant moment has zero components tangent to that plane; a moment along its normal need not vanish. For a robot supported on a flat floor, the contact-force ZMP coincides with the center of pressure. Keeping the required ZMP within the support polygon is a useful condition against tipping, but friction, torque and contact constraints must also be satisfied. Under a constant-height center-of-mass model with negligible angular-momentum change, $x_{\mathrm{ZMP}}=x_c-(z_c/g)\ddot x_c$ and similarly for $y$. Thus dynamic acceleration matters, not just the static vertical projection of the center of mass. See the [robotics explanation of zero-tilting moment](https://scaron.info/robotics/zero-tilting-moment-point.html).
+
+### (3) Distributed hash
+
+A distributed hash table assigns keys to participating nodes using hashed identifiers, allowing a key to be located without a single server storing every key. For example, Chord arranges node and key identifiers on a ring and stores a key at its successor node. Routing fingers skip increasing distances around the ring, giving logarithmic lookup and routing-table bounds under the protocol's stated assumptions. Consistent hashing limits the fraction of keys reassigned when membership changes. Replication, failure detection and stabilization handle node loss and churn; hashing alone does not provide availability, consistency or authentication. See the authors' [Chord protocol description](https://people.csail.mit.edu/dln/papers/chord/abstract.html).
+
+### (4) Shortest path problem
+
+For a weighted graph $G=(V,E)$, find a path minimizing the sum of its edge weights; single-source, single-pair and all-pairs variants specify different endpoints. Bellman–Ford handles negative edges and detects a negative cycle reachable from the source in $O(|V||E|)$ time; a reachable negative cycle makes distances unbounded below only for targets reachable from that cycle. Dijkstra's correctness requires nonnegative edge weights and a binary-heap implementation takes $O((|V|+|E|)\log|V|)$. Floyd–Warshall computes all-pairs distances in $O(|V|^3)$ time and can expose negative cycles via negative diagonal entries. Queue-based Bellman–Ford, often called SPFA, has no generally better worst-case bound.
+
+### (5) Bayesian network
+
+A Bayesian network represents a joint distribution with a directed acyclic graph and one conditional distribution per node. If $\mathrm{Pa}(X_i)$ is the set of parents of $X_i$, the factorization is $P(X_1,\ldots,X_n)=\prod_iP(X_i\mid\mathrm{Pa}(X_i))$. For example, a common-cause graph $R\to W$ and $R\to T$ gives $P(R,W,T)=P(R)P(W\mid R)P(T\mid R)$, so $W$ and $T$ are conditionally independent given $R$ but may be dependent marginally. Inference combines evidence through summation or other algorithms and can be expensive in general graphs. Edges encode a probabilistic model; interpreting them causally requires additional assumptions beyond the factorization.
+
+### (6) Carry look-ahead
+
+For bit $i$, let $g_i=A_iB_i$ and $p_i=A_i\lor B_i$. Then $c_{i+1}=g_i\lor(p_ic_i)$. Expanding, for example,
 
 $$
-c_{i+1}=g_i+p_ic_i.
+c_4=g_3\lor p_3g_2\lor p_3p_2g_1\lor p_3p_2p_1g_0\lor p_3p_2p_1p_0c_0.
 $$
 
-The output carry is thus the generated carry or a propagated input carry. Carry look-ahead expands this recursive equation inline for each carry output. By this we can directly compute the carries from $A$, $B$, and $c_0$ instead of passing them through many **full adders**, in parallel with the circuit getting the sums.
+This computes carries from operand bits and the input carry without waiting for each ripple stage. The sum still uses $S_i=A_i\oplus B_i\oplus c_i$; the OR-based $p_i$ above must not be substituted for $A_i\oplus B_i$ in that sum. Hierarchical group generate/propagate or parallel-prefix circuits provide $O(\log n)$ carry depth using bounded-fan-in gates, at the cost of more wiring and logic. A flat expanded expression is not automatically constant-depth when gate fan-in is bounded.
 
-#### Closure
+### (7) Closure
 
-A closure is a function together with the lexical environment containing its free variables. The captured variables remain accessible after the creating scope returns. For example, a function returning `lambda: count` can retain its own private `count` state.
+A closure is a function together with the lexical environment that supplies its free variables. Captured bindings remain accessible when the enclosing call has returned; whether variables are captured by reference or value depends on the language. For example, in Python:
 
-#### Finite automaton
+```python
+def make_counter():
+    count = 0
+    def next_count():
+        nonlocal count
+        count += 1
+        return count
+    return next_count
+```
 
-A DFA is a tuple $(Q,\Sigma,\delta,q_0,F)$ with finite state set $Q$, transition function $\delta:Q\times\Sigma\to Q$, initial state $q_0$, and accepting states $F$. It accepts a word exactly when the state reached after reading the whole word lies in $F$. DFAs recognize precisely the regular languages.
+Each call to `make_counter` creates a separate retained `count` binding. Calls to the returned function update that binding, allowing callbacks and stateful function objects without a global counter.
+
+### (8) Finite automaton
+
+A deterministic finite automaton is $(Q,\Sigma,\delta,q_0,F)$, where $Q$ and the input alphabet $\Sigma$ are finite, $\delta:Q\times\Sigma\to Q$ is the transition function, $q_0$ is the initial state and $F$ is the set of accepting states. It accepts a word precisely when the state after consuming the whole word belongs to $F$; the empty word is accepted when $q_0\in F$. A nondeterministic finite automaton may have multiple possible successors and epsilon transitions; subset construction gives an equivalent DFA, possibly with exponentially more states. Both recognize exactly the regular languages, such as binary strings with an even number of ones, but cannot recognize $\{a^nb^n:n\ge0\}$.

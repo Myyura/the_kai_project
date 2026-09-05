@@ -20,7 +20,7 @@ tags:
 
 $\mathcal{G}$ をすべてのグラフの集合 (set) とする。グラフ $G_1, G_2 \in \mathcal{G}$ が同型であることを, $\mathcal{G}$ 上の二項関係 (binary relation) を表す記号 $\simeq$ を用いて $G_1 \simeq G_2$ と記述するものとする。また、正整数 (positive integer) $n$ について、$\mathcal{G}_n$ を頂点集合が $\{1, 2, \dots, n\}$ であるようなすべてのグラフの集合とする。以下の各問に答えよ。
 
-(1) $\mathcal{H}$ を、以下に図示するグラフ $G_1, G_2, \dots, G_6$ からなる $G_6$ の部分集合 (subset) とする。
+(1) $\mathcal{H}$ を、以下に図示するグラフ $G_1, G_2, \dots, G_6$ からなる $\mathcal{G}_6$ の部分集合 (subset) とする。
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/osaka_university/IST/ie_2024_discrete_mathematics_p1.png" width="475" height="400" alt=""/>

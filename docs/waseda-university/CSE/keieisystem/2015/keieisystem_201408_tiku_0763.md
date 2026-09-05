@@ -36,13 +36,13 @@ $$
 Since $\vec{a}, \vec{b}, \vec{c}$ are linearly independent, we have
 
 $$
-\begin{cases} x+y+z = 0 \ x-y-2z = 0 \ z = 0 \end{cases}
+\begin{cases} x+y+z = 0 \\ x-y-2z = 0 \\ z = 0 \end{cases}
 $$
 
 Substituting $z=0$ into the first two equations gives
 
 $$
-\begin{cases} x+y = 0 \ x-y = 0 \end{cases}
+\begin{cases} x+y = 0 \\ x-y = 0 \end{cases}
 $$
 
 Solving this system gives $x=0$ and $y=0$ . Thus $x=y=z=0$ .

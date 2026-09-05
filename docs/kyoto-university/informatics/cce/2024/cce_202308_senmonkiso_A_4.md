@@ -14,6 +14,8 @@ tags:
 [SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2023_cce.pdf)
 Answer all the following questions.
 
 ### (1)
@@ -168,20 +170,23 @@ $$
 *   $n=3$: A and B tie (3 penalty).
 *   $n \ge 4$: B (3 penalty).
 
-### (c) Another prediction scheme + its penalty
-**Example:** **BTFNT (Backward Taken, Forward Not Taken)**.
+### (c) Two-bit saturating-counter prediction
 
-This is a **static branch prediction** scheme. It predicts a branch as **taken** if the branch target is at a lower address (a backward branch), and **not taken** if the branch target is at a higher address (a forward branch). Since a loop-closing branch is typically a **backward branch**, this scheme predicts the loop branch as **taken** every time.
+Use a two-bit state $s\in\{0,1,2,3\}$, initially $s=0$. Predict not taken in states $0,1$ and taken in states $2,3$. After an actual taken branch, set $s\leftarrow\min(s+1,3)$; after an actual not-taken branch, set $s\leftarrow\max(s-1,0)$.
 
-Therefore, for a loop branch that is taken $n$ times and then not taken once:
+The extra state bit provides hysteresis: one contrary outcome does not change the prediction when the counter starts in a strongly biased state. For the first execution of the specified loop:
 
-- The first $n$ executions are predicted correctly.
-- The final execution (loop exit) is mispredicted as taken, while it is actually not taken.
+- If $n=0$, the only branch is correctly predicted not taken: penalty $0$.
+- If $n=1$, the taken branch costs $1$ cycle and moves the state to $1$; the final not-taken branch is predicted correctly.
+- If $n\geq2$, the first two taken branches each cost $1$ cycle. The prediction is then taken, so the final not-taken branch costs $3$ cycles.
 
-Thus, only one misprediction occurs, of type (**T**, **N**), whose penalty is 3 cycles.
+Thus, with the explicitly specified initial state,
 
 $$
-P_{\mathrm{BTFNT}}(n) = 3
+P_{\mathrm{2bit}}(n)=
+\begin{cases}
+0,&n=0,\\
+1,&n=1,\\
+5,&n\geq2.
+\end{cases}
 $$
-
-So, for this loop, BTFNT has the same penalty as scheme B (always taken).

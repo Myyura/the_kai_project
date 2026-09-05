@@ -42,7 +42,7 @@ $$
 
 $$
 P(x) = \begin{cases}
-  axe^{-\beta x} &(x \geq 0) \\
+  \alpha xe^{-\beta x} &(x \geq 0) \\
   0 &(x < 0)
 \end{cases}
 $$
@@ -229,8 +229,9 @@ $$
   \therefore \ \ 
   \lambda &= 0, \frac{b \pm \sqrt{4a^2 + b^2}}{2}
   \end{aligned}
-  である。
 $$
+
+である。
 
 $a \neq 0$ のときは、 $A$ は相異なる3つの固有値を持つから、対角化可能である。
 
@@ -342,3 +343,7 @@ $$
 $$
 
 であるから、少なくとも $1$ 件以上のエラーが発生する確率は $50\%$ より大きいと言える。
+
+## **Reference**
+
+- [東京大学 公式過去問](https://tmi.t.u-tokyo.ac.jp/wp-content/uploads/2024/05/TMI2023_Q.pdf)

@@ -10,6 +10,8 @@ tags:
 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
+
+出典：[大学公式問題冊子の保存版](https://web.archive.org/web/20151118065613id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2005_8_ci_istmajor_all.pdf)（日本語版の設問・図を確認）。
 ### 日本語
 
 ある二つの文字列 $str1, str2$ の編集距離はつぎの 3 つの操作を行うことにより $str1$ を $str2$ に変換するのに要する操作の最低回数である．

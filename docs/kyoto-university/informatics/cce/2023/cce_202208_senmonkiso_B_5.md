@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_cce.pdf)
+
 **Answer all the following questions.**
 
 ### (1)
@@ -177,3 +179,5 @@ Branch prediction improves pipeline efficiency by **reducing the branch penalty*
 **Example: 5-stage Pipeline (IF, ID, EX, MEM, WB)**
 - Without branch prediction, the branching outcome is typically known at the end of the **EX** (or ID) stage. This causes the pipeline to stall for approximately 2 cycles while waiting to determine the next instruction address.
 - With branch prediction, if the prediction is correct, the pipeline fetches the target instruction immediately and runs smoothly as if there were no branch instructions, effectively eliminating the stall cycles.
+
+If the prediction is wrong, the processor discards instructions fetched along the wrong path and restarts at the correct address, incurring a misprediction penalty. The average penalty therefore depends on prediction accuracy and on whether the target address is available early.

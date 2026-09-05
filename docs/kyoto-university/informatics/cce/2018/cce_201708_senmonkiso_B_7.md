@@ -209,7 +209,7 @@ def max_subarray_sum(A, n):          # A is indexed from 0
             best_s = start[i]
             best_t = i
 
-    return best_s, best_t, best_sum
+    return best_s + 1, best_t + 1, best_sum  # endpoints use the problem's 1-based indexing
 ```
 
 The loop is executed once for each element, so the running time is $O(n)$.

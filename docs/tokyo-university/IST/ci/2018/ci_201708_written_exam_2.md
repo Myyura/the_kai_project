@@ -14,6 +14,8 @@ tags:
 
 ## **Description**
 
+[原題](https://www.i.u-tokyo.ac.jp/edu/course/ci/pdf/2017-8-exam.pdf)
+
 ### 日本語
 
 図1のような角度$\theta$の斜面に置かれた質量$M$の台車の位置制御を考える。台車には、斜面に沿った$x$軸方向へ力$f$を加え、移動させることができる。力$f$は台車を引き上げるために十分な大きさを与えることができ、台車と床の摩擦および空気抵抗は無視できるものとする。時刻$t$における力$f$および台車の位置と速度をそれぞれ$f(t)$、$x(t)$、$v(t)$と表記する。また、重力加速度の大きさを$g$とする。
@@ -51,13 +53,13 @@ tags:
 >   x=C_1e^{pt}+C_2e^{qt}
 > $$
 > 
-> 3. 式(B)が異なる二つの虚数解$h\pm ki$を持つとき
+> 2. 式(B)が異なる二つの虚数解$h\pm ki$を持つとき
 > 
 > $$
 >   x=e^{ht}(C_1\cos kt+C_2\sin kt)
 > $$
 > 
-> 5. 式(B)が重解$p$を持つとき
+> 3. 式(B)が重解$p$を持つとき
 > 
 > $$
 >   x=e^{pt}(C_1+C_2t)
@@ -117,13 +119,13 @@ Next, we consider to further add a force proportional to the velocity of the car
 > x=C_1e^{pt}+C_2e^{qt}
 > $$
 > 
-> 3. When Eq.(B) has two different imaginary roots $h\pm ki$,
+> 2. When Eq.(B) has two different imaginary roots $h\pm ki$,
 > 
 > $$
 > x=e^{ht}(C_1\cos kt+C_2\sin kt)
 > $$
 > 
-> 5. When Eq.(B) has a double root $p$,
+> 3. When Eq.(B) has a double root $p$,
 > 
 > $$
 > x=e^{pt}(C_1+C_2t)
@@ -342,16 +344,18 @@ For the intended uphill motion, this description assumes $k_1L>Mg\sin\theta$, so
 
 The maximum peak is $2x_{eq}$. The graph oscillates indefinitely between $0$ and $2(L - \frac{Mg\sin\theta}{k_1})$. It does not settle at $L$.
 
-**Graph:**
-The vertical axis is $x(t)$, horizontal is $t$. The curve is a sinusoidal wave starting at $(0,0)$, peaking at $x \approx 2L$ (minus the gravity offset), and centered at a level slightly below $L$.
+With $\omega=\sqrt{k_1/M}$, the following graph uses $\tau=\omega t$ and $x/x_{eq}$.
 
-![Graph Description: A cosine wave starting from 0, oscillating between 0 and 2(L - Mg sin(theta)/k1). The center of oscillation (dotted line) is at x = L - Mg sin(theta)/k1.](https://dummyimage.com/400x200/fff/000.png&text=Oscillation+Centered+Below+L)
-*(Note: As an AI text model, I describe the graph. The key feature is sustained oscillation centered below the target L due to gravity).*
+![P control: x/xeq equals 1 minus cos(tau), oscillating between 0 and 2.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2018/tokyo-ci-2017-p-response.svg)
+
+If $x_{eq}=0$, the cart stays at $x(t)=0$; if $x_{eq}<0$, the formula still applies, with motion on the negative side of the origin.
 
 ### (5) Proportional-Derivative (PD) Control
 
 **Effect:** The term $-k_2 v(t)$ acts as a damper (viscous friction). It suppresses the oscillation of the cart, causing the amplitude of the vibration to decay over time so that the position converges to a steady value.
 **Reason:** The force $-k_2 v(t)$ is always opposite to the direction of motion. This performs negative work on the system, dissipating kinetic energy until the cart stops moving ($v=0$).
+
+In particular, for $E=\tfrac12M\dot x^2+\tfrac12k_1(x-x_{eq})^2$, the equation of motion gives $\dot E=-k_2\dot x^2\le0$.
 
 ### (6) Condition for Non-oscillatory Motion
 
@@ -392,13 +396,35 @@ $$
  k_1 x_{final} = k_1 L - Mg\sin\theta \implies x_{final} = L - \frac{Mg\sin\theta}{k_1} 
 $$ 
 
-The cart starts at $0$ and asymptotically approaches $x_{final}$, which is slightly less than the target $L$ due to gravity (steady-state error).
+Write $x_{eq}=L-Mg\sin\theta/k_1$ and $\omega=\sqrt{k_1/M}$. At critical damping, $k_2=2M\omega$,
 
-**Graph:**
-The curve starts at $(0,0)$ with zero slope, rises smoothly, and flattens out to approach the horizontal asymptote $x = L - \frac{Mg\sin\theta}{k_1}$ from below. It never crosses $L$.
+$$
+x(t)=x_{eq}\{1-(1+\omega t)e^{-\omega t}\}.
+$$
+
+For overdamping, put $a=(k_2-\sqrt{k_2^2-4Mk_1})/(2M)$ and $b=(k_2+\sqrt{k_2^2-4Mk_1})/(2M)$, so $0<a<b$. Then
+
+$$
+x(t)=x_{eq}\left(1-\frac{b e^{-at}-a e^{-bt}}{b-a}\right).
+$$
+
+Both curves start with zero slope and converge monotonically to $x_{eq}$. For $x_{eq}>0$, they rise from below; the steady error is exactly $L-x_{eq}=Mg\sin\theta/k_1$. The graph shows the normalized response with damping ratio $\zeta=k_2/(2\sqrt{Mk_1})$; $\zeta=1.5$ is an illustrative overdamped case.
+
+![PD control: critical and overdamped normalized responses increase from zero to one.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2018/tokyo-ci-2017-pd-response.svg)
+
+For $x_{eq}=0$, $x(t)\equiv0$ for every $k_2>0$, even when the characteristic roots are complex; the discriminant condition describes non-oscillatory modes and the nonzero response.
 
 ### (8) Proportional-Integral-Derivative (PID) Control
 
 **Effect:** Provided that the closed loop is stable, the addition of the integral term $k_3 \int_0^t \{L-x(\tau)\} d\tau$ eliminates the steady-state error, causing the cart to converge exactly to the target position $x = L$. For this third-order system, the Routh--Hurwitz condition is $k_1k_2>Mk_3$ (in addition to $k_1,k_2,k_3>0$).
 **Reason:** In the previous cases (P and PD control), the controller relied on the position error $(L-x)$ to generate force. To counteract gravity ($Mg\sin\theta$), a non-zero error was required (steady-state error).
 With the integral term, if there is any steady error $L - x \neq 0$, the integral value grows over time, increasing the applied force $f$. This accumulation continues until the force is sufficient to balance gravity exactly when the error is zero ($x=L$). In steady state, $\dot{x}=0, \ddot{x}=0$, and $x=L$, making the integral term provide the constant force $Mg\sin\theta$.
+
+
+Differentiating the closed-loop equation gives the characteristic polynomial $Ms^3+k_2s^2+k_1s+k_3$. Its Routh first column is
+
+$$
+M,\quad k_2,\quad \frac{k_1k_2-Mk_3}{k_2},\quad k_3.
+$$
+
+All entries are positive exactly under the stated stability condition. At the stable equilibrium, the integral state is $\int_0^\infty(L-x(\tau))\,d\tau=Mg\sin\theta/k_3$.

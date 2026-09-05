@@ -121,7 +121,7 @@ $1024\times1024$ 个 32 位整数的一维数组，所有值均已设置；禁�
 ## **Kai**
 ### (1)
 
-- *Page* – instead of loading the whole program into the memory, we divide it into fixed-sized chunks called *pages* and we load some of them to fixed-size chunks of physical memory called *frames* We load to the memory only those pages that we currently need. Bonus: motivation: processes spend $90\%$ of their execution time accessing only $10\%$ of their space in the memory.
+- *Page* – instead of loading the whole program into the memory, we divide it into fixed-sized chunks called *pages* and we load some of them to fixed-size chunks of physical memory called *frames* We load to the memory only those pages that we currently need.
 - *Page Table* – stores mapping between virtual and physical addresses. It's a region in a memory where we can look-up actual page physical address.
 - *Page Replacement* - when we cannot allocate a page in a memory, we need to evict some page residing in the memory.
 - *Page fault* – access to the page which is not in the memory
@@ -146,7 +146,7 @@ We can fit $1024$ integers into one page.
 It is easier to look at $A$ as a $1024\times 1024$ 2-dimensional array, which elements are stored continuously in the memory, row-by-row.
 We can fit one whole row into a page.
 Since memory size is $32\text{KB}$ and page has $4\text{KB}$ then $8$ pages fit into the memory.
-At least one frame is occupied by data other than $A$, so fewer than $1024$ rows of $A$ can be resident at once.
+At least one frame is occupied by data other than $A$. Assuming at least one frame is available to $A$, between one and seven rows of $A$ can be resident at once.
 
 *Program 2* accesses $A$ row by row.
 Each row occupies one initially invalid page. Its first access causes one page fault (*PF*) and its remaining $1023$ accesses hit, so there are

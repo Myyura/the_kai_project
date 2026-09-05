@@ -82,7 +82,7 @@ $$
 $$
 
 $$
-\tanh(j\beta) = \frac{e^{j\beta l - e^{-j\beta l}}}{e^{j\beta l + e^{-j\beta l}}} = j\tan \beta l
+\tanh(j\beta l) = \frac{e^{j\beta l}-e^{-j\beta l}}{e^{j\beta l}+e^{-j\beta l}} = j\tan(\beta l)
 $$
 
 $$
@@ -102,7 +102,7 @@ $$
 $$
 
 $$
-l = \frac{1}{\beta} \cdot \tan^{-}(\omega C Z_0)
+l = \frac{1}{\beta} \cdot \arctan(\omega C Z_0)
 $$
 
 最小的可能长度由上式确定 $l_m$
@@ -149,9 +149,6 @@ $$
 Z_0 = \frac{Z_{03}^2}{R_2} = \frac{Z_{03}^2}{Z_{02}^2} \cdot R
 $$
 
-关于施密特图的说明，
-横轴是反射率的实部，纵轴是反射率的虚部，由于无损传输线的特性阻抗是实数，我们只用考虑横轴上的点之间如何变换。其中传输线的作用是围绕两点的几何平均数 $(Z_{02} = \sqrt{RR_2})$ 旋转 $180$ 度（如果更进一步是逆时针）。多段和一段都能实现任意两点之间的变换，区别在于，多段围城曲线的总面积小于一段，我们可以看到面积越大代表反射越大，所以多段具有降低反射提高带宽的作用。
+在设计频率处，一段和多段四分之一波长线均可实现零反射。Smith 图中，沿无损线向源端移动时，反射系数按 $\Gamma_{\rm in}=\Gamma_L e^{-2j\beta l}$ 顺时针转动；四分之一波长对应 $180^\circ$。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tohoku_university/engineering/ecei_202008_kiso_2_electrical_circuit_p2.png" width="400"/>
-</figure>
+若合理选择各段特性阻抗，使阻抗逐级变化，可减小相邻段的阻抗突变，并利用各界面反射的相位关系，在一段频带内降低输入反射，从而扩大匹配带宽。带宽取决于各段的具体设计，不能由 Smith 图中曲线围成的面积判断，也不能仅由“段数增加”保证。

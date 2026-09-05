@@ -15,9 +15,11 @@ tags:
 [Isidore](https://github.com/heacsing), 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2022_ist.pdf)
 ### 設問1
 
-確率変数 $X$ は下の確率密度変数 $f(x)$ をもつ確率分布に従うとする。
+確率変数 $X$ は下の確率密度関数 $f(x)$ をもつ確率分布に従うとする。
 
 $$
 f(x) = 
@@ -141,7 +143,7 @@ If $x_1=\cdots=x_n=0$, every value of $\hat\beta$ minimizes $S$.
 
 #### (2)
 
-By the equation ($5$) and ($6$), we immediately have
+The normal equation directly gives
 
 $$
 \begin{align}
@@ -167,7 +169,7 @@ $$
 Pr[T] = \frac{R}{R+1} ;\; Pr[F] = \frac{1}{R+1} 
 $$
 
-By the definition of Significance Level and Statistic Power, we have
+Assume each test has exact Type I error probability $\alpha$ and power $1-\beta$. Then
 
 $$
 Pr[S|F] = \alpha ;\; Pr[S|T] = 1 - \beta
@@ -190,7 +192,7 @@ Pr[T|S] = \frac{8}{13}
 $$
 
 #### (2)
-By perform the experiments $k$ times independently, we only need to multiply the probabilities with event $S$ $k$ times in equation ($11$), which means,
+Conditional on whether the hypothesis is true or false, the $k$ experiments are independent with the same test properties. Writing $S^k=S_1\cap\cdots\cap S_k$, we obtain
 
 $$
 \begin{align}

@@ -13,6 +13,8 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/65eea0cc0623fd6a765dbc02dc3d5ff4.pdf)
+
 3次元ベクトル空間から2次元ベクトル空間への写像
 
 $$

@@ -10,6 +10,9 @@ tags:
 祭音Myyura
 
 ## **Description**
+
+出典：[名古屋大学公表問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2022/09/02e75abcc32acb88cd7505bad377f983.pdf)。
+
 配列を利用してヒープを実現し，優先度付きキューとして使用することを考える．
 取り扱うデータは整数であると仮定し，データの値そのものをヒープのキーとして使用する．
 ヒープは，最下層のみに節点の欠落を許す完全2分木として構成し，最下層の節点は左側から詰めて配置する．
@@ -33,13 +36,54 @@ tags:
 
 (4) 図 2 のヒープが配列 A に格納されているとする．このとき，Push(A,15) を実行した後のヒープを2分木として示せ．
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is_202208_senmon_5_p1.png" width="700" height="330" alt=""/>
-</figure>
+#### 疑似コード 1: Heapify(A, i)
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is_202208_senmon_5_p2.png" width="700" height="290" alt=""/>
-</figure>
+```text showLineNumbers
+l = 2i
+r = 2i + 1
+largest = i
+if l ≤ A.size and A[l] > A[largest] then
+    largest = l
+if r ≤ A.size and A[r] > A[largest] then
+    largest = r
+if largest ≠ i then
+    swap A[i], A[largest]
+    Heapify(A, largest)
+```
+
+#### 疑似コード 2: Build-Heap(A)
+
+```text showLineNumbers
+for i = floor(A.size / 2) down to 1 do
+    Heapify(A, i)
+```
+
+![図1：ヒープ構成前の初期データ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2023/nagoya-is2023-heap1.svg)
+
+#### 疑似コード 3: Pull(A)
+
+```text showLineNumbers
+if A.size < 1 then
+    error "underflow"
+max = A[1]
+A[1] = A[A.size]
+A.size = A.size - 1
+(X)
+return max
+```
+
+#### 疑似コード 4: Push(A, key)
+
+```text showLineNumbers
+A.size = A.size + 1
+A[A.size] = key
+i = A.size
+p = floor(i / 2)
+while i > 1 and A[p] < A[i] do
+    swap A[p], A[i]
+    i = p
+    p = floor(i / 2)
+```
 
 優先度付きキューに格納されているデータ数（ヒープの節点数）を n とする．
 
@@ -47,9 +91,7 @@ tags:
 
 (6) Build-Heap の最悪時間計算量を　n　に関するオーダー記法で示せ．また，その計算量となる理由を説明せよ．
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is_202208_senmon_5_p3.png" width="400" height="300" alt=""/>
-</figure>
+![図2：Push 操作前のヒープ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/is/2023/nagoya-is2023-heap2.svg)
 
 ### 题目描述
 
@@ -101,26 +143,17 @@ Heapify(A, 1)
 ```
 
 ### (5)
-最悪のとき、while 文の実行する回数が $\log (\text{A.size})$ なので、Push の最悪時間計算量は $O(\log n)$ となる。
+
+新しい節点から根まで上がる回数は高々 $\lfloor\log_2(n+1)\rfloor$ であり、各反復は定数時間である。既存の全キーより大きいキーを挿入すると根まで上がるので、最悪時間計算量は $\Theta(\log n)$ である。
 
 ### (6)
-Build-Heap の最悪時間計算量を $T(n)$ とおくと、
+
+節点 $i$ の部分木の高さを $h_i$ とすると、Heapify の時間は $O(1+h_i)$ である。高さが $h$ 以上となる節点は、左端の深さ $h$ の子孫の添字が $2^hi\le n$ を満たす節点なので、その数は $\lfloor n/2^h\rfloor$ である。従って、全節点の高さの総和は
 
 $$
-\begin{aligned}
-&T(n) = \underbrace{0 \times \frac{n}{2}} \quad + \quad \underbrace{1 \times \frac{n}{4}} \quad + \cdots + \quad \underbrace{\log (n-1) \times 1} \\
-&(i =\lfloor n/2 \rfloor \sim n \quad\lfloor n/4 \rfloor \sim \lfloor n/2 \rfloor \qquad \qquad \qquad \  \ 1 \qquad \ \ )
-\end{aligned}
+\sum_{i=1}^{n}h_i
+=\sum_{h=1}^{\lfloor\log_2n\rfloor}\left\lfloor\frac{n}{2^h}\right\rfloor
+\le n\sum_{h=1}^{\infty}2^{-h}=n.
 $$
 
-よって、
-
-$$
-\begin{aligned}
-T(n) &= n \sum_{k=0}^{\log (n-1)} \frac{k}{2^{k+1}} \\
-T(n) &= n \sum_{k=0}^{h} \frac{k}{2^{k+1}} \quad (h = \log (n-1)) \\
-2T(n) &= n \sum_{k=0}^{h} \frac{k}{2^{k}} \\
-2T(n) - T(n) &= n (\frac{1}{2} + \frac{1}{4} + \cdots + \frac{1}{2^h} - \frac{h}{2^{h+1}}) \\
-& \leq n ( 2 - \frac{h}{2^{h+1}}) = O(n)
-\end{aligned}
-$$
+Build-Heap は $\lfloor n/2\rfloor$ 個の内部節点に対して Heapify を呼ぶため、全体で $O(n)$ 時間となる。この呼出し自体に $\Omega(n)$ 時間を要するので、最悪時間計算量は $\Theta(n)$ である。

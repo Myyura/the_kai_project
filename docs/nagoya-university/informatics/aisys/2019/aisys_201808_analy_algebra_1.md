@@ -12,6 +12,9 @@ tags:
 
 ## **Description**
 
+出典：[名古屋大学・2019年度知能システム学専攻入試問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/e71e2adef95ac6ee904f160a89c4888f.pdf)、解析・線形代数。導出過程も示す。
+
+
 $a_i$ ( $i = 1, 2, ..., N$ ) を定数とするとき、次の関数 $f(x)$ の値が最大になるときの $x$ の値を求めよ。
 
 $$

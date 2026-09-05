@@ -175,6 +175,7 @@ $$
 $$
 
 ### (iv)
+If $x\notin S$, it is infeasible and therefore cannot be optimal. Now assume $x\in S$.
 Let $g(t) = f(x + t(\bar{y}(x) - x)), t \geq 0$.
 Then $g'(0) = \nabla f(x)^\top (\bar{y}(x) - x)<0$ by (iii).
 

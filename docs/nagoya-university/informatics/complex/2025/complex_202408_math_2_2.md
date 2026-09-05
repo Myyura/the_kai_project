@@ -11,6 +11,9 @@ tags:
 
 ## **Description**
 
+[出典：名古屋大学公式問題](https://www.i.nagoya-u.ac.jp/wp-content/uploads/2017/09/ae71f02839037f5b598d671555ed309b.pdf)
+
+
 微分方程式
 
 $$
@@ -139,3 +142,6 @@ $$
 $$
 y = x + 5e^{-x}
 $$
+
+
+![五つの等傾線上の方向場と初期値解](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/nagoya_university/informatics/complex/2025/nagoya-complex2025-direction-field.svg)

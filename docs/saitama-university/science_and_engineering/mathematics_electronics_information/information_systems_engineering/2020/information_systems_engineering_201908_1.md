@@ -135,3 +135,5 @@ $$
 
 From all three equations, we have $2x + y - z = 0$ , so $z = 2x + y$ .
 So, the eigenvector is $v = \begin{pmatrix} x \\ y \\ 2x+y \end{pmatrix} = x \begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix} + y \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}$ .
+
+Here the eigenvector for $\lambda=2$ requires $x\ne0$, and that for $\lambda=3$ requires $(x,y)\ne(0,0)$.

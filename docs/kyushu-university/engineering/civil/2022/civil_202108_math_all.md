@@ -18,70 +18,114 @@ tags:
 
 ## **Description**
 
+題意の要約。
+
+### 問題 1
+
+$y=x\log x$（$\log$ は自然対数）のグラフを描く。両軸の表示範囲は $-0.5$ から $2.5$ とする。極値と変曲点については座標を示し、存在しなければ「なし」とする。$x$ 軸との交点、その点での接線（破線）、および接線の傾きも示す。
+
+### 問題 2
+
+曲面 $z=f(x,y)=xy$ のうち、円柱 $x^2+y^2=4$ の内部にある部分の面積を $S$ とする。
+
+1. 曲面上の点 $P=(x,y,f(x,y))$、$Q=(x+\Delta x,y,f(x+\Delta x,y))$、$R=(x,y+\Delta y,f(x,y+\Delta y))$ を用いて面積要素を求め、
+   $$
+   D=\{(x,y):x^2+y^2\le4,\ x\ge0,\ y\ge0\},\qquad
+   S=4\iint_D\sqrt{x^2+y^2+1}\,dx\,dy
+   $$
+   を導く。
+2. 極座標により $S$ を計算する。
+
+### 問題 3
+
+1. 完全微分方程式 $(y-x^3)\,dx+(x-\sin y)\,dy=0$ の一般解を求める。
+2. $X(x,y)\,dx+Y(x,y)\,dy=0$ に $y$ のみの関数 $Q(y)\ne0$ を掛けて完全微分方程式にできるとき、$Q$ を $X,Y$ とその偏導関数で表す。
+3. 方程式 $(xy^2-y^3)\,dx+(1-xy^2)\,dy=0$ は $y$ のみの積分因子を持つ。(2) を用いて一般解を求める。
+
+### 問題 4
+
+$n\ge2$ は整数、$b\ne0$ とする。
+
+1. 次の $A$ について $A^n$ を求める。
+   $$
+   A=\begin{pmatrix}0&1&0&0\\0&0&1&0\\0&0&0&1\\0&0&0&0\end{pmatrix}.
+   $$
+2. 次の $B$ について $B^n$ を求める。
+   $$
+   B=\begin{pmatrix}b&1&0&0\\0&b&1&0\\0&0&b&1\\0&0&0&b\end{pmatrix}.
+   $$
+3. $C=\begin{pmatrix}13&-30\\5&-12\end{pmatrix}$ を対角化する。
+
+### 問題 5
+
+確率密度
+
+$$
+f(x)=\begin{cases}2(1-x),&0\le x\le1,\\0,&x<0\text{ または }x>1\end{cases}
+$$
+
+に従う確率変数の平均と分散を求める。
+
+### 問題 6
+
+工場 A の鉄筋から無作為に 9 本を選び、引張強度の標本平均 $\bar X=500\,\mathrm{N/mm^2}$ を得た。母集団は正規分布に従い、母標準偏差は既知で $\sigma=75\,\mathrm{N/mm^2}$ である。母平均 $\mu$ の 95% 信頼区間を求める。標準正規変数 $Z$ に対して $P(|Z|>z)=\alpha$ となる値は次表を用いる。
+
+| $\alpha$ | $z$ |
+| --- | --- |
+| 0.01 | 2.576 |
+| 0.02 | 2.326 |
+| 0.05 | 1.960 |
+| 0.10 | 1.645 |
+| 0.20 | 1.282 |
+
+出典：[九州大学 令和4年度 土木工学専攻 数学](https://civil.kyushu-u.ac.jp/civil_wp/wp-content/uploads/r04_nyushi02.pdf)。
+
 ### 题目描述
 
-本文件原 Description 为空，部分原题数据只存在于解答中的图片或已完全缺失。可确认内容如下。
+**问题 1**：画出 $y=x\ln x$ 的图像，横纵轴显示范围均为 $[-0.5,2.5]$。标明极值点和拐点的坐标，不存在时注明“无”；还需标出与 $x$ 轴的交点、在该点处的切线（虚线）及其斜率。
 
-**问题 1**：原题题面见解答开头的图片：
+**问题 2**：求曲面 $z=f(x,y)=xy$ 位于圆柱 $x^2+y^2=4$ 内部的部分的面积。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/engineering/civil_2022_math_all_p1.png" width="600" alt="九州大学土木工学数学问题1原题"/>
-</figure>
-
-**问题 2**：推导图形曲面 $z=f(x,y)$ 的面积元
+1. 由曲面上相邻的三个点 $P,Q,R$ 推导面积元 $dS=\sqrt{1+f_x^2+f_y^2}\,dx\,dy$，从而得到
 
 $$
-dS=\sqrt{1+f_x^2+f_y^2}\,dx\,dy,
+S=4\iint_D\sqrt{x^2+y^2+1}\,dx\,dy,\qquad
+D=\{(x,y):x^2+y^2\le4,\ x\ge0,\ y\ge0\}.
 $$
 
-并把题设曲面的总面积化为
-
-$$
-S=4\iint_D\sqrt{x^2+y^2+1}\,dx\,dy.
-$$
-
-再对半径为 2 的第一象限四分之一圆盘 $D$ 使用极坐标，求 $S$。
+2. 使用极坐标计算面积 $S$。
 
 **问题 3**：
 
-1. 求完全微分方程
+1. 求完全微分方程 $(y-x^3)\,dx+(x-\sin y)\,dy=0$ 的通解。
+2. 对 $X(x,y)\,dx+Y(x,y)\,dy=0$，推导仅依赖 $y$ 的非零积分因子 $Q(y)$ 的公式。
+3. 用第 2 问的方法求 $(xy^2-y^3)\,dx+(1-xy^2)\,dy=0$ 的通解。
 
-   $$
-   (y-x^3)\,dx+(x-\sin y)\,dy=0
-   $$
-
-   的通解。
-2. 对一般方程 $X(x,y)\,dx+Y(x,y)\,dy=0$，在积分因子只依赖 $y$ 时推导 $Q(y)$ 的公式。
-3. 为
-
-   $$
-   (xy^2-y^3)\,dx+(1-xy^2)\,dy=0
-   $$
-
-   求仅依赖 $y$ 的积分因子，并求通解。
-
-**问题 4**：现有解答可确认 $A$ 是四阶移位型幂零矩阵，并令 $B=bE+A$；要求计算 $A^n$、$B^n$。另有一个特征值为 $-2,3$ 的二阶矩阵 $C$，要求对角化；但原文件未保存 $A,C$ 的题设矩阵，不能可靠重写其元素。
-
-**问题 5**：随机变量的密度为
+**问题 4**：设整数 $n\ge2$、$b\ne0$，令
 
 $$
-f(x)=
-\begin{cases}
-2(1-x),&0\le x\le1,\\
-0,&\text{其他},
-\end{cases}
+A=\begin{pmatrix}0&1&0&0\\0&0&1&0\\0&0&0&1\\0&0&0&0\end{pmatrix},\qquad
+B=bE+A,\qquad C=\begin{pmatrix}13&-30\\5&-12\end{pmatrix}.
 $$
 
-求其期望与方差。
+依次求 $A^n$、$B^n$，并将 $C$ 对角化。
 
-**问题 6**：正态总体方差已知，样本量为 $9$、样本均值为 $500\,\mathrm{N/mm^2}$、总体标准差为 $75\,\mathrm{N/mm^2}$，求总体均值的 95% 置信区间。
+**问题 5**：随机变量的密度为 $f(x)=2(1-x)$（$0\le x\le1$），区间外为 $0$。求其期望与方差。
+
+**问题 6**：从正态总体随机抽取 9 根钢筋，抗拉强度样本均值为 $500\,\mathrm{N/mm^2}$，已知总体标准差为 $75\,\mathrm{N/mm^2}$。求总体均值的 95% 置信区间，可使用上方给出的标准正态分布双侧分位数表。
 
 ## **Kai**
 ### 【問題 1】
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/engineering/civil_2022_math_all_p1.png" width="600" alt=""/>
-</figure>
+定義域は $x>0$ であり、
+
+$$
+y'=\log x+1,\qquad y''=\frac1x>0.
+$$
+
+したがって、$0<x<e^{-1}$ で減少、$x>e^{-1}$ で増加し、極小点は $(e^{-1},-e^{-1})$、極大点と変曲点はない。$x$ 軸との交点は $(1,0)$、そこでの接線の傾きは $1$ で、接線は $y=x-1$ となる。また $\lim_{x\to0+}x\log x=0$ だが、原点はグラフに含まれない。
+
+![y=x log x と交点での接線](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyushu_university/engineering/civil/2022/kyushu-civil-2021-log-curve.svg)
 
 ### 【問題 2】
 #### (1)
@@ -261,7 +305,7 @@ $$
 
 $$
 \begin{aligned}
-f(x,y) = \frac{1}{2} x^2 - xy - \frac{1}{y} + C
+\frac{1}{2} x^2 - xy - \frac{1}{y} + C = 0
 \ \ \ \ \ \ \ \ \text{ ( $C$ は任意定数 )}
 \end{aligned}
 $$
@@ -347,12 +391,13 @@ $$
 がわかる。
 
 #### (3)
-$C$ の固有値は $-2, 3$ であるから、次のように対角化できる：
+
+$\det(\lambda I-C)=(\lambda+2)(\lambda-3)$ である。固有値 $-2,3$ に対する固有ベクトルとして、それぞれ $(2,1)^{\mathsf T},(3,1)^{\mathsf T}$ を取れる。したがって、
 
 $$
-  \begin{aligned}
-  \begin{pmatrix} -2 & 0 \\ 0 & 3 \end{pmatrix}
-  \end{aligned}
+P=\begin{pmatrix}2&3\\1&1\end{pmatrix},\qquad
+P^{-1}=\begin{pmatrix}-1&3\\1&-2\end{pmatrix},\qquad
+P^{-1}CP=\begin{pmatrix}-2&0\\0&3\end{pmatrix}.
 $$
 
 ### 【問題 5】

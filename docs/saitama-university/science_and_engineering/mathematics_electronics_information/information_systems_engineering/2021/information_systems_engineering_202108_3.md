@@ -209,5 +209,3 @@ that is,
 $$
 0.1804\leq\hat p\leq0.2196.
 $$
-
-The question gives no observed value of $X$ ; hence a data-dependent confidence interval for an unknown $p$ cannot be evaluated numerically from the stated information. The interval above is the requested normal-approximation range for the random estimator $\hat p$ under the given defect probability $p=0.2$ .

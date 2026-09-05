@@ -11,6 +11,8 @@ tags:
 Casablanca, 祭音Myyura
 
 ## **Description**
+
+[大学公表の原題](https://www.amp.i.kyoto-u.ac.jp/pukiwiki/amptest-e/index.php?file=h28_exam.pdf&pcmd=open&plugin=attach&refer=Entrance+Examination+Information)
 ### 日本語版
 関数 $f : \mathbb{R}^n \rightarrow \mathbb{R}$ を連続的微分可能な凸関数とする。
 さらに、$\nabla f(\boldsymbol{x})$ を次式で定義される関数 $f$ の $\boldsymbol{x} \in \mathbb{R}^n$ における勾配とする。
@@ -94,7 +96,11 @@ $$
 Lagrange dual function
 
 $$
-g(\lambda) = \lambda ^\top A \bar{x} - \lambda^\top b
+g(\lambda)=\inf_{x\in\mathbb R^n}L(x,\lambda)=
+\begin{cases}
+\lambda^\top(A\bar x-b),&\nabla f(\bar x)+A^\top\lambda=0,\\
+-\infty,&\text{otherwise}.
+\end{cases}
 $$
 
 Dual problem:

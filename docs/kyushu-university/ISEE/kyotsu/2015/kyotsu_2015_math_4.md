@@ -12,6 +12,8 @@ tags:
 
 ## **Description**
 
+> 出典：九州大学[公式問題](https://www.isee.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/H27infait.pdf)。
+
 次の積分の値を複素積分を用いて求めよ。ただし、 $0 < p < 1$ , $n = 0, 1, 2, \dots$ とする。
 
 $$

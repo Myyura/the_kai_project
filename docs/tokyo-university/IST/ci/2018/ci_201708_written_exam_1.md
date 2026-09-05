@@ -11,7 +11,9 @@ tags:
 [tomfluff](https://github.com/tomfluff), 祭音Myyura, [itsuitsuki](https://github.com/itsuitsuki)
 
 ## **Description**
-A data set $S$ including eight data is given as in Figure 1. Each datum is in the form of  $(x_1, x_2, x_3, x_4, y) \in \{0, 1\}^5$. 
+
+[原題（日本語）](https://www.i.u-tokyo.ac.jp/edu/course/ci/pdf/2017-8-exam.pdf)
+A data set $S$ including eight data is given as in Figure 1. Each datum is in the form of  $(x_1, x_2, x_3, x_4, y) \in \{0, 1\}^5$.
 Below we consider how to construct a rule from $S$ for classifying $\boldsymbol{x} = (x_1, x_2, x_3, x_4)$ into $y = 1$ or $y = 0$. Answer the following questions.
 
 #### Figure 1: Data set
@@ -59,7 +61,10 @@ Find $i$ that minimizes $\Delta(i|y)$.
 Hereinafter, when there are more than one $x_i$’s that minimize the value of Eq.(2), one is chosen randomly from among them.
 
 (4) Let the value of $i$ obtained in Question (3) be $i^*$. $S$ is partitioned into two sets according to whether $x_{i^*} = 1$ or $x_{i^*} = 0$, then $y$ is also partitioned into two strings: $y^{(i^*)}_1$ and $y^{(i^*)}_0$.
-It can be represented using a tree structure as shown in Figure 2. 
+It can be represented using a tree structure as shown in Figure 2.
+
+![Figure 2: a split on feature x_i*, with the 1 and 0 branches leading to their partitioned strings.](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci/2018/tokyo-ci-2017-partition-tree.svg)
+
 We call it a partitioning tree.
 We call $y^{(i^*)}_1$ and $y^{(i^*)}_0$ partitioned strings.
 We further partition each of $y^{(i^*)}_1$ and $y^{(i^*)}_0$, by finding $i \ (\neq i^*)$ minimizing $\Delta(i|y^{(i^*)}_1)$ and minimizing $\Delta(i|y^{(i^*)}_0)$, respectively. Let this partitioning of a leaf be repeated until the following stopping rule is fulfilled: The depth of a leaf (the number of partitionings from the root to the leaf) is two, or the partitioned string arriving at a leaf is all $y = 1$ or all $y = 0$.
@@ -68,12 +73,12 @@ Find the partitioning tree that is finally obtained.
 (5) For the resulting partitioning tree, for a partitioned string arriving at each leaf, we assign $y = 1$ to the leaf if the number of occurrences of $y = 1$ in this string is larger than that of $y = 0$, and assign $y = 0$ to the leaf if the number of occurrences of $y = 1$ is smaller than that of $y = 0$.
 When the number of occurrences of $y = 1$ is the same as that of $y = 0$, we assign randomly $y = 1$ or $y = 0$ to the leaf.
 This tree can be used for predicting the value of $y$ for any new datum.
-That is, when $(x_1, x_2, x_3, x_4)$ in the new datum is given  
+That is, when $(x_1, x_2, x_3, x_4)$ in the new datum is given
 and arrives at a leaf, the tree predicts the value of its corresponding $y$ as the value of $y$ assigned to the leaf.
 Here, even if we change the stopping rule in Question (4) to construct a larger tree from a training data set $S$ so that the values of $y$ for data reaching at each leaf are all $y = 1$ or all $y = 0$, such a tree doesn’t necessarily predict the value of $y$ for a new datum with higher accuracy. Explain the reason.
 
 (6) Consider a general case where for a positive integer $d \geq 2$, a set $S$ of multi-dimensional data in the form of $(x_1, \dots, x_d, y) \in \{0, 1\}^{d+1}$ and a partitioning tree $\mathcal{T}$ are given.
-Let $\mathcal{M}$ be a set of all subtrees which share the root of $\mathcal{T}$ and are obtained by pruning $\mathcal{T}$ starting  
+Let $\mathcal{M}$ be a set of all subtrees which share the root of $\mathcal{T}$ and are obtained by pruning $\mathcal{T}$ starting
 from its leaves.
 We define the following penalized criterion for evaluating the goodness of a subtree $M \in \mathcal{M}$ for the given $S$:
 
@@ -154,7 +159,7 @@ $$
 $$
 
 ### (2) - By tomfluff
-Let us fine a $\theta$ such that the least squares is minimized. Let us denote least squares as $f(\theta )$.
+Let us find a $\theta$ such that the least squares is minimized. Let us denote least squares as $f(\theta )$.
 
 $$
 f(\theta )=\sum_{t:x_1=1}(y(t) - \theta )^2
@@ -186,25 +191,25 @@ Therefore, when $\theta = \frac{3}{4}$ the least squares function is minimized.
 Hence $i=1$ minimizes $\Delta(i|y)$.
 
 ### (4) - By tomfluff
-At the root, $x_1$ is selected. In the $x_1=0$ branch, $x_2$ uniquely minimizes $\Delta$. In the $x_1=1$ branch, $x_2,x_3,x_4$ tie, so the displayed choice of $x_2$ is valid (choosing $x_3$ or $x_4$ is also valid).
+At the root, $x_1$ is selected. In the $x_1=0$ branch, $x_2$ uniquely minimizes $\Delta$. In the $x_1=1$ branch, $x_2,x_3,x_4$ tie, so the displayed choice of $x_4$ is valid (choosing $x_2$ or $x_3$ is also valid).
 
 <figure style="text-align:center;">
   <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/ci_201708_1_p1.png" width="281" height="222" alt=""/>
 </figure>
 
-With the displayed choice, the four leaf strings are respectively $000$, $1$, $11$, and $10$.
+With the displayed choice, the four leaf strings are respectively $000$, $1$, $10$, and $11$.
 
 ### (5)
-In machine learning, bias is systematic error from restrictive modeling assumptions, whereas variance measures how much the fitted predictor changes with the training sample. When the prediction function fits the training data too well it is called **"over fitting"**, and overfitting leads to low bias but high variance. In the mentioned case, extending the tree can fit noise or accidental features of the training set, so its prediction error on new data may increase.
+In machine learning, bias is systematic error from restrictive modeling assumptions, whereas variance measures how much the fitted predictor changes with the training sample. When the prediction function fits the training data too well it is called **"over fitting"**, and increasing tree depth can reduce training error while increasing variance. In the mentioned case, extending the tree can fit noise or accidental features of the training set, so its prediction error on new data may increase.
 
 ### (6) - by Gemini
-The algorithm will work as **Cost-Complexity Pruning**. Tomfluff (the previous solution provider in this problem) misrecognizes this as a Minimum Error Pruning technique which is different. Similar pruning algorithms include PEP (Pessimistic Error Pruning), etc.
+The optimum can be found by dynamic programming over the given tree.
 
-The algorithm is dynamic programming:
-1. Post-order traverse every node; 
-2. For each internal node $u$, we can choose to 
+For an original leaf $u$, initialize $\text{Cost}_{\min}(u)=C_L+L(y_u)$. Then:
+1. Post-order traverse every node;
+2. For each internal node $u$, we can choose to
    1. Prune the node into a leaf with contribution to criterion $\text{Cost}_{\text{prune}}(u) = C_L + L(\text{all data under }u)$
    2. Keep the subtree rooted at $u$ with contribution $\text{Cost}_{\text{keep}}(u) = C_I + \sum_{v\in \text{children}(u)} \text{Cost}_{\min}(v)$
 3. Choose a minimum-contribution action with $\text{Cost}_{\min}(u) = \min(\text{Cost}_{\text{prune}}(u), \text{Cost}_{\text{keep}}(u))$. When pruning, mark this subtree rooted at $u$ as a leaf.
 
-Route each datum through $\mathcal T$ first and store the label count at every visited node, so $L(y_u)$ is available for either choice. The postorder DP itself is $O(|\mathcal T|)$; including this routing, the time is $O(|S|h+|\mathcal T|)$ for tree height $h$. Recording the minimizing choice at every node reconstructs the optimal subtree from the root.
+Route each datum through $\mathcal T$ first and store the label count at every visited node, so the counts $n_u=|y_u|$ and $k_u$ of positive labels are available for either choice. Precompute $A_j=\log(j!)$ for $j=0,\ldots,|S|$ in $O(|S|)$ arithmetic operations; then $L(y_u)=\log(n_u+1)+A_{n_u}-A_{k_u}-A_{n_u-k_u}$ is evaluated in $O(1)$ operations (including $L(\epsilon)=0$ for an empty node). The postorder DP itself is $O(|\mathcal T|)$; including this routing, the time is $O(|S|h+|\mathcal T|)$ for tree height $h$. Recording the minimizing choice at every node reconstructs the optimal subtree from the root.

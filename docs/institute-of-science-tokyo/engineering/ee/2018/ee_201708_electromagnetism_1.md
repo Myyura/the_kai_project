@@ -80,8 +80,8 @@ $$
 $$
 \begin{aligned}
 B_a &= \frac{\mu_0 qnv}{2\pi a} \\
-F &= IB_a \cdot 1 \\
-&= \frac{\mu_0 qnv}{2\pi a} I
+F &= iB_a \cdot 1 \\
+&= \frac{\mu_0 qnv}{2\pi a} i
 \end{aligned}
 $$
 
@@ -90,7 +90,7 @@ $$
 ### (4)
 
 $$
-I = qn v
+I = qn u
 $$
 
 ### (5)
@@ -102,7 +102,7 @@ $$
 &= \frac{\mu_0 I}{4\pi a^2}a \text{d}\theta \\
 B_0 &= \frac{\mu_0 I}{4\pi a}\int_{0}^{2\pi}\text{d}\theta \\
 &= \frac{\mu_0 I}{4\pi a} \cdot 2\pi = \frac{\mu_0 I}{2a} \\
-&\therefore B_0 = \frac{\mu_0 qn v}{2a}
+&\therefore B_0 = \frac{\mu_0 qn u}{2a}
 \end{aligned}
 $$
 
@@ -125,7 +125,7 @@ $$
 \begin{aligned}
 B_P &= \frac{\mu_0 I a^2}{4\pi(a^2 + r^2)^{\frac{3}{2}}}\int_{0}^{2\pi}\text{d}\theta \\
 &= \frac{\mu_0 I a^2}{4\pi(a^2 + r^2)^{\frac{3}{2}}} \cdot 2\pi \\
-&= \frac{\mu_0 qn v a^2}{2(a^2 + r^2)^{\frac{3}{2}}}
+&= \frac{\mu_0 qn u a^2}{2(a^2 + r^2)^{\frac{3}{2}}}
 \end{aligned}
 $$
 

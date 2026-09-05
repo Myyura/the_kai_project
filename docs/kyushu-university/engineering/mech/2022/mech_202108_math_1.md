@@ -14,11 +14,18 @@ tags:
 ## **Description**
 次の行列 $A \in \mathbb{R}^{3 \times 3}$ について，以下の問いに答えよ．ただし $x$ は実数とする．
 
+$$
+A=\begin{pmatrix}x&1&0\\1&x&1\\0&1&x\end{pmatrix}.
+$$
+
+
 (1) $T^{\top} A T$ が対角行列となる直交行列 $T \in \mathbb{R}^{3 \times 3}$ を求めよ．
 
 (2) 任意のベクトル $y \in \mathbb{R}^3$ について，$y^{\top} A y \ge 0$ となるための $x$ の範囲を求めよ．
 
 (3) (2) で求めた $x$ の範囲を満たす最小値を $x$ に代入した行列 $A$ を $A_m$ とするとき，行列 $\{A_m\}^6 \in \mathbb{R}^{3 \times 3}$ を求めよ.
+
+出典：[九州大学 令和4年度 機械系専攻 数学](https://www.mech.kyushu-u.ac.jp/wp/wp-content/uploads/2022/01/2022-math.pdf)。
 
 ### 题目描述
 
