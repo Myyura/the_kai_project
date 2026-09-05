@@ -11,8 +11,6 @@ tags:
 ## **Author**
 祭音Myyura
 
-校对：祭音Myyura (co-authored with GPT 5.6 SOL)
-
 ## **Description**
 ### 日本語版
 長さ $N \ge 2$ の配列 $A=(A[1], \ldots，A[N])$ の各要素に実数が格納されている.配列 $A$ の二つの要素番号を引数にとる手続き $P$ と $Q$ を次のように定義する.

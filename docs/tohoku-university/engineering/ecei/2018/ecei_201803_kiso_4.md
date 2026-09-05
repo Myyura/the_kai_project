@@ -11,8 +11,6 @@ tags:
 
 祭音Myyura (assisted by GPT-5)
 
-校对与中文整理：祭音Myyura (co-authored with GPT 5.6 SOL)
-
 ## **Description**
 
 ### 日本語版

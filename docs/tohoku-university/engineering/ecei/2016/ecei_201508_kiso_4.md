@@ -10,8 +10,6 @@ tags:
 
 祭音Myyura
 
-校对与补充：祭音Myyura (co-authored with GPT 5.6 SOL)
-
 ## **Description**
 ### 日本語版
 下記の条件を満たす $2$ 分木を、$2$ 分探索木と呼ぶ。
