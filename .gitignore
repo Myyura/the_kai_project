@@ -5,13 +5,17 @@
 /build
 /tmp
 /audits
-/scripts
+/scripts/*
+!/scripts/content-export-asset-bundle.js
+!/scripts/content-export-download.js
+!/scripts/content-export-images.js
 __pycache__/
 *.py[cod]
 
 # Generated files
 .docusaurus
 .cache-loader
+/.cache/content-export/
 
 # Misc
 .DS_Store

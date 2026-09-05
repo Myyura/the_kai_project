@@ -8,7 +8,8 @@ const BUILD_DIR = path.resolve(__dirname, '..', 'build');
 const MAIN_GZIP_BUDGET = 512 * 1024;
 const SEARCH_GZIP_BUDGET = 16 * 1024 * 1024;
 const PUBLISHED_CONTENT_BUDGET = 24 * 1024 * 1024;
-const CONTENT_EXPORT_GZIP_BUDGET = 20 * 1024 * 1024;
+// The snapshot embeds Markdown-referenced image-hosting assets as well as text.
+const CONTENT_EXPORT_GZIP_BUDGET = 64 * 1024 * 1024;
 const TOTAL_BUILD_BUDGET = 900 * 1024 * 1024;
 const DOCS_TAGS_DIR = path.join(BUILD_DIR, 'docs', 'tags');
 

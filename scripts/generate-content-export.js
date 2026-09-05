@@ -6,6 +6,8 @@ const path = require('path');
 const zlib = require('zlib');
 const {execFileSync} = require('child_process');
 const matter = require('gray-matter');
+const {MIME_TYPES, collectImageAssets} = require('./content-export-asset-bundle');
+const {createImageDownloader} = require('./content-export-download');
 const {
   buildApiData,
   buildExamDocument,
@@ -23,14 +25,7 @@ const DEFAULT_OUTPUT_PATH = path.join(
 const FORMAT = 'kai-content';
 const SCHEMA_VERSION = 1;
 const DEFAULT_REPOSITORY = 'https://github.com/Myyura/the_kai_project';
-const ASSET_MIME_TYPES = new Map([
-  ['.gif', 'image/gif'],
-  ['.jpeg', 'image/jpeg'],
-  ['.jpg', 'image/jpeg'],
-  ['.png', 'image/png'],
-  ['.svg', 'image/svg+xml'],
-  ['.webp', 'image/webp'],
-]);
+const DEFAULT_CACHE_DIR = path.join(REPO_ROOT, '.cache', 'content-export');
 
 function normalizePath(value) {
   return String(value || '').replaceAll('\\', '/');
@@ -55,7 +50,7 @@ function listDocumentFiles() {
 
 function listAssetFiles() {
   return listEntriesRecursively(DOCS_DIR, (name) => (
-    ASSET_MIME_TYPES.has(path.extname(name).toLowerCase())
+    MIME_TYPES.has(path.extname(name).toLowerCase())
   ));
 }
 
@@ -184,7 +179,7 @@ function buildAssets() {
       path: assetPath,
       directoryPath: directoryPath === '.' ? null : directoryPath,
       sourcePath: `docs/${assetPath}`,
-      mimeType: ASSET_MIME_TYPES.get(path.extname(filePath).toLowerCase()),
+      mimeType: MIME_TYPES.get(path.extname(filePath).toLowerCase()),
       contentHash: crypto.createHash('sha256').update(content).digest('hex'),
       encoding: 'base64',
       data: content.toString('base64'),
@@ -247,6 +242,21 @@ function validateContentExport(value) {
     if (actualHash !== asset.contentHash) issues.push(`Invalid content hash for asset ${asset.path}`);
   }
 
+  for (const document of value.documents) {
+    if (document.imageAssets !== undefined && !Array.isArray(document.imageAssets)) {
+      issues.push(`Invalid imageAssets for ${document.docId}`);
+      continue;
+    }
+    for (const reference of document.imageAssets || []) {
+      if (typeof reference.source !== 'string' || !reference.source) {
+        issues.push(`Invalid image source for ${document.docId}`);
+      }
+      if (!assetPaths.has(reference.assetPath)) {
+        issues.push(`Missing image asset ${reference.assetPath} for ${document.docId}`);
+      }
+    }
+  }
+
   if (value.counts?.directories !== value.directories.length) {
     issues.push('Directory count does not match directories array');
   }
@@ -269,7 +279,13 @@ function validateContentExport(value) {
   return issues;
 }
 
-function buildContentExport({generatedAt = new Date().toISOString(), source = getSourceMetadata()} = {}) {
+async function buildContentExport({
+  generatedAt = new Date().toISOString(),
+  source = getSourceMetadata(),
+  cacheDir = DEFAULT_CACHE_DIR,
+  downloadImage,
+  onProgress,
+} = {}) {
   const apiData = buildApiData();
   const apiErrors = apiData.issues.filter((issue) => issue.severity === 'error');
   if (apiErrors.length > 0) {
@@ -285,7 +301,20 @@ function buildContentExport({generatedAt = new Date().toISOString(), source = ge
     return toExportDocument(document, filePath);
   }).sort((left, right) => left.docId.localeCompare(right.docId));
   const directories = buildDirectories();
-  const assets = buildAssets();
+  const loadImage = downloadImage || createImageDownloader({cacheDir});
+  let assets;
+  try {
+    assets = await collectImageAssets({
+      documents,
+      assets: buildAssets(),
+      repoRoot: REPO_ROOT,
+      siteUrl: apiData.siteUrl,
+      downloadImage: loadImage,
+      onProgress,
+    });
+  } finally {
+    if (!downloadImage) loadImage.close?.();
+  }
   const collectionsJson = JSON.stringify({directories, documents, assets});
   const contentHash = crypto.createHash('sha256').update(collectionsJson).digest('hex');
   const value = {
@@ -319,8 +348,17 @@ function getOutputPath(args) {
   return path.isAbsolute(requested) ? requested : path.resolve(REPO_ROOT, requested);
 }
 
-function main(args = process.argv.slice(2)) {
-  const value = buildContentExport();
+async function main(args = process.argv.slice(2)) {
+  // Validate arguments before spending time downloading the snapshot's images.
+  const outputPath = getOutputPath(args);
+  let lastProgressAt = 0;
+  const value = await buildContentExport({onProgress: ({completed, total, failed, error}) => {
+    if (error) console.error(`Image failed: ${error}`);
+    if (completed === total || Date.now() - lastProgressAt >= 10000) {
+      console.log(`Collected images: ${completed}/${total}${failed ? ` (${failed} failed)` : ''}.`);
+      lastProgressAt = Date.now();
+    }
+  }});
   if (args.includes('--check')) {
     console.log(
       `Validated Kai content v${SCHEMA_VERSION}: `
@@ -330,11 +368,16 @@ function main(args = process.argv.slice(2)) {
     return;
   }
 
-  const outputPath = getOutputPath(args);
   const json = `${JSON.stringify(value)}\n`;
   const compressed = zlib.gzipSync(Buffer.from(json), {level: 9});
   fs.mkdirSync(path.dirname(outputPath), {recursive: true});
-  fs.writeFileSync(outputPath, compressed);
+  const temporaryPath = `${outputPath}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporaryPath, compressed);
+    fs.renameSync(temporaryPath, outputPath);
+  } finally {
+    fs.rmSync(temporaryPath, {force: true});
+  }
   console.log(
     `Exported ${value.counts.documents} documents and ${value.counts.assets} assets `
     + `in ${value.counts.directories} directories `
@@ -344,12 +387,10 @@ function main(args = process.argv.slice(2)) {
 }
 
 if (require.main === module) {
-  try {
-    main();
-  } catch (error) {
+  main().catch((error) => {
     console.error(error?.stack || error);
     process.exitCode = 1;
-  }
+  });
 }
 
 module.exports = {

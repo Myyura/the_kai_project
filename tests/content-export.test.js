@@ -10,6 +10,7 @@ const {
 
 const FIXED_OPTIONS = {
   generatedAt: '2026-07-22T00:00:00.000Z',
+  downloadImage: async () => ({content: Buffer.from('fixture image bytes'), mimeType: 'image/png'}),
   source: {
     repository: 'https://github.com/Myyura/the_kai_project',
     commit: '0123456789abcdef',
@@ -23,8 +24,8 @@ function getExport() {
   return cachedExport;
 }
 
-test('content export is a complete versioned snapshot', () => {
-  const value = getExport();
+test('content export is a complete versioned snapshot', async () => {
+  const value = await getExport();
   assert.equal(value.format, FORMAT);
   assert.equal(value.schemaVersion, SCHEMA_VERSION);
   assert.equal(value.generatedAt, FIXED_OPTIONS.generatedAt);
@@ -36,8 +37,8 @@ test('content export is a complete versioned snapshot', () => {
   assert.deepEqual(validateContentExport(value), []);
 });
 
-test('content export includes directory metadata and every Markdown source body', () => {
-  const value = getExport();
+test('content export includes directory metadata and every Markdown source body', async () => {
+  const value = await getExport();
   const intro = value.documents.find((document) => document.docId === 'intro');
   assert.ok(intro, 'docs/intro.mdx was not exported');
   assert.equal(intro.sourcePath, 'docs/intro.mdx');
@@ -52,8 +53,8 @@ test('content export includes directory metadata and every Markdown source body'
   assert.equal(categorizedDirectory.label, categorizedDirectory.category.label.trim());
 });
 
-test('exported documents keep stable identity, parsed metadata, frontmatter, and Markdown', () => {
-  const document = getExport().documents.find((item) => item.docId !== 'intro');
+test('exported documents keep stable identity, parsed metadata, frontmatter, and Markdown', async () => {
+  const document = (await getExport()).documents.find((item) => item.docId !== 'intro');
   assert.ok(document);
   assert.match(document.documentUuid, /^[0-9a-f-]{36}$/i);
   assert.match(document.contentHash, /^[0-9a-f]{64}$/i);
@@ -64,8 +65,8 @@ test('exported documents keep stable identity, parsed metadata, frontmatter, and
   assert.equal(typeof document.sections, 'object');
 });
 
-test('relative document images are embedded as content-addressed assets', () => {
-  const value = getExport();
+test('relative document images are embedded as content-addressed assets', async () => {
+  const value = await getExport();
   const asset = value.assets.find((item) => item.path.endsWith('.jpeg'));
   assert.ok(asset, 'No document image asset was exported');
   assert.equal(asset.encoding, 'base64');
@@ -74,11 +75,30 @@ test('relative document images are embedded as content-addressed assets', () => 
   assert.ok(Buffer.from(asset.data, 'base64').length > 0);
 });
 
-test('content export validation rejects duplicate document identities', () => {
-  const value = structuredClone(getExport());
+test('content export validation rejects duplicate document identities', async () => {
+  const value = structuredClone(await getExport());
   value.documents.push(structuredClone(value.documents[0]));
   value.counts.documents = value.documents.length;
   const issues = validateContentExport(value);
   assert.ok(issues.some((issue) => issue.startsWith('Duplicate document docId:')));
   assert.ok(issues.some((issue) => issue.startsWith('Duplicate document UUID:')));
+});
+
+
+test('external image references resolve to embedded bytes without changing source Markdown', async () => {
+  const value = await getExport();
+  const document = value.documents.find((item) => item.imageAssets.some((ref) => /^https:\/\//.test(ref.source)));
+  assert.ok(document, 'No remote image reference was collected');
+  const reference = document.imageAssets.find((ref) => /^https:\/\//.test(ref.source));
+  const asset = value.assets.find((item) => item.path === reference.assetPath);
+  assert.ok(asset);
+  assert.equal(asset.sourceUrl, new URL(reference.source).href);
+  assert.equal(Buffer.from(asset.data, 'base64').toString(), 'fixture image bytes');
+  assert.ok(document.markdown.includes(reference.source));
+});
+
+test('content export validation rejects unresolved image mappings', async () => {
+  const value = structuredClone(await getExport());
+  value.documents[0].imageAssets = [{source: '/missing.png', assetPath: '_static/missing.png'}];
+  assert.ok(validateContentExport(value).some((issue) => issue.startsWith('Missing image asset')));
 });

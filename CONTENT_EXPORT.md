@@ -28,6 +28,18 @@ build/content-export/v1/kai-content-v1.json.gz
 Use `yarn content:export --check` to build and validate the snapshot in memory
 without writing the gzip file.
 
+Both commands collect the images referenced by the exported Markdown, including
+public HTTP(S) image-hosting URLs. They require network access. Repeated URLs are
+downloaded once per run, with up to six downloads in parallel. Downloads have a
+120-second timeout per attempt, a 20 MiB limit per image, and up to three attempts
+for transient failures. The local `.cache/content-export/` directory stores image
+bytes and HTTP validators; later runs revalidate cached images with the host.
+Delete this directory to start with an empty cache.
+
+If any referenced image cannot be read or downloaded, the command fails and
+prints its source and the affected documents. It does not replace the previous
+export with a partial snapshot. A successful export is written atomically.
+
 ## Top-level format
 
 The gzip stream contains one UTF-8 JSON object:
@@ -142,9 +154,19 @@ observe one removal and one insertion.
 
 ## Assets
 
-Images below `docs/` are embedded so relative Markdown image links can be
-resolved without fetching files from GitHub separately. Resolve a relative link
-against the document's `directoryPath`, then look it up by `assets[].path`.
+Images below `docs/` are embedded, along with local images under `static/` and
+remote images referenced by the Markdown. Standard Markdown images, reference
+images, and literal HTML/MDX `<img src="...">` images are collected. Images inside
+code samples and HTML comments are ignored. JavaScript expressions used to
+compute a `src` at runtime are not evaluated. `data:image/...` URLs already carry
+their bytes in the Markdown and need no separate asset.
+
+Local `docs/` assets retain their existing paths. Referenced static assets use
+`_static/<path relative to static/>`; remote assets use
+`_remote/<SHA-256 of normalized URL>.<extension>`. Static and remote assets have
+`directoryPath: null` because they are outside the document directory tree.
+`sourcePath` is the repository path for local files and the normalized URL for
+remote files. Remote assets also include `sourceUrl`.
 
 ```json
 {
@@ -158,16 +180,54 @@ against the document's `directoryPath`, then look it up by `assets[].path`.
 }
 ```
 
+Each document now includes an optional `imageAssets` array mapping the image
+sources in its Markdown to the corresponding `assets[].path`:
+
+```json
+{
+  "imageAssets": [
+    {
+      "source": "https://raw.githubusercontent.com/owner/images/main/figure.png",
+      "assetPath": "_remote/<url-sha256>.png"
+    },
+    {
+      "source": "/img/figure.svg",
+      "assetPath": "_static/img/figure.svg"
+    }
+  ]
+}
+```
+
+Importers should resolve each rendered image source through this mapping, then
+decode the matching asset's Base64 `data` and display it as a local file, Blob
+URL, or `data:<mimeType>;base64,...` URL. Sources are the decoded values produced
+by parsing Markdown/HTML (for example `&amp;` in an HTML attribute becomes `&`).
+Preserve any fragment from the original source when constructing a local URL.
+The original `markdown`, section Markdown, and document `contentHash` are
+unchanged by image collection. Existing importers must add support for this
+mapping to display remote/static images offline; retaining the original URLs
+alone still requires network access.
+
+For older exports without `imageAssets`, resolve relative image links against
+the document's `directoryPath` and look them up by `assets[].path` as before.
+
 ## Import semantics
 
 A consumer should treat each file as a complete snapshot:
 
 - a new `documentUuid` is an insert;
 - an existing UUID with a different `contentHash` is an update;
-- an existing UUID with the same hash can be skipped;
+- an existing UUID with the same hash can skip Markdown and metadata updates;
 - a UUID absent from the new snapshot is no longer publicly available;
 - user-owned notes, progress, or problem sets must not be deleted when public
   content disappears.
+
+Always synchronize each document's `imageAssets` mapping, including when its
+document hash is unchanged. This is necessary on the first import after enabling
+image bundling, because existing documents keep their original content hashes.
+Process assets independently by their `path` and `contentHash`: an image host
+can replace the bytes at the same URL. Changes to asset bytes or mappings also
+change the snapshot's top-level `contentHash`.
 
 Import into staging tables first, validate counts, hashes, and directory
 references, and only then switch the active content release. A failed import
