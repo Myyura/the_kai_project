@@ -1,7 +1,6 @@
 // ============================================================
 // 此文件由 scripts/generate-universities.js 自动生成
 // 请勿手动编辑！如需更新请运行：npm run generate:universities
-// 生成时间：2026-09-03T17:35:37.706Z
 // ============================================================
 
 /**
@@ -10,17 +9,20 @@
  * 每所大学的 id 对应 docs/ 下的文件夹名，
  * 每个院系的 id 对应该大学文件夹下的子文件夹名，
  * 每个项目目录的 id 对应院系下、年度目录前的路径，
- * name 取自各级 _category_.json 的 label 字段。
+ * name 取自各级 _category_.json 的 label 字段，
+ * archiveUrl 取自对应 generated-index 的 slug，避免另外维护题库路由。
  */
 export const universities = [
   {
     "id": "tokyo-university",
     "name": "東京大学",
+    "archiveUrl": "/docs/category/tokyo-university",
     "color": "#1e3a5f",
     "departments": [
       {
         "id": "science",
         "name": "理学系研究科",
+        "archiveUrl": "/docs/category/tokyo-university-science",
         "programs": [
           {
             "id": "astron",
@@ -44,6 +46,7 @@ export const universities = [
       {
         "id": "engineering",
         "name": "工学系研究科",
+        "archiveUrl": "/docs/category/tokyo-university-engineering",
         "programs": [
           {
             "id": "kyotsu",
@@ -75,6 +78,7 @@ export const universities = [
       {
         "id": "IST",
         "name": "情報理工学系研究科",
+        "archiveUrl": "/docs/category/tokyo-university-IST",
         "programs": [
           {
             "id": "kyotsu",
@@ -106,6 +110,7 @@ export const universities = [
       {
         "id": "frontier_sciences",
         "name": "新領域創成科学研究科",
+        "archiveUrl": "/docs/category/tokyo-university-frontier_sciences",
         "programs": [
           {
             "id": "cbms",
@@ -133,6 +138,7 @@ export const universities = [
       {
         "id": "art_and_sciences",
         "name": "総合文化研究科",
+        "archiveUrl": "/docs/category/tokyo-university-art_and_sciences",
         "programs": [
           {
             "id": "system",
@@ -144,6 +150,7 @@ export const universities = [
       {
         "id": "III",
         "name": "学際情報学府",
+        "archiveUrl": "/docs/category/tokyo-university-III",
         "programs": [
           {
             "id": "biostat_bioinfo",
@@ -159,6 +166,7 @@ export const universities = [
       {
         "id": "mathematical_sciences",
         "name": "数理科学研究科",
+        "archiveUrl": "/docs/category/tokyo-university-mathematical_sciences",
         "programs": [
           {
             "id": "ms",
@@ -172,11 +180,13 @@ export const universities = [
   {
     "id": "kyoto-university",
     "name": "京都大学",
+    "archiveUrl": "/docs/category/kyoto-university",
     "color": "#2e8555",
     "departments": [
       {
         "id": "informatics",
         "name": "情報学研究科",
+        "archiveUrl": "/docs/category/kyoto-university-informatics",
         "programs": [
           {
             "id": "amp",
@@ -204,11 +214,13 @@ export const universities = [
       {
         "id": "management",
         "name": "経営管理大学院",
+        "archiveUrl": "/docs/category/kyoto-university-management",
         "websiteUrl": "https://www.gsm.kyoto-u.ac.jp/admission/"
       },
       {
         "id": "science",
         "name": "理学研究科",
+        "archiveUrl": "/docs/category/kyoto-university-science",
         "programs": [
           {
             "id": "chem",
@@ -238,16 +250,19 @@ export const universities = [
   {
     "id": "tohoku-university",
     "name": "東北大学",
+    "archiveUrl": "/docs/category/tohoku-university",
     "color": "#6b5b95",
     "departments": [
       {
         "id": "biomedical_engineering",
         "name": "医工学研究科",
+        "archiveUrl": "/docs/category/tohoku-university-biomedical_engineering",
         "websiteUrl": "https://www.bme.tohoku.ac.jp/admission/"
       },
       {
         "id": "engineering",
         "name": "工学研究科",
+        "archiveUrl": "/docs/category/tohoku-university-engineering",
         "programs": [
           {
             "id": "apph",
@@ -283,6 +298,7 @@ export const universities = [
       {
         "id": "environmental_studies",
         "name": "環境科学研究科",
+        "archiveUrl": "/docs/category/tohoku-university-environmental_studies",
         "programs": [
           {
             "id": "ee",
@@ -294,6 +310,7 @@ export const universities = [
       {
         "id": "information_sciences",
         "name": "情報科学研究科",
+        "archiveUrl": "/docs/category/tohoku-university-information_sciences",
         "programs": [
           {
             "id": "math",
@@ -309,6 +326,7 @@ export const universities = [
       {
         "id": "science",
         "name": "理学研究科",
+        "archiveUrl": "/docs/category/tohoku-university-science",
         "programs": [
           {
             "id": "chem",
@@ -342,11 +360,13 @@ export const universities = [
   {
     "id": "osaka-university",
     "name": "大阪大学",
+    "archiveUrl": "/docs/category/osaka-university",
     "color": "#2980b9",
     "departments": [
       {
         "id": "engineering",
         "name": "工学研究科",
+        "archiveUrl": "/docs/category/osaka-university-engineering",
         "programs": [
           {
             "id": "eei",
@@ -362,6 +382,7 @@ export const universities = [
       {
         "id": "engineering_sciences",
         "name": "基礎工学研究科",
+        "archiveUrl": "/docs/category/osaka-university-engineering_sciences",
         "programs": [
           {
             "id": "bio",
@@ -389,6 +410,7 @@ export const universities = [
       {
         "id": "IST",
         "name": "情報科学研究科",
+        "archiveUrl": "/docs/category/osaka-university-IST",
         "programs": [
           {
             "id": "ie",
@@ -408,6 +430,7 @@ export const universities = [
       {
         "id": "science",
         "name": "理学研究科",
+        "archiveUrl": "/docs/category/osaka-university-science",
         "programs": [
           {
             "id": "phys",
@@ -421,11 +444,13 @@ export const universities = [
   {
     "id": "nagoya-university",
     "name": "名古屋大学",
+    "archiveUrl": "/docs/category/nagoya-university",
     "color": "#c87533",
     "departments": [
       {
         "id": "EES",
         "name": "環境学研究科",
+        "archiveUrl": "/docs/category/nagoya-university-EES",
         "programs": [
           {
             "id": "eps",
@@ -437,6 +462,7 @@ export const universities = [
       {
         "id": "engineering",
         "name": "工学研究科",
+        "archiveUrl": "/docs/category/nagoya-university-engineering",
         "programs": [
           {
             "id": "mae",
@@ -444,7 +470,7 @@ export const universities = [
           },
           {
             "id": "nuee",
-            "name": "電気電子情報工学科"
+            "name": "電気系専攻"
           }
         ],
         "websiteUrl": "https://www.engg.nagoya-u.ac.jp/prospective/"
@@ -452,6 +478,7 @@ export const universities = [
       {
         "id": "informatics",
         "name": "情報学研究科",
+        "archiveUrl": "/docs/category/nagoya-university-informatics",
         "programs": [
           {
             "id": "aisys",
@@ -475,11 +502,13 @@ export const universities = [
       {
         "id": "mathematics",
         "name": "多元数理科学研究科",
+        "archiveUrl": "/docs/category/nagoya-university-mathematics",
         "websiteUrl": "https://www.math.nagoya-u.ac.jp/ja/admission/"
       },
       {
         "id": "science",
         "name": "理学研究科",
+        "archiveUrl": "/docs/category/nagoya-university-science",
         "programs": [
           {
             "id": "phys",
@@ -501,11 +530,13 @@ export const universities = [
   {
     "id": "institute-of-science-tokyo",
     "name": "東京科学大学",
+    "archiveUrl": "/docs/category/institute-of-science-tokyo",
     "color": "#1a7f8e",
     "departments": [
       {
         "id": "engineering",
         "name": "工学院",
+        "archiveUrl": "/docs/category/institute-of-science-tokyo-engineering",
         "programs": [
           {
             "id": "ee",
@@ -533,6 +564,7 @@ export const universities = [
       {
         "id": "environment_and_society",
         "name": "環境・社会理工学院",
+        "archiveUrl": "/docs/category/institute-of-science-tokyo-environment_and_society",
         "programs": [
           {
             "id": "cv",
@@ -548,6 +580,7 @@ export const universities = [
       {
         "id": "MCS",
         "name": "情報理工学院",
+        "archiveUrl": "/docs/category/institute-of-science-tokyo-MCS",
         "programs": [
           {
             "id": "cs",
@@ -563,6 +596,7 @@ export const universities = [
       {
         "id": "MCT",
         "name": "物質理工学院",
+        "archiveUrl": "/docs/category/institute-of-science-tokyo-MCT",
         "programs": [
           {
             "id": "mat",
@@ -574,6 +608,7 @@ export const universities = [
       {
         "id": "science",
         "name": "理学院",
+        "archiveUrl": "/docs/category/institute-of-science-tokyo-science",
         "programs": [
           {
             "id": "earth",
@@ -593,6 +628,7 @@ export const universities = [
       {
         "id": "life_science_and_technology",
         "name": "生命理工学院",
+        "archiveUrl": "/docs/category/institute-of-science-tokyo-life_science_and_technology",
         "programs": [
           {
             "id": "lst",
@@ -606,16 +642,19 @@ export const universities = [
   {
     "id": "hokkaido-university",
     "name": "北海道大学",
+    "archiveUrl": "/docs/category/hokkaido-university",
     "color": "#4a90a4",
     "departments": [
       {
         "id": "fisheries_sciences",
         "name": "水産科学院 海洋生物資源科学専攻",
+        "archiveUrl": "/docs/category/hokkaido-university-fisheries_sciences",
         "websiteUrl": "https://www2.fish.hokudai.ac.jp/admission/mcdc.html"
       },
       {
         "id": "IST",
         "name": "情報科学院",
+        "archiveUrl": "/docs/category/hokkaido-university-IST",
         "programs": [
           {
             "id": "csit",
@@ -643,11 +682,13 @@ export const universities = [
       {
         "id": "public_policy",
         "name": "公共政策大学院",
+        "archiveUrl": "/docs/category/hokkaido-university-public_policy",
         "websiteUrl": "https://www.hops.hokudai.ac.jp/admission/"
       },
       {
         "id": "science",
         "name": "理学院",
+        "archiveUrl": "/docs/category/hokkaido-university-science",
         "programs": [
           {
             "id": "phys",
@@ -661,16 +702,19 @@ export const universities = [
   {
     "id": "kyushu-university",
     "name": "九州大学",
+    "archiveUrl": "/docs/category/kyushu-university",
     "color": "#8e4557",
     "departments": [
       {
         "id": "economics",
         "name": "経済学府 経済工学専攻",
+        "archiveUrl": "/docs/category/kyushu-university-economics",
         "websiteUrl": "https://www.econ.kyushu-u.ac.jp/nyushi/"
       },
       {
         "id": "engineering",
         "name": "工学府",
+        "archiveUrl": "/docs/category/kyushu-university-engineering",
         "programs": [
           {
             "id": "ac",
@@ -698,6 +742,7 @@ export const universities = [
       {
         "id": "ISEE",
         "name": "システム情報科学府",
+        "archiveUrl": "/docs/category/kyushu-university-ISEE",
         "programs": [
           {
             "id": "ist",
@@ -713,6 +758,7 @@ export const universities = [
       {
         "id": "mathematics",
         "name": "数理学府",
+        "archiveUrl": "/docs/category/kyushu-university-mathematics",
         "programs": [
           {
             "id": "mma",
@@ -728,6 +774,7 @@ export const universities = [
       {
         "id": "science",
         "name": "理学府",
+        "archiveUrl": "/docs/category/kyushu-university-science",
         "programs": [
           {
             "id": "geo",
@@ -745,11 +792,13 @@ export const universities = [
   {
     "id": "waseda-university",
     "name": "早稲田大学",
+    "archiveUrl": "/docs/category/waseda-university",
     "color": "#9e3a3a",
     "departments": [
       {
         "id": "ASE",
         "name": "先進理工学研究科",
+        "archiveUrl": "/docs/category/waseda-university-ASE",
         "programs": [
           {
             "id": "butsuri",
@@ -765,6 +814,7 @@ export const universities = [
       {
         "id": "CSE",
         "name": "創造理工学研究科",
+        "archiveUrl": "/docs/category/waseda-university-CSE",
         "programs": [
           {
             "id": "keieisystem",
@@ -776,6 +826,7 @@ export const universities = [
       {
         "id": "FSE",
         "name": "基幹理工学研究科",
+        "archiveUrl": "/docs/category/waseda-university-FSE",
         "programs": [
           {
             "id": "denshibutsuri",
@@ -801,11 +852,13 @@ export const universities = [
   {
     "id": "keio-university",
     "name": "慶應義塾大学",
+    "archiveUrl": "/docs/category/keio-university",
     "color": "#1e3264",
     "departments": [
       {
         "id": "business",
         "name": "経営管理研究科",
+        "archiveUrl": "/docs/category/keio-university-business",
         "websiteUrl": "https://www.kbs.keio.ac.jp/graduate/mba/admission/"
       }
     ]
@@ -813,16 +866,19 @@ export const universities = [
   {
     "id": "kobe-university",
     "name": "神戸大学",
+    "archiveUrl": "/docs/category/kobe-university",
     "color": "#34495e",
     "departments": [
       {
         "id": "economics",
         "name": "経済学研究科",
+        "archiveUrl": "/docs/category/kobe-university-economics",
         "websiteUrl": "https://www.econ.kobe-u.ac.jp/admission-master/"
       },
       {
         "id": "engineering",
         "name": "工学研究科",
+        "archiveUrl": "/docs/category/kobe-university-engineering",
         "programs": [
           {
             "id": "ee",
@@ -838,6 +894,7 @@ export const universities = [
       {
         "id": "science",
         "name": "理学研究科",
+        "archiveUrl": "/docs/category/kobe-university-science",
         "programs": [
           {
             "id": "chem",
@@ -857,6 +914,7 @@ export const universities = [
       {
         "id": "system_informatics",
         "name": "システム情報学研究科",
+        "archiveUrl": "/docs/category/kobe-university-system_informatics",
         "websiteUrl": "https://www.csi.kobe-u.ac.jp/exam/master_exam.html"
       }
     ]
@@ -864,11 +922,13 @@ export const universities = [
   {
     "id": "tsukuba-university",
     "name": "筑波大学",
+    "archiveUrl": "/docs/category/tsukuba-university",
     "color": "#3d8b6d",
     "departments": [
       {
         "id": "science_and_technology",
         "name": "理工情報生命学術院",
+        "archiveUrl": "/docs/category/tsukuba-university-science_and_technology",
         "programs": [
           {
             "id": "pas",
@@ -886,11 +946,13 @@ export const universities = [
   {
     "id": "UEC",
     "name": "電気通信大学",
+    "archiveUrl": "/docs/category/UEC",
     "color": "#3a6ea5",
     "departments": [
       {
         "id": "informatics_and_engineering",
         "name": "情報理工学研究科",
+        "archiveUrl": "/docs/category/UEC-informatics_and_engineering",
         "programs": [
           {
             "id": "cne",
@@ -916,11 +978,13 @@ export const universities = [
   {
     "id": "hiroshima-university",
     "name": "広島大学",
+    "archiveUrl": "/docs/category/hiroshima-university",
     "color": "#c0626f",
     "departments": [
       {
         "id": "ASE",
         "name": "先進理工系科学研究科",
+        "archiveUrl": "/docs/category/hiroshima-university-ASE",
         "programs": [
           {
             "id": "esce",
@@ -946,11 +1010,13 @@ export const universities = [
   {
     "id": "TUAT",
     "name": "東京農工大学",
+    "archiveUrl": "/docs/category/TUAT",
     "color": "#5b8c5a",
     "departments": [
       {
         "id": "engineering",
         "name": "工学府",
+        "archiveUrl": "/docs/category/TUAT-engineering",
         "programs": [
           {
             "id": "kyotsu",
@@ -962,6 +1028,7 @@ export const universities = [
       {
         "id": "BASE",
         "name": "生物システム応用科学府",
+        "archiveUrl": "/docs/category/TUAT-BASE",
         "websiteUrl": "https://www.tuat.ac.jp/admission/nyushi_daigakuin/"
       }
     ]
@@ -969,11 +1036,13 @@ export const universities = [
   {
     "id": "hosei-university",
     "name": "法政大学",
+    "archiveUrl": "/docs/category/hosei-university",
     "color": "#f28c28",
     "departments": [
       {
         "id": "science_and_engineering",
         "name": "理工学研究科",
+        "archiveUrl": "/docs/category/hosei-university-science_and_engineering",
         "programs": [
           {
             "id": "systems_engineering/management_systems",
@@ -987,11 +1056,13 @@ export const universities = [
   {
     "id": "kanazawa-university",
     "name": "金沢大学",
+    "archiveUrl": "/docs/category/kanazawa-university",
     "color": "#7b6b8d",
     "departments": [
       {
         "id": "nst",
         "name": "自然科学研究科",
+        "archiveUrl": "/docs/category/keio-university-nst",
         "programs": [
           {
             "id": "eice",
@@ -1005,11 +1076,13 @@ export const universities = [
   {
     "id": "saitama-university",
     "name": "埼玉大学",
+    "archiveUrl": "/docs/category/saitama-university",
     "color": "#0068b7",
     "departments": [
       {
         "id": "science_and_engineering",
         "name": "理工学研究科",
+        "archiveUrl": "/docs/category/saitama-university-science_and_engineering",
         "programs": [
           {
             "id": "mathematics_electronics_information/information_systems_engineering",
@@ -1023,11 +1096,13 @@ export const universities = [
   {
     "id": "meiji-university",
     "name": "明治大学",
+    "archiveUrl": "/docs/category/meiji-university",
     "color": "#8b1e3f",
     "departments": [
       {
         "id": "advanced_mathematical_sciences",
         "name": "先端数理科学研究科",
+        "archiveUrl": "/docs/category/meiji-university-advanced_mathematical_sciences",
         "programs": [
           {
             "id": "mathematical_sciences",
@@ -1041,11 +1116,13 @@ export const universities = [
   {
     "id": "nagoya-institute-of-technology",
     "name": "名古屋工業大学",
+    "archiveUrl": "/docs/category/nagoya-institute-of-technology",
     "color": "#005bac",
     "departments": [
       {
         "id": "engineering",
         "name": "工学研究科",
+        "archiveUrl": "/docs/category/nagoya-institute-of-technology-engineering",
         "programs": [
           {
             "id": "ie",
@@ -1059,11 +1136,13 @@ export const universities = [
   {
     "id": "yamaguchi-university",
     "name": "山口大学",
+    "archiveUrl": "/docs/category/yamaguchi-university",
     "color": "#8a6f5a",
     "departments": [
       {
         "id": "hes",
         "name": "人間社会科学研究科",
+        "archiveUrl": "/docs/category/yamaguchi-university-hes",
         "programs": [
           {
             "id": "scp",
@@ -1081,11 +1160,13 @@ export const universities = [
   {
     "id": "niigata-university",
     "name": "新潟大学",
+    "archiveUrl": "/docs/category/niigata-university",
     "color": "#005e4f",
     "departments": [
       {
         "id": "natural_sciences",
         "name": "自然科学研究科",
+        "archiveUrl": "/docs/category/niigata-university-natural-sciences",
         "programs": [
           {
             "id": "information_engineering",
@@ -1103,11 +1184,13 @@ export const universities = [
   {
     "id": "hitotsubashi-university",
     "name": "一橋大学",
+    "archiveUrl": "/docs/category/hitotsubashi-university",
     "color": "#8b1c40",
     "departments": [
       {
         "id": "economics",
         "name": "経済学研究科",
+        "archiveUrl": "/docs/category/hitotsubashi-university-economics",
         "websiteUrl": "https://www.econ.hit-u.ac.jp/jpn/page/examinee/graduate_admissions/past_exam.html"
       }
     ]
@@ -1115,11 +1198,13 @@ export const universities = [
   {
     "id": "future-university-hakodate",
     "name": "公立はこだて未来大学",
+    "archiveUrl": "/docs/category/future-university-hakodate",
     "color": "#1976a3",
     "departments": [
       {
         "id": "system_information_science",
         "name": "システム情報科学研究科",
+        "archiveUrl": "/docs/category/future-university-hakodate-system-information-science",
         "programs": [
           {
             "id": "basic_mathematics",
@@ -1133,11 +1218,13 @@ export const universities = [
   {
     "id": "osaka-metropolitan-university",
     "name": "大阪公立大学",
+    "archiveUrl": "/docs/category/osaka-metropolitan-university",
     "color": "#0078a6",
     "departments": [
       {
         "id": "science",
         "name": "理学研究科",
+        "archiveUrl": "/docs/category/osaka-metropolitan-university-science",
         "programs": [
           {
             "id": "mathematics",
@@ -1155,11 +1242,13 @@ export const universities = [
   {
     "id": "ehime-university",
     "name": "愛媛大学",
+    "archiveUrl": "/docs/category/ehime-university",
     "color": "#e87521",
     "departments": [
       {
         "id": "science_and_engineering",
         "name": "理工学研究科",
+        "archiveUrl": "/docs/category/ehime-university-science-and-engineering",
         "programs": [
           {
             "id": "natural_science_foundation_earth_science",
@@ -1173,11 +1262,13 @@ export const universities = [
   {
     "id": "ryukyu-university",
     "name": "琉球大学",
+    "archiveUrl": "/docs/category/ryukyu-university",
     "color": "#2c8b57",
     "departments": [
       {
         "id": "science_and_engineering",
         "name": "理工学研究科",
+        "archiveUrl": "/docs/category/ryukyu-university-science-and-engineering",
         "programs": [
           {
             "id": "material_earth_sciences_physics",
@@ -1191,11 +1282,13 @@ export const universities = [
   {
     "id": "ochanomizu-university",
     "name": "お茶の水女子大学",
+    "archiveUrl": "/docs/category/ochanomizu-university",
     "color": "#8b4f77",
     "departments": [
       {
         "id": "humanities_and_sciences",
         "name": "人間文化創成科学研究科",
+        "archiveUrl": "/docs/category/ochanomizu-university-humanities_and_sciences",
         "programs": [
           {
             "id": "science/mathematics",
@@ -1216,33 +1309,4 @@ export const universities = [
  * docs 文件夹名 → 大学显示名 映射表
  * 供 progress.js 等模块直接使用，无需硬编码
  */
-export const UNIV_MAP = {
-  "tokyo-university": "東京大学",
-  "kyoto-university": "京都大学",
-  "tohoku-university": "東北大学",
-  "osaka-university": "大阪大学",
-  "nagoya-university": "名古屋大学",
-  "institute-of-science-tokyo": "東京科学大学",
-  "hokkaido-university": "北海道大学",
-  "kyushu-university": "九州大学",
-  "waseda-university": "早稲田大学",
-  "keio-university": "慶應義塾大学",
-  "kobe-university": "神戸大学",
-  "tsukuba-university": "筑波大学",
-  "UEC": "電気通信大学",
-  "hiroshima-university": "広島大学",
-  "TUAT": "東京農工大学",
-  "hosei-university": "法政大学",
-  "kanazawa-university": "金沢大学",
-  "saitama-university": "埼玉大学",
-  "meiji-university": "明治大学",
-  "nagoya-institute-of-technology": "名古屋工業大学",
-  "yamaguchi-university": "山口大学",
-  "niigata-university": "新潟大学",
-  "hitotsubashi-university": "一橋大学",
-  "future-university-hakodate": "公立はこだて未来大学",
-  "osaka-metropolitan-university": "大阪公立大学",
-  "ehime-university": "愛媛大学",
-  "ryukyu-university": "琉球大学",
-  "ochanomizu-university": "お茶の水女子大学",
-};
+export const UNIV_MAP = Object.fromEntries(universities.map(({ id, name }) => [id, name]));

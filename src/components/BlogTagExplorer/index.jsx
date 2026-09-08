@@ -1,7 +1,9 @@
 import React, {useMemo, useState} from 'react';
 import Link from '@docusaurus/Link';
-import {FaArrowRight, FaSearch, FaTag} from 'react-icons/fa';
+import {FaArrowRight, FaTag} from 'react-icons/fa';
 import {useUiText} from '@site/src/i18n/useUiText';
+import BrowseSearchField from '@site/src/components/BrowseSearchField';
+import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
 import {
   getBlogTagDisplayName,
   getBlogTagSearchText,
@@ -10,6 +12,7 @@ import styles from './styles.module.css';
 
 export default function BlogTagExplorer({tags}) {
   const t = useUiText('blogPage');
+  const framework = useUiText('framework');
   const [query, setQuery] = useState('');
   const search = query.trim().toLocaleLowerCase();
   const visibleTags = useMemo(
@@ -21,17 +24,21 @@ export default function BlogTagExplorer({tags}) {
 
   return (
     <section className={styles.explorer} aria-label={t.tagsTitle}>
-      <label className={styles.searchField}>
-        <FaSearch aria-hidden="true" />
-        <input
-          type="search"
+      <div className={styles.toolbar}>
+        <BrowseSearchField
+          id="blog-tag-search"
+          className={styles.searchField}
           value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder={t.tagsSearchPlaceholder}
-          aria-label={t.tagsSearchPlaceholder}
+          onChange={setQuery}
+          label={t.tagsSearchPlaceholder}
+          resultsId="blog-tag-results"
         />
-      </label>
+        <p className={styles.resultCount} role="status">
+          {framework.tagsTitle} · {visibleTags.length} / {tags.length}
+        </p>
+      </div>
 
+      <div id="blog-tag-results">
       {visibleTags.length > 0 ? (
         <div className={styles.tagGrid}>
           {visibleTags.map((tag) => (
@@ -41,10 +48,10 @@ export default function BlogTagExplorer({tags}) {
               </span>
               <span className={styles.tagCopy}>
                 <strong>{getBlogTagDisplayName(tag.label)}</strong>
-                <small>
+                {getBlogTagDisplayName(tag.label) !== tag.label && <small>
                   <span>{t.rawTagLabel}</span>
                   <code>{tag.label}</code>
-                </small>
+                </small>}
               </span>
               <span className={styles.tagMeta}>
                 <span>{t.postsUnit(tag.count)}</span>
@@ -54,8 +61,13 @@ export default function BlogTagExplorer({tags}) {
           ))}
         </div>
       ) : (
-        <p className={styles.emptyState}>{t.tagsNoResults}</p>
+        <BrowseEmptyState
+          message={t.tagsNoResults}
+          onReset={query ? () => setQuery('') : undefined}
+          focusTargetId="blog-tag-search"
+        />
       )}
+      </div>
     </section>
   );
 }

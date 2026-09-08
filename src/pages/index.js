@@ -2,7 +2,9 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import { FaArrowRight, FaChevronDown, FaChevronUp, FaExternalLinkAlt, FaBook, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt, FaCoffee } from 'react-icons/fa';
+import BrowseSearchField from '@site/src/components/BrowseSearchField';
+import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
+import { FaArrowRight, FaChevronDown, FaExternalLinkAlt, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt, FaCoffee } from 'react-icons/fa';
 import React, { useEffect, useState, memo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import {useUiText} from '../i18n/useUiText';
@@ -15,13 +17,6 @@ import {useCurrentLanguage} from '../context/LanguageContext';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
-
-const useToggleState = (initialState = {}) => {
-  const [state, setState] = useState(initialState);
-  const toggle = (key) => setState(prev => ({ ...prev, [key]: !prev[key] }));
-  const isOpen = (key) => !!state[key];
-  return [isOpen, toggle];
-};
 
 const RecoveryRedirect = () => {
   useEffect(() => {
@@ -55,7 +50,7 @@ const StatCard = memo(({ number, label, delay }) => (
 // 特性高亮卡片
 const HighlightCard = memo(({ title, subtitle, description, index }) => (
   <div className={styles.highlightCard} style={{ animationDelay: `${index * 0.1}s` }}>
-    <div className={styles.highlightIndex}>0{index + 1}</div>
+    <div className={styles.highlightIndex} aria-hidden="true">0{index + 1}</div>
     <div className={styles.highlightContent}>
       <h3 className={styles.highlightTitle}>{title}</h3>
       <p className={styles.highlightSubtitle}>{subtitle}</p>
@@ -64,13 +59,13 @@ const HighlightCard = memo(({ title, subtitle, description, index }) => (
   </div>
 ));
 
-// Hero区域 - 苹果风格大标题
+// 首页主入口：题库、经验，以及个人进度。
 const HeroSection = ({ t }) => {
   const { siteConfig } = useDocusaurusContext();
 
   return (
     <section className={styles.heroSection}>
-      <div className={styles.heroBackground}>
+      <div className={styles.heroBackground} aria-hidden="true">
         <div className={styles.heroGradient} />
       </div>
       
@@ -88,14 +83,10 @@ const HeroSection = ({ t }) => {
         <div className={styles.heroCta}>
           <Link className={styles.primaryBtn} to="/docs/intro">
             {t.viewPastExams}
-            <FaArrowRight className={styles.btnIcon} />
+            <FaArrowRight className={styles.btnIcon} aria-hidden="true" />
           </Link>
           <Link className={styles.secondaryBtn} to="/blog">
             {t.viewExperiences}
-          </Link>
-          <Link className={styles.sponsorBtn} to="/support#long-term-partner">
-            <FaCoffee aria-hidden="true" />
-            {t.viewSupportMethods}
           </Link>
         </div>
 
@@ -106,16 +97,15 @@ const HeroSection = ({ t }) => {
           <StatCard number={String(siteStats.programs)} label={t.statsPrograms} delay="0.4s" />
         </div>
 
-        {/* 进度追踪入口 - 融入 Hero 区底部 */}
-        <BrowserOnly fallback={
-          <Link to="/me" className={styles.heroProgressCallout}>
-            <FaCheckCircle className={styles.heroProgressIcon} />
-            <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
-            <FaArrowRight className={styles.heroProgressArrow} />
+        <div className={styles.heroUtilities}>
+          <BrowserOnly fallback={<ProgressCallout t={t} />}>
+            {() => <HeroProgressCallout t={t} />}
+          </BrowserOnly>
+          <Link className={styles.supportLink} to="/support#long-term-partner">
+            <FaCoffee aria-hidden="true" />
+            {t.viewSupportMethods}
           </Link>
-        }>
-          {() => <HeroProgressCallout t={t} />}
-        </BrowserOnly>
+        </div>
       </div>
     </section>
   );
@@ -237,7 +227,7 @@ const CommunitySupportSection = memo(({ t }) => {
                 <span className={styles.featuredPartnerIdentity}>
                   <span className={styles.featuredPartnerLogo}>
                     <img
-                      className={styles.partnerLogoForLightTheme}
+                      className={featuredPartner.logo?.darkSrc ? styles.partnerLogoForLightTheme : undefined}
                       src={featuredPartner.logo?.src}
                       alt={partnerLogoAlt}
                       loading="lazy"
@@ -278,68 +268,98 @@ const CommunitySupportSection = memo(({ t }) => {
   );
 });
 
-// 大学列表区域 - 简化版
+const normalizeUniversityQuery = (value) => value.normalize('NFKC').toLowerCase().trim();
+
+// 题库与官网入口使用同一份自动生成的大学目录。
 const UniversitySection = ({ t }) => {
-  const [isOpen, toggle] = useToggleState();
+  const [query, setQuery] = useState('');
+  const normalizedQuery = normalizeUniversityQuery(query);
+  const matches = (item) => normalizeUniversityQuery(`${item.name} ${item.id}`).includes(normalizedQuery);
+  const filteredUniversities = universities.flatMap((university) => {
+    const departments = matches(university)
+      ? university.departments
+      : university.departments.filter((department) => matches(department)
+        || department.programs?.some(matches));
+    return departments.length ? [{...university, departments}] : [];
+  });
 
   return (
-    <section className={styles.universitySection}>
+    <section id="universities" className={styles.universitySection} aria-labelledby="universities-title">
       <div className="container">
         <header className={styles.sectionHeading}>
-          <Heading as="h2" className={styles.sectionTitle}>
+          <Heading as="h2" id="universities-title" className={styles.sectionTitle}>
             {t.universityTitle}
           </Heading>
           <p className={styles.sectionSubtitle}>{t.universityDescription}</p>
         </header>
 
-        {/* 大学网格 */}
-        <div className={styles.universityGrid}>
-          {universities.map((univ) => (
-            <div key={univ.id} className={styles.universityCard}>
-              <button
-                type="button"
-                className={styles.univHeader}
-                onClick={() => toggle(univ.id)}
-                aria-expanded={isOpen(univ.id)}
-                aria-controls={`university-${univ.id}-departments`}
-              >
-                <div className={styles.univColorBar} style={{ '--univ-color': univ.color }} />
-                <span className={styles.univName}>{univ.name}</span>
-                <span className={styles.univToggle}>
-                  {isOpen(univ.id) ? <FaChevronUp /> : <FaChevronDown />}
+        <div className={styles.universityToolbar}>
+          <div className={styles.universitySearch}>
+            <label htmlFor="university-search">{t.universitySearchLabel}</label>
+            <BrowseSearchField
+              id="university-search"
+              value={query}
+              onChange={setQuery}
+              label={t.universitySearchLabel}
+              placeholder={t.universitySearchPlaceholder}
+              resultsId="university-results"
+              autoComplete="off"
+            />
+          </div>
+          <p className={styles.universityResultCount} role="status">
+            {t.universityResultCount.replace('{count}', String(filteredUniversities.length))}
+          </p>
+        </div>
+
+        <div id="university-results" className={styles.universityGrid}>
+          {filteredUniversities.map((univ) => (
+            <article key={univ.id} className={styles.universityCard}>
+              <Link className={styles.univArchiveLink} to={univ.archiveUrl}>
+                <span className={styles.univColorBar} style={{ '--univ-color': univ.color }} aria-hidden="true" />
+                <span className={styles.univHeading}>
+                  <span className={styles.univName}>{univ.name}</span>
+                  <span className={styles.univArchiveHint}>{t.viewPastExams}</span>
                 </span>
-              </button>
-              
-              {isOpen(univ.id) && (
-                <div id={`university-${univ.id}-departments`} className={styles.deptList}>
-                  {univ.departments.map((dept) =>
-                    dept.websiteUrl ? (
-                      <a 
-                        key={dept.id}
-                        href={dept.websiteUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className={styles.deptLink}
-                      >
+                <FaArrowRight className={styles.linkIcon} aria-hidden="true" />
+              </Link>
+              <details className={styles.univDetails} open={Boolean(normalizedQuery)}>
+                <summary className={styles.univSummary}>
+                  <span>{t.departmentLinks} <span className={styles.departmentCount}>{univ.departments.length}</span></span>
+                  <FaChevronDown className={styles.univToggle} aria-hidden="true" />
+                </summary>
+                <div className={styles.deptList}>
+                  {univ.departments.map((dept) => (
+                    <div key={dept.id} className={styles.deptRow}>
+                      <Link to={dept.archiveUrl || univ.archiveUrl} className={styles.deptLink}>
                         <span>{dept.name}</span>
-                        <FaExternalLinkAlt className={styles.linkIcon} />
-                      </a>
-                    ) : (
-                      <Link
-                        key={dept.id}
-                        to={`/docs/${univ.id}/${dept.id}`}
-                        className={styles.deptLink}
-                      >
-                        <span>{dept.name}</span>
-                        <FaBook className={styles.linkIcon} />
+                        <FaArrowRight className={styles.linkIcon} aria-hidden="true" />
                       </Link>
-                    )
-                  )}
+                      {dept.websiteUrl && (
+                        <a
+                          href={dept.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.deptWebsiteLink}
+                          aria-label={`${dept.name} · ${t.websiteLink} · ${t.opensNewTab}`}
+                        >
+                          {t.websiteLink}
+                          <FaExternalLinkAlt aria-hidden="true" />
+                        </a>
+                      )}
+                    </div>
+                  ))}
                 </div>
-              )}
-            </div>
+              </details>
+            </article>
           ))}
         </div>
+        {filteredUniversities.length === 0 && (
+          <BrowseEmptyState
+            message={t.universityNoResults}
+            onReset={() => setQuery('')}
+            focusTargetId="university-search"
+          />
+        )}
       </div>
     </section>
   );
@@ -349,43 +369,40 @@ const UniversitySection = ({ t }) => {
 const HeroProgressCallout = ({ t }) => {
   const { isConfigured, isLoggedIn } = useAuth();
   if (!isConfigured || !isLoggedIn) {
-    return (
-      <Link to="/me" className={styles.heroProgressCallout}>
-        <FaCheckCircle className={styles.heroProgressIcon} />
-        <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
-        <FaArrowRight className={styles.heroProgressArrow} />
-      </Link>
-    );
+    return <ProgressCallout t={t} />;
   }
   return <HeroProgressCalloutStats t={t} />;
 };
 
 const HeroProgressCalloutStats = ({ t }) => {
   const { stats } = useAllProgress();
-  const hasData = stats.total > 0;
+  return <ProgressCallout t={t} stats={stats} />;
+};
+
+// SSR、未登录与已登录复用一个入口，避免展示和无障碍行为分叉。
+const ProgressCallout = ({ t, stats }) => {
+  const hasData = stats?.total > 0;
   return (
     <Link to="/me" className={styles.heroProgressCallout}>
-      <FaCheckCircle className={styles.heroProgressIcon} />
+      <FaCheckCircle className={styles.heroProgressIcon} aria-hidden="true" />
       <span className={styles.heroProgressText}>{t.progressBannerTitle}</span>
       {hasData && (
         <span className={styles.heroProgressStats}>
           <span className={styles.heroProgressStatItem} style={{ color: 'var(--kai-success)' }}>
-            <FaCheckCircle style={{ marginRight: '0.2rem', fontSize: '0.85em' }} />{stats.completed}
+            <FaCheckCircle aria-hidden="true" /><span className="sr-only">{t.progressBannerCompleted}: </span>{stats.completed}
           </span>
           <span className={styles.heroProgressStatItem} style={{ color: 'var(--kai-warning)' }}>
-            <FaSyncAlt style={{ marginRight: '0.2rem', fontSize: '0.8em' }} />{stats.reviewing}
+            <FaSyncAlt aria-hidden="true" /><span className="sr-only">{t.progressBannerReviewing}: </span>{stats.reviewing}
           </span>
-          {stats.total > 0 && (
-            <span className={styles.heroProgressBarWrap}>
-              <span
-                className={styles.heroProgressBarFill}
-                style={{ width: `${Math.round((stats.completed / stats.total) * 100)}%` }}
-              />
-            </span>
-          )}
+          <span className={styles.heroProgressBarWrap} aria-hidden="true">
+            <span
+              className={styles.heroProgressBarFill}
+              style={{ width: `${Math.round((stats.completed / stats.total) * 100)}%` }}
+            />
+          </span>
         </span>
       )}
-      <FaArrowRight className={styles.heroProgressArrow} />
+      <FaArrowRight className={styles.heroProgressArrow} aria-hidden="true" />
     </Link>
   );
 };

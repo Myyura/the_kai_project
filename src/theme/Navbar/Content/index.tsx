@@ -8,7 +8,6 @@
 import {type ReactNode} from 'react';
 import clsx from 'clsx';
 import {
-  useThemeConfig,
   ErrorCauseBoundary,
   ThemeClassNames,
   useWindowSize,
@@ -25,43 +24,14 @@ import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import NavbarLoginButton from '@site/src/components/NavbarLoginButton';
-import {useLanguage} from '@site/src/context/LanguageContext';
-import {useAuth} from '@site/src/hooks/useAuth';
+import useNavbarItems from '@site/src/hooks/useNavbarItems';
 
 import styles from './styles.module.css';
 
-// 「个人中心」(/me) 仅对已登录用户显示：未登录时与登录按钮功能重叠。
-// SSR 与首次渲染时 authReady=false（不渲染该项），认证就绪后再出现，无 hydration 不一致。
-function useVisibleNavbarItems(items: NavbarItemConfig[]): NavbarItemConfig[] {
-  const {isConfigured, authReady, isLoggedIn} = useAuth();
-  const showMe = isConfigured && authReady && isLoggedIn;
-  return items.filter((item) => showMe || (item as {to?: string}).to !== '/me');
-}
-
-function useNavbarItems() {
-  // TODO temporary casting until ThemeConfig type is improved
-  return useThemeConfig().navbar.items as NavbarItemConfig[];
-}
-
 function NavbarItems({items}: {items: NavbarItemConfig[]}): ReactNode {
-  const {t} = useLanguage();
-
-  const translateItem = (item: NavbarItemConfig): NavbarItemConfig => {
-    const nestedItems = (item as NavbarItemConfig & {items?: NavbarItemConfig[]}).items;
-    return {
-      ...item,
-      label: item.label ? t(item.label, 'navbar') : item.label,
-      ...(Array.isArray(nestedItems)
-        ? {items: nestedItems.map((child) => translateItem(child))}
-        : {}),
-    } as NavbarItemConfig;
-  };
-
   return (
     <>
       {items.map((item, i) => {
-        const translatedItem = translateItem(item);
-
         return (
           <ErrorCauseBoundary
             key={i}
@@ -73,7 +43,7 @@ ${JSON.stringify(item, null, 2)}`,
                 {cause: error},
               )
             }>
-            <NavbarItem {...translatedItem} />
+            <NavbarItem {...item} />
           </ErrorCauseBoundary>
         );
       })}
@@ -112,7 +82,7 @@ export default function NavbarContent(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
   const windowSize = useWindowSize();
 
-  const items = useVisibleNavbarItems(useNavbarItems());
+  const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
 
   const searchBarItem = items.find((item) => item.type === 'search');
@@ -132,12 +102,7 @@ export default function NavbarContent(): ReactNode {
         // Ask the user to add the respective navbar items => more flexible
         <>
           <NavbarItems items={rightItems} />
-          <LanguageSwitcher
-            className={styles.languageSwitcher}
-            buttonClassName={styles.languageButton}
-            activeButtonClassName={styles.languageButtonActive}
-            dividerClassName={styles.languageDivider}
-          />
+          <LanguageSwitcher className={styles.languageSwitcher} />
           <NavbarColorModeToggle className={styles.colorModeToggle} />
           {!searchBarItem && windowSize !== 'mobile' && (
             <NavbarSearch className={styles.desktopSearch}>

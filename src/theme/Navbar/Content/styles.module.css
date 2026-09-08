@@ -6,39 +6,9 @@
  */
 
 .languageSwitcher {
-  align-items: center;
-  display: inline-flex;
-  gap: 0.25rem;
-  padding: 0 0.5rem;
+  margin-inline: 0.35rem;
 }
 
-.languageButton {
-  background: transparent;
-  border: 0;
-  color: var(--ifm-navbar-link-color);
-  cursor: pointer;
-  font: inherit;
-  font-size: 0.9rem;
-  padding: 0.25rem 0.15rem;
-}
-
-.languageButton:hover,
-.languageButtonActive {
-  color: var(--ifm-navbar-link-hover-color);
-}
-
-.languageButtonActive {
-  font-weight: var(--ifm-font-weight-semibold);
-}
-
-.languageDivider {
-  color: var(--ifm-color-emphasis-500);
-  font-size: 0.85rem;
-}
-
-/*
- * 手机顶栏优先保留语言切换；全站搜索移到汉堡菜单，主题切换保留在侧栏头部。
- */
 @media (max-width: 996px) {
   .colorModeToggle,
   .desktopSearch {
@@ -46,17 +16,7 @@
   }
 
   .languageSwitcher {
-    gap: 0.1rem;
-    padding: 0 0.15rem;
-  }
-
-  .languageButton {
-    padding-inline: 0.08rem;
-    font-size: 0.78rem;
-  }
-
-  .languageDivider {
-    font-size: 0.75rem;
+    margin-inline: 0;
   }
 }
 

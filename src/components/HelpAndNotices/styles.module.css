@@ -52,6 +52,9 @@
 }
 
 .sectionNav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   flex: 0 0 auto;
   padding: .48rem .72rem;
   border-radius: var(--kai-radius-control, 10px);
@@ -256,6 +259,18 @@
 }
 
 @media (max-width: 760px) {
+  .sectionNav {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .sectionNav a {
+    justify-content: center;
+    text-align: center;
+  }
+
   .shell {
     width: min(100% - 1rem, 1120px);
     padding-top: 1.2rem;
@@ -274,4 +289,3 @@
     grid-template-columns: 1fr;
   }
 }
-

@@ -7,7 +7,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import {
   FaCloud, FaEnvelope, FaLock, FaSignInAlt, FaUserPlus,
-  FaCheck, FaExclamationTriangle, FaSyncAlt, FaUser, FaGithub,
+  FaSyncAlt, FaUser, FaGithub,
   FaSignOutAlt, FaArrowRight, FaKey,
 } from 'react-icons/fa';
 import { useAuth } from '@site/src/hooks/useAuth';
@@ -25,7 +25,11 @@ import {
   isInvalidCredentialsError,
   validatePassword,
 } from '@site/src/services/authSecurity';
-import styles from './login.module.css';
+import {AuthCard, AuthField, AuthMessage, AuthPasswordRequirements} from '@site/src/components/AuthForm';
+import authStyles from '@site/src/components/AuthForm/styles.module.css';
+import loginStyles from './login.module.css';
+
+const styles = {...authStyles, ...loginStyles};
 
 // ── 主组件 ──────────────────────────────────────────────────
 
@@ -49,7 +53,6 @@ function LoginPageContent() {
   const [resetLoading, setResetLoading] = useState(false);
   const [oauthLoading, setOauthLoading] = useState(false);
   const [msg, setMsg] = useState(null); // { text, isError }
-  const [pwChecks, setPwChecks] = useState(null); // [{ label, passed }] or null
   const [lockCountdown, setLockCountdown] = useState(0);
   const [captchaToken, setCaptchaToken] = useState('');
   const countdownRef = useRef(null);
@@ -80,25 +83,6 @@ function LoginPageContent() {
     setMsg({ text, isError });
     if (!isError) {
       setTimeout(() => setMsg(null), 5000);
-    }
-  };
-
-  // 实时密码强度检查（仅注册模式）
-  const pwRuleLabels = t.passwordRules;
-
-  const pwRules = [
-    { test: (pw) => pw.length >= 8, label: pwRuleLabels[0] },
-    { test: (pw) => /[a-z]/.test(pw), label: pwRuleLabels[1] },
-    { test: (pw) => /[A-Z]/.test(pw), label: pwRuleLabels[2] },
-    { test: (pw) => /[0-9]/.test(pw), label: pwRuleLabels[3] },
-  ];
-
-  const handlePasswordChange = (val) => {
-    setPassword(val);
-    if (mode === 'register' && val.length > 0) {
-      setPwChecks(pwRules.map((r) => ({ label: r.label, passed: r.test(val) })));
-    } else {
-      setPwChecks(null);
     }
   };
 
@@ -142,7 +126,6 @@ function LoginPageContent() {
     if (mode === 'register') {
       const { valid } = validatePassword(password, lang);
       if (!valid) {
-        setPwChecks(pwRules.map((r) => ({ label: r.label, passed: r.test(password) })));
         return;
       }
     }
@@ -244,237 +227,176 @@ function LoginPageContent() {
     }
   };
 
-  // 未配置 Supabase → 显示提示
   if (!isConfigured) {
     return (
-      <div className={styles.wrapper}>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <FaCloud className={styles.cardIcon} />
-            <h2 className={styles.cardTitle}>{t.title}</h2>
-          </div>
-          <div className={styles.cardBody}>
-            <p>{t.notConfigured}</p>
-            <Link to="/me" className={styles.backLink}>{t.backProgress}</Link>
-          </div>
-        </div>
-      </div>
+      <AuthCard icon={FaCloud} title={t.title}>
+        <p>{t.notConfigured}</p>
+        <Link to="/me" className={styles.backLink}>{t.backProgress}</Link>
+      </AuthCard>
     );
   }
 
-  // 认证状态尚未确认 → 显示加载中，避免闪烁
   if (!authReady) {
     return (
-      <div className={styles.wrapper}>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <FaCloud className={styles.cardIcon} />
-            <h2 className={styles.cardTitle}>{t.title}</h2>
-          </div>
-          <div className={styles.cardBody} style={{ textAlign: 'center', padding: '2rem' }}>
-            <FaSyncAlt className={styles.spin} style={{ fontSize: '1.5rem', color: 'var(--ifm-color-primary)' }} />
-          </div>
+      <AuthCard icon={FaCloud} title={t.title}>
+        <div className={styles.loading} role="status" aria-label={t.logging}>
+          <FaSyncAlt className={styles.spin} aria-hidden="true" />
         </div>
-      </div>
+      </AuthCard>
     );
   }
 
-  // 已登录 → 显示用户信息 + 跳转按钮
   if (isLoggedIn) {
     return (
-      <div className={styles.wrapper}>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <FaCloud className={styles.cardIcon} />
-            <h2 className={styles.cardTitle}>{t.title}</h2>
-          </div>
-          <div className={styles.cardBody}>
-            {msg && (
-              <div className={`${styles.message} ${msg.isError ? styles.messageError : styles.messageSuccess}`}>
-                {msg.isError
-                  ? <FaExclamationTriangle className={styles.messageIcon} />
-                  : <FaCheck className={styles.messageIcon} />
-                }
-                <span>{msg.text}</span>
-              </div>
-            )}
-            <div className={styles.loggedInCard}>
-              <FaUser style={{ fontSize: '1.5rem', color: 'var(--ifm-color-primary)' }} />
-              <p>{t.alreadyIn}</p>
-              <p className={styles.userEmail}>{user?.email}</p>
-              <div className={styles.loggedInActions}>
-                <Link
-                  to="/me"
-                  className={`${styles.btn} ${styles.btnPrimary}`}
-                >
-                  <FaArrowRight /> {t.goProgress}
-                </Link>
-                <button
-                  onClick={handleSignOut}
-                  className={`${styles.btn} ${styles.btnDanger}`}
-                >
-                  <FaSignOutAlt /> {t.logout}
-                </button>
-              </div>
-            </div>
+      <AuthCard icon={FaCloud} title={t.title}>
+        <AuthMessage {...msg} />
+        <div className={styles.loggedInCard}>
+          <FaUser className={styles.userIcon} aria-hidden="true" />
+          <p>{t.alreadyIn}</p>
+          <p className={styles.userEmail}>{user?.email}</p>
+          <div className={styles.loggedInActions}>
+            <Link to="/me" className={`${styles.btn} ${styles.btnPrimary}`}>
+              <FaArrowRight aria-hidden="true" /> {t.goProgress}
+            </Link>
+            <button onClick={handleSignOut} className={`${styles.btn} ${styles.btnDanger}`}>
+              <FaSignOutAlt aria-hidden="true" /> {t.logout}
+            </button>
           </div>
         </div>
-      </div>
+      </AuthCard>
     );
   }
 
-  // 未登录 → 登录/注册表单
   const authMessage = msg || (error ? {text: error, isError: true} : null);
+  const changeMode = (nextMode) => {
+    setMode(nextMode);
+    setMsg(null);
+  };
+  const handleModeKeyDown = (event) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const nextMode = event.key === 'Home' ? 'login'
+      : event.key === 'End' ? 'register'
+        : mode === 'login' ? 'register' : 'login';
+    changeMode(nextMode);
+    document.getElementById(`auth-tab-${nextMode}`)?.focus();
+  };
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.card}>
-        <div className={styles.cardHeader}>
-          <FaCloud className={styles.cardIcon} />
-          <h2 className={styles.cardTitle}>{t.title}</h2>
-          <span className={styles.cardSubtitle}>{t.subtitle}</span>
-        </div>
+    <AuthCard icon={FaCloud} title={mode === 'login' ? t.tabLogin : t.tabRegister} subtitle={t.subtitle}>
+      <div className={styles.authToggle} role="tablist" aria-label={t.title}>
+        {[
+          {id: 'login', label: t.tabLogin, Icon: FaSignInAlt},
+          {id: 'register', label: t.tabRegister, Icon: FaUserPlus},
+        ].map(({id, label, Icon}) => (
+          <button
+            key={id}
+            id={`auth-tab-${id}`}
+            type="button"
+            role="tab"
+            aria-selected={mode === id}
+            aria-controls="auth-panel"
+            tabIndex={mode === id ? 0 : -1}
+            className={`${styles.authTab} ${mode === id ? styles.authTabActive : ''}`}
+            onClick={() => changeMode(id)}
+            onKeyDown={handleModeKeyDown}
+          >
+            <Icon aria-hidden="true" /> {label}
+          </button>
+        ))}
+      </div>
 
-        <div className={styles.cardBody}>
-          {/* 消息提示 */}
-          {authMessage && (
-            <div className={`${styles.message} ${authMessage.isError ? styles.messageError : styles.messageSuccess}`}>
-              {authMessage.isError
-                ? <FaExclamationTriangle className={styles.messageIcon} />
-                : <FaCheck className={styles.messageIcon} />
+      <div id="auth-panel" role="tabpanel" aria-labelledby={`auth-tab-${mode}`}>
+        <AuthMessage {...authMessage} />
+        {lockCountdown > 0 && (
+          <AuthMessage text={getRateLimitMessage(lockCountdown, lang)} isError announce={false} />
+        )}
+
+        {mode === 'login' && (
+          <>
+            <button
+              type="button"
+              className={`${styles.btn} ${styles.btnGithub}`}
+              onClick={handleGitHubLogin}
+              disabled={loading || oauthLoading}
+            >
+              {oauthLoading
+                ? <><FaSyncAlt className={styles.spin} /> {t.oauthProcessing}</>
+                : <><FaGithub /> {t.githubLoginBtn}</>
               }
-              <span>{authMessage.text}</span>
-            </div>
-          )}
-
-          {/* 登录 / 注册 切换 */}
-          <div className={styles.authToggle}>
-            <button
-              className={`${styles.authTab} ${mode === 'login' ? styles.authTabActive : ''}`}
-              onClick={() => { setMode('login'); setMsg(null); setPwChecks(null); }}
-            >
-              <FaSignInAlt /> {t.tabLogin}
             </button>
-            <button
-              className={`${styles.authTab} ${mode === 'register' ? styles.authTabActive : ''}`}
-              onClick={() => { setMode('register'); setMsg(null); }}
-            >
-              <FaUserPlus /> {t.tabRegister}
-            </button>
-          </div>
+            <div className={styles.oauthDivider}><span>{t.oauthOr}</span></div>
+          </>
+        )}
 
-          {/* 锁定倒计时提示 */}
-          {lockCountdown > 0 && (
-            <div className={`${styles.message} ${styles.messageError}`}>
-              <FaExclamationTriangle className={styles.messageIcon} />
-              <span>{getRateLimitMessage(lockCountdown, lang)}</span>
-            </div>
-          )}
-
-          {mode === 'login' && (
-            <>
+        <form onSubmit={handleSubmit} noValidate aria-busy={loading}>
+          <AuthField
+            id="auth-email"
+            label={t.email}
+            icon={FaEnvelope}
+            type="email"
+            placeholder={t.emailPlaceholder}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required
+            autoComplete="email"
+            autoCapitalize="none"
+            spellCheck={false}
+          />
+          <AuthField
+            id="auth-password"
+            label={t.password}
+            icon={FaLock}
+            type="password"
+            placeholder={t.passwordPlaceholderLogin}
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            required
+            minLength={mode === 'register' ? 8 : 6}
+            autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+            aria-describedby={mode === 'register' ? 'auth-password-rules' : undefined}
+          >
+            {mode === 'register' && <AuthPasswordRequirements id="auth-password-rules" password={password} />}
+            {mode === 'login' && (
               <button
                 type="button"
-                className={`${styles.btn} ${styles.btnGithub}`}
-                onClick={handleGitHubLogin}
-                disabled={loading || oauthLoading}
+                className={styles.forgotButton}
+                onClick={handlePasswordReset}
+                disabled={loading || oauthLoading || resetLoading || (hcaptchaSiteKey && !captchaToken)}
               >
-                {oauthLoading
-                  ? <><FaSyncAlt className={styles.spin} /> {t.oauthProcessing}</>
-                  : <><FaGithub /> {t.githubLoginBtn}</>
+                {resetLoading
+                  ? <><FaSyncAlt className={styles.spin} /> {t.resetSending}</>
+                  : <><FaKey /> {t.forgotPassword}</>
                 }
               </button>
-
-              <div className={styles.oauthDivider}>
-                <span>{t.oauthOr}</span>
-              </div>
-            </>
-          )}
-
-          {/* 表单 */}
-          <form onSubmit={handleSubmit} noValidate>
-            <div className={styles.inputGroup}>
-              <label className={styles.inputLabel}>
-                <FaEnvelope className={styles.inputIcon} /> {t.email}
-              </label>
-              <input
-                type="email"
-                className={styles.input}
-                placeholder={t.emailPlaceholder}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-              />
-            </div>
-            <div className={styles.inputGroup}>
-              <label className={styles.inputLabel}>
-                <FaLock className={styles.inputIcon} /> {t.password}
-              </label>
-              <input
-                type="password"
-                className={styles.input}
-                placeholder={mode === 'register' ? t.passwordPlaceholder : t.passwordPlaceholderLogin}
-                value={password}
-                onChange={(e) => handlePasswordChange(e.target.value)}
-                required
-                minLength={mode === 'register' ? 8 : 6}
-                autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
-              />
-              {/* 注册时显示密码要求清单 */}
-              {mode === 'register' && pwChecks && (
-                <ul style={{ fontSize: '0.82rem', margin: '6px 0 0', paddingLeft: '0.2em', listStyle: 'none' }}>
-                  {pwChecks.map((c, i) => (
-                    <li key={i} style={{ color: c.passed ? 'var(--ifm-color-primary)' : 'var(--ifm-color-emphasis-500)', display: 'flex', alignItems: 'center', gap: '0.3rem', padding: '1px 0' }}>
-                      {c.passed ? <FaCheck style={{ fontSize: '0.7rem' }} /> : <span style={{ display: 'inline-block', width: '0.7rem', height: '0.7rem', borderRadius: '50%', border: '1.5px solid var(--ifm-color-emphasis-400)' }} />}
-                      <span style={{ textDecoration: c.passed ? 'line-through' : 'none', opacity: c.passed ? 0.6 : 1 }}>{c.label}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {mode === 'login' && (
-                <button
-                  type="button"
-                  className={styles.forgotButton}
-                  onClick={handlePasswordReset}
-                  disabled={loading || oauthLoading || resetLoading || (hcaptchaSiteKey && !captchaToken)}
-                >
-                  {resetLoading
-                    ? <><FaSyncAlt className={styles.spin} /> {t.resetSending}</>
-                    : <><FaKey /> {t.forgotPassword}</>
-                  }
-                </button>
-              )}
-            </div>
-
-            {/* hCaptcha 人机验证 */}
-            {hcaptchaSiteKey && (
-              <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }}>
-                <HCaptcha
-                  ref={captchaRef}
-                  sitekey={hcaptchaSiteKey}
-                  onVerify={(token) => setCaptchaToken(token)}
-                  onExpire={() => setCaptchaToken('')}
-                  onError={() => setCaptchaToken('')}
-                />
-              </div>
             )}
+          </AuthField>
 
-            <button
-              type="submit"
-              className={`${styles.btn} ${styles.btnPrimary}`}
-              disabled={loading || oauthLoading || lockCountdown > 0 || (hcaptchaSiteKey && !captchaToken)}
-            >
-              {loading
-                ? <><FaSyncAlt className={styles.spin} /> {mode === 'login' ? t.logging : t.registering}</>
-                : <>{mode === 'login' ? <><FaSignInAlt /> {t.loginBtn}</> : <><FaUserPlus /> {t.registerBtn}</>}</>
-              }
-            </button>
-          </form>
-
-          <Link to="/me" className={styles.backLink}>{t.backProgress}</Link>
-        </div>
+          {hcaptchaSiteKey && (
+            <div className={styles.captcha}>
+              <HCaptcha
+                ref={captchaRef}
+                sitekey={hcaptchaSiteKey}
+                onVerify={(token) => setCaptchaToken(token)}
+                onExpire={() => setCaptchaToken('')}
+                onError={() => setCaptchaToken('')}
+              />
+            </div>
+          )}
+          <button
+            type="submit"
+            className={`${styles.btn} ${styles.btnPrimary}`}
+            disabled={loading || oauthLoading || lockCountdown > 0 || (hcaptchaSiteKey && !captchaToken)}
+          >
+            {loading
+              ? <><FaSyncAlt className={styles.spin} /> {mode === 'login' ? t.logging : t.registering}</>
+              : <>{mode === 'login' ? <><FaSignInAlt /> {t.loginBtn}</> : <><FaUserPlus /> {t.registerBtn}</>}</>
+            }
+          </button>
+        </form>
       </div>
-    </div>
+      <Link to="/me" className={styles.backLink}>{t.backProgress}</Link>
+    </AuthCard>
   );
 }
 

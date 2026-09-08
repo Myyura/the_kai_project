@@ -7,69 +7,36 @@
 
 import React, {type ReactNode} from 'react';
 import Link from '@docusaurus/Link';
-import {useThemeConfig} from '@docusaurus/theme-common';
 import {useNavbarMobileSidebar} from '@docusaurus/theme-common/internal';
-import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
-import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
+import NavbarItem from '@theme/NavbarItem';
 import NavbarLoginButton from '@site/src/components/NavbarLoginButton';
-import {useLanguage} from '@site/src/context/LanguageContext';
-import {useAuth} from '@site/src/hooks/useAuth';
+import useNavbarItems from '@site/src/hooks/useNavbarItems';
 import {useUiText} from '@site/src/i18n/useUiText';
-
-function useNavbarItems() {
-  // TODO temporary casting until ThemeConfig type is improved
-  return useThemeConfig().navbar.items as NavbarItemConfig[];
-}
 
 // The primary menu displays the navbar items
 export default function NavbarMobilePrimaryMenu(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
-  const {t} = useLanguage();
   const framework = useUiText('framework');
-  const {isConfigured, authReady, isLoggedIn} = useAuth();
-
-  // TODO how can the order be defined for mobile?
-  // Should we allow providing a different list of items?
-  // 「个人中心」(/me) 仅对已登录用户显示（与桌面端 Navbar/Content 逻辑一致）
-  const showMe = isConfigured && authReady && isLoggedIn;
-  const items = useNavbarItems().filter(
-    (item) => showMe || (item as {to?: string}).to !== '/me',
-  );
-  const translateItem = (item: NavbarItemConfig): NavbarItemConfig => {
-    const nestedItems = (item as NavbarItemConfig & {items?: NavbarItemConfig[]}).items;
-    return {
-      ...item,
-      label: item.label ? t(item.label, 'navbar') : item.label,
-      ...(Array.isArray(nestedItems)
-        ? {items: nestedItems.map((child) => translateItem(child))}
-        : {}),
-    } as NavbarItemConfig;
-  };
+  const items = useNavbarItems();
 
   return (
     <ul className="menu__list">
-      {items.map((item, i) => {
-        const translatedItem = translateItem(item);
-
-        return (
+      <li className="menu__list-item">
+        <Link className="menu__link kai-mobile-search-link" to="/search" onClick={() => mobileSidebar.toggle()}>
+          {framework.searchLabel}
+          <span aria-hidden="true">→</span>
+        </Link>
+      </li>
+      {items.map((item, i) => (
           <NavbarItem
             mobile
-            {...translatedItem}
+            {...item}
             onClick={() => mobileSidebar.toggle()}
             key={i}
           />
-        );
-      })}
-      <li className="menu__list-item">
-        <Link className="menu__link" to="/search" onClick={() => mobileSidebar.toggle()}>
-          {framework.searchLabel}
-        </Link>
-      </li>
-      <li className="menu__list-item" style={{padding: '0.5rem 0.75rem'}}>
-        <LanguageSwitcher />
-      </li>
-      <li className="menu__list-item" style={{marginTop: '0.5rem'}}>
-        <NavbarLoginButton />
+      ))}
+      <li className="menu__list-item kai-mobile-account">
+        <NavbarLoginButton onClick={() => mobileSidebar.toggle()} />
       </li>
     </ul>
   );

@@ -1,27 +1,46 @@
 .switcher {
-  align-items: center;
   display: inline-flex;
-  gap: 0.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.1rem;
 }
 
 .button {
-  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.25rem 0.35rem;
   border: 0;
-  color: inherit;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ifm-navbar-link-color);
   cursor: pointer;
   font: inherit;
-  padding: 0.2rem 0.15rem;
+  font-size: 0.85rem;
+  transition: var(--custom-transition-fast);
 }
 
-.button:hover,
-.buttonActive {
+.button:hover {
+  background: var(--ifm-color-emphasis-100);
   color: var(--ifm-link-color);
 }
 
 .buttonActive {
+  background: rgba(var(--theme-accent-rgb), 0.08);
+  color: var(--ifm-link-color);
   font-weight: var(--ifm-font-weight-semibold);
 }
 
 .divider {
   color: var(--ifm-color-emphasis-500);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 996px) {
+  .button {
+    min-height: 40px;
+    padding-inline: 0.25rem;
+    font-size: 0.75rem;
+  }
 }

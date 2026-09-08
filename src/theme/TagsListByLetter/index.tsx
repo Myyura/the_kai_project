@@ -5,11 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {useEffect, useMemo, useState, type ReactNode} from 'react';
+import React, {useEffect, useMemo, useRef, useState, type ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import type {Props} from '@theme/TagsListByLetter';
 import Heading from '@theme/Heading';
-import {FiChevronDown, FiSearch} from 'react-icons/fi';
+import {FiChevronDown} from 'react-icons/fi';
+import BrowseSearchField from '@site/src/components/BrowseSearchField';
+import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
 import {normalizeLanguage} from '@site/src/i18n/config';
@@ -54,7 +56,7 @@ const subsubjects = tagTaxonomy.subsubjects as Record<string, SubsubjectMeta>;
 const topics = tagTaxonomy.topics as Record<string, TopicMeta>;
 const schoolTags = tagTaxonomy.schoolTags as Record<
   string,
-  {label?: string; aliases?: string[]}
+  {label?: string; universityId?: string; aliases?: string[]}
 >;
 const subjectOrder = tagTaxonomy.subjectOrder as string[];
 const subsubjectOrder = tagTaxonomy.subsubjectOrder as string[];
@@ -163,39 +165,22 @@ function byCountThenName(a: TagType, b: TagType): number {
 function TagPill({
   tag,
   displayName,
-  detailLabel,
-  detailValues,
   tone,
 }: {
   tag: TagType;
   displayName?: string;
-  detailLabel?: string;
-  detailValues?: ReactNode[];
   tone?: Tone;
 }) {
-  const hasDetails = Boolean(detailLabel && detailValues?.length);
   const browseTarget = resolveTagBrowseTarget(tag.label, tag.permalink);
 
   return (
     <Link
       to={browseTarget.href}
-      className={`${styles.tagPill} ${tone ? styles[tone] : ''} ${hasDetails ? styles.withDetails : ''}`}>
+      className={`${styles.tagPill} ${tone ? styles[tone] : ''}`}>
       <span className={styles.tagMainRow}>
         <span className={styles.tagName}>{displayName || getTagDisplayName(tag.label)}</span>
         <span className={styles.tagPillCount}>{tag.count}</span>
       </span>
-      {hasDetails && (
-        <span className={styles.tagDetailRow}>
-          <span className={styles.tagDetailLabel}>{detailLabel}</span>
-          <span className={styles.tagDetailChips}>
-            {detailValues!.map((value, index) => (
-              <span key={index} className={styles.tagDetailChip}>
-                {value}
-              </span>
-            ))}
-          </span>
-        </span>
-      )}
     </Link>
   );
 }
@@ -217,21 +202,20 @@ function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) 
   });
 
   return (
-    <section className={styles.schoolPanel} role="tabpanel" id="tags-panel-schools">
+    <section className={styles.schoolPanel}>
       <header className={styles.explorerHeader}>
         <Heading as="h2" className={styles.panelTitle}>{t.schoolTitle}</Heading>
-        <label className={styles.searchField}>
-          <FiSearch className={styles.searchIcon} aria-hidden="true" />
-          <input
-            className={styles.searchInput}
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder={t.schoolSearchPlaceholder}
-            aria-label={t.schoolSearchPlaceholder}
-          />
-        </label>
+        <BrowseSearchField
+          id="school-tag-search"
+          className={styles.searchField}
+          value={query}
+          onChange={setQuery}
+          label={t.schoolSearchPlaceholder}
+          resultsId="school-tag-results"
+        />
       </header>
+      <p className={styles.resultCount} role="status">{t.schoolsView} · {filteredTags.length} / {tags.length}</p>
+      <div id="school-tag-results">
       {filteredTags.length > 0 ? (
         <div className={styles.schoolGrid}>
           {filteredTags.sort(byCountThenName).map((tag) => {
@@ -240,17 +224,20 @@ function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) 
             <TagPill
               key={tag.permalink}
               tag={tag}
-              displayName={tag.label}
+              displayName={school?.label || tag.label}
               tone="school"
-              detailLabel={school?.label && school.label !== tag.label ? t.schoolDisplayName : undefined}
-              detailValues={school?.label && school.label !== tag.label ? [school.label] : undefined}
             />
           );
           })}
         </div>
       ) : (
-        <p className={styles.noResults}>{t.noSchoolResults}</p>
+        <BrowseEmptyState
+          message={t.noSchoolResults}
+          onReset={query ? () => setQuery('') : undefined}
+          focusTargetId="school-tag-search"
+        />
       )}
+      </div>
     </section>
   );
 }
@@ -304,6 +291,64 @@ function TopicLink({
   );
 }
 
+function SubsubjectRow({
+  group,
+  language,
+  isSearching,
+}: {
+  group: DisplaySubsubjectGroup;
+  language: Language;
+  isSearching: boolean;
+}) {
+  const t = getCopy(language);
+  const framework = getUiMessages('framework', language);
+  const [expanded, setExpanded] = useState(Boolean(isSearching && group.autoOpen));
+  const topicTags = [...group.topicTags].sort(byCountThenName);
+  const label = getSubsubjectLabel(group.subsubjectId, language);
+  const shortId = getSubsubjectDisplayId(group.subsubjectId);
+  const description = getSubsubjectDescription(group.subsubjectId, language);
+  const target = resolveTagBrowseTarget(group.subsubjectId);
+  const panelId = `subsubject-topics-${group.subsubjectId}`;
+
+  useEffect(() => {
+    if (isSearching) setExpanded(Boolean(group.autoOpen));
+  }, [isSearching, group.autoOpen]);
+
+  return (
+    <div>
+      <div className={styles.subsubjectSummary}>
+        <div className={styles.subsubjectSummaryText}>
+          <Link to={target.href} className={styles.subsubjectLink}>
+            <span>{label}</span>
+            {label !== shortId && <span className={styles.subsubjectId}>({shortId})</span>}
+          </Link>
+          {description && <p className={styles.subsubjectDescription}>{description}</p>}
+        </div>
+        {topicTags.length > 0 ? (
+          <button
+            type="button"
+            className={styles.topicToggle}
+            aria-expanded={expanded}
+            aria-controls={panelId}
+            aria-label={expanded ? framework.collapseCategory(label) : framework.expandCategory(label)}
+            onClick={() => setExpanded((value) => !value)}>
+            <span>{t.topicEntry}</span>
+            <span className={styles.rowCount}>{topicTags.length}</span>
+            <FiChevronDown className={styles.rowChevron} aria-hidden="true" />
+          </button>
+        ) : group.subsubjectTag && (
+          <span className={styles.rowCount}>{group.subsubjectTag.count}</span>
+        )}
+      </div>
+      {topicTags.length > 0 && (
+        <div id={panelId} className={styles.topicRows} hidden={!expanded}>
+          {topicTags.map((tag) => <TopicLink key={tag.permalink} tag={tag} language={language} />)}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function SubjectPanel({
   subjectId,
   groups,
@@ -336,72 +381,14 @@ function SubjectPanel({
         <span className={styles.subjectPanelCount}>{countGroupTags(groups)}</span>
       </header>
       <div className={styles.subsubjectRows}>
-        {groups.map((group) => {
-          const topicTags = [...group.topicTags].sort(byCountThenName);
-          const subsubjectTitle = (
-            <>
-              <span>{getSubsubjectLabel(group.subsubjectId, language)}</span>
-              <span className={styles.subsubjectId}>
-                ({getSubsubjectDisplayId(group.subsubjectId)})
-              </span>
-            </>
-          );
-          const subsubjectTarget = resolveTagBrowseTarget(group.subsubjectId);
-          const title = (
-            <Link to={subsubjectTarget.href} className={styles.subsubjectLink}>
-              {subsubjectTitle}
-            </Link>
-          );
-
-          if (topicTags.length === 0) {
-            return (
-              <div key={group.subsubjectId} className={styles.subsubjectStaticRow}>
-                <div>
-                  {title}
-                  {getSubsubjectDescription(group.subsubjectId, language) && (
-                    <p className={styles.subsubjectDescription}>
-                      {getSubsubjectDescription(group.subsubjectId, language)}
-                    </p>
-                  )}
-                </div>
-                {group.subsubjectTag && (
-                  <span className={styles.rowCount}>{group.subsubjectTag.count}</span>
-                )}
-              </div>
-            );
-          }
-
-          return (
-            <details
-              key={`${group.subsubjectId}-${isSearching ? 'search' : 'browse'}`}
-              className={styles.subsubjectDisclosure}
-              defaultOpen={Boolean(isSearching && group.autoOpen)}>
-              <summary className={styles.subsubjectSummary}>
-                <span className={styles.subsubjectSummaryText}>
-                  {title}
-                  {getSubsubjectDescription(group.subsubjectId, language) && (
-                    <span className={styles.subsubjectDescription}>
-                      {getSubsubjectDescription(group.subsubjectId, language)}
-                    </span>
-                  )}
-                </span>
-                <span className={styles.rowMeta}>
-                  <span className={styles.rowCount}>{topicTags.length}</span>
-                  <FiChevronDown className={styles.rowChevron} aria-hidden="true" />
-                </span>
-              </summary>
-              <div className={styles.topicRows}>
-                {topicTags.map((tag) => (
-                  <TopicLink
-                    key={tag.permalink}
-                    tag={tag}
-                    language={language}
-                  />
-                ))}
-              </div>
-            </details>
-          );
-        })}
+        {groups.map((group) => (
+          <SubsubjectRow
+            key={group.subsubjectId}
+            group={group}
+            language={language}
+            isSearching={isSearching}
+          />
+        ))}
       </div>
     </section>
   );
@@ -476,6 +463,7 @@ function LearningSections({
   }, [orderedSubjects]);
 
   const navigateToSubject = (event: React.MouseEvent<HTMLAnchorElement>, subjectId: string) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     const anchorId = getSubjectAnchorId(subjectId);
     setQuery('');
@@ -551,21 +539,23 @@ function LearningSections({
   if (subsubjectTags.length + topicTags.length === 0) return null;
 
   return (
-    <section className={styles.learningExplorer} role="tabpanel" id="tags-panel-learning">
+    <section className={styles.learningExplorer}>
       <header className={styles.explorerHeader}>
         <Heading as="h2" className={styles.explorerTitle}>{t.topicsTitle}</Heading>
-        <label className={styles.searchField}>
-          <FiSearch className={styles.searchIcon} aria-hidden="true" />
-          <input
-            className={styles.searchInput}
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder={t.searchPlaceholder}
-            aria-label={t.searchPlaceholder}
-          />
-        </label>
+        <BrowseSearchField
+          id="learning-tag-search"
+          className={styles.searchField}
+          value={query}
+          onChange={setQuery}
+          label={t.searchPlaceholder}
+          resultsId="learning-tag-results"
+        />
       </header>
+      {isSearching && (
+        <p className={styles.resultCount} role="status">
+          {t.learningView} · {Array.from(visibleGroups.values()).reduce((total, groups) => total + countGroupTags(groups), 0)} / {subsubjectTags.length + topicTags.length}
+        </p>
+      )}
       <div className={styles.explorerLayout}>
         <nav className={styles.subjectNavigation} aria-label={t.subjectNavigation}>
           {navigationSubjects.map((subjectId) => (
@@ -582,7 +572,7 @@ function LearningSections({
             </Link>
           ))}
         </nav>
-        <div className={styles.subjectResults}>
+        <div className={styles.subjectResults} id="learning-tag-results">
           {displayedSubjects.map((subjectId) => (
             <SubjectPanel
               key={subjectId}
@@ -594,7 +584,7 @@ function LearningSections({
             />
           ))}
           {isSearching && displayedSubjects.length === 0 && (
-            <p className={styles.noResults}>{t.noResults}</p>
+            <BrowseEmptyState message={t.noResults} onReset={() => setQuery('')} focusTargetId="learning-tag-search" />
           )}
         </div>
       </div>
@@ -613,7 +603,7 @@ function PendingSection({tags, language}: {tags: TagType[]; language: Language})
         <span className={styles.panelCount}>{tags.length}</span>
       </header>
       <div className={styles.tagGrid}>
-        {tags.sort(byCountThenName).map((tag) => (
+        {[...tags].sort(byCountThenName).map((tag) => (
           <TagPill key={tag.permalink} tag={tag} tone="pending" />
         ))}
       </div>
@@ -625,49 +615,84 @@ export default function TagsListByLetter({tags}: Props): ReactNode {
   const language = normalizeLanguage(useCurrentLanguage()) as Language;
   const t = getCopy(language);
   const [activeView, setActiveView] = useState<'learning' | 'schools'>('learning');
-  const normalizedTags = tags as TagType[];
-  const universityTags = normalizedTags.filter((tag) => isSchoolTag(tag.label));
-  const subsubjectTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && getSubsubjectMeta(tag.label));
-  const topicTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && !getSubsubjectMeta(tag.label) && getTopicMeta(tag.label));
-  const pendingTags = normalizedTags.filter((tag) => !isSchoolTag(tag.label) && !getSubsubjectMeta(tag.label) && !getTopicMeta(tag.label));
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const {universityTags, subsubjectTags, topicTags, pendingTags} = useMemo(() => {
+    const groups = {
+      universityTags: [] as TagType[],
+      subsubjectTags: [] as TagType[],
+      topicTags: [] as TagType[],
+      pendingTags: [] as TagType[],
+    };
+    for (const tag of tags as TagType[]) {
+      if (isSchoolTag(tag.label)) groups.universityTags.push(tag);
+      else if (getSubsubjectMeta(tag.label)) groups.subsubjectTags.push(tag);
+      else if (getTopicMeta(tag.label)) groups.topicTags.push(tag);
+      else groups.pendingTags.push(tag);
+    }
+    return groups;
+  }, [tags]);
   const learningCount = subsubjectTags.length + topicTags.length;
+  const views = [
+    {id: 'learning' as const, label: t.learningView, count: learningCount},
+    {id: 'schools' as const, label: t.schoolsView, count: universityTags.length},
+  ];
+
+  useEffect(() => {
+    const revealSubject = () => {
+      if (decodeHash(window.location.hash).startsWith('#subject-')) setActiveView('learning');
+    };
+    window.addEventListener('hashchange', revealSubject);
+    window.addEventListener('popstate', revealSubject);
+    return () => {
+      window.removeEventListener('hashchange', revealSubject);
+      window.removeEventListener('popstate', revealSubject);
+    };
+  }, []);
+
+  const handleTabKey = (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    let nextIndex;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % views.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (index + views.length - 1) % views.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = views.length - 1;
+    else return;
+    event.preventDefault();
+    setActiveView(views[nextIndex].id);
+    tabRefs.current[nextIndex]?.focus();
+  };
 
   return (
     <section className={styles.tagsContainer}>
       <div className={styles.viewTabs} role="tablist" aria-label={t.viewTabsLabel}>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={activeView === 'learning'}
-          aria-controls="tags-panel-learning"
-          className={`${styles.viewTab} ${activeView === 'learning' ? styles.viewTabActive : ''}`}
-          onClick={() => setActiveView('learning')}>
-          <span>{t.learningView}</span>
-          <span className={styles.viewTabCount}>{learningCount}</span>
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={activeView === 'schools'}
-          aria-controls="tags-panel-schools"
-          className={`${styles.viewTab} ${activeView === 'schools' ? styles.viewTabActive : ''}`}
-          onClick={() => setActiveView('schools')}>
-          <span>{t.schoolsView}</span>
-          <span className={styles.viewTabCount}>{universityTags.length}</span>
-        </button>
+        {views.map((view, index) => (
+          <button
+            key={view.id}
+            ref={(element) => { tabRefs.current[index] = element; }}
+            id={`tags-tab-${view.id}`}
+            type="button"
+            role="tab"
+            aria-selected={activeView === view.id}
+            aria-controls={`tags-panel-${view.id}`}
+            tabIndex={activeView === view.id ? 0 : -1}
+            className={`${styles.viewTab} ${activeView === view.id ? styles.viewTabActive : ''}`}
+            onClick={() => setActiveView(view.id)}
+            onKeyDown={(event) => handleTabKey(event, index)}>
+            <span>{view.label}</span>
+            <span className={styles.viewTabCount}>{view.count}</span>
+          </button>
+        ))}
       </div>
-      {activeView === 'learning' ? (
-        <>
+      <div role="tabpanel" id="tags-panel-learning" aria-labelledby="tags-tab-learning" hidden={activeView !== 'learning'}>
           <LearningSections
-            subsubjectTags={[...subsubjectTags]}
-            topicTags={[...topicTags]}
+            subsubjectTags={subsubjectTags}
+            topicTags={topicTags}
             language={language}
           />
-          <PendingSection tags={[...pendingTags]} language={language} />
-        </>
-      ) : (
-        <SchoolSection tags={[...universityTags]} language={language} />
-      )}
+          <PendingSection tags={pendingTags} language={language} />
+      </div>
+      <div role="tabpanel" id="tags-panel-schools" aria-labelledby="tags-tab-schools" hidden={activeView !== 'schools'}>
+        <SchoolSection tags={universityTags} language={language} />
+      </div>
     </section>
   );
 }

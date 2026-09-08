@@ -1,7 +1,4 @@
-/* ── Auth 表单共享样式（login / reset-password 共用）────────
-   两个页面模块通过 `composes` 复用这里的类，本地类名不变。
-   语义色全部走 --kai-* 令牌：暗色主题随令牌自动翻转，
-   无需再写 [data-theme='dark'] 变体。 */
+/* Shared by login, registration, password reset and auth callback. */
 
 .wrapper {
   display: flex;
@@ -13,7 +10,7 @@
 
 .card {
   width: 100%;
-  max-width: 420px;
+  max-width: 460px;
   border: 1px solid var(--custom-card-border);
   border-radius: var(--custom-border-radius);
   overflow: hidden;
@@ -26,33 +23,31 @@
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  padding: 2rem 1.5rem 1.2rem;
-  background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-color-primary) 100%);
-  color: #fff;
+  padding: 1.75rem 1.5rem 1.25rem;
+  background: rgba(var(--theme-accent-rgb), 0.04);
+  border-bottom: 1px solid var(--custom-card-border);
   text-align: center;
 }
 
-[data-theme='dark'] .cardHeader {
-  background: linear-gradient(135deg, var(--kai-navy-900) 0%, var(--kai-blue) 72%, var(--kai-cyan) 100%);
-}
-
 .cardIcon {
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   margin-bottom: 0.25rem;
-  opacity: 0.9;
+  color: var(--ifm-color-primary);
 }
 
 .cardTitle {
   margin: 0;
   font-size: 1.4rem;
   font-weight: 700;
+  color: var(--ifm-heading-color);
 }
 
 .cardSubtitle {
   font-size: 0.85rem;
-  opacity: 0.8;
-  max-width: 280px;
-  line-height: 1.4;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 340px;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .cardBody {
@@ -69,7 +64,7 @@
   gap: 0.35rem;
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--ifm-color-emphasis-600);
+  color: var(--ifm-color-emphasis-700);
   margin-bottom: 0.3rem;
 }
 
@@ -83,7 +78,8 @@
   padding: 0.65rem 0.85rem;
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: var(--custom-border-radius-xs);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  min-height: 44px;
   background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base);
   transition: var(--custom-transition-fast);
@@ -96,6 +92,11 @@
   box-shadow: var(--kai-focus-ring);
 }
 
+.input::placeholder {
+  color: var(--ifm-color-emphasis-600);
+  opacity: 1;
+}
+
 [data-theme='dark'] .input {
   border-color: rgba(255, 255, 255, 0.1);
 }
@@ -106,6 +107,7 @@
   justify-content: center;
   gap: 0.4rem;
   width: 100%;
+  min-height: 44px;
   padding: 0.7rem 1rem;
   border: none;
   border-radius: var(--custom-border-radius-xs);
@@ -148,13 +150,13 @@
 
 .messageSuccess {
   background: var(--kai-success-bg);
-  color: var(--kai-success);
+  color: var(--kai-success-strong);
   border: 1px solid var(--kai-success-border);
 }
 
 .messageError {
   background: var(--kai-danger-bg);
-  color: var(--kai-danger);
+  color: var(--kai-danger-strong);
   border: 1px solid var(--kai-danger-border);
 }
 
@@ -167,7 +169,7 @@
   text-align: center;
   margin-top: 1.2rem;
   font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700);
   transition: var(--custom-transition-fast);
 }
 
@@ -176,7 +178,75 @@
 }
 
 .spin {
-  composes: spinner from "../styles/kai-ui.module.css";
+  composes: spinner from "../../styles/kai-ui.module.css";
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.25rem 0;
+  color: var(--ifm-color-primary);
+  font-size: 0.9rem;
+}
+
+.passwordRules {
+  display: grid;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.8rem;
+}
+
+.passwordRules li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.passwordRules svg,
+.rulePending {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+.rulePending {
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.passwordRulePassed {
+  color: var(--kai-success-strong);
+}
+
+.btn:focus-visible,
+.backLink:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 1.25rem 0.75rem 2rem;
+  }
+
+  .cardBody {
+    padding: 1.1rem;
+  }
+
+  .cardHeader {
+    padding: 1.35rem 1rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .message {
+    animation: none;
+  }
 }
 
 @keyframes kaiAuthFadeIn {

@@ -2,7 +2,6 @@
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
   padding: 2.5rem 0 4rem;
-  overflow-x: hidden;
 }
 
 /* 头部 */
@@ -41,7 +40,8 @@
 
 .centerTabs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 0.35rem;
   width: 100%;
   padding: 0.35rem;
@@ -56,7 +56,7 @@
   justify-content: center;
   gap: 0.42rem;
   min-width: 0;
-  min-height: 40px;
+  min-height: 44px;
   border: 1px solid transparent;
   border-radius: var(--custom-border-radius-xs);
   background: transparent;
@@ -99,63 +99,12 @@
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.24);
 }
 
-/* 统计卡片行 */
-.statsRow {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.statCard {
-  composes: cardHoverable from "../styles/kai-ui.module.css";
-  flex: 1;
-  min-width: 130px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.1rem 0.75rem;
-  border-radius: var(--custom-border-radius-sm);
-  border: 1px solid var(--custom-card-border);
-  background: var(--custom-card-bg);
-  gap: 0.2rem;
-  transition: var(--custom-transition-fast);
-}
-
-.statIcon {
-  font-size: 1.4rem;
-  margin-bottom: 0.15rem;
-}
-
-.statCardCompleted {
-  border-color: var(--kai-success-border);
-  background: linear-gradient(135deg, var(--kai-success-bg), var(--custom-card-bg));
-}
-
-.statCardReviewing {
-  border-color: var(--kai-warning-border);
-  background: linear-gradient(135deg, var(--kai-warning-bg), var(--custom-card-bg));
-}
-
-.statNumber {
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--ifm-heading-color);
-}
-
-.statLabel {
-  font-size: 0.8rem;
-  color: var(--ifm-color-emphasis-600);
-  font-weight: 500;
-}
-
 /* 总进度条 */
 .progressOverview {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .progressBarContainer {
@@ -317,9 +266,9 @@
   font-size: 0.8rem;
   padding: 0.35rem 0.85rem;
   border-radius: var(--custom-border-radius-xs);
-  border: 1px solid var(--kai-danger);
+  border: 1px solid var(--custom-card-border);
   background: transparent;
-  color: var(--kai-danger);
+  color: var(--ifm-color-emphasis-700);
   cursor: pointer;
   font-weight: 500;
   transition: var(--custom-transition-fast);
@@ -341,7 +290,6 @@
 }
 
 .univCard {
-  composes: cardHoverable from "../styles/kai-ui.module.css";
   padding: 0.9rem 1rem;
   border-radius: var(--custom-border-radius-sm);
   border: 1px solid var(--custom-card-border);
@@ -451,7 +399,6 @@
 }
 
 .entryRow {
-  composes: cardHoverable from "../styles/kai-ui.module.css";
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -510,7 +457,7 @@
 
 .entryDate {
   font-size: 0.72rem;
-  color: var(--ifm-color-emphasis-400);
+  color: var(--ifm-color-emphasis-600);
   white-space: nowrap;
 }
 /* 下次复习徽章 */
@@ -581,6 +528,10 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0.75rem;
+}
+
+.heatmapHeader .sectionTitle {
+  margin-bottom: 0;
 }
 
 .heatmapTotalCount {
@@ -766,8 +717,8 @@
   .dashboardGrid {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
-      'sidebar'
-      'main';
+      'main'
+      'sidebar';
   }
 }
 
@@ -821,40 +772,13 @@
   }
 
   .centerTabs {
-    display: flex;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 0.3rem;
-    overflow-x: auto;
-    scroll-snap-type: x proximity;
-    scrollbar-width: thin;
   }
 
   .centerTab {
-    min-width: max-content;
-    flex: 1 0 auto;
-    scroll-snap-align: start;
-  }
-
-  /* 统计卡片 */
-  .statsRow {
-    gap: 0.5rem;
-  }
-
-  .statCard {
-    min-width: 0;
-    flex-basis: calc(33.333% - 0.35rem);
-    padding: 0.7rem 0.4rem;
-  }
-
-  .statIcon {
-    font-size: 1.15rem;
-  }
-
-  .statNumber {
-    font-size: 1.5rem;
-  }
-
-  .statLabel {
-    font-size: 0.72rem;
+    padding: 0.6rem 0.4rem;
   }
 
   /* 进度条 */
@@ -968,22 +892,6 @@
     padding: 1rem 0 2rem;
   }
 
-  .statsRow {
-    flex-direction: column;
-  }
-
-  .statCard {
-    flex-basis: auto;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0.6rem 1rem;
-    gap: 0.75rem;
-  }
-
-  .statNumber {
-    font-size: 1.35rem;
-  }
-
   .univGrid,
   .tagGrid {
     grid-template-columns: 1fr;
@@ -1093,6 +1001,7 @@
   display: block;
   margin-top: 0.25rem;
   font-size: 1rem;
+  overflow-wrap: anywhere;
 }
 
 .profileSettings {
@@ -1108,21 +1017,19 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
   padding: 0.45rem 0;
 }
 
 .profileIdentityRow > div {
   display: grid;
   gap: 0.15rem;
+  min-width: 0;
 }
 
 .profileLabel {
   color: var(--ifm-color-emphasis-700);
   font-size: 0.78rem;
-}
-
-.profileDisplayName {
-  font-size: 1.05rem;
 }
 
 .profileWarning {
@@ -1138,6 +1045,7 @@
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: var(--custom-border-radius-xs);
   padding: 0.5rem 0.7rem;
+  min-height: 44px;
   background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base);
   cursor: pointer;
@@ -1151,7 +1059,7 @@
 
 .profileEditor {
   display: grid;
-  grid-template-columns: minmax(12rem, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
   gap: 0.55rem;
   margin: 0.45rem 0;
@@ -1173,6 +1081,9 @@
   padding: 0.55rem 0.65rem;
   color: var(--ifm-font-color-base);
   background: var(--ifm-background-color);
+  min-width: 0;
+  width: 100%;
+  font-size: 1rem;
 }
 
 .profileEditor > small {
@@ -1216,8 +1127,7 @@
   margin: 0;
   color: var(--ifm-color-emphasis-600);
   font-size: 0.85rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
 }
 
 .reputationSummary {
@@ -1249,15 +1159,16 @@
 }
 
 .accountStats {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.6rem;
-  flex-shrink: 0;
+  flex: 1 1 420px;
+  min-width: 0;
+  max-width: 540px;
 }
 
 .accountStat {
-  min-width: 70px;
+  min-width: 0;
   padding: 0.55rem 0.75rem;
   border-radius: var(--custom-border-radius-xs);
   background: var(--ifm-color-emphasis-100);
@@ -1285,6 +1196,7 @@
   align-items: center;
   gap: 0.45rem;
   min-width: 220px;
+  min-height: 44px;
   padding: 0.4rem 0.65rem;
   border-radius: var(--custom-border-radius-xs);
   border: 1px solid var(--ifm-color-emphasis-200);
@@ -1298,7 +1210,8 @@
   outline: none;
   background: transparent;
   color: var(--ifm-font-color-base);
-  font-size: 0.85rem;
+  font-size: 1rem;
+  min-width: 0;
 }
 
 .notesList {
@@ -1330,18 +1243,20 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .noteDate {
   flex-shrink: 0;
   font-size: 0.72rem;
-  color: var(--ifm-color-emphasis-400);
+  color: var(--ifm-color-emphasis-600);
 }
 
 .noteTitle {
   color: var(--ifm-link-color);
   font-size: 0.92rem;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .noteExcerpt {
@@ -1371,7 +1286,24 @@
   border-radius: var(--custom-border-radius-xs);
   border: 1px dashed var(--ifm-color-emphasis-300);
   text-align: center;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700);
+}
+
+.centerTab:focus-visible,
+.profileButton:focus-visible,
+.profileSaveButton:focus-visible,
+.profileEditor input:focus-visible,
+.clearBtn:focus-visible,
+.centerLockedBtn:focus-visible,
+.goBtn:focus-visible,
+.noteRow:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}
+
+.noteSearch:focus-within {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--kai-focus-ring);
 }
 
 @media (max-width: 640px) {
@@ -1390,11 +1322,9 @@
 
   .accountStats {
     width: 100%;
-  }
-
-  .accountStat {
-    flex: 1 1 calc(50% - 0.3rem);
-    min-width: 0;
+    flex-basis: auto;
+    max-width: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .noteSearch {
@@ -1404,5 +1334,11 @@
 
   .notesList {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileEditor {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

@@ -40,10 +40,10 @@ export default function BlogTagsPostsPage({
         <ContentBrowseModes section="stories" activeMode="tags" />
         {tag.unlisted && <Unlisted />}
         <header className={styles.tagHeader}>
-          <div className={styles.tagIdentity}>
+          {displayName !== tag.label && <div className={styles.tagIdentity}>
             <span>{t.rawTagLabel}</span>
             <code>{tag.label}</code>
-          </div>
+          </div>}
           <Heading as="h1">{displayName}</Heading>
           {tag.description && <p>{tag.description}</p>}
           <div className={styles.tagActions}>

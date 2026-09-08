@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import {useHistory} from '@docusaurus/router';
-import { FaCheck, FaExclamationTriangle, FaKey, FaLock, FaSyncAlt } from 'react-icons/fa';
+import { FaKey, FaLock, FaSyncAlt } from 'react-icons/fa';
 import { normalizeLanguage, useCurrentLanguage } from '@site/src/context/LanguageContext';
 import {useUiText} from '@site/src/i18n/useUiText';
 import NoIndex from '@site/src/components/NoIndex';
@@ -14,13 +14,15 @@ import {
   updateCurrentUserPassword,
 } from '@site/src/services/authService';
 import { validatePassword } from '@site/src/services/authSecurity';
-import styles from './reset-password.module.css';
+import {AuthCard, AuthField, AuthMessage, AuthPasswordRequirements} from '@site/src/components/AuthForm';
+import styles from '@site/src/components/AuthForm/styles.module.css';
 
 function ResetPasswordContent() {
   const history = useHistory();
   const language = useCurrentLanguage();
   const lang = normalizeLanguage(language);
   const t = useUiText('resetPassword');
+  const authT = useUiText('login');
   const { isConfigured } = useAuth();
 
   const [ready, setReady] = useState(false);
@@ -111,83 +113,57 @@ function ResetPasswordContent() {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.card}>
-        <div className={styles.cardHeader}>
-          <FaKey className={styles.cardIcon} />
-          <h2 className={styles.cardTitle}>{t.title}</h2>
-          <span className={styles.cardSubtitle}>{t.subtitle}</span>
+    <AuthCard icon={FaKey} title={t.title} subtitle={t.subtitle}>
+      {checking && (
+        <div className={styles.loading} role="status">
+          <FaSyncAlt className={styles.spin} aria-hidden="true" />
+          <span>{t.loading}</span>
         </div>
+      )}
+      <AuthMessage text={message?.text || (!isConfigured ? authT.notConfigured : '')} isError={!isConfigured || message?.type === 'error'} />
 
-        <div className={styles.cardBody}>
-          {checking && (
-            <div className={styles.loading}>
-              <FaSyncAlt className={styles.spin} />
-              <span>{t.loading}</span>
-            </div>
-          )}
-
-          {message && (
-            <div className={`${styles.message} ${message.type === 'error' ? styles.messageError : styles.messageSuccess}`}>
-              {message.type === 'error'
-                ? <FaExclamationTriangle className={styles.messageIcon} />
-                : <FaCheck className={styles.messageIcon} />
-              }
-              <span>{message.text}</span>
-            </div>
-          )}
-
-          {ready && !completed && (
-            <form onSubmit={handleSubmit} noValidate>
-              <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>
-                  <FaLock className={styles.inputIcon} /> {t.password}
-                </label>
-                <input
-                  type="password"
-                  className={styles.input}
-                  placeholder={t.passwordPlaceholder}
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                  autoComplete="new-password"
-                  minLength={8}
-                  required
-                />
-              </div>
-
-              <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>
-                  <FaLock className={styles.inputIcon} /> {t.confirmPassword}
-                </label>
-                <input
-                  type="password"
-                  className={styles.input}
-                  placeholder={t.confirmPlaceholder}
-                  value={confirmPassword}
-                  onChange={(event) => setConfirmPassword(event.target.value)}
-                  autoComplete="new-password"
-                  minLength={8}
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                className={`${styles.btn} ${styles.btnPrimary}`}
-                disabled={submitting}
-              >
-                {submitting
-                  ? <><FaSyncAlt className={styles.spin} /> {t.updating}</>
-                  : <><FaKey /> {t.update}</>
-                }
-              </button>
-            </form>
-          )}
-
-          <Link to="/login" className={styles.backLink}>{t.backLogin}</Link>
-        </div>
-      </div>
-    </div>
+      {ready && !completed && (
+        <form onSubmit={handleSubmit} noValidate aria-busy={submitting}>
+          <AuthField
+            id="reset-password"
+            label={t.password}
+            icon={FaLock}
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            autoComplete="new-password"
+            minLength={8}
+            required
+            aria-describedby="reset-password-rules"
+          >
+            <AuthPasswordRequirements id="reset-password-rules" password={password} />
+          </AuthField>
+          <AuthField
+            id="reset-password-confirm"
+            label={t.confirmPassword}
+            icon={FaLock}
+            type="password"
+            placeholder={t.confirmPlaceholder}
+            value={confirmPassword}
+            onChange={(event) => setConfirmPassword(event.target.value)}
+            autoComplete="new-password"
+            minLength={8}
+            required
+          />
+          <button
+            type="submit"
+            className={`${styles.btn} ${styles.btnPrimary}`}
+            disabled={submitting}
+          >
+            {submitting
+              ? <><FaSyncAlt className={styles.spin} /> {t.updating}</>
+              : <><FaKey /> {t.update}</>
+            }
+          </button>
+        </form>
+      )}
+      <Link to="/login" className={styles.backLink}>{t.backLogin}</Link>
+    </AuthCard>
   );
 }
 

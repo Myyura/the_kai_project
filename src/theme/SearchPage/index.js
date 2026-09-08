@@ -3,8 +3,10 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
-import {FaArrowRight, FaSearch} from 'react-icons/fa';
+import {FaArrowRight} from 'react-icons/fa';
 import NoIndex from '@site/src/components/NoIndex';
+import BrowseSearchField from '@site/src/components/BrowseSearchField';
+import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
 import {useUiText} from '@site/src/i18n/useUiText';
 import useSearchQuery from '@easyops-cn/docusaurus-search-local/dist/client/client/theme/hooks/useSearchQuery';
 import {
@@ -99,50 +101,56 @@ export default function SearchPage() {
     updateSearchContext,
   } = useSearchQuery();
   const [searchQuery, setSearchQuery] = useState(searchValue);
-  const [searchResults, setSearchResults] = useState();
-  const [searchWorkerReady, setSearchWorkerReady] = useState(false);
+  const [resultState, setResultState] = useState(null);
   const versionUrl = `${baseUrl}${searchVersion}`;
+  const query = searchQuery.trim();
+  const currentResult = resultState?.query === query
+    && resultState.context === searchContext
+    && resultState.versionUrl === versionUrl
+    ? resultState
+    : null;
+  const searchResults = currentResult?.results;
+  const isSearching = Boolean(query && (!currentResult || ['loading', 'searching'].includes(currentResult.status)));
   const pageTitle = useMemo(
-    () => searchQuery ? t.resultsTitle(searchQuery) : t.title,
-    [searchQuery, t],
+    () => query ? t.resultsTitle(query) : t.title,
+    [query, t],
   );
 
   useEffect(() => {
-    updateSearchPath(searchQuery);
-    if (!searchQuery) {
-      setSearchResults(undefined);
+    if (!query) {
+      setResultState(null);
       return;
     }
 
     let active = true;
-    searchByWorker(versionUrl, searchContext, searchQuery, 100)
-      .then((results) => {
-        if (active) setSearchResults(results);
-      });
+    const state = {query, context: searchContext, versionUrl};
+    setResultState({...state, status: 'loading'});
+    // Avoid queueing a worker request for every keystroke or IME update.
+    const timer = window.setTimeout(async () => {
+      try {
+        await fetchIndexesByWorker(versionUrl, searchContext);
+        if (!active) return;
+        setResultState({...state, status: 'searching'});
+        const results = await searchByWorker(versionUrl, searchContext, query, 100);
+        if (active) setResultState({...state, status: 'ready', results});
+      } catch {
+        if (active) setResultState({...state, status: 'error'});
+      }
+    }, 180);
     return () => {
       active = false;
+      window.clearTimeout(timer);
     };
-  }, [searchQuery, versionUrl, searchContext]);
+  }, [query, versionUrl, searchContext]);
 
   useEffect(() => {
-    if (searchValue && searchValue !== searchQuery) {
-      setSearchQuery(searchValue);
-    }
+    setSearchQuery(searchValue);
   }, [searchValue]);
 
-  useEffect(() => {
-    let active = true;
-    fetchIndexesByWorker(versionUrl, searchContext).then(() => {
-      if (active) setSearchWorkerReady(true);
-    });
-    return () => {
-      active = false;
-    };
-  }, [searchContext, versionUrl]);
-
-  const handleSearchInputChange = useCallback((event) => {
-    setSearchQuery(event.target.value);
-  }, []);
+  const handleSearchInputChange = useCallback((value) => {
+    setSearchQuery(value);
+    updateSearchPath(value);
+  }, [updateSearchPath]);
 
   return (
     <Layout title={pageTitle}>
@@ -158,20 +166,18 @@ export default function SearchPage() {
         </header>
 
         <div className={styles.searchRow}>
-          <label className={styles.searchField}>
-            <FaSearch aria-hidden="true" />
-            <span className="sr-only">{t.inputLabel}</span>
-            <input
-              type="search"
-              name="q"
-              aria-label={t.inputLabel}
-              placeholder={t.placeholder}
-              onChange={handleSearchInputChange}
-              value={searchQuery}
-              autoComplete="off"
-              autoFocus
-            />
-          </label>
+          <BrowseSearchField
+            id="site-search-input"
+            className={styles.searchField}
+            name="q"
+            label={t.inputLabel}
+            placeholder={t.placeholder}
+            onChange={handleSearchInputChange}
+            value={searchQuery}
+            resultsId="search-results"
+            autoComplete="off"
+            autoFocus
+          />
           {Array.isArray(searchContextByPaths) && (
             <select
               name="search-context"
@@ -190,7 +196,36 @@ export default function SearchPage() {
           )}
         </div>
 
-        {!searchQuery && (
+        <section id="search-results" className={styles.results} aria-busy={isSearching}>
+          {isSearching && (
+            <p className={styles.status} role="status">
+              {currentResult?.status === 'searching' ? t.searching : t.loading}
+            </p>
+          )}
+          {currentResult?.status === 'error' && (
+            <BrowseEmptyState
+              message={t.failed}
+              resetLabel={t.retry}
+              // The search worker caches rejected index promises; reload resets it.
+              onReset={() => window.location.reload()}
+            />
+          )}
+          {searchResults && (searchResults.length > 0 ? (
+              <>
+                <p className={styles.resultCount} role="status">{t.resultCount(searchResults.length)}</p>
+                {searchResults.map((item) => (
+                  <SearchResultItem key={item.document.i} searchResult={item} />
+                ))}
+              </>
+            ) : (
+              <BrowseEmptyState
+                message={t.noResults}
+                onReset={() => handleSearchInputChange('')}
+                focusTargetId="site-search-input"
+              />
+            ))}
+        </section>
+        {(!query || currentResult?.status === 'error' || searchResults?.length === 0) && (
           <section className={styles.suggestions} aria-labelledby="search-suggestions-title">
             <h2 id="search-suggestions-title">{t.suggestionsTitle}</h2>
             <div className={styles.suggestionGrid}>
@@ -204,24 +239,6 @@ export default function SearchPage() {
           </section>
         )}
 
-        {!searchWorkerReady && searchQuery && (
-          <p className={styles.status} role="status">{t.loading}</p>
-        )}
-
-        {searchResults && (
-          <section className={styles.results} aria-live="polite">
-            {searchResults.length > 0 ? (
-              <>
-                <p className={styles.resultCount}>{t.resultCount(searchResults.length)}</p>
-                {searchResults.map((item) => (
-                  <SearchResultItem key={item.document.i} searchResult={item} />
-                ))}
-              </>
-            ) : (
-              <p className={styles.emptyState}>{t.noResults}</p>
-            )}
-          </section>
-        )}
       </main>
     </Layout>
   );

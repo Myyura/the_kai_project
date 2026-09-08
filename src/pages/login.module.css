@@ -1,34 +1,5 @@
 /* ── Login page ─────────────────────────────────────────── */
-/* 与 reset-password 共用的表单类全部 composes 自 ./auth-form.module.css，
-   本地只保留 login 独有的类（auth 切换、GitHub 登录、已登录态等）。 */
-
-.wrapper {
-  composes: wrapper from "./auth-form.module.css";
-}
-
-.card {
-  composes: card from "./auth-form.module.css";
-}
-
-.cardHeader {
-  composes: cardHeader from "./auth-form.module.css";
-}
-
-.cardIcon {
-  composes: cardIcon from "./auth-form.module.css";
-}
-
-.cardTitle {
-  composes: cardTitle from "./auth-form.module.css";
-}
-
-.cardSubtitle {
-  composes: cardSubtitle from "./auth-form.module.css";
-}
-
-.cardBody {
-  composes: cardBody from "./auth-form.module.css";
-}
+/* 共享表单展示由 components/AuthForm 维护，这里只定义登录页专用控件。 */
 
 /* ── Auth toggle ────────────────────────────────────────── */
 
@@ -43,6 +14,7 @@
 
 .authTab {
   flex: 1;
+  min-height: 44px;
   padding: 0.55rem;
   border: none;
   background: none;
@@ -72,28 +44,13 @@
 
 /* ── Inputs ─────────────────────────────────────────────── */
 
-.inputGroup {
-  composes: inputGroup from "./auth-form.module.css";
-}
-
-.inputLabel {
-  composes: inputLabel from "./auth-form.module.css";
-}
-
-.inputIcon {
-  composes: inputIcon from "./auth-form.module.css";
-}
-
-.input {
-  composes: input from "./auth-form.module.css";
-}
-
 .forgotButton {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   margin-top: 0.45rem;
-  padding: 0;
+  min-height: 36px;
+  padding: 0.25rem 0;
   border: none;
   background: transparent;
   color: var(--ifm-color-primary);
@@ -113,14 +70,6 @@
 }
 
 /* ── Buttons ────────────────────────────────────────────── */
-
-.btn {
-  composes: btn from "./auth-form.module.css";
-}
-
-.btnPrimary {
-  composes: btnPrimary from "./auth-form.module.css";
-}
 
 .btnGithub {
   background: #111827;
@@ -155,30 +104,6 @@
   padding: 0 0.55rem;
 }
 
-/* ── Message ────────────────────────────────────────────── */
-
-.message {
-  composes: message from "./auth-form.module.css";
-}
-
-.messageSuccess {
-  composes: messageSuccess from "./auth-form.module.css";
-}
-
-.messageError {
-  composes: messageError from "./auth-form.module.css";
-}
-
-.messageIcon {
-  composes: messageIcon from "./auth-form.module.css";
-}
-
-/* ── Back link ──────────────────────────────────────────── */
-
-.backLink {
-  composes: backLink from "./auth-form.module.css";
-}
-
 /* ── Already logged in ──────────────────────────────────── */
 
 .loggedInCard {
@@ -193,6 +118,25 @@
 .userEmail {
   font-weight: 600;
   color: var(--ifm-color-primary);
+  overflow-wrap: anywhere;
+}
+
+.userIcon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.captcha {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.authTab:focus-visible,
+.forgotButton:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
 }
 
 .loggedInActions {
@@ -200,16 +144,6 @@
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 1rem;
-}
-
-.btnSecondary {
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-font-color-base);
-  border: 1px solid var(--ifm-color-emphasis-200);
-}
-
-.btnSecondary:hover:not(:disabled) {
-  background: var(--ifm-color-emphasis-200);
 }
 
 .btnDanger {
@@ -222,12 +156,6 @@
   background: var(--kai-danger-bg);
 }
 
-/* ── Spin ───────────────────────────────────────────────── */
-
-.spin {
-  composes: spin from "./auth-form.module.css";
-}
-
 /* ── Dark mode（仅 login 独有类的变体）───────────────────── */
 
 [data-theme='dark'] .authToggle {
@@ -235,17 +163,8 @@
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-[data-theme='dark'] .authTab:hover {
+[data-theme='dark'] .authTab:not(.authTabActive):hover {
   color: var(--ifm-color-primary-light);
-}
-
-[data-theme='dark'] .btnSecondary {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme='dark'] .btnSecondary:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='dark'] .btnGithub {

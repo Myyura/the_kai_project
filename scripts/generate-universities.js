@@ -30,6 +30,13 @@ function readCategoryJson(dirPath) {
   }
 }
 
+function getArchiveUrl(category) {
+  const link = category?.link;
+  return link?.type === 'generated-index' && link.slug
+    ? `/docs/${link.slug.replace(/^\/+/, '')}`
+    : undefined;
+}
+
 function scanPrograms(deptDir) {
   const programs = new Map();
 
@@ -97,6 +104,7 @@ function scanDocs() {
       const dept = {
         id: deptEntry.name,
         name: deptCategory.label,
+        archiveUrl: getArchiveUrl(deptCategory),
         _position: deptCategory.position ?? 999,
       };
       const programs = scanPrograms(deptDir);
@@ -117,6 +125,7 @@ function scanDocs() {
     universities.push({
       id: entry.name,
       name: univCategory.label,
+      archiveUrl: getArchiveUrl(univCategory),
       _position: univCategory.position ?? 999,
       color: COLORS[entry.name] || '#666666',
       departments: cleanDepts,
@@ -131,11 +140,6 @@ function scanDocs() {
 
 const universities = scanDocs();
 
-// 构建 docs 文件夹名 → 大学显示名的映射表
-const univMapEntries = universities
-  .map((u) => `  ${JSON.stringify(u.id)}: ${JSON.stringify(u.name)}`)
-  .join(',\n');
-
 // 构建 universities 数组内容
 const univArrayStr = JSON.stringify(universities, null, 2);
 
@@ -143,7 +147,6 @@ const output = `\
 // ============================================================
 // 此文件由 scripts/generate-universities.js 自动生成
 // 请勿手动编辑！如需更新请运行：npm run generate:universities
-// 生成时间：${new Date().toISOString()}
 // ============================================================
 
 /**
@@ -152,7 +155,8 @@ const output = `\
  * 每所大学的 id 对应 docs/ 下的文件夹名，
  * 每个院系的 id 对应该大学文件夹下的子文件夹名，
  * 每个项目目录的 id 对应院系下、年度目录前的路径，
- * name 取自各级 _category_.json 的 label 字段。
+ * name 取自各级 _category_.json 的 label 字段，
+ * archiveUrl 取自对应 generated-index 的 slug，避免另外维护题库路由。
  */
 export const universities = ${univArrayStr};
 
@@ -160,9 +164,7 @@ export const universities = ${univArrayStr};
  * docs 文件夹名 → 大学显示名 映射表
  * 供 progress.js 等模块直接使用，无需硬编码
  */
-export const UNIV_MAP = {
-${univMapEntries},
-};
+export const UNIV_MAP = Object.fromEntries(universities.map(({ id, name }) => [id, name]));
 `;
 
 fs.writeFileSync(OUTPUT_FILE, output, 'utf-8');

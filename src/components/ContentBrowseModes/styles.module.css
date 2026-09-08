@@ -1,5 +1,5 @@
 .browseNav {
-  margin: 0 0 1.75rem;
+  margin: 0 0 1.25rem;
 }
 
 .browseLabel {
@@ -21,7 +21,7 @@
   gap: .8rem;
   min-width: 0;
   align-items: center;
-  padding: 1.05rem 1.25rem;
+  padding: .7rem 1rem;
   border: 1px solid var(--custom-card-border);
   border-radius: var(--custom-border-radius);
   background: var(--custom-card-bg);
@@ -33,7 +33,6 @@
 .modeLink:hover {
   border-color: color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
   background: var(--custom-card-bg-hover);
-  box-shadow: var(--custom-box-shadow-hover);
 }
 
 .modeLink:focus-visible {
@@ -93,21 +92,30 @@
 }
 
 .modeCopy small {
-  overflow: hidden;
   color: var(--ifm-color-emphasis-650);
   font-size: .74rem;
   line-height: 1.4;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 @media (max-width: 560px) {
   .modeGrid {
-    grid-template-columns: 1fr;
+    gap: .5rem;
+  }
+
+  .modeLink {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 3rem;
+    padding: .65rem .8rem;
+    text-align: center;
+  }
+
+  .modeIcon,
+  .modeLinkActive::before {
+    display: none;
   }
 
   .modeCopy small {
-    white-space: normal;
+    display: none;
   }
 }
 

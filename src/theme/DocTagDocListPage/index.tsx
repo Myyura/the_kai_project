@@ -19,14 +19,17 @@ import Unlisted from '@theme/ContentVisibility/Unlisted';
 import Heading from '@theme/Heading';
 import {FiChevronDown} from 'react-icons/fi';
 import ContentBrowseModes from '@site/src/components/ContentBrowseModes';
+import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import {universities} from '@site/src/data/universities';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
 import {normalizeLanguage} from '@site/src/i18n/config';
 import {getUiMessages} from '@site/src/i18n/messages';
 import {
+  getSubsubjectShortId,
   getTopicAnchorId,
   getTopicDisplayName,
+  getTopicShortId,
 } from '@site/src/utils/tagBrowseTarget';
 import styles from './styles.module.css';
 
@@ -156,22 +159,6 @@ function getSubsubjectId(tagLabel: string): string | null {
 function getTopicMeta(tagLabel: string): TopicMeta | null {
   if (topics[tagLabel]) return topics[tagLabel];
   return null;
-}
-
-function getSubsubjectShortId(subsubjectId: string): string {
-  const subjectId = subsubjects[subsubjectId]?.subject;
-  const prefix = subjectId ? `${subjectId}.` : '';
-  return prefix && subsubjectId.startsWith(prefix)
-    ? subsubjectId.slice(prefix.length)
-    : subsubjectId;
-}
-
-function getTopicShortId(topicId: string): string {
-  const topic = getTopicMeta(topicId);
-  const prefix = topic?.subsubject ? `${topic.subsubject}.` : '';
-  return prefix && topicId.startsWith(prefix)
-    ? topicId.slice(prefix.length)
-    : topicId.split('.').pop() || topicId;
 }
 
 function getTagDisplayName(tagLabel: string): string {
@@ -433,6 +420,7 @@ function CompactExamRow({
               title={topic.title || topic.label}
               className={styles.compactDocTopic}
               onClick={(event) => {
+                if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
                 event.preventDefault();
                 onSelectTopic(topic.id);
               }}>
@@ -493,6 +481,7 @@ function CompactSchoolGroup({
         type="button"
         className={styles.compactSchoolHeader}
         aria-expanded={expanded}
+        aria-controls={`school-documents-${schoolId}`}
         aria-label={`${expanded ? copy.collapseSchool : copy.expandSchool}: ${title}`}
         onClick={() => setExpanded((value) => !value)}>
         <span
@@ -509,6 +498,7 @@ function CompactSchoolGroup({
           aria-hidden="true"
         />
       </button>
+      <div id={`school-documents-${schoolId}`}>
       {expanded && (
         <ul className={styles.compactDocList}>
           {documents.map((document) => (
@@ -524,6 +514,7 @@ function CompactSchoolGroup({
           ))}
         </ul>
       )}
+      </div>
     </section>
   );
 }
@@ -726,6 +717,7 @@ function SubsubjectBrowsePage({
                     className={`${styles.topicDirectoryLink} ${activeTopic === 'all' ? styles.topicDirectoryLinkActive : ''}`}
                     aria-current={activeTopic === 'all' ? 'page' : undefined}
                     onClick={(event) => {
+                      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
                       event.preventDefault();
                       onSelectTopic('all');
                     }}>
@@ -740,6 +732,7 @@ function SubsubjectBrowsePage({
                       className={`${styles.topicDirectoryLink} ${activeTopic === 'unclassified' ? styles.topicDirectoryLinkActive : ''}`}
                       aria-current={activeTopic === 'unclassified' ? 'location' : undefined}
                       onClick={(event) => {
+                        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
                         event.preventDefault();
                         onSelectTopic('unclassified');
                       }}>
@@ -761,6 +754,7 @@ function SubsubjectBrowsePage({
                         className={`${styles.topicDirectoryLink} ${activeTopic === topic.id ? styles.topicDirectoryLinkActive : ''}`}
                         aria-current={activeTopic === topic.id ? 'location' : undefined}
                         onClick={(event) => {
+                          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
                           event.preventDefault();
                           onSelectTopic(topic.id);
                         }}>
@@ -797,14 +791,15 @@ function SubsubjectBrowsePage({
                     {activeTopicTitle}
                   </Heading>
                   <p className={styles.aggregateResultsMeta} role="status" aria-live="polite">
-                    <span>{t.docCount(activeDocuments.length)}</span>
+                    <span>{t.resultCount(visibleDocuments.length)}</span>
                     <span aria-hidden="true">·</span>
-                    <span>{t.schoolStat(schoolOptions.length)}</span>
+                    <span>{t.schoolStat(schoolGroups.length)}</span>
                   </p>
                 </div>
                 <label className={styles.schoolFilter}>
                   <span className={styles.schoolFilterLabel}>{t.schoolFilter}</span>
                   <select
+                    id="topic-school-filter"
                     aria-label={t.schoolFilter}
                     value={selectedSchool}
                     onChange={(event) => setSelectedSchool(event.target.value)}>
@@ -833,7 +828,15 @@ function SubsubjectBrowsePage({
                     initiallyExpanded={selectedSchool !== 'all' || groupIndex < 2}
                   />
                 )) : (
-                  <p className={styles.aggregateEmpty}>{t.noResults}</p>
+                  <BrowseEmptyState
+                    message={t.noResults}
+                    resetLabel={t.allTopics}
+                    focusTargetId="topic-school-filter"
+                    onReset={() => {
+                      setSelectedSchool('all');
+                      onSelectTopic('all');
+                    }}
+                  />
                 )}
               </div>
             </section>

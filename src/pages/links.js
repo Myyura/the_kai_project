@@ -5,11 +5,12 @@ import {
   FaBookOpen,
   FaBriefcase,
   FaExternalLinkAlt,
-  FaSearch,
 } from 'react-icons/fa';
 import { useCurrentLanguage } from '../context/LanguageContext';
 import { useUiText } from '../i18n/useUiText';
 import styles from './links.module.css';
+import BrowseSearchField from '../components/BrowseSearchField';
+import BrowseEmptyState from '../components/BrowseEmptyState';
 import content from '../data/links.json';
 
 function safeHostname(url) {
@@ -93,41 +94,18 @@ export default function Links() {
   }, [activeCategory, resources, searchText]);
 
   const categoryOptions = [
-    { key: 'all', label: pageCopy.filterAll },
-    { key: 'study', label: pageCopy.filterStudy },
-    { key: 'career', label: pageCopy.filterCareer },
+    { key: 'all', label: pageCopy.filterAll, count: resources.length },
+    { key: 'study', label: pageCopy.filterStudy, count: linkContent.links.length },
+    { key: 'career', label: pageCopy.filterCareer, count: linkContent.jobLinks.length },
   ];
 
   return (
     <Layout title={pageCopy.title} description={pageCopy.subtitle}>
       <main className={styles.linksPage}>
         <section className={styles.hero}>
-          <div className={styles.heroGlow} aria-hidden="true" />
-          <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>{pageCopy.eyebrow}</span>
-            <h1>{pageCopy.heading}</h1>
-            <p>{pageCopy.subtitle}</p>
-            <div className={styles.heroActions}>
-              <a href="#resources" className={styles.primaryAction}>{pageCopy.exploreResources}</a>
-            </div>
-          </div>
-          <div className={styles.heroSide}>
-            <div className={styles.heroStats}>
-              <div>
-                <strong>{linkContent.links.length}</strong>
-                <span>{pageCopy.studyStat}</span>
-              </div>
-              <div>
-                <strong>{linkContent.jobLinks.length}</strong>
-                <span>{pageCopy.careerStat}</span>
-              </div>
-              <div>
-                <strong>{resources.length}</strong>
-                <span>{pageCopy.resourcesStat}</span>
-              </div>
-            </div>
-            <p className={styles.heroNote}>{pageCopy.heroNote}</p>
-          </div>
+          <span className={styles.eyebrow}>{pageCopy.eyebrow}</span>
+          <h1>{pageCopy.heading}</h1>
+          <p>{pageCopy.subtitle}</p>
         </section>
 
         <section id="resources" className={styles.contentSection}>
@@ -137,20 +115,19 @@ export default function Links() {
               <h2>{pageCopy.resourcesTitle}</h2>
               <p>{pageCopy.resourcesSubtitle}</p>
             </div>
-            <span className={styles.resultCount}>{pageCopy.resultCount(filteredResources.length)}</span>
+            <span className={styles.resultCount} role="status" aria-live="polite">{pageCopy.resultCount(filteredResources.length)}</span>
           </div>
 
           <div className={styles.resourceToolbar}>
-            <label className={styles.searchBox}>
-              <FaSearch aria-hidden="true" />
-              <span className="sr-only">{pageCopy.searchLabel}</span>
-              <input
-                type="search"
-                value={searchText}
-                onChange={(event) => setSearchText(event.target.value)}
-                placeholder={pageCopy.searchPlaceholder}
-              />
-            </label>
+            <BrowseSearchField
+              id="resource-search"
+              className={styles.searchBox}
+              label={pageCopy.searchLabel}
+              placeholder={pageCopy.searchPlaceholder}
+              value={searchText}
+              onChange={setSearchText}
+              resultsId="resource-results"
+            />
             <div className={styles.categoryTabs} role="group" aria-label={pageCopy.categoryLabel}>
               {categoryOptions.map((option) => (
                 <button
@@ -161,11 +138,13 @@ export default function Links() {
                   onClick={() => setActiveCategory(option.key)}
                 >
                   {option.label}
+                  <span className={styles.categoryCount}>{option.count}</span>
                 </button>
               ))}
             </div>
           </div>
 
+          <div id="resource-results">
           {filteredResources.length > 0 ? (
             <div className={styles.resourcesGrid}>
               {filteredResources.map((resource) => (
@@ -173,20 +152,18 @@ export default function Links() {
               ))}
             </div>
           ) : (
-            <div className={styles.emptyState}>
-              <FaSearch aria-hidden="true" />
-              <strong>{pageCopy.noResults}</strong>
-              <button
-                type="button"
-                onClick={() => {
-                  setSearchText('');
-                  setActiveCategory('all');
-                }}
-              >
-                {pageCopy.clearFilters}
-              </button>
-            </div>
+            <BrowseEmptyState
+              focusTargetId="resource-search"
+              message={pageCopy.noResults}
+              resetLabel={pageCopy.clearFilters}
+              onReset={() => {
+                setSearchText('');
+                setActiveCategory('all');
+              }}
+            />
           )}
+          </div>
+          <p className={styles.sourceNote}>{pageCopy.heroNote}</p>
         </section>
       </main>
     </Layout>

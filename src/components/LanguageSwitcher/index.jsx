@@ -31,9 +31,6 @@ const buildLanguageUrl = (location, language) => {
 
 export default function LanguageSwitcher({
   className,
-  buttonClassName,
-  activeButtonClassName,
-  dividerClassName,
 }) {
   const [language, setLanguage] = useStoredLanguage();
   const history = useHistory();
@@ -48,17 +45,16 @@ export default function LanguageSwitcher({
     <div className={clsx(styles.switcher, className)}>
       {LANGUAGE_OPTIONS.map((option, index) => (
         <React.Fragment key={option.code}>
-          {index > 0 && <span className={clsx(styles.divider, dividerClassName)}>/</span>}
+          {index > 0 && <span className={styles.divider} aria-hidden="true">/</span>}
           <button
             type="button"
             onClick={() => language !== option.code && switchLanguage(option.code)}
             aria-pressed={language === option.code}
             aria-label={option.label}
+            lang={option.locale}
             className={clsx(
               styles.button,
-              buttonClassName,
               language === option.code && styles.buttonActive,
-              language === option.code && activeButtonClassName,
             )}
           >
             {option.label}

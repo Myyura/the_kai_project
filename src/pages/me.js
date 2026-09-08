@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
+import {useLocation} from '@docusaurus/router';
 import {
   FaCheckCircle, FaRedo, FaClipboardList, FaTrashAlt,
   FaFileAlt, FaArrowRight, FaBuilding, FaTag,
@@ -35,8 +36,7 @@ const toDateKey = (ts) => {
   ].join('-');
 };
 
-const MONTHS_ZH = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-const MONTHS_JA = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+const MONTHS_CJK = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
 const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 const GRID_COLS = 52;
@@ -49,9 +49,8 @@ const PERSONAL_CENTER_TABS = [
   { id: 'developer-api', labelKey: 'developerApi', icon: FaKey, to: '/me?tab=developer-api' },
 ];
 
-function getActivePersonalTab(problemSetsEnabled) {
-  if (typeof window === 'undefined') return 'overview';
-  const tab = new URLSearchParams(window.location.search).get('tab');
+function getActivePersonalTab(search, problemSetsEnabled) {
+  const tab = new URLSearchParams(search).get('tab');
   if (tab === 'sets' && !problemSetsEnabled) return 'overview';
   return PERSONAL_CENTER_TABS.some((item) => item.id === tab) ? tab : 'overview';
 }
@@ -69,9 +68,10 @@ function PersonalCenterTabs({ activeTab = 'overview' }) {
           <Link
             key={item.id}
             to={item.to}
+            aria-current={active ? 'page' : undefined}
             className={`${styles.centerTab} ${active ? styles.centerTabActive : ''}`}
           >
-            <Icon />
+            <Icon aria-hidden="true" />
             <span>{centerT.tabs?.[item.labelKey] || item.id}</span>
           </Link>
         );
@@ -98,7 +98,7 @@ function PersonalCenterHeader({ activeTab = 'overview' }) {
 
 // 热力图组件 —— 纯 CSS 自适应，不需要 JS 测量
 const StudyHeatmap = ({ entries, t, language }) => {
-  const MONTHS = language === 'en' ? MONTHS_EN : language === 'ja' ? MONTHS_JA : MONTHS_ZH;
+  const MONTHS = language === 'en' ? MONTHS_EN : MONTHS_CJK;
 
   const activityMap = React.useMemo(() => {
     const map = {};
@@ -385,7 +385,7 @@ const CenterLockedState = ({ t, type = 'login' }) => {
 };
 
 const CenterLoadingState = ({ t }) => (
-  <div className={styles.centerLocked}>
+  <div className={styles.centerLocked} role="status">
     <div className={styles.centerLockedIcon}>
       <FaRedo className={styles.spinIcon} />
     </div>
@@ -423,32 +423,32 @@ const PublicProfileSettings = ({ t, profileState }) => {
       <div className={styles.profileIdentityRow}>
         <div>
           <span className={styles.profileLabel}>{t.publicNickname}</span>
-          <strong className={styles.profileDisplayName}>{profile?.displayName || t.loadingShort}</strong>
           {!profile?.nicknameConfirmed && <small className={styles.profileWarning}>{t.nicknameNeedsConfirmation}</small>}
         </div>
-        <button type="button" className={styles.profileButton} onClick={() => setEditing((value) => !value)}>
+        <button type="button" className={styles.profileButton} aria-expanded={editing} aria-controls="profile-editor" onClick={() => setEditing((value) => !value)}>
           <FaEdit /> {t.editNickname}
         </button>
       </div>
       {editing && (
-        <div className={styles.profileEditor}>
+        <form id="profile-editor" className={styles.profileEditor} onSubmit={(event) => { event.preventDefault(); void handleSave(); }}>
           <label>
             <span>{t.nicknameNamePart}</span>
             <input
+              autoFocus
               value={draft}
               maxLength={24}
               onChange={(event) => setDraft(event.target.value)}
               placeholder={t.nicknamePlaceholder}
             />
           </label>
-          <button type="button" className={styles.profileSaveButton} disabled={loading} onClick={handleSave}>
+          <button type="submit" className={styles.profileSaveButton} disabled={loading}>
             <FaSave /> {loading ? t.saving : t.saveNickname}
           </button>
           <small>{t.nicknameRule}</small>
-        </div>
+        </form>
       )}
       {message && (
-        <p className={`${styles.profileMessage} ${message.type === 'error' ? styles.profileMessageError : ''}`}>
+        <p role={message.type === 'error' ? 'alert' : 'status'} className={`${styles.profileMessage} ${message.type === 'error' ? styles.profileMessageError : ''}`}>
           {message.text}
         </p>
       )}
@@ -456,7 +456,7 @@ const PublicProfileSettings = ({ t, profileState }) => {
   );
 };
 
-const AccountOverview = ({ user, stats, notesCount, reputation, reputationLoading, t }) => {
+const AccountOverview = ({ user, stats, reputation, reputationLoading, t, progressT }) => {
   const profileState = usePublicProfile();
   const {profile} = profileState;
   const levelKey = reputation?.levelKey || 'newcomer';
@@ -479,26 +479,19 @@ const AccountOverview = ({ user, stats, notesCount, reputation, reputationLoadin
         </div>
       </div>
       <div className={styles.accountStats}>
-        <div className={styles.accountStat}>
-          <span>{stats.completed}</span>
-          <small>{t.completed}</small>
-        </div>
-        <div className={styles.accountStat}>
-          <span>{stats.reviewing}</span>
-          <small>{t.reviewing}</small>
-        </div>
-        <div className={styles.accountStat}>
-          <span>{notesCount}</span>
-          <small>{t.notes}</small>
-        </div>
-        <div className={styles.accountStat}>
-          <span>{reputation?.acceptedSolutionCount || 0}</span>
-          <small>{t.acceptedSolutions}</small>
-        </div>
-        <div className={styles.accountStat}>
-          <span>{reputation?.acceptedCorrectionCount || 0}</span>
-          <small>{t.acceptedCorrections}</small>
-        </div>
+        {[
+          {id: 'tracked', value: stats.total, label: progressT.totalTracked},
+          {id: 'completed', value: stats.completed, label: t.completed},
+          {id: 'reviewing', value: stats.reviewing, label: t.reviewing},
+          {id: 'notes', value: stats.notes, label: t.notes},
+          {id: 'solutions', value: reputation?.acceptedSolutionCount || 0, label: t.acceptedSolutions},
+          {id: 'corrections', value: reputation?.acceptedCorrectionCount || 0, label: t.acceptedCorrections},
+        ].map(({id, value, label}) => (
+          <div className={styles.accountStat} key={id}>
+            <span>{value}</span>
+            <small>{label}</small>
+          </div>
+        ))}
       </div>
       <PublicProfileSettings t={t} profileState={profileState} />
     </section>
@@ -530,15 +523,16 @@ const NotesSection = ({ noteEntries, t, language }) => {
           {t.notesTitle}
           <span className={styles.sectionCount}>{noteEntries.length}</span>
         </h2>
-        <label className={styles.noteSearch}>
+        {noteEntries.length > 0 && <label className={styles.noteSearch}>
           <FaSearch />
           <input
             type="search"
+            aria-label={t.searchNotes}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t.searchNotes}
           />
-        </label>
+        </label>}
       </div>
       {noteEntries.length === 0 ? (
         <div className={styles.notesEmpty}>{t.noNotes}</div>
@@ -612,36 +606,17 @@ function PersonalCenterDashboard({ user }) {
       <AccountOverview
         user={user}
         stats={stats}
-        notesCount={stats.notes}
         reputation={reputation}
         reputationLoading={reputationLoading}
         t={centerT}
+        progressT={t}
       />
-
-      {/* 统计卡片 */}
-      <div className={styles.statsRow}>
-        <div className={`${styles.statCard} ${styles.statCardCompleted}`}>
-          <FaCheckCircle className={styles.statIcon} style={{ color: 'var(--kai-success)' }} />
-          <span className={styles.statNumber}>{stats.completed}</span>
-          <span className={styles.statLabel}>{t.completed}</span>
-        </div>
-        <div className={`${styles.statCard} ${styles.statCardReviewing}`}>
-          <FaRedo className={styles.statIcon} style={{ color: 'var(--kai-warning)' }} />
-          <span className={styles.statNumber}>{stats.reviewing}</span>
-          <span className={styles.statLabel}>{t.reviewing}</span>
-        </div>
-        <div className={styles.statCard}>
-          <FaClipboardList className={styles.statIcon} style={{ color: 'var(--custom-text-muted)' }} />
-          <span className={styles.statNumber}>{total}</span>
-          <span className={styles.statLabel}>{t.totalTracked}</span>
-        </div>
-      </div>
 
       {/* 总进度条 */}
       {total > 0 && (
         <div className={styles.progressOverview}>
           <div className={styles.progressBarContainer}>
-            <div className={styles.progressBar}>
+            <div className={styles.progressBar} role="progressbar" aria-label={t.completed} aria-valuenow={stats.completed} aria-valuemin={0} aria-valuemax={total}>
               <div
                 className={`${styles.progressFill} ${styles.progressFillCompleted}`}
                 style={{ width: `${(stats.completed / total) * 100}%` }}
@@ -662,10 +637,6 @@ function PersonalCenterDashboard({ user }) {
       )}
 
       <div className={styles.dashboardGrid}>
-        <aside className={styles.dashboardSidebar}>
-          <Leaderboard language={language} compact />
-        </aside>
-
         <div className={styles.dashboardMain}>
           {!hasAnyPersonalData ? (
             <div className={styles.emptyState}>
@@ -675,21 +646,11 @@ function PersonalCenterDashboard({ user }) {
             </div>
           ) : (
             <>
-          {/* 学习热力图 */}
-          {activityItems.length > 0 && <StudyHeatmap entries={activityItems} t={t} language={language} />}
-
-          {/* 用户笔记 */}
-          <NotesSection
-            noteEntries={noteEntries}
-            t={centerT}
-            language={language}
-          />
-
-          {/* 遗忘曲线提醒 */}
+          {/* 优先展示下一步可执行的学习任务 */}
           {total > 0 && <ReviewReminderSection entries={entries} t={t} />}
-
-          {/* 最近练习 */}
           {total > 0 && <RecentPracticeSection entries={entries} t={t} language={language} />}
+          <NotesSection noteEntries={noteEntries} t={centerT} language={language} />
+          {activityItems.length > 0 && <StudyHeatmap entries={activityItems} t={t} language={language} />}
 
           {/* 按知识点统计 */}
           {tagGroups.length > 0 && (
@@ -747,44 +708,27 @@ function PersonalCenterDashboard({ user }) {
             </section>
           )}
 
-          {/* 已完成题目 */}
-          {completedEntries.length > 0 && (
-            <section className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h2 className={`${styles.sectionTitle} ${styles.sectionTitleCompleted}`}>
-                  <FaCheckCircle className={styles.sectionTitleIcon} />
-                  {t.sectionCompleted}
-                  <span className={styles.sectionCount}>{completedEntries.length}</span>
-                </h2>
-              </div>
+          {[
+            {id: 'reviewing', items: reviewingEntries, title: t.sectionReviewing, Icon: FaRedo, className: styles.sectionTitleReviewing},
+            {id: 'completed', items: completedEntries, title: t.sectionCompleted, Icon: FaCheckCircle, className: styles.sectionTitleCompleted},
+          ].filter(({items}) => items.length > 0).map(({id, items, title, Icon, className}) => (
+            <section className={styles.section} key={id}>
+              <h2 className={`${styles.sectionTitle} ${className}`}>
+                <Icon className={styles.sectionTitleIcon} aria-hidden="true" />
+                {title}
+                <span className={styles.sectionCount}>{items.length}</span>
+              </h2>
               <div className={styles.entryList}>
-                {completedEntries.map((entry) => (
-                  <EntryRow key={entry.id} entry={entry} t={t} language={language} />
-                ))}
+                {items.map((entry) => <EntryRow key={entry.id} entry={entry} t={t} language={language} />)}
               </div>
             </section>
-          )}
-
-          {/* 待复习题目 */}
-          {reviewingEntries.length > 0 && (
-            <section className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h2 className={`${styles.sectionTitle} ${styles.sectionTitleReviewing}`}>
-                  <FaRedo className={styles.sectionTitleIcon} />
-                  {t.sectionReviewing}
-                  <span className={styles.sectionCount}>{reviewingEntries.length}</span>
-                </h2>
-              </div>
-              <div className={styles.entryList}>
-                {reviewingEntries.map((entry) => (
-                  <EntryRow key={entry.id} entry={entry} t={t} language={language} />
-                ))}
-              </div>
-            </section>
-          )}
+          ))}
             </>
           )}
         </div>
+        <aside className={styles.dashboardSidebar}>
+          <Leaderboard language={language} compact />
+        </aside>
       </div>
 
     </div>
@@ -795,7 +739,8 @@ function MePageInner() {
   const centerT = useUiText('personalCenter');
   const { isConfigured, isLoggedIn, authReady, user } = useAuth();
   const problemSetsEnabled = useProblemSetsFeature();
-  const activeTab = getActivePersonalTab(problemSetsEnabled);
+  const {search} = useLocation();
+  const activeTab = getActivePersonalTab(search, problemSetsEnabled);
 
   if (isConfigured && isLoggedIn) {
     if (activeTab === 'sets') {
@@ -859,9 +804,11 @@ export default function MePage() {
   return (
     <Layout title={centerT.pageTitle}>
       <NoIndex />
-      <BrowserOnly fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>{centerT.loadingShort}</div>}>
-        {() => <MePageInner />}
-      </BrowserOnly>
+      <main>
+        <BrowserOnly fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>{centerT.loadingShort}</div>}>
+          {() => <MePageInner />}
+        </BrowserOnly>
+      </main>
     </Layout>
   );
 }

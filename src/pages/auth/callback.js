@@ -3,12 +3,13 @@ import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import {useHistory} from '@docusaurus/router';
-import { FaCheck, FaCloud, FaExclamationTriangle, FaSyncAlt } from 'react-icons/fa';
+import { FaCloud, FaSyncAlt } from 'react-icons/fa';
 import { useAuth } from '@site/src/hooks/useAuth';
 import NoIndex from '@site/src/components/NoIndex';
 import {useUiText} from '@site/src/i18n/useUiText';
 import {getAuthReturnTarget} from '@site/src/services/authReturn';
-import styles from '../login.module.css';
+import {AuthCard, AuthMessage} from '@site/src/components/AuthForm';
+import styles from '@site/src/components/AuthForm/styles.module.css';
 
 function AuthCallbackContent() {
   const history = useHistory();
@@ -57,33 +58,23 @@ function AuthCallbackContent() {
   }, [completeAuthCallback, history, isConfigured, t]);
 
   const isError = status === 'error';
-  const isSuccess = status === 'success';
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.card}>
-        <div className={styles.cardHeader}>
-          <FaCloud className={styles.cardIcon} />
-          <h2 className={styles.cardTitle}>{t.title}</h2>
-          <span className={styles.cardSubtitle}>{t.subtitle}</span>
+    <AuthCard icon={FaCloud} title={t.title} subtitle={t.subtitle}>
+      {status === 'loading' ? (
+        <div className={styles.loading} role="status">
+          <FaSyncAlt className={styles.spin} aria-hidden="true" />
+          <span>{message}</span>
         </div>
-
-        <div className={styles.cardBody}>
-          <div className={`${styles.message} ${isError ? styles.messageError : styles.messageSuccess}`}>
-            {status === 'loading' && <FaSyncAlt className={`${styles.messageIcon} ${styles.spin}`} />}
-            {isSuccess && <FaCheck className={styles.messageIcon} />}
-            {isError && <FaExclamationTriangle className={styles.messageIcon} />}
-            <span>{message}</span>
-          </div>
-
-          {isError && (
-            <Link to="/login" className={`${styles.btn} ${styles.btnPrimary}`}>
-              {t.backLogin}
-            </Link>
-          )}
-        </div>
-      </div>
-    </div>
+      ) : (
+        <AuthMessage text={message} isError={isError} />
+      )}
+      {isError && (
+        <Link to="/login" className={`${styles.btn} ${styles.btnPrimary}`}>
+          {t.backLogin}
+        </Link>
+      )}
+    </AuthCard>
   );
 }
 

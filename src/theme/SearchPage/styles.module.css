@@ -19,6 +19,7 @@
   margin: 0 0 .65rem;
   font-size: clamp(2rem, 5vw, 3.2rem);
   letter-spacing: -.04em;
+  overflow-wrap: anywhere;
 }
 
 .hero p {
@@ -35,34 +36,12 @@
 }
 
 .searchField {
-  display: flex;
   min-height: 3.25rem;
-  align-items: center;
-  gap: .7rem;
-  padding: 0 1rem;
-  border: 1px solid var(--ifm-color-emphasis-250);
-  border-radius: var(--custom-border-radius-sm);
-  background: var(--ifm-background-surface-color);
-  color: var(--ifm-color-emphasis-500);
-  box-shadow: var(--kai-shadow-card);
-}
-
-.searchField:focus-within {
-  border-color: var(--ifm-color-primary);
-  box-shadow: var(--kai-focus-ring);
-}
-
-.searchField input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: var(--ifm-font-color-base);
-  font: inherit;
 }
 
 .contextSelect {
   min-width: 10rem;
+  min-height: 3.25rem;
   padding: 0 2.25rem 0 .85rem;
   border: 1px solid var(--ifm-color-emphasis-250);
   border-radius: var(--custom-border-radius-sm);
@@ -79,6 +58,10 @@
 .suggestions h2 {
   margin-bottom: .9rem;
   font-size: 1.1rem;
+}
+
+.suggestions {
+  margin: 1.5rem 0;
 }
 
 .suggestionGrid {
@@ -135,12 +118,14 @@
 .resultCard h2 {
   margin: 0 0 .35rem;
   font-size: 1.08rem;
+  overflow-wrap: anywhere;
 }
 
 .resultPath {
   margin: 0 0 .45rem;
   color: var(--ifm-color-emphasis-500);
   font-size: .74rem;
+  overflow-wrap: anywhere;
 }
 
 .resultSummary {
@@ -148,13 +133,6 @@
   color: var(--ifm-color-emphasis-700);
   font-size: .9rem;
   line-height: 1.65;
-}
-
-.emptyState {
-  padding: 1.4rem;
-  border: 1px dashed var(--ifm-color-emphasis-300);
-  border-radius: var(--custom-border-radius-sm);
-  color: var(--ifm-color-emphasis-650);
 }
 
 @media (max-width: 700px) {

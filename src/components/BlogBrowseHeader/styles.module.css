@@ -35,15 +35,6 @@
   margin-bottom: 0;
 }
 
-.hero small {
-  display: inline-flex;
-  padding: .24rem .55rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
-  color: var(--ifm-color-primary);
-  font-weight: 700;
-}
-
 @media (max-width: 600px) {
   .hero {
     padding: 1rem;

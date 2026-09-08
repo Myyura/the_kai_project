@@ -43,6 +43,8 @@
 }
 
 .viewTabCount {
+  flex-shrink: 0;
+  white-space: nowrap;
   min-width: 1.55rem;
   padding: 0.08rem 0.38rem;
   border-radius: 999px;
@@ -73,9 +75,6 @@
 }
 
 .explorerHeader {
-  position: sticky;
-  top: var(--ifm-navbar-height);
-  z-index: 5;
   padding: 0.75rem 0;
   background: var(--ifm-background-surface-color);
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
@@ -100,42 +99,14 @@
 }
 
 .searchField {
-  display: flex;
-  align-items: center;
-  width: min(20rem, 100%);
-  min-height: 2.55rem;
-  padding: 0 0.7rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: var(--custom-border-radius-xs);
-  background: var(--ifm-background-color);
-  color: var(--ifm-color-emphasis-600);
+  width: min(23rem, 100%);
 }
 
-.searchField:focus-within {
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 2px var(--ifm-color-primary-contrast-background);
-}
-
-.searchIcon {
-  flex: 0 0 auto;
-  width: 1rem;
-  height: 1rem;
-}
-
-.searchInput {
-  width: 100%;
-  min-width: 0;
-  margin-left: 0.48rem;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: var(--ifm-font-color-base);
-  font: inherit;
-  font-size: 0.88rem;
-}
-
-.searchInput::placeholder {
-  color: var(--ifm-color-emphasis-600);
+.resultCount {
+  margin: -.25rem 0 1rem;
+  color: var(--ifm-color-emphasis-650);
+  font-size: .8rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .explorerLayout {
@@ -255,7 +226,6 @@
   min-width: 0;
 }
 
-.subsubjectStaticRow,
 .subsubjectSummary {
   display: flex;
   align-items: center;
@@ -266,19 +236,6 @@
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
-.subsubjectSummary {
-  cursor: pointer;
-  list-style: none;
-}
-
-.subsubjectSummary::-webkit-details-marker {
-  display: none;
-}
-
-.subsubjectSummary:hover {
-  color: var(--ifm-color-primary);
-}
-
 .subsubjectSummaryText {
   display: flex;
   flex-direction: column;
@@ -286,7 +243,6 @@
   gap: 0.13rem;
 }
 
-.subsubjectName,
 .subsubjectLink {
   display: inline-flex;
   align-items: baseline;
@@ -318,11 +274,27 @@
   line-height: 1.4;
 }
 
-.rowMeta {
+.topicToggle {
   display: inline-flex;
+  min-height: 2.75rem;
   align-items: center;
-  gap: 0.65rem;
+  gap: .4rem;
   flex: 0 0 auto;
+  padding: .35rem .5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-xs);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-700);
+  font: inherit;
+  font-size: .75rem;
+  cursor: pointer;
+}
+
+.topicToggle:hover,
+.topicToggle[aria-expanded='true'] {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary-contrast-background);
 }
 
 .rowCount {
@@ -343,7 +315,7 @@
   transition: transform 0.16s ease;
 }
 
-.subsubjectDisclosure[open] .rowChevron {
+.topicToggle[aria-expanded='true'] .rowChevron {
   transform: rotate(180deg);
 }
 
@@ -417,12 +389,6 @@
   font-size: 0.67rem;
 }
 
-.noResults {
-  padding: 2rem 0;
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.9rem;
-}
-
 .schoolGrid,
 .tagGrid {
   display: flex;
@@ -443,8 +409,10 @@
 .tagPill {
   display: inline-flex;
   align-items: stretch;
+  justify-content: center;
   flex-direction: column;
   min-width: 0;
+  min-height: 2.75rem;
   max-width: 100%;
   gap: 0.3rem;
   padding: 0.42rem 0.48rem 0.42rem 0.7rem;
@@ -473,10 +441,6 @@
   text-decoration: none;
 }
 
-.withDetails {
-  padding-bottom: 0.5rem;
-}
-
 .tagName {
   min-width: 0;
   overflow-wrap: anywhere;
@@ -493,35 +457,6 @@
   font-size: 0.74rem;
   font-weight: 700;
   text-align: center;
-}
-
-.tagDetailRow {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  min-width: 0;
-  gap: 0.28rem 0.35rem;
-}
-
-.tagDetailLabel {
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
-.tagDetailChips {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-}
-
-.tagDetailChip {
-  max-width: 12rem;
-  padding: 0.08rem 0.35rem;
-  border-radius: 999px;
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-color-emphasis-800);
-  font-size: 0.72rem;
 }
 
 .school {
@@ -544,7 +479,6 @@
 }
 
 [data-theme='dark'] .viewTabs,
-[data-theme='dark'] .searchField,
 [data-theme='dark'] .tagPill {
   border-color: var(--ifm-color-emphasis-300);
 }
@@ -560,6 +494,7 @@
 
   .viewTab {
     flex: 1 1 0;
+    min-width: 0;
     justify-content: center;
   }
 
@@ -607,5 +542,62 @@
 
   .tagPill {
     width: 100%;
+  }
+}
+
+.topicRows[hidden],
+.tagsContainer > [hidden] {
+  display: none;
+}
+
+.viewTab:focus-visible,
+.subjectNavItem:focus-visible,
+.subsubjectLink:focus-visible,
+.topicToggle:focus-visible,
+.topicLink:focus-visible,
+.tagPill:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .explorerHeader {
+    position: static;
+    gap: .75rem;
+  }
+
+  .viewTab,
+  .topicLink,
+  .tagPill {
+    min-height: 2.75rem;
+  }
+
+  .subjectNavItem {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 440px) {
+  .viewTab {
+    flex-direction: column;
+    gap: .2rem;
+    padding: .45rem .35rem;
+  }
+
+  .subsubjectSummary {
+    align-items: flex-start;
+    gap: .5rem;
+  }
+
+  .topicToggle > span:first-child {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rowChevron,
+  .tagPill {
+    transition: none;
   }
 }
