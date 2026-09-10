@@ -12,7 +12,7 @@ tags:
 # 名古屋工業大学 工学研究科 情報工学専攻 2014年度 問題22 情報科学 II
 
 ## **Author**
-GPT-5.6 Sol, 祭音Myyura
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 

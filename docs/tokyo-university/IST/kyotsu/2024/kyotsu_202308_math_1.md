@@ -11,7 +11,7 @@ tags:
 # 東京大学 情報理工学研究科 2023年8月実施 数学 第1問
 
 ## **Author**
-[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
+[zephyr](https://inshi-notes.zephyr-zdz.space/), 祭音Myyura (co-authored with ChatGPT 5.4 Thinking)
 
 ## **Description**
 Let $\mathbb{R}^3$ be the set of the three-dimensional real column vectors and $\mathbb{R}^{3 \times 3}$ be the set of the three-by-three real matrices. Let $\mathbf{n}_1$, $\mathbf{n}_2$, and $\mathbf{n}_3 \in \mathbb{R}^3$ be linearly independent unit-length vectors and $\mathbf{n}_4 \in \mathbb{R}^3$ be a unit-length vector not parallel to $\mathbf{n}_1$, $\mathbf{n}_2$, or $\mathbf{n}_3$. Let $\mathbf{A}$ and $\mathbf{B}$ be square matrices defined as

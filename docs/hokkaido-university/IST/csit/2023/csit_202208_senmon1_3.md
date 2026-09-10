@@ -10,7 +10,7 @@ tags:
 # 北海道大学 情報科学院 情報科学専攻 情報理工学コース 2022年8月実施 専門科目1 問3 (確率・統計)
 
 ## **Author**
-祭音Myyura (with GPT 5.5)
+祭音Myyura (co-authored with GPT 5.5)
 
 ## **Description**
 確率・統計に関する以下の問いに答えよ。

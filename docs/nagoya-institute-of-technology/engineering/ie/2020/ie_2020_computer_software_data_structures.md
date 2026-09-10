@@ -10,7 +10,7 @@ tags:
 # 名古屋工業大学 工学研究科 工学専攻 情報工学系 2020年度 計算機ソフトウェア（データ構造とアルゴリズム）
 
 ## **Author**
-GPT-5.6 Sol, 祭音Myyura
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 

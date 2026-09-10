@@ -10,7 +10,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2024年1月実施 解析学・微積分
 
 ## **Author**
-祭音Myyura (assisted by ChatGPT 5.5)
+祭音Myyura (co-authored with ChatGPT 5.5)
 
 ## **Description**
 (1) Find the maximum and the minimum of the function $f(x,y)=x^2+2xy+2y^2$ over the curve $x^2 + xy + y^2 = 1$, and find the points which achieve them.

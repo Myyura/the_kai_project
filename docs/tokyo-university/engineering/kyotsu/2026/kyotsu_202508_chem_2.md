@@ -12,7 +12,7 @@ tags:
 
 ## **Author**
 
-GPT-5.6 Sol
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 

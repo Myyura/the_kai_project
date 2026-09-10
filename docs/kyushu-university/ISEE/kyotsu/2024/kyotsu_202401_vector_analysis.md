@@ -7,7 +7,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2024年1月実施 ベクトル解析
 
 ## **Author**
-祭音Myyura (assisted by ChatGPT 5.5)
+祭音Myyura (co-authored with ChatGPT 5.5)
 
 ## **Description**
 (1) Prove the following relationship between the volume integral and the surface integral:

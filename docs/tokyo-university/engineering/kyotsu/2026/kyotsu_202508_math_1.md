@@ -10,7 +10,7 @@ tags:
 # 東京大学 工学系研究科 2025年8月実施 数学 第1問
 
 ## **Author**
-GPT-5.6 Sol
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 

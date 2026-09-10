@@ -9,7 +9,7 @@ tags:
 
 ## **Author**
 
-祭音Myyura (assisted by GPT-5)
+祭音Myyura (co-authored with GPT-5)
 
 ## **Description**
 

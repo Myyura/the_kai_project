@@ -10,7 +10,7 @@ tags:
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2024年9月実施 解析学・微積分
 
 ## **Author**
-祭音Myyura (assisted by ChatGPT 5.5 Thinking)
+祭音Myyura (co-authored with ChatGPT 5.5 Thinking)
 
 ## **Description**
 (1) Calculate the following integral, where $a$ and $b$ are positive constants and $\mathbb{R}$ denotes the set of all real numbers.

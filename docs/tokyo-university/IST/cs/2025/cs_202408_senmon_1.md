@@ -11,7 +11,7 @@ tags:
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2024年8月実施 専門科目 問題1
 
 ## **Author**
-vv (co-authored with GPT 5.2 extended thinking, finalized by 祭音Myyura)
+vv, 祭音Myyura (co-authored with GPT 5.2 extended thinking)
 
 ## **Description**
 $\Sigma = \{a, b, c\}$ とする．$\Sigma$ 上の言語 $L \subseteq \Sigma^*$ に対して，言語 $\mathcal{H}(L)\subseteq \Sigma^*$ を以下によって定義する． 

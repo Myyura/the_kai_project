@@ -9,7 +9,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2023年8月実施 専門基礎A \[A-1\]
 
 ## **Author**
-祭音Myyura (assisted by ChatGPT 5.4 Thinking)
+祭音Myyura (co-authored with ChatGPT 5.4 Thinking)
 
 ## **Description**
 

@@ -8,7 +8,7 @@ tags:
 # 電気通信大学 情報理工学研究科 情報学専攻 2020年8月実施 選択問題 計算機工学 4-1 形式言語理論
 
 ## **Author**
-GPT-5.6 Sol, 祭音Myyura
+祭音Myyura (co-authored with GPT 5.6 SOL)
 
 ## **Description**
 

@@ -10,7 +10,7 @@ tags:
 # 京都大学 情報学研究科 通信情報システム専攻 2023年8月実施 専門基礎A \[A-3\]
 
 ## **Author**
-[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura (assisted by ChatGPT 5.4 Thinking)
+[SUN](https://www.xiaohongshu.com/user/profile/600ab5e9000000000100797e), 祭音Myyura (co-authored with ChatGPT 5.4 Thinking)
 
 ## **Description**
 
