@@ -2,6 +2,10 @@
 sidebar_label: '2022年8月実施 数学 第1問'
 tags:
   - Tokyo-University
+  - Mathematics.Calculus.Limit
+  - Mathematics.Calculus.Sequence-Convergence
+  - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
 ---
 
 # 東京大学 工学系研究科 2022年8月実施 数学 第1問
@@ -24,13 +28,13 @@ II. 次の微分方程式の一般解を求める。
 
 III. 正の整数 $n$ に対し $\displaystyle a_n=\frac{n!}{n^{n+1/2}e^{-n}}$ とおく。$\displaystyle\lim_{n\to\infty}\frac{a_n}{a_{n+1}}$ を求める。$e$ は自然対数の底である。$x>0$ で $y=x^{-1}$ が下に凸であることを利用してよい。
 
-### 题目描述
+#### 题目描述
 
 1. 给定 $a,b,c>0$，求极限 $\lim_{x\to0}(b^x-c^x)/(ax)$。
 2. 求两个微分方程的通解：
    1. $y'-y/x=\log x$，$x>0$；
    2. $y''-y'-2y=2x^2+2x$。
-3. 对正整数 $n$，定义 $a_n=n!/(n^{n+1/2}e^{-n})$。求 $\lim_{n\to\infty}a_n/a_{n+1}$，其中 $e$ 是自然对数的底。可利用 $y=x^{-1}$ 在 $x>0$ 上向上凸。
+3. 对正整数 $n$，定义 $a_n=n!/(n^{n+1/2}e^{-n})$。求 $\lim_{n\to\infty}a_n/a_{n+1}$，其中 $e$ 是自然对数的底。可利用 $y=x^{-1}$ 在 $x>0$ 上的凸性。
 
 ## **Kai**
 ### I.
@@ -158,3 +162,4 @@ $$
 &\xrightarrow{n \to \infty} 1
 \end{aligned}
 $$
+

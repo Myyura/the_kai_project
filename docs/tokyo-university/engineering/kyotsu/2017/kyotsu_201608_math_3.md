@@ -79,7 +79,7 @@ $$
 #### 3.
 パラメータ$\alpha ,\beta$を場合分けして, $F(\alpha,\beta)$の値を求めよ。ただし,　極が積分路上にある場合は考えなくて良い。
 
-### 题目描述
+#### 题目描述
 
 设 $i$ 为虚数单位，$e$ 为自然对数的底，$\log$ 表示自然对数。
 
@@ -102,120 +102,60 @@ $$
 同样把 $F$ 化为单位圆上的围道积分并求相应的 $G(z)$；找出全部极点、阶数和留数；最后根据实参数 $\alpha,\beta$ 分类计算 $F(\alpha,\beta)$。极点恰在积分路径上的情形无需讨论。
 
 ## **Kai**
-### (I)
-#### 1.
-$z = e^{i\theta}$とおく。
+
+### I.1
+
+$z=e^{i\theta}$ とおくと $\cos\theta=(z+z^{-1})/2$、$\mathrm d\theta=\mathrm dz/(iz)$。したがって
 
 $$
-\begin{aligned}
-dz &= ie^{i \theta}\,d\theta \Leftrightarrow \text{d} \theta = \frac{\text{d}z}{iz} \\
-\cos\theta &= \frac{e^{i\theta} + e^{-i\theta}}{2} = \frac{1}{2}\big(z + \frac{1}{z}\big)
-\end{aligned}
+\boxed{G(z)=\frac{2(z^2+1)}{i(z^2+4z+1)^2}.}
 $$
 
-であるから,　
+### I.2
+
+$a=-2+\sqrt3,b=-2-\sqrt3$ とおく。極は $a,b$ の2点で、いずれも2位である。$ab=1$ を用いると、
 
 $$
-\begin{aligned}
-I &= \oint_{\mid z \mid = 1} \frac{\frac{1}{2}(z+\frac{1}{z})}{\big(2 + \frac{1}{2}(z + \frac{1}{z})\big)^2} \frac{\text{d}z}{iz} \\
-G(z) &= \frac{1}{2iz^2} \frac{z^2 + 1}{\frac{1}{4}\big(z + 4 + \frac{1}{z}\big)^2} \\
-&= \frac{2}{i} \frac{z^2 + 1}{(z^2 + 4z + 1)^2}
-\end{aligned}
-$$
-
-#### 2.
-$z^2 + 4z + 1 = 0$とすると,　$z = -2 \pm \sqrt{3}$。以下,　式が見づらくなるので, $\alpha = -2 + \sqrt{3}, \beta =-2 - \sqrt{3}$と書く。$G(z)$は,
-
-$$
-G(z) = \frac{2}{i}\frac{z^2 + 1}{(z - \alpha)^2(z - \beta)^2}
-$$
-
-となるので,　極は$z = -2 \pm \sqrt{3}$の2つで,　それぞれ2位。$z = \alpha$における留数は,
-
-$$
-\begin{aligned}
-\text{Res}_{z = \alpha} G(z) &= \lim_{z \rightarrow \alpha} \frac{\text{d}}{\text{d}z}(z - \alpha)^2G(z) \\
-&= \frac{2}{i}\lim_{z \rightarrow \alpha} \frac{\text{d}}{\text{d}z} \frac{z^2 + 1}{(z - \beta)^2} \\
-&= \frac{2}{i}\lim_{z \rightarrow \alpha} \frac{2z(z - \beta)^2 - (z^2 + 1)(2z - 2\beta)}{(z - \beta)^4} \\
-&= \frac{2}{i}\lim_{z \rightarrow \alpha} \frac{-2\beta z^2 + (2\beta ^2 - 2)z + 2\beta}{(z - \beta)^4} \\
-&= \frac{2}{i} \frac{-2\beta \alpha ^2 + \alpha(2\beta^2 - 2) + 2\beta}{(\alpha - \beta)^4} \\
-&= \frac{4}{i} \frac{-(\alpha - \beta)(1 +\alpha \beta)}{(\alpha - \beta)^4} \\
-&= \frac{4}{i} \frac{-2\sqrt{3}(1 + 1)}{(2\sqrt{3})^4} = -\frac{1}{i}\frac{\sqrt{3}}{9} 
-\end{aligned}
-$$
-
-$z = \beta$における留数も同様にして計算でき,
-
-$$
-\text{Res}_{z = \beta} G(z)= \frac{4}{i} \frac{-(\beta - \alpha)(1 + \beta \alpha)}{(\beta - \alpha)^4} = \frac{1}{i}\frac{\sqrt{3}}{9} 
-$$
-
-#### 3.
-$|z|<1$の極は$z = \alpha$のみであることに注意して,　留数定理より,　
-
-$$
-\begin{aligned}
-I &= \oint_{\mid z \mid = 1}G(z)\text{d}z \\
-&= 2\pi i \text{Res}_{z = \alpha} G(z) \\
-&= 2\pi i \cdot \big(-\frac{1}{i} \frac{\sqrt{3}}{9}\big) = -\frac{2\sqrt{3}}{9} \pi
-\end{aligned}
-$$
-
-### (II)
-
-複素対数の微分は $f
-e0$ の範囲で $f'/f$ と解釈する。偏角を連続的に追うため、積分後の対数を単一の主値に戻して差をゼロとしてはいけない。
-
-#### 1.
-$\alpha\ne0$ の場合、
-
-$$
-\begin{aligned}
-\frac{\text{d}}{\text{d}\theta}[\log f(\theta;\alpha ,\beta)] &= \frac{f'(\theta)}{f(\theta)}\\
-&= \frac{i \alpha e^{i(\theta + \beta)}}{1 + e^{2i \beta} + \alpha e^{i(\theta + \beta)}} \\
-&= \frac{i \alpha e^{i\beta}z}{1 + e^{2i \beta} + \alpha e^{i\beta}z} \quad (z = e^{i \theta}) \\
-&= \frac{iz}{z + \frac{e^{i\beta}+e^{-i\beta}}{\alpha}} \\
-&= \frac{iz}{z + \frac{2}{\alpha}\cos \beta}
-\end{aligned}
-$$
-
-であるから,
-
-$$
-F(\alpha,\beta) = \oint_{\mid z \mid =1} \frac{\text{d}z}{iz} \frac{iz}{z + \frac{2}{\alpha} \cos \beta} = \oint_{\mid z \mid = 1} \frac{\text{d}z}{z + \frac{2}{\alpha}\cos \beta} 
+\operatorname{Res}(G,a)
+=\frac2i\left[\frac{\mathrm d}{\mathrm dz}\frac{z^2+1}{(z-b)^2}\right]_{z=a}
+=-\frac{4(ab+1)}{i(a-b)^3}
+=\boxed{\frac{i}{3\sqrt3}},
 $$
 
 $$
-\therefore G(z) = \frac{1}{z + \frac{2}{\alpha}\cos \beta}
+\boxed{\operatorname{Res}(G,b)=-\frac{i}{3\sqrt3}}.
 $$
 
-#### 2.
-$\alpha = 0$かつ $\cos\beta\neq0$ のとき、被積分関数は $0$ であり、極は存在しない。$\alpha=0$ かつ $\cos\beta=0$ のときは $f\equiv0$ なので $F$ は定義されない。
+### I.3
 
-$\alpha \neq 0$のとき,　極は$z = -\frac{2}{\alpha}\cos \beta$の1つで, 1位.
-
-留数は,
+単位円内の極は $a$ のみなので、留数定理より
 
 $$
-\lim_{z \rightarrow -\frac{2}{\alpha} \cos \beta}(z + \frac{2}{\alpha}\cos \beta)G(z) = 1
+\boxed{I=2\pi i\frac{i}{3\sqrt3}=-\frac{2\pi}{3\sqrt3}.}
 $$
 
-#### 3.
-$\alpha,\beta$は実数だから, 極$z = -\frac{2}{\alpha}\cos \beta$は実軸上に存在する。この極が, $|z|=1$の内部にあるときと,　外部にある時で場合分けすれば良い。
+### II.1–2
 
-##### (i)
-$\big|-\frac{2}{\alpha}\cos \beta \big| < 1$かつ$\alpha \neq 0$のとき,　極は$|z|<1$に存在し,　留数定理より,　
+$f\ne0$ の範囲で対数微分を $f'/f$ と解釈する。$f=e^{i\beta}(2\cos\beta+\alpha z)$ より、
 
 $$
-F(\alpha,\beta) = 2\pi i \cdot 1 =2\pi i
+\boxed{G(z)=\frac{\alpha}{\alpha z+2\cos\beta}.}
 $$
 
-##### (ii)
-$\big|-\frac{2}{\alpha}\cos \beta \big| > 1$、または $\alpha = 0$ かつ $\cos\beta\neq0$ のとき,　$|z|<1$に極は存在しないので,　
+$\alpha\ne0$ のとき、極は $z=-2\cos\beta/\alpha$ の1点で、1位、留数は $1$。
+
+$\alpha=0,\cos\beta\ne0$ のときは $G=0$ で極はない。$\alpha=0,\cos\beta=0$ では $f\equiv0$ となり、$F$ は定義されない。
+
+### II.3
+
+留数定理より
 
 $$
-F(\alpha,\beta) = 0
+\boxed{F(\alpha,\beta)=
+\begin{cases}
+2\pi i,&|\alpha|>2|\cos\beta|,\\
+0,&|\alpha|<2|\cos\beta|.
+\end{cases}}
 $$
 
-##### (iii)
-$\alpha\neq0$ かつ $\left|-2\cos\beta/\alpha\right|=1$ のときは積分路上に極があるため、$F(\alpha,\beta)$ は定義されない。
+$|\alpha|=2|\cos\beta|\ne0$ は積分路上に極があるため除外される。

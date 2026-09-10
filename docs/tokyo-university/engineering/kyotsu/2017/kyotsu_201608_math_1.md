@@ -41,7 +41,7 @@ x^2 \frac{\text{d}^2y}{\text{d}x^2} - x \frac{\text{d}y}{\text{d}x} - 8y = x^2 \
 \end{align}
 $$
 
-### 题目描述
+#### 题目描述
 
 完成以下三问：
 
@@ -69,130 +69,42 @@ $$
    的一般解。
 
 ## **Kai**
-### (I)
+
+### I
+
+$x=3+\sin\theta$（$-\pi/2\le\theta\le\pi/2$）とおけば、
 
 $$
-\begin{aligned}
-I &= \int_2^4 \frac{\text{d}x}{\sqrt{(x-2)(4-x)}} \\
-&=\int_2^4 \frac{\text{d}x}{\sqrt{1-(x-3)^2}} \\
-&=\int_{-\pi /2}^{\pi /2} \frac{\cos\theta \text{d}\theta}{\sqrt{1-\sin^2 \theta}}  \qquad (\text{置換:} \quad x - 3 = \sin \theta) \\
-&=\int_{-\pi /2}^{\pi /2} \text{d}\theta = \frac{\pi}{2} - (-\frac{\pi}{2}) = \pi
-\end{aligned}
+\boxed{I=\int_{-\pi/2}^{\pi/2}\frac{\cos\theta}{\sqrt{1-\sin^2\theta}}\,\mathrm d\theta=\pi.}
 $$
 
-### (II)
+### II
+
+$p=y'$ とおくと $y=(x+1)p+p^2$。微分して
 
 $$
-\begin{aligned}
-y = x \frac{\text{d}y}{\text{d}x} + \frac{\text{d}y}{\text{d}x} + \bigg(\frac{\text{d}y}{\text{d}x} \bigg)^2 \\
-y = xy' + y' + (y')^2 \\
-\end{aligned}
+(x+1+2p)p'=0.
 $$
 
-$x\text{で微分して}$
+$p=C$ のとき一般解、$p=-(x+1)/2$ のとき特異解が得られる：
 
 $$
-\begin{aligned}
-y' = y' + xy'' + y'' + 2y'y''\\
-y''(x + 1 + 2y') = 0
-\end{aligned}
+\boxed{y=Cx+C+C^2},\qquad
+\boxed{y=-\frac{(x+1)^2}{4}}.
 $$
 
-#### (i)
-$y'' = 0$ のとき,
+### III
+
+同次方程式に $y=x^r$ を代入すると、
 
 $$
-y = ax + b
+r(r-1)-r-8=(r-4)(r+2)=0.
 $$
 
-となり,　式($2$)に代入すると,
+特解を $y_p=Ax^2$ とおけば $-8Ax^2=x^2$ より $A=-1/8$。したがって
 
 $$
-\begin{aligned}
-ax + b &= a(x + 1) + a^2 \\
-b &= a^2 + a
-\end{aligned}
+\boxed{y=C_1x^{-2}+C_2x^4-\frac{x^2}{8},\qquad x\ne0.}
 $$
 
-である,　よって一般解 $y = ax + a^2 + a$ を得る。
-
-#### (ii)
-
-$x + 1 + 2y' = 0$ のとき,
-
-$$
-\begin{aligned}
-y' &= -\frac{1}{2}(x + 1) \\
-y &= -\frac{1}{4}x^2 - \frac{1}{2}x + C \\ 
-\end{aligned}
-$$
-
-となり,　式($2$)に代入すると,
-
-$$
-\begin{aligned}
-- \frac{1}{4}x^2 - \frac{1}{2}x + C &= (x + 1)(-\frac{1}{2}x - \frac{1}{2}) + (-\frac{1}{2}x - \frac{1}{2})^2 \\
-C &= -\frac{1}{4}
-\end{aligned}
-$$
-
-である,　よって特異解 $y = -\frac{1}{4}x^2 - \frac{1}{2}x - \frac{1}{4}$ を得る。
-
-### (III)
-
-$$
-\begin{aligned}
-x^2 \frac{\text{d}^2y}{\text{d}x^2} - x \frac{\text{d}y}{\text{d}x} - 8y = x^2 
-\end{aligned}
-$$
-
-$x = e^{t}$ とおくと,
-
-$$
-\begin{aligned}
-\frac{\text{d}x}{\text{d}t} &= e^{t} = x , \qquad \frac{\text{d}t}{\text{d}x} = \frac{1}{x} \\
-x \frac{\text{d}y}{\text{d}x}&= x \frac{\text{d}y}{\text{d}t} \frac{\text{d}t}{\text{d}x} = \frac{\text{d}y}{\text{d}t} \\
-\frac{\text{d}^2y}{\text{d}x^2} &= \frac{\text{d}}{\text{d}x} (\frac{1}{x} \frac{\text{d}y}{\text{d}t}) \\
-&= - \frac{1}{x^2} \frac{\text{d}y}{\text{d}t} + \frac{1}{x} \frac{\text{d}}{\text{d}t}  \frac{\text{d}t}{\text{d}x} \frac{\text{d}y}{\text{d}t} \\
-&= -\frac{1}{x^2} \frac{\text{d}y}{\text{d}t} + \frac{1}{x^2} \frac{\text{d}^2y}{\text{d}t^2} \\
-&\therefore  x^2\frac{\text{d}^2y}{\text{d}x^2} = \frac{\text{d}^2y}{\text{d}t^2} - \frac{\text{d}y}{\text{d}t} \\
-\end{aligned}
-$$
-
-であるから,式($3$)は,
-
-$$
-\begin{align}
-\frac{\text{d}^2y}{\text{d}t^2} - \frac{\text{d}y}{\text{d}t} - \frac{\text{d}y}{\text{d}t} - 8y &= e^{2t} \nonumber \\
-\frac{\text{d}^2y}{\text{d}t^2} - 2\frac{\text{d}y}{\text{d}t} - 8y &= e^{2t} \tag{4}
-\end{align}
-$$
-
-となる。特性方程式 $\lambda^2 - 2\lambda - 8 = 0$ の解は,
-
-$$
-(\lambda - 4)(\lambda + 2) = 0 \\
-\therefore \lambda = -2 , \quad 4
-$$
-
-だから,　斉次の一般解は $y = C_{1}e^{-2t} + C_{2}e^{4t}$。
-
-一方,　特解を $y = Ae^{2t}$ と予想して式($4$)に代入すると,
-
-$$
-\begin{aligned}
-4Ae^{2t} &- 4Ae^{2t} - 8Ae^{2t} = e^{2t} \\
-&\therefore A = -\frac{1}{8}
-\end{aligned}
-$$
-
-となり,　特解 $y = -\frac{1}{8}e^{2t}$ を得る。よって求める一般解は,
-
-$$
-\begin{aligned}
-y &= C_{1}e^{-2t} + C_{2}e^{4t} - \frac{1}{8}e^{2t} \\
-&= C_{1}x^{-2} + C_{2}x^4 - \frac{1}{8}x^2 \\
-\end{aligned}
-$$
-
-この一般解は $x\ne0$ の各区間で成り立つ。$x<0$ では $t=\log|x|$ とすれば同じ変換が使える。
+積分定数は $x>0$ と $x<0$ の各区間で独立に選べる。

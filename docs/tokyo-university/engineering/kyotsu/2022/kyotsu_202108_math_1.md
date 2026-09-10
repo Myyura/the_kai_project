@@ -2,6 +2,9 @@
 sidebar_label: '2021年8月実施 数学1'
 tags:
   - Tokyo-University
+  - Mathematics.Calculus.Constrained-Optimization
+  - Mathematics.Differential-Equations.Laplace-Transform
+  - Mathematics.Differential-Equations.Initial-Value-Problem
 ---
 
 # 東京大学 工学系研究科 2021年8月実施 数学1
@@ -27,285 +30,118 @@ $t\ge0$ の実数値関数 $f$ に対し、収束する範囲で $F(s)=\int_0^\i
 2. $a,\omega>0$ に対し $e^{-at}\cos\omega t$ と $e^{-at}\sin\omega t$ の変換を定義から求める。
 3. $f''+6f'+13f=0$、$f(0)=5,f'(0)=-11$ を解く。
 
-### 题目描述
+#### 题目描述
 
-1. 第一部分考察椭圆
+I. 设 $a>b>0$，椭圆为 $x^2/a^2+y^2/b^2=1$。
+(1) 求第一象限接点 $(X,Y)$ 的切线。
+(2) 求使该切线在两坐标轴之间的线段最短的接点和最短长度。
+(3) 将该最短线段与坐标轴围成的三角形绕 $x$ 轴旋转成圆锥 $C_1$。在包括底面在内的总表面积与 $C_1$ 相同的圆锥中，令体积最大者为 $C_2$，求两底面积之比 $S_2/S_1$。
 
-   $$
-   \frac{x^2}{a^2}+\frac{y^2}{b^2}=1.
-   $$
-
-   其中 $a>b>0$，接点 $(X,Y)$ 位于第一象限。先求切线；再令切线与两坐标轴交于 $(p,0),(0,q)$，求线段长度 $\sqrt{p^2+q^2}$ 最小时的接点和最小长度。最短情形满足
-   $X^2=a^3/(a+b)$、$Y^2=b^3/(a+b)$；最后将该线段与坐标轴围成的三角形绕 $x$ 轴旋转得到圆锥 $C_1$。在底面也计入的总表面积相同的圆锥中，令最大体积者为 $C_2$，求底面积之比 $S_2/S_1$。
-2. 第二部分取 $t\ge0$，$F(s)=\int_0^\infty e^{-st}f(t)\,dt$ 在所用范围内收敛，$\operatorname{Re}s>0$，并假定 $e^{-st}f(t),e^{-st}f\prime(t)\to0$。先从定义推导 $\mathcal L[f']$ 和 $\mathcal L[f'']$；再求
-   $e^{-at}\cos\omega t$ 与 $e^{-at}\sin\omega t$ 的拉普拉斯变换；最后用这些公式求初值问题
-
-   $$
-   f''+6f'+13f=0,\qquad f(0)=5,\quad f'(0)=-11.
-   $$
+II. 定义 $F(s)=\int_0^\infty e^{-st}f(t)\,dt$，$\operatorname{Re}s>0$，在积分收敛的范围内考虑。
+(1) 利用 $e^{-st}f(t),e^{-st}f'(t)\to0$ 推导 $\mathcal L[f'']=-f'(0)-sf(0)+s^2F(s)$。
+(2) 从定义求 $e^{-at}\cos\omega t$ 与 $e^{-at}\sin\omega t$ 的变换，$a,\omega>0$。
+(3) 求解 $f''+6f'+13f=0,f(0)=5,f'(0)=-11$。
 
 ## **Kai**
-### I.
-#### 1.
-与えられた楕円の方程式を $x$ で微分して、
+
+### I
+
+#### 1
+
+楕円の式を陰関数として微分し、接点が楕円上にあることを用いると、接線は
+
+$$
+\boxed{\frac{Xx}{a^2}+\frac{Yy}{b^2}=1}.
+$$
+
+#### 2
+
+二つの切片は $p=a^2/X,q=b^2/Y$。$u=X^2/a^2\in(0,1)$ とおけば $Y^2/b^2=1-u$ なので、Cauchy–Schwarz の不等式より、
+
+$$
+p^2+q^2=\frac{a^2}u+\frac{b^2}{1-u}\ge(a+b)^2.
+$$
+
+等号は $u=a/(a+b)$ の場合に限るから、
+
+$$
+\boxed{(X,Y)=\left(\sqrt{\frac{a^3}{a+b}},\sqrt{\frac{b^3}{a+b}}\right),
+\qquad d_{\min}=a+b}.
+$$
+
+#### 3
+
+$x$ 軸のまわりに回転してできる $C_1$ の高さ、底面半径、母線はそれぞれ
+
+$$
+p=\sqrt{a(a+b)},\qquad q=\sqrt{b(a+b)},\qquad l=a+b.
+$$
+
+一般に底面半径 $r$、母線 $sr$（$s>1$）の円錐では、表面積と体積は
+
+$$
+S=\pi r^2(1+s),\qquad
+V=\frac{S^{3/2}}{3\sqrt\pi}\frac{\sqrt{s-1}}{s+1}.
+$$
+
+$S$ を固定すると、
+
+$$
+\frac d{ds}\frac{s-1}{(s+1)^2}=\frac{3-s}{(s+1)^3},
+$$
+
+より体積は $s=3$ で唯一の最大値を取る。このとき底面積は $S/4$ なので、
+
+$$
+\boxed{\frac{S_2}{S_1}=\frac{\pi q(q+l)}{4\pi q^2}
+=\frac14\left(1+\sqrt{\frac{a+b}{b}}\right)}.
+$$
+
+### II
+
+#### 1
+
+部分積分と与えられた無限遠の条件から、
+
+$$
+\mathcal L[f']=[e^{-st}f(t)]_0^\infty+sF(s)=-f(0)+sF(s),
+$$
+
+従って、
+
+$$
+\boxed{\mathcal L[f'']=-f'(0)+s\mathcal L[f']
+=-f'(0)-sf(0)+s^2F(s)}.
+$$
+
+#### 2
+
+$q=s+a$ とおく。三角関数を指数関数で表し、
+$\int_0^\infty e^{-(q\mp i\omega)t}dt=(q\mp i\omega)^{-1}$ を用いると、
 
 $$
 \begin{aligned}
-\frac{2x}{a^2} + \frac{2y}{b^2} \frac{dy}{dx} = 0
+\mathcal L[e^{-at}\cos\omega t]
+&=\frac12\left(\frac1{q-i\omega}+\frac1{q+i\omega}\right)
+=\boxed{\frac{s+a}{(s+a)^2+\omega^2}},\\
+\mathcal L[e^{-at}\sin\omega t]
+&=\frac1{2i}\left(\frac1{q-i\omega}-\frac1{q+i\omega}\right)
+=\boxed{\frac\omega{(s+a)^2+\omega^2}}.
 \end{aligned}
 $$
 
-$$
-\begin{aligned}
-\therefore \ \ 
-\frac{dy}{dx} = - \frac{b^2 x}{a^2 y}
-\end{aligned}
-$$
+#### 3
 
-なので、楕円上の点 $(X,Y)$ における接線の方程式は、
+方程式を変換して初期値を代入すると、
 
 $$
-\begin{aligned}
-y-Y = - \frac{b^2 X}{a^2 Y} (x-X)
-\end{aligned}
+(s^2+6s+13)F(s)=5s+19,
+\qquad F(s)=5\frac{s+3}{(s+3)^2+4}+2\frac2{(s+3)^2+4}.
 $$
 
-である。
-
-#### 2.
-上で求めた接線とx,y軸との交点をそれぞれ $(p,0),(0,q)$ とすると、
+前問の結果を逆変換して、
 
 $$
-\begin{aligned}
-p &= X + \frac{a^2 Y^2}{b^2 X} = \frac{a^2}{X}
-\\
-q &= Y + \frac{b^2 X^2}{a^2 Y} = \frac{b^2}{Y}
-\end{aligned}
+\boxed{f(t)=e^{-3t}(5\cos2t+2\sin2t)}.
 $$
 
-であり、この2点を結ぶ線分の長さを $d$ とすると、
-
-$$
-\begin{aligned}
-d^2
-&= p^2 + q^2
-\\
-&= \frac{a^4}{X^2} + \frac{b^4}{Y^2}
-\end{aligned}
-$$
-
-である。
-
-この $d^2$ を最小にする $(X,Y)$ を求めるために、
-ラグランジュの未定乗数 $\lambda$ を導入して、関数
-
-$$
-\begin{aligned}
-L(X,Y)
-&= \frac{a^4}{X^2} + \frac{b^4}{Y^2}
-- \lambda \left( \frac{X^2}{a^2} + \frac{Y^2}{b^2} \right)
-\end{aligned}
-$$
-
-を最小化する。
-
-$$
-\begin{aligned}
-0
-&= \frac{\partial L}{\partial X}
-= - \frac{2a^4}{X^3} - \frac{2 \lambda X}{a^2}
-= - \frac{2}{a^2 X^3} \left( a^6 + \lambda X^4 \right)
-\\
-0
-&= \frac{\partial L}{\partial Y}
-= - \frac{2b^4}{Y^3} - \frac{2 \lambda Y}{b^2}
-= - \frac{2}{b^2 Y^3} \left( b^6 + \lambda Y^4 \right)
-\end{aligned}
-$$
-
-より、
-
-$$
-\begin{aligned}
-X^4 &= -\frac{a^6}{\lambda}
-, \ \ 
-Y^4 = -\frac{b^6}{\lambda}
-\\
-\therefore \ \ 
-X^2 &= \frac{a^3}{\sqrt{-\lambda}}
-, \ \ 
-Y^2 = \frac{b^3}{\sqrt{-\lambda}}
-\end{aligned}
-$$
-
-となるので、これらを楕円の方程式に代入して整理すると、
-
-$$
-\begin{aligned}
-\lambda = -(a+b)^2
-\end{aligned}
-$$
-
-したがって、
-
-$$
-\begin{aligned}
-X^2 = \frac{a^3}{a+b}
-, \ \ 
-Y^2 = \frac{b^3}{a+b}
-\end{aligned}
-$$
-
-であり、このとき、
-
-$$
-\begin{aligned}
-d^2 = (a+b)^2
-\end{aligned}
-$$
-
-である。
-
-まとめると、線分の長さが最小になるのは、接点の座標が
-
-$$
-\begin{aligned}
-\left( \sqrt{\frac{a^3}{a+b}}, \sqrt{\frac{b^3}{a+b}} \right)
-\end{aligned}
-$$
-
-のときであり、このとき、線分の長さは $a+b$ である。
-
-#### 3.
-円錐 $C_1$ の高さと底面半径をそれぞれ $p,q$ とすると、問 I.2 より
-
-$$
-p=\sqrt{a(a+b)},\qquad q=\sqrt{b(a+b)},\qquad \sqrt{p^2+q^2}=a+b.
-$$
-
-半径 $r$、母線 $l$ の円錐の表面積と体積は
-
-$$
-S=\pi r(r+l),\qquad V=\frac{\pi r^2\sqrt{l^2-r^2}}{3}.
-$$
-
-$s=l/r\ge1$ とおくと、$S$ を固定したとき
-
-$$
-V=\frac{S^{3/2}}{3\sqrt\pi}\frac{\sqrt{s-1}}{s+1}
-$$
-
-であり、これは $s=3$ で最大となる。したがって $C_2$ の底面積は表面積の $1/4$ なので、
-
-$$
-\boxed{
-\frac{S_2}{S_1}
-=\frac{q+(a+b)}{4q}
-=\frac14\left(1+\sqrt{\frac{a+b}{b}}\right)
-}.
-$$
-
-### II.
-#### 1.
-
-$$
-\begin{aligned}
-\mathcal{L} \left[ f'(t) \right]
-&= \int_0^\infty e^{-st} f'(t) dt
-\\
-&= \left[ e^{-st} f(t) \right]_0^\infty + s \int_0^\infty e^{-st} f(t) dt
-\\
-&= -f(0) + s \mathcal{L} \left[ f(t) \right]
-\\
-\mathcal{L} \left[ f''(t) \right]
-&= \int_0^\infty e^{-st} f''(t) dt
-\\
-&= \left[ e^{-st} f'(t) \right]_0^\infty + s \int_0^\infty e^{-st} f'(t) dt
-\\
-&= -f'(0) - s f(0) + s^2 \mathcal{L} \left[ f(t) \right]
-\end{aligned}
-$$
-
-#### 2.
-
-$$
-\begin{aligned}
-\mathcal{L} \left[ g(t) \right]
-&= \int_0^\infty e^{-(s+a)t} \cos (\omega t) dt
-\\
-&= \frac{1}{\omega} \left[ e^{-(s+a)t} \sin (\omega t) \right]_0^\infty
-+ \frac{s+a}{\omega} \int_0^\infty e^{-(s+a)t} \sin (\omega t) dt
-\\
-&= \frac{s+a}{\omega} \mathcal{L} \left[ h(t) \right]
-\\
-\mathcal{L} \left[ h(t) \right]
-&= \int_0^\infty e^{-(s+a)t} \sin (\omega t) dt
-\\
-&= - \frac{1}{\omega} \left[ e^{-(s+a)t} \cos (\omega t) \right]_0^\infty
-- \frac{s+a}{\omega} \int_0^\infty e^{-(s+a)t} \cos (\omega t) dt
-\\
-&= \frac{1}{\omega} - \frac{s+a}{\omega} \mathcal{L} \left[ g(t) \right]
-\end{aligned}
-$$
-
-より、
-
-$$
-\begin{aligned}
-\mathcal{L} \left[ g(t) \right]
-&= \frac{s+a}{(s+a)^2 + \omega^2}
-\\
-\mathcal{L} \left[ h(t) \right]
-&= \frac{\omega}{(s+a)^2 + \omega^2}
-\end{aligned}
-$$
-
-#### 3.
-与えられた微分方程式をラプラス変換して、上の 1. で得た式を使うと、
-
-$$
-\begin{aligned}
-\left( -f'(0) - s f(0) + s^2 \mathcal{L} \left[ f(t) \right] \right)
-+ 6 \left( -f(0) + s \mathcal{L} \left[ f(t) \right] \right)
-+ 13 \mathcal{L} \left[ f(t) \right]
-= 0
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-\therefore \ \ 
--f'(0) - (s+6) f(0) + (s^2+6s+13) \mathcal{L} \left[ f(t) \right] = 0
-\end{aligned}
-$$
-
-さらに、初期値 $f(0)=5, f'(0)=-11$ を代入して整理すると、
-
-$$
-\begin{aligned}
-(s^2+6s+13) \mathcal{L} \left[ f(t) \right] = 5s+19
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-\therefore \ \ 
-\mathcal{L} \left[ f(t) \right]
-&= \frac{5s+19}{s^2+6s+13}
-\\
-&= 2 \cdot \frac{2}{(s+3)^2+2^2} + 5 \cdot \frac{s+3}{(s+3)^2+2^2}
-\end{aligned}
-$$
-
-となる。これは、上の 2. で $a=3, \omega=2$ の場合に相当するので、
-
-$$
-\begin{aligned}
-f(t)
-&= 2 e^{-3t} \sin (2t) + 5 e^{-3t} \cos (2t)
-\\
-&= e^{-3t} \left( 2 \sin (2t) + 5 \cos (2t) \right)
-\end{aligned}
-$$
-
-がわかる。

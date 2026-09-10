@@ -2,6 +2,9 @@
 sidebar_label: '2021年8月実施 数学2'
 tags:
   - Tokyo-University
+  - Mathematics.Linear-Algebra.Simultaneous-Diagonalization-of-Commuting-Operators
+  - Mathematics.Linear-Algebra.Quadratic-Form
+  - Mathematics.Calculus.Triple-Integral
 ---
 
 # 東京大学 工学系研究科 2021年8月実施 数学2
@@ -14,6 +17,7 @@ tags:
 [公式原題](https://www.t.u-tokyo.ac.jp/hubfs/graduate/2022/kakomon/2022_M_2.pdf)
 
 ### I.
+
 $$
 A=\begin{pmatrix}7&-2&1\\-2&10&-2\\1&-2&7\end{pmatrix},\qquad
 B=\begin{pmatrix}5&-1&-1\\-1&5&-1\\-1&-1&5\end{pmatrix}.
@@ -24,7 +28,11 @@ $$
 3. $\|\boldsymbol v\|=1$、$A\boldsymbol v=a\boldsymbol v$、$B\boldsymbol v=b\boldsymbol v$ を満たす実ベクトルと固有値の組 $(\boldsymbol v,a,b)$ をすべて求める。
 
 ### II.
-$$f(x,y,z)=2(x^2+y^2+z^2)+4yz+\frac{z-y}{\sqrt2}$$
+
+$$
+f(x,y,z)=2(x^2+y^2+z^2)+4yz+\frac{z-y}{\sqrt2}
+$$
+
 とする。
 
 1. $f=\boldsymbol x^TA\boldsymbol x+2\boldsymbol b^T\boldsymbol x$ の実対称行列 $A$ と $\boldsymbol b$ を求める。
@@ -32,411 +40,97 @@ $$f(x,y,z)=2(x^2+y^2+z^2)+4yz+\frac{z-y}{\sqrt2}$$
 3. $(X,Y,Z)^T=P(x,y,z)^T$ を使って $f$ を表す。
 4. $f=0$ と平面 $y-z-\sqrt2=0$ が囲む領域を図示し、体積を求める。
 
-### 题目描述
+#### 题目描述
 
-1. 第一部分使用实对称矩阵
+I. 设 $A=\begin{pmatrix}7&-2&1\\-2&10&-2\\1&-2&7\end{pmatrix}$、$B=\begin{pmatrix}5&-1&-1\\-1&5&-1\\-1&-1&5\end{pmatrix}$。
+(1) 计算 $AB$。
+(2) 对各自具有互异特征值的两个可交换实对称矩阵，证明它们可同时正交对角化。
+(3) 求所有实单位向量 $\boldsymbol v$ 与实数 $a,b$ 的组合，使 $A\boldsymbol v=a\boldsymbol v,B\boldsymbol v=b\boldsymbol v$。
 
-   $$
-   A=\begin{pmatrix}7&-2&1\\-2&10&-2\\1&-2&7\end{pmatrix},\qquad
-   B=\begin{pmatrix}5&-1&-1\\-1&5&-1\\-1&-1&5\end{pmatrix}.
-   $$
-
-   先计算 $AB$；再证明若两个具有互异特征值的 $n$ 阶实对称矩阵 $C,D$ 可交换，则可由同一正交矩阵同时对角化；最后求所有单位向量 $\boldsymbol v$ 及数 $a,b$，使
-   $A\boldsymbol v=a\boldsymbol v$、$B\boldsymbol v=b\boldsymbol v$。
-2. 第二部分给定 $f(x,y,z)=2(x^2+y^2+z^2)+4yz+(z-y)/\sqrt2$，将其写成
-
-   $$
-   f(\boldsymbol x)=\boldsymbol x^TA\boldsymbol x+2\boldsymbol b^T\boldsymbol x,
-   \quad
-   A=\begin{pmatrix}2&0&0\\0&2&2\\0&2&2\end{pmatrix},
-   \quad
-   \boldsymbol b=\frac1{2\sqrt2}\begin{pmatrix}0\\-1\\1\end{pmatrix}.
-   $$
-
-   求 $A,\boldsymbol b$；正交对角化 $A=P^TDP$，并将 $D$ 的对角元按从大到小排列；在新坐标 $(X,Y,Z)^T=P(x,y,z)^T$ 下把曲面 $f(x,y,z)=0$ 化为 $4X^2+2Y^2-Z=0$；画出并求该曲面与平面 $y-z-\sqrt2=0$ 所围立体的体积。
+II. 令 $f(x,y,z)=2(x^2+y^2+z^2)+4yz+(z-y)/\sqrt2$。
+(1) 写成 $\boldsymbol x^TA\boldsymbol x+2\boldsymbol b^T\boldsymbol x$，求对称矩阵 $A$ 与向量 $\boldsymbol b$。
+(2) 求正交矩阵 $P$ 与降序对角矩阵 $D$，使 $A=P^TDP$。
+(3) 用 $(X,Y,Z)^T=P(x,y,z)^T$ 表示 $f$。
+(4) 图示并求 $f=0$ 与平面 $y-z-\sqrt2=0$ 所围区域的体积。
 
 ## **Kai**
-### I.
-#### 1.
+
+### I
+
+#### 1
 
 $$
-\begin{aligned}
-AB
-&= \begin{pmatrix} 36 & -18 & 0 \\ -18 & 54 & -18 \\ 0 & -18 & 36 \end{pmatrix}
-\\
-&= 18 \begin{pmatrix} 2 & -1 & 0 \\ -1 & 3 & -1 \\ 0 & -1 & 2 \end{pmatrix}
-\end{aligned}
+\boxed{AB=\begin{pmatrix}36&-18&0\\-18&54&-18\\0&-18&36\end{pmatrix}}.
 $$
 
-#### 2.
-2つの $n$ 次実対称行列 $C, D$ を考え、 $CD=DC$ が成り立つとする。
-また、どちらもそれぞれ $n$ 個の固有値は互いに異なるとする。
+#### 2
 
-$C$ の固有値 $c$ に属する固有ベクトルを $\boldsymbol{w}$ とすると、
+$C,D$ を可換な実対称行列とし、$C$ の固有値は互いに異なるとする。
+$C\boldsymbol v_j=c_j\boldsymbol v_j$ ならば、
+$C(D\boldsymbol v_j)=D(C\boldsymbol v_j)=c_jD\boldsymbol v_j$。
+$c_j$ の固有空間は一次元なので $D\boldsymbol v_j=d_j\boldsymbol v_j$ と書ける。
+従って $C$ の正規直交固有基底は $D$ の固有基底でもある。
+これらを列に持つ直交行列により、両行列は同時に対角化される。
 
-$$
-\begin{aligned}
-C \boldsymbol{w} &= c \boldsymbol{w}
-\\
-CD \boldsymbol{w}
-&= DC \boldsymbol{w}
-\\
-&= Dc \boldsymbol{w}
-\\
-&= cD \boldsymbol{w}
-\end{aligned}
-$$
+#### 3
 
-であり、 $D \boldsymbol{w}$ は $C$ の固有値 $c$ に属する固有空間に入る（零ベクトルの場合も含む）。
-$C$ の $c$ に属する固有空間は1次元なので、
+ここで、
 
 $$
-\begin{aligned}
-D \boldsymbol{w} = d \boldsymbol{w}
-\end{aligned}
+\boldsymbol u_1=\frac1{\sqrt6}(1,-2,1)^T,\quad
+\boldsymbol u_2=\frac1{\sqrt3}(1,1,1)^T,\quad
+\boldsymbol u_3=\frac1{\sqrt2}(1,0,-1)^T.
 $$
 
-と書ける。
-つまり、 $\boldsymbol{w}$ は $D$ の固有ベクトルでもある。
-同様にして、 $D$ の固有ベクトルは $C$ の固有ベクトルでもある。
-
-$C$ の固有値 $c_1, c_2, \cdots, c_n$ に属する規格化された固有ベクトル
-$\boldsymbol{w}_1, \boldsymbol{w}_2, \cdots, \boldsymbol{w}_n$ は
-互いに直交し、直交行列
+直接計算すると、これらは正規直交基底をなし、
 
 $$
-\begin{aligned}
-P =
-\begin{pmatrix} \boldsymbol{w}_1 & \boldsymbol{w}_2 & \cdots & \boldsymbol{w}_n \end{pmatrix}
-\end{aligned}
+A\boldsymbol u_j=a_j\boldsymbol u_j,\quad
+B\boldsymbol u_j=b_j\boldsymbol u_j,\quad
+(a_1,b_1)=(12,6),\ (a_2,b_2)=(6,3),\ (a_3,b_3)=(6,6).
 $$
 
-によって $C$ は対角化される。
-$\boldsymbol{w}_1, \boldsymbol{w}_2, \cdots, \boldsymbol{w}_n$ は、
-$D$ の $n$ 個の互いに直交する（1次独立な）固有ベクトルでもあるので、
-$P$ によって $D$ も対角化される。
-つまり、 $C$ と $D$ は同時対角化可能である。
-
-#### 3.
-$A$ の固有値を $\lambda$ とすると、
+三つの固有値の組は相異なるので、各共通固有空間は一次元である。すべての解は
 
 $$
-\begin{aligned}
-0
-&= \det \begin{pmatrix}
-7 - \lambda & -2 & 1 \\ -2 & 10 - \lambda & -2 \\ 1 & -2 & 7 - \lambda
-\end{pmatrix}
-\\
-&= - (\lambda-6)^2 (\lambda-12)
-\\
-\therefore \ \ 
-\lambda &= 6, 12
-\end{aligned}
+\boxed{(\boldsymbol v,a,b)=(\pm\boldsymbol u_1,12,6),\
+(\pm\boldsymbol u_2,6,3),\ (\pm\boldsymbol u_3,6,6)}.
 $$
 
-である。
+### II
 
-$A$ の固有値 $12$ に属する固有ベクトルを求めるために、
+#### 1–2
 
-$$
-\begin{aligned}
-\begin{pmatrix} -5 & -2 & 1 \\ -2 & -2 & -2 \\ 1 & -2 & -5 \end{pmatrix}
-\begin{pmatrix} x \\ y \\ z \end{pmatrix}
-=
-\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
-\end{aligned}
-$$
-
-とおくと、 $-5x-2y+z=0, x+y+z=0, x-2y-5z=0$ であるから、例えば、
+二次項と一次項の係数比較により、
 
 $$
-\begin{aligned}
-\boldsymbol{x}_1
-= \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}
-\end{aligned}
+\boxed{A=\begin{pmatrix}2&0&0\\0&2&2\\0&2&2\end{pmatrix},\qquad
+\boldsymbol b=\frac1{2\sqrt2}\begin{pmatrix}0\\-1\\1\end{pmatrix}}.
 $$
 
-が固有ベクトルである。
-
-$A$ の固有値 $6$ に属する固有空間を求めるために、
+固有値は $4,2,0$ であり、次のように取れる。
 
 $$
-\begin{aligned}
-\begin{pmatrix} 1 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 1 \end{pmatrix}
-\begin{pmatrix} x \\ y \\ z \end{pmatrix}
-=
-\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
-\end{aligned}
+\boxed{D=\operatorname{diag}(4,2,0),\qquad
+P=\begin{pmatrix}0&1/\sqrt2&1/\sqrt2\\1&0&0\\0&1/\sqrt2&-1/\sqrt2\end{pmatrix}}.
 $$
 
-とおくと、 $x-2y+z=0$ であるから、
+このとき $PP^T=I$、$A=P^TDP$ が成り立つ。
+
+#### 3–4
+
+新座標は $X=(y+z)/\sqrt2,Y=x,Z=(y-z)/\sqrt2$ なので、
 
 $$
-\begin{aligned}
-\boldsymbol{x}_2
-= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
-, \ \ 
-\boldsymbol{x}_3
-= \frac{1}{\sqrt{6}} \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}
-\end{aligned}
+\boxed{f=4X^2+2Y^2-Z}.
 $$
 
-を基底とする空間が固有空間である。
-
-$B$ の固有値を $\mu$ とすると、
-
-$$
-\begin{aligned}
-0
-&= \det \begin{pmatrix}
-5-\mu & -1 & -1 \\ -1 & 5-\mu & -1 \\ -1 & -1 & 5-\mu
-\end{pmatrix}
-\\
-&= - (\mu-3)(\mu-6)^2
-\\
-\therefore \ \ 
-\mu &= 3, 6
-\end{aligned}
-$$
-
-である。
-
-上と同様に考えると、
+平面は $Z=1$ となり、囲まれる領域は $4X^2+2Y^2\le Z\le1$ である。
+高さ $Z$ の断面楕円の半軸は $\sqrt Z/2,\sqrt{Z/2}$ である。
+直交変換は体積を保存するから、
 
 $$
-\begin{aligned}
-\boldsymbol{y}_1
-= \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
-\end{aligned}
+\boxed{V=\int_0^1\frac{\pi Z}{2\sqrt2}\,dZ=\frac\pi{4\sqrt2}}.
 $$
 
-は $B$ の固有値 $3$ に属する固有ベクトルであり、
-
-$$
-\begin{aligned}
-\boldsymbol{y}_2
-= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}
-, \ \ 
-\boldsymbol{y}_3
-= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
-\end{aligned}
-$$
-
-を基底とする空間が $B$ の固有値 $6$ に属する固有空間である。
-
-よって、$\boldsymbol{x}_1$ について、
-
-$$
-\begin{aligned}
-A \boldsymbol{x}_1 = 12 \boldsymbol{x}_1
-, \ \ 
-B \boldsymbol{x}_1 = 6 \boldsymbol{x}_1
-\end{aligned}
-$$
-
-が成り立ち、$\boldsymbol{y}_1$ について、
-
-$$
-\begin{aligned}
-A \boldsymbol{y}_1 = 6 \boldsymbol{y}_1
-, \ \ 
-B \boldsymbol{y}_1 = 3 \boldsymbol{y}_1
-\end{aligned}
-$$
-
-が成り立つ。
-
-さらに、 $\boldsymbol{x}_1, \boldsymbol{y}_1$ に直交する規格化されたベクトルとして、
-
-$$
-\begin{aligned}
-\boldsymbol{z}
-= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
-\end{aligned}
-$$
-
-を考えると、
-
-$$
-\begin{aligned}
-A \boldsymbol{z} = 6 \boldsymbol{z}
-, \ \ 
-B \boldsymbol{z} = 6 \boldsymbol{z}
-\end{aligned}
-$$
-
-が成り立つ。
-つまり、6つのベクトル $\pm \boldsymbol{x}_1, \pm \boldsymbol{y}_1, \pm \boldsymbol{z}$は、規格化された同時固有ベクトルである。（これら以外にはないことは次のようにしてわかる。
-$\alpha \ne 0, \beta \neq 0, \gamma \neq 0$ として、
-$\alpha \boldsymbol{x}_1 + \beta \boldsymbol{y}_1$ は
-$A,B$ どちらの固有ベクトルでもなく、
-$\alpha \boldsymbol{x}_1 + \gamma \boldsymbol{z}$ は
-$B$ の固有ベクトルだが $A$ の固有ベクトルではなく、
-$\beta \boldsymbol{y}_1 + \gamma \boldsymbol{z}$ は
-$A$ の固有ベクトルだが $B$ の固有ベクトルではなく、
-$\alpha \boldsymbol{x}_1 + \beta \boldsymbol{y}_1 + \gamma \boldsymbol{z}$ は
-$A,B$ どちらの固有ベクトルでもない。）
-
-以上より、
-
-$$
-\begin{aligned}
-\left( \boldsymbol{v}, a, b \right)
-=
-&\left( \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}, 12, 6 \right)
-, \ \ 
-\left( -\frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}, 12, 6 \right)
-, \\
-&\left( \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}, 6, 3 \right)
-, \ \ 
-\left( -\frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}, 6, 3 \right)
-, \\
-&\left( \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}, 6, 6 \right)
-, \ \ 
-\left( -\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}, 6, 6 \right)
-\end{aligned}
-$$
-
-を得る。
-
-### II.
-#### 1.
-
-$$
-\begin{aligned}
-A = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 2 & 2 \\ 0 & 2 & 2 \end{pmatrix}
-, \ \ 
-\boldsymbol{b} = \frac{1}{2 \sqrt{2}} \begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}
-\end{aligned}
-$$
-
-#### 2.
-$A$ の固有値を $\lambda$ とすると、
-
-$$
-\begin{aligned}
-0
-&= \det
-\begin{pmatrix} 2-\lambda & 0 & 0 \\ 0 & 2-\lambda & 2 \\ 0 & 2 & 2-\lambda \end{pmatrix}
-\\
-&= - \lambda(\lambda-2)(\lambda-4)
-\end{aligned}
-$$
-
-となるので、
-
-$$
-\begin{aligned}
-d_1 = 4, d_2 = 2, d_3 = 0
-\end{aligned}
-$$
-
-つまり、
-
-$$
-\begin{aligned}
-D
-= \begin{pmatrix} 4 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 0 \end{pmatrix}
-\end{aligned}
-$$
-
-である。
-
-固有値 $d_1, d_2, d_3$ に属する規格化された固有ベクトルは、それぞれ、
-
-$$
-\begin{aligned}
-\boldsymbol{v}_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
-, \ \ 
-\boldsymbol{v}_2 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
-, \ \ 
-\boldsymbol{v}_3 = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1 \\ -1 \end{pmatrix}
-\end{aligned}
-$$
-
-なので、
-
-$$
-\begin{aligned}
-P^T
-= \frac{1}{\sqrt{2}} \begin{pmatrix} 0 & \sqrt{2} & 0 \\ 1 & 0 & 1 \\ 1 & 0 & -1 \end{pmatrix}
-, \ \ 
-P
-= \frac{1}{\sqrt{2}} \begin{pmatrix} 0 & 1 & 1 \\ \sqrt{2} & 0 & 0 \\ 0 & 1 & -1 \end{pmatrix}
-\end{aligned}
-$$
-
-とすると、 $A = P^T DP$ となる。
-
-#### 3.
-
-$$
-\begin{aligned}
-f(x,y,z)
-&=
-\begin{pmatrix} x & y & z \end{pmatrix} A \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-+ 2 \boldsymbol{b}^T \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-\\
-&=
-\begin{pmatrix} x & y & z \end{pmatrix} P^T P A P^T P \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-+ 2 \boldsymbol{b}^T P^T P \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-\\
-&=
-\begin{pmatrix} X & Y & Z \end{pmatrix} D \begin{pmatrix} X \\ Y \\ Z \end{pmatrix}
-+ 2 \boldsymbol{b}^T P^T \begin{pmatrix} X \\ Y \\ Z \end{pmatrix}
-\\
-&=
-4X^2+2Y^2-Z
-\end{aligned}
-$$
-
-#### 4.
-平面 $y-z-\sqrt{2}=0$ は次のように書き直せる：
-
-$$
-\begin{aligned}
-\begin{pmatrix} 0 & 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix}
-&= \sqrt{2}
-\\
-\begin{pmatrix} 0 & 1 & -1 \end{pmatrix} P^T \begin{pmatrix} X \\ Y \\ Z \end{pmatrix}
-&= \sqrt{2}
-\end{aligned}
-$$
-
-これを整理して $Z=1$ を得る。
-
-また、 3. で得た
-
-$$
-\begin{aligned}
-4X^2 + 2Y^2 - Z = 0
-\end{aligned}
-$$
-
-は、 $Z (\gt 0)$ を固定すると、 $X,Y$ に関する楕円の方程式であり、その面積 $S(Z)$ は、
-
-$$
-\begin{aligned}
-S(Z)
-= \pi \sqrt{\frac{Z}{4}} \sqrt{\frac{Z}{2}}
-= \frac{\pi}{2 \sqrt{2}} Z
-\end{aligned}
-$$
-
-である。
-
-よって、求める体積は、
-
-$$
-\begin{aligned}
-\int_0^1 S(Z) dZ
-= \frac{\pi}{2 \sqrt{2}} \int_0^1 Z dZ
-= \frac{\pi}{4 \sqrt{2}}
-\end{aligned}
-$$
-
-である。
-
-![Bounded elliptic-paraboloid volume in orthogonal coordinates](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/tokyo-kyotsu-202108-paraboloid.svg)
-
-図は直交変換後の $4X^2+2Y^2\le Z\le1$ を表す。直交変換は体積を保存する。
+![直交座標における楕円放物面と断面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/kyotsu_202108_math_2_paraboloid.svg)

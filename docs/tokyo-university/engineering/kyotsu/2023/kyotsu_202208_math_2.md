@@ -2,6 +2,9 @@
 sidebar_label: '2022年8月実施 数学 第2問'
 tags:
   - Tokyo-University
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Positive-Definite-Matrix
+  - Mathematics.Linear-Algebra.Quadratic-Form
 ---
 
 # 東京大学 工学系研究科 2022年8月実施 数学 第2問
@@ -16,7 +19,11 @@ tags:
 [公式問題 PDF・5ページ](https://www.t.u-tokyo.ac.jp/hubfs/M_J_E_2023.pdf#page=5)
 
 実数 $a$ に対し
-$$A=\begin{pmatrix}2&1&0\\1&3&a\\0&a&2\end{pmatrix}$$
+
+$$
+A=\begin{pmatrix}2&1&0\\1&3&a\\0&a&2\end{pmatrix}
+$$
+
 とする。対角行列 $D$ と正則行列 $P$ による $A=PDP^{-1}$ を考える。
 
 I. $a=1$ の場合の $D$ を求める。
@@ -27,12 +34,14 @@ III. この不等式が任意の非零実ベクトルに対して成り立つた
 
 IV. III の条件のもとで、$\boldsymbol b=(a,0,-1)^T$ に対する $f(\boldsymbol x)=\boldsymbol x^TA\boldsymbol x-\boldsymbol b^T\boldsymbol x$ の最小値を $a$ で表す。
 
-### 题目描述
+#### 题目描述
 
 给定实参数 $a$ 和矩阵
+
 $$
 A=\begin{pmatrix}2&1&0\\1&3&a\\0&a&2\end{pmatrix},
 $$
+
 考虑对角矩阵 $D$ 和可逆矩阵 $P$ 使 $A=PDP^{-1}$。
 
 1. 当 $a=1$ 时求 $D$。

@@ -39,10 +39,12 @@ $$
 1. 曲線 $L$ の長さを求めよ。
 2. 曲面 $S$ の面積を求めよ。
 3. 点
+
    $$
    P=\left(\frac{e+e^{-1}}{2\sqrt2},
    \frac{e+e^{-1}}{2\sqrt2},1\right)
    $$
+
    における接平面を求めよ。
 4. 点 $P$ における曲面 $S$ の Gaussian curvature を求めよ。
 
@@ -52,13 +54,16 @@ $$
 K=\frac{(\boldsymbol R_{\xi\xi}\cdot\boldsymbol n)(\boldsymbol R_{\eta\eta}\cdot\boldsymbol n)-(\boldsymbol R_{\xi\eta}\cdot\boldsymbol n)^2}{(\boldsymbol R_\xi\cdot\boldsymbol R_\xi)(\boldsymbol R_\eta\cdot\boldsymbol R_\eta)-(\boldsymbol R_\xi\cdot\boldsymbol R_\eta)^2},\qquad \boldsymbol R_\xi\times\boldsymbol R_\eta\ne0.
 $$
 
-### 题目描述
+#### 题目描述
 
 在三维直角坐标系中给定参数曲线
+
 $$
 L(u)=(\cosh u,0,u),\qquad -2\le u\le2,
 $$
+
 以及它绕 $z$ 轴旋转所得参数曲面
+
 $$
 S(u,v)=(\cosh u\cos v,\cosh u\sin v,u),
 \quad -2\le u\le2,\ 0\le v\le2\pi.
@@ -67,12 +72,20 @@ $$
 1. 求曲线 $L$ 的弧长。
 2. 求曲面 $S$ 的总面积。
 3. 求
+
    $$
    P=\left(\frac{e+e^{-1}}{2\sqrt2},
    \frac{e+e^{-1}}{2\sqrt2},1\right)
    $$
+
    处的切平面。
 4. 求 $P$ 处的高斯曲率。
+
+对于光滑正则曲面 $\boldsymbol R(\xi,\eta)$ 及其单位法向量 $\boldsymbol n$，可使用公式
+
+$$
+K=\frac{(\boldsymbol R_{\xi\xi}\cdot\boldsymbol n)(\boldsymbol R_{\eta\eta}\cdot\boldsymbol n)-(\boldsymbol R_{\xi\eta}\cdot\boldsymbol n)^2}{(\boldsymbol R_\xi\cdot\boldsymbol R_\xi)(\boldsymbol R_\eta\cdot\boldsymbol R_\eta)-(\boldsymbol R_\xi\cdot\boldsymbol R_\eta)^2},\qquad \boldsymbol R_\xi\times\boldsymbol R_\eta\ne0.
+$$
 
 ## **Kai**
 

@@ -70,7 +70,7 @@ $$
 #### 3.
 $(a,b) = (1,1)$ および $(-1,1)$ のとき, $t$ を $0$ から無限大まで連続的に変化させた場合の点 $P$ の軌跡をそれぞれ図示せよ。
 
-### 题目描述
+#### 题目描述
 
 对定义在 $t\ge0$ 上的函数 $f(t)$，拉普拉斯变换定义为
 
@@ -102,185 +102,82 @@ $$
    用拉普拉斯变换求 $t\ge0$ 的解；消去 $t$ 得到 $x,y$ 的关系；最后分别对 $(a,b)=(1,1)$ 与 $(-1,1)$，画出 $t$ 从 $0$ 连续增至无穷时 $P$ 的轨迹并标明运动方向。
 
 ## **Kai**
-### I.
 
-各等式はラプラス積分が収束し、部分積分の無限遠境界項が消える半平面で成り立つ。特に1.では $\operatorname{Re}s>0$ とする。
+### I
 
-#### 1.
+以下では変換が収束し、部分積分の無限遠境界項が消える半平面を考える。
 
-$$
-\begin{aligned}
-L[t^{n}] &= \int_0^{\infty}t^{n} \cdot e^{-st}\text{d}t \\
-&= -\frac{1}{s}\bigg[t^{n}e^{-st}\bigg]_0^{\infty} + \frac{n}{s}\int_0^{\infty} t^{n - 1} \cdot e^{-st} \text{d}t \\
-&= \frac{n}{s}L[t^{n-1}] \\
-&= \frac{n}{s} \cdot \frac{n - 1}{s}L[t^{n - 2}] \\
-&= \frac{n}{s} \cdot \frac{n - 1}{s} \cdot \cdots \cdot \frac{n - (n - 1)}{s}L[t^0] \\
-&= \frac{n!}{s^{n}} \int_0^{\infty} e^{-st}\text{d}t \\
-&= -\frac{n!}{s^{n+1}}\bigg[e^{-st}\bigg]_0^{\infty} \\
-&= \frac{n!}{s^n} \cdot \frac{1}{s} = \frac{n!}{s^{n + 1}}
-\end{aligned}
-$$
+1. $\operatorname{Re}s>0$ において部分積分すると
 
-#### 2.
+   $$
+   L[t^n]=\frac nsL[t^{n-1}],\qquad L[1]=\frac1s,
+   $$
 
-$$
-\begin{aligned}
-L[\frac{\text{d}f(t)}{\text{d}t}] &= \int_0^{\infty} \frac{\text{d}f(t)}{\text{d}t} \cdot e^{-st} \text{d}t \\
-&= \bigg[f(t)e^{-st}\bigg]_0^{\infty} + s \int_0^{\infty} f(t)e^{-st}\text{d}t \\
-&= -f(0) + sF(s) 
-\end{aligned}
-$$
+   よって $\boxed{L[t^n]=n!/s^{n+1}}$。
+2. 部分積分より
 
-#### 3.
+   $$
+   L[f']=[f(t)e^{-st}]_0^\infty+s\int_0^\infty f(t)e^{-st}\,\mathrm dt
+   =\boxed{sF(s)-f(0)}.
+   $$
 
-$$
-\begin{aligned}
-L[e^{at}f(t)] &= \int_0^{\infty} e^{at}f(t) \cdot e^{-st} \text{d}t \\
-&= \int_0^{\infty}f(t) \cdot e^{-(s - a)t}\text{d}t \\
-&= F(s - a)
-\end{aligned}
-$$
+3. 定義から
 
-### II.
+   $$
+   L[e^{at}f(t)]=\int_0^\infty f(t)e^{-(s-a)t}\,\mathrm dt
+   =\boxed{F(s-a)}.
+   $$
+
+### II
+
+初期条件と $L[tf]=-F'$ を用いて変換すると、
 
 $$
-\begin{aligned}
-t\frac{\text{d}^2f(t)}{\text{d}t^2} + (1 + 3t)\frac{\text{d}f(t)}{\text{d}t} + 3f(t) = 0,\\
-f(0) = 1,\quad \frac{\text{d}f}{\text{d}t}\bigg|_{t = 0} = -3
-\end{aligned}
+-\frac{\mathrm d}{\mathrm ds}(s^2F-s+3)+(sF-1)
+-3\frac{\mathrm d}{\mathrm ds}(sF-1)+3F=0.
 $$
 
-両辺をラプラス変換すると,
+整理して $(s+3)F'+F=0$、したがって $F=C/(s+3)$。逆変換し、$f(0)=1$ を使えば
 
 $$
-L\bigg[t\frac{\text{d}^2f}{\text{d}t^2}\bigg] + L\bigg[\frac{\text{d}f}{\text{d}t}\bigg] + 3L\bigg[t\frac{\text{d}f}{\text{d}t}\bigg] + 3L[f(t)] = 0
+\boxed{f(t)=e^{-3t}\qquad(t\ge0).}
 $$
 
-ここで, $L[tf(t)] = -\frac{\text{d}}{\text{d}s}F(s) = -\frac{\text{d}}{\text{d}s}L[f(t)]$ の関係を利用すると,
+### III.1
+
+$x,y$ の変換を $X,Y$ とすると、
 
 $$
-\begin{aligned}
-L\bigg[t\frac{\text{d}^2f}{\text{d}t^2}\bigg] &= -\frac{\text{d}}{\text{d}s}L\bigg[\frac{\text{d}^2f}{\text{d}t^2}\bigg] \\
-&= -\frac{\text{d}}{\text{d}s}L\bigg[\frac{\text{d}}{\text{d}t} \frac{\text{d}f}{\text{d}t} \bigg] \\
-&= -\frac{\text{d}}{\text{d}s} \bigg\{sL\bigg[\frac{\text{d}f}{\text{d}t}\bigg] - \frac{\text{d}f}{\text{d}t}\bigg|_{t = 0}\bigg\} \quad (\because \text{設問I.2.}) \\
-&= -\frac{\text{d}}{\text{d}s}\bigg\{s(sF(s) - f(0)) - (-3)\bigg\} \\   
-&= -2sF(s) - s^2\frac{\text{d}F}{\text{d}s} + 1
-\end{aligned}
+(s+1)X=a,\qquad(s+2)Y=X+b.
 $$
 
-$$
-\begin{aligned}
-L\bigg[t\frac{\text{d}f}{\text{d}t}\bigg] &= -\frac{\text{d}}{\text{d}s}L\bigg[\frac{\text{d}f}{\text{d}t}\bigg] \\
-&= -\frac{\text{d}}{\text{d}s}(sF(s) - f(0)) \\
-&= -F(s) - s\frac{\text{d}F}{\text{d}s}
-\end{aligned}
-$$
-
-であるから,　ラプラス変換した微分方程式は,　
+よって
 
 $$
-\begin{aligned}
-&-2sF(s) - s^2\frac{\text{d}F}{\text{d}s} + 1 + (sF(s) - 1) \\
-&\qquad + 3\big(-F(s) - s\frac{\text{d}F}{\text{d}s}\big) + 3F(s) = 0\\
-&\quad (-s^2 - 3s)\frac{\text{d}F}{\text{d}s} - sF(s) = 0 \\
-&\qquad \frac{\text{d}F}{F(s)} = -\frac{1}{s + 3}\text{d}s \\
-&\quad \log F(s) = -\log(s + 3) + C \\
-&\qquad \therefore F(s) = \frac{C'}{s + 3}
-\end{aligned}
+X=\frac a{s+1},\qquad
+Y=\frac a{s+1}+\frac{b-a}{s+2}.
 $$
 
-となる。ラプラス逆変換により,
+逆変換により
 
 $$
-f(t) = L^{-1}[F(s)] = L^{-1}\bigg[\frac{C'}{s + 3}\bigg] = C'e^{-3t}
+\boxed{x=ae^{-t},\qquad y=ae^{-t}+(b-a)e^{-2t}.}
 $$
 
-$f(0) = 1$ より, $C' = 1$ と決まり,　求める解 $f(t)=e^{-3t}$ を得る。
+### III.2
 
-### III.
-#### 1.
-$x(t),y(t)$ のラプラス変換をそれぞれ, $L[x(t)] = X(s)$, $L[y(t)] = Y(s)$ とおく。連立微分方程式(3)をラプラス変換すると,
+$a\ne0$ のとき、$e^{-t}=x/a$ より
 
 $$
-\left\{
-\begin{align}
-L\bigg[\frac{\text{d}x(t)}{\text{d}t}\bigg] &= -X(s) \tag{a} \\
-L\bigg[\frac{\text{d}y(t)}{\text{d}t}\bigg] &= X(s) - 2Y(s) \tag{b}
-\end{align}
-\right.
+\boxed{y=x+\frac{b-a}{a^2}x^2,\qquad0<x/a\le1.}
 $$
 
-$x(0) = a ,y(0) = b$ であることに注意して,　式 $(a)$ より,
+$a=0$ のときは $x=0,y=be^{-2t}$。したがって $b>0$ なら $0<y\le b$、$b<0$ なら $b\le y<0$、$b=0$ なら原点のみである。
 
-$$
-sX(s) - x(0) = -X(s)
-$$
+### III.3
 
-$$
-X(s) = \frac{a}{s + 1}
-$$
+$(a,b)=(1,1)$ なら $y=x,\ 0<x\le1$ であり、$(1,1)$ から原点へ向かう。
 
-$$
-\therefore \quad x(t) =aL^{-1}\bigg[\frac{1}{s + 1}\bigg] = ae^{-t}
-$$
+$(a,b)=(-1,1)$ なら $y=x+2x^2,\ -1\le x<0$。$(-1,1)$ から $(-1/2,0)$、頂点 $(-1/4,-1/8)$ を通って原点へ向かう。いずれも原点は $t\to\infty$ の極限点である。
 
-式 $(b)$ より,
-
-$$
-\begin{aligned}
-&sY(s) -y(0) = \frac{a}{s + 1} - 2Y(s) \\
-&\quad (s + 2)Y(s) = \frac{a}{s + 1} + b \\
-&\quad Y(s) = \frac{bs + a + b}{(s + 1)(s + 2)} \\
-&\quad Y(s) = \frac{a}{s + 1} - \frac{a - b}{s + 2}
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-\therefore y(t) &= aL^{-1}\bigg[\frac{1}{s + 1}\bigg] -  (a - b)L^{-1}\bigg[\frac{1}{s + 2}\bigg] \\
-&= ae^{-t} - (a - b)e^{-2t}
-\end{aligned}
-$$
-
-求める解は,
-
-$$
-\left\{
-\begin{aligned}
-x(t) &= ae^{-t} \\
-y(t) &= ae^{-t} - (a - b)e^{-2t}
-\end{aligned}
-\right.
-$$
-
-#### 2.
-$a\neq0$ のとき、$e^{-t} = x/a$ を $y(t)$ の式に代入して,
-
-$$
-y = x - \frac{a - b}{a^2}x^2
-$$
-
-$a=0$ のときは $x=0$ であり、$b>0$ なら $0<y\le b$、$b<0$ なら $b\le y<0$、$b=0$ なら原点のみである。
-
-#### 3.
-##### (i).
-$(a,b) = (1,1)$ のとき,
-
-$$
-y = x
-$$
-
-$t\mid 0 \rightarrow \infty$ のとき, $x\mid 1 \rightarrow 0 ,y\mid 1 \rightarrow 0$ より, 点 $P$ は線分 $y=x$ 上を $(1,1)$ から $(0,0)$ へ動く。
-
-##### (ii).
-$(a,b) = (-1,1)$ のとき,
-
-$$
-y=x+2x^2,\qquad -1\le x<0.
-$$
-
-$t\mid 0 \rightarrow \infty$ のとき $x\mid -1 \rightarrow 0$ であるから、点 $P$ はこの放物線上を $(-1,1)$ から $(0,0)$ へ動く。
-
-![Trajectories and increasing-time directions](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/tokyo-kyotsu-201608-trajectories.svg)
-
-原点は $t\to\infty$ で近づく極限点であり、有限時刻には到達しない。
+![軌跡と時刻の増加方向](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/tokyo-kyotsu-201608-trajectories-audited.svg)

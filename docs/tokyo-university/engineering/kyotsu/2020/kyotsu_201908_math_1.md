@@ -1,10 +1,13 @@
 ---
-sidebar_label: '2019年8月実施 数学 第1問'
+sidebar_label: '数学 第1問'
 tags:
   - Tokyo-University
+  - Mathematics.Differential-Equations.Reduction-of-Order
+  - Mathematics.Differential-Equations.Bernoulli-Equation
+  - Mathematics.Calculus.Gaussian-Integral
 ---
 
-# 東京大学 工学系研究科 2019年8月実施 数学 第1問
+# 東京大学 工学系研究科 2020年度 数学 第1問
 
 ## **Author**
 [Miyake](https://miyake.github.io/exams/index.html)、後生楽 広小路, 祭音Myyura
@@ -12,256 +15,119 @@ tags:
 
 ## **Description**
 
-[公式原題](https://www.t.u-tokyo.ac.jp/hubfs/pdf/%E6%95%B0%E5%AD%A62020.pdf)
-
 ### I.
-$-\pi/2<x<\pi/2$ で
-$$\cos x\,y''-\sin x\,y'-\frac{y}{\cos x}=0$$
-を考える。(1) 特解 $y=(\cos x)^m$ に対応する定数 $m$ を決定し、(2) その結果を利用して一般解を求める。
+$-\pi/2<x<\pi/2$ において、次の微分方程式を考える。
+
+$$
+\cos x\,y''-\sin x\,y'-\frac{y}{\cos x}=0.
+$$
+
+1. 特解が $y=(\cos x)^m$ の形をもつとき、定数 $m$ を求めよ。
+2. 前問の結果を用いて一般解を求めよ。
 
 ### II.
-$$I=\int_1^\infty x^5e^{-x^4+2x^2-1}\,dx$$
-を計算する。$a>0$ に対する $\int_0^\infty e^{-ax^2}dx=\frac12\sqrt{\pi/a}$ を用いてよい。
+次の積分を求めよ。
+
+$$
+I=\int_1^\infty x^5e^{-x^4+2x^2-1}\,dx.
+$$
+
+$\displaystyle\int_0^\infty e^{-ax^2}dx=\frac12\sqrt{\pi/a}$（$a>0$）を用いてよい。
 
 ### III.
-実数 $n$、$x>0,y>0$ に対し、
-$$(x^3y^n+x)y'+2y=0$$
-の一般解を $f(x,y)=C$ の形で表す。
+$n$ は任意の実数とし、$x>0,y>0$ とする。次の微分方程式を考える。
 
-### 题目描述
+$$
+(x^3y^n+x)y'+2y=0
+$$
 
-原 Description 仅提供 2020 年数学原卷链接。题目は次の三問からなる：
+一般解を $f(x,y)=C$ の形で表せ。
 
-1. 第一部分研究变系数二阶齐次方程
+#### 题目描述
 
-   $$
-   \cos x\,y''-\sin x\,y'-\frac{y}{\cos x}=0.
-   $$
+##### I.
+在 $-\pi/2<x<\pi/2$ 上考虑
 
-   第一小问把 $y=(\cos x)^m$ 代入并求使其成为解的 $m$；第二小问要求利用所得特解求方程的一般解，并验证两组基本解线性无关。
-2. 第二部分要求计算
+$$
+\cos x\,y''-\sin x\,y'-\frac{y}{\cos x}=0.
+$$
 
-   $$
-   I=\int_1^\infty x^5e^{-x^4+2x^2-1}\,\mathrm dx.
-   $$
+1. 已知特解形如 $y=(\cos x)^m$，求常数 $m$。
+2. 利用前问的结果求通解。
 
-3. 第三部分では、$x>0, y>0$ において
+##### II.
+求
 
-   $$
-   (x^3y^n+x)\frac{dy}{dx}+2y=0
-   $$
+$$
+I=\int_1^\infty x^5e^{-x^4+2x^2-1}\,dx.
+$$
 
-   を満たす曲線を $f(x,y)=C$ の形で求める（$n$ は任意の実数）。
+可使用 $\displaystyle\int_0^\infty e^{-ax^2}dx=\frac12\sqrt{\pi/a}$（$a>0$）。
+
+##### III.
+设 $n$ 为任意实数，$x>0,y>0$。将
+
+$$
+(x^3y^n+x)y'+2y=0
+$$
+
+的通解写成 $f(x,y)=C$ 的形式。
 
 ## **Kai**
+
 ### I.
-#### 1.
-$y=(\cos{x})^{m}$ とすると
+
+1. $y=(\cos x)^m$ を代入すると、方程式の左辺は
 
 $$
-\begin{aligned}
- & \frac{dy}{dx}=-m(\cos x)^{m-1}\sin x, \\
- & \frac{d^2y}{dx^2}=m(m-1)(\cos x)^{m-2}\sin^2x-m(\cos x)^m
-\end{aligned}
+(m+1)(\cos x)^{m-1}\bigl[(m-1)-m\cos^2x\bigr].
 $$
 
-となるので，式(1)より
+すべての $x$ で零となる条件は $\boxed{m=-1}$ である。
+
+2. 特解を用いて $y=u/\cos x$ とおき、代入すると
 
 $$
-\begin{aligned}
- & \cos x\frac{d^2y}{dx^2}-\sin x\frac{dy}{dx}-\frac{y}{\cos x} \\
- & =\cos x\left[m(m-1)(\cos x)^{m-2}\sin^2x-m(\cos x)^m\right]-\sin x\left[-m(\cos x)^{m-1}\sin x\right]-\frac{(\cos x)^m}{\cos x} \\
- & =-m(\cos x)^{m+1}+m^2\sin^2x(\cos x)^{m-1}-(\cos x)^{m-1} \\
- & =-m(\cos x)^{m+1}+m^2(1-\cos^2x)(\cos x)^{m-1}-(\cos x)^{m-1} \\
- & =(m^2-1)(\cos x)^{m-1}-m(m+1)(\cos x)^{m+1} \\
- & =(m-1)(m+1)(\cos x)^{m-1}-m(m+1)(\cos x)^{m+1} \\
- & =(m+1)(\cos x)^{m-1}\left[(m-1)-m\cos^2x\right]=0
-\end{aligned}
+u''\cos x+u'\sin x=0,\qquad u'=C_1\cos x.
 $$
 
-となる．これが $x$ によらず成り立つのは
+積分して
 
 $$
-m+1=0 \\
-\therefore m=-1
+\boxed{y=C_1\tan x+C_2\sec x}.
 $$
 
-である．
-
-#### 2.
-
-問I.1の結果より，式(1)の特殊解は
-
-$$
-y=(\cos{x})^{-1}=\frac{1}{\cos x}
-$$
-
-である．そこで，$x$を 変数とする関数 $u(x)$ を用いて
-
-$$
-y=\frac{u(x)}{\cos x}
-$$
-
-とすると，
-
-$$
-\begin{aligned}
- & \frac{dy}{dx}=\frac{u^{\prime}\cos x+u\sin x}{\cos^2x}, \\
- & \frac{d^2y}{dx^2}=\frac{[(u^{\prime\prime}\cos x-u^{\prime}\sin x)+(u^{\prime}\sin x+u\cos x)]\cos^2x+(u^{\prime}\cos x+u\sin x)\cdot2\cos x\sin x}{\cos^4x} \\
- & =\frac{(u^{\prime\prime}+u)\cos^2x+2(u^{\prime}\cos x+u\sin x)\sin x}{\cos^3x}
-\end{aligned}
-$$
-
-となる．よって
-
-$$
-\begin{aligned}
-u^{\prime\prime}\cos x+u^{\prime}\sin x & =0 \\
-u^{\prime\prime} & =-u^{\prime}\tan x \\
-\mathrm{u} & ^{\prime}=C_1\cos x\quad(\because\text{変数分離形}) \\
- & u=C_{1}\sin x+C_{2}
-\end{aligned}
-$$
-
-となる．ただし，$C_{1},C_{2}$ は任意定数である．ゆえに
-
-$$
-\begin{aligned}
- & \mathrm{y}=\frac{u(x)}{\cos x} \\
- & =\frac{C_1\sin x+C_2}{\cos x} \\
- & =C_1\tan x+\frac{C_2}{\cos x}
-\end{aligned}
-$$
-
-は解である． $tanx$ と $\frac{1}{\cos x}$ のロンスキアン $W$ を計算すると
-
-$$
-\begin{aligned}
-W & =
-\begin{vmatrix}
-\tan x & \frac{1}{\cos x} \\
-(\tan x)^{\prime} & \left(\frac{1}{\cos x}\right)^{\prime}
-\end{vmatrix} \\
- & =
-\begin{vmatrix}
-\tan x & \frac{1}{\cos x} \\
-\frac{1}{\cos^2x} & \frac{\sin x}{\cos^2x}
-\end{vmatrix} \\
- & =\tan x\frac{\sin x}{\cos^2x}-\frac{1}{\cos x}\frac{1}{\cos^2x} \\
- & =\frac{\sin^2x-1}{\cos^3x} \\
- & =-\frac{1}{\cos x}\neq0
-\end{aligned}
-$$
-
-となるから， $tanx$ と $\frac{1}{\cos x}$ は線形独立である．したがって，式(1)の一般解は
-
-$$
-y=C_1\tan x+\frac{C_2}{\cos x}
-$$
-
-である．
-
-#### （前問の結果を用いない）別解
-式(1)より
-
-$$
-\cos x\frac{d^2y}{dx^2}=\sin x\frac{dy}{dx}+\frac{y}{\cos x}
-$$
-
-である．両辺を $\cos x$ で割ると
-
-$$
-\begin{aligned}
-\frac{d^2y}{dx^2} & =\tan x\frac{dy}{dx}+\frac{y}{\cos^2x} \\
- & =\frac{d}{dx}(y\tan x) \\
-\frac{dy}{dx} & =y\tan x+C_1\quad(C_1:\text{任意定数}) \\
-\frac{dy}{dx}-y\tan x & =C_{1}
-\end{aligned}
-$$
-
-となる．両辺に $\cos x \begin{pmatrix} =\exp(-\int\tan x\,dx) \end{pmatrix}$ を掛けると
-
-$$
-\begin{aligned}
-\cos x\frac{dy}{dx}-y\sin x & =C_{1}\cos x \\
-\frac{d}{dx}(y\cos x) & =C_1\cos x \\
-y\cos x & =C_1\sin x+C_2\quad(C_2:\text{任意定数}) \\
-\therefore & y=C_{1}\tan x+\frac{C_{2}}{\cos x}
-\end{aligned}
-$$
-
-となる．
-
-**解説:**
-変数係数2階線形斉次常微分方程式です．
-問I.1では基本解の一つを求めるための誘導がされています． $y=\cos^m x$ ではなく $y=(\cos{x})^{m}$ と書かれているのは，答である $m=-1$ のときに $y=\cos^{-1}x$ と書かれると逆余弦関数 $\arccos {x}$ と紛らわしいからでしょう．
-問I.2では，問I.1の結果を用いてもう一つの基本解を求めます．
-
-[変数係数2階線形微分方程式の解法](https://physnotes.jp/diffeq/2nd-lde/#%E5%A4%89%E6%95%B0%E4%BF%82%E6%95%B02%E9%9A%8E%E7%B7%9A%E5%BD%A2%E5%90%8C%E6%AC%A1%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%BC%8F)
-
-このようにして求めた2つの解の線形結合が式(1)の解の全体を表せているのか，つまり2つの解は線形独立であるのかを確認するため，ロンスキアンが0ではないことを調べます．
-実は，この微分方程式は特殊解がわからなくても別解のように1階線形非斉次微分方程式に帰着させて解くことができます．しかし，問題文には問I.1の結果を用いよという指示があるので，別解では満点をもらえないでしょう．
-
+二つの基本解の Wronskian は $-\sec x\ne0$ なので、これが一般解である。
 
 ### II.
-$y=x^2-1$ として、
+
+$t=x^2-1$ とおけば
 
 $$
 \begin{aligned}
-I
-&= \int_1^\infty x^5 e^{-x^4+2x^2-1} dx
-\\
-&= \int_1^\infty x^5 e^{-(x^2-1)^2} dx
-\\
-&= \int_0^\infty (y+1)^2 e^{-y^2} \frac{dy}{2}
-\\
-&= \frac{1}{2} \int_0^\infty (y^2+2y+1) e^{-y^2} dy
+I&=\frac12\int_0^\infty(t+1)^2e^{-t^2}\,dt\\
+&=\frac12\left(\frac{\sqrt\pi}{4}+1+\frac{\sqrt\pi}{2}\right)
+=\boxed{\frac{4+3\sqrt\pi}{8}}.
 \end{aligned}
 $$
 
-ここで、
-
-$$
-\begin{aligned}
-\int_0^\infty e^{-y^2} dy &= \frac{1}{2} \sqrt{\pi}
-\\
-\int_0^\infty y e^{-y^2} dy
-&= - \frac{1}{2} \left[ e^{-y^2} \right]_0^\infty
-= \frac{1}{2}
-\\
-\int_0^\infty y^2 e^{-y^2} dy
-&= - \frac{1}{2} \int_0^\infty y \left( e^{-y^2} \right)' dy
-= - \frac{1}{2} \left[ y e^{-y^2} \right]_0^\infty
-+ \frac{1}{2} \int_0^\infty e^{-y^2} dy
-= \frac{1}{4} \sqrt{\pi}
-\end{aligned}
-$$
-
-なので、
-
-$$
-\begin{aligned}
-I = \frac{4+3\sqrt{\pi}}{8}
-\end{aligned}
-$$
+ここで $\int_0^\infty t^2e^{-t^2}dt=\sqrt\pi/4$ は部分積分から得られる。
 
 ### III.
 
 $x$ を $y$ の関数とみなし、$v=x^{-2}$ とおくと
 
 $$
-\frac{dv}{dy}-\frac{v}{y}=y^{n-1},
-\qquad
-\frac{d}{dy}\left(\frac{v}{y}\right)=y^{n-2}.
+\frac{dv}{dy}-\frac vy=y^{n-1},\qquad
+\frac{d}{dy}\left(\frac vy\right)=y^{n-2}.
 $$
 
-したがって、求める曲線は
+したがって
 
 $$
-\begin{cases}
-\displaystyle \frac{1}{x^2y}-\frac{y^{n-1}}{n-1}=C,&n\ne1,\\[6pt]
-\displaystyle \frac{1}{x^2y}-\log y=C,&n=1
-\end{cases}
+\boxed{\begin{cases}
+\dfrac1{x^2y}-\dfrac{y^{n-1}}{n-1}=C,&n\ne1,\\[6pt]
+\dfrac1{x^2y}-\log y=C,&n=1.
+\end{cases}}
 $$
 
-である。

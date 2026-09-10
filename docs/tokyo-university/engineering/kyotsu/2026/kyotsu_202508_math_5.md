@@ -26,14 +26,17 @@ $$
 と定義する。$a,b>0$ として、次の関数の Fourier transform を求めよ。
 
 1.
+
    $$
    f(x)=\begin{cases}
    \dfrac1{2a},&|x|\le a,\\
    0,&|x|>a.
    \end{cases}
    $$
+
 2. $f(x)=e^{-a|x|}\cos bx$。
 3.
+
    $$
    f(x)=\int_{-\infty}^{\infty}e^{-y^2-|x-y|}\,dy.
    $$
@@ -50,46 +53,63 @@ $$
 とする。
 
 1. $-\pi\le x<\pi$ で
+
    $$
    g(x)=\begin{cases}
    0,&-\pi\le x<0,\\
    1,&0\le x<\pi
    \end{cases}
    $$
+
    と定義した関数の係数を求めよ。
 2. $g(x)=\cos(x/2)$ の係数を求めよ。
 3. $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{2n-1}$ の収束値を求めよ。
 
 係数の定義は
-$$a_0=\frac1\pi\int_{-\pi}^{\pi}g(x)\,dx,\quad a_n=\frac1\pi\int_{-\pi}^{\pi}g(x)\cos nx\,dx,\quad b_n=\frac1\pi\int_{-\pi}^{\pi}g(x)\sin nx\,dx$$
+
+$$
+a_0=\frac1\pi\int_{-\pi}^{\pi}g(x)\,dx,\quad a_n=\frac1\pi\int_{-\pi}^{\pi}g(x)\cos nx\,dx,\quad b_n=\frac1\pi\int_{-\pi}^{\pi}g(x)\sin nx\,dx
+$$
+
 である。II.2 の $\cos(x/2)$ は $-\pi\le x<\pi$ 上で定義して周期的に拡張する。また、$\int_{-\infty}^{\infty}e^{-y^2}\,dy=\sqrt\pi$ を用いてよい。
 
-### 题目描述
+#### 题目描述
 
 I. 采用
+
 $$
 F(k)=\int_{-\infty}^{\infty}f(x)e^{-ikx}\,\mathrm dx
 $$
+
 的 Fourier 变换约定。对 $a,b>0$，分别求以下函数的变换：
 
 1. $[-a,a]$ 上等于 $1/(2a)$、其余处为零的矩形函数；
 2. $e^{-a|x|}\cos bx$；
 3. 卷积型函数
+
    $$
    f(x)=\int_{-\infty}^{\infty}e^{-y^2-|x-y|}\,\mathrm dy.
    $$
 
 II. 对 $2\pi$ 周期 Fourier 级数
+
 $$
 \widetilde g(x)=\frac{a_0}{2}
 +\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx),
 $$
+
 求下列内容：
 
 1. $[-\pi,0)$ 上为 $0$、$[0,\pi)$ 上为 $1$ 的阶跃周期函数的全部系数；
-2. 在一个周期上取 $g(x)=\cos(x/2)$ 时的全部系数；
-3. 利用所得 Fourier 级数求
+2. 在 $-\pi\le x<\pi$ 上取 $g(x)=\cos(x/2)$ 并作 $2\pi$ 周期延拓时的全部系数；
+3. 求
    $\sum_{n=1}^{\infty}(-1)^{n-1}/(2n-1)$ 的和。
+
+可使用 $\int_{-\infty}^{\infty}e^{-y^2}\,dy=\sqrt\pi$。傅里叶系数定义为
+
+$$
+a_0=\frac1\pi\int_{-\pi}^{\pi}g(x)\,dx,\quad a_n=\frac1\pi\int_{-\pi}^{\pi}g(x)\cos nx\,dx,\quad b_n=\frac1\pi\int_{-\pi}^{\pi}g(x)\sin nx\,dx.
+$$
 
 ## **Kai**
 

@@ -51,24 +51,30 @@ $$
 
 であるとき、$v$ と $g(z)$ を求めよ。
 
-### 题目描述
+#### 题目描述
 
 令 $z=x+iy$。
 
 1. 求满足 $\cos z=10$ 的全部实部 $x$ 和虚部 $y$。
 2. 对一次分式变换
+
    $$
    w=\frac{iz+1+2i}{z-i},
    $$
+
    当 $z$ 在半平面 $y>2$ 内变化时，在 $w$ 平面画出其像域并说明边界是否包含。
 3. 对 $f(z)=z^3e^{-1/z^2}$，求 $z=0$ 处的 Laurent 展开和留数，并计算
+
    $$
    \oint_{|z|=1}f(z)\,\mathrm dz.
    $$
+
 4. 正则函数 $g(z)=u(x,y)+iv(x,y)$ 的实部为
+
    $$
    u=x^3-3xy^2+x^2-y^2+x.
    $$
+
    求调和共轭 $v$ 以及 $g(z)$ 的一般形式。
 
 ## **Kai**
@@ -143,7 +149,7 @@ $$
 
 を得る。すなわち、$w$ の範囲は中心 $1+i$、半径 $1$ の円の内部である。境界は含まない。
 
-![Mobius 像領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/tokyo-kyotsu-202508-mobius.svg)
+![Mobius 像領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/math3-mobius-region-audited.svg)
 
 ### III.1
 

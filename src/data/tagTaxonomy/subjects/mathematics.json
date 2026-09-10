@@ -1435,6 +1435,9 @@
       "relatedSubjects": [
         "Electrical-Electronic"
       ]
+    },
+    "Mathematics.Differential-Equations.Volterra-Integral-Equation": {
+      "subsubject": "Mathematics.Differential-Equations"
     }
   }
 }

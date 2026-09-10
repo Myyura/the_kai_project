@@ -48,7 +48,7 @@ $$
 ### IV.
 $0 \leq \alpha < \pi$ を満たす $\alpha$ に対し,　曲面 $S$ の任意の点においてガウス曲率が $0$ 以下であることを示せ。
 
-### 题目描述
+#### 题目描述
 
 对 $0\le\theta<2\pi$、$0\le\alpha\le\pi$，在三维直角坐标系中取
 
@@ -65,280 +65,67 @@ $$
 4. 对 $0\le\alpha<\pi$，证明曲面 $S$ 任意点处的高斯曲率均不大于 $0$。
 
 ## **Kai**
-### I.
-直線 $L$ 上の点 $M$ は,
+
+### I
+
+$\boldsymbol r=(1-t)Q+tP$ より、
 
 $$
-\overrightarrow{OM} = \overrightarrow{OQ} + t\overrightarrow{QP}
+\boxed{\begin{aligned}
+x&=(1-t)\cos(\theta+\alpha)+t\cos\theta,\\
+y&=(1-t)\sin(\theta+\alpha)+t\sin\theta,\\
+z&=2t-1,\qquad t\in\mathbb R.
+\end{aligned}}
 $$
 
-と表せる。このとき, $t = 0$ で $\overrightarrow{OQ}$, $t = 1$ で $\overrightarrow{OQ} + \overrightarrow{QP} = \overrightarrow{OP}$ となり, 題意た満たす。
+### II
+
+$x^2+y^2=(1-t)^2+t^2+2t(1-t)\cos\alpha$ に $t=(z+1)/2$ を代入すると、
 
 $$
-\overrightarrow{QP} = (\cos\theta - \cos(\theta + \alpha),\sin\theta - \sin(\theta + \alpha), 2)
+\boxed{S:\ x^2+y^2-\sin^2\frac\alpha2\,z^2=\cos^2\frac\alpha2.}
 $$
 
-であるから,　求める直線 $L$ の媒介変数表示は,
+固定した $t$ で $\theta$ を一周させると対応する円周全体が得られるため、これは求める曲面そのものである。$y=0$ とおいて
 
 $$
-L: \left\{
-    \begin{aligned}
-    x &= \cos(\theta + \alpha) + t(\cos\theta - \cos(\theta + \alpha)) \\
-    y &= \sin(\theta + \alpha) + t(\sin\theta - \sin(\theta + \alpha)) \\
-    z &= -1 + 2t \\
-    \end{aligned}
-    \right.
+\boxed{C:\ x^2-\sin^2\frac\alpha2\,z^2=\cos^2\frac\alpha2.}
 $$
 
-### II.
-和積の公式より,
+$\alpha=0$ では $x=\pm1$、$0<\alpha<\pi$ では頂点 $(x,z)=(\pm\cos(\alpha/2),0)$、漸近線 $z=\pm x/\sin(\alpha/2)$ を持つ双曲線、$\alpha=\pi$ では $z=\pm x$ となる。
+
+![三つの場合の断面C](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/tokyo-kyotsu-201608-sections.svg)
+
+### III
+
+$a=\cos(\alpha/2)>0,b=\sin(\alpha/2)$ とおくと $W=(a,0,0)$。曲面の方程式より単位法線は $\boldsymbol e=(1,0,0)$ と取れる。
+
+$W$ に対応するパラメータは $t=1/2,\theta=-\alpha/2\pmod{2\pi}$ であり、そこで
 
 $$
-\begin{aligned}
-x &= \cos(\theta + \alpha) - 2t\sin\bigg(\frac{\theta + (\theta + \alpha)}{2}\bigg) \sin\bigg(\frac{\theta - (\theta + \alpha)}{2}\bigg) \\
-&= \cos(\theta + \alpha) + 2t\sin(\theta + \frac{\alpha}{2})\sin\frac{\alpha}{2} \\
-y &= \sin(\theta + \alpha) + 2t\cos\bigg(\frac{\theta + (\theta + \alpha)}{2}\bigg)\sin\bigg(\frac{\theta - (\theta + \alpha)}{2}\bigg) \\
-&= \sin(\theta + \alpha) - 2t\cos(\theta + \frac{\alpha}{2})\sin\frac{\alpha}{2}
-\end{aligned}
+\boldsymbol r_\theta=(0,a,0),\qquad
+\boldsymbol r_t=(0,-2b,2),\qquad
+\boldsymbol r_{\theta t}\cdot\boldsymbol e=2b,\qquad
+\boldsymbol r_{tt}=0.
 $$
 
-$x^2 + y^2$ を計算してを消去する。
+したがって曲率公式から
 
 $$
-\begin{aligned}
-&\quad x^2 + y^2 \\
-&= \cos^2(\theta + \alpha) + 4t\cos(\theta + \alpha)\sin\big(\theta + \frac{\alpha}{2}\big)\sin\frac{\alpha}{2} \\
-&\quad + 4t^2\sin^2\big(\theta + \frac{\alpha}{2}\big)\sin^2\frac{\alpha}{2} + \sin^2(\theta + \alpha) \\
-&\qquad - 4t\sin(\theta + \alpha)\cos\big(\theta + \frac{\alpha}{2}\big)\sin\frac{\alpha}{2} \\
-&\quad \qquad + 4t^2\cos^2\big(\theta + \frac{\alpha}{2}\big)\sin^2\frac{\alpha}{2} \\
-&= 1 + 4t^2\sin^2 \frac{\alpha}{2} + 4t\sin\frac{\alpha}{2} \\
-&\qquad\cdot \big(\cos(\theta + \alpha)\sin\big(\theta + \frac{\alpha}{2}\big) - \sin(\theta + \alpha)\cos\big(\theta + \frac{\alpha}{2}\big) \big) \\
-&= 1 + 4t^2\sin^2\frac{\alpha}{2} + 4t\sin\frac{\alpha}{2}\sin\big(\theta + \frac{\alpha}{2} - (\theta + \alpha)\big) \quad (\because \text{加法定理}) \\
-&= 1 + 4t^2\sin^2\frac{\alpha}{2} - 4t\sin^2\frac{\alpha}{2}
-\end{aligned}
+\boxed{K(W)=\frac{-4b^2}{a^2(4b^2+4)-4a^2b^2}
+=-\frac{b^2}{a^2}=-\tan^2\frac\alpha2.}
 $$
 
-さらに, $t = (z + 1)/2$ を代入して $t$ を消去すると,
+### IV
 
-$$
-\begin{aligned}
-x^2 + y^2 &= 1 + (z + 1)^2 \sin^2\frac{\alpha}{2} - 2(z + 1)\sin^2\frac{\alpha}{2} \\
-&= \sin^2\frac{\alpha}{2} \cdot z^2 + 1 - \sin^2\frac{\alpha}{2} \\
-&= \sin^2\frac{\alpha}{2} \cdot z^2 + \cos^2\frac{\alpha}{2} 
-\end{aligned}
-$$
-
-よって,　求める曲面 $S$ の方程式は
-
-$$
-x^2 + y^2 - \sin^2\frac{\alpha}{2} \cdot z^2 = \cos^2\frac{\alpha}{2}
-$$
-
-また $y = 0$ とすると, 交線 $C$ の方程式を得る。
-
-$$
-x^2 - \sin^2\frac{\alpha}{2} \cdot z^2 = \cos^2\frac{\alpha}{2}
-$$
-
-$\alpha = 0$ のとき,　$x = \pm  1$ である。
-
-$0<\alpha<\pi$ のとき,　この曲線は双曲線であり,　その漸近線の方程式は,　
-
-$$
-z = \pm \frac{\cos\frac{\alpha}{2}}{\sin\frac{\alpha}{2}} \cdot \frac{1}{\cos\frac{\alpha}{2}} x = \pm \frac{x}{\sin\frac{\alpha}{2}}
-$$
-
-である。$\alpha=\pi$ のときは $x^2-z^2=0$、すなわち $z=\pm x$ の二直線となる。以下の既存図は $0<\alpha<\pi$ の場合を示す。
-
-<figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_2017_math_4_p1.png" width="500" height="500" alt=""/>
-</figure>
-
-今,　曲面 $S$ 上の点 $R$ の位置ベクトルは媒介変数 $\theta ,t$ を用いて以下のように表されでおり,
-
-$$
-r(\theta ,t) =
-\begin{pmatrix}
-\cos(\theta + \alpha) + t(\cos\theta - \cos(\theta + \alpha)) \\
-\sin(\theta + \alpha) + t(\sin\theta - \sin(\theta + \alpha)) \\
--1 + 2t
-\end{pmatrix}
-$$
-
-ガウス曲率 $K$ は,
-
-$$
-K = \frac{(r_{\theta\theta}\cdot e)(r_{tt}\cdot e) - (r_{\theta t}\cdot e)^2}{(r_{\theta}\cdot r_{\theta})(r_{t} \cdot r_{t}) - (r_{\theta} \cdot r_{t})^2}
-$$
-
-で表される。
+すべての点で $\boldsymbol r_{tt}=0$ なので、曲率公式の分子は $-(\boldsymbol r_{\theta t}\cdot\boldsymbol e)^2\le0$。一方、分母は
 
 $$
 \begin{aligned}
-r_{\theta} &= 
-\begin{pmatrix}
--(1 - t)\sin(\theta + \alpha) - t\sin \theta \\
-(1 - t)\cos(\theta + \alpha) +  t\cos \theta \\
-0 
-\end{pmatrix} \\
-r_{t} &= 
-\begin{pmatrix}
-\cos \theta - \cos(\theta + \alpha) \\
-\sin \theta - \sin(\theta + \alpha) \\
-2
-\end{pmatrix} \\
-r_{\theta\theta} &=
-\begin{pmatrix}
--(1 - t)\cos(\theta + \alpha) - t\cos\theta \\
--(1 - t)\sin(\theta + \alpha) -t\sin\theta \\
-0
-\end{pmatrix} \\
-r_{tt} &=
-\begin{pmatrix}
-0 \\
-0 \\
-0
-\end{pmatrix} \\
-r_{\theta t} &=
-\begin{pmatrix}
--\sin\theta + \sin(\theta + \alpha) \\
-\cos\theta - \cos(\theta + \alpha) \\
-0
-\end{pmatrix} 
+D&=(\boldsymbol r_\theta\cdot\boldsymbol r_\theta)
+(\boldsymbol r_t\cdot\boldsymbol r_t)-(\boldsymbol r_\theta\cdot\boldsymbol r_t)^2\\
+&=(6-2\cos\alpha)(2-2\cos\alpha)(t-1/2)^2+2(1+\cos\alpha)>0
 \end{aligned}
 $$
 
-計算の都合上, 設問 IV から先に解答する。
-
-![Sections at alpha zero and pi](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2017/tokyo-kyotsu-201608-degenerate-sections.svg)
-
-### III.
-設問 II の図を利用して, 点 $W$ における曲面 $S$ の法線ベクトル $n$ を求める。
-平面 $y = 0$ での断面が下図左であり, これが双曲線であることから $n$ は実数 $k$ を用いて $(1,k,0)$ の形で表すことができる。
-
-一方で, 平面 $z = 0$ で断面は $S$ の方程式に $z = 0$ を代入することで, 原点を中心とする半径 $\cos\frac{\alpha}{2}$ の円 (下図右) であることが容易に分かる。したがって, $n$ は実数 $l$ を用いて $(1,0,l)$ の形で表すことができる。
-
-これらをともに満たす $n$ は, $n=(1,0,0)$ であり, これは単位ベクトルだから点 $W$ における単位法線ベクトル $e$ は $e=(1,0,0)$ となる。
-
-<figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_2017_math_4_p2.png" width="800" height="400" alt=""/>
-</figure>
-
-点 $W$ において, $\theta,t$ は以下の関係を満たす。
-
-$$
-\left\{
-\begin{aligned}
-\cos(\theta + \alpha) + t(\cos\theta - \cos(\theta + \alpha)) &= \cos\frac{\alpha}{2 } \\
-\sin(\theta + \alpha) + t(\sin\theta - \sin(\theta + \alpha)) &= 0 \\
--1 + 2t &= 0 
-\end{aligned}
-\right.
-$$
-
-3つ目の式より $t = 1/2$ であり, 2つ目の式に代入して,
-
-$$
-\sin\theta + \sin(\theta + \alpha) = 0
-$$
-
-$$
-\sin \big((\theta + \frac{\alpha}{2}) - \frac{\alpha}{2}\big) + \sin \big((\theta + \frac{\alpha}{2} + \frac{\alpha}{2})\big) = 0
-$$
-
-$$
-2\cos\frac{\alpha}{2}\sin\big(\theta + \frac{\alpha}{2}\big) = 0 (\because\text{和積の公式})
-$$
-
-$\cos\frac{\alpha}{2} \neq 0$ より $\sin(\theta+\frac{\alpha}{2})=0$ である。さらに $W$ は正の $x$ 軸上にあるので $\cos(\theta+\alpha/2)=1$、すなわち $\theta\equiv-\alpha/2\pmod{2\pi}$ である。したがって
-
-$$
-\sin^2\theta=\sin^2\frac{\alpha}{2}.
-$$
-
-$K$ の分子は,
-
-$$
-\begin{aligned}
-&\quad -(r_{\theta t}\cdot e)^2 \\
-&= -(\sin(\theta + \alpha) - \sin\theta)^2 \\
-&= -(\sin(\theta + \alpha) + \sin\theta)^2 + 4\sin\theta\sin(\theta + \alpha) \\
-&= -0^2 + 4\sin\theta \cdot (-\sin\theta) \\
-&= -4\sin^2\theta = -4\sin^2\frac{\alpha}{2}
-\end{aligned}
-$$
-
-$K$ の分母は,
-
-$$
-\begin{aligned}
-&\quad (r_{\theta} \cdot r_{\theta})(r_{t} \cdot r_{t}) - (r_{\theta} \cdot r_{t})^2 \\
-&= (6 - 2\cos\alpha)(2 - 2\cos\alpha)(t - \frac{1}{2})^2 + 2(1 + \cos\alpha) \\
-&= 0 + 2 \cdot 2\cos^2\frac{\alpha}{2} = 4\cos^2\frac{\alpha}{2}
-\end{aligned}
-$$
-
-したがって求めるガウス曲率 $K$ は,
-
-$$
-K = \frac{-4\sin^2\frac{\alpha}{2}}{4\cos^2\frac{\alpha}{2}} = -\tan^2\frac{\alpha}{2}
-$$
-
-### IV.
-$r_{tt} = o$ であることから, $K$ の分子は $-(r_{\theta t} \cdot e)^2$ であり, これは明らかに $0$ 以下である。従って, $K$ の分母が正であることを示せば良い。
-
-$$
-\begin{aligned}
-&\quad r_{\theta} \cdot r_{\theta} \\
-&= \{(1 - t)\sin(\theta + \alpha) + t\sin\theta\}^2 + \{(1 - t)\cos(\theta + \alpha) + t\cos\theta\}^2 \\
-&= (1 - t)^2 + t^2 + 2t(1 - t)\{\sin(\theta + \alpha)\sin\theta + \cos(\theta + \alpha)\cos\theta\} \\
-&= 1 - 2t + 2t^2 + 2t(1 - t)\cos\big((\theta + \alpha) - \theta\big) \\
-&= 1 - 2t + 2t^2 + 2t(1 - t)\cos\alpha
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-&\quad r_{t} \cdot r_{t} \\
-&= (\cos\theta - \cos(\theta + \alpha))^2 + (\sin\theta - \sin(\theta + \alpha))^2 + 2^2 \\
-&= 1 + 1 + 4 - 2\{\cos(\theta + \alpha)\cos\theta\ + \sin\theta\sin(\theta + \alpha)\} \\
-&= 6 - 2\cos\alpha
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-&\quad r_{\theta} \cdot r_{t}\\
-&= \{-(1 - t)\sin(\theta + \alpha) - t\sin\theta\}(\cos\theta - \cos(\theta + \alpha)) \\
-&\qquad +\{(1 - t)\cos(\theta + \alpha)+ t\cos\theta\}(\sin\theta - \sin(\theta + \alpha)) \\
-&= -(1 - t)\sin(\theta + \alpha)\cos\theta + (1 - t)\sin(\theta + \alpha)\cos(\theta + \alpha)\\
-&\qquad - t\sin\theta\cos\theta + t\sin\theta\cos(\theta + \alpha) + (1 - t)\cos(\theta + \alpha)\sin\theta \\
-&\quad \qquad - (1 - t)\cos(\theta + \alpha)\sin(\theta + \alpha) \\
-&\qquad \qquad + t\sin\theta\cos\theta - t\cos\theta\sin(\theta + \alpha) \\
-&= -\sin(\theta + \alpha)\cos\theta + \cos(\theta + \alpha)\sin\theta \\
-&= \sin(\theta - (\theta + \alpha))\\
-&= -\sin\alpha
-\end{aligned}
-$$
-
-であるから, $K$ の分母は,
-
-$$
-\begin{aligned}
-&\quad (r_{\theta} \cdot r_{\theta})(r_{t} \cdot r_{t}) - (r_{\theta} \cdot r_{t})^2 \\
-&= \{1 - 2t + 2t^2 + 2t(1 - t)\cos\alpha\}(6 - 2\cos\alpha) - \sin^2\alpha \\
-&= (6 - 2\cos\alpha)\{(2 - 2\cos\alpha)t^2 + (2\cos\alpha - 2)t + 1\} - (1 - \cos^2\alpha) \\
-&= (6 - 2\cos\alpha)(2 - 2\cos\alpha)\big(t - \frac{1}{2}\big)^2 \\
-&\qquad \qquad - \frac{1}{4}(6 - 2\cos\alpha)(2 - 2\cos\alpha) + (5 - 2\cos\alpha + \cos^2\alpha) \\
-&= (6 - 2\cos\alpha)(2 - 2\cos\alpha)\big(t - \frac{1}{2}\big)^2 + 2(1 + \cos\alpha)
-\end{aligned}
-$$
-
-ここで, $0 \leq \alpha < \pi$ より $1+\cos\alpha>0$ であり、第1項も $0$ 以上であるから,
-
-$$
-(r_{\theta} \cdot r_{\theta})(r_{t} \cdot r_{t}) - (r_{\theta} \cdot r_{t})^2 > 0
-$$
-
-
-である。したがって, $K \leq 0$ が示された。
+である（$0\le\alpha<\pi$）。よって $\boxed{K\le0}$。

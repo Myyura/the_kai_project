@@ -306,6 +306,9 @@
     },
     "Discrete-Mathematics.Graph-Theory.Tree-Metric": {
       "subsubject": "Discrete-Mathematics.Graph-Theory"
+    },
+    "Discrete-Mathematics.Graph-Theory.Ramsey-Theory": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory"
     }
   }
 }

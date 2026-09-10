@@ -2,6 +2,9 @@
 sidebar_label: '2021年8月実施 数学3'
 tags:
   - Tokyo-University
+  - Mathematics.Complex-Analysis.Argument-Principle-and-Winding-Number
+  - Mathematics.Complex-Analysis.Real-Integral-by-Residues
+  - Probability-Statistics.Bayesian-Statistics.Beta-Bernoulli-Model
 ---
 
 # 東京大学 工学系研究科 2021年8月実施 数学3
@@ -16,7 +19,7 @@ tags:
 ### I.
 1. $f(z)=z/[(z-i)(z-1)]$ を、$1$ の周囲を反時計回りに一周し、$i$ の周囲を時計回りに一周する図の閉路 $C$ で積分する。
 
-![Equivalent contour with the original winding directions](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/tokyo-kyotsu-202108-contour.svg)
+![Equivalent contour with the original winding directions](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/kyotsu_202108_math_3_contour.svg)
 
 図は原図と同じ巻き数をもつ模式図である。
 
@@ -33,162 +36,99 @@ $N\ge1$ 個の製品を順に観測する。各製品は互いに独立に確率
 
 ここで $\operatorname{Beta}_{a,b}(x)=x^{a-1}(1-x)^{b-1}/B(a,b)$（$0\le x\le1$）、$B(a,b)=\int_0^1t^{a-1}(1-t)^{b-1}dt$。ベイズの公式 $\pi(\phi\mid\boldsymbol v)=\pi(\phi)Q(\boldsymbol v\mid\phi)/Q_{a,b}(\boldsymbol v)$ を利用する。
 
-### 题目描述
+#### 题目描述
 
-1. 第一小题的被积函数为
+I. (1) 计算 $f(z)=z/[(z-i)(z-1)]$ 沿闭路 $C$ 的积分，其中 $C$ 逆时针绕 $1$ 一周、顺时针绕 $i$ 一周。
+(2) 对 $I_2=\int_0^{2\pi}d\theta/(10+8\cos\theta)$，将它化为单位圆的逆时针积分 $\oint G(z)dz$ 并求 $G$；求全部奇点；用留数计算 $I_2$。
 
-   $$
-   f(z)=\frac{z}{(z-i)(z-1)}.
-   $$
-
-   积分路径分别以逆时针方向绕 $z=1$、以顺时针方向绕 $z=i$；要求计算相应闭合积分 $I_1$。闭路绕行方向见上图。
-2. 第二小题先用 $z=e^{i\theta}$ 把
-
-   $$
-   I_2=\int_0^{2\pi}\frac{\mathrm d\theta}{10+8\cos\theta}
-   $$
-
-   化为单位圆上的围道积分，求有理函数
-
-   $$
-   G(z)=\frac{-i}{2(z+2)(2z+1)}
-   $$
-
-   的奇点、单位圆内极点的留数并计算 $I_2$。
-3. 第二部分依次观察 $N\ge1$ 个产品，各产品独立以概率 $\phi\in[0,1]$ 为次品。次品记 $v_i=1$，否则为0，$N_d(\boldsymbol v)$ 为指定序列 $\boldsymbol v=(v_1,\ldots,v_N)$ 中1的个数。
-   1. 求这一特定序列在给定 $\phi$ 时的概率。
-   2. 先验为 $\operatorname{Beta}(a,b)$、$a,b>1$，利用 Bayes 公式表示后验密度。
-   3. 取 $a=2,b=50$，求该序列的边缘概率。
-   4. 证明后验仍为 Beta 分布，求两个参数。
-   5. 求使后验密度最大的 $\phi$。
-
-   这里 $\operatorname{Beta}_{a,b}(x)=x^{a-1}(1-x)^{b-1}/B(a,b)$，$B(a,b)=\int_0^1t^{a-1}(1-t)^{b-1}\,dt$。
+II. 独立观察 $N\ge1$ 件产品，每件以概率 $\phi\in[0,1]$ 为次品。次品记 $v_i=1$，否则记 $0$，$N_d(\boldsymbol v)$ 为指定序列中 $1$ 的个数。
+(1) 求这一指定序列的概率。
+(2) 先验密度为 $\operatorname{Beta}_{a,b}(\phi)$（$a,b>1$），用似然 $Q(\boldsymbol v\mid\phi)$ 与边缘概率 $Q_{a,b}(\boldsymbol v)$ 表示后验密度。
+(3) 使用(1)的似然及 $a=2,b=50$ 求 $Q_{2,50}(\boldsymbol v)$。
+(4) 证明此时后验仍为 Beta 分布，求参数 $a',b'$。
+(5) 求后验密度的最大值点。
+这里 $\operatorname{Beta}_{a,b}(x)=x^{a-1}(1-x)^{b-1}/B(a,b)$、$B(a,b)=\int_0^1t^{a-1}(1-t)^{b-1}\,dt$，可用 Bayes 公式。
 
 ## **Kai**
-### I.
-#### 1.
-$I_1$ の被積分関数
+
+### I
+
+#### 1
+
+二つの極はともに一位で、留数はそれぞれ
 
 $$
-\begin{aligned}
-f(z) = \frac{z}{(z-i)(z-1)}
-\end{aligned}
+R_1=\frac1{1-i}=\frac{1+i}2,\qquad
+R_i=\frac i{i-1}=\frac{1-i}2.
 $$
 
-の極 $z=1,i$ における留数はそれぞれ
+経路の $1$ に対する巻き数は $1$、$i$ に対する巻き数は $-1$ なので、
 
 $$
-\begin{aligned}
-R_1 &= \frac{1}{1-i} = \frac{1+i}{2}
-, \\
-R_i &= \frac{i}{i-1} = \frac{1-i}{2}
-\end{aligned}
+\boxed{I_1=2\pi i(R_1-R_i)=-2\pi}.
 $$
 
-である。
+#### 2.1–2.3
 
-$I_1$ は $z=1$ の周りを反時計回りに回る部分と $z=i$ の周りを時計回りに回る部分からなるから、
-
-$$
-\begin{aligned}
-I_1
-&= 2 \pi i \left( R_1 - R_i \right)
-\\
-&= -2 \pi
-\end{aligned}
-$$
-
-である。
-
-#### 2.
-##### 2.1
-$|z|=1$ を満たす複素数 $z$ は、 $z=e^{i \theta} \ \ (0 \leq \theta \lt 2 \pi)$ と書ける。
-このとき、
+$z=e^{i\theta}$ とおくと $d\theta=dz/(iz)$、$2\cos\theta=z+z^{-1}$ だから、
 
 $$
-\begin{aligned}
-dz &= i e^{i \theta} d \theta = iz d \theta
-\\
-z + \frac{1}{z} &= e^{i \theta} + e^{-i \theta} = 2 \cos \theta
-\end{aligned}
-$$
-
-であるから、
-
-$$
-\begin{aligned}
-I_2
-&= \oint_{|z|=1} \frac{1}{10 + 4 \left( z + \frac{1}{z} \right)} \frac{dz}{iz}
-\\
-&= \oint_{|z|=1} \frac{-i}{2(z+2)(2z+1)} dz
-\end{aligned}
-$$
-
-よって、
-
-$$
-\begin{aligned}
-G(z) = \frac{-i}{2(z+2)(2z+1)}
-\end{aligned}
-$$
-
-である。
-
-##### 2.2
-$G(z)$ の特異点は $z=-1/2, -2$ である。
-
-##### 2.3
-$G(z)$ の $z=-1/2$ における留数は $-i/6$ であるから、留数定理により、
-
-$$
-\begin{aligned}
-I_2 = 2 \pi i \cdot \frac{-i}{6} = \frac{\pi}{3}
-\end{aligned}
-$$
-
-を得る。
-
-### II.
-
-#### 1.
-$k=N_d(\boldsymbol v)$ とおくと、独立性より
-
-$$
-Q(\boldsymbol v\mid\phi)
-=\phi^k(1-\phi)^{N-k}.
-$$
-
-#### 2.
-
-$$
-\pi(\phi\mid\boldsymbol v)
-=\frac{Q(\boldsymbol v\mid\phi)\operatorname{Beta}_{a,b}(\phi)}{Q_{a,b}(\boldsymbol v)},
+I_2=\oint_{|z|=1}\frac{-i}{4z^2+10z+4}\,dz,
 \qquad
-Q_{a,b}(\boldsymbol v)
-=\frac{B(a+k,b+N-k)}{B(a,b)}.
+\boxed{G(z)=\frac{-i}{2(z+2)(2z+1)}}.
 $$
 
-#### 3.
-$a=2,b=50$ のとき
+特異点は $\boxed{-2,-1/2}$ で、いずれも一位の極である。単位円内は $-1/2$ のみで、その留数は $-i/6$ なので、
 
 $$
-Q_{2,50}(\boldsymbol v)
+\boxed{I_2=2\pi i\left(-\frac i6\right)=\frac\pi3}.
+$$
+
+### II
+
+#### 1–2
+
+$k=N_d(\boldsymbol v)$ とおく。各観測は独立だから、この特定の列の確率は
+
+$$
+\boxed{Q(\boldsymbol v\mid\phi)=\phi^k(1-\phi)^{N-k}}.
+$$
+
+Bayes の公式より、
+
+$$
+\boxed{\pi(\phi\mid\boldsymbol v)
+=\frac{\operatorname{Beta}_{a,b}(\phi)Q(\boldsymbol v\mid\phi)}{Q_{a,b}(\boldsymbol v)}},
+\qquad
+Q_{a,b}(\boldsymbol v)=\int_0^1\operatorname{Beta}_{a,b}(\phi)Q(\boldsymbol v\mid\phi)\,d\phi.
+$$
+
+#### 3–4
+
+$a=2,b=50$ と尤度を代入すると、
+
+$$
+\boxed{Q_{2,50}(\boldsymbol v)
 =\frac{B(k+2,N-k+50)}{B(2,50)}
-=\frac{50\cdot51\,(k+1)!(N-k+49)!}{(N+51)!}.
+=\frac{50\cdot51\,(k+1)!(N-k+49)!}{(N+51)!}}.
 $$
 
-#### 4.
+従って事後密度は
 
 $$
-\pi(\phi\mid\boldsymbol v)
-=\operatorname{Beta}_{k+2,N-k+50}(\phi),
+\frac{\phi^{k+1}(1-\phi)^{N-k+49}}{B(k+2,N-k+50)},
 $$
 
-すなわち $a'=k+2, b'=N-k+50$ である。
+すなわち $\boxed{\operatorname{Beta}(a',b'),\quad a'=k+2,\ b'=N-k+50}$ である。
 
-#### 5.
-$a',b'>1$ なので、事後確率を最大にする値は
+#### 5
+
+事後密度の対数を微分すると、
 
 $$
-\boxed{\phi=\frac{a'-1}{a'+b'-2}=\frac{k+1}{N+50}}.
+\frac{k+1}{\phi}-\frac{N-k+49}{1-\phi}=0
+\quad\Longrightarrow\quad
+\boxed{\phi_{\rm MAP}=\frac{k+1}{N+50}}.
 $$
+
+対数密度の二階導関数は常に負で、両端では密度が零になるため、これは唯一の最大点である。

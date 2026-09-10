@@ -2,6 +2,10 @@
 sidebar_label: '2020年8月実施 数学2'
 tags:
   - Tokyo-University
+  - Mathematics.Linear-Algebra.Cayley-Hamilton-Theorem
+  - Mathematics.Linear-Algebra.Matrix-Exponential
+  - Mathematics.Linear-Algebra.Linear-Independence
+  - Probability-Statistics.Stochastic-Processes.Markov-Chain
 ---
 
 # 東京大学 工学系研究科 2020年8月実施 数学2
@@ -14,11 +18,17 @@ tags:
 [公式原題](https://www.t.u-tokyo.ac.jp/hubfs/pdf/2021_M_2.pdf)
 
 ### I.
-$$A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix}$$
+
+$$
+A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix}
+$$
+
 について、(1) 全固有値、(2) $A^3+aA^2+bA+cI=O$ の係数、(3) $A^{2n+1}$（$n\ge0$ は整数）、(4) $\exp(tA)=pA^2+qA+rI$ の実数表示の係数を求める。$t\in\mathbb R$。
 
 ### II.
 二状態 A、B の離散時間系で、AからBへの遷移確率を $\alpha$、BからAを $\beta$ とし、$0<\alpha<1$、$0<\beta<1$ とする。
+
+![二状态转移图](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2021/kyotsu_202008_math_2_markov.svg)
 
 1. $\boldsymbol P(n)=(P_A(n),P_B(n))^T$ に対し $\boldsymbol P(n+1)=M\boldsymbol P(n)$ の $M$ を求める。
 2. $M$ の全固有値と対応する固有ベクトルを求める。
@@ -28,255 +38,88 @@ $$A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix}$$
 ### III.
 $m\ge3$ とし、$\boldsymbol a_1,\ldots,\boldsymbol a_m$ は一次独立とする。循環的な和 $\boldsymbol a_1+\boldsymbol a_2,\ldots,\boldsymbol a_m+\boldsymbol a_1$ が一次独立となる $m$ の条件を求める。
 
-### 题目描述
+#### 题目描述
 
-1. 对
+I. 对 $A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix}$，依次求全部特征值；满足 $A^3+aA^2+bA+cI=0$ 的系数；$A^{2n+1}$（整数 $n\ge0$）；以及 $e^{tA}=pA^2+qA+rI$ 的实系数 $p,q,r$（$t\in\mathbb R$）。
 
-   $$
-   A=\begin{pmatrix}0&3&0\\-3&0&4\\0&-4&0\end{pmatrix},
-   $$
+II. 两状态系统每步从 A 到 B 的概率为 $\alpha$、从 B 到 A 为 $\beta$，$0<\alpha,\beta<1$。
+(1) 求使 $\boldsymbol P(n+1)=M\boldsymbol P(n)$ 的转移矩阵，其中 $\boldsymbol P(n)=(P_A(n),P_B(n))^T$。
+(2) 求全部特征值与对应特征向量。
+(3) 求两状态的极限概率。
+(4) 令 $R_A(n)=P_A(n)-P_A(\infty)$，用 $R_A(n)$ 表示 $R_A(n+1)$。
 
-   求特征值；用凯莱—哈密顿定理确定满足 $A^3+aA^2+bA+cI=0$ 的系数；对整数 $n\ge0$ 求 $A^{2n+1}$；并把矩阵指数写成 $\exp(tA)=pA^2+qA+rI$ 的形式，求 $p,q,r$。
-2. 对状态 $A,B$ 间以概率 $\alpha,\beta$ 转移的二状态过程，写出概率向量的转移矩阵
-
-   $$
-   M=\begin{pmatrix}1-\alpha&\beta\\ \alpha&1-\beta\end{pmatrix},
-   $$
-
-   求其特征值、特征向量和长期稳态概率；再令
-   $R_A(n)=P_A(n)-P_A(\infty)$，推导 $R_A(n+1)$ 与 $R_A(n)$ 的关系。参数满足 $0<\alpha<1,0<\beta<1$。
-3. 设 $m\ge3$，已知 $\boldsymbol a_1,\ldots,\boldsymbol a_m$ 线性无关，判断循环相邻和
-
-   $$
-   \boldsymbol a_1+\boldsymbol a_2,
-   \boldsymbol a_2+\boldsymbol a_3,\ldots,\
-   \boldsymbol a_m+\boldsymbol a_1
-   $$
-
-   是否线性无关，并按 $m$ 的奇偶性给出结论。
+III. $m\ge3$ 个向量 $\boldsymbol a_1,\ldots,\boldsymbol a_m$ 线性无关。求循环相邻和 $\boldsymbol a_1+\boldsymbol a_2,\ldots,\boldsymbol a_m+\boldsymbol a_1$ 仍线性无关的充要条件。
 
 ## **Kai**
-### I.
-#### 1.
-$A$ の固有値を $\lambda$ とすると、
+
+### I
+
+#### 1–2
 
 $$
-\begin{aligned}
-0
-&= \det \begin{pmatrix} - \lambda & 3 & 0 \\ -3 & -\lambda & 4 \\ 0 & -4 & -\lambda \end{pmatrix}
-\\
-&= - \lambda ( \lambda^2 + 25)
-\\
-\therefore \ \ 
-\lambda &= 0, 5i, -5i
-\end{aligned}
+\det(\lambda I-A)=\lambda(\lambda^2+25),
 $$
 
-を得る。
+固有値は $\boxed{0,5i,-5i}$。Cayley–Hamilton の定理より、
+$A^3+25A=O$ だから $\boxed{a=0,b=25,c=0}$ である。
+三つの固有値は互いに異なるため、最小多項式もこの三次多項式であり、係数は一意である。
 
-#### 2.
-ケーリー-ハミルトンの定理より、$A^3 + 25A = 0$ が成り立つ。
+#### 3–4
 
-つまり、 $a=0,b=25,c=0$ である。
-
-#### 3.
-
-$$
-\begin{aligned}
-A^3 &= -25A
-, \\
-A^5 &= -25 A^3 = (-25)^2 A
-, \\
-&\cdots
-\end{aligned}
-$$
-
-から、
+$A^3=-25A$ から帰納的に、
 
 $$
-\begin{aligned}
-A^{2n+1} = (-25)^n A = (-1)^n 5^{2n} A
-\end{aligned}
+\boxed{A^{2n+1}=(-25)^nA}\qquad(n\ge0).
 $$
 
-がわかる。
-
-#### 4.
-上の 3. から、$A^{2n+2} = (-1)^n 5^{2n} A^2$もわかる。
-
-そこで、
+行列指数の級数で奇数次と偶数次の項をそれぞれ足し合わせると、
 
 $$
-\begin{aligned}
-\exp (tA)
-&= \sum_{k=0}^\infty \frac{t^k}{k!} A^k
-\\
-&= I + \sum_{n=0}^\infty \frac{t^{2n+1}}{(2n+1)!} A^{2n+1} + \sum_{n=0}^\infty \frac{t^{2n+2}}{(2n+2)!} A^{2n+2}
-\\
-&= I + A \sum_{n=0}^\infty \frac{(-1)^n 5^{2n} t^{2n+1}}{(2n+1)!} + A^2 \sum_{n=0}^\infty \frac{(-1)^n 5^{2n}t^{2n+2}}{(2n+2)!}
-\\
-&= I + A \frac{1}{5} \sum_{n=0}^\infty \frac{(-1)^n (5t)^{2n+1}}{(2n+1)!}
-- A^2 \frac{1}{25} \sum_{n=1}^\infty \frac{(-1)^n (5t)^{2n}}{(2n)!}
-\\
-&= I + \frac{\sin (5t)}{5} A - \frac{\cos (5t) - 1}{25} A^2
-\end{aligned}
+\boxed{e^{tA}=I+\frac{\sin5t}{5}A+\frac{1-\cos5t}{25}A^2}.
 $$
 
-と計算できるので、
+従って $\boxed{p=(1-\cos5t)/25,\ q=\sin5t/5,\ r=1}$ である。
+
+### II
+
+#### 1–2
+
+全確率の公式より、
 
 $$
-\begin{aligned}
-p = \frac{1 - \cos (5t)}{25}
-, \ \ 
-q = \frac{\sin (5t)}{5}
-, \ \ 
-r = 1
-\end{aligned}
+\boxed{M=\begin{pmatrix}1-\alpha&\beta\\\alpha&1-\beta\end{pmatrix}}.
 $$
 
-がわかる。
-
-### II.
-#### 1.
+すべての固有値と対応する固有ベクトルは次のように取れる。
 
 $$
-\begin{aligned}
-P_A(n+1) &= P_A(n) (1-\alpha) + P_B(n) \beta
-\\
-P_B(n+1) &= P_A(n) \alpha + P_B(n) (1-\beta)
-\end{aligned}
+\boxed{\lambda_1=1,\ \boldsymbol v_1=\binom\beta\alpha;\qquad
+\lambda_2=1-\alpha-\beta,\ \boldsymbol v_2=\binom1{-1}}.
 $$
 
-なので、
+#### 3–4
+
+$|1-\alpha-\beta|<1$ かつ $P_A(n)+P_B(n)=1$ より、
 
 $$
-\begin{aligned}
-M = \begin{pmatrix} 1-\alpha & \beta \\ \alpha & 1-\beta \end{pmatrix}
-\end{aligned}
+\boldsymbol P(n)=\frac1{\alpha+\beta}\binom\beta\alpha
++c(1-\alpha-\beta)^n\binom1{-1}.
 $$
 
-である。
-
-#### 2.
-$M$ の固有値は $1, 1-\alpha-\beta$ であり、それぞれに対応する固有ベクトルは、例えば、
+従って、
 
 $$
-\begin{aligned}
-\begin{pmatrix} \beta \\ \alpha \end{pmatrix}
-, \ \ 
-\begin{pmatrix} 1 \\ -1 \end{pmatrix}
-\end{aligned}
+\boxed{P_A(\infty)=\frac\beta{\alpha+\beta},\qquad
+P_B(\infty)=\frac\alpha{\alpha+\beta}},
+\qquad
+\boxed{R_A(n+1)=(1-\alpha-\beta)R_A(n)}.
 $$
 
-である。
+### III
 
-#### 3.
-題意の $0<\alpha,\beta<1$ より $|1-\alpha-\beta|<1$ である。したがって固有値 $1$ 以外の成分は減衰して、A,Bである確率は一定値に収束する。それは $M$ の固有ベクトルであり、確率は負にならないことを考慮して、
+$\sum_{j=1}^m c_j(\boldsymbol a_j+\boldsymbol a_{j+1})=0$ とする。添字は法 $m$ で解釈する。
+$\boldsymbol a_j$ の一次独立性より $c_j+c_{j-1}=0$ だから、
+$c_j=(-1)^{j-1}c_1$ かつ $(1+(-1)^{m-1})c_1=0$ である。
 
-$$
-\begin{aligned}
-\lim_{k \to \infty} P_A(k) = \frac{\beta}{\alpha+\beta}
-, \ \ 
-\lim_{k \to \infty} P_B(k) = \frac{\alpha}{\alpha+\beta}
-\end{aligned}
-$$
-
-であることがわかる。
-
-#### 4.
-
-$$
-\begin{aligned}
-P_A(\infty) = \lim_{k \to \infty} P_A(k) = \frac{\beta}{\alpha+\beta}
-\end{aligned}
-$$
-
-と書くことにする。
-
-$$
-\begin{aligned}
-R_A(n+1)
-&= P_A(n+1) - P_A(\infty)
-\\
-&= P_A(n) (1-\alpha) + P_B(n) \beta - P_A(\infty)
-\\
-&= P_A(n) (1-\alpha) + \left(1 - P_A(n) \right) \beta - P_A(\infty)
-\\
-&= (1-\alpha-\beta) P_A(n) + \beta - P_A(\infty)
-\\
-R_A(n) &= P_A(n) - P_A(\infty)
-\end{aligned}
-$$
-
-であるから、 $P_A(n)$ を消去して、
-
-$$
-\begin{aligned}
-R_A(n+1)
-&= (1-\alpha-\beta) \left( R_A(n) + P_A(\infty) \right) + \beta - P_A(\infty)
-\\
-&= (1-\alpha-\beta) R_A(n)
-\end{aligned}
-$$
-
-を得る。
-
-### III.
-
-$$
-\begin{aligned}
-c_1 (\boldsymbol{a}_1 + \boldsymbol{a}_2) +
-c_2 (\boldsymbol{a}_2 + \boldsymbol{a}_3) + \cdots +
-c_m (\boldsymbol{a}_m + \boldsymbol{a}_1)
-= \boldsymbol{0}
-\end{aligned}
-$$
-
-が成り立つとしたとき $c_1 = c_2 = \cdots = c_m = 0$
-が導かれるかを検討する。
-
-上の式を整理すると、
-
-$$
-\begin{aligned}
-(c_1+c_m) \boldsymbol{a}_1 +
-(c_1+c_2) \boldsymbol{a}_2 +
-(c_2+c_3) \boldsymbol{a}_3 + \cdots +
-(c_{m-1}+c_m) \boldsymbol{a}_m
-= \boldsymbol{0}
-\end{aligned}
-$$
-
-となり、
-$\boldsymbol{a}_1, \boldsymbol{a}_2, \cdots, \boldsymbol{a}_m$
-が1次独立であることから、
-
-$$
-\begin{aligned}
-c_1+c_m = c_1+c_2 = c_2+c_3 = \cdots = c_{m-1}+c_m = 0
-\end{aligned}
-$$
-
-よって、
-
-$$
-\begin{aligned}
-c_2 &= c_4 = \cdots = -c_1
-, \\
-c_3 &= c_5 = \cdots =  c_1
-, \\
-c_m &= -c_1
-\end{aligned}
-$$
-
-を得る。したがって、 $m$ が奇数のときは
-$c_1 = c_2 = \cdots = c_m = 0$ が導かれるので
-
-$$
-\boldsymbol{a}_1 + \boldsymbol{a}_2,
-\boldsymbol{a}_2 + \boldsymbol{a}_3, \cdots,
-\boldsymbol{a}_m + \boldsymbol{a}_1
-$$
-
-は1次独立となる。
-$m$ が偶数のときは $c_1=1$ として非零解が得られるので、1次従属である。
+$m$ が奇数なら零解のみであり、偶数なら $c_j=(-1)^{j-1}$ が非零の一次関係を与える。
+従って必要十分条件は $\boxed{m\text{ が奇数}}$ である。
