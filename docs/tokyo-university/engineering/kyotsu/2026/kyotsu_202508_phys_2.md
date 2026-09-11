@@ -42,12 +42,14 @@ $$
 となることを示せ。
 
 必要に応じ、$\theta$ を $\boldsymbol a,\boldsymbol b$ のなす角として
-$$|\boldsymbol a-\boldsymbol b|^{-1}=|\boldsymbol a|^{-1}\left(1-2\frac{|\boldsymbol b|}{|\boldsymbol a|}\cos\theta+\frac{|\boldsymbol b|^2}{|\boldsymbol a|^2}\right)^{-1/2}$$
+
+$$
+|\boldsymbol a-\boldsymbol b|^{-1}=|\boldsymbol a|^{-1}\left(1-2\frac{|\boldsymbol b|}{|\boldsymbol a|}\cos\theta+\frac{|\boldsymbol b|^2}{|\boldsymbol a|^2}\right)^{-1/2}
+$$
+
 を用いてよい。
 
-<figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_2_p1.png" width="200" alt=""/>
-</figure>
+![二つの点電荷と電気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/kyotsu_202508_phys_2_dipole_audited.svg)
 
 ### II
 
@@ -62,9 +64,7 @@ $$
 1. 外部電場と誘起電荷の両方を考慮し、球殻外部の静電ポテンシャルを求めよ。基準は任意に選んでよい。
 2. 球殻上の任意の点の位置ベクトルを $\boldsymbol{s}\ (|\boldsymbol{s}|=R)$ とする。球殻上の面電荷密度 $\sigma(\boldsymbol{s})$ を求めよ。
 
-<figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_2_p2.png" width="300" alt=""/>
-</figure>
+![一様電場中の導体球殻](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/kyotsu_202508_phys_2_sphere_audited.svg)
 
 ### III
 
@@ -91,24 +91,41 @@ $$
 
 を磁気双極子モーメントとする。ただし、$\boldsymbol{k}$ は $+z$ 方向の単位ベクトルである。$\boldsymbol{A}(\boldsymbol{r})$ を $\boldsymbol{m}$ と $\boldsymbol{r}$ で表せ。
 
-<figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_2_p3.png" width="300" alt=""/>
-</figure>
+![円形電流と磁気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/kyotsu_202508_phys_2_loop_audited.svg)
 
-### 题目描述
+#### 题目描述
 
-真空介电常数和磁导率分别为 $\varepsilon_0,\mu_0$。
+真空介电常数为 $\varepsilon_0$，磁导率为 $\mu_0$。
 
-1. 在 $(0,0,d/2)$、$(0,0,-d/2)$ 分别放置 $+q,-q$，令 $\boldsymbol d$ 从负电荷指向正电荷。先求以无穷远为零点的精确静电势；再在 $|\boldsymbol d|/|\boldsymbol r|\ll1$ 时作远场展开，证明以 $\boldsymbol p=q\boldsymbol d$ 表示的偶极势为
-   $$
-   U(\boldsymbol r)=
-   \frac{\boldsymbol p\cdot\boldsymbol r}
-   {4\pi\varepsilon_0|\boldsymbol r|^3}.
-   $$
-2. 半径 $R$ 的薄导体球壳置于沿 $z$ 方向的一致静电场 $\boldsymbol E_0$ 中。求兼顾外场和感应电荷的球外电势；再由导体边界条件求球面任意点 $\boldsymbol s$ 处的面电荷密度。
-3. 半径 $\rho$、位于 $xy$ 平面的一匝圆线圈通电流 $I$，其矢势由题给线积分定义。在 $|\boldsymbol u|/|\boldsymbol r|\ll1$ 的远场中展开积分，并用题目定义的
-   $\boldsymbol m=\mu_0(\pi\rho^2)I\boldsymbol k$
-   和 $\boldsymbol r$ 表示 $\boldsymbol A(\boldsymbol r)$。
+I. 电荷 $+q,-q$ 分别位于 $(0,0,d/2)$、$(0,0,-d/2)$。令 $\boldsymbol d=(0,0,d)$ 为从负电荷指向正电荷的矢量；$\boldsymbol r$ 为两电荷所在点之外任意点的位置矢量。
+
+1. 求以无穷远为零点的静电势。
+2. 在 $|\boldsymbol d|/|\boldsymbol r|\ll1$ 时，证明以 $\boldsymbol p=q\boldsymbol d$ 表示的电偶极矩给出的电势为
+
+$$
+U(\boldsymbol r)=\frac{\boldsymbol p\cdot\boldsymbol r}{4\pi\varepsilon_0|\boldsymbol r|^3}.
+$$
+
+可使用余弦定理给出的展开式，其中 $\theta$ 是 $\boldsymbol a,\boldsymbol b$ 的夹角：
+
+$$
+|\boldsymbol a-\boldsymbol b|^{-1}=|\boldsymbol a|^{-1}
+\left(1-2\frac{|\boldsymbol b|}{|\boldsymbol a|}\cos\theta+
+\frac{|\boldsymbol b|^2}{|\boldsymbol a|^2}\right)^{-1/2}.
+$$
+
+II. 半径 $R$、厚度可忽略的导体球壳以 O 为中心，内外都是真空。外加均匀静电场，在远离球壳处为 $\boldsymbol E_0=(0,0,E_{0z})$。球壳上产生感应电荷，其在球壳外形成的电场可等效为位于 O 的电偶极子。
+
+1. 同时考虑外加电场与球壳电荷，求球壳外任意位置 $\boldsymbol r$ 的电势，电势零点可自行选取。
+2. 求球壳表面任意位置 $\boldsymbol s\ (|\boldsymbol s|=R)$ 处的面电荷密度 $\sigma(\boldsymbol s)$。
+
+III. 真空中有半径 $\rho$、中心在 O、位于 $xy$ 平面的一匝圆线圈，电流为 $I$，其方向如图。线圈上任意点的位置矢量为 $\boldsymbol u$，它与 $x$ 轴的夹角为 $\varphi$，沿电流方向的切向线元为 $d\boldsymbol u$。磁矢势为
+
+$$
+\boldsymbol A(\boldsymbol r)=\frac{\mu_0I}{4\pi}\oint\frac{d\boldsymbol u}{|\boldsymbol r-\boldsymbol u|}.
+$$
+
+在 $|\boldsymbol u|/|\boldsymbol r|\ll1$ 时，将线圈视为磁偶极子。按本题定义，其磁偶极矩为 $\boldsymbol m=\mu_0SI\boldsymbol k$，其中 $S=\pi\rho^2$，$\boldsymbol k$ 是 $+z$ 方向单位矢量。用 $\boldsymbol m,\boldsymbol r$ 表示 $\boldsymbol A(\boldsymbol r)$。
 
 ## **Kai**
 

@@ -2,6 +2,9 @@
 sidebar_label: '2021年8月実施 物理学1'
 tags:
   - Tokyo-University
+  - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
+  - Physics.Mechanics.Small-Angle-Pendulum
+  - Physics.Mechanics.Collision-and-Coefficient-of-Restitution
 ---
 
 # 東京大学 工学系研究科 2021年8月実施 物理学1
@@ -11,259 +14,144 @@ tags:
 
 ## **Description**
 
-### 題意の要約
+質量 $m$、長さ $L$ の一様な細い棒の一端 O を支点とし、鉛直面内で摩擦なく回転する剛体振り子を考える。他端を E、鉛直下向きと棒のなす角を $\theta$、重力加速度を $g$ とする。空気抵抗は無視する。
 
-[公式問題 PDF・3–5ページ](https://www.t.u-tokyo.ac.jp/hubfs/graduate/2022/kakomon/2022_P_1.pdf#page=3)
+I. E を O と同じ高さまで持ち上げ、静かに放す。角速度、角加速度を $\dot\theta,\ddot\theta$ とする。
 
-質量 $m$、長さ $L$ の一様な細い棒が、一端 $O$ を支点として鉛直面内を摩擦なく回転する。他端を $E$、重力加速度を $g$ とし、空気抵抗を無視する。鉛直下向きから棒への角度を $\theta$ とする。
+1. O まわりの慣性モーメント $I_O$ を求めよ。
+2. $\theta$ の運動方程式を求めよ。
+3. $\dot\theta^2$ を $\theta$ の関数として表せ。
+4. 放した直後に支点 O から棒に働く力を求めよ。
+5. E が最下点に達した瞬間に支点から棒に働く力を求めよ。
 
-I. 棒を水平にして静かに放す。
+II. 棒と同じ質量 $m$ の点状物体 P を、O から距離 $x$（$0<x\le L$）の位置に固定する。
 
-1. $O$ のまわりの慣性モーメント $I_O$ を求める。
-2. $\theta$ の運動方程式を示す。
-3. $\dot\theta^2$ を $\theta$ で表す。
-4. 放した直後に支点から棒へ働く力を求める。
-5. $E$ が最下点に来た瞬間に支点から棒へ働く力を求める。
+1. 最下位置の近くで微小振動する周期を求めよ。
+2. 水平から静かに放したとき、E が初めて最下点に達する時間を最短にする $x$ を求めよ。
 
-II. $O$ から距離 $x$（$0<x\le L$）の位置に、質量 $m$ の点状物体 $P$ を固定する。
+III. 棒だけが最下位置で静止している。質量 $m$ の点状物体 Q を棒に垂直に水平速度 $v$ で衝突させる。衝突点は O から距離 $y$（$0<y\le L$）にある。衝突後も運動は同じ鉛直面内に限る。
 
-1. 棒が最下位置の近くで微小振動する周期を求める。
-2. 水平から静かに放して $E$ が初めて最下点に達するまでの時間を最短にする $x$ を求める。
+1. 衝突前後で全運動エネルギーが保存され、衝突後の Q が鉛直下向きに落下する場合の $y$ を求めよ。
+2. Q が棒に付着する場合、E がちょうど O と同じ高さまで上がるための入射速度 $v_0$ を $y$ で表せ。
+![一様な棒の剛体振り子、付加質点、および衝突](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/kyotsu_202108_phys_1_pendulum_audited.svg)
 
-III. 最下位置で静止している棒に、質量 $m$ の点状物体 $Q$ が水平に速度 $v$ で衝突する。衝突点は $O$ から距離 $y$（$0<y\le L$）にあり、運動は同じ鉛直面内に限る。
+#### 题目描述
 
-1. 衝突前後で全運動エネルギーが保存され、衝突後に $Q$ が鉛直下向きに落ちる場合の $y$ を求める。
-2. $Q$ が棒に付着する場合、$E$ がちょうど $O$ と同じ高さまで上がるための衝突速度 $v_0$ を $y$ で表す。
+质量为 $m$、长度为 $L$ 的均匀细杆以端点 O 为支点，在竖直面内无摩擦转动。另一端为 E，杆与竖直向下方向的夹角为 $\theta$，重力加速度为 $g$，忽略空气阻力。
 
-### 题目描述
+I. 将 E 抬至与 O 同高后由静止释放。角速度、角加速度记为 $\dot\theta,\ddot\theta$。
 
-质量 $m$、长度 $L$ 的均匀细杆以一端 $O$ 为支点，在竖直平面内无摩擦转动，另一端为 $E$。重力加速度为 $g$，忽略空气阻力。角度 $\theta$ 从竖直向下方向量起。
+1. 求关于 O 的转动惯量 $I_O$。
+2. 建立 $\theta$ 的运动方程。
+3. 用 $\theta$ 表示 $\dot\theta^2$。
+4. 求刚释放时支点对杆的力。
+5. 求 E 到达最低点时支点对杆的力。
 
-1. 将杆水平放置后由静止释放。
-   1. 求杆关于 $O$ 的转动惯量。
-   2. 建立 $\theta$ 的运动方程。
-   3. 用 $\theta$ 表示 $\dot\theta^2$。
-   4. 求释放瞬间支点对杆的力。
-   5. 求 $E$ 到达最低点瞬间支点对杆的力。
-2. 在距 $O$ 为 $x$（$0<x\le L$）处固定质量为 $m$ 的质点 $P$。
-   1. 求最低位置附近的小振动周期。
-   2. 从水平静止释放，求使 $E$ 首次到达最低点所需时间最短的 $x$。
-3. 杆在最低位置静止时，质量为 $m$ 的质点 $Q$ 以水平速度 $v$ 撞击距 $O$ 为 $y$（$0<y\le L$）的位置，运动仍在同一竖直平面内。
-   1. 碰撞前后总动能守恒，且碰后 $Q$ 竖直下落，求 $y$。
-   2. 若 $Q$ 黏附在杆上，求使 $E$ 刚好升至与 $O$ 同高的入射速度 $v_0(y)$。
+II. 在距 O 为 $x$（$0<x\le L$）处固定质量也为 $m$ 的质点 P。
+
+1. 求最低位置附近的小振动周期。
+2. 水平静止释放时，求使 E 首次到达最低点所需时间最短的 $x$。
+
+III. 杆单独在最低位置静止。质量为 $m$ 的质点 Q 沿水平方向以速度 $v$ 垂直撞杆，撞击点距 O 为 $y$（$0<y\le L$）。碰后运动仍限制于同一竖直面内。
+
+1. 若碰撞前后总动能守恒且碰后 Q 竖直向下掉落，求 $y$。
+2. 若 Q 黏附在杆上，求 E 恰好升至与 O 同高所需的入射速度 $v_0(y)$。
 
 ## **Kai**
+
 ### I.
-#### 1.
+
+1. 一様な棒なので
 
 $$
-\begin{aligned}
-I_O
-&= \int_0^L \frac{m}{L} x^2 dx
-\\
-&= \frac{m}{L} \left[ \frac{x^3}{3} \right]_0^L
-\\
-&= \frac{1}{3} mL^2
-\end{aligned}
+\boxed{I_O=\int_0^L\frac mL s^2\,ds=\frac13mL^2}.
 $$
 
-#### 2.
+2. O まわりの運動方程式は
 
 $$
-\begin{aligned}
-I_O \ddot{\theta} &= - mg \frac{L}{2} \sin \theta
-\\
-\frac{1}{3} mL^2 \ddot{\theta} &= - mg \frac{L}{2} \sin \theta
-\\
-\therefore \ \ 
-\ddot{\theta} &= - \frac{3g}{2L} \sin \theta
-\end{aligned}
+\boxed{I_O\ddot\theta=-\frac{mgL}{2}\sin\theta},\qquad
+\ddot\theta=-\frac{3g}{2L}\sin\theta.
 $$
 
-#### 3.
-エネルギー保存則より、
+3. 水平位置を位置エネルギーの基準とすると
 
 $$
-\begin{aligned}
-\frac{1}{2} I_O \dot{\theta}^2 - mg \frac{L}{2} \cos \theta &= 0
-\\
-\frac{1}{3} mL^2 \dot{\theta}^2 &= mgL \cos \theta
-\\
-\therefore \ \ 
-\dot{\theta}^2 &= \frac{3g}{L} \cos \theta
-\end{aligned}
+\frac12I_O\dot\theta^2-\frac{mgL}{2}\cos\theta=0
+\quad\Longrightarrow\quad
+\boxed{\dot\theta^2=\frac{3g}{L}\cos\theta}.
 $$
 
-#### 4.
-放した直後は $\theta=\pi/2$、$\dot\theta=0$、$\ddot\theta=-3g/(2L)$ である。重心の加速度は鉛直下向きに $3g/4$ だから、支点の力の上向き成分 $N$ は
+4. 放した直後の重心加速度は下向きに $(L/2)|\ddot\theta|=3g/4$。支点の力の上向き成分を $N$ とすると
 
-$$N-mg=-m\frac{3g}{4},\qquad \boxed{N=\frac{mg}{4}}.$$
+$$
+N-mg=-\frac34mg\quad\Longrightarrow\quad
+\boxed{N=\frac14mg\quad\text{（鉛直上向き）}}.
+$$
 
-水平成分は零であり、力は鉛直上向きである。
+5. 最下点では重心の加速度は上向きに $(L/2)\dot\theta^2=3g/2$。よって
 
-#### 5.
-最下点では $\theta=0$、$\ddot\theta=0$、$\dot\theta^2=3g/L$ であり、重心の加速度は支点に向かって $\frac L2\dot\theta^2=3g/2$ である。従って
-
-$$N-mg=m\frac{3g}{2},\qquad \boxed{N=\frac{5mg}{2}}.$$
-
-力は鉛直上向きである。
+$$
+N-mg=\frac32mg\quad\Longrightarrow\quad
+\boxed{N=\frac52mg\quad\text{（鉛直上向き）}}.
+$$
 
 ### II.
-#### 1.
-棒と P を合わせた物体を P' とする。
-P' の O の周りの慣性モーメントは、
+
+1. 全慣性モーメントは $I=m(L^2/3+x^2)$。微小振動では
 
 $$
-\begin{aligned}
-I_O + mx^2
-= m \frac{L^2 + 3x^2}{3}
-\end{aligned}
+I\ddot\theta=-mg(L/2+x)\theta.
 $$
 
-であり、 O から P' の重心までの距離は $(L/2+x)/2$ であるから、
-$\theta$ に関する運動方程式は、
+したがって周期は
 
 $$
-\begin{aligned}
-m \frac{L^2 + 3x^2}{3} \ddot{\theta} &= - 2mg \frac{L/2 + x}{2} \sin \theta
-\\
-\ddot{\theta} &= - \frac{3g(L+2x)}{2(L^2+3x^2)} \sin \theta
-\end{aligned}
+\boxed{T=2\pi\sqrt{\frac{2(L^2+3x^2)}{3g(L+2x)}}}.
 $$
 
-である。
-よって、微小振動の振動周期は、
+2. エネルギー保存から $\dot\theta^2=3g(L+2x)\cos\theta/(L^2+3x^2)$ なので、最下点までの時間は
 
 $$
-\begin{aligned}
-2 \pi \sqrt{ \frac{2(L^2+3x^2)}{3g(L+2x)} }
-\end{aligned}
+t(x)=\sqrt{\frac{L^2+3x^2}{3g(L+2x)}}
+\int_0^{\pi/2}\frac{d\theta}{\sqrt{\cos\theta}}.
 $$
 
-である。
-
-#### 2.
-エネルギー保存則より
+積分は $x$ に依存しない。$f(x)=(L^2+3x^2)/(L+2x)$ を最小にすればよく、
 
 $$
-\begin{aligned}
-\frac{1}{2} m \frac{L^2+3x^2}{3} \dot{\theta}^2 &- 2mg \frac{L/2+x}{2} \cos \theta = 0
-\\
-\therefore \ \ 
-\dot{\theta}^2 &= \frac{L+2x}{L^2+3x^2} \cdot 3g \cos \theta
-\end{aligned}
+f'(x)=\frac{2(3x^2+3Lx-L^2)}{(L+2x)^2}.
 $$
 
-棒を放してから E が最下点に最初に到達するまで、
-$0 \leq \theta \leq \pi/2, \dot{\theta} \leq 0$ なので、
+正の根で微分の符号が負から正に変わるため
 
 $$
-\begin{aligned}
-\dot{\theta} &= - \sqrt{\frac{L+2x}{L^2+3x^2}} \sqrt{3g \cos \theta}
-\\
-\therefore \ \ 
-dt &= - \sqrt{\frac{L^2+3x^2}{L+2x}} \frac{d \theta}{\sqrt{3g \cos \theta}}
-\end{aligned}
+\boxed{x=\frac{\sqrt{21}-3}{6}L}.
 $$
-
-である。よって、
-棒を放してから E が最下点に最初に到達するまでの時間を $t_1$ とすると、
-
-$$
-\begin{aligned}
-t_1
-&= - \sqrt{\frac{L^2+3x^2}{L+2x}}
-\int_{\pi/2}^0 \frac{d \theta}{\sqrt{3g \cos \theta}}
-\\
-&= \sqrt{\frac{L^2+3x^2}{L+2x}}
-\int_0^{\pi/2} \frac{d \theta}{\sqrt{3g \cos \theta}}
-\end{aligned}
-$$
-
-である。
-
-$$
-\begin{aligned}
-\frac{d}{dx} \frac{L^2+3x^2}{L+2x}
-&= \frac{2(3x^2+3Lx-L^2)}{(L+2x)^2}
-\end{aligned}
-$$
-
-からわかるように、 $0 \lt x \leq L$ において
-$(L^2+3x^2)/(L+2x)$ したがって $t_1$ を最小にする $x$ は、
-
-$$
-\begin{aligned}
-x = \frac{-3+\sqrt{21}}{6} L
-\end{aligned}
-$$
-
-である。
 
 ### III.
-#### 1.
-衝突直後の棒の O の周りの角速度を $\omega$ とすると、
-衝突前後のエネルギー保存則と角運動量保存則より、
+
+1. 衝突直後の Q の水平速度は零。棒の角速度を $\Omega$ として、O まわりの角運動量保存とエネルギー保存から
 
 $$
-\begin{aligned}
-\frac{1}{2}mv^2 &= \frac{1}{2} I_O \omega^2 ,
-\\
-ymv &= I_O \omega
-\end{aligned}
+mvy=I_O\Omega,\qquad \frac12mv^2=\frac12I_O\Omega^2.
 $$
 
-が成り立ち、これらから $\omega$ を消去して、
+したがって $my^2=I_O$、すなわち
 
 $$
-\begin{aligned}
-y = \frac{L}{\sqrt{3}}
-\end{aligned}
+\boxed{y=\frac L{\sqrt3}}.
 $$
 
-を得る。
-
-#### 2.
-棒と Q を合わせた物体の O の周りの慣性モーメントは、
+2. 合成慣性モーメントを $I'=m(L^2/3+y^2)$ とすると、衝突中は $mv_0y=I'\Omega$。衝突後に水平までちょうど上がる条件は
 
 $$
-\begin{aligned}
-I
-&= I_O + my^2
-\\
-&= \frac{m(L^2 + 3y^2)}{3}
-\end{aligned}
+\frac12I'\Omega^2=mg\left(\frac L2+y\right).
 $$
 
-である。
-衝突直後の棒（および Q）の O の周りの角速度を $\omega$ とする。
-衝突前後の角運動量保存則より
+両式から
 
 $$
-\begin{aligned}
-ymv_0 = I \omega
-\end{aligned}
+\boxed{v_0=\sqrt{\frac{g(L+2y)(L^2+3y^2)}{3y^2}}}.
 $$
 
-が成り立ち、衝突直後と E が O が同じ高さに達した時点でのエネルギーが等しいことから
-
-$$
-\begin{aligned}
-\frac{1}{2} I \omega^2
-&= mg \frac{L}{2} + mgy
-\\
-&= \frac{1}{2} mg(L+2y)
-\end{aligned}
-$$
-
-が成り立つ。
-これらから $\omega$ を消去して、
-
-$$
-\begin{aligned}
-v_0
-&= \frac{1}{y} \sqrt{\frac{(L+2y)(L^2+3y^2)g}{3}}
-\end{aligned}
-$$
-
-を得る。

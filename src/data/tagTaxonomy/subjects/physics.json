@@ -691,6 +691,81 @@
       "relatedSubjects": [
         "Electrical-Electronic"
       ]
+    },
+    "Physics.Mechanics.Rigid-Body-Rotation-and-Rolling": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Mechanics.Collision-and-Coefficient-of-Restitution": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Mechanics.Euler-Bernoulli-Beam": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Mechanics.Rigid-Body-Moment-of-Inertia": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Mechanics.Simple-Harmonic-Motion": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Electromagnetism.Skin-Effect": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Method-of-Images": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Parallel-Wire-Transmission-Line": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Thermodynamics.Van-der-Waals-Gas": {
+      "subsubject": "Physics.Thermodynamics"
+    },
+    "Physics.Mechanics.Rocket-Equation-and-Attitude-Stability": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Electromagnetism.Conduction-and-Displacement-Current": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Magnetization-and-Bound-Currents": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.RLC-Series-Resonance": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Thermodynamics.Carnot-Cycle-and-Heat-Engine-Efficiency": {
+      "subsubject": "Physics.Thermodynamics"
+    },
+    "Physics.Thermodynamics.Ideal-Gas-Entropy-and-Heat-Capacities": {
+      "subsubject": "Physics.Thermodynamics"
+    },
+    "Physics.Thermodynamics.Otto-Diesel-and-Dual-Cycles": {
+      "subsubject": "Physics.Thermodynamics"
+    },
+    "Physics.Mechanics.Monatomic-and-Diatomic-Lattice-Vibrations": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Electromagnetism.Young-Double-Slit-Interference": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Quantum-Mechanics.De-Broglie-Wavelength": {
+      "subsubject": "Physics.Quantum-Mechanics"
+    },
+    "Physics.Mechanics.Lorentz-Transformation-and-Relativistic-Energy": {
+      "subsubject": "Physics.Mechanics"
+    },
+    "Physics.Thermodynamics.Virial-Expansion": {
+      "subsubject": "Physics.Thermodynamics"
+    },
+    "Physics.Electromagnetism.Space-Charge-and-Ion-Drift": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Thin-Lens-and-Fraunhofer-Diffraction": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Electromagnetism.Prism-and-Diffraction-Grating": {
+      "subsubject": "Physics.Electromagnetism"
+    },
+    "Physics.Thermodynamics.Intercooled-Brayton-Cycle": {
+      "subsubject": "Physics.Thermodynamics"
     }
   }
 }

@@ -18,9 +18,7 @@ tags:
 
 両質点を静止状態から運動させる。摩擦および糸の質量、太さ、伸びを無視し、糸はたるまないものとする。重力加速度を $g$ として、次の問いに答えよ。
 
-<figure style={{ textAlign: "center" }}>
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu_202508_phys_1_p1.png" width="300" alt=""/>
-</figure>
+![糸で結ばれた二質点と斜面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2026/kyotsu_202508_phys_1_setup_audited.svg)
 
 ### I
 
@@ -38,16 +36,19 @@ tags:
 2. 時刻 $t$ における質点 A の座標を求めよ。
 3. $t=0$ の状態から重心の周りに $90^\circ$ 回転したときの質点 A の $x$ 座標を $b$ とする。$b$ を $l$ で表せ。
 
-### 题目描述
+#### 题目描述
 
-质量分别为 $m$、$2m$ 的质点 A、B 由长 $l$ 的不可伸长轻绳连接。A 位于倾角 $30^\circ$ 的光滑斜面上，B 从斜面端点竖直悬下；初始斜面上的绳长为 $a$。以端点 O 为原点，向右、向上分别为 $x,y$ 正向，系统从静止释放，忽略摩擦和绳的质量。
+质量为 $m$ 的质点 A 与质量为 $2m$ 的质点 B 由长度为 $l$ 的绳连接。A 位于倾角 $30^\circ$ 的光滑台面，B 从台面端点竖直悬挂；初始位于台面上的绳长为 $a\ (0<a<l)$。以台面端点 O 为原点，水平方向取 $x$ 轴、竖直向上取 $y$ 轴。两质点从静止开始运动。忽略摩擦以及绳的质量、粗细和伸长，绳始终不松弛，重力加速度为 $g$。
 
-1. 在 A 沿斜面滑至端点的阶段，求绳张力 $T$。
-2. 求 A 到达端点时 A、B 各自的速度矢量。
-3. 以 A 飞离端点的瞬间为 $t=0$。随后两质点一边随重心自由落体，一边绕重心转动：
-   - 考虑绳方向突变产生的瞬时约束冲量，求飞离后的角速度 $\omega$；
-   - 求任意 $t>0$ 时 A 的坐标；
-   - 从初态绕重心转过 $90^\circ$ 时，令 A 的 $x$ 坐标为 $b$，求 $b/l$。
+I. 求 A 沿台面滑下时的绳张力 $T$。
+
+II. 求 A 到达台面端点时，A、B 的速度矢量。
+
+III. 以 A 刚离开台面端点的瞬间为 $t=0$。$t>0$ 时，两质点一边绕共同质心转动，一边下落。
+
+1. 求绕质心转动的角速度 $\omega$。
+2. 求时刻 $t$ 时 A 的坐标。
+3. 两质点相对于 $t=0$ 的状态绕质心转过 $90^\circ$ 时，A 的 $x$ 坐标为 $b$。用 $l$ 表示 $b$。
 
 ## **Kai**
 
