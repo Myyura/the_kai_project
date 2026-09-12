@@ -79,7 +79,7 @@ $$
 
 (iii) (A), (B), (C) のいずれかが満たされるとき、式 (1) が成り立つことを証明せよ。
 
-### 题目描述
+#### 题目描述
 
 回答以下两题。
 
@@ -180,11 +180,15 @@ $$
 
 (iii) $t\in\mathbb G$ なら $\sin(t/2)$、$\cos(t/2)$ はともに $0$ でない。二倍角公式と関数方程式により
 
-$$g(t)=\frac{f(2\cos^2(t/2)-1)}{2\sin(t/2)\cos(t/2)}=\frac{f(\cos(t/2))}{\sin(t/2)}=g(t/2).$$
+$$
+g(t)=\frac{f(2\cos^2(t/2)-1)}{2\sin(t/2)\cos(t/2)}=\frac{f(\cos(t/2))}{\sin(t/2)}=g(t/2).
+$$
 
 (iv) $g$ は定義から $2\pi$ 周期である。$k\geq0$ のとき、(iii) を $k+1$ 回用いると
 
-$$g\left(1+\frac{n\pi}{2^k}\right)=g(2^{k+1}+2n\pi)=g(2^{k+1})=g(1).$$
+$$
+g\left(1+\frac{n\pi}{2^k}\right)=g(2^{k+1}+2n\pi)=g(2^{k+1})=g(1).
+$$
 
 ここで関係する点はすべて $\mathbb G$ 内にある。$k<0$ のときは $n\pi/2^k$ が $2\pi$ の整数倍なので周期性から従う。
 
@@ -194,28 +198,38 @@ $$g\left(1+\frac{n\pi}{2^k}\right)=g(2^{k+1}+2n\pi)=g(2^{k+1})=g(1).$$
 
 (i-a) $\sin x/x\to1$ を用いると
 
-$$\sqrt x\log\sin x=\sqrt x\log x+\sqrt x\log\frac{\sin x}{x}\longrightarrow0,$$
+$$
+\sqrt x\log\sin x=\sqrt x\log x+\sqrt x\log\frac{\sin x}{x}\longrightarrow0,
+$$
 
 従って極限は $\boxed1$。
 
 (i-b) $x>0$ で $\arctan(1/x)=\pi/2-\arctan x$ なので
 
-$$\frac1x\log\left(\frac2\pi\arctan\frac1x\right)=\frac1x\log\left(1-\frac2\pi\arctan x\right)\longrightarrow-\frac2\pi.$$
+$$
+\frac1x\log\left(\frac2\pi\arctan\frac1x\right)=\frac1x\log\left(1-\frac2\pi\arctan x\right)\longrightarrow-\frac2\pi.
+$$
 
 従って極限は $\boxed{e^{-2/\pi}}$。
 
 (ii) 微分方程式の一般解は $h(x)=A\cos x+B\sin x$。$h(0)=A>0$ であり、$h(x)^{1/x}$ が正の有限値に収束するには $A=1$ が必要である。このとき
 
-$$\lim_{x\to0+}\frac{\log h(x)}x=h'(0)=B=\log p.$$
+$$
+\lim_{x\to0+}\frac{\log h(x)}x=h'(0)=B=\log p.
+$$
 
 従って $\boxed{h(x)=\cos x+(\log p)\sin x}$。
 
 (iii) $g,g'$ が $a$ の十分近くで $0$ でなく、右辺の導関数比の極限が拡張実数として存在するとする。このロピタルの定理の適用条件の下で、
 
-$$g(x)\log f(x)=\frac{\log f(x)}{1/g(x)}$$
+$$
+g(x)\log f(x)=\frac{\log f(x)}{1/g(x)}
+$$
 
 は (A) では $0/0$ 型、(B),(C) では $\infty/\infty$ 型となる。従って
 
-$$\lim_{x\to a+}g(x)\log f(x)=\lim_{x\to a+}\frac{f'(x)/f(x)}{-g'(x)/g(x)^2}=-\lim_{x\to a+}\frac{f'(x)g(x)^2}{f(x)g'(x)}.$$
+$$
+\lim_{x\to a+}g(x)\log f(x)=\lim_{x\to a+}\frac{f'(x)/f(x)}{-g'(x)/g(x)^2}=-\lim_{x\to a+}\frac{f'(x)g(x)^2}{f(x)g'(x)}.
+$$
 
 指数関数をとれば式 (1) を得る。条件 (A)～(C) だけでは極限の存在は保証されない。例えば $a=0$、$f(x)=e^{x(2+\sin(1/x))}$、$g(x)=1/x$ は (A) を満たすが、$f(x)^{g(x)}=e^{2+\sin(1/x)}$ は収束しない。

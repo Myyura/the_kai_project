@@ -28,7 +28,7 @@ $\rho (Z)$ は $Z$ の固有値 $\lambda_i$ $(i = 1, \ldots, m)$ の絶対値の
 (i) $P^{-1}$ が存在するとき、 $P x = Q x + b$ と $P x_{n+1} = Q x_n + b$ から、
 
 $$
-  x - x_{n+1} = P^{-1} Q (x - x_n)
+x - x_{n+1} = P^{-1} Q (x - x_n)
 $$
 
 となる。
@@ -72,10 +72,10 @@ $$
 (iv) $n = 2$ とし、 $A$ は次の形
 
 $$
-  A = \begin{bmatrix}
-  1 - \alpha & \alpha \\
-  \alpha & 1 - \alpha
-  \end{bmatrix}, \quad 0 < \alpha \leq 1
+A = \begin{bmatrix}
+1 - \alpha & \alpha \\
+\alpha & 1 - \alpha
+\end{bmatrix}, \quad 0 < \alpha \leq 1
 $$
 
 を取るとする。
@@ -91,7 +91,7 @@ $$
 が存在する $\alpha$ の範囲を答えよ。
 また、極限が存在する場合には、その極限 $B$ を求めよ。
 
-### 题目描述
+#### 题目描述
 
 回答以下两题。
 
@@ -351,3 +351,4 @@ B=vv^T
 =\boxed{\frac12
 \begin{bmatrix}1&1\\1&1\end{bmatrix}}.
 $$
+

@@ -90,7 +90,7 @@ $$
 
 となることを示せ。
 
-### 题目描述
+#### 题目描述
 
 #### 問1
 
@@ -263,406 +263,93 @@ $$
 \frac{(\det A_n)^2}{\det A_{n-1}}.
 $$
 
+
 ## **Kai**
 
 ### 問1
 
-(i) 解答
-行列 $A$ の階数(ランク)は, $A$ の行列式 $\det(A)$ が 0 でないときは 3, 0 のときは 3 未満となります。
-まず, $A$ の行列式を計算します。
+(i) $\det A=a+1$ であり、左上の $2\times2$ 小行列式は常に $1$ である。したがって $a=-1$ のときに最小階数 $2$ をとる。
+
+(ii) $a=-1$ とすると、$Ax=0$ は $x_2=0,\ x_1=x_3$ と同値である。よって
 
 $$
-\det(A) = \begin{vmatrix} 1 & 2 & -1 \\ 0 & 1 & 0 \\ 1 & 0 & a \end{vmatrix} = 1(1 \cdot a - 0 \cdot 0) - 2(0 \cdot a - 0 \cdot 1) + (-1)(0 \cdot 0 - 1 \cdot 1) = a + 1
+\ker f=\operatorname{span}\left\{\begin{pmatrix}1\\0\\1\end{pmatrix}\right\}.
 $$
 
-$\det(A) = 0$ となるのは $a+1=0$ , すなわち $a=-1$ のときです。このとき, 階数が最小になる可能性があります。
-
-- $a \neq -1$ のとき, $\det(A) \neq 0$ なので, $\mathrm{rank}(A) = 3$ です。
-- $a = -1$ のとき, $\det(A) = 0$ なので, $\mathrm{rank}(A) < 3$ です。
-このときの行列 $A$ は,
+第1、2列を Gram–Schmidt 法で直交化すると、像の正規直交基底は
 
 $$
-A = \begin{pmatrix} 1 & 2 & -1 \\ 0 & 1 & 0 \\ 1 & 0 & -1 \end{pmatrix}
+\left\{\frac1{\sqrt2}\begin{pmatrix}1\\0\\1\end{pmatrix},\quad
+\frac1{\sqrt3}\begin{pmatrix}1\\1\\-1\end{pmatrix}\right\}.
 $$
 
-左上の $2 \times 2$ 小行列式は $\begin{vmatrix} 1 & 2 \\ 0 & 1 \end{vmatrix} = 1 \neq 0$ であるため, $\mathrm{rank}(A) \geq 2$ です。
-したがって, $a=-1$ のとき, $\mathrm{rank}(A)=2$ となります。
-これが最小の階数です。
-
-答え: 階数が最小になる $a$ の値は $a=-1$ で, そのときの階数は 2 です。
-
-(ii) 解答
-$a=-1$ のとき, 行列 $A$ の階数は最小になります。
-
-1. 線形写像 $f$ の核(カーネル) $\mathrm{Ker}(f)$
-
-$\mathrm{Ker}(f)$ は, 方程式 $A\mathbf{x} = \mathbf{0}$ の解空間です。
+(iii) 実数体上で考える。特性多項式は
 
 $$
-\begin{pmatrix} 1 & 2 & -1 \\ 0 & 1 & 0 \\ 1 & 0 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+\det(\lambda I-A)=(\lambda-1)\{\lambda^2-(a+1)\lambda+a+1\}.
 $$
 
-これを連立方程式として解くと,
+二次因子は $\lambda=1$ を根にもたず、判別式は $(a+1)(a-3)$ である。$a<-1$ または $a>3$ なら相異なる3実固有値をもつ。$-1<a<3$ なら非実固有値が存在する。また $a=-1,3$ ではそれぞれ重根 $0,2$ の固有空間が1次元なので対角化できない。したがって答えは
 
 $$
-\begin{cases} x + 2y - z = 0 \\ y = 0 \\ x - z = 0 \end{cases}
+\boxed{-1\le a\le3}.
 $$
 
-第2式より $y=0$ 。これを第1式に代入すると $x-z=0$ となり, 第3式と同じです。
-$x=z$ となります。 $z=t$ ( $t$ は任意の実数)とおくと, $x=t, y=0, z=t$ となります。
-よって, 解ベクトルは $\mathbf{x} = t \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$ と表せます。
-したがって, $\mathrm{Ker}(f)$ は以下のように表せます。
+(iv) $a=3$ とし、
 
 $$
-\mathrm{Ker}(f) = \left\{ c \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} \mid c \in \mathbb{R} \right\}
+P=\begin{pmatrix}-4&1&-1\\1&0&0\\2&-1&0\end{pmatrix}
 $$
 
-**2. 線形写像 $f$ の像 $\mathrm{Im}(f)$ の正規直交基底**
-
-$\mathrm{Im}(f)$ は $A$ の列ベクトルで張られる空間(列空間)です。 $\mathrm{rank}(A)=2$ なので, 基底は2つの線形独立な列ベクトルで構成されます。 $A$ の第1列と第2列は線形独立なので, 基底として $\left\{ \mathbf{u}_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \mathbf{u}_2 = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix} \right\}$ を取ることができます。
-
-この基底にグラム・シュミットの直交化法を適用して正規直交基底 $\left\{ \mathbf{w}_1, \mathbf{w}_2 \right\}$ を求めます。
-
-- $\mathbf{w}_1$ の計算:
-
-$$
-\mathbf{w}_1 = \frac{\mathbf{u}_1}{\|\mathbf{u}_1\|} = \frac{1}{\sqrt{1^2+0^2+1^2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
-$$
-
-- $\mathbf{w}_2$ の計算:
-まず, $\mathbf{u}_2$ から $\mathbf{w}_1$ 方向の成分を引きます。
-
-$$
-\mathbf{u}_2' = \mathbf{u}_2 - (\mathbf{u}_2 \cdot \mathbf{w}_1)\mathbf{w}_1 = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix} - \left( \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix} \cdot \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} \right) \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
-$$
-
-$$
-\mathbf{u}_2' = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix} - \frac{2}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}
-$$
-
-次に, $\mathbf{u}_2'$ を正規化します。
-
-$$
-\mathbf{w}_2 = \frac{\mathbf{u}_2'}{\|\mathbf{u}_2'\|} = \frac{1}{\sqrt{1^2+1^2+(-1)^2}} \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix} = \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}
-$$
-
-答え: $f$ の像の正規直交基底は $\left\{ \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix} \right\}$ です。
-
-(iii) 解答
-ここでは $f:\mathbb R^3\to\mathbb R^3$ の対角化なので，実数体上で考える。
-特性多項式は
-
-$$
-\det(A - \lambda I) = (1-\lambda) [\lambda^2 - (a+1)\lambda + a+1]
-$$
-
-である。二次因子に $\lambda=1$ を代入した値は $1$ なので，
-$1$ が二次因子の根と重なることはない。二次因子の判別式は
-
-$$
-D = (a+1)^2 - 4(a+1) = (a+1)(a-3)
-$$
-
-である。
-
-- $a<-1$ または $a>3$ なら $D>0$ であり，相異なる3個の実固有値を
-  もつので実対角化できる。
-- $-1<a<3$ なら $D<0$ であり，非実共役な固有値をもつので
-  実数体上では対角化できない。
-- $a=-1$ では固有値 $0$ の代数的多重度は2であるが，(i) より
-  $\dim\ker A=1$ なので対角化できない。
-- $a=3$ では固有値 $2$ の代数的多重度は2である。一方，
-
-$$
-\operatorname{rank}(A-2I)=2,\qquad \dim\ker(A-2I)=1,
-$$
-
-  なので対角化できない。
-
-したがって，実数体上で対角化できないための必要十分条件は
-
-$$
-\boxed{-1\leq a\leq3}.
-$$
-
-なお，複素数体上の対角化を意味する場合には， $-1<a<3$ の3固有値は
-相異なるため対角化でき，対角化できない値は端点 $a=-1,3$ だけである。
-
-(iv) 解答
-$a=3$ のとき, 行列 $A$ が行列 $B$ と相似であることを示すには, $A$ のジョルダン標準形が $B$ と一致することを示せばよいです。
-
-$$
-A = \begin{pmatrix} 1 & 2 & -1 \\ 0 & 1 & 0 \\ 1 & 0 & 3 \end{pmatrix}, \quad B = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{pmatrix}
-$$
-
-(iii)の計算より, $a=3$ のときの $A$ の固有値とその多重度は以下の通りです。
-- 固有値 $\lambda_1 = 1$ : 代数的多重度 1, 幾何学的多重度 1
-- 固有値 $\lambda_2 = 2$ : 代数的多重度 2, 幾何学的多重度 1
-
-ジョルダン標準形の構造は, これらの多重度によって決まります。
-- $\lambda_1 = 1$ について: 幾何学的多重度が1なので, $1 \times 1$ のジョルダンブロックが1つです: $\begin{pmatrix} 1 \end{pmatrix}$ 。
-- $\lambda_2 = 2$ について: 幾何学的多重度が1なので, ジョルダンブロックは1つです。代数的多重度が2なので, ブロックのサイズは $2 \times 2$ になります: $\begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$ 。
-
-したがって, $A$ のジョルダン標準形 $J_A$ はこれらのブロックを対角に並べたものになります。
-
-$$
-J_A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{pmatrix}
-$$
-
-これは行列 $B$ と一致します。行列はそのジョルダン標準形と相似であるため, $A$ は $J_A$ と相似であり, $J_A = B$ なので, $A$ は $B$ と相似です。
-(証明終)
+とおく。$\det P=1\ne0$ であり、直接計算で $AP=PB$ が成り立つ。よって $P^{-1}AP=B$。
 
 ### 問2
 
-解答
+(i) ブロック消去により
 
-(i) の証明
-
-与えられた行列を $M = \begin{bmatrix} A & b \\ c^T & d \end{bmatrix}$ とする。 $A$ は正則（可逆）であるため、 $A^{-1}$ が存在する。
-行列 $M$ を次のようにブロック行列の積で分解できる。
-
-$$
-\begin{bmatrix} A & b \\ c^T & d \end{bmatrix} = \begin{bmatrix} A & 0 \\ c^T & 1 \end{bmatrix} \begin{bmatrix} I & A^{-1}b \\ 0 & d - c^T A^{-1} b \end{bmatrix}
-$$
-
-この分解が正しいことを確認する：
-
-$$
-\begin{bmatrix} A & 0 \\ c^T & 1 \end{bmatrix} \begin{bmatrix} I & A^{-1}b \\ 0 & d - c^T A^{-1} b \end{bmatrix} = \begin{bmatrix} A \cdot I + 0 \cdot 0 & A(A^{-1}b) + 0 \cdot (d - c^T A^{-1} b) \\ c^T \cdot I + 1 \cdot 0 & c^T(A^{-1}b) + 1 \cdot (d - c^T A^{-1} b) \end{bmatrix} = \begin{bmatrix} A & b \\ c^T & d \end{bmatrix}
-$$
-
-行列の積の行列式は、各行列の行列式の積に等しいので、
-
-$$
-\det(M) = \det \begin{pmatrix} \begin{bmatrix} A & 0 \\ c^T & 1 \end{bmatrix} \end{pmatrix} \times \det \begin{pmatrix} \begin{bmatrix} I & A^{-1}b \\ 0 & d - c^T A^{-1} b \end{bmatrix} \end{pmatrix}
-$$
-
-ブロック三角行列の行列式は、対角ブロックの行列式の積となる。
-
-$$
-\det \begin{bmatrix} A & 0 \\ c^T & 1 \end{bmatrix} = (\det A) \times (\det 1) = \det A
-$$
-
-$$
-\det \begin{bmatrix} I & A^{-1}b \\ 0 & d - c^T A^{-1} b \end{bmatrix} = (\det I) \times \det(d - c^T A^{-1} b) = 1 \times (d - c^T A^{-1} b)
-$$
-
-ここで、 $d - c^T A^{-1} b$ はスカラー（ $1 \times 1$ 行列）なので、その行列式は値自身である。
-したがって、
-
-$$
-\det \begin{bmatrix} A & b \\ c^T & d \end{bmatrix} = (\det A) \times (d - c^T A^{-1} b)
-$$
-
-が示された。
-
-(ii) の証明
-
-$A$ を $n \times n$ 正定値対称行列とする。 $A$ を次のように分割する。
-
-$$
-A = \begin{bmatrix} a & b^T \\ b & \tilde{A} \end{bmatrix}
-$$
-
-ここで、 $a$ はスカラー、 $b$ は $(n-1)$ 次元の列ベクトル、 $\tilde{A}$ は $(n-1) \times (n-1)$ の小行列である。
-$A$ が正定値であるため、その主小行列 $\tilde{A}$ も正定値であり、したがって正則である。
-
-問題の冒頭で与えられたブロック行列の逆行列の公式を用いる。ここで $S=a$ , $T=b^T$ , $U=b$ , $V=\tilde{A}$ と対応させる。
-
-$$
-A^{-1} = \begin{bmatrix} a & b^T \\ b & \tilde{A} \end{bmatrix}^{-1} = \begin{bmatrix} (a-b^T\tilde{A}^{-1}b)^{-1} & -(a-b^T\tilde{A}^{-1}b)^{-1}b^T\tilde{A}^{-1} \\ -\tilde{A}^{-1}b(a-b^T\tilde{A}^{-1}b)^{-1} & \tilde{A}^{-1} + \tilde{A}^{-1}b(a-b^T\tilde{A}^{-1}b)^{-1}b^T\tilde{A}^{-1} \end{bmatrix}
-$$
-
-与えられた $A^{-1}$ の分割形式と比較する。
-
-$$
-A^{-1} = \begin{bmatrix} \alpha & \beta^T \\ \beta & \Delta \end{bmatrix}
-$$
-
-各ブロックを比較すると、
-1. $\alpha = (a-b^T\tilde{A}^{-1}b)^{-1}$
-2. $\beta = -\tilde{A}^{-1}b(a-b^T\tilde{A}^{-1}b)^{-1} = -\alpha \tilde{A}^{-1}b$
-3. $\Delta = \tilde{A}^{-1} + \tilde{A}^{-1}b(a-b^T\tilde{A}^{-1}b)^{-1}b^T\tilde{A}^{-1} = \tilde{A}^{-1} + \alpha (\tilde{A}^{-1}b)(b^T\tilde{A}^{-1})$
-
-式(2)より、 $\tilde{A}^{-1}b = -\frac{1}{\alpha}\beta$ となる。これを式(3)に代入する。
-
-$$
-\Delta = \tilde{A}^{-1} + \alpha \left(-\frac{1}{\alpha}\beta\right) \left(-\frac{1}{\alpha}\beta\right)^T = \tilde{A}^{-1} + \alpha \left(-\frac{1}{\alpha}\beta\right) \left(-\frac{1}{\alpha}\beta^T\right)
-$$
-
-$$
-\Delta = \tilde{A}^{-1} + \alpha \frac{1}{\alpha^2} \beta\beta^T = \tilde{A}^{-1} + \frac{\beta\beta^T}{\alpha}
-$$
-
-この式を $\tilde{A}^{-1}$ について解くと、
-
-$$
-\tilde{A}^{-1} = \Delta - \frac{\beta\beta^T}{\alpha}
-$$
-
-が示された。
-
-(iii) の証明
-
-二次形式 $Q(x) = x^T A^{-1} x$ を $x_1$ と $\tilde{x}$ を用いて展開する。
-
-$$
-x = \begin{bmatrix} x_1 \\ \tilde{x} \end{bmatrix}, \quad A^{-1} = \begin{bmatrix} \alpha & \beta^T \\ \beta & \Delta \end{bmatrix}
-$$
-
-$$
-Q(x) = \begin{bmatrix} x_1 & \tilde{x}^T \end{bmatrix} \begin{bmatrix} \alpha & \beta^T \\ \beta & \Delta \end{bmatrix} \begin{bmatrix} x_1 \\ \tilde{x} \end{bmatrix}
-$$
-
-$$
-= \begin{bmatrix} x_1 & \tilde{x}^T \end{bmatrix} \begin{bmatrix} \alpha x_1 + \beta^T \tilde{x} \\ \beta x_1 + \Delta \tilde{x} \end{bmatrix}
-$$
-
-$$
-= x_1(\alpha x_1 + \beta^T \tilde{x}) + \tilde{x}^T(\beta x_1 + \Delta \tilde{x})
 $$
-
-$$
-= \alpha x_1^2 + x_1\beta^T \tilde{x} + \tilde{x}^T\beta x_1 + \tilde{x}^T\Delta\tilde{x}
-$$
-
-$x_1\beta^T \tilde{x}$ はスカラーなので、その転置 $\tilde{x}^T\beta x_1$ と等しい。したがって、
-
-$$
-Q(x) = \alpha x_1^2 + 2(\beta^T \tilde{x})x_1 + \tilde{x}^T\Delta\tilde{x}
-$$
-
-この式は、 $x_1$ に関する二次関数である。 $A$ が正定値なので、 $A^{-1}$ も正定値であり、その主小行列である $\alpha$ は $\alpha > 0$ である。したがって、この二次関数は下に凸の放物線であり、最小値を持つ。
-
-最小値は、この二次関数を $x_1$ で微分して 0 とおくことで見つけられる。
-
-$$
-\frac{\partial Q(x)}{\partial x_1} = 2\alpha x_1 + 2(\beta^T \tilde{x}) = 0
-$$
-
-これを解くと、最小値を与える $x_1$ の値 $x_1^*$ は、
-
-$$
-x_1^* = -\frac{\beta^T \tilde{x}}{\alpha}
-$$
-
-となる。
-この $x_1^*$ を $Q(x)$ の式に代入して最小値を計算する。
-
-$$
-\min_{x_1} Q(x) = \alpha \left(-\frac{\beta^T \tilde{x}}{\alpha}\right)^2 + 2(\beta^T \tilde{x})\left(-\frac{\beta^T \tilde{x}}{\alpha}\right) + \tilde{x}^T\Delta\tilde{x}
-$$
-
-$$
-= \alpha \frac{(\beta^T \tilde{x})^2}{\alpha^2} - 2\frac{(\beta^T \tilde{x})^2}{\alpha} + \tilde{x}^T\Delta\tilde{x}
-$$
-
-$$
-= \frac{(\beta^T \tilde{x})^2}{\alpha} - 2\frac{(\beta^T \tilde{x})^2}{\alpha} + \tilde{x}^T\Delta\tilde{x}
-$$
-
-$$
-= -\frac{(\beta^T \tilde{x})^2}{\alpha} + \tilde{x}^T\Delta\tilde{x}
-$$
-
-ここで、 $(\beta^T \tilde{x})^2 = (\tilde{x}^T \beta)(\beta^T \tilde{x}) = \tilde{x}^T (\beta\beta^T) \tilde{x}$ と書けるので、
-
-$$
-\min_{x_1} Q(x) = \tilde{x}^T\Delta\tilde{x} - \frac{\tilde{x}^T\beta\beta^T\tilde{x}}{\alpha} = \tilde{x}^T \left( \Delta - \frac{\beta\beta^T}{\alpha} \right) \tilde{x}
+\begin{pmatrix}I&0\\-c^TA^{-1}&1\end{pmatrix}
+\begin{pmatrix}A&b\\c^T&d\end{pmatrix}
+=\begin{pmatrix}A&b\\0&d-c^TA^{-1}b\end{pmatrix}.
 $$
 
-設問 (ii) の結果から、 $\tilde{A}^{-1} = \Delta - \frac{\beta\beta^T}{\alpha}$ である。
-したがって、二次形式の最小値は、
+左端の行列式は $1$ なので、両辺の行列式から所望の等式を得る。
 
-$$
-\min_{x_1} x^T A^{-1} x = \tilde{x}^T \tilde{A}^{-1} \tilde{x}
-$$
-
-となり、題意は示された。
-
-#### (iv)
-
-设 $D_n = \det A_n$ 。根据题意， $A_n$ 对所有 $n$ 都是正定矩阵，因此其所有主子式都为正。特别地，行列式 $D_n = \det A_n > 0$ 对所有 $n$ 成立。
-
-需要证明的不等式为：
-
-$$
-D_{n+1} \leq \frac{D_n^2}{D_{n-1}}
-$$
-
-因为 $D_{n-1} > 0$ ，该不等式等价于：
-
-$$
-D_{n+1} D_{n-1} \leq D_n^2
-$$
-
-我们将使用 Desnanot-Jacobi 恒等式（也称为 Sylvester 行列式恒等式或 Dodgson 凝聚法）。对于任意一个 $m \times m$ 矩阵 $M$ ，该恒等式为：
-
-$$
-\det(M) \det(M_{1,m}^{1,m}) = \det(M_1^1) \det(M_m^m) - \det(M_1^m) \det(M_m^1)
-$$
-
-其中， $M_i^j$ 表示从 $M$ 中移除第 $i$ 行和第 $j$ 列得到的子矩阵， $M_{i,j}^{k,l}$ 表示移除第 $i,j$ 行和第 $k,l$ 列得到的子矩阵。
-
-我们将此恒等式应用于 $(n+1) \times (n+1)$ 矩阵 $M = A_{n+1}$ 。此时 $m=n+1$ 。
-
-$$
-\det(A_{n+1}) \det((A_{n+1})_{1,n+1}^{1,n+1}) = \det((A_{n+1})_1^1) \det((A_{n+1})_{n+1}^{n+1}) - \det((A_{n+1})_1^{n+1}) \det((A_{n+1})_{n+1}^1)
-$$
-
-接下来，我们根据 $A_{n+1}$ 的结构来确定上式中各项的行列式：
-1.  $A_{n+1}$ 本身： $\det(A_{n+1}) = D_{n+1}$ 。
-
-2.  $(A_{n+1})_1^1$ 是移除第一行和第一列得到的子矩阵。根据 $A_{n+1}$ 的定义，这是一个 $n \times n$ 的主子矩阵，其结构与 $A_n$ 完全相同。
+(ii) $A=\begin{pmatrix}a&b^T\\b&\widetilde A\end{pmatrix}$ とおく。$AA^{-1}=I$ の下段より
 
 $$
-(A_{n+1})_1^1 = A_n \implies \det((A_{n+1})_1^1) = D_n
+\alpha b+\widetilde A\beta=0,\qquad b\beta^T+\widetilde A\Delta=I.
 $$
 
-3.  $(A_{n+1})_{n+1}^{n+1}$ 是移除最后一行和最后一列得到的子矩阵。同样，这也是 $A_n$ 。
+第1式の $b=-\widetilde A\beta/\alpha$ を第2式に代入して
 
 $$
-(A_{n+1})_{n+1}^{n+1} = A_n \implies \det((A_{n+1})_{n+1}^{n+1}) = D_n
+\widetilde A^{-1}=\Delta-\frac{\beta\beta^T}{\alpha}.
 $$
 
-4.  $(A_{n+1})_{1,n+1}^{1,n+1}$ 是移除第一行、最后一行、第一列和最后一列得到的子矩阵。这是一个 $(n-1) \times (n-1)$ 的中心子矩阵，其结构与 $A_{n-1}$ 相同（此步骤要求 $n \geq 2$ ）。
+(iii) 平方完成すると
 
 $$
-(A_{n+1})_{1,n+1}^{1,n+1} = A_{n-1} \implies \det((A_{n+1})_{1,n+1}^{1,n+1}) = D_{n-1}
+x^TA^{-1}x
+=\alpha\left(x_1+\frac{\beta^T\widetilde x}{\alpha}\right)^2
++\widetilde x^T\left(\Delta-\frac{\beta\beta^T}{\alpha}\right)\widetilde x.
 $$
 
-5.  $(A_{n+1})_{n+1}^1$ 和 $(A_{n+1})_1^{n+1}$ 是非主子矩阵。由于 $A_{n+1}$ 是一个对称矩阵，其元素满足 $(A_{n+1})_{ij} = (A_{n+1})_{ji}$ 。我们来比较这两个子矩阵。
-    令 $B = (A_{n+1})_1^{n+1}$ 和 $C = (A_{n+1})_{n+1}^1$ 。
-    $C$ 的 $(i,j)$ 元素为 $(A_{n+1})_{i, j+1}$ 。
-    $B$ 的 $(j,i)$ 元素为 $(A_{n+1})_{j+1, i}$ 。
-    因为 $A_{n+1}$ 是对称的， $(A_{n+1})_{i, j+1} = (A_{n+1})_{j+1, i}$ 。所以 $C_{ij} = B_{ji}$ 。
-    这意味着 $C = B^T$ 。因此，它们的行列式相等：
+$\alpha>0$ と (ii) より、$x_1=-\beta^T\widetilde x/\alpha$ で最小値 $\widetilde x^T\widetilde A^{-1}\widetilde x$ をとる。
 
-$$
-\det((A_{n+1})_{n+1}^1) = \det(((A_{n+1})_1^{n+1})^T) = \det((A_{n+1})_1^{n+1})
-$$
-
-将以上结果代入 Desnanot-Jacobi 恒等式：
-
-$$
-D_{n+1} \cdot D_{n-1} = D_n \cdot D_n - \det((A_{n+1})_1^{n+1}) \cdot \det((A_{n+1})_{n+1}^1)
-$$
+(iv) $D_n=\det A_n>0$ とおく。$A_{n+1}^{-1}$ を (ii) のように分割すると、余因子公式と行列の反転対称性より
 
 $$
-D_{n+1} D_{n-1} = D_n^2 - (\det((A_{n+1})_1^{n+1}))^2
+\alpha=(A_{n+1}^{-1})_{11}=(A_{n+1}^{-1})_{n+1,n+1}
+=\frac{D_n}{D_{n+1}}.
 $$
 
-令 $C_n = \det((A_{n+1})_1^{n+1})$ 。由于 $A_{n+1}$ 的元素是实数， $C_n$ 是一个实数，所以 $C_n^2 \geq 0$ 。
-因此，我们得到：
+(ii) の右下成分から
 
 $$
-D_{n+1} D_{n-1} = D_n^2 - C_n^2 \leq D_n^2
+\frac{D_{n-1}}{D_n}=(A_n^{-1})_{nn}
+=\alpha-\frac{\beta_n^2}{\alpha}\le\alpha=\frac{D_n}{D_{n+1}}.
 $$
 
-我们已经证明了 $D_{n+1} D_{n-1} \leq D_n^2$ 。因为 $A_{n-1}$ 是正定矩阵，所以 $D_{n-1} = \det A_{n-1} > 0$ 。两边同时除以 $D_{n-1}$ ，不等号方向不变：
-
-$$
-D_{n+1} \leq \frac{D_n^2}{D_{n-1}}
-$$
+よって $D_{n+1}\le D_n^2/D_{n-1}$ が従う。
 
-证明完毕。

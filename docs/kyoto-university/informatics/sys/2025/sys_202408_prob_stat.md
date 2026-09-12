@@ -85,7 +85,7 @@ $$
 R = \frac{1}{1 - \alpha} \log \int_b^\infty g(x)^\alpha \, dx
 $$
 
-### 题目描述
+#### 题目描述
 
 以下以 $E(X)$、$V(X)$ 分别表示随机变量 $X$ 的期望和方差，以
 $N(\mu,\sigma^2)$ 表示均值为 $\mu$、方差为 $\sigma^2$ 的正态分布，并以
@@ -184,13 +184,44 @@ $$
 用 $H$、$R$ 和 $\alpha$ 表示 $D[f\|g]$。
 
 ## **Kai**
+
+
 ### 問題1
+(1) 独立性より
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202408_prob_stat_p1.jpg" width="700" alt=""/>
-</figure>
+$$
+\boxed{E[\hat\theta]=\theta\sum_iw_ix_i,\qquad V[\hat\theta]=\sum_iw_i^2g(x_i)}.
+$$
 
-問題1 (3) の分散は正定値二次形式であり、不偏性の制約は線形である。従って求めた停留点は一意な大域的最小点となる。
+(2) すべての実数 $\theta$ に対して不偏となる必要十分条件は $\boxed{\sum_iw_ix_i=1}$。
+
+(3) $D=\sum_i x_i^2/g(x_i)>0$ とする。Cauchy–Schwarz より
+
+$$
+1=\left(\sum_iw_ix_i\right)^2\le\left(\sum_iw_i^2g(x_i)\right)D.
+$$
+
+等号は $w_i\sqrt{g(x_i)}$ と $x_i/\sqrt{g(x_i)}$ が比例するときで、不偏性を用いると
+
+$$
+\boxed{w_i=\frac{x_i/g(x_i)}D,\qquad V_{\min}=\frac1D}.
+$$
+
+(4) 定数を除く対数尤度は $-\frac12\sum_i(Y_i-\theta x_i)^2/g(x_i)$。微分して
+
+$$
+\boxed{\hat\theta^{ML}=\frac{\sum_i x_iY_i/g(x_i)}{\sum_i x_i^2/g(x_i)}}.
+$$
+
+二階微分は $-D<0$ だから一意な最大点である。
+
+(5) $g(x)=1+x^4$ のとき
+
+$$
+\frac{x^2}{1+x^4}=\frac1{x^{-2}+x^2}\le\frac12,
+$$
+
+等号は正の $x$ では $x=1$ に限る。従って $\boxed{x_1=\cdots=x_n=1}$ とすれば $D=n/2$ が最大で、最小分散は $2/n$ となる。
 
 ### 問題2
 #### (1)
@@ -248,3 +279,4 @@ $$
 D[f\|g]=-H+\frac H\alpha-\frac{(1-\alpha)R}{\alpha}
 =\boxed{\frac{\alpha-1}{\alpha}(R-H)}.
 $$
+

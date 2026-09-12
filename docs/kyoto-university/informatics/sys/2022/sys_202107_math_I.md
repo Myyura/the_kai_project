@@ -29,11 +29,11 @@ $$
 
 $$
 \begin{bmatrix}
-  x_{n+1} \\ x_{n+2} \\ x_{n+3}
+x_{n+1} \\ x_{n+2} \\ x_{n+3}
 \end{bmatrix}
 =A
 \begin{bmatrix}
-  x_{n} \\ x_{n+1} \\ x_{n+2}
+x_{n} \\ x_{n+1} \\ x_{n+2}
 \end{bmatrix}
 $$
 
@@ -78,28 +78,28 @@ $$
 
 が最小となるように近似したい。(iii) で求めた正規直交基底を用いて、$h(x)$ を求めよ。
 
-### 题目描述
+#### 题目描述
 
 1. 实数序列 $\{x_n\}$（$n=0,1,2,\ldots$）满足
 
-   $$
-   x_{n+3}=2ax_{n+2}+a^2x_{n+1}-2a^3x_n,
-   $$
+$$
+x_{n+3}=2ax_{n+2}+a^2x_{n+1}-2a^3x_n,
+$$
 
    其中 $a\ne0$ 为实数。
 
    （i）求使下式成立的矩阵 $A$：
 
-   $$
-   \begin{bmatrix}
-   x_{n+1}\\x_{n+2}\\x_{n+3}
-   \end{bmatrix}
-   =
-   A
-   \begin{bmatrix}
-   x_n\\x_{n+1}\\x_{n+2}
-   \end{bmatrix}.
-   $$
+$$
+\begin{bmatrix}
+x_{n+1}\\x_{n+2}\\x_{n+3}
+\end{bmatrix}
+=
+A
+\begin{bmatrix}
+x_n\\x_{n+1}\\x_{n+2}
+\end{bmatrix}.
+$$
 
    （ii）求矩阵 $A$ 的全部特征值和特征向量。
 
@@ -107,32 +107,32 @@ $$
 
    （iv）当 $a=\frac12$ 时，求
 
-   $$
-   A^\infty=\lim_{n\to\infty}A^n.
-   $$
+$$
+A^\infty=\lim_{n\to\infty}A^n.
+$$
 
 2. 令 $\mathbb R$ 为实数集，$e$ 为自然对数的底。所有关于变量 $x\in\mathbb R$ 的次数不超过 2 的实系数多项式组成实向量空间 $V$。对两个连续函数 $f(x),g(x)$ 定义内积
 
-   $$
-   \langle f,g\rangle=\int_0^1f(x)g(x)\,dx,
-   $$
+$$
+\langle f,g\rangle=\int_0^1f(x)g(x)\,dx,
+$$
 
    从而 $V$ 成为该内积下的内积空间。
 
    （i）证明对任意 $f,g\in V$，Cauchy–Schwarz 不等式
 
-   $$
-   \langle f,g\rangle^2
-   \leq\langle f,f\rangle\langle g,g\rangle
-   $$
+$$
+\langle f,g\rangle^2
+\leq\langle f,f\rangle\langle g,g\rangle
+$$
 
    成立。
 
    （ii）判断 $V$ 的基
 
-   $$
-   \{1,\sqrt3x,\sqrt5x^2\}
-   $$
+$$
+\{1,\sqrt3x,\sqrt5x^2\}
+$$
 
    是否为标准正交基，并说明理由。
 
@@ -140,9 +140,9 @@ $$
 
    （iv）希望用 $h(x)\in V$ 近似 $e^x$，使
 
-   $$
-   \int_0^1(e^x-h(x))^2\,dx
-   $$
+$$
+\int_0^1(e^x-h(x))^2\,dx
+$$
 
    最小。使用第（iii）问所得标准正交基求 $h(x)$。
 
@@ -152,7 +152,7 @@ $$
 
 $$
 A = \begin{bmatrix}
-  0 & 1 & 0 \\ 0 & 0 & 1 \\ -2a^3 & a^2 &2a
+0 & 1 & 0 \\ 0 & 0 & 1 \\ -2a^3 & a^2 &2a
 \end{bmatrix}
 $$
 
@@ -178,21 +178,21 @@ $$
 
 $$
 P = \begin{bmatrix}
-  1 & 1 & 1 \\
-  a & -a & 2a \\
-  a^2 & a^2 & 4a^2
+1 & 1 & 1 \\
+a & -a & 2a \\
+a^2 & a^2 & 4a^2
 \end{bmatrix},
 \ 
 A = P\begin{bmatrix}
-  a & 0 & 0 \\
-  0 & -a & 0 \\
-  0 & 0 & 2a
+a & 0 & 0 \\
+0 & -a & 0 \\
+0 & 0 & 2a
 \end{bmatrix} P^{-1},
 \ 
 A^n = P\begin{bmatrix}
-  a^n & 0 & 0 \\
-  0 & (-a)^n & 0 \\
-  0 & 0 & (2a)^n
+a^n & 0 & 0 \\
+0 & (-a)^n & 0 \\
+0 & 0 & (2a)^n
 \end{bmatrix} P^{-1}
 $$
 
@@ -200,10 +200,10 @@ $$
 
 $$
 \begin{cases}
-  |a| \leq 1 \\
-  |2a| \leq 1 \\
-  a \neq \pm 1 \\
-  2a \neq -1
+|a| \leq 1 \\
+|2a| \leq 1 \\
+a \neq \pm 1 \\
+2a \neq -1
 \end{cases}
 $$
 
@@ -221,13 +221,13 @@ $a = \frac{1}{2}$ のとき、
 $$
 A^{\infty} = P
 \begin{bmatrix}
-  0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1
+0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1
 \end{bmatrix}
 P^{-1},\ 
 P^{-1} = \begin{bmatrix}
-  1 & \frac{1}{2a} & -\frac{1}{2a^2} \\
-  \frac{1}{3} & -\frac{1}{2a} & \frac{1}{6a^2} \\
-  -\frac{1}{3} & 0 & \frac{1}{3a^2}
+1 & \frac{1}{2a} & -\frac{1}{2a^2} \\
+\frac{1}{3} & -\frac{1}{2a} & \frac{1}{6a^2} \\
+-\frac{1}{3} & 0 & \frac{1}{3a^2}
 \end{bmatrix}
 $$
 
@@ -236,23 +236,23 @@ $$
 $$
 \begin{aligned}
 A^{\infty} &= \begin{bmatrix}
-  0 & 0 & 1 \\ 0 & 0 & 2a \\ 0 & 0 & 4a^2
+0 & 0 & 1 \\ 0 & 0 & 2a \\ 0 & 0 & 4a^2
 \end{bmatrix}
 \begin{bmatrix}
-  1 & \frac{1}{2a} & -\frac{1}{2a^2} \\
-  \frac{1}{3} & -\frac{1}{2a} & \frac{1}{6a^2} \\
-  -\frac{1}{3} & 0 & \frac{1}{3a^2}
+1 & \frac{1}{2a} & -\frac{1}{2a^2} \\
+\frac{1}{3} & -\frac{1}{2a} & \frac{1}{6a^2} \\
+-\frac{1}{3} & 0 & \frac{1}{3a^2}
 \end{bmatrix}
 =
 \begin{bmatrix}
-  -\frac{1}{3} & 0 & \frac{1}{3a^2} \\
-  -\frac{2a}{3} & 0 & \frac{2}{3a} \\
-  -\frac{4a^2}{3} & 0 & \frac{4}{3}
+-\frac{1}{3} & 0 & \frac{1}{3a^2} \\
+-\frac{2a}{3} & 0 & \frac{2}{3a} \\
+-\frac{4a^2}{3} & 0 & \frac{4}{3}
 \end{bmatrix} \\
 &= \begin{bmatrix}
-  -\frac{1}{3} & 0 & \frac{4}{3} \\
-  -\frac{1}{3} & 0 & \frac{4}{3} \\
-  -\frac{1}{3} & 0 & \frac{4}{3}
+-\frac{1}{3} & 0 & \frac{4}{3} \\
+-\frac{1}{3} & 0 & \frac{4}{3} \\
+-\frac{1}{3} & 0 & \frac{4}{3}
 \end{bmatrix}
 \end{aligned}
 $$
@@ -261,7 +261,9 @@ $$
 
 (i) $g=0$ のときは明らか。$g\ne0$ のとき、$t=\langle f,g\rangle/\langle g,g\rangle$ とおくと
 
-$$0\leq\int_0^1(f-tg)^2dx=\langle f,f\rangle-\frac{\langle f,g\rangle^2}{\langle g,g\rangle}.$$
+$$
+0\leq\int_0^1(f-tg)^2dx=\langle f,f\rangle-\frac{\langle f,g\rangle^2}{\langle g,g\rangle}.
+$$
 
 これに $\langle g,g\rangle>0$ を掛ければコーシー・シュワルツの不等式を得る。
 
@@ -269,16 +271,22 @@ $$0\leq\int_0^1(f-tg)^2dx=\langle f,f\rangle-\frac{\langle f,g\rangle^2}{\langle
 
 (iii) グラム・シュミット法で得られる直交多項式は $1,x-1/2,x^2-x+1/6$。それぞれのノルムの二乗は $1,1/12,1/180$ なので
 
-$$e_1=1,\qquad e_2=2\sqrt3(x-1/2),\qquad e_3=6\sqrt5(x^2-x+1/6)$$
+$$
+e_1=1,\qquad e_2=2\sqrt3(x-1/2),\qquad e_3=6\sqrt5(x^2-x+1/6)
+$$
 
 が正規直交基底となる。
 
 (iv) 直交射影 $h=\sum_i\langle e^x,e_i\rangle e_i$ が最小値を与える。部分積分により係数は
 
-$$\langle e^x,e_1\rangle=e-1,\quad\langle e^x,e_2\rangle=\sqrt3(3-e),\quad\langle e^x,e_3\rangle=\sqrt5(7e-19).$$
+$$
+\langle e^x,e_1\rangle=e-1,\quad\langle e^x,e_2\rangle=\sqrt3(3-e),\quad\langle e^x,e_3\rangle=\sqrt5(7e-19).
+$$
 
 従って
 
-$$h(x)=(e-1)+(18-6e)(x-1/2)+(210e-570)(x^2-x+1/6).$$
+$$
+h(x)=(e-1)+(18-6e)(x-1/2)+(210e-570)(x^2-x+1/6).
+$$
 
 任意の $q\in V$ に対し $\|e^x-q\|^2=\|e^x-h\|^2+\|h-q\|^2$ なので、これが一意な最適近似である。

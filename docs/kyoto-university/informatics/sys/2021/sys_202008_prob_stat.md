@@ -80,19 +80,19 @@ $$
 
 の形を考える。$0 < \alpha < 1$ に対して、$P(\theta \in S) = 1 - \alpha$ となるように $b$ を設定せよ。
 
-### 题目描述
+#### 题目描述
 
 1. 随机变量
 
-   $$
-   X_{ij},\qquad i=1,\ldots,m,\quad j=1,\ldots,n
-   $$
+$$
+X_{ij},\qquad i=1,\ldots,m,\quad j=1,\ldots,n
+$$
 
    相互独立且满足 $X_{ij}\sim N(\mu_i,1)$，其中 $N(\mu,\sigma^2)$ 表示均值为 $\mu$、方差为 $\sigma^2$ 的正态分布；$n,m$ 为正整数，$\mu_i$ 为未知参数。标准正态分布函数记为
 
-   $$
-   \Phi(x)=P(X\leq x),\qquad X\sim N(0,1).
-   $$
+$$
+\Phi(x)=P(X\leq x),\qquad X\sim N(0,1).
+$$
 
    回答下列问题并写出推导过程。
 
@@ -102,33 +102,33 @@ $$
 
    （3）对每个 $i=1,\ldots,m$，希望在显著性水平 $\alpha$（$0<\alpha<1$）下检验
 
-   $$
-   H_0:\mu_i=0,\qquad H_1:\mu_i>0.
-   $$
+$$
+H_0:\mu_i=0,\qquad H_1:\mu_i>0.
+$$
 
    预先取常数 $d_i>0$，当 $\hat\mu_i>d_i$ 时拒绝原假设。求 $d_i$。
 
    （4）对每个 $i=1,\ldots,m$，用常数 $c_i>0$ 定义 $\mu_i$ 的置信区间
 
-   $$
-   S_i=[\hat\mu_i-c_i,\hat\mu_i+c_i].
-   $$
+$$
+S_i=[\hat\mu_i-c_i,\hat\mu_i+c_i].
+$$
 
    求使 $P(\mu_i\in S_i)=1-\alpha$ 的 $c_i$。
 
    （5）现要求上述区间同时满足
 
-   $$
-   P(\mu_i\in S_i,\ i=1,\ldots,m)=1-\alpha.
-   $$
+$$
+P(\mu_i\in S_i,\ i=1,\ldots,m)=1-\alpha.
+$$
 
    令所有 $c_i=c$，求常数 $c>0$。
 
 2. 设实值随机变量 $X_1,\ldots,X_n$ 相互独立同分布，其密度函数与分布函数分别为 $f_X(x),F_X(x)$，并令
 
-   $$
-   Y=\max\{X_1,X_2,\ldots,X_n\}.
-   $$
+$$
+Y=\max\{X_1,X_2,\ldots,X_n\}.
+$$
 
    （1）用 $f_X,F_X,n$ 表示 $Y$ 的分布函数 $F_Y(y)$ 和密度函数 $f_Y(y)$。
 
@@ -142,9 +142,9 @@ $$
 
    （5）考虑形如
 
-   $$
-   S=[Y,bY],\qquad b>1
-   $$
+$$
+S=[Y,bY],\qquad b>1
+$$
 
    的 $\theta$ 的置信区间。对 $0<\alpha<1$，求使 $P(\theta\in S)=1-\alpha$ 的 $b$。
 
@@ -157,17 +157,23 @@ $$
 
 (3) 帰無仮説の下で $P(\hat\mu_i>d_i)=1-\Phi(\sqrt n d_i)$ なので
 
-$$d_i=\frac{\Phi^{-1}(1-\alpha)}{\sqrt n}.$$
+$$
+d_i=\frac{\Phi^{-1}(1-\alpha)}{\sqrt n}.
+$$
 
 $d_i>0$ を満たす解が存在するのは $0<\alpha<1/2$ のときに限る。
 
 (4) $P(\mu_i\in S_i)=2\Phi(\sqrt n c_i)-1$ より
 
-$$c_i=\frac{\Phi^{-1}(1-\alpha/2)}{\sqrt n}.$$
+$$
+c_i=\frac{\Phi^{-1}(1-\alpha/2)}{\sqrt n}.
+$$
 
 (5) 各標本平均は独立なので、同時被覆確率は $[2\Phi(\sqrt n c)-1]^m$。これを $1-\alpha$ とおけば
 
-$$\boxed{c=\frac1{\sqrt n}\Phi^{-1}\left(\frac{1+(1-\alpha)^{1/m}}2\right)}.$$
+$$
+\boxed{c=\frac1{\sqrt n}\Phi^{-1}\left(\frac{1+(1-\alpha)^{1/m}}2\right)}.
+$$
 
 ### 問題2
 
@@ -175,20 +181,28 @@ $$\boxed{c=\frac1{\sqrt n}\Phi^{-1}\left(\frac{1+(1-\alpha)^{1/m}}2\right)}.$$
 
 (2) 一様分布の場合、$f_Y(y)=ny^{n-1}/\theta^n$ ($0<y<\theta$)。従って
 
-$$E[Y]=\frac n{n+1}\theta,\qquad a=\frac{n+1}{n}.$$
+$$
+E[Y]=\frac n{n+1}\theta,\qquad a=\frac{n+1}{n}.
+$$
 
 (3) 尤度は $\theta\geq Y$ で $\theta^{-n}$、それ以外で $0$。従って $\boxed{\hat\theta^{ML}=Y}$。
 
 (4) $E[Y^2]=n\theta^2/(n+2)$ より
 
-$$\operatorname{MSE}(\hat\theta)=\operatorname{Var}\left(\frac{n+1}nY\right)=\frac{\theta^2}{n(n+2)},$$
+$$
+\operatorname{MSE}(\hat\theta)=\operatorname{Var}\left(\frac{n+1}nY\right)=\frac{\theta^2}{n(n+2)},
+$$
 
-$$\operatorname{MSE}(\hat\theta^{ML})=E[(Y-\theta)^2]=\frac{2\theta^2}{(n+1)(n+2)}.$$
+$$
+\operatorname{MSE}(\hat\theta^{ML})=E[(Y-\theta)^2]=\frac{2\theta^2}{(n+1)(n+2)}.
+$$
 
 両者の差（後者から前者を引いた値）は $\theta^2(n-1)/[n(n+1)(n+2)]$。従って $n>1$ では不偏推定量のほうが小さく、$n=1$ では等しい。
 
 (5) $Y\leq\theta$ は確率 $1$ で成り立ち、
 
-$$P(Y\leq\theta\leq bY)=P(Y\geq\theta/b)=1-b^{-n}.$$
+$$
+P(Y\leq\theta\leq bY)=P(Y\geq\theta/b)=1-b^{-n}.
+$$
 
 従って $\boxed{b=\alpha^{-1/n}}$。

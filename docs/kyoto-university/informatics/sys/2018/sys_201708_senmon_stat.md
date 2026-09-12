@@ -4,7 +4,7 @@ tags:
   - Kyoto-University
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Minimum-Variance-Unbiased-Estimator
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Minimum-Variance-Linear-Unbiased-Combination
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Geometric-Distribution
   - Probability-Statistics.Probability-Basics.Coupon-Collector-Problem
 ---
@@ -14,6 +14,7 @@ tags:
 [uogxtc](https://zhuanlan.zhihu.com/p/697551899), 祭音Myyura
 
 ## **Description**
+
 ### 問題1
 確率変数 $X_1, \ldots, X_n, Y_1, \ldots, Y_m$ は独立に正規分布に従い、 $X_i \sim N(a\theta, \sigma^2)$, $Y_j \sim N(b\theta, \sigma^2)$, $i = 1, \ldots, n$, $j = 1, \ldots, m$ とする。
 ただし、 $N(\mu, \sigma^2)$ は平均 $\mu$、分散 $\sigma^2$ の正規分布を表す。
@@ -44,9 +45,9 @@ $\tilde{\theta}$ の期待値 $E(\tilde{\theta})$ と分散 $V(\tilde{\theta})$ 
 ただし、スロットマシンを引く試行は独立である。この時、 $m$ 種類の図柄のうち異なる図柄が初めて $i$ 種類（$i = 1, 2, \ldots, m$）になるまでスロットマシンを引いた回数を $T_{m,i}$ と表すと、
 
 $$
-T_{m,i} = \begin{cases} 
-1 & (i = 1) \\ 
-\min \{ n > T_{m,i-1} \mid X_n \neq X_j; j = 1, \ldots, n-1 \} & (i = 2, \ldots, m) 
+T_{m,i} = \begin{cases}
+1 & (i = 1) \\
+\min \{ n > T_{m,i-1} \mid X_n \neq X_j; j = 1, \ldots, n-1 \} & (i = 2, \ldots, m)
 \end{cases}
 $$
 
@@ -67,14 +68,14 @@ $$
 1 + m \sum_{j=1}^{m-1} \frac{1}{j}
 $$
 
-### 题目描述
+#### 题目描述
 
 1. 随机变量 $X_1,\ldots,X_n,Y_1,\ldots,Y_m$ 相互独立，并满足
 
-   $$
+$$
    X_i\sim N(a\theta,\sigma^2)\quad(i=1,\ldots,n),\qquad
    Y_j\sim N(b\theta,\sigma^2)\quad(j=1,\ldots,m),
-   $$
+$$
 
    其中 $N(\mu,\sigma^2)$ 表示均值为 $\mu$、方差为 $\sigma^2$ 的正态分布；$n,m$ 为正整数，$a,b$ 为已知正常数，$\theta,\sigma^2$ 为未知参数。
 
@@ -82,11 +83,11 @@ $$
 
    （2）对常数 $\alpha,\beta$，定义
 
-   $$
+$$
    \widetilde\theta=\alpha\bar X+\beta\bar Y,\qquad
    \bar X=\frac{X_1+\cdots+X_n}{n},\qquad
    \bar Y=\frac{Y_1+\cdots+Y_m}{m}.
-   $$
+$$
 
    求 $E(\widetilde\theta)$ 与 $V(\widetilde\theta)$。
 
@@ -100,235 +101,97 @@ $$
 
    另有一台单窗口老虎机，每次等概率出现 $m$ 种不同图案中的一种，其中 $m=1,2,\ldots$。把图案编号为 $\{1,2,\ldots,m\}$，连续且独立地操作机器，令第 $n$ 次出现的图案编号为
 
-   $$
+$$
    X_n\in\{1,2,\ldots,m\}.
-   $$
+$$
 
    令 $T_{m,i}$ 表示首次收集到 $i$ 种不同图案所需的操作次数，递归定义为
 
-   $$
+$$
    T_{m,i}=
    \begin{cases}
    1 & (i=1),\\
    \min\{n>T_{m,i-1}\mid X_n\ne X_j,\ j=1,\ldots,n-1\}
    & (i=2,\ldots,m).
    \end{cases}
-   $$
+$$
 
    （3）对 $i=2,\ldots,m$ 定义
 
-   $$
+$$
    U_{m,i}=T_{m,i}-T_{m,i-1}.
-   $$
+$$
 
    对 $k=1,2,\ldots$，求 $P(U_{m,i}=k)$。
 
    （4）证明首次集齐全部图案所需次数 $T_{m,m}$ 的期望为
 
-   $$
+$$
    1+m\sum_{j=1}^{m-1}\frac1j.
-   $$
+$$
+
 
 ## **Kai**
-### 問題 1
-#### (1)
-The likelihood function is
+
+### 問題1
+
+(1) $D=na^2+mb^2$ とおく。対数尤度は定数を除いて
 
 $$
-\begin{aligned}
-L(\theta,\sigma^{2})&=\prod_{i=1}^nf_X(X_i)\prod_{i=1}^mf_Y(Y_i)\\
-&=\prod_{i=1}^n\frac1{\sqrt{2\pi}\sigma}e^{-\frac{(X_i-a\theta)^2}{2\sigma^2}}\prod_{j=1}^m\frac1{\sqrt{2\pi}\sigma}e^{-\frac{(Y_j-b\theta)^2}{2\sigma^2}},
-\end{aligned}
+\ell=-\frac{n+m}{2}\log\sigma^2
+-\frac1{2\sigma^2}\left\{\sum_{i=1}^n(X_i-a\theta)^2+\sum_{j=1}^m(Y_j-b\theta)^2\right\}.
 $$
 
-from which we know that the log-likelihood is:
+各パラメータで微分して
 
 $$
-\begin{aligned}
-\log L&=-(n+m)\log \sigma-(n+m)\log\sqrt{2\pi}\\
-&-\bigg\{\sum_{i=1}^{n}\frac{(a\theta-X_{i})^{2}}{2\sigma^{2}}+\sum_{j=1}^{m}\frac{(b\theta-Y_{j})^{2}}{2\sigma^{2}}\bigg\}.
-\end{aligned}
+\boxed{\widehat\theta=\frac{a\sum_iX_i+b\sum_jY_j}{D}},\qquad
+\boxed{\widehat{\sigma^2}=\frac{\sum_i(X_i-a\widehat\theta)^2+\sum_j(Y_j-b\widehat\theta)^2}{n+m}}.
 $$
 
-Set $\frac{\partial\log L}{\partial\sigma}=0$ , we will find
+残差平方和は確率1で正であり、このとき尤度は上式で最大となる。残差平方和が $0$ の例外的標本では、$\sigma^2\downarrow0$ で尤度が発散する。
+
+(2) 独立性より
 
 $$
-\begin{aligned}
-\frac{\partial\log L}{\partial\sigma}& =-\frac{n+m}{\sigma}-\left \{ \sum_{i=1}^{n}(a\theta-X_{i})^{2} +\sum_{j=1}^m(b\theta-Y_j)^2\right\}\cdot\frac12\cdot(-2)\frac1{\sigma^3}\\
-&=0 \\
-\Rightarrow\quad\hat{\sigma}^2=& \frac{1}{n+m}\bigg\{\sum_{i=1}^{n}{(a\hat\theta-X_{i})^{2}}+\sum_{j=1}^{m}{(b\hat\theta-Y_{j})^{2}}\bigg\}
-\end{aligned}
+\boxed{E[\widetilde\theta]=(a\alpha+b\beta)\theta,\quad
+\operatorname{Var}(\widetilde\theta)=\left(\frac{\alpha^2}{n}+\frac{\beta^2}{m}\right)\sigma^2}.
 $$
 
-The MLE of $\theta$ is obtained in a similar way.
+(3) 不偏条件は $a\alpha+b\beta=1$。Cauchy–Schwarz の不等式から
 
 $$
-\begin{aligned}
-\frac{\partial\log L}{\partial\theta}&=-\frac{1}{2\sigma^{2}}\bigg\{\sum_{i=1}^{n}2(a\theta-X_{i})a+\sum_{j=1}^{m}2(b\theta-Y_{j})b\bigg\}=0\\
-&\Rightarrow\quad\hat{\theta}=\frac{a\sum_{i=1}^{n}X_{i}+b\sum_{j=1}^{m}Y_{j}}{na^{2}+mb^{2}}.
-\end{aligned}
+1=(a\alpha+b\beta)^2\le(na^2+mb^2)\left(\frac{\alpha^2}{n}+\frac{\beta^2}{m}\right).
 $$
 
-These likelihood maximizers exist with $\hat\sigma^2>0$ when the residual sum of squares is positive, an event of probability one. If all observations fit $X_i=a\hat\theta$, $Y_j=b\hat\theta$ exactly, the likelihood is unbounded as $\sigma^2\downarrow0$ and has no maximizer in the positive-variance parameter space.
-
-#### (2)
+等号成立条件を不偏条件と合わせると
 
 $$
-\mathbb{E}[\bar{X}]=\mathbb{E}\left[\dfrac{X_1+\cdots+X_n}{n}\right]\overbrace{=}^{i.i.d.}\dfrac{1}{n}\cdot n\cdot\mathbb{E}[X_i]=a\theta.
+\boxed{\alpha=\frac{na}{D},\qquad\beta=\frac{mb}{D}},\qquad
+\min\operatorname{Var}(\widetilde\theta)=\frac{\sigma^2}{D}.
 $$
-
-Similarly,
-
-$$
-\mathbb{E}[\bar{Y}]=b\theta.
-$$
-
-Then
-
-$$
-\mathbb{E}[\tilde{\theta}]=\alpha a\theta+\beta b\theta.
-$$
-
-For variance we have
-
-$$
-\mathrm{Var}(\bar{X})=\frac{1}{n}\mathrm{Var}(X_{i})=\frac{\sigma^{2}}{n},\quad\mathrm{Var}(\bar{Y})=\frac{\sigma^{2}}{m},
-$$
-
-$$
-\mathrm{Var}(\alpha\bar{X}+\beta\bar{Y})=(\frac{\alpha^2}{n}+\frac{\beta^2}{m})\sigma^2.
-$$
-
-#### (3)
-When $\tilde{\theta}$ is an unbiased estimate of $\theta$,
-
-$$
-\mathbb{E}[\tilde\theta]=\alpha a\theta+\beta b\theta=\theta,
-$$
-
-which is equivalent to
-
-$$
-\beta=\frac{1-\alpha a}{b}.
-$$
-
-Substituting $\beta=(1-a\alpha)/b$, the variance is
-
-$$
-\mathrm{Var}(\tilde{\theta})
-=\sigma^2\left\{\frac{\alpha^2}{n}
-+\frac{(1-a\alpha)^2}{b^2m}\right\}.
-$$
-
-Differentiating with respect to $\alpha$ gives the minimum at
-
-$$
-\boxed{
-\alpha=\frac{an}{a^2n+b^2m},
-\qquad
-\beta=\frac{bm}{a^2n+b^2m}
-}.
-$$
-
 
 ### 問題2
-(For this question, readers may refer to geometric distribution, 幾何分布.)
 
-#### (1)
+(1) $n-1$ 回裏が続いた後に表が出るので $\boxed{P(T=n)=q^{n-1}p}$。
 
-$$
-\begin{aligned}\Pr(T=n)&=\Pr(t_{1}=tail) \times \Pr(t_{2}=tail) \times \cdots \times P(t_{n}=head)\\&=q^{n-1}p,\end{aligned}
-$$
-
-where $t_i$ is the result of the $i$-th coin toss
-
-#### (2)
+(2) 確率母関数は $G(s)=ps/(1-qs)$ であり、
 
 $$
-\mathbb{E}[T]=\sum_{k=1}^{\infty}(pk)q^{k-1}=\sum_{k=0}^{\infty}p(k+1)q^k, \tag{i}
+E[T]=G'(1)=\boxed{\frac1p},\qquad
+\operatorname{Var}(T)=G''(1)+G'(1)-G'(1)^2=\boxed{\frac q{p^2}}.
 $$
 
-This is a commonly seen series. We consider
+(3) 既に $i-1$ 種類あるとき、新しい図柄が出る確率は $(m-i+1)/m$ なので
 
 $$
-q\mathbb{E}[T]=\sum_{k=1}^{\infty}(pk)q^k. \tag{ii}
+\boxed{P(U_{m,i}=k)=\left(\frac{i-1}{m}\right)^{k-1}\frac{m-i+1}{m}}.
 $$
 
-Eq. (i) subtracted by Eq. (ii) is
+(4) $T_{m,m}=1+\sum_{i=2}^mU_{m,i}$ と $E[U_{m,i}]=m/(m-i+1)$ より
 
 $$
-(1-q)\mathbb{E}[T]=p+\sum_{k=1}^{\infty}p q^k.
+\boxed{E[T_{m,m}]=1+\sum_{i=2}^m\frac{m}{m-i+1}
+=1+m\sum_{j=1}^{m-1}\frac1j}.
 $$
 
-Then
-
-$$
-\begin{aligned}
-\mathbb{E}[T]&=\left(\frac{pq}{1-q}+p\right)/(1-q)\\
-&=\frac{p}{(1-q)^{2}}=\frac{1}{p}.
-\end{aligned}
-$$
-
-Now consider the second moment.
-
-$$
-\mathbb{E}[T^2]=\sum_{k=1}^\infty k^2q^{k-1}p=\sum_{k=0}^\infty(k+1)^2q^kp.
-$$
-
-$$
-q\mathbb{E}[T^2]=\sum_{k=1}^\infty k^2q^kp,
-$$
-
-$$
-\begin{aligned}(1-q)\mathbb{E}[T^{2}]&=p+\sum_{k=1}^{\infty}(2k+1)q^{k}p\\
-&=\frac{2q}p+\frac{pq}{1-q}+p\\
-&=\frac{2-p}p,
-\end{aligned}
-$$
-
-Thus
-
-$$
-\mathbb{E}[T^2]=\frac{2-p}{p^2},
-$$
-
-and
-
-$$
-\mathrm{Var}(T)=\frac{2-p}{p^2}-\frac{1}{p^2}=\frac{1-p}{p^2}.
-$$
-
-#### (3)
-The most tricky part is to understand the question (at least for me the formulation of $T_{m,i}$ is not obvious).
-A quick explanation: $T_{m,i}$ is the number of trials (slot machine draws) that you have done when the $i$-th unique pattern (図柄) first appears.
-For example, when you draw for the first time, you definitely get a new pattern. The first pattern comes from one draw, so $T_{m,1}=1.$
-Then you do another 3 draws and they are all the same as the 1-st pattern, while the 5-th draw you get a new pattern!
-Then $T_{m,2}=1+3+1=5.$ And similar procedures will tell you $T_m,3,\ldots,T_{m,m}.$
-
-Then we will notice that $T_{m,i}-T_{m,i-1}$ is exactly the number of your keeping drawing from the already got $(i-1)$ types of patterns, plus one which you draw one new pattern from the $(m-i+1)$ types.
-
-Then $U_m,i$ follows a geometric distribution, thus
-
-$$
-\Pr(U_{m,i}=k)=\left(\frac{i-1}{m}\right)^{k-1}\left(\frac{m-i+1}{m}\right).
-$$
-
-#### (4)
-We first find $\mathbb{E}[U_m,i]$, which has already been done in 問題2 の (2). 
-
-i.e.,
-
-$$
-\mathbb{E}[U_{m,i}]=\frac{1}{\frac{m-i+1}{m}}=\frac{m}{m-i+1}.
-$$
-
-Therefore,
-
-$$
-\begin{aligned}
-T_{m,m}&=1+U_{m,2}+U_{m,3}+\ldots+U_{m,m}\\
-\mathbb{E}[T_{m,m}]&=1+\sum_{i=2}^m\mathbb{E}[U_{m,i}]\\
-&=1+\sum_{i=2}^m\frac m{m-i+1}=1+m\sum_{i=2}^m\frac1{m-i+1}\\
-&=1+m\sum_{i=2}^m\frac1{m-i+1}=1+m\sum_{j=2}^m\frac1{j-1}.
-\end{aligned}
-$$

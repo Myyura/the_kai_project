@@ -795,6 +795,15 @@
     },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Large-Deviations": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics"
+    },
+    "Probability-Statistics.Stochastic-Processes.First-Return-Time-of-One-Dimensional-Random-Walk": {
+      "subsubject": "Probability-Statistics.Stochastic-Processes",
+      "labelZh": "一维随机游走的首次返回时间",
+      "labelJa": "一次元ランダムウォークの初帰還時間",
+      "labelEn": "First Return Time of a One-Dimensional Random Walk",
+      "descriptionZh": "一维随机游走的返回概率、首次返回分布及其与Catalan计数的关系。",
+      "descriptionJa": "一次元ランダムウォークの帰還確率・初帰還分布とCatalan数による経路計数。",
+      "descriptionEn": "Return probabilities and first-return distributions for a one-dimensional random walk, including Catalan path counts."
     }
   }
 }

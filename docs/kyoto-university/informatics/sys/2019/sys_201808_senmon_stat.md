@@ -14,6 +14,7 @@ tags:
 [uogxtc](https://zhuanlan.zhihu.com/p/697551899), 祭音Myyura
 
 ## **Description**
+
 ### 問題1
 確率変数 $Z_i = (X_i, Y_i), i = 1, \ldots, n$ は独立に次のように定義される確率分布に従う。
 各 $X_i, Y_i$ は $0$ または $1$ を値にとり、 $P(X_i = 1) = \alpha$, $P(Y_i = 1 | X_i) = \beta X_i$ とする（一般に $X_i$ と $Y_i$ は独立ではない）。
@@ -47,14 +48,14 @@ $N, m, n$ は正の整数である。以下の設問 (3) ~ (5) に答えなさ�
 
 (5) $N$ の最尤推定値を求めなさい。ただし $k \geq 1$ とする。
 
-### 题目描述
+#### 题目描述
 
 1. 随机向量 $Z_i=(X_i,Y_i)$（$i=1,\ldots,n$）相互独立并服从如下分布：$X_i,Y_i$ 均只取 0 或 1，
 
-   $$
+$$
    P(X_i=1)=\alpha,\qquad
    P(Y_i=1\mid X_i)=\beta X_i,
-   $$
+$$
 
    因而一般而言 $X_i,Y_i$ 并不独立。这里 $n$ 为正整数，$0<\alpha<1$、$0<\beta<1$ 为未知参数。
 
@@ -80,176 +81,85 @@ $N, m, n$ は正の整数である。以下の設問 (3) ~ (5) に答えなさ�
 
    （5）在 $k\geq1$ 的条件下求 $N$ 的最大似然估计值。
 
+
 ## **Kai**
+
 ### 問題1
-#### (1)
-The joint probability is given by
+
+(1) 条件付き確率の積より
 
 $$
-\Pr(X_i=x,Y_i=y)=\Pr(Y_i=y\mid X_i=x)\Pr(X_i=x),
+P(X_i=x,Y_i=y)=\begin{array}{c|cc}
+&y=0&y=1\\\hline
+x=0&1-\alpha&0\\
+x=1&\alpha(1-\beta)&\alpha\beta
+\end{array}.
 $$
 
-and we easily obtain that
+(2) $S_X=\sum_iX_i,S_Y=\sum_iY_i$ とおく。実現可能な標本では
 
 $$
-\begin{aligned}
-&\mathrm{Pr}(X_{i}=1,Y_{i}=1)=\beta\alpha,\\
-&\mathrm{Pr}(X_{i}=1,Y_{i}=0)=(1-\beta)\alpha,\\
-&\mathrm{Pr}(X_{i}=0,Y_{i}=1)=0,\\
-&\mathrm{Pr}(X_{i}=0,Y_{i}=0)=1-\alpha,
-\end{aligned}
-$$
-
-Thus $Y_i\le X_i$ almost surely, and the four probabilities above give the joint pmf on $\{0,1\}^2$.
-
-#### (2)
-Put
-
-$$
-S_X=\sum_{i=1}^nX_i,
-\qquad
-S_Y=\sum_{i=1}^nY_i.
-$$
-
-For data in the support, $S_Y\le S_X$ and the likelihood is
-
-$$
-L(\alpha,\beta)
-=\alpha^{S_X}(1-\alpha)^{n-S_X}
+L(\alpha,\beta)=\alpha^{S_X}(1-\alpha)^{n-S_X}
 \beta^{S_Y}(1-\beta)^{S_X-S_Y}.
 $$
 
-Therefore,
+対数尤度の微分から、内部解は
 
 $$
-\boxed{
-\hat\alpha_n=\frac{S_X}{n},
-\qquad
-\hat\beta_n=\frac{S_Y}{S_X}
-}.
+\boxed{\widehat\alpha_n=\frac{S_X}{n},\qquad \widehat\beta_n=\frac{S_Y}{S_X}}.
 $$
 
-The second estimator is unique when $S_X>0$; if $S_X=0$, the likelihood does not depend on $\beta$. The displayed ratios are interior MLEs when they lie in $(0,1)$; at an endpoint, the likelihood has only a supremum in the stated open parameter space.
+$S_X=0$ なら尤度は $\beta$ に依存しない。推定値が $0$ または $1$ となる標本では、指定された開パラメータ空間内に最大値はなく、境界で上限に近づく。
 
-#### (3)
-Under $\beta=1-\alpha$, the log-likelihood, up to an additive constant, is
-
-$$
-\log L=(2S_X-S_Y)\log\alpha+(n-S_X+S_Y)\log(1-\alpha).
-$$
-
-Let $\frac{\partial\log L}{\partial\alpha}=0$ and then we get
+(3) $\beta=1-\alpha$ の下では
 
 $$
-\hat{\alpha}_n=\frac{2S_X-S_Y}{n+S_X}.
+\log L=(2S_X-S_Y)\log\alpha+(n-S_X+S_Y)\log(1-\alpha),
 $$
 
-This is the interior MLE; if the displayed value is $0$ or $1$, the likelihood has only a supremum in the stated open parameter space.
-
-#### (4)
-When $n \to \infty$,
+したがって内部解は
 
 $$
-\frac{S_X}{n}\xrightarrow{p}\alpha,
-\qquad
-\frac{S_Y}{n}\xrightarrow{p}\alpha\beta.
+\boxed{\widehat\alpha_n=\frac{2S_X-S_Y}{n+S_X}}.
 $$
 
-Since $\beta=1-\alpha$,
+この値が端点なら (2) と同様に開区間内で最大値は存在しない。
+
+(4) 大数の法則により $S_X/n\xrightarrow{p}\alpha$、$S_Y/n\xrightarrow{p}\alpha(1-\alpha)$。したがって
 
 $$
-\hat\alpha_n\xrightarrow{p}
-\frac{2\alpha-\alpha\beta}{1+\alpha}=\alpha.
+\widehat\alpha_n\xrightarrow{p}\frac{2\alpha-\alpha(1-\alpha)}{1+\alpha}=\boxed\alpha.
 $$
 
 ### 問題2
-#### (1)
-(Readers may refer to hypergeometric distribution, 超几何分布，超幾何分布.)
+
+(1) 組合せの数を数えると
 
 $$
-\Pr(X=k)=\frac{\binom{m}{k}\binom{N-m}{n-k}}{\binom{N}{n}}.
+\boxed{P(X=k)=\frac{\binom mk\binom{N-m}{n-k}}{\binom Nn}}.
 $$
 
-#### (2)
-For $m=0$, $X=0$ almost surely, so the expectation is $0$. Below assume $m\geq1$.
+範囲外の二項係数は $0$ とする。
 
+(2) 取り出した各球が赤い確率は $m/N$ なので、期待値の線形性から $\boxed{E[X]=nm/N}$。
 
-$$
-\mathbb{E}[X]=\sum_k\Pr(X=k)\cdot k
-$$
-
-Note that
+(3)
 
 $$
-\begin{aligned}
-k\binom{m}{k}&=\frac{m!}{(k-1)!(m-k)!}\\
-&=\frac{(m-1)!m}{(k-1)!(m-k)!}\\
-&=m\binom{m-1}{k-1}.
-\end{aligned}
+\boxed{L(N)=\frac{\binom mk\binom{N-m}{n-k}}{\binom Nn}},\qquad N\ge N_{\min}=m+n-k.
 $$
 
-Then
+(4) $N>N_{\min}$ では
 
 $$
-k \cdot \Pr(X=k)=\frac{m\binom{m-1}{k-1}\binom{N-m}{n-k}}{\binom{N}{n}}=\frac{m\binom{m-1}{k-1}\binom{(N-1)-(m-1)}{(n-1)-(k-1)}}{\frac{N}{n}\binom{N-1}{n-1}}.
+\boxed{\frac{L(N)}{L(N-1)}=\frac{(N-m)(N-n)}{N(N-m-n+k)}}.
 $$
 
-The expectation becomes
+(5) この比と $1$ の大小は $mn-kN$ の符号に一致する。$c=mn/k$ とおけば、$N<c$ では増加、$N>c$ では減少する。よって
 
 $$
-\begin{aligned}
-\mathbb{E}[X]& =\sum_{k=1}^n\frac{mn}{N}\bigg[\frac{\binom{m-1}{k-1}\binom{(N-1)-(m-1)}{(n-1)-(k-1)}}{\binom{N-1}{n-1}}\bigg] \\
-&=\frac{mn}N\underbrace{\sum_{k=1}^n\left[\frac{\binom{m-1}{k-1}\binom{(N-1)-(m-1)}{(n-1)-(k-1)}}{\binom{N-1}{n-1}}\right]}_{=1,\text{ as all probabilities sum to 1.}} \\
-&=\frac{mn}{N}.
-\end{aligned}
+\boxed{\widehat N=\lfloor mn/k\rfloor}.
 $$
 
-#### (3)
-(For (3) and (4), readers may refer to Mark-recapture method, 標識再捕法.)
+ただし $c$ が整数かつ $c-1\ge N_{\min}$ なら、$c-1$ と $c$ の両方が最尤推定値である。$c=N_{\min}$ なら $c$ のみが実現可能である。
 
-The likelihood is
-
-$$
-L(N)=\underbrace{\Pr(X=k)}_{\text{ function of } n,k \text{ and parameterized by }N}=\frac{\binom{m}{k}\binom{N-m}{n-k}}{\binom{N}{n}}.
-$$
-
-#### (4)
-
-$$
-\begin{aligned}
-\frac{L(N)}{L(N-1)}& =\frac{\binom{N-m}{n-k}}{\binom{N-m-1}{n-k}}\cdot\frac{\binom{N-1}{n}}{\binom{N}{n}} \\
-&=\frac{N-m}{N-m-n+k}\cdot\frac{N-n}{N}.
-\end{aligned}
-$$
-
-This ratio is used for $N>N_{\min}:=m+n-k$; $N_{\min}$ is the smallest feasible value of $N$.
-
-#### (5)
-$L(N)$ is positive.
-
-When $L(N)/L(N-1) \leq 1$,
-
-$$
-\begin{aligned}
-&\frac{N-m}{N-m-n+k} \cdot \frac{N-n}{N}\leq1,\\
-&\Rightarrow\quad N \geq \frac{mn}{k},
-\end{aligned}
-$$
-
-$L(N)$ monotonely decreases.
-
-When $L(N)/L(N-1) \geq 1$, i.e.,
-
-$$
-N \leq \frac{mn}{k},
-$$
-
-$L(N)$ monotonely increases.
-
-Let $c=mn/k$. If $c\notin\mathbb Z$, the unique maximum likelihood estimate is
-
-$$
-\boxed{\hat N=\lfloor c\rfloor}.
-$$
-
-If $c\in\mathbb Z$ and $c-1\ge N_{\min}$, then $L(c-1)=L(c)$ and both $c-1$ and $c$ are maximum likelihood estimates. If $c=N_{\min}$, only $c$ is feasible.

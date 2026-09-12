@@ -92,81 +92,79 @@ $$
 が最大となる点 $Q(l,m,n)$ とそのときの $J$ の値を求めよ。
 
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_math_II_p1.png" width="300" alt=""/>
-</figure>
+![楕円体 E と接点の楕円 R、中心 T](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2022/sys_202107_math_II_ellipsoid.svg)
 
-### 题目描述
+#### 题目描述
 
 1. 令 $\mathbb R$ 为实数集，$e$ 为自然对数的底。对实数 $M>0$，在 $xy$ 平面上定义区域
 
-   $$
-   D(M)=\{(x,y)\in\mathbb R^2\mid y>0,\ Mx>y^2\}.
-   $$
+$$
+D(M)=\{(x,y)\in\mathbb R^2\mid y>0,\ Mx>y^2\}.
+$$
 
    对实数 $\alpha,\beta$，考虑积分
 
-   $$
-   I_{\alpha,\beta}(M)
-   =
-   \iint_{D(M)}
-   \left(1+\frac{y^2}{x}\right)^{-\alpha}
-   \left(1+\frac{x}{y^2}\right)^{-1/2}
-   e^{-\beta(x+y^2)-\sqrt{x+y^2}+y}
-   \,dx\,dy.
-   $$
+$$
+I_{\alpha,\beta}(M)
+=
+\iint_{D(M)}
+\left(1+\frac{y^2}{x}\right)^{-\alpha}
+\left(1+\frac{x}{y^2}\right)^{-1/2}
+e^{-\beta(x+y^2)-\sqrt{x+y^2}+y}
+\,dx\,dy.
+$$
 
    为计算该积分，作变量变换
 
-   $$
-   z=x+y^2,\qquad
-   w=\frac{y^2}{x+y^2}.
-   $$
+$$
+z=x+y^2,\qquad
+w=\frac{y^2}{x+y^2}.
+$$
 
    以下可使用对自然数 $n\geq1$ 成立的公式
 
-   $$
-   \int_0^\infty t^{n-1}e^{-t}\,dt=(n-1)!.
-   $$
+$$
+\int_0^\infty t^{n-1}e^{-t}\,dt=(n-1)!.
+$$
 
    （i）求区域 $D(M)$ 在上述映射下于 $zw$ 平面中的像 $E(M)$。
 
    （ii）用 $z,w,\alpha,\beta$ 写出下式方框中的被积函数：
 
-   $$
-   I_{\alpha,\beta}(M)
-   =
-   \iint_{E(M)}
-   \boxed{\qquad}\,dz\,dw.
-   $$
+$$
+I_{\alpha,\beta}(M)
+=
+\iint_{E(M)}
+\boxed{\qquad}\,dz\,dw.
+$$
 
    （iii）计算
 
-   $$
-   I_{0,0}\!\left(\frac13\right)
-   =
-   \frac12\int_0^{1/4}\int_0^\infty
-   e^{-(1-\sqrt w)\sqrt z}\sqrt z\,dz\,dw.
-   $$
+$$
+I_{0,0}\!\left(\frac13\right)
+=
+\frac12\int_0^{1/4}\int_0^\infty
+e^{-(1-\sqrt w)\sqrt z}\sqrt z\,dz\,dw.
+$$
 
    （iv）证明对任意 $\beta>0$，
 
-   $$
-   \lim_{M\to\infty}
-   \frac{\log I_{-1,\beta}(M)}
-        {\log\log M}
-   =1.
-   $$
+$$
+\lim_{M\to\infty}
+\frac{\log I_{-1,\beta}(M)}
+{\log\log M}
+=1.
+$$
 
 2. 在以 $x,y,z$ 为直角坐标的三维 Euclidean 空间中，考虑两个椭球面
 
-   $$
-   E:\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1,
-   $$
+$$
+E:\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1,
+$$
 
-   $$
-   E':\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=3,
-   $$
+$$
+E':\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=3,
+$$
 
    其中 $a,b,c$ 为正常数。
 
@@ -180,33 +178,84 @@ $$
 
    （iv）当 $Q$ 在椭球面 $E'$ 上移动时，求使 $R$ 的中心坐标分量乘积
 
-   $$
-   J=x_0y_0z_0
-   $$
+$$
+J=x_0y_0z_0
+$$
 
    最大的点 $Q(l,m,n)$，以及该最大值。
 
-   <figure style="text-align:center;">
-     <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_math_II_p1.png" width="300" alt=""/>
-   </figure>
+   ![楕円体 E と接点の楕円 R、中心 T](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2022/sys_202107_math_II_ellipsoid.svg)
 
 ## **Kai**
+
 ### 問1
+(i) $x=z(1-w),y=\sqrt{zw}$ と逆変換できる。$y>0,Mx>y^2$ より
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_math_II_p1_s_1.jpg" width="700" alt=""/>
-</figure>
+$$
+\boxed{E(M)=\{(z,w):z>0,\ 0<w<M/(1+M)\}}.
+$$
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_math_II_p1_s_2.jpg" width="700" alt=""/>
-</figure>
+(ii) ヤコビアンの絶対値は
+
+$$
+\left|\frac{\partial(x,y)}{\partial(z,w)}\right|=\frac{\sqrt z}{2\sqrt w}.
+$$
+
+従って求める被積分関数は
+
+$$
+\boxed{\frac12(1-w)^\alpha\sqrt z\,
+e^{-\beta z-(1-\sqrt w)\sqrt z}}.
+$$
+
+(iii) $t=(1-\sqrt w)\sqrt z$ とおき、$\int_0^\infty t^2e^{-t}\,dt=2$ を使うと
+
+$$
+I_{0,0}(1/3)=2\int_0^{1/4}(1-\sqrt w)^{-3}\,dw
+=4\int_0^{1/2}\frac u{(1-u)^3}\,du=\boxed2.
+$$
+
+(iv) $\beta>0$ を固定し
+
+$$
+J(w)=\int_0^\infty\sqrt z\,e^{-\beta z-(1-\sqrt w)\sqrt z}\,dz
+$$
+
+とおく。$0\le w\le1$ に対して $0<J(0)\le J(w)\le J(1)<\infty$。従って
+
+$$
+\frac{J(0)}2\log(1+M)\le I_{-1,\beta}(M)\le\frac{J(1)}2\log(1+M).
+$$
+
+対数をとれば $\log I_{-1,\beta}(M)=\log\log(1+M)+O(1)$ だから
+
+$$
+\boxed{\lim_{M\to\infty}\frac{\log I_{-1,\beta}(M)}{\log\log M}=1}.
+$$
 
 ### 問2
+(i) 定義式の勾配を法線にとり、$P\in E$ を用いると
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_math_II_p2_s.jpg" width="700" alt=""/>
-</figure>
+$$
+\boxed{\frac{px}{a^2}+\frac{qy}{b^2}+\frac{rz}{c^2}=1}.
+$$
 
-#### 問2 (iii)
+(ii) この接平面が $Q(l,m,n)$ を通る条件は $lp/a^2+mq/b^2+nr/c^2=1$ である。従って接点の集合を含む平面は
 
-変数 $X=x/a,Y=y/b,Z=z/c$ によって $E$ は単位球面となる。$Q$ の像を $q=(l/a,m/b,n/c)$ とすると、切断平面は $q\cdot(X,Y,Z)=1$、また $\|q\|^2=3$。単位球の切断円の中心は原点のこの平面への正射影 $q/3$ である。逆の線形変換は中心を保つので、楕円 $R$ の中心は $\boxed{T=(l/3,m/3,n/3)}$ となる。
+$$
+\boxed{S:\frac{lx}{a^2}+\frac{my}{b^2}+\frac{nz}{c^2}=1}.
+$$
+
+(iii) $X=x/a,Y=y/b,Z=z/c$ によって $E$ は単位球面となる。$Q$ の像を $q=(l/a,m/b,n/c)$ とすれば、切断平面は $q\cdot(X,Y,Z)=1$、$\|q\|^2=3$。切断円の中心は $q/3$ であり、逆の線形変換は中心を保つので
+
+$$
+\boxed{T=(l/3,m/3,n/3)}.
+$$
+
+(iv) $u=l/a,v=m/b,w=n/c$ とおくと $u^2+v^2+w^2=3$。相加相乗平均より $|uvw|\le1$ だから $J=abc\,uvw/27\le abc/27$。等号は $|u|=|v|=|w|=1$ かつ $uvw>0$ のときである。従って
+
+$$
+\boxed{J_{\max}=\frac{abc}{27},\qquad
+Q=(a,b,c),(a,-b,-c),(-a,b,-c),(-a,-b,c)}.
+$$
+

@@ -108,7 +108,7 @@ $$
 x = \begin{bmatrix} 3 \\ 4 \\ -1 \end{bmatrix}
 $$
 
-### 题目描述
+#### 题目描述
 
 回答以下三题。
 
@@ -222,14 +222,33 @@ $\boldsymbol{a}$ 与第 1 小问所取 $\boldsymbol{b}$ 的线性组合，并求
 $d$。
 
 ## **Kai**
-### 問1 & 問2
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_math_I_p1_p2.jpg" width="700" alt=""/>
-</figure>
+### 問1
+(i) 係数行列の四つの列は非零で相互に直交するから、行列は正則で解は一意である。四式を加えると $124x_3=23-11-51+37=-2$。従って $\boxed{x_3=-1/62}$。
+
+(ii) 固有値の和は跡に等しく、$1+4+4+x=23$ より $x=14$。$y$ に制限はないため、解集合は縦の直線 $\boxed{x=14}$ である。
+![固有値和を満たす点の集合](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2024/sys_202308_math_I_trace.svg)
+
+### 問2
+(i) 行列式を展開すると $\det A=-(s-t)^2\le0$。$s=t$ で等号を達成するから最大値は $\boxed0$。
+
+(ii) 存在しない。存在するとすれば $B^4=0$ なので $B$ の固有値はともに零である。二次の Cayley–Hamilton の定理より $B^2=0$ となり、与えられた非零行列に等しいことに矛盾する。
 
 ### 問3
+(i) $a^{\mathrm T}c=1-2-k=0$ より $\boxed{k=-1}$。$b=(1,0,1)^{\mathrm T}$ とすれば $a^{\mathrm T}b=c^{\mathrm T}b=0$ であり、$\boxed{b=(1,0,1)^{\mathrm T}}$ を選べる。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_math_I_p3.jpg" width="700" alt=""/>
-</figure>
+(ii) $V_1=c^\perp$ より
+
+$$
+\boxed{P=I-\frac{cc^{\mathrm T}}{c^{\mathrm T}c}
+=\frac13\begin{pmatrix}2&1&1\\1&2&-1\\1&-1&2\end{pmatrix}},\qquad\boxed{\operatorname{rank}P=2}.
+$$
+
+(iii)
+
+$$
+\boxed{Q=\frac13\begin{pmatrix}1&-1&-1\\-1&1&1\\-1&1&1\end{pmatrix}},\qquad
+\boxed{\ker q=\{(x,y,z):x-y-z=0\}=V_1}.
+$$
+
+(iv) $x=2a+b\in V_1$ だから、最近点は $\boxed{y=2a+b=(3,4,-1)^{\mathrm T}}$、最小距離は $\boxed{d=0}$。

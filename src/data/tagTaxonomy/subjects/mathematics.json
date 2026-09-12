@@ -1438,6 +1438,54 @@
     },
     "Mathematics.Differential-Equations.Volterra-Integral-Equation": {
       "subsubject": "Mathematics.Differential-Equations"
+    },
+    "Mathematics.Calculus.Mean-Value-Theorem": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Riemann-Sum": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Calculus.Higher-Order-Derivative": {
+      "subsubject": "Mathematics.Calculus"
+    },
+    "Mathematics.Complex-Analysis.Maximum-Modulus-Principle": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Identity-Theorem": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Complex-Analysis.Rouche-Theorem": {
+      "subsubject": "Mathematics.Complex-Analysis"
+    },
+    "Mathematics.Vector-Calculus.Green-Theorem": {
+      "subsubject": "Mathematics.Vector-Calculus"
+    },
+    "Mathematics.Fourier-Analysis.Discrete-Fourier-Transform": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "labelZh": "离散傅里叶变换",
+      "labelJa": "離散フーリエ変換",
+      "labelEn": "Discrete Fourier Transform",
+      "descriptionZh": "有限周期序列的傅里叶变换、逆变换及循环算子的对角化。",
+      "descriptionJa": "有限周期列のフーリエ変換・逆変換と巡回作用素の対角化。",
+      "descriptionEn": "Fourier transforms and inverse transforms of finite periodic sequences, including diagonalization of circulant operators."
+    },
+    "Mathematics.Fourier-Analysis.Uncertainty-Principle": {
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "labelZh": "傅里叶不确定性原理",
+      "labelJa": "フーリエ変換の不確定性原理",
+      "labelEn": "Fourier Uncertainty Principle",
+      "descriptionZh": "利用Parseval恒等式、分部积分与柯西–施瓦茨不等式估计函数和其傅里叶变换的二阶矩乘积。",
+      "descriptionJa": "Parsevalの等式、部分積分、Cauchy–Schwarzの不等式による関数とフーリエ変換の二次モーメント積の評価。",
+      "descriptionEn": "Second-moment product bounds for a function and its Fourier transform using Parseval, integration by parts, and Cauchy–Schwarz."
+    },
+    "Mathematics.Calculus.Trigonometric-Inequalities-by-Integration": {
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "用积分构造三角函数不等式",
+      "labelJa": "積分による三角関数の不等式",
+      "labelEn": "Trigonometric Inequalities by Integration",
+      "descriptionZh": "通过逐次积分构造正弦和余弦的多项式上下界，并进行严格数值估计。",
+      "descriptionJa": "積分の反復による正弦・余弦の多項式上下界と厳密な数値評価。",
+      "descriptionEn": "Polynomial upper and lower bounds for sine and cosine obtained by repeated integration, with rigorous numerical estimates."
     }
   }
 }

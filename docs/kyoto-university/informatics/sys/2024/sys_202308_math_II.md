@@ -90,7 +90,7 @@ $$
 
 (3) $k \in \{1, 2\}$ とする。 $x_k^{(L)}$ を $(A^{(1)}, \dots, A^{(L-1)})$ の関数とみなすときの $\frac{\partial x_k^{(L)}}{\partial a_{i,j}^{(\ell)}}$ の値を $\{V^{(m)}\}_{m=1}^L,\ \{A^{(m)}\}_{m=1}^{L-1},\ \{\mathbf{x}^{(m)}\}_{m=1}^{L}$ およびそれらの成分と $f'$ のうち必要なものを用いて表せ。
 
-### 题目描述
+#### 题目描述
 
 下文中 $\mathbb{R}$ 表示实数集，$\pi$ 表示圆周率，矩阵与向量的转置记作
 $\top$。回答以下两题。
@@ -238,13 +238,46 @@ $$
 $$
 
 ## **Kai**
+
+
 ### 問1
+(i) 対数微分から
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202308_math_II_p1.jpg" width="700" alt=""/>
-</figure>
+$$
+\frac{f'(x)}{f(x)}=-\frac mx+\frac{\log a}{x^2}.
+$$
 
-問1 (ii) の最大性は、$-x\log x$ の厳密な凹性からも分かる。Jensen の不等式より $-\sum_i x_i\log x_i\le\log N$ であり、等号はすべての $x_i=1/N$ のとき成立する。
+従って $x=\log a/m$ の前で増加、後で減少する。最大値とその位置は
+
+$$
+\boxed{x=\frac{\log a}{m},\qquad f_{\max}=\left(\frac{m}{e\log a}\right)^m}.
+$$
+
+(ii) $-t\log t$ の狭義凹性と Jensen の不等式より
+
+$$
+-\sum_{i=1}^N x_i\log x_i\le-N\frac1N\log\frac1N=\boxed{\log N}.
+$$
+
+等号は $x_1=\cdots=x_N=1/N$ のときに限る。
+
+(iii)(a) パラメータ微分より接線の傾きは $-(b/a)\tan\theta$。従って接線は
+
+$$
+\frac{x}{a\cos\theta}+\frac{y}{b\sin\theta}=1.
+$$
+
+よって
+
+$$
+\boxed{p=a\cos\theta=a^{2/3}x_0^{1/3},\qquad q=b\sin\theta=b^{2/3}y_0^{1/3}}.
+$$
+
+(b) 三角形の面積は $S=pq/2=(ab/4)\sin2\theta$。従って $\theta=\pi/4$ で最大となり
+
+$$
+\boxed{S_{\max}=ab/4}.
+$$
 
 ### 問2
 #### (i)(1)
@@ -312,3 +345,4 @@ $$
 f'\!\left(\mathbf a_i^{(\ell)}\mathbf x^{(\ell)}\right)
 x_j^{(\ell)}}.
 $$
+

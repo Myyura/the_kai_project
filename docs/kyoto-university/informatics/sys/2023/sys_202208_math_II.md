@@ -64,7 +64,7 @@ $$
 
 (iv) 3点 $(p, 0,0), (0, q, 0), (0, 0, r)$ を含む平面が楕円面 $E$ と接している。この条件で $p,q,r$ を動かしたときに $p^2+q^2+r^2$ の最小値を求めよ。
 
-### 题目描述
+#### 题目描述
 
 回答以下两题。下文中 $e$ 表示自然对数的底，$\pi$ 表示圆周率。
 
@@ -204,13 +204,13 @@ $$
 \qquad \frac{f(x)}{g(x)}<2
 $$
 
-$\forall x \in [-M, M]$ , since $f(x)$ and $g(x)$ are monotonic increasing, we have
+$x\in[-M,M]$ では $f,g$ の単調増加性と $g>0$ により
 
 $$
 \frac{f(x)}{g(x)} \leq \frac{f(M)}{g(x)} \leq \frac{f(M)}{g(-M)}
 $$
 
-Hence let $c = \max \{\frac{f(M)}{g(-M)}, 2\}$ , $\forall x \in R, \frac{f(x)}{g(x)} \leq c$ .
+$c=\max\{f(M)/g(-M),2\}$ とおけば、すべての実数 $x$ で $f(x)/g(x)\le c<\infty$ となる。
 
 ### 問2
 #### (i)

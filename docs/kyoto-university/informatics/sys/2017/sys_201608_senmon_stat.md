@@ -2,6 +2,7 @@
 sidebar_label: 2016年8月実施 専門科目 確率統計
 tags:
   - Kyoto-University
+  - Probability-Statistics.Probability-Basics.Geometric-Probability
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Weibull-Distribution
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
   - Probability-Statistics.Probability-Basics.Order-Statistics
@@ -13,14 +14,15 @@ tags:
 [uogxtc](https://zhuanlan.zhihu.com/p/697551899), 祭音Myyura
 
 ## **Description**
+
 ### 問題1
 下記の確率密度関数にしたがう確率変数 $X$ について、以下の設問に答えよ。
 ただし、$\alpha > 0$, $\beta > 0$ はパラメータ（母数）である。
 
 $$
-f(x) = \begin{cases} 
+f(x) = \begin{cases}
 \frac{\alpha x^{\alpha-1}}{\beta^\alpha} \exp \left( - \left( \frac{x}{\beta} \right)^\alpha \right) & (x > 0) \\
-0 & (x \leq 0) 
+0 & (x \leq 0)
 \end{cases}
 $$
 
@@ -66,11 +68,11 @@ $AB$ 間の距離を $R$ としたとき、$R^2$ の期待値を求めよ。
 
 (2) 設問 (1) において、点 $A$ を中心とし $AB$ 間の距離 $R$ を半径とする円が、円 $C$ 内に全て含まれる確率を求めよ。
 
-### 题目描述
+#### 题目描述
 
 1. 随机变量 $X$ 的概率密度函数为
 
-   $$
+$$
    f(x)=
    \begin{cases}
    \dfrac{\alpha x^{\alpha-1}}{\beta^\alpha}
@@ -78,24 +80,24 @@ $AB$ 間の距離を $R$ としたとき、$R^2$ の期待値を求めよ。
    & (x>0),\\
    0 & (x\leq0),
    \end{cases}
-   $$
+$$
 
    其中 $\alpha>0,\beta>0$ 为参数。
 
    （1）使用 Gamma 函数
 
-   $$
+$$
    \Gamma(\theta)=\int_0^\infty x^{\theta-1}e^{-x}\,dx
    \qquad(\theta>0)
-   $$
+$$
 
    和上述参数表示 $X$ 的均值。
 
    （2）从该密度所规定的分布中得到容量为 $n$ 的随机样本
 
-   $$
+$$
    \{X_1,X_2,\ldots,X_n\}.
-   $$
+$$
 
    已知 $\alpha=\alpha_0$，求参数 $\beta$ 的最大似然估计量。
 
@@ -103,9 +105,9 @@ $AB$ 間の距離を $R$ としたとき、$R^2$ の期待値を求めよ。
 
    （1）设 $X_1,\ldots,X_n$ 独立同分布，其密度函数和累积分布函数分别为 $f(x),F(x)$。令
 
-   $$
+$$
    Z=\min(X_1,X_2,\ldots,X_n).
-   $$
+$$
 
    用 $f,F$ 表示 $Z$ 的概率密度函数 $g(z)$。
 
@@ -117,129 +119,64 @@ $AB$ 間の距離を $R$ としたとき、$R^2$ の期待値を求めよ。
 
    （2）在第（1）问中，以 $A$ 为圆心、以 $R=AB$ 为半径的圆完全包含在圆盘 $C$ 内的概率是多少？
 
+
 ## **Kai**
+
 ### 問題1
-(Readers may refer to Weibull distribution.)
 
-#### (1)
-
-$$
-\begin{aligned}
-\mathbb{E}[X]&=\int_0^\infty xf(x)dx\\
-&=\int_0^\infty\alpha\left(\frac x\beta\right)^\alpha e^{-\left(\frac x\beta\right)^\alpha}dx.
-\end{aligned}
-$$
-
-Let $u=\left(\frac x\beta\right)^\alpha$ and we have
+(1) $u=(x/\beta)^\alpha$ とおくと
 
 $$
-\begin{aligned}
-&\beta u^{1/\alpha}=x \\
-&dx=\frac\beta\alpha u^{\frac1\alpha-1}du,
-\end{aligned}
+E[X]=\beta\int_0^\infty u^{1/\alpha}e^{-u}\,du
+=\boxed{\beta\Gamma(1+1/\alpha)}.
 $$
 
-Then
+(2) $\beta$ に関係する対数尤度は $-n\alpha_0\log\beta-\beta^{-\alpha_0}\sum_iX_i^{\alpha_0}$ である。微分して
 
 $$
-\begin{aligned}
-\mathbb{E}[X]&=\beta\int_{0}^{\infty}u^{\frac{1}{\alpha}}e^{-u}du\\
-&=\beta\Gamma\left(\frac{1}{\alpha}+1\right).
-\end{aligned}
+\frac{d\ell}{d\beta}=\frac{\alpha_0}{\beta}\left(-n+\beta^{-\alpha_0}\sum_iX_i^{\alpha_0}\right).
 $$
 
-#### (2)
-The likelihood function is
+符号が正から負に変わる点で最大となり、
 
 $$
-L(\beta)=\prod_{i=1}^n\frac{\alpha_0X_i^{\alpha_0-1}}{\beta^{\alpha_0}}e^{-\left(\frac{X_i}{\beta}\right)^{\alpha_0}},
-$$
-
-from which we know that the log-likelihood function is
-
-$$
-\log L=n\log\alpha_{0}-n\alpha_{0}\log\beta+(\alpha_{0}-1)\sum_{i=1}^{n}\log X_{i}-\sum_{i=1}^{n}\left(\frac{X_{i}}{\beta}\right)^{\alpha_{0}}.
-$$
-
-By setting $\frac{\partial\log L}{\partial\beta}=0$, we get
-
-$$
-\begin{aligned}
-&-\:\frac{n\alpha_{0}}{\beta} + \alpha_0 \frac{1}{\beta^{\alpha_0 + 1}}\sum_{i=1}^n X_i^{\alpha_0} =0 \Rightarrow\quad\hat{\beta}=\left(\frac{\sum_{i=1}^{n}X_{i}^{\alpha_{0}}}{n}\right)^{1/\alpha_{0}}.
-\end{aligned}
+\boxed{\widehat\beta=\left(\frac1n\sum_{i=1}^nX_i^{\alpha_0}\right)^{1/\alpha_0}}.
 $$
 
 ### 問題2
-#### (1)
-(The problems of the CDF/PDF of min/max of $i.i.d.$ random variables are commonly seen in the exams.)
 
-The cumulative distribution function (CDF, 累積分布関数) of $Z$ is as follows:
+(1) 独立性から $P(Z>z)=\{1-F(z)\}^n$。微分して
 
 $$
-\begin{aligned}
-\Pr(Z<s)&=1-\Pr(Z\geq s)\\
-&=1-\Pr(X_1\geq s,\ldots,X_n\geq s)\\
-&=1-\prod_{i=1}^n\left(1-F(s)\right)\\
-&=1-\left(1-F(s)\right)^n.
-\end{aligned}
+\boxed{g(z)=n\{1-F(z)\}^{n-1}f(z)}.
 $$
 
-The probability density function (PDF,確率密度関数) is
+(2) $0<z<b$ では $P(Z>z)=(1-z/b)^n$ なので
 
 $$
-f_Z(s)=\frac{d\Pr(Z<s)}{ds}=n(1-F(s))^{n-1}f(s).
-$$
-
-#### (2)
-The PDF of $X_i$ is
-
-$$
-f(x)=\begin{cases}
-1/b,&\text{if }\ 0<x<b \\
-0,&\text{otherwise.}
-\end{cases}
-$$
-
-Then,
-
-$$
-\begin{aligned}
-\mathbb{E}[Z]&=\int_0^bxf_Z(x)dx\\
-&=\int_0^b\frac nbx\left(1-\frac xb\right)^{n-1}dx\\
-&(\text{let }y=1-\frac xb)\\
-&=\int_1^0\frac nb\cdot(b-by)y^{n-1}(-b)dy\\
-&=\frac b{n+1}.
-\end{aligned}
+\boxed{E[Z]=\int_0^b(1-z/b)^n\,dz=\frac b{n+1}}.
 $$
 
 ### 問題3
-#### (1)
-Let $O$ be the center of $C$. For a point uniformly distributed on the disk, the radial density is $2r/a^2$, so
+
+(1) $O$ を円の中心とする。円盤上一様分布の半径の密度は $2r/a^2$ だから
 
 $$
-\mathbb E[|OA|^2]=\int_0^a r^2\frac{2r}{a^2}\,dr=\frac{a^2}{2},
-\qquad \mathbb E[\overrightarrow{OA}]=\boldsymbol 0.
+E[|OA|^2]=\int_0^ar^2\frac{2r}{a^2}\,dr=\frac{a^2}{2},\qquad E[\overrightarrow{OA}]=0.
 $$
 
-Independence gives
+$A,B$ の独立性より
 
 $$
-\mathbb E[R^2]
-=\mathbb E[|OA|^2]+\mathbb E[|OB|^2]
--2\mathbb E[\overrightarrow{OA}]\cdot\mathbb E[\overrightarrow{OB}]
+E[R^2]=E[|OA|^2]+E[|OB|^2]-2E[\overrightarrow{OA}]\cdot E[\overrightarrow{OB}]
 =\boxed{a^2}.
 $$
 
-#### (2)
-The probability is
+(2) $|OA|=r$ を固定すると、求める条件は $B$ が $A$ を中心とする半径 $a-r$ の円盤内にあることと同値。この円盤は元の円盤内に含まれるので条件付き確率は $(a-r)^2/a^2$。したがって
 
 $$
-\frac{1}{\pi a^2}\int_0^a2\pi r\cdot \frac{(a-r)^2}{a^2}dr
-=\boxed{\frac16}.
+\boxed{P=\int_0^a\frac{(a-r)^2}{a^2}\frac{2r}{a^2}\,dr=\frac16}.
 $$
 
-Here $\frac{2\pi r}{\pi a^2}$ is the probability density of the distance from $A$ to the center of $C$.
+![条件を満たす B の領域](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kyoto-university/informatics/sys/2017/sys_201608_senmon_stat_disk.svg)
 
-Suppose that the distance between $A$ and the center of the disk is $r$.
-Then $B$ must lie in the disk centered at $A$ with radius $a-r$.
-The conditional probability is therefore $\frac{(a-r)^{2}}{a^{2}}$.

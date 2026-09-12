@@ -17,6 +17,7 @@ tags:
 [Miyake](https://miyake.github.io/exams/index.html), [AKIRA](https://www.xiaohongshu.com/explore/6871bb3f000000000d01afdc?xsec_token=ABzqL-a7Z1UUEuH5W1f5wAJhySZaFfcwIp-8k2CbGTzus=), 祭音Myyura
 
 ## **Description**
+
 ### 問題1
 確率変数 $X$ の確率分布が以下の確率密度関数で与えられたとき、$X$ の期待値と分散を求めなさい。$\mu$ は実定数である。
 
@@ -30,12 +31,12 @@ f(x) = \left\{
 $$
 
 ### 問題2
-確率密度 $X$ は確率密度関数
+確率変数 $X$ は確率密度関数
 
 $$
-f(x; \mu) = \left\{ 
+f(x; \mu) = \left\{
     \begin{aligned}
-    &\frac{1}{\mu} \exp \big(-\frac{x}{\mu} \big), &x > 0 \\    
+    &\frac{1}{\mu} \exp \big(-\frac{x}{\mu} \big), &x > 0 \\
     &0, &x \le 0
     \end{aligned}
 \right.
@@ -49,7 +50,7 @@ $$
 
 (1-2) $\hat{\mu}$ が $\mu$ の不偏推定量であることを示せ。
 
-(1-3) ある定数 $\mu_0 > 0$ に対して、帰無仮説 $H_0: \mu=\mu_0$、対立仮説 $H_1: \mu > \mu_0$ の仮設検定を有意水準 $\alpha (0 < \alpha < 1)$ で行いたい。そのための定数 $c>0$ を定めておき、 $X > c$ のとき帰無仮説を棄却する。定数 $c$ を求めよ。
+(1-3) ある定数 $\mu_0 > 0$ に対して、帰無仮説 $H_0: \mu=\mu_0$、対立仮説 $H_1: \mu > \mu_0$ の仮説検定を有意水準 $\alpha (0 < \alpha < 1)$ で行いたい。そのための定数 $c>0$ を定めておき、 $X > c$ のとき帰無仮説を棄却する。定数 $c$ を求めよ。
 
 (1-4) ある関数 $L: (0, \infty) \rightarrow \mathbb{R}$ を用いた集合 $S(x) = \{z \mid z \ge L(x)\} \subsetneq \mathbb{R}$ を定義する。このとき $P(\mu \in S(X)) = 1 - \alpha$ となるように関数 $L(x)$ を定めよ。ただし $P(A)$ は事象 $A$ の確率を表し、$0 < \alpha < 1$ は定数である。
 
@@ -61,30 +62,30 @@ $$
 
 (2-3) 上で定義した $U, V$ の同時確率密度関数を求めよ。
 
-### 题目描述
+#### 题目描述
 
 1. 随机变量 $X$ 的密度为
 
-   $$
+$$
    f(x)=
    \begin{cases}
    \dfrac{1}{\sqrt{2\pi}x}
    \exp\!\left[-\dfrac12(\log x-\mu)^2\right] & (x>0),\\
    0 & (x\leq0),
    \end{cases}
-   $$
+$$
 
    其中 $\mu$ 为实常数。求 $X$ 的期望与方差。
 
 2. 随机变量 $X$ 服从密度为
 
-   $$
+$$
    f(x;\mu)=
    \begin{cases}
    \dfrac1\mu\exp\!\left(-\dfrac{x}{\mu}\right)&(x>0),\\
    0&(x\leq0)
    \end{cases}
-   $$
+$$
 
    的指数分布，其中 $\mu>0$。
 
@@ -94,22 +95,22 @@ $$
    - （1-2）证明 $\hat\mu$ 是 $\mu$ 的无偏估计量。
    - （1-3）对给定常数 $\mu_0>0$，在显著性水平 $\alpha$（$0<\alpha<1$）下检验
 
-     $$
+$$
      H_0:\mu=\mu_0,\qquad H_1:\mu>\mu_0.
-     $$
+$$
 
      规定当 $X>c$ 时拒绝原假设，其中 $c>0$，求临界值 $c$。
    - （1-4）用函数 $L:(0,\infty)\to\mathbb R$ 定义真子集
 
-     $$
+$$
      S(x)=\{z\mid z\geq L(x)\}\subsetneq\mathbb R.
-     $$
+$$
 
      求 $L(x)$，使
 
-     $$
+$$
      P\bigl(\mu\in S(X)\bigr)=1-\alpha,
-     $$
+$$
 
      其中 $0<\alpha<1$ 为常数。
 
@@ -119,315 +120,65 @@ $$
    - （2-2）两个部件都故障时机器停止。令从启动到停止的时间为 $V$，求 $V$ 的概率密度函数。
    - （2-3）求上述 $U,V$ 的联合概率密度函数。
 
-## **Kai**
-### 問題1
-$y = \log x$ とおくと、
-$x = \exp(y), dx = \exp(y) dy$ である。
 
-期待値を $E$ , 分散を $V$ で表して、次のように計算する：
+## **Kai**
+
+### 問題1
+
+$Y=\log X$ とおくと $Y\sim N(\mu,1)$。平方完成により
 
 $$
-\begin{aligned}
-E(X)
-&=
-\int_0^\infty x f(x) dx
-\\
-&=
-\frac{1}{\sqrt{2 \pi}}
-\int_0^\infty
-\exp \left[ - \frac{1}{2} \left( \log x - \mu \right)^2 \right]
-dx
-\\
-&=
-\frac{1}{\sqrt{2 \pi}}
-\int_{- \infty}^\infty
-\exp \left[ - \frac{1}{2} \left( y - \mu \right)^2 \right]
-\exp(y) dy
-\\
-&=
-\frac{\exp \left( \mu + \frac{1}{2} \right) }{\sqrt{2 \pi}}
-\int_{- \infty}^\infty
-\exp \left[ - \frac{1}{2} \left\{ y - (\mu + 1) \right\}^2 \right]
-dy
-\\
-&=
-\exp \left( \mu + \frac{1}{2} \right)
-\\
-E \left( X^2 \right)
-&=
-\int_0^\infty x^2 f(x) dx
-\\
-&=
-\frac{1}{\sqrt{2 \pi}}
-\int_0^\infty
-x
-\exp \left[ - \frac{1}{2} \left( \log x - \mu \right)^2 \right]
-dx
-\\
-&=
-\frac{1}{\sqrt{2 \pi}}
-\int_{- \infty}^\infty
-\exp \left[ - \frac{1}{2} \left( y - \mu \right)^2 \right]
-\exp(2y) dy
-\\
-&=
-\frac{\exp \left( 2 \mu + 2 \right) }{\sqrt{2 \pi}}
-\int_{- \infty}^\infty
-\exp \left[ - \frac{1}{2} \left\{ y - (\mu + 2) \right\}^2 \right]
-dy
-\\
-&=
-\exp \left( 2 \mu + 2 \right)
-\\
-V(X)
-&=
-E \left( X^2 \right) - E(X)^2
-\\
-&=
-\exp \left( 2 \mu + 2 \right)
-- \exp \left( 2 \mu + 1 \right)
-\\
-&=
-\exp \left( 2 \mu + 1 \right) (e-1)
-\end{aligned}
+E[X^k]=E[e^{kY}]=e^{k\mu+k^2/2}.
+$$
+
+したがって
+
+$$
+\boxed{E[X]=e^{\mu+1/2},\qquad \operatorname{Var}(X)=(e-1)e^{2\mu+1}}.
 $$
 
 ### 問題2
-#### (1)
-##### (1-1)
+
+**(1-1)** $\log L(\mu)=-\log\mu-X/\mu$ なので
 
 $$
-\begin{aligned}
-\frac{d}{d \mu} \log f(x;\mu)
-&=
-\frac{d}{d \mu} \log
-\left[ \frac{1}{\mu} \exp \left( - \frac{x}{\mu} \right) \right]
-\\
-&=
-\frac{d}{d \mu} \left( - \log \mu - \frac{x}{\mu} \right)
-\\
-&=
-- \frac{1}{\mu} + \frac{x}{\mu^2}
-\\
-&=
-\frac{x-\mu}{\mu^2}
-\end{aligned}
+\frac{d\log L}{d\mu}=\frac{X-\mu}{\mu^2}.
 $$
 
-であるから、
+$\mu=X$ の前後で符号が正から負へ変わるため $\boxed{\widehat\mu=X}$。
+
+**(1-2)** $E[\widehat\mu]=E[X]=\int_0^\infty xe^{-x/\mu}\,dx/\mu=\mu$ なので不偏である。
+
+**(1-3)** $P_{\mu_0}(X>c)=e^{-c/\mu_0}=\alpha$ より
 
 $$
-\begin{aligned}
-\hat{\mu} = X
-\end{aligned}
+\boxed{c=-\mu_0\log\alpha}.
 $$
 
-##### (1-2)
-期待値を $E$ を表すと、
+**(1-4)**
 
 $$
-\begin{aligned}
-E(X)
-&=
-\int_0^\infty x f(x; \mu) dx
-\\
-&=
-\frac{1}{\mu}
-\int_0^\infty x \exp \left( - \frac{x}{\mu} \right) dx
-\\
-&=
-- \left[ x \exp \left( - \frac{x}{\mu} \right) \right]_0^\infty
-+ \int_0^\infty \exp \left( - \frac{x}{\mu} \right) dx
-\\
-&=
-- \mu \left[ \exp \left( - \frac{x}{\mu} \right) \right]_0^\infty
-\\
-&= \mu
-\end{aligned}
+P_\mu\left(\mu\ge-\frac{X}{\log\alpha}\right)
+=P_\mu(X\le-\mu\log\alpha)=1-\alpha.
 $$
 
-であるから、
-$E(\hat{\mu}) = \mu$ であり、
-$\hat{\mu}$ は $\mu$ の不偏推定量である。
+よって $\boxed{L(x)=-x/\log\alpha}$。
 
-##### (1-3)
-$\alpha$ と $c$ は次のように関係付けられる：
+**(2-1)** $U=\min(X_1,X_2)$ なので $P(U>u)=e^{-2u}$ ($u>0$)。したがって
 
 $$
-\begin{aligned}
-\alpha
-&=
-\int_c^\infty f(x; \mu_0) dx
-\\
-&=
-\frac{1}{\mu_0}
-\int_c^\infty \exp \left( - \frac{x}{\mu_0} \right) dx
-\\
-&=
-- \left[ \exp \left( - \frac{x}{\mu_0} \right) \right]_c^\infty
-\\
-&=
-\exp \left( - \frac{c}{\mu_0} \right)
-\\
-\therefore \ \ 
-c &= - \mu_0 \log \alpha
-\end{aligned}
+f_U(u)=\begin{cases}2e^{-2u}&u>0,\\0&u\le0.\end{cases}
 $$
 
-##### (1-4)
-(1-3) より
+**(2-2)** $V=\max(X_1,X_2)$ なので $P(V\le v)=(1-e^{-v})^2$ ($v>0$)。よって
 
 $$
-\begin{aligned}
-P_\mu\!\left(\mu\geq-\frac{X}{\log\alpha}\right)
-&=P_\mu(X\leq-\mu\log\alpha)\\
-&=1-\alpha.
-\end{aligned}
+f_V(v)=\begin{cases}2e^{-v}(1-e^{-v})&v>0,\\0&v\le0.\end{cases}
 $$
 
-よって $L(x)=-x/\log\alpha$ である。
-
-#### (2)
-##### (2-1)
-まず、確率を $P$ で表すと、
+**(2-3)** $0<u<v$ では $(X_1,X_2)=(u,v),(v,u)$ の2通りがあり、
 
 $$
-\begin{aligned}
-P (a \leq X_i \leq b)
-&=
-\int_a^b f(x; 1) dx
-\\
-&=
-\int_a^b \exp (-x) dx
-\\
-&=
-- \left[ \exp (-x) \right]_a^b
-\\
-&=
-\exp (-a) - \exp (-b)
-\end{aligned}
+f_{U,V}(u,v)=\begin{cases}2e^{-(u+v)}&0<u<v,\\0&\text{その他}.\end{cases}
 $$
 
-である。
-
-$u>0$ に対して、$U$ の確率密度関数 $f_U(u)$ を求めるために、次のように計算する：
-
-$$
-\begin{aligned}
-P (U \leq u)
-&=
-P(X_1 \leq u \text{ and } X_2 \leq u)
-+ P(X_1 \leq u \lt X_2) + P(X_2 \leq u \lt X_1)
-\\
-&=
-P(X_1 \leq u) P(X_2 \leq u)
-+ P(X_1 \leq u) P(u \lt X_2) + P(X_2 \leq u) P(u \lt X_1)
-\\
-&=
-\left( 1 - \exp (-u) \right) \left( 1 - \exp (-u) \right)
-+ \left( 1 - \exp (-u) \right) \exp (-u)
-+ \left( 1 - \exp (-u) \right) \exp (-u)
-\\
-&=
-1 - \exp (-2u)
-\\
-\therefore \ \ 
-f_U(u)
-&=
-2 \exp (-2u)
-\end{aligned}
-$$
-
-従って、$f_U(u)=2e^{-2u}$ ($u>0$), $f_U(u)=0$ ($u\le0$) である。
-
-##### (2-2)
-$v>0$ に対して、$V$ の確率密度関数 $f_V(v)$ を求めるために、次のように計算する：
-
-$$
-\begin{aligned}
-P (V \leq v)
-&=
-P(X_1 \leq v \text{ and } X_2 \leq v)
-\\
-&=
-P(X_1 \leq v) P(X_2 \leq v)
-\\
-&=
-\left( 1 - \exp (-v) \right)^2
-\\
-\therefore \ \ 
-f_V(v)
-&=
-\frac{d}{dv} P (V \leq v)
-\\
-&=
-\frac{d}{dv} \left( 1 - \exp (-v) \right)^2
-\\
-&=
-2 \exp (-v) \left( 1 - \exp (-v) \right)
-\end{aligned}
-$$
-
-従って、$f_V(v)=2e^{-v}(1-e^{-v})$ ($v>0$), $f_V(v)=0$ ($v\le0$) である。
-
-##### (2-3)
-$U,V$ の同時確率密度関数 $f(u,v)$ を求めるために、次の2通りを考える。
-
-(i) $v \lt u$ のとき、
-
-$$
-\begin{aligned}
-P (U \leq u \text{ and } V \leq v)
-&=
-P (V \leq v)
-\\
-&=
-\left( 1 - \exp (-v) \right)^2
-\\
-\therefore \ \ 
-f(u,v)
-&=
-\frac{\partial}{\partial u}
-\frac{\partial}{\partial v}
-P (U \leq u \text{ and } V \leq v)
-\\
-&= 0
-.
-\end{aligned}
-$$
-
-(ii) $u \leq v$ のとき、
-
-$$
-\begin{aligned}
-P (U \leq u \text{ and } V \leq v)
-&=
-P(X_1 \leq u \text{ and } X_2 \leq u)
-+ P(X_1 \leq u \lt X_2 \leq v) + P(X_2 \leq u \lt X_1 \leq v)
-\\
-&=
-P(X_1 \leq u) P(X_2 \leq u)
-+ P(X_1 \leq u) P(u \lt X_2 \leq v) + P(X_2 \leq u) P(u \lt X_1 \leq v)
-\\
-&=
-\left( 1 - \exp (-u) \right) \left( 1 - \exp (-u) \right)
-+ \left( 1 - \exp (-u) \right) \left( \exp (-u) - \exp (-v) \right)
-+ \left( 1 - \exp (-u) \right) \left( \exp (-u) - \exp (-v) \right)
-\\
-&=
-\left( 1 - \exp (-u) \right)
-\left( 1 + \exp (-u) - 2 \exp (-v) \right)
-\end{aligned}
-$$
-
-従って、同時確率密度関数は
-
-$$
-f(u,v)=
-\begin{cases}
-2e^{-(u+v)},&0<u<v,\\
-0,&\text{otherwise}
-\end{cases}
-$$
-
-である（境界 $u=v$ の値は確率に影響しない）。

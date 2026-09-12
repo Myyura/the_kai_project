@@ -79,7 +79,7 @@ $$
 
 (3-3) $n=1$ のとき、設問 (3-2) の $\hat{\mu}$ を求めよ。また、この $\hat{\mu}$ が $\mu$ の不偏推定量であるか否かを理由を付して答えよ。ただし $\mu \ne 0$ とする。
 
-### 题目描述
+#### 题目描述
 
 以下 $\log x$ 表示自然对数，$P(A)$ 表示事件 $A$ 的概率，$N(\mu,\sigma^2)$ 表示均值为 $\mu$、方差为 $\sigma^2$ 的正态分布。标准正态分布函数记为
 
@@ -91,10 +91,10 @@ $$
 
 1. 随机变量 $X_1,\ldots,X_m,Y_1,\ldots,Y_n$ 相互独立，并满足
 
-   $$
-   X_i\sim N(\mu,1)\quad(i=1,\ldots,m),\qquad
-   Y_j\sim N(\eta,1)\quad(j=1,\ldots,n),
-   $$
+$$
+X_i\sim N(\mu,1)\quad(i=1,\ldots,m),\qquad
+Y_j\sim N(\eta,1)\quad(j=1,\ldots,n),
+$$
 
    其中 $\mu,\eta$ 为未知实参数。两组样本均值分别记为 $\bar X,\bar Y$；$\Phi^{-1}(p)$ 表示 $\Phi(x)=p$ 的反函数。
 
@@ -102,10 +102,10 @@ $$
 
    （2）希望在显著性水平 $\alpha$（$0<\alpha<1$）下检验
 
-   $$
-   H_0:\mu=0,\qquad
-   H_1:\mu=\mu_1,\quad\mu_1>0.
-   $$
+$$
+H_0:\mu=0,\qquad
+H_1:\mu=\mu_1,\quad\mu_1>0.
+$$
 
    预先取常数 $c$，当 $\bar X>c$ 时拒绝 $H_0$。用 $m,\alpha$ 表示 $c$。
 
@@ -113,18 +113,18 @@ $$
 
    （4）希望在显著性水平 $\alpha$ 下检验
 
-   $$
-   H_0:\mu=\eta=0,\qquad
-   H_1:\mu=\mu_1,\ \eta=\eta_1,\quad
-   \mu_1>0,\ \eta_1>0.
-   $$
+$$
+H_0:\mu=\eta=0,\qquad
+H_1:\mu=\mu_1,\ \eta=\eta_1,\quad
+\mu_1>0,\ \eta_1>0.
+$$
 
    对预先选定的 $\theta\in[0,\pi/2]$，定义
 
-   $$
-   T=(\sqrt m\cos\theta)\bar X
-     +(\sqrt n\sin\theta)\bar Y.
-   $$
+$$
+T=(\sqrt m\cos\theta)\bar X
++(\sqrt n\sin\theta)\bar Y.
+$$
 
    预先取常数 $d$，当 $T>d$ 时拒绝 $H_0$。求 $d$。
 
@@ -134,50 +134,50 @@ $$
 
    （1）任意随机变量 $X,Y$ 的联合分布函数
 
-   $$
-   F_{X,Y}(x,y)=P(X\leq x,Y\leq y)
-   $$
+$$
+F_{X,Y}(x,y)=P(X\leq x,Y\leq y)
+$$
 
    对任意 $x_1<x_2$、$y_1<y_2$ 都满足
 
-   $$
-   F_{X,Y}(x_2,y_2)+F_{X,Y}(x_1,y_1)
-   -F_{X,Y}(x_1,y_2)-F_{X,Y}(x_2,y_1)\geq0.
-   $$
+$$
+F_{X,Y}(x_2,y_2)+F_{X,Y}(x_1,y_1)
+-F_{X,Y}(x_1,y_2)-F_{X,Y}(x_2,y_1)\geq0.
+$$
 
    说明原因。
 
    （2）设 $X_1,X_2$ 相互独立且均服从区间 $(0,1)$ 上的均匀分布。定义
 
-   $$
-   Y_1=\sqrt{-2\log X_1}\cos(2\pi X_2),\qquad
-   Y_2=\sqrt{-2\log X_1}\sin(2\pi X_2).
-   $$
+$$
+Y_1=\sqrt{-2\log X_1}\cos(2\pi X_2),\qquad
+Y_2=\sqrt{-2\log X_1}\sin(2\pi X_2).
+$$
 
    求联合密度 $f_{Y_1,Y_2}(y_1,y_2)$。
 
    （3）随机变量 $Y$ 只取 0、1，且
 
-   $$
-   P(Y=0)=P(Y=1)=\frac12.
-   $$
+$$
+P(Y=0)=P(Y=1)=\frac12.
+$$
 
    给定 $Y=1$ 时 $X\sim N(0,1)$，给定 $Y=0$ 时 $X\sim N(\mu,1)$。记 $f_{X\mid Y}(x\mid y)$ 为给定 $Y=y$ 时 $X$ 的条件密度，$f_X(x)$ 为 $X$ 的边缘密度。
 
    1. 求 $f_{X\mid Y}(x\mid y)$ 与 $f_X(x)$。
    2. 假设 $Y$ 不可观测，只观测到来自 $f_X$ 的独立样本 $X_1,\ldots,X_n$。把 $\mu$ 的最大似然估计量所满足的隐式方程写成
 
-      $$
-      \hat\mu
-      =\sum_{i=1}^nX_i\,p_i(\hat\mu,\mathbf X),
-      $$
+$$
+\hat\mu
+=\sum_{i=1}^nX_i\,p_i(\hat\mu,\mathbf X),
+$$
 
       其中 $\mathbf X=(X_1,\ldots,X_n)$，且
 
-      $$
-      \sum_{i=1}^np_i(\hat\mu,\mathbf X)=1,\qquad
-      p_i(\hat\mu,\mathbf X)\geq0.
-      $$
+$$
+\sum_{i=1}^np_i(\hat\mu,\mathbf X)=1,\qquad
+p_i(\hat\mu,\mathbf X)\geq0.
+$$
 
       求 $p_i(\hat\mu,\mathbf X)$。
    3. 当 $n=1$ 且 $\mu\ne0$ 时，求第 2 小问中的 $\hat\mu$；说明该估计量是否为 $\mu$ 的无偏估计量，并给出理由。
@@ -205,9 +205,9 @@ $$
 
 $$
 \begin{aligned}
-    \beta &= P(\overline{X} > c \mid H_1) = P(\mu_1 + \frac{1}{\sqrt{m}}S > c) \\
-    &= P(S > \Phi^{-1}(1-\alpha) - \mu_1 \sqrt{m}) \\
-    &= 1 - \Phi(\Phi^{-1}(1-\alpha) - \mu_1 \sqrt{m})
+\beta &= P(\overline{X} > c \mid H_1) = P(\mu_1 + \frac{1}{\sqrt{m}}S > c) \\
+&= P(S > \Phi^{-1}(1-\alpha) - \mu_1 \sqrt{m}) \\
+&= 1 - \Phi(\Phi^{-1}(1-\alpha) - \mu_1 \sqrt{m})
 \end{aligned}
 $$
 
@@ -234,9 +234,9 @@ $$
 
 $$
 \begin{aligned}
-    \beta &= P(T > d \mid H_1) = P(\mu_1 \sqrt{m} \cos \theta + \eta_1 \sqrt{n} \sin \theta + S > \Phi^{-1}(1-\alpha)) \\
-    &= P(S > \Phi^{-1}(1-\alpha) - \mu_1 \sqrt{m} \cos \theta - \eta_1 \sqrt{n} \sin \theta) \\
-    &= \Phi(\mu_1 \sqrt{m} \cos \theta + \eta_1 \sqrt{n} \sin \theta - \Phi^{-1}(1-\alpha))
+\beta &= P(T > d \mid H_1) = P(\mu_1 \sqrt{m} \cos \theta + \eta_1 \sqrt{n} \sin \theta + S > \Phi^{-1}(1-\alpha)) \\
+&= P(S > \Phi^{-1}(1-\alpha) - \mu_1 \sqrt{m} \cos \theta - \eta_1 \sqrt{n} \sin \theta) \\
+&= \Phi(\mu_1 \sqrt{m} \cos \theta + \eta_1 \sqrt{n} \sin \theta - \Phi^{-1}(1-\alpha))
 \end{aligned}
 $$
 
@@ -257,7 +257,6 @@ $$
 $$
 \beta_{\max} = \Phi(\sqrt{n \eta_1^2 + m \mu_1^2} - \Phi^{-1} (1-\alpha))
 $$
-
 
 ### 問題2
 #### (1)

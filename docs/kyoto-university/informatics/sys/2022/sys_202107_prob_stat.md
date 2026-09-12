@@ -59,7 +59,6 @@ $$
 とする。$P(\theta \in T(Y)) = 1 - \alpha$ を満たすような関数 $h(y)$ を求めよ。
 
 
-
 ### 問題2
 以下の設問に答えなさい。
 ただし、$N(\mu, \sigma^2)$ は平均 $\mu$、分散 $\sigma^2$ の正規分布、$E[\cdot]$ は期待値を表す。
@@ -127,24 +126,24 @@ $$
 と等しいと置き、$\hat{m}_k = m_k(\theta_1, \theta_2, \ldots, \theta_K)$
 $(k = 1, \ldots, K)$ なる $K$ 個の連立方程式を $\theta_1, \theta_2, \ldots, \theta_K$ について解くことで、推定値 $\theta_1, \theta_2, \ldots, \theta_K$ を得る方法である。
 
-### 题目描述
+#### 题目描述
 
 1. 随机变量 $X$ 服从密度为
 
-   $$
-   f(x;\theta)=
-   \begin{cases}
-   \theta e^{-\theta x}&(x>0),\\
-   0&(x\leq0)
-   \end{cases}
-   $$
+$$
+f(x;\theta)=
+\begin{cases}
+\theta e^{-\theta x}&(x>0),\\
+0&(x\leq0)
+\end{cases}
+$$
 
    的指数分布，其中 $\theta>0$。对给定常数 $\theta_0>0$，希望在显著性水平 $\alpha$（$0<\alpha<1$）下检验
 
-   $$
-   H_0:\theta=\theta_0,\qquad
-   H_1:\theta<\theta_0.
-   $$
+$$
+H_0:\theta=\theta_0,\qquad
+H_1:\theta<\theta_0.
+$$
 
    回答下列问题并写出推导过程。
 
@@ -152,25 +151,25 @@ $(k = 1, \ldots, K)$ なる $K$ 個の連立方程式を $\theta_1, \theta_2, \l
 
    （2）预先取常数 $c>0$，定义参数 $\theta$ 的置信区间
 
-   $$
-   S(x)=\left\{\theta\ \middle|\ 0<\theta\leq\frac cx\right\}.
-   $$
+$$
+S(x)=\left\{\theta\ \middle|\ 0<\theta\leq\frac cx\right\}.
+$$
 
    求使 $P(\theta\in S(X))=1-\alpha$ 的 $c$。
 
    （3）对给定常数 $d>0$，定义随机变量 $Y$ 服从事件 $\{X>d\}$ 条件下的 $X$ 的条件分布，即对任意 $y>d$，
 
-   $$
-   P(Y>y)=P(X>y\mid X>d).
-   $$
+$$
+P(Y>y)=P(X>y\mid X>d).
+$$
 
    预先取 $b'>d$，当 $Y>b'$ 时拒绝 $H_0$。求使该检验显著性水平为 $\alpha$ 的 $b'$。
 
    （4）希望用第（3）问的 $Y$ 构造 $\theta$ 的置信区间。对某函数 $h(y)$，令
 
-   $$
-   T(y)=\{\theta\mid0<\theta\leq h(y)\}.
-   $$
+$$
+T(y)=\{\theta\mid0<\theta\leq h(y)\}.
+$$
 
    求使 $P(\theta\in T(Y))=1-\alpha$ 的函数 $h(y)$。
 
@@ -180,47 +179,47 @@ $(k = 1, \ldots, K)$ なる $K$ 個の連立方程式を $\theta_1, \theta_2, \l
 
    （2）设 $X,Y$ 相互独立且均服从 $N(0,1)$。求
 
-   $$
-   Z=\frac XY
-   $$
+$$
+Z=\frac XY
+$$
 
    的概率密度函数。
 
    以下各问使用 Gamma 函数
 
-   $$
-   \Gamma(a)=\int_0^\infty x^{a-1}e^{-x}\,dx
-   $$
+$$
+\Gamma(a)=\int_0^\infty x^{a-1}e^{-x}\,dx
+$$
 
    以及参数 $a,b>0$ 的密度
 
-   $$
-   g(x;a,b)=
-   \begin{cases}
-   \dfrac{x^{a-1}e^{-x/b}}{b^a\Gamma(a)}&(x>0),\\
-   0&(x\leq0).
-   \end{cases}
-   $$
+$$
+g(x;a,b)=
+\begin{cases}
+\dfrac{x^{a-1}e^{-x/b}}{b^a\Gamma(a)}&(x>0),\\
+0&(x\leq0).
+\end{cases}
+$$
 
    将具有该密度的分布记为 $G(a,b)$。必要时可使用
 
-   $$
-   \Gamma(a+1)=a\Gamma(a)\qquad(a>0).
-   $$
+$$
+\Gamma(a+1)=a\Gamma(a)\qquad(a>0).
+$$
 
    （3）若 $X\sim G(a,b)$，求使矩母函数
 
-   $$
-   M_X(r)=E[e^{rX}]
-   $$
+$$
+M_X(r)=E[e^{rX}]
+$$
 
    有限的实数 $r$ 的条件，并在该条件下求 $M_X(r)$。
 
    （4）设 $X_1,\ldots,X_n$ 相互独立且均服从 $N(0,v)$。证明
 
-   $$
-   Y=\sum_{i=1}^nX_i^2
-   $$
+$$
+Y=\sum_{i=1}^nX_i^2
+$$
 
    服从某个 $G(a_1,b_1)$，并用 $v,n$ 表示 $a_1,b_1$。
 
@@ -228,60 +227,88 @@ $(k = 1, \ldots, K)$ なる $K$ 個の連立方程式を $\theta_1, \theta_2, \l
 
    （6）设 $x_1,\ldots,x_n$ 是参数 $a,b$ 未知的 $G(a,b)$ 的随机样本。利用第（5）问和矩估计法，把 $a,b$ 的估计值 $\hat a,\hat b$ 表示为
 
-   $$
-   \bar x=\frac1n\sum_{i=1}^nx_i,\qquad
-   s^2=\frac1n\sum_{i=1}^n(x_i-\bar x)^2
-   $$
+$$
+\bar x=\frac1n\sum_{i=1}^nx_i,\qquad
+s^2=\frac1n\sum_{i=1}^n(x_i-\bar x)^2
+$$
 
    的函数。这里，矩估计法是指：对含 $K$ 个参数 $\theta_1,\ldots,\theta_K$ 的密度 $f(x;\theta_1,\ldots,\theta_K)$，将总体矩
 
-   $$
-   m_k(\theta_1,\ldots,\theta_K)
-   =
-   \int_{-\infty}^{\infty}
-   x^kf(x;\theta_1,\ldots,\theta_K)\,dx
-   $$
+$$
+m_k(\theta_1,\ldots,\theta_K)
+=
+\int_{-\infty}^{\infty}
+x^kf(x;\theta_1,\ldots,\theta_K)\,dx
+$$
 
    与样本矩
 
-   $$
-   \hat m_k=\frac1n\sum_{i=1}^nx_i^k
-   $$
+$$
+\hat m_k=\frac1n\sum_{i=1}^nx_i^k
+$$
 
    相等，解联立方程
 
-   $$
-   \hat m_k=m_k(\theta_1,\ldots,\theta_K),
-   \qquad k=1,\ldots,K,
-   $$
+$$
+\hat m_k=m_k(\theta_1,\ldots,\theta_K),
+\qquad k=1,\ldots,K,
+$$
 
    从而得到各参数估计。
 
 ## **Kai**
+
+
 ### 問題1
+(1) 帰無仮説の下で $P(X>b)=e^{-\theta_0b}$。これを $\alpha$ とおけば
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto_university/informatics/sys_202108_prob_stat_p1_s.png" width="700" alt=""/>
-</figure>
+$$
+\boxed{b=-\frac{\log\alpha}{\theta_0}}.
+$$
 
+(2) $\theta\in S(X)$ は $\theta X\le c$ と同値であり、$\theta X\sim\operatorname{Exp}(1)$。従って $1-e^{-c}=1-\alpha$、すなわち $\boxed{c=-\log\alpha}$。
+
+(3) $y>d$ のとき
+
+$$
+P(Y>y)=\frac{P(X>y)}{P(X>d)}=e^{-\theta(y-d)}.
+$$
+
+よって $Y-d\sim\operatorname{Exp}(\theta)$ である。帰無仮説の下で $e^{-\theta_0(b'-d)}=\alpha$ として
+
+$$
+\boxed{b'=d-\frac{\log\alpha}{\theta_0}}.
+$$
+
+(4) $\theta(Y-d)\sim\operatorname{Exp}(1)$ より $P(\theta(Y-d)\le-\log\alpha)=1-\alpha$。従って
+
+$$
+\boxed{h(y)=\frac{-\log\alpha}{y-d}},\qquad y>d.
+$$
 
 ### 問題2
 
 (1) $X$ を $\{-1,0,1\}$ 上の一様分布、$Y=X^2$ とする。$E[X]=E[X^3]=0$ なので $\operatorname{Cov}(X,Y)=0$。一方
 
-$$P(Y=0\mid X=0)=1\ne P(Y=0)=1/3$$
+$$
+P(Y=0\mid X=0)=1\ne P(Y=0)=1/3
+$$
 
 より独立ではない。
 
 (2) 変数変換 $(X,Y)=(zy,y)$ のヤコビアンの絶対値は $|y|$ なので
 
-$$f_Z(z)=\int_{-\infty}^{\infty}\frac{|y|}{2\pi}e^{-(1+z^2)y^2/2}\,dy=\boxed{\frac1{\pi(1+z^2)}}\quad(z\in\mathbb R).$$
+$$
+f_Z(z)=\int_{-\infty}^{\infty}\frac{|y|}{2\pi}e^{-(1+z^2)y^2/2}\,dy=\boxed{\frac1{\pi(1+z^2)}}\quad(z\in\mathbb R).
+$$
 
 これは標準コーシー分布である。
 
 (3) $r<1/b$ のとき $t=(1/b-r)x$ とおけば
 
-$$M_X(r)=\frac1{b^a\Gamma(a)}\int_0^\infty x^{a-1}e^{-(1/b-r)x}dx=(1-br)^{-a}.$$
+$$
+M_X(r)=\frac1{b^a\Gamma(a)}\int_0^\infty x^{a-1}e^{-(1/b-r)x}dx=(1-br)^{-a}.
+$$
 
 $r=1/b$ では無限遠で $x^{a-1}$ の積分が発散し、$r>1/b$ でも発散する。従って有限となる条件は $\boxed{r<1/b}$。
 
@@ -289,12 +316,16 @@ $r=1/b$ では無限遠で $x^{a-1}$ の積分が発散し、$r>1/b$ でも発�
 
 (5) 矩母関数を微分して
 
-$$E[X]=M_X'(0)=ab,\qquad E[X^2]=M_X''(0)=a(a+1)b^2,$$
+$$
+E[X]=M_X'(0)=ab,\qquad E[X^2]=M_X''(0)=a(a+1)b^2,
+$$
 
 従って $\boxed{\mu=ab,\ \sigma^2=ab^2}$。
 
 (6) $\bar x=ab$、$s^2=ab^2$ を解くと
 
-$$\boxed{\hat a=\bar x^2/s^2,\qquad \hat b=s^2/\bar x}.$$
+$$
+\boxed{\hat a=\bar x^2/s^2,\qquad \hat b=s^2/\bar x}.
+$$
 
 これは $s^2>0$ のときの解である。$s^2=0$（特に標本数 $n=1$）では、$a,b>0$ を満たす有限なモーメント解は存在しない。

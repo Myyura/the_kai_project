@@ -2220,6 +2220,10 @@
   label: "Discrete-Mathematics.Combinatorics.Catalan-Number"
   permalink: "/topic/discrete-mathematics/combinatorics/catalan-number"
   description: "Discrete-Mathematics / Combinatorics / Catalan-Number"
+"Discrete-Mathematics.Combinatorics.Counting":
+  label: "Discrete-Mathematics.Combinatorics.Counting"
+  permalink: "/topic/discrete-mathematics/combinatorics/counting"
+  description: "Discrete-Mathematics / Combinatorics / Counting"
 "Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence":
   label: "Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence"
   permalink: "/topic/discrete-mathematics/combinatorics/fibonacci-recurrence"
@@ -2236,6 +2240,10 @@
   label: "Discrete-Mathematics.Combinatorics.Recurrence-Relation"
   permalink: "/topic/discrete-mathematics/combinatorics/recurrence-relation"
   description: "Discrete-Mathematics / Combinatorics / Recurrence-Relation"
+"Discrete-Mathematics.Combinatorics.Reflection-Principle":
+  label: "Discrete-Mathematics.Combinatorics.Reflection-Principle"
+  permalink: "/topic/discrete-mathematics/combinatorics/reflection-principle"
+  description: "Discrete-Mathematics / Combinatorics / Reflection-Principle"
 "Discrete-Mathematics.Graph-Algorithms.A-Star-Shortest-Path-Search":
   label: "Discrete-Mathematics.Graph-Algorithms.A-Star-Shortest-Path-Search"
   permalink: "/topic/discrete-mathematics/graph-algorithms/a-star-shortest-path-search"
@@ -3088,6 +3096,10 @@
   label: "Mathematics.Calculus.Hessian-Test-for-Multivariable-Extrema"
   permalink: "/topic/mathematics/calculus/hessian-test-for-multivariable-extrema"
   description: "Mathematics / Calculus / Hessian-Test-for-Multivariable-Extrema"
+"Mathematics.Calculus.Higher-Order-Derivative":
+  label: "Mathematics.Calculus.Higher-Order-Derivative"
+  permalink: "/topic/mathematics/calculus/higher-order-derivative"
+  description: "Mathematics / Calculus / Higher-Order-Derivative"
 "Mathematics.Calculus.Hyperbolic-Functions-from-Power-Series":
   label: "Mathematics.Calculus.Hyperbolic-Functions-from-Power-Series"
   permalink: "/topic/mathematics/calculus/hyperbolic-functions-from-power-series"
@@ -3156,6 +3168,10 @@
   label: "Mathematics.Calculus.Logarithmic-Improper-Integrals-by-Inversion"
   permalink: "/topic/mathematics/calculus/logarithmic-improper-integrals-by-inversion"
   description: "Mathematics / Calculus / Logarithmic-Improper-Integrals-by-Inversion"
+"Mathematics.Calculus.Mean-Value-Theorem":
+  label: "Mathematics.Calculus.Mean-Value-Theorem"
+  permalink: "/topic/mathematics/calculus/mean-value-theorem"
+  description: "Mathematics / Calculus / Mean-Value-Theorem"
 "Mathematics.Calculus.Multivariable-Differentiation":
   label: "Mathematics.Calculus.Multivariable-Differentiation"
   permalink: "/topic/mathematics/calculus/multivariable-differentiation"
@@ -3180,6 +3196,10 @@
   label: "Mathematics.Calculus.Related-Rates"
   permalink: "/topic/mathematics/calculus/related-rates"
   description: "Mathematics / Calculus / Related-Rates"
+"Mathematics.Calculus.Riemann-Sum":
+  label: "Mathematics.Calculus.Riemann-Sum"
+  permalink: "/topic/mathematics/calculus/riemann-sum"
+  description: "Mathematics / Calculus / Riemann-Sum"
 "Mathematics.Calculus.Sequence-Convergence":
   label: "Mathematics.Calculus.Sequence-Convergence"
   permalink: "/topic/mathematics/calculus/sequence-convergence"
@@ -3200,6 +3220,10 @@
   label: "Mathematics.Calculus.Taylor-Series"
   permalink: "/topic/mathematics/calculus/taylor-series"
   description: "Mathematics / Calculus / Taylor-Series"
+"Mathematics.Calculus.Trigonometric-Inequalities-by-Integration":
+  label: "Mathematics.Calculus.Trigonometric-Inequalities-by-Integration"
+  permalink: "/topic/mathematics/calculus/trigonometric-inequalities-by-integration"
+  description: "Mathematics / Calculus / Trigonometric-Inequalities-by-Integration"
 "Mathematics.Calculus.Triple-Integral":
   label: "Mathematics.Calculus.Triple-Integral"
   permalink: "/topic/mathematics/calculus/triple-integral"
@@ -3264,6 +3288,10 @@
   label: "Mathematics.Complex-Analysis.Harmonic-Functions-and-Harmonic-Conjugates"
   permalink: "/topic/mathematics/complex-analysis/harmonic-functions-and-harmonic-conjugates"
   description: "Mathematics / Complex-Analysis / Harmonic-Functions-and-Harmonic-Conjugates"
+"Mathematics.Complex-Analysis.Identity-Theorem":
+  label: "Mathematics.Complex-Analysis.Identity-Theorem"
+  permalink: "/topic/mathematics/complex-analysis/identity-theorem"
+  description: "Mathematics / Complex-Analysis / Identity-Theorem"
 "Mathematics.Complex-Analysis.Infinite-Series-by-Residues":
   label: "Mathematics.Complex-Analysis.Infinite-Series-by-Residues"
   permalink: "/topic/mathematics/complex-analysis/infinite-series-by-residues"
@@ -3272,6 +3300,10 @@
   label: "Mathematics.Complex-Analysis.Laurent-Series"
   permalink: "/topic/mathematics/complex-analysis/laurent-series"
   description: "Mathematics / Complex-Analysis / Laurent-Series"
+"Mathematics.Complex-Analysis.Maximum-Modulus-Principle":
+  label: "Mathematics.Complex-Analysis.Maximum-Modulus-Principle"
+  permalink: "/topic/mathematics/complex-analysis/maximum-modulus-principle"
+  description: "Mathematics / Complex-Analysis / Maximum-Modulus-Principle"
 "Mathematics.Complex-Analysis.Mobius-Transformation":
   label: "Mathematics.Complex-Analysis.Mobius-Transformation"
   permalink: "/topic/mathematics/complex-analysis/mobius-transformation"
@@ -3288,6 +3320,10 @@
   label: "Mathematics.Complex-Analysis.Residue-Theorem"
   permalink: "/topic/mathematics/complex-analysis/residue-theorem"
   description: "Mathematics / Complex-Analysis / Residue-Theorem"
+"Mathematics.Complex-Analysis.Rouche-Theorem":
+  label: "Mathematics.Complex-Analysis.Rouche-Theorem"
+  permalink: "/topic/mathematics/complex-analysis/rouche-theorem"
+  description: "Mathematics / Complex-Analysis / Rouche-Theorem"
 "Mathematics.Complex-Analysis.Singularities-and-Poles":
   label: "Mathematics.Complex-Analysis.Singularities-and-Poles"
   permalink: "/topic/mathematics/complex-analysis/singularities-and-poles"
@@ -3472,6 +3508,10 @@
   label: "Mathematics.Fourier-Analysis.Convolution"
   permalink: "/topic/mathematics/fourier-analysis/convolution"
   description: "Mathematics / Fourier-Analysis / Convolution"
+"Mathematics.Fourier-Analysis.Discrete-Fourier-Transform":
+  label: "Mathematics.Fourier-Analysis.Discrete-Fourier-Transform"
+  permalink: "/topic/mathematics/fourier-analysis/discrete-fourier-transform"
+  description: "Mathematics / Fourier-Analysis / Discrete-Fourier-Transform"
 "Mathematics.Fourier-Analysis.Fourier-Cosine-Transform":
   label: "Mathematics.Fourier-Analysis.Fourier-Cosine-Transform"
   permalink: "/topic/mathematics/fourier-analysis/fourier-cosine-transform"
@@ -3520,6 +3560,10 @@
   label: "Mathematics.Fourier-Analysis.Parseval-Identity"
   permalink: "/topic/mathematics/fourier-analysis/parseval-identity"
   description: "Mathematics / Fourier-Analysis / Parseval-Identity"
+"Mathematics.Fourier-Analysis.Uncertainty-Principle":
+  label: "Mathematics.Fourier-Analysis.Uncertainty-Principle"
+  permalink: "/topic/mathematics/fourier-analysis/uncertainty-principle"
+  description: "Mathematics / Fourier-Analysis / Uncertainty-Principle"
 "Mathematics.Functional-Analysis.Bounded-Linear-Operator":
   label: "Mathematics.Functional-Analysis.Bounded-Linear-Operator"
   permalink: "/topic/mathematics/functional-analysis/bounded-linear-operator"
@@ -4120,6 +4164,10 @@
   label: "Mathematics.Vector-Calculus.Gradient-Divergence-and-Curl"
   permalink: "/topic/mathematics/vector-calculus/gradient-divergence-and-curl"
   description: "Mathematics / Vector-Calculus / Gradient-Divergence-and-Curl"
+"Mathematics.Vector-Calculus.Green-Theorem":
+  label: "Mathematics.Vector-Calculus.Green-Theorem"
+  permalink: "/topic/mathematics/vector-calculus/green-theorem"
+  description: "Mathematics / Vector-Calculus / Green-Theorem"
 "Mathematics.Vector-Calculus.Greens-Identities":
   label: "Mathematics.Vector-Calculus.Greens-Identities"
   permalink: "/topic/mathematics/vector-calculus/greens-identities"
@@ -5560,6 +5608,10 @@
   label: "Probability-Statistics.Stochastic-Processes.Exponential-Spacings-and-Poisson-Counting-Process"
   permalink: "/topic/probability-statistics/stochastic-processes/exponential-spacings-and-poisson-counting-process"
   description: "Probability-Statistics / Stochastic-Processes / Exponential-Spacings-and-Poisson-Counting-Process"
+"Probability-Statistics.Stochastic-Processes.First-Return-Time-of-One-Dimensional-Random-Walk":
+  label: "Probability-Statistics.Stochastic-Processes.First-Return-Time-of-One-Dimensional-Random-Walk"
+  permalink: "/topic/probability-statistics/stochastic-processes/first-return-time-of-one-dimensional-random-walk"
+  description: "Probability-Statistics / Stochastic-Processes / First-Return-Time-of-One-Dimensional-Random-Walk"
 "Probability-Statistics.Stochastic-Processes.Gamblers-Ruin-and-Hitting-Probability":
   label: "Probability-Statistics.Stochastic-Processes.Gamblers-Ruin-and-Hitting-Probability"
   permalink: "/topic/probability-statistics/stochastic-processes/gamblers-ruin-and-hitting-probability"
