@@ -157,41 +157,19 @@ test('Pages invokes the school shard adapter directly without the local guard wr
   assert.doesNotMatch(workflow, /\/usr\/bin\/time -v yarn build\s*(?:\n|$)/);
 });
 
-test('Pages resumes search indexing only after Docusaurus exits', () => {
+test('Pages publishes and checks content after the school build completes', () => {
   const pagesScript = packageJson.scripts['build:pages:site'];
   const phasedBuildIndex = pagesScript.indexOf(
     'node scripts/docusaurus-school-build.js',
   );
-  const searchIndex = pagesScript.indexOf('node scripts/build-search-index.js');
   const publishIndex = pagesScript.indexOf('yarn documents:publish');
   const exportIndex = pagesScript.indexOf('yarn content:export');
   const checkIndex = pagesScript.indexOf('yarn build:check');
 
   assert.ok(phasedBuildIndex >= 0);
-  assert.ok(searchIndex > phasedBuildIndex);
-  assert.ok(publishIndex > searchIndex);
+  assert.ok(publishIndex > phasedBuildIndex);
   assert.ok(exportIndex > publishIndex);
   assert.ok(checkIndex > exportIndex);
-  assert.doesNotMatch(
-    packageJson.scripts['build:site'],
-    /build-search-index/,
-    'local builds must keep their in-process search index lifecycle',
-  );
-
-  const configSource = fs.readFileSync(
-    path.resolve(__dirname, '../docusaurus.config.js'),
-    'utf8',
-  );
-  assert.match(
-    configSource,
-    /deferSearchIndex:\s*hasRequiredPagesBuildEnvironment/,
-  );
-
-  const outputCheckSource = fs.readFileSync(
-    path.resolve(__dirname, '../scripts/check-build-output.js'),
-    'utf8',
-  );
-  assert.match(outputCheckSource, /\.kai-search-index-manifest\.json/);
 });
 
 test('Docusaurus disables client module concatenation for both memory profiles', () => {

@@ -7,7 +7,7 @@ const HELP_AND_NOTICES_COPY = {
       {
         id: 'browse',
         title: '浏览过去问与题解',
-        text: '从顶部「过去问」进入题库，按大学、研究科、年度和题目浏览。题解页面支持本地搜索和标签浏览；网页文档阅读需要网络连接。',
+        text: '从顶部「过去问」进入题库，按大学、研究科、年度和题目浏览，也可以按科目和知识点浏览标签。首页和标签页的关键词框用于筛选当前列表；查找题目正文请使用浏览器的页内查找。网页文档阅读需要网络连接。',
       },
       {
         id: 'progress',
@@ -98,7 +98,7 @@ const HELP_AND_NOTICES_COPY = {
       {
         id: 'browse',
         title: '過去問・解答を探す',
-        text: '上部メニューの「過去問」から、大学、研究科、年度、問題ごとに閲覧できます。解答ページではサイト内検索とタグによる絞り込みを利用できます。Web 文書の閲覧にはネットワーク接続が必要です。',
+        text: '上部メニューの「過去問」から大学、研究科、年度、問題ごとに閲覧でき、タグから科目やトピック別にも探せます。ホームとタグページのキーワード欄は表示中の一覧を絞り込みます。問題本文の検索にはブラウザのページ内検索を利用してください。Web 文書の閲覧にはネットワーク接続が必要です。',
       },
       {
         id: 'progress',
@@ -189,7 +189,7 @@ const HELP_AND_NOTICES_COPY = {
       {
         id: 'browse',
         title: 'Browse past exams and solutions',
-        text: 'Open Past Exams from the top navigation to browse by university, graduate school, year, and question. Solution pages support local search and tag-based browsing; web document reading requires a network connection.',
+        text: 'Open Past Exams from the top navigation to browse by university, graduate school, year, and question, or browse tags by subject and topic. Keyword fields on the home and tag pages filter the current list. Use your browser’s Find in Page to locate text within a problem. Web document reading requires a network connection.',
       },
       {
         id: 'progress',

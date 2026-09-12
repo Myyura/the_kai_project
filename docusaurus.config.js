@@ -284,36 +284,7 @@ const config = {
     },
   },
 
-  // 添加本地搜索功能
-  themes: /** @type {import('@docusaurus/types').PluginConfig[]} */ ([
-    [
-      require.resolve('./plugins/memory-safe-search-local/index.cjs'),
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions & {boundedScanConcurrency: number, deferSearchIndex: boolean}} */
-      ({
-        boundedScanConcurrency: 4,
-        // Pages resumes this work in a fresh Node process after Docusaurus exits,
-        // so Rspack's retained native memory cannot crowd out search indexing.
-        deferSearchIndex: hasRequiredPagesBuildEnvironment,
-        hashed: true,
-        language: ["zh", "en", "ja"],
-        indexDocs: true,
-        indexBlog: true,
-        indexPages: false,
-        docsRouteBasePath: "/docs",
-        blogRouteBasePath: "/blog",
-        highlightSearchTermsOnTargetPage: false,
-        ignoreCssSelectors: [
-          'nav',
-          'footer',
-          '.breadcrumbs',
-          '.table-of-contents',
-          '.pagination-nav',
-          '.theme-doc-footer',
-        ],
-      }),
-    ],
-    '@docusaurus/theme-mermaid',
-  ]),
+  themes: ['@docusaurus/theme-mermaid'],
 
   // 添加SEO相关插件
   plugins: [
@@ -350,7 +321,6 @@ const config = {
             '/login',
             '/me',
             '/reset-password',
-            '/search',
           ],
         },
         gtag: {

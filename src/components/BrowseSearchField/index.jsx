@@ -3,7 +3,7 @@ import {FiSearch, FiX} from 'react-icons/fi';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
 
-/** Shared search control for local browsing and the full search page. */
+/** Shared keyword filter for browse lists. */
 export default function BrowseSearchField({
   value,
   onChange,

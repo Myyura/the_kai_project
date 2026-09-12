@@ -10,8 +10,7 @@
 }
 
 @media (max-width: 996px) {
-  .colorModeToggle,
-  .desktopSearch {
+  .colorModeToggle {
     display: none;
   }
 

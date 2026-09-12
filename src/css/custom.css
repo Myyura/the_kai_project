@@ -420,14 +420,6 @@ a.button,
   pointer-events: none;
 }
 
-.kai-mobile-search-link {
-  justify-content: space-between;
-  min-height: 44px;
-  margin-bottom: 0.75rem;
-  border: 1px solid var(--custom-card-border);
-  background: var(--custom-card-bg);
-}
-
 .kai-mobile-account {
   margin-top: 1rem;
   padding-top: 1rem;

@@ -10,7 +10,6 @@ import clsx from 'clsx';
 import {
   ErrorCauseBoundary,
   ThemeClassNames,
-  useWindowSize,
 } from '@docusaurus/theme-common';
 import {
   splitNavbarItems,
@@ -18,10 +17,8 @@ import {
 } from '@docusaurus/theme-common/internal';
 import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
-import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
-import NavbarSearch from '@theme/Navbar/Search';
 import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
 import NavbarLoginButton from '@site/src/components/NavbarLoginButton';
 import useNavbarItems from '@site/src/hooks/useNavbarItems';
@@ -80,12 +77,9 @@ function NavbarContentLayout({
 
 export default function NavbarContent(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
-  const windowSize = useWindowSize();
 
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
-
-  const searchBarItem = items.find((item) => item.type === 'search');
 
   return (
     <NavbarContentLayout
@@ -104,11 +98,6 @@ export default function NavbarContent(): ReactNode {
           <NavbarItems items={rightItems} />
           <LanguageSwitcher className={styles.languageSwitcher} />
           <NavbarColorModeToggle className={styles.colorModeToggle} />
-          {!searchBarItem && windowSize !== 'mobile' && (
-            <NavbarSearch className={styles.desktopSearch}>
-              <SearchBar />
-            </NavbarSearch>
-          )}
           <NavbarLoginButton />
         </>
       }

@@ -6,7 +6,6 @@ const zlib = require('zlib');
 
 const BUILD_DIR = path.resolve(__dirname, '..', 'build');
 const MAIN_GZIP_BUDGET = 512 * 1024;
-const SEARCH_GZIP_BUDGET = 16 * 1024 * 1024;
 const PUBLISHED_CONTENT_BUDGET = 24 * 1024 * 1024;
 // The snapshot embeds Markdown-referenced image-hosting assets as well as text.
 const CONTENT_EXPORT_GZIP_BUDGET = 64 * 1024 * 1024;
@@ -52,7 +51,6 @@ const mainBundles = files.filter((filePath) => (
   /\/assets\/js\/main\.[^/]+\.js$/.test(filePath)
 ));
 const htmlFiles = files.filter((filePath) => filePath.endsWith('.html'));
-const searchIndex = files.find((filePath) => filePath.endsWith('/search-index.json'));
 const contentManifestPath = path.join(BUILD_DIR, 'api-content', 'v1', 'manifest.json');
 const contentExportPath = path.join(
   BUILD_DIR,
@@ -61,10 +59,6 @@ const contentExportPath = path.join(
   'kai-content-v1.json.gz',
 );
 if (mainBundles.length === 0) throw new Error('Main JavaScript bundle was not generated.');
-if (!searchIndex) throw new Error('Search index was not generated.');
-if (fs.existsSync(path.join(BUILD_DIR, '.kai-search-index-manifest.json'))) {
-  throw new Error('Deferred search index manifest was not removed.');
-}
 
 const forbiddenRetiredPwaArtifacts = [
   path.join(BUILD_DIR, 'manifest.json'),
@@ -85,7 +79,6 @@ if (!retiredPwaTombstone.includes('kai-retired-pwa-tombstone')
 
 const mainGzipSizes = mainBundles.map(gzipSize);
 const mainGzip = Math.max(...mainGzipSizes);
-const searchGzip = gzipSize(searchIndex);
 const contentManifestBuffer = readRequiredFile(
   contentManifestPath,
   'Published document content manifest was not generated.',
@@ -265,14 +258,10 @@ if (mainGzip > MAIN_GZIP_BUDGET) {
       + `${formatMiB(MAIN_GZIP_BUDGET)}.`,
   );
 }
-if (searchGzip > SEARCH_GZIP_BUDGET) {
-  throw new Error(`Search index ${formatMiB(searchGzip)} exceeds ${formatMiB(SEARCH_GZIP_BUDGET)}.`);
-}
 
 console.log(
   `Build budgets passed: ${htmlFiles.length} HTML files reference `
   + `${mainBundles.length} complete main bundles (largest ${formatMiB(mainGzip)}), `
-  + `search ${formatMiB(searchGzip)}, `
   + `published content ${formatMiB(publishedContentBytes)} across ${publishedContentFiles.length} files, `
   + `Kai content export ${formatMiB(contentExportGzip)} across ${contentExport.documents.length} documents `
   + `and ${contentExport.assets.length} assets, tag routes ${subsubjectTagHtmlFiles.length} subsubjects `

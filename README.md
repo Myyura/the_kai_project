@@ -48,7 +48,7 @@ To support long-term maintenance, technical services, and community operations, 
 - Built-in Markdown/LaTeX notes plus selectable inline annotations with highlighting, quick navigation, and editing
 - Account-based progress, private problem sets, public nicknames, practice leaderboards, and community difficulty ratings powered by Supabase
 - Signed-in web submissions for new solutions and corrections, reviewed through public GitHub Issues and draft pull requests
-- Local search and share-as-image for answer pages; web document reading requires a network connection
+- Filter universities, programs, subjects, and topics within browse pages; share answer pages as images. Web document reading requires a network connection
 
 # 👏 Get Involved
 
