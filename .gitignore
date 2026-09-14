@@ -13,10 +13,14 @@ __pycache__/
 *.py[cod]
 
 # Generated files
-/outputs/
 .docusaurus
 .cache-loader
 /.cache/content-export/
+
+# Local exports and research artifacts
+/outputs/
+/research_tmp/
+/reports/
 
 # Misc
 .DS_Store
