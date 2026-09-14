@@ -1,0 +1,77 @@
+/* Shared by the exam and experience directories. */
+.pageHeader {
+  max-width: 760px;
+  margin: 0 auto 1.65rem;
+  text-align: center;
+}
+
+.pageHeader > span {
+  display: inline-block;
+  margin-bottom: .5rem;
+  color: var(--ifm-color-primary);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.pageHeader h1 {
+  margin: 0 0 .6rem;
+  font-size: clamp(1.8rem, 4vw, 2.55rem) !important;
+  letter-spacing: -.035em;
+}
+
+.pageHeader p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-650);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.navigationItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .7rem;
+  width: 100%;
+  min-height: 2.65rem;
+  padding: .5rem .65rem;
+  border: 0;
+  border-radius: var(--custom-border-radius-xs);
+  background: transparent;
+  color: var(--ifm-color-emphasis-700);
+  font: inherit;
+  font-size: .87rem;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navigationItem:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.navigationItemActive {
+  background: var(--ifm-color-primary-contrast-background);
+  color: var(--ifm-color-primary);
+}
+
+.navigationCount {
+  flex: 0 0 auto;
+  min-width: 1.6rem;
+  padding: .06rem .35rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+  font-size: .69rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.navigationItemActive .navigationCount {
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-primary);
+}

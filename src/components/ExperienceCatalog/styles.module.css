@@ -1,63 +1,344 @@
-.page { padding-top: 2.5rem; padding-bottom: 4rem; }
-.hero { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
-.eyebrow { color: var(--ifm-color-primary); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-.hero h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin: .5rem 0 .8rem; letter-spacing: -.035em; }
-.hero p { max-width: 42rem; margin: 0; color: var(--ifm-color-emphasis-700); line-height: 1.8; }
-.stats { display: flex; gap: 1.8rem; flex-shrink: 0; }
-.stats div { display: flex; flex-direction: column; gap: .15rem; }
-.stats strong { font-size: 1.65rem; font-variant-numeric: tabular-nums; }
-.stats span { font-size: .75rem; color: var(--ifm-color-emphasis-700); }
-.schools { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; margin-bottom: 1.75rem; }
-.school { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: 1.1rem 1.25rem; border: 1px solid var(--custom-card-border); border-radius: 12px; color: var(--ifm-font-color-base); background: var(--custom-card-bg); font-weight: 600; }
-.school strong { font-size: .85rem; color: var(--ifm-color-emphasis-600); }
-.school:hover, .program:hover { text-decoration: none; border-color: var(--ifm-color-primary); background: color-mix(in srgb, var(--ifm-color-primary) 5%, var(--custom-card-bg)); }
-.active, .school.active, .program.active { border-color: var(--ifm-color-primary); color: var(--ifm-color-primary); background: color-mix(in srgb, var(--ifm-color-primary) 9%, var(--custom-card-bg)); }
-.workspace { display: grid; gap: 2rem; align-items: start; }
-.withSidebar { grid-template-columns: 265px minmax(0, 1fr); }
-.sidebar { padding: 1.1rem; border: 1px solid var(--custom-card-border); border-radius: 12px; background: var(--custom-card-bg); }
-.sidebar h2 { margin: 0 0 .9rem; font-size: 1rem; }
-.department { margin-top: 1rem; }
-.department summary { cursor: pointer; color: var(--ifm-color-emphasis-700); font-size: .75rem; line-height: 1.6; font-weight: 700; margin-bottom: .5rem; }
-.program { display: flex; justify-content: space-between; align-items: start; gap: .6rem; margin: .2rem 0; padding: .45rem .6rem; font-size: .78rem; border: 1px solid transparent; border-radius: 6px; line-height: 1.6; color: var(--ifm-color-emphasis-800); }
-.program small { flex-shrink: 0; color: var(--ifm-color-emphasis-600); }
-.results { min-width: 0; }
-.resultsHeading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
-.resultsHeading h2 { margin: 0; font-size: 1.25rem; scroll-margin-top: 6rem; }
-.resultsHeading p { margin: 0 0 .35rem; font-size: .75rem; color: var(--ifm-color-emphasis-600); }
-.resultsHeading > span { flex-shrink: 0; font-size: .8rem; color: var(--ifm-color-emphasis-700); }
-.filters { display: grid; grid-template-columns: minmax(150px, 1fr) auto auto; align-items: end; gap: .75rem; }
-.filters > label { display: grid; gap: .3rem; font-size: .72rem; font-weight: 600; }
-.filters select { max-width: 100%; height: 2.7rem; padding: .45rem 1.6rem .45rem .7rem; border: 1px solid var(--custom-card-border); border-radius: 8px; color: var(--ifm-font-color-base); background: var(--custom-card-bg); font: inherit; font-size: .8rem; }
-.sortNote { margin: .75rem 0; color: var(--ifm-color-emphasis-600); font-size: .73rem; }
-.list { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
-.card { padding: 1.15rem 1.25rem; border: 1px solid var(--custom-card-border); border-radius: 10px; background: var(--custom-card-bg); }
-.cardMeta { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; font-size: .7rem; color: var(--ifm-color-emphasis-600); }
-.cardMeta > span { display: inline-flex; align-items: center; gap: .3rem; }
-.cardMeta .internal { color: var(--ifm-color-primary); font-weight: 700; }
-.card h3 { font-size: 1rem; line-height: 1.7; margin: .45rem 0 .6rem; overflow-wrap: anywhere; }
-.card h3 a { color: var(--ifm-font-color-base); }
-.card h3 a:hover { color: var(--ifm-color-primary); }
-.card h3 svg { display: inline; vertical-align: middle; margin-left: .4rem; width: .85rem; color: var(--ifm-color-primary); }
-.placements { display: flex; flex-direction: column; gap: .25rem; }
-.placements > div { display: flex; align-items: baseline; flex-wrap: wrap; gap: .2rem .65rem; font-size: .72rem; line-height: 1.7; }
-.placements a { color: var(--ifm-color-emphasis-700); }
-.placements span { color: var(--ifm-color-emphasis-600); white-space: nowrap; }
-.pagination { display: flex; align-items: center; justify-content: center; gap: 1.2rem; padding-top: 1.5rem; font-size: .8rem; }
-.pagination button { padding: .5rem .9rem; border: 1px solid var(--custom-card-border); border-radius: 6px; background: var(--custom-card-bg); color: var(--ifm-font-color-base); cursor: pointer; font: inherit; }
-.pagination button:disabled { opacity: .45; cursor: default; }
-.page :is(a, button, select, summary):focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: 3px; }
-@media (max-width: 996px) {
-  .hero { align-items: start; flex-direction: column; gap: 1.2rem; }
-  .withSidebar { grid-template-columns: 220px minmax(0, 1fr); gap: 1rem; }
-  .filters { grid-template-columns: 1fr 1fr; }
-  .filters > :first-child { grid-column: 1 / -1; }
+.page {
+  min-width: 0;
 }
-@media (max-width: 700px) {
-  .page { padding-top: 1.5rem; }
-  .schools { grid-template-columns: 1fr 1fr; gap: .5rem; }
-  .school { padding: .8rem .9rem; font-size: .85rem; }
-  .withSidebar { grid-template-columns: minmax(0, 1fr); }
-  .sidebar { max-height: 290px; overflow-y: auto; }
-  .card { padding: 1rem; }
-  .stats { gap: 2rem; }
+
+.hero {
+  composes: pageHeader from '../../styles/browse-layout.module.css';
+}
+
+.overview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .5rem 0 1.25rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .8rem;
+}
+
+.stats > div {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .35rem;
+}
+
+.stats strong {
+  color: var(--ifm-font-color-base);
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.submitLink {
+  composes: btnPrimary from '../../styles/kai-ui.module.css';
+  color: var(--kai-action-foreground) !important;
+  text-decoration: none !important;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(11.5rem, 14.5rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.65rem;
+  margin-bottom: 4rem;
+}
+
+.sidebar {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+  min-width: 0;
+  padding-right: .85rem;
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.navigationTitle {
+  margin: 0 0 .65rem !important;
+  padding: 0 .65rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .8rem !important;
+  line-height: 1.5;
+}
+
+.schools {
+  display: flex;
+  flex-direction: column;
+}
+
+.school {
+  composes: navigationItem from '../../styles/browse-layout.module.css';
+  min-width: 0;
+  line-height: 1.6;
+}
+
+.school > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.active {
+  composes: navigationItemActive from '../../styles/browse-layout.module.css';
+}
+
+.schoolCount {
+  composes: navigationCount from '../../styles/browse-layout.module.css';
+}
+
+.results {
+  min-width: 0;
+}
+
+.resultsHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .85rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--ifm-color-primary);
+}
+
+.resultsHeading h2 {
+  margin: 0 !important;
+  font-size: 1.16rem !important;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
+}
+
+.resultsHeading p {
+  margin: 0 0 .3rem !important;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .78rem;
+}
+
+.resultsHeading > span {
+  flex-shrink: 0;
+  padding: .15rem .48rem;
+  border-radius: 999px;
+  background: var(--ifm-color-primary-contrast-background);
+  color: var(--ifm-color-primary);
+  font-size: .74rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 7.2rem 7.2rem;
+  align-items: end;
+  gap: .75rem;
+}
+
+.selectField,
+.searchField {
+  display: grid;
+  min-width: 0;
+  gap: .4rem;
+}
+
+.selectField > span,
+.searchField > label {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.selectField select {
+  width: 100%;
+  min-width: 0;
+  height: 2.875rem;
+  padding: .45rem .65rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--kai-radius-control);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  font-size: .85rem;
+  text-overflow: ellipsis;
+}
+
+.programField {
+  margin-bottom: .85rem;
+}
+
+.mobileSchool {
+  display: none;
+}
+
+.sortNote {
+  margin: .8rem 0 1rem !important;
+  color: var(--ifm-color-emphasis-600);
+  font-size: .73rem;
+  line-height: 1.7;
+}
+
+/* Infima's global list reset has higher specificity than a module class. */
+.list {
+  list-style: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.card {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem .9rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: .72rem;
+}
+
+.cardMeta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.cardMeta .internal {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+
+.card h3 {
+  margin: .35rem 0 .55rem !important;
+  font-size: 1rem !important;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.card h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.card h3 svg {
+  display: inline;
+  width: .85rem;
+  margin-left: .4rem;
+  vertical-align: middle;
+}
+
+.placements {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.placements > div {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .15rem .65rem;
+  font-size: .75rem;
+  line-height: 1.65;
+}
+
+.placements a {
+  color: var(--ifm-color-emphasis-700) !important;
+  overflow-wrap: anywhere;
+}
+
+.placements a:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+.placements span {
+  color: var(--ifm-color-emphasis-600);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .75rem;
+  padding-top: 1.5rem;
+  font-size: .8rem;
+}
+
+.pagination button {
+  min-height: 2.75rem;
+  padding: .5rem .9rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--kai-radius-control);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  font: inherit;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.pagination button:disabled {
+  opacity: .45;
+  cursor: default;
+}
+
+.page :is(a, button, select):focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .searchField {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .overview {
+    align-items: stretch;
+    flex-direction: column;
+    gap: .85rem;
+  }
+
+  .stats {
+    justify-content: center;
+  }
+
+  .workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .sidebar {
+    position: static;
+    padding: 0;
+    border: 0;
+  }
+
+  .schools {
+    display: none;
+  }
+
+  .mobileSchool {
+    display: grid;
+  }
+
+  .selectField select {
+    font-size: 1rem;
+  }
+
 }

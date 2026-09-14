@@ -126,50 +126,15 @@
 }
 
 .subjectNavItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.7rem;
-  width: 100%;
-  min-height: 2.65rem;
-  padding: 0.5rem 0.65rem;
-  border: 0;
-  border-radius: var(--custom-border-radius-xs);
-  background: transparent;
-  color: var(--ifm-color-emphasis-700);
-  font: inherit;
-  font-size: 0.87rem;
-  font-weight: 600;
-  text-align: left;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.subjectNavItem:hover {
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-font-color-base);
-  text-decoration: none;
+  composes: navigationItem from '../../styles/browse-layout.module.css';
 }
 
 .subjectNavItemActive {
-  background: var(--ifm-color-primary-contrast-background);
-  color: var(--ifm-color-primary);
+  composes: navigationItemActive from '../../styles/browse-layout.module.css';
 }
 
 .subjectNavCount {
-  flex: 0 0 auto;
-  min-width: 1.6rem;
-  padding: 0.06rem 0.35rem;
-  border-radius: 999px;
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.69rem;
-  text-align: center;
-}
-
-.subjectNavItemActive .subjectNavCount {
-  background: var(--ifm-background-surface-color);
-  color: var(--ifm-color-primary);
+  composes: navigationCount from '../../styles/browse-layout.module.css';
 }
 
 .subjectResults {
