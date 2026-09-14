@@ -5,5 +5,10 @@
     "type": "generated-index",
     "slug": "/category/institute-of-science-tokyo-environment_and_society-tse"
   },
-  "key": "institute-of-science-tokyo-environment_and_society-tse"
+  "key": "institute-of-science-tokyo-environment_and_society-tse",
+  "customProps": {
+    "aliases": [
+      "融合理工"
+    ]
+  }
 }

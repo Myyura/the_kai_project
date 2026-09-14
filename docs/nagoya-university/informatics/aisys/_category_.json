@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/nagoya-university-informatics-aisys"
   },
-  "key": "nagoya-university-informatics-aisys"
+  "key": "nagoya-university-informatics-aisys",
+  "customProps": {
+    "aliases": [
+      "知能系统",
+      "AISYS"
+    ]
+  }
 }

@@ -5,5 +5,17 @@
     "type": "generated-index",
     "slug": "/category/institute-of-science-tokyo"
   },
-  "key": "institute-of-science-tokyo"
+  "key": "institute-of-science-tokyo",
+  "customProps": {
+    "aliases": [
+      "东京科学大学",
+      "東工大",
+      "东工",
+      "东科",
+      "东京工业大学",
+      "東京工業大学",
+      "Tokyo Tech",
+      "Science Tokyo"
+    ]
+  }
 }

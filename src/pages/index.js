@@ -11,6 +11,7 @@ import {useUiText} from '../i18n/useUiText';
 import { useAllProgress } from '../hooks/useProgress';
 import { useAuth } from '../hooks/useAuth';
 import { universities } from '../data/universities';
+import {examUniversities} from '../data/universityCatalog.cjs';
 import siteStats from '../data/siteStats.json';
 import {getEnabledSupportEntries, getLocalizedSupportValue, supportConfig} from '../data/supportConfig';
 import {useCurrentLanguage} from '../context/LanguageContext';
@@ -274,8 +275,8 @@ const normalizeUniversityQuery = (value) => value.normalize('NFKC').toLowerCase(
 const UniversitySection = ({ t }) => {
   const [query, setQuery] = useState('');
   const normalizedQuery = normalizeUniversityQuery(query);
-  const matches = (item) => normalizeUniversityQuery(`${item.name} ${item.id}`).includes(normalizedQuery);
-  const filteredUniversities = universities.flatMap((university) => {
+  const matches = (item) => normalizeUniversityQuery(`${item.name} ${item.id} ${(item.aliases || []).join(' ')}`).includes(normalizedQuery);
+  const filteredUniversities = examUniversities(universities).flatMap((university) => {
     const departments = matches(university)
       ? university.departments
       : university.departments.filter((department) => matches(department)

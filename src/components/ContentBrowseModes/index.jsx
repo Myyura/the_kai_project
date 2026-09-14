@@ -1,8 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import {
-  FaListUl,
-  FaTag,
   FaTags,
   FaUniversity,
 } from 'react-icons/fa';
@@ -29,25 +27,7 @@ const MODE_CONFIG = {
       },
     ],
   },
-  stories: {
-    ariaKey: 'storiesAria',
-    modes: [
-      {
-        key: 'list',
-        labelKey: 'storyListLabel',
-        descriptionKey: 'storyListDescription',
-        to: '/blog',
-        icon: FaListUl,
-      },
-      {
-        key: 'tags',
-        labelKey: 'storyTagsLabel',
-        descriptionKey: 'storyTagsDescription',
-        to: '/blog/tags',
-        icon: FaTag,
-      },
-    ],
-  },
+
 };
 
 export default function ContentBrowseModes({section, activeMode}) {

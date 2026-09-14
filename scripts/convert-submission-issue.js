@@ -58,7 +58,7 @@ function main() {
     console.log(`Skipped automatic conversion for ${payload.submissionType} issue #${issue.number}.`);
     return;
   }
-  const titlePrefix = payload.submissionType === 'new_solution' ? 'Add submission' : 'Update submission';
+  const titlePrefix = ['new_solution', 'experience'].includes(payload.submissionType) ? 'Add submission' : 'Update submission';
   const prTitle = `${titlePrefix} from issue #${issue.number}`;
   if (!writeResult.conflict) {
     const prBody = buildPullRequestBody({

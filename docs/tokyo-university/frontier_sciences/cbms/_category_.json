@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-frontier_sciences-cbms"
   },
-  "key": "tokyo-university-frontier_sciences-cbms"
+  "key": "tokyo-university-frontier_sciences-cbms",
+  "customProps": {
+    "aliases": [
+      "CBMS",
+      "医疗信息生命"
+    ]
+  }
 }

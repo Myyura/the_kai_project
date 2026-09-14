@@ -1,0 +1,11 @@
+{
+  "label": "先端メディアサイエンス専攻",
+  "position": 2,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "先端媒体科学",
+      "FMS"
+    ]
+  }
+}

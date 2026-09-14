@@ -21,6 +21,7 @@ import {
   type AdmissionDataSubmission,
 } from './admission.ts';
 import { buildIssueBody, stableStringify } from './issue.ts';
+import {normalizeExperienceRequest, type ExperienceSubmission} from './experience.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';
@@ -37,6 +38,7 @@ const MAX_ISSUE_BODY_LENGTH = 62000;
 const SUBMISSION_LABELS = [
   { name: 'submission:new-solution', color: '2e8555', description: '站内投稿：新增题解' },
   { name: 'submission:correction', color: 'd97706', description: '站内投稿：纠错或补充' },
+  { name: 'submission:experience', color: '0891b2', description: '站内投稿：经验贴或外链推荐' },
   { name: 'submission:admission-data', color: '7c3aed', description: '站内投稿：招生数据补充或修正' },
   { name: 'submission:needs-info', color: 'facc15', description: '投稿需要补充信息' },
   { name: 'submission:ready-for-pr', color: '2563eb', description: '投稿已确认，可以生成 PR' },
@@ -69,7 +71,7 @@ function getApiPath(req: Request) {
   return path || '/';
 }
 
-type SubmissionType = 'new_solution' | 'correction' | 'admission_data';
+type SubmissionType = 'new_solution' | 'correction' | 'admission_data' | 'experience';
 
 type SubmissionPayload = {
   version: 3;
@@ -104,6 +106,7 @@ type SubmissionPayload = {
     conflict: boolean;
   };
   admissionData: AdmissionDataSubmission | null;
+  experience?: ExperienceSubmission;
 };
 
 function cleanText(value: unknown, maxLength = MAX_TEXT_LENGTH) {
@@ -261,6 +264,7 @@ function normalizeTags(value: unknown) {
 }
 
 function submissionTitle(payload: SubmissionPayload) {
+  if (payload.submissionType === 'experience') return `[经验贴${payload.experience?.kind === 'external' ? '外链推荐' : '投稿'}] ${payload.document.title}`.slice(0, 240);
   const prefix = payload.submissionType === 'new_solution'
     ? '新增题解投稿'
     : payload.submissionType === 'correction'
@@ -303,6 +307,10 @@ function submissionDatabaseErrorResponse(error: unknown, code: string) {
       ? error.message
       : String(error || '');
   const pgCode = typeof errorLike?.code === 'string' ? errorLike.code : '';
+
+  if (message.includes('experience_data') || message.includes('content_submissions_type_check')) {
+    return errorResponse(500, 'experience_schema_missing', '经验贴投稿数据库尚未升级，请由管理员执行 supabase/manual/20260914_experience_submissions.sql。');
+  }
 
   if (
     pgCode === '42P01'
@@ -359,22 +367,31 @@ function validateSubmission(body: Record<string, unknown>, publicAuthor: string)
     submissionType !== 'new_solution'
     && submissionType !== 'correction'
     && submissionType !== 'admission_data'
+    && submissionType !== 'experience'
   ) {
     return {
       error: errorResponse(
         400,
         'invalid_type',
-        'Submission type must be new_solution, correction, or admission_data.',
+        'Submission type must be new_solution, correction, admission_data, or experience.',
       ),
     };
   }
 
-  if (!body.claAccepted) {
+  if (body.claAccepted !== true) {
     return { error: errorResponse(400, 'cla_required', 'CLA confirmation is required.') };
   }
 
   const now = new Date().toISOString();
   const isNewSolution = submissionType === 'new_solution';
+  const isExperience = submissionType === 'experience';
+  const experienceResult = isExperience ? normalizeExperienceRequest(body.experience, new Date(now)) : null;
+  if (experienceResult && 'error' in experienceResult) return {error: errorResponse(400, experienceResult.error.code, experienceResult.error.message)};
+  const experience = experienceResult && 'data' in experienceResult ? experienceResult.data : undefined;
+  if (experience?.markdown) {
+    const unsafe = rejectDangerousMdx(experience.markdown, 'Story');
+    if (unsafe) return {error: errorResponse(400, 'unsafe_experience_markdown', unsafe)};
+  }
   const isAdmissionData = submissionType === 'admission_data';
   const admissionValidation = isAdmissionData ? normalizeAdmissionDataRequest(body) : null;
   if (admissionValidation && 'error' in admissionValidation) {
@@ -389,7 +406,7 @@ function validateSubmission(body: Record<string, unknown>, publicAuthor: string)
   const admissionData = admissionValidation && 'data' in admissionValidation
     ? admissionValidation.data
     : null;
-  const title = isNewSolution ? cleanText(body.title, 180) : '';
+  const title = isExperience ? experience!.title : isNewSolution ? cleanText(body.title, 180) : '';
   const sidebarLabel = isNewSolution ? (cleanText(body.sidebarLabel, 120) || title) : '';
   const universityId = isNewSolution ? cleanText(body.universityId, 120) : '';
   const departmentId = isNewSolution ? cleanText(body.departmentId, 120) : '';
@@ -401,12 +418,12 @@ function validateSubmission(body: Record<string, unknown>, publicAuthor: string)
       ? rawYear
       : null;
   const fileSlug = isNewSolution ? cleanSlug(body.fileSlug) : '';
-  const targetDocId = isNewSolution
+  const targetDocId = isNewSolution || isExperience
     ? ''
     : isAdmissionData
       ? admissionData?.entityId || ''
       : normalizeDocId(body.targetDocId);
-  const targetTitle = isNewSolution
+  const targetTitle = isNewSolution || isExperience
     ? ''
     : isAdmissionData
       ? admissionData?.targetTitle || ''
@@ -475,6 +492,7 @@ function validateSubmission(body: Record<string, unknown>, publicAuthor: string)
     },
     correction: null,
     admissionData,
+    ...(experience ? {experience} : {}),
   };
 
   return { payload };
@@ -577,7 +595,7 @@ async function createGitHubIssue(payload: SubmissionPayload, signature: string, 
     ? 'submission:new-solution'
     : payload.submissionType === 'correction'
       ? 'submission:correction'
-      : 'submission:admission-data'];
+      : payload.submissionType === 'experience' ? 'submission:experience' : 'submission:admission-data'];
   if (payload.correction?.conflict) labels.push('submission:conflict');
   const issueBody = buildIssueBody(payload, signature, correctionDiff);
   if (issueBody.length > MAX_ISSUE_BODY_LENGTH) {
@@ -585,7 +603,7 @@ async function createGitHubIssue(payload: SubmissionPayload, signature: string, 
       ? 'The submitted Markdown is too large for a GitHub Issue.'
       : payload.submissionType === 'correction'
         ? 'The correction diff is too large for a GitHub Issue.'
-        : 'The admission-data evidence is too large for a GitHub Issue.';
+        : 'The submission is too large for a GitHub Issue.';
     return {
       response: errorResponse(413, 'issue_payload_too_large', message),
     };
@@ -687,6 +705,7 @@ async function createSubmission(userId: string, body: Record<string, unknown>) {
     correction_patch: payload.correction?.changes || [],
     correction_conflict: payload.correction?.conflict || false,
     admission_data: payload.admissionData || {},
+    experience_data: payload.experience || {},
     cla_accepted_at: payload.cla.acceptedAt,
   };
 
@@ -785,7 +804,7 @@ async function markSubmissionConverted(body: Record<string, unknown>) {
     })
     .eq('id', submissionId)
     .eq('issue_number', issueNumber)
-    .in('submission_type', ['new_solution', 'correction'])
+    .in('submission_type', ['new_solution', 'correction', 'experience'])
     .select('id,user_id,submission_type,status,title,target_doc_id,issue_number,issue_url,pr_number,pr_url,failure_reason,correction_conflict,updated_at,created_at')
     .maybeSingle();
 

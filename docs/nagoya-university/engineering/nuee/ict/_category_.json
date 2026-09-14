@@ -1,0 +1,12 @@
+{
+  "label": "情報・通信工学専攻",
+  "position": 4,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "情报通信",
+      "信息通信",
+      "ICT"
+    ]
+  }
+}

@@ -5,5 +5,10 @@
     "type": "generated-index",
     "slug": "/category/kyushu-university-ISEE-ist"
   },
-  "key": "kyushu-university-ISEE-ist"
+  "key": "kyushu-university-ISEE-ist",
+  "customProps": {
+    "aliases": [
+      "情报理工"
+    ]
+  }
 }

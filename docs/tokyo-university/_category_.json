@@ -5,5 +5,14 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university"
   },
-  "key": "tokyo-university"
+  "key": "tokyo-university",
+  "customProps": {
+    "aliases": [
+      "东京大学",
+      "东大",
+      "東大",
+      "UTokyo",
+      "University of Tokyo"
+    ]
+  }
 }

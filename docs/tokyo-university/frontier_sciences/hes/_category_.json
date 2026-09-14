@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-frontier_sciences-hes"
   },
-  "key": "tokyo-university-frontier_sciences-hes"
+  "key": "tokyo-university-frontier_sciences-hes",
+  "customProps": {
+    "aliases": [
+      "HES",
+      "人间环境"
+    ]
+  }
 }

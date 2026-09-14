@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-engineering-eeis"
   },
-  "key": "tokyo-university-engineering-eeis"
+  "key": "tokyo-university-engineering-eeis",
+  "customProps": {
+    "aliases": [
+      "EEIS",
+      "电气系工学"
+    ]
+  }
 }

@@ -1,0 +1,11 @@
+{
+  "label": "マルチメディア工学専攻",
+  "position": 6,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "多媒体工学",
+      "MM"
+    ]
+  }
+}

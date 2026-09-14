@@ -1,0 +1,11 @@
+{
+  "label": "電気・情報生命専攻",
+  "position": 3,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "电气信息生命",
+      "EB"
+    ]
+  }
+}

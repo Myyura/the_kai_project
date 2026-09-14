@@ -5,5 +5,10 @@
     "type": "generated-index",
     "slug": "/category/nagoya-university-informatics-is"
   },
-  "key": "nagoya-university-informatics-is"
+  "key": "nagoya-university-informatics-is",
+  "customProps": {
+    "aliases": [
+      "情报系统"
+    ]
+  }
 }

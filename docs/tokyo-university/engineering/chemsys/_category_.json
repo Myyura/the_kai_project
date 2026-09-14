@@ -1,0 +1,12 @@
+{
+  "label": "化学システム工学専攻",
+  "position": 9,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "化学系统工学",
+      "化学系统工程",
+      "CHEMSYS"
+    ]
+  }
+}

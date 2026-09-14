@@ -102,6 +102,7 @@ export function ContributeContent({ embedded = false } = {}) {
   const language = useCurrentLanguage();
   const colorMode = useDocumentColorMode();
   const t = useUiText('contributions');
+  const experienceText = useUiText('experienceSubmission');
   const { isConfigured, isLoggedIn, authReady, user } = useAuth();
   const { profile } = usePublicProfile();
   const [form, setForm] = useState(initialForm);
@@ -484,6 +485,7 @@ export function ContributeContent({ embedded = false } = {}) {
       <header className={styles.header}>
         <div>
           <h1>{isCorrectionMode ? t.correctionTitle : t.pageTitle}</h1>
+          <Link to="/submit-experience">{experienceText.title} ↗</Link>
           <p>
             {isCorrectionMode
               ? t.headerCorrection
@@ -861,7 +863,7 @@ export function ContributeContent({ embedded = false } = {}) {
                       <span className={`${styles.statusBadge} ${styles.statusFailed}`}>{t.conflictBadge}</span>
                     )}
                     <span>
-                      {item.submissionType === 'new_solution'
+                      {item.submissionType === 'experience' ? experienceText.mode : item.submissionType === 'new_solution'
                         ? t.modeNew
                         : item.submissionType === 'admission_data'
                           ? t.modeAdmission

@@ -236,24 +236,44 @@ yarn review:format
 yarn tags:audit
 ```
 
-#### Blog posts
+#### Admission stories and the directory
 
-Blog posts should use author IDs defined in [blog/authors.yml](blog/authors.yml), not inline author objects.
+**Website submissions:** Open “Share an admission story” from the directory or Submissions, then use `/submit-experience` to recommend an external article or write an original story. Both modes share the exam archive's university/graduate-school/program data and accept multiple exam attempts. An exam year requires a summer/winter season, even when the admission year is explicit; the admission year alone is also accepted. External recommendations require a title, original URL, first publication year, and classifications; do not copy the article body. Original stories accept Markdown and use the contributor’s confirmed public nickname. Use a known parent scope and review notes when a program is missing.
 
-1. Add a new author entry to [blog/authors.yml](blog/authors.yml), or reuse an existing one.
-2. Reference that author ID in the post frontmatter.
+Each submission creates a signed public Issue. After maintainer review and the `submission:ready-for-pr` label, the converter appends external links to `external.json` or creates a native blog article with `experience` frontmatter, then opens a draft PR. Duplicate URLs become conflicts without overwriting existing entries; Zhihu share parameters and fragments do not identify separate articles. Publication requires merging and deploying the PR.
 
-Example:
+For existing installations, apply the [experience submission migration](supabase/manual/20260914_experience_submissions.sql) before deploying the updated `content-submissions` Edge Function and website. It adds `experience_data` and keeps experiences out of solution/correction reputation events. Fresh databases use the updated `src/services/schema.sql`. External-link consent covers submitted metadata and does not license or reproduce the original article.
 
-```markdown
+`/blog` groups on-site stories and external articles by university, graduate school, and program.
+
+**On-site stories**: add a dated Markdown file under `blog/`, reference an author ID from [blog/authors.yml](blog/authors.yml), and supply `experience` classifications:
+
+```yaml
 ---
-title: Post title
+title: My CBMS summer exam experience
 authors: yourAuthorId
-tags: [Tag1, Tag2]
+experience:
+  - scope: tokyo-university/frontier_sciences/cbms
+    examYear: 2025
+    season: summer
 ---
 ```
 
-For reference, existing posts such as [blog/2025-04-02-furry.md](blog/2025-04-02-furry.md) and [blog/2025-07-10-unagoya.md](blog/2025-07-10-unagoya.md) already use author IDs.
+Write the article below the frontmatter. `scope` is required and references an existing `university/graduate-school/program` path in the exam hierarchy, without the `docs/` prefix. If only the university or graduate school is confirmed, reference that parent path rather than guessing a program. `examYear` is the calendar year of the exam; `season` is `summer` or `winter`. When both are known, summer exams default to admission the following year and winter exams to the same year: summer 2024 and winter 2025 both belong to 2025 admission. Set `admissionYear` when the article gives an explicit enrollment date; it overrides this inference, including AO and autumn enrollment exceptions. Do not use preparation years or update dates as exam dates. Omit unknown values; unresolved admission years use the labeled publication year. Add multiple classifications when a story covers multiple programs. University tags are unnecessary: title, author, and permalink come from blog metadata. See the [on-site example](blog/2025-04-02-zephyr.md).
+
+**External articles**: add an entry to [external.json](src/data/experiences/external.json) using the original destination:
+
+```json
+{
+  "title": "Original article title",
+  "url": "https://example.com/story",
+  "placements": [{"scope": "tokyo-university/frontier_sciences/cbms", "examYear": 2025, "season": "summer"}]
+}
+```
+
+Keep one entry per URL and list all program/exam classifications in `placements`. For external articles without a known admission year, supply the known publication year as a top-level `publishedYear` (for example, `2025`); use the original publication year, not the update date or the date the link was added to the directory. The single source for university, graduate school, and program classifications is `docs/**/_category_.json`: use `label` for names and `customProps.aliases` for abbreviations and former names. Exam pages, stories, and submission forms share the generated [universities.js](src/data/universities.js); do not edit it by hand or create a separate story taxonomy. For a program without exam content, add its `_category_.json` in the same hierarchy with `customProps.catalogType: "program"` and no `link`. It can then classify stories without creating an empty exam page. Run `yarn generate:universities` after changes. Do not create blog posts that merely aggregate external links.
+
+Run `yarn test` and `yarn docusaurus build`. The build rejects duplicate URLs, unknown programs, and public articles without classifications.
 
 #### File naming and location conventions
 

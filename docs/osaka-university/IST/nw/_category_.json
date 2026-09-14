@@ -1,0 +1,11 @@
+{
+  "label": "情報ネットワーク学専攻",
+  "position": 5,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "情报网络",
+      "NW"
+    ]
+  }
+}

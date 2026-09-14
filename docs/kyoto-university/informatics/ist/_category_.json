@@ -5,5 +5,13 @@
     "type": "generated-index",
     "slug": "/category/kyoto-university-informatics-ist"
   },
-  "key": "kyoto-university-informatics-ist"
+  "key": "kyoto-university-informatics-ist",
+  "customProps": {
+    "aliases": [
+      "智能情报",
+      "知能情报",
+      "京大知能",
+      "知能情報学コース"
+    ]
+  }
 }

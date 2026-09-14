@@ -5,5 +5,10 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-art_and_sciences-system"
   },
-  "key": "tokyo-university-art_and_sciences-system"
+  "key": "tokyo-university-art_and_sciences-system",
+  "customProps": {
+    "aliases": [
+      "广域科学"
+    ]
+  }
 }

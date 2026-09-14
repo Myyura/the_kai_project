@@ -1,0 +1,10 @@
+{
+  "label": "データ科学コース",
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "数据科学",
+      "Data Science"
+    ]
+  }
+}

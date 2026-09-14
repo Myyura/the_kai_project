@@ -1,0 +1,11 @@
+{
+  "label": "情報生産システム工学専攻",
+  "position": 1,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "情报生产系统",
+      "IPS"
+    ]
+  }
+}

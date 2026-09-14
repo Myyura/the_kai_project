@@ -5,5 +5,12 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-IST-denshi"
   },
-  "key": "tokyo-university-IST-denshi"
+  "key": "tokyo-university-IST-denshi",
+  "customProps": {
+    "aliases": [
+      "电情",
+      "電情",
+      "电子信息"
+    ]
+  }
 }

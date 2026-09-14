@@ -1,0 +1,12 @@
+{
+  "label": "電気電子工学専攻",
+  "position": 3,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "电气电子",
+      "九大电电",
+      "EE"
+    ]
+  }
+}

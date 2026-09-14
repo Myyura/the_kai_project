@@ -1,0 +1,58 @@
+.page {
+  composes: shell from '../../styles/kai-ui.module.css';
+  max-width: 880px;
+  --ifm-h1-font-size: 1.85rem;
+  --ifm-h2-font-size: 1rem;
+}
+.primaryButton { composes: btnPrimary from '../../styles/kai-ui.module.css'; }
+.activeMode { composes: activeTab from '../ContributeContent/styles.module.css'; }
+.header { margin: 0 0 1.5rem; }
+.header h1 { margin: 0 0 .5rem; font-size: 1.85rem; line-height: 1.3; letter-spacing: -.025em; }
+.header p { margin: 0; color: var(--ifm-color-emphasis-700); font-size: .95rem; line-height: 1.65; }
+.panel { composes: panel from '../ContributeContent/styles.module.css'; }
+.fields { composes: formGrid from '../ContributeContent/styles.module.css'; grid-template-columns: minmax(0, 1fr); display: grid; gap: 1.2rem; border: 0; padding: 0; margin: 0; min-width: 0; }
+.fields label { display: flex; flex-direction: column; gap: .4rem; font-size: .86rem; font-weight: 500; line-height: 1.5; min-width: 0; }
+.fields input:focus, .fields select:focus, .fields textarea:focus { outline: 2px solid var(--ifm-color-primary); outline-offset: 1px; }
+.fields input:disabled, .fields select:disabled { opacity: .55; }
+.fields small { display: block; color: var(--ifm-color-emphasis-600); font-size: .78rem; font-weight: 400; line-height: 1.6; }
+.fields textarea { resize: vertical; font-weight: 400; line-height: 1.7; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem 1rem; }
+.sourceGrid { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 1rem; }
+.modes {
+  composes: editorTabs from '../ContributeContent/styles.module.css';
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: .25rem;
+}
+.classifications { padding-top: 1.2rem; border-top: 1px solid var(--ifm-color-emphasis-200); }
+.sectionHeading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: .65rem; }
+.fields h2 { font-size: 1rem; line-height: 1.5; margin: 0; }
+.hint { color: var(--ifm-color-emphasis-600); font-size: .8rem; line-height: 1.7; margin: 0 0 .85rem; }
+.fields > .hint { margin: -.4rem 0 0; }
+.attempt { border: 1px solid var(--ifm-color-emphasis-200); border-radius: var(--custom-border-radius-xs); padding: .9rem 1rem 1rem; margin: .9rem 0; min-width: 0; position: relative; }
+.attempt legend { width: auto; padding: 0 .4rem; margin: 0; color: var(--ifm-color-emphasis-600); font-weight: 500; font-size: .8rem; line-height: 1.5; }
+.addAttempt, .remove { padding: .2rem 0; border: 0; background: transparent; cursor: pointer; font: inherit; font-size: .8rem; line-height: 1.5; }
+.addAttempt { color: var(--ifm-color-primary); white-space: nowrap; }
+.remove { display: block; margin: .75rem 0 -.2rem auto; color: var(--ifm-color-emphasis-600); }
+.remove:hover { color: var(--ifm-color-danger); }
+.fields .consent { flex-direction: row; align-items: flex-start; gap: .6rem; font-size: .82rem; font-weight: 400; }
+.consent input { min-height: 0; width: 15px; height: 15px; margin-top: .22rem; flex-shrink: 0; }
+.consent small { margin-top: .35rem; }
+.actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--ifm-color-emphasis-200); }
+.footerLinks { display: flex; gap: 1rem; flex-wrap: wrap; font-size: .8rem; }
+.footerLinks a { color: var(--ifm-color-emphasis-600); }
+.footerLinks a:hover { color: var(--ifm-color-primary); }
+.error { color: var(--ifm-color-danger); font-size: .85rem; margin: 0; }
+.preview { --ifm-h1-font-size: 1.5rem; --ifm-h2-font-size: 1.2rem; min-height: 10rem; padding: 1rem; margin-top: .7rem; border: 1px solid var(--ifm-color-emphasis-200); border-radius: var(--custom-border-radius-xs); overflow-wrap: anywhere; }
+.preview h1 { font-size: 1.5rem; }
+.preview h2 { font-size: 1.2rem; margin: 1rem 0 .6rem; }
+@media (max-width: 680px) {
+  .page { padding-top: 1.5rem; padding-bottom: 3rem; --ifm-h1-font-size: 1.6rem; }
+  .header h1 { font-size: 1.6rem; }
+  .panel { padding: 1.1rem; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sourceGrid { grid-template-columns: 1fr; }
+  .sectionHeading { align-items: flex-start; flex-direction: column; gap: .25rem; }
+  .actions { align-items: flex-start; flex-direction: column; }
+}
+@media (max-width: 440px) { .grid { grid-template-columns: 1fr; } }

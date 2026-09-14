@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-engineering-tmi"
   },
-  "key": "tokyo-university-engineering-tmi"
+  "key": "tokyo-university-engineering-tmi",
+  "customProps": {
+    "aliases": [
+      "TMI",
+      "技术经营战略"
+    ]
+  }
 }

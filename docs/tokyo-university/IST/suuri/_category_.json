@@ -5,5 +5,10 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-IST-suuri"
   },
-  "key": "tokyo-university-IST-suuri"
+  "key": "tokyo-university-IST-suuri",
+  "customProps": {
+    "aliases": [
+      "数理信息"
+    ]
+  }
 }

@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/nagoya-university-engineering-nuee"
   },
-  "key": "nagoya-university-engineering-nuee"
+  "key": "nagoya-university-engineering-nuee",
+  "customProps": {
+    "aliases": [
+      "名大电气",
+      "电气"
+    ]
+  }
 }

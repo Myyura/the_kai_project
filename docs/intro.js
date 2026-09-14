@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fa';
 import ContentBrowseModes from '@site/src/components/ContentBrowseModes';
 import {universities} from '@site/src/data/universities';
+import {examUniversities} from '@site/src/data/universityCatalog.cjs';
 import {useUiText} from '@site/src/i18n/useUiText';
 import {getUniversityCatalogTarget} from '@site/src/services/documentMetadata';
 import styles from './intro.module.css';
@@ -113,10 +114,10 @@ export default function Intro() {
   const [query, setQuery] = useState('');
   const normalizedQuery = query.trim().toLocaleLowerCase();
   const filteredUniversities = useMemo(
-    () => universities.filter((university) => (
+    () => examUniversities(universities).filter((university) => (
       !normalizedQuery ||
       university.name.toLocaleLowerCase().includes(normalizedQuery) ||
-      university.id.toLocaleLowerCase().includes(normalizedQuery)
+      [university.id, ...(university.aliases || [])].join(' ').toLocaleLowerCase().includes(normalizedQuery)
     )),
     [normalizedQuery],
   );

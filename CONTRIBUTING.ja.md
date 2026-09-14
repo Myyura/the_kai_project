@@ -219,23 +219,44 @@ yarn review:format
 yarn tags:audit
 ```
 
-#### ブログ記事
-ブログでは、frontmatter にインライン著者オブジェクトを書くのではなく、[blog/authors.yml](blog/authors.yml) で定義した author ID を使ってください。
+#### 受験体験記と大学別一覧
 
-1. [blog/authors.yml](blog/authors.yml) に新しい著者 ID を追加するか、既存のものを使います。
-2. 記事の frontmatter でその ID を参照します。
+**サイト内フォーム**：体験記一覧または投稿ページから `/submit-experience` を開き、外部記事の紹介か本サイトへの投稿を選択します。両方とも共通の大学・研究科・専攻を使用し、複数回の受験歴を登録できます。受験年を入力する場合は夏季・冬季の選択が必須です。入学年度のみ分かる場合は、その年度だけ入力できます。外部記事はタイトル・原文 URL・初回公開年・分類のみを提出し、本文は転載しません。オリジナル記事は Markdown と確認済み公開ニックネームを使用します。専攻がない場合は分かる上位分類と補足を記載してください。
 
-例：
+署名付き公開 Issue をメンテナーが確認し、`submission:ready-for-pr` を付けると、外部記事は `external.json`、オリジナル記事は `experience` frontmatter 付きブログに変換され、Draft PR が作成されます。重複リンクは既存記事を上書きせず競合として扱います。知乎の共有パラメータとアンカーは別記事とは見なしません。公開には PR のマージとデプロイが必要です。
 
-```markdown
+既存環境は[体験記投稿の DB マイグレーション](supabase/manual/20260914_experience_submissions.sql)を実行後、更新した `content-submissions` Edge Function とサイトをデプロイしてください。`experience_data` を追加し、体験記が解答・訂正のポイントに混入することを防ぎます。新規 DB は更新済み `src/services/schema.sql` を使用します。外部記事の CLA 確認は提出するメタデータのみを対象とし、原文の転載許諾を意味しません。
+
+`/blog` では、本サイトの記事と外部記事を大学・研究科・専攻ごとに探せます。
+
+**本サイトへの投稿**：`blog/` に日付付きの Markdown ファイルを追加し、[blog/authors.yml](blog/authors.yml) の著者 ID と `experience` 分類を指定してください。
+
+```yaml
 ---
-title: 投稿タイトル
+title: CBMS 夏季入試の体験記
 authors: yourAuthorId
-tags: [Tag1, Tag2]
+experience:
+  - scope: tokyo-university/frontier_sciences/cbms
+    examYear: 2025
+    season: summer
 ---
 ```
 
-既存の例として [blog/2025-04-02-furry.md](blog/2025-04-02-furry.md) や [blog/2025-07-10-unagoya.md](blog/2025-07-10-unagoya.md) を参照できます。
+本文は frontmatter の後に書きます。`scope` は必須で、過去問と共通の `大学/研究科/専攻` ディレクトリパス（`docs/` を除く）を指定します。大学や研究科までしか確認できない場合は、その上位パスを使い、専攻を推測しないでください。`examYear` は試験の実施年、`season` は `summer` または `winter` です。両方が分かる場合、夏季入試は翌年度、冬季入試は当年度の入学として分類します（2024年夏季・2025年冬季は2025年度）。本文で入学時期が明確な場合は `admissionYear` を指定し、推定より優先します。AO・秋季入学も同様です。準備年や更新日を試験年として扱わず、不明な値は省略してください。入学年度を確定できない記事は公開年で分類し、「公開年」と表示します。複数専攻を扱う記事には分類を複数追加できます。大学タグは不要です。記事名・著者・URL はブログのメタデータから取得します。[投稿例](blog/2025-04-02-zephyr.md)も参照してください。
+
+**外部記事**：[external.json](src/data/experiences/external.json) に掲載元の URL を登録します。
+
+```json
+{
+  "title": "記事の原題",
+  "url": "https://example.com/story",
+  "placements": [{"scope": "tokyo-university/frontier_sciences/cbms", "examYear": 2025, "season": "summer"}]
+}
+```
+
+同じ URL は一度だけ登録し、複数の専攻・試験時期は `placements` にまとめます。入学年度が不明な外部記事には、分かっている公開年をトップレベルの `publishedYear`（例：`2025`）に指定してください。一覧への登録年ではありません。大学・研究科・専攻の分類元は `docs/**/_category_.json` に統一されています。名称は `label`、略称・旧称は `customProps.aliases` に記入します。過去問・体験記・投稿フォームは自動生成された [universities.js](src/data/universities.js) を共有するため、生成ファイルの手動編集や体験記専用の分類表の追加は不要です。過去問がない専攻も同じ階層に `_category_.json` を追加し、`customProps.catalogType: "program"` を指定して `link` は省略します。空の過去問ページを作らずに体験記を分類できます。変更後は `yarn generate:universities` を実行してください。外部リンクを羅列するブログ記事は作成しないでください。
+
+`yarn test` と `yarn docusaurus build` で確認してください。URL の重複、不明な専攻、分類のない公開記事はビルド時にエラーになります。
 
 #### ファイル命名規則と配置
 新しいファイルは、対象大学の既存ディレクトリ構造と近隣の `_category_.json` に従って配置してください。

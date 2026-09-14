@@ -1,9 +1,10 @@
 import type { AdmissionDataSubmission } from './admission.ts';
+import type {ExperienceSubmission} from './experience.ts';
 
 type IssueSubmissionPayload = {
   version: number;
   submissionId: string;
-  submissionType: 'new_solution' | 'correction' | 'admission_data';
+  submissionType: 'new_solution' | 'correction' | 'admission_data' | 'experience';
   createdAt: string;
   publicAuthor: string;
   cla: {
@@ -33,6 +34,7 @@ type IssueSubmissionPayload = {
     conflict: boolean;
   };
   admissionData: AdmissionDataSubmission | null;
+  experience?: ExperienceSubmission;
 };
 
 function base64Url(input: string) {
@@ -69,7 +71,7 @@ function markdownFenceFor(value: string) {
   return backticks.length <= tildes.length ? backticks : tildes;
 }
 
-function markdownBlock(name: 'description' | 'kai', value: string) {
+function markdownBlock(name: 'description' | 'kai' | 'experience', value: string) {
   const fence = markdownFenceFor(value);
   return `<!-- kai-submission-${name}:start -->
 ${fence}markdown
@@ -164,6 +166,9 @@ ${notesFence}
 }
 
 function payloadForIssue(payload: IssueSubmissionPayload) {
+  if (payload.submissionType === 'experience' && payload.experience?.kind === 'internal') {
+    return {...payload, experience: {...payload.experience, markdown: ''}};
+  }
   if (payload.submissionType !== 'new_solution') return payload;
   return {
     ...payload,
@@ -195,6 +200,52 @@ export function buildIssueBody(
   if (payload.submissionType === 'admission_data') {
     return admissionIssueBody(payload, signedMarkers);
   }
+
+  if (payload.submissionType === 'experience') {
+    const story = payload.experience;
+    if (!story) throw new Error('Experience payload is missing structured data.');
+    const notesFence = markdownFenceFor(story.notes || '无');
+    const classifications = story.placements.map(p => {
+      const inferred = p.examYear && p.season ? p.examYear + (p.season === 'summer' ? 1 : 0) : undefined;
+      const year = p.admissionYear ?? inferred ?? story.publishedYear;
+      const basis = p.admissionYear ? '明确入学年度' : inferred ? '按考试时间推算' : '发布年兜底';
+      return `| ${inlineMarkdown(p.scope)} | ${year}（${basis}） | ${p.examYear || '未注明'} | ${p.season || '未注明'} |`;
+    }).join('\n');
+    return `${signedMarkers}
+
+## 投稿类型
+${story.kind === 'external' ? '经验贴外链推荐（仅收录链接，不转载正文）' : '站内原创经验贴'}
+
+## 标题
+${inlineMarkdown(story.title)}
+
+## 公开投稿者
+${inlineMarkdown(payload.publicAuthor)}
+
+## 来源
+${story.kind === 'external' ? `原文：<${story.url}>` : '本站原创'}
+首次发布年份：${story.publishedYear}
+
+## 学校／专攻及入学年度
+| 共享分类 ID | 入学年度 | 考试年 | 考期 |
+| --- | --- | --- | --- |
+${classifications}
+
+## 核查说明
+${notesFence}text
+${story.notes || '无'}
+${notesFence}
+
+${story.kind === 'internal' ? `## Markdown 正文\n\n${markdownBlock('experience', story.markdown || '')}\n` : ''}
+## 投稿确认
+${payload.cla.statement}
+${story.kind === 'external' ? 'CLA 仅涉及本次提交的标题、链接和分类，不代表原作者授权转载正文。' : ''}
+确认时间：${payload.cla.acceptedAt}
+
+维护者核对分类、时间线和来源后，可添加 submission:ready-for-pr 创建草稿 PR。
+`;
+  }
+
 
   if (payload.submissionType === 'correction') {
     const correction = payload.correction;

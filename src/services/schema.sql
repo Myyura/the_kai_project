@@ -1645,6 +1645,7 @@ create table if not exists content_submissions (
   correction_patch      jsonb not null default '[]'::jsonb,
   correction_conflict   boolean not null default false,
   admission_data        jsonb not null default '{}'::jsonb,
+  experience_data       jsonb not null default '{}'::jsonb,
   cla_accepted_at       timestamptz not null,
   payload_hash          text,
   payload_signature     text,
@@ -1657,7 +1658,7 @@ create table if not exists content_submissions (
   created_at            timestamptz not null default now(),
 
   constraint content_submissions_type_check
-    check (submission_type in ('new_solution', 'correction', 'admission_data')),
+    check (submission_type in ('new_solution', 'correction', 'admission_data', 'experience')),
   constraint content_submissions_status_check
     check (status in ('pending_issue', 'issue_created', 'review_created', 'failed', 'converted', 'closed')),
   constraint content_submissions_year_check
@@ -1666,6 +1667,12 @@ create table if not exists content_submissions (
     check (jsonb_typeof(tags) = 'array'),
   constraint content_submissions_patch_is_array
     check (jsonb_typeof(correction_patch) = 'array'),
+  constraint content_submissions_experience_data_check
+    check (jsonb_typeof(experience_data) = 'object'
+      and ((submission_type = 'experience' and experience_data <> '{}'::jsonb)
+        or (submission_type <> 'experience' and experience_data = '{}'::jsonb))),
+  constraint content_submissions_experience_length
+    check (submission_type <> 'experience' or char_length(coalesce(experience_data->>'markdown', '')) <= 50000),
   constraint content_submissions_admission_data_is_object
     check (jsonb_typeof(admission_data) = 'object'),
   constraint content_submissions_admission_data_presence
@@ -1820,7 +1827,8 @@ begin
     v_last_contribution_at
   from public.content_submissions s
   where s.user_id = v_target_user_id
-    and s.status = 'converted';
+    and s.status = 'converted'
+    and s.submission_type in ('new_solution', 'correction');
 
   v_accepted_solution_count := coalesce(v_accepted_solution_count, 0);
   v_accepted_correction_count := coalesce(v_accepted_correction_count, 0);
@@ -1838,7 +1846,8 @@ begin
     v_last_issue_at
   from public.content_submissions s
   where s.user_id = v_target_user_id
-    and s.status = 'issue_created';
+    and s.status = 'issue_created'
+    and s.submission_type in ('new_solution', 'correction');
 
   v_submitted_solution_issue_count := coalesce(v_submitted_solution_issue_count, 0);
   v_submitted_correction_issue_count := coalesce(v_submitted_correction_issue_count, 0);
@@ -1951,6 +1960,7 @@ begin
   from public.content_submissions s
   where s.user_id = v_target_user_id
     and s.status = 'issue_created'
+    and s.submission_type in ('new_solution', 'correction')
   on conflict on constraint user_reputation_events_user_source_unique
   do update set
     points = excluded.points,
@@ -1990,6 +2000,7 @@ begin
   from public.content_submissions s
   where s.user_id = v_target_user_id
     and s.status = 'converted'
+    and s.submission_type in ('new_solution', 'correction')
   on conflict on constraint user_reputation_events_user_source_unique
   do update set
     points = excluded.points,

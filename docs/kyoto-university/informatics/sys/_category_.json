@@ -5,5 +5,12 @@
     "type": "generated-index",
     "slug": "/category/kyoto-university-informatics-sys"
   },
-  "key": "kyoto-university-informatics-sys"
+  "key": "kyoto-university-informatics-sys",
+  "customProps": {
+    "aliases": [
+      "系统科学",
+      "系科",
+      "システム科学コース"
+    ]
+  }
 }

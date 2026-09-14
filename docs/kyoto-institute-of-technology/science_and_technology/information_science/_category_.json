@@ -1,0 +1,11 @@
+{
+  "label": "情報工学専攻",
+  "position": 1,
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "情报工学",
+      "信息工学"
+    ]
+  }
+}

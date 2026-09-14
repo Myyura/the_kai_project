@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-IST-cs"
   },
-  "key": "tokyo-university-IST-cs"
+  "key": "tokyo-university-IST-cs",
+  "customProps": {
+    "aliases": [
+      "CS",
+      "计算机科学"
+    ]
+  }
 }

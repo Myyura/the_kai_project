@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/kyoto-university"
   },
-  "key": "kyoto-university"
+  "key": "kyoto-university",
+  "customProps": {
+    "aliases": [
+      "京大",
+      "Kyoto University"
+    ]
+  }
 }

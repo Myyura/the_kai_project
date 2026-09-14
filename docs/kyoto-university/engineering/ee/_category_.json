@@ -1,0 +1,10 @@
+{
+  "label": "電気工学専攻",
+  "customProps": {
+    "catalogType": "program",
+    "aliases": [
+      "电气",
+      "EE"
+    ]
+  }
+}

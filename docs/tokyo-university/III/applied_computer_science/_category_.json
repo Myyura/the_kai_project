@@ -5,5 +5,10 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-III-applied_computer_science"
   },
-  "key": "tokyo-university-III-applied_computer_science"
+  "key": "tokyo-university-III-applied_computer_science",
+  "customProps": {
+    "aliases": [
+      "综合分析信息"
+    ]
+  }
 }

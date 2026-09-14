@@ -291,6 +291,17 @@ const config = {
     safeRspackJsMinifierPlugin,
     sequentialBundlesPlugin,
     [require.resolve('./plugins/compact-docs/index.cjs'), docsPluginOptions],
+    [require.resolve('./plugins/experience-blog/index.cjs'), {
+      showReadingTime: true,
+      postsPerPage: 'ALL',
+      archiveBasePath: null,
+      feedOptions: {type: ['rss', 'atom'], xslt: true},
+      blogSidebarTitle: 'On-site stories',
+      blogSidebarCount: 'ALL',
+      onInlineTags: 'warn',
+      onInlineAuthors: 'warn',
+      onUntruncatedBlogPosts: 'warn',
+    }],
   ],
 
   presets: [
@@ -299,19 +310,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: false,
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          blogSidebarTitle: 'All posts',
-          blogSidebarCount: 'ALL',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },

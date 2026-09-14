@@ -51,6 +51,7 @@ jobs:
           const fs = require('fs');
           const result = JSON.parse(fs.readFileSync('.submission-result.json', 'utf8'));
           console.log(`file_path=${result.filePath}`);
+          console.log(`submission_type=${result.submissionType}`);
           console.log(`pr_title=${result.prTitle}`);
           console.log(`branch_name=${result.branchName}`);
           console.log(`submission_id=${result.submissionId}`);
@@ -62,8 +63,10 @@ jobs:
       - name: Mark submission conflict
         if: steps.convert.outputs.skip != 'true' && steps.convert.outputs.conflict == 'true'
         run: |
-          if [ "${{ steps.convert.outputs.conflict_kind }}" = "target_exists" ]; then
-            message="无法自动生成 PR：目标文件路径已经存在。请调整题解的文件标识，或确认是否应该改为纠错投稿。"
+          if [ "${{ steps.convert.outputs.conflict_kind }}" = "duplicate_external_url" ]; then
+            message="此外链已在经验目录中，未重复添加。请核对原记录，必要时由维护者合并分类。"
+          elif [ "${{ steps.convert.outputs.conflict_kind }}" = "target_exists" ]; then
+            message="无法自动生成 PR：目标文件路径已经存在。请核对已有内容，避免重复投稿。"
           else
             message="无法自动生成 PR：题解原文已经发生变化，签名 diff 的基准版本与当前仓库不一致。请基于最新原文重新提交纠错。"
           fi
@@ -81,8 +84,14 @@ jobs:
       - name: Validate generated document
         if: steps.convert.outputs.skip != 'true' && steps.convert.outputs.conflict != 'true'
         run: |
-          yarn review:format --files "${{ steps.convert.outputs.file_path }}"
-          yarn api:validate
+          if [ "${{ steps.convert.outputs.submission_type }}" = "experience" ]; then
+            node --test tests/experience-catalog.test.js
+            yarn content:validate
+            yarn docusaurus build
+          else
+            yarn review:format --files "${{ steps.convert.outputs.file_path }}"
+            yarn api:validate
+          fi
 
       - name: Commit generated document
         if: steps.convert.outputs.skip != 'true' && steps.convert.outputs.conflict != 'true'

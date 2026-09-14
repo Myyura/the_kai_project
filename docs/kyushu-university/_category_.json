@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/kyushu-university"
   },
-  "key": "kyushu-university"
+  "key": "kyushu-university",
+  "customProps": {
+    "aliases": [
+      "九大",
+      "Kyushu University"
+    ]
+  }
 }

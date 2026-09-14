@@ -2,6 +2,8 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { getSchoolTagForUniversity } = require('./tag-taxonomy');
+const {buildCatalog} = require('../plugins/experience-blog/catalog.cjs');
+const {universities} = require('../src/data/universities');
 
 const PAYLOAD_RE = /<!--\s*kai-submission-payload:([A-Za-z0-9_-]+)\s*-->/;
 const SIGNATURE_RE = /<!--\s*kai-submission-signature:([a-f0-9]+)\s*-->/i;
@@ -65,6 +67,10 @@ function extractSubmissionFromIssueBody(body) {
       kaiMarkdown: extractMarkdownBlock(body, 'kai'),
     };
   }
+  if (payload.submissionType === 'experience' && payload.experience?.kind === 'internal') {
+    if (payload.experience.markdown) throw new Error('Experience Issue payload must not duplicate visible Markdown content.');
+    payload.experience.markdown = extractMarkdownBlock(body, 'experience');
+  }
   return {
     payload,
     canonicalPayload: stableStringify(payload),
@@ -113,11 +119,17 @@ function validateSubmissionPayload(payload) {
     payload.submissionType !== 'new_solution'
     && payload.submissionType !== 'correction'
     && payload.submissionType !== 'admission_data'
+    && payload.submissionType !== 'experience'
   ) {
     throw new Error('Unsupported submission type.');
   }
   if (!payload.submissionId || !payload.publicAuthor || !payload.cla?.acceptedAt) {
     throw new Error('Submission payload is missing author, id, or CLA data.');
+  }
+
+  if (payload.submissionType === 'experience') {
+    validateExperiencePayload(payload);
+    return;
   }
 
   if (payload.submissionType === 'admission_data') {
@@ -174,6 +186,83 @@ function validateSubmissionPayload(payload) {
       throw new Error('Correction payload contains no line changes.');
     }
   }
+}
+
+function externalExperienceEntry(story) {
+  return {title: story.title, url: story.url, publishedYear: story.publishedYear, placements: story.placements};
+}
+
+function canonicalExperienceUrl(value) {
+  const url = new URL(value);
+  url.hash = '';
+  if (url.hostname === 'zhuanlan.zhihu.com' && /^\/p\/\d+\/?$/.test(url.pathname)) {
+    url.protocol = 'https:';
+    url.pathname = url.pathname.replace(/\/$/, '');
+    url.search = '';
+  }
+  return url.href;
+}
+
+function validateExperiencePayload(payload) {
+  const story = payload.experience;
+  if (!story || !['external', 'internal'].includes(story.kind)
+      || typeof story.title !== 'string' || !story.title.trim() || story.title.length > 240
+      || !Number.isInteger(story.publishedYear) || story.publishedYear < 1900 || story.publishedYear > 2100
+      || !Array.isArray(story.placements) || story.placements.length > 20
+      || typeof story.notes !== 'string' || story.notes.length > 2000) {
+    throw new Error('Invalid experience submission metadata.');
+  }
+  if (story.placements.some(p => p?.examYear !== undefined && !['summer', 'winter'].includes(p.season))) {
+    throw new Error('Choose an exam season when an exam year is provided.');
+  }
+  const entry = externalExperienceEntry(story);
+  if (story.kind === 'internal') {
+    if (story.url || typeof story.markdown !== 'string' || !story.markdown.trim() || story.markdown.length > 50000) throw new Error('Invalid on-site story content.');
+    rejectDangerousMdx(story.markdown, 'Story');
+    entry.url = 'https://example.org/validated-internal-story';
+  } else {
+    if (story.markdown || !story.url || /[\s<>]/.test(story.url) || story.url.length > 2000) throw new Error('Invalid external story content or URL.');
+    entry.url = canonicalExperienceUrl(story.url);
+    if (new URL(entry.url).hostname === 'www.runjp.com') throw new Error('Use an on-site story for this URL.');
+  }
+  // The same validator used to build the public directory owns canonical scope checks.
+  buildCatalog({universities, external: [entry], blogPosts: [], siteUrl: 'https://runjp.com'});
+}
+
+function writeExperienceToRepo(repoRoot, payload) {
+  const story = payload.experience;
+  if (story.kind === 'external') {
+    const relativePath = 'src/data/experiences/external.json';
+    const absolutePath = ensureWithinRepo(repoRoot, relativePath);
+    const entries = JSON.parse(fs.readFileSync(absolutePath, 'utf8'));
+    const url = canonicalExperienceUrl(story.url);
+    if (entries.some(entry => canonicalExperienceUrl(entry.url) === url)) {
+      return {relativePath, action: 'conflict', conflict: true, conflictKind: 'duplicate_external_url'};
+    }
+    const updated = [...entries, {...externalExperienceEntry(story), url}];
+    buildCatalog({universities, external: updated, blogPosts: [], siteUrl: 'https://runjp.com'});
+    fs.writeFileSync(absolutePath, `${JSON.stringify(updated, null, 2)}\n`, 'utf8');
+    return {relativePath, action: 'update', conflict: false};
+  }
+  if (!/^[a-f0-9-]{36}$/i.test(payload.submissionId) || !/^\d{4}-\d{2}-\d{2}T/.test(payload.createdAt)
+      || !Number.isFinite(Date.parse(payload.createdAt)) || new Date(payload.createdAt).getUTCFullYear() !== story.publishedYear) {
+    throw new Error('Invalid on-site story publication identity.');
+  }
+  const relativePath = `blog/${payload.createdAt.slice(0, 10)}-experience-${payload.submissionId}.md`;
+  const absolutePath = ensureWithinRepo(repoRoot, relativePath);
+  const markdown = [
+    '---', `title: ${yamlString(story.title)}`, `date: ${yamlString(payload.createdAt)}`,
+    `authors: [{name: ${yamlString(payload.publicAuthor)}}]`,
+    `experience: ${JSON.stringify(story.placements)}`, '---', '', story.markdown.trim(), '',
+  ].join('\n');
+  fs.mkdirSync(path.dirname(absolutePath), {recursive: true});
+  try {
+    fs.writeFileSync(absolutePath, markdown, {encoding: 'utf8', flag: 'wx'});
+  } catch (error) {
+    if (error?.code !== 'EEXIST') throw error;
+    return {relativePath, action: 'conflict', conflict: true, conflictKind: 'target_exists'};
+  }
+  return {relativePath, action: 'create', conflict: false};
 }
 
 function normalizePath(input) {
@@ -337,6 +426,7 @@ function ensureWithinRepo(repoRoot, relativePath) {
 
 function writeSubmissionToRepo({ repoRoot, payload }) {
   validateSubmissionPayload(payload);
+  if (payload.submissionType === 'experience') return writeExperienceToRepo(repoRoot, payload);
 
   if (payload.submissionType === 'admission_data') {
     return {
@@ -400,7 +490,9 @@ function buildPullRequestBody({ payload, issue, relativePath }) {
   if (payload.submissionType === 'admission_data') {
     throw new Error('Admission-data submissions require manual review and cannot be converted automatically.');
   }
-  const kind = payload.submissionType === 'new_solution' ? '新增题解' : '纠错/补充';
+  const kind = payload.submissionType === 'experience'
+    ? (payload.experience.kind === 'external' ? '经验贴外链推荐' : '站内原创经验贴')
+    : payload.submissionType === 'new_solution' ? '新增题解' : '纠错/补充';
   return [
     `Resolves #${issue.number}.`,
     '',

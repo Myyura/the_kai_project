@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/osaka-university"
   },
-  "key": "osaka-university"
+  "key": "osaka-university",
+  "customProps": {
+    "aliases": [
+      "阪大",
+      "Osaka University"
+    ]
+  }
 }

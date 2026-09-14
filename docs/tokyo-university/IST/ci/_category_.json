@@ -5,5 +5,13 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-IST-ci"
   },
-  "key": "tokyo-university-IST-ci"
+  "key": "tokyo-university-IST-ci",
+  "customProps": {
+    "aliases": [
+      "創情",
+      "创情",
+      "创造信息",
+      "CI"
+    ]
+  }
 }

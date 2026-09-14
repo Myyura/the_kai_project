@@ -5,5 +5,12 @@
     "type": "generated-index",
     "slug": "/category/waseda-university"
   },
-  "key": "waseda-university"
+  "key": "waseda-university",
+  "customProps": {
+    "aliases": [
+      "早稻田",
+      "早大",
+      "Waseda"
+    ]
+  }
 }

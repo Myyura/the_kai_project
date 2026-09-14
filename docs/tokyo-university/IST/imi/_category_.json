@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/tokyo-university-IST-imi"
   },
-  "key": "tokyo-university-IST-imi"
+  "key": "tokyo-university-IST-imi",
+  "customProps": {
+    "aliases": [
+      "IMI",
+      "知能机械信息"
+    ]
+  }
 }

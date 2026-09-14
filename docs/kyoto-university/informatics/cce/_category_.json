@@ -5,5 +5,12 @@
     "type": "generated-index",
     "slug": "/category/kyoto-university-informatics-cce"
   },
-  "key": "kyoto-university-informatics-cce"
+  "key": "kyoto-university-informatics-cce",
+  "customProps": {
+    "aliases": [
+      "通情",
+      "通信信息系统",
+      "CCE"
+    ]
+  }
 }

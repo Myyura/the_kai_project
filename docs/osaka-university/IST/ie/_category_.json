@@ -5,5 +5,17 @@
     "type": "generated-index",
     "slug": "/category/osaka-university-IST-ie"
   },
-  "key": "osaka-university-IST-ie"
+  "key": "osaka-university-IST-ie",
+  "customProps": {
+    "aliases": [
+      "情报工学",
+      "阪大情工",
+      "コンピュータサイエンス",
+      "マルチメディア工学",
+      "CS",
+      "MM",
+      "计算机科学",
+      "多媒体工学"
+    ]
+  }
 }

@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/nagoya-university"
   },
-  "key": "nagoya-university"
+  "key": "nagoya-university",
+  "customProps": {
+    "aliases": [
+      "名大",
+      "Nagoya University"
+    ]
+  }
 }

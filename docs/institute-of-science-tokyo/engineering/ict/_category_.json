@@ -5,5 +5,12 @@
     "type": "generated-index",
     "slug": "/category/institute-of-science-tokyo-engineering-ict"
   },
-  "key": "institute-of-science-tokyo-engineering-ict"
+  "key": "institute-of-science-tokyo-engineering-ict",
+  "customProps": {
+    "aliases": [
+      "情报通信",
+      "情通",
+      "ICT"
+    ]
+  }
 }

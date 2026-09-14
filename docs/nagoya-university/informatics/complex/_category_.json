@@ -5,5 +5,11 @@
     "type": "generated-index",
     "slug": "/category/nagoya-university-informatics-complex"
   },
-  "key": "nagoya-university-informatics-complex"
+  "key": "nagoya-university-informatics-complex",
+  "customProps": {
+    "aliases": [
+      "复杂科学",
+      "复杂情报"
+    ]
+  }
 }
