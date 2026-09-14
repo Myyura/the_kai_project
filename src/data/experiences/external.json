@@ -2960,5 +2960,363 @@
         "season": "summer"
       }
     ]
+  },
+  {
+    "title": "東京科学大学(旧東工大)大学院 電気電子系 院試B日程合格体験記",
+    "url": "https://note.com/like_gibbon3329/n/n5149dcdb4525",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "institute-of-science-tokyo/engineering/ee",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      }
+    ]
+  },
+  {
+    "title": "【外部院試】電気通信大学院　機械知能システム学専攻　合格体験記",
+    "url": "https://note.com/brainy_godwit563/n/nddf125127303",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "UEC/informatics_and_engineering/mise",
+        "examYear": 2026,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "2027年度 院試体験記 (京大数学教室 / 阪大数学科)",
+    "url": "https://note.com/allora_math/n/ndc6a843b33f7",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "kyoto-university/science/math",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      },
+      {
+        "scope": "osaka-university/science/math",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      }
+    ]
+  },
+  {
+    "title": "【2027年度】院試体験記：東大数理,多元数理,北大数学専攻,科学大数学院",
+    "url": "https://note.com/sakurazaka_math/n/ne44cc31d579b",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "tokyo-university/mathematical_sciences/ms",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      },
+      {
+        "scope": "nagoya-university/mathematics",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      },
+      {
+        "scope": "hokkaido-university/science/math",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      },
+      {
+        "scope": "institute-of-science-tokyo/science/math",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      }
+    ]
+  },
+  {
+    "title": "【院試】2027年度 京都大学数学教室・名古屋大学多元数理研究科 院試体験記",
+    "url": "https://note.com/tanabe_sak/n/nc758b0dd1257",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "kyoto-university/science/math",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      },
+      {
+        "scope": "nagoya-university/mathematics",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      }
+    ]
+  },
+  {
+    "title": "令和９年度 東大数理/京大数学教室 （kentainoueの場合）",
+    "url": "https://note.com/sugakutoprecure/n/nfc98dd2a28a3",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "tokyo-university/mathematical_sciences/ms",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      },
+      {
+        "scope": "kyoto-university/science/math",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      }
+    ]
+  },
+  {
+    "title": "2026年度実施　外部院試（不）合格体験記　東大理物＆阪大理物",
+    "url": "https://note.com/right_rhino7040/n/nf9c2787fe36b",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "tokyo-university/science/phys",
+        "examYear": 2026,
+        "season": "summer"
+      },
+      {
+        "scope": "osaka-university/science/phys",
+        "examYear": 2026,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "京都大学大学院理学研究科 物理学・宇宙物理学専攻 院試体験記【2026年夏実施】",
+    "url": "https://note.com/wise_badger2334/n/n9165252c183c",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "kyoto-university/science/phys",
+        "examYear": 2026,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "東京科学大 院試体験記 数理・計算科学系　2027年度【R9】",
+    "url": "https://note.com/harui_i/n/n543a8e44737a",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "institute-of-science-tokyo/MCS/is",
+        "examYear": 2026,
+        "season": "summer",
+        "admissionYear": 2027
+      }
+    ]
+  },
+  {
+    "title": "【京大理・地球惑星】院試合格体験記(2025)",
+    "url": "https://note.com/soun142857/n/n49b00a3bb468",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "kyoto-university/science/eps",
+        "examYear": 2025,
+        "season": "summer",
+        "admissionYear": 2026
+      }
+    ]
+  },
+  {
+    "title": "【院試体験記】京都大学理学研究科物理学・宇宙物理学専攻",
+    "url": "https://note.com/kyodaihenjin/n/ne1802494b3a1",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "kyoto-university/science/phys",
+        "examYear": 2025,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "陰謀⁉️⁉️京都大学理学部物理院試体験記(京都大学理学研究科物理学・宇宙物理学専攻修士課程入学試験体験記)✨️✨️",
+    "url": "https://note.com/suteki7daigaku/n/nd7a9e4814bd2",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "kyoto-university/science/phys",
+        "examYear": 2025,
+        "season": "summer",
+        "admissionYear": 2026
+      }
+    ]
+  },
+  {
+    "title": "院試を終えて(東大理物)",
+    "url": "https://note.com/muronaga/n/nedc8afde006e",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "tokyo-university/science/phys",
+        "examYear": 2025,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "2025年度東京大学情報理工学系研究科院試(電子情報学)体験記",
+    "url": "https://note.com/hcsa/n/nec080b095700",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "tokyo-university/IST/denshi",
+        "examYear": 2025,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "院試体験記(東大理物)",
+    "url": "https://note.com/haipabo/n/n5fc19b2e594b",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "tokyo-university/science/phys",
+        "examYear": 2025,
+        "season": "summer",
+        "admissionYear": 2026
+      }
+    ]
+  },
+  {
+    "title": "2025年九州大学大学院数理学府入学試験体験記",
+    "url": "https://note.com/omanjiuu/n/nf27612cc9c70",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "kyushu-university/mathematics/suuri",
+        "examYear": 2025,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "【外部院試】2026年度合格体験記",
+    "url": "https://note.com/novel_rhino4338/n/n134952a0bdeb",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "kyushu-university/IGSES/iges",
+        "examYear": 2025,
+        "season": "summer",
+        "admissionYear": 2026
+      }
+    ]
+  },
+  {
+    "title": "【2026年度受験】東京大学大学院 情報理工学系研究科 数理情報学専攻 院試について",
+    "url": "https://note.com/joho_mi_st_k/n/nc5d84ed1b2f9",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "tokyo-university/IST/suuri",
+        "examYear": 2025,
+        "season": "summer",
+        "admissionYear": 2026
+      }
+    ]
+  },
+  {
+    "title": "【院試】京大 情報研 システム科学コースに外部合格した話【勉強篇】",
+    "url": "https://note.com/remember841/n/n58fdbc030c08",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "kyoto-university/informatics/sys",
+        "examYear": 2025,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "【外部】東北大大学院　工学研究科　合格体験記",
+    "url": "https://note.com/tasty_pipit7729/n/ne86a5682d6a8",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "tohoku-university/engineering/ecei",
+        "examYear": 2025,
+        "season": "summer"
+      },
+      {
+        "scope": "kyushu-university/IGSES/iges",
+        "examYear": 2025,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "京都大学大学院情報学研究科社会情報学コースに合格しました（2026年度入学）　ー対策編ー",
+    "url": "https://note.com/takeru__m/n/ncae7ab1bd81b",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "kyoto-university/informatics/soc",
+        "examYear": 2025,
+        "season": "summer",
+        "admissionYear": 2026
+      }
+    ]
+  },
+  {
+    "title": "【2026年度】大阪大学情報学科研究科　情報基礎数学専攻　院試体験記",
+    "url": "https://note.com/vivid_hippo5037/n/n08e0330e7fa6",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "osaka-university/IST/math",
+        "examYear": 2025,
+        "season": "summer",
+        "admissionYear": 2026
+      }
+    ]
+  },
+  {
+    "title": "【外部院試】2026年度  大阪大学大学院情報科学研究科  合格体験記",
+    "url": "https://note.com/trellis0706/n/n5056b311183e",
+    "publishedYear": 2025,
+    "placements": [
+      {
+        "scope": "osaka-university/IST",
+        "examYear": 2025,
+        "season": "summer",
+        "admissionYear": 2026
+      }
+    ]
+  },
+  {
+    "title": "2026年修考 东京大学EEIS · 东京科学大学EE · 九州大学IGSES合格经验【双非】",
+    "url": "https://zhuanlan.zhihu.com/p/2082905499448747176",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "scope": "tokyo-university/engineering/eeis",
+        "examYear": 2026,
+        "season": "summer"
+      },
+      {
+        "scope": "institute-of-science-tokyo/engineering/ee",
+        "examYear": 2026,
+        "season": "summer"
+      },
+      {
+        "scope": "kyushu-university/IGSES/iges",
+        "examYear": 2026,
+        "season": "summer"
+      }
+    ]
   }
 ]

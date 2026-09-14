@@ -741,6 +741,15 @@ const universities = [
             "name": "物理学専攻",
             "aliases": [],
             "archiveUrl": "/docs/category/osaka-university-science-phys"
+          },
+          {
+            "id": "math",
+            "name": "数学専攻",
+            "aliases": [
+              "数学专攻",
+              "阪大数学",
+              "Mathematics"
+            ]
           }
         ],
         "websiteUrl": "https://www.sci.osaka-u.ac.jp/ja/admissions/admissions_d/"
@@ -1131,6 +1140,15 @@ const universities = [
             "name": "物性物理学専攻・宇宙理学専攻",
             "aliases": [],
             "archiveUrl": "/docs/category/hokkaido-university-science-phys"
+          },
+          {
+            "id": "math",
+            "name": "数学専攻",
+            "aliases": [
+              "数学专攻",
+              "北大数学",
+              "Mathematics"
+            ]
           }
         ],
         "websiteUrl": "https://www2.sci.hokudai.ac.jp/gs/admission-guideline"
