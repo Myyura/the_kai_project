@@ -13,6 +13,7 @@ __pycache__/
 *.py[cod]
 
 # Generated files
+/outputs/
 .docusaurus
 .cache-loader
 /.cache/content-export/
