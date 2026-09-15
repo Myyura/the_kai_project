@@ -223,7 +223,7 @@ yarn tags:audit
 
 **网页投稿**：从经验目录的“分享备考经验”或“我的投稿”进入 `/submit-experience`，选择“推荐外链”或“站内原创”。两种方式都使用题解的共享学校／研究科／专攻，并支持多次报考经历。填写考试年份时必须同时选择考期（夏入／冬入）；只知道入学年度时可单独填写。外链填写标题、原文 URL、首次发布年及分类，不复制正文；原创填写 Markdown，公开署名取自已确认昵称。未知专攻可先选择已知学校／研究科，再在说明中补充；审核者应核实年份和新分类。
 
-提交后生成带签名的公开 Issue。维护者添加 `submission:ready-for-pr` 后，外链追加到 `external.json`，原创生成带 `experience` frontmatter 的博客文件，并创建草稿 PR。重复外链会进入冲突处理，不覆盖原记录；知乎分享参数和锚点不视为不同文章。只有合并 PR 并部署后才出现在公开目录。
+提交后生成带签名的公开 Issue。维护者添加 `submission:ready-for-pr` 后，外链按来源和入学年度写入 `src/data/experiences/external/<来源域名>/<入学年度>.json`，原创生成带 `experience` frontmatter 的博客文件，并创建草稿 PR。重复外链会跨所有分组检查并进入冲突处理，不覆盖原记录；知乎分享参数和锚点不视为不同文章。只有合并 PR 并部署后才出现在公开目录。
 
 现有部署升级时，先执行 [经验贴投稿数据库迁移](supabase/manual/20260914_experience_submissions.sql)，再部署 `content-submissions` Edge Function 和网站；迁移新增 `experience_data`，并避免把经验贴计入题解／纠错积分。新数据库使用更新后的 `src/services/schema.sql`。外链的 CLA 确认只涉及提交的链接和分类，不代表原作者授权转载正文。
 
@@ -244,7 +244,7 @@ experience:
 
 正文写在 frontmatter 后。`scope` 必填，使用题解目录中已有的 `大学/研究科/专攻` 路径（省略 `docs/`）。如果只能确认学校或研究科，就引用相应的上级路径，不猜测专攻；`examYear` 是考试实际发生的公历年份，`season` 为 `summer` 或 `winter`；两者齐全时，夏季考试默认归入次年入学年度，冬季考试归入当年。例如 2024 夏入和 2025 冬入都属于 2025 年度。正文明确入学时间时填写 `admissionYear`，优先于推算结果（也适用于 AO、秋季入学等例外）。不要把准备年份或更新日期当成考试年，不确定的字段应省略；无法确定入学年度时使用发布年份，并标注“发布年”。同一篇涉及多个专攻时可添加多条分类。无需再写院校标签；标题、作者和站内地址由博客元数据自动提供。参考 [站内文章示例](blog/2025-04-02-zephyr.md)。
 
-**外部文章**：在 [external.json](src/data/experiences/external.json) 中添加一条记录，链接直接使用原文 URL：
+**外部文章**：在 [external/](src/data/experiences/external/) 中按来源和入学年度分组，每个文件保存一个 JSON 数组。例如，2026 入学年度的知乎文章放在 `zhuanlan.zhihu.com/2026.json`，note 文章放在 `note.com/2026.json`。来源使用原文 URL 的完整域名（保留 `www.`）。以下单条记录应追加到 `example.com/2026.json` 的数组中：
 
 ```json
 {
@@ -256,7 +256,9 @@ experience:
 
 同一个 URL 只保留一条记录，多专攻、多考期写在 `placements` 中。外链无法确定入学年度时，在记录顶层填写已知的 `publishedYear`（如 `2025`），目录将以发布年份归类；使用原文首次发布年，不要使用更新或目录收录日期。院校、研究科、专攻的唯一分类源是 `docs/**/_category_.json`：名称使用 `label`，简称和旧称使用 `customProps.aliases`。题解页、经验目录和投稿表单共用自动生成的 [universities.js](src/data/universities.js)，不要手改生成文件或另建经验分类表。尚无题解的专攻也在同一目录新增 `_category_.json`，填写 `customProps.catalogType: "program"`，暂不添加 `link`；这样可用于经验分类，又不会产生空题解页面。修改后运行 `yarn generate:universities`。不要把外链汇总写成博客正文。
 
-运行 `yarn test` 和 `yarn docusaurus build` 验证；构建会拒绝重复 URL、未知专攻和缺少分类的公开文章。
+跨校、跨年度文章只存一份，按全部 `placements` 算出的最新入学年度存放，所有院校和考试记录仍可筛选。文件归档和页面共用年度规则：明确的 `admissionYear` 优先，其次夏试为考试年加一、冬试为考试当年，无法确认时用 `publishedYear` 兜底；全部未知时放入该来源的 `unknown.json`。调整年份或来源导致分组改变时，需要移动该记录。每个“来源＋入学年度”共用一个文件，无需为每篇文章建文件。构建时合并为一份前端目录，投稿转换器也使用同一套读取和分组规则。
+
+运行 `yarn test` 和 `yarn docusaurus build` 验证；构建会拒绝放错分组的记录、跨文件重复 URL、未知专攻和缺少分类的公开文章。
 
 #### 文件命名和位置约定
 新增文件应沿用目标院校的现有目录结构：

@@ -1,4 +1,5 @@
 const {catalogScopes} = require('../../src/data/universityCatalog.cjs');
+const {resolveExperienceYear} = require('../../src/data/experiences/years.cjs');
 
 function assert(condition, message) {
   if (!condition) throw new Error(`Experience catalog: ${message}`);
@@ -27,15 +28,7 @@ function validatePlacements(placements, programs, title) {
 function withAdmissionYear(placements, publishedYear, title) {
   assert(publishedYear === undefined || (Number.isInteger(publishedYear) && publishedYear >= 1900 && publishedYear <= 2100), `${title}: invalid publication year`);
   return placements.map(({admissionYear, ...placement}) => {
-    const inferred = placement.examYear !== undefined && placement.season !== undefined
-      ? placement.examYear + (placement.season === 'summer' ? 1 : 0)
-      : undefined;
-    const year = admissionYear ?? inferred ?? publishedYear;
-    return year === undefined ? placement : {
-      ...placement,
-      year,
-      yearSource: admissionYear !== undefined ? 'admission' : inferred !== undefined ? 'exam' : 'publication',
-    };
+    return {...placement, ...resolveExperienceYear({admissionYear, ...placement}, publishedYear)};
   });
 }
 

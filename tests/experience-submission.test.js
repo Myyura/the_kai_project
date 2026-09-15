@@ -8,6 +8,7 @@ const babel = require('@babel/core');
 const matter = require('gray-matter');
 const {extractSubmissionFromIssueBody, verifySubmissionSignature, stableStringify, writeSubmissionToRepo, buildPullRequestBody} = require('../scripts/submission-utils');
 const {buildCatalog} = require('../plugins/experience-blog/catalog.cjs');
+const {EXTERNAL_DIRECTORY, readExternalExperiences} = require('../src/data/experiences/external.cjs');
 const {universities} = require('../src/data/universities');
 const {filterEntries} = require('../src/components/ExperienceCatalog/model.cjs');
 
@@ -49,8 +50,7 @@ function payload(input = base()) {
 }
 function repo(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'kai-experience-submission-'));
-  fs.mkdirSync(path.join(root, 'src/data/experiences'), {recursive: true});
-  fs.writeFileSync(path.join(root, 'src/data/experiences/external.json'), '[]\n');
+  fs.mkdirSync(path.join(root, EXTERNAL_DIRECTORY), {recursive: true});
   t.after(() => fs.rmSync(root, {recursive: true, force: true}));
   return root;
 }
@@ -69,7 +69,10 @@ test('external recommendation round-trips through signed review into the shared 
   assert.deepEqual(extracted.payload, p);
   const root = repo(t);
   const result = writeSubmissionToRepo({repoRoot: root, payload: extracted.payload});
+  assert.equal(result.relativePath, `${EXTERNAL_DIRECTORY}/zhuanlan.zhihu.com/2026.json`);
+  assert.equal(result.action, 'create');
   const external = JSON.parse(fs.readFileSync(path.join(root, result.relativePath)));
+  assert.deepEqual(readExternalExperiences(root), external);
   assert.deepEqual(Object.keys(external[0]), ['title', 'url', 'publishedYear', 'placements']);
   assert.equal(external[0].url, p.experience.url);
   const catalog = buildCatalog({universities, external, blogPosts: [], siteUrl: 'https://runjp.com'});
@@ -81,15 +84,43 @@ test('external recommendation round-trips through signed review into the shared 
   assert.match(buildPullRequestBody({payload:p, issue:{number:1, html_url:'https://github.com/example/repo/issues/1'}, relativePath:result.relativePath}), /经验贴外链推荐/);
 });
 
-test('duplicate external recommendations never overwrite existing entries', t => {
+test('duplicate recommendations conflict even when admission year and schools change', t => {
   const root = repo(t), p = payload();
-  writeSubmissionToRepo({repoRoot: root, payload: p});
-  const file = path.join(root, 'src/data/experiences/external.json');
+  const original = writeSubmissionToRepo({repoRoot: root, payload: p});
+  const file = path.join(root, original.relativePath);
   const before = fs.readFileSync(file, 'utf8');
   p.experience.url = 'http://zhuanlan.zhihu.com/p/123456/?source=another#heading';
   p.experience.title = 'Different title';
-  assert.equal(writeSubmissionToRepo({repoRoot:root, payload:p}).conflictKind, 'duplicate_external_url');
+  p.experience.placements.reverse();
+  p.experience.placements = p.experience.placements.map(({scope}) => ({scope, admissionYear: 2025}));
+  const duplicate = writeSubmissionToRepo({repoRoot: root, payload: p});
+  assert.equal(duplicate.conflictKind, 'duplicate_external_url');
+  assert.equal(duplicate.relativePath, original.relativePath);
   assert.equal(fs.readFileSync(file, 'utf8'), before);
+  assert.deepEqual(fs.readdirSync(path.join(root, EXTERNAL_DIRECTORY, 'zhuanlan.zhihu.com')), ['2026.json']);
+});
+
+test('recommendations append by source and admission year regardless of school, creating groups as needed', t => {
+  const root = repo(t);
+  const original = writeSubmissionToRepo({repoRoot: root, payload: payload()});
+  const firstPath = path.join(root, original.relativePath);
+  const before = fs.readFileSync(firstPath, 'utf8');
+  const note = writeSubmissionToRepo({repoRoot: root, payload: payload({...base(), url: 'https://note.com/student/n/n123456'})});
+  assert.equal(note.relativePath, `${EXTERNAL_DIRECTORY}/note.com/2026.json`);
+  assert.equal(note.action, 'create');
+  const previousYear = writeSubmissionToRepo({repoRoot: root, payload: payload({...base(), url: 'https://zhuanlan.zhihu.com/p/654321', placements: [{scope: 'tokyo-university', admissionYear: 2025}]})});
+  assert.equal(previousYear.relativePath, `${EXTERNAL_DIRECTORY}/zhuanlan.zhihu.com/2025.json`);
+  assert.equal(previousYear.action, 'create');
+  assert.equal(fs.readFileSync(firstPath, 'utf8'), before);
+  const previousYearBefore = fs.readFileSync(path.join(root, previousYear.relativePath), 'utf8');
+  const noteBefore = fs.readFileSync(path.join(root, note.relativePath), 'utf8');
+  const appended = writeSubmissionToRepo({repoRoot: root, payload: payload({...base(), url: 'https://zhuanlan.zhihu.com/p/987654', placements: [base().placements[1]]})});
+  assert.equal(appended.relativePath, original.relativePath);
+  assert.equal(appended.action, 'update');
+  assert.equal(JSON.parse(fs.readFileSync(firstPath)).length, 2);
+  assert.equal(fs.readFileSync(path.join(root, previousYear.relativePath), 'utf8'), previousYearBefore);
+  assert.equal(fs.readFileSync(path.join(root, note.relativePath), 'utf8'), noteBefore);
+  assert.equal(readExternalExperiences(root).length, 4);
 });
 
 test('original story is signed once and becomes a classified native blog article', t => {
@@ -133,7 +164,7 @@ test('converter refuses unknown canonical scopes and unsafe native Markdown befo
   assert.throws(() => writeSubmissionToRepo({repoRoot:root,payload:original}), /MDX import/);
   original.experience.markdown = 'safe'; original.submissionId = '../../outside';
   assert.throws(() => writeSubmissionToRepo({repoRoot:root,payload:original}), /publication identity/);
-  assert.equal(fs.readFileSync(path.join(root,'src/data/experiences/external.json'),'utf8'), '[]\n');
+  assert.deepEqual(fs.readdirSync(path.join(root, EXTERNAL_DIRECTORY)), []);
 });
 
 test('an exam year requires a season in each attempt, including when admission year is explicit', t => {
@@ -154,7 +185,7 @@ test('an exam year requires a season in each attempt, including when admission y
   const root = repo(t), p = payload();
   delete p.experience.placements[0].season;
   assert.throws(() => writeSubmissionToRepo({repoRoot: root, payload: p}), /exam season when an exam year/);
-  assert.equal(fs.readFileSync(path.join(root, 'src/data/experiences/external.json'), 'utf8'), '[]\n');
+  assert.deepEqual(fs.readdirSync(path.join(root, EXTERNAL_DIRECTORY)), []);
   assert.equal(validateSubmission({submissionType: 'experience', claAccepted: true, experience: p.experience}, 'Kai').error.code, 'experience_season_required');
 });
 

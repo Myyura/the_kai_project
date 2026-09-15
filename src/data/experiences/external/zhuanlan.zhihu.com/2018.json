@@ -1,0 +1,67 @@
+[
+  {
+    "title": "东京大学情报理工CS专攻考试心路历程",
+    "url": "https://zhuanlan.zhihu.com/p/29048546",
+    "placements": [
+      {
+        "scope": "tokyo-university/IST/cs",
+        "season": "summer",
+        "examYear": 2017
+      }
+    ]
+  },
+  {
+    "title": "东大情报理工CS专攻备考心得",
+    "url": "https://zhuanlan.zhihu.com/p/29062003",
+    "placements": [
+      {
+        "scope": "tokyo-university/IST/cs",
+        "season": "summer",
+        "examYear": 2017
+      }
+    ]
+  },
+  {
+    "title": "数理情报的种种",
+    "url": "https://zhuanlan.zhihu.com/p/29138190",
+    "placements": [
+      {
+        "scope": "tokyo-university/IST/suuri",
+        "examYear": 2017,
+        "season": "summer"
+      },
+      {
+        "scope": "waseda-university/FSE/sugaku",
+        "examYear": 2017,
+        "season": "summer"
+      }
+    ]
+  },
+  {
+    "title": "东京大学新领域修士考试心得",
+    "url": "https://zhuanlan.zhihu.com/p/29291969",
+    "placements": [
+      {
+        "scope": "tokyo-university/frontier_sciences/cbms",
+        "season": "summer",
+        "examYear": 2017
+      }
+    ]
+  },
+  {
+    "title": "东京大学系创及TMI入院试复习资料+心得分享",
+    "url": "https://zhuanlan.zhihu.com/p/29231976",
+    "placements": [
+      {
+        "scope": "tokyo-university/engineering/systems",
+        "season": "summer",
+        "examYear": 2017
+      },
+      {
+        "scope": "tokyo-university/engineering/tmi",
+        "season": "summer",
+        "examYear": 2017
+      }
+    ]
+  }
+]

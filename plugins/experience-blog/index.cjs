@@ -1,25 +1,23 @@
-const fs = require('node:fs');
 const path = require('node:path');
 const upstreamBlog = require('@docusaurus/plugin-content-blog');
 const {normalizeUrl} = require('@docusaurus/utils');
 const {buildCatalog} = require('./catalog.cjs');
+const {EXTERNAL_DIRECTORY, readExternalExperiences} = require('../../src/data/experiences/external.cjs');
 const {generateUniversities} = require('../../scripts/generate-universities');
 
 async function experienceBlogPlugin(context, options) {
   const upstream = await upstreamBlog.default(context, options);
-  const dataDirectory = path.join(context.siteDir, 'src/data/experiences');
   return {
     ...upstream,
     // Preserve the upstream identity used by the MDX loader and blog theme.
     name: 'docusaurus-plugin-content-blog',
     getPathsToWatch() {
-      return [...upstream.getPathsToWatch(), path.join(dataDirectory, '*.json'), path.join(context.siteDir, 'docs/**/_category_.json'), path.join(context.siteDir, 'src/data/universityMetadata.json')];
+      return [...upstream.getPathsToWatch(), path.join(context.siteDir, EXTERNAL_DIRECTORY, '**/*.json'), path.join(context.siteDir, 'docs/**/_category_.json'), path.join(context.siteDir, 'src/data/universityMetadata.json')];
     },
     async contentLoaded({content, actions}) {
-      const read = (name) => JSON.parse(fs.readFileSync(path.join(dataDirectory, `${name}.json`), 'utf8'));
       const catalog = buildCatalog({
         universities: generateUniversities(),
-        external: read('external'),
+        external: readExternalExperiences(context.siteDir),
         blogPosts: content.blogPosts,
         siteUrl: context.siteConfig.url,
       });

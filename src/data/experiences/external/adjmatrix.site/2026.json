@@ -1,0 +1,23 @@
+[
+  {
+    "title": "26.1 东京大学合格经验 - IST冬入情理电情, 工学院IME ME, 新领域人环",
+    "url": "https://adjmatrix.site/pages/u-tokyo",
+    "placements": [
+      {
+        "scope": "tokyo-university/IST/denshi",
+        "season": "winter",
+        "examYear": 2026
+      },
+      {
+        "scope": "tokyo-university/engineering/mech",
+        "season": "winter",
+        "examYear": 2026
+      },
+      {
+        "scope": "tokyo-university/frontier_sciences/hes",
+        "season": "winter",
+        "examYear": 2026
+      }
+    ]
+  }
+]

@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const matter = require('gray-matter');
 const {buildCatalog} = require('../plugins/experience-blog/catalog.cjs');
+const {readExternalExperiences} = require('../src/data/experiences/external.cjs');
 const {readFilters, filterSearch, filterEntries} = require('../src/components/ExperienceCatalog/model.cjs');
 const {catalogScopes, examUniversities} = require('../src/data/universityCatalog.cjs');
 
@@ -122,7 +123,7 @@ test('partial classifications retain the known school or department without inve
 test('experience labels and aliases come from the exam hierarchy, including categories without exam pages', () => {
   const {universities: shared} = require('../src/data/universities');
   const scopes = catalogScopes(shared);
-  const entries = require('../src/data/experiences/external.json');
+  const entries = readExternalExperiences();
   const catalog = build({universities: shared, external: entries, blogPosts: []});
   for (const scope of catalog.programs) {
     const category = JSON.parse(fs.readFileSync(path.join(__dirname, '../docs', scope.id, '_category_.json'), 'utf8'));
@@ -140,7 +141,7 @@ test('experience labels and aliases come from the exam hierarchy, including cate
 });
 
 test('reviewed multi-school stories appear under every confirmed classification, once per result', () => {
-  const catalog = build({universities: require('../src/data/universities').universities, external: require('../src/data/experiences/external.json'), blogPosts: []});
+  const catalog = build({universities: require('../src/data/universities').universities, external: readExternalExperiences(), blogPosts: []});
   const story = catalog.entries.find((entry) => entry.url.endsWith('/15649718406'));
   for (const scope of ['tokyo-university/IST/ci', 'tokyo-university/engineering/eeis', 'kyoto-university/informatics/ist', 'osaka-university/IST/ie']) {
     assert.equal(filterEntries(catalog, {program: scope}).filter(({entry}) => entry.url === story.url).length, 1);
@@ -159,13 +160,13 @@ test('all repository experiences have valid classifications and unique external 
     const {data} = matter(fs.readFileSync(path.join(blogDirectory, file), 'utf8'));
     return {metadata: {title: data.title, date: data.date || file.slice(0, 10), source: file, permalink: `/blog/${file}`, authors: [], frontMatter: data}};
   });
-  const catalog = build({universities: require('../scripts/generate-universities').generateUniversities({check: true}), external: require('../src/data/experiences/external.json'), blogPosts});
+  const catalog = build({universities: require('../scripts/generate-universities').generateUniversities({check: true}), external: readExternalExperiences(), blogPosts});
   assert.ok(catalog.entries.length > 0);
   assert.equal(new Set(catalog.entries.map((entry) => entry.url)).size, catalog.entries.length);
 });
 
 test('reviewed timelines use admission cohorts, retain separate exam attempts and remove dead links', () => {
-  const catalog = build({universities: require('../src/data/universities').universities, external: require('../src/data/experiences/external.json'), blogPosts: []});
+  const catalog = build({universities: require('../src/data/universities').universities, external: readExternalExperiences(), blogPosts: []});
   const story = (id) => catalog.entries.find((entry) => entry.url.endsWith(`/${id}`));
   assert.equal(story('713849111').placements[0].year, 2025);
   assert.equal(story('713849111').placements[0].examYear, 2024);

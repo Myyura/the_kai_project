@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { getSchoolTagForUniversity } = require('./tag-taxonomy');
 const {buildCatalog} = require('../plugins/experience-blog/catalog.cjs');
+const {canonicalExperienceUrl, externalExperiencePath, readExternalExperiences} = require('../src/data/experiences/external.cjs');
 const {universities} = require('../src/data/universities');
 
 const PAYLOAD_RE = /<!--\s*kai-submission-payload:([A-Za-z0-9_-]+)\s*-->/;
@@ -192,17 +193,6 @@ function externalExperienceEntry(story) {
   return {title: story.title, url: story.url, publishedYear: story.publishedYear, placements: story.placements};
 }
 
-function canonicalExperienceUrl(value) {
-  const url = new URL(value);
-  url.hash = '';
-  if (url.hostname === 'zhuanlan.zhihu.com' && /^\/p\/\d+\/?$/.test(url.pathname)) {
-    url.protocol = 'https:';
-    url.pathname = url.pathname.replace(/\/$/, '');
-    url.search = '';
-  }
-  return url.href;
-}
-
 function validateExperiencePayload(payload) {
   const story = payload.experience;
   if (!story || !['external', 'internal'].includes(story.kind)
@@ -232,17 +222,21 @@ function validateExperiencePayload(payload) {
 function writeExperienceToRepo(repoRoot, payload) {
   const story = payload.experience;
   if (story.kind === 'external') {
-    const relativePath = 'src/data/experiences/external.json';
-    const absolutePath = ensureWithinRepo(repoRoot, relativePath);
-    const entries = JSON.parse(fs.readFileSync(absolutePath, 'utf8'));
+    const entries = readExternalExperiences(repoRoot);
     const url = canonicalExperienceUrl(story.url);
-    if (entries.some(entry => canonicalExperienceUrl(entry.url) === url)) {
-      return {relativePath, action: 'conflict', conflict: true, conflictKind: 'duplicate_external_url'};
+    const duplicate = entries.find(entry => canonicalExperienceUrl(entry.url) === url);
+    if (duplicate) {
+      return {relativePath: externalExperiencePath(duplicate), action: 'conflict', conflict: true, conflictKind: 'duplicate_external_url'};
     }
-    const updated = [...entries, {...externalExperienceEntry(story), url}];
-    buildCatalog({universities, external: updated, blogPosts: [], siteUrl: 'https://runjp.com'});
+    const entry = {...externalExperienceEntry(story), url};
+    buildCatalog({universities, external: [...entries, entry], blogPosts: [], siteUrl: 'https://runjp.com'});
+    const relativePath = externalExperiencePath(entry);
+    const absolutePath = ensureWithinRepo(repoRoot, relativePath);
+    const action = fs.existsSync(absolutePath) ? 'update' : 'create';
+    const updated = [...entries.filter(item => externalExperiencePath(item) === relativePath), entry];
+    fs.mkdirSync(path.dirname(absolutePath), {recursive: true});
     fs.writeFileSync(absolutePath, `${JSON.stringify(updated, null, 2)}\n`, 'utf8');
-    return {relativePath, action: 'update', conflict: false};
+    return {relativePath, action, conflict: false};
   }
   if (!/^[a-f0-9-]{36}$/i.test(payload.submissionId) || !/^\d{4}-\d{2}-\d{2}T/.test(payload.createdAt)
       || !Number.isFinite(Date.parse(payload.createdAt)) || new Date(payload.createdAt).getUTCFullYear() !== story.publishedYear) {
