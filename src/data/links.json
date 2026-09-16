@@ -23,6 +23,11 @@
         "desc": "各大学数学与物理问题的详细解答"
       },
       {
+        "name": "千葉大数学科18",
+        "url": "https://sites.google.com/view/chibamath18/",
+        "desc": "千叶大学数学类院试过去问解答、自制模拟试题与数学问题集"
+      },
+      {
         "name": "Zephyr's Notes",
         "url": "https://inshi-notes.zephyr-zdz.space/",
         "desc": "东大 IST 和 GSFS CBMS 入试笔记"
@@ -198,6 +203,11 @@
         "name": "Miyake 院試過去問解答",
         "url": "https://miyake.github.io/exams/index.html",
         "desc": "各大学の数学・物理問題の詳細解答"
+      },
+      {
+        "name": "千葉大数学科18",
+        "url": "https://sites.google.com/view/chibamath18/",
+        "desc": "千葉大学の数学系大学院入試の過去問解答例、自作模試、数学問題集"
       },
       {
         "name": "Zephyr's Notes",

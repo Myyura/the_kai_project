@@ -1486,6 +1486,54 @@
       "descriptionZh": "通过逐次积分构造正弦和余弦的多项式上下界，并进行严格数值估计。",
       "descriptionJa": "積分の反復による正弦・余弦の多項式上下界と厳密な数値評価。",
       "descriptionEn": "Polynomial upper and lower bounds for sine and cosine obtained by repeated integration, with rigorous numerical estimates."
+    },
+    "Mathematics.Topology.Simplicial-and-Cellular-Homology": {
+      "subsubject": "Mathematics.Topology"
+    },
+    "Mathematics.Topology.Compactness-and-Connectedness": {
+      "subsubject": "Mathematics.Topology"
+    },
+    "Mathematics.Topology.De-Rham-Cohomology": {
+      "subsubject": "Mathematics.Topology"
+    },
+    "Mathematics.Abstract-Algebra.Group-Homomorphisms-and-Quotient-Groups": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Sylow-Subgroups-and-Normalizers": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Prime-Ideals-and-Nilradical": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Exact-Sequences-and-Derived-Couples": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Polynomial-Content-Ideals": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Invariant-Rings-under-Translation": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Galois-Groups-and-Intermediate-Fields": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Geometry.Differentiable-Manifolds-and-Regular-Values": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Geometry.Pullback-and-Exterior-Derivative-of-Differential-Forms": {
+      "subsubject": "Mathematics.Geometry"
+    },
+    "Mathematics.Functional-Analysis.Compactness-in-Sequence-Spaces": {
+      "subsubject": "Mathematics.Functional-Analysis"
+    },
+    "Mathematics.Real-Analysis.Lebesgue-Dominated-and-Monotone-Convergence": {
+      "subsubject": "Mathematics.Real-Analysis"
+    },
+    "Mathematics.Abstract-Algebra.Colon-Ideals-and-Primary-Decomposition": {
+      "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Abstract-Algebra.Exact-Sequences-and-Nonzero-Divisors": {
+      "subsubject": "Mathematics.Abstract-Algebra"
     }
   }
 }

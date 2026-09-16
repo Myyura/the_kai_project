@@ -1673,6 +1673,27 @@
       "relatedSubjects": [
         "Discrete-Mathematics"
       ]
+    },
+    "Computer-Science.Algorithm-Design.Two-Dimensional-Prefix-Sums": {
+      "subsubject": "Computer-Science.Algorithm-Design"
+    },
+    "Computer-Science.Formal-Languages.Nondeterministic-Pushdown-Automaton": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Security.One-Way-Functions-and-Reductions": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Formal-Languages.Elementary-Functions-and-Bounded-Minimization": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Security.Meet-in-the-Middle-Attack": {
+      "subsubject": "Computer-Science.Security"
+    },
+    "Computer-Science.Formal-Languages.Primitive-Recursive-Functions": {
+      "subsubject": "Computer-Science.Formal-Languages"
+    },
+    "Computer-Science.Formal-Languages.Decidability-and-Undecidability": {
+      "subsubject": "Computer-Science.Formal-Languages"
     }
   }
 }

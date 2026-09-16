@@ -1995,6 +1995,39 @@ const universities = [
     ]
   },
   {
+    "id": "chiba-university",
+    "name": "千葉大学",
+    "aliases": [
+      "千叶大学",
+      "Chiba University"
+    ],
+    "archiveUrl": "/docs/category/chiba-university",
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "science_engineering",
+        "name": "融合理工学府",
+        "aliases": [
+          "理学研究科"
+        ],
+        "archiveUrl": "/docs/category/chiba-university-science_engineering",
+        "programs": [
+          {
+            "id": "math",
+            "name": "数学・情報数理学コース",
+            "aliases": [
+              "数学情報科学専攻",
+              "基盤理学専攻",
+              "数理科学"
+            ],
+            "archiveUrl": "/docs/category/chiba-university-science_engineering-math"
+          }
+        ],
+        "websiteUrl": "https://www.math.s.chiba-u.ac.jp/exam.html"
+      }
+    ]
+  },
+  {
     "id": "kyoto-institute-of-technology",
     "name": "京都工芸繊維大学",
     "aliases": [

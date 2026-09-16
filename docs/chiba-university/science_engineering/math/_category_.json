@@ -1,0 +1,16 @@
+{
+  "label": "数学・情報数理学コース",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/chiba-university-science_engineering-math"
+  },
+  "key": "chiba-university-science_engineering-math",
+  "customProps": {
+    "aliases": [
+      "数学情報科学専攻",
+      "基盤理学専攻",
+      "数理科学"
+    ]
+  }
+}

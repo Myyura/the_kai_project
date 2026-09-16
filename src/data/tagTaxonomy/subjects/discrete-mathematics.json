@@ -321,6 +321,9 @@
       "descriptionZh": "通过反射首达边界之前的路径，建立格路径计数的双射。",
       "descriptionJa": "境界への初到達以前の経路を反転する格子経路の全単射と数え上げ。",
       "descriptionEn": "Bijections and lattice-path counts obtained by reflecting the path before its first boundary hit."
+    },
+    "Discrete-Mathematics.Mathematical-Logic.Propositional-Compactness-and-Maximal-Consistency": {
+      "subsubject": "Discrete-Mathematics.Mathematical-Logic"
     }
   }
 }

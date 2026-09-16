@@ -1,0 +1,14 @@
+{
+  "label": "融合理工学府",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/chiba-university-science_engineering"
+  },
+  "key": "chiba-university-science_engineering",
+  "customProps": {
+    "aliases": [
+      "理学研究科"
+    ]
+  }
+}

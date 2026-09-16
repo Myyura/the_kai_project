@@ -1,0 +1,15 @@
+{
+  "label": "千葉大学",
+  "position": 36,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/chiba-university"
+  },
+  "key": "chiba-university",
+  "customProps": {
+    "aliases": [
+      "千叶大学",
+      "Chiba University"
+    ]
+  }
+}

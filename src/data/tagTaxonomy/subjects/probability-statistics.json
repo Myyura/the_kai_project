@@ -804,6 +804,21 @@
       "descriptionZh": "一维随机游走的返回概率、首次返回分布及其与Catalan计数的关系。",
       "descriptionJa": "一次元ランダムウォークの帰還確率・初帰還分布とCatalan数による経路計数。",
       "descriptionEn": "Return probabilities and first-return distributions for a one-dimensional random walk, including Catalan path counts."
+    },
+    "Probability-Statistics.Probability-Basics.Measurability-of-Random-Variables": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
+    },
+    "Probability-Statistics.Probability-Basics.Borel-Cantelli-Lemmas": {
+      "subsubject": "Probability-Statistics.Probability-Basics"
+    },
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Sufficiency-and-Factorization-Theorem": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
+    },
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Fisher-Information-and-Cramer-Rao-Bound": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
+    },
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Conditional-Expectation-and-Rao-Blackwell-Theorem": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
     }
   }
 }
