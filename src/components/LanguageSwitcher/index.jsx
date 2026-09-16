@@ -2,32 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import {useHistory, useLocation} from '@docusaurus/router';
 import {LANGUAGE_OPTIONS, useStoredLanguage} from '@site/src/context/LanguageContext';
+import {buildLanguageUrl} from '@site/src/i18n/languageUrl';
 import styles from './styles.module.css';
-
-const stripLegacyLocalePrefix = (pathname) => {
-  const trimTrailingSlash = (value) => (
-    value.length > 1 && value.endsWith('/') ? value.slice(0, -1) : value
-  );
-
-  if (pathname === '/en' || pathname.startsWith('/en/')) {
-    return trimTrailingSlash(pathname.slice(3) || '/');
-  }
-  if (pathname === '/ja' || pathname.startsWith('/ja/')) {
-    return trimTrailingSlash(pathname.slice(3) || '/');
-  }
-  return trimTrailingSlash(pathname || '/');
-};
-
-const buildLanguageUrl = (location, language) => {
-  const params = new URLSearchParams(location.search || '');
-  params.set('lang', language);
-  const search = params.toString();
-  return {
-    pathname: stripLegacyLocalePrefix(location.pathname),
-    search: search ? `?${search}` : '',
-    hash: location.hash || '',
-  };
-};
 
 export default function LanguageSwitcher({
   className,

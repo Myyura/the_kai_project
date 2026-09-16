@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const os = require('node:os');
 const test = require('node:test');
 const vm = require('node:vm');
 const {pathToFileURL} = require('node:url');
@@ -17,6 +18,49 @@ const bootstrap = fs.readFileSync(
   path.resolve(__dirname, '..', 'src', 'clientModules', 'chunkRecoveryBootstrap.js'),
   'utf8',
 );
+const {recoveryAsset, mathStyleAsset, sharedBrowserAssetsPlugin} = require('../scripts/shared-browser-assets');
+
+test('the shared bootstrap has a stable path, versioned URL, and remains a blocking head script', () => {
+  const asset = recoveryAsset();
+  assert.equal(asset.source, bootstrap);
+  assert.equal(asset.path, '/assets/js/kai-chunk-recovery.js');
+  assert.match(asset.url, /^\/assets\/js\/kai-chunk-recovery\.js\?v=[a-f0-9]{16}$/);
+  const config = fs.readFileSync(path.resolve(__dirname, '../docusaurus.config.js'), 'utf8');
+  assert.match(config, /attributes: \{'data-kai-chunk-recovery': 'v1', src: chunkRecoveryBootstrap.url\}/);
+  assert.doesNotMatch(config, /innerHTML: chunkRecoveryBootstrap/);
+});
+
+test('the client compiler emits shared recovery and math assets for either build profile', () => {
+  const plugin = sharedBrowserAssetsPlugin({siteDir: path.resolve(__dirname, '..')});
+  assert.deepEqual(plugin.configureWebpack({}, true), {});
+  const emitted = new Map();
+  class RawSource {constructor(source) {this.source = source;}}
+  const compiler = {
+    webpack: {Compilation: {PROCESS_ASSETS_STAGE_ADDITIONAL: -2000}, sources: {RawSource}},
+    hooks: {thisCompilation: {tap(_name, callback) {
+      callback({hooks: {processAssets: {tap(_options, emit) {emit();}}},
+        emitAsset(name, source) {emitted.set(name, source.source);}});
+    }}},
+  };
+  plugin.configureWebpack({}, false).plugins[0].apply(compiler);
+  assert.equal(emitted.get(recoveryAsset().path.slice(1)), bootstrap);
+  assert.equal(emitted.get(mathStyleAsset().path.slice(1)), mathStyleAsset().source);
+  assert.equal(emitted.size, 2);
+});
+
+test('cached pages still address an existing recovery file after its contents change', (t) => {
+  const siteDir = fs.mkdtempSync(path.join(os.tmpdir(), 'kai-recovery-asset-'));
+  t.after(() => fs.rmSync(siteDir, {recursive: true, force: true}));
+  const sourcePath = path.join(siteDir, 'src/clientModules/chunkRecoveryBootstrap.js');
+  fs.mkdirSync(path.dirname(sourcePath), {recursive: true});
+  fs.writeFileSync(sourcePath, bootstrap);
+  const before = recoveryAsset(siteDir);
+  fs.writeFileSync(sourcePath, `${bootstrap}\n// New release\n`);
+  const after = recoveryAsset(siteDir);
+  assert.notEqual(after.url, before.url, 'new pages request the new version');
+  assert.equal(new URL(before.url, 'https://runjp.com').pathname, after.path,
+    'cached pages can fetch the current recovery script at the old versioned URL');
+});
 
 function installRecovery({
   href = 'https://runjp.com/docs/intro',

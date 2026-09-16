@@ -144,6 +144,10 @@ npx supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF
 
 `kai-api` and `agent-context` share the static body loader in `supabase/functions/_shared/published-content.ts`. The Supabase CLI and GitHub Actions bundle it automatically, so there is no file to copy and no function to update manually in the Dashboard.
 
+Published body schema v2 stores `fullMarkdown` once and represents sections as UTF-16 `[start, end]` ranges. The shared loader accepts both v1 and v2 and reconstructs the same `sections` strings returned by the API. GitHub Actions deploys the compatible backend before publishing Pages. For a manual release, deploy `kai-api` and `agent-context` first, then publish the site; an older reader cannot consume v2 bodies. Reverting the Pages artifact is safe while retaining the compatible reader.
+
+`yarn math:styles` regenerates the shared KaTeX layout classes from the current Markdown; the development and production build commands run it automatically. SSR and client rendering use the same generated dictionary, while styles not in that dictionary remain inline. Local and school-sharded builds emit one content-addressed stylesheet and one shared early chunk-recovery script. The recovery script uses a stable file path with a version query so cached pages can still load it after an update. Keep it blocking and before application bundles.
+
 3. Markdown bodies are not mirrored into PostgreSQL; the build publishes them by stable UUID under `/api-content/v1/documents/`. GitHub Actions does not store `SUPABASE_SERVICE_ROLE_KEY`. After deployment, a maintainer temporarily supplies the key in a trusted local terminal and syncs identities plus the lightweight catalog only:
 
 ```bash

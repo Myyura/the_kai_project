@@ -3,10 +3,12 @@
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
+const {recoveryAsset, mathStyleAsset} = require('./shared-browser-assets');
+const {PUBLISHED_CONTENT_SCHEMA_VERSION} = require('./api-data');
 
 const BUILD_DIR = path.resolve(__dirname, '..', 'build');
 const MAIN_GZIP_BUDGET = 512 * 1024;
-const PUBLISHED_CONTENT_BUDGET = 24 * 1024 * 1024;
+const PUBLISHED_CONTENT_BUDGET = 14 * 1024 * 1024;
 // The snapshot embeds Markdown-referenced image-hosting assets as well as text.
 const CONTENT_EXPORT_GZIP_BUDGET = 64 * 1024 * 1024;
 const TOTAL_BUILD_BUDGET = 900 * 1024 * 1024;
@@ -102,24 +104,34 @@ const docsHtmlFiles = files.filter((filePath) => (
 ));
 const missingHtmlAssetReferences = [];
 const invalidRecoveryBootstrapFiles = [];
+const invalidMathStylesheetFiles = [];
+const recovery = recoveryAsset();
+const mathStyles = mathStyleAsset();
+readRequiredFile(path.join(BUILD_DIR, recovery.path.slice(1)), 'Shared recovery script was not generated.');
+readRequiredFile(path.join(BUILD_DIR, mathStyles.path.slice(1)), 'Shared math stylesheet was not generated.');
 const referencedMainBundles = new Set();
 for (const htmlFile of htmlFiles) {
   const html = fs.readFileSync(htmlFile, 'utf8');
   const recoveryBootstrapIndex = html.indexOf('data-kai-chunk-recovery');
+  const recoveryTag = html.match(/<script\b[^>]*data-kai-chunk-recovery[^>]*>/)?.[0] || '';
   const firstApplicationScriptIndex = html.search(
     /<script[^>]+src=["']?\/assets\/js\/(?:runtime~main|main)\.[^>]+>/,
   );
   if (
     recoveryBootstrapIndex < 0
+    || !recoveryTag.includes(recovery.url)
+    || /\s(?:async|defer)(?:\s|=|>)/.test(recoveryTag)
     || (firstApplicationScriptIndex >= 0
       && recoveryBootstrapIndex > firstApplicationScriptIndex)
   ) {
     invalidRecoveryBootstrapFiles.push(htmlFile);
   }
-  for (const match of html.matchAll(/(?:src|href)=["'](\/assets\/[^"'#?]+)["']/g)) {
-    const assetPath = path.join(BUILD_DIR, match[1].slice(1));
+  if (!html.includes(mathStyles.path)) invalidMathStylesheetFiles.push(htmlFile);
+  for (const match of html.matchAll(/(?:src|href)=(?:["'](\/assets\/[^"'#?]+)(?:[?#][^"']*)?["']|(\/assets\/[^\s>"'#?]+))/g)) {
+    const asset = match[1] || match[2];
+    const assetPath = path.join(BUILD_DIR, asset.slice(1));
     if (!fs.existsSync(assetPath)) {
-      missingHtmlAssetReferences.push({htmlFile, asset: match[1]});
+      missingHtmlAssetReferences.push({htmlFile, asset});
     }
   }
   for (const match of html.matchAll(/\/assets\/js\/main\.[^"']+?\.js/g)) {
@@ -166,7 +178,13 @@ try {
 } catch (error) {
   throw new Error(`Kai content v1 export is not valid gzip JSON: ${error.message}`);
 }
-if (contentManifest.schemaVersion !== 1) throw new Error('Unexpected published document schema version.');
+if (contentManifest.schemaVersion !== PUBLISHED_CONTENT_SCHEMA_VERSION) throw new Error('Unexpected published document schema version.');
+for (const file of publishedContentFiles) {
+  const document = JSON.parse(fs.readFileSync(file, 'utf8'));
+  if (document.schemaVersion !== PUBLISHED_CONTENT_SCHEMA_VERSION || document.sections || !document.sectionRanges) {
+    throw new Error(`Published document is not using compact section ranges: ${file}`);
+  }
+}
 if (contentManifest.documentCount !== publishedContentFiles.length) {
   throw new Error(`Published document manifest lists ${contentManifest.documentCount}, found ${publishedContentFiles.length} files.`);
 }
@@ -197,6 +215,9 @@ if (invalidRecoveryBootstrapFiles.length > 0) {
         .map((filePath) => path.relative(BUILD_DIR, filePath))
         .join(', '),
   );
+}
+if (invalidMathStylesheetFiles.length > 0) {
+  throw new Error(`Built HTML is missing shared formula styles: ${invalidMathStylesheetFiles.slice(0, 10).join(', ')}`);
 }
 const unreferencedMainBundles = mainBundles.filter(
   (filePath) => !referencedMainBundles.has(filePath),

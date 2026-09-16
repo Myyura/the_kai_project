@@ -1,7 +1,9 @@
 import {DEFAULT_LANGUAGE, normalizeLanguage} from './config';
 import experienceSubmission from '../components/ExperienceContribution/copy';
+import {developerMessages} from './developerMessages';
 
 export const UI_MESSAGES = {
+  developers: developerMessages,
   experienceSubmission,
   navbar: {
     zh: {

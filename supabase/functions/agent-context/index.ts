@@ -12,7 +12,7 @@ import {
   parsePublicJwk,
   publicJwkFromPrivate,
   verifyJwt,
-} from './jwt.ts';
+} from '../_shared/jwt.ts';
 import {
   DOCUMENT_CATALOG_SELECT,
   fetchPublishedDocument,

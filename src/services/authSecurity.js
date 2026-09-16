@@ -5,7 +5,6 @@
  * - 客户端登录频率限制（防暴力破解）
  * - 错误信息脱敏
  * - 密码强度校验
- * - 远端数据结构验证
  */
 
 import {getUiMessages} from '@site/src/i18n/messages';
@@ -176,62 +175,4 @@ export const validatePassword = (pw, lang = 'zh') => {
   if (!/[0-9]/.test(pw)) errors.push(t.digit);
 
   return { valid: errors.length === 0, errors };
-};
-
-// ── 远端数据验证 ─────────────────────────────────────────────
-
-const MAX_DATA_SIZE = 5 * 1024 * 1024; // 5 MB 上限
-
-/**
- * 验证从远端拉取的同步数据结构是否合法
- * 防止恶意数据注入 localStorage
- * @param {any} data
- * @returns {{ valid: boolean, reason?: string }}
- */
-export const validateSyncData = (data) => {
-  if (data === null || data === undefined) {
-    return { valid: true }; // 无数据是合法的
-  }
-
-  if (typeof data !== 'object' || Array.isArray(data)) {
-    return { valid: false, reason: 'Data must be a plain object' };
-  }
-
-  // 检查序列化后大小
-  let serialized;
-  try {
-    serialized = JSON.stringify(data);
-  } catch {
-    return { valid: false, reason: 'Data is not serializable' };
-  }
-
-  if (serialized.length > MAX_DATA_SIZE) {
-    return { valid: false, reason: 'Data exceeds maximum size limit' };
-  }
-
-  // 递归检查所有层级（不能包含函数、不能有原型污染键）
-  const DANGEROUS_KEYS = ['__proto__', 'constructor', 'prototype'];
-  const MAX_DEPTH = 10;
-
-  const checkObject = (obj, depth) => {
-    if (depth > MAX_DEPTH) {
-      return { valid: false, reason: 'Data nesting too deep' };
-    }
-    for (const key of Object.keys(obj)) {
-      if (DANGEROUS_KEYS.includes(key)) {
-        return { valid: false, reason: `Forbidden key: ${key}` };
-      }
-      const val = obj[key];
-      if (typeof val === 'function') {
-        return { valid: false, reason: 'Functions are not allowed in data' };
-      }
-      if (val && typeof val === 'object' && !Array.isArray(val)) {
-        const inner = checkObject(val, depth + 1);
-        if (!inner.valid) return inner;
-      }
-    }
-    return { valid: true };
-  };
-
-  return checkObject(data, 0);
 };

@@ -6,7 +6,7 @@ import {
   getBearerToken,
   jsonResponse,
 } from './http.ts';
-import { sha256Hex } from './crypto.ts';
+import { sha256Hex } from '../_shared/crypto.ts';
 import {
   DOCUMENT_CATALOG_SELECT,
   fetchPublishedDocument,

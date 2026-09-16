@@ -7,6 +7,7 @@ const transformModules = require('@babel/plugin-transform-modules-commonjs');
 const React = require('react');
 const {renderToStaticMarkup} = require('react-dom/server');
 const katex = require('katex');
+const {parseFragment} = require('parse5');
 require('katex/contrib/mhchem');
 
 function loadModule(relativePath) {
@@ -35,6 +36,25 @@ function loadModule(relativePath) {
 
 const renderer = loadModule('src/components/KaiMath/render.js');
 const KaiMath = loadModule('src/components/KaiMath/index.js').default;
+const sharedStyles = loadModule('src/components/KaiMath/sharedStyles.generated.js').default;
+const {compactMathStyles} = loadModule('src/components/KaiMath/sharedStyles.mjs');
+const originalStyles = new Map(Object.entries(sharedStyles).map(([style, token]) => [token, style]));
+
+function restoredTree(html) {
+  const canonical = (node) => {
+    const attrs = Object.fromEntries((node.attrs || []).map(({name, value}) => [name, value]));
+    if (attrs.class) {
+      attrs.class = attrs.class.split(' ').filter((token) => {
+        if (!originalStyles.has(token)) return true;
+        assert.equal(attrs.style, undefined, 'shared and inline styles must not overlap');
+        attrs.style = originalStyles.get(token);
+        return false;
+      }).join(' ');
+    }
+    return {name: node.nodeName, value: node.value, attrs: Object.entries(attrs).sort(), children: (node.childNodes || []).map(canonical)};
+  };
+  return canonical(parseFragment(html));
+}
 const runtimeKatex = loadModule('src/markdown/rehypeRuntimeKatex.js').default;
 const annotationSourceLines = loadModule(
   'src/markdown/rehypeAnnotationSourceLines.js',
@@ -60,12 +80,13 @@ const katexOptions = (displayMode) => ({
   displayMode,
 });
 
-test('KaiMath SSR is byte-identical to KaTeX for inline, display, CJK, and mhchem', () => {
+test('KaiMath preserves the complete KaTeX tree and styles for inline, display, CJK, and mhchem', () => {
   const examples = [
     {source: String.raw`x^2 + \sqrt{y}`, displayMode: false},
     {source: String.raw`\int_0^1 x\,dx`, displayMode: true},
     {source: String.raw`\text{概率} = \frac{1}{2}`, displayMode: false},
     {source: String.raw`\ce{2H2 + O2 -> 2H2O}`, displayMode: false},
+    {source: String.raw`\begin{pmatrix}1&\frac{a}{b}\\\sqrt{x}&\sum_{n=1}^\infty n^{-2}\end{pmatrix}`, displayMode: true},
   ];
 
   examples.forEach(({source, displayMode}) => {
@@ -75,9 +96,20 @@ test('KaiMath SSR is byte-identical to KaTeX for inline, display, CJK, and mhche
       displayMode,
     }));
 
-    assert.equal(renderer.renderKaiMathToString(source, displayMode), expected);
-    assert.equal(actual, expected);
+    assert.deepEqual(restoredTree(actual), restoredTree(expected));
+    assert.equal(actual, renderer.renderKaiMathToString(source, displayMode));
+    assert.match(actual, /kms[0-9a-z]+/);
+    assert.match(actual, /katex-mathml/);
+    assert.match(actual, /katex-html/);
   });
+});
+
+test('unknown styles and TeX annotation text are preserved unchanged', () => {
+  const annotation = '<annotation encoding="application/x-tex">style="height:3em;" &lt;span&gt;</annotation>';
+  const unknown = '<span class="x" style="width:123.9876em;">x</span>';
+  assert.equal(compactMathStyles(annotation + unknown, sharedStyles), annotation + unknown);
+  const html = '<span class="x" style="height:3em;">x</span>';
+  assert.deepEqual(restoredTree(compactMathStyles(html, sharedStyles)), restoredTree(html));
 });
 
 test('KaiMath matches KaTeX non-throwing recovery output for malformed source', () => {

@@ -9,6 +9,9 @@
 !/scripts/content-export-asset-bundle.js
 !/scripts/content-export-download.js
 !/scripts/content-export-images.js
+!/scripts/generate-math-styles.mjs
+!/scripts/shared-browser-assets.js
+!/scripts/build-profiles.js
 __pycache__/
 *.py[cod]
 

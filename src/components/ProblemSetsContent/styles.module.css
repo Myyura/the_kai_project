@@ -22,8 +22,7 @@
 .header p,
 .detailHeader p { margin: .35rem 0 0; color: var(--ifm-color-emphasis-700); }
 
-.iconButton,
-.profileButton {
+.iconButton {
   border: 1px solid var(--ifm-color-emphasis-300);
   background: var(--ifm-background-surface-color);
   border-radius: var(--custom-border-radius-xs);

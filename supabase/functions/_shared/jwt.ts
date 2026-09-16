@@ -82,3 +82,41 @@ export async function verifyJwt(token: string, publicJwk: JsonWebKey, options: V
   if (options.audience && payload.aud !== options.audience) throw new Error('Invalid JWT audience.');
   return payload;
 }
+
+function base64UrlEncode(input: Uint8Array | string) {
+  const bytes = typeof input === 'string' ? textEncoder.encode(input) : input;
+  let binary = '';
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary)
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/g, '');
+}
+
+async function importPrivateKey(jwk: JsonWebKey) {
+  return await crypto.subtle.importKey(
+    'jwk',
+    jwk,
+    { name: 'ECDSA', namedCurve: 'P-256' },
+    false,
+    ['sign'],
+  );
+}
+
+export async function signJwt(payload: JwtPayload, privateJwk: JsonWebKey) {
+  const header = {
+    alg: 'ES256',
+    typ: 'JWT',
+    ...(privateJwk.kid ? { kid: privateJwk.kid } : {}),
+  };
+  const encodedHeader = base64UrlEncode(JSON.stringify(header));
+  const encodedPayload = base64UrlEncode(JSON.stringify(payload));
+  const signingInput = `${encodedHeader}.${encodedPayload}`;
+  const key = await importPrivateKey(privateJwk);
+  const signature = await crypto.subtle.sign(
+    { name: 'ECDSA', hash: 'SHA-256' },
+    key,
+    textEncoder.encode(signingInput),
+  );
+  return `${signingInput}.${base64UrlEncode(new Uint8Array(signature))}`;
+}

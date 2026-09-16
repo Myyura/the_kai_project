@@ -20,3 +20,14 @@ export async function hmacSha256Hex(secret: string, input: string) {
   );
   return toHex(await crypto.subtle.sign('HMAC', key, encoder.encode(input)));
 }
+
+export function randomBase64Url(byteLength = 32) {
+  const bytes = new Uint8Array(byteLength);
+  crypto.getRandomValues(bytes);
+  let binary = '';
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary)
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/g, '');
+}

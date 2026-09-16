@@ -9,7 +9,7 @@ import {
   readJsonBody,
   withCors,
 } from './http.ts';
-import { randomBase64Url, sha256Hex } from './crypto.ts';
+import { randomBase64Url, sha256Hex } from '../_shared/crypto.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';

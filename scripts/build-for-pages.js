@@ -2,22 +2,8 @@
 
 const {spawnSync} = require('node:child_process');
 
-// GitHub's standard Linux runner for this public repository has 16 GiB of RAM.
-// Keep the Pages build in isolated phases, but give the growing server module
-// graph enough V8 headroom beyond the former 6 GiB ceiling.
-const PAGES_BUILD_PROFILE = 'github-pages-school-shards-8gb-v1';
-const PAGES_MAX_OLD_SPACE_MB = 8192;
-const PAGES_BUILD_ENV = Object.freeze({
-  KAI_BUILD_PROFILE: PAGES_BUILD_PROFILE,
-  DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
-  DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
-  DISABLE_RSPACK_INCREMENTAL: 'true',
-  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
-  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
-  RAYON_NUM_THREADS: '1',
-  RSPACK_BLOCKING_THREADS: '1',
-  KAI_DOCS_SCHOOL_SHARD_COUNT: 'auto',
-});
+const {PAGES_BUILD_PROFILE, PAGES_MAX_OLD_SPACE_MB, PAGES_BUILD_ENV, withNodeHeapLimit} = require('./build-profiles');
+
 const LOCAL_ONLY_ENVIRONMENT_NAMES = Object.freeze([
   'KAI_ENFORCED_BUILD_PROFILE',
   'KAI_INTERNAL_MEMORY_GUARD_ACTIVE',
@@ -33,28 +19,7 @@ const TRANSIENT_SCHOOL_SHARD_ENVIRONMENT_NAMES = Object.freeze([
   'KAI_DOCS_BUILD_SHARD_SHARED',
 ]);
 
-function withPagesHeapLimit(nodeOptions = '') {
-  const withoutExistingLimits = String(nodeOptions)
-    .replace(
-      /(^|\s)--max[-_]old[-_]space[-_]size(?:=|\s+)\d+(?=\s|$)/g,
-      ' ',
-    )
-    .replace(
-      /(^|\s)--(?:max[-_]semi[-_]space[-_]size|initial[-_]old[-_]space[-_]size)(?:=|\s+)\d+(?=\s|$)/g,
-      ' ',
-    )
-    .replace(
-      /(^|\s)--huge[-_]max[-_]old[-_]generation[-_]size(?=\s|$)/g,
-      ' ',
-    )
-    .replace(/\s+/g, ' ')
-    .trim();
-
-  return [
-    withoutExistingLimits,
-    `--max-old-space-size=${PAGES_MAX_OLD_SPACE_MB}`,
-  ].filter(Boolean).join(' ');
-}
+const withPagesHeapLimit = (nodeOptions = '') => withNodeHeapLimit(nodeOptions, PAGES_MAX_OLD_SPACE_MB);
 
 function getPagesBuildEnvironment(source = process.env) {
   const environment = {...source};

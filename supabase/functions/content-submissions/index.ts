@@ -9,7 +9,7 @@ import {
   readJsonBody,
   withCors,
 } from './http.ts';
-import { hmacSha256Hex, sha256Hex } from './crypto.ts';
+import { hmacSha256Hex, sha256Hex } from '../_shared/crypto.ts';
 import {
   buildLineChanges,
   formatUnifiedDiff,

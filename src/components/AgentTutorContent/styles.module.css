@@ -235,13 +235,8 @@
   composes: btnSecondary from "../../styles/kai-ui.module.css";
 }
 
-.iconButton {
-  composes: btnSecondary from "../../styles/kai-ui.module.css";
-}
-
 .primaryButton:disabled,
-.secondaryButton:disabled,
-.iconButton:disabled {
+.secondaryButton:disabled {
   cursor: not-allowed;
   opacity: 0.65;
 }

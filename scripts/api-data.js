@@ -10,7 +10,7 @@ const {loadDocumentIdentityOverrides, resolveDocumentUuid} = require('./document
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(REPO_ROOT, 'docs');
 const SITE_URL = 'https://runjp.com';
-const PUBLISHED_CONTENT_SCHEMA_VERSION = 1;
+const PUBLISHED_CONTENT_SCHEMA_VERSION = 2;
 const PUBLISHED_CONTENT_PREFIX = '/api-content/v1/documents';
 
 const CATEGORY_CACHE = new Map();
@@ -117,24 +117,28 @@ function getTitle(markdown, fallback) {
   return stripMarkdownDecorations(match?.[1] || fallback || '');
 }
 
-function extractSections(markdown) {
+function extractSectionRanges(markdown) {
   const lines = markdown.split(/\r?\n/);
-  const sections = {
-    authorMarkdown: '',
-    descriptionMarkdown: '',
-    kaiMarkdown: '',
-  };
-
-  let active = null;
-  const buffers = {
+  const ranges = {
     authorMarkdown: [],
     descriptionMarkdown: [],
     kaiMarkdown: [],
   };
-
+  let active = null;
+  let start = null;
+  let end = 0;
+  let offset = 0;
+  const flush = () => {
+    if (active && start !== null) ranges[active].push([start, end]);
+    start = null;
+  };
   for (const line of lines) {
+    const lineStart = offset;
+    offset += line.length;
+    offset += markdown.slice(offset, offset + 2) === '\r\n' ? 2 : 1;
     const heading = line.match(/^##\s+(.+?)\s*$/);
     if (heading) {
+      flush();
       const normalized = normalizeHeading(heading[1]);
       if (normalized.includes('author')) {
         active = 'authorMarkdown';
@@ -152,14 +156,20 @@ function extractSections(markdown) {
       continue;
     }
 
-    if (active) buffers[active].push(line);
+    if (active) {
+      if (start === null) start = lineStart;
+      end = lineStart + line.length;
+    }
   }
+  flush();
+  return ranges;
+}
 
-  for (const key of Object.keys(buffers)) {
-    sections[key] = buffers[key].join('\n').trim();
-  }
-
-  return sections;
+function extractSections(markdown) {
+  return Object.fromEntries(Object.entries(extractSectionRanges(markdown)).map(([key, ranges]) => [
+    key,
+    ranges.map(([start, end]) => markdown.slice(start, end).replace(/\r\n/g, '\n')).join('\n').trim(),
+  ]));
 }
 
 function getDirectoryLabel(segments) {
@@ -313,11 +323,9 @@ function toPublishedDocument(doc) {
     documentUuid: doc.document_uuid,
     docId: doc.doc_id,
     contentHash: doc.content_hash,
-    sections: {
-      authorMarkdown: doc.author_markdown,
-      descriptionMarkdown: doc.description_markdown,
-      kaiMarkdown: doc.kai_markdown,
-    },
+    // UTF-16 offsets refer to the exact fullMarkdown string. Multiple ranges
+    // preserve repeated section headings without storing their text twice.
+    sectionRanges: extractSectionRanges(doc.full_markdown),
     fullMarkdown: doc.full_markdown,
   };
 }

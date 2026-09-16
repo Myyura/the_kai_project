@@ -177,7 +177,6 @@ test('Docusaurus disables client module concatenation for both memory profiles',
     path.resolve(__dirname, '../docusaurus.config.js'),
     'utf8',
   );
-  assert.match(configSource, /KAI_BUILD_PROFILE: pagesBuildProfile/);
   assert.match(
     configSource,
     /\.\.\.\(memoryConstrainedBuildProfile && \{[\s\S]{0,150}concatenateModules: false/,
@@ -205,9 +204,9 @@ test('Docusaurus accepts the explicit local and Pages profiles only', () => {
   assert.notEqual(retiredPagesProfile.status, 0);
   assert.match(retiredPagesProfile.stderr, /Unknown Docusaurus build profile/);
 
-  const local = loadBuildConfig(getBuildEnvironment(unprofiled));
+  const local = loadBuildConfig(getBuildEnvironment({...unprofiled, NODE_OPTIONS: '--trace-warnings'}));
   assert.equal(local.status, 0, local.stderr);
 
-  const pages = loadBuildConfig(getPagesBuildEnvironment(unprofiled));
+  const pages = loadBuildConfig(getPagesBuildEnvironment({...unprofiled, NODE_OPTIONS: '--trace-warnings'}));
   assert.equal(pages.status, 0, pages.stderr);
 });

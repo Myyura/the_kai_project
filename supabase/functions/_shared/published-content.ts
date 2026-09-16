@@ -55,10 +55,12 @@ function cacheDocument(key: string, document: PublishedDocument) {
   contentCache.set(key, { expiresAt: Date.now() + CACHE_TTL_MS, document });
 }
 
-function validatePublishedDocument(value: unknown, expectedUuid: string, expectedHash: string): PublishedDocument {
+export function validatePublishedDocument(value: unknown, expectedUuid: string, expectedHash: string): PublishedDocument {
   if (!value || typeof value !== 'object') throw new Error('Published document content is not an object.');
-  const document = value as PublishedDocument;
-  if (document.schemaVersion !== 1) throw new Error('Unsupported published document schema version.');
+  const document = value as PublishedDocument & {sectionRanges?: Record<string, unknown>};
+  if (document.schemaVersion !== 1 && document.schemaVersion !== 2) {
+    throw new Error('Unsupported published document schema version.');
+  }
   if (document.documentUuid !== expectedUuid) throw new Error('Published document UUID does not match the catalog.');
   if (expectedHash && document.contentHash !== expectedHash) {
     throw new Error('Published document hash does not match the catalog.');
@@ -66,16 +68,45 @@ function validatePublishedDocument(value: unknown, expectedUuid: string, expecte
   if (typeof document.docId !== 'string' || typeof document.fullMarkdown !== 'string') {
     throw new Error('Published document content is incomplete.');
   }
-  if (
-    !document.sections
-    || typeof document.sections !== 'object'
-    || typeof document.sections.authorMarkdown !== 'string'
-    || typeof document.sections.descriptionMarkdown !== 'string'
-    || typeof document.sections.kaiMarkdown !== 'string'
-  ) {
+  let sections = document.sections;
+  if (document.schemaVersion === 2) {
+    if (!document.sectionRanges || typeof document.sectionRanges !== 'object') {
+      throw new Error('Published document section ranges are missing.');
+    }
+    sections = {authorMarkdown: '', descriptionMarkdown: '', kaiMarkdown: ''};
+    for (const key of Object.keys(sections) as Array<keyof typeof sections>) {
+      const ranges = document.sectionRanges[key];
+      if (!Array.isArray(ranges)) throw new Error('Published document section ranges are invalid.');
+      let previousEnd = 0;
+      const parts: string[] = [];
+      for (const range of ranges) {
+        if (!Array.isArray(range) || range.length !== 2
+          || !range.every(Number.isSafeInteger)
+          || range[0] < previousEnd || range[1] < range[0]
+          || range[1] > document.fullMarkdown.length) {
+          throw new Error('Published document section range is out of bounds.');
+        }
+        parts.push(document.fullMarkdown.slice(range[0], range[1]).replace(/\r\n/g, '\n'));
+        previousEnd = range[1];
+      }
+      sections[key] = parts.join('\n').trim();
+    }
+  } else if (!sections || typeof sections !== 'object'
+    || typeof sections.authorMarkdown !== 'string'
+    || typeof sections.descriptionMarkdown !== 'string'
+    || typeof sections.kaiMarkdown !== 'string') {
     throw new Error('Published document sections are missing.');
   }
-  return document;
+  // Both artifact versions expose the same in-memory/API body. The storage
+  // encoding is intentionally hidden from kai-api and agent-context callers.
+  return {
+    schemaVersion: document.schemaVersion,
+    documentUuid: document.documentUuid,
+    docId: document.docId,
+    contentHash: document.contentHash,
+    fullMarkdown: document.fullMarkdown,
+    sections,
+  };
 }
 
 export async function fetchPublishedDocument(

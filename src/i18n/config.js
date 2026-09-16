@@ -8,8 +8,10 @@ export const LANGUAGE_OPTIONS = [
 
 const SUPPORTED_LANGUAGE_CODES = new Set(LANGUAGE_OPTIONS.map((item) => item.code));
 
+export const isSupportedLanguage = (language) => SUPPORTED_LANGUAGE_CODES.has(language);
+
 export const normalizeLanguage = (language) =>
-  SUPPORTED_LANGUAGE_CODES.has(language) ? language : DEFAULT_LANGUAGE;
+  isSupportedLanguage(language) ? language : DEFAULT_LANGUAGE;
 
 export const getLanguageLocale = (language) =>
   LANGUAGE_OPTIONS.find((item) => item.code === normalizeLanguage(language))?.locale || 'zh-CN';

@@ -15,14 +15,6 @@
   width: 100%;
 }
 
-.compactSection .settingsPanel {
-  grid-template-columns: 1fr;
-  padding: 0.8rem 0;
-  border-width: 1px 0;
-  border-radius: 0;
-  background: transparent;
-}
-
 .compactSection .mySummary {
   grid-template-columns: 1fr;
   padding: 0.9rem 0;
@@ -38,9 +30,7 @@
 
 .header,
 .titleGroup,
-.headerActions,
-.learnerName,
-.settingsFooter {
+.learnerName {
   display: flex;
   align-items: center;
 }
@@ -77,11 +67,6 @@
   font-size: 0.75rem;
 }
 
-.headerActions {
-  gap: 0.35rem;
-  flex-shrink: 0;
-}
-
 .iconButton {
   display: inline-flex;
   width: 32px;
@@ -95,8 +80,7 @@
   cursor: pointer;
 }
 
-.iconButton:hover,
-.iconButtonActive {
+.iconButton:hover {
   border-color: var(--ifm-color-primary);
   color: var(--ifm-color-primary);
 }
@@ -132,141 +116,6 @@
   background: var(--ifm-background-surface-color);
   box-shadow: var(--kai-shadow-card);
   color: var(--ifm-color-primary);
-}
-
-.settingsPanel {
-  display: grid;
-  grid-template-columns: minmax(180px, 1fr) minmax(240px, 1.25fr);
-  gap: 1rem 1.25rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid var(--custom-card-border);
-  border-radius: var(--custom-border-radius);
-  background: var(--custom-card-bg);
-}
-
-.settingsField {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.settingsField label {
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.settingsField input {
-  width: 100%;
-  min-height: 38px;
-  padding: 0.45rem 0.65rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: var(--custom-border-radius-xs);
-  background: var(--ifm-background-color);
-  color: var(--ifm-font-color-base);
-  font-size: 0.85rem;
-}
-
-.settingsField input:focus {
-  border-color: var(--ifm-color-primary);
-  outline: 2px solid color-mix(in srgb, var(--ifm-color-primary) 18%, transparent);
-}
-
-.privacyToggle {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  cursor: pointer;
-}
-
-.privacyToggle input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.toggleTrack {
-  position: relative;
-  width: 38px;
-  height: 22px;
-  border-radius: 999px;
-  background: var(--ifm-color-emphasis-300);
-  flex-shrink: 0;
-  transition: var(--custom-transition-fast);
-}
-
-.toggleTrack span {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
-  /* 快速过渡令牌不含 transform，这里仅对齐其时长（0.16s） */
-  transition: transform 0.16s ease;
-}
-
-.privacyToggle input:checked + .toggleTrack {
-  background: var(--ifm-color-primary);
-}
-
-.privacyToggle input:checked + .toggleTrack span {
-  transform: translateX(16px);
-}
-
-.privacyToggle input:focus-visible + .toggleTrack {
-  outline: 2px solid var(--ifm-color-primary);
-  outline-offset: 2px;
-}
-
-.privacyToggle strong,
-.privacyToggle small {
-  display: block;
-}
-
-.privacyToggle strong {
-  color: var(--ifm-heading-color);
-  font-size: 0.8rem;
-}
-
-.privacyToggle small {
-  margin-top: 0.1rem;
-  color: var(--ifm-color-emphasis-500);
-  font-size: 0.7rem;
-}
-
-.settingsFooter {
-  grid-column: 1 / -1;
-  justify-content: flex-end;
-  gap: 0.75rem;
-}
-
-.settingsError {
-  color: var(--kai-danger);
-  font-size: 0.75rem;
-}
-
-.saveButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  min-height: 34px;
-  padding: 0.4rem 0.8rem;
-  border: 0;
-  border-radius: var(--custom-border-radius-xs);
-  background: var(--kai-action);
-  color: #fff;
-  cursor: pointer;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.saveButton:disabled {
-  cursor: default;
-  opacity: 0.6;
 }
 
 .mySummary {
@@ -533,9 +382,6 @@
 }
 
 @media (max-width: 640px) {
-  .settingsPanel {
-    grid-template-columns: 1fr;
-  }
 
   .mySummary {
     grid-template-columns: 1fr;

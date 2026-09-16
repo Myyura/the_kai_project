@@ -39,8 +39,8 @@ const renderSuccessfulRoot = (html, displayMode, className, properties) => {
 /**
  * Render compact TeX source at SSR time and again during hydration or SPA
  * navigation. The KaTeX root span is recreated by React so the successful
- * output is byte-for-byte identical to `katex.renderToString()` when no extra
- * DOM properties are supplied.
+ * output shares deterministic layout classes between SSR and hydration,
+ * retaining KaTeX's visual tree, MathML, and all unfamiliar inline styles.
  */
 function KaiMath({
   source = '',

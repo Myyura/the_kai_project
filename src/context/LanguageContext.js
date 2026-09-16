@@ -6,6 +6,7 @@ import {
   normalizeLanguage,
 } from '@site/src/i18n/config';
 import {getUiMessage} from '@site/src/i18n/messages';
+import {applyLanguage} from '@site/src/i18n/browserLanguage';
 
 export {DEFAULT_LANGUAGE, LANGUAGE_OPTIONS, getLanguageLocale, normalizeLanguage};
 
@@ -25,9 +26,7 @@ export const getLanguage = () => {
 export const setLanguage = (lang) => {
   if (typeof window === 'undefined') return;
   const nextLanguage = normalizeLanguage(lang);
-  localStorage.setItem('preferredLanguage', nextLanguage);
-  document.documentElement.setAttribute('data-lang', nextLanguage);
-  document.documentElement.setAttribute('lang', getLanguageLocale(nextLanguage));
+  applyLanguage(nextLanguage);
   window.dispatchEvent(new CustomEvent('languageChange', { detail: nextLanguage }));
 };
 

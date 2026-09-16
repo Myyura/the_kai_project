@@ -5,7 +5,8 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
-import {readFileSync} from 'node:fs';
+import {recoveryAsset, mathStyleAsset, sharedBrowserAssetsPlugin} from './scripts/shared-browser-assets.js';
+import {LOW_MEMORY_ENV, PAGES_BUILD_ENV, PAGES_BUILD_PROFILE, MAX_OLD_SPACE_MB, PAGES_MAX_OLD_SPACE_MB} from './scripts/build-profiles.js';
 import remarkMath from 'remark-math';
 import rehypeAnnotationSourceLines from './src/markdown/rehypeAnnotationSourceLines.js';
 import rehypeRuntimeKatex from './src/markdown/rehypeRuntimeKatex.js';
@@ -15,44 +16,21 @@ import rehypeStudySections from './src/markdown/rehypeStudySections.js';
 
 const sequentialBundles = process.env.DOCUSAURUS_SEQUENTIAL_BUNDLES === 'true';
 const localMemoryProfile = process.env.KAI_ENFORCED_BUILD_PROFILE === '16gb';
-const pagesBuildProfile = 'github-pages-school-shards-8gb-v1';
-const pagesMemoryProfile = process.env.KAI_BUILD_PROFILE === pagesBuildProfile;
+const pagesMemoryProfile = process.env.KAI_BUILD_PROFILE === PAGES_BUILD_PROFILE;
 const memoryConstrainedBuildProfile = localMemoryProfile || pagesMemoryProfile;
 const docusaurusArgs = process.argv.slice(2);
 const isDirectBuild = docusaurusArgs.includes('build')
   || (docusaurusArgs.includes('deploy') && !docusaurusArgs.includes('--skip-build'));
-const requiredBuildEnvironment = {
-  KAI_ENFORCED_BUILD_PROFILE: '16gb',
-  DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
-  DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
-  DISABLE_RSPACK_INCREMENTAL: 'true',
-  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '1',
-  DOCUSAURUS_SSR_CONCURRENCY: '4',
-  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
-  RAYON_NUM_THREADS: '1',
-  RSPACK_BLOCKING_THREADS: '1',
-};
-const hasRequiredBuildEnvironment = Object.entries(requiredBuildEnvironment)
+const hasRequiredBuildEnvironment = Object.entries(LOW_MEMORY_ENV)
   .every(([name, value]) => process.env[name] === value)
-  && /(?:^|\s)--max[-_]old[-_]space[-_]size=6144(?:\s|$)/.test(
+  && new RegExp(`(?:^|\\s)--max[-_]old[-_]space[-_]size=${MAX_OLD_SPACE_MB}(?:\\s|$)`).test(
     process.env.NODE_OPTIONS || '',
   );
-const requiredPagesBuildEnvironment = {
-  KAI_BUILD_PROFILE: pagesBuildProfile,
-  DOCUSAURUS_SEQUENTIAL_BUNDLES: 'true',
-  DOCUSAURUS_NO_PERSISTENT_CACHE: 'true',
-  DISABLE_RSPACK_INCREMENTAL: 'true',
-  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: '2',
-  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: '300000000',
-  RAYON_NUM_THREADS: '1',
-  RSPACK_BLOCKING_THREADS: '1',
-  KAI_DOCS_SCHOOL_SHARD_COUNT: 'auto',
-};
-const hasRequiredPagesBuildEnvironment = Object.entries(requiredPagesBuildEnvironment)
+const hasRequiredPagesBuildEnvironment = Object.entries(PAGES_BUILD_ENV)
   .every(([name, value]) => process.env[name] === value)
   && process.env.KAI_ENFORCED_BUILD_PROFILE === undefined
   && process.env.DOCUSAURUS_SSR_CONCURRENCY === undefined
-  && /(?:^|\s)--max[-_]old[-_]space[-_]size=8192(?:\s|$)/.test(
+  && new RegExp(`(?:^|\\s)--max[-_]old[-_]space[-_]size=${PAGES_MAX_OLD_SPACE_MB}(?:\\s|$)`).test(
     process.env.NODE_OPTIONS || '',
   );
 
@@ -67,10 +45,8 @@ if (
   );
 }
 
-const chunkRecoveryBootstrap = readFileSync(
-  new URL('./src/clientModules/chunkRecoveryBootstrap.js', import.meta.url),
-  'utf8',
-);
+const chunkRecoveryBootstrap = recoveryAsset();
+const mathLayoutStyles = mathStyleAsset();
 
 function getYearCategoryLabel(item) {
   if (item.type !== 'category') {
@@ -220,13 +196,16 @@ const config = {
       type: 'text/css',
       crossorigin: 'anonymous',
     },
+    // Keep these rules outside Docusaurus cascade layers: they replace normal
+    // inline layout declarations and must outrank KaTeX's CDN class rules.
+    {href: mathLayoutStyles.path},
   ],
 
   headTags: [
     {
       tagName: 'script',
-      attributes: {'data-kai-chunk-recovery': 'v1'},
-      innerHTML: chunkRecoveryBootstrap,
+      // A blocking classic script installs recovery before application chunks.
+      attributes: {'data-kai-chunk-recovery': 'v1', src: chunkRecoveryBootstrap.url},
     },
     // KaTeX CSS is loaded from jsDelivr for documentation pages and reused by NoteEditor.
     { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: 'anonymous' } },
@@ -288,6 +267,7 @@ const config = {
 
   // 添加SEO相关插件
   plugins: [
+    sharedBrowserAssetsPlugin,
     safeRspackJsMinifierPlugin,
     sequentialBundlesPlugin,
     [require.resolve('./plugins/compact-docs/index.cjs'), docsPluginOptions],

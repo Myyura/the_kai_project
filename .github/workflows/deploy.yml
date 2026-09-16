@@ -38,6 +38,8 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: 校验 API 数据
         run: yarn api:validate
+      - name: 运行回归测试
+        run: yarn test
       - name: 记录构建资源
         run: |
           free -h
@@ -95,7 +97,9 @@ jobs:
 
   deploy:
     name: 部署到 GitHub Pages
-    needs: build
+    # The backwards-compatible body reader must be live before compact v2
+    # artifacts replace v1 bodies at their stable URLs.
+    needs: [build, backend]
     if: github.event_name == 'push'
 
     # 给予 GITHUB_TOKEN 进行 Pages 部署所必须的权限
@@ -116,7 +120,7 @@ jobs:
 
   backend:
     name: 迁移 Supabase 并部署 Edge Functions
-    needs: deploy
+    needs: build
     if: github.event_name == 'push'
     runs-on: ubuntu-22.04
     timeout-minutes: 20
