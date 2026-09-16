@@ -79,9 +79,9 @@ export PROBLEM_SETS_ENABLED="true"
 如果你要完整启用账号功能：
 1. 创建一个 Supabase 项目。全新空数据库先执行一次 `src/services/schema.sql` 作为基线；已有数据库不要重复执行该文件。
 2. 当前基线没有待执行的历史迁移；以后新增的结构变化才会放入 `supabase/migrations/` 并由部署流程自动应用。
-3. 按该 SQL 文件中的说明，配置认证限流、密码策略和 hCaptcha 等安全项。
+3. 在 Supabase Authentication 中配置认证限流、密码策略及 hCaptcha 或其他人机验证。
 4. 在 Supabase Authentication → URL Configuration 中加入站点回调地址，包括 `https://your-domain/auth/callback` 和 `https://your-domain/reset-password`。
-5. 如需启用站内投稿，部署 `supabase/functions/content-submissions`，并配置 `CONTENT_BOT_TOKEN`、`CLA_ATTESTATION_SECRET` 和 `CONTENT_SUBMISSION_CALLBACK_SECRET`；投稿署名来自用户已确认的公开昵称，而不是请求数据。
+5. 如需启用站内投稿，部署 `supabase/functions/content-submissions`，并配置 `CONTENT_BOT_TOKEN`、`CLA_ATTESTATION_SECRET` 和 `CONTENT_SUBMISSION_CALLBACK_SECRET`。fork 部署还应将 `GITHUB_REPOSITORY` 设为自己的 `owner/repo`，让审核 Issue 创建到自己的仓库；投稿署名来自用户已确认的公开昵称，而不是请求数据。
 6. 使用测试账号验证公开昵称和私人题集 RPC，再以 `PROBLEM_SETS_ENABLED=true` 重新构建。
 
 ## 开发者 JSON API
@@ -121,7 +121,7 @@ curl -H "Authorization: Bearer kai_live_..." \
 ### 项目维护者如何部署
 本项目复用现有登录系统作为开发者身份层，并通过 Supabase Edge Functions 对外提供题目与答案 JSON。
 
-1. 全新空数据库只执行一次 [src/services/schema.sql](src/services/schema.sql)；它已经包含当前完整结构。已有数据库不要重复执行基线。将 20260718 三份迁移折叠进基线的现有生产项目，应在下次新增迁移前执行一次 [基线收尾 SQL](supabase/manual/20260718_finalize_consolidated_baseline.sql)。
+1. 全新空数据库只执行一次 [src/services/schema.sql](src/services/schema.sql)，即可创建截至 2026-09-16 的完整结构，包括题解、纠错、招生数据和经验贴投稿。已有数据库不要重复执行基线。
 2. 部署 [supabase/functions](supabase/functions) 中的 Edge Functions。生产 GitHub Actions 使用 `SUPABASE_ACCESS_TOKEN` 和 `SUPABASE_PROJECT_REF` 自动部署函数；只有存在新的数据库迁移时才额外需要 `SUPABASE_DB_PASSWORD`：
 
 ```bash
@@ -148,7 +148,7 @@ unset SUPABASE_SERVICE_ROLE_KEY
 该命令只 upsert UUID、路径、标题、链接、标签、分类和内容哈希，并清理已经不存在的 `document_catalog` 目录行；不会上传 Markdown，也不会修改笔记、进度、题集或其他用户表。JSON API 和 Agent 需要正文时，会按 UUID 读取随网站一起发布的静态 JSON。
 该输入方式不会把密钥写入终端历史；不要把它写入仓库、GitHub Secrets 或构建日志。
 
-文档发生过路径移动后，可以在低流量维护时段于 Supabase SQL Editor 手动执行 [doc_id 归一化 SQL](supabase/manual/20260719_canonicalize_document_doc_ids.sql)。请先备份并完成 `yarn catalog:sync`；脚本会把用户业务表的旧 `doc_id` 更新为 `document_registry.current_doc_id`，保持 UUID、用户数据、时间戳和笔记版本不变，同时永久保留历史 alias。该脚本可重复执行，最终查询中的 `stale_row_count` 应全部为 `0`。
+文档移动后运行 `yarn catalog:sync` 更新当前路径和 alias。用户学习记录通过稳定的 UUID 关联文档，无需执行额外的历史归一化脚本。
 
 4. 按 [supabase/config.toml](supabase/config.toml) 保持上述五个函数的 `verify_jwt = false`；每个函数会自行完成 API Key、登录 token、回调 secret 或 JWK 校验。为 `kai-api` 配置 `API_LOG_SALT`；站内投稿与 Agent bridge 在启用前还需分别配置 GitHub、CLA、回调或 Agent/JWK secrets。
 5. 通过 Supabase Dashboard 审核 `api_access_requests` 表中的申请：将 `status` 改为 `approved` 即可允许用户创建 API Key；可用 `rejected` 或 `revoked` 拒绝或暂停访问。
@@ -225,7 +225,7 @@ yarn tags:audit
 
 提交后生成带签名的公开 Issue。维护者添加 `submission:ready-for-pr` 后，外链按来源和入学年度写入 `src/data/experiences/external/<来源域名>/<入学年度>.json`，原创生成带 `experience` frontmatter 的博客文件，并创建草稿 PR。重复外链会跨所有分组检查并进入冲突处理，不覆盖原记录；知乎分享参数和锚点不视为不同文章。只有合并 PR 并部署后才出现在公开目录。
 
-现有部署升级时，先执行 [经验贴投稿数据库迁移](supabase/manual/20260914_experience_submissions.sql)，再部署 `content-submissions` Edge Function 和网站；迁移新增 `experience_data`，并避免把经验贴计入题解／纠错积分。新数据库使用更新后的 `src/services/schema.sql`。外链的 CLA 确认只涉及提交的链接和分类，不代表原作者授权转载正文。
+新 fork 在空数据库执行 [当前基线](src/services/schema.sql)，部署 `content-submissions` Edge Function 并配置投稿 secrets 后即可使用经验贴投稿，无需额外升级 SQL。基线包含 `experience_data`、`admission_data`、审核状态和完整约束，经验贴不计入题解／纠错积分。已经完成当前版本升级的数据库无需再次执行基线。外链的 CLA 确认只涉及提交的链接和分类，不代表原作者授权转载正文。
 
 `/blog` 是按院校、研究科和专攻浏览的统一目录，包含站内正文与直接跳转的外部文章。
 

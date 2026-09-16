@@ -79,9 +79,9 @@ export PROBLEM_SETS_ENABLED="true"
 アカウント機能を有効にする場合：
 1. Supabase プロジェクトを作成します。空の新規データベースでは、最初に `src/services/schema.sql` を一度だけベースラインとして適用します。既存データベースには再適用しないでください。
 2. 現在のベースラインに未適用の履歴マイグレーションはありません。今後の構造変更だけを `supabase/migrations/` に追加し、デプロイ処理で適用します。
-3. その SQL ファイルに書かれている認証レート制限、パスワードポリシー、hCaptcha などの設定を行います。
+3. Supabase Authentication で認証レート制限、パスワードポリシー、hCaptcha などのボット対策を設定します。
 4. Supabase Authentication → URL Configuration に、`https://your-domain/auth/callback` と `https://your-domain/reset-password` を含むサイトのコールバック URL を追加します。
-5. サイト内投稿を有効にする場合は、`supabase/functions/content-submissions` をデプロイし、`CONTENT_BOT_TOKEN`、`CLA_ATTESTATION_SECRET`、`CONTENT_SUBMISSION_CALLBACK_SECRET` を設定します。投稿者名はリクエスト値ではなく、確認済みの公開ニックネームから取得されます。
+5. サイト内投稿を有効にする場合は、`supabase/functions/content-submissions` をデプロイし、`CONTENT_BOT_TOKEN`、`CLA_ATTESTATION_SECRET`、`CONTENT_SUBMISSION_CALLBACK_SECRET` を設定します。fork では `GITHUB_REPOSITORY` も自分の `owner/repo` に設定し、審査 Issue の作成先を指定してください。投稿者名はリクエスト値ではなく、確認済みの公開ニックネームから取得されます。
 6. テストアカウントで公開ニックネームと非公開問題セットの RPC を確認し、`PROBLEM_SETS_ENABLED=true` で再ビルドします。
 
 ## 開発者向け JSON API
@@ -121,7 +121,7 @@ curl -H "Authorization: Bearer kai_live_..." \
 ### プロジェクトメンテナー向けのデプロイ
 このプロジェクトは既存のログインシステムを開発者向けの認証基盤として再利用し、Supabase Edge Functions から過去問と解答 JSON を提供します。
 
-1. 空の新規データベースだけで [src/services/schema.sql](src/services/schema.sql) を一度実行してください。現在の完全な構造が含まれているため、既存データベースには再適用しないでください。20260718 の 3 つのマイグレーションをベースラインへ統合した既存の本番環境では、次のマイグレーションを追加する前に [ベースライン最終化 SQL](supabase/manual/20260718_finalize_consolidated_baseline.sql) を一度実行してください。
+1. 空の新規データベースで [src/services/schema.sql](src/services/schema.sql) を一度実行してください。解答・訂正・入試データ・体験記の投稿を含む2026-09-16時点の完全な構造を直接作成します。既存のデータベースには再適用しないでください。
 2. [supabase/functions](supabase/functions) の Edge Functions をデプロイします。本番 GitHub Actions は `SUPABASE_ACCESS_TOKEN` と `SUPABASE_PROJECT_REF` で関数をデプロイし、新しいデータベースマイグレーションがある場合だけ `SUPABASE_DB_PASSWORD` も必要です。
 
 ```bash
@@ -148,7 +148,7 @@ unset SUPABASE_SERVICE_ROLE_KEY
 このコマンドは UUID、パス、タイトル、リンク、タグ、分類、コンテンツハッシュだけを upsert し、不要になった `document_catalog` 行を削除します。Markdown、ノート、進捗、問題セットなどのユーザーデータは変更しません。JSON API と Agent は、Web サイトと一緒に公開された静的 JSON から本文を取得します。
 この入力方法ではキーがシェル履歴に残りません。リポジトリや GitHub Actions には保存しないでください。
 
-文書パスを移動した後は、アクセスの少ない保守時間帯に Supabase SQL Editor で [doc_id 正規化 SQL](supabase/manual/20260719_canonicalize_document_doc_ids.sql) を手動実行できます。事前にバックアップを取得し、`yarn catalog:sync` を完了してください。この再実行可能なスクリプトは、UUID、ユーザー行、タイムスタンプ、ノート版数、過去の alias をすべて保持したまま、各アプリケーションテーブルの旧 `doc_id` を `document_registry.current_doc_id` へ更新します。最後の `stale_row_count` はすべて `0` になる必要があります。
+文書パスの移動後は `yarn catalog:sync` で現在のパスと alias を更新します。学習記録は固定 UUID で文書に関連付けられるため、過去の正規化 SQL は不要です。
 
 4. [supabase/config.toml](supabase/config.toml) の設定どおり、5 つの Edge Function すべてで `verify_jwt = false` を維持します。各関数は API キー、ログイントークン、コールバックシークレット、または JWK を独自に検証します。`kai-api` には `API_LOG_SALT` を設定し、サイト内投稿と Agent ブリッジ には、有効化前にそれぞれ GitHub、CLA、コールバック、または Agent/JWK 用のシークレット を設定してください。
 5. Supabase Dashboard で `api_access_requests` テーブルの申請を確認します。`status` を `approved` に変更すると API キーの作成を許可できます。拒否または停止する場合は `rejected` / `revoked` を使います。
@@ -225,7 +225,7 @@ yarn tags:audit
 
 署名付き公開 Issue をメンテナーが確認し、`submission:ready-for-pr` を付けると、外部記事は掲載元・入学年度別の `src/data/experiences/external/<掲載元ホスト名>/<入学年度>.json`、オリジナル記事は `experience` frontmatter 付きブログに変換され、Draft PR が作成されます。重複リンクは全グループを通して確認し、既存記事を上書きせず競合として扱います。知乎の共有パラメータとアンカーは別記事とは見なしません。公開には PR のマージとデプロイが必要です。
 
-既存環境は[体験記投稿の DB マイグレーション](supabase/manual/20260914_experience_submissions.sql)を実行後、更新した `content-submissions` Edge Function とサイトをデプロイしてください。`experience_data` を追加し、体験記が解答・訂正のポイントに混入することを防ぎます。新規 DB は更新済み `src/services/schema.sql` を使用します。外部記事の CLA 確認は提出するメタデータのみを対象とし、原文の転載許諾を意味しません。
+新しく fork する場合は、空の DB で[現在のベースライン](src/services/schema.sql)を実行し、`content-submissions` のデプロイと投稿用 secrets の設定を行ってください。追加のアップグレード SQL は不要です。`experience_data`・`admission_data`・審査状態と制約を含み、体験記は解答・訂正のポイントに加算されません。現在のバージョンへ更新済みの DB には再適用不要です。外部記事の CLA 確認は提出するメタデータのみを対象とし、原文の転載許諾を意味しません。
 
 `/blog` では、本サイトの記事と外部記事を大学・研究科・専攻ごとに探せます。
 

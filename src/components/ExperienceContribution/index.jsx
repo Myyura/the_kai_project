@@ -12,6 +12,7 @@ import {saveAuthReturnIntent, consumeAuthReturnIntent} from '@site/src/services/
 import {getEdgeFunctionErrorMessage} from '@site/src/services/edgeFunctionErrors';
 import {markdownToHtml, renderMathInContainer} from '@site/src/components/NoteEditor/markdownRenderer';
 import {normalizeExperienceRequest} from '@site/supabase/functions/content-submissions/experience.ts';
+import SubmissionSuccess from './SubmissionSuccess';
 import styles from './styles.module.css';
 
 const scopes = catalogScopes(universities);
@@ -123,11 +124,7 @@ export default function ExperienceContribution() {
     <header className={styles.header}>
       <h1>{t.title}</h1><p>{t.intro}</p>
     </header>
-    {issueUrl ? <section className={styles.panel} role="status">
-      <h2>{t.success}</h2>
-      <a href={issueUrl} target="_blank" rel="noreferrer">{t.viewIssue} ↗</a>
-      <p><Link to="/me?tab=contribute">{t.records}</Link></p>
-    </section> : <form className={styles.panel} onSubmit={submit}>
+    {issueUrl ? <SubmissionSuccess title={title} kind={kind} issueUrl={issueUrl} t={t} /> : <form className={styles.panel} onSubmit={submit}>
       <fieldset disabled={submitting} className={styles.fields}>
         <div className={styles.modes} role="group" aria-label={t.title}>
           {['external', 'internal'].map(value => <button type="button" key={value} className={kind === value ? styles.activeMode : ''} aria-pressed={kind === value}

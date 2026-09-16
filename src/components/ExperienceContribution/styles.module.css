@@ -5,6 +5,33 @@
   --ifm-h2-font-size: 1rem;
 }
 .primaryButton { composes: btnPrimary from '../../styles/kai-ui.module.css'; }
+.secondaryButton { composes: btnSecondary from '../../styles/kai-ui.module.css'; }
+.successPanel {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--ifm-background-surface-color);
+  padding: 1.75rem;
+}
+.successHeading { display: flex; align-items: flex-start; gap: 1rem; }
+.successIcon {
+  display: grid; place-items: center; flex: 0 0 44px; height: 44px;
+  border-radius: 50%; background: rgba(var(--theme-accent-rgb), .1); color: var(--ifm-color-primary);
+  font-size: 1.4rem;
+}
+.successHeading h2 { margin: 0 0 .4rem; font-size: 1.2rem; line-height: 1.5; letter-spacing: -.015em; }
+.successHeading h2:focus { outline: none; }
+.successHeading p { margin: 0; color: var(--ifm-color-emphasis-600); font-size: .88rem; line-height: 1.75; }
+.submissionSummary { margin-top: 1.5rem; padding: 1rem 1.15rem; border-radius: var(--custom-border-radius-xs); background: var(--custom-card-bg); }
+.submissionMeta { display: flex; align-items: center; gap: .65rem; flex-wrap: wrap; color: var(--ifm-color-emphasis-600); font-size: .76rem; }
+.pendingBadge { display: inline-flex; align-items: center; gap: .4rem; }
+.pendingBadge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--ifm-color-primary); }
+.submissionSummary h3 { margin: .5rem 0 0; font-size: .95rem; font-weight: 600; line-height: 1.65; overflow-wrap: anywhere; }
+.successActions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+.successButtons { display: flex; flex-wrap: wrap; gap: .65rem; }
+.successButtons a { font-size: .82rem; font-weight: 600; }
+.backLink { display: inline-flex; align-items: center; gap: .4rem; color: var(--ifm-color-emphasis-600); font-size: .8rem; white-space: nowrap; }
+.backLink:hover { color: var(--ifm-color-primary); }
+.secondaryButton svg, .backLink svg { flex-shrink: 0; }
 .activeMode { composes: activeTab from '../ContributeContent/styles.module.css'; }
 .header { margin: 0 0 1.5rem; }
 .header h1 { margin: 0 0 .5rem; font-size: 1.85rem; line-height: 1.3; letter-spacing: -.025em; }
@@ -47,6 +74,11 @@
 .preview h1 { font-size: 1.5rem; }
 .preview h2 { font-size: 1.2rem; margin: 1rem 0 .6rem; }
 @media (max-width: 680px) {
+  .successPanel { padding: 1.2rem; }
+  .successHeading { gap: .75rem; }
+  .successIcon { flex-basis: 36px; height: 36px; font-size: 1.15rem; }
+  .successHeading h2 { font-size: 1.1rem; }
+  .successActions { align-items: flex-start; flex-direction: column; gap: 1.15rem; }
   .page { padding-top: 1.5rem; padding-bottom: 3rem; --ifm-h1-font-size: 1.6rem; }
   .header h1 { font-size: 1.6rem; }
   .panel { padding: 1.1rem; }

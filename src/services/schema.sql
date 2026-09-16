@@ -1,192 +1,735 @@
 -- ============================================================
--- Kai Project Supabase 当前完整基线结构
+-- Kai Project Supabase 基线 · 2026-09-16
 --
--- 全新环境只执行本脚本一次即可得到当前生产数据模型。
--- 已有生产环境不要重复执行本文件；后续结构变化使用新的有序迁移。
--- ============================================================
---
--- ⚠️ 重要：还需在 Supabase Dashboard 中手动配置以下服务端安全项（不可被前端绕过）：
---
---   1. Authentication → Rate Limits
---      → 设置每 IP / 每邮箱的登录尝试频率上限（推荐：10 次/小时）
---
---   2. Authentication → Providers → Email
---      → Min password length = 8
---
---   3. Authentication → Bot and Abuse Protection
---      → 启用 hCaptcha 或 Cloudflare Turnstile（防自动化暴力破解）
---
---   4. Authentication → URL Configuration
---      → 将站点的 /auth/callback 和 /reset-password 加入允许的 Redirect URLs
---
+-- 仅供全新 Supabase 项目：在 SQL Editor 完整执行一次。
+-- 直接创建当前结构，包含经验贴、招生数据投稿与共享文档 UUID。
+-- 已运行到此版本的数据库无需执行；后续增量变更使用 supabase/migrations/。
+-- 认证配置、Edge Function 部署与内容目录同步见 CONTRIBUTING.zh.md。
 -- ============================================================
 
--- 启用 UUID 扩展
+begin;
+
 create extension if not exists "uuid-ossp";
 
--- ============================================================
--- V2：按 docId 分表存储（避免整行 JSONB 覆盖冲突）
--- ============================================================
+-- ── 表、约束与索引 ──────────────────────────────────────────
 
--- ── 进度表（每条记录对应一个 doc_id） ───────────────────────
-create table if not exists user_progress_items (
-  id                uuid primary key default uuid_generate_v4(),
-  user_id           uuid not null references auth.users(id) on delete cascade,
-  doc_id            text not null,
-  status            text,
-  title             text,
-  permalink         text,
-  tags              jsonb not null default '[]'::jsonb,
-  review_count      integer not null default 0,
-  client_updated_at bigint not null default (extract(epoch from now()) * 1000)::bigint,
-  deleted_at        timestamptz,
-  updated_at        timestamptz not null default now(),
-  created_at        timestamptz not null default now(),
-
-  constraint user_progress_items_user_doc_unique unique (user_id, doc_id),
-  constraint user_progress_items_status_check check (
-    status in ('completed', 'reviewing') or status is null
-  ),
-  constraint user_progress_items_review_count_check check (review_count >= 0),
-  constraint user_progress_items_tags_is_array check (jsonb_typeof(tags) = 'array')
+create table public.agent_user_links (
+  agent_user_id uuid default uuid_generate_v4() not null,
+  user_id uuid not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint agent_user_links_pkey PRIMARY KEY (agent_user_id),
+  constraint agent_user_links_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE,
+  constraint agent_user_links_user_id_key UNIQUE (user_id)
 );
 
-create index if not exists idx_upi_user_updated_at
-  on user_progress_items(user_id, updated_at);
-create index if not exists idx_upi_user_client_updated_at
-  on user_progress_items(user_id, client_updated_at);
-create index if not exists idx_upi_user_deleted_at
-  on user_progress_items(user_id, deleted_at);
-
--- ── 笔记表（每条记录对应一个 doc_id） ───────────────────────
-create table if not exists user_note_items (
-  id                uuid primary key default uuid_generate_v4(),
-  user_id           uuid not null references auth.users(id) on delete cascade,
-  doc_id            text not null,
-  content           text,
-  client_updated_at bigint not null default (extract(epoch from now()) * 1000)::bigint,
-  deleted_at        timestamptz,
-  updated_at        timestamptz not null default now(),
-  created_at        timestamptz not null default now(),
-
-  constraint user_note_items_user_doc_unique unique (user_id, doc_id)
+create table public.agent_sessions (
+  id uuid default uuid_generate_v4() not null,
+  agent_user_id uuid not null,
+  status text default 'active'::text not null,
+  scopes jsonb default '[]'::jsonb not null,
+  expires_at timestamp with time zone not null,
+  revoked_at timestamp with time zone,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint agent_sessions_agent_user_id_fkey FOREIGN KEY (agent_user_id) REFERENCES agent_user_links(agent_user_id) ON DELETE CASCADE,
+  constraint agent_sessions_pkey PRIMARY KEY (id),
+  constraint agent_sessions_scopes_is_array CHECK (jsonb_typeof(scopes) = 'array'::text),
+  constraint agent_sessions_status_check CHECK (status = ANY (ARRAY['active'::text, 'revoked'::text, 'expired'::text]))
 );
 
-create index if not exists idx_uni_user_updated_at
-  on user_note_items(user_id, updated_at);
-create index if not exists idx_uni_user_client_updated_at
-  on user_note_items(user_id, client_updated_at);
-create index if not exists idx_uni_user_deleted_at
-  on user_note_items(user_id, deleted_at);
+CREATE INDEX idx_agent_sessions_agent_user_created ON public.agent_sessions USING btree (agent_user_id, created_at DESC);
 
--- ── RLS 策略（progress） ───────────────────────────────────
-alter table user_progress_items enable row level security;
+CREATE INDEX idx_agent_sessions_expires ON public.agent_sessions USING btree (expires_at);
 
-drop policy if exists "Users can view own progress items" on user_progress_items;
-create policy "Users can view own progress items"
-  on user_progress_items for select
-  using (auth.uid() = user_id);
+create table public.ai_entitlements (
+  user_id uuid not null,
+  plan text default 'free'::text not null,
+  status text default 'active'::text not null,
+  monthly_message_limit integer default 50 not null,
+  monthly_token_limit bigint default 500000 not null,
+  credit_balance_micros bigint default 0 not null,
+  premium_credit_balance_micros bigint default 0 not null,
+  enabled_models jsonb default '[]'::jsonb not null,
+  current_period_start date default (date_trunc('month'::text, now()))::date not null,
+  current_period_end date default ((date_trunc('month'::text, now()) + '1 mon'::interval))::date not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint ai_entitlements_enabled_models_is_array CHECK (jsonb_typeof(enabled_models) = 'array'::text),
+  constraint ai_entitlements_message_limit_check CHECK (monthly_message_limit >= 0),
+  constraint ai_entitlements_pkey PRIMARY KEY (user_id),
+  constraint ai_entitlements_plan_check CHECK (plan = ANY (ARRAY['free'::text, 'pro'::text, 'team'::text, 'admin'::text])),
+  constraint ai_entitlements_status_check CHECK (status = ANY (ARRAY['active'::text, 'trialing'::text, 'past_due'::text, 'canceled'::text, 'suspended'::text])),
+  constraint ai_entitlements_token_limit_check CHECK (monthly_token_limit >= 0),
+  constraint ai_entitlements_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
 
-drop policy if exists "Users can insert own progress items" on user_progress_items;
-create policy "Users can insert own progress items"
-  on user_progress_items for insert
-  with check (auth.uid() = user_id);
+create table public.ai_model_prices (
+  model text not null,
+  input_micro_usd_per_mtok bigint not null,
+  cached_input_micro_usd_per_mtok bigint default 0 not null,
+  output_micro_usd_per_mtok bigint not null,
+  credit_pool text default 'standard'::text not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint ai_model_prices_credit_pool_check CHECK (credit_pool = ANY (ARRAY['standard'::text, 'premium'::text])),
+  constraint ai_model_prices_nonnegative_check CHECK (input_micro_usd_per_mtok >= 0 AND cached_input_micro_usd_per_mtok >= 0 AND output_micro_usd_per_mtok >= 0),
+  constraint ai_model_prices_pkey PRIMARY KEY (model)
+);
 
-drop policy if exists "Users can update own progress items" on user_progress_items;
-create policy "Users can update own progress items"
-  on user_progress_items for update
-  using (auth.uid() = user_id);
+-- 初始模型计费配置；部署者应按实际供应商配置维护。
+insert into public.ai_model_prices
+  (model, input_micro_usd_per_mtok, cached_input_micro_usd_per_mtok, output_micro_usd_per_mtok, credit_pool)
+values
+  ('gpt-5.5', 5000000, 500000, 30000000, 'premium'),
+  ('gpt-5.3-codex-spark', 1750000, 175000, 14000000, 'standard');
 
-drop policy if exists "Users can delete own progress items" on user_progress_items;
-create policy "Users can delete own progress items"
-  on user_progress_items for delete
-  using (auth.uid() = user_id);
+create table public.ai_usage_months (
+  user_id uuid not null,
+  period_start date not null,
+  period_end date not null,
+  plan text default 'free'::text not null,
+  messages_used integer default 0 not null,
+  messages_reserved integer default 0 not null,
+  input_tokens bigint default 0 not null,
+  cached_input_tokens bigint default 0 not null,
+  output_tokens bigint default 0 not null,
+  total_tokens bigint default 0 not null,
+  cost_micros bigint default 0 not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint ai_usage_months_nonnegative_check CHECK (messages_used >= 0 AND messages_reserved >= 0 AND input_tokens >= 0 AND cached_input_tokens >= 0 AND output_tokens >= 0 AND total_tokens >= 0 AND cost_micros >= 0),
+  constraint ai_usage_months_pkey PRIMARY KEY (user_id, period_start),
+  constraint ai_usage_months_plan_check CHECK (plan = ANY (ARRAY['free'::text, 'pro'::text, 'team'::text, 'admin'::text])),
+  constraint ai_usage_months_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
 
--- ── RLS 策略（notes） ──────────────────────────────────────
-alter table user_note_items enable row level security;
+CREATE INDEX idx_ai_usage_months_period ON public.ai_usage_months USING btree (period_start DESC);
 
-drop policy if exists "Users can view own note items" on user_note_items;
-create policy "Users can view own note items"
-  on user_note_items for select
-  using (auth.uid() = user_id);
+create table public.ai_usage_reservations (
+  id uuid default uuid_generate_v4() not null,
+  user_id uuid not null,
+  agent_user_id uuid not null,
+  session_id uuid not null,
+  idempotency_key text not null,
+  status text default 'reserved'::text not null,
+  period_start date not null,
+  reserved_messages integer default 1 not null,
+  committed_at timestamp with time zone,
+  canceled_at timestamp with time zone,
+  cancel_reason text,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint ai_usage_reservations_agent_user_id_fkey FOREIGN KEY (agent_user_id) REFERENCES agent_user_links(agent_user_id) ON DELETE CASCADE,
+  constraint ai_usage_reservations_key_length CHECK (char_length(TRIM(BOTH FROM idempotency_key)) >= 1 AND char_length(TRIM(BOTH FROM idempotency_key)) <= 160),
+  constraint ai_usage_reservations_pkey PRIMARY KEY (id),
+  constraint ai_usage_reservations_reserved_messages_check CHECK (reserved_messages > 0),
+  constraint ai_usage_reservations_session_id_fkey FOREIGN KEY (session_id) REFERENCES agent_sessions(id) ON DELETE CASCADE,
+  constraint ai_usage_reservations_session_key_unique UNIQUE (session_id, idempotency_key),
+  constraint ai_usage_reservations_status_check CHECK (status = ANY (ARRAY['reserved'::text, 'committed'::text, 'canceled'::text, 'expired'::text])),
+  constraint ai_usage_reservations_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
 
-drop policy if exists "Users can insert own note items" on user_note_items;
-create policy "Users can insert own note items"
-  on user_note_items for insert
-  with check (auth.uid() = user_id);
+CREATE INDEX idx_ai_usage_reservations_user_created ON public.ai_usage_reservations USING btree (user_id, created_at DESC);
 
-drop policy if exists "Users can update own note items" on user_note_items;
-create policy "Users can update own note items"
-  on user_note_items for update
-  using (auth.uid() = user_id);
+create table public.ai_usage_events (
+  id uuid default uuid_generate_v4() not null,
+  reservation_id uuid,
+  user_id uuid not null,
+  agent_user_id uuid not null,
+  session_id uuid,
+  provider text default ''::text not null,
+  model text default ''::text not null,
+  input_tokens bigint default 0 not null,
+  cached_input_tokens bigint default 0 not null,
+  output_tokens bigint default 0 not null,
+  total_tokens bigint default 0 not null,
+  cost_micros bigint default 0 not null,
+  status text default 'succeeded'::text not null,
+  latency_ms integer,
+  error_code text,
+  created_at timestamp with time zone default now() not null,
+  constraint ai_usage_events_agent_user_id_fkey FOREIGN KEY (agent_user_id) REFERENCES agent_user_links(agent_user_id) ON DELETE CASCADE,
+  constraint ai_usage_events_nonnegative_check CHECK (input_tokens >= 0 AND cached_input_tokens >= 0 AND output_tokens >= 0 AND total_tokens >= 0 AND cost_micros >= 0 AND (latency_ms IS NULL OR latency_ms >= 0)),
+  constraint ai_usage_events_pkey PRIMARY KEY (id),
+  constraint ai_usage_events_reservation_id_fkey FOREIGN KEY (reservation_id) REFERENCES ai_usage_reservations(id) ON DELETE SET NULL,
+  constraint ai_usage_events_reservation_unique UNIQUE (reservation_id),
+  constraint ai_usage_events_session_id_fkey FOREIGN KEY (session_id) REFERENCES agent_sessions(id) ON DELETE SET NULL,
+  constraint ai_usage_events_status_check CHECK (status = ANY (ARRAY['succeeded'::text, 'failed'::text, 'canceled'::text])),
+  constraint ai_usage_events_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
 
-drop policy if exists "Users can delete own note items" on user_note_items;
-create policy "Users can delete own note items"
-  on user_note_items for delete
-  using (auth.uid() = user_id);
+CREATE INDEX idx_ai_usage_events_session_created ON public.ai_usage_events USING btree (session_id, created_at DESC);
 
--- ── 自动更新 updated_at 触发器 ─────────────────────────────
-create or replace function update_updated_at_column()
-returns trigger as $$
+CREATE INDEX idx_ai_usage_events_user_created ON public.ai_usage_events USING btree (user_id, created_at DESC);
+
+create table public.api_access_requests (
+  id uuid default uuid_generate_v4() not null,
+  user_id uuid not null,
+  status text default 'pending'::text not null,
+  applicant_name text default ''::text not null,
+  organization text default ''::text not null,
+  contact_email text default ''::text not null,
+  website text default ''::text not null,
+  intended_use text default ''::text not null,
+  commercial_use boolean default false not null,
+  plan text default 'free'::text not null,
+  rate_limit_per_minute integer default 60 not null,
+  max_active_keys integer default 3 not null,
+  commercial_allowed boolean default false not null,
+  expires_at timestamp with time zone,
+  reviewed_by uuid,
+  reviewed_at timestamp with time zone,
+  review_note text,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint api_access_requests_intended_use_length CHECK (char_length(TRIM(BOTH FROM intended_use)) <= 4000),
+  constraint api_access_requests_max_keys_check CHECK (max_active_keys >= 1 AND max_active_keys <= 10),
+  constraint api_access_requests_pkey PRIMARY KEY (id),
+  constraint api_access_requests_plan_check CHECK (plan = ANY (ARRAY['free'::text, 'research'::text, 'partner'::text, 'commercial'::text])),
+  constraint api_access_requests_rate_limit_check CHECK (rate_limit_per_minute >= 1 AND rate_limit_per_minute <= 600),
+  constraint api_access_requests_reviewed_by_fkey FOREIGN KEY (reviewed_by) REFERENCES auth.users(id) ON DELETE SET NULL,
+  constraint api_access_requests_status_check CHECK (status = ANY (ARRAY['pending'::text, 'approved'::text, 'rejected'::text, 'revoked'::text])),
+  constraint api_access_requests_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE,
+  constraint api_access_requests_user_unique UNIQUE (user_id)
+);
+
+CREATE INDEX idx_api_access_requests_status ON public.api_access_requests USING btree (status, created_at DESC);
+
+create table public.api_keys (
+  id uuid default uuid_generate_v4() not null,
+  user_id uuid not null,
+  name text not null,
+  key_prefix text not null,
+  key_hash text not null,
+  status text default 'active'::text not null,
+  rate_limit_per_minute integer default 60 not null,
+  plan text default 'free'::text not null,
+  request_count bigint default 0 not null,
+  last_used_at timestamp with time zone,
+  revoked_at timestamp with time zone,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint api_keys_key_hash_key UNIQUE (key_hash),
+  constraint api_keys_name_length CHECK (char_length(name) >= 1 AND char_length(name) <= 80),
+  constraint api_keys_pkey PRIMARY KEY (id),
+  constraint api_keys_plan_check CHECK (plan = ANY (ARRAY['free'::text, 'research'::text, 'partner'::text, 'commercial'::text])),
+  constraint api_keys_rate_limit_check CHECK (rate_limit_per_minute >= 1 AND rate_limit_per_minute <= 600),
+  constraint api_keys_status_check CHECK (status = ANY (ARRAY['active'::text, 'revoked'::text])),
+  constraint api_keys_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_api_keys_status ON public.api_keys USING btree (status);
+
+CREATE INDEX idx_api_keys_user_id ON public.api_keys USING btree (user_id, created_at DESC);
+
+create table public.api_request_logs (
+  id uuid default uuid_generate_v4() not null,
+  api_key_id uuid,
+  user_id uuid,
+  method text not null,
+  path text not null,
+  query_params jsonb default '{}'::jsonb not null,
+  status_code integer not null,
+  result_count integer,
+  duration_ms integer,
+  ip_hash text,
+  user_agent text,
+  created_at timestamp with time zone default now() not null,
+  constraint api_request_logs_api_key_id_fkey FOREIGN KEY (api_key_id) REFERENCES api_keys(id) ON DELETE SET NULL,
+  constraint api_request_logs_pkey PRIMARY KEY (id),
+  constraint api_request_logs_query_params_is_object CHECK (jsonb_typeof(query_params) = 'object'::text),
+  constraint api_request_logs_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE SET NULL
+);
+
+CREATE INDEX idx_api_request_logs_key_created ON public.api_request_logs USING btree (api_key_id, created_at DESC);
+
+CREATE INDEX idx_api_request_logs_status ON public.api_request_logs USING btree (status_code);
+
+CREATE INDEX idx_api_request_logs_user_created ON public.api_request_logs USING btree (user_id, created_at DESC);
+
+create table public.api_usage_windows (
+  api_key_id uuid not null,
+  window_start timestamp with time zone not null,
+  request_count integer default 0 not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint api_usage_windows_api_key_id_fkey FOREIGN KEY (api_key_id) REFERENCES api_keys(id) ON DELETE CASCADE,
+  constraint api_usage_windows_pkey PRIMARY KEY (api_key_id, window_start),
+  constraint api_usage_windows_request_count_check CHECK (request_count >= 0)
+);
+
+CREATE INDEX idx_api_usage_windows_window_start ON public.api_usage_windows USING btree (window_start DESC);
+
+create table public.document_registry (
+  document_uuid uuid not null,
+  current_doc_id text,
+  created_at timestamp with time zone default now() not null,
+  updated_at timestamp with time zone default now() not null,
+  constraint document_registry_current_doc_id_check CHECK (current_doc_id IS NULL OR char_length(TRIM(BOTH FROM current_doc_id)) >= 1 AND char_length(TRIM(BOTH FROM current_doc_id)) <= 500),
+  constraint document_registry_current_doc_id_key UNIQUE (current_doc_id),
+  constraint document_registry_pkey PRIMARY KEY (document_uuid)
+);
+
+create table public.content_submissions (
+  id uuid default uuid_generate_v4() not null,
+  user_id uuid not null,
+  submission_type text not null,
+  status text default 'pending_issue'::text not null,
+  title text default ''::text not null,
+  public_author text default ''::text not null,
+  university_id text default ''::text not null,
+  department_id text default ''::text not null,
+  program_id text default ''::text not null,
+  year integer,
+  file_slug text default ''::text not null,
+  target_doc_id text default ''::text not null,
+  target_title text default ''::text not null,
+  tags jsonb default '[]'::jsonb not null,
+  description_markdown text default ''::text not null,
+  kai_markdown text default ''::text not null,
+  correction_base_sha text default ''::text not null,
+  correction_patch jsonb default '[]'::jsonb not null,
+  correction_conflict boolean default false not null,
+  admission_data jsonb default '{}'::jsonb not null,
+  experience_data jsonb default '{}'::jsonb not null,
+  cla_accepted_at timestamp with time zone not null,
+  payload_hash text,
+  payload_signature text,
+  issue_number integer,
+  issue_url text,
+  pr_number integer,
+  pr_url text,
+  failure_reason text,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  target_document_uuid uuid,
+  constraint content_submissions_admission_data_is_object CHECK (jsonb_typeof(admission_data) = 'object'::text),
+  constraint content_submissions_admission_data_presence CHECK (submission_type = 'admission_data'::text AND admission_data <> '{}'::jsonb OR submission_type <> 'admission_data'::text AND admission_data = '{}'::jsonb),
+  constraint content_submissions_admission_not_converted CHECK (submission_type <> 'admission_data'::text OR status <> 'converted'::text),
+  constraint content_submissions_author_length CHECK (char_length(public_author) <= 160),
+  constraint content_submissions_correction_sha CHECK (submission_type <> 'correction'::text OR correction_base_sha ~ '^[a-f0-9]{40}$'::text),
+  constraint content_submissions_experience_data_check CHECK (jsonb_typeof(experience_data) = 'object'::text AND (submission_type = 'experience'::text AND experience_data <> '{}'::jsonb OR submission_type <> 'experience'::text AND experience_data = '{}'::jsonb)),
+  constraint content_submissions_experience_length CHECK (submission_type <> 'experience'::text OR char_length(COALESCE(experience_data ->> 'markdown'::text, ''::text)) <= 50000),
+  constraint content_submissions_new_solution_markdown_length CHECK (submission_type <> 'new_solution'::text OR (char_length(description_markdown) + char_length(kai_markdown)) <= 50000),
+  constraint content_submissions_patch_is_array CHECK (jsonb_typeof(correction_patch) = 'array'::text),
+  constraint content_submissions_pkey PRIMARY KEY (id),
+  constraint content_submissions_status_check CHECK (status = ANY (ARRAY['pending_issue'::text, 'issue_created'::text, 'review_created'::text, 'failed'::text, 'converted'::text, 'closed'::text])),
+  constraint content_submissions_tags_is_array CHECK (jsonb_typeof(tags) = 'array'::text),
+  constraint content_submissions_target_document_uuid_fkey FOREIGN KEY (target_document_uuid) REFERENCES document_registry(document_uuid),
+  constraint content_submissions_title_length CHECK (char_length(title) <= 240),
+  constraint content_submissions_type_check CHECK (submission_type = ANY (ARRAY['new_solution'::text, 'correction'::text, 'admission_data'::text, 'experience'::text])),
+  constraint content_submissions_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE,
+  constraint content_submissions_year_check CHECK (year IS NULL OR year >= 1900 AND year <= 2200)
+);
+
+CREATE INDEX idx_content_submissions_issue_number ON public.content_submissions USING btree (issue_number);
+
+CREATE INDEX idx_content_submissions_status_created ON public.content_submissions USING btree (status, created_at DESC);
+
+CREATE INDEX idx_content_submissions_user_created ON public.content_submissions USING btree (user_id, created_at DESC);
+
+create table public.document_aliases (
+  doc_id text not null,
+  document_uuid uuid not null,
+  is_current boolean default false not null,
+  created_at timestamp with time zone default now() not null,
+  constraint document_aliases_doc_id_check CHECK (char_length(TRIM(BOTH FROM doc_id)) >= 1 AND char_length(TRIM(BOTH FROM doc_id)) <= 500),
+  constraint document_aliases_document_uuid_fkey FOREIGN KEY (document_uuid) REFERENCES document_registry(document_uuid) ON DELETE CASCADE,
+  constraint document_aliases_pkey PRIMARY KEY (doc_id)
+);
+
+CREATE UNIQUE INDEX idx_document_aliases_one_current ON public.document_aliases USING btree (document_uuid) WHERE is_current;
+
+CREATE INDEX idx_document_aliases_uuid ON public.document_aliases USING btree (document_uuid);
+
+create table public.document_catalog (
+  doc_id text not null,
+  type text default 'exam'::text not null,
+  source_path text not null,
+  title text not null,
+  sidebar_label text,
+  university_id text,
+  university_name text,
+  department_id text,
+  department_name text,
+  program_id text,
+  program_name text,
+  year integer,
+  year_label text,
+  file_slug text,
+  tags jsonb default '[]'::jsonb not null,
+  school_tags jsonb default '[]'::jsonb not null,
+  learning_tags jsonb default '[]'::jsonb not null,
+  subject_ids jsonb default '[]'::jsonb not null,
+  subsubject_ids jsonb default '[]'::jsonb not null,
+  topic_ids jsonb default '[]'::jsonb not null,
+  permalink text not null,
+  content_hash text not null,
+  synced_at timestamp with time zone default now() not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  document_uuid uuid not null,
+  content_path text not null,
+  constraint document_catalog_content_path_check CHECK (content_path = (('/api-content/v1/documents/'::text || document_uuid::text) || '.json'::text)),
+  constraint document_catalog_document_uuid_fkey FOREIGN KEY (document_uuid) REFERENCES document_registry(document_uuid),
+  constraint document_catalog_learning_tags_is_array CHECK (jsonb_typeof(learning_tags) = 'array'::text),
+  constraint document_catalog_pkey PRIMARY KEY (doc_id),
+  constraint document_catalog_school_tags_is_array CHECK (jsonb_typeof(school_tags) = 'array'::text),
+  constraint document_catalog_subject_ids_is_array CHECK (jsonb_typeof(subject_ids) = 'array'::text),
+  constraint document_catalog_subsubject_ids_is_array CHECK (jsonb_typeof(subsubject_ids) = 'array'::text),
+  constraint document_catalog_tags_is_array CHECK (jsonb_typeof(tags) = 'array'::text),
+  constraint document_catalog_topic_ids_is_array CHECK (jsonb_typeof(topic_ids) = 'array'::text),
+  constraint document_catalog_type_check CHECK (type = ANY (ARRAY['exam'::text, 'guide'::text])),
+  constraint document_catalog_year_check CHECK (year IS NULL OR year >= 1900 AND year <= 2100)
+);
+
+CREATE INDEX idx_document_catalog_discovery ON public.document_catalog USING btree (type, university_id, department_id, program_id, year);
+
+CREATE INDEX idx_document_catalog_school_tags ON public.document_catalog USING gin (school_tags);
+
+CREATE INDEX idx_document_catalog_subject_ids ON public.document_catalog USING gin (subject_ids);
+
+CREATE INDEX idx_document_catalog_subsubject_ids ON public.document_catalog USING gin (subsubject_ids);
+
+CREATE INDEX idx_document_catalog_tags ON public.document_catalog USING gin (tags);
+
+CREATE INDEX idx_document_catalog_topic_ids ON public.document_catalog USING gin (topic_ids);
+
+CREATE UNIQUE INDEX idx_document_catalog_uuid ON public.document_catalog USING btree (document_uuid);
+
+CREATE INDEX idx_document_catalog_year ON public.document_catalog USING btree (year);
+
+comment on table public.document_catalog is 'Lightweight document identity and discovery metadata. Markdown bodies are published as static build artifacts.';
+
+comment on column public.document_catalog.content_path is 'Same-origin static JSON path keyed by immutable document UUID.';
+
+create table public.exam_difficulty_stats (
+  doc_id text not null,
+  vote_count integer default 0 not null,
+  easy_count integer default 0 not null,
+  medium_count integer default 0 not null,
+  hard_count integer default 0 not null,
+  average_score numeric(4,2),
+  bayesian_score numeric(4,2),
+  effective_vote_weight numeric(8,2) default 0 not null,
+  weighted_average_score numeric(4,2),
+  weighted_bayesian_score numeric(4,2),
+  suggested_difficulty text,
+  assigned_difficulty text,
+  confidence text default 'collecting'::text not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  document_uuid uuid not null,
+  constraint exam_difficulty_stats_assigned_check CHECK ((assigned_difficulty = ANY (ARRAY['easy'::text, 'medium'::text, 'hard'::text])) OR assigned_difficulty IS NULL),
+  constraint exam_difficulty_stats_confidence_check CHECK (confidence = ANY (ARRAY['collecting'::text, 'provisional'::text, 'stable'::text])),
+  constraint exam_difficulty_stats_document_uuid_fkey FOREIGN KEY (document_uuid) REFERENCES document_registry(document_uuid),
+  constraint exam_difficulty_stats_easy_count_check CHECK (easy_count >= 0),
+  constraint exam_difficulty_stats_effective_vote_weight_check CHECK (effective_vote_weight >= 0::numeric),
+  constraint exam_difficulty_stats_hard_count_check CHECK (hard_count >= 0),
+  constraint exam_difficulty_stats_medium_count_check CHECK (medium_count >= 0),
+  constraint exam_difficulty_stats_pkey PRIMARY KEY (doc_id),
+  constraint exam_difficulty_stats_suggested_check CHECK ((suggested_difficulty = ANY (ARRAY['easy'::text, 'medium'::text, 'hard'::text])) OR suggested_difficulty IS NULL),
+  constraint exam_difficulty_stats_vote_count_check CHECK (vote_count >= 0)
+);
+
+CREATE UNIQUE INDEX idx_difficulty_stats_document_uuid ON public.exam_difficulty_stats USING btree (document_uuid);
+
+CREATE INDEX idx_exam_difficulty_stats_assigned ON public.exam_difficulty_stats USING btree (assigned_difficulty, vote_count DESC);
+
+CREATE INDEX idx_exam_difficulty_stats_bayesian ON public.exam_difficulty_stats USING btree (bayesian_score);
+
+CREATE INDEX idx_exam_difficulty_stats_weighted_bayesian ON public.exam_difficulty_stats USING btree (weighted_bayesian_score);
+
+create table public.exam_difficulty_votes (
+  id uuid default uuid_generate_v4() not null,
+  user_id uuid not null,
+  doc_id text not null,
+  difficulty smallint not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  document_uuid uuid not null,
+  constraint exam_difficulty_votes_difficulty_check CHECK (difficulty = ANY (ARRAY[1, 2, 3])),
+  constraint exam_difficulty_votes_doc_id_not_blank CHECK (char_length(TRIM(BOTH FROM doc_id)) > 0),
+  constraint exam_difficulty_votes_document_uuid_fkey FOREIGN KEY (document_uuid) REFERENCES document_registry(document_uuid),
+  constraint exam_difficulty_votes_pkey PRIMARY KEY (id),
+  constraint exam_difficulty_votes_user_doc_unique UNIQUE (user_id, doc_id),
+  constraint exam_difficulty_votes_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_difficulty_votes_document_uuid ON public.exam_difficulty_votes USING btree (document_uuid);
+
+CREATE UNIQUE INDEX idx_difficulty_votes_user_document_uuid ON public.exam_difficulty_votes USING btree (user_id, document_uuid);
+
+CREATE INDEX idx_exam_difficulty_votes_doc_id ON public.exam_difficulty_votes USING btree (doc_id);
+
+CREATE INDEX idx_exam_difficulty_votes_user_updated ON public.exam_difficulty_votes USING btree (user_id, updated_at DESC);
+
+create table public.problem_sets (
+  id uuid default uuid_generate_v4() not null,
+  owner_user_id uuid not null,
+  kind text not null,
+  title text,
+  description text default ''::text not null,
+  archived_at timestamp with time zone,
+  deleted_at timestamp with time zone,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint problem_sets_description_check CHECK (char_length(description) <= 2000),
+  constraint problem_sets_kind_check CHECK (kind = ANY (ARRAY['system_later'::text, 'system_mistakes'::text, 'custom'::text])),
+  constraint problem_sets_owner_user_id_fkey FOREIGN KEY (owner_user_id) REFERENCES auth.users(id) ON DELETE CASCADE,
+  constraint problem_sets_pkey PRIMARY KEY (id),
+  constraint problem_sets_system_archive_check CHECK (kind = 'custom'::text OR archived_at IS NULL AND deleted_at IS NULL),
+  constraint problem_sets_title_check CHECK (kind <> 'custom'::text AND title IS NULL OR kind = 'custom'::text AND char_length(TRIM(BOTH FROM title)) >= 1 AND char_length(TRIM(BOTH FROM title)) <= 80)
+);
+
+CREATE UNIQUE INDEX idx_problem_sets_owner_system_kind ON public.problem_sets USING btree (owner_user_id, kind) WHERE (kind = ANY (ARRAY['system_later'::text, 'system_mistakes'::text]));
+
+CREATE INDEX idx_problem_sets_owner_updated ON public.problem_sets USING btree (owner_user_id, updated_at DESC) WHERE (deleted_at IS NULL);
+
+create table public.problem_set_items (
+  id uuid default uuid_generate_v4() not null,
+  set_id uuid not null,
+  doc_id text not null,
+  position integer default 0 not null,
+  annotation_markdown text default ''::text not null,
+  title_snapshot text default ''::text not null,
+  permalink_snapshot text default ''::text not null,
+  tags_snapshot jsonb default '[]'::jsonb not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  document_uuid uuid not null,
+  constraint problem_set_items_annotation_check CHECK (char_length(annotation_markdown) <= 1000),
+  constraint problem_set_items_doc_not_blank CHECK (char_length(TRIM(BOTH FROM doc_id)) > 0),
+  constraint problem_set_items_document_uuid_fkey FOREIGN KEY (document_uuid) REFERENCES document_registry(document_uuid),
+  constraint problem_set_items_pkey PRIMARY KEY (id),
+  constraint problem_set_items_position_check CHECK ("position" >= 0),
+  constraint problem_set_items_set_doc_unique UNIQUE (set_id, doc_id),
+  constraint problem_set_items_set_id_fkey FOREIGN KEY (set_id) REFERENCES problem_sets(id) ON DELETE CASCADE,
+  constraint problem_set_items_tags_check CHECK (jsonb_typeof(tags_snapshot) = 'array'::text)
+);
+
+CREATE INDEX idx_problem_set_items_doc ON public.problem_set_items USING btree (doc_id, set_id);
+
+CREATE INDEX idx_problem_set_items_document_uuid ON public.problem_set_items USING btree (set_id, document_uuid);
+
+CREATE INDEX idx_problem_set_items_order ON public.problem_set_items USING btree (set_id, "position", created_at);
+
+CREATE UNIQUE INDEX idx_problem_set_items_set_document_uuid ON public.problem_set_items USING btree (set_id, document_uuid);
+
+create table public.user_ai_consents (
+  user_id uuid not null,
+  allow_progress_context boolean default false not null,
+  allow_notes_context boolean default false not null,
+  allow_chat_history_context boolean default false not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint user_ai_consents_pkey PRIMARY KEY (user_id),
+  constraint user_ai_consents_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
+
+create table public.user_note_items (
+  id uuid default uuid_generate_v4() not null,
+  user_id uuid not null,
+  doc_id text not null,
+  content text,
+  client_updated_at bigint default ((EXTRACT(epoch FROM now()) * (1000)::numeric))::bigint not null,
+  deleted_at timestamp with time zone,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  document_uuid uuid not null,
+  version bigint default 1 not null,
+  constraint user_note_items_document_uuid_fkey FOREIGN KEY (document_uuid) REFERENCES document_registry(document_uuid),
+  constraint user_note_items_pkey PRIMARY KEY (id),
+  constraint user_note_items_user_doc_unique UNIQUE (user_id, doc_id),
+  constraint user_note_items_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_uni_user_client_updated_at ON public.user_note_items USING btree (user_id, client_updated_at);
+
+CREATE INDEX idx_uni_user_deleted_at ON public.user_note_items USING btree (user_id, deleted_at);
+
+CREATE INDEX idx_uni_user_document_uuid ON public.user_note_items USING btree (user_id, document_uuid);
+
+CREATE UNIQUE INDEX idx_uni_user_document_uuid_unique ON public.user_note_items USING btree (user_id, document_uuid);
+
+CREATE INDEX idx_uni_user_updated_at ON public.user_note_items USING btree (user_id, updated_at);
+
+create table public.user_note_revisions (
+  id uuid default uuid_generate_v4() not null,
+  note_id uuid not null,
+  user_id uuid not null,
+  document_uuid uuid not null,
+  doc_id text not null,
+  version bigint not null,
+  content text,
+  archived_reason text not null,
+  archived_at timestamp with time zone default now() not null,
+  constraint user_note_revisions_document_uuid_fkey FOREIGN KEY (document_uuid) REFERENCES document_registry(document_uuid),
+  constraint user_note_revisions_note_version_unique UNIQUE (note_id, version),
+  constraint user_note_revisions_pkey PRIMARY KEY (id),
+  constraint user_note_revisions_reason_check CHECK (archived_reason = ANY (ARRAY['update'::text, 'delete'::text])),
+  constraint user_note_revisions_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
+
+create table public.user_practice_events (
+  event_id uuid not null,
+  user_id uuid not null,
+  doc_id text not null,
+  event_type text not null,
+  occurred_at timestamp with time zone not null,
+  recorded_at timestamp with time zone default now() not null,
+  document_uuid uuid not null,
+  constraint user_practice_events_doc_id_check CHECK (char_length(TRIM(BOTH FROM doc_id)) >= 1 AND char_length(TRIM(BOTH FROM doc_id)) <= 500),
+  constraint user_practice_events_document_uuid_fkey FOREIGN KEY (document_uuid) REFERENCES document_registry(document_uuid),
+  constraint user_practice_events_pkey PRIMARY KEY (user_id, event_id),
+  constraint user_practice_events_type_check CHECK (event_type = ANY (ARRAY['practice'::text, 'review'::text])),
+  constraint user_practice_events_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_practice_events_document_uuid ON public.user_practice_events USING btree (document_uuid, occurred_at DESC);
+
+CREATE INDEX idx_user_practice_events_period ON public.user_practice_events USING btree (occurred_at DESC, user_id, doc_id);
+
+create table public.user_progress_items (
+  id uuid default uuid_generate_v4() not null,
+  user_id uuid not null,
+  doc_id text not null,
+  status text,
+  title text,
+  permalink text,
+  tags jsonb default '[]'::jsonb not null,
+  review_count integer default 0 not null,
+  client_updated_at bigint default ((EXTRACT(epoch FROM now()) * (1000)::numeric))::bigint not null,
+  deleted_at timestamp with time zone,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  document_uuid uuid not null,
+  last_reviewed_at timestamp with time zone,
+  next_review_at timestamp with time zone,
+  review_algorithm_version integer default 1 not null,
+  review_lapses integer default 0 not null,
+  review_stability numeric,
+  review_difficulty numeric,
+  constraint user_progress_items_document_uuid_fkey FOREIGN KEY (document_uuid) REFERENCES document_registry(document_uuid),
+  constraint user_progress_items_pkey PRIMARY KEY (id),
+  constraint user_progress_items_review_count_check CHECK (review_count >= 0),
+  constraint user_progress_items_status_check CHECK ((status = ANY (ARRAY['completed'::text, 'reviewing'::text])) OR status IS NULL),
+  constraint user_progress_items_tags_is_array CHECK (jsonb_typeof(tags) = 'array'::text),
+  constraint user_progress_items_user_doc_unique UNIQUE (user_id, doc_id),
+  constraint user_progress_items_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_upi_user_client_updated_at ON public.user_progress_items USING btree (user_id, client_updated_at);
+
+CREATE INDEX idx_upi_user_deleted_at ON public.user_progress_items USING btree (user_id, deleted_at);
+
+CREATE INDEX idx_upi_user_document_uuid ON public.user_progress_items USING btree (user_id, document_uuid);
+
+CREATE UNIQUE INDEX idx_upi_user_document_uuid_unique ON public.user_progress_items USING btree (user_id, document_uuid);
+
+CREATE INDEX idx_upi_user_next_review ON public.user_progress_items USING btree (user_id, next_review_at) WHERE ((status = 'reviewing'::text) AND (deleted_at IS NULL));
+
+CREATE INDEX idx_upi_user_updated_at ON public.user_progress_items USING btree (user_id, updated_at);
+
+create table public.user_public_profiles (
+  user_id uuid not null,
+  public_id uuid default uuid_generate_v4() not null,
+  nickname text not null,
+  nickname_normalized text not null,
+  discriminator integer not null,
+  nickname_confirmed_at timestamp with time zone,
+  nickname_changed_at timestamp with time zone,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint user_public_profiles_discriminator_check CHECK (discriminator >= 0 AND discriminator <= 99999),
+  constraint user_public_profiles_nickname_hash_check CHECK (POSITION(('#'::text) IN (nickname)) = 0),
+  constraint user_public_profiles_nickname_length_check CHECK (char_length(nickname) >= 2 AND char_length(nickname) <= 24),
+  constraint user_public_profiles_nickname_tag_unique UNIQUE (nickname_normalized, discriminator),
+  constraint user_public_profiles_pkey PRIMARY KEY (user_id),
+  constraint user_public_profiles_public_id_key UNIQUE (public_id),
+  constraint user_public_profiles_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
+
+create table public.user_reputation_events (
+  id uuid default uuid_generate_v4() not null,
+  user_id uuid not null,
+  event_type text not null,
+  source_type text not null,
+  source_id text not null,
+  points integer default 0 not null,
+  occurred_at timestamp with time zone default now() not null,
+  metadata jsonb default '{}'::jsonb not null,
+  created_at timestamp with time zone default now() not null,
+  constraint user_reputation_events_event_type_check CHECK (event_type = ANY (ARRAY['account_age'::text, 'submitted_solution_issue'::text, 'submitted_correction_issue'::text, 'accepted_solution'::text, 'accepted_correction'::text, 'pr_merged'::text, 'manual_adjustment'::text])),
+  constraint user_reputation_events_pkey PRIMARY KEY (id),
+  constraint user_reputation_events_points_check CHECK (points >= 0),
+  constraint user_reputation_events_source_not_blank CHECK (char_length(TRIM(BOTH FROM source_type)) > 0 AND char_length(TRIM(BOTH FROM source_id)) > 0),
+  constraint user_reputation_events_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE,
+  constraint user_reputation_events_user_source_unique UNIQUE (user_id, event_type, source_type, source_id)
+);
+
+CREATE INDEX idx_user_reputation_events_source ON public.user_reputation_events USING btree (source_type, source_id);
+
+CREATE INDEX idx_user_reputation_events_user_occurred ON public.user_reputation_events USING btree (user_id, occurred_at DESC);
+
+create table public.user_reputation_profiles (
+  user_id uuid not null,
+  level integer default 0 not null,
+  level_key text default 'newcomer'::text not null,
+  reputation_points integer default 0 not null,
+  rating_weight numeric(4,2) default 1.00 not null,
+  account_age_score integer default 0 not null,
+  contribution_score integer default 0 not null,
+  accepted_solution_count integer default 0 not null,
+  accepted_correction_count integer default 0 not null,
+  submitted_solution_issue_count integer default 0 not null,
+  submitted_correction_issue_count integer default 0 not null,
+  issue_submission_count integer default 0 not null,
+  converted_submission_count integer default 0 not null,
+  last_contribution_at timestamp with time zone,
+  recalculated_at timestamp with time zone default now() not null,
+  updated_at timestamp with time zone default now() not null,
+  created_at timestamp with time zone default now() not null,
+  constraint user_reputation_profiles_level_check CHECK (level >= 0 AND level <= 4),
+  constraint user_reputation_profiles_level_key_check CHECK (level_key = ANY (ARRAY['newcomer'::text, 'learner'::text, 'contributor'::text, 'trusted_contributor'::text, 'core_contributor'::text])),
+  constraint user_reputation_profiles_pkey PRIMARY KEY (user_id),
+  constraint user_reputation_profiles_points_check CHECK (reputation_points >= 0),
+  constraint user_reputation_profiles_rating_weight_check CHECK (rating_weight >= 1.00 AND rating_weight <= 1.50),
+  constraint user_reputation_profiles_scores_check CHECK (account_age_score >= 0 AND contribution_score >= 0 AND accepted_solution_count >= 0 AND accepted_correction_count >= 0 AND submitted_solution_issue_count >= 0 AND submitted_correction_issue_count >= 0 AND issue_submission_count >= 0 AND converted_submission_count >= 0),
+  constraint user_reputation_profiles_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_user_reputation_profiles_level ON public.user_reputation_profiles USING btree (level DESC, reputation_points DESC);
+
+-- ── 业务函数：每个函数只保留当前定义 ─────────────────────────
+
+create function public.update_updated_at_column()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
 begin
   new.updated_at = now();
   return new;
 end;
-$$ language plpgsql;
+$function$;
 
-drop trigger if exists update_user_progress_items_updated_at on user_progress_items;
-create trigger update_user_progress_items_updated_at
-  before update on user_progress_items
-  for each row
-  execute function update_updated_at_column();
-
-drop trigger if exists update_user_note_items_updated_at on user_note_items;
-create trigger update_user_note_items_updated_at
-  before update on user_note_items
-  for each row
-  execute function update_updated_at_column();
-
--- 旧版 user_data 的数据迁移与清理已移至：
--- supabase/manual/20260714_cleanup_legacy_schema.sql
-
--- ── 服务端时间 RPC ──────────────────────────────────────────
--- 供客户端校准本地时钟偏移量（返回 ISO 8601 字符串）
-create or replace function get_server_time()
-returns timestamptz as $$
+create function public.get_server_time()
+ RETURNS timestamp with time zone
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+AS $function$
 begin
   return now();
 end;
-$$ language plpgsql security definer;
+$function$;
 
--- ── 刷题排行榜 ─────────────────────────────────────────────
---
--- 排行榜使用不可变练习事件统计周期内练习过的不同题目，避免进度快照同步、
--- 状态反复切换或同一事件重试导致榜单数字失真。所有周期按日本时间计算。
-
-create table if not exists user_practice_events (
-  event_id     uuid not null,
-  user_id      uuid not null references auth.users(id) on delete cascade,
-  doc_id       text not null,
-  event_type   text not null,
-  occurred_at  timestamptz not null,
-  recorded_at  timestamptz not null default now(),
-
-  constraint user_practice_events_pkey primary key (user_id, event_id),
-  constraint user_practice_events_doc_id_check
-    check (char_length(trim(doc_id)) between 1 and 500),
-  constraint user_practice_events_type_check
-    check (event_type in ('practice', 'review'))
-);
-
-create index if not exists idx_user_practice_events_period
-  on user_practice_events(occurred_at desc, user_id, doc_id);
-
-alter table user_practice_events enable row level security;
-revoke all on table user_practice_events from public, anon, authenticated;
-
--- 客户端仅能通过受控 RPC 批量写入自己的事件；事件 ID 保证重试幂等。
-create or replace function record_practice_events(p_events jsonb)
-returns integer as $$
+create function public.record_practice_events(p_events jsonb)
+ RETURNS integer
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
   v_event jsonb;
@@ -246,318 +789,13 @@ begin
 
   return v_inserted;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-revoke execute on function record_practice_events(jsonb) from public, anon;
-grant execute on function record_practice_events(jsonb) to authenticated;
-
--- 旧进度事件回填、旧排行榜资料迁移及遗留对象清理已移至：
--- supabase/manual/20260714_cleanup_legacy_schema.sql
-
--- ============================================================
--- Public API：题库 JSON API 所需表结构
--- ============================================================
---
--- 安全模型：
---   1. auth.users 继续作为网站用户/开发者账号体系。
---   2. 前端登录 JWT 只用于调用 developer-api-keys Edge Function 管理 API Key。
---   3. 第三方内容 API 只接受 kai_live_* API Key，不接受匿名访问或登录 JWT。
---   4. API Key 明文只在创建时返回一次，数据库仅保存 SHA-256 hash。
---   5. API 访问采用申请制，管理员在 Supabase Dashboard 中将申请状态改为 approved 后才能创建 key。
---   6. 下列表启用 RLS，前端 anon/authenticated 客户端不可直接读写，由 Edge Function service role 访问。
-
--- ── 结构化题库文档安装阶段定义 ─────────────────────────────
--- 文件末尾的基线整合段会在同一次安装中完成稳定 UUID 建立、轻量目录
--- 切换与正文列删除，最终对象名为 document_catalog。
-create table if not exists exam_documents (
-  doc_id                text primary key,
-  type                  text not null default 'exam',
-  source_path           text not null,
-  title                 text not null,
-  sidebar_label         text,
-  university_id         text,
-  university_name       text,
-  department_id         text,
-  department_name       text,
-  program_id            text,
-  program_name          text,
-  year                  integer,
-  year_label            text,
-  file_slug             text,
-  tags                  jsonb not null default '[]'::jsonb,
-  school_tags           jsonb not null default '[]'::jsonb,
-  learning_tags         jsonb not null default '[]'::jsonb,
-  subject_ids           jsonb not null default '[]'::jsonb,
-  subsubject_ids        jsonb not null default '[]'::jsonb,
-  topic_ids             jsonb not null default '[]'::jsonb,
-  author_markdown       text not null default '',
-  description_markdown  text not null default '',
-  kai_markdown          text not null default '',
-  full_markdown         text not null default '',
-  permalink             text not null,
-  content_hash          text not null,
-  synced_at             timestamptz not null default now(),
-  updated_at            timestamptz not null default now(),
-  created_at            timestamptz not null default now(),
-
-  constraint exam_documents_type_check check (type in ('exam', 'guide')),
-  constraint exam_documents_year_check check (year is null or (year >= 1900 and year <= 2100)),
-  constraint exam_documents_tags_is_array check (jsonb_typeof(tags) = 'array'),
-  constraint exam_documents_school_tags_is_array check (jsonb_typeof(school_tags) = 'array'),
-  constraint exam_documents_learning_tags_is_array check (jsonb_typeof(learning_tags) = 'array'),
-  constraint exam_documents_subject_ids_is_array check (jsonb_typeof(subject_ids) = 'array'),
-  constraint exam_documents_subsubject_ids_is_array check (jsonb_typeof(subsubject_ids) = 'array'),
-  constraint exam_documents_topic_ids_is_array check (jsonb_typeof(topic_ids) = 'array')
-);
-
-create index if not exists idx_exam_documents_catalog
-  on exam_documents(type, university_id, department_id, program_id, year);
-create index if not exists idx_exam_documents_year
-  on exam_documents(year);
-create index if not exists idx_exam_documents_tags
-  on exam_documents using gin(tags);
-create index if not exists idx_exam_documents_school_tags
-  on exam_documents using gin(school_tags);
-create index if not exists idx_exam_documents_subject_ids
-  on exam_documents using gin(subject_ids);
-create index if not exists idx_exam_documents_subsubject_ids
-  on exam_documents using gin(subsubject_ids);
-create index if not exists idx_exam_documents_topic_ids
-  on exam_documents using gin(topic_ids);
-
-drop trigger if exists update_exam_documents_updated_at on exam_documents;
-create trigger update_exam_documents_updated_at
-  before update on exam_documents
-  for each row
-  execute function update_updated_at_column();
-
-alter table exam_documents enable row level security;
-revoke all on table exam_documents from anon, authenticated;
-
--- ── 用户社区信誉 ───────────────────────────────────────────
---
--- 设计：
---   1. profile 是当前快照，用于个人中心展示与难度评价加权。
---   2. events 是可重算的贡献事件账本，便于以后加入 PR merged/closed 等 GitHub 状态。
---   3. 前端只展示等级与贡献次数；积分、升级距离和评价权重不直接展示。
-
-create table if not exists user_reputation_profiles (
-  user_id                    uuid primary key references auth.users(id) on delete cascade,
-  level                      integer not null default 0,
-  level_key                  text not null default 'newcomer',
-  reputation_points          integer not null default 0,
-  rating_weight              numeric(4, 2) not null default 1.00,
-  account_age_score          integer not null default 0,
-  contribution_score         integer not null default 0,
-  accepted_solution_count    integer not null default 0,
-  accepted_correction_count  integer not null default 0,
-  submitted_solution_issue_count integer not null default 0,
-  submitted_correction_issue_count integer not null default 0,
-  issue_submission_count     integer not null default 0,
-  converted_submission_count integer not null default 0,
-  last_contribution_at       timestamptz,
-  recalculated_at            timestamptz not null default now(),
-  updated_at                 timestamptz not null default now(),
-  created_at                 timestamptz not null default now(),
-
-  constraint user_reputation_profiles_level_check
-    check (level between 0 and 4),
-  constraint user_reputation_profiles_level_key_check
-    check (level_key in ('newcomer', 'learner', 'contributor', 'trusted_contributor', 'core_contributor')),
-  constraint user_reputation_profiles_points_check
-    check (reputation_points >= 0),
-  constraint user_reputation_profiles_rating_weight_check
-    check (rating_weight between 1.00 and 1.50),
-  constraint user_reputation_profiles_scores_check
-    check (
-      account_age_score >= 0
-      and contribution_score >= 0
-      and accepted_solution_count >= 0
-      and accepted_correction_count >= 0
-      and submitted_solution_issue_count >= 0
-      and submitted_correction_issue_count >= 0
-      and issue_submission_count >= 0
-      and converted_submission_count >= 0
-    )
-);
-
-create index if not exists idx_user_reputation_profiles_level
-  on user_reputation_profiles(level desc, reputation_points desc);
-
-drop trigger if exists update_user_reputation_profiles_updated_at on user_reputation_profiles;
-create trigger update_user_reputation_profiles_updated_at
-  before update on user_reputation_profiles
-  for each row
-  execute function update_updated_at_column();
-
-alter table user_reputation_profiles enable row level security;
-
-drop policy if exists "Users can view own reputation profile" on user_reputation_profiles;
-create policy "Users can view own reputation profile"
-  on user_reputation_profiles for select
-  using (auth.uid() = user_id);
-
-revoke all on table user_reputation_profiles from anon, authenticated;
-grant select on table user_reputation_profiles to authenticated;
-
-create table if not exists user_reputation_events (
-  id            uuid primary key default uuid_generate_v4(),
-  user_id       uuid not null references auth.users(id) on delete cascade,
-  event_type    text not null,
-  source_type   text not null,
-  source_id     text not null,
-  points        integer not null default 0,
-  occurred_at   timestamptz not null default now(),
-  metadata      jsonb not null default '{}'::jsonb,
-  created_at    timestamptz not null default now(),
-
-  constraint user_reputation_events_points_check
-    check (points >= 0),
-  constraint user_reputation_events_event_type_check
-    check (event_type in (
-      'account_age',
-      'submitted_solution_issue',
-      'submitted_correction_issue',
-      'accepted_solution',
-      'accepted_correction',
-      'pr_merged',
-      'manual_adjustment'
-    )),
-  constraint user_reputation_events_source_not_blank
-    check (char_length(trim(source_type)) > 0 and char_length(trim(source_id)) > 0),
-  constraint user_reputation_events_user_source_unique
-    unique (user_id, event_type, source_type, source_id)
-);
-
-create index if not exists idx_user_reputation_events_user_occurred
-  on user_reputation_events(user_id, occurred_at desc);
-create index if not exists idx_user_reputation_events_source
-  on user_reputation_events(source_type, source_id);
-
-alter table user_reputation_events enable row level security;
-
-drop policy if exists "Users can view own reputation events" on user_reputation_events;
-create policy "Users can view own reputation events"
-  on user_reputation_events for select
-  using (auth.uid() = user_id);
-
-revoke all on table user_reputation_events from anon, authenticated;
-grant select on table user_reputation_events to authenticated;
-
--- ── 社区难度评价 ─────────────────────────────────────────
---
--- 设计：
---   1. 前端仅展示 easy / medium / hard 三档。
---   2. 数据库存储为 1 / 2 / 3，并维护普通分与信誉加权分，方便后续相似题推荐排序。
---   3. 每个用户对每道题只能保留一个评价，可随时改票。
---   4. 聚合表只暴露匿名统计，不暴露任何用户身份。
-
-create table if not exists exam_difficulty_votes (
-  id          uuid primary key default uuid_generate_v4(),
-  user_id     uuid not null references auth.users(id) on delete cascade,
-  doc_id      text not null,
-  difficulty  smallint not null,
-  updated_at  timestamptz not null default now(),
-  created_at  timestamptz not null default now(),
-
-  constraint exam_difficulty_votes_user_doc_unique unique (user_id, doc_id),
-  constraint exam_difficulty_votes_difficulty_check check (difficulty in (1, 2, 3)),
-  constraint exam_difficulty_votes_doc_id_not_blank check (char_length(trim(doc_id)) > 0)
-);
-
-create index if not exists idx_exam_difficulty_votes_doc_id
-  on exam_difficulty_votes(doc_id);
-create index if not exists idx_exam_difficulty_votes_user_updated
-  on exam_difficulty_votes(user_id, updated_at desc);
-
-drop trigger if exists update_exam_difficulty_votes_updated_at on exam_difficulty_votes;
-create trigger update_exam_difficulty_votes_updated_at
-  before update on exam_difficulty_votes
-  for each row
-  execute function update_updated_at_column();
-
-alter table exam_difficulty_votes enable row level security;
-
-drop policy if exists "Users can view own difficulty votes" on exam_difficulty_votes;
-create policy "Users can view own difficulty votes"
-  on exam_difficulty_votes for select
-  using (auth.uid() = user_id);
-
-drop policy if exists "Users can insert own difficulty votes" on exam_difficulty_votes;
-create policy "Users can insert own difficulty votes"
-  on exam_difficulty_votes for insert
-  with check (auth.uid() = user_id);
-
-drop policy if exists "Users can update own difficulty votes" on exam_difficulty_votes;
-create policy "Users can update own difficulty votes"
-  on exam_difficulty_votes for update
-  using (auth.uid() = user_id)
-  with check (auth.uid() = user_id);
-
-drop policy if exists "Users can delete own difficulty votes" on exam_difficulty_votes;
-create policy "Users can delete own difficulty votes"
-  on exam_difficulty_votes for delete
-  using (auth.uid() = user_id);
-
-revoke all on table exam_difficulty_votes from anon, authenticated;
-grant select on table exam_difficulty_votes to authenticated;
-
-create table if not exists exam_difficulty_stats (
-  doc_id                 text primary key,
-  vote_count             integer not null default 0,
-  easy_count             integer not null default 0,
-  medium_count           integer not null default 0,
-  hard_count             integer not null default 0,
-  average_score          numeric(4, 2),
-  bayesian_score         numeric(4, 2),
-  effective_vote_weight  numeric(8, 2) not null default 0,
-  weighted_average_score numeric(4, 2),
-  weighted_bayesian_score numeric(4, 2),
-  suggested_difficulty   text,
-  assigned_difficulty    text,
-  confidence             text not null default 'collecting',
-  updated_at             timestamptz not null default now(),
-  created_at             timestamptz not null default now(),
-
-  constraint exam_difficulty_stats_vote_count_check check (vote_count >= 0),
-  constraint exam_difficulty_stats_easy_count_check check (easy_count >= 0),
-  constraint exam_difficulty_stats_medium_count_check check (medium_count >= 0),
-  constraint exam_difficulty_stats_hard_count_check check (hard_count >= 0),
-  constraint exam_difficulty_stats_effective_vote_weight_check check (effective_vote_weight >= 0),
-  constraint exam_difficulty_stats_suggested_check
-    check (suggested_difficulty in ('easy', 'medium', 'hard') or suggested_difficulty is null),
-  constraint exam_difficulty_stats_assigned_check
-    check (assigned_difficulty in ('easy', 'medium', 'hard') or assigned_difficulty is null),
-  constraint exam_difficulty_stats_confidence_check
-    check (confidence in ('collecting', 'provisional', 'stable'))
-);
-
-create index if not exists idx_exam_difficulty_stats_assigned
-  on exam_difficulty_stats(assigned_difficulty, vote_count desc);
-create index if not exists idx_exam_difficulty_stats_bayesian
-  on exam_difficulty_stats(bayesian_score);
-create index if not exists idx_exam_difficulty_stats_weighted_bayesian
-  on exam_difficulty_stats(weighted_bayesian_score);
-
-drop trigger if exists update_exam_difficulty_stats_updated_at on exam_difficulty_stats;
-create trigger update_exam_difficulty_stats_updated_at
-  before update on exam_difficulty_stats
-  for each row
-  execute function update_updated_at_column();
-
-alter table exam_difficulty_stats enable row level security;
-
-drop policy if exists "Anyone can view difficulty stats" on exam_difficulty_stats;
-create policy "Anyone can view difficulty stats"
-  on exam_difficulty_stats for select
-  using (true);
-
-revoke all on table exam_difficulty_stats from anon, authenticated;
-grant select on table exam_difficulty_stats to anon, authenticated;
-
-create or replace function difficulty_label_from_score(p_score numeric)
-returns text as $$
+create function public.difficulty_label_from_score(p_score numeric)
+ RETURNS text
+ LANGUAGE plpgsql
+ IMMUTABLE
+AS $function$
 begin
   if p_score is null then
     return null;
@@ -573,12 +811,18 @@ begin
 
   return 'hard';
 end;
-$$ language plpgsql immutable;
+$function$;
 
-create or replace function refresh_exam_difficulty_stats(p_doc_id text)
-returns void as $$
+create function public.refresh_exam_difficulty_stats(p_doc_id text)
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
-  v_doc_id text := nullif(trim(p_doc_id), '');
+  v_requested_doc_id text := nullif(trim(p_doc_id), '');
+  v_doc_id text;
+  v_document_uuid uuid;
   v_vote_count integer;
   v_easy_count integer;
   v_medium_count integer;
@@ -594,36 +838,35 @@ declare
   v_assigned text;
   v_confidence text;
 begin
-  if v_doc_id is null then
-    return;
-  end if;
+  if v_requested_doc_id is null then return; end if;
+  select alias.document_uuid, coalesce(registry.current_doc_id, alias.doc_id)
+  into v_document_uuid, v_doc_id
+  from public.document_aliases alias
+  join public.document_registry registry on registry.document_uuid = alias.document_uuid
+  where alias.doc_id = v_requested_doc_id;
+  if v_document_uuid is null then return; end if;
 
   select
     count(*)::integer,
-    count(*) filter (where difficulty = 1)::integer,
-    count(*) filter (where difficulty = 2)::integer,
-    count(*) filter (where difficulty = 3)::integer,
-    coalesce(sum(v.difficulty), 0)::integer,
-    round(coalesce(sum(v.difficulty * coalesce(p.rating_weight, 1.00)), 0), 2),
-    round(coalesce(sum(coalesce(p.rating_weight, 1.00)), 0), 2)
+    count(*) filter (where vote.difficulty = 1)::integer,
+    count(*) filter (where vote.difficulty = 2)::integer,
+    count(*) filter (where vote.difficulty = 3)::integer,
+    coalesce(sum(vote.difficulty), 0)::integer,
+    round(coalesce(sum(vote.difficulty * coalesce(profile.rating_weight, 1.00)), 0), 2),
+    round(coalesce(sum(coalesce(profile.rating_weight, 1.00)), 0), 2)
   into
-    v_vote_count,
-    v_easy_count,
-    v_medium_count,
-    v_hard_count,
-    v_sum,
-    v_weighted_sum,
-    v_effective_vote_weight
-  from public.exam_difficulty_votes v
-  left join public.user_reputation_profiles p on p.user_id = v.user_id
-  where v.doc_id = v_doc_id;
+    v_vote_count, v_easy_count, v_medium_count, v_hard_count, v_sum,
+    v_weighted_sum, v_effective_vote_weight
+  from public.exam_difficulty_votes vote
+  left join public.user_reputation_profiles profile on profile.user_id = vote.user_id
+  where vote.document_uuid = v_document_uuid;
 
   if v_vote_count = 0 then
-    delete from public.exam_difficulty_stats where doc_id = v_doc_id;
+    delete from public.exam_difficulty_stats stats
+    where stats.document_uuid = v_document_uuid;
     return;
   end if;
 
-  -- Bayesian 平滑：以 medium(2) 作为 5 票先验；最终标签使用信誉加权分。
   v_average := round((v_sum::numeric / v_vote_count), 2);
   v_bayesian := round(((v_sum + 10)::numeric / (v_vote_count + 5)), 2);
   v_weighted_average := round((v_weighted_sum / nullif(v_effective_vote_weight, 0)), 2);
@@ -640,39 +883,18 @@ begin
   end;
 
   insert into public.exam_difficulty_stats (
-    doc_id,
-    vote_count,
-    easy_count,
-    medium_count,
-    hard_count,
-    average_score,
-    bayesian_score,
-    effective_vote_weight,
-    weighted_average_score,
-    weighted_bayesian_score,
-    suggested_difficulty,
-    assigned_difficulty,
-    confidence,
-    updated_at
+    doc_id, document_uuid, vote_count, easy_count, medium_count, hard_count,
+    average_score, bayesian_score, effective_vote_weight,
+    weighted_average_score, weighted_bayesian_score,
+    suggested_difficulty, assigned_difficulty, confidence, updated_at
+  ) values (
+    v_doc_id, v_document_uuid, v_vote_count, v_easy_count, v_medium_count, v_hard_count,
+    v_average, v_bayesian, v_effective_vote_weight,
+    v_weighted_average, v_weighted_bayesian,
+    v_suggested, v_assigned, v_confidence, now()
   )
-  values (
-    v_doc_id,
-    v_vote_count,
-    v_easy_count,
-    v_medium_count,
-    v_hard_count,
-    v_average,
-    v_bayesian,
-    v_effective_vote_weight,
-    v_weighted_average,
-    v_weighted_bayesian,
-    v_suggested,
-    v_assigned,
-    v_confidence,
-    now()
-  )
-  on conflict (doc_id)
-  do update set
+  on conflict (document_uuid) do update set
+    doc_id = excluded.doc_id,
     vote_count = excluded.vote_count,
     easy_count = excluded.easy_count,
     medium_count = excluded.medium_count,
@@ -687,11 +909,14 @@ begin
     confidence = excluded.confidence,
     updated_at = now();
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function refresh_exam_difficulty_stats_after_vote()
-returns trigger as $$
+create function public.refresh_exam_difficulty_stats_after_vote()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 begin
   if tg_op = 'DELETE' then
     perform public.refresh_exam_difficulty_stats(old.doc_id);
@@ -707,273 +932,98 @@ begin
   perform public.refresh_exam_difficulty_stats(new.doc_id);
   return new;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-drop trigger if exists refresh_exam_difficulty_stats_after_vote on exam_difficulty_votes;
-create trigger refresh_exam_difficulty_stats_after_vote
-  after insert or update or delete on exam_difficulty_votes
-  for each row
-  execute function refresh_exam_difficulty_stats_after_vote();
-
-create or replace function get_exam_difficulty(p_doc_id text)
-returns table (
-  doc_id text,
-  user_difficulty smallint,
-  vote_count integer,
-  easy_count integer,
-  medium_count integer,
-  hard_count integer,
-  average_score numeric,
-  bayesian_score numeric,
-  effective_vote_weight numeric,
-  weighted_average_score numeric,
-  weighted_bayesian_score numeric,
-  suggested_difficulty text,
-  assigned_difficulty text,
-  confidence text,
-  stable_threshold integer,
-  updated_at timestamptz
-) as $$
+create function public.get_exam_difficulty(p_doc_id text)
+ RETURNS TABLE(doc_id text, user_difficulty smallint, vote_count integer, easy_count integer, medium_count integer, hard_count integer, average_score numeric, bayesian_score numeric, effective_vote_weight numeric, weighted_average_score numeric, weighted_bayesian_score numeric, suggested_difficulty text, assigned_difficulty text, confidence text, stable_threshold integer, updated_at timestamp with time zone)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
-  v_doc_id text := nullif(trim(p_doc_id), '');
+  v_requested_doc_id text := nullif(trim(p_doc_id), '');
+  v_doc_id text;
+  v_document_uuid uuid;
 begin
-  if v_doc_id is null then
-    return;
-  end if;
+  if v_requested_doc_id is null then return; end if;
+  select alias.document_uuid, coalesce(registry.current_doc_id, alias.doc_id)
+  into v_document_uuid, v_doc_id
+  from public.document_aliases alias
+  join public.document_registry registry on registry.document_uuid = alias.document_uuid
+  where alias.doc_id = v_requested_doc_id;
+  if v_document_uuid is null then return; end if;
 
   return query
   select
     v_doc_id,
     (
-      select v.difficulty
-      from public.exam_difficulty_votes v
-      where v.doc_id = v_doc_id
-        and v.user_id = auth.uid()
+      select vote.difficulty
+      from public.exam_difficulty_votes vote
+      where vote.document_uuid = v_document_uuid and vote.user_id = auth.uid()
       limit 1
-    ) as user_difficulty,
-    coalesce(s.vote_count, 0)::integer,
-    coalesce(s.easy_count, 0)::integer,
-    coalesce(s.medium_count, 0)::integer,
-    coalesce(s.hard_count, 0)::integer,
-    s.average_score,
-    s.bayesian_score,
-    coalesce(s.effective_vote_weight, 0)::numeric,
-    s.weighted_average_score,
-    s.weighted_bayesian_score,
-    s.suggested_difficulty,
-    s.assigned_difficulty,
-    coalesce(s.confidence, 'collecting')::text,
+    ),
+    coalesce(stats.vote_count, 0)::integer,
+    coalesce(stats.easy_count, 0)::integer,
+    coalesce(stats.medium_count, 0)::integer,
+    coalesce(stats.hard_count, 0)::integer,
+    stats.average_score,
+    stats.bayesian_score,
+    coalesce(stats.effective_vote_weight, 0)::numeric,
+    stats.weighted_average_score,
+    stats.weighted_bayesian_score,
+    stats.suggested_difficulty,
+    stats.assigned_difficulty,
+    coalesce(stats.confidence, 'collecting')::text,
     10::integer,
-    s.updated_at
+    stats.updated_at
   from (select 1) seed
-  left join public.exam_difficulty_stats s on s.doc_id = v_doc_id;
+  left join public.exam_difficulty_stats stats
+    on stats.document_uuid = v_document_uuid;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function set_exam_difficulty_vote(
-  p_doc_id text,
-  p_difficulty smallint
-)
-returns table (
-  doc_id text,
-  user_difficulty smallint,
-  vote_count integer,
-  easy_count integer,
-  medium_count integer,
-  hard_count integer,
-  average_score numeric,
-  bayesian_score numeric,
-  effective_vote_weight numeric,
-  weighted_average_score numeric,
-  weighted_bayesian_score numeric,
-  suggested_difficulty text,
-  assigned_difficulty text,
-  confidence text,
-  stable_threshold integer,
-  updated_at timestamptz
-) as $$
+create function public.set_exam_difficulty_vote(p_doc_id text, p_difficulty smallint)
+ RETURNS TABLE(doc_id text, user_difficulty smallint, vote_count integer, easy_count integer, medium_count integer, hard_count integer, average_score numeric, bayesian_score numeric, effective_vote_weight numeric, weighted_average_score numeric, weighted_bayesian_score numeric, suggested_difficulty text, assigned_difficulty text, confidence text, stable_threshold integer, updated_at timestamp with time zone)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
-  v_doc_id text := nullif(trim(p_doc_id), '');
+  v_requested_doc_id text := nullif(trim(p_doc_id), '');
+  v_doc_id text;
+  v_document_uuid uuid;
 begin
-  if v_user_id is null then
-    raise exception 'not_authenticated' using errcode = '28000';
-  end if;
-
-  if v_doc_id is null then
-    raise exception 'invalid_doc_id' using errcode = '22023';
-  end if;
-
+  if v_user_id is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
+  if v_requested_doc_id is null then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
   if p_difficulty not in (1, 2, 3) then
     raise exception 'invalid_difficulty' using errcode = '22023';
   end if;
 
-  insert into public.exam_difficulty_votes (user_id, doc_id, difficulty)
-  values (v_user_id, v_doc_id, p_difficulty)
-  on conflict on constraint exam_difficulty_votes_user_doc_unique
-  do update set
+  select alias.document_uuid, coalesce(registry.current_doc_id, alias.doc_id)
+  into v_document_uuid, v_doc_id
+  from public.document_aliases alias
+  join public.document_registry registry on registry.document_uuid = alias.document_uuid
+  where alias.doc_id = v_requested_doc_id;
+  if v_document_uuid is null then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
+
+  insert into public.exam_difficulty_votes(user_id, doc_id, document_uuid, difficulty)
+  values (v_user_id, v_doc_id, v_document_uuid, p_difficulty)
+  on conflict (user_id, document_uuid) do update set
+    doc_id = excluded.doc_id,
     difficulty = excluded.difficulty,
     updated_at = now();
 
   return query select * from public.get_exam_difficulty(v_doc_id);
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-revoke execute on function difficulty_label_from_score(numeric) from public, anon, authenticated;
-revoke execute on function refresh_exam_difficulty_stats(text) from public, anon, authenticated;
-revoke execute on function refresh_exam_difficulty_stats_after_vote() from public, anon, authenticated;
-revoke execute on function get_exam_difficulty(text) from public, anon, authenticated;
-revoke execute on function set_exam_difficulty_vote(text, smallint) from public, anon, authenticated;
-grant execute on function get_exam_difficulty(text) to anon, authenticated;
-grant execute on function set_exam_difficulty_vote(text, smallint) to authenticated;
-
--- ── 开发者 API 访问申请 ───────────────────────────────────
-create table if not exists api_access_requests (
-  id                         uuid primary key default uuid_generate_v4(),
-  user_id                    uuid not null references auth.users(id) on delete cascade,
-  status                     text not null default 'pending',
-  applicant_name             text not null default '',
-  organization               text not null default '',
-  contact_email              text not null default '',
-  website                    text not null default '',
-  intended_use               text not null default '',
-  commercial_use             boolean not null default false,
-
-  -- 合作接入/访问级别预留字段：第一版统一使用基础配置。
-  plan                       text not null default 'free',
-  rate_limit_per_minute      integer not null default 60,
-  max_active_keys            integer not null default 3,
-  commercial_allowed         boolean not null default false,
-  expires_at                 timestamptz,
-
-  reviewed_by                uuid references auth.users(id) on delete set null,
-  reviewed_at                timestamptz,
-  review_note                text,
-  updated_at                 timestamptz not null default now(),
-  created_at                 timestamptz not null default now(),
-
-  constraint api_access_requests_user_unique unique (user_id),
-  constraint api_access_requests_status_check check (status in ('pending', 'approved', 'rejected', 'revoked')),
-  constraint api_access_requests_plan_check check (plan in ('free', 'research', 'partner', 'commercial')),
-  constraint api_access_requests_intended_use_length check (char_length(trim(intended_use)) <= 4000),
-  constraint api_access_requests_rate_limit_check check (rate_limit_per_minute between 1 and 600),
-  constraint api_access_requests_max_keys_check check (max_active_keys between 1 and 10)
-);
-
-create index if not exists idx_api_access_requests_status
-  on api_access_requests(status, created_at desc);
-
-drop trigger if exists update_api_access_requests_updated_at on api_access_requests;
-create trigger update_api_access_requests_updated_at
-  before update on api_access_requests
-  for each row
-  execute function update_updated_at_column();
-
-alter table api_access_requests enable row level security;
-revoke all on table api_access_requests from anon, authenticated;
-
--- ── 开发者 API Key ────────────────────────────────────────
-create table if not exists api_keys (
-  id                      uuid primary key default uuid_generate_v4(),
-  user_id                 uuid not null references auth.users(id) on delete cascade,
-  name                    text not null,
-  key_prefix              text not null,
-  key_hash                text not null unique,
-  status                  text not null default 'active',
-  rate_limit_per_minute   integer not null default 60,
-  plan                    text not null default 'free',
-  request_count           bigint not null default 0,
-  last_used_at            timestamptz,
-  revoked_at              timestamptz,
-  updated_at              timestamptz not null default now(),
-  created_at              timestamptz not null default now(),
-
-  constraint api_keys_name_length check (char_length(name) between 1 and 80),
-  constraint api_keys_status_check check (status in ('active', 'revoked')),
-  constraint api_keys_rate_limit_check check (rate_limit_per_minute between 1 and 600),
-  constraint api_keys_plan_check check (plan in ('free', 'research', 'partner', 'commercial'))
-);
-
-create index if not exists idx_api_keys_user_id
-  on api_keys(user_id, created_at desc);
-create index if not exists idx_api_keys_status
-  on api_keys(status);
-
-drop trigger if exists update_api_keys_updated_at on api_keys;
-create trigger update_api_keys_updated_at
-  before update on api_keys
-  for each row
-  execute function update_updated_at_column();
-
-alter table api_keys enable row level security;
-revoke all on table api_keys from anon, authenticated;
-
--- ── API 调用日志 ──────────────────────────────────────────
-create table if not exists api_request_logs (
-  id             uuid primary key default uuid_generate_v4(),
-  api_key_id     uuid references api_keys(id) on delete set null,
-  user_id        uuid references auth.users(id) on delete set null,
-  method         text not null,
-  path           text not null,
-  query_params   jsonb not null default '{}'::jsonb,
-  status_code    integer not null,
-  result_count   integer,
-  duration_ms    integer,
-  ip_hash        text,
-  user_agent     text,
-  created_at     timestamptz not null default now(),
-
-  constraint api_request_logs_query_params_is_object check (jsonb_typeof(query_params) = 'object')
-);
-
-create index if not exists idx_api_request_logs_key_created
-  on api_request_logs(api_key_id, created_at desc);
-create index if not exists idx_api_request_logs_user_created
-  on api_request_logs(user_id, created_at desc);
-create index if not exists idx_api_request_logs_status
-  on api_request_logs(status_code);
-
-alter table api_request_logs enable row level security;
-revoke all on table api_request_logs from anon, authenticated;
-
--- ── API 分钟限流窗口 ────────────────────────────────────────
-
-create table if not exists api_usage_windows (
-  api_key_id     uuid not null references api_keys(id) on delete cascade,
-  window_start   timestamptz not null,
-  request_count  integer not null default 0,
-  updated_at     timestamptz not null default now(),
-  created_at     timestamptz not null default now(),
-
-  primary key (api_key_id, window_start),
-  constraint api_usage_windows_request_count_check check (request_count >= 0)
-);
-
-create index if not exists idx_api_usage_windows_window_start
-  on api_usage_windows(window_start desc);
-
-drop trigger if exists update_api_usage_windows_updated_at on api_usage_windows;
-create trigger update_api_usage_windows_updated_at
-  before update on api_usage_windows
-  for each row
-  execute function update_updated_at_column();
-
-alter table api_usage_windows enable row level security;
-revoke all on table api_usage_windows from anon, authenticated;
-
--- 原子递增分钟限流窗口，并在允许请求时更新 API Key 总调用量。
-create or replace function register_api_request(
-  p_api_key_id uuid,
-  p_window_start timestamptz,
-  p_limit integer
-)
-returns table (
-  allowed boolean,
-  current_count integer
-) as $$
+create function public.register_api_request(p_api_key_id uuid, p_window_start timestamp with time zone, p_limit integer)
+ RETURNS TABLE(allowed boolean, current_count integer)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   next_minute_count integer;
 begin
@@ -994,296 +1044,14 @@ begin
 
   return query select (next_minute_count <= p_limit), next_minute_count;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-revoke execute on function register_api_request(uuid, timestamptz, integer) from public, anon, authenticated;
-grant execute on function register_api_request(uuid, timestamptz, integer) to service_role;
-
--- ============================================================
--- Agent Bridge：私有学习辅导 Agent 接入骨架
--- ============================================================
---
--- 安全模型：
---   1. 开源主站只保存 agent_user_id 映射、授权、套餐与用量账本。
---   2. 私有 Agent 保存 prompt/tools/RAG/模型调用细节。
---   3. 前端只能通过 agent-session Edge Function 创建短期 session。
---   4. 私有 Agent 只能通过 agent-context Edge Function 读取授权后的上下文。
---   5. 下列表启用 RLS，前端 anon/authenticated 客户端不可直接读写。
-
-create table if not exists agent_user_links (
-  agent_user_id uuid primary key default uuid_generate_v4(),
-  user_id       uuid not null unique references auth.users(id) on delete cascade,
-  updated_at    timestamptz not null default now(),
-  created_at    timestamptz not null default now()
-);
-
-drop trigger if exists update_agent_user_links_updated_at on agent_user_links;
-create trigger update_agent_user_links_updated_at
-  before update on agent_user_links
-  for each row
-  execute function update_updated_at_column();
-
-alter table agent_user_links enable row level security;
-revoke all on table agent_user_links from anon, authenticated;
-
-create table if not exists agent_sessions (
-  id             uuid primary key default uuid_generate_v4(),
-  agent_user_id  uuid not null references agent_user_links(agent_user_id) on delete cascade,
-  status         text not null default 'active',
-  scopes         jsonb not null default '[]'::jsonb,
-  expires_at     timestamptz not null,
-  revoked_at     timestamptz,
-  updated_at     timestamptz not null default now(),
-  created_at     timestamptz not null default now(),
-
-  constraint agent_sessions_status_check
-    check (status in ('active', 'revoked', 'expired')),
-  constraint agent_sessions_scopes_is_array
-    check (jsonb_typeof(scopes) = 'array')
-);
-
-create index if not exists idx_agent_sessions_agent_user_created
-  on agent_sessions(agent_user_id, created_at desc);
-create index if not exists idx_agent_sessions_expires
-  on agent_sessions(expires_at);
-
-drop trigger if exists update_agent_sessions_updated_at on agent_sessions;
-create trigger update_agent_sessions_updated_at
-  before update on agent_sessions
-  for each row
-  execute function update_updated_at_column();
-
-alter table agent_sessions enable row level security;
-revoke all on table agent_sessions from anon, authenticated;
-
-create table if not exists user_ai_consents (
-  user_id                    uuid primary key references auth.users(id) on delete cascade,
-  allow_progress_context     boolean not null default false,
-  allow_notes_context        boolean not null default false,
-  allow_chat_history_context boolean not null default false,
-  updated_at                 timestamptz not null default now(),
-  created_at                 timestamptz not null default now()
-);
-
-drop trigger if exists update_user_ai_consents_updated_at on user_ai_consents;
-create trigger update_user_ai_consents_updated_at
-  before update on user_ai_consents
-  for each row
-  execute function update_updated_at_column();
-
-alter table user_ai_consents enable row level security;
-revoke all on table user_ai_consents from anon, authenticated;
-
-create table if not exists ai_entitlements (
-  user_id                 uuid primary key references auth.users(id) on delete cascade,
-  plan                    text not null default 'free',
-  status                  text not null default 'active',
-  monthly_message_limit   integer not null default 50,
-  monthly_token_limit     bigint not null default 500000,
-  -- 双 credit 池（微美元；1 美元 = 1_000_000）。按 token 实际消耗折算美元后从对应池扣减：
-  --   credit_balance_micros          标准池（如 gpt-5.3-codex-spark）
-  --   premium_credit_balance_micros  付费池（如 gpt-5.5，付费用户特权；余额 0 即无权使用）
-  credit_balance_micros         bigint not null default 0,
-  premium_credit_balance_micros bigint not null default 0,
-  enabled_models          jsonb not null default '[]'::jsonb,
-  current_period_start    date not null default (date_trunc('month', now())::date),
-  current_period_end      date not null default ((date_trunc('month', now()) + interval '1 month')::date),
-  updated_at              timestamptz not null default now(),
-  created_at              timestamptz not null default now(),
-
-  constraint ai_entitlements_plan_check
-    check (plan in ('free', 'pro', 'team', 'admin')),
-  constraint ai_entitlements_status_check
-    check (status in ('active', 'trialing', 'past_due', 'canceled', 'suspended')),
-  constraint ai_entitlements_message_limit_check
-    check (monthly_message_limit >= 0),
-  constraint ai_entitlements_token_limit_check
-    check (monthly_token_limit >= 0),
-  constraint ai_entitlements_enabled_models_is_array
-    check (jsonb_typeof(enabled_models) = 'array')
-);
-
-drop trigger if exists update_ai_entitlements_updated_at on ai_entitlements;
-create trigger update_ai_entitlements_updated_at
-  before update on ai_entitlements
-  for each row
-  execute function update_updated_at_column();
-
-alter table ai_entitlements enable row level security;
-revoke all on table ai_entitlements from anon, authenticated;
-
-create table if not exists ai_usage_months (
-  user_id            uuid not null references auth.users(id) on delete cascade,
-  period_start       date not null,
-  period_end         date not null,
-  plan               text not null default 'free',
-  messages_used      integer not null default 0,
-  messages_reserved  integer not null default 0,
-  input_tokens       bigint not null default 0,
-  cached_input_tokens bigint not null default 0,
-  output_tokens      bigint not null default 0,
-  total_tokens       bigint not null default 0,
-  cost_micros        bigint not null default 0,
-  updated_at         timestamptz not null default now(),
-  created_at         timestamptz not null default now(),
-
-  primary key (user_id, period_start),
-  constraint ai_usage_months_plan_check
-    check (plan in ('free', 'pro', 'team', 'admin')),
-  constraint ai_usage_months_nonnegative_check
-    check (
-      messages_used >= 0
-      and messages_reserved >= 0
-      and input_tokens >= 0
-      and cached_input_tokens >= 0
-      and output_tokens >= 0
-      and total_tokens >= 0
-      and cost_micros >= 0
-    )
-);
-
-create index if not exists idx_ai_usage_months_period
-  on ai_usage_months(period_start desc);
-
-drop trigger if exists update_ai_usage_months_updated_at on ai_usage_months;
-create trigger update_ai_usage_months_updated_at
-  before update on ai_usage_months
-  for each row
-  execute function update_updated_at_column();
-
-alter table ai_usage_months enable row level security;
-revoke all on table ai_usage_months from anon, authenticated;
-
-create table if not exists ai_usage_reservations (
-  id                 uuid primary key default uuid_generate_v4(),
-  user_id            uuid not null references auth.users(id) on delete cascade,
-  agent_user_id      uuid not null references agent_user_links(agent_user_id) on delete cascade,
-  session_id         uuid not null references agent_sessions(id) on delete cascade,
-  idempotency_key    text not null,
-  status             text not null default 'reserved',
-  period_start       date not null,
-  reserved_messages  integer not null default 1,
-  committed_at       timestamptz,
-  canceled_at        timestamptz,
-  cancel_reason      text,
-  updated_at         timestamptz not null default now(),
-  created_at         timestamptz not null default now(),
-
-  constraint ai_usage_reservations_session_key_unique unique (session_id, idempotency_key),
-  constraint ai_usage_reservations_status_check
-    check (status in ('reserved', 'committed', 'canceled', 'expired')),
-  constraint ai_usage_reservations_key_length
-    check (char_length(trim(idempotency_key)) between 1 and 160),
-  constraint ai_usage_reservations_reserved_messages_check
-    check (reserved_messages > 0)
-);
-
-create index if not exists idx_ai_usage_reservations_user_created
-  on ai_usage_reservations(user_id, created_at desc);
-
-drop trigger if exists update_ai_usage_reservations_updated_at on ai_usage_reservations;
-create trigger update_ai_usage_reservations_updated_at
-  before update on ai_usage_reservations
-  for each row
-  execute function update_updated_at_column();
-
-alter table ai_usage_reservations enable row level security;
-revoke all on table ai_usage_reservations from anon, authenticated;
-
-create table if not exists ai_usage_events (
-  id             uuid primary key default uuid_generate_v4(),
-  reservation_id uuid references ai_usage_reservations(id) on delete set null,
-  user_id        uuid not null references auth.users(id) on delete cascade,
-  agent_user_id  uuid not null references agent_user_links(agent_user_id) on delete cascade,
-  session_id     uuid references agent_sessions(id) on delete set null,
-  provider       text not null default '',
-  model          text not null default '',
-  input_tokens   bigint not null default 0,
-  cached_input_tokens bigint not null default 0,
-  output_tokens  bigint not null default 0,
-  total_tokens   bigint not null default 0,
-  cost_micros    bigint not null default 0,
-  status         text not null default 'succeeded',
-  latency_ms     integer,
-  error_code     text,
-  created_at     timestamptz not null default now(),
-
-  constraint ai_usage_events_reservation_unique unique (reservation_id),
-  constraint ai_usage_events_status_check
-    check (status in ('succeeded', 'failed', 'canceled')),
-  constraint ai_usage_events_nonnegative_check
-    check (
-      input_tokens >= 0
-      and cached_input_tokens >= 0
-      and output_tokens >= 0
-      and total_tokens >= 0
-      and cost_micros >= 0
-      and (latency_ms is null or latency_ms >= 0)
-    )
-);
-
-create index if not exists idx_ai_usage_events_user_created
-  on ai_usage_events(user_id, created_at desc);
-create index if not exists idx_ai_usage_events_session_created
-  on ai_usage_events(session_id, created_at desc);
-
-alter table ai_usage_events enable row level security;
-revoke all on table ai_usage_events from anon, authenticated;
-
--- ── 模型价目表（按官方 API 价格，每 1M token 的微美元单价；1 美元 = 1_000_000）──
-create table if not exists ai_model_prices (
-  model                           text primary key,
-  input_micro_usd_per_mtok        bigint not null,
-  cached_input_micro_usd_per_mtok bigint not null default 0,
-  output_micro_usd_per_mtok       bigint not null,
-  -- 该模型计费扣减的 credit 池：standard（如 spark）/ premium（如 gpt-5.5，付费特权）。
-  credit_pool                     text not null default 'standard',
-  updated_at                      timestamptz not null default now(),
-  created_at                      timestamptz not null default now(),
-
-  constraint ai_model_prices_nonnegative_check check (
-    input_micro_usd_per_mtok >= 0
-    and cached_input_micro_usd_per_mtok >= 0
-    and output_micro_usd_per_mtok >= 0
-  ),
-  constraint ai_model_prices_credit_pool_check check (credit_pool in ('standard', 'premium'))
-);
-
-drop trigger if exists update_ai_model_prices_updated_at on ai_model_prices;
-create trigger update_ai_model_prices_updated_at
-  before update on ai_model_prices
-  for each row
-  execute function update_updated_at_column();
-
-alter table ai_model_prices enable row level security;
-revoke all on table ai_model_prices from anon, authenticated;
-
--- 种子价（官方 https://developers.openai.com/api/docs/pricing，请随官方调价更新）：
---   gpt-5.5             : in $5.00 / cached $0.50 / out $30.00 每 1M（官方确认）
---   gpt-5.3-codex-spark : in $1.75 / cached $0.175 / out $14.00 每 1M
---     注：spark 当前为 research preview（尚未正式上 API），in/out 多方一致，
---     cached 官方未单列、按「约为输入价 1/10」推算；正式上线后请复核。
-insert into ai_model_prices (model, input_micro_usd_per_mtok, cached_input_micro_usd_per_mtok, output_micro_usd_per_mtok, credit_pool)
-values
-  ('gpt-5.5', 5000000, 500000, 30000000, 'premium'),
-  ('gpt-5.3-codex-spark', 1750000, 175000, 14000000, 'standard')
-on conflict (model) do nothing;
-
--- ── 预留：按 credit 余额放行（单轮成本未知，余额 > 0 即放行占位，commit 时按实扣）──
-create or replace function reserve_ai_message(
-  p_session_id uuid,
-  p_idempotency_key text,
-  p_model text
-)
-returns table (
-  allowed boolean,
-  code text,
-  reservation_id uuid,
-  credit_pool text,
-  credit_balance_micros bigint,
-  period_start date
-) as $$
+create function public.reserve_ai_message(p_session_id uuid, p_idempotency_key text, p_model text)
+ RETURNS TABLE(allowed boolean, code text, reservation_id uuid, credit_pool text, credit_balance_micros bigint, period_start date)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_session public.agent_sessions%rowtype;
   v_link public.agent_user_links%rowtype;
@@ -1404,26 +1172,14 @@ begin
 
   return query select true, 'reserved', v_reservation.id, v_pool, v_balance, v_period_start;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function commit_ai_usage(
-  p_reservation_id uuid,
-  p_provider text,
-  p_model text,
-  p_input_tokens bigint,
-  p_cached_input_tokens bigint,
-  p_output_tokens bigint,
-  p_status text,
-  p_latency_ms integer,
-  p_error_code text
-)
-returns table (
-  accepted boolean,
-  code text,
-  event_id uuid,
-  cost_micros bigint
-) as $$
+create function public.commit_ai_usage(p_reservation_id uuid, p_provider text, p_model text, p_input_tokens bigint, p_cached_input_tokens bigint, p_output_tokens bigint, p_status text, p_latency_ms integer, p_error_code text)
+ RETURNS TABLE(accepted boolean, code text, event_id uuid, cost_micros bigint)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_reservation public.ai_usage_reservations%rowtype;
   v_event_id uuid;
@@ -1555,18 +1311,14 @@ begin
 
   return query select true, 'committed', v_event_id, v_cost;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function cancel_ai_reservation(
-  p_reservation_id uuid,
-  p_reason text
-)
-returns table (
-  accepted boolean,
-  code text,
-  reservation_id uuid
-) as $$
+create function public.cancel_ai_reservation(p_reservation_id uuid, p_reason text)
+ RETURNS TABLE(accepted boolean, code text, reservation_id uuid)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_reservation public.ai_usage_reservations%rowtype;
 begin
@@ -1604,126 +1356,14 @@ begin
 
   return query select true, 'canceled', v_reservation.id;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-revoke execute on function reserve_ai_message(uuid, text, text) from public, anon, authenticated;
-revoke execute on function commit_ai_usage(uuid, text, text, bigint, bigint, bigint, text, integer, text) from public, anon, authenticated;
-revoke execute on function cancel_ai_reservation(uuid, text) from public, anon, authenticated;
-grant execute on function reserve_ai_message(uuid, text, text) to service_role;
-grant execute on function commit_ai_usage(uuid, text, text, bigint, bigint, bigint, text, integer, text) to service_role;
-grant execute on function cancel_ai_reservation(uuid, text) to service_role;
-
--- ============================================================
--- Content Submissions：站内投稿 → GitHub Issue 收件箱
--- ============================================================
---
--- 安全模型：
---   1. 用户只能通过 content-submissions Edge Function 创建和查询自己的投稿。
---   2. 前端 anon/authenticated 客户端不可直接读写投稿表。
---   3. 公开 GitHub Issue 不包含用户邮箱或 Supabase user_id，只展示用户填写的公开署名。
---   4. CLA 确认通过 payload_signature 写入 Issue，后续 GitHub Action 转 PR 时验证。
-
-create table if not exists content_submissions (
-  id                    uuid primary key default uuid_generate_v4(),
-  user_id               uuid not null references auth.users(id) on delete cascade,
-  submission_type       text not null,
-  status                text not null default 'pending_issue',
-  title                 text not null default '',
-  public_author         text not null default '',
-  university_id         text not null default '',
-  department_id         text not null default '',
-  program_id            text not null default '',
-  year                  integer,
-  file_slug             text not null default '',
-  target_doc_id         text not null default '',
-  target_title          text not null default '',
-  tags                  jsonb not null default '[]'::jsonb,
-  description_markdown  text not null default '',
-  kai_markdown          text not null default '',
-  correction_base_sha   text not null default '',
-  correction_patch      jsonb not null default '[]'::jsonb,
-  correction_conflict   boolean not null default false,
-  admission_data        jsonb not null default '{}'::jsonb,
-  experience_data       jsonb not null default '{}'::jsonb,
-  cla_accepted_at       timestamptz not null,
-  payload_hash          text,
-  payload_signature     text,
-  issue_number          integer,
-  issue_url             text,
-  pr_number             integer,
-  pr_url                text,
-  failure_reason        text,
-  updated_at            timestamptz not null default now(),
-  created_at            timestamptz not null default now(),
-
-  constraint content_submissions_type_check
-    check (submission_type in ('new_solution', 'correction', 'admission_data', 'experience')),
-  constraint content_submissions_status_check
-    check (status in ('pending_issue', 'issue_created', 'review_created', 'failed', 'converted', 'closed')),
-  constraint content_submissions_year_check
-    check (year is null or (year >= 1900 and year <= 2200)),
-  constraint content_submissions_tags_is_array
-    check (jsonb_typeof(tags) = 'array'),
-  constraint content_submissions_patch_is_array
-    check (jsonb_typeof(correction_patch) = 'array'),
-  constraint content_submissions_experience_data_check
-    check (jsonb_typeof(experience_data) = 'object'
-      and ((submission_type = 'experience' and experience_data <> '{}'::jsonb)
-        or (submission_type <> 'experience' and experience_data = '{}'::jsonb))),
-  constraint content_submissions_experience_length
-    check (submission_type <> 'experience' or char_length(coalesce(experience_data->>'markdown', '')) <= 50000),
-  constraint content_submissions_admission_data_is_object
-    check (jsonb_typeof(admission_data) = 'object'),
-  constraint content_submissions_admission_data_presence
-    check (
-      (submission_type = 'admission_data' and admission_data <> '{}'::jsonb)
-      or (submission_type <> 'admission_data' and admission_data = '{}'::jsonb)
-    ),
-  constraint content_submissions_admission_not_converted
-    check (submission_type <> 'admission_data' or status <> 'converted'),
-  constraint content_submissions_correction_sha
-    check (
-      submission_type <> 'correction'
-      or correction_base_sha ~ '^[a-f0-9]{40}$'
-    ),
-  constraint content_submissions_title_length
-    check (char_length(title) <= 240),
-  constraint content_submissions_author_length
-    check (char_length(public_author) <= 160),
-  constraint content_submissions_new_solution_markdown_length
-    check (
-      submission_type <> 'new_solution'
-      or char_length(description_markdown) + char_length(kai_markdown) <= 50000
-    )
-);
-
-create index if not exists idx_content_submissions_user_created
-  on content_submissions(user_id, created_at desc);
-create index if not exists idx_content_submissions_status_created
-  on content_submissions(status, created_at desc);
-create index if not exists idx_content_submissions_issue_number
-  on content_submissions(issue_number);
-
-drop trigger if exists update_content_submissions_updated_at on content_submissions;
-create trigger update_content_submissions_updated_at
-  before update on content_submissions
-  for each row
-  execute function update_updated_at_column();
-
-alter table content_submissions enable row level security;
-revoke all on table content_submissions from anon, authenticated;
-
-drop function if exists public.get_site_contributors(integer);
-
-create or replace function get_site_contributors()
-returns table (
-  display_name text,
-  contribution_count integer,
-  solution_count integer,
-  correction_count integer,
-  last_contribution_at timestamptz
-) as $$
+create function public.get_site_contributors()
+ RETURNS TABLE(display_name text, contribution_count integer, solution_count integer, correction_count integer, last_contribution_at timestamp with time zone)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
   with contributor_totals as (
     select
       (array_agg(
@@ -1747,30 +1387,14 @@ returns table (
     c.last_contribution_at
   from contributor_totals c
   order by c.contribution_count desc, c.last_contribution_at desc, c.display_name asc;
-$$ language sql stable security definer
-set search_path = '';
+$function$;
 
-revoke execute on function get_site_contributors() from public;
-grant execute on function get_site_contributors() to anon, authenticated;
-
-create or replace function refresh_user_reputation(p_user_id uuid)
-returns table (
-  user_id uuid,
-  level integer,
-  level_key text,
-  reputation_points integer,
-  rating_weight numeric,
-  account_age_score integer,
-  contribution_score integer,
-  accepted_solution_count integer,
-  accepted_correction_count integer,
-  submitted_solution_issue_count integer,
-  submitted_correction_issue_count integer,
-  issue_submission_count integer,
-  converted_submission_count integer,
-  last_contribution_at timestamptz,
-  recalculated_at timestamptz
-) as $$
+create function public.refresh_user_reputation(p_user_id uuid)
+ RETURNS TABLE(user_id uuid, level integer, level_key text, reputation_points integer, rating_weight numeric, account_age_score integer, contribution_score integer, accepted_solution_count integer, accepted_correction_count integer, submitted_solution_issue_count integer, submitted_correction_issue_count integer, issue_submission_count integer, converted_submission_count integer, last_contribution_at timestamp with time zone, recalculated_at timestamp with time zone)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_target_user_id uuid := coalesce(p_user_id, auth.uid());
   v_registered_at timestamptz;
@@ -2089,27 +1713,14 @@ begin
   from public.user_reputation_profiles p
   where p.user_id = v_target_user_id;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function get_my_reputation()
-returns table (
-  user_id uuid,
-  level integer,
-  level_key text,
-  reputation_points integer,
-  rating_weight numeric,
-  account_age_score integer,
-  contribution_score integer,
-  accepted_solution_count integer,
-  accepted_correction_count integer,
-  submitted_solution_issue_count integer,
-  submitted_correction_issue_count integer,
-  issue_submission_count integer,
-  converted_submission_count integer,
-  last_contribution_at timestamptz,
-  recalculated_at timestamptz
-) as $$
+create function public.get_my_reputation()
+ RETURNS TABLE(user_id uuid, level integer, level_key text, reputation_points integer, rating_weight numeric, account_age_score integer, contribution_score integer, accepted_solution_count integer, accepted_correction_count integer, submitted_solution_issue_count integer, submitted_correction_issue_count integer, issue_submission_count integer, converted_submission_count integer, last_contribution_at timestamp with time zone, recalculated_at timestamp with time zone)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
 begin
@@ -2121,57 +1732,21 @@ begin
   select *
   from public.refresh_user_reputation(v_user_id);
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-revoke execute on function refresh_user_reputation(uuid) from public, anon, authenticated;
-revoke execute on function get_my_reputation() from public, anon, authenticated;
-grant execute on function refresh_user_reputation(uuid) to authenticated, service_role;
-grant execute on function get_my_reputation() to authenticated;
-
--- ============================================================
--- V3：统一公开昵称与私人题集
--- ============================================================
-
--- ── 全站统一公开资料 ────────────────────────────────────────
-
-create table if not exists user_public_profiles (
-  user_id                uuid primary key references auth.users(id) on delete cascade,
-  public_id              uuid not null default uuid_generate_v4() unique,
-  nickname               text not null,
-  nickname_normalized    text not null,
-  discriminator          integer not null,
-  nickname_confirmed_at  timestamptz,
-  nickname_changed_at    timestamptz,
-  updated_at              timestamptz not null default now(),
-  created_at              timestamptz not null default now(),
-
-  constraint user_public_profiles_nickname_length_check
-    check (char_length(nickname) between 2 and 24),
-  constraint user_public_profiles_nickname_hash_check
-    check (position('#' in nickname) = 0),
-  constraint user_public_profiles_discriminator_check
-    check (discriminator between 0 and 99999),
-  constraint user_public_profiles_nickname_tag_unique
-    unique (nickname_normalized, discriminator)
-);
-
-drop trigger if exists update_user_public_profiles_updated_at on user_public_profiles;
-create trigger update_user_public_profiles_updated_at
-  before update on user_public_profiles
-  for each row execute function update_updated_at_column();
-
-alter table user_public_profiles enable row level security;
-revoke all on table user_public_profiles from public, anon, authenticated;
-grant select, insert, update, delete on table user_public_profiles to service_role;
-
-create or replace function normalize_public_nickname(p_nickname text)
-returns text as $$
+create function public.normalize_public_nickname(p_nickname text)
+ RETURNS text
+ LANGUAGE sql
+ IMMUTABLE
+AS $function$
   select lower(regexp_replace(trim(normalize(coalesce(p_nickname, ''), NFKC)), '[[:space:]]+', ' ', 'g'));
-$$ language sql immutable;
+$function$;
 
-create or replace function validate_public_nickname(p_nickname text)
-returns text as $$
+create function public.validate_public_nickname(p_nickname text)
+ RETURNS text
+ LANGUAGE plpgsql
+ IMMUTABLE
+AS $function$
 declare
   v_name text := regexp_replace(trim(normalize(coalesce(p_nickname, ''), NFKC)), '[[:space:]]+', ' ', 'g');
 begin
@@ -2197,15 +1772,22 @@ begin
   end if;
   return v_name;
 end;
-$$ language plpgsql immutable;
+$function$;
 
-create or replace function format_public_nickname(p_nickname text, p_discriminator integer)
-returns text as $$
+create function public.format_public_nickname(p_nickname text, p_discriminator integer)
+ RETURNS text
+ LANGUAGE sql
+ IMMUTABLE
+AS $function$
   select trim(p_nickname) || ' #' || lpad(p_discriminator::text, 5, '0');
-$$ language sql immutable;
+$function$;
 
-create or replace function ensure_user_public_profile(p_user_id uuid)
-returns user_public_profiles as $$
+create function public.ensure_user_public_profile(p_user_id uuid)
+ RETURNS user_public_profiles
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_profile public.user_public_profiles%rowtype;
   v_candidate integer;
@@ -2250,24 +1832,14 @@ begin
     end if;
   end loop;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-revoke execute on function normalize_public_nickname(text) from public, anon, authenticated;
-revoke execute on function validate_public_nickname(text) from public, anon, authenticated;
-revoke execute on function format_public_nickname(text, integer) from public, anon, authenticated;
-revoke execute on function ensure_user_public_profile(uuid) from public, anon, authenticated;
-
-create or replace function get_my_public_profile()
-returns table (
-  public_id uuid,
-  nickname text,
-  discriminator integer,
-  display_name text,
-  nickname_confirmed boolean,
-  nickname_changed_at timestamptz,
-  next_nickname_change_at timestamptz
-) as $$
+create function public.get_my_public_profile()
+ RETURNS TABLE(public_id uuid, nickname text, discriminator integer, display_name text, nickname_confirmed boolean, nickname_changed_at timestamp with time zone, next_nickname_change_at timestamp with time zone)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_profile public.user_public_profiles%rowtype;
 begin
@@ -2284,19 +1856,14 @@ begin
       else v_profile.nickname_changed_at + interval '30 days'
     end;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function confirm_or_change_my_nickname(p_nickname text)
-returns table (
-  public_id uuid,
-  nickname text,
-  discriminator integer,
-  display_name text,
-  nickname_confirmed boolean,
-  nickname_changed_at timestamptz,
-  next_nickname_change_at timestamptz
-) as $$
+create function public.confirm_or_change_my_nickname(p_nickname text)
+ RETURNS TABLE(public_id uuid, nickname text, discriminator integer, display_name text, nickname_confirmed boolean, nickname_changed_at timestamp with time zone, next_nickname_change_at timestamp with time zone)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
   v_profile public.user_public_profiles%rowtype;
@@ -2350,114 +1917,14 @@ begin
 
   return query select * from public.get_my_public_profile();
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-revoke execute on function get_my_public_profile() from public, anon;
-revoke execute on function confirm_or_change_my_nickname(text) from public, anon;
-grant execute on function get_my_public_profile() to authenticated;
-grant execute on function confirm_or_change_my_nickname(text) to authenticated;
-
--- 排行榜 UUID 查询与仅登录实名参与规则在文件末尾的基线整合段完成。
-
--- ── 私人题集 ───────────────────────────────────────────────
-
-create table if not exists problem_sets (
-  id             uuid primary key default uuid_generate_v4(),
-  owner_user_id  uuid not null references auth.users(id) on delete cascade,
-  kind           text not null,
-  title          text,
-  description    text not null default '',
-  archived_at    timestamptz,
-  deleted_at     timestamptz,
-  updated_at     timestamptz not null default now(),
-  created_at     timestamptz not null default now(),
-
-  constraint problem_sets_kind_check
-    check (kind in ('system_later', 'system_mistakes', 'custom')),
-  constraint problem_sets_title_check
-    check (
-      (kind <> 'custom' and title is null)
-      or (kind = 'custom' and char_length(trim(title)) between 1 and 80)
-    ),
-  constraint problem_sets_description_check
-    check (char_length(description) <= 2000),
-  constraint problem_sets_system_archive_check
-    check (kind = 'custom' or (archived_at is null and deleted_at is null))
-);
-
-create unique index if not exists idx_problem_sets_owner_system_kind
-  on problem_sets(owner_user_id, kind)
-  where kind in ('system_later', 'system_mistakes');
-create index if not exists idx_problem_sets_owner_updated
-  on problem_sets(owner_user_id, updated_at desc)
-  where deleted_at is null;
-
-create table if not exists problem_set_items (
-  id                  uuid primary key default uuid_generate_v4(),
-  set_id              uuid not null references problem_sets(id) on delete cascade,
-  doc_id              text not null,
-  position            integer not null default 0,
-  annotation_markdown text not null default '',
-  title_snapshot      text not null default '',
-  permalink_snapshot  text not null default '',
-  tags_snapshot       jsonb not null default '[]'::jsonb,
-  updated_at          timestamptz not null default now(),
-  created_at          timestamptz not null default now(),
-
-  constraint problem_set_items_set_doc_unique unique (set_id, doc_id),
-  constraint problem_set_items_doc_not_blank check (char_length(trim(doc_id)) > 0),
-  constraint problem_set_items_position_check check (position >= 0),
-  constraint problem_set_items_annotation_check check (char_length(annotation_markdown) <= 1000),
-  constraint problem_set_items_tags_check check (jsonb_typeof(tags_snapshot) = 'array')
-);
-
-create index if not exists idx_problem_set_items_order
-  on problem_set_items(set_id, position, created_at);
-create index if not exists idx_problem_set_items_doc
-  on problem_set_items(doc_id, set_id);
-
-drop trigger if exists update_problem_sets_updated_at on problem_sets;
-create trigger update_problem_sets_updated_at
-  before update on problem_sets
-  for each row execute function update_updated_at_column();
-drop trigger if exists update_problem_set_items_updated_at on problem_set_items;
-create trigger update_problem_set_items_updated_at
-  before update on problem_set_items
-  for each row execute function update_updated_at_column();
-
-alter table problem_sets enable row level security;
-alter table problem_set_items enable row level security;
-
-drop policy if exists "Users can view own problem sets" on problem_sets;
-create policy "Users can view own problem sets" on problem_sets for select
-  using (auth.uid() = owner_user_id);
-drop policy if exists "Users can manage own problem sets" on problem_sets;
-create policy "Users can manage own problem sets" on problem_sets for all
-  using (auth.uid() = owner_user_id)
-  with check (auth.uid() = owner_user_id);
-drop policy if exists "Users can view own problem set items" on problem_set_items;
-create policy "Users can view own problem set items" on problem_set_items for select
-  using (exists (
-    select 1 from public.problem_sets s
-    where s.id = set_id and s.owner_user_id = auth.uid()
-  ));
-drop policy if exists "Users can manage own problem set items" on problem_set_items;
-create policy "Users can manage own problem set items" on problem_set_items for all
-  using (exists (
-    select 1 from public.problem_sets s
-    where s.id = set_id and s.owner_user_id = auth.uid()
-  ))
-  with check (exists (
-    select 1 from public.problem_sets s
-    where s.id = set_id and s.owner_user_id = auth.uid()
-  ));
-
-revoke all on table problem_sets, problem_set_items from public, anon, authenticated;
-grant select, insert, update, delete on table problem_sets, problem_set_items to service_role;
-
-create or replace function ensure_my_problem_sets()
-returns void as $$
+create function public.ensure_my_problem_sets()
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
 begin
@@ -2470,11 +1937,14 @@ begin
     (v_user_id, 'system_mistakes', null)
   on conflict do nothing;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function compact_problem_set_positions(p_set_id uuid)
-returns void as $$
+create function public.compact_problem_set_positions(p_set_id uuid)
+ RETURNS void
+ LANGUAGE sql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
   update public.problem_set_items i
   set position = ordered.next_position
   from (
@@ -2485,122 +1955,55 @@ returns void as $$
     where item.set_id = p_set_id
   ) ordered
   where i.id = ordered.id and i.position <> ordered.next_position;
-$$ language sql security definer
-set search_path = '';
+$function$;
 
-create or replace function get_my_problem_sets(p_doc_id text default null)
-returns table (
-  id uuid,
-  kind text,
-  title text,
-  description text,
-  item_count bigint,
-  completed_count bigint,
-  reviewing_count bigint,
-  contains_doc boolean,
-  archived_at timestamptz,
-  updated_at timestamptz,
-  created_at timestamptz
-) as $$
+create function public.get_my_problem_sets(p_doc_id text DEFAULT NULL::text)
+ RETURNS TABLE(id uuid, kind text, title text, description text, item_count bigint, completed_count bigint, reviewing_count bigint, contains_doc boolean, archived_at timestamp with time zone, updated_at timestamp with time zone, created_at timestamp with time zone)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
+  v_document_uuid uuid;
 begin
   perform public.ensure_my_problem_sets();
-  return query
-  select
-    s.id,
-    s.kind,
-    s.title,
-    s.description,
-    count(i.id)::bigint,
-    count(i.id) filter (where p.status = 'completed' and p.deleted_at is null)::bigint,
-    count(i.id) filter (where p.status = 'reviewing' and p.deleted_at is null)::bigint,
-    case when nullif(trim(p_doc_id), '') is null then false
-      else coalesce(bool_or(i.doc_id = trim(p_doc_id)), false) end,
-    s.archived_at,
-    s.updated_at,
-    s.created_at
-  from public.problem_sets s
-  left join public.problem_set_items i on i.set_id = s.id
-  left join public.user_progress_items p
-    on p.user_id = v_user_id and p.doc_id = i.doc_id
-  where s.owner_user_id = v_user_id and s.deleted_at is null
-  group by s.id
-  order by
-    case s.kind when 'system_later' then 0 when 'system_mistakes' then 1 else 2 end,
-    s.updated_at desc;
-end;
-$$ language plpgsql security definer
-set search_path = '';
-
-create or replace function get_my_problem_set(p_set_id uuid)
-returns table (
-  set_id uuid,
-  kind text,
-  set_title text,
-  set_description text,
-  archived_at timestamptz,
-  item_id uuid,
-  doc_id text,
-  "position" integer,
-  annotation_markdown text,
-  title text,
-  permalink text,
-  tags jsonb,
-  content_available boolean,
-  progress_status text,
-  review_count integer,
-  item_updated_at timestamptz,
-  item_created_at timestamptz
-) as $$
-declare
-  v_user_id uuid := auth.uid();
-begin
-  if v_user_id is null then
-    raise exception 'not_authenticated' using errcode = '28000';
-  end if;
-  if not exists (
-    select 1 from public.problem_sets s
-    where s.id = p_set_id and s.owner_user_id = v_user_id and s.deleted_at is null
-  ) then
-    raise exception 'problem_set_not_found' using errcode = 'P0002';
-  end if;
+  select alias.document_uuid into v_document_uuid
+  from public.document_aliases alias
+  where alias.doc_id = nullif(trim(p_doc_id), '');
 
   return query
   select
-    s.id,
-    s.kind,
-    s.title,
-    s.description,
-    s.archived_at,
-    i.id,
-    i.doc_id,
-    i.position,
-    i.annotation_markdown,
-    coalesce(d.title, i.title_snapshot),
-    coalesce(d.permalink, i.permalink_snapshot),
-    coalesce(d.tags, i.tags_snapshot),
-    d.doc_id is not null,
-    coalesce(p.status, 'not_started'),
-    coalesce(p.review_count, 0),
-    i.updated_at,
-    i.created_at
-  from public.problem_sets s
-  left join public.problem_set_items i on i.set_id = s.id
-  left join public.exam_documents d on d.doc_id = i.doc_id
-  left join public.user_progress_items p
-    on p.user_id = v_user_id and p.doc_id = i.doc_id and p.deleted_at is null
-  where s.id = p_set_id
+    problem_set.id,
+    problem_set.kind,
+    problem_set.title,
+    problem_set.description,
+    count(item.id)::bigint,
+    count(item.id) filter (where progress.status = 'completed' and progress.deleted_at is null)::bigint,
+    count(item.id) filter (where progress.status = 'reviewing' and progress.deleted_at is null)::bigint,
+    case when v_document_uuid is null then false
+      else coalesce(bool_or(item.document_uuid = v_document_uuid), false) end,
+    problem_set.archived_at,
+    problem_set.updated_at,
+    problem_set.created_at
+  from public.problem_sets problem_set
+  left join public.problem_set_items item on item.set_id = problem_set.id
+  left join public.user_progress_items progress
+    on progress.user_id = v_user_id and progress.document_uuid = item.document_uuid
+  where problem_set.owner_user_id = v_user_id and problem_set.deleted_at is null
+  group by problem_set.id
   order by
-    case when s.kind = 'custom' then i.position end asc nulls last,
-    case when s.kind <> 'custom' then i.created_at end desc nulls last,
-    i.created_at;
+    case problem_set.kind when 'system_later' then 0 when 'system_mistakes' then 1 else 2 end,
+    problem_set.updated_at desc;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function create_my_problem_set(p_title text, p_description text default '')
-returns uuid as $$
+create function public.create_my_problem_set(p_title text, p_description text DEFAULT ''::text)
+ RETURNS uuid
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
   v_id uuid;
@@ -2624,11 +2027,14 @@ begin
   returning id into v_id;
   return v_id;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function update_my_problem_set(p_set_id uuid, p_title text, p_description text default '')
-returns void as $$
+create function public.update_my_problem_set(p_set_id uuid, p_title text, p_description text DEFAULT ''::text)
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
   v_title text := trim(coalesce(p_title, ''));
@@ -2646,11 +2052,14 @@ begin
     and s.kind = 'custom' and s.deleted_at is null;
   if not found then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function archive_my_problem_set(p_set_id uuid, p_archived boolean)
-returns void as $$
+create function public.archive_my_problem_set(p_set_id uuid, p_archived boolean)
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 begin
   update public.problem_sets s
   set archived_at = case when coalesce(p_archived, false) then now() else null end
@@ -2658,93 +2067,119 @@ begin
     and s.kind = 'custom' and s.deleted_at is null;
   if not found then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function delete_my_problem_set(p_set_id uuid)
-returns void as $$
+create function public.delete_my_problem_set(p_set_id uuid)
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 begin
   update public.problem_sets s set deleted_at = now(), archived_at = now()
   where s.id = p_set_id and s.owner_user_id = auth.uid()
     and s.kind = 'custom' and s.deleted_at is null;
   if not found then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function set_doc_problem_set_memberships(
-  p_doc_id text,
-  p_set_ids uuid[] default '{}'::uuid[]
-)
-returns void as $$
+create function public.set_doc_problem_set_memberships(p_doc_id text, p_set_ids uuid[] DEFAULT '{}'::uuid[])
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
-  v_doc_id text := nullif(trim(p_doc_id), '');
+  v_requested_doc_id text := nullif(trim(p_doc_id), '');
+  v_document_uuid uuid;
   v_set_ids uuid[] := coalesce(p_set_ids, '{}'::uuid[]);
   v_set_id uuid;
-  v_doc public.exam_documents%rowtype;
+  v_doc public.document_catalog%rowtype;
   v_position integer;
   v_touched_set_ids uuid[];
 begin
   if v_user_id is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
-  if v_doc_id is null then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
+  if v_requested_doc_id is null then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
   perform public.ensure_my_problem_sets();
-  perform 1 from public.problem_sets s
-  where s.owner_user_id = v_user_id and s.deleted_at is null and s.archived_at is null
-  order by s.id for update;
+  perform 1 from public.problem_sets problem_set
+  where problem_set.owner_user_id = v_user_id
+    and problem_set.deleted_at is null
+    and problem_set.archived_at is null
+  order by problem_set.id for update;
 
-  select * into v_doc from public.exam_documents d where d.doc_id = v_doc_id;
+  select document.* into v_doc
+  from public.document_aliases alias
+  join public.document_catalog document on document.document_uuid = alias.document_uuid
+  where alias.doc_id = v_requested_doc_id;
   if not found then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
+  v_document_uuid := v_doc.document_uuid;
 
   if exists (
     select 1 from unnest(v_set_ids) requested(id)
-    left join public.problem_sets s
-      on s.id = requested.id and s.owner_user_id = v_user_id
-      and s.deleted_at is null and s.archived_at is null
-    where s.id is null
+    left join public.problem_sets problem_set
+      on problem_set.id = requested.id
+      and problem_set.owner_user_id = v_user_id
+      and problem_set.deleted_at is null
+      and problem_set.archived_at is null
+    where problem_set.id is null
   ) then
     raise exception 'invalid_problem_set' using errcode = '22023';
   end if;
 
-  select coalesce(array_agg(distinct i.set_id), '{}'::uuid[]) into v_touched_set_ids
-  from public.problem_set_items i
-  join public.problem_sets s on s.id = i.set_id
-  where i.doc_id = v_doc_id and s.owner_user_id = v_user_id
-    and s.deleted_at is null and s.archived_at is null;
+  select coalesce(array_agg(distinct item.set_id), '{}'::uuid[]) into v_touched_set_ids
+  from public.problem_set_items item
+  join public.problem_sets problem_set on problem_set.id = item.set_id
+  where item.document_uuid = v_document_uuid
+    and problem_set.owner_user_id = v_user_id
+    and problem_set.deleted_at is null
+    and problem_set.archived_at is null;
 
-  delete from public.problem_set_items i
-  using public.problem_sets s
-  where i.set_id = s.id and i.doc_id = v_doc_id
-    and s.owner_user_id = v_user_id and s.deleted_at is null and s.archived_at is null
-    and not (s.id = any(v_set_ids));
+  delete from public.problem_set_items item
+  using public.problem_sets problem_set
+  where item.set_id = problem_set.id
+    and item.document_uuid = v_document_uuid
+    and problem_set.owner_user_id = v_user_id
+    and problem_set.deleted_at is null
+    and problem_set.archived_at is null
+    and not (problem_set.id = any(v_set_ids));
 
   foreach v_set_id in array v_touched_set_ids loop
     perform public.compact_problem_set_positions(v_set_id);
   end loop;
 
   foreach v_set_id in array v_set_ids loop
-    if (select count(*) from public.problem_set_items i where i.set_id = v_set_id) >= 2000
-      and not exists (select 1 from public.problem_set_items i where i.set_id = v_set_id and i.doc_id = v_doc_id) then
+    if (select count(*) from public.problem_set_items item where item.set_id = v_set_id) >= 2000
+      and not exists (
+        select 1 from public.problem_set_items item
+        where item.set_id = v_set_id and item.document_uuid = v_document_uuid
+      ) then
       raise exception 'problem_set_item_limit_reached' using errcode = '54000';
     end if;
-    select coalesce(max(i.position), -1) + 1 into v_position
-    from public.problem_set_items i where i.set_id = v_set_id;
+    select coalesce(max(item.position), -1) + 1 into v_position
+    from public.problem_set_items item where item.set_id = v_set_id;
     insert into public.problem_set_items (
-      set_id, doc_id, position, title_snapshot, permalink_snapshot, tags_snapshot
+      set_id, doc_id, document_uuid, position,
+      title_snapshot, permalink_snapshot, tags_snapshot
     ) values (
-      v_set_id, v_doc_id, v_position, v_doc.title, v_doc.permalink, v_doc.tags
-    ) on conflict (set_id, doc_id) do nothing;
+      v_set_id, v_doc.doc_id, v_document_uuid, v_position,
+      v_doc.title, v_doc.permalink, v_doc.tags
+    ) on conflict (set_id, document_uuid) do nothing;
   end loop;
 
-  update public.problem_sets s set updated_at = now()
-  where s.owner_user_id = v_user_id and s.deleted_at is null
-    and (s.id = any(v_set_ids) or s.id = any(v_touched_set_ids));
+  update public.problem_sets problem_set set updated_at = now()
+  where problem_set.owner_user_id = v_user_id
+    and problem_set.deleted_at is null
+    and (problem_set.id = any(v_set_ids) or problem_set.id = any(v_touched_set_ids));
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function reorder_problem_set_items(p_set_id uuid, p_item_ids uuid[])
-returns void as $$
+create function public.reorder_problem_set_items(p_set_id uuid, p_item_ids uuid[])
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
   v_total integer;
@@ -2771,11 +2206,14 @@ begin
   where i.id = ordered.id and i.set_id = p_set_id;
   update public.problem_sets set updated_at = now() where id = p_set_id;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function update_problem_set_item_annotation(p_item_id uuid, p_annotation text)
-returns void as $$
+create function public.update_problem_set_item_annotation(p_item_id uuid, p_annotation text)
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_annotation text := coalesce(p_annotation, '');
 begin
@@ -2791,11 +2229,14 @@ begin
   update public.problem_sets s set updated_at = now()
   where s.id = (select i.set_id from public.problem_set_items i where i.id = p_item_id);
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function remove_problem_set_items(p_set_id uuid, p_item_ids uuid[])
-returns void as $$
+create function public.remove_problem_set_items(p_set_id uuid, p_item_ids uuid[])
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 begin
   if not exists (
     select 1 from public.problem_sets s
@@ -2812,16 +2253,14 @@ begin
   perform public.compact_problem_set_positions(p_set_id);
   update public.problem_sets set updated_at = now() where id = p_set_id;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-create or replace function transfer_problem_set_items(
-  p_source_set_id uuid,
-  p_target_set_id uuid,
-  p_item_ids uuid[],
-  p_copy boolean default false
-)
-returns void as $$
+create function public.transfer_problem_set_items(p_source_set_id uuid, p_target_set_id uuid, p_item_ids uuid[], p_copy boolean DEFAULT false)
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
   v_target_count integer;
@@ -2829,16 +2268,22 @@ declare
   v_offset integer;
 begin
   if p_source_set_id = p_target_set_id then return; end if;
-  perform 1 from public.problem_sets s
-  where s.id in (p_source_set_id, p_target_set_id)
-    and s.owner_user_id = v_user_id
-  order by s.id for update;
+  perform 1 from public.problem_sets problem_set
+  where problem_set.id in (p_source_set_id, p_target_set_id)
+    and problem_set.owner_user_id = v_user_id
+  order by problem_set.id for update;
   if not exists (
-    select 1 from public.problem_sets s where s.id = p_source_set_id
-      and s.owner_user_id = v_user_id and s.deleted_at is null and s.archived_at is null
+    select 1 from public.problem_sets problem_set
+    where problem_set.id = p_source_set_id
+      and problem_set.owner_user_id = v_user_id
+      and problem_set.deleted_at is null
+      and problem_set.archived_at is null
   ) or not exists (
-    select 1 from public.problem_sets s where s.id = p_target_set_id
-      and s.owner_user_id = v_user_id and s.deleted_at is null and s.archived_at is null
+    select 1 from public.problem_sets problem_set
+    where problem_set.id = p_target_set_id
+      and problem_set.owner_user_id = v_user_id
+      and problem_set.deleted_at is null
+      and problem_set.archived_at is null
   ) then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
 
   if exists (
@@ -2848,14 +2293,16 @@ begin
     where source.id is null
   ) then raise exception 'problem_set_item_not_found' using errcode = 'P0002'; end if;
 
-  select count(*) into v_target_count from public.problem_set_items where set_id = p_target_set_id;
+  select count(*) into v_target_count
+  from public.problem_set_items where set_id = p_target_set_id;
   select count(*) into v_new_count
   from public.problem_set_items source
   where source.set_id = p_source_set_id
     and source.id = any(coalesce(p_item_ids, '{}'::uuid[]))
     and not exists (
       select 1 from public.problem_set_items target
-      where target.set_id = p_target_set_id and target.doc_id = source.doc_id
+      where target.set_id = p_target_set_id
+        and target.document_uuid = source.document_uuid
     );
   if v_target_count + v_new_count > 2000 then
     raise exception 'problem_set_item_limit_reached' using errcode = '54000';
@@ -2864,12 +2311,13 @@ begin
   from public.problem_set_items where set_id = p_target_set_id;
 
   insert into public.problem_set_items (
-    set_id, doc_id, position, annotation_markdown,
+    set_id, doc_id, document_uuid, position, annotation_markdown,
     title_snapshot, permalink_snapshot, tags_snapshot
   )
   select
     p_target_set_id,
     source.doc_id,
+    source.document_uuid,
     (v_offset + row_number() over (order by source.position, source.created_at) - 1)::integer,
     source.annotation_markdown,
     source.title_snapshot,
@@ -2878,7 +2326,7 @@ begin
   from public.problem_set_items source
   where source.set_id = p_source_set_id
     and source.id = any(coalesce(p_item_ids, '{}'::uuid[]))
-  on conflict (set_id, doc_id) do nothing;
+  on conflict (set_id, document_uuid) do nothing;
 
   if not coalesce(p_copy, false) then
     delete from public.problem_set_items source
@@ -2889,244 +2337,14 @@ begin
   update public.problem_sets set updated_at = now()
   where id in (p_source_set_id, p_target_set_id);
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-revoke execute on function ensure_my_problem_sets() from public, anon, authenticated;
-revoke execute on function compact_problem_set_positions(uuid) from public, anon, authenticated;
-revoke execute on function get_my_problem_sets(text) from public, anon;
-revoke execute on function get_my_problem_set(uuid) from public, anon;
-revoke execute on function create_my_problem_set(text, text) from public, anon;
-revoke execute on function update_my_problem_set(uuid, text, text) from public, anon;
-revoke execute on function archive_my_problem_set(uuid, boolean) from public, anon;
-revoke execute on function delete_my_problem_set(uuid) from public, anon;
-revoke execute on function set_doc_problem_set_memberships(text, uuid[]) from public, anon;
-revoke execute on function reorder_problem_set_items(uuid, uuid[]) from public, anon;
-revoke execute on function update_problem_set_item_annotation(uuid, text) from public, anon;
-revoke execute on function remove_problem_set_items(uuid, uuid[]) from public, anon;
-revoke execute on function transfer_problem_set_items(uuid, uuid, uuid[], boolean) from public, anon;
-
-grant execute on function get_my_problem_sets(text) to authenticated;
-grant execute on function get_my_problem_set(uuid) to authenticated;
-grant execute on function create_my_problem_set(text, text) to authenticated;
-grant execute on function update_my_problem_set(uuid, text, text) to authenticated;
-grant execute on function archive_my_problem_set(uuid, boolean) to authenticated;
-grant execute on function delete_my_problem_set(uuid) to authenticated;
-grant execute on function set_doc_problem_set_memberships(text, uuid[]) to authenticated;
-grant execute on function reorder_problem_set_items(uuid, uuid[]) to authenticated;
-grant execute on function update_problem_set_item_annotation(uuid, text) to authenticated;
-grant execute on function remove_problem_set_items(uuid, uuid[]) to authenticated;
-grant execute on function transfer_problem_set_items(uuid, uuid, uuid[], boolean) to authenticated;
-
--- ============================================================
--- Current baseline consolidation
---
--- These ordered sections are part of the baseline itself. They convert the
--- original install-time definitions into the current UUID-based study model,
--- authenticated query model, and lightweight document catalog. A fresh
--- database executes this one file only; there are no prerequisite migrations.
--- ============================================================
-
--- Direct-database study model and stable document identity.
---
--- This baseline phase establishes UUID identity before attaching constraints.
--- Paths remain aliases after future document moves.
-
-create extension if not exists "uuid-ossp";
-
-create table if not exists document_registry (
-  document_uuid uuid primary key,
-  current_doc_id text unique,
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now(),
-  constraint document_registry_current_doc_id_check check (
-    current_doc_id is null or char_length(trim(current_doc_id)) between 1 and 500
-  )
-);
-
-create table if not exists document_aliases (
-  doc_id text primary key,
-  document_uuid uuid not null references document_registry(document_uuid) on delete cascade,
-  is_current boolean not null default false,
-  created_at timestamptz not null default now(),
-  constraint document_aliases_doc_id_check check (char_length(trim(doc_id)) between 1 and 500)
-);
-
-create index if not exists idx_document_aliases_uuid
-  on document_aliases(document_uuid);
-create unique index if not exists idx_document_aliases_one_current
-  on document_aliases(document_uuid) where is_current;
-
-alter table document_registry enable row level security;
-alter table document_aliases enable row level security;
-revoke all on table document_registry from public, anon, authenticated;
-revoke all on table document_aliases from public, anon, authenticated;
-
--- Collect all historical paths before adding UUID columns. Orphaned paths are
--- intentionally registered too so that no user-owned row loses its identity.
-with all_doc_ids as (
-  select doc_id from exam_documents
-  union select doc_id from user_progress_items
-  union select doc_id from user_note_items
-  union select doc_id from user_practice_events
-  union select doc_id from exam_difficulty_votes
-  union select doc_id from exam_difficulty_stats
-  union select doc_id from problem_set_items
-  union select target_doc_id from content_submissions where trim(target_doc_id) <> ''
-)
-insert into document_registry(document_uuid, current_doc_id)
-select
-  uuid_generate_v5('ad4a6e2e-1c93-5b0c-91e4-98fb44fa87cd'::uuid, trim(doc_id)),
-  trim(doc_id)
-from all_doc_ids
-where nullif(trim(doc_id), '') is not null
-on conflict do nothing;
-
-insert into document_aliases(doc_id, document_uuid, is_current)
-select
-  registry.current_doc_id,
-  registry.document_uuid,
-  exists (
-    select 1 from exam_documents document
-    where document.doc_id = registry.current_doc_id
-  )
-from document_registry registry
-where registry.current_doc_id is not null
-on conflict (doc_id) do update
-set document_uuid = excluded.document_uuid,
-    is_current = excluded.is_current;
-
-alter table exam_documents add column if not exists document_uuid uuid;
-alter table user_progress_items add column if not exists document_uuid uuid;
-alter table user_note_items add column if not exists document_uuid uuid;
-alter table user_practice_events add column if not exists document_uuid uuid;
-alter table exam_difficulty_votes add column if not exists document_uuid uuid;
-alter table exam_difficulty_stats add column if not exists document_uuid uuid;
-alter table problem_set_items add column if not exists document_uuid uuid;
-alter table content_submissions add column if not exists target_document_uuid uuid;
-
-update exam_documents target
-set document_uuid = alias.document_uuid
-from document_aliases alias
-where target.document_uuid is null and alias.doc_id = target.doc_id;
-
-update user_progress_items target
-set document_uuid = alias.document_uuid
-from document_aliases alias
-where target.document_uuid is null and alias.doc_id = target.doc_id;
-
-update user_note_items target
-set document_uuid = alias.document_uuid
-from document_aliases alias
-where target.document_uuid is null and alias.doc_id = target.doc_id;
-
-update user_practice_events target
-set document_uuid = alias.document_uuid
-from document_aliases alias
-where target.document_uuid is null and alias.doc_id = target.doc_id;
-
-update exam_difficulty_votes target
-set document_uuid = alias.document_uuid
-from document_aliases alias
-where target.document_uuid is null and alias.doc_id = target.doc_id;
-
-update exam_difficulty_stats target
-set document_uuid = alias.document_uuid
-from document_aliases alias
-where target.document_uuid is null and alias.doc_id = target.doc_id;
-
-update problem_set_items target
-set document_uuid = alias.document_uuid
-from document_aliases alias
-where target.document_uuid is null and alias.doc_id = target.doc_id;
-
-update content_submissions target
-set target_document_uuid = alias.document_uuid
-from document_aliases alias
-where target.target_document_uuid is null and alias.doc_id = target.target_doc_id;
-
-alter table exam_documents alter column document_uuid set not null;
-alter table user_progress_items alter column document_uuid set not null;
-alter table user_note_items alter column document_uuid set not null;
-alter table user_practice_events alter column document_uuid set not null;
-alter table exam_difficulty_votes alter column document_uuid set not null;
-alter table exam_difficulty_stats alter column document_uuid set not null;
-alter table problem_set_items alter column document_uuid set not null;
-
-create unique index if not exists idx_exam_documents_uuid
-  on exam_documents(document_uuid);
-create index if not exists idx_upi_user_document_uuid
-  on user_progress_items(user_id, document_uuid);
-create unique index if not exists idx_upi_user_document_uuid_unique
-  on user_progress_items(user_id, document_uuid);
-create index if not exists idx_uni_user_document_uuid
-  on user_note_items(user_id, document_uuid);
-create unique index if not exists idx_uni_user_document_uuid_unique
-  on user_note_items(user_id, document_uuid);
-create index if not exists idx_practice_events_document_uuid
-  on user_practice_events(document_uuid, occurred_at desc);
-create index if not exists idx_difficulty_votes_document_uuid
-  on exam_difficulty_votes(document_uuid);
-create unique index if not exists idx_difficulty_votes_user_document_uuid
-  on exam_difficulty_votes(user_id, document_uuid);
-create unique index if not exists idx_difficulty_stats_document_uuid
-  on exam_difficulty_stats(document_uuid);
-create index if not exists idx_problem_set_items_document_uuid
-  on problem_set_items(set_id, document_uuid);
-create unique index if not exists idx_problem_set_items_set_document_uuid
-  on problem_set_items(set_id, document_uuid);
-
-do $$
-begin
-  if not exists (select 1 from pg_constraint where conname = 'exam_documents_document_uuid_fkey') then
-    alter table exam_documents add constraint exam_documents_document_uuid_fkey
-      foreign key (document_uuid) references document_registry(document_uuid) not valid;
-  end if;
-  if not exists (select 1 from pg_constraint where conname = 'user_progress_items_document_uuid_fkey') then
-    alter table user_progress_items add constraint user_progress_items_document_uuid_fkey
-      foreign key (document_uuid) references document_registry(document_uuid) not valid;
-  end if;
-  if not exists (select 1 from pg_constraint where conname = 'user_note_items_document_uuid_fkey') then
-    alter table user_note_items add constraint user_note_items_document_uuid_fkey
-      foreign key (document_uuid) references document_registry(document_uuid) not valid;
-  end if;
-  if not exists (select 1 from pg_constraint where conname = 'user_practice_events_document_uuid_fkey') then
-    alter table user_practice_events add constraint user_practice_events_document_uuid_fkey
-      foreign key (document_uuid) references document_registry(document_uuid) not valid;
-  end if;
-  if not exists (select 1 from pg_constraint where conname = 'exam_difficulty_votes_document_uuid_fkey') then
-    alter table exam_difficulty_votes add constraint exam_difficulty_votes_document_uuid_fkey
-      foreign key (document_uuid) references document_registry(document_uuid) not valid;
-  end if;
-  if not exists (select 1 from pg_constraint where conname = 'exam_difficulty_stats_document_uuid_fkey') then
-    alter table exam_difficulty_stats add constraint exam_difficulty_stats_document_uuid_fkey
-      foreign key (document_uuid) references document_registry(document_uuid) not valid;
-  end if;
-  if not exists (select 1 from pg_constraint where conname = 'problem_set_items_document_uuid_fkey') then
-    alter table problem_set_items add constraint problem_set_items_document_uuid_fkey
-      foreign key (document_uuid) references document_registry(document_uuid) not valid;
-  end if;
-  if not exists (select 1 from pg_constraint where conname = 'content_submissions_target_document_uuid_fkey') then
-    alter table content_submissions add constraint content_submissions_target_document_uuid_fkey
-      foreign key (target_document_uuid) references document_registry(document_uuid) not valid;
-  end if;
-end $$;
-
-alter table exam_documents validate constraint exam_documents_document_uuid_fkey;
-alter table user_progress_items validate constraint user_progress_items_document_uuid_fkey;
-alter table user_note_items validate constraint user_note_items_document_uuid_fkey;
-alter table user_practice_events validate constraint user_practice_events_document_uuid_fkey;
-alter table exam_difficulty_votes validate constraint exam_difficulty_votes_document_uuid_fkey;
-alter table exam_difficulty_stats validate constraint exam_difficulty_stats_document_uuid_fkey;
-alter table problem_set_items validate constraint problem_set_items_document_uuid_fkey;
-alter table content_submissions validate constraint content_submissions_target_document_uuid_fkey;
-
-create or replace function resolve_document_uuid(p_doc_id text)
-returns uuid
-language plpgsql
-security definer
-set search_path = public
-as $$
+create function public.resolve_document_uuid(p_doc_id text)
+ RETURNS uuid
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
 declare
   v_doc_id text := nullif(trim(p_doc_id), '');
   v_document_uuid uuid;
@@ -3151,103 +2369,42 @@ begin
   on conflict (doc_id) do update set document_uuid = excluded.document_uuid;
   return v_document_uuid;
 end;
-$$;
+$function$;
 
-revoke execute on function resolve_document_uuid(text) from public, anon, authenticated;
-
-create or replace function assign_document_uuid_from_doc_id()
-returns trigger
-language plpgsql
-security definer
-set search_path = public
-as $$
+create function public.assign_document_uuid_from_doc_id()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
 begin
   if new.document_uuid is null then
     new.document_uuid := resolve_document_uuid(new.doc_id);
   end if;
   return new;
 end;
-$$;
+$function$;
 
-create or replace function assign_target_document_uuid()
-returns trigger
-language plpgsql
-security definer
-set search_path = public
-as $$
+create function public.assign_target_document_uuid()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
 begin
   if new.target_document_uuid is null and nullif(trim(new.target_doc_id), '') is not null then
     new.target_document_uuid := resolve_document_uuid(new.target_doc_id);
   end if;
   return new;
 end;
-$$;
+$function$;
 
-do $$
-declare
-  v_table text;
-begin
-  foreach v_table in array array[
-    'exam_documents',
-    'user_progress_items',
-    'user_note_items',
-    'user_practice_events',
-    'exam_difficulty_votes',
-    'exam_difficulty_stats',
-    'problem_set_items'
-  ] loop
-    execute format('drop trigger if exists assign_document_uuid on %I', v_table);
-    execute format(
-      'create trigger assign_document_uuid before insert or update of doc_id on %I for each row execute function assign_document_uuid_from_doc_id()',
-      v_table
-    );
-  end loop;
-end $$;
-
-drop trigger if exists assign_target_document_uuid on content_submissions;
-create trigger assign_target_document_uuid
-  before insert or update of target_doc_id on content_submissions
-  for each row execute function assign_target_document_uuid();
-
--- Preserve every note version before allowing direct database writes.
-alter table user_note_items add column if not exists version bigint not null default 1;
-
-create table if not exists user_note_revisions (
-  id uuid primary key default uuid_generate_v4(),
-  note_id uuid not null,
-  user_id uuid not null references auth.users(id) on delete cascade,
-  document_uuid uuid not null references document_registry(document_uuid),
-  doc_id text not null,
-  version bigint not null,
-  content text,
-  archived_reason text not null,
-  archived_at timestamptz not null default now(),
-  constraint user_note_revisions_note_version_unique unique (note_id, version),
-  constraint user_note_revisions_reason_check check (
-    archived_reason in ('migration_baseline', 'update', 'delete')
-  )
-);
-
-insert into user_note_revisions(
-  note_id, user_id, document_uuid, doc_id, version, content, archived_reason, archived_at
-)
-select id, user_id, document_uuid, doc_id, version, content, 'migration_baseline', now()
-from user_note_items
-on conflict (note_id, version) do nothing;
-
-alter table user_note_revisions enable row level security;
-drop policy if exists "Users can view own note revisions" on user_note_revisions;
-create policy "Users can view own note revisions"
-  on user_note_revisions for select using (auth.uid() = user_id);
-revoke all on table user_note_revisions from public, anon, authenticated;
-grant select on table user_note_revisions to authenticated;
-
-create or replace function archive_user_note_revision()
-returns trigger
-language plpgsql
-security definer
-set search_path = public
-as $$
+create function public.archive_user_note_revision()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
 begin
   insert into user_note_revisions(
     note_id, user_id, document_uuid, doc_id, version, content, archived_reason, archived_at
@@ -3266,56 +2423,14 @@ begin
   new.version := old.version + 1;
   return new;
 end;
-$$;
+$function$;
 
-drop trigger if exists archive_user_note_revision on user_note_items;
-create trigger archive_user_note_revision
-  before update or delete on user_note_items
-  for each row execute function archive_user_note_revision();
-
--- Store enough scheduling state to evolve beyond a hard-coded review counter.
-alter table user_progress_items add column if not exists last_reviewed_at timestamptz;
-alter table user_progress_items add column if not exists next_review_at timestamptz;
-alter table user_progress_items add column if not exists review_algorithm_version integer not null default 1;
-alter table user_progress_items add column if not exists review_lapses integer not null default 0;
-alter table user_progress_items add column if not exists review_stability numeric;
-alter table user_progress_items add column if not exists review_difficulty numeric;
-
-update user_progress_items
-set last_reviewed_at = coalesce(last_reviewed_at, updated_at),
-    next_review_at = coalesce(
-      next_review_at,
-      updated_at + make_interval(days => case least(review_count, 5)
-        when 0 then 1 when 1 then 3 when 2 then 7
-        when 3 then 14 when 4 then 30 else 60 end)
-    )
-where status = 'reviewing';
-
-create index if not exists idx_upi_user_next_review
-  on user_progress_items(user_id, next_review_at)
-  where status = 'reviewing' and deleted_at is null;
--- Require authenticated, named participation and finish the UUID query cutover.
---
--- Obsolete anonymous/hidden controls and RPCs are not part of the final model.
-
-drop function if exists set_my_leaderboard_profile(text, boolean);
-drop function if exists get_my_leaderboard_profile();
-drop function if exists set_my_leaderboard_visibility(boolean);
-
-drop function if exists get_practice_leaderboard(text);
-create function get_practice_leaderboard(p_period text default 'half_month')
-returns table (
-  rank_position bigint,
-  display_name text,
-  problem_count bigint,
-  is_current_user boolean,
-  is_top_ten boolean,
-  participant_count bigint,
-  gap_to_previous bigint,
-  percentile integer,
-  period_start date,
-  period_end date
-) as $$
+create function public.get_practice_leaderboard(p_period text DEFAULT 'half_month'::text)
+ RETURNS TABLE(rank_position bigint, display_name text, problem_count bigint, is_current_user boolean, is_top_ten boolean, participant_count bigint, gap_to_previous bigint, percentile integer, period_start date, period_end date)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
   v_profile public.user_public_profiles%rowtype;
@@ -3407,615 +2522,14 @@ begin
     return next;
   end if;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
-revoke execute on function get_practice_leaderboard(text) from public, anon;
-grant execute on function get_practice_leaderboard(text) to authenticated;
-
--- Resolve problem-set contents and progress through immutable document UUIDs,
--- so a source path rename cannot orphan a saved item.
-create or replace function get_my_problem_sets(p_doc_id text default null)
-returns table (
-  id uuid,
-  kind text,
-  title text,
-  description text,
-  item_count bigint,
-  completed_count bigint,
-  reviewing_count bigint,
-  contains_doc boolean,
-  archived_at timestamptz,
-  updated_at timestamptz,
-  created_at timestamptz
-) as $$
-declare
-  v_user_id uuid := auth.uid();
-  v_document_uuid uuid;
-begin
-  perform public.ensure_my_problem_sets();
-  select alias.document_uuid into v_document_uuid
-  from public.document_aliases alias
-  where alias.doc_id = nullif(trim(p_doc_id), '');
-
-  return query
-  select
-    problem_set.id,
-    problem_set.kind,
-    problem_set.title,
-    problem_set.description,
-    count(item.id)::bigint,
-    count(item.id) filter (where progress.status = 'completed' and progress.deleted_at is null)::bigint,
-    count(item.id) filter (where progress.status = 'reviewing' and progress.deleted_at is null)::bigint,
-    case when v_document_uuid is null then false
-      else coalesce(bool_or(item.document_uuid = v_document_uuid), false) end,
-    problem_set.archived_at,
-    problem_set.updated_at,
-    problem_set.created_at
-  from public.problem_sets problem_set
-  left join public.problem_set_items item on item.set_id = problem_set.id
-  left join public.user_progress_items progress
-    on progress.user_id = v_user_id and progress.document_uuid = item.document_uuid
-  where problem_set.owner_user_id = v_user_id and problem_set.deleted_at is null
-  group by problem_set.id
-  order by
-    case problem_set.kind when 'system_later' then 0 when 'system_mistakes' then 1 else 2 end,
-    problem_set.updated_at desc;
-end;
-$$ language plpgsql security definer
-set search_path = '';
-
-drop function if exists get_my_problem_set(uuid);
-create function get_my_problem_set(p_set_id uuid)
-returns table (
-  set_id uuid,
-  kind text,
-  set_title text,
-  set_description text,
-  archived_at timestamptz,
-  item_id uuid,
-  doc_id text,
-  document_uuid uuid,
-  "position" integer,
-  annotation_markdown text,
-  title text,
-  permalink text,
-  tags jsonb,
-  content_available boolean,
-  progress_status text,
-  review_count integer,
-  item_updated_at timestamptz,
-  item_created_at timestamptz
-) as $$
-declare
-  v_user_id uuid := auth.uid();
-begin
-  if v_user_id is null then
-    raise exception 'not_authenticated' using errcode = '28000';
-  end if;
-  if not exists (
-    select 1 from public.problem_sets problem_set
-    where problem_set.id = p_set_id
-      and problem_set.owner_user_id = v_user_id
-      and problem_set.deleted_at is null
-  ) then
-    raise exception 'problem_set_not_found' using errcode = 'P0002';
-  end if;
-
-  return query
-  select
-    problem_set.id,
-    problem_set.kind,
-    problem_set.title,
-    problem_set.description,
-    problem_set.archived_at,
-    item.id,
-    coalesce(document.doc_id, item.doc_id),
-    item.document_uuid,
-    item.position,
-    item.annotation_markdown,
-    coalesce(document.title, item.title_snapshot),
-    coalesce(document.permalink, item.permalink_snapshot),
-    coalesce(document.tags, item.tags_snapshot),
-    document.document_uuid is not null,
-    coalesce(progress.status, 'not_started'),
-    coalesce(progress.review_count, 0),
-    item.updated_at,
-    item.created_at
-  from public.problem_sets problem_set
-  left join public.problem_set_items item on item.set_id = problem_set.id
-  left join public.exam_documents document on document.document_uuid = item.document_uuid
-  left join public.user_progress_items progress
-    on progress.user_id = v_user_id
-    and progress.document_uuid = item.document_uuid
-    and progress.deleted_at is null
-  where problem_set.id = p_set_id
-  order by
-    case when problem_set.kind = 'custom' then item.position end asc nulls last,
-    case when problem_set.kind <> 'custom' then item.created_at end desc nulls last,
-    item.created_at;
-end;
-$$ language plpgsql security definer
-set search_path = '';
-
-revoke execute on function get_my_problem_sets(text) from public, anon;
-revoke execute on function get_my_problem_set(uuid) from public, anon;
-grant execute on function get_my_problem_sets(text) to authenticated;
-grant execute on function get_my_problem_set(uuid) to authenticated;
-
-create or replace function set_doc_problem_set_memberships(
-  p_doc_id text,
-  p_set_ids uuid[] default '{}'::uuid[]
-)
-returns void as $$
-declare
-  v_user_id uuid := auth.uid();
-  v_requested_doc_id text := nullif(trim(p_doc_id), '');
-  v_document_uuid uuid;
-  v_set_ids uuid[] := coalesce(p_set_ids, '{}'::uuid[]);
-  v_set_id uuid;
-  v_doc public.exam_documents%rowtype;
-  v_position integer;
-  v_touched_set_ids uuid[];
-begin
-  if v_user_id is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
-  if v_requested_doc_id is null then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
-  perform public.ensure_my_problem_sets();
-  perform 1 from public.problem_sets problem_set
-  where problem_set.owner_user_id = v_user_id
-    and problem_set.deleted_at is null
-    and problem_set.archived_at is null
-  order by problem_set.id for update;
-
-  select document.* into v_doc
-  from public.document_aliases alias
-  join public.exam_documents document on document.document_uuid = alias.document_uuid
-  where alias.doc_id = v_requested_doc_id;
-  if not found then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
-  v_document_uuid := v_doc.document_uuid;
-
-  if exists (
-    select 1 from unnest(v_set_ids) requested(id)
-    left join public.problem_sets problem_set
-      on problem_set.id = requested.id
-      and problem_set.owner_user_id = v_user_id
-      and problem_set.deleted_at is null
-      and problem_set.archived_at is null
-    where problem_set.id is null
-  ) then
-    raise exception 'invalid_problem_set' using errcode = '22023';
-  end if;
-
-  select coalesce(array_agg(distinct item.set_id), '{}'::uuid[]) into v_touched_set_ids
-  from public.problem_set_items item
-  join public.problem_sets problem_set on problem_set.id = item.set_id
-  where item.document_uuid = v_document_uuid
-    and problem_set.owner_user_id = v_user_id
-    and problem_set.deleted_at is null
-    and problem_set.archived_at is null;
-
-  delete from public.problem_set_items item
-  using public.problem_sets problem_set
-  where item.set_id = problem_set.id
-    and item.document_uuid = v_document_uuid
-    and problem_set.owner_user_id = v_user_id
-    and problem_set.deleted_at is null
-    and problem_set.archived_at is null
-    and not (problem_set.id = any(v_set_ids));
-
-  foreach v_set_id in array v_touched_set_ids loop
-    perform public.compact_problem_set_positions(v_set_id);
-  end loop;
-
-  foreach v_set_id in array v_set_ids loop
-    if (select count(*) from public.problem_set_items item where item.set_id = v_set_id) >= 2000
-      and not exists (
-        select 1 from public.problem_set_items item
-        where item.set_id = v_set_id and item.document_uuid = v_document_uuid
-      ) then
-      raise exception 'problem_set_item_limit_reached' using errcode = '54000';
-    end if;
-    select coalesce(max(item.position), -1) + 1 into v_position
-    from public.problem_set_items item where item.set_id = v_set_id;
-    insert into public.problem_set_items (
-      set_id, doc_id, document_uuid, position,
-      title_snapshot, permalink_snapshot, tags_snapshot
-    ) values (
-      v_set_id, v_doc.doc_id, v_document_uuid, v_position,
-      v_doc.title, v_doc.permalink, v_doc.tags
-    ) on conflict (set_id, document_uuid) do nothing;
-  end loop;
-
-  update public.problem_sets problem_set set updated_at = now()
-  where problem_set.owner_user_id = v_user_id
-    and problem_set.deleted_at is null
-    and (problem_set.id = any(v_set_ids) or problem_set.id = any(v_touched_set_ids));
-end;
-$$ language plpgsql security definer
-set search_path = '';
-
-create or replace function transfer_problem_set_items(
-  p_source_set_id uuid,
-  p_target_set_id uuid,
-  p_item_ids uuid[],
-  p_copy boolean default false
-)
-returns void as $$
-declare
-  v_user_id uuid := auth.uid();
-  v_target_count integer;
-  v_new_count integer;
-  v_offset integer;
-begin
-  if p_source_set_id = p_target_set_id then return; end if;
-  perform 1 from public.problem_sets problem_set
-  where problem_set.id in (p_source_set_id, p_target_set_id)
-    and problem_set.owner_user_id = v_user_id
-  order by problem_set.id for update;
-  if not exists (
-    select 1 from public.problem_sets problem_set
-    where problem_set.id = p_source_set_id
-      and problem_set.owner_user_id = v_user_id
-      and problem_set.deleted_at is null
-      and problem_set.archived_at is null
-  ) or not exists (
-    select 1 from public.problem_sets problem_set
-    where problem_set.id = p_target_set_id
-      and problem_set.owner_user_id = v_user_id
-      and problem_set.deleted_at is null
-      and problem_set.archived_at is null
-  ) then raise exception 'problem_set_not_found' using errcode = 'P0002'; end if;
-
-  if exists (
-    select 1 from unnest(coalesce(p_item_ids, '{}'::uuid[])) requested(id)
-    left join public.problem_set_items source
-      on source.id = requested.id and source.set_id = p_source_set_id
-    where source.id is null
-  ) then raise exception 'problem_set_item_not_found' using errcode = 'P0002'; end if;
-
-  select count(*) into v_target_count
-  from public.problem_set_items where set_id = p_target_set_id;
-  select count(*) into v_new_count
-  from public.problem_set_items source
-  where source.set_id = p_source_set_id
-    and source.id = any(coalesce(p_item_ids, '{}'::uuid[]))
-    and not exists (
-      select 1 from public.problem_set_items target
-      where target.set_id = p_target_set_id
-        and target.document_uuid = source.document_uuid
-    );
-  if v_target_count + v_new_count > 2000 then
-    raise exception 'problem_set_item_limit_reached' using errcode = '54000';
-  end if;
-  select coalesce(max(position), -1) + 1 into v_offset
-  from public.problem_set_items where set_id = p_target_set_id;
-
-  insert into public.problem_set_items (
-    set_id, doc_id, document_uuid, position, annotation_markdown,
-    title_snapshot, permalink_snapshot, tags_snapshot
-  )
-  select
-    p_target_set_id,
-    source.doc_id,
-    source.document_uuid,
-    (v_offset + row_number() over (order by source.position, source.created_at) - 1)::integer,
-    source.annotation_markdown,
-    source.title_snapshot,
-    source.permalink_snapshot,
-    source.tags_snapshot
-  from public.problem_set_items source
-  where source.set_id = p_source_set_id
-    and source.id = any(coalesce(p_item_ids, '{}'::uuid[]))
-  on conflict (set_id, document_uuid) do nothing;
-
-  if not coalesce(p_copy, false) then
-    delete from public.problem_set_items source
-    where source.set_id = p_source_set_id
-      and source.id = any(coalesce(p_item_ids, '{}'::uuid[]));
-    perform public.compact_problem_set_positions(p_source_set_id);
-  end if;
-  update public.problem_sets set updated_at = now()
-  where id in (p_source_set_id, p_target_set_id);
-end;
-$$ language plpgsql security definer
-set search_path = '';
-
-revoke execute on function set_doc_problem_set_memberships(text, uuid[]) from public, anon;
-revoke execute on function transfer_problem_set_items(uuid, uuid, uuid[], boolean) from public, anon;
-grant execute on function set_doc_problem_set_memberships(text, uuid[]) to authenticated;
-grant execute on function transfer_problem_set_items(uuid, uuid, uuid[], boolean) to authenticated;
-
--- Difficulty votes and aggregates are also user-linked study data. Resolve
--- aliases to the same UUID so a renamed document cannot split its history.
-create or replace function refresh_exam_difficulty_stats(p_doc_id text)
-returns void as $$
-declare
-  v_requested_doc_id text := nullif(trim(p_doc_id), '');
-  v_doc_id text;
-  v_document_uuid uuid;
-  v_vote_count integer;
-  v_easy_count integer;
-  v_medium_count integer;
-  v_hard_count integer;
-  v_sum integer;
-  v_weighted_sum numeric;
-  v_effective_vote_weight numeric(8, 2);
-  v_average numeric(4, 2);
-  v_bayesian numeric(4, 2);
-  v_weighted_average numeric(4, 2);
-  v_weighted_bayesian numeric(4, 2);
-  v_suggested text;
-  v_assigned text;
-  v_confidence text;
-begin
-  if v_requested_doc_id is null then return; end if;
-  select alias.document_uuid, coalesce(registry.current_doc_id, alias.doc_id)
-  into v_document_uuid, v_doc_id
-  from public.document_aliases alias
-  join public.document_registry registry on registry.document_uuid = alias.document_uuid
-  where alias.doc_id = v_requested_doc_id;
-  if v_document_uuid is null then return; end if;
-
-  select
-    count(*)::integer,
-    count(*) filter (where vote.difficulty = 1)::integer,
-    count(*) filter (where vote.difficulty = 2)::integer,
-    count(*) filter (where vote.difficulty = 3)::integer,
-    coalesce(sum(vote.difficulty), 0)::integer,
-    round(coalesce(sum(vote.difficulty * coalesce(profile.rating_weight, 1.00)), 0), 2),
-    round(coalesce(sum(coalesce(profile.rating_weight, 1.00)), 0), 2)
-  into
-    v_vote_count, v_easy_count, v_medium_count, v_hard_count, v_sum,
-    v_weighted_sum, v_effective_vote_weight
-  from public.exam_difficulty_votes vote
-  left join public.user_reputation_profiles profile on profile.user_id = vote.user_id
-  where vote.document_uuid = v_document_uuid;
-
-  if v_vote_count = 0 then
-    delete from public.exam_difficulty_stats stats
-    where stats.document_uuid = v_document_uuid;
-    return;
-  end if;
-
-  v_average := round((v_sum::numeric / v_vote_count), 2);
-  v_bayesian := round(((v_sum + 10)::numeric / (v_vote_count + 5)), 2);
-  v_weighted_average := round((v_weighted_sum / nullif(v_effective_vote_weight, 0)), 2);
-  v_weighted_bayesian := round(((v_weighted_sum + 10)::numeric / (v_effective_vote_weight + 5)), 2);
-  v_suggested := public.difficulty_label_from_score(v_weighted_bayesian);
-  v_assigned := case
-    when v_vote_count >= 10 and v_effective_vote_weight >= 10 then v_suggested
-    else null
-  end;
-  v_confidence := case
-    when v_vote_count >= 10 and v_effective_vote_weight >= 10 then 'stable'
-    when v_vote_count >= 5 then 'provisional'
-    else 'collecting'
-  end;
-
-  insert into public.exam_difficulty_stats (
-    doc_id, document_uuid, vote_count, easy_count, medium_count, hard_count,
-    average_score, bayesian_score, effective_vote_weight,
-    weighted_average_score, weighted_bayesian_score,
-    suggested_difficulty, assigned_difficulty, confidence, updated_at
-  ) values (
-    v_doc_id, v_document_uuid, v_vote_count, v_easy_count, v_medium_count, v_hard_count,
-    v_average, v_bayesian, v_effective_vote_weight,
-    v_weighted_average, v_weighted_bayesian,
-    v_suggested, v_assigned, v_confidence, now()
-  )
-  on conflict (document_uuid) do update set
-    doc_id = excluded.doc_id,
-    vote_count = excluded.vote_count,
-    easy_count = excluded.easy_count,
-    medium_count = excluded.medium_count,
-    hard_count = excluded.hard_count,
-    average_score = excluded.average_score,
-    bayesian_score = excluded.bayesian_score,
-    effective_vote_weight = excluded.effective_vote_weight,
-    weighted_average_score = excluded.weighted_average_score,
-    weighted_bayesian_score = excluded.weighted_bayesian_score,
-    suggested_difficulty = excluded.suggested_difficulty,
-    assigned_difficulty = excluded.assigned_difficulty,
-    confidence = excluded.confidence,
-    updated_at = now();
-end;
-$$ language plpgsql security definer
-set search_path = '';
-
-create or replace function get_exam_difficulty(p_doc_id text)
-returns table (
-  doc_id text,
-  user_difficulty smallint,
-  vote_count integer,
-  easy_count integer,
-  medium_count integer,
-  hard_count integer,
-  average_score numeric,
-  bayesian_score numeric,
-  effective_vote_weight numeric,
-  weighted_average_score numeric,
-  weighted_bayesian_score numeric,
-  suggested_difficulty text,
-  assigned_difficulty text,
-  confidence text,
-  stable_threshold integer,
-  updated_at timestamptz
-) as $$
-declare
-  v_requested_doc_id text := nullif(trim(p_doc_id), '');
-  v_doc_id text;
-  v_document_uuid uuid;
-begin
-  if v_requested_doc_id is null then return; end if;
-  select alias.document_uuid, coalesce(registry.current_doc_id, alias.doc_id)
-  into v_document_uuid, v_doc_id
-  from public.document_aliases alias
-  join public.document_registry registry on registry.document_uuid = alias.document_uuid
-  where alias.doc_id = v_requested_doc_id;
-  if v_document_uuid is null then return; end if;
-
-  return query
-  select
-    v_doc_id,
-    (
-      select vote.difficulty
-      from public.exam_difficulty_votes vote
-      where vote.document_uuid = v_document_uuid and vote.user_id = auth.uid()
-      limit 1
-    ),
-    coalesce(stats.vote_count, 0)::integer,
-    coalesce(stats.easy_count, 0)::integer,
-    coalesce(stats.medium_count, 0)::integer,
-    coalesce(stats.hard_count, 0)::integer,
-    stats.average_score,
-    stats.bayesian_score,
-    coalesce(stats.effective_vote_weight, 0)::numeric,
-    stats.weighted_average_score,
-    stats.weighted_bayesian_score,
-    stats.suggested_difficulty,
-    stats.assigned_difficulty,
-    coalesce(stats.confidence, 'collecting')::text,
-    10::integer,
-    stats.updated_at
-  from (select 1) seed
-  left join public.exam_difficulty_stats stats
-    on stats.document_uuid = v_document_uuid;
-end;
-$$ language plpgsql security definer
-set search_path = '';
-
-create or replace function set_exam_difficulty_vote(
-  p_doc_id text,
-  p_difficulty smallint
-)
-returns table (
-  doc_id text,
-  user_difficulty smallint,
-  vote_count integer,
-  easy_count integer,
-  medium_count integer,
-  hard_count integer,
-  average_score numeric,
-  bayesian_score numeric,
-  effective_vote_weight numeric,
-  weighted_average_score numeric,
-  weighted_bayesian_score numeric,
-  suggested_difficulty text,
-  assigned_difficulty text,
-  confidence text,
-  stable_threshold integer,
-  updated_at timestamptz
-) as $$
-declare
-  v_user_id uuid := auth.uid();
-  v_requested_doc_id text := nullif(trim(p_doc_id), '');
-  v_doc_id text;
-  v_document_uuid uuid;
-begin
-  if v_user_id is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
-  if v_requested_doc_id is null then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
-  if p_difficulty not in (1, 2, 3) then
-    raise exception 'invalid_difficulty' using errcode = '22023';
-  end if;
-
-  select alias.document_uuid, coalesce(registry.current_doc_id, alias.doc_id)
-  into v_document_uuid, v_doc_id
-  from public.document_aliases alias
-  join public.document_registry registry on registry.document_uuid = alias.document_uuid
-  where alias.doc_id = v_requested_doc_id;
-  if v_document_uuid is null then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
-
-  insert into public.exam_difficulty_votes(user_id, doc_id, document_uuid, difficulty)
-  values (v_user_id, v_doc_id, v_document_uuid, p_difficulty)
-  on conflict (user_id, document_uuid) do update set
-    doc_id = excluded.doc_id,
-    difficulty = excluded.difficulty,
-    updated_at = now();
-
-  return query select * from public.get_exam_difficulty(v_doc_id);
-end;
-$$ language plpgsql security definer
-set search_path = '';
-
-revoke execute on function refresh_exam_difficulty_stats(text) from public, anon, authenticated;
-revoke execute on function get_exam_difficulty(text) from public, anon, authenticated;
-revoke execute on function set_exam_difficulty_vote(text, smallint) from public, anon, authenticated;
-grant execute on function get_exam_difficulty(text) to anon, authenticated;
-grant execute on function set_exam_difficulty_vote(text, smallint) to authenticated;
-
--- Replace the PostgreSQL Markdown mirror with a lightweight document catalog.
---
--- Git remains the only source of document bodies. Published builds expose one
--- static JSON artifact per immutable document UUID for the JSON API and Agent.
--- Only non-user Markdown columns are dropped; user-owned rows are untouched.
-
-do $$
-begin
-  if to_regclass('public.document_catalog') is null then
-    if to_regclass('public.exam_documents') is null then
-      raise exception 'Expected public.exam_documents before catalog cutover';
-    end if;
-    alter table public.exam_documents rename to document_catalog;
-  end if;
-end $$;
-
-alter table public.document_catalog
-  add column if not exists content_path text;
-
-update public.document_catalog
-set content_path = '/api-content/v1/documents/' || document_uuid::text || '.json'
-where content_path is null or trim(content_path) = '';
-
-alter table public.document_catalog
-  alter column content_path set not null;
-
-do $$
-begin
-  if not exists (
-    select 1 from pg_constraint
-    where conrelid = 'public.document_catalog'::regclass
-      and conname = 'document_catalog_content_path_check'
-  ) then
-    alter table public.document_catalog
-      add constraint document_catalog_content_path_check
-      check (content_path = '/api-content/v1/documents/' || document_uuid::text || '.json');
-  end if;
-end $$;
-
-alter table public.document_catalog
-  drop column if exists author_markdown,
-  drop column if exists description_markdown,
-  drop column if exists kai_markdown,
-  drop column if exists full_markdown;
-
-comment on table public.document_catalog is
-  'Lightweight document identity and discovery metadata. Markdown bodies are published as static build artifacts.';
-comment on column public.document_catalog.content_path is
-  'Same-origin static JSON path keyed by immutable document UUID.';
-
--- Return current catalog metadata when available while retaining the snapshots
--- already stored in user-owned problem-set rows.
-create or replace function get_my_problem_set(p_set_id uuid)
-returns table (
-  set_id uuid,
-  kind text,
-  set_title text,
-  set_description text,
-  archived_at timestamptz,
-  item_id uuid,
-  doc_id text,
-  document_uuid uuid,
-  "position" integer,
-  annotation_markdown text,
-  title text,
-  permalink text,
-  tags jsonb,
-  content_available boolean,
-  progress_status text,
-  review_count integer,
-  item_updated_at timestamptz,
-  item_created_at timestamptz
-) as $$
+create function public.get_my_problem_set(p_set_id uuid)
+ RETURNS TABLE(set_id uuid, kind text, set_title text, set_description text, archived_at timestamp with time zone, item_id uuid, doc_id text, document_uuid uuid, "position" integer, annotation_markdown text, title text, permalink text, tags jsonb, content_available boolean, progress_status text, review_count integer, item_updated_at timestamp with time zone, item_created_at timestamp with time zone)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
 declare
   v_user_id uuid := auth.uid();
 begin
@@ -4064,177 +2578,575 @@ begin
     case when problem_set.kind <> 'custom' then item.created_at end desc nulls last,
     item.created_at;
 end;
-$$ language plpgsql security definer
-set search_path = '';
+$function$;
 
--- Validate new memberships against the lightweight catalog and snapshot only
--- metadata required to render a private set. No Markdown is copied.
-create or replace function set_doc_problem_set_memberships(
-  p_doc_id text,
-  p_set_ids uuid[] default '{}'::uuid[]
-)
-returns void as $$
-declare
-  v_user_id uuid := auth.uid();
-  v_requested_doc_id text := nullif(trim(p_doc_id), '');
-  v_document_uuid uuid;
-  v_set_ids uuid[] := coalesce(p_set_ids, '{}'::uuid[]);
-  v_set_id uuid;
-  v_doc public.document_catalog%rowtype;
-  v_position integer;
-  v_touched_set_ids uuid[];
-begin
-  if v_user_id is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
-  if v_requested_doc_id is null then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
-  perform public.ensure_my_problem_sets();
-  perform 1 from public.problem_sets problem_set
-  where problem_set.owner_user_id = v_user_id
-    and problem_set.deleted_at is null
-    and problem_set.archived_at is null
-  order by problem_set.id for update;
+-- ── 触发器 ─────────────────────────────────────────────────
 
-  select document.* into v_doc
-  from public.document_aliases alias
-  join public.document_catalog document on document.document_uuid = alias.document_uuid
-  where alias.doc_id = v_requested_doc_id;
-  if not found then raise exception 'invalid_doc_id' using errcode = '22023'; end if;
-  v_document_uuid := v_doc.document_uuid;
+CREATE TRIGGER update_agent_sessions_updated_at BEFORE UPDATE ON agent_sessions FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
-  if exists (
-    select 1 from unnest(v_set_ids) requested(id)
-    left join public.problem_sets problem_set
-      on problem_set.id = requested.id
-      and problem_set.owner_user_id = v_user_id
-      and problem_set.deleted_at is null
-      and problem_set.archived_at is null
-    where problem_set.id is null
-  ) then
-    raise exception 'invalid_problem_set' using errcode = '22023';
-  end if;
+CREATE TRIGGER update_agent_user_links_updated_at BEFORE UPDATE ON agent_user_links FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
-  select coalesce(array_agg(distinct item.set_id), '{}'::uuid[]) into v_touched_set_ids
-  from public.problem_set_items item
-  join public.problem_sets problem_set on problem_set.id = item.set_id
-  where item.document_uuid = v_document_uuid
-    and problem_set.owner_user_id = v_user_id
-    and problem_set.deleted_at is null
-    and problem_set.archived_at is null;
+CREATE TRIGGER update_ai_entitlements_updated_at BEFORE UPDATE ON ai_entitlements FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
-  delete from public.problem_set_items item
-  using public.problem_sets problem_set
-  where item.set_id = problem_set.id
-    and item.document_uuid = v_document_uuid
-    and problem_set.owner_user_id = v_user_id
-    and problem_set.deleted_at is null
-    and problem_set.archived_at is null
-    and not (problem_set.id = any(v_set_ids));
+CREATE TRIGGER update_ai_model_prices_updated_at BEFORE UPDATE ON ai_model_prices FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
-  foreach v_set_id in array v_touched_set_ids loop
-    perform public.compact_problem_set_positions(v_set_id);
-  end loop;
+CREATE TRIGGER update_ai_usage_months_updated_at BEFORE UPDATE ON ai_usage_months FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
-  foreach v_set_id in array v_set_ids loop
-    if (select count(*) from public.problem_set_items item where item.set_id = v_set_id) >= 2000
-      and not exists (
-        select 1 from public.problem_set_items item
-        where item.set_id = v_set_id and item.document_uuid = v_document_uuid
-      ) then
-      raise exception 'problem_set_item_limit_reached' using errcode = '54000';
-    end if;
-    select coalesce(max(item.position), -1) + 1 into v_position
-    from public.problem_set_items item where item.set_id = v_set_id;
-    insert into public.problem_set_items (
-      set_id, doc_id, document_uuid, position,
-      title_snapshot, permalink_snapshot, tags_snapshot
-    ) values (
-      v_set_id, v_doc.doc_id, v_document_uuid, v_position,
-      v_doc.title, v_doc.permalink, v_doc.tags
-    ) on conflict (set_id, document_uuid) do nothing;
-  end loop;
+CREATE TRIGGER update_ai_usage_reservations_updated_at BEFORE UPDATE ON ai_usage_reservations FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
-  update public.problem_sets problem_set set updated_at = now()
-  where problem_set.owner_user_id = v_user_id
-    and problem_set.deleted_at is null
-    and (problem_set.id = any(v_set_ids) or problem_set.id = any(v_touched_set_ids));
-end;
-$$ language plpgsql security definer
-set search_path = '';
+CREATE TRIGGER update_api_access_requests_updated_at BEFORE UPDATE ON api_access_requests FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
-revoke execute on function get_my_problem_set(uuid) from public, anon;
-revoke execute on function set_doc_problem_set_memberships(text, uuid[]) from public, anon;
-grant execute on function get_my_problem_set(uuid) to authenticated;
-grant execute on function set_doc_problem_set_memberships(text, uuid[]) to authenticated;
+CREATE TRIGGER update_api_keys_updated_at BEFORE UPDATE ON api_keys FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
--- ============================================================
--- Final baseline cleanup
--- ============================================================
+CREATE TRIGGER update_api_usage_windows_updated_at BEFORE UPDATE ON api_usage_windows FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
--- The catalog table was renamed during the production cutover. Normalize its
--- internal object names so dumps and diagnostics use the current vocabulary.
-do $$
-declare
-  v_old text;
-  v_new text;
-begin
-  for v_old, v_new in
-    select * from (values
-      ('exam_documents_pkey', 'document_catalog_pkey'),
-      ('exam_documents_type_check', 'document_catalog_type_check'),
-      ('exam_documents_year_check', 'document_catalog_year_check'),
-      ('exam_documents_tags_is_array', 'document_catalog_tags_is_array'),
-      ('exam_documents_school_tags_is_array', 'document_catalog_school_tags_is_array'),
-      ('exam_documents_learning_tags_is_array', 'document_catalog_learning_tags_is_array'),
-      ('exam_documents_subject_ids_is_array', 'document_catalog_subject_ids_is_array'),
-      ('exam_documents_subsubject_ids_is_array', 'document_catalog_subsubject_ids_is_array'),
-      ('exam_documents_topic_ids_is_array', 'document_catalog_topic_ids_is_array'),
-      ('exam_documents_document_uuid_fkey', 'document_catalog_document_uuid_fkey')
-    ) as names(old_name, new_name)
-  loop
-    if exists (
-      select 1 from pg_constraint
-      where conrelid = 'public.document_catalog'::regclass and conname = v_old
-    ) and not exists (
-      select 1 from pg_constraint
-      where conrelid = 'public.document_catalog'::regclass and conname = v_new
-    ) then
-      execute format(
-        'alter table public.document_catalog rename constraint %I to %I',
-        v_old,
-        v_new
-      );
-    end if;
-  end loop;
+CREATE TRIGGER assign_target_document_uuid BEFORE INSERT OR UPDATE OF target_doc_id ON content_submissions FOR EACH ROW EXECUTE FUNCTION assign_target_document_uuid();
 
-  for v_old, v_new in
-    select * from (values
-      ('idx_exam_documents_catalog', 'idx_document_catalog_discovery'),
-      ('idx_exam_documents_year', 'idx_document_catalog_year'),
-      ('idx_exam_documents_tags', 'idx_document_catalog_tags'),
-      ('idx_exam_documents_school_tags', 'idx_document_catalog_school_tags'),
-      ('idx_exam_documents_subject_ids', 'idx_document_catalog_subject_ids'),
-      ('idx_exam_documents_subsubject_ids', 'idx_document_catalog_subsubject_ids'),
-      ('idx_exam_documents_topic_ids', 'idx_document_catalog_topic_ids'),
-      ('idx_exam_documents_uuid', 'idx_document_catalog_uuid')
-    ) as names(old_name, new_name)
-  loop
-    if to_regclass('public.' || quote_ident(v_old)) is not null
-      and to_regclass('public.' || quote_ident(v_new)) is null then
-      execute format('alter index public.%I rename to %I', v_old, v_new);
-    end if;
-  end loop;
+CREATE TRIGGER update_content_submissions_updated_at BEFORE UPDATE ON content_submissions FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
-  if exists (
-    select 1 from pg_trigger
-    where tgrelid = 'public.document_catalog'::regclass
-      and tgname = 'update_exam_documents_updated_at'
-      and not tgisinternal
-  ) and not exists (
-    select 1 from pg_trigger
-    where tgrelid = 'public.document_catalog'::regclass
-      and tgname = 'update_document_catalog_updated_at'
-      and not tgisinternal
-  ) then
-    alter trigger update_exam_documents_updated_at
-      on public.document_catalog rename to update_document_catalog_updated_at;
-  end if;
-end $$;
+CREATE TRIGGER assign_document_uuid BEFORE INSERT OR UPDATE OF doc_id ON document_catalog FOR EACH ROW EXECUTE FUNCTION assign_document_uuid_from_doc_id();
+
+CREATE TRIGGER update_document_catalog_updated_at BEFORE UPDATE ON document_catalog FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER assign_document_uuid BEFORE INSERT OR UPDATE OF doc_id ON exam_difficulty_stats FOR EACH ROW EXECUTE FUNCTION assign_document_uuid_from_doc_id();
+
+CREATE TRIGGER update_exam_difficulty_stats_updated_at BEFORE UPDATE ON exam_difficulty_stats FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER assign_document_uuid BEFORE INSERT OR UPDATE OF doc_id ON exam_difficulty_votes FOR EACH ROW EXECUTE FUNCTION assign_document_uuid_from_doc_id();
+
+CREATE TRIGGER refresh_exam_difficulty_stats_after_vote AFTER INSERT OR DELETE OR UPDATE ON exam_difficulty_votes FOR EACH ROW EXECUTE FUNCTION refresh_exam_difficulty_stats_after_vote();
+
+CREATE TRIGGER update_exam_difficulty_votes_updated_at BEFORE UPDATE ON exam_difficulty_votes FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER assign_document_uuid BEFORE INSERT OR UPDATE OF doc_id ON problem_set_items FOR EACH ROW EXECUTE FUNCTION assign_document_uuid_from_doc_id();
+
+CREATE TRIGGER update_problem_set_items_updated_at BEFORE UPDATE ON problem_set_items FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_problem_sets_updated_at BEFORE UPDATE ON problem_sets FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_user_ai_consents_updated_at BEFORE UPDATE ON user_ai_consents FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER archive_user_note_revision BEFORE DELETE OR UPDATE ON user_note_items FOR EACH ROW EXECUTE FUNCTION archive_user_note_revision();
+
+CREATE TRIGGER assign_document_uuid BEFORE INSERT OR UPDATE OF doc_id ON user_note_items FOR EACH ROW EXECUTE FUNCTION assign_document_uuid_from_doc_id();
+
+CREATE TRIGGER update_user_note_items_updated_at BEFORE UPDATE ON user_note_items FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER assign_document_uuid BEFORE INSERT OR UPDATE OF doc_id ON user_practice_events FOR EACH ROW EXECUTE FUNCTION assign_document_uuid_from_doc_id();
+
+CREATE TRIGGER assign_document_uuid BEFORE INSERT OR UPDATE OF doc_id ON user_progress_items FOR EACH ROW EXECUTE FUNCTION assign_document_uuid_from_doc_id();
+
+CREATE TRIGGER update_user_progress_items_updated_at BEFORE UPDATE ON user_progress_items FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_user_public_profiles_updated_at BEFORE UPDATE ON user_public_profiles FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_user_reputation_profiles_updated_at BEFORE UPDATE ON user_reputation_profiles FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+-- ── 行级安全策略 ───────────────────────────────────────────
+
+alter table public.agent_user_links enable row level security;
+
+alter table public.agent_sessions enable row level security;
+
+alter table public.ai_entitlements enable row level security;
+
+alter table public.ai_model_prices enable row level security;
+
+alter table public.ai_usage_months enable row level security;
+
+alter table public.ai_usage_reservations enable row level security;
+
+alter table public.ai_usage_events enable row level security;
+
+alter table public.api_access_requests enable row level security;
+
+alter table public.api_keys enable row level security;
+
+alter table public.api_request_logs enable row level security;
+
+alter table public.api_usage_windows enable row level security;
+
+alter table public.document_registry enable row level security;
+
+alter table public.content_submissions enable row level security;
+
+alter table public.document_aliases enable row level security;
+
+alter table public.document_catalog enable row level security;
+
+alter table public.exam_difficulty_stats enable row level security;
+
+alter table public.exam_difficulty_votes enable row level security;
+
+alter table public.problem_sets enable row level security;
+
+alter table public.problem_set_items enable row level security;
+
+alter table public.user_ai_consents enable row level security;
+
+alter table public.user_note_items enable row level security;
+
+alter table public.user_note_revisions enable row level security;
+
+alter table public.user_practice_events enable row level security;
+
+alter table public.user_progress_items enable row level security;
+
+alter table public.user_public_profiles enable row level security;
+
+alter table public.user_reputation_events enable row level security;
+
+alter table public.user_reputation_profiles enable row level security;
+
+create policy "Anyone can view difficulty stats" on public.exam_difficulty_stats
+  as PERMISSIVE for SELECT to PUBLIC
+  using (true);
+
+create policy "Users can delete own difficulty votes" on public.exam_difficulty_votes
+  as PERMISSIVE for DELETE to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can insert own difficulty votes" on public.exam_difficulty_votes
+  as PERMISSIVE for INSERT to PUBLIC
+  with check ((auth.uid() = user_id));
+
+create policy "Users can update own difficulty votes" on public.exam_difficulty_votes
+  as PERMISSIVE for UPDATE to PUBLIC
+  using ((auth.uid() = user_id))
+  with check ((auth.uid() = user_id));
+
+create policy "Users can view own difficulty votes" on public.exam_difficulty_votes
+  as PERMISSIVE for SELECT to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can manage own problem set items" on public.problem_set_items
+  as PERMISSIVE for ALL to PUBLIC
+  using ((EXISTS ( SELECT 1
+   FROM problem_sets s
+  WHERE ((s.id = problem_set_items.set_id) AND (s.owner_user_id = auth.uid())))))
+  with check ((EXISTS ( SELECT 1
+   FROM problem_sets s
+  WHERE ((s.id = problem_set_items.set_id) AND (s.owner_user_id = auth.uid())))));
+
+create policy "Users can view own problem set items" on public.problem_set_items
+  as PERMISSIVE for SELECT to PUBLIC
+  using ((EXISTS ( SELECT 1
+   FROM problem_sets s
+  WHERE ((s.id = problem_set_items.set_id) AND (s.owner_user_id = auth.uid())))));
+
+create policy "Users can manage own problem sets" on public.problem_sets
+  as PERMISSIVE for ALL to PUBLIC
+  using ((auth.uid() = owner_user_id))
+  with check ((auth.uid() = owner_user_id));
+
+create policy "Users can view own problem sets" on public.problem_sets
+  as PERMISSIVE for SELECT to PUBLIC
+  using ((auth.uid() = owner_user_id));
+
+create policy "Users can delete own note items" on public.user_note_items
+  as PERMISSIVE for DELETE to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can insert own note items" on public.user_note_items
+  as PERMISSIVE for INSERT to PUBLIC
+  with check ((auth.uid() = user_id));
+
+create policy "Users can update own note items" on public.user_note_items
+  as PERMISSIVE for UPDATE to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can view own note items" on public.user_note_items
+  as PERMISSIVE for SELECT to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can view own note revisions" on public.user_note_revisions
+  as PERMISSIVE for SELECT to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can delete own progress items" on public.user_progress_items
+  as PERMISSIVE for DELETE to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can insert own progress items" on public.user_progress_items
+  as PERMISSIVE for INSERT to PUBLIC
+  with check ((auth.uid() = user_id));
+
+create policy "Users can update own progress items" on public.user_progress_items
+  as PERMISSIVE for UPDATE to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can view own progress items" on public.user_progress_items
+  as PERMISSIVE for SELECT to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can view own reputation events" on public.user_reputation_events
+  as PERMISSIVE for SELECT to PUBLIC
+  using ((auth.uid() = user_id));
+
+create policy "Users can view own reputation profile" on public.user_reputation_profiles
+  as PERMISSIVE for SELECT to PUBLIC
+  using ((auth.uid() = user_id));
+
+-- ── 明确授权：不依赖项目的默认表或函数权限 ───────────────────
+
+revoke all on table public.agent_user_links from public, anon, authenticated, service_role;
+
+grant all on table public.agent_user_links to "service_role";
+
+revoke all on table public.agent_sessions from public, anon, authenticated, service_role;
+
+grant all on table public.agent_sessions to "service_role";
+
+revoke all on table public.ai_entitlements from public, anon, authenticated, service_role;
+
+grant all on table public.ai_entitlements to "service_role";
+
+revoke all on table public.ai_model_prices from public, anon, authenticated, service_role;
+
+grant all on table public.ai_model_prices to "service_role";
+
+revoke all on table public.ai_usage_months from public, anon, authenticated, service_role;
+
+grant all on table public.ai_usage_months to "service_role";
+
+revoke all on table public.ai_usage_reservations from public, anon, authenticated, service_role;
+
+grant all on table public.ai_usage_reservations to "service_role";
+
+revoke all on table public.ai_usage_events from public, anon, authenticated, service_role;
+
+grant all on table public.ai_usage_events to "service_role";
+
+revoke all on table public.api_access_requests from public, anon, authenticated, service_role;
+
+grant all on table public.api_access_requests to "service_role";
+
+revoke all on table public.api_keys from public, anon, authenticated, service_role;
+
+grant all on table public.api_keys to "service_role";
+
+revoke all on table public.api_request_logs from public, anon, authenticated, service_role;
+
+grant all on table public.api_request_logs to "service_role";
+
+revoke all on table public.api_usage_windows from public, anon, authenticated, service_role;
+
+grant all on table public.api_usage_windows to "service_role";
+
+revoke all on table public.document_registry from public, anon, authenticated, service_role;
+
+grant all on table public.document_registry to "service_role";
+
+revoke all on table public.content_submissions from public, anon, authenticated, service_role;
+
+grant all on table public.content_submissions to "service_role";
+
+revoke all on table public.document_aliases from public, anon, authenticated, service_role;
+
+grant all on table public.document_aliases to "service_role";
+
+revoke all on table public.document_catalog from public, anon, authenticated, service_role;
+
+grant all on table public.document_catalog to "service_role";
+
+revoke all on table public.exam_difficulty_stats from public, anon, authenticated, service_role;
+
+grant select on table public.exam_difficulty_stats to "anon";
+
+grant select on table public.exam_difficulty_stats to "authenticated";
+
+grant all on table public.exam_difficulty_stats to "service_role";
+
+revoke all on table public.exam_difficulty_votes from public, anon, authenticated, service_role;
+
+grant select on table public.exam_difficulty_votes to "authenticated";
+
+grant all on table public.exam_difficulty_votes to "service_role";
+
+revoke all on table public.problem_sets from public, anon, authenticated, service_role;
+
+grant all on table public.problem_sets to "service_role";
+
+revoke all on table public.problem_set_items from public, anon, authenticated, service_role;
+
+grant all on table public.problem_set_items to "service_role";
+
+revoke all on table public.user_ai_consents from public, anon, authenticated, service_role;
+
+grant all on table public.user_ai_consents to "service_role";
+
+revoke all on table public.user_note_items from public, anon, authenticated, service_role;
+
+grant all on table public.user_note_items to "anon";
+
+grant all on table public.user_note_items to "authenticated";
+
+grant all on table public.user_note_items to "service_role";
+
+revoke all on table public.user_note_revisions from public, anon, authenticated, service_role;
+
+grant select on table public.user_note_revisions to "authenticated";
+
+grant all on table public.user_note_revisions to "service_role";
+
+revoke all on table public.user_practice_events from public, anon, authenticated, service_role;
+
+grant all on table public.user_practice_events to "service_role";
+
+revoke all on table public.user_progress_items from public, anon, authenticated, service_role;
+
+grant all on table public.user_progress_items to "anon";
+
+grant all on table public.user_progress_items to "authenticated";
+
+grant all on table public.user_progress_items to "service_role";
+
+revoke all on table public.user_public_profiles from public, anon, authenticated, service_role;
+
+grant all on table public.user_public_profiles to "service_role";
+
+revoke all on table public.user_reputation_events from public, anon, authenticated, service_role;
+
+grant select on table public.user_reputation_events to "authenticated";
+
+grant all on table public.user_reputation_events to "service_role";
+
+revoke all on table public.user_reputation_profiles from public, anon, authenticated, service_role;
+
+grant select on table public.user_reputation_profiles to "authenticated";
+
+grant all on table public.user_reputation_profiles to "service_role";
+
+revoke all on function public.update_updated_at_column() from public, anon, authenticated, service_role;
+
+grant execute on function public.update_updated_at_column() to PUBLIC;
+
+grant execute on function public.update_updated_at_column() to "anon";
+
+grant execute on function public.update_updated_at_column() to "authenticated";
+
+grant execute on function public.update_updated_at_column() to "service_role";
+
+revoke all on function public.get_server_time() from public, anon, authenticated, service_role;
+
+grant execute on function public.get_server_time() to PUBLIC;
+
+grant execute on function public.get_server_time() to "anon";
+
+grant execute on function public.get_server_time() to "authenticated";
+
+grant execute on function public.get_server_time() to "service_role";
+
+revoke all on function public.record_practice_events(p_events jsonb) from public, anon, authenticated, service_role;
+
+grant execute on function public.record_practice_events(p_events jsonb) to "authenticated";
+
+grant execute on function public.record_practice_events(p_events jsonb) to "service_role";
+
+revoke all on function public.difficulty_label_from_score(p_score numeric) from public, anon, authenticated, service_role;
+
+grant execute on function public.difficulty_label_from_score(p_score numeric) to "service_role";
+
+revoke all on function public.refresh_exam_difficulty_stats(p_doc_id text) from public, anon, authenticated, service_role;
+
+grant execute on function public.refresh_exam_difficulty_stats(p_doc_id text) to "service_role";
+
+revoke all on function public.refresh_exam_difficulty_stats_after_vote() from public, anon, authenticated, service_role;
+
+grant execute on function public.refresh_exam_difficulty_stats_after_vote() to "service_role";
+
+revoke all on function public.get_exam_difficulty(p_doc_id text) from public, anon, authenticated, service_role;
+
+grant execute on function public.get_exam_difficulty(p_doc_id text) to "anon";
+
+grant execute on function public.get_exam_difficulty(p_doc_id text) to "authenticated";
+
+grant execute on function public.get_exam_difficulty(p_doc_id text) to "service_role";
+
+revoke all on function public.set_exam_difficulty_vote(p_doc_id text, p_difficulty smallint) from public, anon, authenticated, service_role;
+
+grant execute on function public.set_exam_difficulty_vote(p_doc_id text, p_difficulty smallint) to "authenticated";
+
+grant execute on function public.set_exam_difficulty_vote(p_doc_id text, p_difficulty smallint) to "service_role";
+
+revoke all on function public.register_api_request(p_api_key_id uuid, p_window_start timestamp with time zone, p_limit integer) from public, anon, authenticated, service_role;
+
+grant execute on function public.register_api_request(p_api_key_id uuid, p_window_start timestamp with time zone, p_limit integer) to "service_role";
+
+revoke all on function public.reserve_ai_message(p_session_id uuid, p_idempotency_key text, p_model text) from public, anon, authenticated, service_role;
+
+grant execute on function public.reserve_ai_message(p_session_id uuid, p_idempotency_key text, p_model text) to "service_role";
+
+revoke all on function public.commit_ai_usage(p_reservation_id uuid, p_provider text, p_model text, p_input_tokens bigint, p_cached_input_tokens bigint, p_output_tokens bigint, p_status text, p_latency_ms integer, p_error_code text) from public, anon, authenticated, service_role;
+
+grant execute on function public.commit_ai_usage(p_reservation_id uuid, p_provider text, p_model text, p_input_tokens bigint, p_cached_input_tokens bigint, p_output_tokens bigint, p_status text, p_latency_ms integer, p_error_code text) to "service_role";
+
+revoke all on function public.cancel_ai_reservation(p_reservation_id uuid, p_reason text) from public, anon, authenticated, service_role;
+
+grant execute on function public.cancel_ai_reservation(p_reservation_id uuid, p_reason text) to "service_role";
+
+revoke all on function public.get_site_contributors() from public, anon, authenticated, service_role;
+
+grant execute on function public.get_site_contributors() to "anon";
+
+grant execute on function public.get_site_contributors() to "authenticated";
+
+grant execute on function public.get_site_contributors() to "service_role";
+
+revoke all on function public.refresh_user_reputation(p_user_id uuid) from public, anon, authenticated, service_role;
+
+grant execute on function public.refresh_user_reputation(p_user_id uuid) to "authenticated";
+
+grant execute on function public.refresh_user_reputation(p_user_id uuid) to "service_role";
+
+revoke all on function public.get_my_reputation() from public, anon, authenticated, service_role;
+
+grant execute on function public.get_my_reputation() to "authenticated";
+
+grant execute on function public.get_my_reputation() to "service_role";
+
+revoke all on function public.normalize_public_nickname(p_nickname text) from public, anon, authenticated, service_role;
+
+grant execute on function public.normalize_public_nickname(p_nickname text) to "service_role";
+
+revoke all on function public.validate_public_nickname(p_nickname text) from public, anon, authenticated, service_role;
+
+grant execute on function public.validate_public_nickname(p_nickname text) to "service_role";
+
+revoke all on function public.format_public_nickname(p_nickname text, p_discriminator integer) from public, anon, authenticated, service_role;
+
+grant execute on function public.format_public_nickname(p_nickname text, p_discriminator integer) to "service_role";
+
+revoke all on function public.ensure_user_public_profile(p_user_id uuid) from public, anon, authenticated, service_role;
+
+grant execute on function public.ensure_user_public_profile(p_user_id uuid) to "service_role";
+
+revoke all on function public.get_my_public_profile() from public, anon, authenticated, service_role;
+
+grant execute on function public.get_my_public_profile() to "authenticated";
+
+grant execute on function public.get_my_public_profile() to "service_role";
+
+revoke all on function public.confirm_or_change_my_nickname(p_nickname text) from public, anon, authenticated, service_role;
+
+grant execute on function public.confirm_or_change_my_nickname(p_nickname text) to "authenticated";
+
+grant execute on function public.confirm_or_change_my_nickname(p_nickname text) to "service_role";
+
+revoke all on function public.ensure_my_problem_sets() from public, anon, authenticated, service_role;
+
+grant execute on function public.ensure_my_problem_sets() to "service_role";
+
+revoke all on function public.compact_problem_set_positions(p_set_id uuid) from public, anon, authenticated, service_role;
+
+grant execute on function public.compact_problem_set_positions(p_set_id uuid) to "service_role";
+
+revoke all on function public.get_my_problem_sets(p_doc_id text) from public, anon, authenticated, service_role;
+
+grant execute on function public.get_my_problem_sets(p_doc_id text) to "authenticated";
+
+grant execute on function public.get_my_problem_sets(p_doc_id text) to "service_role";
+
+revoke all on function public.create_my_problem_set(p_title text, p_description text) from public, anon, authenticated, service_role;
+
+grant execute on function public.create_my_problem_set(p_title text, p_description text) to "authenticated";
+
+grant execute on function public.create_my_problem_set(p_title text, p_description text) to "service_role";
+
+revoke all on function public.update_my_problem_set(p_set_id uuid, p_title text, p_description text) from public, anon, authenticated, service_role;
+
+grant execute on function public.update_my_problem_set(p_set_id uuid, p_title text, p_description text) to "authenticated";
+
+grant execute on function public.update_my_problem_set(p_set_id uuid, p_title text, p_description text) to "service_role";
+
+revoke all on function public.archive_my_problem_set(p_set_id uuid, p_archived boolean) from public, anon, authenticated, service_role;
+
+grant execute on function public.archive_my_problem_set(p_set_id uuid, p_archived boolean) to "authenticated";
+
+grant execute on function public.archive_my_problem_set(p_set_id uuid, p_archived boolean) to "service_role";
+
+revoke all on function public.delete_my_problem_set(p_set_id uuid) from public, anon, authenticated, service_role;
+
+grant execute on function public.delete_my_problem_set(p_set_id uuid) to "authenticated";
+
+grant execute on function public.delete_my_problem_set(p_set_id uuid) to "service_role";
+
+revoke all on function public.set_doc_problem_set_memberships(p_doc_id text, p_set_ids uuid[]) from public, anon, authenticated, service_role;
+
+grant execute on function public.set_doc_problem_set_memberships(p_doc_id text, p_set_ids uuid[]) to "authenticated";
+
+grant execute on function public.set_doc_problem_set_memberships(p_doc_id text, p_set_ids uuid[]) to "service_role";
+
+revoke all on function public.reorder_problem_set_items(p_set_id uuid, p_item_ids uuid[]) from public, anon, authenticated, service_role;
+
+grant execute on function public.reorder_problem_set_items(p_set_id uuid, p_item_ids uuid[]) to "authenticated";
+
+grant execute on function public.reorder_problem_set_items(p_set_id uuid, p_item_ids uuid[]) to "service_role";
+
+revoke all on function public.update_problem_set_item_annotation(p_item_id uuid, p_annotation text) from public, anon, authenticated, service_role;
+
+grant execute on function public.update_problem_set_item_annotation(p_item_id uuid, p_annotation text) to "authenticated";
+
+grant execute on function public.update_problem_set_item_annotation(p_item_id uuid, p_annotation text) to "service_role";
+
+revoke all on function public.remove_problem_set_items(p_set_id uuid, p_item_ids uuid[]) from public, anon, authenticated, service_role;
+
+grant execute on function public.remove_problem_set_items(p_set_id uuid, p_item_ids uuid[]) to "authenticated";
+
+grant execute on function public.remove_problem_set_items(p_set_id uuid, p_item_ids uuid[]) to "service_role";
+
+revoke all on function public.transfer_problem_set_items(p_source_set_id uuid, p_target_set_id uuid, p_item_ids uuid[], p_copy boolean) from public, anon, authenticated, service_role;
+
+grant execute on function public.transfer_problem_set_items(p_source_set_id uuid, p_target_set_id uuid, p_item_ids uuid[], p_copy boolean) to "authenticated";
+
+grant execute on function public.transfer_problem_set_items(p_source_set_id uuid, p_target_set_id uuid, p_item_ids uuid[], p_copy boolean) to "service_role";
+
+revoke all on function public.resolve_document_uuid(p_doc_id text) from public, anon, authenticated, service_role;
+
+grant execute on function public.resolve_document_uuid(p_doc_id text) to "service_role";
+
+revoke all on function public.assign_document_uuid_from_doc_id() from public, anon, authenticated, service_role;
+
+grant execute on function public.assign_document_uuid_from_doc_id() to PUBLIC;
+
+grant execute on function public.assign_document_uuid_from_doc_id() to "anon";
+
+grant execute on function public.assign_document_uuid_from_doc_id() to "authenticated";
+
+grant execute on function public.assign_document_uuid_from_doc_id() to "service_role";
+
+revoke all on function public.assign_target_document_uuid() from public, anon, authenticated, service_role;
+
+grant execute on function public.assign_target_document_uuid() to PUBLIC;
+
+grant execute on function public.assign_target_document_uuid() to "anon";
+
+grant execute on function public.assign_target_document_uuid() to "authenticated";
+
+grant execute on function public.assign_target_document_uuid() to "service_role";
+
+revoke all on function public.archive_user_note_revision() from public, anon, authenticated, service_role;
+
+grant execute on function public.archive_user_note_revision() to PUBLIC;
+
+grant execute on function public.archive_user_note_revision() to "anon";
+
+grant execute on function public.archive_user_note_revision() to "authenticated";
+
+grant execute on function public.archive_user_note_revision() to "service_role";
+
+revoke all on function public.get_practice_leaderboard(p_period text) from public, anon, authenticated, service_role;
+
+grant execute on function public.get_practice_leaderboard(p_period text) to "authenticated";
+
+grant execute on function public.get_practice_leaderboard(p_period text) to "service_role";
+
+revoke all on function public.get_my_problem_set(p_set_id uuid) from public, anon, authenticated, service_role;
+
+grant execute on function public.get_my_problem_set(p_set_id uuid) to "authenticated";
+
+grant execute on function public.get_my_problem_set(p_set_id uuid) to "service_role";
+
+notify pgrst, 'reload schema';
+
+commit;

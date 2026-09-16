@@ -22,6 +22,7 @@ import {
 } from './admission.ts';
 import { buildIssueBody, stableStringify } from './issue.ts';
 import {normalizeExperienceRequest, type ExperienceSubmission} from './experience.ts';
+import {submissionDatabaseErrorResponse} from './database-errors.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';
@@ -295,36 +296,6 @@ function publicSubmission(row: Record<string, unknown>) {
     updatedAt: row.updated_at,
     createdAt: row.created_at,
   };
-}
-
-function submissionDatabaseErrorResponse(error: unknown, code: string) {
-  const errorLike = error && typeof error === 'object'
-    ? error as { code?: unknown; message?: unknown }
-    : null;
-  const message = typeof errorLike?.message === 'string'
-    ? errorLike.message
-    : error instanceof Error
-      ? error.message
-      : String(error || '');
-  const pgCode = typeof errorLike?.code === 'string' ? errorLike.code : '';
-
-  if (message.includes('experience_data') || message.includes('content_submissions_type_check')) {
-    return errorResponse(500, 'experience_schema_missing', '经验贴投稿数据库尚未升级，请由管理员执行 supabase/manual/20260914_experience_submissions.sql。');
-  }
-
-  if (
-    pgCode === '42P01'
-    || message.includes('content_submissions')
-    || message.includes('does not exist')
-  ) {
-    return errorResponse(
-      500,
-      'submission_schema_missing',
-      '投稿服务数据库尚未初始化，请先在 Supabase SQL Editor 执行最新的 src/services/schema.sql 后重试。',
-    );
-  }
-
-  return errorResponse(500, code, '投稿服务数据库请求失败，请稍后重试。');
 }
 
 function requireCallbackSecret(req: Request) {

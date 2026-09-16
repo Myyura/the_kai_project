@@ -86,9 +86,9 @@ To enable account features end-to-end:
 
 1. Create a Supabase project. For a blank project, apply `src/services/schema.sql` once as the baseline; do not reapply it to an existing database.
 2. The current baseline has no pending historical migrations. Future schema changes will be added under `supabase/migrations/` and applied by the deployment workflow.
-3. Configure the auth security items noted in that SQL file, including rate limits, password policy, and hCaptcha.
+3. Configure authentication rate limits, password policy and hCaptcha or another bot protection provider in Supabase Authentication.
 4. Add the site callback URLs in Supabase Authentication → URL Configuration, including `https://your-domain/auth/callback` and `https://your-domain/reset-password`.
-5. To enable website submissions, deploy `supabase/functions/content-submissions` and configure `CONTENT_BOT_TOKEN`, `CLA_ATTESTATION_SECRET`, and `CONTENT_SUBMISSION_CALLBACK_SECRET`; contribution authors are resolved from confirmed public profiles rather than request data.
+5. To enable website submissions, deploy `supabase/functions/content-submissions` and configure `CONTENT_BOT_TOKEN`, `CLA_ATTESTATION_SECRET`, and `CONTENT_SUBMISSION_CALLBACK_SECRET`. Forks should also set `GITHUB_REPOSITORY` to their own `owner/repo` so review Issues are created in their repository; contribution authors are resolved from confirmed public profiles rather than request data.
 6. Verify nickname and private problem-set RPCs with test accounts, then rebuild with `PROBLEM_SETS_ENABLED=true`.
 
 ## Developer JSON API
@@ -131,7 +131,7 @@ Successful responses include `apiVersion`, `sourceUrl`, `license`, and `contentN
 
 The project exposes exam data through Supabase Edge Functions while reusing the existing login system as the developer identity layer.
 
-1. Apply [src/services/schema.sql](src/services/schema.sql) once only for a blank database; it already contains the complete current structure. Never reapply the baseline to an existing database. Existing production projects whose three 20260718 migrations were squashed should run the [baseline finalization SQL](supabase/manual/20260718_finalize_consolidated_baseline.sql) once before adding another migration.
+1. Apply [src/services/schema.sql](src/services/schema.sql) once to a blank database. It directly creates the complete baseline as of 2026-09-16, including solution, correction, admission-data and experience submissions. Never reapply it to an existing database.
 2. Deploy the functions in [supabase/functions](supabase/functions). Production GitHub Actions uses `SUPABASE_ACCESS_TOKEN` and `SUPABASE_PROJECT_REF` for function deployment; `SUPABASE_DB_PASSWORD` is additionally required only when a new database migration exists:
 
 ```bash
@@ -159,7 +159,7 @@ This command upserts UUIDs, paths, titles, links, tags, taxonomy, and content ha
 
 This input method keeps the key out of shell history; never commit it or store it in GitHub Actions for this workflow.
 
-After document paths have moved, you may run the [doc_id canonicalization SQL](supabase/manual/20260719_canonicalize_document_doc_ids.sql) manually in Supabase SQL Editor during a low-traffic maintenance window. Take a backup and complete `yarn catalog:sync` first. The repeatable script rewrites legacy `doc_id` snapshots in application tables to `document_registry.current_doc_id` while preserving UUIDs, user rows, timestamps, note versions, and all historical aliases. Every final `stale_row_count` should be `0`.
+After moving document paths, run `yarn catalog:sync` to update current paths and aliases. Study records resolve documents through stable UUIDs; no historical canonicalization script is required.
 
 4. Keep `verify_jwt = false` for all five functions as configured in [supabase/config.toml](supabase/config.toml); each function performs its own API-key, login-token, callback-secret, or JWK verification. Configure `API_LOG_SALT` for `kai-api`. Website submissions additionally require the GitHub, CLA-attestation, and callback secrets used by `content-submissions`; the Agent bridge requires its service URL and JWK secrets before it is enabled.
 5. Review requests in the `api_access_requests` table from the Supabase Dashboard: set `status` to `approved` to allow key creation, or use `rejected` / `revoked` to deny or pause access.
@@ -242,7 +242,7 @@ yarn tags:audit
 
 Each submission creates a signed public Issue. After maintainer review and the `submission:ready-for-pr` label, the converter writes external links to `src/data/experiences/external/<source-hostname>/<admission-year>.json` or creates a native blog article with `experience` frontmatter, then opens a draft PR. Duplicate URLs are checked across all groups and become conflicts without overwriting existing entries; Zhihu share parameters and fragments do not identify separate articles. Publication requires merging and deploying the PR.
 
-For existing installations, apply the [experience submission migration](supabase/manual/20260914_experience_submissions.sql) before deploying the updated `content-submissions` Edge Function and website. It adds `experience_data` and keeps experiences out of solution/correction reputation events. Fresh databases use the updated `src/services/schema.sql`. External-link consent covers submitted metadata and does not license or reproduce the original article.
+For a new fork, apply the [current baseline](src/services/schema.sql) to a blank database, then deploy `content-submissions` and configure its submission secrets. No additional upgrade SQL is required. The baseline includes `experience_data`, `admission_data`, review statuses and their constraints, and excludes experiences from solution/correction reputation points. Databases already on this version need no baseline rerun. External-link consent covers submitted metadata and does not license or reproduce the original article.
 
 `/blog` groups on-site stories and external articles by university, graduate school, and program.
 

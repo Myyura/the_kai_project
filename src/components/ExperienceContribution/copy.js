@@ -14,7 +14,7 @@ export default {
     publicNotice: '提交后会创建公开 GitHub Issue，由维护者核查后收录。请勿填写私密信息。',
     submit: '提交审核', submitting: '正在提交…', login: '登录后投稿', nickname: '请先在个人中心确认公开昵称。',
     consentRequired: '请先确认投稿协议。', unavailable: '投稿服务暂不可用，请稍后重试。', failed: '投稿失败，请检查填写内容后重试。',
-    success: '已提交，等待维护者审核。', viewIssue: '查看审核记录', records: '我的投稿记录', back: '返回经验目录',
+    success: '投稿已提交', successHint: '感谢分享备考经历。审核通过后会收录到经验目录，你可以在我的投稿中查看进度。', pendingReview: '等待审核', viewIssue: '查看审核记录', records: '我的投稿', back: '返回经验目录',
     author: '公开投稿署名', mode: '经验贴', duplicate: '同一学校／专攻和考期请勿重复填写。',
   },
   ja: {
@@ -32,7 +32,7 @@ export default {
     publicNotice: '送信すると公開 GitHub Issue が作成され、メンテナーが確認します。非公開情報は記載しないでください。',
     submit: 'レビューに送信', submitting: '送信中…', login: 'ログインして投稿', nickname: 'マイページで公開ニックネームを確認してください。',
     consentRequired: 'CLA を確認してください。', unavailable: '投稿サービスを利用できません。後ほど再試行してください。', failed: '送信に失敗しました。入力内容をご確認ください。',
-    success: '送信しました。レビューをお待ちください。', viewIssue: 'レビューを表示', records: '自分の投稿履歴', back: '体験記一覧へ',
+    success: '投稿を受け付けました', successHint: '体験の共有ありがとうございます。承認後、体験記一覧に掲載します。進捗は投稿履歴から確認できます。', pendingReview: '確認待ち', viewIssue: 'レビューを表示', records: '自分の投稿履歴', back: '体験記一覧へ',
     author: '公開投稿者名', mode: '体験記', duplicate: '同じ専攻・入試時期の重複を削除してください。',
   },
   en: {
@@ -50,7 +50,7 @@ export default {
     publicNotice: 'Submitting creates a public GitHub Issue for maintainer review. Do not include private information.',
     submit: 'Submit for review', submitting: 'Submitting…', login: 'Sign in to submit', nickname: 'Confirm your public nickname in Personal Center first.',
     consentRequired: 'Please confirm the CLA first.', unavailable: 'The submission service is unavailable. Please try again later.', failed: 'Submission failed. Check your input and try again.',
-    success: 'Submitted for maintainer review.', viewIssue: 'View review', records: 'My submissions', back: 'Back to stories',
+    success: 'Your story is submitted', successHint: 'Thanks for sharing your experience. A maintainer will review it for the directory. You can follow its progress in your submissions.', pendingReview: 'Awaiting review', viewIssue: 'View review', records: 'My submissions', back: 'Back to stories',
     author: 'Public contributor name', mode: 'Admission story', duplicate: 'Remove duplicate classifications for the same exam round.',
   },
 };
