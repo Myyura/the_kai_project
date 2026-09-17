@@ -123,6 +123,37 @@ test('recommendations append by source and admission year regardless of school, 
   assert.equal(readExternalExperiences(root).length, 4);
 });
 
+test('recommendations update an existing empty group without treating it as a new file', t => {
+  const root = repo(t);
+  const relativePath = `${EXTERNAL_DIRECTORY}/zhuanlan.zhihu.com/2026.json`;
+  const file = path.join(root, relativePath);
+  fs.mkdirSync(path.dirname(file), {recursive: true});
+  fs.writeFileSync(file, '[]\n');
+  const result = writeSubmissionToRepo({repoRoot: root, payload: payload()});
+  assert.equal(result.action, 'update');
+  assert.equal(result.relativePath, relativePath);
+  assert.equal(readExternalExperiences(root).length, 1);
+  assert.deepEqual(fs.readdirSync(path.dirname(file)), ['2026.json']);
+});
+
+test('recommendation writes do not follow a destination symlink introduced after reading', t => {
+  const root = repo(t);
+  const file = path.join(root, EXTERNAL_DIRECTORY, 'zhuanlan.zhihu.com/2026.json');
+  const otherFile = path.join(root, 'unrelated.json');
+  fs.writeFileSync(otherFile, 'unrelated content');
+  const mkdir = fs.mkdirSync;
+  t.mock.method(fs, 'mkdirSync', (...args) => {
+    const result = mkdir(...args);
+    if (args[0] === path.dirname(file)) fs.symlinkSync(otherFile, file);
+    return result;
+  });
+  const result = writeSubmissionToRepo({repoRoot: root, payload: payload()});
+  assert.equal(result.action, 'update');
+  assert.equal(fs.readFileSync(otherFile, 'utf8'), 'unrelated content');
+  assert.equal(fs.lstatSync(file).isSymbolicLink(), false);
+  assert.equal(readExternalExperiences(root).length, 1);
+});
+
 test('original story is signed once and becomes a classified native blog article', t => {
   const input = {...base(), kind:'internal', url: undefined, markdown: '我的经验\n\n```text\n```\n\n结论。'};
   const p = payload(input);

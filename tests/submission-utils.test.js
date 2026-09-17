@@ -264,6 +264,24 @@ test('builds and verifies a signed admission-data review Issue', () => {
   assert.deepEqual(extracted.payload, payload);
 });
 
+test('admission Issue table cells preserve backslashes and pipes without splitting rows', () => {
+  const markdown = require('markdown-it')();
+  for (const [value, displayed] of [
+    ['a|b|c', 'a|b|c'],
+    ['a\\|b\\\\|c', 'a\\|b\\\\|c'],
+    ['a\\b\\', 'a\\b\\'],
+    ['a\r\nb\nc\rd', 'a b c d'],
+    ['  ', '未提供'],
+  ]) {
+    const payload = admissionDataPayload();
+    payload.admissionData.values.reportedRatioBasis = value;
+    const issue = buildIssueBody(payload, 'a'.repeat(64));
+    const html = markdown.render(issue);
+    assert.ok(html.includes(`<td>倍率口径</td>\n<td style="text-align:right">${displayed}</td>`), value);
+    assert.deepEqual(extractSubmissionFromIssueBody(issue).payload, payload);
+  }
+});
+
 test('admission-data conversion is an explicit no-write manual-review skip', () => {
   const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kai-admission-submission-'));
   const payload = admissionDataPayload();

@@ -140,5 +140,5 @@ test('note preview retains rich Markdown and formula source while escaping raw H
   assert.match(html, /note-math-display/);
   assert.ok(html.includes(encodeURIComponent('\\frac{1}{2}')));
   assert.match(html, /&lt;script&gt;/);
-  assert.doesNotMatch(html, /<script>/);
+  assert.ok(!html.toLowerCase().includes('<script'));
 });

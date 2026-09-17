@@ -38,8 +38,8 @@ test('canonical duplicate URLs across admission years fail with both file locati
   write(root, 'zhuanlan.zhihu.com/2025.json', [story('kyoto-university', 'http://zhuanlan.zhihu.com/p/123456/?source=share#heading', 2025)]);
   assert.throws(() => readExternalExperiences(root), error => {
     assert.match(error.message, /Duplicate external URL/);
-    assert.match(error.message, /zhuanlan.zhihu.com\/2026.json/);
-    assert.match(error.message, /zhuanlan.zhihu.com\/2025.json/);
+    assert.ok(error.message.includes('zhuanlan.zhihu.com/2026.json'));
+    assert.ok(error.message.includes('zhuanlan.zhihu.com/2025.json'));
     return true;
   });
 });
@@ -48,7 +48,10 @@ test('entries must be stored under their URL hostname and directory year', t => 
   for (const file of ['zhuanlan.zhihu.com/2025.json', 'note.com/2026.json']) {
     const root = repo(t);
     write(root, file, [story('tokyo-university')]);
-    assert.throws(() => readExternalExperiences(root), /belongs in .*zhuanlan.zhihu.com\/2026.json/);
+    assert.throws(() => readExternalExperiences(root), error => {
+      assert.ok(error.message.includes(`belongs in ${EXTERNAL_DIRECTORY}/zhuanlan.zhihu.com/2026.json`));
+      return true;
+    });
   }
 });
 
@@ -82,9 +85,14 @@ test('missing, malformed and unexpectedly nested source data fail instead of hid
   const root = repo(t);
   assert.throws(() => readExternalExperiences(root), /ENOENT/);
   const file = write(root, 'zhuanlan.zhihu.com/2026.json', {});
-  assert.throws(() => readExternalExperiences(root), /must be an array: .*zhuanlan.zhihu.com\/2026.json/);
+  assert.throws(() => readExternalExperiences(root), {
+    message: `External experiences must be an array: ${EXTERNAL_DIRECTORY}/zhuanlan.zhihu.com/2026.json`,
+  });
   fs.writeFileSync(file, '[broken');
-  assert.throws(() => readExternalExperiences(root), /Cannot read external experiences from .*zhuanlan.zhihu.com\/2026.json/);
+  assert.throws(() => readExternalExperiences(root), error => {
+    assert.ok(error.message.startsWith(`Cannot read external experiences from ${EXTERNAL_DIRECTORY}/zhuanlan.zhihu.com/2026.json:`));
+    return true;
+  });
   fs.writeFileSync(file, '[]');
   fs.mkdirSync(path.join(path.dirname(file), 'nested'));
   assert.throws(() => readExternalExperiences(root), /Expected an external experience year JSON file/);

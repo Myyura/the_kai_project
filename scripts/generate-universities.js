@@ -13,6 +13,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const {readUtf8IfExists, writeFileAtomicSync} = require('./file-utils');
 
 const DOCS_DIR = path.resolve(__dirname, '..', 'docs');
 const OUTPUT_FILE = path.resolve(__dirname, '..', 'src', 'data', 'universities.js');
@@ -22,7 +23,6 @@ const METADATA_FILE = path.resolve(__dirname, '..', 'src', 'data', 'universityMe
 
 function readCategoryJson(dirPath) {
   const catFile = path.join(dirPath, '_category_.json');
-  if (!fs.existsSync(catFile)) return null;
   try {
     return JSON.parse(fs.readFileSync(catFile, 'utf-8'));
   } catch {
@@ -152,9 +152,9 @@ const universities = ${JSON.stringify(universities, null, 2)};
 const UNIV_MAP = Object.fromEntries(universities.map(({id, name}) => [id, name]));
 module.exports = {universities, UNIV_MAP};
 `;
-  const current = fs.existsSync(OUTPUT_FILE) ? fs.readFileSync(OUTPUT_FILE, 'utf8') : '';
+  const current = readUtf8IfExists(OUTPUT_FILE);
   if (check && current !== output) throw new Error('University catalog is stale. Run yarn generate:universities.');
-  if (!check && current !== output) fs.writeFileSync(OUTPUT_FILE, output);
+  if (!check && current !== output) writeFileAtomicSync(OUTPUT_FILE, output);
   return universities;
 }
 

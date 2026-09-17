@@ -5,6 +5,7 @@ const { getSchoolTagForUniversity } = require('./tag-taxonomy');
 const {buildCatalog} = require('../plugins/experience-blog/catalog.cjs');
 const {canonicalExperienceUrl, externalExperiencePath, readExternalExperiences} = require('../src/data/experiences/external.cjs');
 const {universities} = require('../src/data/universities');
+const {writeFileAtomicSync} = require('./file-utils');
 
 const PAYLOAD_RE = /<!--\s*kai-submission-payload:([A-Za-z0-9_-]+)\s*-->/;
 const SIGNATURE_RE = /<!--\s*kai-submission-signature:([a-f0-9]+)\s*-->/i;
@@ -232,10 +233,17 @@ function writeExperienceToRepo(repoRoot, payload) {
     buildCatalog({universities, external: [...entries, entry], blogPosts: [], siteUrl: 'https://runjp.com'});
     const relativePath = externalExperiencePath(entry);
     const absolutePath = ensureWithinRepo(repoRoot, relativePath);
-    const action = fs.existsSync(absolutePath) ? 'update' : 'create';
     const updated = [...entries.filter(item => externalExperiencePath(item) === relativePath), entry];
     fs.mkdirSync(path.dirname(absolutePath), {recursive: true});
-    fs.writeFileSync(absolutePath, `${JSON.stringify(updated, null, 2)}\n`, 'utf8');
+    const content = `${JSON.stringify(updated, null, 2)}\n`;
+    let action = 'create';
+    try {
+      fs.writeFileSync(absolutePath, content, {encoding: 'utf8', flag: 'wx'});
+    } catch (error) {
+      if (error.code !== 'EEXIST') throw error;
+      writeFileAtomicSync(absolutePath, content);
+      action = 'update';
+    }
     return {relativePath, action, conflict: false};
   }
   if (!/^[a-f0-9-]{36}$/i.test(payload.submissionId) || !/^\d{4}-\d{2}-\d{2}T/.test(payload.createdAt)

@@ -58,6 +58,57 @@ function checkedUrl(value) {
   return url;
 }
 
+function skipXmlProlog(text) {
+  let offset = 0;
+  const doctype = /<!DOCTYPE\s+svg(?=\s|\[|>)/iy;
+  while (offset < text.length) {
+    if (/\s/.test(text[offset])) {
+      offset += 1;
+      continue;
+    }
+    const comment = text.startsWith('<!--', offset);
+    if (comment || text.slice(offset, offset + 5).toLowerCase() === '<?xml') {
+      const terminator = comment ? '-->' : '?>';
+      const end = text.indexOf(terminator, offset + (comment ? 4 : 5));
+      if (end < 0) return null;
+      offset = end + terminator.length;
+      continue;
+    }
+    doctype.lastIndex = offset;
+    if (!doctype.test(text)) return text.slice(offset);
+    offset = doctype.lastIndex;
+    let quote = null;
+    let depth = 0;
+    let closed = false;
+    // Scan declarations once, including quoted '>' and the DTD internal subset.
+    // No entities are resolved and no external resources are loaded.
+    while (offset < text.length) {
+      if (!quote && text.startsWith('<!--', offset)) {
+        const end = text.indexOf('-->', offset + 4);
+        if (end < 0) return null;
+        offset = end + 3;
+        continue;
+      }
+      const char = text[offset++];
+      if (quote) {
+        if (char === quote) quote = null;
+      } else if (char === '"' || char === "'") {
+        quote = char;
+      } else if (char === '[') {
+        depth += 1;
+      } else if (char === ']') {
+        if (depth === 0) return null;
+        depth -= 1;
+      } else if (char === '>' && depth === 0) {
+        closed = true;
+        break;
+      }
+    }
+    if (!closed) return null;
+  }
+  return '';
+}
+
 function detectImageMimeType(content) {
   if (!Buffer.isBuffer(content)) return null;
   if (content.length >= 24
@@ -83,8 +134,8 @@ function detectImageMimeType(content) {
   }
   const text = content.toString('utf8').replace(/^\uFEFF/, '').trim();
   // Anchor at the XML root so an HTML error page containing an SVG icon is rejected.
-  const xml = text.replace(/^(?:(?:<\?xml[\s\S]*?\?>|<!--[\s\S]*?-->|<!DOCTYPE\s+svg(?:[^>\[]|\[[\s\S]*?\])*>)[\s]*)*/i, '');
-  if (/^<svg(?:\s|\/?>)/i.test(xml) && (/<\/svg\s*>\s*$/i.test(xml) || /\/>\s*$/.test(xml))) {
+  const xml = skipXmlProlog(text);
+  if (xml !== null && /^<svg(?:\s|\/?>)/i.test(xml) && (/<\/svg\s*>\s*$/i.test(xml) || /\/>\s*$/.test(xml))) {
     return 'image/svg+xml';
   }
   return null;

@@ -83,7 +83,7 @@ ${fence}
 function inlineMarkdown(value: unknown, fallback = '未提供') {
   const text = String(value ?? '').trim();
   if (!text) return fallback;
-  return text.replace(/\r?\n/g, ' ').replace(/\|/g, '\\|');
+  return text.replace(/\r\n|[\r\n]/g, ' ').replace(/[\\|]/g, '\\$&');
 }
 
 function admissionValue(value: number | null, suffix = '') {

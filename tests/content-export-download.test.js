@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const {execFileSync} = require('node:child_process');
 const crypto = require('node:crypto');
 const {EventEmitter} = require('node:events');
 const fs = require('node:fs/promises');
@@ -121,6 +122,42 @@ test('identifies supported image formats from bytes rather than HTTP content typ
   ]) assert.equal(detectImageMimeType(content), mimeType);
   assert.equal(detectImageMimeType(Buffer.from('<html><body><svg/></body></html>')), null);
   assert.equal(detectImageMimeType(Buffer.from('Not Found')), null);
+});
+
+test('SVG detection handles XML declarations and quoted or commented DTD delimiters', () => {
+  for (const prolog of [
+    '<!DOCTYPE svg>',
+    '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://example.com/svg.dtd">',
+    '<!DOCTYPE svg [<!ENTITY label "a > b [c]">]>',
+    "<!DOCTYPE svg [<!-- ]> ignored --> <!ENTITY label 'text'>]>",
+    '<?xml version="1.0"?>\n<!-- first --><!-- second -->\n<!DOCTYPE svg>\n',
+  ]) {
+    assert.equal(detectImageMimeType(Buffer.from(`${prolog}<svg></svg>`)), 'image/svg+xml');
+    assert.equal(detectImageMimeType(Buffer.from(`${prolog}<html><svg/></html>`)), null);
+  }
+  for (const text of [
+    '<!-- unfinished <svg/>', '<?xml version="1.0" <svg/>',
+    '<!DOCTYPE svg [<!ENTITY label "unfinished"> <svg/>',
+    '<!DOCTYPE svg SYSTEM "unfinished><svg/>',
+    '<!DOCTYPE svg-extra><svg/>', '<!DOCTYPE html><svg/>',
+  ]) assert.equal(detectImageMimeType(Buffer.from(text)), null);
+});
+
+test('SVG detection finishes within a bounded time for adversarial XML prologs', () => {
+  // A subprocess deadline catches synchronous regexp backtracking regressions.
+  const cases = [
+    `<!DOCTYPE svg ${'[x]'.repeat(20000)}`,
+    `<!DOCTYPE svg [${'['.repeat(200000)}`,
+    `<!--${'<!--'.repeat(100000)}`,
+    `${'<!-- valid --> '.repeat(20000)}<svg/>`,
+  ];
+  const output = execFileSync(process.execPath, ['-e', `
+    const fs = require('node:fs');
+    const {detectImageMimeType} = require('./scripts/content-export-download');
+    const cases = JSON.parse(fs.readFileSync(0, 'utf8'));
+    process.stdout.write(JSON.stringify(cases.map(text => detectImageMimeType(Buffer.from(text)))));
+  `], {cwd: path.resolve(__dirname, '..'), input: JSON.stringify(cases), encoding: 'utf8', timeout: 5000});
+  assert.deepEqual(JSON.parse(output), [null, null, null, 'image/svg+xml']);
 });
 
 test('offers all checked IPv6 and IPv4 addresses for connection fallback', async () => {
