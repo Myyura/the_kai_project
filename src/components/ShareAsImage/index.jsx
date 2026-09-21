@@ -2,8 +2,8 @@ import React, { useState, useRef, useCallback, useEffect, useId } from 'react';
 import { FaShareAlt, FaDownload, FaCheck, FaTimes, FaImage } from 'react-icons/fa';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
-
-const WORKER_TIMEOUT_MS = 1200;
+import {paginateContent, ShareImageLimitError} from './pagination';
+import {captureLongImage, checkAborted, cloneArticleContent, fitDisplayMath, waitForFonts, waitForImage, yieldToMain} from './render';
 
 // 白名单样式：仅覆盖导出图片所需的排版元素，避免复制全站 style rules。
 const SHARE_STYLE_WHITELIST = `
@@ -131,82 +131,23 @@ const SHARE_STYLE_WHITELIST = `
     border-top: 1px solid #e2e8f0;
     margin: 1.2em 0;
   }
+
+  .share-image-container [data-share-continued-before] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top-width: 0 !important;
+  }
+
+  .share-image-container [data-share-continued-after] {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom-width: 0 !important;
+  }
+
+  .share-image-container li[data-share-continued-before] {
+    list-style-type: none;
+  }
 `;
-
-const SHARE_RENDER_WORKER_SCRIPT = `
-self.onmessage = function(event) {
-  var data = event.data || {};
-  var id = data.id;
-  var type = data.type;
-  var payload = data.payload || {};
-
-  function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-  }
-
-  try {
-    if (type === 'watermark-layout') {
-      var height = Number(payload.height || 0);
-      var rowGap = Number(payload.rowGap || 160);
-      var colGap = Number(payload.colGap || 260);
-      var offsetX = Number(payload.offsetX || 130);
-      var maxRows = Number(payload.maxRows || 32);
-      var maxCols = Number(payload.maxCols || 4);
-
-      var rows = clamp(Math.ceil(height / rowGap), 1, maxRows);
-      var cols = clamp(maxCols, 1, 10);
-      var positions = [];
-
-      for (var r = 0; r < rows; r += 1) {
-        for (var c = 0; c < cols; c += 1) {
-          positions.push({
-            top: r * rowGap,
-            left: c * colGap + (r % 2 === 0 ? 0 : offsetX),
-          });
-        }
-      }
-
-      self.postMessage({ id: id, ok: true, payload: { positions: positions } });
-      return;
-    }
-
-    if (type === 'sanitize-filename') {
-      var raw = String(payload.value || 'share');
-      var safe = raw
-        .replace(/[^a-zA-Z0-9\\u4e00-\\u9fff\\u3040-\\u309f\\u30a0-\\u30ff-]+/g, '_')
-        .replace(/_+/g, '_')
-        .replace(/^_+|_+$/g, '')
-        .slice(0, 80);
-
-      self.postMessage({ id: id, ok: true, payload: { fileName: safe || 'share' } });
-      return;
-    }
-
-    self.postMessage({ id: id, ok: false, error: 'Unknown task type' });
-  } catch (err) {
-    self.postMessage({
-      id: id,
-      ok: false,
-      error: (err && err.message) ? err.message : 'Worker failed',
-    });
-  }
-};
-`;
-
-function createRenderWorker() {
-  if (typeof window === 'undefined' || typeof Worker === 'undefined') {
-    return null;
-  }
-
-  try {
-    const blob = new Blob([SHARE_RENDER_WORKER_SCRIPT], { type: 'text/javascript' });
-    const blobUrl = URL.createObjectURL(blob);
-    const worker = new Worker(blobUrl);
-    return { worker, blobUrl };
-  } catch {
-    return null;
-  }
-}
 
 function sanitizeFileNameLocal(raw) {
   return String(raw || 'share')
@@ -216,7 +157,7 @@ function sanitizeFileNameLocal(raw) {
     .slice(0, 80) || 'share';
 }
 
-function computeWatermarkLayoutFallback({
+function computeWatermarkLayout({
   height,
   rowGap = 160,
   colGap = 260,
@@ -256,43 +197,13 @@ function getDocBreadcrumbs() {
   return Array.from(items).map(a => a.textContent.trim()).join(' > ');
 }
 
-/** Clone the selected problem-document content for image export. */
-function cloneArticleContent(article, scope = 'all') {
-  if (!article) return null;
-  const clone = article.cloneNode(true);
-  const problemPanel = clone.querySelector('[data-kai-study-panel="problem"]');
-  const solutionPanel = clone.querySelector('[data-kai-study-panel="solution"]');
-
-  clone.querySelector('[data-kai-study-tabs-host]')?.remove();
-
-  if (problemPanel && solutionPanel) {
-    if (scope === 'problem') {
-      solutionPanel.remove();
-      problemPanel.removeAttribute('hidden');
-    } else if (scope === 'solution') {
-      problemPanel.remove();
-      solutionPanel.removeAttribute('hidden');
-    } else {
-      problemPanel.removeAttribute('hidden');
-      solutionPanel.removeAttribute('hidden');
-    }
-  }
-
-  // Remove anchor links from headings
-  clone.querySelectorAll('.hash-link, a.anchor').forEach(a => a.remove());
-  // Remove interactive / share elements
-  clone
-    .querySelectorAll('button, input, textarea, select, script, style, .share-as-image-wrapper, [class*="ShareAsImage"], [class*="ProgressTracker"], [class*="NoteEditor"], [class*="copyButton"]')
-    .forEach(el => el.remove());
-  clone.classList.add('share-markdown');
-  return clone;
-}
-
 export default function ShareAsImage({ docId, title: docTitle, compact = false }) {
   const L = useUiText('shareAsImage');
 
   const [generating, setGenerating] = useState(false);
-  const [previewUrl, setPreviewUrl] = useState(null);
+  const [preview, setPreview] = useState(null);
+  const [progress, setProgress] = useState(null);
+  const previewUrl = preview?.url;
   const [toast, setToast] = useState(null);
   const [shareScope, setShareScope] = useState('all');
   const previewTitleId = useId();
@@ -301,121 +212,25 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
   const previewModalRef = useRef(null);
   const closeButtonRef = useRef(null);
   const previousFocusRef = useRef(null);
-  const workerRef = useRef(null);
-  const workerBlobUrlRef = useRef('');
-  const requestIdRef = useRef(0);
-  const pendingRequestMapRef = useRef(new Map());
+  const generationRef = useRef(null);
+  const previewRef = useRef(null);
 
-  useEffect(() => {
-    return () => {
-      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
-    };
+  const releasePreview = useCallback(() => {
+    if (previewRef.current) URL.revokeObjectURL(previewRef.current.url);
+    previewRef.current = null;
   }, []);
 
   useEffect(() => {
-    const workerBundle = createRenderWorker();
-    if (!workerBundle) return undefined;
-
-    workerRef.current = workerBundle.worker;
-    workerBlobUrlRef.current = workerBundle.blobUrl;
-
-    workerBundle.worker.onmessage = (event) => {
-      const { id, ok, payload, error } = event.data || {};
-      const pending = pendingRequestMapRef.current.get(id);
-      if (!pending) return;
-
-      clearTimeout(pending.timer);
-      pendingRequestMapRef.current.delete(id);
-
-      if (ok === false) {
-        pending.reject(new Error(error || 'Worker task failed'));
-        return;
-      }
-      pending.resolve(payload);
-    };
-
-    workerBundle.worker.onerror = () => {
-      for (const pending of pendingRequestMapRef.current.values()) {
-        clearTimeout(pending.timer);
-        pending.reject(new Error('Worker crashed'));
-      }
-      pendingRequestMapRef.current.clear();
-    };
-
+    setPreview(null);
+    setGenerating(false);
+    setProgress(null);
     return () => {
+      generationRef.current?.abort();
+      generationRef.current = null;
+      releasePreview();
       if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
-
-      for (const pending of pendingRequestMapRef.current.values()) {
-        clearTimeout(pending.timer);
-        pending.reject(new Error('Worker terminated'));
-      }
-      pendingRequestMapRef.current.clear();
-
-      if (workerRef.current) {
-        workerRef.current.terminate();
-        workerRef.current = null;
-      }
-
-      if (workerBlobUrlRef.current) {
-        URL.revokeObjectURL(workerBlobUrlRef.current);
-        workerBlobUrlRef.current = '';
-      }
     };
-  }, []);
-
-  const requestWorkerTask = useCallback((type, payload, timeoutMs = WORKER_TIMEOUT_MS) => {
-    const worker = workerRef.current;
-    if (!worker) {
-      return Promise.reject(new Error('Worker unavailable'));
-    }
-
-    const requestId = ++requestIdRef.current;
-
-    return new Promise((resolve, reject) => {
-      const timer = window.setTimeout(() => {
-        pendingRequestMapRef.current.delete(requestId);
-        reject(new Error('Worker timeout'));
-      }, timeoutMs);
-
-      pendingRequestMapRef.current.set(requestId, { resolve, reject, timer });
-      worker.postMessage({ id: requestId, type, payload });
-    });
-  }, []);
-
-  const buildWatermarkLayout = useCallback(async (height) => {
-    const payload = {
-      height,
-      rowGap: 160,
-      colGap: 260,
-      offsetX: 130,
-      maxRows: 32,
-      maxCols: 4,
-    };
-
-    try {
-      const result = await requestWorkerTask('watermark-layout', payload, 900);
-      if (Array.isArray(result?.positions) && result.positions.length > 0) {
-        return result.positions;
-      }
-    } catch {
-      // Worker 不可用时回退到主线程轻量计算。
-    }
-
-    return computeWatermarkLayoutFallback(payload);
-  }, [requestWorkerTask]);
-
-  const getSafeFileName = useCallback(async () => {
-    const raw = docTitle || docId || 'share';
-
-    try {
-      const result = await requestWorkerTask('sanitize-filename', { value: raw }, 500);
-      if (result?.fileName) return result.fileName;
-    } catch {
-      // Worker 不可用时走本地回退。
-    }
-
-    return sanitizeFileNameLocal(raw);
-  }, [docId, docTitle, requestWorkerTask]);
+  }, [docId, releasePreview]);
 
   const showToast = useCallback((msg, type = 'info') => {
     setToast({ msg, type });
@@ -424,22 +239,28 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
   }, []);
 
   const generateImage = useCallback(async () => {
+    if (generationRef.current) return;
+    const controller = new AbortController();
+    const {signal} = controller;
+    generationRef.current = controller;
+    releasePreview();
     setGenerating(true);
-    setPreviewUrl(null);
+    setProgress(null);
+    setPreview(null);
 
     let container = null;
 
     try {
       const article = document.querySelector('article .theme-doc-markdown');
-      const contentClone = cloneArticleContent(article, shareScope);
-      if (!contentClone) {
-        showToast(L.shareFail, 'error');
-        return;
-      }
+      await yieldToMain(signal);
+      const contentClone = await cloneArticleContent(article, shareScope, signal);
 
       // Build a temporary container to render the image
       container = document.createElement('div');
       container.className = 'share-image-container';
+      container.setAttribute('aria-hidden', 'true');
+      container.setAttribute('data-theme', 'light');
+      container.inert = true;
       container.style.cssText = `
         position: fixed;
         left: -9999px;
@@ -525,78 +346,83 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
       container.appendChild(footer);
 
       document.body.appendChild(container);
-      await new Promise((resolve) => requestAnimationFrame(resolve));
-
-      const contentHeight = contentWrapper.scrollHeight || contentClone.scrollHeight || 2000;
-      const positions = await buildWatermarkLayout(contentHeight);
-
-      // Diagonal repeating watermark overlay
-      const watermarkOverlay = document.createElement('div');
-      watermarkOverlay.style.cssText = `
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        overflow: hidden;
-        z-index: 1;
-      `;
-      const watermarkText = 'runjp.com';
-
-      for (const pos of positions) {
-        const span = document.createElement('span');
-        span.textContent = watermarkText;
-        span.style.cssText = `
-          position: absolute;
-          top: ${pos.top}px;
-          left: ${pos.left}px;
-          font-size: 18px;
-          font-weight: 700;
-          color: rgba(46, 133, 85, 0.08);
-          transform: rotate(-30deg);
-          white-space: nowrap;
-          user-select: none;
-          letter-spacing: 2px;
-        `;
-        watermarkOverlay.appendChild(span);
+      await yieldToMain(signal);
+      await Promise.all(Array.from(container.querySelectorAll('img'), img => waitForImage(img, signal)));
+      await waitForFonts(container, signal);
+      await fitDisplayMath(contentClone, signal);
+      checkAborted(signal);
+      const fragments = await paginateContent(contentClone, {signal, yieldToMain: () => yieldToMain(signal)});
+      if (!fragments.length) fragments.push(document.createDocumentFragment());
+      contentClone.replaceChildren();
+      const {toCanvas} = await import('html-to-image');
+      checkAborted(signal);
+      // Build bounded internal strips; the user still receives one full image.
+      contentWrapper.remove();
+      header.remove();
+      footer.remove();
+      container.style.padding = '0';
+      const strips = [];
+      for (let index = 0; index < fragments.length; index += 1) {
+        const strip = document.createElement('div');
+        strip.style.cssText = `width: 800px; padding: ${index === 0 ? 40 : 0}px 40px ${index === fragments.length - 1 ? 40 : 0}px; background: #fff;`;
+        if (index === 0) strip.appendChild(header);
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = 'position: relative; display: flow-root;';
+        const stripContent = contentClone.cloneNode(false);
+        if (index > 0) stripContent.setAttribute('data-share-continued-before', '');
+        if (index < fragments.length - 1) stripContent.setAttribute('data-share-continued-after', '');
+        stripContent.appendChild(fragments[index]);
+        wrapper.appendChild(stripContent);
+        strip.appendChild(wrapper);
+        if (index === fragments.length - 1) strip.appendChild(footer);
+        container.appendChild(strip);
+        strips.push(strip);
+        await yieldToMain(signal);
       }
-
-      contentWrapper.appendChild(watermarkOverlay);
-
-      // Wait for fonts/images to load
-      await new Promise(r => setTimeout(r, 300));
-
-      const { toPng } = await import('html-to-image');
-      const dataUrl = await toPng(container, {
-        quality: 1,
-        pixelRatio: 2,
-        cacheBust: true,
-        backgroundColor: '#ffffff',
-        style: {
-          position: 'static',
-          left: 'auto',
-          top: 'auto',
-        },
-      });
-
-      setPreviewUrl(dataUrl);
+      for (const strip of strips) {
+        const wrapper = strip.querySelector('.share-markdown').parentElement;
+        const watermarkOverlay = document.createElement('div');
+        watermarkOverlay.style.cssText = 'position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1;';
+        for (const pos of computeWatermarkLayout({height: wrapper.scrollHeight})) {
+          const span = document.createElement('span');
+          span.textContent = 'runjp.com';
+          span.style.cssText = `position: absolute; top: ${pos.top}px; left: ${pos.left}px;
+            font-size: 18px; font-weight: 700; color: rgba(46, 133, 85, 0.08);
+            transform: rotate(-30deg); white-space: nowrap; letter-spacing: 2px;`;
+          watermarkOverlay.appendChild(span);
+        }
+        wrapper.appendChild(watermarkOverlay);
+      }
+      const blob = await captureLongImage(strips, toCanvas, signal,
+        (current, total) => setProgress({current, total}));
+      checkAborted(signal);
+      const result = {blob, url: URL.createObjectURL(blob)};
+      previewRef.current = result;
+      setPreview(result);
     } catch (err) {
-      console.error('Failed to generate image:', err);
-      showToast(L.shareFail, 'error');
-    } finally {
-      if (container && container.parentNode) {
-        container.parentNode.removeChild(container);
+      if (err.name !== 'AbortError' && !signal.aborted) {
+        console.error('Failed to generate image:', err);
+        showToast(err instanceof ShareImageLimitError ? L.tooLarge : L.shareFail, 'error');
       }
-      setGenerating(false);
+    } finally {
+      controller.abort();
+      container?.remove();
+      if (generationRef.current === controller) {
+        generationRef.current = null;
+        setGenerating(false);
+        setProgress(null);
+      }
     }
-  }, [docTitle, L, buildWatermarkLayout, shareScope, showToast]);
+  }, [docTitle, L, shareScope, showToast, releasePreview]);
 
-  const downloadImage = useCallback(async () => {
+  const getSafeFileName = useCallback(() => (
+    sanitizeFileNameLocal(docTitle || docId || 'share')
+  ), [docId, docTitle]);
+
+  const downloadImage = useCallback(() => {
     if (!previewUrl) return;
     const link = document.createElement('a');
-    const fileName = await getSafeFileName();
-    link.download = `${fileName}.png`;
+    link.download = `${getSafeFileName()}.png`;
     link.href = previewUrl;
     link.click();
     showToast(L.download + ' ✓', 'success');
@@ -606,9 +432,8 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
     if (!previewUrl) return;
 
     try {
-      const res = await fetch(previewUrl);
-      const blob = await res.blob();
-      const fileName = await getSafeFileName();
+      const {blob} = preview;
+      const fileName = getSafeFileName();
       const file = new File([blob], `${fileName}.png`, { type: 'image/png' });
 
       if (navigator.share && navigator.canShare?.({ files: [file] })) {
@@ -632,14 +457,16 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
         showToast(L.shareFail, 'error');
       }
     }
-  }, [previewUrl, getSafeFileName, docTitle, L, showToast, downloadImage]);
+  }, [previewUrl, preview, getSafeFileName, docTitle, L, showToast, downloadImage]);
 
   const closePreview = useCallback(() => {
-    setPreviewUrl(null);
-  }, []);
+    setPreview(null);
+    releasePreview();
+  }, [releasePreview]);
 
+  const hasPreview = Boolean(previewUrl);
   useEffect(() => {
-    if (!previewUrl) return undefined;
+    if (!hasPreview) return undefined;
 
     previousFocusRef.current = document.activeElement;
     const previousOverflow = document.body.style.overflow;
@@ -686,7 +513,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
         window.requestAnimationFrame(() => triggerButtonRef.current?.focus());
       }
     };
-  }, [closePreview, previewUrl]);
+  }, [closePreview, hasPreview]);
 
   return (
     <div className={`${styles.wrapper} ${compact ? styles.wrapperCompact : ''}`}>
@@ -716,7 +543,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
           {generating ? (
             <>
               <span className={styles.spinner} />
-              <span>{L.generating}</span>
+              <span role="status">{progress ? L.generatingProgress(Math.round(progress.current / progress.total * 100)) : L.generating}</span>
             </>
           ) : (
             <>
@@ -725,6 +552,11 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
             </>
           )}
         </button>
+        {generating && (
+          <button type="button" className={styles.actionBtn} onClick={() => generationRef.current?.abort()}>
+            {L.cancel}
+          </button>
+        )}
       </div>
 
       {/* Preview modal */}

@@ -1651,6 +1651,9 @@ export const UI_MESSAGES = {
 
   shareAsImage: {
     zh: {
+      cancel: '取消生成',
+      generatingProgress: (percent) => `正在生成 ${percent}%…`,
+      tooLarge: '内容过多，请选择“仅题目”或“仅题解”后重试。',
       heading: '分享为图片',
       generating: '生成中...',
       download: '下载图片',
@@ -1669,6 +1672,9 @@ export const UI_MESSAGES = {
     },
     ja: {
       heading: '画像として共有',
+      cancel: '生成をキャンセル',
+      generatingProgress: (percent) => `生成中 ${percent}%…`,
+      tooLarge: '内容が多すぎます。「問題のみ」または「解答のみ」を選んで再試行してください。',
       generating: '生成中...',
       download: '画像をダウンロード',
       share: '共有',
@@ -1686,6 +1692,9 @@ export const UI_MESSAGES = {
     },
     en: {
       heading: 'Share as Image',
+      cancel: 'Cancel generation',
+      generatingProgress: (percent) => `Generating ${percent}%…`,
+      tooLarge: 'Too much content. Select “Problem only” or “Solution only” and try again.',
       generating: 'Generating...',
       download: 'Download image',
       share: 'Share',
