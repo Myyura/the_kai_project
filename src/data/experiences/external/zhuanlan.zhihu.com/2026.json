@@ -466,5 +466,30 @@
         "season": "winter"
       }
     ]
+  },
+  {
+    "title": "2026修考 东京大学電気系工学（EEIS)/京都大学電気電子ディジタル理工学(EE)/东京科学大学電気電子系修考合格经验分享",
+    "url": "https://zhuanlan.zhihu.com/p/2083518460584276252",
+    "publishedYear": 2026,
+    "placements": [
+      {
+        "admissionYear": 2026,
+        "examYear": 2027,
+        "scope": "tokyo-university/engineering/eeis",
+        "season": "summer"
+      },
+      {
+        "admissionYear": 2026,
+        "examYear": 2027,
+        "scope": "kyoto-university/engineering/ee",
+        "season": "summer"
+      },
+      {
+        "admissionYear": 2026,
+        "examYear": 2027,
+        "scope": "institute-of-science-tokyo/engineering/ee",
+        "season": "summer"
+      }
+    ]
   }
 ]
