@@ -1352,6 +1352,12 @@ const universities = [
             "name": "経営システム工学専攻",
             "aliases": [],
             "archiveUrl": "/docs/category/waseda-university-CSE-keieisystem"
+          },
+          {
+            "id": "keieidesign",
+            "name": "経営デザイン専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/waseda-university-CSE-keieidesign"
           }
         ],
         "websiteUrl": "https://www.waseda.jp/fsci/admissions_gs/"

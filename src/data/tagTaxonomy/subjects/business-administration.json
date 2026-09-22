@@ -121,6 +121,36 @@
         "Economics",
         "Sociology"
       ]
+    },
+    "Business-Administration.Accounting.Cost-Volume-Profit-Analysis": {
+      "subsubject": "Business-Administration.Accounting",
+      "labelZh": "本量利与盈亏平衡分析",
+      "labelJa": "損益分岐点・CVP分析",
+      "labelEn": "Cost-Volume-Profit Analysis"
+    },
+    "Business-Administration.Finance.Equivalent-Annual-Worth": {
+      "subsubject": "Business-Administration.Finance",
+      "labelZh": "等额年值",
+      "labelJa": "年価法",
+      "labelEn": "Equivalent Annual Worth"
+    },
+    "Business-Administration.Finance.Discounted-Cash-Flow": {
+      "subsubject": "Business-Administration.Finance",
+      "labelZh": "现金流折现",
+      "labelJa": "割引キャッシュ・フロー",
+      "labelEn": "Discounted Cash Flow"
+    },
+    "Business-Administration.Management-Science.Industrial-Engineering": {
+      "subsubject": "Business-Administration.Management-Science",
+      "labelZh": "工业工程",
+      "labelJa": "インダストリアル・エンジニアリング",
+      "labelEn": "Industrial Engineering"
+    },
+    "Business-Administration.Management-Science.Toyota-Production-System": {
+      "subsubject": "Business-Administration.Management-Science",
+      "labelZh": "丰田生产方式",
+      "labelJa": "トヨタ生産方式",
+      "labelEn": "Toyota Production System"
     }
   }
 }

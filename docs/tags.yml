@@ -424,6 +424,10 @@
   label: "Engineering.Robotics"
   permalink: "/subsubject/engineering/robotics"
   description: "Engineering / Robotics"
+"Engineering.Quality-and-Reliability-Engineering":
+  label: "Engineering.Quality-and-Reliability-Engineering"
+  permalink: "/subsubject/engineering/quality-and-reliability-engineering"
+  description: "Engineering / Quality-and-Reliability-Engineering"
 "Economics.Microeconomics":
   label: "Economics.Microeconomics"
   permalink: "/subsubject/economics/microeconomics"
@@ -544,10 +548,22 @@
   label: "Bioinformatics.Bioinformatics.Sequence-Alignment"
   permalink: "/topic/bioinformatics/bioinformatics/sequence-alignment"
   description: "Bioinformatics / Bioinformatics / Sequence-Alignment"
+"Business-Administration.Accounting.Cost-Volume-Profit-Analysis":
+  label: "Business-Administration.Accounting.Cost-Volume-Profit-Analysis"
+  permalink: "/topic/business-administration/accounting/cost-volume-profit-analysis"
+  description: "Business-Administration / Accounting / Cost-Volume-Profit-Analysis"
+"Business-Administration.Finance.Discounted-Cash-Flow":
+  label: "Business-Administration.Finance.Discounted-Cash-Flow"
+  permalink: "/topic/business-administration/finance/discounted-cash-flow"
+  description: "Business-Administration / Finance / Discounted-Cash-Flow"
 "Business-Administration.Finance.Efficient-Market-Hypothesis":
   label: "Business-Administration.Finance.Efficient-Market-Hypothesis"
   permalink: "/topic/business-administration/finance/efficient-market-hypothesis"
   description: "Business-Administration / Finance / Efficient-Market-Hypothesis"
+"Business-Administration.Finance.Equivalent-Annual-Worth":
+  label: "Business-Administration.Finance.Equivalent-Annual-Worth"
+  permalink: "/topic/business-administration/finance/equivalent-annual-worth"
+  description: "Business-Administration / Finance / Equivalent-Annual-Worth"
 "Business-Administration.Finance.Market-Price-of-Risk":
   label: "Business-Administration.Finance.Market-Price-of-Risk"
   permalink: "/topic/business-administration/finance/market-price-of-risk"
@@ -564,6 +580,14 @@
   label: "Business-Administration.Human-Resource-Management.Nursing-Workforce"
   permalink: "/topic/business-administration/human-resource-management/nursing-workforce"
   description: "Business-Administration / Human-Resource-Management / Nursing-Workforce"
+"Business-Administration.Management-Science.Industrial-Engineering":
+  label: "Business-Administration.Management-Science.Industrial-Engineering"
+  permalink: "/topic/business-administration/management-science/industrial-engineering"
+  description: "Business-Administration / Management-Science / Industrial-Engineering"
+"Business-Administration.Management-Science.Toyota-Production-System":
+  label: "Business-Administration.Management-Science.Toyota-Production-System"
+  permalink: "/topic/business-administration/management-science/toyota-production-system"
+  description: "Business-Administration / Management-Science / Toyota-Production-System"
 "Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management":
   label: "Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management"
   permalink: "/topic/business-administration/marketing/tourism-marketing-and-destination-management"
@@ -2960,6 +2984,22 @@
   label: "Engineering.Mechanics-of-Materials.Yielding"
   permalink: "/topic/engineering/mechanics-of-materials/yielding"
   description: "Engineering / Mechanics-of-Materials / Yielding"
+"Engineering.Quality-and-Reliability-Engineering.Fault-Tree-Analysis":
+  label: "Engineering.Quality-and-Reliability-Engineering.Fault-Tree-Analysis"
+  permalink: "/topic/engineering/quality-and-reliability-engineering/fault-tree-analysis"
+  description: "Engineering / Quality-and-Reliability-Engineering / Fault-Tree-Analysis"
+"Engineering.Quality-and-Reliability-Engineering.Quality-Function-Deployment":
+  label: "Engineering.Quality-and-Reliability-Engineering.Quality-Function-Deployment"
+  permalink: "/topic/engineering/quality-and-reliability-engineering/quality-function-deployment"
+  description: "Engineering / Quality-and-Reliability-Engineering / Quality-Function-Deployment"
+"Engineering.Quality-and-Reliability-Engineering.Series-and-Parallel-Reliability":
+  label: "Engineering.Quality-and-Reliability-Engineering.Series-and-Parallel-Reliability"
+  permalink: "/topic/engineering/quality-and-reliability-engineering/series-and-parallel-reliability"
+  description: "Engineering / Quality-and-Reliability-Engineering / Series-and-Parallel-Reliability"
+"Engineering.Quality-and-Reliability-Engineering.Statistical-Process-Control":
+  label: "Engineering.Quality-and-Reliability-Engineering.Statistical-Process-Control"
+  permalink: "/topic/engineering/quality-and-reliability-engineering/statistical-process-control"
+  description: "Engineering / Quality-and-Reliability-Engineering / Statistical-Process-Control"
 "Engineering.Robotics.Articulated-Link-Mechanism-Representation":
   label: "Engineering.Robotics.Articulated-Link-Mechanism-Representation"
   permalink: "/topic/engineering/robotics/articulated-link-mechanism-representation"
@@ -4328,10 +4368,18 @@
   label: "Mathematics.Vector-Calculus.Two-Dimensional-Laplacian-Fundamental-Solution"
   permalink: "/topic/mathematics/vector-calculus/two-dimensional-laplacian-fundamental-solution"
   description: "Mathematics / Vector-Calculus / Two-Dimensional-Laplacian-Fundamental-Solution"
+"Operations-Research.Combinatorial-Optimization.Binary-Integer-Programming":
+  label: "Operations-Research.Combinatorial-Optimization.Binary-Integer-Programming"
+  permalink: "/topic/operations-research/combinatorial-optimization/binary-integer-programming"
+  description: "Operations-Research / Combinatorial-Optimization / Binary-Integer-Programming"
 "Operations-Research.Combinatorial-Optimization.Branch-and-Bound":
   label: "Operations-Research.Combinatorial-Optimization.Branch-and-Bound"
   permalink: "/topic/operations-research/combinatorial-optimization/branch-and-bound"
   description: "Operations-Research / Combinatorial-Optimization / Branch-and-Bound"
+"Operations-Research.Combinatorial-Optimization.Johnsons-Rule":
+  label: "Operations-Research.Combinatorial-Optimization.Johnsons-Rule"
+  permalink: "/topic/operations-research/combinatorial-optimization/johnsons-rule"
+  description: "Operations-Research / Combinatorial-Optimization / Johnsons-Rule"
 "Operations-Research.Combinatorial-Optimization.Mandatory-Vertex-in-All-Shortest-Paths":
   label: "Operations-Research.Combinatorial-Optimization.Mandatory-Vertex-in-All-Shortest-Paths"
   permalink: "/topic/operations-research/combinatorial-optimization/mandatory-vertex-in-all-shortest-paths"
@@ -4492,6 +4540,10 @@
   label: "Operations-Research.Inventory-Management.Quantity-Discount"
   permalink: "/topic/operations-research/inventory-management/quantity-discount"
   description: "Operations-Research / Inventory-Management / Quantity-Discount"
+"Operations-Research.Inventory-Management.Reorder-Point-and-Safety-Stock":
+  label: "Operations-Research.Inventory-Management.Reorder-Point-and-Safety-Stock"
+  permalink: "/topic/operations-research/inventory-management/reorder-point-and-safety-stock"
+  description: "Operations-Research / Inventory-Management / Reorder-Point-and-Safety-Stock"
 "Operations-Research.Linear-Programming.Affine-Scaling-Method":
   label: "Operations-Research.Linear-Programming.Affine-Scaling-Method"
   permalink: "/topic/operations-research/linear-programming/affine-scaling-method"
@@ -5648,6 +5700,10 @@
   label: "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Experimental-Design"
   permalink: "/topic/probability-statistics/statistical-modeling-and-experimental-design/experimental-design"
   description: "Probability-Statistics / Statistical-Modeling-and-Experimental-Design / Experimental-Design"
+"Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Exponential-Smoothing":
+  label: "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Exponential-Smoothing"
+  permalink: "/topic/probability-statistics/statistical-modeling-and-experimental-design/exponential-smoothing"
+  description: "Probability-Statistics / Statistical-Modeling-and-Experimental-Design / Exponential-Smoothing"
 "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Fisher-Linear-Discriminant-Analysis":
   label: "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Fisher-Linear-Discriminant-Analysis"
   permalink: "/topic/probability-statistics/statistical-modeling-and-experimental-design/fisher-linear-discriminant-analysis"

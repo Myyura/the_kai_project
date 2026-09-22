@@ -828,6 +828,12 @@
       "descriptionZh": "对指数矩应用 Markov 不等式并优化参数，得到尾概率的指数上界。",
       "descriptionJa": "指数モーメントへのマルコフの不等式とパラメータ最適化による裾確率の指数上界。",
       "descriptionEn": "Exponential tail bounds obtained by applying Markov’s inequality to exponential moments and optimizing the parameter."
+    },
+    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Exponential-Smoothing": {
+      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
+      "labelZh": "指数平滑",
+      "labelJa": "指数平滑法",
+      "labelEn": "Exponential Smoothing"
     }
   }
 }

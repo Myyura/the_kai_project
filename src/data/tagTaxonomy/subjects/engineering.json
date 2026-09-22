@@ -44,13 +44,23 @@
       "descriptionZh": "机器人运动学、雅可比矩阵、静力学与执行器控制。",
       "descriptionJa": "ロボット運動学、ヤコビ行列、静力学、アクチュエータ制御。",
       "descriptionEn": "Robot kinematics, Jacobians, statics, and actuator control."
+    },
+    "Engineering.Quality-and-Reliability-Engineering": {
+      "subject": "Engineering",
+      "labelZh": "质量与可靠性工程",
+      "labelJa": "品質・信頼性工学",
+      "labelEn": "Quality and Reliability Engineering",
+      "descriptionZh": "统计过程控制、质量设计、故障分析与系统可靠性。",
+      "descriptionJa": "統計的工程管理、品質設計、故障解析、システム信頼性を扱う。",
+      "descriptionEn": "Statistical process control, quality design, failure analysis, and system reliability."
     }
   },
   "subsubjectOrder": [
     "Engineering.Mechanics-of-Materials",
     "Engineering.Fluid-Mechanics",
-    "Engineering.Materials-Science"
-    ,"Engineering.Robotics"
+    "Engineering.Materials-Science",
+    "Engineering.Robotics",
+    "Engineering.Quality-and-Reliability-Engineering"
   ],
   "topics": {
     "Engineering.Robotics.Autonomous-Vehicle-Dynamic-Map": {
@@ -150,6 +160,30 @@
         "Electrical-Electronic",
         "Physics"
       ]
+    },
+    "Engineering.Quality-and-Reliability-Engineering.Statistical-Process-Control": {
+      "subsubject": "Engineering.Quality-and-Reliability-Engineering",
+      "labelZh": "统计过程控制",
+      "labelJa": "統計的工程管理",
+      "labelEn": "Statistical Process Control"
+    },
+    "Engineering.Quality-and-Reliability-Engineering.Quality-Function-Deployment": {
+      "subsubject": "Engineering.Quality-and-Reliability-Engineering",
+      "labelZh": "质量功能展开",
+      "labelJa": "品質機能展開",
+      "labelEn": "Quality Function Deployment"
+    },
+    "Engineering.Quality-and-Reliability-Engineering.Fault-Tree-Analysis": {
+      "subsubject": "Engineering.Quality-and-Reliability-Engineering",
+      "labelZh": "故障树分析",
+      "labelJa": "故障の木解析",
+      "labelEn": "Fault Tree Analysis"
+    },
+    "Engineering.Quality-and-Reliability-Engineering.Series-and-Parallel-Reliability": {
+      "subsubject": "Engineering.Quality-and-Reliability-Engineering",
+      "labelZh": "串并联系统可靠性",
+      "labelJa": "直列・並列システムの信頼性",
+      "labelEn": "Series and Parallel System Reliability"
     }
   }
 }

@@ -469,6 +469,24 @@
         "Computer-Science",
         "Discrete-Mathematics"
       ]
+    },
+    "Operations-Research.Combinatorial-Optimization.Johnsons-Rule": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "labelZh": "约翰逊规则",
+      "labelJa": "ジョンソンルール",
+      "labelEn": "Johnson's Rule"
+    },
+    "Operations-Research.Inventory-Management.Reorder-Point-and-Safety-Stock": {
+      "subsubject": "Operations-Research.Inventory-Management",
+      "labelZh": "订货点与安全库存",
+      "labelJa": "発注点と安全在庫",
+      "labelEn": "Reorder Point and Safety Stock"
+    },
+    "Operations-Research.Combinatorial-Optimization.Binary-Integer-Programming": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "labelZh": "0–1整数规划",
+      "labelJa": "0–1整数計画",
+      "labelEn": "Binary Integer Programming"
     }
   }
 }
