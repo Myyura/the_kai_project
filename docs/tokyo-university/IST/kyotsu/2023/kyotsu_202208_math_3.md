@@ -124,9 +124,7 @@ $$
 
 $k<M$ の場合を考える。この時、状態遷移図は次のようになる。
 
-<figure style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu_2023_math_3_p1.png" width="700" height="400" alt=""/>
-</figure>
+![状態 C_k から、四角い石なら確率 q で C_(k+1)、丸石なら確率 1-q で C_0 に移る。](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/IST/kyotsu/2023/kyotsu_202208_math_3_transition.svg)
 
 この図に示した通り、
 
@@ -231,107 +229,3 @@ $$
 となる。
 
 (なお、$M=1$を代入すると、これは $\frac{1}{q}$ となり、(1) の結果に一致する)
-
-## **Additions**
-コードによって、正当性を検証する。
-
-```python
-import random
-
-
-def trial(M: int, q: float):
-    cnt = 0
-    ans = 0
-    while cnt < M:
-        x = random.random()
-        ans += 1
-        if x < q:
-            cnt += 1
-        else:
-            cnt = 0
-    return ans
-
-
-def main():
-    for M in [1, 2, 3]:
-        for q in [0.1, 0.2, 0.3, 0.4, 0.5]:
-            answers = []
-            for _ in range(10000):
-                answers.append(trial(M, q))
-            avg = sum(answers) / len(answers)
-            # plt.title()
-            # plt.hist(answers)
-            # plt.show()
-            print("=" * 10)
-            print(f"{M=}, {q=}")
-            print(f"{avg=}")
-            print(f"{(1 - q**M) / ((1 - q) * (q**M))=}")
-
-
-if __name__ == "__main__":
-    main()
-```
-
-```text
-M=1, q=0.1
-avg=10.0076
-(1 - q**M) / ((1 - q) * (q**M))=9.999999999999998
-==========
-M=1, q=0.2
-avg=4.9994
-(1 - q**M) / ((1 - q) * (q**M))=4.999999999999999
-==========
-M=1, q=0.3
-avg=3.3353
-(1 - q**M) / ((1 - q) * (q**M))=3.333333333333333
-==========
-M=1, q=0.4
-avg=2.4801
-(1 - q**M) / ((1 - q) * (q**M))=2.5
-==========
-M=1, q=0.5
-avg=2.0025
-(1 - q**M) / ((1 - q) * (q**M))=2.0
-==========
-M=2, q=0.1
-avg=110.8138
-(1 - q**M) / ((1 - q) * (q**M))=109.99999999999997
-==========
-M=2, q=0.2
-avg=30.3796
-(1 - q**M) / ((1 - q) * (q**M))=29.999999999999993
-==========
-M=2, q=0.3
-avg=14.6192
-(1 - q**M) / ((1 - q) * (q**M))=14.444444444444445
-==========
-M=2, q=0.4
-avg=8.626
-(1 - q**M) / ((1 - q) * (q**M))=8.749999999999998
-==========
-M=2, q=0.5
-avg=5.9403
-(1 - q**M) / ((1 - q) * (q**M))=6.0
-==========
-M=3, q=0.1
-avg=1106.5573
-(1 - q**M) / ((1 - q) * (q**M))=1109.9999999999998
-==========
-M=3, q=0.2
-avg=153.216
-(1 - q**M) / ((1 - q) * (q**M))=154.99999999999994
-==========
-M=3, q=0.3
-avg=50.901
-(1 - q**M) / ((1 - q) * (q**M))=51.48148148148149
-==========
-M=3, q=0.4
-avg=24.4842
-(1 - q**M) / ((1 - q) * (q**M))=24.374999999999993
-==========
-M=3, q=0.5
-avg=13.7934
-(1 - q**M) / ((1 - q) * (q**M))=14.0
-```
-
-確かに、大まかに一致しているため、正しいと考えられる。

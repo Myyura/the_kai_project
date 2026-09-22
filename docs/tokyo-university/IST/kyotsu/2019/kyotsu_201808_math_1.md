@@ -257,8 +257,8 @@ $H^*H = I$ 同样成立
 
 $$
 \begin{pmatrix}
-a\overline{a} + c\overline{c} & a\overline{b} + c\overline{d} \\
-\overline{a}b + \overline{c}d & b\overline{b} + d\overline{d} \\
+a\overline{a} + c\overline{c} & \overline{a}b + \overline{c}d \\
+a\overline{b} + c\overline{d} & b\overline{b} + d\overline{d} \\
 \end{pmatrix} = I
 $$
 

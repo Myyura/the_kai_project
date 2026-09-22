@@ -819,6 +819,15 @@
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Conditional-Expectation-and-Rao-Blackwell-Theorem": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing"
+    },
+    "Probability-Statistics.Probability-Basics.Chernoff-Bound": {
+      "subsubject": "Probability-Statistics.Probability-Basics",
+      "labelZh": "Chernoff 界",
+      "labelJa": "チェルノフの不等式",
+      "labelEn": "Chernoff Bound",
+      "descriptionZh": "对指数矩应用 Markov 不等式并优化参数，得到尾概率的指数上界。",
+      "descriptionJa": "指数モーメントへのマルコフの不等式とパラメータ最適化による裾確率の指数上界。",
+      "descriptionEn": "Exponential tail bounds obtained by applying Markov’s inequality to exponential moments and optimizing the parameter."
     }
   }
 }

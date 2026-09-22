@@ -1534,6 +1534,15 @@
     },
     "Mathematics.Abstract-Algebra.Exact-Sequences-and-Nonzero-Divisors": {
       "subsubject": "Mathematics.Abstract-Algebra"
+    },
+    "Mathematics.Linear-Algebra.Polar-Decomposition": {
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "极分解",
+      "labelJa": "極分解",
+      "labelEn": "Polar Decomposition",
+      "descriptionZh": "将可逆实矩阵唯一分解为正定对称矩阵与正交矩阵的乘积。",
+      "descriptionJa": "正則実行列の、正定値対称行列と直交行列の積への一意な分解。",
+      "descriptionEn": "Unique factorization of an invertible real matrix into a positive definite symmetric matrix and an orthogonal matrix."
     }
   }
 }

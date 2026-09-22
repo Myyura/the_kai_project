@@ -3996,6 +3996,10 @@
   label: "Mathematics.Linear-Algebra.Permutation-Matrix-and-Minimal-Polynomial"
   permalink: "/topic/mathematics/linear-algebra/permutation-matrix-and-minimal-polynomial"
   description: "Mathematics / Linear-Algebra / Permutation-Matrix-and-Minimal-Polynomial"
+"Mathematics.Linear-Algebra.Polar-Decomposition":
+  label: "Mathematics.Linear-Algebra.Polar-Decomposition"
+  permalink: "/topic/mathematics/linear-algebra/polar-decomposition"
+  description: "Mathematics / Linear-Algebra / Polar-Decomposition"
 "Mathematics.Linear-Algebra.Positive-Definite-Matrix":
   label: "Mathematics.Linear-Algebra.Positive-Definite-Matrix"
   permalink: "/topic/mathematics/linear-algebra/positive-definite-matrix"
@@ -5352,6 +5356,10 @@
   label: "Probability-Statistics.Probability-Basics.Borel-Cantelli-Lemmas"
   permalink: "/topic/probability-statistics/probability-basics/borel-cantelli-lemmas"
   description: "Probability-Statistics / Probability-Basics / Borel-Cantelli-Lemmas"
+"Probability-Statistics.Probability-Basics.Chernoff-Bound":
+  label: "Probability-Statistics.Probability-Basics.Chernoff-Bound"
+  permalink: "/topic/probability-statistics/probability-basics/chernoff-bound"
+  description: "Probability-Statistics / Probability-Basics / Chernoff-Bound"
 "Probability-Statistics.Probability-Basics.Collision-Probability-of-Discrete-Distributions":
   label: "Probability-Statistics.Probability-Basics.Collision-Probability-of-Discrete-Distributions"
   permalink: "/topic/probability-statistics/probability-basics/collision-probability-of-discrete-distributions"
