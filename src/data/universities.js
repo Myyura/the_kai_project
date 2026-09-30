@@ -439,6 +439,15 @@ const universities = [
         "aliases": [],
         "programs": [
           {
+            "id": "mech",
+            "name": "機械工学群",
+            "aliases": [
+              "機械理工学専攻",
+              "マイクロエンジニアリング専攻",
+              "航空宇宙工学専攻"
+            ]
+          },
+          {
             "id": "ee",
             "name": "電気工学専攻",
             "aliases": [

@@ -3,8 +3,6 @@
 
 # Production
 /build
-/tmp
-/audits
 /scripts/*
 !/scripts/content-export-asset-bundle.js
 !/scripts/content-export-download.js
@@ -22,6 +20,11 @@ __pycache__/
 /.cache/content-export/
 
 # Local exports and research artifacts
+/.local-work/
+# Legacy locations: keep regenerated local artifacts out of commits.
+/tmp/
+/audits/
+/supplements/
 /outputs/
 /research_tmp/
 /reports/

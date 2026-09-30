@@ -428,6 +428,14 @@
   label: "Engineering.Quality-and-Reliability-Engineering"
   permalink: "/subsubject/engineering/quality-and-reliability-engineering"
   description: "Engineering / Quality-and-Reliability-Engineering"
+"Engineering.Heat-Transfer":
+  label: "Engineering.Heat-Transfer"
+  permalink: "/subsubject/engineering/heat-transfer"
+  description: "Engineering / Heat-Transfer"
+"Engineering.Manufacturing":
+  label: "Engineering.Manufacturing"
+  permalink: "/subsubject/engineering/manufacturing"
+  description: "Engineering / Manufacturing"
 "Economics.Microeconomics":
   label: "Economics.Microeconomics"
   permalink: "/subsubject/economics/microeconomics"
@@ -2624,6 +2632,10 @@
   label: "Electrical-Electronic.Control-Theory.Collision-Free-Trajectory-Planning"
   permalink: "/topic/electrical-electronic/control-theory/collision-free-trajectory-planning"
   description: "Electrical-Electronic / Control-Theory / Collision-Free-Trajectory-Planning"
+"Electrical-Electronic.Control-Theory.Controllability-and-Observability":
+  label: "Electrical-Electronic.Control-Theory.Controllability-and-Observability"
+  permalink: "/topic/electrical-electronic/control-theory/controllability-and-observability"
+  description: "Electrical-Electronic / Control-Theory / Controllability-and-Observability"
 "Electrical-Electronic.Control-Theory.Damping-and-Oscillation":
   label: "Electrical-Electronic.Control-Theory.Damping-and-Oscillation"
   permalink: "/topic/electrical-electronic/control-theory/damping-and-oscillation"
@@ -2684,6 +2696,10 @@
   label: "Electrical-Electronic.Control-Theory.Routh-Hurwitz-Stability"
   permalink: "/topic/electrical-electronic/control-theory/routh-hurwitz-stability"
   description: "Electrical-Electronic / Control-Theory / Routh-Hurwitz-Stability"
+"Electrical-Electronic.Control-Theory.State-Space-Representation":
+  label: "Electrical-Electronic.Control-Theory.State-Space-Representation"
+  permalink: "/topic/electrical-electronic/control-theory/state-space-representation"
+  description: "Electrical-Electronic / Control-Theory / State-Space-Representation"
 "Electrical-Electronic.Control-Theory.Steady-State-Error":
   label: "Electrical-Electronic.Control-Theory.Steady-State-Error"
   permalink: "/topic/electrical-electronic/control-theory/steady-state-error"
@@ -2956,30 +2972,242 @@
   label: "Electrical-Electronic.Signal-Processing.Z-Transform-Time-Shift"
   permalink: "/topic/electrical-electronic/signal-processing/z-transform-time-shift"
   description: "Electrical-Electronic / Signal-Processing / Z-Transform-Time-Shift"
+"Engineering.Fluid-Mechanics.Actuator-Disk":
+  label: "Engineering.Fluid-Mechanics.Actuator-Disk"
+  permalink: "/topic/engineering/fluid-mechanics/actuator-disk"
+  description: "Engineering / Fluid-Mechanics / Actuator-Disk"
+"Engineering.Fluid-Mechanics.Bernoulli-Equation":
+  label: "Engineering.Fluid-Mechanics.Bernoulli-Equation"
+  permalink: "/topic/engineering/fluid-mechanics/bernoulli-equation"
+  description: "Engineering / Fluid-Mechanics / Bernoulli-Equation"
+"Engineering.Fluid-Mechanics.Boundary-Layer":
+  label: "Engineering.Fluid-Mechanics.Boundary-Layer"
+  permalink: "/topic/engineering/fluid-mechanics/boundary-layer"
+  description: "Engineering / Fluid-Mechanics / Boundary-Layer"
+"Engineering.Fluid-Mechanics.Boundary-Layer-Integral-Method":
+  label: "Engineering.Fluid-Mechanics.Boundary-Layer-Integral-Method"
+  permalink: "/topic/engineering/fluid-mechanics/boundary-layer-integral-method"
+  description: "Engineering / Fluid-Mechanics / Boundary-Layer-Integral-Method"
+"Engineering.Fluid-Mechanics.Compressible-Flow":
+  label: "Engineering.Fluid-Mechanics.Compressible-Flow"
+  permalink: "/topic/engineering/fluid-mechanics/compressible-flow"
+  description: "Engineering / Fluid-Mechanics / Compressible-Flow"
+"Engineering.Fluid-Mechanics.Control-Volume-Momentum":
+  label: "Engineering.Fluid-Mechanics.Control-Volume-Momentum"
+  permalink: "/topic/engineering/fluid-mechanics/control-volume-momentum"
+  description: "Engineering / Fluid-Mechanics / Control-Volume-Momentum"
+"Engineering.Fluid-Mechanics.Cylindrical-Couette-Flow":
+  label: "Engineering.Fluid-Mechanics.Cylindrical-Couette-Flow"
+  permalink: "/topic/engineering/fluid-mechanics/cylindrical-couette-flow"
+  description: "Engineering / Fluid-Mechanics / Cylindrical-Couette-Flow"
+"Engineering.Fluid-Mechanics.Dimensional-Analysis":
+  label: "Engineering.Fluid-Mechanics.Dimensional-Analysis"
+  permalink: "/topic/engineering/fluid-mechanics/dimensional-analysis"
+  description: "Engineering / Fluid-Mechanics / Dimensional-Analysis"
+"Engineering.Fluid-Mechanics.Falling-Film":
+  label: "Engineering.Fluid-Mechanics.Falling-Film"
+  permalink: "/topic/engineering/fluid-mechanics/falling-film"
+  description: "Engineering / Fluid-Mechanics / Falling-Film"
+"Engineering.Fluid-Mechanics.Hagen-Poiseuille-Flow":
+  label: "Engineering.Fluid-Mechanics.Hagen-Poiseuille-Flow"
+  permalink: "/topic/engineering/fluid-mechanics/hagen-poiseuille-flow"
+  description: "Engineering / Fluid-Mechanics / Hagen-Poiseuille-Flow"
+"Engineering.Fluid-Mechanics.Hydraulic-Jump":
+  label: "Engineering.Fluid-Mechanics.Hydraulic-Jump"
+  permalink: "/topic/engineering/fluid-mechanics/hydraulic-jump"
+  description: "Engineering / Fluid-Mechanics / Hydraulic-Jump"
+"Engineering.Fluid-Mechanics.Jet-Propulsion":
+  label: "Engineering.Fluid-Mechanics.Jet-Propulsion"
+  permalink: "/topic/engineering/fluid-mechanics/jet-propulsion"
+  description: "Engineering / Fluid-Mechanics / Jet-Propulsion"
+"Engineering.Fluid-Mechanics.Jet-Pump":
+  label: "Engineering.Fluid-Mechanics.Jet-Pump"
+  permalink: "/topic/engineering/fluid-mechanics/jet-pump"
+  description: "Engineering / Fluid-Mechanics / Jet-Pump"
+"Engineering.Fluid-Mechanics.Lift-and-Drag":
+  label: "Engineering.Fluid-Mechanics.Lift-and-Drag"
+  permalink: "/topic/engineering/fluid-mechanics/lift-and-drag"
+  description: "Engineering / Fluid-Mechanics / Lift-and-Drag"
 "Engineering.Fluid-Mechanics.Logarithmic-Wind-Profile-and-Wind-Power-Scaling":
   label: "Engineering.Fluid-Mechanics.Logarithmic-Wind-Profile-and-Wind-Power-Scaling"
   permalink: "/topic/engineering/fluid-mechanics/logarithmic-wind-profile-and-wind-power-scaling"
   description: "Engineering / Fluid-Mechanics / Logarithmic-Wind-Profile-and-Wind-Power-Scaling"
+"Engineering.Fluid-Mechanics.Lubrication-Approximation":
+  label: "Engineering.Fluid-Mechanics.Lubrication-Approximation"
+  permalink: "/topic/engineering/fluid-mechanics/lubrication-approximation"
+  description: "Engineering / Fluid-Mechanics / Lubrication-Approximation"
+"Engineering.Fluid-Mechanics.Minor-Losses":
+  label: "Engineering.Fluid-Mechanics.Minor-Losses"
+  permalink: "/topic/engineering/fluid-mechanics/minor-losses"
+  description: "Engineering / Fluid-Mechanics / Minor-Losses"
+"Engineering.Fluid-Mechanics.Navier-Stokes-Equations":
+  label: "Engineering.Fluid-Mechanics.Navier-Stokes-Equations"
+  permalink: "/topic/engineering/fluid-mechanics/navier-stokes-equations"
+  description: "Engineering / Fluid-Mechanics / Navier-Stokes-Equations"
+"Engineering.Fluid-Mechanics.Pipe-Friction":
+  label: "Engineering.Fluid-Mechanics.Pipe-Friction"
+  permalink: "/topic/engineering/fluid-mechanics/pipe-friction"
+  description: "Engineering / Fluid-Mechanics / Pipe-Friction"
+"Engineering.Fluid-Mechanics.Pipe-Networks":
+  label: "Engineering.Fluid-Mechanics.Pipe-Networks"
+  permalink: "/topic/engineering/fluid-mechanics/pipe-networks"
+  description: "Engineering / Fluid-Mechanics / Pipe-Networks"
+"Engineering.Fluid-Mechanics.Stokes-First-Problem":
+  label: "Engineering.Fluid-Mechanics.Stokes-First-Problem"
+  permalink: "/topic/engineering/fluid-mechanics/stokes-first-problem"
+  description: "Engineering / Fluid-Mechanics / Stokes-First-Problem"
+"Engineering.Fluid-Mechanics.Surface-Tension":
+  label: "Engineering.Fluid-Mechanics.Surface-Tension"
+  permalink: "/topic/engineering/fluid-mechanics/surface-tension"
+  description: "Engineering / Fluid-Mechanics / Surface-Tension"
+"Engineering.Fluid-Mechanics.Thin-Film-Flow":
+  label: "Engineering.Fluid-Mechanics.Thin-Film-Flow"
+  permalink: "/topic/engineering/fluid-mechanics/thin-film-flow"
+  description: "Engineering / Fluid-Mechanics / Thin-Film-Flow"
+"Engineering.Fluid-Mechanics.Turbomachinery":
+  label: "Engineering.Fluid-Mechanics.Turbomachinery"
+  permalink: "/topic/engineering/fluid-mechanics/turbomachinery"
+  description: "Engineering / Fluid-Mechanics / Turbomachinery"
+"Engineering.Fluid-Mechanics.Vorticity-and-Streamfunction":
+  label: "Engineering.Fluid-Mechanics.Vorticity-and-Streamfunction"
+  permalink: "/topic/engineering/fluid-mechanics/vorticity-and-streamfunction"
+  description: "Engineering / Fluid-Mechanics / Vorticity-and-Streamfunction"
+"Engineering.Heat-Transfer.Conduction-with-Heat-Generation":
+  label: "Engineering.Heat-Transfer.Conduction-with-Heat-Generation"
+  permalink: "/topic/engineering/heat-transfer/conduction-with-heat-generation"
+  description: "Engineering / Heat-Transfer / Conduction-with-Heat-Generation"
+"Engineering.Heat-Transfer.Cylindrical-Conduction":
+  label: "Engineering.Heat-Transfer.Cylindrical-Conduction"
+  permalink: "/topic/engineering/heat-transfer/cylindrical-conduction"
+  description: "Engineering / Heat-Transfer / Cylindrical-Conduction"
+"Engineering.Heat-Transfer.External-Forced-Convection":
+  label: "Engineering.Heat-Transfer.External-Forced-Convection"
+  permalink: "/topic/engineering/heat-transfer/external-forced-convection"
+  description: "Engineering / Heat-Transfer / External-Forced-Convection"
+"Engineering.Heat-Transfer.Fins":
+  label: "Engineering.Heat-Transfer.Fins"
+  permalink: "/topic/engineering/heat-transfer/fins"
+  description: "Engineering / Heat-Transfer / Fins"
+"Engineering.Heat-Transfer.Fins-and-Thermal-Resistance":
+  label: "Engineering.Heat-Transfer.Fins-and-Thermal-Resistance"
+  permalink: "/topic/engineering/heat-transfer/fins-and-thermal-resistance"
+  description: "Engineering / Heat-Transfer / Fins-and-Thermal-Resistance"
+"Engineering.Heat-Transfer.Graetz-Problem":
+  label: "Engineering.Heat-Transfer.Graetz-Problem"
+  permalink: "/topic/engineering/heat-transfer/graetz-problem"
+  description: "Engineering / Heat-Transfer / Graetz-Problem"
+"Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance":
+  label: "Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance"
+  permalink: "/topic/engineering/heat-transfer/heat-exchangers-and-thermal-resistance"
+  description: "Engineering / Heat-Transfer / Heat-Exchangers-and-Thermal-Resistance"
+"Engineering.Heat-Transfer.Hot-Wire-Anemometry":
+  label: "Engineering.Heat-Transfer.Hot-Wire-Anemometry"
+  permalink: "/topic/engineering/heat-transfer/hot-wire-anemometry"
+  description: "Engineering / Heat-Transfer / Hot-Wire-Anemometry"
+"Engineering.Heat-Transfer.Internal-Forced-Convection":
+  label: "Engineering.Heat-Transfer.Internal-Forced-Convection"
+  permalink: "/topic/engineering/heat-transfer/internal-forced-convection"
+  description: "Engineering / Heat-Transfer / Internal-Forced-Convection"
+"Engineering.Heat-Transfer.Lumped-Capacitance-and-Heisler-Charts":
+  label: "Engineering.Heat-Transfer.Lumped-Capacitance-and-Heisler-Charts"
+  permalink: "/topic/engineering/heat-transfer/lumped-capacitance-and-heisler-charts"
+  description: "Engineering / Heat-Transfer / Lumped-Capacitance-and-Heisler-Charts"
+"Engineering.Heat-Transfer.Stefan-Problem":
+  label: "Engineering.Heat-Transfer.Stefan-Problem"
+  permalink: "/topic/engineering/heat-transfer/stefan-problem"
+  description: "Engineering / Heat-Transfer / Stefan-Problem"
+"Engineering.Heat-Transfer.Thermal-Boundary-Layers":
+  label: "Engineering.Heat-Transfer.Thermal-Boundary-Layers"
+  permalink: "/topic/engineering/heat-transfer/thermal-boundary-layers"
+  description: "Engineering / Heat-Transfer / Thermal-Boundary-Layers"
+"Engineering.Heat-Transfer.Thermal-Diffusivity-Measurement":
+  label: "Engineering.Heat-Transfer.Thermal-Diffusivity-Measurement"
+  permalink: "/topic/engineering/heat-transfer/thermal-diffusivity-measurement"
+  description: "Engineering / Heat-Transfer / Thermal-Diffusivity-Measurement"
+"Engineering.Heat-Transfer.Thermal-Entrance-Region":
+  label: "Engineering.Heat-Transfer.Thermal-Entrance-Region"
+  permalink: "/topic/engineering/heat-transfer/thermal-entrance-region"
+  description: "Engineering / Heat-Transfer / Thermal-Entrance-Region"
+"Engineering.Heat-Transfer.Thermal-Radiation":
+  label: "Engineering.Heat-Transfer.Thermal-Radiation"
+  permalink: "/topic/engineering/heat-transfer/thermal-radiation"
+  description: "Engineering / Heat-Transfer / Thermal-Radiation"
+"Engineering.Heat-Transfer.Thermal-Resistance-Networks":
+  label: "Engineering.Heat-Transfer.Thermal-Resistance-Networks"
+  permalink: "/topic/engineering/heat-transfer/thermal-resistance-networks"
+  description: "Engineering / Heat-Transfer / Thermal-Resistance-Networks"
+"Engineering.Heat-Transfer.Transient-Conduction":
+  label: "Engineering.Heat-Transfer.Transient-Conduction"
+  permalink: "/topic/engineering/heat-transfer/transient-conduction"
+  description: "Engineering / Heat-Transfer / Transient-Conduction"
+"Engineering.Manufacturing.Wire-Drawing":
+  label: "Engineering.Manufacturing.Wire-Drawing"
+  permalink: "/topic/engineering/manufacturing/wire-drawing"
+  description: "Engineering / Manufacturing / Wire-Drawing"
 "Engineering.Materials-Science.Piezoelectric-Effect-and-Element":
   label: "Engineering.Materials-Science.Piezoelectric-Effect-and-Element"
   permalink: "/topic/engineering/materials-science/piezoelectric-effect-and-element"
   description: "Engineering / Materials-Science / Piezoelectric-Effect-and-Element"
+"Engineering.Mechanics-of-Materials.Axial-Deformation":
+  label: "Engineering.Mechanics-of-Materials.Axial-Deformation"
+  permalink: "/topic/engineering/mechanics-of-materials/axial-deformation"
+  description: "Engineering / Mechanics-of-Materials / Axial-Deformation"
 "Engineering.Mechanics-of-Materials.Beam-Deflection":
   label: "Engineering.Mechanics-of-Materials.Beam-Deflection"
   permalink: "/topic/engineering/mechanics-of-materials/beam-deflection"
   description: "Engineering / Mechanics-of-Materials / Beam-Deflection"
+"Engineering.Mechanics-of-Materials.Bending-Stress":
+  label: "Engineering.Mechanics-of-Materials.Bending-Stress"
+  permalink: "/topic/engineering/mechanics-of-materials/bending-stress"
+  description: "Engineering / Mechanics-of-Materials / Bending-Stress"
+"Engineering.Mechanics-of-Materials.Castiglianos-Theorem":
+  label: "Engineering.Mechanics-of-Materials.Castiglianos-Theorem"
+  permalink: "/topic/engineering/mechanics-of-materials/castiglianos-theorem"
+  description: "Engineering / Mechanics-of-Materials / Castiglianos-Theorem"
+"Engineering.Mechanics-of-Materials.Composite-Beams":
+  label: "Engineering.Mechanics-of-Materials.Composite-Beams"
+  permalink: "/topic/engineering/mechanics-of-materials/composite-beams"
+  description: "Engineering / Mechanics-of-Materials / Composite-Beams"
+"Engineering.Mechanics-of-Materials.Deformation-Compatibility":
+  label: "Engineering.Mechanics-of-Materials.Deformation-Compatibility"
+  permalink: "/topic/engineering/mechanics-of-materials/deformation-compatibility"
+  description: "Engineering / Mechanics-of-Materials / Deformation-Compatibility"
 "Engineering.Mechanics-of-Materials.Euler-Buckling":
   label: "Engineering.Mechanics-of-Materials.Euler-Buckling"
   permalink: "/topic/engineering/mechanics-of-materials/euler-buckling"
   description: "Engineering / Mechanics-of-Materials / Euler-Buckling"
+"Engineering.Mechanics-of-Materials.Fracture-Mechanics":
+  label: "Engineering.Mechanics-of-Materials.Fracture-Mechanics"
+  permalink: "/topic/engineering/mechanics-of-materials/fracture-mechanics"
+  description: "Engineering / Mechanics-of-Materials / Fracture-Mechanics"
+"Engineering.Mechanics-of-Materials.Strain-Energy":
+  label: "Engineering.Mechanics-of-Materials.Strain-Energy"
+  permalink: "/topic/engineering/mechanics-of-materials/strain-energy"
+  description: "Engineering / Mechanics-of-Materials / Strain-Energy"
 "Engineering.Mechanics-of-Materials.Strain-Gauge":
   label: "Engineering.Mechanics-of-Materials.Strain-Gauge"
   permalink: "/topic/engineering/mechanics-of-materials/strain-gauge"
   description: "Engineering / Mechanics-of-Materials / Strain-Gauge"
+"Engineering.Mechanics-of-Materials.Stress-Transformation":
+  label: "Engineering.Mechanics-of-Materials.Stress-Transformation"
+  permalink: "/topic/engineering/mechanics-of-materials/stress-transformation"
+  description: "Engineering / Mechanics-of-Materials / Stress-Transformation"
 "Engineering.Mechanics-of-Materials.Thermal-Deformation-Compatibility":
   label: "Engineering.Mechanics-of-Materials.Thermal-Deformation-Compatibility"
   permalink: "/topic/engineering/mechanics-of-materials/thermal-deformation-compatibility"
   description: "Engineering / Mechanics-of-Materials / Thermal-Deformation-Compatibility"
+"Engineering.Mechanics-of-Materials.Thin-Walled-Pressure-Vessels":
+  label: "Engineering.Mechanics-of-Materials.Thin-Walled-Pressure-Vessels"
+  permalink: "/topic/engineering/mechanics-of-materials/thin-walled-pressure-vessels"
+  description: "Engineering / Mechanics-of-Materials / Thin-Walled-Pressure-Vessels"
+"Engineering.Mechanics-of-Materials.Torsion":
+  label: "Engineering.Mechanics-of-Materials.Torsion"
+  permalink: "/topic/engineering/mechanics-of-materials/torsion"
+  description: "Engineering / Mechanics-of-Materials / Torsion"
+"Engineering.Mechanics-of-Materials.Truss":
+  label: "Engineering.Mechanics-of-Materials.Truss"
+  permalink: "/topic/engineering/mechanics-of-materials/truss"
+  description: "Engineering / Mechanics-of-Materials / Truss"
 "Engineering.Mechanics-of-Materials.Yielding":
   label: "Engineering.Mechanics-of-Materials.Yielding"
   permalink: "/topic/engineering/mechanics-of-materials/yielding"
@@ -4856,6 +5084,14 @@
   label: "Physics.Mechanics.Euler-Bernoulli-Beam"
   permalink: "/topic/physics/mechanics/euler-bernoulli-beam"
   description: "Physics / Mechanics / Euler-Bernoulli-Beam"
+"Physics.Mechanics.Force-Transmissibility":
+  label: "Physics.Mechanics.Force-Transmissibility"
+  permalink: "/topic/physics/mechanics/force-transmissibility"
+  description: "Physics / Mechanics / Force-Transmissibility"
+"Physics.Mechanics.Forced-Vibration":
+  label: "Physics.Mechanics.Forced-Vibration"
+  permalink: "/topic/physics/mechanics/forced-vibration"
+  description: "Physics / Mechanics / Forced-Vibration"
 "Physics.Mechanics.Gyroscopic-Precession":
   label: "Physics.Mechanics.Gyroscopic-Precession"
   permalink: "/topic/physics/mechanics/gyroscopic-precession"
@@ -4928,6 +5164,10 @@
   label: "Physics.Mechanics.Spring-Pendulum-Coupled-Normal-Modes"
   permalink: "/topic/physics/mechanics/spring-pendulum-coupled-normal-modes"
   description: "Physics / Mechanics / Spring-Pendulum-Coupled-Normal-Modes"
+"Physics.Mechanics.String-Vibration":
+  label: "Physics.Mechanics.String-Vibration"
+  permalink: "/topic/physics/mechanics/string-vibration"
+  description: "Physics / Mechanics / String-Vibration"
 "Physics.Mechanics.Time-Dependent-Harmonic-Oscillator":
   label: "Physics.Mechanics.Time-Dependent-Harmonic-Oscillator"
   permalink: "/topic/physics/mechanics/time-dependent-harmonic-oscillator"
@@ -5076,6 +5316,10 @@
   label: "Physics.Quantum-Mechanics.Wavefunction-Normalization-and-Energy-Expectation"
   permalink: "/topic/physics/quantum-mechanics/wavefunction-normalization-and-energy-expectation"
   description: "Physics / Quantum-Mechanics / Wavefunction-Normalization-and-Energy-Expectation"
+"Physics.Thermodynamics.Brayton-Cycle":
+  label: "Physics.Thermodynamics.Brayton-Cycle"
+  permalink: "/topic/physics/thermodynamics/brayton-cycle"
+  description: "Physics / Thermodynamics / Brayton-Cycle"
 "Physics.Thermodynamics.Canonical-Partition-Function":
   label: "Physics.Thermodynamics.Canonical-Partition-Function"
   permalink: "/topic/physics/thermodynamics/canonical-partition-function"
@@ -5104,6 +5348,14 @@
   label: "Physics.Thermodynamics.Enthalpy-and-Thermodynamic-Relations"
   permalink: "/topic/physics/thermodynamics/enthalpy-and-thermodynamic-relations"
   description: "Physics / Thermodynamics / Enthalpy-and-Thermodynamic-Relations"
+"Physics.Thermodynamics.Entropy":
+  label: "Physics.Thermodynamics.Entropy"
+  permalink: "/topic/physics/thermodynamics/entropy"
+  description: "Physics / Thermodynamics / Entropy"
+"Physics.Thermodynamics.Exergy-and-Maximum-Useful-Work":
+  label: "Physics.Thermodynamics.Exergy-and-Maximum-Useful-Work"
+  permalink: "/topic/physics/thermodynamics/exergy-and-maximum-useful-work"
+  description: "Physics / Thermodynamics / Exergy-and-Maximum-Useful-Work"
 "Physics.Thermodynamics.Fermi-Dirac-Grand-Canonical-Distribution":
   label: "Physics.Thermodynamics.Fermi-Dirac-Grand-Canonical-Distribution"
   permalink: "/topic/physics/thermodynamics/fermi-dirac-grand-canonical-distribution"
@@ -5112,6 +5364,14 @@
   label: "Physics.Thermodynamics.Grand-Canonical-Ideal-Gas"
   permalink: "/topic/physics/thermodynamics/grand-canonical-ideal-gas"
   description: "Physics / Thermodynamics / Grand-Canonical-Ideal-Gas"
+"Physics.Thermodynamics.Heat-Capacity-and-Degrees-of-Freedom":
+  label: "Physics.Thermodynamics.Heat-Capacity-and-Degrees-of-Freedom"
+  permalink: "/topic/physics/thermodynamics/heat-capacity-and-degrees-of-freedom"
+  description: "Physics / Thermodynamics / Heat-Capacity-and-Degrees-of-Freedom"
+"Physics.Thermodynamics.Heat-Pump-and-Refrigeration":
+  label: "Physics.Thermodynamics.Heat-Pump-and-Refrigeration"
+  permalink: "/topic/physics/thermodynamics/heat-pump-and-refrigeration"
+  description: "Physics / Thermodynamics / Heat-Pump-and-Refrigeration"
 "Physics.Thermodynamics.Helmholtz-Free-Energy-Differential":
   label: "Physics.Thermodynamics.Helmholtz-Free-Energy-Differential"
   permalink: "/topic/physics/thermodynamics/helmholtz-free-energy-differential"
@@ -5136,6 +5396,14 @@
   label: "Physics.Thermodynamics.Intercooled-Brayton-Cycle"
   permalink: "/topic/physics/thermodynamics/intercooled-brayton-cycle"
   description: "Physics / Thermodynamics / Intercooled-Brayton-Cycle"
+"Physics.Thermodynamics.Irreversible-Processes":
+  label: "Physics.Thermodynamics.Irreversible-Processes"
+  permalink: "/topic/physics/thermodynamics/irreversible-processes"
+  description: "Physics / Thermodynamics / Irreversible-Processes"
+"Physics.Thermodynamics.Isentropic-Flow":
+  label: "Physics.Thermodynamics.Isentropic-Flow"
+  permalink: "/topic/physics/thermodynamics/isentropic-flow"
+  description: "Physics / Thermodynamics / Isentropic-Flow"
 "Physics.Thermodynamics.Joule-Thomson-Effect":
   label: "Physics.Thermodynamics.Joule-Thomson-Effect"
   permalink: "/topic/physics/thermodynamics/joule-thomson-effect"
@@ -5156,14 +5424,38 @@
   label: "Physics.Thermodynamics.Mean-Field-Ising-Model-and-Phase-Transition"
   permalink: "/topic/physics/thermodynamics/mean-field-ising-model-and-phase-transition"
   description: "Physics / Thermodynamics / Mean-Field-Ising-Model-and-Phase-Transition"
+"Physics.Thermodynamics.Otto-Cycle":
+  label: "Physics.Thermodynamics.Otto-Cycle"
+  permalink: "/topic/physics/thermodynamics/otto-cycle"
+  description: "Physics / Thermodynamics / Otto-Cycle"
 "Physics.Thermodynamics.Otto-Diesel-and-Dual-Cycles":
   label: "Physics.Thermodynamics.Otto-Diesel-and-Dual-Cycles"
   permalink: "/topic/physics/thermodynamics/otto-diesel-and-dual-cycles"
   description: "Physics / Thermodynamics / Otto-Diesel-and-Dual-Cycles"
+"Physics.Thermodynamics.Phase-Equilibrium":
+  label: "Physics.Thermodynamics.Phase-Equilibrium"
+  permalink: "/topic/physics/thermodynamics/phase-equilibrium"
+  description: "Physics / Thermodynamics / Phase-Equilibrium"
 "Physics.Thermodynamics.Photon-Gas-and-Stefan-Boltzmann-Law":
   label: "Physics.Thermodynamics.Photon-Gas-and-Stefan-Boltzmann-Law"
   permalink: "/topic/physics/thermodynamics/photon-gas-and-stefan-boltzmann-law"
   description: "Physics / Thermodynamics / Photon-Gas-and-Stefan-Boltzmann-Law"
+"Physics.Thermodynamics.Reciprocating-and-Multistage-Compression":
+  label: "Physics.Thermodynamics.Reciprocating-and-Multistage-Compression"
+  permalink: "/topic/physics/thermodynamics/reciprocating-and-multistage-compression"
+  description: "Physics / Thermodynamics / Reciprocating-and-Multistage-Compression"
+"Physics.Thermodynamics.Steady-Flow-Energy-Equation":
+  label: "Physics.Thermodynamics.Steady-Flow-Energy-Equation"
+  permalink: "/topic/physics/thermodynamics/steady-flow-energy-equation"
+  description: "Physics / Thermodynamics / Steady-Flow-Energy-Equation"
+"Physics.Thermodynamics.Stirling-Cycle":
+  label: "Physics.Thermodynamics.Stirling-Cycle"
+  permalink: "/topic/physics/thermodynamics/stirling-cycle"
+  description: "Physics / Thermodynamics / Stirling-Cycle"
+"Physics.Thermodynamics.Unsteady-Tank-Filling":
+  label: "Physics.Thermodynamics.Unsteady-Tank-Filling"
+  permalink: "/topic/physics/thermodynamics/unsteady-tank-filling"
+  description: "Physics / Thermodynamics / Unsteady-Tank-Filling"
 "Physics.Thermodynamics.Van-der-Waals-Gas":
   label: "Physics.Thermodynamics.Van-der-Waals-Gas"
   permalink: "/topic/physics/thermodynamics/van-der-waals-gas"

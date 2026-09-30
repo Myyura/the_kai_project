@@ -729,6 +729,26 @@
       "relatedSubjects": [
         "Mathematics"
       ]
+    },
+    "Electrical-Electronic.Control-Theory.State-Space-Representation": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "labelZh": "状态空间表示",
+      "labelJa": "状態空間表現",
+      "labelEn": "State-Space Representation",
+      "relatedSubjects": [
+        "Engineering",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Control-Theory.Controllability-and-Observability": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "labelZh": "可控性与可观性",
+      "labelJa": "可制御性・可観測性",
+      "labelEn": "Controllability and Observability",
+      "relatedSubjects": [
+        "Engineering",
+        "Mathematics"
+      ]
     }
   }
 }

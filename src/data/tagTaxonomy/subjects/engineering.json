@@ -53,6 +53,24 @@
       "descriptionZh": "统计过程控制、质量设计、故障分析与系统可靠性。",
       "descriptionJa": "統計的工程管理、品質設計、故障解析、システム信頼性を扱う。",
       "descriptionEn": "Statistical process control, quality design, failure analysis, and system reliability."
+    },
+    "Engineering.Heat-Transfer": {
+      "subject": "Engineering",
+      "labelZh": "传热学",
+      "labelJa": "伝熱工学",
+      "labelEn": "Heat Transfer",
+      "descriptionZh": "传热学的基本原理及工程计算。",
+      "descriptionJa": "伝熱工学の基礎原理と工学的な計算。",
+      "descriptionEn": "Fundamental principles and engineering calculations in heat transfer."
+    },
+    "Engineering.Manufacturing": {
+      "subject": "Engineering",
+      "labelZh": "制造加工",
+      "labelJa": "生産・加工",
+      "labelEn": "Manufacturing",
+      "descriptionZh": "制造加工的基本原理及工程计算。",
+      "descriptionJa": "生産・加工の基礎原理と工学的な計算。",
+      "descriptionEn": "Fundamental principles and engineering calculations in manufacturing."
     }
   },
   "subsubjectOrder": [
@@ -60,7 +78,9 @@
     "Engineering.Fluid-Mechanics",
     "Engineering.Materials-Science",
     "Engineering.Robotics",
-    "Engineering.Quality-and-Reliability-Engineering"
+    "Engineering.Quality-and-Reliability-Engineering",
+    "Engineering.Heat-Transfer",
+    "Engineering.Manufacturing"
   ],
   "topics": {
     "Engineering.Robotics.Autonomous-Vehicle-Dynamic-Map": {
@@ -184,6 +204,324 @@
       "labelZh": "串并联系统可靠性",
       "labelJa": "直列・並列システムの信頼性",
       "labelEn": "Series and Parallel System Reliability"
+    },
+    "Engineering.Mechanics-of-Materials.Torsion": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "扭转",
+      "labelJa": "ねじり",
+      "labelEn": "Torsion"
+    },
+    "Engineering.Mechanics-of-Materials.Deformation-Compatibility": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "变形协调",
+      "labelJa": "変形の適合条件",
+      "labelEn": "Deformation Compatibility"
+    },
+    "Engineering.Fluid-Mechanics.Hagen-Poiseuille-Flow": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "哈根–泊肃叶流",
+      "labelJa": "ハーゲン・ポアズイユ流れ",
+      "labelEn": "Hagen Poiseuille Flow"
+    },
+    "Engineering.Fluid-Mechanics.Pipe-Networks": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "管网流动",
+      "labelJa": "管路網",
+      "labelEn": "Pipe Networks"
+    },
+    "Engineering.Fluid-Mechanics.Control-Volume-Momentum": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "控制体动量守恒",
+      "labelJa": "検査体積の運動量保存",
+      "labelEn": "Control Volume Momentum"
+    },
+    "Engineering.Fluid-Mechanics.Bernoulli-Equation": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "伯努利方程",
+      "labelJa": "ベルヌーイの式",
+      "labelEn": "Bernoulli Equation"
+    },
+    "Engineering.Mechanics-of-Materials.Truss": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "桁架",
+      "labelJa": "トラス",
+      "labelEn": "Truss"
+    },
+    "Engineering.Mechanics-of-Materials.Stress-Transformation": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "应力变换与主应力",
+      "labelJa": "応力変換と主応力",
+      "labelEn": "Stress Transformation"
+    },
+    "Engineering.Fluid-Mechanics.Jet-Pump": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "射流泵",
+      "labelJa": "ジェットポンプ",
+      "labelEn": "Jet Pump"
+    },
+    "Engineering.Fluid-Mechanics.Minor-Losses": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "局部水头损失",
+      "labelJa": "局所損失",
+      "labelEn": "Minor Losses"
+    },
+    "Engineering.Mechanics-of-Materials.Strain-Energy": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "应变能",
+      "labelJa": "ひずみエネルギー",
+      "labelEn": "Strain Energy"
+    },
+    "Engineering.Mechanics-of-Materials.Thin-Walled-Pressure-Vessels": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "薄壁压力容器",
+      "labelJa": "薄肉圧力容器",
+      "labelEn": "Thin Walled Pressure Vessels"
+    },
+    "Engineering.Fluid-Mechanics.Thin-Film-Flow": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "薄膜流动",
+      "labelJa": "薄膜流れ",
+      "labelEn": "Thin Film Flow"
+    },
+    "Engineering.Fluid-Mechanics.Surface-Tension": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "表面张力",
+      "labelJa": "表面張力",
+      "labelEn": "Surface Tension"
+    },
+    "Engineering.Mechanics-of-Materials.Fracture-Mechanics": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "断裂力学",
+      "labelJa": "破壊力学",
+      "labelEn": "Fracture Mechanics"
+    },
+    "Engineering.Heat-Transfer.Cylindrical-Conduction": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "圆筒导热",
+      "labelJa": "円筒の熱伝導",
+      "labelEn": "Cylindrical Conduction"
+    },
+    "Engineering.Heat-Transfer.Thermal-Radiation": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "热辐射",
+      "labelJa": "熱放射",
+      "labelEn": "Thermal Radiation"
+    },
+    "Engineering.Fluid-Mechanics.Hydraulic-Jump": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "水跃",
+      "labelJa": "跳水",
+      "labelEn": "Hydraulic Jump"
+    },
+    "Engineering.Heat-Transfer.Transient-Conduction": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "非稳态导热",
+      "labelJa": "非定常熱伝導",
+      "labelEn": "Transient Conduction"
+    },
+    "Engineering.Fluid-Mechanics.Navier-Stokes-Equations": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "纳维–斯托克斯方程",
+      "labelJa": "ナビエ・ストークス方程式",
+      "labelEn": "Navier Stokes Equations"
+    },
+    "Engineering.Fluid-Mechanics.Falling-Film": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "重力降膜流",
+      "labelJa": "流下液膜",
+      "labelEn": "Falling Film"
+    },
+    "Engineering.Fluid-Mechanics.Dimensional-Analysis": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "量纲分析与相似律",
+      "labelJa": "次元解析と相似則",
+      "labelEn": "Dimensional Analysis"
+    },
+    "Engineering.Fluid-Mechanics.Actuator-Disk": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "致动盘理论",
+      "labelJa": "アクチュエータディスク理論",
+      "labelEn": "Actuator Disk"
+    },
+    "Engineering.Fluid-Mechanics.Compressible-Flow": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "可压缩流动",
+      "labelJa": "圧縮性流れ",
+      "labelEn": "Compressible Flow"
+    },
+    "Engineering.Heat-Transfer.Stefan-Problem": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "相变传热与斯特藩问题",
+      "labelJa": "相変化伝熱とステファン問題",
+      "labelEn": "Stefan Problem"
+    },
+    "Engineering.Mechanics-of-Materials.Axial-Deformation": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "轴向变形",
+      "labelJa": "軸方向変形",
+      "labelEn": "Axial Deformation"
+    },
+    "Engineering.Fluid-Mechanics.Boundary-Layer": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "边界层",
+      "labelJa": "境界層",
+      "labelEn": "Boundary Layer"
+    },
+    "Engineering.Fluid-Mechanics.Pipe-Friction": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "管道沿程损失",
+      "labelJa": "管摩擦損失",
+      "labelEn": "Pipe Friction"
+    },
+    "Engineering.Heat-Transfer.Heat-Exchangers-and-Thermal-Resistance": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "换热器与热阻",
+      "labelJa": "熱交換器と熱抵抗",
+      "labelEn": "Heat Exchangers and Thermal Resistance"
+    },
+    "Engineering.Manufacturing.Wire-Drawing": {
+      "subsubject": "Engineering.Manufacturing",
+      "labelZh": "拉拔加工",
+      "labelJa": "引抜き加工",
+      "labelEn": "Wire Drawing"
+    },
+    "Engineering.Heat-Transfer.Fins-and-Thermal-Resistance": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "肋片与热阻",
+      "labelJa": "フィンと熱抵抗",
+      "labelEn": "Fins and Thermal Resistance"
+    },
+    "Engineering.Fluid-Mechanics.Lift-and-Drag": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "升力与阻力",
+      "labelJa": "揚力と抗力",
+      "labelEn": "Lift and Drag"
+    },
+    "Engineering.Mechanics-of-Materials.Composite-Beams": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "复合梁",
+      "labelJa": "複合はり",
+      "labelEn": "Composite Beams"
+    },
+    "Engineering.Heat-Transfer.Conduction-with-Heat-Generation": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "内热源导热",
+      "labelJa": "発熱を伴う熱伝導",
+      "labelEn": "Conduction with Heat Generation"
+    },
+    "Engineering.Heat-Transfer.Hot-Wire-Anemometry": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "热线风速测量",
+      "labelJa": "熱線風速計",
+      "labelEn": "Hot Wire Anemometry"
+    },
+    "Engineering.Fluid-Mechanics.Jet-Propulsion": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "喷流推进",
+      "labelJa": "噴流推進",
+      "labelEn": "Jet Propulsion"
+    },
+    "Engineering.Fluid-Mechanics.Cylindrical-Couette-Flow": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "圆柱库埃特流",
+      "labelJa": "円筒クエット流れ",
+      "labelEn": "Cylindrical Couette Flow"
+    },
+    "Engineering.Fluid-Mechanics.Turbomachinery": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "流体机械与速度三角形",
+      "labelJa": "流体機械と速度三角形",
+      "labelEn": "Turbomachinery"
+    },
+    "Engineering.Heat-Transfer.Lumped-Capacitance-and-Heisler-Charts": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "集中热容法与海斯勒图",
+      "labelJa": "集中熱容量法とハイスラー線図",
+      "labelEn": "Lumped Capacitance and Heisler Charts"
+    },
+    "Engineering.Mechanics-of-Materials.Castiglianos-Theorem": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "卡氏定理",
+      "labelJa": "カスチリアノの定理",
+      "labelEn": "Castiglianos Theorem"
+    },
+    "Engineering.Fluid-Mechanics.Lubrication-Approximation": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "润滑近似",
+      "labelJa": "潤滑近似",
+      "labelEn": "Lubrication Approximation"
+    },
+    "Engineering.Heat-Transfer.Thermal-Resistance-Networks": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "热阻网络",
+      "labelJa": "熱抵抗回路",
+      "labelEn": "Thermal Resistance Networks"
+    },
+    "Engineering.Heat-Transfer.Fins": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "肋片传热",
+      "labelJa": "フィンの伝熱",
+      "labelEn": "Fins"
+    },
+    "Engineering.Heat-Transfer.Internal-Forced-Convection": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "内部强制对流",
+      "labelJa": "内部強制対流",
+      "labelEn": "Internal Forced Convection"
+    },
+    "Engineering.Heat-Transfer.Thermal-Entrance-Region": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "热入口段",
+      "labelJa": "温度助走区間",
+      "labelEn": "Thermal Entrance Region"
+    },
+    "Engineering.Heat-Transfer.Thermal-Diffusivity-Measurement": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "热扩散率测定",
+      "labelJa": "温度伝導率の測定",
+      "labelEn": "Thermal Diffusivity Measurement"
+    },
+    "Engineering.Heat-Transfer.External-Forced-Convection": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "外部强制对流",
+      "labelJa": "外部強制対流",
+      "labelEn": "External Forced Convection"
+    },
+    "Engineering.Heat-Transfer.Thermal-Boundary-Layers": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "热边界层",
+      "labelJa": "温度境界層",
+      "labelEn": "Thermal Boundary Layers"
+    },
+    "Engineering.Fluid-Mechanics.Boundary-Layer-Integral-Method": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "边界层积分法",
+      "labelJa": "境界層積分法",
+      "labelEn": "Boundary Layer Integral Method"
+    },
+    "Engineering.Heat-Transfer.Graetz-Problem": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "格雷茨问题",
+      "labelJa": "グレーツ問題",
+      "labelEn": "Graetz Problem"
+    },
+    "Engineering.Fluid-Mechanics.Stokes-First-Problem": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "斯托克斯第一问题",
+      "labelJa": "ストークスの第一問題",
+      "labelEn": "Stokes' First Problem"
+    },
+    "Engineering.Fluid-Mechanics.Vorticity-and-Streamfunction": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "涡度与流函数",
+      "labelJa": "渦度と流れ関数",
+      "labelEn": "Vorticity and Streamfunction"
+    },
+    "Engineering.Mechanics-of-Materials.Bending-Stress": {
+      "subsubject": "Engineering.Mechanics-of-Materials",
+      "labelZh": "弯曲应力",
+      "labelJa": "曲げ応力",
+      "labelEn": "Bending Stress"
     }
   }
 }

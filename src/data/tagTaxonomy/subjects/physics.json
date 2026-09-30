@@ -766,6 +766,108 @@
     },
     "Physics.Thermodynamics.Intercooled-Brayton-Cycle": {
       "subsubject": "Physics.Thermodynamics"
+    },
+    "Physics.Thermodynamics.Heat-Pump-and-Refrigeration": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "热泵与制冷",
+      "labelJa": "ヒートポンプと冷凍",
+      "labelEn": "Heat Pump and Refrigeration"
+    },
+    "Physics.Thermodynamics.Brayton-Cycle": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "布雷顿循环",
+      "labelJa": "ブレイトンサイクル",
+      "labelEn": "Brayton Cycle"
+    },
+    "Physics.Thermodynamics.Exergy-and-Maximum-Useful-Work": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "火用与最大有用功",
+      "labelJa": "エクセルギーと最大有効仕事",
+      "labelEn": "Exergy and Maximum Useful Work"
+    },
+    "Physics.Mechanics.String-Vibration": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "弦振动",
+      "labelJa": "弦の振動",
+      "labelEn": "String Vibration"
+    },
+    "Physics.Thermodynamics.Unsteady-Tank-Filling": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "储罐非稳态充气",
+      "labelJa": "タンクの非定常充填",
+      "labelEn": "Unsteady Tank Filling"
+    },
+    "Physics.Thermodynamics.Reciprocating-and-Multistage-Compression": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "往复与多级压缩",
+      "labelJa": "往復・多段圧縮",
+      "labelEn": "Reciprocating and Multistage Compression"
+    },
+    "Physics.Thermodynamics.Steady-Flow-Energy-Equation": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "稳定流动能量方程",
+      "labelJa": "定常流のエネルギー式",
+      "labelEn": "Steady Flow Energy Equation"
+    },
+    "Physics.Thermodynamics.Isentropic-Flow": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "等熵流动",
+      "labelJa": "等エントロピー流れ",
+      "labelEn": "Isentropic Flow"
+    },
+    "Physics.Thermodynamics.Otto-Cycle": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "奥托循环",
+      "labelJa": "オットーサイクル",
+      "labelEn": "Otto Cycle"
+    },
+    "Physics.Thermodynamics.Irreversible-Processes": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "不可逆过程",
+      "labelJa": "不可逆過程",
+      "labelEn": "Irreversible Processes"
+    },
+    "Physics.Thermodynamics.Heat-Capacity-and-Degrees-of-Freedom": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "热容与自由度",
+      "labelJa": "熱容量と自由度",
+      "labelEn": "Heat Capacity and Degrees of Freedom"
+    },
+    "Physics.Thermodynamics.Stirling-Cycle": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "斯特林循环",
+      "labelJa": "スターリングサイクル",
+      "labelEn": "Stirling Cycle"
+    },
+    "Physics.Thermodynamics.Phase-Equilibrium": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "相平衡",
+      "labelJa": "相平衡",
+      "labelEn": "Phase Equilibrium"
+    },
+    "Physics.Thermodynamics.Entropy": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "熵",
+      "labelJa": "エントロピー",
+      "labelEn": "Entropy"
+    },
+    "Physics.Mechanics.Forced-Vibration": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "受迫振动",
+      "labelJa": "強制振動",
+      "labelEn": "Forced Vibration",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Physics.Mechanics.Force-Transmissibility": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "力传递率与隔振",
+      "labelJa": "力の伝達率・防振",
+      "labelEn": "Force Transmissibility and Vibration Isolation",
+      "relatedSubjects": [
+        "Engineering"
+      ]
     }
   }
 }
