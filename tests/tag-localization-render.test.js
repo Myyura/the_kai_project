@@ -88,7 +88,7 @@ test('aggregate topic sidebar and exam-row chips use the same localized labels a
   const topicIds = ['Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors', 'Mathematics.Linear-Algebra.Matrix-Diagonalization'];
   const permalink = resolveTagBrowseTarget(subsubjectId).href;
   const tag = {
-    label: subsubjectId, permalink, count: 1, items: [], allTagsPath: '/docs/tags',
+    label: subsubjectId, permalink, count: 1, allTagsPath: '/docs/tags',
     browse: {
       directDocIds: [], docIds: ['example'],
       topics: topicIds.map((id) => ({id, shortId: id.split('.').pop(), count: 1, anchor: getTopicAnchorId(id), docIds: ['example']})),
@@ -107,12 +107,14 @@ test('aggregate topic sidebar and exam-row chips use the same localized labels a
 });
 
 
-test('tag directory translates subjects, subsubjects, topics, and schools through the same labels', () => {
+test('subject directory translates its hierarchy and excludes the separate school directory', () => {
   const ids = ['Mathematics.Linear-Algebra', 'Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors', 'Tokyo-University'];
   const tags = ids.map((label) => ({label, permalink: resolveTagBrowseTarget(label).href, count: 1}));
   for (language of ['zh', 'ja', 'en']) {
     const html = renderToStaticMarkup(React.createElement(TagDirectory, {tags}));
     const text = textContent(parseFragment(html));
-    for (const id of ['Mathematics', ...ids]) assert.ok(text.includes(getTagLabel(id, language)), id);
+    for (const id of ['Mathematics', ...ids.slice(0, 2)]) assert.ok(text.includes(getTagLabel(id, language)), id);
+    assert.equal(text.includes(getTagLabel('Tokyo-University', language)), false);
+    assert.equal(html.includes('role="tablist"'), false);
   }
 });

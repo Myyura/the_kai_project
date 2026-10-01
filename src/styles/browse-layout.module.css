@@ -54,7 +54,7 @@
   text-decoration: none;
 }
 
-.navigationItemActive {
+.navigationItem.navigationItemActive {
   background: var(--ifm-color-primary-contrast-background);
   color: var(--ifm-color-primary);
 }

@@ -53,6 +53,16 @@ const mainBundles = files.filter((filePath) => (
   /\/assets\/js\/main\.[^/]+\.js$/.test(filePath)
 ));
 const htmlFiles = files.filter((filePath) => filePath.endsWith('.html'));
+const removedBlogListingHtmlFiles = htmlFiles.filter((filePath) => (
+  /^blog\/(?:authors|tags|archive|page)(?:\/|\.html$)/.test(
+    path.relative(BUILD_DIR, filePath).split(path.sep).join('/'),
+  )
+));
+if (removedBlogListingHtmlFiles.length > 0) {
+  throw new Error(
+    `Removed experience listing routes returned: ${removedBlogListingHtmlFiles.join(', ')}`,
+  );
+}
 const contentManifestPath = path.join(BUILD_DIR, 'api-content', 'v1', 'manifest.json');
 const contentExportPath = path.join(
   BUILD_DIR,
@@ -105,6 +115,7 @@ const docsHtmlFiles = files.filter((filePath) => (
 const missingHtmlAssetReferences = [];
 const invalidRecoveryBootstrapFiles = [];
 const invalidMathStylesheetFiles = [];
+const removedBlogListingLinkFiles = [];
 const recovery = recoveryAsset();
 const mathStyles = mathStyleAsset();
 readRequiredFile(path.join(BUILD_DIR, recovery.path.slice(1)), 'Shared recovery script was not generated.');
@@ -112,6 +123,9 @@ readRequiredFile(path.join(BUILD_DIR, mathStyles.path.slice(1)), 'Shared math st
 const referencedMainBundles = new Set();
 for (const htmlFile of htmlFiles) {
   const html = fs.readFileSync(htmlFile, 'utf8');
+  if (/\bhref=["']?\/blog\/(?:authors|tags|archive|page)(?:\.html)?(?:\/|[?#"'\s>]|$)/.test(html)) {
+    removedBlogListingLinkFiles.push(htmlFile);
+  }
   const recoveryBootstrapIndex = html.indexOf('data-kai-chunk-recovery');
   const recoveryTag = html.match(/<script\b[^>]*data-kai-chunk-recovery[^>]*>/)?.[0] || '';
   const firstApplicationScriptIndex = html.search(
@@ -147,16 +161,13 @@ const subsubjectTagHtmlFiles = docsHtmlFiles.filter((filePath) => (
 const schoolTagHtmlFiles = docsHtmlFiles.filter((filePath) => (
   filePath.startsWith(path.join(DOCS_TAGS_DIR, 'school') + path.sep)
 ));
-const legacyTopicLinkFiles = docsHtmlFiles.filter((filePath) => {
+const removedTagLinkFiles = docsHtmlFiles.filter((filePath) => {
   const html = fs.readFileSync(filePath, 'utf8');
-  return /href=["']\/docs\/tags\/topic\//.test(html);
+  return /href=["']\/docs\/tags\/(?:topic|school)\//.test(html);
 });
 const apiDocuments = require('./api-data').buildApiData().documents;
 const expectedSubsubjectRoutes = new Set(
   apiDocuments.flatMap((document) => document.subsubject_ids || []),
-).size;
-const expectedSchoolRoutes = new Set(
-  apiDocuments.flatMap((document) => document.school_tags || []),
 ).size;
 const publishedContentBytes = publishedContentFiles.reduce(
   (total, filePath) => total + fs.statSync(filePath).size,
@@ -239,14 +250,17 @@ if (subsubjectTagHtmlFiles.length !== expectedSubsubjectRoutes) {
     `Expected ${expectedSubsubjectRoutes} active subsubject routes, found ${subsubjectTagHtmlFiles.length}.`,
   );
 }
-if (schoolTagHtmlFiles.length !== expectedSchoolRoutes) {
+if (schoolTagHtmlFiles.length > 0) {
+  throw new Error(`School tag routes returned: ${schoolTagHtmlFiles.length}.`);
+}
+if (removedTagLinkFiles.length > 0) {
   throw new Error(
-    `Expected ${expectedSchoolRoutes} school tag routes, found ${schoolTagHtmlFiles.length}.`,
+    `Built docs contain removed topic or school tag links: ${removedTagLinkFiles.slice(0, 10).join(', ')}`,
   );
 }
-if (legacyTopicLinkFiles.length > 0) {
+if (removedBlogListingLinkFiles.length > 0) {
   throw new Error(
-    `Built docs contain legacy /docs/tags/topic/ links: ${legacyTopicLinkFiles.slice(0, 10).join(', ')}`,
+    `Built HTML links to removed experience listings: ${removedBlogListingLinkFiles.slice(0, 10).join(', ')}`,
   );
 }
 if (contentExport.format !== 'kai-content' || contentExport.schemaVersion !== 1) {
@@ -286,5 +300,5 @@ console.log(
   + `published content ${formatMiB(publishedContentBytes)} across ${publishedContentFiles.length} files, `
   + `Kai content export ${formatMiB(contentExportGzip)} across ${contentExport.documents.length} documents `
   + `and ${contentExport.assets.length} assets, tag routes ${subsubjectTagHtmlFiles.length} subsubjects `
-  + `and ${schoolTagHtmlFiles.length} schools, total build ${formatMiB(totalBuildBytes)}.`,
+  + `with no separate topic or school tag pages, total build ${formatMiB(totalBuildBytes)}.`,
 );

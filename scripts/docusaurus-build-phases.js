@@ -195,7 +195,7 @@ function runPhasedBuild({
   const buildProfile = assertPhasedBuildProfile(sourceEnvironment, {assertGuard});
   if (buildProfile !== 'local') {
     throw new Error(
-      'The legacy phased build coordinator is local-only. '
+      'The phased build coordinator is local-only. '
         + 'GitHub Pages must use scripts/docusaurus-school-build.js.',
     );
   }

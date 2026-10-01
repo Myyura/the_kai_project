@@ -24,7 +24,7 @@ const toNumber = (value, fallback = 0) => {
   return Number.isFinite(number) ? number : fallback;
 };
 
-export const normalizeReputation = (row) => {
+const normalizeReputation = (row) => {
   if (!row) return { ...EMPTY_REPUTATION };
 
   return {

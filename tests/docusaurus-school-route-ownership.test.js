@@ -50,7 +50,6 @@ function createSyntheticSiteProps() {
     ),
   ];
   const categoryPath = '/docs/category/keio-university-nst-historical-name';
-  const schoolTagPaths = docs.map((doc) => doc.tags[0].permalink);
   const routes = [{
     path: '/docs',
     routes: [
@@ -64,17 +63,12 @@ function createSyntheticSiteProps() {
         component: '@theme/DocCategoryGeneratedIndexPage',
         props: {categoryGeneratedIndex: {}},
       },
-      ...schoolTagPaths.map((routePath) => ({
-        path: routePath,
-        component: '@theme/DocTagDocListPage',
-      })),
       {path: '/docs/tags/subsubject/shared-topic', component: 'SharedTag'},
     ],
   }];
   const routesPaths = [
     ...docs.map((doc) => doc.permalink),
     categoryPath,
-    ...schoolTagPaths,
     '/docs/tags/subsubject/shared-topic',
     '/404.html',
   ];
@@ -105,22 +99,17 @@ function createSyntheticSiteProps() {
   };
 }
 
-test('route ownership follows sources, sidebar descendants, and school tag metadata', () => {
+test('route ownership follows sources and sidebar descendants without generating school tag pages', () => {
   const ownership = buildRouteOwnership(createSyntheticSiteProps(), schools);
   assert.equal(ownership.get('/docs/a-custom-kanazawa-slug'), 'kanazawa-university');
   assert.equal(
     ownership.get('/docs/category/keio-university-nst-historical-name'),
     'kanazawa-university',
   );
-  assert.equal(ownership.get('/docs/tags/school/institute-of-science-tokyo'), 'institute-of-science-tokyo');
-  assert.equal(
-    ownership.get('/docs/tags/school/tokyo-university-of-agriculture-and-technology'),
-    'TUAT',
-  );
-  assert.equal(
-    ownership.get('/docs/tags/school/university-of-electro-communications'),
-    'UEC',
-  );
+  assert.equal(ownership.get('/docs/institute-of-science-tokyo-custom'), 'institute-of-science-tokyo');
+  assert.equal(ownership.get('/docs/tuat-custom'), 'TUAT');
+  assert.equal(ownership.get('/docs/uec-custom'), 'UEC');
+  assert.equal([...ownership.keys()].some((pathname) => pathname.includes('/tags/school/')), false);
   assert.equal(ownership.get('/docs/tags/subsubject/shared-topic'), null);
   assert.equal(ownership.get('/404.html'), null);
 });

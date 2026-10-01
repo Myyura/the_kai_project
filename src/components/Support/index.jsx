@@ -20,6 +20,7 @@ import {
 } from 'react-icons/fa';
 import {useCurrentLanguage} from '../../context/LanguageContext';
 import ContributorAcknowledgements from '../ContributorAcknowledgements';
+import PartnerLogo from '../PartnerLogo';
 import {
   getEnabledSupportEntries,
   getLocalizedSupportValue,
@@ -49,38 +50,6 @@ function SmartLink({to, className, children}) {
     <a className={className} href={to} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
-  );
-}
-
-function PartnerLogo({partner, language, className}) {
-  const name = getLocalizedSupportValue(partner.name, language);
-  const logoSource = partner.logo?.src;
-  const darkLogoSource = partner.logo?.darkSrc;
-  if (logoSource) {
-    return (
-      <span className={className}>
-        <img
-          className={styles.partnerLogoForLightTheme}
-          src={logoSource}
-          alt={getLocalizedSupportValue(partner.logo?.alt, language) || name}
-          loading="lazy"
-        />
-        {darkLogoSource && (
-          <img
-            className={styles.partnerLogoForDarkTheme}
-            src={darkLogoSource}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-          />
-        )}
-      </span>
-    );
-  }
-  return (
-    <span className={className} aria-hidden="true">
-      <strong>{Array.from(name).slice(0, 2).join('').toUpperCase() || 'K'}</strong>
-    </span>
   );
 }
 

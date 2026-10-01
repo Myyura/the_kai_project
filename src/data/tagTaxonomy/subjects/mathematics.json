@@ -842,12 +842,14 @@
         "Electrical-Electronic",
         "Computer-Science"
       ],
-      "aliases": [
-        "Mathematics.Linear-Algebra.Unitary-DFT-Matrix"
-      ],
       "labelZh": "酉离散傅里叶变换矩阵",
       "labelJa": "ユニタリな離散フーリエ変換行列",
-      "labelEn": "Unitary Discrete Fourier Transform (DFT) Matrix"
+      "labelEn": "Unitary Discrete Fourier Transform (DFT) Matrix",
+      "searchAliases": {
+        "en": [
+          "Unitary DFT Matrix"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Realification-of-Unitary-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -860,12 +862,14 @@
       "relatedSubjects": [
         "Physics"
       ],
-      "aliases": [
-        "Mathematics.Linear-Algebra.Parameterization-of-U2-and-SU2-Matrices"
-      ],
       "labelZh": "二阶酉矩阵与特殊酉矩阵的参数化",
       "labelJa": "二次ユニタリ行列・特殊ユニタリ行列のパラメータ表示",
-      "labelEn": "Parameterization of Two-dimensional Unitary and Special Unitary Matrices"
+      "labelEn": "Parameterization of Two-dimensional Unitary and Special Unitary Matrices",
+      "searchAliases": {
+        "en": [
+          "Parameterization of U2 and SU2 Matrices"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Unitary-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1032,9 +1036,6 @@
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Computer-Science"
-      ],
-      "aliases": [
-        "Mathematics.Linear-Algebra.LU-Decomposition"
       ],
       "labelZh": "LU 分解",
       "labelJa": "LU 分解",
@@ -1226,12 +1227,14 @@
     },
     "Mathematics.Linear-Algebra.Matrix-Trace": {
       "subsubject": "Mathematics.Linear-Algebra",
-      "aliases": [
-        "Mathematics.Linear-Algebra.Trace-of-Matrix"
-      ],
       "labelZh": "矩阵迹",
       "labelJa": "行列のトレース",
-      "labelEn": "Matrix Trace"
+      "labelEn": "Matrix Trace",
+      "searchAliases": {
+        "en": [
+          "Trace of Matrix"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Rank-Criterion-for-Linear-System-Consistency": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1251,15 +1254,13 @@
     },
     "Mathematics.Linear-Algebra.Moore-Penrose-Pseudoinverse": {
       "subsubject": "Mathematics.Linear-Algebra",
-      "aliases": [
-        "Mathematics.Linear-Algebra.Pseudoinverse-Matrix"
-      ],
       "labelZh": "摩尔–彭罗斯广义逆",
       "labelJa": "ムーア・ペンローズの一般逆行列",
       "labelEn": "Moore–Penrose Pseudoinverse",
       "searchAliases": {
         "en": [
-          "Moore–Penrose inverse"
+          "Moore–Penrose inverse",
+          "Pseudoinverse Matrix"
         ],
         "zh": [
           "伪逆"
@@ -1367,9 +1368,6 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Mathematics.Linear-Algebra.QR-Decomposition"
-      ],
       "labelZh": "QR 分解",
       "labelJa": "QR 分解",
       "labelEn": "QR Decomposition",
@@ -1464,9 +1462,6 @@
     },
     "Mathematics.Linear-Algebra.Singular-Value-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra",
-      "aliases": [
-        "Mathematics.Linear-Algebra.SVD"
-      ],
       "labelZh": "奇异值分解",
       "labelJa": "特異値分解",
       "labelEn": "Singular Value Decomposition",
@@ -1595,12 +1590,14 @@
     },
     "Mathematics.Abstract-Algebra.Quotient-Ring-Chinese-Remainder-Theorem-Decomposition-and-Unit-Group": {
       "subsubject": "Mathematics.Abstract-Algebra",
-      "aliases": [
-        "Mathematics.Abstract-Algebra.Quotient-Ring-CRT-Decomposition-and-Unit-Group"
-      ],
       "labelZh": "商环的中国剩余分解与单位群",
       "labelJa": "中国剰余定理による剰余環の分解と単元群",
-      "labelEn": "Quotient Ring Chinese Remainder Theorem Decomposition and Unit Group"
+      "labelEn": "Quotient Ring Chinese Remainder Theorem Decomposition and Unit Group",
+      "searchAliases": {
+        "en": [
+          "Quotient Ring CRT Decomposition and Unit Group"
+        ]
+      }
     },
     "Mathematics.Abstract-Algebra.Tensor-Square-Vanishing-and-Artinian-Rings": {
       "subsubject": "Mathematics.Abstract-Algebra",
@@ -1610,12 +1607,14 @@
     },
     "Mathematics.Abstract-Algebra.Nilpotent-Conjugacy-Classes-under-General-Linear-and-Special-Linear-Groups": {
       "subsubject": "Mathematics.Abstract-Algebra",
-      "aliases": [
-        "Mathematics.Abstract-Algebra.Nilpotent-Conjugacy-Classes-under-GL-and-SL"
-      ],
       "labelZh": "一般线性群与特殊线性群下的幂零共轭类",
       "labelJa": "一般線形群・特殊線形群の作用による冪零共役類",
-      "labelEn": "Nilpotent Conjugacy Classes under General Linear and Special Linear Groups"
+      "labelEn": "Nilpotent Conjugacy Classes under General Linear and Special Linear Groups",
+      "searchAliases": {
+        "en": [
+          "Nilpotent Conjugacy Classes under GL and SL"
+        ]
+      }
     },
     "Mathematics.Abstract-Algebra.Laurent-Polynomial-Ring-as-Quotient-Ring": {
       "subsubject": "Mathematics.Abstract-Algebra",
@@ -1724,30 +1723,36 @@
     },
     "Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
-      "aliases": [
-        "Mathematics.Differential-Equations.Second-Order-Linear-ODE"
-      ],
       "labelZh": "二阶线性常微分方程",
       "labelJa": "二階線形常微分方程式",
-      "labelEn": "Second-order Linear Ordinary Differential Equation"
+      "labelEn": "Second-order Linear Ordinary Differential Equation",
+      "searchAliases": {
+        "en": [
+          "Second Order Linear ODE"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Linear-Ordinary-Differential-Equation-with-Exponential-Forcing": {
       "subsubject": "Mathematics.Differential-Equations",
-      "aliases": [
-        "Mathematics.Differential-Equations.Linear-ODE-with-Exponential-Forcing"
-      ],
       "labelZh": "指数型非齐次项的线性常微分方程",
       "labelJa": "指数関数の非同次項をもつ線形常微分方程式",
-      "labelEn": "Linear Ordinary Differential Equation with Exponential Forcing"
+      "labelEn": "Linear Ordinary Differential Equation with Exponential Forcing",
+      "searchAliases": {
+        "en": [
+          "Linear ODE with Exponential Forcing"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation-by-Variable-Substitution": {
       "subsubject": "Mathematics.Differential-Equations",
-      "aliases": [
-        "Mathematics.Differential-Equations.First-Order-ODE-by-Variable-Substitution"
-      ],
       "labelZh": "通过变量代换求解一阶常微分方程",
       "labelJa": "変数変換による一階常微分方程式の解法",
-      "labelEn": "First-order Ordinary Differential Equation by Variable Substitution"
+      "labelEn": "First-order Ordinary Differential Equation by Variable Substitution",
+      "searchAliases": {
+        "en": [
+          "First Order ODE by Variable Substitution"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Clairaut-Equation-and-Singular-Solution": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1778,12 +1783,14 @@
     },
     "Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
-      "aliases": [
-        "Mathematics.Differential-Equations.First-Order-ODE"
-      ],
       "labelZh": "一阶常微分方程",
       "labelJa": "一階常微分方程式",
-      "labelEn": "First-order Ordinary Differential Equation"
+      "labelEn": "First-order Ordinary Differential Equation",
+      "searchAliases": {
+        "en": [
+          "First Order ODE"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Initial-Value-Problem": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1824,12 +1831,14 @@
     },
     "Mathematics.Differential-Equations.Polynomial-Solutions-of-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
-      "aliases": [
-        "Mathematics.Differential-Equations.Polynomial-Solutions-of-ODE"
-      ],
       "labelZh": "常微分方程的多项式解",
       "labelJa": "常微分方程式の多項式解",
-      "labelEn": "Polynomial Solutions of Ordinary Differential Equation"
+      "labelEn": "Polynomial Solutions of Ordinary Differential Equation",
+      "searchAliases": {
+        "en": [
+          "Polynomial Solutions of ODE"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Exact-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1883,21 +1892,25 @@
     },
     "Mathematics.Differential-Equations.Homogeneous-First-Order-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
-      "aliases": [
-        "Mathematics.Differential-Equations.Homogeneous-First-Order-ODE"
-      ],
       "labelZh": "一阶齐次常微分方程",
       "labelJa": "一階同次形常微分方程式",
-      "labelEn": "Homogeneous First-order Ordinary Differential Equation"
+      "labelEn": "Homogeneous First-order Ordinary Differential Equation",
+      "searchAliases": {
+        "en": [
+          "Homogeneous First Order ODE"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Higher-Order-Linear-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
-      "aliases": [
-        "Mathematics.Differential-Equations.Higher-Order-Linear-ODE"
-      ],
       "labelZh": "高阶线性常微分方程",
       "labelJa": "高階線形常微分方程式",
-      "labelEn": "Higher-order Linear Ordinary Differential Equation"
+      "labelEn": "Higher-order Linear Ordinary Differential Equation",
+      "searchAliases": {
+        "en": [
+          "Higher Order Linear ODE"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Frobenius-Method": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1919,12 +1932,14 @@
     },
     "Mathematics.Differential-Equations.Bounded-Solution-of-Forced-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
-      "aliases": [
-        "Mathematics.Differential-Equations.Bounded-Solution-of-Forced-ODE"
-      ],
       "labelZh": "受迫常微分方程的有界解",
       "labelJa": "外力項をもつ常微分方程式の有界解",
-      "labelEn": "Bounded Solution of Forced Ordinary Differential Equation"
+      "labelEn": "Bounded Solution of Forced Ordinary Differential Equation",
+      "searchAliases": {
+        "en": [
+          "Bounded Solution of Forced ODE"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Normal-Modes-of-Coupled-Linear-ODEs": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1962,12 +1977,14 @@
     },
     "Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
-      "aliases": [
-        "Mathematics.Differential-Equations.Separable-ODE"
-      ],
       "labelZh": "可分离变量的常微分方程",
       "labelJa": "変数分離形常微分方程式",
-      "labelEn": "Separable Ordinary Differential Equation"
+      "labelEn": "Separable Ordinary Differential Equation",
+      "searchAliases": {
+        "en": [
+          "Separable ODE"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Separation-of-Variables-for-Partial-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1975,12 +1992,14 @@
         "Physics",
         "Engineering"
       ],
-      "aliases": [
-        "Mathematics.Differential-Equations.Separation-of-Variables-for-PDE"
-      ],
       "labelZh": "偏微分方程的分离变量法",
       "labelJa": "偏微分方程式の変数分離法",
-      "labelEn": "Separation of Variables for Partial Differential Equation"
+      "labelEn": "Separation of Variables for Partial Differential Equation",
+      "searchAliases": {
+        "en": [
+          "Separation of Variables for PDE"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Generalized-Lotka-Volterra-Lyapunov-Stability": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -2142,12 +2161,14 @@
         "Electrical-Electronic",
         "Physics"
       ],
-      "aliases": [
-        "Mathematics.Fourier-Analysis.Fourier-Series-Solution-of-ODE"
-      ],
       "labelZh": "用傅里叶级数求解常微分方程",
       "labelJa": "フーリエ級数による常微分方程式の解法",
-      "labelEn": "Fourier Series Solution of Ordinary Differential Equation"
+      "labelEn": "Fourier Series Solution of Ordinary Differential Equation",
+      "searchAliases": {
+        "en": [
+          "Fourier Series Solution of ODE"
+        ]
+      }
     },
     "Mathematics.Fourier-Analysis.Fourier-Sine-and-Cosine-Series": {
       "subsubject": "Mathematics.Fourier-Analysis",
@@ -2203,12 +2224,14 @@
     },
     "Mathematics.Vector-Calculus.Greens-Identities": {
       "subsubject": "Mathematics.Vector-Calculus",
-      "aliases": [
-        "Mathematics.Vector-Calculus.Green’s-Identity"
-      ],
       "labelZh": "格林恒等式",
       "labelJa": "グリーンの恒等式",
-      "labelEn": "Green’s Identities"
+      "labelEn": "Green’s Identities",
+      "searchAliases": {
+        "en": [
+          "Green’s Identity"
+        ]
+      }
     },
     "Mathematics.Vector-Calculus.Laplacian": {
       "subsubject": "Mathematics.Vector-Calculus",
@@ -2261,12 +2284,14 @@
     },
     "Mathematics.Vector-Calculus.Plane-and-Distance-in-Three-Dimensional-Euclidean-Space": {
       "subsubject": "Mathematics.Vector-Calculus",
-      "aliases": [
-        "Mathematics.Vector-Calculus.Plane-and-Distance-in-R3"
-      ],
       "labelZh": "三维欧氏空间中的平面与距离",
       "labelJa": "三次元ユークリッド空間における平面と距離",
-      "labelEn": "Plane and Distance in Three-dimensional Euclidean Space"
+      "labelEn": "Plane and Distance in Three-dimensional Euclidean Space",
+      "searchAliases": {
+        "en": [
+          "Plane and Distance in R3"
+        ]
+      }
     },
     "Mathematics.Vector-Calculus.Hyperplane-to-Hypersphere-Distance": {
       "subsubject": "Mathematics.Vector-Calculus",

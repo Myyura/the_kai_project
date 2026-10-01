@@ -95,16 +95,14 @@
   "topics": {
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "aliases": [
-        "Probability-Statistics.Probability-Distributions-and-Asymptotics.CDF-and-PDF"
-      ],
       "labelZh": "累积分布函数与概率密度函数",
       "labelJa": "累積分布関数と確率密度関数",
       "labelEn": "Cumulative Distribution Function and Probability Density Function",
       "searchAliases": {
         "en": [
           "CDF",
-          "PDF"
+          "PDF",
+          "CDF and PDF"
         ],
         "zh": [
           "分布函数与密度函数"
@@ -245,12 +243,14 @@
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Poisson-Count-Maximum-Likelihood-Estimation-for-Rate": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "aliases": [
-        "Probability-Statistics.Estimation-and-Hypothesis-Testing.Poisson-Count-MLE-for-Rate"
-      ],
       "labelZh": "泊松计数模型中率参数的极大似然估计",
       "labelJa": "ポアソン計数モデルの率パラメータの最尤推定",
-      "labelEn": "Maximum Likelihood Estimation of a Poisson Rate"
+      "labelEn": "Maximum Likelihood Estimation of a Poisson Rate",
+      "searchAliases": {
+        "en": [
+          "Poisson Count MLE for Rate"
+        ]
+      }
     },
     "Probability-Statistics.Stochastic-Processes.Exponential-Race-and-Order-of-Arrival": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
@@ -368,12 +368,14 @@
     },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Laplace-Distribution-Moments-Cumulative-Distribution-Function-and-Quantiles": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "aliases": [
-        "Probability-Statistics.Probability-Distributions-and-Asymptotics.Laplace-Distribution-Moments-CDF-and-Quantiles"
-      ],
       "labelZh": "拉普拉斯分布的矩、分布函数与分位数",
       "labelJa": "ラプラス分布のモーメント・累積分布関数・分位点",
-      "labelEn": "Laplace Distribution Moments Cumulative Distribution Function and Quantiles"
+      "labelEn": "Laplace Distribution Moments Cumulative Distribution Function and Quantiles",
+      "searchAliases": {
+        "en": [
+          "Laplace Distribution Moments CDF and Quantiles"
+        ]
+      }
     },
     "Probability-Statistics.Probability-Basics.Convolution-of-Independent-Random-Variables": {
       "subsubject": "Probability-Statistics.Probability-Basics",
@@ -427,12 +429,14 @@
     },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function-of-Sum-of-Independent-Variables": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "aliases": [
-        "Probability-Statistics.Probability-Distributions-and-Asymptotics.MGF-of-Sum-of-Independent-Variables"
-      ],
       "labelZh": "独立随机变量之和的矩生成函数",
       "labelJa": "独立な確率変数の和の積率母関数",
-      "labelEn": "Moment Generating Function of Sum of Independent Variables"
+      "labelEn": "Moment Generating Function of Sum of Independent Variables",
+      "searchAliases": {
+        "en": [
+          "MGF of Sum of Independent Variables"
+        ]
+      }
     },
     "Probability-Statistics.Probability-Basics.Markov-and-Chebyshev-Inequalities": {
       "subsubject": "Probability-Statistics.Probability-Basics",
@@ -529,12 +533,14 @@
     },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-to-Poisson-Convergence-via-Moment-Generating-Function": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "aliases": [
-        "Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-to-Poisson-Convergence-via-MGF"
-      ],
       "labelZh": "用矩生成函数证明二项分布收敛到泊松分布",
       "labelJa": "積率母関数による二項分布からポアソン分布への収束",
-      "labelEn": "Binomial-to-Poisson Convergence via Moment Generating Function"
+      "labelEn": "Binomial-to-Poisson Convergence via Moment Generating Function",
+      "searchAliases": {
+        "en": [
+          "Binomial to Poisson Convergence via MGF"
+        ]
+      }
     },
     "Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation": {
       "subsubject": "Probability-Statistics.Probability-Basics",
@@ -637,9 +643,6 @@
     },
     "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Analysis-of-Variance": {
       "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
-      "aliases": [
-        "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.ANOVA"
-      ],
       "labelZh": "方差分析",
       "labelJa": "分散分析",
       "labelEn": "Analysis of Variance",
@@ -761,9 +764,6 @@
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesizing-After-Results-Are-Known": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "aliases": [
-        "Probability-Statistics.Estimation-and-Hypothesis-Testing.HARKing"
-      ],
       "labelZh": "获知结果后提出假设",
       "labelJa": "結果を見た後で仮説を立てること",
       "labelEn": "Hypothesizing After Results Are Known",
@@ -876,12 +876,14 @@
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ],
-      "aliases": [
-        "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Polynomial-Regression-via-MLE-and-Least-Squares"
-      ],
       "labelZh": "多项式回归的极大似然估计与最小二乘法",
       "labelJa": "多項式回帰の最尤推定と最小二乗法",
-      "labelEn": "Polynomial Regression via Maximum Likelihood Estimation and Least Squares"
+      "labelEn": "Polynomial Regression via Maximum Likelihood Estimation and Least Squares",
+      "searchAliases": {
+        "en": [
+          "Polynomial Regression via MLE and Least Squares"
+        ]
+      }
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
@@ -902,12 +904,14 @@
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Lognormal-Parameter-Maximum-Likelihood-Estimation": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "aliases": [
-        "Probability-Statistics.Estimation-and-Hypothesis-Testing.Lognormal-Parameter-MLE"
-      ],
       "labelZh": "对数正态分布参数的极大似然估计",
       "labelJa": "対数正規分布のパラメータの最尤推定",
-      "labelEn": "Maximum Likelihood Estimation of Lognormal Parameters"
+      "labelEn": "Maximum Likelihood Estimation of Lognormal Parameters",
+      "searchAliases": {
+        "en": [
+          "Lognormal Parameter MLE"
+        ]
+      }
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Method-of-Moments": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
@@ -1054,12 +1058,14 @@
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
       ],
-      "aliases": [
-        "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.OLS-Normal-Equation-and-Singular-Design"
-      ],
       "labelZh": "普通最小二乘正规方程与奇异设计矩阵",
       "labelJa": "通常最小二乗法の正規方程式と特異な計画行列",
-      "labelEn": "OLS Normal Equations and Singular Design Matrices"
+      "labelEn": "OLS Normal Equations and Singular Design Matrices",
+      "searchAliases": {
+        "en": [
+          "OLS Normal Equation and Singular Design"
+        ]
+      }
     },
     "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Expected-Ordinary-Least-Squares-Loss-and-Variance-Trace": {
       "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
@@ -1067,12 +1073,14 @@
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
       ],
-      "aliases": [
-        "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Expected-OLS-Loss-and-Variance-Trace"
-      ],
       "labelZh": "普通最小二乘损失的期望与协方差矩阵的迹",
       "labelJa": "通常最小二乗損失の期待値と共分散行列のトレース",
-      "labelEn": "Expected OLS Loss and the Trace of the Covariance Matrix"
+      "labelEn": "Expected OLS Loss and the Trace of the Covariance Matrix",
+      "searchAliases": {
+        "en": [
+          "Expected OLS Loss and Variance Trace"
+        ]
+      }
     },
     "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Ridge-Regularization-for-Singular-Design": {
       "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
@@ -1114,15 +1122,13 @@
         "Data-Science-Artificial-Intelligence",
         "Bioinformatics"
       ],
-      "aliases": [
-        "Probability-Statistics.Estimation-and-Hypothesis-Testing.ROC-Curve-Interpretation"
-      ],
       "labelZh": "受试者工作特征曲线的解读",
       "labelJa": "受信者動作特性曲線の解釈",
       "labelEn": "Receiver Operating Characteristic Curve Interpretation",
       "searchAliases": {
         "en": [
-          "ROC curve"
+          "ROC curve",
+          "ROC Curve Interpretation"
         ],
         "zh": [
           "ROC 曲线"
@@ -1218,12 +1224,14 @@
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Exponential-Rate-Maximum-Likelihood-Estimation-and-Bias": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "aliases": [
-        "Probability-Statistics.Estimation-and-Hypothesis-Testing.Exponential-Rate-MLE-and-Bias"
-      ],
       "labelZh": "指数分布率参数的极大似然估计与偏差",
       "labelJa": "指数分布の率パラメータの最尤推定とバイアス",
-      "labelEn": "Maximum Likelihood Estimation of an Exponential Rate and its Bias"
+      "labelEn": "Maximum Likelihood Estimation of an Exponential Rate and its Bias",
+      "searchAliases": {
+        "en": [
+          "Exponential Rate MLE and Bias"
+        ]
+      }
     },
     "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Weighted-Least-Squares": {
       "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
@@ -1252,12 +1260,14 @@
     },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Probability-Generating-Function-of-Random-Sum": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "aliases": [
-        "Probability-Statistics.Probability-Distributions-and-Asymptotics.PGF-of-Random-Sum"
-      ],
       "labelZh": "随机项数和的概率生成函数",
       "labelJa": "ランダムな項数の和の確率母関数",
-      "labelEn": "Probability Generating Function of Random Sum"
+      "labelEn": "Probability Generating Function of Random Sum",
+      "searchAliases": {
+        "en": [
+          "PGF of Random Sum"
+        ]
+      }
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Diagnostic-Test-Positive-Predictive-Value": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
@@ -1310,12 +1320,14 @@
         "Computer-Science",
         "Bioinformatics"
       ],
-      "aliases": [
-        "Probability-Statistics.Stochastic-Processes.Pattern-Occurrence-in-IID-Sequence"
-      ],
       "labelZh": "独立同分布序列中的模式出现",
       "labelJa": "独立同分布系列におけるパターンの出現",
-      "labelEn": "Pattern Occurrence in Independent Identically Distributed Sequence"
+      "labelEn": "Pattern Occurrence in Independent Identically Distributed Sequence",
+      "searchAliases": {
+        "en": [
+          "Pattern Occurrence in IID Sequence"
+        ]
+      }
     },
     "Probability-Statistics.Probability-Basics.Collision-Probability-of-Discrete-Distributions": {
       "subsubject": "Probability-Statistics.Probability-Basics",
@@ -1337,12 +1349,14 @@
     },
     "Probability-Statistics.Stochastic-Processes.Autoregressive-Order-One-with-Bernoulli-Innovations": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "aliases": [
-        "Probability-Statistics.Stochastic-Processes.AR1-with-Bernoulli-Innovations"
-      ],
       "labelZh": "伯努利新息的一阶自回归过程",
       "labelJa": "ベルヌーイ革新項をもつ一次自己回帰過程",
-      "labelEn": "AR(1) Process with Bernoulli Innovations"
+      "labelEn": "AR(1) Process with Bernoulli Innovations",
+      "searchAliases": {
+        "en": [
+          "AR1 with Bernoulli Innovations"
+        ]
+      }
     },
     "Probability-Statistics.Stochastic-Processes.Markov-Chain": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
@@ -1361,12 +1375,14 @@
     },
     "Probability-Statistics.Stochastic-Processes.Markov-Information-Source": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "aliases": [
-        "Probability-Statistics.Stochastic-Processes.Markov-Source"
-      ],
       "labelZh": "马尔可夫信息源",
       "labelJa": "マルコフ情報源",
-      "labelEn": "Markov Information Source"
+      "labelEn": "Markov Information Source",
+      "searchAliases": {
+        "en": [
+          "Markov Source"
+        ]
+      }
     },
     "Probability-Statistics.Stochastic-Processes.Stopping-Time": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",

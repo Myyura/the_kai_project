@@ -29,7 +29,7 @@ export default function DocTagsListPage({tags}: Props): ReactNode {
                 <Heading as="h1">{t.pageTitle}</Heading>
                 <p>{t.pageSubtitle}</p>
               </header>
-              <ContentBrowseModes section="exams" activeMode="tags" />
+              <ContentBrowseModes activeMode="tags" />
               <TagsListByLetter tags={tags} />
             </main>
           </div>

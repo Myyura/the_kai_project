@@ -17,7 +17,7 @@ function loadDocumentIdentity() {
   return loaded.exports;
 }
 
-const {getCanonicalDocumentId} = loadDocumentIdentity();
+const {getCanonicalDocumentId, resolveDocumentUuid, resolveCurrentDocId} = loadDocumentIdentity();
 
 test('document features use the source-path identity when Docusaurus strips numeric prefixes', () => {
   assert.equal(
@@ -31,4 +31,17 @@ test('document features use the source-path identity when Docusaurus strips nume
 
 test('document identity falls back to the Docusaurus id without a source file', () => {
   assert.equal(getCanonicalDocumentId({id: 'intro'}), 'intro');
+});
+
+test('document UUIDs reject empty input and retain renamed-document identities', async () => {
+  await assert.rejects(resolveDocumentUuid('  '), /缺少文档标识/);
+  const overrides = require('../src/data/documentIdentityOverrides.json');
+  for (const [docId, uuid] of Object.entries(overrides.current || {})) {
+    assert.equal(await resolveDocumentUuid(docId), uuid);
+    assert.equal(resolveCurrentDocId({document_uuid: uuid, doc_id: 'older/path'}), docId);
+  }
+  for (const [alias, uuid] of Object.entries(overrides.aliases || {})) {
+    assert.equal(await resolveDocumentUuid(alias), uuid);
+  }
+  assert.equal(resolveCurrentDocId({document_uuid: 'unmoved-uuid', doc_id: 'current/path'}), 'current/path');
 });

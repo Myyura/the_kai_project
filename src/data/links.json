@@ -1,16 +1,5 @@
 {
   "zh": {
-    "title": "参考链接",
-    "heading": "参考链接",
-    "subtitle": "汇集题解资源与备考资料，助力你的修考之路",
-    "section1Title": "题解与参考资料",
-    "section1Desc": "由社区贡献者整理的过去问解答和学习资源",
-    "section2Title": "就职信息",
-    "section2Desc": "日本IT行业实习与求职资源",
-    "open": "访问",
-    "statsLinks": "个链接",
-    "statsContributors": "位贡献者",
-    "statsCategories": "个类别",
     "links": [
       {
         "name": "Myyura's Blog",
@@ -182,17 +171,6 @@
     ]
   },
   "ja": {
-    "title": "参考リンク",
-    "heading": "参考リンク",
-    "subtitle": "過去問解答と学習リソースを集約、受験勉強をサポート",
-    "section1Title": "過去問解答・参考資料",
-    "section1Desc": "コミュニティ貢献者による過去問解答と学習リソース",
-    "section2Title": "就職情報",
-    "section2Desc": "日本IT業界のインターンと就職リソース",
-    "open": "開く",
-    "statsLinks": "件のリンク",
-    "statsContributors": "人の貢献者",
-    "statsCategories": "カテゴリ",
     "links": [
       {
         "name": "Myyura's Blog",

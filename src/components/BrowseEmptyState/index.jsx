@@ -2,7 +2,7 @@ import React from 'react';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
 
-export default function BrowseEmptyState({message, onReset, resetLabel, focusTargetId, children}) {
+export default function BrowseEmptyState({message, onReset, resetLabel, focusTargetId}) {
   const t = useUiText('framework');
   const reset = () => {
     onReset();
@@ -19,7 +19,6 @@ export default function BrowseEmptyState({message, onReset, resetLabel, focusTar
           {resetLabel || t.clearSearch}
         </button>
       )}
-      {children}
     </div>
   );
 }

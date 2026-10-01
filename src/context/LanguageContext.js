@@ -1,21 +1,20 @@
-import React, { createContext, useContext, useCallback, useSyncExternalStore } from 'react';
+import {useSyncExternalStore} from 'react';
 import {
   DEFAULT_LANGUAGE,
   LANGUAGE_OPTIONS,
   getLanguageLocale,
   normalizeLanguage,
 } from '@site/src/i18n/config';
-import {getUiMessage} from '@site/src/i18n/messages';
 import {applyLanguage} from '@site/src/i18n/browserLanguage';
 
-export {DEFAULT_LANGUAGE, LANGUAGE_OPTIONS, getLanguageLocale, normalizeLanguage};
+export {LANGUAGE_OPTIONS, getLanguageLocale, normalizeLanguage};
 
 // ─── 语言检测核心（单一来源） ────────────────────────────────
 
 /**
  * 从 DOM data-lang 属性同步读取语言（SSR 安全）
  */
-export const getLanguage = () => {
+const getLanguage = () => {
   if (typeof document === 'undefined') return DEFAULT_LANGUAGE;
   return normalizeLanguage(document.documentElement.getAttribute('data-lang'));
 };
@@ -23,7 +22,7 @@ export const getLanguage = () => {
 /**
  * 切换语言：写 localStorage + 更新 DOM + 触发事件
  */
-export const setLanguage = (lang) => {
+const setLanguage = (lang) => {
   if (typeof window === 'undefined') return;
   const nextLanguage = normalizeLanguage(lang);
   applyLanguage(nextLanguage);
@@ -91,31 +90,12 @@ const subscribeToLanguage = (callback) => {
 // ─── 公共 Hooks ──────────────────────────────────────────────
 
 /**
- * 独立 hook：读取当前语言 + 提供 toggle 函数
- * 不依赖 LanguageProvider，可在任何组件中使用
+ * 独立 hook：读取当前语言 + 提供切换函数
+ * 使用与只读 hook 相同的外部 store
  *
- * @returns {[string, (nextLanguage?: string) => void]} [language, setStoredLanguage]
+ * @returns {[string, (nextLanguage: string) => void]} [language, setStoredLanguage]
  */
-export const useStoredLanguage = () => {
-  const language = useSyncExternalStore(
-    subscribeToLanguage,
-    getLanguage,
-    () => DEFAULT_LANGUAGE
-  );
-
-  const setStoredLanguage = useCallback((nextLanguage) => {
-    if (nextLanguage) {
-      setLanguage(nextLanguage);
-      return;
-    }
-
-    const currentIndex = LANGUAGE_OPTIONS.findIndex((item) => item.code === language);
-    const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % LANGUAGE_OPTIONS.length : 0;
-    setLanguage(LANGUAGE_OPTIONS[nextIndex].code);
-  }, [language]);
-
-  return [language, setStoredLanguage];
-};
+export const useStoredLanguage = () => [useCurrentLanguage(), setLanguage];
 
 /**
  * 只读 hook：仅获取当前语言（不需要切换功能时使用）
@@ -129,32 +109,3 @@ export const useCurrentLanguage = () => {
     () => DEFAULT_LANGUAGE
   );
 };
-
-// ─── Context-based API（用于 Navbar/Footer 等需要翻译函数的场景） ──
-
-const LanguageContext = createContext({
-  language: DEFAULT_LANGUAGE,
-  setLanguage: () => {},
-  t: (key, section = 'navbar') => key,
-});
-
-export const useLanguage = () => useContext(LanguageContext);
-
-export const LanguageProvider = ({ children }) => {
-  const language = useCurrentLanguage();
-
-  // 翻译函数
-  const t = useCallback((key, section = 'navbar') => {
-    return getUiMessage(section, key, language);
-  }, [language]);
-
-  const value = { language, setLanguage, t };
-
-  return (
-    <LanguageContext.Provider value={value}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
-export default LanguageContext;

@@ -1,13 +1,11 @@
 import {getSupabaseClient} from './supabaseClient';
-export {PROBLEM_SET_KIND} from './problemSetTypes';
-
-const UPDATED_EVENT = 'kai_problem_sets_updated';
+import {emitStudyEvent, PROBLEM_SETS_UPDATED_EVENT} from './studyEvents';
 
 const normalizeSet = (row) => ({
-  id: row.id || row.set_id,
+  id: row.id,
   kind: row.kind,
-  title: row.title ?? row.set_title ?? null,
-  description: row.description ?? row.set_description ?? '',
+  title: row.title ?? null,
+  description: row.description ?? '',
   itemCount: Number(row.item_count || 0),
   completedCount: Number(row.completed_count || 0),
   reviewingCount: Number(row.reviewing_count || 0),
@@ -45,12 +43,6 @@ const rpc = async (name, params) => {
   return data;
 };
 
-const notifyUpdated = (detail = {}) => {
-  if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent(UPDATED_EVENT, {detail}));
-  }
-};
-
 export async function fetchMyProblemSets(docId = '') {
   const data = await rpc('get_my_problem_sets', {p_doc_id: docId || null});
   return (data || []).map(normalizeSet);
@@ -60,8 +52,13 @@ export async function fetchMyProblemSet(setId) {
   const rows = await rpc('get_my_problem_set', {p_set_id: setId}) || [];
   if (rows.length === 0) throw new Error('problem_set_not_found');
   const value = {
-    ...normalizeSet(rows[0]),
-    id: rows[0].set_id,
+    ...normalizeSet({
+      id: rows[0].set_id,
+      kind: rows[0].kind,
+      title: rows[0].set_title,
+      description: rows[0].set_description,
+      archived_at: rows[0].archived_at,
+    }),
     items: rows.filter((row) => row.item_id).map(normalizeItem),
   };
   value.itemCount = value.items.length;
@@ -72,7 +69,7 @@ export async function fetchMyProblemSet(setId) {
 
 const mutate = async (name, params, detail) => {
   const result = await rpc(name, params);
-  notifyUpdated(detail);
+  emitStudyEvent(PROBLEM_SETS_UPDATED_EVENT, detail);
   return result;
 };
 
@@ -81,7 +78,7 @@ export const createMyProblemSet = async ({title, description = ''}) => {
     p_title: title,
     p_description: description,
   });
-  notifyUpdated({setId: id, action: 'created'});
+  emitStudyEvent(PROBLEM_SETS_UPDATED_EVENT, {setId: id, action: 'created'});
   return id;
 };
 
@@ -137,9 +134,3 @@ export const transferProblemSetItems = ({sourceSetId, targetSetId, itemIds, copy
   },
   {setId: sourceSetId, targetSetId, action: copy ? 'copied' : 'moved'},
 );
-
-export const addProblemSetsUpdatedListener = (listener) => {
-  if (typeof window === 'undefined') return () => {};
-  window.addEventListener(UPDATED_EVENT, listener);
-  return () => window.removeEventListener(UPDATED_EVENT, listener);
-};

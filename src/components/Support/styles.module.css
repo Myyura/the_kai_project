@@ -329,22 +329,6 @@
   object-fit: contain;
 }
 
-.partnerLogoForDarkTheme {
-  display: none !important;
-}
-
-[data-theme='dark'] .partnerLogoForLightTheme {
-  display: none;
-}
-
-[data-theme='dark'] .partnerLogoForDarkTheme {
-  display: block !important;
-}
-
-.strategicPartnerLogo strong {
-  color: var(--ifm-color-primary);
-  font-size: 2rem;
-}
 
 .strategicPartnerCopy h3,
 .partnerConfigurationState h3 {

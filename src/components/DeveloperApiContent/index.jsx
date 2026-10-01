@@ -36,7 +36,7 @@ function formatDate(value, language, fallback) {
   }
 }
 
-export function DeveloperApiContent({ embedded = false } = {}) {
+export function DeveloperApiContent() {
   const language = useCurrentLanguage();
   const t = useUiText('developers');
   const { siteConfig } = useDocusaurusContext();
@@ -326,7 +326,7 @@ export function DeveloperApiContent({ embedded = false } = {}) {
 
   if (!isConfigured) {
     return (
-      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+      <div className={styles.shell}>
         <section className={styles.noticePanel}>
           <FaExclamationTriangle className={styles.noticeIcon} />
           <h1>{t.apiTitle}</h1>
@@ -338,7 +338,7 @@ export function DeveloperApiContent({ embedded = false } = {}) {
 
   if (!authReady) {
     return (
-      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+      <div className={styles.shell}>
         <div className={styles.loadingPanel}>
           <FaRedo className={styles.spin} />
         </div>
@@ -348,7 +348,7 @@ export function DeveloperApiContent({ embedded = false } = {}) {
 
   if (!isLoggedIn) {
     return (
-      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+      <div className={styles.shell}>
         <section className={styles.noticePanel}>
           <FaKey className={styles.noticeIcon} />
           <h1>{t.apiTitle}</h1>
@@ -362,7 +362,7 @@ export function DeveloperApiContent({ embedded = false } = {}) {
   }
 
   return (
-    <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+    <div className={styles.shell}>
       <header className={styles.header}>
         <div>
           <h1>{t.apiTitle}</h1>

@@ -5,97 +5,25 @@
   margin: 1.5rem 0 2.5rem;
 }
 
-.viewTabs {
-  display: inline-flex;
-  align-self: flex-start;
-  gap: 0.25rem;
-  padding: 0.25rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--custom-border-radius-xs);
-  background: var(--ifm-color-emphasis-100);
-}
-
-.viewTab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  min-height: 2.4rem;
-  padding: 0.4rem 0.8rem;
-  border: 0;
-  border-radius: var(--custom-border-radius-xs);
-  background: transparent;
-  color: var(--ifm-color-emphasis-700);
-  font: inherit;
-  font-size: 0.92rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.viewTab:hover {
-  color: var(--ifm-font-color-base);
-  background: var(--ifm-background-color);
-}
-
-.viewTabActive {
-  background: var(--ifm-background-surface-color);
-  color: var(--ifm-color-primary);
-  box-shadow: var(--kai-shadow-card);
-}
-
-.viewTabCount {
-  flex-shrink: 0;
-  white-space: nowrap;
-  min-width: 1.55rem;
-  padding: 0.08rem 0.38rem;
-  border-radius: 999px;
-  background: var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.72rem;
-  text-align: center;
-}
-
-.viewTabActive .viewTabCount {
-  background: var(--ifm-color-primary-contrast-background);
-  color: var(--ifm-color-primary);
-}
-
-.learningExplorer,
-.schoolPanel,
-.pendingPanel {
+.learningExplorer {
   min-width: 0;
 }
 
-.explorerHeader,
-.simplePanelHeader {
+.explorerHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
   margin-bottom: 1.1rem;
-}
-
-.explorerHeader {
   padding: 0.75rem 0;
   background: var(--ifm-background-surface-color);
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
-.explorerTitle,
-.panelTitle {
+.explorerTitle {
   margin: 0 !important;
   font-size: 1.22rem !important;
   line-height: 1.35;
-}
-
-.panelCount {
-  min-width: 2rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.76rem;
-  font-weight: 700;
-  text-align: center;
 }
 
 .searchField {
@@ -257,14 +185,8 @@
 }
 
 .rowCount {
-  min-width: 1.7rem;
-  padding: 0.1rem 0.38rem;
-  border-radius: 999px;
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.7rem;
+  composes: navigationCount from '../../styles/browse-layout.module.css';
   font-weight: 700;
-  text-align: center;
 }
 
 .rowChevron {
@@ -315,15 +237,9 @@
 }
 
 .topicCount {
+  composes: navigationCount from '../../styles/browse-layout.module.css';
   grid-area: count;
-  min-width: 1.55rem;
-  padding: 0.08rem 0.34rem;
-  border-radius: 999px;
-  background: var(--kai-success-bg);
-  color: var(--kai-success-strong);
-  font-size: 0.68rem;
   font-weight: 700;
-  text-align: center;
 }
 
 .topicRelated {
@@ -348,119 +264,11 @@
   font-size: 0.67rem;
 }
 
-.schoolGrid,
-.tagGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-
-.schoolGrid {
-  padding-top: 0.2rem;
-}
-
-.pendingPanel {
-  margin-top: 0.7rem;
-  padding-top: 1.15rem;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-}
-
-.tagPill {
-  display: inline-flex;
-  align-items: stretch;
-  justify-content: center;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 2.75rem;
-  max-width: 100%;
-  gap: 0.3rem;
-  padding: 0.42rem 0.48rem 0.42rem 0.7rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: var(--custom-border-radius-xs);
-  background: var(--ifm-background-color);
-  color: var(--ifm-font-color-base);
-  font-size: 0.88rem;
-  line-height: 1.2;
-  text-decoration: none;
-  transition: var(--custom-transition-fast);
-}
-
-.tagMainRow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 0;
-  gap: 0.45rem;
-}
-
-.tagPill:hover {
-  border-color: var(--ifm-color-primary);
-  background: var(--ifm-color-primary-contrast-background);
-  color: var(--ifm-font-color-base);
-  text-decoration: none;
-}
-
-.tagName {
-  min-width: 0;
-  overflow-wrap: anywhere;
-  font-weight: 700;
-}
-
-.tagPillCount {
-  flex: 0 0 auto;
-  min-width: 1.55rem;
-  padding: 0.1rem 0.38rem;
-  border-radius: 999px;
-  background: var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-emphasis-800);
-  font-size: 0.74rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.school {
-  border-color: rgba(var(--kai-blue-rgb), 0.32);
-}
-
-.school .tagPillCount {
-  background: rgba(var(--kai-blue-rgb), 0.12);
-  color: var(--kai-action-hover);
-}
-
-.pending {
-  border-style: dashed;
-  border-color: rgba(var(--kai-warning-rgb), 0.42);
-}
-
-.pending .tagPillCount {
-  background: rgba(var(--kai-warning-rgb), 0.13);
-  color: var(--kai-warning);
-}
-
-[data-theme='dark'] .viewTabs,
-[data-theme='dark'] .tagPill {
-  border-color: var(--ifm-color-emphasis-300);
-}
-
-[data-theme='dark'] .school .tagPillCount {
-  color: var(--kai-cyan);
-}
-
 @media (max-width: 768px) {
-  .viewTabs {
-    align-self: stretch;
-  }
-
-  .viewTab {
-    flex: 1 1 0;
-    min-width: 0;
-    justify-content: center;
-  }
-
-  .explorerHeader,
-  .simplePanelHeader {
+  .explorerHeader {
     align-items: stretch;
     flex-direction: column;
+    gap: .75rem;
   }
 
   .searchField {
@@ -484,6 +292,8 @@
 
   .subjectNavItem {
     flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
   }
 
   .subjectPanelHeader {
@@ -496,54 +306,24 @@
   }
 
   .topicLink {
+    min-height: 2.75rem;
     margin-right: 0;
-  }
-
-  .tagPill {
-    width: 100%;
   }
 }
 
-.topicRows[hidden],
-.tagsContainer > [hidden] {
+.topicRows[hidden] {
   display: none;
 }
 
-.viewTab:focus-visible,
 .subjectNavItem:focus-visible,
 .subsubjectLink:focus-visible,
 .topicToggle:focus-visible,
-.topicLink:focus-visible,
-.tagPill:focus-visible {
+.topicLink:focus-visible {
   outline: 2px solid var(--ifm-color-primary);
   outline-offset: 3px;
 }
 
-@media (max-width: 768px) {
-  .explorerHeader {
-    position: static;
-    gap: .75rem;
-  }
-
-  .viewTab,
-  .topicLink,
-  .tagPill {
-    min-height: 2.75rem;
-  }
-
-  .subjectNavItem {
-    width: auto;
-    white-space: nowrap;
-  }
-}
-
 @media (max-width: 440px) {
-  .viewTab {
-    flex-direction: column;
-    gap: .2rem;
-    padding: .45rem .35rem;
-  }
-
   .subsubjectSummary {
     align-items: flex-start;
     gap: .5rem;
@@ -555,8 +335,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rowChevron,
-  .tagPill {
+  .rowChevron {
     transition: none;
   }
 }

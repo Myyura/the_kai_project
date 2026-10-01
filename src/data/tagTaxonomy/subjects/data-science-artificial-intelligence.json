@@ -73,12 +73,14 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Data-Science-Artificial-Intelligence.Data-Science.TF-IDF"
-      ],
       "labelZh": "词频–逆文档频率",
       "labelJa": "単語頻度・逆文書頻度",
-      "labelEn": "Term Frequency–Inverse Document Frequency (TF-IDF)"
+      "labelEn": "Term Frequency–Inverse Document Frequency (TF-IDF)",
+      "searchAliases": {
+        "en": [
+          "TF IDF"
+        ]
+      }
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Bayesian-Network": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",

@@ -16,10 +16,7 @@
       "labelEn": "Cognitive Neuroscience",
       "descriptionZh": "认知过程、神经系统与脑功能。",
       "descriptionJa": "認知過程、神経系、脳機能。",
-      "descriptionEn": "Cognitive processes, nervous systems, and brain function.",
-      "aliases": [
-        "Bioinformatics.Cognitive-Neuroscience"
-      ]
+      "descriptionEn": "Cognitive processes, nervous systems, and brain function."
     }
   },
   "subsubjectOrder": [
@@ -43,12 +40,14 @@
       "relatedSubjects": [
         "Engineering"
       ],
-      "aliases": [
-        "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.MEG-vs-fMRI"
-      ],
       "labelZh": "脑磁图与功能磁共振成像的比较",
       "labelJa": "脳磁図と機能的磁気共鳴画像法の比較",
-      "labelEn": "Magnetoencephalography versus Functional MRI"
+      "labelEn": "Magnetoencephalography versus Functional MRI",
+      "searchAliases": {
+        "en": [
+          "MEG vs fMRI"
+        ]
+      }
     },
     "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Reaction-Time-Experiment-Design": {
       "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
@@ -76,12 +75,14 @@
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ],
-      "aliases": [
-        "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.VBM-and-DTI"
-      ],
       "labelZh": "基于体素的形态测量与弥散张量成像",
       "labelJa": "ボクセルベース形態計測と拡散テンソル画像法",
-      "labelEn": "Voxel-Based Morphometry and Diffusion Tensor Imaging"
+      "labelEn": "Voxel-Based Morphometry and Diffusion Tensor Imaging",
+      "searchAliases": {
+        "en": [
+          "VBM and DTI"
+        ]
+      }
     }
   }
 }

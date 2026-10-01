@@ -1,10 +1,5 @@
 .shell {
-  composes: shell from "../../styles/kai-ui.module.css";
-}
-
-.shell.embeddedShell {
   width: 100%;
-  padding: 0;
 }
 
 .header {

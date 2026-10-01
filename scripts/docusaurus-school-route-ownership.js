@@ -257,11 +257,6 @@ function getSidebarCategoryOwnership(sidebars, docsById, schoolIds, description)
   return categoryOwnersByPath;
 }
 
-function getSchoolTagPrefix(tagsPath) {
-  assertPathname(tagsPath, 'docs tagsPath');
-  return `${tagsPath.replace(/\/+$/, '')}/school/`;
-}
-
 function getVersionDescription(version, index) {
   const name = version?.versionName ?? version?.label ?? index;
   return `docs version ${JSON.stringify(name)}`;
@@ -276,10 +271,8 @@ function buildVersionOwnership(version, schoolIds, index = 0) {
     throw new Error(`${description} has invalid docs metadata.`);
   }
 
-  const schoolTagPrefix = getSchoolTagPrefix(version.tagsPath);
   const docsById = new Map();
   const docOwnersByPath = new Map();
-  const schoolTagOwnerSets = new Map();
 
   for (const doc of version.docs) {
     if (!doc || typeof doc.id !== 'string' || doc.id.length === 0) {
@@ -310,16 +303,6 @@ function buildVersionOwnership(version, schoolIds, index = 0) {
       knownSchoolIds,
       `${description} doc ${JSON.stringify(doc.id)}`,
     );
-
-    for (const tag of doc.tags || []) {
-      const permalink = tag?.permalink;
-      if (typeof permalink !== 'string' || !permalink.startsWith(schoolTagPrefix)) {
-        continue;
-      }
-      assertPathname(permalink, `${description} school tag permalink`);
-      if (!schoolTagOwnerSets.has(permalink)) schoolTagOwnerSets.set(permalink, new Set());
-      schoolTagOwnerSets.get(permalink).add(owner);
-    }
   }
 
   const categoryOwnersByPath = getSidebarCategoryOwnership(
@@ -328,19 +311,10 @@ function buildVersionOwnership(version, schoolIds, index = 0) {
     knownSchoolIds,
     description,
   );
-  const schoolTagOwnersByPath = new Map(
-    [...schoolTagOwnerSets].map(([pathname, owners]) => [
-      pathname,
-      resolveSingleSchoolOwner(owners),
-    ]),
-  );
-
   return {
     categoryOwnersByPath,
     docOwnersById: docsById,
     docOwnersByPath,
-    schoolTagOwnersByPath,
-    schoolTagPrefix,
   };
 }
 
@@ -374,8 +348,6 @@ function buildDocsOwnershipIndex(loadedVersions, schoolIds) {
     categoryOwnersByPath: new Map(),
     docOwnersByPath: new Map(),
     schoolIds: knownSchoolIds,
-    schoolTagOwnersByPath: new Map(),
-    schoolTagPrefixes: new Set(),
   };
 
   loadedVersions.forEach((version, versionIndex) => {
@@ -384,7 +356,6 @@ function buildDocsOwnershipIndex(loadedVersions, schoolIds) {
       knownSchoolIds,
       versionIndex,
     );
-    index.schoolTagPrefixes.add(versionOwnership.schoolTagPrefix);
     for (const [pathname, owner] of versionOwnership.docOwnersByPath) {
       if (index.docOwnersByPath.has(pathname)) {
         throw new Error(`Duplicate loaded doc permalink ${JSON.stringify(pathname)}.`);
@@ -406,21 +377,8 @@ function buildDocsOwnershipIndex(loadedVersions, schoolIds) {
         'loaded docs sidebars',
       );
     }
-    for (const [pathname, owner] of versionOwnership.schoolTagOwnersByPath) {
-      registerOwnership(
-        index.schoolTagOwnersByPath,
-        pathname,
-        owner,
-        knownSchoolIds,
-        'loaded docs school tags',
-      );
-    }
   });
   return index;
-}
-
-function isSchoolTagPath(pathname, schoolTagPrefixes) {
-  return [...schoolTagPrefixes].some((prefix) => pathname.startsWith(prefix));
 }
 
 function isCategoryRoute(route) {
@@ -448,7 +406,6 @@ function classifyRoute(route, ownershipIndex) {
   for (const [label, ownership] of [
     ['doc permalink', ownershipIndex.docOwnersByPath],
     ['sidebar category', ownershipIndex.categoryOwnersByPath],
-    ['school tag', ownershipIndex.schoolTagOwnersByPath],
   ]) {
     if (ownership.has(route.path)) evidence.push([label, ownership.get(route.path)]);
   }
@@ -466,11 +423,6 @@ function classifyRoute(route, ownershipIndex) {
     return assertKnownOwner(owner, ownershipIndex.schoolIds, `Route ${route.path}`);
   }
 
-  if (isSchoolTagPath(route.path, ownershipIndex.schoolTagPrefixes)) {
-    throw new Error(
-      `School tag route ${JSON.stringify(route.path)} is absent from docs tag metadata.`,
-    );
-  }
   if (isCategoryRoute(route)) {
     throw new Error(
       `Category route ${JSON.stringify(route.path)} is absent from loaded sidebars.`,
@@ -544,12 +496,6 @@ function buildRouteOwnership(siteProps, schoolIds) {
     ownershipIndex.categoryOwnersByPath,
     'Loaded category route',
   );
-  assertExpectedRoutesPresent(
-    ownership,
-    ownershipIndex.schoolTagOwnersByPath,
-    'Loaded school tag route',
-  );
-
   if (siteProps.routesPaths !== undefined) {
     if (!Array.isArray(siteProps.routesPaths)) {
       throw new Error('site.props.routesPaths must be an array.');
@@ -600,10 +546,8 @@ module.exports = {
   getDocSourceSchoolId,
   getDocsLoadedVersions,
   getRouteDocSourceOwnership,
-  getSchoolTagPrefix,
   getSidebarCategoryOwnership,
   inspectDocsSourcePath,
-  isSchoolTagPath,
   normalizeSchoolIds,
   registerOwnership,
   resolveSingleSchoolOwner,

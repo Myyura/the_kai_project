@@ -9,19 +9,19 @@ import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 import LinkItem from '@theme/Footer/LinkItem';
-import {useLanguage} from '@site/src/context/LanguageContext';
+import {useUiText} from '@site/src/i18n/useUiText';
 import type {Props} from '@theme/Footer/Links/MultiColumn';
 
 type ColumnType = Props['columns'][number];
 type ColumnItemType = ColumnType['items'][number];
 
 function ColumnLinkItem({item}: {item: ColumnItemType}) {
-  const {t} = useLanguage();
+  const t = useUiText('footer');
   
   // 翻译 label
   const translatedItem = {
     ...item,
-    label: item.label ? t(item.label, 'footer') : item.label,
+    label: item.label ? t[item.label] ?? item.label : item.label,
   };
   
   return item.html ? (
@@ -39,7 +39,7 @@ function ColumnLinkItem({item}: {item: ColumnItemType}) {
 }
 
 function Column({column}: {column: ColumnType}) {
-  const {t} = useLanguage();
+  const t = useUiText('footer');
   
   return (
     <div
@@ -48,7 +48,7 @@ function Column({column}: {column: ColumnType}) {
         'col footer__col',
         column.className,
       )}>
-      <div className="footer__title">{t(column.title, 'footer')}</div>
+      <div className="footer__title">{t[column.title] ?? column.title}</div>
       <ul className="footer__items clean-list">
         {column.items.map((item, i) => (
           <ColumnLinkItem key={i} item={item} />

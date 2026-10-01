@@ -68,14 +68,6 @@ function buildTagLookup() {
     const canonical = schoolTags.get(id);
     for (const alias of meta.aliases || []) registerAlias(alias, canonical);
   }
-  for (const [id, meta] of Object.entries(taxonomy.subsubjects || {})) {
-    const canonical = subsubjectTags.get(id);
-    for (const alias of meta.aliases || []) registerAlias(alias, canonical);
-  }
-  for (const [id, meta] of Object.entries(taxonomy.topics || {})) {
-    const canonical = topicTags.get(id);
-    for (const alias of meta.aliases || []) registerAlias(alias, canonical);
-  }
 
   return {
     subjectTags,
@@ -106,19 +98,6 @@ function classifyTag(rawTag) {
   if (LOOKUP.topicTags.has(tag)) return LOOKUP.topicTags.get(tag);
   if (LOOKUP.aliasTags.has(tag)) return LOOKUP.aliasTags.get(tag);
   return { kind: 'unknown', id: tag };
-}
-
-function isSchoolTag(tag) {
-  return classifyTag(tag).kind === 'school';
-}
-
-function isLearningTag(tag) {
-  const info = classifyTag(tag);
-  return info.kind === 'subsubject' || info.kind === 'topic' || info.kind === 'unknown';
-}
-
-function isTopicLikeTag(tag) {
-  return isLearningTag(tag);
 }
 
 function getSchoolTagForUniversity(universityId) {
@@ -280,7 +259,7 @@ function validateTags(tags) {
       }
     }
 
-    if (isLearningTag(normalized)) learningTagCount += 1;
+    if (['subsubject', 'topic', 'unknown'].includes(info.kind)) learningTagCount += 1;
   }
 
   for (const subsubjectId of subsubjectTags) {
@@ -342,9 +321,6 @@ module.exports = {
   getKnownTagIds,
   getSchoolTagForUniversity,
   getSubsubjectInfo,
-  isSchoolTag,
-  isLearningTag,
-  isTopicLikeTag,
   resolveDocumentTags,
   validateTags,
 };

@@ -146,6 +146,7 @@ function sequentialBundlesPlugin() {
 }
 
 const docsPluginOptions = {
+  onInlineTags: 'throw',
   remarkPlugins: [remarkMath],
   rehypePlugins: [
     rehypeAnnotationSourceLines,
@@ -343,10 +344,15 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            type: 'dropdown',
+            to: '/docs/intro',
+            activeBasePath: 'docs',
             position: 'left',
             label: '过去问',
+            items: [
+              {to: '/docs/intro', label: '按学校浏览', activeBaseRegex: '^/docs/(?!tags(?:/|$))'},
+              {to: '/docs/tags', label: '按科目与考点浏览', activeBasePath: 'docs/tags'},
+            ],
           },
           {to: '/blog', label: '经验贴', position: 'left'},
           {
@@ -375,16 +381,16 @@ const config = {
             title: 'Kai Project',
             items: [
               {
-                label: '过去问',
+                label: '按学校浏览',
                 to: '/docs/intro',
+              },
+              {
+                label: '按科目与考点浏览',
+                to: '/docs/tags',
               },
               {
                 label: '经验贴',
                 to: '/blog',
-              },
-              {
-                label: 'Tags',
-                to: '/docs/tags',
               },
               {
                 label: '参考链接',

@@ -728,7 +728,7 @@ function PersonalCenterDashboard({ user }) {
           )}
         </div>
         <aside className={styles.dashboardSidebar}>
-          <Leaderboard language={language} compact />
+          <Leaderboard language={language} />
         </aside>
       </div>
 
@@ -757,7 +757,7 @@ function MePageInner() {
       return (
         <div className={styles.page}>
           <PersonalCenterHeader activeTab="contribute" />
-          <ContributeContent embedded />
+          <ContributeContent />
         </div>
       );
     }
@@ -766,7 +766,7 @@ function MePageInner() {
       return (
         <div className={styles.page}>
           <PersonalCenterHeader activeTab="developer-api" />
-          <DeveloperApiContent embedded />
+          <DeveloperApiContent />
         </div>
       );
     }
@@ -777,7 +777,7 @@ function MePageInner() {
           <div className={styles.page}>
             <PersonalCenterHeader activeTab="ai-tutor" />
           </div>
-          <AgentTutorContent embedded />
+          <AgentTutorContent />
         </>
       );
     }

@@ -1,8 +1,4 @@
 .wrapper {
-  margin-top: 1.5rem;
-}
-
-.wrapperCompact {
   margin-top: 0;
 }
 
@@ -220,7 +216,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   padding: 1rem;
-  background: var(--ifm-color-emphasis-50);
+  background: var(--custom-card-bg);
 }
 
 .previewImage {

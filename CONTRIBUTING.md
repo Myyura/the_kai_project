@@ -63,7 +63,7 @@ yarn api:validate
 - `yarn review:format`: review answer-document formatting under `docs/` before opening a PR.
 - `yarn api:validate`: validate the structured data used by the public JSON API.
 
-Automated test files under the repository-root `tests/` directory are tracked in Git. Contributors must run `yarn test` locally and fix any failures before committing changes or opening a PR; CI does not run these tests. Audit reports under `audits/` remain local-only, ignored by Git, and are not tracked.
+Automated test files under the repository-root `tests/` directory are tracked in Git. Contributors must run `yarn test` locally and fix any failures before committing changes or opening a PR; The deployment workflow runs the same test suite for pull requests and pushes to `main`. Audit reports under `audits/` remain local-only, ignored by Git, and are not tracked.
 
 Contributor-editable content data lives under `src/data/`: `links.json`, `universityMetadata.json`, and the `tagTaxonomy/` directory. Tag definitions are split by primary subject under `tagTaxonomy/subjects/`; global policy and school tags live alongside them. Ordinary new documents derive UUIDv5 directly from `docId` and require no identity-manifest update. Only a move or rename requires `yarn documents:move -- <old-doc-id> <new-doc-id>`. Development and production builds refresh `siteStats.json` and `documentTitles.json` automatically; the other generated files can be maintained with the scripts above.
 
@@ -146,7 +146,7 @@ npx supabase functions deploy agent-context --project-ref "$SUPABASE_PROJECT_REF
 
 `kai-api` and `agent-context` share the static body loader in `supabase/functions/_shared/published-content.ts`. The Supabase CLI and GitHub Actions bundle it automatically, so there is no file to copy and no function to update manually in the Dashboard.
 
-Published body schema v2 stores `fullMarkdown` once and represents sections as UTF-16 `[start, end]` ranges. The shared loader accepts both v1 and v2 and reconstructs the same `sections` strings returned by the API. GitHub Actions deploys the compatible backend before publishing Pages. For a manual release, deploy `kai-api` and `agent-context` first, then publish the site; an older reader cannot consume v2 bodies. Reverting the Pages artifact is safe while retaining the compatible reader.
+Published body schema v2 stores `fullMarkdown` once and represents sections as UTF-16 `[start, end]` ranges. The shared loader accepts v2 and reconstructs the `sections` strings returned by the API; retired v1 bodies are rejected. GitHub Actions deploys the backend before publishing Pages. For a manual release, deploy `kai-api` and `agent-context` first, then publish the site. Rollbacks must retain v2 body artifacts.
 
 `yarn math:styles` regenerates the shared KaTeX layout classes from the current Markdown; the development and production build commands run it automatically. SSR and client rendering use the same generated dictionary, while styles not in that dictionary remain inline. Local and school-sharded builds emit one content-addressed stylesheet and one shared early chunk-recovery script. The recovery script uses a stable file path with a version query so cached pages can still load it after an update. Keep it blocking and before application bundles.
 
@@ -226,12 +226,11 @@ Rules enforced by the repository formatter:
 
 Tag rules:
 
-- Prefer existing canonical subsubject IDs and namespaced topic IDs from the [subject taxonomy files](src/data/tagTaxonomy/subjects). Top-level subject tags are invalid frontmatter tags. Legacy topic aliases are deprecated and trigger warnings; replace them with their canonical namespaced IDs.
+- Use canonical subsubject IDs and namespaced topic IDs from the [subject taxonomy files](src/data/tagTaxonomy/subjects). Top-level subject tags and retired topic IDs are invalid frontmatter tags. `searchAliases` only adds search terms; it does not define alternate tag IDs.
 - When a concrete topic is present, do not also add its parent subsubject; the formatter treats that pair as redundant.
 - Subject associations in the taxonomy should be strong associations found in actual problem content, not broad theoretical overlap.
-- School tags remain compatible, but the site primarily derives school metadata from the first two directory levels under `docs/`.
-- Correct new subsubject or topic tags are allowed; `yarn review:format` reports them as warnings instead of blocking the PR.
-- Tags missing from the current taxonomy are reported as new tags so contributors can check their spelling or request review.
+- School tags describe university metadata; their links open the corresponding university archive. The site also derives school metadata from the first two directory levels under `docs/`.
+- New subsubjects or topics may be proposed in a PR. `yarn review:format` flags unknown tags for review; register approved tags in the taxonomy and run `yarn tags:generate` before publication. The site build rejects unregistered tags.
 - If a document only has a school tag and no learning tag, the formatter reports a warning. If it has only a subsubject tag, the formatter suggests adding a more concrete topic when the problem statement has enough signal.
 
 Before opening a PR, please run:

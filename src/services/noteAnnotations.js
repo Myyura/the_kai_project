@@ -1,7 +1,7 @@
-export const ANNOTATIONS_START_PREFIX = '<!-- kai-annotations:start:v1:';
-export const ANNOTATIONS_END = '<!-- kai-annotations:end -->';
-export const ANNOTATION_BODY_MARKER = '<!-- kai-ann:body -->';
-export const ANNOTATION_END = '<!-- /kai-ann -->';
+const ANNOTATIONS_START_PREFIX = '<!-- kai-annotations:start:v1:';
+const ANNOTATIONS_END = '<!-- kai-annotations:end -->';
+const ANNOTATION_BODY_MARKER = '<!-- kai-ann:body -->';
+const ANNOTATION_END = '<!-- /kai-ann -->';
 
 const DEFAULT_NEXT_NUMBER = 1;
 
@@ -32,7 +32,7 @@ const normalizeLine = (value) => {
   return Number.isInteger(line) && line > 0 ? line : 1;
 };
 
-export const normalizeAnnotation = (raw, fallbackNow = Date.now()) => {
+const normalizeAnnotation = (raw, fallbackNow = Date.now()) => {
   if (!raw || typeof raw !== 'object') return null;
   const exact = typeof raw.exact === 'string' ? raw.exact.trim() : '';
   if (!exact) return null;

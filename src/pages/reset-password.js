@@ -46,7 +46,7 @@ function ResetPasswordContent() {
       setChecking(true);
       try {
         const data = await recoverPasswordSessionFromUrl();
-        const session = data?.session ?? data?.data?.session ?? null;
+        const session = data?.session ?? null;
         if (disposed) return;
         setReady(!!session);
         if (!session) {

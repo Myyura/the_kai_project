@@ -2,8 +2,8 @@ import React, { useState, useRef, useCallback, useEffect, useId } from 'react';
 import { FaShareAlt, FaDownload, FaCheck, FaTimes, FaImage } from 'react-icons/fa';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
-import {paginateContent, ShareImageLimitError} from './pagination';
-import {captureLongImage, checkAborted, cloneArticleContent, fitDisplayMath, waitForFonts, waitForImage, yieldToMain} from './render';
+import {checkAborted, paginateContent, ShareImageLimitError} from './pagination';
+import {captureLongImage, cloneArticleContent, fitDisplayMath, waitForFonts, waitForImage, yieldToMain} from './render';
 
 // 白名单样式：仅覆盖导出图片所需的排版元素，避免复制全站 style rules。
 const SHARE_STYLE_WHITELIST = `
@@ -29,6 +29,11 @@ const SHARE_STYLE_WHITELIST = `
     font-weight: 700;
     line-height: 1.35;
     margin: 1.15em 0 0.55em;
+  }
+
+  .share-image-container .share-markdown > #author,
+  .share-image-container .share-markdown > #author + p {
+    color: #334155;
   }
 
   .share-image-container .share-markdown h1 {
@@ -62,7 +67,7 @@ const SHARE_STYLE_WHITELIST = `
   }
 
   .share-image-container .share-markdown a {
-    color: #2563eb;
+    color: var(--kai-blue);
     text-decoration: none;
   }
 
@@ -121,8 +126,8 @@ const SHARE_STYLE_WHITELIST = `
     margin: 0.85em 0;
     padding: 0.55em 0.9em;
     background: #f8fafc;
-    /* 导出图固定亮色，不随主题翻转：取值对齐 --kai-success */
-    border-left: 4px solid #059669;
+    /* 品牌蓝在两种主题下保持一致，适用于固定白纸底的导出图。 */
+    border-left: 4px solid var(--kai-blue);
     color: #334155;
   }
 
@@ -197,7 +202,7 @@ function getDocBreadcrumbs() {
   return Array.from(items).map(a => a.textContent.trim()).join(' > ');
 }
 
-export default function ShareAsImage({ docId, title: docTitle, compact = false }) {
+export default function ShareAsImage({ docId, title: docTitle }) {
   const L = useUiText('shareAsImage');
 
   const [generating, setGenerating] = useState(false);
@@ -285,11 +290,11 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
         gap: 16px;
         margin-bottom: 24px;
         padding-bottom: 20px;
-        border-bottom: 2px solid #059669;
+        border-bottom: 2px solid var(--kai-blue);
       `;
 
       const logoImg = document.createElement('img');
-      logoImg.src = '/img/logo-96.png';
+      logoImg.src = '/img/kai-icon.png';
       logoImg.style.cssText = 'width: 48px; height: 48px; border-radius: 10px;';
       logoImg.crossOrigin = 'anonymous';
       header.appendChild(logoImg);
@@ -324,7 +329,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
       footer.style.cssText = `
         margin-top: 24px;
         padding: 16px 20px;
-        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        background: var(--kai-action);
         border-radius: 10px;
         display: flex;
         justify-content: space-between;
@@ -387,7 +392,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
           const span = document.createElement('span');
           span.textContent = 'runjp.com';
           span.style.cssText = `position: absolute; top: ${pos.top}px; left: ${pos.left}px;
-            font-size: 18px; font-weight: 700; color: rgba(46, 133, 85, 0.08);
+            font-size: 18px; font-weight: 700; color: rgba(var(--kai-blue-rgb), 0.08);
             transform: rotate(-30deg); white-space: nowrap; letter-spacing: 2px;`;
           watermarkOverlay.appendChild(span);
         }
@@ -516,7 +521,7 @@ export default function ShareAsImage({ docId, title: docTitle, compact = false }
   }, [closePreview, hasPreview]);
 
   return (
-    <div className={`${styles.wrapper} ${compact ? styles.wrapperCompact : ''}`}>
+    <div className={styles.wrapper}>
       <div className={styles.triggerRow}>
         <label className={styles.scopeControl}>
           <span>{L.scope}</span>

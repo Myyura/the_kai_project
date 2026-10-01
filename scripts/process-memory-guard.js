@@ -8,8 +8,6 @@ const GIB = 1024 * 1024 * 1024;
 // Stop well before the requested 16 GiB ceiling so sampling latency and the
 // desktop itself still have headroom.
 const HARD_MEMORY_LIMIT_BYTES = 14 * GIB;
-// Retain the original export for callers that adopted the first guard version.
-const HARD_RSS_LIMIT_BYTES = HARD_MEMORY_LIMIT_BYTES;
 const SAMPLE_INTERVAL_MS = 500;
 const MEMORY_GUARD_ACTIVE_ENV = 'KAI_INTERNAL_MEMORY_GUARD_ACTIVE';
 
@@ -342,9 +340,6 @@ async function runWithMemoryGuard(command, args, {
     ...result,
     exceeded,
     maxUsageBytes,
-    // Backward-compatible alias. New callers should use maxUsageBytes because
-    // the selected measurement may be a cgroup working set rather than RSS.
-    maxRssBytes: maxUsageBytes,
     measurementSource,
     watchdogAvailable: Boolean(watchdogAvailable),
   };
@@ -352,7 +347,6 @@ async function runWithMemoryGuard(command, args, {
 
 module.exports = {
   HARD_MEMORY_LIMIT_BYTES,
-  HARD_RSS_LIMIT_BYTES,
   MEMORY_GUARD_ACTIVE_ENV,
   SAMPLE_INTERVAL_MS,
   decodeMountInfoPath,

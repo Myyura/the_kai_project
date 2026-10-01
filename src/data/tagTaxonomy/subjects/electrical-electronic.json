@@ -77,9 +77,6 @@
       "relatedSubjects": [
         "Physics"
       ],
-      "aliases": [
-        "Electrical-Electronic.Circuits.AC-Power-and-Power-Factor"
-      ],
       "labelZh": "交流功率与功率因数",
       "labelJa": "交流電力と力率",
       "labelEn": "AC Power and Power Factor"
@@ -147,12 +144,14 @@
       "relatedSubjects": [
         "Physics"
       ],
-      "aliases": [
-        "Electrical-Electronic.Circuits.MOSFET-Bias-and-Small-Signal-Analysis"
-      ],
       "labelZh": "MOSFET 偏置与小信号分析",
       "labelJa": "MOSFETのバイアスと小信号解析",
-      "labelEn": "MOSFET Biasing and Small-Signal Analysis"
+      "labelEn": "MOSFET Biasing and Small-Signal Analysis",
+      "searchAliases": {
+        "en": [
+          "MOSFET Bias and Small Signal Analysis"
+        ]
+      }
     },
     "Electrical-Electronic.Circuits.Mutual-Inductance": {
       "subsubject": "Electrical-Electronic.Circuits",
@@ -211,24 +210,28 @@
         "Mathematics",
         "Physics"
       ],
-      "aliases": [
-        "Electrical-Electronic.Circuits.RLC-Damping"
-      ],
       "labelZh": "RLC 电路阻尼",
       "labelJa": "RLC回路の減衰",
-      "labelEn": "RLC Circuit Damping"
+      "labelEn": "RLC Circuit Damping",
+      "searchAliases": {
+        "en": [
+          "RLC Damping"
+        ]
+      }
     },
     "Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Resonance": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Physics"
       ],
-      "aliases": [
-        "Electrical-Electronic.Circuits.RLC-Resonance"
-      ],
       "labelZh": "RLC 电路谐振",
       "labelJa": "RLC回路の共振",
-      "labelEn": "RLC Circuit Resonance"
+      "labelEn": "RLC Circuit Resonance",
+      "searchAliases": {
+        "en": [
+          "RLC Resonance"
+        ]
+      }
     },
     "Electrical-Electronic.Circuits.Resistor-Capacitor-Charging-and-Discharging": {
       "subsubject": "Electrical-Electronic.Circuits",
@@ -236,12 +239,14 @@
         "Mathematics",
         "Physics"
       ],
-      "aliases": [
-        "Electrical-Electronic.Circuits.RC-Charging-and-Discharging"
-      ],
       "labelZh": "RC 电路充放电",
       "labelJa": "RC回路の充放電",
-      "labelEn": "RC Circuit Charging and Discharging"
+      "labelEn": "RC Circuit Charging and Discharging",
+      "searchAliases": {
+        "en": [
+          "RC Charging and Discharging"
+        ]
+      }
     },
     "Electrical-Electronic.Circuits.Superposition-Theorem": {
       "subsubject": "Electrical-Electronic.Circuits",
@@ -425,9 +430,6 @@
     },
     "Electrical-Electronic.Control-Theory.Proportional-Integral-Derivative-and-Integral-Proportional-Derivative-Control": {
       "subsubject": "Electrical-Electronic.Control-Theory",
-      "aliases": [
-        "Electrical-Electronic.Control-Theory.PID-and-I-PD-Control"
-      ],
       "labelZh": "PID 与 I-PD 控制",
       "labelJa": "PID制御とI-PD制御",
       "labelEn": "PID and I-PD Control"
@@ -606,9 +608,6 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Electrical-Electronic.Digital-Logic.FPGA"
-      ],
       "labelZh": "现场可编程门阵列",
       "labelJa": "フィールドプログラマブルゲートアレイ",
       "labelEn": "Field-Programmable Gate Arrays",
@@ -640,12 +639,14 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Electrical-Electronic.Digital-Logic.CMOS-Logic-Transistor-Count-Optimization"
-      ],
       "labelZh": "CMOS 逻辑晶体管数量优化",
       "labelJa": "CMOS論理回路のトランジスタ数最適化",
-      "labelEn": "Transistor Count Optimization in CMOS Logic"
+      "labelEn": "Transistor Count Optimization in CMOS Logic",
+      "searchAliases": {
+        "en": [
+          "CMOS Logic Transistor Count Optimization"
+        ]
+      }
     },
     "Electrical-Electronic.Digital-Logic.D-Flip-Flop": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
@@ -705,24 +706,28 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Electrical-Electronic.Digital-Logic.Half-Full-Adders"
-      ],
       "labelZh": "半加器与全加器",
       "labelJa": "半加算器と全加算器",
-      "labelEn": "Half Adders and Full Adders"
+      "labelEn": "Half Adders and Full Adders",
+      "searchAliases": {
+        "en": [
+          "Half Full Adders"
+        ]
+      }
     },
     "Electrical-Electronic.Digital-Logic.Not-AND-and-Not-OR-Universal-Gates": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Electrical-Electronic.Digital-Logic.NAND-NOR-Universal-Gates"
-      ],
       "labelZh": "与非门与或非门的通用性",
       "labelJa": "NANDゲートとNORゲートの万能性",
-      "labelEn": "NAND and NOR as Universal Gates"
+      "labelEn": "NAND and NOR as Universal Gates",
+      "searchAliases": {
+        "en": [
+          "NAND NOR Universal Gates"
+        ]
+      }
     },
     "Electrical-Electronic.Digital-Logic.Pulse-Width-Modulation": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
@@ -1026,12 +1031,14 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Electrical-Electronic.Signal-Processing.IIR-Filter-Transfer-Function-and-Realization"
-      ],
       "labelZh": "IIR 滤波器的传递函数与实现",
       "labelJa": "IIRフィルタの伝達関数と実現",
-      "labelEn": "IIR Filter Transfer Functions and Realization"
+      "labelEn": "IIR Filter Transfer Functions and Realization",
+      "searchAliases": {
+        "en": [
+          "IIR Filter Transfer Function and Realization"
+        ]
+      }
     },
     "Electrical-Electronic.Signal-Processing.Ideal-Low-Pass-Impulse-Response": {
       "subsubject": "Electrical-Electronic.Signal-Processing",

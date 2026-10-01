@@ -58,7 +58,7 @@ yarn api:validate
 - `yarn review:format`：在提交 PR 前检查 `docs/` 下题解文档的格式。
 - `yarn api:validate`：检查 JSON API 使用的结构化题库数据。
 
-仓库根目录 `tests/` 下的自动化测试文件纳入 Git 版本管理。贡献者必须在提交 commit 或发起 PR 前，在本地运行 `yarn test` 并修复所有失败项；CI 不运行这些测试。`audits/` 下的审计报告仍仅保留在本地，由 Git 忽略，不纳入版本管理。
+仓库根目录 `tests/` 下的自动化测试文件纳入 Git 版本管理。贡献者必须在提交 commit 或发起 PR 前，在本地运行 `yarn test` 并修复所有失败项；部署工作流也会在 PR 和推送到 `main` 时运行同一套测试。`audits/` 下的审计报告仍仅保留在本地，由 Git 忽略，不纳入版本管理。
 
 贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`universityMetadata.json` 和 `tagTaxonomy/` 目录。tag 定义按主科目存放在 `tagTaxonomy/subjects/`，全局策略和学校 tag 则存放在同级文件中。普通新增文档会按 `docId` 自动推导 UUIDv5，不需要修改身份清单；只有移动或重命名文档时才需要执行 `yarn documents:move -- <旧-doc-id> <新-doc-id>`。`siteStats.json` 和 `documentTitles.json` 会在开发及构建时自动刷新，其余生成文件可用上面的脚本维护。
 
@@ -205,12 +205,11 @@ tags:
 - 如果两个章节都存在，顺序应保持为 `Author` → `Description` → `Kai`
 
 tag 规则：
-- 推荐从[按科目拆分的 tag 文件](src/data/tagTaxonomy/subjects)中选择已有 canonical 子科目 ID 与 namespaced 考点 ID。一级学科 tag 不是有效的 frontmatter 学习 tag；旧短考点 alias 仍会被识别，但会作为 deprecated tag 给出 warning，应改用对应的 namespaced canonical 考点 ID。
+- 使用[按科目拆分的 tag 文件](src/data/tagTaxonomy/subjects)中的 canonical 子科目 ID 与 namespaced 考点 ID。一级学科 tag 和已移除的旧考点 ID 均不是有效的 frontmatter tag；`searchAliases` 只用于补充搜索词，不定义另一套 tag ID。
 - 已添加具体考点时，不要再同时添加它的父级子科目；格式检查会把这组 tag 判定为冗余。
 - tag 池中的关联科目应以题目内容中确实出现的强关联为准，不按宽泛的理论交叉来归类。
-- 学校 tag 暂时保持兼容，但站点会优先从 `docs/` 下前两级目录推导学校和研究科信息。
-- 正确的新子科目或考点 tag 可以直接提交；`yarn review:format` 只会给 warning，不会阻止 PR。
-- 当前 tag 池中不存在的 tag 会作为新 tag 给出提示，便于检查拼写或联系管理员审查。
+- 学校 tag 表示大学元数据，点击后进入对应大学的题目目录。站点也会从 `docs/` 下前两级目录推导学校和研究科信息。
+- 可以在 PR 中提议新的子科目或考点；`yarn review:format` 会提示未登记 tag 以供审查。发布前须把审定的 tag 加入分类定义并运行 `yarn tags:generate`，站点构建会拒绝未登记 tag。
 - 如果一篇文档只有学校 tag，没有任何学习 tag，脚本会给 warning。若只有子科目 tag，脚本会建议在题面线索足够时继续补充具体考点。
 
 提交 PR 前建议先运行：

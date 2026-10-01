@@ -7,6 +7,8 @@
  *
  * Localized fields accept `{zh, ja, en}`. Disabled entries are kept as
  * ready-to-fill examples and are never rendered on the website.
+ * Every enabled strategic partner with `featuredOnHomepage: true` appears
+ * in the homepage partner panel; include a logo, name, and shortDescription for each.
  */
 export const supportConfig = {
   contactEmail: '376672994@qq.com',

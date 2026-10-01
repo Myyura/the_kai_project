@@ -22,10 +22,9 @@ function browser(url, stored = 'zh', blocked = false) {
   return {attributes, globals, load, stored: () => stored};
 }
 
-test('language startup prioritizes valid query, old bookmark locale, stored choice, then default', () => {
+test('language startup prioritizes valid query, stored choice, then default', () => {
   for (const [url, stored, expected] of [
-    ['/ja/docs/a?lang=en#kai', 'zh', 'en'], ['/ja/docs/a?lang=bad', 'en', 'ja'],
-    ['/en', 'ja', 'en'], ['/docs/a', 'ja', 'ja'], ['/docs/a?lang=bad', 'bad', 'zh'],
+    ['/docs/a?lang=en#kai', 'zh', 'en'], ['/docs/a?lang=bad', 'en', 'en'], ['/docs/a', 'ja', 'ja'], ['/docs/a?lang=bad', 'bad', 'zh'],
     ['/docs/a?lang=toString', 'zh', 'zh'],
   ]) {
     const result = browser(url, stored);
@@ -35,16 +34,16 @@ test('language startup prioritizes valid query, old bookmark locale, stored choi
   }
 });
 
-test('old bookmark normalization and language switching preserve query, fragment, and history state', () => {
-  const {globals, load} = browser('/ja/docs/a/?search=test&lang=en#kai');
-  assert.deepEqual(globals.window.history.last, {state: {key: 'existing'}, title: 'Kai', url: '/docs/a?search=test&lang=en#kai'});
-  const {buildLanguageUrl, getLegacyLocaleRoute} = load('src/i18n/languageUrl.js');
-  assert.equal(getLegacyLocaleRoute('/engineering'), null);
-  assert.equal(getLegacyLocaleRoute('/japan/docs'), null);
+test('language switching preserves the current route, query, fragment, and history', () => {
+  const {globals, load} = browser('/docs/a/?search=test&lang=en#kai');
+  assert.equal(globals.window.history.last, undefined);
+  const {buildLanguageUrl} = load('src/i18n/languageUrl.js');
   assert.deepEqual(buildLanguageUrl({pathname: '/docs/a/', search: '?page=2', hash: '#answer'}, 'ja'), {
     pathname: '/docs/a', search: '?page=2&lang=ja', hash: '#answer',
   });
-  assert.deepEqual(buildLanguageUrl({pathname: '/en/'}, 'en'), {pathname: '/', search: '?lang=en', hash: ''});
+  assert.deepEqual(buildLanguageUrl({pathname: '/docs/a', search: '?school=tokyo&lang=en'}, 'ja'), {
+    pathname: '/docs/a', search: '?school=tokyo&lang=ja', hash: '',
+  });
 });
 
 test('blocked storage does not prevent language initialization or switching', () => {
@@ -68,7 +67,7 @@ test('every UI text namespace used by the application exists in all three langua
       const filename = path.join(directory, entry.name);
       if (entry.isDirectory()) walk(filename);
       else if (/\.(?:js|jsx|ts|tsx)$/.test(filename)) {
-        for (const match of fs.readFileSync(filename, 'utf8').matchAll(/(?:useUiText|getUiMessages|getUiMessage)\(['"]([^'"]+)['"]/g)) namespaces.add(match[1]);
+        for (const match of fs.readFileSync(filename, 'utf8').matchAll(/(?:useUiText|getUiMessages)\(['"]([^'"]+)['"]/g)) namespaces.add(match[1]);
       }
     }
   };

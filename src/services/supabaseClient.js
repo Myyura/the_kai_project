@@ -12,26 +12,14 @@ import { createClient } from '@supabase/supabase-js';
 import {
   AUTH_STORAGE_KEY,
   getSupabaseCredentials,
-  isSupabaseConfigured,
 } from './runtimeConfig';
-
-// ── 构建时注入的凭据 ─────────────────────────────────────────
-
-// Docusaurus 在构建时会把 customFields 内联到 JS bundle 中，
-// 这里用一个懒加载方式获取以兼容 SSR（Node 环境无 siteConfig）。
-const getCredentials = getSupabaseCredentials;
-
-/**
- * 判断 Supabase 是否已配置（构建时是否注入了有效凭据）
- */
-export {getSupabaseCredentials, isSupabaseConfigured};
 
 // ── 单例客户端 ───────────────────────────────────────────────
 
 let _clientCache = null;
 
 const createConfiguredClient = (authOverrides = {}) => {
-  const { url, anonKey } = getCredentials();
+  const { url, anonKey } = getSupabaseCredentials();
   if (!url || !anonKey) return null;
 
   return createClient(url, anonKey, {
@@ -65,8 +53,6 @@ export const getSupabaseEmailActionClient = () => createConfiguredClient({
   autoRefreshToken: false,
   flowType: 'implicit',
 });
-
-export const getSupabasePasswordResetClient = getSupabaseEmailActionClient;
 
 /**
  * Auth callback clients let supabase-js parse and verify URL credentials. This

@@ -9,7 +9,6 @@ import {
   createSupabaseAuthCallbackClient,
   getSupabaseClient,
   getSupabaseEmailActionClient,
-  getSupabasePasswordResetClient,
 } from './supabaseClient';
 
 
@@ -115,7 +114,7 @@ export const completeAuthCallbackFromUrl = async () => {
  * 发送密码重置邮件
  */
 export const sendPasswordResetEmail = async (email, redirectTo, captchaToken) => {
-  const sb = getSupabasePasswordResetClient();
+  const sb = getSupabaseEmailActionClient();
   if (!sb) throw new Error('Supabase 未配置');
 
   const options = {};
@@ -170,21 +169,21 @@ export const updateCurrentUserPassword = async (password) => {
 export const signOut = async () => {
   const sb = getSupabaseClient();
   if (!sb) return;
-  await sb.auth.signOut();
+  const {error} = await sb.auth.signOut();
+  if (error) throw error;
 };
 
 /**
- * 获取当前会话（通过服务端验证 JWT）
+ * 获取经过服务端验证的当前用户
  * 注意：使用 getUser() 而非 getSession()，
  * getSession() 仅读取本地存储不验证 JWT，存在被篡改风险
  */
-export const getSession = async () => {
+export const getVerifiedUser = async () => {
   const sb = getSupabaseClient();
   if (!sb) return null;
   const { data: { user }, error } = await sb.auth.getUser();
   if (error || !user) return null;
-  // 构造兼容的 session-like 对象，供上层读取 user
-  return { user };
+  return user;
 };
 
 /**

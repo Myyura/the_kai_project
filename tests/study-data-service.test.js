@@ -3,6 +3,7 @@ const test = require('node:test');
 const fs = require('node:fs');
 const path = require('node:path');
 const babel = require('@babel/core');
+const {createRequire} = require('node:module');
 const createSourceLoader = require('./helpers/load-source.cjs');
 
 function loadWithMocks(relativePath, dependencies, globals = {}) {
@@ -12,7 +13,11 @@ function loadWithMocks(relativePath, dependencies, globals = {}) {
     plugins: [require('@babel/plugin-transform-modules-commonjs')],
   });
   const loaded = {exports: {}};
-  const localRequire = (name) => Object.prototype.hasOwnProperty.call(dependencies, name) ? dependencies[name] : require(name);
+  const nativeRequire = createRequire(filename);
+  const sourceLoader = createSourceLoader(globals);
+  const localRequire = (name) => Object.prototype.hasOwnProperty.call(dependencies, name)
+    ? dependencies[name]
+    : name.startsWith('.') ? sourceLoader(nativeRequire.resolve(name)) : nativeRequire(name);
   Function('module', 'exports', 'require', ...Object.keys(globals), code)(loaded, loaded.exports, localRequire, ...Object.values(globals));
   return loaded.exports;
 }
@@ -104,15 +109,11 @@ test('account changes and signed-out sessions cannot write a draft to another ac
   assert.equal(signedOut.calls.length, 0);
 });
 
-test('the retained doc_id fallback can read and save legacy note identities', async () => {
-  const {service, calls} = notesFixture({uuid: null});
-  await service.saveDocNote('legacy/document', '旧笔记');
-  const value = await service.fetchDocNote('legacy/document');
-  assert.equal(value.content, '旧笔记');
-  assert.equal(value.documentUuid, null);
-  assert.equal(calls[0].options.onConflict, 'user_id,doc_id');
-  assert.equal(calls[0].payload.document_uuid, undefined);
-  assert.deepEqual(calls[1].filters, [['is', 'deleted_at', null], ['eq', 'doc_id', 'legacy/document']]);
+test('progress removal and bulk reset reject actions started by another account', async () => {
+  const {service, calls} = notesFixture({userId: 'another-user'});
+  await assert.rejects(service.deleteDocProgress('test/document', 'test-user'), /账号已切换/);
+  await assert.rejects(service.clearMyProgress('test-user'), /账号已切换/);
+  assert.equal(calls.length, 0);
 });
 
 test('loading all notes includes records beyond the first page', async () => {

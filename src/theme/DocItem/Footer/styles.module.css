@@ -121,56 +121,25 @@
   margin-top: 0;
 }
 
-.learningPanel {
-  margin-top: 2rem;
-  overflow: hidden;
-  border: 1px solid var(--custom-card-border);
-  border-radius: var(--custom-border-radius);
-  background: var(--custom-card-bg);
-  box-shadow: none;
-  transition: var(--custom-transition);
+.studyToolsHost {
+  margin: -0.5rem 0 1.5rem;
 }
 
-.learningPanel:hover {
-  border-color: color-mix(in srgb, var(--ifm-color-primary) 55%, var(--ifm-color-emphasis-200));
-  box-shadow: var(--custom-box-shadow-hover);
-}
-
-.learningPanelHeader {
+.studyTools {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  background: color-mix(in srgb, var(--ifm-color-primary) 5%, var(--ifm-background-surface-color));
+  flex-wrap: wrap;
+  gap: .65rem 1rem;
+  padding: .75rem 1rem;
+  border: 1px solid var(--custom-card-border);
+  border-radius: var(--custom-border-radius-sm);
+  background: var(--custom-card-bg);
 }
 
-.learningPanelHeading {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  min-width: 0;
-}
-
-.learningPanelHeading > svg {
+.studyTools > button {
   flex: 0 0 auto;
-  color: var(--ifm-color-primary);
-  font-size: 1.15rem;
-}
-
-.learningPanelHeading h2 {
-  margin: 0;
-  color: var(--ifm-color-emphasis-800);
-  font-size: 1rem;
-  line-height: 1.35;
-}
-
-.learningPanelHeading p {
-  margin: .16rem 0 0;
-  color: var(--ifm-color-emphasis-600);
-  font-size: .76rem;
-  line-height: 1.45;
+  font-size: .82rem;
 }
 
 @media (max-width: 520px) {
@@ -190,15 +159,5 @@
     gap: .35rem;
     padding-inline: .4rem;
     font-size: .82rem;
-  }
-
-  .learningPanelHeader {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .learningPanelHeader > button {
-    justify-content: center;
-    width: 100%;
   }
 }

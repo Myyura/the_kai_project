@@ -29,7 +29,7 @@ export const DOCUMENT_CATALOG_SELECT = [
 ].join(',');
 
 export type PublishedDocument = {
-  schemaVersion: number;
+  schemaVersion: 2;
   documentUuid: string;
   docId: string;
   contentHash: string;
@@ -57,8 +57,8 @@ function cacheDocument(key: string, document: PublishedDocument) {
 
 export function validatePublishedDocument(value: unknown, expectedUuid: string, expectedHash: string): PublishedDocument {
   if (!value || typeof value !== 'object') throw new Error('Published document content is not an object.');
-  const document = value as PublishedDocument & {sectionRanges?: Record<string, unknown>};
-  if (document.schemaVersion !== 1 && document.schemaVersion !== 2) {
+  const document = value as Omit<PublishedDocument, 'sections'> & {sectionRanges?: Record<string, unknown>};
+  if (document.schemaVersion !== 2) {
     throw new Error('Unsupported published document schema version.');
   }
   if (document.documentUuid !== expectedUuid) throw new Error('Published document UUID does not match the catalog.');
@@ -68,37 +68,28 @@ export function validatePublishedDocument(value: unknown, expectedUuid: string, 
   if (typeof document.docId !== 'string' || typeof document.fullMarkdown !== 'string') {
     throw new Error('Published document content is incomplete.');
   }
-  let sections = document.sections;
-  if (document.schemaVersion === 2) {
-    if (!document.sectionRanges || typeof document.sectionRanges !== 'object') {
-      throw new Error('Published document section ranges are missing.');
-    }
-    sections = {authorMarkdown: '', descriptionMarkdown: '', kaiMarkdown: ''};
-    for (const key of Object.keys(sections) as Array<keyof typeof sections>) {
-      const ranges = document.sectionRanges[key];
-      if (!Array.isArray(ranges)) throw new Error('Published document section ranges are invalid.');
-      let previousEnd = 0;
-      const parts: string[] = [];
-      for (const range of ranges) {
-        if (!Array.isArray(range) || range.length !== 2
-          || !range.every(Number.isSafeInteger)
-          || range[0] < previousEnd || range[1] < range[0]
-          || range[1] > document.fullMarkdown.length) {
-          throw new Error('Published document section range is out of bounds.');
-        }
-        parts.push(document.fullMarkdown.slice(range[0], range[1]).replace(/\r\n/g, '\n'));
-        previousEnd = range[1];
-      }
-      sections[key] = parts.join('\n').trim();
-    }
-  } else if (!sections || typeof sections !== 'object'
-    || typeof sections.authorMarkdown !== 'string'
-    || typeof sections.descriptionMarkdown !== 'string'
-    || typeof sections.kaiMarkdown !== 'string') {
-    throw new Error('Published document sections are missing.');
+  if (!document.sectionRanges || typeof document.sectionRanges !== 'object') {
+    throw new Error('Published document section ranges are missing.');
   }
-  // Both artifact versions expose the same in-memory/API body. The storage
-  // encoding is intentionally hidden from kai-api and agent-context callers.
+  const sections = {authorMarkdown: '', descriptionMarkdown: '', kaiMarkdown: ''};
+  for (const key of Object.keys(sections) as Array<keyof typeof sections>) {
+    const ranges = document.sectionRanges[key];
+    if (!Array.isArray(ranges)) throw new Error('Published document section ranges are invalid.');
+    let previousEnd = 0;
+    const parts: string[] = [];
+    for (const range of ranges) {
+      if (!Array.isArray(range) || range.length !== 2
+        || !range.every(Number.isSafeInteger)
+        || range[0] < previousEnd || range[1] < range[0]
+        || range[1] > document.fullMarkdown.length) {
+        throw new Error('Published document section range is out of bounds.');
+      }
+      parts.push(document.fullMarkdown.slice(range[0], range[1]).replace(/\r\n/g, '\n'));
+      previousEnd = range[1];
+    }
+    sections[key] = parts.join('\n').trim();
+  }
+  // Decode the current storage format once for both API consumers.
   return {
     schemaVersion: document.schemaVersion,
     documentUuid: document.documentUuid,

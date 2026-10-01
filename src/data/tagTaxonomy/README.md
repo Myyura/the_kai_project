@@ -6,7 +6,7 @@ The JSON files in this directory are the only source of tag definitions and tran
 
 Optional `searchAliases` contains language-keyed arrays of common abbreviations and synonyms. These are search terms, not new tag identities. Search covers all three names, IDs, and aliases regardless of the current UI language. Descriptions are excluded so mentioning a topic in a subject summary does not match every topic under that subject.
 
-After editing, run `yarn tags:generate`, `yarn content:validate`, and `yarn test`. Validation requires all three names and rejects the retired single `label` field.
+After editing, run `yarn tags:generate`, `yarn content:validate`, and `yarn test`. Validation requires all three names and rejects the retired single `label` field and subsubject/topic identity aliases. School-name aliases remain part of school metadata. Published documents must use registered tags; the site build rejects unknown tags.
 
 ## Topic identity and consolidation
 

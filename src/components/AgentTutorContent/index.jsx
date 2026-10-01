@@ -176,7 +176,7 @@ function ToggleRow({ label, description, checked, disabled, saving, onChange }) 
   );
 }
 
-export function AgentTutorContent({ embedded = false } = {}) {
+export function AgentTutorContent() {
   const language = useCurrentLanguage();
   const t = TEXT[language] || TEXT.zh;
   const { isConfigured, isLoggedIn, authReady } = useAuth();
@@ -276,7 +276,7 @@ export function AgentTutorContent({ embedded = false } = {}) {
 
   if (!authReady || loading && !status) {
     return (
-      <section className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+      <section className={styles.shell}>
         <div className={styles.loadingPanel}>{t.loading}</div>
       </section>
     );
@@ -284,7 +284,7 @@ export function AgentTutorContent({ embedded = false } = {}) {
 
   if (!isConfigured || !isLoggedIn) {
     return (
-      <section className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+      <section className={styles.shell}>
         <div className={styles.noticePanel}>
           <FaShieldAlt className={styles.noticeIcon} />
           <h1>{t.unavailable}</h1>
@@ -295,7 +295,7 @@ export function AgentTutorContent({ embedded = false } = {}) {
   }
 
   return (
-    <section className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+    <section className={styles.shell}>
       <header className={styles.header}>
         <div>
           <h1>{t.title}</h1>

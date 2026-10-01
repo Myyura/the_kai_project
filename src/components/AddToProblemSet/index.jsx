@@ -14,7 +14,7 @@ const setName = (problemSet, t) => {
   return problemSet.title;
 };
 
-export default function AddToProblemSet({docId, variant = 'default'}) {
+export default function AddToProblemSet({docId}) {
   const featureEnabled = useProblemSetsFeature();
   const {isLoggedIn, authReady} = useAuth();
   const t = useUiText('problemSets');
@@ -134,7 +134,7 @@ export default function AddToProblemSet({docId, variant = 'default'}) {
       <button
         ref={triggerRef}
         type="button"
-        className={`${styles.trigger} ${variant === 'panel' ? styles.triggerPanel : ''} ${containsAny ? styles.triggerActive : ''}`}
+        className={`${styles.trigger} ${containsAny ? styles.triggerActive : ''}`}
         onClick={openPicker}
       >
         {containsAny ? <FaCheck /> : <FaBookmark />}
@@ -195,7 +195,7 @@ export default function AddToProblemSet({docId, variant = 'default'}) {
                   }
                 }}
               />
-              <button type="button" disabled={saving || !newTitle.trim()} onClick={createSet}><FaPlus /> {t.create}</button>
+              <button type="button" className={styles.saveButton} disabled={saving || !newTitle.trim()} onClick={createSet}><FaPlus /> {t.create}</button>
             </div>
 
             {(message || error) && <p className={styles.message} aria-live="polite">{message || t.loadFailed}</p>}

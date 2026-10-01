@@ -279,12 +279,14 @@
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
       ],
-      "aliases": [
-        "Operations-Research.Nonlinear-Optimization.Orthogonal-Procrustes-via-SVD"
-      ],
       "labelZh": "用奇异值分解求解正交 Procrustes 问题",
       "labelJa": "特異値分解による直交プロクラステス問題の解法",
-      "labelEn": "Orthogonal Procrustes Problem via SVD"
+      "labelEn": "Orthogonal Procrustes Problem via SVD",
+      "searchAliases": {
+        "en": [
+          "Orthogonal Procrustes via SVD"
+        ]
+      }
     },
     "Operations-Research.Convex-Optimization.Accelerated-Gradient-Flow-and-Discrete-Lyapunov-Rate": {
       "subsubject": "Operations-Research.Convex-Optimization",
@@ -329,9 +331,6 @@
       "subsubject": "Operations-Research.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science"
-      ],
-      "aliases": [
-        "Operations-Research.Combinatorial-Optimization.Branch-And-Bound"
       ],
       "labelZh": "分支定界法",
       "labelJa": "分枝限定法",
@@ -457,12 +456,14 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "aliases": [
-        "Operations-Research.Convex-Optimization.AM-GM-Inequality-via-Optimization"
-      ],
       "labelZh": "用优化方法证明算术–几何平均不等式",
       "labelJa": "最適化による相加相乗平均の不等式の証明",
-      "labelEn": "The Arithmetic–Geometric Mean Inequality via Optimization"
+      "labelEn": "The Arithmetic–Geometric Mean Inequality via Optimization",
+      "searchAliases": {
+        "en": [
+          "AM GM Inequality via Optimization"
+        ]
+      }
     },
     "Operations-Research.Convex-Optimization.Convexity-of-Power-Compositions": {
       "subsubject": "Operations-Research.Convex-Optimization",
@@ -478,20 +479,19 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "aliases": [
-        "Operations-Research.Convex-Optimization.KKT-Conditions"
-      ],
       "labelZh": "Karush–Kuhn–Tucker 条件",
       "labelJa": "カルーシュ–クーン–タッカー条件",
-      "labelEn": "Karush-Kuhn-Tucker (KKT) Conditions"
+      "labelEn": "Karush-Kuhn-Tucker (KKT) Conditions",
+      "searchAliases": {
+        "en": [
+          "KKT Conditions"
+        ]
+      }
     },
     "Operations-Research.Convex-Optimization.One-Norm-Minimization": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ],
-      "aliases": [
-        "Operations-Research.Convex-Optimization.L1-Norm-Minimization"
       ],
       "labelZh": "L1 范数最小化",
       "labelJa": "L1 ノルム最小化",

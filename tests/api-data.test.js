@@ -74,10 +74,10 @@ test('compact sections preserve CRLF, Unicode offsets, repeated headings and unr
   });
 });
 
-test('the reader accepts legacy v1 bodies and rejects malformed v2 ranges', () => {
+test('the reader rejects retired formats and malformed v2 ranges', () => {
   const legacy = {schemaVersion: 1, documentUuid: 'example', contentHash: 'hash', docId: 'id',
     fullMarkdown: 'abc', sections: {authorMarkdown: '', descriptionMarkdown: 'abc', kaiMarkdown: ''}};
-  assert.deepEqual(validatePublishedDocument(legacy, 'example', 'hash'), legacy);
+  assert.throws(() => validatePublishedDocument(legacy, 'example', 'hash'), /schema version/);
   const compact = {...legacy, schemaVersion: 2, sectionRanges: {authorMarkdown: [], descriptionMarkdown: [[0, 3]], kaiMarkdown: []}};
   delete compact.sections;
   assert.deepEqual(validatePublishedDocument(compact, 'example', 'hash').sections, legacy.sections);

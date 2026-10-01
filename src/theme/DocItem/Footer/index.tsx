@@ -26,7 +26,6 @@ import Link from '@docusaurus/Link';
 import {
   FaBookOpen,
   FaEdit,
-  FaGraduationCap,
   FaLightbulb,
   FaStickyNote,
 } from 'react-icons/fa';
@@ -48,6 +47,7 @@ type StudyTab = 'problem' | 'solution' | 'notes';
 type StudyDom = {
   root: HTMLElement;
   tabsHost: HTMLDivElement;
+  toolsHost: HTMLDivElement;
   panels: Record<StudyTab, HTMLElement>;
   contentNodes: Record<'problem' | 'solution', HTMLElement[]>;
   originallyHidden: Set<HTMLElement>;
@@ -145,6 +145,10 @@ function makeStudyDom(
   tabsHost.className = styles.studyTabsHost;
   tabsHost.dataset.kaiStudyTabsHost = '';
 
+  const toolsHost = document.createElement('div');
+  toolsHost.className = styles.studyToolsHost;
+  toolsHost.dataset.kaiStudyToolsHost = '';
+
   const problemPanel = makeStudyPanel(
     'problem',
     ids.problemPanel,
@@ -189,6 +193,7 @@ function makeStudyDom(
   root.insertBefore(solutionPanel, solutionNodes[0] || notesPanel);
   root.insertBefore(problemPanel, problemNodes[0] || solutionPanel);
   root.insertBefore(tabsHost, problemPanel);
+  root.insertBefore(toolsHost, problemPanel);
 
   const emptyStates: HTMLElement[] = [];
   if (!hasStudySectionContent(problemNodes)) {
@@ -214,6 +219,7 @@ function makeStudyDom(
   return {
     root,
     tabsHost,
+    toolsHost,
     panels: {
       problem: problemPanel,
       solution: solutionPanel,
@@ -253,6 +259,7 @@ function restoreStudyDom(studyDom: StudyDom): void {
   const {
     root,
     tabsHost,
+    toolsHost,
     panels,
     contentNodes,
     originallyHidden,
@@ -273,6 +280,7 @@ function restoreStudyDom(studyDom: StudyDom): void {
   panels.solution.remove();
   panels.notes.remove();
   tabsHost.remove();
+  toolsHost.remove();
   delete root.dataset.kaiStudyDocument;
 }
 
@@ -632,34 +640,37 @@ export default function DocItemFooter(): ReactNode {
         )
       : null;
 
-  const notesPortal =
+  const toolsPortal =
     studyDom
       ? createPortal(
           <BrowserOnly>
             {() => (
               <Suspense fallback={null}>
                 <ProblemSetNavigator docId={docId} />
-                <section className={styles.learningPanel} aria-labelledby="doc-learning-panel-title">
-                  <header className={styles.learningPanelHeader}>
-                    <div className={styles.learningPanelHeading}>
-                      <FaGraduationCap aria-hidden="true" />
-                      <div>
-                        <h2 id="doc-learning-panel-title">{learningPanelText.title}</h2>
-                        <p>{learningPanelText.hint}</p>
-                      </div>
-                    </div>
-                    <AddToProblemSet docId={docId} variant="panel" />
-                  </header>
+                <section className={styles.studyTools} aria-label={learningPanelText.toolsAriaLabel}>
                   <ProgressTracker
                     docId={docId}
                     title={title}
                     permalink={permalink}
                     tags={tags.map((t) => t.label)}
-                    embedded
                   />
-                  <NoteEditor docId={docId} embedded />
-                  <FooterAnnotationSection />
+                  <AddToProblemSet docId={docId} />
                 </section>
+              </Suspense>
+            )}
+          </BrowserOnly>,
+          studyDom.toolsHost,
+        )
+      : null;
+
+  const notesPortal =
+    studyDom
+      ? createPortal(
+          <BrowserOnly>
+            {() => (
+              <Suspense fallback={null}>
+                <NoteEditor docId={docId} />
+                <FooterAnnotationSection />
               </Suspense>
             )}
           </BrowserOnly>,
@@ -680,6 +691,7 @@ export default function DocItemFooter(): ReactNode {
         aria-hidden="true"
       />
       {tabsPortal}
+      {toolsPortal}
       {notesPortal}
       {isProblemDocument && (
         <>
@@ -688,7 +700,7 @@ export default function DocItemFooter(): ReactNode {
               <Suspense fallback={null}>
                 <>
                   <div className={shareStyles.docActionBar}>
-                    <ShareAsImage docId={docId} title={title} compact />
+                    <ShareAsImage docId={docId} title={title} />
                     {canCorrectSource && (
                       <Link className={shareStyles.triggerBtn} to={contributionUrl}>
                         <FaEdit className={shareStyles.triggerIcon} />

@@ -2,7 +2,6 @@ const assert = require('node:assert/strict');
 const test = require('node:test');
 const {
   HARD_MEMORY_LIMIT_BYTES,
-  HARD_RSS_LIMIT_BYTES,
   MEMORY_GUARD_ACTIVE_ENV,
   getGuardedEnvironment,
   getProcessTreeRss,
@@ -20,8 +19,7 @@ const {
 
 test('the memory cutoff leaves headroom below 16 GiB', () => {
   assert.equal(HARD_MEMORY_LIMIT_BYTES, 14 * 1024 * 1024 * 1024);
-  assert.equal(HARD_RSS_LIMIT_BYTES, 14 * 1024 * 1024 * 1024);
-  assert.ok(HARD_RSS_LIMIT_BYTES < 16 * 1024 * 1024 * 1024);
+  assert.ok(HARD_MEMORY_LIMIT_BYTES < 16 * 1024 * 1024 * 1024);
 });
 
 test('process-tree RSS includes descendants but not unrelated processes', () => {

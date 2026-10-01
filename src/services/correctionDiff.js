@@ -6,7 +6,7 @@ function appendEntry(entries, type, line, oldLine, newLine) {
   entries.push({ type, line, oldLine, newLine });
 }
 
-export function createLineDiff(originalValue, proposedValue) {
+function createLineDiff(originalValue, proposedValue) {
   const original = normalizeMarkdown(originalValue).split('\n');
   const proposed = normalizeMarkdown(proposedValue).split('\n');
   const rows = original.length + 1;

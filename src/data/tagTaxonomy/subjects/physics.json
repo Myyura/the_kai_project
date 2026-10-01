@@ -850,12 +850,14 @@
       "relatedSubjects": [
         "Electrical-Electronic"
       ],
-      "aliases": [
-        "Physics.Electromagnetism.Rotating-Conductor-Motional-EMF"
-      ],
       "labelZh": "旋转导体的动生电动势",
       "labelJa": "回転導体の運動起電力",
-      "labelEn": "Motional EMF in Rotating Conductors"
+      "labelEn": "Motional EMF in Rotating Conductors",
+      "searchAliases": {
+        "en": [
+          "Rotating Conductor Motional EMF"
+        ]
+      }
     },
     "Physics.Electromagnetism.Magnetic-Energy": {
       "subsubject": "Physics.Electromagnetism",

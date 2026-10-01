@@ -118,3 +118,47 @@ test('image readiness waits for loading and supports prompt cancellation', async
   await assert.rejects(pending, {name: 'AbortError'});
   await assert.rejects(waitForImage({complete: true, naturalWidth: 0}), /failed to load/);
 });
+
+// Parse real HTML/CSS selectors while adapting the few browser DOM operations
+// needed by the content clone. This catches leaked study UI independently of
+// component class names or CSS module hashes.
+function articleFixture(html) {
+  const {parseDocument} = require('htmlparser2');
+  const {cloneNode} = require('domhandler');
+  const {appendChild, textContent} = require('domutils');
+  const {is} = require('css-select');
+  const decorate = (node) => {
+    if (!node.childNodes) Object.defineProperty(node, 'childNodes', {value: []});
+    node.cloneNode = (deep) => decorate(cloneNode(node, deep));
+    node.appendChild = (child) => appendChild(node, child);
+    node.getAttribute = (name) => node.attribs?.[name] ?? null;
+    node.hasAttribute = (name) => Object.hasOwn(node.attribs || {}, name);
+    node.removeAttribute = (name) => { delete node.attribs[name]; };
+    node.matches = (selector) => is(node, selector);
+    node.classList = {add(name) { node.attribs.class = `${node.attribs.class || ''} ${name}`.trim(); }};
+    Object.defineProperty(node, 'textContent', {get: () => textContent(node)});
+    for (const child of node.childNodes || []) decorate(child);
+    return node;
+  };
+  return decorate(parseDocument(html).childNodes[0]);
+}
+
+test('sharing excludes learning tools and private notes while retaining the selected problem or solution', async () => {
+  const article = articleFixture('<article>'
+    + '<div data-kai-study-tabs-host>Problem / Solution / Notes</div>'
+    + '<div data-kai-study-tools-host><a href="/me">Review status</a><span>My private problem set</span></div>'
+    + '<section data-kai-study-panel="problem"><p>Problem content</p></section>'
+    + '<section data-kai-study-panel="solution" hidden><p>Solution content</p></section>'
+    + '<section data-kai-study-panel="notes"><p>Private note</p></section>'
+    + '</article>');
+  for (const [scope, expected] of [
+    ['problem', 'Problem content'],
+    ['solution', 'Solution content'],
+    ['all', 'Problem contentSolution content'],
+  ]) {
+    const result = await render.cloneArticleContent(article, scope);
+    assert.equal(result.textContent, expected);
+    assert.ok(result.childNodes.every((node) => !node.hasAttribute('hidden')));
+  }
+  assert.equal(article.childNodes[3].hasAttribute('hidden'), true, 'original solution visibility is unchanged');
+});

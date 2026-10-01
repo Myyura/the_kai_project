@@ -1,21 +1,22 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { emptyReputation, fetchMyReputation } from '../services/reputationService';
+import {useAuth} from './useAuth';
 
 export const useReputation = ({ enabled = true } = {}) => {
+  const {user} = useAuth();
   const [reputation, setReputation] = useState(emptyReputation);
   const [loading, setLoading] = useState(Boolean(enabled));
   const [error, setError] = useState(null);
   const requestSeqRef = useRef(0);
 
   const load = useCallback(async () => {
+    const seq = ++requestSeqRef.current;
     if (!enabled) {
       setReputation(emptyReputation());
       setLoading(false);
       return null;
     }
 
-    const seq = requestSeqRef.current + 1;
-    requestSeqRef.current = seq;
     setLoading(true);
     setError(null);
 
@@ -36,10 +37,11 @@ export const useReputation = ({ enabled = true } = {}) => {
         setLoading(false);
       }
     }
-  }, [enabled]);
+  }, [enabled, user?.id]);
 
   useEffect(() => {
     void load();
+    return () => {requestSeqRef.current += 1;};
   }, [load]);
 
   return {

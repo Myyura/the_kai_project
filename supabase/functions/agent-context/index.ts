@@ -483,7 +483,7 @@ async function handleReserve(body: Record<string, unknown>, ctx: AgentContext) {
   });
 
   if (error) throw error;
-  const result = Array.isArray(data) ? data[0] : data;
+  const result = data?.[0];
   const allowed = Boolean(result?.allowed);
   const code = result?.code || (allowed ? 'reserved' : 'rejected');
   // 余额不足（任一池）→ 402；其余拒绝 → 403
@@ -540,7 +540,7 @@ async function handleCommit(body: Record<string, unknown>, ctx: AgentContext) {
   });
 
   if (error) throw error;
-  const result = Array.isArray(data) ? data[0] : data;
+  const result = data?.[0];
   return jsonResponse({
     accepted: Boolean(result?.accepted),
     code: result?.code || null,
@@ -567,7 +567,7 @@ async function handleCancel(body: Record<string, unknown>, ctx: AgentContext) {
   });
 
   if (error) throw error;
-  const result = Array.isArray(data) ? data[0] : data;
+  const result = data?.[0];
   return jsonResponse({
     accepted: Boolean(result?.accepted),
     code: result?.code || null,

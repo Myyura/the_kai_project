@@ -100,7 +100,7 @@ test('source paths retain docs whose Docusaurus IDs lose a numeric prefix', () =
   assert.deepEqual(page.tag.browse.topics[0].docIds, [loadedDocument.id]);
 });
 
-test('route rewrite removes topics and replaces all parent routes', () => {
+test('route rewrite removes separate topic and school pages and replaces all parent routes', () => {
   const parentPage = {
     path: '/docs/tags/subsubject/mathematics/calculus',
     tag: {label: 'Mathematics.Calculus', browse: {docIds: ['a']}},
@@ -126,6 +126,7 @@ test('route rewrite removes topics and replaces all parent routes', () => {
   const tagRoutes = rewritten[0].routes[0].routes;
 
   assert.equal(tagRoutes.some((route) => route.path.includes('/tags/topic/')), false);
+  assert.equal(tagRoutes.some((route) => route.path.includes('/tags/school/')), false);
   assert.equal(tagRoutes.filter((route) => route.path.includes('/tags/subsubject/')).length, 1);
   const parentRoute = tagRoutes.find((route) => route.path === parentPage.path);
   assert.equal(parentRoute.component, '@theme/DocTagDocListPage');

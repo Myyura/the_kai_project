@@ -203,7 +203,7 @@ async function enforceRateLimit(apiKey: ApiKey): Promise<RateLimitResult> {
   });
 
   if (error) throw error;
-  const result = Array.isArray(data) ? data[0] : data;
+  const result = data?.[0];
   if (!result?.allowed) {
     return {
       response: jsonResponse(withEnvelope({

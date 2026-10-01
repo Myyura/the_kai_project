@@ -2,16 +2,13 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageStructuredData from '../components/HomepageStructuredData';
-import BrowseSearchField from '@site/src/components/BrowseSearchField';
-import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
-import { FaArrowRight, FaChevronDown, FaExternalLinkAlt, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt, FaCoffee } from 'react-icons/fa';
-import React, { useEffect, useState, memo } from 'react';
+import PartnerLogo from '../components/PartnerLogo';
+import { FaArrowRight, FaExternalLinkAlt, FaCheckCircle, FaSyncAlt, FaDiscord, FaQq, FaHandshake, FaUsers, FaShieldAlt, FaCoffee } from 'react-icons/fa';
+import React, { memo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import {useUiText} from '../i18n/useUiText';
 import { useAllProgress } from '../hooks/useProgress';
 import { useAuth } from '../hooks/useAuth';
-import { universities } from '../data/universities';
-import {examUniversities} from '../data/universityCatalog.cjs';
 import siteStats from '../data/siteStats.json';
 import {getEnabledSupportEntries, getLocalizedSupportValue, supportConfig} from '../data/supportConfig';
 import {useCurrentLanguage} from '../context/LanguageContext';
@@ -19,44 +16,11 @@ import {useCurrentLanguage} from '../context/LanguageContext';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
-const RecoveryRedirect = () => {
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
-    const type = url.searchParams.get('type') || hashParams.get('type');
-    const looksLikeAuthCallback = url.searchParams.has('code')
-      || url.searchParams.has('token_hash')
-      || url.searchParams.has('error')
-      || hashParams.has('token_hash')
-      || hashParams.has('access_token')
-      || hashParams.has('error');
-
-    if (looksLikeAuthCallback) {
-      const target = type === 'recovery' ? '/reset-password' : '/auth/callback';
-      window.location.replace(`${target}${window.location.search}${window.location.hash}`);
-    }
-  }, []);
-
-  return null;
-};
-
 // 数据统计卡片
 const StatCard = memo(({ number, label, delay }) => (
   <div className={styles.statCard} style={{ animationDelay: delay }}>
     <span className={styles.statNumber}>{number}</span>
     <span className={styles.statLabel}>{label}</span>
-  </div>
-));
-
-// 特性高亮卡片
-const HighlightCard = memo(({ title, subtitle, description, index }) => (
-  <div className={styles.highlightCard} style={{ animationDelay: `${index * 0.1}s` }}>
-    <div className={styles.highlightIndex} aria-hidden="true">0{index + 1}</div>
-    <div className={styles.highlightContent}>
-      <h3 className={styles.highlightTitle}>{title}</h3>
-      <p className={styles.highlightSubtitle}>{subtitle}</p>
-      <p className={styles.highlightDescription}>{description}</p>
-    </div>
   </div>
 ));
 
@@ -82,10 +46,16 @@ const HeroSection = ({ t }) => {
 
         {/* CTA按钮 */}
         <div className={styles.heroCta}>
-          <Link className={styles.primaryBtn} to="/docs/intro">
-            {t.viewPastExams}
-            <FaArrowRight className={styles.btnIcon} aria-hidden="true" />
-          </Link>
+          <nav className={styles.examActions} aria-label={t.viewPastExams}>
+            <Link className={styles.examAction} to="/docs/intro">
+              {t.browseBySchool}
+              <FaArrowRight className={styles.btnIcon} aria-hidden="true" />
+            </Link>
+            <Link className={styles.examAction} to="/docs/tags">
+              {t.browseByTopic}
+              <FaArrowRight className={styles.btnIcon} aria-hidden="true" />
+            </Link>
+          </nav>
           <Link className={styles.secondaryBtn} to="/blog">
             {t.viewExperiences}
           </Link>
@@ -102,7 +72,7 @@ const HeroSection = ({ t }) => {
           <BrowserOnly fallback={<ProgressCallout t={t} />}>
             {() => <HeroProgressCallout t={t} />}
           </BrowserOnly>
-          <Link className={styles.supportLink} to="/support#long-term-partner">
+          <Link className={styles.supportLink} to="/support">
             <FaCoffee aria-hidden="true" />
             {t.viewSupportMethods}
           </Link>
@@ -112,18 +82,16 @@ const HeroSection = ({ t }) => {
   );
 };
 
-// 特性高亮区域
+// 用简短说明保留项目特点，不再重复展开三张宣传卡片。
 const HighlightsSection = memo(({ t }) => (
-  <section className={styles.highlightsSection}>
+  <section className={styles.highlightsSection} aria-label={t.highlightTitle}>
     <div className="container">
-      <header className={styles.sectionHeading}>
-        <Heading as="h2" className={styles.sectionTitle}>
-          {t.highlightTitle}
-        </Heading>
-      </header>
       <div className={styles.highlightsGrid}>
-        {t.highlights.map((item, index) => (
-          <HighlightCard key={index} {...item} index={index} />
+        {t.highlights.map((item) => (
+          <div className={styles.highlightItem} key={item.title}>
+            <Heading as="h2" className={styles.highlightTitle}>{item.title}</Heading>
+            <p className={styles.highlightDescription}>{item.description}</p>
+          </div>
         ))}
       </div>
     </div>
@@ -142,11 +110,6 @@ const CommunitySection = memo(({ t }) => (
             {t.communityTitle}
           </Heading>
           <p className={styles.communityDescription}>{t.communityDescription}</p>
-          <div className={styles.communityTopics}>
-            {t.communityTopics.map((topic) => (
-              <span key={topic} className={styles.communityTopic}>{topic}</span>
-            ))}
-          </div>
         </div>
 
         <div className={styles.communityActions}>
@@ -182,28 +145,19 @@ const CommunitySection = memo(({ t }) => (
   </section>
 ));
 
-// 社区共建入口：连接社区、贡献者与长期合作伙伴
+// 社区共建入口：伙伴展示由同一份配置驱动。
 const CommunitySupportSection = memo(({ t }) => {
   const language = useCurrentLanguage();
-  const featuredPartner = getEnabledSupportEntries(supportConfig.strategicPartners)
-    .find((partner) => partner.featuredOnHomepage);
-  const partnerName = featuredPartner
-    ? getLocalizedSupportValue(featuredPartner.name, language)
-    : t.supportPartnerFallback;
-  const partnerLogoAlt = featuredPartner
-    ? getLocalizedSupportValue(featuredPartner.logo?.alt, language) || partnerName
-    : '';
-  const partnerShortDescription = featuredPartner
-    ? getLocalizedSupportValue(featuredPartner.shortDescription, language)
-    : '';
+  const featuredPartners = getEnabledSupportEntries(supportConfig.strategicPartners)
+    .filter((partner) => partner.featuredOnHomepage);
 
   return (
-    <section id="community-support" className={styles.communitySupportSection}>
+    <section id="community-support" className={styles.communitySupportSection} aria-labelledby="support-title">
       <div className="container">
         <div className={styles.communitySupportCard}>
           <div className={styles.communitySupportIntro}>
             <span className={styles.communitySupportEyebrow}>{t.supportEyebrow}</span>
-            <Heading as="h2" className={styles.communitySupportTitle}>
+            <Heading as="h2" id="support-title" className={styles.communitySupportTitle}>
               {t.supportTitle}
             </Heading>
             <p className={styles.communitySupportDescription}>{t.supportDescription}</p>
@@ -219,38 +173,22 @@ const CommunitySupportSection = memo(({ t }) => {
                 <span className={styles.communitySupportIcon}><FaHandshake aria-hidden="true" /></span>
                 <span className={styles.featuredPartnerHeading}>
                   <small>{t.supportPartnerLabel}</small>
-                  <strong>{t.supportPartnerFallback}</strong>
-                  <em>{t.supportPartnerFallbackHint}</em>
+                  <strong>{t.supportPartnerTitle}</strong>
+                  <em>{t.supportPartnerHint}</em>
                 </span>
                 <FaArrowRight aria-hidden="true" />
               </span>
-              {featuredPartner ? (
-                <span className={styles.featuredPartnerIdentity}>
-                  <span className={styles.featuredPartnerLogo}>
-                    <img
-                      className={featuredPartner.logo?.darkSrc ? styles.partnerLogoForLightTheme : undefined}
-                      src={featuredPartner.logo?.src}
-                      alt={partnerLogoAlt}
-                      loading="lazy"
-                    />
-                    {featuredPartner.logo?.darkSrc && (
-                      <img
-                        className={styles.partnerLogoForDarkTheme}
-                        src={featuredPartner.logo.darkSrc}
-                        alt=""
-                        aria-hidden="true"
-                        loading="lazy"
-                      />
+              {featuredPartners.map((partner) => (
+                <span key={partner.id} className={styles.featuredPartnerIdentity}>
+                  <PartnerLogo partner={partner} language={language} className={styles.featuredPartnerLogo} />
+                  <span className={styles.featuredPartnerName}>
+                    <strong>{getLocalizedSupportValue(partner.name, language)}</strong>
+                    {partner.shortDescription && (
+                      <em>{getLocalizedSupportValue(partner.shortDescription, language)}</em>
                     )}
                   </span>
-                  <span className={styles.featuredPartnerName}>
-                    <strong>{partnerName}</strong>
-                    {partnerShortDescription && <em>{partnerShortDescription}</em>}
-                  </span>
                 </span>
-              ) : (
-                <em className={styles.featuredPartnerEmpty}>{t.supportPartnerFallbackHint}</em>
-              )}
+              ))}
             </Link>
             <Link className={styles.communitySupportTile} to="/support#contributors">
               <span className={styles.communitySupportIcon}><FaUsers aria-hidden="true" /></span>
@@ -268,103 +206,6 @@ const CommunitySupportSection = memo(({ t }) => {
     </section>
   );
 });
-
-const normalizeUniversityQuery = (value) => value.normalize('NFKC').toLowerCase().trim();
-
-// 题库与官网入口使用同一份自动生成的大学目录。
-const UniversitySection = ({ t }) => {
-  const [query, setQuery] = useState('');
-  const normalizedQuery = normalizeUniversityQuery(query);
-  const matches = (item) => normalizeUniversityQuery(`${item.name} ${item.id} ${(item.aliases || []).join(' ')}`).includes(normalizedQuery);
-  const filteredUniversities = examUniversities(universities).flatMap((university) => {
-    const departments = matches(university)
-      ? university.departments
-      : university.departments.filter((department) => matches(department)
-        || department.programs?.some(matches));
-    return departments.length ? [{...university, departments}] : [];
-  });
-
-  return (
-    <section id="universities" className={styles.universitySection} aria-labelledby="universities-title">
-      <div className="container">
-        <header className={styles.sectionHeading}>
-          <Heading as="h2" id="universities-title" className={styles.sectionTitle}>
-            {t.universityTitle}
-          </Heading>
-          <p className={styles.sectionSubtitle}>{t.universityDescription}</p>
-        </header>
-
-        <div className={styles.universityToolbar}>
-          <div className={styles.universitySearch}>
-            <label htmlFor="university-search">{t.universitySearchLabel}</label>
-            <BrowseSearchField
-              id="university-search"
-              value={query}
-              onChange={setQuery}
-              label={t.universitySearchLabel}
-              placeholder={t.universitySearchPlaceholder}
-              resultsId="university-results"
-              autoComplete="off"
-            />
-          </div>
-          <p className={styles.universityResultCount} role="status">
-            {t.universityResultCount.replace('{count}', String(filteredUniversities.length))}
-          </p>
-        </div>
-
-        <div id="university-results" className={styles.universityGrid}>
-          {filteredUniversities.map((univ) => (
-            <article key={univ.id} className={styles.universityCard}>
-              <Link className={styles.univArchiveLink} to={univ.archiveUrl}>
-                <span className={styles.univColorBar} style={{ '--univ-color': univ.color }} aria-hidden="true" />
-                <span className={styles.univHeading}>
-                  <span className={styles.univName}>{univ.name}</span>
-                  <span className={styles.univArchiveHint}>{t.viewPastExams}</span>
-                </span>
-                <FaArrowRight className={styles.linkIcon} aria-hidden="true" />
-              </Link>
-              <details className={styles.univDetails} open={Boolean(normalizedQuery)}>
-                <summary className={styles.univSummary}>
-                  <span>{t.departmentLinks} <span className={styles.departmentCount}>{univ.departments.length}</span></span>
-                  <FaChevronDown className={styles.univToggle} aria-hidden="true" />
-                </summary>
-                <div className={styles.deptList}>
-                  {univ.departments.map((dept) => (
-                    <div key={dept.id} className={styles.deptRow}>
-                      <Link to={dept.archiveUrl || univ.archiveUrl} className={styles.deptLink}>
-                        <span>{dept.name}</span>
-                        <FaArrowRight className={styles.linkIcon} aria-hidden="true" />
-                      </Link>
-                      {dept.websiteUrl && (
-                        <a
-                          href={dept.websiteUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.deptWebsiteLink}
-                          aria-label={`${dept.name} · ${t.websiteLink} · ${t.opensNewTab}`}
-                        >
-                          {t.websiteLink}
-                          <FaExternalLinkAlt aria-hidden="true" />
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </details>
-            </article>
-          ))}
-        </div>
-        {filteredUniversities.length === 0 && (
-          <BrowseEmptyState
-            message={t.universityNoResults}
-            onReset={() => setQuery('')}
-            focusTargetId="university-search"
-          />
-        )}
-      </div>
-    </section>
-  );
-};
 
 // Hero 区进度内联展示
 const HeroProgressCallout = ({ t }) => {
@@ -417,14 +258,12 @@ const Home = () => {
       title={siteConfig.title}
       description={`${t.heroDescription} | 破除信息之壁 | 情報の壁を打ち破る`}
     >
-      <BrowserOnly>{() => <RecoveryRedirect />}</BrowserOnly>
       <HomepageStructuredData />
       <main className={styles.mainContent}>
         <HeroSection t={t} />
         <HighlightsSection t={t} />
         <CommunitySection t={t} />
         <CommunitySupportSection t={t} />
-        <UniversitySection t={t} />
       </main>
     </Layout>
   );

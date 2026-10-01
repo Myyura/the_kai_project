@@ -1,4 +1,4 @@
-import {MAX_SHARE_NODES, ShareImageLimitError} from './pagination';
+import {checkAborted, MAX_SHARE_NODES, ShareImageLimitError} from './pagination';
 
 // Keep each raster within a predictable memory budget, including tall figures.
 export const MAX_CANVAS_PIXELS = 16_000_000;
@@ -31,10 +31,6 @@ export const SHARE_STYLE_PROPERTIES = [
   'stroke-linejoin', 'fill-rule', 'text-anchor', 'dominant-baseline',
 ];
 
-export function checkAborted(signal) {
-  if (signal?.aborted) throw new DOMException('Image generation cancelled', 'AbortError');
-}
-
 // A timer yields a browser task (unlike a resolved Promise), so input and the
 // progress indicator can run between chunks of DOM work.
 export async function yieldToMain(signal) {
@@ -52,9 +48,8 @@ export function getCapturePixelRatio(width, height) {
 }
 
 const EXCLUDED = 'button, input, textarea, select, script, style, .hash-link, a.anchor, '
-  + '.katex-mathml, [data-kai-study-tabs-host], [data-kai-study-panel="notes"], '
-  + '.share-as-image-wrapper, [class*="ShareAsImage"], [class*="ProgressTracker"], '
-  + '[class*="NoteEditor"], [class*="copyButton"]';
+  + '.katex-mathml, [data-kai-study-tabs-host], [data-kai-study-tools-host], '
+  + '[data-kai-study-panel="notes"], [class*="copyButton"]';
 
 /** Copy only the requested content, yielding even for formula-heavy articles. */
 export async function cloneArticleContent(article, scope, signal) {

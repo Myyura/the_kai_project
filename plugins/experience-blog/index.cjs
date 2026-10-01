@@ -26,9 +26,10 @@ async function experienceBlogPlugin(context, options) {
         actions: {
           ...actions,
           addRoute(route) {
-            // The directory replaces the chronological feed. Do not import
-            // truncated article bodies into the directory's browser bundle.
-            if (route.component !== options.blogListComponent) actions.addRoute(route);
+            // ExperienceCatalog is the only listing. Keep article routes and
+            // their authorship metadata, without parallel author/tag/feed pages
+            // that import truncated article bodies into more browser bundles.
+            if (route.component === options.blogPostComponent) actions.addRoute(route);
           },
         },
       });

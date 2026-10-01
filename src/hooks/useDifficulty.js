@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import {useAuth} from './useAuth';
 
-export const useExamDifficulty = (docId, { enabled = true, refreshKey = 0 } = {}) => {
+export const useExamDifficulty = (docId, { enabled = true } = {}) => {
+  const {user} = useAuth();
   const [difficulty, setDifficulty] = useState(null);
   const [loading, setLoading] = useState(Boolean(enabled && docId));
   const [saving, setSaving] = useState(false);
@@ -8,14 +10,14 @@ export const useExamDifficulty = (docId, { enabled = true, refreshKey = 0 } = {}
   const requestSeqRef = useRef(0);
 
   const load = useCallback(async () => {
+    const seq = ++requestSeqRef.current;
+    setSaving(false);
     if (!enabled || !docId) {
       setDifficulty(null);
       setLoading(false);
       return null;
     }
 
-    const seq = requestSeqRef.current + 1;
-    requestSeqRef.current = seq;
     setLoading(true);
     setError(null);
 
@@ -36,29 +38,32 @@ export const useExamDifficulty = (docId, { enabled = true, refreshKey = 0 } = {}
         setLoading(false);
       }
     }
-  }, [docId, enabled]);
+  }, [docId, enabled, user?.id]);
 
   useEffect(() => {
     void load();
-  }, [load, refreshKey]);
+    return () => {requestSeqRef.current += 1;};
+  }, [load]);
 
   const rate = useCallback(async (value) => {
-    if (!docId || saving) return null;
+    if (!enabled || !docId || saving) return null;
+    const seq = ++requestSeqRef.current;
+    setLoading(false);
     setSaving(true);
     setError(null);
 
     try {
       const {setExamDifficultyVote} = await import('../services/difficultyService');
       const next = await setExamDifficultyVote(docId, value);
-      setDifficulty(next);
+      if (requestSeqRef.current === seq) setDifficulty(next);
       return next;
     } catch (err) {
-      setError(err);
+      if (requestSeqRef.current === seq) setError(err);
       return null;
     } finally {
-      setSaving(false);
+      if (requestSeqRef.current === seq) setSaving(false);
     }
-  }, [docId, saving]);
+  }, [docId, enabled, saving, user?.id]);
 
   return {
     difficulty,

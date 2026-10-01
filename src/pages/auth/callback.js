@@ -28,19 +28,11 @@ function AuthCallbackContent() {
     let disposed = false;
     const run = async () => {
       try {
-        const result = await completeAuthCallback();
+        await completeAuthCallback();
         if (disposed) return;
 
-        if (result?.redirectToResetPassword) {
-          window.location.replace(`/reset-password${window.location.search}${window.location.hash}`);
-          return;
-        }
-
-        const successMessage = result?.type === 'signup'
-          ? t.signupSuccess
-          : t.loginSuccess;
         setStatus('success');
-        setMessage(successMessage);
+        setMessage(t.loginSuccess);
         window.setTimeout(() => {
           if (!disposed) history.replace(getAuthReturnTarget('/me'));
         }, 900);

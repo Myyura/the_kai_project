@@ -1,12 +1,12 @@
 const STORAGE_KEY = 'kai_auth_return_intent';
 const MAX_AGE_MS = 15 * 60 * 1000;
 
-export const isSafeReturnTo = (value) => (
+const isSafeReturnTo = (value) => (
   typeof value === 'string'
   && value.startsWith('/')
   && !value.startsWith('//')
   && !value.includes('\\')
-  && !/^[\/]+(?:https?:)?\/\//i.test(value)
+  && !/[\u0000-\u0020\u007f]/.test(value)
 );
 
 export const saveAuthReturnIntent = ({returnTo, intent = '', docId = ''}) => {
@@ -28,13 +28,15 @@ const readIntent = () => {
   if (typeof window === 'undefined') return null;
   try {
     const value = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || 'null');
-    if (!value || !isSafeReturnTo(value.returnTo) || Date.now() - Number(value.createdAt || 0) > MAX_AGE_MS) {
+    const createdAt = Number(value?.createdAt);
+    if (!value || !isSafeReturnTo(value.returnTo) || !Number.isFinite(createdAt)
+      || createdAt <= 0 || Date.now() - createdAt > MAX_AGE_MS) {
       sessionStorage.removeItem(STORAGE_KEY);
       return null;
     }
     return value;
   } catch {
-    sessionStorage.removeItem(STORAGE_KEY);
+    try { sessionStorage.removeItem(STORAGE_KEY); } catch {}
     return null;
   }
 };
@@ -47,4 +49,3 @@ export const consumeAuthReturnIntent = ({intent, docId = ''}) => {
   try { sessionStorage.removeItem(STORAGE_KEY); } catch {}
   return true;
 };
-

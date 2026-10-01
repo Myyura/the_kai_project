@@ -6,8 +6,7 @@
     "subsubjectTags": "canonical-subsubject-only",
     "subjectTags": "derived-from-subsubject",
     "topicTags": "namespaced-topic-only",
-    "relatedSubjects": "non-deriving-associations",
-    "learningTagAliases": "deprecated-canonicalized"
+    "relatedSubjects": "non-deriving-associations"
   },
   "subjectOrder": [
     "Mathematics",

@@ -151,7 +151,7 @@ test('the local phased coordinator rejects Pages before spawning', () => {
       spawnCalls += 1;
       return {status: 0};
     },
-  }), /legacy phased build coordinator is local-only/);
+  }), /phased build coordinator is local-only/);
   assert.equal(spawnCalls, 0);
 });
 

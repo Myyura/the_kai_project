@@ -5,8 +5,6 @@ const {
   kebabCase,
 } = require('../../scripts/generate-docusaurus-tags');
 
-const LEGACY_TOPIC_ROUTE_SEGMENT = '/tags/topic/';
-
 function unique(values) {
   return Array.from(new Set(values));
 }
@@ -24,15 +22,6 @@ function getVisibleDocIds(candidateIds, docsById) {
   const ids = unique(candidateIds).filter((id) => docsById.has(id));
   const listedIds = ids.filter((id) => !docsById.get(id).unlisted);
   return listedIds.length > 0 ? listedIds : ids;
-}
-
-function toRouteItem(doc) {
-  return {
-    id: doc.id,
-    title: doc.title,
-    description: doc.description,
-    permalink: doc.permalink,
-  };
 }
 
 function toBrowseDocument(doc, apiDocument) {
@@ -81,7 +70,6 @@ function buildVersionParentPages({version, apiDocuments, taxonomy}) {
 
   return Array.from(parentToCandidateIds, ([subsubjectId, candidateIds]) => {
     const docIds = getVisibleDocIds(candidateIds, docsById);
-    const visibleDocIdSet = new Set(docIds);
     const subsubject = taxonomy.subsubjects[subsubjectId];
     const subjectId = subsubject.subject || 'General';
     const permalink = `${version.tagsPath}${buildPermalink('subsubject', subsubjectId, taxonomy)}`;
@@ -104,7 +92,6 @@ function buildVersionParentPages({version, apiDocuments, taxonomy}) {
       .map(([topicId, topic]) => {
         const topicDocIds = docIds.filter((docId) => (
           (apiById.get(docId)?.topic_ids || []).includes(topicId)
-          && visibleDocIdSet.has(docId)
         ));
         return {
           id: topicId,
@@ -117,8 +104,7 @@ function buildVersionParentPages({version, apiDocuments, taxonomy}) {
       .filter((topic) => topic.count > 0)
       .sort((left, right) => right.count - left.count || left.id.localeCompare(right.id, 'en'));
 
-    const items = docIds.map((docId) => toRouteItem(docsById.get(docId)));
-    const allUnlisted = items.length > 0 && docIds.every((docId) => docsById.get(docId).unlisted);
+    const allUnlisted = docIds.length > 0 && docIds.every((docId) => docsById.get(docId).unlisted);
 
     return {
       id: subsubjectId,
@@ -128,8 +114,7 @@ function buildVersionParentPages({version, apiDocuments, taxonomy}) {
         permalink,
         description: `${subjectId} / ${getSubsubjectShortId(subsubjectId, subsubject)}`,
         allTagsPath: version.tagsPath,
-        count: items.length,
-        items,
+        count: docIds.length,
         unlisted: allUnlisted,
         browse: {
           directDocIds,
@@ -151,12 +136,12 @@ function createParentRoute(page, component) {
   };
 }
 
-function isLegacyTopicRoute(route) {
-  return typeof route?.path === 'string' && route.path.includes(LEGACY_TOPIC_ROUTE_SEGMENT);
+function isRemovedTagRoute(route) {
+  return typeof route?.path === 'string' && /\/tags\/(?:topic|school)\//.test(route.path);
 }
 
 function rewriteRoute(route, {pagesByTagsPath, docTagDocListComponent}) {
-  if (isLegacyTopicRoute(route)) return null;
+  if (isRemovedTagRoute(route)) return null;
   if (!Array.isArray(route.routes)) return route;
 
   const originalChildren = route.routes;
@@ -167,7 +152,7 @@ function rewriteRoute(route, {pagesByTagsPath, docTagDocListComponent}) {
   if (tagsListRoute) {
     const pages = pagesByTagsPath.get(tagsListRoute.path);
     const retainedChildren = originalChildren.filter((child) => (
-      !isLegacyTopicRoute(child)
+      !isRemovedTagRoute(child)
       && !(typeof child?.path === 'string' && child.path.includes('/tags/subsubject/'))
     ));
     return {
@@ -194,9 +179,7 @@ function rewriteCapturedRoutes(routes, options) {
 }
 
 module.exports = {
-  LEGACY_TOPIC_ROUTE_SEGMENT,
   buildVersionParentPages,
-  isLegacyTopicRoute,
   normalizeDocumentSourcePath,
   rewriteCapturedRoutes,
 };

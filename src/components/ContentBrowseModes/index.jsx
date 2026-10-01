@@ -7,38 +7,31 @@ import {
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './styles.module.css';
 
-const MODE_CONFIG = {
-  exams: {
-    ariaKey: 'examsAria',
-    modes: [
-      {
-        key: 'catalog',
-        labelKey: 'examCatalogLabel',
-        descriptionKey: 'examCatalogDescription',
-        to: '/docs/intro',
-        icon: FaUniversity,
-      },
-      {
-        key: 'tags',
-        labelKey: 'examTagsLabel',
-        descriptionKey: 'examTagsDescription',
-        to: '/docs/tags',
-        icon: FaTags,
-      },
-    ],
+const MODES = [
+  {
+    key: 'catalog',
+    labelKey: 'examCatalogLabel',
+    descriptionKey: 'examCatalogDescription',
+    to: '/docs/intro',
+    icon: FaUniversity,
   },
+  {
+    key: 'tags',
+    labelKey: 'examTopicsLabel',
+    descriptionKey: 'examTopicsDescription',
+    to: '/docs/tags',
+    icon: FaTags,
+  },
+];
 
-};
-
-export default function ContentBrowseModes({section, activeMode}) {
+export default function ContentBrowseModes({activeMode}) {
   const t = useUiText('contentBrowse');
-  const config = MODE_CONFIG[section];
 
   return (
-    <nav className={styles.browseNav} aria-label={t[config.ariaKey]}>
+    <nav className={styles.browseNav} aria-label={t.examsAria}>
       <span className={styles.browseLabel}>{t.browseLabel}</span>
       <div className={styles.modeGrid}>
-        {config.modes.map((mode) => {
+        {MODES.map((mode) => {
           const Icon = mode.icon;
           const isActive = mode.key === activeMode;
           return (

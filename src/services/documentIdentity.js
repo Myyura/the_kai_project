@@ -26,7 +26,7 @@ const bytesToUuid = (bytes) => {
 
 export async function resolveDocumentUuid(docId) {
   const normalized = String(docId || '').trim();
-  if (!normalized) return null;
+  if (!normalized) throw new Error('缺少文档标识。');
   const stored = overrides.current?.[normalized] || overrides.aliases?.[normalized];
   if (stored) return stored;
   if (uuidPromises.has(normalized)) return uuidPromises.get(normalized);

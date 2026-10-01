@@ -81,26 +81,9 @@ function requireUrl(value, pathLabel) {
 
 function validateLinks(data) {
   if (!requireObject(data, 'links.json')) return;
-  const requiredText = [
-    'title',
-    'heading',
-    'subtitle',
-    'section1Title',
-    'section1Desc',
-    'section2Title',
-    'section2Desc',
-    'open',
-    'statsLinks',
-    'statsContributors',
-    'statsCategories',
-  ];
-
   for (const lang of ['zh', 'ja']) {
     const langData = data[lang];
     if (!requireObject(langData, `links.json.${lang}`)) continue;
-    for (const key of requiredText) {
-      requireString(langData[key], `links.json.${lang}.${key}`);
-    }
     for (const section of ['links', 'jobLinks']) {
       const links = langData[section];
       if (!requireArray(links, `links.json.${lang}.${section}`)) continue;
@@ -173,9 +156,7 @@ function validateTagTranslations(meta, base) {
 function validateTagTaxonomy(data) {
   if (!requireObject(data, 'tagTaxonomy')) return;
 
-  if (data.version !== undefined) {
-    requireInteger(data.version, 'tagTaxonomy.version', { min: 1 });
-  }
+  requireInteger(data.version, 'tagTaxonomy.version', { min: 1 });
 
   const subjectIds = new Set();
   if (requireObject(data.subjects, 'tagTaxonomy.subjects')) {
@@ -231,35 +212,33 @@ function validateTagTaxonomy(data) {
   }
 
   const subsubjectIds = new Set();
-  if (data.version >= 2 || data.subsubjects !== undefined) {
-    if (requireObject(data.subsubjects, 'tagTaxonomy.subsubjects')) {
-      for (const [subsubjectId, subsubject] of Object.entries(data.subsubjects)) {
-        subsubjectIds.add(subsubjectId);
-        const base = `tagTaxonomy.subsubjects.${subsubjectId}`;
-        if (!requireObject(subsubject, base)) continue;
-        if (!/^[A-Za-z0-9.-]+$/.test(subsubjectId)) {
-          addError(base, 'subsubject id must contain only ASCII letters, digits, periods, and hyphens');
-        }
-        if (requireString(subsubject.subject, `${base}.subject`) && !subjectIds.has(subsubject.subject)) {
-          addError(`${base}.subject`, `unknown subject "${subsubject.subject}"`);
-        }
-        validateTagTranslations(subsubject, base);
-        if (subsubject.aliases !== undefined && requireArray(subsubject.aliases, `${base}.aliases`)) {
-          subsubject.aliases.forEach((alias, index) => registerAlias(alias, subsubjectId, `${base}.aliases[${index}]`));
-        }
+  if (requireObject(data.subsubjects, 'tagTaxonomy.subsubjects')) {
+    for (const [subsubjectId, subsubject] of Object.entries(data.subsubjects)) {
+      subsubjectIds.add(subsubjectId);
+      const base = `tagTaxonomy.subsubjects.${subsubjectId}`;
+      if (!requireObject(subsubject, base)) continue;
+      if (!/^[A-Za-z0-9.-]+$/.test(subsubjectId)) {
+        addError(base, 'subsubject id must contain only ASCII letters, digits, periods, and hyphens');
+      }
+      if (requireString(subsubject.subject, `${base}.subject`) && !subjectIds.has(subsubject.subject)) {
+        addError(`${base}.subject`, `unknown subject "${subsubject.subject}"`);
+      }
+      validateTagTranslations(subsubject, base);
+      if (subsubject.aliases !== undefined) {
+        addError(`${base}.aliases`, 'use canonical IDs in documents and searchAliases for search terms');
       }
     }
+  }
 
-    if (requireArray(data.subsubjectOrder, 'tagTaxonomy.subsubjectOrder')) {
-      data.subsubjectOrder.forEach((subsubjectId, index) => {
-        if (
-          requireString(subsubjectId, `tagTaxonomy.subsubjectOrder[${index}]`)
-          && !subsubjectIds.has(subsubjectId)
-        ) {
-          addError(`tagTaxonomy.subsubjectOrder[${index}]`, `unknown subsubject "${subsubjectId}"`);
-        }
-      });
-    }
+  if (requireArray(data.subsubjectOrder, 'tagTaxonomy.subsubjectOrder')) {
+    data.subsubjectOrder.forEach((subsubjectId, index) => {
+      if (
+        requireString(subsubjectId, `tagTaxonomy.subsubjectOrder[${index}]`)
+        && !subsubjectIds.has(subsubjectId)
+      ) {
+        addError(`tagTaxonomy.subsubjectOrder[${index}]`, `unknown subsubject "${subsubjectId}"`);
+      }
+    });
   }
 
   if (requireObject(data.topics, 'tagTaxonomy.topics')) {
@@ -270,22 +249,20 @@ function validateTagTaxonomy(data) {
       if (!/^[A-Za-z0-9.-]+$/.test(tagId)) {
         addError(base, 'topic id must contain only ASCII letters, digits, periods, and hyphens');
       }
-      if (data.version >= 2) {
-        if (requireString(tag.subsubject, `${base}.subsubject`) && !subsubjectIds.has(tag.subsubject)) {
-          addError(`${base}.subsubject`, `unknown subsubject "${tag.subsubject}"`);
-        }
-        if (data.version >= 3 && typeof tag.subsubject === 'string') {
-          const expectedPrefix = `${tag.subsubject}.`;
-          if (!tagId.startsWith(expectedPrefix)) {
-            addError(base, `topic key must start with "${expectedPrefix}"`);
-          } else {
-            const shortId = tagId.slice(expectedPrefix.length);
-            if (!shortId) {
-              addError(base, 'topic short id must not be empty');
-            }
-            if (shortId.includes('.')) {
-              addError(base, 'topic short id must not contain "."');
-            }
+      if (requireString(tag.subsubject, `${base}.subsubject`) && !subsubjectIds.has(tag.subsubject)) {
+        addError(`${base}.subsubject`, `unknown subsubject "${tag.subsubject}"`);
+      }
+      if (typeof tag.subsubject === 'string') {
+        const expectedPrefix = `${tag.subsubject}.`;
+        if (!tagId.startsWith(expectedPrefix)) {
+          addError(base, `topic key must start with "${expectedPrefix}"`);
+        } else {
+          const shortId = tagId.slice(expectedPrefix.length);
+          if (!shortId) {
+            addError(base, 'topic short id must not be empty');
+          }
+          if (shortId.includes('.')) {
+            addError(base, 'topic short id must not contain "."');
           }
         }
       }
@@ -299,8 +276,8 @@ function validateTagTaxonomy(data) {
           }
         });
       }
-      if (tag.aliases !== undefined && requireArray(tag.aliases, `${base}.aliases`)) {
-        tag.aliases.forEach((alias, index) => registerAlias(alias, tagId, `${base}.aliases[${index}]`));
+      if (tag.aliases !== undefined) {
+        addError(`${base}.aliases`, 'use canonical IDs in documents and searchAliases for search terms');
       }
       if (tag.broad !== undefined && typeof tag.broad !== 'boolean') {
         addError(`${base}.broad`, 'must be a boolean');

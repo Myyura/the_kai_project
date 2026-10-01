@@ -1,34 +1,17 @@
 .tracker {
-  margin-top: 2rem;
-  padding: 1rem 1.25rem;
-  border-radius: var(--custom-border-radius);
-  border: 1px solid var(--custom-card-border);
-  background: var(--custom-card-bg);
-  transition: var(--custom-transition);
-}
-
-.tracker:hover {
-  border-color: var(--ifm-color-primary-light);
-  background: var(--custom-card-bg-hover);
-  box-shadow: var(--custom-box-shadow-hover);
-}
-
-.trackerEmbedded {
-  margin-top: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-}
-
-.trackerEmbedded:hover {
-  border-color: transparent;
+  display: flex;
+  flex: 1 1 20rem;
+  min-width: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem .75rem;
 }
 
 .trackerHeader {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
 }
 
 .trackerLabel {
@@ -67,7 +50,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0;
 }
 
 .btn {
@@ -193,19 +176,8 @@
   white-space: nowrap;
 }
 
-/* 提示文字 */
-.trackerHint {
-  margin: 0;
-  font-size: 0.75rem;
-  color: var(--ifm-color-emphasis-500);
-}
-
-.trackerGate {
-  border-style: dashed;
-}
-
 .trackerGateText {
-  margin: 0 0 0.75rem;
+  margin: 0;
   color: var(--ifm-color-emphasis-600);
   font-size: 0.82rem;
   line-height: 1.6;
@@ -217,7 +189,8 @@
 
 /* 下次复习时间行 */
 .nextReviewLine {
-  margin: 0.4rem 0 0.4rem;
+  margin: 0;
+  flex-wrap: wrap;
   font-size: 0.78rem;
   display: flex;
   align-items: center;
@@ -250,16 +223,4 @@
   font-size: 0.85em;
   opacity: 0.7;
   font-weight: 400;
-}
-
-.trackerHint a {
-  color: var(--ifm-color-emphasis-500);
-  text-decoration: none;
-  border-bottom: 1px dashed var(--ifm-color-emphasis-400);
-  transition: var(--custom-transition-fast);
-}
-
-.trackerHint a:hover {
-  color: var(--ifm-color-primary);
-  border-bottom-color: var(--ifm-color-primary);
 }

@@ -17,9 +17,11 @@
       "descriptionZh": "组合计数、二项式系数、卡特兰数与递推关系。",
       "descriptionJa": "組合せ数え上げ、二項係数、カタラン数、漸化式。",
       "descriptionEn": "Combinatorial counting, binomial coefficients, Catalan numbers, and recurrence relations.",
-      "aliases": [
-        "Discrete-Mathematics.Discrete-Mathematics"
-      ]
+      "searchAliases": {
+        "en": [
+          "Discrete Mathematics"
+        ]
+      }
     },
     "Discrete-Mathematics.Graph-Theory": {
       "subject": "Discrete-Mathematics",
@@ -87,9 +89,6 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Discrete-Mathematics.Discrete-Mathematics.Binomial-Coefficient"
-      ],
       "labelZh": "二项式系数",
       "labelJa": "二項係数",
       "labelEn": "Binomial Coefficient"
@@ -108,9 +107,6 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Discrete-Mathematics.Discrete-Mathematics.Catalan-Number"
-      ],
       "labelZh": "卡塔兰数",
       "labelJa": "カタラン数",
       "labelEn": "Catalan Number"
@@ -119,9 +115,6 @@
       "subsubject": "Discrete-Mathematics.Combinatorics",
       "relatedSubjects": [
         "Computer-Science"
-      ],
-      "aliases": [
-        "Discrete-Mathematics.Discrete-Mathematics.Recurrence-Relation"
       ],
       "labelZh": "递推关系",
       "labelJa": "漸化式",
@@ -266,9 +259,6 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "aliases": [
-        "Computer-Science.Data-Structures-Algorithms.BFS"
-      ],
       "labelZh": "广度优先搜索",
       "labelJa": "幅優先探索",
       "labelEn": "Breadth-First Search",
@@ -286,9 +276,6 @@
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [
         "Computer-Science"
-      ],
-      "aliases": [
-        "Computer-Science.Data-Structures-Algorithms.DFS"
       ],
       "labelZh": "深度优先搜索",
       "labelJa": "深さ優先探索",

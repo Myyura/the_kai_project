@@ -1,5 +1,5 @@
 /**
- * 首页：统一品牌、内容卡片与大学目录的视觉层级。
+ * 首页：延用品牌色与原有比例，突出两种找题路径。
  */
 
 /* ===== 全局动画 ===== */
@@ -91,8 +91,7 @@
   background-clip: text;
 }
 
-[data-theme='dark'] .heroTagline,
-[data-theme='dark'] .highlightSubtitle {
+[data-theme='dark'] .heroTagline {
   color: var(--kai-cyan);
 }
 
@@ -124,67 +123,70 @@
   margin-bottom: 2rem;
 }
 
-.primaryBtn,
+.examActions {
+  display: inline-flex;
+  max-width: 100%;
+  border-radius: 980px;
+  background: var(--kai-action);
+  box-shadow: var(--kai-shadow-action);
+  transition: var(--custom-transition-fast);
+}
+
+.examActions:hover,
+.examActions:focus-within {
+  box-shadow: var(--kai-shadow-action-hover);
+}
+
+.examAction,
 .secondaryBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: .5rem;
   min-height: 48px;
-  padding: .8rem 1.6rem;
+  padding: .8rem 1.25rem;
   font-size: 1rem;
   font-weight: 500;
-  border-radius: 980px;
-  text-decoration: none;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1.5;
+  text-decoration: none !important;
+  transition: var(--custom-transition-fast);
 }
 
-.primaryBtn {
-  background: var(--kai-action);
-  color: white !important;
-  box-shadow: 0 4px 14px rgba(var(--theme-accent-rgb), 0.4);
+.examAction {
+  composes: btnPrimary from '../styles/kai-ui.module.css';
+  flex: 1 1 0;
+  min-width: 0;
+  color: var(--kai-action-foreground) !important;
+  text-align: center;
 }
 
-.primaryBtn:hover {
-  transform: scale3d(1.02, 1.02, 1);
-  box-shadow: 0 6px 20px rgba(var(--theme-accent-rgb), 0.5);
-  color: white !important;
-  text-decoration: none;
-  background: var(--kai-action-hover);
+.examAction:first-child {
+  border-radius: 980px 0 0 980px;
+}
+
+.examAction:last-child {
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 0 980px 980px 0;
 }
 
 .secondaryBtn {
-  background: rgba(0, 0, 0, 0.05);
+  composes: btnSecondary from '../styles/kai-ui.module.css';
+  border-radius: 980px;
   color: var(--ifm-font-color-base) !important;
 }
 
-[data-theme='dark'] .secondaryBtn {
-  background: rgba(255, 255, 255, 0.1);
-}
-
 .secondaryBtn:hover {
-  background: rgba(0, 0, 0, 0.1);
+  color: var(--ifm-color-primary) !important;
   text-decoration: none;
 }
 
-[data-theme='dark'] .secondaryBtn:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.mainContent a:focus-visible,
-.mainContent button:focus-visible,
-.mainContent summary:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--ifm-color-primary) 48%, transparent);
-  outline-offset: 3px;
-}
-
 .btnIcon {
-  font-size: 0.9em;
+  flex: 0 0 auto;
+  font-size: 0.8em;
   transition: transform 0.3s;
 }
 
-.primaryBtn:hover .btnIcon {
+.examAction:hover .btnIcon {
   transform: translateX(3px);
 }
 
@@ -349,112 +351,49 @@
   color: var(--kai-success);
 }
 
-/* ===== 特性高亮区域 ===== */
+/* ===== 简短项目说明 ===== */
 .highlightsSection {
-  padding: 4rem 2rem;
+  padding: 2.25rem 2rem;
   background: #ffffff;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 360px;
 }
 
 [data-theme='dark'] .highlightsSection {
   background: var(--kai-navy-950);
 }
 
-.sectionHeading {
-  display: grid;
-  width: min(100%, var(--home-copy-measure));
-  justify-items: center;
-  gap: .75rem;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-
-.sectionTitle {
-  text-align: center;
-  font-size: clamp(1.75rem, 3vw, 2.4rem) !important;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0 !important;
-  color: var(--ifm-font-color-base);
-  text-wrap: balance;
-}
-
-.sectionSubtitle {
-  width: 100%;
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--ifm-color-emphasis-700);
-  margin: 0 !important;
-  line-height: 1.6;
-  text-wrap: balance;
-}
-
 .highlightsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.highlightCard {
-  min-width: 0;
-  background: var(--custom-card-bg);
-  border-radius: var(--custom-border-radius);
-  padding: 1.75rem;
-  position: relative;
-  animation: fadeInUp 0.6s ease-out backwards;
-  box-shadow: none;
-  contain: layout style;
-}
-
-.highlightIndex {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 4rem;
-  font-weight: 800;
-  color: var(--ifm-color-primary);
-  opacity: 0.1;
-  line-height: 1;
-}
-
-.highlightContent {
-  position: relative;
-  z-index: 1;
+.highlightItem {
   min-width: 0;
 }
 
 .highlightTitle {
-  font-size: 1.5rem !important;
-  font-weight: 700;
-  margin: 0 0 0.5rem !important;
+  margin: 0 0 .5rem !important;
   color: var(--ifm-font-color-base);
-  text-wrap: balance;
-}
-
-.highlightSubtitle {
-  font-size: 1rem;
+  font-size: 1.1rem !important;
   font-weight: 600;
-  color: var(--ifm-color-primary);
-  margin: 0 0 1rem !important;
 }
 
 .highlightDescription {
-  font-size: 1rem;
-  color: var(--ifm-color-emphasis-700);
-  line-height: 1.6;
   margin: 0 !important;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .95rem;
+  line-height: 1.6;
   overflow-wrap: break-word;
 }
 
 /* ===== 社区入口区域 ===== */
 .communitySection {
-  padding: 0 2rem 4rem;
+  padding: 0 2rem 2rem;
   background: #ffffff;
   content-visibility: auto;
-  contain-intrinsic-size: auto 400px;
+  contain-intrinsic-size: auto 270px;
 }
 
 [data-theme='dark'] .communitySection {
@@ -467,10 +406,10 @@
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.65fr);
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2.5rem;
+  padding: 2rem;
   overflow: hidden;
   border: 1px solid rgba(var(--theme-accent-rgb), 0.14);
   border-radius: 28px;
@@ -526,10 +465,10 @@
 .communityTitle {
   margin: 0 0 1rem !important;
   color: var(--ifm-font-color-base);
-  font-size: clamp(2rem, 3.4vw, 2.75rem) !important;
+  font-size: clamp(1.6rem, 2.6vw, 2rem) !important;
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.15;
+  line-height: 1.3;
   text-wrap: balance;
 }
 
@@ -544,29 +483,6 @@
 
 [data-theme='dark'] .communityDescription {
   color: var(--ifm-color-emphasis-700);
-}
-
-.communityTopics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.5rem;
-}
-
-.communityTopic {
-  padding: 0.4rem 0.75rem;
-  border: 1px solid rgba(var(--theme-accent-rgb), 0.13);
-  border-radius: 999px;
-  color: var(--ifm-color-emphasis-700);
-  background: rgba(255, 255, 255, 0.72);
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-[data-theme='dark'] .communityTopic {
-  border-color: rgba(255, 255, 255, 0.08);
-  color: var(--ifm-color-emphasis-800);
-  background: rgba(255, 255, 255, 0.05);
 }
 
 .communityActions {
@@ -882,20 +798,8 @@
   object-fit: contain;
 }
 
-.partnerLogoForDarkTheme {
-  display: none !important;
-}
-
 [data-theme='dark'] .featuredPartnerLogo {
   background: var(--kai-navy-800);
-}
-
-[data-theme='dark'] .partnerLogoForLightTheme {
-  display: none;
-}
-
-[data-theme='dark'] .partnerLogoForDarkTheme {
-  display: block !important;
 }
 
 .featuredPartnerName strong {
@@ -904,8 +808,7 @@
   line-height: 1.25;
 }
 
-.featuredPartnerName em,
-.featuredPartnerEmpty {
+.featuredPartnerName em {
   margin-top: .15rem;
   color: var(--ifm-color-emphasis-600);
   font-size: .65rem;
@@ -916,198 +819,6 @@
 .communitySupportTile > svg {
   color: var(--ifm-color-emphasis-400);
   font-size: .65rem;
-}
-
-/* ===== 大学与研究科检索 ===== */
-.universitySection {
-  padding: 3.5rem 2rem;
-  background: var(--ifm-background-color);
-  border-block: 1px solid var(--custom-card-border);
-  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
-}
-
-.universityToolbar {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto 1.25rem;
-}
-
-.universitySearch {
-  width: min(100%, 36rem);
-}
-
-.universitySearch label {
-  display: block;
-  margin-bottom: .5rem;
-  color: var(--ifm-font-color-base);
-  font-size: .85rem;
-  font-weight: 600;
-}
-
-.universityResultCount {
-  flex-shrink: 0;
-  margin: 0 0 .8rem;
-  color: var(--ifm-color-emphasis-700);
-  font-size: .85rem;
-}
-
-.universityGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: start;
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.universityCard {
-  min-width: 0;
-  border: 1px solid var(--custom-card-border);
-  border-radius: 14px;
-  background: var(--custom-card-bg);
-  overflow: hidden;
-}
-
-.univArchiveLink {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  min-height: 90px;
-  padding: 1rem;
-  color: var(--ifm-font-color-base) !important;
-  text-decoration: none !important;
-  transition: background .2s;
-}
-
-.univArchiveLink:hover,
-.univSummary:hover,
-.deptLink:hover {
-  background: rgba(var(--theme-accent-rgb), .07);
-}
-
-.universityCard :is(a, summary):focus-visible {
-  outline-offset: -3px;
-}
-
-.univColorBar {
-  flex-shrink: 0;
-  width: 4px;
-  height: 32px;
-  border-radius: 2px;
-  background: var(--univ-color, var(--kai-blue));
-}
-
-[data-theme='dark'] .univColorBar {
-  background: color-mix(in srgb, var(--univ-color, var(--kai-cyan)) 60%, white);
-}
-
-.univHeading {
-  display: grid;
-  flex: 1;
-  min-width: 0;
-  gap: .25rem;
-}
-
-.univName {
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
-}
-
-.univArchiveHint {
-  color: var(--ifm-color-primary);
-  font-size: .78rem;
-}
-
-.univDetails {
-  border: 0;
-  border-top: 1px solid var(--custom-card-border);
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.univSummary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .5rem;
-  min-height: 44px;
-  padding: .65rem 1rem;
-  color: var(--ifm-color-emphasis-700);
-  cursor: pointer;
-  font-size: .75rem;
-  line-height: 1.4;
-  list-style: none;
-}
-
-.univSummary::marker,
-.univSummary::-webkit-details-marker {
-  display: none;
-  content: '';
-}
-
-.departmentCount {
-  margin-left: .25rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.univToggle {
-  flex-shrink: 0;
-  font-size: .65rem;
-  transition: transform .2s;
-}
-
-.univDetails[open] .univToggle {
-  transform: rotate(180deg);
-}
-
-.deptList {
-  border-top: 1px solid var(--custom-card-border);
-}
-
-.deptRow + .deptRow {
-  border-top: 1px solid var(--custom-card-border);
-}
-
-.deptLink {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .75rem;
-  min-height: 44px;
-  padding: .65rem 1rem .3rem;
-  color: var(--ifm-font-color-base) !important;
-  text-decoration: none !important;
-  font-size: .85rem;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-
-.deptWebsiteLink {
-  display: flex;
-  width: fit-content;
-  align-items: center;
-  gap: .4rem;
-  min-height: 36px;
-  margin: 0 1rem .25rem;
-  color: var(--ifm-color-emphasis-700);
-  font-size: .75rem;
-}
-
-.deptWebsiteLink svg {
-  font-size: .65rem;
-}
-
-.linkIcon {
-  flex-shrink: 0;
-  font-size: .75rem;
-  color: var(--ifm-color-emphasis-600);
 }
 
 /* ===== 减少动画（无障碍 + 低端设备）===== */
@@ -1125,148 +836,102 @@
 }
 
 /* ===== 响应式设计 ===== */
-@media screen and (max-width: 1100px) {
-  .universityGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 @media screen and (max-width: 996px) {
   .heroSection {
     padding: 3.5rem 1.5rem 2.5rem;
   }
-  
+
   .heroTitle {
     font-size: clamp(2.5rem, 7vw, 4rem) !important;
   }
-  
-  .heroDescription {
-    font-size: 1.1rem;
-  }
-  
-  .statsRow {
-    gap: 2rem;
-  }
-  
-  .statNumber {
-    font-size: 2rem;
-  }
-  
-  .highlightsSection,
-  .communitySection,
-  .communitySupportSection,
-  .universitySection {
-    padding: 3.5rem 1.5rem;
+
+  .highlightsSection {
+    padding: 2rem 1.5rem;
   }
 
   .communitySection {
-    padding-top: 0;
+    padding-inline: 1.5rem;
   }
 
   .communitySupportSection {
-    padding-top: 0;
-  }
-  
-  .highlightsGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .communityCard {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem;
+    padding: 0 1.5rem 3.5rem;
   }
 
   .communitySupportCard {
     grid-template-columns: 1fr;
   }
-  
-  .highlightCard {
-    padding: 2rem;
+
+  .communityCard {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
-  
-  .universityGrid {
+
+  .communityActions {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
 }
 
 @media screen and (max-width: 640px) {
   .heroSection {
     padding: 2.75rem 1rem 2.25rem;
   }
-  
+
   .heroTagline {
     font-size: 1.5rem;
   }
-  
+
   .heroDescription {
     font-size: 1rem;
     margin-bottom: 1.5rem !important;
   }
-  
+
   .heroCta {
-    align-items: stretch;
+    align-items: center;
     gap: .75rem;
     margin-bottom: 1.75rem;
   }
-  
-  .primaryBtn,
+
+  .examActions {
+    width: 100%;
+    max-width: 24rem;
+  }
+
+  .examAction,
   .secondaryBtn {
-    flex: 1;
-    justify-content: center;
-    padding: .75rem;
-    font-size: .9rem;
+    padding: .75rem 1rem;
+    font-size: .95rem;
   }
-  
+
   .heroProgressCallout {
-    font-size: 0.82rem;
-    padding: 0.6rem 1.1rem;
-    gap: 0.5rem;
+    padding: .6rem 1rem;
+    gap: .5rem;
   }
-  
+
   .statsRow {
-    gap: 1.5rem;
+    gap: 1rem;
   }
-  
+
   .statNumber {
     font-size: 1.75rem;
   }
-  
+
   .statLabel {
-    font-size: 0.875rem;
-  }
-  
-  .sectionTitle {
-    font-size: clamp(1.75rem, 9vw, 2.25rem) !important;
+    font-size: .875rem;
   }
 
-  .sectionHeading {
-    gap: .6rem;
-    margin-bottom: 1.5rem;
+  .highlightsSection {
+    padding: 1.75rem 1rem;
   }
 
-  .highlightsSection,
-  .universitySection {
-    padding: 2.75rem 1rem;
-  }
-  
-  .highlightCard {
-    padding: 1.5rem;
-  }
-  
-  .highlightIndex {
-    font-size: 3rem;
-    top: 1.5rem;
-    right: 1.5rem;
-  }
-  
-  .highlightTitle {
-    font-size: 1.25rem !important;
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .communitySection {
-    padding: 0 1rem 3rem;
+    padding: 0 1rem 1.75rem;
   }
 
   .communitySupportSection {
@@ -1274,9 +939,16 @@
   }
 
   .communityCard {
-    gap: 2rem;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     border-radius: 22px;
+  }
+
+  .communityActions {
+    grid-template-columns: 1fr;
+  }
+
+  .communityDescription {
+    font-size: 1rem;
   }
 
   .communitySupportCard {
@@ -1296,21 +968,4 @@
     gap: .7rem;
   }
 
-  .communityDescription {
-    font-size: 0.95rem;
-  }
-  
-  .universityGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .universityToolbar {
-    align-items: stretch;
-    flex-direction: column;
-    gap: .65rem;
-  }
-
-  .universityResultCount {
-    margin: 0;
-  }
 }

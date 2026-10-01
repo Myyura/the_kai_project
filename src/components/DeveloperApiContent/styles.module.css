@@ -1,10 +1,5 @@
 .shell {
-  composes: shell from "../../styles/kai-ui.module.css";
-}
-
-.shell.embeddedShell {
   width: 100%;
-  padding: 0;
 }
 
 .header {
@@ -343,11 +338,6 @@
 }
 
 @media (max-width: 760px) {
-  .shell {
-    width: min(100% - 1rem, var(--kai-content-width));
-    padding-top: 1.2rem;
-  }
-
   .header,
   .sectionHeader {
     align-items: stretch;

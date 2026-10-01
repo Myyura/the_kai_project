@@ -11,21 +11,17 @@ const BUTTONS = [
   { key: STATUS.REVIEWING, Icon: FaRedo },
 ];
 
-function ProgressGate({ t, type = 'login', embedded = false }) {
+function ProgressGate({ t, type = 'login' }) {
   const unavailable = type === 'unavailable';
   return (
-    <div className={`${styles.tracker} ${styles.trackerGate} ${embedded ? styles.trackerEmbedded : ''}`}>
+    <div className={styles.tracker}>
       <div className={styles.trackerHeader}>
-        <span className={styles.trackerLabel}>{t.heading}</span>
-        <span className={`${styles.statusBadge} ${styles.badge_not_started}`}>
-          {unavailable ? t.unavailableBadge : t.loginBadge}
-        </span>
+        <Link to="/me" className={styles.trackerLabel} title={t.hint}>{t.heading}</Link>
       </div>
-      <p className={styles.trackerGateText}>
-        {unavailable ? t.unavailableText : t.loginRequired}
-      </p>
-      {!unavailable && (
-        <Link to="/login" className={styles.trackerGateBtn}>
+      {unavailable ? (
+        <p className={styles.trackerGateText}>{t.unavailableText}</p>
+      ) : (
+        <Link to="/login" className={styles.trackerGateBtn} title={t.loginRequired}>
           {t.loginCta}
         </Link>
       )}
@@ -33,7 +29,7 @@ function ProgressGate({ t, type = 'login', embedded = false }) {
   );
 }
 
-function ProgressTrackerContent({ docId, title, permalink, tags, embedded = false }) {
+function ProgressTrackerContent({ docId, title, permalink, tags }) {
   const [status, setStatus, refreshReview, updatedAt, reviewCount] = useDocProgress(docId, title, permalink, tags);
   const [justRefreshed, setJustRefreshed] = React.useState(false);
   const [refreshLocked, setRefreshLocked] = React.useState(false);
@@ -63,9 +59,9 @@ function ProgressTrackerContent({ docId, title, permalink, tags, embedded = fals
   };
 
   return (
-    <div className={`${styles.tracker} ${embedded ? styles.trackerEmbedded : ''}`}>
+    <div className={styles.tracker}>
       <div className={styles.trackerHeader}>
-        <span className={styles.trackerLabel}>{t.heading}</span>
+        <Link to="/me" className={styles.trackerLabel} title={t.hint}>{t.heading}</Link>
         <span className={`${styles.statusBadge} ${styles[`badge_${status}`]}`}>
           {t[status]}
         </span>
@@ -74,6 +70,8 @@ function ProgressTrackerContent({ docId, title, permalink, tags, embedded = fals
         {BUTTONS.map(({ key, Icon }) => (
           <button
             key={key}
+            type="button"
+            aria-pressed={status === key}
             onClick={() => handleClick(key)}
             className={`${styles.btn} ${status === key ? styles[`btn_${key}_active`] : styles.btnDefault}`}
             title={t[key]}
@@ -87,6 +85,7 @@ function ProgressTrackerContent({ docId, title, permalink, tags, embedded = fals
           const isLastRound = info && (reviewCount + 1 >= info.totalRounds);
           return (
             <button
+              type="button"
               onClick={handleRefresh}
               className={`${styles.btn} ${justRefreshed ? styles.btnRefreshed : isLastRound ? styles.btnFinal : styles.btnRefresh}`}
               title={isLastRound ? t.reviewedFinalTitle : t.reviewedTitle}
@@ -99,6 +98,7 @@ function ProgressTrackerContent({ docId, title, permalink, tags, embedded = fals
         })()}
         {status !== STATUS.NOT_STARTED && (
           <button
+            type="button"
             onClick={() => setStatus(STATUS.NOT_STARTED)}
             className={`${styles.btn} ${styles.btnReset}`}
             title={t[STATUS.NOT_STARTED]}
@@ -129,9 +129,6 @@ function ProgressTrackerContent({ docId, title, permalink, tags, embedded = fals
           </p>
         );
       })()}
-      <p className={styles.trackerHint}>
-        <Link to="/me">{t.hint}</Link>
-      </p>
     </div>
   );
 }
@@ -140,8 +137,8 @@ export default function ProgressTracker(props) {
   const { isConfigured, isLoggedIn, authReady } = useAuth();
   const t = useUiText('progressTracker');
 
-  if (!isConfigured) return <ProgressGate t={t} type="unavailable" embedded={props.embedded} />;
+  if (!isConfigured) return <ProgressGate t={t} type="unavailable" />;
   if (!authReady && !isLoggedIn) return null;
-  if (!isLoggedIn) return <ProgressGate t={t} embedded={props.embedded} />;
+  if (!isLoggedIn) return <ProgressGate t={t} />;
   return <ProgressTrackerContent {...props} />;
 }

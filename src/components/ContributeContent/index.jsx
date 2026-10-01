@@ -99,7 +99,7 @@ function statusText(status, t) {
   return t.statusLabels?.[status] || status || t.statusLabels?.unknown || 'Unknown';
 }
 
-export function ContributeContent({ embedded = false } = {}) {
+export function ContributeContent() {
   const language = useCurrentLanguage();
   const colorMode = useDocumentColorMode();
   const t = useUiText('contributions');
@@ -436,7 +436,7 @@ export function ContributeContent({ embedded = false } = {}) {
 
   if (!isConfigured) {
     return (
-      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+      <div className={styles.shell}>
         <section className={styles.noticePanel}>
           <FaExclamationTriangle className={styles.noticeIcon} />
           <h1>{t.pageTitle}</h1>
@@ -448,7 +448,7 @@ export function ContributeContent({ embedded = false } = {}) {
 
   if (!authReady) {
     return (
-      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+      <div className={styles.shell}>
         <div className={styles.loadingPanel}>
           <FaRedo className={styles.spin} />
         </div>
@@ -458,7 +458,7 @@ export function ContributeContent({ embedded = false } = {}) {
 
   if (!isLoggedIn) {
     return (
-      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+      <div className={styles.shell}>
         <section className={styles.noticePanel}>
           <FaClipboardList className={styles.noticeIcon} />
           <h1>{t.pageTitle}</h1>
@@ -474,7 +474,6 @@ export function ContributeContent({ embedded = false } = {}) {
   if (admissionDataEntityId !== null) {
     return (
       <AdmissionDataContribution
-        embedded={embedded}
         entityId={admissionDataEntityId}
         profile={profile}
       />
@@ -482,7 +481,7 @@ export function ContributeContent({ embedded = false } = {}) {
   }
 
   return (
-    <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+    <div className={styles.shell}>
       <header className={styles.header}>
         <div>
           <h1>{isCorrectionMode ? t.correctionTitle : t.pageTitle}</h1>

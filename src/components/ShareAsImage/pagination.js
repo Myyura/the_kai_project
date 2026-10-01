@@ -8,7 +8,7 @@ export class ShareImageLimitError extends Error {
   }
 }
 
-function checkAborted(signal) {
+export function checkAborted(signal) {
   if (signal?.aborted) throw new DOMException('Image generation cancelled', 'AbortError');
 }
 

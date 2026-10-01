@@ -1,8 +1,5 @@
 .shell {
   composes: shell from "../../styles/kai-ui.module.css";
-}
-
-.embeddedShell {
   padding-top: 0;
 }
 
@@ -272,19 +269,6 @@
   margin: 0;
   overflow-wrap: anywhere;
   color: var(--ifm-font-color-base);
-}
-
-.tokenLine {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.tokenLine code {
-  max-width: 100%;
-  white-space: normal;
-  overflow-wrap: anywhere;
 }
 
 @media (max-width: 996px) {

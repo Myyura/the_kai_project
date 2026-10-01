@@ -2,82 +2,100 @@ import React, {useMemo, useState} from 'react';
 import Link from '@docusaurus/Link';
 import {
   FaArrowRight,
+  FaChevronDown,
   FaComments,
   FaExternalLinkAlt,
   FaPaperPlane,
-  FaSearch,
 } from 'react-icons/fa';
+import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
+import BrowseSearchField from '@site/src/components/BrowseSearchField';
 import ContentBrowseModes from '@site/src/components/ContentBrowseModes';
 import {universities} from '@site/src/data/universities';
 import {examUniversities} from '@site/src/data/universityCatalog.cjs';
 import {useUiText} from '@site/src/i18n/useUiText';
-import {getUniversityCatalogTarget} from '@site/src/services/documentMetadata';
 import styles from './intro.module.css';
 
-const IMPERIAL_UNIVERSITIES = new Set([
-  'tokyo-university',
-  'kyoto-university',
-  'tohoku-university',
-  'osaka-university',
-  'nagoya-university',
-  'hokkaido-university',
-  'kyushu-university',
-]);
+const catalogUniversities = examUniversities(universities);
+const normalizeUniversityQuery = (value) => value.normalize('NFKC').toLowerCase().trim();
 
-const PRIVATE_UNIVERSITIES = new Set([
-  'waseda-university',
-  'keio-university',
-]);
+function filterUniversities(query) {
+  const matches = (item) => normalizeUniversityQuery(
+    [item.name, item.id, ...(item.aliases || [])].join(' '),
+  ).includes(query);
 
-function getUniversityGroup(id) {
-  if (IMPERIAL_UNIVERSITIES.has(id)) return 'imperial';
-  if (PRIVATE_UNIVERSITIES.has(id)) return 'private';
-  return 'national';
+  return catalogUniversities.flatMap((university) => {
+    const universityMatches = matches(university);
+    const departments = university.departments.flatMap((department) => {
+      const departmentMatches = matches(department);
+      const matchingPrograms = query && !universityMatches && !departmentMatches
+        ? department.programs.filter(matches)
+        : [];
+      return universityMatches || departmentMatches || matchingPrograms.length
+        ? [{...department, matchingPrograms}]
+        : [];
+    });
+
+    // University archives can contain exams directly, without graduate-school categories.
+    return universityMatches || departments.length ? [{university, departments}] : [];
+  });
 }
 
-function SchoolCard({university, groupLabel}) {
-  const target = getUniversityCatalogTarget(university);
-  const content = (
-    <>
-      <span
-        className={styles.schoolColor}
-        style={{backgroundColor: university.color}}
-        aria-hidden="true"
-      />
-      <span className={styles.schoolTag}>{groupLabel}</span>
-      <span className={styles.schoolName}>{university.name}</span>
-      {target?.kind === 'external'
-        ? <FaExternalLinkAlt className={styles.schoolArrow} aria-hidden="true" />
-        : target?.kind === 'docs'
-          ? <FaArrowRight className={styles.schoolArrow} aria-hidden="true" />
-          : null}
-    </>
-  );
-
-  if (target?.kind === 'docs') {
-    return (
-      <Link to={target.href} className={styles.schoolCard}>
-        {content}
-      </Link>
-    );
-  }
-  if (target?.kind === 'external') {
-    return (
-      <a
-        href={target.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.schoolCard}>
-        {content}
-      </a>
-    );
-  }
+function SchoolCard({university, departments, query, t}) {
   return (
-    <div
-      className={`${styles.schoolCard} ${styles.schoolCardUnavailable}`}
-      aria-disabled="true">
-      {content}
-    </div>
+    <article className={styles.schoolCard}>
+      <Link to={university.archiveUrl} className={styles.schoolArchiveLink}>
+        <span
+          className={styles.schoolColor}
+          style={{'--university-color': university.color}}
+          aria-hidden="true"
+        />
+        <span className={styles.schoolHeading}>
+          <span className={styles.schoolName}>{university.name}</span>
+          <span className={styles.schoolMeta}>
+            {university.departments.length
+              ? t.departmentCount.replace('{count}', String(university.departments.length))
+              : t.viewPastExams}
+          </span>
+        </span>
+        <FaArrowRight className={styles.linkIcon} aria-hidden="true" />
+      </Link>
+      {departments.length > 0 && (
+        // Reset native disclosure state for each search, including when the query is cleared.
+        <details key={query} className={styles.schoolDetails} open={Boolean(query)}>
+          <summary className={styles.schoolSummary}>
+            <span>{t.departmentLinks}</span>
+            <FaChevronDown className={styles.schoolToggle} aria-hidden="true" />
+          </summary>
+          <div className={styles.departmentList}>
+            {departments.map((department) => (
+              <div key={department.id} className={styles.departmentRow}>
+                <Link to={department.archiveUrl} className={styles.departmentLink}>
+                  <span>{department.name}</span>
+                  <FaArrowRight className={styles.linkIcon} aria-hidden="true" />
+                </Link>
+                {department.matchingPrograms.map((program) => (
+                  <Link key={program.id} to={program.archiveUrl} className={styles.programLink}>
+                    <span>{program.name}</span>
+                    <FaArrowRight className={styles.linkIcon} aria-hidden="true" />
+                  </Link>
+                ))}
+                {department.websiteUrl && (
+                  <a
+                    href={department.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.departmentWebsiteLink}
+                    aria-label={`${university.name} · ${department.name} · ${t.websiteLink} · ${t.opensNewTab}`}>
+                    {t.websiteLink}
+                    <FaExternalLinkAlt aria-hidden="true" />
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </details>
+      )}
+    </article>
   );
 }
 
@@ -112,57 +130,64 @@ function InfoCard({icon: Icon, title, description, actions}) {
 export default function Intro() {
   const t = useUiText('examCatalog');
   const [query, setQuery] = useState('');
-  const normalizedQuery = query.trim().toLocaleLowerCase();
+  const normalizedQuery = normalizeUniversityQuery(query);
   const filteredUniversities = useMemo(
-    () => examUniversities(universities).filter((university) => (
-      !normalizedQuery ||
-      university.name.toLocaleLowerCase().includes(normalizedQuery) ||
-      [university.id, ...(university.aliases || [])].join(' ').toLocaleLowerCase().includes(normalizedQuery)
-    )),
+    () => filterUniversities(normalizedQuery),
     [normalizedQuery],
   );
 
   return (
     <div className={styles.introPage}>
       <header className={styles.pageHeader}>
-        <span className={styles.eyebrow}>{t.eyebrow}</span>
-        <h1 className={styles.pageTitle}>{t.title}</h1>
-        <p className={styles.pageSubtitle}>{t.subtitle}</p>
+        <span>{t.eyebrow}</span>
+        <h1>{t.title}</h1>
+        <p>{t.subtitle}</p>
       </header>
 
-      <ContentBrowseModes section="exams" activeMode="catalog" />
+      <ContentBrowseModes activeMode="catalog" />
 
       <section className={styles.schoolsSection} aria-labelledby="university-search-label">
-        <label id="university-search-label" className={styles.searchLabel} htmlFor="university-search">
-          {t.searchLabel}
-        </label>
-        <div className={styles.searchBox}>
-          <FaSearch aria-hidden="true" />
-          <input
-            id="university-search"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder={t.searchPlaceholder}
-          />
+        <div className={styles.searchToolbar}>
+          <div className={styles.searchField}>
+            <label id="university-search-label" className={styles.searchLabel} htmlFor="university-search">
+              {t.searchLabel}
+            </label>
+            <BrowseSearchField
+              id="university-search"
+              value={query}
+              onChange={setQuery}
+              label={t.searchLabel}
+              placeholder={t.searchPlaceholder}
+              resultsId="university-results"
+              autoComplete="off"
+            />
+          </div>
+          <p className={styles.resultCount} role="status">
+            {t.resultCount.replace('{count}', String(filteredUniversities.length))}
+          </p>
         </div>
 
-        {filteredUniversities.length > 0 ? (
-          <div className={styles.schoolGrid}>
-            {filteredUniversities.map((university) => {
-              const group = getUniversityGroup(university.id);
-              return (
+        <div id="university-results">
+          {filteredUniversities.length > 0 ? (
+            <div className={styles.schoolGrid}>
+              {filteredUniversities.map(({university, departments}) => (
                 <SchoolCard
                   key={university.id}
                   university={university}
-                  groupLabel={t.groups[group]}
+                  departments={departments}
+                  query={normalizedQuery}
+                  t={t}
                 />
-              );
-            })}
-          </div>
-        ) : (
-          <p className={styles.emptyState}>{t.noResults}</p>
-        )}
+              ))}
+            </div>
+          ) : (
+            <BrowseEmptyState
+              message={t.noResults}
+              onReset={() => setQuery('')}
+              focusTargetId="university-search"
+            />
+          )}
+        </div>
       </section>
 
       <section className={styles.infoSection} aria-label={t.contributeTitle}>

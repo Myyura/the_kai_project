@@ -4,18 +4,16 @@ import {FaSyncAlt, FaTrophy, FaUser} from 'react-icons/fa';
 import {useAuth} from '@site/src/hooks/useAuth';
 import {usePublicProfile} from '@site/src/hooks/usePublicProfile';
 import {fetchPracticeLeaderboard} from '@site/src/services/leaderboardService';
+import {addStudyEventListener, PROGRESS_UPDATED_EVENT} from '@site/src/services/studyEvents';
+import {getLanguageLocale} from '@site/src/i18n/config';
 import {getUiMessages} from '@site/src/i18n/messages';
 import styles from './styles.module.css';
 
 const PERIODS = ['half_month', 'six_months'];
 
-const localeFor = (language) => (
-  language === 'ja' ? 'ja-JP' : language === 'en' ? 'en-US' : 'zh-CN'
-);
-
 const formatPeriodRange = (start, end, language) => {
   if (!start || !end) return '';
-  const formatter = new Intl.DateTimeFormat(localeFor(language), {
+  const formatter = new Intl.DateTimeFormat(getLanguageLocale(language), {
     month: 'short',
     day: 'numeric',
     timeZone: 'Asia/Tokyo',
@@ -23,7 +21,7 @@ const formatPeriodRange = (start, end, language) => {
   return `${formatter.format(new Date(`${start}T00:00:00+09:00`))} – ${formatter.format(new Date(`${end}T00:00:00+09:00`))}`;
 };
 
-export default function Leaderboard({language = 'zh', compact = false}) {
+export default function Leaderboard({language = 'zh'}) {
   const {isConfigured, isLoggedIn} = useAuth();
   const {profile} = usePublicProfile();
   const t = getUiMessages('leaderboard', language);
@@ -61,10 +59,10 @@ export default function Leaderboard({language = 'zh', compact = false}) {
   useEffect(() => { void load(); }, [load]);
   useEffect(() => {
     const handleRefresh = () => void load({silent: true});
-    window.addEventListener('kai_progress_updated', handleRefresh);
+    const removeProgressListener = addStudyEventListener(PROGRESS_UPDATED_EVENT, handleRefresh);
     window.addEventListener('kai_public_profile_updated', handleRefresh);
     return () => {
-      window.removeEventListener('kai_progress_updated', handleRefresh);
+      removeProgressListener();
       window.removeEventListener('kai_public_profile_updated', handleRefresh);
     };
   }, [load]);
@@ -88,7 +86,7 @@ export default function Leaderboard({language = 'zh', compact = false}) {
   const currentOutsideTop = currentUser && !currentUser.is_top_ten && currentCount > 0 && currentRank;
 
   return (
-    <section className={`${styles.section} ${compact ? styles.compactSection : ''}`}>
+    <section className={styles.section}>
       <div className={styles.header}>
         <div className={styles.titleGroup}>
           <h2 className={styles.sectionTitle}>

@@ -60,7 +60,6 @@ export default function DifficultyRating({ docId }) {
     rate,
   } = useExamDifficulty(docId, {
     enabled: isConfigured && authReady && isLoggedIn,
-    refreshKey: isLoggedIn ? 'in' : 'out',
   });
 
   if (!isConfigured) return <DifficultyUnavailable t={t} />;

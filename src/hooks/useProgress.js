@@ -1,11 +1,6 @@
+import {addStudyEventListener, PROGRESS_UPDATED_EVENT} from '../services/studyEvents';
 import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useAuth} from './useAuth';
-
-const addProgressUpdatedListener = (listener) => {
-  if (typeof window === 'undefined') return () => {};
-  window.addEventListener('kai_progress_updated', listener);
-  return () => window.removeEventListener('kai_progress_updated', listener);
-};
 
 export const STATUS = {
   NOT_STARTED: 'not_started',
@@ -13,7 +8,7 @@ export const STATUS = {
   REVIEWING: 'reviewing',
 };
 
-export const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60];
+const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60];
 
 export const getReviewInfo = (updatedAt, reviewCount = 0) => {
   if (!updatedAt) return null;
@@ -43,64 +38,76 @@ export function useDocProgress(docId, title, permalink, tags) {
   const [loading, setLoading] = useState(Boolean(isLoggedIn));
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
-  const currentUserIdRef = useRef(user?.id || '');
-  currentUserIdRef.current = user?.id || '';
+  const scope = `${user?.id || ''}:${docId}`;
+  const currentScopeRef = useRef(scope);
+  currentScopeRef.current = scope;
+  const requestRef = useRef(0);
+  const mutationRef = useRef(0);
 
   useEffect(() => {
+    setEntry(null);
     setSaving(false);
     setError(null);
-  }, [user?.id]);
+  }, [scope]);
 
   const refresh = useCallback(async () => {
+    const requestId = ++requestRef.current;
     if (!isLoggedIn || !docId) {
       setEntry(null);
       setLoading(false);
       return null;
     }
-    const operationUserId = user?.id || '';
+    const isCurrent = () => currentScopeRef.current === scope && requestRef.current === requestId;
     setLoading(true);
     try {
       const {fetchDocProgress} = await import('../services/studyDataService');
       const value = await fetchDocProgress(docId);
-      if (currentUserIdRef.current === operationUserId) {
+      if (isCurrent()) {
         setEntry(value);
         setError(null);
       }
       return value;
     } catch (nextError) {
-      if (currentUserIdRef.current === operationUserId) setError(nextError);
+      if (isCurrent()) setError(nextError);
       return null;
     } finally {
-      if (currentUserIdRef.current === operationUserId) setLoading(false);
+      if (isCurrent()) setLoading(false);
     }
-  }, [docId, isLoggedIn, user?.id]);
+  }, [docId, isLoggedIn, scope]);
 
   useEffect(() => {
-    let active = true;
     void refresh();
-    const removeListener = addProgressUpdatedListener((event) => {
-      if (event.detail?.userId && event.detail.userId !== currentUserIdRef.current) return;
-      if (!active || (event.detail?.docId && event.detail.docId !== docId)) return;
-      if (event.detail?.docId === docId) setEntry(event.detail.value || null);
-      else void refresh();
+    const removeListener = addStudyEventListener(PROGRESS_UPDATED_EVENT, (event) => {
+      if (event.detail?.userId && event.detail.userId !== user?.id) return;
+      if (event.detail?.docId && event.detail.docId !== docId) return;
+      if (event.detail?.docId === docId) {
+        requestRef.current += 1;
+        setEntry(event.detail.value || null);
+        setLoading(false);
+      } else void refresh();
     });
     return () => {
-      active = false;
+      requestRef.current += 1;
+      mutationRef.current += 1;
       removeListener();
     };
   }, [docId, refresh, user?.id]);
 
   const persist = useCallback(async (nextEntry, eventType) => {
     const operationUserId = user?.id || '';
+    const mutationId = ++mutationRef.current;
+    requestRef.current += 1;
+    const isCurrent = () => currentScopeRef.current === scope && mutationRef.current === mutationId;
     const previous = entry;
     setEntry(nextEntry);
+    setLoading(false);
     setSaving(true);
     setError(null);
     try {
       if (!nextEntry) {
         const {deleteDocProgress} = await import('../services/studyDataService');
-        await deleteDocProgress(docId);
-        if (currentUserIdRef.current === operationUserId) setEntry(null);
+        await deleteDocProgress(docId, operationUserId);
+        if (isCurrent()) setEntry(null);
         return null;
       }
       const {saveDocProgress} = await import('../services/studyDataService');
@@ -110,18 +117,18 @@ export function useDocProgress(docId, title, permalink, tags) {
         eventType,
         expectedUserId: operationUserId,
       });
-      if (currentUserIdRef.current === operationUserId) setEntry(saved);
+      if (isCurrent()) setEntry(saved);
       return saved;
     } catch (nextError) {
-      if (currentUserIdRef.current === operationUserId) {
+      if (isCurrent()) {
         setEntry(previous);
         setError(nextError);
       }
       return null;
     } finally {
-      if (currentUserIdRef.current === operationUserId) setSaving(false);
+      if (isCurrent()) setSaving(false);
     }
-  }, [docId, entry, user?.id]);
+  }, [docId, entry, scope, user?.id]);
 
   const setStatus = useCallback((newStatus) => {
     if (newStatus === STATUS.NOT_STARTED) return persist(null, null);
@@ -194,9 +201,10 @@ export function useAllProgress() {
 
   useEffect(() => {
     void refresh();
-    return addProgressUpdatedListener((event) => {
+    const removeListener = addStudyEventListener(PROGRESS_UPDATED_EVENT, (event) => {
       if (!event.detail?.userId || event.detail.userId === user?.id) void refresh();
     });
+    return () => {requestRef.current += 1; removeListener();};
   }, [refresh, user?.id]);
 
   const stats = useMemo(() => entries.reduce((result, item) => {
@@ -209,7 +217,7 @@ export function useAllProgress() {
   const clearAll = useCallback(async () => {
     const requestId = requestRef.current;
     const {clearMyProgress} = await import('../services/studyDataService');
-    await clearMyProgress();
+    await clearMyProgress(user?.id || '');
     if (requestRef.current === requestId) setEntries([]);
   }, [user?.id]);
 

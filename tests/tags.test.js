@@ -39,6 +39,7 @@ function loadSourceModule(filename) {
 
 const repoRoot = path.resolve(__dirname, '..');
 const tagTaxonomy = require('../src/data/tagTaxonomy');
+const {universities} = require('../src/data/universities');
 const {
   getTopicAnchorId,
   getTagLabel,
@@ -62,30 +63,41 @@ test('topic browse targets use stable IDs and the parent subsubject anchor', () 
   });
 });
 
-test('subsubject and school targets keep their canonical routes', () => {
+test('subsubjects keep their canonical routes and school labels open the shared university archives', () => {
   assert.equal(
     resolveTagBrowseTarget('Mathematics.Linear-Algebra').href,
     '/docs/tags/subsubject/mathematics/linear-algebra',
   );
   assert.equal(
     resolveTagBrowseTarget('institute-of-science-tokyo').href,
-    '/docs/tags/school/institute-of-science-tokyo',
+    '/docs/category/institute-of-science-tokyo',
   );
   assert.equal(
     resolveTagBrowseTarget('Institute of Science Tokyo').href,
-    '/docs/tags/school/institute-of-science-tokyo',
+    '/docs/category/institute-of-science-tokyo',
   );
+  for (const [id, meta] of Object.entries(tagTaxonomy.schoolTags)) {
+    const university = universities.find(({id: universityId}) => universityId === meta.universityId);
+    assert.ok(university?.archiveUrl, `${id} has an existing university archive`);
+    for (const label of [id, ...(meta.aliases || [])]) {
+      const target = resolveTagBrowseTarget(label);
+      assert.equal(target.kind, 'school');
+      assert.equal(target.pathname, university.archiveUrl);
+      assert.equal(target.href, university.archiveUrl);
+    }
+  }
 });
 
-test('canonical topics and deprecated aliases resolve to the same target', () => {
+test('retired topic IDs no longer resolve as alternate identities while abbreviations remain searchable', () => {
   const canonical = 'Computer-Science.Computer-Architecture.IEEE-Standard-754-Floating-Point-Arithmetic';
   const alias = 'Computer-Science.Computer-Architecture.IEEE-754';
 
-  assert.deepEqual(
-    resolveTagBrowseTarget(alias),
-    resolveTagBrowseTarget(canonical),
-  );
-  assert.equal(getTopicAnchorId(alias), getTopicAnchorId(canonical));
+  assert.equal(resolveTagBrowseTarget(canonical).kind, 'topic');
+  assert.equal(resolveTagBrowseTarget(alias).kind, 'unknown');
+  assert.ok(matchesTagSearch(canonical, 'IEEE 754'));
+  for (const meta of [...Object.values(tagTaxonomy.subsubjects), ...Object.values(tagTaxonomy.topics)]) {
+    assert.equal(Object.hasOwn(meta, 'aliases'), false);
+  }
 });
 
 test('every taxonomy topic has one unique parent anchor and no legacy topic link', () => {

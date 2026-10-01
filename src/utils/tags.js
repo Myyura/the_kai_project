@@ -1,4 +1,5 @@
 import tagTaxonomy from '../data/tagTaxonomy';
+import {universities} from '../data/universities';
 import {getLanguageLocale, normalizeLanguage} from '../i18n/config';
 
 const DOC_TAGS_BASE_PATH = '/docs/tags';
@@ -8,6 +9,7 @@ const subjects = tagTaxonomy.subjects || {};
 const subsubjects = tagTaxonomy.subsubjects || {};
 const topics = tagTaxonomy.topics || {};
 const schoolTags = tagTaxonomy.schoolTags || {};
+const schoolArchives = new Map(universities.map(({id, archiveUrl}) => [id, archiveUrl]));
 
 const aliasLookup = new Map();
 
@@ -20,8 +22,6 @@ function registerAliases(entries) {
 }
 
 registerAliases(schoolTags);
-registerAliases(subsubjects);
-registerAliases(topics);
 
 const metadata = {...subjects, ...subsubjects, ...topics, ...schoolTags};
 const languageSuffix = {zh: 'Zh', ja: 'Ja', en: 'En'};
@@ -74,7 +74,7 @@ function tagBrowseSlug(value) {
     .toLowerCase();
 }
 
-export function resolveCanonicalTagId(value) {
+function resolveCanonicalTagId(value) {
   const tagId = String(value || '').trim();
   return aliasLookup.get(tagId) || tagId;
 }
@@ -99,10 +99,6 @@ function getTopicShortId(value) {
 
 export function getTopicAnchorId(topicId) {
   return `${TOPIC_ANCHOR_PREFIX}${tagBrowseSlug(getTopicShortId(topicId))}`;
-}
-
-function getSchoolPath(schoolId) {
-  return `${DOC_TAGS_BASE_PATH}/school/${tagBrowseSlug(schoolId)}`;
 }
 
 function getSubsubjectPath(subsubjectId) {
@@ -130,6 +126,19 @@ export function resolveTagBrowseTarget(value, fallbackHref = '') {
   const fallbackIsOutsideDocsTags = safeFallbackHref
     && !safeFallbackHref.startsWith(DOC_TAGS_BASE_PATH);
 
+  const schoolArchive = schoolTags[id]
+    ? schoolArchives.get(schoolTags[id].universityId)
+    : null;
+  if (schoolArchive && (!fallbackIsOutsideDocsTags || safeFallbackHref === schoolArchive)) {
+    return {
+      kind: 'school',
+      id,
+      pathname: schoolArchive,
+      anchorId: null,
+      href: schoolArchive,
+    };
+  }
+
   if (fallbackIsOutsideDocsTags) {
     return {
       kind: 'unknown',
@@ -137,17 +146,6 @@ export function resolveTagBrowseTarget(value, fallbackHref = '') {
       pathname: safeFallbackHref,
       anchorId: null,
       href: safeFallbackHref,
-    };
-  }
-
-  if (schoolTags[id]) {
-    const pathname = getSchoolPath(id);
-    return {
-      kind: 'school',
-      id,
-      pathname,
-      anchorId: null,
-      href: pathname,
     };
   }
 

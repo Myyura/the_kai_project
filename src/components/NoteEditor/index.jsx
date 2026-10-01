@@ -44,10 +44,10 @@ const TOOLBAR_ACTIONS = [
   { key: 'displayMath', label: '$$', before: '\n$$\n', after: '\n$$\n', placeholder: '\\int_0^1 f(x)\\,dx' },
 ];
 
-function NoteGate({ t, type = 'login', embedded = false }) {
+function NoteGate({ t, type = 'login' }) {
   const unavailable = type === 'unavailable';
   return (
-    <div className={`${styles.noteContainer} ${styles.noteGate} ${embedded ? styles.noteEmbedded : ''}`}>
+    <div className={`${styles.noteContainer} ${styles.noteGate}`}>
       <div className={styles.noteToggleStatic}>
         <span className={styles.noteToggleLeft}>
           <FaPen className={styles.noteIcon} />
@@ -67,7 +67,7 @@ function NoteGate({ t, type = 'login', embedded = false }) {
 }
 
 // ─── 主组件 ──────────────────────────────────────────────────
-function NoteEditorContent({ docId, embedded = false }) {
+function NoteEditorContent({ docId }) {
   const { content, updatedAt, patchNote, saving, error } = useDocNotes(docId);
   const parsedContent = parseNoteDocument(content);
   const [text, setText] = useState(parsedContent.freeContent);
@@ -215,7 +215,7 @@ function NoteEditorContent({ docId, embedded = false }) {
   const hasAnyContent = totalCharCount > 0;
 
   return (
-    <div className={`${styles.noteContainer} ${embedded ? styles.noteEmbedded : ''}`}>
+    <div className={styles.noteContainer}>
       {/* 折叠/展开头部 */}
       <button
         className={styles.noteToggle}
@@ -313,8 +313,8 @@ export default function NoteEditor(props) {
   const { isConfigured, isLoggedIn, authReady } = useAuth();
   const t = useUiText('noteEditor');
 
-  if (!isConfigured) return <NoteGate t={t} type="unavailable" embedded={props.embedded} />;
+  if (!isConfigured) return <NoteGate t={t} type="unavailable" />;
   if (!authReady && !isLoggedIn) return null;
-  if (!isLoggedIn) return <NoteGate t={t} embedded={props.embedded} />;
+  if (!isLoggedIn) return <NoteGate t={t} />;
   return <NoteEditorContent {...props} />;
 }

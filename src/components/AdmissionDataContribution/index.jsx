@@ -59,7 +59,7 @@ const VALUE_INPUT_META = {
   reportedRatio: {placeholder: '2.16', step: '0.01'},
 };
 
-export default function AdmissionDataContribution({entityId, profile, embedded = false}) {
+export default function AdmissionDataContribution({entityId, profile}) {
   const entity = admissionStats?.statsByEntity?.[entityId] || null;
   const [form, setForm] = useState(INITIAL_FORM);
   const [formError, setFormError] = useState('');
@@ -181,7 +181,7 @@ export default function AdmissionDataContribution({entityId, profile, embedded =
 
   if (!entity) {
     return (
-      <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+      <div className={styles.shell}>
         <section className={styles.invalidPanel}>
           <FaExclamationTriangle />
           <h1>找不到对应的招生数据页面</h1>
@@ -195,7 +195,7 @@ export default function AdmissionDataContribution({entityId, profile, embedded =
   }
 
   return (
-    <div className={`${styles.shell} ${embedded ? styles.embeddedShell : ''}`}>
+    <div className={styles.shell}>
       <header className={styles.header}>
         <div>
           <p className={styles.eyebrow}>招生数据</p>

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {useEffect, useMemo, useRef, useState, type ReactNode} from 'react';
+import React, {useEffect, useMemo, useState, type ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import type {Props} from '@theme/TagsListByLetter';
 import Heading from '@theme/Heading';
@@ -42,14 +42,9 @@ interface TopicMeta {
 }
 
 type Language = 'zh' | 'ja' | 'en';
-type Tone = 'school' | 'subsubject' | 'topic' | 'pending';
 
 const subsubjects = tagTaxonomy.subsubjects as Record<string, SubsubjectMeta>;
 const topics = tagTaxonomy.topics as Record<string, TopicMeta>;
-const schoolTags = tagTaxonomy.schoolTags as Record<
-  string,
-  {aliases?: string[]}
->;
 const subjectOrder = tagTaxonomy.subjectOrder as string[];
 const subsubjectOrder = tagTaxonomy.subsubjectOrder as string[];
 
@@ -71,13 +66,6 @@ function getSubjectIdFromHash(hash: string, subjectIds: string[]): string | null
   const normalizedHash = decodeHash(hash).replace(/^#/, '');
   return subjectIds.find((subjectId) => getSubjectAnchorId(subjectId) === normalizedHash) || null;
 }
-
-const schoolTagLookup = new Set(
-  Object.entries(schoolTags).flatMap(([tag, meta]) => [
-    tag,
-    ...(meta.aliases || []),
-  ]),
-);
 
 function getSubsubjectId(tagLabel: string): string | null {
   if (subsubjects[tagLabel]) return tagLabel;
@@ -110,80 +98,8 @@ function getPrimarySubject(tagLabel: string): string {
   return topicSubsubject?.subject || 'General';
 }
 
-function isSchoolTag(tagLabel: string): boolean {
-  return schoolTagLookup.has(tagLabel);
-}
-
 function byCountThenName(a: TagType, b: TagType, language: Language): number {
   return b.count - a.count || compareTagLabels(a.label, b.label, language);
-}
-
-function TagPill({
-  tag,
-  language,
-  tone,
-}: {
-  tag: TagType;
-  language: Language;
-  tone?: Tone;
-}) {
-  const browseTarget = resolveTagBrowseTarget(tag.label, tag.permalink);
-
-  return (
-    <Link
-      to={browseTarget.href}
-      className={`${styles.tagPill} ${tone ? styles[tone] : ''}`}>
-      <span className={styles.tagMainRow}>
-        <span className={styles.tagName}>{getTagLabel(tag.label, language)}</span>
-        <span className={styles.tagPillCount}>{tag.count}</span>
-      </span>
-    </Link>
-  );
-}
-
-function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) {
-  const t = getCopy(language);
-  const [query, setQuery] = useState('');
-  if (tags.length === 0) return null;
-  const search = query.trim();
-  const filteredTags = tags.filter((tag) => matchesTagSearch(tag.label, search));
-
-  return (
-    <section className={styles.schoolPanel}>
-      <header className={styles.explorerHeader}>
-        <Heading as="h2" className={styles.panelTitle}>{t.schoolTitle}</Heading>
-        <BrowseSearchField
-          id="school-tag-search"
-          className={styles.searchField}
-          value={query}
-          onChange={setQuery}
-          label={t.schoolSearchPlaceholder}
-          resultsId="school-tag-results"
-        />
-      </header>
-      <p className={styles.resultCount} role="status">{t.schoolsView} · {filteredTags.length} / {tags.length}</p>
-      <div id="school-tag-results">
-      {filteredTags.length > 0 ? (
-        <div className={styles.schoolGrid}>
-          {filteredTags.sort((a, b) => byCountThenName(a, b, language)).map((tag) => (
-            <TagPill
-              key={tag.permalink}
-              tag={tag}
-              language={language}
-              tone="school"
-            />
-          ))}
-        </div>
-      ) : (
-        <BrowseEmptyState
-          message={t.noSchoolResults}
-          onReset={query ? () => setQuery('') : undefined}
-          focusTargetId="school-tag-search"
-        />
-      )}
-      </div>
-    </section>
-  );
 }
 
 interface SubsubjectGroup {
@@ -476,7 +392,7 @@ function LearningSections({
       </header>
       {isSearching && (
         <p className={styles.resultCount} role="status">
-          {t.learningView} · {Array.from(visibleGroups.values()).reduce((total, groups) => total + countGroupTags(groups), 0)} / {subsubjectTags.length + topicTags.length}
+          {t.topicsTitle} · {Array.from(visibleGroups.values()).reduce((total, groups) => total + countGroupTags(groups), 0)} / {subsubjectTags.length + topicTags.length}
         </p>
       )}
       <div className={styles.explorerLayout}>
@@ -515,107 +431,26 @@ function LearningSections({
   );
 }
 
-function PendingSection({tags, language}: {tags: TagType[]; language: Language}) {
-  if (tags.length === 0) return null;
-  const t = getCopy(language);
-
-  return (
-    <section className={styles.pendingPanel}>
-      <header className={styles.simplePanelHeader}>
-        <Heading as="h2" className={styles.panelTitle}>{t.pendingTitle}</Heading>
-        <span className={styles.panelCount}>{tags.length}</span>
-      </header>
-      <div className={styles.tagGrid}>
-        {[...tags].sort((a, b) => byCountThenName(a, b, language)).map((tag) => (
-          <TagPill key={tag.permalink} tag={tag} language={language} tone="pending" />
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export default function TagsListByLetter({tags}: Props): ReactNode {
   const language = normalizeLanguage(useCurrentLanguage()) as Language;
-  const t = getCopy(language);
-  const [activeView, setActiveView] = useState<'learning' | 'schools'>('learning');
-  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const {universityTags, subsubjectTags, topicTags, pendingTags} = useMemo(() => {
+  const {subsubjectTags, topicTags} = useMemo(() => {
     const groups = {
-      universityTags: [] as TagType[],
       subsubjectTags: [] as TagType[],
       topicTags: [] as TagType[],
-      pendingTags: [] as TagType[],
     };
     for (const tag of tags as TagType[]) {
-      if (isSchoolTag(tag.label)) groups.universityTags.push(tag);
-      else if (getSubsubjectMeta(tag.label)) groups.subsubjectTags.push(tag);
+      if (getSubsubjectMeta(tag.label)) groups.subsubjectTags.push(tag);
       else if (getTopicMeta(tag.label)) groups.topicTags.push(tag);
-      else groups.pendingTags.push(tag);
     }
     return groups;
   }, [tags]);
-  const learningCount = subsubjectTags.length + topicTags.length;
-  const views = [
-    {id: 'learning' as const, label: t.learningView, count: learningCount},
-    {id: 'schools' as const, label: t.schoolsView, count: universityTags.length},
-  ];
-
-  useEffect(() => {
-    const revealSubject = () => {
-      if (decodeHash(window.location.hash).startsWith('#subject-')) setActiveView('learning');
-    };
-    window.addEventListener('hashchange', revealSubject);
-    window.addEventListener('popstate', revealSubject);
-    return () => {
-      window.removeEventListener('hashchange', revealSubject);
-      window.removeEventListener('popstate', revealSubject);
-    };
-  }, []);
-
-  const handleTabKey = (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
-    let nextIndex;
-    if (event.key === 'ArrowRight') nextIndex = (index + 1) % views.length;
-    else if (event.key === 'ArrowLeft') nextIndex = (index + views.length - 1) % views.length;
-    else if (event.key === 'Home') nextIndex = 0;
-    else if (event.key === 'End') nextIndex = views.length - 1;
-    else return;
-    event.preventDefault();
-    setActiveView(views[nextIndex].id);
-    tabRefs.current[nextIndex]?.focus();
-  };
-
   return (
     <section className={styles.tagsContainer}>
-      <div className={styles.viewTabs} role="tablist" aria-label={t.viewTabsLabel}>
-        {views.map((view, index) => (
-          <button
-            key={view.id}
-            ref={(element) => { tabRefs.current[index] = element; }}
-            id={`tags-tab-${view.id}`}
-            type="button"
-            role="tab"
-            aria-selected={activeView === view.id}
-            aria-controls={`tags-panel-${view.id}`}
-            tabIndex={activeView === view.id ? 0 : -1}
-            className={`${styles.viewTab} ${activeView === view.id ? styles.viewTabActive : ''}`}
-            onClick={() => setActiveView(view.id)}
-            onKeyDown={(event) => handleTabKey(event, index)}>
-            <span>{view.label}</span>
-            <span className={styles.viewTabCount}>{view.count}</span>
-          </button>
-        ))}
-      </div>
-      <div role="tabpanel" id="tags-panel-learning" aria-labelledby="tags-tab-learning" hidden={activeView !== 'learning'}>
-          <LearningSections
-            subsubjectTags={subsubjectTags}
-            topicTags={topicTags}
-            language={language}
-          />
-          <PendingSection tags={pendingTags} language={language} />
-      </div>
-      <div role="tabpanel" id="tags-panel-schools" aria-labelledby="tags-tab-schools" hidden={activeView !== 'schools'}>
-        <SchoolSection tags={universityTags} language={language} />
-      </div>
+      <LearningSections
+        subsubjectTags={subsubjectTags}
+        topicTags={topicTags}
+        language={language}
+      />
     </section>
   );
 }

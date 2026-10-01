@@ -1,31 +1,5 @@
 .section {
-  margin-bottom: 2.5rem;
-}
-
-.compactSection {
   margin-bottom: 0;
-}
-
-.compactSection .header {
-  align-items: flex-start;
-}
-
-.compactSection .periodTabs {
-  display: grid;
-  width: 100%;
-}
-
-.compactSection .mySummary {
-  grid-template-columns: 1fr;
-  padding: 0.9rem 0;
-  border-width: 1px 0;
-  border-left: 0;
-  border-radius: 0;
-  background: transparent;
-}
-
-.compactSection .summaryMessage {
-  grid-column: auto;
 }
 
 .header,
@@ -36,6 +10,7 @@
 }
 
 .header {
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 0.65rem;
@@ -91,7 +66,8 @@
 }
 
 .periodTabs {
-  display: inline-grid;
+  display: grid;
+  width: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   padding: 3px;
   margin-bottom: 1rem;
@@ -120,15 +96,14 @@
 
 .mySummary {
   display: grid;
-  grid-template-columns: minmax(150px, 1.25fr) minmax(230px, 1fr);
+  grid-template-columns: 1fr;
   align-items: center;
   gap: 0.85rem 1.25rem;
-  padding: 1rem;
+  padding: 0.9rem 0;
   margin-bottom: 1.1rem;
   border: 1px solid var(--custom-card-border);
-  border-left: 3px solid var(--ifm-color-primary);
-  border-radius: var(--custom-border-radius);
-  background: var(--custom-card-bg);
+  border-width: 1px 0;
+  background: transparent;
 }
 
 .summaryIdentity {
@@ -200,7 +175,7 @@
 }
 
 .summaryMessage {
-  grid-column: 1 / -1;
+  grid-column: auto;
   padding-top: 0.65rem;
   border-top: 1px solid var(--ifm-color-emphasis-100);
   color: var(--ifm-color-emphasis-600);
@@ -381,29 +356,9 @@
   composes: spinner from "../../styles/kai-ui.module.css";
 }
 
-@media (max-width: 640px) {
-
-  .mySummary {
-    grid-template-columns: 1fr;
-  }
-
-  .summaryMessage {
-    grid-column: auto;
-  }
-}
-
 @media (max-width: 480px) {
-  .header {
-    align-items: flex-start;
-  }
-
   .titleGroup {
     gap: 0.25rem 0.6rem;
-  }
-
-  .periodTabs {
-    display: grid;
-    width: 100%;
   }
 
   .periodTab {

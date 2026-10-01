@@ -97,8 +97,7 @@ jobs:
 
   deploy:
     name: 部署到 GitHub Pages
-    # The backwards-compatible body reader must be live before compact v2
-    # artifacts replace v1 bodies at their stable URLs.
+    # Deploy the API readers before publishing the corresponding body artifacts.
     needs: [build, backend]
     if: github.event_name == 'push'
 

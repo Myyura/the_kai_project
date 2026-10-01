@@ -15,15 +15,6 @@
   color: var(--ifm-color-primary);
 }
 
-.triggerPanel {
-  flex: 0 0 auto;
-  padding: .6rem .85rem;
-  border-color: color-mix(in srgb, var(--ifm-color-primary) 35%, var(--ifm-color-emphasis-200));
-  background: color-mix(in srgb, var(--ifm-color-primary) 9%, var(--ifm-background-surface-color));
-  color: var(--ifm-color-primary);
-  font-weight: 700;
-}
-
 .trigger:hover,
 .triggerActive {
   border-color: var(--ifm-color-primary);
@@ -73,19 +64,17 @@
 .optionList { display: grid; gap: .45rem; margin: 1rem 0; }
 .option { display: flex; align-items: center; gap: .7rem; padding: .7rem; border: 1px solid var(--custom-card-border); border-radius: var(--custom-border-radius-sm); background-color: var(--custom-card-bg); cursor: pointer; }
 .option:hover { border-color: var(--ifm-color-primary); background-color: var(--custom-card-bg-hover); box-shadow: var(--custom-box-shadow-hover); }
-.option:has(input:checked) { border-color: var(--ifm-color-primary); background-color: var(--kai-success-bg); }
+.option:has(input:checked) { border-color: var(--ifm-color-primary); background-color: var(--ifm-color-primary-contrast-background); }
 .option > span { display: grid; flex: 1; }
 .option small { color: var(--ifm-color-emphasis-600); }
 .option em { font-size: .68rem; font-style: normal; color: var(--ifm-color-primary); }
 
 .createRow { display: grid; grid-template-columns: 1fr auto; gap: .5rem; }
 .createRow input { min-width: 0; border: 1px solid var(--ifm-color-emphasis-300); border-radius: var(--custom-border-radius-xs); padding: .6rem .7rem; background-color: var(--ifm-background-color); color: var(--ifm-font-color-base); }
-.createRow button,
+.saveButton { composes: btnPrimary from '../../styles/kai-ui.module.css'; }
+.cancelButton { composes: btnSecondary from '../../styles/kai-ui.module.css'; }
 .saveButton,
-.cancelButton { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; border: 0; border-radius: var(--custom-border-radius-xs); padding: .6rem .8rem; cursor: pointer; }
-.createRow button,
-.saveButton { color: white; background: var(--kai-action); }
-.cancelButton { background: var(--ifm-color-emphasis-200); color: var(--ifm-font-color-base); }
+.cancelButton { gap: .35rem; padding: .6rem .8rem; }
 .dialog > footer { display: flex; justify-content: flex-end; gap: .5rem; margin-top: 1rem; }
 .message { margin: .7rem 0 0; color: var(--ifm-color-primary-darkest); }
 .stateText { padding: 2rem; text-align: center; color: var(--ifm-color-emphasis-600); }
