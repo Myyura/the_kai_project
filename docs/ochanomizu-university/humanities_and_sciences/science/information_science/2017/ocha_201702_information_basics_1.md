@@ -2,9 +2,9 @@
 sidebar_label: "2017年2月実施 情報基礎 問題1"
 tags:
   - Ochanomizu-University
-  - Computer-Science.Computer-Architecture
-  - Computer-Science.Networks
   - Computer-Science.Information-Theory.Channel-Coding
+  - Computer-Science.Computer-Architecture.Number-Representation
+  - Computer-Science.Networks.Internet-Checksum
 ---
 # お茶の水女子大学 人間文化創成科学研究科 理学専攻 情報科学コース 2017年2月実施 情報基礎 問題1
 

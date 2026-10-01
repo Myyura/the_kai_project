@@ -2,7 +2,8 @@
 sidebar_label: "2021年度 数理科学 I [4]"
 tags:
   - Osaka-University
-  - Mathematics.Differential-Equations
+  - Mathematics.Differential-Equations.Higher-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Initial-Value-Problem
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2021年度 数理科学 I \[4\]

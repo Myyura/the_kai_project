@@ -2,8 +2,10 @@
 sidebar_label: "2023年度 数理科学 II [5]"
 tags:
   - Osaka-University
-  - Mathematics.Differential-Equations
-  - Mathematics.Functional-Analysis
+  - Mathematics.Functional-Analysis.Banach-Fixed-Point-Theorem
+  - Mathematics.Functional-Analysis.Uniform-Convergence
+  - Mathematics.Differential-Equations.Volterra-Integral-Equation
+  - Mathematics.Differential-Equations.Integrating-Factor
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 II \[5\]

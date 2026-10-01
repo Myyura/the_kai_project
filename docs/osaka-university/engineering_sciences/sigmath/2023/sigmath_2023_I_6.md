@@ -2,8 +2,10 @@
 sidebar_label: "2023年度 数理科学 I [6]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
-  - Probability-Statistics.Probability-Distributions-and-Asymptotics
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Beta-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Mean-Squared-Error
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 I \[6\]

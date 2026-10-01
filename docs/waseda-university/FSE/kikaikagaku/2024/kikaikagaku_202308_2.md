@@ -2,6 +2,8 @@
 sidebar_label: "2023年8月実施 力学 [2]"
 tags:
   - Waseda-University
+  - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
+  - Physics.Mechanics.Connected-Particles-and-Tension
 ---
 # 早稲田大学 基幹理工学研究科 機械科学・航空宇宙専攻 2023年8月実施 力学 \[2\]
 

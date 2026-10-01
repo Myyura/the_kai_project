@@ -3,7 +3,7 @@ sidebar_label: 2019年3月実施 専門科目 問題6 物理専門
 tags:
   - Tohoku-University
   - Mathematics.Differential-Equations.Boundary-Value-Problem
-  - Physics.Quantum-Mechanics
+  - Physics.Quantum-Mechanics.Delta-Function-Potential
 ---
 # 東北大学 工学研究科 電気・情報系 2019年3月実施 専門科目 問題6 物理専門
 

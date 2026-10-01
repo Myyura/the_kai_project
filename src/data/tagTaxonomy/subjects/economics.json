@@ -103,6 +103,24 @@
       "labelZh": "卫生经济学与护理服务",
       "labelJa": "医療経済学と看護サービス",
       "labelEn": "Health Economics and Nursing Services"
+    },
+    "Economics.Econometrics.Omitted-Variable-Bias": {
+      "subsubject": "Economics.Econometrics",
+      "labelZh": "遗漏变量偏误",
+      "labelJa": "脱落変数バイアス",
+      "labelEn": "Omitted Variable Bias",
+      "searchAliases": {
+        "zh": [
+          "遗漏变量偏差"
+        ],
+        "ja": [
+          "欠落変数バイアス"
+        ],
+        "en": []
+      },
+      "relatedSubjects": [
+        "Probability-Statistics"
+      ]
     }
   }
 }

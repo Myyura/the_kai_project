@@ -3,7 +3,8 @@ sidebar_label: 2015年3月実施 専門科目 問題5 計算機2
 tags:
   - Tohoku-University
   - Computer-Science.Programming.Recursion
-  - Computer-Science.Algorithm-Design
+  - Computer-Science.Algorithm-Design.Divide-and-Conquer
+  - Computer-Science.Algorithm-Design.Recurrence-Relation-Complexity
 ---
 
 # 東北大学 工学研究科 電気・情報系 2015年3月実施 専門科目 問題5 計算機2

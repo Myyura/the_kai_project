@@ -2,9 +2,9 @@
 sidebar_label: "2017年2月実施 情報基礎 問題2"
 tags:
   - Ochanomizu-University
-  - Discrete-Mathematics.Mathematical-Logic
   - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
   - Electrical-Electronic.Digital-Logic.Combinatorial-Circuit
+  - Discrete-Mathematics.Mathematical-Logic.Propositional-Logic
 ---
 # お茶の水女子大学 人間文化創成科学研究科 理学専攻 情報科学コース 2017年2月実施 情報基礎 問題2
 

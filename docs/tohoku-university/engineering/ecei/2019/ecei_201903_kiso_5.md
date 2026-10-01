@@ -2,8 +2,9 @@
 sidebar_label: 2019年3月実施 基礎科目 問題5 物理基礎
 tags:
   - Tohoku-University
-  - Mathematics.Vector-Calculus
   - Physics.Mechanics.Center-of-Mass-and-Angular-Momentum
+  - Mathematics.Vector-Calculus.Gradient-Divergence-and-Curl
+  - Physics.Mechanics.Angular-Momentum-Conservation-and-Areal-Velocity
 ---
 # 東北大学 工学研究科 電気・情報系 2019年3月実施 基礎科目 問題5 物理基礎
 

@@ -3,7 +3,7 @@ sidebar_label: 2021年7月実施 専門科目 S-5
 tags:
   - Kyoto-University
   - Electrical-Electronic.Signal-Processing.Z-Transform
-  - Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform
+  - Electrical-Electronic.Signal-Processing.Discrete-Time-Fourier-Transform
 ---
 
 # 京都大学 情報学研究科 知能情報学専攻 2021年7月実施 専門科目 S-5

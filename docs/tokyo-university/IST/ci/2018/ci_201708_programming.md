@@ -3,7 +3,9 @@ sidebar_label: 2017年8月実施 プログラミング
 tags:
   - Tokyo-University
   - Computer-Science.Algorithm-Design.Matrix-Multiplication-Algorithms
-  - Computer-Science.Programming
+  - Computer-Science.Programming.File-Input-and-Output
+  - Computer-Science.Programming.String-Parsing
+  - Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2017年8月実施 プログラミング
 

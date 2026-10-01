@@ -2,7 +2,10 @@
 sidebar_label: 2018年度 論理設計
 tags:
   - Osaka-University
-  - Electrical-Electronic.Digital-Logic
+  - Electrical-Electronic.Digital-Logic.Half-and-Full-Adders
+  - Electrical-Electronic.Digital-Logic.Ripple-Carry-Adder
+  - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
+  - Electrical-Electronic.Digital-Logic.Signed-Addition-Subtraction-and-Overflow-Detection
 ---
 # 大阪大学 情報科学研究科 情報工学 2018年度 論理設計
 

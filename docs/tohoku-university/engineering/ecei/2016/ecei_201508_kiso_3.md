@@ -2,7 +2,7 @@
 sidebar_label: 2015年8月実施 基礎科目 問題3 情報基礎1
 tags:
   - Tohoku-University
-  - Electrical-Electronic.Digital-Logic
+  - Electrical-Electronic.Digital-Logic.Boolean-Function-Duality
 ---
 
 # 東北大学 工学研究科 電気・情報系 2015年8月実施 基礎科目 問題3 情報基礎1

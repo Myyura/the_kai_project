@@ -2,11 +2,11 @@
 sidebar_label: "2022年度 統計学・計量経済学 第2題 2"
 tags:
   - Hitotsubashi-University
-  - Economics.Econometrics
   - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Multiple-Regression
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Consistency
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Central-Limit-Theorem
+  - Economics.Econometrics.Omitted-Variable-Bias
 ---
 # 一橋大学 経済学研究科 2022年度 統計学・計量経済学 第2題 2
 

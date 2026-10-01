@@ -3,8 +3,9 @@ sidebar_label: 2014年8月実施 専門科目 問題7 物理専門2
 tags:
   - Tohoku-University
   - Mathematics.Complex-Analysis.Residue-Theorem
-  - Mathematics.Fourier-Analysis
-  - Mathematics.Differential-Equations.Boundary-Value-Problem
+  - Mathematics.Fourier-Analysis.Fourier-Transform
+  - Mathematics.Fourier-Analysis.Fourier-Transform-Differentiation-and-Time-Multiplication
+  - Mathematics.Differential-Equations.Bounded-Solution-of-Forced-Ordinary-Differential-Equation
 ---
 
 # 東北大学 工学研究科 電気・情報系 2014年8月実施 専門科目 問題7 物理専門2

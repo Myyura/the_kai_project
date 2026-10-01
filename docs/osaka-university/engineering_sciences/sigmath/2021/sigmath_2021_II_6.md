@@ -2,7 +2,9 @@
 sidebar_label: "2021年度 数理科学 II [6]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Probability-Basics
+  - Probability-Statistics.Probability-Basics.Conditional-Probability
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
+  - Operations-Research.Convex-Optimization.Jensen-Inequality
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2021年度 数理科学 II \[6\]

@@ -2,7 +2,9 @@
 sidebar_label: "2019年8月実施 数理科学 I [3]"
 tags:
   - Osaka-University
-  - Mathematics.Complex-Analysis
+  - Mathematics.Complex-Analysis.Cauchy-Riemann-Equations
+  - Mathematics.Complex-Analysis.Harmonic-Functions-and-Harmonic-Conjugates
+  - Mathematics.Complex-Analysis.Residue-Theorem
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2019年8月実施 数理科学 I \[3\]

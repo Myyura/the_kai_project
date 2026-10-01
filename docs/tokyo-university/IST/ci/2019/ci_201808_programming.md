@@ -5,7 +5,6 @@ tags:
   - Computer-Science.Programming.File-Input-and-Output
   - Data-Science-Artificial-Intelligence.Data-Science.Image-Color-Quantization
   - Computer-Science.Programming.Binary-File-Format-and-Endianness
-  - Computer-Science.Graphics
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 プログラミング
 

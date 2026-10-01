@@ -3,7 +3,10 @@ sidebar_label: "2016年8月実施 専門 第4問"
 tags:
   - Tokyo-University
   - Electrical-Electronic.Signal-Processing.Convolution-Theorem
-  - Electrical-Electronic.Communications
+  - Electrical-Electronic.Communications.Channel-Distortion
+  - Electrical-Electronic.Communications.Frequency-Modulation
+  - Electrical-Electronic.Communications.Amplitude-Modulation
+  - Electrical-Electronic.Communications.Multiplexing
 ---
 
 # 東京大学 情報理工学系研究科 電子情報学専攻 2016年8月実施 専門 第4問

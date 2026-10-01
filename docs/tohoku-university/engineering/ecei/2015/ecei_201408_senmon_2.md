@@ -2,7 +2,7 @@
 sidebar_label: 2014年8月実施 専門科目 問題2 通信工学
 tags:
   - Tohoku-University
-  - Electrical-Electronic.Signal-Processing.Continuous-Time-Fourier-Transform
+  - Mathematics.Fourier-Analysis.Fourier-Transform
   - Electrical-Electronic.Signal-Processing.Autocorrelation-and-Power-Spectral-Density
 ---
 

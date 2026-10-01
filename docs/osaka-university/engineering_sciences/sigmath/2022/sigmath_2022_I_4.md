@@ -2,8 +2,9 @@
 sidebar_label: "2022年度 数理科学 I [4]"
 tags:
   - Osaka-University
-  - Mathematics.Differential-Equations
-  - Mathematics.Calculus
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.Initial-Value-Problem
+  - Mathematics.Calculus.Integration-by-Parts
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2022年度 数理科学 I \[4\]

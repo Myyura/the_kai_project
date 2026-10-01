@@ -3,8 +3,9 @@ sidebar_label: 2021年8月実施 選択問題 離散数学とオートマトン
 tags:
   - University-of-Electro-Communications
   - Discrete-Mathematics.Set-Theory.Cardinality
-  - Discrete-Mathematics.Combinatorics
   - Discrete-Mathematics.Set-Theory.Binary-Relations
+  - Discrete-Mathematics.Combinatorics.Counting
+  - Discrete-Mathematics.Combinatorics.Inclusion-Exclusion-Principle
 ---
 
 # 電気通信大学 情報理工学研究科 情報・ネットワーク工学専攻 2021年8月実施 選択問題 離散数学とオートマトン

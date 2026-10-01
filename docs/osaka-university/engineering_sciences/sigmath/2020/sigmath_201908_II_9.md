@@ -2,7 +2,9 @@
 sidebar_label: "2019年8月実施 数理科学 II [9]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Uniform-Endpoint-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval
+  - Probability-Statistics.Probability-Basics.Uniform-Order-Statistics
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2019年8月実施 数理科学 II \[9\]

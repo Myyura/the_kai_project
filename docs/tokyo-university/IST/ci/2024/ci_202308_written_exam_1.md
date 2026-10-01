@@ -3,7 +3,8 @@ sidebar_label: 2023年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
-  - Data-Science-Artificial-Intelligence.Machine-Learning
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Mixture-Model
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Expectation-Maximization-Algorithm
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2023年8月実施 筆記試験 第1問
 

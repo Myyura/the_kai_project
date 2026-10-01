@@ -5,7 +5,9 @@ tags:
   - Computer-Science.Algorithm-Design.Divide-and-Conquer
   - Computer-Science.Data-Structures.Binary-Heap
   - Computer-Science.Algorithm-Design.Heap-Sort
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Recursion
+  - Computer-Science.Algorithm-Design.Max-Heapify
+  - Computer-Science.Algorithm-Design.Merge-Sort
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2018年8月実施 アルゴリズム・プログラミング
 

@@ -3,11 +3,14 @@ sidebar_label: 2018年8月実施 筆記試験 第1問
 tags:
   - Tokyo-University
   - Computer-Science.Algorithm-Design.Algorithm-Complexity
-  - Discrete-Mathematics.Graph-Algorithms.Breadth-First-Search
   - Mathematics.Linear-Algebra.Matrix-Limit
   - Mathematics.Fourier-Analysis.Convolution
-  - Computer-Science.Programming
-  - Computer-Science.Graphics
+  - Computer-Science.Programming.Recursion
+  - Computer-Science.Programming.Connected-Component-Labeling
+  - Discrete-Mathematics.Graph-Algorithms.Depth-First-Search
+  - Discrete-Mathematics.Graph-Algorithms.Dijkstra-Algorithm
+  - Computer-Science.Dynamic-Programming.Dynamic-Programming-Principle
+  - Data-Science-Artificial-Intelligence.Data-Science.Image-Filtering-and-Moments
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 筆記試験 第1問
 

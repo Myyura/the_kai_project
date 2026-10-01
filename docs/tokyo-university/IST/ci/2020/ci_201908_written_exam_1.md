@@ -4,7 +4,6 @@ tags:
   - Tokyo-University
   - Computer-Science.Dynamic-Programming.Minimum-Cost-Polygon-Triangulation
   - Discrete-Mathematics.Combinatorics.Catalan-Number
-  - Mathematics.Geometry
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 筆記試験 第1問
 

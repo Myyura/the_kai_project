@@ -7,6 +7,7 @@ tags:
   - Mathematics.Calculus.Sequence-Convergence
   - Mathematics.Calculus.Constrained-Optimization
   - Mathematics.Calculus.Double-Integral
+  - Mathematics.Calculus.Extrema
 ---
 # 京都大学 情報学研究科 システム科学専攻 2024年8月実施 数学【II】
 

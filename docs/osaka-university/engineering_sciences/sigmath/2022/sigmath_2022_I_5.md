@@ -2,7 +2,9 @@
 sidebar_label: "2022年度 数理科学 I [5]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Regression-through-the-Origin
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Residual-Orthogonality
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2022年度 数理科学 I \[5\]

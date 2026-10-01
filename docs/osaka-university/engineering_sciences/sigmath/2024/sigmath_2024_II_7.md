@@ -2,8 +2,10 @@
 sidebar_label: "2024年度 数理科学 [II-7]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Chi-Square-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Statistical-Power
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Noncentral-Chi-Square-Distribution
 ---
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2024年度 数理科学 [II-7]
 

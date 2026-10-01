@@ -2,8 +2,7 @@
 sidebar_label: 2011年8月実施 筆記試験 第3問
 tags:
   - Tokyo-University
-  - Electrical-Electronic.Control-Theory.Robot-Arm-Kinematics
-  - Electrical-Electronic.Control-Theory.Inverse-Kinematics
+  - Engineering.Robotics.Forward-and-Inverse-Kinematics-of-Serial-Manipulator
   - Electrical-Electronic.Control-Theory.Collision-Free-Trajectory-Planning
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2011年8月実施 筆記試験 第3問

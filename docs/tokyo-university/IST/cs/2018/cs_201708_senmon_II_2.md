@@ -2,7 +2,7 @@
 sidebar_label: 2017年8月実施 専門科目II 問題2
 tags:
   - Tokyo-University
-  - Computer-Science.Formal-Languages
+  - Computer-Science.Formal-Languages.Term-Rewriting
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2017年8月実施 専門科目II 問題2
 

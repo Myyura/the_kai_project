@@ -236,7 +236,8 @@
     "Probability-Statistics.Stochastic-Processes.Exponential-Spacings-and-Poisson-Counting-Process": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
       "relatedSubjects": [
-        "Operations-Research"
+        "Operations-Research",
+        "Physics"
       ],
       "labelZh": "指数等待间隔与泊松计数过程",
       "labelJa": "指数分布に従う待ち時間とポアソン計数過程",
@@ -780,7 +781,10 @@
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "labelZh": "中心极限定理",
       "labelJa": "中心極限定理",
-      "labelEn": "Central Limit Theorem"
+      "labelEn": "Central Limit Theorem",
+      "relatedSubjects": [
+        "Physics"
+      ]
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Student-t-Confidence-Interval": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
@@ -1221,12 +1225,6 @@
       "labelJa": "指数分布の率パラメータの最尤推定とバイアス",
       "labelEn": "Maximum Likelihood Estimation of an Exponential Rate and its Bias"
     },
-    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Uniform-Scale-Unbiased-Estimator": {
-      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "labelZh": "均匀分布尺度参数的无偏估计量",
-      "labelJa": "一様分布の尺度母数の不偏推定量",
-      "labelEn": "Uniform Scale Unbiased Estimator"
-    },
     "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Weighted-Least-Squares": {
       "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "relatedSubjects": [
@@ -1451,6 +1449,77 @@
         ],
         "ja": []
       }
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Beta-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+      "labelZh": "贝塔分布",
+      "labelJa": "ベータ分布",
+      "labelEn": "Beta Distribution"
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Student-t-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+      "labelZh": "Student t 分布",
+      "labelJa": "スチューデントの t 分布",
+      "labelEn": "Student t Distribution"
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Boundedness-in-Probability": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+      "labelZh": "随机有界性",
+      "labelJa": "確率有界性",
+      "labelEn": "Boundedness in Probability",
+      "searchAliases": {
+        "zh": [
+          "概率有界",
+          "一致随机有界"
+        ],
+        "ja": [],
+        "en": [
+          "Op(1)",
+          "bounded in probability"
+        ]
+      }
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Delta-Method": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+      "labelZh": "Delta 方法",
+      "labelJa": "デルタ法",
+      "labelEn": "Delta Method"
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Multinomial-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+      "labelZh": "多项分布",
+      "labelJa": "多項分布",
+      "labelEn": "Multinomial Distribution"
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Truncated-Normal-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+      "labelZh": "截断正态分布",
+      "labelJa": "切断正規分布",
+      "labelEn": "Truncated Normal Distribution"
+    },
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Monotone-Likelihood-Ratio": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
+      "labelZh": "单调似然比",
+      "labelJa": "単調尤度比",
+      "labelEn": "Monotone Likelihood Ratio"
+    },
+    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Kernel-Density-Estimation": {
+      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
+      "labelZh": "核密度估计",
+      "labelJa": "カーネル密度推定",
+      "labelEn": "Kernel Density Estimation"
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulant-Generating-Function": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+      "labelZh": "累积量母函数",
+      "labelJa": "キュムラント母関数",
+      "labelEn": "Cumulant Generating Function"
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Noncentral-Chi-Square-Distribution": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+      "labelZh": "非中心卡方分布",
+      "labelJa": "非心カイ二乗分布",
+      "labelEn": "Noncentral Chi-Square Distribution"
     }
   }
 }

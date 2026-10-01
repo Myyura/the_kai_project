@@ -3,7 +3,7 @@ sidebar_label: 2013年8月実施 専門 第3問
 tags:
   - Tokyo-University
   - Computer-Science.Programming.Recursion
-  - Computer-Science.Programming.Fibonacci-Numbers
+  - Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence
   - Computer-Science.Programming.Integer-Overflow
   - Computer-Science.Computer-Architecture.Floating-Point-Rounding-Error
 ---

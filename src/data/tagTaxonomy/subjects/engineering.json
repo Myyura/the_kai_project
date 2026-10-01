@@ -115,9 +115,9 @@
       "relatedSubjects": [
         "Electrical-Electronic"
       ],
-      "labelZh": "力控制的实现",
-      "labelJa": "力制御の実装",
-      "labelEn": "Force Control Implementation"
+      "labelZh": "力控制",
+      "labelJa": "力制御",
+      "labelEn": "Force Control"
     },
     "Engineering.Mechanics-of-Materials.Strain-Gauge": {
       "subsubject": "Engineering.Mechanics-of-Materials",
@@ -132,7 +132,8 @@
       "subsubject": "Engineering.Robotics",
       "relatedSubjects": [
         "Mathematics",
-        "Computer-Science"
+        "Computer-Science",
+        "Electrical-Electronic"
       ],
       "labelZh": "串联机械臂的正逆运动学",
       "labelJa": "直列マニピュレータの順運動学と逆運動学",
@@ -469,12 +470,6 @@
       "labelJa": "引抜き加工",
       "labelEn": "Wire Drawing"
     },
-    "Engineering.Heat-Transfer.Fins-and-Thermal-Resistance": {
-      "subsubject": "Engineering.Heat-Transfer",
-      "labelZh": "肋片与热阻",
-      "labelJa": "フィンと熱抵抗",
-      "labelEn": "Fins and Thermal Resistance"
-    },
     "Engineering.Fluid-Mechanics.Lift-and-Drag": {
       "subsubject": "Engineering.Fluid-Mechanics",
       "labelZh": "升力与阻力",
@@ -623,6 +618,18 @@
       "labelZh": "弯曲应力",
       "labelJa": "曲げ応力",
       "labelEn": "Bending Stress"
+    },
+    "Engineering.Fluid-Mechanics.Flow-Measurement": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "流量测量",
+      "labelJa": "流量測定",
+      "labelEn": "Flow Measurement"
+    },
+    "Engineering.Fluid-Mechanics.Viscosity-and-Reynolds-Number": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "黏度与雷诺数",
+      "labelJa": "粘性係数とレイノルズ数",
+      "labelEn": "Viscosity and Reynolds Number"
     }
   }
 }

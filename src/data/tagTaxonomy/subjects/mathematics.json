@@ -188,12 +188,6 @@
       "labelJa": "ラグランジュ補間",
       "labelEn": "Lagrange Polynomial Interpolation"
     },
-    "Mathematics.Real-Analysis.Uniform-Convergence-by-Supremum-Error": {
-      "subsubject": "Mathematics.Real-Analysis",
-      "labelZh": "利用误差上确界证明一致收敛",
-      "labelJa": "誤差の上限による一様収束の証明",
-      "labelEn": "Uniform Convergence by Supremum Error"
-    },
     "Mathematics.Real-Analysis.Asymptotics-of-Nonlinear-Sequence-Recurrence": {
       "subsubject": "Mathematics.Real-Analysis",
       "relatedSubjects": [
@@ -503,9 +497,12 @@
     },
     "Mathematics.Calculus.Extrema": {
       "subsubject": "Mathematics.Calculus",
-      "labelZh": "极值",
-      "labelJa": "極値",
-      "labelEn": "Extrema"
+      "labelZh": "最值与上下确界",
+      "labelJa": "最大・最小と上限・下限",
+      "labelEn": "Global Extrema, Suprema and Infima",
+      "descriptionZh": "比较整个定义域上的最大值、最小值及上下确界；邻域内的极大极小归入局部极值。",
+      "descriptionJa": "定義域全体での最大値・最小値および上限・下限。近傍での極大・極小は局所的極値に分類する。",
+      "descriptionEn": "Global maxima, minima, suprema and infima over the full domain; extrema defined only in a neighborhood are classified as local extrema."
     },
     "Mathematics.Calculus.Partial-Fraction-Integration": {
       "subsubject": "Mathematics.Calculus",
@@ -1054,12 +1051,6 @@
         ]
       }
     },
-    "Mathematics.Linear-Algebra.Simultaneous-Diagonalization-of-Parameterized-Operators": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "含参数算子的同时对角化",
-      "labelJa": "パラメータを含む作用素の同時対角化",
-      "labelEn": "Simultaneous Diagonalization of Parameterized Operators"
-    },
     "Mathematics.Linear-Algebra.Matrix-Diagonalization": {
       "subsubject": "Mathematics.Linear-Algebra",
       "labelZh": "矩阵对角化",
@@ -1586,12 +1577,6 @@
       "labelJa": "有限群",
       "labelEn": "Finite Group"
     },
-    "Mathematics.Abstract-Algebra.Galois-Group-and-Intermediate-Fields-of-Nested-Radicals": {
-      "subsubject": "Mathematics.Abstract-Algebra",
-      "labelZh": "嵌套根式的伽罗瓦群与中间域",
-      "labelJa": "入れ子根号のガロア群と中間体",
-      "labelEn": "Galois Group and Intermediate Fields of Nested Radicals"
-    },
     "Mathematics.Abstract-Algebra.Endomorphism-Ring-of-an-Ideal-and-Colon-Ideal": {
       "subsubject": "Mathematics.Abstract-Algebra",
       "labelZh": "理想的自同态环与冒号理想",
@@ -1709,15 +1694,6 @@
       "labelZh": "赋范空间",
       "labelJa": "ノルム空間",
       "labelEn": "Normed Space"
-    },
-    "Mathematics.Functional-Analysis.Uniform-Convergence-of-Iterated-Sine-and-LogSumExp": {
-      "subsubject": "Mathematics.Functional-Analysis",
-      "relatedSubjects": [
-        "Data-Science-Artificial-Intelligence"
-      ],
-      "labelZh": "正弦迭代与 LogSumExp 函数的一致收敛",
-      "labelJa": "正弦関数の反復と LogSumExp 関数の一様収束",
-      "labelEn": "Uniform Convergence of Iterated Sine and Log-sum-exp"
     },
     "Mathematics.Functional-Analysis.Uniform-Convergence": {
       "subsubject": "Mathematics.Functional-Analysis",
@@ -2478,7 +2454,10 @@
         ],
         "zh": [],
         "ja": []
-      }
+      },
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
     },
     "Mathematics.Fourier-Analysis.Uncertainty-Principle": {
       "subsubject": "Mathematics.Fourier-Analysis",
@@ -2602,6 +2581,146 @@
       "descriptionZh": "将可逆实矩阵唯一分解为正定对称矩阵与正交矩阵的乘积。",
       "descriptionJa": "正則実行列の、正定値対称行列と直交行列の積への一意な分解。",
       "descriptionEn": "Unique factorization of an invertible real matrix into a positive definite symmetric matrix and an orthogonal matrix."
+    },
+    "Mathematics.Topology.Open-and-Closed-Sets": {
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "开集与闭集",
+      "labelJa": "開集合と閉集合",
+      "labelEn": "Open and Closed Sets"
+    },
+    "Mathematics.Topology.Continuity-and-Homeomorphisms": {
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "连续映射与同胚",
+      "labelJa": "連続写像と同相写像",
+      "labelEn": "Continuity and Homeomorphisms"
+    },
+    "Mathematics.Complex-Analysis.Complex-Logarithm-and-Powers": {
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "复对数与复幂",
+      "labelJa": "複素対数と複素累乗",
+      "labelEn": "Complex Logarithms and Powers"
+    },
+    "Mathematics.Functional-Analysis.Banach-Space": {
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "巴拿赫空间",
+      "labelJa": "バナッハ空間",
+      "labelEn": "Banach Space"
+    },
+    "Mathematics.Real-Analysis.Approximate-Identities-and-Mollifiers": {
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "近似恒等与磨光算子",
+      "labelJa": "近似単位と軟化子",
+      "labelEn": "Approximate Identities and Mollifiers",
+      "searchAliases": {
+        "zh": [
+          "磨光",
+          "磨光算子",
+          "近似恒等算子"
+        ],
+        "ja": [
+          "モリファイア"
+        ],
+        "en": [
+          "mollifier"
+        ]
+      }
+    },
+    "Mathematics.Real-Analysis.Almost-Everywhere-and-In-Measure-Convergence": {
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "几乎处处收敛与依测度收敛",
+      "labelJa": "概収束と測度収束",
+      "labelEn": "Almost-Everywhere and In-Measure Convergence"
+    },
+    "Mathematics.Complex-Analysis.Analytic-Continuation": {
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "解析延拓",
+      "labelJa": "解析接続",
+      "labelEn": "Analytic Continuation"
+    },
+    "Mathematics.Functional-Analysis.Neumann-Series": {
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "诺伊曼级数",
+      "labelJa": "ノイマン級数",
+      "labelEn": "Neumann Series"
+    },
+    "Mathematics.Topology.Complete-Metric-Space": {
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "完备度量空间",
+      "labelJa": "完備距離空間",
+      "labelEn": "Complete Metric Space"
+    },
+    "Mathematics.Functional-Analysis.Banach-Fixed-Point-Theorem": {
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "巴拿赫不动点定理",
+      "labelJa": "バナッハの不動点定理",
+      "labelEn": "Banach Fixed-Point Theorem",
+      "searchAliases": {
+        "zh": [
+          "压缩映射原理"
+        ],
+        "ja": [
+          "縮小写像の原理"
+        ],
+        "en": [
+          "contraction mapping theorem"
+        ]
+      }
+    },
+    "Mathematics.Functional-Analysis.Weak-and-Strong-Convergence": {
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "弱收敛与强收敛",
+      "labelJa": "弱収束と強収束",
+      "labelEn": "Weak and Strong Convergence"
+    },
+    "Mathematics.Differential-Equations.Picard-Iteration": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "皮卡逐次逼近法",
+      "labelJa": "ピカールの逐次近似法",
+      "labelEn": "Picard Iteration"
+    },
+    "Mathematics.Numerical-Analysis.Newton-Method": {
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "labelZh": "牛顿法",
+      "labelJa": "ニュートン法",
+      "labelEn": "Newton Method"
+    },
+    "Mathematics.Number-Theory.Modular-Arithmetic": {
+      "subsubject": "Mathematics.Number-Theory",
+      "labelZh": "模运算与同余",
+      "labelJa": "合同式",
+      "labelEn": "Modular Arithmetic and Congruences"
+    },
+    "Mathematics.Numerical-Analysis.Euler-Methods": {
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "labelZh": "欧拉法",
+      "labelJa": "オイラー法",
+      "labelEn": "Euler Methods",
+      "searchAliases": {
+        "zh": [
+          "显式欧拉法",
+          "隐式欧拉法"
+        ],
+        "ja": [
+          "陽的 Euler 法",
+          "陰的 Euler 法"
+        ],
+        "en": [
+          "forward Euler",
+          "backward Euler"
+        ]
+      }
+    },
+    "Mathematics.Numerical-Analysis.Absolute-Stability": {
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "labelZh": "绝对稳定性",
+      "labelJa": "絶対安定性",
+      "labelEn": "Absolute Stability"
+    },
+    "Mathematics.Numerical-Analysis.Power-Method": {
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "labelZh": "幂法",
+      "labelJa": "べき乗法",
+      "labelEn": "Power Method"
     }
   }
 }

@@ -3,7 +3,6 @@ sidebar_label: 2026年8月実施 4. 【選択問題】計算理論
 sidebar_position: 4
 tags:
   - Osaka-University
-  - Computer-Science.Formal-Languages
   - Computer-Science.Formal-Languages.Context-Free-Grammar
   - Computer-Science.Formal-Languages.Nondeterministic-Pushdown-Automaton
   - Computer-Science.Formal-Languages.Regular-Expression

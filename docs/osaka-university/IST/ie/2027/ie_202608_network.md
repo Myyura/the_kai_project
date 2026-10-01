@@ -3,9 +3,10 @@ sidebar_label: 2026年8月実施 5. 【選択問題】ネットワーク
 sidebar_position: 5
 tags:
   - Osaka-University
-  - Computer-Science.Networks
   - Computer-Science.Networks.Transmission-Control-Protocol-and-User-Datagram-Protocol
   - Computer-Science.Networks.Transmission-Control-Protocol-Congestion-Control
+  - Computer-Science.Networks.OSI-Reference-Model
+  - Computer-Science.Networks.Reliable-Data-Transfer
 ---
 # 大阪大学 情報科学研究科 情報工学 2026年8月実施 5. 【選択問題】ネットワーク
 

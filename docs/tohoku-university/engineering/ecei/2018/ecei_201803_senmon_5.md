@@ -2,8 +2,9 @@
 sidebar_label: 2018年3月実施 専門科目 問題5 計算機2
 tags:
   - Tohoku-University
-  - Computer-Science.Programming
   - Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence
+  - Computer-Science.Programming.Hoare-Logic
+  - Computer-Science.Formal-Languages.Parse-Tree
 ---
 
 # 東北大学 工学研究科 電気・情報系 2018年3月実施 専門科目 問題5 計算機2

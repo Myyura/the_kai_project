@@ -2,7 +2,9 @@
 sidebar_label: "2022年度 数理科学 I [3]"
 tags:
   - Osaka-University
-  - Mathematics.Complex-Analysis
+  - Mathematics.Complex-Analysis.Laurent-Series
+  - Mathematics.Complex-Analysis.Analytic-Continuation
+  - Mathematics.Complex-Analysis.Taylor-Series-and-Radius-of-Convergence
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2022年度 数理科学 I \[3\]

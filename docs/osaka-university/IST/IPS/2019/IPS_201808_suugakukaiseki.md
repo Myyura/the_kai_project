@@ -2,9 +2,10 @@
 sidebar_label: "2018年8月実施 情報数理学 数学解析"
 tags:
   - Osaka-University
-  - Mathematics.Complex-Analysis
-  - Mathematics.Differential-Equations
   - Mathematics.Fourier-Analysis.Fourier-Series
+  - Mathematics.Complex-Analysis.Complex-Roots
+  - Mathematics.Differential-Equations.Reduction-of-Order
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
 ---
 # 大阪大学 情報科学研究科 情報数理学専攻 2018年8月実施 情報数理学 数学解析
 

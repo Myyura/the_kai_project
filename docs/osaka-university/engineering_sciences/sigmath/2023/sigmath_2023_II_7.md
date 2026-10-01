@@ -2,8 +2,10 @@
 sidebar_label: "2023年度 数理科学 II [7]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
-  - Probability-Statistics.Probability-Distributions-and-Asymptotics
+  - Probability-Statistics.Probability-Basics.Conditional-Density
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Consistency
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Law-of-Large-Numbers
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 II \[7\]

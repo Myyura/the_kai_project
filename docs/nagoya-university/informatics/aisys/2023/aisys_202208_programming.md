@@ -4,7 +4,7 @@ tags:
   - Nagoya-University
   - Computer-Science.Algorithm-Design.Binary-Search
   - Computer-Science.Programming.Recursion
-  - Computer-Science.Programming.Fibonacci-Numbers
+  - Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence
   - Computer-Science.Programming.Base-Conversion
   - Computer-Science.Computer-Architecture.Floating-Point-Representation
 ---

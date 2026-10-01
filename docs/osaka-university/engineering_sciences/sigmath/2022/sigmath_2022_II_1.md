@@ -2,7 +2,7 @@
 sidebar_label: "2022年度 数理科学 II [1]"
 tags:
   - Osaka-University
-  - Mathematics.Real-Analysis
+  - Mathematics.Calculus.Improper-Integral
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2022年度 数理科学 II \[1\]

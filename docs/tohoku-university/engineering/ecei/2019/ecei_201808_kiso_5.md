@@ -3,7 +3,7 @@ sidebar_label: 2018年8月実施 基礎科目 問題5 物理基礎
 tags:
   - Tohoku-University
   - Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation
-  - Physics.Mechanics
+  - Physics.Mechanics.Rocket-Equation-and-Attitude-Stability
 ---
 # 東北大学 工学研究科 電気・情報系 2018年8月実施 基礎科目 問題5 物理基礎
 

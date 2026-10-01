@@ -3,7 +3,7 @@ sidebar_label: 2014年3月実施 専門科目 問題2 通信工学
 tags:
   - Tohoku-University
   - Electrical-Electronic.Signal-Processing.Autocorrelation-and-Power-Spectral-Density
-  - Electrical-Electronic.Communications
+  - Electrical-Electronic.Communications.Amplitude-Modulation
 ---
 
 # 東北大学 工学研究科 電気・情報系 2014年3月実施 専門科目 問題2 通信工学

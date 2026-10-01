@@ -2467,15 +2467,6 @@
       "labelJa": "ビット演算",
       "labelEn": "Bitwise Operations"
     },
-    "Computer-Science.Programming.Fibonacci-Numbers": {
-      "subsubject": "Computer-Science.Programming",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "斐波那契数",
-      "labelJa": "フィボナッチ数",
-      "labelEn": "Fibonacci Numbers"
-    },
     "Computer-Science.Programming.Integer-Overflow": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
@@ -2880,6 +2871,88 @@
       "labelZh": "可判定性与不可判定性",
       "labelJa": "決定可能性と決定不能性",
       "labelEn": "Decidability and Undecidability"
+    },
+    "Computer-Science.Programming.Combinatory-Logic": {
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "组合子逻辑",
+      "labelJa": "組合せ論理",
+      "labelEn": "Combinatory Logic",
+      "searchAliases": {
+        "en": [
+          "SKI combinators"
+        ],
+        "ja": [
+          "コンビネータ"
+        ]
+      }
+    },
+    "Computer-Science.Dynamic-Programming.Tree-Dynamic-Programming": {
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "labelZh": "树形动态规划",
+      "labelJa": "木上の動的計画法",
+      "labelEn": "Dynamic Programming on Trees"
+    },
+    "Computer-Science.Networks.Internet-Checksum": {
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "互联网校验和",
+      "labelJa": "インターネットチェックサム",
+      "labelEn": "Internet Checksum"
+    },
+    "Computer-Science.Operating-Systems.File-Allocation": {
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "文件分配方式",
+      "labelJa": "ファイル領域の割り当て方式",
+      "labelEn": "File Allocation"
+    },
+    "Computer-Science.Formal-Languages.CYK-Algorithm": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "CYK 算法",
+      "labelJa": "CYK 法",
+      "labelEn": "CYK Algorithm",
+      "searchAliases": {
+        "en": [
+          "Cocke-Younger-Kasami"
+        ]
+      }
+    },
+    "Computer-Science.Networks.OSI-Reference-Model": {
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "OSI 参考模型",
+      "labelJa": "OSI 参照モデル",
+      "labelEn": "OSI Reference Model"
+    },
+    "Computer-Science.Programming.Code-Generation": {
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "代码生成",
+      "labelJa": "コード生成",
+      "labelEn": "Code Generation"
+    },
+    "Computer-Science.Programming.Hoare-Logic": {
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "Hoare 逻辑",
+      "labelJa": "ホーア論理",
+      "labelEn": "Hoare Logic"
+    },
+    "Computer-Science.Graphics.Radiometry": {
+      "subsubject": "Computer-Science.Graphics",
+      "labelZh": "辐射度量学",
+      "labelJa": "放射測定",
+      "labelEn": "Radiometry"
+    },
+    "Computer-Science.Formal-Languages.Term-Rewriting": {
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "项重写",
+      "labelJa": "項書換え",
+      "labelEn": "Term Rewriting"
+    },
+    "Computer-Science.Data-Structures.Graph-Representations": {
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "图的存储表示",
+      "labelJa": "グラフの表現",
+      "labelEn": "Graph Representations",
+      "relatedSubjects": [
+        "Discrete-Mathematics"
+      ]
     }
   }
 }

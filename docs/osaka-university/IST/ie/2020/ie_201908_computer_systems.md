@@ -2,8 +2,10 @@
 sidebar_label: 2020年度 計算機システムとシステムプログラム
 tags:
   - Osaka-University
-  - Computer-Science.Computer-Architecture
-  - Computer-Science.Operating-Systems
+  - Computer-Science.Computer-Architecture.Floating-Point-Representation
+  - Computer-Science.Computer-Architecture.Floating-Point-Rounding-Error
+  - Computer-Science.Operating-Systems.Virtual-Memory
+  - Computer-Science.Operating-Systems.Page-Replacement
 ---
 # 大阪大学 情報科学研究科 情報工学 2020年度 計算機システムとシステムプログラム
 

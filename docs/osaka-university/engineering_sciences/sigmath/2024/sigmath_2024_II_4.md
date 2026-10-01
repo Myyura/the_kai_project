@@ -2,8 +2,9 @@
 sidebar_label: "2024年度 数理科学 [II-4]"
 tags:
   - Osaka-University
-  - Mathematics.Differential-Equations
-  - Mathematics.Functional-Analysis
+  - Mathematics.Differential-Equations.Picard-Iteration
+  - Mathematics.Functional-Analysis.Banach-Fixed-Point-Theorem
+  - Mathematics.Functional-Analysis.Uniform-Convergence
 ---
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2024年度 数理科学 [II-4]
 

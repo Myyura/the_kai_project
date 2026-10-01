@@ -2,7 +2,7 @@
 sidebar_label: "2021年度 数理科学 II [3]"
 tags:
   - Osaka-University
-  - Mathematics.Real-Analysis
+  - Mathematics.Real-Analysis.Lebesgue-Dominated-and-Monotone-Convergence
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2021年度 数理科学 II \[3\]

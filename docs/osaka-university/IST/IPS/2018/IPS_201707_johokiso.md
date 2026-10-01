@@ -2,9 +2,9 @@
 sidebar_label: "2017年7月実施 情報数理学 情報基礎"
 tags:
   - Osaka-University
-  - Discrete-Mathematics.Graph-Theory
   - Computer-Science.Dynamic-Programming.Minimum-Edit-Distance
   - Computer-Science.Data-Structures.Linked-List
+  - Discrete-Mathematics.Graph-Theory.Hamiltonian-Path
 ---
 # 大阪大学 情報科学研究科 情報数理学専攻 2017年7月実施 情報数理学 情報基礎
 

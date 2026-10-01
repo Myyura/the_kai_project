@@ -2,7 +2,8 @@
 sidebar_label: "2022年度 数理科学 II [5]"
 tags:
   - Osaka-University
-  - Mathematics.Topology
+  - Mathematics.Topology.Complete-Metric-Space
+  - Mathematics.Topology.Metric-Space
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2022年度 数理科学 II \[5\]

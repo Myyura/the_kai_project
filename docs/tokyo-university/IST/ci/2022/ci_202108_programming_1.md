@@ -3,7 +3,8 @@ sidebar_label: 2021年8月実施 プログラミング 第1問
 tags:
   - Tokyo-University
   - Computer-Science.Dynamic-Programming.Maximum-Subarray-Sum
-  - Computer-Science.Programming
+  - Computer-Science.Programming.File-Input-and-Output
+  - Computer-Science.Programming.String-Parsing
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2021年8月実施 プログラミング 第1問
 

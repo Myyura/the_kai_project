@@ -2,8 +2,9 @@
 sidebar_label: "2018年2月実施 情報基礎 問題1"
 tags:
   - Ochanomizu-University
-  - Discrete-Mathematics.Set-Theory
   - Discrete-Mathematics.Mathematical-Logic.Predicate-Logic
+  - Discrete-Mathematics.Set-Theory.Functions
+  - Discrete-Mathematics.Set-Theory.Cardinality
 ---
 # お茶の水女子大学 人間文化創成科学研究科 理学専攻 情報科学コース 2018年2月実施 情報基礎 問題1
 

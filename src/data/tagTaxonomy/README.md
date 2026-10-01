@@ -8,6 +8,12 @@ Optional `searchAliases` contains language-keyed arrays of common abbreviations 
 
 After editing, run `yarn tags:generate`, `yarn content:validate`, and `yarn test`. Validation requires all three names and rejects the retired single `label` field.
 
+## Topic identity and consolidation
+
+Search the full taxonomy before adding a topic, including topics under other subjects. Use one canonical ID for the same concept; different wording or a different exam program does not justify a duplicate. Keep distinct concepts separate even when their names match, such as the Bernoulli equations in fluid mechanics and differential equations.
+
+When consolidating topics, update every document reference, remove the superseded definitions, and regenerate `docs/tags.yml`. Do not add compatibility aliases for retired canonical IDs. Remove duplicate tags and a parent subsubject when a document already has a concrete topic under that parent. Confirm the choice against the actual question, and preserve the document body.
+
 ## Translation policy
 
 Use terminology found in university textbooks, course notes, and official entrance-exam materials. Public written exam-preparation notes can supplement those sources. For an ambiguous or unusually specific ID, read the associated problem before naming it. A long task description need not be presented as an established textbook term. Keep conventional acronyms and author-name spellings when a local transliteration is not established.

@@ -6,7 +6,8 @@ tags:
   - Computer-Science.Algorithm-Design.Merge-Sort
   - Computer-Science.Algorithm-Design.Insertion-Sort
   - Computer-Science.Algorithm-Design.Algorithm-Complexity
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Recursion
+  - Computer-Science.Programming.Pointers-and-Arrays
 ---
 # 大阪大学 情報科学研究科 情報工学 2026年8月実施 1. 【必須問題】アルゴリズムとプログラミング
 

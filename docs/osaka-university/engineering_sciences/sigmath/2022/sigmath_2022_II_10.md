@@ -2,8 +2,9 @@
 sidebar_label: "2022年度 数理科学 II [10]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
-  - Probability-Statistics.Probability-Distributions-and-Asymptotics
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Mean-Squared-Error
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Normal-Standardization-and-Tail-Probability
+  - Probability-Statistics.Probability-Basics.Chernoff-Bound
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2022年度 数理科学 II \[10\]

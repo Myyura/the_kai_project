@@ -2,7 +2,9 @@
 sidebar_label: "2022年度 数理科学 I [2]"
 tags:
   - Osaka-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Kernel-and-Image
+  - Mathematics.Linear-Algebra.Basis-and-Dimension
+  - Mathematics.Linear-Algebra.Subspace-Sum-and-Intersection-Dimension
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2022年度 数理科学 I \[2\]

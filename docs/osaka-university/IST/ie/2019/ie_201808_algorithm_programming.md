@@ -4,7 +4,9 @@ tags:
   - Osaka-University
   - Computer-Science.Algorithm-Design.Bubble-Sort
   - Computer-Science.Algorithm-Design.Quick-Sort
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Recursion
+  - Computer-Science.Programming.Pointers-and-Arrays
+  - Computer-Science.Algorithm-Design.Binary-Search
 ---
 # 大阪大学 情報科学研究科 情報工学 2018年8月実施 アルゴリズムとプログラミング
 

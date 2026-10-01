@@ -52,15 +52,6 @@
       "labelJa": "アインシュタイン固体模型の熱容量",
       "labelEn": "Heat Capacity of an Einstein Solid"
     },
-    "Chemistry.Physical-Chemistry.Entropy-Change": {
-      "subsubject": "Chemistry.Physical-Chemistry",
-      "relatedSubjects": [
-        "Physics"
-      ],
-      "labelZh": "熵变",
-      "labelJa": "エントロピー変化",
-      "labelEn": "Entropy Change"
-    },
     "Chemistry.Physical-Chemistry.Gibbs-Free-Energy-and-Non-PV-Work": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
@@ -78,15 +69,6 @@
       "labelZh": "由吉布斯自由能求电池电动势",
       "labelJa": "ギブズ自由エネルギーから求める電池の起電力",
       "labelEn": "Electrochemical Cell Potential from Gibbs Free Energy"
-    },
-    "Chemistry.Physical-Chemistry.Ideal-Gas-Thermodynamics": {
-      "subsubject": "Chemistry.Physical-Chemistry",
-      "relatedSubjects": [
-        "Physics"
-      ],
-      "labelZh": "理想气体热力学",
-      "labelJa": "理想気体の熱力学",
-      "labelEn": "Ideal Gas Thermodynamics"
     },
     "Chemistry.Physical-Chemistry.Consecutive-First-Order-Reaction-Kinetics": {
       "subsubject": "Chemistry.Physical-Chemistry",
@@ -115,16 +97,6 @@
       "labelZh": "普朗克黑体辐射定律",
       "labelJa": "プランクの黒体放射則",
       "labelEn": "Planck's Blackbody Radiation Law"
-    },
-    "Chemistry.Physical-Chemistry.Wavefunction-Normalization": {
-      "subsubject": "Chemistry.Physical-Chemistry",
-      "relatedSubjects": [
-        "Physics",
-        "Mathematics"
-      ],
-      "labelZh": "波函数归一化",
-      "labelJa": "波動関数の規格化",
-      "labelEn": "Wavefunction Normalization"
     },
     "Chemistry.Physical-Chemistry.Wien-Displacement-Law": {
       "subsubject": "Chemistry.Physical-Chemistry",

@@ -3,7 +3,7 @@ sidebar_label: "2024年度 数理科学 [II-9]"
 tags:
   - Osaka-University
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-Distribution
-  - Mathematics.Real-Analysis.Uniform-Convergence-by-Supremum-Error
+  - Mathematics.Functional-Analysis.Uniform-Convergence
 ---
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2024年度 数理科学 [II-9]
 

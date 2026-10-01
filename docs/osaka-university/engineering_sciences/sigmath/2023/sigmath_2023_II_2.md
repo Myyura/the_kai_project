@@ -2,7 +2,9 @@
 sidebar_label: "2023年度 数理科学 II [2]"
 tags:
   - Osaka-University
-  - Mathematics.Topology
+  - Mathematics.Topology.Metric-Space
+  - Mathematics.Topology.Continuity-and-Homeomorphisms
+  - Mathematics.Topology.Compactness-and-Connectedness
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 II \[2\]

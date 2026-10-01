@@ -2,6 +2,34 @@
 sidebar_label: "2024年8月実施 専門基礎科目 問題"
 tags:
   - Tokyo-University
+  - Mathematics.Calculus.Differentiation
+  - Mathematics.Calculus.Taylor-Series
+  - Mathematics.Differential-Equations.Systems-of-ODEs
+  - Mathematics.Calculus.Local-Extrema
+  - Mathematics.Calculus.Improper-Integral
+  - Mathematics.Calculus.Volume-of-Revolution-by-Washers
+  - Mathematics.Calculus.Multivariable-Differentiation
+  - Mathematics.Calculus.Constrained-Optimization
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Orthogonal-Diagonalization-of-Symmetric-Matrices
+  - Mathematics.Linear-Algebra.Systems-of-Linear-Equations
+  - Mathematics.Linear-Algebra.Matrix-Exponential
+  - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
+  - Probability-Statistics.Probability-Basics.Covariance
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Cauchy-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Random-Variable-Transformation
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Simple-Linear-Regression
+  - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
+  - Physics.Mechanics.Projectile-Motion
+  - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
+  - Physics.Mechanics.Rotating-Frame-Coriolis-and-Centrifugal-Forces
+  - Physics.Electromagnetism.Electromagnetic-Wave
+  - Physics.Electromagnetism.Magnetic-Force
+  - Electrical-Electronic.Circuits.Series-and-Parallel-Resistors
+  - Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis
+  - Electrical-Electronic.Circuits.Alternating-Current-Power-and-Power-Factor
+  - Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance
 ---
 
 # 東京大学 新領域創成科学研究科 複雑理工学専攻 2024年8月実施 専門基礎科目

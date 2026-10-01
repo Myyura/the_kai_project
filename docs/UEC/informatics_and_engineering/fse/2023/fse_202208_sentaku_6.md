@@ -4,11 +4,11 @@ tags:
   - University-of-Electro-Communications
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Matrix-Diagonalization
-  - Mathematics.Calculus.Extrema
   - Mathematics.Calculus.Double-Integral
   - Mathematics.Vector-Calculus.Polar-Coordinates
   - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation
   - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Calculus.Local-Extrema
 ---
 # 電気通信大学 情報理工学研究科 基盤理工学専攻 2022年8月実施 選択問題 6 基礎数学
 

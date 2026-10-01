@@ -3,8 +3,10 @@ sidebar_label: 2026年8月実施 7. 【選択問題】数学解析と信号処�
 sidebar_position: 7
 tags:
   - Osaka-University
-  - Mathematics.Calculus
-  - Mathematics.Numerical-Analysis
+  - Mathematics.Calculus.Intermediate-Value-Theorem
+  - Mathematics.Calculus.Mean-Value-Theorem
+  - Mathematics.Calculus.Cauchy-Sequence
+  - Mathematics.Numerical-Analysis.Newton-Method
 ---
 # 大阪大学 情報科学研究科 情報工学 2026年8月実施 7. 【選択問題】数学解析と信号処理
 

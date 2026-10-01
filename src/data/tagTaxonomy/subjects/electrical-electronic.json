@@ -90,15 +90,6 @@
       "labelJa": "アクティブフィルタ",
       "labelEn": "Active Filters"
     },
-    "Electrical-Electronic.Circuits.Circuit-Transfer-Function": {
-      "subsubject": "Electrical-Electronic.Circuits",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "电路传递函数",
-      "labelJa": "回路の伝達関数",
-      "labelEn": "Circuit Transfer Functions"
-    },
     "Electrical-Electronic.Circuits.Boost-Converter-Switching-Transient": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
@@ -408,16 +399,6 @@
       "labelJa": "外乱抑制",
       "labelEn": "Disturbance Rejection"
     },
-    "Electrical-Electronic.Control-Theory.Inverse-Kinematics": {
-      "subsubject": "Electrical-Electronic.Control-Theory",
-      "relatedSubjects": [
-        "Mathematics",
-        "Engineering"
-      ],
-      "labelZh": "逆运动学",
-      "labelJa": "逆運動学",
-      "labelEn": "Inverse Kinematics"
-    },
     "Electrical-Electronic.Control-Theory.Lead-Compensation": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "labelZh": "超前补偿",
@@ -451,16 +432,6 @@
       "labelJa": "PID制御とI-PD制御",
       "labelEn": "PID and I-PD Control"
     },
-    "Electrical-Electronic.Control-Theory.Robot-Arm-Kinematics": {
-      "subsubject": "Electrical-Electronic.Control-Theory",
-      "relatedSubjects": [
-        "Engineering",
-        "Mathematics"
-      ],
-      "labelZh": "机械臂运动学",
-      "labelJa": "ロボットアームの運動学",
-      "labelEn": "Robot Arm Kinematics"
-    },
     "Electrical-Electronic.Control-Theory.Routh-Hurwitz-Stability": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
@@ -469,15 +440,6 @@
       "labelZh": "劳斯–赫尔维茨稳定判据",
       "labelJa": "ラウス・フルビッツの安定判別法",
       "labelEn": "Routh–Hurwitz Stability Criterion"
-    },
-    "Electrical-Electronic.Control-Theory.Force-Control": {
-      "subsubject": "Electrical-Electronic.Control-Theory",
-      "relatedSubjects": [
-        "Engineering"
-      ],
-      "labelZh": "力控制",
-      "labelJa": "力制御",
-      "labelEn": "Force Control"
     },
     "Electrical-Electronic.Control-Theory.Stepping-Motor": {
       "subsubject": "Electrical-Electronic.Control-Theory",
@@ -787,15 +749,6 @@
       "labelJa": "立上りエッジ検出回路",
       "labelEn": "Rising-Edge Detectors"
     },
-    "Electrical-Electronic.Digital-Logic.Full-Adder-and-Critical-Path": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "relatedSubjects": [
-        "Computer-Science"
-      ],
-      "labelZh": "全加器与关键路径",
-      "labelJa": "全加算器とクリティカルパス",
-      "labelEn": "Full Adders and Critical Paths"
-    },
     "Electrical-Electronic.Digital-Logic.Signed-Addition-Subtraction-and-Overflow-Detection": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
@@ -861,34 +814,6 @@
       "labelJa": "同期回路",
       "labelEn": "Synchronous Circuits"
     },
-    "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "离散傅里叶变换",
-      "labelJa": "離散フーリエ変換",
-      "labelEn": "Discrete Fourier Transform",
-      "searchAliases": {
-        "en": [
-          "DFT"
-        ],
-        "zh": [],
-        "ja": []
-      }
-    },
-    "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform-Time-Reversal-and-Shift": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "aliases": [
-        "Electrical-Electronic.Signal-Processing.DFT-Time-Reversal-and-Shift"
-      ],
-      "labelZh": "离散傅里叶变换的时间反转与移位",
-      "labelJa": "離散フーリエ変換の時間反転とシフト",
-      "labelEn": "Time Reversal and Shifts in the DFT"
-    },
     "Electrical-Electronic.Signal-Processing.Bandlimited-Signal-Reconstruction-from-Samples": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
@@ -906,15 +831,6 @@
       "labelZh": "傅里叶变换的共轭对称性与调制",
       "labelJa": "フーリエ変換の共役対称性と変調",
       "labelEn": "Fourier Conjugate Symmetry and Modulation"
-    },
-    "Electrical-Electronic.Signal-Processing.Continuous-Time-Fourier-Transform": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "连续时间傅里叶变换",
-      "labelJa": "連続時間フーリエ変換",
-      "labelEn": "Continuous-Time Fourier Transform"
     },
     "Electrical-Electronic.Signal-Processing.Dirac-Comb-Fourier-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -1126,15 +1042,6 @@
       "labelJa": "理想低域通過フィルタのインパルス応答",
       "labelEn": "Ideal Low-Pass Filter Impulse Response"
     },
-    "Electrical-Electronic.Signal-Processing.Z-Transform-Time-Shift": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "Z 变换的时移性质",
-      "labelJa": "Z変換の時間シフト特性",
-      "labelEn": "Time-Shift Property of the Z-Transform"
-    },
     "Electrical-Electronic.Signal-Processing.Discrete-Time-Transfer-Function-and-Impulse-Response": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
@@ -1143,16 +1050,6 @@
       "labelZh": "离散时间传递函数与冲激响应",
       "labelJa": "離散時間伝達関数とインパルス応答",
       "labelEn": "Discrete-Time Transfer Functions and Impulse Responses"
-    },
-    "Electrical-Electronic.Signal-Processing.Power-Spectrum-and-Parseval-Energy-Identity": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "relatedSubjects": [
-        "Mathematics",
-        "Physics"
-      ],
-      "labelZh": "功率谱与帕塞瓦尔能量恒等式",
-      "labelJa": "パワースペクトルとパーセバルのエネルギー等式",
-      "labelEn": "Power Spectra and Parseval's Energy Identity"
     },
     "Electrical-Electronic.Signal-Processing.Bilinear-Transform-for-Analog-to-Digital-Filter": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -1168,15 +1065,6 @@
       "labelZh": "离散时间滤波器的实现",
       "labelJa": "離散時間フィルタの実現",
       "labelEn": "Discrete-Time Filter Realization"
-    },
-    "Electrical-Electronic.Signal-Processing.Z-Transform-of-Geometric-Sequence": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "等比序列的 Z 变换",
-      "labelJa": "等比数列のZ変換",
-      "labelEn": "Z-Transform of a Geometric Sequence"
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Time-System-Transfer-and-Frequency-Response": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -1213,6 +1101,81 @@
       "labelEn": "Controllability and Observability",
       "relatedSubjects": [
         "Engineering",
+        "Mathematics"
+      ]
+    },
+    "Electrical-Electronic.Digital-Logic.CMOS-Logic": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "CMOS逻辑电路",
+      "labelJa": "CMOS論理回路",
+      "labelEn": "CMOS Logic Circuits"
+    },
+    "Electrical-Electronic.Digital-Logic.Latch": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "锁存器",
+      "labelJa": "ラッチ",
+      "labelEn": "Latches"
+    },
+    "Electrical-Electronic.Digital-Logic.Noise-Margin": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "噪声容限",
+      "labelJa": "ノイズマージン",
+      "labelEn": "Noise Margins"
+    },
+    "Electrical-Electronic.Digital-Logic.Three-State-Logic": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "三态逻辑",
+      "labelJa": "3ステート論理",
+      "labelEn": "Three-State Logic"
+    },
+    "Electrical-Electronic.Digital-Logic.Diode-Transistor-Logic": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "二极管晶体管逻辑",
+      "labelJa": "ダイオード・トランジスタ論理",
+      "labelEn": "Diode–Transistor Logic"
+    },
+    "Electrical-Electronic.Digital-Logic.Boolean-Function-Duality": {
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "布尔函数对偶性",
+      "labelJa": "ブール関数の双対性",
+      "labelEn": "Duality of Boolean Functions"
+    },
+    "Electrical-Electronic.Communications.Amplitude-Modulation": {
+      "subsubject": "Electrical-Electronic.Communications",
+      "labelZh": "调幅",
+      "labelJa": "振幅変調",
+      "labelEn": "Amplitude Modulation"
+    },
+    "Electrical-Electronic.Communications.Frequency-Modulation": {
+      "subsubject": "Electrical-Electronic.Communications",
+      "labelZh": "调频",
+      "labelJa": "周波数変調",
+      "labelEn": "Frequency Modulation"
+    },
+    "Electrical-Electronic.Communications.Channel-Distortion": {
+      "subsubject": "Electrical-Electronic.Communications",
+      "labelZh": "信道失真",
+      "labelJa": "伝送路ひずみ",
+      "labelEn": "Channel Distortion"
+    },
+    "Electrical-Electronic.Communications.Multiplexing": {
+      "subsubject": "Electrical-Electronic.Communications",
+      "labelZh": "多路复用",
+      "labelJa": "多重化",
+      "labelEn": "Multiplexing"
+    },
+    "Electrical-Electronic.Circuits.Series-and-Parallel-Resistors": {
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "电阻串并联",
+      "labelJa": "抵抗の直列接続と並列接続",
+      "labelEn": "Series and Parallel Resistors"
+    },
+    "Electrical-Electronic.Signal-Processing.Discrete-Time-Fourier-Transform": {
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "labelZh": "离散时间傅里叶变换",
+      "labelJa": "離散時間フーリエ変換",
+      "labelEn": "Discrete-Time Fourier Transform",
+      "relatedSubjects": [
         "Mathematics"
       ]
     }

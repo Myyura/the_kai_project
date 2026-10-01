@@ -3,7 +3,9 @@ sidebar_label: 2014年8月実施 基礎科目 問題5 物理基礎1
 tags:
   - Tohoku-University
   - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
-  - Physics.Mechanics
+  - Physics.Mechanics.Newtons-Laws-of-Motion
+  - Physics.Mechanics.Friction
+  - Physics.Mechanics.Work-and-Mechanical-Energy
 ---
 
 # 東北大学 工学研究科 電気・情報系 2014年8月実施 基礎科目 問題5 物理基礎1

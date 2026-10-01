@@ -5,7 +5,7 @@ tags:
   - Mathematics.Complex-Analysis.Complex-Exponential-and-Polar-Form
   - Mathematics.Geometry.Astroid
   - Mathematics.Calculus.Arc-Length
-  - Mathematics.Calculus.Local-Extrema
+  - Mathematics.Calculus.Extrema
 ---
 # 名古屋大学 情報学研究科 知能システム学専攻 2019年8月実施 解析・線形代数
 

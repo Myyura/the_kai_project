@@ -31,6 +31,39 @@
       "labelZh": "序列比对",
       "labelJa": "配列アラインメント",
       "labelEn": "Sequence Alignment"
+    },
+    "Bioinformatics.Bioinformatics.Molecular-Phylogenetics": {
+      "subsubject": "Bioinformatics.Bioinformatics",
+      "labelZh": "分子系统发育",
+      "labelJa": "分子系統学",
+      "labelEn": "Molecular Phylogenetics",
+      "searchAliases": {
+        "zh": [
+          "分子系统发生"
+        ],
+        "ja": [
+          "分子系統樹"
+        ],
+        "en": [
+          "UPGMA"
+        ]
+      }
+    },
+    "Bioinformatics.Bioinformatics.Population-Genetics": {
+      "subsubject": "Bioinformatics.Bioinformatics",
+      "labelZh": "群体遗传学",
+      "labelJa": "集団遺伝学",
+      "labelEn": "Population Genetics",
+      "searchAliases": {
+        "zh": [],
+        "ja": [
+          "ハーディ・ワインベルグ平衡",
+          "遺伝的浮動"
+        ],
+        "en": [
+          "Hardy-Weinberg equilibrium"
+        ]
+      }
     }
   }
 }

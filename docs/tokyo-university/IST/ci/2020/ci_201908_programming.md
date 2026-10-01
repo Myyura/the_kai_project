@@ -3,7 +3,11 @@ sidebar_label: 2019年8月実施 プログラミング
 tags:
   - Tokyo-University
   - Computer-Science.Dynamic-Programming.Optimal-Compression-Encoding
-  - Computer-Science.Programming
+  - Computer-Science.Programming.File-Input-and-Output
+  - Computer-Science.Programming.Bitwise-Operation
+  - Computer-Science.Programming.Substitution-Cipher
+  - Computer-Science.Programming.Arbitrary-Precision-Arithmetic
+  - Computer-Science.Security.Public-Key-Cryptography
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2019年8月実施 プログラミング
 

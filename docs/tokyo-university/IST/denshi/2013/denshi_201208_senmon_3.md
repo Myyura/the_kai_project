@@ -2,8 +2,9 @@
 sidebar_label: 2012年8月実施 専門 第3問
 tags:
   - Tokyo-University
-  - Discrete-Mathematics.Graph-Theory
   - Discrete-Mathematics.Graph-Algorithms.Depth-First-Search
+  - Discrete-Mathematics.Graph-Theory.Connectivity
+  - Computer-Science.Data-Structures.Graph-Representations
 ---
 
 # 東京大学 情報理工学系研究科 電子情報学専攻 2012年8月実施 専門 第3問

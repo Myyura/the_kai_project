@@ -2,7 +2,9 @@
 sidebar_label: "2023年度 数理科学 I [1]"
 tags:
   - Osaka-University
-  - Mathematics.Calculus
+  - Mathematics.Calculus.Integration-by-Substitution
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Calculus.Improper-Integral
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 I \[1\]

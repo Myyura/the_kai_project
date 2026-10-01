@@ -2,8 +2,11 @@
 sidebar_label: 2019年度 計算機システムとシステムプログラム
 tags:
   - Osaka-University
-  - Computer-Science.Computer-Architecture
-  - Computer-Science.Operating-Systems
+  - Computer-Science.Computer-Architecture.Number-Representation
+  - Computer-Science.Programming.Integer-Overflow
+  - Computer-Science.Operating-Systems.Deadlock-and-Starvation
+  - Computer-Science.Operating-Systems.Semaphore
+  - Computer-Science.Operating-Systems.Process-Synchronization
 ---
 # 大阪大学 情報科学研究科 情報工学 2019年度 計算機システムとシステムプログラム
 

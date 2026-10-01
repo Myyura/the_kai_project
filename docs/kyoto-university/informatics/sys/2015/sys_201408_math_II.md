@@ -5,7 +5,7 @@ tags:
   - Mathematics.Calculus.Change-of-Variables-and-Jacobian
   - Mathematics.Calculus.Double-Integral
   - Mathematics.Calculus.Improper-Integral
-  - Mathematics.Calculus.Local-Extrema
+  - Mathematics.Calculus.Extrema
 ---
 # 京都大学 情報学研究科 システム科学専攻 2014年8月実施 数学【II】
 

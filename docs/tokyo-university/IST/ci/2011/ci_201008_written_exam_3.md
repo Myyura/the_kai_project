@@ -2,7 +2,6 @@
 sidebar_label: 2010年8月実施 筆記試験 第3問
 tags:
   - Tokyo-University
-  - Electrical-Electronic.Signal-Processing
   - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
   - Electrical-Electronic.Communications.Code-Division-Multiple-Access
 ---

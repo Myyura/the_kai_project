@@ -3,7 +3,8 @@ sidebar_label: 2018年度 離散構造
 tags:
   - Osaka-University
   - Computer-Science.Algorithm-Design.Tower-of-Hanoi
-  - Discrete-Mathematics.Mathematical-Logic
+  - Discrete-Mathematics.Mathematical-Logic.Predicate-Logic
+  - Discrete-Mathematics.Mathematical-Logic.Resolution
 ---
 # 大阪大学 情報科学研究科 情報工学 2018年度 離散構造
 

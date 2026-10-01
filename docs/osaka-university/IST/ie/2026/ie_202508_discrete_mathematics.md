@@ -3,7 +3,7 @@ sidebar_label: 2025年8月実施 離散構造
 tags:
   - Osaka-University
   - Discrete-Mathematics.Set-Theory.Partially-Ordered-Sets-and-Chains
-  - Discrete-Mathematics.Combinatorics
+  - Discrete-Mathematics.Combinatorics.Counting
 ---
 # 大阪大学 情報科学研究科 情報工学 2025年8月実施 離散構造
 

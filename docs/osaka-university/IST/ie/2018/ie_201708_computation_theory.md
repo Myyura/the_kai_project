@@ -2,7 +2,12 @@
 sidebar_label: 2018年度 計算理論
 tags:
   - Osaka-University
-  - Computer-Science.Formal-Languages
+  - Computer-Science.Formal-Languages.Regular-Expression
+  - Computer-Science.Formal-Languages.Deterministic-Finite-Automaton
+  - Computer-Science.Formal-Languages.Nondeterministic-Pushdown-Automaton
+  - Computer-Science.Formal-Languages.Context-Free-Grammar
+  - Computer-Science.Formal-Languages.Parse-Tree
+  - Discrete-Mathematics.Combinatorics.Catalan-Number
 ---
 # 大阪大学 情報科学研究科 情報工学 2018年度 計算理論
 

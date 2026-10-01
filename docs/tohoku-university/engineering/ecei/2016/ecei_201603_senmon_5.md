@@ -2,8 +2,8 @@
 sidebar_label: 2016年3月実施 専門科目 問題5 計算機2
 tags:
   - Tohoku-University
-  - Computer-Science.Programming
   - Computer-Science.Data-Structures.Stack
+  - Computer-Science.Programming.Code-Generation
 ---
 
 # 東北大学 工学研究科 電気・情報系 2016年3月実施 専門科目 問題5 計算機2

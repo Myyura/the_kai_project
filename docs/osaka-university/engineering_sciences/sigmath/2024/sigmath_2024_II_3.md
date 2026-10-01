@@ -2,7 +2,8 @@
 sidebar_label: "2024年度 数理科学 [II-3]"
 tags:
   - Osaka-University
-  - Mathematics.Functional-Analysis
+  - Mathematics.Functional-Analysis.Weak-and-Strong-Convergence
+  - Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality
 ---
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2024年度 数理科学 [II-3]
 

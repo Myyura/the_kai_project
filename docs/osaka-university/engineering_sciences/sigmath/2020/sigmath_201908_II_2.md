@@ -2,7 +2,9 @@
 sidebar_label: "2019年8月実施 数理科学 II [2]"
 tags:
   - Osaka-University
-  - Mathematics.Linear-Algebra
+  - Mathematics.Linear-Algebra.Projection-Operator
+  - Mathematics.Linear-Algebra.Least-Squares-and-Minimum-Norm-Solutions
+  - Mathematics.Linear-Algebra.Gram-Matrix
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2019年8月実施 数理科学 II \[2\]

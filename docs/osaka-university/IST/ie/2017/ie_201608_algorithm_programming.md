@@ -3,7 +3,9 @@ sidebar_label: 2016年8月実施 アルゴリズムとプログラミング
 tags:
   - Osaka-University
   - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Recursion
+  - Computer-Science.Programming.Pointers-and-Arrays
+  - Discrete-Mathematics.Graph-Algorithms.Dijkstra-Algorithm
 ---
 # 大阪大学 情報科学研究科 情報工学 2016年8月実施 アルゴリズムとプログラミング
 

@@ -3,7 +3,8 @@ sidebar_label: 2016年8月実施 プログラミング
 tags:
   - Nagoya-University
   - Computer-Science.Algorithm-Design.Merge-Sort
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Recursion
+  - Computer-Science.Programming.Pointers-and-Arrays
 ---
 # 名古屋大学 情報科学研究科 情報システム学専攻 2016年8月実施 プログラミング
 

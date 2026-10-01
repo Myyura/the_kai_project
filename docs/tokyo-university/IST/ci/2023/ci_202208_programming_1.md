@@ -2,10 +2,12 @@
 sidebar_label: 2022年8月実施 プログラミング 第1問
 tags:
   - Tokyo-University
-  - Computer-Science.Programming
   - Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem
   - Discrete-Mathematics.Graph-Theory.Connectivity
   - Discrete-Mathematics.Graph-Theory.Spanning-Tree
+  - Computer-Science.Programming.File-Input-and-Output
+  - Computer-Science.Programming.String-Parsing
+  - Discrete-Mathematics.Graph-Algorithms.Breadth-First-Search
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2022年8月実施 プログラミング 第1問
 

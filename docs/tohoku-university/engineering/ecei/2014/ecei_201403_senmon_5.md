@@ -2,8 +2,10 @@
 sidebar_label: 2014年3月実施 専門科目 問題5 計算機2
 tags:
   - Tohoku-University
-  - Computer-Science.Formal-Languages
   - Computer-Science.Data-Structures.Stack
+  - Computer-Science.Formal-Languages.Backus-Naur-Form
+  - Computer-Science.Formal-Languages.Context-Free-Grammar
+  - Computer-Science.Formal-Languages.Parse-Tree
 ---
 
 # 東北大学 工学研究科 電気・情報系 2014年3月実施 専門科目 問題5 計算機2

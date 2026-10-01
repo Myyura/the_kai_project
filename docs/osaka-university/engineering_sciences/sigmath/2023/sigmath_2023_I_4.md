@@ -2,8 +2,9 @@
 sidebar_label: "2023年度 数理科学 I [4]"
 tags:
   - Osaka-University
-  - Mathematics.Differential-Equations
-  - Mathematics.Calculus
+  - Mathematics.Calculus.Integration-by-Parts
+  - Mathematics.Differential-Equations.Volterra-Integral-Equation
+  - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 I \[4\]

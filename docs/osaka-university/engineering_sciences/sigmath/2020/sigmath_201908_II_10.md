@@ -2,8 +2,9 @@
 sidebar_label: "2019年8月実施 数理科学 II [10]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
-  - Probability-Statistics.Probability-Distributions-and-Asymptotics
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Law-of-Large-Numbers
+  - Probability-Statistics.Probability-Basics.Linear-Combination-of-Independent-Normals
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Consistency
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2019年8月実施 数理科学 II \[10\]

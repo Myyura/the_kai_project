@@ -4,7 +4,7 @@ tags:
   - Nagoya-University
   - Computer-Science.Programming.Base-Conversion
   - Computer-Science.Programming.Bitwise-Operation
-  - Computer-Science.Programming.Fibonacci-Numbers
+  - Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence
 ---
 # 名古屋大学 情報学研究科 複雑系科学専攻 2018年8月実施 情1
 

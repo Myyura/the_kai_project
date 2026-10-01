@@ -2,6 +2,30 @@
 sidebar_label: "2022年8月実施 専門基礎科目 問題"
 tags:
   - Tokyo-University
+  - Mathematics.Differential-Equations.Systems-of-ODEs
+  - Mathematics.Linear-Algebra.Best-Fit-Hyperplane-through-Origin
+  - Mathematics.Calculus.Volume-of-Revolution-by-Cylindrical-Shells
+  - Mathematics.Calculus.Arc-Length
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Matrix-Rank
+  - Mathematics.Linear-Algebra.Kernel-and-Image
+  - Mathematics.Linear-Algebra.Discrete-Linear-Dynamical-System-Convergence
+  - Mathematics.Linear-Algebra.Linear-Independence
+  - Mathematics.Linear-Algebra.Matrix-Determinant
+  - Physics.Mechanics.Small-Angle-Pendulum
+  - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
+  - Physics.Mechanics.Noninertial-Reference-Frames
+  - Mathematics.Fourier-Analysis.Fourier-Series
+  - Mathematics.Differential-Equations.Wave-Equation
+  - Mathematics.Complex-Analysis.Laurent-Series
+  - Mathematics.Complex-Analysis.Residue-Theorem
+  - Mathematics.Differential-Equations.Bessel-Equation
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Uniform-Distribution
+  - Probability-Statistics.Probability-Basics.Order-Statistics
+  - Probability-Statistics.Probability-Basics.Marginalization-of-Conditional-Density
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
+  - Probability-Statistics.Probability-Basics.Sum-of-Two-Uniform-Variables
+  - Physics.Electromagnetism.Biot-Savart-Law
 ---
 
 # 東京大学 新領域創成科学研究科 複雑理工学専攻 2022年8月実施 専門基礎科目

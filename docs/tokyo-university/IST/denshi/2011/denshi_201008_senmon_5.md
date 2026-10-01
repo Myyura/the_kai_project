@@ -2,7 +2,7 @@
 sidebar_label: "2010年8月実施 専門 第5問"
 tags:
   - Tokyo-University
-  - Electrical-Electronic.Signal-Processing.Z-Transform-Time-Shift
+  - Electrical-Electronic.Signal-Processing.Z-Transform
   - Electrical-Electronic.Signal-Processing.Convolution-Theorem
   - Electrical-Electronic.Signal-Processing.Discrete-Time-Transfer-Function-and-Impulse-Response
 ---

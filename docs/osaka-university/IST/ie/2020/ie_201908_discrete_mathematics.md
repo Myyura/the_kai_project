@@ -2,8 +2,11 @@
 sidebar_label: 2020年度 離散構造
 tags:
   - Osaka-University
-  - Discrete-Mathematics.Mathematical-Logic
-  - Discrete-Mathematics.Graph-Theory
+  - Discrete-Mathematics.Mathematical-Logic.Predicate-Logic
+  - Discrete-Mathematics.Mathematical-Logic.Resolution
+  - Discrete-Mathematics.Graph-Theory.Connectivity
+  - Discrete-Mathematics.Graph-Theory.Cut
+  - Discrete-Mathematics.Graph-Theory.Vertex-Degree
 ---
 # 大阪大学 情報科学研究科 情報工学 2020年度 離散構造
 

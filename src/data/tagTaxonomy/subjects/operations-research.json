@@ -706,6 +706,24 @@
       "labelZh": "0–1 整数规划",
       "labelJa": "0–1 整数計画",
       "labelEn": "Binary Integer Programming"
+    },
+    "Operations-Research.Combinatorial-Optimization.Single-Machine-Scheduling": {
+      "subsubject": "Operations-Research.Combinatorial-Optimization",
+      "labelZh": "单机调度",
+      "labelJa": "1機械スケジューリング",
+      "labelEn": "Single-Machine Scheduling",
+      "searchAliases": {
+        "zh": [],
+        "ja": [
+          "単一機械スケジューリング",
+          "最短処理時間順",
+          "最早納期順"
+        ],
+        "en": [
+          "SPT",
+          "EDD"
+        ]
+      }
     }
   }
 }

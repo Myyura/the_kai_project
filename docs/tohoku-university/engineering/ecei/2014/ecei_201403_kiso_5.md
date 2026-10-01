@@ -2,8 +2,10 @@
 sidebar_label: 2014年3月実施 基礎科目 問題5 物理基礎1
 tags:
   - Tohoku-University
-  - Physics.Mechanics
   - Mathematics.Calculus.Integration
+  - Physics.Mechanics.Rigid-Body-Rotation-and-Rolling
+  - Physics.Mechanics.Rigid-Body-Moment-of-Inertia
+  - Physics.Mechanics.Work-and-Mechanical-Energy
 ---
 
 # 東北大学 工学研究科 電気・情報系 2014年3月実施 基礎科目 問題5 物理基礎1

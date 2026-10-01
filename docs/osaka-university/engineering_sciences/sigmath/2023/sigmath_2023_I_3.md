@@ -2,8 +2,10 @@
 sidebar_label: "2023年度 数理科学 I [3]"
 tags:
   - Osaka-University
-  - Mathematics.Complex-Analysis
-  - Mathematics.Linear-Algebra
+  - Mathematics.Complex-Analysis.Mobius-Transformation
+  - Mathematics.Complex-Analysis.Residue-Theorem
+  - Mathematics.Linear-Algebra.Matrix-Power
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 I \[3\]

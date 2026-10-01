@@ -2,7 +2,11 @@
 sidebar_label: 2019年度 論理設計
 tags:
   - Osaka-University
-  - Electrical-Electronic.Digital-Logic
+  - Electrical-Electronic.Digital-Logic.CMOS-Logic
+  - Electrical-Electronic.Digital-Logic.Combinatorial-Circuit
+  - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
+  - Electrical-Electronic.Digital-Logic.Synchronous-Decade-and-Up-Down-Counter
+  - Electrical-Electronic.Digital-Logic.D-Flip-Flop
 ---
 # 大阪大学 情報科学研究科 情報工学 2019年度 論理設計
 

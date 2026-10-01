@@ -2,7 +2,9 @@
 sidebar_label: 2020年度 論理設計
 tags:
   - Osaka-University
-  - Electrical-Electronic.Digital-Logic
+  - Computer-Science.Formal-Languages.Mealy-Machine
+  - Electrical-Electronic.Digital-Logic.Sequential-Circuit
+  - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
 ---
 # 大阪大学 情報科学研究科 情報工学 2020年度 論理設計
 

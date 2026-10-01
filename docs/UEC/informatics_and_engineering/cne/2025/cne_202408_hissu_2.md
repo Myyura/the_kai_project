@@ -3,9 +3,9 @@ sidebar_label: 2024年8月実施 必須問題 微分積分
 tags:
   - University-of-Electro-Communications
   - Mathematics.Calculus.Implicit-Differentiation
-  - Mathematics.Calculus.Extrema
   - Mathematics.Calculus.Double-Integral
   - Mathematics.Calculus.Change-of-Variables-and-Jacobian
+  - Mathematics.Calculus.Local-Extrema
 ---
 # 電気通信大学 情報理工学研究科 情報・ネットワーク工学専攻 2024年8月実施 必須問題 微分積分
 

@@ -4,7 +4,7 @@ tags:
   - University-of-Electro-Communications
   - Computer-Science.Formal-Languages.Deterministic-Finite-Automaton
   - Computer-Science.Formal-Languages.Pumping-Lemma
-  - Discrete-Mathematics.Combinatorics
+  - Discrete-Mathematics.Combinatorics.Counting
 ---
 # 電気通信大学 情報理工学研究科 情報・ネットワーク工学専攻 2022年8月実施 選択問題 離散数学とオートマトン
 

@@ -2,8 +2,10 @@
 sidebar_label: "2021年度 数理科学 II [8]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
-  - Probability-Statistics.Probability-Distributions-and-Asymptotics
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Bias
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Central-Limit-Theorem
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Delta-Method
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Chi-Square-Distribution
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2021年度 数理科学 II \[8\]

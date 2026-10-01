@@ -2,8 +2,7 @@
 sidebar_label: '2018年1月実施 第二期 専門科目 システム理論 [1]'
 tags:
   - Kobe-University
-  - Operations-Research.Combinatorial-Optimization
-  - Computer-Science.Operating-Systems.Shortest-Job-First-Scheduling
+  - Operations-Research.Combinatorial-Optimization.Single-Machine-Scheduling
 ---
 # 神戸大学 システム情報学研究科 2018年1月実施 第二期 専門科目 システム理論 \[1\]
 

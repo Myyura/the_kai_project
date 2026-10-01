@@ -2,7 +2,7 @@
 sidebar_label: "2023年度 数理科学 II [4]"
 tags:
   - Osaka-University
-  - Mathematics.Real-Analysis
+  - Mathematics.Real-Analysis.Approximate-Identities-and-Mollifiers
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 II \[4\]

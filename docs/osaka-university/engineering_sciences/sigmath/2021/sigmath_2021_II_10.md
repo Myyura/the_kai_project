@@ -2,8 +2,9 @@
 sidebar_label: "2021年度 数理科学 II [10]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
-  - Probability-Statistics.Probability-Distributions-and-Asymptotics
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Chi-Square-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2021年度 数理科学 II \[10\]

@@ -2,7 +2,7 @@
 sidebar_label: "2019年8月実施 数理科学 II [6]"
 tags:
   - Osaka-University
-  - Mathematics.Real-Analysis
+  - Mathematics.Real-Analysis.Approximate-Identities-and-Mollifiers
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2019年8月実施 数理科学 II \[6\]

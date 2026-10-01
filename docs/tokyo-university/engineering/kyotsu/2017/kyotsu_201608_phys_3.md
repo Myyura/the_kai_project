@@ -3,7 +3,9 @@ sidebar_label: '2016年8月実施 物理学 第3問'
 tags:
   - Tokyo-University
   - Physics.Thermodynamics.Ideal-Gas-Entropy-and-Heat-Capacities
-  - Physics.Thermodynamics.Otto-Diesel-and-Dual-Cycles
+  - Physics.Thermodynamics.Otto-Cycle
+  - Physics.Thermodynamics.Diesel-Cycle
+  - Physics.Thermodynamics.Dual-Combustion-Cycle
 ---
 
 # 東京大学 工学系研究科 2016年8月実施 物理学 第3問

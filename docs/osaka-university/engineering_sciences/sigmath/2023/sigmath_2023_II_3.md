@@ -2,8 +2,10 @@
 sidebar_label: "2023年度 数理科学 II [3]"
 tags:
   - Osaka-University
-  - Mathematics.Complex-Analysis
-  - Mathematics.Calculus
+  - Mathematics.Complex-Analysis.Branch-Cut
+  - Mathematics.Complex-Analysis.Real-Integral-by-Residues
+  - Mathematics.Calculus.Improper-Integral
+  - Mathematics.Real-Analysis.Lebesgue-Dominated-and-Monotone-Convergence
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 II \[3\]

@@ -4,8 +4,7 @@ tags:
   - Kyoto-University
   - Physics.Mechanics.Lagrangian-Mechanics
   - Physics.Mechanics.Small-Angle-Pendulum
-  - Physics.Mechanics.Spring-Pendulum-Coupled-Normal-Modes
-  - Physics.Mechanics.Coupled-Rigid-Body-Normal-Modes
+  - Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators
 ---
 
 # 京都大学 工学研究科 機械工学群 2014年度 機械力学 1-2

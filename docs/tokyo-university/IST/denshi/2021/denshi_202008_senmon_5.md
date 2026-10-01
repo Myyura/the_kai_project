@@ -2,7 +2,7 @@
 sidebar_label: "2020年8月実施 専門 第5問"
 tags:
   - Tokyo-University
-  - Electrical-Electronic.Signal-Processing.Continuous-Time-Fourier-Transform
+  - Mathematics.Fourier-Analysis.Fourier-Transform
   - Electrical-Electronic.Signal-Processing.Fourier-Conjugate-Symmetry-and-Modulation
   - Electrical-Electronic.Signal-Processing.Convolution-Theorem
   - Mathematics.Fourier-Analysis.Fourier-Transform-Differentiation-and-Time-Multiplication

@@ -5,7 +5,7 @@ tags:
   - Mathematics.Calculus.Constrained-Optimization
   - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation
   - Mathematics.Calculus.Power-Series
-  - Mathematics.Complex-Analysis
+  - Mathematics.Complex-Analysis.Taylor-Series-and-Radius-of-Convergence
 ---
 # 九州大学 システム情報科学府 情報理工学専攻・電気電子工学専攻 2024年1月実施 解析学・微積分
 

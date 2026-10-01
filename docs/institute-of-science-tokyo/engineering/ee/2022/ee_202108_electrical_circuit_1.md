@@ -2,7 +2,7 @@
 sidebar_label: 2021年8月実施 電気回路1
 tags:
   - institute-of-science-tokyo
-  - Electrical-Electronic.Circuits.Circuit-Transfer-Function
+  - Electrical-Electronic.Control-Theory.Transfer-Function
   - Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Resonance
   - Electrical-Electronic.Circuits.Circuit-Transient-Response
   - Mathematics.Differential-Equations.Laplace-Transform

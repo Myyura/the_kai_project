@@ -2,7 +2,8 @@
 sidebar_label: "2022年度 数理科学 II [6]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Probability-Distributions-and-Asymptotics
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Boundedness-in-Probability
+  - Probability-Statistics.Probability-Basics.Markov-and-Chebyshev-Inequalities
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2022年度 数理科学 II \[6\]

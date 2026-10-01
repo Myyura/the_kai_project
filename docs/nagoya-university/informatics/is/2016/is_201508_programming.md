@@ -3,7 +3,9 @@ sidebar_label: 2015年8月実施 プログラミング
 tags:
   - Nagoya-University
   - Computer-Science.Data-Structures.Binary-Search-Tree
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Dynamic-Memory-Allocation
+  - Computer-Science.Programming.Pointers-and-Arrays
+  - Computer-Science.Programming.Recursion
 ---
 # 名古屋大学 情報科学研究科 情報システム学専攻 2015年8月実施 プログラミング
 

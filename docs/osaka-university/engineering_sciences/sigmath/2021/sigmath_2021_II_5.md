@@ -2,7 +2,8 @@
 sidebar_label: "2021年度 数理科学 II [5]"
 tags:
   - Osaka-University
-  - Mathematics.Real-Analysis
+  - Mathematics.Real-Analysis.Almost-Everywhere-and-In-Measure-Convergence
+  - Probability-Statistics.Probability-Basics.Borel-Cantelli-Lemmas
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2021年度 数理科学 II \[5\]

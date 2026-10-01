@@ -2,8 +2,10 @@
 sidebar_label: "2024年度 数理科学 [II-8]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Law-of-Large-Numbers
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Bias
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Consistency
 ---
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2024年度 数理科学 [II-8]
 

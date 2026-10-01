@@ -4,7 +4,7 @@ tags:
   - Osaka-University
   - Computer-Science.Data-Structures.Binary-Heap
   - Computer-Science.Algorithm-Design.Heap-Sort
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Pointers-and-Arrays
 ---
 # 大阪大学 情報科学研究科 情報工学 2019年8月実施 アルゴリズムとプログラミング
 

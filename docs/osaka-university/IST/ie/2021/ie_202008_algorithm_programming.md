@@ -3,7 +3,9 @@ sidebar_label: 2020年8月実施 アルゴリズムとプログラミング
 tags:
   - Osaka-University
   - Computer-Science.Data-Structures.Queue
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Pointers-and-Arrays
+  - Computer-Science.Data-Structures.Priority-Queue
+  - Computer-Science.Algorithm-Design.Insertion-Sort
 ---
 # 大阪大学 情報科学研究科 情報工学 2020年8月実施 アルゴリズムとプログラミング
 

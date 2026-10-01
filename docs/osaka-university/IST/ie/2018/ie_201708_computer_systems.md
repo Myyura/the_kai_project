@@ -2,8 +2,12 @@
 sidebar_label: 2018年度 計算機システムとシステムプログラム
 tags:
   - Osaka-University
-  - Computer-Science.Computer-Architecture
-  - Computer-Science.Operating-Systems
+  - Computer-Science.Computer-Architecture.Locality-of-Reference
+  - Computer-Science.Computer-Architecture.Cache-Address-Mapping
+  - Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate
+  - Computer-Science.Operating-Systems.Virtual-Memory
+  - Computer-Science.Operating-Systems.Page-Table
+  - Computer-Science.Operating-Systems.File-Allocation
 ---
 # 大阪大学 情報科学研究科 情報工学 2018年度 計算機システムとシステムプログラム
 

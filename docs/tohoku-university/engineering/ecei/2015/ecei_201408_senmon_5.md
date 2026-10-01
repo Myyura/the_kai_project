@@ -3,7 +3,8 @@ sidebar_label: 2014年8月実施 専門科目 問題5 計算機2
 tags:
   - Tohoku-University
   - Mathematics.Number-Theory.Greatest-Common-Divisor
-  - Computer-Science.Algorithm-Design
+  - Computer-Science.Algorithm-Design.Euclidean-Algorithm
+  - Computer-Science.Algorithm-Design.Recurrence-Relation-Complexity
 ---
 
 # 東北大学 工学研究科 電気・情報系 2014年8月実施 専門科目 問題5 計算機2

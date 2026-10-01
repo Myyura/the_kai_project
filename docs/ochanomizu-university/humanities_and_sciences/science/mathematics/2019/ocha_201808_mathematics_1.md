@@ -2,7 +2,7 @@
 sidebar_label: "2018年8月実施 数学コース 問題1"
 tags:
   - Ochanomizu-University
-  - Mathematics.Real-Analysis.Uniform-Convergence-by-Supremum-Error
+  - Mathematics.Functional-Analysis.Uniform-Convergence
   - Mathematics.Real-Analysis.Interchange-of-Limit-Derivative-and-Integral
   - Mathematics.Calculus.Improper-Integral
 ---

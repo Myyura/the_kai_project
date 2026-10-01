@@ -133,9 +133,9 @@
         "Mathematics",
         "Computer-Science"
       ],
-      "labelZh": "斐波那契递推关系",
-      "labelJa": "フィボナッチ数の漸化式",
-      "labelEn": "Fibonacci Recurrence"
+      "labelZh": "斐波那契数列与递推关系",
+      "labelJa": "フィボナッチ数列と漸化式",
+      "labelEn": "Fibonacci Sequence and Recurrence"
     },
     "Discrete-Mathematics.Set-Theory.Image-of-Intersection": {
       "subsubject": "Discrete-Mathematics.Set-Theory",
@@ -245,7 +245,8 @@
     "Discrete-Mathematics.Graph-Algorithms.A-Star-Shortest-Path-Search": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [
-        "Computer-Science"
+        "Computer-Science",
+        "Data-Science-Artificial-Intelligence"
       ],
       "labelZh": "A* 最短路径搜索",
       "labelJa": "A* 法による最短経路探索",
@@ -507,6 +508,80 @@
       "labelZh": "命题逻辑的紧致性与极大一致性",
       "labelJa": "命題論理のコンパクト性と極大無矛盾性",
       "labelEn": "Propositional Compactness and Maximal Consistency"
+    },
+    "Discrete-Mathematics.Mathematical-Logic.Propositional-Logic": {
+      "subsubject": "Discrete-Mathematics.Mathematical-Logic",
+      "labelZh": "命题逻辑",
+      "labelJa": "命題論理",
+      "labelEn": "Propositional Logic"
+    },
+    "Discrete-Mathematics.Graph-Theory.Independent-Set": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "独立集",
+      "labelJa": "独立点集合",
+      "labelEn": "Independent Set"
+    },
+    "Discrete-Mathematics.Set-Theory.Functions": {
+      "subsubject": "Discrete-Mathematics.Set-Theory",
+      "labelZh": "映射",
+      "labelJa": "写像",
+      "labelEn": "Functions"
+    },
+    "Discrete-Mathematics.Mathematical-Logic.Resolution": {
+      "subsubject": "Discrete-Mathematics.Mathematical-Logic",
+      "labelZh": "归结原理",
+      "labelJa": "導出原理",
+      "labelEn": "Resolution",
+      "searchAliases": {
+        "zh": [
+          "消解原理"
+        ],
+        "ja": [
+          "レゾリューション"
+        ]
+      }
+    },
+    "Discrete-Mathematics.Graph-Theory.Chordal-Graph": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "弦图",
+      "labelJa": "弦グラフ",
+      "labelEn": "Chordal Graph"
+    },
+    "Discrete-Mathematics.Graph-Theory.Interval-Graph": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "区间图",
+      "labelJa": "区間グラフ",
+      "labelEn": "Interval Graph"
+    },
+    "Discrete-Mathematics.Graph-Theory.Hamiltonian-Path": {
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "哈密顿路径",
+      "labelJa": "ハミルトン路",
+      "labelEn": "Hamiltonian Path"
+    },
+    "Discrete-Mathematics.Mathematical-Logic.Stable-Model-Semantics": {
+      "subsubject": "Discrete-Mathematics.Mathematical-Logic",
+      "labelZh": "稳定模型语义",
+      "labelJa": "安定モデル意味論",
+      "labelEn": "Stable Model Semantics",
+      "relatedSubjects": [
+        "Computer-Science",
+        "Data-Science-Artificial-Intelligence"
+      ],
+      "searchAliases": {
+        "en": [
+          "Gelfond-Lifschitz reduct"
+        ],
+        "ja": [
+          "安定モデル"
+        ]
+      }
+    },
+    "Discrete-Mathematics.Combinatorics.Inclusion-Exclusion-Principle": {
+      "subsubject": "Discrete-Mathematics.Combinatorics",
+      "labelZh": "容斥原理",
+      "labelJa": "包除原理",
+      "labelEn": "Inclusion-Exclusion Principle"
     }
   }
 }

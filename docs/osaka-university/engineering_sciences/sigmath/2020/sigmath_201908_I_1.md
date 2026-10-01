@@ -2,7 +2,9 @@
 sidebar_label: "2019年8月実施 数理科学 I [1]"
 tags:
   - Osaka-University
-  - Mathematics.Calculus
+  - Mathematics.Calculus.Integration-by-Parts
+  - Mathematics.Calculus.Triple-Integral
+  - Mathematics.Calculus.Change-of-Variables-and-Jacobian
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2019年8月実施 数理科学 I \[1\]

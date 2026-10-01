@@ -2,7 +2,10 @@
 sidebar_label: 2019年度 計算理論
 tags:
   - Osaka-University
-  - Computer-Science.Formal-Languages
+  - Computer-Science.Formal-Languages.Deterministic-Finite-Automaton
+  - Computer-Science.Formal-Languages.Pumping-Lemma
+  - Computer-Science.Formal-Languages.Nondeterministic-Pushdown-Automaton
+  - Computer-Science.Formal-Languages.Context-Free-Grammar
 ---
 # 大阪大学 情報科学研究科 情報工学 2019年度 計算理論
 

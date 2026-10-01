@@ -3,7 +3,6 @@ sidebar_label: 2026年8月実施 6. 【選択問題】電子回路と論理設�
 sidebar_position: 6
 tags:
   - Osaka-University
-  - Electrical-Electronic.Circuits
   - Electrical-Electronic.Circuits.Alternating-Current-Power-and-Power-Factor
   - Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis
   - Electrical-Electronic.Circuits.Wheatstone-Bridge

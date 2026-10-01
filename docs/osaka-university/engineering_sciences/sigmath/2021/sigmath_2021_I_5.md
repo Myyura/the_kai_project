@@ -2,7 +2,9 @@
 sidebar_label: "2021年度 数理科学 I [5]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Mean-Squared-Error
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2021年度 数理科学 I \[5\]

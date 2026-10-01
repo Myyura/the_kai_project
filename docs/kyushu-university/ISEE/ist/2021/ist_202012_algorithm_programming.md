@@ -4,7 +4,8 @@ tags:
   - Kyushu-University
   - Computer-Science.Dynamic-Programming.Matrix-Chain-Multiplication
   - Computer-Science.Algorithm-Design.Merge-Sort
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Recursion
+  - Computer-Science.Programming.Python-Object-Mutability
 ---
 # 九州大学 システム情報科学府 情報理工学専攻 2020年12月実施 アルゴリズム・プログラミング
 

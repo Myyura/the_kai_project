@@ -2,7 +2,8 @@
 sidebar_label: "2019年8月実施 数理科学 II [1]"
 tags:
   - Osaka-University
-  - Mathematics.Real-Analysis
+  - Mathematics.Calculus.Improper-Integral
+  - Mathematics.Calculus.Double-Integral
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2019年8月実施 数理科学 II \[1\]

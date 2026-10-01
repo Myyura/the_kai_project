@@ -3,7 +3,8 @@ sidebar_label: 2023年8月実施 アルゴリズムとプログラミング
 tags:
   - Osaka-University
   - Computer-Science.Algorithm-Design.Insertion-Sort
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Pointers-and-Arrays
+  - Computer-Science.Algorithm-Design.Binary-Insertion-Sort
 ---
 # 大阪大学 情報科学研究科 情報工学 2023年8月実施 アルゴリズムとプログラミング
 

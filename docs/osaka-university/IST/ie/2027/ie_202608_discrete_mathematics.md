@@ -3,9 +3,9 @@ sidebar_label: 2026年8月実施 3. 【選択問題】離散構造
 sidebar_position: 3
 tags:
   - Osaka-University
-  - Discrete-Mathematics.Graph-Theory
-  - Discrete-Mathematics.Graph-Theory.Graph-Basics
   - Discrete-Mathematics.Graph-Theory.Connectivity
+  - Discrete-Mathematics.Graph-Theory.Chordal-Graph
+  - Discrete-Mathematics.Graph-Theory.Interval-Graph
 ---
 # 大阪大学 情報科学研究科 情報工学 2026年8月実施 3. 【選択問題】離散構造
 

@@ -2,8 +2,9 @@
 sidebar_label: 2022年8月実施 プログラミング 第2問
 tags:
   - Tokyo-University
-  - Discrete-Mathematics.Graph-Algorithms.Breadth-First-Search
-  - Computer-Science.Programming
+  - Computer-Science.Programming.File-Input-and-Output
+  - Computer-Science.Programming.String-Parsing
+  - Computer-Science.Programming.Pointers-and-Arrays
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2022年8月実施 プログラミング 第2問
 

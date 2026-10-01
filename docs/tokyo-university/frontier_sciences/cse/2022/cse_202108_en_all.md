@@ -2,6 +2,32 @@
 sidebar_label: "2021年8月実施 専門基礎科目 問題"
 tags:
   - Tokyo-University
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
+  - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation-by-Variable-Substitution
+  - Mathematics.Calculus.Integration-by-Parts
+  - Mathematics.Calculus.Ellipse-Tangent-and-Intercept-Optimization
+  - Mathematics.Calculus.Change-of-Variables-and-Jacobian
+  - Mathematics.Calculus.Double-Integral
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Matrix-Limit
+  - Mathematics.Linear-Algebra.Rayleigh-Quotient
+  - Mathematics.Linear-Algebra.Characteristic-Polynomial-Coefficients-from-Eigenvalues
+  - Mathematics.Linear-Algebra.Determinant-of-Matrix-Exponential
+  - Physics.Mechanics.Simple-Harmonic-Motion
+  - Physics.Mechanics.Collision-and-Coefficient-of-Restitution
+  - Physics.Mechanics.Work-and-Mechanical-Energy
+  - Mathematics.Fourier-Analysis.Fourier-Transform
+  - Electrical-Electronic.Signal-Processing.Convolution-Theorem
+  - Mathematics.Complex-Analysis.Residue-Theorem
+  - Probability-Statistics.Probability-Basics.Bayes-Theorem
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Gamma-Distribution
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Bias
+  - Physics.Electromagnetism.Capacitance-and-Electrostatic-Energy
+  - Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance
+  - Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis
+  - Physics.Electromagnetism.Electromagnetic-Wave
 ---
 
 # 東京大学 新領域創成科学研究科 複雑理工学専攻 2021年8月実施 専門基礎科目

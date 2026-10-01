@@ -3,8 +3,8 @@ sidebar_label: '2022年8月実施 物理学1'
 tags:
   - Tokyo-University
   - Physics.Mechanics.Small-Angle-Pendulum
-  - Physics.Mechanics.Spring-Pendulum-Coupled-Normal-Modes
-  - Physics.Mechanics.Time-Dependent-Harmonic-Oscillator
+  - Physics.Mechanics.Simple-Harmonic-Motion
+  - Physics.Mechanics.Forced-Vibration
 ---
 
 # 東京大学 工学系研究科 2022年8月実施 物理学1

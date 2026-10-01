@@ -3,12 +3,11 @@ sidebar_label: 2026年8月実施 2. 【必須問題】計算機システムと�
 sidebar_position: 2
 tags:
   - Osaka-University
-  - Computer-Science.Computer-Architecture
-  - Computer-Science.Computer-Architecture.Cache
   - Computer-Science.Computer-Architecture.Cache-Address-Mapping
-  - Computer-Science.Operating-Systems
   - Computer-Science.Operating-Systems.Virtual-Memory
   - Computer-Science.Operating-Systems.Page-Replacement
+  - Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate
+  - Computer-Science.Computer-Architecture.Locality-of-Reference
 ---
 # 大阪大学 情報科学研究科 情報工学 2026年8月実施 2. 【必須問題】計算機システムとシステムプログラム
 

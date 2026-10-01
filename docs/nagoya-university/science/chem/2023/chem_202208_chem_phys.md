@@ -3,7 +3,8 @@ sidebar_label: "2022年8月実施 物理化学"
 tags:
   - Nagoya-University
   - Chemistry.Physical-Chemistry.Operator-Commutator
-  - Chemistry.Physical-Chemistry.Wavefunction-Normalization
+  - Physics.Quantum-Mechanics.Wavefunction-Normalization
+  - Physics.Quantum-Mechanics.Quantum-Observable-Expectation-and-Variance
 ---
 # 名古屋大学 理学研究科 化学系 2022年8月実施 物理化学
 

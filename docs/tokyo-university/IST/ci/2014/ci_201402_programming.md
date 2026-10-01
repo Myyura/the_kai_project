@@ -2,7 +2,7 @@
 sidebar_label: 2014年2月実施 プログラミング
 tags:
   - Tokyo-University
-  - Computer-Science.Programming.Fibonacci-Numbers
+  - Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence
   - Computer-Science.Programming.Recursion
   - Computer-Science.Programming.Integer-Overflow
   - Computer-Science.Programming.Arbitrary-Precision-Arithmetic

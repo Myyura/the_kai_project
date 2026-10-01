@@ -3,7 +3,7 @@ sidebar_label: 2019年8月実施 プログラミング
 tags:
   - Nagoya-University
   - Computer-Science.Data-Structures.Hash-Table
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Pointers-and-Arrays
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2019年8月実施 プログラミング
 

@@ -2,9 +2,8 @@
 sidebar_label: 2021年8月実施 選択問題 数値計算
 tags:
   - University-of-Electro-Communications
-  - Mathematics.Numerical-Analysis
-  - Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation
-  - Mathematics.Differential-Equations.Characteristic-Roots-and-Stability
+  - Mathematics.Numerical-Analysis.Euler-Methods
+  - Mathematics.Numerical-Analysis.Absolute-Stability
 ---
 
 # 電気通信大学 情報理工学研究科 情報・ネットワーク工学専攻 2021年8月実施 選択問題 数値計算

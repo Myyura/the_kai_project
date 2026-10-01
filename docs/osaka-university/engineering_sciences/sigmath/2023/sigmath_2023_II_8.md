@@ -2,8 +2,10 @@
 sidebar_label: "2023年度 数理科学 II [8]"
 tags:
   - Osaka-University
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing
-  - Probability-Statistics.Probability-Distributions-and-Asymptotics
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Kernel-Density-Estimation
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Consistency
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Estimator-Bias
+  - Probability-Statistics.Probability-Basics.Expectation-and-Variance
 ---
 
 # 大阪大学 基礎工学研究科 数理科学 (システム創成専攻) 2023年度 数理科学 II \[8\]

@@ -5,7 +5,6 @@ tags:
   - Data-Science-Artificial-Intelligence.Data-Science.Image-Filtering-and-Moments
   - Data-Science-Artificial-Intelligence.Machine-Learning.K-Nearest-Neighbors
   - Data-Science-Artificial-Intelligence.Machine-Learning.Nearest-Centroid-Classifier
-  - Computer-Science.Graphics
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2013年8月実施 筆記試験 第3問
 ## **Author**

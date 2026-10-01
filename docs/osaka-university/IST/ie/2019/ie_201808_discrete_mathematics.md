@@ -2,8 +2,10 @@
 sidebar_label: 2019年度 離散構造
 tags:
   - Osaka-University
-  - Discrete-Mathematics.Mathematical-Logic
-  - Discrete-Mathematics.Set-Theory
+  - Discrete-Mathematics.Mathematical-Logic.Predicate-Logic
+  - Discrete-Mathematics.Mathematical-Logic.Resolution
+  - Discrete-Mathematics.Set-Theory.Binary-Relations
+  - Discrete-Mathematics.Set-Theory.Partially-Ordered-Sets-and-Chains
 ---
 # 大阪大学 情報科学研究科 情報工学 2019年度 離散構造
 

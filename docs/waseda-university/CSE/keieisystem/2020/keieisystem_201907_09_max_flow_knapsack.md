@@ -4,10 +4,10 @@ tags:
   - Waseda-University
   - Operations-Research.Linear-Programming.Simplex-Method
   - Operations-Research.Linear-Programming.Linear-Programming-Duality
-  - Operations-Research.Decision-Analysis.Sensitivity-Analysis
   - Operations-Research.Combinatorial-Optimization.Maximum-Flow
   - Operations-Research.Combinatorial-Optimization.Branch-and-Bound
   - Computer-Science.Dynamic-Programming.Knapsack-Problem
+  - Operations-Research.Optimization-Basics.Sensitivity-Analysis
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2019年7月実施 オペレーションズリサーチ 問題9

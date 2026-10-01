@@ -2,7 +2,8 @@
 sidebar_label: 2013年8月実施 プログラミング
 tags:
   - Tokyo-University
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Recursion
+  - Computer-Science.Graphics.Procedural-Modeling
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2013年8月実施 プログラミング
 

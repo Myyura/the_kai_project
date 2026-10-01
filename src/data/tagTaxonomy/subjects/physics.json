@@ -73,15 +73,6 @@
     "Physics.Astrophysics"
   ],
   "topics": {
-    "Physics.Astrophysics.Photon-Counting-Poisson-Process": {
-      "subsubject": "Physics.Astrophysics",
-      "relatedSubjects": [
-        "Probability-Statistics"
-      ],
-      "labelZh": "光子计数与泊松过程",
-      "labelJa": "光子計数とポアソン過程",
-      "labelEn": "Photon Counting and Poisson Processes"
-    },
     "Physics.Astrophysics.Exposure-Time-Signal-to-Noise-with-Readout-Noise": {
       "subsubject": "Physics.Astrophysics",
       "relatedSubjects": [
@@ -91,19 +82,6 @@
       "labelZh": "含读出噪声的曝光时间与信噪比",
       "labelJa": "読み出し雑音を含む露光時間と信号対雑音比",
       "labelEn": "Exposure Time and Signal-to-Noise Ratio with Readout Noise"
-    },
-    "Physics.Astrophysics.Central-Limit-Theorem-Based-Simulation-of-Observation-Noise": {
-      "subsubject": "Physics.Astrophysics",
-      "relatedSubjects": [
-        "Probability-Statistics",
-        "Computer-Science"
-      ],
-      "aliases": [
-        "Physics.Astrophysics.CLT-Based-Simulation-of-Observation-Noise"
-      ],
-      "labelZh": "基于中心极限定理的观测噪声模拟",
-      "labelJa": "中心極限定理による観測雑音のシミュレーション",
-      "labelEn": "Observation Noise Simulation Using the Central Limit Theorem"
     },
     "Physics.Mechanics.Two-Dimensional-Harmonic-Oscillator-Effective-Potential": {
       "subsubject": "Physics.Mechanics",
@@ -122,15 +100,6 @@
       "labelZh": "径向微振动频率",
       "labelJa": "動径方向の微小振動の振動数",
       "labelEn": "Radial Small-Oscillation Frequency"
-    },
-    "Physics.Mechanics.Small-Oscillations-of-a-Chain-Pendulum": {
-      "subsubject": "Physics.Mechanics",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "链式摆的微振动",
-      "labelJa": "連結振り子の微小振動",
-      "labelEn": "Small Oscillations of a Chain Pendulum"
     },
     "Physics.Mechanics.Damped-Harmonic-Motion": {
       "subsubject": "Physics.Mechanics",
@@ -202,15 +171,6 @@
       "labelJa": "インボリュートに拘束された運動",
       "labelEn": "Motion Constrained to an Involute"
     },
-    "Physics.Mechanics.Spring-Pendulum-Coupled-Normal-Modes": {
-      "subsubject": "Physics.Mechanics",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "弹簧摆耦合简正模",
-      "labelJa": "ばね振り子の連成基準振動",
-      "labelEn": "Coupled Normal Modes of a Spring Pendulum"
-    },
     "Physics.Mechanics.Angular-Momentum-Conservation-and-Areal-Velocity": {
       "subsubject": "Physics.Mechanics",
       "labelZh": "角动量守恒与面积速度",
@@ -234,15 +194,6 @@
       "labelZh": "二体有心力问题与有效势",
       "labelJa": "二体中心力問題と有効ポテンシャル",
       "labelEn": "Two-Body Central-Force Motion and Effective Potentials"
-    },
-    "Physics.Mechanics.Coupled-Rigid-Body-Normal-Modes": {
-      "subsubject": "Physics.Mechanics",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "耦合刚体的简正模",
-      "labelJa": "連成剛体の基準振動",
-      "labelEn": "Normal Modes of Coupled Rigid Bodies"
     },
     "Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators": {
       "subsubject": "Physics.Mechanics",
@@ -559,16 +510,6 @@
       "labelZh": "二能级系统的时间演化",
       "labelJa": "二準位系の時間発展",
       "labelEn": "Time Evolution of a Two-Level System"
-    },
-    "Physics.Quantum-Mechanics.Wavefunction-Normalization-and-Energy-Expectation": {
-      "subsubject": "Physics.Quantum-Mechanics",
-      "relatedSubjects": [
-        "Mathematics",
-        "Chemistry"
-      ],
-      "labelZh": "波函数归一化与能量期望值",
-      "labelJa": "波動関数の規格化とエネルギー期待値",
-      "labelEn": "Wavefunction Normalization and Energy Expectation"
     },
     "Physics.Thermodynamics.Enthalpy-and-Thermodynamic-Relations": {
       "subsubject": "Physics.Thermodynamics",
@@ -947,15 +888,6 @@
       "labelJa": "矩形空洞共振器の固有モード",
       "labelEn": "Eigenmodes of a Rectangular Cavity"
     },
-    "Physics.Electromagnetism.Current-Loop-Magnetic-Moment-and-Torque": {
-      "subsubject": "Physics.Electromagnetism",
-      "relatedSubjects": [
-        "Electrical-Electronic"
-      ],
-      "labelZh": "电流环的磁矩与力矩",
-      "labelJa": "電流ループの磁気モーメントとトルク",
-      "labelEn": "Magnetic Moment and Torque of a Current Loop"
-    },
     "Physics.Electromagnetism.Fermat-Principle-and-Snells-Law": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
@@ -1109,12 +1041,6 @@
       "labelJa": "磁化と束縛電流",
       "labelEn": "Magnetization and Bound Currents"
     },
-    "Physics.Electromagnetism.RLC-Series-Resonance": {
-      "subsubject": "Physics.Electromagnetism",
-      "labelZh": "RLC 串联谐振",
-      "labelJa": "RLC直列共振",
-      "labelEn": "RLC Series Resonance"
-    },
     "Physics.Thermodynamics.Carnot-Cycle-and-Heat-Engine-Efficiency": {
       "subsubject": "Physics.Thermodynamics",
       "labelZh": "卡诺循环与热机效率",
@@ -1125,13 +1051,10 @@
       "subsubject": "Physics.Thermodynamics",
       "labelZh": "理想气体的熵与热容",
       "labelJa": "理想気体のエントロピーと熱容量",
-      "labelEn": "Ideal Gas Entropy and Heat Capacities"
-    },
-    "Physics.Thermodynamics.Otto-Diesel-and-Dual-Cycles": {
-      "subsubject": "Physics.Thermodynamics",
-      "labelZh": "奥托、柴油机与混合循环",
-      "labelJa": "オットー・ディーゼル・サバテサイクル",
-      "labelEn": "Otto, Diesel, and Dual Cycles"
+      "labelEn": "Ideal Gas Entropy and Heat Capacities",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
     },
     "Physics.Mechanics.Monatomic-and-Diatomic-Lattice-Vibrations": {
       "subsubject": "Physics.Mechanics",
@@ -1276,9 +1199,12 @@
     },
     "Physics.Thermodynamics.Entropy": {
       "subsubject": "Physics.Thermodynamics",
-      "labelZh": "熵",
-      "labelJa": "エントロピー",
-      "labelEn": "Entropy"
+      "labelZh": "热力学熵",
+      "labelJa": "熱力学的エントロピー",
+      "labelEn": "Thermodynamic Entropy",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
     },
     "Physics.Mechanics.Forced-Vibration": {
       "subsubject": "Physics.Mechanics",
@@ -1297,6 +1223,85 @@
       "relatedSubjects": [
         "Engineering"
       ]
+    },
+    "Physics.Quantum-Mechanics.Delta-Function-Potential": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "δ函数势",
+      "labelJa": "デルタ関数ポテンシャル",
+      "labelEn": "Delta-Function Potentials"
+    },
+    "Physics.Mechanics.Newtons-Laws-of-Motion": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "牛顿运动定律",
+      "labelJa": "ニュートンの運動法則",
+      "labelEn": "Newton's Laws of Motion"
+    },
+    "Physics.Mechanics.Friction": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "摩擦",
+      "labelJa": "摩擦",
+      "labelEn": "Friction"
+    },
+    "Physics.Mechanics.Work-and-Mechanical-Energy": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "功与机械能",
+      "labelJa": "仕事と力学的エネルギー",
+      "labelEn": "Work and Mechanical Energy"
+    },
+    "Physics.Mechanics.Projectile-Motion": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "抛体运动",
+      "labelJa": "放物運動",
+      "labelEn": "Projectile Motion"
+    },
+    "Physics.Mechanics.Static-Equilibrium": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "静力平衡",
+      "labelJa": "静力学的つり合い",
+      "labelEn": "Static Equilibrium"
+    },
+    "Physics.Mechanics.Noninertial-Reference-Frames": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "非惯性参考系",
+      "labelJa": "非慣性座標系",
+      "labelEn": "Noninertial Reference Frames"
+    },
+    "Physics.Quantum-Mechanics.Wavefunction-Normalization": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "波函数归一化",
+      "labelJa": "波動関数の規格化",
+      "labelEn": "Wavefunction Normalization",
+      "relatedSubjects": [
+        "Chemistry"
+      ]
+    },
+    "Physics.Thermodynamics.Diesel-Cycle": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "柴油机循环",
+      "labelJa": "ディーゼルサイクル",
+      "labelEn": "Diesel Cycle",
+      "relatedSubjects": [
+        "Engineering"
+      ]
+    },
+    "Physics.Thermodynamics.Dual-Combustion-Cycle": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "混合加热循环",
+      "labelJa": "サバテサイクル",
+      "labelEn": "Dual Combustion Cycle",
+      "relatedSubjects": [
+        "Engineering"
+      ],
+      "searchAliases": {
+        "en": [
+          "Sabathé cycle",
+          "Sabathe cycle",
+          "Seiliger cycle"
+        ],
+        "zh": [
+          "混合循环"
+        ]
+      }
     }
   }
 }

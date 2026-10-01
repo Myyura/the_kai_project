@@ -3,10 +3,10 @@ sidebar_label: "2017年7月実施 情報数理応用 問題2"
 tags:
   - Waseda-University
   - Data-Science-Artificial-Intelligence.Machine-Learning.Curse-of-Dimensionality
-  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Fisher-Linear-Discriminant-Analysis
   - Data-Science-Artificial-Intelligence.Machine-Learning.K-Nearest-Neighbors
   - Data-Science-Artificial-Intelligence.Machine-Learning.Random-Forest
   - Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network
+  - Data-Science-Artificial-Intelligence.Machine-Learning.Linear-Discriminant-Analysis
 ---
 
 # 早稲田大学 創造理工学研究科 経営システム工学専攻 2017年7月実施 情報数理応用 問題2

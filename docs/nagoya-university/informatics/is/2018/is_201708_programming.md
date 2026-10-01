@@ -3,7 +3,8 @@ sidebar_label: 2017年8月実施 プログラミング
 tags:
   - Nagoya-University
   - Computer-Science.Data-Structures.Queue
-  - Computer-Science.Programming
+  - Computer-Science.Programming.Dynamic-Memory-Allocation
+  - Computer-Science.Programming.Pointers-and-Arrays
 ---
 # 名古屋大学 情報学研究科 情報システム学専攻 2017年8月実施 プログラミング
 

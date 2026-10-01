@@ -318,16 +318,6 @@
       "labelJa": "ソフトマックス回帰",
       "labelEn": "Softmax Regression"
     },
-    "Data-Science-Artificial-Intelligence.Artificial-Intelligence.A-Star-Algorithm": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
-      "relatedSubjects": [
-        "Computer-Science",
-        "Operations-Research"
-      ],
-      "labelZh": "A* 算法",
-      "labelJa": "A* アルゴリズム",
-      "labelEn": "A* Algorithm"
-    },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Alpha-Beta-Pruning": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [

@@ -5,7 +5,7 @@ tags:
   - Physics.Thermodynamics.Van-der-Waals-Gas
   - Physics.Thermodynamics.Maxwell-Relations
   - Physics.Thermodynamics.Carnot-Cycle-and-Heat-Engine-Efficiency
-  - Physics.Thermodynamics.Otto-Diesel-and-Dual-Cycles
+  - Physics.Thermodynamics.Otto-Cycle
 ---
 
 # 東京大学 工学系研究科 2012年8月実施 物理学 第3問

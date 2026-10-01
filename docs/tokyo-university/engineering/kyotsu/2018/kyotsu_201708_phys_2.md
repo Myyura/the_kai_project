@@ -4,7 +4,7 @@ tags:
   - Tokyo-University
   - Physics.Electromagnetism.Capacitance-and-Electrostatic-Energy
   - Physics.Electromagnetism.Dielectrics-and-Boundary-Conditions
-  - Physics.Electromagnetism.RLC-Series-Resonance
+  - Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Resonance
 ---
 
 # 東京大学 工学系研究科 2017年8月実施 物理学 第2問

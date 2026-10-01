@@ -2,11 +2,11 @@
 sidebar_label: 2024年8月実施 選択問題 数値計算
 tags:
   - University-of-Electro-Communications
-  - Mathematics.Numerical-Analysis
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Matrix-Norm
   - Mathematics.Linear-Algebra.Rayleigh-Quotient
   - Mathematics.Linear-Algebra.Discrete-Linear-Dynamical-System-Convergence
+  - Mathematics.Numerical-Analysis.Power-Method
 ---
 # 電気通信大学 情報理工学研究科 情報・ネットワーク工学専攻 2024年8月実施 選択問題 数値計算
 
