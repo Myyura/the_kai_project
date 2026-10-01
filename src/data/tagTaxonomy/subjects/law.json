@@ -34,10 +34,16 @@
   ],
   "topics": {
     "Law.Administrative-Law.Principle-of-Statutory-Reservation": {
-      "subsubject": "Law.Administrative-Law"
+      "subsubject": "Law.Administrative-Law",
+      "labelZh": "法律保留原则",
+      "labelJa": "法律の留保の原則",
+      "labelEn": "Principle of Statutory Reservation"
     },
     "Law.Civil-Law.Creditors-Subrogation-Right": {
-      "subsubject": "Law.Civil-Law"
+      "subsubject": "Law.Civil-Law",
+      "labelZh": "债权人代位权",
+      "labelJa": "債権者代位権",
+      "labelEn": "Creditor's Right of Subrogation"
     }
   }
 }

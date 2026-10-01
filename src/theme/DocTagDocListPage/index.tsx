@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {useEffect, useMemo, useState, type ReactNode} from 'react';
+import React, {useEffect, useMemo, useRef, useState, type ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {
@@ -23,14 +23,15 @@ import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
 import tagTaxonomy from '@site/src/data/tagTaxonomy';
 import {universities} from '@site/src/data/universities';
 import {useCurrentLanguage} from '@site/src/context/LanguageContext';
-import {normalizeLanguage} from '@site/src/i18n/config';
+import {getLanguageLocale, normalizeLanguage} from '@site/src/i18n/config';
 import {getUiMessages} from '@site/src/i18n/messages';
 import {
-  getSubsubjectShortId,
   getTopicAnchorId,
-  getTopicDisplayName,
-  getTopicShortId,
-} from '@site/src/utils/tagBrowseTarget';
+  getTagLabel,
+  getTagDescription,
+  compareTagLabels,
+  resolveCanonicalTagId,
+} from '@site/src/utils/tags';
 import styles from './styles.module.css';
 
 type DocListItem = Props['tag']['items'][number];
@@ -42,20 +43,8 @@ interface TopicMeta {
 
 type Language = 'zh' | 'ja' | 'en';
 
-interface SubjectMeta {
-  labelZh?: string;
-  labelJa?: string;
-  labelEn?: string;
-}
-
 interface SubsubjectMeta {
   subject?: string;
-  labelZh?: string;
-  labelJa?: string;
-  labelEn?: string;
-  descriptionZh?: string;
-  descriptionJa?: string;
-  descriptionEn?: string;
 }
 
 interface CompactBrowseDocument {
@@ -96,36 +85,14 @@ type AggregateTopicSelection = 'all' | 'unclassified' | string;
 const UNCLASSIFIED_ANCHOR = 'topic-unclassified';
 const TOPIC_PREVIEW_LIMIT = 5;
 
-const subjects = tagTaxonomy.subjects as Record<string, SubjectMeta>;
 const subsubjects = tagTaxonomy.subsubjects as Record<string, SubsubjectMeta>;
 const topics = tagTaxonomy.topics as Record<string, TopicMeta>;
 const schoolTags = tagTaxonomy.schoolTags as Record<
   string,
-  {universityId?: string; label?: string; aliases?: string[]}
+  {universityId?: string}
 >;
 
 const getCopy = (language: Language) => getUiMessages('docTagList', language);
-
-function getSubjectLabel(subjectId: string, language: Language): string {
-  const subject = subjects[subjectId];
-  if (language === 'en') return subject?.labelEn || subjectId;
-  return (language === 'ja' ? subject?.labelJa : subject?.labelZh) || subjectId;
-}
-
-function getSubsubjectLabel(subsubjectId: string, language: Language): string {
-  const subsubject = subsubjects[subsubjectId];
-  if (language === 'en') return subsubject?.labelEn || subsubjectId;
-  return (language === 'ja' ? subsubject?.labelJa : subsubject?.labelZh) || subsubjectId;
-}
-
-function getSubsubjectDescription(
-  subsubjectId: string,
-  language: Language,
-): string | undefined {
-  const subsubject = subsubjects[subsubjectId];
-  if (language === 'en') return subsubject?.descriptionEn;
-  return language === 'ja' ? subsubject?.descriptionJa : subsubject?.descriptionZh;
-}
 
 function decodeHash(hash: string): string {
   try {
@@ -135,20 +102,17 @@ function decodeHash(hash: string): string {
   }
 }
 
-const schoolAliasLookup = new Map<string, string>();
-for (const [tag, meta] of Object.entries(schoolTags)) {
-  for (const alias of meta.aliases || []) {
-    schoolAliasLookup.set(alias, tag);
-  }
-}
+const schoolTagByUniversity = new Map(
+  Object.entries(schoolTags).map(([id, meta]) => [meta.universityId, id]),
+);
 
 const universityLookup = new Map(
   universities.map((university) => [university.id, university]),
 );
 
 function getSchoolTag(tagLabel: string) {
-  const canonical = schoolTags[tagLabel] ? tagLabel : schoolAliasLookup.get(tagLabel);
-  return canonical ? {id: canonical, ...schoolTags[canonical]} : null;
+  const canonical = resolveCanonicalTagId(tagLabel);
+  return schoolTags[canonical] ? {id: canonical, ...schoolTags[canonical]} : null;
 }
 
 function getSubsubjectId(tagLabel: string): string | null {
@@ -159,15 +123,6 @@ function getSubsubjectId(tagLabel: string): string | null {
 function getTopicMeta(tagLabel: string): TopicMeta | null {
   if (topics[tagLabel]) return topics[tagLabel];
   return null;
-}
-
-function getTagDisplayName(tagLabel: string): string {
-  const subsubjectId = getSubsubjectId(tagLabel);
-  if (subsubjectId) return getSubsubjectShortId(subsubjectId);
-  if (getTopicMeta(tagLabel)) return getTopicShortId(tagLabel);
-  const school = getSchoolTag(tagLabel);
-  if (school) return school.id;
-  return tagLabel;
 }
 
 function getTagKind(tagLabel: string, language: Language): {
@@ -181,7 +136,7 @@ function getTagKind(tagLabel: string, language: Language): {
     return {
       label: t.tagKinds.school,
       tone: 'school',
-      details: school.label,
+      details: getTagLabel(school.id, language),
     };
   }
 
@@ -191,17 +146,17 @@ function getTagKind(tagLabel: string, language: Language): {
     return {
       label: t.tagKinds.subsubject,
       tone: 'subsubject',
-      details: `${getSubjectLabel(subsubject.subject || 'General', language)} / ${getSubsubjectLabel(subsubjectId, language)}`,
+      details: `${getTagLabel(subsubject.subject || 'General', language)} / ${getTagLabel(subsubjectId, language)}`,
     };
   }
 
   const topic = getTopicMeta(tagLabel);
   if (topic) {
-    const subsubjectLabel = topic.subsubject ? getSubsubjectLabel(topic.subsubject, language) : null;
+    const subsubjectLabel = topic.subsubject ? getTagLabel(topic.subsubject, language) : null;
     const primarySubject = topic.subsubject ? subsubjects[topic.subsubject]?.subject : null;
-    const subjectLabel = getSubjectLabel(primarySubject || 'General', language);
+    const subjectLabel = getTagLabel(primarySubject || 'General', language);
     const relatedSubjects = (topic.relatedSubjects || [])
-      .map((subjectId) => getSubjectLabel(subjectId, language));
+      .map((subjectId) => getTagLabel(subjectId, language));
     const subjectLabels = [
       subsubjectLabel ? `${subjectLabel} / ${subsubjectLabel}` : subjectLabel,
       ...relatedSubjects,
@@ -233,7 +188,8 @@ function getPathParts(doc: DocListItem): string[] {
 
 function getUniversityLabel(universityId: string | undefined, language: Language): string {
   if (!universityId) return getCopy(language).other;
-  return universityLookup.get(universityId)?.name || universityId;
+  const schoolTagId = schoolTagByUniversity.get(universityId);
+  return schoolTagId ? getTagLabel(schoolTagId, language) : universityLookup.get(universityId)?.name || universityId;
 }
 
 function getDepartmentLabel(
@@ -279,7 +235,7 @@ function groupDocs(
   }
 
   return Array.from(groups.values()).sort(
-    (a, b) => b.items.length - a.items.length || a.title.localeCompare(b.title, 'en'),
+    (a, b) => b.items.length - a.items.length || a.title.localeCompare(b.title, getLanguageLocale(language)),
   );
 }
 
@@ -289,9 +245,7 @@ function getPageTitle(props: Props, language: Language): string {
   const count = isAggregateSubsubject
     ? new Set(tag.browse!.docIds).size
     : tag.count;
-  const displayName = isAggregateSubsubject
-    ? getSubsubjectLabel(tag.label, language)
-    : getTagDisplayName(tag.label);
+  const displayName = getTagLabel(tag.label, language);
   return getCopy(language).pageTitle(count, displayName);
 }
 
@@ -386,7 +340,7 @@ function CompactExamRow({
       : []),
     ...topicEntries.map((topic) => ({
       id: topic.id,
-      label: getTopicDisplayName(topic.id),
+      label: getTagLabel(topic.id, language),
       anchor: getTopicAnchorId(topic.id),
     })),
   ];
@@ -451,6 +405,7 @@ function CompactSchoolGroup({
   language,
   onSelectTopic,
   initiallyExpanded,
+  isFiltered,
 }: {
   schoolId: string;
   title: string;
@@ -461,6 +416,7 @@ function CompactSchoolGroup({
   language: Language;
   onSelectTopic: (topicId: AggregateTopicSelection) => void;
   initiallyExpanded: boolean;
+  isFiltered: boolean;
 }): ReactNode {
   const copy = getCopy(language);
   const [expanded, setExpanded] = useState(initiallyExpanded);
@@ -472,8 +428,8 @@ function CompactSchoolGroup({
   ).size;
 
   useEffect(() => {
-    if (initiallyExpanded) setExpanded(true);
-  }, [initiallyExpanded]);
+    if (isFiltered) setExpanded(true);
+  }, [isFiltered]);
 
   return (
     <section className={styles.compactSchoolGroup}>
@@ -545,10 +501,15 @@ function SubsubjectBrowsePage({
   const sortedTopics = useMemo(
     () => [...browse.topics].sort(
       (left, right) => right.count - left.count
-        || getTopicDisplayName(left.id).localeCompare(getTopicDisplayName(right.id), 'en'),
+        || compareTagLabels(left.id, right.id, language),
     ),
-    [browse.topics],
+    [browse.topics, language],
   );
+  const sortedTopicsRef = useRef(sortedTopics);
+  // Hash navigation uses the latest order without rerunning when language changes.
+  useEffect(() => {
+    sortedTopicsRef.current = sortedTopics;
+  }, [sortedTopics]);
   const allDocuments = useMemo(() => {
     const seen = new Set<string>();
     return browse.docIds.flatMap((docId) => {
@@ -576,7 +537,7 @@ function SubsubjectBrowsePage({
       }
       const topic = browse.topics.find((item) => getTopicAnchorId(item.id) === hash);
       setActiveTopic(topic?.id || 'all');
-      if (topic && sortedTopics.findIndex((item) => item.id === topic.id) >= TOPIC_PREVIEW_LIMIT) {
+      if (topic && sortedTopicsRef.current.findIndex((item) => item.id === topic.id) >= TOPIC_PREVIEW_LIMIT) {
         setTopicsExpanded(true);
       }
     };
@@ -587,7 +548,7 @@ function SubsubjectBrowsePage({
       window.removeEventListener('hashchange', syncFromHash);
       window.removeEventListener('popstate', syncFromHash);
     };
-  }, [browse.directDocIds.length, browse.topics, sortedTopics]);
+  }, [browse.directDocIds.length, browse.topics]);
 
   useEffect(() => {
     setSelectedSchool('all');
@@ -613,13 +574,12 @@ function SubsubjectBrowsePage({
     const counts = new Map<string, {label: string; count: number}>();
     for (const document of activeDocuments) {
       const schoolId = document.universityId || 'other';
-      const label = document.universityName
-        || getUniversityLabel(document.universityId || undefined, language);
+      const label = getUniversityLabel(document.universityId || undefined, language);
       const current = counts.get(schoolId);
       counts.set(schoolId, {label, count: (current?.count || 0) + 1});
     }
     return Array.from(counts, ([id, value]) => ({id, ...value})).sort(
-      (left, right) => right.count - left.count || left.label.localeCompare(right.label, 'ja'),
+      (left, right) => right.count - left.count || left.label.localeCompare(right.label, getLanguageLocale(language)),
     );
   }, [activeDocuments, language]);
 
@@ -636,8 +596,7 @@ function SubsubjectBrowsePage({
       const schoolId = document.universityId || 'other';
       if (!groups.has(schoolId)) {
         groups.set(schoolId, {
-          title: document.universityName
-            || getUniversityLabel(document.universityId || undefined, language),
+          title: getUniversityLabel(document.universityId || undefined, language),
           documents: [],
         });
       }
@@ -645,7 +604,7 @@ function SubsubjectBrowsePage({
     }
     return Array.from(groups, ([schoolId, group]) => ({schoolId, ...group})).sort(
       (left, right) => right.documents.length - left.documents.length
-        || left.title.localeCompare(right.title, 'ja'),
+        || left.title.localeCompare(right.title, getLanguageLocale(language)),
     );
   }, [language, visibleDocuments]);
 
@@ -670,7 +629,7 @@ function SubsubjectBrowsePage({
     ? t.allTopics
     : activeTopic === 'unclassified'
       ? t.unclassified
-      : getTopicDisplayName(activeTopic);
+      : getTagLabel(activeTopic, language);
   const remainingTopicCount = Math.max(0, sortedTopics.length - TOPIC_PREVIEW_LIMIT);
 
   return (
@@ -683,16 +642,16 @@ function SubsubjectBrowsePage({
             <div className={styles.aggregateBreadcrumb}>
               <Link to={tag.allTagsPath}>{t.tagIndex}</Link>
               <span aria-hidden="true">/</span>
-              <span>{getSubjectLabel(subjectId, language)}</span>
+              <span>{getTagLabel(subjectId, language)}</span>
               <span aria-hidden="true">/</span>
-              <span aria-current="page">{getSubsubjectLabel(subsubjectId, language)}</span>
+              <span aria-current="page">{getTagLabel(subsubjectId, language)}</span>
             </div>
             <Heading as="h1" className={`${styles.pageTitle} ${styles.aggregateTitle}`}>
-              {getSubsubjectLabel(subsubjectId, language)}
+              {getTagLabel(subsubjectId, language)}
             </Heading>
-            {(getSubsubjectDescription(subsubjectId, language) || tag.description) && (
+            {getTagDescription(subsubjectId, language) && (
               <p className={styles.pageDescription}>
-                {getSubsubjectDescription(subsubjectId, language) || tag.description}
+                {getTagDescription(subsubjectId, language)}
               </p>
             )}
             <div className={styles.aggregateStats}>
@@ -758,7 +717,7 @@ function SubsubjectBrowsePage({
                           event.preventDefault();
                           onSelectTopic(topic.id);
                         }}>
-                        <span>{getTopicDisplayName(topic.id)}</span>
+                        <span>{getTagLabel(topic.id, language)}</span>
                         <span className={styles.topicDirectoryCount}>{topic.count}</span>
                       </Link>
                     );
@@ -826,6 +785,7 @@ function SubsubjectBrowsePage({
                     language={language}
                     onSelectTopic={onSelectTopic}
                     initiallyExpanded={selectedSchool !== 'all' || groupIndex < 2}
+                    isFiltered={selectedSchool !== 'all'}
                   />
                 )) : (
                   <BrowseEmptyState
@@ -852,10 +812,7 @@ function DocTagDocListPageMetadata({
   tag,
   language,
 }: Props & {title: string; language: Language}): ReactNode {
-  const aggregateTag = tag as TagWithBrowse;
-  const description = aggregateTag.browse && getSubsubjectId(tag.label)
-    ? getSubsubjectDescription(tag.label, language) || tag.description
-    : tag.description;
+  const description = getTagDescription(tag.label, language);
   return (
     <>
       <PageMetadata title={title} description={description} />
@@ -888,7 +845,8 @@ function DocTagDocListPageContent({
   const groupBy = getSchoolTag(tag.label) ? 'school' : 'topic';
   const groups = groupDocs(tag.items, tag.label, language);
   const t = getCopy(language);
-  const displayName = getTagDisplayName(tag.label);
+  const displayName = getTagLabel(tag.label, language);
+  const description = getTagDescription(tag.label, language);
 
   return (
     <HtmlClassNameProvider
@@ -908,7 +866,7 @@ function DocTagDocListPageContent({
               <Heading as="h1" className={styles.pageTitle}>
                 {displayName}
               </Heading>
-              {tag.description && <p className={styles.pageDescription}>{tag.description}</p>}
+              {description && <p className={styles.pageDescription}>{description}</p>}
               <div className={styles.headerActions}>
                 <span className={styles.tagCount}>{t.docCount(tag.count)}</span>
                 <Link href={tag.allTagsPath} className={styles.allTagsLink}>

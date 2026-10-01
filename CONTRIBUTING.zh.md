@@ -62,6 +62,8 @@ yarn api:validate
 
 贡献者可编辑的内容数据位于 `src/data/`：`links.json`、`universityMetadata.json` 和 `tagTaxonomy/` 目录。tag 定义按主科目存放在 `tagTaxonomy/subjects/`，全局策略和学校 tag 则存放在同级文件中。普通新增文档会按 `docId` 自动推导 UUIDv5，不需要修改身份清单；只有移动或重命名文档时才需要执行 `yarn documents:move -- <旧-doc-id> <新-doc-id>`。`siteStats.json` 和 `documentTitles.json` 会在开发及构建时自动刷新，其余生成文件可用上面的脚本维护。
 
+学科、子科目、考点和学校都以 canonical 英文 ID 为唯一标识，并在同一条 taxonomy 记录中必填 `labelZh`、`labelJa`、`labelEn`。frontmatter、URL 和筛选状态使用 ID，只翻译显示文字。可选的 `searchAliases` 按 `zh`、`ja`、`en` 保存搜索同义词数组，例如 `{"en": ["FFT"], "zh": ["快傅里叶变换"]}`；它不定义新的 tag ID。页面统一使用 `src/utils/tags.js` 的 `getTagLabel`、`getTagDescription`、`matchesTagSearch` 和 `compareTagLabels`，不另建组件翻译表，也不手改生成的 `docs/tags.yml`。修改后执行 `yarn tags:generate`、`yarn content:validate` 和 `yarn test`。
+
 ## 账号与数据库配置
 不配置 Supabase 时，文档、博客、题目与题解等公开内容仍可正常阅读。进度、笔记、文中注释、私人题集和排行榜仅向登录用户开放，数据直接写入数据库，不提供匿名学习数据模式。
 

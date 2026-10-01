@@ -142,6 +142,34 @@ function validateUniversityMetadata(data) {
   }
 }
 
+function validateTagTranslations(meta, base) {
+  for (const suffix of ['Zh', 'Ja', 'En']) {
+    const key = `label${suffix}`;
+    if (requireString(meta[key], `${base}.${key}`) && meta[key] !== meta[key].trim()) {
+      addError(`${base}.${key}`, 'must not have leading or trailing whitespace');
+    }
+    const descriptionKey = `description${suffix}`;
+    if (meta[descriptionKey] !== undefined) {
+      requireString(meta[descriptionKey], `${base}.${descriptionKey}`, {allowEmpty: true});
+    }
+  }
+  if (meta.label !== undefined) addError(`${base}.label`, 'use labelZh, labelJa, and labelEn');
+  if (meta.searchAliases !== undefined && requireObject(meta.searchAliases, `${base}.searchAliases`)) {
+    for (const [language, aliases] of Object.entries(meta.searchAliases)) {
+      const aliasPath = `${base}.searchAliases.${language}`;
+      if (!['zh', 'ja', 'en'].includes(language)) addError(aliasPath, 'unsupported language');
+      if (!requireArray(aliases, aliasPath)) continue;
+      const seen = new Set();
+      aliases.forEach((alias, index) => {
+        if (!requireString(alias, `${aliasPath}[${index}]`)) return;
+        if (alias !== alias.trim()) addError(`${aliasPath}[${index}]`, 'must be trimmed');
+        if (seen.has(alias)) addError(`${aliasPath}[${index}]`, 'duplicate search alias');
+        seen.add(alias);
+      });
+    }
+  }
+}
+
 function validateTagTaxonomy(data) {
   if (!requireObject(data, 'tagTaxonomy')) return;
 
@@ -158,15 +186,7 @@ function validateTagTaxonomy(data) {
       if (!/^[A-Za-z0-9-]+$/.test(subjectId)) {
         addError(base, 'subject id must contain only ASCII letters, digits, and hyphens');
       }
-      requireString(subject.labelZh, `${base}.labelZh`);
-      requireString(subject.labelJa, `${base}.labelJa`);
-      requireString(subject.labelEn, `${base}.labelEn`);
-      if (subject.descriptionZh !== undefined) {
-        requireString(subject.descriptionZh, `${base}.descriptionZh`, { allowEmpty: true });
-      }
-      if (subject.descriptionJa !== undefined) {
-        requireString(subject.descriptionJa, `${base}.descriptionJa`, { allowEmpty: true });
-      }
+      validateTagTranslations(subject, base);
     }
   }
 
@@ -203,7 +223,7 @@ function validateTagTaxonomy(data) {
       const base = `tagTaxonomy.schoolTags.${tagId}`;
       if (!requireObject(tag, base)) continue;
       requireString(tag.universityId, `${base}.universityId`);
-      requireString(tag.label, `${base}.label`);
+      validateTagTranslations(tag, base);
       if (tag.aliases !== undefined && requireArray(tag.aliases, `${base}.aliases`)) {
         tag.aliases.forEach((alias, index) => registerAlias(alias, tagId, `${base}.aliases[${index}]`));
       }
@@ -223,20 +243,7 @@ function validateTagTaxonomy(data) {
         if (requireString(subsubject.subject, `${base}.subject`) && !subjectIds.has(subsubject.subject)) {
           addError(`${base}.subject`, `unknown subject "${subsubject.subject}"`);
         }
-        requireString(subsubject.labelZh, `${base}.labelZh`);
-        requireString(subsubject.labelJa, `${base}.labelJa`);
-        if (subsubject.labelEn !== undefined) {
-          requireString(subsubject.labelEn, `${base}.labelEn`);
-        }
-        if (subsubject.descriptionZh !== undefined) {
-          requireString(subsubject.descriptionZh, `${base}.descriptionZh`, { allowEmpty: true });
-        }
-        if (subsubject.descriptionJa !== undefined) {
-          requireString(subsubject.descriptionJa, `${base}.descriptionJa`, { allowEmpty: true });
-        }
-        if (subsubject.descriptionEn !== undefined) {
-          requireString(subsubject.descriptionEn, `${base}.descriptionEn`, { allowEmpty: true });
-        }
+        validateTagTranslations(subsubject, base);
         if (subsubject.aliases !== undefined && requireArray(subsubject.aliases, `${base}.aliases`)) {
           subsubject.aliases.forEach((alias, index) => registerAlias(alias, subsubjectId, `${base}.aliases[${index}]`));
         }
@@ -259,6 +266,7 @@ function validateTagTaxonomy(data) {
     for (const [tagId, tag] of Object.entries(data.topics)) {
       const base = `tagTaxonomy.topics.${tagId}`;
       if (!requireObject(tag, base)) continue;
+      validateTagTranslations(tag, base);
       if (!/^[A-Za-z0-9.-]+$/.test(tagId)) {
         addError(base, 'topic id must contain only ASCII letters, digits, periods, and hyphens');
       }

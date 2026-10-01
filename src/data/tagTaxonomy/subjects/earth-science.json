@@ -58,19 +58,31 @@
       "relatedSubjects": [
         "Mathematics",
         "Physics"
-      ]
+      ],
+      "labelZh": "放射性碳衰变与测年上限",
+      "labelJa": "放射性炭素の崩壊と年代測定の限界",
+      "labelEn": "Radiocarbon Decay and Dating Limits"
     },
     "Earth-Science.Periglacial-Geomorphology.Active-Layer-Permafrost-and-Pingo": {
       "subsubject": "Earth-Science.Periglacial-Geomorphology",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "活动层、多年冻土与冰核丘",
+      "labelJa": "活動層・永久凍土・ピンゴ",
+      "labelEn": "Active Layers, Permafrost, and Pingos"
     },
     "Earth-Science.Fluvial-Geomorphology.Fluvial-Terraces-and-River-Incision": {
-      "subsubject": "Earth-Science.Fluvial-Geomorphology"
+      "subsubject": "Earth-Science.Fluvial-Geomorphology",
+      "labelZh": "河流阶地与河流下切",
+      "labelJa": "河岸段丘と河川の下刻",
+      "labelEn": "Fluvial Terraces and River Incision"
     },
     "Earth-Science.Structural-Geology.Active-Fault-Geomorphology": {
-      "subsubject": "Earth-Science.Structural-Geology"
+      "subsubject": "Earth-Science.Structural-Geology",
+      "labelZh": "活动断层地貌",
+      "labelJa": "活断層地形",
+      "labelEn": "Active Fault Geomorphology"
     }
   }
 }

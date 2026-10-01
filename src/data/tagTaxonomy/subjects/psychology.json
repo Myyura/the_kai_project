@@ -94,64 +94,109 @@
   ],
   "topics": {
     "Psychology.Basic-Psychology.Punishment-and-Aversive-Learning": {
-      "subsubject": "Psychology.Basic-Psychology"
+      "subsubject": "Psychology.Basic-Psychology",
+      "labelZh": "惩罚与厌恶学习",
+      "labelJa": "罰と嫌悪学習",
+      "labelEn": "Punishment and Aversive Learning"
     },
     "Psychology.Clinical-Psychology.Eating-Disorders": {
-      "subsubject": "Psychology.Clinical-Psychology"
+      "subsubject": "Psychology.Clinical-Psychology",
+      "labelZh": "进食障碍",
+      "labelJa": "摂食障害",
+      "labelEn": "Eating Disorders"
     },
     "Psychology.Clinical-Psychology.Psychodynamic-Theory": {
-      "subsubject": "Psychology.Clinical-Psychology"
+      "subsubject": "Psychology.Clinical-Psychology",
+      "labelZh": "心理动力学理论",
+      "labelJa": "精神力動論",
+      "labelEn": "Psychodynamic Theory"
     },
     "Psychology.Clinical-Psychology.Suicide-Prevention-and-Gatekeeping": {
-      "subsubject": "Psychology.Clinical-Psychology"
+      "subsubject": "Psychology.Clinical-Psychology",
+      "labelZh": "自杀预防与守门人干预",
+      "labelJa": "自殺予防とゲートキーパー",
+      "labelEn": "Suicide Prevention and Gatekeeping"
     },
     "Psychology.Cognitive-Psychology.Stroop-Effect": {
       "subsubject": "Psychology.Cognitive-Psychology",
       "relatedSubjects": [
         "Cognitive-Science-Neuroscience"
-      ]
+      ],
+      "labelZh": "斯特鲁普效应",
+      "labelJa": "ストループ効果",
+      "labelEn": "Stroop Effect"
     },
     "Psychology.Developmental-Psychology.Successful-Aging": {
-      "subsubject": "Psychology.Developmental-Psychology"
+      "subsubject": "Psychology.Developmental-Psychology",
+      "labelZh": "成功老龄化",
+      "labelJa": "サクセスフル・エイジング",
+      "labelEn": "Successful Aging"
     },
     "Psychology.Ethics.Confidentiality": {
-      "subsubject": "Psychology.Ethics"
+      "subsubject": "Psychology.Ethics",
+      "labelZh": "保密原则",
+      "labelJa": "守秘義務",
+      "labelEn": "Confidentiality"
     },
     "Psychology.Ethics.Informed-Assent": {
-      "subsubject": "Psychology.Ethics"
+      "subsubject": "Psychology.Ethics",
+      "labelZh": "知情赞同",
+      "labelJa": "インフォームド・アセント",
+      "labelEn": "Informed Assent"
     },
     "Psychology.Ethics.Multiple-Relationships": {
-      "subsubject": "Psychology.Ethics"
+      "subsubject": "Psychology.Ethics",
+      "labelZh": "多重关系",
+      "labelJa": "多重関係",
+      "labelEn": "Multiple Relationships"
     },
     "Psychology.Research-Methods-and-Statistics.Measurement-Error": {
       "subsubject": "Psychology.Research-Methods-and-Statistics",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "测量误差",
+      "labelJa": "測定誤差",
+      "labelEn": "Measurement Error"
     },
     "Psychology.Research-Methods-and-Statistics.Multiple-Comparisons": {
       "subsubject": "Psychology.Research-Methods-and-Statistics",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "多重比较",
+      "labelJa": "多重比較",
+      "labelEn": "Multiple Comparisons"
     },
     "Psychology.Research-Methods-and-Statistics.Nonverbal-Behavioral-Measurement": {
-      "subsubject": "Psychology.Research-Methods-and-Statistics"
+      "subsubject": "Psychology.Research-Methods-and-Statistics",
+      "labelZh": "非言语行为测量",
+      "labelJa": "非言語行動の測定",
+      "labelEn": "Nonverbal Behavioral Measurement"
     },
     "Psychology.Social-Psychology.Cultural-Individualism-and-Collectivism": {
       "subsubject": "Psychology.Social-Psychology",
       "relatedSubjects": [
         "Sociology"
-      ]
+      ],
+      "labelZh": "文化中的个人主义与集体主义",
+      "labelJa": "文化における個人主義と集団主義",
+      "labelEn": "Individualism and Collectivism across Cultures"
     },
     "Psychology.Social-Psychology.Ingroup-Bias-and-Social-Identity": {
-      "subsubject": "Psychology.Social-Psychology"
+      "subsubject": "Psychology.Social-Psychology",
+      "labelZh": "内群体偏爱与社会认同",
+      "labelJa": "内集団バイアスと社会的アイデンティティ",
+      "labelEn": "Ingroup Bias and Social Identity"
     },
     "Psychology.Social-Psychology.Self-Esteem-and-Culture": {
       "subsubject": "Psychology.Social-Psychology",
       "relatedSubjects": [
         "Sociology"
-      ]
+      ],
+      "labelZh": "自尊与文化",
+      "labelJa": "自尊感情と文化",
+      "labelEn": "Self-Esteem and Culture"
     }
   }
 }

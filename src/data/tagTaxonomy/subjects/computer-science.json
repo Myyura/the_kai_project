@@ -164,64 +164,108 @@
   ],
   "topics": {
     "Computer-Science.Algorithm-Design.Comparison-Sorting-Decision-Tree-Lower-Bound": {
-      "subsubject": "Computer-Science.Algorithm-Design"
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "labelZh": "比较排序的决策树下界",
+      "labelJa": "比較ソートの決定木による下界",
+      "labelEn": "Decision-Tree Lower Bound for Comparison Sorting"
     },
     "Computer-Science.Algorithm-Design.Constrained-Adjacent-Swap-Reachability-Counting": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "受限相邻交换的可达性计数",
+      "labelJa": "制約付き隣接交換による到達可能な配置の数え上げ",
+      "labelEn": "Reachability Counting for Constrained Adjacent Swaps"
     },
     "Computer-Science.Algorithm-Design.Metric-Order-Transfer-with-Minimum-Comparisons": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "距离排序转换与最少比较次数",
+      "labelJa": "距離順序の変換と最小比較回数",
+      "labelEn": "Metric Order Transfer with Minimum Comparisons"
     },
     "Computer-Science.Algorithm-Design.Big-O-Equivalence-and-Algebra": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "大 O 等价关系与运算规则",
+      "labelJa": "ビッグオーの同値関係と演算規則",
+      "labelEn": "Big-O Equivalence and Algebra"
     },
     "Computer-Science.Algorithm-Design.Algorithm-Complexity": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Algorithm-Complexity"
-      ]
+      ],
+      "labelZh": "算法复杂度",
+      "labelJa": "アルゴリズムの計算量",
+      "labelEn": "Algorithm Complexity"
     },
     "Computer-Science.Algorithm-Design.Backtracking": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Backtracking"
-      ]
+      ],
+      "labelZh": "回溯法",
+      "labelJa": "バックトラッキング",
+      "labelEn": "Backtracking"
     },
     "Computer-Science.Algorithm-Design.Binary-Insertion-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Binary-Insertion-Sort"
-      ]
+      ],
+      "labelZh": "折半插入排序",
+      "labelJa": "二分挿入ソート",
+      "labelEn": "Binary Insertion Sort"
     },
     "Computer-Science.Algorithm-Design.Binary-Search": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Binary-Search"
-      ]
+      ],
+      "labelZh": "二分查找",
+      "labelJa": "二分探索",
+      "labelEn": "Binary Search",
+      "searchAliases": {
+        "en": [
+          "Bisection Search"
+        ],
+        "zh": [
+          "折半查找"
+        ],
+        "ja": [
+          "バイナリサーチ"
+        ]
+      }
     },
     "Computer-Science.Algorithm-Design.Boyer-Moore-Majority-Vote-Algorithm": {
-      "subsubject": "Computer-Science.Algorithm-Design"
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "labelZh": "Boyer–Moore 多数投票算法",
+      "labelJa": "Boyer–Moore 多数決アルゴリズム",
+      "labelEn": "Boyer-Moore Majority Vote Algorithm"
     },
     "Computer-Science.Algorithm-Design.Bubble-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Bubble-Sort"
-      ]
+      ],
+      "labelZh": "冒泡排序",
+      "labelJa": "バブルソート",
+      "labelEn": "Bubble Sort"
     },
     "Computer-Science.Algorithm-Design.Bucket-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Bucket-Sort"
-      ]
+      ],
+      "labelZh": "桶排序",
+      "labelJa": "バケットソート",
+      "labelEn": "Bucket Sort"
     },
     "Computer-Science.Algorithm-Design.Convex-Hull": {
       "subsubject": "Computer-Science.Algorithm-Design",
@@ -230,31 +274,46 @@
       ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Convex-Hull"
-      ]
+      ],
+      "labelZh": "凸包",
+      "labelJa": "凸包",
+      "labelEn": "Convex Hull"
     },
     "Computer-Science.Algorithm-Design.Counting-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Counting-Sort"
-      ]
+      ],
+      "labelZh": "计数排序",
+      "labelJa": "計数ソート",
+      "labelEn": "Counting Sort"
     },
     "Computer-Science.Algorithm-Design.Divide-and-Conquer": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Divide-And-Conquer"
-      ]
+      ],
+      "labelZh": "分治法",
+      "labelJa": "分割統治法",
+      "labelEn": "Divide and Conquer"
     },
     "Computer-Science.Algorithm-Design.Randomized-Quickselect": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "随机化快速选择",
+      "labelJa": "ランダム化クイックセレクト",
+      "labelEn": "Randomized Quickselect"
     },
     "Computer-Science.Algorithm-Design.Euclidean-Algorithm": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "欧几里得算法",
+      "labelJa": "ユークリッドの互除法",
+      "labelEn": "Euclidean Algorithm"
     },
     "Computer-Science.Algorithm-Design.Greedy-Algorithm": {
       "subsubject": "Computer-Science.Algorithm-Design",
@@ -263,55 +322,96 @@
       ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Greedy"
-      ]
+      ],
+      "labelZh": "贪心算法",
+      "labelJa": "貪欲法",
+      "labelEn": "Greedy Algorithm"
     },
     "Computer-Science.Algorithm-Design.Order-Sensitivity-of-Greedy-Algorithms": {
-      "subsubject": "Computer-Science.Algorithm-Design"
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "labelZh": "贪心算法对处理顺序的敏感性",
+      "labelJa": "貪欲法における処理順序の影響",
+      "labelEn": "Order Sensitivity of Greedy Algorithms"
     },
     "Computer-Science.Algorithm-Design.Heap-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Heap-Sort"
-      ]
+      ],
+      "labelZh": "堆排序",
+      "labelJa": "ヒープソート",
+      "labelEn": "Heapsort"
     },
     "Computer-Science.Algorithm-Design.Max-Heapify": {
-      "subsubject": "Computer-Science.Algorithm-Design"
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "labelZh": "最大堆的向下调整",
+      "labelJa": "最大ヒープの下方修正",
+      "labelEn": "Max-Heapify"
     },
     "Computer-Science.Algorithm-Design.Insertion-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Insertion-Sort"
-      ]
+      ],
+      "labelZh": "插入排序",
+      "labelJa": "挿入ソート",
+      "labelEn": "Insertion Sort"
     },
     "Computer-Science.Algorithm-Design.Master-Theorem": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Master-Theorem"
-      ]
+      ],
+      "labelZh": "主定理",
+      "labelJa": "マスター定理",
+      "labelEn": "Master Theorem"
     },
     "Computer-Science.Algorithm-Design.Horner-Method": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "霍纳法",
+      "labelJa": "ホーナー法",
+      "labelEn": "Horner's Method",
+      "searchAliases": {
+        "en": [
+          "Horner Scheme"
+        ],
+        "zh": [
+          "秦九韶算法"
+        ],
+        "ja": [
+          "ホーナーの算法"
+        ]
+      }
     },
     "Computer-Science.Algorithm-Design.Karatsuba-Integer-Multiplication": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "Karatsuba 整数乘法",
+      "labelJa": "Karatsuba 法による整数乗算",
+      "labelEn": "Karatsuba Integer Multiplication"
     },
     "Computer-Science.Algorithm-Design.Recurrence-Relation-Complexity": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "递推关系的复杂度分析",
+      "labelJa": "漸化式による計算量解析",
+      "labelEn": "Complexity Analysis of Recurrence Relations"
     },
     "Computer-Science.Algorithm-Design.Asymptotic-Upper-and-Lower-Bound-Proofs": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "渐近上界与下界的证明",
+      "labelJa": "漸近的な上界と下界の証明",
+      "labelEn": "Asymptotic Upper- and Lower-Bound Proofs"
     },
     "Computer-Science.Algorithm-Design.Matrix-Multiplication-Algorithms": {
       "subsubject": "Computer-Science.Algorithm-Design",
@@ -320,390 +420,724 @@
       ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Matrix-Multiplication-Algorithms"
-      ]
+      ],
+      "labelZh": "矩阵乘法算法",
+      "labelJa": "行列乗算アルゴリズム",
+      "labelEn": "Matrix Multiplication Algorithms"
     },
     "Computer-Science.Algorithm-Design.Median-of-Medians": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Median-Of-Medians"
-      ]
+      ],
+      "labelZh": "中位数的中位数算法",
+      "labelJa": "中央値の中央値アルゴリズム",
+      "labelEn": "Median of Medians"
     },
     "Computer-Science.Algorithm-Design.Merge-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Merge-Sort"
-      ]
+      ],
+      "labelZh": "归并排序",
+      "labelJa": "マージソート",
+      "labelEn": "Merge Sort"
     },
     "Computer-Science.Algorithm-Design.Partitioning": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Partitioning"
-      ]
+      ],
+      "labelZh": "划分操作",
+      "labelJa": "分割操作",
+      "labelEn": "Partitioning"
     },
     "Computer-Science.Algorithm-Design.Quick-Select": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Quick-Select"
-      ]
+      ],
+      "labelZh": "快速选择",
+      "labelJa": "クイックセレクト",
+      "labelEn": "Quickselect"
     },
     "Computer-Science.Algorithm-Design.Quick-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Quick-Sort"
-      ]
+      ],
+      "labelZh": "快速排序",
+      "labelJa": "クイックソート",
+      "labelEn": "Quicksort"
     },
     "Computer-Science.Algorithm-Design.Radix-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Radix-Sort"
-      ]
+      ],
+      "labelZh": "基数排序",
+      "labelJa": "基数ソート",
+      "labelEn": "Radix Sort"
     },
     "Computer-Science.Algorithm-Design.Selection-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Selection-Sort"
-      ]
+      ],
+      "labelZh": "选择排序",
+      "labelJa": "選択ソート",
+      "labelEn": "Selection Sort"
     },
     "Computer-Science.Algorithm-Design.Shell-Sort": {
-      "subsubject": "Computer-Science.Algorithm-Design"
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "labelZh": "希尔排序",
+      "labelJa": "シェルソート",
+      "labelEn": "Shellsort"
     },
     "Computer-Science.Algorithm-Design.Sorting-Algorithm": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Sorting-Algorithm"
       ],
-      "broad": true
+      "broad": true,
+      "labelZh": "排序算法",
+      "labelJa": "ソートアルゴリズム",
+      "labelEn": "Sorting Algorithms"
     },
     "Computer-Science.Algorithm-Design.Tower-of-Hanoi": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Tower-of-Hanoi"
-      ]
+      ],
+      "labelZh": "汉诺塔",
+      "labelJa": "ハノイの塔",
+      "labelEn": "Tower of Hanoi"
     },
     "Computer-Science.Algorithm-Design.Sorting-Network-Comparator-Count-and-Depth": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "排序网络的比较器数量与深度",
+      "labelJa": "ソーティングネットワークの比較器数と深さ",
+      "labelEn": "Comparator Count and Depth of Sorting Networks"
     },
     "Computer-Science.Algorithm-Design.Two-Pointers": {
       "subsubject": "Computer-Science.Algorithm-Design",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Double-Pointer"
-      ]
+      ],
+      "labelZh": "双指针法",
+      "labelJa": "2 ポインタ法",
+      "labelEn": "Two Pointers"
     },
     "Computer-Science.Computer-Architecture.Out-of-Order-Execution": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "乱序执行",
+      "labelJa": "アウトオブオーダ実行",
+      "labelEn": "Out-of-Order Execution"
     },
     "Computer-Science.Computer-Architecture.Snooping-Cache-Coherence": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "监听式缓存一致性",
+      "labelJa": "スヌープ方式のキャッシュコヒーレンシ",
+      "labelEn": "Snooping Cache Coherence"
     },
     "Computer-Science.Computer-Architecture.Pipeline-Hazards": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "流水线冒险",
+      "labelJa": "パイプラインハザード",
+      "labelEn": "Pipeline Hazards"
     },
     "Computer-Science.Computer-Architecture.Microprogrammed-Control": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "微程序控制",
+      "labelJa": "マイクロプログラム制御",
+      "labelEn": "Microprogrammed Control"
     },
     "Computer-Science.Computer-Architecture.Translation-Lookaside-Buffer": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "快表（TLB）",
+      "labelJa": "アドレス変換バッファ（TLB）",
+      "labelEn": "Translation Lookaside Buffer (TLB)",
+      "searchAliases": {
+        "en": [
+          "TLB"
+        ],
+        "zh": [
+          "地址转换后备缓冲器"
+        ],
+        "ja": []
+      }
     },
     "Computer-Science.Computer-Architecture.Register-Renaming": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "寄存器重命名",
+      "labelJa": "レジスタリネーミング",
+      "labelEn": "Register Renaming"
     },
     "Computer-Science.Computer-Architecture.Single-Instruction-Multiple-Data-Architecture": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "aliases": [
         "Computer-Science.Computer-Architecture.SIMD-Architecture"
-      ]
+      ],
+      "labelZh": "单指令多数据架构（SIMD）",
+      "labelJa": "単一命令・複数データ方式（SIMD）",
+      "labelEn": "Single Instruction, Multiple Data (SIMD) Architecture"
     },
     "Computer-Science.Computer-Architecture.Thread-Level-Speculative-Execution": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "线程级推测执行",
+      "labelJa": "スレッドレベルの投機実行",
+      "labelEn": "Thread-Level Speculative Execution"
     },
     "Computer-Science.Computer-Architecture.Program-Counter": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "程序计数器",
+      "labelJa": "プログラムカウンタ",
+      "labelEn": "Program Counter"
     },
     "Computer-Science.Computer-Architecture.Floating-Point-Rounding-Error": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "浮点舍入误差",
+      "labelJa": "浮動小数点数の丸め誤差",
+      "labelEn": "Floating-Point Rounding Error"
     },
     "Computer-Science.Computer-Architecture.Addressing-Modes": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "寻址方式",
+      "labelJa": "アドレッシングモード",
+      "labelEn": "Addressing Modes"
     },
     "Computer-Science.Computer-Architecture.Assembly-Language": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "汇编语言",
+      "labelJa": "アセンブリ言語",
+      "labelEn": "Assembly Language"
     },
     "Computer-Science.Computer-Architecture.Branch-Penalty": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "分支惩罚",
+      "labelJa": "分岐ペナルティ",
+      "labelEn": "Branch Penalty"
     },
     "Computer-Science.Computer-Architecture.Branch-Prediction": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "分支预测",
+      "labelJa": "分岐予測",
+      "labelEn": "Branch Prediction"
     },
     "Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "直接映射缓存的冲突与命中率",
+      "labelJa": "ダイレクトマップキャッシュの競合とヒット率",
+      "labelEn": "Conflicts and Hit Rate in Direct-Mapped Caches"
     },
     "Computer-Science.Computer-Architecture.Instructions-per-Cycle-with-Variable-Latency-Memory-Access": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "aliases": [
         "Computer-Science.Computer-Architecture.IPC-with-Variable-Latency-Memory-Access"
-      ]
+      ],
+      "labelZh": "可变访存延迟下的每周期指令数",
+      "labelJa": "メモリアクセス遅延が変動する場合のクロック当たり命令数",
+      "labelEn": "Instructions per Cycle with Variable-Latency Memory Access"
     },
     "Computer-Science.Computer-Architecture.Cache-Aware-Loop-and-Register-Reuse": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "面向缓存的循环优化与寄存器复用",
+      "labelJa": "キャッシュを考慮したループ最適化とレジスタ再利用",
+      "labelEn": "Cache-Aware Loop Optimization and Register Reuse"
     },
     "Computer-Science.Computer-Architecture.Hardware-Prefetching": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "硬件预取",
+      "labelJa": "ハードウェアプリフェッチ",
+      "labelEn": "Hardware Prefetching"
     },
     "Computer-Science.Computer-Architecture.Non-Blocking-Cache": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "非阻塞缓存",
+      "labelJa": "ノンブロッキングキャッシュ",
+      "labelEn": "Nonblocking Cache"
     },
     "Computer-Science.Computer-Architecture.Sequential-Random-and-Pointer-Chasing-Access": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "顺序访问、随机访问与指针追逐",
+      "labelJa": "順次アクセス・ランダムアクセス・ポインタ追跡",
+      "labelEn": "Sequential, Random, and Pointer-Chasing Access"
     },
     "Computer-Science.Computer-Architecture.Memory-Level-Parallelism": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "存储级并行",
+      "labelJa": "メモリレベル並列性",
+      "labelEn": "Memory-Level Parallelism"
     },
     "Computer-Science.Computer-Architecture.Cache": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "高速缓存",
+      "labelJa": "キャッシュ",
+      "labelEn": "Cache",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "缓存"
+        ],
+        "ja": [
+          "キャッシュメモリ"
+        ]
+      }
     },
     "Computer-Science.Computer-Architecture.Sequential-Access-Cache-Hit-Rate": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "顺序访问的缓存命中率",
+      "labelJa": "順次アクセス時のキャッシュヒット率",
+      "labelEn": "Cache Hit Rate for Sequential Access"
     },
     "Computer-Science.Computer-Architecture.Two-Way-Set-Associative-Cache-Datapath": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "二路组相联缓存的数据通路",
+      "labelJa": "2 ウェイセットアソシアティブキャッシュのデータパス",
+      "labelEn": "Two-Way Set-Associative Cache Datapath"
     },
     "Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "缓存命中率优化",
+      "labelJa": "キャッシュヒット率の最適化",
+      "labelEn": "Cache Hit Rate Optimization"
     },
     "Computer-Science.Computer-Architecture.Sensor-Acquisition-Pipeline-Scheduling": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "relatedSubjects": [
         "Electrical-Electronic",
         "Engineering"
-      ]
+      ],
+      "labelZh": "传感器采集流水线调度",
+      "labelJa": "センサデータ取得パイプラインのスケジューリング",
+      "labelEn": "Sensor Acquisition Pipeline Scheduling"
     },
     "Computer-Science.Computer-Architecture.Reduced-Instruction-Set-Computer-and-Complex-Instruction-Set-Computer-Architectures": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "aliases": [
         "Computer-Science.Computer-Architecture.RISC-and-CISC-Architectures"
-      ]
+      ],
+      "labelZh": "精简指令集与复杂指令集架构",
+      "labelJa": "RISC と CISC のアーキテクチャ",
+      "labelEn": "RISC and CISC Architectures"
     },
     "Computer-Science.Computer-Architecture.Amdahls-Law": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "阿姆达尔定律",
+      "labelJa": "アムダールの法則",
+      "labelEn": "Amdahl's Law"
     },
     "Computer-Science.Computer-Architecture.Average-Memory-Access-Time": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "平均访存时间",
+      "labelJa": "平均メモリアクセス時間",
+      "labelEn": "Average Memory Access Time"
     },
     "Computer-Science.Computer-Architecture.Cache-Address-Mapping": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "缓存地址映射",
+      "labelJa": "キャッシュのアドレスマッピング",
+      "labelEn": "Cache Address Mapping"
     },
     "Computer-Science.Computer-Architecture.Cache-Miss-Types": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "缓存未命中的类型",
+      "labelJa": "キャッシュミスの種類",
+      "labelEn": "Cache Miss Types"
     },
     "Computer-Science.Computer-Architecture.Data-Forwarding": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "数据前递",
+      "labelJa": "データフォワーディング",
+      "labelEn": "Data Forwarding"
     },
     "Computer-Science.Computer-Architecture.Data-Hazard": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "数据冒险",
+      "labelJa": "データハザード",
+      "labelEn": "Data Hazard"
     },
     "Computer-Science.Computer-Architecture.Control-Hazard": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "控制冒险",
+      "labelJa": "制御ハザード",
+      "labelEn": "Control Hazard"
     },
     "Computer-Science.Computer-Architecture.Endianness": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "字节序",
+      "labelJa": "エンディアン",
+      "labelEn": "Endianness"
     },
     "Computer-Science.Computer-Architecture.Floating-Point-Representation": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "浮点数表示",
+      "labelJa": "浮動小数点数の表現",
+      "labelEn": "Floating-Point Representation"
     },
     "Computer-Science.Computer-Architecture.Hamming-Weight": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "汉明重量",
+      "labelJa": "ハミング重み",
+      "labelEn": "Hamming Weight"
     },
     "Computer-Science.Computer-Architecture.IEEE-Standard-754-Floating-Point-Arithmetic": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "aliases": [
         "Computer-Science.Computer-Architecture.IEEE-754"
-      ]
+      ],
+      "labelZh": "IEEE 754 浮点运算标准",
+      "labelJa": "IEEE 754 浮動小数点演算規格",
+      "labelEn": "IEEE 754 Floating-Point Arithmetic"
     },
     "Computer-Science.Computer-Architecture.Instruction-Cycle": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "指令周期",
+      "labelJa": "命令サイクル",
+      "labelEn": "Instruction Cycle"
     },
     "Computer-Science.Computer-Architecture.Instruction-Encoding": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "指令编码",
+      "labelJa": "命令の符号化",
+      "labelEn": "Instruction Encoding"
     },
     "Computer-Science.Computer-Architecture.Memory-Alignment": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "内存对齐",
+      "labelJa": "メモリアライメント",
+      "labelEn": "Memory Alignment"
     },
     "Computer-Science.Computer-Architecture.Locality-of-Reference": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "访问局部性",
+      "labelJa": "参照の局所性",
+      "labelEn": "Locality of Reference"
     },
     "Computer-Science.Computer-Architecture.Multi-Level-Cache": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "多级缓存",
+      "labelJa": "多階層キャッシュ",
+      "labelEn": "Multilevel Cache"
     },
     "Computer-Science.Computer-Architecture.Non-Adjacent-Form-Signed-Binary-Representation": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "relatedSubjects": [
         "Discrete-Mathematics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "非相邻形式的有符号二进制表示",
+      "labelJa": "非隣接形式による符号付き二進表現",
+      "labelEn": "Non-Adjacent Form Signed Binary Representation"
     },
     "Computer-Science.Computer-Architecture.Number-Representation": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "数值表示",
+      "labelJa": "数値表現",
+      "labelEn": "Number Representation"
     },
     "Computer-Science.Computer-Architecture.Parallelism": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "并行性",
+      "labelJa": "並列性",
+      "labelEn": "Parallelism"
     },
     "Computer-Science.Computer-Architecture.Performance-Analysis": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "性能分析",
+      "labelJa": "性能解析",
+      "labelEn": "Performance Analysis"
     },
     "Computer-Science.Computer-Architecture.Structural-Hazard": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "结构冒险",
+      "labelJa": "構造ハザード",
+      "labelEn": "Structural Hazard"
     },
     "Computer-Science.Computer-Architecture.Superscalar-Execution": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "超标量执行",
+      "labelJa": "スーパースカラ実行",
+      "labelEn": "Superscalar Execution"
     },
     "Computer-Science.Computer-Architecture.Write-Back-Policy": {
-      "subsubject": "Computer-Science.Computer-Architecture"
+      "subsubject": "Computer-Science.Computer-Architecture",
+      "labelZh": "写回策略",
+      "labelJa": "ライトバック方式",
+      "labelEn": "Write-Back Policy"
     },
     "Computer-Science.Computer-Architecture.Pipelining": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "aliases": [
         "Computer-Science.Computer-Architecture.Pipeline"
-      ]
+      ],
+      "labelZh": "流水线",
+      "labelJa": "パイプライン処理",
+      "labelEn": "Pipelining"
     },
     "Computer-Science.Data-Structures.Binary-Heap": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Binary-Heap"
-      ]
+      ],
+      "labelZh": "二叉堆",
+      "labelJa": "二分ヒープ",
+      "labelEn": "Binary Heap"
     },
     "Computer-Science.Data-Structures.B-Tree": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "B 树",
+      "labelJa": "B 木",
+      "labelEn": "B-Tree"
     },
     "Computer-Science.Data-Structures.Balanced-Binary-Search-Tree-Height-Bounds": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "平衡二叉搜索树的高度界",
+      "labelJa": "平衡二分探索木の高さの上界と下界",
+      "labelEn": "Height Bounds for Balanced Binary Search Trees"
     },
     "Computer-Science.Data-Structures.Balanced-Binary-Search-Tree": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "平衡二叉搜索树",
+      "labelJa": "平衡二分探索木",
+      "labelEn": "Balanced Binary Search Tree"
     },
     "Computer-Science.Data-Structures.Minimum-Nodes-in-Height-Balanced-Binary-Tree": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "高度平衡二叉树的最少节点数",
+      "labelJa": "高さ平衡二分木の最小節点数",
+      "labelEn": "Minimum Number of Nodes in a Height-Balanced Binary Tree"
     },
     "Computer-Science.Data-Structures.Heap-Order-Assignment-by-Linear-Time-Construction": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "线性时间建堆与堆序赋值",
+      "labelJa": "線形時間のヒープ構築によるヒープ順序の割当て",
+      "labelEn": "Heap-Order Assignment by Linear-Time Construction"
     },
     "Computer-Science.Data-Structures.Binary-Search-Tree": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Binary-Search-Tree",
         "Computer-Science.Data-Structures-Algorithms.BST"
-      ]
+      ],
+      "labelZh": "二叉搜索树",
+      "labelJa": "二分探索木",
+      "labelEn": "Binary Search Tree"
     },
     "Computer-Science.Data-Structures.Binary-Search-Tree-Insertion-and-Deletion": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "二叉搜索树的插入与删除",
+      "labelJa": "二分探索木への挿入と削除",
+      "labelEn": "Binary Search Tree Insertion and Deletion"
     },
     "Computer-Science.Data-Structures.Inorder-Tree-Traversal": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "中序遍历",
+      "labelJa": "中間順走査",
+      "labelEn": "Inorder Tree Traversal",
+      "searchAliases": {
+        "en": [],
+        "zh": [],
+        "ja": [
+          "通りがけ順",
+          "間順"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Preorder-Tree-Traversal": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "前序遍历",
+      "labelJa": "先行順走査",
+      "labelEn": "Preorder Tree Traversal",
+      "searchAliases": {
+        "en": [],
+        "zh": [],
+        "ja": [
+          "行きがけ順",
+          "前順"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Tree-Sort-Complexity": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "树排序的复杂度",
+      "labelJa": "木によるソートの計算量",
+      "labelEn": "Tree Sort Complexity"
     },
     "Computer-Science.Data-Structures.Hash-Table": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Hash-Table"
-      ]
+      ],
+      "labelZh": "哈希表",
+      "labelJa": "ハッシュ表",
+      "labelEn": "Hash Table"
     },
     "Computer-Science.Data-Structures.Linear-Probing-Hashing": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "线性探测哈希",
+      "labelJa": "線形探索法によるハッシュ",
+      "labelEn": "Linear Probing Hashing"
     },
     "Computer-Science.Data-Structures.Separate-Chaining-Hashing": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "链地址法哈希",
+      "labelJa": "連鎖法によるハッシュ",
+      "labelEn": "Separate Chaining Hashing"
     },
     "Computer-Science.Data-Structures.Expected-Insertion-Cost-in-Hashing": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "哈希插入的期望代价",
+      "labelJa": "ハッシュ表への挿入コストの期待値",
+      "labelEn": "Expected Insertion Cost in Hashing"
     },
     "Computer-Science.Data-Structures.Linked-List": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Linked-List"
-      ]
+      ],
+      "labelZh": "链表",
+      "labelJa": "連結リスト",
+      "labelEn": "Linked List"
     },
     "Computer-Science.Data-Structures.Sorted-Linked-List-Insertion": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "有序链表的插入",
+      "labelJa": "整列済み連結リストへの挿入",
+      "labelEn": "Sorted Linked List Insertion"
     },
     "Computer-Science.Data-Structures.Linked-List-Reversal": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "链表反转",
+      "labelJa": "連結リストの反転",
+      "labelEn": "Linked List Reversal"
     },
     "Computer-Science.Data-Structures.Priority-Queue": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Priority-Queue"
-      ]
+      ],
+      "labelZh": "优先队列",
+      "labelJa": "優先度付きキュー",
+      "labelEn": "Priority Queue"
     },
     "Computer-Science.Data-Structures.Queue": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Queue"
-      ]
+      ],
+      "labelZh": "队列",
+      "labelJa": "キュー",
+      "labelEn": "Queue"
     },
     "Computer-Science.Data-Structures.Sparse-Matrix": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "稀疏矩阵",
+      "labelJa": "疎行列",
+      "labelEn": "Sparse Matrix"
     },
     "Computer-Science.Data-Structures.Stack": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Stack"
-      ]
+      ],
+      "labelZh": "栈",
+      "labelJa": "スタック",
+      "labelEn": "Stack"
     },
     "Computer-Science.Data-Structures.Tree-Data-Structure": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "树形数据结构",
+      "labelJa": "木構造",
+      "labelEn": "Tree Data Structure"
     },
     "Computer-Science.Data-Structures.Expression-Tree": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "表达式树",
+      "labelJa": "式木",
+      "labelEn": "Expression Tree"
     },
     "Computer-Science.Data-Structures.Reverse-Polish-Notation": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "逆波兰表示法",
+      "labelJa": "逆ポーランド記法",
+      "labelEn": "Reverse Polish Notation"
     },
     "Computer-Science.Data-Structures.Postorder-Tree-Traversal": {
-      "subsubject": "Computer-Science.Data-Structures"
+      "subsubject": "Computer-Science.Data-Structures",
+      "labelZh": "后序遍历",
+      "labelJa": "後行順走査",
+      "labelEn": "Postorder Tree Traversal",
+      "searchAliases": {
+        "en": [],
+        "zh": [],
+        "ja": [
+          "帰りがけ順",
+          "後順"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Trie": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Trie"
-      ]
+      ],
+      "labelZh": "字典树",
+      "labelJa": "トライ木",
+      "labelEn": "Trie"
     },
     "Computer-Science.Data-Structures.Union-Find-Data-Structure": {
       "subsubject": "Computer-Science.Data-Structures",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Union-Find-Data-Structure"
-      ]
+      ],
+      "labelZh": "并查集",
+      "labelJa": "素集合データ構造",
+      "labelEn": "Union-Find Data Structure",
+      "searchAliases": {
+        "en": [
+          "DSU",
+          "Disjoint-Set Data Structure"
+        ],
+        "zh": [
+          "不相交集"
+        ],
+        "ja": [
+          "Union-Find 木",
+          "素集合系"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Union-Find-Path-Compression": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "并查集的路径压缩",
+      "labelJa": "素集合データ構造の経路圧縮",
+      "labelEn": "Union-Find Path Compression"
     },
     "Computer-Science.Dynamic-Programming.Knapsack-Problem": {
       "subsubject": "Computer-Science.Dynamic-Programming",
@@ -712,13 +1146,22 @@
       ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Knapsack-Problem"
-      ]
+      ],
+      "labelZh": "背包问题",
+      "labelJa": "ナップサック問題",
+      "labelEn": "Knapsack Problem"
     },
     "Computer-Science.Dynamic-Programming.Zero-One-Knapsack-Recurrence": {
-      "subsubject": "Computer-Science.Dynamic-Programming"
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "labelZh": "0–1 背包的状态转移方程",
+      "labelJa": "0–1 ナップサック問題の漸化式",
+      "labelEn": "0–1 Knapsack Recurrence"
     },
     "Computer-Science.Dynamic-Programming.Greedy-Failure-for-Zero-One-Knapsack": {
-      "subsubject": "Computer-Science.Dynamic-Programming"
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "labelZh": "0–1 背包中贪心法的失效",
+      "labelJa": "0–1 ナップサック問題における貪欲法の失敗例",
+      "labelEn": "Greedy Failure for 0–1 Knapsack"
     },
     "Computer-Science.Dynamic-Programming.Longest-Common-Subsequence": {
       "subsubject": "Computer-Science.Dynamic-Programming",
@@ -727,13 +1170,26 @@
       ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Longest-Common-Subsequence"
-      ]
+      ],
+      "labelZh": "最长公共子序列",
+      "labelJa": "最長共通部分列",
+      "labelEn": "Longest Common Subsequence",
+      "searchAliases": {
+        "en": [
+          "LCS"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Computer-Science.Dynamic-Programming.Maximum-Subarray-Sum": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Maximum-Subarray-Sum"
-      ]
+      ],
+      "labelZh": "最大子数组和",
+      "labelJa": "最大部分配列和",
+      "labelEn": "Maximum Subarray Sum"
     },
     "Computer-Science.Dynamic-Programming.Minimum-Edit-Distance": {
       "subsubject": "Computer-Science.Dynamic-Programming",
@@ -742,10 +1198,16 @@
       ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Minimum-Edit-Distance"
-      ]
+      ],
+      "labelZh": "最小编辑距离",
+      "labelJa": "最小編集距離",
+      "labelEn": "Minimum Edit Distance"
     },
     "Computer-Science.Dynamic-Programming.Optimal-Binary-Search-Tree": {
-      "subsubject": "Computer-Science.Dynamic-Programming"
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "labelZh": "最优二叉搜索树",
+      "labelJa": "最適二分探索木",
+      "labelEn": "Optimal Binary Search Tree"
     },
     "Computer-Science.Dynamic-Programming.Subset-Sum-Problem": {
       "subsubject": "Computer-Science.Dynamic-Programming",
@@ -754,35 +1216,56 @@
       ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Subset-Sum-Problem"
-      ]
+      ],
+      "labelZh": "子集和问题",
+      "labelJa": "部分和問題",
+      "labelEn": "Subset Sum Problem"
     },
     "Computer-Science.Dynamic-Programming.Counting-Ordered-Pairings": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "带顺序约束的配对计数",
+      "labelJa": "順序制約付きペアリングの数え上げ",
+      "labelEn": "Counting Pairings with Order Constraints"
     },
     "Computer-Science.Dynamic-Programming.Pattern-Occurrence-Probability": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "relatedSubjects": [
         "Probability-Statistics",
         "Bioinformatics"
-      ]
+      ],
+      "labelZh": "模式出现概率",
+      "labelJa": "パターンの出現確率",
+      "labelEn": "Pattern Occurrence Probability"
     },
     "Computer-Science.Dynamic-Programming.Dynamic-Programming-Principle": {
-      "subsubject": "Computer-Science.Dynamic-Programming"
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "labelZh": "动态规划原理",
+      "labelJa": "動的計画法の原理",
+      "labelEn": "Dynamic Programming Principle"
     },
     "Computer-Science.Dynamic-Programming.Counting-Subset-Sum-Dynamic-Programming": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "aliases": [
         "Computer-Science.Dynamic-Programming.Counting-Subset-Sum-DP"
-      ]
+      ],
+      "labelZh": "子集和方案数的动态规划",
+      "labelJa": "動的計画法による部分和の組合せ数の計算",
+      "labelEn": "Dynamic Programming for Counting Subset Sums"
     },
     "Computer-Science.Dynamic-Programming.Unbounded-Minimum-Coin-Change": {
-      "subsubject": "Computer-Science.Dynamic-Programming"
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "labelZh": "无限硬币的最少找零枚数",
+      "labelJa": "枚数制限のない最小硬貨数問題",
+      "labelEn": "Unbounded Minimum Coin Change"
     },
     "Computer-Science.Dynamic-Programming.Unbounded-Coin-Change-Counting": {
-      "subsubject": "Computer-Science.Dynamic-Programming"
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "labelZh": "无限硬币的找零方案计数",
+      "labelJa": "枚数制限のない硬貨の組合せの数え上げ",
+      "labelEn": "Unbounded Coin Change Counting"
     },
     "Computer-Science.Formal-Languages.Nondeterministic-Polynomial-Time-Completeness": {
       "subsubject": "Computer-Science.Formal-Languages",
@@ -792,106 +1275,197 @@
       ],
       "aliases": [
         "Computer-Science.Formal-Languages.NP-Completeness"
-      ]
+      ],
+      "labelZh": "NP 完全性",
+      "labelJa": "NP 完全性",
+      "labelEn": "NP-Completeness"
     },
     "Computer-Science.Formal-Languages.Left-to-Right-Leftmost-Derivation-One-Lookahead-Parsing": {
       "subsubject": "Computer-Science.Formal-Languages",
       "aliases": [
         "Computer-Science.Formal-Languages.LL1-Parsing"
-      ]
+      ],
+      "labelZh": "LL(1) 语法分析",
+      "labelJa": "LL(1) 構文解析",
+      "labelEn": "LL(1) Parsing"
     },
     "Computer-Science.Formal-Languages.Left-to-Right-Rightmost-Derivation-Parsing": {
       "subsubject": "Computer-Science.Formal-Languages",
       "aliases": [
         "Computer-Science.Formal-Languages.LR-Parsing"
-      ]
+      ],
+      "labelZh": "LR 语法分析",
+      "labelJa": "LR 構文解析",
+      "labelEn": "LR Parsing"
     },
     "Computer-Science.Formal-Languages.Backus-Naur-Form": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "巴科斯–诺尔范式",
+      "labelJa": "バッカス・ナウア記法",
+      "labelEn": "Backus-Naur Form (BNF)"
     },
     "Computer-Science.Formal-Languages.Context-Free-Grammar": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "上下文无关文法",
+      "labelJa": "文脈自由文法",
+      "labelEn": "Context-Free Grammar"
     },
     "Computer-Science.Formal-Languages.Context-Free-Grammar-Emptiness-Problem": {
       "subsubject": "Computer-Science.Formal-Languages",
       "aliases": [
         "Computer-Science.Formal-Languages.CFG-Emptiness-Problem"
-      ]
+      ],
+      "labelZh": "上下文无关文法的空性判定",
+      "labelJa": "文脈自由文法の空性判定問題",
+      "labelEn": "Emptiness Problem for Context-Free Grammars"
     },
     "Computer-Science.Formal-Languages.Chomsky-Normal-Form": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "乔姆斯基范式",
+      "labelJa": "チョムスキー標準形",
+      "labelEn": "Chomsky Normal Form"
     },
     "Computer-Science.Formal-Languages.Context-Free-Language-Closure-Properties": {
       "subsubject": "Computer-Science.Formal-Languages",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "上下文无关语言的封闭性质",
+      "labelJa": "文脈自由言語の閉包性",
+      "labelEn": "Closure Properties of Context-Free Languages"
     },
     "Computer-Science.Formal-Languages.Deterministic-Finite-Automaton-Minimization": {
       "subsubject": "Computer-Science.Formal-Languages",
       "aliases": [
         "Computer-Science.Formal-Languages.DFA-Minimization"
-      ]
+      ],
+      "labelZh": "确定性有限自动机的最小化",
+      "labelJa": "決定性有限オートマトンの最小化",
+      "labelEn": "DFA Minimization"
     },
     "Computer-Science.Formal-Languages.Deterministic-Finite-Automaton": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "确定性有限自动机",
+      "labelJa": "決定性有限オートマトン",
+      "labelEn": "Deterministic Finite Automaton (DFA)"
     },
     "Computer-Science.Formal-Languages.Epsilon-Nondeterministic-Finite-Automaton": {
       "subsubject": "Computer-Science.Formal-Languages",
       "aliases": [
         "Computer-Science.Formal-Languages.Epsilon-NFA"
-      ]
+      ],
+      "labelZh": "带 ε 转移的非确定性有限自动机",
+      "labelJa": "ε 遷移を持つ非決定性有限オートマトン",
+      "labelEn": "Epsilon-Nondeterministic Finite Automaton"
     },
     "Computer-Science.Formal-Languages.Finite-State-Transduction": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "有限状态转换",
+      "labelJa": "有限状態変換",
+      "labelEn": "Finite-State Transduction"
     },
     "Computer-Science.Formal-Languages.Equal-Length-Prefix-Operation": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "语言的前半段截取运算",
+      "labelJa": "言語の前半分を取り出す演算",
+      "labelEn": "Equal-Length Prefix Operation"
     },
     "Computer-Science.Formal-Languages.Language-Shuffle": {
       "subsubject": "Computer-Science.Formal-Languages",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "语言的交错运算",
+      "labelJa": "言語のシャッフル演算",
+      "labelEn": "Language Shuffle"
     },
     "Computer-Science.Formal-Languages.Language-Substitution": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "语言代换",
+      "labelJa": "言語の代入",
+      "labelEn": "Language Substitution"
     },
     "Computer-Science.Formal-Languages.Language-Square-Root": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "语言的平方根",
+      "labelJa": "言語の平方根",
+      "labelEn": "Language Square Root"
     },
     "Computer-Science.Formal-Languages.Left-Quotient": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "语言的左商",
+      "labelJa": "言語の左商",
+      "labelEn": "Left Quotient"
     },
     "Computer-Science.Formal-Languages.Nondeterministic-Finite-Automaton": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "非确定性有限自动机",
+      "labelJa": "非決定性有限オートマトン",
+      "labelEn": "Nondeterministic Finite Automaton (NFA)"
     },
     "Computer-Science.Formal-Languages.Nondeterministic-Finite-Automaton-to-Deterministic-Finite-Automaton-Conversion": {
       "subsubject": "Computer-Science.Formal-Languages",
       "aliases": [
         "Computer-Science.Formal-Languages.NFA-to-DFA-Conversion"
-      ]
+      ],
+      "labelZh": "非确定性有限自动机的确定化",
+      "labelJa": "非決定性有限オートマトンの決定化",
+      "labelEn": "NFA-to-DFA Conversion"
     },
     "Computer-Science.Formal-Languages.Parse-Tree": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "语法分析树",
+      "labelJa": "構文木",
+      "labelEn": "Parse Tree"
     },
     "Computer-Science.Formal-Languages.Product-Automaton": {
       "subsubject": "Computer-Science.Formal-Languages",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "积自动机",
+      "labelJa": "積オートマトン",
+      "labelEn": "Product Automaton"
     },
     "Computer-Science.Formal-Languages.Pumping-Lemma": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "泵引理",
+      "labelJa": "反復補題",
+      "labelEn": "Pumping Lemma",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "抽水引理"
+        ],
+        "ja": [
+          "ポンピング補題",
+          "注入補題"
+        ]
+      }
     },
     "Computer-Science.Formal-Languages.Regular-Expression": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "正则表达式",
+      "labelJa": "正規表現",
+      "labelEn": "Regular Expression"
     },
     "Computer-Science.Formal-Languages.Regular-Language-Closure-Properties": {
       "subsubject": "Computer-Science.Formal-Languages",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "正则语言的封闭性质",
+      "labelJa": "正規言語の閉包性",
+      "labelEn": "Closure Properties of Regular Languages",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "正规语言的封闭性"
+        ],
+        "ja": [
+          "正則言語の閉包性"
+        ]
+      }
     },
     "Computer-Science.Formal-Languages.Context-Free-Language-Regular-Intersection": {
       "subsubject": "Computer-Science.Formal-Languages",
@@ -900,63 +1474,109 @@
       ],
       "aliases": [
         "Computer-Science.Formal-Languages.CFL-Regular-Intersection"
-      ]
+      ],
+      "labelZh": "上下文无关语言与正则语言的交",
+      "labelJa": "文脈自由言語と正規言語の共通部分",
+      "labelEn": "Intersection of Context-Free and Regular Languages"
     },
     "Computer-Science.Formal-Languages.Regular-Language-Decision-Problems": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "正则语言的判定问题",
+      "labelJa": "正規言語の決定問題",
+      "labelEn": "Decision Problems for Regular Languages"
     },
     "Computer-Science.Formal-Languages.Regular-Grammar-and-Regular-Language": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "正则文法与正则语言",
+      "labelJa": "正規文法と正規言語",
+      "labelEn": "Regular Grammars and Regular Languages",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "正规文法与正规语言"
+        ],
+        "ja": [
+          "正則文法",
+          "正則言語"
+        ]
+      }
     },
     "Computer-Science.Formal-Languages.Turing-Machine": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "图灵机",
+      "labelJa": "チューリング機械",
+      "labelEn": "Turing Machine"
     },
     "Computer-Science.Formal-Languages.Automata-State-Complexity": {
       "subsubject": "Computer-Science.Formal-Languages",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "自动机的状态复杂度",
+      "labelJa": "オートマトンの状態複雑度",
+      "labelEn": "Automata State Complexity"
     },
     "Computer-Science.Formal-Languages.Mealy-Machine": {
       "subsubject": "Computer-Science.Formal-Languages",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "米利机",
+      "labelJa": "ミーリマシン",
+      "labelEn": "Mealy Machine"
     },
     "Computer-Science.Formal-Languages.Moore-Machine": {
       "subsubject": "Computer-Science.Formal-Languages",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "摩尔机",
+      "labelJa": "ムーアマシン",
+      "labelEn": "Moore Machine"
     },
     "Computer-Science.Graphics.Invariant-Image-Features": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "图像不变特征",
+      "labelJa": "画像の不変特徴量",
+      "labelEn": "Invariant Image Features"
     },
     "Computer-Science.Graphics.Optical-Flow": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "光流",
+      "labelJa": "オプティカルフロー",
+      "labelEn": "Optical Flow"
     },
     "Computer-Science.Graphics.Ray-Tracing": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Mathematics",
         "Physics"
-      ]
+      ],
+      "labelZh": "光线追踪",
+      "labelJa": "レイトレーシング",
+      "labelEn": "Ray Tracing"
     },
     "Computer-Science.Graphics.Procedural-Modeling": {
-      "subsubject": "Computer-Science.Graphics"
+      "subsubject": "Computer-Science.Graphics",
+      "labelZh": "过程建模",
+      "labelJa": "プロシージャルモデリング",
+      "labelEn": "Procedural Modeling"
     },
     "Computer-Science.Graphics.Hough-Transform-for-Line-Detection": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "霍夫变换直线检测",
+      "labelJa": "ハフ変換による直線検出",
+      "labelEn": "Hough Transform for Line Detection"
     },
     "Computer-Science.Graphics.Projection-and-Reconstruction": {
       "subsubject": "Computer-Science.Graphics",
@@ -965,313 +1585,521 @@
       ],
       "aliases": [
         "Computer-Science.Graphics.Projection-And-Reconstruction"
-      ]
+      ],
+      "labelZh": "投影与重建",
+      "labelJa": "投影と再構成",
+      "labelEn": "Projection and Reconstruction"
     },
     "Computer-Science.Graphics.Pinhole-Camera-and-Vanishing-Points": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "针孔相机与消失点",
+      "labelJa": "ピンホールカメラと消失点",
+      "labelEn": "Pinhole Camera and Vanishing Points"
     },
     "Computer-Science.Graphics.Orthogonal-Vanishing-Point-Camera-Calibration": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "基于正交方向消失点的相机标定",
+      "labelJa": "直交方向の消失点を用いたカメラ校正",
+      "labelEn": "Camera Calibration from Orthogonal Vanishing Points"
     },
     "Computer-Science.Graphics.Edge-Line-Detection-in-Grayscale-Images": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "灰度图像中的边缘与直线检测",
+      "labelJa": "グレースケール画像のエッジ・直線検出",
+      "labelEn": "Edge and Line Detection in Grayscale Images"
     },
     "Computer-Science.Graphics.Robot-Camera-Extrinsic-Calibration": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "机器人相机外参标定",
+      "labelJa": "ロボットカメラの外部パラメータ校正",
+      "labelEn": "Robot Camera Extrinsic Calibration"
     },
     "Computer-Science.Graphics.Homogeneous-Coordinates": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "齐次坐标",
+      "labelJa": "同次座標",
+      "labelEn": "Homogeneous Coordinates"
     },
     "Computer-Science.Information-Theory.Additive-Binary-Channel": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "二元加性信道",
+      "labelJa": "二元加法通信路",
+      "labelEn": "Additive Binary Channel"
     },
     "Computer-Science.Information-Theory.Binary-Linear-Codes": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "二元线性码",
+      "labelJa": "二元線形符号",
+      "labelEn": "Binary Linear Codes"
     },
     "Computer-Science.Information-Theory.Channel-Capacity": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "信道容量",
+      "labelJa": "通信路容量",
+      "labelEn": "Channel Capacity"
     },
     "Computer-Science.Information-Theory.Binary-Symmetric-Channel": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "二元对称信道",
+      "labelJa": "二元対称通信路",
+      "labelEn": "Binary Symmetric Channel"
     },
     "Computer-Science.Information-Theory.Additive-Markov-Noise-Channel": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "加性马尔可夫噪声信道",
+      "labelJa": "加法的マルコフ雑音通信路",
+      "labelEn": "Additive Markov Noise Channel"
     },
     "Computer-Science.Information-Theory.Finite-State-Channel-with-Memory": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "具有记忆的有限状态信道",
+      "labelJa": "記憶を持つ有限状態通信路",
+      "labelEn": "Finite-State Channel with Memory"
     },
     "Computer-Science.Information-Theory.Binary-Markov-Source-Run-Length-and-Entropy-Rate": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "二元马尔可夫信源的游程长度与熵率",
+      "labelJa": "二元マルコフ情報源のラン長とエントロピー率",
+      "labelEn": "Run Length and Entropy Rate of a Binary Markov Source"
     },
     "Computer-Science.Information-Theory.Parity-Bit-Single-Error-Detection": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "奇偶校验位与单比特检错",
+      "labelJa": "パリティビットによる 1 ビット誤り検出",
+      "labelEn": "Single-Bit Error Detection with a Parity Bit"
     },
     "Computer-Science.Information-Theory.Hamming-74-Code-and-Minimum-Distance": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Discrete-Mathematics",
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "汉明（7,4）码与最小距离",
+      "labelJa": "ハミング（7,4）符号と最小距離",
+      "labelEn": "Hamming (7,4) Code and Minimum Distance"
     },
     "Computer-Science.Information-Theory.Interleaving-for-Burst-Error": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "抗突发错误的交织",
+      "labelJa": "バースト誤り対策としてのインターリーブ",
+      "labelEn": "Interleaving for Burst Errors"
     },
     "Computer-Science.Information-Theory.Markov-Source-Stationary-Distribution": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "马尔可夫信源的平稳分布",
+      "labelJa": "マルコフ情報源の定常分布",
+      "labelEn": "Stationary Distribution of a Markov Source"
     },
     "Computer-Science.Information-Theory.Channel-Coding": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "信道编码",
+      "labelJa": "通信路符号化",
+      "labelEn": "Channel Coding"
     },
     "Computer-Science.Information-Theory.Channel-Coding-Theorem": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "信道编码定理",
+      "labelJa": "通信路符号化定理",
+      "labelEn": "Channel Coding Theorem"
     },
     "Computer-Science.Information-Theory.Conditional-Entropy": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "条件熵",
+      "labelJa": "条件付きエントロピー",
+      "labelEn": "Conditional Entropy"
     },
     "Computer-Science.Information-Theory.Entropy-Chain-Rule": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "熵的链式法则",
+      "labelJa": "エントロピーの連鎖律",
+      "labelEn": "Entropy Chain Rule"
     },
     "Computer-Science.Information-Theory.Pointwise-Mutual-Information": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "逐点互信息",
+      "labelJa": "点ごとの相互情報量",
+      "labelEn": "Pointwise Mutual Information"
     },
     "Computer-Science.Information-Theory.Cyclic-Code": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "循环码",
+      "labelJa": "巡回符号",
+      "labelEn": "Cyclic Code"
     },
     "Computer-Science.Information-Theory.Cyclic-Redundancy-Check": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "循环冗余校验",
+      "labelJa": "巡回冗長検査",
+      "labelEn": "Cyclic Redundancy Check (CRC)"
     },
     "Computer-Science.Information-Theory.Entropy": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "熵",
+      "labelJa": "エントロピー",
+      "labelEn": "Entropy"
     },
     "Computer-Science.Information-Theory.Self-Information-Axioms": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Mathematics",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "自信息的公理",
+      "labelJa": "自己情報量の公理",
+      "labelEn": "Axioms of Self-Information"
     },
     "Computer-Science.Information-Theory.Coding-Efficiency": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "编码效率",
+      "labelJa": "符号化効率",
+      "labelEn": "Coding Efficiency"
     },
     "Computer-Science.Information-Theory.Entropy-Rate": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "熵率",
+      "labelJa": "エントロピー率",
+      "labelEn": "Entropy Rate"
     },
     "Computer-Science.Information-Theory.Differential-Entropy": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "微分熵",
+      "labelJa": "微分エントロピー",
+      "labelEn": "Differential Entropy"
     },
     "Computer-Science.Information-Theory.Kraft-Inequality-for-Binary-Trees": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "二叉树的 Kraft 不等式",
+      "labelJa": "二分木に対するクラフトの不等式",
+      "labelEn": "Kraft's Inequality for Binary Trees"
     },
     "Computer-Science.Information-Theory.Entropy-Lower-Bound-on-Weighted-External-Path-Length": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "加权外部路径长度的熵下界",
+      "labelJa": "重み付き外部経路長のエントロピーによる下界",
+      "labelEn": "Entropy Lower Bound on Weighted External Path Length"
     },
     "Computer-Science.Information-Theory.Optimal-Alphabetic-Binary-Tree": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "最优保序二叉树",
+      "labelJa": "最適アルファベティック二分木",
+      "labelEn": "Optimal Alphabetic Binary Tree"
     },
     "Computer-Science.Information-Theory.Block-vs-Run-Length-Source-Coding": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "分组信源编码与游程信源编码的比较",
+      "labelJa": "ブロック情報源符号化とランレングス情報源符号化の比較",
+      "labelEn": "Block versus Run-Length Source Coding"
     },
     "Computer-Science.Information-Theory.Huffman-Coding": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "霍夫曼编码",
+      "labelJa": "ハフマン符号化",
+      "labelEn": "Huffman Coding"
     },
     "Computer-Science.Information-Theory.Information-Theoretic-Lower-Bound": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "信息论下界",
+      "labelJa": "情報理論的下界",
+      "labelEn": "Information-Theoretic Lower Bound"
     },
     "Computer-Science.Information-Theory.Instantaneous-Code": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "即时码",
+      "labelJa": "瞬時符号",
+      "labelEn": "Instantaneous Code",
+      "searchAliases": {
+        "en": [
+          "Prefix-Free Code",
+          "Prefix Code"
+        ],
+        "zh": [
+          "瞬时码",
+          "前缀码"
+        ],
+        "ja": [
+          "接頭語符号"
+        ]
+      }
     },
     "Computer-Science.Information-Theory.Minimum-Distance-Error-Correction": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Discrete-Mathematics",
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "最小距离与纠错能力",
+      "labelJa": "最小距離と誤り訂正能力",
+      "labelEn": "Minimum Distance and Error Correction"
     },
     "Computer-Science.Information-Theory.Kullback-Leibler-Divergence": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics",
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "KL 散度",
+      "labelJa": "カルバック・ライブラー情報量",
+      "labelEn": "Kullback-Leibler (KL) Divergence"
     },
     "Computer-Science.Information-Theory.Mutual-Information": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "互信息",
+      "labelJa": "相互情報量",
+      "labelEn": "Mutual Information"
     },
     "Computer-Science.Information-Theory.Renyi-Entropy": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "Rényi 熵",
+      "labelJa": "レニーエントロピー",
+      "labelEn": "Rényi Entropy"
     },
     "Computer-Science.Information-Theory.Source-Coding": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "信源编码",
+      "labelJa": "情報源符号化",
+      "labelEn": "Source Coding"
     },
     "Computer-Science.Information-Theory.Source-Extension": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "信源扩展",
+      "labelJa": "情報源の拡大",
+      "labelEn": "Source Extension",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "扩展信源"
+        ],
+        "ja": [
+          "拡大情報源"
+        ]
+      }
     },
     "Computer-Science.Information-Theory.Typical-Sequence": {
-      "subsubject": "Computer-Science.Information-Theory"
+      "subsubject": "Computer-Science.Information-Theory",
+      "labelZh": "典型序列",
+      "labelJa": "典型系列",
+      "labelEn": "Typical Sequence"
     },
     "Computer-Science.Networks.Common-Gateway-Interface": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "通用网关接口（CGI）",
+      "labelJa": "共通ゲートウェイインタフェース（CGI）",
+      "labelEn": "Common Gateway Interface (CGI)"
     },
     "Computer-Science.Networks.Autonomous-System-Numbers": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "自治系统号",
+      "labelJa": "自律システム番号",
+      "labelEn": "Autonomous System Numbers"
     },
     "Computer-Science.Networks.Distance-Vector-and-Link-State-Routing": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "距离向量与链路状态路由",
+      "labelJa": "距離ベクトル型とリンク状態型の経路制御",
+      "labelEn": "Distance-Vector and Link-State Routing"
     },
     "Computer-Science.Networks.Domain-Name-System": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "域名系统（DNS）",
+      "labelJa": "ドメインネームシステム（DNS）",
+      "labelEn": "Domain Name System (DNS)"
     },
     "Computer-Science.Networks.Hypertext-Transfer-Protocol": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "超文本传输协议（HTTP）",
+      "labelJa": "ハイパーテキスト転送プロトコル（HTTP）",
+      "labelEn": "Hypertext Transfer Protocol (HTTP)"
     },
     "Computer-Science.Networks.Internet-Protocol-Version-4-and-Version-6": {
       "subsubject": "Computer-Science.Networks",
       "aliases": [
         "Computer-Science.Networks.IPv4-and-IPv6"
-      ]
+      ],
+      "labelZh": "互联网协议 IPv4 与 IPv6",
+      "labelJa": "インターネットプロトコル IPv4 と IPv6",
+      "labelEn": "Internet Protocol Versions 4 and 6"
     },
     "Computer-Science.Networks.Carrier-Sense-Multiple-Access-with-Collision-Detection": {
       "subsubject": "Computer-Science.Networks",
       "aliases": [
         "Computer-Science.Networks.CSMA-CD"
-      ]
+      ],
+      "labelZh": "载波侦听多路访问与碰撞检测",
+      "labelJa": "搬送波感知多重アクセス・衝突検出方式",
+      "labelEn": "Carrier Sense Multiple Access with Collision Detection (CSMA/CD)"
     },
     "Computer-Science.Networks.Hidden-Terminal-Problem-and-Request-to-Send-Clear-to-Send": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "隐藏终端问题与 RTS/CTS 机制",
+      "labelJa": "隠れ端末問題と RTS/CTS 方式",
+      "labelEn": "Hidden Terminal Problem and RTS/CTS"
     },
     "Computer-Science.Networks.Transparent-Web-Cache-in-Wide-Area-Networks": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "广域网中的透明 Web 缓存",
+      "labelJa": "広域ネットワークにおける透過型 Web キャッシュ",
+      "labelEn": "Transparent Web Caching in Wide Area Networks"
     },
     "Computer-Science.Networks.Available-Bandwidth-Estimation": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "可用带宽估计",
+      "labelJa": "利用可能帯域幅の推定",
+      "labelEn": "Available Bandwidth Estimation"
     },
     "Computer-Science.Networks.Transmission-Control-Protocol-and-User-Datagram-Protocol": {
       "subsubject": "Computer-Science.Networks",
       "aliases": [
         "Computer-Science.Networks.TCP-and-UDP-Transport-Protocols"
-      ]
+      ],
+      "labelZh": "传输控制协议与用户数据报协议",
+      "labelJa": "伝送制御プロトコルとユーザデータグラムプロトコル",
+      "labelEn": "Transmission Control Protocol (TCP) and User Datagram Protocol (UDP)"
     },
     "Computer-Science.Networks.Transmission-Control-Protocol-Congestion-Control": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "TCP 拥塞控制",
+      "labelJa": "TCP 輻輳制御",
+      "labelEn": "TCP Congestion Control"
     },
     "Computer-Science.Networks.Bandwidth-Delay-Product": {
       "subsubject": "Computer-Science.Networks",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "带宽时延积",
+      "labelJa": "帯域遅延積",
+      "labelEn": "Bandwidth-Delay Product"
     },
     "Computer-Science.Networks.Internet-Protocol-Version-4-Subnetting": {
       "subsubject": "Computer-Science.Networks",
       "aliases": [
         "Computer-Science.Networks.IPv4-Subnetting"
-      ]
+      ],
+      "labelZh": "IPv4 子网划分",
+      "labelJa": "IPv4 のサブネット分割",
+      "labelEn": "IPv4 Subnetting"
     },
     "Computer-Science.Networks.Packetization-Delay": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "分组化时延",
+      "labelJa": "パケット化遅延",
+      "labelEn": "Packetization Delay"
     },
     "Computer-Science.Networks.Protocol-Throughput-and-Utilization": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "协议吞吐量与利用率",
+      "labelJa": "プロトコルのスループットと利用率",
+      "labelEn": "Protocol Throughput and Utilization"
     },
     "Computer-Science.Networks.Reliable-Data-Transfer": {
       "subsubject": "Computer-Science.Networks",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "可靠数据传输",
+      "labelJa": "信頼性のあるデータ転送",
+      "labelEn": "Reliable Data Transfer"
     },
     "Computer-Science.Networks.Server-Concurrency-and-Request-Queueing": {
       "subsubject": "Computer-Science.Networks",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "服务器并发与请求排队",
+      "labelJa": "サーバの並行処理とリクエストの待ち行列",
+      "labelEn": "Server Concurrency and Request Queueing"
     },
     "Computer-Science.Networks.Sliding-Window-Protocol": {
-      "subsubject": "Computer-Science.Networks"
+      "subsubject": "Computer-Science.Networks",
+      "labelZh": "滑动窗口协议",
+      "labelJa": "スライディングウィンドウプロトコル",
+      "labelEn": "Sliding Window Protocol"
     },
     "Computer-Science.Networks.Stop-and-Wait-Automatic-Repeat-Request": {
       "subsubject": "Computer-Science.Networks",
@@ -1280,420 +2108,778 @@
       ],
       "aliases": [
         "Computer-Science.Networks.Stop-and-Wait-ARQ"
-      ]
+      ],
+      "labelZh": "停止等待自动重传协议",
+      "labelJa": "停止待ち ARQ",
+      "labelEn": "Stop-and-Wait Automatic Repeat Request (ARQ)"
     },
     "Computer-Science.Databases.Query-Optimization": {
-      "subsubject": "Computer-Science.Databases"
+      "subsubject": "Computer-Science.Databases",
+      "labelZh": "查询优化",
+      "labelJa": "問合せ最適化",
+      "labelEn": "Query Optimization"
     },
     "Computer-Science.Databases.Relational-Database-Normalization": {
-      "subsubject": "Computer-Science.Databases"
+      "subsubject": "Computer-Science.Databases",
+      "labelZh": "关系数据库规范化",
+      "labelJa": "関係データベースの正規化",
+      "labelEn": "Relational Database Normalization"
     },
     "Computer-Science.Databases.Relational-Algebra": {
       "subsubject": "Computer-Science.Databases",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "关系代数",
+      "labelJa": "関係代数",
+      "labelEn": "Relational Algebra"
     },
     "Computer-Science.Databases.Relational-Model-and-Structured-Query-Language": {
       "subsubject": "Computer-Science.Databases",
       "aliases": [
         "Computer-Science.Databases.Relational-Model-and-SQL"
-      ]
+      ],
+      "labelZh": "关系模型与 SQL",
+      "labelJa": "関係モデルと SQL",
+      "labelEn": "Relational Model and SQL"
     },
     "Computer-Science.Databases.Schema-Design-and-Aggregation": {
-      "subsubject": "Computer-Science.Databases"
+      "subsubject": "Computer-Science.Databases",
+      "labelZh": "数据库模式设计与聚合",
+      "labelJa": "データベースのスキーマ設計と集約",
+      "labelEn": "Schema Design and Aggregation"
     },
     "Computer-Science.Operating-Systems.Concurrent-Task-Pool-with-Atomic-Work-Index": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "使用原子任务索引的并发任务池",
+      "labelJa": "アトミックなタスク番号を用いる並行タスクプール",
+      "labelEn": "Concurrent Task Pool with an Atomic Work Index"
     },
     "Computer-Science.Operating-Systems.Mutual-Exclusion-Primitives": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "互斥原语",
+      "labelJa": "相互排除プリミティブ",
+      "labelEn": "Mutual Exclusion Primitives"
     },
     "Computer-Science.Operating-Systems.Test-and-Set-and-Swap-Spinlocks": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "测试并置位与交换指令自旋锁",
+      "labelJa": "Test-and-Set 命令と Swap 命令によるスピンロック",
+      "labelEn": "Test-and-Set and Swap Spinlocks"
     },
     "Computer-Science.Operating-Systems.Page-Faults-and-Loop-Order-Locality": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "缺页与循环顺序的局部性",
+      "labelJa": "ページフォールトとループ順序による局所性",
+      "labelEn": "Page Faults and Loop Order Locality"
     },
     "Computer-Science.Operating-Systems.Processes-and-Threads": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "进程与线程",
+      "labelJa": "プロセスとスレッド",
+      "labelEn": "Processes and Threads"
     },
     "Computer-Science.Operating-Systems.Inter-Process-Communication": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "进程间通信",
+      "labelJa": "プロセス間通信",
+      "labelEn": "Interprocess Communication"
     },
     "Computer-Science.Operating-Systems.Real-Time-Systems": {
       "subsubject": "Computer-Science.Operating-Systems",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "实时系统",
+      "labelJa": "リアルタイムシステム",
+      "labelEn": "Real-Time Systems"
     },
     "Computer-Science.Operating-Systems.Virtual-Memory": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "虚拟内存",
+      "labelJa": "仮想記憶",
+      "labelEn": "Virtual Memory",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "虚拟存储器"
+        ],
+        "ja": [
+          "仮想メモリ"
+        ]
+      }
     },
     "Computer-Science.Operating-Systems.Process-Synchronization": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "进程同步",
+      "labelJa": "プロセスの同期",
+      "labelEn": "Process Synchronization"
     },
     "Computer-Science.Operating-Systems.Atomic-Operations": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "原子操作",
+      "labelJa": "アトミック操作",
+      "labelEn": "Atomic Operations"
     },
     "Computer-Science.Operating-Systems.Central-Processing-Unit-Scheduling": {
       "subsubject": "Computer-Science.Operating-Systems",
       "aliases": [
         "Computer-Science.Operating-Systems.CPU-Scheduling"
-      ]
+      ],
+      "labelZh": "CPU 调度",
+      "labelJa": "CPU スケジューリング",
+      "labelEn": "CPU Scheduling"
     },
     "Computer-Science.Operating-Systems.Deadlock-and-Starvation": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "死锁与饥饿",
+      "labelJa": "デッドロックと飢餓",
+      "labelEn": "Deadlock and Starvation"
     },
     "Computer-Science.Operating-Systems.Dining-Philosophers-Problem": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "哲学家就餐问题",
+      "labelJa": "食事する哲学者の問題",
+      "labelEn": "Dining Philosophers Problem"
     },
     "Computer-Science.Operating-Systems.Message-Passing-Synchronization": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "消息传递同步",
+      "labelJa": "メッセージパッシングによる同期",
+      "labelEn": "Message-Passing Synchronization"
     },
     "Computer-Science.Operating-Systems.Page-Replacement": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "页面置换",
+      "labelJa": "ページ置換",
+      "labelEn": "Page Replacement",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "页面替换"
+        ],
+        "ja": [
+          "ページ置き換え"
+        ]
+      }
     },
     "Computer-Science.Operating-Systems.Priority-Aging": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "优先级老化",
+      "labelJa": "優先度のエージング",
+      "labelEn": "Priority Aging"
     },
     "Computer-Science.Operating-Systems.Round-Robin-Scheduling": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "时间片轮转调度",
+      "labelJa": "ラウンドロビンスケジューリング",
+      "labelEn": "Round-Robin Scheduling"
     },
     "Computer-Science.Operating-Systems.Semaphore": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "信号量",
+      "labelJa": "セマフォ",
+      "labelEn": "Semaphore"
     },
     "Computer-Science.Operating-Systems.Shortest-Job-First-Scheduling": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "短作业优先调度",
+      "labelJa": "最短ジョブ優先スケジューリング",
+      "labelEn": "Shortest Job First Scheduling"
     },
     "Computer-Science.Operating-Systems.Page-Table": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "页表",
+      "labelJa": "ページテーブル",
+      "labelEn": "Page Table"
     },
     "Computer-Science.Operating-Systems.Peterson-Algorithm": {
-      "subsubject": "Computer-Science.Operating-Systems"
+      "subsubject": "Computer-Science.Operating-Systems",
+      "labelZh": "Peterson 互斥算法",
+      "labelJa": "Peterson の相互排除アルゴリズム",
+      "labelEn": "Peterson's Algorithm"
     },
     "Computer-Science.Programming.Reflection": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "反射机制",
+      "labelJa": "リフレクション",
+      "labelEn": "Reflection"
     },
     "Computer-Science.Programming.Referential-Transparency": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "引用透明性",
+      "labelJa": "参照透過性",
+      "labelEn": "Referential Transparency"
     },
     "Computer-Science.Programming.Higher-Order-Functions": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "高阶函数",
+      "labelJa": "高階関数",
+      "labelEn": "Higher-Order Functions"
     },
     "Computer-Science.Programming.Unicode-Character-Encoding": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "Unicode 字符编码",
+      "labelJa": "Unicode 文字符号化",
+      "labelEn": "Unicode Character Encoding"
     },
     "Computer-Science.Programming.Tail-Recursion": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "尾递归",
+      "labelJa": "末尾再帰",
+      "labelEn": "Tail Recursion"
     },
     "Computer-Science.Programming.Closure": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "闭包",
+      "labelJa": "クロージャ",
+      "labelEn": "Closure"
     },
     "Computer-Science.Programming.Just-in-Time-Compilation": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "即时编译",
+      "labelJa": "実行時コンパイル",
+      "labelEn": "Just-in-Time (JIT) Compilation"
     },
     "Computer-Science.Programming.Lambda-Expression": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "Lambda 表达式",
+      "labelJa": "ラムダ式",
+      "labelEn": "Lambda Expression"
     },
     "Computer-Science.Programming.Call-by-Value-vs-Call-by-Name": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "传值调用与传名调用",
+      "labelJa": "値呼びと名前呼び",
+      "labelEn": "Call by Value versus Call by Name"
     },
     "Computer-Science.Programming.Evaluation-Strategy-and-Termination": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "求值策略与终止性",
+      "labelJa": "評価戦略と停止性",
+      "labelEn": "Evaluation Strategy and Termination"
     },
     "Computer-Science.Programming.Call-by-Value-and-Call-by-Reference": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "传值调用与引用调用",
+      "labelJa": "値渡しと参照渡し",
+      "labelEn": "Call by Value and Call by Reference"
     },
     "Computer-Science.Programming.Garbage-Collection": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "垃圾回收",
+      "labelJa": "ガベージコレクション",
+      "labelEn": "Garbage Collection"
     },
     "Computer-Science.Programming.Type-Checking-and-Type-Inference": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "类型检查与类型推断",
+      "labelJa": "型検査と型推論",
+      "labelEn": "Type Checking and Type Inference"
     },
     "Computer-Science.Programming.Base-Conversion": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "进制转换",
+      "labelJa": "基数変換",
+      "labelEn": "Base Conversion"
     },
     "Computer-Science.Programming.Functional-Programming-Language-Features": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "函数式编程语言的特征",
+      "labelJa": "関数型プログラミング言語の特徴",
+      "labelEn": "Features of Functional Programming Languages"
     },
     "Computer-Science.Programming.Caesar-Cipher": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "凯撒密码",
+      "labelJa": "シーザー暗号",
+      "labelEn": "Caesar Cipher"
     },
     "Computer-Science.Programming.Arbitrary-Precision-Arithmetic": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "任意精度运算",
+      "labelJa": "任意精度演算",
+      "labelEn": "Arbitrary-Precision Arithmetic"
     },
     "Computer-Science.Programming.Approximate-Glyph-Recognition": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "字形的近似识别",
+      "labelJa": "文字パターンの近似認識",
+      "labelEn": "Approximate Glyph Recognition"
     },
     "Computer-Science.Programming.Binary-File-Format-and-Endianness": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "二进制文件格式与字节序",
+      "labelJa": "バイナリファイル形式とエンディアン",
+      "labelEn": "Binary File Format and Endianness"
     },
     "Computer-Science.Programming.Character-Frequency-Analysis": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "字符频率分析",
+      "labelJa": "文字の出現頻度解析",
+      "labelEn": "Character Frequency Analysis"
     },
     "Computer-Science.Programming.Connected-Component-Labeling": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "连通分量标记",
+      "labelJa": "連結成分のラベリング",
+      "labelEn": "Connected Component Labeling"
     },
     "Computer-Science.Programming.Code-Clone-Detection": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "代码克隆检测",
+      "labelJa": "コードクローン検出",
+      "labelEn": "Code Clone Detection"
     },
     "Computer-Science.Programming.Dynamic-Memory-Allocation": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "动态内存分配",
+      "labelJa": "動的メモリ割当て",
+      "labelEn": "Dynamic Memory Allocation"
     },
     "Computer-Science.Programming.File-Input-and-Output": {
       "subsubject": "Computer-Science.Programming",
       "aliases": [
         "Computer-Science.Programming.File-IO"
-      ]
+      ],
+      "labelZh": "文件输入输出",
+      "labelJa": "ファイル入出力",
+      "labelEn": "File Input and Output"
     },
     "Computer-Science.Programming.Bitwise-Operation": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "位运算",
+      "labelJa": "ビット演算",
+      "labelEn": "Bitwise Operations"
     },
     "Computer-Science.Programming.Fibonacci-Numbers": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "斐波那契数",
+      "labelJa": "フィボナッチ数",
+      "labelEn": "Fibonacci Numbers"
     },
     "Computer-Science.Programming.Integer-Overflow": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "整数溢出",
+      "labelJa": "整数のオーバーフロー",
+      "labelEn": "Integer Overflow"
     },
     "Computer-Science.Programming.Multibyte-String-Processing": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "多字节字符串处理",
+      "labelJa": "マルチバイト文字列処理",
+      "labelEn": "Multibyte String Processing"
     },
     "Computer-Science.Programming.Linear-Congruential-Generator": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Mathematics",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "线性同余伪随机数生成器",
+      "labelJa": "線形合同法による擬似乱数生成",
+      "labelEn": "Linear Congruential Generator"
     },
     "Computer-Science.Programming.NumPy-Array-Operations": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "NumPy 数组运算",
+      "labelJa": "NumPy の配列操作",
+      "labelEn": "NumPy Array Operations"
     },
     "Computer-Science.Programming.Pointers-and-Arrays": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "指针与数组",
+      "labelJa": "ポインタと配列",
+      "labelEn": "Pointers and Arrays"
     },
     "Computer-Science.Programming.Prime-Enumeration": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "素数枚举",
+      "labelJa": "素数の列挙",
+      "labelEn": "Prime Enumeration"
     },
     "Computer-Science.Programming.Python-Object-Mutability": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "Python 对象的可变性",
+      "labelJa": "Python オブジェクトの可変性",
+      "labelEn": "Python Object Mutability"
     },
     "Computer-Science.Programming.Recursion": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "递归",
+      "labelJa": "再帰",
+      "labelEn": "Recursion"
     },
     "Computer-Science.Programming.Roman-Numeral-Conversion": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "罗马数字转换",
+      "labelJa": "ローマ数字の変換",
+      "labelEn": "Roman Numeral Conversion"
     },
     "Computer-Science.Programming.Sliding-Window-Pattern-Matching": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "滑动窗口模式匹配",
+      "labelJa": "スライディングウィンドウによるパターン照合",
+      "labelEn": "Sliding Window Pattern Matching"
     },
     "Computer-Science.Programming.String-Processing": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "字符串处理",
+      "labelJa": "文字列処理",
+      "labelEn": "String Processing"
     },
     "Computer-Science.Programming.String-Parsing": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "字符串解析",
+      "labelJa": "文字列の解析",
+      "labelEn": "String Parsing"
     },
     "Computer-Science.Programming.Static-Interval-Analysis": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "静态区间分析",
+      "labelJa": "静的区間解析",
+      "labelEn": "Static Interval Analysis"
     },
     "Computer-Science.Programming.Substitution-Cipher": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "替换密码",
+      "labelJa": "換字式暗号",
+      "labelEn": "Substitution Cipher"
     },
     "Computer-Science.Programming.Variable-Scope": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "变量作用域",
+      "labelJa": "変数のスコープ",
+      "labelEn": "Variable Scope"
     },
     "Computer-Science.Programming.Palindrome-Number": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "回文数",
+      "labelJa": "回文数",
+      "labelEn": "Palindromic Number"
     },
     "Computer-Science.Programming.Pascal-Triangle": {
       "subsubject": "Computer-Science.Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "帕斯卡三角形",
+      "labelJa": "パスカルの三角形",
+      "labelEn": "Pascal's Triangle"
     },
     "Computer-Science.Programming.Programming-Basics": {
       "subsubject": "Computer-Science.Programming",
-      "broad": true
+      "broad": true,
+      "labelZh": "编程基础",
+      "labelJa": "プログラミングの基礎",
+      "labelEn": "Programming Basics"
     },
     "Computer-Science.Programming.C-Short-Circuit-Evaluation": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "C 语言的短路求值",
+      "labelJa": "C 言語の短絡評価",
+      "labelEn": "Short-Circuit Evaluation in C"
     },
     "Computer-Science.Programming.C-Operator-Precedence-and-Associativity": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "C 语言运算符的优先级与结合性",
+      "labelJa": "C 言語の演算子の優先順位と結合規則",
+      "labelEn": "Operator Precedence and Associativity in C"
     },
     "Computer-Science.Programming.Pointer-to-Pointer": {
-      "subsubject": "Computer-Science.Programming"
+      "subsubject": "Computer-Science.Programming",
+      "labelZh": "二级指针",
+      "labelJa": "ポインタへのポインタ",
+      "labelEn": "Pointer to Pointer"
     },
     "Computer-Science.Security.Buffer-Overflow": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "缓冲区溢出",
+      "labelJa": "バッファオーバーフロー",
+      "labelEn": "Buffer Overflow"
     },
     "Computer-Science.Security.Public-Key-Cryptography": {
       "subsubject": "Computer-Science.Security",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "公钥密码",
+      "labelJa": "公開鍵暗号",
+      "labelEn": "Public-Key Cryptography"
     },
     "Computer-Science.Security.Cross-Site-Scripting": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "跨站脚本攻击",
+      "labelJa": "クロスサイトスクリプティング",
+      "labelEn": "Cross-Site Scripting (XSS)"
     },
     "Computer-Science.Security.Network-Security-Protocols": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "网络安全协议",
+      "labelJa": "ネットワークセキュリティプロトコル",
+      "labelEn": "Network Security Protocols"
     },
     "Computer-Science.Security.Secure-Sockets-Layer": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "安全套接层（SSL）",
+      "labelJa": "セキュアソケットレイヤー（SSL）",
+      "labelEn": "Secure Sockets Layer (SSL)"
     },
     "Computer-Science.Security.Targeted-Email-Attack": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "定向邮件攻击",
+      "labelJa": "標的型メール攻撃",
+      "labelEn": "Targeted Email Attack"
     },
     "Computer-Science.Security.Phishing-Attack": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "网络钓鱼攻击",
+      "labelJa": "フィッシング攻撃",
+      "labelEn": "Phishing Attack"
     },
     "Computer-Science.Security.Public-Key-Infrastructure": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "公钥基础设施",
+      "labelJa": "公開鍵基盤",
+      "labelEn": "Public-Key Infrastructure (PKI)"
     },
     "Computer-Science.Security.User-Authentication-Methods": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "用户认证方法",
+      "labelJa": "ユーザ認証方式",
+      "labelEn": "User Authentication Methods"
     },
     "Computer-Science.Distributed-Systems.Distributed-Hashing": {
       "subsubject": "Computer-Science.Distributed-Systems",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "分布式哈希",
+      "labelJa": "分散ハッシュ",
+      "labelEn": "Distributed Hashing"
     },
     "Computer-Science.Distributed-Systems.Grid-Computing": {
-      "subsubject": "Computer-Science.Distributed-Systems"
+      "subsubject": "Computer-Science.Distributed-Systems",
+      "labelZh": "网格计算",
+      "labelJa": "グリッドコンピューティング",
+      "labelEn": "Grid Computing"
     },
     "Computer-Science.Distributed-Systems.Client-Server-and-Peer-to-Peer-Comparison": {
-      "subsubject": "Computer-Science.Distributed-Systems"
+      "subsubject": "Computer-Science.Distributed-Systems",
+      "labelZh": "客户端–服务器与对等网络的比较",
+      "labelJa": "クライアントサーバ方式と P2P 方式の比較",
+      "labelEn": "Client-Server and Peer-to-Peer Comparison"
     },
     "Computer-Science.Quantum-Computing.Quantum-Computing": {
       "subsubject": "Computer-Science.Quantum-Computing",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "量子计算",
+      "labelJa": "量子計算",
+      "labelEn": "Quantum Computing"
     },
     "Computer-Science.String-Algorithms.Rabin-Karp-Rolling-Hash": {
-      "subsubject": "Computer-Science.String-Algorithms"
+      "subsubject": "Computer-Science.String-Algorithms",
+      "labelZh": "Rabin–Karp 滚动哈希",
+      "labelJa": "Rabin–Karp 法のローリングハッシュ",
+      "labelEn": "Rabin-Karp Rolling Hash"
     },
     "Computer-Science.String-Algorithms.Hash-Collision-Verification-and-Worst-Case": {
       "subsubject": "Computer-Science.String-Algorithms",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "哈希碰撞校验与最坏情况分析",
+      "labelJa": "ハッシュ衝突の検証と最悪時解析",
+      "labelEn": "Hash Collision Verification and Worst-Case Analysis"
     },
     "Computer-Science.String-Algorithms.Knuth-Morris-Pratt-Algorithm": {
       "subsubject": "Computer-Science.String-Algorithms",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Knuth-Morris-Pratt-Algorithm"
-      ]
+      ],
+      "labelZh": "KMP 字符串匹配算法",
+      "labelJa": "KMP 文字列照合アルゴリズム",
+      "labelEn": "Knuth-Morris-Pratt (KMP) Algorithm"
     },
     "Computer-Science.String-Algorithms.Knuth-Morris-Pratt-Failure-and-Shift-Table": {
       "subsubject": "Computer-Science.String-Algorithms",
       "aliases": [
         "Computer-Science.String-Algorithms.KMP-Failure-and-Shift-Table"
-      ]
+      ],
+      "labelZh": "KMP 失配表与移位表",
+      "labelJa": "KMP 法の失敗表とシフト表",
+      "labelEn": "KMP Failure and Shift Tables",
+      "searchAliases": {
+        "en": [
+          "KMP Prefix Function",
+          "KMP Next Array"
+        ],
+        "zh": [
+          "KMP next 数组"
+        ],
+        "ja": []
+      }
     },
     "Computer-Science.String-Algorithms.Longest-Palindromic-Substring": {
       "subsubject": "Computer-Science.String-Algorithms",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Longest-Palindrome-Substring"
-      ]
+      ],
+      "labelZh": "最长回文子串",
+      "labelJa": "最長回文部分文字列",
+      "labelEn": "Longest Palindromic Substring"
     },
     "Computer-Science.String-Algorithms.Minimum-Window-Substring": {
       "subsubject": "Computer-Science.String-Algorithms",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.Minimum-Window-Substring"
-      ]
+      ],
+      "labelZh": "最小覆盖子串",
+      "labelJa": "最小被覆部分文字列",
+      "labelEn": "Minimum Window Substring"
     },
     "Computer-Science.String-Algorithms.String-Matching": {
       "subsubject": "Computer-Science.String-Algorithms",
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.String-Matching"
-      ]
+      ],
+      "labelZh": "字符串匹配",
+      "labelJa": "文字列照合",
+      "labelEn": "String Matching"
     },
     "Computer-Science.Dynamic-Programming.Longest-Increasing-Subsequence": {
-      "subsubject": "Computer-Science.Dynamic-Programming"
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "labelZh": "最长递增子序列",
+      "labelJa": "最長増加部分列",
+      "labelEn": "Longest Increasing Subsequence",
+      "searchAliases": {
+        "en": [
+          "LIS"
+        ],
+        "zh": [
+          "最长上升子序列"
+        ],
+        "ja": []
+      }
     },
     "Computer-Science.Dynamic-Programming.Matrix-Chain-Multiplication": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "矩阵链乘法",
+      "labelJa": "行列連鎖積",
+      "labelEn": "Matrix Chain Multiplication"
     },
     "Computer-Science.Dynamic-Programming.Fibonacci-Memoization": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "斐波那契数的记忆化计算",
+      "labelJa": "フィボナッチ数のメモ化計算",
+      "labelEn": "Fibonacci Memoization"
     },
     "Computer-Science.Dynamic-Programming.Decision-Tree-Pruning": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "决策树剪枝",
+      "labelJa": "決定木の枝刈り",
+      "labelEn": "Decision Tree Pruning"
     },
     "Computer-Science.Dynamic-Programming.Optimal-Compression-Encoding": {
-      "subsubject": "Computer-Science.Dynamic-Programming"
+      "subsubject": "Computer-Science.Dynamic-Programming",
+      "labelZh": "最优压缩编码",
+      "labelJa": "最適圧縮符号化",
+      "labelEn": "Optimal Compression Encoding"
     },
     "Computer-Science.Dynamic-Programming.Minimum-Cost-Polygon-Triangulation": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "最小代价多边形三角剖分",
+      "labelJa": "多角形の最小費用三角形分割",
+      "labelEn": "Minimum-Cost Polygon Triangulation"
     },
     "Computer-Science.Algorithm-Design.Two-Dimensional-Prefix-Sums": {
-      "subsubject": "Computer-Science.Algorithm-Design"
+      "subsubject": "Computer-Science.Algorithm-Design",
+      "labelZh": "二维前缀和",
+      "labelJa": "二次元累積和",
+      "labelEn": "Two-Dimensional Prefix Sums"
     },
     "Computer-Science.Formal-Languages.Nondeterministic-Pushdown-Automaton": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "非确定性下推自动机",
+      "labelJa": "非決定性プッシュダウンオートマトン",
+      "labelEn": "Nondeterministic Pushdown Automaton"
     },
     "Computer-Science.Security.One-Way-Functions-and-Reductions": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "单向函数与归约",
+      "labelJa": "一方向性関数と帰着",
+      "labelEn": "One-Way Functions and Reductions"
     },
     "Computer-Science.Formal-Languages.Elementary-Functions-and-Bounded-Minimization": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "初等递归函数与有界最小化",
+      "labelJa": "初等関数と有界最小化",
+      "labelEn": "Elementary Functions and Bounded Minimization"
     },
     "Computer-Science.Security.Meet-in-the-Middle-Attack": {
-      "subsubject": "Computer-Science.Security"
+      "subsubject": "Computer-Science.Security",
+      "labelZh": "中间相遇攻击",
+      "labelJa": "中間一致攻撃",
+      "labelEn": "Meet-in-the-Middle Attack"
     },
     "Computer-Science.Formal-Languages.Primitive-Recursive-Functions": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "原始递归函数",
+      "labelJa": "原始再帰関数",
+      "labelEn": "Primitive Recursive Functions"
     },
     "Computer-Science.Formal-Languages.Decidability-and-Undecidability": {
-      "subsubject": "Computer-Science.Formal-Languages"
+      "subsubject": "Computer-Science.Formal-Languages",
+      "labelZh": "可判定性与不可判定性",
+      "labelJa": "決定可能性と決定不能性",
+      "labelEn": "Decidability and Undecidability"
     }
   }
 }

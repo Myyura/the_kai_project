@@ -67,6 +67,8 @@ Automated test files under the repository-root `tests/` directory are tracked in
 
 Contributor-editable content data lives under `src/data/`: `links.json`, `universityMetadata.json`, and the `tagTaxonomy/` directory. Tag definitions are split by primary subject under `tagTaxonomy/subjects/`; global policy and school tags live alongside them. Ordinary new documents derive UUIDv5 directly from `docId` and require no identity-manifest update. Only a move or rename requires `yarn documents:move -- <old-doc-id> <new-doc-id>`. Development and production builds refresh `siteStats.json` and `documentTitles.json` automatically; the other generated files can be maintained with the scripts above.
 
+Each subject, subsubject, topic, and school uses one canonical English ID and required `labelZh`, `labelJa`, and `labelEn` fields in the same taxonomy record. Keep IDs in frontmatter, URLs, and saved filters; translate display text only. Optional `searchAliases` maps `zh`, `ja`, or `en` to arrays of search synonyms (for example, `{"en": ["FFT"], "zh": ["快傅里叶变换"]}`); it does not define tag IDs. Use `getTagLabel`, `getTagDescription`, `matchesTagSearch`, and `compareTagLabels` from `src/utils/tags.js` in UI code. Do not add component-specific translation tables or edit generated `docs/tags.yml`. Run `yarn tags:generate`, `yarn content:validate`, and `yarn test` after taxonomy edits.
+
 ## Account and database configuration
 
 Public content remains readable without Supabase credentials. Account-only features such as progress, notes, annotations, private problem sets, and the leaderboard require the following configuration; those records are written directly to the database and anonymous study data is not supported.

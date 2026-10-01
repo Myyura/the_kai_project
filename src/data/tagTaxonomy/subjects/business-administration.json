@@ -87,40 +87,58 @@
       "subsubject": "Business-Administration.Finance",
       "relatedSubjects": [
         "Economics"
-      ]
+      ],
+      "labelZh": "有效市场假说",
+      "labelJa": "効率的市場仮説",
+      "labelEn": "Efficient Market Hypothesis"
     },
     "Business-Administration.Finance.One-Period-Binomial-Model-and-State-Prices": {
       "subsubject": "Business-Administration.Finance",
       "relatedSubjects": [
         "Economics",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "单期二叉树模型与状态价格",
+      "labelJa": "1期間二項モデルと状態価格",
+      "labelEn": "One-Period Binomial Model and State Prices"
     },
     "Business-Administration.Finance.Put-Call-Parity": {
       "subsubject": "Business-Administration.Finance",
       "relatedSubjects": [
         "Economics"
-      ]
+      ],
+      "labelZh": "看跌–看涨期权平价",
+      "labelJa": "プット・コール・パリティ",
+      "labelEn": "Put–Call Parity"
     },
     "Business-Administration.Finance.Market-Price-of-Risk": {
       "subsubject": "Business-Administration.Finance",
       "relatedSubjects": [
         "Economics",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "风险的市场价格",
+      "labelJa": "リスクの市場価格",
+      "labelEn": "Market Price of Risk"
     },
     "Business-Administration.Human-Resource-Management.Nursing-Workforce": {
       "subsubject": "Business-Administration.Human-Resource-Management",
       "relatedSubjects": [
         "Economics"
-      ]
+      ],
+      "labelZh": "护理人力资源",
+      "labelJa": "看護人材",
+      "labelEn": "Nursing Workforce"
     },
     "Business-Administration.Marketing.Tourism-Marketing-and-Destination-Management": {
       "subsubject": "Business-Administration.Marketing",
       "relatedSubjects": [
         "Economics",
         "Sociology"
-      ]
+      ],
+      "labelZh": "旅游营销与目的地管理",
+      "labelJa": "観光マーケティングと観光地経営",
+      "labelEn": "Tourism Marketing and Destination Management"
     },
     "Business-Administration.Accounting.Cost-Volume-Profit-Analysis": {
       "subsubject": "Business-Administration.Accounting",

@@ -9,43 +9,10 @@ import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import type {Props} from '@theme/Tag';
-import tagTaxonomy from '@site/src/data/tagTaxonomy';
-import {resolveTagBrowseTarget} from '@site/src/utils/tagBrowseTarget';
+import {useCurrentLanguage} from '@site/src/context/LanguageContext';
+import {getTagLabel, getTagDescription, resolveTagBrowseTarget} from '@site/src/utils/tags';
 
 import styles from './styles.module.css';
-
-interface TopicMeta {
-  subsubject?: string;
-}
-
-interface SubsubjectMeta {
-  subject?: string;
-}
-
-const topics = tagTaxonomy.topics as Record<string, TopicMeta>;
-const subsubjects = tagTaxonomy.subsubjects as Record<string, SubsubjectMeta>;
-
-function getSubsubjectShortId(subsubjectId: string): string {
-  const subjectId = subsubjects[subsubjectId]?.subject;
-  const prefix = subjectId ? `${subjectId}.` : '';
-  return prefix && subsubjectId.startsWith(prefix)
-    ? subsubjectId.slice(prefix.length)
-    : subsubjectId;
-}
-
-function getTopicShortId(topicId: string): string {
-  const subsubjectId = topics[topicId]?.subsubject;
-  const prefix = subsubjectId ? `${subsubjectId}.` : '';
-  return prefix && topicId.startsWith(prefix)
-    ? topicId.slice(prefix.length)
-    : topicId.split('.').pop() || topicId;
-}
-
-function getDisplayLabel(label: string): string {
-  if (topics[label]) return getTopicShortId(label);
-  if (subsubjects[label]) return getSubsubjectShortId(label);
-  return label;
-}
 
 export default function Tag({
   permalink,
@@ -53,17 +20,18 @@ export default function Tag({
   count,
   description,
 }: Props): ReactNode {
+  const language = useCurrentLanguage();
   const browseTarget = resolveTagBrowseTarget(label, permalink);
   return (
     <Link
       rel="tag"
       href={browseTarget.href}
-      title={description}
+      title={browseTarget.kind === 'unknown' ? description : getTagDescription(label, language)}
       className={clsx(
         styles.tag,
-      count ? styles.tagWithCount : styles.tagRegular,
+        count ? styles.tagWithCount : styles.tagRegular,
       )}>
-      {getDisplayLabel(label)}
+      {browseTarget.kind === 'unknown' ? label : getTagLabel(label, language)}
       {count && <span>{count}</span>}
     </Link>
   );

@@ -62,6 +62,8 @@ yarn api:validate
 
 コントリビューターが編集するコンテンツデータは `src/data/` の `links.json`、`universityMetadata.json`、`tagTaxonomy/` にあります。タグ定義は `tagTaxonomy/subjects/` に主科目別で保存し、全体設定と大学タグは同階層のファイルで管理します。通常の新規文書は `docId` から UUIDv5 を自動導出するため、ID マニフェストの更新は不要です。移動・改名時だけ `yarn documents:move -- <旧-doc-id> <新-doc-id>` を実行します。`siteStats.json` と `documentTitles.json` は開発・ビルド時に自動更新され、その他の生成ファイルは上記スクリプトで管理できます。
 
+学科・サブ科目・トピック・大学は canonical な英語 ID を唯一の識別子とし、同じ taxonomy レコードに `labelZh`・`labelJa`・`labelEn` を必須で記入します。frontmatter・URL・選択状態には ID を使い、表示文字列だけを翻訳します。任意の `searchAliases` は `zh`・`ja`・`en` ごとの検索用同義語配列です（例：`{"en": ["FFT"], "ja": ["高速フーリエ変換"]}`）。新しいタグ ID は定義しません。UI では `src/utils/tags.js` の `getTagLabel`・`getTagDescription`・`matchesTagSearch`・`compareTagLabels` を使い、コンポーネント別の翻訳表を作ったり、生成済みの `docs/tags.yml` を直接編集したりしないでください。編集後は `yarn tags:generate`・`yarn content:validate`・`yarn test` を実行します。
+
 ## アカウントとデータベースの設定
 Supabase の環境変数がなくても公開コンテンツは閲覧できます。進捗、ノート、本文注釈、非公開問題セット、ランキングはログインユーザー専用で、データベースへ直接保存されます。匿名の学習データには対応しません。
 

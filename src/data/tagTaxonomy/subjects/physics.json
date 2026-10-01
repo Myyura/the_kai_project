@@ -77,14 +77,20 @@
       "subsubject": "Physics.Astrophysics",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "光子计数与泊松过程",
+      "labelJa": "光子計数とポアソン過程",
+      "labelEn": "Photon Counting and Poisson Processes"
     },
     "Physics.Astrophysics.Exposure-Time-Signal-to-Noise-with-Readout-Noise": {
       "subsubject": "Physics.Astrophysics",
       "relatedSubjects": [
         "Probability-Statistics",
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "含读出噪声的曝光时间与信噪比",
+      "labelJa": "読み出し雑音を含む露光時間と信号対雑音比",
+      "labelEn": "Exposure Time and Signal-to-Noise Ratio with Readout Noise"
     },
     "Physics.Astrophysics.Central-Limit-Theorem-Based-Simulation-of-Observation-Noise": {
       "subsubject": "Physics.Astrophysics",
@@ -94,524 +100,809 @@
       ],
       "aliases": [
         "Physics.Astrophysics.CLT-Based-Simulation-of-Observation-Noise"
-      ]
+      ],
+      "labelZh": "基于中心极限定理的观测噪声模拟",
+      "labelJa": "中心極限定理による観測雑音のシミュレーション",
+      "labelEn": "Observation Noise Simulation Using the Central Limit Theorem"
     },
     "Physics.Mechanics.Two-Dimensional-Harmonic-Oscillator-Effective-Potential": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "二维谐振子的有效势",
+      "labelJa": "二次元調和振動子の有効ポテンシャル",
+      "labelEn": "Effective Potential of a Two-Dimensional Harmonic Oscillator"
     },
     "Physics.Mechanics.Radial-Small-Oscillation-Frequency": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "径向微振动频率",
+      "labelJa": "動径方向の微小振動の振動数",
+      "labelEn": "Radial Small-Oscillation Frequency"
     },
     "Physics.Mechanics.Small-Oscillations-of-a-Chain-Pendulum": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "链式摆的微振动",
+      "labelJa": "連結振り子の微小振動",
+      "labelEn": "Small Oscillations of a Chain Pendulum"
     },
     "Physics.Mechanics.Damped-Harmonic-Motion": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics",
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "阻尼谐振动",
+      "labelJa": "減衰調和振動",
+      "labelEn": "Damped Harmonic Motion"
     },
     "Physics.Mechanics.Lagrangian-Mechanics": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "拉格朗日力学",
+      "labelJa": "ラグランジュ力学",
+      "labelEn": "Lagrangian Mechanics"
     },
     "Physics.Mechanics.Hamilton-Principle-and-Euler-Lagrange-Equation": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "哈密顿原理与欧拉–拉格朗日方程",
+      "labelJa": "ハミルトンの原理とオイラー・ラグランジュ方程式",
+      "labelEn": "Hamilton's Principle and the Euler–Lagrange Equation"
     },
     "Physics.Mechanics.Gyroscopic-Precession": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "陀螺进动",
+      "labelJa": "ジャイロの歳差運動",
+      "labelEn": "Gyroscopic Precession"
     },
     "Physics.Mechanics.Cyclic-Coordinate-and-Conserved-Momentum": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "循环坐标与动量守恒",
+      "labelJa": "循環座標と運動量保存",
+      "labelEn": "Cyclic Coordinates and Conserved Momenta"
     },
     "Physics.Mechanics.Action-Integral-and-Adiabatic-Invariant": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "作用量积分与绝热不变量",
+      "labelJa": "作用積分と断熱不変量",
+      "labelEn": "Action Integrals and Adiabatic Invariants"
     },
     "Physics.Mechanics.Small-Angle-Pendulum": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "小角度单摆",
+      "labelJa": "微小角の単振り子",
+      "labelEn": "Small-Angle Pendulum"
     },
     "Physics.Mechanics.Involute-Constrained-Motion": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "渐开线约束运动",
+      "labelJa": "インボリュートに拘束された運動",
+      "labelEn": "Motion Constrained to an Involute"
     },
     "Physics.Mechanics.Spring-Pendulum-Coupled-Normal-Modes": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "弹簧摆耦合简正模",
+      "labelJa": "ばね振り子の連成基準振動",
+      "labelEn": "Coupled Normal Modes of a Spring Pendulum"
     },
     "Physics.Mechanics.Angular-Momentum-Conservation-and-Areal-Velocity": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "角动量守恒与面积速度",
+      "labelJa": "角運動量保存と面積速度",
+      "labelEn": "Angular Momentum Conservation and Areal Velocity"
     },
     "Physics.Mechanics.Lagrangian-and-Hamiltonian-for-Holonomic-Constraints": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "完整约束下的拉格朗日量与哈密顿量",
+      "labelJa": "ホロノミック拘束下のラグランジアンとハミルトニアン",
+      "labelEn": "Lagrangians and Hamiltonians with Holonomic Constraints"
     },
     "Physics.Mechanics.Two-Body-Central-Force-and-Effective-Potential": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "二体有心力问题与有效势",
+      "labelJa": "二体中心力問題と有効ポテンシャル",
+      "labelEn": "Two-Body Central-Force Motion and Effective Potentials"
     },
     "Physics.Mechanics.Coupled-Rigid-Body-Normal-Modes": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "耦合刚体的简正模",
+      "labelJa": "連成剛体の基準振動",
+      "labelEn": "Normal Modes of Coupled Rigid Bodies"
     },
     "Physics.Mechanics.Normal-Modes-and-Coupled-Oscillators": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "简正模与耦合振子",
+      "labelJa": "基準振動と連成振動子",
+      "labelEn": "Normal Modes and Coupled Oscillators"
     },
     "Physics.Mechanics.Rotating-Frame-Coriolis-and-Centrifugal-Forces": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "旋转参考系中的科里奥利力与离心力",
+      "labelJa": "回転座標系のコリオリ力と遠心力",
+      "labelEn": "Coriolis and Centrifugal Forces in Rotating Frames"
     },
     "Physics.Mechanics.Larmor-Theorem": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "拉莫尔定理",
+      "labelJa": "ラーモアの定理",
+      "labelEn": "Larmor's Theorem"
     },
     "Physics.Mechanics.Beats-in-Coupled-Oscillators": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "耦合振子的拍现象",
+      "labelJa": "連成振動子のうなり",
+      "labelEn": "Beats in Coupled Oscillators"
     },
     "Physics.Mechanics.Time-Dependent-Harmonic-Oscillator": {
       "subsubject": "Physics.Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "含时谐振子",
+      "labelJa": "時間依存調和振動子",
+      "labelEn": "Time-Dependent Harmonic Oscillator"
     },
     "Physics.Ocean-Physics.Group-Velocity-and-Wave-Packets": {
       "subsubject": "Physics.Ocean-Physics",
       "relatedSubjects": [
         "Mathematics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "群速度与波包",
+      "labelJa": "群速度と波束",
+      "labelEn": "Group Velocity and Wave Packets"
     },
     "Physics.Quantum-Mechanics.Harmonic-Oscillator-Ground-State": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "谐振子基态",
+      "labelJa": "調和振動子の基底状態",
+      "labelEn": "Harmonic Oscillator Ground State"
     },
     "Physics.Quantum-Mechanics.First-Order-Perturbation-of-Displaced-Oscillator": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "位移谐振子的一阶微扰",
+      "labelJa": "変位した調和振動子の一次摂動",
+      "labelEn": "First-Order Perturbation of a Displaced Oscillator"
     },
     "Physics.Quantum-Mechanics.First-Order-Time-Dependent-Perturbation-Transition-Probability": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "一阶含时微扰与跃迁概率",
+      "labelJa": "一次の時間依存摂動と遷移確率",
+      "labelEn": "First-Order Time-Dependent Perturbation and Transition Probability"
     },
     "Physics.Quantum-Mechanics.Harmonic-Oscillator-First-Excited-State": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "谐振子第一激发态",
+      "labelJa": "調和振動子の第一励起状態",
+      "labelEn": "Harmonic Oscillator First Excited State"
     },
     "Physics.Quantum-Mechanics.Quantum-Measurement": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "量子测量",
+      "labelJa": "量子測定",
+      "labelEn": "Quantum Measurement"
     },
     "Physics.Quantum-Mechanics.Pauli-Matrices": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "泡利矩阵",
+      "labelJa": "パウリ行列",
+      "labelEn": "Pauli Matrices"
     },
     "Physics.Quantum-Mechanics.Quantum-Observable-Expectation-and-Variance": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "量子可观测量的期望与方差",
+      "labelJa": "量子観測量の期待値と分散",
+      "labelEn": "Expectation and Variance of Quantum Observables"
     },
     "Physics.Quantum-Mechanics.Qubit-State-Tomography": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "量子比特态层析",
+      "labelJa": "量子ビットの状態トモグラフィー",
+      "labelEn": "Qubit State Tomography"
     },
     "Physics.Quantum-Mechanics.Tensor-Product-Separability-and-Entanglement": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "张量积、可分性与纠缠",
+      "labelJa": "テンソル積・分離可能性・エンタングルメント",
+      "labelEn": "Tensor Products, Separability, and Entanglement"
     },
     "Physics.Quantum-Mechanics.Density-Matrix-and-Mixed-State": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Probability-Statistics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "密度矩阵与混合态",
+      "labelJa": "密度行列と混合状態",
+      "labelEn": "Density Matrices and Mixed States"
     },
     "Physics.Quantum-Mechanics.Bell-Inequality-and-Local-Hidden-Variable-Contradiction": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "贝尔不等式的违反与局域隐变量理论",
+      "labelJa": "ベル不等式の破れと局所隠れ変数理論",
+      "labelEn": "Bell Inequality Violations and Local Hidden-Variable Theories"
     },
     "Physics.Quantum-Mechanics.Heisenberg-Uncertainty-and-Minimum-Uncertainty-Gaussian": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "海森堡不确定性与最小不确定性高斯态",
+      "labelJa": "ハイゼンベルクの不確定性と最小不確定性ガウス状態",
+      "labelEn": "Heisenberg Uncertainty and Minimum-Uncertainty Gaussian States"
     },
     "Physics.Quantum-Mechanics.Bell-State-Correlation": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "贝尔态关联",
+      "labelJa": "ベル状態の相関",
+      "labelEn": "Bell State Correlations"
     },
     "Physics.Quantum-Mechanics.Pauli-Matrix-Exponential-and-Unitary-Evolution": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "泡利矩阵指数与幺正演化",
+      "labelJa": "パウリ行列の指数関数とユニタリ時間発展",
+      "labelEn": "Pauli Matrix Exponentials and Unitary Evolution"
     },
     "Physics.Quantum-Mechanics.Quantum-State-Time-Evolution": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "量子态时间演化",
+      "labelJa": "量子状態の時間発展",
+      "labelEn": "Quantum State Time Evolution"
     },
     "Physics.Quantum-Mechanics.Lewis-Riesenfeld-Invariant": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "Lewis–Riesenfeld 不变量",
+      "labelJa": "Lewis–Riesenfeld不変量",
+      "labelEn": "Lewis–Riesenfeld Invariant",
+      "searchAliases": {
+        "en": [
+          "LR invariant"
+        ],
+        "zh": [],
+        "ja": [
+          "LR不変量"
+        ]
+      }
     },
     "Physics.Quantum-Mechanics.Creation-and-Annihilation-Operators": {
-      "subsubject": "Physics.Quantum-Mechanics"
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "产生与湮灭算符",
+      "labelJa": "生成・消滅演算子",
+      "labelEn": "Creation and Annihilation Operators"
     },
     "Physics.Quantum-Mechanics.Number-Operator-Spectrum": {
-      "subsubject": "Physics.Quantum-Mechanics"
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "粒子数算符的谱",
+      "labelJa": "数演算子のスペクトル",
+      "labelEn": "Number Operator Spectrum"
     },
     "Physics.Quantum-Mechanics.Harmonic-Oscillator-Uncertainty": {
-      "subsubject": "Physics.Quantum-Mechanics"
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "谐振子的不确定性",
+      "labelJa": "調和振動子の不確定性",
+      "labelEn": "Harmonic Oscillator Uncertainty"
     },
     "Physics.Quantum-Mechanics.Coherent-State-and-Number-Fluctuation": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "相干态与粒子数涨落",
+      "labelJa": "コヒーレント状態と粒子数ゆらぎ",
+      "labelEn": "Coherent States and Number Fluctuations"
     },
     "Physics.Quantum-Mechanics.Canonical-Commutation-Relations": {
-      "subsubject": "Physics.Quantum-Mechanics"
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "正则对易关系",
+      "labelJa": "正準交換関係",
+      "labelEn": "Canonical Commutation Relations"
     },
     "Physics.Quantum-Mechanics.Rectangular-Barrier-Tunneling": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "矩形势垒隧穿",
+      "labelJa": "矩形障壁のトンネル効果",
+      "labelEn": "Tunneling through a Rectangular Barrier"
     },
     "Physics.Quantum-Mechanics.Wavefunction-Matching-at-Potential-Steps": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "阶跃势处的波函数衔接",
+      "labelJa": "階段状ポテンシャルでの波動関数の接続",
+      "labelEn": "Wavefunction Matching at Potential Steps"
     },
     "Physics.Quantum-Mechanics.Finite-Dimensional-Hamiltonian": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "有限维哈密顿量",
+      "labelJa": "有限次元ハミルトニアン",
+      "labelEn": "Finite-Dimensional Hamiltonians"
     },
     "Physics.Quantum-Mechanics.One-Dimensional-Infinite-Square-Well": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "一维无限深方势阱",
+      "labelJa": "一次元無限深井戸型ポテンシャル",
+      "labelEn": "One-Dimensional Infinite Square Well"
     },
     "Physics.Quantum-Mechanics.Identical-Fermions-Spin-and-Spatial-Symmetry": {
-      "subsubject": "Physics.Quantum-Mechanics"
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "全同费米子的自旋与空间对称性",
+      "labelJa": "同種フェルミ粒子のスピンと空間対称性",
+      "labelEn": "Spin and Spatial Symmetry of Identical Fermions"
     },
     "Physics.Quantum-Mechanics.Degenerate-Harmonic-Oscillator-States": {
-      "subsubject": "Physics.Quantum-Mechanics"
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "谐振子的简并态",
+      "labelJa": "調和振動子の縮退状態",
+      "labelEn": "Degenerate Harmonic Oscillator States"
     },
     "Physics.Quantum-Mechanics.Particle-in-Circular-Well": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics",
         "Chemistry"
-      ]
+      ],
+      "labelZh": "圆形势阱中的粒子",
+      "labelJa": "円形井戸型ポテンシャル中の粒子",
+      "labelEn": "Particle in a Circular Well"
     },
     "Physics.Quantum-Mechanics.Two-Level-Tunneling-and-Rabi-Oscillation": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "二能级隧穿与拉比振荡",
+      "labelJa": "二準位系のトンネル効果とラビ振動",
+      "labelEn": "Two-Level Tunneling and Rabi Oscillations"
     },
     "Physics.Quantum-Mechanics.Time-Evolution-of-Two-Level-System": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "二能级系统的时间演化",
+      "labelJa": "二準位系の時間発展",
+      "labelEn": "Time Evolution of a Two-Level System"
     },
     "Physics.Quantum-Mechanics.Wavefunction-Normalization-and-Energy-Expectation": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Mathematics",
         "Chemistry"
-      ]
+      ],
+      "labelZh": "波函数归一化与能量期望值",
+      "labelJa": "波動関数の規格化とエネルギー期待値",
+      "labelEn": "Wavefunction Normalization and Energy Expectation"
     },
     "Physics.Thermodynamics.Enthalpy-and-Thermodynamic-Relations": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "焓与热力学关系",
+      "labelJa": "エンタルピーと熱力学関係式",
+      "labelEn": "Enthalpy and Thermodynamic Relations"
     },
     "Physics.Thermodynamics.Joule-Thomson-Effect": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry",
         "Engineering"
-      ]
+      ],
+      "labelZh": "焦耳–汤姆孙效应",
+      "labelJa": "ジュール・トムソン効果",
+      "labelEn": "Joule–Thomson Effect"
     },
     "Physics.Thermodynamics.Classical-Ideal-Gas-Partition-Function-and-Gibbs-Factor": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "经典理想气体配分函数与吉布斯因子",
+      "labelJa": "古典理想気体の分配関数とギブズ因子",
+      "labelEn": "Classical Ideal Gas Partition Function and Gibbs Factor"
     },
     "Physics.Thermodynamics.Classical-Ideal-Gas-Entropy-and-Low-Temperature-Failure": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "经典理想气体的熵与低温适用极限",
+      "labelJa": "古典理想気体のエントロピーと低温での破綻",
+      "labelEn": "Classical Ideal Gas Entropy and Breakdown at Low Temperature"
     },
     "Physics.Thermodynamics.Fermi-Dirac-Grand-Canonical-Distribution": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "巨正则系综与费米–狄拉克分布",
+      "labelJa": "大正準集団とフェルミ・ディラック分布",
+      "labelEn": "Grand Canonical Ensemble and Fermi–Dirac Distribution"
     },
     "Physics.Thermodynamics.High-Temperature-Fermi-Gas-Classical-Limit": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "高温费米气体的经典极限",
+      "labelJa": "高温フェルミ気体の古典極限",
+      "labelEn": "Classical Limit of a High-Temperature Fermi Gas"
     },
     "Physics.Thermodynamics.Low-Temperature-Fermi-Gas-Heat-Capacity-and-Entropy": {
-      "subsubject": "Physics.Thermodynamics"
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "低温费米气体的热容与熵",
+      "labelJa": "低温フェルミ気体の熱容量とエントロピー",
+      "labelEn": "Heat Capacity and Entropy of a Low-Temperature Fermi Gas"
     },
     "Physics.Thermodynamics.Ideal-Gas-Entropy-of-Mixing": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "理想气体混合熵",
+      "labelJa": "理想気体の混合エントロピー",
+      "labelEn": "Entropy of Mixing for Ideal Gases"
     },
     "Physics.Thermodynamics.Grand-Canonical-Ideal-Gas": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "巨正则系综中的理想气体",
+      "labelJa": "大正準集団における理想気体",
+      "labelEn": "Ideal Gas in the Grand Canonical Ensemble"
     },
     "Physics.Thermodynamics.Langmuir-Adsorption-Isotherm": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "朗缪尔吸附等温式",
+      "labelJa": "ラングミュアの吸着等温式",
+      "labelEn": "Langmuir Adsorption Isotherm"
     },
     "Physics.Thermodynamics.Chemical-Equilibrium-and-Vant-Hoff-Relation": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "化学平衡与范特霍夫关系",
+      "labelJa": "化学平衡とファント・ホッフの関係式",
+      "labelEn": "Chemical Equilibrium and the van 't Hoff Relation"
     },
     "Physics.Thermodynamics.Canonical-Partition-Function": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Probability-Statistics",
         "Chemistry"
-      ]
+      ],
+      "labelZh": "正则配分函数",
+      "labelJa": "正準分配関数",
+      "labelEn": "Canonical Partition Function"
     },
     "Physics.Thermodynamics.Helmholtz-Free-Energy-Differential": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "亥姆霍兹自由能微分",
+      "labelJa": "ヘルムホルツ自由エネルギーの全微分",
+      "labelEn": "Helmholtz Free Energy Differential"
     },
     "Physics.Thermodynamics.Maxwell-Relations": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "麦克斯韦关系",
+      "labelJa": "マクスウェルの関係式",
+      "labelEn": "Maxwell Relations"
     },
     "Physics.Thermodynamics.Ideal-Gas-Free-Expansion": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "理想气体自由膨胀",
+      "labelJa": "理想気体の自由膨張",
+      "labelEn": "Free Expansion of an Ideal Gas"
     },
     "Physics.Thermodynamics.Clapeyron-Equation": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Chemistry"
-      ]
+      ],
+      "labelZh": "克拉佩龙方程",
+      "labelJa": "クラペイロンの式",
+      "labelEn": "Clapeyron Equation"
     },
     "Physics.Thermodynamics.Photon-Gas-and-Stefan-Boltzmann-Law": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "光子气体与斯特藩–玻尔兹曼定律",
+      "labelJa": "光子気体とシュテファン・ボルツマンの法則",
+      "labelEn": "Photon Gas and the Stefan–Boltzmann Law"
     },
     "Physics.Thermodynamics.Mean-Field-Ising-Model-and-Phase-Transition": {
       "subsubject": "Physics.Thermodynamics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "平均场伊辛模型与相变",
+      "labelJa": "平均場イジング模型と相転移",
+      "labelEn": "Mean-Field Ising Model and Phase Transitions"
     },
     "Physics.Quantum-Mechanics.Landau-Levels-in-Uniform-Magnetic-Field": {
       "subsubject": "Physics.Quantum-Mechanics",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "均匀磁场中的朗道能级",
+      "labelJa": "一様磁場中のランダウ準位",
+      "labelEn": "Landau Levels in a Uniform Magnetic Field"
     },
     "Physics.Electromagnetism.Gauge-Transformation-and-Gauge-Invariance": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "规范变换与规范不变性",
+      "labelJa": "ゲージ変換とゲージ不変性",
+      "labelEn": "Gauge Transformations and Gauge Invariance"
     },
     "Physics.Electromagnetism.Ampere-Law": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "安培定律",
+      "labelJa": "アンペールの法則",
+      "labelEn": "Ampère's Law"
     },
     "Physics.Electromagnetism.Biot-Savart-Law": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "毕奥–萨伐尔定律",
+      "labelJa": "ビオ・サバールの法則",
+      "labelEn": "Biot–Savart Law"
     },
     "Physics.Electromagnetism.Capacitance-and-Electrostatic-Energy": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "电容与静电能",
+      "labelJa": "電気容量と静電エネルギー",
+      "labelEn": "Capacitance and Electrostatic Energy"
     },
     "Physics.Electromagnetism.Coaxial-Capacitor-and-Line": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "同轴电容器与传输线",
+      "labelJa": "同軸コンデンサと同軸線路",
+      "labelEn": "Coaxial Capacitors and Transmission Lines"
     },
     "Physics.Electromagnetism.Dielectrics-and-Boundary-Conditions": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "电介质与边界条件",
+      "labelJa": "誘電体と境界条件",
+      "labelEn": "Dielectrics and Boundary Conditions"
     },
     "Physics.Electromagnetism.Electric-Potential-and-Field": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "电势与电场",
+      "labelJa": "電位と電場",
+      "labelEn": "Electric Potential and Electric Fields"
     },
     "Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "电磁感应与电感",
+      "labelJa": "電磁誘導とインダクタンス",
+      "labelEn": "Electromagnetic Induction and Inductance"
     },
     "Physics.Electromagnetism.Electrostatic-Force": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "静电力",
+      "labelJa": "静電力",
+      "labelEn": "Electrostatic Forces"
     },
     "Physics.Electromagnetism.Electromagnetic-Wave": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "电磁波",
+      "labelJa": "電磁波",
+      "labelEn": "Electromagnetic Waves"
     },
     "Physics.Electromagnetism.Electrostatic-Shielding": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "静电屏蔽",
+      "labelJa": "静電遮蔽",
+      "labelEn": "Electrostatic Shielding"
     },
     "Physics.Electromagnetism.Gauss-Law": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "高斯定律",
+      "labelJa": "ガウスの法則",
+      "labelEn": "Gauss's Law"
     },
     "Physics.Electromagnetism.Helmholtz-Coil": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "亥姆霍兹线圈",
+      "labelJa": "ヘルムホルツコイル",
+      "labelEn": "Helmholtz Coils"
     },
     "Physics.Electromagnetism.Magnetic-Force": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "磁力",
+      "labelJa": "磁気力",
+      "labelEn": "Magnetic Forces"
     },
     "Physics.Electromagnetism.Lorentz-Force-and-Charged-Particle-Motion": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "洛伦兹力与带电粒子运动",
+      "labelJa": "ローレンツ力と荷電粒子の運動",
+      "labelEn": "Lorentz Force and Charged-Particle Motion"
     },
     "Physics.Electromagnetism.Crossed-Electric-and-Magnetic-Fields": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "正交电场与磁场",
+      "labelJa": "直交する電場と磁場",
+      "labelEn": "Crossed Electric and Magnetic Fields"
     },
     "Physics.Electromagnetism.Cyclotron-Motion": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "回旋运动",
+      "labelJa": "サイクロトロン運動",
+      "labelEn": "Cyclotron Motion"
     },
     "Physics.Electromagnetism.Drude-Relaxation-Time": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "德鲁德模型的弛豫时间",
+      "labelJa": "ドルーデ模型の緩和時間",
+      "labelEn": "Relaxation Time in the Drude Model"
     },
     "Physics.Electromagnetism.Hall-Angle": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "霍尔角",
+      "labelJa": "ホール角",
+      "labelEn": "Hall Angle"
     },
     "Physics.Electromagnetism.Rotating-Conductor-Motional-Electromotive-Force": {
       "subsubject": "Physics.Electromagnetism",
@@ -620,41 +911,65 @@
       ],
       "aliases": [
         "Physics.Electromagnetism.Rotating-Conductor-Motional-EMF"
-      ]
+      ],
+      "labelZh": "旋转导体的动生电动势",
+      "labelJa": "回転導体の運動起電力",
+      "labelEn": "Motional EMF in Rotating Conductors"
     },
     "Physics.Electromagnetism.Magnetic-Energy": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "磁场能量",
+      "labelJa": "磁場のエネルギー",
+      "labelEn": "Magnetic Field Energy"
     },
     "Physics.Electromagnetism.Magnetic-Dipole-Torque": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "磁偶极子的力矩",
+      "labelJa": "磁気双極子に働くトルク",
+      "labelEn": "Torque on a Magnetic Dipole"
     },
     "Physics.Electromagnetism.Fields-on-Axis-of-Charged-Rotating-Ring": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "带电旋转圆环轴线上的电磁场",
+      "labelJa": "帯電した回転円環の軸上の電磁場",
+      "labelEn": "Fields on the Axis of a Charged Rotating Ring"
     },
     "Physics.Electromagnetism.Rectangular-Cavity-Eigenmodes": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Mathematics",
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "矩形谐振腔的本征模",
+      "labelJa": "矩形空洞共振器の固有モード",
+      "labelEn": "Eigenmodes of a Rectangular Cavity"
     },
     "Physics.Electromagnetism.Current-Loop-Magnetic-Moment-and-Torque": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "电流环的磁矩与力矩",
+      "labelJa": "電流ループの磁気モーメントとトルク",
+      "labelEn": "Magnetic Moment and Torque of a Current Loop"
     },
     "Physics.Electromagnetism.Fermat-Principle-and-Snells-Law": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "费马原理与斯涅尔定律",
+      "labelJa": "フェルマーの原理とスネルの法則",
+      "labelEn": "Fermat's Principle and Snell's Law"
     },
     "Physics.Electromagnetism.Electric-Dipole-Potential": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "电偶极子的电势",
+      "labelJa": "電気双極子の電位",
+      "labelEn": "Electric Dipole Potential"
     },
     "Physics.Electromagnetism.Electric-Dipole-Radiation": {
       "subsubject": "Physics.Electromagnetism",
@@ -669,112 +984,208 @@
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "均匀电场中的导体球",
+      "labelJa": "一様電場中の導体球",
+      "labelEn": "Conducting Sphere in a Uniform Electric Field"
     },
     "Physics.Electromagnetism.Surface-Current-Boundary-Condition": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "面电流边界条件",
+      "labelJa": "表面電流の境界条件",
+      "labelEn": "Surface Current Boundary Conditions"
     },
     "Physics.Electromagnetism.Spherical-Capacitor": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "球形电容器",
+      "labelJa": "球形コンデンサ",
+      "labelEn": "Spherical Capacitors"
     },
     "Physics.Electromagnetism.Superposition-Principle": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "叠加原理",
+      "labelJa": "重ね合わせの原理",
+      "labelEn": "Superposition Principle"
     },
     "Physics.Mechanics.Connected-Particles-and-Tension": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "连接质点与张力",
+      "labelJa": "連結質点と張力",
+      "labelEn": "Connected Particles and Tension"
     },
     "Physics.Mechanics.Center-of-Mass-and-Angular-Momentum": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "质心与角动量",
+      "labelJa": "重心と角運動量",
+      "labelEn": "Center of Mass and Angular Momentum"
     },
     "Physics.Electromagnetism.Magnetic-Dipole-Vector-Potential": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "磁偶极子的矢势",
+      "labelJa": "磁気双極子のベクトルポテンシャル",
+      "labelEn": "Magnetic Dipole Vector Potential"
     },
     "Physics.Mechanics.Rigid-Body-Rotation-and-Rolling": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "刚体转动与滚动",
+      "labelJa": "剛体の回転と転がり",
+      "labelEn": "Rigid-Body Rotation and Rolling"
     },
     "Physics.Mechanics.Collision-and-Coefficient-of-Restitution": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "碰撞与恢复系数",
+      "labelJa": "衝突と反発係数",
+      "labelEn": "Collisions and the Coefficient of Restitution"
     },
     "Physics.Mechanics.Euler-Bernoulli-Beam": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "欧拉–伯努利梁",
+      "labelJa": "オイラー・ベルヌーイはり",
+      "labelEn": "Euler–Bernoulli Beams"
     },
     "Physics.Mechanics.Rigid-Body-Moment-of-Inertia": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "刚体转动惯量",
+      "labelJa": "剛体の慣性モーメント",
+      "labelEn": "Rigid-Body Moment of Inertia"
     },
     "Physics.Mechanics.Simple-Harmonic-Motion": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "简谐运动",
+      "labelJa": "単振動",
+      "labelEn": "Simple Harmonic Motion"
     },
     "Physics.Electromagnetism.Skin-Effect": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "集肤效应",
+      "labelJa": "表皮効果",
+      "labelEn": "Skin Effect"
     },
     "Physics.Electromagnetism.Method-of-Images": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "镜像法",
+      "labelJa": "鏡像法",
+      "labelEn": "Method of Images"
     },
     "Physics.Electromagnetism.Parallel-Wire-Transmission-Line": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "平行双线传输线",
+      "labelJa": "平行二線式伝送線路",
+      "labelEn": "Parallel-Wire Transmission Lines"
     },
     "Physics.Thermodynamics.Van-der-Waals-Gas": {
-      "subsubject": "Physics.Thermodynamics"
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "范德瓦耳斯气体",
+      "labelJa": "ファン・デル・ワールス気体",
+      "labelEn": "van der Waals Gas"
     },
     "Physics.Mechanics.Rocket-Equation-and-Attitude-Stability": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "火箭方程与姿态稳定性",
+      "labelJa": "ロケット方程式と姿勢安定性",
+      "labelEn": "Rocket Equation and Attitude Stability"
     },
     "Physics.Electromagnetism.Conduction-and-Displacement-Current": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "传导电流与位移电流",
+      "labelJa": "伝導電流と変位電流",
+      "labelEn": "Conduction and Displacement Currents"
     },
     "Physics.Electromagnetism.Magnetization-and-Bound-Currents": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "磁化与束缚电流",
+      "labelJa": "磁化と束縛電流",
+      "labelEn": "Magnetization and Bound Currents"
     },
     "Physics.Electromagnetism.RLC-Series-Resonance": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "RLC 串联谐振",
+      "labelJa": "RLC直列共振",
+      "labelEn": "RLC Series Resonance"
     },
     "Physics.Thermodynamics.Carnot-Cycle-and-Heat-Engine-Efficiency": {
-      "subsubject": "Physics.Thermodynamics"
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "卡诺循环与热机效率",
+      "labelJa": "カルノーサイクルと熱機関の効率",
+      "labelEn": "Carnot Cycle and Heat Engine Efficiency"
     },
     "Physics.Thermodynamics.Ideal-Gas-Entropy-and-Heat-Capacities": {
-      "subsubject": "Physics.Thermodynamics"
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "理想气体的熵与热容",
+      "labelJa": "理想気体のエントロピーと熱容量",
+      "labelEn": "Ideal Gas Entropy and Heat Capacities"
     },
     "Physics.Thermodynamics.Otto-Diesel-and-Dual-Cycles": {
-      "subsubject": "Physics.Thermodynamics"
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "奥托、柴油机与混合循环",
+      "labelJa": "オットー・ディーゼル・サバテサイクル",
+      "labelEn": "Otto, Diesel, and Dual Cycles"
     },
     "Physics.Mechanics.Monatomic-and-Diatomic-Lattice-Vibrations": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "单原子与双原子晶格振动",
+      "labelJa": "単原子格子と二原子格子の振動",
+      "labelEn": "Monatomic and Diatomic Lattice Vibrations"
     },
     "Physics.Electromagnetism.Young-Double-Slit-Interference": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "杨氏双缝干涉",
+      "labelJa": "ヤングの二重スリット干渉",
+      "labelEn": "Young's Double-Slit Interference"
     },
     "Physics.Quantum-Mechanics.De-Broglie-Wavelength": {
-      "subsubject": "Physics.Quantum-Mechanics"
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "德布罗意波长",
+      "labelJa": "ド・ブロイ波長",
+      "labelEn": "de Broglie Wavelength"
     },
     "Physics.Mechanics.Lorentz-Transformation-and-Relativistic-Energy": {
-      "subsubject": "Physics.Mechanics"
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "洛伦兹变换与相对论能量",
+      "labelJa": "ローレンツ変換と相対論的エネルギー",
+      "labelEn": "Lorentz Transformations and Relativistic Energy"
     },
     "Physics.Thermodynamics.Virial-Expansion": {
-      "subsubject": "Physics.Thermodynamics"
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "维里展开",
+      "labelJa": "ビリアル展開",
+      "labelEn": "Virial Expansion"
     },
     "Physics.Electromagnetism.Space-Charge-and-Ion-Drift": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "空间电荷与离子漂移",
+      "labelJa": "空間電荷とイオンのドリフト",
+      "labelEn": "Space Charge and Ion Drift"
     },
     "Physics.Electromagnetism.Thin-Lens-and-Fraunhofer-Diffraction": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "薄透镜与夫琅禾费衍射",
+      "labelJa": "薄レンズとフラウンホーファー回折",
+      "labelEn": "Thin Lenses and Fraunhofer Diffraction"
     },
     "Physics.Electromagnetism.Prism-and-Diffraction-Grating": {
-      "subsubject": "Physics.Electromagnetism"
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "棱镜与衍射光栅",
+      "labelJa": "プリズムと回折格子",
+      "labelEn": "Prisms and Diffraction Gratings"
     },
     "Physics.Thermodynamics.Intercooled-Brayton-Cycle": {
-      "subsubject": "Physics.Thermodynamics"
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "带中间冷却的布雷顿循环",
+      "labelJa": "中間冷却を伴うブレイトンサイクル",
+      "labelEn": "Intercooled Brayton Cycle"
     },
     "Physics.Thermodynamics.Heat-Pump-and-Refrigeration": {
       "subsubject": "Physics.Thermodynamics",
@@ -790,9 +1201,18 @@
     },
     "Physics.Thermodynamics.Exergy-and-Maximum-Useful-Work": {
       "subsubject": "Physics.Thermodynamics",
-      "labelZh": "火用与最大有用功",
+      "labelZh": "㶲与最大有用功",
       "labelJa": "エクセルギーと最大有効仕事",
-      "labelEn": "Exergy and Maximum Useful Work"
+      "labelEn": "Exergy and Maximum Useful Work",
+      "searchAliases": {
+        "en": [
+          "availability"
+        ],
+        "zh": [
+          "火用"
+        ],
+        "ja": []
+      }
     },
     "Physics.Mechanics.String-Vibration": {
       "subsubject": "Physics.Mechanics",
@@ -816,7 +1236,7 @@
       "subsubject": "Physics.Thermodynamics",
       "labelZh": "稳定流动能量方程",
       "labelJa": "定常流のエネルギー式",
-      "labelEn": "Steady Flow Energy Equation"
+      "labelEn": "Steady-Flow Energy Equation"
     },
     "Physics.Thermodynamics.Isentropic-Flow": {
       "subsubject": "Physics.Thermodynamics",

@@ -47,121 +47,190 @@
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "爱因斯坦固体模型的热容",
+      "labelJa": "アインシュタイン固体模型の熱容量",
+      "labelEn": "Heat Capacity of an Einstein Solid"
     },
     "Chemistry.Physical-Chemistry.Entropy-Change": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "熵变",
+      "labelJa": "エントロピー変化",
+      "labelEn": "Entropy Change"
     },
     "Chemistry.Physical-Chemistry.Gibbs-Free-Energy-and-Non-PV-Work": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "吉布斯自由能与非体积功",
+      "labelJa": "ギブズ自由エネルギーと非膨張仕事",
+      "labelEn": "Gibbs Free Energy and Non-PV Work"
     },
     "Chemistry.Physical-Chemistry.Electrochemical-Cell-Potential-from-Gibbs-Free-Energy": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "由吉布斯自由能求电池电动势",
+      "labelJa": "ギブズ自由エネルギーから求める電池の起電力",
+      "labelEn": "Electrochemical Cell Potential from Gibbs Free Energy"
     },
     "Chemistry.Physical-Chemistry.Ideal-Gas-Thermodynamics": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "理想气体热力学",
+      "labelJa": "理想気体の熱力学",
+      "labelEn": "Ideal Gas Thermodynamics"
     },
     "Chemistry.Physical-Chemistry.Consecutive-First-Order-Reaction-Kinetics": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "连续一级反应动力学",
+      "labelJa": "逐次一次反応の速度論",
+      "labelEn": "Consecutive First-Order Reaction Kinetics"
     },
     "Chemistry.Physical-Chemistry.Operator-Commutator": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "算符对易子",
+      "labelJa": "演算子の交換子",
+      "labelEn": "Operator Commutators"
     },
     "Chemistry.Physical-Chemistry.Planck-Blackbody-Law": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "普朗克黑体辐射定律",
+      "labelJa": "プランクの黒体放射則",
+      "labelEn": "Planck's Blackbody Radiation Law"
     },
     "Chemistry.Physical-Chemistry.Wavefunction-Normalization": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "波函数归一化",
+      "labelJa": "波動関数の規格化",
+      "labelEn": "Wavefunction Normalization"
     },
     "Chemistry.Physical-Chemistry.Wien-Displacement-Law": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "维恩位移定律",
+      "labelJa": "ウィーンの変位則",
+      "labelEn": "Wien's Displacement Law"
     },
     "Chemistry.Physical-Chemistry.Particle-in-a-Box-and-HOMO-LUMO-Transition": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Physics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "箱中粒子与 HOMO–LUMO 跃迁",
+      "labelJa": "箱の中の粒子とHOMO–LUMO遷移",
+      "labelEn": "Particle in a Box and HOMO–LUMO Transitions"
     },
     "Chemistry.Physical-Chemistry.Langmuir-Hinshelwood-CO-Oxidation": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "朗缪尔–欣谢尔伍德机理的一氧化碳氧化",
+      "labelJa": "ラングミュア・ヒンシェルウッド機構によるCO酸化",
+      "labelEn": "CO Oxidation by the Langmuir–Hinshelwood Mechanism"
     },
     "Chemistry.Physical-Chemistry.Enzyme-Inhibition-and-Lineweaver-Burk-Plot": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Bioinformatics"
-      ]
+      ],
+      "labelZh": "酶抑制与双倒数图",
+      "labelJa": "酵素阻害とラインウィーバー・バークプロット",
+      "labelEn": "Enzyme Inhibition and Lineweaver–Burk Plots"
     },
     "Chemistry.Inorganic-Chemistry.Stepwise-Complex-Formation-and-Ligand-Field": {
       "subsubject": "Chemistry.Inorganic-Chemistry",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "逐级配合反应与配位场",
+      "labelJa": "逐次錯形成と配位子場",
+      "labelEn": "Stepwise Complex Formation and Ligand Fields"
     },
     "Chemistry.Inorganic-Chemistry.Coordination-Compound-Composition": {
-      "subsubject": "Chemistry.Inorganic-Chemistry"
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "labelZh": "配位化合物的组成",
+      "labelJa": "配位化合物の組成",
+      "labelEn": "Coordination Compound Composition"
     },
     "Chemistry.Inorganic-Chemistry.Radius-Ratio-Rule-and-Ionic-Coordination": {
-      "subsubject": "Chemistry.Inorganic-Chemistry"
+      "subsubject": "Chemistry.Inorganic-Chemistry",
+      "labelZh": "半径比规则与离子配位",
+      "labelJa": "半径比則とイオンの配位",
+      "labelEn": "Radius-Ratio Rule and Ionic Coordination"
     },
     "Chemistry.Inorganic-Chemistry.Oxygen-Vacancies-in-Stabilized-Zirconia": {
       "subsubject": "Chemistry.Inorganic-Chemistry",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "稳定氧化锆中的氧空位",
+      "labelJa": "安定化ジルコニアの酸素空孔",
+      "labelEn": "Oxygen Vacancies in Stabilized Zirconia"
     },
     "Chemistry.Organic-Chemistry.Robinson-Annulation": {
-      "subsubject": "Chemistry.Organic-Chemistry"
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "罗宾逊环化反应",
+      "labelJa": "ロビンソン環化反応",
+      "labelEn": "Robinson Annulation"
     },
     "Chemistry.Organic-Chemistry.Stork-Enamine-Alkylation": {
-      "subsubject": "Chemistry.Organic-Chemistry"
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "斯托克烯胺烷基化",
+      "labelJa": "ストークのエナミンアルキル化",
+      "labelEn": "Stork Enamine Alkylation"
     },
     "Chemistry.Organic-Chemistry.Diels-Alder-and-Amino-Claisen-Rearrangements": {
-      "subsubject": "Chemistry.Organic-Chemistry"
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "狄尔斯–阿尔德反应与氨基克莱森重排",
+      "labelJa": "ディールス・アルダー反応とアミノクライゼン転位",
+      "labelEn": "Diels–Alder Reaction and Amino-Claisen Rearrangement"
     },
     "Chemistry.Organic-Chemistry.Cyclohexane-Trans-Diaxial-E2-Elimination": {
-      "subsubject": "Chemistry.Organic-Chemistry"
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "环己烷反式双轴向 E2 消除",
+      "labelJa": "シクロヘキサンのトランスジアキシアルE2脱離",
+      "labelEn": "Trans-Diaxial E2 Elimination in Cyclohexanes"
     },
     "Chemistry.Organic-Chemistry.Friedel-Crafts-Acylation-to-Alkylbenzene": {
-      "subsubject": "Chemistry.Organic-Chemistry"
+      "subsubject": "Chemistry.Organic-Chemistry",
+      "labelZh": "傅里德尔–克拉夫茨酰基化制备烷基苯",
+      "labelJa": "フリーデル・クラフツアシル化を経るアルキルベンゼン合成",
+      "labelEn": "Alkylbenzene Synthesis via Friedel–Crafts Acylation"
     },
     "Chemistry.Organic-Chemistry.Arene-Oxide-NIH-Shift": {
       "subsubject": "Chemistry.Organic-Chemistry",
       "relatedSubjects": [
         "Bioinformatics"
-      ]
+      ],
+      "labelZh": "芳烃氧化物的 NIH 迁移",
+      "labelJa": "アレーンオキシドのNIH転位",
+      "labelEn": "NIH Shift in Arene Oxides"
     }
   }
 }

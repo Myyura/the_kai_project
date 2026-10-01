@@ -67,14 +67,20 @@
   ],
   "topics": {
     "Discrete-Mathematics.Combinatorics.Reconstruction-from-Pairwise-Sums": {
-      "subsubject": "Discrete-Mathematics.Combinatorics"
+      "subsubject": "Discrete-Mathematics.Combinatorics",
+      "labelZh": "由两两之和重建原数",
+      "labelJa": "対ごとの和からの元の数の復元",
+      "labelEn": "Reconstruction from Pairwise Sums"
     },
     "Discrete-Mathematics.Combinatorics.Matroid-Theory": {
       "subsubject": "Discrete-Mathematics.Combinatorics",
       "relatedSubjects": [
         "Mathematics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "拟阵理论",
+      "labelJa": "マトロイド理論",
+      "labelEn": "Matroid Theory"
     },
     "Discrete-Mathematics.Combinatorics.Binomial-Coefficient": {
       "subsubject": "Discrete-Mathematics.Combinatorics",
@@ -83,13 +89,19 @@
       ],
       "aliases": [
         "Discrete-Mathematics.Discrete-Mathematics.Binomial-Coefficient"
-      ]
+      ],
+      "labelZh": "二项式系数",
+      "labelJa": "二項係数",
+      "labelEn": "Binomial Coefficient"
     },
     "Discrete-Mathematics.Combinatorics.Binomial-Inversion": {
       "subsubject": "Discrete-Mathematics.Combinatorics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "二项式反演",
+      "labelJa": "二項反転公式",
+      "labelEn": "Binomial Inversion"
     },
     "Discrete-Mathematics.Combinatorics.Catalan-Number": {
       "subsubject": "Discrete-Mathematics.Combinatorics",
@@ -98,7 +110,10 @@
       ],
       "aliases": [
         "Discrete-Mathematics.Discrete-Mathematics.Catalan-Number"
-      ]
+      ],
+      "labelZh": "卡塔兰数",
+      "labelJa": "カタラン数",
+      "labelEn": "Catalan Number"
     },
     "Discrete-Mathematics.Combinatorics.Recurrence-Relation": {
       "subsubject": "Discrete-Mathematics.Combinatorics",
@@ -107,63 +122,105 @@
       ],
       "aliases": [
         "Discrete-Mathematics.Discrete-Mathematics.Recurrence-Relation"
-      ]
+      ],
+      "labelZh": "递推关系",
+      "labelJa": "漸化式",
+      "labelEn": "Recurrence Relation"
     },
     "Discrete-Mathematics.Combinatorics.Fibonacci-Recurrence": {
       "subsubject": "Discrete-Mathematics.Combinatorics",
       "relatedSubjects": [
         "Mathematics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "斐波那契递推关系",
+      "labelJa": "フィボナッチ数の漸化式",
+      "labelEn": "Fibonacci Recurrence"
     },
     "Discrete-Mathematics.Set-Theory.Image-of-Intersection": {
-      "subsubject": "Discrete-Mathematics.Set-Theory"
+      "subsubject": "Discrete-Mathematics.Set-Theory",
+      "labelZh": "交集的像",
+      "labelJa": "共通部分の像",
+      "labelEn": "Image of an Intersection"
     },
     "Discrete-Mathematics.Set-Theory.Composition-of-Injective-and-Surjective-Maps": {
-      "subsubject": "Discrete-Mathematics.Set-Theory"
+      "subsubject": "Discrete-Mathematics.Set-Theory",
+      "labelZh": "单射与满射映射的复合",
+      "labelJa": "単射と全射の合成",
+      "labelEn": "Composition of Injective and Surjective Maps"
     },
     "Discrete-Mathematics.Set-Theory.Image-and-Preimage": {
-      "subsubject": "Discrete-Mathematics.Set-Theory"
+      "subsubject": "Discrete-Mathematics.Set-Theory",
+      "labelZh": "像与原像",
+      "labelJa": "像と逆像",
+      "labelEn": "Image and Preimage"
     },
     "Discrete-Mathematics.Set-Theory.Cardinality": {
-      "subsubject": "Discrete-Mathematics.Set-Theory"
+      "subsubject": "Discrete-Mathematics.Set-Theory",
+      "labelZh": "基数",
+      "labelJa": "濃度",
+      "labelEn": "Cardinality"
     },
     "Discrete-Mathematics.Set-Theory.Binary-Relations": {
-      "subsubject": "Discrete-Mathematics.Set-Theory"
+      "subsubject": "Discrete-Mathematics.Set-Theory",
+      "labelZh": "二元关系",
+      "labelJa": "二項関係",
+      "labelEn": "Binary Relations"
     },
     "Discrete-Mathematics.Set-Theory.Partially-Ordered-Sets-and-Chains": {
-      "subsubject": "Discrete-Mathematics.Set-Theory"
+      "subsubject": "Discrete-Mathematics.Set-Theory",
+      "labelZh": "偏序集与链",
+      "labelJa": "半順序集合と鎖",
+      "labelEn": "Partially Ordered Sets and Chains"
     },
     "Discrete-Mathematics.Mathematical-Logic.Predicate-Logic": {
-      "subsubject": "Discrete-Mathematics.Mathematical-Logic"
+      "subsubject": "Discrete-Mathematics.Mathematical-Logic",
+      "labelZh": "谓词逻辑",
+      "labelJa": "述語論理",
+      "labelEn": "Predicate Logic"
     },
     "Discrete-Mathematics.Mathematical-Logic.Mathematical-Induction": {
-      "subsubject": "Discrete-Mathematics.Mathematical-Logic"
+      "subsubject": "Discrete-Mathematics.Mathematical-Logic",
+      "labelZh": "数学归纳法",
+      "labelJa": "数学的帰納法",
+      "labelEn": "Mathematical Induction"
     },
     "Discrete-Mathematics.Graph-Theory.Adjacency-Spectrum-of-Path-and-Complete-Graphs": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "路径图与完全图的邻接谱",
+      "labelJa": "パスグラフと完全グラフの隣接スペクトル",
+      "labelEn": "Adjacency Spectra of Path and Complete Graphs"
     },
     "Discrete-Mathematics.Graph-Theory.Spectral-Diameter-Bound": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "基于谱的图直径界",
+      "labelJa": "スペクトルによるグラフ直径の評価",
+      "labelEn": "Spectral Diameter Bound"
     },
     "Discrete-Mathematics.Graph-Theory.Laplacian-Positive-Semidefiniteness": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "图拉普拉斯矩阵的半正定性",
+      "labelJa": "グラフラプラシアンの半正定値性",
+      "labelEn": "Positive Semidefiniteness of the Graph Laplacian"
     },
     "Discrete-Mathematics.Graph-Theory.Heat-Equation-on-Cycle-Graph-by-Discrete-Fourier-Transform": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
       "relatedSubjects": [
         "Mathematics",
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "用离散傅里叶变换求解圈图上的热方程",
+      "labelJa": "離散フーリエ変換によるサイクルグラフ上の熱方程式の解法",
+      "labelEn": "Solving the Heat Equation on a Cycle Graph by DFT"
     },
     "Discrete-Mathematics.Graph-Theory.Consensus-Dynamics-and-Algebraic-Connectivity": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
@@ -171,25 +228,37 @@
         "Mathematics",
         "Electrical-Electronic",
         "Engineering"
-      ]
+      ],
+      "labelZh": "一致性动力学与代数连通度",
+      "labelJa": "合意形成ダイナミクスと代数的連結度",
+      "labelEn": "Consensus Dynamics and Algebraic Connectivity"
     },
     "Discrete-Mathematics.Graph-Theory.Graph-Laplacian": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "图拉普拉斯矩阵",
+      "labelJa": "グラフラプラシアン",
+      "labelEn": "Graph Laplacian"
     },
     "Discrete-Mathematics.Graph-Algorithms.A-Star-Shortest-Path-Search": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "A* 最短路径搜索",
+      "labelJa": "A* 法による最短経路探索",
+      "labelEn": "A* Shortest Path Search"
     },
     "Discrete-Mathematics.Graph-Algorithms.Bellman-Ford-Algorithm": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "Bellman–Ford 算法",
+      "labelJa": "ベルマン–フォード法",
+      "labelEn": "Bellman-Ford Algorithm"
     },
     "Discrete-Mathematics.Graph-Algorithms.Breadth-First-Search": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
@@ -198,7 +267,19 @@
       ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.BFS"
-      ]
+      ],
+      "labelZh": "广度优先搜索",
+      "labelJa": "幅優先探索",
+      "labelEn": "Breadth-First Search",
+      "searchAliases": {
+        "en": [
+          "BFS"
+        ],
+        "zh": [
+          "宽度优先搜索"
+        ],
+        "ja": []
+      }
     },
     "Discrete-Mathematics.Graph-Algorithms.Depth-First-Search": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
@@ -207,111 +288,210 @@
       ],
       "aliases": [
         "Computer-Science.Data-Structures-Algorithms.DFS"
-      ]
+      ],
+      "labelZh": "深度优先搜索",
+      "labelJa": "深さ優先探索",
+      "labelEn": "Depth-First Search",
+      "searchAliases": {
+        "en": [
+          "DFS"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Discrete-Mathematics.Graph-Algorithms.Dijkstra-Algorithm": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "Dijkstra 算法",
+      "labelJa": "ダイクストラ法",
+      "labelEn": "Dijkstra's Algorithm"
     },
     "Discrete-Mathematics.Graph-Algorithms.Shortest-Path-Counting": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "最短路径计数",
+      "labelJa": "最短経路の数え上げ",
+      "labelEn": "Shortest Path Counting"
     },
     "Discrete-Mathematics.Graph-Algorithms.Kruskal-Algorithm": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "Kruskal 算法",
+      "labelJa": "クラスカル法",
+      "labelEn": "Kruskal's Algorithm"
     },
     "Discrete-Mathematics.Graph-Algorithms.Prim-Algorithm": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "Prim 算法",
+      "labelJa": "プリム法",
+      "labelEn": "Prim's Algorithm"
     },
     "Discrete-Mathematics.Graph-Algorithms.Topological-Sort": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "拓扑排序",
+      "labelJa": "トポロジカルソート",
+      "labelEn": "Topological Sort"
     },
     "Discrete-Mathematics.Graph-Theory.Articulation-Point": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "割点",
+      "labelJa": "関節点",
+      "labelEn": "Articulation Point",
+      "searchAliases": {
+        "en": [
+          "Cut Vertex"
+        ],
+        "zh": [
+          "关节点"
+        ],
+        "ja": [
+          "切断点"
+        ]
+      }
     },
     "Discrete-Mathematics.Graph-Theory.Adjacency-Matrix-and-Walk-Counting": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
       "relatedSubjects": [
         "Mathematics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "邻接矩阵与游走计数",
+      "labelJa": "隣接行列と歩道の数え上げ",
+      "labelEn": "Adjacency Matrices and Walk Counting"
     },
     "Discrete-Mathematics.Graph-Theory.Bipartite-Graph": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "二分图",
+      "labelJa": "二部グラフ",
+      "labelEn": "Bipartite Graph"
     },
     "Discrete-Mathematics.Graph-Theory.Graph-Coloring-and-Chromatic-Polynomial": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "图着色与色多项式",
+      "labelJa": "グラフの彩色と彩色多項式",
+      "labelEn": "Graph Coloring and Chromatic Polynomials"
     },
     "Discrete-Mathematics.Graph-Theory.Bipartite-Matching": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "二分图匹配",
+      "labelJa": "二部グラフのマッチング",
+      "labelEn": "Bipartite Matching"
     },
     "Discrete-Mathematics.Graph-Theory.Complete-Graph": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "完全图",
+      "labelJa": "完全グラフ",
+      "labelEn": "Complete Graph"
     },
     "Discrete-Mathematics.Graph-Theory.Clique": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "团",
+      "labelJa": "クリーク",
+      "labelEn": "Clique"
     },
     "Discrete-Mathematics.Graph-Theory.Connectivity": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "连通性",
+      "labelJa": "連結性",
+      "labelEn": "Connectivity"
     },
     "Discrete-Mathematics.Graph-Theory.Vertex-Degree": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "顶点度数",
+      "labelJa": "頂点の次数",
+      "labelEn": "Vertex Degree"
     },
     "Discrete-Mathematics.Graph-Theory.Graph-Diameter": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "图的直径",
+      "labelJa": "グラフの直径",
+      "labelEn": "Graph Diameter"
     },
     "Discrete-Mathematics.Graph-Theory.Extremal-Graph-Construction": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "极值图构造",
+      "labelJa": "極値グラフの構成",
+      "labelEn": "Extremal Graph Construction"
     },
     "Discrete-Mathematics.Graph-Theory.Cut": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "割",
+      "labelJa": "カット",
+      "labelEn": "Cut"
     },
     "Discrete-Mathematics.Graph-Theory.Euler-Circuit": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "欧拉回路",
+      "labelJa": "オイラー閉路",
+      "labelEn": "Euler Circuit"
     },
     "Discrete-Mathematics.Graph-Theory.Graph-Basics": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
-      "broad": true
+      "broad": true,
+      "labelZh": "图论基础",
+      "labelJa": "グラフ理論の基礎",
+      "labelEn": "Graph Basics"
     },
     "Discrete-Mathematics.Graph-Theory.Graph-Isomorphism": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "图同构",
+      "labelJa": "グラフ同型",
+      "labelEn": "Graph Isomorphism"
     },
     "Discrete-Mathematics.Graph-Theory.Matching": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "匹配",
+      "labelJa": "マッチング",
+      "labelEn": "Matching"
     },
     "Discrete-Mathematics.Graph-Theory.Planar-Graph": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "平面图",
+      "labelJa": "平面グラフ",
+      "labelEn": "Planar Graph"
     },
     "Discrete-Mathematics.Graph-Theory.Spanning-Tree": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "生成树",
+      "labelJa": "全域木",
+      "labelEn": "Spanning Tree"
     },
     "Discrete-Mathematics.Graph-Theory.Tree-Metric": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "树度量",
+      "labelJa": "木距離",
+      "labelEn": "Tree Metric"
     },
     "Discrete-Mathematics.Graph-Theory.Ramsey-Theory": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory"
+      "subsubject": "Discrete-Mathematics.Graph-Theory",
+      "labelZh": "拉姆齐理论",
+      "labelJa": "ラムゼー理論",
+      "labelEn": "Ramsey Theory"
     },
     "Discrete-Mathematics.Combinatorics.Counting": {
-      "subsubject": "Discrete-Mathematics.Combinatorics"
+      "subsubject": "Discrete-Mathematics.Combinatorics",
+      "labelZh": "计数",
+      "labelJa": "数え上げ",
+      "labelEn": "Counting"
     },
     "Discrete-Mathematics.Combinatorics.Reflection-Principle": {
       "subsubject": "Discrete-Mathematics.Combinatorics",
@@ -323,7 +503,10 @@
       "descriptionEn": "Bijections and lattice-path counts obtained by reflecting the path before its first boundary hit."
     },
     "Discrete-Mathematics.Mathematical-Logic.Propositional-Compactness-and-Maximal-Consistency": {
-      "subsubject": "Discrete-Mathematics.Mathematical-Logic"
+      "subsubject": "Discrete-Mathematics.Mathematical-Logic",
+      "labelZh": "命题逻辑的紧致性与极大一致性",
+      "labelJa": "命題論理のコンパクト性と極大無矛盾性",
+      "labelEn": "Propositional Compactness and Maximal Consistency"
     }
   }
 }

@@ -225,12 +225,6 @@
   text-decoration: none;
 }
 
-.subsubjectId {
-  color: var(--ifm-color-emphasis-600);
-  font-size: 0.77rem;
-  font-weight: 600;
-}
-
 .subsubjectDescription {
   display: block;
   margin: 0.14rem 0 0;

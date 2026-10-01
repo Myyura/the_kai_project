@@ -88,116 +88,200 @@
       "relatedSubjects": [
         "Computer-Science",
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "自动驾驶车辆的动态地图",
+      "labelJa": "自動運転車のダイナミックマップ",
+      "labelEn": "Dynamic Maps for Autonomous Vehicles"
     },
     "Engineering.Robotics.Zero-Moment-Point": {
       "subsubject": "Engineering.Robotics",
       "relatedSubjects": [
         "Physics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "零力矩点",
+      "labelJa": "ゼロモーメントポイント",
+      "labelEn": "Zero-Moment Point",
+      "searchAliases": {
+        "en": [
+          "ZMP"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Engineering.Robotics.Force-Control-Implementation": {
       "subsubject": "Engineering.Robotics",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "力控制的实现",
+      "labelJa": "力制御の実装",
+      "labelEn": "Force Control Implementation"
     },
     "Engineering.Mechanics-of-Materials.Strain-Gauge": {
       "subsubject": "Engineering.Mechanics-of-Materials",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "应变片",
+      "labelJa": "ひずみゲージ",
+      "labelEn": "Strain Gauges"
     },
     "Engineering.Robotics.Forward-and-Inverse-Kinematics-of-Serial-Manipulator": {
       "subsubject": "Engineering.Robotics",
       "relatedSubjects": [
         "Mathematics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "串联机械臂的正逆运动学",
+      "labelJa": "直列マニピュレータの順運動学と逆運動学",
+      "labelEn": "Forward and Inverse Kinematics of Serial Manipulators"
     },
     "Engineering.Robotics.Simultaneous-Localization-and-Mapping": {
       "subsubject": "Engineering.Robotics",
       "relatedSubjects": [
         "Computer-Science",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "同时定位与建图",
+      "labelJa": "自己位置推定と地図構築の同時実行",
+      "labelEn": "Simultaneous Localization and Mapping",
+      "searchAliases": {
+        "en": [
+          "SLAM"
+        ],
+        "zh": [
+          "同步定位与地图构建"
+        ],
+        "ja": [
+          "スラム"
+        ]
+      }
     },
     "Engineering.Robotics.Articulated-Link-Mechanism-Representation": {
       "subsubject": "Engineering.Robotics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "关节连杆机构的表示",
+      "labelJa": "多関節リンク機構の表現",
+      "labelEn": "Representation of Articulated Link Mechanisms"
     },
     "Engineering.Robotics.Manipulator-Jacobian-and-End-Effector-Velocity": {
       "subsubject": "Engineering.Robotics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "机械臂雅可比矩阵与末端执行器速度",
+      "labelJa": "マニピュレータのヤコビ行列と手先速度",
+      "labelEn": "Manipulator Jacobians and End-Effector Velocity"
     },
     "Engineering.Robotics.Jacobian-Transpose-Joint-Torque": {
       "subsubject": "Engineering.Robotics",
       "relatedSubjects": [
         "Mathematics",
         "Physics"
-      ]
+      ],
+      "labelZh": "雅可比转置与关节力矩",
+      "labelJa": "ヤコビ行列の転置と関節トルク",
+      "labelEn": "Jacobian Transpose and Joint Torques"
     },
     "Engineering.Fluid-Mechanics.Logarithmic-Wind-Profile-and-Wind-Power-Scaling": {
       "subsubject": "Engineering.Fluid-Mechanics",
       "relatedSubjects": [
         "Mathematics",
         "Physics"
-      ]
+      ],
+      "labelZh": "对数风速廓线与风功率标度关系",
+      "labelJa": "対数風速分布と風のパワーのスケーリング則",
+      "labelEn": "Logarithmic Wind Profiles and Wind Power Scaling"
     },
     "Engineering.Mechanics-of-Materials.Beam-Deflection": {
       "subsubject": "Engineering.Mechanics-of-Materials",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "梁的挠度",
+      "labelJa": "はりのたわみ",
+      "labelEn": "Beam Deflection"
     },
     "Engineering.Mechanics-of-Materials.Euler-Buckling": {
       "subsubject": "Engineering.Mechanics-of-Materials",
       "relatedSubjects": [
         "Mathematics",
         "Physics"
-      ]
+      ],
+      "labelZh": "欧拉屈曲",
+      "labelJa": "オイラー座屈",
+      "labelEn": "Euler Buckling"
     },
     "Engineering.Mechanics-of-Materials.Thermal-Deformation-Compatibility": {
       "subsubject": "Engineering.Mechanics-of-Materials",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "热变形协调条件",
+      "labelJa": "熱変形の適合条件",
+      "labelEn": "Thermal Deformation Compatibility"
     },
     "Engineering.Mechanics-of-Materials.Yielding": {
       "subsubject": "Engineering.Mechanics-of-Materials",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "屈服",
+      "labelJa": "降伏",
+      "labelEn": "Yielding"
     },
     "Engineering.Materials-Science.Piezoelectric-Effect-and-Element": {
       "subsubject": "Engineering.Materials-Science",
       "relatedSubjects": [
         "Electrical-Electronic",
         "Physics"
-      ]
+      ],
+      "labelZh": "压电效应与压电元件",
+      "labelJa": "圧電効果と圧電素子",
+      "labelEn": "Piezoelectric Effects and Elements"
     },
     "Engineering.Quality-and-Reliability-Engineering.Statistical-Process-Control": {
       "subsubject": "Engineering.Quality-and-Reliability-Engineering",
       "labelZh": "统计过程控制",
       "labelJa": "統計的工程管理",
-      "labelEn": "Statistical Process Control"
+      "labelEn": "Statistical Process Control",
+      "searchAliases": {
+        "en": [
+          "SPC"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Engineering.Quality-and-Reliability-Engineering.Quality-Function-Deployment": {
       "subsubject": "Engineering.Quality-and-Reliability-Engineering",
       "labelZh": "质量功能展开",
       "labelJa": "品質機能展開",
-      "labelEn": "Quality Function Deployment"
+      "labelEn": "Quality Function Deployment",
+      "searchAliases": {
+        "en": [
+          "QFD"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Engineering.Quality-and-Reliability-Engineering.Fault-Tree-Analysis": {
       "subsubject": "Engineering.Quality-and-Reliability-Engineering",
       "labelZh": "故障树分析",
       "labelJa": "故障の木解析",
-      "labelEn": "Fault Tree Analysis"
+      "labelEn": "Fault Tree Analysis",
+      "searchAliases": {
+        "en": [
+          "FTA"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Engineering.Quality-and-Reliability-Engineering.Series-and-Parallel-Reliability": {
       "subsubject": "Engineering.Quality-and-Reliability-Engineering",
@@ -221,7 +305,7 @@
       "subsubject": "Engineering.Fluid-Mechanics",
       "labelZh": "哈根–泊肃叶流",
       "labelJa": "ハーゲン・ポアズイユ流れ",
-      "labelEn": "Hagen Poiseuille Flow"
+      "labelEn": "Hagen–Poiseuille Flow"
     },
     "Engineering.Fluid-Mechanics.Pipe-Networks": {
       "subsubject": "Engineering.Fluid-Mechanics",
@@ -233,7 +317,7 @@
       "subsubject": "Engineering.Fluid-Mechanics",
       "labelZh": "控制体动量守恒",
       "labelJa": "検査体積の運動量保存",
-      "labelEn": "Control Volume Momentum"
+      "labelEn": "Momentum Conservation in a Control Volume"
     },
     "Engineering.Fluid-Mechanics.Bernoulli-Equation": {
       "subsubject": "Engineering.Fluid-Mechanics",
@@ -251,7 +335,7 @@
       "subsubject": "Engineering.Mechanics-of-Materials",
       "labelZh": "应力变换与主应力",
       "labelJa": "応力変換と主応力",
-      "labelEn": "Stress Transformation"
+      "labelEn": "Stress Transformation and Principal Stresses"
     },
     "Engineering.Fluid-Mechanics.Jet-Pump": {
       "subsubject": "Engineering.Fluid-Mechanics",
@@ -275,13 +359,13 @@
       "subsubject": "Engineering.Mechanics-of-Materials",
       "labelZh": "薄壁压力容器",
       "labelJa": "薄肉圧力容器",
-      "labelEn": "Thin Walled Pressure Vessels"
+      "labelEn": "Thin-Walled Pressure Vessels"
     },
     "Engineering.Fluid-Mechanics.Thin-Film-Flow": {
       "subsubject": "Engineering.Fluid-Mechanics",
       "labelZh": "薄膜流动",
       "labelJa": "薄膜流れ",
-      "labelEn": "Thin Film Flow"
+      "labelEn": "Thin-Film Flow"
     },
     "Engineering.Fluid-Mechanics.Surface-Tension": {
       "subsubject": "Engineering.Fluid-Mechanics",
@@ -323,25 +407,25 @@
       "subsubject": "Engineering.Fluid-Mechanics",
       "labelZh": "纳维–斯托克斯方程",
       "labelJa": "ナビエ・ストークス方程式",
-      "labelEn": "Navier Stokes Equations"
+      "labelEn": "Navier–Stokes Equations"
     },
     "Engineering.Fluid-Mechanics.Falling-Film": {
       "subsubject": "Engineering.Fluid-Mechanics",
       "labelZh": "重力降膜流",
       "labelJa": "流下液膜",
-      "labelEn": "Falling Film"
+      "labelEn": "Falling-Film Flow"
     },
     "Engineering.Fluid-Mechanics.Dimensional-Analysis": {
       "subsubject": "Engineering.Fluid-Mechanics",
       "labelZh": "量纲分析与相似律",
       "labelJa": "次元解析と相似則",
-      "labelEn": "Dimensional Analysis"
+      "labelEn": "Dimensional Analysis and Similarity Laws"
     },
     "Engineering.Fluid-Mechanics.Actuator-Disk": {
       "subsubject": "Engineering.Fluid-Mechanics",
       "labelZh": "致动盘理论",
       "labelJa": "アクチュエータディスク理論",
-      "labelEn": "Actuator Disk"
+      "labelEn": "Actuator Disk Theory"
     },
     "Engineering.Fluid-Mechanics.Compressible-Flow": {
       "subsubject": "Engineering.Fluid-Mechanics",
@@ -353,7 +437,7 @@
       "subsubject": "Engineering.Heat-Transfer",
       "labelZh": "相变传热与斯特藩问题",
       "labelJa": "相変化伝熱とステファン問題",
-      "labelEn": "Stefan Problem"
+      "labelEn": "Phase-Change Heat Transfer and the Stefan Problem"
     },
     "Engineering.Mechanics-of-Materials.Axial-Deformation": {
       "subsubject": "Engineering.Mechanics-of-Materials",
@@ -412,8 +496,8 @@
     "Engineering.Heat-Transfer.Hot-Wire-Anemometry": {
       "subsubject": "Engineering.Heat-Transfer",
       "labelZh": "热线风速测量",
-      "labelJa": "熱線風速計",
-      "labelEn": "Hot Wire Anemometry"
+      "labelJa": "熱線風速測定",
+      "labelEn": "Hot-Wire Anemometry"
     },
     "Engineering.Fluid-Mechanics.Jet-Propulsion": {
       "subsubject": "Engineering.Fluid-Mechanics",
@@ -431,19 +515,36 @@
       "subsubject": "Engineering.Fluid-Mechanics",
       "labelZh": "流体机械与速度三角形",
       "labelJa": "流体機械と速度三角形",
-      "labelEn": "Turbomachinery"
+      "labelEn": "Turbomachinery and Velocity Triangles"
     },
     "Engineering.Heat-Transfer.Lumped-Capacitance-and-Heisler-Charts": {
       "subsubject": "Engineering.Heat-Transfer",
-      "labelZh": "集中热容法与海斯勒图",
+      "labelZh": "集总参数法与海斯勒图",
       "labelJa": "集中熱容量法とハイスラー線図",
-      "labelEn": "Lumped Capacitance and Heisler Charts"
+      "labelEn": "Lumped-Capacitance Method and Heisler Charts",
+      "searchAliases": {
+        "en": [
+          "lumped-system analysis"
+        ],
+        "zh": [
+          "集中参数法",
+          "集总热容法"
+        ],
+        "ja": []
+      }
     },
     "Engineering.Mechanics-of-Materials.Castiglianos-Theorem": {
       "subsubject": "Engineering.Mechanics-of-Materials",
-      "labelZh": "卡氏定理",
+      "labelZh": "卡斯蒂利亚诺定理",
       "labelJa": "カスチリアノの定理",
-      "labelEn": "Castiglianos Theorem"
+      "labelEn": "Castigliano's Theorem",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "卡氏定理"
+        ],
+        "ja": []
+      }
     },
     "Engineering.Fluid-Mechanics.Lubrication-Approximation": {
       "subsubject": "Engineering.Fluid-Mechanics",
@@ -461,7 +562,7 @@
       "subsubject": "Engineering.Heat-Transfer",
       "labelZh": "肋片传热",
       "labelJa": "フィンの伝熱",
-      "labelEn": "Fins"
+      "labelEn": "Heat Transfer from Fins"
     },
     "Engineering.Heat-Transfer.Internal-Forced-Convection": {
       "subsubject": "Engineering.Heat-Transfer",

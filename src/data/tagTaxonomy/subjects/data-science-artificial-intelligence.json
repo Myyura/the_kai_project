@@ -44,20 +44,29 @@
   ],
   "topics": {
     "Data-Science-Artificial-Intelligence.Machine-Learning.Perceptron": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "labelZh": "感知机",
+      "labelJa": "パーセプトロン",
+      "labelEn": "Perceptron"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Transformer": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "Transformer 模型",
+      "labelJa": "Transformer モデル",
+      "labelEn": "Transformer"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Stochastic-Gradient-Descent": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Mathematics",
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "随机梯度下降",
+      "labelJa": "確率的勾配降下法",
+      "labelEn": "Stochastic Gradient Descent (SGD)"
     },
     "Data-Science-Artificial-Intelligence.Data-Science.Term-Frequency-Inverse-Document-Frequency": {
       "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
@@ -66,265 +75,435 @@
       ],
       "aliases": [
         "Data-Science-Artificial-Intelligence.Data-Science.TF-IDF"
-      ]
+      ],
+      "labelZh": "词频–逆文档频率",
+      "labelJa": "単語頻度・逆文書頻度",
+      "labelEn": "Term Frequency–Inverse Document Frequency (TF-IDF)"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Bayesian-Network": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "贝叶斯网络",
+      "labelJa": "ベイジアンネットワーク",
+      "labelEn": "Bayesian Network"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Deep-Learning": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "深度学习",
+      "labelJa": "深層学習",
+      "labelEn": "Deep Learning"
     },
     "Data-Science-Artificial-Intelligence.Data-Science.Vector-Quantization": {
       "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "矢量量化",
+      "labelJa": "ベクトル量子化",
+      "labelEn": "Vector Quantization"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Hidden-Markov-Model": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "隐马尔可夫模型",
+      "labelJa": "隠れマルコフモデル",
+      "labelEn": "Hidden Markov Model (HMM)"
     },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Natural-Language-Morphology-and-Morphemes": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "自然语言的形态学与语素",
+      "labelJa": "自然言語の形態論と形態素",
+      "labelEn": "Natural Language Morphology and Morphemes"
     },
     "Data-Science-Artificial-Intelligence.Data-Science.Image-Filtering-and-Moments": {
       "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
       "relatedSubjects": [
         "Computer-Science",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "图像滤波与图像矩",
+      "labelJa": "画像のフィルタ処理とモーメント",
+      "labelEn": "Image Filtering and Moments"
     },
     "Data-Science-Artificial-Intelligence.Data-Science.Image-Color-Quantization": {
       "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "图像颜色量化",
+      "labelJa": "画像の色量子化",
+      "labelEn": "Image Color Quantization"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Mixture-Model": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "高斯混合模型",
+      "labelJa": "混合ガウスモデル",
+      "labelEn": "Gaussian Mixture Model (GMM)"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Generative-Classifier": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "高斯生成式分类器",
+      "labelJa": "ガウス生成モデルによる分類器",
+      "labelEn": "Gaussian Generative Classifier"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Bayesian-Decision-Boundary": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "贝叶斯决策边界",
+      "labelJa": "ベイズ決定境界",
+      "labelEn": "Bayesian Decision Boundary"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Expectation-Maximization-Algorithm": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "期望最大化算法",
+      "labelJa": "期待値最大化法",
+      "labelEn": "Expectation-Maximization (EM) Algorithm"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Backpropagation": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Mathematics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "误差反向传播",
+      "labelJa": "誤差逆伝播法",
+      "labelEn": "Backpropagation"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Covariate-Shift-and-Importance-Weighting": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "协变量偏移与重要性加权",
+      "labelJa": "共変量シフトと重要度重み付け",
+      "labelEn": "Covariate Shift and Importance Weighting"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Feedforward-Neural-Network": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "前馈神经网络",
+      "labelJa": "順伝播型ニューラルネットワーク",
+      "labelEn": "Feedforward Neural Network",
+      "searchAliases": {
+        "en": [
+          "FNN"
+        ],
+        "zh": [],
+        "ja": [
+          "フィードフォワードニューラルネットワーク"
+        ]
+      }
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Multi-Label-Classification": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "labelZh": "多标签分类",
+      "labelJa": "マルチラベル分類",
+      "labelEn": "Multi-Label Classification"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Binary-Cross-Entropy": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "二元交叉熵",
+      "labelJa": "二値交差エントロピー",
+      "labelEn": "Binary Cross-Entropy"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Vanishing-Gradient-and-Mitigation": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "labelZh": "梯度消失及其缓解方法",
+      "labelJa": "勾配消失とその対策",
+      "labelEn": "Vanishing Gradients and Mitigation"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Feature-Standardization": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "特征标准化",
+      "labelJa": "特徴量の標準化",
+      "labelEn": "Feature Standardization"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Linear-Discriminant-Analysis": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "线性判别分析",
+      "labelJa": "線形判別分析",
+      "labelEn": "Linear Discriminant Analysis (LDA)"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Logistic-Regression": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "逻辑回归",
+      "labelJa": "ロジスティック回帰",
+      "labelEn": "Logistic Regression",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "对数几率回归"
+        ],
+        "ja": [
+          "ロジスティック回帰分析"
+        ]
+      }
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Nearest-Centroid-Classifier": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "最近质心分类器",
+      "labelJa": "最近傍重心分類器",
+      "labelEn": "Nearest Centroid Classifier"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Online-Learning-with-Expert-Advice": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "基于专家建议的在线学习",
+      "labelJa": "専門家の助言を用いたオンライン学習",
+      "labelEn": "Online Learning with Expert Advice"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Regret-Bound": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "遗憾界",
+      "labelJa": "リグレットの上界",
+      "labelEn": "Regret Bound",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "后悔界"
+        ],
+        "ja": []
+      }
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Softmax-Regression": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "Softmax 回归",
+      "labelJa": "ソフトマックス回帰",
+      "labelEn": "Softmax Regression"
     },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.A-Star-Algorithm": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [
         "Computer-Science",
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "A* 算法",
+      "labelJa": "A* アルゴリズム",
+      "labelEn": "A* Algorithm"
     },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Alpha-Beta-Pruning": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [
         "Computer-Science",
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "α–β 剪枝",
+      "labelJa": "α–β 枝刈り",
+      "labelEn": "Alpha-Beta Pruning"
     },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Best-First-Search": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [
         "Computer-Science",
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "最佳优先搜索",
+      "labelJa": "最良優先探索",
+      "labelEn": "Best-First Search"
     },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Knowledge-Representation": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "知识表示",
+      "labelJa": "知識表現",
+      "labelEn": "Knowledge Representation"
     },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Minimax-Algorithm": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [
         "Computer-Science",
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "极小极大算法",
+      "labelJa": "ミニマックス法",
+      "labelEn": "Minimax Algorithm"
     },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Morphological-Analysis": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "形态分析",
+      "labelJa": "形態素解析",
+      "labelEn": "Morphological Analysis"
     },
     "Data-Science-Artificial-Intelligence.Artificial-Intelligence.Semantic-Network": {
       "subsubject": "Data-Science-Artificial-Intelligence.Artificial-Intelligence",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "语义网络",
+      "labelJa": "意味ネットワーク",
+      "labelEn": "Semantic Network"
     },
     "Data-Science-Artificial-Intelligence.Data-Science.Principal-Component-Analysis": {
       "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
       "relatedSubjects": [
         "Probability-Statistics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "主成分分析",
+      "labelJa": "主成分分析",
+      "labelEn": "Principal Component Analysis (PCA)"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Classification": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "labelZh": "分类",
+      "labelJa": "分類",
+      "labelEn": "Classification"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Curse-of-Dimensionality": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "labelZh": "维数灾难",
+      "labelJa": "次元の呪い",
+      "labelEn": "Curse of Dimensionality"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Decision-Tree": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "决策树",
+      "labelJa": "決定木",
+      "labelEn": "Decision Tree"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Ensemble-Learning": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "labelZh": "集成学习",
+      "labelJa": "アンサンブル学習",
+      "labelEn": "Ensemble Learning"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.K-Means": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "labelZh": "K 均值聚类",
+      "labelJa": "K 平均法",
+      "labelEn": "K-Means Clustering",
+      "searchAliases": {
+        "en": [],
+        "zh": [],
+        "ja": [
+          "K-means 法"
+        ]
+      }
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.K-Nearest-Neighbors": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "K 近邻法",
+      "labelJa": "K 近傍法",
+      "labelEn": "K-Nearest Neighbors (KNN)"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Naive-Bayes": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "朴素贝叶斯",
+      "labelJa": "ナイーブベイズ",
+      "labelEn": "Naive Bayes"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network-Training-Methods": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Mathematics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "神经网络训练方法",
+      "labelJa": "ニューラルネットワークの学習法",
+      "labelEn": "Neural Network Training Methods"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Neural-Network": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "神经网络",
+      "labelJa": "ニューラルネットワーク",
+      "labelEn": "Neural Network"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Random-Forest": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "随机森林",
+      "labelJa": "ランダムフォレスト",
+      "labelEn": "Random Forest"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Reinforcement-Learning": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "强化学习",
+      "labelJa": "強化学習",
+      "labelEn": "Reinforcement Learning"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Sigmoid-Function": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "Sigmoid 函数",
+      "labelJa": "シグモイド関数",
+      "labelEn": "Sigmoid Function"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Support-Vector-Machine": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning"
+      "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
+      "labelZh": "支持向量机",
+      "labelJa": "サポートベクターマシン",
+      "labelEn": "Support Vector Machine (SVM)"
     }
   }
 }

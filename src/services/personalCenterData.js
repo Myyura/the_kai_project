@@ -1,5 +1,5 @@
 import tagTaxonomy from '../data/tagTaxonomy';
-import {resolveTagBrowseTarget} from '../utils/tagBrowseTarget';
+import {resolveTagBrowseTarget} from '../utils/tags';
 import {resolveDocumentMetadata} from './documentMetadata';
 import {parseNoteDocument, stripAnnotationMetadata} from './noteAnnotations';
 

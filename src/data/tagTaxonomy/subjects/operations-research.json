@@ -117,98 +117,161 @@
       "subsubject": "Operations-Research.Decision-Analysis",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "条件风险价值与一致性风险度量",
+      "labelJa": "条件付きバリュー・アット・リスクとコヒーレントリスク尺度",
+      "labelEn": "Conditional Value at Risk and Coherent Risk Measures"
     },
     "Operations-Research.Decision-Analysis.Secretary-Problem-and-One-over-e-Rule": {
       "subsubject": "Operations-Research.Decision-Analysis",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "秘书问题与 1/e 法则",
+      "labelJa": "秘書問題と 1/e ルール",
+      "labelEn": "Secretary Problem and the 1/e Rule"
     },
     "Operations-Research.Decision-Analysis.Pareto-Dominance": {
       "subsubject": "Operations-Research.Decision-Analysis",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "帕累托支配",
+      "labelJa": "パレート優越",
+      "labelEn": "Pareto Dominance"
     },
     "Operations-Research.Decision-Analysis.Analytic-Hierarchy-Process": {
-      "subsubject": "Operations-Research.Decision-Analysis"
+      "subsubject": "Operations-Research.Decision-Analysis",
+      "labelZh": "层次分析法",
+      "labelJa": "階層分析法",
+      "labelEn": "Analytic Hierarchy Process (AHP)"
     },
     "Operations-Research.Decision-Analysis.Decision-Under-Uncertainty": {
       "subsubject": "Operations-Research.Decision-Analysis",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "不确定性下的决策",
+      "labelJa": "不確実性下の意思決定",
+      "labelEn": "Decision Making under Uncertainty"
     },
     "Operations-Research.Decision-Analysis.Pairwise-Comparison-Consistency": {
-      "subsubject": "Operations-Research.Decision-Analysis"
+      "subsubject": "Operations-Research.Decision-Analysis",
+      "labelZh": "成对比较的一致性",
+      "labelJa": "一対比較の整合性",
+      "labelEn": "Pairwise Comparison Consistency"
     },
     "Operations-Research.Decision-Analysis.Sensitivity-Analysis": {
-      "subsubject": "Operations-Research.Decision-Analysis"
+      "subsubject": "Operations-Research.Decision-Analysis",
+      "labelZh": "决策的敏感性分析",
+      "labelJa": "意思決定の感度分析",
+      "labelEn": "Sensitivity Analysis in Decision Making"
     },
     "Operations-Research.Game-Theory.Backward-Induction": {
-      "subsubject": "Operations-Research.Game-Theory"
+      "subsubject": "Operations-Research.Game-Theory",
+      "labelZh": "逆向归纳法",
+      "labelJa": "後ろ向き帰納法",
+      "labelEn": "Backward Induction"
     },
     "Operations-Research.Game-Theory.Best-Response-in-One-Shot-Game": {
       "subsubject": "Operations-Research.Game-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "单次博弈的最优反应",
+      "labelJa": "一回限りのゲームにおける最適反応",
+      "labelEn": "Best Response in a One-Shot Game"
     },
     "Operations-Research.Game-Theory.Chain-Store-Paradox": {
-      "subsubject": "Operations-Research.Game-Theory"
+      "subsubject": "Operations-Research.Game-Theory",
+      "labelZh": "连锁店悖论",
+      "labelJa": "チェーンストア・パラドックス",
+      "labelEn": "Chain Store Paradox"
     },
     "Operations-Research.Game-Theory.Nash-Equilibrium": {
-      "subsubject": "Operations-Research.Game-Theory"
+      "subsubject": "Operations-Research.Game-Theory",
+      "labelZh": "纳什均衡",
+      "labelJa": "ナッシュ均衡",
+      "labelEn": "Nash Equilibrium"
     },
     "Operations-Research.Game-Theory.Prisoners-Dilemma": {
-      "subsubject": "Operations-Research.Game-Theory"
+      "subsubject": "Operations-Research.Game-Theory",
+      "labelZh": "囚徒困境",
+      "labelJa": "囚人のジレンマ",
+      "labelEn": "Prisoner's Dilemma"
     },
     "Operations-Research.Game-Theory.Saddle-Point": {
-      "subsubject": "Operations-Research.Game-Theory"
+      "subsubject": "Operations-Research.Game-Theory",
+      "labelZh": "鞍点",
+      "labelJa": "鞍点",
+      "labelEn": "Saddle Point"
     },
     "Operations-Research.Inventory-Management.Economic-Order-Quantity": {
-      "subsubject": "Operations-Research.Inventory-Management"
+      "subsubject": "Operations-Research.Inventory-Management",
+      "labelZh": "经济订货批量",
+      "labelJa": "経済的発注量",
+      "labelEn": "Economic Order Quantity (EOQ)"
     },
     "Operations-Research.Inventory-Management.Newsvendor-Problem": {
       "subsubject": "Operations-Research.Inventory-Management",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "报童问题",
+      "labelJa": "新聞売り子問題",
+      "labelEn": "Newsvendor Problem"
     },
     "Operations-Research.Inventory-Management.Quantity-Discount": {
-      "subsubject": "Operations-Research.Inventory-Management"
+      "subsubject": "Operations-Research.Inventory-Management",
+      "labelZh": "数量折扣",
+      "labelJa": "数量割引",
+      "labelEn": "Quantity Discount"
     },
     "Operations-Research.Queueing-Theory.Average-Waiting-Time": {
       "subsubject": "Operations-Research.Queueing-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "平均等待时间",
+      "labelJa": "平均待ち時間",
+      "labelEn": "Average Waiting Time"
     },
     "Operations-Research.Queueing-Theory.Finite-Capacity-Queue": {
       "subsubject": "Operations-Research.Queueing-Theory",
       "relatedSubjects": [
         "Probability-Statistics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "有限容量排队系统",
+      "labelJa": "有限容量の待ち行列",
+      "labelEn": "Finite-Capacity Queue"
     },
     "Operations-Research.Queueing-Theory.Littles-Law": {
       "subsubject": "Operations-Research.Queueing-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "利特尔定律",
+      "labelJa": "リトルの公式",
+      "labelEn": "Little's Law"
     },
     "Operations-Research.Queueing-Theory.M-M-1-Queue": {
       "subsubject": "Operations-Research.Queueing-Theory",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "M/M/1 排队系统",
+      "labelJa": "M/M/1 待ち行列",
+      "labelEn": "M/M/1 Queue"
     },
     "Operations-Research.Queueing-Theory.Packet-Loss": {
       "subsubject": "Operations-Research.Queueing-Theory",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "分组丢失",
+      "labelJa": "パケット損失",
+      "labelEn": "Packet Loss"
     },
     "Operations-Research.Nonlinear-Optimization.Orthogonal-Procrustes-via-Singular-Value-Decomposition": {
       "subsubject": "Operations-Research.Nonlinear-Optimization",
@@ -218,34 +281,49 @@
       ],
       "aliases": [
         "Operations-Research.Nonlinear-Optimization.Orthogonal-Procrustes-via-SVD"
-      ]
+      ],
+      "labelZh": "用奇异值分解求解正交 Procrustes 问题",
+      "labelJa": "特異値分解による直交プロクラステス問題の解法",
+      "labelEn": "Orthogonal Procrustes Problem via SVD"
     },
     "Operations-Research.Convex-Optimization.Accelerated-Gradient-Flow-and-Discrete-Lyapunov-Rate": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "加速梯度流与离散李雅普诺夫收敛率分析",
+      "labelJa": "加速勾配流と離散リアプノフ関数による収束率解析",
+      "labelEn": "Accelerated Gradient Flow and Discrete Lyapunov Rate Analysis"
     },
     "Operations-Research.Convex-Optimization.Probability-Simplex-Optimization": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Probability-Statistics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "概率单纯形上的优化",
+      "labelJa": "確率単体上の最適化",
+      "labelEn": "Optimization over the Probability Simplex"
     },
     "Operations-Research.Combinatorial-Optimization.Minimax-Number-Partitioning-Approximation": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science",
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "最小化最大子集和的数值划分近似算法",
+      "labelJa": "最大部分和を最小化する数分割の近似法",
+      "labelEn": "Approximation for Minimax Number Partitioning"
     },
     "Operations-Research.Metaheuristics.Simulated-Annealing": {
       "subsubject": "Operations-Research.Metaheuristics",
       "relatedSubjects": [
         "Computer-Science",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "模拟退火",
+      "labelJa": "焼きなまし法",
+      "labelEn": "Simulated Annealing"
     },
     "Operations-Research.Combinatorial-Optimization.Branch-and-Bound": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
@@ -254,71 +332,125 @@
       ],
       "aliases": [
         "Operations-Research.Combinatorial-Optimization.Branch-And-Bound"
-      ]
+      ],
+      "labelZh": "分支定界法",
+      "labelJa": "分枝限定法",
+      "labelEn": "Branch and Bound"
     },
     "Operations-Research.Combinatorial-Optimization.Set-Cover-Problem": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "集合覆盖问题",
+      "labelJa": "集合被覆問題",
+      "labelEn": "Set Cover Problem"
     },
     "Operations-Research.Linear-Programming.Complementary-Slackness": {
-      "subsubject": "Operations-Research.Linear-Programming"
+      "subsubject": "Operations-Research.Linear-Programming",
+      "labelZh": "互补松弛条件",
+      "labelJa": "相補性条件",
+      "labelEn": "Complementary Slackness",
+      "searchAliases": {
+        "en": [],
+        "zh": [],
+        "ja": [
+          "相補スラック条件"
+        ]
+      }
     },
     "Operations-Research.Convex-Optimization.Convex-First-Order-Optimality": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "凸优化的一阶最优性条件",
+      "labelJa": "凸最適化の一次最適性条件",
+      "labelEn": "First-Order Optimality in Convex Optimization"
     },
     "Operations-Research.Convex-Optimization.Interior-Point-Method": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "内点法",
+      "labelJa": "内点法",
+      "labelEn": "Interior-Point Method"
     },
     "Operations-Research.Linear-Programming.Affine-Scaling-Method": {
       "subsubject": "Operations-Research.Linear-Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "仿射尺度法",
+      "labelJa": "アフィンスケーリング法",
+      "labelEn": "Affine Scaling Method"
     },
     "Operations-Research.Convex-Optimization.Isotonic-Regression-and-Pool-Adjacent-Violators": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Probability-Statistics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "保序回归与相邻违序合并算法",
+      "labelJa": "単調回帰と PAVA 法",
+      "labelEn": "Isotonic Regression and the Pool-Adjacent-Violators Algorithm",
+      "searchAliases": {
+        "en": [
+          "PAVA"
+        ],
+        "zh": [
+          "单调回归"
+        ],
+        "ja": [
+          "アイソトニック回帰"
+        ]
+      }
     },
     "Operations-Research.Convex-Optimization.Projection-Theorem-for-Closed-Convex-Sets": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "闭凸集的投影定理",
+      "labelJa": "閉凸集合の射影定理",
+      "labelEn": "Projection Theorem for Closed Convex Sets"
     },
     "Operations-Research.Convex-Optimization.Separating-Hyperplane-Theorem": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "分离超平面定理",
+      "labelJa": "分離超平面定理",
+      "labelEn": "Separating Hyperplane Theorem"
     },
     "Operations-Research.Linear-Programming.Farkas-Lemma": {
       "subsubject": "Operations-Research.Linear-Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "Farkas 引理",
+      "labelJa": "ファルカスの補題",
+      "labelEn": "Farkas' Lemma"
     },
     "Operations-Research.Convex-Optimization.Strong-Convexity-and-Concavity": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "强凸性与强凹性",
+      "labelJa": "強凸性と強凹性",
+      "labelEn": "Strong Convexity and Strong Concavity"
     },
     "Operations-Research.Convex-Optimization.Jensen-Inequality": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "Jensen 不等式",
+      "labelJa": "イェンセンの不等式",
+      "labelEn": "Jensen's Inequality"
     },
     "Operations-Research.Convex-Optimization.Arithmetic-Mean-Geometric-Mean-Inequality-via-Optimization": {
       "subsubject": "Operations-Research.Convex-Optimization",
@@ -327,13 +459,19 @@
       ],
       "aliases": [
         "Operations-Research.Convex-Optimization.AM-GM-Inequality-via-Optimization"
-      ]
+      ],
+      "labelZh": "用优化方法证明算术–几何平均不等式",
+      "labelJa": "最適化による相加相乗平均の不等式の証明",
+      "labelEn": "The Arithmetic–Geometric Mean Inequality via Optimization"
     },
     "Operations-Research.Convex-Optimization.Convexity-of-Power-Compositions": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "幂复合函数的凸性",
+      "labelJa": "べき乗との合成関数の凸性",
+      "labelEn": "Convexity of Power Compositions"
     },
     "Operations-Research.Convex-Optimization.Karush-Kuhn-Tucker-Conditions": {
       "subsubject": "Operations-Research.Convex-Optimization",
@@ -342,7 +480,10 @@
       ],
       "aliases": [
         "Operations-Research.Convex-Optimization.KKT-Conditions"
-      ]
+      ],
+      "labelZh": "Karush–Kuhn–Tucker 条件",
+      "labelJa": "カルーシュ–クーン–タッカー条件",
+      "labelEn": "Karush-Kuhn-Tucker (KKT) Conditions"
     },
     "Operations-Research.Convex-Optimization.One-Norm-Minimization": {
       "subsubject": "Operations-Research.Convex-Optimization",
@@ -351,124 +492,202 @@
       ],
       "aliases": [
         "Operations-Research.Convex-Optimization.L1-Norm-Minimization"
-      ]
+      ],
+      "labelZh": "L1 范数最小化",
+      "labelJa": "L1 ノルム最小化",
+      "labelEn": "L1-Norm Minimization"
     },
     "Operations-Research.Linear-Programming.Production-Planning": {
-      "subsubject": "Operations-Research.Linear-Programming"
+      "subsubject": "Operations-Research.Linear-Programming",
+      "labelZh": "生产计划",
+      "labelJa": "生産計画",
+      "labelEn": "Production Planning"
     },
     "Operations-Research.Linear-Programming.Linear-Programming-Problem": {
-      "subsubject": "Operations-Research.Linear-Programming"
+      "subsubject": "Operations-Research.Linear-Programming",
+      "labelZh": "线性规划问题",
+      "labelJa": "線形計画問題",
+      "labelEn": "Linear Programming Problem"
     },
     "Operations-Research.Linear-Programming.Linear-Programming-Duality": {
-      "subsubject": "Operations-Research.Linear-Programming"
+      "subsubject": "Operations-Research.Linear-Programming",
+      "labelZh": "线性规划对偶性",
+      "labelJa": "線形計画の双対性",
+      "labelEn": "Linear Programming Duality"
     },
     "Operations-Research.Linear-Programming.Parametric-Linear-Programming": {
       "subsubject": "Operations-Research.Linear-Programming",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "参数线性规划",
+      "labelJa": "パラメトリック線形計画",
+      "labelEn": "Parametric Linear Programming"
     },
     "Operations-Research.Optimization-Basics.Parametric-Optimization-and-Value-Function": {
       "subsubject": "Operations-Research.Optimization-Basics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "参数优化与值函数",
+      "labelJa": "パラメトリック最適化と最適値関数",
+      "labelEn": "Parametric Optimization and the Value Function"
     },
     "Operations-Research.Convex-Optimization.Optimization-over-Convex-Hull": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "凸包上的优化",
+      "labelJa": "凸包上の最適化",
+      "labelEn": "Optimization over a Convex Hull"
     },
     "Operations-Research.Optimization-Basics.Penalty-Method": {
       "subsubject": "Operations-Research.Optimization-Basics",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "罚函数法",
+      "labelJa": "ペナルティ関数法",
+      "labelEn": "Penalty Method",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "惩罚函数法"
+        ],
+        "ja": [
+          "罰金関数法"
+        ]
+      }
     },
     "Operations-Research.Convex-Optimization.Projected-Gradient-Method": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "投影梯度法",
+      "labelJa": "射影勾配法",
+      "labelEn": "Projected Gradient Method"
     },
     "Operations-Research.Nonlinear-Optimization.Quadratic-Programming": {
       "subsubject": "Operations-Research.Nonlinear-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "二次规划",
+      "labelJa": "二次計画法",
+      "labelEn": "Quadratic Programming"
     },
     "Operations-Research.Nonlinear-Optimization.Trust-Region-Subproblem": {
       "subsubject": "Operations-Research.Nonlinear-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "信赖域子问题",
+      "labelJa": "信頼領域部分問題",
+      "labelEn": "Trust-Region Subproblem"
     },
     "Operations-Research.Convex-Optimization.Quadratic-Convexification": {
       "subsubject": "Operations-Research.Convex-Optimization",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "二次函数的凸化",
+      "labelJa": "二次関数の凸化",
+      "labelEn": "Quadratic Convexification"
     },
     "Operations-Research.Linear-Programming.Simplex-Method": {
-      "subsubject": "Operations-Research.Linear-Programming"
+      "subsubject": "Operations-Research.Linear-Programming",
+      "labelZh": "单纯形法",
+      "labelJa": "単体法",
+      "labelEn": "Simplex Method"
     },
     "Operations-Research.Optimization-Basics.Sensitivity-Analysis": {
-      "subsubject": "Operations-Research.Optimization-Basics"
+      "subsubject": "Operations-Research.Optimization-Basics",
+      "labelZh": "优化问题的敏感性分析",
+      "labelJa": "最適化問題の感度分析",
+      "labelEn": "Sensitivity Analysis in Optimization"
     },
     "Operations-Research.Linear-Programming.Stepping-Stone-Method": {
-      "subsubject": "Operations-Research.Linear-Programming"
+      "subsubject": "Operations-Research.Linear-Programming",
+      "labelZh": "运输问题的闭回路法",
+      "labelJa": "輸送問題の飛び石法",
+      "labelEn": "Stepping-Stone Method"
     },
     "Operations-Research.Linear-Programming.Transportation-Problem": {
-      "subsubject": "Operations-Research.Linear-Programming"
+      "subsubject": "Operations-Research.Linear-Programming",
+      "labelZh": "运输问题",
+      "labelJa": "輸送問題",
+      "labelEn": "Transportation Problem"
     },
     "Operations-Research.Linear-Programming.Total-Unimodularity-and-Integrality": {
       "subsubject": "Operations-Research.Linear-Programming",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "全单模性与整数性",
+      "labelJa": "完全単模性と整数性",
+      "labelEn": "Total Unimodularity and Integrality"
     },
     "Operations-Research.Combinatorial-Optimization.Maximum-Flow": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science",
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "最大流",
+      "labelJa": "最大流",
+      "labelEn": "Maximum Flow"
     },
     "Operations-Research.Combinatorial-Optimization.Maximum-Matching": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science",
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "最大匹配",
+      "labelJa": "最大マッチング",
+      "labelEn": "Maximum Matching"
     },
     "Operations-Research.Combinatorial-Optimization.Minimum-Spanning-Tree": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science",
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "最小生成树",
+      "labelJa": "最小全域木",
+      "labelEn": "Minimum Spanning Tree"
     },
     "Operations-Research.Combinatorial-Optimization.Shortest-Path-Problem": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science",
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "最短路径问题",
+      "labelJa": "最短路問題",
+      "labelEn": "Shortest Path Problem"
     },
     "Operations-Research.Combinatorial-Optimization.Mandatory-Vertex-in-All-Shortest-Paths": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science",
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "所有最短路径的必经顶点",
+      "labelJa": "すべての最短路が通る頂点",
+      "labelEn": "Mandatory Vertex in All Shortest Paths"
     },
     "Operations-Research.Combinatorial-Optimization.Traveling-Salesman-Problem": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
       "relatedSubjects": [
         "Computer-Science",
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "旅行商问题",
+      "labelJa": "巡回セールスマン問題",
+      "labelEn": "Traveling Salesman Problem"
     },
     "Operations-Research.Combinatorial-Optimization.Johnsons-Rule": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
@@ -484,8 +703,8 @@
     },
     "Operations-Research.Combinatorial-Optimization.Binary-Integer-Programming": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
-      "labelZh": "0–1整数规划",
-      "labelJa": "0–1整数計画",
+      "labelZh": "0–1 整数规划",
+      "labelJa": "0–1 整数計画",
       "labelEn": "Binary Integer Programming"
     }
   }

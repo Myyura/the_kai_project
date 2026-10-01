@@ -1,7 +1,8 @@
 import tagTaxonomy from '../data/tagTaxonomy';
+import {getLanguageLocale, normalizeLanguage} from '../i18n/config';
 
-export const DOC_TAGS_BASE_PATH = '/docs/tags';
-export const TOPIC_ANCHOR_PREFIX = 'topic-';
+const DOC_TAGS_BASE_PATH = '/docs/tags';
+const TOPIC_ANCHOR_PREFIX = 'topic-';
 
 const subjects = tagTaxonomy.subjects || {};
 const subsubjects = tagTaxonomy.subsubjects || {};
@@ -22,7 +23,49 @@ registerAliases(schoolTags);
 registerAliases(subsubjects);
 registerAliases(topics);
 
-export function tagBrowseSlug(value) {
+const metadata = {...subjects, ...subsubjects, ...topics, ...schoolTags};
+const languageSuffix = {zh: 'Zh', ja: 'Ja', en: 'En'};
+const collators = new Map();
+
+/** Labels are required in all three languages; IDs are never translated. */
+export function getTagLabel(value, language) {
+  const id = resolveCanonicalTagId(value);
+  return metadata[id]?.[`label${languageSuffix[normalizeLanguage(language)]}`] || id;
+}
+
+export function getTagDescription(value, language) {
+  const meta = metadata[resolveCanonicalTagId(value)];
+  return meta?.[`description${languageSuffix[normalizeLanguage(language)]}`];
+}
+
+export function compareTagLabels(leftId, rightId, language) {
+  const locale = getLanguageLocale(language);
+  if (!collators.has(locale)) collators.set(locale, new Intl.Collator(locale, {numeric: true}));
+  return collators.get(locale).compare(getTagLabel(leftId, language), getTagLabel(rightId, language))
+    || String(leftId).localeCompare(String(rightId), 'en');
+}
+
+function normalizeSearch(value) {
+  return String(value || '').normalize('NFKC').toLowerCase().replace(/[\s._-]+/g, ' ').trim();
+}
+
+// Search all languages regardless of the selected UI language.
+const searchIndex = new Map(Object.entries(metadata).map(([id, meta]) => [
+  id,
+  normalizeSearch([
+    id, meta.universityId, ...(meta.aliases || []),
+    ...Object.values(languageSuffix).map((suffix) => meta[`label${suffix}`]),
+    ...Object.values(meta.searchAliases || {}).flat(),
+  ].filter(Boolean).join('\n')),
+]));
+
+export function matchesTagSearch(value, query) {
+  const id = resolveCanonicalTagId(value);
+  const text = searchIndex.get(id) || normalizeSearch(id);
+  return normalizeSearch(query).split(' ').every((term) => text.includes(term));
+}
+
+function tagBrowseSlug(value) {
   return String(value || '')
     .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
     .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
@@ -36,7 +79,7 @@ export function resolveCanonicalTagId(value) {
   return aliasLookup.get(tagId) || tagId;
 }
 
-export function getSubsubjectShortId(value) {
+function getSubsubjectShortId(value) {
   const subsubjectId = resolveCanonicalTagId(value);
   const subjectId = subsubjects[subsubjectId]?.subject;
   const prefix = subjectId ? `${subjectId}.` : '';
@@ -45,24 +88,13 @@ export function getSubsubjectShortId(value) {
     : subsubjectId;
 }
 
-export function getTopicShortId(value) {
+function getTopicShortId(value) {
   const topicId = resolveCanonicalTagId(value);
   const subsubjectId = topics[topicId]?.subsubject;
   const prefix = subsubjectId ? `${subsubjectId}.` : '';
   return prefix && topicId.startsWith(prefix)
     ? topicId.slice(prefix.length)
     : topicId.split('.').pop() || topicId;
-}
-
-export function humanizeTagShortId(value) {
-  return String(value || '')
-    .replace(/[-_]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-export function getTopicDisplayName(topicId) {
-  return humanizeTagShortId(getTopicShortId(topicId));
 }
 
 export function getTopicAnchorId(topicId) {
@@ -105,7 +137,6 @@ export function resolveTagBrowseTarget(value, fallbackHref = '') {
       pathname: safeFallbackHref,
       anchorId: null,
       href: safeFallbackHref,
-      displayName: rawId,
     };
   }
 
@@ -117,7 +148,6 @@ export function resolveTagBrowseTarget(value, fallbackHref = '') {
       pathname,
       anchorId: null,
       href: pathname,
-      displayName: id,
     };
   }
 
@@ -130,7 +160,6 @@ export function resolveTagBrowseTarget(value, fallbackHref = '') {
       pathname,
       anchorId: null,
       href: pathname,
-      displayName: humanizeTagShortId(getSubsubjectShortId(id)),
     };
   }
 
@@ -146,7 +175,6 @@ export function resolveTagBrowseTarget(value, fallbackHref = '') {
       pathname,
       anchorId,
       href: `${pathname}#${anchorId}`,
-      displayName: getTopicDisplayName(id),
     };
   }
 
@@ -159,6 +187,5 @@ export function resolveTagBrowseTarget(value, fallbackHref = '') {
     pathname,
     anchorId: null,
     href: pathname,
-    displayName: rawId,
   };
 }

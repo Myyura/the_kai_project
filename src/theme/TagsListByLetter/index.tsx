@@ -17,10 +17,12 @@ import {useCurrentLanguage} from '@site/src/context/LanguageContext';
 import {normalizeLanguage} from '@site/src/i18n/config';
 import {getUiMessages} from '@site/src/i18n/messages';
 import {
-  getSubsubjectShortId,
-  getTopicShortId,
+  getTagLabel,
+  getTagDescription,
+  compareTagLabels,
+  matchesTagSearch,
   resolveTagBrowseTarget,
-} from '@site/src/utils/tagBrowseTarget';
+} from '@site/src/utils/tags';
 import styles from './styles.module.css';
 
 interface TagType {
@@ -30,16 +32,7 @@ interface TagType {
   description?: string;
 }
 
-interface LocalizedMeta {
-  labelZh?: string;
-  labelJa?: string;
-  labelEn?: string;
-  descriptionZh?: string;
-  descriptionJa?: string;
-  descriptionEn?: string;
-}
-
-interface SubsubjectMeta extends LocalizedMeta {
+interface SubsubjectMeta {
   subject?: string;
 }
 
@@ -51,35 +44,16 @@ interface TopicMeta {
 type Language = 'zh' | 'ja' | 'en';
 type Tone = 'school' | 'subsubject' | 'topic' | 'pending';
 
-const subjects = tagTaxonomy.subjects as Record<string, LocalizedMeta>;
 const subsubjects = tagTaxonomy.subsubjects as Record<string, SubsubjectMeta>;
 const topics = tagTaxonomy.topics as Record<string, TopicMeta>;
 const schoolTags = tagTaxonomy.schoolTags as Record<
   string,
-  {label?: string; universityId?: string; aliases?: string[]}
+  {aliases?: string[]}
 >;
 const subjectOrder = tagTaxonomy.subjectOrder as string[];
 const subsubjectOrder = tagTaxonomy.subsubjectOrder as string[];
 
 const getCopy = (language: Language) => getUiMessages('tagsList', language);
-
-function getLocalizedLabel(meta: LocalizedMeta | undefined, fallback: string, language: Language): string {
-  if (language === 'en') return meta?.labelEn || fallback;
-  return (language === 'ja' ? meta?.labelJa : meta?.labelZh) || fallback;
-}
-
-function getLocalizedDescription(meta: LocalizedMeta | undefined, language: Language): string | undefined {
-  if (language === 'en') return meta?.descriptionEn;
-  return language === 'ja' ? meta?.descriptionJa : meta?.descriptionZh;
-}
-
-function getSubjectLabel(subjectId: string, language: Language): string {
-  return getLocalizedLabel(subjects[subjectId], subjectId, language);
-}
-
-function getSubjectDescription(subjectId: string, language: Language): string | undefined {
-  return getLocalizedDescription(subjects[subjectId], language);
-}
 
 function getSubjectAnchorId(subjectId: string): string {
   return `subject-${subjectId.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
@@ -96,14 +70,6 @@ function decodeHash(hash: string): string {
 function getSubjectIdFromHash(hash: string, subjectIds: string[]): string | null {
   const normalizedHash = decodeHash(hash).replace(/^#/, '');
   return subjectIds.find((subjectId) => getSubjectAnchorId(subjectId) === normalizedHash) || null;
-}
-
-function getSubsubjectLabel(subsubjectId: string, language: Language): string {
-  return getLocalizedLabel(subsubjects[subsubjectId], subsubjectId, language);
-}
-
-function getSubsubjectDescription(subsubjectId: string, language: Language): string | undefined {
-  return getLocalizedDescription(subsubjects[subsubjectId], language);
 }
 
 const schoolTagLookup = new Set(
@@ -137,16 +103,6 @@ function getTopicSubsubjectId(tagLabel: string): string {
   return getTopicMeta(tagLabel)?.subsubject || '';
 }
 
-function getSubsubjectDisplayId(subsubjectId: string): string {
-  return getSubsubjectShortId(subsubjectId);
-}
-
-function getTagDisplayName(tagLabel: string): string {
-  if (getTopicMeta(tagLabel)) return getTopicShortId(tagLabel);
-  if (getSubsubjectMeta(tagLabel)) return getSubsubjectDisplayId(tagLabel);
-  return tagLabel;
-}
-
 function getPrimarySubject(tagLabel: string): string {
   const subsubjectId = getSubsubjectId(tagLabel);
   if (subsubjectId) return subsubjects[subsubjectId]?.subject || 'General';
@@ -158,17 +114,17 @@ function isSchoolTag(tagLabel: string): boolean {
   return schoolTagLookup.has(tagLabel);
 }
 
-function byCountThenName(a: TagType, b: TagType): number {
-  return b.count - a.count || a.label.localeCompare(b.label, 'en');
+function byCountThenName(a: TagType, b: TagType, language: Language): number {
+  return b.count - a.count || compareTagLabels(a.label, b.label, language);
 }
 
 function TagPill({
   tag,
-  displayName,
+  language,
   tone,
 }: {
   tag: TagType;
-  displayName?: string;
+  language: Language;
   tone?: Tone;
 }) {
   const browseTarget = resolveTagBrowseTarget(tag.label, tag.permalink);
@@ -178,7 +134,7 @@ function TagPill({
       to={browseTarget.href}
       className={`${styles.tagPill} ${tone ? styles[tone] : ''}`}>
       <span className={styles.tagMainRow}>
-        <span className={styles.tagName}>{displayName || getTagDisplayName(tag.label)}</span>
+        <span className={styles.tagName}>{getTagLabel(tag.label, language)}</span>
         <span className={styles.tagPillCount}>{tag.count}</span>
       </span>
     </Link>
@@ -189,17 +145,8 @@ function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) 
   const t = getCopy(language);
   const [query, setQuery] = useState('');
   if (tags.length === 0) return null;
-  const search = query.trim().toLocaleLowerCase();
-  const filteredTags = tags.filter((tag) => {
-    const school = schoolTags[tag.label];
-    return !search || textMatches(
-      search,
-      tag.label,
-      school?.label,
-      school?.universityId,
-      ...(school?.aliases || []),
-    );
-  });
+  const search = query.trim();
+  const filteredTags = tags.filter((tag) => matchesTagSearch(tag.label, search));
 
   return (
     <section className={styles.schoolPanel}>
@@ -218,17 +165,14 @@ function SchoolSection({tags, language}: {tags: TagType[]; language: Language}) 
       <div id="school-tag-results">
       {filteredTags.length > 0 ? (
         <div className={styles.schoolGrid}>
-          {filteredTags.sort(byCountThenName).map((tag) => {
-          const school = schoolTags[tag.label];
-          return (
+          {filteredTags.sort((a, b) => byCountThenName(a, b, language)).map((tag) => (
             <TagPill
               key={tag.permalink}
               tag={tag}
-              displayName={school?.label || tag.label}
+              language={language}
               tone="school"
             />
-          );
-          })}
+          ))}
         </div>
       ) : (
         <BrowseEmptyState
@@ -259,10 +203,6 @@ function countGroupTags(groups: SubsubjectGroup[]): number {
   );
 }
 
-function textMatches(query: string, ...values: Array<string | undefined>): boolean {
-  return values.some((value) => value?.toLocaleLowerCase().includes(query));
-}
-
 function TopicLink({
   tag,
   language,
@@ -273,11 +213,11 @@ function TopicLink({
   const t = getCopy(language);
   const browseTarget = resolveTagBrowseTarget(tag.label, tag.permalink);
   const secondarySubjects = (getTopicMeta(tag.label)?.relatedSubjects || [])
-    .map((id) => getSubjectLabel(id, language));
+    .map((id) => getTagLabel(id, language));
 
   return (
     <Link to={browseTarget.href} className={styles.topicLink}>
-      <span className={styles.topicName}>{getTopicShortId(tag.label)}</span>
+      <span className={styles.topicName}>{getTagLabel(tag.label, language)}</span>
       {secondarySubjects.length > 0 && (
         <span className={styles.topicRelated}>
           <span className={styles.topicRelatedLabel}>{t.relatedSubjects}</span>
@@ -303,10 +243,9 @@ function SubsubjectRow({
   const t = getCopy(language);
   const framework = getUiMessages('framework', language);
   const [expanded, setExpanded] = useState(Boolean(isSearching && group.autoOpen));
-  const topicTags = [...group.topicTags].sort(byCountThenName);
-  const label = getSubsubjectLabel(group.subsubjectId, language);
-  const shortId = getSubsubjectDisplayId(group.subsubjectId);
-  const description = getSubsubjectDescription(group.subsubjectId, language);
+  const topicTags = [...group.topicTags].sort((a, b) => byCountThenName(a, b, language));
+  const label = getTagLabel(group.subsubjectId, language);
+  const description = getTagDescription(group.subsubjectId, language);
   const target = resolveTagBrowseTarget(group.subsubjectId);
   const panelId = `subsubject-topics-${group.subsubjectId}`;
 
@@ -320,7 +259,6 @@ function SubsubjectRow({
         <div className={styles.subsubjectSummaryText}>
           <Link to={target.href} className={styles.subsubjectLink}>
             <span>{label}</span>
-            {label !== shortId && <span className={styles.subsubjectId}>({shortId})</span>}
           </Link>
           {description && <p className={styles.subsubjectDescription}>{description}</p>}
         </div>
@@ -362,7 +300,7 @@ function SubjectPanel({
   isSearching: boolean;
   isActive: boolean;
 }) {
-  const subjectDescription = getSubjectDescription(subjectId, language);
+  const subjectDescription = getTagDescription(subjectId, language);
 
   return (
     <section className={`${styles.subjectPanel} ${isActive ? styles.subjectPanelActive : ''}`}>
@@ -372,7 +310,7 @@ function SubjectPanel({
             as="h2"
             id={getSubjectAnchorId(subjectId)}
             className={styles.subjectPanelTitle}>
-            {getSubjectLabel(subjectId, language)}
+            {getTagLabel(subjectId, language)}
           </Heading>
           {subjectDescription && (
             <p className={styles.subjectPanelDescription}>{subjectDescription}</p>
@@ -486,12 +424,11 @@ function LearningSections({
       const ai = order.get(a.subsubjectId) ?? Number.MAX_SAFE_INTEGER;
       const bi = order.get(b.subsubjectId) ?? Number.MAX_SAFE_INTEGER;
       if (ai !== bi) return ai - bi;
-      return getSubsubjectLabel(a.subsubjectId, language)
-        .localeCompare(getSubsubjectLabel(b.subsubjectId, language), 'en');
+      return compareTagLabels(a.subsubjectId, b.subsubjectId, language);
     });
   };
 
-  const search = query.trim().toLocaleLowerCase();
+  const search = query.trim();
   const isSearching = search.length > 0;
   const visibleGroups = new Map<string, DisplaySubsubjectGroup[]>();
 
@@ -502,24 +439,10 @@ function LearningSections({
       continue;
     }
 
-    const subjectMatches = textMatches(
-      search,
-      subjectId,
-      getSubjectLabel(subjectId, language),
-      getSubjectDescription(subjectId, language),
-    );
+    const subjectMatches = matchesTagSearch(subjectId, search);
     const filteredGroups = sourceGroups.flatMap((group) => {
-      const subsubjectMatches = textMatches(
-        search,
-        group.subsubjectId,
-        getSubsubjectLabel(group.subsubjectId, language),
-        getSubsubjectDescription(group.subsubjectId, language),
-      );
-      const matchingTopics = group.topicTags.filter((tag) => textMatches(
-        search,
-        tag.label,
-        getTopicShortId(tag.label),
-      ));
+      const subsubjectMatches = matchesTagSearch(group.subsubjectId, search);
+      const matchingTopics = group.topicTags.filter((tag) => matchesTagSearch(tag.label, search));
 
       if (!subjectMatches && !subsubjectMatches && matchingTopics.length === 0) return [];
       return [{
@@ -565,7 +488,7 @@ function LearningSections({
               className={`${styles.subjectNavItem} ${!isSearching && selectedSubject === subjectId ? styles.subjectNavItemActive : ''}`}
               aria-current={!isSearching && selectedSubject === subjectId ? 'true' : undefined}
               onClick={(event) => navigateToSubject(event, subjectId)}>
-              <span>{getSubjectLabel(subjectId, language)}</span>
+              <span>{getTagLabel(subjectId, language)}</span>
               <span className={styles.subjectNavCount}>
                 {countGroupTags(orderedGroups(bySubject.get(subjectId)!))}
               </span>
@@ -603,8 +526,8 @@ function PendingSection({tags, language}: {tags: TagType[]; language: Language})
         <span className={styles.panelCount}>{tags.length}</span>
       </header>
       <div className={styles.tagGrid}>
-        {[...tags].sort(byCountThenName).map((tag) => (
-          <TagPill key={tag.permalink} tag={tag} tone="pending" />
+        {[...tags].sort((a, b) => byCountThenName(a, b, language)).map((tag) => (
+          <TagPill key={tag.permalink} tag={tag} language={language} tone="pending" />
         ))}
       </div>
     </section>

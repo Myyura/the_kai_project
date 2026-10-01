@@ -27,7 +27,10 @@
       "subsubject": "Bioinformatics.Bioinformatics",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "序列比对",
+      "labelJa": "配列アラインメント",
+      "labelEn": "Sequence Alignment"
     }
   }
 }

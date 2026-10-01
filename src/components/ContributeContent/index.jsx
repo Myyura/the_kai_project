@@ -14,6 +14,7 @@ import {
 import { useAuth } from '@site/src/hooks/useAuth';
 import { usePublicProfile } from '@site/src/hooks/usePublicProfile';
 import { getLanguageLocale, useCurrentLanguage } from '@site/src/context/LanguageContext';
+import {getTagLabel} from '@site/src/utils/tags';
 import {useUiText} from '@site/src/i18n/useUiText';
 import useDocumentColorMode from '@site/src/components/Chemistry/useDocumentColorMode';
 import { getSupabaseClient } from '@site/src/services/supabaseClient';
@@ -842,7 +843,7 @@ export function ContributeContent({ embedded = false } = {}) {
             <span className={styles.hint}>{t.currentAccount(user?.email)}</span>
           </div>
           <datalist id="submission-tag-options">
-            {tagOptions.map((tag) => <option key={tag} value={tag} />)}
+            {tagOptions.map((tag) => <option key={tag} value={tag} label={getTagLabel(tag, language)} />)}
           </datalist>
         </form>
 

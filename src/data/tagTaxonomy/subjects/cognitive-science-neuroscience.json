@@ -27,10 +27,16 @@
   ],
   "topics": {
     "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Attentional-Orienting": {
-      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
+      "labelZh": "注意定向",
+      "labelJa": "注意の定位",
+      "labelEn": "Attentional Orienting"
     },
     "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Dissociation-Methods": {
-      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
+      "labelZh": "认知功能分离法",
+      "labelJa": "認知機能の解離法",
+      "labelEn": "Dissociation Methods in Cognitive Research"
     },
     "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Magnetoencephalography-vs-Functional-Magnetic-Resonance-Imaging": {
       "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
@@ -39,19 +45,31 @@
       ],
       "aliases": [
         "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.MEG-vs-fMRI"
-      ]
+      ],
+      "labelZh": "脑磁图与功能磁共振成像的比较",
+      "labelJa": "脳磁図と機能的磁気共鳴画像法の比較",
+      "labelEn": "Magnetoencephalography versus Functional MRI"
     },
     "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Reaction-Time-Experiment-Design": {
       "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "反应时实验设计",
+      "labelJa": "反応時間実験の計画",
+      "labelEn": "Reaction-Time Experiment Design"
     },
     "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Sensory-Processing-and-Illusions": {
-      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
+      "labelZh": "感觉加工与错觉",
+      "labelJa": "感覚情報処理と錯覚",
+      "labelEn": "Sensory Processing and Illusions"
     },
     "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Speed-Accuracy-Tradeoff": {
-      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience"
+      "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
+      "labelZh": "速度–准确性权衡",
+      "labelJa": "速さと正確さのトレードオフ",
+      "labelEn": "Speed–Accuracy Tradeoff"
     },
     "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.Voxel-Based-Morphometry-and-Diffusion-Tensor-Imaging": {
       "subsubject": "Cognitive-Science-Neuroscience.Cognitive-Neuroscience",
@@ -60,7 +78,10 @@
       ],
       "aliases": [
         "Cognitive-Science-Neuroscience.Cognitive-Neuroscience.VBM-and-DTI"
-      ]
+      ],
+      "labelZh": "基于体素的形态测量与弥散张量成像",
+      "labelJa": "ボクセルベース形態計測と拡散テンソル画像法",
+      "labelEn": "Voxel-Based Morphometry and Diffusion Tensor Imaging"
     }
   }
 }

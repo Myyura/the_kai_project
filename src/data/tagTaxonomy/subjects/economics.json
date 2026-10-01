@@ -74,23 +74,35 @@
   ],
   "topics": {
     "Economics.Microeconomics.Adverse-Selection-and-Lemons-Market": {
-      "subsubject": "Economics.Microeconomics"
+      "subsubject": "Economics.Microeconomics",
+      "labelZh": "逆向选择与柠檬市场",
+      "labelJa": "逆選択とレモン市場",
+      "labelEn": "Adverse Selection and the Market for Lemons"
     },
     "Economics.Microeconomics.Consumer-and-Producer-Surplus": {
-      "subsubject": "Economics.Microeconomics"
+      "subsubject": "Economics.Microeconomics",
+      "labelZh": "消费者剩余与生产者剩余",
+      "labelJa": "消費者余剰と生産者余剰",
+      "labelEn": "Consumer and Producer Surplus"
     },
     "Economics.Microeconomics.Gender-and-Labor-Economics": {
       "subsubject": "Economics.Microeconomics",
       "relatedSubjects": [
         "Business-Administration",
         "Sociology"
-      ]
+      ],
+      "labelZh": "性别与劳动经济学",
+      "labelJa": "ジェンダーと労働経済学",
+      "labelEn": "Gender and Labor Economics"
     },
     "Economics.Public-Finance.Health-Economics-and-Nursing-Services": {
       "subsubject": "Economics.Public-Finance",
       "relatedSubjects": [
         "Business-Administration"
-      ]
+      ],
+      "labelZh": "卫生经济学与护理服务",
+      "labelJa": "医療経済学と看護サービス",
+      "labelEn": "Health Economics and Nursing Services"
     }
   }
 }

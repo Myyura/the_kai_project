@@ -41,11 +41,14 @@ const repoRoot = path.resolve(__dirname, '..');
 const tagTaxonomy = require('../src/data/tagTaxonomy');
 const {
   getTopicAnchorId,
-  getTopicDisplayName,
+  getTagLabel,
+  getTagDescription,
+  compareTagLabels,
+  matchesTagSearch,
   resolveTagBrowseTarget,
-} = loadSourceModule(path.join(repoRoot, 'src/utils/tagBrowseTarget.js'));
+} = loadSourceModule(path.join(repoRoot, 'src/utils/tags.js'));
 
-test('topic browse targets use a humanized label and the parent subsubject anchor', () => {
+test('topic browse targets use stable IDs and the parent subsubject anchor', () => {
   const target = resolveTagBrowseTarget('Mathematics.Calculus.Integration');
 
   assert.deepEqual(target, {
@@ -56,13 +59,7 @@ test('topic browse targets use a humanized label and the parent subsubject ancho
     pathname: '/docs/tags/subsubject/mathematics/calculus',
     anchorId: 'topic-integration',
     href: '/docs/tags/subsubject/mathematics/calculus#topic-integration',
-    displayName: 'Integration',
   });
-
-  assert.equal(
-    getTopicDisplayName('Computer-Science.Algorithm-Design.Matrix-Multiplication-Algorithms'),
-    'Matrix Multiplication Algorithms',
-  );
 });
 
 test('subsubject and school targets keep their canonical routes', () => {
@@ -100,7 +97,6 @@ test('every taxonomy topic has one unique parent anchor and no legacy topic link
     assert.match(target.href, /^\/docs\/tags\/subsubject\/.+#topic-[a-z0-9-]+$/);
     assert.equal(target.href.includes('/docs/tags/topic/'), false);
     assert.equal(target.anchorId, getTopicAnchorId(target.id));
-    assert.equal(target.displayName, getTopicDisplayName(target.id));
   }
 });
 
@@ -118,5 +114,61 @@ test('blog permalinks win even when a tag name matches the docs taxonomy', () =>
   );
   assert.equal(target.kind, 'unknown');
   assert.equal(target.href, '/blog/tags/mathematics-calculus-integration');
-  assert.equal(target.displayName, 'Mathematics.Calculus.Integration');
+});
+
+const localizedEntries = Object.entries({
+  ...tagTaxonomy.subjects,
+  ...tagTaxonomy.subsubjects,
+  ...tagTaxonomy.topics,
+  ...tagTaxonomy.schoolTags,
+});
+
+test('every taxonomy entry has three labels and each label is searchable in every UI language', () => {
+  for (const [id, meta] of localizedEntries) {
+    for (const [language, suffix] of [['zh', 'Zh'], ['ja', 'Ja'], ['en', 'En']]) {
+      const label = meta[`label${suffix}`];
+      assert.equal(typeof label, 'string', `${id}: missing ${language}`);
+      assert.ok(label.trim(), `${id}: empty ${language}`);
+      assert.equal(getTagLabel(id, language), label);
+      assert.ok(matchesTagSearch(id, label), `${id}: cannot search ${label}`);
+      const description = meta[`description${suffix}`];
+      assert.equal(getTagDescription(id, language), description);
+    }
+    assert.ok(matchesTagSearch(id, id));
+    for (const aliases of Object.values(meta.searchAliases || {})) {
+      for (const alias of aliases) assert.ok(matchesTagSearch(id, alias), `${id}: ${alias}`);
+    }
+  }
+});
+
+test('multilingual search normalizes width, separators and case, and supports mixed-language terms', () => {
+  const id = 'Tokyo-University';
+  for (const query of ['东京大学', '東京大学', 'the university of tokyo', 'ＵＴｏｋｙｏ', 'Tokyo-University', '東京大学 tokyo', '东大', '  ']) {
+    assert.ok(matchesTagSearch(id, query), query);
+  }
+  assert.equal(matchesTagSearch(id, '京都大学'), false);
+  assert.equal(matchesTagSearch(id, '東京大学 nonexistent'), false);
+  assert.equal(getTagLabel(id, 'zh'), '东京大学');
+  assert.equal(getTagLabel(id, 'ja'), '東京大学');
+  assert.equal(getTagLabel(id, 'en'), 'The University of Tokyo');
+  assert.equal(getTagLabel('Untaxonomized-Tag', 'ja'), 'Untaxonomized-Tag');
+  assert.equal(getTagDescription('Untaxonomized-Tag', 'ja'), undefined);
+});
+
+test('localized ordering uses the selected locale with deterministic ties', () => {
+  const ids = Object.keys(tagTaxonomy.schoolTags);
+  for (const [language, locale] of [['zh', 'zh-CN'], ['ja', 'ja-JP'], ['en', 'en-US']]) {
+    const collator = new Intl.Collator(locale, {numeric: true});
+    const sorted = [...ids].sort((a, b) => compareTagLabels(a, b, language));
+    for (let i = 1; i < sorted.length; i += 1) {
+      assert.ok(collator.compare(getTagLabel(sorted[i - 1], language), getTagLabel(sorted[i], language)) <= 0);
+    }
+    assert.equal(compareTagLabels(ids[0], ids[0], language), 0);
+  }
+});
+
+
+test('parent descriptions do not turn a specific-topic query into an entire subject match', () => {
+  assert.equal(matchesTagSearch('Mathematics.Linear-Algebra', '固有値'), false);
+  assert.equal(matchesTagSearch('Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors', '固有値'), true);
 });

@@ -57,7 +57,7 @@ function buildPermalink(kind, id, taxonomy) {
 function buildDescription(kind, id, taxonomy) {
   if (kind === 'school') {
     const school = taxonomy.schoolTags[id];
-    return school?.label && school.label !== id ? `${id} (${school.label})` : id;
+    return school.labelEn;
   }
 
   if (kind === 'subsubject') {

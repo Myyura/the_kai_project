@@ -144,394 +144,700 @@
   ],
   "topics": {
     "Mathematics.Real-Analysis.Improper-Integrals-with-Floor-and-Fractional-Part": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "含取整与小数部分函数的反常积分",
+      "labelJa": "床関数・小数部分を含む広義積分",
+      "labelEn": "Improper Integrals with Floor and Fractional Part"
     },
     "Mathematics.Real-Analysis.Differentiability-from-Polynomial-Approximation-Rate": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "由多项式逼近速度判定可微性",
+      "labelJa": "多項式近似の速度による微分可能性の判定",
+      "labelEn": "Differentiability from Polynomial Approximation Rate"
     },
     "Mathematics.Real-Analysis.Bernstein-Inequality-for-Trigonometric-Polynomials": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "三角多项式的伯恩斯坦不等式",
+      "labelJa": "三角多項式に対するベルンシュタインの不等式",
+      "labelEn": "Bernstein Inequality for Trigonometric Polynomials"
     },
     "Mathematics.Real-Analysis.Exponential-Kernel-Sequence-Divergence-and-Continuum-Limit": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "指数核定义的序列差异度及其连续极限",
+      "labelJa": "指数核による数列間の乖離度と連続極限",
+      "labelEn": "Exponential-kernel Divergence between Sequences and its Continuum Limit"
     },
     "Mathematics.Real-Analysis.Frullani-Integral-by-Parameter-Differentiation": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "用参数微分法计算弗鲁拉尼积分",
+      "labelJa": "パラメータ微分によるフルラニ積分",
+      "labelEn": "Frullani Integral by Parameter Differentiation"
     },
     "Mathematics.Real-Analysis.Interchange-of-Limit-Derivative-and-Integral": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "极限、微分与积分的交换",
+      "labelJa": "極限・微分・積分の交換",
+      "labelEn": "Interchange of Limit Derivative and Integral"
     },
     "Mathematics.Numerical-Analysis.Lagrange-Polynomial-Interpolation": {
       "subsubject": "Mathematics.Numerical-Analysis",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "拉格朗日多项式插值",
+      "labelJa": "ラグランジュ補間",
+      "labelEn": "Lagrange Polynomial Interpolation"
     },
     "Mathematics.Real-Analysis.Uniform-Convergence-by-Supremum-Error": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "利用误差上确界证明一致收敛",
+      "labelJa": "誤差の上限による一様収束の証明",
+      "labelEn": "Uniform Convergence by Supremum Error"
     },
     "Mathematics.Real-Analysis.Asymptotics-of-Nonlinear-Sequence-Recurrence": {
       "subsubject": "Mathematics.Real-Analysis",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "非线性递推数列的渐近分析",
+      "labelJa": "非線形漸化式で定まる数列の漸近解析",
+      "labelEn": "Asymptotics of Nonlinear Sequence Recurrence"
     },
     "Mathematics.Numerical-Analysis.Lie-Trotter-Product-Formula-and-Operator-Splitting": {
       "subsubject": "Mathematics.Numerical-Analysis",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "李–特罗特乘积公式与算子分裂",
+      "labelJa": "リー・トロッターの積公式と作用素分割",
+      "labelEn": "Lie–Trotter Product Formula and Operator Splitting"
     },
     "Mathematics.Numerical-Analysis.Central-Finite-Difference-for-Second-Derivative": {
       "subsubject": "Mathematics.Numerical-Analysis",
       "relatedSubjects": [
         "Computer-Science",
         "Engineering"
-      ]
+      ],
+      "labelZh": "二阶导数的中心差分近似",
+      "labelJa": "二階微分の中心差分近似",
+      "labelEn": "Central Finite Difference for Second Derivative"
     },
     "Mathematics.Numerical-Analysis.Roundoff-vs-Truncation-Error": {
       "subsubject": "Mathematics.Numerical-Analysis",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "舍入误差与截断误差",
+      "labelJa": "丸め誤差と打切り誤差",
+      "labelEn": "Roundoff and Truncation Errors"
     },
     "Mathematics.Numerical-Analysis.Exponential-Convergence-of-Trapezoidal-Rule-for-Analytic-Periodic-Functions": {
       "subsubject": "Mathematics.Numerical-Analysis",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "解析周期函数梯形求积的指数收敛",
+      "labelJa": "解析的な周期関数に対する台形則の指数収束",
+      "labelEn": "Exponential Convergence of the Trapezoidal Rule for Analytic Periodic Functions"
     },
     "Mathematics.Numerical-Analysis.Composite-Trapezoidal-Rule": {
-      "subsubject": "Mathematics.Numerical-Analysis"
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "labelZh": "复合梯形公式",
+      "labelJa": "複合台形則",
+      "labelEn": "Composite Trapezoidal Rule"
     },
     "Mathematics.Numerical-Analysis.Richardson-Extrapolation-for-Trapezoidal-Error": {
-      "subsubject": "Mathematics.Numerical-Analysis"
+      "subsubject": "Mathematics.Numerical-Analysis",
+      "labelZh": "梯形公式误差的理查森外推",
+      "labelJa": "台形則の誤差に対するリチャードソン補外",
+      "labelEn": "Richardson Extrapolation for Trapezoidal Error"
     },
     "Mathematics.Calculus.Cauchy-Sequence": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "柯西序列",
+      "labelJa": "コーシー列",
+      "labelEn": "Cauchy Sequence"
     },
     "Mathematics.Calculus.Arc-Length": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "弧长",
+      "labelJa": "弧長",
+      "labelEn": "Arc Length"
     },
     "Mathematics.Calculus.Related-Rates": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "相关变化率",
+      "labelJa": "関連する変化率",
+      "labelEn": "Related Rates"
     },
     "Mathematics.Calculus.Hyperbolic-Functions-from-Power-Series": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "由幂级数定义双曲函数",
+      "labelJa": "べき級数による双曲線関数の定義",
+      "labelEn": "Hyperbolic Functions from Power Series"
     },
     "Mathematics.Calculus.Logarithmic-Improper-Integrals-by-Inversion": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "用倒数代换计算对数型反常积分",
+      "labelJa": "逆数置換による対数型広義積分",
+      "labelEn": "Logarithmic Improper Integrals by Inversion"
     },
     "Mathematics.Calculus.Inverse-Hyperbolic-Sine-Integral": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "反双曲正弦函数的积分",
+      "labelJa": "逆双曲線正弦関数の積分",
+      "labelEn": "Inverse Hyperbolic Sine Integral"
     },
     "Mathematics.Calculus.Ellipse-Tangent-and-Intercept-Optimization": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "椭圆切线与截距最优化",
+      "labelJa": "楕円の接線と切片の最適化",
+      "labelEn": "Ellipse Tangent and Intercept Optimization"
     },
     "Mathematics.Calculus.Elliptic-Region-Change-of-Variables": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "椭圆区域上的变量代换",
+      "labelJa": "楕円領域での変数変換",
+      "labelEn": "Elliptic Region Change of Variables"
     },
     "Mathematics.Calculus.Sigmoid-and-Hyperbolic-Tangent-Derivatives": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "西格莫伊德函数与双曲正切函数的导数",
+      "labelJa": "シグモイド関数と双曲線正接関数の微分",
+      "labelEn": "Sigmoid and Hyperbolic Tangent Derivatives"
     },
     "Mathematics.Calculus.Beta-Function": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "贝塔函数",
+      "labelJa": "ベータ関数",
+      "labelEn": "Beta Function"
     },
     "Mathematics.Calculus.Constrained-Optimization": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "约束最优化",
+      "labelJa": "制約付き最適化",
+      "labelEn": "Constrained Optimization"
     },
     "Mathematics.Calculus.Calculus-of-Variations": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "变分法",
+      "labelJa": "変分法",
+      "labelEn": "Calculus of Variations"
     },
     "Mathematics.Calculus.Continuity-and-Differentiability": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "连续性与可微性",
+      "labelJa": "連続性と微分可能性",
+      "labelEn": "Continuity and Differentiability"
     },
     "Mathematics.Calculus.Definite-Integral": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "定积分",
+      "labelJa": "定積分",
+      "labelEn": "Definite Integral"
     },
     "Mathematics.Calculus.Integration": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "积分",
+      "labelJa": "積分",
+      "labelEn": "Integration"
     },
     "Mathematics.Calculus.Differentiation": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "微分",
+      "labelJa": "微分",
+      "labelEn": "Differentiation"
     },
     "Mathematics.Calculus.Implicit-Function-Local-Power-Series": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "隐函数的局部幂级数展开",
+      "labelJa": "陰関数の局所的なべき級数展開",
+      "labelEn": "Implicit Function Local Power Series"
     },
     "Mathematics.Calculus.Logarithmic-Differentiation": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "对数求导法",
+      "labelJa": "対数微分法",
+      "labelEn": "Logarithmic Differentiation"
     },
     "Mathematics.Calculus.Double-Integral": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "二重积分",
+      "labelJa": "二重積分",
+      "labelEn": "Double Integral"
     },
     "Mathematics.Calculus.Surface-Area-by-Double-Integral": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "用二重积分计算曲面面积",
+      "labelJa": "二重積分による曲面積の計算",
+      "labelEn": "Surface Area by Double Integral"
     },
     "Mathematics.Calculus.Change-of-Variables-and-Jacobian": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "变量代换与雅可比行列式",
+      "labelJa": "変数変換とヤコビアン",
+      "labelEn": "Change of Variables and Jacobian"
     },
     "Mathematics.Calculus.Chain-Rule": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "链式法则",
+      "labelJa": "合成関数の微分法",
+      "labelEn": "Chain Rule"
     },
     "Mathematics.Calculus.Gamma-Function-Log-Derivatives-and-Log-Moments": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "伽马函数的对数导数与对数矩",
+      "labelJa": "ガンマ関数の対数微分と対数モーメント",
+      "labelEn": "Gamma Function Log Derivatives and Log Moments"
     },
     "Mathematics.Calculus.Gamma-Function": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "伽马函数",
+      "labelJa": "ガンマ関数",
+      "labelEn": "Gamma Function"
     },
     "Mathematics.Calculus.Gaussian-Integral": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "高斯积分",
+      "labelJa": "ガウス積分",
+      "labelEn": "Gaussian Integral"
     },
     "Mathematics.Calculus.Integration-by-Substitution": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "换元积分法",
+      "labelJa": "置換積分法",
+      "labelEn": "Integration by Substitution"
     },
     "Mathematics.Calculus.Tangent-Half-Angle-Substitution": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "正切半角代换",
+      "labelJa": "正接半角置換",
+      "labelEn": "Tangent Half Angle Substitution"
     },
     "Mathematics.Calculus.Integration-by-Parts": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "分部积分法",
+      "labelJa": "部分積分法",
+      "labelEn": "Integration by Parts"
     },
     "Mathematics.Calculus.Implicit-Differentiation": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "隐函数求导",
+      "labelJa": "陰関数の微分",
+      "labelEn": "Implicit Differentiation"
     },
     "Mathematics.Calculus.Indefinite-Integral": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "不定积分",
+      "labelJa": "不定積分",
+      "labelEn": "Indefinite Integral"
     },
     "Mathematics.Calculus.Integral-of-Inverse-Function": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "反函数的积分",
+      "labelJa": "逆関数の積分",
+      "labelEn": "Integral of Inverse Function"
     },
     "Mathematics.Calculus.Intermediate-Value-Theorem": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "介值定理",
+      "labelJa": "中間値の定理",
+      "labelEn": "Intermediate Value Theorem"
     },
     "Mathematics.Calculus.Improper-Integral": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "反常积分",
+      "labelJa": "広義積分",
+      "labelEn": "Improper Integral"
     },
     "Mathematics.Calculus.LHopital-Rule": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "洛必达法则",
+      "labelJa": "ロピタルの定理",
+      "labelEn": "L’Hôpital’s Rule"
     },
     "Mathematics.Calculus.Limit": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "极限",
+      "labelJa": "極限",
+      "labelEn": "Limit"
     },
     "Mathematics.Calculus.Local-Extrema": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "局部极值",
+      "labelJa": "局所的極値",
+      "labelEn": "Local Extrema"
     },
     "Mathematics.Calculus.Extrema": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "极值",
+      "labelJa": "極値",
+      "labelEn": "Extrema"
     },
     "Mathematics.Calculus.Partial-Fraction-Integration": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "部分分式分解积分法",
+      "labelJa": "部分分数分解による積分",
+      "labelEn": "Partial Fraction Integration"
     },
     "Mathematics.Calculus.Parametric-Differentiation": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "对参数求导",
+      "labelJa": "パラメータに関する微分",
+      "labelEn": "Parametric Differentiation"
     },
     "Mathematics.Calculus.Multivariable-Differentiation": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "多元函数微分",
+      "labelJa": "多変数関数の微分",
+      "labelEn": "Multivariable Differentiation"
     },
     "Mathematics.Calculus.Multivariable-Taylor-Expansion": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "多元泰勒展开",
+      "labelJa": "多変数関数のテイラー展開",
+      "labelEn": "Multivariable Taylor Expansion"
     },
     "Mathematics.Calculus.Hessian-Test-for-Multivariable-Extrema": {
       "subsubject": "Mathematics.Calculus",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "多元极值的海森矩阵判别法",
+      "labelJa": "ヘッセ行列による多変数関数の極値判定",
+      "labelEn": "Hessian Test for Multivariable Extrema"
     },
     "Mathematics.Calculus.Sequence-Convergence": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "数列收敛",
+      "labelJa": "数列の収束",
+      "labelEn": "Sequence Convergence"
     },
     "Mathematics.Calculus.Taylor-Series": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "泰勒级数",
+      "labelJa": "テイラー級数",
+      "labelEn": "Taylor Series"
     },
     "Mathematics.Calculus.Geometric-Series-and-Partial-Sum-Remainder": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "几何级数与部分和余项",
+      "labelJa": "等比級数と部分和の剰余",
+      "labelEn": "Geometric Series and Partial Sum Remainder"
     },
     "Mathematics.Calculus.Infinite-Series": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "无穷级数",
+      "labelJa": "無限級数",
+      "labelEn": "Infinite Series"
     },
     "Mathematics.Calculus.Power-Series": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "幂级数",
+      "labelJa": "べき級数",
+      "labelEn": "Power Series"
     },
     "Mathematics.Calculus.Volume-of-Revolution-by-Washers": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "垫片法计算旋转体体积",
+      "labelJa": "円環断面による回転体の体積計算",
+      "labelEn": "Volumes of Revolution by the Washer Method"
     },
     "Mathematics.Calculus.Volume-of-Revolution-by-Cylindrical-Shells": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "圆柱壳法计算旋转体体积",
+      "labelJa": "円筒殻法による回転体の体積計算",
+      "labelEn": "Volumes of Revolution by the Shell Method"
     },
     "Mathematics.Calculus.Triple-Integral": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "三重积分",
+      "labelJa": "三重積分",
+      "labelEn": "Triple Integral"
     },
     "Mathematics.Complex-Analysis.Complex-Numbers": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "复数",
+      "labelJa": "複素数",
+      "labelEn": "Complex Numbers"
     },
     "Mathematics.Complex-Analysis.Complex-Exponential-and-Polar-Form": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "复指数与极坐标形式",
+      "labelJa": "複素指数関数と極形式",
+      "labelEn": "Complex Exponential and Polar Form"
     },
     "Mathematics.Complex-Analysis.Complex-Roots": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "复数根",
+      "labelJa": "複素数の根",
+      "labelEn": "Complex Roots"
     },
     "Mathematics.Complex-Analysis.Cauchy-Integral-Formula": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "柯西积分公式",
+      "labelJa": "コーシーの積分公式",
+      "labelEn": "Cauchy Integral Formula"
     },
     "Mathematics.Complex-Analysis.Argument-Principle-and-Winding-Number": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "辐角原理与绕数",
+      "labelJa": "偏角の原理と回転数",
+      "labelEn": "Argument Principle and Winding Number"
     },
     "Mathematics.Complex-Analysis.Branch-Cut": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "支割线",
+      "labelJa": "分岐切断",
+      "labelEn": "Branch Cut"
     },
     "Mathematics.Complex-Analysis.Cauchy-Riemann-Equations": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "柯西–黎曼方程",
+      "labelJa": "コーシー・リーマンの方程式",
+      "labelEn": "Cauchy–Riemann Equations"
     },
     "Mathematics.Complex-Analysis.Harmonic-Functions-and-Harmonic-Conjugates": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "调和函数与共轭调和函数",
+      "labelJa": "調和関数と共役調和関数",
+      "labelEn": "Harmonic Functions and Harmonic Conjugates"
     },
     "Mathematics.Complex-Analysis.Conformal-Mapping": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "保角映射",
+      "labelJa": "等角写像",
+      "labelEn": "Conformal Mapping"
     },
     "Mathematics.Complex-Analysis.Dirichlet-Integral-by-Indented-Contour": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "利用凹进围道计算狄利克雷积分",
+      "labelJa": "迂回積分路によるディリクレ積分",
+      "labelEn": "Dirichlet Integral by Indented Contour"
     },
     "Mathematics.Complex-Analysis.Contour-Integration": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "围道积分",
+      "labelJa": "周回積分",
+      "labelEn": "Contour Integration"
     },
     "Mathematics.Complex-Analysis.Contour-Shift-of-Gaussian-Integral": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "高斯积分的积分路径平移",
+      "labelJa": "ガウス積分における積分路の平行移動",
+      "labelEn": "Contour Shift of Gaussian Integral"
     },
     "Mathematics.Complex-Analysis.Infinite-Series-by-Residues": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "用留数计算无穷级数",
+      "labelJa": "留数による無限級数の計算",
+      "labelEn": "Infinite Series by Residues"
     },
     "Mathematics.Complex-Analysis.Taylor-Series-and-Radius-of-Convergence": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "泰勒级数与收敛半径",
+      "labelJa": "テイラー級数と収束半径",
+      "labelEn": "Taylor Series and Radius of Convergence"
     },
     "Mathematics.Complex-Analysis.Laurent-Series": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "洛朗级数",
+      "labelJa": "ローラン級数",
+      "labelEn": "Laurent Series"
     },
     "Mathematics.Complex-Analysis.Mobius-Transformation": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "莫比乌斯变换",
+      "labelJa": "メビウス変換",
+      "labelEn": "Möbius Transformation"
     },
     "Mathematics.Complex-Analysis.Residue-Theorem": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "留数定理",
+      "labelJa": "留数定理",
+      "labelEn": "Residue Theorem"
     },
     "Mathematics.Complex-Analysis.Residue-at-Higher-Order-Pole": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "高阶极点处的留数",
+      "labelJa": "高位の極における留数",
+      "labelEn": "Residue at Higher-order Pole"
     },
     "Mathematics.Complex-Analysis.Real-Integral-by-Residues": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "用留数计算实积分",
+      "labelJa": "留数による実積分の計算",
+      "labelEn": "Real Integral by Residues"
     },
     "Mathematics.Complex-Analysis.Fresnel-Integral-by-Contour-Rotation": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "利用积分路径旋转计算菲涅耳积分",
+      "labelJa": "積分路の回転によるフレネル積分",
+      "labelEn": "Fresnel Integral by Contour Rotation"
     },
     "Mathematics.Complex-Analysis.Singularities-and-Poles": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "奇点与极点",
+      "labelJa": "特異点と極",
+      "labelEn": "Singularities and Poles"
     },
     "Mathematics.Fourier-Analysis.Convolution": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "卷积",
+      "labelJa": "畳み込み",
+      "labelEn": "Convolution"
     },
     "Mathematics.Fourier-Analysis.Fourier-Transform-Scaling-and-Frequency-Shift": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "傅里叶变换的尺度变换与频移",
+      "labelJa": "フーリエ変換のスケーリングと周波数シフト",
+      "labelEn": "Fourier Transform Scaling and Frequency Shift"
     },
     "Mathematics.Fourier-Analysis.Parseval-Identity": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "帕塞瓦尔恒等式",
+      "labelJa": "パーセバルの等式",
+      "labelEn": "Parseval Identity"
     },
     "Mathematics.Fourier-Analysis.Orthogonal-Function-Systems": {
-      "subsubject": "Mathematics.Fourier-Analysis"
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "labelZh": "正交函数系",
+      "labelJa": "直交関数系",
+      "labelEn": "Orthogonal Function Systems"
     },
     "Mathematics.Fourier-Analysis.Fourier-Transform-Differentiation-and-Time-Multiplication": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "傅里叶变换的微分与时域乘法性质",
+      "labelJa": "フーリエ変換の微分則と時間変数の乗算",
+      "labelEn": "Fourier Transform Differentiation and Time Multiplication"
     },
     "Mathematics.Fourier-Analysis.Fourier-Transform-Solution-of-Wave-Equation": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "用傅里叶变换求解波动方程",
+      "labelJa": "フーリエ変換による波動方程式の解法",
+      "labelEn": "Fourier Transform Solution of Wave Equation"
     },
     "Mathematics.Fourier-Analysis.Fourier-Transform-Solution-of-Heat-Equation": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "用傅里叶变换求解热方程",
+      "labelJa": "フーリエ変換による熱方程式の解法",
+      "labelEn": "Fourier Transform Solution of Heat Equation"
     },
     "Mathematics.Fourier-Analysis.Fourier-Series": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "傅里叶级数",
+      "labelJa": "フーリエ級数",
+      "labelEn": "Fourier Series"
     },
     "Mathematics.Linear-Algebra.Affine-Transformation": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "仿射变换",
+      "labelJa": "アフィン変換",
+      "labelEn": "Affine Transformation"
     },
     "Mathematics.Linear-Algebra.Block-Matrix-Inverse": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "分块矩阵求逆",
+      "labelJa": "ブロック行列の逆行列",
+      "labelEn": "Block Matrix Inverse"
     },
     "Mathematics.Linear-Algebra.Commuting-Matrices": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "可交换矩阵",
+      "labelJa": "可換な行列",
+      "labelEn": "Commuting Matrices"
     },
     "Mathematics.Linear-Algebra.Condition-Number": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "条件数",
+      "labelJa": "条件数",
+      "labelEn": "Condition Number"
     },
     "Mathematics.Linear-Algebra.Convex-Combination": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "凸组合",
+      "labelJa": "凸結合",
+      "labelEn": "Convex Combination"
     },
     "Mathematics.Linear-Algebra.Cayley-Hamilton-Theorem": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "凯莱–哈密顿定理",
+      "labelJa": "ケーリー・ハミルトンの定理",
+      "labelEn": "Cayley–Hamilton Theorem"
     },
     "Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "特征值与特征向量",
+      "labelJa": "固有値と固有ベクトル",
+      "labelEn": "Eigenvalues and Eigenvectors"
     },
     "Mathematics.Linear-Algebra.Hermitian-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "厄米矩阵",
+      "labelJa": "エルミート行列",
+      "labelEn": "Hermitian Matrix"
     },
     "Mathematics.Linear-Algebra.Unitary-Discrete-Fourier-Transform-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -541,10 +847,16 @@
       ],
       "aliases": [
         "Mathematics.Linear-Algebra.Unitary-DFT-Matrix"
-      ]
+      ],
+      "labelZh": "酉离散傅里叶变换矩阵",
+      "labelJa": "ユニタリな離散フーリエ変換行列",
+      "labelEn": "Unitary Discrete Fourier Transform (DFT) Matrix"
     },
     "Mathematics.Linear-Algebra.Realification-of-Unitary-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "酉矩阵的实化",
+      "labelJa": "ユニタリ行列の実数表現",
+      "labelEn": "Realification of Unitary Matrix"
     },
     "Mathematics.Linear-Algebra.Parameterization-of-Two-Dimensional-Unitary-and-Special-Unitary-Matrices": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -553,99 +865,171 @@
       ],
       "aliases": [
         "Mathematics.Linear-Algebra.Parameterization-of-U2-and-SU2-Matrices"
-      ]
+      ],
+      "labelZh": "二阶酉矩阵与特殊酉矩阵的参数化",
+      "labelJa": "二次ユニタリ行列・特殊ユニタリ行列のパラメータ表示",
+      "labelEn": "Parameterization of Two-dimensional Unitary and Special Unitary Matrices"
     },
     "Mathematics.Linear-Algebra.Unitary-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "酉矩阵",
+      "labelJa": "ユニタリ行列",
+      "labelEn": "Unitary Matrix"
     },
     "Mathematics.Linear-Algebra.Spectral-Decomposition-of-Hermitian-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "厄米矩阵的谱分解",
+      "labelJa": "エルミート行列のスペクトル分解",
+      "labelEn": "Spectral Decomposition of Hermitian Matrix"
     },
     "Mathematics.Linear-Algebra.Gram-Schmidt-Orthogonalization": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "格拉姆–施密特正交化",
+      "labelJa": "グラム・シュミットの直交化",
+      "labelEn": "Gram–Schmidt Orthogonalization"
     },
     "Mathematics.Linear-Algebra.Gram-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "格拉姆矩阵",
+      "labelJa": "グラム行列",
+      "labelEn": "Gram Matrix"
     },
     "Mathematics.Linear-Algebra.Householder-Transformation": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "豪斯霍尔德变换",
+      "labelJa": "ハウスホルダー変換",
+      "labelEn": "Householder Transformation"
     },
     "Mathematics.Linear-Algebra.Low-Rank-Approximation": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "低秩近似",
+      "labelJa": "低ランク近似",
+      "labelEn": "Low-rank Approximation"
     },
     "Mathematics.Linear-Algebra.Inner-Product-and-Orthogonality": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "内积与正交性",
+      "labelJa": "内積と直交性",
+      "labelEn": "Inner Product and Orthogonality"
     },
     "Mathematics.Linear-Algebra.Inner-Product-Induced-by-Positive-Definite-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "正定矩阵诱导的内积",
+      "labelJa": "正定値行列が定める内積",
+      "labelEn": "Inner Product Induced by Positive-definite Matrix"
     },
     "Mathematics.Linear-Algebra.Symmetric-and-Skew-Symmetric-Decomposition": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "对称与反对称分解",
+      "labelJa": "対称成分と交代成分への分解",
+      "labelEn": "Symmetric and Skew-symmetric Decomposition"
     },
     "Mathematics.Linear-Algebra.Jordan-Normal-Form": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "若尔当标准形",
+      "labelJa": "ジョルダン標準形",
+      "labelEn": "Jordan Normal Form"
     },
     "Mathematics.Linear-Algebra.Generalized-Eigenvalue-Characteristic-Polynomial-Recurrence": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "广义特征值问题的特征多项式递推",
+      "labelJa": "一般化固有値問題における特性多項式の漸化式",
+      "labelEn": "Generalized Eigenvalue Characteristic Polynomial Recurrence"
     },
     "Mathematics.Linear-Algebra.Invariant-Subspace-and-Restricted-Operator": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "不变子空间与限制算子",
+      "labelJa": "不変部分空間と作用素の制限",
+      "labelEn": "Invariant Subspace and Restricted Operator"
     },
     "Mathematics.Linear-Algebra.Generalized-Eigenvectors-and-Invariant-Subspaces": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "广义特征向量与不变子空间",
+      "labelJa": "一般化固有ベクトルと不変部分空間",
+      "labelEn": "Generalized Eigenvectors and Invariant Subspaces"
     },
     "Mathematics.Linear-Algebra.Linear-Independence": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "线性无关性",
+      "labelJa": "線形独立性",
+      "labelEn": "Linear Independence"
     },
     "Mathematics.Linear-Algebra.Linear-Transformation": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "线性变换",
+      "labelJa": "線形変換",
+      "labelEn": "Linear Transformation"
     },
     "Mathematics.Linear-Algebra.Affine-Solution-Space-of-Linear-System": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "线性方程组的仿射解空间",
+      "labelJa": "連立一次方程式のアフィン解空間",
+      "labelEn": "Affine Solution Space of Linear System"
     },
     "Mathematics.Linear-Algebra.Linear-Operator-on-Polynomial-Space": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "多项式空间上的线性算子",
+      "labelJa": "多項式空間上の線形作用素",
+      "labelEn": "Linear Operator on Polynomial Space"
     },
     "Mathematics.Linear-Algebra.Jacobi-Iterative-Method": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "雅可比迭代法",
+      "labelJa": "ヤコビ反復法",
+      "labelEn": "Jacobi Iterative Method"
     },
     "Mathematics.Linear-Algebra.Kernel-and-Image": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "核与像",
+      "labelJa": "核と像",
+      "labelEn": "Kernel and Image"
     },
     "Mathematics.Linear-Algebra.Kronecker-Product-and-Eigenvalues": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Physics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "克罗内克积与特征值",
+      "labelJa": "クロネッカー積と固有値",
+      "labelEn": "Kronecker Product and Eigenvalues"
     },
     "Mathematics.Linear-Algebra.Subspace-Sum-and-Intersection-Dimension": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "子空间之和与交的维数",
+      "labelJa": "部分空間の和と共通部分の次元",
+      "labelEn": "Subspace Sum and Intersection Dimension"
     },
     "Mathematics.Linear-Algebra.Simultaneous-Diagonalization-of-Commuting-Operators": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "可交换算子的同时对角化",
+      "labelJa": "可換作用素の同時対角化",
+      "labelEn": "Simultaneous Diagonalization of Commuting Operators"
     },
     "Mathematics.Linear-Algebra.Gaussian-Elimination": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "高斯消元法",
+      "labelJa": "ガウスの消去法",
+      "labelEn": "Gaussian Elimination"
     },
     "Mathematics.Linear-Algebra.Lower-Upper-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -654,60 +1038,116 @@
       ],
       "aliases": [
         "Mathematics.Linear-Algebra.LU-Decomposition"
-      ]
+      ],
+      "labelZh": "LU 分解",
+      "labelJa": "LU 分解",
+      "labelEn": "LU Decomposition",
+      "searchAliases": {
+        "en": [
+          "LU factorization"
+        ],
+        "zh": [
+          "LU 三角分解"
+        ],
+        "ja": [
+          "LU 分解法"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Simultaneous-Diagonalization-of-Parameterized-Operators": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "含参数算子的同时对角化",
+      "labelJa": "パラメータを含む作用素の同時対角化",
+      "labelEn": "Simultaneous Diagonalization of Parameterized Operators"
     },
     "Mathematics.Linear-Algebra.Matrix-Diagonalization": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "矩阵对角化",
+      "labelJa": "行列の対角化",
+      "labelEn": "Matrix Diagonalization"
     },
     "Mathematics.Linear-Algebra.Parameterized-Eigenvalues-and-Rank": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "含参数矩阵的特征值与秩",
+      "labelJa": "パラメータを含む行列の固有値と階数",
+      "labelEn": "Parameterized Eigenvalues and Rank"
     },
     "Mathematics.Linear-Algebra.Discrete-Linear-Dynamical-System-Convergence": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Engineering",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "离散线性动力系统的收敛性",
+      "labelJa": "離散線形力学系の収束性",
+      "labelEn": "Discrete Linear Dynamical System Convergence"
     },
     "Mathematics.Linear-Algebra.Best-Fit-Hyperplane-through-Origin": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Probability-Statistics",
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "过原点的最佳拟合超平面",
+      "labelJa": "原点を通る超平面による最良近似",
+      "labelEn": "Best Fit Hyperplane through Origin"
     },
     "Mathematics.Linear-Algebra.Fitting-Decomposition": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "菲廷分解",
+      "labelJa": "フィッティング分解",
+      "labelEn": "Fitting Decomposition"
     },
     "Mathematics.Linear-Algebra.Matrix-Determinant": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "行列式",
+      "labelJa": "行列式",
+      "labelEn": "Matrix Determinant"
     },
     "Mathematics.Linear-Algebra.Vandermonde-Determinant": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "范德蒙德行列式",
+      "labelJa": "ヴァンデルモンドの行列式",
+      "labelEn": "Vandermonde Determinant"
     },
     "Mathematics.Linear-Algebra.Cramers-Rule": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "克拉默法则",
+      "labelJa": "クラメールの公式",
+      "labelEn": "Cramer’s Rule"
     },
     "Mathematics.Linear-Algebra.Matrix-Exponential": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "矩阵指数",
+      "labelJa": "行列の指数関数",
+      "labelEn": "Matrix Exponential"
     },
     "Mathematics.Linear-Algebra.Matrix-Operations": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "矩阵运算",
+      "labelJa": "行列の演算",
+      "labelEn": "Matrix Operations"
     },
     "Mathematics.Linear-Algebra.Determinant-of-Matrix-Exponential": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "矩阵指数的行列式",
+      "labelJa": "行列の指数関数の行列式",
+      "labelEn": "Determinant of Matrix Exponential"
     },
     "Mathematics.Linear-Algebra.Characteristic-Polynomial-Coefficients-from-Eigenvalues": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "由特征值求特征多项式系数",
+      "labelJa": "固有値による特性多項式の係数計算",
+      "labelEn": "Characteristic Polynomial Coefficients from Eigenvalues"
     },
     "Mathematics.Linear-Algebra.Characteristic-Polynomial": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "特征多项式",
+      "labelJa": "特性多項式",
+      "labelEn": "Characteristic Polynomial"
     },
     "Mathematics.Linear-Algebra.PageRank-Teleportation-Fixed-Point-and-Contraction": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -715,122 +1155,221 @@
         "Probability-Statistics",
         "Computer-Science",
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "PageRank 随机跳转、不动点与压缩映射",
+      "labelJa": "PageRank のランダムジャンプ・不動点・縮小写像",
+      "labelEn": "PageRank Teleportation Fixed Point and Contraction"
     },
     "Mathematics.Linear-Algebra.Sylvester-Equation-with-Positive-Definite-Coefficient": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "正定系数矩阵的西尔维斯特方程",
+      "labelJa": "正定値係数行列をもつシルベスター方程式",
+      "labelEn": "Sylvester Equation with Positive-definite Coefficient"
     },
     "Mathematics.Linear-Algebra.Matrix-Limit": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "矩阵极限",
+      "labelJa": "行列の極限",
+      "labelEn": "Matrix Limit"
     },
     "Mathematics.Linear-Algebra.Matrix-Norm": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "矩阵范数",
+      "labelJa": "行列ノルム",
+      "labelEn": "Matrix Norm"
     },
     "Mathematics.Linear-Algebra.Matrix-Inverse": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "逆矩阵",
+      "labelJa": "逆行列",
+      "labelEn": "Matrix Inverse"
     },
     "Mathematics.Linear-Algebra.Determinant-of-Inverse-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "逆矩阵的行列式",
+      "labelJa": "逆行列の行列式",
+      "labelEn": "Determinant of Inverse Matrix"
     },
     "Mathematics.Linear-Algebra.Cross-Product-Area-and-Scalar-Triple-Product-Volume": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "向量积求面积与混合积求体积",
+      "labelJa": "外積による面積とスカラー三重積による体積",
+      "labelEn": "Areas by Cross Products and Volumes by Scalar Triple Products"
     },
     "Mathematics.Linear-Algebra.Matrix-Power": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "矩阵幂",
+      "labelJa": "行列のべき乗",
+      "labelEn": "Matrix Power"
     },
     "Mathematics.Linear-Algebra.Companion-Matrix-for-Linear-Recurrences": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "线性递推的友矩阵",
+      "labelJa": "線形漸化式の同伴行列",
+      "labelEn": "Companion Matrix for Linear Recurrences"
     },
     "Mathematics.Linear-Algebra.Tridiagonal-Determinant-Recurrence": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "三对角行列式递推",
+      "labelJa": "三重対角行列式の漸化式",
+      "labelEn": "Tridiagonal Determinant Recurrence"
     },
     "Mathematics.Linear-Algebra.Matrix-Rank": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "矩阵秩",
+      "labelJa": "行列の階数",
+      "labelEn": "Matrix Rank"
     },
     "Mathematics.Linear-Algebra.Matrix-Trace": {
       "subsubject": "Mathematics.Linear-Algebra",
       "aliases": [
         "Mathematics.Linear-Algebra.Trace-of-Matrix"
-      ]
+      ],
+      "labelZh": "矩阵迹",
+      "labelJa": "行列のトレース",
+      "labelEn": "Matrix Trace"
     },
     "Mathematics.Linear-Algebra.Rank-Criterion-for-Linear-System-Consistency": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "线性方程组有解的秩判据",
+      "labelJa": "連立一次方程式の可解性に関する階数条件",
+      "labelEn": "Rank Criterion for Linear System Consistency"
     },
     "Mathematics.Linear-Algebra.Least-Squares-and-Minimum-Norm-Solutions": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Probability-Statistics",
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "最小二乘解与最小范数解",
+      "labelJa": "最小二乗解と最小ノルム解",
+      "labelEn": "Least Squares and Minimum Norm Solutions"
     },
     "Mathematics.Linear-Algebra.Moore-Penrose-Pseudoinverse": {
       "subsubject": "Mathematics.Linear-Algebra",
       "aliases": [
         "Mathematics.Linear-Algebra.Pseudoinverse-Matrix"
-      ]
+      ],
+      "labelZh": "摩尔–彭罗斯广义逆",
+      "labelJa": "ムーア・ペンローズの一般逆行列",
+      "labelEn": "Moore–Penrose Pseudoinverse",
+      "searchAliases": {
+        "en": [
+          "Moore–Penrose inverse"
+        ],
+        "zh": [
+          "伪逆"
+        ],
+        "ja": [
+          "擬似逆行列"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Nilpotent-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "幂零矩阵",
+      "labelJa": "冪零行列",
+      "labelEn": "Nilpotent Matrix"
     },
     "Mathematics.Linear-Algebra.Inverse-of-Identity-plus-Nilpotent-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "单位矩阵加幂零矩阵的逆",
+      "labelJa": "単位行列と冪零行列の和の逆行列",
+      "labelEn": "Inverse of Identity plus Nilpotent Matrix"
     },
     "Mathematics.Linear-Algebra.Orthogonal-Complement": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "正交补",
+      "labelJa": "直交補空間",
+      "labelEn": "Orthogonal Complement",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "正交补空间"
+        ],
+        "ja": []
+      }
     },
     "Mathematics.Linear-Algebra.Orthogonal-Decomposition": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "正交分解",
+      "labelJa": "直交分解",
+      "labelEn": "Orthogonal Decomposition"
     },
     "Mathematics.Linear-Algebra.Orthogonal-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "正交矩阵",
+      "labelJa": "直交行列",
+      "labelEn": "Orthogonal Matrix"
     },
     "Mathematics.Linear-Algebra.Orthogonal-Diagonalization-of-Symmetric-Matrices": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "对称矩阵的正交对角化",
+      "labelJa": "対称行列の直交対角化",
+      "labelEn": "Orthogonal Diagonalization of Symmetric Matrices"
     },
     "Mathematics.Linear-Algebra.Permutation-Matrix-and-Minimal-Polynomial": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "置换矩阵与最小多项式",
+      "labelJa": "置換行列と最小多項式",
+      "labelEn": "Permutation Matrix and Minimal Polynomial"
     },
     "Mathematics.Linear-Algebra.Projection-Operator": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "投影算子",
+      "labelJa": "射影作用素",
+      "labelEn": "Projection Operator"
     },
     "Mathematics.Linear-Algebra.Distance-from-Point-to-Linear-Subspace": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "点到线性子空间的距离",
+      "labelJa": "点と線形部分空間の距離",
+      "labelEn": "Distance from Point to Linear Subspace"
     },
     "Mathematics.Linear-Algebra.Centroid-Least-Squares-of-Rotation-Orbit": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Probability-Statistics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "旋转轨道的质心与最小二乘",
+      "labelJa": "回転軌道の重心と最小二乗法",
+      "labelEn": "Centroid Least Squares of Rotation Orbit"
     },
     "Mathematics.Linear-Algebra.Rotation-Matrix-and-Axis-Angle": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Computer-Science",
         "Engineering"
-      ]
+      ],
+      "labelZh": "旋转矩阵与轴角表示",
+      "labelJa": "回転行列と軸角表現",
+      "labelEn": "Rotation Matrix and Axis Angle"
     },
     "Mathematics.Linear-Algebra.Quadratic-Form": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "二次型",
+      "labelJa": "二次形式",
+      "labelEn": "Quadratic Form"
     },
     "Mathematics.Linear-Algebra.Orthogonal-Upper-Triangular-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -839,357 +1378,620 @@
       ],
       "aliases": [
         "Mathematics.Linear-Algebra.QR-Decomposition"
-      ]
+      ],
+      "labelZh": "QR 分解",
+      "labelJa": "QR 分解",
+      "labelEn": "QR Decomposition",
+      "searchAliases": {
+        "en": [
+          "QR factorization"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Mathematics.Linear-Algebra.Rayleigh-Quotient": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "瑞利商",
+      "labelJa": "レイリー商",
+      "labelEn": "Rayleigh Quotient"
     },
     "Mathematics.Linear-Algebra.Courant-Fischer-Minimax-Principle": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "库朗–菲舍尔极小极大原理",
+      "labelJa": "クーラン・フィッシャーのミニマックス原理",
+      "labelEn": "Courant–Fischer Minimax Principle"
     },
     "Mathematics.Linear-Algebra.Skew-Symmetric-Subspace-under-Congruence": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "合同变换下的反对称矩阵子空间",
+      "labelJa": "合同変換による交代行列部分空間の変換",
+      "labelEn": "Skew-symmetric Subspace under Congruence"
     },
     "Mathematics.Linear-Algebra.Skew-Symmetric-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "反对称矩阵",
+      "labelJa": "交代行列",
+      "labelEn": "Skew-symmetric Matrix",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "斜对称矩阵"
+        ],
+        "ja": [
+          "反対称行列"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Smith-Normal-Form": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "史密斯标准形",
+      "labelJa": "スミス標準形",
+      "labelEn": "Smith Normal Form"
     },
     "Mathematics.Linear-Algebra.Positive-Semidefinite-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "半正定矩阵",
+      "labelJa": "半正定値行列",
+      "labelEn": "Positive-semidefinite Matrix"
     },
     "Mathematics.Linear-Algebra.Positive-Definite-Matrix-Square-Root": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "正定矩阵的平方根",
+      "labelJa": "正定値行列の平方根",
+      "labelEn": "Positive-definite Matrix Square Root"
     },
     "Mathematics.Linear-Algebra.Determinant-Maximization-at-Fixed-Trace": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "固定迹条件下的行列式最大化",
+      "labelJa": "トレース固定条件での行列式の最大化",
+      "labelEn": "Determinant Maximization at Fixed Trace"
     },
     "Mathematics.Linear-Algebra.Positive-Definite-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "正定矩阵",
+      "labelJa": "正定値行列",
+      "labelEn": "Positive-definite Matrix"
     },
     "Mathematics.Linear-Algebra.Singular-Value-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra",
       "aliases": [
         "Mathematics.Linear-Algebra.SVD"
-      ]
+      ],
+      "labelZh": "奇异值分解",
+      "labelJa": "特異値分解",
+      "labelEn": "Singular Value Decomposition",
+      "searchAliases": {
+        "en": [
+          "SVD"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Mathematics.Linear-Algebra.Stochastic-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "随机矩阵",
+      "labelJa": "確率行列",
+      "labelEn": "Stochastic Matrix"
     },
     "Mathematics.Linear-Algebra.Stationary-Iterative-Method": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "定常迭代法",
+      "labelJa": "定常反復法",
+      "labelEn": "Stationary Iterative Method"
     },
     "Mathematics.Linear-Algebra.Systems-of-Linear-Equations": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "线性方程组",
+      "labelJa": "連立一次方程式",
+      "labelEn": "Systems of Linear Equations"
     },
     "Mathematics.Linear-Algebra.Diagonal-Dominance": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "对角占优性",
+      "labelJa": "対角優位性",
+      "labelEn": "Diagonal Dominance"
     },
     "Mathematics.Linear-Algebra.Vector-Space-and-Subspace": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "向量空间与子空间",
+      "labelJa": "ベクトル空間と部分空間",
+      "labelEn": "Vector Space and Subspace"
     },
     "Mathematics.Linear-Algebra.Basis-and-Dimension": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "基与维数",
+      "labelJa": "基底と次元",
+      "labelEn": "Basis and Dimension"
     },
     "Mathematics.Number-Theory.Greatest-Common-Divisor": {
       "subsubject": "Mathematics.Number-Theory",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "最大公约数",
+      "labelJa": "最大公約数",
+      "labelEn": "Greatest Common Divisor"
     },
     "Mathematics.Number-Theory.Divisor-Counting-Function": {
       "subsubject": "Mathematics.Number-Theory",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "约数个数函数",
+      "labelJa": "約数個数関数",
+      "labelEn": "Divisor Counting Function"
     },
     "Mathematics.Number-Theory.Mobius-Inversion": {
       "subsubject": "Mathematics.Number-Theory",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "莫比乌斯反演",
+      "labelJa": "メビウス反転",
+      "labelEn": "Möbius Inversion"
     },
     "Mathematics.Number-Theory.Prime-Diophantine-Equation": {
-      "subsubject": "Mathematics.Number-Theory"
+      "subsubject": "Mathematics.Number-Theory",
+      "labelZh": "素数丢番图方程",
+      "labelJa": "素数に関するディオファントス方程式",
+      "labelEn": "Prime Diophantine Equation"
     },
     "Mathematics.Number-Theory.Prime-Factorization": {
       "subsubject": "Mathematics.Number-Theory",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "素因数分解",
+      "labelJa": "素因数分解",
+      "labelEn": "Prime Factorization"
     },
     "Mathematics.Number-Theory.Unit-Fraction-Decomposition": {
       "subsubject": "Mathematics.Number-Theory",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "单位分数分解",
+      "labelJa": "単位分数分解",
+      "labelEn": "Unit Fraction Decomposition"
     },
     "Mathematics.Abstract-Algebra.Finite-Group": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "有限群",
+      "labelJa": "有限群",
+      "labelEn": "Finite Group"
     },
     "Mathematics.Abstract-Algebra.Galois-Group-and-Intermediate-Fields-of-Nested-Radicals": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "嵌套根式的伽罗瓦群与中间域",
+      "labelJa": "入れ子根号のガロア群と中間体",
+      "labelEn": "Galois Group and Intermediate Fields of Nested Radicals"
     },
     "Mathematics.Abstract-Algebra.Endomorphism-Ring-of-an-Ideal-and-Colon-Ideal": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "理想的自同态环与冒号理想",
+      "labelJa": "イデアルの自己準同型環とコロンイデアル",
+      "labelEn": "Endomorphism Ring of an Ideal and Colon Ideal"
     },
     "Mathematics.Abstract-Algebra.Burnside-Lemma-and-Derangement-Proportion": {
       "subsubject": "Mathematics.Abstract-Algebra",
       "relatedSubjects": [
         "Discrete-Mathematics",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "伯恩赛德引理与无不动点置换比例",
+      "labelJa": "バーンサイドの補題と不動点をもたない置換の割合",
+      "labelEn": "Burnside Lemma and Derangement Proportion"
     },
     "Mathematics.Abstract-Algebra.Quotient-Ring-Chinese-Remainder-Theorem-Decomposition-and-Unit-Group": {
       "subsubject": "Mathematics.Abstract-Algebra",
       "aliases": [
         "Mathematics.Abstract-Algebra.Quotient-Ring-CRT-Decomposition-and-Unit-Group"
-      ]
+      ],
+      "labelZh": "商环的中国剩余分解与单位群",
+      "labelJa": "中国剰余定理による剰余環の分解と単元群",
+      "labelEn": "Quotient Ring Chinese Remainder Theorem Decomposition and Unit Group"
     },
     "Mathematics.Abstract-Algebra.Tensor-Square-Vanishing-and-Artinian-Rings": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "张量平方为零与阿廷环",
+      "labelJa": "テンソル平方の消滅とアルティン環",
+      "labelEn": "Tensor Square Vanishing and Artinian Rings"
     },
     "Mathematics.Abstract-Algebra.Nilpotent-Conjugacy-Classes-under-General-Linear-and-Special-Linear-Groups": {
       "subsubject": "Mathematics.Abstract-Algebra",
       "aliases": [
         "Mathematics.Abstract-Algebra.Nilpotent-Conjugacy-Classes-under-GL-and-SL"
-      ]
+      ],
+      "labelZh": "一般线性群与特殊线性群下的幂零共轭类",
+      "labelJa": "一般線形群・特殊線形群の作用による冪零共役類",
+      "labelEn": "Nilpotent Conjugacy Classes under General Linear and Special Linear Groups"
     },
     "Mathematics.Abstract-Algebra.Laurent-Polynomial-Ring-as-Quotient-Ring": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "洛朗多项式环的商环表示",
+      "labelJa": "ローラン多項式環の剰余環表示",
+      "labelEn": "Laurent Polynomial Ring as Quotient Ring"
     },
     "Mathematics.Abstract-Algebra.Kernel-Ideal-and-First-Isomorphism-Theorem": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "核理想与第一同构定理",
+      "labelJa": "核イデアルと第一同型定理",
+      "labelEn": "Kernel Ideal and First Isomorphism Theorem"
     },
     "Mathematics.Abstract-Algebra.Gaussian-Integers": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "高斯整数",
+      "labelJa": "ガウス整数",
+      "labelEn": "Gaussian Integers"
     },
     "Mathematics.Abstract-Algebra.Quotient-Ring": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "商环",
+      "labelJa": "剰余環",
+      "labelEn": "Quotient Ring"
     },
     "Mathematics.Abstract-Algebra.Quadratic-Integer-Ring": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "二次整数环",
+      "labelJa": "二次整数環",
+      "labelEn": "Quadratic Integer Ring"
     },
     "Mathematics.Abstract-Algebra.Quaternion-Algebra": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "四元数代数",
+      "labelJa": "四元数代数",
+      "labelEn": "Quaternion Algebra"
     },
     "Mathematics.Topology.Homology-of-a-Projective-Subspace-and-Nontrivial-Loop": {
-      "subsubject": "Mathematics.Topology"
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "射影空间子空间的同调与非平凡闭路",
+      "labelJa": "射影空間の部分空間のホモロジーと非自明なループ",
+      "labelEn": "Homology of a Subspace of Projective Space and Nontrivial Loops"
     },
     "Mathematics.Topology.Compactness-Preserving-Injections-and-Continuity": {
-      "subsubject": "Mathematics.Topology"
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "保紧单射与连续性",
+      "labelJa": "コンパクト性を保つ単射と連続性",
+      "labelEn": "Compactness Preserving Injections and Continuity"
     },
     "Mathematics.Topology.Hausdorff-Closure-and-Connectedness-in-a-Custom-Topology": {
-      "subsubject": "Mathematics.Topology"
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "给定拓扑下的豪斯多夫性、闭包与连通性",
+      "labelJa": "指定された位相のハウスドルフ性・閉包・連結性",
+      "labelEn": "Hausdorffness, Closure, and Connectedness in a Specified Topology"
     },
     "Mathematics.Topology.Hausdorff-Space": {
-      "subsubject": "Mathematics.Topology"
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "豪斯多夫空间",
+      "labelJa": "ハウスドルフ空間",
+      "labelEn": "Hausdorff Space"
     },
     "Mathematics.Topology.Metric-Space": {
-      "subsubject": "Mathematics.Topology"
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "度量空间",
+      "labelJa": "距離空間",
+      "labelEn": "Metric Space"
     },
     "Mathematics.Topology.Locally-Constant-Functions-on-Connected-Spaces": {
-      "subsubject": "Mathematics.Topology"
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "连通空间上的局部常值函数",
+      "labelJa": "連結空間上の局所定数関数",
+      "labelEn": "Locally Constant Functions on Connected Spaces"
     },
     "Mathematics.Functional-Analysis.Normed-Space": {
-      "subsubject": "Mathematics.Functional-Analysis"
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "赋范空间",
+      "labelJa": "ノルム空間",
+      "labelEn": "Normed Space"
     },
     "Mathematics.Functional-Analysis.Uniform-Convergence-of-Iterated-Sine-and-LogSumExp": {
       "subsubject": "Mathematics.Functional-Analysis",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "正弦迭代与 LogSumExp 函数的一致收敛",
+      "labelJa": "正弦関数の反復と LogSumExp 関数の一様収束",
+      "labelEn": "Uniform Convergence of Iterated Sine and Log-sum-exp"
     },
     "Mathematics.Functional-Analysis.Uniform-Convergence": {
-      "subsubject": "Mathematics.Functional-Analysis"
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "一致收敛",
+      "labelJa": "一様収束",
+      "labelEn": "Uniform Convergence"
     },
     "Mathematics.Functional-Analysis.Bounded-Linear-Operator": {
-      "subsubject": "Mathematics.Functional-Analysis"
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "有界线性算子",
+      "labelJa": "有界線形作用素",
+      "labelEn": "Bounded Linear Operator"
     },
     "Mathematics.Differential-Equations.Wave-Equation": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "波动方程",
+      "labelJa": "波動方程式",
+      "labelEn": "Wave Equation"
     },
     "Mathematics.Differential-Equations.Laplace-Transform": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "拉普拉斯变换",
+      "labelJa": "ラプラス変換",
+      "labelEn": "Laplace Transform"
     },
     "Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "aliases": [
         "Mathematics.Differential-Equations.Second-Order-Linear-ODE"
-      ]
+      ],
+      "labelZh": "二阶线性常微分方程",
+      "labelJa": "二階線形常微分方程式",
+      "labelEn": "Second-order Linear Ordinary Differential Equation"
     },
     "Mathematics.Differential-Equations.Linear-Ordinary-Differential-Equation-with-Exponential-Forcing": {
       "subsubject": "Mathematics.Differential-Equations",
       "aliases": [
         "Mathematics.Differential-Equations.Linear-ODE-with-Exponential-Forcing"
-      ]
+      ],
+      "labelZh": "指数型非齐次项的线性常微分方程",
+      "labelJa": "指数関数の非同次項をもつ線形常微分方程式",
+      "labelEn": "Linear Ordinary Differential Equation with Exponential Forcing"
     },
     "Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation-by-Variable-Substitution": {
       "subsubject": "Mathematics.Differential-Equations",
       "aliases": [
         "Mathematics.Differential-Equations.First-Order-ODE-by-Variable-Substitution"
-      ]
+      ],
+      "labelZh": "通过变量代换求解一阶常微分方程",
+      "labelJa": "変数変換による一階常微分方程式の解法",
+      "labelEn": "First-order Ordinary Differential Equation by Variable Substitution"
     },
     "Mathematics.Differential-Equations.Clairaut-Equation-and-Singular-Solution": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "克莱罗方程与奇解",
+      "labelJa": "クレローの方程式と特異解",
+      "labelEn": "Clairaut Equation and Singular Solution"
     },
     "Mathematics.Differential-Equations.Cauchy-Euler-Equation": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "柯西–欧拉方程",
+      "labelJa": "コーシー・オイラーの方程式",
+      "labelEn": "Cauchy–Euler Equation"
     },
     "Mathematics.Differential-Equations.Method-of-Undetermined-Coefficients": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "待定系数法",
+      "labelJa": "未定係数法",
+      "labelEn": "Method of Undetermined Coefficients"
     },
     "Mathematics.Differential-Equations.Ermakov-Pinney-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "Ermakov–Pinney 方程",
+      "labelJa": "Ermakov–Pinney 方程式",
+      "labelEn": "Ermakov–Pinney Equation"
     },
     "Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "aliases": [
         "Mathematics.Differential-Equations.First-Order-ODE"
-      ]
+      ],
+      "labelZh": "一阶常微分方程",
+      "labelJa": "一階常微分方程式",
+      "labelEn": "First-order Ordinary Differential Equation"
     },
     "Mathematics.Differential-Equations.Initial-Value-Problem": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "初值问题",
+      "labelJa": "初期値問題",
+      "labelEn": "Initial Value Problem"
     },
     "Mathematics.Differential-Equations.Boundary-Value-Problem": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "边值问题",
+      "labelJa": "境界値問題",
+      "labelEn": "Boundary Value Problem"
     },
     "Mathematics.Differential-Equations.Dirichlet-Heat-Equation-by-Fourier-Sine-Series": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "用傅里叶正弦级数求解狄利克雷热方程",
+      "labelJa": "フーリエ正弦級数によるディリクレ境界条件の熱方程式の解法",
+      "labelEn": "Dirichlet Heat Equation by Fourier Sine Series"
     },
     "Mathematics.Differential-Equations.Heat-Kernel-with-Dirac-Initial-Data": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Physics",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "狄拉克初值与热核",
+      "labelJa": "ディラック初期値と熱核",
+      "labelEn": "Heat Kernel with Dirac Initial Data"
     },
     "Mathematics.Differential-Equations.Resonant-Forcing": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "共振激励",
+      "labelJa": "共振を起こす外力",
+      "labelEn": "Resonant Forcing"
     },
     "Mathematics.Differential-Equations.Polynomial-Solutions-of-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "aliases": [
         "Mathematics.Differential-Equations.Polynomial-Solutions-of-ODE"
-      ]
+      ],
+      "labelZh": "常微分方程的多项式解",
+      "labelJa": "常微分方程式の多項式解",
+      "labelEn": "Polynomial Solutions of Ordinary Differential Equation"
     },
     "Mathematics.Differential-Equations.Exact-Differential-Equation": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "恰当微分方程",
+      "labelJa": "完全微分方程式",
+      "labelEn": "Exact Differential Equation"
     },
     "Mathematics.Differential-Equations.Integrating-Factor": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "积分因子",
+      "labelJa": "積分因子",
+      "labelEn": "Integrating Factor"
     },
     "Mathematics.Differential-Equations.Bessel-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "贝塞尔方程",
+      "labelJa": "ベッセル方程式",
+      "labelEn": "Bessel Equation"
     },
     "Mathematics.Differential-Equations.Helmholtz-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "亥姆霍兹方程",
+      "labelJa": "ヘルムホルツ方程式",
+      "labelEn": "Helmholtz Equation"
     },
     "Mathematics.Differential-Equations.Hermite-Equation-and-Polynomial-Recurrence": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "厄米方程与多项式递推",
+      "labelJa": "エルミート方程式と多項式の漸化式",
+      "labelEn": "Hermite Equation and Polynomial Recurrence"
     },
     "Mathematics.Differential-Equations.Characteristic-Roots-and-Stability": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "特征根与稳定性",
+      "labelJa": "特性根と安定性",
+      "labelEn": "Characteristic Roots and Stability"
     },
     "Mathematics.Differential-Equations.Homogeneous-First-Order-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "aliases": [
         "Mathematics.Differential-Equations.Homogeneous-First-Order-ODE"
-      ]
+      ],
+      "labelZh": "一阶齐次常微分方程",
+      "labelJa": "一階同次形常微分方程式",
+      "labelEn": "Homogeneous First-order Ordinary Differential Equation"
     },
     "Mathematics.Differential-Equations.Higher-Order-Linear-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "aliases": [
         "Mathematics.Differential-Equations.Higher-Order-Linear-ODE"
-      ]
+      ],
+      "labelZh": "高阶线性常微分方程",
+      "labelJa": "高階線形常微分方程式",
+      "labelEn": "Higher-order Linear Ordinary Differential Equation"
     },
     "Mathematics.Differential-Equations.Frobenius-Method": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "弗罗贝尼乌斯法",
+      "labelJa": "フロベニウス法",
+      "labelEn": "Frobenius Method"
     },
     "Mathematics.Differential-Equations.Power-Series-Solution-and-Coefficient-Recurrence": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "幂级数解与系数递推",
+      "labelJa": "べき級数解と係数の漸化式",
+      "labelEn": "Power Series Solution and Coefficient Recurrence"
     },
     "Mathematics.Differential-Equations.Boundary-Conditions-at-Infinity": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "无穷远处的边界条件",
+      "labelJa": "無限遠での境界条件",
+      "labelEn": "Boundary Conditions at Infinity"
     },
     "Mathematics.Differential-Equations.Bounded-Solution-of-Forced-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "aliases": [
         "Mathematics.Differential-Equations.Bounded-Solution-of-Forced-ODE"
-      ]
+      ],
+      "labelZh": "受迫常微分方程的有界解",
+      "labelJa": "外力項をもつ常微分方程式の有界解",
+      "labelEn": "Bounded Solution of Forced Ordinary Differential Equation"
     },
     "Mathematics.Differential-Equations.Normal-Modes-of-Coupled-Linear-ODEs": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "耦合线性常微分方程的简正模",
+      "labelJa": "連立線形常微分方程式の基準モード",
+      "labelEn": "Normal Modes of Coupled Linear ODEs"
     },
     "Mathematics.Differential-Equations.Riccati-Equation": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "里卡蒂方程",
+      "labelJa": "リッカチ方程式",
+      "labelEn": "Riccati Equation"
     },
     "Mathematics.Differential-Equations.Reduction-of-Order": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "降阶法",
+      "labelJa": "階数低下法",
+      "labelEn": "Reduction of Order"
     },
     "Mathematics.Differential-Equations.Differential-Galois-Theory": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "微分伽罗瓦理论",
+      "labelJa": "微分ガロア理論",
+      "labelEn": "Differential Galois Theory"
     },
     "Mathematics.Differential-Equations.Orthogonal-Trajectories": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "正交轨线",
+      "labelJa": "直交軌道",
+      "labelEn": "Orthogonal Trajectories"
     },
     "Mathematics.Differential-Equations.Separable-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
       "aliases": [
         "Mathematics.Differential-Equations.Separable-ODE"
-      ]
+      ],
+      "labelZh": "可分离变量的常微分方程",
+      "labelJa": "変数分離形常微分方程式",
+      "labelEn": "Separable Ordinary Differential Equation"
     },
     "Mathematics.Differential-Equations.Separation-of-Variables-for-Partial-Differential-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1199,95 +2001,164 @@
       ],
       "aliases": [
         "Mathematics.Differential-Equations.Separation-of-Variables-for-PDE"
-      ]
+      ],
+      "labelZh": "偏微分方程的分离变量法",
+      "labelJa": "偏微分方程式の変数分離法",
+      "labelEn": "Separation of Variables for Partial Differential Equation"
     },
     "Mathematics.Differential-Equations.Generalized-Lotka-Volterra-Lyapunov-Stability": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "广义洛特卡–沃尔泰拉系统的李雅普诺夫稳定性",
+      "labelJa": "一般化ロトカ・ヴォルテラ系のリアプノフ安定性",
+      "labelEn": "Generalized Lotka–Volterra Lyapunov Stability"
     },
     "Mathematics.Differential-Equations.Systems-of-ODEs": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "常微分方程组",
+      "labelJa": "連立常微分方程式",
+      "labelEn": "Systems of ODEs"
     },
     "Mathematics.Differential-Equations.Fundamental-Matrix": {
       "subsubject": "Mathematics.Differential-Equations",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "基本解矩阵",
+      "labelJa": "基本行列",
+      "labelEn": "Fundamental Matrix"
     },
     "Mathematics.Differential-Equations.Variational-Equation": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "变分方程",
+      "labelJa": "変分方程式",
+      "labelEn": "Variational Equation"
     },
     "Mathematics.Differential-Equations.Commuting-Vector-Field-Symmetries": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "可交换向量场对称性",
+      "labelJa": "可換なベクトル場による対称性",
+      "labelEn": "Commuting Vector Field Symmetries"
     },
     "Mathematics.Differential-Equations.Wronskian": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "朗斯基行列式",
+      "labelJa": "ロンスキー行列式",
+      "labelEn": "Wronskian"
     },
     "Mathematics.Geometry.Involute-of-a-Circle": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "圆的渐开线",
+      "labelJa": "円の伸開線",
+      "labelEn": "Involute of a Circle"
     },
     "Mathematics.Geometry.Rigidity-of-Intrinsic-Path-Metric-Isometries": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "内蕴路径度量等距映射的刚性",
+      "labelJa": "内在的な道の距離に関する等長写像の剛性",
+      "labelEn": "Rigidity of Intrinsic Path Metric Isometries"
     },
     "Mathematics.Geometry.Scaling-of-Differential-Form-Integrals-on-Shrinking-Spheres": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "收缩球面上微分形式积分的尺度变化",
+      "labelJa": "縮小する球面上の微分形式の積分とスケーリング",
+      "labelEn": "Scaling of Differential Form Integrals on Shrinking Spheres"
     },
     "Mathematics.Geometry.Maximum-Size-of-Pairwise-Obtuse-Vector-Set": {
       "subsubject": "Mathematics.Geometry",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "两两成钝角的向量集合的最大规模",
+      "labelJa": "互いに鈍角をなすベクトル集合の最大要素数",
+      "labelEn": "Maximum Size of Pairwise Obtuse Vector Set"
     },
     "Mathematics.Geometry.Arc-Length-Parameter-and-Curvature": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "弧长参数与曲率",
+      "labelJa": "弧長パラメータと曲率",
+      "labelEn": "Arc Length Parameter and Curvature"
     },
     "Mathematics.Geometry.Steiner-Formula-for-Convex-Parallel-Body": {
       "subsubject": "Mathematics.Geometry",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "凸体平行体的施泰纳公式",
+      "labelJa": "凸体の平行体に対するシュタイナーの公式",
+      "labelEn": "Steiner Formula for Convex Parallel Body"
     },
     "Mathematics.Geometry.Linear-Image-of-Circular-Arcs-and-Area-Scaling": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "圆弧的线性映射与面积缩放",
+      "labelJa": "円弧の線形写像と面積の拡大率",
+      "labelEn": "Linear Image of Circular Arcs and Area Scaling"
     },
     "Mathematics.Geometry.Gaussian-Curvature-of-Ruled-Surface": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "直纹面的高斯曲率",
+      "labelJa": "線織面のガウス曲率",
+      "labelEn": "Gaussian Curvature of Ruled Surface"
     },
     "Mathematics.Geometry.Law-of-Cosines": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "余弦定理",
+      "labelJa": "余弦定理",
+      "labelEn": "Law of Cosines"
     },
     "Mathematics.Geometry.Periodic-Line-Coverage-by-Equally-Spaced-Receivers": {
       "subsubject": "Mathematics.Geometry",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "等距接收器对直线的周期覆盖",
+      "labelJa": "等間隔の受信機による直線の周期的被覆",
+      "labelEn": "Periodic Line Coverage by Equally Spaced Receivers"
     },
     "Mathematics.Geometry.Concurrency-and-Parallelism-of-Three-Lines": {
       "subsubject": "Mathematics.Geometry",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "三条直线的共点与平行",
+      "labelJa": "三直線の共点性と平行性",
+      "labelEn": "Concurrency and Parallelism of Three Lines"
     },
     "Mathematics.Geometry.Cardioid": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "心形线",
+      "labelJa": "カージオイド",
+      "labelEn": "Cardioid"
     },
     "Mathematics.Geometry.Astroid": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "星形线",
+      "labelJa": "アステロイド",
+      "labelEn": "Astroid"
     },
     "Mathematics.Geometry.Complex-Plane-Geometry": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "复平面几何",
+      "labelJa": "複素平面の幾何",
+      "labelEn": "Complex Plane Geometry"
     },
     "Mathematics.Geometry.Torus-Volume": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "环面围成的体积",
+      "labelJa": "トーラスで囲まれる体積",
+      "labelEn": "Torus Volume"
     },
     "Mathematics.Fourier-Analysis.Fourier-Cosine-Transform": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Electrical-Electronic",
         "Physics"
-      ]
+      ],
+      "labelZh": "傅里叶余弦变换",
+      "labelJa": "フーリエ余弦変換",
+      "labelEn": "Fourier Cosine Transform"
     },
     "Mathematics.Fourier-Analysis.Fourier-Series-Solution-of-Ordinary-Differential-Equation": {
       "subsubject": "Mathematics.Fourier-Analysis",
@@ -1297,177 +2168,317 @@
       ],
       "aliases": [
         "Mathematics.Fourier-Analysis.Fourier-Series-Solution-of-ODE"
-      ]
+      ],
+      "labelZh": "用傅里叶级数求解常微分方程",
+      "labelJa": "フーリエ級数による常微分方程式の解法",
+      "labelEn": "Fourier Series Solution of Ordinary Differential Equation"
     },
     "Mathematics.Fourier-Analysis.Fourier-Sine-and-Cosine-Series": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Electrical-Electronic",
         "Physics"
-      ]
+      ],
+      "labelZh": "傅里叶正弦级数与余弦级数",
+      "labelJa": "フーリエ正弦級数と余弦級数",
+      "labelEn": "Fourier Sine and Cosine Series"
     },
     "Mathematics.Fourier-Analysis.Infinite-Series-from-Fourier-Series": {
-      "subsubject": "Mathematics.Fourier-Analysis"
+      "subsubject": "Mathematics.Fourier-Analysis",
+      "labelZh": "用傅里叶级数求无穷级数",
+      "labelJa": "フーリエ級数による無限級数の計算",
+      "labelEn": "Infinite Series from Fourier Series"
     },
     "Mathematics.Vector-Calculus.Two-Dimensional-Laplacian-Fundamental-Solution": {
       "subsubject": "Mathematics.Vector-Calculus",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "二维拉普拉斯算子的基本解",
+      "labelJa": "二次元ラプラシアンの基本解",
+      "labelEn": "Two-dimensional Laplacian Fundamental Solution"
     },
     "Mathematics.Vector-Calculus.Polar-Coordinate-Differentials": {
-      "subsubject": "Mathematics.Vector-Calculus"
+      "subsubject": "Mathematics.Vector-Calculus",
+      "labelZh": "极坐标中的微分关系",
+      "labelJa": "極座標での微分関係",
+      "labelEn": "Polar Coordinate Differentials"
     },
     "Mathematics.Vector-Calculus.Divergence-Theorem": {
-      "subsubject": "Mathematics.Vector-Calculus"
+      "subsubject": "Mathematics.Vector-Calculus",
+      "labelZh": "散度定理",
+      "labelJa": "発散定理",
+      "labelEn": "Divergence Theorem"
     },
     "Mathematics.Vector-Calculus.Directional-Derivative": {
-      "subsubject": "Mathematics.Vector-Calculus"
+      "subsubject": "Mathematics.Vector-Calculus",
+      "labelZh": "方向导数",
+      "labelJa": "方向微分",
+      "labelEn": "Directional Derivative"
     },
     "Mathematics.Vector-Calculus.Gradient-Divergence-and-Curl": {
       "subsubject": "Mathematics.Vector-Calculus",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "梯度、散度与旋度",
+      "labelJa": "勾配・発散・回転",
+      "labelEn": "Gradient Divergence and Curl"
     },
     "Mathematics.Vector-Calculus.Greens-Identities": {
       "subsubject": "Mathematics.Vector-Calculus",
       "aliases": [
         "Mathematics.Vector-Calculus.Green’s-Identity"
-      ]
+      ],
+      "labelZh": "格林恒等式",
+      "labelJa": "グリーンの恒等式",
+      "labelEn": "Green’s Identities"
     },
     "Mathematics.Vector-Calculus.Laplacian": {
       "subsubject": "Mathematics.Vector-Calculus",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "拉普拉斯算子",
+      "labelJa": "ラプラシアン",
+      "labelEn": "Laplacian"
     },
     "Mathematics.Vector-Calculus.Line-Integral": {
       "subsubject": "Mathematics.Vector-Calculus",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "曲线积分",
+      "labelJa": "線積分",
+      "labelEn": "Line Integral",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "线积分"
+        ],
+        "ja": []
+      }
     },
     "Mathematics.Vector-Calculus.Scalar-Line-Integral": {
       "subsubject": "Mathematics.Vector-Calculus",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "第一类曲线积分",
+      "labelJa": "スカラー場の線積分",
+      "labelEn": "Scalar Line Integral",
+      "searchAliases": {
+        "en": [
+          "Line Integral of a Scalar Field"
+        ],
+        "zh": [
+          "标量线积分"
+        ],
+        "ja": []
+      }
     },
     "Mathematics.Vector-Calculus.Polar-Coordinates": {
-      "subsubject": "Mathematics.Vector-Calculus"
+      "subsubject": "Mathematics.Vector-Calculus",
+      "labelZh": "极坐标",
+      "labelJa": "極座標",
+      "labelEn": "Polar Coordinates"
     },
     "Mathematics.Vector-Calculus.Plane-and-Distance-in-Three-Dimensional-Euclidean-Space": {
       "subsubject": "Mathematics.Vector-Calculus",
       "aliases": [
         "Mathematics.Vector-Calculus.Plane-and-Distance-in-R3"
-      ]
+      ],
+      "labelZh": "三维欧氏空间中的平面与距离",
+      "labelJa": "三次元ユークリッド空間における平面と距離",
+      "labelEn": "Plane and Distance in Three-dimensional Euclidean Space"
     },
     "Mathematics.Vector-Calculus.Hyperplane-to-Hypersphere-Distance": {
       "subsubject": "Mathematics.Vector-Calculus",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "超平面与超球面的距离",
+      "labelJa": "超平面と超球面の距離",
+      "labelEn": "Hyperplane to Hypersphere Distance"
     },
     "Mathematics.Vector-Calculus.Stokes-Theorem": {
       "subsubject": "Mathematics.Vector-Calculus",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "斯托克斯定理",
+      "labelJa": "ストークスの定理",
+      "labelEn": "Stokes Theorem"
     },
     "Mathematics.Vector-Calculus.Parametric-Surface": {
-      "subsubject": "Mathematics.Vector-Calculus"
+      "subsubject": "Mathematics.Vector-Calculus",
+      "labelZh": "参数曲面",
+      "labelJa": "パラメータ表示された曲面",
+      "labelEn": "Parametric Surface"
     },
     "Mathematics.Vector-Calculus.Laplacian-in-Polar-Coordinates": {
       "subsubject": "Mathematics.Vector-Calculus",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "极坐标下的拉普拉斯算子",
+      "labelJa": "極座標表示のラプラシアン",
+      "labelEn": "Laplacian in Polar Coordinates"
     },
     "Mathematics.Vector-Calculus.Surface-Integral": {
       "subsubject": "Mathematics.Vector-Calculus",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "曲面积分",
+      "labelJa": "面積分",
+      "labelEn": "Surface Integral"
     },
     "Mathematics.Vector-Calculus.Surface-Normal": {
-      "subsubject": "Mathematics.Vector-Calculus"
+      "subsubject": "Mathematics.Vector-Calculus",
+      "labelZh": "曲面法向量",
+      "labelJa": "曲面の法線ベクトル",
+      "labelEn": "Surface Normal"
     },
     "Mathematics.Vector-Calculus.Tangent-Plane": {
-      "subsubject": "Mathematics.Vector-Calculus"
+      "subsubject": "Mathematics.Vector-Calculus",
+      "labelZh": "切平面",
+      "labelJa": "接平面",
+      "labelEn": "Tangent Plane"
     },
     "Mathematics.Differential-Equations.Bernoulli-Equation": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "伯努利方程",
+      "labelJa": "ベルヌーイの微分方程式",
+      "labelEn": "Bernoulli Equation"
     },
     "Mathematics.Linear-Algebra.Parameterized-Diagonalizability": {
-      "subsubject": "Mathematics.Linear-Algebra"
+      "subsubject": "Mathematics.Linear-Algebra",
+      "labelZh": "含参数矩阵的可对角化条件",
+      "labelJa": "パラメータを含む行列の対角化可能性",
+      "labelEn": "Parameterized Diagonalizability"
     },
     "Mathematics.Real-Analysis.Functional-Equation": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "函数方程",
+      "labelJa": "関数方程式",
+      "labelEn": "Functional Equation"
     },
     "Mathematics.Real-Analysis.Dirichlet-Test-for-Improper-Integrals": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "反常积分的狄利克雷判别法",
+      "labelJa": "広義積分に対するディリクレの判定法",
+      "labelEn": "Dirichlet Test for Improper Integrals"
     },
     "Mathematics.Real-Analysis.Functions-of-Bounded-Variation": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "有界变差函数",
+      "labelJa": "有界変動関数",
+      "labelEn": "Functions of Bounded Variation"
     },
     "Mathematics.Real-Analysis.Zero-Gradient-on-Path-Connected-Domain": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "道路连通区域上的零梯度函数",
+      "labelJa": "弧状連結領域上で勾配が零となる関数",
+      "labelEn": "Zero Gradient on Path Connected Domain"
     },
     "Mathematics.Linear-Algebra.Permutation-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "置换矩阵",
+      "labelJa": "置換行列",
+      "labelEn": "Permutation Matrix"
     },
     "Mathematics.Linear-Algebra.Rotation-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "旋转矩阵",
+      "labelJa": "回転行列",
+      "labelEn": "Rotation Matrix"
     },
     "Mathematics.Geometry.Gaussian-Curvature": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "高斯曲率",
+      "labelJa": "ガウス曲率",
+      "labelEn": "Gaussian Curvature"
     },
     "Mathematics.Fourier-Analysis.Fourier-Transform": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "relatedSubjects": [
         "Electrical-Electronic"
-      ]
+      ],
+      "labelZh": "傅里叶变换",
+      "labelJa": "フーリエ変換",
+      "labelEn": "Fourier Transform"
     },
     "Mathematics.Differential-Equations.Volterra-Integral-Equation": {
-      "subsubject": "Mathematics.Differential-Equations"
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "沃尔泰拉积分方程",
+      "labelJa": "ヴォルテラ積分方程式",
+      "labelEn": "Volterra Integral Equation"
     },
     "Mathematics.Calculus.Mean-Value-Theorem": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "微分中值定理",
+      "labelJa": "平均値の定理",
+      "labelEn": "Mean Value Theorem"
     },
     "Mathematics.Calculus.Riemann-Sum": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "黎曼和",
+      "labelJa": "リーマン和",
+      "labelEn": "Riemann Sum"
     },
     "Mathematics.Calculus.Higher-Order-Derivative": {
-      "subsubject": "Mathematics.Calculus"
+      "subsubject": "Mathematics.Calculus",
+      "labelZh": "高阶导数",
+      "labelJa": "高階導関数",
+      "labelEn": "Higher-order Derivative"
     },
     "Mathematics.Complex-Analysis.Maximum-Modulus-Principle": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "最大模原理",
+      "labelJa": "最大値の原理",
+      "labelEn": "Maximum Modulus Principle"
     },
     "Mathematics.Complex-Analysis.Identity-Theorem": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "恒等定理",
+      "labelJa": "一致の定理",
+      "labelEn": "Identity Theorem"
     },
     "Mathematics.Complex-Analysis.Rouche-Theorem": {
-      "subsubject": "Mathematics.Complex-Analysis"
+      "subsubject": "Mathematics.Complex-Analysis",
+      "labelZh": "儒歇定理",
+      "labelJa": "ルーシェの定理",
+      "labelEn": "Rouché’s Theorem"
     },
     "Mathematics.Vector-Calculus.Green-Theorem": {
-      "subsubject": "Mathematics.Vector-Calculus"
+      "subsubject": "Mathematics.Vector-Calculus",
+      "labelZh": "格林定理",
+      "labelJa": "グリーンの定理",
+      "labelEn": "Green Theorem"
     },
     "Mathematics.Fourier-Analysis.Discrete-Fourier-Transform": {
       "subsubject": "Mathematics.Fourier-Analysis",
       "labelZh": "离散傅里叶变换",
       "labelJa": "離散フーリエ変換",
-      "labelEn": "Discrete Fourier Transform",
+      "labelEn": "Discrete Fourier Transform (DFT)",
       "descriptionZh": "有限周期序列的傅里叶变换、逆变换及循环算子的对角化。",
       "descriptionJa": "有限周期列のフーリエ変換・逆変換と巡回作用素の対角化。",
-      "descriptionEn": "Fourier transforms and inverse transforms of finite periodic sequences, including diagonalization of circulant operators."
+      "descriptionEn": "Fourier transforms and inverse transforms of finite periodic sequences, including diagonalization of circulant operators.",
+      "searchAliases": {
+        "en": [
+          "DFT"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Mathematics.Fourier-Analysis.Uncertainty-Principle": {
       "subsubject": "Mathematics.Fourier-Analysis",
@@ -1488,52 +2499,100 @@
       "descriptionEn": "Polynomial upper and lower bounds for sine and cosine obtained by repeated integration, with rigorous numerical estimates."
     },
     "Mathematics.Topology.Simplicial-and-Cellular-Homology": {
-      "subsubject": "Mathematics.Topology"
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "单纯同调与胞腔同调",
+      "labelJa": "単体ホモロジーと胞体ホモロジー",
+      "labelEn": "Simplicial and Cellular Homology"
     },
     "Mathematics.Topology.Compactness-and-Connectedness": {
-      "subsubject": "Mathematics.Topology"
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "紧致性与连通性",
+      "labelJa": "コンパクト性と連結性",
+      "labelEn": "Compactness and Connectedness"
     },
     "Mathematics.Topology.De-Rham-Cohomology": {
-      "subsubject": "Mathematics.Topology"
+      "subsubject": "Mathematics.Topology",
+      "labelZh": "德拉姆上同调",
+      "labelJa": "ド・ラームコホモロジー",
+      "labelEn": "de Rham Cohomology"
     },
     "Mathematics.Abstract-Algebra.Group-Homomorphisms-and-Quotient-Groups": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "群同态与商群",
+      "labelJa": "群準同型と剰余群",
+      "labelEn": "Group Homomorphisms and Quotient Groups"
     },
     "Mathematics.Abstract-Algebra.Sylow-Subgroups-and-Normalizers": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "西洛子群与正规化子",
+      "labelJa": "シロー部分群と正規化群",
+      "labelEn": "Sylow Subgroups and Normalizers"
     },
     "Mathematics.Abstract-Algebra.Prime-Ideals-and-Nilradical": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "素理想与幂零根",
+      "labelJa": "素イデアルと冪零根基",
+      "labelEn": "Prime Ideals and Nilradical"
     },
     "Mathematics.Abstract-Algebra.Exact-Sequences-and-Derived-Couples": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "正合列与导出偶",
+      "labelJa": "完全列と導来対",
+      "labelEn": "Exact Sequences and Derived Couples"
     },
     "Mathematics.Abstract-Algebra.Polynomial-Content-Ideals": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "多项式的系数理想",
+      "labelJa": "多項式の係数イデアル",
+      "labelEn": "Polynomial Content Ideals"
     },
     "Mathematics.Abstract-Algebra.Invariant-Rings-under-Translation": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "平移作用下的不变式环",
+      "labelJa": "平行移動の作用に対する不変式環",
+      "labelEn": "Invariant Rings under Translation"
     },
     "Mathematics.Abstract-Algebra.Galois-Groups-and-Intermediate-Fields": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "伽罗瓦群与中间域",
+      "labelJa": "ガロア群と中間体",
+      "labelEn": "Galois Groups and Intermediate Fields"
     },
     "Mathematics.Geometry.Differentiable-Manifolds-and-Regular-Values": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "可微流形与正则值",
+      "labelJa": "可微分多様体と正則値",
+      "labelEn": "Differentiable Manifolds and Regular Values"
     },
     "Mathematics.Geometry.Pullback-and-Exterior-Derivative-of-Differential-Forms": {
-      "subsubject": "Mathematics.Geometry"
+      "subsubject": "Mathematics.Geometry",
+      "labelZh": "微分形式的拉回与外微分",
+      "labelJa": "微分形式の引き戻しと外微分",
+      "labelEn": "Pullback and Exterior Derivative of Differential Forms"
     },
     "Mathematics.Functional-Analysis.Compactness-in-Sequence-Spaces": {
-      "subsubject": "Mathematics.Functional-Analysis"
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "序列空间中的紧致性",
+      "labelJa": "数列空間のコンパクト性",
+      "labelEn": "Compactness in Sequence Spaces"
     },
     "Mathematics.Real-Analysis.Lebesgue-Dominated-and-Monotone-Convergence": {
-      "subsubject": "Mathematics.Real-Analysis"
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "勒贝格控制收敛与单调收敛",
+      "labelJa": "ルベーグの優収束定理と単調収束定理",
+      "labelEn": "Lebesgue Dominated and Monotone Convergence"
     },
     "Mathematics.Abstract-Algebra.Colon-Ideals-and-Primary-Decomposition": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "冒号理想与准素分解",
+      "labelJa": "コロンイデアルと準素分解",
+      "labelEn": "Colon Ideals and Primary Decomposition"
     },
     "Mathematics.Abstract-Algebra.Exact-Sequences-and-Nonzero-Divisors": {
-      "subsubject": "Mathematics.Abstract-Algebra"
+      "subsubject": "Mathematics.Abstract-Algebra",
+      "labelZh": "正合列与非零因子",
+      "labelJa": "完全列と非零因子",
+      "labelEn": "Exact Sequences and Non-zero-divisors"
     },
     "Mathematics.Linear-Algebra.Polar-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra",

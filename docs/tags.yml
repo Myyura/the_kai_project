@@ -3,115 +3,115 @@
 "Tokyo-University":
   label: "Tokyo-University"
   permalink: "/school/tokyo-university"
-  description: "Tokyo-University (東京大学)"
+  description: "The University of Tokyo"
 "Kyoto-University":
   label: "Kyoto-University"
   permalink: "/school/kyoto-university"
-  description: "Kyoto-University (京都大学)"
+  description: "Kyoto University"
 "Kyushu-University":
   label: "Kyushu-University"
   permalink: "/school/kyushu-university"
-  description: "Kyushu-University (九州大学)"
+  description: "Kyushu University"
 "institute-of-science-tokyo":
   label: "institute-of-science-tokyo"
   permalink: "/school/institute-of-science-tokyo"
-  description: "institute-of-science-tokyo (東京科学大学)"
+  description: "Institute of Science Tokyo"
 "Nagoya-University":
   label: "Nagoya-University"
   permalink: "/school/nagoya-university"
-  description: "Nagoya-University (名古屋大学)"
+  description: "Nagoya University"
 "Nagoya-Institute-of-Technology":
   label: "Nagoya-Institute-of-Technology"
   permalink: "/school/nagoya-institute-of-technology"
-  description: "Nagoya-Institute-of-Technology (名古屋工業大学)"
+  description: "Nagoya Institute of Technology"
 "Tohoku-University":
   label: "Tohoku-University"
   permalink: "/school/tohoku-university"
-  description: "Tohoku-University (東北大学)"
+  description: "Tohoku University"
 "Osaka-University":
   label: "Osaka-University"
   permalink: "/school/osaka-university"
-  description: "Osaka-University (大阪大学)"
+  description: "The University of Osaka"
 "Hiroshima-University":
   label: "Hiroshima-University"
   permalink: "/school/hiroshima-university"
-  description: "Hiroshima-University (広島大学)"
+  description: "Hiroshima University"
 "Kobe-University":
   label: "Kobe-University"
   permalink: "/school/kobe-university"
-  description: "Kobe-University (神戸大学)"
+  description: "Kobe University"
 "Ochanomizu-University":
   label: "Ochanomizu-University"
   permalink: "/school/ochanomizu-university"
-  description: "Ochanomizu-University (お茶の水女子大学)"
+  description: "Ochanomizu University"
 "Waseda-University":
   label: "Waseda-University"
   permalink: "/school/waseda-university"
-  description: "Waseda-University (早稲田大学)"
+  description: "Waseda University"
 "Tsukuba-University":
   label: "Tsukuba-University"
   permalink: "/school/tsukuba-university"
-  description: "Tsukuba-University (筑波大学)"
+  description: "University of Tsukuba"
 "Hokkaido-University":
   label: "Hokkaido-University"
   permalink: "/school/hokkaido-university"
-  description: "Hokkaido-University (北海道大学)"
+  description: "Hokkaido University"
 "Kanazawa-University":
   label: "Kanazawa-University"
   permalink: "/school/kanazawa-university"
-  description: "Kanazawa-University (金沢大学)"
+  description: "Kanazawa University"
 "Keio-University":
   label: "Keio-University"
   permalink: "/school/keio-university"
-  description: "Keio-University (慶應義塾大学)"
+  description: "Keio University"
 "Tokyo-University-of-Agriculture-and-Technology":
   label: "Tokyo-University-of-Agriculture-and-Technology"
   permalink: "/school/tokyo-university-of-agriculture-and-technology"
-  description: "Tokyo-University-of-Agriculture-and-Technology (東京農工大学)"
+  description: "Tokyo University of Agriculture and Technology"
 "University-of-Electro-Communications":
   label: "University-of-Electro-Communications"
   permalink: "/school/university-of-electro-communications"
-  description: "University-of-Electro-Communications (電気通信大学)"
+  description: "The University of Electro-Communications"
 "Hosei-University":
   label: "Hosei-University"
   permalink: "/school/hosei-university"
-  description: "Hosei-University (法政大学)"
+  description: "Hosei University"
 "Saitama-University":
   label: "Saitama-University"
   permalink: "/school/saitama-university"
-  description: "Saitama-University (埼玉大学)"
+  description: "Saitama University"
 "Meiji-University":
   label: "Meiji-University"
   permalink: "/school/meiji-university"
-  description: "Meiji-University (明治大学)"
+  description: "Meiji University"
 "Yamaguchi-University":
   label: "Yamaguchi-University"
   permalink: "/school/yamaguchi-university"
-  description: "Yamaguchi-University (山口大学)"
+  description: "Yamaguchi University"
 "Niigata-University":
   label: "Niigata-University"
   permalink: "/school/niigata-university"
-  description: "Niigata-University (新潟大学)"
+  description: "Niigata University"
 "Hitotsubashi-University":
   label: "Hitotsubashi-University"
   permalink: "/school/hitotsubashi-university"
-  description: "Hitotsubashi-University (一橋大学)"
+  description: "Hitotsubashi University"
 "Future-University-Hakodate":
   label: "Future-University-Hakodate"
   permalink: "/school/future-university-hakodate"
-  description: "Future-University-Hakodate (公立はこだて未来大学)"
+  description: "Future University Hakodate"
 "Osaka-Metropolitan-University":
   label: "Osaka-Metropolitan-University"
   permalink: "/school/osaka-metropolitan-university"
-  description: "Osaka-Metropolitan-University (大阪公立大学)"
+  description: "Osaka Metropolitan University"
 "Ehime-University":
   label: "Ehime-University"
   permalink: "/school/ehime-university"
-  description: "Ehime-University (愛媛大学)"
+  description: "Ehime University"
 "Ryukyu-University":
   label: "Ryukyu-University"
   permalink: "/school/ryukyu-university"
-  description: "Ryukyu-University (琉球大学)"
+  description: "University of the Ryukyus"
 "Mathematics.Calculus":
   label: "Mathematics.Calculus"
   permalink: "/subsubject/mathematics/calculus"

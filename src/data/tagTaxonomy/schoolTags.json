@@ -1,230 +1,314 @@
 {
   "Tokyo-University": {
     "universityId": "tokyo-university",
-    "label": "東京大学",
     "aliases": [
       "tokyo-university",
       "東京大学"
-    ]
+    ],
+    "labelZh": "东京大学",
+    "labelJa": "東京大学",
+    "labelEn": "The University of Tokyo",
+    "searchAliases": {
+      "en": [
+        "UTokyo"
+      ],
+      "zh": [
+        "东大"
+      ],
+      "ja": [
+        "東大"
+      ]
+    }
   },
   "Kyoto-University": {
     "universityId": "kyoto-university",
-    "label": "京都大学",
     "aliases": [
       "kyoto-university",
       "京都大学"
-    ]
+    ],
+    "labelZh": "京都大学",
+    "labelJa": "京都大学",
+    "labelEn": "Kyoto University",
+    "searchAliases": {
+      "zh": [
+        "京大"
+      ],
+      "ja": [
+        "京大"
+      ]
+    }
   },
   "Kyushu-University": {
     "universityId": "kyushu-university",
-    "label": "九州大学",
     "aliases": [
       "kyushu-university",
       "九州大学"
-    ]
+    ],
+    "labelZh": "九州大学",
+    "labelJa": "九州大学",
+    "labelEn": "Kyushu University"
   },
   "institute-of-science-tokyo": {
     "universityId": "institute-of-science-tokyo",
-    "label": "東京科学大学",
     "aliases": [
       "東京科学大学",
       "东京科学大学",
       "Science Tokyo",
       "ScienceTokyo",
       "Institute of Science Tokyo"
-    ]
+    ],
+    "labelZh": "东京科学大学",
+    "labelJa": "東京科学大学",
+    "labelEn": "Institute of Science Tokyo"
   },
   "Nagoya-University": {
     "universityId": "nagoya-university",
-    "label": "名古屋大学",
     "aliases": [
       "nagoya-university",
       "名古屋大学"
-    ]
+    ],
+    "labelZh": "名古屋大学",
+    "labelJa": "名古屋大学",
+    "labelEn": "Nagoya University"
   },
   "Nagoya-Institute-of-Technology": {
     "universityId": "nagoya-institute-of-technology",
-    "label": "名古屋工業大学",
     "aliases": [
       "NITech",
       "名古屋工業大学"
-    ]
+    ],
+    "labelZh": "名古屋工业大学",
+    "labelJa": "名古屋工業大学",
+    "labelEn": "Nagoya Institute of Technology"
   },
   "Tohoku-University": {
     "universityId": "tohoku-university",
-    "label": "東北大学",
     "aliases": [
       "tohoku-university",
       "東北大学"
-    ]
+    ],
+    "labelZh": "东北大学",
+    "labelJa": "東北大学",
+    "labelEn": "Tohoku University"
   },
   "Osaka-University": {
     "universityId": "osaka-university",
-    "label": "大阪大学",
     "aliases": [
       "osaka-university",
       "大阪大学"
-    ]
+    ],
+    "labelZh": "大阪大学",
+    "labelJa": "大阪大学",
+    "labelEn": "The University of Osaka",
+    "searchAliases": {
+      "en": [
+        "Osaka University",
+        "UOsaka"
+      ],
+      "ja": [
+        "阪大"
+      ]
+    }
   },
   "Hiroshima-University": {
     "universityId": "hiroshima-university",
-    "label": "広島大学",
     "aliases": [
       "hiroshima-university",
       "広島大学"
-    ]
+    ],
+    "labelZh": "广岛大学",
+    "labelJa": "広島大学",
+    "labelEn": "Hiroshima University"
   },
   "Kobe-University": {
     "universityId": "kobe-university",
-    "label": "神戸大学",
     "aliases": [
       "kobe-university",
       "神戸大学"
-    ]
+    ],
+    "labelZh": "神户大学",
+    "labelJa": "神戸大学",
+    "labelEn": "Kobe University"
   },
   "Ochanomizu-University": {
     "universityId": "ochanomizu-university",
-    "label": "お茶の水女子大学",
     "aliases": [
       "ochanomizu-university",
       "お茶の水女子大学",
       "御茶水女子大学"
-    ]
+    ],
+    "labelZh": "御茶水女子大学",
+    "labelJa": "お茶の水女子大学",
+    "labelEn": "Ochanomizu University"
   },
   "Waseda-University": {
     "universityId": "waseda-university",
-    "label": "早稲田大学",
     "aliases": [
       "waseda-university",
       "早稲田大学"
-    ]
+    ],
+    "labelZh": "早稻田大学",
+    "labelJa": "早稲田大学",
+    "labelEn": "Waseda University"
   },
   "Tsukuba-University": {
     "universityId": "tsukuba-university",
-    "label": "筑波大学",
     "aliases": [
       "tsukuba-university",
       "筑波大学"
-    ]
+    ],
+    "labelZh": "筑波大学",
+    "labelJa": "筑波大学",
+    "labelEn": "University of Tsukuba"
   },
   "Hokkaido-University": {
     "universityId": "hokkaido-university",
-    "label": "北海道大学",
     "aliases": [
       "hokkaido-university",
       "北海道大学"
-    ]
+    ],
+    "labelZh": "北海道大学",
+    "labelJa": "北海道大学",
+    "labelEn": "Hokkaido University"
   },
   "Kanazawa-University": {
     "universityId": "kanazawa-university",
-    "label": "金沢大学",
     "aliases": [
       "kanazawa-university",
       "金沢大学"
-    ]
+    ],
+    "labelZh": "金泽大学",
+    "labelJa": "金沢大学",
+    "labelEn": "Kanazawa University"
   },
   "Keio-University": {
     "universityId": "keio-university",
-    "label": "慶應義塾大学",
     "aliases": [
       "keio-university",
       "慶應義塾大学"
-    ]
+    ],
+    "labelZh": "庆应义塾大学",
+    "labelJa": "慶應義塾大学",
+    "labelEn": "Keio University"
   },
   "Tokyo-University-of-Agriculture-and-Technology": {
     "universityId": "TUAT",
-    "label": "東京農工大学",
     "aliases": [
       "TUAT",
       "東京農工大学"
-    ]
+    ],
+    "labelZh": "东京农工大学",
+    "labelJa": "東京農工大学",
+    "labelEn": "Tokyo University of Agriculture and Technology"
   },
   "University-of-Electro-Communications": {
     "universityId": "UEC",
-    "label": "電気通信大学",
     "aliases": [
       "UEC",
       "電気通信大学"
-    ]
+    ],
+    "labelZh": "电气通信大学",
+    "labelJa": "電気通信大学",
+    "labelEn": "The University of Electro-Communications"
   },
   "Hosei-University": {
     "universityId": "hosei-university",
-    "label": "法政大学",
     "aliases": [
       "hosei-university",
       "法政大学"
-    ]
+    ],
+    "labelZh": "法政大学",
+    "labelJa": "法政大学",
+    "labelEn": "Hosei University"
   },
   "Saitama-University": {
     "universityId": "saitama-university",
-    "label": "埼玉大学",
     "aliases": [
       "saitama-university",
       "埼玉大学"
-    ]
+    ],
+    "labelZh": "埼玉大学",
+    "labelJa": "埼玉大学",
+    "labelEn": "Saitama University"
   },
   "Meiji-University": {
     "universityId": "meiji-university",
-    "label": "明治大学",
     "aliases": [
       "meiji-university",
       "明治大学"
-    ]
+    ],
+    "labelZh": "明治大学",
+    "labelJa": "明治大学",
+    "labelEn": "Meiji University"
   },
   "Yamaguchi-University": {
     "universityId": "yamaguchi-university",
-    "label": "山口大学",
     "aliases": [
       "yamaguchi-university",
       "山口大学"
-    ]
+    ],
+    "labelZh": "山口大学",
+    "labelJa": "山口大学",
+    "labelEn": "Yamaguchi University"
   },
   "Niigata-University": {
     "universityId": "niigata-university",
-    "label": "新潟大学",
     "aliases": [
       "niigata-university",
       "新潟大学"
-    ]
+    ],
+    "labelZh": "新潟大学",
+    "labelJa": "新潟大学",
+    "labelEn": "Niigata University"
   },
   "Hitotsubashi-University": {
     "universityId": "hitotsubashi-university",
-    "label": "一橋大学",
     "aliases": [
       "hitotsubashi-university",
       "一橋大学"
-    ]
+    ],
+    "labelZh": "一桥大学",
+    "labelJa": "一橋大学",
+    "labelEn": "Hitotsubashi University"
   },
   "Future-University-Hakodate": {
     "universityId": "future-university-hakodate",
-    "label": "公立はこだて未来大学",
     "aliases": [
       "future-university-hakodate",
       "公立はこだて未来大学"
-    ]
+    ],
+    "labelZh": "公立函馆未来大学",
+    "labelJa": "公立はこだて未来大学",
+    "labelEn": "Future University Hakodate"
   },
   "Osaka-Metropolitan-University": {
     "universityId": "osaka-metropolitan-university",
-    "label": "大阪公立大学",
     "aliases": [
       "osaka-metropolitan-university",
       "大阪公立大学"
-    ]
+    ],
+    "labelZh": "大阪公立大学",
+    "labelJa": "大阪公立大学",
+    "labelEn": "Osaka Metropolitan University"
   },
   "Ehime-University": {
     "universityId": "ehime-university",
-    "label": "愛媛大学",
     "aliases": [
       "ehime-university",
       "愛媛大学"
-    ]
+    ],
+    "labelZh": "爱媛大学",
+    "labelJa": "愛媛大学",
+    "labelEn": "Ehime University"
   },
   "Ryukyu-University": {
     "universityId": "ryukyu-university",
-    "label": "琉球大学",
     "aliases": [
       "ryukyu-university",
       "琉球大学"
-    ]
+    ],
+    "labelZh": "琉球大学",
+    "labelJa": "琉球大学",
+    "labelEn": "University of the Ryukyus"
   }
 }

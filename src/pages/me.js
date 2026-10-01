@@ -25,6 +25,7 @@ import { DeveloperApiContent } from '@site/src/components/DeveloperApiContent';
 import { AgentTutorContent } from '@site/src/components/AgentTutorContent';
 import ProblemSetsContent from '@site/src/components/ProblemSetsContent';
 import {buildPersonalCenterData} from '@site/src/services/personalCenterData';
+import {getTagLabel} from '@site/src/utils/tags';
 import styles from './me.module.css';
 
 const toDateKey = (ts) => {
@@ -662,7 +663,7 @@ function PersonalCenterDashboard({ user }) {
               <div className={styles.tagGrid}>
                 {tagGroups.map(([tag, data]) => (
                   <Link key={tag} to={data.permalink} className={styles.tagCard}>
-                    <div className={styles.tagName}>{tag}</div>
+                    <div className={styles.tagName}>{getTagLabel(tag, language)}</div>
                     <div className={styles.univStats}>
                       <span className={styles.univDone}><FaCheckCircle style={{ marginRight: '0.25rem' }} />{data.completed}</span>
                       <span className={styles.univReview}><FaRedo style={{ marginRight: '0.25rem' }} />{data.reviewing}</span>

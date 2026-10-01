@@ -77,21 +77,30 @@
       "subsubject": "Sociology.Culture-and-Media",
       "relatedSubjects": [
         "Psychology"
-      ]
+      ],
+      "labelZh": "个人主义与集体主义",
+      "labelJa": "個人主義と集団主義",
+      "labelEn": "Individualism and Collectivism"
     },
     "Sociology.Family-and-Gender.Gendered-Division-of-Labor": {
       "subsubject": "Sociology.Family-and-Gender",
       "relatedSubjects": [
         "Business-Administration",
         "Economics"
-      ]
+      ],
+      "labelZh": "性别分工",
+      "labelJa": "性別役割分業",
+      "labelEn": "Gendered Division of Labor"
     },
     "Sociology.Urban-Sociology.Overtourism-and-Regional-Dispersion": {
       "subsubject": "Sociology.Urban-Sociology",
       "relatedSubjects": [
         "Business-Administration",
         "Economics"
-      ]
+      ],
+      "labelZh": "过度旅游与游客区域分流",
+      "labelJa": "オーバーツーリズムと観光客の地域分散",
+      "labelEn": "Overtourism and Regional Dispersal of Visitors"
     }
   }
 }

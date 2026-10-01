@@ -67,7 +67,10 @@
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "布尔函数最小化",
+      "labelJa": "ブール関数の最小化",
+      "labelEn": "Boolean Function Minimization"
     },
     "Electrical-Electronic.Circuits.Alternating-Current-Power-and-Power-Factor": {
       "subsubject": "Electrical-Electronic.Circuits",
@@ -76,41 +79,77 @@
       ],
       "aliases": [
         "Electrical-Electronic.Circuits.AC-Power-and-Power-Factor"
-      ]
+      ],
+      "labelZh": "交流功率与功率因数",
+      "labelJa": "交流電力と力率",
+      "labelEn": "AC Power and Power Factor"
     },
     "Electrical-Electronic.Circuits.Active-Filter": {
-      "subsubject": "Electrical-Electronic.Circuits"
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "有源滤波器",
+      "labelJa": "アクティブフィルタ",
+      "labelEn": "Active Filters"
     },
     "Electrical-Electronic.Circuits.Circuit-Transfer-Function": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "电路传递函数",
+      "labelJa": "回路の伝達関数",
+      "labelEn": "Circuit Transfer Functions"
     },
     "Electrical-Electronic.Circuits.Boost-Converter-Switching-Transient": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Physics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "升压变换器的开关暂态",
+      "labelJa": "昇圧コンバータのスイッチング過渡応答",
+      "labelEn": "Boost Converter Switching Transients"
     },
     "Electrical-Electronic.Circuits.Circuit-Transient-Response": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "电路暂态响应",
+      "labelJa": "回路の過渡応答",
+      "labelEn": "Circuit Transient Response"
     },
     "Electrical-Electronic.Circuits.Maximum-Power-Transfer": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "最大功率传输",
+      "labelJa": "最大電力伝送",
+      "labelEn": "Maximum Power Transfer"
     },
     "Electrical-Electronic.Circuits.Mesh-Analysis": {
-      "subsubject": "Electrical-Electronic.Circuits"
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "网孔电流法",
+      "labelJa": "網目電流法",
+      "labelEn": "Mesh Current Analysis",
+      "searchAliases": {
+        "en": [
+          "mesh method"
+        ],
+        "zh": [
+          "网孔法"
+        ],
+        "ja": [
+          "メッシュ解析法",
+          "閉路電流法"
+        ]
+      }
     },
     "Electrical-Electronic.Circuits.Kirchhoff-Laws": {
-      "subsubject": "Electrical-Electronic.Circuits"
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "基尔霍夫定律",
+      "labelJa": "キルヒホッフの法則",
+      "labelEn": "Kirchhoff's Laws"
     },
     "Electrical-Electronic.Circuits.Metal-Oxide-Semiconductor-Field-Effect-Transistor-Bias-and-Small-Signal-Analysis": {
       "subsubject": "Electrical-Electronic.Circuits",
@@ -119,32 +158,61 @@
       ],
       "aliases": [
         "Electrical-Electronic.Circuits.MOSFET-Bias-and-Small-Signal-Analysis"
-      ]
+      ],
+      "labelZh": "MOSFET 偏置与小信号分析",
+      "labelJa": "MOSFETのバイアスと小信号解析",
+      "labelEn": "MOSFET Biasing and Small-Signal Analysis"
     },
     "Electrical-Electronic.Circuits.Mutual-Inductance": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "互感",
+      "labelJa": "相互インダクタンス",
+      "labelEn": "Mutual Inductance"
     },
     "Electrical-Electronic.Circuits.Nodal-Analysis": {
-      "subsubject": "Electrical-Electronic.Circuits"
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "节点电压法",
+      "labelJa": "節点電圧法",
+      "labelEn": "Node-Voltage Analysis",
+      "searchAliases": {
+        "en": [
+          "nodal analysis"
+        ],
+        "zh": [
+          "节点法"
+        ],
+        "ja": [
+          "節点電位法"
+        ]
+      }
     },
     "Electrical-Electronic.Circuits.Operational-Amplifier": {
-      "subsubject": "Electrical-Electronic.Circuits"
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "运算放大器",
+      "labelJa": "演算増幅器",
+      "labelEn": "Operational Amplifiers"
     },
     "Electrical-Electronic.Circuits.Phasor-and-Impedance-Analysis": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Mathematics",
         "Physics"
-      ]
+      ],
+      "labelZh": "相量与阻抗分析",
+      "labelJa": "フェーザとインピーダンスによる解析",
+      "labelEn": "Phasor and Impedance Analysis"
     },
     "Electrical-Electronic.Circuits.Quarter-Wave-Transformer": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "四分之一波长阻抗变换器",
+      "labelJa": "4分の1波長変成器",
+      "labelEn": "Quarter-Wave Transformers"
     },
     "Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Damping": {
       "subsubject": "Electrical-Electronic.Circuits",
@@ -154,7 +222,10 @@
       ],
       "aliases": [
         "Electrical-Electronic.Circuits.RLC-Damping"
-      ]
+      ],
+      "labelZh": "RLC 电路阻尼",
+      "labelJa": "RLC回路の減衰",
+      "labelEn": "RLC Circuit Damping"
     },
     "Electrical-Electronic.Circuits.Resistor-Inductor-Capacitor-Resonance": {
       "subsubject": "Electrical-Electronic.Circuits",
@@ -163,7 +234,10 @@
       ],
       "aliases": [
         "Electrical-Electronic.Circuits.RLC-Resonance"
-      ]
+      ],
+      "labelZh": "RLC 电路谐振",
+      "labelJa": "RLC回路の共振",
+      "labelEn": "RLC Circuit Resonance"
     },
     "Electrical-Electronic.Circuits.Resistor-Capacitor-Charging-and-Discharging": {
       "subsubject": "Electrical-Electronic.Circuits",
@@ -173,232 +247,397 @@
       ],
       "aliases": [
         "Electrical-Electronic.Circuits.RC-Charging-and-Discharging"
-      ]
+      ],
+      "labelZh": "RC 电路充放电",
+      "labelJa": "RC回路の充放電",
+      "labelEn": "RC Circuit Charging and Discharging"
     },
     "Electrical-Electronic.Circuits.Superposition-Theorem": {
-      "subsubject": "Electrical-Electronic.Circuits"
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "叠加定理",
+      "labelJa": "重ね合わせの理",
+      "labelEn": "Superposition Theorem"
     },
     "Electrical-Electronic.Circuits.Three-Phase-Circuit": {
-      "subsubject": "Electrical-Electronic.Circuits"
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "三相电路",
+      "labelJa": "三相回路",
+      "labelEn": "Three-Phase Circuits"
     },
     "Electrical-Electronic.Circuits.Thevenin-and-Norton-Equivalent": {
-      "subsubject": "Electrical-Electronic.Circuits"
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "戴维南与诺顿等效电路",
+      "labelJa": "テブナン・ノートン等価回路",
+      "labelEn": "Thévenin and Norton Equivalents",
+      "searchAliases": {
+        "en": [
+          "Thevenin equivalent"
+        ],
+        "zh": [
+          "戴维宁定理"
+        ],
+        "ja": [
+          "鳳・テブナンの定理",
+          "ノルトンの定理"
+        ]
+      }
     },
     "Electrical-Electronic.Circuits.Transmission-Line-and-Impedance-Matching": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "传输线与阻抗匹配",
+      "labelJa": "伝送線路とインピーダンス整合",
+      "labelEn": "Transmission Lines and Impedance Matching"
     },
     "Electrical-Electronic.Circuits.Transformer-Equivalent-Circuit": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Physics"
-      ]
+      ],
+      "labelZh": "变压器等效电路",
+      "labelJa": "変圧器の等価回路",
+      "labelEn": "Transformer Equivalent Circuits"
     },
     "Electrical-Electronic.Circuits.Two-Port-Network": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "二端口网络",
+      "labelJa": "二端子対回路",
+      "labelEn": "Two-Port Networks",
+      "searchAliases": {
+        "en": [],
+        "zh": [
+          "双口网络"
+        ],
+        "ja": [
+          "四端子回路"
+        ]
+      }
     },
     "Electrical-Electronic.Circuits.Wheatstone-Bridge": {
-      "subsubject": "Electrical-Electronic.Circuits"
+      "subsubject": "Electrical-Electronic.Circuits",
+      "labelZh": "惠斯通电桥",
+      "labelJa": "ホイートストンブリッジ",
+      "labelEn": "Wheatstone Bridge"
     },
     "Electrical-Electronic.Communications.Code-Division-Multiple-Access": {
       "subsubject": "Electrical-Electronic.Communications",
       "relatedSubjects": [
         "Mathematics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "码分多址",
+      "labelJa": "符号分割多元接続",
+      "labelEn": "Code-Division Multiple Access",
+      "searchAliases": {
+        "en": [
+          "CDMA"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Electrical-Electronic.Control-Theory.Feedback-Control": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Engineering",
         "Operations-Research"
-      ]
+      ],
+      "labelZh": "反馈控制",
+      "labelJa": "フィードバック制御",
+      "labelEn": "Feedback Control"
     },
     "Electrical-Electronic.Control-Theory.Position-and-Torque-Feedback": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "位置与转矩反馈",
+      "labelJa": "位置・トルクフィードバック",
+      "labelEn": "Position and Torque Feedback"
     },
     "Electrical-Electronic.Control-Theory.Feedback-and-Feedforward-Control": {
-      "subsubject": "Electrical-Electronic.Control-Theory"
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "labelZh": "反馈与前馈控制",
+      "labelJa": "フィードバック制御とフィードフォワード制御",
+      "labelEn": "Feedback and Feedforward Control"
     },
     "Electrical-Electronic.Control-Theory.H-Infinity-Control": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "H∞ 控制",
+      "labelJa": "H∞制御",
+      "labelEn": "H∞ Control",
+      "searchAliases": {
+        "en": [
+          "H-infinity control",
+          "Hinf control"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Electrical-Electronic.Control-Theory.Kalman-Filter": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Probability-Statistics",
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "卡尔曼滤波器",
+      "labelJa": "カルマンフィルタ",
+      "labelEn": "Kalman Filters"
     },
     "Electrical-Electronic.Control-Theory.Bode-Plot-and-Stability-Margins": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "波德图与稳定裕度",
+      "labelJa": "ボード線図と安定余裕",
+      "labelEn": "Bode Plots and Stability Margins"
     },
     "Electrical-Electronic.Control-Theory.Disturbance-Rejection": {
-      "subsubject": "Electrical-Electronic.Control-Theory"
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "labelZh": "扰动抑制",
+      "labelJa": "外乱抑制",
+      "labelEn": "Disturbance Rejection"
     },
     "Electrical-Electronic.Control-Theory.Inverse-Kinematics": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Mathematics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "逆运动学",
+      "labelJa": "逆運動学",
+      "labelEn": "Inverse Kinematics"
     },
     "Electrical-Electronic.Control-Theory.Lead-Compensation": {
-      "subsubject": "Electrical-Electronic.Control-Theory"
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "labelZh": "超前补偿",
+      "labelJa": "位相進み補償",
+      "labelEn": "Lead Compensation"
     },
     "Electrical-Electronic.Control-Theory.Linearization": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "线性化",
+      "labelJa": "線形化",
+      "labelEn": "Linearization"
     },
     "Electrical-Electronic.Control-Theory.Nyquist-Stability-Criterion": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "奈奎斯特稳定判据",
+      "labelJa": "ナイキストの安定判別法",
+      "labelEn": "Nyquist Stability Criterion"
     },
     "Electrical-Electronic.Control-Theory.Proportional-Integral-Derivative-and-Integral-Proportional-Derivative-Control": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "aliases": [
         "Electrical-Electronic.Control-Theory.PID-and-I-PD-Control"
-      ]
+      ],
+      "labelZh": "PID 与 I-PD 控制",
+      "labelJa": "PID制御とI-PD制御",
+      "labelEn": "PID and I-PD Control"
     },
     "Electrical-Electronic.Control-Theory.Robot-Arm-Kinematics": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Engineering",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "机械臂运动学",
+      "labelJa": "ロボットアームの運動学",
+      "labelEn": "Robot Arm Kinematics"
     },
     "Electrical-Electronic.Control-Theory.Routh-Hurwitz-Stability": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "劳斯–赫尔维茨稳定判据",
+      "labelJa": "ラウス・フルビッツの安定判別法",
+      "labelEn": "Routh–Hurwitz Stability Criterion"
     },
     "Electrical-Electronic.Control-Theory.Force-Control": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "力控制",
+      "labelJa": "力制御",
+      "labelEn": "Force Control"
     },
     "Electrical-Electronic.Control-Theory.Stepping-Motor": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "步进电动机",
+      "labelJa": "ステッピングモータ",
+      "labelEn": "Stepper Motors"
     },
     "Electrical-Electronic.Control-Theory.Brushless-Motor": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Engineering",
         "Physics"
-      ]
+      ],
+      "labelZh": "无刷电动机",
+      "labelJa": "ブラシレスモータ",
+      "labelEn": "Brushless Motors"
     },
     "Electrical-Electronic.Control-Theory.Step-Response": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "阶跃响应",
+      "labelJa": "ステップ応答",
+      "labelEn": "Step Response"
     },
     "Electrical-Electronic.Control-Theory.Steady-State-Error": {
-      "subsubject": "Electrical-Electronic.Control-Theory"
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "labelZh": "稳态误差",
+      "labelJa": "定常偏差",
+      "labelEn": "Steady-State Error"
     },
     "Electrical-Electronic.Control-Theory.Transfer-Function": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "传递函数",
+      "labelJa": "伝達関数",
+      "labelEn": "Transfer Functions"
     },
     "Electrical-Electronic.Control-Theory.Damping-and-Oscillation": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Physics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "阻尼与振荡",
+      "labelJa": "減衰と振動",
+      "labelEn": "Damping and Oscillation"
     },
     "Electrical-Electronic.Control-Theory.Three-Dimensional-Position-Sensing": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Engineering",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "三维位置测量",
+      "labelJa": "三次元位置計測",
+      "labelEn": "Three-Dimensional Position Sensing"
     },
     "Electrical-Electronic.Control-Theory.Collision-Free-Trajectory-Planning": {
       "subsubject": "Electrical-Electronic.Control-Theory",
       "relatedSubjects": [
         "Operations-Research",
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "无碰撞轨迹规划",
+      "labelJa": "衝突回避軌道計画",
+      "labelEn": "Collision-Free Trajectory Planning"
     },
     "Electrical-Electronic.Digital-Logic.Combinatorial-Circuit": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "组合逻辑电路",
+      "labelJa": "組合せ論理回路",
+      "labelEn": "Combinational Logic Circuits"
     },
     "Electrical-Electronic.Digital-Logic.Comparator-Circuit": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "比较器电路",
+      "labelJa": "比較器回路",
+      "labelEn": "Comparator Circuits"
     },
     "Electrical-Electronic.Digital-Logic.Counter-Circuit": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "计数器电路",
+      "labelJa": "カウンタ回路",
+      "labelEn": "Counter Circuits"
     },
     "Electrical-Electronic.Digital-Logic.Critical-Path-Delay": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "关键路径延迟",
+      "labelJa": "クリティカルパス遅延",
+      "labelEn": "Critical Path Delay"
     },
     "Electrical-Electronic.Digital-Logic.Ripple-vs-Synchronous-Counter-Propagation-Delay": {
-      "subsubject": "Electrical-Electronic.Digital-Logic"
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "脉动与同步计数器的传播延迟",
+      "labelJa": "リップルカウンタと同期式カウンタの伝搬遅延",
+      "labelEn": "Propagation Delay in Ripple and Synchronous Counters"
     },
     "Electrical-Electronic.Digital-Logic.Synchronous-Decade-and-Up-Down-Counter": {
-      "subsubject": "Electrical-Electronic.Digital-Logic"
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "同步十进制与可逆计数器",
+      "labelJa": "同期式10進カウンタとアップダウンカウンタ",
+      "labelEn": "Synchronous Decade and Up/Down Counters"
     },
     "Electrical-Electronic.Digital-Logic.Mealy-Sequence-Detector-State-Minimization": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "米利型序列检测器的状态最小化",
+      "labelJa": "ミーリー型系列検出器の状態最小化",
+      "labelEn": "State Minimization for Mealy Sequence Detectors"
     },
     "Electrical-Electronic.Digital-Logic.Moore-Machine-State-Minimization-and-Encoding": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "摩尔机状态最小化与编码",
+      "labelJa": "ムーア機械の状態最小化と符号化",
+      "labelEn": "Moore Machine State Minimization and Encoding"
     },
     "Electrical-Electronic.Digital-Logic.Synchronous-Modulo-Counter": {
-      "subsubject": "Electrical-Electronic.Digital-Logic"
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "同步模 N 计数器",
+      "labelJa": "同期式N進カウンタ",
+      "labelEn": "Synchronous Modulo-N Counters"
     },
     "Electrical-Electronic.Digital-Logic.Periodic-Sequence-Generator": {
-      "subsubject": "Electrical-Electronic.Digital-Logic"
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "周期序列发生器",
+      "labelJa": "周期系列生成回路",
+      "labelEn": "Periodic Sequence Generators"
     },
     "Electrical-Electronic.Digital-Logic.Karnaugh-Map-Minimization": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Discrete-Mathematics"
-      ]
+      ],
+      "labelZh": "卡诺图化简",
+      "labelJa": "カルノー図による簡単化",
+      "labelEn": "Karnaugh Map Minimization"
     },
     "Electrical-Electronic.Digital-Logic.Field-Programmable-Gate-Array": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
@@ -407,16 +646,32 @@
       ],
       "aliases": [
         "Electrical-Electronic.Digital-Logic.FPGA"
-      ]
+      ],
+      "labelZh": "现场可编程门阵列",
+      "labelJa": "フィールドプログラマブルゲートアレイ",
+      "labelEn": "Field-Programmable Gate Arrays",
+      "searchAliases": {
+        "en": [
+          "FPGA"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Electrical-Electronic.Digital-Logic.Flip-Flop": {
-      "subsubject": "Electrical-Electronic.Digital-Logic"
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "触发器",
+      "labelJa": "フリップフロップ",
+      "labelEn": "Flip-Flops"
     },
     "Electrical-Electronic.Digital-Logic.One-Hot-Mealy-Parity-Checker": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "独热编码米利型奇偶校验器",
+      "labelJa": "ワンホット符号化によるミーリー型パリティ検査回路",
+      "labelEn": "One-Hot Mealy Parity Checkers"
     },
     "Electrical-Electronic.Digital-Logic.Complementary-Metal-Oxide-Semiconductor-Logic-Transistor-Count-Optimization": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
@@ -425,34 +680,63 @@
       ],
       "aliases": [
         "Electrical-Electronic.Digital-Logic.CMOS-Logic-Transistor-Count-Optimization"
-      ]
+      ],
+      "labelZh": "CMOS 逻辑晶体管数量优化",
+      "labelJa": "CMOS論理回路のトランジスタ数最適化",
+      "labelEn": "Transistor Count Optimization in CMOS Logic"
     },
     "Electrical-Electronic.Digital-Logic.D-Flip-Flop": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "D 触发器",
+      "labelJa": "Dフリップフロップ",
+      "labelEn": "D Flip-Flops"
     },
     "Electrical-Electronic.Digital-Logic.Finite-State-Machine-Minimization": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "有限状态机最小化",
+      "labelJa": "有限状態機械の最小化",
+      "labelEn": "Finite-State Machine Minimization"
     },
     "Electrical-Electronic.Digital-Logic.Carry-Lookahead-Adder": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "超前进位加法器",
+      "labelJa": "桁上げ先見加算器",
+      "labelEn": "Carry-Lookahead Adders",
+      "searchAliases": {
+        "en": [
+          "CLA"
+        ],
+        "zh": [
+          "先行进位加法器"
+        ],
+        "ja": [
+          "キャリールックアヘッド加算器"
+        ]
+      }
     },
     "Electrical-Electronic.Digital-Logic.Asynchronous-Circuit": {
-      "subsubject": "Electrical-Electronic.Digital-Logic"
+      "subsubject": "Electrical-Electronic.Digital-Logic",
+      "labelZh": "异步电路",
+      "labelJa": "非同期回路",
+      "labelEn": "Asynchronous Circuits"
     },
     "Electrical-Electronic.Digital-Logic.Majority-Gate-Logic-Synthesis": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "多数逻辑门综合",
+      "labelJa": "多数決ゲートによる論理合成",
+      "labelEn": "Majority-Gate Logic Synthesis"
     },
     "Electrical-Electronic.Digital-Logic.Half-and-Full-Adders": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
@@ -461,7 +745,10 @@
       ],
       "aliases": [
         "Electrical-Electronic.Digital-Logic.Half-Full-Adders"
-      ]
+      ],
+      "labelZh": "半加器与全加器",
+      "labelJa": "半加算器と全加算器",
+      "labelEn": "Half Adders and Full Adders"
     },
     "Electrical-Electronic.Digital-Logic.Not-AND-and-Not-OR-Universal-Gates": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
@@ -470,67 +757,125 @@
       ],
       "aliases": [
         "Electrical-Electronic.Digital-Logic.NAND-NOR-Universal-Gates"
-      ]
+      ],
+      "labelZh": "与非门与或非门的通用性",
+      "labelJa": "NANDゲートとNORゲートの万能性",
+      "labelEn": "NAND and NOR as Universal Gates"
     },
     "Electrical-Electronic.Digital-Logic.Pulse-Width-Modulation": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Engineering"
-      ]
+      ],
+      "labelZh": "脉宽调制",
+      "labelJa": "パルス幅変調",
+      "labelEn": "Pulse-Width Modulation",
+      "searchAliases": {
+        "en": [
+          "PWM"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Electrical-Electronic.Digital-Logic.Rising-Edge-Detector": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "上升沿检测器",
+      "labelJa": "立上りエッジ検出回路",
+      "labelEn": "Rising-Edge Detectors"
     },
     "Electrical-Electronic.Digital-Logic.Full-Adder-and-Critical-Path": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "全加器与关键路径",
+      "labelJa": "全加算器とクリティカルパス",
+      "labelEn": "Full Adders and Critical Paths"
     },
     "Electrical-Electronic.Digital-Logic.Signed-Addition-Subtraction-and-Overflow-Detection": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "带符号数加减法与溢出检测",
+      "labelJa": "符号付き加減算とオーバーフロー検出",
+      "labelEn": "Signed Addition, Subtraction, and Overflow Detection"
     },
     "Electrical-Electronic.Digital-Logic.Ripple-Carry-Adder": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "行波进位加法器",
+      "labelJa": "リップルキャリー加算器",
+      "labelEn": "Ripple-Carry Adders",
+      "searchAliases": {
+        "en": [
+          "RCA"
+        ],
+        "zh": [
+          "逐位进位加法器"
+        ],
+        "ja": [
+          "桁上げ伝搬加算器"
+        ]
+      }
     },
     "Electrical-Electronic.Digital-Logic.Combinational-Binary-Multiplier": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "组合逻辑二进制乘法器",
+      "labelJa": "組合せ論理による二進乗算器",
+      "labelEn": "Combinational Binary Multipliers"
     },
     "Electrical-Electronic.Digital-Logic.Sequential-Circuit": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "时序逻辑电路",
+      "labelJa": "順序論理回路",
+      "labelEn": "Sequential Logic Circuits"
     },
     "Electrical-Electronic.Digital-Logic.Shift-Register": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "移位寄存器",
+      "labelJa": "シフトレジスタ",
+      "labelEn": "Shift Registers"
     },
     "Electrical-Electronic.Digital-Logic.Synchronous-Circuit": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "同步电路",
+      "labelJa": "同期回路",
+      "labelEn": "Synchronous Circuits"
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "离散傅里叶变换",
+      "labelJa": "離散フーリエ変換",
+      "labelEn": "Discrete Fourier Transform",
+      "searchAliases": {
+        "en": [
+          "DFT"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Fourier-Transform-Time-Reversal-and-Shift": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -539,135 +884,226 @@
       ],
       "aliases": [
         "Electrical-Electronic.Signal-Processing.DFT-Time-Reversal-and-Shift"
-      ]
+      ],
+      "labelZh": "离散傅里叶变换的时间反转与移位",
+      "labelJa": "離散フーリエ変換の時間反転とシフト",
+      "labelEn": "Time Reversal and Shifts in the DFT"
     },
     "Electrical-Electronic.Signal-Processing.Bandlimited-Signal-Reconstruction-from-Samples": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "带限信号的采样重建",
+      "labelJa": "標本値からの帯域制限信号の復元",
+      "labelEn": "Reconstruction of Bandlimited Signals from Samples"
     },
     "Electrical-Electronic.Signal-Processing.Fourier-Conjugate-Symmetry-and-Modulation": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "傅里叶变换的共轭对称性与调制",
+      "labelJa": "フーリエ変換の共役対称性と変調",
+      "labelEn": "Fourier Conjugate Symmetry and Modulation"
     },
     "Electrical-Electronic.Signal-Processing.Continuous-Time-Fourier-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "连续时间傅里叶变换",
+      "labelJa": "連続時間フーリエ変換",
+      "labelEn": "Continuous-Time Fourier Transform"
     },
     "Electrical-Electronic.Signal-Processing.Dirac-Comb-Fourier-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "狄拉克梳状函数的傅里叶变换",
+      "labelJa": "ディラックの櫛形関数のフーリエ変換",
+      "labelEn": "Fourier Transform of the Dirac Comb"
     },
     "Electrical-Electronic.Signal-Processing.Convolution-Theorem": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "卷积定理",
+      "labelJa": "畳み込み定理",
+      "labelEn": "Convolution Theorem"
     },
     "Electrical-Electronic.Signal-Processing.Fast-Fourier-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Computer-Science",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "快速傅里叶变换",
+      "labelJa": "高速フーリエ変換",
+      "labelEn": "Fast Fourier Transform",
+      "searchAliases": {
+        "en": [
+          "FFT"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Electrical-Electronic.Signal-Processing.Fourier-Slice-Theorem": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "傅里叶切片定理",
+      "labelJa": "投影切断面定理",
+      "labelEn": "Fourier Slice Theorem",
+      "searchAliases": {
+        "en": [
+          "projection-slice theorem"
+        ],
+        "zh": [
+          "中心切片定理"
+        ],
+        "ja": [
+          "フーリエ切断面定理"
+        ]
+      }
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Cosine-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Computer-Science",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "离散余弦变换",
+      "labelJa": "離散コサイン変換",
+      "labelEn": "Discrete Cosine Transform",
+      "searchAliases": {
+        "en": [
+          "DCT"
+        ],
+        "zh": [],
+        "ja": []
+      }
     },
     "Electrical-Electronic.Signal-Processing.Autocorrelation-and-Power-Spectral-Density": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Probability-Statistics",
         "Mathematics"
-      ]
+      ],
+      "labelZh": "自相关与功率谱密度",
+      "labelJa": "自己相関とパワースペクトル密度",
+      "labelEn": "Autocorrelation and Power Spectral Density"
     },
     "Electrical-Electronic.Signal-Processing.Wavelet-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "小波变换",
+      "labelJa": "ウェーブレット変換",
+      "labelEn": "Wavelet Transform"
     },
     "Electrical-Electronic.Signal-Processing.Cepstrum": {
-      "subsubject": "Electrical-Electronic.Signal-Processing"
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "labelZh": "倒谱",
+      "labelJa": "ケプストラム",
+      "labelEn": "Cepstrum"
     },
     "Electrical-Electronic.Signal-Processing.Impulse-Train-Sampling-and-Spectral-Replication": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "冲激串采样与频谱周期复制",
+      "labelJa": "インパルス列による標本化とスペクトルの周期的複製",
+      "labelEn": "Impulse-Train Sampling and Spectral Replication"
     },
     "Electrical-Electronic.Signal-Processing.Scalar-Quantizer-Probability-and-Centroid-Reconstruction": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Probability-Statistics",
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "标量量化的概率与质心重建",
+      "labelJa": "スカラー量子化の確率と重心による復元",
+      "labelEn": "Scalar Quantization Probabilities and Centroid Reconstruction"
     },
     "Electrical-Electronic.Signal-Processing.Maximum-Entropy-Quantizer-Boundaries": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Computer-Science",
         "Probability-Statistics"
-      ]
+      ],
+      "labelZh": "最大熵量化器的判决边界",
+      "labelJa": "エントロピーを最大化する量子化境界",
+      "labelEn": "Maximum-Entropy Quantizer Boundaries"
     },
     "Electrical-Electronic.Signal-Processing.Sampling-Theorem-and-Aliasing": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "采样定理与混叠",
+      "labelJa": "標本化定理とエイリアシング",
+      "labelEn": "Sampling Theorem and Aliasing"
     },
     "Electrical-Electronic.Signal-Processing.Impulse-and-Step-Response-Relationship": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "冲激响应与阶跃响应的关系",
+      "labelJa": "インパルス応答とステップ応答の関係",
+      "labelEn": "Relationship between Impulse and Step Responses"
     },
     "Electrical-Electronic.Communications.Spread-Spectrum-Communication": {
       "subsubject": "Electrical-Electronic.Communications",
       "relatedSubjects": [
         "Computer-Science"
-      ]
+      ],
+      "labelZh": "扩频通信",
+      "labelJa": "スペクトル拡散通信",
+      "labelEn": "Spread-Spectrum Communication"
     },
     "Electrical-Electronic.Circuits.Proximity-Sensor-Principles": {
       "subsubject": "Electrical-Electronic.Circuits",
       "relatedSubjects": [
         "Physics",
         "Engineering"
-      ]
+      ],
+      "labelZh": "接近传感器原理",
+      "labelJa": "近接センサの原理",
+      "labelEn": "Proximity Sensor Principles"
     },
     "Electrical-Electronic.Signal-Processing.Causal-Response-Hilbert-Transform-Relation": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "因果响应与希尔伯特变换关系",
+      "labelJa": "因果的応答とヒルベルト変換の関係",
+      "labelEn": "Causal Response and Hilbert Transform Relations"
     },
     "Electrical-Electronic.Signal-Processing.Single-Sideband-Modulation": {
-      "subsubject": "Electrical-Electronic.Signal-Processing"
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "labelZh": "单边带调制",
+      "labelJa": "単側波帯変調",
+      "labelEn": "Single-Sideband Modulation"
     },
     "Electrical-Electronic.Signal-Processing.Wiener-Filter": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Probability-Statistics",
         "Data-Science-Artificial-Intelligence"
-      ]
+      ],
+      "labelZh": "维纳滤波器",
+      "labelJa": "ウィーナーフィルタ",
+      "labelEn": "Wiener Filters"
     },
     "Electrical-Electronic.Signal-Processing.Infinite-Impulse-Response-Filter-Transfer-Function-and-Realization": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -676,59 +1112,89 @@
       ],
       "aliases": [
         "Electrical-Electronic.Signal-Processing.IIR-Filter-Transfer-Function-and-Realization"
-      ]
+      ],
+      "labelZh": "IIR 滤波器的传递函数与实现",
+      "labelJa": "IIRフィルタの伝達関数と実現",
+      "labelEn": "IIR Filter Transfer Functions and Realization"
     },
     "Electrical-Electronic.Signal-Processing.Ideal-Low-Pass-Impulse-Response": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "理想低通滤波器的冲激响应",
+      "labelJa": "理想低域通過フィルタのインパルス応答",
+      "labelEn": "Ideal Low-Pass Filter Impulse Response"
     },
     "Electrical-Electronic.Signal-Processing.Z-Transform-Time-Shift": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "Z 变换的时移性质",
+      "labelJa": "Z変換の時間シフト特性",
+      "labelEn": "Time-Shift Property of the Z-Transform"
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Time-Transfer-Function-and-Impulse-Response": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "离散时间传递函数与冲激响应",
+      "labelJa": "離散時間伝達関数とインパルス応答",
+      "labelEn": "Discrete-Time Transfer Functions and Impulse Responses"
     },
     "Electrical-Electronic.Signal-Processing.Power-Spectrum-and-Parseval-Energy-Identity": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics",
         "Physics"
-      ]
+      ],
+      "labelZh": "功率谱与帕塞瓦尔能量恒等式",
+      "labelJa": "パワースペクトルとパーセバルのエネルギー等式",
+      "labelEn": "Power Spectra and Parseval's Energy Identity"
     },
     "Electrical-Electronic.Signal-Processing.Bilinear-Transform-for-Analog-to-Digital-Filter": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "模拟滤波器数字化的双线性变换",
+      "labelJa": "アナログフィルタのディジタル化と双一次変換",
+      "labelEn": "Bilinear Transform for Analog-to-Digital Filter Conversion"
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Time-Filter-Realization": {
-      "subsubject": "Electrical-Electronic.Signal-Processing"
+      "subsubject": "Electrical-Electronic.Signal-Processing",
+      "labelZh": "离散时间滤波器的实现",
+      "labelJa": "離散時間フィルタの実現",
+      "labelEn": "Discrete-Time Filter Realization"
     },
     "Electrical-Electronic.Signal-Processing.Z-Transform-of-Geometric-Sequence": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "等比序列的 Z 变换",
+      "labelJa": "等比数列のZ変換",
+      "labelEn": "Z-Transform of a Geometric Sequence"
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Time-System-Transfer-and-Frequency-Response": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "离散时间系统的传递函数与频率响应",
+      "labelJa": "離散時間システムの伝達関数と周波数応答",
+      "labelEn": "Discrete-Time System Transfer Functions and Frequency Responses"
     },
     "Electrical-Electronic.Signal-Processing.Z-Transform": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
-      ]
+      ],
+      "labelZh": "Z 变换",
+      "labelJa": "Z変換",
+      "labelEn": "Z-Transform"
     },
     "Electrical-Electronic.Control-Theory.State-Space-Representation": {
       "subsubject": "Electrical-Electronic.Control-Theory",
