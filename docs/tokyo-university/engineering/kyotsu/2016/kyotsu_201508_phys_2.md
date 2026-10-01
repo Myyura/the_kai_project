@@ -131,3 +131,7 @@ $$
 \boxed{\boldsymbol B(r,t)=\boldsymbol0\qquad(r\le a\text{ および }r>a)}.
 $$
 
+## **Reference**
+
+- [東京大学大学院工学系研究科 2016年度入学試験 物理学](https://www.t.u-tokyo.ac.jp/hubfs/pdf/%E7%89%A9%E7%90%862016.pdf)
+- [迫水慎吾「【過去問解答】東京大学大学院工学研究科一般教育科目(電磁気学)」](https://note.com/sakomiz005/n/n7f4b0f722f42)（添付解答の「2016年度」、PDF 10 ページ）

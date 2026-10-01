@@ -79,110 +79,78 @@ $$
 7. 假设两个极点均为负实数，记为 $-\alpha_1,-\alpha_2$，且 $\alpha_1>\alpha_2$。求电路的单位阶跃响应 $v_{\mathrm{out}}(t)$；答案只用 $\alpha_1,\alpha_2$ 表示，不使用 $R,L,C$。
 
 ## **Kai**
+
+$R,L,C>0$ とし、ラプラス変換では初期蓄積エネルギーを 0 とする。
+
 ### (1)
 
-$$
-V_{out} = \frac{R}{R + j\omega L + \frac{1}{j\omega C}}V_{in}
-$$
+直列回路の電圧分割より
 
 $$
-H(\omega) = \frac{V_{out}}{V_{in}} = \frac{R}{R + j\omega L + \frac{1}{j\omega C}}
+H(\omega)=\frac{R}{R+j\omega L+\dfrac{1}{j\omega C}}.
 $$
 
-従って、
-
-$$
-\boxed{(ア)} = R,\boxed{(イ)} = \omega L, \boxed{ウ} = \omega C
-$$
+したがって、$(\text{ア})=R$、$(\text{イ})=\omega L$、$(\text{ウ})=\omega C$。
 
 ### (2)
 
 $$
-|H(\omega)| = \frac{R}{\sqrt{R^2 + (\omega L - \frac{1}{\omega C})^2}}
+|H(\omega)|=\frac{R}{\sqrt{R^2+\left(\omega L-\dfrac{1}{\omega C}\right)^2}}.
 $$
 
-$R > 0,(\omega L - \frac{1}{\omega C})^2 \ge 0$ より、$|H(\omega)|$ は、$\omega_0L - \frac{1}{\omega_0 C} = 0$ で最大値をとり、
+分母は $\omega L=1/(\omega C)$ のとき最小となるので、
 
 $$
-\omega_0 L = \frac{1}{\omega_0 C}
-$$
-
-従って、
-
-$$
-\omega_0 = \frac{1}{\sqrt{LC}}
+\boxed{\omega_0=\frac{1}{\sqrt{LC}}}.
 $$
 
 ### (3)
 
 $$
-|H(\omega_0)| = \frac{R}{\sqrt{R^2}} = 1
+\boxed{|H(\omega_0)|=1}.
 $$
 
 ### (4)
-バンドパスフィルタ
 
-共振周波数でのみ、そのまま、電圧を伝える。
+バンドパスフィルタ（帯域通過フィルタ）である。共振周波数付近を通過させ、低周波・高周波成分を減衰させる。実際、$\omega\to0,\infty$ で $|H(\omega)|\to0$ となる。
 
 ### (5)
-$j\omega \rightarrow s$ として、
 
 $$
-H(s) = \frac{R}{R + sL + \frac{1}{sC}}
+\boxed{H(s)=\frac{R}{R+sL+\dfrac{1}{sC}}
+=\frac{(R/L)s}{s^2+(R/L)s+1/(LC)}}.
 $$
 
 ### (6)
 
-$$
-\begin{aligned}
-H(s) &= \frac{sCR}{sCR + s^2LC + 1} \\
-&= \frac{s \cdot \frac{R}{L}}{s^2 + s\frac{R}{L} + \frac{1}{LC}}
-\end{aligned}
-$$
-
-分母多項式が $0$ となるのは、
+分母の零点より、極は
 
 $$
-s^2LC + sCR + 1 = 0
+\boxed{s=-\frac{R}{2L}\pm\frac{1}{2}
+\sqrt{\left(\frac{R}{L}\right)^2-\frac{4}{LC}}}.
 $$
-
-$$
-s^2 + \frac{R}{L}s + \frac{1}{LC} = 0
-$$
-
-$$
-s = \frac{-\frac{R}{L} \pm \sqrt{(\frac{R}{L})^2 - \frac{4}{LC}}}{2}
-$$
-
 
 ### (7)
 
-$$
-\left \{
-\begin{aligned}
-\alpha_1 &= \frac{\frac{R}{L} + \sqrt{(\frac{R}{L})^2 - \frac{4}{LC}}}{2} \\
-\alpha_2 &= \frac{\frac{R}{L} - \sqrt{(\frac{R}{L})^2 - \frac{4}{LC}}}{2} \\
-\end{aligned}
-\right.
-$$
-
-よって、$\alpha_1 + \alpha_2 = \frac{R}{L}$
+$\alpha_1+\alpha_2=R/L$ より、単位ステップ入力に対して
 
 $$
-H(s) = \frac{(\alpha_1 + \alpha_2)s}{(s + \alpha_1)(s + \alpha_2)}
+V_{\mathrm{out}}(s)=\frac{H(s)}{s}
+=\frac{\alpha_1+\alpha_2}{\alpha_1-\alpha_2}
+\left(\frac{1}{s+\alpha_2}-\frac{1}{s+\alpha_1}\right).
 $$
 
-$$
-\begin{aligned}
-V_{out}(s) &= H(s) \cdot \frac{1}{s} \\
-&= \frac{\alpha_1 + \alpha_2}{(s + \alpha_1)(s + \alpha_2)} \\
-&= -\frac{\alpha_1 + \alpha_2}{\alpha_1 - \alpha_2} \cdot \frac{1}{s + \alpha_1} + \frac{\alpha_1 + \alpha_2}{\alpha_1 - \alpha_2} \cdot \frac{1}{s + \alpha_2} \\
-&= -\frac{\alpha_1 + \alpha_2}{\alpha_1 - \alpha_2}(\frac{1}{s + \alpha_1} - \frac{1}{s + \alpha_2})
-\end{aligned}
-$$
-
-従って、
+逆ラプラス変換して、
 
 $$
-v_{out}(t) = -\frac{\alpha_1 + \alpha_2}{\alpha_1 - \alpha_2}(e^{-\alpha_1 t} - e^{-\alpha_2t})
+\boxed{v_{\mathrm{out}}(t)
+=\frac{\alpha_1+\alpha_2}{\alpha_1-\alpha_2}
+\left(e^{-\alpha_2t}-e^{-\alpha_1t}\right)\quad(t\ge0)}.
 $$
+
+入力前の $t<0$ では $v_{\mathrm{out}}(t)=0$。
+
+## **Reference**
+
+- [東京工業大学公式問題：2022年度・2021年実施、電気回路1、PDF 7ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_ee_20218&key=cd5c2ecd3d4dc49c5c29e8de8374f19b.pdf&pageId=3186&prevId=&type=1)
+- [院試パイン：東工大2022年の電気回路解答（無料公開部分）](https://note.com/inshi_pineapple/n/n80ea77a60609)

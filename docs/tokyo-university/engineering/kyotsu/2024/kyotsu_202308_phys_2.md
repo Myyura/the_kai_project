@@ -228,3 +228,7 @@ $$
 {\varepsilon_2(\varepsilon_1+\varepsilon_2)}q}.
 $$
 
+## **Reference**
+
+- [東京大学大学院工学系研究科 2024年度入学試験 物理学](https://www.t.u-tokyo.ac.jp/hubfs/graduate/2024/Past_Entrance_Examinations/P_J_E_2024.pdf)
+- [迫水慎吾「【過去問解答】東京大学大学院工学研究科一般教育科目(電磁気学)」](https://note.com/sakomiz005/n/n7f4b0f722f42)（添付解答の「2024年度」、PDF 1 ページ）

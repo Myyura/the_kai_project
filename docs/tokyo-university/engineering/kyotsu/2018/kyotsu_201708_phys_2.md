@@ -157,3 +157,7 @@ $$
 
 ![共振時の電源電圧とコンデンサ電圧](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2018/kyotsu_201708_phys_2_resonance_audited.svg)
 
+## **Reference**
+
+- [東京大学大学院工学系研究科 2018年度入学試験 物理学](https://www.t.u-tokyo.ac.jp/hubfs/pdf/H30_butsurigaku_J.pdf)
+- [迫水慎吾「【過去問解答】東京大学大学院工学研究科一般教育科目(電磁気学)」](https://note.com/sakomiz005/n/n7f4b0f722f42)（添付解答の「2018年度」、PDF 8・9 ページ）

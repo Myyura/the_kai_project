@@ -158,3 +158,7 @@ $$
 
 端効果を無視したモデルでは $t=\pi/\omega$ で電流が不連続に切り替わる。
 
+## **Reference**
+
+- [東京大学大学院工学系研究科 2017年度入学試験 物理学](https://www.t.u-tokyo.ac.jp/hubfs/pdf/H29_butsurigaku_J.pdf)
+- [迫水慎吾「【過去問解答】東京大学大学院工学研究科一般教育科目(電磁気学)」](https://note.com/sakomiz005/n/n7f4b0f722f42)（添付解答の「2017年度」、PDF 9・10 ページ）

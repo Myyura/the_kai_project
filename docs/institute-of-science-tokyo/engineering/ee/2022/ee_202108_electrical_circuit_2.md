@@ -128,105 +128,101 @@ $$
 8. 求导线 U 中电流的有效值。
 
 ## **Kai**
+
+定常交流を考え、各周波数の電圧を位相の基準とする。
+
 ### (1)
 
 $$
-I_L = \bigg|\frac{100}{j500 \times 10 \times 10^{-3}}\bigg| = 20[\text{A}]
+\boxed{I_L=\frac{100}{500\times10^{-2}}=20\ \mathrm A}.
 $$
 
 ### (2)
 
 $$
-\begin{aligned}
-I_c &= \bigg|j\omega C \cdot 100\bigg| \\
-&= 500 \cdot 100 \cdot 300 \times 10^{-6} \\
-&= 15[\text{A}]
-\end{aligned}
+\boxed{I_C=500\times300\times10^{-6}\times100=15\ \mathrm A}.
 $$
 
 ### (3)
 
+インダクタ電流は電圧より $\pi/2$ 遅れ、キャパシタ電流は $\pi/2$ 進む。したがって、実効値のフェーザを加えると
+
 $$
-\begin{aligned}
-I_1 &= I_L + I_C \\
-&= \bigg|-j20 + j15\bigg| \\
-&= \bigg|-j5\bigg| \\
-&= 5[\text{A}]
-\end{aligned}
+\underline I_1=-j20+j15=-j5\ \mathrm A,
+\qquad \boxed{I_1=5\ \mathrm A}.
 $$
 
 ### (4)
 
+第3高調波の電圧実効値は $100/3\ \mathrm V$ なので、
+
 $$
-\begin{aligned}
-I_3 &= \bigg|\frac{\frac{100}{3}}{j1500 \times 10 \times 10^{-3}} + j1500 \times 300 \times 10^{-6} \times \frac{100}{3}\bigg| \\
-&= \bigg|-j\frac{100}{45} + j15\bigg| \\
-&= \bigg|j(-2.2 + 15)\bigg| \\
-&\approx 13[\text{A}]
-\end{aligned}
+\underline I_3=\left(\frac{1}{j1500L}+j1500C\right)\frac{100}{3}
+=j\left(15-\frac{20}{9}\right)
+=j\frac{115}{9}\ \mathrm A.
 $$
+
+よって $I_3=115/9\ \mathrm A$、四捨五入した答は $\boxed{13\ \mathrm A}$。
 
 ### (5)
 
-$$
-T = \frac{2\pi}{\omega}
-$$
+$T=2\pi/\omega$ にわたり異なる高調波は直交するため、
 
 $$
-\begin{aligned}
-\frac{\omega}{2\pi}\int_0^{\frac{2\pi}{\omega}}\bigg[\sqrt{2}\big(I_1\sin(\omega t) + I_3\sin(3\omega t)\big)\bigg]^2dt
-= \frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}} I_1^2 \sin^2\omega t dt + \frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}}I_3^2\sin^23\omega tdt + \frac{2\omega}{\pi}I_1I_3 \int_0^{\frac{2\pi}{\omega}}\sin\omega t \sin(3\omega t)dt
-\end{aligned}
+\frac{1}{T}\int_0^T\sin\omega t\sin3\omega t\,\mathrm dt=0,
+\qquad
+\frac{1}{T}\int_0^T\sin^2(n\omega t)\,\mathrm dt=\frac12
+\quad(n=1,3).
 $$
 
-$$
-\begin{aligned}
-\frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}} I_1^2 \sin^2\omega t dt &= \frac{\omega}{2\pi}I_1^2 \int_0^{\frac{2\pi}{\omega}} (1 - \cos2\omega t) dt \\
-&= \frac{\omega}{2\pi}I_1^2\bigg[t - \frac{1}{2\omega}\sin2\omega t\bigg]_0^{\frac{2\pi}{\omega}} \\
-&= \frac{\omega I_1^2}{2\pi} \cdot \frac{2\pi}{\omega} = I_1^2
-\end{aligned}
-$$
+したがって、
 
 $$
-\begin{aligned}
-\frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}}I_3^2\sin^23\omega tdt &= \frac{\omega}{\pi}\int_0^{\frac{2\pi}{\omega}}I_3^2\sin^2(3\omega t)dt \\
-&= \frac{\omega I_3^2}{2\pi}\int_0^{\frac{2\pi}{\omega}}\bigg(1 - \cos(6\omega t)\bigg)dt \\
-&= \frac{\omega I_3^2}{2\pi}\bigg[t - \frac{1}{6\omega}\sin(6\omega t)\bigg]_0^{\frac{2\pi}{\omega}} \\
-&= \frac{\omega I_3^2}{2\pi} \cdot \frac{2\pi}{\omega} = I_3^2
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-\frac{2\omega}{\pi}I_1I_3 \int_0^{\frac{2\pi}{\omega}}\sin\omega t \sin(3\omega t)dt &= \frac{2\omega I_1I_3}{\pi}\int_0^{\frac{2\pi}{\omega}}\frac{1}{2}(\cos 2\omega t - \cos 4\omega t)dt \\
-&= \frac{\omega I_1I_3}{\pi
-}\bigg[\frac{1}{2\omega} \sin 2\omega t - \frac{1}{4\omega}\sin 4\omega t\bigg]_0^{\frac{2\pi}{\omega}} \\
-&= 0
-\end{aligned}
-$$
-
-従って、
-
-$$
-I_{rms} = \sqrt{I_1^2 + I_3^2}
+\boxed{I_{\mathrm{rms}}=\sqrt{I_1^2+I_3^2}}.
 $$
 
 ### (6)
 
+異なる周波数間の位相によらず (5) の関係が成り立つ。丸める前の値を用いて
+
 $$
-I = \sqrt{5^2 + (115/9)^2} \approx 14[\text{A}]
+I_{\mathrm{rms}}=\sqrt{5^2+\left(\frac{115}{9}\right)^2}
+=\frac{\sqrt{15250}}{9}\ \mathrm A.
 $$
+
+四捨五入した答は $\boxed{14\ \mathrm A}$。
 
 ### (7)
-線間電圧は相電圧の $\sqrt{3}$ 倍より、
+
+対称三相の線間電圧の実効値は相電圧の $\sqrt3$ 倍なので、
 
 $$
-100\sqrt{3} = 173.2 \cdots \approx 173[\text{V}]
+V_{\mathrm{line}}=100\sqrt3\ \mathrm V
+\quad\Longrightarrow\quad\boxed{173\ \mathrm V}.
 $$
 
 ### (8)
-$1500$ rad/s の電源成分は三相で同相であり、中性線のない対称な Y 負荷では共通モードとして相殺される。従って線電流には $500$ rad/s の成分だけが流れ、
+
+負荷中性点は電源中性点に接続されていない。三相の負荷が等しいため、定常状態の負荷中性点電位は
 
 $$
-I_0 = 5[\text{A}]
+v_N(t)=\frac{e_1(t)+e_2(t)+e_3(t)}{3}
+=\frac{100\sqrt2}{3}\sin1500t.
 $$
+
+したがって、U 相の負荷電圧は
+
+$$
+e_1(t)-v_N(t)=100\sqrt2\sin500t.
+$$
+
+同相の第3高調波は負荷に加わらず、電線 U には基本波電流のみが流れる。(3) より
+
+$$
+\boxed{I_U=5\ \mathrm A}.
+$$
+
+## **Reference**
+
+- [東京工業大学公式問題：2022年度・2021年実施、電気回路2、PDF 8ページ](https://admissions.isct.ac.jp/plugins/cms/component_download_file.php?contentsDataId=&contentsId=&fileName=exam_ee_20218&key=cd5c2ecd3d4dc49c5c29e8de8374f19b.pdf&pageId=3186&prevId=&type=1)
+- [院試パイン：東工大2022年の電気回路解答（無料公開部分）](https://note.com/inshi_pineapple/n/n80ea77a60609)

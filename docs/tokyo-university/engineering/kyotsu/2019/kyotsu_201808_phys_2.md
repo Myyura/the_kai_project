@@ -187,3 +187,7 @@ $$
 
 となり一致する。
 
+## **Reference**
+
+- [東京大学大学院工学系研究科 2019年度入学試験 物理学](https://www.t.u-tokyo.ac.jp/hubfs/pdf/H31_butsurigaku_J.pdf)
+- [迫水慎吾「【過去問解答】東京大学大学院工学研究科一般教育科目(電磁気学)」](https://note.com/sakomiz005/n/n7f4b0f722f42)（添付解答の「2019年度」、PDF 6・7 ページ）

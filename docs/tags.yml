@@ -4924,6 +4924,10 @@
   label: "Physics.Electromagnetism.Electric-Dipole-Potential"
   permalink: "/topic/physics/electromagnetism/electric-dipole-potential"
   description: "Physics / Electromagnetism / Electric-Dipole-Potential"
+"Physics.Electromagnetism.Electric-Dipole-Radiation":
+  label: "Physics.Electromagnetism.Electric-Dipole-Radiation"
+  permalink: "/topic/physics/electromagnetism/electric-dipole-radiation"
+  description: "Physics / Electromagnetism / Electric-Dipole-Radiation"
 "Physics.Electromagnetism.Electric-Potential-and-Field":
   label: "Physics.Electromagnetism.Electric-Potential-and-Field"
   permalink: "/topic/physics/electromagnetism/electric-potential-and-field"

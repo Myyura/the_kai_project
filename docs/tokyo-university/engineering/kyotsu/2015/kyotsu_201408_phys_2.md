@@ -133,3 +133,7 @@ $$
 \boxed{L>\frac{JR^2}{B_z^2a^4}.}
 $$
 
+## **Reference**
+
+- [東京大学大学院工学系研究科 2015年度入学試験 物理学](https://www.t.u-tokyo.ac.jp/hubfs/pdf/2015phyJ.pdf)
+- [迫水慎吾「【過去問解答】東京大学大学院工学研究科一般教育科目(電磁気学)」](https://note.com/sakomiz005/n/n7f4b0f722f42)（添付解答の「2015年度」、PDF 11 ページ）

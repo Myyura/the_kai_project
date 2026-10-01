@@ -656,6 +656,15 @@
     "Physics.Electromagnetism.Electric-Dipole-Potential": {
       "subsubject": "Physics.Electromagnetism"
     },
+    "Physics.Electromagnetism.Electric-Dipole-Radiation": {
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "电偶极辐射",
+      "labelJa": "電気双極子放射",
+      "labelEn": "Electric Dipole Radiation",
+      "relatedSubjects": [
+        "Electrical-Electronic"
+      ]
+    },
     "Physics.Electromagnetism.Conducting-Sphere-in-Uniform-Electric-Field": {
       "subsubject": "Physics.Electromagnetism",
       "relatedSubjects": [
