@@ -1,0 +1,182 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  width: fit-content;
+  padding: .2rem .6rem;
+  border: 1px solid var(--custom-card-border);
+  border-radius: .45rem;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+  font-size: .75rem;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.badge strong {
+  color: var(--ifm-font-color-base);
+  font-size: .85rem;
+}
+
+.rankPanel {
+  margin: -1rem 0 1.8rem;
+}
+
+.details {
+  padding: 0;
+  margin: 0 0 .5rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.summary {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .6rem 1rem;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.summary::marker,
+.summary::-webkit-details-marker {
+  display: none;
+  content: '';
+}
+
+.peerToggle {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  color: var(--ifm-color-primary);
+  font-size: .84rem;
+}
+
+.peerCount {
+  color: var(--ifm-color-emphasis-700);
+  font-size: .76rem;
+}
+
+.chevron {
+  width: .65rem;
+  transition: transform .18s ease;
+}
+
+.details[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.peerContent {
+  padding: .9rem 0 .5rem;
+}
+
+.peerCaption,
+.unlisted {
+  color: var(--ifm-color-emphasis-700);
+  font-size: .8rem;
+  margin: 0 0 .7rem;
+}
+
+.peerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.peerGrid li {
+  margin: 0;
+  min-width: 0;
+}
+
+.peerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .7rem;
+  height: 100%;
+  padding: .75rem .85rem;
+  border: 1px solid var(--custom-card-border);
+  border-radius: .65rem;
+  background: var(--custom-card-bg);
+  color: var(--ifm-font-color-base);
+  text-decoration: none !important;
+}
+
+.peerLink:hover {
+  background: var(--custom-card-bg-hover);
+}
+
+.peerLink > span {
+  min-width: 0;
+}
+
+.peerLink > svg {
+  flex-shrink: 0;
+  width: .7rem;
+  color: var(--ifm-color-primary);
+}
+
+.peerName {
+  display: block;
+  font-size: .85rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.attribution {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2rem .85rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .72rem;
+}
+
+.attribution a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+
+.attribution svg {
+  width: .6rem;
+}
+
+.note {
+  margin: .2rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: .72rem;
+  line-height: 1.6;
+}
+
+.rankPanel :is(summary, a):focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+  border-radius: .3rem;
+}
+
+@media (max-width: 700px) {
+  .peerGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .peerGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}

@@ -16,6 +16,9 @@ import DocVersionBadge from '@theme/DocVersionBadge';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import Heading from '@theme/Heading';
 import AdmissionTrendCard from '@site/src/components/AdmissionTrendCard';
+import SchoolRank from '@site/src/components/SchoolRank';
+import SchoolDepartmentCards from '@site/src/components/SchoolDepartmentCards';
+import {universities} from '@site/src/data/universities';
 import type {Props} from '@theme/DocCategoryGeneratedIndexPage';
 
 import styles from './styles.module.css';
@@ -37,6 +40,10 @@ function DocCategoryGeneratedIndexPageContent({
   categoryGeneratedIndex,
 }: Props): ReactNode {
   const category = useCurrentSidebarCategory();
+  // Match the school root exactly; graduate-school and year pages share this template.
+  const university = universities.find(
+    (school) => school.archiveUrl === categoryGeneratedIndex.permalink,
+  );
   return (
     <div className={styles.generatedIndexPage}>
       <DocVersionBanner />
@@ -50,12 +57,17 @@ function DocCategoryGeneratedIndexPageContent({
           <p>{categoryGeneratedIndex.description}</p>
         )}
       </header>
+      {university && <SchoolRank key={university.id} university={university} />}
       <AdmissionTrendCard
         key={categoryGeneratedIndex.slug}
         slug={categoryGeneratedIndex.slug}
       />
       <article className="margin-top--lg">
-        <DocCardList items={category.items} className={styles.list} />
+        {university ? (
+          <SchoolDepartmentCards university={university} items={category.items} />
+        ) : (
+          <DocCardList items={category.items} className={styles.list} />
+        )}
       </article>
       <footer className="margin-top--md">
         <DocPaginator

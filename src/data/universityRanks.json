@@ -1,0 +1,40 @@
+{
+  "source": {
+    "name": "日本の学歴 · 学歴ランク（文理合同）",
+    "url": "https://gakurekirank.com/gakurekiranking/",
+    "rankingDate": "2026-04-01",
+    "checkedAt": "2026-10-06"
+  },
+  "ranks": {
+    "tokyo-university": "S",
+    "kyoto-university": "S",
+    "tohoku-university": "A",
+    "osaka-university": "A",
+    "nagoya-university": "A",
+    "institute-of-science-tokyo": "S",
+    "hokkaido-university": "A",
+    "kyushu-university": "A",
+    "waseda-university": "A",
+    "keio-university": "A",
+    "kobe-university": "A",
+    "tsukuba-university": "B",
+    "UEC": "B",
+    "hiroshima-university": "B",
+    "TUAT": "B",
+    "hosei-university": "B",
+    "kanazawa-university": "B",
+    "saitama-university": "C",
+    "meiji-university": "B",
+    "nagoya-institute-of-technology": "B",
+    "yamaguchi-university": "C",
+    "niigata-university": "C",
+    "hitotsubashi-university": "S",
+    "future-university-hakodate": "D",
+    "osaka-metropolitan-university": "B",
+    "ehime-university": "C",
+    "ryukyu-university": "D",
+    "ochanomizu-university": "B",
+    "chiba-university": "B",
+    "kyoto-institute-of-technology": "B"
+  }
+}

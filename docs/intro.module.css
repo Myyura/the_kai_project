@@ -105,6 +105,10 @@
 }
 
 .schoolMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem .6rem;
   color: var(--ifm-color-emphasis-650);
   font-size: .75rem;
   line-height: 1.45;

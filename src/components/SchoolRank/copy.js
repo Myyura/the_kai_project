@@ -1,0 +1,40 @@
+const messages = {
+  zh: {
+    reference: '参考分档',
+    noRank: '暂无分档',
+    peers: '同档院校',
+    peerCount: '{count} 所',
+    availableOnly: '本站已收录的同档院校',
+    noPeers: '本站暂未收录其他同档院校。',
+    source: '来源',
+    edition: '文理综合 · {date} 版',
+    note: '第三方参考分档，不代表具体专攻或修士入试难度。',
+    opensNewTab: '在新标签页打开',
+  },
+  ja: {
+    reference: '参考ランク',
+    noRank: 'ランク未掲載',
+    peers: '同ランクの大学',
+    peerCount: '{count} 校',
+    availableOnly: '当サイトに掲載している同ランクの大学',
+    noPeers: '同ランクの他大学はまだ掲載されていません。',
+    source: '出典',
+    edition: '文理総合・{date} 版',
+    note: '第三者による参考ランクです。専攻別の評価や大学院入試の難易度を示すものではありません。',
+    opensNewTab: '新しいタブで開く',
+  },
+  en: {
+    reference: 'Reference tier',
+    noRank: 'Not listed',
+    peers: 'Universities in this tier',
+    peerCount: '{count}',
+    availableOnly: 'Universities in this tier with archives on this site',
+    noPeers: 'No other universities in this tier have archives on this site yet.',
+    source: 'Source',
+    edition: 'Combined disciplines · {date} edition',
+    note: 'A third-party reference tier, not a rating of individual programs or graduate entrance exam difficulty.',
+    opensNewTab: 'Opens in a new tab',
+  },
+};
+
+export default messages;

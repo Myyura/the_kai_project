@@ -10,6 +10,7 @@ import {
 import BrowseEmptyState from '@site/src/components/BrowseEmptyState';
 import BrowseSearchField from '@site/src/components/BrowseSearchField';
 import ContentBrowseModes from '@site/src/components/ContentBrowseModes';
+import {SchoolRankBadge} from '@site/src/components/SchoolRank';
 import {universities} from '@site/src/data/universities';
 import {examUniversities} from '@site/src/data/universityCatalog.cjs';
 import {useUiText} from '@site/src/i18n/useUiText';
@@ -52,9 +53,10 @@ function SchoolCard({university, departments, query, t}) {
         <span className={styles.schoolHeading}>
           <span className={styles.schoolName}>{university.name}</span>
           <span className={styles.schoolMeta}>
-            {university.departments.length
+            <span>{university.departments.length
               ? t.departmentCount.replace('{count}', String(university.departments.length))
-              : t.viewPastExams}
+              : t.viewPastExams}</span>
+            <SchoolRankBadge schoolId={university.id} />
           </span>
         </span>
         <FaArrowRight className={styles.linkIcon} aria-hidden="true" />
