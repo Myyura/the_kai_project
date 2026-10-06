@@ -1,30 +1,28 @@
-.badge {
+.rankBadge {
   display: inline-flex;
   align-items: center;
-  gap: .45rem;
-  width: fit-content;
-  padding: .2rem .6rem;
-  border: 1px solid var(--custom-card-border);
-  border-radius: .45rem;
-  background: var(--ifm-color-emphasis-100);
+  gap: .5rem;
   color: var(--ifm-color-emphasis-700);
-  font-size: .75rem;
+  font-size: .8rem;
   line-height: 1.5;
   white-space: nowrap;
 }
 
-.badge strong {
-  color: var(--ifm-font-color-base);
-  font-size: .85rem;
+.rankValue {
+  --ifm-badge-background-color: var(--kai-action);
+  --ifm-badge-border-color: var(--kai-action);
+  --ifm-badge-color: var(--kai-action-foreground);
+  /* Keep this value legible when Infima's layer is lowered for older browsers. */
+  font-size: .85rem !important;
 }
 
 .rankPanel {
-  margin: -1rem 0 1.8rem;
+  margin: -.8rem 0 1.5rem;
 }
 
 .details {
   padding: 0;
-  margin: 0 0 .5rem;
+  margin: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -37,8 +35,8 @@
   max-width: 100%;
   align-items: center;
   flex-wrap: wrap;
-  gap: .6rem 1rem;
-  min-height: 44px;
+  gap: .4rem 1rem;
+  min-height: 40px;
   cursor: pointer;
   list-style: none;
 }
@@ -51,11 +49,11 @@
 
 .peerToggle {
   display: inline-flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: .5rem;
+  flex-wrap: wrap;
+  gap: .45rem;
   color: var(--ifm-color-primary);
-  font-size: .84rem;
+  font-size: .82rem;
 }
 
 .peerCount {
@@ -73,75 +71,63 @@
 }
 
 .peerContent {
-  padding: .9rem 0 .5rem;
+  padding: .55rem 0 .8rem;
 }
 
 .peerCaption,
 .unlisted {
-  color: var(--ifm-color-emphasis-700);
-  font-size: .8rem;
-  margin: 0 0 .7rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: .75rem;
+  margin-bottom: .5rem;
 }
 
-.peerGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: .6rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.peerGrid li {
-  margin: 0;
-  min-width: 0;
+/* Navigation is not a document list: avoid Infima's list/paragraph spacing,
+   including the higher specificity used by legacy cascade-layer builds. */
+.peerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
 }
 
 .peerLink {
-  display: flex;
-  align-items: center;
+  composes: btnSecondary from '../../styles/kai-ui.module.css';
+  --ifm-link-color: var(--ifm-font-color-base);
+  --ifm-link-hover-color: var(--ifm-color-primary);
+  --ifm-link-hover-decoration: none;
   justify-content: space-between;
-  gap: .7rem;
-  height: 100%;
-  padding: .75rem .85rem;
-  border: 1px solid var(--custom-card-border);
-  border-radius: .65rem;
-  background: var(--custom-card-bg);
-  color: var(--ifm-font-color-base);
-  text-decoration: none !important;
-}
-
-.peerLink:hover {
-  background: var(--custom-card-bg-hover);
+  gap: .75rem;
+  max-width: 100%;
+  padding: .4rem .7rem;
+  font-size: .82rem;
+  font-weight: 500;
+  white-space: normal;
 }
 
 .peerLink > span {
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .peerLink > svg {
   flex-shrink: 0;
-  width: .7rem;
-  color: var(--ifm-color-primary);
-}
-
-.peerName {
-  display: block;
-  font-size: .85rem;
-  font-weight: 600;
-  overflow-wrap: anywhere;
+  width: .65rem;
+  color: var(--ifm-color-emphasis-600);
 }
 
 .attribution {
   display: flex;
   flex-wrap: wrap;
-  gap: .2rem .85rem;
-  color: var(--ifm-color-emphasis-700);
+  gap: .15rem .7rem;
+  margin-top: .35rem;
+  color: var(--ifm-color-emphasis-600);
   font-size: .72rem;
+  line-height: 1.6;
 }
 
 .attribution a {
-  color: inherit;
+  --ifm-link-color: var(--ifm-color-emphasis-600);
+  --ifm-link-hover-color: var(--ifm-color-primary);
+  --ifm-link-decoration: underline;
   text-decoration: underline;
   text-underline-offset: .15em;
 }
@@ -151,8 +137,8 @@
 }
 
 .note {
-  margin: .2rem 0 0;
-  color: var(--ifm-color-emphasis-700);
+  margin-top: .15rem;
+  color: var(--ifm-color-emphasis-600);
   font-size: .72rem;
   line-height: 1.6;
 }
@@ -160,18 +146,12 @@
 .rankPanel :is(summary, a):focus-visible {
   outline: 2px solid var(--ifm-color-primary);
   outline-offset: 3px;
-  border-radius: .3rem;
 }
 
-@media (max-width: 700px) {
-  .peerGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 420px) {
-  .peerGrid {
-    grid-template-columns: minmax(0, 1fr);
+@media (pointer: coarse) {
+  .summary,
+  .peerLink {
+    min-height: 44px;
   }
 }
 

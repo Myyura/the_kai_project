@@ -18,9 +18,9 @@ export function SchoolRankBadge({schoolId}) {
   if (!rank) return null;
 
   return (
-    <span className={styles.badge}>
+    <span className={styles.rankBadge}>
       <span>{t.reference}</span>
-      <strong>{rank}</strong>
+      <span className={`badge ${styles.rankValue}`}>{rank}</span>
     </span>
   );
 }
@@ -32,7 +32,7 @@ export default function SchoolRank({university}) {
   const peers = getSameRankUniversities(university, universities);
 
   if (!rank) {
-    return <p className={styles.unlisted}>{t.reference} · {t.noRank}</p>;
+    return <div className={styles.unlisted}>{t.reference} · {t.noRank}</div>;
   }
 
   return (
@@ -51,19 +51,19 @@ export default function SchoolRank({university}) {
         <div className={styles.peerContent}>
           {peers.length ? (
             <>
-              <p className={styles.peerCaption}>{t.availableOnly}</p>
-              <ul className={styles.peerGrid}>
+              <div className={styles.peerCaption}>
+                {t.availableOnly.replace('{rank}', rank)}
+              </div>
+              <nav className={styles.peerLinks} aria-label={t.peers}>
                 {peers.map((peer) => (
-                  <li key={peer.id}>
-                    <Link to={peer.archiveUrl} className={styles.peerLink}>
-                      <span className={styles.peerName}>{peer.name}</span>
-                      <FaArrowRight aria-hidden="true" />
-                    </Link>
-                  </li>
+                  <Link key={peer.id} to={peer.archiveUrl} className={styles.peerLink}>
+                    <span>{peer.name}</span>
+                    <FaArrowRight aria-hidden="true" />
+                  </Link>
                 ))}
-              </ul>
+              </nav>
             </>
-          ) : <p className={styles.peerCaption}>{t.noPeers}</p>}
+          ) : <div className={styles.peerCaption}>{t.noPeers}</div>}
         </div>
       </details>
       <div className={styles.attribution}>
@@ -74,12 +74,12 @@ export default function SchoolRank({university}) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${t.source}：${rankSource.name} · ${t.opensNewTab}`}>
-            {rankSource.name} <FaExternalLinkAlt aria-hidden="true" />
+            日本の学歴 <FaExternalLinkAlt aria-hidden="true" />
           </a>
         </span>
         <span>{t.edition.replace('{date}', rankSource.rankingDate)}</span>
       </div>
-      <p className={styles.note}>{t.note}</p>
+      <div className={styles.note}>{t.note}</div>
     </section>
   );
 }
