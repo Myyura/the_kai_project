@@ -66,7 +66,7 @@ function DocCategoryGeneratedIndexPageContent({
         {university ? (
           <SchoolDepartmentCards university={university} items={category.items} />
         ) : (
-          <DocCardList items={category.items} className={styles.list} />
+          <DocCardList items={category.items} />
         )}
       </article>
       <footer className="margin-top--md">

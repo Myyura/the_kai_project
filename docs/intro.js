@@ -13,10 +13,11 @@ import ContentBrowseModes from '@site/src/components/ContentBrowseModes';
 import {SchoolRankBadge} from '@site/src/components/SchoolRank';
 import {universities} from '@site/src/data/universities';
 import {examUniversities} from '@site/src/data/universityCatalog.cjs';
+import {sortUniversitiesByRank} from '@site/src/data/universityRanks.cjs';
 import {useUiText} from '@site/src/i18n/useUiText';
 import styles from './intro.module.css';
 
-const catalogUniversities = examUniversities(universities);
+const catalogUniversities = sortUniversitiesByRank(examUniversities(universities));
 const normalizeUniversityQuery = (value) => value.normalize('NFKC').toLowerCase().trim();
 
 function filterUniversities(query) {

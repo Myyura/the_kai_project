@@ -6,6 +6,7 @@ import {universities} from '@site/src/data/universities';
 import {
   rankSource,
   getUniversityRank,
+  getUniversityRankGroup,
   getSameRankUniversities,
 } from '@site/src/data/universityRanks.cjs';
 import messages from './copy';
@@ -52,7 +53,7 @@ export default function SchoolRank({university}) {
           {peers.length ? (
             <>
               <div className={styles.peerCaption}>
-                {t.availableOnly.replace('{rank}', rank)}
+                {t.availableOnly.replace('{rank}', getUniversityRankGroup(university.id))}
               </div>
               <nav className={styles.peerLinks} aria-label={t.peers}>
                 {peers.map((peer) => (

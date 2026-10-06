@@ -10,19 +10,21 @@ export default function SchoolDepartmentCards({university, items}) {
   const language = useCurrentLanguage();
   const text = copy[language] || copy.zh;
   const baseUrl = useBaseUrl('/');
-  const departments = new Map(
-    (university.departments || [])
-      .filter((department) => department.archiveUrl)
-      .map((department) => [archivePath(department.archiveUrl, baseUrl), department]),
-  );
+  const departmentsByPath = new Map();
+  const departmentsByName = new Map();
+  for (const department of university.departments || []) {
+    if (department.archiveUrl) {
+      departmentsByPath.set(archivePath(department.archiveUrl, baseUrl), department);
+    }
+    // A name is a safe fallback only when it identifies exactly one department.
+    departmentsByName.set(department.name, departmentsByName.has(department.name) ? null : department);
+  }
   const cards = (items || []).map((item) => {
     const href = findFirstSidebarItemLink(item);
     // Some department folders use the first child as their destination
     // instead of having their own generated index page.
-    const matchingNames = (university.departments || [])
-      .filter((department) => department.name === item.label);
-    const department = departments.get(archivePath(href, baseUrl))
-      || (matchingNames.length === 1 ? matchingNames[0] : undefined);
+    const department = departmentsByPath.get(archivePath(href, baseUrl))
+      || departmentsByName.get(item.label);
     if (!department) return item;
 
     const count = countArchivedPrograms(department, item.items, baseUrl, university.id);

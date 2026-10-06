@@ -15,8 +15,8 @@ function isProgram(program) {
     && !/^共通(?:科目|問題|数学)?$/.test(program.name || '');
 }
 
-// Metadata can include programs with no exam archive. Count only program
-// destinations that are also present in this department's actual sidebar.
+// Metadata can include programs with no exam archive. Count only programs
+// backed by a destination or canonical document in the actual sidebar.
 function countArchivedPrograms(department, items, baseUrl = '/', universityId) {
   const reachablePaths = new Set();
   const reachableDocIds = new Set();
@@ -32,23 +32,24 @@ function countArchivedPrograms(department, items, baseUrl = '/', universityId) {
   };
   visit(items);
 
-  return new Set(
-    (department.programs || [])
-      .filter((program) => {
-        if (!isProgram(program)) return false;
-        if (program.archiveUrl) {
-          return reachablePaths.has(archivePath(program.archiveUrl, baseUrl));
-        }
-        // A few archived program folders have no generated index. Canonical
-        // document IDs establish their scope without guessing from URLs/names.
-        if (!universityId || !department.id || !program.id) return false;
-        const prefix = `${universityId}/${department.id}/${program.id}/`;
-        return [...reachableDocIds].some((docId) => docId.startsWith(prefix));
-      })
-      .map((program) => program.archiveUrl
-        ? archivePath(program.archiveUrl, baseUrl)
-        : `${universityId}/${department.id}/${program.id}`),
-  ).size;
+  const docIds = [...reachableDocIds];
+  const archivedPrograms = new Set();
+  for (const program of department.programs || []) {
+    if (!isProgram(program)) continue;
+    if (program.archiveUrl) {
+      const pathname = archivePath(program.archiveUrl, baseUrl);
+      if (reachablePaths.has(pathname)) archivedPrograms.add(pathname);
+      continue;
+    }
+    // A few archived program folders have no generated index. Canonical
+    // document IDs establish their scope without guessing from URLs/names.
+    if (!universityId || !department.id || !program.id) continue;
+    const programPath = `${universityId}/${department.id}/${program.id}`;
+    if (docIds.some((docId) => docId.startsWith(`${programPath}/`))) {
+      archivedPrograms.add(programPath);
+    }
+  }
+  return archivedPrograms.size;
 }
 
 module.exports = {archivePath, countArchivedPrograms};

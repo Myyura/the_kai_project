@@ -20,15 +20,6 @@
   margin: -.8rem 0 1.5rem;
 }
 
-.details {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
 .summary {
   display: flex;
   width: fit-content;
@@ -128,7 +119,6 @@
   --ifm-link-color: var(--ifm-color-emphasis-600);
   --ifm-link-hover-color: var(--ifm-color-primary);
   --ifm-link-decoration: underline;
-  text-decoration: underline;
   text-underline-offset: .15em;
 }
 

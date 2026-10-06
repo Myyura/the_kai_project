@@ -11,6 +11,7 @@ import remarkMath from 'remark-math';
 import rehypeAnnotationSourceLines from './src/markdown/rehypeAnnotationSourceLines.js';
 import rehypeRuntimeKatex from './src/markdown/rehypeRuntimeKatex.js';
 import rehypeStudySections from './src/markdown/rehypeStudySections.js';
+import {sortSidebarItems} from './scripts/sidebar-ordering.cjs';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -47,31 +48,6 @@ if (
 
 const chunkRecoveryBootstrap = recoveryAsset();
 const mathLayoutStyles = mathStyleAsset();
-
-function getYearCategoryLabel(item) {
-  if (item.type !== 'category') {
-    return null;
-  }
-
-  const match = item.label.match(/^(\d{4})年度$/);
-  return match ? Number(match[1]) : null;
-}
-
-function sortYearCategoriesDesc(items) {
-  const itemsWithSortedChildren = items.map((item) => (
-    item.type === 'category'
-      ? {...item, items: sortYearCategoriesDesc(item.items)}
-      : item
-  ));
-  const yearCategories = itemsWithSortedChildren
-    .filter((item) => getYearCategoryLabel(item) !== null)
-    .sort((a, b) => getYearCategoryLabel(b) - getYearCategoryLabel(a));
-
-  let yearIndex = 0;
-  return itemsWithSortedChildren.map((item) => (
-    getYearCategoryLabel(item) === null ? item : yearCategories[yearIndex++]
-  ));
-}
 
 function safeRspackJsMinifierPlugin() {
   return {
@@ -156,7 +132,7 @@ const docsPluginOptions = {
   sidebarPath: './sidebars.js',
   sidebarItemsGenerator: async (generatorArgs) => {
     const sidebarItems = await generatorArgs.defaultSidebarItemsGenerator(generatorArgs);
-    return sortYearCategoriesDesc(sidebarItems);
+    return sortSidebarItems(sidebarItems);
   },
 };
 
