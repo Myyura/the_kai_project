@@ -10,7 +10,7 @@ tags:
 
 ## **Author**
 
-[Miyake](https://miyake.github.io/exams/index.html), 祭音Myyura
+祭音Myyura (Based on [Miyake's answer](https://miyake.github.io/exams/index.html) refined with GPT 6 Astra)
 
 ## **Description**
 
