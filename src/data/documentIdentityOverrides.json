@@ -175,6 +175,8 @@
     "kyoto-university/informatics/ist/2020/ist_202002_kiso_f1_2": "5c051fee-4cb3-5f06-b5e5-c41c76a6cc53",
     "kyoto-university/informatics/sys/2020/sys_201908_math_I": "c133d1e2-b8de-5f24-9e6a-75a9523800f9",
     "kyoto-university/informatics/sys/2020/sys_201908_math_II": "9eae623a-d36c-5dc1-bf82-30f172c1e1e9",
+    "kyoto-university/science/math/2023/math_202208_kiso_1": "57b4ece5-f570-52db-83bf-cb0e5c14b035",
+    "kyoto-university/science/math/2024/math_202308_kiso_1": "4e04d761-631a-587e-a93e-37c222f9fc00",
     "kyushu-university/ISEE/kyotsu/2010/kyotsu_2010_math_1": "28cb7bdc-7b31-595a-9968-5fa0cb372729",
     "kyushu-university/ISEE/kyotsu/2010/kyotsu_2010_math_2": "24375dfe-cdcd-5c2a-8b5c-03732e1d004f",
     "kyushu-university/ISEE/kyotsu/2010/kyotsu_2010_math_4": "a4ea7e13-0d1f-5821-9a87-9833e6f178a3",
@@ -309,6 +311,8 @@
     "waseda-university/CSE/keieisystem/2025/keieisystem_202407_suurikiso_3": "d6e13475-a4f9-5069-b95a-e1113a2bbae5"
   },
   "aliases": {
-    "kyoto-university/informatics/amp/2013/2013-8": "9c71d92e-e753-527a-8702-ebe406fd7638"
+    "kyoto-university/informatics/amp/2013/2013-8": "9c71d92e-e753-527a-8702-ebe406fd7638",
+    "kyoto-university/science/math/2023/math_202208_kiso_1_3": "57b4ece5-f570-52db-83bf-cb0e5c14b035",
+    "kyoto-university/science/math/2024/math_202308_kiso_1_4": "4e04d761-631a-587e-a93e-37c222f9fc00"
   }
 }

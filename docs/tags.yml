@@ -3796,6 +3796,14 @@
   label: "Mathematics.Differential-Equations.Dirichlet-Heat-Equation-by-Fourier-Sine-Series"
   permalink: "/topic/mathematics/differential-equations/dirichlet-heat-equation-by-fourier-sine-series"
   description: "Mathematics / Differential-Equations / Dirichlet-Heat-Equation-by-Fourier-Sine-Series"
+"Mathematics.Differential-Equations.Elliptic-Energy-Estimates":
+  label: "Mathematics.Differential-Equations.Elliptic-Energy-Estimates"
+  permalink: "/topic/mathematics/differential-equations/elliptic-energy-estimates"
+  description: "Mathematics / Differential-Equations / Elliptic-Energy-Estimates"
+"Mathematics.Differential-Equations.Energy-Estimates-for-Parabolic-Equations":
+  label: "Mathematics.Differential-Equations.Energy-Estimates-for-Parabolic-Equations"
+  permalink: "/topic/mathematics/differential-equations/energy-estimates-for-parabolic-equations"
+  description: "Mathematics / Differential-Equations / Energy-Estimates-for-Parabolic-Equations"
 "Mathematics.Differential-Equations.Ermakov-Pinney-Equation":
   label: "Mathematics.Differential-Equations.Ermakov-Pinney-Equation"
   permalink: "/topic/mathematics/differential-equations/ermakov-pinney-equation"
@@ -3876,6 +3884,10 @@
   label: "Mathematics.Differential-Equations.Picard-Iteration"
   permalink: "/topic/mathematics/differential-equations/picard-iteration"
   description: "Mathematics / Differential-Equations / Picard-Iteration"
+"Mathematics.Differential-Equations.Poincare-Inequality-and-Energy-Decay":
+  label: "Mathematics.Differential-Equations.Poincare-Inequality-and-Energy-Decay"
+  permalink: "/topic/mathematics/differential-equations/poincare-inequality-and-energy-decay"
+  description: "Mathematics / Differential-Equations / Poincare-Inequality-and-Energy-Decay"
 "Mathematics.Differential-Equations.Polynomial-Solutions-of-Ordinary-Differential-Equation":
   label: "Mathematics.Differential-Equations.Polynomial-Solutions-of-Ordinary-Differential-Equation"
   permalink: "/topic/mathematics/differential-equations/polynomial-solutions-of-ordinary-differential-equation"
@@ -4000,6 +4012,14 @@
   label: "Mathematics.Functional-Analysis.Bounded-Linear-Operator"
   permalink: "/topic/mathematics/functional-analysis/bounded-linear-operator"
   description: "Mathematics / Functional-Analysis / Bounded-Linear-Operator"
+"Mathematics.Functional-Analysis.Compact-Integral-Operators":
+  label: "Mathematics.Functional-Analysis.Compact-Integral-Operators"
+  permalink: "/topic/mathematics/functional-analysis/compact-integral-operators"
+  description: "Mathematics / Functional-Analysis / Compact-Integral-Operators"
+"Mathematics.Functional-Analysis.Compact-Operators-and-Finite-Rank-Approximation":
+  label: "Mathematics.Functional-Analysis.Compact-Operators-and-Finite-Rank-Approximation"
+  permalink: "/topic/mathematics/functional-analysis/compact-operators-and-finite-rank-approximation"
+  description: "Mathematics / Functional-Analysis / Compact-Operators-and-Finite-Rank-Approximation"
 "Mathematics.Functional-Analysis.Compactness-in-Sequence-Spaces":
   label: "Mathematics.Functional-Analysis.Compactness-in-Sequence-Spaces"
   permalink: "/topic/mathematics/functional-analysis/compactness-in-sequence-spaces"
@@ -4016,6 +4036,10 @@
   label: "Mathematics.Functional-Analysis.Uniform-Convergence"
   permalink: "/topic/mathematics/functional-analysis/uniform-convergence"
   description: "Mathematics / Functional-Analysis / Uniform-Convergence"
+"Mathematics.Functional-Analysis.Volterra-Operator-Compactness-and-Singular-Values":
+  label: "Mathematics.Functional-Analysis.Volterra-Operator-Compactness-and-Singular-Values"
+  permalink: "/topic/mathematics/functional-analysis/volterra-operator-compactness-and-singular-values"
+  description: "Mathematics / Functional-Analysis / Volterra-Operator-Compactness-and-Singular-Values"
 "Mathematics.Functional-Analysis.Weak-and-Strong-Convergence":
   label: "Mathematics.Functional-Analysis.Weak-and-Strong-Convergence"
   permalink: "/topic/mathematics/functional-analysis/weak-and-strong-convergence"
@@ -4572,6 +4596,14 @@
   label: "Mathematics.Real-Analysis.Dirichlet-Test-for-Improper-Integrals"
   permalink: "/topic/mathematics/real-analysis/dirichlet-test-for-improper-integrals"
   description: "Mathematics / Real-Analysis / Dirichlet-Test-for-Improper-Integrals"
+"Mathematics.Real-Analysis.Distance-to-a-Set-and-Lipschitz-Continuity":
+  label: "Mathematics.Real-Analysis.Distance-to-a-Set-and-Lipschitz-Continuity"
+  permalink: "/topic/mathematics/real-analysis/distance-to-a-set-and-lipschitz-continuity"
+  description: "Mathematics / Real-Analysis / Distance-to-a-Set-and-Lipschitz-Continuity"
+"Mathematics.Real-Analysis.Essential-Suprema-of-Function-Families":
+  label: "Mathematics.Real-Analysis.Essential-Suprema-of-Function-Families"
+  permalink: "/topic/mathematics/real-analysis/essential-suprema-of-function-families"
+  description: "Mathematics / Real-Analysis / Essential-Suprema-of-Function-Families"
 "Mathematics.Real-Analysis.Exponential-Kernel-Sequence-Divergence-and-Continuum-Limit":
   label: "Mathematics.Real-Analysis.Exponential-Kernel-Sequence-Divergence-and-Continuum-Limit"
   permalink: "/topic/mathematics/real-analysis/exponential-kernel-sequence-divergence-and-continuum-limit"
@@ -4600,6 +4632,10 @@
   label: "Mathematics.Real-Analysis.Lebesgue-Dominated-and-Monotone-Convergence"
   permalink: "/topic/mathematics/real-analysis/lebesgue-dominated-and-monotone-convergence"
   description: "Mathematics / Real-Analysis / Lebesgue-Dominated-and-Monotone-Convergence"
+"Mathematics.Real-Analysis.Uniqueness-of-Measures-from-Laplace-Moments":
+  label: "Mathematics.Real-Analysis.Uniqueness-of-Measures-from-Laplace-Moments"
+  permalink: "/topic/mathematics/real-analysis/uniqueness-of-measures-from-laplace-moments"
+  description: "Mathematics / Real-Analysis / Uniqueness-of-Measures-from-Laplace-Moments"
 "Mathematics.Real-Analysis.Zero-Gradient-on-Path-Connected-Domain":
   label: "Mathematics.Real-Analysis.Zero-Gradient-on-Path-Connected-Domain"
   permalink: "/topic/mathematics/real-analysis/zero-gradient-on-path-connected-domain"

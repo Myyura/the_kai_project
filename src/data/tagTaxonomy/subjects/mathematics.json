@@ -2746,6 +2746,60 @@
       "labelZh": "幂法",
       "labelJa": "べき乗法",
       "labelEn": "Power Method"
+    },
+    "Mathematics.Real-Analysis.Essential-Suprema-of-Function-Families": {
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "函数族的本质上确界",
+      "labelJa": "関数族の本質的上限",
+      "labelEn": "Essential Suprema of Function Families"
+    },
+    "Mathematics.Real-Analysis.Uniqueness-of-Measures-from-Laplace-Moments": {
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "由拉普拉斯矩确定测度",
+      "labelJa": "ラプラスモーメントによる測度の一意性",
+      "labelEn": "Uniqueness of Measures from Laplace Moments"
+    },
+    "Mathematics.Functional-Analysis.Compact-Operators-and-Finite-Rank-Approximation": {
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "紧算子与有限秩逼近",
+      "labelJa": "コンパクト作用素と有限階数近似",
+      "labelEn": "Compact Operators and Finite-Rank Approximation"
+    },
+    "Mathematics.Functional-Analysis.Compact-Integral-Operators": {
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "紧积分算子",
+      "labelJa": "コンパクト積分作用素",
+      "labelEn": "Compact Integral Operators"
+    },
+    "Mathematics.Differential-Equations.Poincare-Inequality-and-Energy-Decay": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "庞加莱不等式与能量衰减",
+      "labelJa": "ポアンカレ不等式とエネルギー減衰",
+      "labelEn": "Poincare Inequality and Energy Decay"
+    },
+    "Mathematics.Differential-Equations.Energy-Estimates-for-Parabolic-Equations": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "抛物型方程的能量估计",
+      "labelJa": "放物型方程式のエネルギー評価",
+      "labelEn": "Energy Estimates for Parabolic Equations"
+    },
+    "Mathematics.Differential-Equations.Elliptic-Energy-Estimates": {
+      "subsubject": "Mathematics.Differential-Equations",
+      "labelZh": "椭圆型方程的能量估计",
+      "labelJa": "楕円型方程式のエネルギー評価",
+      "labelEn": "Elliptic Energy Estimates"
+    },
+    "Mathematics.Real-Analysis.Distance-to-a-Set-and-Lipschitz-Continuity": {
+      "subsubject": "Mathematics.Real-Analysis",
+      "labelZh": "到集合的距离与利普希茨连续性",
+      "labelJa": "集合への距離とリプシッツ連続性",
+      "labelEn": "Distance to a Set and Lipschitz Continuity"
+    },
+    "Mathematics.Functional-Analysis.Volterra-Operator-Compactness-and-Singular-Values": {
+      "subsubject": "Mathematics.Functional-Analysis",
+      "labelZh": "沃尔泰拉算子的紧致性与奇异值",
+      "labelJa": "ヴォルテラ作用素のコンパクト性と特異値",
+      "labelEn": "Volterra Operator Compactness and Singular Values"
     }
   }
 }
