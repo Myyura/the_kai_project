@@ -1,5 +1,11 @@
 {
   "label": "データ科学コース",
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/kyoto-university-informatics-ds",
+    "description": "数据科学考试范围与参考题单，按夏季、冬季关联知能信息学和系统科学的已有题目。"
+  },
+  "key": "kyoto-university-informatics-ds",
   "customProps": {
     "catalogType": "program",
     "aliases": [

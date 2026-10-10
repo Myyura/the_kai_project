@@ -374,7 +374,8 @@ const universities = [
             "aliases": [
               "数据科学",
               "Data Science"
-            ]
+            ],
+            "archiveUrl": "/docs/category/kyoto-university-informatics-ds"
           },
           {
             "id": "soc",
