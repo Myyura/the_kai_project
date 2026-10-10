@@ -1,5 +1,10 @@
 {
   "label": "社会情報学コース",
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/kyoto-university-informatics-soc"
+  },
+  "key": "kyoto-university-informatics-soc",
   "customProps": {
     "catalogType": "program",
     "aliases": [

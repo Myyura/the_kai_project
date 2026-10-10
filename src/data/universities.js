@@ -382,7 +382,8 @@ const universities = [
             "aliases": [
               "社会情报",
               "社会情報学専攻"
-            ]
+            ],
+            "archiveUrl": "/docs/category/kyoto-university-informatics-soc"
           }
         ],
         "websiteUrl": "https://www.i.kyoto-u.ac.jp/admission/"
