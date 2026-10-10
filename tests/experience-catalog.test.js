@@ -120,7 +120,33 @@ test('partial classifications retain the known school or department without inve
   assert.equal(catalog.programs.find((scope) => scope.id === 'kyoto').level, 'school');
 });
 
-test('experience labels and aliases come from the exam hierarchy, including categories without exam pages', () => {
+test('experience categories without archive links stay available outside the exam directory', () => {
+  const shared = structuredClone(universities);
+  shared[0].archiveUrl = '/docs/category/tokyo';
+  shared[0].departments[0].archiveUrl = '/docs/category/tokyo-ist';
+  shared[0].departments[0].programs[0].archiveUrl = '/docs/category/tokyo-ist-cs';
+  shared[0].departments[0].programs.push({
+    id: 'experience-only', name: '経験談のみ', aliases: ['经验分类'],
+  });
+  const story = {
+    title: '尚未收录试题的专攻经验',
+    url: 'https://example.com/experience-only',
+    placements: [{scope: 'tokyo/ist/experience-only', admissionYear: 2026}],
+  };
+  const catalog = build({universities: shared, external: [...external, story]});
+  assert.ok(catalog.programs.some((scope) => scope.id === 'tokyo/ist/experience-only'));
+  assert.equal(filterEntries(catalog, {q: '经验分类'}).length, 1);
+
+  const exams = catalogScopes(examUniversities(shared));
+  assert.ok(exams.has('tokyo/ist/cs'));
+  assert.equal(exams.has('tokyo/ist/experience-only'), false);
+  assert.equal(exams.has('tokyo/frontier'), false);
+  assert.equal(exams.has('tokyo/frontier/cbms'), false);
+  assert.equal(exams.has('kyoto'), false);
+  assert.equal(exams.has('kyoto/informatics/cce'), false);
+});
+
+test('experience labels and aliases come from the shared repository hierarchy', () => {
   const {universities: shared} = require('../src/data/universities');
   const scopes = catalogScopes(shared);
   const entries = readExternalExperiences();
@@ -132,8 +158,10 @@ test('experience labels and aliases come from the exam hierarchy, including cate
   }
   assert.ok(scopes.has('naist/science_and_technology/information_science'));
   const exams = catalogScopes(examUniversities(shared));
-  assert.equal(exams.has('naist'), false);
-  assert.equal(exams.has('kyoto-university/informatics/ds'), false);
+  assert.equal(
+    exams.get('kyoto-university/informatics/ds')?.archiveUrl,
+    '/docs/category/kyoto-university-informatics-ds',
+  );
   assert.ok(exams.has('kyoto-university/informatics/ist'));
   // A former school name is an alias of the same current catalog identity.
   assert.equal(catalog.schools.some((school) => school.id === 'tokyo-tech'), false);
