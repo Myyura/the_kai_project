@@ -108,6 +108,52 @@
   white-space: nowrap;
 }
 
+.seasonTabs {
+  display: inline-flex;
+  gap: 0.2rem;
+  margin-top: 0.8rem;
+  padding: 0.2rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 9px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.seasonTab {
+  min-width: 4rem;
+  min-height: 2rem;
+  padding: 0.3rem 0.85rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ifm-color-emphasis-600);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.seasonTab[aria-selected='true'] {
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-primary);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.1);
+}
+
+.seasonTab:hover {
+  color: var(--ifm-color-primary);
+}
+
+.seasonTab:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.seasonNote {
+  margin: 0.65rem 0 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
 .sourceBadge {
   padding: 0.15rem 0.5rem;
   font-size: 0.65rem;

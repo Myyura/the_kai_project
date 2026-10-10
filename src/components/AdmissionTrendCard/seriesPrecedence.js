@@ -336,3 +336,46 @@ export function buildAggregateTrendSeries(seriesList, {defaultEntityId = ''} = {
     }];
   });
 }
+
+function hasAdmissionPointData(point) {
+  const year = finiteNumber(point?.admissionYear);
+  if (year === null || !Number.isInteger(year)) return false;
+  const ratio = finiteNumber(point?.primaryRatio);
+  if (ratio !== null && ratio >= 0) return true;
+  return ['capacity', 'applicants', 'examinees', 'admitted', 'enrolled'].some((field) => {
+    const count = finiteNumber(point?.counts?.[field] ?? point?.[field]);
+    return count !== null && count >= 0;
+  });
+}
+
+export function hasWinterAdmissionData(seriesList) {
+  return (Array.isArray(seriesList) ? seriesList : []).some((series) => (
+    series.period === 'winter'
+    && (Array.isArray(series.points) ? series.points : []).some(hasAdmissionPointData)
+  ));
+}
+
+export function buildSeasonAdmissionView(seriesList, {
+  season = 'summer',
+  isAggregate = false,
+  defaultEntityId = '',
+} = {}) {
+  const winter = season === 'winter';
+  const seasonalSeries = (Array.isArray(seriesList) ? seriesList : [])
+    .filter((series) => (series.period === 'winter') === winter)
+    .map((series) => ({
+      ...series,
+      points: (Array.isArray(series.points) ? series.points : []).filter(hasAdmissionPointData),
+    }))
+    .filter((series) => series.points.length > 0);
+  const displayedSeries = applyOfficialRatioPrecedence(seasonalSeries, {defaultEntityId});
+  if (!isAggregate) return {trendSeries: displayedSeries, detailSeries: displayedSeries};
+
+  // Keep the existing summer comparison basis. Winter evidence remains available
+  // in the details even when counts are insufficient to calculate any ratio.
+  const chartCandidates = winter
+    ? displayedSeries
+    : displayedSeries.filter((series) => chartablePointCount(series) > 0);
+  const trendSeries = buildAggregateTrendSeries(chartCandidates, {defaultEntityId});
+  return {trendSeries, detailSeries: winter ? displayedSeries : trendSeries};
+}

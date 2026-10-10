@@ -6,8 +6,8 @@ import {useAuth} from '@site/src/hooks/useAuth';
 import {saveAuthReturnIntent} from '@site/src/services/authReturn';
 
 import {
-  applyOfficialRatioPrecedence,
-  buildAggregateTrendSeries,
+  buildSeasonAdmissionView,
+  hasWinterAdmissionData,
   trendPointSourceType,
   trendSegmentSourceType,
 } from './seriesPrecedence';
@@ -459,38 +459,38 @@ function SourceList({sourceIds, sourcesById}) {
   );
 }
 
-export default function AdmissionTrendCard({slug}) {
+function AdmissionTrendCardContent({slug}) {
   const {isLoggedIn} = useAuth();
   const context = useMemo(() => resolveAdmissionContext(slug), [slug]);
   const entityId = context?.entityId;
   const entity = context?.entity;
   const isAggregate = Boolean(context?.isAggregate);
+  const [selectedSeason, setSelectedSeason] = useState('summer');
   const normalizedSeries = useMemo(
     () => (Array.isArray(entity?.series) ? entity.series : [])
       .map(normalizeSeries)
       .filter((series) => series.points.length > 0),
     [entity],
   );
-  const displayedSeries = useMemo(
-    () => applyOfficialRatioPrecedence(
-      normalizedSeries.filter((series) => series.period !== 'winter'),
-      {defaultEntityId: entityId},
-    ).filter((series) => (
-      !isAggregate || series.points.some((point) => point.primaryRatio !== null)
-    )),
-    [entityId, isAggregate, normalizedSeries],
+  const hasWinterData = useMemo(
+    () => hasWinterAdmissionData(normalizedSeries),
+    [normalizedSeries],
   );
-  const trendSeries = useMemo(
-    () => (isAggregate
-      ? buildAggregateTrendSeries(displayedSeries, {defaultEntityId: entityId})
-      : displayedSeries),
-    [displayedSeries, entityId, isAggregate],
+  const season = selectedSeason === 'winter' && hasWinterData ? 'winter' : 'summer';
+  const {trendSeries, detailSeries} = useMemo(
+    () => buildSeasonAdmissionView(normalizedSeries, {
+      season,
+      isAggregate,
+      defaultEntityId: entityId,
+    }),
+    [entityId, isAggregate, normalizedSeries, season],
   );
   const [activeSeriesKeys, setActiveSeriesKeys] = useState(
     () => trendSeries.map((series) => series.key),
   );
   const [hoveredPoint, setHoveredPoint] = useState(null);
   const chartScrollerRef = useRef(null);
+  const seasonTabRefs = useRef({});
   const titleId = useId();
   const descriptionId = useId();
   const contributionUrl = entityId && !isAggregate
@@ -506,12 +506,12 @@ export default function AdmissionTrendCard({slug}) {
     const scroller = chartScrollerRef.current;
     if (!scroller || scroller.scrollWidth <= scroller.clientWidth) return;
     scroller.scrollLeft = scroller.scrollWidth - scroller.clientWidth;
-  }, [entityId]);
+  }, [entityId, season]);
 
-  if (!context || !entityId || !entity || trendSeries.length === 0) return null;
+  if (!context || !entityId || !entity || (detailSeries.length === 0 && !hasWinterData)) return null;
 
   const allYears = [...new Set(
-    trendSeries.flatMap((series) => (
+    detailSeries.flatMap((series) => (
       series.points.map((point) => point.admissionYear)
     )),
   )].sort((a, b) => a - b);
@@ -535,7 +535,8 @@ export default function AdmissionTrendCard({slug}) {
     aggregateLegendGroups.set(series.originEntityId, group);
   });
   const aggregateLegendItems = [...aggregateLegendGroups.values()];
-  const aggregateProgramCount = aggregateLegendItems.length;
+  const aggregateProgramCount = new Set(detailSeries.map((series) => series.originEntityId)
+    .filter(Boolean)).size;
   const activeSeries = chartSeries.filter((series) => (
     activeSeriesKeys.includes(series.key)
   ));
@@ -567,7 +568,7 @@ export default function AdmissionTrendCard({slug}) {
     (upperBound / 4) * index
   ));
 
-  const latestEntries = trendSeries.map((series) => {
+  const latestEntries = detailSeries.map((series) => {
     const point = [...series.points]
       .reverse()
       .find((candidate) => visibleYearSet.has(candidate.admissionYear));
@@ -575,7 +576,7 @@ export default function AdmissionTrendCard({slug}) {
   }).filter(Boolean);
 
   const visibleSourceIds = [...new Set(
-    trendSeries.flatMap((series) => (
+    detailSeries.flatMap((series) => (
       series.points
         .filter((point) => visibleYearSet.has(point.admissionYear))
         .flatMap((point) => point.sourceIds)
@@ -601,6 +602,28 @@ export default function AdmissionTrendCard({slug}) {
         : [...new Set([...current, ...groupKeys])];
     });
   };
+  const selectSeason = (nextSeason) => {
+    setSelectedSeason(nextSeason);
+    setHoveredPoint(null);
+  };
+  const onSeasonKeyDown = (event) => {
+    let nextSeason;
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      nextSeason = season === 'summer' ? 'winter' : 'summer';
+    } else if (event.key === 'Home') {
+      nextSeason = 'summer';
+    } else if (event.key === 'End') {
+      nextSeason = 'winter';
+    } else {
+      return;
+    }
+    event.preventDefault();
+    selectSeason(nextSeason);
+    seasonTabRefs.current[nextSeason]?.focus();
+  };
+  const hasUnsplitSeries = season === 'summer' && detailSeries.some((series) => (
+    series.period !== 'summer' && series.period !== 'general_exam'
+  ));
 
   return (
     <section
@@ -651,6 +674,36 @@ export default function AdmissionTrendCard({slug}) {
         </div>
       </div>
 
+      {hasWinterData && (
+        <div className={styles.seasonTabs} role="tablist" aria-label="选择考试季节">
+          {[['summer', '夏季'], ['winter', '冬季']].map(([value, label]) => (
+            <button
+              key={value}
+              ref={(element) => {seasonTabRefs.current[value] = element;}}
+              id={`${titleId}-${value}-tab`}
+              type="button"
+              role="tab"
+              aria-selected={season === value}
+              aria-controls={`${titleId}-season-panel`}
+              tabIndex={season === value ? 0 : -1}
+              className={styles.seasonTab}
+              onClick={() => selectSeason(value)}
+              onKeyDown={onSeasonKeyDown}>
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div
+        id={`${titleId}-season-panel`}
+        role={hasWinterData ? 'tabpanel' : undefined}
+        aria-labelledby={hasWinterData ? `${titleId}-${season}-tab` : undefined}>
+      {hasUnsplitSeries && (
+        <p className={styles.seasonNote}>
+          按入学期或年度汇总的数据另列系列，不代表夏季单场人数。
+        </p>
+      )}
       <div className={styles.legendRegion}>
         <div className={styles.legend} role="group" aria-label="切换趋势数据系列">
           {isAggregate ? aggregateLegendItems.map((group) => {
@@ -687,7 +740,7 @@ export default function AdmissionTrendCard({slug}) {
             );
           })}
         </div>
-        {isAggregate && (
+        {isAggregate && chartSeries.length > 0 && (
           <div className={styles.sourceKey} aria-label="数据来源线型说明">
             <span><i className={`${styles.lineSample} ${styles.official}`} aria-hidden="true" />官方</span>
             <span><i className={`${styles.lineSample} ${styles.community}`} aria-hidden="true" />民间</span>
@@ -860,14 +913,21 @@ export default function AdmissionTrendCard({slug}) {
         </p>
       ) : (
         <p className={styles.emptyNotice}>
-          当前没有可绘制的倍率；可以展开下方明细查看已公开人数。
+          {detailSeries.length === 0
+            ? '暂无夏季数据，可切换冬季查看已公开人数。'
+            : '当前没有可绘制的倍率；可以展开下方明细查看已公开人数。'}
         </p>
       )}
 
-      <details className={styles.dataDetails}>
+      <details
+        key={season}
+        className={styles.dataDetails}
+        open={season === 'winter' && chartSeries.length === 0 ? true : undefined}>
         <summary>
           <span>查看最新数据与人数明细</span>
-          <small>{latestEntries.length} {isAggregate ? '个专攻' : '个系列'}</small>
+          <small>
+            {isAggregate ? aggregateProgramCount : latestEntries.length} {isAggregate ? '个专攻' : '个系列'}
+          </small>
         </summary>
         {latestEntries.length > 0 ? (
           <div className={styles.summaryGrid}>
@@ -930,7 +990,7 @@ export default function AdmissionTrendCard({slug}) {
             </tr>
           </thead>
           <tbody>
-            {trendSeries.flatMap((series) => series.points
+            {detailSeries.flatMap((series) => series.points
               .filter((point) => visibleYearSet.has(point.admissionYear))
               .map((point) => (
                 <tr key={`${series.key}-table-${point.admissionYear}`}>
@@ -947,6 +1007,11 @@ export default function AdmissionTrendCard({slug}) {
           </tbody>
         </table>
       </div>
+      </div>
     </section>
   );
+}
+
+export default function AdmissionTrendCard({slug}) {
+  return <AdmissionTrendCardContent key={slug} slug={slug} />;
 }
