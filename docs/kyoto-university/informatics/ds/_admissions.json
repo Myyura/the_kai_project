@@ -9,7 +9,7 @@
       "confidence": "medium",
       "checkedAt": "2026-10-10",
       "evidenceLocator": "capture 2023-09-29T17:34:31Z；WARC crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；bytes 857862118-857871313；HTML注释块内的官网历史显示内容「出願状況について」；データ科学行",
-      "notes": "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；2024年4月入学・夏季のデータ科学31名はHTML注释块中保留的历史内容，按中等置信度收录；没有核实同轮次合格人数。"
+      "notes": "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；2024年4月入学・夏季のデータ科学31名はHTML注释块中保留的历史内容，按中等置信度收录；同轮次合格人数已由官方合格名单Wayback存档核实为10人。"
     },
     "applicants-2025-archive": {
       "title": "2025年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
@@ -96,6 +96,15 @@
       "checkedAt": "2026-10-10",
       "evidenceLocator": "「出身大学」→「修士」表の「データ科学」R5年度：他大学出身14、留学生11、合計17；表後の注記で前二者はコース入学者数の内数と説明。",
       "notes": "官方按年度列示，未按入学月份或考试季节拆分。外大学出身与留学生可重叠，不可相加。"
+    },
+    "summer-2023-april-2024-results-wayback": {
+      "title": "2024年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf",
+      "type": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "PDF第1页（无印刷页码）「2024年度4月期修士課程」／データ科学コース「以上 10名」。",
+      "notes": "官方PDF及页面图像已核实。原始URL：https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf；Wayback抓取时间2023-08-18T06:17:25Z。因配对报名人数仅确认于官网历史HTML注释，此年度统计按中等置信度保存。"
     }
   },
   "series": [
@@ -156,26 +165,27 @@
     },
     {
       "id": "master-summer-april-archived-applicants",
-      "label": "修士 夏季报名存档（2024年4月入学）",
+      "label": "修士 夏季一般入试（2024年4月入学・历史存档）",
       "sourceType": "official",
       "confidence": "medium",
       "degree": "master",
       "period": "summer",
       "selection": "一般入试（4月入学）",
-      "notes": "历史官网注释中的出愿数，按中等置信度单列；不以其他轮次或最终入学人数补算倍率。",
+      "notes": "报名数来自历史官网注释，合格数来自同轮官方名单的Wayback存档；按中等置信度单列，与夏季4月入学主线口径相同。",
       "points": [
         {
           "admissionYear": 2024,
           "capacity": null,
           "applicants": 31,
           "examinees": null,
-          "admitted": null,
+          "admitted": 10,
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "applicants-2024-archive"
+            "applicants-2024-archive",
+            "summer-2023-april-2024-results-wayback"
           ],
-          "notes": "2023年夏季考试；官网存档HTML注释块保留31名，尚未核实同轮次合格人数，倍率留空。"
+          "notes": "2023年夏季考试，2024年4月入学；官网存档HTML注释中的报名人数31与同轮官方合格名单10配对，倍率为31/10。报名来源按中等置信度收录；受验人数和最终入学人数未确认。"
         }
       ]
     },

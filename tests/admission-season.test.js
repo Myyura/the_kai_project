@@ -4,6 +4,7 @@ const path = require('node:path');
 const test = require('node:test');
 const babel = require('@babel/core');
 const transformModules = require('@babel/plugin-transform-modules-commonjs');
+const {generateAdmissionStats} = require('../scripts/generate-admission-stats');
 
 function loadModule() {
   const filename = path.resolve(
@@ -259,4 +260,63 @@ test('aggregate season views use the supplied entity when series lack an origin'
   assert.equal(result.trendSeries.length, 1);
   assert.deepEqual(result.trendSeries[0].points.map((item) => item.admissionYear), [2025, 2026]);
   assert.deepEqual(result.detailSeries, input);
+});
+
+test('Kyoto aggregate summer includes all courses and keeps AMS historical totals in course details', () => {
+  const data = generateAdmissionStats({docsDir: path.resolve(__dirname, '..', 'docs')});
+  const page = data.aggregatePagesBySlug['/category/kyoto-university-informatics'];
+  const input = page.childEntityIds.flatMap((entityId) => (
+    data.statsByEntity[entityId].series.map((item) => ({
+      ...item,
+      key: `${entityId}::${item.id}`,
+      originEntityId: entityId,
+      points: item.points.map((entry) => ({
+        ...entry,
+        counts: Object.fromEntries(
+          ['capacity', 'applicants', 'examinees', 'admitted', 'enrolled']
+            .map((field) => [field, entry[field]]),
+        ),
+      })),
+    }))
+  ));
+  const amsEntityId = 'kyoto-university/informatics/ams';
+  const aggregate = buildSeasonAdmissionView(input, {isAggregate: true});
+  assert.deepEqual(
+    aggregate.trendSeries.map((item) => item.originEntityId).sort(),
+    ['amp', 'ams', 'cce', 'ds', 'ist', 'soc', 'sys']
+      .map((courseId) => `kyoto-university/informatics/${courseId}`),
+    'every Kyoto course must have a summer comparison line',
+  );
+  const socTrend = aggregate.trendSeries.find((item) => (
+    item.originEntityId === 'kyoto-university/informatics/soc'
+  ));
+  assert.deepEqual(
+    socTrend.points.filter((entry) => entry.admissionYear >= 2023 && entry.admissionYear <= 2027)
+      .map((entry) => entry.admissionYear),
+    [2023, 2024, 2025, 2026, 2027],
+    'the separately rated 2024 archive must join the same summer selection',
+  );
+  const amsTrend = aggregate.trendSeries.find((item) => item.originEntityId === amsEntityId);
+
+  assert.equal(amsTrend.period, 'summer');
+  assert.equal(amsTrend.sourceType, 'official');
+  assert.deepEqual(
+    amsTrend.points.filter((entry) => entry.admissionYear >= 2025 && entry.admissionYear <= 2027)
+      .map((entry) => [entry.admissionYear, entry.primaryRatio]),
+    [[2025, 39 / 14], [2026, 23 / 14], [2027, 41 / 14]],
+  );
+
+  const course = buildSeasonAdmissionView(
+    input.filter((item) => item.originEntityId === amsEntityId),
+  );
+  const historical = course.detailSeries.find((item) => (
+    item.period === 'april_admission'
+    && item.points.some((entry) => entry.admissionYear === 2001)
+  ));
+  assert.ok(historical, 'historical all-selection totals remain available separately');
+  assert.deepEqual(
+    historical.points.filter((entry) => entry.primaryRatio !== null)
+      .map((entry) => entry.admissionYear),
+    Array.from({length: 12}, (_, index) => 2001 + index),
+  );
 });

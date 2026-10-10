@@ -1,0 +1,403 @@
+{
+  "schemaVersion": 1,
+  "scope": "course",
+  "sources": {
+    "applicants-2023-archive": {
+      "title": "2023年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2022-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "capture 2022-09-25T05:52:29Z；WARC crawl-data/CC-MAIN-2022-40/segments/1664030334514.38/warc/CC-MAIN-20220925035541-20220925065541-00719.warc.gz；bytes 855939550-855947653；HTML正文「出願状況について」／夏季実施；社会情報学行",
+      "notes": "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2022-40/segments/1664030334514.38/warc/CC-MAIN-20220925035541-20220925065541-00719.warc.gz；本次阅读本地保存的WARC原始HTML，原始抓取与重取记录见所列存档。"
+    },
+    "applicants-2024-archive": {
+      "title": "2024年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2023-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200",
+      "type": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "capture 2023-09-29T17:34:31Z；WARC crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；bytes 857862118-857871313；HTML注释块内的官网历史显示内容「出願状況について」；社会情報学行",
+      "notes": "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；本次阅读本地保存的WARC原始HTML，原始抓取与重取记录见所列存档。2024年4月入学夏季社会情報学89名位于HTML注释块，按中等置信度收录。"
+    },
+    "applicants-2025-archive": {
+      "title": "2025年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2024-30-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass%2F&output=json&filter=status%3A200",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "capture 2024-07-21T04:14:36Z；WARC crawl-data/CC-MAIN-2024-30/segments/1720763517550.76/warc/CC-MAIN-20240721030106-20240721060106-00461.warc.gz；bytes 690352542-690360259；HTML正文「出願状況について」／夏季実施；社会情報学行",
+      "notes": "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass/、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2024-30/segments/1720763517550.76/warc/CC-MAIN-20240721030106-20240721060106-00461.warc.gz；本次阅读本地保存的WARC原始HTML，原始抓取与重取记录见所列存档。"
+    },
+    "applicants-2026-archive": {
+      "title": "2026年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2025-33-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass%2F&output=json&filter=status%3A200",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "capture 2025-08-07T03:40:54Z；WARC crawl-data/CC-MAIN-2025-33/segments/1754151279936.52/warc/CC-MAIN-20250807023708-20250807053708-00661.warc.gz；bytes 734457153-734464902；HTML正文「出願状況について」／夏季実施；社会情報学行",
+      "notes": "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass/、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2025-33/segments/1754151279936.52/warc/CC-MAIN-20250807023708-20250807053708-00661.warc.gz；本次阅读本地保存的WARC原始HTML，原始抓取与重取记录见所列存档。"
+    },
+    "applicants-2027": {
+      "title": "2027年度4月期修士課程 出願状況（2026年7月現在）",
+      "url": "https://www.i.kyoto-u.ac.jp/admission/pass/",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "「2027年度4月期修士課程学生募集」→「夏季実施」→「社会情報学 106名」",
+      "notes": "仅为2027年4月入学夏季报名人数，不包含2026年10月入学。"
+    },
+    "summer-2022-results": {
+      "title": "2023年度4月期入学 修士課程夏期入学試験 合格者発表（Internet Archive保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230804074338id_/http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "无印刷页码；PDF第1页「2023年度4月期修士課程」／社会情報学専攻，栏末「以上 36名」。",
+      "notes": "官方原始URL：http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf；Internet Archive快照20230804074338；已阅读下载PDF及页面图像。按名单的入学年份与同轮夏季报名人数配对。"
+    },
+    "summer-2023-results": {
+      "title": "2024年度4月期入学 修士課程夏期入学試験 合格者発表（Internet Archive保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf",
+      "type": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "无印刷页码；PDF第1页「2024年度4月期修士課程」／社会情報学コース，栏末「以上 41名」。",
+      "notes": "官方原始URL：https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf；Internet Archive快照20230818061725；已阅读下载PDF及页面图像。按名单的入学年份与同轮夏季报名人数配对。2024年配对报名数来自官网存档注释，整组历史记录保守按中等置信度收录；合格人数41名已核官方名单页面图像。"
+    },
+    "summer-2024-results": {
+      "title": "2024年夏季 修士課程合格者発表（2024年10月・2025年4月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20240816_summer_m_ja_f9K7.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "无印刷页码；PDF第2页：2025年4月入学社会情報学46名；第1页：2024年10月入学社会情報学2名。"
+    },
+    "summer-2025-results": {
+      "title": "2025年夏季 修士課程合格者発表（2025年10月・2026年4月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20250815-summer-m-ja-cFN4.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "无印刷页码；PDF第2页：2026年4月入学社会情報学44名；第1页：2025年10月入学社会情報学3名。"
+    },
+    "summer-2026-results": {
+      "title": "2026年夏季 修士課程合格者発表（2027年4月・2026年10月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20260817-summer-m-ja-xi5h389c.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "无印刷页码；PDF第1页：2027年4月入学社会情報学43名；第3页：2026年10月入学社会情報学3名。"
+    },
+    "winter-2025-results": {
+      "title": "2025年冬季 修士課程合格者発表（2025年4月・10月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20250214_winter_m_ja_3kFs.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "无印刷页码；PDF第1页：2025年4月入学社会情報学1名；第2页：2025年10月入学社会情報学3名。"
+    },
+    "winter-2026-results": {
+      "title": "2026年冬季 修士課程合格者発表（2026年4月・10月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20260217_winter_m_ja_xpF05z.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "无印刷页码；PDF第1页：2026年4月入学社会情報学3名；第2页：2026年10月入学社会情報学3名。",
+      "notes": "2026年2月17日发表。尚未核实同轮冬季报名人数，不能使用夏季报名数计算倍率。"
+    },
+    "capacity-2027": {
+      "title": "2027年度4月期入学 修士課程学生募集要項",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/application/master-2027-4.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "印刷p.1／PDF第3页「Ⅰ．募集人員」：社会情報学コース43名；表下注记说明包括国际项目若干名。",
+      "notes": "募集人数是计划名额，与实际合格人数、最终入学人数不同；倍率使用合格名单人数作为分母。"
+    },
+    "annual-enrollment": {
+      "title": "研究科データ：修士・出身大学（R3〜R5年度）",
+      "url": "https://www.i.kyoto-u.ac.jp/admission/data/",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "「出身大学」→「修士」→社会情報学；R5/R4/R3年度合计50/39/38；他大学出身18/17/21、留学生11/6/9。",
+      "notes": "按年度列示，未按入学月份或考试季节拆分。「他大学出身」「留学生」是入学人数内数，可相互重叠；不能替代某轮合格人数。"
+    }
+  },
+  "series": [
+    {
+      "id": "master-summer-april",
+      "label": "修士 夏季一般入试（翌年4月入学）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "一般入试（4月入学）",
+      "notes": "年份按入学年标记，夏季考试在前一年实施。倍率为同一轮、同一入学期的志愿人数÷合格人数，不包含冬季和10月入学。2024年报名依据为官网HTML注释存档，按中等置信度单列。",
+      "points": [
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": 78,
+          "examinees": null,
+          "admitted": 36,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "applicants-2023-archive",
+            "summer-2022-results"
+          ],
+          "notes": "2022年夏季考试，2023年4月入学；志愿/合格=78/36，受验人数及最终入学人数未核实。"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 89,
+          "examinees": null,
+          "admitted": 46,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "applicants-2025-archive",
+            "summer-2024-results"
+          ],
+          "notes": "2024年夏季考试，2025年4月入学；志愿/合格=89/46，受验人数及最终入学人数未核实。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 93,
+          "examinees": null,
+          "admitted": 44,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "applicants-2026-archive",
+            "summer-2025-results"
+          ],
+          "notes": "2025年夏季考试，2026年4月入学；志愿/合格=93/44，受验人数及最终入学人数未核实。"
+        },
+        {
+          "admissionYear": 2027,
+          "capacity": 43,
+          "applicants": 106,
+          "examinees": null,
+          "admitted": 43,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "applicants-2027",
+            "summer-2026-results",
+            "capacity-2027"
+          ],
+          "notes": "2026年夏季考试，2027年4月入学；志愿/合格=106/43，受验人数及最终入学人数未核实。"
+        }
+      ]
+    },
+    {
+      "id": "master-summer-april-archived-2024",
+      "label": "修士 夏季一般入试（2024年4月入学・历史存档）",
+      "sourceType": "official",
+      "confidence": "medium",
+      "degree": "master",
+      "period": "summer",
+      "selection": "一般入试（4月入学）",
+      "notes": "与夏季4月入学主系列口径相同；报名数源自官网存档注释块，按中等置信度单列，合格数由官方名单存档核验。",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 89,
+          "examinees": null,
+          "admitted": 41,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "applicants-2024-archive",
+            "summer-2023-results"
+          ],
+          "notes": "2023年夏季考试，2024年4月入学；报名89名、合格41名。报名依据为官网HTML注释存档，合格依据为官方PDF第1页。"
+        }
+      ]
+    },
+    {
+      "id": "master-summer-october",
+      "label": "修士 夏季一般入试（当年10月入学）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "summer",
+      "selection": "一般入试（10月入学）",
+      "notes": "10月入学与翌年4月入学分开保存。报名人数未核实，不能使用4月入学报名数计算倍率。",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 2,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "summer-2024-results"
+          ],
+          "notes": "2024年夏季考试，2024年10月入学；报名、受验及最终入学人数未核实。"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "summer-2025-results"
+          ],
+          "notes": "2025年夏季考试，2025年10月入学；报名、受验及最终入学人数未核实。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "summer-2026-results"
+          ],
+          "notes": "2026年夏季考试，2026年10月入学；报名、受验及最终入学人数未核实。"
+        }
+      ]
+    },
+    {
+      "id": "master-winter-april",
+      "label": "修士 冬季一般入试（当年4月入学）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "winter",
+      "selection": "一般入试（4月入学）",
+      "notes": "冬季结果单独保存，不与夏季报名数配对。",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 1,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "winter-2025-results"
+          ],
+          "notes": "2025年2月考试，2025年4月入学；报名、受验及最终入学人数未核实，倍率留空。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "winter-2026-results"
+          ],
+          "notes": "2026年2月考试，2026年4月入学；报名、受验及最终入学人数未核实，倍率留空。"
+        }
+      ]
+    },
+    {
+      "id": "master-winter-october",
+      "label": "修士 冬季一般入试（当年10月入学）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "winter",
+      "selection": "一般入试（10月入学）",
+      "notes": "冬季10月入学结果单独保存，不与夏季或4月入学报名数配对。",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "winter-2025-results"
+          ],
+          "notes": "2025年2月考试，2025年10月入学；报名、受验及最终入学人数未核实，倍率留空。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": 3,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "winter-2026-results"
+          ],
+          "notes": "2026年2月考试，2026年10月入学；报名、受验及最终入学人数未核实，倍率留空。"
+        }
+      ]
+    },
+    {
+      "id": "master-annual-enrolled",
+      "label": "修士 年度入学人数（未分夏冬）",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "年度入学者合计",
+      "notes": "年度入学人数，不是某次考试合格人数；不能归为夏季或冬季，也不用于计算报名/合格倍率。",
+      "points": [
+        {
+          "admissionYear": 2021,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 38,
+          "reportedRatio": null,
+          "sourceIds": [
+            "annual-enrollment"
+          ],
+          "notes": "年度入学者合计38人，其中他大学出身21人、留学生9人；两项内数可重叠，未按入学月份或考试季节拆分。"
+        },
+        {
+          "admissionYear": 2022,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 39,
+          "reportedRatio": null,
+          "sourceIds": [
+            "annual-enrollment"
+          ],
+          "notes": "年度入学者合计39人，其中他大学出身17人、留学生6人；两项内数可重叠，未按入学月份或考试季节拆分。"
+        },
+        {
+          "admissionYear": 2023,
+          "capacity": null,
+          "applicants": null,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 50,
+          "reportedRatio": null,
+          "sourceIds": [
+            "annual-enrollment"
+          ],
+          "notes": "年度入学者合计50人，其中他大学出身18人、留学生11人；两项内数可重叠，未按入学月份或考试季节拆分。"
+        }
+      ]
+    }
+  ]
+}

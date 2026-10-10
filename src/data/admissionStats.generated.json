@@ -36,6 +36,7 @@
     "/category/kyoto-university-informatics-cce": "kyoto-university/informatics/cce",
     "/category/kyoto-university-informatics-ds": "kyoto-university/informatics/ds",
     "/category/kyoto-university-informatics-ist": "kyoto-university/informatics/ist",
+    "/category/kyoto-university-informatics-soc": "kyoto-university/informatics/soc",
     "/category/kyoto-university-informatics-sys": "kyoto-university/informatics/sys",
     "/category/kyushu-university-economics": "kyushu-university/economics",
     "/category/kyushu-university-engineering-ac": "kyushu-university/engineering/ac",
@@ -217,6 +218,7 @@
         "kyoto-university/informatics/cce",
         "kyoto-university/informatics/ds",
         "kyoto-university/informatics/ist",
+        "kyoto-university/informatics/soc",
         "kyoto-university/informatics/sys"
       ]
     },
@@ -5531,6 +5533,39 @@
       "scope": "course",
       "series": [
         {
+          "id": "master-summer-april-archived-2024",
+          "label": "数理工学コース · 夏季 · 一般選抜（2024年4月入学・历史存档）",
+          "sourceType": "official",
+          "confidence": "medium",
+          "degree": "master",
+          "period": "summer",
+          "selection": "一般選抜（合格発表掲載範囲）",
+          "sourceIds": [],
+          "notes": [
+            "报名数来自历史官网注释，合格数来自同轮官方名单的Wayback存档；按中等置信度单列，与夏季4月入学主线口径相同。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2024,
+              "capacity": null,
+              "applicants": 52,
+              "examinees": null,
+              "admitted": 27,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/amp::source-a52ea670bb",
+                "kyoto-university/informatics/amp::summer-2023-april-2024-results-wayback"
+              ],
+              "notes": [
+                "2023年夏季考试，2024年4月入学；官网存档HTML注释中的报名人数52与同轮官方合格名单27配对，倍率为52/27。报名来源按中等置信度收录；受验人数和最终入学人数未确认。"
+              ],
+              "primaryRatio": 1.9259259259259258,
+              "primaryRatioBasis": "applicants/admitted"
+            }
+          ]
+        },
+        {
           "id": "series-07d42c25ca62",
           "label": "数理工学コース · 冬季・第2次 · 一般選抜（合格発表掲載範囲）",
           "sourceType": "official",
@@ -5680,34 +5715,18 @@
               "capacity": null,
               "applicants": 33,
               "examinees": null,
-              "admitted": null,
+              "admitted": 25,
               "enrolled": null,
               "reportedRatio": null,
               "sourceIds": [
-                "kyoto-university/informatics/amp::source-86bb0ef26a"
+                "kyoto-university/informatics/amp::source-86bb0ef26a",
+                "kyoto-university/informatics/amp::summer-2022-april-2023-results-wayback"
               ],
               "notes": [
-                "数理工学専攻単位。2024年度の研究科改组前の組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；原始考试期：夏季・第1次"
+                "2022年夏季考试，2023年4月入学；报名人数来自既有官方出愿状况存档，合格人数来自同入学期夏季官方合格名单的Wayback副本。数理工学専攻为研究科改组前组织名称。倍率按志愿者33÷合格者25计算；受验人数和最终入学人数未确认。"
               ],
-              "primaryRatio": null,
-              "primaryRatioBasis": null
-            },
-            {
-              "admissionYear": 2024,
-              "capacity": null,
-              "applicants": 52,
-              "examinees": null,
-              "admitted": null,
-              "enrolled": null,
-              "reportedRatio": null,
-              "sourceIds": [
-                "kyoto-university/informatics/amp::source-a52ea670bb"
-              ],
-              "notes": [
-                "数理工学コース単位。2024年度からの改组后組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；该年志願者块位于官网快照的HTML注释中，来源可信度标为中；同年也是研究科改组断点。；原始考试期：夏季・第1次"
-              ],
-              "primaryRatio": null,
-              "primaryRatioBasis": null
+              "primaryRatio": 1.32,
+              "primaryRatioBasis": "applicants/admitted"
             },
             {
               "admissionYear": 2025,
@@ -6634,7 +6653,7 @@
           "sourceType": "official",
           "confidence": "high",
           "degree": "master",
-          "period": "other-921767a226",
+          "period": "summer",
           "selection": "一般選抜（合格発表掲載範囲）",
           "sourceIds": [],
           "notes": [
@@ -7221,6 +7240,39 @@
       "scope": "course",
       "series": [
         {
+          "id": "master-summer-april-archived-2024",
+          "label": "通信情報システムコース · 夏季 · 一般選抜（2024年4月入学・历史存档）",
+          "sourceType": "official",
+          "confidence": "medium",
+          "degree": "master",
+          "period": "summer",
+          "selection": "一般選抜（合格発表掲載範囲）",
+          "sourceIds": [],
+          "notes": [
+            "报名数来自历史官网注释，合格数来自同轮官方名单的Wayback存档；按中等置信度单列，与夏季4月入学主线口径相同。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2024,
+              "capacity": null,
+              "applicants": 77,
+              "examinees": null,
+              "admitted": 48,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/cce::source-a52ea670bb",
+                "kyoto-university/informatics/cce::summer-2023-april-2024-results-wayback"
+              ],
+              "notes": [
+                "2023年夏季考试，2024年4月入学；官网存档HTML注释中的报名人数77与同轮官方合格名单48配对，倍率为77/48。报名来源按中等置信度收录；受验人数和最终入学人数未确认。"
+              ],
+              "primaryRatio": 1.6041666666666667,
+              "primaryRatioBasis": "applicants/admitted"
+            }
+          ]
+        },
+        {
           "id": "series-548c97584478",
           "label": "通信情報システムコース · 夏季・第1次 · 一般選抜（志願者・合格者）",
           "sourceType": "official",
@@ -7340,34 +7392,18 @@
               "capacity": null,
               "applicants": 63,
               "examinees": null,
-              "admitted": null,
+              "admitted": 45,
               "enrolled": null,
               "reportedRatio": null,
               "sourceIds": [
-                "kyoto-university/informatics/cce::source-86bb0ef26a"
+                "kyoto-university/informatics/cce::source-86bb0ef26a",
+                "kyoto-university/informatics/cce::summer-2022-april-2023-results-wayback"
               ],
               "notes": [
-                "通信情報システム専攻単位。2024年度の研究科改组前の組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；原始考试期：夏季・第1次"
+                "2022年夏季考试，2023年4月入学；报名人数来自既有官方出愿状况存档，合格人数来自同入学期夏季官方合格名单的Wayback副本。通信情報システム専攻为研究科改组前组织名称。倍率按志愿者63÷合格者45计算；受验人数和最终入学人数未确认。"
               ],
-              "primaryRatio": null,
-              "primaryRatioBasis": null
-            },
-            {
-              "admissionYear": 2024,
-              "capacity": null,
-              "applicants": 77,
-              "examinees": null,
-              "admitted": null,
-              "enrolled": null,
-              "reportedRatio": null,
-              "sourceIds": [
-                "kyoto-university/informatics/cce::source-a52ea670bb"
-              ],
-              "notes": [
-                "通信情報システムコース単位。2024年度からの改组后組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；该年志願者块位于官网快照的HTML注释中，来源可信度标为中；同年也是研究科改组断点。；原始考试期：夏季・第1次"
-              ],
-              "primaryRatio": null,
-              "primaryRatioBasis": null
+              "primaryRatio": 1.4,
+              "primaryRatioBasis": "applicants/admitted"
             },
             {
               "admissionYear": 2025,
@@ -8169,7 +8205,7 @@
         },
         {
           "id": "master-summer-april-archived-applicants",
-          "label": "修士 夏季报名存档（2024年4月入学）",
+          "label": "修士 夏季一般入试（2024年4月入学・历史存档）",
           "sourceType": "official",
           "confidence": "medium",
           "degree": "master",
@@ -8177,7 +8213,7 @@
           "selection": "一般入试（4月入学）",
           "sourceIds": [],
           "notes": [
-            "历史官网注释中的出愿数，按中等置信度单列；不以其他轮次或最终入学人数补算倍率。"
+            "报名数来自历史官网注释，合格数来自同轮官方名单的Wayback存档；按中等置信度单列，与夏季4月入学主线口径相同。"
           ],
           "points": [
             {
@@ -8185,17 +8221,18 @@
               "capacity": null,
               "applicants": 31,
               "examinees": null,
-              "admitted": null,
+              "admitted": 10,
               "enrolled": null,
               "reportedRatio": null,
               "sourceIds": [
-                "kyoto-university/informatics/ds::applicants-2024-archive"
+                "kyoto-university/informatics/ds::applicants-2024-archive",
+                "kyoto-university/informatics/ds::summer-2023-april-2024-results-wayback"
               ],
               "notes": [
-                "2023年夏季考试；官网存档HTML注释块保留31名，尚未核实同轮次合格人数，倍率留空。"
+                "2023年夏季考试，2024年4月入学；官网存档HTML注释中的报名人数31与同轮官方合格名单10配对，倍率为31/10。报名来源按中等置信度收录；受验人数和最终入学人数未确认。"
               ],
-              "primaryRatio": null,
-              "primaryRatioBasis": null
+              "primaryRatio": 3.1,
+              "primaryRatioBasis": "applicants/admitted"
             }
           ]
         },
@@ -8372,6 +8409,39 @@
       "scope": "course",
       "series": [
         {
+          "id": "master-summer-april-archived-2024",
+          "label": "知能情報学コース · 夏季 · 一般選抜（2024年4月入学・历史存档）",
+          "sourceType": "official",
+          "confidence": "medium",
+          "degree": "master",
+          "period": "summer",
+          "selection": "一般選抜（合格発表掲載範囲）",
+          "sourceIds": [],
+          "notes": [
+            "报名数来自历史官网注释，合格数来自同轮官方名单的Wayback存档；按中等置信度单列，与夏季4月入学主线口径相同。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2024,
+              "capacity": null,
+              "applicants": 157,
+              "examinees": null,
+              "admitted": 38,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/ist::source-a52ea670bb",
+                "kyoto-university/informatics/ist::summer-2023-april-2024-results-wayback"
+              ],
+              "notes": [
+                "2023年夏季考试，2024年4月入学；官网存档HTML注释中的报名人数157与同轮官方合格名单38配对，倍率为157/38。报名来源按中等置信度收录；受验人数和最终入学人数未确认。"
+              ],
+              "primaryRatio": 4.131578947368421,
+              "primaryRatioBasis": "applicants/admitted"
+            }
+          ]
+        },
+        {
           "id": "series-3ee25aa6b338",
           "label": "知能情報学コース · 4月入学 · 募集要項記載のコース定員",
           "sourceType": "official",
@@ -8521,34 +8591,18 @@
               "capacity": null,
               "applicants": 94,
               "examinees": null,
-              "admitted": null,
+              "admitted": 38,
               "enrolled": null,
               "reportedRatio": null,
               "sourceIds": [
-                "kyoto-university/informatics/ist::source-86bb0ef26a"
+                "kyoto-university/informatics/ist::source-86bb0ef26a",
+                "kyoto-university/informatics/ist::summer-2022-april-2023-results-wayback"
               ],
               "notes": [
-                "知能情報学専攻単位。2024年度の研究科改组前の組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；原始考试期：夏季・第1次"
+                "2022年夏季考试，2023年4月入学；报名人数来自既有官方出愿状况存档，合格人数来自同入学期夏季官方合格名单的Wayback副本。知能情報学専攻为研究科改组前组织名称。倍率按志愿者94÷合格者38计算；受验人数和最终入学人数未确认。"
               ],
-              "primaryRatio": null,
-              "primaryRatioBasis": null
-            },
-            {
-              "admissionYear": 2024,
-              "capacity": null,
-              "applicants": 157,
-              "examinees": null,
-              "admitted": null,
-              "enrolled": null,
-              "reportedRatio": null,
-              "sourceIds": [
-                "kyoto-university/informatics/ist::source-a52ea670bb"
-              ],
-              "notes": [
-                "知能情報学コース単位。2024年度からの改组后組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；该年志願者块位于官网快照的HTML注释中，来源可信度标为中；同年也是研究科改组断点。；原始考试期：夏季・第1次"
-              ],
-              "primaryRatio": null,
-              "primaryRatioBasis": null
+              "primaryRatio": 2.473684210526316,
+              "primaryRatioBasis": "applicants/admitted"
             },
             {
               "admissionYear": 2025,
@@ -9210,12 +9264,404 @@
         }
       ]
     },
+    "kyoto-university/informatics/soc": {
+      "entityId": "kyoto-university/informatics/soc",
+      "slug": "/category/kyoto-university-informatics-soc",
+      "label": "社会情報学コース",
+      "scope": "course",
+      "series": [
+        {
+          "id": "master-annual-enrolled",
+          "label": "修士 年度入学人数（未分夏冬）",
+          "sourceType": "official",
+          "confidence": "high",
+          "degree": "master",
+          "period": "annual",
+          "selection": "年度入学者合计",
+          "sourceIds": [],
+          "notes": [
+            "年度入学人数，不是某次考试合格人数；不能归为夏季或冬季，也不用于计算报名/合格倍率。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2021,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": null,
+              "enrolled": 38,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::annual-enrollment"
+              ],
+              "notes": [
+                "年度入学者合计38人，其中他大学出身21人、留学生9人；两项内数可重叠，未按入学月份或考试季节拆分。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            },
+            {
+              "admissionYear": 2022,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": null,
+              "enrolled": 39,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::annual-enrollment"
+              ],
+              "notes": [
+                "年度入学者合计39人，其中他大学出身17人、留学生6人；两项内数可重叠，未按入学月份或考试季节拆分。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            },
+            {
+              "admissionYear": 2023,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": null,
+              "enrolled": 50,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::annual-enrollment"
+              ],
+              "notes": [
+                "年度入学者合计50人，其中他大学出身18人、留学生11人；两项内数可重叠，未按入学月份或考试季节拆分。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            }
+          ]
+        },
+        {
+          "id": "master-summer-april",
+          "label": "修士 夏季一般入试（翌年4月入学）",
+          "sourceType": "official",
+          "confidence": "high",
+          "degree": "master",
+          "period": "summer",
+          "selection": "一般入试（4月入学）",
+          "sourceIds": [],
+          "notes": [
+            "年份按入学年标记，夏季考试在前一年实施。倍率为同一轮、同一入学期的志愿人数÷合格人数，不包含冬季和10月入学。2024年报名依据为官网HTML注释存档，按中等置信度单列。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2023,
+              "capacity": null,
+              "applicants": 78,
+              "examinees": null,
+              "admitted": 36,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::applicants-2023-archive",
+                "kyoto-university/informatics/soc::summer-2022-results"
+              ],
+              "notes": [
+                "2022年夏季考试，2023年4月入学；志愿/合格=78/36，受验人数及最终入学人数未核实。"
+              ],
+              "primaryRatio": 2.1666666666666665,
+              "primaryRatioBasis": "applicants/admitted"
+            },
+            {
+              "admissionYear": 2025,
+              "capacity": null,
+              "applicants": 89,
+              "examinees": null,
+              "admitted": 46,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::applicants-2025-archive",
+                "kyoto-university/informatics/soc::summer-2024-results"
+              ],
+              "notes": [
+                "2024年夏季考试，2025年4月入学；志愿/合格=89/46，受验人数及最终入学人数未核实。"
+              ],
+              "primaryRatio": 1.934782608695652,
+              "primaryRatioBasis": "applicants/admitted"
+            },
+            {
+              "admissionYear": 2026,
+              "capacity": null,
+              "applicants": 93,
+              "examinees": null,
+              "admitted": 44,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::applicants-2026-archive",
+                "kyoto-university/informatics/soc::summer-2025-results"
+              ],
+              "notes": [
+                "2025年夏季考试，2026年4月入学；志愿/合格=93/44，受验人数及最终入学人数未核实。"
+              ],
+              "primaryRatio": 2.1136363636363638,
+              "primaryRatioBasis": "applicants/admitted"
+            },
+            {
+              "admissionYear": 2027,
+              "capacity": 43,
+              "applicants": 106,
+              "examinees": null,
+              "admitted": 43,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::applicants-2027",
+                "kyoto-university/informatics/soc::capacity-2027",
+                "kyoto-university/informatics/soc::summer-2026-results"
+              ],
+              "notes": [
+                "2026年夏季考试，2027年4月入学；志愿/合格=106/43，受验人数及最终入学人数未核实。"
+              ],
+              "primaryRatio": 2.4651162790697674,
+              "primaryRatioBasis": "applicants/admitted"
+            }
+          ]
+        },
+        {
+          "id": "master-summer-april-archived-2024",
+          "label": "修士 夏季一般入试（2024年4月入学・历史存档）",
+          "sourceType": "official",
+          "confidence": "medium",
+          "degree": "master",
+          "period": "summer",
+          "selection": "一般入试（4月入学）",
+          "sourceIds": [],
+          "notes": [
+            "与夏季4月入学主系列口径相同；报名数源自官网存档注释块，按中等置信度单列，合格数由官方名单存档核验。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2024,
+              "capacity": null,
+              "applicants": 89,
+              "examinees": null,
+              "admitted": 41,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::applicants-2024-archive",
+                "kyoto-university/informatics/soc::summer-2023-results"
+              ],
+              "notes": [
+                "2023年夏季考试，2024年4月入学；报名89名、合格41名。报名依据为官网HTML注释存档，合格依据为官方PDF第1页。"
+              ],
+              "primaryRatio": 2.1707317073170733,
+              "primaryRatioBasis": "applicants/admitted"
+            }
+          ]
+        },
+        {
+          "id": "master-summer-october",
+          "label": "修士 夏季一般入试（当年10月入学）",
+          "sourceType": "official",
+          "confidence": "high",
+          "degree": "master",
+          "period": "summer",
+          "selection": "一般入试（10月入学）",
+          "sourceIds": [],
+          "notes": [
+            "10月入学与翌年4月入学分开保存。报名人数未核实，不能使用4月入学报名数计算倍率。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2024,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": 2,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::summer-2024-results"
+              ],
+              "notes": [
+                "2024年夏季考试，2024年10月入学；报名、受验及最终入学人数未核实。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            },
+            {
+              "admissionYear": 2025,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": 3,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::summer-2025-results"
+              ],
+              "notes": [
+                "2025年夏季考试，2025年10月入学；报名、受验及最终入学人数未核实。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            },
+            {
+              "admissionYear": 2026,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": 3,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::summer-2026-results"
+              ],
+              "notes": [
+                "2026年夏季考试，2026年10月入学；报名、受验及最终入学人数未核实。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            }
+          ]
+        },
+        {
+          "id": "master-winter-april",
+          "label": "修士 冬季一般入试（当年4月入学）",
+          "sourceType": "official",
+          "confidence": "high",
+          "degree": "master",
+          "period": "winter",
+          "selection": "一般入试（4月入学）",
+          "sourceIds": [],
+          "notes": [
+            "冬季结果单独保存，不与夏季报名数配对。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2025,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": 1,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::winter-2025-results"
+              ],
+              "notes": [
+                "2025年2月考试，2025年4月入学；报名、受验及最终入学人数未核实，倍率留空。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            },
+            {
+              "admissionYear": 2026,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": 3,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::winter-2026-results"
+              ],
+              "notes": [
+                "2026年2月考试，2026年4月入学；报名、受验及最终入学人数未核实，倍率留空。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            }
+          ]
+        },
+        {
+          "id": "master-winter-october",
+          "label": "修士 冬季一般入试（当年10月入学）",
+          "sourceType": "official",
+          "confidence": "high",
+          "degree": "master",
+          "period": "winter",
+          "selection": "一般入试（10月入学）",
+          "sourceIds": [],
+          "notes": [
+            "冬季10月入学结果单独保存，不与夏季或4月入学报名数配对。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2025,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": 3,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::winter-2025-results"
+              ],
+              "notes": [
+                "2025年2月考试，2025年10月入学；报名、受验及最终入学人数未核实，倍率留空。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            },
+            {
+              "admissionYear": 2026,
+              "capacity": null,
+              "applicants": null,
+              "examinees": null,
+              "admitted": 3,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/soc::winter-2026-results"
+              ],
+              "notes": [
+                "2026年2月考试，2026年10月入学；报名、受验及最终入学人数未核实，倍率留空。"
+              ],
+              "primaryRatio": null,
+              "primaryRatioBasis": null
+            }
+          ]
+        }
+      ]
+    },
     "kyoto-university/informatics/sys": {
       "entityId": "kyoto-university/informatics/sys",
       "slug": "/category/kyoto-university-informatics-sys",
       "label": "システム科学専攻",
       "scope": "course",
       "series": [
+        {
+          "id": "master-summer-april-archived-2024",
+          "label": "システム科学コース · 夏季 · 一般選抜（2024年4月入学・历史存档）",
+          "sourceType": "official",
+          "confidence": "medium",
+          "degree": "master",
+          "period": "summer",
+          "selection": "一般選抜（合格発表掲載範囲）",
+          "sourceIds": [],
+          "notes": [
+            "报名数来自历史官网注释，合格数来自同轮官方名单的Wayback存档；按中等置信度单列，与夏季4月入学主线口径相同。"
+          ],
+          "points": [
+            {
+              "admissionYear": 2024,
+              "capacity": null,
+              "applicants": 61,
+              "examinees": null,
+              "admitted": 29,
+              "enrolled": null,
+              "reportedRatio": null,
+              "sourceIds": [
+                "kyoto-university/informatics/sys::source-a52ea670bb",
+                "kyoto-university/informatics/sys::summer-2023-april-2024-results-wayback"
+              ],
+              "notes": [
+                "2023年夏季考试，2024年4月入学；官网存档HTML注释中的报名人数61与同轮官方合格名单29配对，倍率为61/29。报名来源按中等置信度收录；受验人数和最终入学人数未确认。"
+              ],
+              "primaryRatio": 2.103448275862069,
+              "primaryRatioBasis": "applicants/admitted"
+            }
+          ]
+        },
         {
           "id": "series-05e8849aebe6",
           "label": "夏季出願者 ÷ 年度募集人員（民间整理）",
@@ -9685,34 +10131,18 @@
               "capacity": null,
               "applicants": 61,
               "examinees": null,
-              "admitted": null,
+              "admitted": 35,
               "enrolled": null,
               "reportedRatio": null,
               "sourceIds": [
-                "kyoto-university/informatics/sys::source-86bb0ef26a"
+                "kyoto-university/informatics/sys::source-86bb0ef26a",
+                "kyoto-university/informatics/sys::summer-2022-april-2023-results-wayback"
               ],
               "notes": [
-                "システム科学専攻単位。2024年度の研究科改组前の組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；原始考试期：夏季・第1次"
+                "2022年夏季考试，2023年4月入学；报名人数来自既有官方出愿状况存档，合格人数来自同入学期夏季官方合格名单的Wayback副本。システム科学専攻为研究科改组前组织名称。倍率按志愿者61÷合格者35计算；受验人数和最终入学人数未确认。"
               ],
-              "primaryRatio": null,
-              "primaryRatioBasis": null
-            },
-            {
-              "admissionYear": 2024,
-              "capacity": null,
-              "applicants": 61,
-              "examinees": null,
-              "admitted": null,
-              "enrolled": null,
-              "reportedRatio": null,
-              "sourceIds": [
-                "kyoto-university/informatics/sys::source-a52ea670bb"
-              ],
-              "notes": [
-                "システム科学コース単位。2024年度からの改组后組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；该年志願者块位于官网快照的HTML注释中，来源可信度标为中；同年也是研究科改组断点。；原始考试期：夏季・第1次"
-              ],
-              "primaryRatio": null,
-              "primaryRatioBasis": null
+              "primaryRatio": 1.7428571428571429,
+              "primaryRatioBasis": "applicants/admitted"
             },
             {
               "admissionYear": 2025,
@@ -23788,7 +24218,7 @@
       "title": "2024年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
       "url": "https://index.commoncrawl.org/CC-MAIN-2023-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200",
       "sourceType": "official",
-      "confidence": "high",
+      "confidence": "medium",
       "checkedAt": "2026-09-01T00:00:00.000Z",
       "notes": [
         "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz"
@@ -23930,6 +24360,34 @@
       "checkedAt": "2026-09-01T00:00:00.000Z",
       "notes": [],
       "evidenceLocator": "PDFの数理工学コース欄末尾「以上 25名」"
+    },
+    "kyoto-university/informatics/amp::summer-2022-april-2023-results-wayback": {
+      "id": "kyoto-university/informatics/amp::summer-2022-april-2023-results-wayback",
+      "localId": "summer-2022-april-2023-results-wayback",
+      "entityId": "kyoto-university/informatics/amp",
+      "title": "2023年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230804074338id_/http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "2022年夏季考试、2023年4月入学。原始官方PDF：http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf；Wayback抓取时间2023-08-04T07:43:38Z。名单与其他入学月份、冬季分开。"
+      ],
+      "evidenceLocator": "PDF第1页（无印刷页码）「2023年度4月期修士課程」／数理工学専攻「以上 25名」。"
+    },
+    "kyoto-university/informatics/amp::summer-2023-april-2024-results-wayback": {
+      "id": "kyoto-university/informatics/amp::summer-2023-april-2024-results-wayback",
+      "localId": "summer-2023-april-2024-results-wayback",
+      "entityId": "kyoto-university/informatics/amp",
+      "title": "2024年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "官方PDF及页面图像已核实。原始URL：https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf；Wayback抓取时间2023-08-18T06:17:25Z。因配对报名人数仅确认于官网历史HTML注释，此年度统计按中等置信度保存。"
+      ],
+      "evidenceLocator": "PDF第1页（无印刷页码）「2024年度4月期修士課程」／数理工学コース「以上 27名」。"
     },
     "kyoto-university/informatics/ams::source-026786f277": {
       "id": "kyoto-university/informatics/ams::source-026786f277",
@@ -24295,7 +24753,7 @@
       "title": "2024年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
       "url": "https://index.commoncrawl.org/CC-MAIN-2023-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200",
       "sourceType": "official",
-      "confidence": "high",
+      "confidence": "medium",
       "checkedAt": "2026-09-01T00:00:00.000Z",
       "notes": [
         "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz"
@@ -24438,6 +24896,34 @@
       "notes": [],
       "evidenceLocator": "PDFの通信情報システムコース欄末尾「以上 46名」"
     },
+    "kyoto-university/informatics/cce::summer-2022-april-2023-results-wayback": {
+      "id": "kyoto-university/informatics/cce::summer-2022-april-2023-results-wayback",
+      "localId": "summer-2022-april-2023-results-wayback",
+      "entityId": "kyoto-university/informatics/cce",
+      "title": "2023年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230804074338id_/http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "2022年夏季考试、2023年4月入学。原始官方PDF：http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf；Wayback抓取时间2023-08-04T07:43:38Z。名单与其他入学月份、冬季分开。"
+      ],
+      "evidenceLocator": "PDF第1页（无印刷页码）「2023年度4月期修士課程」／通信情報システム専攻「以上 45名」。"
+    },
+    "kyoto-university/informatics/cce::summer-2023-april-2024-results-wayback": {
+      "id": "kyoto-university/informatics/cce::summer-2023-april-2024-results-wayback",
+      "localId": "summer-2023-april-2024-results-wayback",
+      "entityId": "kyoto-university/informatics/cce",
+      "title": "2024年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "官方PDF及页面图像已核实。原始URL：https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf；Wayback抓取时间2023-08-18T06:17:25Z。因配对报名人数仅确认于官网历史HTML注释，此年度统计按中等置信度保存。"
+      ],
+      "evidenceLocator": "PDF第1页（无印刷页码）「2024年度4月期修士課程」／通信情報システムコース「以上 48名」。"
+    },
     "kyoto-university/informatics/ds::applicants-2024-archive": {
       "id": "kyoto-university/informatics/ds::applicants-2024-archive",
       "localId": "applicants-2024-archive",
@@ -24448,7 +24934,7 @@
       "confidence": "medium",
       "checkedAt": "2026-10-10T00:00:00.000Z",
       "notes": [
-        "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；2024年4月入学・夏季のデータ科学31名はHTML注释块中保留的历史内容，按中等置信度收录；没有核实同轮次合格人数。"
+        "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；2024年4月入学・夏季のデータ科学31名はHTML注释块中保留的历史内容，按中等置信度收录；同轮次合格人数已由官方合格名单Wayback存档核实为10人。"
       ],
       "evidenceLocator": "capture 2023-09-29T17:34:31Z；WARC crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；bytes 857862118-857871313；HTML注释块内的官网历史显示内容「出願状況について」；データ科学行"
     },
@@ -24521,6 +25007,20 @@
         "官方按年度列示，未按入学月份或考试季节拆分。外大学出身与留学生可重叠，不可相加。"
       ],
       "evidenceLocator": "「出身大学」→「修士」表の「データ科学」R5年度：他大学出身14、留学生11、合計17；表後の注記で前二者はコース入学者数の内数と説明。"
+    },
+    "kyoto-university/informatics/ds::summer-2023-april-2024-results-wayback": {
+      "id": "kyoto-university/informatics/ds::summer-2023-april-2024-results-wayback",
+      "localId": "summer-2023-april-2024-results-wayback",
+      "entityId": "kyoto-university/informatics/ds",
+      "title": "2024年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "官方PDF及页面图像已核实。原始URL：https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf；Wayback抓取时间2023-08-18T06:17:25Z。因配对报名人数仅确认于官网历史HTML注释，此年度统计按中等置信度保存。"
+      ],
+      "evidenceLocator": "PDF第1页（无印刷页码）「2024年度4月期修士課程」／データ科学コース「以上 10名」。"
     },
     "kyoto-university/informatics/ds::summer-2024-results": {
       "id": "kyoto-university/informatics/ds::summer-2024-results",
@@ -24700,7 +25200,7 @@
       "title": "2024年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
       "url": "https://index.commoncrawl.org/CC-MAIN-2023-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200",
       "sourceType": "official",
-      "confidence": "high",
+      "confidence": "medium",
       "checkedAt": "2026-09-01T00:00:00.000Z",
       "notes": [
         "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz"
@@ -24843,6 +25343,222 @@
       "notes": [],
       "evidenceLocator": "PDFの知能情報学コース欄末尾「以上 37名」"
     },
+    "kyoto-university/informatics/ist::summer-2022-april-2023-results-wayback": {
+      "id": "kyoto-university/informatics/ist::summer-2022-april-2023-results-wayback",
+      "localId": "summer-2022-april-2023-results-wayback",
+      "entityId": "kyoto-university/informatics/ist",
+      "title": "2023年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230804074338id_/http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "2022年夏季考试、2023年4月入学。原始官方PDF：http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf；Wayback抓取时间2023-08-04T07:43:38Z。名单与其他入学月份、冬季分开。"
+      ],
+      "evidenceLocator": "PDF第1页（无印刷页码）「2023年度4月期修士課程」／知能情報学専攻「以上 38名」。"
+    },
+    "kyoto-university/informatics/ist::summer-2023-april-2024-results-wayback": {
+      "id": "kyoto-university/informatics/ist::summer-2023-april-2024-results-wayback",
+      "localId": "summer-2023-april-2024-results-wayback",
+      "entityId": "kyoto-university/informatics/ist",
+      "title": "2024年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "官方PDF及页面图像已核实。原始URL：https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf；Wayback抓取时间2023-08-18T06:17:25Z。因配对报名人数仅确认于官网历史HTML注释，此年度统计按中等置信度保存。"
+      ],
+      "evidenceLocator": "PDF第1页（无印刷页码）「2024年度4月期修士課程」／知能情報学コース「以上 38名」。"
+    },
+    "kyoto-university/informatics/soc::annual-enrollment": {
+      "id": "kyoto-university/informatics/soc::annual-enrollment",
+      "localId": "annual-enrollment",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "研究科データ：修士・出身大学（R3〜R5年度）",
+      "url": "https://www.i.kyoto-u.ac.jp/admission/data/",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "按年度列示，未按入学月份或考试季节拆分。「他大学出身」「留学生」是入学人数内数，可相互重叠；不能替代某轮合格人数。"
+      ],
+      "evidenceLocator": "「出身大学」→「修士」→社会情報学；R5/R4/R3年度合计50/39/38；他大学出身18/17/21、留学生11/6/9。"
+    },
+    "kyoto-university/informatics/soc::applicants-2023-archive": {
+      "id": "kyoto-university/informatics/soc::applicants-2023-archive",
+      "localId": "applicants-2023-archive",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2023年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2022-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2022-40/segments/1664030334514.38/warc/CC-MAIN-20220925035541-20220925065541-00719.warc.gz；本次阅读本地保存的WARC原始HTML，原始抓取与重取记录见所列存档。"
+      ],
+      "evidenceLocator": "capture 2022-09-25T05:52:29Z；WARC crawl-data/CC-MAIN-2022-40/segments/1664030334514.38/warc/CC-MAIN-20220925035541-20220925065541-00719.warc.gz；bytes 855939550-855947653；HTML正文「出願状況について」／夏季実施；社会情報学行"
+    },
+    "kyoto-university/informatics/soc::applicants-2024-archive": {
+      "id": "kyoto-university/informatics/soc::applicants-2024-archive",
+      "localId": "applicants-2024-archive",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2024年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2023-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200",
+      "sourceType": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；本次阅读本地保存的WARC原始HTML，原始抓取与重取记录见所列存档。2024年4月入学夏季社会情報学89名位于HTML注释块，按中等置信度收录。"
+      ],
+      "evidenceLocator": "capture 2023-09-29T17:34:31Z；WARC crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；bytes 857862118-857871313；HTML注释块内的官网历史显示内容「出願状況について」；社会情報学行"
+    },
+    "kyoto-university/informatics/soc::applicants-2025-archive": {
+      "id": "kyoto-university/informatics/soc::applicants-2025-archive",
+      "localId": "applicants-2025-archive",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2025年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2024-30-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass%2F&output=json&filter=status%3A200",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass/、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2024-30/segments/1720763517550.76/warc/CC-MAIN-20240721030106-20240721060106-00461.warc.gz；本次阅读本地保存的WARC原始HTML，原始抓取与重取记录见所列存档。"
+      ],
+      "evidenceLocator": "capture 2024-07-21T04:14:36Z；WARC crawl-data/CC-MAIN-2024-30/segments/1720763517550.76/warc/CC-MAIN-20240721030106-20240721060106-00461.warc.gz；bytes 690352542-690360259；HTML正文「出願状況について」／夏季実施；社会情報学行"
+    },
+    "kyoto-university/informatics/soc::applicants-2026-archive": {
+      "id": "kyoto-university/informatics/soc::applicants-2026-archive",
+      "localId": "applicants-2026-archive",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2026年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2025-33-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass%2F&output=json&filter=status%3A200",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass/、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2025-33/segments/1754151279936.52/warc/CC-MAIN-20250807023708-20250807053708-00661.warc.gz；本次阅读本地保存的WARC原始HTML，原始抓取与重取记录见所列存档。"
+      ],
+      "evidenceLocator": "capture 2025-08-07T03:40:54Z；WARC crawl-data/CC-MAIN-2025-33/segments/1754151279936.52/warc/CC-MAIN-20250807023708-20250807053708-00661.warc.gz；bytes 734457153-734464902；HTML正文「出願状況について」／夏季実施；社会情報学行"
+    },
+    "kyoto-university/informatics/soc::applicants-2027": {
+      "id": "kyoto-university/informatics/soc::applicants-2027",
+      "localId": "applicants-2027",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2027年度4月期修士課程 出願状況（2026年7月現在）",
+      "url": "https://www.i.kyoto-u.ac.jp/admission/pass/",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "仅为2027年4月入学夏季报名人数，不包含2026年10月入学。"
+      ],
+      "evidenceLocator": "「2027年度4月期修士課程学生募集」→「夏季実施」→「社会情報学 106名」"
+    },
+    "kyoto-university/informatics/soc::capacity-2027": {
+      "id": "kyoto-university/informatics/soc::capacity-2027",
+      "localId": "capacity-2027",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2027年度4月期入学 修士課程学生募集要項",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/application/master-2027-4.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "募集人数是计划名额，与实际合格人数、最终入学人数不同；倍率使用合格名单人数作为分母。"
+      ],
+      "evidenceLocator": "印刷p.1／PDF第3页「Ⅰ．募集人員」：社会情報学コース43名；表下注记说明包括国际项目若干名。"
+    },
+    "kyoto-university/informatics/soc::summer-2022-results": {
+      "id": "kyoto-university/informatics/soc::summer-2022-results",
+      "localId": "summer-2022-results",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2023年度4月期入学 修士課程夏期入学試験 合格者発表（Internet Archive保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230804074338id_/http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "官方原始URL：http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf；Internet Archive快照20230804074338；已阅读下载PDF及页面图像。按名单的入学年份与同轮夏季报名人数配对。"
+      ],
+      "evidenceLocator": "无印刷页码；PDF第1页「2023年度4月期修士課程」／社会情報学専攻，栏末「以上 36名」。"
+    },
+    "kyoto-university/informatics/soc::summer-2023-results": {
+      "id": "kyoto-university/informatics/soc::summer-2023-results",
+      "localId": "summer-2023-results",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2024年度4月期入学 修士課程夏期入学試験 合格者発表（Internet Archive保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "官方原始URL：https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf；Internet Archive快照20230818061725；已阅读下载PDF及页面图像。按名单的入学年份与同轮夏季报名人数配对。2024年配对报名数来自官网存档注释，整组历史记录保守按中等置信度收录；合格人数41名已核官方名单页面图像。"
+      ],
+      "evidenceLocator": "无印刷页码；PDF第1页「2024年度4月期修士課程」／社会情報学コース，栏末「以上 41名」。"
+    },
+    "kyoto-university/informatics/soc::summer-2024-results": {
+      "id": "kyoto-university/informatics/soc::summer-2024-results",
+      "localId": "summer-2024-results",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2024年夏季 修士課程合格者発表（2024年10月・2025年4月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20240816_summer_m_ja_f9K7.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [],
+      "evidenceLocator": "无印刷页码；PDF第2页：2025年4月入学社会情報学46名；第1页：2024年10月入学社会情報学2名。"
+    },
+    "kyoto-university/informatics/soc::summer-2025-results": {
+      "id": "kyoto-university/informatics/soc::summer-2025-results",
+      "localId": "summer-2025-results",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2025年夏季 修士課程合格者発表（2025年10月・2026年4月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20250815-summer-m-ja-cFN4.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [],
+      "evidenceLocator": "无印刷页码；PDF第2页：2026年4月入学社会情報学44名；第1页：2025年10月入学社会情報学3名。"
+    },
+    "kyoto-university/informatics/soc::summer-2026-results": {
+      "id": "kyoto-university/informatics/soc::summer-2026-results",
+      "localId": "summer-2026-results",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2026年夏季 修士課程合格者発表（2027年4月・2026年10月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20260817-summer-m-ja-xi5h389c.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [],
+      "evidenceLocator": "无印刷页码；PDF第1页：2027年4月入学社会情報学43名；第3页：2026年10月入学社会情報学3名。"
+    },
+    "kyoto-university/informatics/soc::winter-2025-results": {
+      "id": "kyoto-university/informatics/soc::winter-2025-results",
+      "localId": "winter-2025-results",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2025年冬季 修士課程合格者発表（2025年4月・10月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20250214_winter_m_ja_3kFs.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [],
+      "evidenceLocator": "无印刷页码；PDF第1页：2025年4月入学社会情報学1名；第2页：2025年10月入学社会情報学3名。"
+    },
+    "kyoto-university/informatics/soc::winter-2026-results": {
+      "id": "kyoto-university/informatics/soc::winter-2026-results",
+      "localId": "winter-2026-results",
+      "entityId": "kyoto-university/informatics/soc",
+      "title": "2026年冬季 修士課程合格者発表（2026年4月・10月入学）",
+      "url": "https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20260217_winter_m_ja_xpF05z.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "2026年2月17日发表。尚未核实同轮冬季报名人数，不能使用夏季报名数计算倍率。"
+      ],
+      "evidenceLocator": "无印刷页码；PDF第1页：2026年4月入学社会情報学3名；第2页：2026年10月入学社会情報学3名。"
+    },
     "kyoto-university/informatics/sys::source-026786f277": {
       "id": "kyoto-university/informatics/sys::source-026786f277",
       "localId": "source-026786f277",
@@ -24959,7 +25675,7 @@
       "title": "2024年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
       "url": "https://index.commoncrawl.org/CC-MAIN-2023-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200",
       "sourceType": "official",
-      "confidence": "high",
+      "confidence": "medium",
       "checkedAt": "2026-09-01T00:00:00.000Z",
       "notes": [
         "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz"
@@ -25101,6 +25817,34 @@
       "checkedAt": "2026-09-01T00:00:00.000Z",
       "notes": [],
       "evidenceLocator": "PDFのシステム科学コース欄末尾「以上 29名」"
+    },
+    "kyoto-university/informatics/sys::summer-2022-april-2023-results-wayback": {
+      "id": "kyoto-university/informatics/sys::summer-2022-april-2023-results-wayback",
+      "localId": "summer-2022-april-2023-results-wayback",
+      "entityId": "kyoto-university/informatics/sys",
+      "title": "2023年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230804074338id_/http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "2022年夏季考试、2023年4月入学。原始官方PDF：http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf；Wayback抓取时间2023-08-04T07:43:38Z。名单与其他入学月份、冬季分开。"
+      ],
+      "evidenceLocator": "PDF第1页（无印刷页码）「2023年度4月期修士課程」／システム科学専攻「以上 35名」。"
+    },
+    "kyoto-university/informatics/sys::summer-2023-april-2024-results-wayback": {
+      "id": "kyoto-university/informatics/sys::summer-2023-april-2024-results-wayback",
+      "localId": "summer-2023-april-2024-results-wayback",
+      "entityId": "kyoto-university/informatics/sys",
+      "title": "2024年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf",
+      "sourceType": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10T00:00:00.000Z",
+      "notes": [
+        "官方PDF及页面图像已核实。原始URL：https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf；Wayback抓取时间2023-08-18T06:17:25Z。因配对报名人数仅确认于官网历史HTML注释，此年度统计按中等置信度保存。"
+      ],
+      "evidenceLocator": "PDF第1页（无印刷页码）「2024年度4月期修士課程」／システム科学コース「以上 29名」。"
     },
     "kyushu-university/economics::source-a85f21f01a": {
       "id": "kyushu-university/economics::source-a85f21f01a",

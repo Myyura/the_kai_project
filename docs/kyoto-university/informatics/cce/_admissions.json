@@ -76,7 +76,7 @@
       "title": "2024年度4月期入学 出願状況（Common Crawl保存の京都大学公式ページ）",
       "url": "https://index.commoncrawl.org/CC-MAIN-2023-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200",
       "type": "official",
-      "confidence": "high",
+      "confidence": "medium",
       "checkedAt": "2026-09-01",
       "evidenceLocator": "capture 2023-09-29T17:34:31Z；WARC crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz；bytes 857862118-857871313；HTML注释块内的官网历史显示内容「出願状況について」",
       "notes": "WARC-Target-URI=https://www.i.kyoto-u.ac.jp/admission/pass.html、HTTP 200。Range取得先：https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-40/segments/1695233510520.98/warc/CC-MAIN-20230929154432-20230929184432-00619.warc.gz"
@@ -169,6 +169,24 @@
       "confidence": "high",
       "checkedAt": "2026-09-01",
       "evidenceLocator": "PDFの通信情報システムコース欄末尾「以上 46名」"
+    },
+    "summer-2022-april-2023-results-wayback": {
+      "title": "2023年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230804074338id_/http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "PDF第1页（无印刷页码）「2023年度4月期修士課程」／通信情報システム専攻「以上 45名」。",
+      "notes": "2022年夏季考试、2023年4月入学。原始官方PDF：http://www.i.kyoto-u.ac.jp/admission/pdf/result/2023s_04-master.pdf；Wayback抓取时间2023-08-04T07:43:38Z。名单与其他入学月份、冬季分开。"
+    },
+    "summer-2023-april-2024-results-wayback": {
+      "title": "2024年度4月期入学 修士課程夏季入学試験 合格者発表（Wayback保存の京都大学公式PDF）",
+      "url": "https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf",
+      "type": "official",
+      "confidence": "medium",
+      "checkedAt": "2026-10-10",
+      "evidenceLocator": "PDF第1页（无印刷页码）「2024年度4月期修士課程」／通信情報システムコース「以上 48名」。",
+      "notes": "官方PDF及页面图像已核实。原始URL：https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf；Wayback抓取时间2023-08-18T06:17:25Z。因配对报名人数仅确认于官网历史HTML注释，此年度统计按中等置信度保存。"
     }
   },
   "series": [
@@ -751,26 +769,14 @@
           "capacity": null,
           "applicants": 63,
           "examinees": null,
-          "admitted": null,
+          "admitted": 45,
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "source-86bb0ef26a"
+            "source-86bb0ef26a",
+            "summer-2022-april-2023-results-wayback"
           ],
-          "notes": "通信情報システム専攻単位。2024年度の研究科改组前の組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；原始考试期：夏季・第1次"
-        },
-        {
-          "admissionYear": 2024,
-          "capacity": null,
-          "applicants": 77,
-          "examinees": null,
-          "admitted": null,
-          "enrolled": null,
-          "reportedRatio": null,
-          "sourceIds": [
-            "source-a52ea670bb"
-          ],
-          "notes": "通信情報システムコース単位。2024年度からの改组后組織口径。；官方历史页面仅确认该夏季日程志願者数；合格者数未能从同口径官方资料确认，因此不计算倍率。；该年志願者块位于官网快照的HTML注释中，来源可信度标为中；同年也是研究科改组断点。；原始考试期：夏季・第1次"
+          "notes": "2022年夏季考试，2023年4月入学；报名人数来自既有官方出愿状况存档，合格人数来自同入学期夏季官方合格名单的Wayback副本。通信情報システム専攻为研究科改组前组织名称。倍率按志愿者63÷合格者45计算；受验人数和最终入学人数未确认。"
         },
         {
           "admissionYear": 2025,
@@ -816,6 +822,32 @@
         }
       ],
       "notes": "2018～2023は同名の旧専攻、2024年度から研究科改组后的同名コース。組織口径の断点を注記したうえで、夏季主一般選抜の趋势として収録。"
+    },
+    {
+      "id": "master-summer-april-archived-2024",
+      "label": "通信情報システムコース · 夏季 · 一般選抜（2024年4月入学・历史存档）",
+      "sourceType": "official",
+      "confidence": "medium",
+      "degree": "master",
+      "period": "summer",
+      "selection": "一般選抜（合格発表掲載範囲）",
+      "points": [
+        {
+          "admissionYear": 2024,
+          "capacity": null,
+          "applicants": 77,
+          "examinees": null,
+          "admitted": 48,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-a52ea670bb",
+            "summer-2023-april-2024-results-wayback"
+          ],
+          "notes": "2023年夏季考试，2024年4月入学；官网存档HTML注释中的报名人数77与同轮官方合格名单48配对，倍率为77/48。报名来源按中等置信度收录；受验人数和最终入学人数未确认。"
+        }
+      ],
+      "notes": "报名数来自历史官网注释，合格数来自同轮官方名单的Wayback存档；按中等置信度单列，与夏季4月入学主线口径相同。"
     }
   ]
 }

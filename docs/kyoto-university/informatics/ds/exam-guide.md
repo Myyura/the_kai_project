@@ -46,7 +46,7 @@ tags:
 
 | 入学年月 | 实际考试 | 报名人数 | 合格人数 | 报录比 | 来源 |
 | --- | --- | ---: | ---: | ---: | --- |
-| 2024 年 4 月 | 2023 年夏季 | 31 | — | — | [报名存档 A](#admissions-sources)；数值在官网存档的 HTML 注释中，按中等置信度收录。 |
+| 2024 年 4 月 | 2023 年夏季 | 31 | 10 | 3.10 | [报名存档 A](#admissions-sources)；[官方合格名单存档](https://web.archive.org/web/20230818061725id_/https://www.i.kyoto-u.ac.jp/admission/pdf/result/2024s_04-master.pdf)，PDF 第 1 页。报名数位于官网历史 HTML 注释，按中等置信度收录。 |
 | 2025 年 4 月 | 2024 年夏季 | 57 | 9 | 6.33 | [报名存档 B](#admissions-sources)；[合格名单](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20240816_summer_m_ja_f9K7.pdf#page=2)，PDF 第 2 页。 |
 | 2026 年 4 月 | 2025 年夏季 | 51 | 15 | 3.40 | [报名存档 C](#admissions-sources)；[合格名单](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20250815-summer-m-ja-cFN4.pdf#page=2)，PDF 第 2 页。 |
 | 2027 年 4 月 | 2026 年夏季 | 68 | 14 | 4.86 | [官方报名人数](https://www.i.kyoto-u.ac.jp/admission/pass/)；[合格名单](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/pass/20260817-summer-m-ja-xi5h389c.pdf#page=2)，PDF 第 1 页标题、第 2 页数据科学栏。 |
@@ -77,6 +77,6 @@ tags:
 
 官方报名页面会覆盖旧数据，历史数值取自 Common Crawl 保存的京都大学官网原文，核查日期为 2026 年 10 月 10 日。存档中均明确写明相应的「4月期修士課程学生募集」与「夏季実施」。
 
-- **A：2024 年入学**：[2023 年 9 月官网存档索引](https://index.commoncrawl.org/CC-MAIN-2023-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200)。抓取于 2023-09-29 17:34:31 UTC；31 人位于 HTML 注释块，未核实同轮次合格人数。
+- **A：2024 年入学**：[2023 年 9 月官网存档索引](https://index.commoncrawl.org/CC-MAIN-2023-40-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass.html&output=json&filter=status%3A200)。抓取于 2023-09-29 17:34:31 UTC；31 人位于 HTML 注释块。同轮合格 10 人已由上表所链官方名单的 Wayback 存档核实，存档时间为 2023-08-18 06:17:25 UTC。
 - **B：2025 年入学**：[2024 年 7 月官网存档索引](https://index.commoncrawl.org/CC-MAIN-2024-30-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass%2F&output=json&filter=status%3A200)。抓取于 2024-07-21 04:14:36 UTC；正文数据科学一行记载 57 人。
 - **C：2026 年入学**：[2025 年 8 月官网存档索引](https://index.commoncrawl.org/CC-MAIN-2025-33-index?url=https%3A%2F%2Fwww.i.kyoto-u.ac.jp%2Fadmission%2Fpass%2F&output=json&filter=status%3A200)。抓取于 2025-08-07 03:40:54 UTC；正文数据科学一行记载 51 人。
