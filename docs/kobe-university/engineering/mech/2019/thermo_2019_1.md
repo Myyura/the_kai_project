@@ -1,0 +1,99 @@
+---
+sidebar_label: "熱力学 第1問"
+tags:
+  - Kobe-University
+  - Physics.Thermodynamics.Carnot-Cycle-and-Heat-Engine-Efficiency
+  - Physics.Thermodynamics.Ideal-Gas-Entropy-and-Heat-Capacities
+---
+
+# 神戸大学 工学研究科 機械工学専攻 2019年度 熱力学 第1問
+
+## **Author**
+
+祭音Myyura (co-authored with GPT 6 Astra)
+
+## **Description**
+
+周囲圧力 $P_0$ 中のシリンダと可動ピストンに、理想気体が圧力 $P_0$、体積 $V_1$ で閉じ込められている（状態1）。次の準静的過程を行う。
+
+- A：冷却して等圧圧縮し、体積を $V_2<V_1$ にする（状態2）。
+- B：ピストンを固定して加熱し、圧力を $P_3$ にする（状態3）。
+- C：等温変化により状態1へ戻す。
+
+比熱比を $\kappa$ とし、解答には $P_0,V_1,V_2,\kappa$ のみを用いよ。
+
+![可動ピストン内の理想気体と周囲圧力](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe-university/engineering/mech/2019/kobe2019_thermo1_setup.svg)
+
+1. 状態と向きを明示して $P$–$V$ 線図を描け。
+2. Aで気体が周囲にした仕事 $W_A$ を求めよ。
+3. Aの放熱量 $Q_A$ を求めよ。
+4. Bで気体が周囲にした仕事 $W_B$ を求めよ。
+5. Bの加熱量 $Q_B$ を求めよ。
+6. Cで気体が周囲にした仕事 $W_C$ を求めよ。
+7. サイクルの熱効率 $\eta$ を求めよ。
+
+#### 题目描述
+
+理想气体初态为 $P_0,V_1$，经过 A 等压冷却压缩至 $V_2$、B 等容加热、C 等温膨胀回初态。给定比热比 $\kappa$，只用 $P_0,V_1,V_2,\kappa$ 作答。（1）画状态与方向齐全的 $P$–$V$ 图；（2）（3）求A对外功、放热量；（4）（5）求B对外功、吸热量；（6）求C对外功；（7）求热效率。
+
+## **Kai**
+
+### (1)
+
+Cが等温なので $P_3V_2=P_0V_1$。Aは左向き水平線、Bは上向き鉛直線、Cは双曲線 $PV=P_0V_1$ に沿う右向きの膨張である。
+
+![時計回りの等圧・等積・等温サイクル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kobe-university/engineering/mech/2019/kobe2019_thermo1_cycle.svg)
+
+### (2), (3)
+
+気体が外部へする仕事を正、放熱量を正の大きさとすると
+
+
+$$
+\boxed{W_A=\int_{V_1}^{V_2}P_0\,dV=P_0(V_2-V_1)},
+$$
+
+
+
+$$
+\boxed{Q_A=\frac{\kappa}{\kappa-1}P_0(V_1-V_2)}.
+$$
+
+
+後式は等圧過程の熱量 $m c_p\Delta T=\kappa\Delta(PV)/(\kappa-1)$ の符号を反転したもの。
+
+### (4), (5)
+
+等積なので $\boxed{W_B=0}$。加熱量は内部エネルギー増加に等しく
+
+
+$$
+\boxed{Q_B=\frac{P_3V_2-P_0V_2}{\kappa-1}=\frac{P_0(V_1-V_2)}{\kappa-1}}.
+$$
+
+
+### (6)
+
+
+$$
+\boxed{W_C=\int_{V_2}^{V_1}\frac{P_0V_1}{V}\,dV=P_0V_1\log\frac{V_1}{V_2}}.
+$$
+
+
+等温理想気体では $\Delta U_C=0$ なので、Cでも $Q_C=W_C>0$ の吸熱がある。
+
+### (7)
+
+受熱はBとCの両方であり、$Q_{\mathrm{in}}=Q_B+Q_C$。従って
+
+
+$$
+\boxed{\eta=\frac{W_A+W_B+W_C}{Q_B+Q_C}
+=\frac{(\kappa-1)\{V_1\log(V_1/V_2)-(V_1-V_2)\}}
+{(V_1-V_2)+(\kappa-1)V_1\log(V_1/V_2)}}.
+$$
+
+
+## **Reference**
+
+- [神戸大学公式問題の保存版：平成31年度 熱力学、PDF 1ページ](https://web.archive.org/web/20220524073525id_/http://www.mech.kobe-u.ac.jp/wp-content/uploads/2017/06/4_H31_Thermo.pdf)

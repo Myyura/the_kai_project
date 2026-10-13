@@ -107,3 +107,7 @@ $$
 $$
 
 代入すると両辺の二乗の差は $8(2-\alpha)(|z|^2-\beta^2)$ となり、円環内では確かに $|w-1/4|>1/4$ である。
+
+## **Reference**
+
+- [東京大学 平成26年度 数学原題（公式公開PDFの保存版）](https://web.archive.org/web/20160418005150id_/http://www.t.u-tokyo.ac.jp:80/soe/admission/data/2014mathJ.pdf)

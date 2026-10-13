@@ -91,3 +91,6 @@ $$
 \boxed{\phi^*(\eta)=\eta\log\frac\eta p+(1-\eta)\log\frac{1-\eta}{1-p}=I(\eta)}.
 $$
 
+## **Reference**
+
+- [東京大学 平成26年度 数学原題（公式公開PDFの保存版）](https://web.archive.org/web/20160418005150id_/http://www.t.u-tokyo.ac.jp:80/soe/admission/data/2014mathJ.pdf)

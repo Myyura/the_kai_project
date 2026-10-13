@@ -75,6 +75,8 @@ $$
 
 ![q、rおよび畳み込みyのグラフ](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2014/kyotsu_201308_math_5_functions.svg)
 
+$0<t<1$ では $y'(t)=t+\sin(2\pi t)$ であるため、全区間で単調増加するわけではない。例えば $y'(3/4)=-1/4<0$ である。
+
 ### III
 
 $v(t)=e^{-t}x(t)$ とおくと、方程式は $v(t)+2\int_0^t v(\tau)\,d\tau=t$ となる。
@@ -84,3 +86,6 @@ $$
 \boxed{x(t)=\frac12(e^t-e^{-t})=\sinh t}.
 $$
 
+## **Reference**
+
+- [東京大学 平成26年度 数学原題（公式公開PDFの保存版）](https://web.archive.org/web/20160418005150id_/http://www.t.u-tokyo.ac.jp:80/soe/admission/data/2014mathJ.pdf)

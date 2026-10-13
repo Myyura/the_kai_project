@@ -2736,6 +2736,10 @@
   label: "Electrical-Electronic.Control-Theory.Damping-and-Oscillation"
   permalink: "/topic/electrical-electronic/control-theory/damping-and-oscillation"
   description: "Electrical-Electronic / Control-Theory / Damping-and-Oscillation"
+"Electrical-Electronic.Control-Theory.DC-Motor-Dynamics":
+  label: "Electrical-Electronic.Control-Theory.DC-Motor-Dynamics"
+  permalink: "/topic/electrical-electronic/control-theory/dc-motor-dynamics"
+  description: "Electrical-Electronic / Control-Theory / DC-Motor-Dynamics"
 "Electrical-Electronic.Control-Theory.Disturbance-Rejection":
   label: "Electrical-Electronic.Control-Theory.Disturbance-Rejection"
   permalink: "/topic/electrical-electronic/control-theory/disturbance-rejection"
@@ -3204,6 +3208,10 @@
   label: "Engineering.Heat-Transfer.Stefan-Problem"
   permalink: "/topic/engineering/heat-transfer/stefan-problem"
   description: "Engineering / Heat-Transfer / Stefan-Problem"
+"Engineering.Heat-Transfer.Temperature-Dependent-Conductivity":
+  label: "Engineering.Heat-Transfer.Temperature-Dependent-Conductivity"
+  permalink: "/topic/engineering/heat-transfer/temperature-dependent-conductivity"
+  description: "Engineering / Heat-Transfer / Temperature-Dependent-Conductivity"
 "Engineering.Heat-Transfer.Thermal-Boundary-Layers":
   label: "Engineering.Heat-Transfer.Thermal-Boundary-Layers"
   permalink: "/topic/engineering/heat-transfer/thermal-boundary-layers"
@@ -3228,10 +3236,46 @@
   label: "Engineering.Heat-Transfer.Transient-Conduction"
   permalink: "/topic/engineering/heat-transfer/transient-conduction"
   description: "Engineering / Heat-Transfer / Transient-Conduction"
+"Engineering.Manufacturing.Casting-Forging-and-Machining":
+  label: "Engineering.Manufacturing.Casting-Forging-and-Machining"
+  permalink: "/topic/engineering/manufacturing/casting-forging-and-machining"
+  description: "Engineering / Manufacturing / Casting-Forging-and-Machining"
+"Engineering.Manufacturing.Grinding-and-Self-Sharpening":
+  label: "Engineering.Manufacturing.Grinding-and-Self-Sharpening"
+  permalink: "/topic/engineering/manufacturing/grinding-and-self-sharpening"
+  description: "Engineering / Manufacturing / Grinding-and-Self-Sharpening"
+"Engineering.Manufacturing.Machine-Tool-Accuracy":
+  label: "Engineering.Manufacturing.Machine-Tool-Accuracy"
+  permalink: "/topic/engineering/manufacturing/machine-tool-accuracy"
+  description: "Engineering / Manufacturing / Machine-Tool-Accuracy"
+"Engineering.Manufacturing.Machining-and-Cutting-Tools":
+  label: "Engineering.Manufacturing.Machining-and-Cutting-Tools"
+  permalink: "/topic/engineering/manufacturing/machining-and-cutting-tools"
+  description: "Engineering / Manufacturing / Machining-and-Cutting-Tools"
+"Engineering.Manufacturing.Upsetting-and-Slab-Method":
+  label: "Engineering.Manufacturing.Upsetting-and-Slab-Method"
+  permalink: "/topic/engineering/manufacturing/upsetting-and-slab-method"
+  description: "Engineering / Manufacturing / Upsetting-and-Slab-Method"
 "Engineering.Manufacturing.Wire-Drawing":
   label: "Engineering.Manufacturing.Wire-Drawing"
   permalink: "/topic/engineering/manufacturing/wire-drawing"
   description: "Engineering / Manufacturing / Wire-Drawing"
+"Engineering.Materials-Science.Fe-C-Phase-Diagram-and-Lever-Rule":
+  label: "Engineering.Materials-Science.Fe-C-Phase-Diagram-and-Lever-Rule"
+  permalink: "/topic/engineering/materials-science/fe-c-phase-diagram-and-lever-rule"
+  description: "Engineering / Materials-Science / Fe-C-Phase-Diagram-and-Lever-Rule"
+"Engineering.Materials-Science.Fick-Diffusion-and-Arrhenius-Law":
+  label: "Engineering.Materials-Science.Fick-Diffusion-and-Arrhenius-Law"
+  permalink: "/topic/engineering/materials-science/fick-diffusion-and-arrhenius-law"
+  description: "Engineering / Materials-Science / Fick-Diffusion-and-Arrhenius-Law"
+"Engineering.Materials-Science.Frank-Read-Source":
+  label: "Engineering.Materials-Science.Frank-Read-Source"
+  permalink: "/topic/engineering/materials-science/frank-read-source"
+  description: "Engineering / Materials-Science / Frank-Read-Source"
+"Engineering.Materials-Science.Grain-Refinement-and-Hall-Petch":
+  label: "Engineering.Materials-Science.Grain-Refinement-and-Hall-Petch"
+  permalink: "/topic/engineering/materials-science/grain-refinement-and-hall-petch"
+  description: "Engineering / Materials-Science / Grain-Refinement-and-Hall-Petch"
 "Engineering.Materials-Science.Piezoelectric-Effect-and-Element":
   label: "Engineering.Materials-Science.Piezoelectric-Effect-and-Element"
   permalink: "/topic/engineering/materials-science/piezoelectric-effect-and-element"
@@ -5276,6 +5320,10 @@
   label: "Physics.Mechanics.Hamilton-Principle-and-Euler-Lagrange-Equation"
   permalink: "/topic/physics/mechanics/hamilton-principle-and-euler-lagrange-equation"
   description: "Physics / Mechanics / Hamilton-Principle-and-Euler-Lagrange-Equation"
+"Physics.Mechanics.Helmholtz-Resonator":
+  label: "Physics.Mechanics.Helmholtz-Resonator"
+  permalink: "/topic/physics/mechanics/helmholtz-resonator"
+  description: "Physics / Mechanics / Helmholtz-Resonator"
 "Physics.Mechanics.Involute-Constrained-Motion":
   label: "Physics.Mechanics.Involute-Constrained-Motion"
   permalink: "/topic/physics/mechanics/involute-constrained-motion"
@@ -5460,6 +5508,10 @@
   label: "Physics.Quantum-Mechanics.Particle-in-Circular-Well"
   permalink: "/topic/physics/quantum-mechanics/particle-in-circular-well"
   description: "Physics / Quantum-Mechanics / Particle-in-Circular-Well"
+"Physics.Quantum-Mechanics.Particle-on-a-Ring":
+  label: "Physics.Quantum-Mechanics.Particle-on-a-Ring"
+  permalink: "/topic/physics/quantum-mechanics/particle-on-a-ring"
+  description: "Physics / Quantum-Mechanics / Particle-on-a-Ring"
 "Physics.Quantum-Mechanics.Pauli-Matrices":
   label: "Physics.Quantum-Mechanics.Pauli-Matrices"
   permalink: "/topic/physics/quantum-mechanics/pauli-matrices"
@@ -5468,6 +5520,10 @@
   label: "Physics.Quantum-Mechanics.Pauli-Matrix-Exponential-and-Unitary-Evolution"
   permalink: "/topic/physics/quantum-mechanics/pauli-matrix-exponential-and-unitary-evolution"
   description: "Physics / Quantum-Mechanics / Pauli-Matrix-Exponential-and-Unitary-Evolution"
+"Physics.Quantum-Mechanics.Photoelectric-Effect":
+  label: "Physics.Quantum-Mechanics.Photoelectric-Effect"
+  permalink: "/topic/physics/quantum-mechanics/photoelectric-effect"
+  description: "Physics / Quantum-Mechanics / Photoelectric-Effect"
 "Physics.Quantum-Mechanics.Quantum-Measurement":
   label: "Physics.Quantum-Mechanics.Quantum-Measurement"
   permalink: "/topic/physics/quantum-mechanics/quantum-measurement"
@@ -5636,6 +5692,10 @@
   label: "Physics.Thermodynamics.Photon-Gas-and-Stefan-Boltzmann-Law"
   permalink: "/topic/physics/thermodynamics/photon-gas-and-stefan-boltzmann-law"
   description: "Physics / Thermodynamics / Photon-Gas-and-Stefan-Boltzmann-Law"
+"Physics.Thermodynamics.Rankine-Cycle":
+  label: "Physics.Thermodynamics.Rankine-Cycle"
+  permalink: "/topic/physics/thermodynamics/rankine-cycle"
+  description: "Physics / Thermodynamics / Rankine-Cycle"
 "Physics.Thermodynamics.Reciprocating-and-Multistage-Compression":
   label: "Physics.Thermodynamics.Reciprocating-and-Multistage-Compression"
   permalink: "/topic/physics/thermodynamics/reciprocating-and-multistage-compression"

@@ -74,3 +74,7 @@ $$
 $$
 
 最後の項が零となるのは $\boldsymbol h=0$ の場合に限るので、確かに唯一の大域的最小点である。
+
+## **Reference**
+
+- [東京大学 平成26年度 数学原題（公式公開PDFの保存版）](https://web.archive.org/web/20160418005150id_/http://www.t.u-tokyo.ac.jp:80/soe/admission/data/2014mathJ.pdf)

@@ -1304,6 +1304,30 @@
           "混合循环"
         ]
       }
+    },
+    "Physics.Mechanics.Helmholtz-Resonator": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "亥姆霍兹共鸣器",
+      "labelJa": "ヘルムホルツ共鳴器",
+      "labelEn": "Helmholtz Resonator"
+    },
+    "Physics.Thermodynamics.Rankine-Cycle": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "朗肯循环",
+      "labelJa": "ランキンサイクル",
+      "labelEn": "Rankine Cycle"
+    },
+    "Physics.Quantum-Mechanics.Particle-on-a-Ring": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "圆环上的量子粒子",
+      "labelJa": "円環上の量子粒子",
+      "labelEn": "Quantum Particle on a Ring"
+    },
+    "Physics.Quantum-Mechanics.Photoelectric-Effect": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "光电效应",
+      "labelJa": "光電効果",
+      "labelEn": "Photoelectric Effect"
     }
   }
 }

@@ -1185,6 +1185,12 @@
       "relatedSubjects": [
         "Mathematics"
       ]
+    },
+    "Electrical-Electronic.Control-Theory.DC-Motor-Dynamics": {
+      "subsubject": "Electrical-Electronic.Control-Theory",
+      "labelZh": "直流电动机动力学",
+      "labelJa": "直流モータの動特性",
+      "labelEn": "DC Motor Dynamics"
     }
   }
 }

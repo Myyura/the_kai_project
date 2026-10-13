@@ -134,3 +134,7 @@ $$
 $$
 
 ![直交座標における楕円放物面と断面](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/engineering/kyotsu/2022/kyotsu_202108_math_2_paraboloid.svg)
+
+## **Reference**
+
+- [東京大学 2022年度入学 数学2 原問題](https://www.t.u-tokyo.ac.jp/hubfs/graduate/2022/kakomon/2022_M_2.pdf)

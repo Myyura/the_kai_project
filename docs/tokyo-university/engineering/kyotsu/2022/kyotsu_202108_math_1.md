@@ -145,3 +145,6 @@ $$
 \boxed{f(t)=e^{-3t}(5\cos2t+2\sin2t)}.
 $$
 
+## **Reference**
+
+- [東京大学 2022年度入学 数学1 原問題](https://www.t.u-tokyo.ac.jp/hubfs/graduate/2022/kakomon/2022_M_1.pdf)

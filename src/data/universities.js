@@ -90,6 +90,12 @@ const universities = [
             "archiveUrl": "/docs/category/tokyo-university-engineering-mech"
           },
           {
+            "id": "aero",
+            "name": "航空宇宙工学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/tokyo-university-engineering-aero"
+          },
+          {
             "id": "urban",
             "name": "都市工学専攻",
             "aliases": [],
@@ -1134,6 +1140,20 @@ const universities = [
         "websiteUrl": "https://www.ist.hokudai.ac.jp/examinfo/"
       },
       {
+        "id": "engineering",
+        "name": "工学院",
+        "aliases": [],
+        "archiveUrl": "/docs/category/hokkaido-university-engineering",
+        "programs": [
+          {
+            "id": "mech",
+            "name": "機械・宇宙航空工学系",
+            "aliases": [],
+            "archiveUrl": "/docs/category/hokkaido-university-engineering-mech"
+          }
+        ]
+      },
+      {
         "id": "public_policy",
         "name": "公共政策大学院",
         "aliases": [],
@@ -1502,6 +1522,12 @@ const universities = [
             "name": "市民工学専攻",
             "aliases": [],
             "archiveUrl": "/docs/category/kobe-university-engineering-shimin"
+          },
+          {
+            "id": "mech",
+            "name": "機械工学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/kobe-university-engineering-mech"
           }
         ],
         "websiteUrl": "http://www.eng.kobe-u.ac.jp/examinee.html"
@@ -1682,6 +1708,12 @@ const universities = [
             "name": "共通数学",
             "aliases": [],
             "archiveUrl": "/docs/category/TUAT-engineering-kyotsu"
+          },
+          {
+            "id": "mech",
+            "name": "機械システム工学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/TUAT-engineering-mech"
           }
         ],
         "websiteUrl": "https://www.tuat.ac.jp/admission/nyushi_daigakuin/"
@@ -1817,9 +1849,42 @@ const universities = [
             "name": "情報工学系",
             "aliases": [],
             "archiveUrl": "/docs/category/nagoya-institute-of-technology-engineering-ie"
+          },
+          {
+            "id": "me",
+            "name": "電気・機械工学系（機械工学）",
+            "aliases": [],
+            "archiveUrl": "/docs/category/nagoya-institute-of-technology-engineering-me"
           }
         ],
         "websiteUrl": "https://www.nitech.ac.jp/examination/in/test.html"
+      }
+    ]
+  },
+  {
+    "id": "kyoto-institute-of-technology",
+    "name": "京都工芸繊維大学",
+    "aliases": [
+      "京都工艺纤维大学",
+      "京工纤",
+      "KIT"
+    ],
+    "color": "#666666",
+    "departments": [
+      {
+        "id": "science_and_technology",
+        "name": "工芸科学研究科",
+        "aliases": [],
+        "programs": [
+          {
+            "id": "information_science",
+            "name": "情報工学専攻",
+            "aliases": [
+              "情报工学",
+              "信息工学"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -2061,33 +2126,6 @@ const universities = [
           }
         ],
         "websiteUrl": "https://www.math.s.chiba-u.ac.jp/exam.html"
-      }
-    ]
-  },
-  {
-    "id": "kyoto-institute-of-technology",
-    "name": "京都工芸繊維大学",
-    "aliases": [
-      "京都工艺纤维大学",
-      "京工纤",
-      "KIT"
-    ],
-    "color": "#666666",
-    "departments": [
-      {
-        "id": "science_and_technology",
-        "name": "工芸科学研究科",
-        "aliases": [],
-        "programs": [
-          {
-            "id": "information_science",
-            "name": "情報工学専攻",
-            "aliases": [
-              "情报工学",
-              "信息工学"
-            ]
-          }
-        ]
       }
     ]
   },

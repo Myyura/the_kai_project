@@ -630,6 +630,66 @@
       "labelZh": "黏度与雷诺数",
       "labelJa": "粘性係数とレイノルズ数",
       "labelEn": "Viscosity and Reynolds Number"
+    },
+    "Engineering.Heat-Transfer.Temperature-Dependent-Conductivity": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "变热导率导热",
+      "labelJa": "温度依存熱伝導率",
+      "labelEn": "Temperature-Dependent Thermal Conductivity"
+    },
+    "Engineering.Materials-Science.Frank-Read-Source": {
+      "subsubject": "Engineering.Materials-Science",
+      "labelZh": "弗兰克–里德位错源",
+      "labelJa": "フランク・リード源",
+      "labelEn": "Frank–Read Source"
+    },
+    "Engineering.Materials-Science.Fick-Diffusion-and-Arrhenius-Law": {
+      "subsubject": "Engineering.Materials-Science",
+      "labelZh": "菲克扩散与阿伦尼乌斯定律",
+      "labelJa": "フィックの拡散とアレニウス則",
+      "labelEn": "Fick Diffusion and Arrhenius Law"
+    },
+    "Engineering.Manufacturing.Upsetting-and-Slab-Method": {
+      "subsubject": "Engineering.Manufacturing",
+      "labelZh": "镦粗与薄层法",
+      "labelJa": "据込みとスラブ法",
+      "labelEn": "Upsetting and the Slab Method"
+    },
+    "Engineering.Manufacturing.Casting-Forging-and-Machining": {
+      "subsubject": "Engineering.Manufacturing",
+      "labelZh": "铸造、锻造与切削加工",
+      "labelJa": "鋳造・鍛造・切削加工",
+      "labelEn": "Casting, Forging, and Machining"
+    },
+    "Engineering.Manufacturing.Machining-and-Cutting-Tools": {
+      "subsubject": "Engineering.Manufacturing",
+      "labelZh": "切削加工与刀具",
+      "labelJa": "切削加工と工具",
+      "labelEn": "Machining and Cutting Tools"
+    },
+    "Engineering.Manufacturing.Grinding-and-Self-Sharpening": {
+      "subsubject": "Engineering.Manufacturing",
+      "labelZh": "磨削与砂轮自锐",
+      "labelJa": "研削と砥石の自生作用",
+      "labelEn": "Grinding and Self-Sharpening"
+    },
+    "Engineering.Manufacturing.Machine-Tool-Accuracy": {
+      "subsubject": "Engineering.Manufacturing",
+      "labelZh": "机床精度与母性原理",
+      "labelJa": "工作機械の精度と母性原理",
+      "labelEn": "Machine Tool Accuracy"
+    },
+    "Engineering.Materials-Science.Fe-C-Phase-Diagram-and-Lever-Rule": {
+      "subsubject": "Engineering.Materials-Science",
+      "labelZh": "Fe-C状态图与杠杆定则",
+      "labelJa": "Fe-C状態図とてこの法則",
+      "labelEn": "Fe–C Phase Diagram and Lever Rule"
+    },
+    "Engineering.Materials-Science.Grain-Refinement-and-Hall-Petch": {
+      "subsubject": "Engineering.Materials-Science",
+      "labelZh": "晶粒细化与Hall–Petch关系",
+      "labelJa": "結晶粒微細化とホール–ペッチ則",
+      "labelEn": "Grain Refinement and Hall–Petch Relation"
     }
   }
 }
