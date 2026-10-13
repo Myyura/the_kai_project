@@ -7,7 +7,8 @@
       "url": "https://www.econ.kyushu-u.ac.jp/wp-content/uploads/2021/10/955be57cfd6609b1ebecbef99b04d371.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "令和4年度修士課程入学試験合格者発表（2021年10月27日）／経済工学専攻の一般12名・外国人留学生1名・社会人0名"
     }
   },
   "series": [
@@ -83,5 +84,6 @@
         }
       ]
     }
-  ]
+  ],
+  "scopeLabel": "経済工学専攻"
 }

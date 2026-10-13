@@ -103,14 +103,16 @@ test('different periods, selections, and explicit ratio bases remain separate', 
   assert.ok(result.slice(1).every((item) => item.points.length === 1));
 });
 
-test('identical official count pairs remove a redundant derived community point', () => {
+test('an explicit equivalence key removes a verified derived community point', () => {
   const official = series('official', [point(2026, 147, 45)], {
     selection: '公表された第1次募集合計',
+    comparisonKey: 'summer-first-round-total',
   });
   const duplicate = series('community', [point(2026, 147, 45)], {
     id: 'derived-total',
     period: 'annual',
     selection: '全部志愿者（作者依据官网二次计算）',
+    comparisonKey: 'summer-first-round-total',
   });
   const externalOnly = series('community', [point(2026, 122, 23)], {
     id: 'external-only',
@@ -272,4 +274,24 @@ test('an official zero-admission year blocks a community ratio fallback', () => 
   const [result] = buildAggregateTrendSeries([official, community]);
 
   assert.deepEqual(result.points.map((item) => item.admissionYear), [2025]);
+});
+
+test('coincidentally identical counts cannot equate annual and summer populations', () => {
+  const official = series('official', [point(2026, 100, 40)], {period: 'annual'});
+  const summer = series('community', [point(2026, 100, 40)]);
+  assert.equal(applyOfficialRatioPrecedence([official, summer]).length, 2);
+});
+
+test('capacity ratios cannot be overwritten or stitched into admission ratios', () => {
+  const official = series('official', [point(2026, 100, 40)], {comparisonKey: 'overall'});
+  const capacity = series('community', [point(2025, 100, null, {
+    ratioKind: 'applicants/capacity', primaryRatio: 5,
+    counts: {applicants: 100, admitted: null, capacity: 20},
+  }), point(2026, 100, null, {
+    ratioKind: 'applicants/capacity', primaryRatio: 5,
+    counts: {applicants: 100, admitted: null, capacity: 20},
+  })], {comparisonKey: 'overall'});
+  assert.equal(applyOfficialRatioPrecedence([official, capacity])[1].points.length, 2);
+  const trends = buildAggregateTrendSeries([official, capacity], {defaultEntityId: 'sample'});
+  assert.deepEqual(trends[0].points.map(item => item.admissionYear), [2026]);
 });

@@ -11,6 +11,7 @@ function finiteNumber(value) {
 
 function ratioFamily(point) {
   const rawKind = normalizedText(point?.ratioKind || point?.primaryRatioBasis);
+  if (rawKind.includes('capacity')) return 'applicants/capacity';
   if (rawKind.includes('examine') || rawKind.includes('受验')) {
     return 'examinees/admitted';
   }
@@ -112,7 +113,9 @@ function seriesAreComparable(left, right, defaultEntityId) {
     return Boolean(
       leftComparisonKey
       && rightComparisonKey
-      && leftComparisonKey === rightComparisonKey,
+      && leftComparisonKey === rightComparisonKey
+      && (seriesRatioFamily(left) === 'reported' || seriesRatioFamily(right) === 'reported'
+        || seriesRatioFamily(left) === seriesRatioFamily(right)),
     );
   }
 
@@ -161,28 +164,6 @@ function ratioFamiliesMatch(communityPoint, officialPoint) {
   return communityFamily !== null && communityFamily === officialFamily;
 }
 
-function pointsShareExactRatioCounts(communityPoint, officialPoint) {
-  if (!ratioFamiliesMatch(communityPoint, officialPoint)) return false;
-  const officialFamily = ratioFamily(officialPoint);
-  const numeratorField = officialFamily === 'applicants/admitted'
-    ? 'applicants'
-    : officialFamily === 'examinees/admitted'
-      ? 'examinees'
-      : null;
-  if (!numeratorField) return false;
-
-  const communityCounts = communityPoint?.counts || {};
-  const officialCounts = officialPoint?.counts || {};
-  const communityNumerator = finiteNumber(communityCounts[numeratorField]);
-  const officialNumerator = finiteNumber(officialCounts[numeratorField]);
-  const communityAdmitted = finiteNumber(communityCounts.admitted);
-  const officialAdmitted = finiteNumber(officialCounts.admitted);
-  return communityNumerator !== null
-    && communityAdmitted !== null
-    && communityNumerator === officialNumerator
-    && communityAdmitted === officialAdmitted;
-}
-
 export function applyOfficialRatioPrecedence(seriesList, {defaultEntityId = ''} = {}) {
   const sourceSeries = Array.isArray(seriesList) ? seriesList : [];
   const officialByCandidate = new Map();
@@ -191,7 +172,7 @@ export function applyOfficialRatioPrecedence(seriesList, {defaultEntityId = ''} 
     .filter((series) => series.sourceType === 'official')
     .forEach((series) => {
       series.points.forEach((point) => {
-        if (!officialRatioIsComputed(point)) return;
+        if (!officialRatioIsComputed(point) && !officialRatioIsNotApplicable(point)) return;
         const key = candidateKey(series, point, defaultEntityId);
         const candidates = officialByCandidate.get(key) || [];
         candidates.push({
@@ -217,12 +198,12 @@ export function applyOfficialRatioPrecedence(seriesList, {defaultEntityId = ''} 
           (
             communityComparisonKey
             && communityComparisonKey === candidate.comparisonKey
+            && (ratioFamily(point) === 'reported' || ratioFamiliesMatch(point, candidate.point))
           )
           || (
             candidate.typeKey === communityTypeKey
             && ratioFamiliesMatch(point, candidate.point)
           )
-          || pointsShareExactRatioCounts(point, candidate.point)
         ));
       });
       return points.length === series.points.length ? series : {...series, points};
@@ -316,6 +297,8 @@ export function buildAggregateTrendSeries(seriesList, {defaultEntityId = ''} = {
           trendSourceSeriesId: series.id || series.key,
           trendSourceSeriesLabel: series.label,
           trendSourceSeriesNotes: series.notes,
+          trendSourcePeriod: series.period,
+          trendSourceSelection: series.selection,
         });
       });
     });
@@ -329,7 +312,6 @@ export function buildAggregateTrendSeries(seriesList, {defaultEntityId = ''} = {
       ...anchor,
       id: `aggregate-trend-${entityId}`,
       key: `aggregate-trend::${entityId}`,
-      label: anchor.originLabel || anchor.label,
       sourceType: sourceTypes.size > 1 ? 'mixed' : points[0]?.trendSourceType,
       points,
       trendSeriesKeys: comparableSeries.map((series) => series.key),
@@ -371,11 +353,9 @@ export function buildSeasonAdmissionView(seriesList, {
   const displayedSeries = applyOfficialRatioPrecedence(seasonalSeries, {defaultEntityId});
   if (!isAggregate) return {trendSeries: displayedSeries, detailSeries: displayedSeries};
 
-  // Keep the existing summer comparison basis. Winter evidence remains available
-  // in the details even when counts are insufficient to calculate any ratio.
-  const chartCandidates = winter
-    ? displayedSeries
-    : displayedSeries.filter((series) => chartablePointCount(series) > 0);
-  const trendSeries = buildAggregateTrendSeries(chartCandidates, {defaultEntityId});
-  return {trendSeries, detailSeries: winter ? displayedSeries : trendSeries};
+  // Select a representative trend without dropping other comparison bases or
+  // counts-only evidence from the details. Zero-admission official points also
+  // need to reach the trend builder so they can block community ratio fallbacks.
+  const trendSeries = buildAggregateTrendSeries(displayedSeries, {defaultEntityId});
+  return {trendSeries, detailSeries: displayedSeries};
 }

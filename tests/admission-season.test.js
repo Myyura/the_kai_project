@@ -242,7 +242,33 @@ test('aggregate summer retains official summer precedence and comparable communi
     ]),
     [[2024, 1.5, 'community'], [2025, 2, 'official']],
   );
-  assert.deepEqual(result.detailSeries, result.trendSeries);
+  assert.deepEqual(result.detailSeries.map((item) => item.id), ['annual', 'april', 'community', 'summer']);
+  assert.deepEqual(result.detailSeries.find((item) => item.id === 'community').points
+    .map((item) => item.admissionYear), [2024]);
+});
+
+test('aggregate summer preserves official counts and blocks fallback when only zero-admission evidence exists', () => {
+  const official = series('official-zero', [point(2026, {applicants: 8, admitted: 0})], {
+    period: 'summer',
+    originEntityId: 'program-a',
+    comparisonKey: 'same-selection',
+  });
+  const community = series('community-ratio', [ratioPoint(2026, 2)], {
+    period: 'summer',
+    originEntityId: 'program-a',
+    sourceType: 'community',
+    comparisonKey: 'same-selection',
+  });
+  const countsOnly = series('counts-only', [point(2027, {enrolled: 3})], {
+    period: 'april_admission',
+    originEntityId: 'program-b',
+  });
+  const result = buildSeasonAdmissionView([official, community, countsOnly], {isAggregate: true});
+
+  assert.deepEqual(result.trendSeries, []);
+  assert.deepEqual(result.detailSeries, [official, countsOnly]);
+  assert.equal(result.detailSeries[0].points[0].counts.admitted, 0);
+  assert.equal(result.detailSeries[1].points[0].counts.applicants, null);
 });
 
 test('aggregate season views use the supplied entity when series lack an origin', () => {

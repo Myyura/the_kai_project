@@ -32,7 +32,9 @@ const RATIO_KIND_LABELS = {
   examineesPerAdmitted: '受验 / 合格',
   examinee_to_admitted: '受验 / 合格',
   examination: '受验 / 合格',
-  reported: '来源报告倍率',
+  'applicants/capacity': '志愿 / 招生名额',
+  applicants_capacity: '志愿 / 招生名额',
+  reported: '来源报告倍率（口径见注记）',
 };
 
 const SCOPE_LABELS = {
@@ -40,6 +42,28 @@ const SCOPE_LABELS = {
   program: '专攻级',
   course: '课程级',
   aggregate: '上位合计',
+};
+
+const AGGREGATE_UNIT_LABELS = {
+  graduate_school_total: '研究科',
+  program: '专攻',
+  course: '课程',
+};
+
+const PERIOD_LABELS = {
+  summer: '夏季',
+  winter: '冬季',
+  spring: '春季考试',
+  autumn: '秋季考试',
+  general_exam: '一般入试',
+  april_admission: '4月入学',
+  october_admission: '10月入学',
+  annual: '全年合计',
+  recommendation_april_entry: '推荐入学（4月入学）',
+  spring_exam_april_entry: '春季考试（4月入学）',
+  autumn_exam_april_entry: '秋季考试（4月入学）',
+  autumn_exam_october_entry: '秋季考试（10月入学）',
+  'other-2021-10': '2021年10月公布',
 };
 
 const CHART = {
@@ -155,6 +179,7 @@ function normalizeSeries(rawSeries, index) {
       ? `${rawSeries.originEntityId}::${rawSeries?.id || `${sourceType}-${index}`}`
       : `${rawSeries?.id || sourceType}-${index}`,
     label: rawSeries?.label || `系列 ${index + 1}`,
+    seriesColorIndex: index % AGGREGATE_COLOR_COUNT,
     sourceType,
     points,
   };
@@ -215,6 +240,8 @@ function resolveAdmissionContext(slug) {
           originEntityId: child.entityId,
           originLabel: child.label,
           originSlug: child.slug,
+          originScope: child.scope,
+          originScopeLabel: child.scopeLabel,
           aggregateColorIndex: child.aggregateColorIndex,
         }))
       )),
@@ -288,10 +315,29 @@ function seriesDisplayLabel(series) {
     : `${series.originLabel} · ${series.label}`;
 }
 
+function aggregateUnitLabel(childEntities) {
+  const scopes = new Set(childEntities.map((child) => child.scope));
+  return scopes.size === 1
+    ? AGGREGATE_UNIT_LABELS[[...scopes][0]] || '招生单位'
+    : '招生单位';
+}
+
+function seriesBasisLabel(series, point) {
+  const period = point?.trendSourcePeriod ?? series.period;
+  const selection = point?.trendSourceSelection ?? series.selection;
+  const ratioKinds = point
+    ? [point.ratioKind]
+    : [...new Set((series.points || []).map((item) => item.ratioKind).filter(Boolean))];
+  const ratioLabel = ratioKinds.map(ratioKindLabel).join(' / ');
+  return [series.originScopeLabel, PERIOD_LABELS[period] || period, selection, ratioLabel]
+    .filter(Boolean).join(' · ');
+}
+
 function aggregateSeriesStyle(series, isAggregate) {
-  if (!isAggregate || !Number.isInteger(series.aggregateColorIndex)) return undefined;
+  const colorIndex = series.aggregateColorIndex ?? series.seriesColorIndex;
+  if (!isAggregate || !Number.isInteger(colorIndex)) return undefined;
   return {
-    '--admission-series-color': `var(--admission-entity-${series.aggregateColorIndex + 1})`,
+    '--admission-series-color': `var(--admission-entity-${colorIndex + 1})`,
   };
 }
 
@@ -349,10 +395,10 @@ function pointDescription(series, point) {
     ? (zeroAdmissionDenominator ? '合格者为 0，倍率不适用' : '倍率未公开')
     : `${ratioKindLabel(point.ratioKind)} ${formatRatio(point.primaryRatio)}倍`;
   const notes = pointNotesText(series, point);
-  return `${seriesDisplayLabel(series)}、${sourceTypeLabel(trendPointSourceType(series, point))}、${point.admissionYear}年度、${ratioText}${countText ? `、${countText}` : ''}${notes ? `、注记：${notes}` : ''}`;
+  return `${seriesDisplayLabel(series)}、${seriesBasisLabel(series, point)}、${sourceTypeLabel(trendPointSourceType(series, point))}、${point.admissionYear}年度、${ratioText}${countText ? `、${countText}` : ''}${notes ? `、注记：${notes}` : ''}`;
 }
 
-function buildSegments(series, visibleYears, xForYear, yForRatio) {
+function buildSegments(series, plotYears, xForYear, yForRatio) {
   const pointByYear = new Map(
     series.points
       .filter((point) => point.primaryRatio !== null)
@@ -362,7 +408,7 @@ function buildSegments(series, visibleYears, xForYear, yForRatio) {
   let current = [];
   let previousYear = null;
 
-  visibleYears.forEach((year) => {
+  plotYears.forEach((year) => {
     const point = pointByYear.get(year);
     if (!point || (previousYear !== null && year - previousYear > 1)) {
       if (current.length) segments.push(current);
@@ -451,6 +497,9 @@ function SourceList({sourceIds, sourcesById}) {
               {source.evidenceLocator && (
                 <div className={styles.sourceEvidence}>证据位置：{source.evidenceLocator}</div>
               )}
+              {notesText(source.notes) && (
+                <div className={styles.sourceEvidence}>来源说明：{notesText(source.notes)}</div>
+              )}
             </li>
           );
         })}
@@ -465,6 +514,7 @@ function AdmissionTrendCardContent({slug}) {
   const entityId = context?.entityId;
   const entity = context?.entity;
   const isAggregate = Boolean(context?.isAggregate);
+  const unitLabel = aggregateUnitLabel(context?.childEntities || []);
   const [selectedSeason, setSelectedSeason] = useState('summer');
   const normalizedSeries = useMemo(
     () => (Array.isArray(entity?.series) ? entity.series : [])
@@ -522,6 +572,10 @@ function AdmissionTrendCardContent({slug}) {
       visibleYearSet.has(point.admissionYear) && point.primaryRatio !== null
     ))
   ));
+  const plotYears = visibleYears.filter((year) => chartSeries.some((series) => (
+    series.points.some((point) => point.admissionYear === year && point.primaryRatio !== null)
+  )));
+  const useSeriesColors = isAggregate || chartSeries.length > 1;
   const aggregateLegendGroups = new Map();
   chartSeries.forEach((series) => {
     if (!series.originEntityId) return;
@@ -529,6 +583,7 @@ function AdmissionTrendCardContent({slug}) {
       originEntityId: series.originEntityId,
       originLabel: series.originLabel,
       aggregateColorIndex: series.aggregateColorIndex,
+      basisLabel: seriesBasisLabel(series),
       series: [],
     };
     group.series.push(series);
@@ -557,9 +612,9 @@ function AdmissionTrendCardContent({slug}) {
   const plotWidth = CHART.width - CHART.left - CHART.right;
   const plotHeight = CHART.height - CHART.top - CHART.bottom;
   const xForYear = (year) => {
-    const index = visibleYears.indexOf(year);
-    if (visibleYears.length <= 1) return CHART.left + plotWidth / 2;
-    return CHART.left + (index / (visibleYears.length - 1)) * plotWidth;
+    const index = plotYears.indexOf(year);
+    if (plotYears.length <= 1) return CHART.left + plotWidth / 2;
+    return CHART.left + (index / (plotYears.length - 1)) * plotWidth;
   };
   const yForRatio = (ratio) => (
     CHART.top + plotHeight - (ratio / upperBound) * plotHeight
@@ -577,9 +632,7 @@ function AdmissionTrendCardContent({slug}) {
 
   const visibleSourceIds = [...new Set(
     detailSeries.flatMap((series) => (
-      series.points
-        .filter((point) => visibleYearSet.has(point.admissionYear))
-        .flatMap((point) => point.sourceIds)
+      series.points.flatMap((point) => point.sourceIds)
     )),
   )];
 
@@ -621,21 +674,28 @@ function AdmissionTrendCardContent({slug}) {
     selectSeason(nextSeason);
     seasonTabRefs.current[nextSeason]?.focus();
   };
-  const hasUnsplitSeries = season === 'summer' && detailSeries.some((series) => (
-    series.period !== 'summer' && series.period !== 'general_exam'
+  const hasNonSeasonalSeries = normalizedSeries.some((series) => (
+    series.period !== 'summer' && series.period !== 'winter'
   ));
+  const hasUnsplitSeries = season === 'summer' && detailSeries.some((series) => (
+    series.period !== 'summer'
+  ));
+  const hasDifferentComparisonBases = isAggregate && new Set(trendSeries.map((series) => (
+    [series.degree, series.period, series.selection,
+      ...new Set(series.points.map((point) => point.ratioKind))].join('|')
+  ))).size > 1;
 
   return (
     <section
-      className={`${styles.card} ${isAggregate ? styles.aggregateCard : ''}`}
+      className={`${styles.card} ${isAggregate ? styles.aggregateCard : ''} ${useSeriesColors ? styles.coloredSeries : ''}`}
       aria-labelledby={`${titleId}-heading`}>
       <div className={styles.header}>
         <div className={styles.headerTitle}>
           <p className={styles.eyebrow}>
-            {isAggregate ? '招生数据 · 专攻对比' : '招生数据'}
+            {isAggregate ? `招生数据 · ${unitLabel}对比` : '招生数据'}
           </p>
           <h2 id={`${titleId}-heading`}>
-            {isAggregate ? '直属专攻入试趋势' : '入试趋势'}
+            {isAggregate ? `直属${unitLabel}入试趋势` : '入试趋势'}
           </h2>
         </div>
         <div className={styles.headerMeta}>
@@ -646,7 +706,7 @@ function AdmissionTrendCardContent({slug}) {
           )}
           {isAggregate && aggregateProgramCount > 0 ? (
             <span className={styles.scopeBadge}>
-              {aggregateProgramCount} 个专攻
+              {aggregateProgramCount} 个{unitLabel}
             </span>
           ) : (entity.scopeLabel || SCOPE_LABELS[entity.scope]) && (
             <span className={styles.scopeBadge}>
@@ -676,7 +736,7 @@ function AdmissionTrendCardContent({slug}) {
 
       {hasWinterData && (
         <div className={styles.seasonTabs} role="tablist" aria-label="选择考试季节">
-          {[['summer', '夏季'], ['winter', '冬季']].map(([value, label]) => (
+          {[['summer', hasNonSeasonalSeries ? '主募集 / 其他统计' : '夏季'], ['winter', '冬季']].map(([value, label]) => (
             <button
               key={value}
               ref={(element) => {seasonTabRefs.current[value] = element;}}
@@ -701,7 +761,12 @@ function AdmissionTrendCardContent({slug}) {
         aria-labelledby={hasWinterData ? `${titleId}-${season}-tab` : undefined}>
       {hasUnsplitSeries && (
         <p className={styles.seasonNote}>
-          按入学期或年度汇总的数据另列系列，不代表夏季单场人数。
+          主募集、入学期和年度汇总数据按原口径另列系列，不都代表夏季单场人数。
+        </p>
+      )}
+      {hasDifferentComparisonBases && (
+        <p className={styles.seasonNote}>
+          各{unitLabel}的代表系列期间、选拔或倍率口径不同，请结合图例与数据点明细查看；下方保留其他已公开口径。
         </p>
       )}
       <div className={styles.legendRegion}>
@@ -717,10 +782,13 @@ function AdmissionTrendCardContent({slug}) {
                 className={`${styles.legendButton} ${!active ? styles.legendButtonInactive : ''}`}
                 style={aggregateSeriesStyle(group, true)}
                 aria-pressed={active}
-                title={group.originLabel}
+                title={`${group.originLabel} · ${group.basisLabel}`}
                 onClick={() => toggleAggregateGroup(group)}>
                 <span className={styles.colorSwatch} aria-hidden="true" />
-                <span>{group.originLabel}</span>
+                <span className={styles.legendText}>
+                  <span>{group.originLabel}</span>
+                  <small>{group.basisLabel}</small>
+                </span>
               </button>
             );
           }) : chartSeries.map((series) => {
@@ -731,7 +799,8 @@ function AdmissionTrendCardContent({slug}) {
                 type="button"
                 className={`${styles.legendButton} ${!active ? styles.legendButtonInactive : ''}`}
                 aria-pressed={active}
-                title={series.label}
+                title={`${series.label} · ${seriesBasisLabel(series)}`}
+                style={aggregateSeriesStyle(series, useSeriesColors)}
                 onClick={() => toggleSeries(series.key)}>
                 <span className={`${styles.lineSample} ${styles[series.sourceType]}`} />
                 <span>{series.label}</span>
@@ -740,7 +809,7 @@ function AdmissionTrendCardContent({slug}) {
             );
           })}
         </div>
-        {isAggregate && chartSeries.length > 0 && (
+        {useSeriesColors && chartSeries.length > 0 && (
           <div className={styles.sourceKey} aria-label="数据来源线型说明">
             <span><i className={`${styles.lineSample} ${styles.official}`} aria-hidden="true" />官方</span>
             <span><i className={`${styles.lineSample} ${styles.community}`} aria-hidden="true" />民间</span>
@@ -756,12 +825,14 @@ function AdmissionTrendCardContent({slug}) {
             role="img"
             aria-labelledby={`${titleId} ${descriptionId}`}>
             <title id={titleId}>
-              {isAggregate ? '直属专攻历年入试倍率对比图' : '历年入试倍率趋势图'}
+              {isAggregate ? `直属${unitLabel}历年入试倍率对比图` : '历年入试倍率趋势图'}
             </title>
             <desc id={descriptionId}>
               {isAggregate
-                ? '每个专攻只有一条走势，不同颜色表示不同专攻；官方区间为实线，民间补充区间为虚线。可使用图例切换专攻，并聚焦数据点查看明细。'
-                : '蓝色实线表示官方数据，橙色虚线表示民间数据。可使用图例切换系列，并聚焦数据点查看明细。'}
+                ? `每个${unitLabel}展示一条代表走势，口径见图例；不同颜色表示不同${unitLabel}。官方区间为实线，民间补充区间为虚线。可使用图例切换，并聚焦数据点查看明细。`
+                : useSeriesColors
+                  ? '不同颜色表示不同统计系列；官方数据为实线，民间数据为虚线。可使用图例切换系列，并聚焦数据点查看明细。'
+                  : '蓝色实线表示官方数据，橙色虚线表示民间数据。可聚焦数据点查看明细。'}
             </desc>
 
             {yTicks.map((tick) => {
@@ -782,7 +853,7 @@ function AdmissionTrendCardContent({slug}) {
               );
             })}
 
-            {visibleYears.map((year) => (
+            {plotYears.map((year) => (
               <g key={year}>
                 <line
                   className={styles.tickLine}
@@ -802,12 +873,12 @@ function AdmissionTrendCardContent({slug}) {
             ))}
 
             {activeSeries.map((series) => {
-              const segments = buildSegments(series, visibleYears, xForYear, yForRatio);
+              const segments = buildSegments(series, plotYears, xForYear, yForRatio);
               const lineRuns = buildLineRuns(series, segments);
               return (
                 <g
                   className={styles[series.sourceType]}
-                  style={aggregateSeriesStyle(series, isAggregate)}
+                  style={aggregateSeriesStyle(series, useSeriesColors)}
                   key={series.key}>
                   {lineRuns.map((run, runIndex) => {
                     const path = run.points.map(({x, y}, pointIndex) => (
@@ -862,8 +933,8 @@ function AdmissionTrendCardContent({slug}) {
             })}
 
             {hoveredPoint && (() => {
-              const tooltipWidth = 172;
-              const tooltipHeight = 56;
+              const tooltipWidth = 212;
+              const tooltipHeight = 72;
               const tooltipGap = 12;
               const plotRight = CHART.width - CHART.right;
               const plotBottom = CHART.height - CHART.bottom;
@@ -882,7 +953,7 @@ function AdmissionTrendCardContent({slug}) {
                   className={styles.tooltip}
                   style={tooltipSeriesStyle(
                     hoveredPoint.series,
-                    isAggregate,
+                    useSeriesColors,
                     hoveredPoint.point,
                   )}
                   aria-hidden="true">
@@ -901,6 +972,9 @@ function AdmissionTrendCardContent({slug}) {
                   </text>
                   <text className={styles.tooltipMuted} x={tooltipX + 12} y={tooltipY + 49}>
                     {tooltipDetail}
+                  </text>
+                  <text className={styles.tooltipMuted} x={tooltipX + 12} y={tooltipY + 63}>
+                    {shortLabel(seriesBasisLabel(hoveredPoint.series, hoveredPoint.point), 28)}
                   </text>
                 </g>
               );
@@ -926,7 +1000,7 @@ function AdmissionTrendCardContent({slug}) {
         <summary>
           <span>查看最新数据与人数明细</span>
           <small>
-            {isAggregate ? aggregateProgramCount : latestEntries.length} {isAggregate ? '个专攻' : '个系列'}
+            {isAggregate ? aggregateProgramCount : latestEntries.length} {isAggregate ? `个${unitLabel}` : '个系列'}
           </small>
         </summary>
         {latestEntries.length > 0 ? (
@@ -941,6 +1015,11 @@ function AdmissionTrendCardContent({slug}) {
                     {sourceTypeLabel(trendPointSourceType(series, point))}
                   </span>
                 </div>
+                {isAggregate && (
+                  <p className={styles.seriesBasis}>
+                    {[!series.originScopeLabel && SCOPE_LABELS[series.originScope], seriesBasisLabel(series)].filter(Boolean).join(' · ')}
+                  </p>
+                )}
                 <div className={styles.ratioRow}>
                   <span className={styles.ratioValue}>
                     {formatPointRatio(point)}
@@ -976,7 +1055,9 @@ function AdmissionTrendCardContent({slug}) {
 
       <SourceList sourceIds={visibleSourceIds} sourcesById={admissionStats?.sourcesById} />
 
-      <div className={styles.srOnly}>
+      <details className={styles.history}>
+        <summary>查看全部年度人数与倍率</summary>
+        <div className={styles.tableScroller}>
         <table>
           <caption>入试趋势图数据明细</caption>
           <thead>
@@ -991,11 +1072,15 @@ function AdmissionTrendCardContent({slug}) {
           </thead>
           <tbody>
             {detailSeries.flatMap((series) => series.points
-              .filter((point) => visibleYearSet.has(point.admissionYear))
               .map((point) => (
                 <tr key={`${series.key}-table-${point.admissionYear}`}>
                   <td>{seriesDisplayLabel(series)}</td>
-                  <td>{sourceTypeLabel(trendPointSourceType(series, point))}</td>
+                  <td>{sourceTypeLabel(trendPointSourceType(series, point))}
+                    {point.sourceIds.map((id) => {
+                      const source = admissionStats?.sourcesById?.[id];
+                      return source?.url ? <a key={id} href={source.url} target="_blank" rel="noreferrer" title={source.title}> · 原始来源</a> : null;
+                    })}
+                  </td>
                   <td>{point.admissionYear}</td>
                   <td>{ratioKindLabel(point.ratioKind)}</td>
                   <td>{formatPointRatio(point)}</td>
@@ -1006,7 +1091,8 @@ function AdmissionTrendCardContent({slug}) {
               ))) }
           </tbody>
         </table>
-      </div>
+        </div>
+      </details>
       </div>
     </section>
   );

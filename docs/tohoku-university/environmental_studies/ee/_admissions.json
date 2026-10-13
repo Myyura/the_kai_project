@@ -2,12 +2,29 @@
   "schemaVersion": 1,
   "scope": "course",
   "sources": {
-    "source-4f8ecce473": {
-      "title": "入学希望の方へ｜東北大学大学院 環境科学研究科",
-      "url": "https://www.kankyo.tohoku.ac.jp/newstudent/senkouj.html",
+    "source-c67450fe53": {
+      "title": "東北大学環境科学研究科 入学試験選考状況・博士課程前期2年の課程（2024年度入学者）",
+      "url": "https://www.kankyo.tohoku.ac.jp/newstudent/senkouj_m2024.html",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "エネルギー環境群／推薦4月、秋季4月・10月、春季4月の選抜別行（括弧内女子は内数）"
+    },
+    "source-13246174d6": {
+      "title": "東北大学環境科学研究科 入学試験選考状況・博士課程前期2年の課程（2025年度入学者）",
+      "url": "https://www.kankyo.tohoku.ac.jp/newstudent/senkouj_m2025.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "エネルギー環境群／推薦4月、秋季4月・10月、春季4月の選抜別行（括弧内女子は内数）"
+    },
+    "source-3481274fee": {
+      "title": "東北大学環境科学研究科 入学試験選考状況・博士課程前期2年の課程（2026年度入学者）",
+      "url": "https://www.kankyo.tohoku.ac.jp/newstudent/senkouj_m.html",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "エネルギー環境群／推薦4月、秋季4月・10月、春季4月の選抜別行（括弧内女子は内数）"
     }
   },
   "series": [
@@ -29,9 +46,22 @@
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "source-4f8ecce473"
+            "source-13246174d6"
           ],
           "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：推薦入学特別選抜（2025年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 2,
+          "examinees": 2,
+          "admitted": 2,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3481274fee"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：推薦入学特別選抜（2026年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
         }
       ]
     },
@@ -53,9 +83,22 @@
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "source-4f8ecce473"
+            "source-13246174d6"
           ],
           "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：春季入試（2025年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 2,
+          "examinees": 1,
+          "admitted": 1,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3481274fee"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：春季入試（2026年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
         }
       ]
     },
@@ -77,9 +120,22 @@
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "source-4f8ecce473"
+            "source-c67450fe53"
           ],
           "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：秋季入試（2024年10月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 1,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-13246174d6"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：秋季入試（2025年10月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
         }
       ]
     },
@@ -101,9 +157,22 @@
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "source-4f8ecce473"
+            "source-c67450fe53"
           ],
           "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：秋季入試（2024年10月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 1,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-13246174d6"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：秋季入試（2025年10月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
         }
       ]
     },
@@ -125,11 +194,99 @@
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "source-4f8ecce473"
+            "source-13246174d6"
           ],
           "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：秋季入試（2025年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 28,
+          "examinees": 28,
+          "admitted": 28,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3481274fee"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：秋季入試（2026年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        }
+      ]
+    },
+    {
+      "id": "series-17dfb19818f7",
+      "label": "エネルギー環境群 · 春季入試（4月入学） · 社会人特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "spring_exam_april_entry",
+      "selection": "社会人特別選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 0,
+          "examinees": 0,
+          "admitted": 0,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-13246174d6"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：春季入試（2025年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 0,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3481274fee"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：春季入試（2026年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        }
+      ]
+    },
+    {
+      "id": "series-9e9220ac3071",
+      "label": "エネルギー環境群 · 春季入試（4月入学） · 外国人留学生等特別選抜",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "spring_exam_april_entry",
+      "selection": "外国人留学生等特別選抜",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 0,
+          "examinees": 0,
+          "admitted": 0,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-13246174d6"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：春季入試（2025年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 1,
+          "examinees": 1,
+          "admitted": 0,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-3481274fee"
+          ],
+          "notes": "専攻横断の入試群単位。研究科または専攻の募集人員は群別に配分されていないためcapacityはnull。；同じ入学年度でも入試時期・選抜区分を分離。；原始考试期：春季入試（2026年4月入学）；证据定位：Webページ「入学試験実施状況」エネルギー環境群の該当選抜行"
         }
       ]
     }
-  ]
+  ],
+  "scopeLabel": "エネルギー環境群（入試群）"
 }

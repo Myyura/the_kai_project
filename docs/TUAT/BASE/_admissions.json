@@ -7,7 +7,9 @@
       "url": "https://www.tuat.ac.jp/documents/tuat/outline/jyouhoukoukai/houjin/gakubu/senshin_m_2407_gakusei.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 3頁、表1「本学大学院における過去5年間の志願状況及び定員充足率」／生物システム応用科学府／R4・R5列。",
+      "notes": "公表欄は志願者数・入学者数。原表の「志願倍率」は志願者数／募集人員であり、合格者数を分母とする倍率ではない。合格者数は掲載なし。"
     }
   },
   "series": [

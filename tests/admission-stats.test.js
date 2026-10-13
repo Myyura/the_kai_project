@@ -381,3 +381,21 @@ test('--check compares without writing and normal generation creates parent dire
   assert.equal(runCli(['--check', '--docs-dir', docsDir, '--output', outputFile]), 1);
   assert.equal(fs.readFileSync(outputFile, 'utf8'), staleContent, '--check must not update stale output');
 });
+
+test('reported ratios preserve their denominator and a published zero cannot fall back to a ratio', (t) => {
+  const {docsDir} = makeWorkspace(t);
+  writeEntity(docsDir, 'sample', {
+    schemaVersion: 1, scope: 'program', scopeLabel: 'One published course only',
+    sources: {'official-2026': source('official-2026')},
+    series: [baseSeries({points: [
+      {admissionYear: 2025, applicants: 100, capacity: 20, reportedRatio: 5,
+        reportedRatioBasis: 'applicants_capacity', sourceIds: ['official-2026']},
+      {admissionYear: 2026, applicants: 10, admitted: 0, reportedRatio: 5,
+        sourceIds: ['official-2026']},
+    ]})],
+  });
+  const {statsByEntity} = generateAdmissionStats({docsDir});
+  assert.equal(statsByEntity.sample.scopeLabel, 'One published course only');
+  assert.equal(statsByEntity.sample.series[0].points[0].primaryRatioBasis, 'applicants/capacity');
+  assert.equal(statsByEntity.sample.series[0].points[1].primaryRatio, null);
+});

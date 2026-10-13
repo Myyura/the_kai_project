@@ -7,48 +7,26 @@
       "url": "https://www2.fish.hokudai.ac.jp/department-graduate-school/officer.html",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "「入学定員・志願者数・入学者数」修士課程／5月1日現在（秋入学者を含まない）"
     },
     "source-0530347d00": {
       "title": "大学院水産科学研究院・水産科学院・水産学部概要2025",
       "url": "https://www2.fish.hokudai.ac.jp/wp-content/uploads/2025/11/suigaiyo2025_all_202507.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "「入学定員・志願者数・入学者数」修士課程／5月1日現在（秋入学者を含まない）／PDF 16頁"
     }
   },
   "series": [
     {
       "id": "series-20702035b0c7",
-      "label": "水産科学院全体（2専攻合計） · 全年合計 · 全区分合計",
+      "label": "水産科学院全体（2専攻合計） · 4月入学 · 全区分合計",
       "sourceType": "official",
       "confidence": "high",
       "degree": "master",
-      "period": "annual",
-      "selection": "全区分合計",
-      "points": [
-        {
-          "admissionYear": 2026,
-          "capacity": 114,
-          "applicants": 126,
-          "examinees": null,
-          "admitted": null,
-          "enrolled": 91,
-          "reportedRatio": null,
-          "sourceIds": [
-            "source-03d5ebd3e4"
-          ],
-          "notes": "水産科学院2专攻合计，远大于项目所列海洋环境科学讲座/海洋物理学范围。；合格者数・受験者数は非掲載；只能作宽口径背景，不能计算项目课程报录比。；原始考试期：年度合計；证据定位：大学院水産科学院「入学定員・志願者数・入学者数」表／修士課程"
-        }
-      ]
-    },
-    {
-      "id": "series-698e97e1d6a8",
-      "label": "水産科学院全体（2専攻合计） · 全年合計 · 全区分合計",
-      "sourceType": "official",
-      "confidence": "high",
-      "degree": "master",
-      "period": "annual",
+      "period": "april_admission",
       "selection": "全区分合計",
       "points": [
         {
@@ -62,9 +40,23 @@
           "sourceIds": [
             "source-0530347d00"
           ],
-          "notes": "水産科学院2专攻合计，远大于项目所列海洋环境科学讲座/海洋物理学范围。；合格者数・受験者数は非掲載；只能作宽口径背景，不能计算项目课程报录比。；原始考试期：年度合計；证据定位：概要PDF「入学定員・志願者数・入学者数」／修士課程"
+          "notes": "水産科学院2专攻合计，远大于项目所列海洋环境科学讲座/海洋物理学范围。；合格者数・受験者数は非掲載；只能作宽口径背景，不能计算项目课程报录比。；原始考试期：4月入学（5月1日現在、秋入学者を含まない）；证据定位：概要PDF「入学定員・志願者数・入学者数」／修士課程"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 114,
+          "applicants": 126,
+          "examinees": null,
+          "admitted": null,
+          "enrolled": 91,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-03d5ebd3e4"
+          ],
+          "notes": "水産科学院2专攻合计，远大于项目所列海洋环境科学讲座/海洋物理学范围。；合格者数・受験者数は非掲載；只能作宽口径背景，不能计算项目课程报录比。；原始考试期：4月入学（5月1日現在、秋入学者を含まない）；证据定位：大学院水産科学院「入学定員・志願者数・入学者数」表／修士課程"
         }
       ]
     }
-  ]
+  ],
+  "scopeLabel": "水産科学院全体（2専攻合計）"
 }

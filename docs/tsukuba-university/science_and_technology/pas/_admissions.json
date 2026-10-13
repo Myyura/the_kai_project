@@ -1,41 +1,46 @@
 {
   "schemaVersion": 1,
-  "scope": "program",
+  "scope": "aggregate",
   "sources": {
     "source-1990e851b1": {
       "title": "令和7年度大学院入学試験結果（数理物質科学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r7-pure-applied-sciences.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     },
     "source-29db63dc4f": {
       "title": "令和6年度大学院入学試験結果（数理物質科学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r6-pure-applied-sciences.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     },
     "source-a0da184893": {
       "title": "令和8年度大学院入学試験結果（数理物質科学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r8-pure-applied-sciences.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     },
     "source-b71440d484": {
       "title": "令和4年度大学院入学試験結果（数理物質科学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r4-3.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     },
     "source-ef1a099b7c": {
       "title": "令和5年度大学院入学試験結果（数理物質科学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r5-pure-applied-sciences.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     }
   },
   "series": [
@@ -59,7 +64,7 @@
           "sourceIds": [
             "source-b71440d484"
           ],
-          "notes": "研究群の博士前期課程小計。学位プログラム別ではなく、研究群全体の公式値。；注記により一部の特別プログラム値を除く場合がある。一貫制博士課程は含めない。；原始考试期：全年合計（10月1日現在）；证据定位：p.1 博士前期「小計」行"
+          "notes": "研究群の博士前期課程小計。学位プログラム別ではなく、研究群全体の公式値。；注記により一部の特別プログラム値を除く場合がある。一貫制博士課程は含めない。；原始考试期：全年合計（10月1日現在）；证据定位：p.1 博士前期「小計」行 原表注3：新型コロナウイルスの影響で令和3年4月・10月から令和4年4月へ入学時期を変更した者を各3名含む。"
         },
         {
           "admissionYear": 2023,
@@ -103,17 +108,18 @@
         {
           "admissionYear": 2026,
           "capacity": 276,
-          "applicants": 413,
-          "examinees": 391,
-          "admitted": 312,
+          "applicants": 416,
+          "examinees": 394,
+          "admitted": 313,
           "enrolled": 281,
           "reportedRatio": null,
           "sourceIds": [
             "source-a0da184893"
           ],
-          "notes": "研究群の博士前期課程小計。学位プログラム別ではなく、研究群全体の公式値。；令和8年度から特別プログラムを各学位プログラム表に併記。一貫制博士課程は含めない。；原始考试期：全年合計（4月1日現在）；证据定位：p.1 博士前期「小計」行"
+          "notes": "研究群の博士前期課程小計。学位プログラム別ではなく、研究群全体の公式値。一貫制博士課程は含めない。令和8年10月1日現在の更新版。旧年度の特別プログラム除外脚注はこの版にはないため、年次比較では集計範囲の変更に留意。"
         }
       ]
     }
-  ]
+  ],
+  "scopeLabel": "研究群合计"
 }

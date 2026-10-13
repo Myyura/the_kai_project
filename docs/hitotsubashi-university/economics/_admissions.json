@@ -7,18 +7,27 @@
       "url": "https://www.econ.hit-u.ac.jp/jpn/download/examinee/graduate_admissions/nyushikekka2022-2024.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "2022–2024入学年度、秋季／春季の志願者・最終合格者・入学者。一次合格者数は受験者数に転記しない。"
+    },
+    "official-2024-2026": {
+      "title": "一橋大学経済学研究科 入試結果（2024–2026入学年度）",
+      "url": "https://www.econ.hit-u.ac.jp/jpn/download/examinee/graduate_admissions/nyushikekka2024-2026.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁／修士課程／内部進学・秋季・春季・計。一次合格者は受験者数ではない。"
     }
   },
   "series": [
     {
       "id": "series-72722ae2e219",
-      "label": "経済学研究科 · 全年合計 · 一般・外国人留学生",
+      "label": "経済学研究科 · 全年合計 · 全選抜合計",
       "sourceType": "official",
       "confidence": "high",
       "degree": "master",
       "period": "annual",
-      "selection": "一般・外国人留学生",
+      "selection": "全選抜合計",
       "points": [
         {
           "admissionYear": 2022,
@@ -58,17 +67,43 @@
             "source-dd802bf081"
           ],
           "notes": "研究科合计；无项目内更细专攻；全年合计由官方分期数据相加；原始考试期：全年合计；证据定位：2024年度 秋季+春季合计（本表汇总）"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 82,
+          "applicants": 299,
+          "examinees": null,
+          "admitted": 115,
+          "enrolled": 76,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-2024-2026"
+          ],
+          "notes": "入学年度による集計。2025年度から内部進学試験が別行で公表され、年度合計にはこれを含む。一次合格者数から受験者数は推定しない。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 82,
+          "applicants": 306,
+          "examinees": null,
+          "admitted": 121,
+          "enrolled": 93,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-2024-2026"
+          ],
+          "notes": "入学年度による集計。2025年度から内部進学試験が別行で公表され、年度合計にはこれを含む。一次合格者数から受験者数は推定しない。"
         }
       ]
     },
     {
       "id": "series-fb8c2a56d006",
-      "label": "経済学研究科 · 春季 · 一般・外国人留学生",
+      "label": "経済学研究科 · 春季 · 入試区分別公表値",
       "sourceType": "official",
       "confidence": "high",
       "degree": "master",
-      "period": "other-58ecc8701f",
-      "selection": "一般・外国人留学生",
+      "period": "spring",
+      "selection": "入試区分別公表値",
       "points": [
         {
           "admissionYear": 2022,
@@ -108,17 +143,43 @@
             "source-dd802bf081"
           ],
           "notes": "研究科合计；无项目内更细专攻；一次合格者78人；不等同受验者；原始考试期：春季；证据定位：2024年度 春季入試"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 79,
+          "examinees": null,
+          "admitted": 23,
+          "enrolled": 21,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-2024-2026"
+          ],
+          "notes": "入学年度による集計。2025年度から内部進学試験が別行で公表され、年度合計にはこれを含む。一次合格者数から受験者数は推定しない。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 94,
+          "examinees": null,
+          "admitted": 18,
+          "enrolled": 18,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-2024-2026"
+          ],
+          "notes": "入学年度による集計。2025年度から内部進学試験が別行で公表され、年度合計にはこれを含む。一次合格者数から受験者数は推定しない。"
         }
       ]
     },
     {
       "id": "series-fec877f8fad7",
-      "label": "経済学研究科 · 秋季 · 一般・外国人留学生",
+      "label": "経済学研究科 · 秋季 · 入試区分別公表値",
       "sourceType": "official",
       "confidence": "high",
       "degree": "master",
-      "period": "other-ce4e99b183",
-      "selection": "一般・外国人留学生",
+      "period": "autumn",
+      "selection": "入試区分別公表値",
       "points": [
         {
           "admissionYear": 2022,
@@ -158,6 +219,69 @@
             "source-dd802bf081"
           ],
           "notes": "研究科合计；无项目内更细专攻；一次合格者122人；不等同受验者；原始考试期：秋季；证据定位：2024年度 秋季入試"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 189,
+          "examinees": null,
+          "admitted": 62,
+          "enrolled": 31,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-2024-2026"
+          ],
+          "notes": "入学年度による集計。2025年度から内部進学試験が別行で公表され、年度合計にはこれを含む。一次合格者数から受験者数は推定しない。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 182,
+          "examinees": null,
+          "admitted": 73,
+          "enrolled": 50,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-2024-2026"
+          ],
+          "notes": "入学年度による集計。2025年度から内部進学試験が別行で公表され、年度合計にはこれを含む。一次合格者数から受験者数は推定しない。"
+        }
+      ]
+    },
+    {
+      "id": "official-internal-progression",
+      "label": "経済学研究科 · 内部進学試験",
+      "sourceType": "official",
+      "confidence": "high",
+      "degree": "master",
+      "period": "annual",
+      "selection": "内部進学試験",
+      "points": [
+        {
+          "admissionYear": 2025,
+          "capacity": null,
+          "applicants": 31,
+          "examinees": null,
+          "admitted": 30,
+          "enrolled": 24,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-2024-2026"
+          ],
+          "notes": "修士課程内部進学試験。年度全選抜合計にも含まれる内数。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": null,
+          "applicants": 30,
+          "examinees": null,
+          "admitted": 30,
+          "enrolled": 25,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-2024-2026"
+          ],
+          "notes": "修士課程内部進学試験。年度全選抜合計にも含まれる内数。"
         }
       ]
     }

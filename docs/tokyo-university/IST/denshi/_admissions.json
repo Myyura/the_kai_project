@@ -7,7 +7,7 @@
       "url": "https://www.i.u-tokyo.ac.jp/edu/entra/pdf/18applicant.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-09-01",
+      "checkedAt": "2026-10-13",
       "evidenceLocator": "PDF 1頁「修士課程」表／平成24～29年度実施列、電子情報学専攻行",
       "notes": "表头为考试实施年度；项目按照官网现行的「入学年度（实施年度）」表示法，将 admissionYear 映射为实施年度+1。"
     },
@@ -16,7 +16,7 @@
       "url": "https://www.i.u-tokyo.ac.jp/edu/entra/24_s_j_applicantdata.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-09-01",
+      "checkedAt": "2026-10-13",
       "evidenceLocator": "PDF 1頁「修士課程」表／2018年9月及び2019年4月～2020年9月及び2021年4月入学者列、電子情報学専攻行",
       "notes": "2019年度起采用研究科后续发布、按入学期回顾汇总的表；与早期初报存在差异时，以此表为准。"
     },
@@ -25,7 +25,8 @@
       "url": "https://www.i.u-tokyo.ac.jp/edu/entra/ay2026data_j.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁「修士課程」表／電子情報学専攻行／2021年10月及び2022年4月～2025年10月及び2026年4月入学者列"
     }
   },
   "series": [

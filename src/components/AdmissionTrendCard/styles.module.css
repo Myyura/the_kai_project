@@ -193,11 +193,16 @@
 
 .summaryItemHeader strong {
   min-width: 0;
-  overflow: hidden;
   color: var(--ifm-color-emphasis-800);
   font-size: 0.76rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+}
+
+.seriesBasis {
+  margin: 0.35rem 0 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.66rem;
+  line-height: 1.45;
 }
 
 .ratioRow {
@@ -321,6 +326,15 @@
 .legendButton small {
   color: var(--ifm-color-emphasis-500);
   font-size: 0.62rem;
+}
+
+.legendButton > .legendText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  text-align: left;
+  white-space: normal;
 }
 
 .legendButtonInactive {
@@ -477,24 +491,24 @@
   fill: var(--admission-community);
 }
 
-.aggregateCard .lineSample {
+.coloredSeries .legendButton .lineSample {
   border-top-color: var(--admission-series-color);
 }
 
-.aggregateCard .seriesLine,
-.aggregateCard .community .seriesLine {
+.coloredSeries .seriesLine,
+.coloredSeries .community .seriesLine {
   stroke: var(--admission-series-color);
 }
 
-.aggregateCard .dataPoint,
-.aggregateCard .community .dataPoint {
+.coloredSeries .dataPoint,
+.coloredSeries .community .dataPoint {
   stroke: var(--admission-series-color);
 }
 
-.aggregateCard .dataPoint:hover,
-.aggregateCard .dataPoint:focus-visible,
-.aggregateCard .community .dataPoint:hover,
-.aggregateCard .community .dataPoint:focus-visible {
+.coloredSeries .dataPoint:hover,
+.coloredSeries .dataPoint:focus-visible,
+.coloredSeries .community .dataPoint:hover,
+.coloredSeries .community .dataPoint:focus-visible {
   fill: var(--admission-series-color);
 }
 
@@ -621,6 +635,12 @@
     width: 100%;
   }
 
+  .headerTitle {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
   .legendRegion {
     align-items: flex-start;
     flex-direction: column;
@@ -644,4 +664,35 @@
   .legendButton {
     transition: none;
   }
+}
+
+.history {
+  margin-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 0.8rem;
+}
+
+.history summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tableScroller {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-top: 0.75rem;
+}
+
+.tableScroller table {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+.tableScroller th,
+.tableScroller td {
+  min-width: 4rem;
+}
+
+.tableScroller td:first-child {
+  min-width: 14rem;
 }

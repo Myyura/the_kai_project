@@ -7,25 +7,35 @@
       "url": "https://www.eng.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/0c45fa993084b534141aee65b294cac2.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-08-28",
+      "notes": "旧公式URLは2026-10-13時点で404。2022・2023年度は既収録値を保持し、今回の現行公式PDFによる再確認対象外。2024年度以降は現行の令和9年度募集要項を参照。"
     },
     "source-44ba622086": {
       "title": "令和6年度 九州大学大学院工学府修士課程学生募集要項",
       "url": "https://www.eng.kyushu-u.ac.jp/script/wordpress/wp-content/uploads/d9042c2b2f4cd4d219c45a82fda65286.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-08-28",
+      "notes": "旧公式URLは2026-10-13時点で404。2022・2023年度は既収録値を保持し、今回の現行公式PDFによる再確認対象外。2024年度以降は現行の令和9年度募集要項を参照。"
+    },
+    "source-c8402ad34a": {
+      "title": "令和9年度 九州大学大学院工学府修士課程学生募集要項",
+      "url": "https://www.eng.kyushu-u.ac.jp/_cms_dir/uploads/2026/05/50be6d16fe74efbeb3de84ec1d88b8e8.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 31頁（冊子29頁）「入学試験実施状況」令和6～8年度／括弧内は学部3年次飛び級の外数"
     }
   },
   "series": [
     {
       "id": "series-ed5d8ed7305d",
-      "label": "船舶海洋工学専攻 · 全年合計 · 公表合計",
+      "label": "船舶海洋工学専攻 · 全年合計 · 公表本数（飛び級の外数を除く）",
       "sourceType": "official",
       "confidence": "high",
       "degree": "master",
       "period": "annual",
-      "selection": "公表合計",
+      "selection": "公表本数（飛び級の外数を除く）",
       "points": [
         {
           "admissionYear": 2022,
@@ -38,7 +48,7 @@
           "sourceIds": [
             "source-44ba622086"
           ],
-          "notes": "专攻单位。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／船舶海洋工学専攻行・2022年度"
+          "notes": "专攻单位。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／船舶海洋工学専攻行・2022年度；括弧内の学部3年次飛び級は外数として別掲され、本系列の人数には含めない。"
         },
         {
           "admissionYear": 2023,
@@ -51,7 +61,7 @@
           "sourceIds": [
             "source-1e75bdbf3e"
           ],
-          "notes": "专攻单位。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／船舶海洋工学専攻行・2023年度"
+          "notes": "专攻单位。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／船舶海洋工学専攻行・2023年度；括弧内の学部3年次飛び級は外数として別掲され、本系列の人数には含めない。"
         },
         {
           "admissionYear": 2024,
@@ -62,9 +72,9 @@
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "source-1e75bdbf3e"
+            "source-c8402ad34a"
           ],
-          "notes": "专攻单位。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／船舶海洋工学専攻行・2024年度"
+          "notes": "专攻单位。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF 31頁（冊子29頁）「入学試験実施状況」／船舶海洋工学専攻行・2024年度；括弧内の学部3年次飛び級は外数として別掲され、本系列の人数には含めない。"
         },
         {
           "admissionYear": 2025,
@@ -75,9 +85,22 @@
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "source-1e75bdbf3e"
+            "source-c8402ad34a"
           ],
-          "notes": "专攻单位。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF p.28「入学試験実施状況」／船舶海洋工学専攻行・2025年度"
+          "notes": "专攻单位。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF 31頁（冊子29頁）「入学試験実施状況」／船舶海洋工学専攻行・2025年度；括弧内の学部3年次飛び級は外数として別掲され、本系列の人数には含めない。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 25,
+          "applicants": 29,
+          "examinees": null,
+          "admitted": 25,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-c8402ad34a"
+          ],
+          "notes": "专攻单位。；受験者数・入学者数は非掲載。；原始考试期：年度入学試験実施状況合計；证据定位：PDF 31頁（冊子29頁）「入学試験実施状況」／船舶海洋工学専攻行・2026年度；括弧内の学部3年次飛び級は外数として別掲され、本系列の人数には含めない。"
         }
       ]
     }

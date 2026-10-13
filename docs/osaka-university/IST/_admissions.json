@@ -160,6 +160,62 @@
       "confidence": "high",
       "checkedAt": "2026-09-01",
       "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
+    "source-18abdefead": {
+      "title": "2024年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2024nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
+    "source-79d87d27d5": {
+      "title": "2024年度4月入学 博士前期課程学生募集要項（一般選抜）",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/2024/11_a_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁（入学年度）、6頁「2. 専攻別募集人員」、7頁「4. 出願方法」、9頁「8. 選抜方法」試験日時"
+    },
+    "source-03e101e7db": {
+      "title": "2025年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2025nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
+    "source-4ce51d5a42": {
+      "title": "2025年度4月入学 博士前期課程学生募集要項（一般選抜）",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/2025/11_a_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁（入学年度）、6頁「2. 専攻別募集人員」、7頁「4. 出願方法」、9頁「8. 選抜方法」試験日時"
+    },
+    "source-dd7c17bac7": {
+      "title": "2026年度 博士前期課程入学試験実施状況",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/exam/MC2026nyushi_JA.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁「(1) 一般選抜」／研究科合計行／出願者・受験者・合格者"
+    },
+    "source-a786423dcf": {
+      "title": "2026年度4月入学 博士前期課程学生募集要項（一般選抜）",
+      "url": "https://www.ist.osaka-u.ac.jp/files/examinees/admission/2026/11_a_JA2026.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁（入学年度）、3頁「2. 専攻別募集人員」、4頁「4. 出願方法」、5頁「8. 選抜方法」試験日時"
+    },
+    "official-april-2026": {
+      "title": "2026年度 大学院入学状況（2026年4月入学）",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202604-daigakuin.pdf/@@download/file",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁左上「大学院博士前期課程（MC）」情報科学研究科行（令和8年4月1日現在）"
     }
   },
   "series": [
@@ -184,6 +240,19 @@
             "source-8b2b7b1468"
           ],
           "notes": "研究科合計。個別専攻・講座・入試区分には配分不可。；プロジェクト内の専攻級データがない場合の難易度背景としてのみ使用。；原始考试期：4月入学；证据定位：PDF「大学院入学状況」該当研究科行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 160,
+          "applicants": 421,
+          "examinees": 344,
+          "admitted": 200,
+          "enrolled": 180,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-april-2026"
+          ],
+          "notes": "情報科学研究科全体の2026年4月入学・全選抜区分合計。夏季一般選抜単独の値とは異なり、専攻への按分はしない。博士前期課程・修士課程の行で、博士後期課程の値は含まない。"
         }
       ]
     },
@@ -287,6 +356,48 @@
             "source-4c158e2a78"
           ],
           "notes": "情報科学研究科7専攻合计。专攻间第二・第三志愿调剂不会影响研究科合计。；一般選抜の夏季主募集のみ。二次募集・推薦等は含まない。；募集人員は当年度の専攻／研究科年間定員で、この日程単独の割当ではない。；证据定位：PDF 1頁「(1) 一般選抜」研究科合計行。"
+        },
+        {
+          "admissionYear": 2024,
+          "capacity": 160,
+          "applicants": 357,
+          "examinees": 310,
+          "admitted": 197,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-18abdefead",
+            "source-79d87d27d5"
+          ],
+          "notes": "2024年4月入学の一般選抜主募集（2023年夏季実施）。外国人留学生対象特別選抜・推薦等は含まない。募集人員は募集要項の公表値で、合格者数や入学者数ではない。研究科合計のため専攻間の第2・第3志望による移動は合計人数に影響しない。人数：実施状況PDF 1頁「(1) 一般選抜」研究科合計行。定員・志望方法：募集要項PDF 6・7頁。"
+        },
+        {
+          "admissionYear": 2025,
+          "capacity": 160,
+          "applicants": 433,
+          "examinees": 358,
+          "admitted": 199,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-03e101e7db",
+            "source-4ce51d5a42"
+          ],
+          "notes": "2025年4月入学の一般選抜主募集（2024年夏季実施）。外国人留学生対象特別選抜・推薦等は含まない。募集人員は募集要項の公表値で、合格者数や入学者数ではない。研究科合計のため専攻間の第2・第3志望による移動は合計人数に影響しない。人数：実施状況PDF 1頁「(1) 一般選抜」研究科合計行。定員・志望方法：募集要項PDF 6・7頁。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 160,
+          "applicants": 407,
+          "examinees": 330,
+          "admitted": 192,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-dd7c17bac7",
+            "source-a786423dcf"
+          ],
+          "notes": "2026年4月入学の一般選抜主募集（2025年夏季実施）。外国人留学生対象特別選抜・推薦等は含まない。募集人員は募集要項の公表値で、合格者数や入学者数ではない。研究科合計のため専攻間の第2・第3志望による移動は合計人数に影響しない。人数：実施状況PDF 1頁「(1) 一般選抜」研究科合計行。定員・志望方法：募集要項PDF 3・4頁。"
         }
       ]
     },

@@ -7,7 +7,16 @@
       "url": "https://www.osaka-u.ac.jp/++api++/ja/admissions/files/202404_daigakuin.pdf/@@download/file?expand=translations",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁左上「大学院博士前期課程（MC）」理学研究科行の総数（括弧内の内数は加算しない）"
+    },
+    "official-april-2026": {
+      "title": "2026年度 大学院入学試験実施状況（2026年4月入学）",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202604-daigakuin.pdf/@@download/file",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁左上「大学院博士前期課程（MC）」理学研究科行。令和8年4月1日現在。"
     }
   },
   "series": [
@@ -32,6 +41,19 @@
             "source-8b2b7b1468"
           ],
           "notes": "研究科合計。個別専攻・講座・入試区分には配分不可。；プロジェクト内の専攻級データがない場合の難易度背景としてのみ使用。；原始考试期：4月入学；证据定位：PDF「大学院入学状況」該当研究科行"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 266,
+          "applicants": 484,
+          "examinees": 440,
+          "admitted": 351,
+          "enrolled": 297,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-april-2026"
+          ],
+          "notes": "研究科全体の2026年4月入学・全選抜区分合計。夏季一般選抜単独の人数ではなく、個別専攻には配分できない。括弧内は女子・外国人留学生の内数。"
         }
       ]
     }

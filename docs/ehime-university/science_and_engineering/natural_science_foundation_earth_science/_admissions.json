@@ -7,17 +7,26 @@
       "url": "https://www.ehime-u.ac.jp/wp-content/uploads/2025/05/R7-3_jitsushijoukyou_daigakuin.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 2頁「令和7年4月入学」／理工学研究科（博士前期）／自然科学基盤プログラム／地球科学分野の合計行。"
+    },
+    "official-ehime-april-2026": {
+      "title": "令和8年度 愛媛大学大学院入学試験実施状況",
+      "url": "https://www.ehime-u.ac.jp/wp-content/uploads/2024/04/R8_jitsushijoukyou_daigakuin.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 2頁「令和8年4月入学」／理工学研究科（博士前期）／自然科学基盤プログラム／地球科学分野の合計行。"
     }
   },
   "series": [
     {
       "id": "series-57014d7cb617",
-      "label": "理工学専攻 自然科学基盤プログラム 地球科学分野 · 全年合計 · 一般+自己推薦等 合计",
+      "label": "理工学専攻 自然科学基盤プログラム 地球科学分野 · 4月入学 · 一般+自己推薦等 合计",
       "sourceType": "official",
       "confidence": "high",
       "degree": "master",
-      "period": "annual",
+      "period": "april_admission",
       "selection": "一般+自己推薦等 合计",
       "points": [
         {
@@ -31,7 +40,20 @@
           "sourceIds": [
             "source-6679c24ed9"
           ],
-          "notes": "项目精确；各选拔类别汇总；一般12/12/12/12；自己推薦3/2/2/2；其他为0；原始考试期：全年合计；证据定位：理工学研究科／理工学専攻／自然科学基盤プログラム／地球科学分野"
+          "notes": "令和7年4月入学の地球科学分野。一般12/12/12/12、自己推薦3/2/2/2、その他0を合算（志願・受験・合格・入学）。前年9月入学は別表であり、この系列には含めない。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 12,
+          "applicants": 23,
+          "examinees": 23,
+          "admitted": 17,
+          "enrolled": 16,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-ehime-april-2026"
+          ],
+          "notes": "令和8年4月入学。一般18/18/12/11、外国人1/1/1/1、自己推薦4/4/4/4、社会人0を合算（志願・受験・合格・入学）。前年9月入学は含めない。"
         }
       ]
     }

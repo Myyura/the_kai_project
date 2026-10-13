@@ -7,7 +7,17 @@
       "url": "https://www.yamaguchi-u.ac.jp/wp-content/uploads/2025/09/25092215.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁（印刷19頁）「大学院」／人間社会科学研究科／令和7年4月行。"
+    },
+    "official-yamaguchi-2026": {
+      "title": "山口大学要覧2026「入学志願者・入学状況」",
+      "url": "https://www.yamaguchi-u.ac.jp/wp-content/uploads/2026/07/yu-guide2026.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 21頁（印刷19頁）「大学院」／人間社会科学研究科／令和7年10月・令和8年4月の2行。",
+      "notes": "年度は表記のAcademic Year 2026。入学定員41は令和8年4月現在、2期分を重複加算しない。"
     }
   },
   "series": [
@@ -31,7 +41,20 @@
           "sourceIds": [
             "source-f3efbca53f"
           ],
-          "notes": "研究科合计，未按临床心理学专攻、经济学・经营学专攻拆分；该研究科于2025年度起设；原始考试期：全年合计；证据定位：大学院／人間社会科学研究科"
+          "notes": "研究科全体の修士課程。2025年度設置初年度の表は令和7年4月入学のみを掲載。志願者53、合格者30、入学者26を区別して収録。受験者数は非掲載。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 41,
+          "applicants": 65,
+          "examinees": null,
+          "admitted": 50,
+          "enrolled": 45,
+          "reportedRatio": null,
+          "sourceIds": [
+            "official-yamaguchi-2026"
+          ],
+          "notes": "研究科全体の修士課程。表の2026年度に対応する令和7年10月（志願13・合格13・入学11）と令和8年4月（志願52・合格37・入学34）を合算。受験者数は非掲載。"
         }
       ]
     }

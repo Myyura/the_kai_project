@@ -4,10 +4,11 @@
   "sources": {
     "source-fb8fefa05b": {
       "title": "先進理工系科学研究科 研究科パンフレット2026",
-      "url": "https://archive2.hiroshima-u.ac.jp/adse/brochure2026/index_h5.html",
+      "url": "https://archive2.hiroshima-u.ac.jp/adse/brochure2026/data/593/src/593.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 33頁（冊子32頁）「入学試験実施状況」博士課程前期／2023～2026年4月、2023～2025年10月"
     }
   },
   "series": [

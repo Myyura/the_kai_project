@@ -2,19 +2,23 @@
   "schemaVersion": 1,
   "scope": "program",
   "sources": {
-    "source-3412f76d7e": {
-      "title": "明治大学大学院ガイドブック 入試状況（2025年3月31日現在）",
-      "url": "https://www.meiji.ac.jp/dai_in/guidebook/6t5h7p00003fm092-att/6t5h7p00003fm0k9.pdf",
-      "type": "official",
-      "confidence": "high",
-      "checkedAt": "2026-08-28"
-    },
     "source-d6bb76fd98": {
-      "title": "明治大学データ集（学生の受け入れ・表3）",
+      "title": "2023年度 明治大学データ集（表3：2020～2024年度入試状況）",
       "url": "https://www.meiji.ac.jp/koho/about/hyouka/self/2023/mkmht00000273v1a-att/2023data.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF第25页（印刷p.25）「学生の受け入れ（表3）」、先端数理科学研究科・現象数理学専攻〈博士前期課程〉。表头2020～2024年度，取2022～2024三列。",
+      "notes": "报告和文件名为2023年度，表内明确包含2024年度数据；不能按PDF文件名推断入学年度。"
+    },
+    "guide2027-admission-results": {
+      "title": "明治大学大学院ガイドブック2027 入試状況（2026年3月31日現在）",
+      "url": "https://www.meiji.ac.jp/dai_in/guidebook/6t5h7p00003fm092-att/23_nyushijokyo.pdf",
+      "type": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF第1页（印刷p.174）左表「博士前期課程・修士課程」現象数理学行：入学定員20；2026年度志願者50・合格者21；2025年度志願者50・合格者26。",
+      "notes": "来自现行官方大学院ガイドブック2027页面。取专攻行，不取先端数理科学研究科合计；未刊载该专攻受验人数或入学人数。"
     }
   },
   "series": [
@@ -38,7 +42,7 @@
           "sourceIds": [
             "source-d6bb76fd98"
           ],
-          "notes": "专攻精确；年度合计；原始考试期：全年合计；证据定位：学生の受け入れ（表3）／先端数理科学研究科・現象数理学専攻"
+          "notes": "现象数理学专攻博士前期課程年度合计，未按考试季节拆分。取2023年度数据集PDF第25页表头所列的2022年度栏；文件名中的2023不是该条记录的入学年度。"
         },
         {
           "admissionYear": 2023,
@@ -51,7 +55,7 @@
           "sourceIds": [
             "source-d6bb76fd98"
           ],
-          "notes": "专攻精确；年度合计；原始考试期：全年合计；证据定位：学生の受け入れ（表3）／先端数理科学研究科・現象数理学専攻"
+          "notes": "现象数理学专攻博士前期課程年度合计，未按考试季节拆分。取2023年度数据集PDF第25页表头所列的2023年度栏；文件名中的2023不是该条记录的入学年度。"
         },
         {
           "admissionYear": 2024,
@@ -64,7 +68,7 @@
           "sourceIds": [
             "source-d6bb76fd98"
           ],
-          "notes": "专攻精确；年度合计；原始考试期：全年合计；证据定位：学生の受け入れ（表3）／先端数理科学研究科・現象数理学専攻"
+          "notes": "现象数理学专攻博士前期課程年度合计，未按考试季节拆分。取2023年度数据集PDF第25页表头所列的2024年度栏；文件名中的2023不是该条记录的入学年度。"
         },
         {
           "admissionYear": 2025,
@@ -75,11 +79,25 @@
           "enrolled": null,
           "reportedRatio": null,
           "sourceIds": [
-            "source-3412f76d7e"
+            "guide2027-admission-results"
           ],
-          "notes": "专攻精确；年度合计；官方指南只列志愿者、合格者；原始考试期：全年合计；证据定位：先端数理科学研究科／現象数理学専攻"
+          "notes": "现象数理学专攻博士前期課程年度合计。官方2027版指南p.174的2025年度栏列志愿者50、合格者26；入学定员20。未按夏季/冬季或选拔方式拆分；受验者与最终入学者数未刊载。"
+        },
+        {
+          "admissionYear": 2026,
+          "capacity": 20,
+          "applicants": 50,
+          "examinees": null,
+          "admitted": 21,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "guide2027-admission-results"
+          ],
+          "notes": "现象数理学专攻博士前期課程年度合计。官方2027版指南p.174的2026年度栏列志愿者50、合格者21；入学定员20。未按夏季/冬季或选拔方式拆分；受验者与最终入学者数未刊载。"
         }
-      ]
+      ],
+      "notes": "现象数理学专攻博士前期課程的年度合计，包含来源表的全部选拔范围；不能视为单次夏季一般入试。倍率仅按同年度志愿者÷合格者计算。"
     }
   ]
 }

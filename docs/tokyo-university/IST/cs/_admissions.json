@@ -7,7 +7,7 @@
       "url": "https://www.i.u-tokyo.ac.jp/edu/entra/pdf/18applicant.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-09-01",
+      "checkedAt": "2026-10-13",
       "evidenceLocator": "PDF 1頁「修士課程」表／平成24～29年度実施列、コンピュータ科学専攻行",
       "notes": "表头为考试实施年度；项目按照官网现行的「入学年度（实施年度）」表示法，将 admissionYear 映射为实施年度+1。"
     },
@@ -16,14 +16,15 @@
       "url": "https://note.com/warabi1729/n/n5122997ce916",
       "type": "community",
       "confidence": "medium",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "「CS専攻の入試方式とか」内の倍率段落：2025年8月試験、書類選考通過時点で約1.7倍。志願者数の情報は見つからなかったとの記載。"
     },
     "source-b8f326169a": {
       "title": "情報理工学系研究科　志願者・合格者・入学者数",
       "url": "https://www.i.u-tokyo.ac.jp/edu/entra/24_s_j_applicantdata.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-09-01",
+      "checkedAt": "2026-10-13",
       "evidenceLocator": "PDF 1頁「修士課程」表／2018年9月及び2019年4月～2020年9月及び2021年4月入学者列、コンピュータ科学専攻行",
       "notes": "2019年度起采用研究科后续发布、按入学期回顾汇总的表；与早期初报存在差异时，以此表为准。"
     },
@@ -32,7 +33,8 @@
       "url": "https://www.i.u-tokyo.ac.jp/edu/entra/ay2026data_j.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁「修士課程」表／コンピュータ科学専攻行／2021年10月及び2022年4月～2025年10月及び2026年4月入学者列"
     }
   },
   "series": [
@@ -232,13 +234,13 @@
     },
     {
       "id": "series-6612309a9ff4",
-      "label": "コンピュータ科学専攻 · 夏季・第1次 · 书类审查通过阶段",
+      "label": "コンピュータ科学専攻 · 夏季・第1次 · 书类审查通过后的竞争倍率",
       "sourceType": "community",
       "confidence": "medium",
       "degree": "master",
       "period": "summer",
-      "selection": "书类审查通过阶段",
-      "comparisonKey": "master-document-screening-pass",
+      "selection": "书类审查通过后的竞争倍率",
+      "comparisonKey": "master-summer-after-document-screening",
       "points": [
         {
           "admissionYear": 2026,
@@ -251,7 +253,7 @@
           "sourceIds": [
             "source-5dbd2a59ff"
           ],
-          "notes": "原文数值：约1.7倍；作者按合格编号估算；不是官方志愿者/最终合格者统计。"
+          "notes": "作者称书类审查通过时点的竞争倍率约1.7倍，且不知道出愿人数。该数值不是书类审查通过率，也不是全年志愿者/最终合格者倍率。"
         }
       ]
     }

@@ -1,41 +1,46 @@
 {
   "schemaVersion": 1,
-  "scope": "program",
+  "scope": "aggregate",
   "sources": {
     "source-02a281f31f": {
       "title": "令和5年度大学院入学試験結果（システム情報工学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r5-systems-info-engineering.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     },
     "source-0756138f91": {
       "title": "令和6年度大学院入学試験結果（システム情報工学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r6-systems-info-engineering.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     },
     "source-25677cab0d": {
       "title": "令和4年度大学院入学試験結果（システム情報工学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r4-4.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     },
     "source-7ed108243e": {
       "title": "令和7年度大学院入学試験結果（システム情報工学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r7-systems-info-engineering.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     },
     "source-bc151b4766": {
       "title": "令和8年度大学院入学試験結果（システム情報工学研究群）",
       "url": "https://www.tsukuba.ac.jp/admission/graduate-result/pdf/r8-systems-info-engineering.pdf",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13",
+      "evidenceLocator": "PDF 1頁、博士前期課程「小計」行。募集人員・志願者数・受験者数・合格者数・入学者数欄。"
     }
   },
   "series": [
@@ -103,17 +108,18 @@
         {
           "admissionYear": 2026,
           "capacity": 500,
-          "applicants": 692,
-          "examinees": 659,
-          "admitted": 575,
-          "enrolled": 529,
+          "applicants": 693,
+          "examinees": 660,
+          "admitted": 576,
+          "enrolled": 530,
           "reportedRatio": null,
           "sourceIds": [
             "source-bc151b4766"
           ],
-          "notes": "研究群の博士前期課程小計。学位プログラム別ではなく、研究群全体の公式値。；令和8年度から特別プログラムを各学位プログラム表に併記。一貫制博士課程は含めない。；原始考试期：全年合計（4月1日現在）；证据定位：p.1 博士前期「小計」行"
+          "notes": "研究群の博士前期課程小計。学位プログラム別ではなく、研究群全体の公式値。一貫制博士課程は含めない。令和8年10月1日現在の更新版。旧年度の特別プログラム除外脚注はこの版にはないため、年次比較では集計範囲の変更に留意。"
         }
       ]
     }
-  ]
+  ],
+  "scopeLabel": "研究群合计"
 }

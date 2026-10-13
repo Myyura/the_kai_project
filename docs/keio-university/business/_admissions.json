@@ -7,7 +7,7 @@
       "url": "https://www.kbs.keio.ac.jp/about/history.html",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13"
     }
   },
   "series": [
@@ -16,7 +16,7 @@
       "label": "MBAプログラム · 全年合計 · MBAプログラム全選抜合計",
       "sourceType": "official",
       "confidence": "high",
-      "degree": "professional",
+      "degree": "master",
       "period": "annual",
       "selection": "MBAプログラム全選抜合計",
       "points": [
@@ -87,5 +87,6 @@
         }
       ]
     }
-  ]
+  ],
+  "scopeLabel": "MBAプログラム（EMBAを除く）"
 }

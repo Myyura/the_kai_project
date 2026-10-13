@@ -7,7 +7,7 @@
       "url": "https://www.fun.ac.jp/admission/admission-graduate-school/result-gsexam-graduate/",
       "type": "official",
       "confidence": "high",
-      "checkedAt": "2026-08-28"
+      "checkedAt": "2026-10-13"
     }
   },
   "series": [
@@ -160,6 +160,19 @@
             "source-e20f544fdc"
           ],
           "notes": "研究科合计；项目中的“基础数学”是考试科目，不是招生专攻；原始考试期：夏季（8月）；证据定位：2026年度4月入学／2025年8月实施"
+        },
+        {
+          "admissionYear": 2027,
+          "capacity": null,
+          "applicants": 78,
+          "examinees": 75,
+          "admitted": 68,
+          "enrolled": null,
+          "reportedRatio": null,
+          "sourceIds": [
+            "source-e20f544fdc"
+          ],
+          "notes": "2026年8月実施・2027年4月入学の博士前期課程（一般選抜＋特別選抜）。定員は若干名、入学者数は未公表。別列の2026年9月入学7名は含めない。"
         }
       ]
     }

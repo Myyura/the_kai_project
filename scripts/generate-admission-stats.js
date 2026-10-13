@@ -282,8 +282,15 @@ function calculatePrimaryRatio(point) {
   if (point.examinees !== null && point.admitted !== null && point.admitted > 0) {
     return {primaryRatio: point.examinees / point.admitted, primaryRatioBasis: 'examinees/admitted'};
   }
+  if (point.admitted === 0 && (point.applicants !== null || point.examinees !== null)) {
+    return {primaryRatio: null, primaryRatioBasis: null};
+  }
   if (point.reportedRatio !== null) {
-    return {primaryRatio: point.reportedRatio, primaryRatioBasis: 'reported'};
+    return {
+      primaryRatio: point.reportedRatio,
+      primaryRatioBasis: point.reportedRatioBasis && point.reportedRatioBasis !== 'other'
+        ? point.reportedRatioBasis.replace('_', '/') : 'reported',
+    };
   }
   return {primaryRatio: null, primaryRatioBasis: null};
 }
@@ -383,6 +390,15 @@ function normalizeSeries(rawSeries, options) {
       location: `${pointLocation}.reportedRatio`,
     });
 
+    if (rawPoint.reportedRatioBasis !== undefined) {
+      const basis = rawPoint.reportedRatioBasis;
+      if (!['applicants_capacity', 'applicants_admitted', 'examinees_admitted', 'other'].includes(basis)) {
+        addIssue(issues, file, `${pointLocation}.reportedRatioBasis`, 'must be a supported ratio basis');
+      } else {
+        point.reportedRatioBasis = basis;
+      }
+    }
+
     const localSourceIds = normalizeSourceIds(rawPoint.sourceIds, {
       issues,
       file,
@@ -479,6 +495,8 @@ function validateAndNormalizeFile(filePath, docsDir, issues) {
     );
   }
 
+  const scopeLabel = raw.scopeLabel === undefined
+    ? null : requireString(raw.scopeLabel, issues, file, 'scopeLabel');
   const categoryPath = path.join(entityDirectory, '_category_.json');
   let category = null;
   if (!fs.existsSync(categoryPath)) {
@@ -553,6 +571,7 @@ function validateAndNormalizeFile(filePath, docsDir, issues) {
     label: typeof category?.label === 'string' ? category.label : '',
     slug,
     scope,
+    ...(scopeLabel ? {scopeLabel} : {}),
     series,
     sources: sourceRegistry,
   };
@@ -707,6 +726,7 @@ function generateAdmissionStats(options = {}) {
           slug: item.slug,
           label: item.label,
           scope: item.scope,
+          ...(item.scopeLabel ? {scopeLabel: item.scopeLabel} : {}),
           series: sortedSeries,
         },
       ]);

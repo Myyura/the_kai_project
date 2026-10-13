@@ -33,6 +33,11 @@
       "items": {
         "$ref": "#/$defs/series"
       }
+    },
+    "scopeLabel": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable scope when the category is broader than the published statistics."
     }
   },
   "$defs": {
@@ -161,6 +166,14 @@
         },
         "notes": {
           "$ref": "#/$defs/notes"
+        },
+        "reportedRatioBasis": {
+          "enum": [
+            "applicants_capacity",
+            "applicants_admitted",
+            "examinees_admitted",
+            "other"
+          ]
         }
       }
     },
