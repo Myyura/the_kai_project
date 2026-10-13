@@ -552,6 +552,14 @@
   label: "Law.Administrative-Law"
   permalink: "/subsubject/law/administrative-law"
   description: "Law / Administrative-Law"
+"Philosophy.General-Philosophy":
+  label: "Philosophy.General-Philosophy"
+  permalink: "/subsubject/philosophy/general-philosophy"
+  description: "Philosophy / General-Philosophy"
+"Philosophy.Philosophy-of-Science":
+  label: "Philosophy.Philosophy-of-Science"
+  permalink: "/subsubject/philosophy/philosophy-of-science"
+  description: "Philosophy / Philosophy-of-Science"
 "Bioinformatics.Bioinformatics.Molecular-Phylogenetics":
   label: "Bioinformatics.Bioinformatics.Molecular-Phylogenetics"
   permalink: "/topic/bioinformatics/bioinformatics/molecular-phylogenetics"
@@ -5036,6 +5044,14 @@
   label: "Operations-Research.Queueing-Theory.Packet-Loss"
   permalink: "/topic/operations-research/queueing-theory/packet-loss"
   description: "Operations-Research / Queueing-Theory / Packet-Loss"
+"Philosophy.General-Philosophy.Truth-Goodness-and-Beauty":
+  label: "Philosophy.General-Philosophy.Truth-Goodness-and-Beauty"
+  permalink: "/topic/philosophy/general-philosophy/truth-goodness-and-beauty"
+  description: "Philosophy / General-Philosophy / Truth-Goodness-and-Beauty"
+"Philosophy.Philosophy-of-Science.Occams-Razor":
+  label: "Philosophy.Philosophy-of-Science.Occams-Razor"
+  permalink: "/topic/philosophy/philosophy-of-science/occams-razor"
+  description: "Philosophy / Philosophy-of-Science / Occams-Razor"
 "Physics.Astrophysics.Exposure-Time-Signal-to-Noise-with-Readout-Noise":
   label: "Physics.Astrophysics.Exposure-Time-Signal-to-Noise-with-Readout-Noise"
   permalink: "/topic/physics/astrophysics/exposure-time-signal-to-noise-with-readout-noise"

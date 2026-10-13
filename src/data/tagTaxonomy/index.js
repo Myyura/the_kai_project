@@ -14,6 +14,7 @@ const engineering = require('./subjects/engineering.json');
 const law = require('./subjects/law.json');
 const mathematics = require('./subjects/mathematics.json');
 const operationsResearch = require('./subjects/operations-research.json');
+const philosophy = require('./subjects/philosophy.json');
 const physics = require('./subjects/physics.json');
 const probabilityStatistics = require('./subjects/probability-statistics.json');
 const psychology = require('./subjects/psychology.json');
@@ -34,6 +35,7 @@ const subjectFiles = [
   law,
   mathematics,
   operationsResearch,
+  philosophy,
   physics,
   probabilityStatistics,
   psychology,

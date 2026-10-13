@@ -1,0 +1,14 @@
+{
+  "label": "人文科学府",
+  "position": 6,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/kyushu-university-humanities"
+  },
+  "key": "kyushu-university-humanities",
+  "customProps": {
+    "aliases": [
+      "Graduate School of Humanities"
+    ]
+  }
+}

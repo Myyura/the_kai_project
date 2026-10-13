@@ -1,0 +1,67 @@
+{
+  "id": "Philosophy",
+  "subject": {
+    "labelZh": "哲学",
+    "labelJa": "哲学",
+    "labelEn": "Philosophy",
+    "descriptionZh": "研究存在、知识、价值与推理的根本问题，反思其概念、前提和论证。",
+    "descriptionJa": "存在、知識、価値、推論の根本問題を扱い、その概念、前提、論証を吟味する分野。",
+    "descriptionEn": "The study of fundamental questions about existence, knowledge, value, and reasoning through examination of concepts, assumptions, and arguments."
+  },
+  "subsubjects": {
+    "Philosophy.General-Philosophy": {
+      "subject": "Philosophy",
+      "labelZh": "哲学概论",
+      "labelJa": "哲学概論",
+      "labelEn": "General Philosophy",
+      "descriptionZh": "研究哲学的基本问题、研究对象与方法，以及各分支之间的关系。",
+      "descriptionJa": "哲学の基本問題、対象、方法、および各分野の関係を扱う。",
+      "descriptionEn": "Foundational philosophical questions, the scope and methods of philosophy, and relations among its branches."
+    },
+    "Philosophy.Philosophy-of-Science": {
+      "subject": "Philosophy",
+      "labelZh": "科学哲学",
+      "labelJa": "科学哲学",
+      "labelEn": "Philosophy of Science",
+      "descriptionZh": "研究科学解释、证据、理论选择与科学方法的依据及限度。",
+      "descriptionJa": "科学的説明、証拠、理論選択、科学的方法の根拠と限界を扱う。",
+      "descriptionEn": "The foundations and limits of scientific explanation, evidence, theory choice, and scientific methods."
+    }
+  },
+  "subsubjectOrder": [
+    "Philosophy.General-Philosophy",
+    "Philosophy.Philosophy-of-Science"
+  ],
+  "topics": {
+    "Philosophy.General-Philosophy.Truth-Goodness-and-Beauty": {
+      "subsubject": "Philosophy.General-Philosophy",
+      "labelZh": "真善美与哲学",
+      "labelJa": "真・善・美と哲学",
+      "labelEn": "Truth, Goodness, Beauty, and Philosophy",
+      "descriptionZh": "考察以真、善、美理解哲学研究的意义、适用范围及其与当代哲学的关系。",
+      "descriptionJa": "哲学を真・善・美の探究として捉える意義、適用範囲、および現代哲学との関係を検討する。",
+      "descriptionEn": "The significance and limits of understanding philosophy as inquiry into truth, goodness, and beauty, and its relation to contemporary philosophy."
+    },
+    "Philosophy.Philosophy-of-Science.Occams-Razor": {
+      "subsubject": "Philosophy.Philosophy-of-Science",
+      "labelZh": "奥卡姆剃刀",
+      "labelJa": "オッカムの剃刀",
+      "labelEn": "Occam's Razor",
+      "descriptionZh": "研究避免不必要的实体或假设的节约原则，以及简约性在解释与理论选择中的作用和限度。",
+      "descriptionJa": "不要な存在者や仮定を増やさない節約原理と、説明・理論選択における単純性の役割と限界を扱う。",
+      "descriptionEn": "The principle of avoiding unnecessary entities or assumptions, and the role and limits of simplicity in explanation and theory choice.",
+      "searchAliases": {
+        "zh": [
+          "奥康剃刀"
+        ],
+        "ja": [
+          "オッカムのかみそり"
+        ],
+        "en": [
+          "Ockham's razor",
+          "principle of parsimony"
+        ]
+      }
+    }
+  }
+}

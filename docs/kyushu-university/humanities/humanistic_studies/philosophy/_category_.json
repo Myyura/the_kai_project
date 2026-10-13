@@ -1,0 +1,15 @@
+{
+  "label": "哲学",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/kyushu-university-humanities-humanistic_studies-philosophy"
+  },
+  "key": "kyushu-university-humanities-humanistic_studies-philosophy",
+  "customProps": {
+    "aliases": [
+      "人文基礎専攻 哲学",
+      "Philosophy"
+    ]
+  }
+}

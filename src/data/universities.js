@@ -1297,6 +1297,26 @@ const universities = [
         "websiteUrl": "https://www.sci.kyushu-u.ac.jp/admission/daigakuin_master.html"
       },
       {
+        "id": "humanities",
+        "name": "人文科学府",
+        "aliases": [
+          "Graduate School of Humanities"
+        ],
+        "archiveUrl": "/docs/category/kyushu-university-humanities",
+        "programs": [
+          {
+            "id": "humanistic_studies/philosophy",
+            "name": "哲学",
+            "aliases": [
+              "人文基礎専攻 哲学",
+              "Philosophy"
+            ],
+            "archiveUrl": "/docs/category/kyushu-university-humanities-humanistic_studies-philosophy"
+          }
+        ],
+        "websiteUrl": "https://www3.lit.kyushu-u.ac.jp/graduate/entrance-exam.php"
+      },
+      {
         "id": "IGSES",
         "name": "総合理工学府",
         "aliases": [],
