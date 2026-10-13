@@ -162,3 +162,29 @@ test('direct pages retain zero admissions and suppress a same-basis community ra
   assert.ok(textContent(document).includes('不适用'));
   assert.ok(!textContent(document).includes('民间数据'));
 });
+
+test('trend lines bridge missing years without adding data points', () => {
+  for (const sharedYear of [false, true]) {
+    const data = aggregateData();
+    data.statsByEntity.first.series = [series('gaps', 'april_admission', '全类别合计', [
+      point(2022, 200, 100, 'april-source'),
+      point(2024, null, 100, 'april-source'),
+      point(2026, 300, 100, 'april-source'),
+    ])];
+    data.statsByEntity.second.series = [series('other', 'april_admission', '全类别合计', [
+      point(sharedYear ? 2024 : 2026, 150, 100, 'other-source'),
+    ])];
+    const document = renderCard(data);
+    const points = elements(document, (node) => hasClass(node, 'dataPoint'));
+    assert.equal(points.length, 3);
+    const labels = points.map((node) => node.attrs.find((attr) => attr.name === 'aria-label').value);
+    assert.equal(labels.filter((label) => label.includes('情報科学研究科')).length, 2);
+    assert.ok(!labels.some((label) => label.includes('情報科学研究科') && label.includes('2024年度')));
+    const lines = elements(document, (node) => hasClass(node, 'seriesLine'));
+    assert.equal(lines.length, 1);
+    const coordinates = lines[0].attrs.find((attr) => attr.name === 'd').value;
+    const [first, last] = points.filter((node) => node.attrs.some((attr) => attr.name === 'aria-label' && attr.value.includes('情報科学研究科')));
+    const coordinate = (node, name) => node.attrs.find((attr) => attr.name === name).value;
+    assert.equal(coordinates, `M ${coordinate(first, 'cx')} ${coordinate(first, 'cy')} L ${coordinate(last, 'cx')} ${coordinate(last, 'cy')}`);
+  }
+});

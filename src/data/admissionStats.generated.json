@@ -15048,6 +15048,23 @@
               "primaryRatioBasis": "applicants/admitted"
             },
             {
+              "admissionYear": 2025,
+              "capacity": 811,
+              "applicants": 993,
+              "examinees": 952,
+              "admitted": 853,
+              "enrolled": 800,
+              "reportedRatio": null,
+              "sourceIds": [
+                "osaka-university/engineering::official-april-2025"
+              ],
+              "notes": [
+                "研究科全体の2025年4月入学集計。夏季一般選抜のみの値ではない。；（ ）内の女子、［ ］内の外国人留学生は内数として総数に含まれる。；原始考试期：4月入学；证据定位：PDF 1頁左上「大学院博士前期課程（MC）」工学研究科行（令和7年4月1日現在）"
+              ],
+              "primaryRatio": 1.164126611957796,
+              "primaryRatioBasis": "applicants/admitted"
+            },
+            {
               "admissionYear": 2026,
               "capacity": 811,
               "applicants": 1049,
@@ -15100,6 +15117,23 @@
                 "研究科合計。個別専攻・講座・入試区分には配分不可。；プロジェクト内の専攻級データがない場合の難易度背景としてのみ使用。；原始考试期：4月入学；证据定位：PDF「大学院入学状況」該当研究科行"
               ],
               "primaryRatio": 1.2717770034843205,
+              "primaryRatioBasis": "applicants/admitted"
+            },
+            {
+              "admissionYear": 2025,
+              "capacity": 267,
+              "applicants": 373,
+              "examinees": 357,
+              "admitted": 298,
+              "enrolled": 278,
+              "reportedRatio": null,
+              "sourceIds": [
+                "osaka-university/engineering_sciences::official-april-2025"
+              ],
+              "notes": [
+                "研究科全体の2025年4月入学集計。夏季一般選抜のみの値ではない。；（ ）内の女子、［ ］内の外国人留学生は内数として総数に含まれる。；原始考试期：4月入学；证据定位：PDF 1頁左上「大学院博士前期課程（MC）」基礎工学研究科行（令和7年4月1日現在）"
+              ],
+              "primaryRatio": 1.2516778523489933,
               "primaryRatioBasis": "applicants/admitted"
             },
             {
@@ -15486,6 +15520,23 @@
                 "研究科合計。個別専攻・講座・入試区分には配分不可。；プロジェクト内の専攻級データがない場合の難易度背景としてのみ使用。；原始考试期：4月入学；证据定位：PDF「大学院入学状況」該当研究科行"
               ],
               "primaryRatio": 1.814070351758794,
+              "primaryRatioBasis": "applicants/admitted"
+            },
+            {
+              "admissionYear": 2025,
+              "capacity": 160,
+              "applicants": 449,
+              "examinees": 373,
+              "admitted": 213,
+              "enrolled": 180,
+              "reportedRatio": null,
+              "sourceIds": [
+                "osaka-university/IST::official-april-2025"
+              ],
+              "notes": [
+                "研究科全体の2025年4月入学集計。夏季一般選抜のみの値ではない。；（ ）内の女子、［ ］内の外国人留学生は内数として総数に含まれる。；原始考试期：4月入学；证据定位：PDF 1頁左上「大学院博士前期課程（MC）」情報科学研究科行（令和7年4月1日現在）"
+              ],
+              "primaryRatio": 2.107981220657277,
               "primaryRatioBasis": "applicants/admitted"
             },
             {
@@ -16295,6 +16346,23 @@
                 "研究科合計。個別専攻・講座・入試区分には配分不可。；プロジェクト内の専攻級データがない場合の難易度背景としてのみ使用。；原始考试期：4月入学；证据定位：PDF「大学院入学状況」該当研究科行"
               ],
               "primaryRatio": 1.3507246376811595,
+              "primaryRatioBasis": "applicants/admitted"
+            },
+            {
+              "admissionYear": 2025,
+              "capacity": 266,
+              "applicants": 533,
+              "examinees": 471,
+              "admitted": 358,
+              "enrolled": 294,
+              "reportedRatio": null,
+              "sourceIds": [
+                "osaka-university/science::official-april-2025"
+              ],
+              "notes": [
+                "研究科全体の2025年4月入学集計。夏季一般選抜のみの値ではない。；（ ）内の女子、［ ］内の外国人留学生は内数として総数に含まれる。；原始考试期：4月入学；证据定位：PDF 1頁左上「大学院博士前期課程（MC）」理学研究科行（令和7年4月1日現在）"
+              ],
+              "primaryRatio": 1.488826815642458,
               "primaryRatioBasis": "applicants/admitted"
             },
             {
@@ -28071,6 +28139,20 @@
         "2026-10-13再確認：大学公式サイトは大規模システム障害の臨時告知（https://www.omu.moe/）に転送されるため、原PDFの再取得はできなかった。元の公式URLと既存人数を維持。公式入試結果一覧は春入学と秋入学を別表として公開している。"
       ]
     },
+    "osaka-university/engineering_sciences::official-april-2025": {
+      "id": "osaka-university/engineering_sciences::official-april-2025",
+      "localId": "official-april-2025",
+      "entityId": "osaka-university/engineering_sciences",
+      "title": "2025年度 大学院入学試験実施状況（2025年4月入学）",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202504-daigakuin.pdf/@@download/file",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13T00:00:00.000Z",
+      "notes": [
+        "括弧内は女子、角括弧内は外国人留学生として出願した者の内数。研究科の総数に重ねて加算しない。"
+      ],
+      "evidenceLocator": "PDF 1頁左上「大学院博士前期課程（MC）」基礎工学研究科行。令和7年4月1日現在。"
+    },
     "osaka-university/engineering_sciences::official-april-2026": {
       "id": "osaka-university/engineering_sciences::official-april-2026",
       "localId": "official-april-2026",
@@ -28095,6 +28177,20 @@
       "notes": [],
       "evidenceLocator": "PDF 1頁左上「大学院博士前期課程（MC）」基礎工学研究科行の総数（括弧内の内数は加算しない）"
     },
+    "osaka-university/engineering::official-april-2025": {
+      "id": "osaka-university/engineering::official-april-2025",
+      "localId": "official-april-2025",
+      "entityId": "osaka-university/engineering",
+      "title": "2025年度 大学院入学試験実施状況（2025年4月入学）",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202504-daigakuin.pdf/@@download/file",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13T00:00:00.000Z",
+      "notes": [
+        "括弧内は女子、角括弧内は外国人留学生として出願した者の内数。研究科の総数に重ねて加算しない。"
+      ],
+      "evidenceLocator": "PDF 1頁左上「大学院博士前期課程（MC）」工学研究科行。令和7年4月1日現在。"
+    },
     "osaka-university/engineering::official-april-2026": {
       "id": "osaka-university/engineering::official-april-2026",
       "localId": "official-april-2026",
@@ -28118,6 +28214,20 @@
       "checkedAt": "2026-10-13T00:00:00.000Z",
       "notes": [],
       "evidenceLocator": "PDF 1頁左上「大学院博士前期課程（MC）」工学研究科行の総数（括弧内の内数は加算しない）"
+    },
+    "osaka-university/IST::official-april-2025": {
+      "id": "osaka-university/IST::official-april-2025",
+      "localId": "official-april-2025",
+      "entityId": "osaka-university/IST",
+      "title": "2025年度 大学院入学試験実施状況（2025年4月入学）",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202504-daigakuin.pdf/@@download/file",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13T00:00:00.000Z",
+      "notes": [
+        "括弧内は女子、角括弧内は外国人留学生として出願した者の内数。研究科の総数に重ねて加算しない。"
+      ],
+      "evidenceLocator": "PDF 1頁左上「大学院博士前期課程（MC）」情報科学研究科行。令和7年4月1日現在。"
     },
     "osaka-university/IST::official-april-2026": {
       "id": "osaka-university/IST::official-april-2026",
@@ -28981,6 +29091,20 @@
       "checkedAt": "2026-09-01T00:00:00.000Z",
       "notes": [],
       "evidenceLocator": "PDF 1頁「(1) 一般選抜」／情報基礎数学専攻行／出願者・受験者・合格者"
+    },
+    "osaka-university/science::official-april-2025": {
+      "id": "osaka-university/science::official-april-2025",
+      "localId": "official-april-2025",
+      "entityId": "osaka-university/science",
+      "title": "2025年度 大学院入学試験実施状況（2025年4月入学）",
+      "url": "https://www.osaka-u.ac.jp/ja/admissions/graduate/files/202504-daigakuin.pdf/@@download/file",
+      "sourceType": "official",
+      "confidence": "high",
+      "checkedAt": "2026-10-13T00:00:00.000Z",
+      "notes": [
+        "括弧内は女子、角括弧内は外国人留学生として出願した者の内数。研究科の総数に重ねて加算しない。"
+      ],
+      "evidenceLocator": "PDF 1頁左上「大学院博士前期課程（MC）」理学研究科行。令和7年4月1日現在。"
     },
     "osaka-university/science::official-april-2026": {
       "id": "osaka-university/science::official-april-2026",

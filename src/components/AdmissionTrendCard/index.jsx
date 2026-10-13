@@ -404,29 +404,16 @@ function buildSegments(series, plotYears, xForYear, yForRatio) {
       .filter((point) => point.primaryRatio !== null)
       .map((point) => [point.admissionYear, point]),
   );
-  const segments = [];
-  let current = [];
-  let previousYear = null;
-
-  plotYears.forEach((year) => {
+  const points = plotYears.flatMap((year) => {
     const point = pointByYear.get(year);
-    if (!point || (previousYear !== null && year - previousYear > 1)) {
-      if (current.length) segments.push(current);
-      current = [];
-    }
-    if (point) {
-      current.push({
-        point,
-        x: xForYear(year),
-        y: yForRatio(point.primaryRatio),
-      });
-      previousYear = year;
-    } else {
-      previousYear = null;
-    }
+    if (!point) return [];
+    return [{
+      point,
+      x: xForYear(year),
+      y: yForRatio(point.primaryRatio),
+    }];
   });
-  if (current.length) segments.push(current);
-  return segments;
+  return points.length ? [points] : [];
 }
 
 function buildLineRuns(series, segments) {
