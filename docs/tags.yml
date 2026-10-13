@@ -4796,6 +4796,10 @@
   label: "Operations-Research.Nonlinear-Optimization.Quadratic-Programming"
   permalink: "/topic/operations-research/nonlinear-optimization/quadratic-programming"
   description: "Operations-Research / Nonlinear-Optimization / Quadratic-Programming"
+"Operations-Research.Nonlinear-Optimization.Steepest-Descent-Method":
+  label: "Operations-Research.Nonlinear-Optimization.Steepest-Descent-Method"
+  permalink: "/topic/operations-research/nonlinear-optimization/steepest-descent-method"
+  description: "Operations-Research / Nonlinear-Optimization / Steepest-Descent-Method"
 "Operations-Research.Nonlinear-Optimization.Trust-Region-Subproblem":
   label: "Operations-Research.Nonlinear-Optimization.Trust-Region-Subproblem"
   permalink: "/topic/operations-research/nonlinear-optimization/trust-region-subproblem"
