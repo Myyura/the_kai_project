@@ -2,7 +2,7 @@
 sidebar_label: 2015年3月実施 専門科目 問題4 計算機1
 tags:
   - Tohoku-University
-  - Electrical-Electronic.Digital-Logic.Mealy-Sequence-Detector-State-Minimization
+  - Computer-Science.Formal-Languages.Mealy-Machine
   - Electrical-Electronic.Digital-Logic.D-Flip-Flop
 ---
 

@@ -2,7 +2,7 @@
 sidebar_label: "2023年度 数理科学 I [2]"
 tags:
   - Osaka-University
-  - Mathematics.Linear-Algebra.Parameterized-Diagonalizability
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
   - Mathematics.Linear-Algebra.Matrix-Power
   - Mathematics.Linear-Algebra.Cayley-Hamilton-Theorem
 ---

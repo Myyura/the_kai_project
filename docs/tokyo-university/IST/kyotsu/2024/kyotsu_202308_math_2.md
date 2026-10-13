@@ -2,7 +2,8 @@
 sidebar_label: "2023年8月実施 数学 第2問"
 tags:
   - Tokyo-University
-  - Mathematics.Calculus.Gamma-Function-Log-Derivatives-and-Log-Moments
+  - Mathematics.Calculus.Gamma-Function
+  - Mathematics.Calculus.Parametric-Differentiation
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Log-Moments-of-Rayleigh-Distribution
 ---
 # 東京大学 情報理工学研究科 2023年8月実施 数学 第2問

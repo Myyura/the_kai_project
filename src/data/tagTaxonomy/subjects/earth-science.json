@@ -59,9 +59,20 @@
         "Mathematics",
         "Physics"
       ],
-      "labelZh": "放射性碳衰变与测年上限",
-      "labelJa": "放射性炭素の崩壊と年代測定の限界",
-      "labelEn": "Radiocarbon Decay and Dating Limits"
+      "labelZh": "放射性碳定年",
+      "labelJa": "放射性炭素年代測定",
+      "labelEn": "Radiocarbon Dating",
+      "searchAliases": {
+        "zh": [
+          "放射性碳衰变与测年上限"
+        ],
+        "ja": [
+          "放射性炭素の崩壊と年代測定の限界"
+        ],
+        "en": [
+          "Radiocarbon Decay and Dating Limits"
+        ]
+      }
     },
     "Earth-Science.Periglacial-Geomorphology.Active-Layer-Permafrost-and-Pingo": {
       "subsubject": "Earth-Science.Periglacial-Geomorphology",

@@ -2,8 +2,9 @@
 sidebar_label: "2016年8月実施 専門 第2問"
 tags:
   - Tokyo-University
-  - Electrical-Electronic.Digital-Logic.Ripple-vs-Synchronous-Counter-Propagation-Delay
-  - Electrical-Electronic.Digital-Logic.Synchronous-Decade-and-Up-Down-Counter
+  - Electrical-Electronic.Digital-Logic.Counter-Circuit
+  - Electrical-Electronic.Digital-Logic.Critical-Path-Delay
+  - Electrical-Electronic.Digital-Logic.Synchronous-Circuit
   - Electrical-Electronic.Digital-Logic.Karnaugh-Map-Minimization
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2016年8月実施 専門 第2問

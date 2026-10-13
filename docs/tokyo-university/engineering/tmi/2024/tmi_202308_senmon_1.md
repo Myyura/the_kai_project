@@ -4,7 +4,7 @@ tags:
   - Tokyo-University
   - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
   - Mathematics.Differential-Equations.Method-of-Undetermined-Coefficients
-  - Mathematics.Linear-Algebra.Parameterized-Diagonalizability
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Gamma-Distribution
   - Probability-Statistics.Probability-Basics.Birthday-Collision-Problem
 ---

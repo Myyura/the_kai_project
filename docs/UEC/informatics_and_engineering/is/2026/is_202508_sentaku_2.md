@@ -3,7 +3,8 @@ sidebar_label: 2025年8月実施 選択問題 確率・オペレーションズ�
 tags:
   - University-of-Electro-Communications
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Central-Limit-Theorem
-  - Probability-Statistics.Probability-Basics.Zero-Covariance-does-not-Imply-Independence
+  - Probability-Statistics.Probability-Basics.Covariance
+  - Probability-Statistics.Probability-Basics.Independence-of-Random-Variables
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Exponential-Distribution
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function
   - Operations-Research.Linear-Programming.Production-Planning

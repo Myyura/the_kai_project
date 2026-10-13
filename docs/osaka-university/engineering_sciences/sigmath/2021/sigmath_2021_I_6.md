@@ -3,7 +3,8 @@ sidebar_label: "2021年度 数理科学 I [6]"
 tags:
   - Osaka-University
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Probability-Basics.Uniform-Order-Statistics
+  - Probability-Statistics.Probability-Basics.Order-Statistics
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Uniform-Distribution
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Boundedness-in-Probability
 ---
 

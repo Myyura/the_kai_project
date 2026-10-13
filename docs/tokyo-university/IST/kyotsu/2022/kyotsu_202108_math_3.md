@@ -3,7 +3,7 @@ sidebar_label: "2021年8月実施 数学 第3問"
 tags:
   - Tokyo-University
   - Probability-Statistics.Probability-Basics.Product-of-Independent-Uniform-Variables
-  - Probability-Statistics.Probability-Basics.Minimum-Order-Statistic-and-Tail-Sum
+  - Probability-Statistics.Probability-Basics.Order-Statistics
 ---
 # 東京大学 情報理工学研究科 2021年8月実施 数学 第3問
 

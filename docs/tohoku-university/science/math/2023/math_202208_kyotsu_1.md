@@ -3,7 +3,7 @@ sidebar_label: "2022年8月実施 共通問題 [1]"
 tags:
   - Tohoku-University
   - Mathematics.Linear-Algebra.Skew-Symmetric-Matrix
-  - Mathematics.Linear-Algebra.Skew-Symmetric-Subspace-under-Congruence
+  - Mathematics.Linear-Algebra.Invariant-Subspace-and-Restricted-Operator
   - Mathematics.Linear-Algebra.Linear-Transformation
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---

@@ -126,27 +126,54 @@
         "Mathematics",
         "Computer-Science"
       ],
-      "labelZh": "斐波那契数列与递推关系",
-      "labelJa": "フィボナッチ数列と漸化式",
-      "labelEn": "Fibonacci Sequence and Recurrence"
-    },
-    "Discrete-Mathematics.Set-Theory.Image-of-Intersection": {
-      "subsubject": "Discrete-Mathematics.Set-Theory",
-      "labelZh": "交集的像",
-      "labelJa": "共通部分の像",
-      "labelEn": "Image of an Intersection"
+      "labelZh": "斐波那契数列",
+      "labelJa": "フィボナッチ数列",
+      "labelEn": "Fibonacci Sequence",
+      "searchAliases": {
+        "zh": [
+          "斐波那契数列与递推关系"
+        ],
+        "ja": [
+          "フィボナッチ数列と漸化式"
+        ],
+        "en": [
+          "Fibonacci Sequence and Recurrence"
+        ]
+      }
     },
     "Discrete-Mathematics.Set-Theory.Composition-of-Injective-and-Surjective-Maps": {
       "subsubject": "Discrete-Mathematics.Set-Theory",
-      "labelZh": "单射与满射映射的复合",
-      "labelJa": "単射と全射の合成",
-      "labelEn": "Composition of Injective and Surjective Maps"
+      "labelZh": "单射与满射",
+      "labelJa": "単射と全射",
+      "labelEn": "Injective and Surjective Maps",
+      "searchAliases": {
+        "zh": [
+          "单射与满射映射的复合"
+        ],
+        "ja": [
+          "単射と全射の合成"
+        ],
+        "en": [
+          "Composition of Injective and Surjective Maps"
+        ]
+      }
     },
     "Discrete-Mathematics.Set-Theory.Image-and-Preimage": {
       "subsubject": "Discrete-Mathematics.Set-Theory",
       "labelZh": "像与原像",
       "labelJa": "像と逆像",
-      "labelEn": "Image and Preimage"
+      "labelEn": "Image and Preimage",
+      "searchAliases": {
+        "zh": [
+          "交集的像"
+        ],
+        "ja": [
+          "共通部分の像"
+        ],
+        "en": [
+          "Image of an Intersection"
+        ]
+      }
     },
     "Discrete-Mathematics.Set-Theory.Cardinality": {
       "subsubject": "Discrete-Mathematics.Set-Theory",
@@ -183,27 +210,23 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "路径图与完全图的邻接谱",
-      "labelJa": "パスグラフと完全グラフの隣接スペクトル",
-      "labelEn": "Adjacency Spectra of Path and Complete Graphs"
-    },
-    "Discrete-Mathematics.Graph-Theory.Spectral-Diameter-Bound": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "基于谱的图直径界",
-      "labelJa": "スペクトルによるグラフ直径の評価",
-      "labelEn": "Spectral Diameter Bound"
-    },
-    "Discrete-Mathematics.Graph-Theory.Laplacian-Positive-Semidefiniteness": {
-      "subsubject": "Discrete-Mathematics.Graph-Theory",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "图拉普拉斯矩阵的半正定性",
-      "labelJa": "グラフラプラシアンの半正定値性",
-      "labelEn": "Positive Semidefiniteness of the Graph Laplacian"
+      "labelZh": "邻接谱",
+      "labelJa": "隣接スペクトル",
+      "labelEn": "Adjacency Spectrum",
+      "searchAliases": {
+        "zh": [
+          "基于谱的图直径界",
+          "路径图与完全图的邻接谱"
+        ],
+        "ja": [
+          "スペクトルによるグラフ直径の評価",
+          "パスグラフと完全グラフの隣接スペクトル"
+        ],
+        "en": [
+          "Spectral Diameter Bound",
+          "Adjacency Spectra of Path and Complete Graphs"
+        ]
+      }
     },
     "Discrete-Mathematics.Graph-Theory.Heat-Equation-on-Cycle-Graph-by-Discrete-Fourier-Transform": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
@@ -211,9 +234,20 @@
         "Mathematics",
         "Electrical-Electronic"
       ],
-      "labelZh": "用离散傅里叶变换求解圈图上的热方程",
-      "labelJa": "離散フーリエ変換によるサイクルグラフ上の熱方程式の解法",
-      "labelEn": "Solving the Heat Equation on a Cycle Graph by DFT"
+      "labelZh": "离散热方程",
+      "labelJa": "離散熱方程式",
+      "labelEn": "Discrete Heat Equation",
+      "searchAliases": {
+        "zh": [
+          "用离散傅里叶变换求解圈图上的热方程"
+        ],
+        "ja": [
+          "離散フーリエ変換によるサイクルグラフ上の熱方程式の解法"
+        ],
+        "en": [
+          "Solving the Heat Equation on a Cycle Graph by DFT"
+        ]
+      }
     },
     "Discrete-Mathematics.Graph-Theory.Consensus-Dynamics-and-Algebraic-Connectivity": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",
@@ -233,7 +267,18 @@
       ],
       "labelZh": "图拉普拉斯矩阵",
       "labelJa": "グラフラプラシアン",
-      "labelEn": "Graph Laplacian"
+      "labelEn": "Graph Laplacian",
+      "searchAliases": {
+        "zh": [
+          "图拉普拉斯矩阵的半正定性"
+        ],
+        "ja": [
+          "グラフラプラシアンの半正定値性"
+        ],
+        "en": [
+          "Positive Semidefiniteness of the Graph Laplacian"
+        ]
+      }
     },
     "Discrete-Mathematics.Graph-Algorithms.A-Star-Shortest-Path-Search": {
       "subsubject": "Discrete-Mathematics.Graph-Algorithms",
@@ -359,9 +404,20 @@
         "Mathematics",
         "Computer-Science"
       ],
-      "labelZh": "邻接矩阵与游走计数",
-      "labelJa": "隣接行列と歩道の数え上げ",
-      "labelEn": "Adjacency Matrices and Walk Counting"
+      "labelZh": "邻接矩阵",
+      "labelJa": "隣接行列",
+      "labelEn": "Adjacency Matrix",
+      "searchAliases": {
+        "zh": [
+          "邻接矩阵与游走计数"
+        ],
+        "ja": [
+          "隣接行列と歩道の数え上げ"
+        ],
+        "en": [
+          "Adjacency Matrices and Walk Counting"
+        ]
+      }
     },
     "Discrete-Mathematics.Graph-Theory.Bipartite-Graph": {
       "subsubject": "Discrete-Mathematics.Graph-Theory",

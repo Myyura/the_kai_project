@@ -118,18 +118,40 @@
       "relatedSubjects": [
         "Probability-Statistics"
       ],
-      "labelZh": "条件风险价值与一致性风险度量",
-      "labelJa": "条件付きバリュー・アット・リスクとコヒーレントリスク尺度",
-      "labelEn": "Conditional Value at Risk and Coherent Risk Measures"
+      "labelZh": "条件风险价值（CVaR）",
+      "labelJa": "条件付きバリュー・アット・リスク（CVaR）",
+      "labelEn": "Conditional Value at Risk (CVaR)",
+      "searchAliases": {
+        "zh": [
+          "条件风险价值与一致性风险度量"
+        ],
+        "ja": [
+          "条件付きバリュー・アット・リスクとコヒーレントリスク尺度"
+        ],
+        "en": [
+          "Conditional Value at Risk and Coherent Risk Measures"
+        ]
+      }
     },
     "Operations-Research.Decision-Analysis.Secretary-Problem-and-One-over-e-Rule": {
       "subsubject": "Operations-Research.Decision-Analysis",
       "relatedSubjects": [
         "Probability-Statistics"
       ],
-      "labelZh": "秘书问题与 1/e 法则",
-      "labelJa": "秘書問題と 1/e ルール",
-      "labelEn": "Secretary Problem and the 1/e Rule"
+      "labelZh": "秘书问题",
+      "labelJa": "秘書問題",
+      "labelEn": "Secretary Problem",
+      "searchAliases": {
+        "zh": [
+          "秘书问题与 1/e 法则"
+        ],
+        "ja": [
+          "秘書問題と 1/e ルール"
+        ],
+        "en": [
+          "Secretary Problem and the 1/e Rule"
+        ]
+      }
     },
     "Operations-Research.Decision-Analysis.Pareto-Dominance": {
       "subsubject": "Operations-Research.Decision-Analysis",
@@ -163,9 +185,20 @@
     },
     "Operations-Research.Decision-Analysis.Sensitivity-Analysis": {
       "subsubject": "Operations-Research.Decision-Analysis",
-      "labelZh": "决策的敏感性分析",
-      "labelJa": "意思決定の感度分析",
-      "labelEn": "Sensitivity Analysis in Decision Making"
+      "labelZh": "AHP 敏感性分析",
+      "labelJa": "AHP の感度分析",
+      "labelEn": "AHP Sensitivity Analysis",
+      "searchAliases": {
+        "zh": [
+          "决策的敏感性分析"
+        ],
+        "ja": [
+          "意思決定の感度分析"
+        ],
+        "en": [
+          "Sensitivity Analysis in Decision Making"
+        ]
+      }
     },
     "Operations-Research.Game-Theory.Backward-Induction": {
       "subsubject": "Operations-Research.Game-Theory",
@@ -178,9 +211,20 @@
       "relatedSubjects": [
         "Probability-Statistics"
       ],
-      "labelZh": "单次博弈的最优反应",
-      "labelJa": "一回限りのゲームにおける最適反応",
-      "labelEn": "Best Response in a One-Shot Game"
+      "labelZh": "最优反应",
+      "labelJa": "最適反応",
+      "labelEn": "Best Response",
+      "searchAliases": {
+        "zh": [
+          "单次博弈的最优反应"
+        ],
+        "ja": [
+          "一回限りのゲームにおける最適反応"
+        ],
+        "en": [
+          "Best Response in a One-Shot Game"
+        ]
+      }
     },
     "Operations-Research.Game-Theory.Chain-Store-Paradox": {
       "subsubject": "Operations-Research.Game-Theory",
@@ -279,12 +323,19 @@
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
       ],
-      "labelZh": "用奇异值分解求解正交 Procrustes 问题",
-      "labelJa": "特異値分解による直交プロクラステス問題の解法",
-      "labelEn": "Orthogonal Procrustes Problem via SVD",
+      "labelZh": "正交 Procrustes 问题",
+      "labelJa": "直交プロクラステス問題",
+      "labelEn": "Orthogonal Procrustes Problem",
       "searchAliases": {
         "en": [
-          "Orthogonal Procrustes via SVD"
+          "Orthogonal Procrustes via SVD",
+          "Orthogonal Procrustes Problem via SVD"
+        ],
+        "zh": [
+          "用奇异值分解求解正交 Procrustes 问题"
+        ],
+        "ja": [
+          "特異値分解による直交プロクラステス問題の解法"
         ]
       }
     },
@@ -293,9 +344,20 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "加速梯度流与离散李雅普诺夫收敛率分析",
-      "labelJa": "加速勾配流と離散リアプノフ関数による収束率解析",
-      "labelEn": "Accelerated Gradient Flow and Discrete Lyapunov Rate Analysis"
+      "labelZh": "加速梯度法",
+      "labelJa": "加速勾配法",
+      "labelEn": "Accelerated Gradient Methods",
+      "searchAliases": {
+        "zh": [
+          "加速梯度流与离散李雅普诺夫收敛率分析"
+        ],
+        "ja": [
+          "加速勾配流と離散リアプノフ関数による収束率解析"
+        ],
+        "en": [
+          "Accelerated Gradient Flow and Discrete Lyapunov Rate Analysis"
+        ]
+      }
     },
     "Operations-Research.Convex-Optimization.Probability-Simplex-Optimization": {
       "subsubject": "Operations-Research.Convex-Optimization",
@@ -313,9 +375,20 @@
         "Computer-Science",
         "Discrete-Mathematics"
       ],
-      "labelZh": "最小化最大子集和的数值划分近似算法",
-      "labelJa": "最大部分和を最小化する数分割の近似法",
-      "labelEn": "Approximation for Minimax Number Partitioning"
+      "labelZh": "极小极大数值划分",
+      "labelJa": "ミニマックス数分割",
+      "labelEn": "Minimax Number Partitioning",
+      "searchAliases": {
+        "zh": [
+          "最小化最大子集和的数值划分近似算法"
+        ],
+        "ja": [
+          "最大部分和を最小化する数分割の近似法"
+        ],
+        "en": [
+          "Approximation for Minimax Number Partitioning"
+        ]
+      }
     },
     "Operations-Research.Metaheuristics.Simulated-Annealing": {
       "subsubject": "Operations-Research.Metaheuristics",
@@ -391,18 +464,21 @@
         "Probability-Statistics",
         "Computer-Science"
       ],
-      "labelZh": "保序回归与相邻违序合并算法",
-      "labelJa": "単調回帰と PAVA 法",
-      "labelEn": "Isotonic Regression and the Pool-Adjacent-Violators Algorithm",
+      "labelZh": "保序回归与 PAVA",
+      "labelJa": "単調回帰と PAVA",
+      "labelEn": "Isotonic Regression and PAVA",
       "searchAliases": {
         "en": [
-          "PAVA"
+          "PAVA",
+          "Isotonic Regression and the Pool-Adjacent-Violators Algorithm"
         ],
         "zh": [
-          "单调回归"
+          "单调回归",
+          "保序回归与相邻违序合并算法"
         ],
         "ja": [
-          "アイソトニック回帰"
+          "アイソトニック回帰",
+          "単調回帰と PAVA 法"
         ]
       }
     },
@@ -456,12 +532,19 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "用优化方法证明算术–几何平均不等式",
-      "labelJa": "最適化による相加相乗平均の不等式の証明",
-      "labelEn": "The Arithmetic–Geometric Mean Inequality via Optimization",
+      "labelZh": "算术–几何平均不等式",
+      "labelJa": "相加相乗平均の不等式",
+      "labelEn": "Arithmetic–Geometric Mean Inequality",
       "searchAliases": {
         "en": [
-          "AM GM Inequality via Optimization"
+          "AM GM Inequality via Optimization",
+          "The Arithmetic–Geometric Mean Inequality via Optimization"
+        ],
+        "zh": [
+          "用优化方法证明算术–几何平均不等式"
+        ],
+        "ja": [
+          "最適化による相加相乗平均の不等式の証明"
         ]
       }
     },
@@ -479,12 +562,19 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "Karush–Kuhn–Tucker 条件",
-      "labelJa": "カルーシュ–クーン–タッカー条件",
-      "labelEn": "Karush-Kuhn-Tucker (KKT) Conditions",
+      "labelZh": "KKT 条件",
+      "labelJa": "KKT 条件",
+      "labelEn": "KKT Conditions",
       "searchAliases": {
         "en": [
-          "KKT Conditions"
+          "KKT Conditions",
+          "Karush-Kuhn-Tucker (KKT) Conditions"
+        ],
+        "zh": [
+          "Karush–Kuhn–Tucker 条件"
+        ],
+        "ja": [
+          "カルーシュ–クーン–タッカー条件"
         ]
       }
     },
@@ -529,9 +619,20 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "参数优化与值函数",
-      "labelJa": "パラメトリック最適化と最適値関数",
-      "labelEn": "Parametric Optimization and the Value Function"
+      "labelZh": "参数优化",
+      "labelJa": "パラメトリック最適化",
+      "labelEn": "Parametric Optimization",
+      "searchAliases": {
+        "zh": [
+          "参数优化与值函数"
+        ],
+        "ja": [
+          "パラメトリック最適化と最適値関数"
+        ],
+        "en": [
+          "Parametric Optimization and the Value Function"
+        ]
+      }
     },
     "Operations-Research.Convex-Optimization.Optimization-over-Convex-Hull": {
       "subsubject": "Operations-Research.Convex-Optimization",
@@ -604,9 +705,20 @@
     },
     "Operations-Research.Optimization-Basics.Sensitivity-Analysis": {
       "subsubject": "Operations-Research.Optimization-Basics",
-      "labelZh": "优化问题的敏感性分析",
-      "labelJa": "最適化問題の感度分析",
-      "labelEn": "Sensitivity Analysis in Optimization"
+      "labelZh": "优化敏感性分析",
+      "labelJa": "最適化の感度分析",
+      "labelEn": "Optimization Sensitivity Analysis",
+      "searchAliases": {
+        "zh": [
+          "优化问题的敏感性分析"
+        ],
+        "ja": [
+          "最適化問題の感度分析"
+        ],
+        "en": [
+          "Sensitivity Analysis in Optimization"
+        ]
+      }
     },
     "Operations-Research.Linear-Programming.Stepping-Stone-Method": {
       "subsubject": "Operations-Research.Linear-Programming",
@@ -625,9 +737,20 @@
       "relatedSubjects": [
         "Discrete-Mathematics"
       ],
-      "labelZh": "全单模性与整数性",
-      "labelJa": "完全単模性と整数性",
-      "labelEn": "Total Unimodularity and Integrality"
+      "labelZh": "全单模性",
+      "labelJa": "完全単模性",
+      "labelEn": "Total Unimodularity",
+      "searchAliases": {
+        "zh": [
+          "全单模性与整数性"
+        ],
+        "ja": [
+          "完全単模性と整数性"
+        ],
+        "en": [
+          "Total Unimodularity and Integrality"
+        ]
+      }
     },
     "Operations-Research.Combinatorial-Optimization.Maximum-Flow": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",
@@ -667,17 +790,18 @@
       ],
       "labelZh": "最短路径问题",
       "labelJa": "最短路問題",
-      "labelEn": "Shortest Path Problem"
-    },
-    "Operations-Research.Combinatorial-Optimization.Mandatory-Vertex-in-All-Shortest-Paths": {
-      "subsubject": "Operations-Research.Combinatorial-Optimization",
-      "relatedSubjects": [
-        "Computer-Science",
-        "Discrete-Mathematics"
-      ],
-      "labelZh": "所有最短路径的必经顶点",
-      "labelJa": "すべての最短路が通る頂点",
-      "labelEn": "Mandatory Vertex in All Shortest Paths"
+      "labelEn": "Shortest Path Problem",
+      "searchAliases": {
+        "zh": [
+          "所有最短路径的必经顶点"
+        ],
+        "ja": [
+          "すべての最短路が通る頂点"
+        ],
+        "en": [
+          "Mandatory Vertex in All Shortest Paths"
+        ]
+      }
     },
     "Operations-Research.Combinatorial-Optimization.Traveling-Salesman-Problem": {
       "subsubject": "Operations-Research.Combinatorial-Optimization",

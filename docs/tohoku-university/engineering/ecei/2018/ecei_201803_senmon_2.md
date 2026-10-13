@@ -2,8 +2,8 @@
 sidebar_label: 2018年3月実施 専門科目 問題2 通信工学
 tags:
   - Tohoku-University
-  - Electrical-Electronic.Signal-Processing.Impulse-Train-Sampling-and-Spectral-Replication
   - Electrical-Electronic.Signal-Processing.Sampling-Theorem-and-Aliasing
+  - Electrical-Electronic.Signal-Processing.Dirac-Comb-Fourier-Transform
   - Mathematics.Fourier-Analysis.Fourier-Series
 ---
 

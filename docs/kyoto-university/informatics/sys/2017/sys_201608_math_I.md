@@ -4,7 +4,8 @@ tags:
   - Kyoto-University
   - Mathematics.Linear-Algebra.Matrix-Inverse
   - Mathematics.Linear-Algebra.Systems-of-Linear-Equations
-  - Mathematics.Linear-Algebra.Characteristic-Polynomial-Coefficients-from-Eigenvalues
+  - Mathematics.Linear-Algebra.Matrix-Trace
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Rank-Criterion-for-Linear-System-Consistency
   - Mathematics.Linear-Algebra.Nilpotent-Matrix
 ---

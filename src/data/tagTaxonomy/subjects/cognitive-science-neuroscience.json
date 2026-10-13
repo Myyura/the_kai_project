@@ -40,12 +40,19 @@
       "relatedSubjects": [
         "Engineering"
       ],
-      "labelZh": "脑磁图与功能磁共振成像的比较",
-      "labelJa": "脳磁図と機能的磁気共鳴画像法の比較",
-      "labelEn": "Magnetoencephalography versus Functional MRI",
+      "labelZh": "MEG与fMRI",
+      "labelJa": "MEGとfMRI",
+      "labelEn": "MEG and fMRI",
       "searchAliases": {
         "en": [
-          "MEG vs fMRI"
+          "MEG vs fMRI",
+          "Magnetoencephalography versus Functional MRI"
+        ],
+        "zh": [
+          "脑磁图与功能磁共振成像的比较"
+        ],
+        "ja": [
+          "脳磁図と機能的磁気共鳴画像法の比較"
         ]
       }
     },
@@ -75,12 +82,19 @@
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ],
-      "labelZh": "基于体素的形态测量与弥散张量成像",
-      "labelJa": "ボクセルベース形態計測と拡散テンソル画像法",
-      "labelEn": "Voxel-Based Morphometry and Diffusion Tensor Imaging",
+      "labelZh": "VBM与DTI",
+      "labelJa": "VBMとDTI",
+      "labelEn": "VBM and DTI",
       "searchAliases": {
         "en": [
-          "VBM and DTI"
+          "VBM and DTI",
+          "Voxel-Based Morphometry and Diffusion Tensor Imaging"
+        ],
+        "zh": [
+          "基于体素的形态测量与弥散张量成像"
+        ],
+        "ja": [
+          "ボクセルベース形態計測と拡散テンソル画像法"
         ]
       }
     }

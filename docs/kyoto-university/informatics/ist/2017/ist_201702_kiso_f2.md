@@ -4,7 +4,8 @@ tags:
   - Kyoto-University
   - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
   - Electrical-Electronic.Digital-Logic.Karnaugh-Map-Minimization
-  - Electrical-Electronic.Digital-Logic.Mealy-Sequence-Detector-State-Minimization
+  - Computer-Science.Formal-Languages.Mealy-Machine
+  - Electrical-Electronic.Digital-Logic.Finite-State-Machine-Minimization
   - Electrical-Electronic.Digital-Logic.D-Flip-Flop
 ---
 # 京都大学 情報学研究科 知能情報学専攻 2017年2月実施 情報学基礎 F-2

@@ -2,7 +2,7 @@
 sidebar_label: "2018年1月実施 専門科目 第2問"
 tags:
   - Tokyo-University
-  - Probability-Statistics.Probability-Basics.Joint-Density-on-Triangular-Support
+  - Probability-Statistics.Probability-Basics.Joint-Distribution
   - Probability-Statistics.Probability-Basics.Conditional-Density
   - Probability-Statistics.Probability-Basics.Marginal-Densities-and-Independence-Test
   - Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation

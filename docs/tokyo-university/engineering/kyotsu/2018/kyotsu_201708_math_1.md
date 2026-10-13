@@ -2,7 +2,7 @@
 sidebar_label: '数学 第1問'
 tags:
   - Tokyo-University
-  - Mathematics.Differential-Equations.Linear-Ordinary-Differential-Equation-with-Exponential-Forcing
+  - Mathematics.Differential-Equations.Second-Order-Linear-Ordinary-Differential-Equation
   - Mathematics.Differential-Equations.Cauchy-Euler-Equation
   - Mathematics.Differential-Equations.Separation-of-Variables-for-Partial-Differential-Equation
 ---

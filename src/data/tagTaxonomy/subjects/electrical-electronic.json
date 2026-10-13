@@ -93,9 +93,20 @@
         "Physics",
         "Mathematics"
       ],
-      "labelZh": "升压变换器的开关暂态",
-      "labelJa": "昇圧コンバータのスイッチング過渡応答",
-      "labelEn": "Boost Converter Switching Transients"
+      "labelZh": "升压变换器",
+      "labelJa": "昇圧コンバータ",
+      "labelEn": "Boost Converter",
+      "searchAliases": {
+        "zh": [
+          "升压变换器的开关暂态"
+        ],
+        "ja": [
+          "昇圧コンバータのスイッチング過渡応答"
+        ],
+        "en": [
+          "Boost Converter Switching Transients"
+        ]
+      }
     },
     "Electrical-Electronic.Circuits.Circuit-Transient-Response": {
       "subsubject": "Electrical-Electronic.Circuits",
@@ -492,9 +503,20 @@
         "Physics",
         "Mathematics"
       ],
-      "labelZh": "阻尼与振荡",
-      "labelJa": "減衰と振動",
-      "labelEn": "Damping and Oscillation"
+      "labelZh": "二阶系统阻尼",
+      "labelJa": "2次系の減衰",
+      "labelEn": "Second-Order System Damping",
+      "searchAliases": {
+        "zh": [
+          "阻尼与振荡"
+        ],
+        "ja": [
+          "減衰と振動"
+        ],
+        "en": [
+          "Damping and Oscillation"
+        ]
+      }
     },
     "Electrical-Electronic.Control-Theory.Three-Dimensional-Position-Sensing": {
       "subsubject": "Electrical-Electronic.Control-Theory",
@@ -552,42 +574,6 @@
       "labelJa": "クリティカルパス遅延",
       "labelEn": "Critical Path Delay"
     },
-    "Electrical-Electronic.Digital-Logic.Ripple-vs-Synchronous-Counter-Propagation-Delay": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "labelZh": "脉动与同步计数器的传播延迟",
-      "labelJa": "リップルカウンタと同期式カウンタの伝搬遅延",
-      "labelEn": "Propagation Delay in Ripple and Synchronous Counters"
-    },
-    "Electrical-Electronic.Digital-Logic.Synchronous-Decade-and-Up-Down-Counter": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "labelZh": "同步十进制与可逆计数器",
-      "labelJa": "同期式10進カウンタとアップダウンカウンタ",
-      "labelEn": "Synchronous Decade and Up/Down Counters"
-    },
-    "Electrical-Electronic.Digital-Logic.Mealy-Sequence-Detector-State-Minimization": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "relatedSubjects": [
-        "Computer-Science"
-      ],
-      "labelZh": "米利型序列检测器的状态最小化",
-      "labelJa": "ミーリー型系列検出器の状態最小化",
-      "labelEn": "State Minimization for Mealy Sequence Detectors"
-    },
-    "Electrical-Electronic.Digital-Logic.Moore-Machine-State-Minimization-and-Encoding": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "relatedSubjects": [
-        "Computer-Science"
-      ],
-      "labelZh": "摩尔机状态最小化与编码",
-      "labelJa": "ムーア機械の状態最小化と符号化",
-      "labelEn": "Moore Machine State Minimization and Encoding"
-    },
-    "Electrical-Electronic.Digital-Logic.Synchronous-Modulo-Counter": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "labelZh": "同步模 N 计数器",
-      "labelJa": "同期式N進カウンタ",
-      "labelEn": "Synchronous Modulo-N Counters"
-    },
     "Electrical-Electronic.Digital-Logic.Periodic-Sequence-Generator": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "labelZh": "周期序列发生器",
@@ -624,29 +610,6 @@
       "labelZh": "触发器",
       "labelJa": "フリップフロップ",
       "labelEn": "Flip-Flops"
-    },
-    "Electrical-Electronic.Digital-Logic.One-Hot-Mealy-Parity-Checker": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "relatedSubjects": [
-        "Computer-Science"
-      ],
-      "labelZh": "独热编码米利型奇偶校验器",
-      "labelJa": "ワンホット符号化によるミーリー型パリティ検査回路",
-      "labelEn": "One-Hot Mealy Parity Checkers"
-    },
-    "Electrical-Electronic.Digital-Logic.Complementary-Metal-Oxide-Semiconductor-Logic-Transistor-Count-Optimization": {
-      "subsubject": "Electrical-Electronic.Digital-Logic",
-      "relatedSubjects": [
-        "Computer-Science"
-      ],
-      "labelZh": "CMOS 逻辑晶体管数量优化",
-      "labelJa": "CMOS論理回路のトランジスタ数最適化",
-      "labelEn": "Transistor Count Optimization in CMOS Logic",
-      "searchAliases": {
-        "en": [
-          "CMOS Logic Transistor Count Optimization"
-        ]
-      }
     },
     "Electrical-Electronic.Digital-Logic.D-Flip-Flop": {
       "subsubject": "Electrical-Electronic.Digital-Logic",
@@ -819,15 +782,6 @@
       "labelJa": "同期回路",
       "labelEn": "Synchronous Circuits"
     },
-    "Electrical-Electronic.Signal-Processing.Bandlimited-Signal-Reconstruction-from-Samples": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "带限信号的采样重建",
-      "labelJa": "標本値からの帯域制限信号の復元",
-      "labelEn": "Reconstruction of Bandlimited Signals from Samples"
-    },
     "Electrical-Electronic.Signal-Processing.Fourier-Conjugate-Symmetry-and-Modulation": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
@@ -935,34 +889,26 @@
       "labelJa": "ケプストラム",
       "labelEn": "Cepstrum"
     },
-    "Electrical-Electronic.Signal-Processing.Impulse-Train-Sampling-and-Spectral-Replication": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "冲激串采样与频谱周期复制",
-      "labelJa": "インパルス列による標本化とスペクトルの周期的複製",
-      "labelEn": "Impulse-Train Sampling and Spectral Replication"
-    },
     "Electrical-Electronic.Signal-Processing.Scalar-Quantizer-Probability-and-Centroid-Reconstruction": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Probability-Statistics",
         "Computer-Science"
       ],
-      "labelZh": "标量量化的概率与质心重建",
-      "labelJa": "スカラー量子化の確率と重心による復元",
-      "labelEn": "Scalar Quantization Probabilities and Centroid Reconstruction"
-    },
-    "Electrical-Electronic.Signal-Processing.Maximum-Entropy-Quantizer-Boundaries": {
-      "subsubject": "Electrical-Electronic.Signal-Processing",
-      "relatedSubjects": [
-        "Computer-Science",
-        "Probability-Statistics"
-      ],
-      "labelZh": "最大熵量化器的判决边界",
-      "labelJa": "エントロピーを最大化する量子化境界",
-      "labelEn": "Maximum-Entropy Quantizer Boundaries"
+      "labelZh": "标量量化",
+      "labelJa": "スカラー量子化",
+      "labelEn": "Scalar Quantization",
+      "searchAliases": {
+        "zh": [
+          "标量量化的概率与质心重建"
+        ],
+        "ja": [
+          "スカラー量子化の確率と重心による復元"
+        ],
+        "en": [
+          "Scalar Quantization Probabilities and Centroid Reconstruction"
+        ]
+      }
     },
     "Electrical-Electronic.Signal-Processing.Sampling-Theorem-and-Aliasing": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -971,7 +917,18 @@
       ],
       "labelZh": "采样定理与混叠",
       "labelJa": "標本化定理とエイリアシング",
-      "labelEn": "Sampling Theorem and Aliasing"
+      "labelEn": "Sampling Theorem and Aliasing",
+      "searchAliases": {
+        "zh": [
+          "带限信号的采样重建"
+        ],
+        "ja": [
+          "標本値からの帯域制限信号の復元"
+        ],
+        "en": [
+          "Reconstruction of Bandlimited Signals from Samples"
+        ]
+      }
     },
     "Electrical-Electronic.Signal-Processing.Impulse-and-Step-Response-Relationship": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -997,18 +954,40 @@
         "Physics",
         "Engineering"
       ],
-      "labelZh": "接近传感器原理",
-      "labelJa": "近接センサの原理",
-      "labelEn": "Proximity Sensor Principles"
+      "labelZh": "接近传感器",
+      "labelJa": "近接センサ",
+      "labelEn": "Proximity Sensors",
+      "searchAliases": {
+        "zh": [
+          "接近传感器原理"
+        ],
+        "ja": [
+          "近接センサの原理"
+        ],
+        "en": [
+          "Proximity Sensor Principles"
+        ]
+      }
     },
     "Electrical-Electronic.Signal-Processing.Causal-Response-Hilbert-Transform-Relation": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "因果响应与希尔伯特变换关系",
-      "labelJa": "因果的応答とヒルベルト変換の関係",
-      "labelEn": "Causal Response and Hilbert Transform Relations"
+      "labelZh": "因果性与希尔伯特变换",
+      "labelJa": "因果性とヒルベルト変換",
+      "labelEn": "Causality and the Hilbert Transform",
+      "searchAliases": {
+        "zh": [
+          "因果响应与希尔伯特变换关系"
+        ],
+        "ja": [
+          "因果的応答とヒルベルト変換の関係"
+        ],
+        "en": [
+          "Causal Response and Hilbert Transform Relations"
+        ]
+      }
     },
     "Electrical-Electronic.Signal-Processing.Single-Sideband-Modulation": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -1031,12 +1010,19 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "labelZh": "IIR 滤波器的传递函数与实现",
-      "labelJa": "IIRフィルタの伝達関数と実現",
-      "labelEn": "IIR Filter Transfer Functions and Realization",
+      "labelZh": "IIR 滤波器",
+      "labelJa": "IIRフィルタ",
+      "labelEn": "IIR Filter",
       "searchAliases": {
         "en": [
-          "IIR Filter Transfer Function and Realization"
+          "IIR Filter Transfer Function and Realization",
+          "IIR Filter Transfer Functions and Realization"
+        ],
+        "zh": [
+          "IIR 滤波器的传递函数与实现"
+        ],
+        "ja": [
+          "IIRフィルタの伝達関数と実現"
         ]
       }
     },
@@ -1045,9 +1031,20 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "理想低通滤波器的冲激响应",
-      "labelJa": "理想低域通過フィルタのインパルス応答",
-      "labelEn": "Ideal Low-Pass Filter Impulse Response"
+      "labelZh": "理想低通滤波器",
+      "labelJa": "理想低域通過フィルタ",
+      "labelEn": "Ideal Low-Pass Filter",
+      "searchAliases": {
+        "zh": [
+          "理想低通滤波器的冲激响应"
+        ],
+        "ja": [
+          "理想低域通過フィルタのインパルス応答"
+        ],
+        "en": [
+          "Ideal Low-Pass Filter Impulse Response"
+        ]
+      }
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Time-Transfer-Function-and-Impulse-Response": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -1063,9 +1060,20 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "模拟滤波器数字化的双线性变换",
-      "labelJa": "アナログフィルタのディジタル化と双一次変換",
-      "labelEn": "Bilinear Transform for Analog-to-Digital Filter Conversion"
+      "labelZh": "双线性变换",
+      "labelJa": "双一次変換",
+      "labelEn": "Bilinear Transform",
+      "searchAliases": {
+        "zh": [
+          "模拟滤波器数字化的双线性变换"
+        ],
+        "ja": [
+          "アナログフィルタのディジタル化と双一次変換"
+        ],
+        "en": [
+          "Bilinear Transform for Analog-to-Digital Filter Conversion"
+        ]
+      }
     },
     "Electrical-Electronic.Signal-Processing.Discrete-Time-Filter-Realization": {
       "subsubject": "Electrical-Electronic.Signal-Processing",
@@ -1115,7 +1123,19 @@
       "subsubject": "Electrical-Electronic.Digital-Logic",
       "labelZh": "CMOS逻辑电路",
       "labelJa": "CMOS論理回路",
-      "labelEn": "CMOS Logic Circuits"
+      "labelEn": "CMOS Logic Circuits",
+      "searchAliases": {
+        "zh": [
+          "CMOS 逻辑晶体管数量优化"
+        ],
+        "ja": [
+          "CMOS論理回路のトランジスタ数最適化"
+        ],
+        "en": [
+          "Transistor Count Optimization in CMOS Logic",
+          "CMOS Logic Transistor Count Optimization"
+        ]
+      }
     },
     "Electrical-Electronic.Digital-Logic.Latch": {
       "subsubject": "Electrical-Electronic.Digital-Logic",

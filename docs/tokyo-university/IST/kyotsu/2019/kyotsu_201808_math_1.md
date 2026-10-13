@@ -5,7 +5,6 @@ tags:
   - Mathematics.Linear-Algebra.Unitary-Matrix
   - Mathematics.Linear-Algebra.Realification-of-Unitary-Matrix
   - Mathematics.Linear-Algebra.Unitary-Discrete-Fourier-Transform-Matrix
-  - Mathematics.Linear-Algebra.Parameterization-of-Two-Dimensional-Unitary-and-Special-Unitary-Matrices
 ---
 # 東京大学 情報理工学研究科 2018年8月実施 数学 第1問
 

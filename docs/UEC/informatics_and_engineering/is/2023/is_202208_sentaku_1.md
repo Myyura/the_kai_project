@@ -3,11 +3,9 @@ sidebar_label: 2022年8月実施 選択問題 アルゴリズムとデータ構�
 tags:
   - University-of-Electro-Communications
   - Computer-Science.Data-Structures.Binary-Search-Tree
-  - Computer-Science.Data-Structures.Binary-Search-Tree-Insertion-and-Deletion
   - Computer-Science.Data-Structures.Preorder-Tree-Traversal
   - Computer-Science.Data-Structures.Inorder-Tree-Traversal
   - Computer-Science.Data-Structures.Balanced-Binary-Search-Tree
-  - Computer-Science.Data-Structures.Balanced-Binary-Search-Tree-Height-Bounds
 ---
 
 # 電気通信大学 情報理工学研究科 情報学専攻 2022年8月実施 選択問題 アルゴリズムとデータ構造

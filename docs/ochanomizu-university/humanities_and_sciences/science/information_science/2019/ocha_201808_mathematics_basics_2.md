@@ -2,7 +2,7 @@
 sidebar_label: "2018年8月実施 数学基礎 問題2"
 tags:
   - Ochanomizu-University
-  - Mathematics.Linear-Algebra.Parameterized-Diagonalizability
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
   - Mathematics.Linear-Algebra.Basis-and-Dimension
   - Mathematics.Linear-Algebra.Matrix-Determinant
 ---

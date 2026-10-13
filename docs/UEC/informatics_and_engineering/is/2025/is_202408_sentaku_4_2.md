@@ -6,7 +6,7 @@ tags:
   - Electrical-Electronic.Digital-Logic.Not-AND-and-Not-OR-Universal-Gates
   - Computer-Science.Computer-Architecture.Number-Representation
   - Computer-Science.Computer-Architecture.Performance-Analysis
-  - Computer-Science.Computer-Architecture.Sequential-Access-Cache-Hit-Rate
+  - Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate
 ---
 
 # 電気通信大学 情報理工学研究科 情報学専攻 2024年8月実施 選択問題 計算機工学 4-2

@@ -5,7 +5,7 @@ tags:
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
   - Probability-Statistics.Probability-Basics.Sum-of-Independent-Poisson-Variables
   - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Regression-through-the-Origin
-  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Residual-Orthogonality
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Method
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Positive-Predictive-Value-of-Significant-Results
   - Probability-Statistics.Bayesian-Statistics.Independent-Replication-and-Posterior-Odds
 ---

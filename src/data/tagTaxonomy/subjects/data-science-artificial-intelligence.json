@@ -107,7 +107,18 @@
       ],
       "labelZh": "矢量量化",
       "labelJa": "ベクトル量子化",
-      "labelEn": "Vector Quantization"
+      "labelEn": "Vector Quantization",
+      "searchAliases": {
+        "zh": [
+          "图像颜色量化"
+        ],
+        "ja": [
+          "画像の色量子化"
+        ],
+        "en": [
+          "Image Color Quantization"
+        ]
+      }
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Hidden-Markov-Model": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
@@ -123,9 +134,20 @@
       "relatedSubjects": [
         "Computer-Science"
       ],
-      "labelZh": "自然语言的形态学与语素",
-      "labelJa": "自然言語の形態論と形態素",
-      "labelEn": "Natural Language Morphology and Morphemes"
+      "labelZh": "语素",
+      "labelJa": "形態素",
+      "labelEn": "Morphemes",
+      "searchAliases": {
+        "zh": [
+          "自然语言的形态学与语素"
+        ],
+        "ja": [
+          "自然言語の形態論と形態素"
+        ],
+        "en": [
+          "Natural Language Morphology and Morphemes"
+        ]
+      }
     },
     "Data-Science-Artificial-Intelligence.Data-Science.Image-Filtering-and-Moments": {
       "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
@@ -136,15 +158,6 @@
       "labelZh": "图像滤波与图像矩",
       "labelJa": "画像のフィルタ処理とモーメント",
       "labelEn": "Image Filtering and Moments"
-    },
-    "Data-Science-Artificial-Intelligence.Data-Science.Image-Color-Quantization": {
-      "subsubject": "Data-Science-Artificial-Intelligence.Data-Science",
-      "relatedSubjects": [
-        "Computer-Science"
-      ],
-      "labelZh": "图像颜色量化",
-      "labelJa": "画像の色量子化",
-      "labelEn": "Image Color Quantization"
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Gaussian-Mixture-Model": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
@@ -236,9 +249,20 @@
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Vanishing-Gradient-and-Mitigation": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",
-      "labelZh": "梯度消失及其缓解方法",
-      "labelJa": "勾配消失とその対策",
-      "labelEn": "Vanishing Gradients and Mitigation"
+      "labelZh": "梯度消失",
+      "labelJa": "勾配消失",
+      "labelEn": "Vanishing Gradients",
+      "searchAliases": {
+        "zh": [
+          "梯度消失及其缓解方法"
+        ],
+        "ja": [
+          "勾配消失とその対策"
+        ],
+        "en": [
+          "Vanishing Gradients and Mitigation"
+        ]
+      }
     },
     "Data-Science-Artificial-Intelligence.Machine-Learning.Feature-Standardization": {
       "subsubject": "Data-Science-Artificial-Intelligence.Machine-Learning",

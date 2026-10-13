@@ -2,7 +2,6 @@
 sidebar_label: '2006年8月実施 筆記試験 第2問'
 tags:
   - Tokyo-University
-  - Computer-Science.Computer-Architecture.Sensor-Acquisition-Pipeline-Scheduling
   - Computer-Science.Computer-Architecture.Pipelining
   - Computer-Science.Computer-Architecture.Parallelism
   - Computer-Science.Computer-Architecture.Performance-Analysis

@@ -4,9 +4,9 @@ tags:
   - Tokyo-University
   - Probability-Statistics.Descriptive-Statistics-and-Sampling.Mean-Median-and-Quartiles
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Diagnostic-Test-Positive-Predictive-Value
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval-Width-vs-Sample-Size
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Chi-Square-Pivot-for-Normal-Variance
-  - Probability-Statistics.Descriptive-Statistics-and-Sampling.Affine-Transformation-of-Sample-Mean
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Simple-Linear-Regression
 ---
 # 東京大学 学際情報学府 学際情報学専攻 生物統計情報学コース 2018年1月実施 専門科目 第1問
 

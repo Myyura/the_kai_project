@@ -6,7 +6,7 @@ tags:
   - Electrical-Electronic.Digital-Logic.Karnaugh-Map-Minimization
   - Electrical-Electronic.Digital-Logic.Not-AND-and-Not-OR-Universal-Gates
   - Electrical-Electronic.Digital-Logic.D-Flip-Flop
-  - Electrical-Electronic.Digital-Logic.Moore-Machine-State-Minimization-and-Encoding
+  - Electrical-Electronic.Digital-Logic.Finite-State-Machine-Minimization
 ---
 # 京都大学 情報学研究科 通信情報システム専攻 2024年8月実施 専門基礎A \[A-2\]
 

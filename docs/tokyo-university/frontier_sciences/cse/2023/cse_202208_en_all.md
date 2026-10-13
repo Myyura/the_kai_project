@@ -24,7 +24,7 @@ tags:
   - Probability-Statistics.Probability-Basics.Order-Statistics
   - Probability-Statistics.Probability-Basics.Marginalization-of-Conditional-Density
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
-  - Probability-Statistics.Probability-Basics.Sum-of-Two-Uniform-Variables
+  - Probability-Statistics.Probability-Basics.Convolution-of-Independent-Random-Variables
   - Physics.Electromagnetism.Biot-Savart-Law
 ---
 

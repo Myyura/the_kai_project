@@ -4,7 +4,6 @@ tags:
   - Kobe-University
   - Computer-Science.Algorithm-Design.Algorithm-Complexity
   - Computer-Science.Data-Structures.Binary-Search-Tree
-  - Computer-Science.Data-Structures.Binary-Search-Tree-Insertion-and-Deletion
   - Computer-Science.Data-Structures.Balanced-Binary-Search-Tree
 ---
 # 神戸大学 システム情報学研究科 2018年1月実施 第二期 専門科目 計算機科学 \[2\]

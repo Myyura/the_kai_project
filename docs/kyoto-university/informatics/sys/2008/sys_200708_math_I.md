@@ -2,7 +2,8 @@
 sidebar_label: 2007年8月実施 数学【I】
 tags:
   - Kyoto-University
-  - Mathematics.Linear-Algebra.Inverse-of-Identity-plus-Nilpotent-Matrix
+  - Mathematics.Linear-Algebra.Nilpotent-Matrix
+  - Mathematics.Linear-Algebra.Matrix-Inverse
   - Mathematics.Linear-Algebra.Matrix-Exponential
   - Mathematics.Linear-Algebra.Orthogonal-Diagonalization-of-Symmetric-Matrices
   - Mathematics.Linear-Algebra.Positive-Definite-Matrix

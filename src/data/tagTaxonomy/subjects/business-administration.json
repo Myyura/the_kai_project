@@ -142,9 +142,20 @@
     },
     "Business-Administration.Accounting.Cost-Volume-Profit-Analysis": {
       "subsubject": "Business-Administration.Accounting",
-      "labelZh": "本量利与盈亏平衡分析",
-      "labelJa": "損益分岐点・CVP分析",
-      "labelEn": "Cost-Volume-Profit Analysis"
+      "labelZh": "本量利分析",
+      "labelJa": "CVP分析",
+      "labelEn": "Cost–Volume–Profit Analysis",
+      "searchAliases": {
+        "zh": [
+          "本量利与盈亏平衡分析"
+        ],
+        "ja": [
+          "損益分岐点・CVP分析"
+        ],
+        "en": [
+          "Cost-Volume-Profit Analysis"
+        ]
+      }
     },
     "Business-Administration.Finance.Equivalent-Annual-Worth": {
       "subsubject": "Business-Administration.Finance",

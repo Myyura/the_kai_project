@@ -3,7 +3,7 @@ sidebar_label: "2022年度 数理科学 I [5]"
 tags:
   - Osaka-University
   - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Regression-through-the-Origin
-  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Residual-Orthogonality
+  - Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Method
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Hypothesis-Testing
 ---
 

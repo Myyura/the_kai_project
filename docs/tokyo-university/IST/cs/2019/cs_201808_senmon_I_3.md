@@ -4,7 +4,7 @@ tags:
   - Tokyo-University
   - Computer-Science.Formal-Languages.Chomsky-Normal-Form
   - Computer-Science.Formal-Languages.Context-Free-Grammar-Emptiness-Problem
-  - Computer-Science.Formal-Languages.Context-Free-Language-Regular-Intersection
+  - Computer-Science.Formal-Languages.Context-Free-Language-Closure-Properties
   - Computer-Science.Formal-Languages.Regular-Language-Closure-Properties
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2018年8月実施 専門科目I 問題3

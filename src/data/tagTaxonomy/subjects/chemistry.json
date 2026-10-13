@@ -48,9 +48,20 @@
       "relatedSubjects": [
         "Physics"
       ],
-      "labelZh": "爱因斯坦固体模型的热容",
-      "labelJa": "アインシュタイン固体模型の熱容量",
-      "labelEn": "Heat Capacity of an Einstein Solid"
+      "labelZh": "爱因斯坦固体模型",
+      "labelJa": "アインシュタイン固体模型",
+      "labelEn": "Einstein Solid Model",
+      "searchAliases": {
+        "zh": [
+          "爱因斯坦固体模型的热容"
+        ],
+        "ja": [
+          "アインシュタイン固体模型の熱容量"
+        ],
+        "en": [
+          "Heat Capacity of an Einstein Solid"
+        ]
+      }
     },
     "Chemistry.Physical-Chemistry.Gibbs-Free-Energy-and-Non-PV-Work": {
       "subsubject": "Chemistry.Physical-Chemistry",
@@ -66,18 +77,40 @@
       "relatedSubjects": [
         "Electrical-Electronic"
       ],
-      "labelZh": "由吉布斯自由能求电池电动势",
-      "labelJa": "ギブズ自由エネルギーから求める電池の起電力",
-      "labelEn": "Electrochemical Cell Potential from Gibbs Free Energy"
+      "labelZh": "电池电动势与吉布斯自由能",
+      "labelJa": "電池の起電力とギブズ自由エネルギー",
+      "labelEn": "Cell EMF and Gibbs Free Energy",
+      "searchAliases": {
+        "zh": [
+          "由吉布斯自由能求电池电动势"
+        ],
+        "ja": [
+          "ギブズ自由エネルギーから求める電池の起電力"
+        ],
+        "en": [
+          "Electrochemical Cell Potential from Gibbs Free Energy"
+        ]
+      }
     },
     "Chemistry.Physical-Chemistry.Consecutive-First-Order-Reaction-Kinetics": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "连续一级反应动力学",
-      "labelJa": "逐次一次反応の速度論",
-      "labelEn": "Consecutive First-Order Reaction Kinetics"
+      "labelZh": "连续一级反应",
+      "labelJa": "逐次一次反応",
+      "labelEn": "Consecutive First-Order Reactions",
+      "searchAliases": {
+        "zh": [
+          "连续一级反应动力学"
+        ],
+        "ja": [
+          "逐次一次反応の速度論"
+        ],
+        "en": [
+          "Consecutive First-Order Reaction Kinetics"
+        ]
+      }
     },
     "Chemistry.Physical-Chemistry.Operator-Commutator": {
       "subsubject": "Chemistry.Physical-Chemistry",
@@ -113,18 +146,40 @@
         "Physics",
         "Mathematics"
       ],
-      "labelZh": "箱中粒子与 HOMO–LUMO 跃迁",
-      "labelJa": "箱の中の粒子とHOMO–LUMO遷移",
-      "labelEn": "Particle in a Box and HOMO–LUMO Transitions"
+      "labelZh": "HOMO–LUMO 跃迁",
+      "labelJa": "HOMO–LUMO遷移",
+      "labelEn": "HOMO–LUMO Transitions",
+      "searchAliases": {
+        "zh": [
+          "箱中粒子与 HOMO–LUMO 跃迁"
+        ],
+        "ja": [
+          "箱の中の粒子とHOMO–LUMO遷移"
+        ],
+        "en": [
+          "Particle in a Box and HOMO–LUMO Transitions"
+        ]
+      }
     },
     "Chemistry.Physical-Chemistry.Langmuir-Hinshelwood-CO-Oxidation": {
       "subsubject": "Chemistry.Physical-Chemistry",
       "relatedSubjects": [
         "Engineering"
       ],
-      "labelZh": "朗缪尔–欣谢尔伍德机理的一氧化碳氧化",
-      "labelJa": "ラングミュア・ヒンシェルウッド機構によるCO酸化",
-      "labelEn": "CO Oxidation by the Langmuir–Hinshelwood Mechanism"
+      "labelZh": "朗缪尔–欣谢尔伍德机理",
+      "labelJa": "ラングミュア・ヒンシェルウッド機構",
+      "labelEn": "Langmuir–Hinshelwood Mechanism",
+      "searchAliases": {
+        "zh": [
+          "朗缪尔–欣谢尔伍德机理的一氧化碳氧化"
+        ],
+        "ja": [
+          "ラングミュア・ヒンシェルウッド機構によるCO酸化"
+        ],
+        "en": [
+          "CO Oxidation by the Langmuir–Hinshelwood Mechanism"
+        ]
+      }
     },
     "Chemistry.Physical-Chemistry.Enzyme-Inhibition-and-Lineweaver-Burk-Plot": {
       "subsubject": "Chemistry.Physical-Chemistry",
@@ -152,9 +207,20 @@
     },
     "Chemistry.Inorganic-Chemistry.Radius-Ratio-Rule-and-Ionic-Coordination": {
       "subsubject": "Chemistry.Inorganic-Chemistry",
-      "labelZh": "半径比规则与离子配位",
-      "labelJa": "半径比則とイオンの配位",
-      "labelEn": "Radius-Ratio Rule and Ionic Coordination"
+      "labelZh": "半径比规则",
+      "labelJa": "半径比則",
+      "labelEn": "Radius-Ratio Rule",
+      "searchAliases": {
+        "zh": [
+          "半径比规则与离子配位"
+        ],
+        "ja": [
+          "半径比則とイオンの配位"
+        ],
+        "en": [
+          "Radius-Ratio Rule and Ionic Coordination"
+        ]
+      }
     },
     "Chemistry.Inorganic-Chemistry.Oxygen-Vacancies-in-Stabilized-Zirconia": {
       "subsubject": "Chemistry.Inorganic-Chemistry",
@@ -185,24 +251,57 @@
     },
     "Chemistry.Organic-Chemistry.Cyclohexane-Trans-Diaxial-E2-Elimination": {
       "subsubject": "Chemistry.Organic-Chemistry",
-      "labelZh": "环己烷反式双轴向 E2 消除",
-      "labelJa": "シクロヘキサンのトランスジアキシアルE2脱離",
-      "labelEn": "Trans-Diaxial E2 Elimination in Cyclohexanes"
+      "labelZh": "反式双轴向 E2 消除",
+      "labelJa": "トランスジアキシアルE2脱離",
+      "labelEn": "Trans-Diaxial E2 Elimination",
+      "searchAliases": {
+        "zh": [
+          "环己烷反式双轴向 E2 消除"
+        ],
+        "ja": [
+          "シクロヘキサンのトランスジアキシアルE2脱離"
+        ],
+        "en": [
+          "Trans-Diaxial E2 Elimination in Cyclohexanes"
+        ]
+      }
     },
     "Chemistry.Organic-Chemistry.Friedel-Crafts-Acylation-to-Alkylbenzene": {
       "subsubject": "Chemistry.Organic-Chemistry",
-      "labelZh": "傅里德尔–克拉夫茨酰基化制备烷基苯",
-      "labelJa": "フリーデル・クラフツアシル化を経るアルキルベンゼン合成",
-      "labelEn": "Alkylbenzene Synthesis via Friedel–Crafts Acylation"
+      "labelZh": "傅里德尔–克拉夫茨酰基化",
+      "labelJa": "フリーデル・クラフツアシル化",
+      "labelEn": "Friedel–Crafts Acylation",
+      "searchAliases": {
+        "zh": [
+          "傅里德尔–克拉夫茨酰基化制备烷基苯"
+        ],
+        "ja": [
+          "フリーデル・クラフツアシル化を経るアルキルベンゼン合成"
+        ],
+        "en": [
+          "Alkylbenzene Synthesis via Friedel–Crafts Acylation"
+        ]
+      }
     },
     "Chemistry.Organic-Chemistry.Arene-Oxide-NIH-Shift": {
       "subsubject": "Chemistry.Organic-Chemistry",
       "relatedSubjects": [
         "Bioinformatics"
       ],
-      "labelZh": "芳烃氧化物的 NIH 迁移",
-      "labelJa": "アレーンオキシドのNIH転位",
-      "labelEn": "NIH Shift in Arene Oxides"
+      "labelZh": "NIH 迁移",
+      "labelJa": "NIH転位",
+      "labelEn": "NIH Shift",
+      "searchAliases": {
+        "zh": [
+          "芳烃氧化物的 NIH 迁移"
+        ],
+        "ja": [
+          "アレーンオキシドのNIH転位"
+        ],
+        "en": [
+          "NIH Shift in Arene Oxides"
+        ]
+      }
     }
   }
 }

@@ -3,8 +3,8 @@ sidebar_label: 2018年8月実施 プログラミング
 tags:
   - Tokyo-University
   - Computer-Science.Programming.File-Input-and-Output
-  - Data-Science-Artificial-Intelligence.Data-Science.Image-Color-Quantization
-  - Computer-Science.Programming.Binary-File-Format-and-Endianness
+  - Data-Science-Artificial-Intelligence.Data-Science.Vector-Quantization
+  - Computer-Science.Computer-Architecture.Endianness
 ---
 # 東京大学 情報理工学系研究科 創造情報学専攻 2018年8月実施 プログラミング
 

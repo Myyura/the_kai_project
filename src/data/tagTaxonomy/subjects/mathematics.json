@@ -143,12 +143,6 @@
     "Mathematics.Functional-Analysis"
   ],
   "topics": {
-    "Mathematics.Real-Analysis.Improper-Integrals-with-Floor-and-Fractional-Part": {
-      "subsubject": "Mathematics.Real-Analysis",
-      "labelZh": "含取整与小数部分函数的反常积分",
-      "labelJa": "床関数・小数部分を含む広義積分",
-      "labelEn": "Improper Integrals with Floor and Fractional Part"
-    },
     "Mathematics.Real-Analysis.Differentiability-from-Polynomial-Approximation-Rate": {
       "subsubject": "Mathematics.Real-Analysis",
       "labelZh": "由多项式逼近速度判定可微性",
@@ -163,15 +157,37 @@
     },
     "Mathematics.Real-Analysis.Exponential-Kernel-Sequence-Divergence-and-Continuum-Limit": {
       "subsubject": "Mathematics.Real-Analysis",
-      "labelZh": "指数核定义的序列差异度及其连续极限",
-      "labelJa": "指数核による数列間の乖離度と連続極限",
-      "labelEn": "Exponential-kernel Divergence between Sequences and its Continuum Limit"
+      "labelZh": "指数核与序列连续极限",
+      "labelJa": "指数核と数列の連続極限",
+      "labelEn": "Exponential Kernels and Continuum Limits",
+      "searchAliases": {
+        "zh": [
+          "指数核定义的序列差异度及其连续极限"
+        ],
+        "ja": [
+          "指数核による数列間の乖離度と連続極限"
+        ],
+        "en": [
+          "Exponential-kernel Divergence between Sequences and its Continuum Limit"
+        ]
+      }
     },
     "Mathematics.Real-Analysis.Frullani-Integral-by-Parameter-Differentiation": {
       "subsubject": "Mathematics.Real-Analysis",
-      "labelZh": "用参数微分法计算弗鲁拉尼积分",
-      "labelJa": "パラメータ微分によるフルラニ積分",
-      "labelEn": "Frullani Integral by Parameter Differentiation"
+      "labelZh": "弗鲁拉尼积分",
+      "labelJa": "フルラニ積分",
+      "labelEn": "Frullani Integral",
+      "searchAliases": {
+        "zh": [
+          "用参数微分法计算弗鲁拉尼积分"
+        ],
+        "ja": [
+          "パラメータ微分によるフルラニ積分"
+        ],
+        "en": [
+          "Frullani Integral by Parameter Differentiation"
+        ]
+      }
     },
     "Mathematics.Real-Analysis.Interchange-of-Limit-Derivative-and-Integral": {
       "subsubject": "Mathematics.Real-Analysis",
@@ -213,9 +229,20 @@
         "Computer-Science",
         "Engineering"
       ],
-      "labelZh": "二阶导数的中心差分近似",
-      "labelJa": "二階微分の中心差分近似",
-      "labelEn": "Central Finite Difference for Second Derivative"
+      "labelZh": "有限差分",
+      "labelJa": "有限差分",
+      "labelEn": "Finite Differences",
+      "searchAliases": {
+        "zh": [
+          "二阶导数的中心差分近似"
+        ],
+        "ja": [
+          "二階微分の中心差分近似"
+        ],
+        "en": [
+          "Central Finite Difference for Second Derivative"
+        ]
+      }
     },
     "Mathematics.Numerical-Analysis.Roundoff-vs-Truncation-Error": {
       "subsubject": "Mathematics.Numerical-Analysis",
@@ -243,9 +270,20 @@
     },
     "Mathematics.Numerical-Analysis.Richardson-Extrapolation-for-Trapezoidal-Error": {
       "subsubject": "Mathematics.Numerical-Analysis",
-      "labelZh": "梯形公式误差的理查森外推",
-      "labelJa": "台形則の誤差に対するリチャードソン補外",
-      "labelEn": "Richardson Extrapolation for Trapezoidal Error"
+      "labelZh": "理查森外推",
+      "labelJa": "リチャードソン補外",
+      "labelEn": "Richardson Extrapolation",
+      "searchAliases": {
+        "zh": [
+          "梯形公式误差的理查森外推"
+        ],
+        "ja": [
+          "台形則の誤差に対するリチャードソン補外"
+        ],
+        "en": [
+          "Richardson Extrapolation for Trapezoidal Error"
+        ]
+      }
     },
     "Mathematics.Calculus.Cauchy-Sequence": {
       "subsubject": "Mathematics.Calculus",
@@ -271,21 +309,20 @@
     },
     "Mathematics.Calculus.Hyperbolic-Functions-from-Power-Series": {
       "subsubject": "Mathematics.Calculus",
-      "labelZh": "由幂级数定义双曲函数",
-      "labelJa": "べき級数による双曲線関数の定義",
-      "labelEn": "Hyperbolic Functions from Power Series"
-    },
-    "Mathematics.Calculus.Logarithmic-Improper-Integrals-by-Inversion": {
-      "subsubject": "Mathematics.Calculus",
-      "labelZh": "用倒数代换计算对数型反常积分",
-      "labelJa": "逆数置換による対数型広義積分",
-      "labelEn": "Logarithmic Improper Integrals by Inversion"
-    },
-    "Mathematics.Calculus.Inverse-Hyperbolic-Sine-Integral": {
-      "subsubject": "Mathematics.Calculus",
-      "labelZh": "反双曲正弦函数的积分",
-      "labelJa": "逆双曲線正弦関数の積分",
-      "labelEn": "Inverse Hyperbolic Sine Integral"
+      "labelZh": "双曲函数",
+      "labelJa": "双曲線関数",
+      "labelEn": "Hyperbolic Functions",
+      "searchAliases": {
+        "zh": [
+          "由幂级数定义双曲函数"
+        ],
+        "ja": [
+          "べき級数による双曲線関数の定義"
+        ],
+        "en": [
+          "Hyperbolic Functions from Power Series"
+        ]
+      }
     },
     "Mathematics.Calculus.Ellipse-Tangent-and-Intercept-Optimization": {
       "subsubject": "Mathematics.Calculus",
@@ -295,21 +332,6 @@
       "labelZh": "椭圆切线与截距最优化",
       "labelJa": "楕円の接線と切片の最適化",
       "labelEn": "Ellipse Tangent and Intercept Optimization"
-    },
-    "Mathematics.Calculus.Elliptic-Region-Change-of-Variables": {
-      "subsubject": "Mathematics.Calculus",
-      "labelZh": "椭圆区域上的变量代换",
-      "labelJa": "楕円領域での変数変換",
-      "labelEn": "Elliptic Region Change of Variables"
-    },
-    "Mathematics.Calculus.Sigmoid-and-Hyperbolic-Tangent-Derivatives": {
-      "subsubject": "Mathematics.Calculus",
-      "relatedSubjects": [
-        "Data-Science-Artificial-Intelligence"
-      ],
-      "labelZh": "西格莫伊德函数与双曲正切函数的导数",
-      "labelJa": "シグモイド関数と双曲線正接関数の微分",
-      "labelEn": "Sigmoid and Hyperbolic Tangent Derivatives"
     },
     "Mathematics.Calculus.Beta-Function": {
       "subsubject": "Mathematics.Calculus",
@@ -383,9 +405,20 @@
     },
     "Mathematics.Calculus.Surface-Area-by-Double-Integral": {
       "subsubject": "Mathematics.Calculus",
-      "labelZh": "用二重积分计算曲面面积",
-      "labelJa": "二重積分による曲面積の計算",
-      "labelEn": "Surface Area by Double Integral"
+      "labelZh": "曲面面积",
+      "labelJa": "曲面積",
+      "labelEn": "Surface Area",
+      "searchAliases": {
+        "zh": [
+          "用二重积分计算曲面面积"
+        ],
+        "ja": [
+          "二重積分による曲面積の計算"
+        ],
+        "en": [
+          "Surface Area by Double Integral"
+        ]
+      }
     },
     "Mathematics.Calculus.Change-of-Variables-and-Jacobian": {
       "subsubject": "Mathematics.Calculus",
@@ -401,15 +434,6 @@
       "labelZh": "链式法则",
       "labelJa": "合成関数の微分法",
       "labelEn": "Chain Rule"
-    },
-    "Mathematics.Calculus.Gamma-Function-Log-Derivatives-and-Log-Moments": {
-      "subsubject": "Mathematics.Calculus",
-      "relatedSubjects": [
-        "Probability-Statistics"
-      ],
-      "labelZh": "伽马函数的对数导数与对数矩",
-      "labelJa": "ガンマ関数の対数微分と対数モーメント",
-      "labelEn": "Gamma Function Log Derivatives and Log Moments"
     },
     "Mathematics.Calculus.Gamma-Function": {
       "subsubject": "Mathematics.Calculus",
@@ -551,9 +575,20 @@
     },
     "Mathematics.Calculus.Geometric-Series-and-Partial-Sum-Remainder": {
       "subsubject": "Mathematics.Calculus",
-      "labelZh": "几何级数与部分和余项",
-      "labelJa": "等比級数と部分和の剰余",
-      "labelEn": "Geometric Series and Partial Sum Remainder"
+      "labelZh": "几何级数",
+      "labelJa": "等比級数",
+      "labelEn": "Geometric Series",
+      "searchAliases": {
+        "zh": [
+          "几何级数与部分和余项"
+        ],
+        "ja": [
+          "等比級数と部分和の剰余"
+        ],
+        "en": [
+          "Geometric Series and Partial Sum Remainder"
+        ]
+      }
     },
     "Mathematics.Calculus.Infinite-Series": {
       "subsubject": "Mathematics.Calculus",
@@ -857,20 +892,6 @@
       "labelJa": "ユニタリ行列の実数表現",
       "labelEn": "Realification of Unitary Matrix"
     },
-    "Mathematics.Linear-Algebra.Parameterization-of-Two-Dimensional-Unitary-and-Special-Unitary-Matrices": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "relatedSubjects": [
-        "Physics"
-      ],
-      "labelZh": "二阶酉矩阵与特殊酉矩阵的参数化",
-      "labelJa": "二次ユニタリ行列・特殊ユニタリ行列のパラメータ表示",
-      "labelEn": "Parameterization of Two-dimensional Unitary and Special Unitary Matrices",
-      "searchAliases": {
-        "en": [
-          "Parameterization of U2 and SU2 Matrices"
-        ]
-      }
-    },
     "Mathematics.Linear-Algebra.Unitary-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
@@ -878,7 +899,19 @@
       ],
       "labelZh": "酉矩阵",
       "labelJa": "ユニタリ行列",
-      "labelEn": "Unitary Matrix"
+      "labelEn": "Unitary Matrix",
+      "searchAliases": {
+        "zh": [
+          "二阶酉矩阵与特殊酉矩阵的参数化"
+        ],
+        "ja": [
+          "二次ユニタリ行列・特殊ユニタリ行列のパラメータ表示"
+        ],
+        "en": [
+          "Parameterization of Two-dimensional Unitary and Special Unitary Matrices",
+          "Parameterization of U2 and SU2 Matrices"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Spectral-Decomposition-of-Hermitian-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -924,12 +957,6 @@
       "labelZh": "内积与正交性",
       "labelJa": "内積と直交性",
       "labelEn": "Inner Product and Orthogonality"
-    },
-    "Mathematics.Linear-Algebra.Inner-Product-Induced-by-Positive-Definite-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "正定矩阵诱导的内积",
-      "labelJa": "正定値行列が定める内積",
-      "labelEn": "Inner Product Induced by Positive-definite Matrix"
     },
     "Mathematics.Linear-Algebra.Symmetric-and-Skew-Symmetric-Decomposition": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1010,9 +1037,20 @@
         "Physics",
         "Computer-Science"
       ],
-      "labelZh": "克罗内克积与特征值",
-      "labelJa": "クロネッカー積と固有値",
-      "labelEn": "Kronecker Product and Eigenvalues"
+      "labelZh": "克罗内克积",
+      "labelJa": "クロネッカー積",
+      "labelEn": "Kronecker Product",
+      "searchAliases": {
+        "zh": [
+          "克罗内克积与特征值"
+        ],
+        "ja": [
+          "クロネッカー積と固有値"
+        ],
+        "en": [
+          "Kronecker Product and Eigenvalues"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Subspace-Sum-and-Intersection-Dimension": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1056,13 +1094,18 @@
       "subsubject": "Mathematics.Linear-Algebra",
       "labelZh": "矩阵对角化",
       "labelJa": "行列の対角化",
-      "labelEn": "Matrix Diagonalization"
-    },
-    "Mathematics.Linear-Algebra.Parameterized-Eigenvalues-and-Rank": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "含参数矩阵的特征值与秩",
-      "labelJa": "パラメータを含む行列の固有値と階数",
-      "labelEn": "Parameterized Eigenvalues and Rank"
+      "labelEn": "Matrix Diagonalization",
+      "searchAliases": {
+        "zh": [
+          "含参数矩阵的可对角化条件"
+        ],
+        "ja": [
+          "パラメータを含む行列の対角化可能性"
+        ],
+        "en": [
+          "Parameterized Diagonalizability"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Discrete-Linear-Dynamical-System-Convergence": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1123,18 +1166,6 @@
       "labelJa": "行列の演算",
       "labelEn": "Matrix Operations"
     },
-    "Mathematics.Linear-Algebra.Determinant-of-Matrix-Exponential": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "矩阵指数的行列式",
-      "labelJa": "行列の指数関数の行列式",
-      "labelEn": "Determinant of Matrix Exponential"
-    },
-    "Mathematics.Linear-Algebra.Characteristic-Polynomial-Coefficients-from-Eigenvalues": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "由特征值求特征多项式系数",
-      "labelJa": "固有値による特性多項式の係数計算",
-      "labelEn": "Characteristic Polynomial Coefficients from Eigenvalues"
-    },
     "Mathematics.Linear-Algebra.Characteristic-Polynomial": {
       "subsubject": "Mathematics.Linear-Algebra",
       "labelZh": "特征多项式",
@@ -1148,15 +1179,37 @@
         "Computer-Science",
         "Discrete-Mathematics"
       ],
-      "labelZh": "PageRank 随机跳转、不动点与压缩映射",
-      "labelJa": "PageRank のランダムジャンプ・不動点・縮小写像",
-      "labelEn": "PageRank Teleportation Fixed Point and Contraction"
+      "labelZh": "PageRank",
+      "labelJa": "PageRank",
+      "labelEn": "PageRank",
+      "searchAliases": {
+        "zh": [
+          "PageRank 随机跳转、不动点与压缩映射"
+        ],
+        "ja": [
+          "PageRank のランダムジャンプ・不動点・縮小写像"
+        ],
+        "en": [
+          "PageRank Teleportation Fixed Point and Contraction"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Sylvester-Equation-with-Positive-Definite-Coefficient": {
       "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "正定系数矩阵的西尔维斯特方程",
-      "labelJa": "正定値係数行列をもつシルベスター方程式",
-      "labelEn": "Sylvester Equation with Positive-definite Coefficient"
+      "labelZh": "西尔维斯特方程",
+      "labelJa": "シルベスター方程式",
+      "labelEn": "Sylvester Equation",
+      "searchAliases": {
+        "zh": [
+          "正定系数矩阵的西尔维斯特方程"
+        ],
+        "ja": [
+          "正定値係数行列をもつシルベスター方程式"
+        ],
+        "en": [
+          "Sylvester Equation with Positive-definite Coefficient"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Matrix-Limit": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1179,21 +1232,26 @@
       "labelJa": "逆行列",
       "labelEn": "Matrix Inverse"
     },
-    "Mathematics.Linear-Algebra.Determinant-of-Inverse-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "逆矩阵的行列式",
-      "labelJa": "逆行列の行列式",
-      "labelEn": "Determinant of Inverse Matrix"
-    },
     "Mathematics.Linear-Algebra.Cross-Product-Area-and-Scalar-Triple-Product-Volume": {
       "subsubject": "Mathematics.Linear-Algebra",
       "relatedSubjects": [
         "Physics",
         "Engineering"
       ],
-      "labelZh": "向量积求面积与混合积求体积",
-      "labelJa": "外積による面積とスカラー三重積による体積",
-      "labelEn": "Areas by Cross Products and Volumes by Scalar Triple Products"
+      "labelZh": "向量积与混合积",
+      "labelJa": "外積とスカラー三重積",
+      "labelEn": "Cross Product and Scalar Triple Product",
+      "searchAliases": {
+        "zh": [
+          "向量积求面积与混合积求体积"
+        ],
+        "ja": [
+          "外積による面積とスカラー三重積による体積"
+        ],
+        "en": [
+          "Areas by Cross Products and Volumes by Scalar Triple Products"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Matrix-Power": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1206,9 +1264,20 @@
       "relatedSubjects": [
         "Discrete-Mathematics"
       ],
-      "labelZh": "线性递推的友矩阵",
-      "labelJa": "線形漸化式の同伴行列",
-      "labelEn": "Companion Matrix for Linear Recurrences"
+      "labelZh": "友矩阵",
+      "labelJa": "コンパニオン行列",
+      "labelEn": "Companion Matrix",
+      "searchAliases": {
+        "zh": [
+          "线性递推的友矩阵"
+        ],
+        "ja": [
+          "線形漸化式の同伴行列"
+        ],
+        "en": [
+          "Companion Matrix for Linear Recurrences"
+        ]
+      }
     },
     "Mathematics.Linear-Algebra.Tridiagonal-Determinant-Recurrence": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1275,12 +1344,6 @@
       "labelZh": "幂零矩阵",
       "labelJa": "冪零行列",
       "labelEn": "Nilpotent Matrix"
-    },
-    "Mathematics.Linear-Algebra.Inverse-of-Identity-plus-Nilpotent-Matrix": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "单位矩阵加幂零矩阵的逆",
-      "labelJa": "単位行列と冪零行列の和の逆行列",
-      "labelEn": "Inverse of Identity plus Nilpotent Matrix"
     },
     "Mathematics.Linear-Algebra.Orthogonal-Complement": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1396,12 +1459,6 @@
       "labelZh": "库朗–菲舍尔极小极大原理",
       "labelJa": "クーラン・フィッシャーのミニマックス原理",
       "labelEn": "Courant–Fischer Minimax Principle"
-    },
-    "Mathematics.Linear-Algebra.Skew-Symmetric-Subspace-under-Congruence": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "合同变换下的反对称矩阵子空间",
-      "labelJa": "合同変換による交代行列部分空間の変換",
-      "labelEn": "Skew-symmetric Subspace under Congruence"
     },
     "Mathematics.Linear-Algebra.Skew-Symmetric-Matrix": {
       "subsubject": "Mathematics.Linear-Algebra",
@@ -1584,18 +1641,36 @@
         "Discrete-Mathematics",
         "Probability-Statistics"
       ],
-      "labelZh": "伯恩赛德引理与无不动点置换比例",
-      "labelJa": "バーンサイドの補題と不動点をもたない置換の割合",
-      "labelEn": "Burnside Lemma and Derangement Proportion"
+      "labelZh": "伯恩赛德引理",
+      "labelJa": "バーンサイドの補題",
+      "labelEn": "Burnside’s Lemma",
+      "searchAliases": {
+        "zh": [
+          "伯恩赛德引理与无不动点置换比例"
+        ],
+        "ja": [
+          "バーンサイドの補題と不動点をもたない置換の割合"
+        ],
+        "en": [
+          "Burnside Lemma and Derangement Proportion"
+        ]
+      }
     },
     "Mathematics.Abstract-Algebra.Quotient-Ring-Chinese-Remainder-Theorem-Decomposition-and-Unit-Group": {
       "subsubject": "Mathematics.Abstract-Algebra",
-      "labelZh": "商环的中国剩余分解与单位群",
-      "labelJa": "中国剰余定理による剰余環の分解と単元群",
-      "labelEn": "Quotient Ring Chinese Remainder Theorem Decomposition and Unit Group",
+      "labelZh": "环的中国剩余定理",
+      "labelJa": "環の中国剰余定理",
+      "labelEn": "Chinese Remainder Theorem for Rings",
       "searchAliases": {
         "en": [
-          "Quotient Ring CRT Decomposition and Unit Group"
+          "Quotient Ring CRT Decomposition and Unit Group",
+          "Quotient Ring Chinese Remainder Theorem Decomposition and Unit Group"
+        ],
+        "zh": [
+          "商环的中国剩余分解与单位群"
+        ],
+        "ja": [
+          "中国剰余定理による剰余環の分解と単元群"
         ]
       }
     },
@@ -1607,12 +1682,19 @@
     },
     "Mathematics.Abstract-Algebra.Nilpotent-Conjugacy-Classes-under-General-Linear-and-Special-Linear-Groups": {
       "subsubject": "Mathematics.Abstract-Algebra",
-      "labelZh": "一般线性群与特殊线性群下的幂零共轭类",
-      "labelJa": "一般線形群・特殊線形群の作用による冪零共役類",
-      "labelEn": "Nilpotent Conjugacy Classes under General Linear and Special Linear Groups",
+      "labelZh": "幂零矩阵的共轭类",
+      "labelJa": "冪零行列の共役類",
+      "labelEn": "Nilpotent Matrix Conjugacy Classes",
       "searchAliases": {
         "en": [
-          "Nilpotent Conjugacy Classes under GL and SL"
+          "Nilpotent Conjugacy Classes under GL and SL",
+          "Nilpotent Conjugacy Classes under General Linear and Special Linear Groups"
+        ],
+        "zh": [
+          "一般线性群与特殊线性群下的幂零共轭类"
+        ],
+        "ja": [
+          "一般線形群・特殊線形群の作用による冪零共役類"
         ]
       }
     },
@@ -1654,21 +1736,26 @@
     },
     "Mathematics.Topology.Homology-of-a-Projective-Subspace-and-Nontrivial-Loop": {
       "subsubject": "Mathematics.Topology",
-      "labelZh": "射影空间子空间的同调与非平凡闭路",
-      "labelJa": "射影空間の部分空間のホモロジーと非自明なループ",
-      "labelEn": "Homology of a Subspace of Projective Space and Nontrivial Loops"
+      "labelZh": "射影空间子空间的同调与同伦",
+      "labelJa": "射影空間の部分空間のホモロジーとホモトピー",
+      "labelEn": "Homology and Homotopy in Projective Space",
+      "searchAliases": {
+        "zh": [
+          "射影空间子空间的同调与非平凡闭路"
+        ],
+        "ja": [
+          "射影空間の部分空間のホモロジーと非自明なループ"
+        ],
+        "en": [
+          "Homology of a Subspace of Projective Space and Nontrivial Loops"
+        ]
+      }
     },
     "Mathematics.Topology.Compactness-Preserving-Injections-and-Continuity": {
       "subsubject": "Mathematics.Topology",
       "labelZh": "保紧单射与连续性",
       "labelJa": "コンパクト性を保つ単射と連続性",
       "labelEn": "Compactness Preserving Injections and Continuity"
-    },
-    "Mathematics.Topology.Hausdorff-Closure-and-Connectedness-in-a-Custom-Topology": {
-      "subsubject": "Mathematics.Topology",
-      "labelZh": "给定拓扑下的豪斯多夫性、闭包与连通性",
-      "labelJa": "指定された位相のハウスドルフ性・閉包・連結性",
-      "labelEn": "Hausdorffness, Closure, and Connectedness in a Specified Topology"
     },
     "Mathematics.Topology.Hausdorff-Space": {
       "subsubject": "Mathematics.Topology",
@@ -1732,17 +1819,6 @@
         ]
       }
     },
-    "Mathematics.Differential-Equations.Linear-Ordinary-Differential-Equation-with-Exponential-Forcing": {
-      "subsubject": "Mathematics.Differential-Equations",
-      "labelZh": "指数型非齐次项的线性常微分方程",
-      "labelJa": "指数関数の非同次項をもつ線形常微分方程式",
-      "labelEn": "Linear Ordinary Differential Equation with Exponential Forcing",
-      "searchAliases": {
-        "en": [
-          "Linear ODE with Exponential Forcing"
-        ]
-      }
-    },
     "Mathematics.Differential-Equations.First-Order-Ordinary-Differential-Equation-by-Variable-Substitution": {
       "subsubject": "Mathematics.Differential-Equations",
       "labelZh": "通过变量代换求解一阶常微分方程",
@@ -1756,9 +1832,20 @@
     },
     "Mathematics.Differential-Equations.Clairaut-Equation-and-Singular-Solution": {
       "subsubject": "Mathematics.Differential-Equations",
-      "labelZh": "克莱罗方程与奇解",
-      "labelJa": "クレローの方程式と特異解",
-      "labelEn": "Clairaut Equation and Singular Solution"
+      "labelZh": "克莱罗方程",
+      "labelJa": "クレローの方程式",
+      "labelEn": "Clairaut Equation",
+      "searchAliases": {
+        "zh": [
+          "克莱罗方程与奇解"
+        ],
+        "ja": [
+          "クレローの方程式と特異解"
+        ],
+        "en": [
+          "Clairaut Equation and Singular Solution"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Cauchy-Euler-Equation": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1819,9 +1906,20 @@
         "Physics",
         "Probability-Statistics"
       ],
-      "labelZh": "狄拉克初值与热核",
-      "labelJa": "ディラック初期値と熱核",
-      "labelEn": "Heat Kernel with Dirac Initial Data"
+      "labelZh": "热核",
+      "labelJa": "熱核",
+      "labelEn": "Heat Kernel",
+      "searchAliases": {
+        "zh": [
+          "狄拉克初值与热核"
+        ],
+        "ja": [
+          "ディラック初期値と熱核"
+        ],
+        "en": [
+          "Heat Kernel with Dirac Initial Data"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Resonant-Forcing": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1877,9 +1975,20 @@
       "relatedSubjects": [
         "Physics"
       ],
-      "labelZh": "厄米方程与多项式递推",
-      "labelJa": "エルミート方程式と多項式の漸化式",
-      "labelEn": "Hermite Equation and Polynomial Recurrence"
+      "labelZh": "厄米方程与厄米多项式",
+      "labelJa": "エルミート方程式とエルミート多項式",
+      "labelEn": "Hermite Equation and Polynomials",
+      "searchAliases": {
+        "zh": [
+          "厄米方程与多项式递推"
+        ],
+        "ja": [
+          "エルミート方程式と多項式の漸化式"
+        ],
+        "en": [
+          "Hermite Equation and Polynomial Recurrence"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Characteristic-Roots-and-Stability": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -1920,9 +2029,20 @@
     },
     "Mathematics.Differential-Equations.Power-Series-Solution-and-Coefficient-Recurrence": {
       "subsubject": "Mathematics.Differential-Equations",
-      "labelZh": "幂级数解与系数递推",
-      "labelJa": "べき級数解と係数の漸化式",
-      "labelEn": "Power Series Solution and Coefficient Recurrence"
+      "labelZh": "幂级数解法",
+      "labelJa": "べき級数解法",
+      "labelEn": "Power Series Method",
+      "searchAliases": {
+        "zh": [
+          "幂级数解与系数递推"
+        ],
+        "ja": [
+          "べき級数解と係数の漸化式"
+        ],
+        "en": [
+          "Power Series Solution and Coefficient Recurrence"
+        ]
+      }
     },
     "Mathematics.Differential-Equations.Boundary-Conditions-at-Infinity": {
       "subsubject": "Mathematics.Differential-Equations",
@@ -2057,9 +2177,20 @@
     },
     "Mathematics.Geometry.Scaling-of-Differential-Form-Integrals-on-Shrinking-Spheres": {
       "subsubject": "Mathematics.Geometry",
-      "labelZh": "收缩球面上微分形式积分的尺度变化",
-      "labelJa": "縮小する球面上の微分形式の積分とスケーリング",
-      "labelEn": "Scaling of Differential Form Integrals on Shrinking Spheres"
+      "labelZh": "球面上微分形式积分的渐近性",
+      "labelJa": "球面上の微分形式積分の漸近挙動",
+      "labelEn": "Asymptotics of Differential Form Integrals on Spheres",
+      "searchAliases": {
+        "zh": [
+          "收缩球面上微分形式积分的尺度变化"
+        ],
+        "ja": [
+          "縮小する球面上の微分形式の積分とスケーリング"
+        ],
+        "en": [
+          "Scaling of Differential Form Integrals on Shrinking Spheres"
+        ]
+      }
     },
     "Mathematics.Geometry.Maximum-Size-of-Pairwise-Obtuse-Vector-Set": {
       "subsubject": "Mathematics.Geometry",
@@ -2091,12 +2222,6 @@
       "labelJa": "円弧の線形写像と面積の拡大率",
       "labelEn": "Linear Image of Circular Arcs and Area Scaling"
     },
-    "Mathematics.Geometry.Gaussian-Curvature-of-Ruled-Surface": {
-      "subsubject": "Mathematics.Geometry",
-      "labelZh": "直纹面的高斯曲率",
-      "labelJa": "線織面のガウス曲率",
-      "labelEn": "Gaussian Curvature of Ruled Surface"
-    },
     "Mathematics.Geometry.Law-of-Cosines": {
       "subsubject": "Mathematics.Geometry",
       "labelZh": "余弦定理",
@@ -2108,9 +2233,20 @@
       "relatedSubjects": [
         "Engineering"
       ],
-      "labelZh": "等距接收器对直线的周期覆盖",
-      "labelJa": "等間隔の受信機による直線の周期的被覆",
-      "labelEn": "Periodic Line Coverage by Equally Spaced Receivers"
+      "labelZh": "直线上的周期覆盖",
+      "labelJa": "直線上の周期的被覆",
+      "labelEn": "Periodic Coverage on a Line",
+      "searchAliases": {
+        "zh": [
+          "等距接收器对直线的周期覆盖"
+        ],
+        "ja": [
+          "等間隔の受信機による直線の周期的被覆"
+        ],
+        "en": [
+          "Periodic Line Coverage by Equally Spaced Receivers"
+        ]
+      }
     },
     "Mathematics.Geometry.Concurrency-and-Parallelism-of-Three-Lines": {
       "subsubject": "Mathematics.Geometry",
@@ -2195,12 +2331,6 @@
       "labelJa": "二次元ラプラシアンの基本解",
       "labelEn": "Two-dimensional Laplacian Fundamental Solution"
     },
-    "Mathematics.Vector-Calculus.Polar-Coordinate-Differentials": {
-      "subsubject": "Mathematics.Vector-Calculus",
-      "labelZh": "极坐标中的微分关系",
-      "labelJa": "極座標での微分関係",
-      "labelEn": "Polar Coordinate Differentials"
-    },
     "Mathematics.Vector-Calculus.Divergence-Theorem": {
       "subsubject": "Mathematics.Vector-Calculus",
       "labelZh": "散度定理",
@@ -2284,12 +2414,19 @@
     },
     "Mathematics.Vector-Calculus.Plane-and-Distance-in-Three-Dimensional-Euclidean-Space": {
       "subsubject": "Mathematics.Vector-Calculus",
-      "labelZh": "三维欧氏空间中的平面与距离",
-      "labelJa": "三次元ユークリッド空間における平面と距離",
-      "labelEn": "Plane and Distance in Three-dimensional Euclidean Space",
+      "labelZh": "平面方程与距离",
+      "labelJa": "平面の方程式と距離",
+      "labelEn": "Plane Equations and Distances",
       "searchAliases": {
         "en": [
-          "Plane and Distance in R3"
+          "Plane and Distance in R3",
+          "Plane and Distance in Three-dimensional Euclidean Space"
+        ],
+        "zh": [
+          "三维欧氏空间中的平面与距离"
+        ],
+        "ja": [
+          "三次元ユークリッド空間における平面と距離"
         ]
       }
     },
@@ -2353,12 +2490,6 @@
       "labelZh": "伯努利方程",
       "labelJa": "ベルヌーイの微分方程式",
       "labelEn": "Bernoulli Equation"
-    },
-    "Mathematics.Linear-Algebra.Parameterized-Diagonalizability": {
-      "subsubject": "Mathematics.Linear-Algebra",
-      "labelZh": "含参数矩阵的可对角化条件",
-      "labelJa": "パラメータを含む行列の対角化可能性",
-      "labelEn": "Parameterized Diagonalizability"
     },
     "Mathematics.Real-Analysis.Functional-Equation": {
       "subsubject": "Mathematics.Real-Analysis",
@@ -2492,15 +2623,6 @@
       "descriptionZh": "利用Parseval恒等式、分部积分与柯西–施瓦茨不等式估计函数和其傅里叶变换的二阶矩乘积。",
       "descriptionJa": "Parsevalの等式、部分積分、Cauchy–Schwarzの不等式による関数とフーリエ変換の二次モーメント積の評価。",
       "descriptionEn": "Second-moment product bounds for a function and its Fourier transform using Parseval, integration by parts, and Cauchy–Schwarz."
-    },
-    "Mathematics.Calculus.Trigonometric-Inequalities-by-Integration": {
-      "subsubject": "Mathematics.Calculus",
-      "labelZh": "用积分构造三角函数不等式",
-      "labelJa": "積分による三角関数の不等式",
-      "labelEn": "Trigonometric Inequalities by Integration",
-      "descriptionZh": "通过逐次积分构造正弦和余弦的多项式上下界，并进行严格数值估计。",
-      "descriptionJa": "積分の反復による正弦・余弦の多項式上下界と厳密な数値評価。",
-      "descriptionEn": "Polynomial upper and lower bounds for sine and cosine obtained by repeated integration, with rigorous numerical estimates."
     },
     "Mathematics.Topology.Simplicial-and-Cellular-Homology": {
       "subsubject": "Mathematics.Topology",
@@ -2791,15 +2913,37 @@
     },
     "Mathematics.Real-Analysis.Distance-to-a-Set-and-Lipschitz-Continuity": {
       "subsubject": "Mathematics.Real-Analysis",
-      "labelZh": "到集合的距离与利普希茨连续性",
-      "labelJa": "集合への距離とリプシッツ連続性",
-      "labelEn": "Distance to a Set and Lipschitz Continuity"
+      "labelZh": "距离函数的利普希茨连续性",
+      "labelJa": "距離関数のリプシッツ連続性",
+      "labelEn": "Lipschitz Continuity of Distance Functions",
+      "searchAliases": {
+        "zh": [
+          "到集合的距离与利普希茨连续性"
+        ],
+        "ja": [
+          "集合への距離とリプシッツ連続性"
+        ],
+        "en": [
+          "Distance to a Set and Lipschitz Continuity"
+        ]
+      }
     },
     "Mathematics.Functional-Analysis.Volterra-Operator-Compactness-and-Singular-Values": {
       "subsubject": "Mathematics.Functional-Analysis",
-      "labelZh": "沃尔泰拉算子的紧致性与奇异值",
-      "labelJa": "ヴォルテラ作用素のコンパクト性と特異値",
-      "labelEn": "Volterra Operator Compactness and Singular Values"
+      "labelZh": "沃尔泰拉算子",
+      "labelJa": "ヴォルテラ作用素",
+      "labelEn": "Volterra Operator",
+      "searchAliases": {
+        "zh": [
+          "沃尔泰拉算子的紧致性与奇异值"
+        ],
+        "ja": [
+          "ヴォルテラ作用素のコンパクト性と特異値"
+        ],
+        "en": [
+          "Volterra Operator Compactness and Singular Values"
+        ]
+      }
     }
   }
 }

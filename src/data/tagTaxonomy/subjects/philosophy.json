@@ -35,12 +35,23 @@
   "topics": {
     "Philosophy.General-Philosophy.Truth-Goodness-and-Beauty": {
       "subsubject": "Philosophy.General-Philosophy",
-      "labelZh": "真善美与哲学",
-      "labelJa": "真・善・美と哲学",
-      "labelEn": "Truth, Goodness, Beauty, and Philosophy",
+      "labelZh": "真善美",
+      "labelJa": "真・善・美",
+      "labelEn": "Truth, Goodness, and Beauty",
       "descriptionZh": "考察以真、善、美理解哲学研究的意义、适用范围及其与当代哲学的关系。",
       "descriptionJa": "哲学を真・善・美の探究として捉える意義、適用範囲、および現代哲学との関係を検討する。",
-      "descriptionEn": "The significance and limits of understanding philosophy as inquiry into truth, goodness, and beauty, and its relation to contemporary philosophy."
+      "descriptionEn": "The significance and limits of understanding philosophy as inquiry into truth, goodness, and beauty, and its relation to contemporary philosophy.",
+      "searchAliases": {
+        "zh": [
+          "真善美与哲学"
+        ],
+        "ja": [
+          "真・善・美と哲学"
+        ],
+        "en": [
+          "Truth, Goodness, Beauty, and Philosophy"
+        ]
+      }
     },
     "Philosophy.Philosophy-of-Science.Occams-Razor": {
       "subsubject": "Philosophy.Philosophy-of-Science",

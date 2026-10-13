@@ -14,6 +14,10 @@ Search the full taxonomy before adding a topic, including topics under other sub
 
 When consolidating topics, update every document reference, remove the superseded definitions, and regenerate `docs/tags.yml`. Do not add compatibility aliases for retired canonical IDs. Remove duplicate tags and a parent subsubject when a document already has a concrete topic under that parent. Confirm the choice against the actual question, and preserve the document body.
 
+Name a topic after a reusable concept, model, theorem, or method. Do not create a new topic for each parameter choice, application setting, requested calculation, or combination of existing concepts. For example, a parameterized diagonalizability problem uses matrix diagonalization; a distribution-specific estimation problem can use the distribution and estimation method separately. Preserve meaningful distinctions in assumptions or methods rather than merging solely because labels are similar or a topic has few documents.
+
+Review every affected question when splitting a compound topic: different documents may need different subsets of the replacement tags. Remove a topic marked `broad` when a more specific topic under the same subsubject already covers the document. For display-only simplification, retain the canonical ID and keep useful previous names or expanded acronyms in `searchAliases`; do not retain misleading old names as synonyms.
+
 ## Translation policy
 
 Use terminology found in university textbooks, course notes, and official entrance-exam materials. Public written exam-preparation notes can supplement those sources. For an ambiguous or unusually specific ID, read the associated problem before naming it. A long task description need not be presented as an established textbook term. Keep conventional acronyms and author-name spellings when a local transliteration is not established.

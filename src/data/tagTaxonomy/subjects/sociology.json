@@ -98,9 +98,20 @@
         "Business-Administration",
         "Economics"
       ],
-      "labelZh": "过度旅游与游客区域分流",
-      "labelJa": "オーバーツーリズムと観光客の地域分散",
-      "labelEn": "Overtourism and Regional Dispersal of Visitors"
+      "labelZh": "过度旅游",
+      "labelJa": "オーバーツーリズム",
+      "labelEn": "Overtourism",
+      "searchAliases": {
+        "zh": [
+          "过度旅游与游客区域分流"
+        ],
+        "ja": [
+          "オーバーツーリズムと観光客の地域分散"
+        ],
+        "en": [
+          "Overtourism and Regional Dispersal of Visitors"
+        ]
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ tags:
   - Tokyo-University
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
   - Probability-Statistics.Probability-Basics.Markov-and-Chebyshev-Inequalities
-  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function-of-Sum-of-Independent-Variables
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function
   - Probability-Statistics.Probability-Basics.Chernoff-Bound
 ---
 # 東京大学 情報理工学系研究科 2025年8月実施 数学 第3問

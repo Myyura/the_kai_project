@@ -95,20 +95,23 @@
   "topics": {
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Cumulative-Distribution-Function-and-Probability-Density-Function": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "labelZh": "累积分布函数与概率密度函数",
-      "labelJa": "累積分布関数と確率密度関数",
-      "labelEn": "Cumulative Distribution Function and Probability Density Function",
+      "labelZh": "分布函数与概率密度",
+      "labelJa": "分布関数と確率密度",
+      "labelEn": "Distribution Functions and Probability Densities",
       "searchAliases": {
         "en": [
           "CDF",
           "PDF",
-          "CDF and PDF"
+          "CDF and PDF",
+          "Cumulative Distribution Function and Probability Density Function"
         ],
         "zh": [
-          "分布函数与密度函数"
+          "分布函数与密度函数",
+          "累积分布函数与概率密度函数"
         ],
         "ja": [
-          "分布関数と密度関数"
+          "分布関数と密度関数",
+          "累積分布関数と確率密度関数"
         ]
       }
     },
@@ -194,12 +197,6 @@
       "labelJa": "組合せによる確率計算",
       "labelEn": "Combinatorial Probability"
     },
-    "Probability-Statistics.Probability-Basics.Zero-Covariance-does-not-Imply-Independence": {
-      "subsubject": "Probability-Statistics.Probability-Basics",
-      "labelZh": "零协方差不蕴含独立性",
-      "labelJa": "共分散が零でも独立とは限らない",
-      "labelEn": "Zero Covariance Does Not Imply Independence"
-    },
     "Probability-Statistics.Probability-Basics.Correlation-Coefficient": {
       "subsubject": "Probability-Statistics.Probability-Basics",
       "labelZh": "相关系数",
@@ -237,18 +234,18 @@
         "Operations-Research",
         "Physics"
       ],
-      "labelZh": "指数等待间隔与泊松计数过程",
-      "labelJa": "指数分布に従う待ち時間とポアソン計数過程",
-      "labelEn": "Exponential Spacings and Poisson Counting Process"
-    },
-    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Poisson-Count-Maximum-Likelihood-Estimation-for-Rate": {
-      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "labelZh": "泊松计数模型中率参数的极大似然估计",
-      "labelJa": "ポアソン計数モデルの率パラメータの最尤推定",
-      "labelEn": "Maximum Likelihood Estimation of a Poisson Rate",
+      "labelZh": "泊松过程",
+      "labelJa": "ポアソン過程",
+      "labelEn": "Poisson Process",
       "searchAliases": {
+        "zh": [
+          "指数等待间隔与泊松计数过程"
+        ],
+        "ja": [
+          "指数分布に従う待ち時間とポアソン計数過程"
+        ],
         "en": [
-          "Poisson Count MLE for Rate"
+          "Exponential Spacings and Poisson Counting Process"
         ]
       }
     },
@@ -279,33 +276,6 @@
       "labelJa": "幾何分布",
       "labelEn": "Geometric Distribution"
     },
-    "Probability-Statistics.Stochastic-Processes.Random-Walk-on-Fourth-Roots-of-Unity": {
-      "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "四次单位根上的随机游走",
-      "labelJa": "一の四乗根上のランダムウォーク",
-      "labelEn": "Random Walk on Fourth Roots of Unity"
-    },
-    "Probability-Statistics.Probability-Basics.Random-Ray-Intersection-with-Polygon": {
-      "subsubject": "Probability-Statistics.Probability-Basics",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "随机射线与多边形的交点",
-      "labelJa": "ランダムな半直線と多角形の交点",
-      "labelEn": "Random Ray Intersection with Polygon"
-    },
-    "Probability-Statistics.Probability-Basics.Conditional-Density-by-Variable-Transformation": {
-      "subsubject": "Probability-Statistics.Probability-Basics",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "利用变量变换求条件密度",
-      "labelJa": "変数変換による条件付き密度の計算",
-      "labelEn": "Conditional Density by Variable Transformation"
-    },
     "Probability-Statistics.Probability-Basics.Geometric-Probability": {
       "subsubject": "Probability-Statistics.Probability-Basics",
       "relatedSubjects": [
@@ -313,7 +283,18 @@
       ],
       "labelZh": "几何概率",
       "labelJa": "幾何学的確率",
-      "labelEn": "Geometric Probability"
+      "labelEn": "Geometric Probability",
+      "searchAliases": {
+        "zh": [
+          "随机射线与多边形的交点"
+        ],
+        "ja": [
+          "ランダムな半直線と多角形の交点"
+        ],
+        "en": [
+          "Random Ray Intersection with Polygon"
+        ]
+      }
     },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Hypergeometric-Distribution": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
@@ -328,13 +309,18 @@
       "subsubject": "Probability-Statistics.Probability-Basics",
       "labelZh": "联合分布",
       "labelJa": "同時分布",
-      "labelEn": "Joint Distribution"
-    },
-    "Probability-Statistics.Probability-Basics.Joint-Density-on-Triangular-Support": {
-      "subsubject": "Probability-Statistics.Probability-Basics",
-      "labelZh": "三角形支撑域上的联合密度",
-      "labelJa": "三角形を台とする同時密度",
-      "labelEn": "Joint Density on Triangular Support"
+      "labelEn": "Joint Distribution",
+      "searchAliases": {
+        "zh": [
+          "三角形支撑域上的联合密度"
+        ],
+        "ja": [
+          "三角形を台とする同時密度"
+        ],
+        "en": [
+          "Joint Density on Triangular Support"
+        ]
+      }
     },
     "Probability-Statistics.Probability-Basics.Marginal-Densities-and-Independence-Test": {
       "subsubject": "Probability-Statistics.Probability-Basics",
@@ -353,27 +339,56 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "由卡方随机变量的倒数得到莱维分布",
-      "labelJa": "カイ二乗変数の逆数から得られるレヴィ分布",
-      "labelEn": "Lévy Distribution from an Inverse Chi-square Variable"
+      "labelZh": "莱维分布",
+      "labelJa": "レヴィ分布",
+      "labelEn": "Lévy Distribution",
+      "searchAliases": {
+        "zh": [
+          "由卡方随机变量的倒数得到莱维分布"
+        ],
+        "ja": [
+          "カイ二乗変数の逆数から得られるレヴィ分布"
+        ],
+        "en": [
+          "Lévy Distribution from an Inverse Chi-square Variable"
+        ]
+      }
     },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Stable-Law-Sum-Scaling": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "稳定分布的求和尺度关系",
-      "labelJa": "安定分布における和のスケーリング",
-      "labelEn": "Stable Law Sum Scaling"
+      "labelZh": "稳定分布",
+      "labelJa": "安定分布",
+      "labelEn": "Stable Distributions",
+      "searchAliases": {
+        "zh": [
+          "稳定分布的求和尺度关系"
+        ],
+        "ja": [
+          "安定分布における和のスケーリング"
+        ],
+        "en": [
+          "Stable Law Sum Scaling"
+        ]
+      }
     },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Laplace-Distribution-Moments-Cumulative-Distribution-Function-and-Quantiles": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "labelZh": "拉普拉斯分布的矩、分布函数与分位数",
-      "labelJa": "ラプラス分布のモーメント・累積分布関数・分位点",
-      "labelEn": "Laplace Distribution Moments Cumulative Distribution Function and Quantiles",
+      "labelZh": "拉普拉斯分布",
+      "labelJa": "ラプラス分布",
+      "labelEn": "Laplace Distribution",
       "searchAliases": {
         "en": [
-          "Laplace Distribution Moments CDF and Quantiles"
+          "Laplace Distribution Moments CDF and Quantiles",
+          "Laplace Distribution Moments Cumulative Distribution Function and Quantiles"
+        ],
+        "zh": [
+          "拉普拉斯分布的矩、分布函数与分位数"
+        ],
+        "ja": [
+          "ラプラス分布のモーメント・累積分布関数・分位点"
         ]
       }
     },
@@ -417,24 +432,17 @@
       "labelEn": "Moment Generating Function",
       "searchAliases": {
         "en": [
-          "MGF"
+          "MGF",
+          "Moment Generating Function of Sum of Independent Variables",
+          "MGF of Sum of Independent Variables"
         ],
         "zh": [
-          "动差生成函数"
+          "动差生成函数",
+          "独立随机变量之和的矩生成函数"
         ],
         "ja": [
-          "モーメント母関数"
-        ]
-      }
-    },
-    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Moment-Generating-Function-of-Sum-of-Independent-Variables": {
-      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "labelZh": "独立随机变量之和的矩生成函数",
-      "labelJa": "独立な確率変数の和の積率母関数",
-      "labelEn": "Moment Generating Function of Sum of Independent Variables",
-      "searchAliases": {
-        "en": [
-          "MGF of Sum of Independent Variables"
+          "モーメント母関数",
+          "独立な確率変数の和の積率母関数"
         ]
       }
     },
@@ -456,12 +464,6 @@
       "labelJa": "正規分布",
       "labelEn": "Normal Distribution"
     },
-    "Probability-Statistics.Probability-Basics.Uniform-Order-Statistics": {
-      "subsubject": "Probability-Statistics.Probability-Basics",
-      "labelZh": "均匀分布的次序统计量",
-      "labelJa": "一様分布の順序統計量",
-      "labelEn": "Uniform Order Statistics"
-    },
     "Probability-Statistics.Probability-Basics.Order-Statistics": {
       "subsubject": "Probability-Statistics.Probability-Basics",
       "labelZh": "次序统计量",
@@ -473,12 +475,6 @@
       "labelZh": "独立均匀随机变量的乘积",
       "labelJa": "独立な一様分布の確率変数の積",
       "labelEn": "Product of Independent Uniform Variables"
-    },
-    "Probability-Statistics.Probability-Basics.Minimum-Order-Statistic-and-Tail-Sum": {
-      "subsubject": "Probability-Statistics.Probability-Basics",
-      "labelZh": "最小次序统计量与尾概率求和",
-      "labelJa": "最小順序統計量と裾確率の和",
-      "labelEn": "Minimum Order Statistic and Tail Sum"
     },
     "Probability-Statistics.Probability-Basics.Linear-Combination-of-Independent-Normals": {
       "subsubject": "Probability-Statistics.Probability-Basics",
@@ -503,9 +499,20 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "瑞利分布的对数矩",
-      "labelJa": "レイリー分布の対数モーメント",
-      "labelEn": "Log Moments of Rayleigh Distribution"
+      "labelZh": "瑞利分布",
+      "labelJa": "レイリー分布",
+      "labelEn": "Rayleigh Distribution",
+      "searchAliases": {
+        "zh": [
+          "瑞利分布的对数矩"
+        ],
+        "ja": [
+          "レイリー分布の対数モーメント"
+        ],
+        "en": [
+          "Log Moments of Rayleigh Distribution"
+        ]
+      }
     },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Pareto-Distribution": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
@@ -530,17 +537,6 @@
       "labelZh": "二项分布的泊松近似",
       "labelJa": "二項分布のポアソン近似",
       "labelEn": "Poisson Approximation to Binomial"
-    },
-    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Binomial-to-Poisson-Convergence-via-Moment-Generating-Function": {
-      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "labelZh": "用矩生成函数证明二项分布收敛到泊松分布",
-      "labelJa": "積率母関数による二項分布からポアソン分布への収束",
-      "labelEn": "Binomial-to-Poisson Convergence via Moment Generating Function",
-      "searchAliases": {
-        "en": [
-          "Binomial to Poisson Convergence via MGF"
-        ]
-      }
     },
     "Probability-Statistics.Probability-Basics.Covariance-under-Affine-Transformation": {
       "subsubject": "Probability-Statistics.Probability-Basics",
@@ -587,12 +583,6 @@
         ]
       }
     },
-    "Probability-Statistics.Probability-Basics.Sum-of-Two-Uniform-Variables": {
-      "subsubject": "Probability-Statistics.Probability-Basics",
-      "labelZh": "两个均匀随机变量之和",
-      "labelJa": "二つの一様分布の確率変数の和",
-      "labelEn": "Sum of Two Uniform Variables"
-    },
     "Probability-Statistics.Probability-Distributions-and-Asymptotics.Uniform-Distribution": {
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "labelZh": "均匀分布",
@@ -613,15 +603,6 @@
       "labelZh": "独立伯努利随机变量的加权和",
       "labelJa": "独立なベルヌーイ確率変数の加重和",
       "labelEn": "Weighted Sum of Independent Bernoulli Variables"
-    },
-    "Probability-Statistics.Stochastic-Processes.Waiting-Time-for-Runs-via-Probability-Generating-Functions": {
-      "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "relatedSubjects": [
-        "Discrete-Mathematics"
-      ],
-      "labelZh": "用概率生成函数求连续成功的等待时间",
-      "labelJa": "確率母関数による連続成功の待ち時間解析",
-      "labelEn": "Waiting Time for Runs via Probability Generating Functions"
     },
     "Probability-Statistics.Stochastic-Processes.Two-State-Markov-Chain-Stationary-Reward": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
@@ -676,7 +657,18 @@
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "labelZh": "置信区间",
       "labelJa": "信頼区間",
-      "labelEn": "Confidence Interval"
+      "labelEn": "Confidence Interval",
+      "searchAliases": {
+        "zh": [
+          "置信区间宽度与样本量"
+        ],
+        "ja": [
+          "信頼区間の幅と標本サイズ"
+        ],
+        "en": [
+          "Confidence Interval Width and Sample Size"
+        ]
+      }
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Normal-Mean-Confidence-Interval-with-Known-Variance": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
@@ -725,15 +717,20 @@
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Type-II-Error-Interpretation": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "labelZh": "第二类错误的解释",
-      "labelJa": "第二種の過誤の解釈",
-      "labelEn": "Type II Error Interpretation"
-    },
-    "Probability-Statistics.Estimation-and-Hypothesis-Testing.One-Sided-Test-and-Power-for-Laplace-Location": {
-      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "labelZh": "拉普拉斯位置参数的单侧检验与功效",
-      "labelJa": "ラプラス分布の位置母数に対する片側検定と検出力",
-      "labelEn": "One-sided Test and Power for Laplace Location"
+      "labelZh": "第二类错误",
+      "labelJa": "第二種の過誤",
+      "labelEn": "Type II Error",
+      "searchAliases": {
+        "zh": [
+          "第二类错误的解释"
+        ],
+        "ja": [
+          "第二種の過誤の解釈"
+        ],
+        "en": [
+          "Type II Error Interpretation"
+        ]
+      }
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Exact-Binomial-Test": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
@@ -811,22 +808,24 @@
       "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "labelZh": "最小二乘法",
       "labelJa": "最小二乗法",
-      "labelEn": "Least Squares Method"
+      "labelEn": "Least Squares Method",
+      "searchAliases": {
+        "zh": [
+          "最小二乘残差的正交性"
+        ],
+        "ja": [
+          "最小二乗残差の直交性"
+        ],
+        "en": [
+          "Least Squares Residual Orthogonality"
+        ]
+      }
     },
     "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Regression-through-the-Origin": {
       "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
       "labelZh": "过原点回归",
       "labelJa": "原点を通る回帰",
       "labelEn": "Regression through the Origin"
-    },
-    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Least-Squares-Residual-Orthogonality": {
-      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "最小二乘残差的正交性",
-      "labelJa": "最小二乗残差の直交性",
-      "labelEn": "Least Squares Residual Orthogonality"
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Positive-Predictive-Value-of-Significant-Results": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
@@ -836,15 +835,20 @@
     },
     "Probability-Statistics.Bayesian-Statistics.Independent-Replication-and-Posterior-Odds": {
       "subsubject": "Probability-Statistics.Bayesian-Statistics",
-      "labelZh": "独立重复研究与后验赔率",
-      "labelJa": "独立な追試と事後オッズ",
-      "labelEn": "Independent Replication and Posterior Odds",
+      "labelZh": "后验赔率",
+      "labelJa": "事後オッズ",
+      "labelEn": "Posterior Odds",
       "searchAliases": {
-        "en": [],
-        "zh": [
-          "独立重复研究与后验优势"
+        "en": [
+          "Independent Replication and Posterior Odds"
         ],
-        "ja": []
+        "zh": [
+          "独立重复研究与后验优势",
+          "独立重复研究与后验赔率"
+        ],
+        "ja": [
+          "独立な追試と事後オッズ"
+        ]
       }
     },
     "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Mahalanobis-Distance": {
@@ -876,12 +880,19 @@
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ],
-      "labelZh": "多项式回归的极大似然估计与最小二乘法",
-      "labelJa": "多項式回帰の最尤推定と最小二乗法",
-      "labelEn": "Polynomial Regression via Maximum Likelihood Estimation and Least Squares",
+      "labelZh": "多项式回归",
+      "labelJa": "多項式回帰",
+      "labelEn": "Polynomial Regression",
       "searchAliases": {
         "en": [
-          "Polynomial Regression via MLE and Least Squares"
+          "Polynomial Regression via MLE and Least Squares",
+          "Polynomial Regression via Maximum Likelihood Estimation and Least Squares"
+        ],
+        "zh": [
+          "多项式回归的极大似然估计与最小二乘法"
+        ],
+        "ja": [
+          "多項式回帰の最尤推定と最小二乗法"
         ]
       }
     },
@@ -892,24 +903,17 @@
       "labelEn": "Maximum Likelihood Estimation",
       "searchAliases": {
         "en": [
-          "MLE"
+          "MLE",
+          "Maximum Likelihood Estimation of Lognormal Parameters",
+          "Lognormal Parameter MLE"
         ],
         "zh": [
-          "最大似然估计"
+          "最大似然估计",
+          "对数正态分布参数的极大似然估计"
         ],
         "ja": [
-          "最尤法"
-        ]
-      }
-    },
-    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Lognormal-Parameter-Maximum-Likelihood-Estimation": {
-      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "labelZh": "对数正态分布参数的极大似然估计",
-      "labelJa": "対数正規分布のパラメータの最尤推定",
-      "labelEn": "Maximum Likelihood Estimation of Lognormal Parameters",
-      "searchAliases": {
-        "en": [
-          "Lognormal Parameter MLE"
+          "最尤法",
+          "対数正規分布のパラメータの最尤推定"
         ]
       }
     },
@@ -939,13 +943,18 @@
       ],
       "labelZh": "方差最小的线性无偏组合",
       "labelJa": "分散最小の線形不偏結合",
-      "labelEn": "Minimum Variance Linear Unbiased Combination"
-    },
-    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Minimum-Variance-Estimator-with-Equicorrelated-Samples": {
-      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "labelZh": "等相关样本的最小方差估计量",
-      "labelJa": "等相関標本に基づく最小分散推定量",
-      "labelEn": "Minimum Variance Estimator with Equicorrelated Samples"
+      "labelEn": "Minimum Variance Linear Unbiased Combination",
+      "searchAliases": {
+        "zh": [
+          "等相关样本的最小方差估计量"
+        ],
+        "ja": [
+          "等相関標本に基づく最小分散推定量"
+        ],
+        "en": [
+          "Minimum Variance Estimator with Equicorrelated Samples"
+        ]
+      }
     },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Constrained-Maximum-Likelihood-Estimation": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
@@ -1058,27 +1067,19 @@
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
       ],
-      "labelZh": "普通最小二乘正规方程与奇异设计矩阵",
-      "labelJa": "通常最小二乗法の正規方程式と特異な計画行列",
-      "labelEn": "OLS Normal Equations and Singular Design Matrices",
+      "labelZh": "最小二乘正规方程",
+      "labelJa": "最小二乗法の正規方程式",
+      "labelEn": "Least Squares Normal Equations",
       "searchAliases": {
         "en": [
-          "OLS Normal Equation and Singular Design"
-        ]
-      }
-    },
-    "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Expected-Ordinary-Least-Squares-Loss-and-Variance-Trace": {
-      "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
-      "relatedSubjects": [
-        "Mathematics",
-        "Data-Science-Artificial-Intelligence"
-      ],
-      "labelZh": "普通最小二乘损失的期望与协方差矩阵的迹",
-      "labelJa": "通常最小二乗損失の期待値と共分散行列のトレース",
-      "labelEn": "Expected OLS Loss and the Trace of the Covariance Matrix",
-      "searchAliases": {
-        "en": [
-          "Expected OLS Loss and Variance Trace"
+          "OLS Normal Equation and Singular Design",
+          "OLS Normal Equations and Singular Design Matrices"
+        ],
+        "zh": [
+          "普通最小二乘正规方程与奇异设计矩阵"
+        ],
+        "ja": [
+          "通常最小二乗法の正規方程式と特異な計画行列"
         ]
       }
     },
@@ -1088,9 +1089,20 @@
         "Operations-Research",
         "Data-Science-Artificial-Intelligence"
       ],
-      "labelZh": "奇异设计矩阵的岭正则化",
-      "labelJa": "特異な計画行列に対するリッジ正則化",
-      "labelEn": "Ridge Regularization for Singular Design"
+      "labelZh": "岭回归",
+      "labelJa": "リッジ回帰",
+      "labelEn": "Ridge Regression",
+      "searchAliases": {
+        "zh": [
+          "奇异设计矩阵的岭正则化"
+        ],
+        "ja": [
+          "特異な計画行列に対するリッジ正則化"
+        ],
+        "en": [
+          "Ridge Regularization for Singular Design"
+        ]
+      }
     },
     "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Simple-Linear-Regression": {
       "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
@@ -1122,19 +1134,22 @@
         "Data-Science-Artificial-Intelligence",
         "Bioinformatics"
       ],
-      "labelZh": "受试者工作特征曲线的解读",
-      "labelJa": "受信者動作特性曲線の解釈",
-      "labelEn": "Receiver Operating Characteristic Curve Interpretation",
+      "labelZh": "受试者工作特征曲线",
+      "labelJa": "受信者動作特性曲線",
+      "labelEn": "Receiver Operating Characteristic Curve",
       "searchAliases": {
         "en": [
           "ROC curve",
-          "ROC Curve Interpretation"
+          "ROC Curve Interpretation",
+          "Receiver Operating Characteristic Curve Interpretation"
         ],
         "zh": [
-          "ROC 曲线"
+          "ROC 曲线",
+          "受试者工作特征曲线的解读"
         ],
         "ja": [
-          "ROC 曲線"
+          "ROC 曲線",
+          "受信者動作特性曲線の解釈"
         ]
       }
     },
@@ -1192,46 +1207,17 @@
       "labelJa": "平均・中央値・四分位数",
       "labelEn": "Mean Median and Quartiles"
     },
-    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval-Width-vs-Sample-Size": {
-      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "labelZh": "置信区间宽度与样本量",
-      "labelJa": "信頼区間の幅と標本サイズ",
-      "labelEn": "Confidence Interval Width and Sample Size"
-    },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Chi-Square-Pivot-for-Normal-Variance": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "labelZh": "正态方差的卡方枢轴量",
       "labelJa": "正規母分散に対するカイ二乗ピボット量",
       "labelEn": "Chi Square Pivot for Normal Variance"
     },
-    "Probability-Statistics.Descriptive-Statistics-and-Sampling.Affine-Transformation-of-Sample-Mean": {
-      "subsubject": "Probability-Statistics.Descriptive-Statistics-and-Sampling",
-      "labelZh": "样本均值的仿射变换",
-      "labelJa": "標本平均のアフィン変換",
-      "labelEn": "Affine Transformation of Sample Mean"
-    },
     "Probability-Statistics.Estimation-and-Hypothesis-Testing.Left-Censored-Exponential-Model": {
       "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
       "labelZh": "左删失指数模型",
       "labelJa": "左側打ち切りの指数分布モデル",
       "labelEn": "Left-censored Exponential Model"
-    },
-    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Moment-and-Likelihood-Estimation-with-Censoring": {
-      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "labelZh": "删失数据的矩估计与似然估计",
-      "labelJa": "打ち切りデータのモーメント推定と尤度推定",
-      "labelEn": "Moment and Likelihood Estimation with Censoring"
-    },
-    "Probability-Statistics.Estimation-and-Hypothesis-Testing.Exponential-Rate-Maximum-Likelihood-Estimation-and-Bias": {
-      "subsubject": "Probability-Statistics.Estimation-and-Hypothesis-Testing",
-      "labelZh": "指数分布率参数的极大似然估计与偏差",
-      "labelJa": "指数分布の率パラメータの最尤推定とバイアス",
-      "labelEn": "Maximum Likelihood Estimation of an Exponential Rate and its Bias",
-      "searchAliases": {
-        "en": [
-          "Exponential Rate MLE and Bias"
-        ]
-      }
     },
     "Probability-Statistics.Statistical-Modeling-and-Experimental-Design.Weighted-Least-Squares": {
       "subsubject": "Probability-Statistics.Statistical-Modeling-and-Experimental-Design",
@@ -1256,15 +1242,16 @@
       "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
       "labelZh": "概率生成函数",
       "labelJa": "確率母関数",
-      "labelEn": "Probability Generating Function"
-    },
-    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Probability-Generating-Function-of-Random-Sum": {
-      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
-      "labelZh": "随机项数和的概率生成函数",
-      "labelJa": "ランダムな項数の和の確率母関数",
-      "labelEn": "Probability Generating Function of Random Sum",
+      "labelEn": "Probability Generating Function",
       "searchAliases": {
+        "zh": [
+          "随机项数和的概率生成函数"
+        ],
+        "ja": [
+          "ランダムな項数の和の確率母関数"
+        ],
         "en": [
+          "Probability Generating Function of Random Sum",
           "PGF of Random Sum"
         ]
       }
@@ -1280,21 +1267,6 @@
       "labelZh": "马尔可夫序列中的模式概率",
       "labelJa": "マルコフ系列におけるパターンの確率",
       "labelEn": "Pattern Probability in Markov Sequence"
-    },
-    "Probability-Statistics.Stochastic-Processes.Stationary-Pair-Frequencies": {
-      "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "labelZh": "稳态符号对频率",
-      "labelJa": "定常状態での記号対の出現頻度",
-      "labelEn": "Stationary Pair Frequencies"
-    },
-    "Probability-Statistics.Bayesian-Statistics.Bayesian-Model-Selection-for-Sequence-Sources": {
-      "subsubject": "Probability-Statistics.Bayesian-Statistics",
-      "relatedSubjects": [
-        "Computer-Science"
-      ],
-      "labelZh": "序列信息源的贝叶斯模型选择",
-      "labelJa": "系列情報源のベイズモデル選択",
-      "labelEn": "Bayesian Model Selection for Sequence Sources"
     },
     "Probability-Statistics.Stochastic-Processes.Absorbing-Random-Walk": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
@@ -1349,12 +1321,19 @@
     },
     "Probability-Statistics.Stochastic-Processes.Autoregressive-Order-One-with-Bernoulli-Innovations": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
-      "labelZh": "伯努利新息的一阶自回归过程",
-      "labelJa": "ベルヌーイ革新項をもつ一次自己回帰過程",
-      "labelEn": "AR(1) Process with Bernoulli Innovations",
+      "labelZh": "一阶自回归过程",
+      "labelJa": "一次自己回帰過程",
+      "labelEn": "First-order Autoregressive Process",
       "searchAliases": {
         "en": [
-          "AR1 with Bernoulli Innovations"
+          "AR1 with Bernoulli Innovations",
+          "AR(1) Process with Bernoulli Innovations"
+        ],
+        "zh": [
+          "伯努利新息的一阶自回归过程"
+        ],
+        "ja": [
+          "ベルヌーイ革新項をもつ一次自己回帰過程"
         ]
       }
     },
@@ -1362,7 +1341,21 @@
       "subsubject": "Probability-Statistics.Stochastic-Processes",
       "labelZh": "马尔可夫链",
       "labelJa": "マルコフ連鎖",
-      "labelEn": "Markov Chain"
+      "labelEn": "Markov Chain",
+      "searchAliases": {
+        "zh": [
+          "四次单位根上的随机游走",
+          "稳态符号对频率"
+        ],
+        "ja": [
+          "一の四乗根上のランダムウォーク",
+          "定常状態での記号対の出現頻度"
+        ],
+        "en": [
+          "Random Walk on Fourth Roots of Unity",
+          "Stationary Pair Frequencies"
+        ]
+      }
     },
     "Probability-Statistics.Stochastic-Processes.Poisson-Process-Forward-Equations": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",
@@ -1380,9 +1373,19 @@
       "labelEn": "Markov Information Source",
       "searchAliases": {
         "en": [
-          "Markov Source"
+          "Markov Source",
+          "Stationary Distribution of a Markov Source"
+        ],
+        "zh": [
+          "马尔可夫信源的平稳分布"
+        ],
+        "ja": [
+          "マルコフ情報源の定常分布"
         ]
-      }
+      },
+      "relatedSubjects": [
+        "Computer-Science"
+      ]
     },
     "Probability-Statistics.Stochastic-Processes.Stopping-Time": {
       "subsubject": "Probability-Statistics.Stochastic-Processes",

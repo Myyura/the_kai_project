@@ -2,7 +2,8 @@
 sidebar_label: 2015年8月実施 専門科目 問題6 物理専門1
 tags:
   - Tohoku-University
-  - Physics.Quantum-Mechanics.Pauli-Matrix-Exponential-and-Unitary-Evolution
+  - Physics.Quantum-Mechanics.Pauli-Matrices
+  - Physics.Quantum-Mechanics.Quantum-State-Time-Evolution
   - Physics.Quantum-Mechanics.Quantum-Observable-Expectation-and-Variance
 ---
 

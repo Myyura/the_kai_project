@@ -5,6 +5,8 @@ tags:
   - Chemistry.Physical-Chemistry.Particle-in-a-Box-and-HOMO-LUMO-Transition
   - Chemistry.Physical-Chemistry.Langmuir-Hinshelwood-CO-Oxidation
   - Chemistry.Physical-Chemistry.Enzyme-Inhibition-and-Lineweaver-Burk-Plot
+  - Physics.Quantum-Mechanics.One-Dimensional-Infinite-Square-Well
+  - Physics.Quantum-Mechanics.Wavefunction-Normalization
 ---
 
 # 東京大学 工学系研究科 2025年8月実施 化学 第1問

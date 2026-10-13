@@ -4,7 +4,7 @@ tags:
   - University-of-Electro-Communications
   - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
   - Electrical-Electronic.Digital-Logic.Combinatorial-Circuit
-  - Electrical-Electronic.Digital-Logic.Moore-Machine-State-Minimization-and-Encoding
+  - Computer-Science.Formal-Languages.Moore-Machine
   - Electrical-Electronic.Digital-Logic.Sequential-Circuit
   - Electrical-Electronic.Digital-Logic.D-Flip-Flop
 ---

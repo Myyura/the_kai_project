@@ -3,7 +3,7 @@ sidebar_label: 2015年8月実施 専門科目II 問題4
 tags:
   - Tokyo-University
   - Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate
-  - Computer-Science.Computer-Architecture.Cache-Aware-Loop-and-Register-Reuse
+  - Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2015年8月実施 専門科目II 問題4
 

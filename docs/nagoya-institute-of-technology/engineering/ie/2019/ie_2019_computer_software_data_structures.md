@@ -3,7 +3,6 @@ sidebar_label: "2019年度 計算機ソフトウェア（データ構造とア�
 tags:
   - Nagoya-Institute-of-Technology
   - Computer-Science.Dynamic-Programming.Knapsack-Problem
-  - Computer-Science.Dynamic-Programming.Zero-One-Knapsack-Recurrence
   - Computer-Science.Algorithm-Design.Algorithm-Complexity
 ---
 

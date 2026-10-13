@@ -5,7 +5,7 @@ tags:
   - Physics.Quantum-Mechanics.Creation-and-Annihilation-Operators
   - Physics.Quantum-Mechanics.Number-Operator-Spectrum
   - Physics.Quantum-Mechanics.Canonical-Commutation-Relations
-  - Physics.Quantum-Mechanics.Harmonic-Oscillator-Uncertainty
+  - Physics.Quantum-Mechanics.Quantum-Observable-Expectation-and-Variance
 ---
 # 九州大学 理学府 物理学専攻 2019年8月実施 物理学 \[III\]
 

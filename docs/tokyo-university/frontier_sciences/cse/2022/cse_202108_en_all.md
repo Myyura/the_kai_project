@@ -11,8 +11,9 @@ tags:
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
   - Mathematics.Linear-Algebra.Matrix-Limit
   - Mathematics.Linear-Algebra.Rayleigh-Quotient
-  - Mathematics.Linear-Algebra.Characteristic-Polynomial-Coefficients-from-Eigenvalues
-  - Mathematics.Linear-Algebra.Determinant-of-Matrix-Exponential
+  - Mathematics.Linear-Algebra.Characteristic-Polynomial
+  - Mathematics.Linear-Algebra.Matrix-Determinant
+  - Mathematics.Linear-Algebra.Matrix-Exponential
   - Physics.Mechanics.Simple-Harmonic-Motion
   - Physics.Mechanics.Collision-and-Coefficient-of-Restitution
   - Physics.Mechanics.Work-and-Mechanical-Energy

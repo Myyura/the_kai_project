@@ -5,9 +5,11 @@ tags:
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Unbiased-Estimation
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Mean-Squared-Error
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Maximum-Likelihood-Estimation
-  - Probability-Statistics.Probability-Basics.Zero-Covariance-does-not-Imply-Independence
+  - Probability-Statistics.Probability-Basics.Covariance
+  - Probability-Statistics.Probability-Basics.Independence-of-Random-Variables
   - Probability-Statistics.Probability-Basics.Geometric-Probability
-  - Probability-Statistics.Probability-Basics.Conditional-Density-by-Variable-Transformation
+  - Probability-Statistics.Probability-Basics.Joint-Distribution
+  - Probability-Statistics.Probability-Distributions-and-Asymptotics.Random-Variable-Transformation
 ---
 
 # 京都大学 情報学研究科 システム科学専攻 2015年8月実施 確率統計

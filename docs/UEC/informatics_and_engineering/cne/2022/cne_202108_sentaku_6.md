@@ -4,7 +4,8 @@ tags:
   - University-of-Electro-Communications
   - Electrical-Electronic.Digital-Logic.Boolean-Function-Minimization
   - Electrical-Electronic.Digital-Logic.Combinatorial-Circuit
-  - Electrical-Electronic.Digital-Logic.Mealy-Sequence-Detector-State-Minimization
+  - Computer-Science.Formal-Languages.Mealy-Machine
+  - Electrical-Electronic.Digital-Logic.Finite-State-Machine-Minimization
   - Electrical-Electronic.Digital-Logic.D-Flip-Flop
   - Electrical-Electronic.Digital-Logic.Sequential-Circuit
 ---

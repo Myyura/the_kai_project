@@ -165,36 +165,20 @@
   "topics": {
     "Computer-Science.Algorithm-Design.Comparison-Sorting-Decision-Tree-Lower-Bound": {
       "subsubject": "Computer-Science.Algorithm-Design",
-      "labelZh": "比较排序的决策树下界",
-      "labelJa": "比較ソートの決定木による下界",
-      "labelEn": "Decision-Tree Lower Bound for Comparison Sorting"
-    },
-    "Computer-Science.Algorithm-Design.Constrained-Adjacent-Swap-Reachability-Counting": {
-      "subsubject": "Computer-Science.Algorithm-Design",
-      "relatedSubjects": [
-        "Discrete-Mathematics"
-      ],
-      "labelZh": "受限相邻交换的可达性计数",
-      "labelJa": "制約付き隣接交換による到達可能な配置の数え上げ",
-      "labelEn": "Reachability Counting for Constrained Adjacent Swaps"
-    },
-    "Computer-Science.Algorithm-Design.Metric-Order-Transfer-with-Minimum-Comparisons": {
-      "subsubject": "Computer-Science.Algorithm-Design",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "距离排序转换与最少比较次数",
-      "labelJa": "距離順序の変換と最小比較回数",
-      "labelEn": "Metric Order Transfer with Minimum Comparisons"
-    },
-    "Computer-Science.Algorithm-Design.Big-O-Equivalence-and-Algebra": {
-      "subsubject": "Computer-Science.Algorithm-Design",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "大 O 等价关系与运算规则",
-      "labelJa": "ビッグオーの同値関係と演算規則",
-      "labelEn": "Big-O Equivalence and Algebra"
+      "labelZh": "比较排序下界",
+      "labelJa": "比較ソートの下界",
+      "labelEn": "Comparison Sorting Lower Bounds",
+      "searchAliases": {
+        "zh": [
+          "比较排序的决策树下界"
+        ],
+        "ja": [
+          "比較ソートの決定木による下界"
+        ],
+        "en": [
+          "Decision-Tree Lower Bound for Comparison Sorting"
+        ]
+      }
     },
     "Computer-Science.Algorithm-Design.Algorithm-Complexity": {
       "subsubject": "Computer-Science.Algorithm-Design",
@@ -298,15 +282,16 @@
       "labelEn": "Greedy Algorithm",
       "searchAliases": {
         "en": [
-          "Greedy"
+          "Greedy",
+          "Order Sensitivity of Greedy Algorithms"
+        ],
+        "zh": [
+          "贪心算法对处理顺序的敏感性"
+        ],
+        "ja": [
+          "貪欲法における処理順序の影響"
         ]
       }
-    },
-    "Computer-Science.Algorithm-Design.Order-Sensitivity-of-Greedy-Algorithms": {
-      "subsubject": "Computer-Science.Algorithm-Design",
-      "labelZh": "贪心算法对处理顺序的敏感性",
-      "labelJa": "貪欲法における処理順序の影響",
-      "labelEn": "Order Sensitivity of Greedy Algorithms"
     },
     "Computer-Science.Algorithm-Design.Heap-Sort": {
       "subsubject": "Computer-Science.Algorithm-Design",
@@ -375,9 +360,23 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "渐近上界与下界的证明",
-      "labelJa": "漸近的な上界と下界の証明",
-      "labelEn": "Asymptotic Upper- and Lower-Bound Proofs"
+      "labelZh": "渐近记号",
+      "labelJa": "漸近記法",
+      "labelEn": "Asymptotic Notation",
+      "searchAliases": {
+        "zh": [
+          "大 O 等价关系与运算规则",
+          "渐近上界与下界的证明"
+        ],
+        "ja": [
+          "ビッグオーの同値関係と演算規則",
+          "漸近的な上界と下界の証明"
+        ],
+        "en": [
+          "Big-O Equivalence and Algebra",
+          "Asymptotic Upper- and Lower-Bound Proofs"
+        ]
+      }
     },
     "Computer-Science.Algorithm-Design.Matrix-Multiplication-Algorithms": {
       "subsubject": "Computer-Science.Algorithm-Design",
@@ -441,7 +440,18 @@
       "broad": true,
       "labelZh": "排序算法",
       "labelJa": "ソートアルゴリズム",
-      "labelEn": "Sorting Algorithms"
+      "labelEn": "Sorting Algorithms",
+      "searchAliases": {
+        "zh": [
+          "距离排序转换与最少比较次数"
+        ],
+        "ja": [
+          "距離順序の変換と最小比較回数"
+        ],
+        "en": [
+          "Metric Order Transfer with Minimum Comparisons"
+        ]
+      }
     },
     "Computer-Science.Algorithm-Design.Tower-of-Hanoi": {
       "subsubject": "Computer-Science.Algorithm-Design",
@@ -454,9 +464,20 @@
       "relatedSubjects": [
         "Discrete-Mathematics"
       ],
-      "labelZh": "排序网络的比较器数量与深度",
-      "labelJa": "ソーティングネットワークの比較器数と深さ",
-      "labelEn": "Comparator Count and Depth of Sorting Networks"
+      "labelZh": "排序网络",
+      "labelJa": "ソーティングネットワーク",
+      "labelEn": "Sorting Networks",
+      "searchAliases": {
+        "zh": [
+          "排序网络的比较器数量与深度"
+        ],
+        "ja": [
+          "ソーティングネットワークの比較器数と深さ"
+        ],
+        "en": [
+          "Comparator Count and Depth of Sorting Networks"
+        ]
+      }
     },
     "Computer-Science.Algorithm-Design.Two-Pointers": {
       "subsubject": "Computer-Science.Algorithm-Design",
@@ -516,12 +537,19 @@
     },
     "Computer-Science.Computer-Architecture.Single-Instruction-Multiple-Data-Architecture": {
       "subsubject": "Computer-Science.Computer-Architecture",
-      "labelZh": "单指令多数据架构（SIMD）",
-      "labelJa": "単一命令・複数データ方式（SIMD）",
-      "labelEn": "Single Instruction, Multiple Data (SIMD) Architecture",
+      "labelZh": "SIMD 架构",
+      "labelJa": "SIMD アーキテクチャ",
+      "labelEn": "SIMD Architecture",
       "searchAliases": {
         "en": [
-          "SIMD Architecture"
+          "SIMD Architecture",
+          "Single Instruction, Multiple Data (SIMD) Architecture"
+        ],
+        "zh": [
+          "单指令多数据架构（SIMD）"
+        ],
+        "ja": [
+          "単一命令・複数データ方式（SIMD）"
         ]
       }
     },
@@ -572,26 +600,23 @@
     },
     "Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate": {
       "subsubject": "Computer-Science.Computer-Architecture",
-      "labelZh": "直接映射缓存的冲突与命中率",
-      "labelJa": "ダイレクトマップキャッシュの競合とヒット率",
-      "labelEn": "Conflicts and Hit Rate in Direct-Mapped Caches"
-    },
-    "Computer-Science.Computer-Architecture.Instructions-per-Cycle-with-Variable-Latency-Memory-Access": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "labelZh": "可变访存延迟下的每周期指令数",
-      "labelJa": "メモリアクセス遅延が変動する場合のクロック当たり命令数",
-      "labelEn": "Instructions per Cycle with Variable-Latency Memory Access",
+      "labelZh": "缓存命中率",
+      "labelJa": "キャッシュヒット率",
+      "labelEn": "Cache Hit Rate",
       "searchAliases": {
+        "zh": [
+          "顺序访问的缓存命中率",
+          "直接映射缓存的冲突与命中率"
+        ],
+        "ja": [
+          "順次アクセス時のキャッシュヒット率",
+          "ダイレクトマップキャッシュの競合とヒット率"
+        ],
         "en": [
-          "IPC with Variable Latency Memory Access"
+          "Cache Hit Rate for Sequential Access",
+          "Conflicts and Hit Rate in Direct-Mapped Caches"
         ]
       }
-    },
-    "Computer-Science.Computer-Architecture.Cache-Aware-Loop-and-Register-Reuse": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "labelZh": "面向缓存的循环优化与寄存器复用",
-      "labelJa": "キャッシュを考慮したループ最適化とレジスタ再利用",
-      "labelEn": "Cache-Aware Loop Optimization and Register Reuse"
     },
     "Computer-Science.Computer-Architecture.Hardware-Prefetching": {
       "subsubject": "Computer-Science.Computer-Architecture",
@@ -604,12 +629,6 @@
       "labelZh": "非阻塞缓存",
       "labelJa": "ノンブロッキングキャッシュ",
       "labelEn": "Nonblocking Cache"
-    },
-    "Computer-Science.Computer-Architecture.Sequential-Random-and-Pointer-Chasing-Access": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "labelZh": "顺序访问、随机访问与指针追逐",
-      "labelJa": "順次アクセス・ランダムアクセス・ポインタ追跡",
-      "labelEn": "Sequential, Random, and Pointer-Chasing Access"
     },
     "Computer-Science.Computer-Architecture.Memory-Level-Parallelism": {
       "subsubject": "Computer-Science.Computer-Architecture",
@@ -632,39 +651,56 @@
         ]
       }
     },
-    "Computer-Science.Computer-Architecture.Sequential-Access-Cache-Hit-Rate": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "labelZh": "顺序访问的缓存命中率",
-      "labelJa": "順次アクセス時のキャッシュヒット率",
-      "labelEn": "Cache Hit Rate for Sequential Access"
-    },
     "Computer-Science.Computer-Architecture.Two-Way-Set-Associative-Cache-Datapath": {
       "subsubject": "Computer-Science.Computer-Architecture",
-      "labelZh": "二路组相联缓存的数据通路",
-      "labelJa": "2 ウェイセットアソシアティブキャッシュのデータパス",
-      "labelEn": "Two-Way Set-Associative Cache Datapath"
+      "labelZh": "组相联缓存",
+      "labelJa": "セットアソシアティブキャッシュ",
+      "labelEn": "Set-Associative Cache",
+      "searchAliases": {
+        "zh": [
+          "二路组相联缓存的数据通路"
+        ],
+        "ja": [
+          "2 ウェイセットアソシアティブキャッシュのデータパス"
+        ],
+        "en": [
+          "Two-Way Set-Associative Cache Datapath"
+        ]
+      }
     },
     "Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization": {
       "subsubject": "Computer-Science.Computer-Architecture",
       "labelZh": "缓存命中率优化",
       "labelJa": "キャッシュヒット率の最適化",
-      "labelEn": "Cache Hit Rate Optimization"
-    },
-    "Computer-Science.Computer-Architecture.Sensor-Acquisition-Pipeline-Scheduling": {
-      "subsubject": "Computer-Science.Computer-Architecture",
-      "relatedSubjects": [
-        "Electrical-Electronic",
-        "Engineering"
-      ],
-      "labelZh": "传感器采集流水线调度",
-      "labelJa": "センサデータ取得パイプラインのスケジューリング",
-      "labelEn": "Sensor Acquisition Pipeline Scheduling"
+      "labelEn": "Cache Hit Rate Optimization",
+      "searchAliases": {
+        "zh": [
+          "面向缓存的循环优化与寄存器复用"
+        ],
+        "ja": [
+          "キャッシュを考慮したループ最適化とレジスタ再利用"
+        ],
+        "en": [
+          "Cache-Aware Loop Optimization and Register Reuse"
+        ]
+      }
     },
     "Computer-Science.Computer-Architecture.Reduced-Instruction-Set-Computer-and-Complex-Instruction-Set-Computer-Architectures": {
       "subsubject": "Computer-Science.Computer-Architecture",
-      "labelZh": "精简指令集与复杂指令集架构",
-      "labelJa": "RISC と CISC のアーキテクチャ",
-      "labelEn": "RISC and CISC Architectures"
+      "labelZh": "RISC 与 CISC",
+      "labelJa": "RISC と CISC",
+      "labelEn": "RISC and CISC",
+      "searchAliases": {
+        "zh": [
+          "精简指令集与复杂指令集架构"
+        ],
+        "ja": [
+          "RISC と CISC のアーキテクチャ"
+        ],
+        "en": [
+          "RISC and CISC Architectures"
+        ]
+      }
     },
     "Computer-Science.Computer-Architecture.Amdahls-Law": {
       "subsubject": "Computer-Science.Computer-Architecture",
@@ -773,9 +809,20 @@
         "Discrete-Mathematics",
         "Mathematics"
       ],
-      "labelZh": "非相邻形式的有符号二进制表示",
-      "labelJa": "非隣接形式による符号付き二進表現",
-      "labelEn": "Non-Adjacent Form Signed Binary Representation"
+      "labelZh": "非相邻形式（NAF）",
+      "labelJa": "非隣接形式（NAF）",
+      "labelEn": "Non-Adjacent Form (NAF)",
+      "searchAliases": {
+        "zh": [
+          "非相邻形式的有符号二进制表示"
+        ],
+        "ja": [
+          "非隣接形式による符号付き二進表現"
+        ],
+        "en": [
+          "Non-Adjacent Form Signed Binary Representation"
+        ]
+      }
     },
     "Computer-Science.Computer-Architecture.Number-Representation": {
       "subsubject": "Computer-Science.Computer-Architecture",
@@ -793,7 +840,19 @@
       "subsubject": "Computer-Science.Computer-Architecture",
       "labelZh": "性能分析",
       "labelJa": "性能解析",
-      "labelEn": "Performance Analysis"
+      "labelEn": "Performance Analysis",
+      "searchAliases": {
+        "zh": [
+          "可变访存延迟下的每周期指令数"
+        ],
+        "ja": [
+          "メモリアクセス遅延が変動する場合のクロック当たり命令数"
+        ],
+        "en": [
+          "Instructions per Cycle with Variable-Latency Memory Access",
+          "IPC with Variable Latency Memory Access"
+        ]
+      }
     },
     "Computer-Science.Computer-Architecture.Structural-Hazard": {
       "subsubject": "Computer-Science.Computer-Architecture",
@@ -820,7 +879,14 @@
       "labelEn": "Pipelining",
       "searchAliases": {
         "en": [
-          "Pipeline"
+          "Pipeline",
+          "Sensor Acquisition Pipeline Scheduling"
+        ],
+        "zh": [
+          "传感器采集流水线调度"
+        ],
+        "ja": [
+          "センサデータ取得パイプラインのスケジューリング"
         ]
       }
     },
@@ -836,15 +902,6 @@
       "labelJa": "B 木",
       "labelEn": "B-Tree"
     },
-    "Computer-Science.Data-Structures.Balanced-Binary-Search-Tree-Height-Bounds": {
-      "subsubject": "Computer-Science.Data-Structures",
-      "relatedSubjects": [
-        "Discrete-Mathematics"
-      ],
-      "labelZh": "平衡二叉搜索树的高度界",
-      "labelJa": "平衡二分探索木の高さの上界と下界",
-      "labelEn": "Height Bounds for Balanced Binary Search Trees"
-    },
     "Computer-Science.Data-Structures.Balanced-Binary-Search-Tree": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
@@ -852,22 +909,55 @@
       ],
       "labelZh": "平衡二叉搜索树",
       "labelJa": "平衡二分探索木",
-      "labelEn": "Balanced Binary Search Tree"
+      "labelEn": "Balanced Binary Search Tree",
+      "searchAliases": {
+        "zh": [
+          "平衡二叉搜索树的高度界"
+        ],
+        "ja": [
+          "平衡二分探索木の高さの上界と下界"
+        ],
+        "en": [
+          "Height Bounds for Balanced Binary Search Trees"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Minimum-Nodes-in-Height-Balanced-Binary-Tree": {
       "subsubject": "Computer-Science.Data-Structures",
       "relatedSubjects": [
         "Discrete-Mathematics"
       ],
-      "labelZh": "高度平衡二叉树的最少节点数",
-      "labelJa": "高さ平衡二分木の最小節点数",
-      "labelEn": "Minimum Number of Nodes in a Height-Balanced Binary Tree"
+      "labelZh": "高度平衡二叉树",
+      "labelJa": "高さ平衡二分木",
+      "labelEn": "Height-Balanced Binary Tree",
+      "searchAliases": {
+        "zh": [
+          "高度平衡二叉树的最少节点数"
+        ],
+        "ja": [
+          "高さ平衡二分木の最小節点数"
+        ],
+        "en": [
+          "Minimum Number of Nodes in a Height-Balanced Binary Tree"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Heap-Order-Assignment-by-Linear-Time-Construction": {
       "subsubject": "Computer-Science.Data-Structures",
-      "labelZh": "线性时间建堆与堆序赋值",
-      "labelJa": "線形時間のヒープ構築によるヒープ順序の割当て",
-      "labelEn": "Heap-Order Assignment by Linear-Time Construction"
+      "labelZh": "堆序构造",
+      "labelJa": "ヒープ順序の構築",
+      "labelEn": "Heap-Order Construction",
+      "searchAliases": {
+        "zh": [
+          "线性时间建堆与堆序赋值"
+        ],
+        "ja": [
+          "線形時間のヒープ構築によるヒープ順序の割当て"
+        ],
+        "en": [
+          "Heap-Order Assignment by Linear-Time Construction"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Binary-Search-Tree": {
       "subsubject": "Computer-Science.Data-Structures",
@@ -876,15 +966,16 @@
       "labelEn": "Binary Search Tree",
       "searchAliases": {
         "en": [
-          "BST"
+          "BST",
+          "Binary Search Tree Insertion and Deletion"
+        ],
+        "zh": [
+          "二叉搜索树的插入与删除"
+        ],
+        "ja": [
+          "二分探索木への挿入と削除"
         ]
       }
-    },
-    "Computer-Science.Data-Structures.Binary-Search-Tree-Insertion-and-Deletion": {
-      "subsubject": "Computer-Science.Data-Structures",
-      "labelZh": "二叉搜索树的插入与删除",
-      "labelJa": "二分探索木への挿入と削除",
-      "labelEn": "Binary Search Tree Insertion and Deletion"
     },
     "Computer-Science.Data-Structures.Inorder-Tree-Traversal": {
       "subsubject": "Computer-Science.Data-Structures",
@@ -916,9 +1007,20 @@
     },
     "Computer-Science.Data-Structures.Tree-Sort-Complexity": {
       "subsubject": "Computer-Science.Data-Structures",
-      "labelZh": "树排序的复杂度",
-      "labelJa": "木によるソートの計算量",
-      "labelEn": "Tree Sort Complexity"
+      "labelZh": "树排序",
+      "labelJa": "木によるソート",
+      "labelEn": "Tree Sort",
+      "searchAliases": {
+        "zh": [
+          "树排序的复杂度"
+        ],
+        "ja": [
+          "木によるソートの計算量"
+        ],
+        "en": [
+          "Tree Sort Complexity"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Hash-Table": {
       "subsubject": "Computer-Science.Data-Structures",
@@ -936,28 +1038,35 @@
       "subsubject": "Computer-Science.Data-Structures",
       "labelZh": "链地址法哈希",
       "labelJa": "連鎖法によるハッシュ",
-      "labelEn": "Separate Chaining Hashing"
-    },
-    "Computer-Science.Data-Structures.Expected-Insertion-Cost-in-Hashing": {
-      "subsubject": "Computer-Science.Data-Structures",
-      "relatedSubjects": [
-        "Probability-Statistics"
-      ],
-      "labelZh": "哈希插入的期望代价",
-      "labelJa": "ハッシュ表への挿入コストの期待値",
-      "labelEn": "Expected Insertion Cost in Hashing"
+      "labelEn": "Separate Chaining Hashing",
+      "searchAliases": {
+        "zh": [
+          "哈希插入的期望代价"
+        ],
+        "ja": [
+          "ハッシュ表への挿入コストの期待値"
+        ],
+        "en": [
+          "Expected Insertion Cost in Hashing"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Linked-List": {
       "subsubject": "Computer-Science.Data-Structures",
       "labelZh": "链表",
       "labelJa": "連結リスト",
-      "labelEn": "Linked List"
-    },
-    "Computer-Science.Data-Structures.Sorted-Linked-List-Insertion": {
-      "subsubject": "Computer-Science.Data-Structures",
-      "labelZh": "有序链表的插入",
-      "labelJa": "整列済み連結リストへの挿入",
-      "labelEn": "Sorted Linked List Insertion"
+      "labelEn": "Linked List",
+      "searchAliases": {
+        "zh": [
+          "有序链表的插入"
+        ],
+        "ja": [
+          "整列済み連結リストへの挿入"
+        ],
+        "en": [
+          "Sorted Linked List Insertion"
+        ]
+      }
     },
     "Computer-Science.Data-Structures.Linked-List-Reversal": {
       "subsubject": "Computer-Science.Data-Structures",
@@ -1066,19 +1175,18 @@
       ],
       "labelZh": "背包问题",
       "labelJa": "ナップサック問題",
-      "labelEn": "Knapsack Problem"
-    },
-    "Computer-Science.Dynamic-Programming.Zero-One-Knapsack-Recurrence": {
-      "subsubject": "Computer-Science.Dynamic-Programming",
-      "labelZh": "0–1 背包的状态转移方程",
-      "labelJa": "0–1 ナップサック問題の漸化式",
-      "labelEn": "0–1 Knapsack Recurrence"
-    },
-    "Computer-Science.Dynamic-Programming.Greedy-Failure-for-Zero-One-Knapsack": {
-      "subsubject": "Computer-Science.Dynamic-Programming",
-      "labelZh": "0–1 背包中贪心法的失效",
-      "labelJa": "0–1 ナップサック問題における貪欲法の失敗例",
-      "labelEn": "Greedy Failure for 0–1 Knapsack"
+      "labelEn": "Knapsack Problem",
+      "searchAliases": {
+        "zh": [
+          "0–1 背包的状态转移方程"
+        ],
+        "ja": [
+          "0–1 ナップサック問題の漸化式"
+        ],
+        "en": [
+          "0–1 Knapsack Recurrence"
+        ]
+      }
     },
     "Computer-Science.Dynamic-Programming.Longest-Common-Subsequence": {
       "subsubject": "Computer-Science.Dynamic-Programming",
@@ -1124,43 +1232,25 @@
       ],
       "labelZh": "子集和问题",
       "labelJa": "部分和問題",
-      "labelEn": "Subset Sum Problem"
-    },
-    "Computer-Science.Dynamic-Programming.Counting-Ordered-Pairings": {
-      "subsubject": "Computer-Science.Dynamic-Programming",
-      "relatedSubjects": [
-        "Discrete-Mathematics"
-      ],
-      "labelZh": "带顺序约束的配对计数",
-      "labelJa": "順序制約付きペアリングの数え上げ",
-      "labelEn": "Counting Pairings with Order Constraints"
-    },
-    "Computer-Science.Dynamic-Programming.Pattern-Occurrence-Probability": {
-      "subsubject": "Computer-Science.Dynamic-Programming",
-      "relatedSubjects": [
-        "Probability-Statistics",
-        "Bioinformatics"
-      ],
-      "labelZh": "模式出现概率",
-      "labelJa": "パターンの出現確率",
-      "labelEn": "Pattern Occurrence Probability"
+      "labelEn": "Subset Sum Problem",
+      "searchAliases": {
+        "zh": [
+          "子集和方案数的动态规划"
+        ],
+        "ja": [
+          "動的計画法による部分和の組合せ数の計算"
+        ],
+        "en": [
+          "Dynamic Programming for Counting Subset Sums",
+          "Counting Subset Sum DP"
+        ]
+      }
     },
     "Computer-Science.Dynamic-Programming.Dynamic-Programming-Principle": {
       "subsubject": "Computer-Science.Dynamic-Programming",
       "labelZh": "动态规划原理",
       "labelJa": "動的計画法の原理",
       "labelEn": "Dynamic Programming Principle"
-    },
-    "Computer-Science.Dynamic-Programming.Counting-Subset-Sum-Dynamic-Programming": {
-      "subsubject": "Computer-Science.Dynamic-Programming",
-      "labelZh": "子集和方案数的动态规划",
-      "labelJa": "動的計画法による部分和の組合せ数の計算",
-      "labelEn": "Dynamic Programming for Counting Subset Sums",
-      "searchAliases": {
-        "en": [
-          "Counting Subset Sum DP"
-        ]
-      }
     },
     "Computer-Science.Dynamic-Programming.Unbounded-Minimum-Coin-Change": {
       "subsubject": "Computer-Science.Dynamic-Programming",
@@ -1232,7 +1322,19 @@
       ],
       "labelZh": "上下文无关语言的封闭性质",
       "labelJa": "文脈自由言語の閉包性",
-      "labelEn": "Closure Properties of Context-Free Languages"
+      "labelEn": "Closure Properties of Context-Free Languages",
+      "searchAliases": {
+        "zh": [
+          "上下文无关语言与正则语言的交"
+        ],
+        "ja": [
+          "文脈自由言語と正規言語の共通部分"
+        ],
+        "en": [
+          "Intersection of Context-Free and Regular Languages",
+          "CFL Regular Intersection"
+        ]
+      }
     },
     "Computer-Science.Formal-Languages.Deterministic-Finite-Automaton-Minimization": {
       "subsubject": "Computer-Science.Formal-Languages",
@@ -1363,20 +1465,6 @@
         ]
       }
     },
-    "Computer-Science.Formal-Languages.Context-Free-Language-Regular-Intersection": {
-      "subsubject": "Computer-Science.Formal-Languages",
-      "relatedSubjects": [
-        "Discrete-Mathematics"
-      ],
-      "labelZh": "上下文无关语言与正则语言的交",
-      "labelJa": "文脈自由言語と正規言語の共通部分",
-      "labelEn": "Intersection of Context-Free and Regular Languages",
-      "searchAliases": {
-        "en": [
-          "CFL Regular Intersection"
-        ]
-      }
-    },
     "Computer-Science.Formal-Languages.Regular-Language-Decision-Problems": {
       "subsubject": "Computer-Science.Formal-Languages",
       "labelZh": "正则语言的判定问题",
@@ -1472,9 +1560,20 @@
         "Mathematics",
         "Data-Science-Artificial-Intelligence"
       ],
-      "labelZh": "霍夫变换直线检测",
-      "labelJa": "ハフ変換による直線検出",
-      "labelEn": "Hough Transform for Line Detection"
+      "labelZh": "霍夫变换",
+      "labelJa": "ハフ変換",
+      "labelEn": "Hough Transform",
+      "searchAliases": {
+        "zh": [
+          "霍夫变换直线检测"
+        ],
+        "ja": [
+          "ハフ変換による直線検出"
+        ],
+        "en": [
+          "Hough Transform for Line Detection"
+        ]
+      }
     },
     "Computer-Science.Graphics.Projection-and-Reconstruction": {
       "subsubject": "Computer-Science.Graphics",
@@ -1499,27 +1598,60 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "基于正交方向消失点的相机标定",
-      "labelJa": "直交方向の消失点を用いたカメラ校正",
-      "labelEn": "Camera Calibration from Orthogonal Vanishing Points"
+      "labelZh": "消失点相机标定",
+      "labelJa": "消失点によるカメラ校正",
+      "labelEn": "Vanishing-Point Camera Calibration",
+      "searchAliases": {
+        "zh": [
+          "基于正交方向消失点的相机标定"
+        ],
+        "ja": [
+          "直交方向の消失点を用いたカメラ校正"
+        ],
+        "en": [
+          "Camera Calibration from Orthogonal Vanishing Points"
+        ]
+      }
     },
     "Computer-Science.Graphics.Edge-Line-Detection-in-Grayscale-Images": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Data-Science-Artificial-Intelligence"
       ],
-      "labelZh": "灰度图像中的边缘与直线检测",
-      "labelJa": "グレースケール画像のエッジ・直線検出",
-      "labelEn": "Edge and Line Detection in Grayscale Images"
+      "labelZh": "边缘与直线检测",
+      "labelJa": "エッジ・直線検出",
+      "labelEn": "Edge and Line Detection",
+      "searchAliases": {
+        "zh": [
+          "灰度图像中的边缘与直线检测"
+        ],
+        "ja": [
+          "グレースケール画像のエッジ・直線検出"
+        ],
+        "en": [
+          "Edge and Line Detection in Grayscale Images"
+        ]
+      }
     },
     "Computer-Science.Graphics.Robot-Camera-Extrinsic-Calibration": {
       "subsubject": "Computer-Science.Graphics",
       "relatedSubjects": [
         "Engineering"
       ],
-      "labelZh": "机器人相机外参标定",
-      "labelJa": "ロボットカメラの外部パラメータ校正",
-      "labelEn": "Robot Camera Extrinsic Calibration"
+      "labelZh": "相机外参标定",
+      "labelJa": "カメラの外部パラメータ校正",
+      "labelEn": "Camera Extrinsic Calibration",
+      "searchAliases": {
+        "zh": [
+          "机器人相机外参标定"
+        ],
+        "ja": [
+          "ロボットカメラの外部パラメータ校正"
+        ],
+        "en": [
+          "Robot Camera Extrinsic Calibration"
+        ]
+      }
     },
     "Computer-Science.Graphics.Homogeneous-Coordinates": {
       "subsubject": "Computer-Science.Graphics",
@@ -1586,23 +1718,25 @@
       "labelJa": "記憶を持つ有限状態通信路",
       "labelEn": "Finite-State Channel with Memory"
     },
-    "Computer-Science.Information-Theory.Binary-Markov-Source-Run-Length-and-Entropy-Rate": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "relatedSubjects": [
-        "Probability-Statistics"
-      ],
-      "labelZh": "二元马尔可夫信源的游程长度与熵率",
-      "labelJa": "二元マルコフ情報源のラン長とエントロピー率",
-      "labelEn": "Run Length and Entropy Rate of a Binary Markov Source"
-    },
     "Computer-Science.Information-Theory.Parity-Bit-Single-Error-Detection": {
       "subsubject": "Computer-Science.Information-Theory",
       "relatedSubjects": [
         "Electrical-Electronic"
       ],
-      "labelZh": "奇偶校验位与单比特检错",
-      "labelJa": "パリティビットによる 1 ビット誤り検出",
-      "labelEn": "Single-Bit Error Detection with a Parity Bit"
+      "labelZh": "奇偶校验",
+      "labelJa": "パリティ検査",
+      "labelEn": "Parity Check",
+      "searchAliases": {
+        "zh": [
+          "奇偶校验位与单比特检错"
+        ],
+        "ja": [
+          "パリティビットによる 1 ビット誤り検出"
+        ],
+        "en": [
+          "Single-Bit Error Detection with a Parity Bit"
+        ]
+      }
     },
     "Computer-Science.Information-Theory.Hamming-74-Code-and-Minimum-Distance": {
       "subsubject": "Computer-Science.Information-Theory",
@@ -1610,9 +1744,20 @@
         "Discrete-Mathematics",
         "Electrical-Electronic"
       ],
-      "labelZh": "汉明（7,4）码与最小距离",
-      "labelJa": "ハミング（7,4）符号と最小距離",
-      "labelEn": "Hamming (7,4) Code and Minimum Distance"
+      "labelZh": "汉明码",
+      "labelJa": "ハミング符号",
+      "labelEn": "Hamming Codes",
+      "searchAliases": {
+        "zh": [
+          "汉明（7,4）码与最小距离"
+        ],
+        "ja": [
+          "ハミング（7,4）符号と最小距離"
+        ],
+        "en": [
+          "Hamming (7,4) Code and Minimum Distance"
+        ]
+      }
     },
     "Computer-Science.Information-Theory.Interleaving-for-Burst-Error": {
       "subsubject": "Computer-Science.Information-Theory",
@@ -1622,15 +1767,6 @@
       "labelZh": "抗突发错误的交织",
       "labelJa": "バースト誤り対策としてのインターリーブ",
       "labelEn": "Interleaving for Burst Errors"
-    },
-    "Computer-Science.Information-Theory.Markov-Source-Stationary-Distribution": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "relatedSubjects": [
-        "Probability-Statistics"
-      ],
-      "labelZh": "马尔可夫信源的平稳分布",
-      "labelJa": "マルコフ情報源の定常分布",
-      "labelEn": "Stationary Distribution of a Markov Source"
     },
     "Computer-Science.Information-Theory.Channel-Coding": {
       "subsubject": "Computer-Science.Information-Theory",
@@ -1694,9 +1830,20 @@
     },
     "Computer-Science.Information-Theory.Entropy": {
       "subsubject": "Computer-Science.Information-Theory",
-      "labelZh": "熵",
-      "labelJa": "エントロピー",
-      "labelEn": "Entropy"
+      "labelZh": "信息熵",
+      "labelJa": "情報エントロピー",
+      "labelEn": "Information Entropy",
+      "searchAliases": {
+        "zh": [
+          "熵"
+        ],
+        "ja": [
+          "エントロピー"
+        ],
+        "en": [
+          "Entropy"
+        ]
+      }
     },
     "Computer-Science.Information-Theory.Self-Information-Axioms": {
       "subsubject": "Computer-Science.Information-Theory",
@@ -1704,9 +1851,20 @@
         "Mathematics",
         "Probability-Statistics"
       ],
-      "labelZh": "自信息的公理",
-      "labelJa": "自己情報量の公理",
-      "labelEn": "Axioms of Self-Information"
+      "labelZh": "自信息",
+      "labelJa": "自己情報量",
+      "labelEn": "Self-Information",
+      "searchAliases": {
+        "zh": [
+          "自信息的公理"
+        ],
+        "ja": [
+          "自己情報量の公理"
+        ],
+        "en": [
+          "Axioms of Self-Information"
+        ]
+      }
     },
     "Computer-Science.Information-Theory.Coding-Efficiency": {
       "subsubject": "Computer-Science.Information-Theory",
@@ -1737,33 +1895,26 @@
       "relatedSubjects": [
         "Discrete-Mathematics"
       ],
-      "labelZh": "二叉树的 Kraft 不等式",
-      "labelJa": "二分木に対するクラフトの不等式",
-      "labelEn": "Kraft's Inequality for Binary Trees"
-    },
-    "Computer-Science.Information-Theory.Entropy-Lower-Bound-on-Weighted-External-Path-Length": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "relatedSubjects": [
-        "Mathematics"
-      ],
-      "labelZh": "加权外部路径长度的熵下界",
-      "labelJa": "重み付き外部経路長のエントロピーによる下界",
-      "labelEn": "Entropy Lower Bound on Weighted External Path Length"
+      "labelZh": "Kraft 不等式",
+      "labelJa": "クラフトの不等式",
+      "labelEn": "Kraft's Inequality",
+      "searchAliases": {
+        "zh": [
+          "二叉树的 Kraft 不等式"
+        ],
+        "ja": [
+          "二分木に対するクラフトの不等式"
+        ],
+        "en": [
+          "Kraft's Inequality for Binary Trees"
+        ]
+      }
     },
     "Computer-Science.Information-Theory.Optimal-Alphabetic-Binary-Tree": {
       "subsubject": "Computer-Science.Information-Theory",
       "labelZh": "最优保序二叉树",
       "labelJa": "最適アルファベティック二分木",
       "labelEn": "Optimal Alphabetic Binary Tree"
-    },
-    "Computer-Science.Information-Theory.Block-vs-Run-Length-Source-Coding": {
-      "subsubject": "Computer-Science.Information-Theory",
-      "relatedSubjects": [
-        "Probability-Statistics"
-      ],
-      "labelZh": "分组信源编码与游程信源编码的比较",
-      "labelJa": "ブロック情報源符号化とランレングス情報源符号化の比較",
-      "labelEn": "Block versus Run-Length Source Coding"
     },
     "Computer-Science.Information-Theory.Huffman-Coding": {
       "subsubject": "Computer-Science.Information-Theory",
@@ -1775,7 +1926,18 @@
       "subsubject": "Computer-Science.Information-Theory",
       "labelZh": "信息论下界",
       "labelJa": "情報理論的下界",
-      "labelEn": "Information-Theoretic Lower Bound"
+      "labelEn": "Information-Theoretic Lower Bound",
+      "searchAliases": {
+        "zh": [
+          "加权外部路径长度的熵下界"
+        ],
+        "ja": [
+          "重み付き外部経路長のエントロピーによる下界"
+        ],
+        "en": [
+          "Entropy Lower Bound on Weighted External Path Length"
+        ]
+      }
     },
     "Computer-Science.Information-Theory.Instantaneous-Code": {
       "subsubject": "Computer-Science.Information-Theory",
@@ -1835,7 +1997,18 @@
       "subsubject": "Computer-Science.Information-Theory",
       "labelZh": "信源编码",
       "labelJa": "情報源符号化",
-      "labelEn": "Source Coding"
+      "labelEn": "Source Coding",
+      "searchAliases": {
+        "zh": [
+          "分组信源编码与游程信源编码的比较"
+        ],
+        "ja": [
+          "ブロック情報源符号化とランレングス情報源符号化の比較"
+        ],
+        "en": [
+          "Block versus Run-Length Source Coding"
+        ]
+      }
     },
     "Computer-Science.Information-Theory.Source-Extension": {
       "subsubject": "Computer-Science.Information-Theory",
@@ -1921,9 +2094,20 @@
     },
     "Computer-Science.Networks.Transparent-Web-Cache-in-Wide-Area-Networks": {
       "subsubject": "Computer-Science.Networks",
-      "labelZh": "广域网中的透明 Web 缓存",
-      "labelJa": "広域ネットワークにおける透過型 Web キャッシュ",
-      "labelEn": "Transparent Web Caching in Wide Area Networks"
+      "labelZh": "透明 Web 缓存",
+      "labelJa": "透過型 Web キャッシュ",
+      "labelEn": "Transparent Web Caching",
+      "searchAliases": {
+        "zh": [
+          "广域网中的透明 Web 缓存"
+        ],
+        "ja": [
+          "広域ネットワークにおける透過型 Web キャッシュ"
+        ],
+        "en": [
+          "Transparent Web Caching in Wide Area Networks"
+        ]
+      }
     },
     "Computer-Science.Networks.Available-Bandwidth-Estimation": {
       "subsubject": "Computer-Science.Networks",
@@ -1933,12 +2117,19 @@
     },
     "Computer-Science.Networks.Transmission-Control-Protocol-and-User-Datagram-Protocol": {
       "subsubject": "Computer-Science.Networks",
-      "labelZh": "传输控制协议与用户数据报协议",
-      "labelJa": "伝送制御プロトコルとユーザデータグラムプロトコル",
-      "labelEn": "Transmission Control Protocol (TCP) and User Datagram Protocol (UDP)",
+      "labelZh": "TCP 与 UDP",
+      "labelJa": "TCP と UDP",
+      "labelEn": "TCP and UDP",
       "searchAliases": {
         "en": [
-          "TCP and UDP Transport Protocols"
+          "TCP and UDP Transport Protocols",
+          "Transmission Control Protocol (TCP) and User Datagram Protocol (UDP)"
+        ],
+        "zh": [
+          "传输控制协议与用户数据报协议"
+        ],
+        "ja": [
+          "伝送制御プロトコルとユーザデータグラムプロトコル"
         ]
       }
     },
@@ -2046,12 +2237,6 @@
       "labelJa": "データベースのスキーマ設計と集約",
       "labelEn": "Schema Design and Aggregation"
     },
-    "Computer-Science.Operating-Systems.Concurrent-Task-Pool-with-Atomic-Work-Index": {
-      "subsubject": "Computer-Science.Operating-Systems",
-      "labelZh": "使用原子任务索引的并发任务池",
-      "labelJa": "アトミックなタスク番号を用いる並行タスクプール",
-      "labelEn": "Concurrent Task Pool with an Atomic Work Index"
-    },
     "Computer-Science.Operating-Systems.Mutual-Exclusion-Primitives": {
       "subsubject": "Computer-Science.Operating-Systems",
       "labelZh": "互斥原语",
@@ -2060,15 +2245,20 @@
     },
     "Computer-Science.Operating-Systems.Test-and-Set-and-Swap-Spinlocks": {
       "subsubject": "Computer-Science.Operating-Systems",
-      "labelZh": "测试并置位与交换指令自旋锁",
-      "labelJa": "Test-and-Set 命令と Swap 命令によるスピンロック",
-      "labelEn": "Test-and-Set and Swap Spinlocks"
-    },
-    "Computer-Science.Operating-Systems.Page-Faults-and-Loop-Order-Locality": {
-      "subsubject": "Computer-Science.Operating-Systems",
-      "labelZh": "缺页与循环顺序的局部性",
-      "labelJa": "ページフォールトとループ順序による局所性",
-      "labelEn": "Page Faults and Loop Order Locality"
+      "labelZh": "自旋锁",
+      "labelJa": "スピンロック",
+      "labelEn": "Spinlocks",
+      "searchAliases": {
+        "zh": [
+          "测试并置位与交换指令自旋锁"
+        ],
+        "ja": [
+          "Test-and-Set 命令と Swap 命令によるスピンロック"
+        ],
+        "en": [
+          "Test-and-Set and Swap Spinlocks"
+        ]
+      }
     },
     "Computer-Science.Operating-Systems.Processes-and-Threads": {
       "subsubject": "Computer-Science.Operating-Systems",
@@ -2282,9 +2472,20 @@
     },
     "Computer-Science.Programming.Functional-Programming-Language-Features": {
       "subsubject": "Computer-Science.Programming",
-      "labelZh": "函数式编程语言的特征",
-      "labelJa": "関数型プログラミング言語の特徴",
-      "labelEn": "Features of Functional Programming Languages"
+      "labelZh": "函数式编程",
+      "labelJa": "関数型プログラミング",
+      "labelEn": "Functional Programming",
+      "searchAliases": {
+        "zh": [
+          "函数式编程语言的特征"
+        ],
+        "ja": [
+          "関数型プログラミング言語の特徴"
+        ],
+        "en": [
+          "Features of Functional Programming Languages"
+        ]
+      }
     },
     "Computer-Science.Programming.Caesar-Cipher": {
       "subsubject": "Computer-Science.Programming",
@@ -2309,12 +2510,6 @@
       "labelZh": "字形的近似识别",
       "labelJa": "文字パターンの近似認識",
       "labelEn": "Approximate Glyph Recognition"
-    },
-    "Computer-Science.Programming.Binary-File-Format-and-Endianness": {
-      "subsubject": "Computer-Science.Programming",
-      "labelZh": "二进制文件格式与字节序",
-      "labelJa": "バイナリファイル形式とエンディアン",
-      "labelEn": "Binary File Format and Endianness"
     },
     "Computer-Science.Programming.Character-Frequency-Analysis": {
       "subsubject": "Computer-Science.Programming",
@@ -2586,9 +2781,20 @@
     },
     "Computer-Science.Distributed-Systems.Client-Server-and-Peer-to-Peer-Comparison": {
       "subsubject": "Computer-Science.Distributed-Systems",
-      "labelZh": "客户端–服务器与对等网络的比较",
-      "labelJa": "クライアントサーバ方式と P2P 方式の比較",
-      "labelEn": "Client-Server and Peer-to-Peer Comparison"
+      "labelZh": "客户端–服务器与 P2P",
+      "labelJa": "クライアントサーバと P2P",
+      "labelEn": "Client–Server and P2P",
+      "searchAliases": {
+        "zh": [
+          "客户端–服务器与对等网络的比较"
+        ],
+        "ja": [
+          "クライアントサーバ方式と P2P 方式の比較"
+        ],
+        "en": [
+          "Client-Server and Peer-to-Peer Comparison"
+        ]
+      }
     },
     "Computer-Science.Quantum-Computing.Quantum-Computing": {
       "subsubject": "Computer-Science.Quantum-Computing",
@@ -2603,38 +2809,38 @@
       "subsubject": "Computer-Science.String-Algorithms",
       "labelZh": "Rabin–Karp 滚动哈希",
       "labelJa": "Rabin–Karp 法のローリングハッシュ",
-      "labelEn": "Rabin-Karp Rolling Hash"
-    },
-    "Computer-Science.String-Algorithms.Hash-Collision-Verification-and-Worst-Case": {
-      "subsubject": "Computer-Science.String-Algorithms",
-      "relatedSubjects": [
-        "Probability-Statistics"
-      ],
-      "labelZh": "哈希碰撞校验与最坏情况分析",
-      "labelJa": "ハッシュ衝突の検証と最悪時解析",
-      "labelEn": "Hash Collision Verification and Worst-Case Analysis"
+      "labelEn": "Rabin-Karp Rolling Hash",
+      "searchAliases": {
+        "zh": [
+          "哈希碰撞校验与最坏情况分析"
+        ],
+        "ja": [
+          "ハッシュ衝突の検証と最悪時解析"
+        ],
+        "en": [
+          "Hash Collision Verification and Worst-Case Analysis"
+        ]
+      }
     },
     "Computer-Science.String-Algorithms.Knuth-Morris-Pratt-Algorithm": {
       "subsubject": "Computer-Science.String-Algorithms",
       "labelZh": "KMP 字符串匹配算法",
       "labelJa": "KMP 文字列照合アルゴリズム",
-      "labelEn": "Knuth-Morris-Pratt (KMP) Algorithm"
-    },
-    "Computer-Science.String-Algorithms.Knuth-Morris-Pratt-Failure-and-Shift-Table": {
-      "subsubject": "Computer-Science.String-Algorithms",
-      "labelZh": "KMP 失配表与移位表",
-      "labelJa": "KMP 法の失敗表とシフト表",
-      "labelEn": "KMP Failure and Shift Tables",
+      "labelEn": "Knuth-Morris-Pratt (KMP) Algorithm",
       "searchAliases": {
+        "zh": [
+          "KMP 失配表与移位表",
+          "KMP next 数组"
+        ],
+        "ja": [
+          "KMP 法の失敗表とシフト表"
+        ],
         "en": [
+          "KMP Failure and Shift Tables",
           "KMP Prefix Function",
           "KMP Next Array",
           "KMP Failure and Shift Table"
-        ],
-        "zh": [
-          "KMP next 数组"
-        ],
-        "ja": []
+        ]
       }
     },
     "Computer-Science.String-Algorithms.Longest-Palindromic-Substring": {
@@ -2689,9 +2895,20 @@
       "relatedSubjects": [
         "Discrete-Mathematics"
       ],
-      "labelZh": "斐波那契数的记忆化计算",
-      "labelJa": "フィボナッチ数のメモ化計算",
-      "labelEn": "Fibonacci Memoization"
+      "labelZh": "记忆化",
+      "labelJa": "メモ化",
+      "labelEn": "Memoization",
+      "searchAliases": {
+        "zh": [
+          "斐波那契数的记忆化计算"
+        ],
+        "ja": [
+          "フィボナッチ数のメモ化計算"
+        ],
+        "en": [
+          "Fibonacci Memoization"
+        ]
+      }
     },
     "Computer-Science.Dynamic-Programming.Decision-Tree-Pruning": {
       "subsubject": "Computer-Science.Dynamic-Programming",

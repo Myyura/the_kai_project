@@ -2,7 +2,7 @@
 sidebar_label: "2017年8月実施 数学 第3問"
 tags:
   - Tokyo-University
-  - Probability-Statistics.Stochastic-Processes.Random-Walk-on-Fourth-Roots-of-Unity
+  - Probability-Statistics.Stochastic-Processes.Markov-Chain
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
 ---
 # 東京大学 情報理工学研究科 2017年8月実施 数学 第3問

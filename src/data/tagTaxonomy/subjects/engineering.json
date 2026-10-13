@@ -135,9 +135,20 @@
         "Computer-Science",
         "Electrical-Electronic"
       ],
-      "labelZh": "串联机械臂的正逆运动学",
-      "labelJa": "直列マニピュレータの順運動学と逆運動学",
-      "labelEn": "Forward and Inverse Kinematics of Serial Manipulators"
+      "labelZh": "机械臂正逆运动学",
+      "labelJa": "マニピュレータの順・逆運動学",
+      "labelEn": "Manipulator Forward and Inverse Kinematics",
+      "searchAliases": {
+        "zh": [
+          "串联机械臂的正逆运动学"
+        ],
+        "ja": [
+          "直列マニピュレータの順運動学と逆運動学"
+        ],
+        "en": [
+          "Forward and Inverse Kinematics of Serial Manipulators"
+        ]
+      }
     },
     "Engineering.Robotics.Simultaneous-Localization-and-Mapping": {
       "subsubject": "Engineering.Robotics",
@@ -165,28 +176,43 @@
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "关节连杆机构的表示",
-      "labelJa": "多関節リンク機構の表現",
-      "labelEn": "Representation of Articulated Link Mechanisms"
+      "labelZh": "多关节连杆机构",
+      "labelJa": "多関節リンク機構",
+      "labelEn": "Articulated Link Mechanisms",
+      "searchAliases": {
+        "zh": [
+          "关节连杆机构的表示"
+        ],
+        "ja": [
+          "多関節リンク機構の表現"
+        ],
+        "en": [
+          "Representation of Articulated Link Mechanisms"
+        ]
+      }
     },
     "Engineering.Robotics.Manipulator-Jacobian-and-End-Effector-Velocity": {
       "subsubject": "Engineering.Robotics",
       "relatedSubjects": [
         "Mathematics"
       ],
-      "labelZh": "机械臂雅可比矩阵与末端执行器速度",
-      "labelJa": "マニピュレータのヤコビ行列と手先速度",
-      "labelEn": "Manipulator Jacobians and End-Effector Velocity"
-    },
-    "Engineering.Robotics.Jacobian-Transpose-Joint-Torque": {
-      "subsubject": "Engineering.Robotics",
-      "relatedSubjects": [
-        "Mathematics",
-        "Physics"
-      ],
-      "labelZh": "雅可比转置与关节力矩",
-      "labelJa": "ヤコビ行列の転置と関節トルク",
-      "labelEn": "Jacobian Transpose and Joint Torques"
+      "labelZh": "机械臂雅可比矩阵",
+      "labelJa": "マニピュレータのヤコビ行列",
+      "labelEn": "Manipulator Jacobian",
+      "searchAliases": {
+        "zh": [
+          "雅可比转置与关节力矩",
+          "机械臂雅可比矩阵与末端执行器速度"
+        ],
+        "ja": [
+          "ヤコビ行列の転置と関節トルク",
+          "マニピュレータのヤコビ行列と手先速度"
+        ],
+        "en": [
+          "Jacobian Transpose and Joint Torques",
+          "Manipulator Jacobians and End-Effector Velocity"
+        ]
+      }
     },
     "Engineering.Fluid-Mechanics.Logarithmic-Wind-Profile-and-Wind-Power-Scaling": {
       "subsubject": "Engineering.Fluid-Mechanics",
@@ -241,9 +267,20 @@
         "Electrical-Electronic",
         "Physics"
       ],
-      "labelZh": "压电效应与压电元件",
-      "labelJa": "圧電効果と圧電素子",
-      "labelEn": "Piezoelectric Effects and Elements"
+      "labelZh": "压电效应",
+      "labelJa": "圧電効果",
+      "labelEn": "Piezoelectric Effect",
+      "searchAliases": {
+        "zh": [
+          "压电效应与压电元件"
+        ],
+        "ja": [
+          "圧電効果と圧電素子"
+        ],
+        "en": [
+          "Piezoelectric Effects and Elements"
+        ]
+      }
     },
     "Engineering.Quality-and-Reliability-Engineering.Statistical-Process-Control": {
       "subsubject": "Engineering.Quality-and-Reliability-Engineering",
@@ -681,15 +718,34 @@
     },
     "Engineering.Materials-Science.Fe-C-Phase-Diagram-and-Lever-Rule": {
       "subsubject": "Engineering.Materials-Science",
-      "labelZh": "Fe-C状态图与杠杆定则",
-      "labelJa": "Fe-C状態図とてこの法則",
-      "labelEn": "Fe–C Phase Diagram and Lever Rule"
+      "labelZh": "Fe–C 相图与杠杆定则",
+      "labelJa": "Fe–C状態図とてこの法則",
+      "labelEn": "Fe–C Phase Diagram and Lever Rule",
+      "searchAliases": {
+        "zh": [
+          "Fe-C状态图与杠杆定则"
+        ],
+        "ja": [
+          "Fe-C状態図とてこの法則"
+        ]
+      }
     },
     "Engineering.Materials-Science.Grain-Refinement-and-Hall-Petch": {
       "subsubject": "Engineering.Materials-Science",
-      "labelZh": "晶粒细化与Hall–Petch关系",
-      "labelJa": "結晶粒微細化とホール–ペッチ則",
-      "labelEn": "Grain Refinement and Hall–Petch Relation"
+      "labelZh": "Hall–Petch 关系",
+      "labelJa": "ホール–ペッチ則",
+      "labelEn": "Hall–Petch Relation",
+      "searchAliases": {
+        "zh": [
+          "晶粒细化与Hall–Petch关系"
+        ],
+        "ja": [
+          "結晶粒微細化とホール–ペッチ則"
+        ],
+        "en": [
+          "Grain Refinement and Hall–Petch Relation"
+        ]
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ tags:
   - Tokyo-University
   - Probability-Statistics.Probability-Basics.Expectation-and-Variance
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Family-Wise-Error-Rate
-  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval-Width-vs-Sample-Size
+  - Probability-Statistics.Estimation-and-Hypothesis-Testing.Confidence-Interval
   - Probability-Statistics.Probability-Distributions-and-Asymptotics.Weibull-Distribution
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Odds-Ratio-and-Confidence-Interval
   - Probability-Statistics.Estimation-and-Hypothesis-Testing.Receiver-Operating-Characteristic-Curve-Interpretation

@@ -2,7 +2,8 @@
 sidebar_label: "2017年8月実施 専門 第2問"
 tags:
   - Tokyo-University
-  - Electrical-Electronic.Digital-Logic.Moore-Machine-State-Minimization-and-Encoding
+  - Computer-Science.Formal-Languages.Moore-Machine
+  - Electrical-Electronic.Digital-Logic.Finite-State-Machine-Minimization
   - Electrical-Electronic.Digital-Logic.Karnaugh-Map-Minimization
   - Electrical-Electronic.Digital-Logic.D-Flip-Flop
 ---

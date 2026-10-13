@@ -2,7 +2,7 @@
 sidebar_label: '2016年8月実施 数学 第4問'
 tags:
   - Tokyo-University
-  - Mathematics.Geometry.Gaussian-Curvature-of-Ruled-Surface
+  - Mathematics.Geometry.Gaussian-Curvature
   - Mathematics.Vector-Calculus.Parametric-Surface
 ---
 

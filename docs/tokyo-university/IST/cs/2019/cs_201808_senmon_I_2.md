@@ -6,7 +6,7 @@ tags:
   - Computer-Science.Operating-Systems.Page-Table
   - Computer-Science.Operating-Systems.Page-Replacement
   - Computer-Science.Computer-Architecture.Translation-Lookaside-Buffer
-  - Computer-Science.Operating-Systems.Page-Faults-and-Loop-Order-Locality
+  - Computer-Science.Computer-Architecture.Locality-of-Reference
 ---
 # 東京大学 情報理工学系研究科 コンピュータ科学専攻 2018年8月実施 専門科目I 問題2
 

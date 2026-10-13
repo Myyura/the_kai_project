@@ -2,7 +2,7 @@
 sidebar_label: "2012年8月実施 専門 第5問"
 tags:
   - Tokyo-University
-  - Computer-Science.Information-Theory.Markov-Source-Stationary-Distribution
+  - Probability-Statistics.Stochastic-Processes.Markov-Information-Source
   - Computer-Science.Information-Theory.Huffman-Coding
   - Computer-Science.Information-Theory.Entropy-Rate
 ---

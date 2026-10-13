@@ -3,7 +3,6 @@ sidebar_label: "2022年度 計算機ソフトウェア（データ構造とア�
 tags:
   - Nagoya-Institute-of-Technology
   - Computer-Science.Data-Structures.Binary-Search-Tree
-  - Computer-Science.Data-Structures.Binary-Search-Tree-Insertion-and-Deletion
   - Computer-Science.Data-Structures.Preorder-Tree-Traversal
   - Computer-Science.Data-Structures.Balanced-Binary-Search-Tree
   - Computer-Science.Algorithm-Design.Algorithm-Complexity

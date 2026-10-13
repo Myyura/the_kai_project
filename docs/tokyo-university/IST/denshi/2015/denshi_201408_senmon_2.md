@@ -4,9 +4,9 @@ tags:
   - Tokyo-University
   - Computer-Science.Computer-Architecture.Hardware-Prefetching
   - Computer-Science.Computer-Architecture.Non-Blocking-Cache
-  - Computer-Science.Computer-Architecture.Sequential-Random-and-Pointer-Chasing-Access
-  - Computer-Science.Computer-Architecture.Multi-Level-Cache
+  - Computer-Science.Computer-Architecture.Locality-of-Reference
   - Computer-Science.Computer-Architecture.Memory-Level-Parallelism
+  - Computer-Science.Computer-Architecture.Multi-Level-Cache
 ---
 # 東京大学 情報理工学系研究科 電子情報学専攻 2014年8月実施 専門 第2問
 

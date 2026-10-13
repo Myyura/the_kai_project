@@ -3,7 +3,7 @@ sidebar_label: '2005年8月実施 筆記試験 第2問'
 tags:
   - Tokyo-University
   - Computer-Science.Computer-Architecture.Locality-of-Reference
-  - Computer-Science.Computer-Architecture.Sequential-Access-Cache-Hit-Rate
+  - Computer-Science.Computer-Architecture.Direct-Mapped-Cache-Conflict-and-Hit-Rate
   - Computer-Science.Computer-Architecture.Two-Way-Set-Associative-Cache-Datapath
   - Computer-Science.Computer-Architecture.Cache-Hit-Rate-Optimization
 ---
