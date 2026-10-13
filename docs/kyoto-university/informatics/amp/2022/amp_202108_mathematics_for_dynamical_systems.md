@@ -18,7 +18,7 @@ Casablanca, 祭音Myyura
 $a(t), b(t)$ を $t$ のある有理式として次の実微分方程式を考える．
 
 $$
-\frac{d^2 x}{dt} + a(t) \frac{dx}{dt} + b(t)x = 0
+\frac{d^2 x}{dt^2} + a(t) \frac{dx}{dt} + b(t)x = 0
 $$
 
 以下の問いに答えよ．
@@ -67,73 +67,105 @@ $$
 4. 若 (1) 的每一个解都是非常值多项式，证明 $a(t),b(t)$ 不是多项式。
 
 ## **Kai**
+
+以下、係数が定義される開区間上で考え、$1/t$ を含む式は $t\ne0$ で用いる。$0$ が通常点である場合には、必要な等式は連続性により $t=0$ にも延長される。
+
 ### (i)
-Substitution of $x=t^k$ gives the necessary and sufficient condition
+
+$x=t^k$ を式 (1) に代入すると、$t\ne0$ において
 
 $$
-k(k-1)+kt\,a(t)+t^2b(t)=0.
+0=k(k-1)t^{k-2}+ka(t)t^{k-1}+b(t)t^k
+=t^{k-2}\bigl(k(k-1)+kta(t)+t^2b(t)\bigr).
 $$
 
-For $k=1$, this reduces to $a(t)+tb(t)=0$.
+したがって、必要十分条件は有理式の恒等式
+
+$$
+\boxed{k(k-1)+kta(t)+t^2b(t)=0}
+$$
+
+が成り立つことである。逆にこの恒等式が成り立てば、代入した式は零となる。特に $k=1$ のときは $a(t)+tb(t)=0$ である。
 
 ### (ii)
-Let $\phi(t)=u(t)t^k$, where $u$ is not constant. Then
+
+$p=t\phi'-k\phi$ より
 
 $$
-\phi'(t) = kt^{k-1}u(t) + t^ku'(t)
+p'=t\phi''-(k-1)\phi'.
 $$
 
-$$
-\phi''(t) = t^ku''(t) + 2kt^{k-1}u'(t) + k(k-1)t^{k-2}u(t)
-$$
-
-then
+$\phi''+a\phi'+b\phi=0$ と (i) の条件を用いると、
 
 $$
-p(t)=t\phi'(t)-k\phi(t)=t^{k+1}u'(t).
+\begin{aligned}
+p'
+&=-(ta+k-1)\phi'-tb\phi\\
+&=\frac{t^2b}{k}\phi'-tb\phi
+=\frac{tb}{k}\bigl(t\phi'-k\phi\bigr)
+=\frac{tb}{k}p.
+\end{aligned}
 $$
 
-Substitution gives
+また、$t^k$ と $\phi$ のロンスキー行列式は
 
 $$
-t u''(t) + (2k + a(t)t)u'(t) = 0
+W(t)=t^k\phi'-kt^{k-1}\phi=t^{k-1}p(t)
 $$
 
-Therefore
+である。二つの解は線形独立なので、通常点のみからなる区間で $W$ は零にならず、$t\ne0$ ならば $p(t)\ne0$ である。よって
 
 $$
-a(t)=-\frac{u''(t)}{u'(t)}-\frac{2k}{t}
-=\frac{1-k}{t}-\frac{p'(t)}{p(t)},
+\boxed{b(t)=\frac{k p'(t)}{t p(t)}}.
 $$
 
+これを (i) に代入して
+
 $$
-b(t)=-\frac{k(k-1)}{t^2}-\frac{k}{t}a(t)
-=\frac{kp'(t)}{tp(t)}.
+\boxed{a(t)=-\frac{k-1}{t}-\frac{p'(t)}{p(t)}}
 $$
+
+を得る。
 
 ### (iii)
 
+$p(t)=t$、$p'(t)=1$ を (ii) に代入すれば、
+
 $$
-a(t)=-\frac{k}{t},\qquad b(t)=\frac{k}{t^2}.
+\boxed{a(t)=-\frac{k}{t},\qquad b(t)=\frac{k}{t^2}}
 $$
+
+である。
 
 ### (iv)
 
-The original wording says that every solution is a nonconstant polynomial. A homogeneous equation always has the zero solution, so we interpret this as saying that every **nonzero** solution is a nonconstant polynomial. Under this interpretation, both $a$ and $b$ are individually nonpolynomial; merely showing that they cannot both be polynomials would be weaker.
+同次方程式は零解をもつので、仮定は「すべての非零解が非常数多項式である」と解釈する。
 
-By the hypothesis, $\phi$ is a polynomial. Thus $p=t\phi'-k\phi$ is a polynomial, and it is nonzero because $\phi$ and $t^k$ are independent. Write $d=\deg p\ge0$. From (ii), as $t\to\infty$,
-
-$$
-a(t)=\frac{1-k-d}{t}+O(t^{-2}),
-\qquad b(t)=\frac{kd}{t^2}+O(t^{-3}).
-$$
-
-If $b$ were a polynomial, its limit $0$ would force $b\equiv0$. Then $x=1$ would be a nonzero constant solution, contrary to the hypothesis. Therefore $b$ is not a polynomial.
-
-If $a$ were a polynomial, the same argument would force $a\equiv0$. Equation (ii) would then give
+$\phi$ の $t^k$ の係数を $c$ とし、$\psi(t)=\phi(t)-ct^k$ とおく。$\psi$ は非零の解であるから、仮定より非常数多項式である。また、$t^k$ の係数は $0$ なので、
 
 $$
-tp'(t)=(1-k)p(t).
+n=\deg\psi\ge1,\qquad n\ne k.
 $$
 
-Comparing leading coefficients gives $d=1-k$. Since $d\ge0$ and $k\ge1$, this implies $k=1$ and $d=0$, hence $p'=0$ and $b\equiv0$, the same contradiction. Thus $a$ is not a polynomial either.
+$t^k$ の定数倍を差し引いても $p$ は変わらず、
+
+$$
+p=t\psi'-k\psi
+$$
+
+である。$\psi$ の最高次係数を $c_n\ne0$ とすると、$p$ の最高次係数は $(n-k)c_n\ne0$ であり、$\deg p=n$ となる。
+
+(ii) より、
+
+$$
+a(t)=\frac{(1-k)p(t)-tp'(t)}{tp(t)},\qquad
+b(t)=\frac{kp'(t)}{tp(t)}.
+$$
+
+$a$ の分子の最高次係数は $(1-k-n)(n-k)c_n\ne0$ であるから、分子の次数は $n$、分母の次数は $n+1$ である。また、$b$ の分子の次数は $n-1$、分母の次数は $n+1$ であり、その分子も非零である。
+
+したがって、$a,b$ はいずれも非零の真分式であり、どちらも多項式ではない。
+
+## **Reference**
+
+- [京都大学公式：令和4年度 数理工学専攻 入試問題・力学系数学 問6（PDF 23–24ページ）](https://www.i.kyoto-u.ac.jp/assets/pdf/admission/examarchive/km_2021_amp.pdf)
