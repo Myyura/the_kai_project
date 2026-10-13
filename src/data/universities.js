@@ -242,6 +242,16 @@ const universities = [
             "archiveUrl": "/docs/category/tokyo-university-frontier_sciences-hes"
           },
           {
+            "id": "ae",
+            "name": "先端エネルギー工学専攻",
+            "aliases": [
+              "AE",
+              "先端能源工学",
+              "Advanced Energy"
+            ],
+            "archiveUrl": "/docs/category/tokyo-university-frontier_sciences-ae"
+          },
+          {
             "id": "socio",
             "name": "社会文化環境学専攻",
             "aliases": [
