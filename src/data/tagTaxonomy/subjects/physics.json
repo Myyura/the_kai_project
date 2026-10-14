@@ -1446,6 +1446,132 @@
       "labelZh": "光电效应",
       "labelJa": "光電効果",
       "labelEn": "Photoelectric Effect"
+    },
+    "Physics.Quantum-Mechanics.Hydrogen-Atom": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "氢原子",
+      "labelJa": "水素原子",
+      "labelEn": "Hydrogen atom"
+    },
+    "Physics.Thermodynamics.Pauli-Paramagnetism": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "泡利顺磁性",
+      "labelJa": "パウリ常磁性",
+      "labelEn": "Pauli paramagnetism"
+    },
+    "Physics.Thermodynamics.Potts-Model": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "波茨模型",
+      "labelJa": "ポッツ模型",
+      "labelEn": "Potts model"
+    },
+    "Physics.Thermodynamics.Lattice-Gas": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "格点气体",
+      "labelJa": "格子気体",
+      "labelEn": "Lattice gas"
+    },
+    "Physics.Thermodynamics.Bose-Einstein-Condensation": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "玻色–爱因斯坦凝聚",
+      "labelJa": "ボース–アインシュタイン凝縮",
+      "labelEn": "Bose–Einstein condensation"
+    },
+    "Physics.Electromagnetism.Thomson-Scattering": {
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "汤姆孙散射",
+      "labelJa": "トムソン散乱",
+      "labelEn": "Thomson scattering"
+    },
+    "Physics.Electromagnetism.Poynting-Theorem": {
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "坡印廷定理",
+      "labelJa": "ポインティングの定理",
+      "labelEn": "Poynting theorem"
+    },
+    "Physics.Quantum-Mechanics.WKB-Approximation": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "WKB近似",
+      "labelJa": "WKB近似",
+      "labelEn": "WKB approximation"
+    },
+    "Physics.Thermodynamics.One-Dimensional-Ising-Model": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "一维伊辛模型",
+      "labelJa": "一次元イジング模型",
+      "labelEn": "One-dimensional Ising model"
+    },
+    "Physics.Thermodynamics.Renormalization-Group": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "重整化群",
+      "labelJa": "繰り込み群",
+      "labelEn": "Renormalization group"
+    },
+    "Physics.Quantum-Mechanics.Partial-Wave-Scattering": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "分波散射",
+      "labelJa": "部分波散乱",
+      "labelEn": "Partial-wave scattering"
+    },
+    "Physics.Electromagnetism.Cherenkov-Radiation": {
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "切伦科夫辐射",
+      "labelJa": "チェレンコフ放射",
+      "labelEn": "Cherenkov radiation"
+    },
+    "Physics.Thermodynamics.Entropic-Elasticity": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "熵弹性",
+      "labelJa": "エントロピー弾性",
+      "labelEn": "Entropic elasticity"
+    },
+    "Physics.Electromagnetism.Rectangular-Waveguide": {
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "矩形波导",
+      "labelJa": "方形導波管",
+      "labelEn": "Rectangular waveguide"
+    },
+    "Physics.Quantum-Mechanics.Time-Independent-Perturbation-Theory": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "定态微扰论",
+      "labelJa": "定常摂動論",
+      "labelEn": "Time-independent perturbation theory"
+    },
+    "Physics.Quantum-Mechanics.Variational-Method": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "量子变分法",
+      "labelJa": "量子力学の変分法",
+      "labelEn": "Quantum variational method"
+    },
+    "Physics.Mechanics.Duffing-Oscillator": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "杜芬振子",
+      "labelJa": "ダフィング振動子",
+      "labelEn": "Duffing oscillator"
+    },
+    "Physics.Quantum-Mechanics.Fock-Darwin-States": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "福克–达尔文态",
+      "labelJa": "フォック–ダーウィン状態",
+      "labelEn": "Fock–Darwin states"
+    },
+    "Physics.Electromagnetism.Electric-Quadrupole": {
+      "subsubject": "Physics.Electromagnetism",
+      "labelZh": "电四极子",
+      "labelJa": "電気四重極子",
+      "labelEn": "Electric quadrupole"
+    },
+    "Physics.Quantum-Mechanics.Angular-Momentum-Addition": {
+      "subsubject": "Physics.Quantum-Mechanics",
+      "labelZh": "角动量合成",
+      "labelJa": "角運動量の合成",
+      "labelEn": "Angular momentum addition"
+    },
+    "Physics.Thermodynamics.Fractional-Exclusion-Statistics": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "分数排斥统计",
+      "labelJa": "分数排他統計",
+      "labelEn": "Fractional exclusion statistics"
     }
   }
 }

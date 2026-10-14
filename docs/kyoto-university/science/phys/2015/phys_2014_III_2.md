@@ -1,0 +1,119 @@
+---
+sidebar_label: "2015年度 III-2（量子力学）"
+tags:
+  - Kyoto-University
+  - Physics.Quantum-Mechanics.Hydrogen-Atom
+---
+
+# 京都大学 理学研究科 物理学・宇宙物理学専攻 2015年度 III-2
+
+## **Author**
+
+祭音Myyura (refined with GPT 6 Astra)
+
+## **Description**
+
+水素原子の相対運動を $H_0=\boldsymbol p^2/(2\mu)-e^2/|\boldsymbol r|$ で記述する。$\mu$ は換算質量、$e$ は素電荷であり、スピン・相対論効果は無視する。放物座標を
+$$
+x=\sqrt{vw}\cos\varphi,\quad y=\sqrt{vw}\sin\varphi,\quad z=\frac{v-w}{2},
+\qquad v,w\ge0,\quad0\le\varphi<2\pi
+$$
+で定める。ラプラシアンは
+$$
+\nabla^2=\frac4{v+w}\left(\partial_vv\partial_v+\partial_ww\partial_w\right)
++\frac1{vw}\partial_\varphi^2.
+$$
+1. エネルギー $E$ の定常波動関数 $\psi(v,w,\varphi)$ のシュレディンガー方程式を書け。
+
+$\psi=f_1(v)f_2(w)e^{im\varphi}$ として変数分離すると、$\beta_1+\beta_2=1$ を満たす定数を用いて
+$$
+\frac d{dv}\left(v\frac{df_1}{dv}\right)
++\left(\frac{\mu E}{2\hbar^2}v-\frac{m^2}{4v}+\frac{\mu e^2}{\hbar^2}\beta_1\right)f_1=0
+$$
+となり、$f_2$ は $v,f_1,\beta_1$ を $w,f_2,\beta_2$ に置換した式に従う。
+
+2. $m$ が整数となる理由を述べよ。
+3. $E<0$ とし、$E=-\mu e^4/(2\hbar^2N^2)$、$v=N\hbar^2s/(\mu e^2)$、$f_1(v)=g(s)$ とおく。$g$ の方程式を求めよ。
+4. $s\to\infty$ で $g\sim e^{-as}$、$s\to0^+$ で $g\sim s^b$ とする。原点で有限、無限遠でゼロとなる $a,b$ を求めよ。
+5. $g=s^be^{-as}h(s)$ として $h$ の方程式を求めよ。
+6. 合流型超幾何関数
+$$
+F(\alpha,\gamma;z)=\sum_{n=0}^\infty\frac{(\alpha)_n}{(\gamma)_n}\frac{z^n}{n!},
+\quad (x)_n=\prod_{k=0}^{n-1}(x+k),\quad(x)_0=1
+$$
+は $zu''+(\gamma-z)u'-\alpha u=0$ の原点で正則な解である。$\alpha$ が非正整数のとき多項式、それ以外では $z\to\infty$ で $F\sim[\Gamma(\gamma)/\Gamma(\alpha)]z^{\alpha-\gamma}e^z$ となる。この性質から許される $h(s)$ を求め、導入される非負整数 $n_1$ を $N,\beta_1,m$ で表せ。
+7. $f_2$ について同様の非負整数 $n_2$ を導入し、エネルギー $E$ を $(n_1,n_2,m)$ で表せ。
+
+#### 题目描述
+
+氢原子相对运动的哈密顿量为 $H_0=\boldsymbol p^2/(2\mu)-e^2/r$，$\mu$ 为约化质量，忽略自旋和相对论效应。使用抛物坐标
+$$
+x=\sqrt{vw}\cos\varphi,\ y=\sqrt{vw}\sin\varphi,\ z=(v-w)/2,
+\quad v,w\ge0,\ 0\le\varphi<2\pi,
+$$
+及 $\nabla^2=4(v+w)^{-1}[\partial_v(v\partial_v)+\partial_w(w\partial_w)]+(vw)^{-1}\partial_\varphi^2$。
+
+1. 写出定态薛定谔方程。
+
+令 $\psi=f_1(v)f_2(w)e^{im\varphi}$，可分离为
+$$
+(vf_1')'+\left(\frac{\mu E v}{2\hbar^2}-\frac{m^2}{4v}+\frac{\mu e^2\beta_1}{\hbar^2}\right)f_1=0,
+$$
+另一式将 $v,f_1,\beta_1$ 换为 $w,f_2,\beta_2$，且 $\beta_1+\beta_2=1$。
+
+2. 解释 $m$ 为整数。
+3. 对负能量取 $E=-\mu e^4/(2\hbar^2N^2)$、$v=N\hbar^2s/(\mu e^2)$、$f_1=g(s)$，求 $g$ 的方程。
+4. 假设无穷远 $g\sim e^{-as}$、原点附近 $g\sim s^b$，由边界条件求 $a,b$。
+5. 令 $g=s^be^{-as}h$，求 $h$ 的方程。
+6. 合流超几何函数 $F(\alpha,\gamma;z)=\sum_{n\ge0}(\alpha)_nz^n/[(\gamma)_nn!]$ 是 $zu''+(\gamma-z)u'-\alpha u=0$ 的原点正则解；$\alpha$ 为非正整数时为多项式，否则渐近为 $\Gamma(\gamma)z^{\alpha-\gamma}e^z/\Gamma(\alpha)$。利用这一性质求允许的 $h$，并求非负整数 $n_1$ 与 $N,\beta_1,m$ 的关系。这里 $(x)_n=x(x+1)\cdots(x+n-1)$、$(x)_0=1$。
+7. 对 $w$ 方程引入 $n_2$，用三个量子数表示能级。
+
+## **Kai**
+
+### (1)
+$r=(v+w)/2$ より
+$$
+\boxed{\left[-\frac{\hbar^2}{2\mu}
+\left\{\frac4{v+w}\left[\partial_v(v\partial_v)+\partial_w(w\partial_w)\right]
++\frac1{vw}\partial_\varphi^2\right\}-\frac{2e^2}{v+w}\right]\psi=E\psi}.
+$$
+### (2)
+同一空間点を表す $\varphi$ と $\varphi+2\pi$ で波動関数が一致するので $e^{2\pi im}=1$、すなわち $\boxed{m\in\mathbb Z}$。
+### (3)
+指定された変数変換により
+$$
+\boxed{\frac d{ds}\left(s\frac{dg}{ds}\right)
++\left(-\frac s4-\frac{m^2}{4s}+N\beta_1\right)g=0}.
+$$
+### (4)
+無限遠の最高次数から $a^2=1/4$、減衰条件から $a=1/2$。原点の最低次数から $b^2=m^2/4$、有限性から $b=|m|/2$。
+$$
+\boxed{a=\frac12,\qquad b=\frac{|m|}{2}}.
+$$
+$m=0$ の第二解は対数発散するため除く。無限遠の表示は指数因子を定めるもので、多項式因子は (6) で決まる。
+### (5)
+代入・整理すると
+$$
+\boxed{sh''+(|m|+1-s)h'+\left[N\beta_1-\frac{|m|+1}{2}\right]h=0}.
+$$
+### (6)
+原点で正則な解は
+$$
+h(s)=C\,F\left(\frac{|m|+1}{2}-N\beta_1,\ |m|+1;\ s\right).
+$$
+無限遠の $e^s$ 成分を除くには級数が打ち切られなければならない。よって
+$$
+\boxed{n_1=N\beta_1-\frac{|m|+1}{2}\in\{0,1,2,\ldots\},\qquad
+h(s)=C F(-n_1,|m|+1;s)}.
+$$
+### (7)
+同様に $n_2=N\beta_2-(|m|+1)/2$。両式を加えると
+$$
+N=n_1+n_2+|m|+1,
+\qquad
+\boxed{E_{n_1n_2m}=-\frac{\mu e^4}{2\hbar^2(n_1+n_2+|m|+1)^2}}.
+$$
+
+## **Reference**
+
+- [京都大学公式問題（2015年度、PDF 18–19ページ）](https://www.scphys.kyoto-u.ac.jp/education/inshi/kakomon/H27.pdf)

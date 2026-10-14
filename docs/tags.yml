@@ -4860,6 +4860,10 @@
   label: "Physics.Electromagnetism.Capacitance-and-Electrostatic-Energy"
   permalink: "/topic/physics/electromagnetism/capacitance-and-electrostatic-energy"
   description: "Physics / Electromagnetism / Capacitance-and-Electrostatic-Energy"
+"Physics.Electromagnetism.Cherenkov-Radiation":
+  label: "Physics.Electromagnetism.Cherenkov-Radiation"
+  permalink: "/topic/physics/electromagnetism/cherenkov-radiation"
+  description: "Physics / Electromagnetism / Cherenkov-Radiation"
 "Physics.Electromagnetism.Coaxial-Capacitor-and-Line":
   label: "Physics.Electromagnetism.Coaxial-Capacitor-and-Line"
   permalink: "/topic/physics/electromagnetism/coaxial-capacitor-and-line"
@@ -4900,6 +4904,10 @@
   label: "Physics.Electromagnetism.Electric-Potential-and-Field"
   permalink: "/topic/physics/electromagnetism/electric-potential-and-field"
   description: "Physics / Electromagnetism / Electric-Potential-and-Field"
+"Physics.Electromagnetism.Electric-Quadrupole":
+  label: "Physics.Electromagnetism.Electric-Quadrupole"
+  permalink: "/topic/physics/electromagnetism/electric-quadrupole"
+  description: "Physics / Electromagnetism / Electric-Quadrupole"
 "Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance":
   label: "Physics.Electromagnetism.Electromagnetic-Induction-and-Inductance"
   permalink: "/topic/physics/electromagnetism/electromagnetic-induction-and-inductance"
@@ -4968,6 +4976,10 @@
   label: "Physics.Electromagnetism.Parallel-Wire-Transmission-Line"
   permalink: "/topic/physics/electromagnetism/parallel-wire-transmission-line"
   description: "Physics / Electromagnetism / Parallel-Wire-Transmission-Line"
+"Physics.Electromagnetism.Poynting-Theorem":
+  label: "Physics.Electromagnetism.Poynting-Theorem"
+  permalink: "/topic/physics/electromagnetism/poynting-theorem"
+  description: "Physics / Electromagnetism / Poynting-Theorem"
 "Physics.Electromagnetism.Prism-and-Diffraction-Grating":
   label: "Physics.Electromagnetism.Prism-and-Diffraction-Grating"
   permalink: "/topic/physics/electromagnetism/prism-and-diffraction-grating"
@@ -4976,6 +4988,10 @@
   label: "Physics.Electromagnetism.Rectangular-Cavity-Eigenmodes"
   permalink: "/topic/physics/electromagnetism/rectangular-cavity-eigenmodes"
   description: "Physics / Electromagnetism / Rectangular-Cavity-Eigenmodes"
+"Physics.Electromagnetism.Rectangular-Waveguide":
+  label: "Physics.Electromagnetism.Rectangular-Waveguide"
+  permalink: "/topic/physics/electromagnetism/rectangular-waveguide"
+  description: "Physics / Electromagnetism / Rectangular-Waveguide"
 "Physics.Electromagnetism.Rotating-Conductor-Motional-Electromotive-Force":
   label: "Physics.Electromagnetism.Rotating-Conductor-Motional-Electromotive-Force"
   permalink: "/topic/physics/electromagnetism/rotating-conductor-motional-electromotive-force"
@@ -5004,6 +5020,10 @@
   label: "Physics.Electromagnetism.Thin-Lens-and-Fraunhofer-Diffraction"
   permalink: "/topic/physics/electromagnetism/thin-lens-and-fraunhofer-diffraction"
   description: "Physics / Electromagnetism / Thin-Lens-and-Fraunhofer-Diffraction"
+"Physics.Electromagnetism.Thomson-Scattering":
+  label: "Physics.Electromagnetism.Thomson-Scattering"
+  permalink: "/topic/physics/electromagnetism/thomson-scattering"
+  description: "Physics / Electromagnetism / Thomson-Scattering"
 "Physics.Electromagnetism.Young-Double-Slit-Interference":
   label: "Physics.Electromagnetism.Young-Double-Slit-Interference"
   permalink: "/topic/physics/electromagnetism/young-double-slit-interference"
@@ -5040,6 +5060,10 @@
   label: "Physics.Mechanics.Damped-Harmonic-Motion"
   permalink: "/topic/physics/mechanics/damped-harmonic-motion"
   description: "Physics / Mechanics / Damped-Harmonic-Motion"
+"Physics.Mechanics.Duffing-Oscillator":
+  label: "Physics.Mechanics.Duffing-Oscillator"
+  permalink: "/topic/physics/mechanics/duffing-oscillator"
+  description: "Physics / Mechanics / Duffing-Oscillator"
 "Physics.Mechanics.Euler-Bernoulli-Beam":
   label: "Physics.Mechanics.Euler-Bernoulli-Beam"
   permalink: "/topic/physics/mechanics/euler-bernoulli-beam"
@@ -5160,6 +5184,10 @@
   label: "Physics.Ocean-Physics.Group-Velocity-and-Wave-Packets"
   permalink: "/topic/physics/ocean-physics/group-velocity-and-wave-packets"
   description: "Physics / Ocean-Physics / Group-Velocity-and-Wave-Packets"
+"Physics.Quantum-Mechanics.Angular-Momentum-Addition":
+  label: "Physics.Quantum-Mechanics.Angular-Momentum-Addition"
+  permalink: "/topic/physics/quantum-mechanics/angular-momentum-addition"
+  description: "Physics / Quantum-Mechanics / Angular-Momentum-Addition"
 "Physics.Quantum-Mechanics.Bell-Inequality-and-Local-Hidden-Variable-Contradiction":
   label: "Physics.Quantum-Mechanics.Bell-Inequality-and-Local-Hidden-Variable-Contradiction"
   permalink: "/topic/physics/quantum-mechanics/bell-inequality-and-local-hidden-variable-contradiction"
@@ -5208,6 +5236,10 @@
   label: "Physics.Quantum-Mechanics.First-Order-Time-Dependent-Perturbation-Transition-Probability"
   permalink: "/topic/physics/quantum-mechanics/first-order-time-dependent-perturbation-transition-probability"
   description: "Physics / Quantum-Mechanics / First-Order-Time-Dependent-Perturbation-Transition-Probability"
+"Physics.Quantum-Mechanics.Fock-Darwin-States":
+  label: "Physics.Quantum-Mechanics.Fock-Darwin-States"
+  permalink: "/topic/physics/quantum-mechanics/fock-darwin-states"
+  description: "Physics / Quantum-Mechanics / Fock-Darwin-States"
 "Physics.Quantum-Mechanics.Harmonic-Oscillator-First-Excited-State":
   label: "Physics.Quantum-Mechanics.Harmonic-Oscillator-First-Excited-State"
   permalink: "/topic/physics/quantum-mechanics/harmonic-oscillator-first-excited-state"
@@ -5220,6 +5252,10 @@
   label: "Physics.Quantum-Mechanics.Heisenberg-Uncertainty-and-Minimum-Uncertainty-Gaussian"
   permalink: "/topic/physics/quantum-mechanics/heisenberg-uncertainty-and-minimum-uncertainty-gaussian"
   description: "Physics / Quantum-Mechanics / Heisenberg-Uncertainty-and-Minimum-Uncertainty-Gaussian"
+"Physics.Quantum-Mechanics.Hydrogen-Atom":
+  label: "Physics.Quantum-Mechanics.Hydrogen-Atom"
+  permalink: "/topic/physics/quantum-mechanics/hydrogen-atom"
+  description: "Physics / Quantum-Mechanics / Hydrogen-Atom"
 "Physics.Quantum-Mechanics.Identical-Fermions-Spin-and-Spatial-Symmetry":
   label: "Physics.Quantum-Mechanics.Identical-Fermions-Spin-and-Spatial-Symmetry"
   permalink: "/topic/physics/quantum-mechanics/identical-fermions-spin-and-spatial-symmetry"
@@ -5240,6 +5276,10 @@
   label: "Physics.Quantum-Mechanics.One-Dimensional-Infinite-Square-Well"
   permalink: "/topic/physics/quantum-mechanics/one-dimensional-infinite-square-well"
   description: "Physics / Quantum-Mechanics / One-Dimensional-Infinite-Square-Well"
+"Physics.Quantum-Mechanics.Partial-Wave-Scattering":
+  label: "Physics.Quantum-Mechanics.Partial-Wave-Scattering"
+  permalink: "/topic/physics/quantum-mechanics/partial-wave-scattering"
+  description: "Physics / Quantum-Mechanics / Partial-Wave-Scattering"
 "Physics.Quantum-Mechanics.Particle-in-Circular-Well":
   label: "Physics.Quantum-Mechanics.Particle-in-Circular-Well"
   permalink: "/topic/physics/quantum-mechanics/particle-in-circular-well"
@@ -5284,10 +5324,18 @@
   label: "Physics.Quantum-Mechanics.Time-Evolution-of-Two-Level-System"
   permalink: "/topic/physics/quantum-mechanics/time-evolution-of-two-level-system"
   description: "Physics / Quantum-Mechanics / Time-Evolution-of-Two-Level-System"
+"Physics.Quantum-Mechanics.Time-Independent-Perturbation-Theory":
+  label: "Physics.Quantum-Mechanics.Time-Independent-Perturbation-Theory"
+  permalink: "/topic/physics/quantum-mechanics/time-independent-perturbation-theory"
+  description: "Physics / Quantum-Mechanics / Time-Independent-Perturbation-Theory"
 "Physics.Quantum-Mechanics.Two-Level-Tunneling-and-Rabi-Oscillation":
   label: "Physics.Quantum-Mechanics.Two-Level-Tunneling-and-Rabi-Oscillation"
   permalink: "/topic/physics/quantum-mechanics/two-level-tunneling-and-rabi-oscillation"
   description: "Physics / Quantum-Mechanics / Two-Level-Tunneling-and-Rabi-Oscillation"
+"Physics.Quantum-Mechanics.Variational-Method":
+  label: "Physics.Quantum-Mechanics.Variational-Method"
+  permalink: "/topic/physics/quantum-mechanics/variational-method"
+  description: "Physics / Quantum-Mechanics / Variational-Method"
 "Physics.Quantum-Mechanics.Wavefunction-Matching-at-Potential-Steps":
   label: "Physics.Quantum-Mechanics.Wavefunction-Matching-at-Potential-Steps"
   permalink: "/topic/physics/quantum-mechanics/wavefunction-matching-at-potential-steps"
@@ -5296,6 +5344,14 @@
   label: "Physics.Quantum-Mechanics.Wavefunction-Normalization"
   permalink: "/topic/physics/quantum-mechanics/wavefunction-normalization"
   description: "Physics / Quantum-Mechanics / Wavefunction-Normalization"
+"Physics.Quantum-Mechanics.WKB-Approximation":
+  label: "Physics.Quantum-Mechanics.WKB-Approximation"
+  permalink: "/topic/physics/quantum-mechanics/wkb-approximation"
+  description: "Physics / Quantum-Mechanics / WKB-Approximation"
+"Physics.Thermodynamics.Bose-Einstein-Condensation":
+  label: "Physics.Thermodynamics.Bose-Einstein-Condensation"
+  permalink: "/topic/physics/thermodynamics/bose-einstein-condensation"
+  description: "Physics / Thermodynamics / Bose-Einstein-Condensation"
 "Physics.Thermodynamics.Brayton-Cycle":
   label: "Physics.Thermodynamics.Brayton-Cycle"
   permalink: "/topic/physics/thermodynamics/brayton-cycle"
@@ -5328,6 +5384,10 @@
   label: "Physics.Thermodynamics.Enthalpy-and-Thermodynamic-Relations"
   permalink: "/topic/physics/thermodynamics/enthalpy-and-thermodynamic-relations"
   description: "Physics / Thermodynamics / Enthalpy-and-Thermodynamic-Relations"
+"Physics.Thermodynamics.Entropic-Elasticity":
+  label: "Physics.Thermodynamics.Entropic-Elasticity"
+  permalink: "/topic/physics/thermodynamics/entropic-elasticity"
+  description: "Physics / Thermodynamics / Entropic-Elasticity"
 "Physics.Thermodynamics.Entropy":
   label: "Physics.Thermodynamics.Entropy"
   permalink: "/topic/physics/thermodynamics/entropy"
@@ -5340,6 +5400,10 @@
   label: "Physics.Thermodynamics.Fermi-Dirac-Grand-Canonical-Distribution"
   permalink: "/topic/physics/thermodynamics/fermi-dirac-grand-canonical-distribution"
   description: "Physics / Thermodynamics / Fermi-Dirac-Grand-Canonical-Distribution"
+"Physics.Thermodynamics.Fractional-Exclusion-Statistics":
+  label: "Physics.Thermodynamics.Fractional-Exclusion-Statistics"
+  permalink: "/topic/physics/thermodynamics/fractional-exclusion-statistics"
+  description: "Physics / Thermodynamics / Fractional-Exclusion-Statistics"
 "Physics.Thermodynamics.Grand-Canonical-Ideal-Gas":
   label: "Physics.Thermodynamics.Grand-Canonical-Ideal-Gas"
   permalink: "/topic/physics/thermodynamics/grand-canonical-ideal-gas"
@@ -5392,6 +5456,10 @@
   label: "Physics.Thermodynamics.Langmuir-Adsorption-Isotherm"
   permalink: "/topic/physics/thermodynamics/langmuir-adsorption-isotherm"
   description: "Physics / Thermodynamics / Langmuir-Adsorption-Isotherm"
+"Physics.Thermodynamics.Lattice-Gas":
+  label: "Physics.Thermodynamics.Lattice-Gas"
+  permalink: "/topic/physics/thermodynamics/lattice-gas"
+  description: "Physics / Thermodynamics / Lattice-Gas"
 "Physics.Thermodynamics.Low-Temperature-Fermi-Gas-Heat-Capacity-and-Entropy":
   label: "Physics.Thermodynamics.Low-Temperature-Fermi-Gas-Heat-Capacity-and-Entropy"
   permalink: "/topic/physics/thermodynamics/low-temperature-fermi-gas-heat-capacity-and-entropy"
@@ -5404,10 +5472,18 @@
   label: "Physics.Thermodynamics.Mean-Field-Ising-Model-and-Phase-Transition"
   permalink: "/topic/physics/thermodynamics/mean-field-ising-model-and-phase-transition"
   description: "Physics / Thermodynamics / Mean-Field-Ising-Model-and-Phase-Transition"
+"Physics.Thermodynamics.One-Dimensional-Ising-Model":
+  label: "Physics.Thermodynamics.One-Dimensional-Ising-Model"
+  permalink: "/topic/physics/thermodynamics/one-dimensional-ising-model"
+  description: "Physics / Thermodynamics / One-Dimensional-Ising-Model"
 "Physics.Thermodynamics.Otto-Cycle":
   label: "Physics.Thermodynamics.Otto-Cycle"
   permalink: "/topic/physics/thermodynamics/otto-cycle"
   description: "Physics / Thermodynamics / Otto-Cycle"
+"Physics.Thermodynamics.Pauli-Paramagnetism":
+  label: "Physics.Thermodynamics.Pauli-Paramagnetism"
+  permalink: "/topic/physics/thermodynamics/pauli-paramagnetism"
+  description: "Physics / Thermodynamics / Pauli-Paramagnetism"
 "Physics.Thermodynamics.Phase-Equilibrium":
   label: "Physics.Thermodynamics.Phase-Equilibrium"
   permalink: "/topic/physics/thermodynamics/phase-equilibrium"
@@ -5416,6 +5492,10 @@
   label: "Physics.Thermodynamics.Photon-Gas-and-Stefan-Boltzmann-Law"
   permalink: "/topic/physics/thermodynamics/photon-gas-and-stefan-boltzmann-law"
   description: "Physics / Thermodynamics / Photon-Gas-and-Stefan-Boltzmann-Law"
+"Physics.Thermodynamics.Potts-Model":
+  label: "Physics.Thermodynamics.Potts-Model"
+  permalink: "/topic/physics/thermodynamics/potts-model"
+  description: "Physics / Thermodynamics / Potts-Model"
 "Physics.Thermodynamics.Rankine-Cycle":
   label: "Physics.Thermodynamics.Rankine-Cycle"
   permalink: "/topic/physics/thermodynamics/rankine-cycle"
@@ -5424,6 +5504,10 @@
   label: "Physics.Thermodynamics.Reciprocating-and-Multistage-Compression"
   permalink: "/topic/physics/thermodynamics/reciprocating-and-multistage-compression"
   description: "Physics / Thermodynamics / Reciprocating-and-Multistage-Compression"
+"Physics.Thermodynamics.Renormalization-Group":
+  label: "Physics.Thermodynamics.Renormalization-Group"
+  permalink: "/topic/physics/thermodynamics/renormalization-group"
+  description: "Physics / Thermodynamics / Renormalization-Group"
 "Physics.Thermodynamics.Steady-Flow-Energy-Equation":
   label: "Physics.Thermodynamics.Steady-Flow-Energy-Equation"
   permalink: "/topic/physics/thermodynamics/steady-flow-energy-equation"

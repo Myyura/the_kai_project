@@ -1,0 +1,115 @@
+---
+sidebar_label: "2015年度 II-3（統計力学）"
+tags:
+  - Kyoto-University
+  - Physics.Thermodynamics.Fermi-Dirac-Grand-Canonical-Distribution
+  - Physics.Thermodynamics.Pauli-Paramagnetism
+---
+
+# 京都大学 理学研究科 物理学・宇宙物理学専攻 2015年度 II-3
+
+## **Author**
+
+祭音Myyura (refined with GPT 6 Astra)
+
+## **Description**
+
+質量 $m$、スピン $s_z=\pm1/2$ の自由電子 $N$ 個を体積 $V$ に入れる。電荷による効果は無視する。運動量空間での状態密度は、スピンを含め $2V/(2\pi\hbar)^3$。絶対零度では半径 $p_F$ のフェルミ球を満たし、$\epsilon_F=p_F^2/(2m)$ とする。
+
+1. $p_F,\epsilon_F,D(\epsilon_F)=dN/d\epsilon_F$ を求めよ。
+2. 全運動エネルギー $U_0=\int_0^{\epsilon_F}\epsilon D(\epsilon)d\epsilon=a_0N\epsilon_F$ の $a_0$ を求めよ。
+3. $N$ 一定、$P=-dU_0/dV$ として $PV$ を $U_0$ で表せ。
+
+磁場 $B>0$ を加える。スピン $s_z=\pm1/2$ の磁気モーメントは $\mp\mu_B$、ゼーマンエネルギーは $\pm\mu_BB$ とする。各スピンの粒子数は $N^+=N(1-\alpha)/2$、$N^-=N(1+\alpha)/2$（$\alpha>0$）。
+
+4. 両スピンの運動エネルギー $E^+,E^-$ を、磁場ゼロの $\epsilon_F$ と $N,\alpha$ で表せ。
+5. 全ゼーマンエネルギー $E_Z$ を求めよ。
+6. $\mu_BB\ll\epsilon_F$ のとき、$E_{\rm tot}=E^++E^-+E_Z$ を最小にする小さい $\alpha$ と全磁化 $M$ を求めよ。
+
+さらに、平行スピンの任意の電子対の相互作用を $-J$（$J\ge0$）、反平行スピン間の相互作用をゼロとする。
+
+7. $N\gg1$ のもとで $s_z=1/2$ の電子間の全相互作用エネルギーを求めよ。
+8. $\mu_BB\ll\epsilon_F$、$NJ\ll\epsilon_F$ のとき、相互作用を含めた全エネルギーを最小にする $\alpha\ll1$ と $M$ を求めよ。
+
+#### 题目描述
+
+体积 $V$ 中有 $N$ 个质量 $m$、自旋 $s_z=\pm1/2$ 的自由电子，忽略电荷效应。含自旋的动量空间态密度为 $2V/(2\pi\hbar)^3$。零温时占满半径 $p_F$ 的费米球，$\epsilon_F=p_F^2/(2m)$。
+
+1. 求 $p_F,\epsilon_F,D(\epsilon_F)=dN/d\epsilon_F$。
+2. 求 $U_0=\int_0^{\epsilon_F}\epsilon D(\epsilon)d\epsilon=a_0N\epsilon_F$ 的 $a_0$。
+3. 固定 $N$，用 $P=-dU_0/dV$ 将 $PV$ 用 $U_0$ 表示。
+
+加 $B>0$，自旋 $\pm1/2$ 的磁矩为 $\mp\mu_B$，塞曼能为 $\pm\mu_BB$。令 $N^+=N(1-\alpha)/2$、$N^-=N(1+\alpha)/2$，$\alpha>0$。
+
+4. 用零磁场费米能及 $N,\alpha$ 表示两种自旋的动能。
+5. 求总塞曼能。
+6. 在 $\mu_BB\ll\epsilon_F$ 下最小化总能量，求小极化度 $\alpha$ 和总磁化 $M$。
+7. 任意平行自旋电子对的相互作用能为 $-J$（$J\ge0$），反平行为零；在 $N\gg1$ 时求全部正自旋电子间的相互作用能。
+8. 在 $\mu_BB,NJ\ll\epsilon_F$ 下，加入相互作用重新求最优 $\alpha$ 和 $M$。
+
+## **Kai**
+
+### (1)
+$$
+N=\frac{2V}{(2\pi\hbar)^3}\frac{4\pi p_F^3}{3},
+\qquad
+\boxed{p_F=\hbar\left(\frac{3\pi^2N}{V}\right)^{1/3}},
+$$
+$$
+\boxed{\epsilon_F=\frac{\hbar^2}{2m}\left(\frac{3\pi^2N}{V}\right)^{2/3},\qquad
+D(\epsilon_F)=\frac{3N}{2\epsilon_F}}.
+$$
+より一般に $D(\epsilon)=\frac{3N}{2\epsilon_F^{3/2}}\sqrt\epsilon$。
+### (2)
+$$
+U_0=\frac{3N}{2\epsilon_F^{3/2}}\int_0^{\epsilon_F}\epsilon^{3/2}d\epsilon
+=\frac35N\epsilon_F,
+\qquad\boxed{a_0=\frac35}.
+$$
+### (3)
+$N$ 一定では $U_0\propto V^{-2/3}$ より
+$$
+\boxed{PV=\frac23U_0}.
+$$
+### (4)
+スピン一方向のフェルミ運動量は $p_F(1\mp\alpha)^{1/3}$ であるから
+$$
+\boxed{E^\pm=\frac3{10}N\epsilon_F(1\mp\alpha)^{5/3}}.
+$$
+### (5)
+$$
+\boxed{E_Z=(N^+-N^-)\mu_BB=-N\alpha\mu_BB}.
+$$
+### (6)
+$$
+E_{\rm tot}=\frac35N\epsilon_F+\frac13N\epsilon_F\alpha^2-N\mu_BB\alpha+O(\alpha^4).
+$$
+微分をゼロとして
+$$
+\boxed{\alpha=\frac{3\mu_BB}{2\epsilon_F},\qquad
+M=(N^--N^+)\mu_B=N\alpha\mu_B=\frac{3N\mu_B^2B}{2\epsilon_F}}.
+$$
+ここで $M$ は体積で割らない全磁気モーメントである。
+### (7)
+同じ電子対を二重に数えず
+$$
+\boxed{E_{\rm int}^+=-\frac J2N^+(N^+-1)\simeq-\frac{JN^2}{8}(1-\alpha)^2}.
+$$
+### (8)
+両スピンを加えると $E_{\rm int}\simeq-JN^2(1+\alpha^2)/4$。したがって
+$$
+\widetilde E_{\rm tot}=\text{定数}
++N\left(\frac{\epsilon_F}{3}-\frac{JN}{4}\right)\alpha^2-N\mu_BB\alpha+O(\alpha^4).
+$$
+仮定より二次係数は正であり、
+$$
+\boxed{\alpha=\frac{3\mu_BB}{2\epsilon_F}
+\left(1-\frac{3JN}{4\epsilon_F}\right)^{-1},\qquad
+M=\frac{3N\mu_B^2B}{2\epsilon_F}
+\left(1-\frac{3JN}{4\epsilon_F}\right)^{-1}}.
+$$
+同方向スピンを有利にする相互作用は磁化率を増大させる。
+
+## **Reference**
+
+- [京都大学公式問題（2015年度、PDF 13–14ページ）](https://www.scphys.kyoto-u.ac.jp/education/inshi/kakomon/H27.pdf)

@@ -1,0 +1,116 @@
+---
+sidebar_label: "2015年度 III-3（統計力学）"
+tags:
+  - Kyoto-University
+  - Physics.Thermodynamics.Potts-Model
+  - Physics.Thermodynamics.Phase-Equilibrium
+---
+
+# 京都大学 理学研究科 物理学・宇宙物理学専攻 2015年度 III-3
+
+## **Author**
+
+祭音Myyura (refined with GPT 6 Astra)
+
+## **Description**
+
+磁気モーメント $\boldsymbol\mu_i$ を持つ $N$ 粒子を考える。各モーメントの大きさは $\mu$ で、平面内の互いに $120^\circ$ をなす 3 方向（状態 1、2、3）のいずれかをとる。状態 1 は $+x$ 方向、状態 2、3 はそれぞれ $+x$ から $120^\circ,240^\circ$ の方向とする。距離によらない相互作用は
+$$
+H=-\frac JN\sum_{(i,j)}\boldsymbol\mu_i\cdot\boldsymbol\mu_j
+=-\frac J{2N}\sum_i\sum_{j\ne i}\boldsymbol\mu_i\cdot\boldsymbol\mu_j,
+\qquad J>0.
+$$
+各状態の粒子数を $N_1,N_2,N_3$、$N_1+N_2+N_3=N$ とする。
+
+1. 全磁化の $x$ 成分 $M$ を粒子数で表し、
+$$
+H=\frac{J\mu^2}{4N}\left[2N-(N_1-N_2)^2-(N_2-N_3)^2-(N_3-N_1)^2\right]
+$$
+を示せ。
+2. 状態数を $\nu$ とし、$S=k_B\log\nu$ とする。$\log N!\simeq N\log N-N$ を用い、$N_1,N_2,N_3\gg1$ のときのエントロピーを求めよ。
+
+$F(T;N_1,N_2,N_3)=H-TS$ とおけば、分配関数は粒子数の分割について $Z_N(T)=\sum_{(N_1,N_2,N_3)}e^{-F/(k_BT)}$ と表される。$N\to\infty$ では系の自由エネルギーは $F(T;N_1,N_2,N_3)$ の最小値に一致する。
+
+3. $N_2=N_3$ を仮定し、$F$ を $T,M$ の関数で表せ。
+4. $F(T;M)$ の極値を与える $M$ の式を求めよ。
+5. 温度を下げると $T_c$ で $M=0$ から $M_s\ne0$ に不連続に変化する一次相転移が起こる。$T_c,M_s$ の満たす条件を $F$ で表せ。
+6. $M_s=N\mu/2$ が条件を満たすことを示し、$T_c$ を求めよ。
+
+#### 题目描述
+
+$N$ 个粒子各有大小为 $\mu$ 的磁矩，只能指向平面内相隔 $120^\circ$ 的三个方向；状态 1 沿 $+x$，状态 2、3 与 $+x$ 分别成 $120^\circ,240^\circ$。任意不同粒子对之间的相互作用为 $-J\boldsymbol\mu_i\cdot\boldsymbol\mu_j/N$，$J>0$。三种状态粒子数为 $N_1,N_2,N_3$，总数为 $N$。
+
+1. 表示总磁化的 $x$ 分量 $M$，并证明
+$$
+H=\frac{J\mu^2}{4N}[2N-(N_1-N_2)^2-(N_2-N_3)^2-(N_3-N_1)^2].
+$$
+2. 用状态数 $\nu$、$S=k_B\log\nu$ 及斯特林公式，求各 $N_i\gg1$ 下的熵。
+
+定义 $F(T;N_1,N_2,N_3)=H-TS$，则 $Z_N=\sum e^{-F/(k_BT)}$。热力学极限中系统自由能等于此 $F$ 的最小值。
+
+3. 假设 $N_2=N_3$，用 $T,M$ 表示 $F$。
+4. 求自由能驻点方程。
+5. 若降温至 $T_c$ 时磁化从零跃变为 $M_s\ne0$，用 $F$ 写出共存条件。
+6. 证明 $M_s=N\mu/2$ 满足条件并求转变温度。
+
+## **Kai**
+
+### (1)
+$$
+\boxed{M=\mu\left(N_1-\frac{N_2+N_3}{2}\right)=\frac\mu2(3N_1-N)}.
+$$
+同方向の内積は $\mu^2$、異方向は $-\mu^2/2$ なので
+$$
+H=-\frac{J\mu^2}{2N}\left[\sum_{i=1}^3N_i(N_i-1)-\sum_{i<j}N_iN_j\right].
+$$
+$\sum_{i<j}(N_i-N_j)^2=2\sum_iN_i^2-2\sum_{i<j}N_iN_j$ を用いれば指定された形を得る。
+### (2)
+$$
+\nu=\frac{N!}{N_1!N_2!N_3!},
+\qquad\boxed{S\simeq k_B\left(N\log N-\sum_iN_i\log N_i\right)}.
+$$
+### (3)
+$q=M/(N\mu)$、$-1/2\le q\le1$ とおくと
+$$
+N_1=\frac N3(1+2q),\qquad N_2=N_3=\frac N3(1-q).
+$$
+よって
+$$
+\boxed{F(T;M)=\frac{J\mu^2}{2}-\frac{NJ\mu^2q^2}{2}
++Nk_BT\left[\frac{1+2q}{3}\log\frac{1+2q}{3}
++\frac{2(1-q)}3\log\frac{1-q}{3}\right]}.
+$$
+端点では $x\log x\to0$ を用いる。
+### (4)
+内部の極値では $\partial F/\partial M=0$、すなわち
+$$
+\boxed{\log\frac{1+2q}{1-q}=\frac{3J\mu^2}{2k_BT}q}.
+$$
+### (5)
+二つの安定な極小の自由エネルギーが等しいので
+$$
+\boxed{F(T_c;M_s)=F(T_c;0),\qquad
+\left.\frac{\partial F}{\partial M}\right|_{T_c,M_s}=0}.
+$$
+$M=0$ でも自動的に一階微分がゼロであり、両状態が極小であることを確認する。
+### (6)
+$q_s=1/2$ とすると
+$$
+F(T;N\mu/2)-F(T;0)
+=-\frac{NJ\mu^2}{8}+\frac{Nk_BT}{3}\log2.
+$$
+両者が等しい温度は
+$$
+\boxed{T_c=\frac{3J\mu^2}{8k_B\log2}}.
+$$
+このとき (4) の左辺は $\log4=2\log2$、右辺も $3J\mu^2/(4k_BT_c)=2\log2$ で一致する。さらに $q=0,1/2$ の両点で
+$$
+\frac1N\frac{\partial^2F}{\partial q^2}
+=-J\mu^2+2k_BT_c
+=J\mu^2\left(\frac3{4\log2}-1\right)>0,
+$$
+したがって両点は安定な極小である。
+
+## **Reference**
+
+- [京都大学公式問題（2015年度、PDF 20–21ページ）](https://www.scphys.kyoto-u.ac.jp/education/inshi/kakomon/H27.pdf)
