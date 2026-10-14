@@ -41,14 +41,21 @@ Omit the derivations and write only the answers.
 
 (Q.1) Define the real function f(x) as follows:
 
-$$f(x) = \int_0^x \mathrm{d}t \,\mathrm{e}^{-t^2}.$$
+$$
+f(x) = \int_0^x \mathrm{d}t \,\mathrm{e}^{-t^2}.
+$$
 
 - (1) Obtain the derivative of f(x).
 - (2) Obtain the Taylor expansion of f(x) around x = 0 up to the third order.
 - (Q.2) Two real functions x(t) and y(t) satisfy the following coupled differential equations:
 
-$$\frac{\mathrm{d}x}{\mathrm{d}t} = -\nu x - y + A\cos at,$$
-$$\frac{\mathrm{d}y}{\mathrm{d}t} = -\nu y + x + A\sin at,$$
+$$
+\frac{\mathrm{d}x}{\mathrm{d}t} = -\nu x - y + A\cos at,
+$$
+
+$$
+\frac{\mathrm{d}y}{\mathrm{d}t} = -\nu y + x + A\sin at,
+$$
 
 where A, a, and  $\nu$  ( $\nu > 0$ ) are real constants.
 
@@ -58,14 +65,18 @@ where A, a, and  $\nu$  ( $\nu > 0$ ) are real constants.
 - (3) Let A > 0. x(t) asymptotically approaches  $x_1(t) = B\cos(bt + \phi)$  as  $t \to \infty$  regardless of the initial condition. Here, B (B > 0), b, and  $\phi$  are real constants. Obtain B, b, and  $\phi$ .
 - (Q.3) Define the real function f(x) as follows:
 
-$$f(x) = xe^{-x}.$$
+$$
+f(x) = xe^{-x}.
+$$
 
 - (1) Obtain all the extrema of f(x) and the corresponding values of x.
 - (2) In an xy Cartesian coordinate system, obtain the area of the region defined by  $0 \le y \le f(x)$  and x > 0.
 - (3) In an xyz Cartesian coordinate system, obtain the volume of the solid formed by rotating the xy-plane region defined in (2) around the x-axis.
 - (4) The surface of the solid defined in (3) can be expressed in terms of the real function
 
-$$g(x, y, z) = y^2 + z^2 - x^2 e^{-2x},$$
+$$
+g(x, y, z) = y^2 + z^2 - x^2 e^{-2x},
+$$
 
 as g(x, y, z) = 0. Obtain the gradient vector of g(x, y, z).
 
@@ -75,13 +86,17 @@ as g(x, y, z) = 0. Obtain the gradient vector of g(x, y, z).
 
 The transpose of a matrix or a vector is denoted by the superscript  $\top$ . The exponential of a square matrix J is defined as
 
-$$e^J = \sum_{k=0}^{\infty} \frac{1}{k!} J^k.$$
+$$
+e^J = \sum_{k=0}^{\infty} \frac{1}{k!} J^k.
+$$
 
 Answer the following questions.
 
 (Q.1) Consider the following real matrix A and real vectors  $\boldsymbol{b}$  and  $\boldsymbol{c}$ :
 
-$$A = \begin{pmatrix} 2 & -1 & -1 \\ -1 & 2 & -1 \\ -1 & -1 & 2 \end{pmatrix}, \quad \boldsymbol{b} = \begin{pmatrix} 1 \\ 1 \\ \beta \end{pmatrix}, \quad \boldsymbol{c} = \begin{pmatrix} 3 \\ 2 \\ 1 \end{pmatrix},$$
+$$
+A = \begin{pmatrix} 2 & -1 & -1 \\ -1 & 2 & -1 \\ -1 & -1 & 2 \end{pmatrix}, \quad \boldsymbol{b} = \begin{pmatrix} 1 \\ 1 \\ \beta \end{pmatrix}, \quad \boldsymbol{c} = \begin{pmatrix} 3 \\ 2 \\ 1 \end{pmatrix},
+$$
 
 where  $\beta$  is a constant.
 
@@ -90,7 +105,9 @@ Omit the derivations and write only the answers.
 - (1) Obtain the eigenvalues  $\lambda_1 \leq \lambda_2 \leq \lambda_3$  of A.
 - (2) Obtain the matrix P that satisfies
 
-$$P^{\top}AP = \begin{pmatrix} \lambda_1 & 0 & 0 \\ 0 & \lambda_2 & 0 \\ 0 & 0 & \lambda_3 \end{pmatrix}.$$
+$$
+P^{\top}AP = \begin{pmatrix} \lambda_1 & 0 & 0 \\ 0 & \lambda_2 & 0 \\ 0 & 0 & \lambda_3 \end{pmatrix}.
+$$
 
 - (3) Suppose that the equation  $A\mathbf{x} = \mathbf{b}$  for the variable  $\mathbf{x} \in \mathbb{R}^3$  has a solution. Obtain the value of  $\beta$ . In addition, obtain all the solutions of the equation.
 - (4) Obtain  $\lim_{t\to\infty} e^{-At} \boldsymbol{c}$ , where t is a real number.
@@ -99,8 +116,13 @@ $$P^{\top}AP = \begin{pmatrix} \lambda_1 & 0 & 0 \\ 0 & \lambda_2 & 0 \\ 0 & 0 &
   - (1) Show that the eigenvalues of B and  $B^{\top}$  are the same. You may use the fact that the determinants of a square matrix and its transposed matrix are the same.
   - (2) Let  $\lambda_i$  (i = 1, ..., n) be the eigenvalues of B. Let  $\boldsymbol{u}_i$  and  $\boldsymbol{v}_i$  be the eigenvectors of B and  $B^{\top}$  corresponding to the eigenvalue  $\lambda_i$ , respectively. Namely,
 
-$$B\boldsymbol{u}_i = \lambda_i \boldsymbol{u}_i,$$
-$$B^{\top} \boldsymbol{v}_i = \lambda_i \boldsymbol{v}_i$$
+$$
+B\boldsymbol{u}_i = \lambda_i \boldsymbol{u}_i,
+$$
+
+$$
+B^{\top} \boldsymbol{v}_i = \lambda_i \boldsymbol{v}_i
+$$
 
 hold true. Show that  $\boldsymbol{v}_j^{\top} \boldsymbol{u}_i = 0$  for  $\lambda_i \neq \lambda_j$ .
 
@@ -116,7 +138,9 @@ Omit the derivations and write only the answers.
   - (3) Obtain the covariance  $s_{UV}$  between U and V.
 - (Q.2) Let X be a random variable obeying the standard Cauchy distribution:
 
-$$p(x) = \frac{1}{\pi (1 + x^2)}.$$
+$$
+p(x) = \frac{1}{\pi (1 + x^2)}.
+$$
 
 Answer the following questions.
 
@@ -128,13 +152,19 @@ Answer the following questions.
 - (5) Let  $X_1, X_2, ..., X_n$  be n random variables that are independent and identically distributed and obey the standard Cauchy distribution. A random variable Z is defined by  $Z = X_1 + X_2 + ... + X_n$ . Obtain the probability density function of Z.
 - (Q.3) Let  $(x_1, y_1), (x_2, y_2), \ldots, (x_N, y_N)$  be N sample pairs of random variables X and Y. Define the following statistics on the sample pairs:
 
-$$\overline{x} = \frac{1}{N} \sum_{i=1}^{N} x_i, \quad \overline{y} = \frac{1}{N} \sum_{i=1}^{N} y_i,$$
+$$
+\overline{x} = \frac{1}{N} \sum_{i=1}^{N} x_i, \quad \overline{y} = \frac{1}{N} \sum_{i=1}^{N} y_i,
+$$
 
-$$\sigma_{xx} = \frac{1}{N} \sum_{i=1}^{N} x_i x_i, \quad \sigma_{xy} = \frac{1}{N} \sum_{i=1}^{N} x_i y_i.$$
+$$
+\sigma_{xx} = \frac{1}{N} \sum_{i=1}^{N} x_i x_i, \quad \sigma_{xy} = \frac{1}{N} \sum_{i=1}^{N} x_i y_i.
+$$
 
 The regression line  $Y = A_0 + A_1 X$  is obtained by minimizing the following function l:
 
-$$l(A_0, A_1) = \sum_{i=1}^{N} (y_i - A_0 - A_1 x_i)^2,$$
+$$
+l(A_0, A_1) = \sum_{i=1}^{N} (y_i - A_0 - A_1 x_i)^2,
+$$
 
 which is assumed to be minimum at  $A_0 = a_0$  and  $A_1 = a_1$ . Express  $a_0$  and  $a_1$  in terms of  $\overline{x}$ ,  $\overline{y}$ ,  $\sigma_{xx}$ , and  $\sigma_{xy}$ . In addition, show the condition under which both  $a_0$  and  $a_1$  are uniquely determined.
 
@@ -160,9 +190,13 @@ vertical upward direction. The origin is the initial position of the point mass.
 - (1) Answer the x, y, and z components of the Earth's angular velocity vector  $\boldsymbol{\omega}$  in the coordinate system (x, y, z).
 - (2) The equation of motion for the point mass in the coordinate system (x, y, z) is expressed as follows using position vector  $\mathbf{r}$ , its first derivative with respect to time  $\dot{\mathbf{r}}$ , and its second derivative  $\ddot{\mathbf{r}}$ :
 
-$$m\ddot{\boldsymbol{r}} = \boldsymbol{F} + 2m\dot{\boldsymbol{r}} \times \boldsymbol{\omega}$$
+$$
+m\ddot{\boldsymbol{r}} = \boldsymbol{F} + 2m\dot{\boldsymbol{r}} \times \boldsymbol{\omega}
+$$
 
-$$\mathbf{F} = (0, 0, -mg)$$
+$$
+\mathbf{F} = (0, 0, -mg)
+$$
 
 Write the acceleration for the point mass in the y direction at the time t elapsed after throwing the point mass, using, g, t, v,  $\omega$ ,  $\theta$ . Ignore the terms of order  $\omega^2$  or higher.
 
@@ -186,7 +220,9 @@ Answer the following questions, assuming vacuum environment. Except for Q.5(2), 
 
 Using an equation
 
-$$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$$
+$$
+\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}
+$$
 
 from Maxwell's equations, derive the expression on a voltage V in the circuit induced by the magnetic field crossing the circuit (Note: write only the expression on V). Here,  $\boldsymbol{B}$  is a magnetic field externally given, and  $\boldsymbol{E}$  is an electric field induced by the magnetic field. The magnetic field is uniform in space. The circuit is placed on a flat surface whose normal unit vector is expressed by  $\boldsymbol{n}$ . Ignore the thickness of the conducting wire.
 

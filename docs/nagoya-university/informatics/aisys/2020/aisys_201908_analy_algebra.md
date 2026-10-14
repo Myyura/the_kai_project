@@ -53,6 +53,7 @@ $$
 2. 设 $n$ 为实数，$z=(1+i)^n=u+iv$，且 $|z|=8$，求 $n,u,v$。
 
 **[2]** 给定
+
 $$
 P=\frac15\begin{pmatrix}7&4\\4&13\end{pmatrix},\qquad Q=\begin{pmatrix}2&0\\0&2\end{pmatrix}.
 $$

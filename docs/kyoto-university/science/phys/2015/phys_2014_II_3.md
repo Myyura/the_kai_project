@@ -50,64 +50,85 @@ tags:
 ## **Kai**
 
 ### (1)
+
 $$
 N=\frac{2V}{(2\pi\hbar)^3}\frac{4\pi p_F^3}{3},
 \qquad
 \boxed{p_F=\hbar\left(\frac{3\pi^2N}{V}\right)^{1/3}},
 $$
+
 $$
 \boxed{\epsilon_F=\frac{\hbar^2}{2m}\left(\frac{3\pi^2N}{V}\right)^{2/3},\qquad
 D(\epsilon_F)=\frac{3N}{2\epsilon_F}}.
 $$
+
 より一般に $D(\epsilon)=\frac{3N}{2\epsilon_F^{3/2}}\sqrt\epsilon$。
 ### (2)
+
 $$
 U_0=\frac{3N}{2\epsilon_F^{3/2}}\int_0^{\epsilon_F}\epsilon^{3/2}d\epsilon
 =\frac35N\epsilon_F,
 \qquad\boxed{a_0=\frac35}.
 $$
+
 ### (3)
 $N$ 一定では $U_0\propto V^{-2/3}$ より
+
 $$
 \boxed{PV=\frac23U_0}.
 $$
+
 ### (4)
 スピン一方向のフェルミ運動量は $p_F(1\mp\alpha)^{1/3}$ であるから
+
 $$
 \boxed{E^\pm=\frac3{10}N\epsilon_F(1\mp\alpha)^{5/3}}.
 $$
+
 ### (5)
+
 $$
 \boxed{E_Z=(N^+-N^-)\mu_BB=-N\alpha\mu_BB}.
 $$
+
 ### (6)
+
 $$
 E_{\rm tot}=\frac35N\epsilon_F+\frac13N\epsilon_F\alpha^2-N\mu_BB\alpha+O(\alpha^4).
 $$
+
 微分をゼロとして
+
 $$
 \boxed{\alpha=\frac{3\mu_BB}{2\epsilon_F},\qquad
 M=(N^--N^+)\mu_B=N\alpha\mu_B=\frac{3N\mu_B^2B}{2\epsilon_F}}.
 $$
+
 ここで $M$ は体積で割らない全磁気モーメントである。
 ### (7)
 同じ電子対を二重に数えず
+
 $$
 \boxed{E_{\rm int}^+=-\frac J2N^+(N^+-1)\simeq-\frac{JN^2}{8}(1-\alpha)^2}.
 $$
+
 ### (8)
 両スピンを加えると $E_{\rm int}\simeq-JN^2(1+\alpha^2)/4$。したがって
+
 $$
 \widetilde E_{\rm tot}=\text{定数}
 +N\left(\frac{\epsilon_F}{3}-\frac{JN}{4}\right)\alpha^2-N\mu_BB\alpha+O(\alpha^4).
 $$
+
 仮定より二次係数は正であり、
+
 $$
 \boxed{\alpha=\frac{3\mu_BB}{2\epsilon_F}
 \left(1-\frac{3JN}{4\epsilon_F}\right)^{-1},\qquad
 M=\frac{3N\mu_B^2B}{2\epsilon_F}
 \left(1-\frac{3JN}{4\epsilon_F}\right)^{-1}}.
 $$
+
 同方向スピンを有利にする相互作用は磁化率を増大させる。
 
 ## **Reference**

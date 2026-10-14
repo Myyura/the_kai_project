@@ -60,46 +60,60 @@ $$
 ### 题目描述
 
 1. 使用正则对易关系 $[x,p]=i\hbar$ 以及
+
    $$
    A=\sqrt{\frac{m\omega}{2\hbar}}
    \left(x+\frac{ip}{m\omega}\right),\qquad
    A^\dagger=\sqrt{\frac{m\omega}{2\hbar}}
    \left(x-\frac{ip}{m\omega}\right),
    $$
+
    推导谐振子 Hamilton 算符
+
    $$
    H=\frac{p^2}{2m}+\frac12m\omega^2x^2
    =\hbar\omega\left(A^\dagger A+\frac12\right).
    $$
+
 2. 对满足 $A\varphi_0=0$ 的基态，求其能量 $E_0$。
 3. 证明 $[A,A^\dagger]=1$，并对 第一激发态
+
    $$
    \varphi_1=A^\dagger\varphi_0
    $$
+
    求能量 $E_1$。
 4. 用归纳法证明对 $n=0,1,2,\ldots$，
+
    $$
    \langle\varphi_n|A|\varphi_n\rangle
    =\langle\varphi_n|A^\dagger|\varphi_n\rangle=0,
    $$
+
    再由
+
    $$
    x=\sqrt{\frac{\hbar}{2m\omega}}(A+A^\dagger)
    $$
+
    求各能量本征态中的位置期望。归一化态满足
    $\varphi_{n+1}=(n+1)^{-1/2}A^\dagger\varphi_n$。
 5. 在 $t<0$ 时处于基态，$t\ge0$ 时加上位置型扰动 $V=Fx$（$F>0$ 且充分小），按一阶微扰计算到第一激发态的一阶振幅
+
    $$
    c_1(t)=\frac{F}{\sqrt{2\hbar\omega^3m}}
    (1-e^{i\omega t}),
    $$
+
    并进一步计算时刻 $t$ 在 $\varphi_1$ 中被发现的概率的最低非零阶。一阶近似态为 $\psi=e^{-iE_0t/\hbar}\varphi_0+c_1(t)e^{-iE_1t/\hbar}\varphi_1$。
 6. 对 使用的两态近似波函数 $\psi$，结合
+
    $$
    \langle\varphi_0|x|\varphi_1\rangle
    =\langle\varphi_1|x|\varphi_0\rangle
    =\sqrt{\frac{\hbar}{2m\omega}},
    $$
+
    计算位置期望 $\langle\psi|x|\psi\rangle$；其结果为
    $F(\cos\omega t-1)/(m\omega^2)$ ，并画出 $0\le t\le2\pi/\omega$ 内的图像。
 

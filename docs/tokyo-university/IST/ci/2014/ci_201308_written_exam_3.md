@@ -22,7 +22,11 @@ We consider the problem of distinguishing between two hand-written alphabets "C"
 
 
 Following the procedure below, we extract some features to quantify the properties of the input image. First, we apply a $3 \times 3$ size linear filter. Let $g(i, j)$ denote the output value of the filter for a pixel $(i, j)$, which is defined as
-$$ g(i, j) = \sum_{n=-1}^{1} \sum_{m=-1}^{1} f(i+m, j+n)h(m, n), $$
+
+$$
+g(i, j) = \sum_{n=-1}^{1} \sum_{m=-1}^{1} f(i+m, j+n)h(m, n),
+$$
+
 where $h(m, n)$ is the array that contains the coefficients of the filter ($m$ and $n$ are integer values).
 Answer the following questions.
 

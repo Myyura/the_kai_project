@@ -18,7 +18,9 @@ tags:
 
 [公式原題](https://www.mech.tohoku.ac.jp/wp/wp-content/themes/tumech/img/examination/past-collection/Problem_2022_j.pdf)
 
-$$\boldsymbol A=(x+yz,\ x+x^2+y^2+zx,\ z+xy),\qquad V:\ 0\le z\le1-x^2,\ 0\le y\le1.$$
+$$
+\boldsymbol A=(x+yz,\ x+x^2+y^2+zx,\ z+xy),\qquad V:\ 0\le z\le1-x^2,\ 0\le y\le1.
+$$
 
 1. $\nabla\times\boldsymbol A$ と $\nabla\cdot\boldsymbol A$ を計算する。
 2. $V$ の全表面 $S$ を外向きに取り、$\int_S\boldsymbol A\cdot\boldsymbol n\,dS$ を求める。
@@ -28,7 +30,9 @@ $$\boldsymbol A=(x+yz,\ x+x^2+y^2+zx,\ z+xy),\qquad V:\ 0\le z\le1-x^2,\ 0\le y\
 
 给定向量场和区域
 
-$$\boldsymbol A=(x+yz,\ x+x^2+y^2+zx,\ z+xy),\qquad V:\ 0\le z\le1-x^2,\ 0\le y\le1.$$
+$$
+\boldsymbol A=(x+yz,\ x+x^2+y^2+zx,\ z+xy),\qquad V:\ 0\le z\le1-x^2,\ 0\le y\le1.
+$$
 
 1. 求 $\nabla\times\boldsymbol A$ 与 $\nabla\cdot\boldsymbol A$。
 2. 取 $V$ 的整个边界 $S$ 的外法向，求通量 $\int_S\boldsymbol A\cdot\boldsymbol n\,dS$。
@@ -72,7 +76,9 @@ $$
 ### (3)
 表面を $\boldsymbol r=(x,y,1-x^2)$ と置くと、上向きの面素ベクトルは
 
-$$\boldsymbol r_x\times\boldsymbol r_y=(2x,0,1).$$
+$$
+\boldsymbol r_x\times\boldsymbol r_y=(2x,0,1).
+$$
 
 Stokes の定理より
 

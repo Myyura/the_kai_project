@@ -41,6 +41,7 @@ Let $M$ and $W$ be random variables representing scores in math and English, res
 (3) If two random variables follow a bivariate normal distribution and are uncorrelated, they are independent. Using this property, calculate the covariance of $M$ and $W$ given that $S$ is fixed at $s$ (where $s$ is a constant) : $\text{Cov}(M, W \mid S = s)$.
 
 (4) Calculate the correlation coefficient of $M$ and $W$ given $S = s$:
+
 $$ 
 \rho = \frac{\text{Cov}(M, W \mid S = s)}{\sqrt{\text{Var}(M \mid S = s) \ \text{Var}(W \mid S = s)}}. 
 $$
@@ -124,13 +125,17 @@ When reporting experimental results, it is recommended to include effect sizes a
 
 (2) 若数据为正面次数 $K=k$，则
 
-$$p(D\mid\theta)=\binom nk\theta^k(1-\theta)^{n-k}.$$
+$$
+p(D\mid\theta)=\binom nk\theta^k(1-\theta)^{n-k}.
+$$
 
 若记录的是一次确定的、有顺序的试验序列，则没有组合系数；两种似然关于 $\theta$ 的比例相同。
 
 (3) 将先验乘以似然后归一化，得
 
-$$p(\theta\mid D)=\frac{\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1}}{B(\alpha+k,\beta+n-k)},$$
+$$
+p(\theta\mid D)=\frac{\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1}}{B(\alpha+k,\beta+n-k)},
+$$
 
 即 $\operatorname{Beta}(\alpha+k,\beta+n-k)$。
 
@@ -138,19 +143,25 @@ $$p(\theta\mid D)=\frac{\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1}}{B(\alpha+k,
 
 (1) 独立性给出
 
-$$\operatorname{Var}(S)=\operatorname{Var}(D)=100+100=200.$$
+$$
+\operatorname{Var}(S)=\operatorname{Var}(D)=100+100=200.
+$$
 
 (2) $\operatorname{Cov}(S,D)=\operatorname{Var}(M)-\operatorname{Var}(W)=0$。$(S,D)$ 是联合正态向量，所以二者独立。
 
 (3) 由 $M=(S+D)/2$、$W=(S-D)/2$，且给定 $S=s$ 不改变 $D$ 的分布，
 
-$$\operatorname{Cov}(M,W\mid S=s)=-\frac14\operatorname{Var}(D)=-50.$$
+$$
+\operatorname{Cov}(M,W\mid S=s)=-\frac14\operatorname{Var}(D)=-50.
+$$
 
 (4) 两个条件方差均为 $200/4=50$，所以 $\rho=-1$。固定总分时，$W=s-M$ 是完全负线性关系。
 
 (5) 只保留 $S>c$ 时，分差 $D$ 仍与被截断的总分独立。因此
 
-$$\operatorname{Cov}(M,W\mid S>c)=\frac{\operatorname{Var}(S\mid S>c)-200}{4}<0.$$
+$$
+\operatorname{Cov}(M,W\mid S>c)=\frac{\operatorname{Var}(S\mid S>c)-200}{4}<0.
+$$
 
 具体地，记 $z=(c-100)/\sqrt{200}$、$\lambda=\phi(z)/(1-\Phi(z))$，则截断正态方差为 $200(1+z\lambda-\lambda^2)<200$；因为 $\lambda=E[Z\mid Z>z]>z$ 且 $\lambda>0$。选择高总分者后，较低的一科成绩需要较高的另一科成绩来补偿。阈值筛选的相关系数通常介于 $-1$ 和 $0$ 之间，并不等于固定总分时的 $-1$。
 
@@ -158,7 +169,9 @@ $$\operatorname{Cov}(M,W\mid S>c)=\frac{\operatorname{Var}(S\mid S>c)-200}{4}<0.
 
 (1) Cohen's $d=(\bar X_1-\bar X_2)/s_p$ 描述均值差相对于组内离散程度的大小。在独立两样本、共同方差的 $t$ 检验中，
 
-$$t=\frac{\bar X_1-\bar X_2}{s_p\sqrt{1/n_1+1/n_2}}=d\sqrt{\frac{n_1n_2}{n_1+n_2}}.$$
+$$
+t=\frac{\bar X_1-\bar X_2}{s_p\sqrt{1/n_1+1/n_2}}=d\sqrt{\frac{n_1n_2}{n_1+n_2}}.
+$$
 
 同样的效应大小在样本量大时可以产生更大的 $|t|$ 和更小的 $p$ 值。$d$ 的定义不以样本量直接放大均值差，但估计 $d$ 的不确定性仍取决于样本量。
 

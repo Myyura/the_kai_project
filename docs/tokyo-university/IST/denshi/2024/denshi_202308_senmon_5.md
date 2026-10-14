@@ -221,6 +221,8 @@ $(0.648+2(0.2)+3(0.152))/2.52\simeq0.60$ bit/symbol.
 For continuous parsing, the lengths are approximately
 $d=0.70$, $b=0.72$, $c=0.88$, and $a=1$ bit/symbol. Therefore
 
-$$\boxed{d<b<c<a}.$$
+$$
+\boxed{d<b<c<a}.
+$$
 
 The ordering is the same under the independently restarted phrase model.

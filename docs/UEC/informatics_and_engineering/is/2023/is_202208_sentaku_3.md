@@ -17,16 +17,20 @@ tags:
 ## **Description**
 
 1. 論理関数
+
    $$
    P(x,y,z)=\neg\{x\Rightarrow(y\land\neg z)\}
    $$
+
    の連言標準形、選言標準形、真理値表を求めよ。解答で用いる原卷の選択肢番号は $0:x$, $1:y$, $2:z$, $3:\neg x$, $4:\neg y$, $5:\neg z$, $6:\forall x$, $7:\exists x$, $8:\mathrm T$, $9:\mathrm F$ である（[公式 PDF 9 ページ](https://www.uec.ac.jp/education/graduate/admission/pdf/kako_j_choice202208.pdf#page=9)）。
 2. $C(x,y)$ の $x$ を行、$y$ を列（ともに $1,2,3,4$）とする次の格子について、下記の選択肢のうち真となる二命題をそれぞれ選べ。
+
    $$
    \text{図2}:\begin{pmatrix}0&0&1&0\\0&1&0&0\\0&0&0&1\\1&0&0&0\end{pmatrix},\quad
    \text{図3}:\begin{pmatrix}0&0&0&0\\1&1&1&1\\0&0&0&0\\0&0&0&0\end{pmatrix},\quad
    \text{図4}:\begin{pmatrix}1&0&0&1\\0&1&0&1\\0&1&0&1\\1&0&0&1\end{pmatrix}.
    $$
+
    選択肢は $0:\forall x\forall y\,C(x,y)=1$、$1:\forall x\exists y\,C(x,y)=1$、$2:\forall y\exists x\,C(x,y)=1$、$3:\exists x\forall y\,C(x,y)=1$、$4:\exists y\forall x\,C(x,y)=1$ である。
 3. $|X\cap Y|=|X\cup Y|$ と $X=Y$ の関係について、証明の空欄を埋めよ。
 
@@ -38,9 +42,11 @@ tags:
 4. 写像 $f:X\to X$ の像・逆像に関する包含関係を答え、
    $f^{-1}\circ f=f\circ f^{-1}$ が一般に成り立つか調べよ。
 5. $L_0=2,L_1=1,L_{n+1}=L_n+L_{n-1}$ に対し、
+
    $$
    L_n^2=L_{n-1}L_{n+1}+5(-1)^n
    $$
+
    を数学的帰納法で証明せよ。
 
 ### 题目描述

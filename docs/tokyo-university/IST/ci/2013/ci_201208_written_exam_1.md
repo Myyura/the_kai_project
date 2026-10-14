@@ -16,8 +16,15 @@ An English conversation school plans to make pairs of students and teachers for 
 (1) How many $p$-matches exist?
 
 (2) For $n = 5$, given a list of preferable teachers by students (Table 1)
-$$V = S \cup T$$
-$$E = \{xy \mid x \in S, y \in T, x \text{ prefers } y.\}$$
+
+$$
+V = S \cup T
+$$
+
+$$
+E = \{xy \mid x \in S, y \in T, x \text{ prefers } y.\}
+$$
+
 draw a graph $G = (V, E)$, and show a $p$-match which maximizes the number of students who are fulfilled.
 
 | Student | Teachers |

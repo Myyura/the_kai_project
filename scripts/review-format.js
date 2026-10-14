@@ -13,6 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const { validateTags } = require('./tag-taxonomy');
+const { analyzeDisplayMath } = require('./display-math-format');
 
 const DOCS_DIR = path.resolve(__dirname, '..', 'docs');
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -170,7 +171,7 @@ function getLineNumber(content, charIndex) {
 
 // ─── 检查规则 ───────────────────────────────────────────────
 
-function checkFile(filePath, content) {
+async function checkFile(filePath, content) {
   const issues = [];
   const lines = content.split('\n');
   const relPath = path.relative(path.resolve(__dirname, '..'), filePath).replace(/\\/g, '/');
@@ -300,39 +301,19 @@ function checkFile(filePath, content) {
     }
   }
 
-  // 6. 数学公式语法检查
-  // 6a. $$ 块未闭合（计算非代码块中的 $$ 数量）
-  let inCodeBlock = false;
-  let dollarDoubleCount = 0;
-  let dollarDoubleLines = [];
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (/^```/.test(line.trim())) {
-      inCodeBlock = !inCodeBlock;
-      continue;
-    }
-    if (inCodeBlock) continue;
-
-    // 计算该行中 $$ 的出现次数
-    const matches = line.match(/\$\$/g);
-    if (matches) {
-      dollarDoubleCount += matches.length;
-      dollarDoubleLines.push(i + 1);
-    }
-  }
-  if (dollarDoubleCount % 2 !== 0) {
+  // 6. 数学公式语法与外侧空行检查（忽略代码示例和 frontmatter）
+  const math = await analyzeDisplayMath(content);
+  for (const issue of math.issues) {
     issues.push({
-      severity: 'WARNING',
+      ...issue,
+      severity: issue.rule === 'math-unclosed-block' ? 'WARNING' : 'ERROR',
       file: relPath,
-      line: dollarDoubleLines[dollarDoubleLines.length - 1] || 1,
-      rule: 'math-unclosed-block',
-      message: `检测到 $$ 数量为奇数 (${dollarDoubleCount})，可能存在未闭合的数学公式块`,
     });
   }
 
   // 7. 标题层级跳跃检查
   let prevLevel = 0;
-  inCodeBlock = false;
+  let inCodeBlock = false;
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (/^```/.test(line.trim())) {
@@ -421,6 +402,10 @@ function generateMarkdownReport(allIssues, totalFiles) {
     'description-empty': 'Description 内容为空',
     'kai-empty': 'Kai 内容为空',
     'math-unclosed-block': '数学公式块未闭合',
+    'math-block-delimiter-line': '行间公式界定符未独占一行',
+    'math-block-blank-before': '行间公式前缺空行',
+    'math-block-blank-after': '行间公式后缺空行',
+    'math-block-inline-context': '标题或表格中的双美元公式',
     'heading-skip': '标题层级跳跃',
 
   };
@@ -496,7 +481,7 @@ function generateMarkdownReport(allIssues, totalFiles) {
 
 // ─── 主流程 ─────────────────────────────────────────────────
 
-function main() {
+async function main() {
   const jsonMode = process.argv.includes('--json');
   const scopedFiles = readScopedFiles();
   const mdFiles = scopedFiles || getAllMdFiles(DOCS_DIR);
@@ -509,7 +494,7 @@ function main() {
   const allIssues = [];
   for (const file of mdFiles) {
     const content = fs.readFileSync(file, 'utf-8');
-    const issues = checkFile(file, content);
+    const issues = await checkFile(file, content);
     allIssues.push(...issues);
   }
 
@@ -527,4 +512,11 @@ function main() {
   }
 }
 
-main();
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(`[review-format] ${error.message}`);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = {checkFile};

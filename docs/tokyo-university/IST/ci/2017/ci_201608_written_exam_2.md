@@ -93,11 +93,15 @@ A method would be to do a bitwise addition for $A=a_{n-1}\cdots a_1a_0$ and $B=b
 
 Use carry lookahead. Let $p_i=a_i\oplus b_i$ and $g_i=a_ib_i$. Then
 
-$$c_{i+1}=g_i+p_ic_i,\qquad s_i=p_i\oplus c_i.$$
+$$
+c_{i+1}=g_i+p_ic_i,\qquad s_i=p_i\oplus c_i.
+$$
 
 For example, $c_2=g_1+p_1g_0+p_1p_0c_0$. Instead of waiting for each preceding full adder, combine blocks with group propagate/generate pairs. For a lower block $(G_L,P_L)$ followed by an upper block $(G_H,P_H)$, their combined pair is
 
-$$(G_H+P_HG_L,\ P_HP_L).$$
+$$
+(G_H+P_HG_L,\ P_HP_L).
+$$
 
 This composition is associative, so a parallel prefix tree computes all carries in $O(\log n)$ gate depth with bounded-fan-in gates, compared with $O(n)$ for ripple carry. It uses more wiring and logic; the carries are computed in parallel, not omitted.
 
@@ -121,7 +125,9 @@ A method could be to use `F` as the input to the carry of the n-bit adder. As we
 
 Generate partial products $p_{ij}=a_i b_j$ with AND gates. Their weighted sum is
 
-$$M=\sum_{j=0}^{n-1}(A b_j)2^j=AB.$$
+$$
+M=\sum_{j=0}^{n-1}(A b_j)2^j=AB.
+$$
 
 Zero-extend the shifted rows to $2n$ bits and add them with full-adder chains or a carry-save reduction tree followed by a final carry-propagate adder. The maximum product is $(2^n-1)^2<2^{2n}$, so $2n$ output bits suffice.
 A method to compute multiplication would be using full adders and half adders in the following way:

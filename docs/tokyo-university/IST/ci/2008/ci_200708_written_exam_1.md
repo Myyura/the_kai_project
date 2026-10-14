@@ -16,7 +16,11 @@ Let $N$ be the number of divisors of a positive integer $J$. Let us compute the 
 (1) Calculate the smallest $J$ each for $N=5$ and $N=8$.
 
 (2) Let $J$ be prime factorized as
-$$J=\prod_{i=0}^{k-1}p_i^{a_i}$$
+
+$$
+J=\prod_{i=0}^{k-1}p_i^{a_i}
+$$
+
 where $p_i$s are mutually different prime numbers and $a_i$s are positive integers for $0\le i<k$. Describe $N$ in a mathematical formula.
 
 (3) When $N$ is odd, what kind of number is $J$?
@@ -52,7 +56,9 @@ $N=5$ のとき、5は素数なので $J=p^4$ に限られ、最小は $\boxed{1
 
 $J$ の各正の約数は $\prod_i p_i^{b_i}$（$0\le b_i\le a_i$）と一意に書ける。各指数の選び方は独立に $a_i+1$ 通りだから、
 
-$$\boxed{N=\prod_{i=0}^{k-1}(a_i+1)}.$$
+$$
+\boxed{N=\prod_{i=0}^{k-1}(a_i+1)}.
+$$
 
 $J=1$ の場合は空積を1とする。
 
@@ -66,7 +72,9 @@ $N$ が奇数なら各 $a_i+1$ が奇数、従って各 $a_i$ が偶数である
 
 したがって $N$ の乗法的分割
 
-$$N=d_0d_1\cdots d_{k-1},\quad d_0\ge d_1\ge\cdots\ge2$$
+$$
+N=d_0d_1\cdots d_{k-1},\quad d_0\ge d_1\ge\cdots\ge2
+$$
 
 を列挙し、$J=2^{d_0-1}3^{d_1-1}\cdots p_{k-1}^{d_{k-1}-1}$ の最小値を取る。各因子は2以上なので深さは $\lfloor\log_2N\rfloor$ 以下である。残りの積の約数だけを候補とし、因子を非増加にして重複を避け、途中の積が既知の最良値以上になった枝は打ち切る。
 

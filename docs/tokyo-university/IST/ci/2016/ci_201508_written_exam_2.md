@@ -159,17 +159,23 @@ $$
 
 Store-and-forward delivery takes $P+S$ for one data packet. ACK serialization is negligible, but ACK propagation still takes $P$. There are 1000 data deliveries and only 999 ACK waits before the receiver finishes the file. Therefore
 
-$$\boxed{T=1000(P+S)+999P=1009.507\ \mathrm{s}.}$$
+$$
+\boxed{T=1000(P+S)+999P=1009.507\ \mathrm{s}.}
+$$
 
 ### (4) Pipeline several packets
 
 Allow multiple packets to be outstanding, using sequence numbers and a sliding window. Pace packets to the satellite bottleneck's 8 ms serialization time, so new data can cross it while ACKs are still in flight. A window of at least
 
-$$\left\lceil\frac{2P+S}{0.008}\right\rceil=127$$
+$$
+\left\lceil\frac{2P+S}{0.008}\right\rceil=127
+$$
 
 packets supports this pacing. The first packet still takes $P+S$, and the remaining 999 arrive at 8 ms intervals, giving
 
-$$\boxed{T_{\rm pipeline}=P+S+999(0.008)=8.501008\ \mathrm{s}.}$$
+$$
+\boxed{T_{\rm pipeline}=P+S+999(0.008)=8.501008\ \mathrm{s}.}
+$$
 
 The per-packet ACK no longer stops every subsequent transmission. This calculation assumes sufficient buffering and no additional traffic or processing delay, as in the model.
 
@@ -181,4 +187,6 @@ The per-packet ACK no longer stops every subsequent transmission. This calculati
 
 For comparison, path $6\to5\to3\to2$ has delay 52 ms and serialization time 0.096 ms, so it is inferior under either metric. Using the improved path while retaining (3)'s stop-and-wait rule gives
 
-$$T=1999(0.051)+1000(0.000088)=\boxed{102.037\ \mathrm{s}}.$$
+$$
+T=1999(0.051)+1000(0.000088)=\boxed{102.037\ \mathrm{s}}.
+$$

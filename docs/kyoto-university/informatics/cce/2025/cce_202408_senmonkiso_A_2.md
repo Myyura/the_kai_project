@@ -73,19 +73,23 @@ We design a Moore-type synchronous sequential circuit that has a 1-bit input $x$
 回答全部问题。$\overline{\phantom{x}}$、$\cdot$、$+$、$\oplus$ 分别表示逻辑非、与、或、异或。
 
 1. 对
+
    $$
    f=((\bar a+\bar c+\bar d)(a+b+c+d))
    \oplus(\bar b\bar c\bar d+\bar a c d+b\bar c d+a\bar c\bar d)
    $$
+
    回答：
    1. 给出 $f$ 的所有最简与或式。
    2. 仅用三输入 NAND 门实现 $f$，使门数最少；可直接使用各变量及其反变量。
    3. 给出 $f$ 的所有最简或与式。
    4. 设
+
       $$
       g=\bar c\bar d+\bar a\bar b\bar c+\bar a b c+\bar a\bar b\bar d,
       \qquad r=\bar a\bar d.
       $$
+
       在所有满足 $f=(g\oplus h)+r$ 的 $h$ 中，求一种最简与或式，使乘积项数最少，并在此基础上文字数最少；若不存在则说明。
 2. 设计一个用 D 触发器实现、输入 $x$、输出 $z$ 均为 1 位的 Moore 同步时序电路。每当连续输入至少两个 $0$，或连续输入至少两个 $1$ 时，输出 $z$ 在下一时钟周期翻转。初态为此前输入是 $0$ 且 $z=0$，D 触发器初值均为 $0$。示例：
 
@@ -234,9 +238,11 @@ Since 4 states are required, the minimum number of D flip-flops is 2.
 Two D flip-flops are required. Let their present-state outputs be $q_1, q_0$, and their inputs be $d_1, d_0$, respectively.
 
 Using the state assignment
+
 $$
 S_{00}=00,\quad S_{01}=01,\quad S_{10}=10,\quad S_{11}=11,
 $$
+
 the excitation functions are
 
 $$

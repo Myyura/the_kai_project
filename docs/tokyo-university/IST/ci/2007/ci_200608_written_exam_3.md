@@ -104,11 +104,15 @@ $$
 
 $\rho=\sqrt{w_x^2+w_y^2}$, $h=w_z-l_0$ とおく。余弦定理より、
 
-$$D=\frac{\rho^2+h^2-l_1^2-l_2^2}{2l_1l_2}=\cos\theta_2.$$
+$$
+D=\frac{\rho^2+h^2-l_1^2-l_2^2}{2l_1l_2}=\cos\theta_2.
+$$
 
 よって到達可能条件は $|D|\le1$、すなわち
 
-$$|l_1-l_2|\le\sqrt{\rho^2+h^2}\le l_1+l_2$$
+$$
+|l_1-l_2|\le\sqrt{\rho^2+h^2}\le l_1+l_2
+$$
 
 である。まず $\rho>0$ の場合、$\sigma\in\{1,-1\}$ に対して
 
@@ -119,7 +123,9 @@ $$
 
 を選ぶ。さらに肘の2解を
 
-$$\boxed{\theta_2=\operatorname{atan2}\!\left(\varepsilon\sqrt{1-D^2},D\right),\quad\varepsilon\in\{1,-1\}}$$
+$$
+\boxed{\theta_2=\operatorname{atan2}\!\left(\varepsilon\sqrt{1-D^2},D\right),\quad\varepsilon\in\{1,-1\}}
+$$
 
 とし、
 
@@ -130,7 +136,9 @@ $$
 
 を得る。これは
 
-$$r+ih=e^{i\theta_1}(l_1+l_2e^{-i\theta_2})$$
+$$
+r+ih=e^{i\theta_1}(l_1+l_2e^{-i\theta_2})
+$$
 
 の偏角を取った式である。角度には $2\pi$ の整数倍を加えられ、実際の関節制限があれば適合する解を選ぶ。図のように $r\ge0$ の配置に限れば $\sigma=1$ を使う。
 
@@ -148,7 +156,9 @@ $$
 
 なので、保持のためにアクチュエータが与えるトルクは
 
-$$\boxed{\vec\tau=-J^{\mathsf T}\vec F}.$$
+$$
+\boxed{\vec\tau=-J^{\mathsf T}\vec F}.
+$$
 
 $F_r=F_x\cos\theta_0+F_y\sin\theta_0$ とおくと、具体的には
 

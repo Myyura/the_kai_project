@@ -32,17 +32,27 @@ $$
 ### 题目描述
 
 令 $V=M_3(\mathbb R)$ 为全体三阶实方阵构成的实向量空间，并定义子空间
+
 $$
 W=\{A\in V\mid A^T=-A\},
 $$
+
 即三阶实反对称矩阵空间。
 
 1. 求一组 $V$ 的基，使其中包含一组 $W$ 的基。
 2. 固定 $R\in M_3(\mathbb R)$，定义线性映射
-   $$f:V\to V,\qquad f(X)=R^TXR.$$
+
+   $$
+   f:V\to V,\qquad f(X)=R^TXR.
+   $$
+
    证明 $f(W)\subset W$。
 3. 取
-   $$R=\begin{pmatrix}-1&3&2\\2&0&-1\\-1&1&2\end{pmatrix},$$
+
+   $$
+   R=\begin{pmatrix}-1&3&2\\2&0&-1\\-1&1&2\end{pmatrix},
+   $$
+
    将 $f$ 在 $W$ 上的限制记为 $g$。求 $g$ 关于第 1 问所取 $W$ 基的表示矩阵 $S$。
 4. 求矩阵 $S$ 的全部特征值。
 

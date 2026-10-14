@@ -24,7 +24,11 @@ Assume we have $n$ different products $G_1, \dots, G_n$ ($n\ge2$) whose prices a
 Then solve the following questions.
 
 (1) Suppose we execute Algorithm 1 for the four products $G_1, G_2, G_3, G_4$ whose prices are $p_1=1, p_2=2, p_3=3, p_4=4$ respectively and $q_{\min}=8, q_{\max}=10$. The following sequence represents an example of the arguments of the "back" procedure invocations.
-$$(\epsilon, \{G_1, G_2, G_3, G_4\})\rightarrow(\langle G_4\rangle, \{G_1, G_2, G_3\})\rightarrow\dots$$
+
+$$
+(\epsilon, \{G_1, G_2, G_3, G_4\})\rightarrow(\langle G_4\rangle, \{G_1, G_2, G_3\})\rightarrow\dots
+$$
+
 Write an example of the arguments of the "back" procedure invocations succeeding to the above ones in the same format in which the execution of a "back" procedure goes back from Step 4 to Step 3 at least one time.
 
 (2) There are some techniques to execute Algorithm 1 efficiently by decreasing the number of invocations of the "back" procedure. One of them is to choose the element $G_{i_{k+1}}$ of $S$ whose price is the highest in Step 4. However, in some cases, this technique does not make the number of invocations the smallest. Show an example of such cases by describing the values of $n, p_i (i=1, \dots, n), q_{\min}, q_{\max}$ and the arguments of the "back" procedures along the invocations sequence in the same way as (1).
@@ -126,11 +130,15 @@ $$
 
 $t_0=1$。$l$ 個の候補を持つ呼出しでは、自分自身を1回数える。親の局所集合から候補を一つずつ永久に取り除くので、各再帰呼出しへ渡せる候補数の上限は順に $l-1,l-2,\ldots,0$ となる。したがって総数は
 
-$$t_l\le1+t_{l-1}+t_{l-2}+\cdots+t_0.$$
+$$
+t_l\le1+t_{l-1}+t_{l-2}+\cdots+t_0.
+$$
 
 最大の場合には、価格上限による候補の除去も途中での成功停止も起こらず、各子が残った全候補を受け取る。この場合に等号を達成できるので、
 
-$$\boxed{t_l=1+\sum_{i=0}^{l-1}t_i}.$$
+$$
+\boxed{t_l=1+\sum_{i=0}^{l-1}t_i}.
+$$
 
 これは特定の入力で常に等号になるという主張ではなく、入力と探索の全場合についての最大回数である。
 
@@ -138,6 +146,8 @@ $$\boxed{t_l=1+\sum_{i=0}^{l-1}t_i}.$$
 
 $l\ge2$ で前の式を引き算すると $t_l-t_{l-1}=t_{l-1}$、また $t_1=1+t_0=2$ だから、
 
-$$\boxed{t_l=2^l,\qquad t_n=2^n}.$$
+$$
+\boxed{t_l=2^l,\qquad t_n=2^n}.
+$$
 
 例えば相異なる $n$ 商品の価格を全て1、$q_{\min}=n$, $q_{\max}=n+1$ とすれば、どの部分集合も総額が $q_{\min}$ を超えず、追加候補は除去されない。全 $2^n$ 個の部分集合（空集合を含む）を探索して無解となり、この上界を実際に達成する。商品が相異なることは、価格も相異なることを意味しない。

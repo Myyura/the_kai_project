@@ -33,14 +33,25 @@ tags:
 ### 题目描述
 
 1. 对图 2(a) 电路，电源有效值 $E=100\,\mathrm V$，角频率 $\omega=100\pi\,\mathrm{rad/s}$，电流相量为 $I=|I|e^{j\theta}$（$-\pi/2\le\theta\le\pi/2$），且
-   $$L=\frac1{10\pi}\,\mathrm H,\qquad R=8\,\Omega,\qquad C=\frac1{200\pi}\,\mathrm F.$$
+
+   $$
+   L=\frac1{10\pi}\,\mathrm H,\qquad R=8\,\Omega,\qquad C=\frac1{200\pi}\,\mathrm F.
+   $$
+
    1. 求 $|I|$ 与 $\theta$；
    2. 求全电路有功功率 $P_e$、无功功率 $P_r$ 和功率因数 $\cos\theta$；
    3. 如图 2(b)，在 a–b 间并联电容 $C_S$，使功率因数为 1，求 $C_S$；
    4. 求补偿后全电路电阻元件消耗的功率；设电源总电流为 $I_S$，以 $E$ 为基准画出 $E,I,I_S$ 的相量图，并标明 $|E|,|I|,|I_S|,\theta$。
 2. 对图 2(c) 的互感电桥，给定
-   $$L_3=24\,\mu\mathrm H,\quad L_4=30\,\mu\mathrm H,$$
-   $$R_1=R_2=R_3=R_4=50\,\Omega,\quad R=100\,\Omega.$$
+
+   $$
+   L_3=24\,\mu\mathrm H,\quad L_4=30\,\mu\mathrm H,
+   $$
+
+   $$
+   R_1=R_2=R_3=R_4=50\,\Omega,\quad R=100\,\Omega.
+   $$
+
    当 a–b 间电势差为零时，求互感 $M$。
 
 ## **Kai** 

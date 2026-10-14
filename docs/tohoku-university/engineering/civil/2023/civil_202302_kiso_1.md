@@ -25,7 +25,11 @@ tags:
 ### 题目描述
 
 1. 对 $a,b>0$，计算
-   $$\lim_{x\to0}\left(\frac{a^x+b^x}{2}\right)^{1/x}.$$
+
+   $$
+   \lim_{x\to0}\left(\frac{a^x+b^x}{2}\right)^{1/x}.
+   $$
+
 2. 在极坐标变换 $x=r\cos\theta,\ y=r\sin\theta$ 下，求 $dx,dy$，并用 $r,dr,d\theta$ 表示 $x\,dy-y\,dx$。
 3. 对区域 $D=\{(x,y,z):y,z\ge0,\ z^2\le4x,\ y^2\le x-x^2\}$，说明其形状与积分范围，计算体积。
 4. 求微分方程 $y''-2y'+2y=e^x+2x$ 的通解。

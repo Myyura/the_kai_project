@@ -129,22 +129,28 @@ A = proc(A, 0)
 2. 第 27 行交换第 `i`、`s` 行，补全空格ア、イ。
 3. 第 28 行交换第 `j`、`s` 列，补全ウ、エ。
 4. 补全オ—キ，实现
+
    $$
    k=\left\lfloor\frac{A_{r,s}}{A_{s,s}}\right\rfloor,\qquad
    A_{r,n}\leftarrow A_{r,n}-A_{s,n}k\quad(n=1,\ldots,N).
    $$
+
 5. 补全ク—コ，实现
+
    $$
    k=\left\lfloor\frac{A_{s,c}}{A_{s,s}}\right\rfloor,\qquad
    A_{m,c}\leftarrow A_{m,c}-A_{s,c}k\quad(m=1,\ldots,M),
    $$
+
    具体数组切片须与上文程序一致。
 6. 写出第 21 行第二次执行时打印的 $A$。
 7. 写出程序运行结束前依次打印的全部矩阵 $A$。
 8. 把第 38 行恒真条件改为
+
    $$
    \sum_{m=s+1}^{M}|A_{m,s}|+\sum_{n=s+1}^{N}|A_{s,n}|=0,
    $$
+
    补全一行 NumPy 条件 `if [サ]:`，并写出修改后程序依次打印的全部 $A$。
 
 ## **Kai**

@@ -39,19 +39,25 @@ tags:
 
 変位電流を無視すると $\nabla\times\boldsymbol H=\boldsymbol J$。面 $S$ の境界を向きの整合する閉曲線 $C$ として、ストークスの定理より
 
-$$\boxed{\oint_C\boldsymbol H\cdot d\boldsymbol l=\int_S\boldsymbol J\cdot d\boldsymbol S=I_{\mathrm{enc}}}.$$
+$$
+\boxed{\oint_C\boldsymbol H\cdot d\boldsymbol l=\int_S\boldsymbol J\cdot d\boldsymbol S=I_{\mathrm{enc}}}.
+$$
 
 ### (2)
 
 $\nabla\times\boldsymbol E=-\partial\boldsymbol B/\partial t$ を固定した面 $S$ 上で積分して
 
-$$\boxed{\oint_C\boldsymbol E\cdot d\boldsymbol l=-\frac{d}{dt}\int_S\boldsymbol B\cdot d\boldsymbol S=-\frac{d\Phi}{dt}}.$$
+$$
+\boxed{\oint_C\boldsymbol E\cdot d\boldsymbol l=-\frac{d}{dt}\int_S\boldsymbol B\cdot d\boldsymbol S=-\frac{d\Phi}{dt}}.
+$$
 
 ### (3)
 
 管内外を通る長方形のアンペール経路をとる。長いソレノイドの外部磁場を無視すれば $HL=NI$ なので
 
-$$\boxed{H_1=\frac{NI_0}{L}\sin\omega t}.$$
+$$
+\boxed{H_1=\frac{NI_0}{L}\sin\omega t}.
+$$
 
 向きは巻線の電流に対する右ねじの方向である。
 
@@ -59,11 +65,15 @@ $$\boxed{H_1=\frac{NI_0}{L}\sin\omega t}.$$
 
 鎖交磁束から自己インダクタンスは $L_1=\mu_0N^2\pi r_1^2/L$。電源が自己誘導起電力に逆らって加える電圧を正とすると
 
-$$\boxed{V=L_1\dot I=\frac{\mu_0N^2\pi r_1^2}{L}\omega I_0\cos\omega t}.$$
+$$
+\boxed{V=L_1\dot I=\frac{\mu_0N^2\pi r_1^2}{L}\omega I_0\cos\omega t}.
+$$
 
 瞬時電力と周期平均電力は
 
-$$\boxed{P(t)=VI=\frac12 L_1\omega I_0^2\sin2\omega t},\qquad \boxed{\overline P=0}.$$
+$$
+\boxed{P(t)=VI=\frac12 L_1\omega I_0^2\sin2\omega t},\qquad \boxed{\overline P=0}.
+$$
 
 磁場への蓄積と電源への返還が交互に生じる。
 
@@ -71,11 +81,15 @@ $$\boxed{P(t)=VI=\frac12 L_1\omega I_0^2\sin2\omega t},\qquad \boxed{\overline P
 
 $C_2$ に鎖交するのは断面 $\pi r_2^2$ の磁束だから、相互インダクタンスは
 
-$$M=\frac{\mu_0N^2\pi r_2^2}{L}.$$
+$$
+M=\frac{\mu_0N^2\pi r_2^2}{L}.
+$$
 
 二次側の電圧極性を選んで
 
-$$\boxed{V_2=M\dot I=M\omega I_0\cos\omega t}.$$
+$$
+\boxed{V_2=M\dot I=M\omega I_0\cos\omega t}.
+$$
 
 端子の取り方を逆にすれば符号は逆になる。
 
@@ -83,15 +97,21 @@ $$\boxed{V_2=M\dot I=M\omega I_0\cos\omega t}.$$
 
 一次電流を引き続き指定の $I_0\sin\omega t$ に保つものとする。二次電流 $I_2$ の正方向を一次磁束の変化を打ち消す向きに選ぶと、$L_2=\mu_0N^2\pi r_2^2/L=M$ として
 
-$$L_2\dot I_2+RI_2=M\dot I.$$
+$$
+L_2\dot I_2+RI_2=M\dot I.
+$$
 
 定常状態で $\delta=\tan^{-1}(\omega L_2/R)$ とおけば
 
-$$I_2=\frac{\omega MI_0}{\sqrt{R^2+\omega^2L_2^2}}\cos(\omega t-\delta),\qquad V_2'=RI_2.$$
+$$
+I_2=\frac{\omega MI_0}{\sqrt{R^2+\omega^2L_2^2}}\cos(\omega t-\delta),\qquad V_2'=RI_2.
+$$
 
 従って二次端子電圧は開路時の $R/\sqrt{R^2+\omega^2L_2^2}$ 倍に小さくなり、位相が $\delta$ 遅れる。これは二次電流の作る磁場が元の磁束変化を打ち消すためである。一次電圧は $V'=L_1\dot I-M\dot I_2$ に変化し、平均供給電力は
 
-$$\boxed{\overline P'=R\overline{I_2^2}=\frac{R\omega^2M^2I_0^2}{2(R^2+\omega^2L_2^2)}>0}.$$
+$$
+\boxed{\overline P'=R\overline{I_2^2}=\frac{R\omega^2M^2I_0^2}{2(R^2+\omega^2L_2^2)}>0}.
+$$
 
 電源は負荷抵抗で消費されるジュール熱を補う。
 

@@ -126,12 +126,18 @@ $$
 Goods $G_1, G_2, \cdots, G_n$ have their weights $a_i$ and value $c_i$ ($i=1,\cdots,n$), respectively. The problem of packing the maximum total value of goods into a knapsack with a weight limit $b$ is called the knapsack problem, which can be generally formulated as
 
 [Problem A0]
-$$\begin{aligned} &\text{Maximize} &&c_1x_1+c_2x_2+\cdots+c_nx_n \\ &\text{Subject to} &&a_1x_1+a_2x_2+\cdots+a_nx_n \le b \\ & &&x_i \in \{1, 0\}, i=1, \cdots, n \text{ ($x_i=1$ when $G_i$ is packed into the knapsack.)} \end{aligned}$$
+
+$$
+\begin{aligned} &\text{Maximize} &&c_1x_1+c_2x_2+\cdots+c_nx_n \\ &\text{Subject to} &&a_1x_1+a_2x_2+\cdots+a_nx_n \le b \\ & &&x_i \in \{1, 0\}, i=1, \cdots, n \text{ ($x_i=1$ when $G_i$ is packed into the knapsack.)} \end{aligned}
+$$
 
 Here, we specifically consider the following knapsack problem [Problem A1].
 
 [Problem A1]
-$$\begin{aligned} &\text{Maximize} &&14x_1+22x_2+30x_3+9x_4+12x_5 \\ &\text{Subject to} &&2x_1+4x_2+6x_3+2x_4+3x_5 \le 9 \\ & &&x_1, \cdots, x_5 \in \{1, 0\} \end{aligned}$$
+
+$$
+\begin{aligned} &\text{Maximize} &&14x_1+22x_2+30x_3+9x_4+12x_5 \\ &\text{Subject to} &&2x_1+4x_2+6x_3+2x_4+3x_5 \le 9 \\ & &&x_1, \cdots, x_5 \in \{1, 0\} \end{aligned}
+$$
 
 The most straightforward approach to this problem is the enumeration method, in which all the cases are generated and evaluated. Although the number of possible cases in [Problem A1] is $2^5$ and fully within a computable range, this number grows exponentially as the number of possible goods $n$ increases. Then, we here try to achieve efficient searches through two methods, namely, (1) the branch and bound method and (2) dynamic programming.
 

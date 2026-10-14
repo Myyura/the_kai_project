@@ -24,11 +24,13 @@ tags:
 以下、安定な円運動のまわりを考える。
 
 4. $r=r_0(1+\epsilon x)$、$\phi=\Omega_0t+\epsilon y$、$\epsilon\ll1$ とおく。一次の摂動方程式を
+
 $$
 \begin{pmatrix}\ddot x\\\ddot y\end{pmatrix}
 +\mathsf M\begin{pmatrix}\dot x\\\dot y\end{pmatrix}
 +\mathsf N\begin{pmatrix}x\\y\end{pmatrix}=0
 $$
+
 と書き、$\mathsf M,\mathsf N$ を $\Omega_0,\alpha$ で表せ。
 5. $(x,y)=(A,B)e^{i\omega t}$、$\omega\ne0$ として $\omega$ と $\Omega_0$ の関係を導け。
 6. 摂動方程式の右辺に $(f_x,f_y)=-k(x,y)$ を加える。これは半径 $r_0$ で等速回転するバネに質点をつけた場合に対応する。$k>0$ でも $\omega$ が純虚数となり指数増大する条件を、$k$ について表せ。
@@ -47,61 +49,82 @@ $$
 ## **Kai**
 
 ### (1)
+
 $$
 \boxed{L=\frac12(\dot r^2+r^2\dot\phi^2)+\frac C{r^\alpha}},
 $$
+
 $$
 \boxed{\ddot r-r\dot\phi^2+\frac{\alpha C}{r^{\alpha+1}}=0,
 \qquad\frac d{dt}(r^2\dot\phi)=0}.
 $$
+
 ### (2)
 角運動量 $\ell=r^2\dot\phi$ は保存されるから
+
 $$
 \boxed{V_{\rm eff}(r)=\frac{\ell^2}{2r^2}-\frac C{r^\alpha}}.
 $$
+
 無限遠でゼロにできる範囲は $\alpha>0$（円運動の存在条件とも一致）である。
 ### (3)
 円運動には $r_0\Omega_0^2=\alpha C/r_0^{\alpha+1}$ が必要なので
+
 $$
 \boxed{\Omega_0^2=\frac{\alpha C}{r_0^{\alpha+2}}}.
 $$
+
 円軌道上で $V_{\rm eff}''(r_0)=(2-\alpha)\Omega_0^2$。径方向の摂動 $\delta r$ は
+
 $$
 \delta\ddot r+(2-\alpha)\Omega_0^2\delta r=0
 $$
+
 に従うから、存在条件と合わせて $\boxed{0<\alpha<2}$。$\alpha=2$ では $\delta r=A+Bt$ に永年増大があり、安定とはいえない。
 ### (4)
 一次まで展開すると
+
 $$
 \ddot x-2\Omega_0\dot y-(\alpha+2)\Omega_0^2x=0,
 \qquad\ddot y+2\Omega_0\dot x=0.
 $$
+
 したがって
+
 $$
 \boxed{\mathsf M=\begin{pmatrix}0&-2\Omega_0\\2\Omega_0&0\end{pmatrix},\qquad
 \mathsf N=\begin{pmatrix}-(\alpha+2)\Omega_0^2&0\\0&0\end{pmatrix}}.
 $$
+
 ### (5)
 振幅の非自明解の条件は
+
 $$
 \det\begin{pmatrix}-\omega^2-(\alpha+2)\Omega_0^2&-2i\omega\Omega_0\\2i\omega\Omega_0&-\omega^2\end{pmatrix}
 =\omega^2[\omega^2-(2-\alpha)\Omega_0^2]=0.
 $$
+
 ゆえに非零の振動数は $\boxed{\omega^2=(2-\alpha)\Omega_0^2}$。
 ### (6)
 $X=\omega^2$ とおくと
+
 $$
 X^2-[2k+(2-\alpha)\Omega_0^2]X+k[k-(\alpha+2)\Omega_0^2]=0.
 $$
+
 従って
+
 $$
 X_\pm=k+\frac{2-\alpha}{2}\Omega_0^2
 \pm\frac12\sqrt{16k\Omega_0^2+(2-\alpha)^2\Omega_0^4}.
 $$
+
 $k>0$ では根は実数、和は正なので、負の根が生じるのは積が負のときに限る。
+
 $$
 \boxed{0<k<(\alpha+2)\Omega_0^2}.
 $$
+
 この範囲で $X_-<0$、$e^{\sqrt{-X_-}t}$ の増大解がある。境界ではゼロ振動数が現れるが指数増大はない。
 
 ## **Reference**

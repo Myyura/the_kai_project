@@ -116,21 +116,26 @@ _________________
 ### 题目描述
 
 考虑量子力学二能级系统，观测量由 $2\times2$ Hermitian 矩阵表示。定义
+
 $$
 \sigma_z=\begin{pmatrix}1&0\\0&-1\end{pmatrix},
 \qquad
 \sigma_x=\begin{pmatrix}0&1\\1&0\end{pmatrix},
 $$
+
 $$
 \sigma(\theta)
 =(\cos\theta)\sigma_z+(\sin\theta)\sigma_x,
 $$
+
 并用
+
 $$
 |\uparrow\rangle=\begin{pmatrix}1\\0\end{pmatrix},
 \qquad
 |\downarrow\rangle=\begin{pmatrix}0\\1\end{pmatrix}
 $$
+
 表示基态。
 
 1. 在状态 $|\uparrow\rangle$ 中测量 $\sigma_z$，求可能结果
@@ -140,6 +145,7 @@ $$
    $s_\theta$ 及其期望。
 
 再考虑由两个二能级子系统 $A,B$ 组成的复合系统。每次重新制备 singlet 态
+
 $$
 |\Psi\rangle
 =\frac1{\sqrt2}
@@ -148,6 +154,7 @@ $$
 -|\downarrow\rangle_A|\uparrow\rangle_B
 \right),
 $$
+
 并在相互分离的位置分别测量 $A,B$。
 
 4. 每次分别测量 $\sigma_z^A,\sigma_z^B$。列出可能的结果对
@@ -165,12 +172,15 @@ $$
    $(s^A,s^B)$ 的可能值，求乘积 $s^As^B$ 的期望并证明它为 $0$。
 
 最后检验如下确定论假设：每次实验中，即使某个观测量实际上未被测量，三个候选角度的结果
+
 $$
 (s^A_{0^\circ},s^A_{120^\circ},s^A_{240^\circ}),
 \qquad
 (s^B_{0^\circ},s^B_{120^\circ},s^B_{240^\circ})
 $$
+
 也都已预先确定，且同角度结果满足
+
 $$
 s^A_{0^\circ}=-s^B_{0^\circ},\quad
 s^A_{120^\circ}=-s^B_{120^\circ},\quad

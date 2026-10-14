@@ -19,9 +19,11 @@ tags:
 中心力ポテンシャル $V(|\boldsymbol r|)$ 中の質点の運動においてエネルギー $E=\boldsymbol p^2/(2m)+V(|\boldsymbol r|)$ や角運動量 $\boldsymbol l=\boldsymbol r\times\boldsymbol p$ は運動の定数となる。すなわち，それらの値は運動の間一定である。ここで，$m$，$\boldsymbol r=(x,y,z)$，$\boldsymbol p=(p_x,p_y,p_z)$ は，それぞれ質点の質量，$x$–$y$–$z$ 直交座標系の原点から測った位置ベクトル，運動量である。$|\boldsymbol r|$ は $\boldsymbol r$ の長さである。以下の問に答えよ。
 
 (1)
+
 $$
 V(|\boldsymbol r|)=\begin{cases}0&|\boldsymbol r|>a\\-U&|\boldsymbol r|\le a\end{cases}\quad(U>0,a>0)
 $$
+
 で定義されたポテンシャル中での初期条件 $\boldsymbol r=(0,-b,d)$，$\boldsymbol p=(0,p_0,0)$ に対する運動を考える。ここで，$b>a>d>0$ であり，$p_0>0$ である。Fig. 5(a) の点線はこの運動の軌道の概略図である。
 
 - (a) 質点のエネルギー $E$ と角運動量 $\boldsymbol l$ を求めよ。

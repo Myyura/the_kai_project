@@ -72,10 +72,12 @@ $$
 
 1. 求 $S$ 上每一点 $(x,y,z)$ 处的外向单位法向量 $\mathbf n$。
 2. 证明在 $S$ 上
+
    $$
    \mathbf F\cdot\mathbf n
    =\sqrt{4x^2+9y^2+36z^2}.
    $$
+
 3. 求上述曲面积分。
 
 ## Kai

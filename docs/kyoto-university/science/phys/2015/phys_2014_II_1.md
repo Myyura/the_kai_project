@@ -52,62 +52,87 @@ $y'=dy/dx$ とする。
 
 ### (1)
 部分積分して端点項を消すと
+
 $$
 \delta T=\int_a^b\left(\frac{\partial L}{\partial y}-\frac d{dx}\frac{\partial L}{\partial y'}\right)\delta y\,dx.
 $$
+
 任意の $\delta y$ に対しゼロなので
+
 $$
 \boxed{\frac d{dx}\frac{\partial L}{\partial y'}-\frac{\partial L}{\partial y}=0}.
 $$
+
 ### (2)
 $L$ は $x$ を陽に含まないため
+
 $$
 \boxed{\frac d{dx}(y'L_{y'}-L)=y'\left(\frac d{dx}L_{y'}-L_y\right)=0}.
 $$
+
 ### (3)
 エネルギー保存 $mV^2/2+mgy=0$ より
+
 $$
 \boxed{V=\sqrt{-2gy}}\qquad(y\le0).
 $$
+
 ### (4)
+
 $$
 \boxed{L(y,y')=\sqrt{\frac{1+y'^2}{-2gy}}}.
 $$
+
 ### (5)
+
 $$
 y'L_{y'}-L=-\frac1{\sqrt{-2gy(1+y'^2)}}=\text{一定}.
 $$
+
 正定数 $C$ を導入すれば $-y(1+y'^2)=C$、すなわち
+
 $$
 \boxed{y'=\pm\sqrt{-\frac Cy-1}}.
 $$
+
 ### (6)
 $1+\cot^2\theta=\csc^2\theta$ より
+
 $$
 \boxed{y(\theta)=-C\sin^2\theta}\qquad(0\le\theta\le\pi).
 $$
+
 ### (7)
+
 $$
 \frac{dx}{d\theta}=2C\sin^2\theta,
 \qquad x=C\left(\theta-\frac12\sin2\theta\right)+D.
 $$
+
 $x(0)=0,x(\pi)=a$ より $D=0,C=a/\pi$。したがって最速降下曲線はサイクロイドの一弧
+
 $$
 \boxed{x=\frac a\pi\left(\theta-\frac12\sin2\theta\right),\qquad
 y=-\frac a\pi\sin^2\theta}.
 $$
+
 途中で地表に再び接する多重の弧は所要時間を増加させるので、一弧を選ぶ。
 ### (8)
 $\theta=\pi/2$ で最も深く、
+
 $$
 \boxed{(x,y)=\left(\frac a2,-\frac a\pi\right)}.
 $$
+
 ### (9)
 $ds/d\theta=2C\sin\theta$、$V=\sqrt{2gC}\sin\theta$ より
+
 $$
 \boxed{T=\int_0^\pi\sqrt{\frac{2C}g}\,d\theta=\sqrt{\frac{2\pi a}g}}.
 $$
+
 ### (10)
+
 $$
 T=\sqrt{\frac{2\pi\times10^6}{9.8}}\,\mathrm s\simeq800.7\,\mathrm s,
 \qquad\boxed{T=8.0\times10^2\,\mathrm s}.

@@ -41,7 +41,7 @@ const TOOLBAR_ACTIONS = [
   { key: 'quote', Icon: FaQuoteLeft, before: '> ', after: '', placeholder: '', lineStart: true },
   { key: 'list', Icon: FaListUl, before: '- ', after: '', placeholder: '', lineStart: true },
   { key: 'math', label: '$', before: '$', after: '$', placeholder: 'x^2' },
-  { key: 'displayMath', label: '$$', before: '\n$$\n', after: '\n$$\n', placeholder: '\\int_0^1 f(x)\\,dx' },
+  { key: 'displayMath', label: '$$', before: '\n\n$$\n', after: '\n$$\n\n', placeholder: '\\int_0^1 f(x)\\,dx' },
 ];
 
 function NoteGate({ t, type = 'login' }) {

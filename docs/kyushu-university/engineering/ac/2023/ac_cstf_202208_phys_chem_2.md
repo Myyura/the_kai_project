@@ -29,9 +29,11 @@ $$
 4. 最大放射波長 $\lambda_{\max}$ に対する関係 $hc/(\lambda_{\max}kT)=5$ から、$T$ と $\lambda_{\max}$ の反比例関係の名称を答える。
 5. (4) を用い、太陽の $\lambda_{\max}=490\,\mathrm{nm}$ から温度を求める。$h=6.63\times10^{-34}\,\mathrm{J\,s}$、$k=1.38\times10^{-23}\,\mathrm{J\,K^{-1}}$、$c=3.00\times10^8\,\mathrm{m\,s^{-1}}$ とする。
 6. アインシュタイン模型のモル振動エネルギー
+
    $$
    U_{\mathrm m}=\frac{3N_Ah\nu}{e^{h\nu/(kT)}-1}
    $$
+
    から $C_{V,\mathrm m}=(\partial U_{\mathrm m}/\partial T)_V$ を導く。$kT\gg h\nu$ と $kT\ll h\nu$ の近似式も求める。$\nu$ は振動数、$N_A$ はアボガドロ定数である。
 
 出典：[九州大学 令和5年度 機能物質化学系科目試験 物理化学2](https://www.cstf.kyushu-u.ac.jp/burger_editor/burger_editor/dl/2__5Luk5ZKM77yV5bm05bqm5L_u5aOr5YWl5a2m6Kmm6aiT5ZWP6aGM.pdf)。

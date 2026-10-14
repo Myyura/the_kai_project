@@ -51,11 +51,13 @@ $$
    $$
    1-\sigma(x)=\sigma(-x).
    $$
+
 2. 证明其导数可写为
 
    $$
    \frac{d}{dx}\sigma(x)=\sigma(x)\bigl(1-\sigma(x)\bigr).
    $$
+
 3. sigmoid 函数 $\sigma$ 的反函数称为 **logit 函数**。证明
 
    $$

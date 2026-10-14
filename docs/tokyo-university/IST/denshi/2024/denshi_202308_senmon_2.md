@@ -128,7 +128,9 @@ $S_1^+$
 |11|d|d|d|d|
 |10|0|0|0|1|
 
-$$S_1^+=I_1\overline{I_0}$$
+$$
+S_1^+=I_1\overline{I_0}
+$$
 
 $S_0^+$
 
@@ -139,7 +141,9 @@ $S_0^+$
 |11|d|d|d|d|
 |10|0|1|0|0|
 
-$$S_0^+=\overline{I_1}I_0$$
+$$
+S_0^+=\overline{I_1}I_0
+$$
 
 $Z$
 
@@ -150,7 +154,9 @@ $Z$
 |11|d|d|d|d|
 |10|0|1|1|0|
 
-$$Z=\overline{S_1}\,\overline{S_0}\,\overline{I_0}+S_1I_0$$
+$$
+Z=\overline{S_1}\,\overline{S_0}\,\overline{I_0}+S_1I_0
+$$
 
 Here $I_1=X_1$, $I_0=X_0$, and $d$ denotes the unused state. Initialize $(S_1,S_0)=(0,1)$.
 

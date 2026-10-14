@@ -53,26 +53,34 @@ Answer the following questions.
 设 $\Sigma$ 为有限字母表，$\varepsilon$ 为空串。对
 $w_1,w_2\in\Sigma^*$，递归定义它们的洗牌（shuffle）
 $w_1\otimes w_2\subseteq\Sigma^*$：
+
 $$
 \varepsilon\otimes w=w\otimes\varepsilon=\{w\},
 $$
+
 且对 $a,b\in\Sigma$、$w_1,w_2\in\Sigma^*$，
+
 $$
 (aw_1)\otimes(bw_2)
 =\{aw\mid w\in w_1\otimes(bw_2)\}
 \cup
 \{bw\mid w\in(aw_1)\otimes w_2\}.
 $$
+
 对语言 $L_1,L_2\subseteq\Sigma^*$，定义
+
 $$
 L_1\otimes L_2
 =\bigcup_{w_1\in L_1,\ w_2\in L_2}w_1\otimes w_2.
 $$
+
 例如
+
 $$
 \{ab,ba\}\otimes\{\varepsilon,c\}
 =\{ab,cab,acb,abc,ba,cba,bca,bac\}.
 $$
+
 回答下列问题。
 
 （1）计算 $\{a,bb\}\otimes\{ab,cc\}$。

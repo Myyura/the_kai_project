@@ -19,6 +19,7 @@ tags:
 Fig. 6 に示すように $[111]$ 方向を回転軸とする回転操作 $C_3$（反時計回りに $2\pi/3$ 回転）および $C_3^{-1}$（時計回りに $2\pi/3$ 回転）を考える。$3$ 次元空間中の位置ベクトルを $\boldsymbol r=x\boldsymbol i+y\boldsymbol j+z\boldsymbol k$（$\boldsymbol i,\boldsymbol j,\boldsymbol k$ は $3$ 次元直交座標系の各軸方向の単位ベクトル）とし，関数 $f_m$（$m=1,2,3$）をそれぞれ $f_1(\boldsymbol r)=yz,\ f_2(\boldsymbol r)=zx,\ f_3(\boldsymbol r)=xy$ とする。この時，$C_3f_m(\boldsymbol r)=f_m(C_3^{-1}\boldsymbol r)$，すなわち $C_3f_m(x\boldsymbol i+y\boldsymbol j+z\boldsymbol k)=f_m(y\boldsymbol i+z\boldsymbol j+x\boldsymbol k)$ が成り立つ。以下の問に答えよ。ただし $i$ は虚数単位である。
 
 (1) 以下の式中の $\alpha,\beta,\gamma$ に当てはまる関数を $f_1(\boldsymbol r),f_2(\boldsymbol r),f_3(\boldsymbol r)$ の中から答えよ。
+
 $$
 C_3f_1(\boldsymbol r)=\alpha,\quad C_3f_2(\boldsymbol r)=\beta,\quad C_3f_3(\boldsymbol r)=\gamma.
 $$
@@ -26,29 +27,37 @@ $$
 (2) 関数 $f_1,f_2,f_3$ を基底として $C_3$ 操作を表す行列 $D_f$ を求めよ。ただし，$(C_3f_1,C_3f_2,C_3f_3)=(f_1,f_2,f_3)D_f$ である。
 
 (3) 関数 $g_1,g_2,g_3$ を $f_1,f_2,f_3$ の線形結合
+
 $$
 g_1=\frac1{\sqrt6}(2f_1-f_2-f_3),\quad g_2=\frac1{\sqrt2}(f_2-f_3),\quad g_3=\frac1{\sqrt3}(f_1+f_2+f_3)
 $$
+
 と定義する。$f_1,f_2,f_3$ を $g_1,g_2,g_3$ へ移す基底変換行列 $S$ を求めよ。ただし，$(g_1,g_2,g_3)=(f_1,f_2,f_3)S$ である。
 
 (4) $S$ が直交行列であることを示し，$S$ の逆行列 $S^{-1}$ を求めよ。
 
 (5) 関数 $g_1,g_2,g_3$ を基底とする場合，$C_3$ 操作を表す行列 $D_g$（$=S^{-1}D_fS$）は
+
 $$
 D_g=\begin{pmatrix}\cos(2\pi/3)&-\sin(2\pi/3)&0\\\sin(2\pi/3)&\cos(2\pi/3)&0\\0&0&1\end{pmatrix}
 $$
+
 と表されることを導け。
 
 (6) 関数 $h_1,h_2,h_3$ を $g_1,g_2,g_3$ の線形結合
+
 $$
 h_1=\frac1{\sqrt2}(g_1-ig_2),\quad h_2=\frac1{\sqrt2}(g_1+ig_2),\quad h_3=g_3
 $$
+
 と定義する。$g_1,g_2,g_3$ を $h_1,h_2,h_3$ へ移す基底変換行列 $T$ とその逆行列 $T^{-1}$ を求めよ。
 
 (7) 関数 $h_1,h_2,h_3$ を基底とする場合，$C_3$ 操作を表す行列を $D_h$ とする。この時 $C_3$ を $N$ 回繰り返す操作を表す行列 $(D_h)^N$ は
+
 $$
 (D_h)^N=\begin{pmatrix}e^{2\pi iN/3}&0&0\\0&e^{-2\pi iN/3}&0\\0&0&1\end{pmatrix}
 $$
+
 と表されることを導け。ただし $N$ は $0$ もしくは正の整数である。
 
 ### 题目描述

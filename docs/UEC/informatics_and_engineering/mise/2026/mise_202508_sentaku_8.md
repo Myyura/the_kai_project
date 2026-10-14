@@ -23,9 +23,11 @@ tags:
 ### 問2
 
 1. 反時計回りの円 $C:|z-i|=2$ に沿う積分
+
    $$
    \oint_C\frac{2(z-i)}{z(z-2i)}\,dz
    $$
+
    を求めよ。
 2. 自然数 $n$ に対して $\displaystyle\int_0^{2\pi}\cos^{2n}\theta\,d\theta$ を求めよ。
 

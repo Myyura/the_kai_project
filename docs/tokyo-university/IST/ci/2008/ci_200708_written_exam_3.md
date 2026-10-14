@@ -17,7 +17,11 @@ Consider a method to find equations of two straight boundary lines of the two-co
 </figure>
 
 (1) The line $L_0$ that passes the point $(x_0, y_0)$ as in Fig. 3 is described as
-$$y=a_0x+b_0.$$
+
+$$
+y=a_0x+b_0.
+$$
+
 The point $P_0(a_0, b_0)$ of the $a$-$b$ parameter coordinates (Fig. 4) shows the line $L_0$. Explain what the parameters of $a_0, b_0$ mean in the $x$-$y$ coordinates.
 
 <figure style="text-align:center;">
@@ -56,7 +60,9 @@ $a_0$ は直線の傾き $\Delta y/\Delta x$、$b_0$ は $y$ 軸との交点の 
 
 点 $(x_0,y_0)$ を通る条件は $y_0=ax_0+b$ だから、パラメータ平面での軌跡は
 
-$$\boxed{b=-x_0a+y_0}.$$
+$$
+\boxed{b=-x_0a+y_0}.
+$$
 
 これは傾き $-x_0$、$b$ 切片 $y_0$ の直線である。$x_0=0$ なら水平線となる。元の直線が垂直になる方向では $a$ が発散するため、この座標表示ではその方向を有限点として含められない。
 
@@ -64,7 +70,9 @@ $$\boxed{b=-x_0a+y_0}.$$
 
 三つの軌跡はそれぞれ
 
-$$\boxed{b=-x_i a+y_i\quad(i=1,2,3)}$$
+$$
+\boxed{b=-x_i a+y_i\quad(i=1,2,3)}
+$$
 
 となる。元の3点を通る直線を $y=a_*x+b_*$ とすれば、各式に $a=a_*$ を代入して $b=b_*$ が得られる。したがって3本のパラメータ直線は共通点 $(a_*,b_*)$ をもつ。元の点が相異なり、共通の直線が垂直でなければ、この共通点は一意である。
 
@@ -76,7 +84,9 @@ $$\boxed{b=-x_i a+y_i\quad(i=1,2,3)}$$
 
 まず $(a,b)$ 空間を格子に区切り、投票数を0にする。図2の各点 $(x_j,y_j)$ について、許容する各傾き $a$ に対する $b=y_j-ax_j$ を計算し、対応する格子へ1票を加える。同一直線上の点は同じパラメータ付近へ投票するため、2本の境界線に対応する2個のピークが生じる。近接ピークの重複を除いて大きなピーク $(a_1,b_1),(a_2,b_2)$ を選び、
 
-$$\boxed{y=a_1x+b_1,\qquad y=a_2x+b_2}$$
+$$
+\boxed{y=a_1x+b_1,\qquad y=a_2x+b_2}
+$$
 
 を得る。量子化誤差や点の雑音があるため、ピークに近い直線を支持する点を集め、直交距離を最小にする直線当てはめで精密化してもよい。図には座標付きの実測点が与えられていないので、数値的な傾き・切片を一意には計算できない。
 

@@ -24,15 +24,19 @@ tags:
 
 1. $x>0$ で定義された $y(x)$ について、$x\,dy/dx=(x-1)y$ の一般解と、$y(1)=1$ を満たす解を求める。
 2. $a>0$ として、領域 $x^2+y^2/4\le a^2$ 上の積分
+
    $$
    I=\iint\sqrt{9a^2-x^2-y^2/4}\,dx\,dy
    $$
+
    を計算する。
 3. 正則行列
+
    $$
    A=\begin{pmatrix}a&-2\\-2&3\end{pmatrix},\qquad
    B=\begin{pmatrix}1&b\\b&-2\end{pmatrix}
    $$
+
    について、① $\det(AB)$、② $A$ の固有値が $-1,4$ かつ $AB=BA$ の場合の $a,b$、③ $B$ の固有ベクトルが $(2,4)^{\mathsf T},(2,-1)^{\mathsf T}$ の場合の $B^n$（正整数 $n$）を求める。
 
 ### 题目描述

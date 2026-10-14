@@ -25,6 +25,7 @@ Consider a server that can only handle one request at a time.
 
 Let $P_n(t)$ be the probability that there are $n$ requests in the system (waiting + being served) at time $t$.
 The boundary condition for an empty system is given by:
+
 $$
 P_0(t+\Delta t) = P_0(t)(1 - \lambda \Delta t) + P_1(t) \mu \Delta t
 $$

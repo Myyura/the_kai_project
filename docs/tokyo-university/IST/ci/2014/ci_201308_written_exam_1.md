@@ -25,15 +25,26 @@ In the above setting, answer the following questions.
 (1) Assume that the senior predictor defines the weight $v_i^{(t)}$ of the $i$-th predictor on the $t$-th day so that the ratio of $v_i^{(t)}$s with respect to $i$ is equal to that of their corresponding likelihoods with respect to the sequence of the past $t-1$ data: $x^{t-1} = x_1 \dots x_{t-1}$. That is, when we denote the likelihood of the $i$-th predictor with respect to $x^{t-1}$ as $w_i^{(t-1)}$,
 
 the following equation holds: For each $t$,
-$$ v_1^{(t)} : \dots : v_N^{(t)} = w_1^{(t-1)} : \dots : w_N^{(t-1)}. $$
+
+$$
+v_1^{(t)} : \dots : v_N^{(t)} = w_1^{(t-1)} : \dots : w_N^{(t-1)}.
+$$
+
 The likelihood of the $i$-th predictor with respect to $x^{t-1}$ is calculated as $w_i^{(t-1)} = \prod_{j=1}^{t-1} P_i^{(j)}(X = x_j)$, where we denote $P_i^{(j)}(X = x_j)$ as $P_i^{(j)}(x_j)$ and we set $P_i^{(0)}(x_0) = 1$ ($i = 1, \dots, N$).
 In this setting, for each $i$, show a relation between $w_i^{(t)}$ and $w_i^{(t-1)}$, and derive a formula for calculating $v_i^{(t+1)}$ using $w_i^{(t-1)}$ and $P_i^{(t)}(x_t)$ ($i = 1, \dots, N$).
 
 (2) Suppose that the senior predictor predicts the weather probability distribution sequentially with respect to $t$ for $T$ days. Then under the setting of $v_i^{(t)}$ as in (1), write an algorithm for the senior predictor to output a weather probability distribution and update the weights for predictors every day, and show the order of its computation time in terms of $N$ and $T$. Here the initial weight for each predictor is set as follows:
-$$ v_1^{(0)} = \dots = v_N^{(0)} = 1/N. $$
+
+$$
+v_1^{(0)} = \dots = v_N^{(0)} = 1/N.
+$$
 
 (3) When the prediction is sequentially made for $T$ days, we define the cumulative predictive loss for the senior predictor with respect to the sequence $x^T = x_1 \dots x_T$ of observed real coutcome as follows:
-$$ Loss(x^T) = \sum_{t=1}^T \left( -\log \hat{P}^{(t)}(x_t) \right). $$
+
+$$
+Loss(x^T) = \sum_{t=1}^T \left( -\log \hat{P}^{(t)}(x_t) \right).
+$$
+
 Then write $Loss(x^T)$ as a function of $P_i^{(t)}(x_t)$ ($i = 1, \dots, N, t = 1, \dots, T$) and $N$. Here the logarithm is the natural logarithm.
 
 (4) Prove that the senior predictor's cumulative loss for $T$ days defined in (3) is at most $\log N$ larger than the least cumulative loss over all $i$-th predictors for $T$ days. Here the cumulative loss for the $i$-th predictor for $T$ days is defined as $\sum_{t=1}^T (-\log P_i^{(t)}(x_t))$ ($i = 1, \dots, N$).

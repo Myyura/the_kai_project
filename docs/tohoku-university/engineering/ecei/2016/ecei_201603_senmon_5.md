@@ -38,9 +38,11 @@ PUSH 3; BRANCHZ (PUSH 4; END) (PUSH 5; PUSH 6; SUB; END)
 
 - (a) 整数定数式 $n$ に対し，$\operatorname{compile}(n)$ を書き下せ。
 - (b) $e_1,e_2$ および $e_3$ を式とし，命令 $\operatorname{compile}(e_1),\operatorname{compile}(e_2)$ および $\operatorname{compile}(e_3)$ が存在すると仮定する。このとき $\operatorname{compile}((\mathrm{ifz}\ e_1\ \mathrm{then}\ e_2\ \mathrm{else}\ e_3))$ を $\operatorname{compile}(e_1),\operatorname{compile}(e_2),\operatorname{compile}(e_3)$ および $\triangleleft$ を用いて表せ。また，命令
+
 $$
 \operatorname{compile}(((\mathrm{ifz}\ 1\ \mathrm{then}\ 2\ \mathrm{else}\ 3)-4))
 $$
+
 を具体的に書き下せ。計算の過程も示すこと。
 - (c) 式 $e$ の構文木のサイズに対し，$\operatorname{compile}(e)$ の構文木のサイズが指数関数的に大きくなる場合が存在するかを判定し，その根拠を示せ。
 

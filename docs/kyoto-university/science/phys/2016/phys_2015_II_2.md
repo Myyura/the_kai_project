@@ -14,10 +14,12 @@ tags:
 ## **Description**
 
 質量 $m$ の一粒子が一次元ポテンシャル
+
 $$
 V(x)=\begin{cases}-U&b\le|x|\le a+b,\\0&|x|<b\ \text{または}\ |x|>a+b\end{cases}
 \qquad(U>0,a>0,b\ge0)
 $$
+
 に束縛される。実波動関数 $\phi$ は $-\hbar^2\phi''/(2m)+V\phi=E\phi$、$E<0$ を満たし、正または負パリティを持つ。$a,U$ を固定して $b$ を変化させる。
 
 1. $b=0$ では幅 $2a$、深さ $U$ の井戸となる。$\gamma=\sqrt{-2mE}/\hbar$、$\beta=\sqrt{2m(E+U)}/\hbar$ とし、各パリティについて $\gamma$ を $\beta,a$ で表せ。
@@ -48,40 +50,53 @@ $$
 
 ### (1)
 井戸内の解は正パリティで $A\cos\beta x$、負パリティで $A\sin\beta x$。$x>a$ では減衰解 $Be^{-\gamma(x-a)}$ であり、$x=a$ における対数微分の一致から
+
 $$
 \boxed{\gamma=\beta\tan\beta a\quad(\text{正}),\qquad
 \gamma=-\beta\cot\beta a\quad(\text{負})}.
 $$
+
 ### (2a)
 正パリティでは
+
 $$
 \boxed{\phi_0=\frac{\phi_a}{\cos\beta a},\qquad |\phi_0|>|\phi_a|}.
 $$
+
 束縛状態では $\gamma>0$ なので $|\cos\beta a|<1$。負パリティでは
+
 $$
 \boxed{\phi_0=0,\qquad |\phi_0|<|\phi_a|}.
 $$
+
 ### (2b)
 $|x|<b$ に $+U$、$a<|x|<a+b$ に $-U$ のポテンシャル変化がある。したがって
+
 $$
 \Delta E^{(1)}=2U\left[\int_0^b(\phi^{(0)})^2dx-\int_a^{a+b}(\phi^{(0)})^2dx\right]
 =\boxed{2Ub(\phi_0^2-\phi_a^2)+O(b^2)}.
 $$
+
 正パリティでは増加、負パリティでは減少する。
 ### (3a)
+
 $$
 \boxed{\frac{\phi(x)}{\phi(a+b)}=e^{-\gamma[x-(a+b)]}\longrightarrow1}
 $$
+
 である。これは固定された有限の $x$ での極限であり、閾値解自体は全空間で規格化できない。
 ### (3b)
 $E=V=0$ の中央区で $\phi''=0$、負パリティから定数項はゼロ。
+
 $$
 \boxed{\frac{\phi(x)}{\phi(b)}=\frac xb}.
 $$
+
 ### (3c)
 中央区の負パリティ解は $E<0$ で $\sinh\gamma x$ に比例し、節は原点だけ。外側の指数関数に節はない。残る $2n$ 個は左右の井戸に対称に分布するから、右井戸内には $\boxed{n\text{ 個}}$。
 ### (3d)
 $a+b_c$ で値 1、微分ゼロとなるようにすると、正の半軸上の閾値解は
+
 $$
 \boxed{\phi(x)=\begin{cases}
 (x/b_c)\cos(\beta_0a)&0\le x\le b_c,\\
@@ -89,13 +104,16 @@ $$
 1&x\ge a+b_c,
 \end{cases}\qquad\phi(-x)=-\phi(x)}.
 $$
+
 $n=1$ では右井戸内に節が一つあり、中央で負の傾き、左右の外側でそれぞれ $-1,+1$ に平坦になる。例として $\beta_0a=5\pi/4$ を選ぶと、右井戸内で $-1$ の極小を一度とり、その後ゼロを横切って $+1$ へ達する。
 ### (3e)
 $x=b_c$ の微分の連続性より
+
 $$
 \frac{\cos(\beta_0a)}{b_c}=\beta_0\sin(\beta_0a),
 \qquad\boxed{b_c=\frac{\cot(\beta_0a)}{\beta_0}}.
 $$
+
 $b=0$ で $2n+1$ 個の束縛状態を持つ範囲では $n\pi<\beta_0a\le(n+1/2)\pi$、したがって $b_c\ge0$。端点では $b_c=0$ として極限をとる。
 
 ![奇パリティ状態の束縛閾値](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/2016-II-2-threshold-state.svg)

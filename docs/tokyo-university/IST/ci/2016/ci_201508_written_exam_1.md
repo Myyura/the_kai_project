@@ -22,12 +22,14 @@ tags:
 </figure>
 
 例として2進1桁カウンタを考えよう。このカウンタはCLK信号の立ち上がりの前のカウンタ値を$c$、立ち上がり後のカウンタ値を$c'$とすると、CLK信号の立ち上がり時に
+
 $$
 \begin{cases}
 \text{EN信号がHなら } c' = (c+1) \bmod 2 \\
 \text{EN信号がLなら } c' = c
 \end{cases}
 $$
+
 となる。ここで$mod$演算子は正の剰余を返す。この2進1桁のカウンタの状態遷移図の例を図3に、状態遷移表の例を表1に示す。ここでS0, S1はそれぞれカウンタ値を0,1とする状態とする。
 
 <figure style="text-align:center;">
@@ -37,21 +39,25 @@ $$
 以下の設問に答えよ。
 
 (1) CLK信号の立ち上がり時に
+
 $$
 \begin{cases}
 \text{EN信号がHなら } c' = (c+1) \bmod 3 \\
 \text{EN信号がLなら } c' = c
 \end{cases}
 $$
+
 となるような3進1桁カウンタの状態遷移図および状態遷移表を示せ。状態遷移図と状態遷移表は例と異なるフォーマットを用いてもかまわない。
 
 (2) 設問(1)のカウンタをアップダウンカウンタに拡張しよう。EN信号の代わりにアップダウン信号 (UD信号) を入力とし、CLK信号の立ち上がり時に
+
 $$
 \begin{cases}
 \text{UD信号がHなら } c' = (c+1) \bmod 3 \\
 \text{UD信号がLなら } c' = (c-1) \bmod 3
 \end{cases}
 $$
+
 となる3進1桁アップダウンカウンタの状態遷移図および状態遷移表を示せ。状態遷移図と状態遷移表は例と異なるフォーマットを用いてもかまわない。
 
 以下の部品を組み合わせ、設問(1)と設問(2)で示したカウンターを実現しよう。部品A, B, C, D, Eの入力、出力を図4に示す。入力値と出力値の関係をそれぞれ表2, 3, 4, 5, 6に記す。部品Eでは、CLK信号の立ち上がり直前の入力Iの値が、立ち上がり後出力Oに設定される。一般に部品A, B, C, D, Eは、それぞれNOT, AND, OR, XOR, D-フリップフロップと呼ばれる。
@@ -90,12 +96,14 @@ Let's make a base-$k$ 1-digit counter using electronic components. Here, let $k$
 </figure>
 
 As an example, let's consider a base-2 1-digit counter. Let $c$ be the counter value before the rising edge of the CLK signal, and $c'$ be the counter value after the rising edge. At the rising edge of the CLK signal:
+
 $$
 \begin{cases}
 \text{If EN signal is H, } c' = (c+1) \bmod 2 \\
 \text{If EN signal is L, } c' = c
 \end{cases}
 $$
+
 Here, the $mod$ operator returns a positive remainder. An example of the state transition diagram for this base-2 1-digit counter is shown in Figure 3, and an example of the state transition table is shown in Table 1. Here, S0 and S1 are states where the counter value is 0 and 1, respectively.
 
 <figure style="text-align:center;">
@@ -105,21 +113,25 @@ Here, the $mod$ operator returns a positive remainder. An example of the state t
 Answer the following questions.
 
 (1) Show the state transition diagram and state transition table for a base-3 1-digit counter such that at the rising edge of the CLK signal:
+
 $$
 \begin{cases}
 \text{If EN signal is H, } c' = (c+1) \bmod 3 \\
 \text{If EN signal is L, } c' = c
 \end{cases}
 $$
+
 You may use a format different from the example for the state transition diagram and state transition table.
 
 (2) Let's extend the counter in question (1) to an up-down counter. Taking an up-down signal (UD signal) as input instead of the EN signal, show the state transition diagram and state transition table for a base-3 1-digit up-down counter such that at the rising edge of the CLK signal:
+
 $$
 \begin{cases}
 \text{If UD signal is H, } c' = (c+1) \bmod 3 \\
 \text{If UD signal is L, } c' = (c-1) \bmod 3
 \end{cases}
 $$
+
 You may use a format different from the example for the state transition diagram and state transition table.
 
 Let's realize the counters shown in questions (1) and (2) by combining the following components. The inputs and outputs of components A, B, C, D, and E are shown in Figure 4. The relationships between input values and output values are described in Tables 2, 3, 4, 5, and 6, respectively. In component E, the value of input I immediately before the rising edge of the CLK signal is set to output O after the rising edge. Generally, components A, B, C, D, and E are called NOT, AND, OR, XOR, and D-Flip-Flop, respectively.

@@ -40,7 +40,11 @@ tags:
 2. 利用电容电压连续性，求切换后瞬间 $t=0^+$ 的 $i(t)$ 与 $v_1(t)$。
 3. 求 $t>0$ 时电流 $i(t)$ 的 Laplace 变换 $I(s)$。
 4. 当
-   $$R_1=3\,\Omega,\quad R_2=2\,\Omega,\quad C_1=C_2=1\,\mathrm F,\quad E=15\,\mathrm V$$
+
+   $$
+   R_1=3\,\Omega,\quad R_2=2\,\Omega,\quad C_1=C_2=1\,\mathrm F,\quad E=15\,\mathrm V
+   $$
+
    时，求 $t>0$ 的 $i(t)$。
 5. 使用第 4 问参数，求 $t>0$ 内阻值为 $R_1$ 的电阻消耗的总能量。
 

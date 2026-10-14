@@ -42,17 +42,23 @@ tags:
 
 端点に働く線張力の、ABに垂直な成分を合計すると
 
-$$2T\sin\theta=\tau bl,\qquad \boxed{T=\frac{\tau bl}{2\sin\theta}}.$$
+$$
+2T\sin\theta=\tau bl,\qquad \boxed{T=\frac{\tau bl}{2\sin\theta}}.
+$$
 
 ### (3)
 
 線張力は転位の長さを増すのに必要なエネルギーであり、$T=E_d=Gb^2$。従って
 
-$$\tau=\frac{2Gb}{l}\sin\theta.$$
+$$
+\tau=\frac{2Gb}{l}\sin\theta.
+$$
 
 半円形の $\theta=\pi/2$ で最大となり、
 
-$$\boxed{\tau_{\mathrm c}=\frac{2Gb}{l}}.$$
+$$
+\boxed{\tau_{\mathrm c}=\frac{2Gb}{l}}.
+$$
 
 ### (4)
 
@@ -68,7 +74,9 @@ $$\boxed{\tau_{\mathrm c}=\frac{2Gb}{l}}.$$
 
 本問のせん断降伏応力を増殖開始応力とおくと
 
-$$k=\tau_{\mathrm c}=\frac{2Gb}{l}=\boxed{2Gb\sqrt{\rho_d}}.$$
+$$
+k=\tau_{\mathrm c}=\frac{2Gb}{l}=\boxed{2Gb\sqrt{\rho_d}}.
+$$
 
 したがって $k\propto\sqrt{\rho_d}$。引張降伏応力への換算には結晶方位等の係数が別途必要である。
 

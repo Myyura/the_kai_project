@@ -28,14 +28,18 @@ $G$ の部分グラフ $H$ における節点 $u$ から節点 $v$ への最短�
 设 $G=(V,E)$ 为由顶点集 $V$ 和边集 $E$ 构成的连通简单无向图，$N(u)$ 表示顶点 $u$ 的邻接点集合。对 $G$ 的子图 $H$，以 $\operatorname{dist}_H(u,v)$ 表示 $H$ 中从 $u$ 到 $v$ 的最短路边数，以 $\sigma_H(u,v)$ 表示这类最短路的总条数。选定起点 $s\in V$，令 $T$ 为从 $s$ 进行广度优先搜索得到的 $G$ 的生成树。回答：
 
 1. 利用 $T$，在 $O(|V|)$ 时间内计算
+
    $$
    d_{\max}=\max\{\operatorname{dist}_G(s,u)\mid u\in V\}
    $$
+
    以及每一层
+
    $$
    V_i=\{u\in V\mid\operatorname{dist}_G(s,u)=i\},
    \quad i=0,1,\ldots,d_{\max}.
    $$
+
 2. 给出在 $O(|E|)$ 时间内计算所有 $\{\sigma_G(s,u)\mid u\in V\}$ 的方法。
 3. 对给定的 $t\in V\setminus\{s\}$ 和 $A\subseteq V\setminus\{s,t\}$，在 $O(|E|)$ 时间内计算从 $s$ 到 $t$ 且至少经过一个 $A$ 中顶点的最短路条数。
 4. 对同样的 $t,A$，在 $O(|E|)$ 时间内判定是否存在从 $s$ 到 $t$ 且至少经过两个 $A$ 中顶点的最短路。

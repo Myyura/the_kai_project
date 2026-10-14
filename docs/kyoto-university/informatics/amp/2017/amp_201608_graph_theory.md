@@ -45,14 +45,18 @@ and explain how Dijkstra’s algorithm fails.
 设 $G=(V,E)$ 是简单强连通有向图，网络 $N=[G,w]$ 由给每条弧 $e\in E$ 赋予非负实权 $w(e)$ 得到。用 $(u,v)$ 表示从顶点 $u$ 指向 $v$ 的弧，其权重也记作 $w(u,v)$；$\operatorname{dist}(u,v)$ 定义为 $N$ 中从 $u$ 到 $v$ 的简单有向路的最小总权重。回答：
 
 1. 设 $S\subseteq V$、$s\in S$。在所有从 $S$ 指向 $V\setminus S$ 的弧 $(u,v)$ 中，选取使
+
    $$
    \operatorname{dist}(s,u)+w(u,v)
    $$
+
    最小的 $(u^*,v^*)$。证明
+
    $$
    \operatorname{dist}(s,v^*)=
    \operatorname{dist}(s,u^*)+w(u^*,v^*).
    $$
+
 2. 证明以任意 $s\in V$ 为起点的 Dijkstra 算法可在 $N$ 上实现为 $O(|E|\log|V|)$ 时间。
 3. 若在 $N$ 中加入一条负权弧，Dijkstra 算法的输出可能不再是正确的最短距离。构造一个满足 $3\le |V|\le4$ 的具体例子，并说明算法如何失效。
 

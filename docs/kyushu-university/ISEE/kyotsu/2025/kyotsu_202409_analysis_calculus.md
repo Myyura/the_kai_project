@@ -44,19 +44,25 @@ $$
 ### 题目描述
 
 1. 设 $a,b>0$，$\mathbb R$ 为实数集。对椭圆区域
+
    $$
    D=\left\{(x,y)\in\mathbb R^2\ \middle|
    \frac{x^2}{a^2}+\frac{y^2}{b^2}\le1\right\},
    $$
+
    计算
+
    $$
    \iint_D(x^2+y^2)\,dx\,dy.
    $$
+
 2. 使用拉普拉斯变换求解初值问题
+
    $$
    y''+4y=\cosh x-\sinh x,\qquad
    y(0)=2,\quad y'(0)=3,
    $$
+
    其中 $y'$ 表示 $y(x)$ 对 $x$ 的一阶导数。
 3. 令 $z=x+iy$，其中 $x,y$ 为实数、$i=\sqrt{-1}$。
    - 求使 $e^{2x}(\cos ay+i\sin ay)$ 为全纯函数的实数 $a$；

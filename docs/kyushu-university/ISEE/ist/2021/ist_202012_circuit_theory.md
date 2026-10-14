@@ -141,6 +141,7 @@ R &= \frac{\sqrt{3}}{2} \times \frac{2\sqrt{3}}{3} = 1
 $$
 
 #### (2)
+
 $$
 i(t) = \sin(2t + \frac{\pi}{6}),I = e^{j\frac{\pi}{6}}
 $$

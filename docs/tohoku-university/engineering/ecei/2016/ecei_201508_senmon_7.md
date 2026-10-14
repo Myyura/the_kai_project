@@ -17,13 +17,17 @@ tags:
 ### 日本語版
 
 区間 $-\infty<x<+\infty$ における実変数 $x$ の関数
+
 $$
 f(x)=\exp\left(-\frac{x^2}{\alpha}\right)
 $$
+
 とそのフーリエ変換
+
 $$
 F(\omega)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)\exp(-i\omega x)\,dx
 $$
+
 を考える。ここで，$i$ は虚数単位，$\alpha$ は正の実数である。以下の問に答えよ。
 
 必要に応じて $\int_{-\infty}^{\infty}\exp(-ax^2)=\sqrt{\pi/a}$ を用いよ。ここで，$a$ は正の実数である。
@@ -39,9 +43,11 @@ $$
 (5) $2$ つの関数 $g(x)$ と $h(x)$ の畳み込み積分は $f(x)=\int_{-\infty}^{\infty}g(y)h(x-y)dy$ と定義され，$f(x),g(x),h(x)$ のフーリエ変換をそれぞれ $F(\omega),G(\omega),H(\omega)$ としたとき，$F(\omega)=\sqrt{2\pi}G(\omega)H(\omega)$ と表せる。
 
 積分方程式
+
 $$
 \int_{-\infty}^{\infty}g(y)\exp\left(-\frac{(x-y)^2}{2}\right)dy=\exp\left(-\frac{x^2}{8}\right)
 $$
+
 の解 $g(x)$ を求めよ。
 
 ### 题目描述

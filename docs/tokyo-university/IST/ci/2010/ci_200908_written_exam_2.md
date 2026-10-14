@@ -87,7 +87,9 @@ $$
 
 $\Sigma_A$ を計算の基準とし、$A=0$, $B=\mathbf b=(\ell,0,0)^{\mathsf T}$ と置く。右手系の正の回転を採用すると、
 
-$$R_y(\alpha)=\begin{pmatrix}\cos\alpha&0&\sin\alpha\\0&1&0\\-\sin\alpha&0&\cos\alpha\end{pmatrix}.$$
+$$
+R_y(\alpha)=\begin{pmatrix}\cos\alpha&0&\sin\alpha\\0&1&0\\-\sin\alpha&0&\cos\alpha\end{pmatrix}.
+$$
 
 $\mathbf P=\mathbf P_A=\mathbf P_B$ に対し、$A$ 基準での2本の単位視線を
 
@@ -98,11 +100,15 @@ $$
 
 とする。求める点は
 
-$$d_A\mathbf u=\mathbf b+d_B\mathbf v$$
+$$
+d_A\mathbf u=\mathbf b+d_B\mathbf v
+$$
 
 を満たす。$\gamma=\mathbf u^{\mathsf T}\mathbf v$, $a=\mathbf u^{\mathsf T}\mathbf b$, $b=\mathbf v^{\mathsf T}\mathbf b$ と略し、両視線との内積を取ると
 
-$$d_A-\gamma d_B=a,\qquad \gamma d_A-d_B=b.$$
+$$
+d_A-\gamma d_B=a,\qquad \gamma d_A-d_B=b.
+$$
 
 従って $|\gamma|<1$ なら
 
@@ -125,11 +131,15 @@ $$
 
 とする。正の距離 $d_M,d_N$ が存在して
 
-$$\boxed{d_M\mathbf u-d_N\mathbf v=\mathbf b}$$
+$$
+\boxed{d_M\mathbf u-d_N\mathbf v=\mathbf b}
+$$
 
 となることが条件である。非平行な視線について距離を消去すると、
 
-$$\boxed{\mathbf b^{\mathsf T}(\mathbf u\times\mathbf v)=0}$$
+$$
+\boxed{\mathbf b^{\mathsf T}(\mathbf u\times\mathbf v)=0}
+$$
 
 という共面条件（エピポーラ条件）を得る。ただし、交点が前方にあるかは正の距離を別途確認する。平行な視線ではこの式は自動的に0になるため、それだけでは十分ではなく、$\mathbf b\times\mathbf u=0$ と半直線同士の重なりを調べる必要がある。
 
@@ -152,13 +162,17 @@ $$
 
 最近点を $Q_M^*=\mathbf M_W+d_M\mathbf u$, $Q_N^*=\mathbf N_W+d_N\mathbf v$ とすると、その中点
 
-$$\boxed{\widehat{\mathbf Q}_W=\frac{Q_M^*+Q_N^*}{2}}$$
+$$
+\boxed{\widehat{\mathbf Q}_W=\frac{Q_M^*+Q_N^*}{2}}
+$$
 
 を再構成点として採用する。これは2本の視線を対等に扱う最近点法である。視線が交わらない場合、$d_M,d_N$ は各視線上の最近点までのパラメータであり、中点までの厳密な距離とは一般に異なる。
 
 観測誤差によって上の解に負の成分が出る場合、それを物理的な「距離」として使ってはならない。$d_M,d_N\ge0$ を課し、内部解が可行ならそれを使う。そうでなければ、境界候補
 
-$$(d_M,d_N)=(\max(0,a),0),\qquad(0,\max(0,-b))$$
+$$
+(d_M,d_N)=(\max(0,a),0),\qquad(0,\max(0,-b))
+$$
 
 で $J$ を比較し、小さい方を選ぶ（原点が最適になる場合も0との最大値により扱える）。$|\gamma|=1$ は退化しており、一意な深度推定はできない。
 

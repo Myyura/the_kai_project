@@ -46,18 +46,24 @@ $$
 - (2) Obtain the solution for  $f(x) = e^{2x}$ . e is the base of the natural logarithm.
 - (Q.2) Let y(x) be a function satisfying the differential equation
 
-$$\frac{\mathrm{d}y}{\mathrm{d}x} = \frac{x+y-1}{x+y+1}.$$
+$$
+\frac{\mathrm{d}y}{\mathrm{d}x} = \frac{x+y-1}{x+y+1}.
+$$
 
 - (1) Changing variables as x + y = u, obtain the differential equation that x and u satisfy and y is not included.
 - (2) Obtain the function f(u) that satisfies x = f(u) by solving the differential equation. Use C for an arbitrary constant.
 
 (Q.3) Calculate the following indefinite integral and write down the expression that fills the blank space. a is a non-zero constant.
 
-$$\int e^x \sin ax \, dx = \boxed{\phantom{expression}}(\sin ax-a\cos ax).$$
+$$
+\int e^x \sin ax \, dx = \boxed{\phantom{expression}}(\sin ax-a\cos ax).
+$$
 
 (Q.4) Consider an ellipse on a xy Cartesian coordinate system:
 
-$$\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,$$
+$$
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,
+$$
 
 where a and b are non-zero positive constants.
 
@@ -65,11 +71,15 @@ where a and b are non-zero positive constants.
 - (2) Let the points where the tangent line intersects the x-axis and y-axis be A and B, respectively. Find the minimum length of the line segment AB.
 - (Q.5) Consider the following multiple integral over the region D enclosed by the ellipse given in (Q.4):
 
-$$\iint_{\mathcal{D}} (x^2 + y^2) \, \mathrm{d}x \mathrm{d}y.$$
+$$
+\iint_{\mathcal{D}} (x^2 + y^2) \, \mathrm{d}x \mathrm{d}y.
+$$
 
 (1) Obtain the Jacobian for the change of variables using r and  $\theta$ :
 
-$$x = ar\cos\theta, \quad y = br\sin\theta.$$
+$$
+x = ar\cos\theta, \quad y = br\sin\theta.
+$$
 
 (2) Calculate the multiple integral above.
 
@@ -79,7 +89,9 @@ Answer the following questions.
 
 (Q.1) Consider a real square matrix A given by
 
-$$A = \left(\begin{array}{cc} \alpha & \beta \\ 1 - \alpha & 1 - \beta \end{array}\right),$$
+$$
+A = \left(\begin{array}{cc} \alpha & \beta \\ 1 - \alpha & 1 - \beta \end{array}\right),
+$$
 
 where  $0 < \alpha < 1$ ,  $0 < \beta < 1$ . Answer the following questions. Omit the derivations and write only the answers.
 
@@ -96,19 +108,25 @@ Note that n and m are positive integers,  $\boldsymbol{x}$  is an n-dimensional 
 
 (Q.3) Consider a real square matrix C given by
 
-$$C = \begin{pmatrix} c_{11} & c_{12} & c_{13} \\ c_{21} & c_{22} & c_{23} \\ c_{31} & c_{32} & c_{33} \end{pmatrix}.$$
+$$
+C = \begin{pmatrix} c_{11} & c_{12} & c_{13} \\ c_{21} & c_{22} & c_{23} \\ c_{31} & c_{32} & c_{33} \end{pmatrix}.
+$$
 
 Assume the eigenvalues of matrix C are  $\gamma_1$ ,  $\gamma_2$ , and  $\gamma_3$  ( $\gamma_1 < \gamma_2 < \gamma_3$ ). Answer the following questions.
 
 (1) Express the following in terms of  $\gamma_1$ ,  $\gamma_2$ , and  $\gamma_3$ :
 
-$$\sum_{1 \le i < j \le 3} (c_{ii}c_{jj} - c_{ij}c_{ji}).$$
+$$
+\sum_{1 \le i < j \le 3} (c_{ii}c_{jj} - c_{ij}c_{ji}).
+$$
 
 Omit the derivations and write only the answer.
 
 (2) Show that the following holds:
 
-$$\det\left(\sum_{k=0}^{\infty} \frac{1}{k!} C^k\right) = e^{\gamma_1 + \gamma_2 + \gamma_3},$$
+$$
+\det\left(\sum_{k=0}^{\infty} \frac{1}{k!} C^k\right) = e^{\gamma_1 + \gamma_2 + \gamma_3},
+$$
 
 where e is the base of the natural logarithm,  $k! = k \cdot (k - 1) \cdots 2 \cdot 1$  is the factorial of k, and det is the determinant. Show the derivations.
 
@@ -135,8 +153,13 @@ Consider four point masses with mass m which move along a straight line. As show
 
 The Fourier transform of a real function f(t) and its inverse Fourier transform are, respectively, defined as
 
-$$F(\omega) = \mathcal{F}[f(t)] = \int_{-\infty}^{\infty} f(t) e^{-i\omega t} dt,$$
-$$\mathcal{F}^{-1}[F(\omega)] = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{i\omega t} d\omega,$$
+$$
+F(\omega) = \mathcal{F}[f(t)] = \int_{-\infty}^{\infty} f(t) e^{-i\omega t} dt,
+$$
+
+$$
+\mathcal{F}^{-1}[F(\omega)] = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{i\omega t} d\omega,
+$$
 
 where t and  $\omega$  are real numbers, e is the base of the natural logarithm, and i is the imaginary unit. A real function g(t) is defined as  $g(t) = \begin{cases} \mathrm{e}^{-at}, & t \geq 0 \\ 0, & t < 0, \end{cases}$ 
 
@@ -155,7 +178,9 @@ $$
 - (i) Obtain the pole in Im z > 0 and the residue at the pole of the integrand of Eq. (1).
 - (ii) Calculate the integral
 
-$$\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{\omega^2 + a^2} d\omega,$$
+$$
+\int_{-\infty}^{\infty} \frac{e^{i\omega t}}{\omega^2 + a^2} d\omega,
+$$
 
 by applying the residue theorem to Eq. (1). You may use the fact that the contribution of the integral along  $C_2$  vanishes as  $R \to \infty$ .
 
@@ -181,7 +206,9 @@ where e is the base of the natural logarithm and  $\lambda$  is a positive param
 - (3) Consider two random variables  $S_2 = X_1 + X_2$  and  $S_3 = X_1 + X_2 + X_3$ . Obtain the probability density functions of  $S_2$  and  $S_3$ , denoted as  $f_{S_2}(x)$  and  $f_{S_3}(x)$ , respectively.
 - (4) Consider a sum of n random variables  $S_n = \sum_{k=1}^n X_k$ . Derive the probability density function of  $S_n$ , denoted as  $f_{S_n}(x)$ . You may use the following formula:
 
-$$m! = \int_0^\infty t^m e^{-t} dt,$$
+$$
+m! = \int_0^\infty t^m e^{-t} dt,
+$$
 
 where m is a natural number, t is a real number, and  $m! = m \cdot (m-1) \cdots 2 \cdot 1$  represents the factorial of m.
 
@@ -203,23 +230,34 @@ Answer the following questions. Use the vacuum permittivity  $\varepsilon_0$  an
 
 current densities 0 are expressed as follows.
 
-$$\nabla \times \mathbf{E} + \partial \mathbf{B} / \partial t = 0,$$
-$$\nabla \times \mathbf{B} - \varepsilon_0 \mu_0 \partial \mathbf{E} / \partial t = 0.$$
+$$
+\nabla \times \mathbf{E} + \partial \mathbf{B} / \partial t = 0,
+$$
+
+$$
+\nabla \times \mathbf{B} - \varepsilon_0 \mu_0 \partial \mathbf{E} / \partial t = 0.
+$$
 
 Write the wave equation for E. You may use the vector formula  $\nabla \times (\nabla \times F) = \nabla (\nabla \cdot F) - \nabla^2 F$  if necessary.
 
 (Q.4) When the solutions to the wave equation for E and B can be expressed as follows, find the relationship between  $\omega$  and k.
 
-$$E(x,t) = e_1 E_0 \sin(k \cdot x - \omega t),$$
+$$
+E(x,t) = e_1 E_0 \sin(k \cdot x - \omega t),
+$$
   
 
-$$B(x,t) = e_2 B_0 \sin(k \cdot x - \omega t).$$
+$$
+B(x,t) = e_2 B_0 \sin(k \cdot x - \omega t).
+$$
 
 In addition, find the phase velocity  $v_p$  of this wave. Note that k is a real wavenumber vector, x is a coordinate vector,  $\omega$  is a frequency (real number) and  $e_1$  and  $e_2$  are unit vectors. Here, k,  $e_1$  and  $e_2$  are perpendicular to each other.
 
 - (Q.5) Find the relationship between  $E_0$ ,  $B_0$ , and the phase velocity  $v_p$  obtained in the previous question.
 - (Q.6) When the energy u of the electromagnetic field per unit volume can be expressed as follows, find the energy and the Poynting vector averaged over a cycle.
 
-$$u = \varepsilon_0 |\mathbf{E}|^2 / 2 + |\mathbf{B}|^2 / 2\mu_0.$$
+$$
+u = \varepsilon_0 |\mathbf{E}|^2 / 2 + |\mathbf{B}|^2 / 2\mu_0.
+$$
 
 (Q.7) When the average energy flux of the sunlight is 1.4 kW/m<sup>2</sup>, calculate the average energy density and the amplitudes of the electric field and magnetic field to one significant digit. Let  $\varepsilon_0 = 8.9 \times 10^{-12}$  F/m and  $\mu_0 = 1.3 \times 10^{-6}$  H/m.

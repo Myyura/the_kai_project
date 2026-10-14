@@ -15,9 +15,11 @@ tags:
 ## **Description**
 
 非相対論的速度 $u\ll c$ で運動する電子の加速度を $\dot{\boldsymbol u}$ とする。加速度から角 $\theta$ の方向の単位ベクトルを $\boldsymbol n$ とし、距離 $R$ の遠方の放射電場は
+
 $$
 \boldsymbol E=-\frac e{4\pi\epsilon_0Rc^2}\boldsymbol n\times(\boldsymbol n\times\dot{\boldsymbol u})
 $$
+
 である。$e>0$ は素電荷。各量は遅延時刻で評価されるが、電子位置の変化による遅延時刻の差は無視し、記号を省く。必要なら $c,\epsilon_0,e,m$（電子質量）を用いてよい。
 
 1. 放射磁場 $\boldsymbol B$ を $\boldsymbol E,\boldsymbol n$ で表せ。
@@ -31,9 +33,11 @@ $$
 #### 题目描述
 
 非相对论电子的加速度为 $\dot{\boldsymbol u}$。观测方向单位矢量 $\boldsymbol n$ 与加速度成角 $\theta$，距电子 $R$ 的辐射电场为
+
 $$
 \boldsymbol E=-e\boldsymbol n\times(\boldsymbol n\times\dot{\boldsymbol u})/(4\pi\epsilon_0Rc^2).
 $$
+
 各量取推迟时刻，忽略电子位置变化造成的推迟时间差。
 
 1. 用电场和传播方向表示磁场。
@@ -48,55 +52,76 @@ $$
 
 ### (1)
 放射場は横波なので
+
 $$
 \boxed{\boldsymbol B=\frac1c\boldsymbol n\times\boldsymbol E}.
 $$
+
 ### (2)
 $E=e|\dot{\boldsymbol u}|\sin\theta/(4\pi\epsilon_0Rc^2)$、$\boldsymbol S=\epsilon_0cE^2\boldsymbol n$ より
+
 $$
 \boxed{\frac{dP}{d\Omega}=R^2\boldsymbol S\cdot\boldsymbol n
 =\frac{e^2|\dot{\boldsymbol u}|^2}{16\pi^2\epsilon_0c^3}\sin^2\theta}.
 $$
+
 $\int\sin^2\theta\,d\Omega=8\pi/3$ だから
+
 $$
 \boxed{P=\frac{e^2|\dot{\boldsymbol u}|^2}{6\pi\epsilon_0c^3}}.
 $$
+
 ### (3)
 $m\dot{\boldsymbol u}=-e\boldsymbol E$、$\langle\sin^2\omega t\rangle=1/2$ より
+
 $$
 \boxed{\left\langle\frac{dP}{d\Omega}\right\rangle
 =\frac{e^4E_0^2}{32\pi^2\epsilon_0m^2c^3}\sin^2\psi}.
 $$
+
 平均入射フラックスは $\langle S_{\rm in}\rangle=\epsilon_0cE_0^2/2$。古典電子半径 $r_e=e^2/(4\pi\epsilon_0mc^2)$ を導入すれば
+
 $$
 \boxed{\frac{d\sigma_T}{d\Omega}=r_e^2\sin^2\psi}.
 $$
+
 ### (4)
 $y$ 向きの加速度は $xz$ 面内の観測方向に常に垂直なので
+
 $$
 \boxed{\frac{d\sigma_T}{d\Omega}=r_e^2}.
 $$
+
 ### (5)
 二つの強度を平均し
+
 $$
 \boxed{\frac{d\sigma_T}{d\Omega}=\frac{r_e^2}{2}(1+\sin^2\psi)}.
 $$
+
 $\psi=0$ では $z$ 偏光の寄与がゼロ、散乱光は $y$ 方向に完全直線偏光する。$\psi=\pi/2$ では二つの直交偏光が等強度となり、無偏光である。
 ### (6)
+
 $$
 \boxed{\text{偏光軸を }y\text{ 軸に平行にする。}}
 $$
+
 $x$ 方向へ出た光は、$z$ 方向への散乱で $y$ 偏光として観測される。$y$ 方向へ出た光からは逆に $x$ 偏光が得られるが、散乱体は $x$ 方向に長いため前者の寄与が大きい。より一般に入射方向を $\boldsymbol n$ とすれば、$z$ 向き散乱光の $y,x$ 偏光強度差は $n_x^2-n_y^2$ に比例し、長軸に沿う領域の積分が $y$ 偏光を優勢にする。
 ### (7)
 速度と磁場の角を $\vartheta$ とすると
+
 $$
 |\dot{\boldsymbol u}|=\frac{evB}{m}\sin\vartheta.
 $$
+
 方向が等方的なら
+
 $$
 \langle\sin^2\vartheta\rangle=\frac12\int_{-1}^1(1-u^2)\,du=\frac23.
 $$
+
 従って
+
 $$
 \boxed{\langle P\rangle=\frac{e^4v^2B^2}{9\pi\epsilon_0m^2c^3}}.
 $$

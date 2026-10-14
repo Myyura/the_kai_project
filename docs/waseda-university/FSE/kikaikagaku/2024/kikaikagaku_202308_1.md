@@ -268,7 +268,9 @@ $$
 
 $f$ が $D$ 上で正則であることは、$u,v$ が各点で実全微分可能であり、コーシー・リーマンの関係
 
-$$u_x=v_y,\qquad u_y=-v_x$$
+$$
+u_x=v_y,\qquad u_y=-v_x
+$$
 
 を満たすことと同値である。特に $u,v\in C^1(D)$ のもとでは、この二つの関係が必要十分である。偏微分が存在するだけでは十分とは限らない。
 
@@ -276,7 +278,9 @@ $$u_x=v_y,\qquad u_y=-v_x$$
 
 $r>0$ で連鎖律を用いると
 
-$$u_r=\frac1r v_\theta,\qquad v_r=-\frac1r u_\theta.$$
+$$
+u_r=\frac1r v_\theta,\qquad v_r=-\frac1r u_\theta.
+$$
 
 #### (iii)
 

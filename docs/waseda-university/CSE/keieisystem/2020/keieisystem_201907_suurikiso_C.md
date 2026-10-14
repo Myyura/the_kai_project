@@ -21,6 +21,7 @@ tags:
    (1,1,1)^{\mathsf T},\quad(0,0,0)^{\mathsf T},\quad
    (1,-3,5)^{\mathsf T},\quad(1,5,-3)^{\mathsf T}
    $$
+
 3. 直線 $y=mx$ に関する鏡映を表す行列を求めよ。
 
 ### 题目描述

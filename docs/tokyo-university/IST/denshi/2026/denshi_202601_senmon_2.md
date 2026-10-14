@@ -132,7 +132,9 @@ The Karnaugh maps, with unused state $11$ as a don't-care, are:
 
 Thus, with the shared term $B=s_1\lor s_0$,
 
-$$\boxed{s_1^N=AB,\qquad s_0^N=A\overline B,\qquad Y=s_0}.$$
+$$
+\boxed{s_1^N=AB,\qquad s_0^N=A\overline B,\qquad Y=s_0}.
+$$
 
 The two D flip-flops use the same clock and start at $(1,0)$. The labelled $s_1,s_0$ nets connect each register output to the OR inputs.
 

@@ -110,7 +110,9 @@ $I\ge s+a$ により、次のSH更新は前のAD完了より前には始まら�
 
 最初の取得に必要な時間、SHとADの直列資源制約、単一コンピュータの計算量から、このスケジュールは上のモデルで最短であり、
 
-$$\boxed{t_a=m+s+a+15\max(s+a,c)+c}.$$
+$$
+\boxed{t_a=m+s+a+15\max(s+a,c)+c}.
+$$
 
 特に **$s+a\le c$ が成立する場合** は $t_a=m+s+a+16c$ である。与えられた $m<s<a<c$ だけでは $s+a\le c$ は導けない。ADコンバータが開始時に内部へ入力を取り込み、外部SHを直ちに解放できる別のモデルなら各段を独立に流水線化でき、$m+s+a+16c$ となる。入力を保持すべき期間の仕様を区別する必要がある。
 
@@ -118,7 +120,9 @@ $$\boxed{t_a=m+s+a+15\max(s+a,c)+c}.$$
 
 各コンピュータを1センサに対応させる。各ADの前に全16センサを選べるMUXとSHを置き、変換結果を担当コンピュータへ渡す。コンピュータ間通信・入出力の時間は0である。AD台数を $N$ とすれば、1周期に必要な変換時間の総和が $16a$ なので、
 
-$$Nc\ge16a,\qquad \boxed{N_{\mathrm{AD}}=\left\lceil\frac{16a}{c}\right\rceil}.$$
+$$
+Nc\ge16a,\qquad \boxed{N_{\mathrm{AD}}=\left\lceil\frac{16a}{c}\right\rceil}.
+$$
 
 この下界を達成するには、取得位相をずらしてADの割当てを巡回させる。$k=0,1,2,\ldots$ に対して、$t_k=kc/16$ とし、次の時刻表を定常状態で繰り返す。
 
@@ -146,7 +150,9 @@ MUXは各ADが必要なセンサを選べるように接続し、ADのデジタ�
 
 今度は各センサにSHとADを1組ずつ置き、複数のAD結果を共用コンピュータへ巡回して渡す。1周期あたりの計算量から、
 
-$$N a\ge16c,\qquad \boxed{N_{\mathrm{COMP}}=\left\lceil\frac{16c}{a}\right\rceil}.$$
+$$
+N a\ge16c,\qquad \boxed{N_{\mathrm{COMP}}=\left\lceil\frac{16c}{a}\right\rceil}.
+$$
 
 $t_k=ka/16$ とした次の時間表がこの台数で実行できる。
 

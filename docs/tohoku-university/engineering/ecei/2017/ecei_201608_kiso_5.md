@@ -17,9 +17,11 @@ tags:
 ### 日本語版
 
 ある種の電子エネルギー分析器では，各々が円筒状扇形の形状を有する内側と外側の電極間の空間中を，電子が Fig. 5(a) のように $2$ 次元的に運動する。外側電極に対して内側電極が正にバイアスされ，この空間内を運動する電子は原点に向かう中心力を受ける。入口スリット上に収束された入射電子が適切なエネルギー $E_o$ を有する場合，入射角に関係なく，電子は出口スリットに向かって再収束される。このような運動を Fig. 5(b) の $r$–$\theta$ 極座標系で考える。$f(r)$ は原点に向かう中心力を表す。電子の位置 $(r,\theta)$ を時間の関数として記述する運動方程式は
+
 $$
 m(\ddot r-r\dot\theta^2)=-f(r),\qquad m(2\dot r\dot\theta+r\ddot\theta)=0\tag{5A}
 $$
+
 で与えられる。ここでドット（$\dot{\phantom r}$）は時間微分を示す。地点 $(r_o,0)$ での速度が $\mathbf v_o$ である電子の運動に関する以下の問に答えよ。$m,\ell,v_o$ は，それぞれ，電子の質量，$mr^2\dot\theta$，$|\mathbf v_o|$ を表す。$\varphi$ は $\mathbf v_o$ と $\theta=\pi/2$ の直線の間の角である。
 
 (1) $\ell$ が保存量であることを示せ。
@@ -27,6 +29,7 @@ $$
 (2) $\ell=mv_or_o\cos\varphi$ を示せ。
 
 (3) Eq. (5A) から，$r$ を $\theta$ の関数として記述する Eq. (5B) を導出せよ。必要であれば，関係 $dr/d\theta=\dot r/\dot\theta$ を用いよ。
+
 $$
 \frac{d^2}{d\theta^2}\left(\frac1r\right)+\frac1r=\frac{mr^2}{\ell^2}f(r)\tag{5B}
 $$
@@ -34,15 +37,19 @@ $$
 (4) $v_o=\sqrt{r_of(r_o)/m}$ で $\varphi=0$ のとき $r(\theta)=r_o$ は Eq. (5B) の解となることを示せ。
 
 (5) このタイプの分析器の実際の動作では，$\varphi$ は必ずしもゼロではなく，$\cos\varphi\simeq1$ と $\sin\varphi\simeq\varphi$ が満たされる領域内にある小さい値をとる。従って，$v_o=\sqrt{r_of(r_o)/m}$ であっても，$r(\theta)=r_o$ の代わりに $r(\theta)=r_o+\Delta(\theta)$ の形で Eq. (5B) の解を探す必要がある。$\varphi$ は小さいので，$r_o\gg\Delta(\theta)$ が仮定できる。この時には Eq. (5B) は Eq. (5C) で近似される。
+
 $$
 \frac1{r_o}\frac{d^2}{d\theta^2}\left(\frac{\Delta(\theta)}{r_o}\right)+\frac{\Delta(\theta)}{r_o^2}=-\frac{mr_o^2}{\ell^2}\left(2\frac{f(r_o)}{r_o}+f'(r_o)\right)\Delta(\theta)\tag{5C}
 $$
+
 ここで，$f'(r)$ は $df(r)/dr$ で与えられる。
 
 - (a) $f(r)=a/r$（$a$ は正の定数）に対して Eq. (5C) は Eq. (5D) に変形されることを示せ。
+
 $$
 \frac{d^2\Delta(\theta)}{d\theta^2}=-2\Delta(\theta)\tag{5D}
 $$
+
 - (b) Eq. (5D) を解くことにより，入射電子が Fig. 5(a) に示すように出口スリットで再収束される角度 $\theta_o$ を決めよ。$v_o=\sqrt{r_of(r_o)/m}$ 中の $r_o$ と $f(r_o)$ は分析器の動作条件から決定されるので，$mv_o^2/2$ から $E_o$ を知ることができる。
 
 ### 题目描述

@@ -18,16 +18,28 @@ tags:
 
 1. 行列 $A=\begin{pmatrix}-1&1&0\\-1&2&-1\\0&1&-1\end{pmatrix}$ について、(a) 固有値と固有ベクトルを求める。(b) $P^{-1}AP$ が対角行列となる正則行列 $P$ を選び、その対角行列および $n$ 乗を計算する。(c) 自然数 $n$ に対して $A^n$ を求める。
 2. $f(x)=x$（$0\le x\le2\pi$）を、$0<x<2\pi$ で
-   $$f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)$$
+
+   $$
+   f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)
+   $$
+
    と展開する。係数は $a_n=\pi^{-1}\int_0^{2\pi}x\cos nx\,dx$、$b_n=\pi^{-1}\int_0^{2\pi}x\sin nx\,dx$ で定める。(a) $a_0$、(b) $n\ge1$ の $a_n,b_n$ を計算し、(c) $\sum_{n\ge1}\sin(nx)/n=(\pi-x)/2$ を導く。
 
 ### 题目描述
 
 1. 给定矩阵
-   $$A=\begin{pmatrix}-1&1&0\\-1&2&-1\\0&1&-1\end{pmatrix}.$$
+
+   $$
+   A=\begin{pmatrix}-1&1&0\\-1&2&-1\\0&1&-1\end{pmatrix}.
+   $$
+
    求全部特征值和特征向量；选取可逆矩阵 $P$ 将 $A$ 对角化，求对角矩阵的 $n$ 次幂，并由此求自然数 $n$ 对应的 $A^n$。
 2. 将 $f(x)=x$ 在 $0<x<2\pi$ 上展开为 Fourier 级数
-   $$f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx).$$
+
+   $$
+   f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx).
+   $$
+
    用 $a_n=\pi^{-1}\int_0^{2\pi}x\cos nx\,dx$、$b_n=\pi^{-1}\int_0^{2\pi}x\sin nx\,dx$ 分别计算 $a_0$ 及 $n\ge1$ 时的系数，并推出 $\sum_{n\ge1}\sin(nx)/n=(\pi-x)/2$。
 
 ## **Kai**

@@ -35,11 +35,17 @@ Answer the following questions. All constants and variables are real numbers. Al
 
 (Q.1) Let functions A(t), B(t), and C(t) satisfy the following differential equations.
 
-$$\frac{\mathrm{d}A(t)}{\mathrm{d}t} = -k_1 A(t),$$
+$$
+\frac{\mathrm{d}A(t)}{\mathrm{d}t} = -k_1 A(t),
+$$
 
-$$\frac{\mathrm{d}B(t)}{\mathrm{d}t} = k_1 A(t) - k_2 B(t),$$
+$$
+\frac{\mathrm{d}B(t)}{\mathrm{d}t} = k_1 A(t) - k_2 B(t),
+$$
 
-$$\frac{\mathrm{d}C(t)}{\mathrm{d}t} = k_2 B(t).$$
+$$
+\frac{\mathrm{d}C(t)}{\mathrm{d}t} = k_2 B(t).
+$$
 
 Initial conditions are  $A(0) = A_0$ , B(0) = 0, and C(0) = 0. Here,  $A_0$ ,  $k_1$ , and  $k_2$  are positive constants.
 
@@ -58,7 +64,9 @@ Initial conditions are  $A(0) = A_0$ , B(0) = 0, and C(0) = 0. Here,  $A_0$ ,  $
 
 (Q.1) Consider a matrix A and a vector  $\boldsymbol{b}$  given by
 
-$$A = \begin{pmatrix} 0 & 1 & 0 \\ a & 0 & 1 \\ 1 - a & 0 & 0 \end{pmatrix}, \ \boldsymbol{b} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix},$$
+$$
+A = \begin{pmatrix} 0 & 1 & 0 \\ a & 0 & 1 \\ 1 - a & 0 & 0 \end{pmatrix}, \ \boldsymbol{b} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix},
+$$
 
 where a is a real constant. Let  $x_n$  (n = 0, 1, 2, ...) be three dimensional real vectors. Answer the following questions. Omit the derivations and write only the answers.
 
@@ -67,7 +75,9 @@ where a is a real constant. Let  $x_n$  (n = 0, 1, 2, ...) be three dimensional 
 - (3) Obtain the set of vectors  $\mathbf{v}$  satisfying  $A\mathbf{v} = \mathbf{0}$ .
 - (4) Consider a map  $\mathbf{x}_{n+1} = A\mathbf{x}_n$  (n = 0, 1, 2, ...). Obtain the condition of a for the existence of
 
-$$\boldsymbol{x}^* = \lim_{n \to \infty} \boldsymbol{x}_n$$
+$$
+\boldsymbol{x}^* = \lim_{n \to \infty} \boldsymbol{x}_n
+$$
 
 for any  $x_0$ .
 
@@ -75,7 +85,9 @@ for any  $x_0$ .
 
 (Q.2) Consider the following three vectors:
 
-$$u_1 = \begin{pmatrix} 1 \\ 3 \\ -2 \end{pmatrix}, u_2 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, u_3 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}.$$
+$$
+u_1 = \begin{pmatrix} 1 \\ 3 \\ -2 \end{pmatrix}, u_2 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, u_3 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}.
+$$
 
 Answer the following questions.
 
@@ -86,11 +98,15 @@ Omit the derivations and write only the answers.
 
 (Q.3) The necessary and sufficient condition for three lines  $a_i x + b_i y + c_i = 0$  (i = 1, 2, 3) in the xy Cartesian coordinate system to intersect at a point or be parallel is
 
-$$c_1 f_1 + c_2 f_2 + c_3 f_3 = 0,$$
+$$
+c_1 f_1 + c_2 f_2 + c_3 f_3 = 0,
+$$
 
 where  $f_i$  (i = 1, 2, 3) are certain functions
 
-$$f_i = f_i(a_1, a_2, a_3, b_1, b_2, b_3).$$
+$$
+f_i = f_i(a_1, a_2, a_3, b_1, b_2, b_3).
+$$
 
 Answer the following questions about this proposition.
 
@@ -114,7 +130,9 @@ Consider a system of a pendulum of point mass 2 of mass  $m_2$  and rod 2 of len
 - (3) The equation of motion for point mass 2 has an additional force term  $(\simeq -m_2 l_1 d^2 \theta_1/dt^2)$  compared to that of (Q.1)(1). Explain briefly why this force appears.
 - (4) Write the coupled first order equations of motion for  $(\theta_1, \theta_2)$  in the following form:
 
-$$\frac{\mathrm{d}^2}{\mathrm{d}t^2} \begin{pmatrix} \theta_1 \\ \theta_2 \end{pmatrix} = - \begin{pmatrix} \kappa_{11} & \kappa_{12} \\ \kappa_{21} & \kappa_{22} \end{pmatrix} \begin{pmatrix} \theta_1 \\ \theta_2 \end{pmatrix}.$$
+$$
+\frac{\mathrm{d}^2}{\mathrm{d}t^2} \begin{pmatrix} \theta_1 \\ \theta_2 \end{pmatrix} = - \begin{pmatrix} \kappa_{11} & \kappa_{12} \\ \kappa_{21} & \kappa_{22} \end{pmatrix} \begin{pmatrix} \theta_1 \\ \theta_2 \end{pmatrix}.
+$$
 
 Assume the tension F on rod 2 is the same as (Q.1)(4) to lowest order in  $\theta_1$  and  $\theta_2$ .
 
@@ -128,7 +146,9 @@ Let x, t, and  $\theta$  be real numbers and z be a complex number. Answer the f
 
 (Q.1) Let  $m, n \ge 1$  be integers and L be a nonzero real number. Calculate
 
-$$\int_{-L}^{L} \sin\left(\frac{m\pi}{L}x\right) \sin\left(\frac{n\pi}{L}x\right) dx.$$
+$$
+\int_{-L}^{L} \sin\left(\frac{m\pi}{L}x\right) \sin\left(\frac{n\pi}{L}x\right) dx.
+$$
 
 Omit the derivations and write only the answer.
 
@@ -137,7 +157,9 @@ Omit the derivations and write only the answer.
 
 (Q.4) Let k be an integer. Consider the Laurent expansion  $h(z,x) = \sum_{k=-\infty}^{\infty} J_k(x) z^k \text{ of the function}$ 
 
-$$h(z,x) = \exp\left(\frac{x}{2}\left(z - \frac{1}{z}\right)\right).$$
+$$
+h(z,x) = \exp\left(\frac{x}{2}\left(z - \frac{1}{z}\right)\right).
+$$
 
 (i) Show that the following relationship holds, <u>using the</u> residue theorem.
 
@@ -158,7 +180,9 @@ Omit the derivations and write only the answers.
 - (2) Let X be the maximum value of  $X_1, X_2$ . Obtain the probability  $\Pr\left(X \geq \frac{1}{3}\right)$ .
 - (Q.2) Let  $Y_1$  be a random variable that obeys a continuous uniform distribution over the interval [0,1]. Let  $Y_2$  be a random variable that obeys the following conditional probability density function conditioned on  $Y_1$  as
 
-$$f_{Y_2|Y_1}(y_2|y_1) = \frac{1}{2}e^{-|y_2 - y_1|} \ (-\infty < y_2 < \infty).$$
+$$
+f_{Y_2|Y_1}(y_2|y_1) = \frac{1}{2}e^{-|y_2 - y_1|} \ (-\infty < y_2 < \infty).
+$$
 
 Here,  $|y_2 - y_1|$  denotes the absolute value of  $y_2 - y_1$ , and e denotes the base of the natural logarithm. Answer the following questions. Omit the derivations and write only the answers.
 
@@ -178,7 +202,9 @@ Answer the following questions. In all the problems, assume a vacuum environment
 
 (Q.1) As shown in Figure 1, let  $\boldsymbol{H}(\boldsymbol{r})$  be the magnetic field due to the magnetic moment  $\boldsymbol{m}$  at point P (at position  $\boldsymbol{r}$ ).  $\boldsymbol{H}(\boldsymbol{r})$  is written as
 
-$$\boldsymbol{H}(\boldsymbol{r}) = \frac{1}{4\pi} \left\{ \frac{3(\boldsymbol{m} \cdot \boldsymbol{r})\boldsymbol{r}}{|\boldsymbol{r}|^5} - \frac{\boldsymbol{m}}{|\boldsymbol{r}|^3} \right\}.$$
+$$
+\boldsymbol{H}(\boldsymbol{r}) = \frac{1}{4\pi} \left\{ \frac{3(\boldsymbol{m} \cdot \boldsymbol{r})\boldsymbol{r}}{|\boldsymbol{r}|^5} - \frac{\boldsymbol{m}}{|\boldsymbol{r}|^3} \right\}.
+$$
 
 ![](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/tokyo_university/frontier_sciences/cse/2023/tokyo-cse-202208-dipole.svg)
 
@@ -190,7 +216,9 @@ Figure 1
 - (4) Sketch the magnetic field created by the magnetic moment m using several magnetic field lines with the directions.
 - (Q.2) As shown in Figure 2, let  $d\boldsymbol{H}$  be the magnetic field at displacement  $\boldsymbol{r}$  generated by current I flowing through the line element  $d\boldsymbol{s}$ . Using the Biot–Savart law,  $d\boldsymbol{H}$  is written as
 
-$$d\boldsymbol{H} = \frac{1}{4\pi} \frac{Id\boldsymbol{s} \times \boldsymbol{r}}{|\boldsymbol{r}|^3}.$$
+$$
+d\boldsymbol{H} = \frac{1}{4\pi} \frac{Id\boldsymbol{s} \times \boldsymbol{r}}{|\boldsymbol{r}|^3}.
+$$
 
 - (1) If  $d\mathbf{s}$  is a part of a circular ring of radius a, find the axial component of the magnetic field created by the current I flowing through  $d\mathbf{s}$  at a point of height z on the central axis.
 - (2) Find the magnetic field created by a circular current I of radius a at a point of height z on the central axis. Also, find the magnetic field at z=0.

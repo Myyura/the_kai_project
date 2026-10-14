@@ -66,7 +66,9 @@ $$
 
 **(b)** 有限等比級数の微分から
 
-$$\sum_{j=1}^n\frac{j}{2^j}=2-\frac{n+2}{2^n}$$
+$$
+\sum_{j=1}^n\frac{j}{2^j}=2-\frac{n+2}{2^n}
+$$
 
 なので、
 
@@ -125,7 +127,9 @@ bucket 16: null
 
 **(b)** 各キーの確率は $1/8$。比較1回のキーが6個、2回のキーが2個だから、
 
-$$\boxed{\overline C=\frac{6+2\cdot2}{8}=\frac54},\qquad \boxed{C_{\max}=2}.$$
+$$
+\boxed{\overline C=\frac{6+2\cdot2}{8}=\frac54},\qquad \boxed{C_{\max}=2}.
+$$
 
 ### (4)
 

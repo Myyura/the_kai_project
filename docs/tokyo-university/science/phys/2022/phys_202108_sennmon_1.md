@@ -70,18 +70,22 @@ $$
 ### 题目描述
 
 在量子力学中，对给定状态定义位置与动量的标准差
+
 $$
 \Delta x=\sqrt{\langle(\Delta\hat x)^2\rangle},
 \quad
 \Delta\hat x=\hat x-\langle\hat x\rangle,
 $$
+
 $$
 \Delta p=\sqrt{\langle(\Delta\hat p)^2\rangle},
 \quad
 \Delta\hat p=\hat p-\langle\hat p\rangle,
 $$
+
 其中 $\langle\hat O\rangle$ 表示算符 $\hat O$ 的量子期望，
 $\hbar$ 为约化 Planck 常数。必要时可使用
+
 $$
 \int_{-\infty}^{\infty}e^{-ax^2}\,\mathrm dx=\sqrt{\frac\pi a},
 \qquad
@@ -89,31 +93,39 @@ $$
 =\frac12\sqrt{\frac{\pi}{a^3}}
 \quad(a>0).
 $$
+
 回答下列问题。
 
 （1）对归一化高斯波函数
+
 $$
 \psi(x)=
 \left(\frac1{\pi a^2}\right)^{1/4}
 \exp\left(-\frac{x^2}{2a^2}\right),
 \qquad a>0,
 $$
+
 计算 $\Delta x,\Delta p$，并对结果作物理解释。
 
 （2）为证明 Heisenberg 不确定关系
+
 $$
 \Delta x\,\Delta p\ge\frac{\hbar}{2},
 $$
+
 先证明对任意算符 $\hat O$ 及其 Hermitian 共轭
 $\hat O^\dagger$，都有
+
 $$
 \langle\hat O^\dagger\hat O\rangle\ge0.
 $$
 
 （3）取
+
 $$
 \hat O=t\,\Delta\hat x-i\,\Delta\hat p,
 $$
+
 其中 $t$ 为任意实数，由此证明上述不确定关系。
 
 （4）给出使第（3）问的 $\hat O$ 含零特征值的

@@ -19,16 +19,28 @@ tags:
 
 1. $A=\begin{pmatrix}1&2&0\\-1&-2&1\\0&0&1\end{pmatrix}$ とする。(a) 固有値と対応する固有ベクトルを求める。(b) $A^3+aA^2+bA+cE=O$ を満たす係数 $a,b,c$ を求める。(c) $A^4+A^3-A^2+4A-5E$ を計算する。$E$ は単位行列である。
 2. $F(s)=\int_0^\infty e^{-st}f(t)\,dt$ とする。(a) $a>0$ に対して
-   $$\mathcal L[f(at+b)](s)=\frac{e^{bs/a}}a\left[F(s/a)-\int_0^b e^{-st/a}f(t)\,dt\right]$$
+
+   $$
+   \mathcal L[f(at+b)](s)=\frac{e^{bs/a}}a\left[F(s/a)-\int_0^b e^{-st/a}f(t)\,dt\right]
+   $$
+
    を示す。ただし $at+b\le0$ では $f(at+b)=0$ とする。(b) この関係を利用し、$f(t+2)-3f(t+1)+2f(t)=t$（$t\ge0$）および $f(t)=0$（$0\le t\le2$）から $F(s)$ を求める。
 
 ### 题目描述
 
 1. 给定
-   $$A=\begin{pmatrix}1&2&0\\-1&-2&1\\0&0&1\end{pmatrix},$$
+
+   $$
+   A=\begin{pmatrix}1&2&0\\-1&-2&1\\0&0&1\end{pmatrix},
+   $$
+
    $E$ 为单位矩阵。求特征值和对应特征向量；求满足 $A^3+aA^2+bA+cE=O$ 的 $a,b,c$；计算 $A^4+A^3-A^2+4A-5E$。
 2. 设 $F(s)=\int_0^\infty e^{-st}f(t)\,dt$。对 $a>0$，证明
-   $$\mathcal L[f(at+b)](s)=\frac{e^{bs/a}}a\left[F(s/a)-\int_0^b e^{-st/a}f(t)\,dt\right],$$
+
+   $$
+   \mathcal L[f(at+b)](s)=\frac{e^{bs/a}}a\left[F(s/a)-\int_0^b e^{-st/a}f(t)\,dt\right],
+   $$
+
    其中 $at+b\le0$ 时令 $f(at+b)=0$。再利用这一关系，由 $f(t+2)-3f(t+1)+2f(t)=t$（$t\ge0$）及 $f(t)=0$（$0\le t\le2$）求 $F(s)$。
 
 ## **Kai**

@@ -56,7 +56,9 @@ Design a multiplier whose inputs are two 3-bit numbers and the output is a 6-bit
 
 以下では各ビットを0または1とし、$\oplus$ はXORを表す。XORは専用ゲートを仮定せず、
 
-$$x\oplus y=(x\land\bar y)\lor(\bar x\land y)$$
+$$
+x\oplus y=(x\land\bar y)\lor(\bar x\land y)
+$$
 
 によりAND・OR・NOTで構成する。
 
@@ -71,7 +73,9 @@ $$x\oplus y=(x\land\bar y)\lor(\bar x\land y)$$
 | 1 | 0 | 1 | 0 |
 | 1 | 1 | 0 | 1 |
 
-$$\boxed{Z=X\oplus Y,\qquad CO=X\land Y}.$$
+$$
+\boxed{Z=X\oplus Y,\qquad CO=X\land Y}.
+$$
 
 全加算器は次の通り。
 
@@ -97,7 +101,9 @@ $S=X\oplus Y$ として、半加算器1で $(X,Y)$、半加算器2で $(S,CI)$ �
 
 全加算器4個を下位ビットから順に接続する。$c_0=CI$ とし、$i=0,1,2,3$ について
 
-$$(Z_i,c_{i+1})=\mathrm{FA}(X_i,Y_i,c_i),\qquad CO=c_4$$
+$$
+(Z_i,c_{i+1})=\mathrm{FA}(X_i,Y_i,c_i),\qquad CO=c_4
+$$
 
 とする。
 
@@ -111,7 +117,9 @@ CI=c0 -> FA0 -> c1 -> FA1 -> c2 -> FA2 -> c3 -> FA3 -> c4=CO
 
 各段で $X_i+Y_i+c_i=Z_i+2c_{i+1}$ だから、重み $2^i$ を掛けて足すと
 
-$$X+Y+CI=Z+16CO$$
+$$
+X+Y+CI=Z+16CO
+$$
 
 となる。これはリップルキャリー加算器であり、4ビットの場合は最大4段の桁上がり伝搬を要する。
 
@@ -129,7 +137,9 @@ $$
 
 と接続する。これはそれぞれ $X Y_0$, $2X Y_1$, $4X Y_2$ である。6ビット加算器2個で
 
-$$\boxed{Z=(A+B)+C}$$
+$$
+\boxed{Z=(A+B)+C}
+$$
 
 を得る。6ビット加算器は(2)の4ビット加算器の桁上がり出力へ全加算器2個を追加すれば構成でき、最初の桁上がり入力を0にする。
 
@@ -155,7 +165,9 @@ $$
 
 (3)で $W=UV$ を6ビットとして求め、$s=s_X\oplus s_Y$ として
 
-$$\boxed{Z=\bigl((W\oplus(ssssss))+s\bigr)\bmod64}$$
+$$
+\boxed{Z=\bigl((W\oplus(ssssss))+s\bigr)\bmod64}
+$$
 
 を出力する。最終段は6個の条件付き反転器と、桁上がり入力 $s$ を使って0を加える6ビット加算器で構成する。積が負なら6ビットの2の補数にし、それ以外は正の値のままになる。入力範囲は $-4\le X,Y\le3$、積は $-12\le XY\le16$ なので出力範囲 $[-32,31]$ を超えない。0に対する条件付き反転加算も0となる。
 

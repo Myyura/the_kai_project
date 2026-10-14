@@ -70,17 +70,21 @@ f(x;a,b)=ax+b.
 $$
 
 1. 用 $\mathcal D$ 推导使
+
    $$
    \hat J(a,b)=\frac1n\sum_{i=1}^n(y_i-f(x_i;a,b))^2
    $$
+
    最小的 $\hat a,\hat b$。
 2. 对
    $\mathcal D'=\{(1,2),(3,3),(2,1),(4,5),(5,4)\}$，计算回归系数 $\hat a,\hat b$。
 3. 另有联合密度 $p'(x,y)\ne p(x,y)$，并满足
    $p(y\mid x)=p'(y\mid x)$。边缘密度分别为 $p(x),p'(x)$。用二者填写
+
    $$
    J'(a,b)=\iint(y-f(x;a,b))^2\boxed{\quad}\,p(x,y)\,dx\,dy,
    $$
+
    并给出推导。
 4. $J(a,b)=\iint(y-f)^2p(x,y)\,dx\,dy$ 的训练集近似是第 1 问的 $\hat J$。类似地，用 $\mathcal D$ 及 $p(x),p'(x)$ 推导 $J'(a,b)$ 的近似 $\hat J'(a,b)$。
 5. 用 $\mathcal D,p(x),p'(x)$ 推导使 $\hat J'(a,b)$ 最小的 $\hat a,\hat b$。

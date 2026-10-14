@@ -16,16 +16,20 @@ tags:
 ## **Description**
 
 1. $b>0$ に対して
+
    $$
    I(a,b)=\frac1{2\pi i}\int_{-\infty}^{\infty}
    \frac{e^{iax}}{x-ib}\,dx
    $$
+
    を $a>0,a=0,a<0$ に分けて求めよ。ただし $a=0$ の積分は $\lim_{R\to\infty}\int_{-R}^R$ で定義する。$\theta(a)=\lim_{b\to0+}I(a,b)$ のグラフを示し、その導関数を考察せよ。
 2. $z=e^{i\theta}$ $(0\le\theta<2\pi)$ に対して $\sin\theta=(z-\bar z)/(2i)$ を示せ。さらに、実数 $\alpha$ に対し
+
    $$
    \exp\left\{\frac{\alpha}{2}\left(z-\frac1z\right)\right\}
    =\sum_{n=-\infty}^{\infty}J_n(\alpha)z^n
    $$
+
    から $J_n(\alpha)$ の実積分表示を導け。
 3. Joukowski 変換 $w=z+a^2/z$ $(a>0)$ が、原点中心・半径 $c>a$ の円を楕円へ、原点を端点とする半直線 $z=re^{i\theta_0}$ $(r>0,\ 0\le\theta_0<2\pi)$ を双曲線へ写すことを示せ。
 

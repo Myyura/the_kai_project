@@ -14,7 +14,11 @@ tags:
 
 [Official examination, archived Japanese PDF](https://web.archive.org/web/20151118065535id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2012-8-exam.pdf).
 In kinematic calculations and visual computations in robotics, vector operations are expressed with matrices sometimes. Answer the following questions on inner-product, outer-product, projection and rotation of three dimensional vectors. $\boldsymbol{I}$ is the $3\times3$ identity matrix. The three-dimensional vectors $\boldsymbol{x}$, $\boldsymbol{a}$, $\boldsymbol{b}$ and $\boldsymbol{n}$ are $3\times1$ column vectors:
-$$\boldsymbol{x}=\begin{bmatrix}x_x\\x_y\\x_z\end{bmatrix},\quad\boldsymbol{a}=\begin{bmatrix}a_x\\a_y\\a_z\end{bmatrix},\quad\boldsymbol{b}=\begin{bmatrix}b_x\\b_y\\b_z\end{bmatrix},\quad\boldsymbol{n}=\begin{bmatrix}n_x\\n_y\\n_z\end{bmatrix}.$$
+
+$$
+\boldsymbol{x}=\begin{bmatrix}x_x\\x_y\\x_z\end{bmatrix},\quad\boldsymbol{a}=\begin{bmatrix}a_x\\a_y\\a_z\end{bmatrix},\quad\boldsymbol{b}=\begin{bmatrix}b_x\\b_y\\b_z\end{bmatrix},\quad\boldsymbol{n}=\begin{bmatrix}n_x\\n_y\\n_z\end{bmatrix}.
+$$
+
 $\boldsymbol{x}^T$, which is a $1\times3$ row vector, shows the transpose of $\boldsymbol{x}$.
 
 <figure style="text-align:center;">
@@ -30,7 +34,11 @@ $\boldsymbol{x}^T$, which is a $1\times3$ row vector, shows the transpose of $\b
 (4) Three rotational matrices $\boldsymbol{R}_x(\theta_x)$, $\boldsymbol{R}_y(\theta_y)$ and $\boldsymbol{R}_z(\theta_z)$ are rotational matrices which rotate a vector $\boldsymbol{x}$ around the X-axis, Y-axis and Z-axis with $\theta_x$, $\theta_y$ and $\theta_z$ respectively, where the direction of the rotation for plus is clock-wise around the axis from the origin to infinity.
 
 **i)** Describe $3\times3$ expression of the matrix $\boldsymbol{R}_x(\theta_x)$, **ii)** As Figure 2 shows, the $3\times3$ matrix $\boldsymbol{R}_n(\theta_n)$ is defined as the rotation matrix around a unit orientation vector $\boldsymbol{n}$ with $\theta_n$. $\boldsymbol{R}_n(\theta_n)$ is described as
-$$\boldsymbol{R}_n(\theta_n)=\boldsymbol{R}_x(-\alpha)\boldsymbol{R}_y(\beta)\boldsymbol{R}_z(\theta_n)\boldsymbol{R}_y(-\beta)\boldsymbol{R}_x(\alpha).$$
+
+$$
+\boldsymbol{R}_n(\theta_n)=\boldsymbol{R}_x(-\alpha)\boldsymbol{R}_y(\beta)\boldsymbol{R}_z(\theta_n)\boldsymbol{R}_y(-\beta)\boldsymbol{R}_x(\alpha).
+$$
+
 Explain what the variables $\alpha$ and $\beta$ become and explain why the expression is satisfied.
 
 ### 题目描述

@@ -21,7 +21,11 @@ tags:
 ### 問1
 
 1. 微小弧長 $dl=\sqrt{1+y'^2}\,dx$ を用い、伝播時間が
-   $$T[y]=\int_{x_1}^{x_2}\frac{n(x,y)}c\sqrt{1+y'^2}\,dx=\int_{x_1}^{x_2}L(x,y,y')\,dx$$
+
+   $$
+   T[y]=\int_{x_1}^{x_2}\frac{n(x,y)}c\sqrt{1+y'^2}\,dx=\int_{x_1}^{x_2}L(x,y,y')\,dx
+   $$
+
    と書けることを示す。
 2. 端点固定の変分 $y=\bar y+\varepsilon h$ から、停留条件 $\partial L/\partial y-d(\partial L/\partial y')/dx=0$ を導く。
 3. $n=n_0$ が定数ならば、この式が $y''=0$ となり、光路が両端点を結ぶ直線となることを示す。
@@ -235,15 +239,21 @@ $$
 #### (ウ)
 各媒質内では Euler–Lagrange 方程式が成り立つ。界面で連続な変分 $h$ を取り、端点を固定すると、部分積分で残る界面項は
 
-$$\delta T=\left[\left.\frac{\partial L_1}{\partial y'}\right|_{x_0^-}-\left.\frac{\partial L_2}{\partial y'}\right|_{x_0^+}\right]h(x_0).$$
+$$
+\delta T=\left[\left.\frac{\partial L_1}{\partial y'}\right|_{x_0^-}-\left.\frac{\partial L_2}{\partial y'}\right|_{x_0^+}\right]h(x_0).
+$$
 
 $h(x_0)$ は任意なので、停留性は $\partial L_1/\partial y'=\partial L_2/\partial y'$ を要求する。ここで
 
-$$\frac{\partial L_i}{\partial y'}=\frac{n_i}{c}\frac{y'}{\sqrt{1+y'^2}}=-\frac{n_i}{c}\sin\theta_i.$$
+$$
+\frac{\partial L_i}{\partial y'}=\frac{n_i}{c}\frac{y'}{\sqrt{1+y'^2}}=-\frac{n_i}{c}\sin\theta_i.
+$$
 
 よって
 
-$$\boxed{n_1\sin\theta_1=n_2\sin\theta_2}.$$
+$$
+\boxed{n_1\sin\theta_1=n_2\sin\theta_2}.
+$$
 
 これで、設問の指定どおり Euler–Lagrange の変分計算から屈折則が得られる。
 

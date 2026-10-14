@@ -18,11 +18,13 @@ tags:
 ### 日本語版
 
 パウリ行列
+
 $$
 \sigma_x=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
 \sigma_y=\begin{pmatrix}0&-i\\i&0\end{pmatrix},\quad
 \sigma_z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}
 $$
+
 に関して，以下の問に答えよ。$i$ は虚数単位である。
 
 (1) $\sigma_x$ の固有値と対応する固有ベクトルを全て求めよ。
@@ -32,21 +34,27 @@ $$
 (3) $(\boldsymbol n\cdot\boldsymbol\sigma)^2=I$ を示せ。但し，$I$ は単位行列であり，$\boldsymbol\sigma=(\sigma_x\ \sigma_y\ \sigma_z)$ は $\sigma_x,\sigma_y,\sigma_z$ を成分とするベクトルであり，$\boldsymbol n=(n_x\ n_y\ n_z)$ は実数 $n_x,n_y,n_z$ を成分とする単位ベクトルであり，$\boldsymbol n\cdot\boldsymbol\sigma=n_x\sigma_x+n_y\sigma_y+n_z\sigma_z$ である。
 
 (4) 次の関係式を証明せよ：
+
 $$
 \exp\left(-i\frac{\boldsymbol n\cdot\boldsymbol\sigma}{2}\theta\right)
 =I\cos\frac\theta2-i(\boldsymbol n\cdot\boldsymbol\sigma)\sin\frac\theta2.
 $$
+
 ここで，$\theta$ は任意の実数である。但し，行列の指数関数は次のように定義される：
+
 $$
 \exp(X)=\sum_{n=0}^{\infty}\frac1{n!}X^n.
 $$
+
 ここで，$X$ は任意の正方行列であり，$X^0$ は単位行列 $I$ を表すものとする。
 
 (5) $(U_1)^{-1}(\boldsymbol n_1\cdot\boldsymbol\sigma)U_1$ と $(U_2)^{-1}(\boldsymbol n_1\cdot\boldsymbol\sigma)U_2$ をパウリ行列の線形結合で表せ。ここで，
+
 $$
 U_l=\exp\left(-i\frac{\boldsymbol n_l\cdot\boldsymbol\sigma}{2}\theta\right)\quad(l=1,2),\qquad
 \boldsymbol n_1=(0\ 0\ 1),\quad\boldsymbol n_2=(1\ 0\ 0)
 $$
+
 である。但し，$(U_l)^{-1}$ は $U_l$ の逆行列である。
 
 ### 题目描述

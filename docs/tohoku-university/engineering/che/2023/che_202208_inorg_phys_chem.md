@@ -16,7 +16,9 @@ tags:
 
 【問2】物質量 $n$ の単原子理想気体を考える。そのモル内部エネルギーは
 
-$$U_{\mathrm m}(T)=\frac32RT.$$
+$$
+U_{\mathrm m}(T)=\frac32RT.
+$$
 
 である。
 
@@ -30,7 +32,11 @@ $$U_{\mathrm m}(T)=\frac32RT.$$
 
 
 【问题 2】考虑物质的量为 $n$ 的单原子理想气体，其摩尔内能为
-   $$U_{\mathrm m}(T)=\frac32RT.$$
+
+   $$
+   U_{\mathrm m}(T)=\frac32RT.
+   $$
+
    1. 求定容摩尔热容 $C_{V,\mathrm m}$；
    2. 求气体从温度 $T_{\mathrm i}$ 变到 $T_{\mathrm f}$ 的定容可逆过程熵变；
    3. 求气体在温度不变时从体积 $V_{\mathrm i}$ 变到 $V_{\mathrm f}$ 的可逆过程熵变；

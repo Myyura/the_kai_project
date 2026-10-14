@@ -58,17 +58,21 @@ R_A(\mathbf x)=\frac{\mathbf x^\top A\mathbf x}{\|\mathbf x\|^2}.
 $$
 
 1. 对
+
    $$
    B=\begin{bmatrix}2&0&1\\0&1&0\\1&0&2\end{bmatrix},
    \qquad
    \mathbf z=\begin{bmatrix}1\\1\\0\end{bmatrix},
    $$
+
    求 $R_B(\mathbf z)$。
 2. 求 $B$ 的全部特征值以及每个特征值的特征空间。
 3. 设 $A$ 为对称矩阵，证明
+
    $$
    \max_{\mathbf x\ne0}R_A(\mathbf x)=\lambda_{\max},
    $$
+
    其中 $\lambda_{\max}$ 是 $A$ 的最大特征值。可使用如下事实：对称矩阵 $A$ 存在构成 $\mathbb R^n$ 一组标准正交基的特征向量 $\mathbf q_1,\ldots,\mathbf q_n$。
 
 ## **Kai**

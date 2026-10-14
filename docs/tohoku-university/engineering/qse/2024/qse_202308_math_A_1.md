@@ -37,14 +37,29 @@ $$
 回答下列问题。
 
 1. 求函数
-   $$f(x)=e^{2x}\cos x$$
+
+   $$
+   f(x)=e^{2x}\cos x
+   $$
+
    在 $x=0$ 附近至三次项的 Taylor 展开。
 2. 对 $a>0$，求不定积分
-   $$\int\frac{1}{\sqrt{a^2+x^2}}\,dx.$$
+
+   $$
+   \int\frac{1}{\sqrt{a^2+x^2}}\,dx.
+   $$
+
 3. 对三角形区域
-   $$D=\{(x,y)\mid x\ge0,\ y\ge0,\ x+y\le\pi\},$$
+
+   $$
+   D=\{(x,y)\mid x\ge0,\ y\ge0,\ x+y\le\pi\},
+   $$
+
    计算
-   $$\iint_D\sin(x+y)\,dx\,dy.$$
+
+   $$
+   \iint_D\sin(x+y)\,dx\,dy.
+   $$
 
 ## **Kai**
 ### (1)

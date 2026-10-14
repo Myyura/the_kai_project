@@ -85,7 +85,9 @@ Map the character's position in `abcdefgh` to its digit value and use $v\leftarr
 
 ### (3)
 
-$$\boxed{2015=\texttt{MMXV}.}$$
+$$
+\boxed{2015=\texttt{MMXV}.}
+$$
 
 ### (4) Roman to decimal
 

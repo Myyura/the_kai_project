@@ -13,7 +13,11 @@ tags:
 
 出典：[大学公式問題冊子の保存版](https://web.archive.org/web/20151118065628id_/http://i-web.i.u-tokyo.ac.jp/edu/course/ci/pdf/2010_8_ci_istmajor_ja.pdf)。
 (1) As shown in figure 1, four periodical signals $S_i(t)(i=1,2,3,4)$ with a period of $4\Delta t$ are denoted as a sequence of digital signals $\boldsymbol{w}_i=(w_{i1},w_{i2},w_{i3},w_{i4})^T (i=1,2,3,4)$. Each element $w_{ik} (k=1,2,3,4)$ takes on values $+1$ or $-1$. Calculate a $4\times4$ matrix $W$ which consists of each element;
-$$W_{ij}=\frac{1}{4}\boldsymbol{w}_i^T\boldsymbol{w}_j\text{ }(i,j=1,2,3,4)$$
+
+$$
+W_{ij}=\frac{1}{4}\boldsymbol{w}_i^T\boldsymbol{w}_j\text{ }(i,j=1,2,3,4)
+$$
+
 by using $\boldsymbol{w}_i$ shown in figure 1. T denotes transpose.
 
 <figure style="text-align:center;">
@@ -80,7 +84,9 @@ $$
 
 を読み取る。各ベクトルの長さの2乗は4で、相異なる2本の内積は0だから、
 
-$$\boxed{W=\frac14[\boldsymbol w_i^{\mathsf T}\boldsymbol w_j]_{i,j=1}^4=I_4}.$$
+$$
+\boxed{W=\frac14[\boldsymbol w_i^{\mathsf T}\boldsymbol w_j]_{i,j=1}^4=I_4}.
+$$
 
 $S_1$ は常に1であり、他の3系列は1周期内の平均が0である。
 
@@ -88,13 +94,17 @@ $S_1$ は常に1であり、他の3系列は1周期内の平均が0である。
 
 **1)** 送信信号が $v_i(t)S_i(t)$ なので、同期した同じ符号を掛けると
 
-$$\boxed{v_i(t)S_i(t)^2=v_i(t)}$$
+$$
+\boxed{v_i(t)S_i(t)^2=v_i(t)}
+$$
 
 となり、各時刻で元の信号を得る。
 
 **2)** 別の符号を掛けた直後の信号は
 
-$$\boxed{v_i(t)S_i(t)S_j(t)}\qquad(i\ne j)$$
+$$
+\boxed{v_i(t)S_i(t)S_j(t)}\qquad(i\ne j)
+$$
 
 であり、**各時刻で0になるわけではない**。$T=4\Delta t$ の1ビット区間では $v_i$ が一定なので、その区間の平均は
 
@@ -111,11 +121,15 @@ $$
 
 ただし実際の光の強度は負にできない。また $S_1$ は直流であるため、単に全光源へ直流バイアスを加えて同じ相関だけを取ると、第1光源に他の光源のバイアスが混入する。これを含めた実装として、各光源を非負のオン・オフ波形
 
-$$u_j(t)=\frac{1+S_j(t)}2,\qquad L_j(t)=I_j u_j(t),\quad I_j\ge0$$
+$$
+u_j(t)=\frac{1+S_j(t)}2,\qquad L_j(t)=I_j u_j(t),\quad I_j\ge0
+$$
 
 で駆動する。$u_1=1$ なので第1光源は連続点灯となる。受信信号を $r_i(t)=\sum_j a_{ij}u_j(t)$ と書き、4個の相関値
 
-$$z_{ij}=\frac1T\int_{kT}^{(k+1)T}r_i(t)S_j(t)\,dt$$
+$$
+z_{ij}=\frac1T\int_{kT}^{(k+1)T}r_i(t)S_j(t)\,dt
+$$
 
 を測定する。$a_{ij}$ は光源 $j$ から検出器 $i$ へ届いた強度である。直交性より、
 

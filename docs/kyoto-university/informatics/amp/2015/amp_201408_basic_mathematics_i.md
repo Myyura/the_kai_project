@@ -82,6 +82,7 @@ $$
    \frac{d}{dx}\left(e^{-x^2}\frac{d}{dx}f_n(x)\right)
    =-2n e^{-x^2}f_n(x).
    $$
+
 4. 证明
 
    $$

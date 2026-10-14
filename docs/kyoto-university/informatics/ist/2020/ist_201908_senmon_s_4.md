@@ -60,9 +60,11 @@ $Y_t\in\{\alpha,\beta,\gamma\}$：
 1. 求该信道的信道容量。
 2. 对接收序列统计 $\alpha,\beta,\gamma$ 的出现次数。时间充分长时，按出现次数从多到少排列三个符号。
 3. 求 Markov 信息源的熵率
+
    $$
    \lim_{t\to\infty}\frac1tH(X_1,\ldots,X_t).
    $$
+
 4. 当 $Y_t=\alpha$ 时，求
    $H(Y_{t+1}\mid Y_t=\alpha)$。
 5. 当 $Y_t=\alpha$ 且 $Y_{t+2}=\gamma$ 时，求

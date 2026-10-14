@@ -37,11 +37,15 @@ $R=8.31\ \mathrm{J/(mol\,K)}$、$e=2.72$、$\ln2=0.69$、$\ln10=2.30$ を用い�
 
 定常1次元拡散では $d^2C/dx^2=0$。濃度勾配は
 
-$$\frac{dC}{dx}=\frac{0.80-1.2}{0.010-0.005}=-80\ \mathrm{kg/m^4}.$$
+$$
+\frac{dC}{dx}=\frac{0.80-1.2}{0.010-0.005}=-80\ \mathrm{kg/m^4}.
+$$
 
 フィックの第1法則より
 
-$$\boxed{J=-D\frac{dC}{dx}=2.4\times10^{-9}\ \mathrm{kg/(m^2\,s)}}.$$
+$$
+\boxed{J=-D\frac{dC}{dx}=2.4\times10^{-9}\ \mathrm{kg/(m^2\,s)}}.
+$$
 
 方向は浸炭面から脱炭面への $+x$ 方向である。
 
@@ -49,29 +53,41 @@ $$\boxed{J=-D\frac{dC}{dx}=2.4\times10^{-9}\ \mathrm{kg/(m^2\,s)}}.$$
 
 濃度分布は、$x$ をmで表して $C(x)=1.6-80x\ \mathrm{kg/m^3}$。従って
 
-$$\boxed{C(0.001)=1.52\ \mathrm{kg/m^3}\simeq1.5\ \mathrm{kg/m^3}}.$$
+$$
+\boxed{C(0.001)=1.52\ \mathrm{kg/m^3}\simeq1.5\ \mathrm{kg/m^3}}.
+$$
 
 ### (3)
 
 脱炭面で $C=0$ だから、板厚は
 
-$$\boxed{h=\frac{1.6}{80}=2.0\times10^{-2}\ \mathrm m=20\ \mathrm{mm}}.$$
+$$
+\boxed{h=\frac{1.6}{80}=2.0\times10^{-2}\ \mathrm m=20\ \mathrm{mm}}.
+$$
 
 ### (4)
 
-$$Q=RT\ln\frac{D_0}{D}=8.31\times973\times\ln(2.0\times10^4).$$
+$$
+Q=RT\ln\frac{D_0}{D}=8.31\times973\times\ln(2.0\times10^4).
+$$
 
 $\ln(2\times10^4)=0.69+4\times2.30=9.89$ より
 
-$$\boxed{Q\simeq8.0\times10^4\ \mathrm{J/mol}=80\ \mathrm{kJ/mol}}.$$
+$$
+\boxed{Q\simeq8.0\times10^4\ \mathrm{J/mol}=80\ \mathrm{kJ/mol}}.
+$$
 
 ### (5)
 
-$$\ln\frac{D(T')}{D(973)}=-\frac QR\left(\frac1{T'}-\frac1{973}\right)=-\ln2.$$
+$$
+\ln\frac{D(T')}{D(973)}=-\frac QR\left(\frac1{T'}-\frac1{973}\right)=-\ln2.
+$$
 
 従って
 
-$$\boxed{T'=\frac{973\times9.89}{9.89+0.69}\simeq9.1\times10^2\ \mathrm K}.$$
+$$
+\boxed{T'=\frac{973\times9.89}{9.89+0.69}\simeq9.1\times10^2\ \mathrm K}.
+$$
 
 ## **Reference**
 

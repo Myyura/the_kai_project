@@ -157,6 +157,7 @@ $$
 **Scheme C** (predict same as last time; first time predicts not taken):
 *   If $n=0$: only one execution (not taken), predicted not taken $\rightarrow$ 0 penalty.
 *   If $n \ge 1$: first taken mispredicted (1), last not-taken mispredicted as taken (3).
+
 $$
 P_C(n) = \begin{cases}
 0 & (n=0) \\

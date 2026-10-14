@@ -347,6 +347,7 @@ $$
 但是 $z_2 = -1 + \mu - \sqrt{\mu^2+1} < -1 < 0$, 与 $\text(4)$ 矛盾, 所以保留第二分支 $y=-\mu-\sqrt{\mu^2+1}$.
 
 因此
+
 $$
 \boldsymbol{x}(\mu)=\left(\frac12(1+\mu-\sqrt{\mu^2+1}), \ \frac12(1-\mu+\sqrt{\mu^2+1})\right)^{\mathsf T}
 $$

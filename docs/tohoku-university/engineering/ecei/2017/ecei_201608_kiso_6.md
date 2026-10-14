@@ -17,17 +17,21 @@ tags:
 ### 日本語版
 
 行列の交換関係に関して，次の問に答えよ。交換関係とは，$[A,B]=AB-BA$ のことである。$A$ と $B$ は任意の正方行列である。ここで，$i$ は虚数単位であり，$O$ は零行列である。$f(t)=\exp(tA)B\exp(-tA),\ g(\lambda)=\exp(\lambda A)\exp(\lambda B)$ とする。ただし，$A$ と $B$ は変数 $t$ 及び $\lambda$ を含まないものとする。行列の指数関数は次のように定義される：
+
 $$
 \exp(X)=\sum_{n=0}^{\infty}\frac1{n!}X^n.
 $$
+
 ここで，$X$ は任意の正方行列であり，$X^0$ は単位行列 $I$ を表すものとする。
 
 (1)
+
 $$
 \alpha=\frac1{\sqrt2}\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\quad
 \beta=\frac1{\sqrt2}\begin{pmatrix}0&-i&0\\i&0&-i\\0&i&0\end{pmatrix},\quad
 \gamma=\begin{pmatrix}1&0&0\\0&0&0\\0&0&-1\end{pmatrix}
 $$
+
 とする。交換関係 $[\alpha,\beta]$ 及び $[\alpha,(\alpha^2+\beta^2+\gamma^2)]$ を計算せよ。
 
 (2) $f(0)$ を求めよ。
@@ -35,14 +39,17 @@ $$
 (3) $\frac d{dt}\exp(tA)=A\exp(tA)=\exp(tA)A$ を示せ。
 
 (4) 下記二つの関係式を示せ：
+
 $$
 f'(t)=\frac d{dt}f(t)=\exp(tA)[A,B]\exp(-tA),
 $$
+
 $$
 f''(t)=\frac d{dt}f'(t)=\exp(tA)[A,[A,B]]\exp(-tA).
 $$
 
 (5) $[A,[A,B]]=[B,[A,B]]=O$ のとき，$\exp(A)B\exp(-A)$ を計算せよ。$f(t)$ が次のように展開できることに注意せよ：
+
 $$
 f(t)=f(0)+\frac t{1!}f'(0)+\frac{t^2}{2!}f''(0)+\frac{t^3}{3!}f^{(3)}(0)+\cdots.
 $$

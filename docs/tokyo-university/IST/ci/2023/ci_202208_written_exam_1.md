@@ -60,9 +60,11 @@ holds regardless of the length of $w$, and draw its state diagram. $M_4$ must sa
 + (Condition 2) The input alphabet of $M_4$ is $\{0, 1\}$.
 
 (5) Let
+
 $$ 
 \Sigma = \left\{ \binom{a}{b} \mid a, b \in \{0, 1\} \right\}. 
 $$
+
 For $w = \binom{x_{n-1}}{y_{n-1}} \binom{x_{n-2}}{y_{n-2}} \cdots \binom{x_0}{y_0}$, a string of symbols in $\Sigma$ with length $n$, construct a DFA $M_5$ that accepts $w^R$ if and only if
 
 $$ 

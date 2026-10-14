@@ -16,9 +16,11 @@ tags:
 ### 日本語版
 
 $x_1,x_2,\ldots,x_n\in\{0,1\}$ とする。$n$ 変数論理関数 $f(x_1,x_2,\ldots,x_n)$ を $n+1$ 個の実数 $(w_1,w_2,\ldots,w_n,\theta)$ に対して
+
 $$
 f(x_1,x_2,\ldots,x_n)=\begin{cases}1&\text{if }w_1x_1+w_2x_2+\cdots+w_nx_n\ge\theta\\0&\text{otherwise}\end{cases}
 $$
+
 と書けるとき，$f(x_1,x_2,\ldots,x_n)$ をしきい値関数という。以下の問に答えよ。なお $\land$ は論理積演算，$\lor$ は論理和演算，$\bar{\phantom x}$ を否定演算とする。
 
 (1) $2$ 変数論理関数 $\operatorname{NAND}(x,y)=\overline{x\land y}$ がしきい値関数であることを示せ。

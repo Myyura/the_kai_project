@@ -46,13 +46,28 @@ $$
 回答下列问题。
 
 1. 计算不定积分
-   $$\int\frac{1}{\cosh x+1}\,dx.$$
+
+   $$
+   \int\frac{1}{\cosh x+1}\,dx.
+   $$
+
 2. 计算极限
-   $$\lim_{x\to0}\frac{x\cos x-\log_e(1+x)}{x\sin x}.$$
+
+   $$
+   \lim_{x\to0}\frac{x\cos x-\log_e(1+x)}{x\sin x}.
+   $$
+
 3. 设
-   $$D=\{(x,y)\mid x^2+y^2\le1\},$$
+
+   $$
+   D=\{(x,y)\mid x^2+y^2\le1\},
+   $$
+
    计算二重积分
-   $$\iint_D\sqrt{\frac{1-x^2-y^2}{1+x^2+y^2}}\,dx\,dy.$$
+
+   $$
+   \iint_D\sqrt{\frac{1-x^2-y^2}{1+x^2+y^2}}\,dx\,dy.
+   $$
 
 ## **Kai**
 ### (1)

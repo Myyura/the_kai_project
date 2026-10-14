@@ -20,7 +20,9 @@ tags:
 
 図の頂点間の接続を隣接行列で表す。3頂点の道と3頂点の完全グラフに対応する行列を
 
-$$B=\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\qquad C=\begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix}$$
+$$
+B=\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\qquad C=\begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix}
+$$
 
 とする。
 
@@ -32,7 +34,9 @@ $$B=\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\qquad C=\begin{pmatrix}0&1&
 
 用邻接矩阵表示图中顶点的连接。三顶点路径图和三顶点完全图的邻接矩阵分别为
 
-$$B=\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\qquad C=\begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix}.$$
+$$
+B=\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\qquad C=\begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix}.
+$$
 
 1. 求 $B,C$ 的全部特征值。
 2. 计算 $\operatorname{tr}(C^3)$。

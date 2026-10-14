@@ -17,7 +17,9 @@ tags:
 ### Q.1
 A discrete memoryless channel C consists of two discrete memoryless channels D and E, which are connected serially as shown in the following figure.
 
-$$X\xrightarrow{D}Y\xrightarrow{E}Z$$
+$$
+X\xrightarrow{D}Y\xrightarrow{E}Z
+$$
 
 The input alphabet of D is $\Sigma_a = \{a_1, a_2, a_3, a_4\}$. Both of the output alphabet of D and the input alphabet of E are $\Sigma_b = \{b_1, b_2, b_3, b_4\}$. The output alphabet of E is $\Sigma_c = \{c_1, c_2\}$. Let random variables $X, Y$, and $Z$ be respectively on $\Sigma_a, \Sigma_b$, and $\Sigma_c$. The channel transition matrix $p(Y|X)$ for D and the channel transition matrix $q(Z|Y)$ for E are given as
 

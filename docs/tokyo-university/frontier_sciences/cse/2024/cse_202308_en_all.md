@@ -75,11 +75,15 @@ For a real column vector  $\boldsymbol{a}$ , let  $\|\boldsymbol{a}\| = \sqrt{\b
   - (2) Let  $\hat{\boldsymbol{x}}$  be  $\boldsymbol{x}$  that minimizes  $||A\boldsymbol{x}-\boldsymbol{b}||^2$  for given A and  $\boldsymbol{b}$ . Express  $\hat{\boldsymbol{x}}$  in terms of A and  $\boldsymbol{b}$ .
   - (3) A can be decomposed as A = QR, where Q is an  $m \times n$  real matrix that satisfies  $Q^{T}Q = I$ , and R is an  $n \times n$  upper triangular matrix. Obtain one Q for A given by
 
-$$A = \begin{pmatrix} 1 & 0 & -1 \\ \sqrt{2} & \sqrt{2} & \sqrt{2} \\ 0 & 0 & 1 \\ -1 & 0 & 1 \end{pmatrix}.$$
+$$
+A = \begin{pmatrix} 1 & 0 & -1 \\ \sqrt{2} & \sqrt{2} & \sqrt{2} \\ 0 & 0 & 1 \\ -1 & 0 & 1 \end{pmatrix}.
+$$
 
 (4)  $||A\hat{\boldsymbol{x}} - \boldsymbol{b}||^2$  can be expressed as
 
-$$||A\hat{\boldsymbol{x}} - \boldsymbol{b}||^2 = ||\underline{\mathbf{i}}||^2 - ||\underline{\mathbf{ii}}||^2.$$
+$$
+||A\hat{\boldsymbol{x}} - \boldsymbol{b}||^2 = ||\underline{\mathbf{i}}||^2 - ||\underline{\mathbf{ii}}||^2.
+$$
 
 Find expressions that fill the blanks i and ii in terms of Q and b.
 
@@ -88,7 +92,9 @@ Find expressions that fill the blanks i and ii in terms of Q and b.
   - (2) Let  $\mathbf{p} = (p_1, p_2, p_3)^{\top}$  be an arbitrary point on the plane P, and let R be a matrix representing a rotation about the origin. Find R such that the equation of the plane P' obtained by transforming the plane P as  $R\mathbf{p}$  is z = 1.
 - (Q.3) Consider two matrices A and B given by
 
-$$A = \begin{pmatrix} -2 & -2 \\ -1 & 0 \\ 0 & 1 \\ 3 & 1 \end{pmatrix}, \quad B = \begin{pmatrix} 2 & 0 \\ 0 & -1 \\ 0 & 1 \\ -2 & 0 \end{pmatrix}.$$
+$$
+A = \begin{pmatrix} -2 & -2 \\ -1 & 0 \\ 0 & 1 \\ 3 & 1 \end{pmatrix}, \quad B = \begin{pmatrix} 2 & 0 \\ 0 & -1 \\ 0 & 1 \\ -2 & 0 \end{pmatrix}.
+$$
 
 Let  $\boldsymbol{x}$  and  $\boldsymbol{y}$  be two-dimensional real column vectors. Answer the following questions. Regarding questions (1) and (2), omit the derivations and write only the answers. Regarding question (3), show the derivation in addition to the answer.
 
@@ -120,11 +126,15 @@ Answer the following questions. Let the gravitational acceleration be g > 0 exce
 
 Let n and m be non-negative integers, a be a positive real number, and t and  $\tau$  be real numbers. The Laplace transform of a real function f(t) is defined as
 
-$$F(s) = \int_0^\infty f(t) e^{-st} dt,$$
+$$
+F(s) = \int_0^\infty f(t) e^{-st} dt,
+$$
 
 where e is the base of the natural logarithm. s is a complex number, which satisfies a condition such that the above integral converges. Also, a unit step function u(t) is defined as
 
-$$u(t) = \begin{cases} 1, & t \ge 0 \\ 0, & t < 0. \end{cases}$$
+$$
+u(t) = \begin{cases} 1, & t \ge 0 \\ 0, & t < 0. \end{cases}
+$$
 
 Answer the following questions.
 
@@ -136,7 +146,9 @@ Answer the following questions.
 
 (Q.2) Let g(t) be a real function defined for  $t \geq 0$ . When its Laplace transform is given as
 
-$$G(s) = \left(\frac{1 - e^{-s}}{s}\right)^2,$$
+$$
+G(s) = \left(\frac{1 - e^{-s}}{s}\right)^2,
+$$
 
 obtain g(t) and show its schematic graph. Omit the derivation and write only the answer.
 
@@ -146,14 +158,21 @@ obtain g(t) and show its schematic graph. Omit the derivation and write only the
   - (1) When a real function f(t) and its derivative  $\frac{\mathrm{d}}{\mathrm{d}t}f(t)$  are defined for  $t \geq 0$ , express the Laplace transform of  $\frac{\mathrm{d}}{\mathrm{d}t}f(t)$  in terms of s, F(s), and f(0), where  $\lim_{t \to \infty} f(t)\mathrm{e}^{-st} = 0$ .
   - (2) Let f(t) be a real function defined for  $t \geq 0$  that satisfies the following equation and initial condition:
 
-$$\frac{d}{dt}f(t) - \int_0^t f(t-\tau)\cos\tau \,d\tau = -\sin t - e^{-t}, \quad f(0) = 2.$$
+$$
+\frac{d}{dt}f(t) - \int_0^t f(t-\tau)\cos\tau \,d\tau = -\sin t - e^{-t}, \quad f(0) = 2.
+$$
 
 - (i) Obtain F(s) by applying the Laplace transform to both sides of the equation.
 - (ii) Obtain f(t).
 - (Q.4) Obtain the Laplace transform of the following f(t). Show the derivation in addition to the answer.
 
-$$f(t) = \begin{cases} 1, & 2ma \le t < (2m+1)a \\ -1, & (2m+1)a \le t < 2(m+1)a, \end{cases}$$
-$$(m = 0, 1, 2, 3, \dots).$$
+$$
+f(t) = \begin{cases} 1, & 2ma \le t < (2m+1)a \\ -1, & (2m+1)a \le t < 2(m+1)a, \end{cases}
+$$
+
+$$
+(m = 0, 1, 2, 3, \dots).
+$$
 
 ## Slot 3: 3.2 Probability and Statistics (40 minutes)
 

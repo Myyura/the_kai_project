@@ -4,7 +4,7 @@ tags:
   - Hiroshima-University
   - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
 ---
-# 広島大学 先進理工系科学研究科 数学プログラム 2022年8月実施 専門科目 午前 $$1$$
+# 広島大学 先進理工系科学研究科 数学プログラム 2022年8月実施 専門科目 午前 $1$
 
 ## **Author**
 祭音Myyura (co-authored with GPT 5.5)
@@ -330,6 +330,7 @@ $$
 なので、 $A(W) \subset W$ である。
 
 #### (4)
+
 $$
 \dim V
 $$

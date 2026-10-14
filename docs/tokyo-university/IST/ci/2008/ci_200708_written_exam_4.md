@@ -98,7 +98,9 @@ For a sampling rate $f_s$, the Nyquist frequency is $f_s/2$. Frequency component
 
 For a continuous-time linear time-invariant system initially at rest, the impulse response $h(t)$ is the output to $\delta(t)$, while the step response $g(t)$ is the output to the unit step $u(t)$. Convolution gives
 
-$$g(t)=(h*u)(t)=\int_{-\infty}^{t}h(\tau)\,d\tau,\qquad h(t)=\frac{d g(t)}{dt}.$$
+$$
+g(t)=(h*u)(t)=\int_{-\infty}^{t}h(\tau)\,d\tau,\qquad h(t)=\frac{d g(t)}{dt}.
+$$
 
 The derivative is understood in the distributional sense if the system has an instantaneous feedthrough or jumps. For a causal system the integral may be written from $0^-$, retaining any impulse at zero. In discrete time the corresponding relations are $g[n]=\sum_{k=-\infty}^n h[k]$ and $h[n]=g[n]-g[n-1]$. These identities require linearity, time invariance and the specified zero initial state; they are not general identities for nonlinear systems.
 

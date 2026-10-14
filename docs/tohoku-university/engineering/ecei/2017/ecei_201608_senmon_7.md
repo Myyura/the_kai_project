@@ -16,10 +16,13 @@ tags:
 ### 日本語版
 
 複素変数 $z$ の関数
+
 $$
 f(z)=\frac{e^{iz}}{\cosh(z)}
 $$
+
 を考える。また，$C_1,C_2,C_3$ 及び $C_4$ は，以下のように定義された積分路である（Fig. 7）。
+
 $$
 \begin{aligned}
 C_1:\ z&=t&&(-R\le t\le R),\\
@@ -28,6 +31,7 @@ C_3:\ z&=-t+\pi i&&(-R\le t\le R),\\
 C_4:\ z&=-R+i(\pi-t)&&(0\le t\le\pi).
 \end{aligned}
 $$
+
 ただし，$t$ は媒介変数であり，$i$ は虚数単位である。$R$ は $R>0$ を満たす実数である。以下の問に答えよ。
 
 (1) $f(z)$ のすべての孤立特異点を求めよ。
@@ -39,9 +43,11 @@ $$
 (4) $\lim_{R\to+\infty}\left|\int_{C_2}f(z)\,dz\right|=0$ 及び $\lim_{R\to+\infty}\left|\int_{C_4}f(z)\,dz\right|=0$ となることを示せ。
 
 (5) 実定積分
+
 $$
 \int_{-\infty}^{\infty}\frac{e^{ix}}{\cosh(x)}\,dx
 $$
+
 の値を求めよ。ただし，$x$ は実変数である。
 
 ### 题目描述

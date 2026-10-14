@@ -34,7 +34,9 @@ tags:
 
 光電子のエネルギー $E$ を光電方程式の運動エネルギー（最大運動エネルギー）として、エネルギー保存則は
 
-$$\frac{hc}{\lambda}=w+E.$$
+$$
+\frac{hc}{\lambda}=w+E.
+$$
 
 従って $\boxed{w=hc/\lambda-E}$。
 
@@ -42,11 +44,15 @@ $$\frac{hc}{\lambda}=w+E.$$
 
 光子1個のエネルギーは $hc/\lambda$ なので、単位時間の光子数は
 
-$$\boxed{\dot N=\frac{P\lambda}{hc}\ \mathrm{s^{-1}}}.$$
+$$
+\boxed{\dot N=\frac{P\lambda}{hc}\ \mathrm{s^{-1}}}.
+$$
 
 ### (3)
 
-$$E'=\frac{hc}{\lambda/2}-w=\frac{2hc}{\lambda}-w.$$
+$$
+E'=\frac{hc}{\lambda/2}-w=\frac{2hc}{\lambda}-w.
+$$
 
 従って $\boxed{E'-E=hc/\lambda}$ だけ増加する。
 

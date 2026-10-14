@@ -19,20 +19,26 @@ tags:
 
 1. $u(x,y)=2x^2-2y^2-2xy$ を実部とし、$f(0)=i$ を満たす正則関数 $f(z)=u(x,y)+iv(x,y)$ を考える。$u$ が調和関数であることを確かめ、$v(x,y)$ と $f(z)$ を求めよ。
 2. 原点中心、半径 $2$ の円を反時計回りに一周する閉曲線 $C$ に対し、
+
    $$
    \oint_C\frac{\cos z}{z^2+2zi+3}\,dz
    $$
+
    を求めよ。
 3. $r(t)=(\cos t,\sin t,2t)$ 上で、$(1,0,0)$ から $(0,-1,3\pi)$ までのベクトル場
+
    $$
    \boldsymbol v=(x^2z-yz)\boldsymbol i+xyz\boldsymbol j
    +\frac12x^2z\boldsymbol k
    $$
+
    の線積分を求めよ。
 4. 定義
+
    $$
    F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}\,dt
    $$
+
    のもとで、$e^{-|t|}$ と $1/(t^2+1)$ の Fourier 変換を求めよ。
 
 ### 题目描述

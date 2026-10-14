@@ -285,6 +285,8 @@ print(f'Average bits per character: {expected_bit_length:.2f}')
 
 The quantity computed is
 
-$$\bar L=\frac{\sum_c f_c\ell_c}{\sum_c f_c},$$
+$$
+\bar L=\frac{\sum_c f_c\ell_c}{\sum_c f_c},
+$$
 
 where $f_c$ is the occurrence count and $\ell_c$ is the Huffman code length. The statement's introductory “6.5 bits” is not the fixed-length cost for 96 symbols: a fixed-length binary code needs $\lceil\log_2 96\rceil=7$ bits. For 96 equally likely symbols, the optimal binary prefix code has 32 codewords of length 6 and 64 of length 7, giving $20/3$ bits on average. The entropy is $\log_2 96\approx6.585$, which also rules out 6.5 as an average uniquely decodable code length for that uniform distribution. This discrepancy does not affect the frequency-weighted calculation requested in (3-2).

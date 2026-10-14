@@ -136,31 +136,43 @@ $$
 
 (1) 初期値を $0$ としてラプラス変換すると
 
-$$P(s)=\frac1{s^2-5s+4},\qquad F(s)=\frac1{as+1}.$$
+$$
+P(s)=\frac1{s^2-5s+4},\qquad F(s)=\frac1{as+1}.
+$$
 
 閉ループ伝達関数は
 
-$$G_{yr}(s)=\frac{K(s)P(s)}{1+K(s)P(s)F(s)}=\frac{(K_Ds^2+K_Ps+K_I)(as+1)}{s(as+1)(s^2-5s+4)+K_Ds^2+K_Ps+K_I}.$$
+$$
+G_{yr}(s)=\frac{K(s)P(s)}{1+K(s)P(s)F(s)}=\frac{(K_Ds^2+K_Ps+K_I)(as+1)}{s(as+1)(s^2-5s+4)+K_Ds^2+K_Ps+K_I}.
+$$
 
 (2) 条件を代入し、単位ステップ入力に対して
 
-$$Y(s)=\frac{10s+2}{s(s+2)(s+3)}=\frac1{3s}+\frac9{s+2}-\frac{28}{3(s+3)}.$$
+$$
+Y(s)=\frac{10s+2}{s(s+2)(s+3)}=\frac1{3s}+\frac9{s+2}-\frac{28}{3(s+3)}.
+$$
 
 従って $\boxed{y(t)=1/3+9e^{-2t}-(28/3)e^{-3t}}$ ($t\geq0$)。
 
 (3) 特性多項式は
 
-$$q(s)=as^4+(1-5a)s^3+(4a-5+K_D)s^2+(4+K_P)s+1.$$
+$$
+q(s)=as^4+(1-5a)s^3+(4a-5+K_D)s^2+(4+K_P)s+1.
+$$
 
 $a>0$ の場合、$B=1-5a$、$C=4a-5+K_D$、$D=4+K_P$ とおく。Hurwitz 条件は
 
-$$a>0,\quad B>0,\quad C>0,\quad D>0,\quad BCD-B^2-aD^2>0.$$
+$$
+a>0,\quad B>0,\quad C>0,\quad D>0,\quad BCD-B^2-aD^2>0.
+$$
 
 最後の不等式から $BC-aD>0$ も従うため、これらが必要十分である。
 
 $a=0$ の場合は三次式となり、条件は
 
-$$K_D>5,\qquad K_P>-4,\qquad (K_D-5)(K_P+4)>1.$$
+$$
+K_D>5,\qquad K_P>-4,\qquad (K_D-5)(K_P+4)>1.
+$$
 
 $a<0$ では $q(0)=1$、$q(s)\to-\infty$ ($s\to+\infty$) より正の実根が存在し、安定化できない。
 

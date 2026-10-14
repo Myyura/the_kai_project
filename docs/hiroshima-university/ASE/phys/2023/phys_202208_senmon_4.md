@@ -81,12 +81,14 @@ $$
    \left(\frac{\partial S}{\partial p}\right)_T
    =\frac1T\left(\frac{\partial H}{\partial p}\right)_T-\frac VT.
    $$
+
 3. 利用第 2 问的关系证明
 
    $$
    \left(\frac{\partial H}{\partial p}\right)_T
    =-T\left(\frac{\partial V}{\partial T}\right)_p+V.
    $$
+
 4. 在焓保持不变时，用 $T,V,C_p$ 和 $\left(\frac{\partial V}{\partial T}\right)_p$ 表示焦耳—汤姆孙系数
 
    $$

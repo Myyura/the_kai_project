@@ -37,10 +37,13 @@ $$
    - 沿 $C$ 从 $A$ 逆时针到 $B$ 的圆弧 $C_1$ 上的 $\int_{C_1}\mathbf F\cdot d\mathbf r$；
    - 沿 $C$ 从 $A$ 顺时针到 $B$ 的圆弧 $C_2$ 上的 $\int_{C_2}\mathbf F\cdot d\mathbf r$。
 2. 令 $S$ 为由上半球面
+
    $$
    x^2+y^2+z^2=4,\qquad z\ge0
    $$
+
    与平面 $z=0$ 围成实体的完整边界，取外向法线，计算
+
    $$
    \int_S(\nabla\times\mathbf F)\cdot d\mathbf S.
    $$

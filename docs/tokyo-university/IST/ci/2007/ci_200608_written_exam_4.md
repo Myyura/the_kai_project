@@ -99,7 +99,9 @@ Functions are first-class values and may be passed to or returned from higher-or
 
 If a continuous signal is bandlimited to $|f|\le B$, uniform samples at $f_s>2B$ determine it uniquely under the ideal sampling model. Writing $T_s=1/f_s$ and $\operatorname{sinc}u=\sin(\pi u)/(\pi u)$, reconstruction is
 
-$$x(t)=\sum_{n\in\mathbb Z}x(nT_s)\operatorname{sinc}\!\left(\frac{t-nT_s}{T_s}\right).$$
+$$
+x(t)=\sum_{n\in\mathbb Z}x(nT_s)\operatorname{sinc}\!\left(\frac{t-nT_s}{T_s}\right).
+$$
 
 Sampling replicates the spectrum at multiples of $f_s$; the inequality prevents overlap. Otherwise distinct frequencies can have the same samples, which is aliasing. For example, a $900$ Hz cosine sampled at $1000$ Hz has the same samples as a $100$ Hz cosine. An analog low-pass filter before sampling limits out-of-band components. The strict inequality avoids endpoint counterexamples such as a sine exactly at $f_s/2$ whose samples all vanish.
 

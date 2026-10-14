@@ -52,7 +52,9 @@ $\omega\to0^+$ では実部は $-9k/16$、虚部は $-\infty$。$\omega=\sqrt2$ 
 
 $\operatorname{Im}L=0$ より
 
-$$\boxed{\omega_{\mathrm{pc}}=\sqrt2\ \mathrm{rad/s}},\qquad L(j\sqrt2)=-\frac{k}{18}.$$
+$$
+\boxed{\omega_{\mathrm{pc}}=\sqrt2\ \mathrm{rad/s}},\qquad L(j\sqrt2)=-\frac{k}{18}.
+$$
 
 ### (3)
 
@@ -60,17 +62,23 @@ $$\boxed{\omega_{\mathrm{pc}}=\sqrt2\ \mathrm{rad/s}},\qquad L(j\sqrt2)=-\frac{k
 
 ### (4)
 
-$$T(s)=\frac{L(s)}{1+L(s)}=\boxed{\frac{k}{2s^3+9s^2+4s+k}}.$$
+$$
+T(s)=\frac{L(s)}{1+L(s)}=\boxed{\frac{k}{2s^3+9s^2+4s+k}}.
+$$
 
 特性多項式のフルビッツ条件は、係数が正で $9\cdot4>2k$。従って
 
-$$\boxed{0<k<18}.$$
+$$
+\boxed{0<k<18}.
+$$
 
 ### (5)
 
 安定な系について、単位ランプ入力に対する速度定数は $K_v=\lim_{s\to0}sL(s)=k/4$、定常速度偏差は $e_v=1/K_v=4/k$。
 
-$$\frac4k\le0.4\iff k\ge10.$$
+$$
+\frac4k\le0.4\iff k\ge10.
+$$
 
 安定条件も合わせて $\boxed{10\le k<18}$。
 

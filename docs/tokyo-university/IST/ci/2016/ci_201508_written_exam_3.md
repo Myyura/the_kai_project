@@ -181,7 +181,9 @@ The endpoint $\phi_N=2\pi$ does not start another interval and is not included i
 
 Choose $f(\phi)=L(\phi)/(2p(\phi))$. Then $E[f(\phi)]=I$, so
 
-$$\boxed{I_N^{\rm MC}=\frac1{2N}\sum_{i=1}^N\frac{L(\phi_i)}{p(\phi_i)}.}$$
+$$
+\boxed{I_N^{\rm MC}=\frac1{2N}\sum_{i=1}^N\frac{L(\phi_i)}{p(\phi_i)}.}
+$$
 
 For uniform sampling, $p=1/(2\pi)$ and the estimator becomes $(\pi/N)\sum_iL(\phi_i)$. Positivity of $p$ permits the division throughout the domain.
 
@@ -213,7 +215,9 @@ $$
 
 The **mean squared error, or expected absolute error**, is zero precisely when $L(\phi)/p(\phi)$ is constant almost everywhere. Since $L>0$, this is the importance-sampling choice
 
-$$\boxed{p(\phi)=\frac{L(\phi)}{\int_0^{2\pi}L(u)\,du}.}$$
+$$
+\boxed{p(\phi)=\frac{L(\phi)}{\int_0^{2\pi}L(u)\,du}.}
+$$
 
 Every sample then contributes the same exact value. Under uniform sampling, this stronger zero-error condition requires $L$ to be constant almost everywhere. See [importance sampling](https://pbr-book.org/4ed/Monte_Carlo_Integration/Improving_Efficiency).
 

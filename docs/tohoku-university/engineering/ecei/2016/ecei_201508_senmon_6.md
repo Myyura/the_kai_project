@@ -18,40 +18,52 @@ tags:
 ### 日本語版
 
 ある系についての物理量（エルミート演算子）$\hat Z,\hat X$ および $\hat Y$ を考える。$\hat Z$ の固有値を $a$ および $-a$（$a>0$），各々に対応する固有状態を $|+z\rangle$ および $|-z\rangle$ とする。ここで，$|+z\rangle$ および $|-z\rangle$ は規格化（正規化）されており，縮退はないものとする。このとき，この系の状態は一般に
+
 $$
 |\psi\rangle=\alpha|+z\rangle+\beta|-z\rangle
 $$
+
 と書ける。ただし，$\alpha$ および $\beta$ は $|\alpha|^2+|\beta|^2=1$ を満たす複素数である。以下の問に答えよ。
 
 (1) $|\psi\rangle$ に対する $\hat Z$ の期待値 $\langle Z\rangle$ を求めよ。
 
 (2) $|\psi\rangle$ に対する $\hat Z$ の不確定性
+
 $$
 \Delta Z=\sqrt{\langle Z^2\rangle-\langle Z\rangle^2}
 $$
+
 を求め，$\langle Z\rangle$ の関数として図示せよ。ただし，$\langle Z^2\rangle$ は $|\psi\rangle$ に対する $\hat Z^2$ の期待値である。
 
 (3) $\hat X$ の固有値も $a$ と $-a$ であり，各々に対応する規格化された固有状態を
+
 $$
 |+x\rangle=\frac1{\sqrt2}(|+z\rangle+|-z\rangle),\qquad
 |-x\rangle=\frac1{\sqrt2}(|+z\rangle-|-z\rangle)
 $$
+
 とする。このとき，
+
 $$
 \hat X|+z\rangle=a|-z\rangle,\qquad\hat X|-z\rangle=a|+z\rangle
 $$
+
 を示せ。また，$|\psi\rangle$ に対する $\hat X$ の期待値 $\langle X\rangle$ を求めよ。
 
 (4) $\hat Y$ が
+
 $$
 \hat Y=-\frac i{2a}[\hat Z,\hat X]
 $$
+
 で与えられるものとする。ここで，$[\hat Z,\hat X]\equiv\hat Z\hat X-\hat X\hat Z$，$i$ は虚数単位である。$\hat Y$ のすべての固有値およびそれらに対応する規格化された固有状態を求めよ。
 
 (5) この系のハミルトニアンを
+
 $$
 \hat H=\hbar\omega\hat Z
 $$
+
 とする。ここで，$\hbar=h/(2\pi)$，$h$ はプランク定数，$\omega$ は正の定数である。時刻 $t=0$ における系の状態が問 (3) の $|+x\rangle$ であったとき，$t\ge0$ における $\hat X$ の期待値を求めよ。
 
 ### 题目描述

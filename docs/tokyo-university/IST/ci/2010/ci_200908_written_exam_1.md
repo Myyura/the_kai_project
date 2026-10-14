@@ -52,17 +52,23 @@ This is an independent summary of the algorithm definitions.
 
 **Algorithm 1:** initialize $d^{(0)}(s)=0$ and $d^{(0)}(v)=\infty$ for $v\ne s$, and perform $n-1$ rounds of edge relaxation. The printed assignment for each edge $e_{uv}$ is
 
-$$d^{(k)}(v)=\min\{d^{(k-1)}(v),\ d^{(k-1)}(u)+\delta_{uv}\}.$$
+$$
+d^{(k)}(v)=\min\{d^{(k-1)}(v),\ d^{(k-1)}(u)+\delta_{uv}\}.
+$$
 
 For the shortest-path calculation below, initialize $d^{(k)}\gets d^{(k-1)}$, and for each edge accumulate
 
-$$d^{(k)}(v)\gets\min\{d^{(k)}(v),\ d^{(k-1)}(u)+\delta_{uv}\}.$$
+$$
+d^{(k)}(v)\gets\min\{d^{(k)}(v),\ d^{(k-1)}(u)+\delta_{uv}\}.
+$$
 
 The answer below uses this accumulating relaxation.
 
 **Algorithm 2:** initialize $D^{(0)}(u,v)=\delta_{uv}$. Select each vertex $w$ once, and use the preceding matrix to form
 
-$$D^{(k+1)}(u,v)=\min\{D^{(k)}(u,v),\ D^{(k)}(u,w)+D^{(k)}(w,v)\}$$
+$$
+D^{(k+1)}(u,v)=\min\{D^{(k)}(u,v),\ D^{(k)}(u,w)+D^{(k)}(w,v)\}
+$$
 
 for all $u,v$, then increment $k$. The order of the selected vertices must be stated when giving intermediate matrices.
 
