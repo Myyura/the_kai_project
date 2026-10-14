@@ -14,7 +14,11 @@ tags:
 
 ## **Description**
 
-磁気モーメント $\boldsymbol\mu_i$ を持つ $N$ 粒子を考える。各モーメントの大きさは $\mu$ で、平面内の互いに $120^\circ$ をなす 3 方向（状態 1、2、3）のいずれかをとる。状態 1 は $+x$ 方向、状態 2、3 はそれぞれ $+x$ から $120^\circ,240^\circ$ の方向とする。距離によらない相互作用は
+磁気モーメント $\boldsymbol\mu_i$ を持つ $N$ 粒子を考える。各モーメントの大きさは $\mu$ で、平面内の互いに $120^\circ$ をなす 3 方向（状態 1、2、3）のいずれかをとる。各状態の方向は図1のように定める。
+
+![図1：磁気モーメントの3つの状態（原題）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2015-III-3-fig1.png)
+
+距離によらない相互作用は
 
 $$
 H=-\frac JN\sum_{(i,j)}\boldsymbol\mu_i\cdot\boldsymbol\mu_j
@@ -42,7 +46,7 @@ $F(T;N_1,N_2,N_3)=H-TS$ とおけば、分配関数は粒子数の分割につ�
 
 #### 题目描述
 
-$N$ 个粒子各有大小为 $\mu$ 的磁矩，只能指向平面内相隔 $120^\circ$ 的三个方向；状态 1 沿 $+x$，状态 2、3 与 $+x$ 分别成 $120^\circ,240^\circ$。任意不同粒子对之间的相互作用为 $-J\boldsymbol\mu_i\cdot\boldsymbol\mu_j/N$，$J>0$。三种状态粒子数为 $N_1,N_2,N_3$，总数为 $N$。
+$N$ 个粒子各有大小为 $\mu$ 的磁矩，只能指向平面内相隔 $120^\circ$ 的三个方向；三种状态的方向如上图1所示。任意不同粒子对之间的相互作用为 $-J\boldsymbol\mu_i\cdot\boldsymbol\mu_j/N$，$J>0$。三种状态粒子数为 $N_1,N_2,N_3$，总数为 $N$。
 
 1. 表示总磁化的 $x$ 分量 $M$，并证明
 

@@ -26,7 +26,9 @@ tags:
 
 ### III-2B
 
-接地された導体の内部に半径 $a$ の球状真空空洞があり、その中心に電気双極子を置く。$\boldsymbol p=q\boldsymbol s=p\boldsymbol e_z$、$\boldsymbol s$ は電荷 $-q$ から $+q$ へのベクトルとする。真空の誘電率は $\varepsilon_0$。球座標の極角 $\theta$ は $+z$ 軸から測る。SI 単位系を用いる。
+図1のように、接地された導体の内部に半径 $a$ の球状真空空洞があり、その中心に電気双極子を置く。$\boldsymbol p=q\boldsymbol s=p\boldsymbol e_z$、$\boldsymbol s$ は電荷 $-q$ から $+q$ へのベクトルとする。真空の誘電率は $\varepsilon_0$。球座標の極角 $\theta$ は $+z$ 軸から測る。SI 単位系を用いる。
+
+![原題 図1：接地導体の球状空洞内の電気双極子](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2020-III-2B-fig1.png)
 
 1. 導体がない場合の双極子電位 $\phi_{\rm di}(r,\theta)$ を、$r\gg s$ で $s/r$ の一次まで求めよ。
 2. 空洞表面の誘導電荷が作る電位は
@@ -42,7 +44,7 @@ $$
 
 A：平面运动物体持续向速度右侧垂直喷出物质，喷出质量率为 $\alpha m$，相对速度 $u\boldsymbol n$，初速大小 $V_0$。求动量收支、运动方程、速率和曲率半径。
 
-B：接地导体的半径 $a$ 球形真空空腔中心放置沿 $+z$ 的电偶极子 $\boldsymbol p=q\boldsymbol s$。(1) 求无导体时的一阶远场偶极电势；(2) 由给定轴对称形式确定诱导电势和总电势；(3) 求空腔内壁的感应面电荷密度。
+B：如上方图1，接地导体的半径 $a$ 球形真空空腔中心放置沿 $+z$ 的电偶极子 $\boldsymbol p=q\boldsymbol s$。(1) 求无导体时的一阶远场偶极电势；(2) 由给定轴对称形式确定诱导电势和总电势；(3) 求空腔内壁的感应面电荷密度。
 
 ## **Kai**
 

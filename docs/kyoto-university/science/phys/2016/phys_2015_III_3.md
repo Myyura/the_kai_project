@@ -39,7 +39,9 @@ $$
 
 2. $N_0$ を具体的に書き、$N_0\gg1$ のとき $\mu$ が近づく上限 $\mu_c$ を求めよ。
 
-BEC の転移温度を $N=N'(T_c,\mu_c)$ で定義する。
+粒子数 $N_0$ と $N'$ の温度依存性は図1のようになる。BEC の転移温度を $N=N'(T_c,\mu_c)$ で定義する。
+
+![図1：基底状態と励起状態の粒子数の温度依存性（原題）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2016-III-3-fig1.png)
 
 3. $\beta\hbar\omega_a\ll1$ とし、角括弧内の最初の二項から
 
@@ -66,7 +68,7 @@ $$
 
 1. 将分布展开为 $\sum_{\ell\ge1}e^{\ell\beta(\mu-\epsilon)}$，对各 $n_a$ 求和，粒子数写为 $\sum_\ell e^{\ell\beta(\mu-3\hbar\omega_m/2)}\prod_a h(\ell\beta\hbar\omega_a)$，求 $h$；$\omega_m=(\omega_x+\omega_y+\omega_z)/3$。
 
-固定很大的总粒子数 $N$，分为基态粒子数 $N_0$ 和激发态 $N'$，后者由上述乘积减 1 得到。
+固定很大的总粒子数 $N$，分为基态粒子数 $N_0$ 和激发态 $N'$，后者由上述乘积减 1 得到，两者随温度的变化如上图1所示。
 
 2. 写出 $N_0$ 并求宏观占据时化学势趋近的上限 $\mu_c$。
 3. 定义转变温度为 $N=N'(T_c,\mu_c)$。在 $\beta\hbar\omega_a\ll1$ 时展开前两项，写成 $N'=X\sum_\ell\widetilde z^\ell(\ell^{-3}+Y\ell^{-2})$，求 $X,Y$，其中 $\widetilde z=e^{\beta(\mu-3\hbar\omega_m/2)}$，$\Omega=(\omega_x\omega_y\omega_z)^{1/3}$。

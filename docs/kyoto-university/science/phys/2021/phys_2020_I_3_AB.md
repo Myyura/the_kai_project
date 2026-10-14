@@ -23,7 +23,11 @@ tags:
 
 ### I-3B（量子力学）
 
-質量 $m$ の粒子を一次元無限深井戸 $V(x)=0$（$0<x<a$）、$V(x)=+\infty$（領域外）に閉じ込める。内部では
+図のように無限に高いポテンシャル障壁に束縛された質量 $m$ の粒子を考える。
+
+![I-3B：無限深井戸型ポテンシャル](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2021-I-3B-fig.png)
+
+$0<x<a$ では
 
 $$
 -\frac{\hbar^2}{2m}\phi''(x)=E\phi(x).
@@ -36,7 +40,7 @@ $$
 
 I-3A：质量 $m$ 的摆球系于长 $\ell$ 的无质量绳，重力加速度 $g$，偏离竖直向下的角为 $\theta$。写出拉格朗日量，并在小角近似下由拉格朗日方程导出简谐振动方程。
 
-I-3B：质量 $m$ 的粒子位于 $0<x<a$ 的一维无限深势阱，阱内势能为零，阱外无穷大。解 $-\hbar^2\phi''/(2m)=E\phi$ 求能级，并归一化波函数。
+I-3B：质量 $m$ 的粒子束缚于上图所示的一维无限深势阱。解 $0<x<a$ 内的方程 $-\hbar^2\phi''/(2m)=E\phi$ 求能级，并归一化波函数。
 
 ## **Kai**
 

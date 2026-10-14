@@ -13,7 +13,7 @@ tags:
 
 ## **Description**
 
-質量 $m$ の一粒子が一次元ポテンシャル
+質量 $m$ の一粒子が図1の一次元ポテンシャル
 
 $$
 V(x)=\begin{cases}-U&b\le|x|\le a+b,\\0&|x|<b\ \text{または}\ |x|>a+b\end{cases}
@@ -21,6 +21,8 @@ V(x)=\begin{cases}-U&b\le|x|\le a+b,\\0&|x|<b\ \text{または}\ |x|>a+b\end{cas
 $$
 
 に束縛される。実波動関数 $\phi$ は $-\hbar^2\phi''/(2m)+V\phi=E\phi$、$E<0$ を満たし、正または負パリティを持つ。$a,U$ を固定して $b$ を変化させる。
+
+![図1：対称二重井戸ポテンシャル（原題）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2016-II-2-fig1.png)
 
 1. $b=0$ では幅 $2a$、深さ $U$ の井戸となる。$\gamma=\sqrt{-2mE}/\hbar$、$\beta=\sqrt{2m(E+U)}/\hbar$ とし、各パリティについて $\gamma$ を $\beta,a$ で表せ。
 2. $b>0$ が十分小さい場合を摂動論で考える。
@@ -35,7 +37,7 @@ $$
 
 #### 题目描述
 
-质量 $m$ 的粒子处于一维对称双阱：$b\le|x|\le a+b$ 时势能为 $-U$，其余为零，$U,a>0,b\ge0$。束缚态能量 $E<0$，实波函数满足薛定谔方程且有确定宇称。固定 $a,U$ 改变 $b$。
+如上图1，质量 $m$ 的粒子处于一维对称双阱：$b\le|x|\le a+b$ 时势能为 $-U$，其余为零，$U,a>0,b\ge0$。束缚态能量 $E<0$，实波函数满足薛定谔方程且有确定宇称。固定 $a,U$ 改变 $b$。
 
 1. $b=0$ 是宽 $2a$、深 $U$ 的单阱。定义 $\gamma=\sqrt{-2mE}/\hbar$、$\beta=\sqrt{2m(E+U)}/\hbar$，求两种宇称的 $\gamma(\beta,a)$。
 2. 对小 $b>0$ 用微扰论：(a) 令 $\phi_0=\phi^{(0)}(0)$、$\phi_a=\phi^{(0)}(a)$，分别表示 $\phi_0$ 并比较绝对值；(b) 对归一化初态计算 $\Delta V=V-V^{(0)}$ 的一阶能量修正，保留 $b$ 的一阶并判断正负。

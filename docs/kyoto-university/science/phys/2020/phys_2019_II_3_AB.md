@@ -25,19 +25,24 @@ $\operatorname{Re}z>0$ に対し $\Gamma(z)=\int_0^\infty t^{z-1}e^{-t}dt$ と�
 
 ### II-3B
 
-運動エネルギー $K=5\,\mathrm{MeV}$、電荷 $2e$ の $\alpha$ 粒子を金薄膜に入射する。金原子核の電荷は $79e$、質量数は197であり、$\alpha$ 粒子に比べ十分重いとする。古典的クーロン散乱として扱い、衝突係数を $b$、散乱角を $\theta$、最接近距離を $D$ とする。$m_ec^2=0.50\,\mathrm{MeV}$、古典電子半径 $e^2/(4\pi\varepsilon_0m_ec^2)=2.8\times10^{-15}\,\mathrm m$ を用いてよい。
+運動エネルギー $K=5\,\mathrm{MeV}$、電荷 $2e$ の $\alpha$ 粒子を金薄膜に入射する。金原子核の電荷は $79e$、質量数は197であり、$\alpha$ 粒子に比べ十分重いとする。古典的クーロン散乱として扱い、図1の衝突係数を $b$、散乱角を $\theta$、最接近距離を $D$ とする。$m_ec^2=0.50\,\mathrm{MeV}$、古典電子半径 $e^2/(4\pi\varepsilon_0m_ec^2)=2.8\times10^{-15}\,\mathrm m$ を用いてよい。
+
+![原題 図1：金原子核によるアルファ粒子の散乱](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2020-II-3B-fig1.png)
 
 1. 正面衝突での最接近距離 $D_{\min}$ を求めよ。
 2. 単位面積・単位時間あたり $n$ 個の粒子を入射する。衝突係数が $b$ と $b+db$ の間にある粒子数率 $dn$ を求めよ。
 3. $\cot(\theta/2)=2b/D_{\min}$ を使い、$\theta$ と $\theta+d\theta$ に散乱される粒子数率と微分散乱断面積 $d\sigma/d\Omega$ を求めよ。
-4. 入射粒子束を $N_a$、薄膜の単位面積あたり原子数を $N_b$ とする。多重散乱を無視し、散乱角 $60^\circ$、距離 $r$ の場所に検出面積 $S$、効率100%の計数器を向けたところ、単位時間に $N_c$ 個を検出した。$r$ は薄膜の大きさより十分大きい。$d\sigma(60^\circ)/d\Omega$ を求めよ。
+4. 入射粒子束を $N_a$、薄膜の単位面積あたり原子数を $N_b$ とする。多重散乱を無視し、図2のように散乱角 $60^\circ$、距離 $r$ の場所に検出面積 $S$、効率100%の計数器を向けたところ、単位時間に $N_c$ 個を検出した。$r$ は薄膜の大きさより十分大きい。$d\sigma(60^\circ)/d\Omega$ を求めよ。
+
+   ![原題 図2：金薄膜と粒子計数器](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2020-II-3B-fig2.png)
+
 5. (4) の測定値から $D_{\min}$ を求めよ。
 
 #### 题目描述
 
 A：由伽马函数积分定义证明阶乘关系，求半整数值，以鞍点近似求 $\log N!$ 中的主要修正，并用伽马函数和黎曼 zeta 函数表示玻色型积分。
 
-B：5 MeV 的 $\alpha$ 粒子对重金核发生库仑散射，电荷分别为 $2e,79e$。(1) 计算正碰最接近距离；(2) 求冲量参数环带的粒子数率；(3) 利用 $\cot(\theta/2)=2b/D_{\min}$ 推导 Rutherford 微分截面；(4) 入射通量 $N_a$、靶面数密度 $N_b$，距离 $r$、面积 $S$、方向 $60^\circ$ 的理想探测器计数率为 $N_c$，求微分截面；(5) 反求 $D_{\min}$。
+B：如上方图1，5 MeV 的 $\alpha$ 粒子对重金核发生库仑散射，电荷分别为 $2e,79e$。(1) 计算正碰最接近距离；(2) 求冲量参数环带的粒子数率；(3) 利用 $\cot(\theta/2)=2b/D_{\min}$ 推导 Rutherford 微分截面；(4) 按上方图2配置，入射通量 $N_a$、靶面数密度 $N_b$，距离 $r$、面积 $S$、方向 $60^\circ$ 的理想探测器计数率为 $N_c$，求微分截面；(5) 反求 $D_{\min}$。
 
 ## **Kai**
 

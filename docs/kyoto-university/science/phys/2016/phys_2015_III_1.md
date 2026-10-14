@@ -15,7 +15,7 @@ tags:
 
 ## **Description**
 
-軸対称な電極と $+z$ 方向の一様磁場 $B>0$ を用いて、質量 $m$、電荷 $q>0$ の非相対論的粒子を原点付近に閉じ込める。原点近傍のポテンシャルは
+下図の軸対称な電極 I、II、III と $+z$ 方向の一様磁場 $B>0$ を用いて、質量 $m$、電荷 $q>0$ の非相対論的粒子を原点付近に閉じ込める。原点近傍のポテンシャルは
 
 $$
 \phi=-\frac\kappa2(x^2+y^2-2z^2),\qquad
@@ -23,6 +23,8 @@ $$
 $$
 
 重力は無視する。
+
+![軸対称な電極 I・II・III と座標（原題）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2016-III-1-fig1.png)
 
 1. 古典運動を考える。
    - (a) $x,y,z$ の運動方程式を書け。
@@ -41,7 +43,7 @@ $$
 
 #### 题目描述
 
-使用轴对称电极及沿 $+z$ 的均匀磁场 $B>0$ 俘获质量 $m$、正电荷 $q$ 的非相对论粒子。忽略重力，近原点有
+使用上图中的轴对称电极 I、II、III 及沿 $+z$ 的均匀磁场 $B>0$ 俘获质量 $m$、正电荷 $q$ 的非相对论粒子。忽略重力，近原点有
 
 $$
 \phi=-\kappa(x^2+y^2-2z^2)/2,\qquad \boldsymbol A=(-By/2,Bx/2,0).

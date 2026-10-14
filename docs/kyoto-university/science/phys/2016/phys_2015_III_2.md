@@ -14,7 +14,7 @@ tags:
 
 ## **Description**
 
-非相対論的速度 $u\ll c$ で運動する電子の加速度を $\dot{\boldsymbol u}$ とする。加速度から角 $\theta$ の方向の単位ベクトルを $\boldsymbol n$ とし、距離 $R$ の遠方の放射電場は
+非相対論的速度 $u\ll c$ で運動する電子の加速度を $\dot{\boldsymbol u}$ とする。図1のように、加速度から角 $\theta$ の方向の単位ベクトルを $\boldsymbol n$ とし、距離 $R$ の遠方の放射電場は
 
 $$
 \boldsymbol E=-\frac e{4\pi\epsilon_0Rc^2}\boldsymbol n\times(\boldsymbol n\times\dot{\boldsymbol u})
@@ -22,17 +22,25 @@ $$
 
 である。$e>0$ は素電荷。各量は遅延時刻で評価されるが、電子位置の変化による遅延時刻の差は無視し、記号を省く。必要なら $c,\epsilon_0,e,m$（電子質量）を用いてよい。
 
+![図1：加速する電子からの放射（原題）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2016-III-2-fig1.png)
+
 1. 放射磁場 $\boldsymbol B$ を $\boldsymbol E,\boldsymbol n$ で表せ。
 2. $\boldsymbol S=\epsilon_0c^2\boldsymbol E\times\boldsymbol B$ から、単位立体角あたりの放射強度 $dP/d\Omega$ と全放射強度 $P$ を求めよ。
-3. 原点にある電子に、$+x$ 向きに伝播する $z$ 直線偏光の光を入射する。原点で $\boldsymbol E=(0,0,E_0\sin\omega t)$。観測方向 $\boldsymbol n'$ は $xz$ 面内で $+z$ から角 $\psi$ をなす。$\boldsymbol n'$ への放射強度の時間平均と、平均入射フラックスで割った微分散乱断面積を求めよ。磁気ローレンツ力と放射による運動への反作用は無視する。
+3. 図2のように、原点にある電子に、$+x$ 向きに伝播する $z$ 直線偏光の光を入射する。原点で $\boldsymbol E=(0,0,E_0\sin\omega t)$。観測方向 $\boldsymbol n'$ は $xz$ 面内で $+z$ から角 $\psi$ をなす。$\boldsymbol n'$ への放射強度の時間平均と、平均入射フラックスで割った微分散乱断面積を求めよ。磁気ローレンツ力と放射による運動への反作用は無視する。
+
+   ![図2：直線偏光の入射と観測方向（原題）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2016-III-2-fig2.png)
+
 4. 入射光を $y$ 直線偏光 $\boldsymbol E=(0,E_0\sin\omega t,0)$ に変えたときの微分散乱断面積を求めよ。
 5. 同強度の $z,y$ 偏光が等確率で速くランダムに入れ替わる完全無偏光入射光について、時間平均の微分散乱断面積を求めよ。$\psi=0,\pi/2$ の散乱光が直線偏光しているか答えよ。
-6. 完全無偏光を等方的に放射する中心光源が、$x$ 方向に長い直方体の一様密度のトムソン散乱体に囲まれている。$+z$ の遠方から系全体を直線偏光フィルター越しに見るとき、強度が最大となる偏光軸の方向を理由とともに答えよ。散乱は最大 1 回、吸収は無視する。
+6. 図3のように、完全無偏光を等方的に放射する中心光源が、$x$ 方向に長い直方体の一様密度のトムソン散乱体に囲まれている。$+z$ の遠方から系全体を直線偏光フィルター越しに見るとき、強度が最大となる偏光軸の方向を理由とともに答えよ。散乱は最大 1 回、吸収は無視する。
+
+   ![図3：中心光源を囲む直方体の散乱体（原題）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2016-III-2-fig3.png)
+
 7. 速さ $v\ll c$ の電子群が一様磁場 $B$ 中でらせん運動する。速度方向を等方的にランダムとして平均した一電子あたりの放射強度を求めよ。
 
 #### 题目描述
 
-非相对论电子的加速度为 $\dot{\boldsymbol u}$。观测方向单位矢量 $\boldsymbol n$ 与加速度成角 $\theta$，距电子 $R$ 的辐射电场为
+非相对论电子的加速度为 $\dot{\boldsymbol u}$。如上图1，观测方向单位矢量 $\boldsymbol n$ 与加速度成角 $\theta$，距电子 $R$ 的辐射电场为
 
 $$
 \boldsymbol E=-e\boldsymbol n\times(\boldsymbol n\times\dot{\boldsymbol u})/(4\pi\epsilon_0Rc^2).
@@ -42,10 +50,10 @@ $$
 
 1. 用电场和传播方向表示磁场。
 2. 由坡印廷矢量求角分布和总辐射功率。
-3. 沿 $+x$ 入射 $z$ 线偏振光，电子位于原点，电场 $(0,0,E_0\sin\omega t)$；观测方向在 $xz$ 平面，与 $+z$ 成 $\psi$。忽略入射磁力和辐射反作用，求周期平均辐射强度及微分散射截面（平均辐射强度除以平均入射通量）。
+3. 如上图2，沿 $+x$ 入射 $z$ 线偏振光，电子位于原点，电场 $(0,0,E_0\sin\omega t)$；观测方向在 $xz$ 平面，与 $+z$ 成 $\psi$。忽略入射磁力和辐射反作用，求周期平均辐射强度及微分散射截面（平均辐射强度除以平均入射通量）。
 4. 对 $y$ 线偏振光求同一方向的截面。
 5. 两种偏振以相同概率、相同强度随机快速切换，求长时间平均截面，并判断 $\psi=0,\pi/2$ 时的偏振状态。
-6. 一均匀、沿 $x$ 伸长的长方体散射体包围中央各向同性无偏振光源；沿 $z$ 远处通过线偏振片观察整体，哪个透光轴方向使强度最大？只考虑单次散射、忽略吸收。
+6. 如上图3，一均匀、沿 $x$ 伸长的长方体散射体包围中央各向同性无偏振光源；沿 $z$ 远处通过线偏振片观察整体，哪个透光轴方向使强度最大？只考虑单次散射、忽略吸收。
 7. 电子速率为 $v\ll c$，在均匀磁场 $B$ 中作螺旋运动。若速度方向各向同性，求平均每电子辐射功率。
 
 ## **Kai**

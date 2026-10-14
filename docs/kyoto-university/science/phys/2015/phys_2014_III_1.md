@@ -23,12 +23,16 @@ $$
 \nabla\times\boldsymbol E+\partial_t\boldsymbol B=0
 $$
 
-と $\boldsymbol D=\epsilon\boldsymbol E$、$\boldsymbol B=\mu\boldsymbol H$ を用いる。平面 $z=0$ で誘電体 1（$z<0$、$\epsilon_1,\mu_1$）と誘電体 2（$z>0$、$\epsilon_2,\mu_2$）が接触する。$\epsilon_1<\epsilon_2$、両者は帯電しておらず、自由電流もないとする。
+と $\boldsymbol D=\epsilon\boldsymbol E$、$\boldsymbol B=\mu\boldsymbol H$ を用いる。図1のように、平面 $z=0$ で誘電体 1（$z<0$、$\epsilon_1,\mu_1$）と誘電体 2（$z>0$、$\epsilon_2,\mu_2$）が接触する。$\epsilon_1<\epsilon_2$、両者は帯電しておらず、自由電流もないとする。
+
+![図1：2つの誘電体の境界面と座標（原題）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2015-III-1-fig1.png)
 
 1. 両側の $\boldsymbol E_1,\boldsymbol B_1$ と $\boldsymbol E_2,\boldsymbol B_2$ の境界条件を導け。
 2. $\rho=0,\boldsymbol j=0$ の一様な領域で $\boldsymbol E$ の波動方程式を導け。
 
-誘電体 1 から $xz$ 面内を進む入射波 $A$ の電場を $\boldsymbol E=\boldsymbol I e^{i(\boldsymbol k\cdot\boldsymbol r-\omega t)}$ とする。入射角 $\phi\in(0,\pi/2)$ は境界法線から測る。反射波 $A'$ と屈折波 $A''$ をそれぞれ $\boldsymbol E'=\boldsymbol R e^{i(\boldsymbol k'\cdot\boldsymbol r-\omega't)}$、$\boldsymbol E''=\boldsymbol F e^{i(\boldsymbol k''\cdot\boldsymbol r-\omega''t)}$ とし、反射角を $\phi'$、屈折角を $\chi$ とする。
+図2のように、誘電体 1 から $xz$ 面内を進む入射波 $A$ の電場を $\boldsymbol E=\boldsymbol I e^{i(\boldsymbol k\cdot\boldsymbol r-\omega t)}$ とする。入射角 $\phi\in(0,\pi/2)$ は境界法線から測る。反射波 $A'$ と屈折波 $A''$ をそれぞれ $\boldsymbol E'=\boldsymbol R e^{i(\boldsymbol k'\cdot\boldsymbol r-\omega't)}$、$\boldsymbol E''=\boldsymbol F e^{i(\boldsymbol k''\cdot\boldsymbol r-\omega''t)}$ とし、反射角を $\phi'$、屈折角を $\chi$ とする。
+
+![図2：入射波・反射波・屈折波（原題）](https://raw.githubusercontent.com/Myyura/the_kai_project_assets/main/kakomonn/kyoto-physics-2015-2022/question-figures/2015-III-1-fig2.png)
 
 3. 入射波の位相速度の大きさと、その方向が $\boldsymbol I$ となす角を求めよ。
 4. 入射波の $\boldsymbol B(\boldsymbol r,t)$ を求めよ。
@@ -36,12 +40,12 @@ $$
 
 #### 题目描述
 
-使用麦克斯韦方程及 $\boldsymbol D=\epsilon\boldsymbol E$、$\boldsymbol B=\mu\boldsymbol H$。两均匀介质在 $z=0$ 接触：介质 1 位于 $z<0$，参数 $(\epsilon_1,\mu_1)$；介质 2 位于 $z>0$，参数 $(\epsilon_2,\mu_2)$。$\epsilon_1<\epsilon_2$，无自由电荷和电流。
+使用麦克斯韦方程及 $\boldsymbol D=\epsilon\boldsymbol E$、$\boldsymbol B=\mu\boldsymbol H$。如上图1，两均匀介质在 $z=0$ 接触：介质 1 位于 $z<0$，参数 $(\epsilon_1,\mu_1)$；介质 2 位于 $z>0$，参数 $(\epsilon_2,\mu_2)$。$\epsilon_1<\epsilon_2$，无自由电荷和电流。
 
 1. 推导两侧电场、磁感应强度的边界条件。
 2. 在无电荷和电流的均匀区域推导电场波动方程。
 
-平面波从介质 1 在 $xz$ 平面内入射，电场为 $\boldsymbol I e^{i(\boldsymbol k\cdot\boldsymbol r-\omega t)}$。入射角 $\phi\in(0,\pi/2)$ 从法线量起，反射与折射场分别为 $\boldsymbol R e^{i(\boldsymbol k'\cdot\boldsymbol r-\omega't)}$、$\boldsymbol F e^{i(\boldsymbol k''\cdot\boldsymbol r-\omega''t)}$，相应角为 $\phi',\chi$。
+如上图2，平面波从介质 1 在 $xz$ 平面内入射，电场为 $\boldsymbol I e^{i(\boldsymbol k\cdot\boldsymbol r-\omega t)}$。入射角 $\phi\in(0,\pi/2)$ 从法线量起，反射与折射场分别为 $\boldsymbol R e^{i(\boldsymbol k'\cdot\boldsymbol r-\omega't)}$、$\boldsymbol F e^{i(\boldsymbol k''\cdot\boldsymbol r-\omega''t)}$，相应角为 $\phi',\chi$。
 
 3. 求入射波相速度大小及其方向与电场振幅的夹角。
 4. 求入射波磁场。
