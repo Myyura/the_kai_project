@@ -78,7 +78,7 @@ v_c(t) = V + Ae^{-\frac{t}{RC}}
 $$
 
 $$
-v_c(t) = \frac{q(0)}{C} = 0 = V + A \Leftrightarrow A = -V
+v_c(0) = \frac{q(0)}{C} = 0 = V + A \Leftrightarrow A = -V
 $$
 
 従って、
