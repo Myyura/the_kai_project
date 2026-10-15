@@ -652,6 +652,12 @@ const universities = [
             "name": "環境・エネルギー工学科",
             "aliases": [],
             "archiveUrl": "/docs/category/osaka-university-engineering-see"
+          },
+          {
+            "id": "mech",
+            "name": "機械工学専攻",
+            "aliases": [],
+            "archiveUrl": "/docs/category/osaka-university-engineering-mech"
           }
         ],
         "websiteUrl": "https://www.eng.osaka-u.ac.jp/ja/entrance/g_admissions/"
