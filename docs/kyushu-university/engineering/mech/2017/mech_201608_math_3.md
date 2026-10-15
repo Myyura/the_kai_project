@@ -1,0 +1,66 @@
+---
+sidebar_label: "2017年度 問3（数学）"
+tags:
+  - Kyushu-University
+  - Mathematics.Linear-Algebra.Eigenvalues-and-Eigenvectors
+  - Mathematics.Linear-Algebra.Matrix-Diagonalization
+---
+
+# 九州大学 工学府 機械系専攻 2017年度 数学 問3
+
+## **Author**
+
+祭音Myyura (refined with GPT 6 Astra)
+
+## **Description**
+
+$xyz$ 空間の2次曲面を表す次の方程式について、以下の問いに答えよ。（50点）
+
+$$
+2x^2+2y^2+4z^2+2xy+2yz+2xz+4\sqrt3x+4\sqrt3y-4\sqrt3z+17=0.
+$$
+
+1. 与式を $X^{\mathsf T}AX+B^{\mathsf T}X+c=0$ と表したとき、行列 $A$ の固有値と正規化した固有ベクトルを求めよ。ただし $X$ は $xyz$ 空間のベクトルを表す。
+2. $P^{\mathsf T}AP$ が対角行列になる行列 $P$ とその時の対角行列を求めよ。
+3. $xyz$ 空間は $uvw$ 空間を行列 $P$ によって変換されたものとすると、$uvw$ 空間の2次曲面を求めよ。
+
+#### 题目描述
+
+将给定三元二次方程写为二次型，求特征值及单位特征向量，构造正交坐标变换，并求新坐标下的曲面。
+
+## **Kai**
+
+### (1)
+
+$$
+A=\begin{pmatrix}2&1&1\\1&2&1\\1&1&4\end{pmatrix},\qquad
+B=4\sqrt3\begin{pmatrix}1\\1\\-1\end{pmatrix},\qquad c=17.
+$$
+
+$\det(\lambda I-A)=(\lambda-1)(\lambda-2)(\lambda-5)$。対応する単位固有ベクトルは
+
+$$
+\boxed{v_1=\frac1{\sqrt2}(1,-1,0)^{\mathsf T},\quad
+v_2=\frac1{\sqrt3}(1,1,-1)^{\mathsf T},\quad
+v_3=\frac1{\sqrt6}(1,1,2)^{\mathsf T}}.
+$$
+
+### (2)
+
+$$
+\boxed{P=(v_1\ v_2\ v_3)=\frac1{\sqrt6}
+\begin{pmatrix}\sqrt3&\sqrt2&1\\-\sqrt3&\sqrt2&1\\0&-\sqrt2&2\end{pmatrix}},
+\qquad \boxed{P^{\mathsf T}AP=\operatorname{diag}(1,2,5)}.
+$$
+
+### (3)
+
+$X=PU$、$U=(u,v,w)^{\mathsf T}$、$P^{\mathsf T}B=(0,12,0)^{\mathsf T}$ より
+
+$$
+u^2+2v^2+5w^2+12v+17=0
+\quad\Longleftrightarrow\quad
+\boxed{u^2+2(v+3)^2+5w^2=1}.
+$$
+
+中心 $(0,-3,0)$、半軸長 $1,1/\sqrt2,1/\sqrt5$ の楕円面である。

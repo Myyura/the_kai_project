@@ -2940,6 +2940,10 @@
   label: "Engineering.Fluid-Mechanics.Hydraulic-Jump"
   permalink: "/topic/engineering/fluid-mechanics/hydraulic-jump"
   description: "Engineering / Fluid-Mechanics / Hydraulic-Jump"
+"Engineering.Fluid-Mechanics.Hydrostatics":
+  label: "Engineering.Fluid-Mechanics.Hydrostatics"
+  permalink: "/topic/engineering/fluid-mechanics/hydrostatics"
+  description: "Engineering / Fluid-Mechanics / Hydrostatics"
 "Engineering.Fluid-Mechanics.Jet-Propulsion":
   label: "Engineering.Fluid-Mechanics.Jet-Propulsion"
   permalink: "/topic/engineering/fluid-mechanics/jet-propulsion"
@@ -3000,6 +3004,10 @@
   label: "Engineering.Fluid-Mechanics.Vorticity-and-Streamfunction"
   permalink: "/topic/engineering/fluid-mechanics/vorticity-and-streamfunction"
   description: "Engineering / Fluid-Mechanics / Vorticity-and-Streamfunction"
+"Engineering.Heat-Transfer.Biot-Number":
+  label: "Engineering.Heat-Transfer.Biot-Number"
+  permalink: "/topic/engineering/heat-transfer/biot-number"
+  description: "Engineering / Heat-Transfer / Biot-Number"
 "Engineering.Heat-Transfer.Conduction-with-Heat-Generation":
   label: "Engineering.Heat-Transfer.Conduction-with-Heat-Generation"
   permalink: "/topic/engineering/heat-transfer/conduction-with-heat-generation"
@@ -5104,6 +5112,10 @@
   label: "Physics.Mechanics.Larmor-Theorem"
   permalink: "/topic/physics/mechanics/larmor-theorem"
   description: "Physics / Mechanics / Larmor-Theorem"
+"Physics.Mechanics.Longitudinal-Vibration":
+  label: "Physics.Mechanics.Longitudinal-Vibration"
+  permalink: "/topic/physics/mechanics/longitudinal-vibration"
+  description: "Physics / Mechanics / Longitudinal-Vibration"
 "Physics.Mechanics.Lorentz-Transformation-and-Relativistic-Energy":
   label: "Physics.Mechanics.Lorentz-Transformation-and-Relativistic-Energy"
   permalink: "/topic/physics/mechanics/lorentz-transformation-and-relativistic-energy"
@@ -5400,6 +5412,10 @@
   label: "Physics.Thermodynamics.Fermi-Dirac-Grand-Canonical-Distribution"
   permalink: "/topic/physics/thermodynamics/fermi-dirac-grand-canonical-distribution"
   description: "Physics / Thermodynamics / Fermi-Dirac-Grand-Canonical-Distribution"
+"Physics.Thermodynamics.First-Law":
+  label: "Physics.Thermodynamics.First-Law"
+  permalink: "/topic/physics/thermodynamics/first-law"
+  description: "Physics / Thermodynamics / First-Law"
 "Physics.Thermodynamics.Fractional-Exclusion-Statistics":
   label: "Physics.Thermodynamics.Fractional-Exclusion-Statistics"
   permalink: "/topic/physics/thermodynamics/fractional-exclusion-statistics"
@@ -5492,6 +5508,10 @@
   label: "Physics.Thermodynamics.Photon-Gas-and-Stefan-Boltzmann-Law"
   permalink: "/topic/physics/thermodynamics/photon-gas-and-stefan-boltzmann-law"
   description: "Physics / Thermodynamics / Photon-Gas-and-Stefan-Boltzmann-Law"
+"Physics.Thermodynamics.Polytropic-Process":
+  label: "Physics.Thermodynamics.Polytropic-Process"
+  permalink: "/topic/physics/thermodynamics/polytropic-process"
+  description: "Physics / Thermodynamics / Polytropic-Process"
 "Physics.Thermodynamics.Potts-Model":
   label: "Physics.Thermodynamics.Potts-Model"
   permalink: "/topic/physics/thermodynamics/potts-model"

@@ -746,6 +746,18 @@
           "Grain Refinement and Hall–Petch Relation"
         ]
       }
+    },
+    "Engineering.Heat-Transfer.Biot-Number": {
+      "subsubject": "Engineering.Heat-Transfer",
+      "labelZh": "毕奥数",
+      "labelJa": "ビオ数",
+      "labelEn": "Biot Number"
+    },
+    "Engineering.Fluid-Mechanics.Hydrostatics": {
+      "subsubject": "Engineering.Fluid-Mechanics",
+      "labelZh": "流体静力学",
+      "labelJa": "流体静力学",
+      "labelEn": "Hydrostatics"
     }
   }
 }

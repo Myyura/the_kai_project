@@ -1572,6 +1572,24 @@
       "labelZh": "分数排斥统计",
       "labelJa": "分数排他統計",
       "labelEn": "Fractional exclusion statistics"
+    },
+    "Physics.Mechanics.Longitudinal-Vibration": {
+      "subsubject": "Physics.Mechanics",
+      "labelZh": "纵向振动",
+      "labelJa": "縦振動",
+      "labelEn": "Longitudinal Vibration"
+    },
+    "Physics.Thermodynamics.First-Law": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "热力学第一定律",
+      "labelJa": "熱力学第一法則",
+      "labelEn": "First Law of Thermodynamics"
+    },
+    "Physics.Thermodynamics.Polytropic-Process": {
+      "subsubject": "Physics.Thermodynamics",
+      "labelZh": "多变过程",
+      "labelJa": "ポリトロープ変化",
+      "labelEn": "Polytropic Process"
     }
   }
 }
