@@ -1539,6 +1539,12 @@
       "labelZh": "非中心卡方分布",
       "labelJa": "非心カイ二乗分布",
       "labelEn": "Noncentral Chi-Square Distribution"
+    },
+    "Probability-Statistics.Probability-Distributions-and-Asymptotics.Characteristic-Function": {
+      "subsubject": "Probability-Statistics.Probability-Distributions-and-Asymptotics",
+      "labelZh": "特征函数",
+      "labelJa": "特性関数",
+      "labelEn": "Characteristic Function"
     }
   }
 }
